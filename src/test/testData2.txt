@@ -1,0 +1,46 @@
+============================
+index:598
+input:Choise[A,B,C]	None
+output:
+None : (CHOISE[A,B,C]) ÅÑ A
+rand:1/3
+============================
+input:2d6+1>=?	Tunnels & Trolls
+output:
+Tunnels & Trolls : (2D6+1>=?) ÅÑ 19[6,6][1,6]+1 ÅÑ 20 ÅÑ é∏îs ÅÑ à´à”3
+rand:6/6,6/6,1/6,6/6
+============================
+input:2d6+10>=?	Tunnels & Trolls
+output:
+Tunnels & Trolls : (2D6+10>=?) ÅÑ 21[5,5][5,6]+10 ÅÑ 31 ÅÑ é∏îs ÅÑ à´à”1
+rand:5/6,5/6,5/6,6/6
+============================
+input:2d6+10>=?	Tunnels & Trolls
+output:
+Tunnels & Trolls : (2D6+10>=?) ÅÑ 8[1,1][1,1][1,3]+10 ÅÑ 18 ÅÑ é∏îs
+rand:1/6,1/6,1/6,1/6,1/6,3/6
+============================
+input:2NC-1	Nechronica
+output:
+Nechronica : (2R10-1[0]) ÅÑ [2,4]-1  ÅÑ 3[1,3] ÅÑ ëÂé∏îs ÅÑ ëπèù1
+rand:4/10,2/10
+============================
+input:2NC-1	Nechronica
+output:
+Nechronica : (2R10-1[0]) ÅÑ [1,5]-1  ÅÑ 4[0,4] ÅÑ ëÂé∏îs ÅÑ ëπèù1
+rand:1/10,5/10
+============================
+input:2NC-1	Nechronica
+output:
+Nechronica : (2R10-1[0]) ÅÑ [1,6]-1  ÅÑ 5[0,5] ÅÑ ëÂé∏îs ÅÑ ëπèù1
+rand:6/10,1/10
+============================
+input:2NA-1	Nechronica
+output:
+Nechronica : (2R10-1[1]) ÅÑ [2,4]-1  ÅÑ 3[1,3] ÅÑ ëÂé∏îs ÅÑ ëπèù1
+rand:2/10,4/10
+============================
+input:2NA-1	Nechronica
+output:
+Nechronica : (2R10-1[1]) ÅÑ [2,7]-1  ÅÑ 6[1,6] ÅÑ ê¨å˜ ÅÑ ëπèù1 ÅÑ ñhå‰ë§îCà”
+rand:7/10,2/10

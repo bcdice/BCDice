@@ -1,0 +1,36 @@
+#--*-coding:utf-8-*--
+
+class Hieizan < DiceBot
+  
+  def gameType
+    "Hieizan"
+  end
+  
+  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
+    if(total_n <= 1)  # 1は自動成功
+      if(total_n <= (diff / 5))
+        return " ＞ 大成功";    # 大成功 > 自動成功
+      end
+      return " ＞ 自動成功";
+    end
+    
+    if(total_n >= 100)
+      return " ＞ 大失敗";    # 00は大失敗(大失敗は自動失敗でもある)
+    end
+    
+    if(total_n >= 96)
+      return " ＞ 自動失敗";  # 96-00は自動失敗
+    end
+    
+    if((total_n <= diff))
+        
+      if(total_n <= (diff / 5))
+        return " ＞ 大成功";    # 目標値の1/5以下は大成功
+      end
+      return " ＞ 成功";
+    end
+    
+    return " ＞ 失敗";
+  end
+  
+end
