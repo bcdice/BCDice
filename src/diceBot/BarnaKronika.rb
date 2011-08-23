@@ -20,7 +20,7 @@ class BarnaKronika < DiceBot
 MESSAGETEXT
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     debug('parren_killer_add begin string', string)
     
     string = string.gsub(/(\d+)BKC(\d)/) {"#{$1}R6[0,#{$2}]"}

@@ -12,7 +12,7 @@ class TorgtaitaiIRC
     @isTest = false
     @buffer = ''
   end
-
+  
   def privmsg(to, message)
     #シークレットダイスの場合はここでマーカーを出力し、どどんとふにその旨を通達。
     #マーカーは1回だけ出力すれば十分なので2回目以降は抑止
@@ -80,8 +80,8 @@ class TorgtaitaiIRC
     notice(to, message)
   end
   
-  def sendMessageToOnlySender(message)
-    notice('senderOwn', message)
+  def sendMessageToOnlySender(nick_e, message)
+    notice(nick_e, message)
   end
   
   def sendMessageToChannels(message)
@@ -101,6 +101,7 @@ class TorgtaitaiIRC
   
   def recievePublicMessage
     # @bcdice.recievePublicMessage('nick_e', message)
+    @bcdice.setChannel('channel')
     @bcdice.recievePublicMessage('')
   end
   

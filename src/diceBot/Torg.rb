@@ -24,7 +24,7 @@ class Torg < DiceBot
 MESSAGETEXT
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     string = string.gsub(/Result/i, 'RT')
     string = string.gsub(/(Intimidate|Test)/i, 'IT')
     string = string.gsub(/(Taunt|Trick|CT)/i, 'TT')
@@ -60,7 +60,7 @@ MESSAGETEXT
   def torg_check(string, nick_e)
     output = '1';
     
-    unless( /(^|\s)(1R20([+-]\d+)*)(\s|$)/i =~ string )
+    unless( /(^|\s)S?(1R20([+-]\d+)*)(\s|$)/i =~ string )
       return '1'
     end
     

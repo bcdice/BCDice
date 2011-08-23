@@ -20,7 +20,7 @@ class TunnelsAndTrolls < DiceBot
 MESSAGETEXT
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     debug('Tunnels & Trolls parren_killer begin string', string)
     
     if(/(\d+)LV/i =~ string)

@@ -132,7 +132,7 @@ class BCDice
   end
   
   def printErrorMessage(e)
-    sendMessageToOnlySender("error " + e.to_s)
+    sendMessageToOnlySender("error " + e.to_s + $@.join("\n"))
   end
   
   def recieveMessageCatched(nick_e, tnick)
@@ -518,6 +518,7 @@ class BCDice
   end
 
   def setChannel(channel)
+    debug("setChannel called channel", channel)
     @channel = channel
   end
   
@@ -699,7 +700,9 @@ class BCDice
       end
       
       # 個数振り足しロール検出
-    when /[\d]+R[\d]+/
+    when /(S)?[\d]+R[\d]+/
+      secretMarker = $1
+      
       debug('xRn input arg', arg)
       
       output_msg = @diceBot.dice_command_xRn(arg, @nick_e)
@@ -711,8 +714,9 @@ class BCDice
       
       debug('xRn output_msg', output_msg)
       
-    when /S[\d]+R[\d]+/i   # 隠しロール
-      secret_flg = true if(output_msg != '1');
+      if( secretMarker )
+        secret_flg = true if(output_msg != '1');
+      end
       
     when /[\d]+U[\d]+/
       # 上方無限ロール検出
@@ -863,7 +867,7 @@ class BCDice
     
     if( max != targetMax )
       #return randNomal(targetMax)
-      raise "invalid max value! max, targetMax: #{value}, #{max}, #{targetMax}"
+      raise "invalid max value! value, max, targetMax: #{value}, #{max}, #{targetMax}"
     end
     
     return (value - 1)
@@ -1260,17 +1264,16 @@ class BCDice
 
   def broadmsg(output_msg, nick)
     debug("broadmsg output_msg, nick", output_msg, nick)
+    debug("@nick_e", @nick_e)
     
     if(output_msg == "1")
       return
     end
     
-    debug("$DodontoFlg", $DodontoFlg )
-    
-    if( ! $DodontoFlg )
-      sendMessage(nick, output_msg);
-    else
+    if( nick == @nick_e )
       sendMessageToOnlySender(encode($IRC_CODE, output_msg));
+    else
+      sendMessage(nick, output_msg);
     end
   end
   
@@ -1342,9 +1345,9 @@ class BCDice
       end
     end
     
-    debug("diceBot.parren_killer_add(string) begin")
-    string = @diceBot.parren_killer_add(string)
-    debug("diceBot.parren_killer_add(string) end")
+    debug("diceBot.changeText(string) begin", string)
+    string = @diceBot.changeText(string)
+    debug("diceBot.changeText(string) end", string)
     
     string = string.gsub(/([\d]+[dD])([^\d]|$)/) {"#{$1}6#{$2}"}
     
@@ -1699,65 +1702,4 @@ class BCDice
   
 end
 
-
-def mainBcDice
-  #** その他の変数定義(初期化)
-  game_type = "";
-  $DodontoFlg = 1;     # どどんとふらぐ(0=IRC, 1=どどんとふ)
-  
-  
-  message = ''
-  
-  if( ARGV.length > 0 )
-    message = ARGV[0];
-    isChangeReturnCode = 1;
-    # $isDebug = true
-    
-    if( ARGV.length > 1 )
-      game_type = ARGV[1];
-    end
-  end
-  
-  
-  require 'torgtaitaiIRC'
-  
-  # $irc = new Net::IRC;
-  ircClient = TorgtaitaiIRC.new();
-  ircClient.setGameByTitle(game_type) if($DodontoFlg);
-  
-  
-  debug("Creating connection to IRC server...\n");
-  
-  
-  ###########################################################################
-  #**                             IRC起動
-  ###########################################################################
-  debug("Installing handler routines...");
-  
-  debug("before message", message)
-  message = ircClient.parren_killer(message)
-  debug("after message", message)
-  
-  ircClient.setMessage(message)
-  ircClient.recieveMessage
-  ircClient.recievePublicMessage
-  
-  debug(" done.\n");
-  debug("starting...\n");
-  ircClient.start()
-end
-
-
-if($0 === __FILE__)
-  # mainBcDice
-  
-  $LOAD_PATH << File.dirname(__FILE__) + "/irc"
-  require 'ircLib.rb'
-  require 'ircBot.rb'
-  
-  $isDebug = false
-  
-  mainIrcBot(ARGV)
-
-end
 

@@ -15,7 +15,7 @@ class NightWizard < DiceBot
     '・判定ロール　　　　　　　(nNW+m@x#y) (n:基本値+常時, m:否常時+状態異常, x:クリティカル値, y:ファンブル値)'
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     return string unless(string =~ /NW/i)
     
     string = string.gsub(/(\d+)NW\+?([\-\d]+)@([,\d]+)#([,\d]+)/i) {"2R6m[#{$1},#{$2}]c[#{$3}]f[#{$4}]"}

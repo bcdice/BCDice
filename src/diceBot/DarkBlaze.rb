@@ -18,7 +18,7 @@ class DarkBlaze < DiceBot
 MESSAGETEXT
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     return string unless(string =~ /DB/i)
     
     string = string.gsub(/DB(\d),(\d)/) {"DB#{$1}#{$2}"}

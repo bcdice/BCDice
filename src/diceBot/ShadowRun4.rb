@@ -13,7 +13,7 @@ class ShadowRun4 < DiceBot
     "ShadowRun4"
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     if(string =~ /(\d+)S6/i)
       string = string.gsub(/(\d+)S6/i) {"#{$1}B6"}
     end

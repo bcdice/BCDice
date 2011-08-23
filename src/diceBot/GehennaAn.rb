@@ -20,7 +20,7 @@ class GehennaAn < DiceBot
 MESSAGETEXT
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     string = string.gsub(/(\d+)GA(\d+)([\+\-][\+\-\d]+)/) {"#{$1}R6#{$3}>=#{$2}[1]"}
     string = string.gsub(/(\d+)GA(\d+)/) {"#{$1}R6>=#{$2}[1]"}
     string = string.gsub(/(\d+)G(\d+)([\+\-][\+\-\d]+)/) {"#{$1}R6#{$3}>=#{$2}[0]"}

@@ -21,7 +21,7 @@ class EmbryoMachine < DiceBot
 MESSAGETEXT
   end
 
-  def parren_killer_add(string)
+  def changeText(string)
     string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))(\#(\d+))/i) {"2R10#{$2}>=#{$1}[#{$4},#{$6}]"}
     string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(\#(\d+))/i) {"2R10#{$2}>=#{$1}[20,#{$4}]"}
     string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))/i) {"2R10#{$2}>=#{$1}[#{$4},2]"}

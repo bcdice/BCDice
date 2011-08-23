@@ -10,7 +10,7 @@ class BaseBot < DiceBot
     ''
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     string
   end
   

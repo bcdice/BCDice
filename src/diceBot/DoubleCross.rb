@@ -23,7 +23,7 @@ class DoubleCross < DiceBot
 MESSAGETEXT
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     return string unless(/(\d+)DX/i =~ string)
     
     debug("DoubleCross parren_killer_add string", string)

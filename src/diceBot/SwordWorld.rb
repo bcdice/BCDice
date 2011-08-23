@@ -20,7 +20,7 @@ class SwordWorld < DiceBot
     '・SW　レーティング表　　　　　(Kx[c]+m$f) (x:キー, c:クリティカル値, m:ボーナス, f:出目修正)'
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     return string unless( /(^|\s)(K[\d]+)/i =~ string )
     
     debug('parren_killer_add before string', string)
