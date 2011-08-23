@@ -8,7 +8,8 @@ after = ARGV[1]
 
 p before, after
 
-files = Dir.glob("diceBot/*.rb")
+#files = Dir.glob("diceBot/*.rb")
+files = Dir.glob("**/*.rb")
 
 files.delete_if{|i| i == "change.rb"}
 

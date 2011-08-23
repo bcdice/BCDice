@@ -15,7 +15,7 @@ class ArsMagica < DiceBot
     "・ArsMagica ストレスダイス(ArSx) (x:ボッチダイス)"
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     return string unless(/ArS/i =~ string)
     
     string = string.gsub(/ArS(\d+)([^\d\s][\+\-\d]+)/i) {"1R10#{$2}[#{$1}]"}

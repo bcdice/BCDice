@@ -98,7 +98,7 @@ class DiceBot
     @@bcdice.parren_killer(string)
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     debug("DiceBot.parren_killer_add called")
     string
   end

@@ -20,7 +20,7 @@ class Nechronica < DiceBot
 MESSAGETEXT
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     string = string.gsub(/(\d+)NC(10)?([\+\-][\+\-\d]+)/i) {"#{$1}R10#{$3}[0]"}
     string = string.gsub(/(\d+)NC(10)?/i) {"#{$1}R10[0]"}
     string = string.gsub(/(\d+)NA(10)?([\+\-][\+\-\d]+)/i) {"#{$1}R10#{$3}[1]"}

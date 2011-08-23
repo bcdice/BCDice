@@ -13,7 +13,7 @@ class RokumonSekai2 < DiceBot
     "RokumonSekai2"
   end
 
-  def parren_killer_add(string)
+  def changeText(string)
     debug('parren_killer_add begin stirng', string)
     
     string = string.gsub(/(\d+)RS([\+\-][\+\-\d]+)<=(\d+)/i) {"3R6#{$2}<=#{$3}[#{$1}]"}

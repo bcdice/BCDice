@@ -36,7 +36,7 @@ class MeikyuDays < DiceBot
 MESSAGETEXT
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     string = string.gsub(/(\d+)MD6/i) {"#{$1}R6"}
     string = string.gsub(/(\d+)MD/i) {"#{$1}R6"}
     return string

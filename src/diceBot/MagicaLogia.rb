@@ -28,7 +28,7 @@ class MagicaLogia < DiceBot
 MESSAGETEXT
   end
   
-  def parren_killer_add(string)
+  def changeText(string)
     string
   end
   

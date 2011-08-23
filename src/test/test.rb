@@ -49,8 +49,21 @@ class TestDiceBot
     message, gameType, *dummy = @input.split(/\t/)
     return message, gameType
   end
-
+  
   def executeCommand()
+    message, gameType = getMessageAndGameTape
+    
+    require 'customDiceBot'
+    
+    bot = CgiDiceBot.new
+    bot.setRandomValues(@rands)
+    bot.setTest()
+    result = bot.roll(message, gameType)
+    
+    return result
+  end
+  
+  def executeCommand_old()
     message, gameType = getMessageAndGameTape
     
     require 'torgtaitaiIRC'
@@ -58,13 +71,11 @@ class TestDiceBot
     ircClient = TorgtaitaiIRC.new();
     ircClient.setGameByTitle(gameType)
     
-    $conn = ircClient
-    
     ircClient.setTest()
     ircClient.setRandomValues(@rands)
     
     ircClient.setMessage(message)
-    ircClient.recieveMessage
+    # ircClient.recieveMessage
     ircClient.recievePublicMessage
     
     result = ircClient.getBuffer
@@ -72,8 +83,8 @@ class TestDiceBot
     
     return result
   end
-
-
+  
+  
   def executeTest()
     message, currentGameType = getMessageAndGameTape
     targetGameType, targetNumber = getTargetGameTypeAndNumber
