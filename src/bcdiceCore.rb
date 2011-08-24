@@ -432,7 +432,7 @@ class BCDice
     arg << "->#{@tnick}" unless( @tnick.empty? );
     
     pointerMode = :sameNick
-    output_msg, mode = point_counter_command(arg, @nick_e, channel, pointerMode);
+    output_msg, pointerMode = countHolder.executeCommand(arg, @nick_e, channel, pointerMode);
     debug("point_counter_command called, line", __LINE__)
     debug("output_msg", output_msg)
     debug("pointerMode", pointerMode)
@@ -619,7 +619,6 @@ class BCDice
     pointerMode = :sameChannel
     countHolder = CountHolder.new(self, $counterInfos)
     output_msg, isSecret = countHolder.executeCommand(@message, @nick_e, @channel, pointerMode);
-    debug("point_counter_command called, line", __LINE__)
     debug("executePointCounterPublic output_msg, isSecret", output_msg, isSecret)
     
     if( isSecret )
