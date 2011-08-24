@@ -4,7 +4,7 @@ require 'bcdiceCore'
 class BCDiceMaker_forTest < BCDiceMaker
   
   def newBcDice
-    bcdice = BCDice_forTest.new(self, @diceBot, @cardTrader)
+    bcdice = BCDice_forTest.new(self, @cardTrader, @diceBot)
     
     return bcdice
   end

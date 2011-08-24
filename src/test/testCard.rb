@@ -10,7 +10,6 @@ require 'BCDice_forTest'
 
 $isDebug = false
 
-
 class TestCardTrader < Test::Unit::TestCase
   
   def setup
@@ -406,6 +405,43 @@ class TestCardTrader < Test::Unit::TestCase
     assert_equal( "sendMessage\nto:channel\ntest_nick: S1が出ました\n", @bcdice.getResult())
   end
   
+  
+  def test_getSpell
+    rands = []
+    cardCount = 53
+    cardCount.times do |i|
+      break if(i == 52)
+      max = cardCount - i
+      rands << [1, max]
+    end
+    
+    @bcdice.setRandomValues(rands)
+    @cardTrader.executeCard("c-draw[52]", "channel")
+    assert_equal( "sendMessageToOnlySender\nto:\nC1,C10,C11,C12,C13,C2,C3,C4,C5,C6,C7,C8,C9,D1,D10,D11,D12,D13,D2,D3,D4,D5,D6,D7,D8,D9,H1,H10,H11,H12,H13,H2,H3,H4,H5,H6,H7,H8,H9,S1,S10,S11,S12,S13,S2,S3,S4,S5,S6,S7,S8,S9\nsendMessage\nto:channel\ntest_nick: 52枚引きました\n", @bcdice.getResult())
+    
+    @cardTrader.executeCard("c-play1[S1]", "channel")
+    assert_equal( "sendMessage\nto:channel\ntest_nick: 1枚出しました\nsendMessageToOnlySender\nto:\n[ C1,C10,C11,C12,C13,C2,C3,C4,C5,C6,C7,C8,C9,D1,D10,D11,D12,D13,D2,D3,D4,D5,D6,D7,D8,D9,H1,H10,H11,H12,H13,H2,H3,H4,H5,H6,H7,H8,H9,S10,S11,S12,S13,S2,S3,S4,S5,S6,S7,S8,S9 ] 場札:[ S1 ] タップした場札:[  ]\n", @bcdice.getResult())
+    
+    @cardTrader.executeCard("c-play[C2]", "channel")
+    assert_equal( "sendMessage\nto:channel\ntest_nick: 1枚出しました\nsendMessageToOnlySender\nto:\n[ C1,C10,C11,C12,C13,C3,C4,C5,C6,C7,C8,C9,D1,D10,D11,D12,D13,D2,D3,D4,D5,D6,D7,D8,D9,H1,H10,H11,H12,H13,H2,H3,H4,H5,H6,H7,H8,H9,S10,S11,S12,S13,S2,S3,S4,S5,S6,S7,S8,S9 ] 場札:[ S1 ] タップした場札:[  ]\n", @bcdice.getResult())
+    
+    @cardTrader.executeCard("c-hand", "channel")
+    assert_equal( "sendMessageToOnlySender\nto:\n[ C1,C10,C11,C12,C13,C3,C4,C5,C6,C7,C8,C9,D1,D10,D11,D12,D13,D2,D3,D4,D5,D6,D7,D8,D9,H1,H10,H11,H12,H13,H2,H3,H4,H5,H6,H7,H8,H9,S10,S11,S12,S13,S2,S3,S4,S5,S6,S7,S8,S9 ] 場札:[ S1 ] タップした場札:[  ]\n", @bcdice.getResult())
+    
+    @cardTrader.executeCard("c-spell", "channel")
+    assert_equal( "sendMessage\nto:channel\n復活の呪文 ＞ [1TEST_NICK:BAAAAAAAA,card_played:AAAAAARAA,TEST_NICK:*/////x/Q]\n", @bcdice.getResult() )
+  end
+
+  
+  def test_castSpell
+    @cardTrader.executeCard("c-spell[1TEST_NICK:BAAAAAAAA,card_played:AAAAAARAA,TEST_NICK:*/////x/Q]", "channel")
+    assert_equal( "sendMessage\nto:channel\ntest_nick: カード配置を復活しました\n", @bcdice.getResult())
+    
+    @cardTrader.executeCard("c-hand", "channel")
+    assert_equal( "sendMessageToOnlySender\nto:\n[ C1,C10,C11,C12,C13,C3,C4,C5,C6,C7,C8,C9,D1,D10,D11,D12,D13,D2,D3,D4,D5,D6,D7,D8,D9,H1,H10,H11,H12,H13,H2,H3,H4,H5,H6,H7,H8,H9,S10,S11,S12,S13,S2,S3,S4,S5,S6,S7,S8,S9 ] 場札:[ S1 ] タップした場札:[  ]\n", @bcdice.getResult())
+    
+  end
+
   
   def _test_
     @cardTrader.executeCard("c-", "channel")

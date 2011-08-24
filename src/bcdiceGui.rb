@@ -137,7 +137,10 @@ class BCDiceDialog < Wx::Dialog
     end
     
     @gameType.insert( "NonTitle", 0 )
-    @gameType.set_selection(0)
+    
+    index = gameTypes.index($defaultGameType)
+    index ||= 0
+    @gameType.set_selection(index)
     
     evt_choice(@gameType.get_id) { |event| onChoiseGame }
   end
