@@ -14,14 +14,11 @@ class CardTrader
     initValues
     
     @card_channels = {};
-    @isShortSpell = true;
     @card_spell = [
                    'A','B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z',
                    'a','b','c','d','e','f','g','h','i','j','k','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-                   '0','1','2','3','4','5','6','7','8','9','+','-','*','/',
                   ];  # 64種類の記号
   end
-  
   
   # カードをデフォルトに戻す
   def initValues
@@ -44,6 +41,7 @@ class CardTrader
   def setCardPlace(place)
     #カード置き場数。0なら無し。
     @card_place = place
+    debug("setCardPlace @card_place", @card_place)
   end
   
   def setCanTapCard(b)
@@ -274,8 +272,10 @@ class CardTrader
     when /c-(un)?tap(\d+)\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
       tapCardCommandText(arg)
       
-    when /c-spell(\[([\s,]*(#{$ircNickRegExp}:)?[A-Za-z0-9\+\-\/\*]+)+\])?($|\s)/
-        printCardRestorationSpellResult(arg)
+    when /c-spell(\[(#{$ircNickRegExp}[^\]]+?)\])?($|\s)/
+      spellText = $2
+      printCardRestorationSpellResult(spellText)
+      #c_spell_caller(arg)
       
     when /(c-mil(stone)?(\[[\d]+\])?)($|\s)/
       commandText = $1
@@ -909,11 +909,14 @@ class CardTrader
     debug("transferOneCard toSend", toSend)
     
     if( @deal_cards[toSend] )
-      debug('相手は登録済み')
+      debug("alreadyRegisted")
+      # debug('相手は登録済み')
       @deal_cards[toSend] << thisCard
     else
-      debug('相手は未登録済み')
+      debug("NOT registed")
+      # debug('相手は未登録済み')
       isSuccess = transferTargetCardToNewMember(toSend, thisCard)
+      debug('isSuccess', isSuccess)
       return $ngResult unless( isSuccess )
     end
     
@@ -960,6 +963,9 @@ class CardTrader
   end
   
   def transferTargetCardToNewMember(destination, thisCard)
+    debug("transferTargetCardToNewMember destination, thisCard", destination, thisCard)
+    debug("@card_place", @card_place)
+    
     isSuccess = false;
     
     if(@card_place > 0)
@@ -967,6 +973,8 @@ class CardTrader
       if(/^\d+(.+)/ =~ destination)
         #渡すNickが数字で始まっていたら、場に出す処理の最初の一枚目
         placeName = $1
+        debug("placeName", placeName)
+        
         if( @deal_cards[placeName] )
           #手札は登録されていたら宛先間違いではない
           @deal_cards[destination] ||= []
@@ -1139,6 +1147,7 @@ class CardTrader
     # return result unless(@canTapCard > 0)
     # タップ処理をカードの場の移動で扱う(90度タップ、180度タップが将来必要になるかも)
     
+    nick_e_original = @nick_e
     @nick_e = @nick_e.upcase
     
     nick_to = ""
@@ -1151,6 +1160,8 @@ class CardTrader
     end
     
     result = transferOneCard(card, nick_to, destination)
+    
+    @nick_e = nick_e_original
     
     if( result == $okResult )
       return card, nil
@@ -1424,8 +1435,8 @@ class CardTrader
 
 ####################           復活の呪文          ########################
   
-  def printCardRestorationSpellResult(commandText)
-    output_msg = throwCardRestorationSpell(commandText);
+  def printCardRestorationSpellResult(spellText)
+    output_msg = throwCardRestorationSpell(spellText);
     if(output_msg == "readSpell")
       sendMessage(@channel, "#{@nick_e}: カード配置を復活しました");
     else
@@ -1434,377 +1445,128 @@ class CardTrader
   end
   
   
-  def throwCardRestorationSpell(command)
+  def throwCardRestorationSpell(spellText)
     output = '0';
-    
-    unless( /c-spell(\[(([\s,]?(#{$ircNickRegExp}:)?[A-Za-z0-9\+\-\/\*]+)+)\])?/ =~ command)
-      return output
-    end
-    
-    spellText = $2
     
     debug("spellText", spellText)
     
     # 呪文の取得
-    if( not spellText )
+    if( spellText.nil? )
       debug("getNewSpellText")
-      output = getNewSpellText()
+      spellText = getNewSpellText()
+      output = "復活の呪文 ＞ [#{spellText}]";    # 呪文表示を返す
     else    # 呪文の実行
       debug("setNewSpellText")
-      output, dummy = setNewSpellText( spellText )
+      output = setNewSpellText( spellText )
     end
     
+    debug("throwCardRestorationSpell output", output)
     return output; # 結果を返す
   end
+  
   
   def getNewSpellText
     debug("getNewSpellText begin")
     
-    output = ""
+    textList = []
     
-    @deal_cards.each do |place, cards|
-      debug("getNewSpellText place, cards", place, cards)
-      next if( cards.length == 0 )   # カードを持っていない人は除外(呪文短縮のため)
-      
-      cardSpell = getSpellTextFromCards(cards)
-      debug("cardSpell", cardSpell)
-      
-      output += "," unless( output.empty? )
-      output += "#{place}:#{cardSpell}"
-    end
+    placeNames = @deal_cards.keys.sort
+    textList << placeNames
     
-    output = "復活の呪文 ＞ [#{output}]";    # 呪文表示を返す
+    spellWords = getSpellWords
+    textList << spellWords
     
-    return output
+    return textList.join(",")
   end
   
-  def getSpellTextFromCards(cards)
-    debug("getSpellTextFromCards cards", cards)
-    
-    #カードが存在するかを @card_val でチェックしたリスト
-    exists = getExistsFromCards(cards)
-    text = get64DecimalTextFromExists(exists)
-    
-    debug("getSpellTextFromCards text", text)
-    return text
-  end
   
-  def getExistsFromCards(cards)
-    debug("getExistsFromCards cards", cards)
-    exists = []
+  def getSpellWords
+    spellWords = ""
     
     @card_val.each do |card|
-      isFind = cards.find{|i| i == card}
-      exist = (isFind ? true : false)
-      
-      exists << exist
+      index = getDealCardIndex(card)
+      indexWord = getIndexWord(index)
+      spellWords << indexWord
     end
     
-    debug("getExistsFromCards exists", exists)
-    return exists
+    spellWords = shrinkSpellWords(spellWords)
+    
+    return spellWords
   end
   
-  def get64DecimalTextFromExists(exists)
-    #カードの存在是非を64進数の文字(@card_spellで定義)に変換するための処理
-    text = ""
-    
-    #64進数は32bitなのでここで定義
-    bits = 6
-    
-    loopCount = exists.length / bits
-    loopCount += 1 if( (exists.length % bits) > 0 )
-    
-    loopCount.times do |i|
-      value = 0
-      bits.times do |bitIndex|
-        index = i * bits + bitIndex
-        exist = exists[index]
-        break if( exist.nil? )
-        
-        debug("exist", exist)
-        if( exist )
-          pow = (2 ** bitIndex)
-          debug("bitIndex, pow", bitIndex, pow)
-          value += pow
-        end
+  
+  def getIndexWord(index)
+    @card_spell[index + 1]
+  end
+  
+  def getDealCardIndex(card)
+    @deal_cards.keys.sort.each_with_index do |place, index|
+      cards = @deal_cards[place]
+      if( cards.include?(card) )
+        return index
       end
-      
-      debug("value", value)
-      character = @card_spell[value]
-      debug("character", character)
-      text << character
     end
     
-    debug("get64DecimalTextFromExists end text", text)
-    debug("get64DecimalTextFromExists end text.length", text.length)
+    return -1
+  end
+  
+  
+  def shrinkSpellWords(spellWords)
+    @card_spell.each do |word|
+      spellWords = spellWords.gsub(/#{word}(#{word}+)/){ word + ($1.length + 1).to_s }
+    end
     
-    return text
+    return spellWords
   end
   
   
   def setNewSpellText(spellText)
     shuffleCards()
     
-    output = ''
-    spellList = spellText.gsub(/\s/, '').split(',')
+    textList = spellText.split(',')
+    spellWords = textList.pop
+    placeNames = textList
     
-    spellList.each do |spellText|
-      name, spell = spellText.split(":")
-      output = readSpell(name, spell)
+    
+    debug("placeNames", placeNames)
+    debug("spellWords", spellWords)
+    
+    spellWords = expandSpellWords(spellWords)
+    debug("expanded spellWords", spellWords)
+    
+    placeNames.each_with_index do |place, index|
+      indexWord = getIndexWord(index)
+      cards = getCardsFromIndexWordAndSpellText(indexWord, spellWords)
+      @deal_cards[place] = cards
     end
     
-    return output, ""
-  end
-  
-  def readSpell(name, spell)
-    debug("readSpell name, spell", name, spell)
-    
-    exists = getExistsFrom64DecimalText(spell)
-    debug("exists.size", exists.size)
-    
-    cards = getCardsFromCardRestByExists(exists)
-    debug("cards.size", cards.size)
-    debug("readSpell cards", cards)
-    
-    @deal_cards[name] = cards
+    debug("setNewSpellText @deal_cards", @deal_cards)
     
     return "readSpell"
   end
   
-  def getExistsFrom64DecimalText(text)
-    debug("getExistsFrom64DecimalText begin text", text)
-    exists = []
-    
-    #64進数は32bitなのでここで定義
-    bits = 6
-    
-    text.length.times do |textIndex|
-      character = text[textIndex, 1]
-      value = @card_spell.index(character)
-      
-      raise "invalid spell text \"#{character}\"" if( value.nil? )
-      
-      bits.times do |i|
-        bit = (value % 2)
-        exist = (bit == 1)
-        exists << exist
-        value = value / 2
-      end
+  def expandSpellWords(spellWords)
+    @card_spell.each do |word|
+      spellWords = spellWords.gsub(/#{word}(\d+)/){ word * $1.to_i }
     end
     
-    debug("getExistsFrom64DecimalText end exists", exists)
-    return exists
+    return spellWords
   end
   
-  def getCardsFromCardRestByExists(exists)
+  def getCardsFromIndexWordAndSpellText(indexWord, spellText)
     cards = []
     
-    exists.each_with_index do |exist, index|
-      next unless( exist )
+    spellText.split(//).each_with_index do |word, index|
+      next unless(indexWord == word)
+      
       card = @card_val[index]
       isDelete = @cardRest.delete_if{|i| i == card}
       next unless( isDelete )
+      
       cards << card
     end
     
     return cards
   end
   
-  def getNewSpellText_old
-    spellCheckArray = getSpellCheckText()
-    
-    # まずは出たカードと呪文短縮用文字列の取得
-    spell, spellCheckArray = makeSpell(@deal_cards['card_played'], spellCheckArray);
-    shortSpell, spellCheckArray = getShotSpell(spellCheckArray)
-    
-    spellText = spell
-    unless( shortSpell.empty? )
-      spellText = "#{spell},SPELL_SHORTER:#{shortSpell}"
-    end
-    output = "#{spellText}#{output}"
-    
-    @deal_cards.each do |place, cards|
-      next if(place == 'card_played')
-      next if( cards.length == 0 )   # カードを持っていない人は除外(呪文短縮のため)
-      
-      cardSpell, spellCheckArray = makeSpell(cards, spellCheckArray);
-      output += ",#{place}:#{cardSpell}"
-    end
-    
-    output = "復活の呪文 ＞ [#{output}]";    # 呪文表示を返す
-  end
-  
-  def getSpellCheckText
-    Array.new(@card_val.length, 0)
-  end
-  
-  def getShotSpell(spellCheckArray)
-    return '', spellCheckArray unless(@isShortSpell)
-    
-    return makeSpell(@cardRest, spellCheckArray);
-  end
-  
-  def makeSpell(cards, spellCheckArray)    # 実際の呪文作成
-    debug("makeSpell(cards, spellCheckArray)", cards, spellCheckArray)
-    spellCheckArrayOriginal = spellCheckArray.clone
-    hitArray = spellCheckArray
-    
-    dst_arr, hitArray = setCardBit(cards, hitArray)
-    
-    if(@isShortSpell)  # 呪文を短くするために既出のカードのビットを抜く
-      dst_arr = makeSpellInShort(dst_arr, spellCheckArrayOriginal)
-      spellCheckArray = hitArray.clone
-    end
-    
-    bitSize = 6
-    bitSize.times{ dst_arr.push(0) }
-    
-    spellText = getSpellTextFrom_dst_arr(dst_arr, bitSize)
-    
-    debug("makeSpell return spellText, spellCheckArray", spellText, spellCheckArray)
-    return spellText, spellCheckArray
-  end
-  
-  
-  def setCardBit(cards, hitArray)
-    dst_arr = Array.new(@card_val.length, 0)
-    
-    cards.each do |card|
-      i = @card_val.index(card)
-      dst_arr[i] = 1;
-      hitArray[i] = 1;
-    end
-    
-    return dst_arr, hitArray
-  end
-  
-  def makeSpellInShort(dst_arr, spellCheckArrayOriginal)
-    dst_now = []
-      
-    dst_arr.each_with_index do |dst_arr_item, i|
-      next if(spellCheckArrayOriginal[i] == "1")
-      dst_now.push(dst_arr_item)
-    end
-
-    return dst_now
-  end
-  
-  
-  def getSpellTextFrom_dst_arr(dst_arr, bitSize)
-    spellText = ''
-    
-    loopCount = dst_arr.length / bitSize
-    
-    # 6bitごとに刻んで処理する
-    loopCount.times do |i|
-      spellCharacterIndex =
-        dst_arr[i * 6 + 0]
-      + dst_arr[i * 6 + 1] * 2
-      + dst_arr[i * 6 + 2] * (2**2)
-      + dst_arr[i * 6 + 3] * (2**3)
-      + dst_arr[i * 6 + 4] * (2**4)
-      + dst_arr[i * 6 + 5] * (2**5);
-      
-      spellText += @card_spell[ spellCharacterIndex ];
-    end
-    
-    return spellText
-  end
-  
-  
-  def setNewSpellText_old(spellText)
-    shuffleCards()
-    
-    spellCheckArray = getSpellCheckText()
-    
-    output = ''
-    spellList = spellText.gsub(/\s/, '').split(',')
-    
-    spellList.each do |spell|
-      output, spellCheckArray = readSpell(spell, spellCheckArray);
-    end
-    
-    return output, spellCheckArray
-  end
-  
-  
-=begin
-  def readSpell(spell, spellCheckArray)
-    
-    dst, card = getDstAndCardFromSpell(spell)
-    card_src = spellCheckArray.split(/,/)
-    card_arr = []
-    
-    
-    my @card_dst = card_src;
-    my $out_msg = '0';
-
-    for(my $i=0; $i<length($card); $i++)
-        my $word = substr($card, $i, 1);
-        my $bit6 = 0;
-        for(my $i2=0; $i2 < scalar @card_spell; $i2++)
-            if($card_spell[$i2] == $word)
-                $bit6 = $i2;
-                last;
-            end
-        end
-        my $work = int($bit6 / 2);
-        for(my $i2=0; $i2 < 6; $i2++)
-            if($bit6-$work*2 >= 1)
-              card_arr[$i*6 + $i2] = 1;
-            else
-              card_arr[$i*6 + $i2] = 0;
-            end
-            $bit6 = $work;
-            $work = int($bit6 / 2);
-        end
-    end
-    if(@isShortSpell)  # 短くなっている呪文を戻す
-        my @dst_now;
-        for(my $i3=0; $i3 < scalar @card_val; $i3++)
-            if(card_src[$i3] != "0")
-                push(@dst_now, 0);
-            else
-                push(@dst_now, shift card_arr);
-            end
-        end
-      card_arr = @dst_now;
-    end
-    for(my $i = 0; $i < (scalar @card_val); $i++)
-        if(card_arr[$i] == 1)
-            my $card_no = 0;
-            my $card_ok = 0;
-            foreach my $card_re (@cardRest)
-                if($card_val[$i] == $card_re)
-                    $card_ok = 1;
-                    $card_dst[$i] = "1";
-                    last;
-                end
-                $card_no+= 1;
-            end
-            if($card_ok)
-                if($dst != 'SPELL_SHORTER')   # 呪文短縮用データはカード配置処理不要
-                    $deal_cards{$dst} += "$card_val[$i],";
-                    splice @cardRest, $card_no,1;
-                end
-            else
-                $out_msg = '呪文が違います';
-            end
-        end
-    end
-    spellCheckArray = join(",", @card_dst) if(@isShortSpell);
-    return($out_msg, spellCheckArray);    # 結果と今まで出たカードリストを返す(短縮呪文展開用)
-end
-=end
-
-  def getDstAndCardFromSpell(spell)
-    dst = 'card_played';
-    card = spell
-    if( spell.include(':') )
-      dst, card, *dummy= spell.split(/:/);
-    end
-    
-    return dst, card
-  end
-
 end

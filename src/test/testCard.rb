@@ -385,17 +385,17 @@ class TestCardTrader < Test::Unit::TestCase
     assert_equal( "sendMessageToOnlySender\nto:\n[  ] 場札:[ J1,S1,S2,S3 ] タップした場札:[  ]\n", @bcdice.getResult())
     
     @cardTrader.executeCard("c-tap1[S1]", "channel")
-    assert_equal( "sendMessage\nto:channel\nTEST_NICK: 1枚タップしました\nsendMessageToOnlySender\nto:\n[  ] 場札:[ J1,S2,S3 ] タップした場札:[ S1 ]\n", @bcdice.getResult())
+    assert_equal( "sendMessage\nto:channel\ntest_nick: 1枚タップしました\nsendMessageToOnlySender\nto:\n[  ] 場札:[ J1,S2,S3 ] タップした場札:[ S1 ]\n", @bcdice.getResult())
     
     @cardTrader.executeCard("c-tap1[J1,S2,S3]", "channel")
-    assert_equal( "sendMessage\nto:channel\nTEST_NICK: 3枚タップしました\nsendMessageToOnlySender\nto:\n[  ] 場札:[  ] タップした場札:[ J1,S1,S2,S3 ]\n", @bcdice.getResult())
+    assert_equal( "sendMessage\nto:channel\ntest_nick: 3枚タップしました\nsendMessageToOnlySender\nto:\n[  ] 場札:[  ] タップした場札:[ J1,S1,S2,S3 ]\n", @bcdice.getResult())
     
     
     @cardTrader.executeCard("c-untap1[S1]", "channel")
-    assert_equal( "sendMessage\nto:channel\nTEST_NICK: 1枚アンタップしました\nsendMessageToOnlySender\nto:\n[  ] 場札:[ S1 ] タップした場札:[ J1,S2,S3 ]\n", @bcdice.getResult())
+    assert_equal( "sendMessage\nto:channel\ntest_nick: 1枚アンタップしました\nsendMessageToOnlySender\nto:\n[  ] 場札:[ S1 ] タップした場札:[ J1,S2,S3 ]\n", @bcdice.getResult())
     
     @cardTrader.executeCard("c-untap1[J1,S2,S3]", "channel")
-    assert_equal( "sendMessage\nto:channel\nTEST_NICK: 3枚アンタップしました\nsendMessageToOnlySender\nto:\n[  ] 場札:[ J1,S1,S2,S3 ] タップした場札:[  ]\n", @bcdice.getResult())
+    assert_equal( "sendMessage\nto:channel\ntest_nick: 3枚アンタップしました\nsendMessageToOnlySender\nto:\n[  ] 場札:[ J1,S1,S2,S3 ] タップした場札:[  ]\n", @bcdice.getResult())
   end
 
   
@@ -407,13 +407,8 @@ class TestCardTrader < Test::Unit::TestCase
   
   
   def test_getSpell
-    rands = []
     cardCount = 53
-    cardCount.times do |i|
-      break if(i == 52)
-      max = cardCount - i
-      rands << [1, max]
-    end
+    rands = getRandsForDrawFullCard(cardCount)
     
     @bcdice.setRandomValues(rands)
     @cardTrader.executeCard("c-draw[52]", "channel")
@@ -429,12 +424,23 @@ class TestCardTrader < Test::Unit::TestCase
     assert_equal( "sendMessageToOnlySender\nto:\n[ C1,C10,C11,C12,C13,C3,C4,C5,C6,C7,C8,C9,D1,D10,D11,D12,D13,D2,D3,D4,D5,D6,D7,D8,D9,H1,H10,H11,H12,H13,H2,H3,H4,H5,H6,H7,H8,H9,S10,S11,S12,S13,S2,S3,S4,S5,S6,S7,S8,S9 ] 場札:[ S1 ] タップした場札:[  ]\n", @bcdice.getResult())
     
     @cardTrader.executeCard("c-spell", "channel")
-    assert_equal( "sendMessage\nto:channel\n復活の呪文 ＞ [1TEST_NICK:BAAAAAAAA,card_played:AAAAAARAA,TEST_NICK:*/////x/Q]\n", @bcdice.getResult() )
+    assert_equal( "sendMessage\nto:channel\n復活の呪文 ＞ [1TEST_NICK,TEST_NICK,card_played,BC39DC11A]\n", @bcdice.getResult() )
   end
 
+  def getRandsForDrawFullCard(cardCount)
+    rands = []
+    
+    cardCount.times do |i|
+      break if(i == cardCount)
+      max = cardCount - i
+      rands << [1, max]
+    end
+    
+    return rands
+  end
   
   def test_castSpell
-    @cardTrader.executeCard("c-spell[1TEST_NICK:BAAAAAAAA,card_played:AAAAAARAA,TEST_NICK:*/////x/Q]", "channel")
+    @cardTrader.executeCard("c-spell[1TEST_NICK,TEST_NICK,card_played,BC39DC11A]", "channel")
     assert_equal( "sendMessage\nto:channel\ntest_nick: カード配置を復活しました\n", @bcdice.getResult())
     
     @cardTrader.executeCard("c-hand", "channel")
@@ -442,7 +448,54 @@ class TestCardTrader < Test::Unit::TestCase
     
   end
 
+  def test_getSpellLong
+    
+    @cardTrader.set2Deck2Jorker
+    
+    cardCount = 108
+    rands = getRandsForDrawFullCard(cardCount)
+    
+    @bcdice.setRandomValues(rands)
+    
+    @cardTrader.executeCard("c-draw[5]", "channel")
+    assert_equal( "sendMessageToOnlySender\nto:\nS1,S2,S3,S4,S5\nsendMessage\nto:channel\ntest_nick: 5枚引きました\n", @bcdice.getResult())
+    @cardTrader.executeCard("c-play[S1]", "channel")
+    assert_equal( "sendMessage\nto:channel\ntest_nick: 1枚出しました\nsendMessageToOnlySender\nto:\n[ S2,S3,S4,S5 ] 場札:[  ] タップした場札:[  ]\n", @bcdice.getResult())
+    @cardTrader.executeCard("c-play1[S2,S3]", "channel")
+    assert_equal( "sendMessage\nto:channel\ntest_nick: 2枚出しました\nsendMessageToOnlySender\nto:\n[ S4,S5 ] 場札:[ S2,S3 ] タップした場札:[  ]\n", @bcdice.getResult())
+    @cardTrader.executeCard("c-tap1[S3]", "channel")
+    assert_equal( "sendMessage\nto:channel\ntest_nick: 1枚タップしました\nsendMessageToOnlySender\nto:\n[ S4,S5 ] 場札:[ S2 ] タップした場札:[ S3 ]\n", @bcdice.getResult())
+    
+    
+    @cardTrader.setNick('john')
+    @cardTrader.executeCard("c-draw[5]", "channel")
+    assert_equal( "sendMessageToOnlySender\nto:\nS10,S6,S7,S8,S9\nsendMessage\nto:channel\njohn: 5枚引きました\n", @bcdice.getResult())
+    @cardTrader.executeCard("c-play[S10]", "channel")
+    assert_equal( "sendMessage\nto:channel\njohn: 1枚出しました\nsendMessageToOnlySender\nto:\n[ S6,S7,S8,S9 ] 場札:[  ] タップした場札:[  ]\n", @bcdice.getResult())
+    @cardTrader.executeCard("c-play1[S7,S8]", "channel")
+    assert_equal( "sendMessage\nto:channel\njohn: 2枚出しました\nsendMessageToOnlySender\nto:\n[ S6,S9 ] 場札:[ S7,S8 ] タップした場札:[  ]\n", @bcdice.getResult())
+    @cardTrader.executeCard("c-tap1[S8]", "channel")
+    assert_equal( "sendMessage\nto:channel\njohn: 1枚タップしました\nsendMessageToOnlySender\nto:\n[ S6,S9 ] 場札:[ S7 ] タップした場札:[ S8 ]\n", @bcdice.getResult())
+    setDefaultNick
+    
+    @cardTrader.executeCard("c-spell", "channel")
+    assert_equal( "sendMessage\nto:channel\n復活の呪文 ＞ [1JOHN,1TEST_NICK,2JOHN,2TEST_NICK,JOHN,TEST_NICK,card_played,HCEG2FBDFHA98]\n", @bcdice.getResult() )
+  end
   
+  def test_castSpellLong
+    @cardTrader.executeCard("c-spell[1JOHN,1TEST_NICK,2JOHN,2TEST_NICK,JOHN,TEST_NICK,card_played,HCEG2FBDFHA98]", "channel")
+    assert_equal( "sendMessage\nto:channel\ntest_nick: カード配置を復活しました\n", @bcdice.getResult())
+    
+    @cardTrader.executeCard("c-hand", "channel")
+    assert_equal( "sendMessageToOnlySender\nto:\n[ S4,S5 ] 場札:[ S2 ] タップした場札:[ S3 ]\n", @bcdice.getResult())
+    
+    @cardTrader.setNick('john')
+    @cardTrader.executeCard("c-hand", "channel")
+    assert_equal( "sendMessageToOnlySender\nto:\n[ S6,S9 ] 場札:[ S7 ] タップした場札:[ S8 ]\n", @bcdice.getResult())
+    setDefaultNick
+    
+  end
+
   def _test_
     @cardTrader.executeCard("c-", "channel")
     assert_equal( "", @bcdice.getResult())

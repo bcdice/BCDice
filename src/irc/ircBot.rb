@@ -110,6 +110,8 @@ class IrcClient < Net::IRC::Client
   end
   
   def on_msg( event )
+    debug('on_msg begin')
+    
     nick_e = getNickEFromEvent(event)
     channel = getChannel(event)
     
@@ -144,7 +146,6 @@ class IrcClient < Net::IRC::Client
       return on_msg( event )
     end
     
-    debug("on_public channel : #{channel}")
     arg = getArg(event)
     
     debug('on_public arg', arg)
