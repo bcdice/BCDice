@@ -119,8 +119,14 @@ class BCDice
   end
   
   def setMessage(message)
-    @message = parren_killer(message).upcase
+    @messageOriginal = parren_killer(message)
+    @message = @messageOriginal.upcase
     debug("@message", @message)
+  end
+  
+  #直接TALKでは大文字小文字を考慮したいのでここでオリジナルの文字列に変更
+  def changeMessageOriginal
+    @message = @messageOriginal
   end
   
   def recieveMessage(nick_e, tnick)
@@ -456,7 +462,11 @@ class BCDice
 
   def addPlot(arg)
     debug("addPlot begin arg", arg)
-    return unless(/#{$ADD_PLOT}[:：](.+)/i =~ arg)
+    
+    unless(/#{$ADD_PLOT}[:：](.+)/i =~ arg)
+      debug("addPlot exit")
+      return
+    end
     plot = $1;
     
     channel = getPrintPlotChannel(@nick_e);
@@ -531,8 +541,8 @@ class BCDice
   end
   
   def recievePublicMessageCatched(nick_e)
-    debug("recievePublicMessage begin nick_e", nick_e)
-    debug("recievePublicMessage @channel", @channel)
+    debug("recievePublicMessageCatched begin nick_e", nick_e)
+    debug("recievePublicMessageCatched @channel", @channel)
     
     @nick_e = nick_e
     
@@ -555,9 +565,6 @@ class BCDice
     # ダイスロールの処理
     executeDiceRoll
     
-    # カード処理
-    executeCard
-
     # 四則計算代行
     if(/(^|\s)C([-\d]+)\s*$/i =~ @message)
       output_msg = $2;
@@ -565,6 +572,12 @@ class BCDice
         sendMessage(@channel, "#{@nick_e}: 計算結果 ＞ #{output_msg}");
       end
     end
+    
+    #ここから大文字・小文字を考慮するようにメッセージを変更
+    changeMessageOriginal
+    
+    # カード処理
+    executeCard
     
     unless( @isMessagePrinted ) # ダイスロール以外の発言では捨てダイス処理を
       rand 100 if($isRollVoidDiceAtAnyRecive);
@@ -650,9 +663,11 @@ class BCDice
   end
   
   def executeCard
+    debug('executeCard begin')
     @cardTrader.setNick( @nick_e )
     @cardTrader.setTnick( @tnick )
     @cardTrader.executeCard(@message, @channel)
+    debug('executeCard end')
   end  
   
 ###########################################################################
