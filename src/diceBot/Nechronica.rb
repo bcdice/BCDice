@@ -39,15 +39,25 @@ MESSAGETEXT
     
     if(total_n >= 11)
       return " ＞ 大成功";
-    elsif(total_n >= diff)
-      return " ＞ 成功";
-    else
-      if(n1 > 0)
-        return " ＞ 大失敗";
-      else
-        return " ＞ 失敗";
-      end
     end
+    
+    if(total_n >= diff)
+      return " ＞ 成功";
+    end
+    
+    
+    #失敗パターン
+    
+    if(n1 <= 0)
+      return " ＞ 失敗";
+    end
+    
+    result = " ＞ 大失敗";
+    if( dice_cnt > 1 )
+      result += " ＞ 使用パーツ全損";
+    end
+    
+    return result
   end
   
   
@@ -109,9 +119,11 @@ MESSAGETEXT
     output += check_suc(total_n, n_max, signOfInequality, diff, dice_n, diceMax, n1, n_max);
     
     debug("dice_n, n1, total_n diff", dice_n, n1, total_n, diff)
-    if( (dice_n > 1) and (n1 >= 1) and (total_n <= diff) )
-      output += " ＞ 損傷#{n1}";
-    end
+    
+# β版の実装
+#    if( (dice_n > 1) and (n1 >= 1) and (total_n <= diff) )
+#      output += " ＞ 損傷#{n1}";
+#    end
     
     if( isBattleMode )
       hit_loc = getHitLocation(total_n);

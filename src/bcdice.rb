@@ -17,7 +17,7 @@
 # EXEファイルを作成する場合は添付の createExe.bat を実行願います。
 #【 種 別 】 フリーウエア(修正BSDライセンスに準拠) 
 #【転載条件】 修正BSDライセンス上で許可
-#【連絡先 及び １次配布】 http://faceless-tools.cocolog-nifty.com/blog/
+#【連絡先 及び １次配布】 https://github.com/torgtaitai/BCDice
 #=================================================================================
 
 require 'config.rb'

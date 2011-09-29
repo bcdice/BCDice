@@ -1,0 +1,20 @@
+============================
+input:2D6+1>=5[11,3]	MonotoneMusium
+output:
+MonotoneMusium : (2D6+1>=5[11,3]) ＞ 6[2,4] ＞ 成功
+rand:2/6,4/6
+============================
+input:OT	MonotoneMusium
+output:
+MonotoneMusium : 兆候表(6) ＞ 重圧：あなたはバッドステータスの[重圧]を受ける。
+rand:3/6,3/6
+============================
+input:DT	MonotoneMusium
+output:
+MonotoneMusium : 歪み表(2) ＞ 世界消失：演目の舞台がすべて失われる。舞台に残っているのはキミたちと異形、伽藍だけだ。クライマックスフェイズへ。
+rand:1/6,1/6
+============================
+input:WDT	MonotoneMusium
+output:
+MonotoneMusium : 世界歪曲表(2) ＞ 消失：世界からボスキャラクターが消去され、消滅する。エンディングフェイズへ。
+rand:1/6,1/6
