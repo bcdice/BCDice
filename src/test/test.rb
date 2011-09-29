@@ -96,7 +96,7 @@ class TestDiceBot
     unless( targetNumber.nil? )
       $isDebug = true
     end
-    
+
     errorLog = ""
     begin
       result = executeCommand()

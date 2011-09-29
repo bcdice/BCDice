@@ -24,7 +24,8 @@ class _Template < DiceBot
   end
   
   def getHelpMessage
-    ''
+    return <<MESSAGETEXT
+MESSAGETEXT
   end
   
   def changeText(string)

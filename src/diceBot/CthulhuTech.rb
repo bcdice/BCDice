@@ -47,11 +47,9 @@ class CthulhuTech < DiceBot
     end
     
     if(total_n >= diff + 10)
-        return " ＞ クリティカル";
-      else
-        return " ＞ 成功";
-      end
+      return " ＞ クリティカル";
     else
+      return " ＞ 成功";
     end
   end
   
@@ -77,9 +75,13 @@ class CthulhuTech < DiceBot
   #ダイス目文字列からダイス値を変更する場合の処理
   #クトゥルフ・テックの判定用ダイス計算
   def changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
+    debug("changeDiceValueByDiceText dice_now, dice_str, isCheckSuccess, dice_max", dice_now, dice_str, isCheckSuccess, dice_max)
     if( isCheckSuccess and dice_max == 10)
+      debug('cthulhutech_check(dice_str) called')
+      debug('dice_str, dice_now', dice_str, dice_now)
       dice_now = cthulhutech_check(dice_str);
     end
+    debug('dice_str, dice_now', dice_str, dice_now)
     
     return dice_now
   end
@@ -111,11 +113,13 @@ class CthulhuTech < DiceBot
       
       if(dice_aRR.length >= 3)  # ダイスが3個以上ロールされている
         10.times do |i|
+          break if( dice_num[i + 2] == nil )
+          
           if(dice_num[i] > 0)
             if( (dice_num[i + 1] > 0) and (dice_num[i + 2] > 0) )    # 3.連続する出目の合計
               dice_now = i * 3 + 6;  # ($i+1) + ($i+2) + ($i+3) = $i*3 + 6
               
-              [(i + 3)...10].each do |i2|
+              ((i + 3)...10).step do |i2|
                 break if(dice_num[i2] == 0)
                 
                 dice_now += i2 + 1;

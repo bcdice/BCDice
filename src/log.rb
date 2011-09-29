@@ -1,3 +1,4 @@
+
 $isDebug = false
 
 def debug(obj1, *obj2)

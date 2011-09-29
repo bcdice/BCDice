@@ -1,7 +1,5 @@
 require 'bcdiceCore.rb'
 
-$isDebug = false
-
 
 class CgiDiceBot
   
