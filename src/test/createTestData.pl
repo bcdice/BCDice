@@ -9768,39 +9768,39 @@ sub game_clear {
 sub game_set {  # 各種ゲームモードの設定
     my $tnick = $_[0];
 
-    if($tnick =~ /((Cthulhu)|(COC))$/i) {
+    if($tnick =~ /(^|\s)((Cthulhu)|(COC))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Cthulhu";
         return('Game設定をCall of Cthulhu(BRP)に設定しました');
     }
-    elsif($tnick =~ /((Hieizan)|(COCH))$/i) {
+    elsif($tnick =~ /(^|\s)((Hieizan)|(COCH))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = 'Hieizan';
         return('Game設定を比叡山炎上(CoC)に設定しました');
     }
-    elsif($tnick =~ /((Elric!)|(EL))$/i) {
+    elsif($tnick =~ /(^|\s)((Elric!)|(EL))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = 'Elric!';
         return('Game設定をElric!に設定しました');
     }
-    elsif($tnick =~ /((RuneQuest)|(RQ))$/i) {
+    elsif($tnick =~ /(^|\s)((RuneQuest)|(RQ))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "RuneQuest";
         return('Game設定をRuneQuestに設定しました');
     }
-    elsif($tnick =~ /((Chill)|(CH))$/i) {
+    elsif($tnick =~ /(^|\s)((Chill)|(CH))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Chill";
         return('Game設定をChillに設定しました');
     }
-    elsif($tnick =~ /((RoleMaster)|(RM))$/i) {
+    elsif($tnick =~ /(^|\s)((RoleMaster)|(RM))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "RoleMaster";
         $upperinf = 96;
         $upper_dice = 100;
         return('Game設定をRoleMasterに設定しました');
     }
-    elsif($tnick =~ /((ShadowRun)|(SR))$/i) {
+    elsif($tnick =~ /(^|\s)((ShadowRun)|(SR))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "ShadowRun";
         $upperinf = 6;
@@ -9808,7 +9808,7 @@ sub game_set {  # 各種ゲームモードの設定
         $sort_flg = 3;
         return('Game設定をShadowRunに設定しました');
     }
-    elsif($tnick =~ /((ShadowRun4)|(SR4))$/i) {
+    elsif($tnick =~ /(^|\s)((ShadowRun4)|(SR4))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "ShadowRun4";
         $sort_flg = 3;
@@ -9816,24 +9816,24 @@ sub game_set {  # 各種ゲームモードの設定
         $suc_def = ">=5";   #目標値が空欄の時の目標値
         return('Game設定をShadowRun4版に設定しました');
     }
-    elsif($tnick =~ /((Pendragon)|(PD))$/i) {
+    elsif($tnick =~ /(^|\s)((Pendragon)|(PD))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Pendragon";
         return('Game設定をPendragonに設定しました');
     }
-    elsif($tnick =~ /((SwordWorld)|(SW))$/i) {
+    elsif($tnick =~ /(^|\s)((SwordWorld)|(SW))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "SwordWorld";
         $rating_table = 0;  # レーティング表を文庫版モードに
         return('Game設定をソードワールドに設定しました');
     }
-    elsif($tnick =~ /((SwordWorld)\s*2\.0|(SW)\s*2\.0)$/i) {
+    elsif($tnick =~ /(^|\s)((SwordWorld)\s*2\.0|(SW)\s*2\.0)$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "SwordWorld2.0";
         $rating_table = 2;
         return('Game設定をソードワールド2.0に設定しました');
     }
-    elsif($tnick =~ /((Arianrhod)|(AR))$/i) {
+    elsif($tnick =~ /(^|\s)((Arianrhod)|(AR))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Arianrhod";
         $modeflg = 2;
@@ -9841,17 +9841,17 @@ sub game_set {  # 各種ゲームモードの設定
         $sort_flg = 1;
         return('Game設定をアリアンロッドに設定しました');
     }
-    elsif($tnick =~ /((Infinite[\s]*Fantasia)|(IF))$/i) {
+    elsif($tnick =~ /(^|\s)((Infinite[\s]*Fantasia)|(IF))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Infinite Fantasia";
         return('Game設定を無限のファンタジアに設定しました');
     }
-    elsif($tnick =~ /(WARPS)$/i) {
+    elsif($tnick =~ /(^|\s)(WARPS)$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "WARPS";
         return('Game設定をWARPSに設定しました');
     }
-    elsif($tnick =~ /((Demon[\s]*Parasite)|(DP))$/i) {
+    elsif($tnick =~ /(^|\s)((Demon[\s]*Parasite)|(DP))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Demon Parasite";
         $modeflg = 2;
@@ -9859,7 +9859,7 @@ sub game_set {  # 各種ゲームモードの設定
         $sort_flg = 1;
         return('Game設定をデモンパラサイト/鬼御魂に設定しました');
     }
-    elsif($tnick =~ /((Parasite\s*Blood)|(PB))$/i) {
+    elsif($tnick =~ /(^|\s)((Parasite\s*Blood)|(PB))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "ParasiteBlood";
         $modeflg = 2;
@@ -9867,17 +9867,17 @@ sub game_set {  # 各種ゲームモードの設定
         $sort_flg = 1;
         return('Game設定をパラサイトブラッドに設定しました');
     }
-    elsif($tnick =~ /((Gun[\s]*Dog)|(GD))$/i) {
+    elsif($tnick =~ /(^|\s)((Gun[\s]*Dog)|(GD))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Gundog";
         return('Game設定をガンドッグに設定しました');
     }
-    elsif($tnick =~ /((Gun[\s]*Dog[\s]*Zero)|(GDZ))$/i) {
+    elsif($tnick =~ /(^|\s)((Gun[\s]*Dog[\s]*Zero)|(GDZ))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "GundogZero";
         return('Game設定をガンドッグゼロに設定しました');
     }
-    elsif($tnick =~ /((Tunnels[\s]*&[\s]*Trolls)|(TuT))$/i) {
+    elsif($tnick =~ /(^|\s)((Tunnels[\s]*&[\s]*Trolls)|(TuT))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Tunnels & Trolls";
         $modeflg = 2;
@@ -9885,40 +9885,40 @@ sub game_set {  # 各種ゲームモードの設定
         $double_up = 1;
         return('Game設定をトンネルズ＆トロールズに設定しました');
     }
-    elsif($tnick =~ /((Nightmare[\s]*Hunter[=\s]*Deep)|(NHD))$/i) {
+    elsif($tnick =~ /(^|\s)((Nightmare[\s]*Hunter[=\s]*Deep)|(NHD))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "NightmareHunterDeep";
         $modeflg = 2;
         $sort_flg = 1;
         return('Game設定をナイトメアハンター・ディープに設定しました');
     }
-    elsif($tnick =~ /((War[\s]*Hammer(FRP)?)|(WH))$/i) {
+    elsif($tnick =~ /(^|\s)((War[\s]*Hammer(FRP)?)|(WH))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Warhammer";
         $modeflg = 2;
         $round_flg = 1;
         return('Game設定をウォーハンマーFRPに設定しました');
     }
-    elsif($tnick =~ /((Phantasm[\s]*Adventure)|(PA))$/i) {
+    elsif($tnick =~ /(^|\s)((Phantasm[\s]*Adventure)|(PA))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "PhantasmAdventure";
         $modeflg = 2;
         return('Game設定をファンタズムアドベンチャーに設定しました');
     }
-    elsif($tnick =~ /((Chaos[\s]*Flare)|(CF))$/i) {
+    elsif($tnick =~ /(^|\s)((Chaos[\s]*Flare)|(CF))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Chaos Flare";
 #削除(カード関連処理)
         return('Game設定をカオスフレアに設定しました');
     }
-    elsif($tnick =~ /((Cthulhu[\s]*Tech)|(CT))$/i) {
+    elsif($tnick =~ /(^|\s)((Cthulhu[\s]*Tech)|(CT))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "CthulhuTech";
         $modeflg = 2;
         $sort_flg = 1;
         return('Game設定をクトゥルフ・テックに設定しました');
     }
-    elsif($tnick =~ /((Tokumei[\s]*Tenkousei)|(ToT))$/i) {
+    elsif($tnick =~ /(^|\s)((Tokumei[\s]*Tenkousei)|(ToT))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "TokumeiTenkousei";
         $modeflg = 2;
@@ -9927,7 +9927,7 @@ sub game_set {  # 各種ゲームモードの設定
         $double_type = 2;
         return('Game設定を特命転攻生に設定しました');
     }
-    elsif($tnick =~ /((Shinobi[\s]*Gami)|(SG))$/i) {
+    elsif($tnick =~ /(^|\s)((Shinobi[\s]*Gami)|(SG))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "ShinobiGami";
         $modeflg = 2;
@@ -9935,7 +9935,7 @@ sub game_set {  # 各種ゲームモードの設定
         $d66_on = 2;
         return('Game設定を忍神に設定しました');
     }
-    elsif($tnick =~ /((Double[\s]*Cross)|(DX))/i) {
+    elsif($tnick =~ /(^|\s)((Double[\s]*Cross)|(DX))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "DoubleCross";
         $modeflg = 2;
@@ -9946,7 +9946,7 @@ sub game_set {  # 各種ゲームモードの設定
         $max_dice = 1;      #最大値表示
         return('Game設定をダブルクロス3に設定しました');
     }
-    elsif($tnick =~ /((Sata[\s]*Supe)|(SS))/i) {
+    elsif($tnick =~ /(^|\s)((Sata[\s]*Supe)|(SS))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Satasupe";
         $modeflg = 2;
@@ -9954,31 +9954,31 @@ sub game_set {  # 各種ゲームモードの設定
         $d66_on = 2;
         return('Game設定をサタスペに設定しました');
     }
-    elsif($tnick =~ /((Ars[\s]*Magica)|(AM))/i) {
+    elsif($tnick =~ /(^|\s)((Ars[\s]*Magica)|(AM))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "ArsMagica";
         $modeflg = 2;
         return('Game設定をArsMagicaに設定しました');
     }
-    elsif($tnick =~ /((Dark[\s]*Blaze)|(DB))/i) {
+    elsif($tnick =~ /(^|\s)((Dark[\s]*Blaze)|(DB))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "DarkBlaze";
         $modeflg = 2;
         return('Game設定をダークブレイズに設定しました');
     }
-    elsif($tnick =~ /((Night[\s]*Wizard)|(NW))/i) {
+    elsif($tnick =~ /(^|\s)((Night[\s]*Wizard)|(NW))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "NightWizard";
         $modeflg = 2;
         return('Game設定をナイトウィザードに設定しました');
     }
-    elsif($tnick =~ /TORG/i) {
+    elsif($tnick =~ /(^|\s)TORG$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "TORG";
         $modeflg = 2;
         return('Game設定をTORGに設定しました');
     }
-    elsif($tnick =~ /(hunters\s*moon|HM)/i) {
+    elsif($tnick =~ /(^|\s)(hunters\s*moon|HM)$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "HuntersMoon";
         $modeflg = 2;
@@ -9987,7 +9987,7 @@ sub game_set {  # 各種ゲームモードの設定
         $round_flg = 1;     # 端数切り上げに設定
         return('Game設定をハンターズ・ムーンに設定しました');
     }
-    elsif($tnick =~ /(Meikyu\s*Kingdom|MK)/i) {
+    elsif($tnick =~ /(^|\s)(Meikyu\s*Kingdom|MK)$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "MeikyuKingdom";
         $modeflg = 2;
@@ -9995,28 +9995,28 @@ sub game_set {  # 各種ゲームモードの設定
         $d66_on = 2;
         return('Game設定を迷宮キングダムに設定しました');
     }
-    elsif($tnick =~ /(Earth\s*Dawn|ED)/i) {
+    elsif($tnick =~ /(^|\s)(Earth\s*Dawn|ED)$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "EarthDawn";
         $modeflg = 2;
         $sort_flg = 1;
         return('Game設定をEarthDawnに設定しました');
     }
-    elsif($tnick =~ /(Embryo\s*Machine|EM)/i) {
+    elsif($tnick =~ /(^|\s)(Embryo\s*Machine|EM)$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "EmbryoMachine";
         $modeflg = 2;
         $sort_flg = 1;
         return('Game設定をエムブリオマシンに設定しました');
     }
-    elsif($tnick =~ /(Gehenna\s*An|GA)/i) {
+    elsif($tnick =~ /(^|\s)(Gehenna\s*An|GA)$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "GehennaAn";
         $modeflg = 3;
         $sort_flg = 3;
         return('Game設定をゲヘナ・アナスタシアに設定しました');
     }
-    elsif($tnick =~ /((Magica[\s]*Logia)|(ML))$/i) {
+    elsif($tnick =~ /(^|\s)((Magica[\s]*Logia)|(ML))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "MagicaLogia";
         $modeflg = 2;
@@ -10024,7 +10024,7 @@ sub game_set {  # 各種ゲームモードの設定
         $d66_on = 2;
         return('Game設定をマギカロギアに設定しました');
     }
-    elsif($tnick =~ /((Nechronica)|(NC))/i) {
+    elsif($tnick =~ /(^|\s)((Nechronica)|(NC))$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Nechronica";
         $suc_def = "6";      #目標値が空欄の時の目標値
@@ -10032,7 +10032,7 @@ sub game_set {  # 各種ゲームモードの設定
         $sort_flg = 3;
         return('Game設定をネクロニカに設定しました');
     }
-    elsif($tnick =~ /(Meikyu\s*Days|MD)/i) {
+    elsif($tnick =~ /(^|\s)(Meikyu\s*Days|MD)$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "MeikyuDays";
         $modeflg = 2;
@@ -10040,7 +10040,7 @@ sub game_set {  # 各種ゲームモードの設定
         $d66_on = 2;
         return('Game設定を迷宮デイズに設定しました');
     }
-    elsif($tnick =~ /(Peekaboo|PK)/i) {
+    elsif($tnick =~ /(^|\s)(Peekaboo|PK)$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "Peekaboo";
         $modeflg = 2;
@@ -10049,7 +10049,7 @@ sub game_set {  # 各種ゲームモードの設定
         $round_flg = 1;     # 端数切り上げに設定
         return('Game設定をピーカブーに設定しました');
     }
-    elsif($tnick =~ /(Barna\sKronika|BK)/i) {
+    elsif($tnick =~ /(^|\s)(Barna\sKronika|BK)$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "BarnaKronika";
         $modeflg = 2;
@@ -10059,14 +10059,14 @@ sub game_set {  # 各種ゲームモードの設定
         $can_tap = 0;       #場札のタップ処理の必要があるか？
         return('Game設定をバルナ・クロニカに設定しました');
     }
-    elsif($tnick =~ /(RokumonSekai2|RS2)/i) {
+    elsif($tnick =~ /(^|\s)(RokumonSekai2|RS2)$/i) {
         &game_clear;        # 諸設定のクリア
         $game_type = "RokumonSekai2";
         $modeflg = 2;
         $sort_flg = 1;
         return('Game設定を六門世界2nd.に設定しました');
     }
-    elsif($tnick =~ /(None)$/i || $tnick eq "") {   # ゲーム設定を解除する
+    elsif($tnick =~ /(^|\s)(None)$/i || $tnick eq "") {   # ゲーム設定を解除する
         &game_clear;        # 諸設定のクリア
         $game_type = "";
         return('Game設定を解除しました');
