@@ -34,24 +34,22 @@ class CthulhuTech < DiceBot
     
     isSuccess = false
     if( @isCombatTest )
-      if(total_n > diff)
-        isSuccess = true
-      elsif(total_n >= diff)
-        isSuccess
-      end
+      isSuccess = (total_n > diff)
+    else
+      isSuccess = (total_n >= diff)
     end
     
-    
     unless( isSuccess )
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     end
     
     if(total_n >= diff + 10)
       return " ＞ クリティカル";
-    else
-      return " ＞ 成功";
     end
+    
+    return " ＞ 成功";
   end
+  
   
   def check_nD10_combatTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     result = check_nD10_nomalTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
@@ -65,7 +63,9 @@ class CthulhuTech < DiceBot
   end
   
   def getDamageDice(total_n, diff)
-    damageDiceCount = ((total_n - diff) / 5 + 0.9).to_i;
+    debug('getDamageDice total_n, diff', total_n, diff)
+    damageDiceCount = ((total_n - diff) / 5.0).ceil
+    debug('damageDiceCount', damageDiceCount))
     damageDice = "(#{damageDiceCount}d10)";   # ダメージダイスの表示
     
     return damageDice
