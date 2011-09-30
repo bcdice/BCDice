@@ -65,7 +65,7 @@ class CthulhuTech < DiceBot
   def getDamageDice(total_n, diff)
     debug('getDamageDice total_n, diff', total_n, diff)
     damageDiceCount = ((total_n - diff) / 5.0).ceil
-    debug('damageDiceCount', damageDiceCount))
+    debug('damageDiceCount', damageDiceCount)
     damageDice = "(#{damageDiceCount}d10)";   # ダメージダイスの表示
     
     return damageDice
