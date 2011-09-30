@@ -1,7 +1,7 @@
 #!ruby -Ku
 #--*-coding:utf-8-*--
 
-require 'config.rb'
+require 'configBcDice.rb'
 require 'ArgsAnalizer.rb'
 
 class IrcClient < Net::IRC::Client

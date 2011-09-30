@@ -4,7 +4,7 @@
 require 'Kconv'
 
 require 'log'
-require 'config.rb'
+require 'configBcDice.rb'
 require 'CountHolder.rb'
 
 
