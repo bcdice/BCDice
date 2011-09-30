@@ -98,6 +98,11 @@ class BCDice
     @tnick = ""
     @isMessagePrinted = false
     @rands = nil
+    @isKeepSecretDice = true
+  end
+  
+  def isKeepSecretDice(b)
+    @isKeepSecretDice = b
   end
   
   def setDiceBot(diceBot)
@@ -659,7 +664,10 @@ class BCDice
     return if( output_msg == "1" )
     
     broadmsg(output_msg, @nick_e);
-    addToSecretDiceResult(output_msg, @channel, 0);
+    
+    if( @isKeepSecretDice )
+      addToSecretDiceResult(output_msg, @channel, 0);
+    end
   end
   
   def executeCard
@@ -1287,7 +1295,7 @@ class BCDice
     end
     
     if( nick == @nick_e )
-      sendMessageToOnlySender(encode($IRC_CODE, output_msg));
+      sendMessageToOnlySender(output_msg); #encode($IRC_CODE, output_msg));
     else
       sendMessage(nick, output_msg);
     end

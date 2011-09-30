@@ -1,14 +1,17 @@
-require 'bcdiceCore.rb'
+#--*-coding:utf-8-*--
 
+require 'bcdiceCore.rb'
 
 class CgiDiceBot
   
   def initialize
     @rollResult = ""
     @isSecret = false
-    @rands = nil #テスト以外ではnilで良い。ダイス目操作パラメータ
+    @rands = nil #繝�繧ｹ繝井ｻ･螟悶〒縺ｯnil縺ｧ濶ｯ縺�縲ゅム繧､繧ｹ逶ｮ謫堺ｽ懊ヱ繝ｩ繝｡繝ｼ繧ｿ
     @isTest = false
   end
+  
+  attr :isSecret
   
   def rollFromCgi()
     cgi = CGI.new
@@ -69,7 +72,7 @@ class CgiDiceBot
     result = ""
     
     unless( @isTest )
-      result << "##>isSecretDice<##" if( @isSecret )
+      # result << "##>isSecretDice<##" if( @isSecret )
     end
     
     result << "\n#{gameType} #{rollResult}\n"
@@ -91,6 +94,7 @@ class CgiDiceBot
     
     bcdice.setIrcClient(self)
     bcdice.setRandomValues(@rands)
+    bcdice.isKeepSecretDice(false)
     
     bcdice.setGameByTitle( gameType )
     bcdice.setMessage(message)
@@ -106,7 +110,7 @@ class CgiDiceBot
   end
   
   def sendMessageToOnlySender(nick_e, message)
-    debug("customBot sendMessageToOnlySender")
+    debug(message, "customDiceBot.sendMessageToOnlySender message")
     @isSecret = true
     @rollResult << message
   end
