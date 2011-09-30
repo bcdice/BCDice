@@ -1365,7 +1365,7 @@ class BCDice
     string = @diceBot.changeText(string)
     debug("diceBot.changeText(string) end", string)
     
-    string = string.gsub(/([\d]+[dD])([^\d]|$)/) {"#{$1}6#{$2}"}
+    string = string.gsub(/([\d]+[dD])([^\d\w]|$)/) {"#{$1}6#{$2}"}
     
     debug("parren_killer output", string)
     
@@ -1708,6 +1708,10 @@ class BCDice
       require 'diceBot/MonotoneMusium'
       diceBot = MonotoneMusium.new
       message = 'Game設定をモノトーン・ミュージアムに設定しました'
+    when /(^|\s)Zettai\s*Reido$/i
+      require 'diceBot/ZettaiReido'
+      diceBot = ZettaiReido.new
+      message = 'Game設定を絶対隷奴に設定しました'
     when /(^|\s)(None)$/i, ""
       diceBot = DiceBot.new
       message = 'Game設定を解除しました'
