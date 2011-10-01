@@ -43,6 +43,7 @@ class BCDiceDialog < Wx::Dialog
     @nickName = createAddedTextInput( $nick, "ニックネーム" )
     initGameType
     @extraCardFileText = createAddedTextInput( $extraCardFileName, "拡張カードファイル名" )
+    @ircCodeText = createAddedTextInput( $ircCode, "IRC文字コード" )
     
     @executeButton = createButton('接続')
     evt_button(@executeButton.get_id) {|event| on_execute }
@@ -294,6 +295,7 @@ ZettaiReido
     $nick = @nickName.get_value
     $defaultGameType = @gameType.get_string_selection
     $extraCardFileName = @extraCardFileText.get_value
+    $ircCode = @ircCodeText.get_value
   end
   
   def startIrcBot

@@ -37,7 +37,7 @@ class IrcClient < Net::IRC::Client
   
   def on_rpl_welcome(message)
     p '==>on_rpl_welcome'
-    post JOIN, @room.encode($IRC_CODE).force_encoding_maybe('external')
+    post JOIN, @room.encode($ircCode).force_encoding_maybe('external')
   end
   
   
@@ -48,7 +48,7 @@ class IrcClient < Net::IRC::Client
   
   def on_connected(*args)
     channelNames = @loginChannelList.join(',')
-    channelNames = encode($IRC_CODE, channelNames)
+    channelNames = encode($ircCode, channelNames)
     
     debug_out("Joining #{channelNames} ...\n");
     
@@ -82,7 +82,7 @@ class IrcClient < Net::IRC::Client
     
     if ( host_j =~ /^someone\@somewhere\.else\.com$/)  # Auto-ops anyone who
       debug_out("Give  to #{nick_e}\n");
-      self.mode( encode($IRC_CODE, channel), "+o", nick_e);      # matches hostmask.
+      self.mode( encode($ircCode, channel), "+o", nick_e);      # matches hostmask.
     end
   end
   
@@ -93,8 +93,8 @@ class IrcClient < Net::IRC::Client
               event.nick, event.userhost, channel);
     
     addChannel(channel);
-    self.join( encode($IRC_CODE, channel) );
-    self.topic( encode($IRC_CODE, channel) );
+    self.join( encode($ircCode, channel) );
+    self.topic( encode($ircCode, channel) );
   end
   
   def on_kick( event )
@@ -199,7 +199,7 @@ class IrcClient < Net::IRC::Client
     args = event.args;
     
     args.each do |arg_o|
-      arg_o = decode($IRC_CODE, arg_o);
+      arg_o = decode($ircCode, arg_o);
     end
     
     debug_out("* #{nick} #{args.inspect}\n");
@@ -214,10 +214,10 @@ class IrcClient < Net::IRC::Client
   
   def on_topic(event)
     args = event.args();
-    chan = decode($IRC_CODE, (event.to())[0]);
+    chan = decode($ircCode, (event.to())[0]);
     
     args.each do |arg_o|
-      arg_o = decode($IRC_CODE, arg_o);
+      arg_o = decode($ircCode, arg_o);
     end
     
     if( event.type() == 'notopic' )
@@ -276,11 +276,11 @@ class IrcClient < Net::IRC::Client
       message = '結果が長くなりすぎました';
     end
     
-    to = encode($IRC_CODE ,to)
+    to = encode($ircCode ,to)
     
     msg_arr = message.split("\n")
     msg_arr.each do |lineMessage|
-      lineMessage = encode($IRC_CODE, lineMessage);        # noticeで送信
+      lineMessage = encode($ircCode, lineMessage);        # noticeで送信
       
       if( $NOTICE_SW )
         debug("notice  to, lineMessage", to, lineMessage)

@@ -70,7 +70,7 @@ class ArgsAnalizer
   end
   
   def setIrcServerCharacterCode
-    $IRC_CODE = param;
+    $ircCode = param;
   end
   
   def analizeArgForTest(arg)
