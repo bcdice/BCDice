@@ -6,7 +6,7 @@
 require 'log'
 require 'configBcDice.rb'
 require 'CountHolder.rb'
-
+require 'kconv'
 
 #============================== 起動法 ==============================
 # 上記設定をしてダブルクリック、
@@ -39,8 +39,8 @@ def decode(code, str)
 end
 
 def encode(code, str)
-  return str;
-  #Kconv.kconv(str, code)
+  #return str;
+  Kconv.kconv(str, code)
 end
 
 
@@ -1295,7 +1295,7 @@ class BCDice
     end
     
     if( nick == @nick_e )
-      sendMessageToOnlySender(output_msg); #encode($IRC_CODE, output_msg));
+      sendMessageToOnlySender(output_msg); #encode($ircCode, output_msg));
     else
       sendMessage(nick, output_msg);
     end
