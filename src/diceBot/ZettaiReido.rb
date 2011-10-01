@@ -61,10 +61,11 @@ MESSAGETEXT
     diff, diffText = getDiffInfo(diffValue)
     
     output = ""
-    output << "#{baseAvility}-2DR[#{diceTotal}:#{diceText}]#{modText}"
+    output << "(#{baseAvility}-2DR#{modText}#{diffText})"
+    output << " ＞ #{baseAvility}-#{diceTotal}[#{diceText}]#{modText}"
     
     total = baseAvility - diceTotal + mod
-    output << " ＞ #{total}[#{diceText}]#{diffText}"
+    output << " ＞ #{total}"
     
     successText = getSuccessText(diceTotal, total, diff)
     output << successText

@@ -697,16 +697,16 @@ class BCDice
     
     case arg
       
-    when /D66/
+    when /D66/i
       # D66ロール検出
       if(@diceBot.d66Type != 0)
-        output_msg = d66dice(arg)
-        if( /S\d*D66/ =~ args )   # 隠しロール
-          secret_flg = true if(output_msg != '1');
+        output_msg, secret_flg_tmp = d66dice(arg)
+        if(output_msg != '1');
+          secret_flg = secret_flg_tmp
         end
       end
       
-    when /[-\d]+D[\d\+\*\-D]+([<>=]+[?\-\d]+)?($|\s)/
+    when /[-\d]+D[\d\+\*\-D]+([<>=]+[?\-\d]+)?($|\s)/i
       # 加算ロール検出
       dice = AddDice.new(self, @diceBot)
       output_msg = dice.rollDice(arg)
@@ -714,7 +714,7 @@ class BCDice
         secret_flg = true if(output_msg != '1');
         end
       
-    when /[\d]+B[\d]+([<>=]+[\d]+)?($|\s)/
+    when /[\d]+B[\d]+([<>=]+[\d]+)?($|\s)/i
       # バラバラロール検出
       output_msg = bdice(arg)
       if(/S[\d]+B[\d]+/i =~ arg )   # 隠しロール
@@ -722,7 +722,7 @@ class BCDice
       end
       
       # 個数振り足しロール検出
-    when /(S)?[\d]+R[\d]+/
+    when /(S)?[\d]+R[\d]+/i
       secretMarker = $1
       
       debug('xRn input arg', arg)
@@ -963,22 +963,27 @@ class BCDice
 ####################             D66ダイス        ########################
   def d66dice(string)
     string = string.upcase
+    secret_flg = false
     output = '1';
     count = 1;
     
-    if(string =~ /(^|\s)((\d*)D66)(\s|$)/)
-      string = $2;
-      count = $3 if($3);
-      output = "";
+    if(string =~ /(^|\s)(S)?((\d+)?D66)(\s|$)/i)
+      string = $3
+      secret_flg = (not $2.nil?)
+      count = $4.to_i if($4)
+      debug('d66dice count', count)
       
+      d66List = []
       count.times do |i|
-        output += "," if(output);
-        output += getD66Value()
+        d66List << getD66Value( @diceBot.d66Type )
       end
-      output = "#{@nick_e}: (#{string}) ＞ ".output;
+      d66Text = d66List.join(',')
+      debug('d66Text', d66Text)
+      
+      output = "#{@nick_e}: (#{string}) ＞ #{d66Text}"
     end
     
-    return output;
+    return output, secret_flg
   end
   
   def getD66Value(mode)
