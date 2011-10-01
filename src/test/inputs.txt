@@ -535,6 +535,7 @@ Arianrhod:
 3D6
 5D6
 10D6
+D66
 
 Chaos Flare:
 2d6
