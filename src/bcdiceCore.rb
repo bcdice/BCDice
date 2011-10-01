@@ -1,7 +1,7 @@
 #!/bin/ruby -Ku 
 #--*-coding:utf-8-*--
 
-require 'Kconv'
+#require 'Kconv'
 
 require 'log'
 require 'configBcDice.rb'
@@ -39,8 +39,8 @@ def decode(code, str)
 end
 
 def encode(code, str)
-  #return str;
-  Kconv.kconv(str, code)
+  return str;
+  #Kconv.kconv(str, code)
 end
 
 
