@@ -209,6 +209,16 @@ class DiceBot
   def getGrichText(n1_total, dice_cnt_total, suc)
     ''
   end
+  
+  def getDiceList
+    diceList = []
+    return diceList unless( /\[([\d,]+)\]/ =~ @diceText )
+    
+    diceString = $1;
+    diceList = diceString.split(/,/).collect{|i| i.to_i}
+    
+    return diceList
+  end
 
   
   #** 汎用表サブルーチン

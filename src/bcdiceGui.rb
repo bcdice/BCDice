@@ -159,6 +159,7 @@ DarkBlaze
 DemonParasite
 DoubleCross
 EarthDawn
+EclipsePhase
 Elric!
 EmbryoMachine
 GehennaAn
