@@ -1725,6 +1725,10 @@ class BCDice
       require 'diceBot/ZettaiReido'
       diceBot = ZettaiReido.new
       message = 'Game設定を絶対隷奴に設定しました'
+    when /(^|\s)Eclipse\s*Phase$/i
+      require 'diceBot/EclipsePhase'
+      diceBot = EclipsePhase.new
+      message = 'Game設定をEclipse Phaseに設定しました'
     when /(^|\s)(None)$/i, ""
       diceBot = DiceBot.new
       message = 'Game設定を解除しました'
