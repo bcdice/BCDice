@@ -145,7 +145,7 @@ class TestDiceBot
       end
       
       input = $1
-      good = $2.toutf8
+      good = $2.toutf8.chomp
       randsText = $3
       rands = getRands(randsText)
       

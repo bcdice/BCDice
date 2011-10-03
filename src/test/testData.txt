@@ -24927,3 +24927,7 @@ input:1D100<=50	EclipsePhase
 output:
 EclipsePhase : (1D100<=50) ＞ 55 ＞ ファンブル
 rand:55/100
+============================
+input:2d6もけけ	diceBot
+output:
+rand:1/100

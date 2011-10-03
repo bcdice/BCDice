@@ -75,7 +75,9 @@ class CgiDiceBot
       # result << "##>isSecretDice<##" if( @isSecret )
     end
     
-    result << "\n#{gameType} #{rollResult}\n"
+    unless( rollResult.empty? )
+      result << "\n#{gameType} #{rollResult}"
+    end
     
     return result
   end
