@@ -179,7 +179,6 @@ class IrcClient < Net::IRC::Client
     #ctcp_reply(nick, args);
     #debug_out("*** CTCP PING request from #{nick} received\n");
   end
-=end
   
   def on_ping_reply(event)
     args = (event.args)[1];
@@ -228,6 +227,7 @@ class IrcClient < Net::IRC::Client
       debug_out("The topic for $args[1] is \"$args[2]\".\n");
     end
   end
+=end
   
   
   def isMaster
