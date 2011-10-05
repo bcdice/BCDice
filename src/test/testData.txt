@@ -12939,6 +12939,16 @@ output:
 MeikyuKingdom : (2D6>=7) ＞ 10[5,5] ＞ 10 ＞ 成功
 rand:5/6,5/6
 ============================
+input:1MK	MeikyuKingdom
+output:
+MeikyuKingdom : (1R6) ＞ 1
+rand:1/6,1/6
+============================
+input:1MK	MeikyuKingdom
+output:
+MeikyuKingdom : (1R6) ＞ 6
+rand:6/6,6/6
+============================
 input:2MK	MeikyuKingdom
 output:
 MeikyuKingdom : (2R6) ＞ 8[3,5] ＞ 8
