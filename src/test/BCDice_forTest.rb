@@ -4,7 +4,7 @@ require 'bcdiceCore'
 class BCDiceMaker_forTest < BCDiceMaker
   
   def newBcDice
-    bcdice = BCDice_forTest.new(self, @cardTrader, @diceBot)
+    bcdice = BCDice_forTest.new(self, @cardTrader, @diceBot, @counterInfos)
     
     return bcdice
   end
@@ -14,7 +14,7 @@ end
 
 class BCDice_forTest < BCDice
   
-  def initialize(parent, diceBot, cardTrader)
+  def initialize(parent, diceBot, cardTrader, counterInfos)
     super
     init
   end

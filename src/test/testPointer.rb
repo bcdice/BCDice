@@ -10,7 +10,7 @@ require 'BCDice_forTest'
 $isDebug = false
 
 
-class TestSecretDice < Test::Unit::TestCase
+class TestPointer < Test::Unit::TestCase
   
   def setup
     $isDebug = false
@@ -42,22 +42,89 @@ class TestSecretDice < Test::Unit::TestCase
     assert_equal( "sendMessage\nto:test_channel\ntest_nick: (HP) 12\n", @bcdice.getResult() )
     
     execute("#OPEN!HP")
-    assert_equal( "sendMessage\nto:test_channel\nHP TEST_NICK(12)\n", @bcdice.getResult() )
+    assert_equal( "sendMessage\nto:test_channel\nHP: TEST_NICK(12)\n", @bcdice.getResult() )
     
     execute("#HP9", nil, "nick2")
     assert_equal( "sendMessage\nto:test_channel\nnick2: (HP) 9\n", @bcdice.getResult() )
     
     execute("#OPEN!HP")
-    assert_equal( "sendMessage\nto:test_channel\nHP NICK2(9) TEST_NICK(12)\n", @bcdice.getResult() )
+    assert_equal( "sendMessage\nto:test_channel\nHP: NICK2(9) TEST_NICK(12)\n", @bcdice.getResult() )
     
     execute("#OPEN!HP")
-    assert_equal( "sendMessage\nto:test_channel\nHP NICK2(9) TEST_NICK(12)\n", @bcdice.getResult() )
+    assert_equal( "sendMessage\nto:test_channel\nHP: NICK2(9) TEST_NICK(12)\n", @bcdice.getResult() )
     
     execute("#HP-5")
     assert_equal( "sendMessage\nto:test_channel\ntest_nick: (HP) 12 -> 7\n", @bcdice.getResult() )
     
     execute("#OPEN!HP")
-    assert_equal( "sendMessage\nto:test_channel\nHP NICK2(9) TEST_NICK(7)\n", @bcdice.getResult() )
+    assert_equal( "sendMessage\nto:test_channel\nHP: NICK2(9) TEST_NICK(7)\n", @bcdice.getResult() )
+  end
+  
+  def test_any
+    execute("#テスト：test1 まずは最大値なし")
+    assert_equal( "test_nick: テスト(TEST) 1", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#テスト：test1/1 続けて最大値つき")
+    assert_equal( "test_nick: テスト(TEST) 1/1", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#OPEN!test この状態でのタグ情報")
+    assert_equal( "TEST: テスト(1/1)", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#testx1 現在値のみを別のタグで登録した場合（最大値なし）")
+    assert_equal( "test_nick: (TESTX) 1", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#OPEN!testx")
+    assert_equal( "TESTX: TEST_NICK(1)", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#testx1/1 現在値のみを別のタグで登録した場合（最大値つき）")
+    assert_equal( "test_nick: (TESTX) 1/1", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#OPEN!testx")
+    assert_equal( "TESTX: TEST_NICK(1/1)", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#テスト：test-1 ポイントの変化")
+    assert_equal( "test_nick: テスト(TEST) 1/1 -> 0/1", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#OPEN!test")
+    assert_equal( "TEST: テスト(0/1)", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#テスト：test+1 ポイントの変化")
+    assert_equal( "test_nick: テスト(TEST) 0/1 -> 1/1", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#OPEN!test")
+    assert_equal( "TEST: テスト(1/1)", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#testx-1")
+    assert_equal( "test_nick: (TESTX) 1/1 -> 0/1", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#OPEN!testx")
+    assert_equal( "TESTX: TEST_NICK(0/1)", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#testx+1")
+    assert_equal( "test_nick: (TESTX) 0/1 -> 1/1", getResultCutHeaderSendMessageToTestChannel )
+    
+    # タグ全体を開くOPEN!コマンドは受け付けるけど
+    # 発言者が管理しているキャラクターのタグを表示するOPEN!コマンドは受け付けない？
+    # コマンドを間違えているかもしれない
+    
+    execute("#OPEN!")
+    assert_equal( "TEST_NICK(1/1) テスト(1/1)", getResultCutHeaderSendMessageToTestChannel )
+    
+    
+    #キャラクターの名前を変更しても最大値表示に変化はありませんでした
+    execute("#RENAME!テスト->テストb")
+    assert_equal( "test_nick: テスト->テストB", getResultCutHeaderSendMessageToTestChannel )
+    
+    execute("#OPEN!test")
+    assert_equal( "TEST: テストB(1/1)", getResultCutHeaderSendMessageToTestChannel )
+  end
+  
+  def getResultCutHeaderSendMessageToTestChannel
+    text = @bcdice.getResult()
+    text = text.toutf8
+    text.sub!(/^sendMessage\nto:test_channel\n/, '')
+    text.sub!(/\n\Z/, '')
+    return text
   end
   
   def _test_XXXXXXXX

@@ -49,8 +49,6 @@ $secretDiceResultHolder = {};
 $plotPrintChannels = {};
 $point_counter = {};
 
-$counterInfos = {};
-
 
 require 'CardTrader'
 require 'diceBot/DiceBot'
@@ -66,6 +64,8 @@ class BCDiceMaker
     @cardTrader = CardTrader.new
     @cardTrader.initValues;
     
+    @counterInfos = {};
+    
     @master = "";
     @quitFunction = nil
   end
@@ -75,7 +75,7 @@ class BCDiceMaker
   attr_accessor :diceBot
   
   def newBcDice
-    bcdice = BCDice.new(self, @cardTrader, @diceBot)
+    bcdice = BCDice.new(self, @cardTrader, @diceBot, @counterInfos)
     
     return bcdice
   end
@@ -85,13 +85,14 @@ end
 
 class BCDice
   
-  def initialize(parent, cardTrader, diceBot)
+  def initialize(parent, cardTrader, diceBot, counterInfos)
     @parent = parent
     
     setDiceBot(diceBot)
     
     @cardTrader = cardTrader
     @cardTrader.setBcDice(self)
+    @counterInfos = counterInfos
     
 
     @nick_e = ""
@@ -635,7 +636,7 @@ class BCDice
     end
     
     pointerMode = :sameChannel
-    countHolder = CountHolder.new(self, $counterInfos)
+    countHolder = CountHolder.new(self, @counterInfos)
     output_msg, isSecret = countHolder.executeCommand(@message, @nick_e, @channel, pointerMode);
     debug("executePointCounterPublic output_msg, isSecret", output_msg, isSecret)
     

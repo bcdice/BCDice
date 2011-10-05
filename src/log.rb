@@ -1,3 +1,4 @@
+#--*-coding:utf-8-*--
 
 $isDebug = false
 
@@ -27,7 +28,8 @@ def getTextFromLogTarget(target)
   
   list = target.collect do |i|
     if( i.is_a?(String) )
-      "\"#{i}\""
+      '"' + i + '"'
+      #print(i + "\n")
     else
       i.inspect
     end
