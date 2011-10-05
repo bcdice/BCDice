@@ -68,8 +68,12 @@ MESSAGETEXT
   end
   
   def changeText(string)
+    debug("changeText before string", string)
+    
     string = string.gsub(/(\d+)MK6/i) {"#{$1}R6"}
     string = string.gsub(/(\d+)MK/i) {"#{$1}R6"}
+    
+    debug("changeText after string", string)
     
     return string
   end
@@ -78,7 +82,7 @@ MESSAGETEXT
     secret_flg = false
     
     return '1', secret_flg unless( /(^|\s)(S)?(([LOCAF]RT)|[TCSVF]BT|[TCSV]HT|K[DCM]T|CAT|FWT|CFT|TT|NT|ET|T\dT|NAME\d*|MPT|DFT\d*|IDT\d*|([WLRS]|RW|RU)IT|\dRET|PNT\d*|MLT\d*|IFT)(\s|$)/i =~ string )
-
+    
     secretMarker = $2
     output_msg = mayokin_table($3, nick_e);
     if( secretMarker )    # 隠しロール
@@ -109,6 +113,8 @@ MESSAGETEXT
   
   ####################         迷宮キングダム        ########################
   def mayokin_check(string, nick_e)
+    debug("mayokin_check string", string)
+    
     output = "1";
     
     return output unless(/(^|\s)S?((\d+)[rR]6([\+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i =~ string)
@@ -119,6 +125,10 @@ MESSAGETEXT
     signOfInequality = $6
     signOfInequality ||= "";
     
+    debug("string", string)
+    debug("diceCount", diceCount)
+    debug("modifyText", modifyText)
+    
     diff = $7.to_i
     diff ||= 0;
     
@@ -126,7 +136,8 @@ MESSAGETEXT
     if( modifyText )
       bonus = parren_killer("(0#{modifyText})").to_i
     end
-    
+    debug("bonus", bonus)
+
     dice_now = 0;
     dice_str = "";
     n_max = 0;
@@ -134,9 +145,14 @@ MESSAGETEXT
     
     total, dice_str, = roll(diceCount, 6, (sortType & 1));
     dice_num = dice_str.split(/,/).collect{|i|i.to_i}
+    debug("diceCount, dice_num", diceCount, dice_num)
     
-    dice_now = dice_num[diceCount - 2] + dice_num[diceCount - 1]
-    debug("dice_now", dice_now)
+    dice1 = 0
+    dice2 = 0
+    dice1 = dice_num[diceCount - 2] if( diceCount >= 2)
+    dice2 = dice_num[diceCount - 1] if( diceCount >= 1)
+    dice_now = dice1 + dice2
+    debug("dice1, dice2, dice_now", dice1, dice2, dice_now)
     
     total_n = dice_now + bonus;
     dice_str = "[#{dice_str}]";
