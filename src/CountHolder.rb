@@ -538,7 +538,7 @@ class CountHolder
     debug("oldName, newName", oldName, newName)
     
     # {:channelName => {:characterName => (カウンター情報) }
-    characterInfoList = getCharacterInfoList(channel = nil)
+    characterInfoList = getCharacterInfoList(@channel)
 
     counterInfo = characterInfoList.delete(oldName)
     return output if( counterInfo.nil? )

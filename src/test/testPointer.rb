@@ -105,13 +105,10 @@ class TestPointer < Test::Unit::TestCase
     
     # タグ全体を開くOPEN!コマンドは受け付けるけど
     # 発言者が管理しているキャラクターのタグを表示するOPEN!コマンドは受け付けない？
-    # コマンドを間違えているかもしれない
-    
     execute("#OPEN!")
     assert_equal( "TEST_NICK(1/1) テスト(1/1)", getResultCutHeaderSendMessageToTestChannel )
     
     
-    #キャラクターの名前を変更しても最大値表示に変化はありませんでした
     execute("#RENAME!テスト->テストb")
     assert_equal( "test_nick: テスト->テストB", getResultCutHeaderSendMessageToTestChannel )
     
