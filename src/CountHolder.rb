@@ -33,13 +33,13 @@ class CountHolder
       output = delete_point_list();
       unless( output.nil? )
         output = "#{nick}: #{output} のカウンタが削除されました";
-        isSecret = false # 出力は常にTalk側
+        isSecret = true # 出力は常にTalk側
       end
     when /^#RENAME!/i
       output = rename_point_counter();
       if( output != "1" )
         output = "#{nick}: #{output}";
-        isSecret = true  # 出力は常にPublic側
+        isSecret = false  # 出力は常にPublic側
       end
       
     else
@@ -63,7 +63,7 @@ class CountHolder
 
 ####################          カウンタ操作         ########################
   def executeSetCommand
-    debug("setCountHolder command, nick, channel, pointerMode", @command, @nick, @channel, @pointerMode)
+    debug("setCountHolder nick, channel, pointerMode", @nick, @channel, @pointerMode)
     
     @characterName = @nick
     
@@ -75,27 +75,29 @@ class CountHolder
     debug("$point_counter", $point_counter)
     output = '1';
     
+    debug("@command", @command)
+    
     case @command
-    when /^#(\w+?):(\w+?)\s*(\d+)\/(\d+)/
+    when /^#([^:：]+)(:|：)(\w+?)\s*(\d+)(\/(\d+))?/
       debug(" #(識別名):(タグ)(現在値)/(最大値) で指定します。最大値がないものは省略できます。")
       # #Zako1:HP9/9　　　#orc1:HP10/10　　#商人:HP8/8
       @characterName = $1
-      @tagName = $2
-      @currentValue = $3.to_i
-      @maxValue = $4.to_i
-    when /^#(\w+?):(\w+?)\s*([\+\-]\d+)/
+      @tagName = $3
+      @currentValue = $4.to_i
+      @maxValue = $6
+    when /^#([^:：]+)(:|：)(\w+?)\s*([\+\-]\d+)/
       debug(" #(識別名):(タグ)(変更量)")
       # #Zako1:HP-1
       @characterName = $1
-      @tagName = $2
-      @modifyText = $3
-    when /^(\w+?)\s*(\d+)\/(\d+)/
+      @tagName = $3
+      @modifyText = $4
+    when /^#(\w+?)\s*(\d+)\/(\d+)/
       debug(" #(タグ)(現在値)/(最大値) 現在値/最大値指定は半角のみ。")
       # #HP12/12　　　#衝動0/10
       @tagName = $1
       @currentValue = $2.to_i
-      @maxValue = $3.to_i
-    when /^(\w+?)\s*([\+\-]\d+)/
+      @maxValue = $3
+    when /^#(\w+?)\s*([\+\-]\d+)/
       debug(" #(タグ)(変更量)")
       # #HP-1
       @tagName = $1
@@ -112,10 +114,18 @@ class CountHolder
       @modifyText = $2
     else
       debug("not match command", @command)
-      return
+      return ''
+    end
+    
+    unless( @maxValue.nil? )
+      @maxValue = @maxValue.to_i
     end
     
     debug("characterName", @characterName)
+    debug("tagName", @tagName)
+    debug("@currentValue", @currentValue)
+    debug("@maxValue", @maxValue)
+    debug("@modifyText", @modifyText)
     
     return setCountHolderByParams
   end
@@ -218,9 +228,16 @@ class CountHolder
       :maxValue => @maxValue,
     }
     
+    debug('setCount @nick, @characterName', @nick, @characterName)
+    
     output = ""
-    output = "#{@characterName.downcase}" if(@nick != @characterName)
-    output = "(#{@tagName}) #{@currentValue}";
+    output << "#{@characterName.downcase}" if(@nick != @characterName)
+    output << "(#{@tagName}) #{@currentValue}";
+    
+    debug("setCount @maxValue", @maxValue)
+    unless( @maxValue.nil? )
+      output << "/#{@maxValue}";
+    end
     
     return output
   end
@@ -249,8 +266,8 @@ class CountHolder
     nowText = getValueText(currentValue, maxValue)
     
     output = ""
-    output = "#{@characterName.downcase}" if(@nick != @characterName)
-    output = "(#{@tagName}) #{preText} -> #{nowText}";
+    output << "#{@characterName.downcase}" if(@nick != @characterName)
+    output << "(#{@tagName}) #{preText} -> #{nowText}";
     
     debug("changeCount end output", output)
     
@@ -401,27 +418,34 @@ class CountHolder
     debug("getPointListAtSameChannel(command, nick, channel, pointerMode, tagName)", @command, @nick, @channel, @pointerMode, tagName)
     debug("同一チャンネル特定タグ(ポイント)の表示")
     
-    output = "#{tagName}";
+    output = ""
     
+    output << "#{tagName}:" unless( tagName.empty? )
+                              
     debug("getPointListAtSameChannel @countInfos", @countInfos)
     characterInfoList = getCharacterInfoList
     
     characterInfoList.keys.sort.each do |characterName|
       characterInfo = characterInfoList[characterName]
       
-      output << " #{characterName}("
-      
+      tagText = ''
       characterInfo.keys.sort.each do |currentTag|
-        next unless( tagName == currentTag )
+        unless( tagName.empty? )
+          next unless( tagName == currentTag )
+        end
         
         info = characterInfo[currentTag]
         currentValue = info[:currentValue]
         maxValue = info[:maxValue]
         
-        output << "#{currentValue}"
-        output << "/#{maxValue}" unless( maxValue.nil? )
+        tagText << "#{currentValue}"
+        tagText << "/#{maxValue}" unless( maxValue.nil? )
       end
-      output << ")";
+      
+      unless( tagText.empty? )
+        output << " " unless( output.empty? )
+        output << "#{characterName}(#{tagText})"
+      end
     end
     
     return output
@@ -500,54 +524,33 @@ class CountHolder
     return output; # 削除されたPC名(カンマ区切り)を返す
 }
 
+=end
 ####################          識別名の交換         ########################
-def rename_point_counter {
-    command = "\U$_[0]";
-    nick = "\U$_[1]";
-    my output = "1";
+  def rename_point_counter
+    debug("rename_point_counter @command, @nick", @command, @nick)
+    
+    output = "1"
+    
+    return output unless( /^#RENAME!\s*(.+?)\s*\-\>\s*(.+?)(\s|$)/ =~ @command )
+    
+    oldName = $1;
+    newName = $2;
+    debug("oldName, newName", oldName, newName)
+    
+    # {:channelName => {:characterName => (カウンター情報) }
+    characterInfoList = getCharacterInfoList(channel = nil)
 
-    $nick =~ /[_\d]*(.+)[_\d]*/;
-    $nick = $1;   # Nick端の数字はカウンター変わりに使われることが多いので除去
-    if($command =~ /^#RENAME![\s]*(\w+)[\s]*->[\s]*(\w+)(\s|$)/)
-        pre_pc = $1;
-        next_pc = $2;
-        tag_list = $point_counter["#{nick},#{pre_pc}"];
-        if($tag_list)
-            pc_list = $point_counter["#{nick}"] += ",#{next_pc}"; # キャラリストに追加
-            $point_counter["#{nick},#{next_pc}"] = $tag_list; # タグリストのコピー
-            change_flg = 0;
-            my @tag_arr = split /,/, $tag_list;
-            foreach tag_o (@tag_arr)  # タグデータのコピーと旧キャラのデータ削除
-                if(pre_point = $point_counter["#{nick},#{pre_pc},#{tag_o},0"])
-                    $point_counter["#{nick},#{next_pc},#{tag_o},0"] = $pre_point;
-                    delete $point_counter["#{nick},#{pre_pc},#{tag_o},0"];
-                    $change_flg = 1;
-                end
-                if(pre_point = $point_counter["#{nick},#{pre_pc},#{tag_o},1"])
-                    $point_counter["#{nick},#{next_pc},#{tag_o},1"] = $pre_point;
-                    delete $point_counter["#{nick},#{pre_pc},#{tag_o},1"];
-                    $change_flg = 1;
-                end
-            end
-            if($change_flg)   # 移動済みなら古い識別名の登録データを消す
-                delete $point_counter["#{nick},#{pre_pc}"];   # 古いキャラのタグリスト削除
-                my @pc_arr = split /,/, $pc_list;
-                my @new_pc_list;
-                foreach pc_o (@pc_arr)
-                    push @new_pc_list, $pc_o if($pc_o != $pre_pc);
-                end
-                if(@new_pc_list)
-                    $point_counter["#{nick}"] = join ",", @new_pc_list;
-                end
-                output = "\L\u#{pre_pc}->"."\L\u#{next_pc}";   # 変更メッセージ
-            end
-        end
-    end
+    counterInfo = characterInfoList.delete(oldName)
+    return output if( counterInfo.nil? )
+    
+    characterInfoList[newName] = counterInfo
+    
+    output = "#{oldName}->#{newName}";   # 変更メッセージ
     return output;
-}
+  end
+  
 
 ####################          その他の処理         ########################
-=end
 
   def setPointCounters(nick, pc, target)
     key = "#{nick},#{pc}"
