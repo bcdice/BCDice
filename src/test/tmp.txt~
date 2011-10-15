@@ -1,0 +1,18 @@
+#--*-coding:utf-8-*--
+Loaded suite testPointer
+Started
+EF
+Finished in 0.171881 seconds.
+
+  1) Error:
+test_any(TestPointer):
+NoMethodError: undefined method `toutf8' for nil:NilClass
+    testPointer.rb:124:in `getResultCutHeaderSendMessageToTestChannel'
+    testPointer.rb:116:in `test_any'
+
+  2) Failure:
+test_setPoinChangePoinAndOpen(TestPointer) [testPointer.rb:51]:
+<"sendMessage\nto:test_channel\nHP NICK2(9) TEST_NICK(12)\n"> expected but was
+<"sendMessage\nto:test_channel\nHP: NICK2(9) TEST_NICK(12)\n">.
+
+2 tests, 19 assertions, 1 failures, 1 errors
