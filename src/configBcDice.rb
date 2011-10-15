@@ -4,7 +4,7 @@
 $isDebug = false
 
 $KCODE = 'UTF8'# このソースはUTF-8で書かれています
-$version = "1.2.42";                # B&Cのバージョン
+$version = "2.01.03"
 
 
 $NOTICE_SW = 1;                  # 送信の際に、どちらのコマンドを使うか？(notice=1, msg=0)

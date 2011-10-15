@@ -15813,6 +15813,66 @@ output:
 MeikyuKingdom : 地名表(10) ＞ 「空洞に広がる耕作地」「地面が干潟化した部屋」「落ち葉がうずたかく積もった部屋」「筏やハシケが浮かぶ湖」「青空が壁面いっぱいに描かれた空洞」「鳥の羽毛が舞い落ちる部屋」「雪がしんしんと降り積もる部屋」「巨大な縦穴に刻まれた螺旋階段」「石組みの巨大な階段」「流砂が流れる洞穴」
 rand:3/6,6/6,1/6,4/6,1/6,6/6,3/6,6/6,3/6,4/6,3/6,6/6,5/6,6/6,4/6,5/6,5/6,4/6,5/6,2/6,6/6,1/6,2/6,1/6,1/6,1/6,6/6,2/6,4/6,2/6
 ============================
+input:KNT1	MeikyuKingdom
+output:
+MeikyuKingdom : 王国名表(11) ＞ 暗黒
+rand:1/6,1/6
+============================
+input:KNT1	MeikyuKingdom
+output:
+MeikyuKingdom : 王国名表(66) ＞ 立憲
+rand:6/6,6/6
+============================
+input:KNT2	MeikyuKingdom
+output:
+MeikyuKingdom : 王国名表(66) ＞ （国王の名前。後で決定）
+rand:6/6,6/6
+============================
+input:KNT3	MeikyuKingdom
+output:
+MeikyuKingdom : 王国名表(66) ＞ 連邦
+rand:6/6,6/6
+============================
+input:WORD1	MeikyuKingdom
+output:
+MeikyuKingdom : 単語表(66) ＞ バカ
+rand:6/6,6/6
+============================
+input:WORD2	MeikyuKingdom
+output:
+MeikyuKingdom : 単語表(66) ＞ ホラ話
+rand:6/6,6/6
+============================
+input:WORD3	MeikyuKingdom
+output:
+MeikyuKingdom : 単語表(66) ＞ ねこみみ
+rand:6/6,6/6
+============================
+input:WORD4	MeikyuKingdom
+output:
+MeikyuKingdom : 単語表(66) ＞ 虫
+rand:6/6,6/6
+============================
+input:NAMEA	MeikyuKingdom
+output:
+MeikyuKingdom : 名前Ａ表(66) ＞ ソープ／プルーム
+rand:6/6,6/6
+============================
+input:NAMEB	MeikyuKingdom
+output:
+MeikyuKingdom : 名前Ｂ表(66) ＞ シリング／シルク
+rand:6/6,6/6
+============================
+input:NAMEEX	MeikyuKingdom
+output:
+MeikyuKingdom : エキゾチック名前表(66) ＞ プレイヤーと同じ名前
+rand:6/6,6/6
+============================
+input:NAMEFA	MeikyuKingdom
+output:
+MeikyuKingdom : ファンタジック名前表(66) ＞ カレワラ／イーハトープ
+rand:6/6,6/6
+============================
 input:[1...40]E20	EarthDawn
 output:
 EarthDawn : ステップ38>=20 ＞ 2d20[75,10]+2d10[7,3]+1d8[2] ＞ 97 ＞ 最良成功
