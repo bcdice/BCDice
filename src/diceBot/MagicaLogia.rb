@@ -233,6 +233,7 @@ MESSAGETEXT
 #** 魔素獲得チェック
   def getGainMagicElementText()
     diceList = getDiceList
+    debug("getGainMagicElementText diceList", diceList)
     
     return '' if( diceList.empty? )
 

@@ -70,8 +70,6 @@ class AddDice
       end
     end
     
-    
-    
     if( signOfInequality != "" )
       string += "#{signOfInequality}#{diffText}";
     end

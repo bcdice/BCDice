@@ -12811,7 +12811,7 @@ rand:2/6,2/6
 ============================
 input:2d6>=4	MeikyuKingdom
 output:
-MeikyuKingdom : (2D6>=4) ＞ 8[2,6] ＞ 8 ＞ 成功
+MeikyuKingdom : (2D6>=4) ＞ 8[2,6] ＞ 8 ＞ 成功 (もしくは) 2 ＞ 失敗 ＆ 《気力》1点獲得
 rand:6/6,2/6
 ============================
 input:2d6>=4	MeikyuKingdom
@@ -12821,7 +12821,7 @@ rand:3/6,5/6
 ============================
 input:2d6>=4	MeikyuKingdom
 output:
-MeikyuKingdom : (2D6>=4) ＞ 9[3,6] ＞ 9 ＞ 成功
+MeikyuKingdom : (2D6>=4) ＞ 9[3,6] ＞ 9 ＞ 成功 (もしくは) 3 ＞ 失敗 ＆ 《気力》1点獲得
 rand:3/6,6/6
 ============================
 input:2d6>=4	MeikyuKingdom
@@ -12846,17 +12846,17 @@ rand:2/6,2/6
 ============================
 input:2d6>=9	MeikyuKingdom
 output:
-MeikyuKingdom : (2D6>=9) ＞ 10[4,6] ＞ 10 ＞ 成功
+MeikyuKingdom : (2D6>=9) ＞ 10[4,6] ＞ 10 ＞ 成功 (もしくは) 4 ＞ 失敗 ＆ 《気力》1点獲得
 rand:4/6,6/6
 ============================
 input:2d6>=9	MeikyuKingdom
 output:
-MeikyuKingdom : (2D6>=9) ＞ 8[2,6] ＞ 8 ＞ 失敗
+MeikyuKingdom : (2D6>=9) ＞ 8[2,6] ＞ 8 ＞ 失敗 (もしくは) 2 ＞ 失敗 ＆ 《気力》1点獲得
 rand:6/6,2/6
 ============================
 input:2d6>=9	MeikyuKingdom
 output:
-MeikyuKingdom : (2D6>=9) ＞ 7[1,6] ＞ 7 ＞ 失敗
+MeikyuKingdom : (2D6>=9) ＞ 7[1,6] ＞ 7 ＞ 失敗 (もしくは) 1 ＞ 失敗 ＆ 《気力》1点獲得
 rand:6/6,1/6
 ============================
 input:2d6>=9	MeikyuKingdom
@@ -12866,13 +12866,8 @@ rand:1/6,2/6
 ============================
 input:2d6>=9	MeikyuKingdom
 output:
-MeikyuKingdom : (2D6>=9) ＞ 10[4,6] ＞ 10 ＞ 成功
-rand:4/6,6/6
-============================
-input:2d6>=9	MeikyuKingdom
-output:
-MeikyuKingdom : (2D6>=9) ＞ 10[4,6] ＞ 10 ＞ 成功
-rand:4/6,6/6
+MeikyuKingdom : (2D6>=9) ＞ 12[6,6] ＞ 12 ＞ 絶対成功 ＆ 《気力》2点獲得
+rand:6/6,6/6
 ============================
 input:2d6>=9	MeikyuKingdom
 output:
@@ -12891,7 +12886,7 @@ rand:1/6,2/6
 ============================
 input:2d6>=9	MeikyuKingdom
 output:
-MeikyuKingdom : (2D6>=9) ＞ 11[5,6] ＞ 11 ＞ 成功
+MeikyuKingdom : (2D6>=9) ＞ 11[5,6] ＞ 11 ＞ 成功 (もしくは) 5 ＞ 失敗 ＆ 《気力》1点獲得
 rand:6/6,5/6
 ============================
 input:2d6>=7	MeikyuKingdom
@@ -12921,7 +12916,7 @@ rand:5/6,1/6
 ============================
 input:2d6>=7	MeikyuKingdom
 output:
-MeikyuKingdom : (2D6>=7) ＞ 8[2,6] ＞ 8 ＞ 成功
+MeikyuKingdom : (2D6>=7) ＞ 8[2,6] ＞ 8 ＞ 成功 (もしくは) 2 ＞ 失敗 ＆ 《気力》1点獲得
 rand:6/6,2/6
 ============================
 input:2d6>=7	MeikyuKingdom
@@ -12947,11 +12942,26 @@ rand:5/6,5/6
 input:1MK	MeikyuKingdom
 output:
 MeikyuKingdom : (1R6) ＞ 1
-rand:1/6,1/6
+rand:1/6
 ============================
 input:1MK	MeikyuKingdom
 output:
 MeikyuKingdom : (1R6) ＞ 6
+rand:6/6
+============================
+input:1MK>=2	MeikyuKingdom
+output:
+MeikyuKingdom : (1R6>=2) ＞ 6 ＞ 成功 (もしくは) 0 ＞ 失敗 ＆ 《気力》1点獲得
+rand:6/6
+============================
+input:1MK+1>=2	MeikyuKingdom
+output:
+MeikyuKingdom : (1R6+1>=2) ＞ 6[6]+1 ＞ 7 ＞ 成功 (もしくは) 1 ＞ 失敗 ＆ 《気力》1点獲得
+rand:6/6,6/6
+============================
+input:1MK+2>=2	MeikyuKingdom
+output:
+MeikyuKingdom : (1R6+2>=2) ＞ 6[6]+2 ＞ 8 ＞ 成功 (もしくは) 2 ＞ 成功 ＆ 《気力》1点獲得
 rand:6/6,6/6
 ============================
 input:2MK	MeikyuKingdom
@@ -13053,6 +13063,16 @@ input:2MK+3	MeikyuKingdom
 output:
 MeikyuKingdom : (2R6+3) ＞ 4[2,2]+3 ＞ 7
 rand:2/6,2/6
+============================
+input:2MK+3>=10	MeikyuKingdom
+output:
+MeikyuKingdom : (2R6+3>=10) ＞ 12[6,6]+3 ＞ 15 ＞ 絶対成功 ＆ 《気力》2点獲得
+rand:6/6,6/6
+============================
+input:4MK+3>=10	MeikyuKingdom
+output:
+MeikyuKingdom : (4R6+3>=10) ＞ 12[1,6,6,6]+3 ＞ 15 ＞ 絶対成功 ＆ 《気力》3点獲得
+rand:6/6,6/6,6/6,1/6
 ============================
 input:10MK	MeikyuKingdom
 output:

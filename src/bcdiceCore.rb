@@ -699,7 +699,7 @@ class BCDice
     case arg
       
     when /D66/i
-      # D66ロール検出
+      debug("D66ロール検出")
       if(@diceBot.d66Type != 0)
         output_msg, secret_flg_tmp = d66dice(arg)
         if(output_msg != '1');
@@ -708,7 +708,7 @@ class BCDice
       end
       
     when /[-\d]+D[\d\+\*\-D]+([<>=]+[?\-\d]+)?($|\s)/i
-      # 加算ロール検出
+      debug("加算ロール検出")
       dice = AddDice.new(self, @diceBot)
       output_msg = dice.rollDice(arg)
       if( /S[-\d]+D[\d+-]+/ =~ arg )     # 隠しロール
@@ -716,18 +716,17 @@ class BCDice
         end
       
     when /[\d]+B[\d]+([<>=]+[\d]+)?($|\s)/i
-      # バラバラロール検出
+      debug("バラバラロール検出")
       output_msg = bdice(arg)
       if(/S[\d]+B[\d]+/i =~ arg )   # 隠しロール
         secret_flg = true if(output_msg != '1');
       end
       
-      # 個数振り足しロール検出
     when /(S)?[\d]+R[\d]+/i
-      secretMarker = $1
-      
+      debug("個数振り足しロール検出")
       debug('xRn input arg', arg)
       
+      secretMarker = $1
       output_msg = @diceBot.dice_command_xRn(arg, @nick_e)
       
       if( output_msg.empty? )
@@ -742,7 +741,8 @@ class BCDice
       end
       
     when /[\d]+U[\d]+/
-      # 上方無限ロール検出
+      debug("上方無限ロール検出")
+      
       dice = UpperDice.new(self, @diceBot)
       output_msg = dice.rollDice(arg)
       if( /S[\d]+U[\d]+/ =~ arg )   # 隠しロール
@@ -750,8 +750,8 @@ class BCDice
       end
       
     when /((^|\s)(S)?choise\[[^,]+(,[^,]+)+\]($|\s))/i
-      # 選択コマンド
-      debug(" execute choise")
+      debug("選択コマンド")
+      debug("execute choise")
       
       secretMarker = $3
       output_msg = choise_random($1)
