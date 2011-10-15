@@ -16,42 +16,42 @@ class MeikyuKingdom < DiceBot
   def getHelpMessage
     return <<MESSAGETEXT
 ・迷宮キングダム　　　名前表　(NAMEx) (x:個数)
+・　　　　　　　　　　名前表A　(NAMEA)
+・　　　　　　　　　　名前表B　(NAMEB)
+・　　　　 エキゾチック名前表　(NAMEA)
+・　　　 ファンタジック名前表　(NAMFA)
 ・　　　　　　　　生活散策表　(LRT)
 ・　　　　　　　　治安散策表　(ORT)
 ・　　　　　　　　文化散策表　(CRT)
 ・　　　　　　　　軍事散策表　(ART)
 ・　　　　　　　　　お祭り表　(FRT)
-      sleep 1;
 ・　　　　　　　　才覚休憩表　(TBT)
 ・　　　　　　　　魅力休憩表　(CBT)
 ・　　　　　　　　探索休憩表　(SBT)
 ・　　　　　　　　武勇休憩表　(VBT)
 ・　　　　　　　　お祭休憩表　(FBT)
-      sleep 1;
 ・　　　　　才覚ハプニング表　(THT)
 ・　　　　　魅力ハプニング表　(CHT)
 ・　　　　　探索ハプニング表　(SHT)
 ・　　　　　武勇ハプニング表　(VHT)
-      sleep 1;
 ・　　　　　　　　王国災厄表　(KDT)
 ・　　　　　　　　王国変動表　(KCT)
 ・　　　　　　王国変動失敗表　(KMT)
-      sleep 1;
+・　　　　　　王国名決定表１　(KNT1)
+・　　　　　　王国名決定表２　(KNT2)
+・　　　　　　王国名決定表３　(KNT3)
 ・　　　　　　　　　　痛打表　(CAT)
 ・　　　　　　　　　致命傷表　(FWT)
 ・　　　　　戦闘ファンブル表　(CFT)
-      sleep 1;
 ・　　　　　　　　　　　道中表　(TT)
 ・　　　　　　　　　　　交渉表　(NT)
 ・　　　　　　　　　　　感情表　(ET)
-      sleep 1;
 ・　　　　　　　　　　相場表　　(MPT)
 ・　　　　　　　　　　お宝表１　(T1T)
 ・　　　　　　　　　　お宝表２　(T2T)
 ・　　　　　　　　　　お宝表３　(T3T)
 ・　　　　　　　　　　お宝表４　(T4T)
 ・　　　　　　　　　　お宝表５　(T5T)
-      sleep 1;
 ・　　　　デバイスファクトリー　(DFT)
 ・　　　アイテムカテゴリ決定表　(IDT)
 ・　　　　　　　武具アイテム表　(WIT)
@@ -64,6 +64,10 @@ class MeikyuKingdom < DiceBot
 ・　　　ランダムエンカウント表　(nRET) (nはレベル,1〜6)
 ・　　　　　　　　　地名決定表　(PNTx) (xは個数)
 ・　　　　　　　　　迷宮風景表　(MLTx) (xは個数)
+・　　　　　　　　　　単語表１　(WORD1)
+・　　　　　　　　　　単語表２　(WORD2)
+・　　　　　　　　　　単語表３　(WORD3)
+・　　　　　　　　　　単語表４　(WORD4)
 MESSAGETEXT
   end
   
@@ -81,7 +85,7 @@ MESSAGETEXT
   def dice_command(string, nick_e)
     secret_flg = false
     
-    return '1', secret_flg unless( /(^|\s)(S)?(([LOCAF]RT)|[TCSVF]BT|[TCSV]HT|K[DCM]T|CAT|FWT|CFT|TT|NT|ET|T\dT|NAME\d*|MPT|DFT\d*|IDT\d*|([WLRS]|RW|RU)IT|\dRET|PNT\d*|MLT\d*|IFT)(\s|$)/i =~ string )
+    return '1', secret_flg unless( /(^|\s)(S)?(([LOCAF]RT)|[TCSVF]BT|[TCSV]HT|K[DCM]T|CAT|FWT|CFT|TT|NT|ET|T\dT|NAME\d*|NAME\w+|MPT|DFT\d*|IDT\d*|([WLRS]|RW|RU)IT|\dRET|PNT\d*|MLT\d*|IFT|KNT\d|WORD\d+)(\s|$)/i =~ string )
     
     secretMarker = $2
     output_msg = mayokin_table($3, nick_e);
@@ -191,7 +195,25 @@ MESSAGETEXT
     
     case string
       
-    when /NAME(\d*)/i
+    when /^NAMEA/i
+      debug("namea passed")
+      type = '名前Ａ';
+      total_n = d66(2)
+      output = mk_name_a_table(total_n)
+    when /^NAMEB/i
+      type = '名前Ｂ';
+      total_n = d66(2)
+      output = mk_name_b_table(total_n)
+    when /^NAMEEX/i
+      type = 'エキゾチック名前';
+      total_n = d66(2)
+      output = mk_name_ex_table(total_n)
+    when /^NAMEFA/i
+      type = 'ファンタジック名前';
+      total_n = d66(2)
+      output = mk_name_fa_table(total_n)
+      
+    when /^NAME(\d*)/i
       type = '名前';
       count = getCount($1)
       names = "";
@@ -202,179 +224,208 @@ MESSAGETEXT
       output = names;
       total_n = count;
       
-    when /PNT(\d*)/i
+    when /^PNT(\d*)/i
       type = '地名';
       count = getCount($1)
       output = mk_pn_decide_table(count);
       total_n = count;
       
-    when /MLT(\d*)/i
+    when /^MLT(\d*)/i
       type = '地名';
       count = getCount($1)
       output = mk_ls_decide_table(count);
       total_n = count;
       
-    when /DFT(\d*)/i
+    when /^DFT(\d*)/i
       type = 'デバイスファクトリー';
       count = getCount($1)
       output = mk_device_factory_table(count);
       total_n = count;
       
-    when /LRT/i
+    when /^LRT/i
       type = '生活散策';
       output, total_n = mk_life_research_table
-    when /ORT/i
+    when /^ORT/i
       type = '治安散策';
       output, total_n = mk_order_research_table
-    when /CRT/i
+    when /^CRT/i
       type = '文化散策';
       output, total_n = mk_calture_research_table
-    when /ART/i
+    when /^ART/i
       type = '軍事散策';
       output, total_n = mk_army_research_table
-    when /FRT/i
+    when /^FRT/i
       type = 'お祭り';
       output, total_n = mk_festival_table
       
       # 休憩表(2D6)
-    when /TBT/i
+    when /^TBT/i
       type = '才覚休憩';
       output, total_n = mk_talent_break_table
-    when /CBT/i
+    when /^CBT/i
       type = '魅力休憩';
       output, total_n = mk_charm_break_table
-    when /SBT/i
+    when /^SBT/i
       type = '探索休憩';
       output, total_n = mk_search_break_table
-    when /VBT/i
+    when /^VBT/i
       type = '武勇休憩';
       output, total_n = mk_valor_break_table
-    when /FBT/i
+    when /^FBT/i
       type = 'お祭り休憩';
       output, total_n = mk_festival_break_table
       # ハプニング表(2D6)
-    when /THT/i
+    when /^THT/i
       type = '才覚ハプニング';
       output, total_n = mk_talent_happening_table
-    when /CHT/i
+    when /^CHT/i
       type = '魅力ハプニング';
       output, total_n = mk_charm_happening_table
-    when /SHT/i
+    when /^SHT/i
       type = '探索ハプニング';
       output, total_n = mk_search_happening_table
-    when /VHT/i
+    when /^VHT/i
       type = '武勇ハプニング';
       output, total_n = mk_valor_happening_table
       # お宝表
-    when /MPT/i
+    when /^MPT/i
       type = '相場';
       output, total_n = mk_market_price_table
-    when /T1T/i
+    when /^T1T/i
       type = 'お宝１';
       output, total_n = mk_treasure1_table
-    when /T2T/i
+    when /^T2T/i
       type = 'お宝２';
       output, total_n = mk_treasure2_table
-    when /T3T/i
+    when /^T3T/i
       type = 'お宝３';
       output, total_n = mk_treasure3_table
-    when /T4T/i
+    when /^T4T/i
       type = 'お宝４';
       output, total_n = mk_treasure4_table
-    when /T5T/i
+    when /^T5T/i
       type = 'お宝５';
       output, total_n = mk_treasure5_table
       
       # アイテム表
-    when /RWIT/i
+    when /^RWIT/i
       type = 'レア武具アイテム';
       total_n = d66(1);
       output = mk_rare_weapon_item_table(total_n);
-    when /RUIT/i
+    when /^RUIT/i
       type = 'レア一般アイテム';
       total_n = d66(1);
       output = mk_rare_item_table(total_n);
-    when /WIT/i
+    when /^WIT/i
       type = '武具アイテム';
       total_n = d66(2);
       output = mk_weapon_item_table(total_n);
-    when /LIT/i
+    when /^LIT/i
       type = '生活アイテム';
       total_n = d66(2);
       output = mk_life_item_table(total_n);
-    when /RIT/i
+    when /^RIT/i
       type = '回復アイテム';
       total_n = d66(2);
       output = mk_rest_item_table(total_n);
-    when /SIT/i
+    when /^SIT/i
       type = '探索アイテム';
       total_n = d66(2);
       output = mk_search_item_table(total_n);
-    when /IFT/i
+    when /^IFT/i
       type = 'アイテム特性';
       total_n, dummy = roll(2, 6);
       output = mk_item_features_table(total_n);
-    when /IDT/i
+    when /^IDT/i
       type = 'アイテムカテゴリ決定';
       total_n, dummy = roll(1, 6);
       output = mk_item_decide_table(total_n);
       
       # ランダムエンカウント表
-    when /1RET/i
+    when /^1RET/i
       type = '1Lvランダムエンカウント';
       total_n, dummy = roll(1, 6);
       output = mk_random_encount1_table(total_n);
-    when /2RET/i
+    when /^2RET/i
       type = '2Lvランダムエンカウント';
       total_n, dummy = roll(1, 6);
       output = mk_random_encount2_table(total_n);
-    when /3RET/i
+    when /^3RET/i
       type = '3Lvランダムエンカウント';
       total_n, dummy = roll(1, 6);
       output = mk_random_encount3_table(total_n);
-    when /4RET/i
+    when /^4RET/i
       type = '4Lvランダムエンカウント';
       total_n, dummy = roll(1, 6);
       output = mk_random_encount4_table(total_n);
-    when /5RET/i
+    when /^5RET/i
       type = '5Lvランダムエンカウント';
       total_n, dummy = roll(1, 6);
       output = mk_random_encount5_table(total_n);
-    when /6RET/i
+    when /^6RET/i
       type = '6Lvランダムエンカウント';
       total_n, dummy = roll(1, 6);
       output = mk_random_encount6_table(total_n);
       
       # その他表
-    when/KDT/i
+    when /^KDT/i
       type = '王国災厄';
       output, total_n = mk_kingdom_disaster_table
-    when/KCT/i
+    when /^KCT/i
       type = '王国変動';
       output, total_n = mk_kingdom_change_table
-    when/KMT/i
+    when /^KMT/i
       type = '王国変動失敗';
       output, total_n = mk_kingdom_mischange_table
-    when/CAT/i
+    when /^CAT/i
       type = '痛打';
       output, total_n = mk_critical_attack_table
-    when/FWT/i
+    when /^FWT/i
       type = '致命傷';
       output, total_n = mk_fatal_wounds_table
-    when/CFT/i
+    when /^CFT/i
       type = '戦闘ファンブル';
       output, total_n = mk_combat_fumble_table
-    when/TT/i
+    when /^TT/i
       type = '道中';
       output, total_n = mk_travel_table
-    when/NT/i
+    when /^NT/i
       type = '交渉';
       output, total_n = mk_negotiation_table
-    when/ET/i
+    when /^ET/i
       type = '感情';
       output, total_n = mk_emotion_table
+      
+    when /^KNT(\d+)/i
+      type = '王国名';
+      count = getCount($1)
+      total_n = d66(2)
+      
+      case count
+      when 1
+        output = mk_kingdom_name_1_table(total_n)
+      when 2
+        output = mk_kingdom_name_2_table(total_n)
+      when 3
+        output = mk_kingdom_name_3_table(total_n)
+      end
+      
+    when /^WORD(\d+)/i
+      type = '単語';
+      count = getCount($1)
+      total_n = d66(2)
+      
+      case count
+      when 1
+        output = mk_word_1_table(total_n)
+      when 2
+        output = mk_word_2_table(total_n)
+      when 3
+        output = mk_word_3_table(total_n)
+      when 4
+        output = mk_word_4_table(total_n)
+      end
     end
-
     
     if(output != '1')
       output = "#{nick_e}: #{type}表(#{total_n}) ＞ #{output}";
@@ -1944,6 +1995,207 @@ MESSAGETEXT
       [ 66, '常に揺れている部屋' ],
     ];
     return get_table_by_number(num, table);
+  end
+
+
+  
+  #################
+
+  #**王国名決定表１(D66)
+  def mk_kingdom_name_1_table(num)
+    table = [
+      [11, "暗黒"],
+      [12, "王政"],
+      [13, "超"],
+      [14, "共和制"],
+      [15, "古代"],
+      [16, "社会主義"],
+      [22, "自由"],
+      [23, "新（ネオ）"],
+      [24, "神聖（セント、聖）"],
+      [25, "正統"],
+      [26, "絶対主義"],
+      [33, "大"],
+      [34, "天階"],
+      [35, "深階"],
+      [36, "第三"],
+      [44, "中央"],
+      [45, "帝政"],
+      [46, "統一"],
+      [55, "独立"],
+      [56, "東"],
+      [66, "立憲"],
+    ]
+    return get_table_by_number(num, table)
+  end
+
+  #**王国名決定表２(D66)
+  def mk_kingdom_name_2_table(num)
+    table = [
+      [11, "英雄"],
+      [12, "連合"],
+      [13, "グランドゼロ"],
+      [14, "迷宮（ダンジョン）"],
+      [15, "災厄"],
+      [16, "魔神（デーモン）"],
+      [22, "征服"],
+      [23, "中華"],
+      [24, "ドラゴン（龍）"],
+      [25, "猫"],
+      [26, "バナナ"],
+      [33, "ファンタジー"],
+      [34, "冒険"],
+      [35, "魔法（マジカル）"],
+      [36, "超人"],
+      [44, "無敵"],
+      [45, "路地裏"],
+      [46, "ローマ"],
+      [55, "（好きな単語表で決定）"],
+      [56, "（プレイ会場の地名　例：ネリマ）"],
+      [66, "（国王の名前。後で決定）"],
+    ]
+    return get_table_by_number(num, table)
+  end
+
+  #**王国名決定表３(D66)
+  def mk_kingdom_name_3_table(num)
+    table = [
+      [11, "王国（キングダム）"],
+      [12, "王朝"],
+      [13, "会社（公社）"],
+      [14, "学園（学校）"],
+      [15, "合衆国"],
+      [16, "共同体"],
+      [22, "共和国"],
+      [23, "星"],
+      [24, "公国"],
+      [25, "市（街、シティ、ポリス）"],
+      [26, "自治国"],
+      [33, "植民地"],
+      [34, "帝国"],
+      [35, "同盟"],
+      [36, "首長国"],
+      [44, "幕府"],
+      [45, "領"],
+      [46, "村"],
+      [55, "横丁（亭）"],
+      [56, "ランド"],
+      [66, "連邦"],
+    ]
+    return get_table_by_number(num, table)
+  end
+
+
+  #**単語表１(D66)
+  def mk_word_1_table(num)
+    table = [
+      [11, "魔法"],
+      [12, "おめかし"],
+      [13, "狭いところ"],
+      [14, "夜更かし"],
+      [15, "節約"],
+      [16, "会議"],
+      [22, "ヒゲ"],
+      [23, "孤独"],
+      [24, "自慢話"],
+      [25, "自分探し"],
+      [26, "異性"],
+      [33, "ヒラヒラした服"],
+      [34, "平穏な生活"],
+      [35, "自分語り"],
+      [36, "風呂"],
+      [44, "古いもの"],
+      [45, "頭が悪い人"],
+      [46, "暗闇"],
+      [55, "許嫁"],
+      [56, "民"],
+      [66, "バカ"],
+    ]
+    return get_table_by_number(num, table)
+  end
+
+  #**単語表２(D66)
+  def mk_word_2_table(num)
+    table = [
+      [11, "科学"],
+      [12, "読書"],
+      [13, "広いところ"],
+      [14, "早起き"],
+      [15, "ムダ"],
+      [16, "仕事"],
+      [22, "ハゲ"],
+      [23, "みんなで集まること"],
+      [24, "ナンパ"],
+      [25, "昔話"],
+      [26, "同性"],
+      [33, "武器の手入れ"],
+      [34, "戦争"],
+      [35, "人の噂"],
+      [36, "散髪"],
+      [44, "新しいもの"],
+      [45, "頭がよい人"],
+      [46, "光"],
+      [55, "親"],
+      [56, "王様"],
+      [66, "ホラ話"],
+    ]
+    return get_table_by_number(num, table)
+  end
+
+  #**単語表３(D66)
+  def mk_word_3_table(num)
+    table = [
+      [11, "子供"],
+      [12, "弱い人"],
+      [13, "処刑"],
+      [14, "叙事詩"],
+      [15, "煙草"],
+      [16, "病院"],
+      [22, "目立つこと"],
+      [23, "酒盛り"],
+      [24, "料理"],
+      [25, "武芸"],
+      [26, "田舎"],
+      [33, "自分の国"],
+      [34, "伝統"],
+      [35, "セレモニー"],
+      [36, "告げ口"],
+      [44, "自分の声"],
+      [45, "マヨネーズ"],
+      [46, "おせっかい"],
+      [55, "外国人"],
+      [56, "迷宮"],
+      [66, "ねこみみ"],
+    ]
+    return get_table_by_number(num, table)
+  end
+
+  #**単語表４(D66)
+  def mk_word_4_table(num)
+    table = [
+      [11, "年寄り"],
+      [12, "強い人"],
+      [13, "空想"],
+      [14, "冗談"],
+      [15, "クスリ"],
+      [16, "怪物"],
+      [22, "一騎打ち"],
+      [23, "賭け事"],
+      [24, "歌"],
+      [25, "勉強"],
+      [26, "都会"],
+      [33, "冒険"],
+      [34, "ダイナマイト大帝"],
+      [35, "悪事"],
+      [36, "言い訳"],
+      [44, "隣のキャラのジョブ"],
+      [45, "小鬼"],
+      [46, "謝ること"],
+      [55, "異種族"],
+      [56, "星"],
+      [66, "虫"],
+    ]
+    return get_table_by_number(num, table)
   end
 
 end
