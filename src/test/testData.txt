@@ -7894,6 +7894,11 @@ output:
 Satasupe : NPC表:少年(16):知的な同い年が好き。
 rand:2/6,4/6,2/6,4/6,2/3,49/100
 ============================
+input:2d6	Satasupe
+output:
+Satasupe : (2D6) ＞ 2[1,1] ＞ 2
+rand:1/6,1/6
+============================
 input:Ars1	ArsMagica
 output:
 ArsMagica (1R10[1]) ＞ 9

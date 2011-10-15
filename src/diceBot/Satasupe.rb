@@ -32,20 +32,26 @@ MESSAGETEXT
   end
   
   def dice_command(string, nick_e)
-    output_msg = ''
+    debug("dice_command begin string", string)
+    
+    output_msg = '1'
     secret_flg = false
     
     secretMarker = nil
     case string
     when /((^|\s)(\d+)(S)?R[>=]+(\d+)(\[(\d+)?(,\d+)?\])?($|\s))/i
-      # 判定ロール
+      debug("判定ロール")
       secretMarker = $4
       command = $1.upcase
       output_msg = satasupe_check(command, nick_e);
     when /(^|\s)(S)?(\w+)($|\s)/i
-      # サタスペのチャート処理
+      debug("サタスペのチャート処理")
       secretMarker = $2
-      output_msg = "#{nick_e}: " + satasupe_table($3).join("\n")
+      result = satasupe_table($3)
+      debug("サタスペのチャート処理 result", result)
+      unless( result.empty? )
+        output_msg = "#{nick_e}: " + satasupe_table($3).join("\n")
+      end
     end
     
     return '1', secret_flg if(output_msg == '1');
