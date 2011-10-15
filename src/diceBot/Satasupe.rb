@@ -44,15 +44,15 @@ MESSAGETEXT
       secretMarker = $4
       command = $1.upcase
       output_msg = satasupe_check(command, nick_e);
+      
     when /(^|\s)(S)?(\w+)($|\s)/i
       debug("サタスペのチャート処理")
       secretMarker = $2
       result = satasupe_table($3)
-      debug("サタスペのチャート処理 result", result)
-      unless( result.empty? )
-        output_msg = "#{nick_e}: " + satasupe_table($3).join("\n")
-      end
+      output_msg = "#{nick_e}: " + result.join("\n") unless( result.empty? )
     end
+    
+    debug("Satasupe.dice_command output_msg", output_msg)
     
     return '1', secret_flg if(output_msg == '1');
 

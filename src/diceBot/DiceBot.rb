@@ -108,6 +108,7 @@ class DiceBot
   end
   
   def setDiceText(diceText)
+    debug("setDiceText diceText", diceText)
     @diceText = diceText
   end
   
@@ -211,6 +212,8 @@ class DiceBot
   end
   
   def getDiceList
+    debug("getDiceList @diceText", @diceText)
+    
     diceList = []
     return diceList unless( /\[([\d,]+)\]/ =~ @diceText )
     

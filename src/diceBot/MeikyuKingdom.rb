@@ -101,17 +101,67 @@ MESSAGETEXT
   end
   
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+    result = get2D6Result(total_n, dice_n, signOfInequality, diff)
+    result << getKiryokuResult(total_n, dice_n, signOfInequality, diff)
+    
+    return result
+  end
+  
+  def get2D6Result(total_n, dice_n, signOfInequality, diff)
     return '' unless(signOfInequality == ">=")
     
     if(dice_n <= 2)
       return " ＞ 絶対失敗";
     elsif(dice_n >= 12)
       return " ＞ 絶対成功";
-    elsif(total_n >= diff)
+    end
+    
+    return get2D6ResultOnlySuccess(total_n, diff)
+  end
+  
+  def get2D6ResultOnlySuccess(total_n, diff)
+    if(total_n >= diff)
       return " ＞ 成功";
     end
     
     return " ＞ 失敗";
+  end
+  
+  def getKiryokuResult(total_n, dice_n, signOfInequality, diff)
+    output_msg = ""
+    
+    diceList = getDiceList
+    debug("getKiryokuResult diceList", diceList)
+    
+    dice6List = diceList.find_all{|i| i == 6}
+    debug("dice6List", dice6List)
+    
+    if( dice6List.length == 0 )
+      return output_msg
+    end
+    
+    if( dice6List.length >= 2 )
+      return " ＆ 《気力》#{dice6List.length}点獲得"
+    end
+    
+    diceNone6List = diceList.find_all{|i| i != 6}
+    diceNone6List.sort!
+    debug("diceNone6List", diceNone6List)
+    
+    maxDice1 = diceNone6List.shift.to_i
+    maxDice2 = diceNone6List.shift.to_i
+    debug("maxDice1", maxDice1)
+    debug("maxDice2", maxDice2)
+    
+    none6Total_n = total_n - 6 + maxDice2
+    debug("none6Total_n", none6Total_n)
+    
+    none6Dice_n = maxDice1 + maxDice2
+    debug("none6Dice_n", none6Dice_n)
+    debug("diff", diff)
+    none6DiceReuslt =  get2D6ResultOnlySuccess(none6Total_n, diff)
+    
+    return " (もしくは) #{none6Total_n}#{none6DiceReuslt} ＆ 《気力》#{dice6List.length}点獲得"
   end
   
   
@@ -160,6 +210,7 @@ MESSAGETEXT
     
     total_n = dice_now + bonus;
     dice_str = "[#{dice_str}]";
+    setDiceText(dice_str)
     
     output = "#{dice_now}#{dice_str}";
     if(bonus > 0)
