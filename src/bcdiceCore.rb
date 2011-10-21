@@ -167,7 +167,7 @@ class BCDice
     executePointCounter
     
     # プロット入力処理
-    addPlot(@message)
+    addPlot(@messageOriginal.clone)
     
     
     # ボット終了命令
@@ -476,15 +476,27 @@ class BCDice
     plot = $1;
     
     channel = getPrintPlotChannel(@nick_e);
-    if( channel != "1" )
-      addToSecretDiceResult(plot, @nick_e, channel, 1);
-      sendMessage(channel, "#{@nick_e} さんがプロットしました");
-    else
+    
+    debug('addPlot channel', channel)
+    
+    if( channel.nil? )
+      debug('channel.nil?')
       sendMessageToOnlySender("プロット出力先が登録されていません");
+    else
+      debug('addToSecretDiceResult calling...')
+      addToSecretDiceResult(plot, channel, 1);
+      sendMessage(channel, "#{@nick_e} さんがプロットしました");
     end
     
   end
-
+  
+  
+  def getPrintPlotChannel(nick)
+    nick = getNick(nick)
+    return  $plotPrintChannels[nick]
+  end
+  
+  
   def checkMode()
     return unless( isMaster() )
     
@@ -549,6 +561,7 @@ class BCDice
   def recievePublicMessageCatched(nick_e)
     debug("recievePublicMessageCatched begin nick_e", nick_e)
     debug("recievePublicMessageCatched @channel", @channel)
+    debug("recievePublicMessageCatched @message", @message)
     
     @nick_e = nick_e
     
@@ -556,7 +569,7 @@ class BCDice
     secret_flg = false
     
     if(/(^|\s+)#{$OPEN_PLOT}(\s+|$)/i =~ @message)
-      # プロットの表示
+      #プロットの表示
       printPlot()
     end
     
@@ -601,13 +614,29 @@ class BCDice
     messageList.each do |message|
       if( message.empty?)
         debug("message is empty")
-        setPrintPlotChannel(@channel);
+        setPrintPlotChannel
       else
         debug("message", message)
         sendMessage(@channel, message)
         sleep 1;
       end
     end
+    
+    setPrintPlotChannelIfChannelUndefine
+  end
+  
+  def setPrintPlotChannelIfChannelUndefine
+    return if( isTalkChannel )
+    
+    channel = getPrintPlotChannel(@nick_e);
+    if( channel.nil? )
+      setPrintPlotChannel
+    end
+  end
+  
+  
+  def isTalkChannel
+    (not (/^#/ === @channel))
   end
   
   def printSecretRoll
@@ -625,7 +654,7 @@ class BCDice
     debug("executePointCounterPublic begin")
     
     if(/^#{$READY_CMD}(\s+|$)/i =~ @message)
-      setPrintPlotChannel(@channel);
+      setPrintPlotChannel
       sendMessageToOnlySender("表示チャンネルを設定しました");
       return
     end
@@ -1019,25 +1048,27 @@ class BCDice
     memberKey = getSecretRollMembersHolderKey(channel, mode)
     members = $secretRollMembersHolder[memberKey]
     
-    debug("secretDiceResultHolder", $secretDiceResultHolder)
+    if( members.nil? )
+      debug("openSecretRoll members is nil. messages", messages)
+      return messages
+    end
     
-    if( members )
-      members.each do |member|
-        diceResultKey = getSecretDiceResultHolderKey(channel, mode, member)
-        debug("openSecretRoll diceResulyKey", diceResultKey)
-        
-        diceResult = $secretDiceResultHolder[diceResultKey]
-        debug("openSecretRoll diceResult", diceResult)
-        
-        if( diceResult )
-          messages.push( diceResult )
-          $secretDiceResultHolder.delete(diceResultKey)
-        end
-      end
+    members.each do |member|
+      diceResultKey = getSecretDiceResultHolderKey(channel, mode, member)
+      debug("openSecretRoll diceResulyKey", diceResultKey)
       
-      if(mode <= 0)  # 記録しておいたデータを削除
-        $secretRollMembersHolder.delete(channel)
+      diceResult = $secretDiceResultHolder[diceResultKey]
+      debug("openSecretRoll diceResult", diceResult)
+      
+      if( diceResult )
+        messages.push( diceResult )
+        $secretDiceResultHolder.delete(diceResultKey)
       end
+    end
+    
+    if(mode <= 0)  # 記録しておいたデータを削除
+      debug("delete recorde data")
+      $secretRollMembersHolder.delete(channel)
     end
     
     debug("openSecretRoll result messages", messages)
@@ -1104,21 +1135,11 @@ class BCDice
     return key
   end
   
-  def setPrintPlotChannel(channel)
+  def setPrintPlotChannel
     nick = getNick()
-    $plotPrintChannels[nick] = channel;
+    $plotPrintChannels[nick] = @channel;
   end
 
-  def getPrintPlotChannel(nick)
-    nick = getNick(nick)
-    output = "1";
-
-    if( $plotPrintChannels[nick])
-      output = $plotPrintChannels[nick]
-    end
-    
-    return output;
-  end
 
 #==========================================================================
 #**                            その他の機能
