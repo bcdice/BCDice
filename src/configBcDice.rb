@@ -4,7 +4,7 @@
 $isDebug = false
 
 $KCODE = 'UTF8'# このソースはUTF-8で書かれています
-$version = "2.01.03"
+$version = "2.01.06"
 
 
 $NOTICE_SW = 1;                  # 送信の際に、どちらのコマンドを使うか？(notice=1, msg=0)
@@ -30,6 +30,8 @@ $userName = "v"+ $version           # ユーザー名
 $ircName = "rubydice";              # IRCネーム
 $defaultGameType = ""               #デフォルトゲームタイプ
 $extraCardFileName = ""                #拡張カードファイル名
+
+$iniFileName = 'bcdice.ini'
 
 # この下の記述は内部識別用のため修正の必要無し
 $okResult = '_OK_'

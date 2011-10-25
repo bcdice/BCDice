@@ -6,6 +6,8 @@ require 'wx'
 require 'wx/classes/timer.rb'
 
 require 'bcdiceCore.rb'
+require 'ArgsAnalizer.rb'
+require 'IniFile.rb'
 
 $LOAD_PATH << File.dirname(__FILE__) + "/irc"
 require 'ircLib.rb'
@@ -35,7 +37,13 @@ class BCDiceDialog < Wx::Dialog
   def initialize
     super(nil, -1, 'B&C Dice')
     
+    @iniFile = IniFile.new($iniFileName)
+    
+    analizeArgs
+    
     @allBox = Wx::BoxSizer.new(Wx::VERTICAL)
+    
+    initServerSet
     
     @serverName = createAddedTextInput( $server, "サーバ名" )
     @portNo = createAddedTextInput( $port.to_s, "ポート番号" )
@@ -51,11 +59,14 @@ class BCDiceDialog < Wx::Dialog
     @stopButton = createButton('切断')
     @stopButton.enable(false)
     evt_button(@stopButton.get_id) {|event| on_stop }
-    addCtrlOnLine( @executeButton, @stopButton )
+
+    addCtrlOnLine( @executeButton, @stopButton)
     
     
     addTestTextBoxs
     # initDebugTextBox
+    
+    loadSaveData
     
     set_sizer(@allBox)
     @allBox.set_size_hints(self)
@@ -70,6 +81,108 @@ class BCDiceDialog < Wx::Dialog
       destroy
     end
   end
+  
+  
+  def analizeArgs
+    argsAnalizer = ArgsAnalizer.new(ARGV)
+    @isAnalized = argsAnalizer.analize
+  end
+  
+  def initServerSet
+    @serverSetChoise = Wx::ComboBox.new(self, -1, 
+                                        :size => Wx::Size.new(250, 25))
+    
+    serverSetNameList = loadServerSetNameList
+    serverSetNameList.each_with_index do |name, index|
+      @serverSetChoise.insert( name, index )
+    end
+    
+    evt_combobox(@serverSetChoise.get_id) { |event| on_load }
+
+    @saveButton = createButton('この設定で保存')
+    evt_button(@saveButton.get_id) {|event| on_save }
+    
+    @deleteButton = createButton('この設定を削除')
+    evt_button(@deleteButton.get_id) {|event| on_delete }
+    
+    addCtrl(@serverSetChoise, "設定", @saveButton, @deleteButton)
+  end
+  
+  def loadServerSetNameList
+    sectionNames = @iniFile.getSectionNames
+    serverSetNameList = []
+    
+    sectionNames.each do |name|
+      if( /#{@@serverSertPrefix}(.+)/ === name )
+        serverSetNameList << $1
+      end
+    end
+    
+    return serverSetNameList
+  end
+  
+  def on_load
+    serverSet = @serverSetChoise.get_value
+    debug( 'on_load serverSet', serverSet )
+    
+    sectionName = getServerSetSectionName(serverSet)
+    
+    loadTextValueFromIniFile(sectionName, "serverName", @serverName)
+    loadTextValueFromIniFile(sectionName, "portNo", @portNo)
+    loadTextValueFromIniFile(sectionName, "channel", @channel)
+    loadTextValueFromIniFile(sectionName, "nickName", @nickName)
+    loadTextValueFromIniFile(sectionName, "extraCardFileText", @extraCardFileText)
+    loadTextValueFromIniFile(sectionName, "ircCodeText", @ircCodeText)
+  end
+  
+  def loadTextValueFromIniFile(section, key, input)
+    debug('loadTextValueFromIniFile begin')
+    value = @iniFile.read(section, key)
+    debug('value', value)
+    
+    return if( value.nil? )
+    
+    input.set_value( value )
+  end
+  
+  @@serverSertPrefix = "ServerSet_"
+  
+  def getServerSetSectionName(serverSet)
+    return "#{@@serverSertPrefix}#{serverSet}"
+  end
+  
+
+  def on_save
+    debug( 'on_save begin')
+    serverSet = @serverSetChoise.get_value
+    debug( 'on_save serverSet', serverSet )
+    
+    sectionName = getServerSetSectionName(serverSet)
+    debug( 'sectionName', sectionName )
+    
+    saveTextValueToIniFile(sectionName, "serverName", @serverName)
+    saveTextValueToIniFile(sectionName, "portNo", @portNo)
+    saveTextValueToIniFile(sectionName, "channel", @channel)
+    saveTextValueToIniFile(sectionName, "nickName", @nickName)
+    saveTextValueToIniFile(sectionName, "extraCardFileText", @extraCardFileText)
+    saveTextValueToIniFile(sectionName, "ircCodeText", @ircCodeText)
+  end
+  
+  def saveTextValueToIniFile(section, key, input)
+    value = input.get_value
+    @iniFile.write(section, key, value)
+  end
+  
+  def on_delete
+    serverSet = @serverSetChoise.get_value
+    sectionName = getServerSetSectionName(serverSet)
+    
+    @iniFile.deleteSection(sectionName)
+    
+    index = @serverSetChoise.get_current_selection
+    @serverSetChoise.delete( index )
+  end
+  
   
   def createButton(labelText)
     Wx::Button.new(self, -1, labelText)
@@ -341,7 +454,15 @@ ZettaiReido
       @ircBot.setGameByTitle( type )
     end
   end
+  
+  
+  def loadSaveData
+    index = 0
+    @serverSetChoise.set_selection(index)
+  end
+  
 end
+
 
 
 def mainBcDiceGui
