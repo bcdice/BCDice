@@ -11,19 +11,27 @@ class ArgsAnalizer
   attr :isStartIrc
   
   def analize
+    isAnalized = false
+    
     @args.each do |arg|
-      analizeArg(arg)
+      result = analizeArg(arg)
       analizeArgForTest(arg)
+      
+      if( result )
+        isAnalized = true
+      end
     end
+    
+    return isAnalized
   end
   
   def analizeArg(arg)
-    return unless( /^-([scngmeir])(.+)$/i =~ arg )
+    return false unless( /^-([scngmeir])(.+)$/i =~ arg )
     
-    @command = $1.downcase
+    command = $1.downcase
     @param = $2
     
-    case @command
+    case command
     when "s"
       setServer
     when "c"
@@ -38,7 +46,11 @@ class ArgsAnalizer
       readExtraCard
     when "i"
       setIrcServerCharacterCode
+    else
+      return false
     end
+    
+    return true
   end
   
   
@@ -50,7 +62,7 @@ class ArgsAnalizer
   end
   
   def setChannel
-    $defaultLoginChannelsText = decode(CHARCODE, @param)
+    $defaultLoginChannelsText = decode($ircCode, @param)
   end
   
   def setNick
