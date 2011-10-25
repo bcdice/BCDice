@@ -92,10 +92,7 @@ class BCDiceDialog < Wx::Dialog
     @serverSetChoise = Wx::ComboBox.new(self, -1, 
                                         :size => Wx::Size.new(250, 25))
     
-    serverSetNameList = loadServerSetNameList
-    serverSetNameList.each_with_index do |name, index|
-      @serverSetChoise.insert( name, index )
-    end
+    initServerSetChoiseList
     
     evt_combobox(@serverSetChoise.get_id) { |event| on_load }
 
@@ -106,6 +103,17 @@ class BCDiceDialog < Wx::Dialog
     evt_button(@deleteButton.get_id) {|event| on_delete }
     
     addCtrl(@serverSetChoise, "設定", @saveButton, @deleteButton)
+  end
+  
+  
+  def initServerSetChoiseList
+    @serverSetChoise.clear()
+    
+    list = loadServerSetNameList
+    
+    list.each_with_index do |name, index|
+      @serverSetChoise.insert( name, index )
+    end
   end
   
   def loadServerSetNameList
@@ -166,6 +174,8 @@ class BCDiceDialog < Wx::Dialog
     saveTextValueToIniFile(sectionName, "nickName", @nickName)
     saveTextValueToIniFile(sectionName, "extraCardFileText", @extraCardFileText)
     saveTextValueToIniFile(sectionName, "ircCodeText", @ircCodeText)
+    
+    initServerSetChoiseList
   end
   
   def saveTextValueToIniFile(section, key, input)
@@ -179,8 +189,7 @@ class BCDiceDialog < Wx::Dialog
     
     @iniFile.deleteSection(sectionName)
     
-    index = @serverSetChoise.get_current_selection
-    @serverSetChoise.delete( index )
+    initServerSetChoiseList
   end
   
   
