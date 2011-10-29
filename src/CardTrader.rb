@@ -5,9 +5,6 @@ require 'configBcDice.rb'
 
 $ircNickRegExp = '[A-Za-z\d\-\[\]\\\'^{}_]+';
 
-print("#--*-coding:utf-8-*--\n");
-
-
 class CardTrader
   
   def initialize

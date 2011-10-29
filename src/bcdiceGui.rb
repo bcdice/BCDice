@@ -339,7 +339,7 @@ ZettaiReido
     
     addCtrlOnLine( label, @testInput, @testButton )
     
-    size = Wx::Size.new(400, 150)
+    size = Wx::Size.new(500, 150)
     @testOutput = Wx::TextCtrl.new(self, -1, "", 
                                   :style => Wx::TE_MULTILINE,
                                   :size => size)
@@ -424,14 +424,17 @@ ZettaiReido
   def startIrcBot
     @ircBot = getInitializedIrcBot()
     
-    func = Proc.new{destroy}
-    @ircBot.setQuitFuction(func)
+    @ircBot.setQuitFuction( Proc.new{destroy} )
+    @ircBot.setPrintFuction( Proc.new{|message| printText(message) } )
     
     startIrcBotOnThread
     startThreadTimer
   end
   
   def startIrcBotOnThread
+    
+    printText("connect to IRC server.")
+    
     ircThread = Thread.new do
       begin
         @ircBot.start
@@ -449,6 +452,11 @@ ZettaiReido
     end
   end
   
+  def printText(message)
+    # Wx::message_box(message.inspect, 'bcdice')
+    @testOutput.append_text( "#{message}\r\n" )
+  end
+  
   def on_stop
     return if( @ircBot.nil? )
     
@@ -456,6 +464,8 @@ ZettaiReido
     
     @executeButton.enable(true)
     @stopButton.enable(false)
+    
+    printText("IRC disconnected.")
   end
   
   def setAllGames(ircBot)
