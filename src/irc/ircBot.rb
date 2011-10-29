@@ -35,25 +35,27 @@ class IrcClient < Net::IRC::Client
     @room = room
   end
   
-  def on_rpl_welcome(message)
-    p '==>on_rpl_welcome'
-    post JOIN, @room.encode($ircCode).force_encoding_maybe('external')
-  end
-  
-  
   def setGameByTitle(game_type)
     bcdice = newBcDice()
     bcdice.setGameByTitle(game_type)
   end
   
   def on_connected(*args)
+    printText( '  -> IRC server is connected.' )
+    
     channelNames = @loginChannelList.join(',')
     channelNames = encode($ircCode, channelNames)
     
-    debug_out("Joining #{channelNames} ...\n");
-    
     join(channelNames);
     topic(channelNames);
+    
+    printText( "login to channels(#{channelNames}), so wait a moment..." )
+  end
+  
+  
+  def on_rpl_welcome(message)
+    printText( '  -> login to channel successed.' )
+    post JOIN, @room.encode($ircCode).force_encoding_maybe('external')
   end
   
   
@@ -169,6 +171,63 @@ class IrcClient < Net::IRC::Client
   
   def getArg(event)
     arg = event.params[1].toutf8
+  end
+  
+  def setPrintFuction(func)
+    @printFunction = func
+  end
+  
+  def printText(text)
+    return if( @printFunction.nil? )
+    
+    @printFunction.call(text)
+  end
+  
+  #正常な「切断」処理時にもエラーが検出される。対処法が不明のため現状コメントアウト
+=begin
+  def on_error(*args)
+    debug_out("on_error begin, args", args.inspect)
+    sendMessage( args.inspect )
+  end
+=end
+  
+  def on_err_nicknameinuse(event)
+    debug_out("on_err_nicknameinuse being !")
+    debug_out("@opts.nick", @opts.nick)
+    
+    oldNick = @opts.nick
+    newNick = getNewNick(oldNick)
+    @opts.nick = newNick
+    debug_out("newNick", newNick)
+    
+    printText( "  -> nick \"#{oldNick}\" is already used, so change \"#{oldNick}\" -> \"#{newNick}\"" )
+    
+    post NICK, @opts.nick
+  end
+  
+  def getNewNick(nick)
+    debug_out("getNewNick nick", nick)
+    
+    @nickIndex ||= 1
+    @nickIndex += 1
+    @log.debug("@nickIndex:#{@nickIndex}")
+    
+    nickIndexText = sprintf("%d", @nickIndex)
+    @log.debug("nickIndexText:#{nickIndexText}")
+    
+    newNick = nick + nickIndexText
+    diff = newNick.length - $ircNickMaxLength
+    @log.debug("newNick:#{newNick}, newNick.length#{newNick.length}")
+    @log.debug("diff:#{diff}")
+    
+    if( diff > 0 )
+      nickBase = nick[0...(diff * -1)]
+      @log.debug("getNewNick nickBase:#{nickBase}")
+      newNick = nickBase + nickIndexText
+    end
+    
+    @log.debug("newNick:#{newNick}")
+    return newNick
   end
 
 =begin

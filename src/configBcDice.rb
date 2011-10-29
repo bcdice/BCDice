@@ -1,6 +1,8 @@
 #!/bin/ruby -Ku 
 #--*-coding:utf-8-*--
 
+require 'configBcDiceForSystem.rb'
+
 $isDebug = false
 
 $KCODE = 'UTF8'# このソースはUTF-8で書かれています
@@ -32,8 +34,4 @@ $defaultGameType = ""               #デフォルトゲームタイプ
 $extraCardFileName = ""                #拡張カードファイル名
 
 $iniFileName = 'bcdice.ini'
-
-# この下の記述は内部識別用のため修正の必要無し
-$okResult = '_OK_'
-$ngResult = '_NG_'
 
