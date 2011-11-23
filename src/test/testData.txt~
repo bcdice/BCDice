@@ -25031,13 +25031,3 @@ rand:55/100
 input:2d6もけけ	diceBot
 output:
 rand:1/100
-============================
-input:1D20+1	diceBot
-output:
-diceBot : (1D20+1) ＞ 1[1]+1 ＞ 2
-rand:1/20
-============================
-input:1D20+0	diceBot
-output:
-diceBot : (1D20+0) ＞ 1[1]+0 ＞ 1
-rand:1/20,1/100

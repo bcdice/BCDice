@@ -50,9 +50,11 @@ class AddDice
       subtractTextList.each_with_index do |subtractText, index|
         next if( subtractText.empty? )
         
+        debug("begin rollDiceAddingUp(subtractText, isCheckSuccess)", subtractText, isCheckSuccess)
         dice_now, dice_n_wk, dice_str, n1_wk, n_max_wk, cnt_wk, max_wk = rollDiceAddingUp(subtractText, isCheckSuccess);
+        debug("end rollDiceAddingUp(subtractText, isCheckSuccess) -> dice_now", dice_now)
         
-        return "1" if(dice_now <= 0)
+        #return "1" if(dice_now <= 0)
         
         rate = (index == 0 ? 1 : -1)
         
