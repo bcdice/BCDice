@@ -601,52 +601,52 @@ rand:5/6,5/6,1/6,5/6
 ============================
 input:Sk10-1	SwordWorld
 output:
-SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[2,6]=8 ＞ 4-1 ＞ 3
+SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[2,6]=8 ＞ 4-1 ＞ 3###secret dice###
 rand:2/6,6/6
 ============================
 input:Sk10-1	SwordWorld
 output:
-SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[3,2]=5 ＞ 2-1 ＞ 1
+SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[3,2]=5 ＞ 2-1 ＞ 1###secret dice###
 rand:3/6,2/6
 ============================
 input:Sk10-1	SwordWorld
 output:
-SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[3,5]=8 ＞ 4-1 ＞ 3
+SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[3,5]=8 ＞ 4-1 ＞ 3###secret dice###
 rand:3/6,5/6
 ============================
 input:Sk10-1	SwordWorld
 output:
-SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[4,5]=9 ＞ 5-1 ＞ 4
+SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[4,5]=9 ＞ 5-1 ＞ 4###secret dice###
 rand:4/6,5/6
 ============================
 input:Sk10-1	SwordWorld
 output:
-SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[1,3]=4 ＞ 1-1 ＞ 0
+SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[1,3]=4 ＞ 1-1 ＞ 0###secret dice###
 rand:1/6,3/6
 ============================
 input:Sk10-1	SwordWorld
 output:
-SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[6,5 4,4]=11,8 ＞ 6,4-1 ＞ 9 ＞ 1回転
+SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[6,5 4,4]=11,8 ＞ 6,4-1 ＞ 9 ＞ 1回転###secret dice###
 rand:6/6,5/6,4/6,4/6
 ============================
 input:Sk10-1	SwordWorld
 output:
-SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[4,5]=9 ＞ 5-1 ＞ 4
+SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[4,5]=9 ＞ 5-1 ＞ 4###secret dice###
 rand:4/6,5/6
 ============================
 input:Sk10-1	SwordWorld
 output:
-SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[1,3]=4 ＞ 1-1 ＞ 0
+SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[1,3]=4 ＞ 1-1 ＞ 0###secret dice###
 rand:1/6,3/6
 ============================
 input:Sk10-1	SwordWorld
 output:
-SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[3,3]=6 ＞ 3-1 ＞ 2
+SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[3,3]=6 ＞ 3-1 ＞ 2###secret dice###
 rand:3/6,3/6
 ============================
 input:Sk10-1	SwordWorld
 output:
-SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[4,6 5,3]=10,8 ＞ 5,4-1 ＞ 8 ＞ 1回転
+SwordWorld : KeyNo.10c[10]-1 ＞ 2D:[4,6 5,3]=10,8 ＞ 5,4-1 ＞ 8 ＞ 1回転###secret dice###
 rand:4/6,6/6,5/6,3/6
 ============================
 input:k10+5+2	SwordWorld
@@ -1746,52 +1746,52 @@ rand:4/10,8/10,8/10,3/10,9/10,1/10,8/10,10/10,5/10,1/10
 ============================
 input:Ssr10	Chill
 output:
-Chill : (SSR10:4d10*2, 4d10) ＞ (9,2,4,10)*2, 5,6,5,8 ＞ 25*2, 24 ＞ スタミナ損失50, 負傷24
+Chill : (SSR10:4d10*2, 4d10) ＞ (9,2,4,10)*2, 5,6,5,8 ＞ 25*2, 24 ＞ スタミナ損失50, 負傷24###secret dice###
 rand:9/10,2/10,4/10,10/10,5/10,6/10,5/10,8/10
 ============================
 input:Ssr10	Chill
 output:
-Chill : (SSR10:4d10*2, 4d10) ＞ (3,10,5,6)*2, 7,3,2,9 ＞ 24*2, 21 ＞ スタミナ損失48, 負傷21
+Chill : (SSR10:4d10*2, 4d10) ＞ (3,10,5,6)*2, 7,3,2,9 ＞ 24*2, 21 ＞ スタミナ損失48, 負傷21###secret dice###
 rand:3/10,10/10,5/10,6/10,7/10,3/10,2/10,9/10
 ============================
 input:Ssr10	Chill
 output:
-Chill : (SSR10:4d10*2, 4d10) ＞ (6,5,5,6)*2, 1,5,1,9 ＞ 22*2, 16 ＞ スタミナ損失44, 負傷16
+Chill : (SSR10:4d10*2, 4d10) ＞ (6,5,5,6)*2, 1,5,1,9 ＞ 22*2, 16 ＞ スタミナ損失44, 負傷16###secret dice###
 rand:6/10,5/10,5/10,6/10,1/10,5/10,1/10,9/10
 ============================
 input:Ssr10	Chill
 output:
-Chill : (SSR10:4d10*2, 4d10) ＞ (7,5,4,1)*2, 9,2,7,7 ＞ 17*2, 25 ＞ スタミナ損失34, 負傷25
+Chill : (SSR10:4d10*2, 4d10) ＞ (7,5,4,1)*2, 9,2,7,7 ＞ 17*2, 25 ＞ スタミナ損失34, 負傷25###secret dice###
 rand:7/10,5/10,4/10,1/10,9/10,2/10,7/10,7/10
 ============================
 input:Ssr10	Chill
 output:
-Chill : (SSR10:4d10*2, 4d10) ＞ (7,1,1,3)*2, 8,7,5,8 ＞ 12*2, 28 ＞ スタミナ損失24, 負傷28
+Chill : (SSR10:4d10*2, 4d10) ＞ (7,1,1,3)*2, 8,7,5,8 ＞ 12*2, 28 ＞ スタミナ損失24, 負傷28###secret dice###
 rand:7/10,1/10,1/10,3/10,8/10,7/10,5/10,8/10
 ============================
 input:Ssr10	Chill
 output:
-Chill : (SSR10:4d10*2, 4d10) ＞ (4,4,10,6)*2, 7,7,5,10 ＞ 24*2, 29 ＞ スタミナ損失48, 負傷29
+Chill : (SSR10:4d10*2, 4d10) ＞ (4,4,10,6)*2, 7,7,5,10 ＞ 24*2, 29 ＞ スタミナ損失48, 負傷29###secret dice###
 rand:4/10,4/10,10/10,6/10,7/10,7/10,5/10,10/10
 ============================
 input:Ssr10	Chill
 output:
-Chill : (SSR10:4d10*2, 4d10) ＞ (7,9,3,1)*2, 1,7,5,1 ＞ 20*2, 14 ＞ スタミナ損失40, 負傷14
+Chill : (SSR10:4d10*2, 4d10) ＞ (7,9,3,1)*2, 1,7,5,1 ＞ 20*2, 14 ＞ スタミナ損失40, 負傷14###secret dice###
 rand:7/10,9/10,3/10,1/10,1/10,7/10,5/10,1/10
 ============================
 input:Ssr10	Chill
 output:
-Chill : (SSR10:4d10*2, 4d10) ＞ (6,10,2,7)*2, 5,8,8,2 ＞ 25*2, 23 ＞ スタミナ損失50, 負傷23
+Chill : (SSR10:4d10*2, 4d10) ＞ (6,10,2,7)*2, 5,8,8,2 ＞ 25*2, 23 ＞ スタミナ損失50, 負傷23###secret dice###
 rand:6/10,10/10,2/10,7/10,5/10,8/10,8/10,2/10
 ============================
 input:Ssr10	Chill
 output:
-Chill : (SSR10:4d10*2, 4d10) ＞ (2,1,8,1)*2, 6,1,8,9 ＞ 12*2, 24 ＞ スタミナ損失24, 負傷24
+Chill : (SSR10:4d10*2, 4d10) ＞ (2,1,8,1)*2, 6,1,8,9 ＞ 12*2, 24 ＞ スタミナ損失24, 負傷24###secret dice###
 rand:2/10,1/10,8/10,1/10,6/10,1/10,8/10,9/10
 ============================
 input:Ssr10	Chill
 output:
-Chill : (SSR10:4d10*2, 4d10) ＞ (9,4,5,3)*2, 7,8,9,4 ＞ 21*2, 28 ＞ スタミナ損失42, 負傷28
+Chill : (SSR10:4d10*2, 4d10) ＞ (9,4,5,3)*2, 7,8,9,4 ＞ 21*2, 28 ＞ スタミナ損失42, 負傷28###secret dice###
 rand:9/10,4/10,5/10,3/10,7/10,8/10,9/10,4/10
 ============================
 input:SR1	Chill
@@ -2901,52 +2901,52 @@ rand:2/6,5/6
 ============================
 input:Surge2	DemonParasite
 output:
-DemonParasite : 衝動表2-8:『忍耐』肉体を傷つけて衝動に耐えた。５ダメージ。[経験値10点]
+DemonParasite : 衝動表2-8:『忍耐』肉体を傷つけて衝動に耐えた。５ダメージ。[経験値10点]###secret dice###
 rand:6/6,2/6
 ============================
 input:Surge2	DemonParasite
 output:
-DemonParasite : 衝動表2-4:『残忍』殺意、破壊衝動が一瞬増す。戦闘中ならば次のターンに行われる「攻撃」行動の達成値に+5。[経験値20点]
+DemonParasite : 衝動表2-4:『残忍』殺意、破壊衝動が一瞬増す。戦闘中ならば次のターンに行われる「攻撃」行動の達成値に+5。[経験値20点]###secret dice###
 rand:2/6,2/6
 ============================
 input:Surge2	DemonParasite
 output:
-DemonParasite : 衝動表2-8:『忍耐』肉体を傷つけて衝動に耐えた。５ダメージ。[経験値10点]
+DemonParasite : 衝動表2-8:『忍耐』肉体を傷つけて衝動に耐えた。５ダメージ。[経験値10点]###secret dice###
 rand:5/6,3/6
 ============================
 input:Surge2	DemonParasite
 output:
-DemonParasite : 衝動表2-8:『忍耐』肉体を傷つけて衝動に耐えた。５ダメージ。[経験値10点]
+DemonParasite : 衝動表2-8:『忍耐』肉体を傷つけて衝動に耐えた。５ダメージ。[経験値10点]###secret dice###
 rand:4/6,4/6
 ============================
 input:Surge2	DemonParasite
 output:
-DemonParasite : 衝動表2-4:『残忍』殺意、破壊衝動が一瞬増す。戦闘中ならば次のターンに行われる「攻撃」行動の達成値に+5。[経験値20点]
+DemonParasite : 衝動表2-4:『残忍』殺意、破壊衝動が一瞬増す。戦闘中ならば次のターンに行われる「攻撃」行動の達成値に+5。[経験値20点]###secret dice###
 rand:2/6,2/6
 ============================
 input:Surge2	DemonParasite
 output:
-DemonParasite : 衝動表2-7:『我慢』衝動を我慢した。何も起こらない。[経験値0点]
+DemonParasite : 衝動表2-7:『我慢』衝動を我慢した。何も起こらない。[経験値0点]###secret dice###
 rand:3/6,4/6
 ============================
 input:Surge2	DemonParasite
 output:
-DemonParasite : 衝動表2-2:『茫然』思考が止まり、このターンの終了まで「攻撃」行動を行えない。回避行動に影響はない。[経験値20点]
+DemonParasite : 衝動表2-2:『茫然』思考が止まり、このターンの終了まで「攻撃」行動を行えない。回避行動に影響はない。[経験値20点]###secret dice###
 rand:1/6,1/6
 ============================
 input:Surge2	DemonParasite
 output:
-DemonParasite : 衝動表2-4:『残忍』殺意、破壊衝動が一瞬増す。戦闘中ならば次のターンに行われる「攻撃」行動の達成値に+5。[経験値20点]
+DemonParasite : 衝動表2-4:『残忍』殺意、破壊衝動が一瞬増す。戦闘中ならば次のターンに行われる「攻撃」行動の達成値に+5。[経験値20点]###secret dice###
 rand:2/6,2/6
 ============================
 input:Surge2	DemonParasite
 output:
-DemonParasite : 衝動表2-3:『激怒』側にいるもの(生物、物体問わず)が憎く、殴る。変身後ならば次のターンの終了まで、すべての命中判定+5、回避判定-5。[経験値20点]
+DemonParasite : 衝動表2-3:『激怒』側にいるもの(生物、物体問わず)が憎く、殴る。変身後ならば次のターンの終了まで、すべての命中判定+5、回避判定-5。[経験値20点]###secret dice###
 rand:1/6,2/6
 ============================
 input:Surge2	DemonParasite
 output:
-DemonParasite : 衝動表2-6:『抑制』衝動を抑え込んだ。何も起こらない。[経験値0点]
+DemonParasite : 衝動表2-6:『抑制』衝動を抑え込んだ。何も起こらない。[経験値0点]###secret dice###
 rand:1/6,5/6
 ============================
 input:URGE1	DemonParasite
@@ -3601,52 +3601,52 @@ rand:6/6,6/6
 ============================
 input:Surge2	Parasite Blood
 output:
-Parasite Blood : 衝動表2-6:『限界/10』溢れる力が限界を超え、全身の血管が破裂。【エナジー】を5消費。
+Parasite Blood : 衝動表2-6:『限界/10』溢れる力が限界を超え、全身の血管が破裂。【エナジー】を5消費。###secret dice###
 rand:4/6,2/6
 ============================
 input:Surge2	Parasite Blood
 output:
-Parasite Blood : 衝動表2-10:『我慢/ 0』衝動を我慢した。影響なし。
+Parasite Blood : 衝動表2-10:『我慢/ 0』衝動を我慢した。影響なし。###secret dice###
 rand:5/6,5/6
 ============================
 input:Surge2	Parasite Blood
 output:
-Parasite Blood : 衝動表2-5:『落涙/10』過去の悲しい想い出が去来し、涙が溢れる。そのターンの終了まで[タイミング:準備]を行えない。
+Parasite Blood : 衝動表2-5:『落涙/10』過去の悲しい想い出が去来し、涙が溢れる。そのターンの終了まで[タイミング:準備]を行えない。###secret dice###
 rand:2/6,3/6
 ============================
 input:Surge2	Parasite Blood
 output:
-Parasite Blood : 衝動表2-7:『辛抱/10』突如全身が〈悪魔化〉しようとしたが、意思の力で抑制。【エナジー】を5消費。〈悪魔化〉時は影響なし。
+Parasite Blood : 衝動表2-7:『辛抱/10』突如全身が〈悪魔化〉しようとしたが、意思の力で抑制。【エナジー】を5消費。〈悪魔化〉時は影響なし。###secret dice###
 rand:6/6,1/6
 ============================
 input:Surge2	Parasite Blood
 output:
-Parasite Blood : 衝動表2-11:『嫉妬/10』最も近くの対象に猛烈な嫉妬を感じ、[距離:移動10m/対象:1体]に通常肉弾攻撃を行う。
+Parasite Blood : 衝動表2-11:『嫉妬/10』最も近くの対象に猛烈な嫉妬を感じ、[距離:移動10m/対象:1体]に通常肉弾攻撃を行う。###secret dice###
 rand:6/6,5/6
 ============================
 input:Surge2	Parasite Blood
 output:
-Parasite Blood : 衝動表2-6:『限界/10』溢れる力が限界を超え、全身の血管が破裂。【エナジー】を5消費。
+Parasite Blood : 衝動表2-6:『限界/10』溢れる力が限界を超え、全身の血管が破裂。【エナジー】を5消費。###secret dice###
 rand:3/6,3/6
 ============================
 input:Surge2	Parasite Blood
 output:
-Parasite Blood : 衝動表2-8:『忍耐/ 0』衝動に耐えた。影響なし。
+Parasite Blood : 衝動表2-8:『忍耐/ 0』衝動に耐えた。影響なし。###secret dice###
 rand:6/6,2/6
 ============================
 input:Surge2	Parasite Blood
 output:
-Parasite Blood : 衝動表2-8:『忍耐/ 0』衝動に耐えた。影響なし。
+Parasite Blood : 衝動表2-8:『忍耐/ 0』衝動に耐えた。影響なし。###secret dice###
 rand:5/6,3/6
 ============================
 input:Surge2	Parasite Blood
 output:
-Parasite Blood : 衝動表2-4:『苦痛/20』"悪魔寄生体"が体内で暴れる。苦痛を感じ、【エナジー】を10消費。
+Parasite Blood : 衝動表2-4:『苦痛/20』"悪魔寄生体"が体内で暴れる。苦痛を感じ、【エナジー】を10消費。###secret dice###
 rand:1/6,3/6
 ============================
 input:Surge2	Parasite Blood
 output:
-Parasite Blood : 衝動表2-10:『我慢/ 0』衝動を我慢した。影響なし。
+Parasite Blood : 衝動表2-10:『我慢/ 0』衝動を我慢した。影響なし。###secret dice###
 rand:4/6,6/6
 ============================
 input:URGE1	Parasite Blood

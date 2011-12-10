@@ -97,6 +97,7 @@ class CgiDiceBot
     bcdice.setIrcClient(self)
     bcdice.setRandomValues(@rands)
     bcdice.isKeepSecretDice(false)
+    bcdice.setTest(@isTest)
     
     bcdice.setGameByTitle( gameType )
     bcdice.setMessage(message)
