@@ -693,11 +693,19 @@ class BCDice
     # 隠しロール
     return if( output_msg == "1" )
     
+    if( @isTest )
+      output_msg << "###secret dice###"
+    end
+    
     broadmsg(output_msg, @nick_e);
     
     if( @isKeepSecretDice )
       addToSecretDiceResult(output_msg, @channel, 0);
     end
+  end
+  
+  def setTest(isTest)
+    @isTest = isTest
   end
   
   def executeCard

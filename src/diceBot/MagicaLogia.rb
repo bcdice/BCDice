@@ -36,9 +36,8 @@ MESSAGETEXT
     secret_flg = false
     
     return '1', secret_flg unless( /((^|\s)(S)?([SFWAC]|FC|BG|DA|FA|WI|RT)T($|\s))/i =~ string )
-
-#add herer
-    secretMarker = $2
+    
+    secretMarker = $3
     command = $1.upcase
     @nick = nick_e
     output_msg = magicalogia_table(command)
