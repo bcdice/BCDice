@@ -96,9 +96,9 @@ MESSAGETEXT
       type = '異形アビリティー';
       count = $1.to_i
       count = 1 if(count == 0)
-debug('count', count)
+      debug('count', count)
       output, total_n = hm_strange_ability_table(count);
-debug('SAT output', output)
+      debug('SAT output', output)
       
     when /TST/i
       type = '指定特技(社会)';
@@ -128,41 +128,6 @@ debug('SAT output', output)
     
     output = "#{nick_e}: #{type}表(#{total_n}) ＞ #{output}";
     return output;
-  end
-  
-  
-  def get_table_by_1d6(table)
-    num, dummy = roll(1, 6);
-    
-    text = table[num - 1]
-    
-    return '1', 0 if( text.nil? )
-    return text, num
-  end
-  
-  
-  def get_table_by_2d6(table)
-    num, dummy = roll(2, 6);
-    
-    text = table[num - 2]
-    
-    return '1',0  if( text.nil? )
-    return text, num
-  end
-  
-  
-  def get_table_by_d66(table)
-    dice1, dummy = roll(1, 6);
-    dice2, dummy = roll(1, 6);
-    
-    num = (dice1 - 1) * 6 + (dice2 - 1);
-    
-    text = table[num]
-    
-    indexText = "#{dice1}#{dice2}"
-    
-    return '1', indexText  if( text.nil? )
-    return text, indexText
   end
   
   
