@@ -139,15 +139,15 @@ class BCDiceDialog < Wx::Dialog
     loadTextValueFromIniFile(sectionName, "portNo", @portNo)
     loadTextValueFromIniFile(sectionName, "channel", @channel)
     loadTextValueFromIniFile(sectionName, "nickName", @nickName)
+    loadChoiseValueFromIniFile(sectionName, "gameType", @gameType)
     loadTextValueFromIniFile(sectionName, "extraCardFileText", @extraCardFileText)
     loadTextValueFromIniFile(sectionName, "ircCodeText", @ircCodeText)
+    
+    @iniFile.write("default", "serverSet", serverSet)
   end
   
   def loadTextValueFromIniFile(section, key, input)
-    debug('loadTextValueFromIniFile begin')
     value = @iniFile.read(section, key)
-    debug('value', value)
-    
     return if( value.nil? )
     
     input.set_value( value )
@@ -159,6 +159,13 @@ class BCDiceDialog < Wx::Dialog
     return "#{@@serverSertPrefix}#{serverSet}"
   end
   
+  def loadChoiseValueFromIniFile(section, key, choise)
+    value = @iniFile.read(section, key)
+    return if( value.nil? )
+    
+    setChoiseText(choise, value)
+  end
+  
 
   def on_save
     debug( 'on_save begin')
@@ -168,18 +175,18 @@ class BCDiceDialog < Wx::Dialog
     sectionName = getServerSetSectionName(serverSet)
     debug( 'sectionName', sectionName )
     
-    saveTextValueToIniFile(sectionName, "serverName", @serverName)
-    saveTextValueToIniFile(sectionName, "portNo", @portNo)
-    saveTextValueToIniFile(sectionName, "channel", @channel)
-    saveTextValueToIniFile(sectionName, "nickName", @nickName)
-    saveTextValueToIniFile(sectionName, "extraCardFileText", @extraCardFileText)
-    saveTextValueToIniFile(sectionName, "ircCodeText", @ircCodeText)
+    saveTextValueToIniFile(sectionName, "serverName", @serverName.get_value)
+    saveTextValueToIniFile(sectionName, "portNo", @portNo.get_value)
+    saveTextValueToIniFile(sectionName, "channel", @channel.get_value)
+    saveTextValueToIniFile(sectionName, "nickName", @nickName.get_value)
+    saveTextValueToIniFile(sectionName, "gameType", @gameType.get_string_selection)
+    saveTextValueToIniFile(sectionName, "extraCardFileText", @extraCardFileText.get_value)
+    saveTextValueToIniFile(sectionName, "ircCodeText", @ircCodeText.get_value)
     
     initServerSetChoiseList
   end
   
-  def saveTextValueToIniFile(section, key, input)
-    value = input.get_value
+  def saveTextValueToIniFile(section, key, value)
     @iniFile.write(section, key, value)
   end
   
@@ -261,11 +268,19 @@ class BCDiceDialog < Wx::Dialog
     
     @gameType.insert( "NonTitle", 0 )
     
-    index = gameTypes.index($defaultGameType)
-    index ||= 0
-    @gameType.set_selection(index)
+    setChoiseText(@gameType, $defaultGameType) 
     
     evt_choice(@gameType.get_id) { |event| onChoiseGame }
+  end
+  
+  def setChoiseText(choise, text)
+    index = choise.find_string(text)
+    
+    if( index == -1 )
+      index = 0
+    end
+    
+    return choise.set_selection(index)
   end
   
   def getAllGameTypes
@@ -476,8 +491,13 @@ ZettaiReido
   
   
   def loadSaveData
-    index = 0
-    @serverSetChoise.set_selection(index)
+    serverName = @iniFile.read("default", "serverSet")
+    if( serverName.nil? )
+      @serverSetChoise.set_selection(0)
+    else
+      setChoiseText(@serverSetChoise, serverName)
+    end
+    on_load
   end
   
 end
