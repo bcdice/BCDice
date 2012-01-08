@@ -1702,6 +1702,10 @@ class BCDice
       require 'diceBot/HuntersMoon'
       diceBot = HuntersMoon.new
       message = 'Game設定をハンターズ・ムーンに設定しました'
+    when /(^|\s)(Blood\s*Crusade|BC)$/i
+      require 'diceBot/BloodCrusade'
+      diceBot = BloodCrusade.new
+      message = 'Game設定をブラッド・クルセイドに設定しました'
     when /(^|\s)(Meikyu\s*Kingdom|MK)$/i
       require 'diceBot/MeikyuKingdom'
       diceBot = MeikyuKingdom.new

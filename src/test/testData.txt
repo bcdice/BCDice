@@ -12799,6 +12799,116 @@ output:
 HuntersMoon : 指定特技(環境)表(7) ＞ 追う
 rand:1/6,6/6
 ============================
+input:2d6>=4	BloodCrusade
+output:
+BloodCrusade : (2D6>=4) ＞ 9[3,6] ＞ 9 ＞ 成功
+rand:3/6,6/6
+============================
+input:2d6>=10	BloodCrusade
+output:
+BloodCrusade : (2D6>=10) ＞ 9[3,6] ＞ 9 ＞ 失敗
+rand:3/6,6/6
+============================
+input:2d6>=4	BloodCrusade
+output:
+BloodCrusade : (2D6>=4) ＞ 2[1,1] ＞ 2 ＞ ファンブル(【モラル】3減少。加えて狩人の戦闘フェイズなら吸血鬼に1行動追加)
+rand:1/6,1/6
+============================
+input:2d6>=4	BloodCrusade
+output:
+BloodCrusade : (2D6>=4) ＞ 12[6,6] ＞ 12 ＞ スペシャル(【モラル】3上昇。加えて狩人の戦闘フェイズの攻撃判定ならダメージに1D6追加)
+rand:6/6,6/6
+============================
+input:RT	BloodCrusade
+output:
+BloodCrusade : 関係属性表(1) ＞ 共感/不信
+rand:1/6
+============================
+input:RT	BloodCrusade
+output:
+BloodCrusade : 関係属性表(6) ＞ 保護欲/殺意
+rand:6/6
+============================
+input:ST	BloodCrusade
+output:
+BloodCrusade : シーン表(2) ＞ どこまでも広がる荒野。風が吹き抜けていく。
+rand:1/6,1/6
+============================
+input:ST	BloodCrusade
+output:
+BloodCrusade : シーン表(12) ＞ 高い塔の上。都市を一望できる。
+rand:6/6,6/6
+============================
+input:IST	BloodCrusade
+output:
+BloodCrusade : 先制判定指定特技表(1) ＞ 《自信/社会5》
+rand:1/6
+============================
+input:IST	BloodCrusade
+output:
+BloodCrusade : 先制判定指定特技表(6) ＞ 《心臓/胴部7》
+rand:6/6
+============================
+input:BRT	BloodCrusade
+output:
+BloodCrusade : 身体部位決定表(2) ＞ 《脳》
+rand:1/6,1/6
+============================
+input:BRT	BloodCrusade
+output:
+BloodCrusade : 身体部位決定表(12) ＞ 《心臓》
+rand:6/6,6/6
+============================
+input:CHT	BloodCrusade
+output:
+BloodCrusade : 自信幸福表(1) ＞ 【戦闘能力】あなたは吸血鬼狩人としての自分の戦闘能力に自信を持っています。たとえ負けようとも、それは運か相手か仲間が悪かったので、あなたの戦闘能力が低いわけではありません。
+rand:1/6
+============================
+input:CHT	BloodCrusade
+output:
+BloodCrusade : 自信幸福表(6) ＞ 【長生き】あなたは吸血鬼狩人としてかなりの年月を過ごしてきたが、まだ死んでいません。これは誇るべきことです。そこらの若造には、まだまだ負けていません。
+rand:6/6
+============================
+input:SHT	BloodCrusade
+output:
+BloodCrusade : 地位幸福表(1) ＞ 【役職】あなたは職場、あるいは吸血鬼狩人の組織のなかで高い階級についています。そのため、下にいるものには命令でき、相応の敬意を払われます。
+rand:1/6
+============================
+input:SHT	BloodCrusade
+output:
+BloodCrusade : 地位幸福表(6) ＞ 【リーダー】あなたは所属している何らかの組織を率いる立場にあります。会社の社長や、部活動の部長などです。あなたは求められてその地位にあります
+rand:6/6
+============================
+input:DHT	BloodCrusade
+output:
+BloodCrusade : 日常幸福表(1) ＞ 【家】あなたの家はとても快適な空間です。コストと時間をかけて作り上げられた、あなたが居住するための空間。それはあなたの幸せの源なのです。
+rand:1/6
+============================
+input:DHT	BloodCrusade
+output:
+BloodCrusade : 日常幸福表(6) ＞ 【思い出】あなたは昔の思い出を心の支えにしています。何らかの幸せな記憶……それがあれば、この先にどんなつらいことが待っていても大丈夫でしょう。
+rand:6/6
+============================
+input:LHT	BloodCrusade
+output:
+BloodCrusade : 人脈幸福表(1) ＞ 【理解ある家族】あなたの家族は、あなたが吸血鬼狩人であることを知ったうえで協力してくれます。これがどれほど稀なことかは、仲間に聞けば分かるでしょう。
+rand:1/6
+============================
+input:LHT	BloodCrusade
+output:
+BloodCrusade : 人脈幸福表(6) ＞ 【可愛い子供】あなたには子供がいます。聡明で魅力的、しかも健康な……将来を嘱望される子供です。子供が掴む幸せな未来を思う時、あなたの顔には笑みが広がります。
+rand:6/6
+============================
+input:EHT	BloodCrusade
+output:
+BloodCrusade : 退路幸福表(1) ＞ 【故郷の町】あなたは生まれ育った街を離れて吸血鬼狩人として活動しています。いつの日かあの町へ帰る……その思いがあなたを戦いのなかで支えています。
+rand:1/6
+============================
+input:EHT	BloodCrusade
+output:
+BloodCrusade : 退路幸福表(6) ＞ 【空想の王国】あなたには辛いことがあると白昼夢にふける、あるいは物語に没入する癖があり、そのときには非常に幸せな気分になることができます。
+rand:6/6
+============================
 input:2d6>=4	MeikyuKingdom
 output:
 MeikyuKingdom : (2D6>=4) ＞ 4[1,3] ＞ 4 ＞ 成功

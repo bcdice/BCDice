@@ -175,6 +175,21 @@ class DiceBot
   end
   
   
+  def get_table_by_d66(table)
+    dice1, dummy = roll(1, 6);
+    dice2, dummy = roll(1, 6);
+    
+    num = (dice1 - 1) * 6 + (dice2 - 1);
+    
+    text = table[num]
+    
+    indexText = "#{dice1}#{dice2}"
+    
+    return '1', indexText  if( text.nil? )
+    return text, indexText
+  end
+  
+  
   
   #ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
   def getDiceRolledAdditionalText(n1, n_max, dice_max)
