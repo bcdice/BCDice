@@ -288,6 +288,7 @@ class BCDiceDialog < Wx::Dialog
 Arianrhod
 ArsMagica
 BarnaKronika
+BloodCrusade
 ChaosFlare
 Chill
 Cthulhu
