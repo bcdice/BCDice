@@ -21,6 +21,7 @@ class ChaosFlare < DiceBot
         end
       else
         output += " ＞ 失敗";
+        output += " ＞ 差分値#{total_n-diff}"
       end
     end
     

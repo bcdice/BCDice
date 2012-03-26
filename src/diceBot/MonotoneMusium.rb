@@ -63,21 +63,22 @@ MESSAGETEXT
     return output unless(/(^|\s)2D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?(\s|$)/i =~ string)
     modText = $2
     target = $3.to_i
-    $crit = $5.to_i if($5)
-    $fumble = $7.to_i if($7)
+    crit = $5.to_i if($5)
+    fumble = $7.to_i if($7)
     
     mod = 0;
     mod = parren_killer("(0#{modText})") unless( modText.nil? )
     
     total, dice_str, dummy = roll(2, 6, @sortType && 1)
+    total_n = total + mod.to_i
     
-    output = "#{total}[#{dice_str}]"
+    output = "#{total}[#{dice_str}]＋#{mod} → #{total_n}"
     
     if(total >= crit)
       output += " ＞ 自動成功";
     elsif(total <= fumble)
       output += " ＞ 自動失敗";
-    elsif(total >= target)
+    elsif(total_n >= target)
       output += " ＞ 成功";
     else
       output += " ＞ 失敗";
@@ -86,6 +87,7 @@ MESSAGETEXT
     output = "#{nick_e}: (#{string}) ＞ #{output}"
     
     return output;
+    
   end
   
   
