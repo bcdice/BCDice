@@ -48,7 +48,7 @@ class RerollDice
     
     debug("diff", diff)
     
-    n1_total = 0;
+    numberSpot1 = 0;
     dice_cnt_total =0;
     dice_max = 0
     
@@ -62,7 +62,7 @@ class RerollDice
         output += "," if(output != "");
         output += dice_dat[1];
         next_roll += dice_dat[6];
-        n1_total += dice_dat[2];
+        numberSpot1 += dice_dat[2];
         dice_cnt_total += dice_cnt;
       else
         successCount = 0;
@@ -93,7 +93,7 @@ class RerollDice
     output = "#{output2}#{output} ＞ 成功数#{successCount}";
     string += "[#{rerollNumber}]#{signOfInequality}#{diff}";
     debug("string", string)
-    output += @diceBot.getGrichText(n1_total, dice_cnt_total, successCount)
+    output += @diceBot.getGrichText(numberSpot1, dice_cnt_total, successCount)
     
     output = "#{@nick_e}: (#{string}) ＞ #{output}";
     

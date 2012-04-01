@@ -23623,6 +23623,86 @@ output:
 RuneQuest : (1D100<=50) ＞ 11 ＞ 成功
 rand:11/100
 ============================
+input:1B6>=5	ShadowRun4
+output:
+ShadowRun4 : (1B6>=5) ＞ 1 ＞ 成功数0 ＞ クリティカルグリッチ
+rand:1/6
+============================
+input:1B6>=5	ShadowRun4
+output:
+ShadowRun4 : (1B6>=5) ＞ 2 ＞ 成功数0
+rand:2/6
+============================
+input:1B6>=5	ShadowRun4
+output:
+ShadowRun4 : (1B6>=5) ＞ 3 ＞ 成功数0
+rand:3/6
+============================
+input:1B6>=5	ShadowRun4
+output:
+ShadowRun4 : (1B6>=5) ＞ 4 ＞ 成功数0
+rand:4/6
+============================
+input:1B6>=5	ShadowRun4
+output:
+ShadowRun4 : (1B6>=5) ＞ 5 ＞ 成功数1
+rand:5/6
+============================
+input:1B6>=5	ShadowRun4
+output:
+ShadowRun4 : (1B6>=5) ＞ 6 ＞ 成功数1
+rand:6/6
+============================
+input:2B6	ShadowRun4
+output:
+ShadowRun4 : (2B6>=5) ＞ 2,6 ＞ 成功数1
+rand:6/6,2/6
+============================
+input:2B6	ShadowRun4
+output:
+ShadowRun4 : (2B6>=5) ＞ 3,4 ＞ 成功数0
+rand:3/6,4/6
+============================
+input:2B6	ShadowRun4
+output:
+ShadowRun4 : (2B6>=5) ＞ 1,2 ＞ 成功数0 ＞ クリティカルグリッチ
+rand:2/6,1/6
+============================
+input:2B6	ShadowRun4
+output:
+ShadowRun4 : (2B6>=5) ＞ 1,5 ＞ 成功数1 ＞ グリッチ
+rand:1/6,5/6
+============================
+input:1R6	ShadowRun4
+output:
+ShadowRun4 : (1R6[6]>=5) ＞ 1 ＞ 成功数0 ＞ クリティカルグリッチ
+rand:1/6,2/6
+============================
+input:1R6	ShadowRun4
+output:
+ShadowRun4 : (1R6[6]>=5) ＞ 2 ＞ 成功数0
+rand:2/6
+============================
+input:1R6	ShadowRun4
+output:
+ShadowRun4 : (1R6[6]>=5) ＞ 3 ＞ 成功数0
+rand:3/6
+============================
+input:1R6	ShadowRun4
+output:
+ShadowRun4 : (1R6[6]>=5) ＞ 4 ＞ 成功数0
+rand:4/6
+============================
+input:1R6	ShadowRun4
+output:
+ShadowRun4 : (1R6[6]>=5) ＞ 5 ＞ 成功数1
+rand:5/6
+============================
+input:1R6	ShadowRun4
+output:
+ShadowRun4 : (1R6[6]>=5) ＞ 6 + 1 ＞ 成功数1
+rand:6/6,1/6
+============================
 input:2R6	ShadowRun4
 output:
 ShadowRun4 : (2R6[6]>=5) ＞ 3,6 + 5 ＞ 成功数2
