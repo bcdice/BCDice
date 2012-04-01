@@ -222,7 +222,7 @@ class DiceBot
   end
   
   #シャドウラン4版用グリッチ判定
-  def getGrichText(n1_total, dice_cnt_total, suc)
+  def getGrichText(numberSpot1, dice_cnt_total, suc)
     ''
   end
   

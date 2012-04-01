@@ -10196,7 +10196,7 @@ $conn->add_global_handler(353, \&on_names);
 
 
 if( $isTestDiceBot ) {
-    open(TEST_DICEBOT_RESULT_FILE, '> testData.txt');
+    open(TEST_DICEBOT_RESULT_FILE, '> testData_base.txt');
 }
 
 sub recordTestResult {

@@ -814,7 +814,7 @@ class BCDice
     
     total = 0;
     dice_str = "";
-    cnt1 = 0;
+    numberSpot1 = 0;
     cnt_max = 0;
     n_max = 0;
     cnt_suc = 0;
@@ -880,7 +880,7 @@ class BCDice
           dice_result.push( dice_now )
         end
         
-        cnt1 += 1 if( dice_now == 1 );
+        numberSpot1 += 1 if( dice_now == 1 );
         cnt_max += 1 if( dice_now == dice_max );
         n_max = dice_now if( dice_now > n_max);
       end
@@ -891,7 +891,7 @@ class BCDice
         dice_str = dice_result.join(",");
       end
       
-      return total, dice_str, cnt1, cnt_max, n_max, cnt_suc, cnt_re;
+      return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, cnt_re;
     end
   end
   
@@ -969,7 +969,7 @@ class BCDice
     
     dice_a = string.split(/\+/)
     dice_cnt_total = 0;
-    n1_total = 0;
+    numberSpot1 = 0;
     
     dice_a.each do |dice_o|
       dice_cnt, dice_max, = dice_o.split(/[bB]/)
@@ -980,14 +980,14 @@ class BCDice
       suc += dice_dat[5];
       output += "," if(output != "");
       output += dice_dat[1];
-      n1_total += dice_dat[2];
+      numberSpot1 += dice_dat[2];
       dice_cnt_total += dice_cnt;
     end
     
     if(signOfInequality != "")
       string += "#{signOfInequality}#{diff}";
       output = "#{output} ＞ 成功数#{suc}";
-      output += @diceBot.getGrichText(n1_total, dice_cnt_total, suc)
+      output += @diceBot.getGrichText(numberSpot1, dice_cnt_total, suc)
     end
     output = "#{@nick_e}: (#{string}) ＞ #{output}";
     

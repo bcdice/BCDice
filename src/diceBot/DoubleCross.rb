@@ -145,7 +145,7 @@ MESSAGETEXT
     bonus_ttl = 0
     bonus_ttl = parren_killer( "(#{bonus_str})").to_i if(bonus_str != "");
     
-    n1_total = 0;
+    numberSpot1 = 0;
     dice_cnt_total =0;
     
     dice_cmd.each do |dice_o|
@@ -154,7 +154,7 @@ MESSAGETEXT
       dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, roll_re);
       output += "," if(output != "");
       next_roll += dice_dat[6];
-      n1_total += dice_dat[2];
+      numberSpot1 += dice_dat[2];
       dice_cnt_total += dice_cnt;
       if(dice_dat[6] > 0)   # リロール時の特殊処理
         if(dice_max == 10)
@@ -179,7 +179,7 @@ MESSAGETEXT
         output = "";
         dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, roll_re);
         round += 1
-        #               n1_total += dice_dat[2];
+        #               numberSpot1 += dice_dat[2];
         dice_cnt_total += dice_cnt;
         dice_cnt = dice_dat[6];
         if(dice_dat[6] > 0)   # リロール時の特殊処理
@@ -213,11 +213,11 @@ MESSAGETEXT
     end
     
     if(signOfInequality != "")   # 成功度判定処理
-      output += check_suc(total_n, 0, signOfInequality, diff, dice_cnt_total, dice_max, n1_total, 0);
+      output += check_suc(total_n, 0, signOfInequality, diff, dice_cnt_total, dice_max, numberSpot1, 0);
     else     # 目標値無し判定
       if(round <= 0) 
         if(dice_max == 10) 
-          if(n1_total >= dice_cnt_total) 
+          if(numberSpot1 >= dice_cnt_total) 
             output += " ＞ ファンブル";
           end
         end

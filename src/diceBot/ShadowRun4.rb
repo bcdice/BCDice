@@ -21,17 +21,26 @@ class ShadowRun4 < DiceBot
     return string
   end
   
+  
   #シャドウラン4版用グリッチ判定
-  def getGrichText(n1_total, dice_cnt_total, successCount)
-    if( n1_total >= (dice_cnt_total / 2) )     # グリッチ！
-      if( successCount != 0 ) 
-        return ' ＞ グリッチ';
-      else
-        return ' ＞ クリティカルグリッチ';
-      end
+  def getGrichText(numberSpot1, dice_cnt_total, successCount)
+    debug("getGrichText numberSpot1", numberSpot1)
+    debug("dice_cnt_total", dice_cnt_total)
+    debug("successCount", successCount)
+    
+    dice_cnt_total_half = (1.0 * dice_cnt_total / 2)
+    debug("dice_cnt_total_half", dice_cnt_total_half)
+    
+    unless( numberSpot1 >= dice_cnt_total_half )
+      return ''
     end
     
-    return ''
+    # グリッチ！
+    if( successCount == 0 ) 
+      return ' ＞ クリティカルグリッチ';
+    end
+      
+    return ' ＞ グリッチ';
   end
   
 end
