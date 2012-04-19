@@ -26,30 +26,30 @@ require 'configBcDice.rb'
 
 class TableFileData
   
-  def initialize
-    @tableData = Hash.new
-    @dir = "./extratables"
-    
-    readFiles()
+  @@dir = "./extratables"
+  
+  def self.setDir(dir)
+    @@dir = dir
   end
   
-  def readFiles
+  def initialize
+    @tableData = Hash.new
+    
     searchTableFileDefine
-    return  if( @tableData.empty? )
   end
   
   def searchTableFileDefine
-    return if( not File.exist?(@dir) )
-    return if( not File.directory?(@dir) )
+    return if( not File.exist?(@@dir) )
+    return if( not File.directory?(@@dir) )
     
-    files = Dir.glob("#{@dir}/*.txt")
+    files = Dir.glob("#{@@dir}/*.txt")
     
     files.each do |fileName|
       command, info = readGameCommandInfo(fileName)
       @tableData[command] = info
     end
   end
-  
+
   def readGameCommandInfo(fileName)
     fileBase = File.basename(fileName, ".txt")
     
@@ -60,10 +60,13 @@ class TableFileData
       gameType = ""
     end
     
+    
     info = {
       "gameType" => gameType,
       "command" => command,
     }
+    
+    debug("readGameCommandInfo info", info)
     
     return command, info
   end
@@ -74,9 +77,16 @@ class TableFileData
     return unless( oneTableData["data"].nil? )
     
     command = oneTableData["command"]
+    gameType = oneTableData["gameType"]
     return if( command.nil? )
     
-    fileName = "#{@dir}/#{command}.txt"
+    fileName = 
+      if( gameType.nil? )
+        "#{@@dir}/#{command}.txt"
+      else
+        fileName = "#{@@dir}/#{gameType}_#{command}.txt"
+      end
+    
     debug("readOneTableData fileName", fileName)
     return if( not File.exist?(fileName) )
     
@@ -131,6 +141,9 @@ class TableFileData
   
   
   def getTableData(arg, targetGameType)
+    debug("getTableData arg", arg)
+    debug("getTableData targetGameType", targetGameType)
+    
     oneTableData = nil
     isSecret = false
     
@@ -149,7 +162,7 @@ class TableFileData
     end
     
     readOneTableData(oneTableData)
-    debug("oneTableData", oneTableData)
+    debug("getTableData result oneTableData", oneTableData)
     
     return oneTableData, isSecret
   end

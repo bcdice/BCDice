@@ -13,7 +13,7 @@ $LOAD_PATH << File.dirname(__FILE__) + "/irc"
 require 'ircLib.rb'
 require 'ircBot.rb'
 
-$isDebug = false
+$isDebug = true
 
 class BCDiceGuiApp < Wx::App
   private
@@ -64,7 +64,7 @@ class BCDiceDialog < Wx::Dialog
     
     
     addTestTextBoxs
-    # initDebugTextBox
+    initDebugTextBox
     
     loadSaveData
     
