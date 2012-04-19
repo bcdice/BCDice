@@ -66,6 +66,7 @@ class BCDiceMaker
     @cardTrader.initValues;
     
     @counterInfos = {};
+    @tableFileData = TableFileData.new
     
     @master = "";
     @quitFunction = nil
@@ -76,7 +77,7 @@ class BCDiceMaker
   attr_accessor :diceBot
   
   def newBcDice
-    bcdice = BCDice.new(self, @cardTrader, @diceBot, @counterInfos)
+    bcdice = BCDice.new(self, @cardTrader, @diceBot, @counterInfos, @tableFileData)
     
     return bcdice
   end
@@ -86,7 +87,7 @@ end
 
 class BCDice
   
-  def initialize(parent, cardTrader, diceBot, counterInfos)
+  def initialize(parent, cardTrader, diceBot, counterInfos, tableFileData)
     @parent = parent
     
     setDiceBot(diceBot)
@@ -94,6 +95,7 @@ class BCDice
     @cardTrader = cardTrader
     @cardTrader.setBcDice(self)
     @counterInfos = counterInfos
+    @tableFileData = tableFileData
     
     @nick_e = ""
     @tnick = ""
@@ -728,12 +730,7 @@ class BCDice
     output_msg = '1';
     secret_flg = false;
     
-    begin
-      output_msg, secret_flg = getTableDataResult(arg)
-    rescue => e
-      debug("error " + e.to_s + $@.join("\n"))
-    end
-    
+    output_msg, secret_flg = getTableDataResult(arg)
     if(output_msg != '1');
       return output_msg, secret_flg
     end
@@ -819,13 +816,14 @@ class BCDice
     output_msg = '1'
     secret_flg = false
     
-    @tableFileData = TableFileData.new
     tableData, secret_flg = @tableFileData.getTableData(arg, @diceBot.gameType)
     
     if( tableData.nil? )
       debug("tableData is null")
       return output_msg, secret_flg
     end
+    
+    debug("tableData", tableData)
     
     dice = tableData["dice"]
     title = tableData["title"]
