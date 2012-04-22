@@ -41,7 +41,7 @@ MESSAGETEXT
   def dice_command(string, nick_e)
     secret_flg = false
     
-    return '1', secret_flg unless( /((^|\s)(S)?([CMDTNKG]|TK|GA|KY|JB|AK|NT|DX|HL|CL|PL)?([SFEGWBM]|RT)T($|\s))/i =~ string )
+    return '1', secret_flg unless( /((^|\s)(S)?(ST|FT|ET|WT|BT|CST|MST|DST|TST|NST|KST|TKST|GST|GWT|GAST|KYST|JBST|KFT|KWT|MT|RTT)($|\s))/i =~ string )
     
     secretMarker = $3
     command = $1.upcase

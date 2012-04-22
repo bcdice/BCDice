@@ -62,9 +62,8 @@ class CgiDiceBot
     "#{param}\t"
   end
   
-  
-  def roll(message, gameType)
-    executeDiceBot(message, gameType)
+  def roll(message, gameType, dir = nil)
+    executeDiceBot(message, gameType, dir)
     
     rollResult = @rollResult
     @rollResult = ""
@@ -90,7 +89,7 @@ class CgiDiceBot
     @rands = rands
   end
   
-  def executeDiceBot(message, gameType)
+  def executeDiceBot(message, gameType, dir = nil)
     bcdiceMarker = BCDiceMaker.new
     bcdice = bcdiceMarker.newBcDice()
     
@@ -98,6 +97,7 @@ class CgiDiceBot
     bcdice.setRandomValues(@rands)
     bcdice.isKeepSecretDice(false)
     bcdice.setTest(@isTest)
+    bcdice.setDir(dir)
     
     bcdice.setGameByTitle( gameType )
     bcdice.setMessage(message)
@@ -106,6 +106,15 @@ class CgiDiceBot
     nick_e = ""
     bcdice.setChannel(channel)
     bcdice.recievePublicMessage(nick_e)
+  end
+  
+  def getGameCommandInfos(dir)
+    require 'TableFileData'
+    
+    tableFileData = TableFileData.new
+    tableFileData.setDir(dir)
+    infos = tableFileData.getGameCommandInfos
+    return infos
   end
   
   def sendMessage(to, message)

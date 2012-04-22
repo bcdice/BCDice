@@ -27,30 +27,45 @@ require 'configBcDice.rb'
 class TableFileData
   
   @@dir = "./extratables"
-  
-  def self.setDir(dir)
-    @@dir = dir
-  end
+  @@tableDataCommon = nil
   
   def initialize
-    @tableData = Hash.new
+    initTableDataCommon
     
-    searchTableFileDefine
+    @tableData = Hash.new
+    @tableData.merge!( @@tableDataCommon.clone )
   end
   
-  def searchTableFileDefine
-    return if( not File.exist?(@@dir) )
-    return if( not File.directory?(@@dir) )
-    
-    files = Dir.glob("#{@@dir}/*.txt")
-    
-    files.each do |fileName|
-      command, info = readGameCommandInfo(fileName)
-      @tableData[command] = info
+  def initTableDataCommon
+    if( @@tableDataCommon.nil? )
+      @@tableDataCommon = searchTableFileDefine(@@dir)
     end
   end
+  
+  def setDir(dir)
+    tableData = searchTableFileDefine(dir)
+    @tableData.merge!( tableData )
+  end
+  
+  def searchTableFileDefine(dir)
+    tableData = Hash.new
+    
+    return tableData if( dir.nil? )
+    return tableData if( not File.exist?(dir) )
+    return tableData if( not File.directory?(dir) )
+    
+    files = Dir.glob("#{dir}/*.txt")
+    
+    files.each do |fileName|
+      fileName = fileName.untaint
+      command, info = readGameCommandInfo(fileName, dir)
+      tableData[command] = info
+    end
+    
+    return tableData
+  end
 
-  def readGameCommandInfo(fileName)
+  def readGameCommandInfo(fileName, dir)
     fileBase = File.basename(fileName, ".txt")
     
     gameType, command = fileBase.split("_")
@@ -62,6 +77,7 @@ class TableFileData
     
     
     info = {
+      "dir" => dir,
       "gameType" => gameType,
       "command" => command,
     }
@@ -71,20 +87,36 @@ class TableFileData
     return command, info
   end
   
+  def getGameCommandInfos
+    commandInfos = []
+    
+    @tableData.each do |command, info|
+      commandInfo = {
+        "gameType" => info['gameType'],
+        "command" => info['command']
+      }
+      
+      commandInfos << commandInfo
+    end
+    
+    return commandInfos
+  end
+  
   
   def readOneTableData(oneTableData)
     return if( oneTableData.nil? )
     return unless( oneTableData["data"].nil? )
     
+    dir = oneTableData["dir"]
     command = oneTableData["command"]
     gameType = oneTableData["gameType"]
     return if( command.nil? )
     
     fileName = 
       if( gameType.nil? )
-        "#{@@dir}/#{command}.txt"
+        "#{dir}/#{command}.txt"
       else
-        fileName = "#{@@dir}/#{gameType}_#{command}.txt"
+        fileName = "#{dir}/#{gameType}_#{command}.txt"
       end
     
     debug("readOneTableData fileName", fileName)
