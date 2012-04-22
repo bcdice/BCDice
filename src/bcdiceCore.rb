@@ -104,6 +104,10 @@ class BCDice
     @isKeepSecretDice = true
   end
   
+  def setDir(dir)
+    @tableFileData.setDir(dir)
+  end
+  
   def isKeepSecretDice(b)
     @isKeepSecretDice = b
   end
@@ -730,11 +734,6 @@ class BCDice
     output_msg = '1';
     secret_flg = false;
     
-    output_msg, secret_flg = getTableDataResult(arg)
-    if(output_msg != '1');
-      return output_msg, secret_flg
-    end
-    
     output_msg, secret_flg = @diceBot.dice_command(@message, @nick_e)
     return output_msg, secret_flg if( output_msg != '1' )
     
@@ -802,6 +801,9 @@ class BCDice
       if( secretMarker )   # 隠しロール
         secret_flg = true if(output_msg != '1');
       end
+    else
+      output_msg, secret_flg = getTableDataResult(arg)
+      return output_msg, secret_flg if(output_msg != '1');
     end
     
     debug("arg", arg)

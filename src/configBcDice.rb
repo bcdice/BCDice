@@ -6,7 +6,7 @@ require 'configBcDiceForSystem.rb'
 $isDebug = false
 
 $KCODE = 'UTF8'# このソースはUTF-8で書かれています
-$version = "2.01.14.01"
+$bcDiceVersion = "2.01.14.01"
 
 
 $NOTICE_SW = 1;                  # 送信の際に、どちらのコマンドを使うか？(notice=1, msg=0)
@@ -28,7 +28,7 @@ $server = "irc.trpg.net";           # サーバー
 $port = 6667;                       # ポート番号
 $defaultLoginChannelsText = "#Dice_Test";   # ボットが最初に参加するチャンネル名
 $nick = "bcDICE"
-$userName = "v"+ $version           # ユーザー名
+$userName = "v"+ $bcDiceVersion     # ユーザー名
 $ircName = "rubydice";              # IRCネーム
 $defaultGameType = ""               #デフォルトゲームタイプ
 $extraCardFileName = ""                #拡張カードファイル名
