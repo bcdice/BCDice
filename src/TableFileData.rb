@@ -1,6 +1,7 @@
 #!/perl/bin/ruby -Ku
 #--*-coding:utf-8-*--
 
+require 'kconv'
 require 'configBcDice.rb'
 
 # extratables ディレクトリに置かれたテーブル定義ファイルを読み込む。
@@ -157,6 +158,8 @@ class TableFileData
   end
   
   def getLineKeyValue(line)
+    line = line.toutf8.chomp
+    
     if(/^[\s　]*([^:：]+)[\s　]*[:：][\s　]*(.+)/ === line)
       return $1, $2
     end
