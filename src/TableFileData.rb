@@ -64,7 +64,7 @@ class TableFileData
     
     return tableData
   end
-
+  
   def readGameCommandInfo(fileName, dir)
     fileBase = File.basename(fileName, ".txt")
     
@@ -113,7 +113,7 @@ class TableFileData
     return if( command.nil? )
     
     fileName = 
-      if( gameType.nil? )
+      if( gameType.empty? )
         "#{dir}/#{command}.txt"
       else
         fileName = "#{dir}/#{gameType}_#{command}.txt"
