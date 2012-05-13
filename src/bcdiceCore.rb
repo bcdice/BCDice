@@ -104,8 +104,8 @@ class BCDice
     @isKeepSecretDice = true
   end
   
-  def setDir(dir)
-    @tableFileData.setDir(dir)
+  def setDir(dir, prefix)
+    @tableFileData.setDir(dir, prefix)
   end
   
   def isKeepSecretDice(b)
@@ -818,21 +818,15 @@ class BCDice
     output_msg = '1'
     secret_flg = false
     
-    tableData, secret_flg = @tableFileData.getTableData(arg, @diceBot.gameType)
+    dice, title, table, secret_flg = @tableFileData.getTableData(arg, @diceBot.gameType)
+    debug("dice", dice)
     
-    if( tableData.nil? )
-      debug("tableData is null")
+    if( table.nil? )
+      debug("table is null")
       return output_msg, secret_flg
     end
     
-    debug("tableData", tableData)
-    
-    dice = tableData["dice"]
-    title = tableData["title"]
-    table = tableData["data"]
     value = 0
-    
-    debug("dice", dice)
     
     case dice
     when /D66/i
@@ -842,12 +836,12 @@ class BCDice
       diceMax = $2
       value, = roll(diceCount, diceMax)
     else
-      table = {}
+      table = []
     end
     
     debug("value", value)
     
-    result_msg = table[value]
+    result_msg = table.find{|i| i.first === value}
     if( result_msg.nil? )
       return output_msg, secret_flg
     end
