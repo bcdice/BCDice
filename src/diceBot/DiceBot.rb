@@ -243,10 +243,12 @@ class DiceBot
     debug("getDiceList diceText", diceText)
     
     diceList = []
-    return diceList unless( /^\[?([\d,]+)\]?$/ =~ diceText )
+    return diceList unless( /\[([\d,]+)\]/ =~ diceText )
     
     diceString = $1;
     diceList = diceString.split(/,/).collect{|i| i.to_i}
+    
+    debug("diceList", diceList)
     
     return diceList
   end
