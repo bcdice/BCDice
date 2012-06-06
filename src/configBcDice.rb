@@ -6,7 +6,7 @@ require 'configBcDiceForSystem.rb'
 $isDebug = false
 
 $KCODE = 'UTF8'# このソースはUTF-8で書かれています
-$bcDiceVersion = "2.01.14.01"
+$bcDiceVersion = "2.01.17"
 
 
 $NOTICE_SW = 1;                  # 送信の際に、どちらのコマンドを使うか？(notice=1, msg=0)
