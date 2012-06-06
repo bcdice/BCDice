@@ -51,8 +51,8 @@ class BCDiceDialog < Wx::Dialog
     @channel = createAddedTextInput( $defaultLoginChannelsText, "ログインチャンネル" )
     @nickName = createAddedTextInput( $nick, "ニックネーム" )
     initGameType
+    initCharacterCode
     @extraCardFileText = createAddedTextInput( $extraCardFileName, "拡張カードファイル名" )
-    @ircCodeText = createAddedTextInput( $ircCode, "IRC文字コード" )
     
     @executeButton = createButton('接続')
     evt_button(@executeButton.get_id) {|event| on_execute }
@@ -60,7 +60,7 @@ class BCDiceDialog < Wx::Dialog
     @stopButton = createButton('切断')
     @stopButton.enable(false)
     evt_button(@stopButton.get_id) {|event| on_stop }
-
+    
     addCtrlOnLine( @executeButton, @stopButton)
     
     
@@ -141,8 +141,8 @@ class BCDiceDialog < Wx::Dialog
     loadTextValueFromIniFile(sectionName, "channel", @channel)
     loadTextValueFromIniFile(sectionName, "nickName", @nickName)
     loadChoiseValueFromIniFile(sectionName, "gameType", @gameType)
+    loadChoiseValueFromIniFile(sectionName, "characterCode", @characterCode)
     loadTextValueFromIniFile(sectionName, "extraCardFileText", @extraCardFileText)
-    loadTextValueFromIniFile(sectionName, "ircCodeText", @ircCodeText)
     
     @iniFile.write("default", "serverSet", serverSet)
   end
@@ -181,8 +181,8 @@ class BCDiceDialog < Wx::Dialog
     saveTextValueToIniFile(sectionName, "channel", @channel.get_value)
     saveTextValueToIniFile(sectionName, "nickName", @nickName.get_value)
     saveTextValueToIniFile(sectionName, "gameType", @gameType.get_string_selection)
+    saveTextValueToIniFile(sectionName, "characterCode", @characterCode.get_string_selection)
     saveTextValueToIniFile(sectionName, "extraCardFileText", @extraCardFileText.get_value)
-    saveTextValueToIniFile(sectionName, "ircCodeText", @ircCodeText.get_value)
     
     initServerSetChoiseList
   end
@@ -311,6 +311,7 @@ MagicaLogia
 MeikyuDays
 MeikyuKingdom
 MonotoneMusium
+NJSLYRBATTLE
 Nechronica
 NightWizard
 NightmareHunterDeep
@@ -339,6 +340,46 @@ ZettaiReido
   def onChoiseGame
     return if( @ircBot.nil? )
     @ircBot.setGameByTitle( @gameType.get_string_selection )
+  end
+  
+  
+  
+  @@characterCodeInfo = {
+    'ISO-2022-JP' => Kconv::JIS,
+    'EUC-JP'      => Kconv::EUC,
+    'Shift_JIS'   => Kconv::SJIS,
+    'バイナリ'    => Kconv::BINARY,
+    'ASCII'       => Kconv::ASCII,
+    'UTF-8'       => Kconv::UTF8,
+    'UTF-16'      => Kconv::UTF16,
+  }
+  
+  def initCharacterCode
+    @characterCode = Wx::Choice.new(self, -1)
+    addCtrl(@characterCode, "IRC文字コード")
+    
+    list = @@characterCodeInfo.keys.sort
+    
+    list.each_with_index do |type, index|
+      @characterCode.insert( type, index )
+    end
+    
+    found = @@characterCodeInfo.find{|key, value| value == $ircCode}
+    unless( found.nil? )
+      codeText = found.first
+      setChoiseText(@characterCode, codeText)
+    end
+    
+    evt_choice(@characterCode.get_id) { |event| onChoiseCharacterCode }
+  end
+  
+  def onChoiseCharacterCode
+    $ircCode = getSelectedCharacterCode
+  end
+  
+  def getSelectedCharacterCode
+    codeName = @characterCode.get_string_selection
+    return @@characterCodeInfo[codeName]
   end
   
   def addTestTextBoxs
@@ -434,8 +475,8 @@ ZettaiReido
     $defaultLoginChannelsText = @channel.get_value
     $nick = @nickName.get_value
     $defaultGameType = @gameType.get_string_selection
+    $ircCode = getSelectedCharacterCode
     $extraCardFileName = @extraCardFileText.get_value
-    $ircCode = @ircCodeText.get_value
   end
   
   def startIrcBot

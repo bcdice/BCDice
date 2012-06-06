@@ -1,8 +1,6 @@
 #!ruby -Ks
 #--*-coding:utf-8-*--
 
-$IRC_ENCODING='iso-2022-jp'
-
 require 'rubygems'
 require 'net/irc.rb'
 require 'net/irc/client.rb'

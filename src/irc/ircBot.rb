@@ -55,7 +55,8 @@ class IrcClient < Net::IRC::Client
   
   def on_rpl_welcome(message)
     printText( '  -> login to channel successed.' )
-    post JOIN, @room.encode($ircCode).force_encoding_maybe('external')
+    #post JOIN, @room.encode($ircCode).force_encoding_maybe('external')
+    post(JOIN, encode($ircCode, @room))
   end
   
   
@@ -202,7 +203,7 @@ class IrcClient < Net::IRC::Client
     
     printText( "  -> nick \"#{oldNick}\" is already used, so change \"#{oldNick}\" -> \"#{newNick}\"" )
     
-    post NICK, @opts.nick
+    post(NICK, @opts.nick)
   end
   
   def getNewNick(nick)
@@ -300,7 +301,7 @@ class IrcClient < Net::IRC::Client
     
     return unless( isMaster() )
     
-    post( QUIT, encode($IRC_ENCODING, $quitMessage) )
+    post(QUIT, encode($ircCode, $quitMessage))
   end
   
   def setQuitFuction(func)
@@ -352,11 +353,11 @@ class IrcClient < Net::IRC::Client
   end
   
   def notice(to, message)
-    post(NOTICE, to, message)
+    post(NOTICE, to, encode($ircCode, message))
   end
   
   def privmsg(to, message)
-    post(PRIVMSG, to, message)
+    post(PRIVMSG, to, encode($ircCode, message))
   end  
 end
 
