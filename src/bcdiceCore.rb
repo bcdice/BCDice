@@ -33,14 +33,12 @@ require 'kconv'
 # 終了時はボットにTalkで「お疲れ様」と発言します。($quitCommandで変更出来ます。)
 #====================================================================
 
-
 def decode(code, str)
-  return str;
+  return str.kconv(code)
 end
 
 def encode(code, str)
-  #return str;
-  Kconv.kconv(str, code)
+  return Kconv.kconv(str, code)
 end
 
 
@@ -1812,6 +1810,10 @@ class BCDice
       require 'diceBot/EclipsePhase'
       diceBot = EclipsePhase.new
       message = 'Game設定をEclipse Phaseに設定しました'
+    when /(^|\s)NJSLYRBATTLE$/i
+      require 'diceBot/NjslyrBattle'
+      diceBot = NjslyrBattle.new
+      message = 'Game設定をNJSLYRBATTLEに設定しました'
     when /(^|\s)(None)$/i, ""
       diceBot = DiceBot.new
       message = 'Game設定を解除しました'

@@ -104,8 +104,17 @@ class DiceBot
   end
   
   def dice_command(string, nick_e)
+    output_msg, secret_flg = rollDiceCommandResult(string)
+    return output_msg, secret_flg if( output_msg == '1' )
+    
+    output_msg = "#{nick_e}: #{output_msg}"
+    return output_msg, secret_flg
+  end
+  
+  def rollDiceCommandResult(string)
     ['1', false]
   end
+
   
   def setDiceText(diceText)
     debug("setDiceText diceText", diceText)
@@ -227,10 +236,14 @@ class DiceBot
   end
   
   def getDiceList
-    debug("getDiceList @diceText", @diceText)
+    getDiceListFromDiceText(@diceText)
+  end
+  
+  def getDiceListFromDiceText(diceText)
+    debug("getDiceList diceText", diceText)
     
     diceList = []
-    return diceList unless( /\[([\d,]+)\]/ =~ @diceText )
+    return diceList unless( /^\[?([\d,]+)\]?$/ =~ diceText )
     
     diceString = $1;
     diceList = diceString.split(/,/).collect{|i| i.to_i}
