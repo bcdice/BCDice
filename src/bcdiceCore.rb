@@ -790,12 +790,12 @@ class BCDice
         secret_flg = true if(output_msg != '1');
       end
       
-    when /((^|\s)(S)?choise\[[^,]+(,[^,]+)+\]($|\s))/i
+    when /((^|\s)(S)?choice\[[^,]+(,[^,]+)+\]($|\s))/i
       debug("選択コマンド")
-      debug("execute choise")
+      debug("execute choice")
       
       secretMarker = $3
-      output_msg = choise_random($1)
+      output_msg = choice_random($1)
       if( secretMarker )   # 隠しロール
         secret_flg = true if(output_msg != '1');
       end
@@ -1199,10 +1199,10 @@ class BCDice
   #==========================================================================
   #**                            その他の機能
   #==========================================================================
-  def choise_random(string)
+  def choice_random(string)
     output = "1";
     
-    unless(/(^|\s)((S)?choise\[([^,]+(,[^,]+)+)\])($|\s)/i =~ string)
+    unless(/(^|\s)((S)?choice\[([^,]+(,[^,]+)+)\])($|\s)/i =~ string)
       return output
     end
     
