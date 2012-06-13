@@ -50,7 +50,8 @@ class UpperDice
     
     bonus = getBonusValue( bonusValues )
     diceDiff = diff - bonus
-    totalDiceString, totalSuccessCount, totalDiceCount, maxDiceValue = getUpperDiceCommandResult(diceCommands, diceDiff)
+    
+    totalDiceString, totalSuccessCount, totalDiceCount, maxDiceValue, totalValue = getUpperDiceCommandResult(diceCommands, diceDiff)
     
     output = totalDiceString
     
@@ -60,7 +61,8 @@ class UpperDice
       output += "#{bonus}";
     end
     
-    totalValue = maxDiceValue + bonus;
+    maxValue = maxDiceValue + bonus
+    totalValue += bonus
     
     string += "[#{@upper}]";
     
@@ -70,20 +72,26 @@ class UpperDice
     
     if(@signOfInequality != "")
       output = "#{output} ＞ 成功数#{totalSuccessCount}";
-        string += "#{@signOfInequality}#{diff}";
+      string += "#{@signOfInequality}#{diff}";
     else
-      output += " / #{totalValue}(最大/合計)" if(totalDiceCount > 1);
+      output += getMaxAndTotalValueResultStirng(maxValue, totalValue, totalDiceCount)
     end
+    
     output = "#{@nick_e}: (#{string}) ＞ #{output}";
     
     if (output.length > $SEND_STR_MAX)
       output ="#{@nick_e}: (#{string}) ＞ ... ＞ #{totalValue}";
       if(@signOfInequality == "")
-        output += " / #{totalValue}(最大/合計)" if(totalDiceCount > 1);
+        output += getMaxAndTotalValueResultStirng(maxValue, totalValue, totalDiceCount)
       end
     end
     
     return output;
+  end
+  
+  def getMaxAndTotalValueResultStirng(maxValue, totalValue, totalDiceCount)
+    return "" if(totalDiceCount <= 1)
+    return " ＞ #{maxValue}/#{totalValue}(最大/合計)"
   end
   
   
@@ -117,6 +125,7 @@ class UpperDice
     totalSuccessCount = 0;
     totalDiceCount = 0
     maxDiceValue = 0;
+    totalValue = 0
     
     diceCommands.each do |diceCommand|
       diceCount, diceMax = diceCommand.split(/[uU]/).collect{|s|s.to_i}
@@ -133,11 +142,12 @@ class UpperDice
       totalSuccessCount += successCount;
       maxDiceValue = maxDiceResult if(maxDiceResult > maxDiceValue)
       totalDiceCount += diceCount;
+      totalValue += total
     end
     
     totalDiceString = diceStringList.join(",")
 
-    return totalDiceString, totalSuccessCount, totalDiceCount, maxDiceValue
+    return totalDiceString, totalSuccessCount, totalDiceCount, maxDiceValue, totalValue
   end
   
 
