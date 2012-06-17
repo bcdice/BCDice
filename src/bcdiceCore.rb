@@ -1814,6 +1814,10 @@ class BCDice
       require 'diceBot/NjslyrBattle'
       diceBot = NjslyrBattle.new
       message = 'Game設定をNJSLYRBATTLEに設定しました'
+    when /(^|\s)ShinMegamiTenseiKakuseihen$/i, /(^|\s)SMTKakuseihen$/i
+      require 'diceBot/ShinMegamiTenseiKakuseihen'
+      diceBot = ShinMegamiTenseiKakuseihen.new
+      message = 'Game設定を真・女神転生TRPG　覚醒編に設定しました'
     when /(^|\s)(None)$/i, ""
       diceBot = DiceBot.new
       message = 'Game設定を解除しました'
