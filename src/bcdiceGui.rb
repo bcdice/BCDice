@@ -326,6 +326,7 @@ SataSupe
 ShadowRun
 ShadowRun4
 ShinobiGami
+SMTKakuseihen
 SwordWorld
 SwordWorld2.0
 TORG

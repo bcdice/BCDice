@@ -90,5 +90,5 @@ MESSAGETEXT
     0
   end
   
-  #ダイス目が知りたくなったら getDiceList を呼び出すこと(DIceBot.rbにて定義)
+  #ダイス目が知りたくなったら getDiceList を呼び出すこと(DiceBot.rbにて定義)
 end

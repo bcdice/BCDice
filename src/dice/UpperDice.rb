@@ -18,25 +18,33 @@ class UpperDice
     
     string = string.gsub(/-[sS]?[\d]+[uU][\d]+/, '')   # 上方無限の引き算しようとしてる部分をカット
     
-    unless(/(^|\s)[sS]?(\d+[uU][\d\+\-uU]+)(\[(\d+)\])?(([<>=]+)(\d+))?(\@(\d+))?($|\s)/ =~ string)
+    unless(/(^|\s)[sS]?(\d+[uU][\d\+\-uU]+)(\[(\d+)\])?([\+\-\d]*)(([<>=]+)(\d+))?(\@(\d+))?($|\s)/ =~ string)
       return output;
     end
     
-    string = $2;
-    signOfInequalityText = $6
-    diff = $7.to_i;
+    command = $2;
+    signOfInequalityText = $7
+    diff = $8.to_i;
     upperTarget1 = $4
-    upperTarget2 = $9
+    upperTarget2 = $10
+    
+    modify = $5
+    debug('modify', modify)
+    modify ||= ''
+    
+    debug('p $...', [$1, $2, $3, $4, $5, $6, $7, $8, $9, $10])
+    
+    string = command
     
     @signOfInequality = @bcdice.getMarshaledSignOfInequality( signOfInequalityText )
     @upper = getAddRollUpperTarget(upperTarget1, upperTarget2)
     
     if(@upper <= 1)
-      output = "#{@nick_e}: (#{string}\[#{@upper}\]) ＞ 無限ロールの条件がまちがっています"
+      output = "#{@nick_e}: (#{string}\[#{@upper}\]#{modify}) ＞ 無限ロールの条件がまちがっています"
       return output
     end
     
-    dice_a = string.split(/\+/)
+    dice_a = (string + modify).split(/\+/)
     diceCommands = []
     bonusValues = []
     
@@ -49,6 +57,7 @@ class UpperDice
     end
     
     bonus = getBonusValue( bonusValues )
+    
     diceDiff = diff - bonus
     
     totalDiceString, totalSuccessCount, totalDiceCount, maxDiceValue, totalValue = getUpperDiceCommandResult(diceCommands, diceDiff)
@@ -64,7 +73,7 @@ class UpperDice
     maxValue = maxDiceValue + bonus
     totalValue += bonus
     
-    string += "[#{@upper}]";
+    string += "[#{@upper}]" + modify;
     
     if( @diceBot.isPrintMaxDice and (totalDiceCount > 1) )
       output = "#{output} ＞ #{totalValue}";
@@ -115,7 +124,7 @@ class UpperDice
     return 0 if( bonusValues.empty? )
     
     diceBonusText = bonusValues.join("+")
-    bonus = parren_killer("(" + diceBonusText + ")").to_i
+    bonus = @bcdice.parren_killer("(" + diceBonusText + ")").to_i
     
     return bonus
   end
