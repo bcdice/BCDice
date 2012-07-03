@@ -49,7 +49,8 @@ class CgiDiceBot
     result << getDiceBotParamText('sendto')
     result << getDiceBotParamText('color')
     result << message
-    result << roll(message, gameType)
+    rollResult, randResults = roll(message, gameType)
+    result << rollResult
     result << "##>customBot END<##"
     
     return result
@@ -62,11 +63,8 @@ class CgiDiceBot
     "#{param}\t"
   end
   
-  def roll(message, gameType, dir = nil, prefix = '')
-    executeDiceBot(message, gameType, dir, prefix)
-    
-    rollResult = @rollResult
-    @rollResult = ""
+  def roll(message, gameType, dir = nil, prefix = '', isNeedResult = false)
+    rollResult, randResults = executeDiceBot(message, gameType, dir, prefix, isNeedResult)
     
     result = ""
     
@@ -78,7 +76,7 @@ class CgiDiceBot
       result << "\n#{gameType} #{rollResult}"
     end
     
-    return result
+    return result, randResults
   end
   
   def setTest()
@@ -89,7 +87,7 @@ class CgiDiceBot
     @rands = rands
   end
   
-  def executeDiceBot(message, gameType, dir = nil, prefix = '')
+  def executeDiceBot(message, gameType, dir = nil, prefix = '', isNeedResult = false)
     bcdiceMarker = BCDiceMaker.new
     bcdice = bcdiceMarker.newBcDice()
     
@@ -97,6 +95,7 @@ class CgiDiceBot
     bcdice.setRandomValues(@rands)
     bcdice.isKeepSecretDice(false)
     bcdice.setTest(@isTest)
+    bcdice.setCollectRandResult(isNeedResult)
     bcdice.setDir(dir, prefix)
     
     bcdice.setGameByTitle( gameType )
@@ -106,6 +105,13 @@ class CgiDiceBot
     nick_e = ""
     bcdice.setChannel(channel)
     bcdice.recievePublicMessage(nick_e)
+    
+    rollResult = @rollResult
+    @rollResult = ""
+    
+    randResults = bcdice.getRandResults
+    
+    return rollResult, randResults
   end
   
   def getGameCommandInfos(dir, prefix)
@@ -138,7 +144,7 @@ if( $0 === __FILE__ )
   
   result = ''
   if( ARGV.length > 0 )
-    result = bot.roll(ARGV[0], ARGV[1])
+    result, randResults = bot.roll(ARGV[0], ARGV[1])
   else
     result = bot.rollFromCgiParamsDummy
   end

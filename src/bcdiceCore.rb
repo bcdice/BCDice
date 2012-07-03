@@ -100,6 +100,7 @@ class BCDice
     @isMessagePrinted = false
     @rands = nil
     @isKeepSecretDice = true
+    @randResults = nil
   end
   
   def setDir(dir, prefix)
@@ -603,7 +604,7 @@ class BCDice
     executeCard
     
     unless( @isMessagePrinted ) # ダイスロール以外の発言では捨てダイス処理を
-      rand 100 if($isRollVoidDiceAtAnyRecive);
+      # rand 100 if($isRollVoidDiceAtAnyRecive);
     end
     
     debug("\non_public end")
@@ -882,64 +883,66 @@ class BCDice
       dice_max += 1
     end
     
-    if( (dice_cnt <= $DICE_MAXCNT) and (dice_max <= $DICE_MAXNUM) )
-      dice_cnt.times do |i|
-        i += 1
-        dice_now = 0;
-        dice_n = 0;
-        dice_st_n = "";
-        round = 0;
-        
-        begin
-          if( round >= 1 )
-            # 振り足し時のダイス読み替え処理用（ダブルクロスはクリティカルでダイス10に読み替える)
-            dice_now += @diceBot.getJackUpValueOnAddRoll(dice_n)
-          end
-          
-          dice_n = rand(dice_max).to_i + 1;
-          dice_n -=1 if( d9_on );
-          
-          dice_now += dice_n;
-          
-          debug('@diceBot.sendMode', @diceBot.sendMode)
-          if( @diceBot.sendMode >= 2 )
-            dice_st_n += "," unless( dice_st_n.empty? );
-            dice_st_n += "#{dice_n}";
-          end
-          round += 1
-          
-        end while( (dice_add > 1) and (dice_n >= dice_add) );
-        
-        total +=  dice_now;
-        
-        if( dice_ul != '' )
-          suc = check_hit(dice_now, dice_ul, dice_diff);
-          cnt_suc += suc;
-        end
-        
-        if( dice_re )
-          cnt_re += 1 if(dice_now >= dice_re);
-        end
-        
-        if( (@diceBot.sendMode >= 2) and (round >= 2) )
-          dice_result.push( "#{dice_now}[#{dice_st_n}]" );
-        else
-          dice_result.push( dice_now )
-        end
-        
-        numberSpot1 += 1 if( dice_now == 1 );
-        cnt_max += 1 if( dice_now == dice_max );
-        n_max = dice_now if( dice_now > n_max);
-      end
-      
-      if( dice_sort != 0 )
-        dice_str = dice_result.sort_by{|a| dice_num(a)}.join(",")
-      else
-        dice_str = dice_result.join(",");
-      end
-      
+    unless( (dice_cnt <= $DICE_MAXCNT) and (dice_max <= $DICE_MAXNUM) )
       return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, cnt_re;
     end
+    
+    dice_cnt.times do |i|
+      i += 1
+      dice_now = 0;
+      dice_n = 0;
+      dice_st_n = "";
+      round = 0;
+      
+      begin
+        if( round >= 1 )
+          # 振り足し時のダイス読み替え処理用（ダブルクロスはクリティカルでダイス10に読み替える)
+          dice_now += @diceBot.getJackUpValueOnAddRoll(dice_n)
+        end
+        
+        dice_n = rand(dice_max).to_i + 1;
+        dice_n -=1 if( d9_on );
+        
+        dice_now += dice_n;
+        
+        debug('@diceBot.sendMode', @diceBot.sendMode)
+        if( @diceBot.sendMode >= 2 )
+          dice_st_n += "," unless( dice_st_n.empty? );
+          dice_st_n += "#{dice_n}";
+        end
+        round += 1
+        
+      end while( (dice_add > 1) and (dice_n >= dice_add) );
+      
+      total +=  dice_now;
+      
+      if( dice_ul != '' )
+        suc = check_hit(dice_now, dice_ul, dice_diff);
+        cnt_suc += suc;
+      end
+      
+      if( dice_re )
+        cnt_re += 1 if(dice_now >= dice_re);
+      end
+      
+      if( (@diceBot.sendMode >= 2) and (round >= 2) )
+        dice_result.push( "#{dice_now}[#{dice_st_n}]" );
+      else
+        dice_result.push( dice_now )
+      end
+        
+        numberSpot1 += 1 if( dice_now == 1 );
+      cnt_max += 1 if( dice_now == dice_max );
+      n_max = dice_now if( dice_now > n_max);
+    end
+    
+    if( dice_sort != 0 )
+      dice_str = dice_result.sort_by{|a| dice_num(a)}.join(",")
+    else
+      dice_str = dice_result.join(",");
+    end
+    
+    return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, cnt_re;
   end
   
   def setRandomValues(rands)
@@ -949,13 +952,31 @@ class BCDice
   def rand(max)
     debug('rand called @rands', @rands)
     
+    value = 0 
     if( @rands.nil? )
-      #debug('randNomal(max)')
-      return randNomal(max)
+      value = randNomal(max)
+    else
+      value = randFromRands(max)
     end
     
-    #debug('randFromRands(max)')
-    return randFromRands(max)
+    unless( @randResults.nil? ) 
+      @randResults << [(value + 1), max]
+    end
+    
+    return value
+  end
+  
+  
+  def setCollectRandResult(b)
+    if( b )
+      @randResults = []
+    else
+      @randResults = nil
+    end
+  end
+  
+  def getRandResults
+    @randResults
   end
   
   def randNomal(max)

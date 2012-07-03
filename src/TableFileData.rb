@@ -30,21 +30,13 @@ require 'configBcDice.rb'
 class TableFileData
   
   @@dir = './extratables'
-  @@tableDataCommon = nil
   
   def initialize(isLoadCommonTable = true)
     @tableData = Hash.new
     
     return unless( isLoadCommonTable )
     
-    initTableDataCommon
-    @tableData.merge!( @@tableDataCommon.clone )
-  end
-  
-  def initTableDataCommon
-    if( @@tableDataCommon.nil? )
-      @@tableDataCommon = searchTableFileDefine(@@dir)
-    end
+    @tableData = searchTableFileDefine(@@dir)
   end
   
   def setDir(dir, prefix = '')
