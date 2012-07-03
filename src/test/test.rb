@@ -58,32 +58,10 @@ class TestDiceBot
     bot = CgiDiceBot.new
     bot.setRandomValues(@rands)
     bot.setTest()
-    result = bot.roll(message, gameType)
+    result, randResults = bot.roll(message, gameType)
     
     return result
   end
-  
-  def executeCommand_old()
-    message, gameType = getMessageAndGameTape
-    
-    require 'torgtaitaiIRC'
-    
-    ircClient = TorgtaitaiIRC.new();
-    ircClient.setGameByTitle(gameType)
-    
-    ircClient.setTest()
-    ircClient.setRandomValues(@rands)
-    
-    ircClient.setMessage(message)
-    # ircClient.recieveMessage
-    ircClient.recievePublicMessage
-    
-    result = ircClient.getBuffer
-    ircClient.clearBuffer
-    
-    return result
-  end
-  
   
   def executeTest()
     message, currentGameType = getMessageAndGameTape
