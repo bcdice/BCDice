@@ -1839,6 +1839,10 @@ class BCDice
       require 'diceBot/ShinMegamiTenseiKakuseihen'
       diceBot = ShinMegamiTenseiKakuseihen.new
       message = 'Game設定を真・女神転生TRPG　覚醒編に設定しました'
+    when /(^|\s)Ryutama$/i
+      require 'diceBot/Ryutama'
+      diceBot = Ryutama.new
+      message = 'Game設定をりゅうたまに設定しました'
     when /(^|\s)(None)$/i, ""
       diceBot = DiceBot.new
       message = 'Game設定を解除しました'
