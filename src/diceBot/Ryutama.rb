@@ -24,27 +24,99 @@ MESSAGETEXT
   end
   
   def rollRyutama(string, name)
-    unless( /^R(\d+)(,(\d+))?>=(\d+)/ === string )
+    debug('rollRyutama begin')
+    unless( /^R(\d+)(,(\d+))?(>=(\d+))?/ === string )
+      debug('unless!!!')
       return ''
     end
+    debug('matched')
     
     dice1 = $1.to_i
     dice2 = $3.to_i
-    difficulty = $4.to_i
+    difficulty = $5
+    
+    dice1, dice2 = getDiceType(dice1, dice2)
+    if( dice1 == 0 )
+      return ''
+    end
+    
+    difficulty = getDiffculty(difficulty)
     
     value1 = getRollValue(dice1)
     value2 = getRollValue(dice2)
     total = value1 + value2
     
     result = getResultText(value1, value2, dice1, dice2, difficulty, total)
+    unless( result.empty? )
+      result = " ＞ #{result}"
+    end
     
     value1Text = "#{value1}(#{dice1})"
     value2Text = ((value2 == 0) ? "" : "+#{value2}(#{dice2})")
     
-    output = "#{name}: (#{string}) ＞ #{value1Text}#{value2Text} ＞ #{total} ＞ #{result}";
-    
+    baseText = getBaseText(dice1, dice2, difficulty)
+    output = "#{name}: (#{baseText}) ＞ #{value1Text}#{value2Text} ＞ #{total}#{result}";
     return output
   end
+  
+  @@validDiceTypes = [4, 6, 8, 10, 12]
+  
+  def getDiceType(dice1, dice2)
+    debug('getDiceType begin')
+    
+    if( dice2 != 0 )
+      if( isValidDiceOne(dice1) )
+        return dice1, dice2
+      else
+        return 0, 0
+      end
+    end
+    
+    if( isValidDice(dice1, dice2) )
+      return dice1, dice2
+    end
+    
+    diceBase = dice1
+    
+    dice1 = diceBase / 10
+    dice2 = diceBase % 10
+    
+    if( isValidDice(dice1, dice2) )
+      return dice1, dice2
+    end
+    
+    dice1 = diceBase / 100
+    dice2 = diceBase % 100
+    
+    if( isValidDice(dice1, dice2) )
+      return dice1, dice2
+    end
+    
+    if( isValidDiceOne(diceBase) )
+      return diceBase, 0
+    end
+    
+    return 0, 0
+  end
+  
+  def isValidDice(dice1, dice2)
+    return ( isValidDiceOne(dice1) and
+             isValidDiceOne(dice2) )
+  end
+  
+  def isValidDiceOne(dice)
+    @@validDiceTypes.include?(dice)
+  end
+  
+  def getDiffculty(difficulty)
+    
+    unless( difficulty.nil? )
+      difficulty = difficulty.to_i
+    end
+    
+    return difficulty
+  end
+  
   
   def getRollValue(dice)
     return 0 if( dice == 0 )
@@ -60,6 +132,10 @@ MESSAGETEXT
     
     if( isCritical(value1, value2, dice1, dice2) )
       return "クリティカル成功"
+    end
+    
+    if( difficulty.nil? )
+      return ''
     end
     
     if( total >= difficulty )
@@ -85,6 +161,18 @@ MESSAGETEXT
     end
     
     return false
+  end
+  
+  def getBaseText(dice1, dice2, difficulty)
+    baseText = "R#{dice1}"
+    if( dice2 != 0 )
+      baseText += ",#{dice2}"
+    end
+    unless( difficulty.nil? )
+      baseText += ">=#{difficulty}"
+    end
+    
+    return baseText
   end
   
 end
