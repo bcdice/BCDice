@@ -25516,3 +25516,47 @@ input:R6>=7	Ryutama
 output:
 Ryutama : (R6>=7) ＞ 6(6) ＞ 6 ＞ 失敗
 rand:6/6
+============================
+input:R6,8	Ryutama
+output:
+Ryutama : (R6,8) ＞ 1(6)+2(8) ＞ 3
+rand:1/6,2/8
+============================
+input:R6,8	Ryutama
+output:
+Ryutama : (R6,8) ＞ 6(6)+6(8) ＞ 12 ＞ クリティカル成功
+rand:6/6,6/8
+============================
+input:R6,8	Ryutama
+output:
+Ryutama : (R6,8) ＞ 1(6)+1(8) ＞ 2 ＞ １ゾロ【１ゾロポイント＋１】
+rand:1/6,1/8
+============================
+input:R6	Ryutama
+output:
+Ryutama : (R6) ＞ 6(6) ＞ 6
+rand:6/6
+============================
+input:R810	Ryutama
+output:
+Ryutama : (R8,10) ＞ 2(8)+3(10) ＞ 5
+rand:2/8,3/10
+============================
+input:R124>=10	Ryutama
+output:
+Ryutama : (R12,4>=10) ＞ 2(12)+3(4) ＞ 5 ＞ 失敗
+rand:2/12,3/4
+============================
+input:R44	Ryutama
+output:
+Ryutama : (R4,4) ＞ 1(4)+2(4) ＞ 3
+rand:1/4,2/4
+============================
+input:R1212	Ryutama
+output:
+Ryutama : (R12,12) ＞ 1(12)+2(12) ＞ 3
+rand:1/12,2/12
+============================
+input:R801	Ryutama
+output:
+rand:1/100
