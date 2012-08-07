@@ -322,6 +322,7 @@ PhantasmAdventure
 RokumonSekai2
 RoleMaster
 RuneQuest
+Ryutama
 SataSupe
 ShadowRun
 ShadowRun4
