@@ -2,6 +2,11 @@
 
 class Ryutama < DiceBot
   
+  def initialize
+    super
+    @validDiceTypes = [4, 6, 8, 10, 12]
+  end
+  
   def gameType
     "Ryutama"
   end
@@ -59,8 +64,6 @@ MESSAGETEXT
     return output
   end
   
-  @@validDiceTypes = [4, 6, 8, 10, 12]
-  
   def getDiceType(dice1, dice2)
     debug('getDiceType begin')
     
@@ -105,7 +108,7 @@ MESSAGETEXT
   end
   
   def isValidDiceOne(dice)
-    @@validDiceTypes.include?(dice)
+    @validDiceTypes.include?(dice)
   end
   
   def getDiffculty(difficulty)
