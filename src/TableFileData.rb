@@ -29,14 +29,13 @@ require 'configBcDice.rb'
 
 class TableFileData
   
-  @@dir = './extratables'
-  
   def initialize(isLoadCommonTable = true)
     @tableData = Hash.new
     
     return unless( isLoadCommonTable )
     
-    @tableData = searchTableFileDefine(@@dir)
+    @dir = './extratables'
+    @tableData = searchTableFileDefine(@dir)
   end
   
   def setDir(dir, prefix = '')
