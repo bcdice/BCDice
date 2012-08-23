@@ -25537,6 +25537,26 @@ output:
 Ryutama : (R6) ＞ 6(6) ＞ 6
 rand:6/6
 ============================
+input:R206	Ryutama
+output:
+Ryutama : (R20,6) ＞ 2(20)+3(6) ＞ 5
+rand:2/20,3/6
+============================
+input:R26	Ryutama
+output:
+Ryutama : (R2,6) ＞ 2(2)+3(6) ＞ 5
+rand:2/2,3/6
+============================
+input:R122	Ryutama
+output:
+Ryutama : (R12,2) ＞ 3(12)+2(2) ＞ 5
+rand:3/12,2/2
+============================
+input:R2020	Ryutama
+output:
+Ryutama : (R20,20) ＞ 19(20)+19(20) ＞ 38
+rand:19/20,19/20
+============================
 input:R810	Ryutama
 output:
 Ryutama : (R8,10) ＞ 2(8)+3(10) ＞ 5
@@ -25560,3 +25580,33 @@ rand:1/12,2/12
 input:R801	Ryutama
 output:
 rand:1/100
+============================
+input:R810+1	Ryutama
+output:
+Ryutama : (R8,10+1) ＞ 2(8)+3(10)+1 ＞ 6
+rand:2/8,3/10
+============================
+input:R810+1>=5	Ryutama
+output:
+Ryutama : (R8,10+1>=5) ＞ 2(8)+3(10)+1 ＞ 6 ＞ 成功
+rand:2/8,3/10
+============================
+input:R86-2	Ryutama
+output:
+Ryutama : (R8,6-2) ＞ 2(8)+3(6)-2 ＞ 3
+rand:2/8,3/6
+============================
+input:R86-2>=5	Ryutama
+output:
+Ryutama : (R8,6-2>=5) ＞ 2(8)+3(6)-2 ＞ 3 ＞ 失敗
+rand:2/8,3/6
+============================
+input:R86-10>=5	Ryutama
+output:
+Ryutama : (R8,6-10>=5) ＞ 2(8)+3(6)-10 ＞ -5 ＞ 失敗
+rand:2/8,3/6
+============================
+input:1D6	Ryutama
+output:
+Ryutama : (1D6) ＞ 5
+rand:5/6
