@@ -9,7 +9,7 @@ class SwordWorld < DiceBot
   end
   
   def gameType
-    if( @rating_table == 2)
+    if( isSW2_0Mode )
       return "SwordWorld2.0"
     end
 
@@ -27,6 +27,7 @@ class SwordWorld < DiceBot
     string = string.gsub(/\[(\d+)\]/i) {"c[#{$1}]"}
     string = string.gsub(/\@(\d+)/i) {"c[#{$1}]"}
     string = string.gsub(/\$([\+\-]?[\d]+)/i) {"m[#{$1}]"}
+    string = string.gsub(/r([\+\-]?[\d]+)/i) {"r[#{$1}]"}
     debug('parren_killer_add after string', string)
     
     return string
@@ -53,7 +54,7 @@ class SwordWorld < DiceBot
     return output_msg, secret_flg
   end
   
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     if(dice_n >= 12)
       return " ＞ 自動的成功";
     end
@@ -65,67 +66,197 @@ class SwordWorld < DiceBot
     return '' if(signOfInequality != ">=")
     return '' if(diff == "?")
     
-    if(total_n >= diff)
+    if(totalValue >= diff)
       return " ＞ 成功";
     end
     
     return " ＞ 失敗";
   end
   
+  
   ####################        SWレーティング表       ########################
   def rating(string, nick_e)     # レーティング表
-    key = nil
-    dice, output, dice_str, mod  = []
-    key_max = 0
-    dicestr_wk = 0
-    rate_wk = 0
-    dice_wk = ""
-    rate_str = ""
-    dice_add = 0
+    debug("rating string", string)
     
-    add_p = "";
-    dec_p = "";
-    total_n = 0;
-    round = 0;
-    dice_f = 0;
-    crit = 10;
-    
-    unless(/(^|\s)[sS]?(((k|K)[\d\+\-]+)([cmCM]\[([\d\+\-]+)\])*([\d\+\-]*)([cmCM]\[([\d\+\-]+)\])*)($|\s)/ =~ string)
+    unless(/(^|\s)[sS]?(((k|K)[\d\+\-]+)([cmCM]\[([\d\+\-]+)\])*([\d\+\-]*)([cmrCMR]\[([\d\+\-]+)\]|gf|GF)*)($|\s)/ =~ string)
       debug("not matched")
-      return '1';
+      return '1'
     end
     
-    string = $2;
-    if( /c\[(\d+)\]/i =~ string )
-      crit = $1.to_i
-      crit = 3 if(crit < 3);        # エラートラップ(クリティカル値が3未満なら3とする)
-      string = string.gsub(/c\[(\d+)\]/i, '')
+    string = $2
+    
+    isGratestFortune, string = getGratestFortuneFromString(string)
+    rateUp, string = getRateUpFromString(string)
+    crit, string = getCriticalFromString(string)
+    firstDiceChanteTo, firstDiceChangeModify, string = getDiceChangesFromString(string)
+    
+    key, addValue = getKeyAndAddValueFromString(string)
+    
+    return '1' unless( key =~ /([\d]+)/ )
+    key = $1.to_i
+    
+    
+    # 2.0対応
+    rate_sw2_0 = getSW2_0_RatingTable
+    
+    keyMax = rate_sw2_0.length - 1
+    debug("keyMax", keyMax)
+    if(key > keyMax)
+      return "キーナンバーは#{keyMax}までです"
     end
     
-    if( /m\[([\d\+\-]+)\]/i =~ string )
-      mod = $1;
-      unless(/[\+\-]/ =~ mod)
-        dice_f = mod.to_i;
-        mod = 0;
+    newRates = getNewRates(rate_sw2_0)
+    
+    output = "#{nick_e}: KeyNo.#{key}"
+    
+    output += "c[#{crit}]" if(crit < 13)
+    output += "m[#{firstDiceChangeModify}]" if( firstDiceChangeModify != 0 )
+    output += "m[#{firstDiceChanteTo}]" if( firstDiceChanteTo != 0)
+    output += "r[#{rateUp}]" if( rateUp != 0 )
+    output += "gf" if( isGratestFortune )
+    
+    debug('output', output)
+    
+    if( addValue != 0 )
+      output += "+#{addValue}" if(addValue > 0)
+      output +=  "#{addValue}" if(addValue < 0)
+    end
+    
+    output += " ＞ "
+    
+    diceResultTotals = []
+    diceResults = []
+    rateResults = []
+    dice = 0
+    diceOnlyTotal = 0
+    totalValue = 0
+    round = 0
+    
+    begin
+      dice, diceText = rollDice(isGratestFortune)
+      
+      if( firstDiceChanteTo != 0 )
+        dice = firstDiceChanteTo
+        firstDiceChanteTo = 0
+      elsif( firstDiceChangeModify != 0 )
+        dice += firstDiceChangeModify.to_i
+        firstDiceChangeModify = 0;
       end
-      string = string.gsub(/m\[([\d\+\-]+)\]/i, '')
+      
+      dice = 2 if(dice < 2)
+      dice = 12 if(dice > 12)
+      
+      currentKey = [key + round * rateUp, keyMax].min
+      debug("currentKey", currentKey)
+      rateValue = newRates[dice][currentKey]
+      debug("rateValue", rateValue)
+      
+      totalValue += rateValue
+      diceOnlyTotal += dice
+      
+      diceResultTotals << "#{dice}"
+      diceResults << "#{diceText}"
+      rateResults << ((dice > 2) ? rateValue : "**")
+      
+      round += 1
+    end while(dice >= crit)
+    
+    
+    limitLength = $SEND_STR_MAX - output.length
+    output += getResultText(totalValue, addValue, diceResults, diceResultTotals,
+                            rateResults, diceOnlyTotal, round, crit, limitLength)
+    
+    return output
+  end
+  
+  
+  def getCriticalFromString(string)
+    crit = 10
+    
+    regexp = /c\[(\d+)\]/i
+    
+    if( regexp =~ string )
+      crit = $1.to_i
+      crit = 3 if(crit < 3)        # エラートラップ(クリティカル値が3未満なら3とする)
+      string = string.gsub(regexp, '')
     end
+    
+    return crit, string
+  end
+  
+  def getDiceChangesFromString(string)
+    firstDiceChanteTo = 0
+    firstDiceChangeModify = 0
+    
+    regexp = /m\[([\d\+\-]+)\]/i
+    
+    if( regexp =~ string )
+      firstDiceChangeModify = $1
+      
+      unless(/[\+\-]/ =~ firstDiceChangeModify)
+        firstDiceChanteTo = firstDiceChangeModify.to_i
+        firstDiceChangeModify = 0
+      end
+      
+      string = string.gsub(regexp, '')
+    end
+    
+    return firstDiceChanteTo, firstDiceChangeModify, string
+  end
+  
+  def getRateUpFromString(string)
+    rateUp = 0
+    
+    return rateUp, string unless( isSW2_0Mode )
+    
+    regexp = /r\[(\d+)\]/i
+    
+    if( regexp === string )
+      rateUp = $1.to_i
+      string = string.gsub(regexp, '')
+    end
+    
+    return rateUp, string
+  end
+  
+  def getGratestFortuneFromString(string)
+    isGratestFortune = false
+    
+    return isGratestFortune, string unless( isSW2_0Mode )
+    
+    regexp = /gf/i
+    
+    if( regexp === string )
+      isGratestFortune = true
+      string = string.gsub(regexp, '')
+    end
+    
+    return isGratestFortune, string
+  end
+  
+  
+  def isSW2_0Mode
+    ( @rating_table == 2)
+  end
+  
+  def getKeyAndAddValueFromString(string)
+    key = nil
+    addValue = 0
     
     if(/K(\d+)([\d\+\-]*)/i =~ string)    # ボーナスの抽出
       key = $1;
       if($2)
-        add_p = parren_killer("(" + $2 + ")").to_i
+        addValue = parren_killer("(" + $2 + ")").to_i
       end
     else
       key = string;
     end
     
-    unless( key =~ /([\d]+)/ )
-      return '1'
-    end
-    key = $1.to_i
-    
-    # 2.0対応
+    return key, addValue
+  end
+  
+  
+  def getSW2_0_RatingTable
     rate_sw2_0 = [
                   #0
                   '*,0,0,0,1,2,2,3,3,4,4',
@@ -240,9 +371,10 @@ class SwordWorld < DiceBot
                   '*,8,12,15,18,19,20,22,24,27,30',
                  ]
     
-    key_max = rate_sw2_0.length
-    
-    
+    return rate_sw2_0
+  end
+  
+  def getNewRates(rate_sw2_0)
     rate_3 = []
     rate_4 = []
     rate_5 = []
@@ -255,8 +387,8 @@ class SwordWorld < DiceBot
     rate_12 = []
     zeroArray = []
     
-    rate_sw2_0.each do |rate_wk|
-      rate_arr = rate_wk.split(/,/)
+    rate_sw2_0.each do |rateText|
+      rate_arr = rateText.split(/,/)
       zeroArray.push( 0 )
       rate_3.push( rate_arr[1].to_i )
       rate_4.push( rate_arr[2].to_i )
@@ -272,112 +404,78 @@ class SwordWorld < DiceBot
     
     if(@rating_table == 1)
       # 完全版準拠に差し替え
-      rate_12[31] = rate_12[32] = rate_12[33] = 10;
+      rate_12[31] = rate_12[32] = rate_12[33] = 10
     end
     
-    newRates = [zeroArray, zeroArray, zeroArray, rate_3, rate_4, rate_5, rate_6, rate_7, rate_8, rate_9, rate_10, rate_11, rate_12];
+    newRates = [zeroArray, zeroArray, zeroArray, rate_3, rate_4, rate_5, rate_6, rate_7, rate_8, rate_9, rate_10, rate_11, rate_12]
     
-    if(key > key_max)
-      return "キーナンバーは#{key_max}までです";
-    end
-    
-    output = "#{nick_e}: KeyNo.#{key}";
-    output += "c[#{crit}]" if(crit < 13);
-    
-    if( (not mod.nil?) and (mod != 0) )
-      debug('mod', mod)
-      output += "m[#{mod}]";
-    elsif( dice_f != 0)
-      debug( 'dice_f', dice_f )
-      output += "m[#{dice_f}]";
-    end
-    debug('output', output);
-    
-    if( add_p )
-      output += "+#{add_p}" if(add_p > 0);
-      output +=  "#{add_p}" if(add_p < 0);
-    end
-    
-    output += " ＞ ";
-    
-    dice_wk = "";
-    
-    begin
-      dice, dice_str = roll(2, 6);
-      
-      if( dice_f != 0 )
-        dice = dice_f;
-        dice_f = 0;
-        dice = 2 if(dice < 2);
-        dice = 12 if(dice > 12);
-      elsif( mod )
-        dice += mod.to_i;
-        mod = 0;
-        dice = 2 if(dice < 2);
-        dice = 12 if(dice > 12);
-      end
-      
-      rate_wk = newRates[dice][key];
-      
-      total_n += rate_wk;
-      dice_add += dice;
-      
-      if(dice_wk != "")
-        dice_wk += ",#{dice}";
-        dicestr_wk += " #{dice_str}";
-        if(dice > 2)
-          rate_str += ",#{rate_wk}";
-        else 
-          rate_str += ",**";
-        end
-      else 
-        dice_wk = "#{dice}";
-        dicestr_wk = dice_str;
-        if(dice > 2)
-          rate_str += rate_wk.to_s;
-        else 
-          rate_str += "**";
-        end
-      end
-      
-      round += 1;
-    end while(dice >= crit);
-    
-    if(sendMode > 1)           # 表示モード２以上
-      output += "2D:[#{dicestr_wk}]=#{dice_wk} ＞ #{rate_str}";
-    elsif(sendMode > 0)  # 表示モード１以上
-      output += "2D:#{dice_wk} ＞ #{total_n}";
-    else                     # 表示モード０
-      output += "#{total_n}";
-    end
-    if(dice_add <= 2) 
-      return "#{output} ＞ 自動的失敗";
-    end
-    
-    if( add_p != 0 )
-      output += "+#{add_p}" if(add_p > 0);
-      output +=  "#{add_p}" if(add_p < 0);
-      total_n += add_p;
-      output += " ＞ #{total_n}";
-    end
-    
-    if (round > 1) 
-      round -= 1;   # ここでは「回転数=クリティカルの出た数」とする
-      output += " ＞ #{round}回転";
-    end
-    
-    if ( output.length > $SEND_STR_MAX)   # 回りすぎて文字列オーバーフロウしたときの救済
-      if(crit < 13) 
-        output = "#{nick_e}: KeyNo.#{key}[#{crit}] ＞ ... ＞ #{total_n} ＞ #{round}回転";
-      else 
-        output = "#{nick_e}: KeyNo.#{key} ＞ ... ＞ #{total_n} ＞ #{round}回転";
-      end
-    end
-    
-    return output;
-    
+    return newRates
   end
   
+  
+  def rollDice(isGratestFortune)
+    unless( isGratestFortune )
+      dice, diceText = roll(2, 6)
+      return dice, diceText
+    end
+    
+    dice, diceText = roll(1, 6)
+
+    dice *= 2
+    diceText = "#{diceText},#{diceText}"
+    
+    return dice, diceText
+  end
+  
+  
+  def getResultText(totalValue, addValue, diceResults, diceResultTotals,
+                    rateResults, diceOnlyTotal, round, crit, limitLength)
+    output = ""
+    
+    totalText = (totalValue + addValue).to_s
+    
+    if(sendMode > 1)           # 表示モード２以上
+      output += "2D:[#{diceResults.join(' ')}]=#{diceResultTotals.join(',')}"
+      rateResultsText = rateResults.join(',')
+      output += " ＞ #{rateResultsText}" unless( rateResultsText == totalText ) 
+    elsif(sendMode > 0)  # 表示モード１以上
+      output += "2D:#{diceResultTotals.join(',')}"
+    else                     # 表示モード０
+      output += "#{totalValue}"
+    end
+    
+    if(diceOnlyTotal <= 2) 
+      return "#{output} ＞ 自動的失敗"
+    end
+    
+    addText = getAddText(addValue)
+    output += "#{addText} ＞ "
+    
+    roundText = ""
+    if(round > 1)
+      roundText += "#{round - 1}回転 ＞ "
+    end
+    
+    output += "#{roundText}#{totalText}"
+    
+    
+    if ( output.length > limitLength) # 回りすぎて文字列オーバーしたときの救済
+      output = "... ＞ #{roundText}#{totalText}"
+    end
+    
+    return output
+  end
+  
+  def getAddText(addValue)
+    addText = ""
+    
+    return addText if( addValue == 0 )
+    
+    operator = ((addValue > 0) ? "+" : "")
+    addText += "#{operator}#{addValue}"
+    
+    return addText
+  end
   
   def setRatingTable(nick_e, tnick, channel_to_list)
     mode_str = ""
