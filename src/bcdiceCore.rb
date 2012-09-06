@@ -840,7 +840,8 @@ class BCDice
     
     debug("value", value)
     
-    result_msg = table.find{|i| i.first === value}
+    key, result_msg = table.find{|i| i.first === value}
+    
     if( result_msg.nil? )
       return output_msg, secret_flg
     end
@@ -1843,6 +1844,10 @@ class BCDice
       require 'diceBot/Ryutama'
       diceBot = Ryutama.new
       message = 'Game設定をりゅうたまに設定しました'
+    when /(^|\s)CardRanker$/i
+      require 'diceBot/CardRanker'
+      diceBot = CardRanker.new
+      message = 'Game設定をカードランカーに設定しました'
     when /(^|\s)(None)$/i, ""
       diceBot = DiceBot.new
       message = 'Game設定を解除しました'
