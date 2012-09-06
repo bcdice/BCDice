@@ -82,7 +82,7 @@ MESSAGETEXT
     monsters = getMonsterTables(colorIndex - 1)
     monsterName, monsterIndex = get_table_by_2d6(monsters)
     
-    output = "#{type}(#{colorIndex},#{monsterIndex}) ＞ #{ color }の#{monsterIndex} ＞ #{monsterName}"
+    output = "#{type}(#{colorIndex},#{monsterIndex}) ＞ #{ color }の#{monsterIndex}：#{monsterName}"
   end
   
   def getMonsterTables(colorIndex)
