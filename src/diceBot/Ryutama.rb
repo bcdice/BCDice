@@ -36,7 +36,7 @@ MESSAGETEXT
   
   def rollRyutama(string)
     debug('rollRyutama begin')
-    unless( /^R(\d+)(,(\d+))?([\+\-]\d+)?(>=(\d+))?/ === string )
+    unless( /^R(\d+)(,(\d+))?([\+\-\d]+)?(>=(\d+))?/ === string )
       debug('unmatched!')
       return ''
     end
@@ -52,7 +52,8 @@ MESSAGETEXT
       return ''
     end
     
-    modify = modifyString.to_i
+    modifyString ||= ''
+    modify = parren_killer("(" + modifyString + ")").to_i
     difficulty = getDiffculty(difficulty)
     
     value1 = getRollValue(dice1)
@@ -66,7 +67,7 @@ MESSAGETEXT
     
     value1Text = "#{value1}(#{dice1})"
     value2Text = ((value2 == 0) ? "" : "+#{value2}(#{dice2})")
-    modifyText = ((modify == 0) ? "" : modifyString)
+    modifyText = getModifyString(modify)
     
     baseText = getBaseText(dice1, dice2, modify, difficulty)
     output = "(#{baseText}) ＞ #{value1Text}#{value2Text}#{modifyText} ＞ #{total}#{result}";
@@ -183,11 +184,7 @@ MESSAGETEXT
       baseText += ",#{dice2}"
     end
     
-    if( modify > 0 )
-      baseText += "+" + modify.to_s
-    elsif( modify < 0 )
-      baseText += modify.to_s
-    end
+    baseText += getModifyString(modify)
     
     unless( difficulty.nil? )
       baseText += ">=#{difficulty}"
@@ -196,4 +193,12 @@ MESSAGETEXT
     return baseText
   end
   
+  def getModifyString(modify)
+    if( modify > 0 )
+      return "+" + modify.to_s
+    elsif( modify < 0 )
+      return modify.to_s
+    end
+    return ''
+  end
 end
