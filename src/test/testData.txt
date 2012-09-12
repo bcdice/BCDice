@@ -249,6 +249,26 @@ output:
 Cthulhu : (1d100<=25) ＞ 16 ＞ 成功
 rand:16/100
 ============================
+input:CBR(70,30)	Cthulhu
+output:
+Cthulhu : (1d100<=70,30) ＞ 30[成功,成功] ＞ 成功
+rand:30/100
+============================
+input:CBR(70,30)	Cthulhu
+output:
+Cthulhu : (1d100<=70,30) ＞ 50[成功,失敗] ＞ 失敗
+rand:50/100
+============================
+input:CBR(10,90)	Cthulhu
+output:
+Cthulhu : (1d100<=10,90) ＞ 30[失敗,成功] ＞ 失敗
+rand:30/100
+============================
+input:CBR(70,30)	Cthulhu
+output:
+Cthulhu : (1d100<=70,30) ＞ 71[失敗,失敗] ＞ 失敗
+rand:71/100
+============================
 input:2d6>=4	SwordWorld
 output:
 SwordWorld : (2D6>=4) ＞ 9[6,3] ＞ 9 ＞ 成功
