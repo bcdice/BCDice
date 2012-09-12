@@ -290,6 +290,7 @@ Arianrhod
 ArsMagica
 BarnaKronika
 BloodCrusade
+CardRanker
 ChaosFlare
 Chill
 Cthulhu
