@@ -6,22 +6,33 @@ class Torg < DiceBot
     super
     @sendMode = 2;
   end
+  def gameName
+    'トーグ'
+  end
   
   def gameType
     "TORG"
   end
   
+  def prefixs
+     ['(TG|RT|Result|IT|Initimidate|TT|Taunt|Trick|CT|MT|Maneuver|ODT|ords|odamage|DT|damage|BT|bonus|total)']
+  end
+  
   def getHelpMessage
-    result <<MESSAGETEXT
-・判定ロール　　　　　　　(TGm) (m:基本技能値)
-・一般結果表 成功度　　　 (RTx)
-・威圧/威嚇 結果表　　　　(ITx)
-・挑発/トリック 結果表　　(TTx)
-・間合い 結果表　　　　　 (MTx)
-・オーズ(一般人)ダメージ　(ODTx)
-・能力者ダメージ　　　　　(DTx)
-・ボーナス表　　　　　　　(BTx+y) (x:数値, y:技能基本値)
-MESSAGETEXT
+    info = <<INFO_MESSAGE_TEXT
+・判定　(TGm)
+　TORG専用の判定コマンドです。
+　"TG(技能基本値)"でロールします。Rコマンドに読替されます。
+　振り足しを自動で行い、20の出目が出たときには技能無し値も並記します。
+・各種表　"(表コマンド)(数値)"で振ります。
+　・一般結果表 成功度出力「RTx or RESULTx」
+　・威圧/威嚇 対人行為結果表「ITx or INTIMIDATEx or TESTx」
+　・挑発/トリック 対人行為結果表「TTx or TAUNTx or TRICKx or CTx」
+　・間合い 対人行為結果表「MTx or MANEUVERx」
+　・オーズ（一般人）ダメージ　「ODTx or ORDSx or ODAMAGEx」
+　・ポシビリティー能力者ダメージ「DTx or DAMAGEx」
+　・ボーナス表「BTx+y or BONUSx+y or TOTALx+y」 xは数値, yは技能基本値
+INFO_MESSAGE_TEXT
   end
   
   def changeText(string)

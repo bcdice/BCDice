@@ -7,18 +7,33 @@ class BarnaKronika < DiceBot
     @sendMode = 2;
     @sortType = 3;
   end
+  def gameName
+    'バルナ・クロニカ'
+  end
   
   def gameType
     "BarnaKronika"
   end
   
-  def getHelpMessage
-    return <<MESSAGETEXT
-・バルナクロニカ　　一般判定　(nBK)
-・　　　　　　　　　戦闘判定　(nBA)
-・　　　　クリティカルコール　(nBKCt or nBACt)　(n:ダイス数, t:コール数)
-MESSAGETEXT
+  def prefixs
+     ['\d+BK', '\d+BA', '\d+BKC\d+', '\d+BAC\d+']
   end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+・通常判定　nBK
+　ダイス数nで判定ロールを行います。
+　セット数が1以上の時はセット数も表示します。
+・攻撃判定　nBA
+　ダイス数nで判定ロールを行い、攻撃値と命中部位も表示します。
+・クリティカルコール　nBKCt　nBACt
+　判定コマンドの後ろに「Ct」を付けるとクリティカルコールです。
+　ダイス数n,コール数tで判定ロールを行います。
+　ダイス数nで判定ロールを行います。
+　セット数が1以上の時はセット数も表示し、攻撃判定の場合は命中部位も表示します。
+INFO_MESSAGE_TEXT
+  end
+  
   
   def changeText(string)
     debug('parren_killer_add begin string', string)

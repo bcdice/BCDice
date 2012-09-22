@@ -9,26 +9,34 @@ class BloodCrusade < DiceBot
     @d66Type = 2;
     @fractionType = "roundUp";     # 端数切り上げに設定
   end
+  def gameName
+    'ブラッド・クルセイド'
+  end
   
   def gameType
     "BloodCrusade"
   end
   
-  def getHelpMessage
-    return <<MESSAGETEXT
-　　・ブラッドクルセイド
-　　　・各種表
-　　　　・関係属性表         RT
-　　　　・シーン表           ST
-　　　　・先制判定指定特技表 IST
-　　　　・身体部位決定表　　 BRT
-　　　　・自信幸福表　　　　 CHT
-　　　　・地位幸福表　　　　 SHT
-　　　　・日常幸福表　　　　 DHT
-　　　　・人脈幸福表　　　　 LHT
-　　　　・退路幸福表　　　　 EHT
-MESSAGETEXT
+  def prefixs
+     ['RT', 'ST', 'IST', 'BRT', 'CHT', 'SHT', 'DHT', 'LHT', 'EHT']
   end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+・各種表
+　・関係属性表         RT
+　・シーン表           ST
+　・先制判定指定特技表 IST
+　・身体部位決定表　　 BRT
+　・自信幸福表　　　　 CHT
+　・地位幸福表　　　　 SHT
+　・日常幸福表　　　　 DHT
+　・人脈幸福表　　　　 LHT
+　・退路幸福表　　　　 EHT
+・D66ダイスあり
+INFO_MESSAGE_TEXT
+  end
+  
   
   def dice_command(string, nick_e)
     secret_flg = false

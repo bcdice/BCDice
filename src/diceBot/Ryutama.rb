@@ -6,13 +6,20 @@ class Ryutama < DiceBot
     super
     @validDiceTypes = [20, 12, 10, 8, 6, 4, 2]
   end
+  def gameName
+    'りゅうたま'
+  end
   
   def gameType
     "Ryutama"
   end
   
+  def prefixs
+     ['R\d+']
+  end
+  
   def getHelpMessage
-    return <<MESSAGETEXT
+    info = <<INFO_MESSAGE_TEXT
 ロール判定
 　Rx,y>=t（x,y：使用する能力値、t：目標値）
 　1ゾロ、クリティカルも含めて判定結果を表示します
@@ -20,8 +27,9 @@ class Ryutama < DiceBot
 例）
 　R8,6>=13
 　Ryutama : (R8,6>=13) ＞ 6(8)+6(6) ＞ 12 ＞ クリティカル成功
-MESSAGETEXT
+INFO_MESSAGE_TEXT
   end
+  
   
   def rollDiceCommandResult(string)
     debug('Ryutama rollDiceCommandResult begin')

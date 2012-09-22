@@ -9,9 +9,22 @@ class TokumeiTenkousei < DiceBot
     @sameDiceRerollCount = 1;     #ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
     @sameDiceRerollType = 2;   #ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
   end
+  def gameName
+    '特命転攻生'
+  end
   
   def gameType
     "TokumeiTenkousei"
+  end
+  
+  def prefixs
+     []
+  end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+「1の出目でEPP獲得」、判定時の「成功」「失敗」「ゾロ目で自動振り足し」を自動判定。
+INFO_MESSAGE_TEXT
   end
   
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)

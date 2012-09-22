@@ -8,28 +8,44 @@ class Satasupe < DiceBot
     @sortType = 1;
     @d66Type = 2;
   end
+  def gameName
+    'サタスペ'
+  end
   
   def gameType
     "Satasupe"
   end
   
-  def getHelpMessage
-    return <<MESSAGETEXT
-・サタスペ　判定ロール  　(nR>=x[y,z]) (n:最大ロール数, x:目標値, y:目標成功数, z:ファンブル値)
-・タグ決定表　　　　　　　(TAGT)
-・情報イベント表　　　　　(箸ｷIET)
-　　犯罪表(CrimeIET)、生活表(LifeIET)、恋愛表(LoveIET)、教養表(CultureIET)、戦闘表(CombatIET)
-・情報ハプニング表　　　　(箸ｷIHT)
-　　犯罪表(CrimeIHT)、生活表(LifeIHT)、恋愛表(LoveIHT)、教養表(CultureIHT)、戦闘表(CombatIHT)
-・命中判定ファンブル表　　(FumbleT)
-・致命傷表　　　　　　　　(FatalT)
-・アクシデント表　　　　　(AccidentT)
-・汎用アクシデント表　　　(GeneralAT)
-・その後表　　　　　　　　(AfterT)
-・ロマンスファンブル表　　(RomanceFT)
-・NPCの年齢と好みを一括出力　(NPCT)
-MESSAGETEXT
+  def prefixs
+     ['(\d+R|TAGT|\w+IET|\w+IHT|F\w*T|F\w*T|A\w*T|G\w*A\w*T|A\w*T|R\w*FT|NPCT)']
   end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+・判定コマンド　(nR>=x[y,z])
+　nが最大ロール回数、xが難易度、yが目標成功度、zがファンブル値です。
+　yとzは省略可能です。
+　例）　10r>=7　　　8R>=7[3,3]　　　10r>=5[5]　　　8R>=7[,3]
+・各種表
+　「TAGT3」のようにコマンド末尾に数字を入れると複数回一辺に引くことが出来ます。
+　・タグ決定表　(TAGT)
+　・情報イベント表　(〜IET)
+　　　犯罪表(CrimeIET)、生活表(LifeIET)、恋愛表(LoveIET)、教養表(CultureIET)、戦闘表(CombatIET)となっています。
+　・情報ハプニング表　(〜IHT)
+　　　犯罪表(CrimeIHT)、生活表(LifeIHT)、恋愛表(LoveIHT)、教養表(CultureIHT)、戦闘表(CombatIHT)となっています。
+　・命中判定ファンブル表　(FumbleT)
+　・致命傷表　(FatalT)
+　・アクシデント表　(AccidentT)
+　・汎用アクシデント表　(GeneralAT)
+　・その後表　(AfterT)
+　・ロマンスファンブル表　(RomanceFT)
+　・NPCの年齢と好みを一括出力　(NPCT)
+　　　NPCの年齢区分(実年齢)、好み/雰囲気、好み/年齢を一括で引きます。
+　　　使用しない部分は無視してください。
+・D66ダイスあり
+INFO_MESSAGE_TEXT
+  end
+  
   
   def dice_command(string, nick_e)
     debug("dice_command begin string", string)

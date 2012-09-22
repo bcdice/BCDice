@@ -8,9 +8,23 @@ class ShadowRun4 < DiceBot
     @rerollNumber = 6;      #振り足しする出目
     @defaultSuccessTarget = ">=5";   #目標値が空欄の時の目標値
   end
+  def gameName
+    'シャドウラン第４版'
+  end
   
   def gameType
     "ShadowRun4"
+  end
+  
+  def prefixs
+     []
+  end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+個数振り足しロール(xRn)の閾値を6にセット、バラバラロール(xBn)の目標値を5以上にセットします。
+BコマンドとRコマンド時に、グリッチの表示を行います。
+INFO_MESSAGE_TEXT
   end
   
   def changeText(string)

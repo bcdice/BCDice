@@ -1,18 +1,32 @@
 #--*-coding:utf-8-*--
 
+require 'diceBot/Gundog'
+
 class GundogZero < Gundog
+  
+  def gameName
+    'ガンドッグ・ゼロ'
+  end
   
   def gameType
     "GundogZero"
   end
   
+  def prefixs
+     ['(.DPT|.FT)']
+  end
+  
   def getHelpMessage
-    return <<MESSAGETEXT
-    ・ダメージペナルティ表　　(〜DPTx) (x:修正)
-    　　射撃DP表(SDPT)、格闘DP表(MDPT)、車両DP表(VDPT)、汎用DP表(GDPT)
-    ・ファンブル表　　　　　　(〜FTx)  (x:修正)
-    　　射撃F表(SFT)、格闘F表(MFT)、投擲F表(TFT)
-MESSAGETEXT
+    info = <<INFO_MESSAGE_TEXT
+失敗、成功、クリティカル、ファンブルとロールの達成値の自動判定を行います。
+nD9ロールも対応。
+・ダメージペナルティ表　　(〜DPTx) (x:修正)
+　射撃(SDPT)、格闘(MDPT)、車両(VDPT)、汎用(GDPT)の各表を引くことが出来ます。
+　修正を後ろに書くことも出来ます。
+・ファンブル表　　　　　　(〜FTx)  (x:修正)
+　射撃(SFT)、格闘(MFT)、投擲(TFT)の各表を引くことが出来ます。
+　修正を後ろに書くことも出来ます。
+INFO_MESSAGE_TEXT
   end
   
   def dice_command(string, nick_e)

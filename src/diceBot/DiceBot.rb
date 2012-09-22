@@ -20,7 +20,7 @@ class DiceBot
     @rerollLimitCount = 0;    #振り足し回数上限
     @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
     
-    @gameType = 'none'
+    @gameType = 'DiceBot'
   end
   
   attr_accessor :rerollLimitCount
@@ -28,6 +28,26 @@ class DiceBot
   attr_reader :sendMode, :sameDiceRerollCount, :sameDiceRerollType, :d66Type
   attr_reader :isPrintMaxDice, :upplerRollThreshold, :unlimitedRollDiceType
   attr_reader :defaultSuccessTarget, :rerollNumber, :fractionType
+  
+  
+  def info
+    {
+      :name => gameName,
+      :gameType => gameType,
+      :prefixs => prefixs,
+      :info => getHelpMessage,
+    }
+  end
+  
+  def gameName
+    # raise "gameName is NOT define in #{self.class.name}"
+    gameType
+  end
+  
+  def prefixs
+    # raise "prefixs is NOT define in #{self.class.name}"
+    []
+  end
   
   def gameType
     @gameType

@@ -6,15 +6,23 @@ class ShinMegamiTenseiKakuseihen < DiceBot
     super
   end
   
+  def gameName
+    '真・女神転生TRPG　覚醒編'
+  end
+  
   def gameType
-    # "真・女神転生TRPG　覚醒編"
-    # "ShinMegamiTenseiKakuseihen"
     "SMTKakuseihen"
   end
   
+  def prefixs
+    []
+  end
+  
   def getHelpMessage
-    return <<MESSAGETEXT
-MESSAGETEXT
+    info = <<INFO_MESSAGE_TEXT
+1D100<=(目標値) でスワップ・通常・逆スワップ判定を自動判定
+威力ダイスは nU6[6] (nはダイス個数)でロール可能です。
+INFO_MESSAGE_TEXT
   end
   
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)

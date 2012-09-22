@@ -8,16 +8,36 @@ class TunnelsAndTrolls < DiceBot
     @sortType = 1;
     @sameDiceRerollCount = 1;
   end
+  def gameName
+    'トンネルズ＆トロールズ'
+  end
 
   def gameType
     "Tunnels & Trolls"
   end
   
+  def prefixs
+     ['(\d+H?BS)']
+  end
+  
   def getHelpMessage
-    return <<MESSAGETEXT
-・T&T バーサーク　　　　　(nBS+x)  (n:ダイス数, x:修正)
-・T&T ハイパーバーサーク　(nHBS+x) (n:ダイス数, x:修正)
-MESSAGETEXT
+    info = <<INFO_MESSAGE_TEXT
+失敗、成功、自動失敗の自動判定とゾロ目の振り足し経験値の自動計算を行います。
+SAVEの難易度を「レベル」で表記することが出来ます。
+例えば「2Lv」と書くと「25」に置換されます。
+判定時以外は悪意ダメージを表示します。
+バーサークとハイパーバーサーク用に専用コマンドが使えます。
+
+・行為判定　(#nLV+x)
+　"#（レベル）Lv（修正値）"で振り、結果の成否と経験値を表示します。
+　レベルを半角?にすると(#?Lv+XX)成功する最高レベルを自動計算します。(経験値は1Lv成功としています)
+　判定時にはゾロ目を自動で振り足します。
+
+・バーサークとハイパーバーサーク　(nBS+x or nHBS+x)
+　"(ダイス数)BS(修正値)"でバーサーク、"(ダイス数)HBS(修正値)"でハイパーバーサークでロールできます。
+　最初のダイスの読替は、個別の出目はそのままで表示。
+　下から２番目の出目をずらした分だけ合計にマイナス修正を追加して表示します。
+INFO_MESSAGE_TEXT
   end
   
   def changeText(string)

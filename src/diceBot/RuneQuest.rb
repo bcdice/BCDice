@@ -2,8 +2,22 @@
 
 class RuneQuest < DiceBot
   
+  def gameName
+    'ルーンクエスト'
+  end
+  
   def gameType
     "RuneQuest"
+  end
+  
+  def prefixs
+     []
+  end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+クリティカル、エフェクティブ(効果的成功)、ファンブルの自動判定を行います。
+INFO_MESSAGE_TEXT
   end
   
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)

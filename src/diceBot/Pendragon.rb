@@ -2,8 +2,22 @@
 
 class Pendragon < DiceBot
   
+  def gameName
+    'ペンドラゴン'
+    end
+  
   def gameType
     "Pendragon"
+  end
+  
+  def prefixs
+     []
+  end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+クリティカル、成功、失敗、ファンブルの自動判定を行います。
+INFO_MESSAGE_TEXT
   end
   
   def check_1D20(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)     # ゲーム別成功度判定(1d20)

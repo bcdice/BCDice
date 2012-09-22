@@ -8,17 +8,30 @@ class GehennaAn < DiceBot
     @sortType = 3;
   end
   
+  def gameName
+    'ゲヘナ・アナスタシス'
+  end
   
   def gameType
     "GehennaAn"
   end
   
-  def getHelpMessage
-    return <<MESSAGETEXT
-・通常判定　　　　　　　　(nGt+m)  (n:ダイス数, t:目標値, m:修正値)
-・戦闘判定　　　　　　　　(nGAt+m) (n:ダイス数, t:目標値, m:修正値)
-MESSAGETEXT
+  def prefixs
+     ['(\d+G\d+|\d+GA\d+)']
   end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+戦闘判定と通常判定に対応。幸運の助け、連撃増加値(戦闘判定)、闘技チット(戦闘判定)を自動表示します。
+・戦闘判定　(nGAt+m)
+　ダイス数n、目標値t、修正値mで戦闘判定を行います。
+　幸運の助け、連撃増加値、闘技チットを自動処理します。
+・通常判定　(nGt+m)
+　ダイス数n、目標値t、修正値mで通常判定を行います。
+　幸運の助けを自動処理します。(連撃増加値、闘技チットを表示抑制します)
+INFO_MESSAGE_TEXT
+  end
+  
   
   def changeText(string)
     string = string.gsub(/(\d+)GA(\d+)([\+\-][\+\-\d]+)/) {"#{$1}R6#{$3}>=#{$2}[1]"}

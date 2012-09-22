@@ -6,10 +6,24 @@ class PhantasmAdventure < DiceBot
     super
     @sendMode = 2;
   end
+  def gameName
+    'ファンタズムアドベンチャー'
+  end
   
   def gameType
     "PhantasmAdventure"
   end
+  
+  def prefixs
+     []
+  end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+成功、失敗、決定的成功、決定的失敗の表示とクリティカル・ファンブル値計算の実装。
+INFO_MESSAGE_TEXT
+  end
+  
   
   def check_1D20(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)     # ゲーム別成功度判定(1d20)
     return '' unless(signOfInequality == "<=")

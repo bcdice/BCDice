@@ -8,6 +8,7 @@ require 'wx/classes/timer.rb'
 require 'bcdiceCore.rb'
 require 'ArgsAnalizer.rb'
 require 'IniFile.rb'
+require 'diceBot/DiceBotLoader'
 
 $LOAD_PATH << File.dirname(__FILE__) + "/irc"
 require 'ircLib.rb'
@@ -19,6 +20,7 @@ class BCDiceGuiApp < Wx::App
   private
 
   def on_init
+    DiceBotLoader.setBcDicePath( 'src' )
     BCDiceDialog.new.show_modal
     return false
   end
@@ -327,6 +329,7 @@ Ryutama
 SataSupe
 ShadowRun
 ShadowRun4
+ShinkuuGakuen
 ShinobiGami
 SMTKakuseihen
 SwordWorld

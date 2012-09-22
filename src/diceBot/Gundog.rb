@@ -2,8 +2,23 @@
 
 class Gundog < DiceBot
   
+  def gameName
+    'ガンドッグ'
+  end
+  
   def gameType
     "Gundog"
+  end
+  
+  def prefixs
+     []
+  end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+失敗、成功、クリティカル、ファンブルとロールの達成値の自動判定を行います。
+nD9ロールも対応。
+INFO_MESSAGE_TEXT
   end
   
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)

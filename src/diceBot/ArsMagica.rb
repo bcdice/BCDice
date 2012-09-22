@@ -7,12 +7,28 @@ class ArsMagica < DiceBot
     @sendMode = 2;
   end
   
+  def gameName
+    'アルスマギカ'
+  end
+  
   def gameType
     "ArsMagica"
   end
   
+  def prefixs
+    ['ArS']
+  end
+  
   def getHelpMessage
-    "・ArsMagica ストレスダイス(ArSx) (x:ボッチダイス)"
+    info = <<INFO_MESSAGE_TEXT
+・ストレスダイス　(ArSx+y)
+　"ArS(ボッチダイス)+(修正)"です。判定にも使えます。Rコマンド(1R10+y[m])に読替をします。
+　ボッチダイスと修正は省略可能です。(ボッチダイスを省略すると1として扱います)
+　botchダイスの0の数が2以上の時は、数えて表示します。
+　（注意！） botchの判断が発生したときには、そのダイスを含めてロールした全てのダイスを[]の中に並べて表示します。
+　例) (1R10[5]) ＞ 0[0,1,8,0,8,1] ＞ Botch!
+　　最初の0が判断基準で、その右側5つがボッチダイスです。1*2,8*2,0*1なので1botchという訳です。
+INFO_MESSAGE_TEXT
   end
   
   def changeText(string)
