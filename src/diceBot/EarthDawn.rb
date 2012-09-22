@@ -8,12 +8,24 @@ class EarthDawn < DiceBot
     @sortType = 1;
   end
   
+  def gameName
+    'アースドーン'
+  end
+  
   def gameType
     "EarthDawn"
   end
   
+  def prefixs
+    ['\d+e\d+']
+  end
+  
   def getHelpMessage
-    '・アースドーン　ステップロール　(xEn+カルマ) [x:ステップ, n:目標値]'
+    info = <<INFO_MESSAGE_TEXT
+ステップダイス　(xEn+k)
+ステップx、目標値n、カルマダイスkでステップダイスをロールします。
+振り足しも自動。
+INFO_MESSAGE_TEXT
   end
   
   def dice_command(string, nick_e)

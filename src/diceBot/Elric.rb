@@ -1,10 +1,24 @@
 #--*-coding:utf-8-*--
 
 class Elric < DiceBot
+  def gameName
+    'エルリック！'
+  end
   
   def gameType
     "Elric!"
   end
+  
+  def prefixs
+     []
+  end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+貫通、クリティカル、ファンブルの自動判定を行います。
+INFO_MESSAGE_TEXT
+  end
+  
   
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
     return '' unless(signOfInequality == "<=")

@@ -9,20 +9,34 @@ class Peekaboo < DiceBot
     @d66Type = 2;
     @fractionType = "roundUp";     # 端数切り上げに設定
   end
+  def gameName
+    'ピーカーブー'
+  end
   
   def gameType
     "Peekaboo"
   end
   
-  def getHelpMessage
-    return <<MESSAGETEXT
-・ピーカブー　　　　学校イベント表　　　(SET)
-・　　　　　　　個別学校イベント表　　　(PSET)
-・　　　　　　オバケ屋敷イベント表　　　(OET)
-・　　　　イノセント用バタンキュー！表　(IBT)
-・　　　　スプーキー用バタンキュー！表　(SBT)
-MESSAGETEXT
+  def prefixs
+     ['SET', 'PSET', 'OET', 'IBT', 'SBT']
   end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+・判定
+　判定時にクリティカルとファンブルを自動判定します。
+・各種表
+　・イベント表　(〜ET)
+　　・学校イベント表　　　　　　　　SET
+　　・個別学校イベント表　　　　　　PSET
+　　・オバケ屋敷イベント表　　　　　OET
+　・バタンキュー表　(〜BT)
+　　・イノセント用バタンキュー！表　IBT
+　　・スプーキー用バタンキュー！表　SBT
+・D66ダイスあり
+INFO_MESSAGE_TEXT
+  end
+  
   
   def dice_command(string, nick_e)
     secret_flg = false

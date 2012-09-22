@@ -5,16 +5,24 @@ class EclipsePhase < DiceBot
   def initialize
     super
   end
+  def gameName
+    'Eclipse Phase'
+  end
   
   def gameType
     "EclipsePhase"
   end
   
-  def getHelpMessage
-    return <<MESSAGETEXT
-1d100判定時にクリティカル・ファンブル自動判定
-MESSAGETEXT
+  def prefixs
+     []
   end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+1D100<=m 方式の判定で成否、クリティカル・ファンブルを自動判定
+INFO_MESSAGE_TEXT
+  end
+  
   
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
     return '' unless( signOfInequality == '<=' )

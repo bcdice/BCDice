@@ -8,17 +8,29 @@ class Nechronica < DiceBot
     @sortType = 3;
     @defaultSuccessTarget = "6";      #目標値が空欄の時の目標値
   end
+  def gameName
+    'ネクロニカ'
+  end
   
   def gameType
     "Nechronica"
   end
   
-  def getHelpMessage
-    return <<MESSAGETEXT
-・ネクロニカ　　判定　　　(nNC+m)　(n:ダイス数, m:修正値)
-・　　　　　　　攻撃判定　(nNA+m)　(n:ダイス数, m:修正値)
-MESSAGETEXT
+  def prefixs
+     ['(\d+NC|\d+NA)']
   end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+・判定　(nNC+m)
+　ダイス数n、修正値mで判定ロールを行います。
+　ダイス数が2以上の時のパーツ破損数も表示します。
+・攻撃判定　(nNA+m)
+　ダイス数n、修正値mで攻撃判定ロールを行います。
+　命中部位とダイス数が2以上の時のパーツ破損数も表示します。
+INFO_MESSAGE_TEXT
+  end
+  
   
   def changeText(string)
     string = string.gsub(/(\d+)NC(10)?([\+\-][\+\-\d]+)/i) {"#{$1}R10#{$3}[0]"}

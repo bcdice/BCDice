@@ -8,9 +8,22 @@ class ShadowRun < DiceBot
     @upplerRollThreshold = 6;
     @unlimitedRollDiceType = 6;
   end
+  def gameName
+    'シャドウラン'
+  end
   
   def gameType
     "ShadowRun"
+  end
+  
+  def prefixs
+     []
+  end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+上方無限ロール(xUn)の境界値を6にセットします。
+INFO_MESSAGE_TEXT
   end
   
 end

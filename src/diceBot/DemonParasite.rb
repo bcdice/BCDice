@@ -9,20 +9,33 @@ class DemonParasite < DiceBot
     @d66Type = 1;
   end
 
+  def gameName
+    'デモンパラサイト'
+  end
 
   def gameType
-    "Demon Parasite"
+    "DemonParasite"
+  end
+  
+  def prefixs
+     ['(N|A|M|U|C|)?URGE\d+']
   end
   
   def getHelpMessage
-    return <<MESSAGE
-・デモンパラサイト　衝動表　　 (URGEx) (xは衝動段階)
-    ・　　〃　　　　　新衝動表　　(NURGEx)
-    ・　　〃　　　　　誤作動表　　(AURGEx)
-    ・　　〃ミュータント衝動表　　(MURGEx)
-    ・　〃鬼御魂(戦闘外)衝動表　　(UURGEx)
-    ・　〃鬼御魂(戦闘中)衝動表　　(CURGEx)
-MESSAGE
+    info = <<INFO_MESSAGE_TEXT
+・衝動表　(URGEx)
+　"URGE衝動レベル"の形で指定します。
+　衝動表に従って自動でダイスロールを行い、結果を表示します。
+　ダイスロールと同様に、他のプレイヤーに隠れてロールすることも可能です。
+　頭に識別文字を追加して、デフォルト以外の衝動表もロールできます。
+　・nURGEx　頭に「N」を付けると「新衝動表」。
+　・aURGEx　頭に「A」を付けると「誤作動表」。
+　・mURGEx　頭に「M」を付けると「ミュータント衝動表」になります。
+　・uURGEx　頭に「U」が付くと鬼御魂の戦闘外衝動表。
+　・cURGEx　頭に「C」で鬼御魂の戦闘中衝動表になります。
+例）URGE1　　　urge5　　　Surge2
+・D66ダイスあり
+INFO_MESSAGE_TEXT
   end
   
   

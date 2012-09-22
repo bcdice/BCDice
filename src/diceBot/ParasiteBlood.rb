@@ -1,16 +1,36 @@
 #--*-coding:utf-8-*--
 
 class ParasiteBlood < DemonParasite
+  def gameName
+    'パラサイトブラッド'
+    end
 
   def gameType
     "ParasiteBlood"
   end
   
-  def getHelpMessage
-    ''
+  def prefixs
+     ['(N|A|M|U|C|)?URGE\d+']
   end
   
-  ####################         パラブラ衝動表        ########################
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+・衝動表　(URGEx)
+　"URGE衝動レベル"の形で指定します。
+　衝動表に従って自動でダイスロールを行い、結果を表示します。
+　ダイスロールと同様に、他のプレイヤーに隠れてロールすることも可能です。
+　頭に識別文字を追加して、デフォルト以外の衝動表もロールできます。
+　・nURGEx　頭に「N」を付けると「新衝動表」。
+　・aURGEx　頭に「A」を付けると「誤作動表」。
+　・mURGEx　頭に「M」を付けると「ミュータント衝動表」になります。
+　・uURGEx　頭に「U」が付くと鬼御魂の戦闘外衝動表。
+　・cURGEx　頭に「C」で鬼御魂の戦闘中衝動表になります。
+例）URGE1　　　urge5　　　Surge2
+・D66ダイスあり
+INFO_MESSAGE_TEXT
+  end
+  
+  
   def get_urge(string, nick_e)    # パラサイトブラッドの衝動表
     urge = []
 

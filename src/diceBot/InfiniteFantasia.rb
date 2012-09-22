@@ -1,9 +1,22 @@
 #--*-coding:utf-8-*--
 
 class InfiniteFantasia < DiceBot
+  def gameName
+    '無限のファンタジア'
+    end
   
   def gameType
-    "Infinite Fantasia";
+    "InfiniteFantasia";
+  end
+  
+  def prefixs
+     []
+  end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+失敗、成功レベルの自動判定を行います。
+INFO_MESSAGE_TEXT
   end
   
   def check_1D20(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)     # ゲーム別成功度判定(1d20)

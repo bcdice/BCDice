@@ -9,19 +9,33 @@ class MonotoneMusium < DiceBot
     @d66Type = 1
     @sortType = 1
   end
+  def gameName
+    'モノトーン・ミュージアム'
+  end
   
   def gameType
     "MonotoneMusium"
   end
   
-  def getHelpMessage
-    return <<MESSAGETEXT
-・モノトーンミュージアム　　判定　(2D6+m>=t[c,f])　(m:修正, t:目標値, c:クリティカル値, f:ファンブル値)
-　　　　　　　　　　　　　兆候表　(OT)
-　　　　　　　　　　　　　歪み表　(DT)
-　　　　　　　　　　　世界歪曲表　(WDT)
-MESSAGETEXT
+  def prefixs
+     ['OT', 'DT', 'WDT']
   end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+・判定
+　・通常判定　　　　　　2D6+m>=t[c,f]
+　　修正値m,目標値t,クリティカル値c,ファンブル値fで判定ロールを行います。
+　　クリティカル値、ファンブル値は省略可能です。([]ごと省略できます)
+　　自動成功、自動失敗、成功、失敗を自動表示します。
+・各種表
+　・兆候表　　　OT
+　・歪み表　　　DT
+　・世界歪曲表　WDT
+・D66ダイスあり
+INFO_MESSAGE_TEXT
+  end
+  
   
   def changeText(string)
     string

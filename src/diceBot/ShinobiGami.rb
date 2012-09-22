@@ -1,42 +1,44 @@
 #--*-coding:utf-8-*--
 
 class ShinobiGami < DiceBot
+  
   def initialize
     super
     @sendMode = 2;
     @sortType = 1;
     @d66Type = 2;
   end
+  def gameName
+    'シノビガミ'
+  end
   
   def gameType
     "ShinobiGami"
   end
   
-  def getHelpMessage
-    return <<MESSAGETEXT
-・シノビガミ　シーン表　　　　(ST)
-・　　　　　　都市シーン表　　(CST)
-・　　　　　　館シーン表　　　(MST)
-・　　　　　　出島シーン表　　(DST)
-・　　　　　　トラブルシーン表(TST)
-・　　　　　　日常シーン表　　(NST)
-・　　　　　　回想シーン表　　(KST)
-・　　　　　　東京シーン表　　(TKST)
-・　　　　　　戦国シーン表　　(GST)
-・　　　　　　学校シーン表　　(GAST)
-・　　　　　　京都シーン表　　(KYST)
-・　　　　神社仏閣シーン表　　(JBST)
-・　　　　　　ファンブル表　　(FT)
-・　　　　　　怪ファンブル表　(KFT)
-・　　　　　　感情表　　　　　(ET)
-・　　　　　　変調表　　　　　(WT)
-・　　　　　　怪変調表　　　　(KWT)
-・　　　　　　戦国変調表　　　(GWT)
-・　　　　　　戦場表　　　　　(BT)
-・　　　　　　異形表　　　　　(MT)
-・　　　　ランダム特技決定表　(RTT)
-MESSAGETEXT
+  def prefixs
+     ['ST', 'FT', 'ET', 'WT', 'BT', 'CST', 'MST', 'DST', 'TST', 'NST', 'KST', 'TKST', 'GST', 'GWT', 'GAST', 'KYST', 'JBST', 'KFT', 'KWT', 'MT', 'RTT']
   end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+・各種表
+　・(無印)シーン表　ST／ファンブル表　FT／感情表　ET
+　　　／変調表　WT／戦場表　BT／異形表　MT／ランダム特技決定表　RTT
+　・(弐)都市シーン表　CST／館シーン表　　MST／出島シーン表　DST
+　・(参)トラブルシーン表　TST／日常シーン表　NST／回想シーン表　KST
+　・(死)東京シーン表　TKST／戦国シーン表　GST
+　・(乱)戦国変調表　GWT
+　・(リプレイ戦1〜2巻)学校シーン表　GAST／京都シーン表　KYST
+　　　／神社仏閣シーン表　JBST
+　・(怪)怪ファンブル表　KFT／怪変調表　KWT
+　・（その他）秋空に雪舞えばシーン表　KST／災厄シーン表　CLST
+　　／出島EXシーン表　DXST／斜歯ラボシーン表　HLST
+　　／夏の終わりシーン表　NTST／培養プラントシーン表　　PLST
+・D66ダイスあり
+INFO_MESSAGE_TEXT
+  end
+  
   
   def dice_command(string, nick_e)
     secret_flg = false

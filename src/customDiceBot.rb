@@ -64,7 +64,7 @@ class CgiDiceBot
   end
   
   def roll(message, gameType, dir = nil, prefix = '', isNeedResult = false)
-    rollResult, randResults = executeDiceBot(message, gameType, dir, prefix, isNeedResult)
+    rollResult, randResults, gameType = executeDiceBot(message, gameType, dir, prefix, isNeedResult)
     
     result = ""
     
@@ -99,6 +99,7 @@ class CgiDiceBot
     bcdice.setDir(dir, prefix)
     
     bcdice.setGameByTitle( gameType )
+    gameType = bcdice.getGameType
     bcdice.setMessage(message)
     
     channel = ""
@@ -111,7 +112,7 @@ class CgiDiceBot
     
     randResults = bcdice.getRandResults
     
-    return rollResult, randResults
+    return rollResult, randResults, gameType
   end
   
   def getGameCommandInfos(dir, prefix)

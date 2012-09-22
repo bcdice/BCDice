@@ -5,15 +5,22 @@ class ZettaiReido < DiceBot
   def initialize
     super
   end
+  def gameName
+    '絶対隷奴'
+  end
   
   def gameType
     "ZettaiReido"
   end
   
+  def prefixs
+     ['\d+\-2DR']
+  end
+  
   def getHelpMessage
-    return <<MESSAGETEXT
+    info = <<INFO_MESSAGE_TEXT
 m-2DR+n>=x　：m(基本能力),n(修正値),x(目標値) DPの取得の有無も表示されます。
-MESSAGETEXT
+INFO_MESSAGE_TEXT
   end
   
   def changeText(string)

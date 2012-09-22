@@ -2,17 +2,26 @@
 
 class NjslyrBattle < DiceBot
   
+  def gameName
+    'NJSLYRBATTLE'
+    end
+  
   def gameType
     "NJSLYRBATTLE"
   end
   
+  def prefixs
+     []
+  end
+  
   def getHelpMessage
-    return <<MESSAGETEXT
+    info = <<INFO_MESSAGE_TEXT
 カラテロール：2d6<=(カラテ点)
 例）2d6<=5
 　(2D6<=5) ＞ 2[1,1] ＞ 2 ＞ 成功 重点 3 溜まる
-MESSAGETEXT
+INFO_MESSAGE_TEXT
   end
+  
   
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     

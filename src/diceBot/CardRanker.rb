@@ -7,14 +7,20 @@ class CardRanker < DiceBot
     @sortType = 1;
     @d66Type = 2;
   end
+  def gameName
+    'カードランカー'
+  end
   
   def gameType
     "CardRanker"
   end
   
+  def prefixs
+     ['RM']
+  end
+  
   def getHelpMessage
-    return <<MESSAGETEXT
-・カードランカー
+    info = <<INFO_MESSAGE_TEXT
 ランダムでモンスターカードを選ぶ (RM)
 場所表 (ST)
 街中場所表 (CST)
@@ -24,7 +30,7 @@ class CardRanker < DiceBot
 大会運命表 (TDT)
 学園運命表 (SDT)
 崩壊運命表 (CDT)
-MESSAGETEXT
+INFO_MESSAGE_TEXT
   end
   
   def dice_command(string, name)
@@ -49,7 +55,7 @@ MESSAGETEXT
     if(dice_n <= 2)
       return " ＞ ファンブル";
     elsif(dice_n >= 12)
-      return " ＞ スペシャル(" + getRandumMonster() + ")";
+      return " ＞ スペシャル ＞ " + getRandumMonster();
     elsif(total_n >= diff)
       return " ＞ 成功";
     else

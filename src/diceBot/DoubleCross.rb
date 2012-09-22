@@ -11,16 +11,33 @@ class DoubleCross < DiceBot
     @unlimitedRollDiceType = 10;   #無限ロールのダイス
     @rerollNumber = 10;     #振り足しする条件
   end
+  def gameName
+    'ダブルクロス2nd,3rd'
+  end
   
   def gameType
     "DoubleCross"
   end
   
+  def prefixs
+     ['(\d+dx|ET)']
+  end
+  
   def getHelpMessage
-    return <<MESSAGETEXT
-    ・ダブルクロス　判定ロール  　(xDX\@c) (cはクリティカル値)
-    ・ダブルクロス　感情表　　　　(ET)
-MESSAGETEXT
+    info = <<INFO_MESSAGE_TEXT
+・判定コマンド　(xDX+y@c or xDXc+y)
+　"(個数)DX(修正)@(クリティカル値)"もしくは"(個数)DX(クリティカル値)(修正)"で指定します。
+　加算減算のみ修正値も付けられます。
+　内部で読み替えています。
+　例）10dx　　　10dx+5@8(OD tool式)　　　5DX7+7-3(疾風怒濤式)
+
+・各種表
+　・感情表(ET)
+　　ポジティブとネガティブの両方を振って、表になっている側に懿｢ｫを付けて表示します。
+　　もちろん任意で選ぶ部分は変更して構いません。
+
+・D66ダイスあり
+INFO_MESSAGE_TEXT
   end
   
   def changeText(string)

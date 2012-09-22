@@ -9,24 +9,35 @@ class MagicaLogia < DiceBot
     @d66Type = 2;
   end
   
+  def gameName
+    'マギカロギア'
+  end
   
   def gameType
     "MagicaLogia"
   end
   
-  def getHelpMessage
-    return <<MESSAGETEXT
-・マギカロギア　変調表　　　　　(WT)
-・　　　　　　　シーン表　　　　(ST)
-・　　　　　　　ファンブル表　　(FT)
-・　　　　　　　事件表　　　　　(AT)
-・　　　　　　　運命変転表　　　(FCT)
-・　　　　　　　経歴表　　　　　(BGT)
-・　　　　　　　初期アンカー表　(DAT)
-・　　　　　　　運命属性表　　　(FAT)
-・　　　　　　　願い表　　　　　(WIT)
-MESSAGETEXT
+  def prefixs
+     ['WT', 'CT', 'ST', 'FT', 'AT', 'BGT', 'DAT', 'FAT', 'WIT', 'RTT']
   end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+・各種表
+　　変調表　　　　WT
+　　運命変転表　　CT
+　　シーン表　　　ST
+　　ファンブル表　FT
+　　事件表　　　　AT
+　　経歴表　　　　　BGT
+　　初期アンカー表　DAT
+　　運命属性表　　　FAT
+　　願い表　　　　　WIT
+　　ランダム特技表　RTT
+・D66ダイスあり
+INFO_MESSAGE_TEXT
+  end
+  
   
   def changeText(string)
     string

@@ -7,20 +7,31 @@ class EmbryoMachine < DiceBot
     @sendMode = 2;
     @sortType = 1;
   end
+  def gameName
+    'エムブリオマシン'
+  end
   
   def gameType
     "EmbryoMachine"
   end
   
-  def getHelpMessage
-    return <<MESSAGETEXT
-・判定ロール　　　　　　　(EMt+m@c#f) (t:目標値, m:修正値, c:クリティカル値, f;ファンブル値)
-・　　　　　　命中部位表　(HLT)
-・　白兵攻撃ファンブル表　(MFT)
-・　射撃攻撃ファンブル表　(SFT)
-MESSAGETEXT
+  def prefixs
+     ['(EM\t+|HLT|MFT|SFT)']
   end
-
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+・判定ロール(EMt+m@c#f)
+　目標値t、修正値m、クリティカル値c(省略時は20)、ファンブル値f(省略時は2)で攻撃判定を行います。
+　命中した場合は命中レベルと命中部位も自動出力します。
+　Rコマンドに読み替えされます。
+・各種表
+　・命中部位表　HLT
+　・白兵攻撃ファンブル表　MFT
+　・射撃攻撃ファンブル表　SFT
+INFO_MESSAGE_TEXT
+  end
+  
   def changeText(string)
     string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))(\#(\d+))/i) {"2R10#{$2}>=#{$1}[#{$4},#{$6}]"}
     string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(\#(\d+))/i) {"2R10#{$2}>=#{$1}[20,#{$4}]"}

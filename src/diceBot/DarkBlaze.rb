@@ -6,16 +6,31 @@ class DarkBlaze < DiceBot
     super
     @sendMode = 2;
   end
+  def gameName
+    'ダークブレイズ'
+  end
   
   def gameType
     "DarkBlaze"
   end
   
+  def prefixs
+     ['DB', 'BT']
+  end
+  
   def getHelpMessage
-    return <<MESSAGETEXT
-・ダークブレイズ　判定　　(DBxy#m) (x:能力値, y:技能値, m:修正)
-・掘り出し袋表　　　　　　(BTx)　　(x:ダイス数)
-MESSAGETEXT
+    info = <<INFO_MESSAGE_TEXT
+・行為判定　(DBxy#n)
+　行為判定専用のコマンドです。
+　"DB(能力)(技能)#(修正)"でロールします。Rコマンド(3R6+n[x,y]>=m mは難易度)に読替をします。
+　クリティカルとファンブルも自動で処理されます。
+　DB@x@y#m と DBx,y#m にも対応しました。
+　例）DB33　　　DB32#-1　　　DB@3@1#1　　　DB3,2　　　DB23#1>=4　　　3R6+1[3,3]>=4
+
+・掘り出し袋表　(BTx)
+　"BT(ダイス数)"で掘り出し袋表を自動で振り、結果を表示します。
+　例）BT1　　　BT2　　　BT[1...3]
+INFO_MESSAGE_TEXT
   end
   
   def changeText(string)

@@ -7,6 +7,7 @@ $LOAD_PATH << File.dirname(__FILE__) + "/../irc"
 
 require 'Kconv'
 require 'bcdiceCore.rb'
+require 'diceBot/DiceBotLoader'
 
 class TestDiceBot
   
@@ -17,6 +18,8 @@ class TestDiceBot
   
   def test(arg)
     @testParms = arg
+    
+    DiceBotLoader.setBcDicePath( '../../src_bcdice' )
     
     resultFile = './testData.txt'
     

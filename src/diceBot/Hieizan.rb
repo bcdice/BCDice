@@ -2,8 +2,22 @@
 
 class Hieizan < DiceBot
   
+  def gameName
+    '比叡山炎上'
+  end
+  
   def gameType
     "Hieizan"
+  end
+  
+  def prefixs
+     []
+  end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+大成功、自動成功、失敗、自動失敗、大失敗の自動判定を行います。
+INFO_MESSAGE_TEXT
   end
   
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)

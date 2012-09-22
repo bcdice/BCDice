@@ -8,11 +8,28 @@ class RokumonSekai2 < DiceBot
     @sendMode = 2;
     @sortType = 1;
   end
+  def gameName
+    '六門世界2nd'
+  end
   
   def gameType
     "RokumonSekai2"
   end
 
+  def prefixs
+     ['\d+RS']
+  end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+通常判定　　　　　　aRSm<=t
+能力値a,修正値m,目標値tで判定ロールを行います。
+Rコマンド(3R6m<=t[a])に読み替えます。
+成功度、評価、ボーナスダイスを自動表示します。
+　例) 3RS+1<=9　3R6+1<=9[3]
+INFO_MESSAGE_TEXT
+  end
+  
   def changeText(string)
     debug('parren_killer_add begin stirng', string)
     

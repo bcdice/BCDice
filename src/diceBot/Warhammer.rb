@@ -8,17 +8,33 @@ class Warhammer < DiceBot
     @fractionType = "roundUp";     # 端数切り上げに設定
   end
   
+  def gameName
+    'ウォーハンマー'
+  end
   
   def gameType
     "Warhammer"
   end
   
-  def getHelpMessage
-    return <<MESSAGETEXT
-・ウォーハンマークリティカル表(WHpx) (pは部位(HABL)でxはクリティカル値)
-・ウォーハンマー命中判定　  　(WHx\@p) (xは技能値, pは対象(\@のみで全種))
-MESSAGETEXT
+  def prefixs
+     ['WH']
   end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+・クリティカル表(whHxx/whAxx/whBxx/whLxx)
+　"WH部位 クリティカル値"の形で指定します。部位は「H(頭部)」「A(腕)」「B(胴体)」「L(足)」の４カ所です。
+　例）whH10 whA5 WHL4
+・命中判定(WHx@t)
+　"WH(命中値)@(種別)"の形で指定します。
+　部位は脚の数を数字、翼が付いているものは「W」、手が付いているものは「H」で書きます。
+　「2H(二足)」「2W(有翼二足)」「4(四足)」「4H(半人四足)」「4W(有翼四足)」「W(鳥類)」となります。
+　命中判定を行って、当たれば部位も表示します。
+　なお、種別指定を省略すると「二足」、「@」だけにすると全種別の命中部位を表示します。(コマンドを忘れた時の対応です)
+　例）wh60　　wh43@4W　　WH65@
+INFO_MESSAGE_TEXT
+  end
+  
   
   def dice_command(string, nick_e)
     output_msg, secret_flg = dice_comman_atack(string, nick_e)

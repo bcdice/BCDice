@@ -6,14 +6,28 @@ class NightWizard < DiceBot
     super
     @sendMode = 2;
   end
+  def gameName
+    'ナイトウィザード'
+  end
   
   def gameType
     "NightWizard"
   end
   
-  def getHelpMessage
-    '・判定ロール　　　　　　　(nNW+m@x#y) (n:基本値+常時, m:否常時+状態異常, x:クリティカル値, y:ファンブル値)'
+  def prefixs
+     ['\d+NW']
   end
+  
+  def getHelpMessage
+    info = <<INFO_MESSAGE_TEXT
+・判定用コマンド　(nNW+m@x#y)
+　"(常時特殊能力含む基本値)NW(常時以外の特殊能力及び状態異常)@(クリティカル値)#(ファンブル値)"でロールします。
+　Rコマンド(2R6m[n,m]c[x]f[y]>=t tは目標値)に読替されます。
+　クリティカル値、ファンブル値が無い場合は1や13などのあり得ない数値を入れてください。
+　例）12NW-5@7#2　　1NW　　50nw+5@7,10#2,5
+INFO_MESSAGE_TEXT
+  end
+  
   
   def changeText(string)
     return string unless(string =~ /NW/i)
