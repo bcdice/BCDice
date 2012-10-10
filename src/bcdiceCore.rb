@@ -1805,6 +1805,9 @@ class BCDice
     when /(^|\s)ShinkuuGakuen$/i
       require 'diceBot/ShinkuuGakuen'
       diceBot = ShinkuuGakuen.new
+    when /(^|\s)CrashWorld$/i
+      require 'diceBot/CrashWorld'
+      diceBot = CrashWorld.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else

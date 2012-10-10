@@ -18,7 +18,7 @@ class BloodCrusade < DiceBot
   end
   
   def prefixs
-     ['RT', 'ST', 'IST', 'BRT', 'CHT', 'SHT', 'DHT', 'LHT', 'EHT']
+     ['RT', 'ST', 'IST', 'BRT', 'CHT', 'SHT', 'DHT', 'LHT', 'EHT', 'AST', 'MIT', 'SIT']
   end
   
   def getHelpMessage
@@ -33,6 +33,9 @@ class BloodCrusade < DiceBot
 　・日常幸福表　　　　 DHT
 　・人脈幸福表　　　　 LHT
 　・退路幸福表　　　　 EHT
+　・ランダム全特技表　 AST
+　・軽度狂気表　　　　 MIT
+　・重度狂気表　　　　 SIT
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
@@ -41,7 +44,7 @@ INFO_MESSAGE_TEXT
   def dice_command(string, nick_e)
     secret_flg = false
     
-    return '1', secret_flg unless( /(^|\s)(S)?(RT|ST|IST|BRT|CHT|SHT|DHT|LHT|EHT)(\s|$)/i =~ string )
+    return '1', secret_flg unless( /(^|\s)(S)?(#{prefixs.join('|')})(\s|$)/i =~ string )
     
     secretMarker = $2
     command = $3
@@ -58,9 +61,9 @@ INFO_MESSAGE_TEXT
     return '' unless(signOfInequality == ">=")
     
     if(dice_n <= 2)
-      return " ＞ ファンブル(【モラル】3減少。加えて狩人の戦闘フェイズなら吸血鬼に1行動追加)";
+      return " ＞ ファンブル(【モラル】-3。追跡フェイズなら吸血シーンを追加。戦闘フェイズなら吸血鬼は追加行動を一回得る)"
     elsif(dice_n >= 12)
-      return " ＞ スペシャル(【モラル】3上昇。加えて狩人の戦闘フェイズの攻撃判定ならダメージに1D6追加)";
+      return " ＞ スペシャル(【モラル】+3。追跡フェイズならあなたに関係を持つPCの【モラル】+2。攻撃判定ならダメージ+1D6）"
     elsif(total_n >= diff)
       return " ＞ 成功";
     else
@@ -107,6 +110,15 @@ INFO_MESSAGE_TEXT
     when 'EHT'
       type = '退路幸福表';
       output, total_n = getEvacuationHappyTable
+    when 'AST'
+      type = 'ランダム全特技表';
+      output, total_n = getAllSkillTable
+    when 'MIT'
+      type = '軽度狂気表'
+      output, total_n = getMildInsanityTable
+    when 'SIT'
+      type = '重度狂気表'
+      output, total_n = getSevereInsanityTable
     end
     
     return output if(output == '1')
@@ -114,7 +126,6 @@ INFO_MESSAGE_TEXT
     output = "#{nick_e}: #{type}(#{total_n}) ＞ #{output}";
     return output;
   end
-  
   
   
   def getRelationTable
@@ -227,7 +238,7 @@ INFO_MESSAGE_TEXT
   def getEvacuationHappyTable
     table = [
              '【故郷の町】あなたは生まれ育った街を離れて吸血鬼狩人として活動しています。いつの日かあの町へ帰る……その思いがあなたを戦いのなかで支えています。',
-             '【待っている人】あなたが吸血鬼狩人をやめて、普通の暮らしに戻ることを待ちわびている人がいます。そして、あなたはその思い出に応えたいと思っています。',
+             '【待っている人】あなたが吸血鬼狩人をやめて、普通の暮らしに戻ることを待ちわびている人がいます。そして、あなたはその思いに応えたいと思っています。',
              '【就職先】あなたは吸血鬼狩りの報酬がなくなっても、すぐに入ることができる就職先があるので安心です。有能なのか過疎地域なのかは分かりませんが。',
              '【配偶者】あなたは吸血鬼狩人をやめたあとに家庭に入ろうと考えています。暮らしの設計はすでに済み、あとは実行するだけなのですが、なかなかそうはいきません。',
              '【大志】あなたが吸血鬼狩人として活動しているのは、やむにやまれぬ事情があるからです。あなたには「本当にやりたかったこと」があり、いつかその夢をかなえる気でいます。',
@@ -235,5 +246,154 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
+
+  # ランダム全特技表
+  # 1d6で分野選択->2d6で分野から特技選択
+  def getAllSkillTable
+    tableCSKT = [
+                 '社会2：怯える',
+                 '社会3：脅す',
+                 '社会4：考えない',
+                 '社会5：自信',
+                 '社会6：黙る',
+                 '社会7：伝える',
+                 '社会8：だます',
+                 '社会9：地位',
+                 '社会10：笑う',
+                 '社会11：話す',
+                 '社会12：怒る',
+                ]
+
+    tableHSKT = [
+                 '頭部2：聴く',
+                 '頭部3：感覚器',
+                 '頭部4：見る',
+                 '頭部5：反応',
+                 '頭部6：考える',
+                 '頭部7：脳',
+                 '頭部8：閃く',
+                 '頭部9：予感',
+                 '頭部10：叫ぶ',
+                 '頭部11：口',
+                 '頭部12：噛む',
+                ]
+
+    tableASKT = [
+                 '腕部2：締める',
+                 '腕部3：殴る',
+                 '腕部4：斬る',
+                 '腕部5：利き腕',
+                 '腕部6：撃つ',
+                 '腕部7：操作',
+                 '腕部8：刺す',
+                 '腕部9：逆腕',
+                 '腕部10：振る',
+                 '腕部11：掴む',
+                 '腕部12：投げる',
+                ]
+
+    tableBSKT = [
+                 '胴部2：塞ぐ',
+                 '胴部3：呼吸器',
+                 '胴部4：止める',
+                 '胴部5：受ける',
+                 '胴部6：測る',
+                 '胴部7：心臓',
+                 '胴部8：逸らす',
+                 '胴部9：かわす',
+                 '胴部10：耐える',
+                 '胴部11：消化器',
+                 '胴部12：落ちる',
+                ]
+
+    tableLSKT = [
+                 '脚部2：走る',
+                 '脚部3：迫る',
+                 '脚部4：蹴る',
+                 '脚部5：利き脚',
+                 '脚部6：跳ぶ',
+                 '脚部7：仕掛ける',
+                 '脚部8：踏む',
+                 '脚部9：逆脚',
+                 '脚部10：這う',
+                 '脚部11：伏せる',
+                 '脚部12：歩く',
+                ]
+
+    tableESKT = [
+                 '環境2：休む',
+                 '環境3：日常',
+                 '環境4：隠れる',
+                 '環境5：待つ',
+                 '環境6：現れる',
+                 '環境7：人脈',
+                 '環境8：捕らえる',
+                 '環境9：開ける',
+                 '環境10：逃げる',
+                 '環境11：退路',
+                 '環境12：休まない',
+                ]
+
+    table = [
+             '1社会',
+             '2頭部',
+             '3胴部',
+             '4腕部',
+             '5脚部',
+             '6環境',
+            ]
+#    table2 = [
+#              get_table_by_2d6(tableCSKT),
+#              get_table_by_2d6(tableHSKT),
+#              get_table_by_2d6(tableBSKT),
+#              get_table_by_2d6(tableASKT),
+#              get_table_by_2d6(tableLSKT),
+#              get_table_by_2d6(tableESKT),
+#             ]
+
+    categoryNum, categoryDummy = roll(1, 6)
+    detailText = nil
+    detailNum = 0
+    if categoryNum == 1 then
+      detailText, detailNum = get_table_by_2d6(tableCSKT)
+    elsif categoryNum == 2 then
+      detailText, detailNum = get_table_by_2d6(tableHSKT)
+    elsif categoryNum == 3 then
+      detailText, detailNum = get_table_by_2d6(tableBSKT)
+    elsif categoryNum == 4 then
+      detailText, detailNum = get_table_by_2d6(tableASKT)
+    elsif categoryNum == 5 then
+      detailText, detailNum = get_table_by_2d6(tableLSKT)
+    elsif categoryNum == 6 then
+      detailText, detailNum = get_table_by_2d6(tableESKT)
+    end
+    return detailText, "#{categoryNum},#{detailNum}"
+  end
   
+  # 軽度狂気表
+  def getMildInsanityTable
+    table = [
+             '【誇大妄想】（判定に失敗するたびに【感情】が１増加する。）',
+             '【記憶喪失】（【幸福】の修復判定にマイナス２の修正。）',
+             '【こだわり】（戦闘中の行動を「パス」以外で一つ選択し、その行動をすると【感情】が６増加する。）',
+             '【お守り中毒】（「幸運のお守り」を装備していない場合、全ての2d6判定にマイナス１の修正。）',
+             '【不死幻想】（自分が受けるダメージが全て１増加する。）',
+             '【血の飢え】（戦闘中に最低１体でも死亡させないと、戦闘終了時に【感情】１０増加。【激情】は獲得できない。）',
+            ]
+    return get_table_by_1d6(table)
+  end
+
+  # 重度狂気表
+  def getSevereInsanityTable
+    table = [
+             '【幸福依存】（【幸福】を一つ選択し、その【幸福】が結果フェイズに失われたとき、死亡する。）',
+             '【見えない友達】（自分の関わる「関係を深める」判定にマイナス３の修正がつく。）',
+             '【臆病】（自分の行う妨害判定にマイナス２の修正がつく。）',
+             '【陰謀論】（「幸福を味わう」判定にマイナス３の修正がつく。）',
+             '【指令受信】（追跡フェイズＢでの自分の行動は、可能な範囲でGMが決定する。）',
+             '【猜疑心】（自分が「連携攻撃」を行うとき、関係の【深度】をダメージに加えられない。）',
+            ]
+    return get_table_by_1d6(table)
+  end
+
 end

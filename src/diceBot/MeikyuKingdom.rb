@@ -81,9 +81,7 @@ INFO_MESSAGE_TEXT
   def dice_command(string, nick_e)
     secret_flg = false
     
-    prefixsRegText = prefixs.join('|')
-    return '1', secret_flg unless( /(^|\s)(S)?(#{prefixsRegText})(\s|$)/i =~ string )
-    # return '1', secret_flg unless( /(^|\s)(S)?(([LOCAF]RT)|[TCSVF]BT|[TCSV]HT|K[DCM]T|CAT|FWT|CFT|TT|NT|ET|T\dT|NAME\d*|NAME\w+|MPT|DFT\d*|IDT\d*|([WLRS]|RW|RU)IT|\dRET|PNT\d*|MLT\d*|IFT|KNT\d|WORD\d+)(\s|$)/i =~ string )
+    return '1', secret_flg unless( /(^|\s)(S)?(#{prefixs.join('|')})(\s|$)/i =~ string )
     
     secretMarker = $2
     output_msg = mayokin_table($3, nick_e);
@@ -1200,7 +1198,7 @@ INFO_MESSAGE_TEXT
   #**デバイスファクトリー(1D6)
   def mk_device_factory_table(num)
     output = mk_item_decide_table(rand(6) + 1);
-
+    
     num = 1;
     num.times do |i|
       dice, dummy = roll(2, 6);
@@ -1212,16 +1210,15 @@ INFO_MESSAGE_TEXT
 
   #**アイテムカテゴリ決定表(1D6)
   def mk_item_decide_table(num)
-    table = [
-      [ 1, mk_weapon_item_table(d66(2)) ],
-      [ 2, mk_life_item_table(d66(2)) ],
-      [ 3, mk_rest_item_table(d66(2)) ],
-      [ 4, mk_search_item_table(d66(2)) ],
-      [ 5, mk_rare_weapon_item_table(d66(1)) ],
-      [ 6, mk_rare_item_table(d66(1)) ],
-    ]
-
-    return get_table_by_number(num, table);
+    functionTable = [
+                     [ 1, Proc.new(){ mk_weapon_item_table(d66(2))} ],
+                     [ 2, Proc.new(){ mk_life_item_table(d66(2))} ],
+                     [ 3, Proc.new(){ mk_rest_item_table(d66(2))} ],
+                     [ 4, Proc.new(){ mk_search_item_table(d66(2))} ],
+                     [ 5, Proc.new(){ mk_rare_weapon_item_table(d66(1))} ],
+                     [ 6, Proc.new(){ mk_rare_item_table(d66(1))} ],
+                    ]
+    return get_table_by_number(num, functionTable)
   end
 
   #**武具アイテム表(D66)
@@ -1514,12 +1511,12 @@ INFO_MESSAGE_TEXT
   #**適正表(1D6)
   def mk_item_aptitude_table(num)
     table = [
-      [ 1, 'ランダムなクラス1種' ],
-      [ 2, mk_family_business_table(d66(2)) ],
-      [ 3, mk_gender_table((rand 6)+1) + '性' ],
-      [ 4, '上級ジョブ' ],
-      [ 5, 'モンスタースキルを修得' ],
-      [ 6, '童貞、もしくは処女' ],
+             [ 1, 'ランダムなクラス1種' ],
+             [ 2, Proc.new(){ mk_family_business_table(d66(2)) } ],
+             [ 3, Proc.new(){ mk_gender_table((rand 6)+1) + '性' } ],
+             [ 4, '上級ジョブ' ],
+             [ 5, 'モンスタースキルを修得' ],
+             [ 6, '童貞、もしくは処女' ],
     ];
 
     return "[#{num}]" + get_table_by_number(num, table);
@@ -1666,23 +1663,31 @@ INFO_MESSAGE_TEXT
 
   #**地名決定表
   def mk_pn_decide_table(num)
-    output = '';
-    d1 = (rand 6) + 1;
-    d2 = (rand 6) + 1;
+    output = ''
+    
+    d1, = roll(1, 6)
+    d2, = roll(1, 6)
+    debug("d1", d1)
+    debug("d2", d2)
+    
+    d1 = (d1 / 2.0).ceil.to_i
+    d2 = (d2 / 2.0).ceil.to_i
     
     num.times do |i|
-      output += "「" + mk_decoration_table(d1 / 2) + mk_placename_table(d2 / 2) + "」";
+      output += "「" + mk_decoration_table(d1) + mk_placename_table(d2) + "」"
     end
-    return output;
+    
+    return output
   end
   
   #**修飾決定表(1D6)
   def mk_decoration_table(num)
+    debug("mk_decoration_table num", num)
     
     table = [
-      [ 1, mk_basic_decoration_table(d66(2)) ],
-      [ 2, mk_spooky_decoration_table(d66(2)) ],
-      [ 3, mk_katakana_decoration_table(d66(2)) ],
+             [ 1, Proc.new(){ mk_basic_decoration_table(d66(2)) } ],
+             [ 2, Proc.new(){ mk_spooky_decoration_table(d66(2)) } ],
+             [ 3, Proc.new(){ mk_katakana_decoration_table(d66(2)) } ],
     ];
     return get_table_by_number(num, table);
   end
@@ -1690,9 +1695,9 @@ INFO_MESSAGE_TEXT
   #**地名決定表(1D6)
   def mk_placename_table(num)
     table = [
-      [ 1, mk_passage_placename_table(d66(2)) ],
-      [ 2, mk_natural_placename_table(d66(2)) ],
-      [ 3, mk_artifact_placename_table(d66(2)) ],
+             [ 1, Proc.new(){ mk_passage_placename_table(d66(2)) } ],
+             [ 2, Proc.new(){ mk_natural_placename_table(d66(2)) } ],
+             [ 3, Proc.new(){ mk_artifact_placename_table(d66(2)) } ],
     ];
     return get_table_by_number(num, table);
   end
@@ -1878,12 +1883,12 @@ INFO_MESSAGE_TEXT
   def mk_landscape_table(num)
     dice = d66(2);
     table = [
-      [ 1, mk_artifact_landscape_table(dice) ],
-      [ 2, mk_cave_landscape_table(dice) ],
-      [ 3, mk_natural_landscape_table(dice) ],
-      [ 4, mk_waterside_landscape_table(dice) ],
-      [ 5, mk_skyrealm_landscape_table(dice) ],
-      [ 6, mk_strange_place_landscape_table(dice) ],
+             [ 1, Proc.new(){ mk_artifact_landscape_table(dice) } ],
+             [ 2, Proc.new(){ mk_cave_landscape_table(dice) } ],
+             [ 3, Proc.new(){ mk_natural_landscape_table(dice) } ],
+             [ 4, Proc.new(){ mk_waterside_landscape_table(dice) } ],
+             [ 5, Proc.new(){ mk_skyrealm_landscape_table(dice) } ],
+             [ 6, Proc.new(){ mk_strange_place_landscape_table(dice) } ],
     ];
     return get_table_by_number(num, table);
   end

@@ -295,6 +295,7 @@ BloodCrusade
 CardRanker
 ChaosFlare
 Chill
+CrashWorld
 Cthulhu
 CthulhuTech
 DarkBlaze

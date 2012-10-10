@@ -279,11 +279,19 @@ class DiceBot
     table.each do |item|
       number = item[0];
       if( number >= index )
-        return item[1];
+        return getTableValue( item[1] )
       end
     end
     
-    return '1';
+    return '1'
+  end
+  
+  def getTableValue(data)
+    if( data.kind_of?( Proc ) )
+      return data.call()
+    end
+    
+    return data
   end
   
   

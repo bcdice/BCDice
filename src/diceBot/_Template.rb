@@ -19,12 +19,23 @@ class _Template < DiceBot
     # @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
   end
   
+  
+  def prefixs
+    #ダイスボットで使用するコマンドを配列で列挙すること。
+    []
+  end
+  
+  def gameName
+    'ゲーム名'
+  end
+  
   def gameType
-    "_Template"
+    "gameType"
   end
   
   def getHelpMessage
     return <<MESSAGETEXT
+ヘルプメッセージ
 MESSAGETEXT
   end
   

@@ -63,6 +63,10 @@ class TestDiceBot
     bot.setTest()
     result, randResults = bot.roll(message, gameType)
     
+    unless( @rands.empty? )
+      result << "\n\tダイス残り：#{@rands.collect do |i| i.join('/') end.join(',')}"
+    end
+    
     return result
   end
   
@@ -77,7 +81,7 @@ class TestDiceBot
     unless( targetNumber.nil? )
       $isDebug = true
     end
-
+    
     errorLog = ""
     begin
       result = executeCommand()
