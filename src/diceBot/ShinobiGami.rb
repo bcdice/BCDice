@@ -32,7 +32,7 @@ class ShinobiGami < DiceBot
 　・(リプレイ戦1〜2巻)学校シーン表　GAST／京都シーン表　KYST
 　　　／神社仏閣シーン表　JBST
 　・(怪)怪ファンブル表　KFT／怪変調表　KWT
-　・（その他）秋空に雪舞えばシーン表　KST／災厄シーン表　CLST
+　・（その他）秋空に雪舞えばシーン表　AKST／災厄シーン表　CLST
 　　／出島EXシーン表　DXST／斜歯ラボシーン表　HLST
 　　／夏の終わりシーン表　NTST／培養プラントシーン表　　PLST
 ・D66ダイスあり

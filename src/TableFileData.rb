@@ -13,10 +13,12 @@ require 'configBcDice.rb'
 # 
 # @tableData : {
 #   コマンド : {
-#          :file : (表ファイル名),
-#          :title : (表タイトル),
-#          :dice : (ダイス文字),
-#          :table : {
+#          "fileName" : (表ファイル名),
+#          "title" : (表タイトル),
+#          "command" : (コマンド文字),
+#          "gameType" : (ゲーム種別),
+#          "dice" : (ダイス文字),
+#          "table" : {
 #            (数値) : (テキスト),
 #            (数値) : (テキスト),
 #            (数値) : (テキスト),
@@ -56,7 +58,7 @@ class TableFileData
       fileName = fileName.untaint
       
       info = readGameCommandInfo(fileName, prefix)
-      command = info[:command]
+      command = info["command"]
       next if(command.empty?)
       
       tableData[command] = info
@@ -68,9 +70,9 @@ class TableFileData
   
   def readGameCommandInfo(fileName, prefix)
     info = {
-      :fileName => fileName,
-      :gameType => '',
-      :command => '',
+      "fileName" => fileName,
+      "gameType" => '',
+      "command" => '',
     }
     
     baseName = File.basename(fileName, '.txt')
@@ -83,11 +85,11 @@ class TableFileData
     tail = $3
     
     if( tail.nil? )
-      info[:gameType] = ''
-      info[:command] = header
+      info["gameType"] = ''
+      info["command"] = header
     else
-      info[:gameType] = header
-      info[:command] = tail
+      info["gameType"] = header
+      info["command"] = tail
     end
     
     return info
@@ -110,8 +112,8 @@ class TableFileData
     
     @tableData.each do |command, info|
       commandInfo = {
-        :gameType => info[:gameType],
-        :command => info[:command],
+        "gameType" => info["gameType"],
+        "command" => info["command"],
       }
       
       commandInfos << commandInfo
@@ -180,7 +182,7 @@ class TableFileData
       next unless(/^(s|S)?#{key}(\s|$)/ === arg)
       
       data = @tableData[key]
-      gameType = data[:gameType]
+      gameType = data["gameType"]
       
       next unless( isTargetGameType(gameType, targetGameType) )
       
@@ -191,9 +193,9 @@ class TableFileData
     
     readOneTableData(oneTableData)
     
-    dice  = oneTableData[:dice]
-    title = oneTableData[:title]
-    table = oneTableData[:table]
+    dice  = oneTableData["dice"]
+    title = oneTableData["title"]
+    table = oneTableData["table"]
     
     return dice, title, table, isSecret
   end
@@ -206,11 +208,11 @@ class TableFileData
   
   def readOneTableData(oneTableData)
     return if( oneTableData.nil? )
-    return unless( oneTableData[:table].nil? )
+    return unless( oneTableData["table"].nil? )
     
-    command = oneTableData[:command]
-    gameType = oneTableData[:gameType]
-    fileName = oneTableData[:fileName]
+    command = oneTableData["command"]
+    gameType = oneTableData["gameType"]
+    fileName = oneTableData["fileName"]
     
     return if( command.nil? )
     
@@ -218,9 +220,9 @@ class TableFileData
     
     dice, title, table  = getTableDataFromFile(fileName)
     
-    oneTableData[:dice] = dice
-    oneTableData[:title] = title
-    oneTableData[:table] = table
+    oneTableData["dice"] = dice
+    oneTableData["title"] = title
+    oneTableData["table"] = table
     
     return oneTableData
   end
@@ -250,11 +252,11 @@ class TableFileCreator
   end
   
   def checkFileNotExist(fileName)
-    raise "table already exist!" if( File.exist?(fileName) )
+    raise "そのコマンド名は既に使用されています。" if( File.exist?(fileName) )
   end
   
   def checkFileExist(fileName)
-    raise "table is NOT exist!" unless( File.exist?(fileName) )
+    raise "そのコマンド名は存在しません。" unless( File.exist?(fileName) )
   end
   
   
@@ -269,16 +271,24 @@ class TableFileCreator
     
     checkCommand(command)
     
-    if( gameType.empty? )
-      return "#{@dir}/#{@prefix}#{command}.txt"
+    
+    prefix2 = ""
+    unless( gameType.empty? )
+      prefix2 = "#{gameType}_"
     end
     
-    return "#{@dir}/#{@prefix}#{gameType}_#{command}.txt"
+    fileName =  "#{@dir}/#{@prefix}#{prefix2}#{command}.txt"
+    fileName.untaint
+    
+    return fileName
   end
 
   def initCommand
     @command = @params['command']
     @command ||= ''
+    
+    @command.gsub!(/\./, '_')
+    @command.untaint
   end
   
   def checkCommand(command)
