@@ -27,24 +27,38 @@ INFO_MESSAGE_TEXT
     return '1', secret_flg unless( /(^|\s)(S)?(#{prefixs.join('|')})(\s|$)/i =~ string )
     
     secretMarker = $2
-    targetNum = $3.to_i
+    command = $3
     
-    output_msg = getCrashWorldResult(targetNum, nick_e);
+    output_msg = getCrashWorldResult(command)
+    
     if( secretMarker )   # 隠しロール
-      secret_flg = true if(output_msg != '1');
+      secret_flg = true if(output_msg != '1')
     end
     
     return output_msg, secret_flg
   end
 
-  def getCrashWorldResult(targetNum, nick_e)
+  def getCrashWorldResult(command)
+    result = '1'
+    
+    case command
+    when /CW(\d+)/i
+      result = getCrashWorldRoll($1.to_i)
+    else
+    end
+    
+    return result
+  end
+  
+  def getCrashWorldRoll(target)
+    debug("target", target)
+    
     output = "("
-    endFlag = false
-    target = targetNum
+    isEnd = false
     successness = 0
     num = 0
     
-    while(!endFlag)
+    while( not isEnd )
       num, dummy = roll(1, 12)
       
       # 振った数字を出力へ書き足す
@@ -53,17 +67,17 @@ INFO_MESSAGE_TEXT
       else
         output = "#{output}, #{num}"
       end
-
+      
       if(num <= target || num == 11)
         # 成功/クリティカル(11)。 次回の目標値を変更して継続
         target = num
         successness = successness + 1
       elsif(num == 12)
         # ファンブルなら終了。
-        endFlag = true
+        isEnd = true
       else
         # target < num < 11で終了
-        endFlag = true
+        isEnd = true
       end
     end
 
@@ -71,7 +85,9 @@ INFO_MESSAGE_TEXT
       # ファンブルの時、成功度は0
       successness = 0
     end
+    
     output = "#{output})  成功度 : #{successness}"
+    
     if(num == 12)
       output = "#{output} ファンブル"
     end
