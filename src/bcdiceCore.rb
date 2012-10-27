@@ -1099,22 +1099,27 @@ class BCDice
   end
   
   def getD66Value(mode)
-    output = 0;
+    isSwap = ( mode > 1)
+    getD66(isSwap)
+  end
+  
+  def getD66(isSwap)
+    output = 0
     
     dice_a = rand(6) + 1
     dice_b = rand(6) + 1
+    debug("dice_a", dice_a)
+    debug("dice_b", dice_b)
     
-    if( mode > 1)
+    if( isSwap and (dice_a > dice_b))
       # 大小でスワップするタイプ
-      if(dice_a < dice_b)
-        output = dice_a * 10 + dice_b;
-      else
-        output = dice_a + dice_b * 10;
-      end
+      output = dice_a + dice_b * 10
     else
       # 出目そのまま
-      output = dice_a * 10 + dice_b;
+      output = dice_a * 10 + dice_b
     end
+    
+    debug("output", output)
     
     return output;
   end
@@ -1808,6 +1813,9 @@ class BCDice
     when /(^|\s)CrashWorld$/i
       require 'diceBot/CrashWorld'
       diceBot = CrashWorld.new
+    when /(^|\s)WitchQuest$/i
+      require 'diceBot/WitchQuest'
+      diceBot = WitchQuest.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else

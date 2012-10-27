@@ -79,7 +79,7 @@ MESSAGETEXT
   #get_table_by_nD6(table, count)
   #get_table_by_1d3(table)
   #get_table_by_number(index, table)
-  
+  #get_table_by_d66(table)
   
   #ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
   def getDiceRolledAdditionalText(n1, n_max, dice_max)
