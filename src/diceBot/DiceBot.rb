@@ -275,7 +275,7 @@ class DiceBot
 
   
   #** 汎用表サブルーチン
-  def get_table_by_number(index, table)
+  def get_table_by_number(index, table, default = '1')
     table.each do |item|
       number = item[0];
       if( number >= index )
@@ -283,7 +283,7 @@ class DiceBot
       end
     end
     
-    return '1'
+    return getTableValue( default )
   end
   
   def getTableValue(data)
