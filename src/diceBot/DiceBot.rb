@@ -181,7 +181,7 @@ class DiceBot
   def get_table_by_nD6(table, count)
     num, dummy = roll(count, 6);
     
-    text = table[num - count]
+    text = getTableValue(table[num - count])
     
     return '1', 0  if( text.nil? )
     return text, num
