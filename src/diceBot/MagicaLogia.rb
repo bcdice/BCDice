@@ -199,7 +199,7 @@ INFO_MESSAGE_TEXT
       output, total_n = magicalogia_labyrinth_world_scene_table
     end
     
-    return "#{nick_e}: #{type}(#{total_n}) > #{output}";
+    return "#{nick_e}: #{type}(#{total_n}) ＞ #{output}";
   end
 
   #** シーン表

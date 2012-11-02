@@ -18126,13 +18126,13 @@ rand:3/6,6/6
 ============================
 input:WT	MagicaLogia
 output:
-MagicaLogia : 変調表(6) ＞ 『不運』1D6→2D6と振ってランダムに特技を一つ選ぶ。選んだ特技のチェック欄をチェックする。その特技が使用不能になり、その分野の特技が指定特技になった判定を行うとき、マイナス1の修正が付く。
-rand:6/6
+MagicaLogia : 変調表(6) ＞ 『不運』「星」≪黄金≫のチェック欄をチェックする。その特技が使用不能になり、その分野の特技が指定特技になった判定を行うとき、マイナス1の修正が付く。
+rand:6/6,1/6,1/6,1/6
 ============================
 input:WT	MagicaLogia
 output:
-MagicaLogia : 変調表(6) ＞ 『不運』1D6→2D6と振ってランダムに特技を一つ選ぶ。選んだ特技のチェック欄をチェックする。その特技が使用不能になり、その分野の特技が指定特技になった判定を行うとき、マイナス1の修正が付く。
-rand:6/6
+MagicaLogia : 変調表(6) ＞ 『不運』「闇」≪死≫のチェック欄をチェックする。その特技が使用不能になり、その分野の特技が指定特技になった判定を行うとき、マイナス1の修正が付く。
+rand:6/6,6/6,6/6,6/6
 ============================
 input:WT	MagicaLogia
 output:
@@ -18174,60 +18174,60 @@ output:
 MagicaLogia : 変調表(2) ＞ 『綻び』魔法戦の間、各ラウンドの終了時に自分の【魔力】が1点減少する。
 rand:2/6
 ============================
-input:CT	MagicaLogia
+input:FCT	MagicaLogia
 output:
 MagicaLogia : 運命変転表(2) ＞ 『別離』そのキャラクターにとって大切な人――親友や恋人、親や兄弟などを失う。
 rand:2/6
 ============================
-input:CT	MagicaLogia
+input:FCT	MagicaLogia
 output:
 MagicaLogia : 運命変転表(3) ＞ 『大病』そのキャラクターは、不治の病を負う。
 rand:3/6
 ============================
-input:CT	MagicaLogia
+input:FCT	MagicaLogia
 output:
 MagicaLogia : 運命変転表(6) ＞ 『事故』そのキャラクターは交通事故にあい、取り返しのつかない怪我を負う。
 rand:6/6
 ============================
-input:CT	MagicaLogia
+input:FCT	MagicaLogia
 output:
 MagicaLogia : 運命変転表(4) ＞ 『借金』そのキャラクターは、悪人に利用され多額の借金を負う。
 rand:4/6
 ============================
-input:CT	MagicaLogia
+input:FCT	MagicaLogia
 output:
 MagicaLogia : 運命変転表(1) ＞ 『挫折』そのキャラクターは、自分にとって大切だった夢を諦める。
 rand:1/6
 ============================
-input:CT	MagicaLogia
+input:FCT	MagicaLogia
 output:
 MagicaLogia : 運命変転表(2) ＞ 『別離』そのキャラクターにとって大切な人――親友や恋人、親や兄弟などを失う。
 rand:2/6
 ============================
-input:CT	MagicaLogia
+input:FCT	MagicaLogia
 output:
 MagicaLogia : 運命変転表(1) ＞ 『挫折』そのキャラクターは、自分にとって大切だった夢を諦める。
 rand:1/6
 ============================
-input:CT	MagicaLogia
+input:FCT	MagicaLogia
 output:
 MagicaLogia : 運命変転表(3) ＞ 『大病』そのキャラクターは、不治の病を負う。
 rand:3/6
 ============================
-input:CT	MagicaLogia
+input:FCT	MagicaLogia
 output:
 MagicaLogia : 運命変転表(6) ＞ 『事故』そのキャラクターは交通事故にあい、取り返しのつかない怪我を負う。
 rand:6/6
 ============================
-input:CT	MagicaLogia
+input:FCT	MagicaLogia
 output:
 MagicaLogia : 運命変転表(5) ＞ 『不和』そのキャラクターは、人間関係に失敗し深い心の傷を負う。
 rand:5/6
 ============================
 input:ST	MagicaLogia
 output:
-MagicaLogia : シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。ランダムに特技一つを選び、判定を行うこと。成功すると、好きな魔素が一個発生する。失敗すると「運命変転表」を使用する。
-rand:2/6,5/6
+MagicaLogia : シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「星」≪黄金≫の判定を行うこと。成功すると、好きな魔素が一個発生する。失敗すると「運命変転表」を使用する。
+rand:2/6,5/6,1/6,1/6,1/6
 ============================
 input:ST	MagicaLogia
 output:
@@ -18241,8 +18241,8 @@ rand:3/6,6/6
 ============================
 input:ST	MagicaLogia
 output:
-MagicaLogia : シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。ランダムに特技一つを選び、判定を行うこと。成功すると、好きな魔素が一個発生する。失敗すると「運命変転表」を使用する。
-rand:6/6,1/6
+MagicaLogia : シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「闇」≪死≫の判定を行うこと。成功すると、好きな魔素が一個発生する。失敗すると「運命変転表」を使用する。
+rand:6/6,1/6,6/6,6/6,6/6
 ============================
 input:ST	MagicaLogia
 output:
@@ -18266,13 +18266,13 @@ rand:2/6,6/6
 ============================
 input:ST	MagicaLogia
 output:
-MagicaLogia : シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。ランダムに特技一つを選び、判定を行うこと。成功すると、好きな魔素が一個発生する。失敗すると「運命変転表」を使用する。
-rand:3/6,4/6
+MagicaLogia : シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「獣」≪花≫の判定を行うこと。成功すると、好きな魔素が一個発生する。失敗すると「運命変転表」を使用する。
+rand:3/6,4/6,2/6,2/6,2/6
 ============================
 input:ST	MagicaLogia
 output:
-MagicaLogia : シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。ランダムに特技一つを選び、判定を行うこと。成功すると、好きな魔素が一個発生する。失敗すると「運命変転表」を使用する。
-rand:5/6,2/6
+MagicaLogia : シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「力」≪波≫の判定を行うこと。成功すると、好きな魔素が一個発生する。失敗すると「運命変転表」を使用する。
+rand:5/6,2/6,3/6,3/6,3/6
 ============================
 input:FT	MagicaLogia
 output:
@@ -18371,8 +18371,8 @@ rand:4/6,4/6
 ============================
 input:AT	MagicaLogia
 output:
-MagicaLogia : 事件表(7) ＞ 生ける屍の群れ、地獄の業火、迷宮化……魔法災厄に襲われる。ランダムに特技一つを選んで判定を行う。失敗すると、その人物に対し「運命変転表」を使用する。
-rand:3/6,4/6
+MagicaLogia : 事件表(7) ＞ 生ける屍の群れ、地獄の業火、迷宮化……魔法災厄に襲われる。「力」≪波≫の選んで判定を行う。失敗すると、その人物に対し「運命変転表」を使用する。
+rand:3/6,4/6,3/6,3/6,3/6
 ============================
 input:BGT	MagicaLogia
 output:
@@ -18576,52 +18576,52 @@ rand:1/6
 ============================
 input:RTT	MagicaLogia
 output:
-MagicaLogia : ランダム指定特技表(5,9) ＞ 『夢』狂気
+MagicaLogia : ランダム特技決定表(5,9) ＞ 「夢」≪狂気≫
 rand:5/6,5/6,4/6
 ============================
 input:RTT	MagicaLogia
 output:
-MagicaLogia : ランダム指定特技表(1,6) ＞ 『星』海
+MagicaLogia : ランダム特技決定表(1,6) ＞ 「星」≪海≫
 rand:1/6,4/6,2/6
 ============================
 input:RTT	MagicaLogia
 output:
-MagicaLogia : ランダム指定特技表(3,11) ＞ 『力』光
+MagicaLogia : ランダム特技決定表(3,11) ＞ 「力」≪光≫
 rand:3/6,6/6,5/6
 ============================
 input:RTT	MagicaLogia
 output:
-MagicaLogia : ランダム指定特技表(1,6) ＞ 『星』海
+MagicaLogia : ランダム特技決定表(1,6) ＞ 「星」≪海≫
 rand:1/6,4/6,2/6
 ============================
 input:RTT	MagicaLogia
 output:
-MagicaLogia : ランダム指定特技表(3,10) ＞ 『力』炎
+MagicaLogia : ランダム特技決定表(3,10) ＞ 「力」≪炎≫
 rand:3/6,5/6,5/6
 ============================
 input:RTT	MagicaLogia
 output:
-MagicaLogia : ランダム指定特技表(6,12) ＞ 『闇』死
+MagicaLogia : ランダム特技決定表(6,12) ＞ 「闇」≪死≫
 rand:6/6,6/6,6/6
 ============================
 input:RTT	MagicaLogia
 output:
-MagicaLogia : ランダム指定特技表(1,10) ＞ 『星』太陽
+MagicaLogia : ランダム特技決定表(1,10) ＞ 「星」≪太陽≫
 rand:1/6,5/6,5/6
 ============================
 input:RTT	MagicaLogia
 output:
-MagicaLogia : ランダム指定特技表(6,6) ＞ 『闇』怠惰
+MagicaLogia : ランダム特技決定表(6,6) ＞ 「闇」≪怠惰≫
 rand:6/6,5/6,1/6
 ============================
 input:RTT	MagicaLogia
 output:
-MagicaLogia : ランダム指定特技表(6,8) ＞ 『闇』不幸
+MagicaLogia : ランダム特技決定表(6,8) ＞ 「闇」≪不幸≫
 rand:6/6,5/6,3/6
 ============================
 input:RTT	MagicaLogia
 output:
-MagicaLogia : ランダム指定特技表(3,10) ＞ 『力』炎
+MagicaLogia : ランダム特技決定表(3,10) ＞ 「力」≪炎≫
 rand:3/6,4/6,6/6
 ============================
 input:1D10>=1	Nechronica
