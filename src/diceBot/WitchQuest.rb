@@ -162,7 +162,7 @@ MESSAGETEXT
   end
   
   def getPersonTable1()
-    gotoNextTable = Proc.new{ "表２へ" + getPersonTable2() }
+    gotoNextTable = lambda{ "表２へ" + getPersonTable2() }
     
     table = [[11, "おじさん"],
              [12, "おばさん"],
@@ -196,7 +196,7 @@ MESSAGETEXT
   end
   
   def getPersonTable2()
-    gotoNextTable = Proc.new{ "表３へ" + getPersonTable3() }
+    gotoNextTable = lambda{ "表３へ" + getPersonTable3() }
     
     table = [[11, "魔法使い"],
              [12, "観光客"],
@@ -230,7 +230,7 @@ MESSAGETEXT
   end
   
   def getPersonTable3()
-    gotoNextTable = Proc.new{ "表４へ" + getPersonTable4() }
+    gotoNextTable = lambda{ "表４へ" + getPersonTable4() }
     
     table = [[11, "貴族"],
              [12, "いるか"],
