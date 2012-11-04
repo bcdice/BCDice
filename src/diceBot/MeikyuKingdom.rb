@@ -1211,12 +1211,12 @@ INFO_MESSAGE_TEXT
   #**アイテムカテゴリ決定表(1D6)
   def mk_item_decide_table(num)
     functionTable = [
-                     [ 1, Proc.new(){ mk_weapon_item_table(d66(2))} ],
-                     [ 2, Proc.new(){ mk_life_item_table(d66(2))} ],
-                     [ 3, Proc.new(){ mk_rest_item_table(d66(2))} ],
-                     [ 4, Proc.new(){ mk_search_item_table(d66(2))} ],
-                     [ 5, Proc.new(){ mk_rare_weapon_item_table(d66(1))} ],
-                     [ 6, Proc.new(){ mk_rare_item_table(d66(1))} ],
+                     [ 1, lambda{ mk_weapon_item_table(d66(2))} ],
+                     [ 2, lambda{ mk_life_item_table(d66(2))} ],
+                     [ 3, lambda{ mk_rest_item_table(d66(2))} ],
+                     [ 4, lambda{ mk_search_item_table(d66(2))} ],
+                     [ 5, lambda{ mk_rare_weapon_item_table(d66(1))} ],
+                     [ 6, lambda{ mk_rare_item_table(d66(1))} ],
                     ]
     return get_table_by_number(num, functionTable)
   end
@@ -1512,8 +1512,8 @@ INFO_MESSAGE_TEXT
   def mk_item_aptitude_table(num)
     table = [
              [ 1, 'ランダムなクラス1種' ],
-             [ 2, Proc.new(){ mk_family_business_table(d66(2)) } ],
-             [ 3, Proc.new(){ mk_gender_table((rand 6)+1) + '性' } ],
+             [ 2, lambda{ mk_family_business_table(d66(2)) } ],
+             [ 3, lambda{ mk_gender_table((rand 6)+1) + '性' } ],
              [ 4, '上級ジョブ' ],
              [ 5, 'モンスタースキルを修得' ],
              [ 6, '童貞、もしくは処女' ],
@@ -1685,9 +1685,9 @@ INFO_MESSAGE_TEXT
     debug("mk_decoration_table num", num)
     
     table = [
-             [ 1, Proc.new(){ mk_basic_decoration_table(d66(2)) } ],
-             [ 2, Proc.new(){ mk_spooky_decoration_table(d66(2)) } ],
-             [ 3, Proc.new(){ mk_katakana_decoration_table(d66(2)) } ],
+             [ 1, lambda{ mk_basic_decoration_table(d66(2)) } ],
+             [ 2, lambda{ mk_spooky_decoration_table(d66(2)) } ],
+             [ 3, lambda{ mk_katakana_decoration_table(d66(2)) } ],
     ];
     return get_table_by_number(num, table);
   end
@@ -1695,9 +1695,9 @@ INFO_MESSAGE_TEXT
   #**地名決定表(1D6)
   def mk_placename_table(num)
     table = [
-             [ 1, Proc.new(){ mk_passage_placename_table(d66(2)) } ],
-             [ 2, Proc.new(){ mk_natural_placename_table(d66(2)) } ],
-             [ 3, Proc.new(){ mk_artifact_placename_table(d66(2)) } ],
+             [ 1, lambda{ mk_passage_placename_table(d66(2)) } ],
+             [ 2, lambda{ mk_natural_placename_table(d66(2)) } ],
+             [ 3, lambda{ mk_artifact_placename_table(d66(2)) } ],
     ];
     return get_table_by_number(num, table);
   end
@@ -1883,12 +1883,12 @@ INFO_MESSAGE_TEXT
   def mk_landscape_table(num)
     dice = d66(2);
     table = [
-             [ 1, Proc.new(){ mk_artifact_landscape_table(dice) } ],
-             [ 2, Proc.new(){ mk_cave_landscape_table(dice) } ],
-             [ 3, Proc.new(){ mk_natural_landscape_table(dice) } ],
-             [ 4, Proc.new(){ mk_waterside_landscape_table(dice) } ],
-             [ 5, Proc.new(){ mk_skyrealm_landscape_table(dice) } ],
-             [ 6, Proc.new(){ mk_strange_place_landscape_table(dice) } ],
+             [ 1, lambda{ mk_artifact_landscape_table(dice) } ],
+             [ 2, lambda{ mk_cave_landscape_table(dice) } ],
+             [ 3, lambda{ mk_natural_landscape_table(dice) } ],
+             [ 4, lambda{ mk_waterside_landscape_table(dice) } ],
+             [ 5, lambda{ mk_skyrealm_landscape_table(dice) } ],
+             [ 6, lambda{ mk_strange_place_landscape_table(dice) } ],
     ];
     return get_table_by_number(num, table);
   end
