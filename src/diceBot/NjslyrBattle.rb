@@ -16,9 +16,10 @@ class NjslyrBattle < DiceBot
   
   def getHelpMessage
     info = <<INFO_MESSAGE_TEXT
-カラテロール：2d6<=(カラテ点)
+・カラテロール
+2d6<=(カラテ点)
 例）2d6<=5
-　(2D6<=5) ＞ 2[1,1] ＞ 2 ＞ 成功 重点 3 溜まる
+(2D6<=5) ＞ 2[1,1] ＞ 2 ＞ 成功 重点 3 溜まる
 INFO_MESSAGE_TEXT
   end
   

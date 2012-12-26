@@ -22,7 +22,7 @@ class ShadowRun4 < DiceBot
   
   def getHelpMessage
     info = <<INFO_MESSAGE_TEXT
-個数振り足しロール(xRn)の閾値を6にセット、バラバラロール(xBn)の目標値を5以上にセットします。
+個数振り足しロール(xRn)の境界値を6にセット、バラバラロール(xBn)の目標値を5以上にセットします。
 BコマンドとRコマンド時に、グリッチの表示を行います。
 INFO_MESSAGE_TEXT
   end

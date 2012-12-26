@@ -15,7 +15,7 @@ class ChaosFlare < DiceBot
   
   def getHelpMessage
     info = <<INFO_MESSAGE_TEXT
-失敗、成功(差分値の計算も)の自動判定を行います。
+失敗、成功の判定。差分値の計算も行います。
 ファンブル時は達成値を-20します。
 INFO_MESSAGE_TEXT
   end

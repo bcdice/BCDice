@@ -1816,6 +1816,9 @@ class BCDice
     when /(^|\s)WitchQuest$/i
       require 'diceBot/WitchQuest'
       diceBot = WitchQuest.new
+    when /(^|\s)BattleTech$/i
+      require 'diceBot/BattleTech'
+      diceBot = BattleTech.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else

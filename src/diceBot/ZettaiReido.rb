@@ -19,7 +19,10 @@ class ZettaiReido < DiceBot
   
   def getHelpMessage
     info = <<INFO_MESSAGE_TEXT
-m-2DR+n>=x　：m(基本能力),n(修正値),x(目標値) DPの取得の有無も表示されます。
+・判定
+m-2DR+n>=x
+m(基本能力),n(修正値),x(目標値)
+DPの取得の有無も表示されます。
 INFO_MESSAGE_TEXT
   end
   

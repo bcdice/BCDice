@@ -30,9 +30,9 @@ class Satasupe < DiceBot
 　「TAGT3」のようにコマンド末尾に数字を入れると複数回一辺に引くことが出来ます。
 　・タグ決定表　(TAGT)
 　・情報イベント表　(〜IET)
-　　　犯罪表(CrimeIET)、生活表(LifeIET)、恋愛表(LoveIET)、教養表(CultureIET)、戦闘表(CombatIET)となっています。
+　　　犯罪表(CrimeIET)、生活表(LifeIET)、恋愛表(LoveIET)、教養表(CultureIET)、戦闘表(CombatIET)
 　・情報ハプニング表　(〜IHT)
-　　　犯罪表(CrimeIHT)、生活表(LifeIHT)、恋愛表(LoveIHT)、教養表(CultureIHT)、戦闘表(CombatIHT)となっています。
+　　　犯罪表(CrimeIHT)、生活表(LifeIHT)、恋愛表(LoveIHT)、教養表(CultureIHT)、戦闘表(CombatIHT)
 　・命中判定ファンブル表　(FumbleT)
 　・致命傷表　(FatalT)
 　・アクシデント表　(AccidentT)
