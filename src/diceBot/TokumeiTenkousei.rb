@@ -23,7 +23,7 @@ class TokumeiTenkousei < DiceBot
   
   def getHelpMessage
     info = <<INFO_MESSAGE_TEXT
-「1の出目でEPP獲得」、判定時の「成功」「失敗」「ゾロ目で自動振り足し」を自動判定。
+「1の出目でEPP獲得」、判定時の「成功」「失敗」「ゾロ目で自動振り足し」を判定。
 INFO_MESSAGE_TEXT
   end
   

@@ -23,6 +23,8 @@ class MagicaLogia < DiceBot
   
   def getHelpMessage
     info = <<INFO_MESSAGE_TEXT
+・判定
+スペシャル／ファンブル／成功／失敗を判定
 ・各種表
 変調表　　　　WT
 運命変転表　　FCT

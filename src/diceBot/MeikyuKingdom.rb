@@ -38,7 +38,6 @@ class MeikyuKingdom < DiceBot
   def getHelpMessage
   info = <<INFO_MESSAGE_TEXT
 ・判定　(nMK+m)
-　迷宮キングダム判定用コマンドです。Rコマンドに読替されます。
 　n個のD6を振って大きい物二つだけみて達成値を算出します。修正mも可能です。
 　絶対成功と絶対失敗も自動判定します。
 ・各種表
