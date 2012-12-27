@@ -48,7 +48,7 @@ class BattleTech < DiceBot
 　　左上半身にSRM6連を技能ベース5目標値8で3回判定
 ・CT：致命的命中表
 ・DW：転倒後の向き表
-・CDx：メッwク戦士意識維持表。ダメージ値xで判定　例）CD3
+・CDx：メック戦士意識維持表。ダメージ値xで判定　例）CD3
 MESSAGETEXT
   end
   
@@ -114,85 +114,184 @@ MESSAGETEXT
     when /^((S|L)RM\d+)(.+)/
       tail = $3
       type = $1
-      damage = lambda{getXrmDamage(type)}
-      return getHitResult(count, damage, tail)
+      damageFunc = lambda{getXrmDamage(type)}
+      return getHitResult(count, damageFunc, tail)
     when /^BT(\d+)(.+)/
       debug('BT pattern')
       tail = $2
       damageValue = $1.to_i
-      damage = lambda{ damageValue }
-      return getHitResult(count, damage, tail)
+      damageFunc = lambda{ damageValue }
+      return getHitResult(count, damageFunc, tail)
     end
     
     return nil
   end
   
   def getXrmDamage(type)
-    table = getXrmDamageTable(type)
+    table, isLrm = getXrmDamageTable(type)
+    
+    table = table.collect{|i|i*2} unless(isLrm)
+    
     damage, dice = get_table_by_2d6(table)
-    return damage, dice
+    return damage, dice, isLrm
   end
   
   def getXrmDamageTable(type)
+    # table, isLrm
     case type
     when /^SRM2$/i
-      [1,	1,	1,	1,	1,	1,	2,	2,	2,	2,	2]
+      [[1,	1,	1,	1,	1,	1,	2,	2,	2,	2,	2], false]
     when /^SRM4$/i
-      [1,	2,	2,	2,	2,	3,	3,	3,	3,	4,	4]
+      [[1,	2,	2,	2,	2,	3,	3,	3,	3,	4,	4], false]
     when /^SRM6$/i
-      [2,	2,	3,	3,	4,	4,	4,	5,	5,	6,	6]
+      [[2,	2,	3,	3,	4,	4,	4,	5,	5,	6,	6], false]
     when /^LRM5$/i
-      [1,	2,	2,	3,	3,	3,	3,	4,	4,	5,	5]
+      [[1,	2,	2,	3,	3,	3,	3,	4,	4,	5,	5], true]
     when /^LRM10$/i
-      [3,	3,	4,	6,	6,	6,	6,	8,	8,	10,	10]
+      [[3,	3,	4,	6,	6,	6,	6,	8,	8,	10,	10], true]
     when /^LRM15$/i
-      [5,	5,	6,	9,	9,	9,	9,	12,	12,	15,	15]
+      [[5,	5,	6,	9,	9,	9,	9,	12,	12,	15,	15], true]
     when /^LRM20$/i
-      [6,	6,	9,	12,	12,	12,	12,	16,	16,	20,	20]
+      [[6,	6,	9,	12,	12,	12,	12,	16,	16,	20,	20], true]
     else
       raise "unknown XRM type:#{type}"
     end
   end
   
+  
+  @@lrmLimit = 5
+  
+  
   def getHitResult(count, damageFunc, tail)
+    
     return nil unless( /(\w*)(\+\d+)?>=(\d+)/ === tail )
     side = $1
     baseString = $2
     target = $3.to_i
     base = getBaseValue(baseString)
-    
     debug("side, base, target", side, base, target)
     
     partTable = getHitPart(side)
     
-    texts = []
+    resultTexts = []
     damages = {}
     hitCount = 0
-    criticalText = ""
     
     count.times do
-      text, part, damage, criticalText = getHitResultOne(base, target, damageFunc, partTable)
-      texts << text
+      isHit, hitResult = getHitText(base, target)
+      resultTexts << hitResult
       
-      next if( damage.nil? )
+      next unless( isHit )
       hitCount += 1
       
-      debug('damage', damage);
+      damages, damageText = getDamages(damageFunc, partTable, damages)
+      resultTexts.last << damageText
+    end
+    
+    totalResultText = resultTexts.join(' ／ ') 
+    
+    if( totalResultText.length >= $SEND_STR_MAX )
+      totalResultText = "..."
+    end
+    
+    totalResultText << "\n ＞ #{hitCount}回命中"
+    totalResultText << " 命中箇所：" + getTotalDamage(damages) if( hitCount > 0 )
+    
+    return totalResultText
+  end
+  
+  
+  def getBaseValue(baseString)
+    base = 0
+    return base if( baseString.nil? )
+    
+    base = parren_killer("(" + baseString + ")").to_i
+    return base
+  end
+  
+  def getHitPart(side)
+    case side
+    when /^L$/i
+      ['左胴＠', '左脚', '左腕', '左腕', '左脚', '左胴', '胴中央', '右胴', '右腕', '右脚', '頭']
+    when /^C$/i, '', nil
+      ['胴中央＠', '右腕', '右腕', '右脚', '右胴', '胴中央', '左胴', '左脚', '左腕', '左腕', '頭']
+    when /^R$/i
+      ['右胴＠', '右脚', '右腕', '右腕', '右脚', '右胴', '胴中央', '左胴', '左腕', '左脚', '頭']
+      
+    when /^LU$/i
+      ['左胴', '左胴', '胴中央', '左腕', '左腕', '頭']
+    when /^CU$/i
+      ['左腕', '左胴', '胴中央', '右胴', '右腕', '頭']
+    when /^RU$/i
+      ['右胴', '右胴', '胴中央', '右腕', '右腕', '頭']
+      
+    when /^LL$/i
+      ['左脚', '左脚', '左脚', '左脚', '左脚', '左脚']
+    when /^CL$/i
+      ['右脚', '右脚', '右脚', '左脚', '左脚', '左脚']
+    when /^RL$/i
+      ['右脚', '右脚', '右脚', '右脚', '右脚', '右脚']
+    else
+      raise "unknown hit part side :#{side}"
+    end
+  end
+  
+  
+  def getHitText(base, target)
+    dice1, = roll(1, 6)
+    dice2, = roll(1, 6)
+    total = dice1 + dice2 + base
+    isHit = ( total >= target )
+    baseString = (base > 0 ? "+#{base}" : "")
+    
+    result = "#{total}[#{dice1},#{dice2}#{baseString}]>=#{target} ＞ "
+    
+    if( isHit )
+      result += "命中 ＞ "
+    else
+      result += "外れ"
+    end
+    
+    return isHit, result
+  end
+  
+  
+  def getDamages(damageFunc, partTable, damages)
+    resultText = ''
+    damage, dice, isLrm = damageFunc.call()
+    
+    damagePartCount = 1
+    if( isLrm )
+      damagePartCount = (1.0 * damage / @@lrmLimit).ceil
+      resultText << "[#{dice}] #{damage}点"
+    end
+    
+    damagePartCount.times do |damageIndex|
+      currentDamage, damageText = getDamageInfo(dice, damage, isLrm, damageIndex)
+      
+      text, part, criticalText = getHitResultOne(damageText, partTable)
+      resultText << " " if( isLrm )
+      resultText << text
+      
       damages[part] ||= [0, []]
-      damages[part][0] += damage
+      damages[part][0] += currentDamage
       damages[part][1] << criticalText unless( criticalText.empty? )
     end
     
-    resultText = texts.join(' ／ ') 
+    return damages, resultText
+  end
+  
+  
+  def getDamageInfo(dice, damage, isLrm, index)
+    return damage, "#{damage}" if( dice.nil? )
+    return damage, "[#{dice}] #{damage}" unless( isLrm )
     
-    if( resultText.length >= $SEND_STR_MAX )
-      resultText = "..."
+    currentDamage = damage - (@@lrmLimit * index)
+    if( currentDamage > @@lrmLimit )
+      currentDamage = @@lrmLimit
     end
     
-    resultText << "\n ＞ #{hitCount}回命中"
-    resultText << " 命中箇所：" + getTotalDamage(damages) if( hitCount > 0 )
-    
-    return resultText
+    return currentDamage, "#{currentDamage}"
   end
   
   def getTotalDamage(damages)
@@ -227,24 +326,10 @@ MESSAGETEXT
   end
   
   
-  def getBaseValue(baseString)
-    base = 0
-    return base if( baseString.nil? )
-    
-    base = parren_killer("(" + baseString + ")").to_i
-    return base
-  end
-  
-  
-  def getHitResultOne(base, target, damageFunc, partTable)
-    isHit, result = getHitText(base, target)
-    
-    return [result] unless( isHit )
-    
+  def getHitResultOne(damageText, partTable)
     part, value = getPart(partTable)
-    damage, dice = damageFunc.call()
-    damageText = ( dice.nil? ) ? damage : "[#{dice}] #{damage}"
     
+    result = ""
     result << "[#{value}] #{part.gsub(/＠/, '（致命的命中）')} #{damageText}点"
     debug('result', result)
     
@@ -262,7 +347,7 @@ MESSAGETEXT
     
     criticalText = '' if( criticalText == @@noCritical )
     
-    return result, part, damage, criticalText
+    return result, part, criticalText
   end
   
   def getPart(partTable)
@@ -289,51 +374,6 @@ MESSAGETEXT
     return dice, result
   end
   
-  
-  def getHitText(base, target)
-    dice1, = roll(1, 6)
-    dice2, = roll(1, 6)
-    total = dice1 + dice2 + base
-    isHit = ( total >= target )
-    baseString = (base > 0 ? "+#{base}" : "")
-    
-    result = "#{total}[#{dice1},#{dice2}#{baseString}]>=#{target} ＞ "
-    
-    if( isHit )
-      result += "命中 ＞ "
-    else
-      result += "外れ"
-    end
-    
-    return isHit, result
-  end
-  
-  def getHitPart(side)
-    case side
-    when /^L$/i
-      ['左胴＠', '左脚', '左腕', '左腕', '左脚', '左胴', '胴中央', '右胴', '右腕', '右脚', '頭']
-    when /^C$/i, '', nil
-      ['胴中央＠', '右腕', '右腕', '右脚', '右胴', '胴中央', '左胴', '左脚', '左腕', '左腕', '頭']
-    when /^R$/i
-      ['右胴＠', '右脚', '右腕', '右腕', '右脚', '右胴', '胴中央', '左胴', '左腕', '左脚', '頭']
-      
-    when /^LU$/i
-      ['左胴', '左胴', '胴中央', '左腕', '左腕', '頭']
-    when /^CU$/i
-      ['左腕', '左胴', '胴中央', '右胴', '右腕', '頭']
-    when /^RU$/i
-      ['右胴', '右胴', '胴中央', '右腕', '右腕', '頭']
-      
-    when /^LL$/i
-      ['左脚', '左脚', '左脚', '左脚', '左脚', '左脚']
-    when /^CL$/i
-      ['右脚', '右脚', '右脚', '左脚', '左脚', '左脚']
-    when /^RL$/i
-      ['右脚', '右脚', '右脚', '右脚', '右脚', '右脚']
-    else
-      raise "unknown hit part side :#{side}"
-    end
-  end
   
   def getDownResult()
     table = ['同じ（前面から転倒） 正面／背面',
