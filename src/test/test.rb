@@ -56,8 +56,7 @@ class TestDiceBot
   def executeCommand()
     message, gameType = getMessageAndGameTape
     
-    require 'customDiceBot'
-    
+    require 'cgiDiceBot'
     bot = CgiDiceBot.new
     bot.setRandomValues(@rands)
     bot.setTest()
