@@ -188,7 +188,7 @@ MESSAGETEXT
       resultTexts.last << damageText
     end
     
-    totalResultText = resultTexts.join(' ／ ') 
+    totalResultText = resultTexts.join("\n")
     
     if( totalResultText.length >= $SEND_STR_MAX )
       totalResultText = "..."
@@ -273,9 +273,15 @@ MESSAGETEXT
       resultText << " " if( isLrm )
       resultText << text
       
-      damages[part] ||= [0, []]
-      damages[part][0] += currentDamage
-      damages[part][1] << criticalText unless( criticalText.empty? )
+      if( damages[part].nil? )
+        damages[part] = {
+          :partDamages => [],
+          :criticals => [],
+        }
+      end
+      
+      damages[part][:partDamages] << currentDamage
+      damages[part][:criticals] << criticalText unless( criticalText.empty? )
     end
     
     return damages, resultText
@@ -294,6 +300,7 @@ MESSAGETEXT
     return currentDamage, "#{currentDamage}"
   end
   
+  
   def getTotalDamage(damages)
     parts = ['頭',
              '胴中央',
@@ -304,25 +311,32 @@ MESSAGETEXT
              '右腕',
              '左腕',]
     
-    results = []
+    allDamage = 0
+    damageTexts = []
     parts.each do |part|
-      damage, criticalTexts = damages.delete(part)
-      next if( damage.nil? )
+      damageInfo = damages.delete(part)
+      next if( damageInfo.nil? )
       
-      debug('criticalTexts', criticalTexts)
+      damage = damageInfo[:partDamages].inject(0){|sum, i| sum + i}
+      allDamage += damage
+      damageCount = damageInfo[:partDamages].size
+      criticals = damageInfo[:criticals]
       
-      result = ""
-      result << "#{part} #{damage}点"
-      result << " #{criticalTexts.join(' ')}" unless( criticalTexts.empty? )
+      text = ""
+      text << "#{part}(#{damageCount}回) #{damage}点"
+      text << " #{criticals.join(' ')}" unless( criticals.empty? )
       
-      results << result
+      damageTexts << text
     end
     
     if( damages.length > 0 )
       raise "damages rest!! #{damages.inspect()}"
     end
     
-    return results.join("／")
+    result = damageTexts.join(" ／ ")
+    result += " ＞ 合計ダメージ #{allDamage}点"
+    
+    return result
   end
   
   
