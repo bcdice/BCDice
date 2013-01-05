@@ -374,7 +374,7 @@ INFO_MESSAGE_TEXT
     bonus = get_torg_table_result( value, bonus_table );
     
     if( value > 20 )
-      over_value_bonus = ((value - 20) / 5) + 1
+      over_value_bonus = ((value - 21) / 5).to_i + 1
       bonus += over_value_bonus;
     end
     

@@ -4,8 +4,8 @@ class GehennaAn < DiceBot
   
   def initialize
     super
-    @sendMode = 3;
-    @sortType = 3;
+    @sendMode = 3
+    @sortType = 3
   end
   
   def gameName
@@ -42,39 +42,30 @@ INFO_MESSAGE_TEXT
   
   
   def dice_command_xRn(string, nick_e)
-    output_msg = gehenna_an_check(string, nick_e);
+    output_msg = checkGehenaAn(string, nick_e)
   end
   
-####################      ゲヘナ・アナスタシス    ########################
 
-  def gehenna_an_check(string, nick_e)
-    output = '1';
-
+  def checkGehenaAn(string, nick_e)
+    output = '1'
+    
     return output unless(/(^|\s)S?((\d+)[rR]6([\+\-\d]+)?([>=]+(\d+))(\[(\d)\]))(\s|$)/i =~ string)
     
-    string = $2;
-    
-    dice_n = $3.to_i
-    dice_n ||= 1;
-    
+    string = $2
+    diceCount = $3.to_i
     modText = $4
-    
     diff = $6.to_i
     mode = $8.to_i
     
     mod = parren_killer("(0#{modText})").to_i
     
-    signOfInequality = ">=";
-    fumble = 2;
-    total_n = 0;
+    diceValue, diceText, dummy = roll(diceCount, 6, (sortType & 1))
     
-    dice_now, dice_str, dummy = roll(dice_n, 6, (sortType & 1));
+    diceArray = diceText.split(/,/).collect{|i|i.to_i}
     
-    diceArray = dice_str.split(/,/).collect{|i|i.to_i}
-    
-    dice_1st = "";
+    dice_1st = ""
     isLuck = true
-    dice_now = 0;
+    diceValue = 0
     
     # 幸運の助けチェック
     diceArray.each do |i|
@@ -83,45 +74,53 @@ INFO_MESSAGE_TEXT
           isLuck = false
         end
       else
-        dice_1st = i;
+        dice_1st = i
       end
       
-      dice_now += 1 if(i >= diff);
+      diceValue += 1 if(i >= diff)
     end
     
-    dice_now *= 2 if(isLuck and (dice_n > 1));
+    diceValue *= 2 if(isLuck and (diceCount > 1))
     
-    output = "#{dice_now}[#{dice_str}]";
-    total_n = dice_now + mod;
+    output = "#{diceValue}[#{diceText}]"
+    success = diceValue + mod
+    success = 0 if( success < 0 )
+    
+    failed = diceCount - success
+    failed = 0 if( failed < 0 )
     
     if(mod > 0)
-      output += "+#{mod}";
+      output += "+#{mod}"
     elsif(mod < 0)
-      output += "#{mod}";
+      output += "#{mod}"
     end
     
     if(/[^\d\[\]]+/ =~ output )
-      output = "#{nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}";
+      output = "#{nick_e}: (#{string}) ＞ #{output} ＞ 成功#{success}、失敗#{failed}"
     else
-      output = "#{nick_e}: (#{string}) ＞ #{output}";
+      output = "#{nick_e}: (#{string}) ＞ #{output}"
     end
     
     # 連撃増加値と闘技チット
-    if(mode)
-      bonus_str = '';
-      ma_bonus = ((total_n  - 1) / 2).to_i;
-      ma_bonus = 7 if(ma_bonus > 7);
-      
-      bonus_str += "連撃[+#{ma_bonus}]/" if(ma_bonus > 0);
-      bonus_str += "闘技[#{ga_ma_chit_table(total_n)}]";
-      output += " ＞ #{bonus_str}";
-    end
+    output += getAnastasisBonusText(mode, success)
     
-    return output;
+    return output
   end
 
-####################      ゲヘナ・アナスタシス    ########################
-  def ga_ma_chit_table(num)
+  
+  def getAnastasisBonusText(mode, success)
+    return '' if( mode == 0)
+    
+    ma_bonus = ((success - 1) / 2).to_i
+    ma_bonus = 7 if(ma_bonus > 7)
+    
+    bonus_str = ''
+    bonus_str += "連撃[+#{ma_bonus}]/" if(ma_bonus > 0)
+    bonus_str += "闘技[#{getTougiBonus(success)}]"
+    return " ＞ #{bonus_str}"
+  end
+  
+  def getTougiBonus(success)
     table = [
              [ 6, '1'],
              [13, '2'],
@@ -130,7 +129,7 @@ INFO_MESSAGE_TEXT
              [99, '5'],
             ]
     
-    return get_table_by_number(num, table);
+    return get_table_by_number(success, table)
   end
   
 end

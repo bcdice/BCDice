@@ -291,6 +291,7 @@ class BCDiceDialog < Wx::Dialog
 Arianrhod
 ArsMagica
 BarnaKronika
+BattleTech
 BloodCrusade
 CardRanker
 ChaosFlare
