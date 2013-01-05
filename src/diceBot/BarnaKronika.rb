@@ -57,7 +57,7 @@ INFO_MESSAGE_TEXT
   def barna_kronika_check(string)
     output = '1';
 
-    reutrn output unless(/(^|\s)S?((\d+)[rR]6(\[([,\d]+)\])?)(\s|$)/i =~ string)
+    return output unless(/(^|\s)S?((\d+)[rR]6(\[([,\d]+)\])?)(\s|$)/i =~ string)
     
     string = $2;
     dice_n = 1;

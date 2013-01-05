@@ -10,7 +10,7 @@ class CgiDiceBot
     @rands = nil #テスト以外ではnilで良い。ダイス目操作パラメータ
     @isTest = false
     
-    # $SEND_STR_MAX = 99999 # 最大送信文字数(本来は500byte上限)
+    $SEND_STR_MAX = 99999 # 最大送信文字数(本来は500byte上限)
   end
   
   attr :isSecret
