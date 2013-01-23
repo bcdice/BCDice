@@ -86,7 +86,7 @@ INFO_MESSAGE_TEXT
     success = diceValue + mod
     success = 0 if( success < 0 )
     
-    failed = diceCount - success
+    failed = diceCount - diceValue
     failed = 0 if( failed < 0 )
     
     if(mod > 0)
