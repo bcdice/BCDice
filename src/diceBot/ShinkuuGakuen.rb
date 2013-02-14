@@ -169,7 +169,7 @@ MESSAGETEXT
   def getWaponTable(waponCommand)
     debug('getWaponTable waponCommand', waponCommand)
     
-    case waponCommand
+    case waponCommand.upcase
     when 'SW'
       return getWaponTableSword
     when 'CSW'
@@ -577,14 +577,4 @@ MESSAGETEXT
     return ''
   end
   
-  #以下のメソッドはテーブルの参照用に便利
-  #get_table_by_2d6(table)
-  #get_table_by_1d6(table)
-  #get_table_by_nD6(table, 1)
-  #get_table_by_nD6(table, count)
-  #get_table_by_1d3(table)
-  #get_table_by_number(index, table)
-  
-  
-  #ダイス目が知りたくなったら getDiceList を呼び出すこと(DiceBot.rbにて定義)
 end

@@ -305,6 +305,7 @@ DoubleCross
 EarthDawn
 EclipsePhase
 Elric!
+Elysion
 EmbryoMachine
 GehennaAn
 GunDog
