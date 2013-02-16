@@ -140,6 +140,10 @@ class BCDice
     debug("@message", @message)
   end
   
+  def getOriginalMessage
+    @messageOriginal
+  end
+  
   #直接TALKでは大文字小文字を考慮したいのでここでオリジナルの文字列に変更
   def changeMessageOriginal
     @message = @messageOriginal
