@@ -29,6 +29,8 @@ class Elysion < DiceBot
 　EL5+10：能力値５、達成値が１０の状態にアシストで判定。
 ・デート表（DATE）
 　2人が「DATE」とコマンドをそれぞれ1回ずつ打つと、両者を組み合わせてデート表の結果が表示されます。
+・デート表（DATE[PC名1,PC名2]）
+　1コマンドでデート判定を行い、デート表の結果を表示します。
 MESSAGETEXT
   end
   
@@ -37,6 +39,7 @@ MESSAGETEXT
   end
   
   def dice_command(string, name)
+    string = @@bcdice.getOriginalMessage
     debug('dice_command string', string)
     
     secret_flg = false
@@ -81,13 +84,21 @@ MESSAGETEXT
       base = $1
       modify = $2
       result= check(base, modify)
+      
+    when /DATE\[(.*),(.*)\]/i
+      pc1 = $1
+      pc2 = $2
+      result = getDateBothResult(pc1, pc2)
+      
     when /DATE(\d\d)(\[(.*),(.*)\])?/i
       number = $1.to_i
       pc1 = $3
       pc2 = $4
       result =  getDateResult(number, pc1, pc2)
+      
     when /DATE/i
       result =  getDateValue
+      
 =begin
     when /PCR/i
       resutl = getPlaceClassRoom
@@ -95,6 +106,7 @@ MESSAGETEXT
       result = getPlaceSchoolStore
     when /PCR/i, /PSC/i, /PDM/i, /PLB/i, /PRF/i, /PLA/i, /PPL/i, /PIC/i, /PSA/i, /PDV/i, /PGT/i
 =end
+      
     else
       result = ''
     end
@@ -197,14 +209,29 @@ MESSAGETEXT
     return result
   end
   
-  
-  
-  def getDateValue
+  def getDateBothResult(pc1, pc2)
     dice1, dummy = roll(1, 6)
-    return "#{dice1}"
+    dice2, dummy = roll(1, 6)
+    
+    result =  "#{pc1}[#{dice1}],#{pc2}[#{dice2}] ＞ "
+    
+    number = dice1 * 10 + dice2
+    
+    if( dice1 > dice2 )
+      tmp = pc1
+      pc1 = pc2
+      pc2 = tmp
+      number = dice2 * 10 + dice1
+    end
+    
+    result <<  getDateResult(number, pc1, pc2)
+    
+    return result
   end
   
   def getDateResult(number, pc1, pc2)
+    
+    name = 'デート'
     
     table = [
              [11, '「こんなはずじゃなかったのにッ！」仲良くするつもりが、ひどい喧嘩になってしまう。この表の使用者のお互いに対する《感情値》が1点上昇し、属性が《敵意》になる。'],
@@ -235,7 +262,7 @@ MESSAGETEXT
     text = changePcName(text, '受け身キャラ', pc1)
     text = changePcName(text, '攻め気キャラ', pc2)
     
-    return "#{number} ＞ #{text}"
+    return "#{name}(#{number}) ＞ #{text}"
   end
     
   def changePcName(text, base, name)
@@ -243,6 +270,13 @@ MESSAGETEXT
     
     return text.gsub(/(#{base})/){$1 + "(#{name})"}
   end
+  
+  
+  def getDateValue
+    dice1, dummy = roll(1, 6)
+    return "#{dice1}"
+  end
+  
   
   def getPlaceClassRoom
     placeName = '教室休憩表'
