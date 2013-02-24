@@ -91,7 +91,7 @@ INFO_MESSAGE_TEXT
       diff = $8;
     end
     
-    bonus = parren_killer("(0#{bonusText})") unless( bonusText.empty? )
+    bonus = parren_killer("(0#{bonusText})").to_i unless( bonusText.empty? )
     
     die = rand(10);
     output = "(#{$2}) ＞ ";
