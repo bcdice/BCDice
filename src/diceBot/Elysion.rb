@@ -4,7 +4,7 @@ class Elysion < DiceBot
   
   def initialize
     super
-    @d66Type = 1;
+    @d66Type = 2
   end
   
   
