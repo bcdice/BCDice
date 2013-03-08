@@ -26013,3 +26013,43 @@ input:D66	Elysion
 output:
 Elysion : (D66) ＞ 16
 rand:6/6,1/6
+============================
+input:SRT	Elysion
+output:
+Elysion : SRT ＞ 学生生活関連ＮＰＣ表(66) 振り直し／任意
+rand:6/6,6/6
+============================
+input:SRT	Elysion
+output:
+Elysion : SRT ＞ 学生生活関連ＮＰＣ表(16) レミエル・N・V：大学部2年0組：P83
+rand:6/6,1/6
+============================
+input:ORT	Elysion
+output:
+Elysion : ORT ＞ 教師・その他ＮＰＣ表(66) 振り直し／任意
+rand:6/6,6/6
+============================
+input:ORT	Elysion
+output:
+Elysion : ORT ＞ 教師・その他ＮＰＣ表(16) アリス・ペンデルトン：教師：P85
+rand:6/6,1/6
+============================
+input:DRT	Elysion
+output:
+Elysion : DRT ＞ 学生図鑑　下級学年表(66) 振り直し／任意
+rand:6/6,6/6
+============================
+input:DRT	Elysion
+output:
+Elysion : DRT ＞ 学生図鑑　下級学年表(16) カイン大澤（−・おおさわ）：初等部5年2組：P12
+rand:6/6,1/6
+============================
+input:URT	Elysion
+output:
+Elysion : URT ＞ 学生図鑑　上級学年表(66) 振り直し／任意
+rand:6/6,6/6
+============================
+input:URT	Elysion
+output:
+Elysion : URT ＞ 学生図鑑　上級学年表(16) 大炊御門菫（おおいのみかど・すみれ）：高等部3年6組：P112
+rand:6/6,1/6
