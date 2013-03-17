@@ -17,7 +17,7 @@ class DiceBot
     @unlimitedRollDiceType = 0;    #無限ロールのダイス
     @rerollNumber = 0;      #振り足しする条件
     @defaultSuccessTarget = "";      #目標値が空欄の時の目標値
-    @rerollLimitCount = 0;    #振り足し回数上限
+    @rerollLimitCount = 10000;    #振り足し回数上限
     @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
     
     @gameType = 'DiceBot'
