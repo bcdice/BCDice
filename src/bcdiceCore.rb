@@ -877,7 +877,7 @@ class BCDice
     n_max = 0;
     cnt_suc = 0;
     d9_on = false;
-    cnt_re = 0;
+    rerollCount = 0;
     dice_result = []
     
     #dice_add = 0 if( ! dice_add );
@@ -894,7 +894,7 @@ class BCDice
     end
     
     unless( (dice_cnt <= $DICE_MAXCNT) and (dice_max <= $DICE_MAXNUM) )
-      return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, cnt_re;
+      return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, rerollCount;
     end
     
     dice_cnt.times do |i|
@@ -932,7 +932,7 @@ class BCDice
       end
       
       if( dice_re )
-        cnt_re += 1 if(dice_now >= dice_re);
+        rerollCount += 1 if(dice_now >= dice_re);
       end
       
       if( (@diceBot.sendMode >= 2) and (round >= 2) )
@@ -952,7 +952,7 @@ class BCDice
       dice_str = dice_result.join(",");
     end
     
-    return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, cnt_re;
+    return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, rerollCount;
   end
   
   def setRandomValues(rands)
@@ -1073,6 +1073,7 @@ class BCDice
   end
   
   def isReRollAgain(dice_cnt, round)
+    debug("isReRollAgain dice_cnt, round", dice_cnt, round)
     ( (dice_cnt > 0) and ((round < @diceBot.rerollLimitCount) or (@diceBot.rerollLimitCount == 0)) )
   end
   
