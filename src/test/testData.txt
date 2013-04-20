@@ -26073,3 +26073,83 @@ input:2R6[3]	None
 output:
 DiceBot : (2R6[3]) ＞ 3,2 + 1 ＞ 成功数0
 rand:3/6,2/6,1/6
+============================
+input:GL	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ チョムバ！！
+rand:
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ チョムバ！！
+rand:5/100
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 2,5,6 ＞ 失敗
+rand:6/100,2/6,5/6,6/6
+============================
+input:GK#6	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ チョムバ！！
+rand:6/100
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 2,5,6 ＞ 失敗
+rand:99/100,2/6,5/6,6/6
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 5,5,6 ＞ 達成値6
+rand:99/100,5/6,5/6,6/6
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 5,5,4 ＞ 達成値4
+rand:99/100,5/6,5/6,4/6
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 3,3,5 ＞ 達成値5
+rand:99/100,3/6,3/6,5/6
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 1,2,3 ＞ 自動失敗
+rand:99/100,1/6,2/6,3/6
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 4,5,6 ＞ 自動成功
+rand:99/100,4/6,5/6,6/6
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 1,1,1 ＞ 10倍成功 YPが10増加
+rand:99/100,1/6,1/6,1/6
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 2,2,2 ＞ 2倍成功
+rand:99/100,2/6,2/6,2/6
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 3,3,3 ＞ 3倍成功
+rand:99/100,3/6,3/6,3/6
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 4,4,4 ＞ 4倍成功
+rand:99/100,4/6,4/6,4/6
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 5,5,5 ＞ 5倍成功
+rand:99/100,5/6,5/6,5/6
+============================
+input:GK	GeishaGirlwithKatana
+output:
+GeishaGirlwithKatana : (3B6) ＞ 6,6,6 ＞ 6倍成功
+rand:99/100,6/6,6/6,6/6
