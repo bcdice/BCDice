@@ -1827,6 +1827,9 @@ class BCDice
     when /(^|\s)Elysion$/i
       require 'diceBot/Elysion'
       diceBot = Elysion.new
+    when /(^|\s)GeishaGirlwithKatana$/i
+      require 'diceBot/GeishaGirlwithKatana'
+      diceBot = GeishaGirlwithKatana.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else

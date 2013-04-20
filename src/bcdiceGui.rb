@@ -308,6 +308,7 @@ Elric!
 Elysion
 EmbryoMachine
 GehennaAn
+GeishaGirlwithKatana
 GunDog
 GunDogZero
 Hieizan
