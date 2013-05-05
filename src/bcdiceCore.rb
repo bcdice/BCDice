@@ -1831,7 +1831,7 @@ class BCDice
       require 'diceBot/GeishaGirlwithKatana'
       diceBot = GeishaGirlwithKatana.new
     when /(^|\s)GURPS$/i
-      require 'diceBot/GURPS'
+      require 'diceBot/Gurps'
       diceBot = Gurps.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
