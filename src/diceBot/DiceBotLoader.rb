@@ -17,6 +17,7 @@ class DiceBotLoader
     
     botFile = "diceBot/#{gameTitle}.rb"
     fileName = "#{@@bcDicePath}/#{botFile}"
+    fileName.untaint
     
     debug("botFile", botFile)
     debug("fileName", fileName)
