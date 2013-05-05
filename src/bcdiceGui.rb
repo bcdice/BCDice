@@ -307,6 +307,7 @@ EclipsePhase
 Elric!
 Elysion
 EmbryoMachine
+GURPS
 GehennaAn
 GeishaGirlwithKatana
 GunDog
@@ -330,12 +331,12 @@ RokumonSekai2
 RoleMaster
 RuneQuest
 Ryutama
+SMTKakuseihen
 SataSupe
 ShadowRun
 ShadowRun4
 ShinkuuGakuen
 ShinobiGami
-SMTKakuseihen
 SwordWorld
 SwordWorld2.0
 TORG
