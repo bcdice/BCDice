@@ -188,14 +188,13 @@ MESSAGETEXT
     
     result = ""
     result << "(2D6#{getValueString(base)}#{getValueString(modify)})"
+    result << " ＞ #{diceTotal}[#{dice1},#{dice2}]#{getValueString(addTotal)} ＞ #{total}"
     
     if dice1 == dice2
-      result << " ＞ #{diceTotal}[#{dice1},#{dice2}] ＞ #{diceTotal}"
       result << getSpecialResult(dice1, total)
       return result
     end
     
-    result << " ＞ #{diceTotal}[#{dice1},#{dice2}]#{getValueString(addTotal)} ＞ #{total}"
     result << getCheckResult(total)
     
     return result
