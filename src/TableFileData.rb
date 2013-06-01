@@ -159,11 +159,14 @@ class TableFileData
   def self.getLineKeyValue(line)
     line = line.toutf8.chomp
     
-    if(/^[\s　]*([^:：]+)[\s　]*[:：][\s　]*(.+)/ === line)
-      return $1, $2
+    unless(/^[\s　]*([^:：]+)[\s　]*[:：][\s　]*(.+)/ === line)
+      return '', ''
     end
     
-    return '', ''
+    key = $1
+    value = $2
+    
+    return key, value
   end
       
   
@@ -197,8 +200,22 @@ class TableFileData
     title = oneTableData["title"]
     table = oneTableData["table"]
     
+    table = changeEnterCode(table)
+    
     return dice, title, table, isSecret
   end
+  
+  def changeEnterCode(table)
+    newTable = {}
+    table.each do |key, value|
+      value = value.gsub(/\\n/, "\n")
+      value = value.gsub(/\\\n/, "\\n")
+      newTable[key] = value
+    end
+    
+    return newTable
+  end
+  
   
   def isTargetGameType(gameType, targetGameType)
     return true if( gameType.empty? )
