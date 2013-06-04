@@ -151,6 +151,7 @@ class AddDice
       end
     end
     
+    debug("line", __LINE__)
     debug("string", string)
     
     mul_cmd = string.split(/\*/)
@@ -177,8 +178,11 @@ class AddDice
           dice_wk = dice_arr.shift
           dice_cnt_total += dice_wk;
           
-          debug('dice_wk, dice_max, (sortType & 1)', dice_wk, dice_max, (@diceBot.sortType & 1))
-          dice_dat = @bcdice.roll(dice_wk, dice_max, (@diceBot.sortType & 1));
+          debug('dice_wk', dice_wk)
+          debug('dice_max', dice_max)
+          debug('(sortType & 1)', (@diceBot.sortType & 1))
+          
+          dice_dat = rollLocal(dice_wk, dice_max, (@diceBot.sortType & 1));
           debug('dice_dat', dice_dat)
           
           dice_now += dice_dat[0];
@@ -249,6 +253,31 @@ class AddDice
     debug("rollDiceAddingUp() end output", dice_total, dice_n, output, n1, n_max, dice_cnt_total, dice_max)
     return dice_total, dice_n, output, n1, n_max, dice_cnt_total, dice_max;
   end
+  
+  def rollLocal(dice_wk, dice_max, sortType)
+    if( dice_max == 66 )
+      return rollD66(dice_wk)
+    end
+    
+    return @bcdice.roll(dice_wk, dice_max, sortType);
+  end
+  
+  def rollD66(count)
+    
+    d66List = []
+    
+    count.times do |i|
+      d66List << @bcdice.getD66Value()
+    end
+    
+    total = d66List.inject{|sum, i| sum + i}
+    text = d66List.join(',')
+    n1Count = d66List.collect{|i| i == 1}.length
+    nMaxCount = d66List.collect{|i| i == 66}.length
+    
+    result = [total, text, n1Count, nMaxCount, 0, 0, 0];
+  end
+  
   
   def marshalSignOfInequality(*arg)
     @bcdice.marshalSignOfInequality(*arg)

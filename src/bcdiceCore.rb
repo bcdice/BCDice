@@ -749,8 +749,9 @@ class BCDice
     
     case arg
       
-    when /D66/i
-      debug("D66ロール検出")
+    when /^D66/i
+      debug("match D66 roll")
+      
       if(@diceBot.d66Type != 0)
         output_msg, secret_flg_tmp = d66dice(arg)
         if(output_msg != '1');
@@ -759,7 +760,8 @@ class BCDice
       end
       
     when /[-\d]+D[\d\+\*\-D]+([<>=]+[?\-\d]+)?($|\s)/i
-      debug("加算ロール検出")
+      debug("match add roll")
+      
       dice = AddDice.new(self, @diceBot)
       output_msg = dice.rollDice(arg)
       if( /S[-\d]+D[\d+-]+/ =~ arg )     # 隠しロール
@@ -767,14 +769,15 @@ class BCDice
       end
       
     when /[\d]+B[\d]+([<>=]+[\d]+)?($|\s)/i
-      debug("バラバラロール検出")
+      debug("match barabara roll")
+      
       output_msg = bdice(arg)
       if(/S[\d]+B[\d]+/i =~ arg )   # 隠しロール
         secret_flg = true if(output_msg != '1');
       end
       
     when /(S)?[\d]+R[\d]+/i
-      debug("個数振り足しロール検出")
+      debug('match xRn roll')
       debug('xRn input arg', arg)
       
       secretMarker = $1
@@ -792,7 +795,7 @@ class BCDice
       end
       
     when /[\d]+U[\d]+/
-      debug("上方無限ロール検出")
+      debug("match upper roll")
       
       dice = UpperDice.new(self, @diceBot)
       output_msg = dice.rollDice(arg)
@@ -801,8 +804,7 @@ class BCDice
       end
       
     when /((^|\s)(S)?choice\[[^,]+(,[^,]+)+\]($|\s))/i
-      debug("選択コマンド")
-      debug("execute choice")
+      debug("match choice command")
       
       secretMarker = $3
       output_msg = choice_random($1)
@@ -810,6 +812,7 @@ class BCDice
         secret_flg = true if(output_msg != '1');
       end
     else
+      debug("match none...")
       output_msg, secret_flg = getTableDataResult(arg)
       return output_msg, secret_flg if(output_msg != '1');
     end
@@ -941,7 +944,7 @@ class BCDice
         dice_result.push( dice_now )
       end
         
-        numberSpot1 += 1 if( dice_now == 1 );
+      numberSpot1 += 1 if( dice_now == 1 );
       cnt_max += 1 if( dice_now == dice_max );
       n_max = dice_now if( dice_now > n_max);
     end
@@ -1103,7 +1106,9 @@ class BCDice
     return output, secret_flg
   end
   
-  def getD66Value(mode)
+  def getD66Value(mode = nil)
+    mode ||= @diceBot.d66Type
+    
     isSwap = ( mode > 1)
     getD66(isSwap)
   end
@@ -1126,7 +1131,7 @@ class BCDice
     
     debug("output", output)
     
-    return output;
+    return output
   end
   
   
