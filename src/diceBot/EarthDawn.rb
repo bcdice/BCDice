@@ -17,7 +17,7 @@ class EarthDawn < DiceBot
   end
   
   def prefixs
-    ['\d+e\d+']
+    ['\d+e\d+.*']
   end
   
   def getHelpMessage
@@ -28,26 +28,17 @@ class EarthDawn < DiceBot
 INFO_MESSAGE_TEXT
   end
   
-  def dice_command(string, nick_e)
-    secret_flg = false
+  
+  def rollDiceCommand(command)
+    return nil unless( /((\d+)e(\d+)?(\+)?(\d+)?(d4)?(d6)?(d8)?(d10)?)($|\s)/i =~ command )
     
-    debug('EarthDawn dice_command string', string)
-
-    return '1', secret_flg unless( /((\d+)e(\d+)?(\+)?(\d+)?(d4)?(d6)?(d8)?(d10)?)($|\s)/i =~ string )
-
-    # アースドーンのステップダイス
-    output_msg = ed_step(string, "\L$1", nick_e);
-    if( /s[\d+]e[\d\+\*-](\+-)?(\d+)d(\d+)/i =~ string )    # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
+    return  ed_step(command)
   end
   
   
 
 ####################            EarthDawn          ########################
-  def ed_step(str, unknown, nick_e)    #アースドーンステップ表
+  def ed_step(str)    #アースドーンステップ表
     
     #表      1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 34x 3x 4x 5x 6x 7x 8x 9x10x11x12x13x
     
@@ -175,7 +166,7 @@ INFO_MESSAGE_TEXT
       string += '失敗';
     end
     
-    output = "#{nick_e}: ステップ#{step}>=#{targetNumber} ＞ #{string}"
+    output = "ステップ#{step}>=#{targetNumber} ＞ #{string}"
     
     return output;
   end

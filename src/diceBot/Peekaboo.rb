@@ -36,24 +36,6 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?(((S|PS|O)E|[IS]B)T)(\s|$)/i =~ string )
-    
-    secretMarker = $2
-    tableName = $3
-    
-    @nick_e = nick_e
-    output_msg = getTableResult(tableName);
-    if( secretMarker )     # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
-  
-  
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     return '' unless(signOfInequality == ">=")
     
@@ -69,12 +51,10 @@ INFO_MESSAGE_TEXT
   end
   
 
-####################           ピーカブー          ########################
-#** 表振り分け
-  def getTableResult(string)
+  def rollDiceCommand(command)
     output = '1';
     
-    case string
+    case command
     when /((\w)+ET)/i       # イベント表
       head = $1.upcase
       output = pk_event_table( head )
@@ -106,7 +86,7 @@ INFO_MESSAGE_TEXT
     debug("output", output)
     debug("total_n", total_n)
     
-    output = "#{@nick_e}: #{type}イベント表(#{total_n}) ＞ #{output}"
+    output = "#{type}イベント表(#{total_n}) ＞ #{output}"
     return output;
   end
   
@@ -184,7 +164,7 @@ INFO_MESSAGE_TEXT
       output, total_n = pk_spooky_batankyu_table
     end
     
-    output = "#{@nick_e}: #{type}バタンキュー！表(#{total_n}) ＞ #{output}"
+    output = "#{type}バタンキュー！表(#{total_n}) ＞ #{output}"
     return output;
   end
   

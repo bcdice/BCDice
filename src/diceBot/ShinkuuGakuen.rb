@@ -20,8 +20,8 @@ class ShinkuuGakuen < DiceBot
   end
   
   def prefixs
-    ['CRL', 'CSW', 'CLS', 'CSS', 'CSP', 'CAX', 'CCL', 'CMA', 'CBX', 'CPR', 'CST',
-     'RL', 'SW', 'LS', 'SS', 'SP', 'AX', 'CL', 'BW', 'MA', 'BX', 'PR', 'ST']
+    ['CRL.*', 'CSW.*', 'CLS.*', 'CSS.*', 'CSP.*', 'CAX.*', 'CCL.*', 'CMA.*', 'CBX.*', 'CPR.*', 'CST.*',
+     'RL.*', 'SW.*', 'LS.*', 'SS.*', 'SP.*', 'AX.*', 'CL.*', 'BW.*', 'MA.*', 'BX.*', 'PR.*', 'ST.*']
      
   end
   
@@ -47,16 +47,11 @@ RLx>=y：この書式なら目標値 ｙ で判定結果出力
 MESSAGETEXT
   end
   
-  def dice_command(string, name)
-    debug('dice_command string', string)
-    
-    secret_flg = false
-    
-    prefixsRegText = prefixs.join('|')
-    
-    unless ( /(^|\s)(S)?(#{prefixsRegText})([\d\+\-]*)(>=(\d+))?/i =~ string )
+  def rollDiceCommand(command) 
+    prefixsRegText = prefixs.collect{|i| i.sub(/\.\*/, '')}.join('|')
+    unless ( /(^|\s)(S)?(#{prefixsRegText})([\d\+\-]*)(>=(\d+))?/i === command )
       debug("NOT match")
-      return '1', secret_flg
+      return nil
     end
     
     debug("matched.")
@@ -69,20 +64,7 @@ MESSAGETEXT
     waponInfo = getWaponTable(waponCommand)
     output_msg = rollJudge(base, diff, waponInfo)
     
-    debug('secretMarker', secretMarker)
-    if( secretMarker )
-      debug("隠しロール")
-      secret_flg = true unless( output_msg.empty? )
-    end
-    
-    unless( output_msg.empty? )
-      output_msg = "#{name}: #{output_msg}"
-      debug("rating output_msg, secret_flg", output_msg, secret_flg)
-    else
-      output_msg = '1'
-    end
-      
-    return output_msg, secret_flg
+    return output_msg
   end
   
   def rollJudge(base, diff, waponInfo)

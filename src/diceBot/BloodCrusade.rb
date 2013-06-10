@@ -41,22 +41,6 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?(#{prefixs.join('|')})(\s|$)/i =~ string )
-    
-    secretMarker = $2
-    command = $3
-    output_msg = getTableResult(command, nick_e);
-    
-    if( secretMarker )     # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
-  
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     return '' unless(signOfInequality == ">=")
     
@@ -73,15 +57,15 @@ INFO_MESSAGE_TEXT
   
 
 ####################       ブラッド・クルセイド      ########################
-  def getTableResult(string, nick_e)
-    string = string.upcase
+  def rollDiceCommand(command)
+    command = command.upcase
     output = '1';
     type = "";
     total_n = "";
     
-    debug('getTableResult string', string)
+    debug('getTableResult command', command)
     
-    case string
+    case command
       
     when 'RT'
       type = '関係属性表';
@@ -123,7 +107,7 @@ INFO_MESSAGE_TEXT
     
     return output if(output == '1')
     
-    output = "#{nick_e}: #{type}(#{total_n}) ＞ #{output}";
+    output = "#{type}(#{total_n}) ＞ #{output}";
     return output;
   end
   

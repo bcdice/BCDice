@@ -52,22 +52,6 @@ INFO_MESSAGE_TEXT
     string
   end
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?(#{prefixs.join('|')})(\s|$)/i =~ string )
-    
-    secretMarker = $2
-    command = $3
-
-    @nick = nick_e
-    output_msg = magicalogia_table(command, nick_e)
-    if( secretMarker )    # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
   
   def dice_command_xRn(string, nick_e)
     ''
@@ -115,12 +99,12 @@ INFO_MESSAGE_TEXT
 
 ####################          マギカロギア         ########################
 #** 表振り分け
-  def magicalogia_table(string, nick_e)
+  def rollDiceCommand(command)
     output = '1';
     type = "";
     total_n = "";
     
-    case string
+    case command
     when 'BGT'
       type = '経歴表'
       output, total_n = magicalogia_background_table
@@ -201,7 +185,7 @@ INFO_MESSAGE_TEXT
       output, total_n = magicalogia_labyrinth_world_scene_table
     end
     
-    return "#{nick_e}: #{type}(#{total_n}) ＞ #{output}";
+    return "#{type}(#{total_n}) ＞ #{output}";
   end
 
   #** シーン表

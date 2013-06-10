@@ -11,7 +11,7 @@ class Cthulhu < DiceBot
   end
   
   def prefixs
-     ['RES\(\d+', 'CBR\(\d+,\d+\)']
+     ['RES.*', 'CBR\(\d+,\d+\)']
   end
   
   def getHelpMessage
@@ -33,32 +33,16 @@ class Cthulhu < DiceBot
 INFO_MESSAGE_TEXT
   end
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless(/(^|\s)(S)?(RES[\-\d]+|CBR\(\d+,\d+\))($|\s)/i  =~ string)
-    
+  def rollDiceCommand(command)
     # CoC抵抗表コマンド
-    command = $3.upcase
-    secretMarker = $2
-    
     case command
     when /RES/i
-      output_msg = getRegistResult(command)
+      return getRegistResult(command)
     when /CBR/i
-      output_msg = getCombineRoll(command)
+      return getCombineRoll(command)
     end
     
-    if( output_msg != '1' )
-      output_msg = "#{nick_e}: #{output_msg}"
-    end
-
-    
-    if( secretMarker )   # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
+    return nil
   end
   
   

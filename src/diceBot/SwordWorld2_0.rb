@@ -18,7 +18,7 @@ class SwordWorld2_0 < SwordWorld
   end
   
   def prefixs
-     ['K\d+']
+     ['K\d+.*']
   end
   
   def getHelpMessage

@@ -14,7 +14,7 @@ class ZettaiReido < DiceBot
   end
   
   def prefixs
-     ['\d+\-2DR']
+     ['\d+\-2DR.*']
   end
   
   def getHelpMessage
@@ -30,35 +30,26 @@ INFO_MESSAGE_TEXT
     string
   end
   
-  def dice_command(string, nick_e)
-    secret_flg = false
+  
+  def rollDiceCommand(command)
+    return nil unless( /^(\d+)-2DR([\+\-\d]*)(>=(\d+))?$/i === command )
     
-    return '1', secret_flg unless( /(^|\s)(S)?(\d+)-2DR([\+\-\d]*)(>=(\d+))?($|\s)/i =~ string )
+    baseAvility = $1.to_i
+    modText = $2
+    diffValue = $4
     
-    secretMarker = $2
-    
-    baseAvility = $3.to_i
-    modText = $4
-    diffValue = $6
-    
-    output_msg = roll2DR(baseAvility, modText, diffValue, nick_e)
-    
-    if( secretMarker )    # 隠しロール
-      secret_flg = true if(output_msg != '1')
-    end
-      
-    return output_msg, secret_flg
+    return roll2DR(baseAvility, modText, diffValue)
   end
   
   
-  def roll2DR(baseAvility, modText, diffValue, nick_e)
+  def roll2DR(baseAvility, modText, diffValue)
     diceTotal, diceText, darkPoint = roll2DarkDice()
     
     mod, modText = getModInfo(modText)
     diff, diffText = getDiffInfo(diffValue)
     
     output = ""
-    output << ": (#{baseAvility}-2DR#{modText}#{diffText})"
+    output << "(#{baseAvility}-2DR#{modText}#{diffText})"
     output << " ＞ #{baseAvility}-#{diceTotal}[#{diceText}]#{modText}"
     
     total = baseAvility - diceTotal + mod

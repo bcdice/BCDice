@@ -53,18 +53,8 @@ INFO_MESSAGE_TEXT
       return output_msg, secret_flg
     end
     
-    return '1', secret_flg unless( /(^|\s)(S)?((O|[W]?D)T)(\s|$)/i =~ string )
     
-    secretMarker = $2
-    tableName = $3
-    
-    output_msg = monotone_musium_table(tableName, nick_e)
-    
-    if( secretMarker )     # 隠しロール
-        secret_flg = true if(output_msg != '1');
-    end
-    
-      return output_msg, secret_flg
+    return super(string, nick_e)
   end
   
   
@@ -105,11 +95,11 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def monotone_musium_table(tableName, nick_e)
+  def rollDiceCommand(command)
     output = '1'
     type = ""
     
-    case tableName
+    case command
     when /WDT/i
       type = '世界歪曲表';
       output, total_n = mm_world_distortion_table()
@@ -121,7 +111,7 @@ INFO_MESSAGE_TEXT
       output, total_n = mm_distortion_table()
     end
     
-    output = "#{nick_e}: #{type}(#{total_n}) ＞ #{output}" if(output != '1')
+    output = "#{type}(#{total_n}) ＞ #{output}" if(output != '1')
     
     return output;
   end

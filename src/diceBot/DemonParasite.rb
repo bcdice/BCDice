@@ -39,28 +39,6 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    unless( /((^|\s)(S)?(\w)?URGE(\s*)(\d+))($|\s)/i =~ string )
-      return '1', secret_flg
-    end
-    
-    # デモンパ系衝動表
-    
-    secretMarker = $3
-    command = $1.upcase
-    
-    output_msg = get_urge(command, nick_e);
-    
-    if( secretMarker )   # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
-  
-  
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
     if(n1 >= 2)  # １の目が２個以上ならファンブル
       return " ＞ 致命的失敗";
@@ -86,8 +64,14 @@ INFO_MESSAGE_TEXT
     end
   end
   
+  
+  
+  def rollDiceCommand(command)
+    get_urge(command)
+  end
+  
   ####################         デモンパ衝動表        ########################
-  def get_urge(string, nick_e)   # デモンパラサイトの衝動表
+  def get_urge(string)   # デモンパラサイトの衝動表
     unless(/(\w)?URGE\s*(\d+)/i =~ string)
       return '1'
     end
@@ -141,9 +125,9 @@ INFO_MESSAGE_TEXT
     
     resultText = urge[urgelv - 1][dice_now - 2]
     
-    output = "#{nick_e}: #{title}#{urgelv}-#{dice_now}:#{resultText}"
+    output = "#{title}#{urgelv}-#{dice_now}:#{resultText}"
     
-    return output;
+    return output
   end
   
   

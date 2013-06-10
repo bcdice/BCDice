@@ -17,7 +17,7 @@ class Satasupe < DiceBot
   end
   
   def prefixs
-     ['(\d+R|TAGT|\w+IET|\w+IHT|F\w*T|F\w*T|A\w*T|G\w*A\w*T|A\w*T|R\w*FT|NPCT)']
+     ['(\d+R|TAGT|\w+IET|\w+IHT|F\w*T|F\w*T|A\w*T|G\w*A\w*T|A\w*T|R\w*FT|NPCT).*']
   end
   
   def getHelpMessage
@@ -54,6 +54,7 @@ INFO_MESSAGE_TEXT
     secret_flg = false
     
     secretMarker = nil
+    
     case string
     when /((^|\s)(\d+)(S)?R[>=]+(\d+)(\[(\d+)?(,\d+)?\])?($|\s))/i
       debug("判定ロール")
@@ -61,22 +62,17 @@ INFO_MESSAGE_TEXT
       command = $1.upcase
       output_msg = satasupe_check(command, nick_e);
       
-    when /(^|\s)(S)?(\w+)($|\s)/i
-      debug("サタスペのチャート処理")
-      secretMarker = $2
-      result = satasupe_table($3)
-      output_msg = "#{nick_e}: " + result.join("\n") unless( result.empty? )
+      return '1', secret_flg if(output_msg == '1');
+      
+      if( secretMarker )    # 隠しロール
+        secret_flg = true if(output_msg != '1');
+      end
+      
+      debug("Satasupe.dice_command rolled output_msg", output_msg)
+      return output_msg, secret_flg
     end
     
-    debug("Satasupe.dice_command output_msg", output_msg)
-    
-    return '1', secret_flg if(output_msg == '1');
-
-    if( secretMarker )    # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
+    return super(string, nick_e)
   end
   
 
@@ -147,8 +143,8 @@ INFO_MESSAGE_TEXT
 
 ####################            サタスペ           ########################
 #** 各種表
-  def satasupe_table(string)
-    string = string.upcase
+  def rollDiceCommand(command)
+    string = command.upcase
     output =[]
     
     counts = 1;

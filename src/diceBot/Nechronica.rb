@@ -73,7 +73,6 @@ INFO_MESSAGE_TEXT
   end
   
   
-  ####################           ネクロニカ         ########################
   def nechronica_check(string)
     output = '1';
 
@@ -148,7 +147,6 @@ INFO_MESSAGE_TEXT
   end
 
 
-####################           ネクロニカ         ########################
   def getHitLocation(dice)
     output = '1'
     
