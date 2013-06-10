@@ -15,7 +15,7 @@ class DarkBlaze < DiceBot
   end
   
   def prefixs
-     ['DB', 'BT']
+     ['DB.*', 'BT.*']
   end
   
   def getHelpMessage
@@ -45,23 +45,6 @@ INFO_MESSAGE_TEXT
     return string
   end
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless(/((^|\s)(S)?BT(\d+)?($|\s))/i =~ string )
-    
-    # 掘り出し袋表
-
-    secretMarker = $3
-    dice = 1;
-    dice = $4 if($4);
-    output_msg = dark_blaze_horidasibukuro_table(dice, nick_e);
-    if( secretMarker )   # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
   
   def dice_command_xRn(string, nick_e)
     output_msg = dark_blaze_check(string, nick_e);
@@ -158,9 +141,21 @@ INFO_MESSAGE_TEXT
     return total, output
   end
 
+  def rollDiceCommand(command)
+    
+    case command
+    when /BT(\d+)?/i
+      dice = $1
+      dice ||= 1
+      return dark_blaze_horidasibukuro_table(dice)
+    end
+    
+    return nil
+  end
+  
 ####################         ダークブレイズ        ########################
 #** 掘り出し袋表
-  def dark_blaze_horidasibukuro_table(dice, nick_e)
+  def dark_blaze_horidasibukuro_table(dice)
     output = '1';
     
     material_kind = [   #2D6
@@ -218,10 +213,10 @@ INFO_MESSAGE_TEXT
     end
     
     if(output != '1');
-      output = "#{nick_e}: 掘り出し袋表[#{num1},#{num2}] ＞ #{output}"
+      output = "掘り出し袋表[#{num1},#{num2}] ＞ #{output}"
     end
     
-    return output;
+    return output
   end
   
 end

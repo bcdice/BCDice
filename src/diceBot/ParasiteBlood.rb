@@ -31,7 +31,7 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def get_urge(string, nick_e)    # パラサイトブラッドの衝動表
+  def get_urge(string)    # パラサイトブラッドの衝動表
     urge = []
 
     unless(/(\w*)URGE\s*(\d+)/i =~ string)
@@ -62,9 +62,9 @@ INFO_MESSAGE_TEXT
     urge = get_pb_urge_table(urgelv, dice_now, urge_type)
     resultText = "#{urgelv}-#{dice_now}:#{urge}"
     if(urge_type <= 1)
-      output = "#{nick_e}: 衝動表#{resultText}"
+      output = "衝動表#{resultText}"
     elsif(urge_type <= 2)
-      output = "#{nick_e}: 誤作動表#{resultText}"
+      output = "誤作動表#{resultText}"
     else
       output = '1'
     end

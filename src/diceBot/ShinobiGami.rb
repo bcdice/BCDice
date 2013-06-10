@@ -40,22 +40,6 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /((^|\s)(S)?(ST|FT|ET|WT|BT|CST|MST|DST|TST|NST|KST|TKST|GST|GWT|GAST|KYST|JBST|KFT|KWT|MT|RTT)($|\s))/i =~ string )
-    
-    secretMarker = $3
-    command = $1.upcase
-    output_msg = shinobigami_table(command, nick_e);
-    if( secretMarker )    # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
-  
-  
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     return '' unless( signOfInequality == ">=")
     
@@ -70,33 +54,32 @@ INFO_MESSAGE_TEXT
     end
   end
   
-  ####################           シノビガミ          ########################
-  #** テーブル振り分け
-  def shinobigami_table(string, nick)
-    string = string.upcase
+  
+  def rollDiceCommand(command)
+    string = command.upcase
     
     case string
     when /((\w)*ST)/i   # シーン表
-      return sinobigami_scene_table(string, nick);
+      return sinobigami_scene_table(string)
     when /([K]*FT)/i   # ファンブル表
-      return sinobigami_fumble_table(string, nick);
+      return sinobigami_fumble_table(string)
     when /(ET)/i   # 感情表
-      return sinobigami_emotion_table(nick);
+      return sinobigami_emotion_table()
     when /([GK]?WT)/i   # 変調表
-      return sinobigami_wrong_table(string, nick);
+      return sinobigami_wrong_table(string)
     when /(BT)/i   # 戦場表
-      return sinobigami_battlefield_table(nick);
+      return sinobigami_battlefield_table()
     when /((\w)*RTT)/i   # ランダム特技決定表
-      return sinobigami_random_skill_table( nick )
+      return sinobigami_random_skill_table()
     when /(MT)/i   # 異形表
-      return sinobigami_metamorphose_table( nick )
+      return sinobigami_metamorphose_table()
     end
     
-    return '1';
+    return nil
   end
   
   #** シーン表
-  def sinobigami_scene_table(string, nick)
+  def sinobigami_scene_table(string)
     type = "";
     table = []
     
@@ -282,37 +265,37 @@ INFO_MESSAGE_TEXT
               ];
     end
     
-    get_sinobigami_2d6_scene_table_output(type, table, nick)
+    get_sinobigami_2d6_scene_table_output(type, table)
   end
   
   
-  def get_sinobigami_2d6_scene_table_output(sceneType, table, nick)
+  def get_sinobigami_2d6_scene_table_output(sceneType, table)
     total_n, dice_dmy = roll(2, 6);
     index = total_n - 2;
     
     text = table[index]
     return '1' if( text.nil? )
     
-    output = "#{nick}: #{sceneType}シーン表(#{total_n}) ＞ #{ text }"
+    output = "#{sceneType}シーン表(#{total_n}) ＞ #{ text }"
     
     return output;
   end
   
-  def get_sinobigami_1d6_table_output(tableName, table, nick)
+  def get_sinobigami_1d6_table_output(tableName, table)
     total_n, dice_dmy = roll(1, 6);
     index = total_n - 1;
     
     text = table[index]
     return '1' if( text.nil? )
     
-    output = "#{nick}: #{tableName}(#{total_n}) ＞ #{text}"
+    output = "#{tableName}(#{total_n}) ＞ #{text}"
     
     return output;
     
   end
   
   #** ファンブル表
-  def sinobigami_fumble_table(string, nick)
+  def sinobigami_fumble_table(string)
     table = []
     type = '';
     
@@ -338,11 +321,11 @@ INFO_MESSAGE_TEXT
               ]
     end
     
-    return get_sinobigami_1d6_table_output("#{type}ファンブル表", table, nick)
+    return get_sinobigami_1d6_table_output("#{type}ファンブル表", table)
   end
   
   #** 感情表
-  def sinobigami_emotion_table(nick)
+  def sinobigami_emotion_table()
     table = [
              '共感（プラス）／不信（マイナス）',
              '友情（プラス）／怒り（マイナス）',
@@ -352,11 +335,11 @@ INFO_MESSAGE_TEXT
              '狂信（プラス）／殺意（マイナス）',
             ];
     
-    return get_sinobigami_1d6_table_output("感情表", table, nick)
+    return get_sinobigami_1d6_table_output("感情表", table)
   end
   
   #** 変調表
-  def sinobigami_wrong_table(string, nick)
+  def sinobigami_wrong_table(string)
     table = []
     type = '';
     
@@ -392,11 +375,11 @@ INFO_MESSAGE_TEXT
               ]
     end
     
-    return get_sinobigami_1d6_table_output("#{type}変調表", table, nick)
+    return get_sinobigami_1d6_table_output("#{type}変調表", table)
   end
   
   #** 戦場表
-  def sinobigami_battlefield_table(nick)
+  def sinobigami_battlefield_table()
     table = [
              '平地:特になし。',
              '水中:海や川や、プール、血の池地獄など。この戦場では、回避判定に-2の修正がつく。',
@@ -406,7 +389,7 @@ INFO_MESSAGE_TEXT
              '極地:宇宙や深海、溶岩、魔界など。ラウンドの終わりにＧＭが1D6を振り、経過ラウンド以下なら全員1点ダメージ。ここから脱落したものは変調表を適用する。',
             ]
     
-    return get_sinobigami_1d6_table_output("戦場表", table, nick)
+    return get_sinobigami_1d6_table_output("戦場表", table)
   end
   
   #** 指定特技ランダム決定表
@@ -427,13 +410,13 @@ INFO_MESSAGE_TEXT
     tableName, skillTable = skillTable
     skill, total_n2 = get_table_by_2d6(skillTable)
     
-    output = "#{@nick}: #{type}指定特技表(#{total_n},#{total_n2}) ＞ 『#{tableName}』#{skill}"
+    output = "#{type}指定特技表(#{total_n},#{total_n2}) ＞ 『#{tableName}』#{skill}"
     
     return output;
   end
   
   #** 異形表
-  def sinobigami_metamorphose_table(nick)
+  def sinobigami_metamorphose_table()
     output = '1';
     tableName = "異形表"
     table = [
@@ -448,7 +431,7 @@ INFO_MESSAGE_TEXT
     text = table[total_n - 1]
     return '1' if( text.nil? )
     
-    output = "#{nick}: #{tableName}(#{total_n}) ＞ #{text}"
+    output = "#{tableName}(#{total_n}) ＞ #{text}"
     
     if (total_n > 3)
       return output;

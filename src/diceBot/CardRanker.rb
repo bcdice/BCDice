@@ -33,22 +33,6 @@ class CardRanker < DiceBot
 INFO_MESSAGE_TEXT
   end
   
-  def dice_command(string, name)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /((^|\s)(S)?(ST|CST|OST|SST|DT|TDT|SDT|CDT|RM)($|\s))/i =~ string )
-    
-    secretMarker = $3
-    command = $1.upcase
-    output_msg = getTable(command, name);
-    if( secretMarker )    # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
-  
-  
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     return '' unless( signOfInequality == ">=")
     
@@ -64,20 +48,15 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def getTable(string, name)
-    string = string.upcase
+  def rollDiceCommand(command)
+    command = command.upcase
     
-    case string
+    case command
     when /RM/i
-      return getRandumMonsterTableResult(string, name);
+      return getRandumMonster
     end
     
     return '1';
-  end
-  
-  def getRandumMonsterTableResult(string, name)
-    text = getRandumMonster
-    output = "#{name}: #{text}"
   end
   
   def getRandumMonster

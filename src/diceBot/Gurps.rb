@@ -39,24 +39,6 @@ class Gurps < DiceBot
 INFO_MESSAGE_TEXT
   end
   
-  def dice_command(string, name)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?(#{prefixs.join('|')})(\s|$)/i =~ string )
-    
-    secretMarker = $2
-    command = $3.upcase
-    
-    output_msg = getCommandResult(command, name)
-    
-    if( secretMarker )    # 隠しロール
-      secret_flg = true if(output_msg != '1')
-    end
-    
-    return output_msg, secret_flg
-  end
-  
-  
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
     
     unless(dice_cnt == 3 && signOfInequality == "<=")
@@ -93,12 +75,12 @@ INFO_MESSAGE_TEXT
     
   end
   
-  def getCommandResult(string, nick_e)
+  def rollDiceCommand(command)
     tableName = ""
     result = ""
     number = 0
     
-	case string
+	case command
       
     when "CRT"
       tableName = "クリティカル表"
@@ -292,7 +274,7 @@ INFO_MESSAGE_TEXT
       return ""
 	end
 	
-	text = "#{nick_e}: #{tableName}(#{number})：#{result}"
+	text = "#{tableName}(#{number})：#{result}"
     
 	return text
   end

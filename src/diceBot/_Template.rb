@@ -43,10 +43,6 @@ MESSAGETEXT
     string
   end
   
-  def dice_command(string, nick_e)
-    ['1', false]
-  end
-  
   def dice_command_xRn(string, nick_e)
     ''
   end
@@ -81,25 +77,5 @@ MESSAGETEXT
   #get_table_by_number(index, table)
   #get_table_by_d66(table)
   
-  #ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
-  def getDiceRolledAdditionalText(n1, n_max, dice_max)
-    ''
-  end
-  
-  #ダイス目による補正処理（現状ナイトメアハンターディープ専用）
-  def getDiceRevision(n_max, dice_max, total_n)
-    return '', 0
-  end
-  
-  #ダイス目文字列からダイス値を変更する場合の処理（現状クトゥルフ・テック専用）
-  def changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
-    dice_now
-  end
-  
-  #振り足し時のダイス読み替え処理用（ダブルクロスはクリティカルでダイス10に読み替える)
-  def getJackUpValueOnAddRoll(dice_n)
-    0
-  end
-  
-  #ダイス目が知りたくなったら getDiceList を呼び出すこと(DiceBot.rbにて定義)
+  #getDiceList を呼び出すとロース結果のダイス目の配列が手に入ります。
 end

@@ -61,22 +61,6 @@ INFO_MESSAGE_TEXT
     return string
   end
   
-  def dice_command(string, nick_e)
-    debug('dice_command string', string)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /((^|\s)(S)?ET($|\s))/i =~ string )
-    
-    # 感情表
-    secretMarker = $3
-    output_msg = dx_emotion_table(nick_e);
-    if( secretMarker )  # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
-  
   def dice_command_xRn(string, nick_e)
     output_msg = dxdice(string, nick_e);
   end
@@ -243,27 +227,33 @@ INFO_MESSAGE_TEXT
     
     return output;
   end
-
-
+  
+  
+  
+  def rollDiceCommand(command)
+    get_emotion_table()
+  end
+  
+  
   ####################        ダブルクロス 3rd       ########################
   #** 感情表
-  def dx_emotion_table(nick_e)
-    output = '1';
+  def get_emotion_table()
+    output = nil
     
-    pos_dice, pos_table = dx_feel_positive_table;
-    neg_dice, neg_table = dx_feel_negative_table;
-    dice_now, dice_dmy = roll(1, 2);
+    pos_dice, pos_table = dx_feel_positive_table
+    neg_dice, neg_table = dx_feel_negative_table
+    dice_now, dice_dmy = roll(1, 2)
     
     if(pos_table != '1' and neg_table != '1')
       if(dice_now < 2)
-        pos_table = "○" + pos_table;
+        pos_table = "○" + pos_table
       else
-        neg_table = "○" + neg_table;
+        neg_table = "○" + neg_table
       end
-      output = "#{nick_e}: 感情表(#{pos_dice}-#{neg_dice}) ＞ #{pos_table} - #{neg_table}";
+      output = "感情表(#{pos_dice}-#{neg_dice}) ＞ #{pos_table} - #{neg_table}"
     end
     
-    return output;
+    return output
   end
 
   #** 感情表（ポジティブ）

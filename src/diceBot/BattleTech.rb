@@ -60,38 +60,7 @@ MESSAGETEXT
     '1'
   end
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?(#{prefixs.join('|')})(\s|$)/i =~ string )
-    
-    secretMarker = $2
-    command = $3
-    
-    output_msg = executeCommand(command)
-    output_msg = '1' if( output_msg.nil? or output_msg.empty? )
-    
-    output_msg = "#{nick_e}：#{output_msg}" if(output_msg != '1')
-    
-    if( secretMarker )   # 隠しロール
-      secret_flg = true if(output_msg != '1')
-    end
-    
-    return output_msg, secret_flg
-  end
-  
-  def executeCommand(command)
-    result = nil
-    begin
-      result = executeCommandCatched(command)
-    rescue => e
-      debug("executeCommand exception", e.to_s, $@.join("\n"));
-    end
-    
-    return result
-  end
-  
-  def executeCommandCatched(command)
+  def rollDiceCommand(command)
     
     count = 1
     if( /^(\d+)(.+)/ === command )
@@ -423,14 +392,4 @@ MESSAGETEXT
     return text
   end
   
-  #以下のメソッドはテーブルの参照用に便利
-  #get_table_by_2d6(table)
-  #get_table_by_1d6(table)
-  #get_table_by_nD6(table, 1)
-  #get_table_by_nD6(table, count)
-  #get_table_by_1d3(table)
-  #get_table_by_number(index, table)
-  #get_table_by_d66(table)
-  
-  #ダイス目が知りたくなったら getDiceList を呼び出すこと(DiceBot.rbにて定義)
 end

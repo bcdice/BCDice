@@ -17,7 +17,7 @@ class SwordWorld < DiceBot
   end
   
   def prefixs
-     ['K\d+']
+     ['K\d+.*']
   end
   
   def getHelpMessage
@@ -57,27 +57,6 @@ INFO_MESSAGE_TEXT
     return string
   end
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    unless ( /(^|\s)(S)?K[\d\+\-]+/i =~ string )
-      return '1', secret_flg
-    end
-    
-    debug("ソードワールドのレーティング表ロール検出")
-    
-    secretMarker = $2
-    output_msg = rating(string, nick_e);
-    if( secretMarker )
-      debug("隠しロール")
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    debug("rating output_msg, secret_flg", output_msg, secret_flg)
-    
-    return output_msg, secret_flg
-  end
-  
   def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     if(dice_n >= 12)
       return " ＞ 自動的成功";
@@ -98,8 +77,12 @@ INFO_MESSAGE_TEXT
   end
   
   
+  def rollDiceCommand(command)
+    rating(command)
+  end
+  
   ####################        SWレーティング表       ########################
-  def rating(string, nick_e)     # レーティング表
+  def rating(string)     # レーティング表
     debug("rating string", string)
     
     unless(/(^|\s)[sS]?(((k|K)[\d\+\-]+)([cmCM]\[([\d\+\-]+)\])*([\d\+\-]*)([cmrCMR]\[([\d\+\-]+)\]|gf|GF)*)($|\s)/ =~ string)
@@ -131,7 +114,7 @@ INFO_MESSAGE_TEXT
     
     newRates = getNewRates(rate_sw2_0)
     
-    output = "#{nick_e}: KeyNo.#{key}"
+    output = "KeyNo.#{key}"
     
     output += "c[#{crit}]" if(crit < 13)
     output += "m[#{firstDiceChangeModify}]" if( firstDiceChangeModify != 0 )
@@ -501,7 +484,7 @@ INFO_MESSAGE_TEXT
     return addText
   end
   
-  def setRatingTable(nick_e, tnick, channel_to_list)
+  def setRatingTable(tnick)
     mode_str = ""
     pre_mode = @rating_table;
     

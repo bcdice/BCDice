@@ -9,7 +9,7 @@ class Chill < DiceBot
   end
   
   def prefixs
-     ['SR\d+']
+     ['SR\d+.*']
   end
   
   def getHelpMessage
@@ -21,24 +21,6 @@ class Chill < DiceBot
 　ダイスロールと同様に、他のプレイヤーに隠れてロールすることも可能です。
 　例）SR7　　　sr13　　　SR(7+4)　　　Ssr10
 INFO_MESSAGE_TEXT
-  end
-  
-  def dice_command(arg, nick_e)
-    secret_flg = false
-    
-    # ストライクランク計算
-    unless( /(^|\s)(S)?SR(\d+)($|\s)/i =~ arg )
-      return '1', secret_flg
-    end
-    
-    secretMarker = $2
-    output_msg = strike_rank(arg, nick_e);
-    if( secretMarker )   # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    
-    return output_msg, secret_flg
   end
   
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)     # ゲーム別成功度判定(1D10)
@@ -65,9 +47,14 @@ INFO_MESSAGE_TEXT
   end
   
 
+  def rollDiceCommand(command)
+    strike_rank(command)
+  end
+  
 ####################    CHILLストライクランク表    ########################
-  def strike_rank(string, nick_e)    # Chillのストライクランク
-    debug('strike_rank begin')
+  
+  def strike_rank(string)
+    debug('strike_rank begin string', string)
     
     output = ''
     wounds = 0
@@ -119,9 +106,10 @@ INFO_MESSAGE_TEXT
         return "1";
     end
     
-    output = "#{nick_e}: (#{string}) ＞ #{output}";
+    output = "(#{string}) ＞ #{output}"
     debug('strike_rank end output', output)
-    return output;
+    
+    return output
   end
   
   def chill_sr(strikeRank)

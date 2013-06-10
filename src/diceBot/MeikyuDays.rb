@@ -47,20 +47,6 @@ INFO_MESSAGE_TEXT
     return string
   end
   
-  def dice_command(string, nick_e)
-    @nick = nick_e
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?([D]RT|[D]BT|[D]HT|[DMPL]CT|DNT|KST|CAT|FWT|CFT|DNT|APT|MPT|T\dT)(\s|$)/i =~ string )
-
-    secretMarker = $2
-    output_msg = mayoday_table($3)
-    if( secretMarker )    # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
   
   def dice_command_xRn(string, nick_e)
     @nick = nick_e
@@ -142,13 +128,13 @@ INFO_MESSAGE_TEXT
   end
 
   ####################           迷宮デイズ          ########################
-  def mayoday_table(string)
+  def rollDiceCommand(command)
     output = '1';
     type = "";
     total_n = 0
 
     # 散策表(2d6)
-    case string
+    case command
     when /DRT/i
       type = '散策';
       output, total_n = md_research_table
@@ -212,7 +198,7 @@ INFO_MESSAGE_TEXT
     end
 
     if(output != '1')
-      output = "#{@nick_e}: #{type}表(#{total_n}) ＞ #{output}";
+      output = "#{type}表(#{total_n}) ＞ #{output}";
     end
     
     return output;

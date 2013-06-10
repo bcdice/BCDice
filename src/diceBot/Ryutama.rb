@@ -15,7 +15,7 @@ class Ryutama < DiceBot
   end
   
   def prefixs
-     ['R\d+']
+     ['R\d+.*']
   end
   
   def getHelpMessage
@@ -29,20 +29,10 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def rollDiceCommandResult(string)
-    debug('Ryutama rollDiceCommandResult begin')
-    result = rollRyutama(string)
+  def rollDiceCommand(command)
+    debug('rollDiceCommand begin')
     
-    if( result.empty? )
-      result = "1"
-    end
-    
-    return result
-  end
-  
-  def rollRyutama(string)
-    debug('rollRyutama begin')
-    unless( /^R(\d+)(,(\d+))?([\+\-\d]+)?(>=(\d+))?/ === string )
+    unless( /^R(\d+)(,(\d+))?([\+\-\d]+)?(>=(\d+))?/ === command )
       debug('unmatched!')
       return ''
     end
@@ -79,6 +69,7 @@ INFO_MESSAGE_TEXT
     output = "(#{baseText}) ＞ #{value1Text}#{value2Text}#{modifyText} ＞ #{total}#{result}";
     return output
   end
+  
   
   def getDiceType(dice1, dice2)
     debug('getDiceType begin')

@@ -29,29 +29,8 @@ MESSAGETEXT
     string
   end
   
-  def dice_command(string, nick_e)
-    debug("dice_command string", string)
-    
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?(#{prefixs.join('|')})(\s|$)/i =~ string )
-    
-    secretMarker = $2
-    command = $3
-    
-    output_msg = executeCommand(command)
-    output_msg = '1' if( output_msg.nil? or output_msg.empty? )
-    
-    output_msg = "#{nick_e}：#{output_msg}" if(output_msg != '1')
-    
-    if( secretMarker )   # 隠しロール
-      secret_flg = true if(output_msg != '1')
-    end
-    
-    return output_msg, secret_flg
-  end
   
-  def executeCommand(command)
+  def rollDiceCommand(command)
     case command
     when /WQ(\d+)/
       number = $1.to_i
@@ -61,7 +40,7 @@ MESSAGETEXT
       return getStructureEncounter(number)
     end
     
-    return '1'
+    return nil
   end
   
   def challenge(number)

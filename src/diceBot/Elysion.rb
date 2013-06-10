@@ -52,45 +52,12 @@ MESSAGETEXT
     string
   end
   
-  def dice_command(string, name)
-    string = @@bcdice.getOriginalMessage
-    debug('dice_command string', string)
-    
-    secret_flg = false
-    
-    prefixsRegText = prefixs.join('|')
-    
-    unless ( /(^|\s)(S)?(#{prefixsRegText})/i =~ string )
-      debug("NOT match")
-      return '1', secret_flg
-    end
-    
-    debug("matched.")
-    
-    secretMarker = $2
-    command = $3
-    
-    output_msg = executeCommand(command)
-    
-    debug('secretMarker', secretMarker)
-    if( secretMarker )
-      debug("隠しロール")
-      secret_flg = true unless( output_msg.empty? )
-    end
-    
-    unless( output_msg.empty? )
-      output_msg = "#{name}: #{output_msg}"
-      debug("rating output_msg, secret_flg", output_msg, secret_flg)
-    else
-      output_msg = '1'
-    end
-      
-    return output_msg, secret_flg
+  def isGetOriginalMessage
+    true
   end
   
-  
-  def executeCommand(command)
-    debug('executeCommand command', command)
+  def rollDiceCommand(command)
+    debug('rollDiceCommand command', command)
 
     result = ''
     case command

@@ -17,7 +17,7 @@ class Warhammer < DiceBot
   end
   
   def prefixs
-     ['WH']
+     ['WH.*']
   end
   
   def getHelpMessage
@@ -36,48 +36,21 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def dice_command(string, nick_e)
-    output_msg, secret_flg = dice_comman_atack(string, nick_e)
-    if( output_msg == '1' )
-      output_msg, secret_flg = dice_comman_criticald(string, nick_e)
+  def rollDiceCommand(command)
+    output_msg = nil
+    
+    case command.upcase
+      
+    when /^(WH\d+(@[\dWH]*)?)/i
+      atackCommand = $1
+      output_msg = getAtackResult(atackCommand)
+      
+    when /^(WH[HABTLW]\d+)/i
+      criticalCommand = $1
+      output_msg = getCriticalResult(criticalCommand)
     end
     
-    return output_msg, secret_flg
-  end
-  
-  
-  # ウォーハンマー攻撃コマンド
-  def dice_comman_atack(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless(/(^|\s)(S)?(WH\d+(@[\dWH]*)?)($|\s)/ =~ string)
-
-    secretMarker = $2
-    command = $3
-    output_msg = wh_att(command, nick_e);
-    if( secretMarker )    # 隠しロール
-        secret_flg = true if(output_msg != '1');
-      end
-    
-    return output_msg, secret_flg
-  end
-  
-  # ウォーハンマークリティカル表
-  def dice_comman_criticald(string, nick_e)
-    secret_flg = false
-    
-    unless( /((^|\s)(S)?WH[HABTLW]\d+)($|\s)/i =~ string)
-      return '1', secret_flg
-    end
-    
-    secretMarker = $3
-    command = $1.upcase
-    output_msg = wh_crit(command, nick_e);
-    if( secretMarker )   # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
+    return output_msg
   end
   
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
@@ -91,7 +64,7 @@ INFO_MESSAGE_TEXT
   end
   
 ####################            WHFRP関連          ########################
-  def wh_crit(string, dst)
+  def getCriticalResult(string)
     # クリティカル効果データ
     whh = [
         '01:打撃で状況が把握出来なくなる。次ターンは1回の半アクションしか行なえない。',
@@ -211,7 +184,7 @@ INFO_MESSAGE_TEXT
       resultText += 'サドンデス○'
     end
     
-    output = "#{dst}:#{whpp}CT表(#{dice_now}+#{criticalValue}) ＞ #{resultText}";
+    output = "#{whpp}CT表(#{dice_now}+#{criticalValue}) ＞ #{resultText}";
   
     return output
   end
@@ -332,8 +305,9 @@ INFO_MESSAGE_TEXT
     return output
   end
   
-  def wh_att(string, nick_e)
-    debug("wh_att begin string", string)
+  
+  def getAtackResult(string)
+    debug("getAtackResult begin string", string)
     
     pos_type = "";
     
@@ -347,19 +321,19 @@ INFO_MESSAGE_TEXT
       return '1'
     end
     
-    diff = $1.to_i;
+    diff = $1.to_i
     
-    total_n, dice_dmy = roll(1, 100);
+    total_n, dice_dmy = roll(1, 100)
     
-    output = "#{nick_e}: (#{string}) ＞ #{total_n}";
-    output += check_suc(total_n, 0, "<=", diff, 1, 100, 0, total_n);
+    output = "(#{string}) ＞ #{total_n}"
+    output += check_suc(total_n, 0, "<=", diff, 1, 100, 0, total_n)
     
-    pos_num = (total_n % 10) * 10 + (total_n / 10).to_i;
-    pos_num = 100 if(total_n >= 100);
+    pos_num = (total_n % 10) * 10 + (total_n / 10).to_i
+    pos_num = 100 if(total_n >= 100)
     
-    output += wh_atpos(pos_num, pos_type) if(total_n <= diff);
+    output += wh_atpos(pos_num, pos_type) if(total_n <= diff)
     
-    return output;
+    return output
   end
 
 

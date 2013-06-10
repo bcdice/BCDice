@@ -77,20 +77,6 @@ INFO_MESSAGE_TEXT
     return string
   end
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?(#{prefixs.join('|')})(\s|$)/i =~ string )
-    
-    secretMarker = $2
-    output_msg = mayokin_table($3, nick_e);
-    if( secretMarker )    # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
-  
   def dice_command_xRn(string, nick_e)
     output_msg = mayokin_check(string, nick_e);
   end
@@ -234,12 +220,12 @@ INFO_MESSAGE_TEXT
   
   ####################         迷宮キングダム        ########################
   
-  def mayokin_table(string, nick_e)
+  def rollDiceCommand(command)
     output = ""
     type = "";
     total_n = "";
     
-    case string
+    case command
       
     when /^NAMEA/i
       debug("namea passed")
@@ -484,7 +470,7 @@ INFO_MESSAGE_TEXT
     end
     
     if(output != '1')
-      output = "#{nick_e}: #{type}表(#{total_n}) ＞ #{output}";
+      output = "#{type}表(#{total_n}) ＞ #{output}";
     end
     
   end

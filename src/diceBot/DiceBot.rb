@@ -40,12 +40,10 @@ class DiceBot
   end
   
   def gameName
-    # raise "gameName is NOT define in #{self.class.name}"
     gameType
   end
   
   def prefixs
-    # raise "prefixs is NOT define in #{self.class.name}"
     []
   end
   
@@ -124,15 +122,54 @@ class DiceBot
   end
   
   def dice_command(string, nick_e)
-    output_msg, secret_flg = rollDiceCommandResult(string)
-    return output_msg, secret_flg if( output_msg == '1' )
+    string = @@bcdice.getOriginalMessage if( isGetOriginalMessage )
     
-    output_msg = "#{nick_e}: #{output_msg}"
+    debug('dice_command Begin string', string)
+    secret_flg = false
+    
+    prefixsRegText = prefixs.join('|')
+    unless( /(^|\s)(S)?(#{prefixsRegText})(\s|$)/i =~ string )
+      debug('not match in prefixs')
+      return '1', secret_flg 
+    end
+    
+    secretMarker = $2
+    command = $3
+    
+    debug('match')
+    
+    output_msg = rollDiceCommandCatched(command)
+    output_msg = '1' if( output_msg.nil? or output_msg.empty? )
+    
+    output_msg = "#{nick_e}: #{output_msg}" if(output_msg != '1')
+    
+    if( secretMarker )   # 隠しロール
+      secret_flg = true if(output_msg != '1')
+    end
+    
     return output_msg, secret_flg
   end
   
-  def rollDiceCommandResult(string)
-    ['1', false]
+  #通常ダイスボットのコマンド文字列は全て大文字に強制されるが、
+  #これを嫌う場合にはこのメソッドを true を返すようにオーバーライドすること。
+  def isGetOriginalMessage
+    false
+  end
+  
+  def rollDiceCommandCatched(command)
+    result = nil
+    begin
+      debug('call rollDiceCommand command', command)
+      result = rollDiceCommand(command)
+    rescue => e
+      debug("executeCommand exception", e.to_s, $@.join("\n"));
+    end
+    
+    return result
+  end
+  
+  def rollDiceCommand(command)
+    nil
   end
 
   

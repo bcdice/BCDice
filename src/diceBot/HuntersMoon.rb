@@ -18,7 +18,7 @@ class HuntersMoon < DiceBot
   end
   
   def prefixs
-     ['(ET|CLT|SLT|HLT|FLT|DLT|MAT|SAT|TST|THT|TAT|TBT|TLT|TET)']
+     ['(ET|CLT|SLT|HLT|FLT|DLT|MAT|SAT|TST|THT|TAT|TBT|TLT|TET)\d*']
   end
   
   def getHelpMessage
@@ -45,21 +45,6 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?(([CSHFD]LT)|ET|MAT|SAT\d*|T[SHABLE]T)(\s|$)/i =~ string )
-
-    secretMarker = $2
-    output_msg = huntersmoon_table($3, nick_e);
-    
-    if( secretMarker )     # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
-  
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     return '' unless(signOfInequality == ">=")
     
@@ -74,10 +59,10 @@ INFO_MESSAGE_TEXT
     end
   end
   
-
-####################       ハンターズ・ムーン      ########################
-  def huntersmoon_table(string, nick_e)
-    string = string.upcase
+  
+  
+  def rollDiceCommand(command)
+    string = command.upcase
     output = '1';
     type = "";
     total_n = "";
@@ -138,7 +123,7 @@ INFO_MESSAGE_TEXT
     
     return output if(output == '1')
     
-    output = "#{nick_e}: #{type}表(#{total_n}) ＞ #{output}";
+    output = "#{type}表(#{total_n}) ＞ #{output}";
     return output;
   end
   

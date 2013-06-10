@@ -21,25 +21,9 @@ class CrashWorld < DiceBot
 INFO_MESSAGE_TEXT
   end
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?(#{prefixs.join('|')})(\s|$)/i =~ string )
-    
-    secretMarker = $2
-    command = $3
-    
-    output_msg = getCrashWorldResult(command)
-    
-    if( secretMarker )   # 隠しロール
-      secret_flg = true if(output_msg != '1')
-    end
-    
-    return output_msg, secret_flg
-  end
 
-  def getCrashWorldResult(command)
-    result = '1'
+  def rollDiceCommand(command)
+    result = nil
     
     case command
     when /CW(\d+)/i
@@ -92,7 +76,7 @@ INFO_MESSAGE_TEXT
       output = "#{output} ファンブル"
     end
 
-    return "：#{output}"
+    return output
   end
 end
 

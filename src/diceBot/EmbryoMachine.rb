@@ -43,20 +43,6 @@ INFO_MESSAGE_TEXT
     string = string.gsub(/EM(\d+)/i) {"2R10>=#{$1}[20,2]"}
   end
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?(HLT|[MS]FT)(\s|$)/i =~ string )
-
-    secretMarker = $2
-    output_msg = em_table($3, nick_e);
-    if( secretMarker )     # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
-  
   def dice_command_xRn(string, nick_e)
     output_msg = embryo_machine_check(string, nick_e);
   end
@@ -75,6 +61,7 @@ INFO_MESSAGE_TEXT
       return " ＞ 失敗";
     end
   end
+  
   
 ####################        エムブリオマシン      ########################
   def embryo_machine_check(string, nick_e)
@@ -127,29 +114,32 @@ INFO_MESSAGE_TEXT
   end
   
   
+  
 ####################        エムブリオマシン       ########################
-  def em_table(string, nick_e)
-    output = '1';
-    type = "";
-    total_n = 0;
+  def rollDiceCommand(command)
+    debug("rollDiceCommand command", command)
     
-    case string
+    output = '1'
+    type = ""
+    number = 0
+    
+    case command
     when /HLT/i
-      type = '命中部位';
-      total_n, = roll(2, 10);
-      output = em_hit_location_table(total_n);
+      type = '命中部位'
+      number, = roll(2, 10)
+      output = em_hit_location_table(number)
     when /SFT/i
-      type = '射撃ファンブル';
-      total_n, = roll(2, 10);
-      output = em_shoot_fumble_table(total_n);
+      type = '射撃ファンブル'
+      number, = roll(2, 10)
+      output = em_shoot_fumble_table(number)
     when /MFT/i
-      type = '白兵ファンブル';
-      total_n, = roll(2, 10);
-      output = em_melee_fumble_table(total_n);
+      type = '白兵ファンブル'
+      number, = roll(2, 10)
+      output = em_melee_fumble_table(number)
     end
     
     if(output != '1')
-      output = "#{nick_e}: #{type}表(#{total_n}) ＞ #{output}";
+      output = "#{type}表(#{number}) ＞ #{output}";
     end
     return output;
   end

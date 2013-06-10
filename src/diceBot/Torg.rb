@@ -15,7 +15,7 @@ class Torg < DiceBot
   end
   
   def prefixs
-     ['(TG|RT|Result|IT|Initimidate|TT|Taunt|Trick|CT|MT|Maneuver|ODT|ords|odamage|DT|damage|BT|bonus|total)']
+     ['(TG.*|RT.*|Result.*|IT.*|Initimidate.*|TT.*|Taunt.*|Trick.*|CT.*|MT.*|Maneuver.*|ODT.*|ords.*|odamage.*|DT.*|damage.*|BT.*|bonus.*|total.*)']
   end
   
   def getHelpMessage
@@ -47,20 +47,6 @@ INFO_MESSAGE_TEXT
     string = string.gsub(/TG/i, '1R20')
     
     return string
-  end
-  
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?([O]?([RITMDB]T)(\d+([\+\-]\d+)*))(\s|$)/i =~ string )
-    
-    secretMarker = $2
-    output_msg = torg_table($3, nick_e);
-    if( secretMarker )    # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-      
-    return output_msg, secret_flg
   end
   
   def dice_command_xRn(string, nick_e)
@@ -135,10 +121,8 @@ INFO_MESSAGE_TEXT
     return skilled, unskilled, dice_str
   end
 
-
-####################              TORG             ########################
-  def torg_table(string, nick_e)
-    string = string.upcase
+  def rollDiceCommand(command)
+    string = command.upcase
     
     output = '1';
     ttype = "";
@@ -181,7 +165,7 @@ INFO_MESSAGE_TEXT
     end
     
     if(ttype != '')
-      output = "#{nick_e}: #{ttype}表[#{value}] ＞ #{output}";
+      output = "#{ttype}表[#{value}] ＞ #{output}";
     end
 
     return output;

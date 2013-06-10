@@ -13,7 +13,7 @@ class GundogZero < Gundog
   end
   
   def prefixs
-     ['(.DPT|.FT)']
+     ['(.DPT|.FT)\d*']
   end
   
   def getHelpMessage
@@ -29,19 +29,6 @@ nD9ロールも対応。
 INFO_MESSAGE_TEXT
   end
   
-  def dice_command(string, nick_e)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?((\w)(DP|F)T([\+\-\d]*))($|\s)/i =~ string )
-    
-    secretMarker = $2
-    output_msg = gundogzero_table($3, nick_e);
-    if( secretMarker )     # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
   
   #Gundog
   #def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
@@ -50,8 +37,8 @@ INFO_MESSAGE_TEXT
   #def isD9
   
   ####################         ガンドッグゼロ        ########################
-  def gundogzero_table(string, nick_e)
-    string = string.upcase
+  def rollDiceCommand(command)
+    string = command.upcase
     
     table = []
     ttype = "";
@@ -85,7 +72,7 @@ INFO_MESSAGE_TEXT
     dice = 0 if(dice < 0);
     dice = 18 if(dice > 18);
     
-    output = "#{nick_e}: #{type}#{ttype}表[#{diceOriginalText}] ＞ #{table[dice]}";
+    output = "#{type}#{ttype}表[#{diceOriginalText}] ＞ #{table[dice]}";
     
     return output;
   end

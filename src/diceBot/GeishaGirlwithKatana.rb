@@ -30,29 +30,11 @@ class GeishaGirlwithKatana < DiceBot
 MESSAGETEXT
   end
  
-  def dice_command(string, name)
-    secret_flg = false
-    
-    return '1', secret_flg unless( /(^|\s)(S)?(#{prefixs.join('|')})(\s|$)/i =~ string )
-    
-    secretMarker = $2
-    command = $3.upcase
-    
-    output_msg = getGGwKResult(command, name)
-    
-    if( secretMarker )    # 隠しロール
-      secret_flg = true if(output_msg != '1');
-    end
-    
-    return output_msg, secret_flg
-  end
-  
-  
-  def getGGwKResult(command, name)
-    output = "1"
+  def rollDiceCommand(command)
+    output = nil
     
     if /^GL$/i =~ command
-      return getChombaResultText(name)
+      return getChombaResultText()
     end
     
     unless /^GK(#(\d+))?$/i =~ command
@@ -62,7 +44,7 @@ MESSAGETEXT
     chomba_counter = $2
     
     if isChomba(chomba_counter)
-      return getChombaResultText(name)
+      return getChombaResultText()
     end
     
     total, dice_str = roll(3,6)
@@ -71,19 +53,19 @@ MESSAGETEXT
     
     yakuResult = getYaku(diceList)
     unless( yakuResult.nil? )
-      return getResultTextByDice(name, diceList, "【役】#{yakuResult}")
+      return getResultTextByDice(diceList, "【役】#{yakuResult}")
     end
     
     
     deme, zorome = getDemeZorome(diceList)
     if deme == 0
-      return getResultTextByDice(name, diceList, "失敗")
+      return getResultTextByDice(diceList, "失敗")
     end
     
     
     yp = (zorome == 1 ? " YPが1増加" : "")
-    output = getResultTextByDice(name, diceList, "達成値#{deme}#{yp}")
-    debug("getGGwKResult(command, name) result", output)
+    output = getResultTextByDice(diceList, "達成値#{deme}#{yp}")
+    debug("getGGwKResult(command) result", output)
     
     return output
   end
@@ -98,8 +80,8 @@ MESSAGETEXT
     return (chomba <= chomba_counter)
   end
   
-  def getChombaResultText(name)
-    getResultText(name, "チョムバ！！")
+  def getChombaResultText()
+    getResultText("チョムバ！！")
   end
   
   def getYaku(diceList)
@@ -134,12 +116,12 @@ MESSAGETEXT
   end
   
   
-  def getResultTextByDice(name, diceList, result)
-    getResultText(name, "#{diceList.join(',')} ＞ #{result}")
+  def getResultTextByDice(diceList, result)
+    getResultText("#{diceList.join(',')} ＞ #{result}")
   end
   
-  def getResultText(name, result)
-    "#{name}: (3B6) ＞ #{result}"
+  def getResultText(result)
+    "(3B6) ＞ #{result}"
   end
 end
 

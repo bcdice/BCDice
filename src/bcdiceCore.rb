@@ -375,7 +375,7 @@ class BCDice
   def setRatingTable()
     return unless( isMaster() )
     
-    output = @diceBot.setRatingTable()
+    output = @diceBot.setRatingTable(@tnick)
     return if( output == '1' )
     
     sendMessageToChannels(output)
@@ -1838,6 +1838,9 @@ class BCDice
     when /(^|\s)GURPS$/i
       require 'diceBot/Gurps'
       diceBot = Gurps.new
+    when /(^|\s)HarnMaster$/i
+      require 'diceBot/HarnMaster'
+      diceBot = HarnMaster.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else
