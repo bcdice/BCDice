@@ -4,25 +4,12 @@ class HarnMaster < DiceBot
   
   def initialize
     super
-    
-    # @sendMode = @@DEFAULT_SEND_MODE #(0=結果のみ,1=0+式,2=1+ダイス個別)
-    # @sortType = 0;      #ソート設定(1 = ?, 2 = ??, 3 = 1&2　各値の意味が不明です懼�ｦ）
-    # @sameDiceRerollCount = 0;     #ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
-    # @sameDiceRerollType = 0;   #ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
-    # @d66Type = 0;        #d66の差し替え
-    # @isPrintMaxDice = false;      #最大値表示
-    # @upplerRollThreshold = 0;      #上方無限
-    # @unlimitedRollDiceType = 0;    #無限ロールのダイス
-    # @rerollNumber = 0;      #振り足しする条件
-    # @defaultSuccessTarget = "";      #目標値が空欄の時の目標値
-    # @rerollLimitCount = 0;    #振り足し回数上限
-    # @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
   end
   
   
   def prefixs
     #ダイスボットで使用するコマンドを配列で列挙すること。
-    ['SHK\d+.*', 'AP', 'APU', 'APD', ]
+    ['SHK\d+.*', 'SLH', 'SLHU', 'SLHD', ]
   end
   
   def gameName
@@ -37,12 +24,14 @@ class HarnMaster < DiceBot
     return <<MESSAGETEXT
 ・判定
 　1D100<=XX の判定時に致命的失敗・決定的成功を判定
-・命中部位表 (AP)／上段命中部位 (APU)／上段命中部位 (APD)
+・ショック判定（SHKx）
+　例）SHK13,3
+・人型用　中段命中部位表 (SLH)／上段命中部位 (SLHU)／上段命中部位 (SLHD)
 MESSAGETEXT
   end
   
   
-  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
+  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     return '' unless(signOfInequality == "<=")
     
     result = getCheckResult(total_n, diff)
@@ -70,12 +59,12 @@ MESSAGETEXT
     
     case command
     when /^SHK(\d*),(\d+)/i
-      damage = $1.to_i
       toughness = $1.to_i
+      damage = $2.to_i
       result = getCheckShockResult(damage, toughness)
-    when /AP(U|D)?/i
+    when /SLH(U|D)?/i
       type = $1
-      result = getAtackHitPart(type)
+      result = getStrikeLocationHuman(type)
     else
       result = nil
     end
@@ -84,43 +73,44 @@ MESSAGETEXT
   end
   
   def getCheckShockResult(damage, toughness)
-    dice, = roll(damage, 6)
+    dice, diceText = roll(damage, 6)
+    result = ((dice <= toughness) ? '成功' : '失敗')
     
-    return 'ショック判定：失敗' if( dice > toughness )
-    return 'ショック判定成功'
+    text = "ショック判定(ダメージ:#{damage}, 耐久力:#{toughness}) ＞ (#{dice}[#{diceText}]) ＞ #{result}"
+    return text
   end
   
   
-  def getAtackHitPart(type)
+  def getStrikeLocationHuman(type)
     
     typeName = ''
     table = nil
     
     case type
     when 'U'
-      typeName = "上段"
-      table = getAtackHitPartUpperTable()
+      typeName = "命中部位(人型 上段)"
+      table = getStrikeLocationHumanUpperTable()
     when 'D'
-      typeName = "下段"
-      table = getAtackHitPartDownTable()
+      typeName = "命中部位(人型 下段)"
+      table = getStrikeLocationHumanDownTable()
     when nil
-      typeName = ""
-      table = getAtackHitPartNormalTable()
+      typeName = "命中部位(人型 中段)"
+      table = getStrikeLocationHumanNormalTable()
     else
       raise "unknow atak type #{type}"
     end
     
     number, = roll(1, 100)
     part = get_table_by_number(number, table)
-    part = getPartSide(part, number)
-    part = getFacePart(part)
+    part = getLocationSide(part, number)
+    part = getFaceLocation(part)
     
-    result = "#{typeName}命中部位：(#{number})#{part}"
+    result = "#{typeName} ＞ (#{number})#{part}"
     
     return result
   end
   
-  def getPartSide(part, number)
+  def getLocationSide(part, number)
     unless /^\*/ === part
       debug("part has NO side", part)
       return part
@@ -133,8 +123,8 @@ MESSAGETEXT
     part.sub!(/\*/, side)
   end
   
-  def getFacePart(part)
-    debug("getFacePart part", part)
+  def getFaceLocation(part)
+    debug("getFaceLocation part", part)
     
     unless /\+$/ === part
       debug("is NOT Face")
@@ -153,16 +143,16 @@ MESSAGETEXT
             ]
     
     number, = roll(1, 100)
-    facePart = get_table_by_number(number, table)
-    debug("facePart", facePart)
+    faceLocation = get_table_by_number(number, table)
+    debug("faceLocation", faceLocation)
     debug("number", number)
-    facePart = getPartSide(facePart, number)
+    faceLocation = getLocationSide(faceLocation, number)
     
-    result = part.sub(/\+$/, " ＞ (#{number})#{facePart}")
+    result = part.sub(/\+$/, " ＞ (#{number})#{faceLocation}")
     return result
   end
   
-  def getAtackHitPartUpperTable()
+  def getStrikeLocationHumanUpperTable()
     table = [
              [ 15, "頭部"],
              [ 30, "顔+"],
@@ -178,7 +168,7 @@ MESSAGETEXT
     return table
   end
   
-  def getAtackHitPartNormalTable()
+  def getStrikeLocationHumanNormalTable()
     table = [
              [  5, "頭部"],
              [ 10, "顔+"],
@@ -200,7 +190,7 @@ MESSAGETEXT
     return table
   end
   
-  def getAtackHitPartDownTable()
+  def getStrikeLocationHumanDownTable()
     table = [
              [  6, "*前腕"],
              [ 12, "*手"],
