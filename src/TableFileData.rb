@@ -182,7 +182,7 @@ class TableFileData
     isSecret = false
     
     @tableData.keys.each do |key|
-      next unless(/^(s|S)?#{key}(\s|$)/ === arg)
+      next unless(/^(s|S)?#{key}(\s|$)/i === arg)
       
       data = @tableData[key]
       gameType = data["gameType"]
