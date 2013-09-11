@@ -719,7 +719,7 @@ MESSAGETEXT
   end
   
   def getRandomNpc(name, table)
-    number, result = get_table_by_d66_swap(table)
+    result, number = get_table_by_d66_swap(table)
     return "#{name}(#{number}) #{result}"
   end
   

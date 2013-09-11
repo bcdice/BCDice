@@ -46,8 +46,9 @@ INFO_MESSAGE_TEXT
     end
     
     success = diff - total_n #成功度
-    crt_string = " ＞ クリティカル(成功度：#{success})"
-    fmb_string = " ＞ ファンブル(失敗度：#{success})"
+    crt_string  = " ＞ クリティカル(成功度：#{success})"
+    fmb_string  = " ＞ ファンブル(失敗度：#{success})"
+	fail_string = " ＞ 自動失敗(失敗度：#{success})"
     
     #クリティカル
     if   ((dice_n <= 6) && (diff >= 16))
@@ -65,6 +66,8 @@ INFO_MESSAGE_TEXT
       return fmb_string
     elsif(dice_n >= 18)
       return fmb_string
+	elsif(dice_n >= 17)
+	  return fail_string
     end
     
     if(total_n <= diff)

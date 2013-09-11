@@ -393,7 +393,7 @@ INFO_MESSAGE_TEXT
   end
   
   #** 指定特技ランダム決定表
-  def sinobigami_random_skill_table(string)
+  def sinobigami_random_skill_table()
     output = '1';
     type = 'ランダム';
     
