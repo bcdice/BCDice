@@ -131,7 +131,7 @@ INFO_MESSAGE_TEXT
     
     price = getPrice(effect)
     
-    result = "#{result}：#{effect}"
+    result = "#{result}。#{effect}"
     result += "：#{price}" unless( price.nil? )
     
     return tableName, result, number
@@ -142,14 +142,16 @@ INFO_MESSAGE_TEXT
     number, dummy = roll(1, 6)
     
     result = ""
+    type = ""
     if( number < 6)
       result, number2 = getMaterialEffectNomal(rank)
-      result = "よく見つかる素材：#{result}"
+      type = "よく見つかる素材"
     else
       result, number2 = getMaterialEffectRare()
-      result = "珍しい素材：#{result}"
+      type = "珍しい素材"
     end
     
+    result = "#{type}：#{result}"
     number = "#{number},#{number2}"
     
     return result, number
@@ -193,12 +195,11 @@ INFO_MESSAGE_TEXT
     table = [
              [  4, [1, 1, 1, 2, 2, 3]],
              [  8, [1, 1, 2, 2, 3, 3]],
-             [999, [1, 2, 3, 3, 4, 5]],
+             [  9, [1, 2, 3, 3, 4, 5]],
             ]
     
+    rank = 9 if( rank > 9 )
     rankTable = get_table_by_number(rank, table)
-    rankTable = table[-1][1] if rankTable.nil?
-    
     power, number = get_table_by_1d6(rankTable)
     
     return power, number
