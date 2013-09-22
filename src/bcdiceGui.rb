@@ -315,8 +315,8 @@ GunDogZero
 Hieizan
 HuntersMoon
 InfiniteFantasia
-Insane
 KillDeathBusiness
+Kamigakari
 MagicaLogia
 MeikyuDays
 MeikyuKingdom
