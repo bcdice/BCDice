@@ -26635,32 +26635,32 @@ KillDeathBusiness : 履歴表(6)：友人
 あなたは平穏な人生を送っていたが、あるとき目の前に悪魔が現れる。そいつは番組出演のエントリーシートを持っていて、そこにはあなたの名前が書かれていた。友人が勝手にあなたの名前で番組にエントリーシートを送っていたのだ！　あなたはそのまま拉致され、むりやり願い事を決めさせられ、悪趣味な番組で暴力を撒き散らす事になってしまった。
 rand:6/6
 ============================
-input:SCENE	KillDeathBusiness
+input:ST	KillDeathBusiness
 output:
 KillDeathBusiness : シーン表(11,11)：あなたが根城にしていたオフィス
 rand:1/6,1/6,1/6,1/6
 ============================
-input:SCENE	KillDeathBusiness
+input:ST	KillDeathBusiness
 output:
 KillDeathBusiness : シーン表(66,66)：略奪を受けて空っぽになった野原
 rand:6/6,6/6,6/6,6/6
 ============================
-input:SCENE1	KillDeathBusiness
+input:ST1	KillDeathBusiness
 output:
 KillDeathBusiness : シーン表(11)：あなたが根城にしていた
 rand:1/6,1/6
 ============================
-input:SCENE1	KillDeathBusiness
+input:ST1	KillDeathBusiness
 output:
 KillDeathBusiness : シーン表(66)：略奪を受けて空っぽになった
 rand:6/6,6/6
 ============================
-input:SCENE2	KillDeathBusiness
+input:ST2	KillDeathBusiness
 output:
 KillDeathBusiness : シーン表(11)：オフィス
 rand:1/6,1/6
 ============================
-input:SCENE2	KillDeathBusiness
+input:ST2	KillDeathBusiness
 output:
 KillDeathBusiness : シーン表(66)：野原
 rand:6/6,6/6
@@ -26675,6 +26675,11 @@ output:
 KillDeathBusiness : 願い事表「死」(6)：不老不死に飽きたので死にたい。
 rand:6/6
 ============================
+input:DWT	KillDeathBusiness
+output:
+KillDeathBusiness : 願い事表「死」(1)：今の美しさを保ったまま死にたい。
+rand:1/6
+============================
 input:RevengeWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「復讐」(1)：家族を殺した犯人に復讐したい。
@@ -26684,6 +26689,11 @@ input:RevengeWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「復讐」(6)：手ひどく負けたライバルに復讐したい。
 rand:6/6
+============================
+input:RWT	KillDeathBusiness
+output:
+KillDeathBusiness : 願い事表「復讐」(1)：家族を殺した犯人に復讐したい。
+rand:1/6
 ============================
 input:VictoryWT	KillDeathBusiness
 output:
@@ -26695,6 +26705,11 @@ output:
 KillDeathBusiness : 願い事表「勝利」(6)：特定のテストで一位になりたい。
 rand:6/6
 ============================
+input:VWT	KillDeathBusiness
+output:
+KillDeathBusiness : 願い事表「勝利」(1)：かつて負けたライバルに勝利したい。
+rand:1/6
+============================
 input:PossesionWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「獲得」(1)：欲しいアイテムがある。
@@ -26705,35 +26720,55 @@ output:
 KillDeathBusiness : 願い事表「獲得」(6)：欲しい不動産がある。
 rand:6/6
 ============================
-input:DominationWT	KillDeathBusiness
+input:PWT	KillDeathBusiness
+output:
+KillDeathBusiness : 願い事表「獲得」(1)：欲しいアイテムがある。
+rand:1/6
+============================
+input:ControlWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「支配」(1)：支配したい人物集団がいる。
 rand:1/6
 ============================
-input:DominationWT	KillDeathBusiness
+input:ControlWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「支配」(6)：わがままな縁者を思い通りにしたい。
 rand:6/6
 ============================
-input:ProsperityWT	KillDeathBusiness
+input:CWT	KillDeathBusiness
+output:
+KillDeathBusiness : 願い事表「支配」(1)：支配したい人物集団がいる。
+rand:1/6
+============================
+input:FlourishWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「繁栄」(1)：落ちぶれた一族を復権させたい。
 rand:1/6
 ============================
-input:ProsperityWT	KillDeathBusiness
+input:FlourishWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「繁栄」(6)：とにかくたくさんお金が欲しい。
 rand:6/6
 ============================
-input:StrengthWT	KillDeathBusiness
+input:FWT	KillDeathBusiness
+output:
+KillDeathBusiness : 願い事表「繁栄」(1)：落ちぶれた一族を復権させたい。
+rand:1/6
+============================
+input:IntensifyWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「強化」(1)：世界最強になりたい。
 rand:1/6
 ============================
-input:StrengthWT	KillDeathBusiness
+input:IntensifyWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「強化」(6)：世界で最も速くなりたい。
 rand:6/6
+============================
+input:IWT	KillDeathBusiness
+output:
+KillDeathBusiness : 願い事表「強化」(1)：世界最強になりたい。
+rand:1/6
 ============================
 input:HealthWT	KillDeathBusiness
 output:
@@ -26745,6 +26780,11 @@ output:
 KillDeathBusiness : 願い事表「健康」(6)：病気にならない体が欲しい。
 rand:6/6
 ============================
+input:HWT	KillDeathBusiness
+output:
+KillDeathBusiness : 願い事表「健康」(1)：完成させたい薬物がある。
+rand:1/6
+============================
 input:SafetyWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「安全」(1)：穏やかな生活を送りたい。
@@ -26754,6 +26794,11 @@ input:SafetyWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「安全」(6)：迫り来る世界の危機を回避したい。
 rand:6/6
+============================
+input:SaWT	KillDeathBusiness
+output:
+KillDeathBusiness : 願い事表「安全」(1)：穏やかな生活を送りたい。
+rand:1/6
 ============================
 input:LongevityWT	KillDeathBusiness
 output:
@@ -26765,15 +26810,29 @@ output:
 KillDeathBusiness : 願い事表「長寿」(6)：孫の顔を見てみたい。
 rand:6/6
 ============================
-input:LifeWT	KillDeathBusiness
+input:LWT	KillDeathBusiness
+output:
+KillDeathBusiness : 願い事表「長寿」(1)：今の美しさを保ちたい。
+rand:1/6
+============================
+input:ExistWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「生」(1)：生きている実感が欲しい。
 rand:1/6
 ============================
-input:LifeWT	KillDeathBusiness
+input:ExistWT	KillDeathBusiness
 output:
 KillDeathBusiness : 願い事表「生」(6)：理想の人生を手に入れたい。
 rand:6/6
+============================
+input:EWT	KillDeathBusiness
+output:
+KillDeathBusiness : 願い事表「生」(1)：生きている実感が欲しい。
+rand:1/6
+============================
+input:XWT	KillDeathBusiness
+output:
+rand:
 ============================
 input:NAME	KillDeathBusiness
 output:
@@ -26831,6 +26890,14 @@ KillDeathBusiness : サブプロット表「オカルト」(6)：『魔法使い
 報酬：【視聴率】10%増加、あなたと相手の両方に300【ソウル】
 rand:6/6
 ============================
+input:OSPT	KillDeathBusiness
+output:
+KillDeathBusiness : サブプロット表「オカルト」(6)：『魔法使い』
+キャラクターから一人を選び、相手が「小道具」で修得している特技を指定特技として判定を行う。判定に成功すると、相手はもともと本当に魔法が使える人間であり、持っている道具は高名なマジックアイテムだと確信する。相手への関係を、属性「魔法使い」で獲得する。【深度】は１となる。
+クリア条件：相手への関係の【深度】を２以上にし、かつ相手からあなたへの関係の【深度】を1以上にする。根負けした相手は魔法を教えてくれて、あなたは満足する。ちなみに、この魔法は効果があいまいでハッキリしないものを適当に設定する。
+報酬：【視聴率】10%増加、あなたと相手の両方に300【ソウル】
+rand:6/6
+============================
 input:FamilySPT	KillDeathBusiness
 output:
 KillDeathBusiness : サブプロット表「家族」(1)：『説得』
@@ -26846,6 +26913,14 @@ KillDeathBusiness : サブプロット表「家族」(6)：『孤独な人』
 クリア条件：相手への関係の【深度】を２以上にする。すると、相手は打ち解ける……かもしれないし、なにも変わないかもしれない。ただ、あなたには、相手の孤独が少し癒やされたことがわかる。
 報酬：【視聴率】10%増加、200【ソウル】
 rand:6/6
+============================
+input:FSPT	KillDeathBusiness
+output:
+KillDeathBusiness : サブプロット表「家族」(1)：『説得』
+キャラクターから一人選び、相手が「小道具」で習得している特技を指定特技として判定を行う。判定に成功すると、相手が持っているのはあなたの贈りものであり、旧友が悪趣味なショーに出ているのだとわかる。降りるように説得しなければ。相手への関係を、属性「旧友」で獲得する。【深度】は１になる。
+クリア条件：相手への関係の【深度】を３にする。すると、説得をやるだけやったあなたは満足する。相手は多分諦めない。または、選択された「旧友」が死亡するか（回収人なら）地獄に墜ちる。すると、なんだかあきらめがつく。
+報酬：【視聴率】10%増加、400【ソウル】
+rand:1/6
 ============================
 input:LoveSPT	KillDeathBusiness
 output:
@@ -26863,6 +26938,14 @@ KillDeathBusiness : サブプロット表「恋愛」(6)：『手料理』
 報酬：【視聴率】10%増加、500【ソウル】
 rand:6/6
 ============================
+input:LoSPT	KillDeathBusiness
+output:
+KillDeathBusiness : サブプロット表「恋愛」(1)：『禁断の恋』
+標的が「衣装」で修得している特技を指定特技として判定を行う。標的がすでに死亡している場合、サブプロット表を振りなおす。判定に成功すると、標的に一目惚れするか、標的が前から好きだった人であったことが判明する。急がないと殺されてしまう。相手への関係を、属性「好きな人」で獲得する。【深度】は１となる。
+クリア条件：相手への関係の【深度】を３にする。すると、標的はあなたの思いに対してなんらかの答えを返す。結果がどうあれ、いい経験になるだろう。または、相手への関係の【深度】が２以上の状態で、相手が死亡してもいい。嘆こう。
+報酬：【視聴率】10%増加、400【ソウル】
+rand:1/6
+============================
 input:JusticeSPT	KillDeathBusiness
 output:
 KillDeathBusiness : サブプロット表「正義」(1)：『殺せない標的』
@@ -26878,6 +26961,14 @@ KillDeathBusiness : サブプロット表「正義」(6)：『サイドキック
 クリア条件：自分が登場しているシーンで、相手が誰かを倒し、そのあと自分が殺されずに戦闘が終了する。相手を褒めて、仲間にふさわしい人物だと宣言してあげよう。
 報酬：【視聴率】10%増加、300【ソウル】
 rand:6/6
+============================
+input:JSPT	KillDeathBusiness
+output:
+KillDeathBusiness : サブプロット表「正義」(1)：『殺せない標的』
+標的が「情動」で修得している特技を指定特技として判定を行う。判定に成功すると、相手があなたの正義に照らし合わせて申し分のない人物である事が分かる(もしくは、実は非常に善良な人物であったことがわかる)。これを殺させるわけにはいかない。相手への関係を、属性「護衛対象」で獲得する。【深度】は１になる。
+クリア条件：結果フェイズまで相手を生き残らせる。なぜ味方をしたのか、なぜ味方をするのか、相手に語ってあげると喜ぶかもしれない。
+報酬：【視聴率】10%増加、700【ソウル】
+rand:1/6
 ============================
 input:TrainingSPT	KillDeathBusiness
 output:
@@ -26895,7 +26986,15 @@ KillDeathBusiness : サブプロット表「修行」(6)：『特訓』
 報酬：【視聴率】10%増加、200【ソウル】
 rand:6/6
 ============================
-input:LaughSPT	KillDeathBusiness
+input:TSPT	KillDeathBusiness
+output:
+KillDeathBusiness : サブプロット表「修行」(1)：『戦闘狂』
+回収人から一人を選び、相手が「動作」で修得している特技を指定特技として判定を行う。判定に成功すると、周りにいる強そうな人に対して対抗心が沸いてくる。結局、勝つのは一人なんだから、今から叩いておいたほうがいい。相手への関係を、属性「敵」で獲得する。【深度】は1になる。
+クリア条件：相手を含む三人のキャラクターを一回以上死亡させる。すると、あなたの戦闘熱はおさまる。そこから仲良くできるかどうかは微妙なところかもしれない。
+報酬：【視聴率】10%増加、600【ソウル】
+rand:1/6
+============================
+input:BeamSPT	KillDeathBusiness
 output:
 KillDeathBusiness : サブプロット表「笑い」(1)：『大サービス』
 キャラクターから一人を選び、相手が「情動」で修得している特技を指定特技として判定を行う。判定に成功すると、この殺伐とした番組を和やかにできるのは、自分と相手しかいないと確信する。相手への関係を、属性「相棒」で獲得する。【深度】は１になる。
@@ -26903,13 +27002,21 @@ KillDeathBusiness : サブプロット表「笑い」(1)：『大サービス』
 報酬：【視聴率】10%増加、あなたと相手の両方に300【ソウル】
 rand:1/6
 ============================
-input:LaughSPT	KillDeathBusiness
+input:BeamSPT	KillDeathBusiness
 output:
 KillDeathBusiness : サブプロット表「笑い」(6)：『親友』
 キャラクターから一人を選び、相手が「小道具」で修得している特技を指定特技として判定を行う。判定に成功すると、その小道具についての会話をきっかけに、相手への興味が芽生える。もしかしたら友達になれるかもしれない。相手への関係を、属性「友人」で獲得する。【深度】は１になる。
 クリア条件：相手への関係の【深度】を２以上にする。すると、あなたと相手は友情のようなもので結ばれるかもしれないし、やはり無理だったのだと、あなたが諦めるかもしれない。
 報酬：【視聴率】10%増加、200【ソウル】
 rand:6/6
+============================
+input:BSPT	KillDeathBusiness
+output:
+KillDeathBusiness : サブプロット表「笑い」(1)：『大サービス』
+キャラクターから一人を選び、相手が「情動」で修得している特技を指定特技として判定を行う。判定に成功すると、この殺伐とした番組を和やかにできるのは、自分と相手しかいないと確信する。相手への関係を、属性「相棒」で獲得する。【深度】は１になる。
+クリア条件：相手と一緒に。「サービス」シーンの判定に２回成功する。すると、なんだか番組が楽しくなったような気もするが……変わってない気もする。あなたの戦いはまだ続く。
+報酬：【視聴率】10%増加、あなたと相手の両方に300【ソウル】
+rand:1/6
 ============================
 input:CMT	KillDeathBusiness
 output:
@@ -26921,15 +27028,20 @@ output:
 KillDeathBusiness : CM表(66)：ヘル入浴剤／体が溶ける！新感覚で話題を呼んだヘル入浴剤がついに登場！死体の処理には使わないでください。
 rand:6/6,6/6
 ============================
-input:SST	KillDeathBusiness
+input:sErviceST	KillDeathBusiness
 output:
 KillDeathBusiness : サービスシーン表(11)：脱衣系サービスシーン表「衣装の不調」を行う。
 rand:1/6,1/6
 ============================
-input:SST	KillDeathBusiness
+input:SERVICEST	KillDeathBusiness
 output:
 KillDeathBusiness : サービスシーン表(66)：別ジャンルサービスシーン表「ロボ」を行う。
 rand:6/6,6/6
+============================
+input:EST	KillDeathBusiness
+output:
+KillDeathBusiness : サービスシーン表(11)：脱衣系サービスシーン表「衣装の不調」を行う。
+rand:1/6,1/6
 ============================
 input:SOUL	KillDeathBusiness
 output:
@@ -27010,3 +27122,103 @@ input:2d6>=5	KillDeathBusiness
 output:
 KillDeathBusiness : (2D6>=5) ＞ 5[1,4] ＞ 5 ＞ 成功
 rand:4/6,1/6
+============================
+input:SKLJ	KillDeathBusiness
+output:
+KillDeathBusiness : 指定特技分野ランダム決定表(1)：職業
+rand:1/6
+============================
+input:SKLJ	KillDeathBusiness
+output:
+KillDeathBusiness : 指定特技分野ランダム決定表(6)：願望
+rand:6/6
+============================
+input:RT	Kamigakari
+output:
+Kamigakari : 霊紋消費の代償表(1)：邪神化：物理法則を超過しすぎた代償として、霊魂そのものが歪み、PCは即座にアラミタマへと変貌する。アラミタマ化したPCは、いずこかへと消え去る。
+rand:1/6
+============================
+input:RT	Kamigakari
+output:
+Kamigakari : 霊紋消費の代償表(6)：影響なし：奇跡的に、霊魂の摩耗による悪影響を完全に退け、さらに霊紋の回復も早期を見込める。肉体や精神にも、特に影響はない。
+rand:6/6
+============================
+input:MT	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(11,1,11,1)：真紅の断片：よく見つかる素材：体力+1：500G(効果値:1)
+rand:1/6,1/6,1/6,1/6,1/6,1/6
+============================
+input:MT	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(66,6,6)：羽根状の断片：珍しい素材：※GMの任意
+rand:6/6,6/6,6/6,6/6
+============================
+input:MT	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(53,2,12,1)：土の断片：よく見つかる素材：体力+1：500G(効果値:1)
+rand:5/6,3/6,2/6,1/6,2/6,1/6
+============================
+input:MT	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(56,3,35,5)：刻印の断片：よく見つかる素材：物D+2：1000G(効果値:2)
+rand:5/6,6/6,3/6,3/6,5/6,5/6
+============================
+input:MT	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(63,5,64)：石状の断片：よく見つかる素材：※PCの任意
+rand:6/6,3/6,5/6,6/6,4/6
+============================
+input:MT	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(63,1,13,5)：石状の断片：よく見つかる素材：体力+2：1000G(効果値:2)
+rand:6/6,3/6,1/6,1/6,3/6,5/6
+============================
+input:MT1	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(63,1,13,5)：石状の断片：よく見つかる素材：体力+2：1000G(効果値:2)
+rand:6/6,3/6,1/6,1/6,3/6,5/6
+============================
+input:MT4	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(63,1,13,5)：石状の断片：よく見つかる素材：体力+2：1000G(効果値:2)
+rand:6/6,3/6,1/6,1/6,3/6,5/6
+============================
+input:MT5	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(63,1,13,5)：石状の断片：よく見つかる素材：体力+3：1500G(効果値:3)
+rand:6/6,3/6,1/6,1/6,3/6,5/6
+============================
+input:MT8	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(63,1,13,5)：石状の断片：よく見つかる素材：体力+3：1500G(効果値:3)
+rand:6/6,3/6,1/6,1/6,3/6,5/6
+============================
+input:MT9	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(63,1,13,5)：石状の断片：よく見つかる素材：体力+4：2000G(効果値:4)
+rand:6/6,3/6,1/6,1/6,3/6,5/6
+============================
+input:MT100	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(63,1,13,5)：石状の断片：よく見つかる素材：体力+4：2000G(効果値:4)
+rand:6/6,3/6,1/6,1/6,3/6,5/6
+============================
+input:MT	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(63,6,1,16)：石状の断片：珍しい素材：［火炎］付与：1500G(効果値:3)
+rand:6/6,3/6,6/6,1/6,1/6,6/6
+============================
+input:MT	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(63,6,3,21)：石状の断片：珍しい素材：［火炎］付与：1500G(効果値:3)
+rand:6/6,3/6,6/6,3/6,2/6,1/6
+============================
+input:MT	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(63,6,4,22)：石状の断片：珍しい素材：［冷気］半減：2000G(効果値:4)
+rand:6/6,3/6,6/6,4/6,2/6,2/6
+============================
+input:MT9	Kamigakari
+output:
+Kamigakari : 獲得素材チャート(63,6,4,22)：石状の断片：珍しい素材：［冷気］半減：2000G(効果値:4)
+rand:6/6,3/6,6/6,4/6,2/6,2/6
