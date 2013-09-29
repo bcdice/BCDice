@@ -1850,6 +1850,9 @@ class BCDice
     when /(^|\s)Kamigakari$/i
       require 'diceBot/Kamigakari'
       diceBot = Kamigakari.new
+    when /(^|\s)RecordOfSteam$/i
+      require 'diceBot/RecordOfSteam'
+      diceBot = RecordOfSteam.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else
