@@ -57,54 +57,54 @@ INFO_MESSAGE_TEXT
       
       if(total_n <= 5)
         if(total_n <= (diff / 5))
-          return "決定的成功/スペシャル";
+          return "決定的成功/スペシャル"
         end
-        return "決定的成功";
+        return "決定的成功"
       end
       
       if(total_n <= (diff / 5))
-        return "スペシャル";
+        return "スペシャル"
       end
       
-      return "成功";
+      return "成功"
     end
     
     if((total_n >= 96) and (diff < 100))
-      return "致命的失敗";
+      return "致命的失敗"
     end
     
-    return "失敗";
+    return "失敗"
   end
   
   
   def getRegistResult(command)
-    output = "1";
+    output = "1"
     
     return output unless(/res([-\d]+)/i =~ command)
     
     value = $1.to_i
-    target =  value * 5 + 50;
+    target =  value * 5 + 50
     
     if(target < 5)    # 自動失敗
-      return "(1d100<=#{target}) ＞ 自動失敗";
+      return "(1d100<=#{target}) ＞ 自動失敗"
     end
     
     if(target > 95)  # 自動成功
-      return "(1d100<=#{target}) ＞ 自動成功";
+      return "(1d100<=#{target}) ＞ 自動成功"
     end
     
     # 通常判定
-    total_n, dice_dmy = roll(1, 100);
+    total_n, dice_dmy = roll(1, 100)
     if(total_n <= target)
-      return "(1d100<=#{target}) ＞ #{total_n} ＞ 成功";
+      return "(1d100<=#{target}) ＞ #{total_n} ＞ 成功"
     end
     
-    return "(1d100<=#{target}) ＞ #{total_n} ＞ 失敗";
+    return "(1d100<=#{target}) ＞ #{total_n} ＞ 失敗"
   end
   
   
   def getCombineRoll(command)
-    output = "1";
+    output = "1"
     
     return output unless(/CBR\((\d+),(\d+)\)/i =~ command)
     

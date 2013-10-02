@@ -5,7 +5,6 @@ $KCODE = 'UTF8'
 $LOAD_PATH << File.dirname(__FILE__) + "/.."
 $LOAD_PATH << File.dirname(__FILE__) + "/../irc"
 
-require 'Kconv'
 require 'bcdiceCore.rb'
 require 'diceBot/DiceBotLoader'
 

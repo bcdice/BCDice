@@ -26,15 +26,17 @@ class ShinMegamiTenseiKakuseihen < DiceBot
 INFO_MESSAGE_TEXT
   end
   
-  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
+  
+  # ゲーム別成功度判定(1d100)
+  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     return '' unless(signOfInequality == "<=")
     
     total_n = total_n % 100
     
     dice1, dice2 = getTwoDice
     
-    total1 = dice1 * 10 + dice2;
-    total2 = dice2 * 10 + dice1;
+    total1 = dice1 * 10 + dice2
+    total2 = dice2 * 10 + dice1
     
     #ゾロ目
     isRepdigit = ( dice1 == dice2 )

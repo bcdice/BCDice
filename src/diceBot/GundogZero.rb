@@ -30,57 +30,51 @@ INFO_MESSAGE_TEXT
   end
   
   
-  #Gundog
-  #def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
   
-  #Gundog
-  #def isD9
-  
-  ####################         ガンドッグゼロ        ########################
   def rollDiceCommand(command)
     string = command.upcase
     
     table = []
-    ttype = "";
-    type = "";
-    dice = 0;
-    mod = 0;
+    ttype = ""
+    type = ""
+    dice = 0
+    mod = 0
     
     
     # ダメージペナルティ表
     if(/(\w)DPT([\+\-\d]*)/i =~ string)
-      ttype = 'ダメージペナルティー';
-      head = $1;
-      mod = parren_killer("(0#{$2})").to_i if($2);
+      ttype = 'ダメージペナルティー'
+      head = $1
+      mod = parren_killer("(0#{$2})").to_i if($2)
       
       type, table = getDamageTypeAndTable(head)
     end
     
     # ファンブル表
     if(/(\w)FT([\+\-\d]*)/i =~ string)
-      ttype = 'ファンブル';
-      head = $1;
-      mod = parren_killer("(0#{$2})").to_i if($2);
+      ttype = 'ファンブル'
+      head = $1
+      mod = parren_killer("(0#{$2})").to_i if($2)
       
       type, table = getFumbleTypeAndTable(head)
     end
     
     return '1' if( type.empty? )
     
-    dice = rand(10) + rand(10) + mod;
+    dice = rand(10) + rand(10) + mod
     diceOriginalText = dice
-    dice = 0 if(dice < 0);
-    dice = 18 if(dice > 18);
+    dice = 0 if(dice < 0)
+    dice = 18 if(dice > 18)
     
-    output = "#{type}#{ttype}表[#{diceOriginalText}] ＞ #{table[dice]}";
+    output = "#{type}#{ttype}表[#{diceOriginalText}] ＞ #{table[dice]}"
     
-    return output;
+    return output
   end
 
   def getDamageTypeAndTable(head)
     case head
     when "S"
-      type = '射撃';
+      type = '射撃'
       # 射撃ダメージペナルティー表
       table = [
         '対象は[死亡]',                                     #0
@@ -105,7 +99,7 @@ INFO_MESSAGE_TEXT
       ]
 
     when "M"
-      type = '格闘';
+      type = '格闘'
       # 格闘ダメージペナルティー表
       table = [
         '対象は[死亡]',                                     #0
@@ -130,7 +124,7 @@ INFO_MESSAGE_TEXT
       ]
       
     when "V"
-      type = '車両';
+      type = '車両'
       # 車両ダメージペナルティー表
       table = [
         '[クラッシュ]する。[チェイス]から除外',             #0
@@ -155,7 +149,7 @@ INFO_MESSAGE_TEXT
       ]
       
     when "G"
-      type = '汎用';
+      type = '汎用'
       # 汎用ダメージペナルティー表
       table = [
         '対象は[死亡]',                                     #0
@@ -189,7 +183,7 @@ INFO_MESSAGE_TEXT
   def getFumbleTypeAndTable(head)
     case head
     when "S"
-      type = '射撃';
+      type = '射撃'
       # 射撃ファンブル表
       table = [
         '銃器が暴発、自分に命中。[貫通D]',                  #0
@@ -213,7 +207,7 @@ INFO_MESSAGE_TEXT
         'ペナルティー無し',                                 #18
       ]
     when "M"
-      type = '格闘';
+      type = '格闘'
       # 格闘ファンブル表
       table = [
         '避けられて[転倒]、[朦朧]状態',                     #0
@@ -237,7 +231,7 @@ INFO_MESSAGE_TEXT
         'ペナルティー無し',                                 #18
       ]
     when "T"
-      type = '投擲';
+      type = '投擲'
       # 投擲ファンブル表
       table = [
         '[転倒]、[朦朧]状態',                               #0

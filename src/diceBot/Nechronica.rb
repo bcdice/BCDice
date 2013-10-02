@@ -4,9 +4,9 @@ class Nechronica < DiceBot
   
   def initialize
     super
-    @sendMode = 2;
-    @sortType = 3;
-    @defaultSuccessTarget = "6";      #目標値が空欄の時の目標値
+    @sendMode = 2
+    @sortType = 3
+    @defaultSuccessTarget = "6"      #目標値が空欄の時の目標値
   end
   def gameName
     'ネクロニカ'
@@ -50,23 +50,23 @@ INFO_MESSAGE_TEXT
     return '' unless(signOfInequality == ">=")
     
     if(total_n >= 11)
-      return " ＞ 大成功";
+      return " ＞ 大成功"
     end
     
     if(total_n >= diff)
-      return " ＞ 成功";
+      return " ＞ 成功"
     end
     
     
     #失敗パターン
     
     if(n1 <= 0)
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     end
     
-    result = " ＞ 大失敗";
+    result = " ＞ 大失敗"
     if( dice_cnt > 1 )
-      result += " ＞ 使用パーツ全損";
+      result += " ＞ 使用パーツ全損"
     end
     
     return result
@@ -74,7 +74,7 @@ INFO_MESSAGE_TEXT
   
   
   def nechronica_check(string)
-    output = '1';
+    output = '1'
 
     debug("nechronica_check string", string)
     
@@ -83,11 +83,11 @@ INFO_MESSAGE_TEXT
       return output 
     end
     
-    string = $2;
-    signOfInequality = ">=";
+    string = $2
+    signOfInequality = ">="
     
-    dice_n = 1;
-    dice_n = $3.to_i if($3);
+    dice_n = 1
+    dice_n = $3.to_i if($3)
     
     modText = $4
     mod = parren_killer("(0#{modText})").to_i
@@ -98,27 +98,27 @@ INFO_MESSAGE_TEXT
     debug("nechronica_check string", string)
     debug("isBattleMode", isBattleMode)
     
-    diff = 6;
-    total_n = 0;
+    diff = 6
+    total_n = 0
     
     # $total, $dice_str, $cnt1, $cnt_max, $n_max, $cnt_suc, $cnt_re
-    dice_now, dice_str, n1, cnt_max, n_max = roll(dice_n, 10, 1);
+    dice_now, dice_str, n1, cnt_max, n_max = roll(dice_n, 10, 1)
     
-    total_n = n_max + mod;
+    total_n = n_max + mod
     
-    output = "#{@nick_t}: (#{string}) ＞ [#{dice_str}]";
+    output = "#{@nick_t}: (#{string}) ＞ [#{dice_str}]"
     if(mod < 0)
-      output += "#{mod}";
+      output += "#{mod}"
     elsif(mod > 0)
-      output += "+#{mod}";
+      output += "+#{mod}"
     end
     
-    n1 = 0;
-    cnt_max = 0;
+    n1 = 0
+    cnt_max = 0
     
     dice = dice_str.split(/,/).collect{|i|i.to_i}
     dice.length.times do |i|
-      dice[i] += mod;
+      dice[i] += mod
       n1 += 1 if(dice[i] <= 1)
       cnt_max += 1 if(dice[i] >= 10)
     end
@@ -127,23 +127,23 @@ INFO_MESSAGE_TEXT
     output += "  ＞ #{total_n}[#{dice_str}]"
     
     diceMax = 10
-    output += check_suc(total_n, n_max, signOfInequality, diff, dice_n, diceMax, n1, n_max);
+    output += check_suc(total_n, n_max, signOfInequality, diff, dice_n, diceMax, n1, n_max)
     
     debug("dice_n, n1, total_n diff", dice_n, n1, total_n, diff)
     
 # β版の実装
 #    if( (dice_n > 1) and (n1 >= 1) and (total_n <= diff) )
-#      output += " ＞ 損傷#{n1}";
+#      output += " ＞ 損傷#{n1}"
 #    end
     
     if( isBattleMode )
-      hit_loc = getHitLocation(total_n);
+      hit_loc = getHitLocation(total_n)
       if(hit_loc != '1')
-        output += " ＞ #{hit_loc}";
+        output += " ＞ #{hit_loc}"
       end
     end
     
-    return output;
+    return output
   end
 
 
@@ -162,17 +162,17 @@ INFO_MESSAGE_TEXT
              '頭（なければ攻撃側任意）',
              '攻撃側任意',
             ]
-    index = dice - 6;
+    index = dice - 6
     
     addDamage = ""
     if(dice > 10)
-      index = 5;
-      addDamage = "(追加ダメージ#{dice - 10})";
+      index = 5
+      addDamage = "(追加ダメージ#{dice - 10})"
     end
     
-    output = table[index] + addDamage;
+    output = table[index] + addDamage
     
-    return output;
+    return output
   end
   
 end

@@ -33,7 +33,9 @@ class CardRanker < DiceBot
 INFO_MESSAGE_TEXT
   end
   
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  
+  # ゲーム別成功度判定(2D6)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     return '' unless( signOfInequality == ">=")
     
     if(dice_n <= 2)
@@ -58,6 +60,7 @@ INFO_MESSAGE_TEXT
     
     return '1';
   end
+  
   
   def getRandumMonster
     type = "ランダムモンスター選択";

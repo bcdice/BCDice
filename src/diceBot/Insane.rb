@@ -4,9 +4,9 @@ class Insane < DiceBot
   
   def initialize
     super
-    @sendMode = 2;
-    @sortType = 3;
-    @d66Type = 2;
+    @sendMode = 2
+    @sortType = 3
+    @d66Type = 2
   end
   def gameName
     'インセイン'
@@ -54,7 +54,8 @@ INFO_MESSAGE_TEXT
     ''
   end
   
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  # ゲーム別成功度判定(2D6)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     
@@ -135,7 +136,7 @@ INFO_MESSAGE_TEXT
       output, total_n = get_mystery_skill_table
     end
     
-    return "#{type}(#{total_n}) ＞ #{output}";
+    return "#{type}(#{total_n}) ＞ #{output}"
   end
 
   # シーン表
@@ -366,8 +367,8 @@ INFO_MESSAGE_TEXT
 
   # 指定特技ランダム決定表
   def get_random_skill_table
-    output = '1';
-    type = 'ランダム';
+    output = '1'
+    type = 'ランダム'
     
     skillTableFull = [
       ['暴力', ['焼却', '拷問', '緊縛', '脅す', '破壊', '殴打', '切断', '刺す', '射撃', '戦争', '埋葬']],

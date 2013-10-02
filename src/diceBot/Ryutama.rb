@@ -66,7 +66,7 @@ INFO_MESSAGE_TEXT
     modifyText = getModifyString(modify)
     
     baseText = getBaseText(dice1, dice2, modify, difficulty)
-    output = "(#{baseText}) ＞ #{value1Text}#{value2Text}#{modifyText} ＞ #{total}#{result}";
+    output = "(#{baseText}) ＞ #{value1Text}#{value2Text}#{modifyText} ＞ #{total}#{result}"
     return output
   end
   

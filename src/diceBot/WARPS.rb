@@ -25,20 +25,20 @@ INFO_MESSAGE_TEXT
     debug('total_n', total_n)
     
     if(dice_n <= 2)
-      return " ＞ クリティカル";
+      return " ＞ クリティカル"
     elsif(dice_n >= 12)
-      return " ＞ ファンブル";
+      return " ＞ ファンブル"
     elsif(signOfInequality == "<=")
       if(diff != "?")
         if(total_n <= diff)
           success = diff - total_n
-          return " ＞ #{success}成功";
+          return " ＞ #{success}成功"
         else
-          return " ＞ 失敗";
+          return " ＞ 失敗"
         end
       end
     end
-    return output;
+    return output
   end
   
 end

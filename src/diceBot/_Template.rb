@@ -30,12 +30,13 @@ class _Template < DiceBot
   end
   
   def gameType
-    "gameType"
+    "GameType"
   end
   
   def getHelpMessage
     return <<MESSAGETEXT
 ヘルプメッセージ
+ダイスボットの使い方書いておいて下さい。
 MESSAGETEXT
   end
   
@@ -47,23 +48,28 @@ MESSAGETEXT
     ''
   end
   
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  # ゲーム別成功度判定(2D6)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     ''
   end
   
-  def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
+  # ゲーム別成功度判定(nD6)
+  def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     ''
   end
   
-  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)# ゲーム別成功度判定(nD10)
+  # ゲーム別成功度判定(nD10)
+  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     ''
   end
   
-  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
+  # ゲーム別成功度判定(1d100)
+  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     ''
   end
 
-  def check_1D20(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)     # ゲーム別成功度判定(1d20)
+  # ゲーム別成功度判定(1d20)
+  def check_1D20(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     ''
   end
   

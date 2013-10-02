@@ -4,8 +4,8 @@ class CthulhuTech < DiceBot
   
   def initialize
     super
-    @sendMode = 2;
-    @sortType = 1;
+    @sendMode = 2
+    @sortType = 1
   end
   
   def gameName
@@ -45,7 +45,7 @@ INFO_MESSAGE_TEXT
   def check_nD10_nomalTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     
     if( n1 >= (dice_cnt / 2 + 0.9).to_i )
-      return " ＞ ファンブル";
+      return " ＞ ファンブル"
     end
     
     isSuccess = false
@@ -60,10 +60,10 @@ INFO_MESSAGE_TEXT
     end
     
     if(total_n >= diff + 10)
-      return " ＞ クリティカル";
+      return " ＞ クリティカル"
     end
     
-    return " ＞ 成功";
+    return " ＞ 成功"
   end
   
   
@@ -82,7 +82,7 @@ INFO_MESSAGE_TEXT
     debug('getDamageDice total_n, diff', total_n, diff)
     damageDiceCount = ((total_n - diff) / 5.0).ceil
     debug('damageDiceCount', damageDiceCount)
-    damageDice = "(#{damageDiceCount}d10)";   # ダメージダイスの表示
+    damageDice = "(#{damageDiceCount}d10)"   # ダメージダイスの表示
     
     return damageDice
   end
@@ -95,7 +95,7 @@ INFO_MESSAGE_TEXT
     if( isCheckSuccess and dice_max == 10)
       debug('cthulhutech_check(dice_str) called')
       debug('dice_str, dice_now', dice_str, dice_now)
-      dice_now = cthulhutech_check(dice_str);
+      dice_now = cthulhutech_check(dice_str)
     end
     debug('dice_str, dice_now', dice_str, dice_now)
     
@@ -109,12 +109,12 @@ INFO_MESSAGE_TEXT
     dice_aRR = dice_str.split(/,/).collect{|i|i.to_i}
     
     dice_num = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    max_num = 0;
+    max_num = 0
     
     dice_aRR.each do |dice_n|
-      dice_num[(dice_n -1)] += 1;
+      dice_num[(dice_n -1)] += 1
       
-      if(dice_n > max_num);  # 1.個別のダイスの最大値
+      if(dice_n > max_num)  # 1.個別のダイスの最大値
         max_num = dice_n
       end
     end
@@ -122,8 +122,8 @@ INFO_MESSAGE_TEXT
     if(dice_aRR.length >= 2)  # ダイスが2個以上ロールされている
       10.times do |i|
         if(dice_num[i] > 1) # 2.同じ出目の合計値
-          dice_now = dice_num[i] * (i + 1);
-          max_num = dice_now if(dice_now > max_num);
+          dice_now = dice_num[i] * (i + 1)
+          max_num = dice_now if(dice_now > max_num)
         end
       end
       
@@ -133,22 +133,22 @@ INFO_MESSAGE_TEXT
           
           if(dice_num[i] > 0)
             if( (dice_num[i + 1] > 0) and (dice_num[i + 2] > 0) )    # 3.連続する出目の合計
-              dice_now = i * 3 + 6;  # ($i+1) + ($i+2) + ($i+3) = $i*3 + 6
+              dice_now = i * 3 + 6  # ($i+1) + ($i+2) + ($i+3) = $i*3 + 6
               
               ((i + 3)...10).step do |i2|
                 break if(dice_num[i2] == 0)
                 
-                dice_now += i2 + 1;
+                dice_now += i2 + 1
               end
               
-              max_num = dice_now if(dice_now > max_num);
+              max_num = dice_now if(dice_now > max_num)
             end
           end
         end
       end
     end
     
-    return max_num;
+    return max_num
   end
   
 end
