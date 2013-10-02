@@ -4,10 +4,10 @@ class Peekaboo < DiceBot
   
   def initialize
     super
-    @sendMode = 2;
-    @sortType = 1;
-    @d66Type = 2;
-    @fractionType = "roundUp";     # 端数切り上げに設定
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
+    @fractionType = "roundUp"     # 端数切り上げに設定
   end
   def gameName
     'ピーカーブー'
@@ -18,7 +18,7 @@ class Peekaboo < DiceBot
   end
   
   def prefixs
-     ['SET', 'PSET', 'OET', 'IBT', 'SBT']
+    ['SET', 'PSET', 'OET', 'IBT', 'SBT']
   end
   
   def getHelpMessage
@@ -36,23 +36,24 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  # ゲーム別成功度判定(2D6)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     return '' unless(signOfInequality == ">=")
     
     if(dice_n <= 2)
-      return " ＞ ファンブル(【眠気】が1d6点上昇)";
+      return " ＞ ファンブル(【眠気】が1d6点上昇)"
     elsif(dice_n >= 12)
-      return " ＞ スペシャル(【魔力】あるいは【眠気】が1d6点回復)";
+      return " ＞ スペシャル(【魔力】あるいは【眠気】が1d6点回復)"
     elsif(total_n >= diff)
-      return " ＞ 成功";
+      return " ＞ 成功"
     else
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     end
   end
   
-
+  
   def rollDiceCommand(command)
-    output = '1';
+    output = '1'
     
     case command
     when /((\w)+ET)/i       # イベント表
@@ -60,26 +61,26 @@ INFO_MESSAGE_TEXT
       output = pk_event_table( head )
     when /((\w)+BT)/i    # バタンキュー表
       head = $1.upcase
-      output = pk_batankyu_table( head );
+      output = pk_batankyu_table( head )
     end
     
-    return output;
+    return output
   end
-
-#** イベント表
+  
+  #  イベント表
   def pk_event_table(string)
-    output = '1';
-    type = "";
+    output = '1'
+    type = ""
     
     case string
     when /PSET/i
-      type = '個別学校';
+      type = '個別学校'
       output, total_n = pk_private_school_event_table
     when /SET/i
-      type = '学校';
+      type = '学校'
       output, total_n = pk_school_event_table
     when/OET/i
-      type = 'お化け屋敷';
+      type = 'お化け屋敷'
       output, total_n = pk_obakeyashiki_event_table
     end
     
@@ -87,10 +88,10 @@ INFO_MESSAGE_TEXT
     debug("total_n", total_n)
     
     output = "#{type}イベント表(#{total_n}) ＞ #{output}"
-    return output;
+    return output
   end
   
-#** 学校イベント表
+  #  学校イベント表
   def pk_school_event_table
     table = [
              '持ち物検査が行われる！　イノセント全員は、《隠れる/不良9》の判定を行うこと。失敗したキャラクターは、GMがアイテム1個を選んで没収することができる（セッション終了時に返してもらえる）' ,
@@ -105,12 +106,12 @@ INFO_MESSAGE_TEXT
              '体操服や水着、宿題に提出物などなど、今日は学校に持ってこないといけないものがあったはず！《計画性/大人7》で判定を行う。失敗すると、先生に怒られてしょんぼり。【眠気】が1d6点増える。' ,
              'それぞれに色々なことがあった。イノセントは、各自1回ずつ2d6を振り、個別学校イベント表の指示に従うこと。' ,
             ]
-
+    
     return get_table_by_2d6(table)
   end
   
   
-#** 個別学校イベント表
+  #  個別学校イベント表
   def pk_private_school_event_table
     table = [
              'クラスの中に気になるコが現れる。《恋愛/大人11》の判定を行う。成功すると、その子と仲良くなって経験値を1点獲得する。' ,
@@ -125,12 +126,12 @@ INFO_MESSAGE_TEXT
              '今日は全校集会があった。《がまん/友達5》で判定を行う。失敗すると貧血で倒れ次のサイクルは行動できなくなる。' ,
              '図書室で面白そうな本を発見する。《読書/遊び8》で判定を行うこと。成功すると、経験値を1点獲得する。' ,
             ]
-
-    return get_table_by_2d6(table);
+    
+    return get_table_by_2d6(table)
   end
   
   
-#** お化け屋敷イベント表
+  #  お化け屋敷イベント表
   def pk_obakeyashiki_event_table
     table = [
              '謎かけ守護者が門を護っている。未行動のキャラクターは、《クイズ/遊び10》の判定を行うことができる。判定したキャラクターは行動済みになる。失敗したキャラクターは、1点のダメージを受ける。誰かが成功すれば、イベントはクリアできる。' ,
@@ -145,30 +146,30 @@ INFO_MESSAGE_TEXT
              'シャドウが見回りをしている。未行動のキャラクターのうち1人が、《隠れる/不良9》の判定を行う。成功すれば、イベントはクリアできる。失敗すると、プレイヤーと同じ人数のシャドウと戦闘を行うこと。勝利すればイベントはクリアできる。' ,
              '足下からシャドウが現れ、みんなに襲いかかる！　プレイヤーと同じ人数のシャドウと戦闘を行うこと。勝利すればイベントはクリアできる。' ,
             ]
-
-    return get_table_by_2d6(table);
+    
+    return get_table_by_2d6(table)
   end
   
   
-#** バタンキュー表
+  #  バタンキュー表
   def pk_batankyu_table( string )
-    output = '1';
-    type = "";
-
+    output = '1'
+    type = ""
+    
     case string
     when /IBT/i
-      type = 'イノセント用';
+      type = 'イノセント用'
       output, total_n = pk_innocent_batankyu_table
     when /SBT/i
-      type = 'スプーキー用';
+      type = 'スプーキー用'
       output, total_n = pk_spooky_batankyu_table
     end
     
     output = "#{type}バタンキュー！表(#{total_n}) ＞ #{output}"
-    return output;
+    return output
   end
   
-#** イノセント用バタンキュー！表
+  #  イノセント用バタンキュー！表
   def pk_innocent_batankyu_table
     table = [
              '悲しい別れ。病院につれていくことができれば、1d6日入院したあとに目覚めます。その間は、行動不能です。目覚めたときに【眠気】も【元気】もすべて回復しますが、スプーキーを見ることができなくなっています。そのキャラクターはスプーキーと一緒に冒険を続けることはできません……。' ,
@@ -178,11 +179,11 @@ INFO_MESSAGE_TEXT
              'かろうじて意識はあるものの、朦朧としてきた。【眠気】が2d6点増えます。それで行動不能になっていなければ、【元気】が1点回復します。そうでなければ、気絶してしまい、1d6サイクル後に目覚めます。気絶している間は、行動不能です。目覚めたときに【眠気】が1d6点減少し、【元気】が1点回復します。' ,
              'なんという幸運！　アイテムがキミを護ってくれた。もし持ち物にアイテムがあった場合、それが1個破壊され、受けたダメージを無効化します。アイテムがなければ行動不能になります。' ,
             ]
-
-    return get_table_by_1d6(table);
+    
+    return get_table_by_1d6(table)
   end
   
-#** スプーキー用バタンキュー！表
+  #  スプーキー用バタンキュー！表
   def pk_spooky_batankyu_table
     table = [
              '封印状態！　オバケは封印されてしまいます。1d6*1年後になれば、そのオバケは復活します。それまでは、イノセントと一緒に冒険することはできません。できたとしても、そのときイノセントはあなたを見ることができなくなっているかもしれませんが……。' ,
@@ -191,9 +192,9 @@ INFO_MESSAGE_TEXT
              '混沌変化！　自分のリングのからだリストを使って、ランダムにからだを1つ選びます。自分のからだが、それに変化します。1d6サイクルの間、行動不能になります。その後、【魔力】が1d6点回復して通常通り行動できるようになります。' ,
              '魔力変質！　自分のリングの衣装リストを使って、ランダムに衣装を1つ選びます。自分の衣装1つが、それに変化します。そして、1d6サイクルの間、行動不能になります。その後、【魔力】が1d6点回復して通常通り行動できるようになります。' ,
              '魔法暴発！　自分の持っている魔法をランダムに1つ選んで、その効果が発動します。魔法の対象が選べる場合は、スプーキーのプレイヤーが選んで構いません。そして、1d6サイクルの間、行動不能になります。その後、【魔力】が1d6点回復して通常通り行動できるようになります。' ,
-    ]
+            ]
     
-    return get_table_by_1d6(table);
+    return get_table_by_1d6(table)
   end
   
 end

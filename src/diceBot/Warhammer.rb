@@ -4,8 +4,8 @@ class Warhammer < DiceBot
   
   def initialize
     super
-    @sendMode = 2;
-    @fractionType = "roundUp";     # 端数切り上げに設定
+    @sendMode = 2
+    @fractionType = "roundUp"     # 端数切り上げに設定
   end
   
   def gameName
@@ -57,10 +57,10 @@ INFO_MESSAGE_TEXT
     return '' unless(signOfInequality == "<=")
     
     if(total_n <= diff)
-      return " ＞ 成功(成功度#{ ((diff - total_n)/10) })";
+      return " ＞ 成功(成功度#{ ((diff - total_n)/10) })"
     end
       
-    return " ＞ 失敗(失敗度#{ ((total_n - diff) / 10) })";
+    return " ＞ 失敗(失敗度#{ ((total_n - diff) / 10) })"
   end
   
 ####################            WHFRP関連          ########################
@@ -140,51 +140,51 @@ INFO_MESSAGE_TEXT
          1, 2, 4, 5, 6, 6, 7, 7, 8, 8,  #91-00
     ]
     
-    output = "1";
+    output = "1"
     
     unless(/WH([HABTLW])(\d+)/ =~ string)
-      return '1';
+      return '1'
     end
     
-    partsWord = $1;     #部位
-    criticalValue = $2.to_i;    #クリティカル値
-    criticalValue = 10 if(criticalValue > 10);
-    criticalValue = 1 if(criticalValue < 1);
+    partsWord = $1     #部位
+    criticalValue = $2.to_i    #クリティカル値
+    criticalValue = 10 if(criticalValue > 10)
+    criticalValue = 1 if(criticalValue < 1)
     
     whpp = ''
     whppp = ''
     
     case partsWord
     when /H/i
-      whpp = '頭部';
+      whpp = '頭部'
       whppp = whh
     when /A/i
-      whpp = '腕部';
+      whpp = '腕部'
       whppp = wha
     when /[TB]/i
-      whpp = '胴体';
+      whpp = '胴体'
       whppp = whb
     when /L/i
-      whpp = '脚部';
+      whpp = '脚部'
       whppp = whl
     when /W/i
-      whpp = '翼部';
+      whpp = '翼部'
       whppp = whw
     end
     
-    dice_now, dice_str = roll(1, 100);
+    dice_now, dice_str = roll(1, 100)
     
-    crit_no = ((dice_now - 1) / 10).to_i * 10;
-    crit_num = criticalTable[crit_no + criticalValue - 1];
+    crit_no = ((dice_now - 1) / 10).to_i * 10
+    crit_num = criticalTable[crit_no + criticalValue - 1]
     
-    resultText = whppp[crit_num - 1];
+    resultText = whppp[crit_num - 1]
     if(crit_num >= 5)
       resultText += 'サドンデス×'
     else
       resultText += 'サドンデス○'
     end
     
-    output = "#{whpp}CT表(#{dice_now}+#{criticalValue}) ＞ #{resultText}";
+    output = "#{whpp}CT表(#{dice_now}+#{criticalValue}) ＞ #{resultText}"
   
     return output
   end
@@ -254,28 +254,28 @@ INFO_MESSAGE_TEXT
     
     wh_pos = [pos_2l, pos_2lw, pos_4l, pos_4la, pos_4lw, pos_b]
     
-    pos_t = 0;
+    pos_t = 0
     debug("pos_type", pos_type)
     if(pos_type != "")
       case pos_type
       when /\@(2W|W2)/i
-        pos_t = 1;
+        pos_t = 1
       when /\@(4W|W4)/i
-        pos_t = 4;
+        pos_t = 4
       when /\@(4H|H4)/i
-        pos_t = 3;
+        pos_t = 3
       when /\@4/i
-        pos_t = 2;
+        pos_t = 2
       when /\@W/i
-        pos_t = 5;
+        pos_t = 5
       else
         unless( /\@(2H|H2|2)/i =~ pos_type)
-          pos_t = -1;
+          pos_t = -1
         end
       end
     end
     
-    output = "";
+    output = ""
     
     debug("pos_t", pos_t)
     if(pos_t < 0)
@@ -283,21 +283,21 @@ INFO_MESSAGE_TEXT
         output += get_wh_atpos_message(pos_i, pos_num)
       end
     else
-      pos_i = wh_pos[pos_t];
+      pos_i = wh_pos[pos_t]
       output += get_wh_atpos_message(pos_i, pos_num)
     end
     
-    return output;
+    return output
   end
   
   def get_wh_atpos_message(pos_i, pos_num)
     output = ""
     
-    output += ' ' + pos_i[0] + ":";
+    output += ' ' + pos_i[0] + ":"
     
     1.step(pos_i.length + 1, 2) do |i|
       if( pos_num <= pos_i[i] )
-        output += pos_i[i + 1];
+        output += pos_i[i + 1]
         break
       end
     end
@@ -309,11 +309,11 @@ INFO_MESSAGE_TEXT
   def getAtackResult(string)
     debug("getAtackResult begin string", string)
     
-    pos_type = "";
+    pos_type = ""
     
     if( /(.+)(@.*)/ =~ string )
-      string = $1;
-      pos_type = $2;
+      string = $1
+      pos_type = $2
       debug("pos_type", pos_type)
     end
     

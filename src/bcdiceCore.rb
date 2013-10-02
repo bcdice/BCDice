@@ -1,8 +1,6 @@
 #!/bin/ruby -Ku 
 #--*-coding:utf-8-*--
 
-#require 'Kconv'
-
 require 'log'
 require 'configBcDice.rb'
 require 'CountHolder.rb'

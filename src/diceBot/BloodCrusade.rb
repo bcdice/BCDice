@@ -4,10 +4,10 @@ class BloodCrusade < DiceBot
   
   def initialize
     super
-    @sendMode = 2;
-    @sortType = 1;
-    @d66Type = 2;
-    @fractionType = "roundUp";     # 端数切り上げに設定
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
+    @fractionType = "roundUp"     # 端数切り上げに設定
   end
   def gameName
     'ブラッド・クルセイド'
@@ -49,53 +49,52 @@ INFO_MESSAGE_TEXT
     elsif(dice_n >= 12)
       return " ＞ スペシャル(【モラル】+3。追跡フェイズならあなたに関係を持つPCの【モラル】+2。攻撃判定ならダメージ+1D6）"
     elsif(total_n >= diff)
-      return " ＞ 成功";
+      return " ＞ 成功"
     else
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     end
   end
   
-
-####################       ブラッド・クルセイド      ########################
+  
   def rollDiceCommand(command)
     command = command.upcase
-    output = '1';
-    type = "";
-    total_n = "";
+    output = '1'
+    type = ""
+    total_n = ""
     
     debug('getTableResult command', command)
     
     case command
       
     when 'RT'
-      type = '関係属性表';
+      type = '関係属性表'
       output, total_n = getRelationTable
     when 'ST'
-      type = 'シーン表';
+      type = 'シーン表'
       output, total_n = getSceneTable
     when 'IST'
-      type = '先制判定指定特技表';
+      type = '先制判定指定特技表'
       output, total_n = getInitiativeSkillTable
     when 'BRT'
-      type = '身体部位決定表';
+      type = '身体部位決定表'
       output, total_n = getBodyRegionTable
     when 'CHT'
-      type = '自信幸福表';
+      type = '自信幸福表'
       output, total_n = getConfidenceHappyTable
     when 'SHT'
-      type = '地位幸福表';
+      type = '地位幸福表'
       output, total_n = getStatusHappyTable
     when 'DHT'
-      type = '日常幸福表';
+      type = '日常幸福表'
       output, total_n = getDailyHappyTable
     when 'LHT'
-      type = '人脈幸福表';
+      type = '人脈幸福表'
       output, total_n = getLinkHappyTable
     when 'EHT'
-      type = '退路幸福表';
+      type = '退路幸福表'
       output, total_n = getEvacuationHappyTable
     when 'AST'
-      type = 'ランダム全特技表';
+      type = 'ランダム全特技表'
       output, total_n = getAllSkillTable
     when 'MIT'
       type = '軽度狂気表'
@@ -107,8 +106,8 @@ INFO_MESSAGE_TEXT
     
     return output if(output == '1')
     
-    output = "#{type}(#{total_n}) ＞ #{output}";
-    return output;
+    output = "#{type}(#{total_n}) ＞ #{output}"
+    return output
   end
   
   
@@ -326,15 +325,7 @@ INFO_MESSAGE_TEXT
              '5脚部',
              '6環境',
             ]
-#    table2 = [
-#              get_table_by_2d6(tableCSKT),
-#              get_table_by_2d6(tableHSKT),
-#              get_table_by_2d6(tableBSKT),
-#              get_table_by_2d6(tableASKT),
-#              get_table_by_2d6(tableLSKT),
-#              get_table_by_2d6(tableESKT),
-#             ]
-
+    
     categoryNum, categoryDummy = roll(1, 6)
     detailText = nil
     detailNum = 0

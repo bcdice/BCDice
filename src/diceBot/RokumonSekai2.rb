@@ -43,11 +43,11 @@ INFO_MESSAGE_TEXT
   end
   
   def dice_command_xRn(string, nick_e)
-    rokumon2_check(string, nick_e)
+    checkRoll(string, nick_e)
   end
   
-####################          六門世界2nd.        ########################
-  def rokumon2_check(string, nick_e)
+  
+  def checkRoll(string, nick_e)
     output = '1';
     
     unless(/3R6([\+\-\d]*)<=(\d+)\[(\d+)\]/i =~ string)

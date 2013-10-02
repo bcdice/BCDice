@@ -3,22 +3,22 @@
 class DiceBot
   @@bcdice = nil
   
-  @@DEFAULT_SEND_MODE = 2;                  # デフォルトの送信形式(0=結果のみ,1=0+式,2=1+ダイス個別)
+  @@DEFAULT_SEND_MODE = 2                  # デフォルトの送信形式(0=結果のみ,1=0+式,2=1+ダイス個別)
 
   
   def initialize
     @sendMode = @@DEFAULT_SEND_MODE #(0=結果のみ,1=0+式,2=1+ダイス個別)
-    @sortType = 0;      #ソート設定(1 = ?, 2 = ??, 3 = 1&2　各値の意味が不明です…）
-    @sameDiceRerollCount = 0;     #ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
-    @sameDiceRerollType = 0;   #ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
-    @d66Type = 0;        #d66の差し替え
-    @isPrintMaxDice = false;      #最大値表示
-    @upplerRollThreshold = 0;      #上方無限
-    @unlimitedRollDiceType = 0;    #無限ロールのダイス
-    @rerollNumber = 0;      #振り足しする条件
-    @defaultSuccessTarget = "";      #目標値が空欄の時の目標値
-    @rerollLimitCount = 10000;    #振り足し回数上限
-    @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
+    @sortType = 0      #ソート設定(1 = ?, 2 = ??, 3 = 1&2　各値の意味が不明です…）
+    @sameDiceRerollCount = 0     #ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
+    @sameDiceRerollType = 0   #ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
+    @d66Type = 0        #d66の差し替え
+    @isPrintMaxDice = false      #最大値表示
+    @upplerRollThreshold = 0      #上方無限
+    @unlimitedRollDiceType = 0    #無限ロールのダイス
+    @rerollNumber = 0      #振り足しする条件
+    @defaultSuccessTarget = ""      #目標値が空欄の時の目標値
+    @rerollLimitCount = 10000    #振り足し回数上限
+    @fractionType = "omit"     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
     
     @gameType = 'DiceBot'
   end
@@ -162,7 +162,7 @@ class DiceBot
       debug('call rollDiceCommand command', command)
       result = rollDiceCommand(command)
     rescue => e
-      debug("executeCommand exception", e.to_s, $@.join("\n"));
+      debug("executeCommand exception", e.to_s, $@.join("\n"))
     end
     
     return result
@@ -216,7 +216,7 @@ class DiceBot
   end
   
   def get_table_by_nD6(table, count)
-    num, dummy = roll(count, 6);
+    num, dummy = roll(count, 6)
     
     text = getTableValue(table[num - count])
     
@@ -228,7 +228,7 @@ class DiceBot
     debug("get_table_by_1d3")
 
     count = 1
-    num, dummy = roll(count, 6);
+    num, dummy = roll(count, 6)
     debug("num", num)
     
     index = ((num - 1)/ 2)
@@ -250,10 +250,10 @@ class DiceBot
   
   # D66 ロール用
   def get_table_by_d66(table)
-    dice1, dummy = roll(1, 6);
-    dice2, dummy = roll(1, 6);
+    dice1, dummy = roll(1, 6)
+    dice2, dummy = roll(1, 6)
     
-    num = (dice1 - 1) * 6 + (dice2 - 1);
+    num = (dice1 - 1) * 6 + (dice2 - 1)
     
     text = table[num]
     
@@ -310,7 +310,7 @@ class DiceBot
     diceList = []
     return diceList unless( /\[([\d,]+)\]/ =~ diceText )
     
-    diceString = $1;
+    diceString = $1
     diceList = diceString.split(/,/).collect{|i| i.to_i}
     
     debug("diceList", diceList)
@@ -322,7 +322,7 @@ class DiceBot
   #** 汎用表サブルーチン
   def get_table_by_number(index, table, default = '1')
     table.each do |item|
-      number = item[0];
+      number = item[0]
       if( number >= index )
         return getTableValue( item[1] )
       end

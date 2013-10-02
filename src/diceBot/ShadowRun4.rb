@@ -5,8 +5,8 @@ class ShadowRun4 < DiceBot
   def initialize
     super
     @sortType = 3
-    @rerollNumber = 6;      #振り足しする出目
-    @defaultSuccessTarget = ">=5";   #目標値が空欄の時の目標値
+    @rerollNumber = 6      #振り足しする出目
+    @defaultSuccessTarget = ">=5"   #目標値が空欄の時の目標値
   end
   def gameName
     'シャドウラン第４版'
@@ -51,10 +51,10 @@ INFO_MESSAGE_TEXT
     
     # グリッチ！
     if( successCount == 0 ) 
-      return ' ＞ クリティカルグリッチ';
+      return ' ＞ クリティカルグリッチ'
     end
       
-    return ' ＞ グリッチ';
+    return ' ＞ グリッチ'
   end
   
 end

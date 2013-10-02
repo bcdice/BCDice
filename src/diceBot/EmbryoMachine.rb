@@ -4,8 +4,8 @@ class EmbryoMachine < DiceBot
   
   def initialize
     super
-    @sendMode = 2;
-    @sortType = 1;
+    @sendMode = 2
+    @sortType = 1
   end
   def gameName
     'エムブリオマシン'
@@ -44,70 +44,71 @@ INFO_MESSAGE_TEXT
   end
   
   def dice_command_xRn(string, nick_e)
-    output_msg = embryo_machine_check(string, nick_e);
+    output_msg = checkRoll(string, nick_e)
   end
   
-  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)# ゲーム別成功度判定(nD10)
+  
+  # ゲーム別成功度判定(nD10)
+  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     debug("EmbryoMachine check_nD10 begin")
     return '' unless(signOfInequality == ">=")
     
     if(dice_n <= 2)
-      return " ＞ ファンブル";
+      return " ＞ ファンブル"
     elsif(dice_n >= 20)
-      return " ＞ クリティカル";
+      return " ＞ クリティカル"
     elsif(total_n >= diff)
-      return " ＞ 成功";
+      return " ＞ 成功"
     else
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     end
   end
   
   
-####################        エムブリオマシン      ########################
-  def embryo_machine_check(string, nick_e)
-    output = '1';
+  def checkRoll(string, nick_e)
+    output = '1'
     
     return output unless(/(^|\s)S?(2[rR]10([\+\-\d]+)?([>=]+(\d+))(\[(\d+),(\d+)\]))(\s|$)/i =~ string )
     
-    string = $2;
-    signOfInequality = ">=";
-    diff = 0;
-    crit = 20;
-    fumble = 2;
-    mod = 0;
-    total_n = 0;
+    string = $2
+    signOfInequality = ">="
+    diff = 0
+    crit = 20
+    fumble = 2
+    mod = 0
+    total_n = 0
     modText = $3
     
-    diff = $5.to_i if($5);
-    crit = $7.to_i if($7);
-    fumble = $8.to_i if($8);
-    mod = parren_killer("(0#{modText})").to_i if(modText);
+    diff = $5.to_i if($5)
+    crit = $7.to_i if($7)
+    fumble = $8.to_i if($8)
+    mod = parren_killer("(0#{modText})").to_i if(modText)
     
-    dice_now, dice_str, = roll(2, 10, (sortType & 1));
-    dice_loc, = roll(2, 10);
+    dice_now, dice_str, = roll(2, 10, (sortType & 1))
+    dice_loc, = roll(2, 10)
     dice_arr = dice_str.split(/,/).collect{|i|i.to_i}
-    big_dice = dice_arr[1];
-    output = "#{dice_now}[#{dice_str}]";
-    total_n = dice_now + mod;
+    big_dice = dice_arr[1]
+    output = "#{dice_now}[#{dice_str}]"
+    total_n = dice_now + mod
     if(mod > 0)
-      output += "+#{mod}";
+      output += "+#{mod}"
     elsif(mod < 0)
-      output += "#{mod}";
+      output += "#{mod}"
     end
     if(output =~ /[^\d\[\]]+/)
-      output = "#{@nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}";
+      output = "#{@nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}"
     else
-      output = "#{@nick_e}: (#{string}) ＞ #{output}";
+      output = "#{@nick_e}: (#{string}) ＞ #{output}"
     end
     # 成功度判定
     if(dice_now <= fumble)
-      output += " ＞ ファンブル";
+      output += " ＞ ファンブル"
     elsif(dice_now >= crit)
-      output += " ＞ クリティカル ＞ " + em_hit_level_table(big_dice) + "(ダメージ+10) ＞ [#{dice_loc}]#{em_hit_location_table(dice_loc)}";
+      output += " ＞ クリティカル ＞ " + get_hit_level_table(big_dice) + "(ダメージ+10) ＞ [#{dice_loc}]#{get_hit_location_table(dice_loc)}"
     elsif(total_n >= diff)
-      output += " ＞ 成功 ＞ " + em_hit_level_table(big_dice) + " ＞ [#{dice_loc}]#{em_hit_location_table(dice_loc)}";
+      output += " ＞ 成功 ＞ " + get_hit_level_table(big_dice) + " ＞ [#{dice_loc}]#{get_hit_location_table(dice_loc)}"
     else
-      output += " ＞ 失敗";
+      output += " ＞ 失敗"
     end
     
     return output
@@ -115,7 +116,6 @@ INFO_MESSAGE_TEXT
   
   
   
-####################        エムブリオマシン       ########################
   def rollDiceCommand(command)
     debug("rollDiceCommand command", command)
     
@@ -127,25 +127,25 @@ INFO_MESSAGE_TEXT
     when /HLT/i
       type = '命中部位'
       number, = roll(2, 10)
-      output = em_hit_location_table(number)
+      output = get_hit_location_table(number)
     when /SFT/i
       type = '射撃ファンブル'
       number, = roll(2, 10)
-      output = em_shoot_fumble_table(number)
+      output = get_shoot_fumble_table(number)
     when /MFT/i
       type = '白兵ファンブル'
       number, = roll(2, 10)
-      output = em_melee_fumble_table(number)
+      output = get_melee_fumble_table(number)
     end
     
     if(output != '1')
-      output = "#{type}表(#{number}) ＞ #{output}";
+      output = "#{type}表(#{number}) ＞ #{output}"
     end
-    return output;
+    return output
   end
 
 #** 命中部位表
-  def em_hit_location_table(num)
+  def get_hit_location_table(num)
     table = [
         [ 4, '頭'],
         [ 7, '左脚'],
@@ -156,12 +156,12 @@ INFO_MESSAGE_TEXT
         [20, '頭'],
     ]
 
-    return get_table_by_number(num, table);
+    return get_table_by_number(num, table)
   end
 
 #** ファンブル表
-  def em_shoot_fumble_table(num) # 射撃攻撃ファンブル表
-    output = '1';
+  def get_shoot_fumble_table(num) # 射撃攻撃ファンブル表
+    output = '1'
     table = [
         '暴発した。使用した射撃武器が搭載されている部位に命中レベルAで命中する。',
         'あまりに無様な誤射をした。パイロットの精神的負傷が2段階上昇する。',
@@ -183,13 +183,13 @@ INFO_MESSAGE_TEXT
         '熱量がやや増大した。使用した射撃武器の消費弾薬が戦闘終了まで+1される。',
         '何も起きなかった。',
     ]
-    dc = 2;
-    output = table[num - dc] if(table[num - dc]);
-    return output;
+    dc = 2
+    output = table[num - dc] if(table[num - dc])
+    return output
   end
 
-  def em_melee_fumble_table(num) # 白兵攻撃ファンブル表
-    output = '1';
+  def get_melee_fumble_table(num) # 白兵攻撃ファンブル表
+    output = '1'
     table = [
         '大振りしすぎた。使用した白兵武器が搭載されている部位の反対の部位(右腕に搭載されているなら左側)に命中レベルAで命中する。',
         '激しく頭を打った。パイロットの肉体的負傷が2段階上昇する。',
@@ -211,19 +211,19 @@ INFO_MESSAGE_TEXT
         'たたらを踏んだ。機体が向いている方角へ1の移動力で移動する。',
         '何も起きなかった。',
     ]
-    dc = 2;
-    output = table[num - dc] if(table[num - dc]);
-    return output;
+    dc = 2
+    output = table[num - dc] if(table[num - dc])
+    return output
   end
 
-  def em_hit_level_table(num)
+  def get_hit_level_table(num)
     table = [
         [ 6, '命中レベルC'],
         [ 9, '命中レベルB'],
         [10, '命中レベルA'],
     ]
 
-    return get_table_by_number(num, table);
+    return get_table_by_number(num, table)
   end
 
 end

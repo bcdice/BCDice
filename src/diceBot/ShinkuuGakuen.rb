@@ -2,15 +2,6 @@
 
 class ShinkuuGakuen < DiceBot
   
-  def initialize
-    super
-    
-    # @isPrintMaxDice = false;      #最大値表示
-    # @upplerRollThreshold = 0;      #上方無限
-    # @unlimitedRollDiceType = 0;    #無限ロールのダイス
-    # @rerollNumber = 0;      #振り足しする条件
-  end
-  
   def gameName
     '真空学園'
   end

@@ -70,7 +70,7 @@ INFO_MESSAGE_TEXT
     crit = $5.to_i if($5)
     fumble = $7.to_i if($7)
     
-    mod = 0;
+    mod = 0
     mod = parren_killer("(0#{modText})") unless( modText.nil? )
     
     total, dice_str, dummy = roll(2, 6, @sortType && 1)
@@ -79,18 +79,18 @@ INFO_MESSAGE_TEXT
     output = "#{total}[#{dice_str}]＋#{mod} → #{total_n}"
     
     if(total >= crit)
-      output += " ＞ 自動成功";
+      output += " ＞ 自動成功"
     elsif(total <= fumble)
-      output += " ＞ 自動失敗";
+      output += " ＞ 自動失敗"
     elsif(total_n >= target)
-      output += " ＞ 成功";
+      output += " ＞ 成功"
     else
-      output += " ＞ 失敗";
+      output += " ＞ 失敗"
     end
     
     output = "#{nick_e}: (#{string}) ＞ #{output}"
     
-    return output;
+    return output
     
   end
   
@@ -101,22 +101,22 @@ INFO_MESSAGE_TEXT
     
     case command
     when /WDT/i
-      type = '世界歪曲表';
+      type = '世界歪曲表'
       output, total_n = mm_world_distortion_table()
     when /OT/i
-      type = '兆候表';
+      type = '兆候表'
       output, total_n = mm_omens_table()
     when /DT/i
-      type = '歪み表';
+      type = '歪み表'
       output, total_n = mm_distortion_table()
     end
     
     output = "#{type}(#{total_n}) ＞ #{output}" if(output != '1')
     
-    return output;
+    return output
   end
 
-  #**世界歪曲表(2D6)[WDT]
+  # 世界歪曲表(2D6)[WDT]
   def mm_world_distortion_table
     table = [
       '消失：世界からボスキャラクターが消去され、消滅する。エンディングフェイズへ。',
@@ -136,7 +136,7 @@ INFO_MESSAGE_TEXT
   end
   
   
-  #**兆候表(2d6)[OT]
+  # 兆候表(2d6)[OT]
   def mm_omens_table
     table = [
       '信念の喪失：[出自]を喪失する。特徴は失われない。',
@@ -155,7 +155,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**歪み表(2D6)[DT]
+  # 歪み表(2D6)[DT]
   def mm_distortion_table
     table = [
       '世界消失：演目の舞台がすべて失われる。舞台に残っているのはキミたちと異形、伽藍だけだ。クライマックスフェイズへ。',

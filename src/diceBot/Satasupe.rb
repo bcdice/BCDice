@@ -61,7 +61,7 @@ INFO_MESSAGE_TEXT
       debug("判定ロール")
       secretMarker = $3
       command = $1.upcase
-      output_msg = satasupe_check(command, nick_e)
+      output_msg = checkRoll(command, nick_e)
       
     when /((^|\s)(S)?SR(\d+)(([+]|[-])\d+)?($|\s))/i
       debug("〔性業値〕チェック")
@@ -84,8 +84,8 @@ INFO_MESSAGE_TEXT
   
   
   
-  def satasupe_check(string, nick_e)
-    debug("satasupe_check begin string", string)
+  def checkRoll(string, nick_e)
+    debug("checkRoll begin string", string)
     
     unless(/(^|\s)S?((\d+)R>=(\d+)(\[(\d+)?(,|,\d+)?(,\d+)?\])?)($|\s)/i =~ string)
       return '1'
@@ -182,7 +182,7 @@ INFO_MESSAGE_TEXT
       output += " ＞ 必殺発動可能！"
     end
     
-    debug( 'satasupe_check result output', output )
+    debug( 'checkRoll result output', output )
     return output
   end
   
@@ -245,7 +245,7 @@ INFO_MESSAGE_TEXT
   
   
   ####################
-  #** 各種表
+  # 各種表
   
   def rollDiceCommand(command)
     command = command.upcase

@@ -20,7 +20,9 @@ class Pendragon < DiceBot
 INFO_MESSAGE_TEXT
   end
   
-  def check_1D20(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)     # ゲーム別成功度判定(1d20)
+  
+  # ゲーム別成功度判定(1d20)
+  def check_1D20(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     return '' unless(signOfInequality == "<=")
     
     if(total_n <= diff)

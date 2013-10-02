@@ -21,7 +21,8 @@ nD9ロールも対応。
 INFO_MESSAGE_TEXT
   end
   
-  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
+  # ゲーム別成功度判定(1d100)
+  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     
     return '' unless(signOfInequality == "<=")
     
@@ -34,19 +35,19 @@ INFO_MESSAGE_TEXT
     end
     
     if(total_n <= diff)
-      dig10 = (total_n / 10).to_i;
-      dig1 = (total_n) - dig10 * 10;
-      dig10 = 0 if(dig10 >= 10);
-      dig1 = 0 if(dig1 >= 10);  # 条件的にはあり得ない(笑
+      dig10 = (total_n / 10).to_i
+      dig1 = (total_n) - dig10 * 10
+      dig10 = 0 if(dig10 >= 10)
+      dig1 = 0 if(dig1 >= 10)  # 条件的にはあり得ない(笑
       
       if(dig1 <= 0)
-        return " ＞ クリティカル(達成値20+SL)";
+        return " ＞ クリティカル(達成値20+SL)"
       end
       
-      return " ＞ 成功(達成値#{(dig10 + dig1)}+SL)";
+      return " ＞ 成功(達成値#{(dig10 + dig1)}+SL)"
     end
     
-    return " ＞ 失敗";
+    return " ＞ 失敗"
   end
   
   def isD9

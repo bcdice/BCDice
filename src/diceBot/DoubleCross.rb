@@ -4,12 +4,12 @@ class DoubleCross < DiceBot
   
   def initialize
     super
-    @sendMode = 2;
-    @sortType = 2;
-    @isPrintMaxDice = true;      #最大値表示
-    @upplerRollThreshold = 10;     #上方無限
-    @unlimitedRollDiceType = 10;   #無限ロールのダイス
-    @rerollNumber = 10;     #振り足しする条件
+    @sendMode = 2
+    @sortType = 2
+    @isPrintMaxDice = true      #最大値表示
+    @upplerRollThreshold = 10     #上方無限
+    @unlimitedRollDiceType = 10   #無限ロールのダイス
+    @rerollNumber = 10     #振り足しする条件
   end
   def gameName
     'ダブルクロス2nd,3rd'
@@ -50,7 +50,7 @@ INFO_MESSAGE_TEXT
     string = string.gsub(/(\d+)DX([^\d\s][\+\-\d]+)/i) {"#{$1}R10#{$2}"}
     string = string.gsub(/(\d+)DX/i) {"#{$1}R10"}
     if(/\@(\d+)/ =~ string)
-      crit = $1;
+      crit = $1
       string = string.gsub(/\[\]/) {"\[#{crit}\]"}
       string = string.gsub(/\@(\d+)/, "")
     end
@@ -62,18 +62,18 @@ INFO_MESSAGE_TEXT
   end
   
   def dice_command_xRn(string, nick_e)
-    output_msg = dxdice(string, nick_e);
+    output_msg = check_dice(string, nick_e)
   end
   
   def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)# ゲーム別成功度判定(nD10)
     return '' unless( signOfInequality == ">=" )
     
     if(n1 >= dice_cnt)
-      return " ＞ ファンブル";
+      return " ＞ ファンブル"
     elsif(total_n >= diff)
-      return" ＞ 成功";
+      return" ＞ 成功"
     else
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     end
   end
   
@@ -82,32 +82,33 @@ INFO_MESSAGE_TEXT
     return (10 - dice_n)
   end
   
-  ####################             DXダイス         ########################
-  def dxdice(string, nick_e)     # ダブルクロス型個数振り足しダイスロール
+  # 個数振り足しダイスロール
+  def check_dice(string, nick_e)
+    
     debug("dxdice begin string", string)
     
     dice_cnt = 0 
     dice_max = 0
     round = 0
-    total_n = 0;
-    signOfInequality = "";
-    diff = 0;
-    output = "";
-    output2 = "";
-    roll_re = 0;
-    next_roll = 0;
+    total_n = 0
+    signOfInequality = ""
+    diff = 0
+    output = ""
+    output2 = ""
+    roll_re = 0
+    next_roll = 0
     
-    string = string.gsub(/-[\d]+[rR][\d]+/, '');    # 振り足しロールの引き算している部分をカット
+    string = string.gsub(/-[\d]+[rR][\d]+/, '')    # 振り足しロールの引き算している部分をカット
     
     unless(/(^|\s)[sS]?([\d]+[rR][\d\+\-rR]+)(\[(\d+)\])?(([<>=]+)(\d+))?($|\s)/ =~ string)
       debug("invaid string", string)
-      return '1';
+      return '1'
     end
     
-    string = $2;
+    string = $2
     
     if($3)
-      roll_re = $4;
+      roll_re = $4
     elsif(rerollNumber != 0)
       roll_re = rerollNumber
     else 
@@ -115,12 +116,12 @@ INFO_MESSAGE_TEXT
     end
     
     if($5)
-      signOfInequality = marshalSignOfInequality($6);
-      diff = $7.to_i;
+      signOfInequality = marshalSignOfInequality($6)
+      diff = $7.to_i
     elsif( defaultSuccessTarget != "" )
       if( /([<>=]+)(\d+)/ =~ defaultSuccessTarget )
-        signOfInequality = marshalSignOfInequality($1);
-        diff = $2.to_i;
+        signOfInequality = marshalSignOfInequality($1)
+        diff = $2.to_i
       end
     end
     
@@ -144,88 +145,88 @@ INFO_MESSAGE_TEXT
     
     bonus_str = dice_bns.join("+")
     bonus_ttl = 0
-    bonus_ttl = parren_killer( "(#{bonus_str})").to_i if(bonus_str != "");
+    bonus_ttl = parren_killer( "(#{bonus_str})").to_i if(bonus_str != "")
     
-    numberSpot1 = 0;
-    dice_cnt_total =0;
+    numberSpot1 = 0
+    dice_cnt_total =0
     
     dice_cmd.each do |dice_o|
-      subtotal = 0;
+      subtotal = 0
       dice_cnt, dice_max = dice_o.split(/[rR]/).collect{|s|s.to_i}
-      dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, roll_re);
-      output += "," if(output != "");
-      next_roll += dice_dat[6];
-      numberSpot1 += dice_dat[2];
-      dice_cnt_total += dice_cnt;
+      dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, roll_re)
+      output += "," if(output != "")
+      next_roll += dice_dat[6]
+      numberSpot1 += dice_dat[2]
+      dice_cnt_total += dice_cnt
       if(dice_dat[6] > 0)   # リロール時の特殊処理
         if(dice_max == 10)
-          subtotal = 10;
+          subtotal = 10
         else             # 特殊処理無し(最大値)
-          subtotal = dice_dat[4];
+          subtotal = dice_dat[4]
         end
       else
-        subtotal = dice_dat[4];
+        subtotal = dice_dat[4]
       end
-      output += "#{subtotal}[#{dice_dat[1]}]";
-      total_n += subtotal;
+      output += "#{subtotal}[#{dice_dat[1]}]"
+      total_n += subtotal
     end
     
-    round = 0;
+    round = 0
     
     if(next_roll > 0)
-      dice_cnt = next_roll;
+      dice_cnt = next_roll
       begin
-        subtotal = 0;
-        output2 += "#{output}+";
-        output = "";
-        dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, roll_re);
+        subtotal = 0
+        output2 += "#{output}+"
+        output = ""
+        dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, roll_re)
         round += 1
-        #               numberSpot1 += dice_dat[2];
-        dice_cnt_total += dice_cnt;
-        dice_cnt = dice_dat[6];
+        #               numberSpot1 += dice_dat[2]
+        dice_cnt_total += dice_cnt
+        dice_cnt = dice_dat[6]
         if(dice_dat[6] > 0)   # リロール時の特殊処理
           if(dice_max == 10)
-            subtotal = 10;
+            subtotal = 10
           else             # 特殊処理無し(最大値)
-            subtotal = dice_dat[4];
+            subtotal = dice_dat[4]
           end
         else 
-          subtotal = dice_dat[4];
+          subtotal = dice_dat[4]
         end
-        output += "#{subtotal}[#{dice_dat[1]}]";
-        total_n += subtotal;
+        output += "#{subtotal}[#{dice_dat[1]}]"
+        total_n += subtotal
       end while ( @@bcdice.isReRollAgain(dice_cnt, round) )
     end
     
-    total_n += bonus_ttl;
+    total_n += bonus_ttl
     if(bonus_ttl > 0)
-      output = "#{output2}#{output}+#{bonus_ttl} ＞ #{total_n}";
+      output = "#{output2}#{output}+#{bonus_ttl} ＞ #{total_n}"
     elsif(bonus_ttl < 0)
-      output = "#{output2}#{output}#{bonus_ttl} ＞ #{total_n}";
+      output = "#{output2}#{output}#{bonus_ttl} ＞ #{total_n}"
     else
-      output = "#{output2}#{output} ＞ #{total_n}";
+      output = "#{output2}#{output} ＞ #{total_n}"
     end
     
-    string += "[#{roll_re}]";
-    string += "#{signOfInequality}#{diff}" if(signOfInequality != "");
-    output = "#{nick_e}: (#{string}) ＞ #{output}";
+    string += "[#{roll_re}]"
+    string += "#{signOfInequality}#{diff}" if(signOfInequality != "")
+    output = "#{nick_e}: (#{string}) ＞ #{output}"
     if(output.length > $SEND_STR_MAX)    # 長すぎたときの救済
-      output = "#{nick_e}: (#{string}) ＞ ... ＞ 回転数#{round} ＞ #{total_n}";
+      output = "#{nick_e}: (#{string}) ＞ ... ＞ 回転数#{round} ＞ #{total_n}"
     end
     
     if(signOfInequality != "")   # 成功度判定処理
-      output += check_suc(total_n, 0, signOfInequality, diff, dice_cnt_total, dice_max, numberSpot1, 0);
+      output += check_suc(total_n, 0, signOfInequality, diff, dice_cnt_total, dice_max, numberSpot1, 0)
     else     # 目標値無し判定
       if(round <= 0) 
         if(dice_max == 10) 
           if(numberSpot1 >= dice_cnt_total) 
-            output += " ＞ ファンブル";
+            output += " ＞ ファンブル"
           end
         end
       end
     end
     
-    return output;
+    return output
   end
   
   
@@ -235,7 +236,6 @@ INFO_MESSAGE_TEXT
   end
   
   
-  ####################        ダブルクロス 3rd       ########################
   #** 感情表
   def get_emotion_table()
     output = nil
@@ -284,7 +284,7 @@ INFO_MESSAGE_TEXT
       [102, '任意(にんい)'],
     ]
     
-    return dx_feel_table( table );
+    return dx_feel_table( table )
   end
 
   #** 感情表（ネガティブ）
@@ -315,12 +315,12 @@ INFO_MESSAGE_TEXT
       [102, '任意(にんい)'],
     ]
     
-    return dx_feel_table( table );
+    return dx_feel_table( table )
   end
 
   def dx_feel_table(table)
-    dice_now, dice_dmy = roll(1, 100);
-    output = get_table_by_number(dice_now, table);
+    dice_now, dice_dmy = roll(1, 100)
+    output = get_table_by_number(dice_now, table)
 
     return dice_now, output
   end

@@ -39,7 +39,9 @@ class Gurps < DiceBot
 INFO_MESSAGE_TEXT
   end
   
-  def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
+  
+  # ゲーム別成功度判定(nD6)
+  def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     
     unless(dice_cnt == 3 && signOfInequality == "<=")
       return ''

@@ -4,9 +4,9 @@ class ShinobiGami < DiceBot
   
   def initialize
     super
-    @sendMode = 2;
-    @sortType = 1;
-    @d66Type = 2;
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
   end
   def gameName
     'シノビガミ'
@@ -44,13 +44,13 @@ INFO_MESSAGE_TEXT
     return '' unless( signOfInequality == ">=")
     
     if(dice_n <= 2)
-      return " ＞ ファンブル";
+      return " ＞ ファンブル"
     elsif(dice_n >= 12)
-      return " ＞ スペシャル(生命点1点か変調1つ回復)";
+      return " ＞ スペシャル(生命点1点か変調1つ回復)"
     elsif(total_n >= diff)
-      return " ＞ 成功";
+      return " ＞ 成功"
     else
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     end
   end
   
@@ -78,14 +78,14 @@ INFO_MESSAGE_TEXT
     return nil
   end
   
-  #** シーン表
+  # シーン表
   def sinobigami_scene_table(string)
-    type = "";
+    type = ""
     table = []
     
     case string
     when /CST/i
-      type = '都市';
+      type = '都市'
       table = [
                'シャワーを浴び、浴槽に疲れた身体を沈める。時には、癒しも必要だ。',
                '閑静な住宅街。忍びの世とは関係のない日常が広がっているようにも見えるが……それも錯覚なのかもしれない',
@@ -98,9 +98,9 @@ INFO_MESSAGE_TEXT
                'ビルの谷間を飛び移る。この街のどこかに、「アレ」は存在するはずなのだが……。',
                '見知らぬ天井。いつの間にか眠っていたのだろうか？それにしてもここはどこだ？',
                '廃屋。床には乱雑に壊れた調度品や器具が転がっている。',
-              ];
+              ]
     when /MST/i
-      type = '館';
+      type = '館'
       table = [
                'どことも知れぬ暗闇の中。忍びの者たちが潜むには、おあつらえ向きの場所である。',
                '洋館の屋根の上。ここからなら、館の周りを一望できるが……。',
@@ -113,9 +113,9 @@ INFO_MESSAGE_TEXT
                '戯れに遊戯室へ入ってみた。そこには撞球台やダーツの的、何組かのトランプが散らばっているポーカーテーブルがあった。',
                'かび臭い図書室。歴代の館の主たちの記録や、古今東西の名著が、ぎっしりと棚に並べられている。',
                '一族の納骨堂がある。冷気と瘴気に満ちたその場所に、奇妙な叫びが届く。遠くの鳥のさえずりか？それとも死者の恨みの声か……？',
-              ];
+              ]
     when /DST/i
-      type = '出島';
+      type = '出島'
       table = [
                '迷宮街。いつから囚われてしまったのだろう？何重にも交差し、曲がりくねった道を歩き続ける。このシーンの登場人物は《記憶術》で判定を行わなければならない。成功すると、迷宮の果てで好きな忍具を一つ獲得する。失敗すると、行方不明の変調を受ける。',
                '幻影城。訪れた者の過去や未来の風景を見せる場所。このシーンの登場人物は、《意気》の判定を行うことができる。成功すると、自分の持っている【感情】を好きな何かに変更することができる。',
@@ -128,9 +128,9 @@ INFO_MESSAGE_TEXT
                '地面を覆う無数の瓦礫。その隙間から暗黒の瘴気が立ち昇る。このシーンの登場人物は《生存術》で判定を行わなければならない。失敗すると、好きな【生命力】を１点失う。',
                '熱気溢れる市場。武器や薬物などを売っているようだ。商人たちの中には、渡来人の姿もある。このシーンの登場人物は、《経済力》で判定を行うことができる。成功すると、好きな忍具を一つ獲得できる。',
                '目の前に渡来人が現れる。渡来人はあなたに興味を持ち、襲い掛かってくる。このシーンの登場人物は《刀術》で判定を行わなければならない。成功すると、渡来人を倒し、好きな忍具を一つ獲得する。失敗すると、３点の接近戦ダメージを受ける。',
-              ];
+              ]
     when /TST/i
-      type = 'トラブル';
+      type = 'トラブル'
       table = [
                '同行者とケンカしてしまう。うーん、気まずい雰囲気。',
                'バシャ！　同行者のミスでずぶ濡れになってしまう。……冷たい。',
@@ -143,9 +143,9 @@ INFO_MESSAGE_TEXT
                '「どこに目つけてんだ、てめぇ！」同行者がチンピラにからまれる。うーん、助けに入るべきか。',
                '！　油断していたら、同行者に自分の恥ずかしい姿を見られてしまう。……一生の不覚！',
                '同行者が不意に涙を流す。……一体、どうしたんだろう？',
-              ];
+              ]
     when /NST/i
-      type = '日常';
+      type = '日常'
       table = [
                'っくしゅん！　……うーん、風邪ひいたかなあ。お見舞いに来てくれたんだ。ありがとう。',
                '目の前のアイツは、見違えるほどドレスアップしていた。……ゆっくりと大人な時間が過ぎていく。',
@@ -158,9 +158,9 @@ INFO_MESSAGE_TEXT
                '野良猫に餌をやる。……猫はのどを鳴らし、すっかりあなたに甘えているようだ。',
                '「……！　……？　……♪」テレビは、なにやら楽しげな場面を映している。あら。もう、こんな時間か。',
                '面白そうなゲーム！　誰かと対戦することになる。GMは、「戦術」からランダムに特技1つを選ぶ。このシーンに登場しているキャラクターは、その特技の判定を行う。成功した場合、同じシーンに登場しているキャラクターを1人を選び、そのキャラクターの自分に対する【感情】を好きなものに変更する（何の【感情】も持っていない場合、好きな【感情】を芽生えさせる）。',
-              ];
+              ]
     when /TKST/i
-      type = '東京';
+      type = '東京'
       table = [
                'お台場、臨界副都心。デート中のカップルや観光客が溢れている。',
                '靖国神社。東京の中とも思えぬ、緑で満ちた場所だ。今は観光客もおらず、奇妙に静かだ……。',
@@ -173,9 +173,9 @@ INFO_MESSAGE_TEXT
                '神田古書街。多くの古書店が軒を連ねている。軒先に積まれた本の山にさえ、追い求める謎や、深遠な知識が埋もれていそうな気がする。',
                '山谷のドヤ街。日雇い労働者が集う管理宿泊施設の多いこの場所は、身を隠すにはうってつけだ。',
                '東京スカイツリーの上。この場所からならば東京の町が一望できる。',
-              ];
+              ]
     when /KST/i
-      type = '回想';
+      type = '回想'
       table = [
                '闇に蔓延する忍びの気配。あのときもそうだった。手痛い失敗の記憶。今度こそ、うまくやってみせる。',
                '甘い口づけ。激しい抱擁。悲しげな瞳……一夜の過ちが思い返される。',
@@ -188,9 +188,9 @@ INFO_MESSAGE_TEXT
                '幼い頃の記憶。仲の良かったあの子。そういえば、あの子は、どこに行ってしまったのだろう。もしかして……。',
                '「……ッ!!」激しい口論。ひどい別れ方をしてしまった。あんなことになると分かっていたら……。',
                '懐の中のお守りを握りしめる。アイツにもらった、大切な思い出の品。「兵糧丸」を1つ獲得する。',
-              ];
+              ]
     when /GST/i
-      type = '戦国';
+      type = '戦国'
       table = [
                '炎上する山城。人々の悲鳴や怒号がこだましている。どうやら、敵対する武将による焼き討ちらしい。今ならば、あるいは……。',
                '荒れ果てた村。カラスの不吉な鳴き声が聞こえてくる中で、やせ細った村人たちが、うつろな瞳でこちらを伺っている。',
@@ -203,9 +203,9 @@ INFO_MESSAGE_TEXT
                '館の天井裏。この下では今、何が行われているのか……。',
                '合戦場に設けられた陣内。かがり火がたかれ、武者たちが酒宴を行っている。',
                '戦の真っただ中にある合戦場。騎馬にまたがった鎧武者が駆け抜けていく。勝者となるのは、いずれの陣営だろうか。',
-              ];
+              ]
     when /GAST/i
-      type = '学校';
+      type = '学校'
       table = [
                '清廉な気配が漂う森の中。鳥のさえずりやそよ風が木々を通りすぎる音が聞こえる。',
                '学校のトイレ。……なんだか少しだけ怖い気がする。',
@@ -218,9 +218,9 @@ INFO_MESSAGE_TEXT
                '校舎と校舎をつなぐ渡り廊下。あなた以外の気配はないが……。',
                '特別教室。音楽室や理科室にいるのってなんか楽しいよね。',
                'プール。水面が、ゆらゆら揺れている。',
-              ];
+              ]
     when /KYST/i
-      type = '京都';
+      type = '京都'
       table = [
                '夜の街並み。神社仏閣はライトアップされ、にぎやかな酔客が通りを埋める。昼間とはまた違った景色が広がっている。',
                '京都駅ビル。その屋上は、京都市で最も高く、周囲を一望できる。',
@@ -233,9 +233,9 @@ INFO_MESSAGE_TEXT
                '静かな竹林。凛とした気配が漂う。',
                '祇園。時折、しずしずと歩く舞妓さんとすれ違う。雰囲気のある町並みだ。',
                '一般公開された京都御所の中を歩く。昼間だというのに人通りはあまりなく、何だか少し寂しい気持ち。',
-              ];
+              ]
     when /JBST/i
-      type = '神社仏閣';
+      type = '神社仏閣'
       table = [
                '清明神社。一条戻り橋を越えたところにある小さな社。陰陽師に憧れる女性たちの姿が目立つ。',
                '東寺。東寺真言宗総本山。密教独特の厳しい気配が漂う。',
@@ -248,7 +248,7 @@ INFO_MESSAGE_TEXT
                '伏見稲荷。全国約四万社の稲荷神社の総本宮。稲荷山に向かって立ち並ぶ約一万基の鳥居は、まるで異界へと続いているかのようだ……。',
                '化野念仏寺。無数の石塔、石仏が立ち並ぶ景色は、どこか荒涼としている……。',
                '六道珍皇寺。小野篁が冥界に通ったとされる井戸のある寺。この辺りは「六道の辻」と呼ばれ、不思議な伝説が数多く残っている。',
-              ];
+              ]
     else
       table = [
                '血の臭いがあたりに充満している。何者かの戦いがあった気配。　いや？まだ戦いは続いているのだろうか？',
@@ -262,7 +262,7 @@ INFO_MESSAGE_TEXT
                '大きな風が吹き荒ぶ。髪の毛や衣服が大きく揺れる。何かが起こりそうな予感……',
                '酔っぱらいの怒号。客引きたちの呼び声。女たちの嬌声。いつもの繁華街の一幕だが。',
                '太陽の微笑みがあなたを包み込む。影の世界の住人には、あまりにまぶしすぎる。',
-              ];
+              ]
     end
     
     get_sinobigami_2d6_scene_table_output(type, table)
@@ -270,38 +270,38 @@ INFO_MESSAGE_TEXT
   
   
   def get_sinobigami_2d6_scene_table_output(sceneType, table)
-    total_n, dice_dmy = roll(2, 6);
-    index = total_n - 2;
+    total_n, dice_dmy = roll(2, 6)
+    index = total_n - 2
     
     text = table[index]
     return '1' if( text.nil? )
     
     output = "#{sceneType}シーン表(#{total_n}) ＞ #{ text }"
     
-    return output;
+    return output
   end
   
   def get_sinobigami_1d6_table_output(tableName, table)
-    total_n, dice_dmy = roll(1, 6);
-    index = total_n - 1;
+    total_n, dice_dmy = roll(1, 6)
+    index = total_n - 1
     
     text = table[index]
     return '1' if( text.nil? )
     
     output = "#{tableName}(#{total_n}) ＞ #{text}"
     
-    return output;
+    return output
     
   end
   
-  #** ファンブル表
+  # ファンブル表
   def sinobigami_fumble_table(string)
     table = []
-    type = '';
+    type = ''
     
     case string
     when /KFT/
-      type = '怪';
+      type = '怪'
       table = [
                '何か調子がおかしい。そのサイクルの間、すべての行為判定にマイナス１の修正がつく。',
                'しまった！　好きな忍具を１つ失ってしまう。',
@@ -324,7 +324,7 @@ INFO_MESSAGE_TEXT
     return get_sinobigami_1d6_table_output("#{type}ファンブル表", table)
   end
   
-  #** 感情表
+  # 感情表
   def sinobigami_emotion_table()
     table = [
              '共感（プラス）／不信（マイナス）',
@@ -333,19 +333,19 @@ INFO_MESSAGE_TEXT
              '忠誠（プラス）／侮蔑（マイナス）',
              '憧憬（プラス）／劣等感（マイナス）',
              '狂信（プラス）／殺意（マイナス）',
-            ];
+            ]
     
     return get_sinobigami_1d6_table_output("感情表", table)
   end
   
-  #** 変調表
+  # 変調表
   def sinobigami_wrong_table(string)
     table = []
-    type = '';
+    type = ''
     
     case string
     when /GWT/
-      type = '戦国';
+      type = '戦国'
       table = [
                '催眠:戦闘に参加した時、戦闘開始時、もしくはこの変調を受けた時に【生命力】を1点減少しないと、戦闘から脱落する。サイクル終了時に〈意気〉判定し成功すると無効化。',
                '火達磨:ファンブル値が1上昇し、ファンブル時に1点の近接ダメージを受ける。シーン終了時に無効化。',
@@ -355,7 +355,7 @@ INFO_MESSAGE_TEXT
                '野望:命中判定に+1、それ以外の判定に-1。サイクル終了時に〈憑依術〉判定し成功すると無効化。',
               ]
     when /KWT/
-      type = '怪';
+      type = '怪'
       table = [
                '故障:すべての忍具が使用不能になる。この効果は累積しない。各サイクルの終了時に、《絡繰術》で行為判定を行い、成功するとこの変調は無効化される。',
                'マヒ:修得している特技の中からランダムに一つを選び、その特技が使用不能になる。この効果は、修得している特技の数だけ累積する。各サイクルの終了時に、《身体操術l》で行為判定を行い、成功するとこの変調はすべて無効化される。',
@@ -378,7 +378,7 @@ INFO_MESSAGE_TEXT
     return get_sinobigami_1d6_table_output("#{type}変調表", table)
   end
   
-  #** 戦場表
+  # 戦場表
   def sinobigami_battlefield_table()
     table = [
              '平地:特になし。',
@@ -392,10 +392,10 @@ INFO_MESSAGE_TEXT
     return get_sinobigami_1d6_table_output("戦場表", table)
   end
   
-  #** 指定特技ランダム決定表
+  # 指定特技ランダム決定表
   def sinobigami_random_skill_table()
-    output = '1';
-    type = 'ランダム';
+    output = '1'
+    type = 'ランダム'
     
     skillTableFull = [
                       ['器術', ['絡繰術','火術','水術','針術','仕込み','衣装術','縄術','登術','拷問術','壊器術','掘削術']],
@@ -412,12 +412,12 @@ INFO_MESSAGE_TEXT
     
     output = "#{type}指定特技表(#{total_n},#{total_n2}) ＞ 『#{tableName}』#{skill}"
     
-    return output;
+    return output
   end
   
-  #** 異形表
+  # 異形表
   def sinobigami_metamorphose_table()
-    output = '1';
+    output = '1'
     tableName = "異形表"
     table = [
              '1D6を振り、「妖魔忍法表A」で、ランダムに忍法の種類を決定する。妖魔化している間、その妖魔忍法を修得しているものとして扱う。この異形は、違う種類の妖魔忍法である限り、違う異形として扱う。',
@@ -427,23 +427,23 @@ INFO_MESSAGE_TEXT
              '妖魔化している間、【接近戦攻撃】によって与える接近戦ダメージが2点になる。',
              '妖魔化している間、このキャラクターの攻撃に対する回避判定と、このキャラクターの奥義に対する奥義破り判定にマイナス1の修正がつく。'
             ]
-    total_n, dice_dmy = roll(1, 6);
+    total_n, dice_dmy = roll(1, 6)
     text = table[total_n - 1]
     return '1' if( text.nil? )
     
     output = "#{tableName}(#{total_n}) ＞ #{text}"
     
     if (total_n > 3)
-      return output;
+      return output
     end
     
-    powerTable = [];
-    powerType = "";
-    powerPage = "";
+    powerTable = []
+    powerType = ""
+    powerPage = ""
     case total_n
     when 1
-      powerType = "妖魔忍法表A";
-      powerPage = "(怪p.252)";
+      powerType = "妖魔忍法表A"
+      powerPage = "(怪p.252)"
       powerTable = [
                     '【震々】',
                     '【神隠】',
@@ -453,8 +453,8 @@ INFO_MESSAGE_TEXT
                     '【狂骨】',
                    ]
     when 2
-      powerType = "妖魔忍法表B";
-      powerPage = "(怪p.253)";
+      powerType = "妖魔忍法表B"
+      powerPage = "(怪p.253)"
       powerTable = [
                     '【野衾】',
                     '【付喪神】',
@@ -465,7 +465,7 @@ INFO_MESSAGE_TEXT
                    ]
     when 3
       powerType = "妖魔忍法表C"
-      powerPage = "(怪p.254)";
+      powerPage = "(怪p.254)"
       powerTable = [
                     '【百眼】',
                     '【呑口】',
@@ -476,13 +476,13 @@ INFO_MESSAGE_TEXT
                    ]
     end
     
-    total_n, dice_dmy = roll(1, 6);
+    total_n, dice_dmy = roll(1, 6)
     text = powerTable[total_n - 1]
     return '1' if( text.nil? )
     
     output += " #{powerType} ＞ #{ text }#{ powerPage }"
     
-    return output;
+    return output
   end
   
 end

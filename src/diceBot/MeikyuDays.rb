@@ -4,9 +4,9 @@ class MeikyuDays < DiceBot
   
   def initialize
     super
-    @sendMode = 2;
-    @sortType = 1;
-    @d66Type = 2;
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
   end
   def gameName
     '迷宮デイズ'
@@ -50,158 +50,158 @@ INFO_MESSAGE_TEXT
   
   def dice_command_xRn(string, nick_e)
     @nick = nick_e
-    output_msg = mayoday_check(string)
+    output_msg = checkRoll(string)
   end
   
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     return '' unless(signOfInequality == ">=")
     
     if(dice_n <= 2)
-      return " ＞ 絶対失敗";
+      return " ＞ 絶対失敗"
     elsif(dice_n >= 12)
-      return " ＞ 絶対成功";
+      return " ＞ 絶対成功"
     elsif(total_n >= diff)
-      return " ＞ 成功";
+      return " ＞ 成功"
     else
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     end
   end
   
-
-  ####################           迷宮デイズ         ########################
-  def mayoday_check(string)
-    output = "1";
+  
+  
+  def checkRoll(string)
+    output = "1"
     
-    debug("mayoday_check string", string)
+    debug("checkRoll string", string)
     unless(/(^|\s)S?((\d+)[rR]6([\+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i =~ string)
       debug("not mutch")
       return output
     end
     
-    string = $2;
-    dice_c = $3.to_i;
-    bonus = 0;
-    signOfInequality = "";
-    diff = 0;
+    string = $2
+    dice_c = $3.to_i
+    bonus = 0
+    signOfInequality = ""
+    diff = 0
     
     bonusText = $4
     bonus = parren_killer("(0" + bonusText +")").to_i unless( bonusText.nil? )
     
-    signOfInequality = $6 if($6);
-    diff = $7.to_i if($7);
-    dice_now = 0;
-    dice_str = "";
-    n_max = 0;
-    total_n = 0;
+    signOfInequality = $6 if($6)
+    diff = $7.to_i if($7)
+    dice_now = 0
+    dice_str = ""
+    n_max = 0
+    total_n = 0
     
-    dice, dice_str, = roll(dice_c, 6, (sortType & 1));
+    dice, dice_str, = roll(dice_c, 6, (sortType & 1))
     dice_num = dice_str.split(/,/).collect{|i|i.to_i}
     
-    dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1];
-    total_n = dice_now + bonus;
+    dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1]
+    total_n = dice_now + bonus
     
-    dice_str = "[#{dice_str}]";
+    dice_str = "[#{dice_str}]"
     
-    output = "#{dice_now}#{dice_str}";
+    output = "#{dice_now}#{dice_str}"
     
     if(bonus > 0)
-      output += "+#{bonus}";
+      output += "+#{bonus}"
     elsif(bonus < 0)
-      output += "#{bonus}";
+      output += "#{bonus}"
     end
     
     if(sendMode > 0)
       if(/[^\d\[\]]+/ =~ output)
-        output = "#{@nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}";
+        output = "#{@nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}"
       else
-        output = "#{@nick_e}: (#{string}) ＞ #{total_n}";
+        output = "#{@nick_e}: (#{string}) ＞ #{total_n}"
       end
     else
-      output = "#{@nick_e}: (#{string}) ＞ #{total_n}";
+      output = "#{@nick_e}: (#{string}) ＞ #{total_n}"
     end
     
     if(signOfInequality != "")  # 成功度判定処理
-      output += check_suc(total_n, dice_now, signOfInequality, diff, 2, 6, 0, 0);
+      output += check_suc(total_n, dice_now, signOfInequality, diff, 2, 6, 0, 0)
     end
     
-    return output;
+    return output
   end
 
   ####################           迷宮デイズ          ########################
   def rollDiceCommand(command)
-    output = '1';
-    type = "";
+    output = '1'
+    type = ""
     total_n = 0
 
     # 散策表(2d6)
     case command
     when /DRT/i
-      type = '散策';
+      type = '散策'
       output, total_n = md_research_table
       # 休憩表(2D6)
     when /DBT/i
-      type = '休憩';
+      type = '休憩'
       output, total_n = md_break_table
       # ハプニング表(2D6)
     when /DHT/i
-      type = 'ハプニング';
+      type = 'ハプニング'
       output, total_n = md_happening_table
       # お宝表
     when /MPT/i
-      type = '相場';
+      type = '相場'
       output, total_n = md_market_price_table
     when /T1T/i
-      type = 'お宝１';
+      type = 'お宝１'
       output, total_n = md_treasure1_table
     when /T2T/i
-      type = 'お宝２';
+      type = 'お宝２'
       output, total_n = md_treasure2_table
     when /T3T/i
-      type = 'お宝３';
+      type = 'お宝３'
       output, total_n = md_treasure3_table
     when /T4T/i
-      type = 'お宝４';
+      type = 'お宝４'
       output, total_n = md_treasure4_table
       # 因縁表
     when /DCT/i
-      type = '因縁';
+      type = '因縁'
       output, total_n = md_connection_table
     when /MCT/i
-      type = '怪物因縁';
+      type = '怪物因縁'
       output, total_n = md_monster_connection_table
     when /PCT/i
-      type = 'PC因縁';
+      type = 'PC因縁'
       output, total_n = md_pc_connection_table
     when /LCT/i
-      type = 'ラブ因縁';
+      type = 'ラブ因縁'
       output, total_n = md_love_connection_table
       # 戦闘系
     when /CAT/i
-      type = '痛打';
+      type = '痛打'
       output, total_n = md_critical_attack_table
     when /FWT/i
-      type = '致命傷';
+      type = '致命傷'
       output, total_n = md_fatal_wounds_table
     when /CFT/i
-      type = '戦闘ファンブル';
+      type = '戦闘ファンブル'
       output, total_n = md_combat_fumble_table
       # そのほか
     when /DNT/i
-      type = '交渉';
+      type = '交渉'
       output, total_n = md_negotiation_table
     when /APT/i
-      type = '登場';
+      type = '登場'
       output, total_n = md_appearance_table
     when /KST/i
-      type = 'カーネル停止';
+      type = 'カーネル停止'
       output, total_n = md_kernel_stop_table
     end
 
     if(output != '1')
-      output = "#{type}表(#{total_n}) ＞ #{output}";
+      output = "#{type}表(#{total_n}) ＞ #{output}"
     end
     
-    return output;
+    return output
   end
 
   #**散策表(2d6)

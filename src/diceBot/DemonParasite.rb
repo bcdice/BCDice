@@ -4,9 +4,9 @@ class DemonParasite < DiceBot
 
   def initialize
     super
-    @sendMode = 2;
-    @sortType = 1;
-    @d66Type = 1;
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 1
   end
 
   def gameName
@@ -39,13 +39,14 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
+  # ゲーム別成功度判定(nD6)
+  def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     if(n1 >= 2)  # １の目が２個以上ならファンブル
-      return " ＞ 致命的失敗";
+      return " ＞ 致命的失敗"
     end
     
     if(n_max >= 2)  # ６の目が２個以上あったらクリティカル
-      return " ＞ 効果的成功";
+      return " ＞ 効果的成功"
     end
     
     return '' if(diff == "?")
@@ -53,25 +54,34 @@ INFO_MESSAGE_TEXT
     case signOfInequality
     when ">="
       if(total_n >= diff)
-        return " ＞ 成功";
+        return " ＞ 成功"
       end
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     when ">"
       if(total_n > diff)
-        return " ＞ 成功";
+        return " ＞ 成功"
       end
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     end
   end
   
   
   
   def rollDiceCommand(command)
-    get_urge(command)
+    
+    case command
+    when /(\w)?URGE\s*(\d+)/i
+      return get_urge(command)
+    else
+      return '1'
+    end
+    
   end
   
-  ####################         デモンパ衝動表        ########################
-  def get_urge(string)   # デモンパラサイトの衝動表
+  
+  # 衝動表
+  def get_urge(string)
+    
     unless(/(\w)?URGE\s*(\d+)/i =~ string)
       return '1'
     end
@@ -83,31 +93,31 @@ INFO_MESSAGE_TEXT
     
     case initialWord
     when nil
-      urge_type = 1;
+      urge_type = 1
     when /n/i    # 新衝動表
-      urge_type = 2;
+      urge_type = 2
     when /a/i   # 誤作動表
-      urge_type = 3;
+      urge_type = 3
     when /m/i   # ミュータント衝動表
-      urge_type = 4;
+      urge_type = 4
     when /u/i   # 鬼御魂(戦闘外)衝動表
-      urge_type = 5;
+      urge_type = 5
     when /c/i   # 鬼御魂(戦闘中)衝動表
-      urge_type = 6;
+      urge_type = 6
     else     # あり得ない文字
-      urge_type = 1;
+      urge_type = 1
     end
     
     if(( urgelv < 1 ) or ( urgelv > 5 ))
-      return '衝動段階は1から5です';
+      return '衝動段階は1から5です'
     end
     
     if( urge_type == 0 )
-      return '1';
+      return '1'
     end
     
-    urge = dp_urge_get( urge_type );
-    dice_now, dice_str = roll(2, 6);
+    urge = dp_urge_get( urge_type )
+    dice_now, dice_str = roll(2, 6)
     
     if(urge_type <= 1)
       title = '衝動表'
