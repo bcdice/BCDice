@@ -45,6 +45,8 @@ class UpperDice
     end
     
     dice_a = (string + modify).split(/\+/)
+    debug('dice_a', dice_a)
+    
     diceCommands = []
     bonusValues = []
     
@@ -57,6 +59,7 @@ class UpperDice
     end
     
     bonus = getBonusValue( bonusValues )
+    debug('bonus', bonus)
     
     diceDiff = diff - bonus
     
@@ -99,7 +102,6 @@ class UpperDice
   end
   
   def getMaxAndTotalValueResultStirng(maxValue, totalValue, totalDiceCount)
-    return "" if(totalDiceCount <= 1)
     return " ＞ #{maxValue}/#{totalValue}(最大/合計)"
   end
   

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ダイスボットのテスト方法について</title>
+</head>
+<body>
+<h1>ダイスボットの改造後は必ずテストを追加して実行しましょう！</h1>
+<br/>
+
+<h2>ダイスボットのテスト方法について</h2>
+このディレクトリにある、test.rb を以下のように実行することで、ダイスボットのユニットテストを実行することができます。<br/>
+
+<pre><code>
+ruby -Ku test.rb<br/>
+</code></pre>
+
+# Windowsなら ruby.exe になります。が、この辺りは自明として説明割愛します。<br/>
+<br/>
+また、<br/>
+<br/>
+ruby -Ku test.rb Cthulhu<br/>
+<br/>
+のようにゲームタイプを引数に与えると、そのゲームだけを対象にしてテストを行います。<br/>
+<br/>
+では、Cthulhuだけに絞ってテスト結果を見てみましょう。<br/>
+正常時は以下の様になります。<br/>
+
+<pre><code>
+ruby -Ku test.rb Cthulhu
+.......................................................
+OK.
+</code></pre>
+
+「．」はテスト1件が正常に終了したことを差します。<br/>
+全件成功なら最後に OK. が出ます。<br/>
+<br/>
+次に、テストの一部を失敗するように書き換えて実行してみましょう。<br/>
+
+<pre><code>
+ruby -Ku test.rb Cthulhu
+....................x..................................
+===========================
+index:20
+input:1D100<=50	Cthulhu
+result:
+Cthulhu : (1D100<=50) ＞ 65 ＞ 失敗
+good  :
+Cthulhu : (1D100<=50) ＞ 65 ＞ 成功
+randsText:65/100
+</code></pre>
+
+この結果で、番号20のテストが間違っていることが分ります。<br/>
+通常のテストでは、good  : の内容に合う様にソースコードを修正します。<br/>
+＃今回はテストのため good をわざと間違えています<br/>
+<br/>
+間違えたテストだけを実行したい場合には、以下の様に指定します。<br/>
+
+<pre><code>
+ruby -Ku test.rb 20
+</code></pre>
+
+このように数値を指定すると、その番号のテスト1件だけを実施します。<br/>
+出力結果は以下の様に大量になります。<br/>
+これは、番号指定の場合にはダイスボットのソースコード上で<br/>
+<pre><code>    debug("title", value)
+</code></pre>
+の様に埋め込んだデバッグ文字が全て出力されるためです。<br/>
+<br/>
+
+出力例：
+<pre><code>
+setCardPlace @card_place : 1
+setCardPlace @card_place : 1
+setGameByTitle gameTitle : "Cthulhu"
+setCardPlace @card_place : 1
+setGameByTitle message : "Game設定をクトゥルフに設定しました"
+parren_killer input : "1D100<=50"
+（省略）
+on_public end
+x
+===========================
+index:20
+input:1D100<=50	Cthulhu
+result:
+Cthulhu : (1D100<=50) ＞ 65 ＞ 失敗
+good  :
+Cthulhu : (1D100<=50) ＞ 65 ＞ 成功
+randsText:65/100
+</code></pre>
+
+<br/>
+テスト実行時は、ゲームタイプを指定して確認を行い、<br/>
+エラーが出たときにはテスト番号を指定して詳細なログを参照するのが手軽なやり方になります。<br/>
+<br/>
+<br/>
+<br/>
+
+<h2>テスト用データの追加方法について</h2>
+このディレクトリにある testData.txt を追記／変更することで対応ができます。<br/>
+<br/>
+testData.txt の記述は以下の様になっています。<br/>
+
+<pre><code>
+============================
+input:1D100<=10	Cthulhu
+output:
+Cthulhu : (1D100<=10) ＞ 98 ＞ 致命的失敗
+rand:98/100
+============================
+</code></pre>
+
+これは、<br/>
+<br/>
+input：（テストするダイスコマンド）［タブ］（対応するゲームのタイプ名）<br/>
+output:<br/>
+（出力結果）<br/>
+rand：(出目)/(振るダイスの面数),(出目)/(振るダイスの面数),（...）<br/>
+<br/>
+というフォーマットになっています。<br/>
+これで任意のコマンドを好きな出目で確認することが出来ます。<br/>
+<br/>
+<br/>
+以上です。<br/>
+</body>
+</html>
