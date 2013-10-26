@@ -165,6 +165,8 @@ class DiceBot
       debug("executeCommand exception", e.to_s, $@.join("\n"))
     end
     
+    debug('rollDiceCommand result', result)
+    
     return result
   end
   
