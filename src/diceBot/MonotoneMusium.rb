@@ -18,7 +18,7 @@ class MonotoneMusium < DiceBot
   end
   
   def prefixs
-     ['OT', 'DT', 'WDT']
+     ['2D6.*', 'OT', 'DT', 'WDT']
   end
   
   def getHelpMessage
@@ -37,38 +37,30 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def changeText(string)
-    string
-  end
-  
-  def dice_command(string, nick_e)
+  def rollDiceCommand(command)
     
-    secret_flg = false
+    result = checkRoll(command)
+    return result unless(result.empty?)
     
-    if(/2D6([\+\*\-][\d\+\*\-]+)?[>=]/ =~ string )
-      output_msg = monotone_musium_check(string, nick_e)
-      if(string =~ /S2D6/)
-        secret_flg = true if(output_msg != '1')
-      end
-      return output_msg, secret_flg
-    end
+    debug("判定ロールではなかった")
     
-    
-    return super(string, nick_e)
+    debug("各種表として処理")
+    return rollTableCommand(command)
   end
   
   
-  def monotone_musium_check(string, nick_e)
-    output = '1'
+  def checkRoll(string)
+    output = ''
     
     crit = 12
     fumble = 2
     
-    return output unless(/(^|\s)2D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?(\s|$)/i =~ string)
-    modText = $2
-    target = $3.to_i
-    crit = $5.to_i if($5)
-    fumble = $7.to_i if($7)
+    return output unless(/^2D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i =~ string)
+    
+    modText = $1
+    target = $2.to_i
+    crit = $4.to_i if($4)
+    fumble = $6.to_i if($6)
     
     mod = 0
     mod = parren_killer("(0#{modText})") unless( modText.nil? )
@@ -88,15 +80,15 @@ INFO_MESSAGE_TEXT
       output += " ＞ 失敗"
     end
     
-    output = "#{nick_e}: (#{string}) ＞ #{output}"
+    output = "(#{string}) ＞ #{output}"
     
     return output
     
   end
   
   
-  def rollDiceCommand(command)
-    output = '1'
+  def rollTableCommand(command)
+    output = ''
     type = ""
     
     case command
@@ -111,11 +103,12 @@ INFO_MESSAGE_TEXT
       output, total_n = mm_distortion_table()
     end
     
-    output = "#{type}(#{total_n}) ＞ #{output}" if(output != '1')
+    output = "#{type}(#{total_n}) ＞ #{output}" if(output != '')
     
     return output
   end
 
+  
   # 世界歪曲表(2D6)[WDT]
   def mm_world_distortion_table
     table = [
