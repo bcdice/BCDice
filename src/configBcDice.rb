@@ -1,4 +1,3 @@
-#!/bin/ruby -Ku 
 #--*-coding:utf-8-*--
 
 require 'configBcDiceForSystem.rb'
@@ -35,3 +34,68 @@ $extraCardFileName = ""                #拡張カードファイル名
 
 $iniFileName = 'bcdice.ini'
 
+$allGameTypes = %w{
+Arianrhod
+ArsMagica
+BarnaKronika
+BattleTech
+BloodCrusade
+CardRanker
+Chaos Flare
+Chill
+CrashWorld
+Cthulhu
+CthulhuTech
+DarkBlaze
+DemonParasite
+DoubleCross
+EarthDawn
+EclipsePhase
+Elric!
+Elysion
+EmbryoMachine
+GURPS
+GehennaAn
+GeishaGirlwithKatana
+Gundog
+GundogZero
+HarnMaster
+Hieizan
+HuntersMoon
+InfiniteFantasia
+Insane
+Kamigakari
+KillDeathBusiness
+MagicaLogia
+MeikyuDays
+MeikyuKingdom
+MonotoneMusium
+NJSLYRBATTLE
+Nechronica
+NightWizard
+NightmareHunterDeep
+ParasiteBlood
+Peekaboo
+Pendragon
+PhantasmAdventure
+RecordOfSteam
+RokumonSekai2
+RoleMaster
+RuneQuest
+Ryutama
+SMTKakuseihen
+Satasupe
+ShadowRun
+ShadowRun4
+ShinkuuGakuen
+ShinobiGami
+SwordWorld
+SwordWorld2.0
+TORG
+TokumeiTenkousei
+Tunnels & Trolls
+WARPS
+Warhammer
+WitchQuest
+ZettaiReido
+}

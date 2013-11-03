@@ -136,6 +136,9 @@ class DiceBot
     secretMarker = $2
     command = $3
     
+    command = removeDiceCommandMessage(command)
+    debug("dicebot after command", command)
+    
     debug('match')
     
     output_msg = rollDiceCommandCatched(command)
@@ -155,6 +158,12 @@ class DiceBot
   def isGetOriginalMessage
     false
   end
+  
+  def removeDiceCommandMessage(command)
+    # "2d6 Atack" のAtackのようなメッセージ部分をここで除去
+    command.sub(/[\s　].+/, '')
+  end
+  
   
   def rollDiceCommandCatched(command)
     result = nil

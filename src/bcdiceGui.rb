@@ -287,68 +287,7 @@ class BCDiceDialog < Wx::Dialog
   end
   
   def getAllGameTypes
-    return %w{
-Arianrhod
-ArsMagica
-BarnaKronika
-BattleTech
-BloodCrusade
-CardRanker
-ChaosFlare
-Chill
-CrashWorld
-Cthulhu
-CthulhuTech
-DarkBlaze
-DemonParasite
-DoubleCross
-EarthDawn
-EclipsePhase
-Elric!
-Elysion
-EmbryoMachine
-GURPS
-GehennaAn
-GeishaGirlwithKatana
-GunDog
-GunDogZero
-Hieizan
-HuntersMoon
-InfiniteFantasia
-KillDeathBusiness
-Kamigakari
-MagicaLogia
-MeikyuDays
-MeikyuKingdom
-MonotoneMusium
-NJSLYRBATTLE
-Nechronica
-NightWizard
-NightmareHunterDeep
-ParasiteBlood
-Peekaboo
-Pendragon
-PhantasmAdventure
-RecordOfSteam
-RokumonSekai2
-RoleMaster
-RuneQuest
-Ryutama
-SMTKakuseihen
-SataSupe
-ShadowRun
-ShadowRun4
-ShinkuuGakuen
-ShinobiGami
-SwordWorld
-SwordWorld2.0
-TORG
-TokumeiTenkousei
-Tunnels&Trolls
-WARPS
-WarHammer
-ZettaiReido
-}
+    return $allGameTypes
   end
   
   def onChoiseGame
