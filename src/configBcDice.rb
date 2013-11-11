@@ -74,6 +74,7 @@ NJSLYRBATTLE
 Nechronica
 NightWizard
 NightmareHunterDeep
+Oukahoushin3rd
 ParasiteBlood
 Peekaboo
 Pendragon

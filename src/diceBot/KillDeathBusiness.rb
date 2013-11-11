@@ -36,6 +36,7 @@ class KillDeathBusiness < DiceBot
      'SOUL',
      'STGT',
      'HSAT[1-2]?',
+	 'EXT[1-4]?',
      'SKLT',
 	 'SKLJ',
 	 'JD.*',
@@ -77,6 +78,9 @@ class KillDeathBusiness < DiceBot
    末尾に数字(1,2)を入れることでヘルスタイリスト罵倒表1,2を個別に振れます。
  ・指定特技ランダム決定表 (SKLT)
  ・指定特技分野ランダム決定表 (SKLJ)
+ ・エキストラ表 (EXT)
+   末尾に数字(1,2,3,4)を入れることでエキストラ表A(1),B(2)、
+   エキストラ登場表A(3),B(4)を個別に振れます。
 ・D66ダイスあり
 ・判定　JDx or JDx+y or JDx-y or JDx,z or JDx+y,z JDx-y,z
 　（x＝難易度、y＝補正、z＝ファンブル率（リスク））
@@ -225,7 +229,11 @@ INFO_MESSAGE_TEXT
     when /^HSAT(\d)?$/
       type = $1.to_i
       tableName, result, number = getHairStylistAbuseTableResult(type)
-      
+	  
+    when /^EXT(\d)?$/
+      type = $1.to_i
+      tableName, result, number = getExtraTableResult(type)
+	  
     when /^SKL(T|J)$/
 	  type = $1
       tableName, result, number = getSkillTableResult(type)
@@ -989,6 +997,122 @@ INFO_MESSAGE_TEXT
     
     
     return tableName, result, number
+  end
+  
+  def getExtraTableResult(type)
+    tableName = "エキストラ表"
+    extraTable1 = [
+				   [11, "あなたの親友である"],
+				   [12, "あなたと恨んで付け狙っている"],
+				   [13, "いそがしく電話で話し込んでいる"],
+				   [14, "ころんで逃げ損ねた"],
+				   [15, "シーンの背景の持ち主である"],
+				   [16, "架空の人物だと思われていた神"],
+				   [22, "過去のシーズン優勝者である"],
+				   [23, "気分よく酔っ払った"],
+				   [24, "恐怖で身をすくませている"],
+				   [25, "業界では有名な"],
+				   [26, "幸せな家庭を持つ"],
+				   [33, "広域指名手配されている"],
+				   [34, "今朝のニュースで特集されていた"],
+				   [35, "常に微笑みを絶やさない大物"],
+				   [36, "真実の探求の過程で発狂した"],
+				   [44, "地元では負けを知らない"],
+				   [45, "非常に動作にキレのある"],
+				   [46, "普通の"],
+				   [55, "変身ヒーローの正体である"],
+				   [56, "『#{getNameTableResult(0)[1]}』の異名を持つ"],
+				   [66, "歴史上の人物だが実は生きていた"],
+	              ]
+	extraTable2 = [
+				   [11, "サラリーマン"],
+				   [12, "スポーツ選手"],
+				   [13, "チンピラ"],
+				   [14, "ドライバー"],
+				   [15, "ねずみ"],
+				   [16, "パイロット"],
+				   [22, "映画監督"],
+				   [23, "犬"],
+				   [24, "刺客"],
+				   [25, "主婦"],
+				   [26, "小説家"],
+				   [33, "雀士"],
+				   [34, "政治家"],
+				   [35, "大金持ち"],
+				   [36, "大男"],
+				   [44, "謎の美女"],
+				   [45, "猫"],
+				   [46, "美少女"],
+				   [55, "文化人"],
+				   [56, "勇者"],
+				   [66, "神"],
+	              ]
+    extraTable3 = [
+				   [11, "怪しい箱の中から"],
+				   [12, "哀れな犠牲者を殺しながら"],
+				   [13, "牛に乗りつつ"],
+				   [14, "馬に乗りつつ"],
+				   [15, "壁を粉砕しながら"],
+				   [16, "壁を粉砕しながら"],
+				   [22, "濃い霧の中からゆっくりと"],
+				   [23, "自動ドアを抜けながら"],
+				   [24, "上空から急降下しつつ"],
+				   [25, "全速力で走りつつ"],
+				   [26, "高いところから"],
+				   [33, "テーマ音楽とともに"],
+				   [34, "通りがかりに"],
+				   [35, "名前と職業のテロップと一緒に"],
+				   [36, "バイクに乗りつつ"],
+				   [44, "墓をやぶって"],
+				   [45, "部下を大勢引き連れて"],
+				   [46, "吹きすさぶ風を纏い"],
+				   [55, "武器を構えつつ"],
+				   [56, "ヘルポータルを通って"],
+				   [66, "炎をバックに"],
+	              ]
+	extraTable4 = [
+				   [11, "愛らしく登場"],
+				   [12, "あざやかに登場"],
+				   [13, "あっさりと登場"],
+				   [14, "怪しく登場"],
+				   [15, "荒々しく登場"],
+				   [16, "勢い良く登場"],
+				   [22, "美しく登場"],
+				   [23, "偉そうに登場"],
+				   [24, "おごそかに登場"],
+				   [25, "恐ろしく登場"],
+				   [26, "かっこよく登場"],
+				   [33, "気取って登場"],
+				   [34, "死の予感とともに登場"],
+				   [35, "しめやかに登場"],
+				   [36, "上品に登場"],
+				   [44, "だらしなく登場"],
+				   [45, "知的に登場"],
+				   [46, "なごやかに登場"],
+				   [55, "なめらかに登場"],
+				   [56, "不機嫌に登場"],
+				   [66, "陽気に登場"],
+	              ]
+	
+	case type
+	  when 1
+	    result, number = get_table_by_d66_swap(extraTable1)
+	  when 2
+	    result, number = get_table_by_d66_swap(extraTable2)
+	  when 3
+	    result, number = get_table_by_d66_swap(extraTable3)
+	  when 4
+	    result, number = get_table_by_d66_swap(extraTable4)
+	  else
+	    result1, num1 = get_table_by_d66_swap(extraTable1)
+	    result2, num2 = get_table_by_d66_swap(extraTable2)
+	    result3, num3 = get_table_by_d66_swap(extraTable3)
+	    result4, num4 = get_table_by_d66_swap(extraTable4)
+		result = "#{result1}#{result2}が#{result3}#{result4}"
+		number = "#{num1},#{num2},#{num3},#{num4}"
+	  end
+	  
+	  return tableName, result, number
   end
 end
 

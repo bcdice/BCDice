@@ -843,22 +843,35 @@ class BCDice
     when /(\d+)D(\d+)/i
       diceCount = $1
       diceMax = $2
-      value, = roll(diceCount, diceMax)
+      value, diceText = roll(diceCount, diceMax)
     else
       table = []
     end
     
     debug("value", value)
     
-    key, result_msg = table.find{|i| i.first === value}
+    key, message = table.find{|i| i.first === value}
     
-    if( result_msg.nil? )
+    if( message.nil? )
       return output_msg, secret_flg
     end
     
-    output_msg = "#{nick_e}:#{title}(#{value}) ＞ #{result_msg}"
+    message = rollTableMessageDiceText(message)
+    
+    output_msg = "#{nick_e}:#{title}(#{value}[#{diceText}]) ＞ #{message}"
     
     return output_msg, secret_flg
+  end
+  
+  def rollTableMessageDiceText(text)
+    message = text.gsub(/(\d+)D(\d+)/) do
+      diceCount = $1
+      diceMax = $2
+      value, = roll(diceCount, diceMax)
+      "#{$1}D#{$2}(→#{value})"
+    end
+    
+    return message
   end
   
   
@@ -1851,6 +1864,9 @@ class BCDice
     when /(^|\s)RecordOfSteam$/i
       require 'diceBot/RecordOfSteam'
       diceBot = RecordOfSteam.new
+    when /(^|\s)Oukahoushin3rd$/i
+      require 'diceBot/Oukahoushin3rd'
+      diceBot = Oukahoushin3rd.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else

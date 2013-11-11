@@ -59,7 +59,9 @@ class TestDiceBot
     bot = CgiDiceBot.new
     bot.setRandomValues(@rands)
     bot.setTest()
-    result, randResults = bot.roll(message, gameType)
+    
+    tableDir = '../../extratables'
+    result, randResults = bot.roll(message, gameType, tableDir)
     
     unless( @rands.empty? )
       result << "\n\tダイス残り：#{@rands.collect do |i| i.join('/') end.join(',')}"

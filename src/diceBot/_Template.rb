@@ -44,7 +44,7 @@ MESSAGETEXT
     string
   end
   
-  def dice_command_xRn(string, nick_e)
+  def rollDiceCommand(command)
     ''
   end
   
