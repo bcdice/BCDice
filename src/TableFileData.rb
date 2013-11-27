@@ -58,10 +58,12 @@ class TableFileData
       fileName = fileName.untaint
       
       info = readGameCommandInfo(fileName, prefix)
+      gameType = info["gameType"]
+      gameType ||= ""
       command = info["command"]
       next if(command.empty?)
       
-      tableData[command] = info
+      tableData["#{gameType}_#{command}"] = info
     end
     
     return tableData
@@ -181,10 +183,13 @@ class TableFileData
     oneTableData = Hash.new
     isSecret = false
     
-    @tableData.keys.each do |key|
+    @tableData.keys.each do |fileName|
+      next unless(/.*_(.+)/ === fileName)
+      key = $1
+      
       next unless(/^(s|S)?#{key}(\s|$)/i === arg)
       
-      data = @tableData[key]
+      data = @tableData[fileName]
       gameType = data["gameType"]
       
       next unless( isTargetGameType(gameType, targetGameType) )

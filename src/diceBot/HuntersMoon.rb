@@ -19,7 +19,7 @@ class HuntersMoon < DiceBot
   end
   
   def prefixs
-     ['(ET|CLT|SLT|HLT|FLT|DLT|MAT|SAT|TST|THT|TAT|TBT|TLT|TET)\d*']
+     ['(ET|CLT|SLT|HLT|FLT|DLT|MAT|SAT|SA2T|TST|THT|TAT|TBT|TLT|TET)\d*']
   end
   
   def getHelpMessage
@@ -35,6 +35,8 @@ class HuntersMoon < DiceBot
 　・部位ダメージ決定表　(DLT)
 　・モノビースト行動表　(MAT)
 　・異形アビリティー表　(SATx) (xは個数)
+　・異形アビリティー表2　(SA2Tx) (xは個数)
+　　→表１と表２の振り分けも判定
 　・指定特技(社会)表　　(TST)
 　・指定特技(頭部)表　　(THT)
 　・指定特技(腕部)表　　(TAT)
@@ -91,13 +93,13 @@ INFO_MESSAGE_TEXT
       type = 'モノビースト行動';
       output, total_n = hm_monobeast_action_table
       
-    when /SAT(\d*)/i
-      type = '異形アビリティー';
-      count = $1.to_i
+    when /SA(2)?T(\d*)/i
+      isType2 = (not $1.nil?)
+      count = $2.to_i
       count = 1 if(count == 0)
-      debug('count', count)
-      output, total_n = hm_strange_ability_table(count);
-      debug('SAT output', output)
+      
+      type = '異形アビリティー';
+      output, total_n = get_strange_ability_table_result(count, isType2)
       
     when /TST/i
       type = '指定特技(社会)';
@@ -223,72 +225,134 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
   
-#** 異形アビリティー表
-  def hm_strange_ability_table(num)
-    output = '';
-    dice = '';
+  
+  def getStrangeAbilityTable1()
+  end
+  
+  
+  #** 異形アビリティー表
+  def get_strange_ability_table_result(count, isType2)
+    output = ''
+    dice = ''
     
-    num.times do |i|
-      ability, indexText = hm_strange_ability_table_item
-      next if( ability == '1' )
+    table1 = get_strange_ability_table_1
+    table2 = get_strange_ability_table_2
+    
+    count.times do |i|
       
       if( i != 0 )
-        output += "/";
-        dice += ",";
+        output += "/"
+        dice += ","
       end
       
-      output += "#{ability}";
+      table = table1
+      
+      if( isType2 )
+        number, = roll(1, 6)
+        index = ((number % 2) == 1 ? 0 : 1)
+        
+        table = [table1, table2][index]
+        dice += "#{number}-"
+        output += "[表#{index + 1}]"
+      end
+      
+      ability, indexText = get_table_by_d66(table)
+      next if( ability == '1' )
+      
+      output += "#{ability}"
       dice += indexText
     end
     
     return '1', dice if(output.empty?)
     
-    return output, dice;
+    return output, dice
   end
 
   
-  def hm_strange_ability_table_item
-    table = [
-             '大牙',
-             '大鎌',
-             '針山',
-             '大鋏',
-             '吸血根',
-             '巨大化',
-             '瘴気',
-             '火炎放射',
-             '鑢',
-             'ドリル',
-             '絶叫',
-             '粘液噴射',
-             '潤滑液',
-             '皮膚装甲',
-             '器官生成',
-             '翼',
-             '四肢複製',
-             '分解',
-             '異言',
-             '閃光',
-             '冷気',
-             '悪臭',
-             '化膿歯',
-             '気嚢',
-             '触手',
-             '肉瘤',
-             '暗視',
-             '邪視',
-             '超振動',
-             '酸分泌',
-             '結晶化',
-             '裏腹',
-             '融合',
-             '嘔吐',
-             '腐敗',
-             '変色',
-            ];
-    
-    return get_table_by_d66(table)
+  def get_strange_ability_table_1
+    table = %w{
+大牙
+大鎌
+針山
+大鋏
+吸血根
+巨大化
+瘴気
+火炎放射
+鑢
+ドリル
+絶叫
+粘液噴射
+潤滑液
+皮膚装甲
+器官生成
+翼
+四肢複製
+分解
+異言
+閃光
+冷気
+悪臭
+化膿歯
+気嚢
+触手
+肉瘤
+暗視
+邪視
+超振動
+酸分泌
+結晶化
+裏腹
+融合
+嘔吐
+腐敗
+変色
+}
+    return table
   end
+
+  def get_strange_ability_table_2
+    table = %w{
+電撃
+障壁
+追加肢
+破裂球
+死病
+ソナー
+未来視
+寄生体
+再構築
+分身
+大角
+鉄塊
+硬質化
+生命力吸収
+鬼火
+金縛り
+排出口
+金属化
+鋼鱗
+神経接合
+光翼
+環境適応
+消化剤
+プロペラ
+血栓
+骨槍
+回転
+怒髪
+煙幕
+脂肪層
+逆棘
+偽頭
+赤化
+発条
+凶運
+巨砲
+}
+    return table
+  end
+
   
 #** 指定特技ランダム決定(社会)
   def hm_social_skill_table
