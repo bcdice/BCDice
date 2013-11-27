@@ -868,7 +868,7 @@ class BCDice
       diceCount = $1
       diceMax = $2
       value, = roll(diceCount, diceMax)
-      "#{$1}D#{$2}(→#{value})"
+      "#{$1}D#{$2}(=>#{value})"
     end
     
     return message
@@ -1849,6 +1849,9 @@ class BCDice
     when /(^|\s)GURPS$/i
       require 'diceBot/Gurps'
       diceBot = Gurps.new
+    when /(^|\s)GurpsFW$/i
+      require 'diceBot/GurpsFW'
+      diceBot = GurpsFW.new
     when /(^|\s)HarnMaster$/i
       require 'diceBot/HarnMaster'
       diceBot = HarnMaster.new

@@ -28,7 +28,7 @@ class CardRanker < DiceBot
 学園場所表 (SST)
 運命表 (DT)
 大会運命表 (TDT)
-学園運命表 (SDT)
+学園運命表 (GDT)
 崩壊運命表 (CDT)
 INFO_MESSAGE_TEXT
   end
