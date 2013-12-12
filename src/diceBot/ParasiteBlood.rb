@@ -20,19 +20,14 @@ class ParasiteBlood < DemonParasite
 　衝動表に従って自動でダイスロールを行い、結果を表示します。
 　ダイスロールと同様に、他のプレイヤーに隠れてロールすることも可能です。
 　頭に識別文字を追加して、デフォルト以外の衝動表もロールできます。
-　・NURGEx　頭に「N」を付けると「新衝動表」。
 　・AURGEx　頭に「A」を付けると「誤作動表」。
-　・MURGEx　頭に「M」を付けると「ミュータント衝動表」になります。
-　・UURGEx　頭に「U」が付くと鬼御魂の戦闘外衝動表。
-　・CURGEx　頭に「C」で鬼御魂の戦闘中衝動表になります。
-例）URGE1　　　urge5　　　Surge2
+例）URGE1　　　urge5　　　Aurge2
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
   
   
-  # パラサイトブラッドの衝動表
-  def get_urge(string)
+  def get_urge(string)    # パラサイトブラッドの衝動表
     urge = []
 
     unless(/(\w*)URGE\s*(\d+)/i =~ string)
@@ -44,22 +39,22 @@ INFO_MESSAGE_TEXT
     
     case initialWord
     when ""
-      urge_type = 1
+      urge_type = 1;
     when /A/i    # 誤作動表
-      urge_type = 2
+      urge_type = 2;
     else         # あり得ない文字
-      urge_type = 1
+      urge_type = 1;
     end
     
     if((urgelv < 1) or (urgelv > 5))
-      return '衝動段階は1から5です'
+      return '衝動段階は1から5です';
     end
 
     if(urge_type == 0)
-      return '1'
+      return '1';
     end
     
-    dice_now, dice_str = roll(2, 6)
+    dice_now, dice_str = roll(2, 6);
     urge = get_pb_urge_table(urgelv, dice_now, urge_type)
     resultText = "#{urgelv}-#{dice_now}:#{urge}"
     if(urge_type <= 1)
@@ -70,7 +65,7 @@ INFO_MESSAGE_TEXT
       output = '1'
     end
     
-    return output
+    return output;
   end
   
   
@@ -78,14 +73,14 @@ INFO_MESSAGE_TEXT
     table = nil
     
     if(urge_type <= 1)  # 衝動表
-      table =  get_pb_normal_urge_table
+      table =  get_pb_normal_urge_table;
     elsif(urge_type <= 2)  # AASとサイボーグの誤作動表
-      table = get_pb_aas_urge_table
+      table = get_pb_aas_urge_table;
     else   # エラートラップ
-      table = get_pb_normal_urge_table
+      table = get_pb_normal_urge_table;
     end
     
-    return table[level - 1 ][dice - 2]
+    return table[level - 1 ][dice - 2];
   end
   
   def get_pb_normal_urge_table
