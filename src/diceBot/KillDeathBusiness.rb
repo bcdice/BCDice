@@ -39,6 +39,8 @@ class KillDeathBusiness < DiceBot
 	 'EXT[1-4]?',
      'SKLT',
 	 'SKLJ',
+	 'ERT',
+	 'WKT',
 	 'JD.*',
 	]
   end
@@ -72,6 +74,8 @@ class KillDeathBusiness < DiceBot
  ・シーン表 (ST)
  ・サービスシーン表 (EST/sErviceST)
  ・CM表 (CMT)
+ ・蘇生副作用表 (ERT)
+ ・一週間表（WKT)
  ・ソウル放出表 (SOUL)
  ・汎用演出表 (STGT)
  ・ヘルスタイリスト罵倒表 (HSAT)
@@ -217,6 +221,14 @@ INFO_MESSAGE_TEXT
 	  #CM表
       tableName, result, number = getCmTableResult()
       
+    when "ERT"
+	  #副作用蘇生表
+      tableName, result, number = getErTableResult()
+      
+    when "WKT"
+	  #一週間表
+      tableName, result, number = getWKTableResult() 
+            
     when /^EST$/i, /^sErviceST$/i
       tableName, result, number = getServiceSceneTableResult()
       
@@ -776,8 +788,68 @@ INFO_MESSAGE_TEXT
     result, number = get_table_by_d66_swap(table)
     
     return tableName, result, number
+     end
+   
+     
+    def getErTableResult()
+    tableName = "蘇生副作用表"
+    table = [
+             [11, 'おいそそうな匂いがするようになった'],
+             [12, 'おまけでヤギが出てきた'],
+             [13, '髪が蛍光色に変わった'],
+             [14, '声がロボっぽくなった'],
+             [15, '先が三角形になったシッポが生えた'],
+             [16, '頭上に謎のプログレスバーが出ている'],
+             [22, '性別が変わった'],
+             [23, '全身にモザイクがかかった'],
+             [24, '全体的に半透明になった'],
+             [25, 'ちょっと腐った'],
+             [26, '肌が蛍光色に変わった'],
+             [33, '羽が生えた'],
+             [34, '番組参加中の記憶を失った'],
+             [35, '額に第三の目が開いた'],
+             [36, '微妙に浮いてる'],
+             [44, 'ひよこにかわった'],
+             [45, '不合格品のスタンプを押された'],
+             [46, '太った'],
+             [55, '耳が好きな動物のものに変わった'],
+             [56, '痩せた'],
+             [66, '立派な角が額に生えた'],
+            ]
+    result, number = get_table_by_d66_swap(table)
+    
+    return tableName, result, number
   end
   
+    def getWKTableResult() 
+    tableName = "一週間表"
+    table = [
+             [11, '家を追い出されたヘルＰが泊まりに来た'],
+             [12, '危険なオーラを醸し出せるようになり、非常にモテた'],
+             [13, '地獄落ちを覚悟し、身辺整理を行った'],
+             [14, '地獄テレビ情報雑誌にインタビューを受けた'],
+             [15, '実家の商売が好調になるが、客がみんなヘルピープル'],
+             [16, '信号待ちをしていたら、仕事中の悪魔にサインを求められた'],
+             [22, '親戚が番組を見ていて、電話で感想を伝えてきた'],
+             [23, '次の週の護衛天使と知り合いになった'],
+             [24, '次の週の標的と知り合いになった'],
+             [25, 'トラウマが残って全く眠れず、酒に溺れた'],
+             [26, '願いが叶うなら働かなくていいし、仕事を辞めた'],
+             [33, '願いとは別に出演報酬が振り込まれたので豪遊した'],
+             [34, '番組中のノリで人をはたいたら、なんだか死んでしまった'],
+             [35, '番組や悪魔が怖くなって世界中を逃げ回った'],
+             [36, 'ファンを名乗るストーカーに自宅を荒らされた'],
+             [44, 'ふと思い立って山に籠り、修行に明け暮れた'],
+             [45, 'ヘルスタイリストに自宅の衣類をすべて燃やされた'],
+             [46, 'ヘルドクターが借金の申し込みに来た'],
+             [55, 'ヘルドレスの偽物を売りつけようとする下級悪魔と戦った'],
+             [56, '他の回収人のうち一人と同じ職場だったことが明らかに'],
+             [66, '妙に寄付を募る営業電話がかかってくる週だった'],
+            ]
+    result, number = get_table_by_d66_swap(table)
+    
+    return tableName, result, number
+  end
   
   def getServiceSceneTableResult()
     tableName = "サービスシーン表"
