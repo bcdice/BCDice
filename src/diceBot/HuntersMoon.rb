@@ -43,6 +43,11 @@ class HuntersMoon < DiceBot
 　・指定特技(胴部)表　　(TBT)
 　・指定特技(脚部)表　　(TLT)
 　・指定特技(環境)表　　(TET)
+　・ディフェンス遭遇表1/2/3 (DS1ET/DS2ET/DS3ET)
+　・エスケープ遭遇表1/2/3 (EE1ET/EE2ET/EE3ET)
+　・ディフェンス遭遇表1/2/3 (ET1ET/ET2ET/ET3ET)
+　・ディフェンス遭遇表1/2/3 (TK1ET/TK2ET/TK3ET)
+
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
