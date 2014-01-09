@@ -39,6 +39,7 @@ Arianrhod
 ArsMagica
 BarnaKronika
 BattleTech
+BeastBindTrinity
 BloodCrusade
 CardRanker
 Chaos Flare
