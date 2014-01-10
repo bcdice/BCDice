@@ -118,6 +118,8 @@ INFO_MESSAGE_TEXT
     
     if( is_int?(experiencePoint) )
       experiencePoint = experiencePoint.to_i
+    else
+      experiencePoint = sprintf("%.1f",experiencePoint )
     end
     
     debug("experiencePoint", experiencePoint)
