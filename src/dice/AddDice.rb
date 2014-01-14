@@ -259,10 +259,12 @@ class AddDice
   
   def getSlashedDice(slashMark, dice)
     
-    return dice unless /^\/(\d+)(.)?$/i === slashMark
+    return dice unless( /^\/(\d+)(.)?$/i === slashMark )
     
     rate = $1.to_i
     mark = $2
+    
+    return dice if( rate == 0 )
     
     value = (1.0 * dice / rate)
     

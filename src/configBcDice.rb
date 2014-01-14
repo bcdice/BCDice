@@ -41,6 +41,7 @@ BarnaKronika
 BattleTech
 BeastBindTrinity
 BloodCrusade
+BloodMoon
 CardRanker
 Chaos Flare
 Chill

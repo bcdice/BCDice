@@ -36,6 +36,11 @@ class BloodCrusade < DiceBot
 　・ランダム全特技表　 AST
 　・軽度狂気表　　　　 MIT
 　・重度狂気表　　　　 SIT
+　・戦場シーン表　　　 BDST
+　・夢シーン表　　　　 DMST
+　・田舎シーン表　　　 CYST
+　・学校シーン表　　　 SLST
+　・館シーン表　　　　 MNST
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
