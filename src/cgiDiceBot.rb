@@ -9,6 +9,7 @@ class CgiDiceBot
     @isSecret = false
     @rands = nil #テスト以外ではnilで良い。ダイス目操作パラメータ
     @isTest = false
+    @bcdice = nil
     
     $SEND_STR_MAX = 99999 # 最大送信文字数(本来は500byte上限)
   end
@@ -90,18 +91,20 @@ class CgiDiceBot
   end
   
   def executeDiceBot(message, gameType, dir = nil, prefix = '', isNeedResult = false)
-    bcdiceMarker = BCDiceMaker.new
-    bcdice = bcdiceMarker.newBcDice()
+    bcdice = newBcDice
     
     bcdice.setIrcClient(self)
     bcdice.setRandomValues(@rands)
-    bcdice.isKeepSecretDice(false)
+    bcdice.isKeepSecretDice(@isTest)
     bcdice.setTest(@isTest)
     bcdice.setCollectRandResult(isNeedResult)
     bcdice.setDir(dir, prefix)
     
-    bcdice.setGameByTitle( gameType )
-    gameType = bcdice.getGameType
+    if( bcdice.getGameType != gameType )
+      bcdice.setGameByTitle( gameType )
+      gameType = bcdice.getGameType
+    end
+    
     bcdice.setMessage(message)
     
     channel = ""
@@ -115,6 +118,15 @@ class CgiDiceBot
     randResults = bcdice.getRandResults
     
     return rollResult, randResults, gameType
+  end
+  
+  def newBcDice
+    if( @bcdice.nil? )
+      bcdiceMaker = BCDiceMaker.new
+      @bcdice = bcdiceMaker.newBcDice()
+    end
+    
+    return @bcdice
   end
   
   def getGameCommandInfos(dir, prefix)

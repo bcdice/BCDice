@@ -38,9 +38,14 @@ class TableFileData
     
     @dir = './extratables'
     @tableData = searchTableFileDefine(@dir)
+    
+    @dirs = []
   end
   
   def setDir(dir, prefix = '')
+    return if( @dirs.include?(dir) )
+    @dirs << dir
+    
     tableData = searchTableFileDefine(dir, prefix)
     @tableData.merge!( tableData )
   end

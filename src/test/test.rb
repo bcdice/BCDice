@@ -27,6 +27,10 @@ class TestDiceBot
     
 #    @testResultFile = open('testResult.txt', 'w+')
     
+    targetGameType, targetNumber = getTargetGameTypeAndNumber
+    require 'cgiDiceBot'
+    @bot = CgiDiceBot.new
+    
     errorLog = ""
     testDataList.each do |index, input, good, rands, randsText|
       @testIndex = index
@@ -34,7 +38,7 @@ class TestDiceBot
       @good = good.toutf8
       @rands = rands
       @randsText = randsText
-      errorLog << executeTest()
+      errorLog << executeTest(targetGameType, targetNumber)
     end
     
     if( errorLog.empty? )
@@ -48,20 +52,25 @@ class TestDiceBot
   end
 
   def getMessageAndGameTape
-    message, gameType, *dummy = @input.split(/\t/)
-    return message, gameType
+    messages  = @input.split(/\t/)
+    gameType = messages.pop
+    
+    return messages, gameType
   end
   
   def executeCommand()
-    message, gameType = getMessageAndGameTape
+    messages, gameType = getMessageAndGameTape
     
-    require 'cgiDiceBot'
-    bot = CgiDiceBot.new
-    bot.setRandomValues(@rands)
-    bot.setTest()
+    @bot.setRandomValues(@rands)
+    @bot.setTest()
+    
+    result = ""
     
     tableDir = '../../extratables'
-    result, randResults = bot.roll(message, gameType, tableDir)
+    messages.each do |message|
+      resultOne, randResults = @bot.roll(message, gameType, tableDir)
+      result << resultOne
+    end
     
     unless( @rands.empty? )
       result << "\n\tダイス残り：#{@rands.collect do |i| i.join('/') end.join(',')}"
@@ -70,10 +79,8 @@ class TestDiceBot
     return result
   end
   
-  def executeTest()
+  def executeTest(targetGameType, targetNumber)
     message, currentGameType = getMessageAndGameTape
-    targetGameType, targetNumber = getTargetGameTypeAndNumber
-    
     
     return "" unless( isTargetGameType(targetGameType, currentGameType) )
     return "" unless( isTargetNumber(targetNumber, @testIndex) )
@@ -156,17 +163,12 @@ class TestDiceBot
     return targetGameType, number
   end
   
+  
   def getRands(randsText)
-    randsSet = randsText.split(/,/)
-    
-    rands = randsSet.collect do |pair|
-      value, max = pair.split('/')
-      [value.to_i, max.to_i]
-    end
-    
+    rands = randsText.scan(/(\d+)\/(\d+)/)
     return rands
   end
-
+  
 
   def isTargetGameType(targetGameType, currentGameType)
     return true if( targetGameType.nil? )
