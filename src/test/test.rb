@@ -68,8 +68,10 @@ class TestDiceBot
     
     tableDir = '../../extratables'
     messages.each do |message|
-      resultOne, randResults = @bot.roll(message, gameType, tableDir)
-      result << resultOne
+      begin
+        resultOne, randResults = @bot.roll(message, gameType, tableDir)
+        result << resultOne
+      end
     end
     
     unless( @rands.empty? )

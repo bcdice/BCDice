@@ -56,6 +56,7 @@ EclipsePhase
 Elric!
 Elysion
 EmbryoMachine
+EndBreaker
 GURPS
 GehennaAn
 GeishaGirlwithKatana
@@ -98,6 +99,7 @@ SwordWorld2.0
 TORG
 TokumeiTenkousei
 Tunnels & Trolls
+Utakaze
 WARPS
 Warhammer
 WitchQuest
