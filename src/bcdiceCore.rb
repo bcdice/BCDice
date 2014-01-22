@@ -1957,6 +1957,12 @@ class BCDice
     when /(^|\s)(BloodMoon)$/i
       require 'diceBot/BloodMoon'
       diceBot = BloodMoon.new
+    when /(^|\s)(Utakaze)$/i
+      require 'diceBot/Utakaze'
+      diceBot = Utakaze.new
+    when /(^|\s)(EndBreaker)$/i
+      require 'diceBot/EndBreaker'
+      diceBot = EndBreaker.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else
