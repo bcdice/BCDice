@@ -100,6 +100,7 @@ class BCDice
     @rands = nil
     @isKeepSecretDice = true
     @randResults = nil
+    @isIrcMode = true
   end
   
   def setDir(dir, prefix)
@@ -144,7 +145,7 @@ class BCDice
   
   def cutMessageCommend(message)
     case message
-    when $OPEN_PLOT, $OPEN_DICE
+    when /(^|\s+)(#{$OPEN_DICE}|#{$OPEN_PLOT})(\s+|$)/i
       return message
     end
     
@@ -224,7 +225,7 @@ class BCDice
     @ircClient.quit
     
     if( @parent.quitFunction.nil? )
-      sleep( 3 )
+      sleepForIrc( 3 )
       exit( 0 )
     else
       @parent.quitFunction.call()
@@ -546,32 +547,32 @@ class BCDice
     sendMessageToOnlySender("・シークレットをオープンする(#{$OPEN_DICE})")
     sendMessageToOnlySender("・四則計算(端数切捨て)　　　(C(式))")
     
-    sleep 2
+    sleepForIrc 2
     
     @diceBot.getHelpMessage().each do |i|
       sendMessageToOnlySender(i)
       if( (i % 5) == 0 )
-        sleep 1
+        sleepForIrc 1
       end
     end
     
     sendMessageToOnlySender("  ---")
-    sleep 1
+    sleepForIrc 1
     sendMessageToOnlySender("・プロット表示　　　　　　　　(#{$OPEN_PLOT})")
     sendMessageToOnlySender("・プロット記録　　　　　　　　(Talkで #{$ADD_PLOT}:プロット)")
     sendMessageToOnlySender("  ---")
-    sleep 2
+    sleepForIrc 2
     sendMessageToOnlySender("・ポイントカウンタ値登録　　　(#[名前:]タグn[/m]) (識別名、最大値省略可,Talk可)")
     sendMessageToOnlySender("・カウンタ値操作　　　　　　　(#[名前:]タグ+n) (もちろん-nもOK,Talk可)")
     sendMessageToOnlySender("・識別名変更　　　　　　　　　(#RENAME!名前1->名前2) (Talk可)")
-    sleep 1
+    sleepForIrc 1
     sendMessageToOnlySender("・同一タグのカウンタ値一覧　　(#OPEN!タグ)")
     sendMessageToOnlySender("・自キャラのカウンタ値一覧　　(Talkで#OPEN![タグ]) (全カウンタ表示時、タグ省略)")
     sendMessageToOnlySender("・自キャラのカウンタ削除　　　(#[名前:]DIED!) (デフォルト時、識別名省略)")
     sendMessageToOnlySender("・全自キャラのカウンタ削除　　(#ALL!:DIED!)")
     sendMessageToOnlySender("・カウンタ表示チャンネル登録　(#{$READY_CMD})")
     sendMessageToOnlySender("  ---")
-    sleep 2
+    sleepForIrc 2
     sendMessageToOnlySender("・カード機能ヘルプ　　　　　　(c-help)")
     sendMessageToOnlySender("  -- END ---")
   end
@@ -654,7 +655,7 @@ class BCDice
       else
         debug("message", message)
         sendMessage(@channel, message)
-        sleep 1
+        sleepForIrc 1
       end
     end
   end
@@ -682,7 +683,7 @@ class BCDice
       next if( diceResult.empty?)
       
       sendMessage(@channel, diceResult)
-      sleep 1
+      sleepForIrc 1
     end
   end
   
@@ -1981,6 +1982,18 @@ class BCDice
     debug( 'setGameByTitle message', message )
     
     return message
+  end
+  
+  
+  def setIrcMode(mode)
+    @isIrcMode = mode
+  end
+  
+  
+  def sleepForIrc(second)
+    if( @isIrcMode  )
+      sleep( second )
+    end
   end
   
 end

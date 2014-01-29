@@ -1,1668 +1,1678 @@
 #=================================================================================
-#Ѓyѓ\ѓtѓg–јЃz ѓQЃ[ѓЂђЭ’иЊ^ѓ_ѓCѓXѓ{ѓbѓgЃuѓ{Ѓ[ѓ“ѓYЃ•ѓJЃ[ѓYЃv
-#Ѓy’ЌмЊ ЋТЃz Faceless & ‚Ѕ‚ў‚Ѕ‚ў’|—¬
-#Ѓy‘О‰ћЉВ‹«Ѓz 
-# WindowsЉВ‹«ЃF 
-#  bcdice.exe ‚р’јђЪЋАЌs‚µ‚Д‚І——p‚­‚ѕ‚і‚ўЃB
-# Windows€ИЉO‚МOS:
-#  Ruby1.8‚рѓCѓ“ѓXѓgЃ[ѓ‹‚µ‚ЅЏг‚Е‰є‹L‚МѓRѓ}ѓ“ѓh‚Еѓ‰ѓCѓuѓ‰ѓЉ‚рѓCѓ“ѓXѓgЃ[ѓ‹Љи‚ў‚Ь‚·
+#гЂђг‚Ѕгѓ•гѓ€еђЌгЂ‘ г‚Ігѓјгѓ иЁ­е®љећ‹гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЂЊгѓњгѓјгѓіг‚єпј†г‚«гѓјг‚єгЂЌ
+#гЂђи‘—дЅњжЁ©иЂ…гЂ‘ Faceless & гЃџгЃ„гЃџгЃ„з«№жµЃ
+#гЂђеЇѕеїњз’°еўѓгЂ‘ 
+# Windowsз’°еўѓпјљ 
+#  bcdice.exe г‚’з›ґжЋҐе®џиЎЊгЃ—гЃ¦гЃ”е€©з”ЁгЃЏгЃ гЃ•гЃ„гЂ‚
+# Windowsд»Ґе¤–гЃ®OS:
+#  Ruby1.8г‚’г‚¤гѓіг‚№гѓ€гѓјгѓ«гЃ—гЃџдёЉгЃ§дё‹иЁгЃ®г‚ігѓћгѓігѓ‰гЃ§гѓ©г‚¤гѓ–гѓ©гѓЄг‚’г‚¤гѓіг‚№гѓ€гѓјгѓ«йЎгЃ„гЃѕгЃ™
 #    gem install net-irc
 #    gem install wxruby
-#  Њг‚Н ruby -Ku bcdice.rb ‚Е‹N“®‚Є‰В”\‚Е‚·ЃB
-#ЃyЉJ”­ЉВ‹«Ѓz WindowsXP Pro SP2 + P4 
-#ЃyЉJ”­ЊѕЊкЃz ActiveScriptRuby(1.8.7-p330)ЃiDLЊіЃFhttp://www.artonx.org/data/asr/ )
-# ЉJ”­Ћћ‚Й‚НЃy‘О‰ћЉВ‹«Ѓz‹LЌЪ‚Мѓ‰ѓCѓuѓ‰ѓЉ‚рѓCѓ“ѓXѓgЃ[ѓ‹Љи‚ў‚Ь‚·ЃiWindows‚МЏкЌ‡‚аЃj
-# EXEѓtѓ@ѓCѓ‹‚рЌмђ¬‚·‚йЏкЌ‡‚Н“Y•t‚М createExe.bat ‚рЋАЌsЉи‚ў‚Ь‚·ЃB
-#Ѓy Ћн •К Ѓz ѓtѓЉЃ[ѓEѓGѓA(ЏCђіBSDѓ‰ѓCѓZѓ“ѓX‚ЙЏЂ‹’) 
-#Ѓy“]ЌЪЏрЊЏЃz ЏCђіBSDѓ‰ѓCѓZѓ“ѓXЏг‚Е‹–‰В
-#ЃyA—Ќђж ‹y‚С ‚PЋџ”z•zЃz https://github.com/torgtaitai/BCDice
+#  еѕЊгЃЇ ruby -Ku bcdice.rb гЃ§иµ·е‹•гЃЊеЏЇиѓЅгЃ§гЃ™гЂ‚
+#гЂђй–‹з™єз’°еўѓгЂ‘ WindowsXP Pro SP2 + P4 
+#гЂђй–‹з™єиЁЂиЄћгЂ‘ ActiveScriptRuby(1.8.7-p330)пј€DLе…ѓпјљhttp://www.artonx.org/data/asr/ )
+# й–‹з™єж™‚гЃ«гЃЇгЂђеЇѕеїњз’°еўѓгЂ‘иЁиј‰гЃ®гѓ©г‚¤гѓ–гѓ©гѓЄг‚’г‚¤гѓіг‚№гѓ€гѓјгѓ«йЎгЃ„гЃѕгЃ™пј€WindowsгЃ®е ґеђ€г‚‚пј‰
+# EXEгѓ•г‚Ўг‚¤гѓ«г‚’дЅњж€ђгЃ™г‚‹е ґеђ€гЃЇж·»д»гЃ® createExe.bat г‚’е®џиЎЊйЎгЃ„гЃѕгЃ™гЂ‚
+#гЂђ зЁ® е€Ґ гЂ‘ гѓ•гѓЄгѓјг‚¦г‚Ёг‚ў(дї®ж­ЈBSDгѓ©г‚¤г‚»гѓіг‚№гЃ«жє–ж‹ ) 
+#гЂђи»ўиј‰жќЎд»¶гЂ‘ дї®ж­ЈBSDгѓ©г‚¤г‚»гѓіг‚№дёЉгЃ§иЁ±еЏЇ
+#гЂђйЂЈзµЎе…€ еЏЉгЃі пј‘ж¬Ўй…ЌеёѓгЂ‘ https://github.com/torgtaitai/BCDice
 #=================================================================================
 
-1.ЉT—v
-Ѓ@IRC—p‚Мѓ_ѓCѓXѓ{ѓbѓg‚Е‚·ЃB
-Ѓ@ѓQЃ[ѓЂђЭ’и‚Й‚ж‚Б‚Дђ¬Њч“x‚аЋ©“®”»’и‚µ‚Ь‚·ЃB
-Ѓ@ѓIЃ[ѓvѓ“ѓ\Ѓ[ѓX‚Е‚·‚М‚ЕЃARuby‚М“З‚Я‚й•ы‚Нѓ_ѓCѓXѓ{ѓbѓgЌмђ¬Ћћ‚ЙЋQЌlЃE—¬—p‚µ‚Д‚­‚ѕ‚і‚ўЃB
+1.ж¦‚и¦Ѓ
+гЂЂIRCз”ЁгЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ§гЃ™гЂ‚
+гЂЂг‚Ігѓјгѓ иЁ­е®љгЃ«г‚€гЃЈгЃ¦ж€ђеЉџеє¦г‚‚и‡Єе‹•е€¤е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂг‚Єгѓјгѓ—гѓіг‚Ѕгѓјг‚№гЃ§гЃ™гЃ®гЃ§гЂЃRubyгЃ®иЄ­г‚Ѓг‚‹ж–№гЃЇгѓЂг‚¤г‚№гѓњгѓѓгѓ€дЅњж€ђж™‚гЃ«еЏ‚иЂѓгѓ»жµЃз”ЁгЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
 
-2ЃDЋg—p•ы–@
+2пјЋдЅїз”Ёж–№жі•
 
-Ѓ@Windows‚Е“®‚©‚·ЏкЌ‡‚Й‚Н‚»‚М‚Ь‚ЬЃ@bcdice.exeЃ@‚рѓ_ѓuѓ‹ѓNѓЉѓbѓN‚µ‚ДЋАЌs‚µ‚Д‚­‚ѕ‚і‚ўЃB
-‰ж–К‚Є•\Ћ¦‚і‚к‚Ь‚·‚М‚ЕЃAIRC‚Ц‚МђЭ’и‚р“ь—Н‚µ‚ДЃuђЪ‘±Ѓvѓ{ѓ^ѓ“‚р‰џ‚№‚О‚В‚И‚Є‚и‚Ь‚·ЃB
+гЂЂWindowsгЃ§е‹•гЃ‹гЃ™е ґеђ€гЃ«гЃЇгЃќгЃ®гЃѕгЃѕгЂЂbcdice.exeгЂЂг‚’гѓЂгѓ–гѓ«г‚ЇгѓЄгѓѓг‚ЇгЃ—гЃ¦е®џиЎЊгЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+з”»йќўгЃЊиЎЁз¤єгЃ•г‚ЊгЃѕгЃ™гЃ®гЃ§гЂЃIRCгЃёгЃ®иЁ­е®љг‚’е…ҐеЉ›гЃ—гЃ¦гЂЊжЋҐз¶љгЂЌгѓњг‚їгѓіг‚’жЉјгЃ›гЃ°гЃ¤гЃЄгЃЊг‚ЉгЃѕгЃ™гЂ‚
 
-Ѓ@Windows€ИЉO‚МOS‚МЏкЌ‡ЃARuby1.8‚рѓCѓ“ѓXѓgЃ[ѓ‹‚µ‚ЅЏг‚Е‰є‹L‚МѓRѓ}ѓ“ѓh‚Еѓ‰ѓCѓuѓ‰ѓЉ‚рѓCѓ“ѓXѓgЃ[ѓ‹Љи‚ў‚Ь‚·
+гЂЂWindowsд»Ґе¤–гЃ®OSгЃ®е ґеђ€гЂЃRuby1.8г‚’г‚¤гѓіг‚№гѓ€гѓјгѓ«гЃ—гЃџдёЉгЃ§дё‹иЁгЃ®г‚ігѓћгѓігѓ‰гЃ§гѓ©г‚¤гѓ–гѓ©гѓЄг‚’г‚¤гѓіг‚№гѓ€гѓјгѓ«йЎгЃ„гЃѕгЃ™
     gem install net-irc
     gem install wxruby
-Њг‚НsrcѓfѓBѓЊѓNѓgѓЉ‚Й€Ъ“®‚µЃA ruby -Ku bcdice.rb ѓRѓ}ѓ“ѓh‚Е‰ж–К‚Є•\Ћ¦‚і‚к‚Ь‚·ЃBЊг‚НWindows”Е‚Ж“Ї—l‚Е‚·ЃB
-
-Ѓ@‚Ь‚ЅЃAѓTЃ[ѓoЃ[‚И‚З‚НѓRѓ}ѓ“ѓhѓ‰ѓCѓ“‚©‚з‚аЋw’и‚Е‚«‚Ь‚·ЃB
-Ѓ@Џ‘Ћ®‚Н
-
- -s ѓTЃ[ѓoђЭ’и      Ѓu-s(ѓTЃ[ѓo):(ѓ|Ѓ[ѓg”ФЌ†)Ѓv     (ex. -sirc.trpg.net:6667 )
- -c ѓ`ѓѓѓ“ѓlѓ‹ђЭ’и  Ѓu-c(ѓ`ѓѓѓ“ѓlѓ‹–ј)Ѓv            (ex. -c#Dice_test )
- -n NickђЭ’и        Ѓu-n(Nick)Ѓv                    (ex. -nFDiceCOC )
- -m ѓЃѓbѓZЃ[ѓWђЭ’и  Ѓu-m(Notice_flg‚М”ФЌ†)Ѓv        (ex. -m0 )
- -g ѓQЃ[ѓЂђЭ’и      Ѓu-g(ѓQЃ[ѓЂЋw’и•¶Ћљ—с)Ѓv        (ex. -gCthulhu )
- -e Љg’ЈѓJЃ[ѓh“ЗЌћ  Ѓu-e(ѓtѓ@ѓCѓ‹–ј)Ѓv              (ex. -etestset.txt )
- -i IRC•¶ЋљѓRЃ[ѓh   Ѓu-i(•¶ЋљѓRЃ[ѓh–јЏМ)Ѓv          (ex. -iISO-2022-JP )
-
-Ѓ@‚Ж‚И‚и‚Ь‚·ЃB•K—v‚И•”•Є‚ѕ‚ЇЏ‘‚ў‚ДЃAЊг‚М•”•Є‚рЏИ—Є‚µ‚Д‚а‚©‚Ь‚ў‚Ь‚№‚сЃB
-Ѓ@Џ‡Џ‚НЋ©—R‚Е‚·‚ЄЃAЉe€шђ”‚МЉФ‚Н”јЉpѓXѓyЃ[ѓX‚Є•K—v‚Е‚·ЃB
-Ѓ@‚Ь‚ЅЃAeѓRѓ}ѓ“ѓh‚рЋg‚¤‚Ж‚«‚НѓJЃ[ѓhѓtѓ@ѓCѓ‹‚р‚±‚МѓXѓNѓЉѓvѓg‚Ж“Ї‚¶ѓtѓHѓ‹ѓ_‚Й’u‚ў‚Д‚­‚ѕ‚і‚ўЃB
-
-Ѓ@—бЃj
-Ѓ@bcdice.exe -sirc.trpg.net:6667 -c#OnlineTRPG -gCthulhu -nfDICE_CoC
-
-Ѓ@ѓvѓЊѓCЉВ‹«‚І‚Ж‚Йѓoѓbѓ`ѓtѓ@ѓCѓ‹‚рЌм‚Б‚Д‚Ё‚­‚Ж•Ц—‚Е‚·ЃB
-
-Ѓ@ЏI—№Ћћ‚Нѓ{ѓbѓg‚ЙTalk‚ЕЃu‚Ё”ж‚к—lЃv‚Ж”­Њѕ‚·‚й‚Жѓ{ѓbѓg‚ЄѓTЃ[ѓo‚©‚зђШ’f‚µ‚ДЏI—№‚µ‚Ь‚·ЃB
+еѕЊгЃЇsrcгѓ‡г‚Јгѓ¬г‚Їгѓ€гѓЄгЃ«з§»е‹•гЃ—гЂЃ ruby -Ku bcdice.rb г‚ігѓћгѓігѓ‰гЃ§з”»йќўгЃЊиЎЁз¤єгЃ•г‚ЊгЃѕгЃ™гЂ‚еѕЊгЃЇWindowsз‰€гЃЁеђЊж§гЃ§гЃ™гЂ‚
+
+гЂЂгЃѕгЃџгЂЃг‚µгѓјгѓђгѓјгЃЄгЃ©гЃЇг‚ігѓћгѓігѓ‰гѓ©г‚¤гѓігЃ‹г‚‰г‚‚жЊ‡е®љгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂж›ёејЏгЃЇ
+
+ -s г‚µгѓјгѓђиЁ­е®љ      гЂЊ-s(г‚µгѓјгѓђ):(гѓќгѓјгѓ€з•ЄеЏ·)гЂЌ     (ex. -sirc.trpg.net:6667 )
+ -c гѓЃгѓЈгѓігѓЌгѓ«иЁ­е®љ  гЂЊ-c(гѓЃгѓЈгѓігѓЌгѓ«еђЌ)гЂЌ            (ex. -c#Dice_test )
+ -n NickиЁ­е®љ        гЂЊ-n(Nick)гЂЌ                    (ex. -nFDiceCOC )
+ -m гѓЎгѓѓг‚»гѓјг‚ёиЁ­е®љ  гЂЊ-m(Notice_flgгЃ®з•ЄеЏ·)гЂЌ        (ex. -m0 )
+ -g г‚Ігѓјгѓ иЁ­е®љ      гЂЊ-g(г‚Ігѓјгѓ жЊ‡е®љж–‡е­—е€—)гЂЌ        (ex. -gCthulhu )
+ -e ж‹Ўејµг‚«гѓјгѓ‰иЄ­иѕј  гЂЊ-e(гѓ•г‚Ўг‚¤гѓ«еђЌ)гЂЌ              (ex. -etestset.txt )
+ -i IRCж–‡е­—г‚ігѓјгѓ‰   гЂЊ-i(ж–‡е­—г‚ігѓјгѓ‰еђЌз§°)гЂЌ          (ex. -iISO-2022-JP )
+
+гЂЂгЃЁгЃЄг‚ЉгЃѕгЃ™гЂ‚еї…и¦ЃгЃЄйѓЁе€†гЃ гЃ‘ж›ёгЃ„гЃ¦гЂЃеѕЊгЃ®йѓЁе€†г‚’зњЃз•ҐгЃ—гЃ¦г‚‚гЃ‹гЃѕгЃ„гЃѕгЃ›г‚“гЂ‚
+гЂЂй †еєЏгЃЇи‡Єз”±гЃ§гЃ™гЃЊгЂЃеђ„еј•ж•°гЃ®й–“гЃЇеЌЉи§’г‚№гѓљгѓјг‚№гЃЊеї…и¦ЃгЃ§гЃ™гЂ‚
+гЂЂгЃѕгЃџгЂЃeг‚ігѓћгѓігѓ‰г‚’дЅїгЃ†гЃЁгЃЌгЃЇг‚«гѓјгѓ‰гѓ•г‚Ўг‚¤гѓ«г‚’гЃ“гЃ®г‚№г‚ЇгѓЄгѓ—гѓ€гЃЁеђЊгЃгѓ•г‚©гѓ«гѓЂгЃ«зЅ®гЃ„гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+
+гЂЂдѕ‹пј‰
+гЂЂbcdice.exe -sirc.trpg.net:6667 -c#OnlineTRPG -gCthulhu -nfDICE_CoC
+
+гЂЂгѓ—гѓ¬г‚¤з’°еўѓгЃ”гЃЁгЃ«гѓђгѓѓгѓЃгѓ•г‚Ўг‚¤гѓ«г‚’дЅњгЃЈгЃ¦гЃЉгЃЏгЃЁдѕїе€©гЃ§гЃ™гЂ‚
+
+гЂЂзµ‚дє†ж™‚гЃЇгѓњгѓѓгѓ€гЃ«TalkгЃ§гЂЊгЃЉз–Іг‚Њж§гЂЌгЃЁз™єиЁЂгЃ™г‚‹гЃЁгѓњгѓѓгѓ€гЃЊг‚µгѓјгѓђгЃ‹г‚‰е€‡ж–­гЃ—гЃ¦зµ‚дє†гЃ—гЃѕгЃ™гЂ‚
 
-3.ѓ{ѓbѓg‚М——p–@
+3.гѓњгѓѓгѓ€гЃ®е€©з”Ёжі•
 
-Ѓ@‚OЃDѓwѓ‹ѓv
-Ѓ@Ѓ@Ѓ@Talk‚Еѓ_ѓCѓXѓ{ѓbѓg‚Й"help"‚Ж”­Њѕ‚µ‚Д‚­‚ѕ‚і‚ўЃB
-Ѓ@Ѓ@Ѓ@ѓJЃ[ѓh‹@”\‚ЙЉЦ‚µ‚Д‚Н"c-help"‚Ж”­Њѕ‚µ‚Д‚­‚ѕ‚і‚ўЃB
+гЂЂпјђпјЋгѓгѓ«гѓ—
+гЂЂгЂЂгЂЂTalkгЃ§гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«"help"гЃЁз™єиЁЂгЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+гЂЂгЂЂгЂЂг‚«гѓјгѓ‰ж©џиѓЅгЃ«й–ўгЃ—гЃ¦гЃЇ"c-help"гЃЁз™єиЁЂгЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
 
-Ѓ@‚PЃDѓ_ѓCѓX
-Ѓ@Ѓ@Ѓ@’Ќ€У:ѓCѓ^ѓYѓ‰–hЋ~‚ЙЃAѓ_ѓCѓX‚Н€к“x‚Й200ЊВ‚Ь‚ЕЃA–Кђ”‚Н1000–К‘М‚Ь‚Е‚Йђ§ЊА‚µ‚Д‚ў‚Ь‚·ЃB
+гЂЂпј‘пјЋгѓЂг‚¤г‚№
+гЂЂгЂЂгЂЂжіЁж„Џ:г‚¤г‚їг‚єгѓ©йІж­ўгЃ«гЂЃгѓЂг‚¤г‚№гЃЇдёЂеє¦гЃ«200еЂ‹гЃѕгЃ§гЂЃйќўж•°гЃЇ1000йќўдЅ“гЃѕгЃ§гЃ«е€¶й™ђгЃ—гЃ¦гЃ„гЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@ЃE‰БЋZѓЌЃ[ѓ‹Ѓ@(xDn)
-Ѓ@Ѓ@Ѓ@”­Њѕ’†‚Й”јЉp‚Е"ЊВђ”dѓ_ѓCѓX‚М–Ъ+ѓ{Ѓ[ѓiѓX"‚МЊ`‚Е‹LЏq‚·‚й‚±‚Ж‚Еѓ_ѓCѓX‚Є
-Ѓ@Ѓ@Ѓ@ђU‚з‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXѓЌЃ[ѓ‹‚р‘«‚µ‚Ѕ‚и€ш‚ў‚Ѕ‚иЃAѓ{Ѓ[ѓiѓX‚р‘«‚µ‚Ѕ‚и€ш‚ў‚Ѕ‚и‚аЏo—€‚Ь‚·ЃB
+гЂЂгЂЂгѓ»еЉ з®—гѓ­гѓјгѓ«гЂЂ(xDn)
+гЂЂгЂЂгЂЂз™єиЁЂдё­гЃ«еЌЉи§’гЃ§"еЂ‹ж•°dгѓЂг‚¤г‚№гЃ®з›®+гѓњгѓјгѓЉг‚№"гЃ®еЅўгЃ§иЁиї°гЃ™г‚‹гЃ“гЃЁгЃ§гѓЂг‚¤г‚№гЃЊ
+гЂЂгЂЂгЂЂжЊЇг‚‰г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓЂг‚¤г‚№гѓ­гѓјгѓ«г‚’и¶ігЃ—гЃџг‚Љеј•гЃ„гЃџг‚ЉгЂЃгѓњгѓјгѓЉг‚№г‚’и¶ігЃ—гЃџг‚Љеј•гЃ„гЃџг‚Љг‚‚е‡єжќҐгЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@2d6Ѓ@Ѓ@3d10+1Ѓ@Ѓ@4d8+2D6Ѓ@3d6+2d10+4Ѓ@Ѓ@6D4-3Ѓ@Ѓ@6d6+4d8+6d10+3d20+4d4
-Ѓ@Ѓ@Ѓ@3d6-1d4+1Ѓ@Ѓ@2d6-1d6
+гЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂ2d6гЂЂгЂЂ3d10+1гЂЂгЂЂ4d8+2D6гЂЂ3d6+2d10+4гЂЂгЂЂ6D4-3гЂЂгЂЂ6d6+4d8+6d10+3d20+4d4
+гЂЂгЂЂгЂЂ3d6-1d4+1гЂЂгЂЂ2d6-1d6
 
-Ѓ@Ѓ@Ѓ@–{—€ЃAЏ‘‚«A‚Л‚йѓ_ѓCѓX‚Мђ”‚Йђ§ЊА‚Н‚ ‚и‚Ь‚№‚с(‚PЌs‚ЄIRC‚Е€µ‚¦‚й’·‚і‚Е‚ ‚й‚±‚Ж)‚µЃA
-Ѓ@Ѓ@Ѓ@Perl‚Е€µ‚¦‚йђ”’l‚М”Н€Н“а‚Е‚ ‚к‚ОЃAѓ_ѓCѓX‚МЌЕ‘е’l‚а”C€У‚Е‚·‚ЄЃAѓCѓ^ѓYѓ‰–hЋ~‚Й
-Ѓ@Ѓ@Ѓ@ѓ_ѓCѓX‚Н€к“x‚Й200ЊВ‚Ь‚ЕЃA–Кђ”‚Н1000–К‘М‚Ь‚Е‚Йђ§ЊА‚µ‚Д‚ў‚Ь‚·ЃB(•ПЌX‰В”\)
-Ѓ@Ѓ@Ѓ@d‚Н‘е•¶Ћљ‚Е‚аЏ¬•¶Ћљ‚Е‚а‚©‚Ь‚ў‚Ь‚№‚сЃB
-Ѓ@Ѓ@Ѓ@‚Ѕ‚ѕ‚µЃA‚±‚к‚з‚Мѓ_ѓCѓX‚НЃu•K‚ё”јЉp‚ЕЃv‹LЏq‚µ‚Д‚­‚ѕ‚і‚ўЃB
+гЂЂгЂЂгЂЂжњ¬жќҐгЂЃж›ёгЃЌйЂЈгЃ­г‚‹гѓЂг‚¤г‚№гЃ®ж•°гЃ«е€¶й™ђгЃЇгЃ‚г‚ЉгЃѕгЃ›г‚“(пј‘иЎЊгЃЊIRCгЃ§ж‰±гЃ€г‚‹й•·гЃ•гЃ§гЃ‚г‚‹гЃ“гЃЁ)гЃ—гЂЃ
+гЂЂгЂЂгЂЂPerlгЃ§ж‰±гЃ€г‚‹ж•°еЂ¤гЃ®зЇ„е›Іе†…гЃ§гЃ‚г‚ЊгЃ°гЂЃгѓЂг‚¤г‚№гЃ®жњЂе¤§еЂ¤г‚‚д»»ж„ЏгЃ§гЃ™гЃЊгЂЃг‚¤г‚їг‚єгѓ©йІж­ўгЃ«
+гЂЂгЂЂгЂЂгѓЂг‚¤г‚№гЃЇдёЂеє¦гЃ«200еЂ‹гЃѕгЃ§гЂЃйќўж•°гЃЇ1000йќўдЅ“гЃѕгЃ§гЃ«е€¶й™ђгЃ—гЃ¦гЃ„гЃѕгЃ™гЂ‚(е¤‰ж›ґеЏЇиѓЅ)
+гЂЂгЂЂгЂЂdгЃЇе¤§ж–‡е­—гЃ§г‚‚е°Џж–‡е­—гЃ§г‚‚гЃ‹гЃѕгЃ„гЃѕгЃ›г‚“гЂ‚
+гЂЂгЂЂгЂЂгЃџгЃ гЃ—гЂЃгЃ“г‚Њг‚‰гЃ®гѓЂг‚¤г‚№гЃЇгЂЊеї…гЃљеЌЉи§’гЃ§гЂЌиЁиї°гЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
 
-Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXѓЌЃ[ѓ‹Њ‹‰К‚рђ®ђ””{(Ћ©‘Rђ””{)‚·‚й‚±‚Ж‚аЏo—€‚Ь‚·ЃB
+гЂЂгЂЂгЂЂгѓЂг‚¤г‚№гѓ­гѓјгѓ«зµђжћњг‚’ж•ґж•°еЂЌ(и‡Єз„¶ж•°еЂЌ)гЃ™г‚‹гЃ“гЃЁг‚‚е‡єжќҐгЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@—б)
-Ѓ@Ѓ@Ѓ@3d6*2Ѓ@Ѓ@2d6*3-1d6+1
+гЂЂгЂЂгЂЂдѕ‹)
+гЂЂгЂЂгЂЂ3d6*2гЂЂгЂЂ2d6*3-1d6+1
 
-Ѓ@Ѓ@Ѓ@‚Ь‚ЅЃA“Ї‚¶ѓ_ѓCѓX‚р•Ўђ”Ћg‚¤‚Ж‚«‚Й‚Н"(3+5)d6"‚Ж‚ў‚¤‚ж‚¤‚Й()‚Е‚­‚­‚Б‚Д‚Ё‚­‚Ж
-Ѓ@Ѓ@Ѓ@ђж‚ЙЊvЋZ‚µ‚Д‚©‚зЏ€—ќ‚і‚к‚й‚ж‚¤‚Й‚µ‚Д‚Э‚Ь‚µ‚ЅЃB
-Ѓ@Ѓ@Ѓ@Љ‡ЊК“а‚МЋZЏp‹LЌ†‚Н‰БЋZ(+)ЃAЊёЋZ(-)ЃAЏжЋZ(*)ЃAЏњЋZ(/)‚Й‘О‰ћ‚µ‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@‚Ь‚Ѕ"((1+2)*3)"‚М‚ж‚¤‚ЙЃA“ь‚кЋqЌ\‘ў‚Й‚И‚Б‚Д‚ў‚Д‚аЊvЋZ‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@‚±‚к‚рЃuЉ‡ЊК“а‘OЏ€—ќЃv‚ЖЊД‚Ф‚±‚Ж‚Й‚µ‚Ь‚·ЃB
+гЂЂгЂЂгЂЂгЃѕгЃџгЂЃеђЊгЃгѓЂг‚¤г‚№г‚’и¤‡ж•°дЅїгЃ†гЃЁгЃЌгЃ«гЃЇ"(3+5)d6"гЃЁгЃ„гЃ†г‚€гЃ†гЃ«()гЃ§гЃЏгЃЏгЃЈгЃ¦гЃЉгЃЏгЃЁ
+гЂЂгЂЂгЂЂе…€гЃ«иЁ€з®—гЃ—гЃ¦гЃ‹г‚‰е‡¦зђ†гЃ•г‚Њг‚‹г‚€гЃ†гЃ«гЃ—гЃ¦гЃїгЃѕгЃ—гЃџгЂ‚
+гЂЂгЂЂгЂЂж‹¬еј§е†…гЃ®з®—иЎ“иЁеЏ·гЃЇеЉ з®—(+)гЂЃжё›з®—(-)гЂЃд№—з®—(*)гЂЃй™¤з®—(/)гЃ«еЇѕеїњгЃ—гЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЃѕгЃџ"((1+2)*3)"гЃ®г‚€гЃ†гЃ«гЂЃе…Ґг‚Ње­ђж§‹йЂ гЃ«гЃЄгЃЈгЃ¦гЃ„гЃ¦г‚‚иЁ€з®—гЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЃ“г‚Њг‚’гЂЊж‹¬еј§е†…е‰Ќе‡¦зђ†гЂЌгЃЁе‘јгЃ¶гЃ“гЃЁгЃ«гЃ—гЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@—б)
-Ѓ@Ѓ@Ѓ@(2+3)d6-1+3d6+2Ѓ@Ѓ@Ѓ@(2*3-4)d6-1d4+1Ѓ@Ѓ@Ѓ@((2+3)*4/3)d6*2+5
+гЂЂгЂЂгЂЂдѕ‹)
+гЂЂгЂЂгЂЂ(2+3)d6-1+3d6+2гЂЂгЂЂгЂЂ(2*3-4)d6-1d4+1гЂЂгЂЂгЂЂ((2+3)*4/3)d6*2+5
 
-Ѓ@Ѓ@Ѓ@‰БЋZѓЌЃ[ѓ‹‚МЊ‹‰К‚ЙЏрЊЏЋ®‚Е–Ъ•W’l‚рЋw’и‚µ‚ДЃAѓQЃ[ѓЂЊЕ—L‚Мђ¬Њч“x”»’и‚р
-Ѓ@Ѓ@Ѓ@Ћ©“®•\Ћ¦‚·‚й‚±‚Ж‚Є‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Њ»ЌЭ‚Н"<="‚Ж">="‚М‚Э‘О‰ћЃB”»’и‚М‚Ѕ‚Я‚Й‚НѓQЃ[ѓЂђЭ’и‚рЌs‚¤•K—v‚Є‚ ‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ђ¬Њч“x‚р•K—v‚Ж‚µ‚И‚ўђ¬Њч‚©Ћё”s‚М‚Э‚М”»’и‚НЃAѓQЃ[ѓЂђЭ’и–і‚µ‚Е‚аЏo—€‚Ь‚·ЃB
+гЂЂгЂЂгЂЂеЉ з®—гѓ­гѓјгѓ«гЃ®зµђжћњгЃ«жќЎд»¶ејЏгЃ§з›®жЁ™еЂ¤г‚’жЊ‡е®љгЃ—гЃ¦гЂЃг‚Ігѓјгѓ е›єжњ‰гЃ®ж€ђеЉџеє¦е€¤е®љг‚’
+гЂЂгЂЂгЂЂи‡Єе‹•иЎЁз¤єгЃ™г‚‹гЃ“гЃЁгЃЊгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂзЏѕењЁгЃЇ"<="гЃЁ">="гЃ®гЃїеЇѕеїњгЂ‚е€¤е®љгЃ®гЃџг‚ЃгЃ«гЃЇг‚Ігѓјгѓ иЁ­е®љг‚’иЎЊгЃ†еї…и¦ЃгЃЊгЃ‚г‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂж€ђеЉџеє¦г‚’еї…и¦ЃгЃЁгЃ—гЃЄгЃ„ж€ђеЉџгЃ‹е¤±ж•—гЃ®гЃїгЃ®е€¤е®љгЃЇгЂЃг‚Ігѓјгѓ иЁ­е®љз„ЎгЃ—гЃ§г‚‚е‡єжќҐгЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@—б)
-Ѓ@Ѓ@Ѓ@1d100<=50Ѓ@Ѓ@Ѓ@1D100<=25
+гЂЂгЂЂгЂЂдѕ‹)
+гЂЂгЂЂгЂЂ1d100<=50гЂЂгЂЂгЂЂ1D100<=25
 
-Ѓ@Ѓ@ЃEѓoѓ‰ѓoѓ‰ѓЌЃ[ѓ‹Ѓ@(xBn)
-Ѓ@Ѓ@Ѓ@ѓ_ѓCѓX‚М’l‚Мa‚рЋg‚¤‚М‚Е‚Н‚И‚­Ѓu‚ ‚й’l€ИЏг‚Мѓ_ѓCѓX‚МЊВђ”Ѓv‚рЋg‚¤ѓQЃ[ѓЂ
-Ѓ@Ѓ@Ѓ@(ѓVѓѓѓhѓEѓ‰ѓ“‚И‚З)‚Й‚а‘О‰ћ‚µ‚Ь‚µ‚ЅЃB
-Ѓ@Ѓ@Ѓ@D‚М‘г‚н‚и‚ЙB‚рЋg‚¤‚±‚Ж‚ЕЃAЌ‡Њv‚Е‚Н‚И‚­ѓoѓ‰ѓoѓ‰‚М’l‚Є•\Ћ¦‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ{Ѓ[ѓiѓX‚р‹L“ь‚·‚й‚±‚Ж‚НЏo—€‚Ь‚№‚сЃB
+гЂЂгЂЂгѓ»гѓђгѓ©гѓђгѓ©гѓ­гѓјгѓ«гЂЂ(xBn)
+гЂЂгЂЂгЂЂгѓЂг‚¤г‚№гЃ®еЂ¤гЃ®е’Њг‚’дЅїгЃ†гЃ®гЃ§гЃЇгЃЄгЃЏгЂЊгЃ‚г‚‹еЂ¤д»ҐдёЉгЃ®гѓЂг‚¤г‚№гЃ®еЂ‹ж•°гЂЌг‚’дЅїгЃ†г‚Ігѓјгѓ 
+гЂЂгЂЂгЂЂ(г‚·гѓЈгѓ‰г‚¦гѓ©гѓігЃЄгЃ©)гЃ«г‚‚еЇѕеїњгЃ—гЃѕгЃ—гЃџгЂ‚
+гЂЂгЂЂгЂЂDгЃ®д»Јг‚Џг‚ЉгЃ«Bг‚’дЅїгЃ†гЃ“гЃЁгЃ§гЂЃеђ€иЁ€гЃ§гЃЇгЃЄгЃЏгѓђгѓ©гѓђгѓ©гЃ®еЂ¤гЃЊиЎЁз¤єгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓњгѓјгѓЉг‚№г‚’иЁе…ҐгЃ™г‚‹гЃ“гЃЁгЃЇе‡єжќҐгЃѕгЃ›г‚“гЂ‚
 
-Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@3b6Ѓ@Ѓ@Ѓ@10b6Ѓ@Ѓ@Ѓ@8B10
+гЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂ3b6гЂЂгЂЂгЂЂ10b6гЂЂгЂЂгЂЂ8B10
 
-Ѓ@Ѓ@Ѓ@ЌЕЊг‚ЙЏрЊЏ‚рЋw’и‚·‚й‚ЖЃAЏрЊЏ‚Й‚ ‚¤ѓ_ѓCѓX‚Є‚ў‚­‚В‚ ‚й‚М‚©ђ”‚¦‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ћg‚¦‚йЏрЊЏ‚НЃA€ИЏг(>=)ЃA€И‰є(<=)ЃA–ў–ћ(<)ЃA‚ж‚и‘е(>)ЃA€ИЉO(<>)ЃA“Ї‚¶(=)
-Ѓ@Ѓ@Ѓ@‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ_ѓCѓX“ЇЋm‚М‰БЋZЋ®‚М‚ЭЋg‚¦‚Ь‚·ЃB‚Ѕ‚ѕ‚µѓ_ѓCѓX‚М–Кђ”‚Н‘µ‚¦‚Д‚­‚ѕ‚і‚ўЃB
-Ѓ@Ѓ@Ѓ@ЏрЊЏ‚Мђ”’l‚ЙЊvЋZЋ®‚НЋg‚¦‚Ь‚№‚сЃB‚Ѕ‚ѕ‚µЉ‡ЊК“а‘OЏ€—ќ‚Н‰В”\‚Е‚·ЃB
+гЂЂгЂЂгЂЂжњЂеѕЊгЃ«жќЎд»¶г‚’жЊ‡е®љгЃ™г‚‹гЃЁгЂЃжќЎд»¶гЃ«гЃ‚гЃ†гѓЂг‚¤г‚№гЃЊгЃ„гЃЏгЃ¤гЃ‚г‚‹гЃ®гЃ‹ж•°гЃ€гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂдЅїгЃ€г‚‹жќЎд»¶гЃЇгЂЃд»ҐдёЉ(>=)гЂЃд»Ґдё‹(<=)гЂЃжњЄжєЂ(<)гЂЃг‚€г‚Ље¤§(>)гЂЃд»Ґе¤–(<>)гЂЃеђЊгЃ(=)
+гЂЂгЂЂгЂЂгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓЂг‚¤г‚№еђЊеЈ«гЃ®еЉ з®—ејЏгЃ®гЃїдЅїгЃ€гЃѕгЃ™гЂ‚гЃџгЃ гЃ—гѓЂг‚¤г‚№гЃ®йќўж•°гЃЇжЏѓгЃ€гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+гЂЂгЂЂгЂЂжќЎд»¶гЃ®ж•°еЂ¤гЃ«иЁ€з®—ејЏгЃЇдЅїгЃ€гЃѕгЃ›г‚“гЂ‚гЃџгЃ гЃ—ж‹¬еј§е†…е‰Ќе‡¦зђ†гЃЇеЏЇиѓЅгЃ§гЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@—б)
-Ѓ@Ѓ@Ѓ@10b6>=4Ѓ@Ѓ@Ѓ@3B6<=3Ѓ@Ѓ@Ѓ@2b6+3b6>=4Ѓ@Ѓ@Ѓ@(3-2)b6=6
+гЂЂгЂЂгЂЂдѕ‹)
+гЂЂгЂЂгЂЂ10b6>=4гЂЂгЂЂгЂЂ3B6<=3гЂЂгЂЂгЂЂ2b6+3b6>=4гЂЂгЂЂгЂЂ(3-2)b6=6
 
-Ѓ@Ѓ@ЃEЊВђ”ђU‚и‘«‚µѓЌЃ[ѓ‹Ѓ@(xRn)
-Ѓ@Ѓ@Ѓ@ѓ_ѓCѓX‚рѓoѓ‰ѓoѓ‰‚ЙѓЌЃ[ѓ‹‚µ‚ДЃA‚»‚Мђ¬Њчђ”‚МЊВђ”•Є‚і‚з‚ЙѓЌЃ[ѓ‹‚µ‚Дђ¬Њч“x‚р
-Ѓ@Ѓ@Ѓ@‰БЋZ‚·‚йѓЌЃ[ѓ‹(“V—…–њЏЫ‚И‚З)‚Й‚а‘О‰ћ‚µ‚Ь‚µ‚ЅЃB
-Ѓ@Ѓ@Ѓ@ђU‚и‘«‚µ‰сђ”‚НѓQЃ[ѓЂђЭ’и‚Е‘О‰ћ‚Й‚И‚Б‚Д‚ў‚Ь‚·ЃB(ѓfѓtѓHѓ‹ѓg‚Н–іЊА)
-Ѓ@Ѓ@Ѓ@B‚М‚©‚н‚и‚ЙR‚рЋg‚¤‚±‚Ж‚ЕЋg—p‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЏрЊЏЋ®‚Н•Kђ{‚ЕЃAѓ_ѓCѓX‚МЉ‡ЊК“а‘OЏ€—ќ‚аЋg‚¦‚Ь‚·ЃB
+гЂЂгЂЂгѓ»еЂ‹ж•°жЊЇг‚Љи¶ігЃ—гѓ­гѓјгѓ«гЂЂ(xRn)
+гЂЂгЂЂгЂЂгѓЂг‚¤г‚№г‚’гѓђгѓ©гѓђгѓ©гЃ«гѓ­гѓјгѓ«гЃ—гЃ¦гЂЃгЃќгЃ®ж€ђеЉџж•°гЃ®еЂ‹ж•°е€†гЃ•г‚‰гЃ«гѓ­гѓјгѓ«гЃ—гЃ¦ж€ђеЉџеє¦г‚’
+гЂЂгЂЂгЂЂеЉ з®—гЃ™г‚‹гѓ­гѓјгѓ«(е¤©зѕ…дё‡и±ЎгЃЄгЃ©)гЃ«г‚‚еЇѕеїњгЃ—гЃѕгЃ—гЃџгЂ‚
+гЂЂгЂЂгЂЂжЊЇг‚Љи¶ігЃ—е›ћж•°гЃЇг‚Ігѓјгѓ иЁ­е®љгЃ§еЇѕеїњгЃ«гЃЄгЃЈгЃ¦гЃ„гЃѕгЃ™гЂ‚(гѓ‡гѓ•г‚©гѓ«гѓ€гЃЇз„Ўй™ђ)
+гЂЂгЂЂгЂЂBгЃ®гЃ‹г‚Џг‚ЉгЃ«Rг‚’дЅїгЃ†гЃ“гЃЁгЃ§дЅїз”ЁгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂжќЎд»¶ејЏгЃЇеї…й €гЃ§гЂЃгѓЂг‚¤г‚№гЃ®ж‹¬еј§е†…е‰Ќе‡¦зђ†г‚‚дЅїгЃ€гЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@—б)
-Ѓ@Ѓ@Ѓ@3r6>=4Ѓ@Ѓ@Ѓ@3R6=6Ѓ@Ѓ@Ѓ@3r6+2r6<=2Ѓ@Ѓ@Ѓ@(3+2)r6>=5
+гЂЂгЂЂгЂЂдѕ‹)
+гЂЂгЂЂгЂЂ3r6>=4гЂЂгЂЂгЂЂ3R6=6гЂЂгЂЂгЂЂ3r6+2r6<=2гЂЂгЂЂгЂЂ(3+2)r6>=5
 
-Ѓ@Ѓ@ЃEЏг•ы–іЊАѓЌЃ[ѓ‹Ѓ@(xUn)
-Ѓ@Ѓ@Ѓ@ѓ_ѓCѓX‚рѓoѓ‰ѓoѓ‰‚ЙѓЌЃ[ѓ‹‚µ‚ДЃA‚»‚МЊ‹‰К‚ЄЏг•ы–іЊА‹«ЉE’l€ИЏг‚Й‚И‚й‚Ж
-Ѓ@Ѓ@Ѓ@ЌД“xђU‚иЃA‚»‚М’l‚рѓ_ѓCѓX–Ъ‚Й‰Б‚¦‚й‚±‚Ж‚Є‚Е‚«‚йѓЌЃ[ѓ‹(ѓЌЃ[ѓ‹ѓ}ѓXѓ^Ѓ[‚в
-Ѓ@Ѓ@Ѓ@ѓVѓѓѓhѓEѓ‰ѓ“‚И‚З)‚Й‚а‘О‰ћ‚µ‚Ь‚µ‚ЅЃB
-Ѓ@Ѓ@Ѓ@‚±‚к‚НЏг•ы–іЊА‚Єђ¬—§‚µ‘±‚Ї‚йЊА‚иђU‚и‘±‚Ї‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@B‚М‚©‚н‚и‚ЙU‚рЋg‚¤‚±‚Ж‚ЕЋg—p‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@‹«ЉE’l‚Н"[‹«ЉE’l]"‚ЕЋw’и‚·‚й‚Щ‚©‚Йѓ}ѓXѓ^Ѓ[ѓRѓ}ѓ“ѓh‚ЕЋ©“®ђЭ’и‚а‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЏрЊЏЋ®‚Є‚И‚ўЏкЌ‡‚НЃAЌ‡Њv’l‚ЄЏo‚й‚ж‚¤‚Й‚µ‚Ь‚µ‚ЅЃB
-Ѓ@Ѓ@Ѓ@ЏрЊЏЋ®‚р‚В‚Ї‚й‚Ж–Ъ•W’l‚Й‚ў‚­‚В’B‚µ‚Ѕ‚©‚а•\Ћ¦‚µ‚Ь‚·ЃB
+гЂЂгЂЂгѓ»дёЉж–№з„Ўй™ђгѓ­гѓјгѓ«гЂЂ(xUn)
+гЂЂгЂЂгЂЂгѓЂг‚¤г‚№г‚’гѓђгѓ©гѓђгѓ©гЃ«гѓ­гѓјгѓ«гЃ—гЃ¦гЂЃгЃќгЃ®зµђжћњгЃЊдёЉж–№з„Ўй™ђеўѓз•ЊеЂ¤д»ҐдёЉгЃ«гЃЄг‚‹гЃЁ
+гЂЂгЂЂгЂЂе†Ќеє¦жЊЇг‚ЉгЂЃгЃќгЃ®еЂ¤г‚’гѓЂг‚¤г‚№з›®гЃ«еЉ гЃ€г‚‹гЃ“гЃЁгЃЊгЃ§гЃЌг‚‹гѓ­гѓјгѓ«(гѓ­гѓјгѓ«гѓћг‚№г‚їгѓјг‚„
+гЂЂгЂЂгЂЂг‚·гѓЈгѓ‰г‚¦гѓ©гѓігЃЄгЃ©)гЃ«г‚‚еЇѕеїњгЃ—гЃѕгЃ—гЃџгЂ‚
+гЂЂгЂЂгЂЂгЃ“г‚ЊгЃЇдёЉж–№з„Ўй™ђгЃЊж€ђз«‹гЃ—з¶љгЃ‘г‚‹й™ђг‚ЉжЊЇг‚Љз¶љгЃ‘гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂBгЃ®гЃ‹г‚Џг‚ЉгЃ«Uг‚’дЅїгЃ†гЃ“гЃЁгЃ§дЅїз”ЁгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂеўѓз•ЊеЂ¤гЃЇ"[еўѓз•ЊеЂ¤]"гЃ§жЊ‡е®љгЃ™г‚‹гЃ»гЃ‹гЃ«гѓћг‚№г‚їгѓјг‚ігѓћгѓігѓ‰гЃ§и‡Єе‹•иЁ­е®љг‚‚гЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂжќЎд»¶ејЏгЃЊгЃЄгЃ„е ґеђ€гЃЇгЂЃеђ€иЁ€еЂ¤гЃЊе‡єг‚‹г‚€гЃ†гЃ«гЃ—гЃѕгЃ—гЃџгЂ‚
+гЂЂгЂЂгЂЂжќЎд»¶ејЏг‚’гЃ¤гЃ‘г‚‹гЃЁз›®жЁ™еЂ¤гЃ«гЃ„гЃЏгЃ¤йЃ”гЃ—гЃџгЃ‹г‚‚иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@—б)
-Ѓ@Ѓ@Ѓ@3u6[6]Ѓ@Ѓ@Ѓ@1U100[96]+3Ѓ@Ѓ@Ѓ@3u6+5u6[6]>=7Ѓ@Ѓ@Ѓ@(5+6)u10[10]+5>=8
-Ѓ@Ѓ@Ѓ@(ѓ}ѓXѓ^Ѓ[ѓRѓ}ѓ“ѓh‚Е‹«ЉE’l“o^‚µ‚Д‚ ‚йЏкЌ‡‚НЃ@3u6>=6Ѓ@‚Ж‹LЏq‚Е‚«‚Ь‚·ЃB)
+гЂЂгЂЂгЂЂдѕ‹)
+гЂЂгЂЂгЂЂ3u6[6]гЂЂгЂЂгЂЂ1U100[96]+3гЂЂгЂЂгЂЂ3u6+5u6[6]>=7гЂЂгЂЂгЂЂ(5+6)u10[10]+5>=8
+гЂЂгЂЂгЂЂ(гѓћг‚№г‚їгѓјг‚ігѓћгѓігѓ‰гЃ§еўѓз•ЊеЂ¤з™»йЊІгЃ—гЃ¦гЃ‚г‚‹е ґеђ€гЃЇгЂЂ3u6>=6гЂЂгЃЁиЁиї°гЃ§гЃЌгЃѕгЃ™гЂ‚)
 
 
-Ѓ@Ѓ@ЃEѓVЃ[ѓNѓЊѓbѓgѓЌЃ[ѓ‹Ѓ@(Sѓ_ѓCѓXѓRѓ}ѓ“ѓh)
-Ѓ@Ѓ@Ѓ@‚і‚з‚Й‚±‚к‚з‚Мѓ_ѓCѓXѓЌЃ[ѓ‹‚Н‘ј‚МѓvѓЊѓCѓ„Ѓ[‚Й‰B‚к‚ДѓЌЃ[ѓ‹‚·‚й‚±‚Ж‚а‰В”\‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXѓRѓ}ѓ“ѓh‚Мђж“Є‚ЙЃuSЃv‚р‚В‚Ї‚ДѓЌЃ[ѓ‹‚·‚й‚Ж–{ђl‚ѕ‚Ї‚Й•ФЋ–‚Є•Ф‚Б‚Д‚«‚Ь‚·ЃB
+гЂЂгЂЂгѓ»г‚·гѓјг‚Їгѓ¬гѓѓгѓ€гѓ­гѓјгѓ«гЂЂ(SгѓЂг‚¤г‚№г‚ігѓћгѓігѓ‰)
+гЂЂгЂЂгЂЂгЃ•г‚‰гЃ«гЃ“г‚Њг‚‰гЃ®гѓЂг‚¤г‚№гѓ­гѓјгѓ«гЃЇд»–гЃ®гѓ—гѓ¬г‚¤гѓ¤гѓјгЃ«йљ г‚ЊгЃ¦гѓ­гѓјгѓ«гЃ™г‚‹гЃ“гЃЁг‚‚еЏЇиѓЅгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓЂг‚¤г‚№г‚ігѓћгѓігѓ‰гЃ®е…€й ­гЃ«гЂЊSгЂЌг‚’гЃ¤гЃ‘гЃ¦гѓ­гѓјгѓ«гЃ™г‚‹гЃЁжњ¬дєєгЃ гЃ‘гЃ«иї”дє‹гЃЊиї”гЃЈгЃ¦гЃЌгЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@—б)
-Ѓ@Ѓ@Ѓ@S3D6Ѓ@Ѓ@Ѓ@S3B6Ѓ@Ѓ@Ѓ@S6R6>=5Ѓ@Ѓ@Ѓ@S3u6+5u6[6]>=7
+гЂЂгЂЂгЂЂдѕ‹)
+гЂЂгЂЂгЂЂS3D6гЂЂгЂЂгЂЂS3B6гЂЂгЂЂгЂЂS6R6>=5гЂЂгЂЂгЂЂS3u6+5u6[6]>=7
 
-Ѓ@Ѓ@Ѓ@‘S€х‚МѓVЃ[ѓNѓЊѓbѓgѓЌЃ[ѓ‹‚МЊ‹‰К‚р€кђД‚ЙЊцЉJ‚·‚й‚±‚Ж‚ЄЏo—€‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓfѓtѓHѓ‹ѓg‚МЊцЉJѓRѓ}ѓ“ѓh‚НЃuOpen Dice!Ѓv‚Е‚·ЃB
+гЂЂгЂЂгЂЂе…Ёе“ЎгЃ®г‚·гѓјг‚Їгѓ¬гѓѓгѓ€гѓ­гѓјгѓ«гЃ®зµђжћњг‚’дёЂж–‰гЃ«е…¬й–‹гЃ™г‚‹гЃ“гЃЁгЃЊе‡єжќҐгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ‡гѓ•г‚©гѓ«гѓ€гЃ®е…¬й–‹г‚ігѓћгѓігѓ‰гЃЇгЂЊOpen Dice!гЂЌгЃ§гЃ™гЂ‚
 
 
-Ѓ@Ѓ@ЃEѓvѓЌѓbѓg‚М“o^
-Ѓ@Ѓ@Ѓ@‚Ь‚ёѓvѓЊѓCЉJЋnЋћ‚ЙЉeЋ©‚ЄЃuѓvѓЌѓbѓg‚МЉJЋ¦ѓRѓ}ѓ“ѓhЃv‚р“ь—Н‚µ‚Д‚­‚ѕ‚і‚ўЃB
-Ѓ@Ѓ@Ѓ@‚±‚к‚ЕѓvѓЌѓbѓg‚МЊ‹‰К‚р‚З‚±‚Й•\Ћ¦‚µ‚Ѕ‚з‚ў‚ў‚©‚рѓ_ѓCѓXѓ{ѓbѓg‚ЄЉo‚¦‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@“o^‚Е‚«‚йѓ`ѓѓѓ“ѓlѓ‹‚Н€к‚В‚Й‚И‚Б‚Д‚ў‚Ь‚·ЃB
+гЂЂгЂЂгѓ»гѓ—гѓ­гѓѓгѓ€гЃ®з™»йЊІ
+гЂЂгЂЂгЂЂгЃѕгЃљгѓ—гѓ¬г‚¤й–‹е§‹ж™‚гЃ«еђ„и‡ЄгЃЊгЂЊгѓ—гѓ­гѓѓгѓ€гЃ®й–‹з¤єг‚ігѓћгѓігѓ‰гЂЌг‚’е…ҐеЉ›гЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+гЂЂгЂЂгЂЂгЃ“г‚ЊгЃ§гѓ—гѓ­гѓѓгѓ€гЃ®зµђжћњг‚’гЃ©гЃ“гЃ«иЎЁз¤єгЃ—гЃџг‚‰гЃ„гЃ„гЃ‹г‚’гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃЊи¦љгЃ€гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂз™»йЊІгЃ§гЃЌг‚‹гѓЃгѓЈгѓігѓЌгѓ«гЃЇдёЂгЃ¤гЃ«гЃЄгЃЈгЃ¦гЃ„гЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@ЋАЌЫ‚Й“o^‚·‚й‚Ж‚«‚Нѓ{ѓbѓg‚ЖTalk‚ЕЃuPLOT:ѓvѓЌѓbѓg‚М“а—eЃv‚Ж“ь—Н‚µ‚Д‚­‚ѕ‚і‚ўЃB
-Ѓ@Ѓ@Ѓ@“ь—Н‚ЄЏI‚н‚й‚ЖЊ‹‰К‚р•\Ћ¦‚·‚йѓ`ѓѓѓ“ѓlѓ‹‚ЙѓЃѓbѓZЃ[ѓW‚ЄЏo‚Ь‚·ЃB
+гЂЂгЂЂгЂЂе®џйљ›гЃ«з™»йЊІгЃ™г‚‹гЃЁгЃЌгЃЇгѓњгѓѓгѓ€гЃЁTalkгЃ§гЂЊPLOT:гѓ—гѓ­гѓѓгѓ€гЃ®е†…е®№гЂЌгЃЁе…ҐеЉ›гЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+гЂЂгЂЂгЂЂе…ҐеЉ›гЃЊзµ‚г‚Џг‚‹гЃЁзµђжћњг‚’иЎЁз¤єгЃ™г‚‹гѓЃгѓЈгѓігѓЌгѓ«гЃ«гѓЎгѓѓг‚»гѓјг‚ёгЃЊе‡єгЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@—б)
-Ѓ@Ѓ@Ѓ@PLOT:ђЬЉp‚ѕ‚©‚з‰ґ‚Н‚±‚МђФ‚ў”а‚р‘I‚Ф‚єЃ@Ѓ@PLOT:‘¬“x5
+гЂЂгЂЂгЂЂдѕ‹)
+гЂЂгЂЂгЂЂPLOT:жЉи§’гЃ гЃ‹г‚‰дїєгЃЇгЃ“гЃ®иµ¤гЃ„ж‰‰г‚’йЃёгЃ¶гЃњгЂЂгЂЂPLOT:йЂџеє¦5
 
-Ѓ@Ѓ@ЃEѓvѓЌѓbѓg‚МЉJЋ¦
-Ѓ@Ѓ@Ѓ@‘S€х‚МѓvѓЌѓbѓg(ЌЕђV‚М‚Э)‚р€кђД‚ЙЉJЋ¦‚·‚й‚±‚Ж‚ЄЏo—€‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓfѓtѓHѓ‹ѓg‚МЊцЉJѓRѓ}ѓ“ѓh‚НЃuOpen Plot!Ѓv‚Е‚·ЃB
+гЂЂгЂЂгѓ»гѓ—гѓ­гѓѓгѓ€гЃ®й–‹з¤є
+гЂЂгЂЂгЂЂе…Ёе“ЎгЃ®гѓ—гѓ­гѓѓгѓ€(жњЂж–°гЃ®гЃї)г‚’дёЂж–‰гЃ«й–‹з¤єгЃ™г‚‹гЃ“гЃЁгЃЊе‡єжќҐгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ‡гѓ•г‚©гѓ«гѓ€гЃ®е…¬й–‹г‚ігѓћгѓігѓ‰гЃЇгЂЊOpen Plot!гЂЌгЃ§гЃ™гЂ‚
 
 
-Ѓ@Ѓ@ЃEѓ‰ѓ“ѓ_ѓЂђ”’l‚М–„‚ЯЌћ‚Э
-Ѓ@Ѓ@Ѓ@ѓ_ѓCѓX‚МЊВђ”‚Єѓ‰ѓ“ѓ_ѓЂ‚Й•П‰»‚·‚й‚И‚ЗЃAѓRѓ}ѓ“ѓh’†‚Й—ђђ”‚р–„‚ЯЌћ‚Ю•K—v‚Є‚ ‚йЋћ‚Й‚Н
-Ѓ@Ѓ@Ѓ@Ѓu[Min...Max]Ѓv(Min=—ђђ”‚МЌЕЏ¬’l, Max=—ђђ”‚МЌЕ‘е’lЃB‚З‚ї‚з‚аЋ©‘Rђ”)‚ЖЏ‘‚­‚Ж
-Ѓ@Ѓ@Ѓ@—ђђ”‚р–„‚ЯЌћ‚Ю‚±‚Ж‚ЄЏo—€‚Ь‚·ЃB
+гЂЂгЂЂгѓ»гѓ©гѓігѓЂгѓ ж•°еЂ¤гЃ®еџ‹г‚ЃиѕјгЃї
+гЂЂгЂЂгЂЂгѓЂг‚¤г‚№гЃ®еЂ‹ж•°гЃЊгѓ©гѓігѓЂгѓ гЃ«е¤‰еЊ–гЃ™г‚‹гЃЄгЃ©гЂЃг‚ігѓћгѓігѓ‰дё­гЃ«д№±ж•°г‚’еџ‹г‚Ѓиѕјг‚Ђеї…и¦ЃгЃЊгЃ‚г‚‹ж™‚гЃ«гЃЇ
+гЂЂгЂЂгЂЂгЂЊ[Min...Max]гЂЌ(Min=д№±ж•°гЃ®жњЂе°ЏеЂ¤, Max=д№±ж•°гЃ®жњЂе¤§еЂ¤гЂ‚гЃ©гЃЎг‚‰г‚‚и‡Єз„¶ж•°)гЃЁж›ёгЃЏгЃЁ
+гЂЂгЂЂгЂЂд№±ж•°г‚’еџ‹г‚Ѓиѕјг‚ЂгЃ“гЃЁгЃЊе‡єжќҐгЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@—б)
-Ѓ@Ѓ@Ѓ@[1...5]D6Ѓ@Ѓ@Ѓ@([2...4]+2)D10Ѓ@Ѓ@Ѓ@Ѓ~[(2+3)...8]D6ЃiЃ©‚±‚к‚НNG
+гЂЂгЂЂгЂЂдѕ‹)
+гЂЂгЂЂгЂЂ[1...5]D6гЂЂгЂЂгЂЂ([2...4]+2)D10гЂЂгЂЂгЂЂГ—[(2+3)...8]D6пј€в†ђгЃ“г‚ЊгЃЇNG
 
 
 
-Ѓ@‚QЃDѓQЃ[ѓЂЊЕ—L‚МЏ€—ќ—pѓRѓ}ѓ“ѓh
-Ѓ@Ѓ@ЃEЃwѓNѓgѓDѓ‹ѓtђ_bTRPGЃx
-Ѓ@Ѓ@Ѓ@ЃE’пЌRѓЌЃ[ѓ‹Ѓ@(RES(x-n))
-Ѓ@Ѓ@Ѓ@Ѓ@RES(Ћ©•Є‚М”\—Н’l-‘ЉЋи‚М”\—Н’l)‚Е‹LЏq‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@’пЌRѓЌЃ[ѓ‹‚Й•ПЉ·‚µ‚Дђ¬Њч‚µ‚Ѕ‚©‚З‚¤‚©‚р•\Ћ¦‚µ‚Ь‚·ЃB
+гЂЂпј’пјЋг‚Ігѓјгѓ е›єжњ‰гЃ®е‡¦зђ†з”Ёг‚ігѓћгѓігѓ‰
+гЂЂгЂЂгѓ»гЂЋг‚Їгѓ€г‚Ґгѓ«гѓ•зҐћи©±TRPGгЂЏ
+гЂЂгЂЂгЂЂгѓ»жЉµжЉ—гѓ­гѓјгѓ«гЂЂ(RES(x-n))
+гЂЂгЂЂгЂЂгЂЂRES(и‡Єе€†гЃ®иѓЅеЉ›еЂ¤-з›ёж‰‹гЃ®иѓЅеЉ›еЂ¤)гЃ§иЁиї°гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂжЉµжЉ—гѓ­гѓјгѓ«гЃ«е¤‰жЏ›гЃ—гЃ¦ж€ђеЉџгЃ—гЃџгЃ‹гЃ©гЃ†гЃ‹г‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@RES(12-10)Ѓ@Ѓ@Ѓ@res(10-15)
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂRES(12-10)гЂЂгЂЂгЂЂres(10-15)
 
-Ѓ@Ѓ@Ѓ@ЃE‘g‚ЭЌ‡‚н‚№”»’иЃ@(CBR(x,y))
-Ѓ@Ѓ@Ѓ@Ѓ@–Ъ•W’l x ‚Ж y ‚ЕЃ“ѓЌЃ[ѓ‹‚рЌs‚ўЃAђ¬Њч‚µ‚Ѕ‚©‚З‚¤‚©‚р•\Ћ¦‚µ‚Ь‚·ЃB
+гЂЂгЂЂгЂЂгѓ»зµ„гЃїеђ€г‚ЏгЃ›е€¤е®љгЂЂ(CBR(x,y))
+гЂЂгЂЂгЂЂгЂЂз›®жЁ™еЂ¤ x гЃЁ y гЃ§пј…гѓ­гѓјгѓ«г‚’иЎЊгЃ„гЂЃж€ђеЉџгЃ—гЃџгЃ‹гЃ©гЃ†гЃ‹г‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@CBR(50,20)Ѓ@Ѓ@Ѓ@cbr(10,80)
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂCBR(50,20)гЂЂгЂЂгЂЂcbr(10,80)
 
 
-Ѓ@Ѓ@ЃEЃwѓ\Ѓ[ѓhѓЏЃ[ѓ‹ѓhЃx
-Ѓ@Ѓ@Ѓ@ЃEѓЊЃ[ѓeѓBѓ“ѓO•\Ѓ@(Kx)
-Ѓ@Ѓ@Ѓ@Ѓ@"KѓLЃ[ѓiѓ“ѓoЃ[+ѓ{Ѓ[ѓiѓX"‚МЊ`‚Е‹L“ь‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ{Ѓ[ѓiѓX‚М•”•Є‚ЙЃuK20+K30Ѓv‚М‚ж‚¤‚ЙѓЊЃ[ѓeѓBѓ“ѓO‚рЋж‚й‚±‚Ж‚НЏo—€‚Ь‚№‚сЃB
-Ѓ@Ѓ@Ѓ@Ѓ@‚Ь‚ЅЃAѓ{Ѓ[ѓiѓX‚Н•Ўђ”Ћж‚й‚±‚Ж‚ЄЏo—€‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓЊЃ[ѓeѓBѓ“ѓO•\‚аѓ_ѓCѓXѓЌЃ[ѓ‹‚Ж“Ї—l‚ЙЃA‘ј‚МѓvѓЊѓCѓ„Ѓ[‚Й‰B‚к‚ДѓЌЃ[ѓ‹‚·‚й‚±‚Ж‚а‰В”\‚Е‚·ЃB
+гЂЂгЂЂгѓ»гЂЋг‚Ѕгѓјгѓ‰гѓЇгѓјгѓ«гѓ‰гЂЏ
+гЂЂгЂЂгЂЂгѓ»гѓ¬гѓјгѓ†г‚Јгѓіг‚°иЎЁгЂЂ(Kx)
+гЂЂгЂЂгЂЂгЂЂ"Kг‚­гѓјгѓЉгѓігѓђгѓј+гѓњгѓјгѓЉг‚№"гЃ®еЅўгЃ§иЁе…ҐгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓњгѓјгѓЉг‚№гЃ®йѓЁе€†гЃ«гЂЊK20+K30гЂЌгЃ®г‚€гЃ†гЃ«гѓ¬гѓјгѓ†г‚Јгѓіг‚°г‚’еЏ–г‚‹гЃ“гЃЁгЃЇе‡єжќҐгЃѕгЃ›г‚“гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЃѕгЃџгЂЃгѓњгѓјгѓЉг‚№гЃЇи¤‡ж•°еЏ–г‚‹гЃ“гЃЁгЃЊе‡єжќҐгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ¬гѓјгѓ†г‚Јгѓіг‚°иЎЁг‚‚гѓЂг‚¤г‚№гѓ­гѓјгѓ«гЃЁеђЊж§гЃ«гЂЃд»–гЃ®гѓ—гѓ¬г‚¤гѓ¤гѓјгЃ«йљ г‚ЊгЃ¦гѓ­гѓјгѓ«гЃ™г‚‹гЃ“гЃЁг‚‚еЏЇиѓЅгЃ§гЃ™гЂ‚
 
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@K20Ѓ@Ѓ@Ѓ@K10+5Ѓ@Ѓ@Ѓ@k30Ѓ@Ѓ@Ѓ@k10+10Ѓ@Ѓ@Ѓ@Sk10-1Ѓ@Ѓ@Ѓ@k10+5+2
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂK20гЂЂгЂЂгЂЂK10+5гЂЂгЂЂгЂЂk30гЂЂгЂЂгЂЂk10+10гЂЂгЂЂгЂЂSk10-1гЂЂгЂЂгЂЂk10+5+2
 
-Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹’l‚МђЭ’и‚аЏo—€‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹’l‚Н"[ѓNѓЉѓeѓBѓJѓ‹’l]"‚ЕЋw’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ћw’и‚µ‚И‚ўЏкЌ‡‚НѓNѓЉѓeѓBѓJѓ‹’l10‚Ж‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹Џ€—ќ‚Є•K—v‚И‚ў‚Ж‚«‚Н13‚И‚З‚Ж‚µ‚Д‚­‚ѕ‚і‚ўЃB(–hЊдЋћ‚И‚З‚М‘О‰ћ)
-Ѓ@Ѓ@Ѓ@Ѓ@‚Ь‚Ѕѓ^ѓCѓv‚МЊyЊё‰»‚М‚Ѕ‚Я‚Й––”ц‚ЙЃu@ѓNѓЉѓeѓBѓJѓ‹’lЃv‚Е‚аЏ€—ќ‚·‚й‚ж‚¤‚Й‚µ‚Ь‚µ‚ЅЃB
+гЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤гЃ®иЁ­е®љг‚‚е‡єжќҐгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤гЃЇ"[г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤]"гЃ§жЊ‡е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂжЊ‡е®љгЃ—гЃЄгЃ„е ґеђ€гЃЇг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤10гЃЁгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«е‡¦зђ†гЃЊеї…и¦ЃгЃЄгЃ„гЃЁгЃЌгЃЇ13гЃЄгЃ©гЃЁгЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚(йІеѕЎж™‚гЃЄгЃ©гЃ®еЇѕеїњ)
+гЂЂгЂЂгЂЂгЂЂгЃѕгЃџг‚їг‚¤гѓ—гЃ®и»Ѕжё›еЊ–гЃ®гЃџг‚ЃгЃ«жњ«е°ѕгЃ«гЂЊ@г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤гЂЌгЃ§г‚‚е‡¦зђ†гЃ™г‚‹г‚€гЃ†гЃ«гЃ—гЃѕгЃ—гЃџгЂ‚
 
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@K20[10]Ѓ@Ѓ@Ѓ@K10+5[9]Ѓ@Ѓ@Ѓ@k30[10]Ѓ@Ѓ@Ѓ@k10[9]+10Ѓ@Ѓ@Ѓ@k10-5@9
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂK20[10]гЂЂгЂЂгЂЂK10+5[9]гЂЂгЂЂгЂЂk30[10]гЂЂгЂЂгЂЂk10[9]+10гЂЂгЂЂгЂЂk10-5@9
 
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓX–Ъ‚МЏCђі‚аЏo—€‚Ь‚·ЃB(SW2.0‚МѓNѓЉѓeѓBѓJѓ‹ѓЊѓC“™‚ЙЋg—pЃj
-Ѓ@Ѓ@Ѓ@Ѓ@––”ц‚ЙЃu$ЏCђі’lЃv‚ЕЏ€—ќ‚·‚й‚ж‚¤‚Й‚µ‚Ь‚µ‚ЅЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЏCђі’l‚Єђ”Ћљ‚М‚Э‚МЏкЌ‡‚НЃAЊЕ’и’l‚Ж‚µ‚ДЏ€—ќ‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹‚·‚йЏкЌ‡‚НЋ~‚Ь‚й‚Ь‚ЕЋ©“®‚ЕђU‚и‚Ь‚·‚ЄЃAЊЕ’и’l‚вЏCђі’l‚М“K—p‚НЌЕЏ‰‚М€к‰с‚ѕ‚Ї‚Е‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@K20$+1Ѓ@Ѓ@Ѓ@K10+5$9Ѓ@Ѓ@Ѓ@k10-5@9$+2Ѓ@Ѓ@Ѓ@k10[9]+10$9
-
-
-Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹–€‚МѓЊЃ[ѓeѓBѓ“ѓOЏгЏё‚Й‘О‰ћЃB(SW2.0‚МЋсђШ‚и“Ѓ“™‚ЙЋg—pЃj
-Ѓ@Ѓ@Ѓ@Ѓ@––”ц‚ЙЃurЏгЏё’lЃv‚ЕЋw’и‚µ‚Ь‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@K20r10Ѓ@Ѓ@Ѓ@K30+24@8R10Ѓ@Ѓ@Ѓ@K40+24@8$12r10
-
-
-Ѓ@Ѓ@Ѓ@Ѓ@1d*2‚Е‚МѓЊЃ[ѓeѓBѓ“ѓOЋZЏo‚Й‘О‰ћЃB(SW2.0‚МѓOѓЊѓCѓeѓXѓgѓtѓHЃ[ѓ`ѓ…ѓ“‚ЙЋg—pЃj
-Ѓ@Ѓ@Ѓ@Ѓ@––”ц‚ЙЃugrЃv‚ЕЋw’и‚µ‚Ь‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@K20gfЃ@Ѓ@Ѓ@K30+24@8GFЃ@Ѓ@Ѓ@K40+24@8$12r10gf
-
-
-Ѓ@Ѓ@ЃEЃwChillЃx
-Ѓ@Ѓ@ЃEѓXѓgѓ‰ѓCѓNЃEѓ‰ѓ“ѓN•\Ѓ@(SRx)
-Ѓ@Ѓ@Ѓ@Ѓ@"SRѓXѓgѓ‰ѓCѓNЃEѓ‰ѓ“ѓN"‚МЊ`‚Е‹L“ь‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓXѓgѓ‰ѓCѓNЃEѓ‰ѓ“ѓNЃEѓ`ѓѓЃ[ѓg‚ЙЏ]‚Б‚ДЋ©“®‚Еѓ_ѓCѓXѓЌЃ[ѓ‹‚рЌs‚ўЃA
-Ѓ@Ѓ@Ѓ@Ѓ@•‰Џќ‚ЖѓXѓ^ѓ~ѓiѓЌѓX‚рЊvЋZ‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXѓЌЃ[ѓ‹‚Ж“Ї—l‚ЙЃA‘ј‚МѓvѓЊѓCѓ„Ѓ[‚Й‰B‚к‚ДѓЌЃ[ѓ‹‚·‚й‚±‚Ж‚а‰В”\‚Е‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@SR7Ѓ@Ѓ@Ѓ@sr13Ѓ@Ѓ@Ѓ@SR(7+4)Ѓ@Ѓ@Ѓ@Ssr10
-
-
-Ѓ@Ѓ@ЃEЃwѓfѓ‚ѓ“ѓpѓ‰ѓTѓCѓg / ‹SЊдЌ°Ѓx
-Ѓ@Ѓ@Ѓ@ЃEЏХ“®•\Ѓ@(URGEx)
-Ѓ@Ѓ@Ѓ@Ѓ@"URGEЏХ“®ѓЊѓxѓ‹"‚МЊ`‚ЕЋw’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЏХ“®•\‚ЙЏ]‚Б‚ДЋ©“®‚Еѓ_ѓCѓXѓЌЃ[ѓ‹‚рЌs‚ўЃAЊ‹‰К‚р•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXѓЌЃ[ѓ‹‚Ж“Ї—l‚ЙЃA‘ј‚МѓvѓЊѓCѓ„Ѓ[‚Й‰B‚к‚ДѓЌЃ[ѓ‹‚·‚й‚±‚Ж‚а‰В”\‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@“Є‚ЙЋЇ•К•¶Ћљ‚р’З‰Б‚µ‚ДЃAѓfѓtѓHѓ‹ѓg€ИЉO‚МЏХ“®•\‚аѓЌЃ[ѓ‹‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEnURGExЃ@“Є‚ЙЃuNЃv‚р•t‚Ї‚й‚ЖЃuђVЏХ“®•\ЃvЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEaURGExЃ@“Є‚ЙЃuAЃv‚р•t‚Ї‚й‚ЖЃuЊлЌм“®•\ЃvЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEmURGExЃ@“Є‚ЙЃuMЃv‚р•t‚Ї‚й‚ЖЃuѓ~ѓ…Ѓ[ѓ^ѓ“ѓgЏХ“®•\Ѓv‚Й‚И‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEuURGExЃ@“Є‚ЙЃuUЃv‚Є•t‚­‚Ж‹SЊдЌ°‚Мђн“¬ЉOЏХ“®•\ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEcURGExЃ@“Є‚ЙЃuCЃv‚Е‹SЊдЌ°‚Мђн“¬’†ЏХ“®•\‚Й‚И‚и‚Ь‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@URGE1Ѓ@Ѓ@Ѓ@urge5Ѓ@Ѓ@Ѓ@Surge2
-
-
-Ѓ@Ѓ@ЃEЃwѓpѓ‰ѓTѓCѓgѓuѓ‰ѓbѓhЃx
-Ѓ@Ѓ@Ѓ@ЃEЏХ“®•\Ѓ@(URGEx)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓfѓ‚ѓ“ѓpѓ‰ѓTѓCѓg‚Ж“Ї—l‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEaURGExЃ@“Є‚ЙЃuAЃv‚р•t‚Ї‚й‚ЖЃuЊлЌм“®•\Ѓv‚ЕѓЌЃ[ѓ‹‚Е‚«‚Ь‚·ЃB
-
-
-Ѓ@Ѓ@ЃEЃwѓEѓHЃ[ѓnѓ“ѓ}Ѓ[FRPЃx
-Ѓ@Ѓ@Ѓ@ЃEѓNѓЉѓeѓBѓJѓ‹•\Ѓ@(WHpx)
-Ѓ@Ѓ@Ѓ@Ѓ@"WH•”€К ѓNѓЉѓeѓBѓJѓ‹’l"‚МЊ`‚ЕЋw’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@•”€К‚НЃuH(“Є•”)ЃvЃuA(r)ЃvЃuB(“·‘М)ЃvЃuL(‘«)Ѓv‚М‚SѓJЏЉ‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹•\‚рЋQЏЖ‚µ‚ДЊ‹‰К‚р•\Ћ¦‚µ‚Ь‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@whH10Ѓ@Ѓ@Ѓ@whA5Ѓ@Ѓ@Ѓ@WHL4
-
-Ѓ@Ѓ@Ѓ@ЃE–Ѕ’†”»’иЃ@(WHx@t)
-Ѓ@Ѓ@Ѓ@Ѓ@"WH(–Ѕ’†’l)@(Ћн•К)"‚МЊ`‚ЕЋw’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@•”€К‚Н‹r‚Мђ”‚рђ”ЋљЃA—ѓ‚Є•t‚ў‚Д‚ў‚й‚а‚М‚НЃuWЃvЃAЋи‚Є•t‚ў‚Д‚ў‚й‚а‚М‚НЃuHЃv‚ЕЏ‘‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓu2H(“с‘«)ЃvЃu2W(—L—ѓ“с‘«)ЃvЃu4(Ћl‘«)ЃvЃu4H(”јђlЋl‘«)ЃvЃu4W(—L—ѓЋl‘«)ЃvЃuW(’№—Ю)Ѓv‚Ж‚И‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@–Ѕ’†”»’и‚рЌs‚Б‚ДЃA“–‚Ѕ‚к‚О•”€К‚а•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@‚И‚ЁЃAЋн•КЋw’и‚рЏИ—Є‚·‚й‚ЖЃu“с‘«ЃvЃAЃu@Ѓv‚ѕ‚Ї‚Й‚·‚й‚Ж‘SЋн•К‚М–Ѕ’†•”€К‚р•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@(ѓRѓ}ѓ“ѓh‚р–Y‚к‚ЅЋћ‚М‘О‰ћ‚Е‚·)
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@wh60Ѓ@Ѓ@Ѓ@wh43@4WЃ@Ѓ@Ѓ@WH65@
-
-
-Ѓ@Ѓ@ЃEЃwѓVѓmѓrѓKѓ~(”Eђ_)Ѓx
-Ѓ@Ѓ@Ѓ@ЃEЉeЋн•\
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE(–і€у)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@ST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓtѓ@ѓ“ѓuѓ‹•\Ѓ@FT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЉґЏо•\Ѓ@Ѓ@Ѓ@Ѓ@ET
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE•П’І•\Ѓ@Ѓ@Ѓ@Ѓ@WT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEђнЏк•\Ѓ@Ѓ@Ѓ@Ѓ@BT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE(“у)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE“sЋsѓVЃ[ѓ“•\Ѓ@CST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЉЩѓVЃ[ѓ“•\Ѓ@Ѓ@MST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЏo“‡ѓVЃ[ѓ“•\Ѓ@DST
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE(ЋQ)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓgѓ‰ѓuѓ‹ѓVЃ[ѓ“•\Ѓ@TST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE“ъЏнѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@NST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰с‘zѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@KST
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE(ЋЂ)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE“Њ‹ћѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@TKST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEђнЌ‘ѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@GST
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE(—ђ)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEђнЌ‘•П’І•\Ѓ@Ѓ@Ѓ@Ѓ@GWT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE(ѓЉѓvѓЊѓCђн1Ѓ`2ЉЄ)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЉwЌZѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@GAST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE‹ћ“sѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@KYST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEђ_ЋР•§ЉtѓVЃ[ѓ“•\Ѓ@JBST
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE(‰ц)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰цѓtѓ@ѓ“ѓuѓ‹•\Ѓ@Ѓ@KFT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰ц•П’І•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@KWT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE€ЩЊ`•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@MT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓ‰ѓ“ѓ_ѓЂ“Б‹ZЊ€’и•\Ѓ@RTT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЏH‹у‚Йђб•‘‚¦‚ОѓVЃ[ѓ“•\Ѓ@KST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЌР–пѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@CLST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЏo“‡EXѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@DXST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋОЋ•ѓ‰ѓ{ѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@Ѓ@HLST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰Д‚МЏI‚н‚иѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@NTST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE”|—{ѓvѓ‰ѓ“ѓgѓVЃ[ѓ“•\Ѓ@Ѓ@PLST
-
-Ѓ@Ѓ@ЃEЃwѓ_ѓuѓ‹ѓNѓЌѓXЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’иЃ@(xDX+y@c or xDXc+y)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓuѓ‹ѓNѓЌѓX2nd‚Ё‚ж‚С3rd‚М”»’иѓRѓ}ѓ“ѓhЃB
-Ѓ@Ѓ@Ѓ@Ѓ@"(ЊВђ”)DX(ЏCђі)@(ѓNѓЉѓeѓBѓJѓ‹’l)"‚а‚µ‚­‚Н"(ЊВђ”)DX(ѓNѓЉѓeѓBѓJѓ‹’l)(ЏCђі)"‚ЕЋw’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@‰БЋZЊёЋZ‚М‚ЭЏCђі’l‚а•t‚Ї‚з‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@“а•”‚Е“З‚Э‘Ц‚¦‚Д‚ў‚Ь‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@10dxЃ@Ѓ@Ѓ@10dx+5@8(OD toolЋ®)Ѓ@Ѓ@Ѓ@5DX7+7-3(Ћѕ•—“{џ·Ћ®)
-
-Ѓ@Ѓ@ЃEЉeЋн•\
-Ѓ@Ѓ@Ѓ@ѓ_ѓuѓ‹ѓNѓЌѓX2nd‚Ё‚ж‚С3rd‚МЉeЋн•\‚рђU‚Б‚ДЊ‹‰К‚рЏo—Н‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEЉґЏо•\(ET)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ|ѓWѓeѓBѓu‚ЖѓlѓKѓeѓBѓu‚М—ј•ы‚рђU‚Б‚ДЃA•\‚Й‚И‚Б‚Д‚ў‚й‘¤‚ЙЃ›‚р•t‚Ї‚Д•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@‚а‚ї‚л‚с”C€У‚Е‘I‚Ф•”•Є‚Н•ПЌX‚µ‚ДЌ\‚ў‚Ь‚№‚сЃB
-
-
-Ѓ@Ѓ@ЃEЃwѓTѓ^ѓXѓyЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’иЃ@(nR>=x[y,z])
-Ѓ@Ѓ@Ѓ@Ѓ@ѓTѓ^ѓXѓyђк—p”»’иѓRѓ}ѓ“ѓh‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@n‚ЄЌЕ‘еѓЌЃ[ѓ‹‰сђ”ЃAx‚Є“п€Х“xЃAy‚Є–Ъ•Wђ¬Њч“xЃAz‚Єѓtѓ@ѓ“ѓuѓ‹’l‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@y‚Жz‚НЏИ—Є‰В”\‚Е‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@10r>=7Ѓ@Ѓ@Ѓ@8R>=7[3,3]Ѓ@Ѓ@Ѓ@10r>=5[5]Ѓ@Ѓ@Ѓ@8R>=7[,3]
-
-Ѓ@Ѓ@Ѓ@ЃEЉeЋн•\
-Ѓ@Ѓ@Ѓ@Ѓ@ѓTѓ^ѓXѓy‚Н•\‚Є‘Ѕ‚ў‚М‚ЕЃA‘S‚Д‚М•\‚Н–Ф—…‚µ‚Д‚ў‚Ь‚№‚сЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓRѓ}ѓ“ѓh––”ц‚Й”јЉp‚Еђ”Ћљ‚р“ь‚к‚й‚Ж•Ўђ”‰с€к•У‚Й€ш‚­‚±‚Ж‚ЄЏo—€‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓ^ѓOЊ€’и•\Ѓ@(TAGT)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЏо•сѓCѓxѓ“ѓg•\Ѓ@(Ѓ`IET)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE”ЖЌЯ•\(CrimeIET)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEђ¶Љ€•\(LifeIET)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE—ц€¤•\(LoveIET)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE‹і—{•\(CultureIET)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEђн“¬•\(CombatIET)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЏо•сѓnѓvѓjѓ“ѓO•\Ѓ@(Ѓ`IHT)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE”ЖЌЯ•\(CrimeIHT)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEђ¶Љ€•\(LifeIHT)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE—ц€¤•\(LoveIHT)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE‹і—{•\(CultureIHT)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEђн“¬•\(CombatIHT)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE–Ѕ’†”»’иѓtѓ@ѓ“ѓuѓ‹•\Ѓ@(FumbleT)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’v–ЅЏќ•\Ѓ@(FatalT)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓAѓNѓVѓfѓ“ѓg•\Ѓ@(AccidentT)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE”Д—pѓAѓNѓVѓfѓ“ѓg•\Ѓ@(GeneralAT)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‚»‚МЊг•\Ѓ@(AfterT)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓЌѓ}ѓ“ѓXѓtѓ@ѓ“ѓuѓ‹•\Ѓ@(RomanceFT)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃENPC‚М”N—о‚ЖЌD‚Э‚р€кЉ‡Џo—НЃ@(NPCT)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@NPC‚М”N—о‹ж•Є(ЋА”N—о)ЃAЌD‚Э/•µ€Н‹CЃAЌD‚Э/”N—о‚р€кЉ‡‚Е€ш‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћg—p‚µ‚И‚ў•”•Є‚Н–іЋ‹‚µ‚Д‚­‚ѕ‚і‚ўЃB
-
-
-Ѓ@Ѓ@ЃEЃwArsMagicaЃx
-Ѓ@Ѓ@Ѓ@ЃEѓXѓgѓЊѓXѓ_ѓCѓXЃ@(ArSx+y)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓAѓ‹ѓXѓ}ѓMѓJ‚МѓXѓgѓЊѓXѓ_ѓCѓXђк—pѓRѓ}ѓ“ѓh‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@"ArS(ѓ{ѓbѓ`ѓ_ѓCѓX)+(ЏCђі)"‚Е‚·ЃB”»’и‚Й‚аЋg‚¦‚Ь‚·ЃBRѓRѓ}ѓ“ѓh(1R10+y[m])‚Й“З‘Ц‚р‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ{ѓbѓ`ѓ_ѓCѓX‚ЖЏCђі‚НЏИ—Є‰В”\‚Е‚·ЃB(ѓ{ѓbѓ`ѓ_ѓCѓX‚рЏИ—Є‚·‚й‚Ж1‚Ж‚µ‚Д€µ‚ў‚Ь‚·)
-Ѓ@Ѓ@Ѓ@Ѓ@botchѓ_ѓCѓX‚М0‚Мђ”‚Є2€ИЏг‚МЋћ‚НЃAђ”‚¦‚Д•\Ћ¦‚µ‚Ь‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓi’Ќ€УЃIЃj botch‚М”»’f‚Є”­ђ¶‚µ‚Ѕ‚Ж‚«‚Й‚НЃA‚»‚Мѓ_ѓCѓX‚рЉЬ‚Я‚ДѓЌЃ[ѓ‹‚µ‚Ѕ‘S‚Д‚Мѓ_ѓCѓX‚р[]‚М’†‚Й•А‚Ч‚Д•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@—б) (1R10[5]) Ѓ„ 0[0,1,8,0,8,1] Ѓ„ Botch!
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЌЕЏ‰‚М0‚Є”»’fЉоЏЂ‚ЕЃA‚»‚М‰E‘¤5‚В‚Єѓ{ѓbѓ`ѓ_ѓCѓX‚Е‚·ЃB1*2,8*2,0*1‚И‚М‚Е1botch‚Ж‚ў‚¤–у‚Е‚·ЃB
-
-
-Ѓ@Ѓ@ЃEЃw‚sЃ•‚sЃx
-Ѓ@Ѓ@Ѓ@ЃEЌs€Ч”»’иЃ@(2d6+m>=t)
-Ѓ@Ѓ@Ѓ@Ѓ@Њ‹‰К‚Мђ¬”Ы‚ЖЊoЊ±’l‚р•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@t‚Н–Ъ•W’l‚Е‚·ЃBђ”’l‚М‘ј‚Й"ЃiѓЊѓxѓ‹ЃjLv"‚ЕѓЊѓxѓ‹‚Й‚ж‚йЋw’и‚а‰В”\‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓЊѓxѓ‹‚р”јЉp?‚Й‚·‚й‚Жђ¬Њч‚·‚йЌЕЌ‚ѓЊѓxѓ‹‚рЋ©“®ЊvЋZ‚µ‚Ь‚·ЃB(ЊoЊ±’l‚Н1Lvђ¬Њч‚Ж‚µ‚Д‚ў‚Ь‚·)
-Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚Й‚Нѓ]ѓЌ–Ъ‚рЋ©“®‚ЕђU‚и‘«‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEѓoЃ[ѓTЃ[ѓN‚ЖѓnѓCѓpЃ[ѓoЃ[ѓTЃ[ѓNЃ@(nBS+x or nHBS+x)
-Ѓ@Ѓ@Ѓ@Ѓ@"(ѓ_ѓCѓXђ”)BS(ЏCђі’l)"‚ЕѓoЃ[ѓTЃ[ѓNЃA"(ѓ_ѓCѓXђ”)HBS(ЏCђі’l)"‚ЕѓnѓCѓpЃ[ѓoЃ[ѓTЃ[ѓN‚ЕѓЌЃ[ѓ‹‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЌЕЏ‰‚Мѓ_ѓCѓX‚М“З‘Ц‚НЃAЊВ•К‚МЏo–Ъ‚Н‚»‚М‚Ь‚Ь‚Е•\Ћ¦ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@‰є‚©‚з‚Q”Ф–Ъ‚МЏo–Ъ‚р‚ё‚з‚µ‚Ѕ•Є‚ѕ‚ЇЌ‡Њv‚Йѓ}ѓCѓiѓXЏCђі‚р’З‰Б‚µ‚Д•\Ћ¦‚µ‚Ь‚·ЃB
-
-
-Ѓ@Ѓ@ЃEЃwѓ_Ѓ[ѓNѓuѓЊѓCѓYЃx
-Ѓ@Ѓ@Ѓ@ЃEЌs€Ч”»’иЃ@(DBxy#n)
-Ѓ@Ѓ@Ѓ@Ѓ@Ќs€Ч”»’иђк—p‚МѓRѓ}ѓ“ѓh‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@"DB(”\—Н)(‹Z”\)#(ЏCђі)"‚ЕѓЌЃ[ѓ‹‚µ‚Ь‚·ЃBRѓRѓ}ѓ“ѓh(3R6+n[x,y]>=m m‚Н“п€Х“x)‚Й“З‘Ц‚р‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹‚Жѓtѓ@ѓ“ѓuѓ‹‚аЋ©“®‚ЕЏ€—ќ‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@DB@x@y#m ‚Ж DBx,y#m ‚Й‚а‘О‰ћ‚µ‚Ь‚µ‚ЅЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@DB33Ѓ@Ѓ@Ѓ@DB32#-1Ѓ@Ѓ@Ѓ@DB@3@1#1Ѓ@Ѓ@Ѓ@DB3,2Ѓ@Ѓ@Ѓ@DB23#1>=4Ѓ@Ѓ@Ѓ@3R6+1[3,3]>=4
-
-Ѓ@Ѓ@Ѓ@ЃEЊ@‚иЏo‚µ‘Ь•\Ѓ@(BTx)
-Ѓ@Ѓ@Ѓ@Ѓ@"BT(ѓ_ѓCѓXђ”)"‚ЕЊ@‚иЏo‚µ‘Ь•\‚рЋ©“®‚ЕђU‚иЃAЊ‹‰К‚р•\Ћ¦‚µ‚Ь‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@BT1Ѓ@Ѓ@Ѓ@BT2Ѓ@Ѓ@Ѓ@BT[1...3]
-
-
-Ѓ@Ѓ@ЃEЃwѓKѓ“ѓhѓbѓOѓ[ѓЌЃx
-Ѓ@Ѓ@Ѓ@ЃEЉeЋн•\
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓ_ѓЃЃ[ѓWѓyѓiѓ‹ѓeѓBЃ[•\Ѓ@(Ѓ`DPTx)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЋЛЊ‚(SDPT)ЃAЉi“¬(MDPT)ЃAЋФ—ј(VDPT)ЃA”Д—p(GDPT)‚МЉe•\‚р€ш‚­‚±‚Ж‚ЄЏo—€‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЏCђі‚рЊг‚л‚ЙЏ‘‚­‚±‚Ж‚аЏo—€‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓtѓ@ѓ“ѓuѓ‹•\Ѓ@(Ѓ`FTx)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЋЛЊ‚(SFT)ЃAЉi“¬(MFT)ЃA“Љќ±(TFT)‚МЉe•\‚р€ш‚­‚±‚Ж‚ЄЏo—€‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЏCђі‚рЊг‚л‚ЙЏ‘‚­‚±‚Ж‚аЏo—€‚Ь‚·ЃB
-
-
-Ѓ@Ѓ@ЃEЃwѓiѓCѓgѓEѓBѓUЃ[ѓhЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’иЃ@(nNW+m@x#y)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓiѓCѓgѓEѓBѓUЃ[ѓh”»’и—pѓRѓ}ѓ“ѓh‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@"(ЏнЋћ“БЋк”\—НЉЬ‚ЮЉо–{’l)NW(ЏнЋћ€ИЉO‚М“БЋк”\—Н‹y‚СЏу‘Ф€ЩЏн)@(ѓNѓЉѓeѓBѓJѓ‹’l)#(ѓtѓ@ѓ“ѓuѓ‹’l)"‚ЕѓЌЃ[ѓ‹‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@RѓRѓ}ѓ“ѓh(2R6m[n,m]c[x]f[y]>=t t‚Н–Ъ•W’l)‚Й“З‘Ц‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹’lЃAѓtѓ@ѓ“ѓuѓ‹’l‚Є–і‚ўЏкЌ‡‚Н1‚в13‚И‚З‚М‚ ‚и“ѕ‚И‚ўђ”’l‚р“ь‚к‚Д‚­‚ѕ‚і‚ўЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹Ћћ‚Н+10ЊЕ’и‚Е‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@12NW-5@7#2Ѓ@Ѓ@1NWЃ@Ѓ@50nw+5@7,10#2,5
-
-
-Ѓ@Ѓ@ЃEЃwTORGЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’иЃ@(TGm)
-Ѓ@Ѓ@Ѓ@Ѓ@TORGђк—p‚М”»’иѓRѓ}ѓ“ѓh‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@"TG(‹Z”\Љо–{’l)"‚ЕѓЌЃ[ѓ‹‚µ‚Ь‚·ЃBRѓRѓ}ѓ“ѓh‚Й“З‘Ц‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ђU‚и‘«‚µ‚рЋ©“®‚ЕЌs‚ўЃA20‚МЏo–Ъ‚ЄЏo‚Ѕ‚Ж‚«‚Й‚Н‹Z”\–і‚µ’l‚а•А‹L‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEЉeЋн•\Ѓ@"(•\ѓRѓ}ѓ“ѓh)(ђ”’l)"‚ЕђU‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE€к”КЊ‹‰К•\ ђ¬Њч“xЏo—НЃuRTx or RESULTxЃv
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE€Р€і/€РЉd ‘ОђlЌs€ЧЊ‹‰К•\ЃuITx or INTIMIDATEx or TESTxЃv
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’§”­/ѓgѓЉѓbѓN ‘ОђlЌs€ЧЊ‹‰К•\ЃuTTx or TAUNTx or TRICKx or CTxЃv
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЉФЌ‡‚ў ‘ОђlЌs€ЧЊ‹‰К•\ЃuMTx or MANEUVERxЃv
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓIЃ[ѓYЃi€к”КђlЃjѓ_ѓЃЃ[ѓWЃ@ЃuODTx or ORDSx or ODAMAGExЃv
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓ|ѓVѓrѓЉѓeѓBЃ[”\—НЋТѓ_ѓЃЃ[ѓWЃuDTx or DAMAGExЃv
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓ{Ѓ[ѓiѓX•\ЃuBTx+y or BONUSx+y or TOTALx+yЃv x‚Нђ”’l, y‚Н‹Z”\Љо–{’l
-
-Ѓ@Ѓ@ЃEЃwѓnѓ“ѓ^Ѓ[ѓYЃEѓЂЃ[ѓ“Ѓx
-Ѓ@Ѓ@Ѓ@ЃEЉeЋн•\
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‘‹ц•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ET
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE“sЋsѓЌѓPЃ[ѓVѓ‡ѓ“•\Ѓ@CLT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE•ВЏЉѓЌѓPЃ[ѓVѓ‡ѓ“•\Ѓ@SLT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰Љ”MѓЌѓPЃ[ѓVѓ‡ѓ“•\Ѓ@HLT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE—в€ГѓЌѓPЃ[ѓVѓ‡ѓ“•\Ѓ@FLT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE•”€Кѓ_ѓЃЃ[ѓWЊ€’и•\Ѓ@DLT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓ‚ѓmѓrЃ[ѓXѓgЌs“®•\Ѓ@MAT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE€ЩЊ`ѓAѓrѓЉѓeѓBЃ[•\Ѓ@SATx (x‚НЊВђ”)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋw’и“Б‹Z(ЋР‰п)•\Ѓ@Ѓ@TST
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋw’и“Б‹Z(“Є•”)•\Ѓ@Ѓ@THT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋw’и“Б‹Z(r•”)•\Ѓ@Ѓ@TAT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋw’и“Б‹Z(“·•”)•\Ѓ@Ѓ@TBT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋw’и“Б‹Z(‹r•”)•\Ѓ@Ѓ@TLT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋw’и“Б‹Z(ЉВ‹«)•\Ѓ@Ѓ@TET
-
-
-Ѓ@Ѓ@ЃEЃw–А‹{ѓLѓ“ѓOѓ_ѓЂЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’иЃ@(nMK+m)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@–А‹{ѓLѓ“ѓOѓ_ѓЂ”»’и—pѓRѓ}ѓ“ѓh‚Е‚·ЃBRѓRѓ}ѓ“ѓh‚Й“З‘Ц‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@nЊВ‚МD6‚рђU‚Б‚Д‘е‚«‚ў•Ё“с‚В‚ѕ‚Ї‚Э‚Д’Bђ¬’l‚рЋZЏo‚µ‚Ь‚·ЃBЏCђіm‚а‰В”\‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ђв‘Ођ¬Њч‚Жђв‘ОЋё”s‚аЋ©“®”»’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEЉeЋн•\
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋUЌф•\(Ѓ`RT)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEђ¶Љ€ЋUЌф•\Ѓ@Ѓ@Ѓ@Ѓ@LRT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋЎ€АЋUЌф•\Ѓ@Ѓ@Ѓ@Ѓ@ORT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE•¶‰»ЋUЌф•\Ѓ@Ѓ@Ѓ@Ѓ@CRT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЊRЋ–ЋUЌф•\Ѓ@Ѓ@Ѓ@Ѓ@ART
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE‚ЁЌХ‚и•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@FRT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‹xЊe•\(Ѓ`RT)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЌЛЉo‹xЊe•\Ѓ@Ѓ@Ѓ@Ѓ@TBT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE–Ј—Н‹xЊe•\Ѓ@Ѓ@Ѓ@Ѓ@CBT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE’TЌх‹xЊe•\Ѓ@Ѓ@Ѓ@Ѓ@SBT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE•ђ—E‹xЊe•\Ѓ@Ѓ@Ѓ@Ѓ@VBT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE‚ЁЌХ‚и‹xЊe•\Ѓ@Ѓ@Ѓ@FBT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓnѓvѓjѓ“ѓO•\(Ѓ`HT)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЌЛЉoѓnѓvѓjѓ“ѓO•\Ѓ@THT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE–Ј—Нѓnѓvѓjѓ“ѓO•\Ѓ@CHT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE’TЌхѓnѓvѓjѓ“ѓO•\Ѓ@SHT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE•ђ—Eѓnѓvѓjѓ“ѓO•\Ѓ@VHT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰¤Ќ‘ЌР–п•\Ѓ@Ѓ@Ѓ@Ѓ@KDT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰¤Ќ‘•П“®•\Ѓ@Ѓ@Ѓ@Ѓ@KCT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰¤Ќ‘•П“®Ћё”s•\Ѓ@Ѓ@KMT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰¤Ќ‘–јЊ€’и•\‚PЃ@Ѓ@KNT1
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰¤Ќ‘–јЊ€’и•\‚QЃ@Ѓ@KNT2
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰¤Ќ‘–јЊ€’и•\‚RЃ@Ѓ@KNT3
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’Й‘Е•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@CAT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’v–ЅЏќ•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@FWT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEђн“¬ѓtѓ@ѓ“ѓuѓ‹•\Ѓ@CFT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE“№’†•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@TT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЊрЏВ•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@NT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЉґЏо•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ET
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‘ЉЏк•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@MPT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‚Ё•у•\‚PЃ@Ѓ@Ѓ@Ѓ@Ѓ@T1T
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‚Ё•у•\‚QЃ@Ѓ@Ѓ@Ѓ@Ѓ@T2T
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‚Ё•у•\‚RЃ@Ѓ@Ѓ@Ѓ@Ѓ@T3T
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‚Ё•у•\‚SЃ@Ѓ@Ѓ@Ѓ@Ѓ@T4T
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‚Ё•у•\‚TЃ@Ѓ@Ѓ@Ѓ@Ѓ@T5T
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE–ј‘O•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@NAMEx (x‚НЊВђ”)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE–ј‘O•\AЃ@Ѓ@Ѓ@Ѓ@Ѓ@ NAMEA
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE–ј‘O•\BЃ@Ѓ@Ѓ@Ѓ@Ѓ@ NAMEB
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓGѓLѓ]ѓ`ѓbѓN–ј‘O•\Ѓ@NAMEEX
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓtѓ@ѓ“ѓ^ѓWѓbѓN–ј‘O•\Ѓ@NAMEFA
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓAѓCѓeѓЂЉЦAЃi—ВЉпђн–р•sЋg—p‚МЏкЌ‡‚рѓJѓbѓRЏ‘‚«‚ЕЏo—НЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓfѓoѓCѓXѓtѓ@ѓNѓgѓЉЃ[Ѓ@Ѓ@DFT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓAѓCѓeѓЂѓJѓeѓSѓЉЊ€’и•\Ѓ@IDT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE•ђ‹пѓAѓCѓeѓЂ•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@WIT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEђ¶Љ€ѓAѓCѓeѓЂ•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@LIT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰с•њѓAѓCѓeѓЂ•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@RIT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE’TЌхѓAѓCѓeѓЂ•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@SIT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓЊѓA•ђ‹пѓAѓCѓeѓЂ•\Ѓ@Ѓ@Ѓ@RWIT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓЊѓA€к”КѓAѓCѓeѓЂ•\Ѓ@Ѓ@Ѓ@RUIT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓAѓCѓeѓЂ“Бђ«Њ€’и•\Ѓ@Ѓ@Ѓ@IFT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓ‰ѓ“ѓ_ѓЂѓGѓ“ѓJѓEѓ“ѓg•\Ѓ@nRET (n‚НѓЊѓxѓ‹,1Ѓ`6)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’n–јЊ€’и•\Ѓ@Ѓ@Ѓ@Ѓ@PNTx (x‚НЊВђ”)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE–А‹{•—Њi•\Ѓ@Ѓ@Ѓ@Ѓ@MLTx (x‚НЊВђ”)
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’PЊк•\‚PЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@WORD1
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’PЊк•\‚QЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@WORD2
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’PЊк•\‚RЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@WORD3
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’PЊк•\‚SЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@WORD4
-
-
-Ѓ@Ѓ@ЃEЃwEarthDawnЃx
-Ѓ@Ѓ@Ѓ@ЃEѓXѓeѓbѓvѓ_ѓCѓXЃ@(xEn+k)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓXѓeѓbѓvxЃA–Ъ•W’lnЃAѓJѓ‹ѓ}ѓ_ѓCѓXk‚ЕѓXѓeѓbѓvѓ_ѓCѓX‚рѓЌЃ[ѓ‹‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ђU‚и‘«‚µ‚аЋ©“®ЃB
-
-
-Ѓ@Ѓ@ЃEЃwѓGѓЂѓuѓЉѓIѓ}ѓVѓ“Ѓx
-Ѓ@Ѓ@Ѓ@ЃEЌUЊ‚”»’иЃ@(EMt+m@c#f)
-Ѓ@Ѓ@Ѓ@Ѓ@–Ъ•W’ltЃAЏCђі’lmЃAѓNѓЉѓeѓBѓJѓ‹’lc(ЏИ—ЄЋћ‚Н20)ЃAѓtѓ@ѓ“ѓuѓ‹’lf(ЏИ—ЄЋћ‚Н2)‚ЕЌUЊ‚”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@–Ѕ’†‚µ‚ЅЏкЌ‡‚Н–Ѕ’†ѓЊѓxѓ‹‚Ж–Ѕ’†•”€К‚аЋ©“®Џo—Н‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@RѓRѓ}ѓ“ѓh‚Й“З‚Э‘Ц‚¦‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEЉeЋн•\
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE–Ѕ’†•”€К•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@HLT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE”’•єЌUЊ‚ѓtѓ@ѓ“ѓuѓ‹•\Ѓ@MFT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋЛЊ‚ЌUЊ‚ѓtѓ@ѓ“ѓuѓ‹•\Ѓ@SFT
-
-
-Ѓ@Ѓ@ЃEЃwѓQѓwѓiЃEѓAѓiѓXѓ^ѓVѓXЃx
-Ѓ@Ѓ@Ѓ@ЃEђн“¬”»’иЃ@(nGAt+m)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXђ”nЃA–Ъ•W’ltЃAЏCђі’lm‚Еђн“¬”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЌK‰^‚МЏ•‚ЇЃAAЊ‚‘ќ‰Б’lЃA“¬‹Zѓ`ѓbѓg‚рЋ©“®Џ€—ќ‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃE’КЏн”»’иЃ@(nGt+m)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXђ”nЃA–Ъ•W’ltЃAЏCђі’lm‚Е’КЏн”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЌK‰^‚МЏ•‚Ї‚рЋ©“®Џ€—ќ‚µ‚Ь‚·ЃB(AЊ‚‘ќ‰Б’lЃA“¬‹Zѓ`ѓbѓg‚р•\Ћ¦—}ђ§‚µ‚Ь‚·)
-
-
-Ѓ@Ѓ@ЃEЃwѓ}ѓMѓJѓЌѓMѓAЃx
-Ѓ@Ѓ@Ѓ@ЃEЉeЋн•\
-Ѓ@Ѓ@Ѓ@Ѓ@•П’І•\Ѓ@Ѓ@Ѓ@Ѓ@WT
-Ѓ@Ѓ@Ѓ@Ѓ@‰^–Ѕ•П“]•\Ѓ@Ѓ@FCT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@“TЊ^“IЌР–п TCTЃ^•Ё—ќ“IЌР–п PCTЃ^ђёђ_“IЌР–п MCTЃ^‹¶‹C“IЌР–п ICT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЋР‰п“IЌР–п SCTЃ^’ґЏн“IЌР–п XCTЃ^•sЋv‹cЊnЌР–п WCTЃ^ѓRѓ~ѓJѓ‹ЊnЌР–п CCT
-Ѓ@Ѓ@Ѓ@Ѓ@ѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@ST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@‹ЙЊАЉВ‹« XESTЃ^“а–КђўЉE IWSTЃ^–‚–@“sЋs MCST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЋЂЊгђўЉE WDSTЃ^–А‹{ђўЉE LWST
-Ѓ@Ѓ@Ѓ@Ѓ@ѓtѓ@ѓ“ѓuѓ‹•\Ѓ@FT
-Ѓ@Ѓ@Ѓ@Ѓ@Ћ–ЊЏ•\Ѓ@Ѓ@Ѓ@Ѓ@AT
-Ѓ@Ѓ@Ѓ@Ѓ@Њo—р•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@BGT
-Ѓ@Ѓ@Ѓ@Ѓ@Џ‰ЉъѓAѓ“ѓJЃ[•\Ѓ@DAT
-Ѓ@Ѓ@Ѓ@Ѓ@‰^–Ѕ‘®ђ«•\Ѓ@Ѓ@Ѓ@FAT
-Ѓ@Ѓ@Ѓ@Ѓ@Љи‚ў•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@WIT
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ‰ѓ“ѓ_ѓЂ“Б‹Z•\Ѓ@RTT
-Ѓ@Ѓ@Ѓ@Ѓ@Ћћ‚М—¬‚к•\Ѓ@Ѓ@Ѓ@TPT
-Ѓ@Ѓ@Ѓ@Ѓ@ѓuѓ‰ѓ“ѓN”й–§•\Ѓ@BST
-Ѓ@Ѓ@Ѓ@Ѓ@ѓvѓ‰ѓCѓY•\Ѓ@Ѓ@Ѓ@PT
-Ѓ@Ѓ@Ѓ@Ѓ@
-
-Ѓ@Ѓ@ЃEЃw‰i‚ўЊг“ъ’k‚МѓlѓNѓЌѓjѓJЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’иЃ@(nNC+m)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXђ”nЃAЏCђі’lm‚Е”»’иѓЌЃ[ѓ‹‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXђ”‚Є2€ИЏг‚МЋћ‚МѓpЃ[ѓc”j‘№ђ”‚а•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEЌUЊ‚”»’иЃ@(nNA+m)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXђ”nЃAЏCђі’lm‚ЕЌUЊ‚”»’иѓЌЃ[ѓ‹‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@–Ѕ’†•”€К‚Жѓ_ѓCѓXђ”‚Є2€ИЏг‚МЋћ‚МѓpЃ[ѓc”j‘№ђ”‚а•\Ћ¦‚µ‚Ь‚·ЃB
-
-
-Ѓ@Ѓ@ЃEЃw–А‹{ѓfѓCѓYЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’иЃ@(nMD+m)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@–А‹{ѓfѓCѓY”»’и—pѓRѓ}ѓ“ѓh‚Е‚·ЃBRѓRѓ}ѓ“ѓh‚Й“З‘Ц‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@nЊВ‚МD6‚рђU‚Б‚Д‘е‚«‚ў•Ё“с‚В‚ѕ‚Ї‚Э‚Д’Bђ¬’l‚рЋZЏo‚µ‚Ь‚·ЃBЏCђіm‚а‰В”\‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ђв‘Ођ¬Њч‚Жђв‘ОЋё”s‚аЋ©“®”»’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEЉeЋн•\
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋUЌф•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@DRT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЊрЏВ•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@DNT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‹xЊe•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@DBT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓnѓvѓjѓ“ѓO•\Ѓ@Ѓ@Ѓ@DHT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓJЃ[ѓlѓ‹’вЋ~•\Ѓ@Ѓ@KST
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’Й‘Е•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@CAT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEђн“¬ѓtѓ@ѓ“ѓuѓ‹•\Ѓ@CFT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’v–ЅЏќ•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@FWT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‚Ё‚Ѕ‚©‚з•\‚PЃ@Ѓ@Ѓ@T1T
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‚Ё‚Ѕ‚©‚з•\‚QЃ@Ѓ@Ѓ@T2T
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‚Ё‚Ѕ‚©‚з•\‚RЃ@Ѓ@Ѓ@T3T
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‚Ё‚Ѕ‚©‚з•\‚SЃ@Ѓ@Ѓ@T4T
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‘ЉЏк•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@MPT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE“oЏк•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@APT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE€ц‰Џ•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@DCT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰ц•Ё€ц‰Џ•\Ѓ@Ѓ@Ѓ@Ѓ@MCT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEPC€ц‰Џ•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@PCT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓ‰ѓu€ц‰Џ•\Ѓ@Ѓ@Ѓ@Ѓ@LCT
-
-
-Ѓ@Ѓ@ЃEЃwѓsЃ[ѓJѓuЃ[Ѓx
-Ѓ@Ѓ@Ѓ@ЃEЉeЋн•\
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓCѓxѓ“ѓg•\Ѓ@(Ѓ`ET)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЉwЌZѓCѓxѓ“ѓg•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@SET
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЊВ•КЉwЌZѓCѓxѓ“ѓg•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@PSET
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓIѓoѓP‰®•~ѓCѓxѓ“ѓg•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@OET
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓoѓ^ѓ“ѓLѓ…Ѓ[•\Ѓ@(Ѓ`BT)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓCѓmѓZѓ“ѓg—pѓoѓ^ѓ“ѓLѓ…Ѓ[ЃI•\Ѓ@IBT
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓXѓvЃ[ѓLЃ[—pѓoѓ^ѓ“ѓLѓ…Ѓ[ЃI•\Ѓ@SBT
-
-
-Ѓ@Ѓ@ЃEЃwѓoѓ‹ѓiЃEѓNѓЌѓjѓJЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’и
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’КЏн”»’иЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@nBK
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXђ”n‚Е”»’иѓЌЃ[ѓ‹‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓZѓbѓgђ”‚Є1€ИЏг‚МЋћ‚НѓZѓbѓgђ”‚а•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЌUЊ‚”»’иЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@nBA
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXђ”n‚Е”»’иѓЌЃ[ѓ‹‚рЌs‚ўЃAЌUЊ‚’l‚Ж–Ѕ’†•”€К‚а•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓNѓЉѓeѓBѓJѓ‹ѓRЃ[ѓ‹Ѓ@nBKCtЃ@nBACt
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иѓRѓ}ѓ“ѓh‚МЊг‚л‚ЙЃuCtЃv‚р•t‚Ї‚й‚ЖѓNѓЉѓeѓBѓJѓ‹ѓRЃ[ѓ‹‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXђ”n,ѓRЃ[ѓ‹ђ”t‚Е”»’иѓЌЃ[ѓ‹‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓXђ”n‚Е”»’иѓЌЃ[ѓ‹‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓZѓbѓgђ”‚Є1€ИЏг‚МЋћ‚НѓZѓbѓgђ”‚а•\Ћ¦‚µЃAЌUЊ‚”»’и‚МЏкЌ‡‚Н–Ѕ’†•”€К‚а•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEѓJЃ[ѓh
-Ѓ@Ѓ@Ѓ@Ѓ@ЃES1Ѓ`S13,D1Ѓ`D13,H1Ѓ`H13,C1Ѓ`C13,J0(Ќ•ѓWѓ‡Ѓ[ѓJЃ[),J1(ђФѓWѓ‡Ѓ[ѓJЃ[)‚М54–‡‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћg‚¦‚йѓRѓ}ѓ“ѓh‚НЃuѓJЃ[ѓh‹@”\Ѓv‚МЌЂ–Ъ‚рЋQЏЖ‚µ‚Д‚­‚ѕ‚і‚ўЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓoѓ‹ѓiЃEѓNѓЌѓjѓJ‚МЏкЌ‡‚Н
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEc-mil Ѓ@Ѓ@ѓJЃ[ѓh‚р€ш‚ў‚Д‚·‚®ЋМ‚Д‚й
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEc-shЃ@Ѓ@Ѓ@ѓVѓѓѓbѓtѓ‹
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEc-spell Ѓ@‚У‚Б‚©‚В‚М‚¶‚г‚а‚с
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@‚рЉo‚¦‚Д‚ў‚к‚О–в‘и‚И‚ў‚ЖЋv‚н‚к‚Ь‚·ЃB
-
-
-Ѓ@Ѓ@ЃEЃw‚и‚г‚¤‚Ѕ‚ЬЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’и
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’КЏн”»’иЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Rx,y>=t
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”\—Н’lx‚ЖyЃA–Ъ•W’lt‚Е”»’иѓЌЃ[ѓ‹‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ђ¬ЊчЃEЋё”sЃE‚Pѓ]ѓЌЃEѓNѓЉѓeѓBѓJѓ‹‚рЋ©“®•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”\—Н’l‚P‚В‚Е‚М”»’и‚Н Rx>=t ‚Е‰В”\ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@‚Ь‚Ѕ–Ъ•W’l‚рЏИ—Є‚а‰В”\ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”\—Н’l x,y ‚МЉФ‚М , ‚НЏИ—Є‰В”\‚Е‚·ЃB
-
-Ѓ@—б) R6,8>=10  R68>=10 r6,6>=9   R8>=7  R810
-
-
-
-Ѓ@Ѓ@ЃEЃwZ–еђўЉE2nd.EditionЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’и
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’КЏн”»’иЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@aRSm<=t
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”\—Н’la,ЏCђі’lm,–Ъ•W’lt‚Е”»’иѓЌЃ[ѓ‹‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@RѓRѓ}ѓ“ѓh(3R6m<=t[a])‚Й“З‚Э‘Ц‚¦‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ђ¬Њч“xЃA•]‰їЃAѓ{Ѓ[ѓiѓXѓ_ѓCѓX‚рЋ©“®•\Ћ¦‚µ‚Ь‚·ЃB
-
-Ѓ@—б) 3RS+1<=9Ѓ@3R6+1<=9[3]
-
-
-Ѓ@Ѓ@ЃEЃwѓ‚ѓmѓgЃ[ѓ“ЃEѓ~ѓ…Ѓ[ѓWѓAѓЂЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’и
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’КЏн”»’иЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@2D6+m>=t[c,f]
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЏCђі’lm,–Ъ•W’lt,ѓNѓЉѓeѓBѓJѓ‹’lc,ѓtѓ@ѓ“ѓuѓ‹’lf‚Е”»’иѓЌЃ[ѓ‹‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹’lЃAѓtѓ@ѓ“ѓuѓ‹’l‚НЏИ—Є‰В”\‚Е‚·ЃB([]‚І‚ЖЏИ—Є‚Е‚«‚Ь‚·)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћ©“®ђ¬ЊчЃAЋ©“®Ћё”sЃAђ¬ЊчЃAЋё”s‚рЋ©“®•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEЉeЋн•\
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’›Њу•\Ѓ@Ѓ@Ѓ@OT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEc‚Э•\Ѓ@Ѓ@Ѓ@DT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEђўЉEc‹И•\Ѓ@WDT
-
-Ѓ@—б) 2D6+1>=9Ѓ@2D6>=9[10]Ѓ@2D6>=9[10,3]
-
-
-Ѓ@Ѓ@ЃEЃwђв‘О—к“zЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’и
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’КЏн”»’иЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@m-2DR+n>=x
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Љо–{”\—Нm,ЏCђі’ln,–Ъ•W’lx‚Е”»’иѓЌЃ[ѓ‹‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹ЃAѓtѓ@ѓ“ѓuѓ‹‚Й‰Б‚¦ЃADP‚МЋж“ѕ‚рЋ©“®•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@—б) 6-2DRЃ@8-2DR>=6
-
-
-Ѓ@Ѓ@ЃEЃwѓuѓ‰ѓbѓhѓNѓ‹ѓZѓCѓhЃx
-Ѓ@Ѓ@Ѓ@ЃEЉeЋн•\
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЉЦЊW‘®ђ«•\         RT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEѓVЃ[ѓ“•\           ST
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEђжђ§”»’иЋw’и“Б‹Z•\ IST
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEђg‘М•”€КЊ€’и•\Ѓ@Ѓ@ BRT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋ©ђMЌK•џ•\Ѓ@Ѓ@Ѓ@Ѓ@ CHT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE’n€КЌK•џ•\Ѓ@Ѓ@Ѓ@Ѓ@ SHT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE“ъЏнЌK•џ•\Ѓ@Ѓ@Ѓ@Ѓ@ DHT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃEђl–¬ЌK•џ•\Ѓ@Ѓ@Ѓ@Ѓ@ LHT
-Ѓ@Ѓ@Ѓ@Ѓ@ЃE‘ЮHЌK•џ•\Ѓ@Ѓ@Ѓ@Ѓ@ EHT
-
-
-Ѓ@Ѓ@ЃEЃwђ^‹уЉw‰ЂЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’и
-Ѓ@Ѓ@Ѓ@Ѓ@RLxЃF‹Z”\ѓxЃ[ѓX‚‚Е‹Z”\ѓ`ѓFѓbѓN‚Мѓ_ѓCѓXѓЌЃ[ѓ‹
-Ѓ@Ѓ@Ѓ@Ѓ@RLx>=yЃF‚±‚МЏ‘Ћ®‚И‚з–Ъ•W’l ‚™ ‚Е”»’иЊ‹‰КЏo—Н
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@—бЃjRL10Ѓ@Ѓ@RL22>=50
-Ѓ@Ѓ@Ѓ@ЃE•ђЉнЌUЊ‚”»’и
-Ѓ@Ѓ@Ѓ@Ѓ@SWxЃF•ђЉнЃiЊ•Ѓj‚р‹Z”\ѓxЃ[ѓX‚‚Еѓ_ѓCѓXѓЌЃ[ѓ‹ЃB‹Z”­“®‚Ь‚Еѓ`ѓFѓbѓNЃB
-Ѓ@Ѓ@Ѓ@Ѓ@•ђЉн‚М‘О‰ћ‚Н€И‰є‚М’К‚и
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@SWЃFЊ•ЃALSЃF‘еЊ•ЃASSЃFЏ¬Њ•ЃASPЃF‘„ЃA
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@AXЃF•ЂЃACLЃFћћ–_ЃABWЃF‹|ЃAMAЃF‘МЏpЃA
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@BXЃFѓ{ѓNѓVѓ“ѓOЃAPRЃFѓvѓЌѓЊѓXЃASTЃF—H”g–д
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@—бЃjSW10Ѓ@BX30
-Ѓ@Ѓ@Ѓ@ЃEѓJѓEѓ“ѓ^Ѓ[”»’и
-Ѓ@Ѓ@Ѓ@Ѓ@ѓJѓEѓ“ѓ^Ѓ[‹Z‚Н‘S‚Д“Є‚ЙЃuCЃv‚р‚В‚Ї‚й‚ЖѓЌЃ[ѓ‹‰В”\ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@—бЃjCSW10Ѓ@CBX76
-
-
-Ѓ@Ѓ@ЃEЃw’Д—ЋђўЉEЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’и
-Ѓ@Ѓ@Ѓ@Ѓ@Џ‰Љъ–Ъ•W’ln (•Kђ{)
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃjCW8
-
-Ѓ@Ѓ@ЃEЃwѓEѓBѓbѓ`ѓNѓGѓXѓgЃx
-Ѓ@Ѓ@Ѓ@ЃEѓ`ѓѓѓЊѓ“ѓW(ђ¬Њч”»’и)(WQn)
-Ѓ@Ѓ@Ѓ@Ѓ@n‰с2d6ѓ_ѓCѓX‚рђU‚Б‚Д”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃjWQ3
-Ѓ@Ѓ@Ѓ@ЃESETЃiѓXѓgѓ‰ѓNѓ`ѓѓЃ[ѓJЃ[ѓh‚Й–йЉX‚М’†‚М‘‹ц•\(SETn)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓXѓgѓ‰ѓNѓ`ѓѓЃ[ѓJЃ[ѓh‚М”ФЌ†(n)‚М‘‹ц•\Њ‹‰К‚р“ѕ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃjSET1Ѓ@SET48
-
-
-Ѓ@Ѓ@ЃEЃwѓGѓЉѓ…ѓVѓIѓ“Ѓx
-Ѓ@Ѓ@Ѓ@ЃE”»’иЃiELn+mЃj
-Ѓ@Ѓ@Ѓ@Ѓ@”\—Н’l n ЃAЉщ‘¶‚М’Bђ¬’l mЃiѓAѓVѓXѓg‚МЏкЌ‡Ѓj
-Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@EL3Ѓ@ЃF”\—Н’l‚R‚Е”»’иЃB 
-Ѓ@Ѓ@Ѓ@Ѓ@EL5+10ЃF”\—Н’l‚TЃA’Bђ¬’l‚Є‚P‚O‚МЏу‘Ф‚ЙѓAѓVѓXѓg‚Е”»’иЃB
-Ѓ@Ѓ@Ѓ@ЃEѓtѓ@ѓ“ѓuѓ‹•\ FT
-Ѓ@Ѓ@Ѓ@ЃEђнЏк•\ BFT
-Ѓ@Ѓ@Ѓ@ЃE’v–ЅЏќ•\ FWT
-Ѓ@Ѓ@Ѓ@ЃE‹xЊe•\ЃiЃ`BTЃj
-Ѓ@Ѓ@Ѓ@  ‹іЋє RBTЃ^Ќw”ѓ SBTЃ^•”Ћє BBTЃ^ђ¶“k‰пЋє CBTЃ^Љwђ¶—ѕ DBTЃ^ђ}Џ‘ЉЩ IBTЃ^‰®Џг FBTЃ^Њ¤‹†Ћє LBTЃ^ѓvЃ[ѓ‹ PBTЃ^’†’л NBTЃ^Џ¤“XЉX ABTЃ^”pљР VBTЃ^ѓQЃ[ѓg GBT
-Ѓ@Ѓ@Ѓ@ЃEѓ‰ѓ“ѓ_ѓЂNPC•\ЃiЃ`RTЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Љwђ¶ђ¶Љ€ЉЦANPC•\ SRTЃ^‚»‚М‘јNPC•\ ORTЃ^Љwђ¶ђ}ЉУ ‰є‹‰ђ¶•\ DRTЃ^Љwђ¶ђ}ЉУ Џг‹‰ђ¶•\ URT
-Ѓ@Ѓ@Ѓ@ЃEѓfЃ[ѓg•\ЃiDATExyЃj
-Ѓ@Ѓ@Ѓ@Ѓ@D66‚МЏo–Ъxy ѓfЃ[ѓg•\D66‚Еxy‚МЊ‹‰К‚р•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@DATE45
-Ѓ@Ѓ@Ѓ@ЃEѓfЃ[ѓg•\ЃiDATE[PC1,PC2]Ѓj
-Ѓ@Ѓ@Ѓ@Ѓ@D66‚МЏo–Ъxy ѓfЃ[ѓg•\‚рPC1,PC2‚Й‘О‚µ‚ДD6‚µ‚Ѕ‚МЊ‹‰К‚р•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@DATE[Andy,Betty]
-
-
-Ѓ@‚RЃDЋl‘ҐЊvЋZ(’[ђ”ђШЋМ‚Д)Ѓ@(C(x))
-Ѓ@Ѓ@Ѓ@ЊoЊ±’l‚МЊvЋZ‚И‚З‚ЕЋl‘ҐЊvЋZ‚рЌs‚¤‚Ж‚«‚Йѓ{ѓbѓg‚ЄЊvЋZ‚µ‚Д‚­‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Љ‡ЊК“а‘OЏ€—ќ‚р——p‚µ‚Д‚ў‚й‚М‚ЕЃAђ”Ћ®‚Н•K‚ёЉ‡ЊКЃu()Ѓv‚Е€Н‚с‚Е‚­‚ѕ‚і‚ўЃB
-Ѓ@Ѓ@Ѓ@‚а‚ї‚л‚с“ь‚кЋq‚Й‚µ‚Д‚аЊvЋZ‚µ‚Ь‚·ЃB
-
-Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@C(20+10)Ѓ@Ѓ@Ѓ@C(10*5)Ѓ@Ѓ@Ѓ@c(30-10/2)Ѓ@Ѓ@Ѓ@c((10+10)*9)
-
-
-
-Ѓ@Ѓ@ЃEЃwѓQѓCѓVѓѓѓKЃ[ѓ‹ѓEѓBѓYѓJѓ^ѓiЃx
-Ѓ@Ѓ@Ѓ@ЃE”»’и (GK#n)
-Ѓ@Ѓ@Ѓ@  –р‚вѓ`ѓ‡ѓЂѓo‚рЉЬ‚Я‚Д1‰с‚Мѓ_ѓCѓXѓЌЃ[ѓ‹‚р”»’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@  GK ‚М‚Э‚МЏкЌ‡5%‚МЉm—¦‚Еѓ`ѓ‡ѓЂѓo‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@  GK#3 ‚М—l‚Й #n ‚р‚В‚Ї‚й‚±‚Ж‚Й‚ж‚Б‚Дѓ`ѓ‡ѓЂѓo‚МЉm—¦‚рn%‚Й‚·‚й‚±‚Ж‚Є‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃjGKЃ@GK#10
-Ѓ@Ѓ@Ѓ@ЃE”»’и (GKB#n)
-Ѓ@Ѓ@Ѓ@  –р‚М”»’иЋћ‚Йђн“¬Ћћ‚М–р‚р•\Ћ¦‚µ‚Ь‚·ЃB‚»‚к€ИЉO‚НGK‚Ж“Ї€к‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃjGKBЃ@GKB#2
-Ѓ@Ѓ@Ѓ@ЃE‰B‚µѓRѓ}ѓ“ѓh (GLЃAGLB)
-Ѓ@Ѓ@Ѓ@  •K‚ёѓ`ѓ‡ѓЂѓo‚µ‚Ь‚·ЃBGM‚Є‹у‹C‚р“З‚с‚Еѓ`ѓ‡ѓЂѓo‚і‚№‚Ѕ‚ў‚Ж‚«‚вЃA
-Ѓ@Ѓ@Ѓ@  GKѓRѓ}ѓ“ѓh‚р‘Е‚їЉФ€б‚¦‚Дѓ`ѓ‡ѓЂѓo‚·‚й‚р‘z’и‚µ‚Д‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃjGLЃ@GLB
-
-
-Ѓ@‚SЃDѓ|ѓCѓ“ѓgѓJѓEѓ“ѓ^
-Ѓ@Ѓ@Ѓ@ѓCѓjѓVѓAѓeѓBѓ”‚вHP,MP,ЏХ“®’~ђП‚И‚ЗѓZѓbѓVѓ‡ѓ““а‚ЕЏо•с‹¤—L‚µ‚Д‚Ё‚«‚Ѕ‚ўђ”’l‚рЉЗ—ќ‚·‚й‚Ѕ‚Я‚М‹@”\‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ|ѓCѓ“ѓgѓJѓEѓ“ѓ^‚МѓRѓ}ѓ“ѓh‚НЌs“Є‚М‚Э—LЊш‚Е‚·ЃB(ѓXѓyЃ[ѓX‚рЉJ‚Ї‚й‚ЖЊг‚л‚ЙѓRѓЃѓ“ѓg‚р‘±‚Ї‚ДЏ‘‚Ї‚Ь‚·)
-
-Ѓ@Ѓ@ЃEѓ|ѓCѓ“ѓg“o^Ѓ@(#[–ј‘O:]ѓ^ѓOn[/m])
-Ѓ@Ѓ@Ѓ@ѓ|ѓCѓ“ѓg‚М“o^‚Нѓ`ѓѓѓ“ѓlѓ‹‚ЖTalk‚М—ј•ы‚ЕЌs‚¦‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ`ѓѓѓ“ѓlѓ‹‚Е“o^‚µ‚ЅЏо•с‚НЃAѓ`ѓѓѓ“ѓlѓ‹‚Й•\Ћ¦ѓRѓ}ѓ“ѓh‚р“ь—Н‚·‚й‚Ж€к——•\Ћ¦‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Talk‚Е“o^‚µ‚ЅЏо•с‚НЃA‚»‚М‚Ж‚«•\Ћ¦‚і‚к‚Ь‚№‚сЃB‚±‚к‚НGM‚ЄNPC‚МHP‚вMP‚рЉЗ—ќ‚·‚й‚Ж‚«‚М‹@”\‚Е‚·ЃB
-
-Ѓ@Ѓ@Ѓ@1.Њ»ЌЭ’l‚М‚Э‚Мѓ|ѓCѓ“ѓg“o^Ѓ@(#ѓ^ѓOn)
-Ѓ@Ѓ@Ѓ@Ѓ@"#(ѓ^ѓO)(Њ»ЌЭ’l)"‚ЕЋw’и‚µ‚Ь‚·ЃBЊ»ЌЭ’l‚Н”јЉp‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ^ѓO‚Нѓ|ѓCѓ“ѓg‚рЉЗ—ќ‚·‚й‚Ж‚«‚М–јЏМ‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЃuDEXЃv‚вЃuѓCѓjѓ`ѓAѓeѓBѓ”ЃvЃuHPЃvЃuMPЃvЃuЏХ“®ЃvЃuђZђH—¦Ѓv‚И‚ЗЋ©—R‚ЙђЭ’и‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ћg‚¦‚й•¶Ћљ‚Н”јЉp‰pђ”‚ЖѓAѓ“ѓ_Ѓ[ѓoЃ[(_)ЃA‚»‚к‚Й•¶ЋљѓRЃ[ѓh•ПЉ·‚Й€ш‚Б‚©‚©‚з‚И‚ў‘SЉp•¶Ћљ‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓAѓ“ѓ_Ѓ[ѓoЃ[€ИЉO‚М”јЉp‹LЌ†(Ѓu+-/*Ѓv‚И‚З)‚НЋg‚¦‚И‚ў‚М‚Е’Ќ€У‚µ‚Д‚­‚ѕ‚і‚ўЃB
-Ѓ@Ѓ@Ѓ@Ѓ@‚И‚ЁЃA”јЉp‰pЋљ‚М‘е•¶ЋљЏ¬•¶Ћљ‚Н–іЋ‹‚µ‚Ь‚·‚µЃA‘SЉp‚Ж”јЉp•¶Ћљ‚Н‹ж•К‚і‚к‚Ь‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@#DEX12Ѓ@Ѓ@Ѓ@#ђZђH—¦0
-
-Ѓ@Ѓ@Ѓ@2.Њ»ЌЭ’l/ЌЕ‘е’l‚Є‚ ‚йѓ|ѓCѓ“ѓg‚М“o^Ѓ@(#ѓ^ѓOn/m)
-Ѓ@Ѓ@Ѓ@Ѓ@"#(ѓ^ѓO)(Њ»ЌЭ’l)/(ЌЕ‘е’l)"‚ЕЋw’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЌЕ‘е’lЋw’и‚Н”јЉp‚М‚ЭЃBѓ^ѓO‚вЊ»ЌЭ’l‚Й‚В‚ў‚Д‚Н1.‚Ж“Ї‚¶‚Е‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@#HP12/12Ѓ@Ѓ@Ѓ@#ЏХ“®0/10
-
-Ѓ@Ѓ@Ѓ@3.ѓLѓѓѓ‰ЋЇ•К–ј•t‚«‚Мѓ|ѓCѓ“ѓg“o^Ѓ@(#–ј‘O:ѓ^ѓOn[/m])
-Ѓ@Ѓ@Ѓ@Ѓ@"#(ЋЇ•К–ј):(Њ»ЌЭ’l)/(ЌЕ‘е’l)"‚ЕЋw’и‚µ‚Ь‚·ЃBЌЕ‘е’l‚Є‚И‚ў‚а‚М‚НЏИ—Є‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЋЇ•К–ј‚НѓLѓѓѓ‰ѓNѓ^Ѓ[‚рЉЗ—ќ‚·‚й‚Ж‚«‚М–ј‘O‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@‚±‚к‚а•¶Ћљ‚ЙЉЦ‚µ‚Д‚Нѓ^ѓO‚Ж“Ї—l‚Е‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@#Zako1:HP9/9Ѓ@Ѓ@Ѓ@#orc1:HP10/10Ѓ@Ѓ@#Џ¤ђl:HP8/8
-
-Ѓ@Ѓ@ЃEѓ|ѓCѓ“ѓg‚МЊ»ЌЭ’l‚рЏг‰є‚і‚№‚йЃ@(#[–ј‘O:]ѓ^ѓO+or-n)
-Ѓ@Ѓ@Ѓ@ѓ|ѓCѓ“ѓg‚МЊ»ЌЭ’l‚р‰БЋZЃAЊёЋZ‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЋЇ•К–ј‚Є‚И‚ў‚Ж‚«‚Н"#(ѓ^ѓO)(+or-)(ЏCђі’l)"‚МЊ`‚ЙЃA
-Ѓ@Ѓ@Ѓ@ЋЇ•К–ј‚Є‚ ‚й‚Ж‚«‚Н"#(ЋЇ•К–ј):(ѓ^ѓO)(+or-)(ЏCђі’l)"‚МЊ`‚Й‚И‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@•П‰»‚·‚й‚М‚НЊ»ЌЭ’l‚ѕ‚Ї‚ЕЃAЌЕ‘е’l‚Н•П‰»‚µ‚Ь‚№‚сЃB
-Ѓ@Ѓ@Ѓ@Љ‡ЊК“а‘OЏ€—ќ‚Є—LЊш‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@GM‚Є“G‚Мђ”’l‚р•П‰»‚і‚№‚й‚Ж‚«‚НЃATalk‚ЕѓRѓ}ѓ“ѓh‚р“ь—Н‚·‚й‚Жѓ`ѓѓѓ“ѓlѓ‹‚Й•\Ћ¦‚і‚к‚Ь‚№‚сЃB
-
-Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@#HP-5Ѓ@Ѓ@Ѓ@#ЏХ“®+3Ѓ@Ѓ@Ѓ@#orc1:HP-(9-1)
-
-Ѓ@Ѓ@ЃEѓ|ѓCѓ“ѓg‚М€к——•\Ћ¦Ѓ@(#OPEN![ѓ^ѓO])
-Ѓ@Ѓ@Ѓ@‹L^‚і‚к‚Д‚ў‚йѓfЃ[ѓ^‚М•\Ћ¦ѓRѓ}ѓ“ѓh‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ^ѓO‚Н“o^‚МЋћ‚Ж“Ї‚¶‚а‚М‚рЋg‚ў‚Ь‚·ЃB
-
-Ѓ@Ѓ@Ѓ@1.ѓLѓѓѓ‰ѓNѓ^Ѓ[‚М“Ї‚¶ѓ^ѓO‚МЏо•с‚р•А‚Ч‚Д•\Ћ¦Ѓ@(#OPEN!ѓ^ѓO)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ|ѓCѓ“ѓgѓJѓEѓ“ѓ^‚р“o^‚µ‚Д‚ў‚йѓ`ѓѓѓ“ѓlѓ‹‚Е"#OPEN!(ѓ^ѓO)"‚МЊ`‚ЕѓRѓ}ѓ“ѓh‚р“ь—Н‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@‚·‚й‚ЖЃA“Ї‚¶ѓ`ѓѓѓ“ѓlѓ‹‚Й“o^‚і‚к‚Д‚ў‚йЃA“Ї‚¶ѓ^ѓO‚рЋќ‚ВЏо•с‚Єѓ\Ѓ[ѓg‚і‚к‚Д•\Ћ¦‚і‚к‚Ь‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@#OPEN!HPЃ@Ѓ@Ѓ@#OPEN!ЏХ“®
-
-Ѓ@Ѓ@Ѓ@Ѓ@‚±‚М‚Ж‚«ЃATalk‚Е“o^‚і‚к‚ЅЃu“GNPC‚МЏо•сЃv‚Н•\Ћ¦‚і‚к‚Ь‚№‚сЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ\Ѓ[ѓg‚НЃcЃc
-Ѓ@Ѓ@Ѓ@Ѓ@1.ђ”Ћљ‚Є‘е‚«‚ў•ы‚ЄЌ¶
-Ѓ@Ѓ@Ѓ@Ѓ@2.“Ї‚¶Ћћ‚НЊё‚Б‚Д‚ў‚й—К‚ЄЏ­‚И‚ў•ы‚ЄЌ¶
-Ѓ@Ѓ@Ѓ@Ѓ@3.‚»‚к‚а“Ї‚¶Ћћ‚Н–ј‘OЏ‡
-Ѓ@Ѓ@Ѓ@Ѓ@ЃcЃc‚ЕЌs‚н‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@‚±‚к‚Н€к”К“I‚Иѓpѓ‰ѓЃЃ[ѓ^‚Е‰E‚ЙЌs‚­‚ЖЉл‚И‚ў‚Ж‚ў‚¤ѓ\Ѓ[ѓgѓCѓЃЃ[ѓW‚Е‚·ЃB
-
-Ѓ@Ѓ@Ѓ@2.Ћ©•Є‚МѓLѓѓѓ‰ѓNѓ^Ѓ[‚Мѓpѓ‰ѓЃЃ[ѓ^€к——•\Ћ¦Ѓ@(#OPEN![ѓ^ѓO])
-Ѓ@Ѓ@Ѓ@Ѓ@Ћ©•Є‚МЉЗ—ќ‚µ‚Д‚ў‚йѓLѓѓѓ‰ѓNѓ^Ѓ[‚М‘SѓJѓEѓ“ѓ^‚р€к——•\Ћ¦‚·‚й‚Ж‚«‚НЃA
-Ѓ@Ѓ@Ѓ@Ѓ@Talk‚Е"#OPEN!"‚Ж“ь—Н‚µ‚Д‚­‚ѕ‚і‚ўЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓLѓѓѓ‰ѓNѓ^Ѓ[‚І‚Ж‚Й“Z‚Ь‚Б‚ДѓJѓEѓ“ѓ^Ѓ[‚Є•\Ћ¦‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@“Б’и‚Мѓ^ѓO‚Й‚В‚ў‚Дѓ\Ѓ[ѓg‚µ‚Д•\Ћ¦‚µ‚Д—~‚µ‚ў‚Ж‚«‚Н"#OPEN!(ѓ^ѓO)"‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЃuЌЎЋЂ‚Й‚»‚¤‚И“G‚Н‚З‚кЃHЃv‚Ж‚©•·‚©‚к‚Ѕ‚Ж‚«‚Й‚НЃA‚±‚к‚Є•Ц—‚Е‚·ЃB
-
-Ѓ@Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@Ѓ@#OPEN!Ѓ@Ѓ@Ѓ@#OPEN!HP
-
-Ѓ@Ѓ@ЃEѓ|ѓCѓ“ѓgѓJѓEѓ“ѓ^‚МЋЇ•К–ј•ПЌXЃ@(#RENAME!–ј‘O1->–ј‘O2)
-Ѓ@Ѓ@Ѓ@GM‚М‰‰Џo‚Е“G‚Мђі‘М‚Єђн“¬ЉJЋnЋћ‚Й•s–ѕ‚Еђн“¬’†‚Йђі‘М‚ЄѓoѓЊ‚йЋ–‚Є‚ ‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@‚»‚с‚И‚Ж‚«‚ЙЋg‚¤‚М‚Є‚±‚к‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@"#RENAME!(–ј‘O1)->(–ј‘O2)"‚Е“ь—Н‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЋЇ•К–ј‚рЃu–ј‘O1Ѓv‚©‚зЃu–ј‘O2Ѓv‚Й•ПЌX‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Talk‚Е‚а“ь—Н‚Е‚«‚Ь‚·‚ЄЃA•ПЌX‚Е‚«‚ЅѓЃѓbѓZЃ[ѓW‚Нѓ`ѓѓѓ“ѓlѓ‹‚Й•\Ћ¦‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@“G‚Є•Пђg‚µ‚ЅЋћ‚ЙЋg‚Б‚Д‚а–К”’‚ў‚©‚а‚µ‚к‚Ь‚№‚с‚ЛЃB
-
-Ѓ@Ѓ@Ѓ@—бЃj
-Ѓ@Ѓ@Ѓ@#RENAME!Џ¤ђl->ѓ{ѓXЃ@Ѓ@Ѓ@#RENAME!goblin1->orc
-
-Ѓ@Ѓ@ЃEѓ|ѓCѓ“ѓgѓJѓEѓ“ѓ^‚М•\Ћ¦ѓ`ѓѓѓ“ѓlѓ‹Ћw’и
-Ѓ@Ѓ@Ѓ@ѓ|ѓCѓ“ѓg“o^‚рЌЕЏ‰‚Йѓ`ѓѓѓ“ѓlѓ‹‚ЕЌs‚¤‚ЖЃAЋ©“®“I‚Й‚»‚Мѓ`ѓѓѓ“ѓlѓ‹‚Є•\Ћ¦ѓ`ѓѓѓ“ѓlѓ‹‚ЙђЭ’и‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Џ]‚Б‚ДPL‚НЋg‚¤•K—v‚Н‚ ‚и‚Ь‚№‚сЃB
-Ѓ@Ѓ@Ѓ@€к•ыGM‚Є“G‚МѓfЃ[ѓ^‚р‘е—К“o^‚·‚й•K—v‚Є‚ ‚Б‚ДЃA‚µ‚©‚аЊцЉJЏо•с‚Є‚Ь‚ѕ‚И‚ўЏкЌ‡‚Є‚ ‚й‚ЖЋv‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ`ѓѓѓ“ѓlѓ‹“o^‚рЌs‚н‚И‚ў‚ЖѓfЃ[ѓ^“o^‚Є‚Е‚«‚Ь‚№‚с‚М‚ЕЃAЌЕЏ‰‚Й“o^‚µ‚Д‚Ё‚­‚Ж€АђS‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓfѓtѓHѓ‹ѓg‚Е"#HERE"‚Й‚И‚Б‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@‚И‚ЁЃA‚±‚МѓRѓ}ѓ“ѓh‚ЕѓvѓЌѓbѓg‚вѓVЃ[ѓNѓЊѓbѓgѓ_ѓCѓX‚М•\Ћ¦ђж‚Ж‚µ‚Д“o^‚і‚к‚Ь‚·ЃB
-
-
-
-Ѓ@‚TЃDѓJЃ[ѓh‹@”\
-Ѓ@Ѓ@Ѓ@ѓSЃ[ѓXѓgѓnѓ“ѓ^Ѓ[‚И‚З‚М‚ж‚¤‚ЙѓvѓЊѓCѓ„Ѓ[‚ЙѓJЃ[ѓh‚р”z‚йѓVѓXѓeѓЂ—p‚М‹@”\‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@’КЏнѓJЃ[ѓh‚р€ш‚­‚ЖЃA“а—e‚Єѓvѓ‰ѓCѓxЃ[ѓgѓЃѓbѓZЃ[ѓW‚Е‘—‚з‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓIЃ[ѓvѓ“‚Е€ш‚ў‚ЅЏкЌ‡‚Н’КЏнѓЃѓbѓZЃ[ѓW‚Ж‚И‚и‚Ь‚·ЃB
-
-Ѓ@Ѓ@Ѓ@„Ў„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„¦„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„ў
-Ѓ@Ѓ@Ѓ@„ ‘SѓJЃ[ѓh‚МѓVѓѓѓbѓtѓ‹Ѓ@Ѓ@Ѓ@„ c-shuffleЃ@c-shЃ@Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ѓJЃ[ѓh‚р€ш‚­Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ c-draw[n] Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-draw[5] Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  n‚Н–‡ђ”(ЏИ—ЄЋћ1) Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ѓIЃ[ѓvѓ“‚ЕѓJЃ[ѓh‚р€ш‚­Ѓ@Ѓ@„ c-odraw[n] Ѓ@Ѓ@Ѓ@Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ c-opend[n] Ѓ@Ѓ@Ѓ@Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„ ex. c-odraw[3]Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  n‚Н–‡ђ”(ЏИ—ЄЋћ1)Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ѓJЃ[ѓh‚р‘I‚с‚Е€ш‚­Ѓ@Ѓ@Ѓ@Ѓ@„ c-pick[c[,c]]Ѓ@Ѓ@Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„ ex. c-pick[S1,H1,C1]Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ Њл‚Б‚ДЋМ‚Д‚ЅѓJЃ[ѓh‚р–Я‚·Ѓ@„ c-back[c[,c]]Ѓ@Ѓ@Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„ ex. c-back[S1]Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ Џк‚Й’u‚ў‚ЅѓJЃ[ѓh‚р–Я‚·Ѓ@Ѓ@„ c-back1[c[,c]]Ѓ@Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„ ex. c-back1[S1] Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ѓJЃ[ѓh‚р“n‚·Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ c-pass[c[,c]]‘ЉЋи Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-pass[J1]PL1 Ѓ@Ѓ@Ѓ@Ѓ@„ (ЏИ—ЄЋћ‚Нѓ‰ѓ“ѓ_ѓЂ)Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ Џк‚МѓJЃ[ѓh‚р‘ЉЋи‚Й“n‚·Ѓ@Ѓ@„ c-pass1[c[,c]]‘ЉЋиЃ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-pass1[J1]PL1Ѓ@Ѓ@Ѓ@Ѓ@„ (ЏИ—ЄЋћ‚Нѓ‰ѓ“ѓ_ѓЂ)Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ѓJЃ[ѓh‚рЏo‚·Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ c-play[c[,c]] Ѓ@Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-play[C13,S8]Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ѓJЃ[ѓh‚рЏк‚ЙЏo‚·Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ c-play1[c[,c]]Ѓ@Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-play1[C13,S8] Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ѓJЃ[ѓh‚рЋМ‚Д‚йЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@(talk‰В”\)Ѓ@Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ c-discard[c[,c]]Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-discard[H1,D1]Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@c-dis[H1,D1]Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ ѓJѓ“ѓ}‚Е•Ўђ”Ћw’и‰ВЃ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ Џк‚МѓJЃ[ѓh‚р‘I‚с‚ЕЋМ‚Д‚йЃ@„ c-discard1[c[,c]] Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-discard1[H1,D1] Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@c-dis1[H1,D1] Ѓ@Ѓ@Ѓ@Ѓ@„ ѓJѓ“ѓ}‚Е•Ўђ”Ћw’и‰ВЃ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ЋRЋD‚©‚з‚Я‚­‚Б‚Д‚·‚®ЋМ‚Д‚й„ c-milstone[n]Ѓ@Ѓ@Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ c-mil[n] Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„ ex. c-milstone[3] Ѓ@Ѓ@Ѓ@Ѓ@„  n‚Н–‡ђ”(ЏИ—ЄЋћ1)Ѓ@ „ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ѓJЃ[ѓh‚р‘ЉЋи‚МЏк‚ЙЏo‚·Ѓ@Ѓ@„ c-place[c[,c]]‘ЉЋиЃ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-place[C13,S8]PL1Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ Џк‚МѓJЃ[ѓh‚р‘ЉЋи‚МЏк‚ЙЏo‚·„ c-place1[c[,c]]‘ЉЋи „ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-place1[C13,S8]PL1 Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ Џк‚МѓJЃ[ѓh‚рѓ^ѓbѓv‚·‚йЃ@Ѓ@„ c-tap1[c[,c]]‘ЉЋи Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-tap1[C13,S8]Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ Џк‚МѓJЃ[ѓh‚рѓAѓ“ѓ^ѓbѓv‚·‚й„ c-untap1[c[,c]]‘ЉЋи „ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  c‚НH1Ѓ`13,D1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@S1Ѓ`13,C1Ѓ`13 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-untap1[C13,S8]Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ J1Ѓ`J4 Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ЋМ‚ДЋD‚рЋR‚Й–Я‚·Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ c-rshuffleЃ@c-rsh Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ѓJЃ[ѓh‚р‘ЉЋи‚Й”z‚йЃ@Ѓ@Ѓ@Ѓ@„ c-deal[n]‘ЉЋи Ѓ@Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-deal[3]PL1Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„  n‚Н–‡ђ”(ЏИ—ЄЋћ1) Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ѓJЃ[ѓh‚рЊ©‚Д‚©‚з‘ЉЋи‚Й”z‚й„ c-vdeal[n]‘ЉЋиЃ@Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-vdeal[3]PL1 Ѓ@Ѓ@Ѓ@Ѓ@„  n‚Н–‡ђ”(ЏИ—ЄЋћ1) Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ЋиЋD‚рЊ©‚йЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ c-handЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ PL‚МЋиЋD‚рЊ©‚йЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ c-vhand ‘ЉЋиЃ@Ѓ@Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ѓJЃ[ѓh”z’u‚рЊ©‚йЃ@Ѓ@Ѓ@Ѓ@Ѓ@„ c-check Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ‘S€х‚МЏкЋD‚рЋМ‚Д‚йЃ@Ѓ@Ѓ@Ѓ@„ c-clean Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„Ґ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„©„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„§
-Ѓ@Ѓ@Ѓ@„ ѓJЃ[ѓh”z’u•њЉ€‚МЋф•¶Ѓ@Ѓ@Ѓ@„ c-spell[Ћф•¶] Ѓ@Ѓ@Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ (ЏИ—ЄЋћ‚НЋф•¶•\Ћ¦)Ѓ@„ 
-Ѓ@Ѓ@Ѓ@„ ex. c-spell Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@„ Ѓ¦ѓQЃ[ѓЂђЭ’и‚Й’Ќ€УЃ@„ 
-Ѓ@Ѓ@Ѓ@„¤„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„Ё„џ„џ„џ„џ„џ„џ„џ„џ„џ„џ„Ј
-
-Ѓ@Ѓ@Ѓ@‚±‚Мѓ{ѓbѓg‚НѓJЃ[ѓhѓtѓ@ѓCѓ‹‚рЌмђ¬‚·‚й‚±‚Ж‚ЕЃA“ЖЋ©ѓJЃ[ѓh‚рЋg‚¤ѓQЃ[ѓЂ‚Й‚а‘О‰ћ‰В”\‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓJЃ[ѓhѓtѓ@ѓCѓ‹‚МЏ‘‚«•ы‚НѓVѓ“ѓvѓ‹‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓJЃ[ѓh‚P–‡‚ ‚Ѕ‚и‚PЌs‚ЕЃAѓJЃ[ѓh”ФЌ†‚Жѓ^ѓCѓgѓ‹‚рЃu->Ѓv‚ЕЊq‚°‚ЅѓeѓLѓXѓgѓtѓ@ѓCѓ‹‚рЌм‚й‚ѕ‚Ї‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@•¶ЋљѓRЃ[ѓh‚Нѓ_ѓCѓXѓ{ѓbѓg‚ЙђЭ’и‚µ‚Ѕ•¶ЋљѓRЃ[ѓh‚Ж“Ї‚¶•Ё‚рЋg‚Б‚Д‚­‚ѕ‚і‚ўЃB(ѓfѓtѓHѓ‹ѓg‚НShift-Jis)
-
-Ѓ@Ѓ@Ѓ@ex. 143->Ѓy‚в‚з‚к‚Д‚Ѕ‚Ь‚й‚©ЃIЃzFEA
-
-# ѓGѓNѓZѓ‹‚ЕѓJЃ[ѓh€к——‚рЌмђ¬‚µ‚ДCSVЊ`Ћ®‚ЕЏ‘‚«‚ѕ‚µ‚ЅЊг‚ЕЃAѓЃѓ‚’ ‚вѓeѓLѓXѓgѓGѓfѓBѓ^‚Е“З‚ЭЌћ‚с‚Е
-# Ѓu,(ѓJѓ“ѓ})Ѓv‚рЃu->Ѓv‚Й’uЉ·‚·‚й‚ЖЉИ’P‚Е‚·ЃB
-
-Ѓ@Ѓ@Ѓ@’Ќ€У“_‚Н‚Q‚В‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEѓJЃ[ѓh”ФЌ†‚НA”Ф‚Е‚ ‚й•K—v‚Н‚ ‚и‚Ь‚№‚с‚ЄЃAѓ†ѓjЃ[ѓN‚И(Џd•Ў‚µ‚И‚ў)•K—v‚Є‚ ‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@‚В‚Ь‚иЃA“Ї‚¶ѓJЃ[ѓh‚Є‚R–‡‚ ‚йЏкЌ‡‚Е‚аЃA”ФЌ†‚Н•П‚¦‚И‚Ї‚к‚О‚И‚и‚Ь‚№‚сЃB
-Ѓ@Ѓ@Ѓ@ЃEѓ^ѓCѓgѓ‹‚Й•¶Ћљђ”ђ§ЊА‚Н‚ ‚и‚Ь‚№‚с‚ЄЃA•\Ћ¦‚Є€кЌs”јЉp400•¶Ћљ‚Ь‚Е‚Йђ§ЊА‚µ‚Д‚ ‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@–‡ђ”‚р‘Ѕ‚­Ћg‚¤‚а‚М‚Е‚НЃA‚ ‚Ь‚и‚Й’·‚­‚·‚й‚Ж•\Ћ¦‚Е‚«‚И‚­‚И‚й‰В”\ђ«‚Є‚ ‚и‚Ь‚·ЃB
-
-
-
-Ѓ@‚UЃDѓ}ѓXѓ^Ѓ[ѓRѓ}ѓ“ѓh
-Ѓ@Ѓ@Ѓ@ѓ}ѓXѓ^Ѓ[ѓRѓ}ѓ“ѓh‚Нѓvѓ‰ѓCѓxЃ[ѓgѓЃѓbѓZЃ[ѓW‚рѓ_ѓCѓXѓ{ѓbѓg‚Й‘—‚й‚±‚Ж‚ЕЃA‚ў‚­‚В‚©‚МђЭ’и‚рЌs‚¤‚±‚Ж‚ЄЏo—€‚Ь‚·ЃB
-
-Ѓ@Ѓ@ЃEѓ}ѓXѓ^Ѓ[‚МђЭ’иЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@"Set Master->ѓ}ѓXѓ^Ѓ[–ј"
-Ѓ@Ѓ@Ѓ@ѓ}ѓXѓ^Ѓ[‚рђЭ’и‚µ‚Д‚Ё‚­‚±‚Ж‚ЕЃA‚ў‚­‚В‚©‚М‹@”\‚Є’З‰БЃEђ§ЊА‚Е‚«‚й‚ж‚¤‚Й‚И‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓvѓ‰ѓCѓxЃ[ѓgѓЃѓbѓZЃ[ѓW‚Е"Set Master"‚Ж“ь—Н‚·‚й‚ЖЃA“ь—Н‚µ‚Ѕђl‚рѓ}ѓXѓ^Ѓ[
-Ѓ@Ѓ@Ѓ@‚Ж‚µ‚Д“o^‚µ‚Ь‚·ЃBЌД“x“ь—Н‚·‚й‚Жѓ}ѓXѓ^Ѓ[“o^‚Є‰рЏњ‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@‚Ь‚ЅЃAѓ}ѓXѓ^Ѓ[‚р’N‚©‚Й€ЪЌs‚·‚йЋћ‚Й‚Н"Set Master->ѓjѓbѓNѓlЃ[ѓЂ"‚ЖЃuѓvѓ‰ѓCѓxЃ[ѓgѓЃѓbѓZЃ[ѓW(Talk)Ѓv‚р‘—‚й‚ЖЃAЋw’и‚µ‚ЅѓjѓbѓNѓlЃ[ѓЂ‚Мђl‚Єѓ}ѓXѓ^Ѓ[‚ЙђЭ’и‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@€к“xђЭ’и‚·‚й‚Жѓ}ѓXѓ^Ѓ[€ИЉO‚©‚з‚М•ПЌX‚рЋу‚Ї•t‚Ї‚Ь‚№‚сЃB
-
-Ѓ@Ѓ@ЃE‰B‚µѓ_ѓCѓX‚МЋ©“®’К’m
-Ѓ@Ѓ@Ѓ@ѓ}ѓXѓ^Ѓ[ђЭ’и‚р‚·‚й‚Жѓ}ѓXѓ^Ѓ[‚ЙЋ©“®“I‚ЙЊ‹‰К‚Є’К’m‚і‚к‚Ь‚·ЃB
-
-Ѓ@Ѓ@ЃEЏг•ы–іЊАѓЌЃ[ѓ‹‚М‹«ЉE’lђЭ’иЃ@Ѓ@Ѓ@"Set Upper->‹«ЉE’l"
-Ѓ@Ѓ@Ѓ@"Set Uppwer->‹«ЉE’l"‚ЕЃAЏг•ы–іЊАѓЌЃ[ѓ‹‚М‹«ЉE’l‚р‚ ‚з‚©‚¶‚ЯђЭ’и‚µ‚Д‚Ё‚­‚ЖЃAѓЌЃ[ѓ‹‚М“x‚Й‹«ЉE’l‚рЏ‘‚©‚И‚­‚Д‚а‚ж‚­‚И‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@‚И‚ЁЊ‹‰К•\Ћ¦‚МЋћ‚Й‚НЃAЉm”F‚М‚Ѕ‚Я‹«ЉE’l‚а•\Ћ¦‚і‚к‚Ь‚·ЃB
-
-Ѓ@Ѓ@ЃEЊВђ”ђU‚и‘«‚µѓЌЃ[ѓ‹‚М‰сђ”ђ§ЊАђЭ’иЃ@Ѓ@Ѓ@"Set Reroll->ЏгЊА’l"
-Ѓ@Ѓ@Ѓ@"Set Reroll->ЏгЊА’l"‚ЕЃA‰сђ”ЏгЊА’l‚р‚ ‚з‚©‚¶‚ЯђЭ’и‚µ‚Д‚Ё‚­‚ЖЃAЊВђ”ђU‚и‘«‚µѓЌЃ[ѓ‹Ћћ‚МђU‚и‘«‚µ‰сђ”‚рђ§ЊА‚Е‚«‚Ь‚·ЃB
-
-Ѓ@Ѓ@ЃEѓЌЃ[ѓ‹‚Мѓ\Ѓ[ѓgђЭ’иЃ@Ѓ@Ѓ@"Set Sort->ѓ‚Ѓ[ѓh”ФЌ†"
-Ѓ@Ѓ@Ѓ@"Set Sort->ѓ‚Ѓ[ѓh”ФЌ†"‚ЕЃAѓ\Ѓ[ѓg‚рђЭ’и‚µ‚Д‚Ё‚­‚ЖЃAѓЌЃ[ѓ‹Ћћ‚М•\Ћ¦‚рѓ\Ѓ[ѓg(ЏёЏ‡)‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode0Ѓ@(ѓ\Ѓ[ѓg–і‚µ)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓfѓtѓHѓ‹ѓg‚ЙђЭ’и‚µ‚Д‚ ‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode1Ѓ@(‰БЋZ‚М‚Эѓ\Ѓ[ѓg—L‚и)
-Ѓ@Ѓ@Ѓ@Ѓ@ЏёЏ‡‚Йѓ\Ѓ[ѓg‚µ‚Д•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode2Ѓ@(ѓoѓ‰ѓoѓ‰Њn‚М‚Эѓ\Ѓ[ѓg—L‚и)
-Ѓ@Ѓ@Ѓ@Ѓ@ЏёЏ‡‚Йѓ\Ѓ[ѓg‚µ‚Д•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode3Ѓ@(‰БЋZ‚Жѓoѓ‰ѓoѓ‰Њn‚З‚ї‚з‚аѓ\Ѓ[ѓg—L‚и)
-Ѓ@Ѓ@Ѓ@Ѓ@ЏёЏ‡‚Йѓ\Ѓ[ѓg‚µ‚Д•\Ћ¦‚µ‚Ь‚·ЃB
-
-Ѓ@Ѓ@ЃEѓ‚Ѓ[ѓh•ПЌXЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@"Set ViewMode->ѓ‚Ѓ[ѓh”ФЌ†"
-Ѓ@Ѓ@Ѓ@"Set ViewMode->ѓ‚Ѓ[ѓh”ФЌ†"‚Жѓvѓ‰ѓCѓxЃ[ѓgѓЃѓbѓZЃ[ѓW‚р‘—‚й‚Ж•\Ћ¦ѓ‚Ѓ[ѓh‚р•ПЌX‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ}ѓXѓ^Ѓ[ђЭ’и‚·‚й‚Ж•ПЌX‚Єѓ}ѓXѓ^Ѓ[‚©‚з‚ѕ‚Ї‚Йђ§ЊА‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode0Ѓ@(ЌЕЏIЊ‹‰Кѓ‚Ѓ[ѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓCѓX‚МЌ‡ЊvѓЌЃ[ѓ‹(xDn)‚вѓЊЃ[ѓeѓBѓ“ѓO•\ѓЌЃ[ѓ‹‚МЋћ‚ЙЃAЊВЃX‚Мѓ_ѓCѓX‚М–Ъ‚р•\Ћ¦‚µ‚И‚­‚И‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode1Ѓ@(ѓЌЃ[ѓ‹Њ‹‰Кѓ‚Ѓ[ѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@‰БЋZѓЌЃ[ѓ‹‚вЏг•ы–іЊАѓЌЃ[ѓ‹‚МЋћ‚ЙЃAѓ_ѓCѓXѓЌЃ[ѓ‹‚І‚Ж‚МЌ‡Њv’l‚М‚Э•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓfѓtѓHѓ‹ѓg‚ЙђЭ’и‚µ‚Д‚ ‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode2Ѓ@(ѓ_ѓCѓX–Ъѓ‚Ѓ[ѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@ЊВЃX‚Мѓ_ѓCѓX‚М–Ъ‚р‘S‚Д•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓfѓoѓbѓO—p‚Ё‚ж‚Сѓ_ѓCѓX–Ъ‚Й‚±‚ѕ‚н‚и‚Є‚ ‚й(ЏЪЌЧ•\Ћ¦‚і‚к‚Ѕ•ы‚Єђ·‚иЏг‚Є‚й)ђl—pЃB
-
-Ѓ@Ѓ@ЃE‘—ђMѓ‚Ѓ[ѓh•ПЌXЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@"Set SendMode->ѓ‚Ѓ[ѓh”ФЌ†"
-Ѓ@Ѓ@Ѓ@"Set SendMode->ѓ‚Ѓ[ѓh”ФЌ†"‚Жѓvѓ‰ѓCѓxЃ[ѓgѓЃѓbѓZЃ[ѓW‚р‘—‚й‚Ж•\Ћ¦ѓ‚Ѓ[ѓh‚р•ПЌX‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ}ѓXѓ^Ѓ[ђЭ’и‚·‚й‚Ж•ПЌX‚Єѓ}ѓXѓ^Ѓ[‚©‚з‚ѕ‚Ї‚Йђ§ЊА‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode0Ѓ@(msgѓ‚Ѓ[ѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ{ѓbѓg‚©‚з‚М•ФЋ–‚Єmsg(’КЏн‚МѓЃѓbѓZЃ[ѓW)‚Е‘—ђM‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Notice‚Й‚ж‚йѓЃѓbѓZЃ[ѓWЋуђM‚Й•s‹пЌ‡‚М‚ ‚йIRCѓNѓ‰ѓCѓAѓ“ѓg‚рЋg‚Б‚Д‚ў‚йЏкЌ‡‚НЃA‚±‚ї‚з‚ЕЋg—p‚µ‚Д‚­‚ѕ‚і‚ўЃB
-Ѓ@Ѓ@Ѓ@ЃEmode1Ѓ@(noticeѓ‚Ѓ[ѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓ{ѓbѓg‚©‚з‚М•ФЋ–‚Єnotice(‚Ё’m‚з‚№)‚Е‘—ђM‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@‘ј‚Мѓ{ѓbѓg‚вѓ}ѓNѓЌ‚Є”Ѕ‰ћ‚µ‚И‚ў‚М‚Е€А‘S‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓfѓtѓHѓ‹ѓg‚ЙђЭ’и‚µ‚Д‚ ‚и‚Ь‚·ЃB
-
-Ѓ@Ѓ@ЃEѓЊЃ[ѓeѓBѓ“ѓO•\‘I‘рЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@"Set RatingTable->ѓ‚Ѓ[ѓh”ФЌ†"
-Ѓ@Ѓ@Ѓ@"Set RatingTable->ѓ‚Ѓ[ѓh”ФЌ†"‚Жѓvѓ‰ѓCѓxЃ[ѓgѓЃѓbѓZЃ[ѓW‚р‘—‚й‚ЖѓЊЃ[ѓeѓBѓ“ѓO•\‚р•ПЌX‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ}ѓXѓ^Ѓ[ђЭ’и‚·‚й‚Ж•ПЌX‚Єѓ}ѓXѓ^Ѓ[‚©‚з‚ѕ‚Ї‚Йђ§ЊА‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode0Ѓ@(‹Њ”ЕЏЂ‹’)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓLЃ[ѓiѓ“ѓoЃ[31Ѓ`33‚Мѓ_ѓCѓX12‚МѓЊЃ[ѓeѓBѓ“ѓO‚Є11‚Й‚И‚Б‚Д‚ў‚й•\‚рЋg‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓfѓtѓHѓ‹ѓg‚ЙђЭ’и‚µ‚Д‚ ‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode1Ѓ@(Љ®‘S”ЕЏЂ‹’)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓLЃ[ѓiѓ“ѓoЃ[31Ѓ`33‚Мѓ_ѓCѓX12‚МѓЊЃ[ѓeѓBѓ“ѓO‚Є10‚Й‚И‚Б‚Д‚ў‚й•\‚рЋg‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode2Ѓ@(2.0ѓ‹Ѓ[ѓ‹ѓuѓbѓNIIЏЂ‹’)
-Ѓ@Ѓ@Ѓ@Ѓ@‹Њ”Е‚ЙѓLЃ[ѓiѓ“ѓoЃ[51Ѓ`100‚Ь‚Е‚Є’З‰Б‚і‚к‚Д‚ў‚Ь‚·ЃB
-
-Ѓ@Ѓ@ЃEѓJЃ[ѓhѓ‚Ѓ[ѓh•ПЌXЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@"Set CardPlace->ѓ‚Ѓ[ѓh”ФЌ†"
-Ѓ@Ѓ@Ѓ@"Set CardPlace->ѓ‚Ѓ[ѓh”ФЌ†"‚Жѓvѓ‰ѓCѓxЃ[ѓgѓЃѓbѓZЃ[ѓW‚р‘—‚й‚ЖѓJЃ[ѓhѓ‚Ѓ[ѓh‚р•ПЌX‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ}ѓXѓ^Ѓ[ђЭ’и‚·‚й‚Ж•ПЌX‚Єѓ}ѓXѓ^Ѓ[‚©‚з‚ѕ‚Ї‚Йђ§ЊА‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode0Ѓ@(ѓJЃ[ѓh’u‚«Џк–і‚µѓ‚Ѓ[ѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓJЃ[ѓh‚рЏк‚Й’u‚­•K—v‚Є–і‚ўѓQЃ[ѓЂ‚МЋћ‚ЙЃBѓvѓЊѓC‚·‚й‚Ж‚·‚®‚ЙЋМ‚ДЋD‚Й‚И‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓfѓtѓHѓ‹ѓg‚ЙђЭ’и‚µ‚Д‚ ‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode1Ѓ@(ѓJЃ[ѓh’u‚«Џк‚ ‚иѓ‚Ѓ[ѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@•\‚Й‚µ‚ДЏк‚ЙЏo‚·‚ЖЊш‰К‚Є‚ ‚йѓQЃ[ѓЂ‚И‚З‚ЙЃBѓvѓЊѓC‚·‚й‚Ж•\‚Й‚µ‚ДЏк‚ЙЏo‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@c-clean‚©c-shuffleѓRѓ}ѓ“ѓh‚рЋg‚¤‚ЖЏк‚МѓJЃ[ѓh‚Є–і‚­‚И‚и‚Ь‚·ЃB
-
-Ѓ@Ѓ@ЃEЋф•¶ѓ‚Ѓ[ѓh•ПЌXЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@"Set ShortSpell->ѓ‚Ѓ[ѓh”ФЌ†"
-Ѓ@Ѓ@Ѓ@"Set ShortSpell->ѓ‚Ѓ[ѓh”ФЌ†"‚Жѓvѓ‰ѓCѓxЃ[ѓgѓЃѓbѓZЃ[ѓW‚р‘—‚й‚ЖЋф•¶ѓ‚Ѓ[ѓh‚р•ПЌX‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ}ѓXѓ^Ѓ[ђЭ’и‚·‚й‚Ж•ПЌX‚Єѓ}ѓXѓ^Ѓ[‚©‚з‚ѕ‚Ї‚Йђ§ЊА‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode0Ѓ@(’КЏнЋф•¶ѓ‚Ѓ[ѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@‘S€х‚МЋиЋD‚рЋф•¶‚Й‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode1Ѓ@(’ZЏkЋф•¶ѓ‚Ѓ[ѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@‘S€х‚МЋиЋD‚рЋф•¶‚Й‚µ‚Ь‚·‚ЄЃAЏd•ЎѓJЃ[ѓh‚рЌнЏњ‚µ‚Д’Z‚­ђШ‚и‚В‚Я‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓfѓtѓHѓ‹ѓg‚ЙђЭ’и‚µ‚Д‚ ‚и‚Ь‚·ЃB
-
-Ѓ@Ѓ@ЃEѓ^ѓbѓvѓ‚Ѓ[ѓh•ПЌXЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@"Set Tap->ѓ‚Ѓ[ѓh”ФЌ†"
-Ѓ@Ѓ@Ѓ@"Set Tap->ѓ‚Ѓ[ѓh”ФЌ†"‚Жѓvѓ‰ѓCѓxЃ[ѓgѓЃѓbѓZЃ[ѓW‚р‘—‚й‚ЖЋф•¶ѓ‚Ѓ[ѓh‚р•ПЌX‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ}ѓXѓ^Ѓ[ђЭ’и‚·‚й‚Ж•ПЌX‚Єѓ}ѓXѓ^Ѓ[‚©‚з‚ѕ‚Ї‚Йђ§ЊА‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode0Ѓ@(ѓ^ѓbѓv•s‰Вѓ‚Ѓ[ѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@ЏкЋD‚Мѓ^ѓbѓv‚р€µ‚ў‚Ь‚№‚сЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓfѓtѓHѓ‹ѓg‚ЙђЭ’и‚µ‚Д‚ ‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEmode1Ѓ@(ѓ^ѓbѓv‰В”\ѓ‚Ѓ[ѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@ЏкЋD‚Мѓ^ѓbѓv‚Є‰В”\‚Е‚·ЃB
-
-Ѓ@Ѓ@ЃEѓJЃ[ѓhѓZѓbѓg“З‚ЭЌћ‚ЭЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@"Set CardSet->ѓtѓ@ѓCѓ‹–ј"
-Ѓ@Ѓ@Ѓ@"Set CardSet->ѓtѓ@ѓCѓ‹–ј"‚Жѓvѓ‰ѓCѓxЃ[ѓgѓЃѓbѓZЃ[ѓW‚р‘—‚й‚ЖѓJЃ[ѓhѓZѓbѓg‚р“З‚ЭЌћ‚Э‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ}ѓXѓ^Ѓ[ђЭ’и‚·‚й‚Ж•ПЌX‚Єѓ}ѓXѓ^Ѓ[‚©‚з‚ѕ‚Ї‚Йђ§ЊА‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ѓ^ѓbѓvѓ‚Ѓ[ѓh‚вѓJЃ[ѓhѓ‚Ѓ[ѓh‚И‚З‚Н•ПЌX‚і‚к‚Ь‚№‚с‚М‚ЕЃAђV‹K‚ЙѓQЃ[ѓЂѓ‚Ѓ[ѓh‚рѓvѓЌѓOѓ‰ѓЂ’З‰Б‚·‚й‚М‚р‚ЁЉ©‚Я‚µ‚Ь‚·ЃB
-
-Ѓ@Ѓ@ЃEѓQЃ[ѓЂђЭ’иЃ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@"Set Game->ѓQЃ[ѓЂЋЇ•К–ј"
-Ѓ@Ѓ@Ѓ@"Set Game->ЋЇ•К–ј"‚Жѓvѓ‰ѓCѓxЃ[ѓgѓЃѓbѓZЃ[ѓW‚р‘—‚й‚ЖЃAѓQЃ[ѓЂђЭ’и‚рЌs‚¤‚±‚Ж‚ЄЏo—€‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃECthulhuЃ@(ѓNѓgѓDѓ‹ѓt‚МЊД‚СђєЃ@‚Ё‚ж‚СЃ@ѓNѓgѓDѓ‹ѓtђ_bTRPG)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹(Њ€’и“Iђ¬Њч)ЃAѓXѓyѓVѓѓѓ‹ЃAѓtѓ@ѓ“ѓuѓ‹(’v–Ѕ“IЋё”s)‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@’пЌRѓЌЃ[ѓ‹‚МѓRѓ}ѓ“ѓh‚р’З‰БЃB
-Ѓ@Ѓ@Ѓ@ЃEHieizanЃ@(ѓNѓgѓDѓ‹ѓtђ_bTRPGЃu”д‰bЋR‰ЉЏгЃv)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@‘еђ¬ЊчЃAЋ©“®ђ¬ЊчЃAЋё”sЃAЋ©“®Ћё”sЃA‘еЋё”s‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃERuneQuestЃ@(ѓ‹Ѓ[ѓ“ѓNѓGѓXѓg)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹ЃAѓGѓtѓFѓNѓeѓBѓu(Њш‰К“Iђ¬Њч)ЃAѓtѓ@ѓ“ѓuѓ‹‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEElric!Ѓ@(ѓGѓ‹ѓЉѓbѓNЃI)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЉС’КЃAѓNѓЉѓeѓBѓJѓ‹ЃAѓtѓ@ѓ“ѓuѓ‹‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEChillЃ@(CHILL)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓRѓЌѓbѓTѓ‹ЃAѓnѓCЃAѓ~ѓfѓBѓAѓЂЃAѓ‰ѓCѓgЃAѓtѓ@ѓ“ѓuѓ‹‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@SRѓRѓ}ѓ“ѓh‚ЕѓXѓgѓ‰ѓCѓNЃEѓ‰ѓ“ѓN‚©‚зѓ_ѓЃЃ[ѓW‚рЋ©“®ЊvЋZ‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃERoleMasterЃ@(ѓЌЃ[ѓ‹ѓ}ѓXѓ^Ѓ[)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Џг•ы–іЊАѓЌЃ[ѓ‹‚М‹«ЉE’l‚р96‚ЙѓZѓbѓg‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEShadowRunЃ@(ѓVѓѓѓhѓEѓ‰ѓ“)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Џг•ы–іЊАѓЌЃ[ѓ‹‚М‹«ЉE’l‚р6‚ЙѓZѓbѓg‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEShadowRun4Ѓ@(ѓVѓѓѓhѓEѓ‰ѓ“‘ж‚S”Е)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЊВђ”ђU‚и‘«‚µѓЌЃ[ѓ‹‚Ми‡’l‚р6‚ЙѓZѓbѓgЃAѓoѓ‰ѓoѓ‰ѓЌЃ[ѓ‹‚М–Ъ•W’l‚р5€ИЏг‚ЙѓZѓbѓg‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@BѓRѓ}ѓ“ѓh‚ЖRѓRѓ}ѓ“ѓhЋћ‚ЙЃAѓOѓЉѓbѓ`‚М•\Ћ¦‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEPendragonЃ@(ѓyѓ“ѓhѓ‰ѓSѓ“)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹ЃAђ¬ЊчЃAЋё”sЃAѓtѓ@ѓ“ѓuѓ‹‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃESwordWorldЃ@(ѓ\Ѓ[ѓhѓЏЃ[ѓ‹ѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћ©“®“Iђ¬ЊчЃAђ¬ЊчЃAЋё”sЃAЋ©“®“IЋё”s‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB(ѓЊЃ[ѓeѓBѓ“ѓO•\‚аЋА‘•ЌП‚Э)
-Ѓ@Ѓ@Ѓ@ЃESwordWorld2.0Ѓ@(ѓ\Ѓ[ѓhѓЏЃ[ѓ‹ѓh2.0)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћ©“®“Iђ¬ЊчЃAђ¬ЊчЃAЋё”sЃAЋ©“®“IЋё”s‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB(0Ѓ`80‚Ь‚Е‚МѓЊЃ[ѓeѓBѓ“ѓO•\‚аЋА‘•ЌП‚Э)
-Ѓ@Ѓ@Ѓ@ЃEArianrhodЃ@(ѓAѓЉѓAѓ“ѓЌѓbѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓNѓЉѓeѓBѓJѓ‹ЃAѓtѓ@ѓ“ѓuѓ‹‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB(ѓNѓЉѓeѓBѓJѓ‹Ћћ‚М’З‰Бѓ_ѓЃЃ[ѓW‚а•\Ћ¦‚і‚к‚Ь‚·)
-Ѓ@Ѓ@Ѓ@ЃEInfinite FantasiaЃ@(–іЊА‚Мѓtѓ@ѓ“ѓ^ѓWѓA)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћё”sЃAђ¬ЊчѓЊѓxѓ‹‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEWARPSЃ@(ѓЏЃ[ѓvѓX)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћё”sЃAђ¬Њч“x‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEDemonParasiteЃ@(ѓfѓ‚ѓ“ѓpѓ‰ѓTѓCѓg)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћё”sЃAђ¬ЊчЃAЊш‰К“Iђ¬ЊчЃA’v–Ѕ“IЋё”s‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@urgeѓRѓ}ѓ“ѓh‚ЕЏХ“®•\‚рѓЌЃ[ѓ‹‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@‹SЊдЌ°‚МЏХ“®•\‚Й‚а‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@ЃEParasiteBloodЃ@(ѓpѓ‰ѓTѓCѓgѓuѓ‰ѓbѓh)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћё”sЃAђ¬ЊчЃAЊш‰К“Iђ¬ЊчЃA’v–Ѕ“IЋё”s‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@urgeѓRѓ}ѓ“ѓh‚ЕЏХ“®•\‚рѓЌЃ[ѓ‹‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEGundogЃ@(ѓKѓ“ѓhѓbѓO)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћё”sЃAђ¬ЊчЃAѓNѓЉѓeѓBѓJѓ‹ЃAѓtѓ@ѓ“ѓuѓ‹‚ЖѓЌЃ[ѓ‹‚М’Bђ¬’l‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@nD9ѓЌЃ[ѓ‹‚а‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@ЃEGundogZeroЃ@(ѓKѓ“ѓhѓbѓOѓ[ѓЌ)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћё”sЃAђ¬ЊчЃAѓNѓЉѓeѓBѓJѓ‹ЃAѓtѓ@ѓ“ѓuѓ‹‚ЖѓЌЃ[ѓ‹‚М’Bђ¬’l‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@nD9ѓЌЃ[ѓ‹‚Й‚а‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓ_ѓЃЃ[ѓWѓyѓiѓ‹ѓeѓBЃ[•\‚Жѓtѓ@ѓ“ѓuѓ‹•\‚аѓЌЃ[ѓ‹‚Е‚«‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃETunnels&TrollsЃ@(ѓgѓ“ѓlѓ‹ѓYЃ•ѓgѓЌЃ[ѓ‹ѓY)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћё”sЃAђ¬ЊчЃAЋ©“®Ћё”s‚МЋ©“®”»’и‚Жѓ]ѓЌ–Ъ‚МђU‚и‘«‚µЊoЊ±’l‚МЋ©“®ЊvЋZ‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@SAVE‚М“п€Х“x‚рЃuѓЊѓxѓ‹Ѓv‚Е•\‹L‚·‚й‚±‚Ж‚ЄЏo—€‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@—б‚¦‚ОЃu2LvЃv‚ЖЏ‘‚­‚ЖЃu25Ѓv‚Й’uЉ·‚і‚к‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ€ИЉO‚Н€«€Уѓ_ѓЃЃ[ѓW‚р•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓoЃ[ѓTЃ[ѓN‚ЖѓnѓCѓpЃ[ѓoЃ[ѓTЃ[ѓN—p‚Йђк—pѓRѓ}ѓ“ѓh‚ЄЋg‚¦‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃENightmareHunterDeepЃ@(ѓiѓCѓgѓЃѓAѓnѓ“ѓ^Ѓ[=ѓfѓBЃ[ѓv)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@‰БЋZѓЌЃ[ѓ‹Ћћ‚Й‚U‚МЊВђ”‚рѓJѓEѓ“ѓg‚µ‚ДЃA‚»‚М‚S”{‚рЋ©“®“I‚Й‰БЋZ‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@(Џo–Ъ‚Н‚»‚М‚Ь‚Ь•\Ћ¦‚ЕЌ‡Њv’l‚Є6ЃЁ10‚М“З‚Э‘Ц‚¦‚Й‚И‚и‚Ь‚·)
-Ѓ@Ѓ@Ѓ@ЃEWarhammerЃ@(ѓEѓHЃ[ѓnѓ“ѓ}Ѓ[FRP)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ђ¬Њч“xЃAЋё”s“x•\Ћ¦‚ЖѓNѓЉѓeѓBѓJѓ‹•\‚МЋА‘•ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@–Ѕ’†”»’и—pѓRѓ}ѓ“ѓh‚Нђ¬Њч‚·‚й‚Ж–Ѕ’†•”€К‚р•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@WHpxѓRѓ}ѓ“ѓh‚ЕѓNѓЉѓeѓBѓJѓ‹•\‚Є€ш‚Ї‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEPhantasmAdventureЃ@(ѓtѓ@ѓ“ѓ^ѓYѓЂѓAѓhѓxѓ“ѓ`ѓѓЃ[)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ђ¬ЊчЃAЋё”sЃAЊ€’и“Iђ¬ЊчЃAЊ€’и“IЋё”s‚М•\Ћ¦‚ЖѓNѓЉѓeѓBѓJѓ‹ЃEѓtѓ@ѓ“ѓuѓ‹’lЊvЋZ‚МЋА‘•ЃB
-Ѓ@Ѓ@Ѓ@ЃEChaos FlareЃ@(ѓJѓIѓXѓtѓЊѓA)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ћё”sЃAђ¬Њч(Ќ·•Є’l‚МЊvЋZ‚а)‚МЋ©“®”»’и‚рЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓtѓ@ѓ“ѓuѓ‹Ћћ‚Н’Bђ¬’l‚р-20‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓJЃ[ѓhѓZѓbѓg‚рѓWѓ‡Ѓ[ѓJЃ[‚Q–‡‚МѓfѓbѓL‚QѓZѓbѓg‚ЙЉg’Ј‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@•њЉ€‚МЋф•¶‚рЋg‚¤‚Ж‚«‚НЃAђж‚ЙѓQЃ[ѓЂђЭ’и‚рЌs‚¤•K—v‚Є‚ ‚и‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃECthulhuTechЃ@(ѓNѓgѓDѓ‹ѓtЃEѓeѓbѓN)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓeѓXѓg‚Мѓ_ѓCѓXЊvЋZ‚рЋА‘•ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ђ¬ЊчЃAЋё”sЃAѓNѓЉѓeѓBѓJѓ‹ЃAѓtѓ@ѓ“ѓuѓ‹‚МЋ©“®”»’иЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓRѓ“ѓoѓbѓgѓeѓXѓg(–hЊд‘¤—L—‚И‚М‚ЕЃu>=Ѓv‚Е‚Н‚И‚­Ѓu>Ѓv‚Е“ь—Н)‚МЋћ‚Нѓ_ѓЃЃ[ѓWѓ_ѓCѓX‚а•\Ћ¦ЃB
-Ѓ@Ѓ@Ѓ@ЃETokumeiTenkouseiЃ@(“Б–Ѕ“]ЌUђ¶)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓu1‚МЏo–Ъ‚ЕEPPЉl“ѕЃvЃA”»’иЋћ‚МЃuђ¬ЊчЃvЃuЋё”sЃvЃuѓ]ѓЌ–Ъ‚ЕЋ©“®ђU‚и‘«‚µЃv‚рЋ©“®”»’иЃB
-Ѓ@Ѓ@Ѓ@ЃEShinobiGamiЃ@(”Eђ_ЃuѓVѓmѓrѓKѓ~Ѓv)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚Йђ¬ЊчЃAЋё”sЃAѓtѓ@ѓ“ѓuѓ‹ЃAѓXѓyѓVѓѓѓ‹‚МЋ©“®•\Ћ¦
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓVЃ[ѓ“•\ЃAѓtѓ@ѓ“ѓuѓ‹•\ЃAЉґЏо•\ЃA•П’І•\ЃAђнЏк•\‚М•\Ћ¦ѓRѓ}ѓ“ѓh‚рЋА‘•ЃB
-Ѓ@Ѓ@Ѓ@ЃEDouble CrossЃ@(ѓ_ѓuѓ‹ѓNѓЌѓX2nd,3rd)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћЃA‘S‚Д‚МЏo–Ъ‚Є1‚МЋћѓtѓ@ѓ“ѓuѓ‹‚рЋ©“®”»’иЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓfѓtѓHѓ‹ѓg‚ЕѓNѓЉѓeѓBѓJѓ‹’l‚р10‚ЙђЭ’иЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иђк—pѓRѓ}ѓ“ѓhЃuDXЃv‚ЖЉґЏо•\‚М•\Ћ¦ѓRѓ}ѓ“ѓh‚рЋА‘•ЃB
-Ѓ@Ѓ@Ѓ@ЃESatasupeЃ@(ѓTѓ^ѓXѓy)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иђк—pѓRѓ}ѓ“ѓh‚ЖЉeЋн•\‚рЋА‘•ЃB
-Ѓ@Ѓ@Ѓ@ЃEArsMagicaЃ@ЃiѓAѓ‹ѓXѓ}ѓMѓJЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓXѓgѓЊѓXѓ_ѓCѓXђк—pѓRѓ}ѓ“ѓh‚рЋА‘•ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@botch‚в1‚МђU‚и‘«‚µЏ€—ќ‚аЋ©“®‚ЕЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEDarkBlazeЃ@Ѓiѓ_Ѓ[ѓNѓuѓЊѓCѓYЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иђк—pѓRѓ}ѓ“ѓhЃuDBЃv‚ЖЊ@‚иЏo‚µ‘Ь•\Ћ¦ѓRѓ}ѓ“ѓhЃuBTЃv‚аЋА‘•‚і‚к‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иѓRѓ}ѓ“ѓh‚НѓNѓЉѓeѓBѓJѓ‹ЃEѓtѓ@ѓ“ѓuѓ‹•\Ћ¦‚аЋ©“®‚ЕЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃENightWizardЃ@ЃiѓiѓCѓgѓEѓBѓUЃ[ѓhЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иђк—pѓRѓ}ѓ“ѓhЃuNWЃv‚ЄЋА‘•‚і‚к‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иѓRѓ}ѓ“ѓh‚НѓNѓЉѓeѓBѓJѓ‹ЃEѓtѓ@ѓ“ѓuѓ‹•\Ћ¦‚аЋ©“®‚ЕЌs‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃETORGЃ@ЃiѓgЃ[ѓOЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иђк—pѓRѓ}ѓ“ѓhЃuTGЃv‚ЄЋА‘•‚і‚к‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иѓRѓ}ѓ“ѓh‚НђU‚и‘«‚µ‚рЋ©“®‚ЕЌs‚ўЃA‹Z”\‚М—L–і‚ЕЊ‹‰К‚Є€б‚¤‚Ж‚«‚Н•А‹L‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЉeЋн•\ѓRѓ}ѓ“ѓhЃuRTЃvЃuITЃvЃuTTЃvЃuMTЃvЃuDTЃvЃuODTЃvЃuBTЃv‚ЄЋА‘•‚і‚к‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEHuntersMoonЃ@Ѓiѓnѓ“ѓ^Ѓ[ѓYЃEѓЂЃ[ѓ“Ѓj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚ЙѓNѓЉѓeѓBѓJѓ‹‚Жѓtѓ@ѓ“ѓuѓ‹‚рЋ©“®”»’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЉeЋн•\ѓRѓ}ѓ“ѓhЃuETЃvЃuCLTЃvЃuSLTЃvЃuHLTЃvЃuFLTЃvЃuDLTЃvЃuMATЃvЃuSATxЃv‚ЄЋА‘•‚і‚к‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEMeikyuKingdomЃ@Ѓi–А‹{ѓLѓ“ѓOѓ_ѓЂЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚Йђв‘Ођ¬Њч‚Жђв‘ОЋё”s‚рЋ©“®”»’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЉeЋн•\ѓRѓ}ѓ“ѓh‚рЋА‘•‚µ‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEEarthDawnЃ@ЃiѓAЃ[ѓXѓhЃ[ѓ“Ѓj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓXѓeѓbѓvѓ_ѓCѓX‚Й‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@ЃEEmbryoMachineЃ@ЃiѓGѓЂѓuѓЉѓIѓ}ѓVѓ“Ѓj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЌUЊ‚”»’и‚ЕѓNѓЉѓeѓBѓJѓ‹‚Жѓtѓ@ѓ“ѓuѓ‹‚рЋ©“®”»’и‚µЃA–Ѕ’†‚µ‚ЅЌЫ‚Й‚Н–Ѕ’†ѓЊѓxѓ‹‚Ж–Ѕ’†•”€К‚рЋ©“®•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓtѓ@ѓ“ѓuѓ‹Ћћ‚Й‚Нѓtѓ@ѓ“ѓuѓ‹•\‚рЋ©“®•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЉeЋн•\‚рЋА‘•‚µ‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEGehennaAnЃ@ЃiѓQѓwѓiЃEѓAѓiѓXѓ^ѓVѓXЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ђн“¬”»’и‚Ж’КЏн”»’и‚Й‘О‰ћЃBЌK‰^‚МЏ•‚ЇЃAAЊ‚‘ќ‰Б’l(ђн“¬”»’и)ЃA“¬‹Zѓ`ѓbѓg(ђн“¬”»’и)‚рЋ©“®•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEMagicaLogiaЃ@Ѓiѓ}ѓJѓЌѓMѓAЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЉeЋн•\ЃuWTЃvЃuCTЃvЃuSTЃvЃuFTЃvЃuATЃv‚ЄЋА‘•‚і‚к‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃENechronicaЃ@Ѓi‰i‚ўЊг“ъ’k‚МѓlѓNѓЌѓjѓJЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@€к”К”»’иЃuNCЃv‚ЖЌUЊ‚”»’иЃuNAЃv‚рЋА‘•ЃB
-Ѓ@Ѓ@Ѓ@ЃEMeikyuDaysЃ@Ѓi–А‹{ѓfѓCѓYЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚Йђв‘Ођ¬Њч‚Жђв‘ОЋё”s‚рЋ©“®”»’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЉeЋн•\ѓRѓ}ѓ“ѓh‚рЋА‘•‚µ‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEPeekabooЃ@ЃiѓsЃ[ѓJѓuЃ[Ѓj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚ЙѓNѓЉѓeѓBѓJѓ‹‚Жѓtѓ@ѓ“ѓuѓ‹‚рЋ©“®•\Ћ¦
-Ѓ@Ѓ@Ѓ@ЃEBarnaKronikaЃ@Ѓiѓoѓ‹ѓiЃEѓNѓЌѓjѓJЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@€к”К”»’иЃAЌUЊ‚”»’иЃAѓNѓЉѓeѓBѓJѓ‹ѓRЃ[ѓ‹‚Й‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ђ¬Њчђ”‚ЖѓZѓbѓg‚рЋ©“®•\Ћ¦‚µЃAЌUЊ‚”»’иЋћ‚Н•”€К‚аЋ©“®•\Ћ¦ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ѓJЃ[ѓh‚НѓWѓ‡Ѓ[ѓJЃ[‚Q–‡‚рЉЬ‚Ю54–‡ЃB
-Ѓ@Ѓ@Ѓ@ЃERokumonSekai2Ѓ@ЃiZ–еђўЉE2nd.EditionЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@€к”К”»’и‚Й‘О‰ћЃBђ¬Њч“xЃA•]‰їЃAѓ_ѓCѓXѓ{Ѓ[ѓiѓX‚р•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEMonotoneMusiumЃ@(ѓ‚ѓmѓgЃ[ѓ“ЃEѓ~ѓ…Ѓ[ѓWѓAѓЂ)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚ЙЋ©“®ђ¬Њч‚ЖЋ©“®Ћё”s‚Й‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓu’›Њу•\ЃvЃuc‚Э•\ЃvЃuђўЉEc‹И•\Ѓv‚Й‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@ЃEZettaiReidoЃ@(ђв‘О—к“z)
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚МѓNѓЉѓeѓBѓJѓ‹ЃAѓtѓ@ѓ“ѓuѓ‹ЃADPЋж“ѕ‚Й‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@ЃEEclipsePhase
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚Мђ¬”ЫЃAѓNѓЉѓeѓBѓJѓ‹ЃAѓtѓ@ѓ“ѓuѓ‹‚Й‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@ЃEBloodCrusadeЃ@Ѓiѓuѓ‰ѓbѓhЃEѓNѓ‹ѓZѓCѓhЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚ЙѓNѓЉѓeѓBѓJѓ‹‚Жѓtѓ@ѓ“ѓuѓ‹‚рЋ©“®”»’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЉeЋн•\ѓRѓ}ѓ“ѓhЃuRTЃvЃuSTЃvЃuISTЃvЃuBRTЃvЃuCHTЃvЃuSHTЃvЃuDHTЃvЃuLHTЃvЃuEHTЃv‚ЄЋА‘•‚і‚к‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃEShinkuuGakuenЃ@Ѓiђ^‹уЉw‰ЂЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@‹Z”\”»’иЃuRL10Ѓv‚Щ‚©ЉeЋн•ђЉн‚М”»’и‚ЄЋА‘•‚і‚к‚Д‚ў‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃESMTKakuseihenЃ@Ѓiђ^ЃEЏ—ђ_“]ђ¶TRPGЃ@ЉoђБ•ТЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚ЙѓXѓЏѓbѓvЃ^’КЏнЃ^‹tѓXѓЏѓbѓv‚МЊ‹‰К‚р•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@€Р—Нѓ_ѓCѓX‚Н nU6[6] (n‚Нѓ_ѓCѓXЊВђ”)‚ЕѓЌЃ[ѓ‹‰В”\‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃERyutamaЃ@Ѓi‚и‚г‚¤‚Ѕ‚ЬЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚Йђ¬ЊчЋё”s‚Ж‚Pѓ]ѓЌЃAѓNѓЉѓeѓBѓJѓ‹‚МЊ‹‰К‚р•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@ЃECardRankerЃ@ЃiѓJЃ[ѓhѓ‰ѓ“ѓJЃ[Ѓj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’иЋћ‚Йђ¬ЊчЃAЋё”sЃAѓtѓ@ѓ“ѓuѓ‹ЃAѓXѓyѓVѓѓѓ‹‚МЋ©“®•\Ћ¦
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЉeЋн•\‚р‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@ЃECrashWorldЃ@Ѓi’Д—ЋђўЉEЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’и‚Й‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@ЃEWitchQuestЃ@ЃiѓEѓBѓbѓ`ѓNѓGѓXѓgЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’и‚ЖѓXѓgѓ‰ѓNѓ`ѓѓЃ[ѓJЃ[ѓh‚М‘‹ц•\‚Й‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@ЃEElysionЃ@ЃiѓGѓЉѓ…ѓVѓIѓ“Ѓj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’и‚Й‘О‰ћЃB
-Ѓ@Ѓ@Ѓ@ЃEGeishaGirlwithKatanaЃ@ЃiѓQѓCѓVѓѓѓKЃ[ѓ‹ѓEѓBѓYѓJѓ^ѓiЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@”»’и‚Й‘О‰ћЃBѓ`ѓ‡ѓЂѓo‚а”»’и‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@
-Ѓ@Ѓ@Ѓ@ЃENoneЃ@(ѓQЃ[ѓЂђЭ’и‰рЏњ)
-Ѓ@Ѓ@Ѓ@Ѓ@ѓQЃ[ѓЂђЭ’и‚р‰рЏњ‚µ‚Ь‚·ЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ѓgѓ‰ѓ“ѓv‚Н‚PѓZѓbѓgЃ{ѓWѓ‡Ѓ[ѓJЃ[‚P–‡‚Й‚И‚и‚Ь‚·ЃB
-
-
-Ѓ@‚VЃDѓIѓЉѓWѓiѓ‹‚М•\’З‰Б
-Ѓ@Ѓ@Ѓ@Ћ©‘O‚М•\‚р’З‰Б‚µ‚Д‚µ‚Ѕ‚ўЏкЌ‡‚НЃAbcdice.exe‚М’ј‰є‚М extratables ѓfѓBѓЊѓNѓgѓЉ‚ЙЉg’Ј•\’и‹`ѓtѓ@ѓCѓ‹‚р’u‚­‚±‚Ж‚Е”C€У‚М’З‰Б‚Є‰В”\‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@extratables ‚Й‚НѓTѓ“ѓvѓ‹‚МѓfЃ[ѓ^‚Є‚ ‚и‚Ь‚·‚М‚ЕЋQЌl‚Й‚µ‚Д‚­‚ѕ‚і‚ўЃB
-Ѓ@Ѓ@Ѓ@’и‹`ѓtѓ@ѓCѓ‹‚МѓtѓHЃ[ѓ}ѓbѓg‚Н€И‰є‚Мѓ‹Ѓ[ѓ‹‚М’К‚и‚Е‚·ЃB
-Ѓ@Ѓ@Ѓ@
-Ѓ@Ѓ@Ѓ@ЃEѓtѓ@ѓCѓ‹–ј
-Ѓ@Ѓ@Ѓ@Ѓ@“Б’и‚МѓQЃ[ѓЂ‚Е‚ѕ‚Ї•\‚р—LЊш‚Й‚µ‚Ѕ‚ўЏкЌ‡
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@(ѓQЃ[ѓЂЋЇ•К–ј)_(•\ѓRѓ}ѓ“ѓh–ј).txt
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@—бЃjShinobiGami_AKST.txt
+гЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№з›®гЃ®дї®ж­Јг‚‚е‡єжќҐгЃѕгЃ™гЂ‚(SW2.0гЃ®г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гѓ¬г‚¤з­‰гЃ«дЅїз”Ёпј‰
+гЂЂгЂЂгЂЂгЂЂжњ«е°ѕгЃ«гЂЊ$дї®ж­ЈеЂ¤гЂЌгЃ§е‡¦зђ†гЃ™г‚‹г‚€гЃ†гЃ«гЃ—гЃѕгЃ—гЃџгЂ‚
+гЂЂгЂЂгЂЂгЂЂдї®ж­ЈеЂ¤гЃЊж•°е­—гЃ®гЃїгЃ®е ґеђ€гЃЇгЂЃе›єе®љеЂ¤гЃЁгЃ—гЃ¦е‡¦зђ†гЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЃ™г‚‹е ґеђ€гЃЇж­ўгЃѕг‚‹гЃѕгЃ§и‡Єе‹•гЃ§жЊЇг‚ЉгЃѕгЃ™гЃЊгЂЃе›єе®љеЂ¤г‚„дї®ж­ЈеЂ¤гЃ®йЃ©з”ЁгЃЇжњЂе€ќгЃ®дёЂе›ћгЃ гЃ‘гЃ§гЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂK20$+1гЂЂгЂЂгЂЂK10+5$9гЂЂгЂЂгЂЂk10-5@9$+2гЂЂгЂЂгЂЂk10[9]+10$9
+
+
+гЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«жЇЋгЃ®гѓ¬гѓјгѓ†г‚Јгѓіг‚°дёЉж‡гЃ«еЇѕеїњгЂ‚(SW2.0гЃ®й¦–е€‡г‚Ље€Ђз­‰гЃ«дЅїз”Ёпј‰
+гЂЂгЂЂгЂЂгЂЂжњ«е°ѕгЃ«гЂЊrдёЉж‡еЂ¤гЂЌгЃ§жЊ‡е®љгЃ—гЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂK20r10гЂЂгЂЂгЂЂK30+24@8R10гЂЂгЂЂгЂЂK40+24@8$12r10
+
+
+гЂЂгЂЂгЂЂгЂЂ1d*2гЃ§гЃ®гѓ¬гѓјгѓ†г‚Јгѓіг‚°з®—е‡єгЃ«еЇѕеїњгЂ‚(SW2.0гЃ®г‚°гѓ¬г‚¤гѓ†г‚№гѓ€гѓ•г‚©гѓјгѓЃгѓҐгѓігЃ«дЅїз”Ёпј‰
+гЂЂгЂЂгЂЂгЂЂжњ«е°ѕгЃ«гЂЊgrгЂЌгЃ§жЊ‡е®љгЃ—гЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂK20gfгЂЂгЂЂгЂЂK30+24@8GFгЂЂгЂЂгЂЂK40+24@8$12r10gf
+
+
+гЂЂгЂЂгѓ»гЂЋChillгЂЏ
+гЂЂгЂЂгѓ»г‚№гѓ€гѓ©г‚¤г‚Їгѓ»гѓ©гѓіг‚ЇиЎЁгЂЂ(SRx)
+гЂЂгЂЂгЂЂгЂЂ"SRг‚№гѓ€гѓ©г‚¤г‚Їгѓ»гѓ©гѓіг‚Ї"гЃ®еЅўгЃ§иЁе…ҐгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂг‚№гѓ€гѓ©г‚¤г‚Їгѓ»гѓ©гѓіг‚Їгѓ»гѓЃгѓЈгѓјгѓ€гЃ«еѕ“гЃЈгЃ¦и‡Єе‹•гЃ§гѓЂг‚¤г‚№гѓ­гѓјгѓ«г‚’иЎЊгЃ„гЂЃ
+гЂЂгЂЂгЂЂгЂЂиІ е‚·гЃЁг‚№г‚їгѓџгѓЉгѓ­г‚№г‚’иЁ€з®—гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№гѓ­гѓјгѓ«гЃЁеђЊж§гЃ«гЂЃд»–гЃ®гѓ—гѓ¬г‚¤гѓ¤гѓјгЃ«йљ г‚ЊгЃ¦гѓ­гѓјгѓ«гЃ™г‚‹гЃ“гЃЁг‚‚еЏЇиѓЅгЃ§гЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂSR7гЂЂгЂЂгЂЂsr13гЂЂгЂЂгЂЂSR(7+4)гЂЂгЂЂгЂЂSsr10
+
+
+гЂЂгЂЂгѓ»гЂЋгѓ‡гѓўгѓігѓ‘гѓ©г‚µг‚¤гѓ€ / й¬јеѕЎй­‚гЂЏ
+гЂЂгЂЂгЂЂгѓ»иЎќе‹•иЎЁгЂЂ(URGEx)
+гЂЂгЂЂгЂЂгЂЂ"URGEиЎќе‹•гѓ¬гѓ™гѓ«"гЃ®еЅўгЃ§жЊ‡е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂиЎќе‹•иЎЁгЃ«еѕ“гЃЈгЃ¦и‡Єе‹•гЃ§гѓЂг‚¤г‚№гѓ­гѓјгѓ«г‚’иЎЊгЃ„гЂЃзµђжћњг‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№гѓ­гѓјгѓ«гЃЁеђЊж§гЃ«гЂЃд»–гЃ®гѓ—гѓ¬г‚¤гѓ¤гѓјгЃ«йљ г‚ЊгЃ¦гѓ­гѓјгѓ«гЃ™г‚‹гЃ“гЃЁг‚‚еЏЇиѓЅгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂй ­гЃ«и­е€Ґж–‡е­—г‚’иїЅеЉ гЃ—гЃ¦гЂЃгѓ‡гѓ•г‚©гѓ«гѓ€д»Ґе¤–гЃ®иЎќе‹•иЎЁг‚‚гѓ­гѓјгѓ«гЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»nURGExгЂЂй ­гЃ«гЂЊNгЂЌг‚’д»гЃ‘г‚‹гЃЁгЂЊж–°иЎќе‹•иЎЁгЂЌгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»aURGExгЂЂй ­гЃ«гЂЊAгЂЌг‚’д»гЃ‘г‚‹гЃЁгЂЊиЄ¤дЅње‹•иЎЁгЂЌгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»mURGExгЂЂй ­гЃ«гЂЊMгЂЌг‚’д»гЃ‘г‚‹гЃЁгЂЊгѓџгѓҐгѓјг‚їгѓігѓ€иЎќе‹•иЎЁгЂЌгЃ«гЃЄг‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»uURGExгЂЂй ­гЃ«гЂЊUгЂЌгЃЊд»гЃЏгЃЁй¬јеѕЎй­‚гЃ®ж€¦й—е¤–иЎќе‹•иЎЁгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»cURGExгЂЂй ­гЃ«гЂЊCгЂЌгЃ§й¬јеѕЎй­‚гЃ®ж€¦й—дё­иЎќе‹•иЎЁгЃ«гЃЄг‚ЉгЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂURGE1гЂЂгЂЂгЂЂurge5гЂЂгЂЂгЂЂSurge2
+
+
+гЂЂгЂЂгѓ»гЂЋгѓ‘гѓ©г‚µг‚¤гѓ€гѓ–гѓ©гѓѓгѓ‰гЂЏ
+гЂЂгЂЂгЂЂгѓ»иЎќе‹•иЎЁгЂЂ(URGEx)
+гЂЂгЂЂгЂЂгЂЂгѓ‡гѓўгѓігѓ‘гѓ©г‚µг‚¤гѓ€гЃЁеђЊж§гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»aURGExгЂЂй ­гЃ«гЂЊAгЂЌг‚’д»гЃ‘г‚‹гЃЁгЂЊиЄ¤дЅње‹•иЎЁгЂЌгЃ§гѓ­гѓјгѓ«гЃ§гЃЌгЃѕгЃ™гЂ‚
+
+
+гЂЂгЂЂгѓ»гЂЋг‚¦г‚©гѓјгѓЏгѓігѓћгѓјFRPгЂЏ
+гЂЂгЂЂгЂЂгѓ»г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«иЎЁгЂЂ(WHpx)
+гЂЂгЂЂгЂЂгЂЂ"WHйѓЁдЅЌ г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤"гЃ®еЅўгЃ§жЊ‡е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂйѓЁдЅЌгЃЇгЂЊH(й ­йѓЁ)гЂЌгЂЊA(и…•)гЂЌгЂЊB(иѓґдЅ“)гЂЌгЂЊL(и¶і)гЂЌгЃ®пј”г‚«ж‰ЂгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«иЎЁг‚’еЏ‚з…§гЃ—гЃ¦зµђжћњг‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂwhH10гЂЂгЂЂгЂЂwhA5гЂЂгЂЂгЂЂWHL4
+
+гЂЂгЂЂгЂЂгѓ»е‘Ѕдё­е€¤е®љгЂЂ(WHx@t)
+гЂЂгЂЂгЂЂгЂЂ"WH(е‘Ѕдё­еЂ¤)@(зЁ®е€Ґ)"гЃ®еЅўгЃ§жЊ‡е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂйѓЁдЅЌгЃЇи„љгЃ®ж•°г‚’ж•°е­—гЂЃзїјгЃЊд»гЃ„гЃ¦гЃ„г‚‹г‚‚гЃ®гЃЇгЂЊWгЂЌгЂЃж‰‹гЃЊд»гЃ„гЃ¦гЃ„г‚‹г‚‚гЃ®гЃЇгЂЊHгЂЌгЃ§ж›ёгЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЊ2H(дєЊи¶і)гЂЌгЂЊ2W(жњ‰зїјдєЊи¶і)гЂЌгЂЊ4(е››и¶і)гЂЌгЂЊ4H(еЌЉдєєе››и¶і)гЂЌгЂЊ4W(жњ‰зїје››и¶і)гЂЌгЂЊW(йіҐйЎћ)гЂЌгЃЁгЃЄг‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂе‘Ѕдё­е€¤е®љг‚’иЎЊгЃЈгЃ¦гЂЃеЅ“гЃџг‚ЊгЃ°йѓЁдЅЌг‚‚иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЃЄгЃЉгЂЃзЁ®е€ҐжЊ‡е®љг‚’зњЃз•ҐгЃ™г‚‹гЃЁгЂЊдєЊи¶ігЂЌгЂЃгЂЊ@гЂЌгЃ гЃ‘гЃ«гЃ™г‚‹гЃЁе…ЁзЁ®е€ҐгЃ®е‘Ѕдё­йѓЁдЅЌг‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂ(г‚ігѓћгѓігѓ‰г‚’еїг‚ЊгЃџж™‚гЃ®еЇѕеїњгЃ§гЃ™)
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂwh60гЂЂгЂЂгЂЂwh43@4WгЂЂгЂЂгЂЂWH65@
+
+
+гЂЂгЂЂгѓ»гЂЋг‚·гѓЋгѓ“г‚¬гѓџ(еїЌзҐћ)гЂЏ
+гЂЂгЂЂгЂЂгѓ»еђ„зЁ®иЎЁ
+гЂЂгЂЂгЂЂгЂЂгѓ»(з„ЎеЌ°)
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»г‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»гѓ•г‚Ўгѓігѓ–гѓ«иЎЁгЂЂFT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж„џжѓ…иЎЁгЂЂгЂЂгЂЂгЂЂET
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»е¤‰иЄїиЎЁгЂЂгЂЂгЂЂгЂЂWT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж€¦е ґиЎЁгЂЂгЂЂгЂЂгЂЂBT
+гЂЂгЂЂгЂЂгЂЂгѓ»(ејђ)
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»йѓЅеё‚г‚·гѓјгѓіиЎЁгЂЂCST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»й¤Ёг‚·гѓјгѓіиЎЁгЂЂгЂЂMST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»е‡єеі¶г‚·гѓјгѓіиЎЁгЂЂDST
+гЂЂгЂЂгЂЂгЂЂгѓ»(еЏ‚)
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»гѓ€гѓ©гѓ–гѓ«г‚·гѓјгѓіиЎЁгЂЂTST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж—Ґеёёг‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂNST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»е›ћжѓіг‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂKST
+гЂЂгЂЂгЂЂгЂЂгѓ»(ж­»)
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»жќ±дє¬г‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂTKST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж€¦е›Ѕг‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂGST
+гЂЂгЂЂгЂЂгЂЂгѓ»(д№±)
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж€¦е›Ѕе¤‰иЄїиЎЁгЂЂгЂЂгЂЂгЂЂGWT
+гЂЂгЂЂгЂЂгЂЂгѓ»(гѓЄгѓ—гѓ¬г‚¤ж€¦1гЂњ2е·»)
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»е­¦ж Ўг‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂGAST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»дє¬йѓЅг‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂKYST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»зҐћз¤ѕд»Џй–Јг‚·гѓјгѓіиЎЁгЂЂJBST
+гЂЂгЂЂгЂЂгЂЂгѓ»(жЂЄ)
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»жЂЄгѓ•г‚Ўгѓігѓ–гѓ«иЎЁгЂЂгЂЂKFT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»жЂЄе¤‰иЄїиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂKWT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»з•°еЅўиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂMT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»гѓ©гѓігѓЂгѓ з‰№жЉЂж±єе®љиЎЁгЂЂRTT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»з§‹з©єгЃ«й›Єи€ћгЃ€гЃ°г‚·гѓјгѓіиЎЁгЂЂKST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»зЃЅеЋ„г‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂCLST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»е‡єеі¶EXг‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂDXST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж–њж­Їгѓ©гѓњг‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂгЂЂHLST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»е¤ЏгЃ®зµ‚г‚Џг‚Љг‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂNTST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»еџ№й¤Љгѓ—гѓ©гѓігѓ€г‚·гѓјгѓіиЎЁгЂЂгЂЂPLST
+
+гЂЂгЂЂгѓ»гЂЋгѓЂгѓ–гѓ«г‚Їгѓ­г‚№гЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љгЂЂ(xDX+y@c or xDXc+y)
+гЂЂгЂЂгЂЂгЂЂгѓЂгѓ–гѓ«г‚Їгѓ­г‚№2ndгЃЉг‚€гЃі3rdгЃ®е€¤е®љг‚ігѓћгѓігѓ‰гЂ‚
+гЂЂгЂЂгЂЂгЂЂ"(еЂ‹ж•°)DX(дї®ж­Ј)@(г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤)"г‚‚гЃ—гЃЏгЃЇ"(еЂ‹ж•°)DX(г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤)(дї®ж­Ј)"гЃ§жЊ‡е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂеЉ з®—жё›з®—гЃ®гЃїдї®ж­ЈеЂ¤г‚‚д»гЃ‘г‚‰г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂе†…йѓЁгЃ§иЄ­гЃїж›їгЃ€гЃ¦гЃ„гЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂ10dxгЂЂгЂЂгЂЂ10dx+5@8(OD toolејЏ)гЂЂгЂЂгЂЂ5DX7+7-3(з–ѕйўЁжЂ’жї¤ејЏ)
+
+гЂЂгЂЂгѓ»еђ„зЁ®иЎЁ
+гЂЂгЂЂгЂЂгѓЂгѓ–гѓ«г‚Їгѓ­г‚№2ndгЃЉг‚€гЃі3rdгЃ®еђ„зЁ®иЎЁг‚’жЊЇгЃЈгЃ¦зµђжћњг‚’е‡єеЉ›гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»ж„џжѓ…иЎЁ(ET)
+гЂЂгЂЂгЂЂгЂЂгѓќг‚ёгѓ†г‚Јгѓ–гЃЁгѓЌг‚¬гѓ†г‚Јгѓ–гЃ®дёЎж–№г‚’жЊЇгЃЈгЃ¦гЂЃиЎЁгЃ«гЃЄгЃЈгЃ¦гЃ„г‚‹еЃґгЃ«в—‹г‚’д»гЃ‘гЃ¦иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂг‚‚гЃЎг‚Ќг‚“д»»ж„ЏгЃ§йЃёгЃ¶йѓЁе€†гЃЇе¤‰ж›ґгЃ—гЃ¦ж§‹гЃ„гЃѕгЃ›г‚“гЂ‚
+
+
+гЂЂгЂЂгѓ»гЂЋг‚µг‚їг‚№гѓљгЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љгЂЂ(nR>=x[y,z])
+гЂЂгЂЂгЂЂгЂЂг‚µг‚їг‚№гѓље°‚з”Ёе€¤е®љг‚ігѓћгѓігѓ‰гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂnгЃЊжњЂе¤§гѓ­гѓјгѓ«е›ћж•°гЂЃxгЃЊй›Јж“еє¦гЂЃyгЃЊз›®жЁ™ж€ђеЉџеє¦гЂЃzгЃЊгѓ•г‚Ўгѓігѓ–гѓ«еЂ¤гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂyгЃЁzгЃЇзњЃз•ҐеЏЇиѓЅгЃ§гЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂ10r>=7гЂЂгЂЂгЂЂ8R>=7[3,3]гЂЂгЂЂгЂЂ10r>=5[5]гЂЂгЂЂгЂЂ8R>=7[,3]
+
+гЂЂгЂЂгЂЂгѓ»еђ„зЁ®иЎЁ
+гЂЂгЂЂгЂЂгЂЂг‚µг‚їг‚№гѓљгЃЇиЎЁгЃЊе¤љгЃ„гЃ®гЃ§гЂЃе…ЁгЃ¦гЃ®иЎЁгЃЇз¶Ізѕ…гЃ—гЃ¦гЃ„гЃѕгЃ›г‚“гЂ‚
+гЂЂгЂЂгЂЂгЂЂг‚ігѓћгѓігѓ‰жњ«е°ѕгЃ«еЌЉи§’гЃ§ж•°е­—г‚’е…Ґг‚Њг‚‹гЃЁи¤‡ж•°е›ћдёЂиѕєгЃ«еј•гЃЏгЃ“гЃЁгЃЊе‡єжќҐгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ»г‚їг‚°ж±єе®љиЎЁгЂЂ(TAGT)
+гЂЂгЂЂгЂЂгЂЂгѓ»жѓ…е ±г‚¤гѓ™гѓігѓ€иЎЁгЂЂ(гЂњIET)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»зЉЇзЅЄиЎЁ(CrimeIET)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»з”џжґ»иЎЁ(LifeIET)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»жЃ‹ж„›иЎЁ(LoveIET)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж•™й¤ЉиЎЁ(CultureIET)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж€¦й—иЎЁ(CombatIET)
+гЂЂгЂЂгЂЂгЂЂгѓ»жѓ…е ±гѓЏгѓ—гѓ‹гѓіг‚°иЎЁгЂЂ(гЂњIHT)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»зЉЇзЅЄиЎЁ(CrimeIHT)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»з”џжґ»иЎЁ(LifeIHT)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»жЃ‹ж„›иЎЁ(LoveIHT)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж•™й¤ЉиЎЁ(CultureIHT)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж€¦й—иЎЁ(CombatIHT)
+гЂЂгЂЂгЂЂгЂЂгѓ»е‘Ѕдё­е€¤е®љгѓ•г‚Ўгѓігѓ–гѓ«иЎЁгЂЂ(FumbleT)
+гЂЂгЂЂгЂЂгЂЂгѓ»и‡ґе‘Ѕе‚·иЎЁгЂЂ(FatalT)
+гЂЂгЂЂгЂЂгЂЂгѓ»г‚ўг‚Їг‚·гѓ‡гѓігѓ€иЎЁгЂЂ(AccidentT)
+гЂЂгЂЂгЂЂгЂЂгѓ»ж±Ћз”Ёг‚ўг‚Їг‚·гѓ‡гѓігѓ€иЎЁгЂЂ(GeneralAT)
+гЂЂгЂЂгЂЂгЂЂгѓ»гЃќгЃ®еѕЊиЎЁгЂЂ(AfterT)
+гЂЂгЂЂгЂЂгЂЂгѓ»гѓ­гѓћгѓіг‚№гѓ•г‚Ўгѓігѓ–гѓ«иЎЁгЂЂ(RomanceFT)
+гЂЂгЂЂгЂЂгЂЂгѓ»NPCгЃ®е№ґйЅўгЃЁеҐЅгЃїг‚’дёЂж‹¬е‡єеЉ›гЂЂ(NPCT)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂNPCгЃ®е№ґйЅўеЊєе€†(е®џе№ґйЅў)гЂЃеҐЅгЃї/й›°е›Іж°—гЂЃеҐЅгЃї/е№ґйЅўг‚’дёЂж‹¬гЃ§еј•гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂдЅїз”ЁгЃ—гЃЄгЃ„йѓЁе€†гЃЇз„Ўи¦–гЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+
+
+гЂЂгЂЂгѓ»гЂЋArsMagicaгЂЏ
+гЂЂгЂЂгЂЂгѓ»г‚№гѓ€гѓ¬г‚№гѓЂг‚¤г‚№гЂЂ(ArSx+y)
+гЂЂгЂЂгЂЂгЂЂг‚ўгѓ«г‚№гѓћг‚®г‚«гЃ®г‚№гѓ€гѓ¬г‚№гѓЂг‚¤г‚№е°‚з”Ёг‚ігѓћгѓігѓ‰гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂ"ArS(гѓњгѓѓгѓЃгѓЂг‚¤г‚№)+(дї®ж­Ј)"гЃ§гЃ™гЂ‚е€¤е®љгЃ«г‚‚дЅїгЃ€гЃѕгЃ™гЂ‚Rг‚ігѓћгѓігѓ‰(1R10+y[m])гЃ«иЄ­ж›їг‚’гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓњгѓѓгѓЃгѓЂг‚¤г‚№гЃЁдї®ж­ЈгЃЇзњЃз•ҐеЏЇиѓЅгЃ§гЃ™гЂ‚(гѓњгѓѓгѓЃгѓЂг‚¤г‚№г‚’зњЃз•ҐгЃ™г‚‹гЃЁ1гЃЁгЃ—гЃ¦ж‰±гЃ„гЃѕгЃ™)
+гЂЂгЂЂгЂЂгЂЂbotchгѓЂг‚¤г‚№гЃ®0гЃ®ж•°гЃЊ2д»ҐдёЉгЃ®ж™‚гЃЇгЂЃж•°гЃ€гЃ¦иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂпј€жіЁж„ЏпјЃпј‰ botchгЃ®е€¤ж–­гЃЊз™єз”џгЃ—гЃџгЃЁгЃЌгЃ«гЃЇгЂЃгЃќгЃ®гѓЂг‚¤г‚№г‚’еђ«г‚ЃгЃ¦гѓ­гѓјгѓ«гЃ—гЃџе…ЁгЃ¦гЃ®гѓЂг‚¤г‚№г‚’[]гЃ®дё­гЃ«дё¦гЃ№гЃ¦иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂдѕ‹) (1R10[5]) пјћ 0[0,1,8,0,8,1] пјћ Botch!
+гЂЂгЂЂгЂЂгЂЂгЂЂжњЂе€ќгЃ®0гЃЊе€¤ж–­еџєжє–гЃ§гЂЃгЃќгЃ®еЏіеЃґ5гЃ¤гЃЊгѓњгѓѓгѓЃгѓЂг‚¤г‚№гЃ§гЃ™гЂ‚1*2,8*2,0*1гЃЄгЃ®гЃ§1botchгЃЁгЃ„гЃ†иЁігЃ§гЃ™гЂ‚
+
+
+гЂЂгЂЂгѓ»гЂЋпјґпј†пјґгЂЏ
+гЂЂгЂЂгЂЂгѓ»иЎЊз‚єе€¤е®љгЂЂ(2d6+m>=t)
+гЂЂгЂЂгЂЂгЂЂзµђжћњгЃ®ж€ђеђ¦гЃЁзµЊйЁ“еЂ¤г‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂtгЃЇз›®жЁ™еЂ¤гЃ§гЃ™гЂ‚ж•°еЂ¤гЃ®д»–гЃ«"пј€гѓ¬гѓ™гѓ«пј‰Lv"гЃ§гѓ¬гѓ™гѓ«гЃ«г‚€г‚‹жЊ‡е®љг‚‚еЏЇиѓЅгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ¬гѓ™гѓ«г‚’еЌЉи§’?гЃ«гЃ™г‚‹гЃЁж€ђеЉџгЃ™г‚‹жњЂй«гѓ¬гѓ™гѓ«г‚’и‡Єе‹•иЁ€з®—гЃ—гЃѕгЃ™гЂ‚(зµЊйЁ“еЂ¤гЃЇ1Lvж€ђеЉџгЃЁгЃ—гЃ¦гЃ„гЃѕгЃ™)
+гЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ«гЃЇг‚ѕгѓ­з›®г‚’и‡Єе‹•гЃ§жЊЇг‚Љи¶ігЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»гѓђгѓјг‚µгѓјг‚ЇгЃЁгѓЏг‚¤гѓ‘гѓјгѓђгѓјг‚µгѓјг‚ЇгЂЂ(nBS+x or nHBS+x)
+гЂЂгЂЂгЂЂгЂЂ"(гѓЂг‚¤г‚№ж•°)BS(дї®ж­ЈеЂ¤)"гЃ§гѓђгѓјг‚µгѓјг‚ЇгЂЃ"(гѓЂг‚¤г‚№ж•°)HBS(дї®ж­ЈеЂ¤)"гЃ§гѓЏг‚¤гѓ‘гѓјгѓђгѓјг‚µгѓјг‚ЇгЃ§гѓ­гѓјгѓ«гЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂжњЂе€ќгЃ®гѓЂг‚¤г‚№гЃ®иЄ­ж›їгЃЇгЂЃеЂ‹е€ҐгЃ®е‡єз›®гЃЇгЃќгЃ®гЃѕгЃѕгЃ§иЎЁз¤єгЂ‚
+гЂЂгЂЂгЂЂгЂЂдё‹гЃ‹г‚‰пј’з•Єз›®гЃ®е‡єз›®г‚’гЃљг‚‰гЃ—гЃџе€†гЃ гЃ‘еђ€иЁ€гЃ«гѓћг‚¤гѓЉг‚№дї®ж­Јг‚’иїЅеЉ гЃ—гЃ¦иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+
+
+гЂЂгЂЂгѓ»гЂЋгѓЂгѓјг‚Їгѓ–гѓ¬г‚¤г‚єгЂЏ
+гЂЂгЂЂгЂЂгѓ»иЎЊз‚єе€¤е®љгЂЂ(DBxy#n)
+гЂЂгЂЂгЂЂгЂЂиЎЊз‚єе€¤е®ље°‚з”ЁгЃ®г‚ігѓћгѓігѓ‰гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂ"DB(иѓЅеЉ›)(жЉЂиѓЅ)#(дї®ж­Ј)"гЃ§гѓ­гѓјгѓ«гЃ—гЃѕгЃ™гЂ‚Rг‚ігѓћгѓігѓ‰(3R6+n[x,y]>=m mгЃЇй›Јж“еє¦)гЃ«иЄ­ж›їг‚’гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЃЁгѓ•г‚Ўгѓігѓ–гѓ«г‚‚и‡Єе‹•гЃ§е‡¦зђ†гЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂDB@x@y#m гЃЁ DBx,y#m гЃ«г‚‚еЇѕеїњгЃ—гЃѕгЃ—гЃџгЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂDB33гЂЂгЂЂгЂЂDB32#-1гЂЂгЂЂгЂЂDB@3@1#1гЂЂгЂЂгЂЂDB3,2гЂЂгЂЂгЂЂDB23#1>=4гЂЂгЂЂгЂЂ3R6+1[3,3]>=4
+
+гЂЂгЂЂгЂЂгѓ»жЋг‚Ље‡єгЃ—иў‹иЎЁгЂЂ(BTx)
+гЂЂгЂЂгЂЂгЂЂ"BT(гѓЂг‚¤г‚№ж•°)"гЃ§жЋг‚Ље‡єгЃ—иў‹иЎЁг‚’и‡Єе‹•гЃ§жЊЇг‚ЉгЂЃзµђжћњг‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂBT1гЂЂгЂЂгЂЂBT2гЂЂгЂЂгЂЂBT[1...3]
+
+
+гЂЂгЂЂгѓ»гЂЋг‚¬гѓігѓ‰гѓѓг‚°г‚јгѓ­гЂЏ
+гЂЂгЂЂгЂЂгѓ»еђ„зЁ®иЎЁ
+гЂЂгЂЂгЂЂгЂЂгѓ»гѓЂгѓЎгѓјг‚ёгѓљгѓЉгѓ«гѓ†г‚ЈгѓјиЎЁгЂЂ(гЂњDPTx)
+гЂЂгЂЂгЂЂгЂЂгЂЂе°„ж’ѓ(SDPT)гЂЃж јй—(MDPT)гЂЃи»ЉдёЎ(VDPT)гЂЃж±Ћз”Ё(GDPT)гЃ®еђ„иЎЁг‚’еј•гЃЏгЃ“гЃЁгЃЊе‡єжќҐгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂдї®ж­Јг‚’еѕЊг‚ЌгЃ«ж›ёгЃЏгЃ“гЃЁг‚‚е‡єжќҐгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ»гѓ•г‚Ўгѓігѓ–гѓ«иЎЁгЂЂ(гЂњFTx)
+гЂЂгЂЂгЂЂгЂЂгЂЂе°„ж’ѓ(SFT)гЂЃж јй—(MFT)гЂЃжЉ•ж“І(TFT)гЃ®еђ„иЎЁг‚’еј•гЃЏгЃ“гЃЁгЃЊе‡єжќҐгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂдї®ж­Јг‚’еѕЊг‚ЌгЃ«ж›ёгЃЏгЃ“гЃЁг‚‚е‡єжќҐгЃѕгЃ™гЂ‚
+
+
+гЂЂгЂЂгѓ»гЂЋгѓЉг‚¤гѓ€г‚¦г‚Јг‚¶гѓјгѓ‰гЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љгЂЂ(nNW+m@x#y)
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓЉг‚¤гѓ€г‚¦г‚Јг‚¶гѓјгѓ‰е€¤е®љз”Ёг‚ігѓћгѓігѓ‰гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂ"(еёёж™‚з‰№ж®ЉиѓЅеЉ›еђ«г‚Ђеџєжњ¬еЂ¤)NW(еёёж™‚д»Ґе¤–гЃ®з‰№ж®ЉиѓЅеЉ›еЏЉгЃізЉ¶ж…‹з•°еёё)@(г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤)#(гѓ•г‚Ўгѓігѓ–гѓ«еЂ¤)"гЃ§гѓ­гѓјгѓ«гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂRг‚ігѓћгѓігѓ‰(2R6m[n,m]c[x]f[y]>=t tгЃЇз›®жЁ™еЂ¤)гЃ«иЄ­ж›їгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤гЂЃгѓ•г‚Ўгѓігѓ–гѓ«еЂ¤гЃЊз„ЎгЃ„е ґеђ€гЃЇ1г‚„13гЃЄгЃ©гЃ®гЃ‚г‚Љеѕ—гЃЄгЃ„ж•°еЂ¤г‚’е…Ґг‚ЊгЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«ж™‚гЃЇ+10е›єе®љгЃ§гЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂ12NW-5@7#2гЂЂгЂЂ1NWгЂЂгЂЂ50nw+5@7,10#2,5
+
+
+гЂЂгЂЂгѓ»гЂЋTORGгЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љгЂЂ(TGm)
+гЂЂгЂЂгЂЂгЂЂTORGе°‚з”ЁгЃ®е€¤е®љг‚ігѓћгѓігѓ‰гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂ"TG(жЉЂиѓЅеџєжњ¬еЂ¤)"гЃ§гѓ­гѓјгѓ«гЃ—гЃѕгЃ™гЂ‚Rг‚ігѓћгѓігѓ‰гЃ«иЄ­ж›їгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂжЊЇг‚Љи¶ігЃ—г‚’и‡Єе‹•гЃ§иЎЊгЃ„гЂЃ20гЃ®е‡єз›®гЃЊе‡єгЃџгЃЁгЃЌгЃ«гЃЇжЉЂиѓЅз„ЎгЃ—еЂ¤г‚‚дё¦иЁгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»еђ„зЁ®иЎЁгЂЂ"(иЎЁг‚ігѓћгѓігѓ‰)(ж•°еЂ¤)"гЃ§жЊЇг‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ»дёЂи€¬зµђжћњиЎЁ ж€ђеЉџеє¦е‡єеЉ›гЂЊRTx or RESULTxгЂЌ
+гЂЂгЂЂгЂЂгЂЂгѓ»еЁЃењ§/еЁЃељ‡ еЇѕдєєиЎЊз‚єзµђжћњиЎЁгЂЊITx or INTIMIDATEx or TESTxгЂЌ
+гЂЂгЂЂгЂЂгЂЂгѓ»жЊ‘з™є/гѓ€гѓЄгѓѓг‚Ї еЇѕдєєиЎЊз‚єзµђжћњиЎЁгЂЊTTx or TAUNTx or TRICKx or CTxгЂЌ
+гЂЂгЂЂгЂЂгЂЂгѓ»й–“еђ€гЃ„ еЇѕдєєиЎЊз‚єзµђжћњиЎЁгЂЊMTx or MANEUVERxгЂЌ
+гЂЂгЂЂгЂЂгЂЂгѓ»г‚Єгѓјг‚єпј€дёЂи€¬дєєпј‰гѓЂгѓЎгѓјг‚ёгЂЂгЂЊODTx or ORDSx or ODAMAGExгЂЌ
+гЂЂгЂЂгЂЂгЂЂгѓ»гѓќг‚·гѓ“гѓЄгѓ†г‚ЈгѓјиѓЅеЉ›иЂ…гѓЂгѓЎгѓјг‚ёгЂЊDTx or DAMAGExгЂЌ
+гЂЂгЂЂгЂЂгЂЂгѓ»гѓњгѓјгѓЉг‚№иЎЁгЂЊBTx+y or BONUSx+y or TOTALx+yгЂЌ xгЃЇж•°еЂ¤, yгЃЇжЉЂиѓЅеџєжњ¬еЂ¤
+
+гЂЂгЂЂгѓ»гЂЋгѓЏгѓіг‚їгѓјг‚єгѓ»гѓ гѓјгѓігЂЏ
+гЂЂгЂЂгЂЂгѓ»еђ„зЁ®иЎЁ
+гЂЂгЂЂгЂЂгЂЂгѓ»йЃ­йЃ‡иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂET
+гЂЂгЂЂгЂЂгЂЂгѓ»йѓЅеё‚гѓ­г‚±гѓјг‚·гѓ§гѓіиЎЁгЂЂCLT
+гЂЂгЂЂгЂЂгЂЂгѓ»й–‰ж‰Ђгѓ­г‚±гѓјг‚·гѓ§гѓіиЎЁгЂЂSLT
+гЂЂгЂЂгЂЂгЂЂгѓ»з‚Ћз†±гѓ­г‚±гѓјг‚·гѓ§гѓіиЎЁгЂЂHLT
+гЂЂгЂЂгЂЂгЂЂгѓ»е†·жљ—гѓ­г‚±гѓјг‚·гѓ§гѓіиЎЁгЂЂFLT
+гЂЂгЂЂгЂЂгЂЂгѓ»йѓЁдЅЌгѓЂгѓЎгѓјг‚ёж±єе®љиЎЁгЂЂDLT
+гЂЂгЂЂгЂЂгЂЂгѓ»гѓўгѓЋгѓ“гѓјг‚№гѓ€иЎЊе‹•иЎЁгЂЂMAT
+гЂЂгЂЂгЂЂгЂЂгѓ»з•°еЅўг‚ўгѓ“гѓЄгѓ†г‚ЈгѓјиЎЁгЂЂSATx (xгЃЇеЂ‹ж•°)
+гЂЂгЂЂгЂЂгЂЂгѓ»жЊ‡е®љз‰№жЉЂ(з¤ѕдјљ)иЎЁгЂЂгЂЂTST
+гЂЂгЂЂгЂЂгЂЂгѓ»жЊ‡е®љз‰№жЉЂ(й ­йѓЁ)иЎЁгЂЂгЂЂTHT
+гЂЂгЂЂгЂЂгЂЂгѓ»жЊ‡е®љз‰№жЉЂ(и…•йѓЁ)иЎЁгЂЂгЂЂTAT
+гЂЂгЂЂгЂЂгЂЂгѓ»жЊ‡е®љз‰№жЉЂ(иѓґйѓЁ)иЎЁгЂЂгЂЂTBT
+гЂЂгЂЂгЂЂгЂЂгѓ»жЊ‡е®љз‰№жЉЂ(и„љйѓЁ)иЎЁгЂЂгЂЂTLT
+гЂЂгЂЂгЂЂгЂЂгѓ»жЊ‡е®љз‰№жЉЂ(з’°еўѓ)иЎЁгЂЂгЂЂTET
+
+
+гЂЂгЂЂгѓ»гЂЋиї·е®®г‚­гѓіг‚°гѓЂгѓ гЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љгЂЂ(nMK+m)
+гЂЂгЂЂгЂЂгЂЂгЂЂиї·е®®г‚­гѓіг‚°гѓЂгѓ е€¤е®љз”Ёг‚ігѓћгѓігѓ‰гЃ§гЃ™гЂ‚Rг‚ігѓћгѓігѓ‰гЃ«иЄ­ж›їгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂnеЂ‹гЃ®D6г‚’жЊЇгЃЈгЃ¦е¤§гЃЌгЃ„з‰©дєЊгЃ¤гЃ гЃ‘гЃїгЃ¦йЃ”ж€ђеЂ¤г‚’з®—е‡єгЃ—гЃѕгЃ™гЂ‚дї®ж­Јmг‚‚еЏЇиѓЅгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂзµ¶еЇѕж€ђеЉџгЃЁзµ¶еЇѕе¤±ж•—г‚‚и‡Єе‹•е€¤е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»еђ„зЁ®иЎЁ
+гЂЂгЂЂгЂЂгЂЂгѓ»ж•Јз­–иЎЁ(гЂњRT)
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»з”џжґ»ж•Јз­–иЎЁгЂЂгЂЂгЂЂгЂЂLRT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»жІ»е®‰ж•Јз­–иЎЁгЂЂгЂЂгЂЂгЂЂORT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж–‡еЊ–ж•Јз­–иЎЁгЂЂгЂЂгЂЂгЂЂCRT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»и»Ќдє‹ж•Јз­–иЎЁгЂЂгЂЂгЂЂгЂЂART
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»гЃЉзҐ­г‚ЉиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂFRT
+гЂЂгЂЂгЂЂгЂЂгѓ»дј‘ж†©иЎЁ(гЂњRT)
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж‰Ќи¦љдј‘ж†©иЎЁгЂЂгЂЂгЂЂгЂЂTBT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»й­…еЉ›дј‘ж†©иЎЁгЂЂгЂЂгЂЂгЂЂCBT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»жЋўзґўдј‘ж†©иЎЁгЂЂгЂЂгЂЂгЂЂSBT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж­¦е‹‡дј‘ж†©иЎЁгЂЂгЂЂгЂЂгЂЂVBT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»гЃЉзҐ­г‚Љдј‘ж†©иЎЁгЂЂгЂЂгЂЂFBT
+гЂЂгЂЂгЂЂгЂЂгѓ»гѓЏгѓ—гѓ‹гѓіг‚°иЎЁ(гЂњHT)
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж‰Ќи¦љгѓЏгѓ—гѓ‹гѓіг‚°иЎЁгЂЂTHT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»й­…еЉ›гѓЏгѓ—гѓ‹гѓіг‚°иЎЁгЂЂCHT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»жЋўзґўгѓЏгѓ—гѓ‹гѓіг‚°иЎЁгЂЂSHT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж­¦е‹‡гѓЏгѓ—гѓ‹гѓіг‚°иЎЁгЂЂVHT
+гЂЂгЂЂгЂЂгЂЂгѓ»зЋ‹е›ЅзЃЅеЋ„иЎЁгЂЂгЂЂгЂЂгЂЂKDT
+гЂЂгЂЂгЂЂгЂЂгѓ»зЋ‹е›Ѕе¤‰е‹•иЎЁгЂЂгЂЂгЂЂгЂЂKCT
+гЂЂгЂЂгЂЂгЂЂгѓ»зЋ‹е›Ѕе¤‰е‹•е¤±ж•—иЎЁгЂЂгЂЂKMT
+гЂЂгЂЂгЂЂгЂЂгѓ»зЋ‹е›ЅеђЌж±єе®љиЎЁпј‘гЂЂгЂЂKNT1
+гЂЂгЂЂгЂЂгЂЂгѓ»зЋ‹е›ЅеђЌж±єе®љиЎЁпј’гЂЂгЂЂKNT2
+гЂЂгЂЂгЂЂгЂЂгѓ»зЋ‹е›ЅеђЌж±єе®љиЎЁпј“гЂЂгЂЂKNT3
+гЂЂгЂЂгЂЂгЂЂгѓ»з—›ж‰“иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂCAT
+гЂЂгЂЂгЂЂгЂЂгѓ»и‡ґе‘Ѕе‚·иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂFWT
+гЂЂгЂЂгЂЂгЂЂгѓ»ж€¦й—гѓ•г‚Ўгѓігѓ–гѓ«иЎЁгЂЂCFT
+гЂЂгЂЂгЂЂгЂЂгѓ»йЃ“дё­иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂTT
+гЂЂгЂЂгЂЂгЂЂгѓ»дє¤жё‰иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂNT
+гЂЂгЂЂгЂЂгЂЂгѓ»ж„џжѓ…иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂET
+гЂЂгЂЂгЂЂгЂЂгѓ»з›ёе ґиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂMPT
+гЂЂгЂЂгЂЂгЂЂгѓ»гЃЉе®ќиЎЁпј‘гЂЂгЂЂгЂЂгЂЂгЂЂT1T
+гЂЂгЂЂгЂЂгЂЂгѓ»гЃЉе®ќиЎЁпј’гЂЂгЂЂгЂЂгЂЂгЂЂT2T
+гЂЂгЂЂгЂЂгЂЂгѓ»гЃЉе®ќиЎЁпј“гЂЂгЂЂгЂЂгЂЂгЂЂT3T
+гЂЂгЂЂгЂЂгЂЂгѓ»гЃЉе®ќиЎЁпј”гЂЂгЂЂгЂЂгЂЂгЂЂT4T
+гЂЂгЂЂгЂЂгЂЂгѓ»гЃЉе®ќиЎЁпј•гЂЂгЂЂгЂЂгЂЂгЂЂT5T
+гЂЂгЂЂгЂЂгЂЂгѓ»еђЌе‰ЌиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂNAMEx (xгЃЇеЂ‹ж•°)
+гЂЂгЂЂгЂЂгЂЂгѓ»еђЌе‰ЌиЎЁAгЂЂгЂЂгЂЂгЂЂгЂЂ NAMEA
+гЂЂгЂЂгЂЂгЂЂгѓ»еђЌе‰ЌиЎЁBгЂЂгЂЂгЂЂгЂЂгЂЂ NAMEB
+гЂЂгЂЂгЂЂгЂЂгѓ»г‚Ёг‚­г‚ѕгѓЃгѓѓг‚ЇеђЌе‰ЌиЎЁгЂЂNAMEEX
+гЂЂгЂЂгЂЂгЂЂгѓ»гѓ•г‚Ўгѓіг‚їг‚ёгѓѓг‚ЇеђЌе‰ЌиЎЁгЂЂNAMEFA
+гЂЂгЂЂгЂЂгЂЂгѓ»г‚ўг‚¤гѓ†гѓ й–ўйЂЈпј€зЊџеҐ‡ж€¦еЅ№дёЌдЅїз”ЁгЃ®е ґеђ€г‚’г‚«гѓѓг‚іж›ёгЃЌгЃ§е‡єеЉ›пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»гѓ‡гѓђг‚¤г‚№гѓ•г‚Ўг‚Їгѓ€гѓЄгѓјгЂЂгЂЂDFT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»г‚ўг‚¤гѓ†гѓ г‚«гѓ†г‚ґгѓЄж±єе®љиЎЁгЂЂIDT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж­¦е…·г‚ўг‚¤гѓ†гѓ иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂWIT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»з”џжґ»г‚ўг‚¤гѓ†гѓ иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂLIT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»е›ћеѕ©г‚ўг‚¤гѓ†гѓ иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂRIT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»жЋўзґўг‚ўг‚¤гѓ†гѓ иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂSIT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»гѓ¬г‚ўж­¦е…·г‚ўг‚¤гѓ†гѓ иЎЁгЂЂгЂЂгЂЂRWIT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»гѓ¬г‚ўдёЂи€¬г‚ўг‚¤гѓ†гѓ иЎЁгЂЂгЂЂгЂЂRUIT
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»г‚ўг‚¤гѓ†гѓ з‰№жЂ§ж±єе®љиЎЁгЂЂгЂЂгЂЂIFT
+гЂЂгЂЂгЂЂгЂЂгѓ»гѓ©гѓігѓЂгѓ г‚Ёгѓіг‚«г‚¦гѓігѓ€иЎЁгЂЂnRET (nгЃЇгѓ¬гѓ™гѓ«,1гЂњ6)
+гЂЂгЂЂгЂЂгЂЂгѓ»ењ°еђЌж±єе®љиЎЁгЂЂгЂЂгЂЂгЂЂPNTx (xгЃЇеЂ‹ж•°)
+гЂЂгЂЂгЂЂгЂЂгѓ»иї·е®®йўЁж™ЇиЎЁгЂЂгЂЂгЂЂгЂЂMLTx (xгЃЇеЂ‹ж•°)
+гЂЂгЂЂгЂЂгЂЂгѓ»еЌиЄћиЎЁпј‘гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂWORD1
+гЂЂгЂЂгЂЂгЂЂгѓ»еЌиЄћиЎЁпј’гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂWORD2
+гЂЂгЂЂгЂЂгЂЂгѓ»еЌиЄћиЎЁпј“гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂWORD3
+гЂЂгЂЂгЂЂгЂЂгѓ»еЌиЄћиЎЁпј”гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂWORD4
+
+
+гЂЂгЂЂгѓ»гЂЋEarthDawnгЂЏ
+гЂЂгЂЂгЂЂгѓ»г‚№гѓ†гѓѓгѓ—гѓЂг‚¤г‚№гЂЂ(xEn+k)
+гЂЂгЂЂгЂЂгЂЂг‚№гѓ†гѓѓгѓ—xгЂЃз›®жЁ™еЂ¤nгЂЃг‚«гѓ«гѓћгѓЂг‚¤г‚№kгЃ§г‚№гѓ†гѓѓгѓ—гѓЂг‚¤г‚№г‚’гѓ­гѓјгѓ«гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂжЊЇг‚Љи¶ігЃ—г‚‚и‡Єе‹•гЂ‚
+
+
+гЂЂгЂЂгѓ»гЂЋг‚Ёгѓ гѓ–гѓЄг‚Єгѓћг‚·гѓігЂЏ
+гЂЂгЂЂгЂЂгѓ»ж”»ж’ѓе€¤е®љгЂЂ(EMt+m@c#f)
+гЂЂгЂЂгЂЂгЂЂз›®жЁ™еЂ¤tгЂЃдї®ж­ЈеЂ¤mгЂЃг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤c(зњЃз•Ґж™‚гЃЇ20)гЂЃгѓ•г‚Ўгѓігѓ–гѓ«еЂ¤f(зњЃз•Ґж™‚гЃЇ2)гЃ§ж”»ж’ѓе€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂе‘Ѕдё­гЃ—гЃџе ґеђ€гЃЇе‘Ѕдё­гѓ¬гѓ™гѓ«гЃЁе‘Ѕдё­йѓЁдЅЌг‚‚и‡Єе‹•е‡єеЉ›гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂRг‚ігѓћгѓігѓ‰гЃ«иЄ­гЃїж›їгЃ€гЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»еђ„зЁ®иЎЁ
+гЂЂгЂЂгЂЂгЂЂгѓ»е‘Ѕдё­йѓЁдЅЌиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂHLT
+гЂЂгЂЂгЂЂгЂЂгѓ»з™Ѕе…µж”»ж’ѓгѓ•г‚Ўгѓігѓ–гѓ«иЎЁгЂЂMFT
+гЂЂгЂЂгЂЂгЂЂгѓ»е°„ж’ѓж”»ж’ѓгѓ•г‚Ўгѓігѓ–гѓ«иЎЁгЂЂSFT
+
+
+гЂЂгЂЂгѓ»гЂЋг‚ІгѓгѓЉгѓ»г‚ўгѓЉг‚№г‚їг‚·г‚№гЂЏ
+гЂЂгЂЂгЂЂгѓ»ж€¦й—е€¤е®љгЂЂ(nGAt+m)
+гЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№ж•°nгЂЃз›®жЁ™еЂ¤tгЂЃдї®ж­ЈеЂ¤mгЃ§ж€¦й—е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂе№ёйЃ‹гЃ®еЉ©гЃ‘гЂЃйЂЈж’ѓеў—еЉ еЂ¤гЂЃй—жЉЂгѓЃгѓѓгѓ€г‚’и‡Єе‹•е‡¦зђ†гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»йЂљеёёе€¤е®љгЂЂ(nGt+m)
+гЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№ж•°nгЂЃз›®жЁ™еЂ¤tгЂЃдї®ж­ЈеЂ¤mгЃ§йЂљеёёе€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂе№ёйЃ‹гЃ®еЉ©гЃ‘г‚’и‡Єе‹•е‡¦зђ†гЃ—гЃѕгЃ™гЂ‚(йЂЈж’ѓеў—еЉ еЂ¤гЂЃй—жЉЂгѓЃгѓѓгѓ€г‚’иЎЁз¤єжЉ‘е€¶гЃ—гЃѕгЃ™)
+
+
+гЂЂгЂЂгѓ»гЂЋгѓћг‚®г‚«гѓ­г‚®г‚ўгЂЏ
+гЂЂгЂЂгЂЂгѓ»еђ„зЁ®иЎЁ
+гЂЂгЂЂгЂЂгЂЂе¤‰иЄїиЎЁгЂЂгЂЂгЂЂгЂЂWT
+гЂЂгЂЂгЂЂгЂЂйЃ‹е‘Ѕе¤‰и»ўиЎЁгЂЂгЂЂFCT
+гЂЂгЂЂгЂЂгЂЂгЂЂе…ёећ‹зљ„зЃЅеЋ„ TCTпјЏз‰©зђ†зљ„зЃЅеЋ„ PCTпјЏзІѕзҐћзљ„зЃЅеЋ„ MCTпјЏз‹‚ж°—зљ„зЃЅеЋ„ ICT
+гЂЂгЂЂгЂЂгЂЂгЂЂз¤ѕдјљзљ„зЃЅеЋ„ SCTпјЏи¶…еёёзљ„зЃЅеЋ„ XCTпјЏдёЌжЂќи­°зі»зЃЅеЋ„ WCTпјЏг‚ігѓџг‚«гѓ«зі»зЃЅеЋ„ CCT
+гЂЂгЂЂгЂЂгЂЂг‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂST
+гЂЂгЂЂгЂЂгЂЂгЂЂжҐµй™ђз’°еўѓ XESTпјЏе†…йќўдё–з•Њ IWSTпјЏй­”жі•йѓЅеё‚ MCST
+гЂЂгЂЂгЂЂгЂЂгЂЂж­»еѕЊдё–з•Њ WDSTпјЏиї·е®®дё–з•Њ LWST
+гЂЂгЂЂгЂЂгЂЂгѓ•г‚Ўгѓігѓ–гѓ«иЎЁгЂЂFT
+гЂЂгЂЂгЂЂгЂЂдє‹д»¶иЎЁгЂЂгЂЂгЂЂгЂЂAT
+гЂЂгЂЂгЂЂгЂЂзµЊж­ґиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂBGT
+гЂЂгЂЂгЂЂгЂЂе€ќжњџг‚ўгѓіг‚«гѓјиЎЁгЂЂDAT
+гЂЂгЂЂгЂЂгЂЂйЃ‹е‘Ѕе±ћжЂ§иЎЁгЂЂгЂЂгЂЂFAT
+гЂЂгЂЂгЂЂгЂЂйЎгЃ„иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂWIT
+гЂЂгЂЂгЂЂгЂЂгѓ©гѓігѓЂгѓ з‰№жЉЂиЎЁгЂЂRTT
+гЂЂгЂЂгЂЂгЂЂж™‚гЃ®жµЃг‚ЊиЎЁгЂЂгЂЂгЂЂTPT
+гЂЂгЂЂгЂЂгЂЂгѓ–гѓ©гѓіг‚Їз§еЇ†иЎЁгЂЂBST
+гЂЂгЂЂгЂЂгЂЂгѓ—гѓ©г‚¤г‚єиЎЁгЂЂгЂЂгЂЂPT
+гЂЂгЂЂгЂЂгЂЂ
+
+гЂЂгЂЂгѓ»гЂЋж°ёгЃ„еѕЊж—Ґи«‡гЃ®гѓЌг‚Їгѓ­гѓ‹г‚«гЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љгЂЂ(nNC+m)
+гЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№ж•°nгЂЃдї®ж­ЈеЂ¤mгЃ§е€¤е®љгѓ­гѓјгѓ«г‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№ж•°гЃЊ2д»ҐдёЉгЃ®ж™‚гЃ®гѓ‘гѓјгѓ„з ґжђЌж•°г‚‚иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»ж”»ж’ѓе€¤е®љгЂЂ(nNA+m)
+гЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№ж•°nгЂЃдї®ж­ЈеЂ¤mгЃ§ж”»ж’ѓе€¤е®љгѓ­гѓјгѓ«г‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂе‘Ѕдё­йѓЁдЅЌгЃЁгѓЂг‚¤г‚№ж•°гЃЊ2д»ҐдёЉгЃ®ж™‚гЃ®гѓ‘гѓјгѓ„з ґжђЌж•°г‚‚иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+
+
+гЂЂгЂЂгѓ»гЂЋиї·е®®гѓ‡г‚¤г‚єгЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љгЂЂ(nMD+m)
+гЂЂгЂЂгЂЂгЂЂгЂЂиї·е®®гѓ‡г‚¤г‚єе€¤е®љз”Ёг‚ігѓћгѓігѓ‰гЃ§гЃ™гЂ‚Rг‚ігѓћгѓігѓ‰гЃ«иЄ­ж›їгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂnеЂ‹гЃ®D6г‚’жЊЇгЃЈгЃ¦е¤§гЃЌгЃ„з‰©дєЊгЃ¤гЃ гЃ‘гЃїгЃ¦йЃ”ж€ђеЂ¤г‚’з®—е‡єгЃ—гЃѕгЃ™гЂ‚дї®ж­Јmг‚‚еЏЇиѓЅгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂзµ¶еЇѕж€ђеЉџгЃЁзµ¶еЇѕе¤±ж•—г‚‚и‡Єе‹•е€¤е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»еђ„зЁ®иЎЁ
+гЂЂгЂЂгЂЂгЂЂгѓ»ж•Јз­–иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂDRT
+гЂЂгЂЂгЂЂгЂЂгѓ»дє¤жё‰иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂDNT
+гЂЂгЂЂгЂЂгЂЂгѓ»дј‘ж†©иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂDBT
+гЂЂгЂЂгЂЂгЂЂгѓ»гѓЏгѓ—гѓ‹гѓіг‚°иЎЁгЂЂгЂЂгЂЂDHT
+гЂЂгЂЂгЂЂгЂЂгѓ»г‚«гѓјгѓЌгѓ«еЃњж­ўиЎЁгЂЂгЂЂKST
+гЂЂгЂЂгЂЂгЂЂгѓ»з—›ж‰“иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂCAT
+гЂЂгЂЂгЂЂгЂЂгѓ»ж€¦й—гѓ•г‚Ўгѓігѓ–гѓ«иЎЁгЂЂCFT
+гЂЂгЂЂгЂЂгЂЂгѓ»и‡ґе‘Ѕе‚·иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂFWT
+гЂЂгЂЂгЂЂгЂЂгѓ»гЃЉгЃџгЃ‹г‚‰иЎЁпј‘гЂЂгЂЂгЂЂT1T
+гЂЂгЂЂгЂЂгЂЂгѓ»гЃЉгЃџгЃ‹г‚‰иЎЁпј’гЂЂгЂЂгЂЂT2T
+гЂЂгЂЂгЂЂгЂЂгѓ»гЃЉгЃџгЃ‹г‚‰иЎЁпј“гЂЂгЂЂгЂЂT3T
+гЂЂгЂЂгЂЂгЂЂгѓ»гЃЉгЃџгЃ‹г‚‰иЎЁпј”гЂЂгЂЂгЂЂT4T
+гЂЂгЂЂгЂЂгЂЂгѓ»з›ёе ґиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂMPT
+гЂЂгЂЂгЂЂгЂЂгѓ»з™»е ґиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂAPT
+гЂЂгЂЂгЂЂгЂЂгѓ»е› зёЃиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂDCT
+гЂЂгЂЂгЂЂгЂЂгѓ»жЂЄз‰©е› зёЃиЎЁгЂЂгЂЂгЂЂгЂЂMCT
+гЂЂгЂЂгЂЂгЂЂгѓ»PCе› зёЃиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂPCT
+гЂЂгЂЂгЂЂгЂЂгѓ»гѓ©гѓ–е› зёЃиЎЁгЂЂгЂЂгЂЂгЂЂLCT
+
+
+гЂЂгЂЂгѓ»гЂЋгѓ”гѓјг‚«гѓ–гѓјгЂЏ
+гЂЂгЂЂгЂЂгѓ»еђ„зЁ®иЎЁ
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»г‚¤гѓ™гѓігѓ€иЎЁгЂЂ(гЂњET)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»е­¦ж Ўг‚¤гѓ™гѓігѓ€иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂSET
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»еЂ‹е€Ґе­¦ж Ўг‚¤гѓ™гѓігѓ€иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂPSET
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»г‚Єгѓђг‚±е±‹ж•·г‚¤гѓ™гѓігѓ€иЎЁгЂЂгЂЂгЂЂгЂЂгЂЂOET
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»гѓђг‚їгѓіг‚­гѓҐгѓјиЎЁгЂЂ(гЂњBT)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»г‚¤гѓЋг‚»гѓігѓ€з”Ёгѓђг‚їгѓіг‚­гѓҐгѓјпјЃиЎЁгЂЂIBT
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгѓ»г‚№гѓ—гѓјг‚­гѓјз”Ёгѓђг‚їгѓіг‚­гѓҐгѓјпјЃиЎЁгЂЂSBT
+
+
+гЂЂгЂЂгѓ»гЂЋгѓђгѓ«гѓЉгѓ»г‚Їгѓ­гѓ‹г‚«гЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љ
+гЂЂгЂЂгЂЂгЂЂгѓ»йЂљеёёе€¤е®љгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂnBK
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№ж•°nгЃ§е€¤е®љгѓ­гѓјгѓ«г‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚»гѓѓгѓ€ж•°гЃЊ1д»ҐдёЉгЃ®ж™‚гЃЇг‚»гѓѓгѓ€ж•°г‚‚иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ»ж”»ж’ѓе€¤е®љгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂnBA
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№ж•°nгЃ§е€¤е®љгѓ­гѓјгѓ«г‚’иЎЊгЃ„гЂЃж”»ж’ѓеЂ¤гЃЁе‘Ѕдё­йѓЁдЅЌг‚‚иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ»г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«г‚ігѓјгѓ«гЂЂnBKCtгЂЂnBACt
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љг‚ігѓћгѓігѓ‰гЃ®еѕЊг‚ЌгЃ«гЂЊCtгЂЌг‚’д»гЃ‘г‚‹гЃЁг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«г‚ігѓјгѓ«гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№ж•°n,г‚ігѓјгѓ«ж•°tгЃ§е€¤е®љгѓ­гѓјгѓ«г‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№ж•°nгЃ§е€¤е®љгѓ­гѓјгѓ«г‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚»гѓѓгѓ€ж•°гЃЊ1д»ҐдёЉгЃ®ж™‚гЃЇг‚»гѓѓгѓ€ж•°г‚‚иЎЁз¤єгЃ—гЂЃж”»ж’ѓе€¤е®љгЃ®е ґеђ€гЃЇе‘Ѕдё­йѓЁдЅЌг‚‚иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»г‚«гѓјгѓ‰
+гЂЂгЂЂгЂЂгЂЂгѓ»S1гЂњS13,D1гЂњD13,H1гЂњH13,C1гЂњC13,J0(й»’г‚ёгѓ§гѓјг‚«гѓј),J1(иµ¤г‚ёгѓ§гѓјг‚«гѓј)гЃ®54жћљгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂдЅїгЃ€г‚‹г‚ігѓћгѓігѓ‰гЃЇгЂЊг‚«гѓјгѓ‰ж©џиѓЅгЂЌгЃ®й …з›®г‚’еЏ‚з…§гЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓђгѓ«гѓЉгѓ»г‚Їгѓ­гѓ‹г‚«гЃ®е ґеђ€гЃЇ
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»c-mil гЂЂгЂЂг‚«гѓјгѓ‰г‚’еј•гЃ„гЃ¦гЃ™гЃђжЌЁгЃ¦г‚‹
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»c-shгЂЂгЂЂгЂЂг‚·гѓЈгѓѓгѓ•гѓ«
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»c-spell гЂЂгЃµгЃЈгЃ‹гЃ¤гЃ®гЃг‚…г‚‚г‚“
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚’и¦љгЃ€гЃ¦гЃ„г‚ЊгЃ°е•ЏйЎЊгЃЄгЃ„гЃЁжЂќг‚Џг‚ЊгЃѕгЃ™гЂ‚
+
+
+гЂЂгЂЂгѓ»гЂЋг‚Љг‚…гЃ†гЃџгЃѕгЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љ
+гЂЂгЂЂгЂЂгЂЂгѓ»йЂљеёёе€¤е®љгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂRx,y>=t
+гЂЂгЂЂгЂЂгЂЂгЂЂиѓЅеЉ›еЂ¤xгЃЁyгЂЃз›®жЁ™еЂ¤tгЃ§е€¤е®љгѓ­гѓјгѓ«г‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂж€ђеЉџгѓ»е¤±ж•—гѓ»пј‘г‚ѕгѓ­гѓ»г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«г‚’и‡Єе‹•иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂиѓЅеЉ›еЂ¤пј‘гЃ¤гЃ§гЃ®е€¤е®љгЃЇ Rx>=t гЃ§еЏЇиѓЅгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгЃѕгЃџз›®жЁ™еЂ¤г‚’зњЃз•Ґг‚‚еЏЇиѓЅгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂиѓЅеЉ›еЂ¤ x,y гЃ®й–“гЃ® , гЃЇзњЃз•ҐеЏЇиѓЅгЃ§гЃ™гЂ‚
+
+гЂЂдѕ‹) R6,8>=10  R68>=10 r6,6>=9   R8>=7  R810
+
+
+
+гЂЂгЂЂгѓ»гЂЋе…­й–Ђдё–з•Њ2nd.EditionгЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љ
+гЂЂгЂЂгЂЂгЂЂгѓ»йЂљеёёе€¤е®љгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂaRSm<=t
+гЂЂгЂЂгЂЂгЂЂгЂЂиѓЅеЉ›еЂ¤a,дї®ж­ЈеЂ¤m,з›®жЁ™еЂ¤tгЃ§е€¤е®љгѓ­гѓјгѓ«г‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂRг‚ігѓћгѓігѓ‰(3R6m<=t[a])гЃ«иЄ­гЃїж›їгЃ€гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂж€ђеЉџеє¦гЂЃи©•дѕЎгЂЃгѓњгѓјгѓЉг‚№гѓЂг‚¤г‚№г‚’и‡Єе‹•иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+
+гЂЂдѕ‹) 3RS+1<=9гЂЂ3R6+1<=9[3]
+
+
+гЂЂгЂЂгѓ»гЂЋгѓўгѓЋгѓ€гѓјгѓігѓ»гѓџгѓҐгѓјг‚ёг‚ўгѓ гЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љ
+гЂЂгЂЂгЂЂгЂЂгѓ»йЂљеёёе€¤е®љгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂ2D6+m>=t[c,f]
+гЂЂгЂЂгЂЂгЂЂгЂЂдї®ж­ЈеЂ¤m,з›®жЁ™еЂ¤t,г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤c,гѓ•г‚Ўгѓігѓ–гѓ«еЂ¤fгЃ§е€¤е®љгѓ­гѓјгѓ«г‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤гЂЃгѓ•г‚Ўгѓігѓ–гѓ«еЂ¤гЃЇзњЃз•ҐеЏЇиѓЅгЃ§гЃ™гЂ‚([]гЃ”гЃЁзњЃз•ҐгЃ§гЃЌгЃѕгЃ™)
+гЂЂгЂЂгЂЂгЂЂгЂЂи‡Єе‹•ж€ђеЉџгЂЃи‡Єе‹•е¤±ж•—гЂЃж€ђеЉџгЂЃе¤±ж•—г‚’и‡Єе‹•иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»еђ„зЁ®иЎЁ
+гЂЂгЂЂгЂЂгЂЂгѓ»е…†еЂ™иЎЁгЂЂгЂЂгЂЂOT
+гЂЂгЂЂгЂЂгЂЂгѓ»ж­ЄгЃїиЎЁгЂЂгЂЂгЂЂDT
+гЂЂгЂЂгЂЂгЂЂгѓ»дё–з•Њж­Єж›ІиЎЁгЂЂWDT
+
+гЂЂдѕ‹) 2D6+1>=9гЂЂ2D6>=9[10]гЂЂ2D6>=9[10,3]
+
+
+гЂЂгЂЂгѓ»гЂЋзµ¶еЇѕйљ·еҐґгЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љ
+гЂЂгЂЂгЂЂгЂЂгѓ»йЂљеёёе€¤е®љгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂm-2DR+n>=x
+гЂЂгЂЂгЂЂгЂЂгЂЂеџєжњ¬иѓЅеЉ›m,дї®ж­ЈеЂ¤n,з›®жЁ™еЂ¤xгЃ§е€¤е®љгѓ­гѓјгѓ«г‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЃ«еЉ гЃ€гЂЃDPгЃ®еЏ–еѕ—г‚’и‡Єе‹•иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂдѕ‹) 6-2DRгЂЂ8-2DR>=6
+
+
+гЂЂгЂЂгѓ»гЂЋгѓ–гѓ©гѓѓгѓ‰г‚Їгѓ«г‚»г‚¤гѓ‰гЂЏ
+гЂЂгЂЂгЂЂгѓ»еђ„зЁ®иЎЁ
+гЂЂгЂЂгЂЂгЂЂгѓ»й–ўдї‚е±ћжЂ§иЎЁ         RT
+гЂЂгЂЂгЂЂгЂЂгѓ»г‚·гѓјгѓіиЎЁ           ST
+гЂЂгЂЂгЂЂгЂЂгѓ»е…€е€¶е€¤е®љжЊ‡е®љз‰№жЉЂиЎЁ IST
+гЂЂгЂЂгЂЂгЂЂгѓ»иє«дЅ“йѓЁдЅЌж±єе®љиЎЁгЂЂгЂЂ BRT
+гЂЂгЂЂгЂЂгЂЂгѓ»и‡ЄдїЎе№ёз¦ЏиЎЁгЂЂгЂЂгЂЂгЂЂ CHT
+гЂЂгЂЂгЂЂгЂЂгѓ»ењ°дЅЌе№ёз¦ЏиЎЁгЂЂгЂЂгЂЂгЂЂ SHT
+гЂЂгЂЂгЂЂгЂЂгѓ»ж—Ґеёёе№ёз¦ЏиЎЁгЂЂгЂЂгЂЂгЂЂ DHT
+гЂЂгЂЂгЂЂгЂЂгѓ»дєєи„€е№ёз¦ЏиЎЁгЂЂгЂЂгЂЂгЂЂ LHT
+гЂЂгЂЂгЂЂгЂЂгѓ»йЂЂи·Їе№ёз¦ЏиЎЁгЂЂгЂЂгЂЂгЂЂ EHT
+
+
+гЂЂгЂЂгѓ»гЂЋзњџз©єе­¦ењ’гЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љ
+гЂЂгЂЂгЂЂгЂЂRLxпјљжЉЂиѓЅгѓ™гѓјг‚№пЅгЃ§жЉЂиѓЅгѓЃг‚§гѓѓг‚ЇгЃ®гѓЂг‚¤г‚№гѓ­гѓјгѓ«
+гЂЂгЂЂгЂЂгЂЂRLx>=yпјљгЃ“гЃ®ж›ёејЏгЃЄг‚‰з›®жЁ™еЂ¤ пЅ™ гЃ§е€¤е®љзµђжћње‡єеЉ›
+гЂЂгЂЂгЂЂгЂЂгЂЂдѕ‹пј‰RL10гЂЂгЂЂRL22>=50
+гЂЂгЂЂгЂЂгѓ»ж­¦е™Ёж”»ж’ѓе€¤е®љ
+гЂЂгЂЂгЂЂгЂЂSWxпјљж­¦е™Ёпј€е‰Јпј‰г‚’жЉЂиѓЅгѓ™гѓјг‚№пЅгЃ§гѓЂг‚¤г‚№гѓ­гѓјгѓ«гЂ‚жЉЂз™єе‹•гЃѕгЃ§гѓЃг‚§гѓѓг‚ЇгЂ‚
+гЂЂгЂЂгЂЂгЂЂж­¦е™ЁгЃ®еЇѕеїњгЃЇд»Ґдё‹гЃ®йЂљг‚Љ
+гЂЂгЂЂгЂЂгЂЂгЂЂSWпјље‰ЈгЂЃLSпјље¤§е‰ЈгЂЃSSпјље°Џе‰ЈгЂЃSPпјљж§ЌгЂЃ
+гЂЂгЂЂгЂЂгЂЂгЂЂAXпјљж–§гЂЃCLпјљжЈЌжЈ’гЂЃBWпјљеј“гЂЃMAпјљдЅ“иЎ“гЂЃ
+гЂЂгЂЂгЂЂгЂЂгЂЂBXпјљгѓњг‚Їг‚·гѓіг‚°гЂЃPRпјљгѓ—гѓ­гѓ¬г‚№гЂЃSTпјље№Ѕжіўзґ‹
+гЂЂгЂЂгЂЂгЂЂгЂЂдѕ‹пј‰SW10гЂЂBX30
+гЂЂгЂЂгЂЂгѓ»г‚«г‚¦гѓіг‚їгѓје€¤е®љ
+гЂЂгЂЂгЂЂгЂЂг‚«г‚¦гѓіг‚їгѓјжЉЂгЃЇе…ЁгЃ¦й ­гЃ«гЂЊCгЂЌг‚’гЃ¤гЃ‘г‚‹гЃЁгѓ­гѓјгѓ«еЏЇиѓЅгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂдѕ‹пј‰CSW10гЂЂCBX76
+
+
+гЂЂгЂЂгѓ»гЂЋеўњиђЅдё–з•ЊгЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љ
+гЂЂгЂЂгЂЂгЂЂе€ќжњџз›®жЁ™еЂ¤n (еї…й €)
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰CW8
+
+гЂЂгЂЂгѓ»гЂЋг‚¦г‚ЈгѓѓгѓЃг‚Їг‚Ёг‚№гѓ€гЂЏ
+гЂЂгЂЂгЂЂгѓ»гѓЃгѓЈгѓ¬гѓіг‚ё(ж€ђеЉџе€¤е®љ)(WQn)
+гЂЂгЂЂгЂЂгЂЂnе›ћ2d6гѓЂг‚¤г‚№г‚’жЊЇгЃЈгЃ¦е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰WQ3
+гЂЂгЂЂгЂЂгѓ»SETпј€г‚№гѓ€гѓ©г‚ЇгѓЃгѓЈгѓјг‚«гѓјгѓ‰гЃ«е¤њиЎ—гЃ®дё­гЃ®йЃ­йЃ‡иЎЁ(SETn)
+гЂЂгЂЂгЂЂгЂЂг‚№гѓ€гѓ©г‚ЇгѓЃгѓЈгѓјг‚«гѓјгѓ‰гЃ®з•ЄеЏ·(n)гЃ®йЃ­йЃ‡иЎЁзµђжћњг‚’еѕ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰SET1гЂЂSET48
+
+
+гЂЂгЂЂгѓ»гЂЋг‚ЁгѓЄгѓҐг‚·г‚ЄгѓігЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љпј€ELn+mпј‰
+гЂЂгЂЂгЂЂгЂЂиѓЅеЉ›еЂ¤ n гЂЃж—ўе­гЃ®йЃ”ж€ђеЂ¤ mпј€г‚ўг‚·г‚№гѓ€гЃ®е ґеђ€пј‰
+гЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂEL3гЂЂпјљиѓЅеЉ›еЂ¤пј“гЃ§е€¤е®љгЂ‚ 
+гЂЂгЂЂгЂЂгЂЂEL5+10пјљиѓЅеЉ›еЂ¤пј•гЂЃйЃ”ж€ђеЂ¤гЃЊпј‘пјђгЃ®зЉ¶ж…‹гЃ«г‚ўг‚·г‚№гѓ€гЃ§е€¤е®љгЂ‚
+гЂЂгЂЂгЂЂгѓ»гѓ•г‚Ўгѓігѓ–гѓ«иЎЁ FT
+гЂЂгЂЂгЂЂгѓ»ж€¦е ґиЎЁ BFT
+гЂЂгЂЂгЂЂгѓ»и‡ґе‘Ѕе‚·иЎЁ FWT
+гЂЂгЂЂгЂЂгѓ»дј‘ж†©иЎЁпј€гЂњBTпј‰
+гЂЂгЂЂгЂЂ  ж•™е®¤ RBTпјЏиіјиІ· SBTпјЏйѓЁе®¤ BBTпјЏз”џеѕ’дјље®¤ CBTпјЏе­¦з”џеЇ® DBTпјЏе›іж›ёй¤Ё IBTпјЏе±‹дёЉ FBTпјЏз ”з©¶е®¤ LBTпјЏгѓ—гѓјгѓ« PBTпјЏдё­еє­ NBTпјЏе•†еє—иЎ— ABTпјЏе»ѓеўџ VBTпјЏг‚Ігѓјгѓ€ GBT
+гЂЂгЂЂгЂЂгѓ»гѓ©гѓігѓЂгѓ NPCиЎЁпј€гЂњRTпј‰
+гЂЂгЂЂгЂЂгЂЂе­¦з”џз”џжґ»й–ўйЂЈNPCиЎЁ SRTпјЏгЃќгЃ®д»–NPCиЎЁ ORTпјЏе­¦з”џе›ій‘‘ дё‹зґљз”џиЎЁ DRTпјЏе­¦з”џе›ій‘‘ дёЉзґљз”џиЎЁ URT
+гЂЂгЂЂгЂЂгѓ»гѓ‡гѓјгѓ€иЎЁпј€DATExyпј‰
+гЂЂгЂЂгЂЂгЂЂD66гЃ®е‡єз›®xy гѓ‡гѓјгѓ€иЎЁD66гЃ§xyгЃ®зµђжћњг‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂDATE45
+гЂЂгЂЂгЂЂгѓ»гѓ‡гѓјгѓ€иЎЁпј€DATE[PC1,PC2]пј‰
+гЂЂгЂЂгЂЂгЂЂD66гЃ®е‡єз›®xy гѓ‡гѓјгѓ€иЎЁг‚’PC1,PC2гЃ«еЇѕгЃ—гЃ¦D6гЃ—гЃџгЃ®зµђжћњг‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂDATE[Andy,Betty]
+
+
+гЂЂпј“пјЋе››е‰‡иЁ€з®—(з«Їж•°е€‡жЌЁгЃ¦)гЂЂ(C(x))
+гЂЂгЂЂгЂЂзµЊйЁ“еЂ¤гЃ®иЁ€з®—гЃЄгЃ©гЃ§е››е‰‡иЁ€з®—г‚’иЎЊгЃ†гЃЁгЃЌгЃ«гѓњгѓѓгѓ€гЃЊиЁ€з®—гЃ—гЃ¦гЃЏг‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂж‹¬еј§е†…е‰Ќе‡¦зђ†г‚’е€©з”ЁгЃ—гЃ¦гЃ„г‚‹гЃ®гЃ§гЂЃж•°ејЏгЃЇеї…гЃљж‹¬еј§гЂЊ()гЂЌгЃ§е›Іг‚“гЃ§гЃЏгЃ гЃ•гЃ„гЂ‚
+гЂЂгЂЂгЂЂг‚‚гЃЎг‚Ќг‚“е…Ґг‚Ње­ђгЃ«гЃ—гЃ¦г‚‚иЁ€з®—гЃ—гЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂC(20+10)гЂЂгЂЂгЂЂC(10*5)гЂЂгЂЂгЂЂc(30-10/2)гЂЂгЂЂгЂЂc((10+10)*9)
+
+
+
+гЂЂгЂЂгѓ»гЂЋг‚Іг‚¤г‚·гѓЈг‚¬гѓјгѓ«г‚¦г‚Јг‚єг‚«г‚їгѓЉгЂЏ
+гЂЂгЂЂгЂЂгѓ»е€¤е®љ (GK#n)
+гЂЂгЂЂгЂЂ  еЅ№г‚„гѓЃгѓ§гѓ гѓђг‚’еђ«г‚ЃгЃ¦1е›ћгЃ®гѓЂг‚¤г‚№гѓ­гѓјгѓ«г‚’е€¤е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂ  GK гЃ®гЃїгЃ®е ґеђ€5%гЃ®зўєзЋ‡гЃ§гѓЃгѓ§гѓ гѓђгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂ  GK#3 гЃ®ж§гЃ« #n г‚’гЃ¤гЃ‘г‚‹гЃ“гЃЁгЃ«г‚€гЃЈгЃ¦гѓЃгѓ§гѓ гѓђгЃ®зўєзЋ‡г‚’n%гЃ«гЃ™г‚‹гЃ“гЃЁгЃЊгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰GKгЂЂGK#10
+гЂЂгЂЂгЂЂгѓ»е€¤е®љ (GKB#n)
+гЂЂгЂЂгЂЂ  еЅ№гЃ®е€¤е®љж™‚гЃ«ж€¦й—ж™‚гЃ®еЅ№г‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚гЃќг‚Њд»Ґе¤–гЃЇGKгЃЁеђЊдёЂгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰GKBгЂЂGKB#2
+гЂЂгЂЂгЂЂгѓ»йљ гЃ—г‚ігѓћгѓігѓ‰ (GLгЂЃGLB)
+гЂЂгЂЂгЂЂ  еї…гЃљгѓЃгѓ§гѓ гѓђгЃ—гЃѕгЃ™гЂ‚GMгЃЊз©єж°—г‚’иЄ­г‚“гЃ§гѓЃгѓ§гѓ гѓђгЃ•гЃ›гЃџгЃ„гЃЁгЃЌг‚„гЂЃ
+гЂЂгЂЂгЂЂ  GKг‚ігѓћгѓігѓ‰г‚’ж‰“гЃЎй–“йЃ•гЃ€гЃ¦гѓЃгѓ§гѓ гѓђгЃ™г‚‹г‚’жѓіе®љгЃ—гЃ¦гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰GLгЂЂGLB
+
+
+гЂЂпј”пјЋгѓќг‚¤гѓігѓ€г‚«г‚¦гѓіг‚ї
+гЂЂгЂЂгЂЂг‚¤гѓ‹г‚·г‚ўгѓ†г‚Јгѓґг‚„HP,MP,иЎќе‹•и“„з©ЌгЃЄгЃ©г‚»гѓѓг‚·гѓ§гѓіе†…гЃ§жѓ…е ±е…±жњ‰гЃ—гЃ¦гЃЉгЃЌгЃџгЃ„ж•°еЂ¤г‚’з®Ўзђ†гЃ™г‚‹гЃџг‚ЃгЃ®ж©џиѓЅгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓќг‚¤гѓігѓ€г‚«г‚¦гѓіг‚їгЃ®г‚ігѓћгѓігѓ‰гЃЇиЎЊй ­гЃ®гЃїжњ‰еЉ№гЃ§гЃ™гЂ‚(г‚№гѓљгѓјг‚№г‚’й–‹гЃ‘г‚‹гЃЁеѕЊг‚ЌгЃ«г‚ігѓЎгѓігѓ€г‚’з¶љгЃ‘гЃ¦ж›ёгЃ‘гЃѕгЃ™)
+
+гЂЂгЂЂгѓ»гѓќг‚¤гѓігѓ€з™»йЊІгЂЂ(#[еђЌе‰Ќ:]г‚їг‚°n[/m])
+гЂЂгЂЂгЂЂгѓќг‚¤гѓігѓ€гЃ®з™»йЊІгЃЇгѓЃгѓЈгѓігѓЌгѓ«гЃЁTalkгЃ®дёЎж–№гЃ§иЎЊгЃ€гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓЃгѓЈгѓігѓЌгѓ«гЃ§з™»йЊІгЃ—гЃџжѓ…е ±гЃЇгЂЃгѓЃгѓЈгѓігѓЌгѓ«гЃ«иЎЁз¤єг‚ігѓћгѓігѓ‰г‚’е…ҐеЉ›гЃ™г‚‹гЃЁдёЂи¦§иЎЁз¤єгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂTalkгЃ§з™»йЊІгЃ—гЃџжѓ…е ±гЃЇгЂЃгЃќгЃ®гЃЁгЃЌиЎЁз¤єгЃ•г‚ЊгЃѕгЃ›г‚“гЂ‚гЃ“г‚ЊгЃЇGMгЃЊNPCгЃ®HPг‚„MPг‚’з®Ўзђ†гЃ™г‚‹гЃЁгЃЌгЃ®ж©џиѓЅгЃ§гЃ™гЂ‚
+
+гЂЂгЂЂгЂЂ1.зЏѕењЁеЂ¤гЃ®гЃїгЃ®гѓќг‚¤гѓігѓ€з™»йЊІгЂЂ(#г‚їг‚°n)
+гЂЂгЂЂгЂЂгЂЂ"#(г‚їг‚°)(зЏѕењЁеЂ¤)"гЃ§жЊ‡е®љгЃ—гЃѕгЃ™гЂ‚зЏѕењЁеЂ¤гЃЇеЌЉи§’гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂг‚їг‚°гЃЇгѓќг‚¤гѓігѓ€г‚’з®Ўзђ†гЃ™г‚‹гЃЁгЃЌгЃ®еђЌз§°гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЊDEXгЂЌг‚„гЂЊг‚¤гѓ‹гѓЃг‚ўгѓ†г‚ЈгѓґгЂЌгЂЊHPгЂЌгЂЊMPгЂЌгЂЊиЎќе‹•гЂЌгЂЊжµёйЈџзЋ‡гЂЌгЃЄгЃ©и‡Єз”±гЃ«иЁ­е®љгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂдЅїгЃ€г‚‹ж–‡е­—гЃЇеЌЉи§’и‹±ж•°гЃЁг‚ўгѓігѓЂгѓјгѓђгѓј(_)гЂЃгЃќг‚ЊгЃ«ж–‡е­—г‚ігѓјгѓ‰е¤‰жЏ›гЃ«еј•гЃЈгЃ‹гЃ‹г‚‰гЃЄгЃ„е…Ёи§’ж–‡е­—гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂг‚ўгѓігѓЂгѓјгѓђгѓјд»Ґе¤–гЃ®еЌЉи§’иЁеЏ·(гЂЊ+-/*гЂЌгЃЄгЃ©)гЃЇдЅїгЃ€гЃЄгЃ„гЃ®гЃ§жіЁж„ЏгЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЃЄгЃЉгЂЃеЌЉи§’и‹±е­—гЃ®е¤§ж–‡е­—е°Џж–‡е­—гЃЇз„Ўи¦–гЃ—гЃѕгЃ™гЃ—гЂЃе…Ёи§’гЃЁеЌЉи§’ж–‡е­—гЃЇеЊєе€ҐгЃ•г‚ЊгЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂ#DEX12гЂЂгЂЂгЂЂ#жµёйЈџзЋ‡0
+
+гЂЂгЂЂгЂЂ2.зЏѕењЁеЂ¤/жњЂе¤§еЂ¤гЃЊгЃ‚г‚‹гѓќг‚¤гѓігѓ€гЃ®з™»йЊІгЂЂ(#г‚їг‚°n/m)
+гЂЂгЂЂгЂЂгЂЂ"#(г‚їг‚°)(зЏѕењЁеЂ¤)/(жњЂе¤§еЂ¤)"гЃ§жЊ‡е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂжњЂе¤§еЂ¤жЊ‡е®љгЃЇеЌЉи§’гЃ®гЃїгЂ‚г‚їг‚°г‚„зЏѕењЁеЂ¤гЃ«гЃ¤гЃ„гЃ¦гЃЇ1.гЃЁеђЊгЃгЃ§гЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂ#HP12/12гЂЂгЂЂгЂЂ#иЎќе‹•0/10
+
+гЂЂгЂЂгЂЂ3.г‚­гѓЈгѓ©и­е€ҐеђЌд»гЃЌгЃ®гѓќг‚¤гѓігѓ€з™»йЊІгЂЂ(#еђЌе‰Ќ:г‚їг‚°n[/m])
+гЂЂгЂЂгЂЂгЂЂ"#(и­е€ҐеђЌ):(зЏѕењЁеЂ¤)/(жњЂе¤§еЂ¤)"гЃ§жЊ‡е®љгЃ—гЃѕгЃ™гЂ‚жњЂе¤§еЂ¤гЃЊгЃЄгЃ„г‚‚гЃ®гЃЇзњЃз•ҐгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂи­е€ҐеђЌгЃЇг‚­гѓЈгѓ©г‚Їг‚їгѓјг‚’з®Ўзђ†гЃ™г‚‹гЃЁгЃЌгЃ®еђЌе‰ЌгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЃ“г‚Њг‚‚ж–‡е­—гЃ«й–ўгЃ—гЃ¦гЃЇг‚їг‚°гЃЁеђЊж§гЃ§гЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂ#Zako1:HP9/9гЂЂгЂЂгЂЂ#orc1:HP10/10гЂЂгЂЂ#е•†дєє:HP8/8
+
+гЂЂгЂЂгѓ»гѓќг‚¤гѓігѓ€гЃ®зЏѕењЁеЂ¤г‚’дёЉдё‹гЃ•гЃ›г‚‹гЂЂ(#[еђЌе‰Ќ:]г‚їг‚°+or-n)
+гЂЂгЂЂгЂЂгѓќг‚¤гѓігѓ€гЃ®зЏѕењЁеЂ¤г‚’еЉ з®—гЂЃжё›з®—гЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂи­е€ҐеђЌгЃЊгЃЄгЃ„гЃЁгЃЌгЃЇ"#(г‚їг‚°)(+or-)(дї®ж­ЈеЂ¤)"гЃ®еЅўгЃ«гЂЃ
+гЂЂгЂЂгЂЂи­е€ҐеђЌгЃЊгЃ‚г‚‹гЃЁгЃЌгЃЇ"#(и­е€ҐеђЌ):(г‚їг‚°)(+or-)(дї®ж­ЈеЂ¤)"гЃ®еЅўгЃ«гЃЄг‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂе¤‰еЊ–гЃ™г‚‹гЃ®гЃЇзЏѕењЁеЂ¤гЃ гЃ‘гЃ§гЂЃжњЂе¤§еЂ¤гЃЇе¤‰еЊ–гЃ—гЃѕгЃ›г‚“гЂ‚
+гЂЂгЂЂгЂЂж‹¬еј§е†…е‰Ќе‡¦зђ†гЃЊжњ‰еЉ№гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂGMгЃЊж•µгЃ®ж•°еЂ¤г‚’е¤‰еЊ–гЃ•гЃ›г‚‹гЃЁгЃЌгЃЇгЂЃTalkгЃ§г‚ігѓћгѓігѓ‰г‚’е…ҐеЉ›гЃ™г‚‹гЃЁгѓЃгѓЈгѓігѓЌгѓ«гЃ«иЎЁз¤єгЃ•г‚ЊгЃѕгЃ›г‚“гЂ‚
+
+гЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂ#HP-5гЂЂгЂЂгЂЂ#иЎќе‹•+3гЂЂгЂЂгЂЂ#orc1:HP-(9-1)
+
+гЂЂгЂЂгѓ»гѓќг‚¤гѓігѓ€гЃ®дёЂи¦§иЎЁз¤єгЂЂ(#OPEN![г‚їг‚°])
+гЂЂгЂЂгЂЂиЁйЊІгЃ•г‚ЊгЃ¦гЃ„г‚‹гѓ‡гѓјг‚їгЃ®иЎЁз¤єг‚ігѓћгѓігѓ‰гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂг‚їг‚°гЃЇз™»йЊІгЃ®ж™‚гЃЁеђЊгЃг‚‚гЃ®г‚’дЅїгЃ„гЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгЂЂ1.г‚­гѓЈгѓ©г‚Їг‚їгѓјгЃ®еђЊгЃг‚їг‚°гЃ®жѓ…е ±г‚’дё¦гЃ№гЃ¦иЎЁз¤єгЂЂ(#OPEN!г‚їг‚°)
+гЂЂгЂЂгЂЂгЂЂгѓќг‚¤гѓігѓ€г‚«г‚¦гѓіг‚їг‚’з™»йЊІгЃ—гЃ¦гЃ„г‚‹гѓЃгѓЈгѓігѓЌгѓ«гЃ§"#OPEN!(г‚їг‚°)"гЃ®еЅўгЃ§г‚ігѓћгѓігѓ‰г‚’е…ҐеЉ›гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЃ™г‚‹гЃЁгЂЃеђЊгЃгѓЃгѓЈгѓігѓЌгѓ«гЃ«з™»йЊІгЃ•г‚ЊгЃ¦гЃ„г‚‹гЂЃеђЊгЃг‚їг‚°г‚’жЊЃгЃ¤жѓ…е ±гЃЊг‚Ѕгѓјгѓ€гЃ•г‚ЊгЃ¦иЎЁз¤єгЃ•г‚ЊгЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂ#OPEN!HPгЂЂгЂЂгЂЂ#OPEN!иЎќе‹•
+
+гЂЂгЂЂгЂЂгЂЂгЃ“гЃ®гЃЁгЃЌгЂЃTalkгЃ§з™»йЊІгЃ•г‚ЊгЃџгЂЊж•µNPCгЃ®жѓ…е ±гЂЌгЃЇиЎЁз¤єгЃ•г‚ЊгЃѕгЃ›г‚“гЂ‚
+гЂЂгЂЂгЂЂгЂЂг‚Ѕгѓјгѓ€гЃЇвЂ¦вЂ¦
+гЂЂгЂЂгЂЂгЂЂ1.ж•°е­—гЃЊе¤§гЃЌгЃ„ж–№гЃЊе·¦
+гЂЂгЂЂгЂЂгЂЂ2.еђЊгЃж™‚гЃЇжё›гЃЈгЃ¦гЃ„г‚‹й‡ЏгЃЊе°‘гЃЄгЃ„ж–№гЃЊе·¦
+гЂЂгЂЂгЂЂгЂЂ3.гЃќг‚Њг‚‚еђЊгЃж™‚гЃЇеђЌе‰Ќй †
+гЂЂгЂЂгЂЂгЂЂвЂ¦вЂ¦гЃ§иЎЊг‚Џг‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЃ“г‚ЊгЃЇдёЂи€¬зљ„гЃЄгѓ‘гѓ©гѓЎгѓјг‚їгЃ§еЏігЃ«иЎЊгЃЏгЃЁеЌ±гЃЄгЃ„гЃЁгЃ„гЃ†г‚Ѕгѓјгѓ€г‚¤гѓЎгѓјг‚ёгЃ§гЃ™гЂ‚
+
+гЂЂгЂЂгЂЂ2.и‡Єе€†гЃ®г‚­гѓЈгѓ©г‚Їг‚їгѓјгЃ®гѓ‘гѓ©гѓЎгѓјг‚їдёЂи¦§иЎЁз¤єгЂЂ(#OPEN![г‚їг‚°])
+гЂЂгЂЂгЂЂгЂЂи‡Єе€†гЃ®з®Ўзђ†гЃ—гЃ¦гЃ„г‚‹г‚­гѓЈгѓ©г‚Їг‚їгѓјгЃ®е…Ёг‚«г‚¦гѓіг‚їг‚’дёЂи¦§иЎЁз¤єгЃ™г‚‹гЃЁгЃЌгЃЇгЂЃ
+гЂЂгЂЂгЂЂгЂЂTalkгЃ§"#OPEN!"гЃЁе…ҐеЉ›гЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+гЂЂгЂЂгЂЂгЂЂг‚­гѓЈгѓ©г‚Їг‚їгѓјгЃ”гЃЁгЃ«зєЏгЃѕгЃЈгЃ¦г‚«г‚¦гѓіг‚їгѓјгЃЊиЎЁз¤єгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂз‰№е®љгЃ®г‚їг‚°гЃ«гЃ¤гЃ„гЃ¦г‚Ѕгѓјгѓ€гЃ—гЃ¦иЎЁз¤єгЃ—гЃ¦ж¬ІгЃ—гЃ„гЃЁгЃЌгЃЇ"#OPEN!(г‚їг‚°)"гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЊд»Љж­»гЃ«гЃќгЃ†гЃЄж•µгЃЇгЃ©г‚ЊпјџгЂЌгЃЁгЃ‹иЃћгЃ‹г‚ЊгЃџгЃЁгЃЌгЃ«гЃЇгЂЃгЃ“г‚ЊгЃЊдѕїе€©гЃ§гЃ™гЂ‚
+
+гЂЂгЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂгЂЂ#OPEN!гЂЂгЂЂгЂЂ#OPEN!HP
+
+гЂЂгЂЂгѓ»гѓќг‚¤гѓігѓ€г‚«г‚¦гѓіг‚їгЃ®и­е€ҐеђЌе¤‰ж›ґгЂЂ(#RENAME!еђЌе‰Ќ1->еђЌе‰Ќ2)
+гЂЂгЂЂгЂЂGMгЃ®жј”е‡єгЃ§ж•µгЃ®ж­ЈдЅ“гЃЊж€¦й—й–‹е§‹ж™‚гЃ«дёЌжЋгЃ§ж€¦й—дё­гЃ«ж­ЈдЅ“гЃЊгѓђгѓ¬г‚‹дє‹гЃЊгЃ‚г‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЃќг‚“гЃЄгЃЁгЃЌгЃ«дЅїгЃ†гЃ®гЃЊгЃ“г‚ЊгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂ"#RENAME!(еђЌе‰Ќ1)->(еђЌе‰Ќ2)"гЃ§е…ҐеЉ›гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂи­е€ҐеђЌг‚’гЂЊеђЌе‰Ќ1гЂЌгЃ‹г‚‰гЂЊеђЌе‰Ќ2гЂЌгЃ«е¤‰ж›ґгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂTalkгЃ§г‚‚е…ҐеЉ›гЃ§гЃЌгЃѕгЃ™гЃЊгЂЃе¤‰ж›ґгЃ§гЃЌгЃџгѓЎгѓѓг‚»гѓјг‚ёгЃЇгѓЃгѓЈгѓігѓЌгѓ«гЃ«иЎЁз¤єгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂж•µгЃЊе¤‰иє«гЃ—гЃџж™‚гЃ«дЅїгЃЈгЃ¦г‚‚йќўз™ЅгЃ„гЃ‹г‚‚гЃ—г‚ЊгЃѕгЃ›г‚“гЃ­гЂ‚
+
+гЂЂгЂЂгЂЂдѕ‹пј‰
+гЂЂгЂЂгЂЂ#RENAME!е•†дєє->гѓњг‚№гЂЂгЂЂгЂЂ#RENAME!goblin1->orc
+
+гЂЂгЂЂгѓ»гѓќг‚¤гѓігѓ€г‚«г‚¦гѓіг‚їгЃ®иЎЁз¤єгѓЃгѓЈгѓігѓЌгѓ«жЊ‡е®љ
+гЂЂгЂЂгЂЂгѓќг‚¤гѓігѓ€з™»йЊІг‚’жњЂе€ќгЃ«гѓЃгѓЈгѓігѓЌгѓ«гЃ§иЎЊгЃ†гЃЁгЂЃи‡Єе‹•зљ„гЃ«гЃќгЃ®гѓЃгѓЈгѓігѓЌгѓ«гЃЊиЎЁз¤єгѓЃгѓЈгѓігѓЌгѓ«гЃ«иЁ­е®љгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂеѕ“гЃЈгЃ¦PLгЃЇдЅїгЃ†еї…и¦ЃгЃЇгЃ‚г‚ЉгЃѕгЃ›г‚“гЂ‚
+гЂЂгЂЂгЂЂдёЂж–№GMгЃЊж•µгЃ®гѓ‡гѓјг‚їг‚’е¤§й‡Џз™»йЊІгЃ™г‚‹еї…и¦ЃгЃЊгЃ‚гЃЈгЃ¦гЂЃгЃ—гЃ‹г‚‚е…¬й–‹жѓ…е ±гЃЊгЃѕгЃ гЃЄгЃ„е ґеђ€гЃЊгЃ‚г‚‹гЃЁжЂќгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓЃгѓЈгѓігѓЌгѓ«з™»йЊІг‚’иЎЊг‚ЏгЃЄгЃ„гЃЁгѓ‡гѓјг‚їз™»йЊІгЃЊгЃ§гЃЌгЃѕгЃ›г‚“гЃ®гЃ§гЂЃжњЂе€ќгЃ«з™»йЊІгЃ—гЃ¦гЃЉгЃЏгЃЁе®‰еїѓгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ‡гѓ•г‚©гѓ«гѓ€гЃ§"#HERE"гЃ«гЃЄгЃЈгЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЃЄгЃЉгЂЃгЃ“гЃ®г‚ігѓћгѓігѓ‰гЃ§гѓ—гѓ­гѓѓгѓ€г‚„г‚·гѓјг‚Їгѓ¬гѓѓгѓ€гѓЂг‚¤г‚№гЃ®иЎЁз¤єе…€гЃЁгЃ—гЃ¦з™»йЊІгЃ•г‚ЊгЃѕгЃ™гЂ‚
+
+
+
+гЂЂпј•пјЋг‚«гѓјгѓ‰ж©џиѓЅ
+гЂЂгЂЂгЂЂг‚ґгѓјг‚№гѓ€гѓЏгѓіг‚їгѓјгЃЄгЃ©гЃ®г‚€гЃ†гЃ«гѓ—гѓ¬г‚¤гѓ¤гѓјгЃ«г‚«гѓјгѓ‰г‚’й…Ќг‚‹г‚·г‚№гѓ†гѓ з”ЁгЃ®ж©џиѓЅгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂйЂљеёёг‚«гѓјгѓ‰г‚’еј•гЃЏгЃЁгЂЃе†…е®№гЃЊгѓ—гѓ©г‚¤гѓ™гѓјгѓ€гѓЎгѓѓг‚»гѓјг‚ёгЃ§йЂЃг‚‰г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂг‚Єгѓјгѓ—гѓігЃ§еј•гЃ„гЃџе ґеђ€гЃЇйЂљеёёгѓЎгѓѓг‚»гѓјг‚ёгЃЁгЃЄг‚ЉгЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгЂЂв”Њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¬в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”ђ
+гЂЂгЂЂгЂЂв”‚е…Ёг‚«гѓјгѓ‰гЃ®г‚·гѓЈгѓѓгѓ•гѓ«гЂЂгЂЂгЂЂв”‚c-shuffleгЂЂc-shгЂЂгЂЂ в”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚г‚«гѓјгѓ‰г‚’еј•гЃЏгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚c-draw[n] гЂЂгЂЂгЂЂгЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-draw[5] гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ nгЃЇжћљж•°(зњЃз•Ґж™‚1) гЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚г‚Єгѓјгѓ—гѓігЃ§г‚«гѓјгѓ‰г‚’еј•гЃЏгЂЂгЂЂв”‚c-odraw[n] гЂЂгЂЂгЂЂгЂЂ в”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚c-opend[n] гЂЂгЂЂгЂЂгЂЂ в”‚
+гЂЂгЂЂгЂЂв”‚ex. c-odraw[3]гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ nгЃЇжћљж•°(зњЃз•Ґж™‚1)гЂЂ в”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚г‚«гѓјгѓ‰г‚’йЃёг‚“гЃ§еј•гЃЏгЂЂгЂЂгЂЂгЂЂв”‚c-pick[c[,c]]гЂЂгЂЂгЂЂ в”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13гЂЂ в”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13гЂЂ в”‚
+гЂЂгЂЂгЂЂв”‚ex. c-pick[S1,H1,C1]гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4гЂЂ в”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚иЄ¤гЃЈгЃ¦жЌЁгЃ¦гЃџг‚«гѓјгѓ‰г‚’ж€»гЃ™гЂЂв”‚c-back[c[,c]]гЂЂгЂЂгЂЂ в”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13гЂЂ в”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13гЂЂ в”‚
+гЂЂгЂЂгЂЂв”‚ex. c-back[S1]гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4гЂЂ в”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚е ґгЃ«зЅ®гЃ„гЃџг‚«гѓјгѓ‰г‚’ж€»гЃ™гЂЂгЂЂв”‚c-back1[c[,c]]гЂЂгЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13гЂЂ в”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13гЂЂ в”‚
+гЂЂгЂЂгЂЂв”‚ex. c-back1[S1] гЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4гЂЂ в”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚г‚«гѓјгѓ‰г‚’жёЎгЃ™гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚c-pass[c[,c]]з›ёж‰‹ гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-pass[J1]PL1 гЂЂгЂЂгЂЂгЂЂв”‚(зњЃз•Ґж™‚гЃЇгѓ©гѓігѓЂгѓ )гЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚е ґгЃ®г‚«гѓјгѓ‰г‚’з›ёж‰‹гЃ«жёЎгЃ™гЂЂгЂЂв”‚c-pass1[c[,c]]з›ёж‰‹гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-pass1[J1]PL1гЂЂгЂЂгЂЂгЂЂв”‚(зњЃз•Ґж™‚гЃЇгѓ©гѓігѓЂгѓ )гЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚г‚«гѓјгѓ‰г‚’е‡єгЃ™гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚c-play[c[,c]] гЂЂгЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-play[C13,S8]гЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4 гЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚г‚«гѓјгѓ‰г‚’е ґгЃ«е‡єгЃ™гЂЂгЂЂгЂЂгЂЂгЂЂв”‚c-play1[c[,c]]гЂЂгЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-play1[C13,S8] гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4 гЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚г‚«гѓјгѓ‰г‚’жЌЁгЃ¦г‚‹гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂ(talkеЏЇиѓЅ)гЂЂгЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚c-discard[c[,c]]гЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-discard[H1,D1]гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂc-dis[H1,D1]гЂЂгЂЂгЂЂгЂЂгЂЂв”‚г‚«гѓігѓћгЃ§и¤‡ж•°жЊ‡е®љеЏЇгЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚е ґгЃ®г‚«гѓјгѓ‰г‚’йЃёг‚“гЃ§жЌЁгЃ¦г‚‹гЂЂв”‚c-discard1[c[,c]] гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-discard1[H1,D1] гЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂc-dis1[H1,D1] гЂЂгЂЂгЂЂгЂЂв”‚г‚«гѓігѓћгЃ§и¤‡ж•°жЊ‡е®љеЏЇгЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚е±±жњ­гЃ‹г‚‰г‚ЃгЃЏгЃЈгЃ¦гЃ™гЃђжЌЁгЃ¦г‚‹в”‚c-milstone[n]гЂЂгЂЂгЂЂ в”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚c-mil[n] гЂЂгЂЂгЂЂгЂЂгЂЂ в”‚
+гЂЂгЂЂгЂЂв”‚ex. c-milstone[3] гЂЂгЂЂгЂЂгЂЂв”‚ nгЃЇжћљж•°(зњЃз•Ґж™‚1)гЂЂ в”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚г‚«гѓјгѓ‰г‚’з›ёж‰‹гЃ®е ґгЃ«е‡єгЃ™гЂЂгЂЂв”‚c-place[c[,c]]з›ёж‰‹гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-place[C13,S8]PL1гЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4 гЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚е ґгЃ®г‚«гѓјгѓ‰г‚’з›ёж‰‹гЃ®е ґгЃ«е‡єгЃ™в”‚c-place1[c[,c]]з›ёж‰‹ в”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-place1[C13,S8]PL1 гЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4 гЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚е ґгЃ®г‚«гѓјгѓ‰г‚’г‚їгѓѓгѓ—гЃ™г‚‹гЂЂгЂЂв”‚c-tap1[c[,c]]з›ёж‰‹ гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-tap1[C13,S8]гЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4 гЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚е ґгЃ®г‚«гѓјгѓ‰г‚’г‚ўгѓіг‚їгѓѓгѓ—гЃ™г‚‹в”‚c-untap1[c[,c]]з›ёж‰‹ в”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚ cгЃЇH1гЂњ13,D1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚гЂЂгЂЂS1гЂњ13,C1гЂњ13 гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-untap1[C13,S8]гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂ J1гЂњJ4 гЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚жЌЁгЃ¦жњ­г‚’е±±гЃ«ж€»гЃ™гЂЂгЂЂгЂЂгЂЂгЂЂв”‚c-rshuffleгЂЂc-rsh гЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚г‚«гѓјгѓ‰г‚’з›ёж‰‹гЃ«й…Ќг‚‹гЂЂгЂЂгЂЂгЂЂв”‚c-deal[n]з›ёж‰‹ гЂЂгЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-deal[3]PL1гЂЂгЂЂгЂЂгЂЂгЂЂв”‚ nгЃЇжћљж•°(зњЃз•Ґж™‚1) гЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚г‚«гѓјгѓ‰г‚’и¦‹гЃ¦гЃ‹г‚‰з›ёж‰‹гЃ«й…Ќг‚‹в”‚c-vdeal[n]з›ёж‰‹гЂЂгЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-vdeal[3]PL1 гЂЂгЂЂгЂЂгЂЂв”‚ nгЃЇжћљж•°(зњЃз•Ґж™‚1) гЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚ж‰‹жњ­г‚’и¦‹г‚‹гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚c-handгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚PLгЃ®ж‰‹жњ­г‚’и¦‹г‚‹гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚c-vhand з›ёж‰‹гЂЂгЂЂгЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚г‚«гѓјгѓ‰й…ЌзЅ®г‚’и¦‹г‚‹гЂЂгЂЂгЂЂгЂЂгЂЂв”‚c-check гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚е…Ёе“ЎгЃ®е ґжњ­г‚’жЌЁгЃ¦г‚‹гЂЂгЂЂгЂЂгЂЂв”‚c-clean гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”њв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”јв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”¤
+гЂЂгЂЂгЂЂв”‚г‚«гѓјгѓ‰й…ЌзЅ®еѕ©жґ»гЃ®е‘Єж–‡гЂЂгЂЂгЂЂв”‚c-spell[е‘Єж–‡] гЂЂгЂЂгЂЂв”‚
+гЂЂгЂЂгЂЂв”‚гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚(зњЃз•Ґж™‚гЃЇе‘Єж–‡иЎЁз¤є)гЂЂв”‚
+гЂЂгЂЂгЂЂв”‚ex. c-spell гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂв”‚вЂ»г‚Ігѓјгѓ иЁ­е®љгЃ«жіЁж„ЏгЂЂв”‚
+гЂЂгЂЂгЂЂв””в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”ґв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”
+
+гЂЂгЂЂгЂЂгЃ“гЃ®гѓњгѓѓгѓ€гЃЇг‚«гѓјгѓ‰гѓ•г‚Ўг‚¤гѓ«г‚’дЅњж€ђгЃ™г‚‹гЃ“гЃЁгЃ§гЂЃз‹¬и‡Єг‚«гѓјгѓ‰г‚’дЅїгЃ†г‚Ігѓјгѓ гЃ«г‚‚еЇѕеїњеЏЇиѓЅгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂг‚«гѓјгѓ‰гѓ•г‚Ўг‚¤гѓ«гЃ®ж›ёгЃЌж–№гЃЇг‚·гѓігѓ—гѓ«гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂг‚«гѓјгѓ‰пј‘жћљгЃ‚гЃџг‚Љпј‘иЎЊгЃ§гЂЃг‚«гѓјгѓ‰з•ЄеЏ·гЃЁг‚їг‚¤гѓ€гѓ«г‚’гЂЊ->гЂЌгЃ§з№‹гЃ’гЃџгѓ†г‚­г‚№гѓ€гѓ•г‚Ўг‚¤гѓ«г‚’дЅњг‚‹гЃ гЃ‘гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂж–‡е­—г‚ігѓјгѓ‰гЃЇгѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«иЁ­е®љгЃ—гЃџж–‡е­—г‚ігѓјгѓ‰гЃЁеђЊгЃз‰©г‚’дЅїгЃЈгЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚(гѓ‡гѓ•г‚©гѓ«гѓ€гЃЇShift-Jis)
+
+гЂЂгЂЂгЂЂex. 143->гЂђг‚„г‚‰г‚ЊгЃ¦гЃџгЃѕг‚‹гЃ‹пјЃгЂ‘FEA
+
+# г‚Ёг‚Їг‚»гѓ«гЃ§г‚«гѓјгѓ‰дёЂи¦§г‚’дЅњж€ђгЃ—гЃ¦CSVеЅўејЏгЃ§ж›ёгЃЌгЃ гЃ—гЃџеѕЊгЃ§гЂЃгѓЎгѓўеёіг‚„гѓ†г‚­г‚№гѓ€г‚Ёгѓ‡г‚Јг‚їгЃ§иЄ­гЃїиѕјг‚“гЃ§
+# гЂЊ,(г‚«гѓігѓћ)гЂЌг‚’гЂЊ->гЂЌгЃ«зЅ®жЏ›гЃ™г‚‹гЃЁз°ЎеЌгЃ§гЃ™гЂ‚
+
+гЂЂгЂЂгЂЂжіЁж„Џз‚№гЃЇпј’гЃ¤гЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»г‚«гѓјгѓ‰з•ЄеЏ·гЃЇйЂЈз•ЄгЃ§гЃ‚г‚‹еї…и¦ЃгЃЇгЃ‚г‚ЉгЃѕгЃ›г‚“гЃЊгЂЃгѓ¦гѓ‹гѓјг‚ЇгЃЄ(й‡Ќи¤‡гЃ—гЃЄгЃ„)еї…и¦ЃгЃЊгЃ‚г‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЃ¤гЃѕг‚ЉгЂЃеђЊгЃг‚«гѓјгѓ‰гЃЊпј“жћљгЃ‚г‚‹е ґеђ€гЃ§г‚‚гЂЃз•ЄеЏ·гЃЇе¤‰гЃ€гЃЄгЃ‘г‚ЊгЃ°гЃЄг‚ЉгЃѕгЃ›г‚“гЂ‚
+гЂЂгЂЂгЂЂгѓ»г‚їг‚¤гѓ€гѓ«гЃ«ж–‡е­—ж•°е€¶й™ђгЃЇгЃ‚г‚ЉгЃѕгЃ›г‚“гЃЊгЂЃиЎЁз¤єгЃЊдёЂиЎЊеЌЉи§’400ж–‡е­—гЃѕгЃ§гЃ«е€¶й™ђгЃ—гЃ¦гЃ‚г‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂжћљж•°г‚’е¤љгЃЏдЅїгЃ†г‚‚гЃ®гЃ§гЃЇгЂЃгЃ‚гЃѕг‚ЉгЃ«й•·гЃЏгЃ™г‚‹гЃЁиЎЁз¤єгЃ§гЃЌгЃЄгЃЏгЃЄг‚‹еЏЇиѓЅжЂ§гЃЊгЃ‚г‚ЉгЃѕгЃ™гЂ‚
+
+
+
+гЂЂпј–пјЋгѓћг‚№г‚їгѓјг‚ігѓћгѓігѓ‰
+гЂЂгЂЂгЂЂгѓћг‚№г‚їгѓјг‚ігѓћгѓігѓ‰гЃЇгѓ—гѓ©г‚¤гѓ™гѓјгѓ€гѓЎгѓѓг‚»гѓјг‚ёг‚’гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«йЂЃг‚‹гЃ“гЃЁгЃ§гЂЃгЃ„гЃЏгЃ¤гЃ‹гЃ®иЁ­е®љг‚’иЎЊгЃ†гЃ“гЃЁгЃЊе‡єжќҐгЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгѓ»гѓћг‚№г‚їгѓјгЃ®иЁ­е®љгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂ"Set Master->гѓћг‚№г‚їгѓјеђЌ"
+гЂЂгЂЂгЂЂгѓћг‚№г‚їгѓјг‚’иЁ­е®љгЃ—гЃ¦гЃЉгЃЏгЃ“гЃЁгЃ§гЂЃгЃ„гЃЏгЃ¤гЃ‹гЃ®ж©џиѓЅгЃЊиїЅеЉ гѓ»е€¶й™ђгЃ§гЃЌг‚‹г‚€гЃ†гЃ«гЃЄг‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ—гѓ©г‚¤гѓ™гѓјгѓ€гѓЎгѓѓг‚»гѓјг‚ёгЃ§"Set Master"гЃЁе…ҐеЉ›гЃ™г‚‹гЃЁгЂЃе…ҐеЉ›гЃ—гЃџдєєг‚’гѓћг‚№г‚їгѓј
+гЂЂгЂЂгЂЂгЃЁгЃ—гЃ¦з™»йЊІгЃ—гЃѕгЃ™гЂ‚е†Ќеє¦е…ҐеЉ›гЃ™г‚‹гЃЁгѓћг‚№г‚їгѓјз™»йЊІгЃЊи§Јй™¤гЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЃѕгЃџгЂЃгѓћг‚№г‚їгѓјг‚’иЄ°гЃ‹гЃ«з§»иЎЊгЃ™г‚‹ж™‚гЃ«гЃЇ"Set Master->гѓ‹гѓѓг‚ЇгѓЌгѓјгѓ "гЃЁгЂЊгѓ—гѓ©г‚¤гѓ™гѓјгѓ€гѓЎгѓѓг‚»гѓјг‚ё(Talk)гЂЌг‚’йЂЃг‚‹гЃЁгЂЃжЊ‡е®љгЃ—гЃџгѓ‹гѓѓг‚ЇгѓЌгѓјгѓ гЃ®дєєгЃЊгѓћг‚№г‚їгѓјгЃ«иЁ­е®љгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂдёЂеє¦иЁ­е®љгЃ™г‚‹гЃЁгѓћг‚№г‚їгѓјд»Ґе¤–гЃ‹г‚‰гЃ®е¤‰ж›ґг‚’еЏ—гЃ‘д»гЃ‘гЃѕгЃ›г‚“гЂ‚
+
+гЂЂгЂЂгѓ»йљ гЃ—гѓЂг‚¤г‚№гЃ®и‡Єе‹•йЂљзџҐ
+гЂЂгЂЂгЂЂгѓћг‚№г‚їгѓјиЁ­е®љг‚’гЃ™г‚‹гЃЁгѓћг‚№г‚їгѓјгЃ«и‡Єе‹•зљ„гЃ«зµђжћњгЃЊйЂљзџҐгЃ•г‚ЊгЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгѓ»дёЉж–№з„Ўй™ђгѓ­гѓјгѓ«гЃ®еўѓз•ЊеЂ¤иЁ­е®љгЂЂгЂЂгЂЂ"Set Upper->еўѓз•ЊеЂ¤"
+гЂЂгЂЂгЂЂ"Set Uppwer->еўѓз•ЊеЂ¤"гЃ§гЂЃдёЉж–№з„Ўй™ђгѓ­гѓјгѓ«гЃ®еўѓз•ЊеЂ¤г‚’гЃ‚г‚‰гЃ‹гЃг‚ЃиЁ­е®љгЃ—гЃ¦гЃЉгЃЏгЃЁгЂЃгѓ­гѓјгѓ«гЃ®еє¦гЃ«еўѓз•ЊеЂ¤г‚’ж›ёгЃ‹гЃЄгЃЏгЃ¦г‚‚г‚€гЃЏгЃЄг‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЃЄгЃЉзµђжћњиЎЁз¤єгЃ®ж™‚гЃ«гЃЇгЂЃзўєиЄЌгЃ®гЃџг‚Ѓеўѓз•ЊеЂ¤г‚‚иЎЁз¤єгЃ•г‚ЊгЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгѓ»еЂ‹ж•°жЊЇг‚Љи¶ігЃ—гѓ­гѓјгѓ«гЃ®е›ћж•°е€¶й™ђиЁ­е®љгЂЂгЂЂгЂЂ"Set Reroll->дёЉй™ђеЂ¤"
+гЂЂгЂЂгЂЂ"Set Reroll->дёЉй™ђеЂ¤"гЃ§гЂЃе›ћж•°дёЉй™ђеЂ¤г‚’гЃ‚г‚‰гЃ‹гЃг‚ЃиЁ­е®љгЃ—гЃ¦гЃЉгЃЏгЃЁгЂЃеЂ‹ж•°жЊЇг‚Љи¶ігЃ—гѓ­гѓјгѓ«ж™‚гЃ®жЊЇг‚Љи¶ігЃ—е›ћж•°г‚’е€¶й™ђгЃ§гЃЌгЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгѓ»гѓ­гѓјгѓ«гЃ®г‚Ѕгѓјгѓ€иЁ­е®љгЂЂгЂЂгЂЂ"Set Sort->гѓўгѓјгѓ‰з•ЄеЏ·"
+гЂЂгЂЂгЂЂ"Set Sort->гѓўгѓјгѓ‰з•ЄеЏ·"гЃ§гЂЃг‚Ѕгѓјгѓ€г‚’иЁ­е®љгЃ—гЃ¦гЃЉгЃЏгЃЁгЂЃгѓ­гѓјгѓ«ж™‚гЃ®иЎЁз¤єг‚’г‚Ѕгѓјгѓ€(ж‡й †)гЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode0гЂЂ(г‚Ѕгѓјгѓ€з„ЎгЃ—)
+гЂЂгЂЂгЂЂгЂЂгѓ‡гѓ•г‚©гѓ«гѓ€гЃ«иЁ­е®љгЃ—гЃ¦гЃ‚г‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode1гЂЂ(еЉ з®—гЃ®гЃїг‚Ѕгѓјгѓ€жњ‰г‚Љ)
+гЂЂгЂЂгЂЂгЂЂж‡й †гЃ«г‚Ѕгѓјгѓ€гЃ—гЃ¦иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode2гЂЂ(гѓђгѓ©гѓђгѓ©зі»гЃ®гЃїг‚Ѕгѓјгѓ€жњ‰г‚Љ)
+гЂЂгЂЂгЂЂгЂЂж‡й †гЃ«г‚Ѕгѓјгѓ€гЃ—гЃ¦иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode3гЂЂ(еЉ з®—гЃЁгѓђгѓ©гѓђгѓ©зі»гЃ©гЃЎг‚‰г‚‚г‚Ѕгѓјгѓ€жњ‰г‚Љ)
+гЂЂгЂЂгЂЂгЂЂж‡й †гЃ«г‚Ѕгѓјгѓ€гЃ—гЃ¦иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгѓ»гѓўгѓјгѓ‰е¤‰ж›ґгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂ"Set ViewMode->гѓўгѓјгѓ‰з•ЄеЏ·"
+гЂЂгЂЂгЂЂ"Set ViewMode->гѓўгѓјгѓ‰з•ЄеЏ·"гЃЁгѓ—гѓ©г‚¤гѓ™гѓјгѓ€гѓЎгѓѓг‚»гѓјг‚ёг‚’йЂЃг‚‹гЃЁиЎЁз¤єгѓўгѓјгѓ‰г‚’е¤‰ж›ґгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓћг‚№г‚їгѓјиЁ­е®љгЃ™г‚‹гЃЁе¤‰ж›ґгЃЊгѓћг‚№г‚їгѓјгЃ‹г‚‰гЃ гЃ‘гЃ«е€¶й™ђгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode0гЂЂ(жњЂзµ‚зµђжћњгѓўгѓјгѓ‰)
+гЂЂгЂЂгЂЂгЂЂгѓЂг‚¤г‚№гЃ®еђ€иЁ€гѓ­гѓјгѓ«(xDn)г‚„гѓ¬гѓјгѓ†г‚Јгѓіг‚°иЎЁгѓ­гѓјгѓ«гЃ®ж™‚гЃ«гЂЃеЂ‹гЂ…гЃ®гѓЂг‚¤г‚№гЃ®з›®г‚’иЎЁз¤єгЃ—гЃЄгЃЏгЃЄг‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode1гЂЂ(гѓ­гѓјгѓ«зµђжћњгѓўгѓјгѓ‰)
+гЂЂгЂЂгЂЂгЂЂеЉ з®—гѓ­гѓјгѓ«г‚„дёЉж–№з„Ўй™ђгѓ­гѓјгѓ«гЃ®ж™‚гЃ«гЂЃгѓЂг‚¤г‚№гѓ­гѓјгѓ«гЃ”гЃЁгЃ®еђ€иЁ€еЂ¤гЃ®гЃїиЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ‡гѓ•г‚©гѓ«гѓ€гЃ«иЁ­е®љгЃ—гЃ¦гЃ‚г‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode2гЂЂ(гѓЂг‚¤г‚№з›®гѓўгѓјгѓ‰)
+гЂЂгЂЂгЂЂгЂЂеЂ‹гЂ…гЃ®гѓЂг‚¤г‚№гЃ®з›®г‚’е…ЁгЃ¦иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ‡гѓђгѓѓг‚°з”ЁгЃЉг‚€гЃігѓЂг‚¤г‚№з›®гЃ«гЃ“гЃ г‚Џг‚ЉгЃЊгЃ‚г‚‹(и©ізґ°иЎЁз¤єгЃ•г‚ЊгЃџж–№гЃЊз››г‚ЉдёЉгЃЊг‚‹)дєєз”ЁгЂ‚
+
+гЂЂгЂЂгѓ»йЂЃдїЎгѓўгѓјгѓ‰е¤‰ж›ґгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂ"Set SendMode->гѓўгѓјгѓ‰з•ЄеЏ·"
+гЂЂгЂЂгЂЂ"Set SendMode->гѓўгѓјгѓ‰з•ЄеЏ·"гЃЁгѓ—гѓ©г‚¤гѓ™гѓјгѓ€гѓЎгѓѓг‚»гѓјг‚ёг‚’йЂЃг‚‹гЃЁиЎЁз¤єгѓўгѓјгѓ‰г‚’е¤‰ж›ґгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓћг‚№г‚їгѓјиЁ­е®љгЃ™г‚‹гЃЁе¤‰ж›ґгЃЊгѓћг‚№г‚їгѓјгЃ‹г‚‰гЃ гЃ‘гЃ«е€¶й™ђгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode0гЂЂ(msgгѓўгѓјгѓ‰)
+гЂЂгЂЂгЂЂгЂЂгѓњгѓѓгѓ€гЃ‹г‚‰гЃ®иї”дє‹гЃЊmsg(йЂљеёёгЃ®гѓЎгѓѓг‚»гѓјг‚ё)гЃ§йЂЃдїЎгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂNoticeгЃ«г‚€г‚‹гѓЎгѓѓг‚»гѓјг‚ёеЏ—дїЎгЃ«дёЌе…·еђ€гЃ®гЃ‚г‚‹IRCг‚Їгѓ©г‚¤г‚ўгѓігѓ€г‚’дЅїгЃЈгЃ¦гЃ„г‚‹е ґеђ€гЃЇгЂЃгЃ“гЃЎг‚‰гЃ§дЅїз”ЁгЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode1гЂЂ(noticeгѓўгѓјгѓ‰)
+гЂЂгЂЂгЂЂгЂЂгѓњгѓѓгѓ€гЃ‹г‚‰гЃ®иї”дє‹гЃЊnotice(гЃЉзџҐг‚‰гЃ›)гЃ§йЂЃдїЎгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂд»–гЃ®гѓњгѓѓгѓ€г‚„гѓћг‚Їгѓ­гЃЊеЏЌеїњгЃ—гЃЄгЃ„гЃ®гЃ§е®‰е…ЁгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ‡гѓ•г‚©гѓ«гѓ€гЃ«иЁ­е®љгЃ—гЃ¦гЃ‚г‚ЉгЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгѓ»гѓ¬гѓјгѓ†г‚Јгѓіг‚°иЎЁйЃёжЉћгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂ"Set RatingTable->гѓўгѓјгѓ‰з•ЄеЏ·"
+гЂЂгЂЂгЂЂ"Set RatingTable->гѓўгѓјгѓ‰з•ЄеЏ·"гЃЁгѓ—гѓ©г‚¤гѓ™гѓјгѓ€гѓЎгѓѓг‚»гѓјг‚ёг‚’йЂЃг‚‹гЃЁгѓ¬гѓјгѓ†г‚Јгѓіг‚°иЎЁг‚’е¤‰ж›ґгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓћг‚№г‚їгѓјиЁ­е®љгЃ™г‚‹гЃЁе¤‰ж›ґгЃЊгѓћг‚№г‚їгѓјгЃ‹г‚‰гЃ гЃ‘гЃ«е€¶й™ђгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode0гЂЂ(ж—§з‰€жє–ж‹ )
+гЂЂгЂЂгЂЂгЂЂг‚­гѓјгѓЉгѓігѓђгѓј31гЂњ33гЃ®гѓЂг‚¤г‚№12гЃ®гѓ¬гѓјгѓ†г‚Јгѓіг‚°гЃЊ11гЃ«гЃЄгЃЈгЃ¦гЃ„г‚‹иЎЁг‚’дЅїгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ‡гѓ•г‚©гѓ«гѓ€гЃ«иЁ­е®љгЃ—гЃ¦гЃ‚г‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode1гЂЂ(е®Ње…Ёз‰€жє–ж‹ )
+гЂЂгЂЂгЂЂгЂЂг‚­гѓјгѓЉгѓігѓђгѓј31гЂњ33гЃ®гѓЂг‚¤г‚№12гЃ®гѓ¬гѓјгѓ†г‚Јгѓіг‚°гЃЊ10гЃ«гЃЄгЃЈгЃ¦гЃ„г‚‹иЎЁг‚’дЅїгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode2гЂЂ(2.0гѓ«гѓјгѓ«гѓ–гѓѓг‚ЇIIжє–ж‹ )
+гЂЂгЂЂгЂЂгЂЂж—§з‰€гЃ«г‚­гѓјгѓЉгѓігѓђгѓј51гЂњ100гЃѕгЃ§гЃЊиїЅеЉ гЃ•г‚ЊгЃ¦гЃ„гЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгѓ»г‚«гѓјгѓ‰гѓўгѓјгѓ‰е¤‰ж›ґгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂ"Set CardPlace->гѓўгѓјгѓ‰з•ЄеЏ·"
+гЂЂгЂЂгЂЂ"Set CardPlace->гѓўгѓјгѓ‰з•ЄеЏ·"гЃЁгѓ—гѓ©г‚¤гѓ™гѓјгѓ€гѓЎгѓѓг‚»гѓјг‚ёг‚’йЂЃг‚‹гЃЁг‚«гѓјгѓ‰гѓўгѓјгѓ‰г‚’е¤‰ж›ґгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓћг‚№г‚їгѓјиЁ­е®љгЃ™г‚‹гЃЁе¤‰ж›ґгЃЊгѓћг‚№г‚їгѓјгЃ‹г‚‰гЃ гЃ‘гЃ«е€¶й™ђгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode0гЂЂ(г‚«гѓјгѓ‰зЅ®гЃЌе ґз„ЎгЃ—гѓўгѓјгѓ‰)
+гЂЂгЂЂгЂЂгЂЂг‚«гѓјгѓ‰г‚’е ґгЃ«зЅ®гЃЏеї…и¦ЃгЃЊз„ЎгЃ„г‚Ігѓјгѓ гЃ®ж™‚гЃ«гЂ‚гѓ—гѓ¬г‚¤гЃ™г‚‹гЃЁгЃ™гЃђгЃ«жЌЁгЃ¦жњ­гЃ«гЃЄг‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ‡гѓ•г‚©гѓ«гѓ€гЃ«иЁ­е®љгЃ—гЃ¦гЃ‚г‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode1гЂЂ(г‚«гѓјгѓ‰зЅ®гЃЌе ґгЃ‚г‚Љгѓўгѓјгѓ‰)
+гЂЂгЂЂгЂЂгЂЂиЎЁгЃ«гЃ—гЃ¦е ґгЃ«е‡єгЃ™гЃЁеЉ№жћњгЃЊгЃ‚г‚‹г‚Ігѓјгѓ гЃЄгЃ©гЃ«гЂ‚гѓ—гѓ¬г‚¤гЃ™г‚‹гЃЁиЎЁгЃ«гЃ—гЃ¦е ґгЃ«е‡єгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂc-cleanгЃ‹c-shuffleг‚ігѓћгѓігѓ‰г‚’дЅїгЃ†гЃЁе ґгЃ®г‚«гѓјгѓ‰гЃЊз„ЎгЃЏгЃЄг‚ЉгЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгѓ»е‘Єж–‡гѓўгѓјгѓ‰е¤‰ж›ґгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂ"Set ShortSpell->гѓўгѓјгѓ‰з•ЄеЏ·"
+гЂЂгЂЂгЂЂ"Set ShortSpell->гѓўгѓјгѓ‰з•ЄеЏ·"гЃЁгѓ—гѓ©г‚¤гѓ™гѓјгѓ€гѓЎгѓѓг‚»гѓјг‚ёг‚’йЂЃг‚‹гЃЁе‘Єж–‡гѓўгѓјгѓ‰г‚’е¤‰ж›ґгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓћг‚№г‚їгѓјиЁ­е®љгЃ™г‚‹гЃЁе¤‰ж›ґгЃЊгѓћг‚№г‚їгѓјгЃ‹г‚‰гЃ гЃ‘гЃ«е€¶й™ђгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode0гЂЂ(йЂљеёёе‘Єж–‡гѓўгѓјгѓ‰)
+гЂЂгЂЂгЂЂгЂЂе…Ёе“ЎгЃ®ж‰‹жњ­г‚’е‘Єж–‡гЃ«гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode1гЂЂ(зџ­зё®е‘Єж–‡гѓўгѓјгѓ‰)
+гЂЂгЂЂгЂЂгЂЂе…Ёе“ЎгЃ®ж‰‹жњ­г‚’е‘Єж–‡гЃ«гЃ—гЃѕгЃ™гЃЊгЂЃй‡Ќи¤‡г‚«гѓјгѓ‰г‚’е‰Љй™¤гЃ—гЃ¦зџ­гЃЏе€‡г‚ЉгЃ¤г‚ЃгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ‡гѓ•г‚©гѓ«гѓ€гЃ«иЁ­е®љгЃ—гЃ¦гЃ‚г‚ЉгЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгѓ»г‚їгѓѓгѓ—гѓўгѓјгѓ‰е¤‰ж›ґгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂ"Set Tap->гѓўгѓјгѓ‰з•ЄеЏ·"
+гЂЂгЂЂгЂЂ"Set Tap->гѓўгѓјгѓ‰з•ЄеЏ·"гЃЁгѓ—гѓ©г‚¤гѓ™гѓјгѓ€гѓЎгѓѓг‚»гѓјг‚ёг‚’йЂЃг‚‹гЃЁе‘Єж–‡гѓўгѓјгѓ‰г‚’е¤‰ж›ґгЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓћг‚№г‚їгѓјиЁ­е®љгЃ™г‚‹гЃЁе¤‰ж›ґгЃЊгѓћг‚№г‚їгѓјгЃ‹г‚‰гЃ гЃ‘гЃ«е€¶й™ђгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode0гЂЂ(г‚їгѓѓгѓ—дёЌеЏЇгѓўгѓјгѓ‰)
+гЂЂгЂЂгЂЂгЂЂе ґжњ­гЃ®г‚їгѓѓгѓ—г‚’ж‰±гЃ„гЃѕгЃ›г‚“гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ‡гѓ•г‚©гѓ«гѓ€гЃ«иЁ­е®љгЃ—гЃ¦гЃ‚г‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»mode1гЂЂ(г‚їгѓѓгѓ—еЏЇиѓЅгѓўгѓјгѓ‰)
+гЂЂгЂЂгЂЂгЂЂе ґжњ­гЃ®г‚їгѓѓгѓ—гЃЊеЏЇиѓЅгЃ§гЃ™гЂ‚
+
+гЂЂгЂЂгѓ»г‚«гѓјгѓ‰г‚»гѓѓгѓ€иЄ­гЃїиѕјгЃїгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂ"Set CardSet->гѓ•г‚Ўг‚¤гѓ«еђЌ"
+гЂЂгЂЂгЂЂ"Set CardSet->гѓ•г‚Ўг‚¤гѓ«еђЌ"гЃЁгѓ—гѓ©г‚¤гѓ™гѓјгѓ€гѓЎгѓѓг‚»гѓјг‚ёг‚’йЂЃг‚‹гЃЁг‚«гѓјгѓ‰г‚»гѓѓгѓ€г‚’иЄ­гЃїиѕјгЃїгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓћг‚№г‚їгѓјиЁ­е®љгЃ™г‚‹гЃЁе¤‰ж›ґгЃЊгѓћг‚№г‚їгѓјгЃ‹г‚‰гЃ гЃ‘гЃ«е€¶й™ђгЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂг‚їгѓѓгѓ—гѓўгѓјгѓ‰г‚„г‚«гѓјгѓ‰гѓўгѓјгѓ‰гЃЄгЃ©гЃЇе¤‰ж›ґгЃ•г‚ЊгЃѕгЃ›г‚“гЃ®гЃ§гЂЃж–°и¦ЏгЃ«г‚Ігѓјгѓ гѓўгѓјгѓ‰г‚’гѓ—гѓ­г‚°гѓ©гѓ иїЅеЉ гЃ™г‚‹гЃ®г‚’гЃЉе‹§г‚ЃгЃ—гЃѕгЃ™гЂ‚
+
+гЂЂгЂЂгѓ»г‚Ігѓјгѓ иЁ­е®љгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂ"Set Game->г‚Ігѓјгѓ и­е€ҐеђЌ"
+гЂЂгЂЂгЂЂ"Set Game->и­е€ҐеђЌ"гЃЁгѓ—гѓ©г‚¤гѓ™гѓјгѓ€гѓЎгѓѓг‚»гѓјг‚ёг‚’йЂЃг‚‹гЃЁгЂЃг‚Ігѓјгѓ иЁ­е®љг‚’иЎЊгЃ†гЃ“гЃЁгЃЊе‡єжќҐгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»CthulhuгЂЂ(г‚Їгѓ€г‚Ґгѓ«гѓ•гЃ®е‘јгЃіеЈ°гЂЂгЃЉг‚€гЃігЂЂг‚Їгѓ€г‚Ґгѓ«гѓ•зҐћи©±TRPG)
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«(ж±єе®љзљ„ж€ђеЉџ)гЂЃг‚№гѓљг‚·гѓЈгѓ«гЂЃгѓ•г‚Ўгѓігѓ–гѓ«(и‡ґе‘Ѕзљ„е¤±ж•—)гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂжЉµжЉ—гѓ­гѓјгѓ«гЃ®г‚ігѓћгѓігѓ‰г‚’иїЅеЉ гЂ‚
+гЂЂгЂЂгЂЂгѓ»HieizanгЂЂ(г‚Їгѓ€г‚Ґгѓ«гѓ•зҐћи©±TRPGгЂЊжЇ”еЏЎе±±з‚ЋдёЉгЂЌ)
+гЂЂгЂЂгЂЂгЂЂгЂЂе¤§ж€ђеЉџгЂЃи‡Єе‹•ж€ђеЉџгЂЃе¤±ж•—гЂЃи‡Єе‹•е¤±ж•—гЂЃе¤§е¤±ж•—гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»RuneQuestгЂЂ(гѓ«гѓјгѓіг‚Їг‚Ёг‚№гѓ€)
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЂЃг‚Ёгѓ•г‚§г‚Їгѓ†г‚Јгѓ–(еЉ№жћњзљ„ж€ђеЉџ)гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»Elric!гЂЂ(г‚Ёгѓ«гѓЄгѓѓг‚ЇпјЃ)
+гЂЂгЂЂгЂЂгЂЂгЂЂиІ«йЂљгЂЃг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»ChillгЂЂ(CHILL)
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚ігѓ­гѓѓг‚µгѓ«гЂЃгѓЏг‚¤гЂЃгѓџгѓ‡г‚Јг‚ўгѓ гЂЃгѓ©г‚¤гѓ€гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂSRг‚ігѓћгѓігѓ‰гЃ§г‚№гѓ€гѓ©г‚¤г‚Їгѓ»гѓ©гѓіг‚ЇгЃ‹г‚‰гѓЂгѓЎгѓјг‚ёг‚’и‡Єе‹•иЁ€з®—гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»RoleMasterгЂЂ(гѓ­гѓјгѓ«гѓћг‚№г‚їгѓј)
+гЂЂгЂЂгЂЂгЂЂгЂЂдёЉж–№з„Ўй™ђгѓ­гѓјгѓ«гЃ®еўѓз•ЊеЂ¤г‚’96гЃ«г‚»гѓѓгѓ€гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»ShadowRunгЂЂ(г‚·гѓЈгѓ‰г‚¦гѓ©гѓі)
+гЂЂгЂЂгЂЂгЂЂгЂЂдёЉж–№з„Ўй™ђгѓ­гѓјгѓ«гЃ®еўѓз•ЊеЂ¤г‚’6гЃ«г‚»гѓѓгѓ€гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»ShadowRun4гЂЂ(г‚·гѓЈгѓ‰г‚¦гѓ©гѓіз¬¬пј”з‰€)
+гЂЂгЂЂгЂЂгЂЂгЂЂеЂ‹ж•°жЊЇг‚Љи¶ігЃ—гѓ­гѓјгѓ«гЃ®й–ѕеЂ¤г‚’6гЃ«г‚»гѓѓгѓ€гЂЃгѓђгѓ©гѓђгѓ©гѓ­гѓјгѓ«гЃ®з›®жЁ™еЂ¤г‚’5д»ҐдёЉгЃ«г‚»гѓѓгѓ€гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂBг‚ігѓћгѓігѓ‰гЃЁRг‚ігѓћгѓігѓ‰ж™‚гЃ«гЂЃг‚°гѓЄгѓѓгѓЃгЃ®иЎЁз¤єг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»PendragonгЂЂ(гѓљгѓігѓ‰гѓ©г‚ґгѓі)
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЂЃж€ђеЉџгЂЃе¤±ж•—гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»SwordWorldгЂЂ(г‚Ѕгѓјгѓ‰гѓЇгѓјгѓ«гѓ‰)
+гЂЂгЂЂгЂЂгЂЂгЂЂи‡Єе‹•зљ„ж€ђеЉџгЂЃж€ђеЉџгЂЃе¤±ж•—гЂЃи‡Єе‹•зљ„е¤±ж•—гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚(гѓ¬гѓјгѓ†г‚Јгѓіг‚°иЎЁг‚‚е®џиЈ…жё€гЃї)
+гЂЂгЂЂгЂЂгѓ»SwordWorld2.0гЂЂ(г‚Ѕгѓјгѓ‰гѓЇгѓјгѓ«гѓ‰2.0)
+гЂЂгЂЂгЂЂгЂЂгЂЂи‡Єе‹•зљ„ж€ђеЉџгЂЃж€ђеЉџгЂЃе¤±ж•—гЂЃи‡Єе‹•зљ„е¤±ж•—гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚(0гЂњ80гЃѕгЃ§гЃ®гѓ¬гѓјгѓ†г‚Јгѓіг‚°иЎЁг‚‚е®џиЈ…жё€гЃї)
+гЂЂгЂЂгЂЂгѓ»ArianrhodгЂЂ(г‚ўгѓЄг‚ўгѓігѓ­гѓѓгѓ‰)
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚(г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«ж™‚гЃ®иїЅеЉ гѓЂгѓЎгѓјг‚ёг‚‚иЎЁз¤єгЃ•г‚ЊгЃѕгЃ™)
+гЂЂгЂЂгЂЂгѓ»Infinite FantasiaгЂЂ(з„Ўй™ђгЃ®гѓ•г‚Ўгѓіг‚їг‚ёг‚ў)
+гЂЂгЂЂгЂЂгЂЂгЂЂе¤±ж•—гЂЃж€ђеЉџгѓ¬гѓ™гѓ«гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»WARPSгЂЂ(гѓЇгѓјгѓ—г‚№)
+гЂЂгЂЂгЂЂгЂЂгЂЂе¤±ж•—гЂЃж€ђеЉџеє¦гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»DemonParasiteгЂЂ(гѓ‡гѓўгѓігѓ‘гѓ©г‚µг‚¤гѓ€)
+гЂЂгЂЂгЂЂгЂЂгЂЂе¤±ж•—гЂЃж€ђеЉџгЂЃеЉ№жћњзљ„ж€ђеЉџгЂЃи‡ґе‘Ѕзљ„е¤±ж•—гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂurgeг‚ігѓћгѓігѓ‰гЃ§иЎќе‹•иЎЁг‚’гѓ­гѓјгѓ«гЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂй¬јеѕЎй­‚гЃ®иЎќе‹•иЎЁгЃ«г‚‚еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгѓ»ParasiteBloodгЂЂ(гѓ‘гѓ©г‚µг‚¤гѓ€гѓ–гѓ©гѓѓгѓ‰)
+гЂЂгЂЂгЂЂгЂЂгЂЂе¤±ж•—гЂЃж€ђеЉџгЂЃеЉ№жћњзљ„ж€ђеЉџгЂЃи‡ґе‘Ѕзљ„е¤±ж•—гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂurgeг‚ігѓћгѓігѓ‰гЃ§иЎќе‹•иЎЁг‚’гѓ­гѓјгѓ«гЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»GundogгЂЂ(г‚¬гѓігѓ‰гѓѓг‚°)
+гЂЂгЂЂгЂЂгЂЂгЂЂе¤±ж•—гЂЃж€ђеЉџгЂЃг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЃЁгѓ­гѓјгѓ«гЃ®йЃ”ж€ђеЂ¤гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂnD9гѓ­гѓјгѓ«г‚‚еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгѓ»GundogZeroгЂЂ(г‚¬гѓігѓ‰гѓѓг‚°г‚јгѓ­)
+гЂЂгЂЂгЂЂгЂЂгЂЂе¤±ж•—гЂЃж€ђеЉџгЂЃг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЃЁгѓ­гѓјгѓ«гЃ®йЃ”ж€ђеЂ¤гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂnD9гѓ­гѓјгѓ«гЃ«г‚‚еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓЂгѓЎгѓјг‚ёгѓљгѓЉгѓ«гѓ†г‚ЈгѓјиЎЁгЃЁгѓ•г‚Ўгѓігѓ–гѓ«иЎЁг‚‚гѓ­гѓјгѓ«гЃ§гЃЌгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»Tunnels&TrollsгЂЂ(гѓ€гѓігѓЌгѓ«г‚єпј†гѓ€гѓ­гѓјгѓ«г‚є)
+гЂЂгЂЂгЂЂгЂЂгЂЂе¤±ж•—гЂЃж€ђеЉџгЂЃи‡Єе‹•е¤±ж•—гЃ®и‡Єе‹•е€¤е®љгЃЁг‚ѕгѓ­з›®гЃ®жЊЇг‚Љи¶ігЃ—зµЊйЁ“еЂ¤гЃ®и‡Єе‹•иЁ€з®—г‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂSAVEгЃ®й›Јж“еє¦г‚’гЂЊгѓ¬гѓ™гѓ«гЂЌгЃ§иЎЁиЁгЃ™г‚‹гЃ“гЃЁгЃЊе‡єжќҐгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂдѕ‹гЃ€гЃ°гЂЊ2LvгЂЌгЃЁж›ёгЃЏгЃЁгЂЊ25гЂЌгЃ«зЅ®жЏ›гЃ•г‚ЊгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚д»Ґе¤–гЃЇж‚Єж„ЏгѓЂгѓЎгѓјг‚ёг‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓђгѓјг‚µгѓјг‚ЇгЃЁгѓЏг‚¤гѓ‘гѓјгѓђгѓјг‚µгѓјг‚Їз”ЁгЃ«е°‚з”Ёг‚ігѓћгѓігѓ‰гЃЊдЅїгЃ€гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»NightmareHunterDeepгЂЂ(гѓЉг‚¤гѓ€гѓЎг‚ўгѓЏгѓіг‚їгѓј=гѓ‡г‚Јгѓјгѓ—)
+гЂЂгЂЂгЂЂгЂЂгЂЂеЉ з®—гѓ­гѓјгѓ«ж™‚гЃ«пј–гЃ®еЂ‹ж•°г‚’г‚«г‚¦гѓігѓ€гЃ—гЃ¦гЂЃгЃќгЃ®пј”еЂЌг‚’и‡Єе‹•зљ„гЃ«еЉ з®—гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂ(е‡єз›®гЃЇгЃќгЃ®гЃѕгЃѕиЎЁз¤єгЃ§еђ€иЁ€еЂ¤гЃЊ6в†’10гЃ®иЄ­гЃїж›їгЃ€гЃ«гЃЄг‚ЉгЃѕгЃ™)
+гЂЂгЂЂгЂЂгѓ»WarhammerгЂЂ(г‚¦г‚©гѓјгѓЏгѓігѓћгѓјFRP)
+гЂЂгЂЂгЂЂгЂЂгЂЂж€ђеЉџеє¦гЂЃе¤±ж•—еє¦иЎЁз¤єгЃЁг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«иЎЁгЃ®е®џиЈ…гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂе‘Ѕдё­е€¤е®љз”Ёг‚ігѓћгѓігѓ‰гЃЇж€ђеЉџгЃ™г‚‹гЃЁе‘Ѕдё­йѓЁдЅЌг‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂWHpxг‚ігѓћгѓігѓ‰гЃ§г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«иЎЁгЃЊеј•гЃ‘гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»PhantasmAdventureгЂЂ(гѓ•г‚Ўгѓіг‚їг‚єгѓ г‚ўгѓ‰гѓ™гѓігѓЃгѓЈгѓј)
+гЂЂгЂЂгЂЂгЂЂгЂЂж€ђеЉџгЂЃе¤±ж•—гЂЃж±єе®љзљ„ж€ђеЉџгЂЃж±єе®љзљ„е¤±ж•—гЃ®иЎЁз¤єгЃЁг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гѓ»гѓ•г‚Ўгѓігѓ–гѓ«еЂ¤иЁ€з®—гЃ®е®џиЈ…гЂ‚
+гЂЂгЂЂгЂЂгѓ»Chaos FlareгЂЂ(г‚«г‚Єг‚№гѓ•гѓ¬г‚ў)
+гЂЂгЂЂгЂЂгЂЂгЂЂе¤±ж•—гЂЃж€ђеЉџ(е·®е€†еЂ¤гЃ®иЁ€з®—г‚‚)гЃ®и‡Єе‹•е€¤е®љг‚’иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ•г‚Ўгѓігѓ–гѓ«ж™‚гЃЇйЃ”ж€ђеЂ¤г‚’-20гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚«гѓјгѓ‰г‚»гѓѓгѓ€г‚’г‚ёгѓ§гѓјг‚«гѓјпј’жћљгЃ®гѓ‡гѓѓг‚­пј’г‚»гѓѓгѓ€гЃ«ж‹ЎејµгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂеѕ©жґ»гЃ®е‘Єж–‡г‚’дЅїгЃ†гЃЁгЃЌгЃЇгЂЃе…€гЃ«г‚Ігѓјгѓ иЁ­е®љг‚’иЎЊгЃ†еї…и¦ЃгЃЊгЃ‚г‚ЉгЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»CthulhuTechгЂЂ(г‚Їгѓ€г‚Ґгѓ«гѓ•гѓ»гѓ†гѓѓг‚Ї)
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ†г‚№гѓ€гЃ®гѓЂг‚¤г‚№иЁ€з®—г‚’е®џиЈ…гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂж€ђеЉџгЂЃе¤±ж•—гЂЃг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЃ®и‡Єе‹•е€¤е®љгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚ігѓігѓђгѓѓгѓ€гѓ†г‚№гѓ€(йІеѕЎеЃґжњ‰е€©гЃЄгЃ®гЃ§гЂЊ>=гЂЌгЃ§гЃЇгЃЄгЃЏгЂЊ>гЂЌгЃ§е…ҐеЉ›)гЃ®ж™‚гЃЇгѓЂгѓЎгѓјг‚ёгѓЂг‚¤г‚№г‚‚иЎЁз¤єгЂ‚
+гЂЂгЂЂгЂЂгѓ»TokumeiTenkouseiгЂЂ(з‰№е‘Ѕи»ўж”»з”џ)
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЊ1гЃ®е‡єз›®гЃ§EPPзЌІеѕ—гЂЌгЂЃе€¤е®љж™‚гЃ®гЂЊж€ђеЉџгЂЌгЂЊе¤±ж•—гЂЌгЂЊг‚ѕгѓ­з›®гЃ§и‡Єе‹•жЊЇг‚Љи¶ігЃ—гЂЌг‚’и‡Єе‹•е€¤е®љгЂ‚
+гЂЂгЂЂгЂЂгѓ»ShinobiGamiгЂЂ(еїЌзҐћгЂЊг‚·гѓЋгѓ“г‚¬гѓџгЂЌ)
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ«ж€ђеЉџгЂЃе¤±ж•—гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЂЃг‚№гѓљг‚·гѓЈгѓ«гЃ®и‡Єе‹•иЎЁз¤є
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚·гѓјгѓіиЎЁгЂЃгѓ•г‚Ўгѓігѓ–гѓ«иЎЁгЂЃж„џжѓ…иЎЁгЂЃе¤‰иЄїиЎЁгЂЃж€¦е ґиЎЁгЃ®иЎЁз¤єг‚ігѓћгѓігѓ‰г‚’е®џиЈ…гЂ‚
+гЂЂгЂЂгЂЂгѓ»Double CrossгЂЂ(гѓЂгѓ–гѓ«г‚Їгѓ­г‚№2nd,3rd)
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЂЃе…ЁгЃ¦гЃ®е‡єз›®гЃЊ1гЃ®ж™‚гѓ•г‚Ўгѓігѓ–гѓ«г‚’и‡Єе‹•е€¤е®љгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ‡гѓ•г‚©гѓ«гѓ€гЃ§г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«еЂ¤г‚’10гЃ«иЁ­е®љгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®ље°‚з”Ёг‚ігѓћгѓігѓ‰гЂЊDXгЂЌгЃЁж„џжѓ…иЎЁгЃ®иЎЁз¤єг‚ігѓћгѓігѓ‰г‚’е®џиЈ…гЂ‚
+гЂЂгЂЂгЂЂгѓ»SatasupeгЂЂ(г‚µг‚їг‚№гѓљ)
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®ље°‚з”Ёг‚ігѓћгѓігѓ‰гЃЁеђ„зЁ®иЎЁг‚’е®џиЈ…гЂ‚
+гЂЂгЂЂгЂЂгѓ»ArsMagicaгЂЂпј€г‚ўгѓ«г‚№гѓћг‚®г‚«пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚№гѓ€гѓ¬г‚№гѓЂг‚¤г‚№е°‚з”Ёг‚ігѓћгѓігѓ‰г‚’е®џиЈ…гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂbotchг‚„1гЃ®жЊЇг‚Љи¶ігЃ—е‡¦зђ†г‚‚и‡Єе‹•гЃ§иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»DarkBlazeгЂЂпј€гѓЂгѓјг‚Їгѓ–гѓ¬г‚¤г‚єпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®ље°‚з”Ёг‚ігѓћгѓігѓ‰гЂЊDBгЂЌгЃЁжЋг‚Ље‡єгЃ—иў‹иЎЁз¤єг‚ігѓћгѓігѓ‰гЂЊBTгЂЌг‚‚е®џиЈ…гЃ•г‚ЊгЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љг‚ігѓћгѓігѓ‰гЃЇг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гѓ»гѓ•г‚Ўгѓігѓ–гѓ«иЎЁз¤єг‚‚и‡Єе‹•гЃ§иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»NightWizardгЂЂпј€гѓЉг‚¤гѓ€г‚¦г‚Јг‚¶гѓјгѓ‰пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®ље°‚з”Ёг‚ігѓћгѓігѓ‰гЂЊNWгЂЌгЃЊе®џиЈ…гЃ•г‚ЊгЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љг‚ігѓћгѓігѓ‰гЃЇг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гѓ»гѓ•г‚Ўгѓігѓ–гѓ«иЎЁз¤єг‚‚и‡Єе‹•гЃ§иЎЊгЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»TORGгЂЂпј€гѓ€гѓјг‚°пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®ље°‚з”Ёг‚ігѓћгѓігѓ‰гЂЊTGгЂЌгЃЊе®џиЈ…гЃ•г‚ЊгЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љг‚ігѓћгѓігѓ‰гЃЇжЊЇг‚Љи¶ігЃ—г‚’и‡Єе‹•гЃ§иЎЊгЃ„гЂЃжЉЂиѓЅгЃ®жњ‰з„ЎгЃ§зµђжћњгЃЊйЃ•гЃ†гЃЁгЃЌгЃЇдё¦иЁгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂеђ„зЁ®иЎЁг‚ігѓћгѓігѓ‰гЂЊRTгЂЌгЂЊITгЂЌгЂЊTTгЂЌгЂЊMTгЂЌгЂЊDTгЂЌгЂЊODTгЂЌгЂЊBTгЂЌгЃЊе®џиЈ…гЃ•г‚ЊгЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»HuntersMoonгЂЂпј€гѓЏгѓіг‚їгѓјг‚єгѓ»гѓ гѓјгѓіпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ«г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЃЁгѓ•г‚Ўгѓігѓ–гѓ«г‚’и‡Єе‹•е€¤е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂеђ„зЁ®иЎЁг‚ігѓћгѓігѓ‰гЂЊETгЂЌгЂЊCLTгЂЌгЂЊSLTгЂЌгЂЊHLTгЂЌгЂЊFLTгЂЌгЂЊDLTгЂЌгЂЊMATгЂЌгЂЊSATxгЂЌгЃЊе®џиЈ…гЃ•г‚ЊгЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»MeikyuKingdomгЂЂпј€иї·е®®г‚­гѓіг‚°гѓЂгѓ пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ«зµ¶еЇѕж€ђеЉџгЃЁзµ¶еЇѕе¤±ж•—г‚’и‡Єе‹•е€¤е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂеђ„зЁ®иЎЁг‚ігѓћгѓігѓ‰г‚’е®џиЈ…гЃ—гЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»EarthDawnгЂЂпј€г‚ўгѓјг‚№гѓ‰гѓјгѓіпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚№гѓ†гѓѓгѓ—гѓЂг‚¤г‚№гЃ«еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгѓ»EmbryoMachineгЂЂпј€г‚Ёгѓ гѓ–гѓЄг‚Єгѓћг‚·гѓіпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂж”»ж’ѓе€¤е®љгЃ§г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЃЁгѓ•г‚Ўгѓігѓ–гѓ«г‚’и‡Єе‹•е€¤е®љгЃ—гЂЃе‘Ѕдё­гЃ—гЃџйљ›гЃ«гЃЇе‘Ѕдё­гѓ¬гѓ™гѓ«гЃЁе‘Ѕдё­йѓЁдЅЌг‚’и‡Єе‹•иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ•г‚Ўгѓігѓ–гѓ«ж™‚гЃ«гЃЇгѓ•г‚Ўгѓігѓ–гѓ«иЎЁг‚’и‡Єе‹•иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂеђ„зЁ®иЎЁг‚’е®џиЈ…гЃ—гЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»GehennaAnгЂЂпј€г‚ІгѓгѓЉгѓ»г‚ўгѓЉг‚№г‚їг‚·г‚№пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂж€¦й—е€¤е®љгЃЁйЂљеёёе€¤е®љгЃ«еЇѕеїњгЂ‚е№ёйЃ‹гЃ®еЉ©гЃ‘гЂЃйЂЈж’ѓеў—еЉ еЂ¤(ж€¦й—е€¤е®љ)гЂЃй—жЉЂгѓЃгѓѓгѓ€(ж€¦й—е€¤е®љ)г‚’и‡Єе‹•иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»MagicaLogiaгЂЂпј€гѓћг‚«гѓ­г‚®г‚ўпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂеђ„зЁ®иЎЁгЂЊWTгЂЌгЂЊCTгЂЌгЂЊSTгЂЌгЂЊFTгЂЌгЂЊATгЂЌгЃЊе®џиЈ…гЃ•г‚ЊгЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»NechronicaгЂЂпј€ж°ёгЃ„еѕЊж—Ґи«‡гЃ®гѓЌг‚Їгѓ­гѓ‹г‚«пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂдёЂи€¬е€¤е®љгЂЊNCгЂЌгЃЁж”»ж’ѓе€¤е®љгЂЊNAгЂЌг‚’е®џиЈ…гЂ‚
+гЂЂгЂЂгЂЂгѓ»MeikyuDaysгЂЂпј€иї·е®®гѓ‡г‚¤г‚єпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ«зµ¶еЇѕж€ђеЉџгЃЁзµ¶еЇѕе¤±ж•—г‚’и‡Єе‹•е€¤е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂеђ„зЁ®иЎЁг‚ігѓћгѓігѓ‰г‚’е®џиЈ…гЃ—гЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»PeekabooгЂЂпј€гѓ”гѓјг‚«гѓ–гѓјпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ«г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЃЁгѓ•г‚Ўгѓігѓ–гѓ«г‚’и‡Єе‹•иЎЁз¤є
+гЂЂгЂЂгЂЂгѓ»BarnaKronikaгЂЂпј€гѓђгѓ«гѓЉгѓ»г‚Їгѓ­гѓ‹г‚«пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂдёЂи€¬е€¤е®љгЂЃж”»ж’ѓе€¤е®љгЂЃг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«г‚ігѓјгѓ«гЃ«еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂж€ђеЉџж•°гЃЁг‚»гѓѓгѓ€г‚’и‡Єе‹•иЎЁз¤єгЃ—гЂЃж”»ж’ѓе€¤е®љж™‚гЃЇйѓЁдЅЌг‚‚и‡Єе‹•иЎЁз¤єгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂг‚«гѓјгѓ‰гЃЇг‚ёгѓ§гѓјг‚«гѓјпј’жћљг‚’еђ«г‚Ђ54жћљгЂ‚
+гЂЂгЂЂгЂЂгѓ»RokumonSekai2гЂЂпј€е…­й–Ђдё–з•Њ2nd.Editionпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂдёЂи€¬е€¤е®љгЃ«еЇѕеїњгЂ‚ж€ђеЉџеє¦гЂЃи©•дѕЎгЂЃгѓЂг‚¤г‚№гѓњгѓјгѓЉг‚№г‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»MonotoneMusiumгЂЂ(гѓўгѓЋгѓ€гѓјгѓігѓ»гѓџгѓҐгѓјг‚ёг‚ўгѓ )
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ«и‡Єе‹•ж€ђеЉџгЃЁи‡Єе‹•е¤±ж•—гЃ«еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЊе…†еЂ™иЎЁгЂЌгЂЊж­ЄгЃїиЎЁгЂЌгЂЊдё–з•Њж­Єж›ІиЎЁгЂЌгЃ«еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгѓ»ZettaiReidoгЂЂ(зµ¶еЇѕйљ·еҐґ)
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ®г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЂЃDPеЏ–еѕ—гЃ«еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгѓ»EclipsePhase
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ®ж€ђеђ¦гЂЃг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЃ«еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгѓ»BloodCrusadeгЂЂпј€гѓ–гѓ©гѓѓгѓ‰гѓ»г‚Їгѓ«г‚»г‚¤гѓ‰пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ«г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЃЁгѓ•г‚Ўгѓігѓ–гѓ«г‚’и‡Єе‹•е€¤е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂеђ„зЁ®иЎЁг‚ігѓћгѓігѓ‰гЂЊRTгЂЌгЂЊSTгЂЌгЂЊISTгЂЌгЂЊBRTгЂЌгЂЊCHTгЂЌгЂЊSHTгЂЌгЂЊDHTгЂЌгЂЊLHTгЂЌгЂЊEHTгЂЌгЃЊе®џиЈ…гЃ•г‚ЊгЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»ShinkuuGakuenгЂЂпј€зњџз©єе­¦ењ’пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂжЉЂиѓЅе€¤е®љгЂЊRL10гЂЌгЃ»гЃ‹еђ„зЁ®ж­¦е™ЁгЃ®е€¤е®љгЃЊе®џиЈ…гЃ•г‚ЊгЃ¦гЃ„гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»SMTKakuseihenгЂЂпј€зњџгѓ»еҐізҐћи»ўз”џTRPGгЂЂи¦љй†’з·Ёпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ«г‚№гѓЇгѓѓгѓ—пјЏйЂљеёёпјЏйЂ†г‚№гѓЇгѓѓгѓ—гЃ®зµђжћњг‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгЂЂеЁЃеЉ›гѓЂг‚¤г‚№гЃЇ nU6[6] (nгЃЇгѓЂг‚¤г‚№еЂ‹ж•°)гЃ§гѓ­гѓјгѓ«еЏЇиѓЅгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»RyutamaгЂЂпј€г‚Љг‚…гЃ†гЃџгЃѕпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ«ж€ђеЉџе¤±ж•—гЃЁпј‘г‚ѕгѓ­гЂЃг‚ЇгѓЄгѓ†г‚Јг‚«гѓ«гЃ®зµђжћњг‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгѓ»CardRankerгЂЂпј€г‚«гѓјгѓ‰гѓ©гѓіг‚«гѓјпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љж™‚гЃ«ж€ђеЉџгЂЃе¤±ж•—гЂЃгѓ•г‚Ўгѓігѓ–гѓ«гЂЃг‚№гѓљг‚·гѓЈгѓ«гЃ®и‡Єе‹•иЎЁз¤є
+гЂЂгЂЂгЂЂгЂЂгЂЂеђ„зЁ®иЎЁг‚’еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгѓ»CrashWorldгЂЂпј€еўњиђЅдё–з•Њпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љгЃ«еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгѓ»WitchQuestгЂЂпј€г‚¦г‚ЈгѓѓгѓЃг‚Їг‚Ёг‚№гѓ€пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љгЃЁг‚№гѓ€гѓ©г‚ЇгѓЃгѓЈгѓјг‚«гѓјгѓ‰гЃ®йЃ­йЃ‡иЎЁгЃ«еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгѓ»ElysionгЂЂпј€г‚ЁгѓЄгѓҐг‚·г‚Єгѓіпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љгЃ«еЇѕеїњгЂ‚
+гЂЂгЂЂгЂЂгѓ»GeishaGirlwithKatanaгЂЂпј€г‚Іг‚¤г‚·гѓЈг‚¬гѓјгѓ«г‚¦г‚Јг‚єг‚«г‚їгѓЉпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂе€¤е®љгЃ«еЇѕеїњгЂ‚гѓЃгѓ§гѓ гѓђг‚‚е€¤е®љгЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂ
+гЂЂгЂЂгЂЂгѓ»NoneгЂЂ(г‚Ігѓјгѓ иЁ­е®љи§Јй™¤)
+гЂЂгЂЂгЂЂгЂЂг‚Ігѓјгѓ иЁ­е®љг‚’и§Јй™¤гЃ—гЃѕгЃ™гЂ‚
+гЂЂгЂЂгЂЂгЂЂгѓ€гѓ©гѓігѓ—гЃЇпј‘г‚»гѓѓгѓ€пј‹г‚ёгѓ§гѓјг‚«гѓјпј‘жћљгЃ«гЃЄг‚ЉгЃѕгЃ™гЂ‚
+
+
+гЂЂпј—пјЋг‚ЄгѓЄг‚ёгѓЉгѓ«гЃ®иЎЁиїЅеЉ 
+гЂЂгЂЂгЂЂи‡Єе‰ЌгЃ®иЎЁг‚’иїЅеЉ гЃ—гЃ¦гЃ—гЃџгЃ„е ґеђ€гЃЇгЂЃbcdice.exeгЃ®з›ґдё‹гЃ® extratables гѓ‡г‚Јгѓ¬г‚Їгѓ€гѓЄгЃ«ж‹ЎејµиЎЁе®љзѕ©гѓ•г‚Ўг‚¤гѓ«г‚’зЅ®гЃЏгЃ“гЃЁгЃ§д»»ж„ЏгЃ®иїЅеЉ гЃЊеЏЇиѓЅгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂextratables гЃ«гЃЇг‚µгѓігѓ—гѓ«гЃ®гѓ‡гѓјг‚їгЃЊгЃ‚г‚ЉгЃѕгЃ™гЃ®гЃ§еЏ‚иЂѓгЃ«гЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+гЂЂгЂЂгЂЂе®љзѕ©гѓ•г‚Ўг‚¤гѓ«гЃ®гѓ•г‚©гѓјгѓћгѓѓгѓ€гЃЇд»Ґдё‹гЃ®гѓ«гѓјгѓ«гЃ®йЂљг‚ЉгЃ§гЃ™гЂ‚
+гЂЂгЂЂгЂЂ
+гЂЂгЂЂгЂЂгѓ»гѓ•г‚Ўг‚¤гѓ«еђЌ
+гЂЂгЂЂгЂЂгЂЂз‰№е®љгЃ®г‚Ігѓјгѓ гЃ§гЃ гЃ‘иЎЁг‚’жњ‰еЉ№гЃ«гЃ—гЃџгЃ„е ґеђ€
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂ(г‚Ігѓјгѓ и­е€ҐеђЌ)_(иЎЁг‚ігѓћгѓігѓ‰еђЌ).txt
+гЂЂгЂЂгЂЂгЂЂгЂЂдѕ‹пј‰ShinobiGami_AKST.txt
         
-Ѓ@Ѓ@Ѓ@Ѓ@‘S‚Д‚МѓQЃ[ѓЂ‚ЕѓRѓ}ѓ“ѓh‚р—LЊш‚Й‚·‚йЏкЌ‡
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@(ѓRѓ}ѓ“ѓh–ј).txt
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@—бЃjCommand.txt
+гЂЂгЂЂгЂЂгЂЂе…ЁгЃ¦гЃ®г‚Ігѓјгѓ гЃ§г‚ігѓћгѓігѓ‰г‚’жњ‰еЉ№гЃ«гЃ™г‚‹е ґеђ€
+гЂЂгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂ(г‚ігѓћгѓігѓ‰еђЌ).txt
+гЂЂгЂЂгЂЂгЂЂгЂЂдѕ‹пј‰Command.txt
         
-Ѓ@Ѓ@Ѓ@Ѓ@‚Ж‚ў‚¤–ј‘O‚Й‚µ‚Д‚­‚ѕ‚і‚ўЃB
+гЂЂгЂЂгЂЂгЂЂгЃЁгЃ„гЃ†еђЌе‰ЌгЃ«гЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
         
-Ѓ@Ѓ@Ѓ@ЃEѓtѓ@ѓCѓ‹“а—e
-Ѓ@Ѓ@Ѓ@Ѓ@
-Ѓ@Ѓ@Ѓ@Ѓ@1Ќs–ЪЃF
-Ѓ@        (ѓЌЃ[ѓ‹‚·‚йѓ_ѓCѓXЃj:Ѓi•\–јЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@—бЃjЃ@2D6:ЏH‹у‚Йђб•‘‚¦‚ОѓVЃ[ѓ“•\
-Ѓ@Ѓ@Ѓ@Ѓ@
-Ѓ@Ѓ@Ѓ@Ѓ@2Ќs–Ъ€ИЌ~ЃF
-Ѓ@        (ѓ_ѓCѓX–ЪЃj:Ѓi•\‚М“а—eЃj
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@—бЃjЃ@ 9:ђ_”й“I‚Иђ_ЋРЃBЌХ‚и‚МЏЂ”х‚Єђi‚Я‚з‚к‚Д‚ў‚й‚ЄЃAЌЎ‚Нђl‚Є‚ў‚И‚ў‚ж‚¤‚ѕЃB
-Ѓ@Ѓ@Ѓ@Ѓ@
-Ѓ@Ѓ@Ѓ@Ѓ@ЉeЌs‚Мђж“Є‚Й‚Н‹у”’‚р“ь‚к‚Д‚а–в‘и‚ ‚и‚Ь‚№‚сЃB
-Ѓ@Ѓ@Ѓ@Ѓ@
-Ѓ@Ѓ@Ѓ@ЃEЋg‚ў•ы
-Ѓ@Ѓ@Ѓ@Ѓ@Ћw’и‚µ‚ЅѓQЃ[ѓЂ‚р‘I‘р‚µ‚ДЃA’КЏн‚М•\‚Ж“Ї—l‚ЙЏг‹L‚ЕЊ€‚Я‚ЅЃiѓRѓ}ѓ“ѓh–јЃj‚р“ь—Н‚µ‚Д‚­‚ѕ‚і‚ўЃB
-Ѓ@Ѓ@Ѓ@Ѓ@ЃiѓЌЃ[ѓ‹‚·‚йѓ_ѓCѓXЃj‚ЕЋw’и‚µ‚Ѕѓ_ѓCѓX‚рѓЌЃ[ѓ‹‚µ‚ДЊ‹‰К‚Є•\Ћ¦‚і‚к‚Ь‚·ЃB
+гЂЂгЂЂгЂЂгѓ»гѓ•г‚Ўг‚¤гѓ«е†…е®№
+гЂЂгЂЂгЂЂгЂЂ
+гЂЂгЂЂгЂЂгЂЂ1иЎЊз›®пјљ
+гЂЂ        (гѓ­гѓјгѓ«гЃ™г‚‹гѓЂг‚¤г‚№пј‰:пј€иЎЁеђЌпј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂдѕ‹пј‰гЂЂ2D6:з§‹з©єгЃ«й›Єи€ћгЃ€гЃ°г‚·гѓјгѓіиЎЁ
+гЂЂгЂЂгЂЂгЂЂ
+гЂЂгЂЂгЂЂгЂЂ2иЎЊз›®д»Ґй™Ќпјљ
+гЂЂ        (гѓЂг‚¤г‚№з›®пј‰:пј€иЎЁгЃ®е†…е®№пј‰
+гЂЂгЂЂгЂЂгЂЂгЂЂдѕ‹пј‰гЂЂ 9:зҐћз§зљ„гЃЄзҐћз¤ѕгЂ‚зҐ­г‚ЉгЃ®жє–е‚™гЃЊйЂІг‚Ѓг‚‰г‚ЊгЃ¦гЃ„г‚‹гЃЊгЂЃд»ЉгЃЇдєєгЃЊгЃ„гЃЄгЃ„г‚€гЃ†гЃ гЂ‚
+гЂЂгЂЂгЂЂгЂЂ
+гЂЂгЂЂгЂЂгЂЂеђ„иЎЊгЃ®е…€й ­гЃ«гЃЇз©єз™Ѕг‚’е…Ґг‚ЊгЃ¦г‚‚е•ЏйЎЊгЃ‚г‚ЉгЃѕгЃ›г‚“гЂ‚
+гЂЂгЂЂгЂЂгЂЂ
+гЂЂгЂЂгЂЂгѓ»дЅїгЃ„ж–№
+гЂЂгЂЂгЂЂгЂЂжЊ‡е®љгЃ—гЃџг‚Ігѓјгѓ г‚’йЃёжЉћгЃ—гЃ¦гЂЃйЂљеёёгЃ®иЎЁгЃЁеђЊж§гЃ«дёЉиЁгЃ§ж±єг‚ЃгЃџпј€г‚ігѓћгѓігѓ‰еђЌпј‰г‚’е…ҐеЉ›гЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
+гЂЂгЂЂгЂЂгЂЂпј€гѓ­гѓјгѓ«гЃ™г‚‹гѓЂг‚¤г‚№пј‰гЃ§жЊ‡е®љгЃ—гЃџгѓЂг‚¤г‚№г‚’гѓ­гѓјгѓ«гЃ—гЃ¦зµђжћњгЃЊиЎЁз¤єгЃ•г‚ЊгЃѕгЃ™гЂ‚
 
-4.ЌXђV—љ—рЃF
+4.ж›ґж–°е±Ґж­ґпјљ
+Ver2.02.05 2014/01/30
+гѓ»Open Dice!г‚ігѓћгѓігѓ‰гЂЃOpen Plot!г‚ігѓћгѓігѓ‰г‚’е¤§ж–‡е­—е°Џж–‡е­—гЃ©гЃЎг‚‰гЃ§г‚‚е€¤е®љгЃ§гЃЌг‚‹г‚€гЃ†гЃ«ж”№и‰ЇгЂ‚йўЁзїјгЃ•г‚“гЃ—гЃ¦гЃЌгЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»г‚Ёгѓігѓ‰гѓ–гѓ¬г‚¤г‚«гѓјгЃ®г‚ігѓјгѓ‰г‚’дї®ж­Јпј€ж©џиѓЅгЃ«е¤‰ж›ґгЃЄгЃ—пј‰пј€гЃЏгЃѕгЃ‹гЃ°гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃпј‰
+гѓ»гѓЏгѓіг‚їгѓјг‚єгѓ гѓјгѓігЃ®иЄ¬жЋж–‡гЃ®иЄ¤иЁдї®ж­ЈгЂ‚пј€д»Љй‡ЋеЌљи‡ЈгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃпј‰
+гѓ»гѓ–гѓ©гѓѓгѓ‰гѓ»г‚Їгѓ«г‚»г‚¤гѓ‰гЃ«ж™‚й–“зµЊйЃЋиЎЁпј€10д»ЈпЅћ60д»ЈгЂЃеЏЌеђёиЎЂй¬јпј‰TD1TпЅћTD6TгЂЃTDHT г‚’иїЅеЉ гЂ‚пј€д»Љй‡ЋеЌљи‡ЈгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃпј‰
+
+Ver2.02.04 2014/01/22
+гѓ»г‚Ёгѓігѓ‰гѓ–гѓ¬г‚¤г‚«гѓјг‚’иїЅеЉ гЂ‚пј€гѓЏг‚№г‚­гѓјгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃпј‰
+гѓ»г‚¦г‚їг‚«г‚јг‚’иїЅеЉ гЂ‚пј€гЃЏгЃѕгЃ‹гЃ°гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃпј‰
+
 Ver2.02.03 2014/01/14
-ЃEѓvѓЌѓbѓg‚МЉJЋ¦‚Є‚Е‚«‚И‚ў•s‹пЌ‡‚рЏCђіЃB
-ЃEѓvѓЌѓbѓgЉJЋ¦‚р€к“xЌs‚н‚И‚ў‚ЖѓvѓЌѓbѓgЏo—€‚И‚©‚Б‚Ѕ‚М‚рЃA
-Ѓ@€к•¶‚Е‚а•¶Ћљ‚р‘Е‚Б‚Д‚Ё‚Ї‚ОѓvѓЌѓbѓg‰В”\Џу‘Ф‚Й‚И‚й‚ж‚¤‚Й‰ь—ЗЃB
+гѓ»гѓ—гѓ­гѓѓгѓ€гЃ®й–‹з¤єгЃЊгЃ§гЃЌгЃЄгЃ„дёЌе…·еђ€г‚’дї®ж­ЈгЂ‚
+гѓ»гѓ—гѓ­гѓѓгѓ€й–‹з¤єг‚’дёЂеє¦иЎЊг‚ЏгЃЄгЃ„гЃЁгѓ—гѓ­гѓѓгѓ€е‡єжќҐгЃЄгЃ‹гЃЈгЃџгЃ®г‚’гЂЃ
+гЂЂдёЂж–‡гЃ§г‚‚ж–‡е­—г‚’ж‰“гЃЈгЃ¦гЃЉгЃ‘гЃ°гѓ—гѓ­гѓѓгѓ€еЏЇиѓЅзЉ¶ж…‹гЃ«гЃЄг‚‹г‚€гЃ†гЃ«ж”№и‰ЇгЂ‚
 
 Ver2.02.02.01 2014/01/10
-ЃEѓVѓmѓrѓKѓ~‚М•\’З‰Б‚рЌнЏњЃB
+гѓ»г‚·гѓЋгѓ“г‚¬гѓџгЃ®иЎЁиїЅеЉ г‚’е‰Љй™¤гЂ‚
 
 Ver2.02.02 2014/01/10
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚ЕЃu3D/2Ѓv‚М‚ж‚¤‚ЙЏo–Ъ‚МЉ„‚иЋZ‚Й‘О‰ћЃB
-Ѓ@/n‚ЕnЉ„‚иђШ‚иЋМ‚ДЃA/nU‚ЖU‚р‚В‚Ї‚й‚ЖђШ‚иЏг‚°ЃA/nR‚ЖR‚В‚Ї‚й‚ЖЋlЋМЊЬ“ьЃB‰iЉЦ’с€Д‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓCѓ“ѓZѓCѓ“‚Й•\’З‰БЃBЃi”\‘г‹в‰Ш‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃIЃj
-‰пbѓzѓ‰Ѓ[ѓXѓPЃ[ѓv•\(CHT)Ѓ^ЉX’†ѓzѓ‰Ѓ[ѓXѓPЃ[ѓv•\(VHT)Ѓ^•s€У–K–вѓzѓ‰Ѓ[ѓXѓPЃ[ѓv•\(IHT)Ѓ^”pљР‘‹цѓzѓ‰Ѓ[ѓXѓPЃ[ѓv•\(RHT)Ѓ^–мЉO‘‹цѓzѓ‰Ѓ[ѓXѓPЃ[ѓv•\(MHT)Ѓ^Џо•сђцЌЭѓzѓ‰Ѓ[ѓXѓPЃ[ѓv•\(LHT)
-ЃEѓVѓmѓrѓKѓ~‚Й•\’З‰БЃBЃi”\‘г‹в‰Ш‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃIЃj
-Ѓ@€к‰Д‚МѓVЃ[ѓ“•\Ѓ@IST/ѓZѓNѓVЃ[ѓVЃ[ѓ“•\ ESTЃ^ѓ‰ѓbѓLЃ[ѓXѓPѓxѓVЃ[ѓ“•\ RST/‹ь•ћ•\ XST
-ЃE‚sЃ•‚sѓ_ѓCѓXѓ{ѓbѓg‚МЊoЊ±’lЊvЋZ‚рЏCђіЃi‚­‚Ь‚©‚О‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃIЃj
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ§гЂЊ3D/2гЂЌгЃ®г‚€гЃ†гЃ«е‡єз›®гЃ®е‰Іг‚Љз®—гЃ«еЇѕеїњгЂ‚
+гЂЂ/nгЃ§nе‰Іг‚Ље€‡г‚ЉжЌЁгЃ¦гЂЃ/nUгЃЁUг‚’гЃ¤гЃ‘г‚‹гЃЁе€‡г‚ЉдёЉгЃ’гЂЃ/nRгЃЁRгЃ¤гЃ‘г‚‹гЃЁе››жЌЁдє”е…ҐгЂ‚ж°ёй–ўжЏђжЎ€гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»г‚¤гѓіг‚»г‚¤гѓігЃ«иЎЁиїЅеЉ гЂ‚пј€иѓЅд»ЈйЉЂиЏЇгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃпј‰
+дјљи©±гѓ›гѓ©гѓјг‚№г‚±гѓјгѓ—иЎЁ(CHT)пјЏиЎ—дё­гѓ›гѓ©гѓјг‚№г‚±гѓјгѓ—иЎЁ(VHT)пјЏдёЌж„ЏиЁЄе•Џгѓ›гѓ©гѓјг‚№г‚±гѓјгѓ—иЎЁ(IHT)пјЏе»ѓеўџйЃ­йЃ‡гѓ›гѓ©гѓјг‚№г‚±гѓјгѓ—иЎЁ(RHT)пјЏй‡Ће¤–йЃ­йЃ‡гѓ›гѓ©гѓјг‚№г‚±гѓјгѓ—иЎЁ(MHT)пјЏжѓ…е ±жЅњењЁгѓ›гѓ©гѓјг‚№г‚±гѓјгѓ—иЎЁ(LHT)
+гѓ»г‚·гѓЋгѓ“г‚¬гѓџгЃ«иЎЁиїЅеЉ гЂ‚пј€иѓЅд»ЈйЉЂиЏЇгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃпј‰
+гЂЂдёЂе¤ЏгЃ®г‚·гѓјгѓіиЎЁгЂЂIST/г‚»г‚Їг‚·гѓјг‚·гѓјгѓіиЎЁ ESTпјЏгѓ©гѓѓг‚­гѓјг‚№г‚±гѓ™г‚·гѓјгѓіиЎЁ RST/е±€жњЌиЎЁ XST
+гѓ»пјґпј†пјґгѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ®зµЊйЁ“еЂ¤иЁ€з®—г‚’дї®ж­Јпј€гЃЏгЃѕгЃ‹гЃ°гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃпј‰
 
 Ver2.02.01 2013/12/26
-Ѓ@‚ў‚ў‰БЊёѓoЃ[ѓWѓ‡ѓ“‚р€к‚ВЏг‚ЙѓAѓbѓvЃB‘ј€У‚Н–і‚ў‚Е‚·ЃB
-Ѓ@ЃEѓ_ѓCѓXѓ{ѓbѓg‚ЙѓrЃ[ѓXѓgѓoѓCѓ“ѓh ѓgѓЉѓjѓeѓBЃ[‚р’З‰БЃB‘qЌв—I‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-Ѓ@ЃECѓRѓ}ѓ“ѓh‚Е ЃuC(10+1) ‘«‚µЋZЃv ‚М—l‚ЙѓЃѓbѓZЃ[ѓW‚р’З‰Б‚·‚й‚ЖЊvЋZ‚ЄЋАЌs‚Е‚«‚И‚ў•s‹пЌ‡‚рЏCђіЃBѓЉѓlѓmѓ“‚і‚сЋw“E‚ ‚и‚Є‚Ж‚¤‚БЃI
+гЂЂгЃ„гЃ„еЉ жё›гѓђгѓјг‚ёгѓ§гѓіг‚’дёЂгЃ¤дёЉгЃ«г‚ўгѓѓгѓ—гЂ‚д»–ж„ЏгЃЇз„ЎгЃ„гЃ§гЃ™гЂ‚
+гЂЂгѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«гѓ“гѓјг‚№гѓ€гѓђг‚¤гѓігѓ‰ гѓ€гѓЄгѓ‹гѓ†г‚Јгѓјг‚’иїЅеЉ гЂ‚еЂ‰еќ‚ж‚ гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гЂЂгѓ»Cг‚ігѓћгѓігѓ‰гЃ§ гЂЊC(10+1) и¶ігЃ—з®—гЂЌ гЃ®ж§гЃ«гѓЎгѓѓг‚»гѓјг‚ёг‚’иїЅеЉ гЃ™г‚‹гЃЁиЁ€з®—гЃЊе®џиЎЊгЃ§гЃЌгЃЄгЃ„дёЌе…·еђ€г‚’дї®ж­ЈгЂ‚гѓЄгѓЌгѓЋгѓігЃ•г‚“жЊ‡ж‘гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.61 2013/12/16
-ЃEѓnѓ“ѓ^Ѓ[ѓYѓЂЃ[ѓ“‚М•\‚р12ЊВ’З‰БЃBЌЎ–м”Ћђb‚і‚с‚ ‚и‚Є‚Ж‚¤ЃI
+гѓ»гѓЏгѓіг‚їгѓјг‚єгѓ гѓјгѓігЃ®иЎЁг‚’12еЂ‹иїЅеЉ гЂ‚д»Љй‡ЋеЌљи‡ЈгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†пјЃ
 
 Ver2.01.60 2013/12/14
-ЃEѓLѓ‹ѓfѓXѓrѓWѓlѓX‚Й‘hђ¶•›Ќм—p•\‚Ж€кЏTЉФ•\‚р’З‰БЃB”\‘г‹в‰Ш‚і‚с‚ ‚и‚Є‚Ж‚¤ЃI
-ЃEѓsЃ[ѓJѓuЃ[‚Й“ъ’†ѓuѓ‰ѓuѓ‰•\‚р’З‰БЃB‚±‚ї‚з‚а”\‘г‹в‰Ш‚і‚с‚ ‚и‚Є‚Ж‚¤ЃI
+гѓ»г‚­гѓ«гѓ‡г‚№гѓ“г‚ёгѓЌг‚№гЃ«и‡з”џе‰ЇдЅњз”ЁиЎЁгЃЁдёЂйЂ±й–“иЎЁг‚’иїЅеЉ гЂ‚иѓЅд»ЈйЉЂиЏЇгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†пјЃ
+гѓ»гѓ”гѓјг‚«гѓ–гѓјгЃ«ж—Ґдё­гѓ–гѓ©гѓ–гѓ©иЎЁг‚’иїЅеЉ гЂ‚гЃ“гЃЎг‚‰г‚‚иѓЅд»ЈйЉЂиЏЇгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†пјЃ
 
 Ver2.01.59 2013/12/12
-ЃE‰›‰Ш••ђ_ѓ_ѓCѓXѓ{ѓbѓgѓRѓ}ѓ“ѓhЏo—Н‚р€к•”‰ь—ЗЃB‚ ‚ё‚і‚с‚ ‚и‚Є‚Ж‚¤ЃI
-ЃEѓpѓ‰ѓTѓCѓgѓuѓ‰ѓbѓh‚МѓRѓ}ѓ“ѓh‚рђ®—ќЃB‚ ‚й‚Ѕ‚і‚с‚ ‚и‚Є‚Ж‚¤ЃI
-ЃEѓ_ѓuѓ‹ѓNѓЌѓX‚Мђа–ѕ•Є•¶Ћљ‰»‚Ї‚рЏCђіЃBЌЎ–м‚і‚с‚ ‚и‚Є‚Ж‚¤ЃI
+гѓ»е¤®иЏЇе°ЃзҐћгѓЂг‚¤г‚№гѓњгѓѓгѓ€г‚ігѓћгѓігѓ‰е‡єеЉ›г‚’дёЂйѓЁж”№и‰ЇгЂ‚гЃ‚гЃљгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†пјЃ
+гѓ»гѓ‘гѓ©г‚µг‚¤гѓ€гѓ–гѓ©гѓѓгѓ‰гЃ®г‚ігѓћгѓігѓ‰г‚’ж•ґзђ†гЂ‚гЃ‚г‚‹гЃџгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†пјЃ
+гѓ»гѓЂгѓ–гѓ«г‚Їгѓ­г‚№гЃ®иЄ¬жЋе€†ж–‡е­—еЊ–гЃ‘г‚’дї®ж­ЈгЂ‚д»Љй‡ЋгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†пјЃ
 
 Ver2.01.58 2013/11/28
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚ЙѓKЃ[ѓvѓXѓtѓBѓ‹ѓgѓEѓBѓY‚р’З‰БЃBѓnѓXѓLЃ[‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓnѓ“ѓ^Ѓ[ѓYѓЂЃ[ѓ“‚Й€ЩЊ`ѓAѓrѓЉѓeѓB•\‚QѓRѓ}ѓ“ѓh(SA2T)‚р’З‰БЃBЌЎ–м”Ћђb‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓTѓ^ѓXѓy‚МNPCTѓRѓ}ѓ“ѓh‚МЏo—Н‚р‰ь‘PЃB
-ЃEѓJЃ[ѓhѓ‰ѓ“ѓJЃ[‚МSDTѓRѓ}ѓ“ѓh‚рGDT‚Й•ПЌXЃB
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«г‚¬гѓјгѓ—г‚№гѓ•г‚Јгѓ«гѓ€г‚¦г‚Јг‚єг‚’иїЅеЉ гЂ‚гѓЏг‚№г‚­гѓјгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»гѓЏгѓіг‚їгѓјг‚єгѓ гѓјгѓігЃ«з•°еЅўг‚ўгѓ“гѓЄгѓ†г‚ЈиЎЁпј’г‚ігѓћгѓігѓ‰(SA2T)г‚’иїЅеЉ гЂ‚д»Љй‡ЋеЌљи‡ЈгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»г‚µг‚їг‚№гѓљгЃ®NPCTг‚ігѓћгѓігѓ‰гЃ®е‡єеЉ›г‚’ж”№е–„гЂ‚
+гѓ»г‚«гѓјгѓ‰гѓ©гѓіг‚«гѓјгЃ®SDTг‚ігѓћгѓігѓ‰г‚’GDTгЃ«е¤‰ж›ґгЂ‚
 
 Ver2.01.57 2013/11/11
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚Й‰›‰Ш••ђ_RPG ‘жЋO”Е’З‰БЃB‚ ‚ё‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓLѓ‹ѓfѓXѓrѓWѓlѓX‚МѓGѓLѓXѓgѓ‰•\‚р’З‰БЃBѓnѓXѓLЃ[‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«е¤®иЏЇе°ЃзҐћRPG з¬¬дё‰з‰€иїЅеЉ гЂ‚гЃ‚гЃљгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»г‚­гѓ«гѓ‡г‚№гѓ“г‚ёгѓЌг‚№гЃ®г‚Ёг‚­г‚№гѓ€гѓ©иЎЁг‚’иїЅеЉ гЂ‚гѓЏг‚№г‚­гѓјгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.56 2013/11/04
-ЃE€к•”ѓ_ѓCѓXѓ{ѓbѓg‚Еѓ_ѓCѓXѓRѓ}ѓ“ѓh‚МЊг‚л‚ЙѓЃѓbѓZЃ[ѓW‚рЏ‘‚ў‚ЅЏкЌ‡‚ЙѓЌЃ[ѓ‹‚ЄЋАЌs‚і‚к‚И‚­‚И‚Б‚Д‚ў‚Ѕ–в‘и‚Й‘О‰ћЃB
-ЃEѓ_ѓCѓXЋн•К‚М‰Я•s‘«‚рЏCђі
+гѓ»дёЂйѓЁгѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ§гѓЂг‚¤г‚№г‚ігѓћгѓігѓ‰гЃ®еѕЊг‚ЌгЃ«гѓЎгѓѓг‚»гѓјг‚ёг‚’ж›ёгЃ„гЃџе ґеђ€гЃ«гѓ­гѓјгѓ«гЃЊе®џиЎЊгЃ•г‚ЊгЃЄгЃЏгЃЄгЃЈгЃ¦гЃ„гЃџе•ЏйЎЊгЃ«еЇѕеїњгЂ‚
+гѓ»гѓЂг‚¤г‚№зЁ®е€ҐгЃ®йЃЋдёЌи¶іг‚’дї®ж­Ј
 
 Ver2.01.55 2013/10/26
-ЃEѓTѓ^ѓXѓy‚МѓЌЃ[ѓ‹ѓRѓ}ѓ“ѓh‚Й•KЋE”­“®‚ЕѓЌЃ[ѓ‹‚рЋ~‚Я‚й S ѓIѓvѓVѓ‡ѓ“‚р’З‰БЃBѓnѓXѓLЃ[‚і‚с‚ ‚и‚Є‚Ж‚¤ЃI
+гѓ»г‚µг‚їг‚№гѓљгЃ®гѓ­гѓјгѓ«г‚ігѓћгѓігѓ‰гЃ«еї…ж®єз™єе‹•гЃ§гѓ­гѓјгѓ«г‚’ж­ўг‚Ѓг‚‹ S г‚Єгѓ—г‚·гѓ§гѓіг‚’иїЅеЉ гЂ‚гѓЏг‚№г‚­гѓјгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†пјЃ
 
 Ver2.01.54 2013/10/22
-ЃEUѓRѓ}ѓ“ѓh‚Е 1U6 ‚М‚ж‚¤‚Йѓ_ѓCѓXђ”‚P‚МЏкЌ‡‚ЙЌ‡Њv‚ЄЊvЋZ‚і‚к‚И‚ў–в‘и‚рЏCђіЃB–qЋR‚і‚сЋw“E‚ ‚и‚Є‚Ж‚¤ЃI
+гѓ»Uг‚ігѓћгѓігѓ‰гЃ§ 1U6 гЃ®г‚€гЃ†гЃ«гѓЂг‚¤г‚№ж•°пј‘гЃ®е ґеђ€гЃ«еђ€иЁ€гЃЊиЁ€з®—гЃ•г‚ЊгЃЄгЃ„е•ЏйЎЊг‚’дї®ж­ЈгЂ‚з‰§е±±гЃ•г‚“жЊ‡ж‘гЃ‚г‚ЉгЃЊгЃЁгЃ†пјЃ
 
 Ver2.01.53.01 2013/10/02
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚МѓeѓXѓg•ы–@‚Й‚В‚ў‚ДЃAtest/README.html ‚Й‹LЌЪЃB
-Ѓ@€к•”ѓ_ѓCѓXѓ{ѓbѓg‚рѓЉѓtѓ@ѓNѓ^ѓЉѓ“ѓOЃB
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ®гѓ†г‚№гѓ€ж–№жі•гЃ«гЃ¤гЃ„гЃ¦гЂЃtest/README.html гЃ«иЁиј‰гЂ‚
+гЂЂдёЂйѓЁгѓЂг‚¤г‚№гѓњгѓѓгѓ€г‚’гѓЄгѓ•г‚Ўг‚Їг‚їгѓЄгѓіг‚°гЂ‚
 
 Ver2.01.53 2013/09/29
-ЃEѓLѓ‹ѓfѓXѓrѓWѓlѓX‚Мѓ_ѓCѓXѓ{ѓbѓg‚Йѓtѓ@ѓ“ѓuѓ‹”»’и‚аЉЬ‚Я‚Ѕ”»’и—pѓRѓ}ѓ“ѓhЃiJDЃj‚р’З‰БЃB
-Ѓ@ѓwѓ‹ѓXѓ^ѓCѓЉѓXѓg”l“|•\‚Й‘OЊг‚МЏCЏьЊк‹е‚р’З‰БЃBђ_•ђ—€‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-Ѓ@€к•”•¶Ћљ‰»‚Ї‚рЏCђіЃB‚­‚Ь‚©‚О‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓTѓ^ѓXѓy‚Мѓ_ѓCѓXѓ{ѓbѓg‚р‘е—КЌXђVЃB
-Ѓ@ђ«‹Ж’lѓRѓ}ѓ“ѓh’З‰БЃB
-Ѓ@”»’иѓRѓ}ѓ“ѓh‚Й•KЋE’l’З‰БЃB
-Ѓ@Џо•сѓCѓxѓ“ѓgЃ^ѓnѓvѓjѓ“ѓO•\‚Й’l•вђі’З‰БЃB
-Ѓ@ЏL‚ў”С•\ЃAѓoѓbѓhѓgѓЉѓbѓv•\ЃA•сЏV•\’З‰БЃB
-Ѓ@ђ_•ђ—€‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚ЙRecord of Steam‚р’З‰БЃB‚з‚џ‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»г‚­гѓ«гѓ‡г‚№гѓ“г‚ёгѓЌг‚№гЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«гѓ•г‚Ўгѓігѓ–гѓ«е€¤е®љг‚‚еђ«г‚ЃгЃџе€¤е®љз”Ёг‚ігѓћгѓігѓ‰пј€JDпј‰г‚’иїЅеЉ гЂ‚
+гЂЂгѓгѓ«г‚№г‚їг‚¤гѓЄг‚№гѓ€зЅµеЂ’иЎЁгЃ«е‰ЌеѕЊгЃ®дї®йЈѕиЄћеЏҐг‚’иїЅеЉ гЂ‚зҐћж­¦жќҐгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гЂЂдёЂйѓЁж–‡е­—еЊ–гЃ‘г‚’дї®ж­ЈгЂ‚гЃЏгЃѕгЃ‹гЃ°гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»г‚µг‚їг‚№гѓљгЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€г‚’е¤§й‡Џж›ґж–°гЂ‚
+гЂЂжЂ§жҐ­еЂ¤г‚ігѓћгѓігѓ‰иїЅеЉ гЂ‚
+гЂЂе€¤е®љг‚ігѓћгѓігѓ‰гЃ«еї…ж®єеЂ¤иїЅеЉ гЂ‚
+гЂЂжѓ…е ±г‚¤гѓ™гѓігѓ€пјЏгѓЏгѓ—гѓ‹гѓіг‚°иЎЁгЃ«еЂ¤иЈњж­ЈиїЅеЉ гЂ‚
+гЂЂи‡­гЃ„йЈЇиЎЁгЂЃгѓђгѓѓгѓ‰гѓ€гѓЄгѓѓгѓ—иЎЁгЂЃе ±й…¬иЎЁиїЅеЉ гЂ‚
+гЂЂзҐћж­¦жќҐгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«Record of Steamг‚’иїЅеЉ гЂ‚г‚‰гЃЃгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.52 2013/09/22
-ЃEѓLѓ‹ѓfѓXѓrѓWѓlѓX‚ЙЋw’и“Б‹Zѓ‰ѓ“ѓ_ѓЂЊ€’и•\ (SKLT)‚р’З‰БЃBѓnѓXѓLЃ[‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓLѓ‹ѓfѓXѓrѓWѓlѓX‚МѓRѓ}ѓ“ѓh–ј‚р€к•”•ПЌXЃB”\‘г‹в‰Ш‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚Йђ_‰дЋл’З‰БЃB”\‘г‹в‰Ш‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»г‚­гѓ«гѓ‡г‚№гѓ“г‚ёгѓЌг‚№гЃ«жЊ‡е®љз‰№жЉЂгѓ©гѓігѓЂгѓ ж±єе®љиЎЁ (SKLT)г‚’иїЅеЉ гЂ‚гѓЏг‚№г‚­гѓјгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»г‚­гѓ«гѓ‡г‚№гѓ“г‚ёгѓЌг‚№гЃ®г‚ігѓћгѓігѓ‰еђЌг‚’дёЂйѓЁе¤‰ж›ґгЂ‚иѓЅд»ЈйЉЂиЏЇгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«зҐћж€‘з‹©иїЅеЉ гЂ‚иѓЅд»ЈйЉЂиЏЇгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.51 2013/09/13
-ЃEѓLѓ‹ѓfѓXѓrѓWѓlѓX‚Мѓ_ѓCѓXѓ{ѓbѓg’З‰БЃBѓnѓXѓLЃ[‚і‚сЃAЊў‚М‚ж‚¤‚И‚а‚М‚і‚сЃA‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»г‚­гѓ«гѓ‡г‚№гѓ“г‚ёгѓЌг‚№гЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€иїЅеЉ гЂ‚гѓЏг‚№г‚­гѓјгЃ•г‚“гЂЃзЉ¬гЃ®г‚€гЃ†гЃЄг‚‚гЃ®гЃ•г‚“гЂЃгЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.50 2013/09/12
-ЃEѓCѓ“ѓZѓCѓ“‚Мѓ_ѓCѓXѓ{ѓbѓg’З‰БЃBЊў‚М‚ж‚¤‚И‚а‚М‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»г‚¤гѓіг‚»г‚¤гѓігЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€иїЅеЉ гЂ‚зЉ¬гЃ®г‚€гЃ†гЃЄг‚‚гЃ®гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.49 2013/07/13
-ЃEGURPS‚Еѓ_ѓCѓX–Ъ‚Є17‚МЏкЌ‡‚ЙЋ©“®Ћё”s‚·‚й‚ж‚¤‚ЙЏCђіЃB
-ЃEѓVѓmѓrѓKѓ~‚ЕRTTѓRѓ}ѓ“ѓh‚ЄЊь‚±‚¤‚Й‚И‚Б‚Д‚ў‚Ѕ•s‹пЌ‡‚рЏCђіЃB
+гѓ»GURPSгЃ§гѓЂг‚¤г‚№з›®гЃЊ17гЃ®е ґеђ€гЃ«и‡Єе‹•е¤±ж•—гЃ™г‚‹г‚€гЃ†гЃ«дї®ж­ЈгЂ‚
+гѓ»г‚·гѓЋгѓ“г‚¬гѓџгЃ§RTTг‚ігѓћгѓігѓ‰гЃЊеђ‘гЃ“гЃ†гЃ«гЃЄгЃЈгЃ¦гЃ„гЃџдёЌе…·еђ€г‚’дї®ж­ЈгЂ‚
 
 Ver2.01.48 2013/06/15
-ЃEѓnЃ[ѓ“ѓ}ѓXѓ^Ѓ[‚Мѓ_ѓCѓXѓ{ѓbѓgѓRѓ}ѓ“ѓh‚рЏCђіЃB
+гѓ»гѓЏгѓјгѓігѓћг‚№г‚їгѓјгЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€г‚ігѓћгѓігѓ‰г‚’дї®ж­ЈгЂ‚
 
 Ver2.01.47 2013/06/11
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚ЙѓnЃ[ѓ“ѓ}ѓXѓ^Ѓ[‚р’З‰БЃB
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚М‹LЏq‚рѓЉѓtѓ@ѓNѓ^ѓЉѓ“ѓOЃB
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«гѓЏгѓјгѓігѓћг‚№г‚їгѓјг‚’иїЅеЉ гЂ‚
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ®иЁиї°г‚’гѓЄгѓ•г‚Ўг‚Їг‚їгѓЄгѓіг‚°гЂ‚
 
 Ver2.01.46 2013/06/05
-ЃED66ѓ_ѓCѓX‚Е‚аЋl‘Ґ‰‰ЋZ‚Є‚Е‚«‚й‚ж‚¤ѓ_ѓCѓXѓ{ѓbѓg‹@”\Љg’ЈЃBЋg—pЋћ‚Н•K‚ёЃu1D6+1D66Ѓv‚М‚ж‚¤‚ЙD66‚М‘O‚ЙЊВђ”‚р–ѕ‹L‚µ‚Д‚­‚ѕ‚і‚ўЃB
+гѓ»D66гѓЂг‚¤г‚№гЃ§г‚‚е››е‰‡жј”з®—гЃЊгЃ§гЃЌг‚‹г‚€гЃ†гѓЂг‚¤г‚№гѓњгѓѓгѓ€ж©џиѓЅж‹ЎејµгЂ‚дЅїз”Ёж™‚гЃЇеї…гЃљгЂЊ1D6+1D66гЂЌгЃ®г‚€гЃ†гЃ«D66гЃ®е‰ЌгЃ«еЂ‹ж•°г‚’жЋиЁгЃ—гЃ¦гЃЏгЃ гЃ•гЃ„гЂ‚
 
 Ver2.01.45 2013/06/01
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚М•\’З‰Б‹@”\‚ЕЃu\nЃv‚ЖЏ‘‚­‚Ж‰ьЌs‚Є•\Ћ¦‚і‚к‚й‚ж‚¤‚Й‹@”\’З‰БЃB
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ®иЎЁиїЅеЉ ж©џиѓЅгЃ§гЂЊ\nгЂЌгЃЁж›ёгЃЏгЃЁж”№иЎЊгЃЊиЎЁз¤єгЃ•г‚Њг‚‹г‚€гЃ†гЃ«ж©џиѓЅиїЅеЉ гЂ‚
 
 Ver2.01.44 2013/05/21
-ЃEѓGѓЉѓ…ѓVѓIѓ“‚Е‚МELѓRѓ}ѓ“ѓh‚Е‚М”»’и‚ЕЃAѓ]ѓЌ–Ъ‚МЏкЌ‡‚ЙѓxЃ[ѓX”\—Н’l‚ЄЊvЋZЋ®‚Й•\Ћ¦‚і‚к‚И‚ўЏбЉQ‚рЏCђіЃBђВ—СЊз‚і‚сЃA‚­‚Ь‚©‚О‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓKЃ[ѓvѓX‚Мѓ_ѓCѓXѓ{ѓbѓg‚Й‹°•|•\Ѓ^”Ѕ‰ћ”»’и•\‚р’З‰БЃBѓnѓXѓLЃ[‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»г‚ЁгѓЄгѓҐг‚·г‚ЄгѓігЃ§гЃ®ELг‚ігѓћгѓігѓ‰гЃ§гЃ®е€¤е®љгЃ§гЂЃг‚ѕгѓ­з›®гЃ®е ґеђ€гЃ«гѓ™гѓјг‚№иѓЅеЉ›еЂ¤гЃЊиЁ€з®—ејЏгЃ«иЎЁз¤єгЃ•г‚ЊгЃЄгЃ„йљње®іг‚’дї®ж­ЈгЂ‚йќ’жћ—жЄЋгЃ•г‚“гЂЃгЃЏгЃѕгЃ‹гЃ°гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»г‚¬гѓјгѓ—г‚№гЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«жЃђжЂ–иЎЁпјЏеЏЌеїње€¤е®љиЎЁг‚’иїЅеЉ гЂ‚гѓЏг‚№г‚­гѓјгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.43 2013/05/06
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚ЙѓKЃ[ѓvѓX‚р’З‰БЃBѓnѓXѓLЃ[‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«г‚¬гѓјгѓ—г‚№г‚’иїЅеЉ гЂ‚гѓЏг‚№г‚­гѓјгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.42 2013/04/28
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚МѓQѓCѓVѓѓЃEѓKЃ[ѓ‹ЃEѓEѓBѓYЃEѓJѓ^ѓi‚МѓRѓ}ѓ“ѓh‚Й•s‹пЌ‡‚Є‚ ‚Б‚Ѕ‚Ѕ‚ЯЏCђіЃB
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ®г‚Іг‚¤г‚·гѓЈгѓ»г‚¬гѓјгѓ«гѓ»г‚¦г‚Јг‚єгѓ»г‚«г‚їгѓЉгЃ®г‚ігѓћгѓігѓ‰гЃ«дёЌе…·еђ€гЃЊгЃ‚гЃЈгЃџгЃџг‚Ѓдї®ж­ЈгЂ‚
 
 Ver2.01.41 2013/04/21
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚ЙѓQѓCѓVѓѓЃEѓKЃ[ѓ‹ЃEѓEѓBѓYЃEѓJѓ^ѓi‚р’З‰БЃB‚з‚џ‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«г‚Іг‚¤г‚·гѓЈгѓ»г‚¬гѓјгѓ«гѓ»г‚¦г‚Јг‚єгѓ»г‚«г‚їгѓЉг‚’иїЅеЉ гЂ‚г‚‰гЃЃгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.40 2013/03/17
-ЃERѓRѓ}ѓ“ѓh‚М“®Ќм•s‹пЌ‡ЏCђіЃB‚­‚Ь‚©‚О‚і‚сЋw“E‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»Rг‚ігѓћгѓігѓ‰гЃ®е‹•дЅњдёЌе…·еђ€дї®ж­ЈгЂ‚гЃЏгЃѕгЃ‹гЃ°гЃ•г‚“жЊ‡ж‘гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.39 2013/03/08
-ЃEѓGѓЉѓ…ѓVѓIѓ“‚ЙNPCѓ‰ѓ“ѓ_ѓЂ•\‚р’З‰БЃB
+гѓ»г‚ЁгѓЄгѓҐг‚·г‚ЄгѓігЃ«NPCгѓ©гѓігѓЂгѓ иЎЁг‚’иїЅеЉ гЂ‚
 
 Ver2.01.38.01 2013/03/05
-ЃEѓGѓЉѓ…ѓVѓIѓ“‚МD66”»’и‚Єђ”’l“ь‚к‘Ц‚¦‚Й‚И‚Б‚Д‚ў‚И‚©‚Б‚Ѕ‚Ѕ‚ЯЏCђіЃB
+гѓ»г‚ЁгѓЄгѓҐг‚·г‚ЄгѓігЃ®D66е€¤е®љгЃЊж•°еЂ¤е…Ґг‚Њж›їгЃ€гЃ«гЃЄгЃЈгЃ¦гЃ„гЃЄгЃ‹гЃЈгЃџгЃџг‚Ѓдї®ж­ЈгЂ‚
 
 Ver2.01.38 2013/02/28
-ЃEѓGѓЉѓ…ѓVѓIѓ“ѓ_ѓCѓXѓ{ѓbѓg‚рЏCђіЃBD66‚Й‘О‰ћЃB‚­‚Ь‚©‚О‚і‚с’ґ‚ ‚и‚Є‚Ж‚¤‚І‚ґ‚ў‚Ь‚·ЃIЃI
+гѓ»г‚ЁгѓЄгѓҐг‚·г‚ЄгѓігѓЂг‚¤г‚№гѓњгѓѓгѓ€г‚’дї®ж­ЈгЂ‚D66гЃ«еЇѕеїњгЂ‚гЃЏгЃѕгЃ‹гЃ°гЃ•г‚“и¶…гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃ”гЃ–гЃ„гЃѕгЃ™пјЃпјЃ
 
 Ver2.01.37 2013/02/24
-ЃEѓGѓЉѓ…ѓVѓIѓ“‚ЙЉeЋн•\‚р’З‰БЃB
-ЃEѓTѓ^ѓXѓyѓ_ѓCѓXѓ{ѓbѓg‚М—ц€¤ѓnѓvѓjѓ“ѓO•\‚МЊл‹L‚рЏCђіЃB
-ЃEѓAѓ‹ѓXѓ}ѓMѓJ‚ЕArs3+1‚М‚ж‚¤‚Йѓ{Ѓ[ѓiѓX‚р‚В‚Ї‚й‚Жђі‚µ‚­“®‚©‚И‚ў•s‹пЌ‡‚рЏCђіЃB
+гѓ»г‚ЁгѓЄгѓҐг‚·г‚ЄгѓігЃ«еђ„зЁ®иЎЁг‚’иїЅеЉ гЂ‚
+гѓ»г‚µг‚їг‚№гѓљгѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ®жЃ‹ж„›гѓЏгѓ—гѓ‹гѓіг‚°иЎЁгЃ®иЄ¤иЁг‚’дї®ж­ЈгЂ‚
+гѓ»г‚ўгѓ«г‚№гѓћг‚®г‚«гЃ§Ars3+1гЃ®г‚€гЃ†гЃ«гѓњгѓјгѓЉг‚№г‚’гЃ¤гЃ‘г‚‹гЃЁж­ЈгЃ—гЃЏе‹•гЃ‹гЃЄгЃ„дёЌе…·еђ€г‚’дї®ж­ЈгЂ‚
 
 Ver2.01.36.01 2013/02/16
-ЃEѓGѓЉѓ…ѓVѓIѓ“‚Й DATE[PC1,PC2] ѓRѓ}ѓ“ѓh‚р’З‰БЃB
+гѓ»г‚ЁгѓЄгѓҐг‚·г‚ЄгѓігЃ« DATE[PC1,PC2] г‚ігѓћгѓігѓ‰г‚’иїЅеЉ гЂ‚
 
 Ver2.01.36 2013/02/14
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚ЙѓGѓЉѓ…ѓVѓIѓ“‚р’З‰БЃB
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«г‚ЁгѓЄгѓҐг‚·г‚Єгѓіг‚’иїЅеЉ гЂ‚
 
 Ver2.01.35 2013/01/23
-ЃEѓQѓwѓiѓAѓiѓXѓ^ѓVѓX‚Мѓ_ѓCѓXѓ{ѓbѓg‚ЕЃAѓvѓ‰ѓXЏCђі‚р‚В‚Ї‚ЅЏкЌ‡‚ЙЋё”sђ”‚Єђі‚µ‚­ѓJѓEѓ“ѓg‚і‚к‚И‚ў–в‘и‚рЏCђіЃBЌЎ–м”Ћђb‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»г‚ІгѓгѓЉг‚ўгѓЉг‚№г‚їг‚·г‚№гЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ§гЂЃгѓ—гѓ©г‚№дї®ж­Јг‚’гЃ¤гЃ‘гЃџе ґеђ€гЃ«е¤±ж•—ж•°гЃЊж­ЈгЃ—гЃЏг‚«г‚¦гѓігѓ€гЃ•г‚ЊгЃЄгЃ„е•ЏйЎЊг‚’дї®ж­ЈгЂ‚д»Љй‡ЋеЌљи‡ЈгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.34 2013/01/05
-ЃEѓoѓgѓ‹ѓeѓbѓN‚М–Ѕ’†”»’и‚р‚P”­‚І‚Ж‚PЌs‚ё‚В•\Ћ¦‚ЙЃB
-Ѓ@•”€К‚М–Ѕ’†‰сђ”‚р•\Ћ¦‚ЙЃB
-Ѓ@Ќ‡Њvѓ_ѓЃЃ[ѓW‚а•\Ћ¦‚ЙЃB
-ЃEѓQѓwѓiѓAѓiѓXѓ^ѓVѓX‚Мѓ_ѓCѓXѓ{ѓbѓg‚рЏCђіЃBnGtѓRѓ}ѓ“ѓh‚ЕAЊ‚‘ќ‰Б’l‚Ж“¬‹Zѓ`ѓbѓg‚Є—}Ћ~‚і‚к‚Д‚ў‚И‚ў‚М‚рЏCђіЃB
-Ѓ@ђ¬Њч“x‚ЖЋё”s“x‚р•\Ћ¦‚·‚й‚ж‚¤‚Й‰ь‘PЃB
+гѓ»гѓђгѓ€гѓ«гѓ†гѓѓг‚ЇгЃ®е‘Ѕдё­е€¤е®љг‚’пј‘з™єгЃ”гЃЁпј‘иЎЊгЃљгЃ¤иЎЁз¤єгЃ«гЂ‚
+гЂЂйѓЁдЅЌгЃ®е‘Ѕдё­е›ћж•°г‚’иЎЁз¤єгЃ«гЂ‚
+гЂЂеђ€иЁ€гѓЂгѓЎгѓјг‚ёг‚‚иЎЁз¤єгЃ«гЂ‚
+гѓ»г‚ІгѓгѓЉг‚ўгѓЉг‚№г‚їг‚·г‚№гЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€г‚’дї®ж­ЈгЂ‚nGtг‚ігѓћгѓігѓ‰гЃ§йЂЈж’ѓеў—еЉ еЂ¤гЃЁй—жЉЂгѓЃгѓѓгѓ€гЃЊжЉ‘ж­ўгЃ•г‚ЊгЃ¦гЃ„гЃЄгЃ„гЃ®г‚’дї®ж­ЈгЂ‚
+гЂЂж€ђеЉџеє¦гЃЁе¤±ж•—еє¦г‚’иЎЁз¤єгЃ™г‚‹г‚€гЃ†гЃ«ж”№е–„гЂ‚
 
 Ver2.01.33.01 2012/12/27
-ЃEѓoѓgѓ‹ѓeѓbѓNѓ_ѓCѓXѓ{ѓbѓg‚МSRM‚ЖLRM‚М”»’иЊл‚и‚рЏCђіЃB
+гѓ»гѓђгѓ€гѓ«гѓ†гѓѓг‚ЇгѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ®SRMгЃЁLRMгЃ®е€¤е®љиЄ¤г‚Љг‚’дї®ж­ЈгЂ‚
 
 Ver2.01.33 2012/12/27
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚Йѓoѓgѓ‹ѓeѓbѓN‚р’З‰БЃB
-Ѓ@@Gunzo777‚і‚с@anony403‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«гѓђгѓ€гѓ«гѓ†гѓѓг‚Їг‚’иїЅеЉ гЂ‚
+гЂЂ@Gunzo777гЃ•г‚“@anony403гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.32.01 2012/11/04
-ЃEѓ}ѓMѓJѓЌѓMѓAѓ_ѓCѓXѓ{ѓbѓg‚М”»’и‚Є€к•”Њл‚Б‚Д‚ў‚Ѕ‚М‚рЏCђіЃB
-ЃE–А‹{ѓLѓ“ѓOѓ_ѓЂ‚ЖѓEѓBѓbѓ`ѓNѓGѓXѓg‚аѓ\Ѓ[ѓX‚р•ПЌXЃiЏ€—ќ“а—e‚Й•ПЌX‚Н–і‚µЃj
+гѓ»гѓћг‚®г‚«гѓ­г‚®г‚ўгѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ®е€¤е®љгЃЊдёЂйѓЁиЄ¤гЃЈгЃ¦гЃ„гЃџгЃ®г‚’дї®ж­ЈгЂ‚
+гѓ»иї·е®®г‚­гѓіг‚°гѓЂгѓ гЃЁг‚¦г‚ЈгѓѓгѓЃг‚Їг‚Ёг‚№гѓ€г‚‚г‚Ѕгѓјг‚№г‚’е¤‰ж›ґпј€е‡¦зђ†е†…е®№гЃ«е¤‰ж›ґгЃЇз„ЎгЃ—пј‰
 
 Ver2.01.32 2012/11/03
-ЃEѓ}ѓMѓJѓЌѓMѓA‚Й’З‰Бѓ‹Ѓ[ѓ‹ѓuѓbѓN2ЉЄ3ЉЄ‚М•\‚р’З‰БЃB‚Э‚Ї‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»гѓћг‚®г‚«гѓ­г‚®г‚ўгЃ«иїЅеЉ гѓ«гѓјгѓ«гѓ–гѓѓг‚Ї2е·»3е·»гЃ®иЎЁг‚’иїЅеЉ гЂ‚гЃїгЃ‘гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.31 2012/10/27
-ЃEѓEѓBѓbѓ`ѓNѓGѓXѓg‚Й‘О‰ћЃB
+гѓ»г‚¦г‚ЈгѓѓгѓЃг‚Їг‚Ёг‚№гѓ€гЃ«еЇѕеїњгЂ‚
 
 Ver2.01.30.01 2012/10/13
-ЃE’Д—ЋђўЉE‚М”»’и‚Єђі‚µ‚­“®‚ў‚Д‚ў‚И‚©‚Б‚ЅЏбЉQ‚рЏCђіЃB
+гѓ»еўњиђЅдё–з•ЊгЃ®е€¤е®љгЃЊж­ЈгЃ—гЃЏе‹•гЃ„гЃ¦гЃ„гЃЄгЃ‹гЃЈгЃџйљње®іг‚’дї®ж­ЈгЂ‚
 
 Ver2.01.30 2012/10/10
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚Й’Д—ЋђўЉE‚р’З‰БЃB‚Э‚Ї‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓuѓ‰ѓbѓhѓNѓ‹ѓZѓCѓh‚Ц€И‰є‚р’З‰БЃB
-Ѓ@Ќs€Ч”»’и‚И‚З‚М‚Ѕ‚Я‚ЙЃAѓ‰ѓ“ѓ_ѓЂ‚Й“Б‹Z‚р‘I‚Ф•\‚М’З‰Б
-Ѓ@3ЉЄ‚Е’З‰Б‚і‚к‚Ѕ‹¶‹Cѓ‹Ѓ[ѓ‹—p‚Мѓyѓiѓ‹ѓeѓBѓAѓrѓЉѓeѓB•\‚М’З‰Б
-Ѓ@ѓXѓyѓVѓѓѓ‹/ѓtѓ@ѓ“ѓuѓ‹Ћћ‚М’З‰Б•¶‚М•\Њ»‚рЏCђі
-Ѓ@‘ЮHЌK•џ•\‚МtypoЏCђі
-ЃE–А‹{ѓLѓ“ѓOѓ_ѓЂ ѓAѓCѓeѓЂѓJѓeѓSѓЉЊ€’и•\ (#2)‚МЏCђіЃB
-ЃEѓVѓmѓrѓKѓ~‚Мѓ_ѓCѓXѓ{ѓbѓg‚МѓRѓ}ѓ“ѓh‹LЏqЊл‚и‚рЏCђіЃBЃiЏH‹у‚Йђб•‘‚¦‚ОѓVЃ[ѓ“•\Ѓ@KSTЃЁAKSTЃj
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«еўњиђЅдё–з•Њг‚’иїЅеЉ гЂ‚гЃїгЃ‘гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»гѓ–гѓ©гѓѓгѓ‰г‚Їгѓ«г‚»г‚¤гѓ‰гЃёд»Ґдё‹г‚’иїЅеЉ гЂ‚
+гЂЂиЎЊз‚єе€¤е®љгЃЄгЃ©гЃ®гЃџг‚ЃгЃ«гЂЃгѓ©гѓігѓЂгѓ гЃ«з‰№жЉЂг‚’йЃёгЃ¶иЎЁгЃ®иїЅеЉ 
+гЂЂ3е·»гЃ§иїЅеЉ гЃ•г‚ЊгЃџз‹‚ж°—гѓ«гѓјгѓ«з”ЁгЃ®гѓљгѓЉгѓ«гѓ†г‚Јг‚ўгѓ“гѓЄгѓ†г‚ЈиЎЁгЃ®иїЅеЉ 
+гЂЂг‚№гѓљг‚·гѓЈгѓ«/гѓ•г‚Ўгѓігѓ–гѓ«ж™‚гЃ®иїЅеЉ ж–‡гЃ®иЎЁзЏѕг‚’дї®ж­Ј
+гЂЂйЂЂи·Їе№ёз¦ЏиЎЁгЃ®typoдї®ж­Ј
+гѓ»иї·е®®г‚­гѓіг‚°гѓЂгѓ  г‚ўг‚¤гѓ†гѓ г‚«гѓ†г‚ґгѓЄж±єе®љиЎЁ (#2)гЃ®дї®ж­ЈгЂ‚
+гѓ»г‚·гѓЋгѓ“г‚¬гѓџгЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ®г‚ігѓћгѓігѓ‰иЁиї°иЄ¤г‚Љг‚’дї®ж­ЈгЂ‚пј€з§‹з©єгЃ«й›Єи€ћгЃ€гЃ°г‚·гѓјгѓіиЎЁгЂЂKSTв†’AKSTпј‰
 
 Ver2.01.29 2012/09/22
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚Йђ^‹уЉw‰Ђ’З‰БЃiShinkuuGakuenЃj‚р’З‰БЃB
-ЃE–А‹{ѓLѓ“ѓOѓ_ѓЂ‚М•\‚ЙЃ@‘{ЌхЊг‹xЊe•\ЃiABTЃjЃA‘S‘М‹xЊe•\ЃiWBTЃjЃAѓJѓbѓvѓ‹‹xЊe•\ЃiLBTЃj‚р’З‰БЃB@sillygo‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓJЃ[ѓhѓ‰ѓ“ѓJЃ[‚МѓXѓyѓVѓѓѓ‹Ћћ‚Мѓ‰ѓ“ѓ_ѓЂѓ‚ѓ“ѓXѓ^Ѓ[‘I‘р‚М•\Ћ¦‚р•ПЌXЃB
-ЃE‚З‚З‚с‚Ж‚У‚Ж‚МAЊg—p‚ЙЉeѓ_ѓCѓXѓ{ѓbѓg‚ЙѓJЃ[ѓhЏо•с‚р’З‰БЃB
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«зњџз©єе­¦ењ’иїЅеЉ пј€ShinkuuGakuenпј‰г‚’иїЅеЉ гЂ‚
+гѓ»иї·е®®г‚­гѓіг‚°гѓЂгѓ гЃ®иЎЁгЃ«гЂЂжЌњзґўеѕЊдј‘ж†©иЎЁпј€ABTпј‰гЂЃе…ЁдЅ“дј‘ж†©иЎЁпј€WBTпј‰гЂЃг‚«гѓѓгѓ—гѓ«дј‘ж†©иЎЁпј€LBTпј‰г‚’иїЅеЉ гЂ‚@sillygoгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»г‚«гѓјгѓ‰гѓ©гѓіг‚«гѓјгЃ®г‚№гѓљг‚·гѓЈгѓ«ж™‚гЃ®гѓ©гѓігѓЂгѓ гѓўгѓіг‚№г‚їгѓјйЃёжЉћгЃ®иЎЁз¤єг‚’е¤‰ж›ґгЂ‚
+гѓ»гЃ©гЃ©г‚“гЃЁгЃµгЃЁгЃ®йЂЈжђєз”ЁгЃ«еђ„гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«г‚«гѓјгѓ‰жѓ…е ±г‚’иїЅеЉ гЂ‚
 
 Ver2.01.28 2012/09/11
-ЃEѓNѓgѓDѓ‹ѓtѓ_ѓCѓXѓ{ѓbѓg‚Й‘g‚ЭЌ‡‚н‚№”»’и‚М CBR(x,y) ‚р’З‰БЃB‹Z”\ѓЊѓxѓ‹x‚Ж‹Z”\ѓЊѓxѓ‹y‚Е‚М‘g‚ЭЌ‡‚н‚№”»’и‚р‚±‚МЏ‘Ћ®‚ЕЋАЌs‰В”\ЃB
-ЃEѓJЃ[ѓhѓ‰ѓ“ѓJЃ[‚Є‘I‘р‚Е‚«‚И‚ў–в‘и‚рЏCђіЃB
+гѓ»г‚Їгѓ€г‚Ґгѓ«гѓ•гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«зµ„гЃїеђ€г‚ЏгЃ›е€¤е®љгЃ® CBR(x,y) г‚’иїЅеЉ гЂ‚жЉЂиѓЅгѓ¬гѓ™гѓ«xгЃЁжЉЂиѓЅгѓ¬гѓ™гѓ«yгЃ§гЃ®зµ„гЃїеђ€г‚ЏгЃ›е€¤е®љг‚’гЃ“гЃ®ж›ёејЏгЃ§е®џиЎЊеЏЇиѓЅгЂ‚
+гѓ»г‚«гѓјгѓ‰гѓ©гѓіг‚«гѓјгЃЊйЃёжЉћгЃ§гЃЌгЃЄгЃ„е•ЏйЎЊг‚’дї®ж­ЈгЂ‚
 
 Ver2.01.27 2012/09/07
-ЃEѓJЃ[ѓhѓ‰ѓ“ѓJЃ[‘О‰ћ‚р’З‰БЃB
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚М•\’З‰Б‹@”\‚МЊ‹‰КЏo—Н‚ЕЃAЊл‚Б‚Дѓ_ѓCѓX–Ъ‚Єђж“Є‚ЙЏo—Н‚і‚к‚Д‚ў‚Ѕ‚Ѕ‚ЯЏCђіЃB
-ЃE‚и‚г‚¤‚Ѕ‚Ьѓ_ѓCѓXѓ{ѓbѓg‚ЕЃuR810Ѓ{1-2>=10Ѓv‚М‚ж‚¤‚ЙЏCђі’l‚р•Ўђ”•t‚Ї‚з‚к‚й‚ж‚¤‚Й‰ь—ЗЃB
+гѓ»г‚«гѓјгѓ‰гѓ©гѓіг‚«гѓјеЇѕеїњг‚’иїЅеЉ гЂ‚
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ®иЎЁиїЅеЉ ж©џиѓЅгЃ®зµђжћње‡єеЉ›гЃ§гЂЃиЄ¤гЃЈгЃ¦гѓЂг‚¤г‚№з›®гЃЊе…€й ­гЃ«е‡єеЉ›гЃ•г‚ЊгЃ¦гЃ„гЃџгЃџг‚Ѓдї®ж­ЈгЂ‚
+гѓ»г‚Љг‚…гЃ†гЃџгЃѕгѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ§гЂЊR810пј‹1-2>=10гЂЌгЃ®г‚€гЃ†гЃ«дї®ж­ЈеЂ¤г‚’и¤‡ж•°д»гЃ‘г‚‰г‚Њг‚‹г‚€гЃ†гЃ«ж”№и‰ЇгЂ‚
 
 Ver2.01.26 2012/08/29
-ЃEѓ\Ѓ[ѓhѓЏЃ[ѓ‹ѓh‚Мѓ_ѓCѓXѓ{ѓbѓg‚рђ®—ќЃiѓЉѓtѓ@ѓNѓ^ѓЉѓ“ѓOЃj
-Ѓ@ѓ\Ѓ[ѓhѓЏЃ[ѓ‹ѓh‚МѓЊЃ[ѓeѓBѓ“ѓO•\‚ЄЏCђі’l‚р‚В‚Ї‚И‚ўЏкЌ‡‚Йѓ_ѓЃЃ[ѓWЌ‡Њv‚р•\Ћ¦‚µ‚И‚ў–в‘и‚рЏCђіЃB
-Ѓ@ѓ\Ѓ[ѓhѓЏЃ[ѓ‹ѓh2.0‚МЋсђШ‚и“Ѓ—p‚Й r10 ‚Е‚МѓЊЃ[ѓgѓAѓbѓvЋw’и‚р’З‰БЃB
-Ѓ@ѓ\Ѓ[ѓhѓЏЃ[ѓ‹ѓh2.0‚МѓOѓЊѓCѓeѓXѓgѓtѓHЃ[ѓ`ѓ…ѓ“—p‚Й––”ц‚Й gf ‚МЋw’и‚р’З‰БЃB
-ЃEѓAѓЉѓAѓ“ѓЌѓbѓh‚Мѓ_ѓCѓXѓ{ѓbѓg‚Є2D6‚МЏкЌ‡‚ЙѓNѓЉѓeѓBѓJѓ‹Ѓ^ѓtѓ@ѓ“ѓuѓ‹‚Є•\Ћ¦‚і‚к‚И‚ў–в‘и‚рЏCђіЃB
+гѓ»г‚Ѕгѓјгѓ‰гѓЇгѓјгѓ«гѓ‰гЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€г‚’ж•ґзђ†пј€гѓЄгѓ•г‚Ўг‚Їг‚їгѓЄгѓіг‚°пј‰
+гЂЂг‚Ѕгѓјгѓ‰гѓЇгѓјгѓ«гѓ‰гЃ®гѓ¬гѓјгѓ†г‚Јгѓіг‚°иЎЁгЃЊдї®ж­ЈеЂ¤г‚’гЃ¤гЃ‘гЃЄгЃ„е ґеђ€гЃ«гѓЂгѓЎгѓјг‚ёеђ€иЁ€г‚’иЎЁз¤єгЃ—гЃЄгЃ„е•ЏйЎЊг‚’дї®ж­ЈгЂ‚
+гЂЂг‚Ѕгѓјгѓ‰гѓЇгѓјгѓ«гѓ‰2.0гЃ®й¦–е€‡г‚Ље€Ђз”ЁгЃ« r10 гЃ§гЃ®гѓ¬гѓјгѓ€г‚ўгѓѓгѓ—жЊ‡е®љг‚’иїЅеЉ гЂ‚
+гЂЂг‚Ѕгѓјгѓ‰гѓЇгѓјгѓ«гѓ‰2.0гЃ®г‚°гѓ¬г‚¤гѓ†г‚№гѓ€гѓ•г‚©гѓјгѓЃгѓҐгѓіз”ЁгЃ«жњ«е°ѕгЃ« gf гЃ®жЊ‡е®љг‚’иїЅеЉ гЂ‚
+гѓ»г‚ўгѓЄг‚ўгѓігѓ­гѓѓгѓ‰гЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃЊ2D6гЃ®е ґеђ€гЃ«г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«пјЏгѓ•г‚Ўгѓігѓ–гѓ«гЃЊиЎЁз¤єгЃ•г‚ЊгЃЄгЃ„е•ЏйЎЊг‚’дї®ж­ЈгЂ‚
 
 Ver2.01.25 2012/08/23
-ЃE‚и‚г‚¤‚Ѕ‚Ь‚Мѓ_ѓCѓXѓ{ѓbѓg‚Е R810Ѓ{1>=10 ‚М‚ж‚¤‚ЙЏCђі‚р•t‚Ї‚з‚к‚й‚ж‚¤‚Й‰ь‘P
-Ѓ@ѓ_ѓCѓXѓ{ѓbѓg‚Мѓ_ѓCѓXЋн•К‚Йd2,d20‚р’З‰БЃi—бЃFR202Ѓj
+гѓ»г‚Љг‚…гЃ†гЃџгЃѕгЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ§ R810пј‹1>=10 гЃ®г‚€гЃ†гЃ«дї®ж­Јг‚’д»гЃ‘г‚‰г‚Њг‚‹г‚€гЃ†гЃ«ж”№е–„
+гЂЂгѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ®гѓЂг‚¤г‚№зЁ®е€ҐгЃ«d2,d20г‚’иїЅеЉ пј€дѕ‹пјљR202пј‰
 
 Ver2.01.24.01 2012/08/08
-ЃE‚З‚З‚с‚Ж‚У—p‚Йѓ\Ѓ[ѓXѓRЃ[ѓh‚рѓЉѓtѓ@ѓNѓ^ѓЉѓ“ѓOЃB‹@”\Ћ©‘М‚Й•ПЌX‚Н–і‚µЃB
+гѓ»гЃ©гЃ©г‚“гЃЁгЃµз”ЁгЃ«г‚Ѕгѓјг‚№г‚ігѓјгѓ‰г‚’гѓЄгѓ•г‚Ўг‚Їг‚їгѓЄгѓіг‚°гЂ‚ж©џиѓЅи‡ЄдЅ“гЃ«е¤‰ж›ґгЃЇз„ЎгЃ—гЂ‚
 
 Ver2.01.24 2012/08/07
-ЃE‚и‚г‚¤‚Ѕ‚Ь‚Є‘I‘рЋ€€к——‚©‚з‘I‚Ч‚И‚©‚Б‚Ѕ–в‘и‚рЏCђіЃB
+гѓ»г‚Љг‚…гЃ†гЃџгЃѕгЃЊйЃёжЉћи‚ўдёЂи¦§гЃ‹г‚‰йЃёгЃ№гЃЄгЃ‹гЃЈгЃџе•ЏйЎЊг‚’дї®ж­ЈгЂ‚
 
 Ver2.01.23 2012/08/04
-ЃE‚и‚г‚¤‚Ѕ‚Ь‚Мѓ_ѓCѓXѓЌЃ[ѓ‹‚рR810‚ЖЃu,Ѓv‹жђШ‚и‚аЃu>=tЃv‚М–Ъ•W’lђЭ’и‚а–і‚µ‚Е‚а“®‚­‚ж‚¤‚Й‰ь—З
+гѓ»г‚Љг‚…гЃ†гЃџгЃѕгЃ®гѓЂг‚¤г‚№гѓ­гѓјгѓ«г‚’R810гЃЁгЂЊ,гЂЌеЊєе€‡г‚Љг‚‚гЂЊ>=tгЂЌгЃ®з›®жЁ™еЂ¤иЁ­е®љг‚‚з„ЎгЃ—гЃ§г‚‚е‹•гЃЏг‚€гЃ†гЃ«ж”№и‰Ї
 
 Ver2.01.22 2012/08/03
-ЃE‚и‚г‚¤‚Ѕ‚Ь‘О‰ћ‚р’З‰БЃB
-Ѓ@Rx,y>=t ”\—Н’lx‚ЖyЃA–Ъ•W’lt‚Е”»’иѓЌЃ[ѓ‹ЃBђ¬ЊчЃEЋё”sЃE‚Pѓ]ѓЌЃEѓNѓЉѓeѓBѓJѓ‹‚рЋ©“®•\Ћ¦ЃB
+гѓ»г‚Љг‚…гЃ†гЃџгЃѕеЇѕеїњг‚’иїЅеЉ гЂ‚
+гЂЂRx,y>=t иѓЅеЉ›еЂ¤xгЃЁyгЂЃз›®жЁ™еЂ¤tгЃ§е€¤е®љгѓ­гѓјгѓ«гЂ‚ж€ђеЉџгѓ»е¤±ж•—гѓ»пј‘г‚ѕгѓ­гѓ»г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«г‚’и‡Єе‹•иЎЁз¤єгЂ‚
 
 Ver2.01.21 2012/07/04
-ЃE‚З‚З‚с‚Ж‚У—p‚М‹@”\Љg’Ј‚Й”є‚¤•ПЌXЃBB&C2.x‚Ж‚µ‚Д‚Н‰e‹ї‚ ‚и‚Ь‚№‚сЃB
+гѓ»гЃ©гЃ©г‚“гЃЁгЃµз”ЁгЃ®ж©џиѓЅж‹ЎејµгЃ«дјґгЃ†е¤‰ж›ґгЂ‚B&C2.xгЃЁгЃ—гЃ¦гЃЇеЅ±йџїгЃ‚г‚ЉгЃѕгЃ›г‚“гЂ‚
 
 Ver2.01.20 2012/06/27
-ЃE‘е‚«‚·‚¬‚йѓ_ѓCѓXђ”Ћћ‚МѓGѓ‰Ѓ[Џ€—ќ‚р’З‰БЃB
+гѓ»е¤§гЃЌгЃ™гЃЋг‚‹гѓЂг‚¤г‚№ж•°ж™‚гЃ®г‚Ёгѓ©гѓје‡¦зђ†г‚’иїЅеЉ гЂ‚
 
 Ver2.01.19 2012/06/17
-ЃEђ^ЃEЏ—ђ_“]ђ¶TRPGЃ@ЉoђБ•Т ‘О‰ћ‚р’З‰БЃB
-Ѓ@”»’иЋћ‚ЙѓXѓЏѓbѓvЃ^’КЏнЃ^‹tѓXѓЏѓbѓv‚МЊ‹‰К‚р•\Ћ¦‚µ‚Ь‚·ЃB
-Ѓ@€Р—Нѓ_ѓCѓX‚Н nU6[6] (n‚Нѓ_ѓCѓXЊВђ”)‚ЕѓЌЃ[ѓ‹‰В”\‚Е‚·ЃB
-Ѓ@Џг•ы–іЊАѓЌЃ[ѓ‹Ѓ@(xUn)‚Е 3U6+5 ‚М—l‚ЙЏCђі’l‚р’З‰Б‚Е‚«‚й‚ж‚¤‚Й‹@”\Љg’ЈЃB
+гѓ»зњџгѓ»еҐізҐћи»ўз”џTRPGгЂЂи¦љй†’з·Ё еЇѕеїњг‚’иїЅеЉ гЂ‚
+гЂЂе€¤е®љж™‚гЃ«г‚№гѓЇгѓѓгѓ—пјЏйЂљеёёпјЏйЂ†г‚№гѓЇгѓѓгѓ—гЃ®зµђжћњг‚’иЎЁз¤єгЃ—гЃѕгЃ™гЂ‚
+гЂЂеЁЃеЉ›гѓЂг‚¤г‚№гЃЇ nU6[6] (nгЃЇгѓЂг‚¤г‚№еЂ‹ж•°)гЃ§гѓ­гѓјгѓ«еЏЇиѓЅгЃ§гЃ™гЂ‚
+гЂЂдёЉж–№з„Ўй™ђгѓ­гѓјгѓ«гЂЂ(xUn)гЃ§ 3U6+5 гЃ®ж§гЃ«дї®ж­ЈеЂ¤г‚’иїЅеЉ гЃ§гЃЌг‚‹г‚€гЃ†гЃ«ж©џиѓЅж‹ЎејµгЂ‚
 
 Ver2.01.18 2012/06/14
-ЃEUѓRѓ}ѓ“ѓh‚МЏo—Н‚ЙЌЕ‘еЃ^Ќ‡Њv’l‚р•\Ћ¦‚·‚й‚ж‚¤‚ЙЏCђіЃB
-—бЃj4U6[6]
-Ѓ@ (4U6[6]) Ѓ„ 5,2,11[6,5],23[6,6,6,5] Ѓ„ 23/41(ЌЕ‘е/Ќ‡Њv)
+гѓ»Uг‚ігѓћгѓігѓ‰гЃ®е‡єеЉ›гЃ«жњЂе¤§пјЏеђ€иЁ€еЂ¤г‚’иЎЁз¤єгЃ™г‚‹г‚€гЃ†гЃ«дї®ж­ЈгЂ‚
+дѕ‹пј‰4U6[6]
+гЂЂ (4U6[6]) пјћ 5,2,11[6,5],23[6,6,6,5] пјћ 23/41(жњЂе¤§/еђ€иЁ€)
 
 Ver2.01.17.02 2012/06/09
-ЃEѓ_ѓCѓXѓ{ѓbѓg‚МѓRѓ}ѓ“ѓhЊлЋљЏCђіЃFchoise -> choice
+гѓ»гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ®г‚ігѓћгѓігѓ‰иЄ¤е­—дї®ж­Јпјљchoise -> choice
 
 Ver2.01.17.01 2012/06/06
-ЃEVer2.01.17‚Е€к•”ѓQЃ[ѓЂЃi‚Ь‚жѓLѓ“ЃAѓ}ѓMѓJѓЌѓMѓAЃANJSLYRBATTLEЃj‚Мѓ|ѓCѓ“ѓg•t—^‚Є•\Ћ¦‚і‚к‚И‚ў–в‘и‚рЏCђіЃB
+гѓ»Ver2.01.17гЃ§дёЂйѓЁг‚Ігѓјгѓ пј€гЃѕг‚€г‚­гѓігЂЃгѓћг‚®г‚«гѓ­г‚®г‚ўгЂЃNJSLYRBATTLEпј‰гЃ®гѓќг‚¤гѓігѓ€д»дёЋгЃЊиЎЁз¤єгЃ•г‚ЊгЃЄгЃ„е•ЏйЎЊг‚’дї®ж­ЈгЂ‚
 
 Ver2.01.17 2012/06/06
-ЃEIRCѓTЃ[ѓo‚М•¶ЋљѓRЃ[ѓhђЭ’и‚Є”Ѕ‰f‚і‚к‚И‚ўЏ€—ќ‚рЏCђіЃBЃi‚Р‚И‚µ‚і‚сЋw“E‚ ‚и‚Є‚Ж‚¤‚БЃIЃj
-Ѓ@•¶ЋљѓRЃ[ѓh‚р“ь—Н‚Е‚Н‚И‚­‘I‘р•ыЋ®‚ЦЃB
-ЃEirc.trpg.net‚М•¶ЋљѓRЃ[ѓh‚МѓfѓtѓHѓ‹ѓg‚ЄUTF-8‚Й‚И‚Б‚Ѕ‚Ѕ‚ЯѓfѓtѓHѓ‹ѓg‚рUTF-8‚Й•ПЌXЃB
-ЃE‚З‚З‚с‚Ж‚У‚Й€ш‚«‚ё‚з‚к‚й‚ж‚¤‚ЙNJSLYRBATTLE‚Й‘О‰ћЃB
+гѓ»IRCг‚µгѓјгѓђгЃ®ж–‡е­—г‚ігѓјгѓ‰иЁ­е®љгЃЊеЏЌж гЃ•г‚ЊгЃЄгЃ„е‡¦зђ†г‚’дї®ж­ЈгЂ‚пј€гЃІгЃЄгЃ—гЃ•г‚“жЊ‡ж‘гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃпј‰
+гЂЂж–‡е­—г‚ігѓјгѓ‰г‚’е…ҐеЉ›гЃ§гЃЇгЃЄгЃЏйЃёжЉћж–№ејЏгЃёгЂ‚
+гѓ»irc.trpg.netгЃ®ж–‡е­—г‚ігѓјгѓ‰гЃ®гѓ‡гѓ•г‚©гѓ«гѓ€гЃЊUTF-8гЃ«гЃЄгЃЈгЃџгЃџг‚Ѓгѓ‡гѓ•г‚©гѓ«гѓ€г‚’UTF-8гЃ«е¤‰ж›ґгЂ‚
+гѓ»гЃ©гЃ©г‚“гЃЁгЃµгЃ«еј•гЃЌгЃљг‚‰г‚Њг‚‹г‚€гЃ†гЃ«NJSLYRBATTLEгЃ«еЇѕеїњгЂ‚
 
 Ver2.01.16.02 2012/05/14
-ЃE‚З‚З‚с‚Ж‚У‚ЕѓeЃ[ѓuѓ‹Ќмђ¬‹@”\‚Є“®‚­‚ж‚¤‚Й“а•”ЋА‘•‚рѓЉѓtѓ@ѓNѓ^ѓЉѓ“ѓOЃB
-Ѓ@Ћg—p‚·‚й•Є‚Й‚Н€кђШ•ПЌX‚ ‚и‚Ь‚№‚сЃB
+гѓ»гЃ©гЃ©г‚“гЃЁгЃµгЃ§гѓ†гѓјгѓ–гѓ«дЅњж€ђж©џиѓЅгЃЊе‹•гЃЏг‚€гЃ†гЃ«е†…йѓЁе®џиЈ…г‚’гѓЄгѓ•г‚Ўг‚Їг‚їгѓЄгѓіг‚°гЂ‚
+гЂЂдЅїз”ЁгЃ™г‚‹е€†гЃ«гЃЇдёЂе€‡е¤‰ж›ґгЃ‚г‚ЉгЃѕгЃ›г‚“гЂ‚
 
 Ver2.01.16.01 2012/04/24
-ЃEЉg’Ј•\ѓfЃ[ѓ^‚М•¶ЋљѓRЃ[ѓh‚Є‰Ѕ‚Е‚ ‚Б‚Д‚ађі‚µ‚­•\Ћ¦‚Е‚«‚й‚ж‚¤‚ЙЏCђіЃB
+гѓ»ж‹ЎејµиЎЁгѓ‡гѓјг‚їгЃ®ж–‡е­—г‚ігѓјгѓ‰гЃЊдЅ•гЃ§гЃ‚гЃЈгЃ¦г‚‚ж­ЈгЃ—гЃЏиЎЁз¤єгЃ§гЃЌг‚‹г‚€гЃ†гЃ«дї®ж­ЈгЂ‚
 
 Ver2.01.16 2012/04/24
-ЃEѓQЃ[ѓЂ–јЋw’и–і‚µѓpѓ^Ѓ[ѓ“‚Єђі‚µ‚­“®‚©‚И‚ўЏбЉQ‚рЏCђіЃB
+гѓ»г‚Ігѓјгѓ еђЌжЊ‡е®љз„ЎгЃ—гѓ‘г‚їгѓјгѓігЃЊж­ЈгЃ—гЃЏе‹•гЃ‹гЃЄгЃ„йљње®іг‚’дї®ж­ЈгЂ‚
 
 Ver2.01.15 2012/04/21
-ЃE‚З‚З‚с‚Ж‚У‘¤‚Е——p‰В”\‚И‚ж‚¤‚Й“а—e€к•”•ПЌXЃBЃiB&C‘¤‚М‹@”\Ћ©‘М‚Й‚Н•ПЌX‚И‚µЃj
-ЃEЉg’Ј•\ѓfЃ[ѓ^‚Ж‚µ‚ДѓfѓtѓHѓ‹ѓg‚Е—p€У‚і‚к‚Д‚ў‚й
-Ѓ@ѓVѓmѓrѓKѓ~‚МѓVЃ[ѓ“•\
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЏH‹у‚Йђб•‘‚¦‚ОѓVЃ[ѓ“•\Ѓ@KST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЌР–пѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@CLST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЏo“‡EXѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@DXST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃEЋОЋ•ѓ‰ѓ{ѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@Ѓ@HLST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE‰Д‚МЏI‚н‚иѓVЃ[ѓ“•\Ѓ@Ѓ@Ѓ@NTST
-Ѓ@Ѓ@Ѓ@Ѓ@Ѓ@ЃE”|—{ѓvѓ‰ѓ“ѓgѓVЃ[ѓ“•\Ѓ@Ѓ@PLST
-Ѓ@‚рREADME‚Й‹LЌЪЃB
+гѓ»гЃ©гЃ©г‚“гЃЁгЃµеЃґгЃ§е€©з”ЁеЏЇиѓЅгЃЄг‚€гЃ†гЃ«е†…е®№дёЂйѓЁе¤‰ж›ґгЂ‚пј€B&CеЃґгЃ®ж©џиѓЅи‡ЄдЅ“гЃ«гЃЇе¤‰ж›ґгЃЄгЃ—пј‰
+гѓ»ж‹ЎејµиЎЁгѓ‡гѓјг‚їгЃЁгЃ—гЃ¦гѓ‡гѓ•г‚©гѓ«гѓ€гЃ§з”Ёж„ЏгЃ•г‚ЊгЃ¦гЃ„г‚‹
+гЂЂг‚·гѓЋгѓ“г‚¬гѓџгЃ®г‚·гѓјгѓіиЎЁ
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»з§‹з©єгЃ«й›Єи€ћгЃ€гЃ°г‚·гѓјгѓіиЎЁгЂЂKST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»зЃЅеЋ„г‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂгЂЂCLST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»е‡єеі¶EXг‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂгЂЂгЂЂDXST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»ж–њж­Їгѓ©гѓњг‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂгЂЂHLST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»е¤ЏгЃ®зµ‚г‚Џг‚Љг‚·гѓјгѓіиЎЁгЂЂгЂЂгЂЂNTST
+гЂЂгЂЂгЂЂгЂЂгЂЂгѓ»еџ№й¤Љгѓ—гѓ©гѓігѓ€г‚·гѓјгѓіиЎЁгЂЂгЂЂPLST
+гЂЂг‚’READMEгЃ«иЁиј‰гЂ‚
 
 Ver2.01.14.02 2012/04/20
-ЃEѓfѓoѓbѓOђЭ’и‚М‚Ь‚Ь‚ѕ‚Б‚Ѕ‚М‚рЏCђіЃB
-ЃEђЪ‘±Џу‘Ф‚ЕѓEѓBѓ“ѓhѓE‚р•В‚¶‚ЅЏкЌ‡‚МЏ€—ќ‚Й‘О‰ћЃB
+гѓ»гѓ‡гѓђгѓѓг‚°иЁ­е®љгЃ®гЃѕгЃѕгЃ гЃЈгЃџгЃ®г‚’дї®ж­ЈгЂ‚
+гѓ»жЋҐз¶љзЉ¶ж…‹гЃ§г‚¦г‚Јгѓігѓ‰г‚¦г‚’й–‰гЃгЃџе ґеђ€гЃ®е‡¦зђ†гЃ«еЇѕеїњгЂ‚
 
 Ver2.01.14.01 2012/04/20
-ЃEextratables ‚ЙѓQЃ[ѓЂ–јЋw’и‚Еѓtѓ@ѓCѓ‹‚р’u‚ў‚ЅЏкЌ‡‚Йђі‚µ‚­”»’и‚і‚к‚И‚ў–в‘и‚рЏCђіЃB
-Ѓ@Ћw“E‚ ‚и‚Є‚Ж‚¤‚Ь‚і‚µ‚°‚і‚с‚БЃI
+гѓ»extratables гЃ«г‚Ігѓјгѓ еђЌжЊ‡е®љгЃ§гѓ•г‚Ўг‚¤гѓ«г‚’зЅ®гЃ„гЃџе ґеђ€гЃ«ж­ЈгЃ—гЃЏе€¤е®љгЃ•г‚ЊгЃЄгЃ„е•ЏйЎЊг‚’дї®ж­ЈгЂ‚
+гЂЂжЊ‡ж‘гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃѕгЃ•гЃ—гЃ’гЃ•г‚“гЃЈпјЃ
 
 Ver2.01.14 2012/04/19
-ЃEextratables ѓfѓBѓЊѓNѓgѓЉ‚Йѓtѓ@ѓCѓ‹‚р’u‚­‚ЖЃA”C€У‚М•\‚р’З‰Б‰В”\‚ЙЃB
-Ѓ@ЏЪ‚µ‚­‚НЃu‚VЃDѓIѓЉѓWѓiѓ‹‚М•\’З‰БЃv‚рЋQЏЖЃB
-Ѓ@‚Ь‚і‚µ‚°‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓVѓmѓrѓKѓ~‚М•\‚Й€И‰є‚р’З‰БЃB
-Ѓ@‰цѓtѓ@ѓ“ѓuѓ‹•\Ѓ@(KFT)
-Ѓ@‰ц•П’І•\Ѓ@Ѓ@Ѓ@Ѓ@(KWT)
-Ѓ@€ЩЊ`•\Ѓ@Ѓ@Ѓ@Ѓ@(MT)
-Ѓ@ѓ‰ѓ“ѓ_ѓЂ“Б‹ZЊ€’и•\Ѓ@(RTT)
-Ѓ@‚±‚ї‚з‚аЃA‚Ь‚і‚µ‚°‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»extratables гѓ‡г‚Јгѓ¬г‚Їгѓ€гѓЄгЃ«гѓ•г‚Ўг‚¤гѓ«г‚’зЅ®гЃЏгЃЁгЂЃд»»ж„ЏгЃ®иЎЁг‚’иїЅеЉ еЏЇиѓЅгЃ«гЂ‚
+гЂЂи©ігЃ—гЃЏгЃЇгЂЊпј—пјЋг‚ЄгѓЄг‚ёгѓЉгѓ«гЃ®иЎЁиїЅеЉ гЂЌг‚’еЏ‚з…§гЂ‚
+гЂЂгЃѕгЃ•гЃ—гЃ’гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»г‚·гѓЋгѓ“г‚¬гѓџгЃ®иЎЁгЃ«д»Ґдё‹г‚’иїЅеЉ гЂ‚
+гЂЂжЂЄгѓ•г‚Ўгѓігѓ–гѓ«иЎЁгЂЂ(KFT)
+гЂЂжЂЄе¤‰иЄїиЎЁгЂЂгЂЂгЂЂгЂЂ(KWT)
+гЂЂз•°еЅўиЎЁгЂЂгЂЂгЂЂгЂЂ(MT)
+гЂЂгѓ©гѓігѓЂгѓ з‰№жЉЂж±єе®љиЎЁгЂЂ(RTT)
+гЂЂгЃ“гЃЎг‚‰г‚‚гЂЃгЃѕгЃ•гЃ—гЃ’гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.13 2012/04/01
-ЃEѓVѓѓѓhѓEѓ‰ѓ“4”Е‚Е1B6‚МЏкЌ‡‚МѓOѓЉѓbѓ`”»’и‚ЄЊл‚Б‚Д‚ў‚Ѕ‚Ѕ‚ЯЏCђіЃB
-Ѓ@U‚і‚сЋw“E‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»г‚·гѓЈгѓ‰г‚¦гѓ©гѓі4з‰€гЃ§1B6гЃ®е ґеђ€гЃ®г‚°гѓЄгѓѓгѓЃе€¤е®љгЃЊиЄ¤гЃЈгЃ¦гЃ„гЃџгЃџг‚Ѓдї®ж­ЈгЂ‚
+гЂЂUгЃ•г‚“жЊ‡ж‘гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.12 2012/03/27
-ЃEѓJѓIѓXѓtѓЊѓA‚МЋё”sЋћ‚ЙЌ·•Є’l‚М•\Ћ¦‚р’З‰БЃB
-ЃEѓ‚ѓmѓgЃ[ѓ“ѓ~ѓ…Ѓ[ѓWѓAѓЂ‚МѓNѓЉѓeѓBѓJѓ‹Ѓ^ѓtѓ@ѓ“ѓuѓ‹Џ€—ќ‚МЊл‚и‚рЏCђіЃB
-Ѓ@‚Ь‚З‚Э‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»г‚«г‚Єг‚№гѓ•гѓ¬г‚ўгЃ®е¤±ж•—ж™‚гЃ«е·®е€†еЂ¤гЃ®иЎЁз¤єг‚’иїЅеЉ гЂ‚
+гѓ»гѓўгѓЋгѓ€гѓјгѓігѓџгѓҐгѓјг‚ёг‚ўгѓ гЃ®г‚ЇгѓЄгѓ†г‚Јг‚«гѓ«пјЏгѓ•г‚Ўгѓігѓ–гѓ«е‡¦зђ†гЃ®иЄ¤г‚Љг‚’дї®ж­ЈгЂ‚
+гЂЂгЃѕгЃ©гЃїгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.11 2012/01/30
-ЃEѓuѓ‰ѓbѓhѓNѓ‹ѓZѓCѓh‚ЄGUI‚МЋw’и‚ЙЉЬ‚Ь‚к‚Д‚ў‚И‚©‚Б‚Ѕ‚Ѕ‚ЯЏCђіЃB
+гѓ»гѓ–гѓ©гѓѓгѓ‰г‚Їгѓ«г‚»г‚¤гѓ‰гЃЊGUIгЃ®жЊ‡е®љгЃ«еђ«гЃѕг‚ЊгЃ¦гЃ„гЃЄгЃ‹гЃЈгЃџгЃџг‚Ѓдї®ж­ЈгЂ‚
 
 Ver2.01.10 2012/01/09
-ЃEѓuѓ‰ѓbѓhѓNѓ‹ѓZѓCѓh‚Й‘О‰ћ
-ЃE•Ы‘¶‘ОЏЫ‚ЙѓQЃ[ѓЂѓ^ѓCѓgѓ‹‚р’З‰Б
-ЃE‘O‰сЏI—№Ћћ‚МђЭ’и‚рЋ©“®“З‚ЭЏo‚µ‚·‚й‚ж‚¤‚Й•ПЌXЃB
+гѓ»гѓ–гѓ©гѓѓгѓ‰г‚Їгѓ«г‚»г‚¤гѓ‰гЃ«еЇѕеїњ
+гѓ»дїќе­еЇѕи±ЎгЃ«г‚Ігѓјгѓ г‚їг‚¤гѓ€гѓ«г‚’иїЅеЉ 
+гѓ»е‰Ќе›ћзµ‚дє†ж™‚гЃ®иЁ­е®љг‚’и‡Єе‹•иЄ­гЃїе‡єгЃ—гЃ™г‚‹г‚€гЃ†гЃ«е¤‰ж›ґгЂ‚
 
 Ver2.01.09 2011/12/10
-ЃEѓ}ѓMѓJѓЌѓMѓA‚МѓRѓ}ѓ“ѓh‚ЄѓVЃ[ѓNѓЊѓbѓgѓ‚Ѓ[ѓh‚ЙђЭ’и‚і‚к‚Д‚µ‚Ь‚¤–в‘и‚Й‘ОЏ€ЃB
+гѓ»гѓћг‚®г‚«гѓ­г‚®г‚ўгЃ®г‚ігѓћгѓігѓ‰гЃЊг‚·гѓјг‚Їгѓ¬гѓѓгѓ€гѓўгѓјгѓ‰гЃ«иЁ­е®љгЃ•г‚ЊгЃ¦гЃ—гЃѕгЃ†е•ЏйЎЊгЃ«еЇѕе‡¦гЂ‚
 
 Ver2.01.08 2011/11/23
-ЃEЃu1D20+0Ѓv‚М‚ж‚¤‚Й +0 ‚МЏCђі‚р‰Б‚¦‚ЅЏкЌ‡‚Йѓ_ѓCѓXѓЌЃ[ѓ‹‚ЄЌs‚н‚к‚И‚ў–в‘и‚Й‘ОЏ€ЃB
+гѓ»гЂЊ1D20+0гЂЌгЃ®г‚€гЃ†гЃ« +0 гЃ®дї®ж­Јг‚’еЉ гЃ€гЃџе ґеђ€гЃ«гѓЂг‚¤г‚№гѓ­гѓјгѓ«гЃЊиЎЊг‚Џг‚ЊгЃЄгЃ„е•ЏйЎЊгЃ«еЇѕе‡¦гЂ‚
 
 Ver2.01.07 2011/10/29
-ЃEѓjѓbѓNѓlЃ[ѓЂ‚ЄђЪ‘±ђж‚МIRC‚ЕЏd•Ў‚µ‚Д‚ў‚йЏкЌ‡‚НЋ©“®“I‚Й nick -> nick2 ‚М‚ж‚¤‚Й–ј‘O‚р•ПЌX‚·‚й‚ж‚¤‚Й‹@”\’З‰БЃB
-ЃE—]•Є‚ИЏo—НѓfЃ[ѓ^‚рЌнЏњЃB
-ЃEђЪ‘±Џ€—ќЋћ‚Мђi’»‚р•\Ћ¦‚·‚й‚Ѕ‚Я‚ЙѓЌѓO‚р’З‰БЃB
+гѓ»гѓ‹гѓѓг‚ЇгѓЌгѓјгѓ гЃЊжЋҐз¶ље…€гЃ®IRCгЃ§й‡Ќи¤‡гЃ—гЃ¦гЃ„г‚‹е ґеђ€гЃЇи‡Єе‹•зљ„гЃ« nick -> nick2 гЃ®г‚€гЃ†гЃ«еђЌе‰Ќг‚’е¤‰ж›ґгЃ™г‚‹г‚€гЃ†гЃ«ж©џиѓЅиїЅеЉ гЂ‚
+гѓ»дЅ™е€†гЃЄе‡єеЉ›гѓ‡гѓјг‚їг‚’е‰Љй™¤гЂ‚
+гѓ»жЋҐз¶ље‡¦зђ†ж™‚гЃ®йЂІжЌ—г‚’иЎЁз¤єгЃ™г‚‹гЃџг‚ЃгЃ«гѓ­г‚°г‚’иїЅеЉ гЂ‚
 
 Ver2.01.06 2011/10/25
-ЃEђЭ’и‚рINIѓtѓ@ѓCѓ‹‚Ж‚µ‚Д•Ы‘¶‚Е‚«‚й‚ж‚¤‚Й‹@”\’З‰БЃB
-ЃEѓRѓ}ѓ“ѓhѓ‰ѓCѓ“€шђ”“n‚µ‚Е‚М‹N“®‚ЙЋё”s‚·‚йЏбЉQ‚рЏCђіЃB
+гѓ»иЁ­е®љг‚’INIгѓ•г‚Ўг‚¤гѓ«гЃЁгЃ—гЃ¦дїќе­гЃ§гЃЌг‚‹г‚€гЃ†гЃ«ж©џиѓЅиїЅеЉ гЂ‚
+гѓ»г‚ігѓћгѓігѓ‰гѓ©г‚¤гѓіеј•ж•°жёЎгЃ—гЃ§гЃ®иµ·е‹•гЃ«е¤±ж•—гЃ™г‚‹йљње®іг‚’дї®ж­ЈгЂ‚
 
 Ver2.01.05 2011/10/22
-ЃEѓvѓЌѓbѓg•\Ћ¦Џ€—ќ‚М•s‹пЌ‡‚рЏCђіЃB‚Ь‚і‚µ‚°‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃE‘O‰с‚М–А‹{ѓLѓ“ѓOѓ_ѓЂ‚МѓGѓLѓ]ѓ`ѓbѓN–ј‘O•\(NAMEEX),ѓtѓ@ѓ“ѓ^ѓWѓbѓN–ј‘O•\(NAMEFA)‚М‹LЌЪЊл‚и‚рЏCђіЃBFaceless‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»гѓ—гѓ­гѓѓгѓ€иЎЁз¤єе‡¦зђ†гЃ®дёЌе…·еђ€г‚’дї®ж­ЈгЂ‚гЃѕгЃ•гЃ—гЃ’гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»е‰Ќе›ћгЃ®иї·е®®г‚­гѓіг‚°гѓЂгѓ гЃ®г‚Ёг‚­г‚ѕгѓЃгѓѓг‚ЇеђЌе‰ЌиЎЁ(NAMEEX),гѓ•г‚Ўгѓіг‚їг‚ёгѓѓг‚ЇеђЌе‰ЌиЎЁ(NAMEFA)гЃ®иЁиј‰иЄ¤г‚Љг‚’дї®ж­ЈгЂ‚FacelessгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.04 2011/10/15
-ЃEѓoЃ[ѓWѓ‡ѓ“•\‹L‚рЏCђіЃB
-ЃE–А‹{ѓLѓ“ѓOѓ_ѓЂ‚Мѓ_ѓCѓXѓ{ѓbѓg‚ЙЃ@‰¤Ќ‘–јЊ€’и•\‚PЃ`‚S(KNT1Ѓ`KNT4ЃjЃA’PЊк•\‚PЃ`‚S(WORD1Ѓ`4)ЃA–ј‘O•\A(NAMEA),–ј‘O•\B(NAMEB),ѓGѓLѓ]ѓ`ѓbѓN–ј‘O•\(NAMEEX),ѓtѓ@ѓ“ѓ^ѓWѓbѓN–ј‘O•\(NAMEFA)Ѓ@‚р’З‰БЃB‚ ‚«‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃE–А‹{ѓLѓ“ѓOѓ_ѓЂ‚М”»’иЊ‹‰К‚Й6‚ЄЏo‚ЅЏкЌ‡‚М‹C—НЋж“ѕЊ‹‰К‚р’З‰БЃB“Ї‚¶‚­‚ ‚«‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃEѓTѓ^ѓXѓy‚Е2d6‚М‚ж‚¤‚И’КЏн‚Мѓ_ѓCѓXѓЌЃ[ѓ‹‚ЄЏo—€‚И‚ўЏбЉQ‚рЏCђіЃB‚Ж‚­‚Я‚ў‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»гѓђгѓјг‚ёгѓ§гѓіиЎЁиЁг‚’дї®ж­ЈгЂ‚
+гѓ»иї·е®®г‚­гѓіг‚°гѓЂгѓ гЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«гЂЂзЋ‹е›ЅеђЌж±єе®љиЎЁпј‘гЂњпј”(KNT1гЂњKNT4пј‰гЂЃеЌиЄћиЎЁпј‘гЂњпј”(WORD1гЂњ4)гЂЃеђЌе‰ЌиЎЁA(NAMEA),еђЌе‰ЌиЎЁB(NAMEB),г‚Ёг‚­г‚ѕгѓЃгѓѓг‚ЇеђЌе‰ЌиЎЁ(NAMEEX),гѓ•г‚Ўгѓіг‚їг‚ёгѓѓг‚ЇеђЌе‰ЌиЎЁ(NAMEFA)гЂЂг‚’иїЅеЉ гЂ‚гЃ‚гЃЌгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»иї·е®®г‚­гѓіг‚°гѓЂгѓ гЃ®е€¤е®љзµђжћњгЃ«6гЃЊе‡єгЃџе ґеђ€гЃ®ж°—еЉ›еЏ–еѕ—зµђжћњг‚’иїЅеЉ гЂ‚еђЊгЃгЃЏгЃ‚гЃЌгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»г‚µг‚їг‚№гѓљгЃ§2d6гЃ®г‚€гЃ†гЃЄйЂљеёёгЃ®гѓЂг‚¤г‚№гѓ­гѓјгѓ«гЃЊе‡єжќҐгЃЄгЃ„йљње®іг‚’дї®ж­ЈгЂ‚гЃЁгЃЏг‚ЃгЃ„гЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.03 2011/10/05
-ЃEѓJѓEѓ“ѓ^Ѓ[‘ЂЌмЋћ‚М•s‹пЌ‡‚рЏCђіЃB@sillygo‚і‚с‚ ‚и‚Є‚Ж‚¤‚БЃI
-ЃE–А‹{ѓLѓ“ѓOѓ_ѓЂ‚МѓRѓ}ѓ“ѓh‚Е1MK‚Ж‚µ‚ЅЏкЌ‡‚Йђі‚µ‚­ЊvЋZ‚і‚к‚И‚ў•s‹пЌ‡‚рЏCђіЃB‚ ‚«‚і‚сЋw“E‚ ‚и‚Є‚Ж‚¤‚БЃI
+гѓ»г‚«г‚¦гѓіг‚їгѓјж“ЌдЅњж™‚гЃ®дёЌе…·еђ€г‚’дї®ж­ЈгЂ‚@sillygoгЃ•г‚“гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
+гѓ»иї·е®®г‚­гѓіг‚°гѓЂгѓ гЃ®г‚ігѓћгѓігѓ‰гЃ§1MKгЃЁгЃ—гЃџе ґеђ€гЃ«ж­ЈгЃ—гЃЏиЁ€з®—гЃ•г‚ЊгЃЄгЃ„дёЌе…·еђ€г‚’дї®ж­ЈгЂ‚гЃ‚гЃЌгЃ•г‚“жЊ‡ж‘гЃ‚г‚ЉгЃЊгЃЁгЃ†гЃЈпјЃ
 
 Ver2.01.02 2011/10/04
-ЃETOPIC•ПЌXЋћ‚ЙђШ’f‚і‚к‚Д‚µ‚Ь‚¤–в‘и‚рЏCђіЃB
+гѓ»TOPICе¤‰ж›ґж™‚гЃ«е€‡ж–­гЃ•г‚ЊгЃ¦гЃ—гЃѕгЃ†е•ЏйЎЊг‚’дї®ж­ЈгЂ‚
 
 Ver2.01.01 2011/10/02
-ЃEEclipsePhase‚Й‘О‰ћЃB
-ЃEѓoЃ[ѓWѓ‡ѓ“•t—^‚р(ѓЃѓWѓѓЃ[).(ѓ}ѓCѓiЃ[).(ѓЉѓrѓWѓ‡ѓ“)•ыЋ®‚ЙЃB
-Ѓ@€ИЌ~ЃAѓVѓXѓeѓЂЏг‚Й‘е‚«‚И•ПЌX‚Є‚И‚ўЊА‚и‚НѓЉѓrѓWѓ‡ѓ“‚р‚ ‚°‚й‚±‚Ж‚Ж‚µ‚Ь‚·ЃB
+гѓ»EclipsePhaseгЃ«еЇѕеїњгЂ‚
+гѓ»гѓђгѓјг‚ёгѓ§гѓід»дёЋг‚’(гѓЎг‚ёгѓЈгѓј).(гѓћг‚¤гѓЉгѓј).(гѓЄгѓ“г‚ёгѓ§гѓі)ж–№ејЏгЃ«гЂ‚
+гЂЂд»Ґй™ЌгЂЃг‚·г‚№гѓ†гѓ дёЉгЃ«е¤§гЃЌгЃЄе¤‰ж›ґгЃЊгЃЄгЃ„й™ђг‚ЉгЃЇгѓЄгѓ“г‚ёгѓ§гѓіг‚’гЃ‚гЃ’г‚‹гЃ“гЃЁгЃЁгЃ—гЃѕгЃ™гЂ‚
 
 Ver2.01 2011/10/02
-ЃED66ѓЌЃ[ѓ‹‚ЕѓGѓ‰Ѓ[‚ЄЏo‚йЏбЉQ‚рЏCђіЃB
-ЃEђв‘О—к“z‚МѓЌЃ[ѓ‹Њ‹‰К•\Ћ¦Њ`Ћ®‚р‘ј‚Мѓ_ѓCѓXѓ{ѓbѓg‚ЙЌ‡‚н‚№‚ДЏCђіЃB
+гѓ»D66гѓ­гѓјгѓ«гЃ§г‚Ёгѓ©гѓјгЃЊе‡єг‚‹йљње®іг‚’дї®ж­ЈгЂ‚
+гѓ»зµ¶еЇѕйљ·еҐґгЃ®гѓ­гѓјгѓ«зµђжћњиЎЁз¤єеЅўејЏг‚’д»–гЃ®гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«еђ€г‚ЏгЃ›гЃ¦дї®ж­ЈгЂ‚
 
 Ver2.00.03 2011/10/01
-ЃE•¶ЋљѓRЃ[ѓhЋw’и‚рѓfѓtѓHѓ‹ѓgiso-2022-jp‚ЙЏCђіЃB
-Ѓ@‚Ь‚Ѕ‘ј‚М•¶ЋљѓRЃ[ѓh‚Й‚а•ПЌX‚Е‚«‚й‚ж‚¤‚ЙGUI‚ЙЌЂ–Ъ’З‰БЃB
+гѓ»ж–‡е­—г‚ігѓјгѓ‰жЊ‡е®љг‚’гѓ‡гѓ•г‚©гѓ«гѓ€iso-2022-jpгЃ«дї®ж­ЈгЂ‚
+гЂЂгЃѕгЃџд»–гЃ®ж–‡е­—г‚ігѓјгѓ‰гЃ«г‚‚е¤‰ж›ґгЃ§гЃЌг‚‹г‚€гЃ†гЃ«GUIгЃ«й …з›®иїЅеЉ гЂ‚
 
 Ver2.00.02 2011/10/01
-ЃE‰B‚µѓ_ѓCѓX•¶Ћљ—сЃiS2d6‚М‚ж‚¤‚ИЃj‚МЏкЌ‡‚Й•¶Ћљ‰»‚Ї‚·‚й–в‘и‚рЏCђіЃB
+гѓ»йљ гЃ—гѓЂг‚¤г‚№ж–‡е­—е€—пј€S2d6гЃ®г‚€гЃ†гЃЄпј‰гЃ®е ґеђ€гЃ«ж–‡е­—еЊ–гЃ‘гЃ™г‚‹е•ЏйЎЊг‚’дї®ж­ЈгЂ‚
 
 Ver2.00.01 2011/09/30
-ЃE‚З‚З‚с‚Ж‚У‚Ц‚М‘g‚ЭЌћ‚Э‘О‰ћ‚Ж‚µ‚ДЃA€к•”ѓ\Ѓ[ѓXѓRЃ[ѓh‚Мѓtѓ@ѓCѓ‹–ј•ПЌXЃB(config.rb -> configBcDice.rb)
+гѓ»гЃ©гЃ©г‚“гЃЁгЃµгЃёгЃ®зµ„гЃїиѕјгЃїеЇѕеїњгЃЁгЃ—гЃ¦гЂЃдёЂйѓЁг‚Ѕгѓјг‚№г‚ігѓјгѓ‰гЃ®гѓ•г‚Ўг‚¤гѓ«еђЌе¤‰ж›ґгЂ‚(config.rb -> configBcDice.rb)
 
 Ver2.00 2011/09/30
-ЃEFaceless‚і‚с‚Мѓ{Ѓ[ѓ“ѓYЃ•ѓJЃ[ѓY‚рЊі‚ЙЃARuby€ЪђA”Е‚рЌмђ¬
-Ѓ@ђіЋ®‚Й”ФЌ†•t—^‚µѓoЃ[ѓWѓ‡ѓ“ЉЗ—ќЉJЋn
-Ѓ@Њі‚МPerl”Е‚МѓTѓCѓg‚Н‚±‚ї‚з http://faceless-tools.cocolog-nifty.com/blog/
-Ѓ@‚±‚М‚Ѕ‚ЯЃAѓoЃ[ѓWѓ‡ѓ“‚Н2.00ЉJЋn‚Ж‚И‚и‚Ь‚·ЃB
-ЃEђв‘О—к“z‚рѓ_ѓCѓXѓ{ѓbѓg‚Й’З‰БЃB
+гѓ»FacelessгЃ•г‚“гЃ®гѓњгѓјгѓіг‚єпј†г‚«гѓјг‚єг‚’е…ѓгЃ«гЂЃRubyз§»ж¤Ќз‰€г‚’дЅњж€ђ
+гЂЂж­ЈејЏгЃ«з•ЄеЏ·д»дёЋгЃ—гѓђгѓјг‚ёгѓ§гѓіз®Ўзђ†й–‹е§‹
+гЂЂе…ѓгЃ®Perlз‰€гЃ®г‚µг‚¤гѓ€гЃЇгЃ“гЃЎг‚‰ http://faceless-tools.cocolog-nifty.com/blog/
+гЂЂгЃ“гЃ®гЃџг‚ЃгЂЃгѓђгѓјг‚ёгѓ§гѓігЃЇ2.00й–‹е§‹гЃЁгЃЄг‚ЉгЃѕгЃ™гЂ‚
+гѓ»зµ¶еЇѕйљ·еҐґг‚’гѓЂг‚¤г‚№гѓњгѓѓгѓ€гЃ«иїЅеЉ гЂ‚
 
