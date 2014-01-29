@@ -99,6 +99,7 @@ class CgiDiceBot
     bcdice.setTest(@isTest)
     bcdice.setCollectRandResult(isNeedResult)
     bcdice.setDir(dir, prefix)
+    bcdice.setIrcMode(false)
     
     if( bcdice.getGameType != gameType )
       bcdice.setGameByTitle( gameType )

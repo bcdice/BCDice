@@ -72,7 +72,7 @@ MESSAGETEXT
       #1の出目ごとにダブルトリガーで2個ダイス追加
 	  rollCount = diceList.find_all{|i| i == 1 }.size * 2
 	  
-	  result = "#{result}[#{diceList}]"
+	  result = "#{result}[#{diceList.join}]"
       result = "#{result} ダブルトリガー! " if(rollCount > 0)
 	end
 	
