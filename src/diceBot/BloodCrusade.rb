@@ -41,7 +41,7 @@ class BloodCrusade < DiceBot
 　・田舎シーン表　　　 CYST
 　・学校シーン表　　　 SLST
 　・館シーン表　　　　 MNST
-　・時間経過表（10代～60代、反吸血鬼）TD1T～TD6T、TDHT
+　・時間経過表（10代～60代、半吸血鬼）TD1T～TD6T、TDHT
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end

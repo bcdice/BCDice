@@ -4,7 +4,6 @@ require 'configBcDiceForSystem.rb'
 
 $isDebug = false
 
-$KCODE = 'UTF8'# このソースはUTF-8で書かれています
 $bcDiceVersion = "2.01.17"
 
 
