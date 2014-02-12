@@ -28509,136 +28509,118 @@ rand:6/6,6/6,6/6
 ============================
 input:2BB+5	BeastBindTrinity
 output:
-BeastBindTrinity : (2R6+5) ＞ 11[5,6]+5 ＞ 16
+BeastBindTrinity : (2R6+5[C12,F2]) ＞ 11[5,6]+5 ＞ 16
 rand:5/6,6/6
 ============================
 input:2BB+5>=16	BeastBindTrinity
 output:
-BeastBindTrinity : (2R6+5>=16) ＞ 11[5,6]+5 ＞ 16 ＞ 成功
+BeastBindTrinity : (2R6+5[C12,F2]>=16) ＞ 11[5,6]+5 ＞ 16 ＞ 成功
 rand:5/6,6/6
 ============================
 input:2BB+5>=17	BeastBindTrinity
 output:
-BeastBindTrinity : (2R6+5>=17) ＞ 11[5,6]+5 ＞ 16 ＞ 失敗
+BeastBindTrinity : (2R6+5[C12,F2]>=17) ＞ 11[5,6]+5 ＞ 16 ＞ 失敗
 rand:5/6,6/6
 ============================
 input:2BB+5@11#5	BeastBindTrinity
 output:
-BeastBindTrinity : (2R6+5@C11@F5) ＞ 11[5,6]+5+20【クリティカル】 ＞ 36
+BeastBindTrinity : (2R6+5[C11,F5]) ＞ 11[5,6]+5+20【クリティカル】 ＞ 36
 rand:5/6,6/6
 ============================
 input:2BB+5@11#5>=36	BeastBindTrinity
 output:
-BeastBindTrinity : (2R6+5@C11@F5>=36) ＞ 11[5,6]+5+20【クリティカル】 ＞ 36 ＞ 成功
+BeastBindTrinity : (2R6+5[C11,F5]>=36) ＞ 11[5,6]+5+20【クリティカル】 ＞ 36 ＞ 成功
 rand:5/6,6/6
 ============================
 input:2BB+5@11#5>=37	BeastBindTrinity
 output:
-BeastBindTrinity : (2R6+5@C11@F5>=37) ＞ 11[5,6]+5+20【クリティカル】 ＞ 36 ＞ 失敗
+BeastBindTrinity : (2R6+5[C11,F5]>=37) ＞ 11[5,6]+5+20【クリティカル】 ＞ 36 ＞ 失敗
 rand:5/6,6/6
 ============================
 input:2BB+5@11#6	BeastBindTrinity
 output:
-BeastBindTrinity : (2R6+5@C11@F6) ＞ 6[1,5]【ファンブル】 ＞ 0
-rand:5/6,1/6
-============================
-input:2BB+5@11#6>=0	BeastBindTrinity
-output:
-BeastBindTrinity : (2R6+5@C11@F6>=0) ＞ 6[1,5]【ファンブル】 ＞ 0 ＞ 成功
+BeastBindTrinity : (2R6+5[C11,F6]) ＞ 6[1,5]【ファンブル】 ＞ 0
 rand:5/6,1/6
 ============================
 input:2BB+5@11#6>=1	BeastBindTrinity
 output:
-BeastBindTrinity : (2R6+5@C11@F6>=1) ＞ 6[1,5]【ファンブル】 ＞ 0 ＞ 失敗
+BeastBindTrinity : (2R6+5[C11,F6]>=1) ＞ 6[1,5]【ファンブル】 ＞ 0 ＞ 失敗
 rand:5/6,1/6
 ============================
-input:DCTH	BeastBindTrinity
+input:2BB+5%41	BeastBindTrinity
 output:
-BeastBindTrinity : 出自表（人間）(11) ＞ 殺戮［絆：家族（愛情）］
-あなたは家族や大切な人を失い、その時に“力”に目覚めた。
-rand:1/6,1/6
+BeastBindTrinity : (2R6+5[C12,F2]) ＞ 6[1,5]+5 ＞ 11
+rand:5/6,1/6
 ============================
-input:DCTB	BeastBindTrinity
+input:2BB+5%41>=30	BeastBindTrinity
 output:
-BeastBindTrinity : 出自表（魔物）(11) ＞ 恋慕［絆：初恋の人（愛情）］
-あなたは人を愛してしまった。その愛故に、あなたは罪の世界に背を向けた。
-rand:1/6,1/6
+BeastBindTrinity : (2R6+5[C12,F2]>=30) ＞ 11[5,6]+5 ＞ 16 ＞ 失敗
+rand:5/6,6/6
 ============================
-input:ENC	BeastBindTrinity
+input:2BB+5%41>=30	BeastBindTrinity
 output:
-BeastBindTrinity : 邂逅表(11) ＞ 家族（対象NPC：高木姫、ドラキュラ伯爵、桐生圭花、綾音小路伴華）
-rand:1/6,1/6
+BeastBindTrinity : (2R6+5[C12,F2]>=30) ＞ 12[6,6]+5+20【クリティカル】 ＞ 37 ＞ 成功
+rand:6/6,6/6
+============================
+input:2BB+5%21>=30	BeastBindTrinity
+output:
+BeastBindTrinity : (2R6+5[C11,F2]>=30) ＞ 12[6,6]+5+20【クリティカル】 ＞ 37 ＞ 成功
+rand:6/6,6/6
+============================
+input:2BB+5%21>=30	BeastBindTrinity
+output:
+BeastBindTrinity : (2R6+5[C11,F2]>=30) ＞ 11[5,6]+5+20【クリティカル】 ＞ 36 ＞ 成功
+rand:5/6,6/6
+============================
+input:2BB+5%21>=30	BeastBindTrinity
+output:
+BeastBindTrinity : (2R6+5[C11,F2]>=30) ＞ 10[4,6]+5 ＞ 15 ＞ 失敗
+rand:4/6,6/6
+============================
+input:2BB+5%1>=30	BeastBindTrinity
+output:
+BeastBindTrinity : (2R6+5[C10,F2]>=30) ＞ 11[5,6]+5+20【クリティカル】 ＞ 36 ＞ 成功
+rand:5/6,6/6
+============================
+input:2BB+5%1>=30	BeastBindTrinity
+output:
+BeastBindTrinity : (2R6+5[C10,F2]>=30) ＞ 10[4,6]+5+20【クリティカル】 ＞ 35 ＞ 成功
+rand:4/6,6/6
+============================
+input:2BB+5%1>=30	BeastBindTrinity
+output:
+BeastBindTrinity : (2R6+5[C10,F2]>=30) ＞ 9[4,5]+5 ＞ 14 ＞ 失敗
+rand:4/6,5/6
+============================
+input:2BB+5%-1>=30	BeastBindTrinity
+output:
+BeastBindTrinity : (2R6+5[C9,F2]>=30) ＞ 10[4,6]+5+20【クリティカル】 ＞ 35 ＞ 成功
+rand:4/6,6/6
+============================
+input:2BB+5%-1>=30	BeastBindTrinity
+output:
+BeastBindTrinity : (2R6+5[C9,F2]>=30) ＞ 9[4,5]+5+20【クリティカル】 ＞ 34 ＞ 成功
+rand:4/6,5/6
+============================
+input:2BB+5%1@9>=30	BeastBindTrinity
+output:
+BeastBindTrinity : (2R6+5[C9,F2]>=30) ＞ 9[4,5]+5+20【クリティカル】 ＞ 34 ＞ 成功
+rand:4/6,5/6
+============================
+input:2BB+5%12$56	BeastBindTrinity
+output:
+BeastBindTrinity : (2R6+5[C10,F2]) ＞ 11[5,6]+5+20【クリティカル】 ＞ 36
+rand:
+============================
+input:2BB+5$2	BeastBindTrinity
+output:
+BeastBindTrinity : (2R6+5[C12,F2]) ＞ 7[2,5]+5 ＞ 12
+rand:5/6
 ============================
 input:EMO	BeastBindTrinity
 output:
-BeastBindTrinity : 感情表(11) ＞ 家族
+BeastBindTrinity : 邂逅表(11) ＞ 家族
 rand:1/6,1/6
-============================
-input:EGO0	BeastBindTrinity
-output:
-BeastBindTrinity : エゴ表(汎用)(11) ＞ 戦いたい
-rand:1/6,1/6
-============================
-input:EGO11	BeastBindTrinity
-output:
-BeastBindTrinity : エゴ表(異能者)(1) ＞ 人間でありたい
-rand:1/6
-============================
-input:EGO94	BeastBindTrinity
-output:
-BeastBindTrinity : エゴ表(死せる者)(1) ＞ 死んだままでいたい
-rand:1/6
-============================
-input:EGO101	BeastBindTrinity
-output:
-BeastBindTrinity : エゴ表(鬼)(1) ＞ 日本を守りたい
-rand:1/6
-============================
-input:EGO134	BeastBindTrinity
-output:
-BeastBindTrinity : エゴ表(転生者)(1) ＞ 前世の使命を果たす
-rand:1/6
-============================
-input:EGO135	BeastBindTrinity
-output:
-BeastBindTrinity : エゴ表(ERROR:該当ルーツなし)() ＞ ERROR:ルーツ番号が不正です
-rand:
-============================
-input:MTT0	BeastBindTrinity
-output:
-BeastBindTrinity : 変異表(汎用)(11) ＞ 体中に光をまとう
-rand:1/6,1/6
-============================
-input:MTT11	BeastBindTrinity
-output:
-BeastBindTrinity : 変異表(異能者)(1) ＞ 髪の毛が逆立つ
-rand:1/6
-============================
-input:MTT94	BeastBindTrinity
-output:
-BeastBindTrinity : 変異表(死せる者)(1) ＞ 肌が青白くなる
-rand:1/6
-============================
-input:MTT101	BeastBindTrinity
-output:
-BeastBindTrinity : 変異表(鬼)(1) ＞ 口が耳まで裂ける
-rand:1/6
-============================
-input:MTT134	BeastBindTrinity
-output:
-BeastBindTrinity : 変異表(転生者)(1) ＞ 会話に混じる外国語
-rand:1/6
-============================
-input:MTT135	BeastBindTrinity
-output:
-BeastBindTrinity : 変異表(ERROR:該当ルーツなし)() ＞ ERROR:ルーツ番号が不正です
-rand:
-============================
-input:ROOT1	BeastBindTrinity
-output:
-BeastBindTrinity : ルーツ番号索引(1) ＞ 【1:イレギュラー ルーツ番号】
-　11:異能者 12:守護者使い 13:魔剣 14:グラップラー 15:忍 16:キラーエリート
-rand:
 ============================
 input:2EB	EndBreaker
 output:

@@ -55,39 +55,28 @@ class KillDeathBusiness < DiceBot
   
   def getHelpMessage
     info = <<INFO_MESSAGE_TEXT
-・各種表
- ・履歴表 (HST)
-   末尾に数字(1,2)を入れることでシーン表1,2を個別に振れます。
- ・願い事表 (-WT)
-   「死」(DWT/DeathWT)、「復讐」(RWT/RevengeWT)、
-   「勝利」(VWT/VictoryWT)、「獲得」(PWT/PossesionWT)、
-   「支配」(CWT/ControlWT)、「繁栄」(FWT/FlourishWT)、
-   「強化」(IWT/IntensifyWT)、「健康」(HWT/HealthWT)、
-   「安全」(SaWT/SafetyWT)、「長寿」(LWT/LongevityWT)、
-   「生」(EWT/ExistWT)
- ・万能命名表 (NAME)
-   末尾に数字(1,2,3)を入れることで万能命名表1,2,3を個別に振れます。
- ・サブプロット表 (-SPT)
-   「オカルト」(OSPT/OccultSPT)、「家族」(FSPT/FamilySPT)、
-   「恋愛」(LoSPT/LoveSPT)、「正義」(JSPT/JusticeSPT)、
-   「修行」(TSPT/TrainingSPT)、「笑い」(BSPT/BeamSPT)
- ・シーン表 (ST)
- ・サービスシーン表 (EST/sErviceST)
- ・CM表 (CMT)
- ・蘇生副作用表 (ERT)
- ・一週間表（WKT)
- ・ソウル放出表 (SOUL)
- ・汎用演出表 (STGT)
- ・ヘルスタイリスト罵倒表 (HSAT)
-   末尾に数字(1,2)を入れることでヘルスタイリスト罵倒表1,2を個別に振れます。
- ・指定特技ランダム決定表 (SKLT)
- ・指定特技分野ランダム決定表 (SKLJ)
- ・エキストラ表 (EXT)
-   末尾に数字(1,2,3,4)を入れることでエキストラ表A(1),B(2)、
-   エキストラ登場表A(3),B(4)を個別に振れます。
+・判定
+　JDx or JDx+y or JDx-y or JDx,z or JDx+y,z JDx-y,z
+　（x＝難易度、y＝補正、z＝ファンブル率(リスク)）
+・履歴表 (HST、HSTx) xに数字(1,2)で表を個別ロール
+・願い事表 (-WT)
+　死(DWT)、復讐(RWT)、勝利(VWT)、獲得(PWT)、支配(CWT)、繁栄(FWT)
+　強化(IWT)、健康(HWT)、安全(SAWT)、長寿(LWT)、生(EWT)
+・万能命名表 (NAME) xに数字(1,2,3)で表を個別ロール
+・サブプロット表 (-SPT)
+　オカルト(OSPT)、家族(FSPT)、恋愛(LOSPT)、正義(JSPT)、修行(TSPT)
+　笑い(BSPT)、意地悪(MASPT)、恨み(UMSPT)、人気(POSPT)、仕切り(PASPT)
+　金儲け(MOSPT)、対悪魔(ANSPT)
+・シーン表 (ST)、サービスシーン表 (EST)
+・CM表 (CMT)
+・蘇生副作用表 (ERT)
+・一週間表（WKT)
+・ソウル放出表 (SOUL)
+・汎用演出表 (STGT)
+・ヘルスタイリスト罵倒表 (HSAT、HSATx) xに数字(1,2)で表を個別ロール
+・指定特技ランダム決定表 (SKLT)、指定特技分野ランダム決定表 (SKLJ)
+・エキストラ表 (EXT、EXTx) xに数字(1,2,3,4)で表を個別ロール
 ・D66ダイスあり
-・判定　JDx or JDx+y or JDx-y or JDx,z or JDx+y,z JDx-y,z
-　（x＝難易度、y＝補正、z＝ファンブル率（リスク））
 INFO_MESSAGE_TEXT
   end
   
