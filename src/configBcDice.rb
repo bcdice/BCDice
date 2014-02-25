@@ -59,6 +59,7 @@ EndBreaker
 GURPS
 GehennaAn
 GeishaGirlwithKatana
+Gorilla
 Gundog
 GundogZero
 GurpsFW
