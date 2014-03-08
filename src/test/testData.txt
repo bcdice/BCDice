@@ -17165,12 +17165,12 @@ rand:4/40,1/6
 ============================
 input:4E0	EarthDawn
 output:
-EarthDawn : ステップ4>=0 ＞ 1d6[8] ＞ 8
+EarthDawn : ステップ4 ＞ 1d6[8] ＞ 8
 rand:6/6,2/6
 ============================
 input:4E	EarthDawn
 output:
-EarthDawn : ステップ4>=0 ＞ 1d6[8] ＞ 8
+EarthDawn : ステップ4 ＞ 1d6[8] ＞ 8
 rand:6/6,2/6
 ============================
 input:1D10>=2	EmbryoMachine
