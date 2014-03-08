@@ -38,11 +38,7 @@ INFO_MESSAGE_TEXT
   #アースドーンステップ表
   def ed_step(str)
     
-    step, targetNumber, string = getStepResult(str)
-    
-    return nil if( string.nil? )
-      
-    output = "ステップ#{step}>=#{targetNumber} ＞ #{string}"
+    output = getStepResult(str)
     
     return output
   end
@@ -134,7 +130,8 @@ INFO_MESSAGE_TEXT
     #ステップ判定終了
     string += " ＞ #{stepTotal}"
     
-    return step, targetNumber, string if(targetNumber == 0)
+    output = "ステップ#{step} ＞ #{string}"
+    return output if(targetNumber == 0)
     
     #結果判定
     string += ' ＞ '
@@ -160,7 +157,9 @@ INFO_MESSAGE_TEXT
       string += '失敗'
     end
     
-    return step, targetNumber, string
+    output = "ステップ#{step}>=#{targetNumber} ＞ #{string}"
+    
+    return output
   end
   
   
