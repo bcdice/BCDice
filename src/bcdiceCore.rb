@@ -1065,7 +1065,7 @@ class BCDice
     
     if( max != targetMax )
       #return randNomal(targetMax)
-      raise "invalid max value! value, max, targetMax: #{value}, #{max}, #{targetMax}"
+      raise "invalid max value! [ #{value} / #{max} ] but NEED [ #{targetMax} ] dice"
     end
     
     return (value - 1)
