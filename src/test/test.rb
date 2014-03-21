@@ -1,5 +1,5 @@
-#!/perl/bin/ruby -Ku 
 #--*-coding:utf-8-*--
+
 $KCODE = 'UTF8'
 
 $LOAD_PATH << File.dirname(__FILE__) + "/.."
