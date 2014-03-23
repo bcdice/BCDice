@@ -1,5 +1,7 @@
 #--*-coding:utf-8-*--
 
+require 'diceBot/DemonParasite'
+
 class ParasiteBlood < DemonParasite
   def gameName
     'パラサイトブラッド'

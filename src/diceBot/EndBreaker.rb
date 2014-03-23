@@ -64,16 +64,25 @@ MESSAGETEXT
 	rollCount = diceCount #ダブルトリガー
 	
 	result = ""
+	diceFullList = []
 	
     while rollCount != 0
-      dice, dice_str, = roll(rollCount, 6)
+      dice, dice_str = roll(rollCount, 6)
       diceList = dice_str.split(/,/).collect{|i|i.to_i}.sort
+	  diceFullList.concat(diceList)
 	  
       #1の出目ごとにダブルトリガーで2個ダイス追加
-	  rollCount = diceList.find_all{|i| i == 1 }.size * 2
+	  rollCount = diceList.select{|i| i == 1 }.size * 2
 	  
-	  result = "#{result}[#{diceList.join}]"
-      result = "#{result} ダブルトリガー! " if(rollCount > 0)
+	  result += "[#{diceList.join}]"
+      result += " ダブルトリガー! " if(rollCount > 0)
+	end
+	
+	#ダイスの出目の個数を集計
+	result += " ＞"
+	for num in 2..6
+	  count = diceFullList.select{|i| i == num}.size
+	  result += " [#{num}:#{count}個]" unless(count == 0)
 	end
 	
 	return result

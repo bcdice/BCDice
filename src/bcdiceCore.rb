@@ -1964,6 +1964,9 @@ class BCDice
     when /(^|\s)(EndBreaker)$/i
       require 'diceBot/EndBreaker'
       diceBot = EndBreaker.new
+    when /(^|\s)(KanColle)$/i
+      require 'diceBot/KanColle'
+      diceBot = KanColle.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else
