@@ -332,9 +332,12 @@ class IrcClient < Net::IRC::Client
     
     debug('sendMessage to, message', to, message)
     
-    if( message.length > $SEND_STR_MAX)         # 長すぎる出力はイタズラと見なす
-      message = '結果が長くなりすぎました';
-    end
+    #if( message.length > $SEND_STR_MAX)         # 長すぎる出力はイタズラと見なす
+    #  message = '結果が長くなりすぎました';
+    #end
+    
+    # 長すぎる出力は"\n"を挟み、分割送信されるように。
+    message = insertEnterToTooLongMessage(message)
     
     to = encode($ircCode ,to)
     
@@ -349,8 +352,33 @@ class IrcClient < Net::IRC::Client
         debug("privmsg  to, lineMessage", to, lineMessage)
         privmsg(to, lineMessage);       # privmsgで送信
       end
+      
+      sleep( 1 )
     end
   end
+  
+  
+  def insertEnterToTooLongMessage(message)
+    
+    if( message.length <= $SEND_STR_MAX)
+      return message
+    end
+    
+    result = ""
+    index = 1
+    
+    message.chars do |ch|
+      result << ch
+      
+      if( result.length > ($SEND_STR_MAX * index) )
+        result << "\n"
+        index += 1
+      end
+    end
+    
+    return result
+  end
+  
   
   def notice(to, message)
     post(NOTICE, to, encode($ircCode, message))

@@ -32,10 +32,10 @@ class DiceBot
   
   def info
     {
-      :name => gameName,
-      :gameType => gameType,
-      :prefixs => prefixs,
-      :info => getHelpMessage,
+      'name' => gameName,
+      'gameType' => gameType,
+      'prefixs' => prefixs,
+      'info' => getHelpMessage,
     }
   end
   

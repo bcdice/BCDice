@@ -42,7 +42,7 @@ BeastBindTrinity
 BloodCrusade
 BloodMoon
 CardRanker
-Chaos Flare
+Chaos_Flare
 Chill
 CrashWorld
 Cthulhu
@@ -69,6 +69,7 @@ HuntersMoon
 InfiniteFantasia
 Insane
 Kamigakari
+KanColle
 KillDeathBusiness
 MagicaLogia
 MeikyuDays
@@ -98,7 +99,7 @@ SwordWorld
 SwordWorld2.0
 TORG
 TokumeiTenkousei
-Tunnels & Trolls
+Tunnels_&_Trolls
 Utakaze
 WARPS
 Warhammer

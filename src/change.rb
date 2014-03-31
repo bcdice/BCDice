@@ -1,7 +1,7 @@
 #--*-coding:utf-8-*--
 
 require 'Kconv'
-$KCODE = 'UTF8'# このソースはUTF-8で書かれています
+
 
 before = ARGV[0]
 after = ARGV[1]
