@@ -287,7 +287,7 @@ class BCDiceDialog < Wx::Dialog
   end
   
   def getAllGameTypes
-    return $allGameTypes
+    return $allGameTypes.collect{|i| i.gsub(/_/, ' ')}
   end
   
   def onChoiseGame

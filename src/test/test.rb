@@ -1,7 +1,5 @@
 #--*-coding:utf-8-*--
 
-$KCODE = 'UTF8'
-
 $LOAD_PATH << File.dirname(__FILE__) + "/.."
 $LOAD_PATH << File.dirname(__FILE__) + "/../irc"
 
