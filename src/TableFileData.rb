@@ -281,11 +281,11 @@ class TableFileCreator
   end
   
   def checkFileNotExist(fileName)
-    raise "そのコマンド名は既に使用されています。" if( File.exist?(fileName) )
+    raise "commandNameAlreadyExist" if( File.exist?(fileName) )
   end
   
   def checkFileExist(fileName)
-    raise "そのコマンド名は存在しません。" unless( File.exist?(fileName) )
+    raise "commandNameIsNotExist" unless( File.exist?(fileName) )
   end
   
   
@@ -321,10 +321,10 @@ class TableFileCreator
   end
   
   def checkCommand(command)
-    raise "command is empty" if( command.empty? )
+    raise "commandNameIsEmpty" if( command.empty? )
     
     unless( /^[a-zA-Z\d]+$/ === command )
-      raise "コマンド名には英数字のみ使用できます"
+      raise "commandNameCanUseOnlyAlphabetAndNumber"
     end
   end
   
@@ -365,7 +365,7 @@ class TableFileCreator
     keyValue = key.to_i
     
     if( keyValue == 0 )
-      raise "#{index + 1}行目の表記(#{key}?)は「数字:文字列」になっていません。"
+      raise "tableFormatIsInvalid\t#{index + 1}\t#{key}"
     end
     
     return keyValue
@@ -408,7 +408,7 @@ class TableFileEditer < TableFileCreator
     begin
       FileUtils.mv(originalFileName, fileName)
     rescue => e
-      raise "change command name faild(file move error)"
+      raise "changeCommandNameFaild"
     end
   end
   
