@@ -289,8 +289,9 @@ class TableFileCreator
   end
   
   
-  def getTableFileName(command = nil)
-    gameType = @params['gameType']
+  def getTableFileName(command = nil, gameType = nil)
+    
+    gameType = @params['gameType'] if( gameType.nil? )
     gameType ||= ''
     
     if( command.nil? )
@@ -386,23 +387,32 @@ class TableFileEditer < TableFileCreator
   def checkFile(fileName)
     @originalCommand = @params['originalCommand']
     
-    if( @originalCommand == @command )
-      checkFileWhenCommandNotChanged(fileName)
+    @gameType = @params['gameType']
+    @originalGameType = @params['originalGameType']
+    
+    if( (@originalCommand == @command) and (@originalGameType == @gameType) )
+      checkFileWhenFileNameNotChanged(fileName)
     else
-      checkFileWhenCommandChanged(fileName)
+      checkFileWhenFileNameChanged(fileName)
     end
   end
   
   
-  def checkFileWhenCommandNotChanged(fileName)
+  def checkFileWhenFileNameNotChanged(fileName)
     checkFileExist(fileName)
   end
   
   
-  def checkFileWhenCommandChanged(fileName)
-    originalFileName = getTableFileName(@originalCommand)
-    checkFileExist(originalFileName)
+  def checkFileWhenFileNameChanged(fileName)
     
+    originalCommand = @originalCommand
+    originalCommand ||= @command
+    originalGameType = @originalGameType
+    originalGameType ||= gameType
+    
+    originalFileName = getTableFileName(originalCommand, originalGameType)
+    
+    checkFileExist(originalFileName)
     checkFileNotExist(fileName)
     
     begin
