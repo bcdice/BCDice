@@ -1,7 +1,7 @@
 
 class DiceBotLoader
   
-  @@bcDicePath = './src_bcdice'
+  @@bcDicePath = FileTest.directory?('./diceBot') ? '.' : (FileTest.directory?('./src_bcdice') ? './src_bcdice' : './src')
   
   def self.setBcDicePath(path)
     @@bcDicePath = path
