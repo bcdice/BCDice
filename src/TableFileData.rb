@@ -37,7 +37,7 @@ class TableFileData
     
     return unless( isLoadCommonTable )
     
-    @dir = './extratables'
+    @dir = FileTest.directory?('./extratables') ? './extratables' : '../extratables'
     @tableData = searchTableFileDefine(@dir)
   end
   
