@@ -1,5 +1,5 @@
 Dir.chdir('../test')
-command = "ruby.exe -Ku test.rb #{ARGV.join(' ')}"
+command = "ruby -Ku test.rb #{ARGV.join(' ')}"
 print command
 print `#{command}`
 
