@@ -16,11 +16,11 @@ class TestDiceBot
   def test(arg)
     @testParms = arg
     
-    DiceBotLoader.setBcDicePath( '../../src_bcdice' )
+    DiceBotLoader.setBcDicePath( FileTest.directory?('../../src_bcdice') ? '../../src_bcdice' : '../../src' )
     
     resultFile = './testData.txt'
     
-    buffer = File.readlines(resultFile).join.toutf8
+    buffer = File.read(resultFile).toutf8.gsub(/[\r\n]+/, "\n")
     testDataList = getTestDataList(buffer)
     
 #    @testResultFile = open('testResult.txt', 'w+')
@@ -123,7 +123,7 @@ class TestDiceBot
       log << "index:#{@testIndex}\ninput:#{@input}\nresult:#{result}\ngood  :#{@good}\nrandsText:#{@randsText}\n"
     end
     
-    return log.tosjis
+    return RUBY_PLATFORM.downcase =~ /mswin(?!ce)|mingw|cygwin|bccwin/ ? log.tosjis : log
   end
   
   def getTestDataList(buffer)
