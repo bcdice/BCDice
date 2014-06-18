@@ -129,11 +129,12 @@ INFO_MESSAGE_TEXT
     diceNone6List.sort!
     debug("diceNone6List", diceNone6List)
     
-    maxDice1 = diceNone6List.shift.to_i
-    maxDice2 = diceNone6List.shift.to_i
+    maxDice1 = diceNone6List.pop.to_i
+    maxDice2 = diceNone6List.pop.to_i
     debug("maxDice1", maxDice1)
     debug("maxDice2", maxDice2)
     
+    debug("total_n", total_n)
     none6Total_n = total_n - 6 + maxDice2
     debug("none6Total_n", none6Total_n)
     
