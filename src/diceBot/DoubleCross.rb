@@ -33,8 +33,7 @@ class DoubleCross < DiceBot
 
 ・各種表
 　・感情表(ET)
-　　ポジティブとネガティブの両方を振って、表になっている側に○を付けて表示します。
-　　もちろん任意で選ぶ部分は変更して構いません。
+　　ポジティブとネガティブの両方を振って、表になっている側に○を付けて表示します。もちろん任意で選ぶ部分は変更して構いません。
 
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
@@ -62,7 +61,10 @@ INFO_MESSAGE_TEXT
   end
   
   def dice_command_xRn(string, nick_e)
-    output_msg = check_dice(string, nick_e)
+    output_msg = check_dice(string)
+    return nil if( output_msg.nil? )
+    
+    return "#{nick_e}: #{output_msg}"
   end
   
   def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)# ゲーム別成功度判定(nD10)
@@ -83,7 +85,7 @@ INFO_MESSAGE_TEXT
   end
   
   # 個数振り足しダイスロール
-  def check_dice(string, nick_e)
+  def check_dice(string)
     
     debug("dxdice begin string", string)
     
@@ -95,27 +97,29 @@ INFO_MESSAGE_TEXT
     diff = 0
     output = ""
     output2 = ""
-    roll_re = 0
     next_roll = 0
     
     string = string.gsub(/-[\d]+[rR][\d]+/, '')    # 振り足しロールの引き算している部分をカット
     
     unless(/(^|\s)[sS]?([\d]+[rR][\d\+\-rR]+)(\[(\d+)\])?(([<>=]+)(\d+))?($|\s)/ =~ string)
       debug("invaid string", string)
-      return '1'
+      return nil
     end
     
     string = $2
     
-    if($3)
-      roll_re = $4
-    elsif(rerollNumber != 0)
-      roll_re = rerollNumber
-    else 
-      return '条件が間違っています'
+    critical = $4
+    critical ||= rerollNumber
+    critical = critical.to_i
+    
+    debug("critical", critical)
+    
+    if( critical <= 1 )
+      return "クリティカル値が低すぎます。2以上を指定してください。"
     end
     
-    if($5)
+    
+    if( not $5.nil? )
       signOfInequality = marshalSignOfInequality($6)
       diff = $7.to_i
     elsif( defaultSuccessTarget != "" )
@@ -153,7 +157,7 @@ INFO_MESSAGE_TEXT
     dice_cmd.each do |dice_o|
       subtotal = 0
       dice_cnt, dice_max = dice_o.split(/[rR]/).collect{|s|s.to_i}
-      dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, roll_re)
+      dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, critical)
       output += "," if(output != "")
       next_roll += dice_dat[6]
       numberSpot1 += dice_dat[2]
@@ -179,7 +183,7 @@ INFO_MESSAGE_TEXT
         subtotal = 0
         output2 += "#{output}+"
         output = ""
-        dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, roll_re)
+        dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, critical)
         round += 1
         #               numberSpot1 += dice_dat[2]
         dice_cnt_total += dice_cnt
@@ -207,11 +211,11 @@ INFO_MESSAGE_TEXT
       output = "#{output2}#{output} ＞ #{total_n}"
     end
     
-    string += "[#{roll_re}]"
+    string += "[#{critical}]"
     string += "#{signOfInequality}#{diff}" if(signOfInequality != "")
-    output = "#{nick_e}: (#{string}) ＞ #{output}"
+    output = "(#{string}) ＞ #{output}"
     if(output.length > $SEND_STR_MAX)    # 長すぎたときの救済
-      output = "#{nick_e}: (#{string}) ＞ ... ＞ 回転数#{round} ＞ #{total_n}"
+      output = "(#{string}) ＞ ... ＞ 回転数#{round} ＞ #{total_n}"
     end
     
     if(signOfInequality != "")   # 成功度判定処理

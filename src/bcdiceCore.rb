@@ -824,13 +824,14 @@ class BCDice
     secret = (not $1.nil?)
     
     output = @diceBot.dice_command_xRn(arg, @nick_e)
+    return nil if( output.nil? or output == '1' )
     
     if( output.empty? )
       dice = RerollDice.new(self, @diceBot)
       output = dice.rollDice(arg)
     end
     
-    return nil if(output == '1')
+    return nil if( output.nil? or output == '1' )
     
     debug('xRn output', output)
     
