@@ -1477,7 +1477,8 @@ class BCDice
     if(dice_max == 6)
       if(dice_cnt == 2)
         debug('2d6判定')
-        return @diceBot.check_2D6(*check_param)
+        result = @diceBot.check_2D6(*check_param)
+        return result unless( result.empty? )
       end
       
       debug('xD6判定')
@@ -1968,6 +1969,9 @@ class BCDice
     when /(^|\s)(KanColle)$/i
       require 'diceBot/KanColle'
       diceBot = KanColle.new
+    when /(^|\s)(Grancrest)$/i
+      require 'diceBot/GranCrest'
+      diceBot = GranCrest.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else
