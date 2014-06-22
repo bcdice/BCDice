@@ -35,7 +35,8 @@ class GranCrest < DiceBot
   
   def getHelpMessage
     info = <<MESSAGETEXT
-・クリティカル処理
+・2D6の目標値判定でクリティカル処理
+　例）3d6>=19 3d6+5>=24
 ・邂逅表（MT）
 ・感情表（-FT）
 　ポジティブ感情表（PFT）、ネガティブ感情表（NFT）
