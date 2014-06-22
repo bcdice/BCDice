@@ -60,6 +60,7 @@ GURPS
 GehennaAn
 GeishaGirlwithKatana
 Gorilla
+GranCrest
 Gundog
 GundogZero
 GurpsFW
@@ -71,6 +72,7 @@ Insane
 Kamigakari
 KanColle
 KillDeathBusiness
+LogHorizon
 MagicaLogia
 MeikyuDays
 MeikyuKingdom
