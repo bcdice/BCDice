@@ -45,7 +45,7 @@ INFO_MESSAGE_TEXT
   end
   
   def changeText(string)
-    return string unless( /(^|\s)(K[\d]+)/i =~ string )
+    return string unless( /(^|\s)[sS]?(K[\d]+)/i =~ string )
     
     debug('parren_killer_add before string', string)
     string = string.gsub(/\[(\d+)\]/i) {"c[#{$1}]"}
