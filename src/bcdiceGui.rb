@@ -337,8 +337,6 @@ class BCDiceDialog < Wx::Dialog
   
   def addTestTextBoxs
     label = createLabel('動作テスト欄')
-    # @testInput = createTextInput( "3d6          " )
-    # @testInput.set_default_style( Wx::TextAttr.new(Wx::TE_PROCESS_ENTER) )
     inputSize = Wx::Size.new(250, 25)
     @testInput = Wx::TextCtrl.new(self, -1, "2d6",
                                   :style => Wx::TE_PROCESS_ENTER,
@@ -350,12 +348,27 @@ class BCDiceDialog < Wx::Dialog
     
     addCtrlOnLine( label, @testInput, @testButton )
     
-    size = Wx::Size.new(500, 150)
-    @testOutput = Wx::TextCtrl.new(self, -1, "", 
-                                  :style => Wx::TE_MULTILINE,
-                                  :size => size)
-    addCtrl(@testOutput)
+    # addOutput
   end
+  
+  #
+  # def addOutput
+  #   size = Wx::Size.new(500, 150)
+  #
+  #   @outputText = Wx::TextCtrl.new(self, -1, "", 
+  #                                  :style => Wx::TE_MULTILINE,
+  #                                  :size => size)
+  #   addCtrl(@outputText)
+  # end
+  
+  # 以前は結果出力欄の @outputText をここで追加していたが、
+  # Ruby1.9 化してから何故か @outputText.append_text で処理が固まるようになったため
+  # コンソール出力に変更。
+  def printText(message)
+    # @outputText.append_text( "#{message}\r\n" )
+    print( "#{message}\n" )
+  end
+
   
   def expressTestInput
     begin
@@ -367,8 +380,6 @@ class BCDiceDialog < Wx::Dialog
   
   def onEnterTestInputCatched
     debug("onEnterTestInput")
-    
-    # @testOutput.set_value("")
     
     bcdiceMarker = BCDiceMaker.new
     bcdice = bcdiceMarker.newBcDice()
@@ -386,11 +397,7 @@ class BCDiceDialog < Wx::Dialog
   end
   
   def sendMessage(to, message)
-    # @testOutput.set_value( message + "\n" )
-    unless( @testOutput.get_value().empty? )
-      @testOutput.append_text( "\r\n" )
-    end
-    @testOutput.append_text( message )
+    printText( message )
   end
   
   def sendMessageToOnlySender(nick_e, message)
@@ -448,7 +455,11 @@ class BCDiceDialog < Wx::Dialog
     
     ircThread = Thread.new do
       begin
+        p "start!"
         @ircBot.start
+      rescue Exception => e
+        p "error"
+        p e.to_s
       ensure
         @ircBot = nil
       end
@@ -463,10 +474,6 @@ class BCDiceDialog < Wx::Dialog
     end
   end
   
-  def printText(message)
-    # Wx::message_box(message.inspect, 'bcdice')
-    @testOutput.append_text( "#{message}\r\n" )
-  end
   
   def close(force = false)
     on_stop

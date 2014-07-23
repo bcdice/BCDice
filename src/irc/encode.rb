@@ -1,13 +1,15 @@
+#--*-coding:utf-8-*--
+
 if RUBY_VERSION < '1.9.0' then
 
  require 'kconv'
 
- # String ƒNƒ‰ƒX‚É‹[Ž—“I‚È 1.9.0 ŒÝŠ·‚Ì encoding ‚¨‚æ‚Ñ encode ƒƒ\ƒbƒh‚ð’Ç‰Á‚µ‚Ü‚·B
- # ‚½‚¾‚µAŠ®‘S‚ÈŒÝŠ·«‚ÍŽ‚¿‚Ü‚¹‚ñB
+ # String ã‚¯ãƒ©ã‚¹ã«æ“¬ä¼¼çš„ãª 1.9.0 äº’æ›ã® encoding ãŠã‚ˆã³ encode ãƒ¡ã‚½ãƒƒãƒ‰ã‚’è¿½åŠ ã—ã¾ã™ã€‚
+ # ãŸã ã—ã€å®Œå…¨ãªäº’æ›æ€§ã¯æŒã¡ã¾ã›ã‚“ã€‚
  class String
    @encoding = nil
 
-   # ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ðŽæ“¾‚µ‚Ü‚·B
+   # ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚’å–å¾—ã—ã¾ã™ã€‚
    def encoding
      if @encoding != nil then
        return @encoding
@@ -35,7 +37,7 @@ if RUBY_VERSION < '1.9.0' then
      end
    end
 
-   # ƒGƒ“ƒR[ƒh‚ð•ÏX‚µ‚Ü‚·ioptions –¢‘Î‰žjB
+   # ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã‚’å¤‰æ›´ã—ã¾ã™ï¼ˆoptions æœªå¯¾å¿œï¼‰ã€‚
    def encode(to_encoding, from_encoding = nil, options = nil)
      if (from_encoding == nil)
        if @encoding == nil then

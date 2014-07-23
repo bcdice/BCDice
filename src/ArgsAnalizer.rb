@@ -15,7 +15,7 @@ class ArgsAnalizer
     
     @args.each do |arg|
       result = analizeArg(arg)
-      analizeArgForTest(arg)
+      checkArg(arg)
       
       if( result )
         isAnalized = true
@@ -24,6 +24,26 @@ class ArgsAnalizer
     
     return isAnalized
   end
+
+  
+  def checkArg(arg)
+    if( isCreateExeMode(arg) )
+      @isStartIrc = false
+    end
+  end
+  
+  
+  def isCreateExeMode(arg)
+    if( arg == "createExe" )
+      if( File.exist?("__createExe__.txt") )
+        return true
+      end
+    end
+    
+    return false
+  end
+  
+
   
   def analizeArg(arg)
     return false unless( /^-([scngmeir])(.+)$/i =~ arg )
@@ -83,13 +103,6 @@ class ArgsAnalizer
   
   def setIrcServerCharacterCode
     $ircCode = param;
-  end
-  
-  def analizeArgForTest(arg)
-    case arg
-    when "exerb"
-      @isStartIrc = false
-    end
   end
   
 end

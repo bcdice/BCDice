@@ -1972,6 +1972,9 @@ class BCDice
     when /(^|\s)(Grancrest)$/i
       require 'diceBot/GranCrest'
       diceBot = GranCrest.new
+    when /(^|\s)(HouraiGakuen)$/i
+      require 'diceBot/HouraiGakuen'
+      diceBot = HouraiGakuen.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else

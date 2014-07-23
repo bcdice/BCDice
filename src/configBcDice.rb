@@ -66,6 +66,7 @@ GundogZero
 GurpsFW
 HarnMaster
 Hieizan
+HouraiGakuen
 HuntersMoon
 InfiniteFantasia
 Insane

@@ -19,7 +19,15 @@ class Net::IRC::Client
     @server_config = Message::ServerConfig.new
     @socket = TCPSocket.open(@host, @port)
     @log.debug "on_connected calling..";
-    on_connected
+    begin
+      @log.debug "call...";
+      on_connected
+    rescue Exception => e
+      @log.debug "error!!";
+      @log.debug e.to_s
+      @log.debug $!.inspect
+      @log.debug $@.join("\n")
+    end
     @log.debug "on_connected passed";
 
     @log.debug "post PASS";
