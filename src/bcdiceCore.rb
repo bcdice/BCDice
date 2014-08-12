@@ -537,44 +537,61 @@ class BCDice
   end
   
   
-  def printHelp()
-    
-    sendMessageToOnlySender("・加算ロール　　　　　　　　(xDn) (n面体ダイスをx個)")
-    sendMessageToOnlySender("・バラバラロール　　　　　　(xBn)")
-    sendMessageToOnlySender("・個数振り足しロール　　　　(xRn[振り足し値])")
-    sendMessageToOnlySender("・上方無限ロール　　　　　　(xUn[境界値])")
-    sendMessageToOnlySender("・シークレットロール　　　　(Sダイスコマンド)")
-    sendMessageToOnlySender("・シークレットをオープンする(#{$OPEN_DICE})")
-    sendMessageToOnlySender("・四則計算(端数切捨て)　　　(C(式))")
-    
+  # 簡易オンラインヘルプを表示する
+  def printHelp
+    send_to_sender = lambda { |message| sendMessageToOnlySender message }
+
+    [
+      "・加算ロール　　　　　　　　(xDn) (n面体ダイスをx個)",
+      "・バラバラロール　　　　　　(xBn)",
+      "・個数振り足しロール　　　　(xRn[振り足し値])",
+      "・上方無限ロール　　　　　　(xUn[境界値])",
+      "・シークレットロール　　　　(Sダイスコマンド)",
+      "・シークレットをオープンする(#{$OPEN_DICE})",
+      "・四則計算(端数切捨て)　　　(C(式))"
+    ].each(&send_to_sender)
+
     sleepForIrc 2
-    
-    @diceBot.getHelpMessage().each do |i|
-      sendMessageToOnlySender(i)
-      if( (i % 5) == 0 )
-        sleepForIrc 1
-      end
+
+    @diceBot.getHelpMessage.lines.each_slice(5) do |lines|
+      lines.each(&send_to_sender)
+      sleepForIrc 1
     end
-    
-    sendMessageToOnlySender("  ---")
+
+    sendMessageToOnlySender "  ---"
+
     sleepForIrc 1
-    sendMessageToOnlySender("・プロット表示　　　　　　　　(#{$OPEN_PLOT})")
-    sendMessageToOnlySender("・プロット記録　　　　　　　　(Talkで #{$ADD_PLOT}:プロット)")
-    sendMessageToOnlySender("  ---")
+
+    [
+      "・プロット表示　　　　　　　　(#{$OPEN_PLOT})",
+      "・プロット記録　　　　　　　　(Talkで #{$ADD_PLOT}:プロット)",
+      "  ---"
+    ].each(&send_to_sender)
+
     sleepForIrc 2
-    sendMessageToOnlySender("・ポイントカウンタ値登録　　　(#[名前:]タグn[/m]) (識別名、最大値省略可,Talk可)")
-    sendMessageToOnlySender("・カウンタ値操作　　　　　　　(#[名前:]タグ+n) (もちろん-nもOK,Talk可)")
-    sendMessageToOnlySender("・識別名変更　　　　　　　　　(#RENAME!名前1->名前2) (Talk可)")
+
+    [
+      "・ポイントカウンタ値登録　　　(#[名前:]タグn[/m]) (識別名、最大値省略可,Talk可)",
+      "・カウンタ値操作　　　　　　　(#[名前:]タグ+n) (もちろん-nもOK,Talk可)",
+      "・識別名変更　　　　　　　　　(#RENAME!名前1->名前2) (Talk可)"
+    ].each(&send_to_sender)
+
     sleepForIrc 1
-    sendMessageToOnlySender("・同一タグのカウンタ値一覧　　(#OPEN!タグ)")
-    sendMessageToOnlySender("・自キャラのカウンタ値一覧　　(Talkで#OPEN![タグ]) (全カウンタ表示時、タグ省略)")
-    sendMessageToOnlySender("・自キャラのカウンタ削除　　　(#[名前:]DIED!) (デフォルト時、識別名省略)")
-    sendMessageToOnlySender("・全自キャラのカウンタ削除　　(#ALL!:DIED!)")
-    sendMessageToOnlySender("・カウンタ表示チャンネル登録　(#{$READY_CMD})")
-    sendMessageToOnlySender("  ---")
+
+    [
+      "・同一タグのカウンタ値一覧　　(#OPEN!タグ)",
+      "・自キャラのカウンタ値一覧　　(Talkで#OPEN![タグ]) (全カウンタ表示時、タグ省略)",
+      "・自キャラのカウンタ削除　　　(#[名前:]DIED!) (デフォルト時、識別名省略)",
+      "・全自キャラのカウンタ削除　　(#ALL!:DIED!)",
+      "・カウンタ表示チャンネル登録　(#{$READY_CMD})",
+      "  ---"
+    ].each(&send_to_sender)
+
     sleepForIrc 2
-    sendMessageToOnlySender("・カード機能ヘルプ　　　　　　(c-help)")
-    sendMessageToOnlySender("  -- END ---")
+
+    sendMessageToOnlySender "・カード機能ヘルプ　　　　　　(c-help)"
+
+    sendMessageToOnlySender "  -- END ---"
   end
   
   def setChannel(channel)

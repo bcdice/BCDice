@@ -82,39 +82,64 @@ class CardTrader
     @tnick = t
   end
   
-  def printCardHelp()
-    sendMessageToOnlySender("・カードを引く　　　　　　　(c-draw[n]) (nは枚数)");
-    sendMessageToOnlySender("・オープンでカードを引く　　(c-odraw[n])");
-    sendMessageToOnlySender("・カードを選んで引く　　　　(c-pick[c[,c]]) (cはカード。カンマで複数指定可)");
-    sendMessageToOnlySender("・捨てたカードを手札に戻す　(c-back[c[,c]])");
-    sendMessageToOnlySender("・置いたカードを手札に戻す　(c-back1[c[,c]])");
-    sleep 1;
-    sendMessageToOnlySender("・手札と場札を見る　　　　　(c-hand) (Talk可)");
-    sendMessageToOnlySender("・カードを出す　　　　　　　(c-play[c[,c]]");
-    sendMessageToOnlySender("・カードを場に出す　　　　　(c-play1[c[,c]]");
-    sendMessageToOnlySender("・カードを捨てる　　　　　　(c-discard[c[,c]]) (Talk可)");
-    sendMessageToOnlySender("・場のカードを選んで捨てる　(c-discard1[c[,c]])");
-    sendMessageToOnlySender("・山札からめくって捨てる　  (c-milstone[n])");
-    sleep 1;
-    sendMessageToOnlySender("・カードを相手に一枚渡す　　(c-pass[c]相手) (カード指定が無いときはランダム)");
-    sendMessageToOnlySender("・場のカードを相手に渡す　　(c-pass1[c]相手) (カード指定が無いときはランダム)");
-    sendMessageToOnlySender("・カードを相手の場に出す　　(c-place[c[,c]]相手)");
-    sendMessageToOnlySender("・場のカードを相手の場に出す(c-place1[c[,c]]相手)");
-    sleep 1;
-    sendMessageToOnlySender("・場のカードをタップする　　(c-tap1[c[,c]]相手)");
-    sendMessageToOnlySender("・場のカードをアンタップする(c-untap1[c[,c]]相手)");
-    sendMessageToOnlySender("  ---");
-    sleep 2;
-    sendMessageToOnlySender("・カードを配る　　　　　　　(c-deal[n]相手)");
-    sendMessageToOnlySender("・カードを見てから配る　　　(c-vdeal[n]相手)");
-    sendMessageToOnlySender("・カードのシャッフル　　　　(c-shuffle)");
-    sendMessageToOnlySender("・捨てカードを山に戻す　　　(c-rshuffle)");
-    sendMessageToOnlySender("・全員の場のカードを捨てる　(c-clean)");
-    sleep 1;
-    sendMessageToOnlySender("・相手の手札と場札を見る　　(c-vhand) (Talk不可)");
-    sendMessageToOnlySender("・枚数配置を見る　　　　　　(c-check)");
-    sendMessageToOnlySender("・復活の呪文　　　　　　　　(c-spell[呪文]) (c-spellで呪文の表示)");
-    sendMessageToOnlySender("  -- END ---");
+  # カード機能ヘルプ
+  def printCardHelp
+    send_to_sender = lambda { |message| sendMessageToOnlySender message }
+
+    [
+      [
+        "・カードを引く　　　　　　　(c-draw[n]) (nは枚数)",
+        "・オープンでカードを引く　　(c-odraw[n])",
+        "・カードを選んで引く　　　　(c-pick[c[,c]]) (cはカード。カンマで複数指定可)",
+        "・捨てたカードを手札に戻す　(c-back[c[,c]])",
+        "・置いたカードを手札に戻す　(c-back1[c[,c]])"
+      ],
+
+      [
+        "・手札と場札を見る　　　　　(c-hand) (Talk可)",
+        "・カードを出す　　　　　　　(c-play[c[,c]]",
+        "・カードを場に出す　　　　　(c-play1[c[,c]]",
+        "・カードを捨てる　　　　　　(c-discard[c[,c]]) (Talk可)",
+        "・場のカードを選んで捨てる　(c-discard1[c[,c]])",
+        "・山札からめくって捨てる　  (c-milstone[n])"
+      ],
+
+      [
+        "・カードを相手に一枚渡す　　(c-pass[c]相手) (カード指定が無いときはランダム)",
+        "・場のカードを相手に渡す　　(c-pass1[c]相手) (カード指定が無いときはランダム)",
+        "・カードを相手の場に出す　　(c-place[c[,c]]相手)",
+        "・場のカードを相手の場に出す(c-place1[c[,c]]相手)"
+      ],
+
+      [
+        "・場のカードをタップする　　(c-tap1[c[,c]]相手)",
+        "・場のカードをアンタップする(c-untap1[c[,c]]相手)",
+        "  ---"
+      ]
+    ].each do |messages|
+      messages.each(&send_to_sender)
+      sleep 1
+    end
+
+    sleep 1
+
+    [
+      "・カードを配る　　　　　　　(c-deal[n]相手)",
+      "・カードを見てから配る　　　(c-vdeal[n]相手)",
+      "・カードのシャッフル　　　　(c-shuffle)",
+      "・捨てカードを山に戻す　　　(c-rshuffle)",
+      "・全員の場のカードを捨てる　(c-clean)"
+    ].each(&send_to_sender)
+
+    sleep 1
+
+    [
+      "・相手の手札と場札を見る　　(c-vhand) (Talk不可)",
+      "・枚数配置を見る　　　　　　(c-check)",
+      "・復活の呪文　　　　　　　　(c-spell[呪文]) (c-spellで呪文の表示)"
+    ].each(&send_to_sender)
+
+    sendMessageToOnlySender "  -- END ---"
   end
   
   def setCardMode()
