@@ -166,14 +166,14 @@ MESSAGETEXT
     
     table = getTableByRank(rank, tables)
 	
-	number, = roll(1, 6)
+	number, dice_str = roll(1, 6)
 	number += modify
     
     adjustedNumber = getAdjustNumber(number, table)
     
 	result = get_table_by_number(adjustedNumber, table)
 	
-	text = "#{tableName}(#{number})：#{result}"
+	text = "#{tableName}(#{number}[#{dice_str}])：#{result}"
     return text
   end
   
@@ -342,7 +342,7 @@ MESSAGETEXT
       return nil
 	end
 	
-	number, = roll(2, 6)
+	number, dice_str = roll(2, 6)
 	number += (rank * 5) + modify
     
     number = getAdjustNumberMin(number, table)
@@ -366,7 +366,7 @@ MESSAGETEXT
 	  result  = get_table_by_number(number, table)
 	end
 	
-	text = "#{tableName}(#{number})：#{result}"
+	text = "#{tableName}(#{number}[#{dice_str}])：#{result}"
     return text
   end
   
