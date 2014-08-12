@@ -27614,7 +27614,7 @@ rand:6/6,6/6
 ============================
 input:MTST	Insane
 output:
-Insane : 狂騒の二〇年代シーン表(2) ＞ 苔のこびりつく巨大な岩が並ぶ、川に浮かぶ島。何を祀っているのかも分からない祭壇があり、いわく言いがたい雰囲気を漂わせる。
+Insane : 狂騒の二〇年代シーン表(2) ＞ 苔のこびりつく巨大な岩が並ぶ、皮に浮かぶ島。何を祀っているのかも分からない祭壇があり、いわく言いがたい雰囲気を漂わせる。
 rand:1/6,1/6
 ============================
 input:MTST	Insane
@@ -29452,162 +29452,162 @@ rand:6/6,1/6,6/6
 ============================
 input:PCT1	LogHorizon
 output:
-LogHorizon : 体力消耗表(1)：[疲労:5]を受ける
+LogHorizon : 体力消耗表(1[1])：[疲労:5]を受ける
 rand:1/6
 ============================
 input:PCT1-1	LogHorizon
 output:
-LogHorizon : 体力消耗表(0)：消耗なし
+LogHorizon : 体力消耗表(0[1])：消耗なし
 rand:1/6
 ============================
 input:PCT1-2	LogHorizon
 output:
-LogHorizon : 体力消耗表(-1)：消耗なし
+LogHorizon : 体力消耗表(-1[1])：消耗なし
 rand:1/6
 ============================
 input:PCT1	LogHorizon
 output:
-LogHorizon : 体力消耗表(6)：[疲労:18]を受ける
+LogHorizon : 体力消耗表(6[6])：[疲労:18]を受ける
 rand:6/6
 ============================
 input:PCT1+1	LogHorizon
 output:
-LogHorizon : 体力消耗表(7)：[疲労:20]を受ける
+LogHorizon : 体力消耗表(7[6])：[疲労:20]を受ける
 rand:6/6
 ============================
 input:PCT1+2	LogHorizon
 output:
-LogHorizon : 体力消耗表(8)：[疲労:20]を受ける
+LogHorizon : 体力消耗表(8[6])：[疲労:20]を受ける
 rand:6/6
 ============================
 input:PCT4	LogHorizon
 output:
-LogHorizon : 体力消耗表(6)：[疲労:18]を受ける
+LogHorizon : 体力消耗表(6[6])：[疲労:18]を受ける
 rand:6/6
 ============================
 input:PCT5	LogHorizon
 output:
-LogHorizon : 体力消耗表(6)：[疲労:18]を受ける
+LogHorizon : 体力消耗表(6[6])：[疲労:18]を受ける
 rand:6/6
 ============================
 input:PCT6	LogHorizon
 output:
-LogHorizon : 体力消耗表(6)：[疲労:35]を受ける
+LogHorizon : 体力消耗表(6[6])：[疲労:35]を受ける
 rand:6/6
 ============================
 input:PCT10	LogHorizon
 output:
-LogHorizon : 体力消耗表(6)：[疲労:35]を受ける
+LogHorizon : 体力消耗表(6[6])：[疲労:35]を受ける
 rand:6/6
 ============================
 input:PCT11	LogHorizon
 output:
-LogHorizon : 体力消耗表(6)：[疲労:35]を受ける
+LogHorizon : 体力消耗表(6[6])：[疲労:35]を受ける
 rand:6/6
 ============================
 input:ECT1	LogHorizon
 output:
-LogHorizon : 気力消耗表(1)：【因果力】を1点失う
+LogHorizon : 気力消耗表(1[1])：【因果力】を1点失う
 rand:1/6
 ============================
 input:GCT1	LogHorizon
 output:
-LogHorizon : 物品消耗表(1)：[消耗品]アイテムを1個失う
+LogHorizon : 物品消耗表(1[1])：[消耗品]アイテムを1個失う
 rand:1/6
 ============================
 input:CCT1	LogHorizon
 output:
-LogHorizon : 金銭消耗表(1)：所持金を10G失う
+LogHorizon : 金銭消耗表(1[1])：所持金を10G失う
 rand:1/6
 ============================
 input:CCT6	LogHorizon
 output:
-LogHorizon : 金銭消耗表(1)：所持金を25G失う
+LogHorizon : 金銭消耗表(1[1])：所持金を25G失う
 rand:1/6
 ============================
 input:CTRS1	LogHorizon
 output:
-LogHorizon : 金銭財宝表(7)：39G
+LogHorizon : 金銭財宝表(7[1,1])：39G
 rand:1/6, 1/6
 ============================
 input:CTRS1	LogHorizon
 output:
-LogHorizon : 金銭財宝表(17)：57G
+LogHorizon : 金銭財宝表(17[6,6])：57G
 rand:6/6, 6/6
 ============================
 input:CTRS1-1	LogHorizon
 output:
-LogHorizon : 金銭財宝表(7)：39G
+LogHorizon : 金銭財宝表(7[1,1])：39G
 rand:1/6, 1/6
 ============================
 input:CTRS1+1	LogHorizon
 output:
-LogHorizon : 金銭財宝表(8)：40G
+LogHorizon : 金銭財宝表(8[1,1])：40G
 rand:1/6, 1/6
 ============================
 input:CTRS10	LogHorizon
 output:
-LogHorizon : 金銭財宝表(62)：277G
+LogHorizon : 金銭財宝表(62[6,6])：277G
 rand:6/6, 6/6
 ============================
 input:CTRS10+1	LogHorizon
 output:
-LogHorizon : 金銭財宝表(63)：214G&80G
+LogHorizon : 金銭財宝表(63[6,6])：214G&80G
 rand:6/6, 6/6
 ============================
 input:CTRS10+10	LogHorizon
 output:
-LogHorizon : 金銭財宝表(72)：277G&80G
+LogHorizon : 金銭財宝表(72[6,6])：277G&80G
 rand:6/6, 6/6
 ============================
 input:CTRS10+11	LogHorizon
 output:
-LogHorizon : 金銭財宝表(73)：214G&160G
+LogHorizon : 金銭財宝表(73[6,6])：214G&160G
 rand:6/6, 6/6
 ============================
 input:CTRS10+20	LogHorizon
 output:
-LogHorizon : 金銭財宝表(82)：277G&160G
+LogHorizon : 金銭財宝表(82[6,6])：277G&160G
 rand:6/6, 6/6
 ============================
 input:CTRS10+21	LogHorizon
 output:
-LogHorizon : 金銭財宝表(83)：214G&260G
+LogHorizon : 金銭財宝表(83[6,6])：214G&260G
 rand:6/6, 6/6
 ============================
 input:CTRS10+25	LogHorizon
 output:
-LogHorizon : 金銭財宝表(87)：241G&260G
+LogHorizon : 金銭財宝表(87[6,6])：241G&260G
 rand:6/6, 6/6
 ============================
 input:CTRS10+26	LogHorizon
 output:
-LogHorizon : 金銭財宝表(87)：241G&260G
+LogHorizon : 金銭財宝表(87[6,6])：241G&260G
 rand:6/6, 6/6
 ============================
 input:MTRS10	LogHorizon
 output:
-LogHorizon : 魔法素材財宝表(62)：魔触媒10[魔触媒10](110G)&魔触媒9[魔触媒9](90G)x2
+LogHorizon : 魔法素材財宝表(62[6,6])：魔触媒10[魔触媒10](110G)&魔触媒9[魔触媒9](90G)x2
 rand:6/6, 6/6
 ============================
 input:MTRS1	LogHorizon
 output:
-LogHorizon : 魔法素材財宝表(17)：古びた髑髏[コア素材](40G)&黒い詩集[換金](15G)
+LogHorizon : 魔法素材財宝表(17[6,6])：古びた髑髏[コア素材](40G)&黒い詩集[換金](15G)
 rand:6/6, 6/6
 ============================
 input:MTRS10	LogHorizon
 output:
-LogHorizon : 魔法素材財宝表(62)：魔触媒10[魔触媒10](110G)&魔触媒9[魔触媒9](90G)x2
+LogHorizon : 魔法素材財宝表(62[6,6])：魔触媒10[魔触媒10](110G)&魔触媒9[魔触媒9](90G)x2
 rand:6/6, 6/6
 ============================
 input:ITRS1	LogHorizon
 output:
-LogHorizon : 換金アイテム財宝表(17)：陶器の水盤[換金](60G)
+LogHorizon : 換金アイテム財宝表(17[6,6])：陶器の水盤[換金](60G)
 rand:6/6, 6/6
 ============================
 input:ITRS10	LogHorizon
 output:
-LogHorizon : 換金アイテム財宝表(62)：古い歴史書[換金](280G)
+LogHorizon : 換金アイテム財宝表(62[6,6])：古い歴史書[換金](280G)
 rand:6/6, 6/6
 ============================
 input:PTAG	LogHorizon
