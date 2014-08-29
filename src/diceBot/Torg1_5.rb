@@ -1,9 +1,11 @@
 #--*-coding:utf-8-*--
 
+require 'diceBot/Torg'
+
 class Torg1_5 < Torg
   
   def gameName
-    'トーグ1.5'
+    'トーグ1.5版'
   end
   
   def gameType
