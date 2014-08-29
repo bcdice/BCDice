@@ -1867,6 +1867,10 @@ class BCDice
     when /(^|\s)TORG$/i
       require 'diceBot/Torg'
       diceBot = Torg.new
+    when /(^|\s)TORG1.5$/i
+      require 'diceBot/Torg'
+      require 'diceBot/Torg1_5'
+      diceBot = Torg1_5.new
     when /(^|\s)(hunters\s*moon|HM)$/i
       require 'diceBot/HuntersMoon'
       diceBot = HuntersMoon.new
@@ -1879,6 +1883,10 @@ class BCDice
     when /(^|\s)(Earth\s*Dawn|ED)$/i
       require 'diceBot/EarthDawn'
       diceBot = EarthDawn.new
+    when /(^|\s)(Earth\s*Dawn|ED)3$/i
+      require 'diceBot/EarthDawn'
+      require 'diceBot/EarthDawn3'
+      diceBot = EarthDawn3.new
     when /(^|\s)(Embryo\s*Machine|EM)$/i
       require 'diceBot/EmbryoMachine'
       diceBot = EmbryoMachine.new

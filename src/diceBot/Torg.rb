@@ -6,6 +6,7 @@ class Torg < DiceBot
     super
     @sendMode = 2
   end
+  
   def gameName
     'トーグ'
   end
