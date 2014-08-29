@@ -51,6 +51,7 @@ DarkBlaze
 DemonParasite
 DoubleCross
 EarthDawn
+EarthDawn3
 EclipsePhase
 Elric!
 Elysion
@@ -101,6 +102,7 @@ ShinobiGami
 SwordWorld
 SwordWorld2.0
 TORG
+TORG1.5
 TokumeiTenkousei
 Tunnels_&_Trolls
 Utakaze

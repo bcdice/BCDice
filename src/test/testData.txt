@@ -12369,6 +12369,86 @@ output:
 TORG : ボーナス表[31] ＞ 10
 rand:
 ============================
+input:ODT15	TORG1.5
+output:
+TORG1.5 : オーズダメージ表[15] ＞ 4レベル負傷  KO8
+rand:
+============================
+input:ODT16	TORG1.5
+output:
+TORG1.5 : オーズダメージ表[16] ＞ 4レベル負傷  KO8
+rand:
+============================
+input:ODT17	TORG1.5
+output:
+TORG1.5 : オーズダメージ表[17] ＞ 5レベル負傷  KO9
+rand:
+============================
+input:ODT18	TORG1.5
+output:
+TORG1.5 : オーズダメージ表[18] ＞ 5レベル負傷  KO9
+rand:
+============================
+input:ODT19	TORG1.5
+output:
+TORG1.5 : オーズダメージ表[19] ＞ 6レベル負傷  KO10
+rand:
+============================
+input:DT15	TORG1.5
+output:
+TORG1.5 : ポシビリティ能力者ダメージ表[15] ＞ 3レベル負傷  KO5
+rand:
+============================
+input:DT16	TORG1.5
+output:
+TORG1.5 : ポシビリティ能力者ダメージ表[16] ＞ 3レベル負傷  KO5
+rand:
+============================
+input:DT17	TORG1.5
+output:
+TORG1.5 : ポシビリティ能力者ダメージ表[17] ＞ 4レベル負傷  KO6
+rand:
+============================
+input:DT18	TORG1.5
+output:
+TORG1.5 : ポシビリティ能力者ダメージ表[18] ＞ 4レベル負傷  KO6
+rand:
+============================
+input:MT0	TORG1.5
+output:
+TORG1.5 : 間合い表[0] ＞ 疲労
+rand:
+============================
+input:MT4	TORG1.5
+output:
+TORG1.5 : 間合い表[4] ＞ 疲労
+rand:
+============================
+input:MT5	TORG1.5
+output:
+TORG1.5 : 間合い表[5] ＞ 萎縮
+rand:
+============================
+input:IT4	TORG1.5
+output:
+TORG1.5 : 威圧/威嚇表[4] ＞ 萎縮
+rand:
+============================
+input:IT5	TORG1.5
+output:
+TORG1.5 : 威圧/威嚇表[5] ＞ 技能なし
+rand:
+============================
+input:TT4	TORG1.5
+output:
+TORG1.5 : 挑発/トリック表[4] ＞ 萎縮
+rand:
+============================
+input:TT5	TORG1.5
+output:
+TORG1.5 : 挑発/トリック表[5] ＞ 技能なし
+rand:
+============================
 input:2d6>=4	HuntersMoon
 output:
 HuntersMoon : (2D6>=4) ＞ 9[3,6] ＞ 9 ＞ 成功
@@ -17361,6 +17441,181 @@ input:4E	EarthDawn
 output:
 EarthDawn : ステップ4 ＞ 1d6[8] ＞ 8
 rand:6/6,2/6
+============================
+input:4E	EarthDawn3
+output:
+EarthDawn3 : ステップ4 ＞ 1d6[8] ＞ 8
+rand:6/6,2/6
+============================
+input:4E2	EarthDawn3
+output:
+EarthDawn3 : ステップ4>=2 ＞ 1d6[5] ＞ 5 ＞ Good(上出来)
+rand:5/6
+============================
+input:6E2	EarthDawn3
+output:
+EarthDawn3 : ステップ6>=2 ＞ 1d10[5] ＞ 5 ＞ Good(上出来)
+rand:5/10
+============================
+input:7E2	EarthDawn3
+output:
+EarthDawn3 : ステップ7>=2 ＞ 1d12[5] ＞ 5 ＞ Good(上出来)
+rand:5/12
+============================
+input:8E2	EarthDawn3
+output:
+EarthDawn3 : ステップ8>=2 ＞ 2d6[5,5] ＞ 10 ＞ Extraordinary(極上)
+rand:5/6,5/6
+============================
+input:9E2	EarthDawn3
+output:
+EarthDawn3 : ステップ9>=2 ＞ 1d8[5]+1d6[5] ＞ 10 ＞ Extraordinary(極上)
+rand:5/8,5/6
+============================
+input:10E2	EarthDawn3
+output:
+EarthDawn3 : ステップ10>=2 ＞ 2d8[5,5] ＞ 10 ＞ Extraordinary(極上)
+rand:5/8,5/8
+============================
+input:11E2	EarthDawn3
+output:
+EarthDawn3 : ステップ11>=2 ＞ 1d10[5]+1d8[5] ＞ 10 ＞ Extraordinary(極上)
+rand:5/10,5/8
+============================
+input:12E2	EarthDawn3
+output:
+EarthDawn3 : ステップ12>=2 ＞ 2d10[5,5] ＞ 10 ＞ Extraordinary(極上)
+rand:5/10,5/10
+============================
+input:13E2	EarthDawn3
+output:
+EarthDawn3 : ステップ13>=2 ＞ 1d12[5]+1d10[5] ＞ 10 ＞ Extraordinary(極上)
+rand:5/12,5/10
+============================
+input:14E2	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=2 ＞ 2d12[5,5] ＞ 10 ＞ Extraordinary(極上)
+rand:5/12,5/12
+============================
+input:15E2	EarthDawn3
+output:
+EarthDawn3 : ステップ15>=2 ＞ 1d12[5]+2d6[5,5] ＞ 15 ＞ Extraordinary(極上)
+rand:5/12,5/6,5/6
+============================
+input:40E2	EarthDawn3
+output:
+EarthDawn3 : ステップ40>=2 ＞ 4d12[5,5,5,5]+2d10[5,5] ＞ 30 ＞ Extraordinary(極上)
+rand:5/12,5/12,5/12,5/12,5/10,5/10
+============================
+input:40E2	EarthDawn3
+output:
+EarthDawn3 : ステップ40>=2 ＞ 4d12[1,1,1,1]+2d10[1,1] ＞ 6 ＞ 自動失敗
+rand:1/12,1/12,1/12,1/12,1/10,1/10
+============================
+input:40E2	EarthDawn3
+output:
+EarthDawn3 : ステップ40>=2 ＞ 4d12[2,1,1,1]+2d10[1,1] ＞ 7 ＞ Excelent(最高)
+rand:2/12,1/12,1/12,1/12,1/10,1/10
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[1,1] ＞ 2 ＞ 自動失敗
+rand:1/12,1/12
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[1,1] ＞ 2 ＞ 自動失敗
+rand:1/12,1/12
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[1,2] ＞ 3 ＞ Pathetic(惨め)
+rand:1/12,2/12
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[1,4] ＞ 5 ＞ Pathetic(惨め)
+rand:1/12,4/12
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[1,5] ＞ 6 ＞ Poor(お粗末)
+rand:1/12,5/12
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[1,8] ＞ 9 ＞ Poor(お粗末)
+rand:1/12,8/12
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[1,9] ＞ 10 ＞ Average(そこそこ)
+rand:1/12,9/12
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[8,7] ＞ 15 ＞ Average(そこそこ)
+rand:8/12,7/12
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[9,7] ＞ 16 ＞ Good(上出来)
+rand:9/12,7/12
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[9,10] ＞ 19 ＞ Good(上出来)
+rand:9/12,10/12
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[10,10] ＞ 20 ＞ Excelent(最高)
+rand:10/12,10/12
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[11,11] ＞ 22 ＞ Excelent(最高)
+rand:11/12,11/12
+============================
+input:14E10	EarthDawn3
+output:
+EarthDawn3 : ステップ14>=10 ＞ 2d12[10,13] ＞ 23 ＞ Extraordinary(極上)
+rand:10/12,12/12,1/12
+============================
+input:10E	EarthDawn3
+output:
+EarthDawn3 : ステップ10 ＞ 2d8[2,2] ＞ 4
+rand:2/8,2/8
+============================
+input:10E8	EarthDawn3
+output:
+EarthDawn3 : ステップ10>=8 ＞ 2d8[2,2] ＞ 4 ＞ Poor(お粗末)
+rand:2/8,2/8
+============================
+input:10E8+1D6	EarthDawn3
+output:
+EarthDawn3 : ステップ10>=8 ＞ 2d8[2,2]+1d6[1] ＞ 5 ＞ Poor(お粗末)
+rand:2/8,2/8,1/6
+============================
+input:10E8+D6	EarthDawn3
+output:
+EarthDawn3 : ステップ10>=8 ＞ 2d8[2,2]+1d6[1] ＞ 5 ＞ Poor(お粗末)
+rand:2/8,2/8,1/6
+============================
+input:10E8+1	EarthDawn3
+output:
+EarthDawn3 : ステップ10>=8 ＞ 2d8[2,2]+1 ＞ 5 ＞ Poor(お粗末)
+rand:2/8,2/8
+============================
+input:10E8+D4+1	EarthDawn3
+output:
+EarthDawn3 : ステップ10>=8 ＞ 2d8[2,2]+1d4[2]+1 ＞ 7 ＞ Poor(お粗末)
+rand:2/8,2/8,2/4
+============================
+input:10E8+1D12	EarthDawn3
+output:
+EarthDawn3 : ステップ10>=8 ＞ 2d8[2,2]+1d12[2] ＞ 6 ＞ Poor(お粗末)
+rand:2/8,2/8,2/12
 ============================
 input:1D10>=2	EmbryoMachine
 output:
@@ -26304,6 +26559,48 @@ output:
 CardRanker : ランダムモンスター選択(5,8) ＞ 赤の8：大鬼
 rand:5/6,4/6,4/6
 ============================
+input:CMW12	CardRanker
+output:
+CardRanker : モンスター選択 ＞ 白の12：軍神
+rand:
+============================
+input:cMb2	CardRanker
+output:
+CardRanker : モンスター選択 ＞ 黒の2：黒竜
+rand:
+============================
+input:CmU7	CardRanker
+output:
+CardRanker : モンスター選択 ＞ 青の7：探偵
+rand:
+============================
+input:CmV3	CardRanker
+output:
+CardRanker : モンスター選択 ＞ 緑の3：ワーム
+rand:
+============================
+input:CmG10	CardRanker
+output:
+CardRanker : モンスター選択 ＞ 金の10：運命
+rand:
+============================
+input:CmR11	CardRanker
+output:
+CardRanker : モンスター選択 ＞ 赤の11：炎
+rand:
+============================
+input:CMX1	CardRanker
+output:
+rand:
+============================
+input:CMW1	CardRanker
+output:
+rand:
+============================
+input:CMW99	CardRanker
+output:
+rand:
+============================
 input:2d6>=7	CardRanker
 output:
 CardRanker : (2D6>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル
@@ -27614,7 +27911,7 @@ rand:6/6,6/6
 ============================
 input:MTST	Insane
 output:
-Insane : 狂騒の二〇年代シーン表(2) ＞ 苔のこびりつく巨大な岩が並ぶ、皮に浮かぶ島。何を祀っているのかも分からない祭壇があり、いわく言いがたい雰囲気を漂わせる。
+Insane : 狂騒の二〇年代シーン表(2) ＞ 苔のこびりつく巨大な岩が並ぶ、川に浮かぶ島。何を祀っているのかも分からない祭壇があり、いわく言いがたい雰囲気を漂わせる。
 rand:1/6,1/6
 ============================
 input:MTST	Insane
