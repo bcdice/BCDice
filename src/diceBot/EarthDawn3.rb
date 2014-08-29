@@ -1,5 +1,7 @@
 #--*-coding:utf-8-*--
 
+require 'diceBot/EarthDawn'
+
 class EarthDawn3 < EarthDawn
   
   def initialize
