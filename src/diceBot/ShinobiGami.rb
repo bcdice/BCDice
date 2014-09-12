@@ -17,7 +17,7 @@ class ShinobiGami < DiceBot
   end
   
   def prefixs
-     ['ST', 'FT', 'ET', 'WT', 'BT', 'CST', 'MST', 'DST', 'TST', 'NST', 'KST', 'TKST', 'GST', 'GWT', 'GAST', 'KYST', 'JBST', 'KFT', 'KWT', 'MT', 'RTT']
+     ['ST', 'FT', 'ET', 'WT', 'BT', 'CST', 'MST', 'IST','EST','DST','TST', 'NST', 'KST', 'TKST', 'GST', 'GWT', 'GAST', 'KYST', 'JBST', 'KFT', 'KWT', 'MT', 'RTT']
   end
   
   def getHelpMessage
@@ -35,6 +35,8 @@ class ShinobiGami < DiceBot
 　・（その他）秋空に雪舞えばシーン表　AKST／災厄シーン表　CLST
 　　／出島EXシーン表　DXST／斜歯ラボシーン表　HLST
 　　／夏の終わりシーン表　NTST／培養プラントシーン表　　PLST
+　　・忍秘伝　　中忍試験シーン表　HC/滅びの塔シーン表　HT/影の街でシーン表　HK
+　　/夜行列車シーン表　HY/病院シーン表　HO/龍動シーン表　HR/密室シーン表　HM/催眠シーン表　HS
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
@@ -249,6 +251,7 @@ INFO_MESSAGE_TEXT
                '化野念仏寺。無数の石塔、石仏が立ち並ぶ景色は、どこか荒涼としている……。',
                '六道珍皇寺。小野篁が冥界に通ったとされる井戸のある寺。この辺りは「六道の辻」と呼ばれ、不思議な伝説が数多く残っている。',
               ]
+
     else
       table = [
                '血の臭いがあたりに充満している。何者かの戦いがあった気配。　いや？まだ戦いは続いているのだろうか？',
@@ -263,7 +266,9 @@ INFO_MESSAGE_TEXT
                '酔っぱらいの怒号。客引きたちの呼び声。女たちの嬌声。いつもの繁華街の一幕だが。',
                '太陽の微笑みがあなたを包み込む。影の世界の住人には、あまりにまぶしすぎる。',
               ]
+
     end
+    
     
     get_sinobigami_2d6_scene_table_output(type, table)
   end

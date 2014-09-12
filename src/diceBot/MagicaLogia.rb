@@ -18,7 +18,7 @@ class MagicaLogia < DiceBot
   end
   
   def prefixs
-    ['WT', 'FCT', 'ST', 'FT', 'AT', 'BGT', 'DAT', 'FAT', 'WIT', 'RTT', 'TPT', 'TCT', 'PCT', 'MCT', 'ICT', 'SCT', 'XCT', 'WCT', 'CCT', 'BST', 'PT', 'XEST', 'IWST', 'MCST', 'WDST', 'LWST',]
+    ['WT', 'FCT', 'ST', 'FT', 'AT', 'BGT', 'DAT', 'FAT', 'WIT', 'RTT', 'TPT', 'TCT', 'PCT', 'MCT', 'ICT', 'SCT', 'XCT', 'WCT', 'CCT', 'BST', 'PT', 'XEST', 'IWST', 'MCST', 'WDST', 'LWST','MIT','MOT','MAT','MUT','MFT','MLT',]
   end
   
   def getHelpMessage
@@ -35,14 +35,11 @@ class MagicaLogia < DiceBot
 　死後世界 WDST／迷宮世界 LWST
 ファンブル表　FT
 事件表　　　　AT
-経歴表　　　　　BGT
-初期アンカー表　DAT
-運命属性表　　　FAT
-願い表　　　　　WIT
-ランダム特技表　RTT
-時の流れ表　　　TPT
-ブランク秘密表　BST
-プライズ表　　　PT
+経歴表　　　　　BGT/初期アンカー表　DAT/運命属性表　　　FAT
+願い表　　　　　WIT/ランダム特技表　RTT/時の流れ表　　　TPT
+ブランク秘密表　BST/プライズ表　　　PT/宿敵表　　　　　MIT
+謀略表　　　　　MOT/因縁表　　　　　MAT/奇人表　　　　　MUT
+力場表　　　　　MFT/同盟表　　　　　MLT
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
@@ -142,6 +139,24 @@ INFO_MESSAGE_TEXT
     when 'PT'
       type = 'プライズ表'
       output, total_n = magicalogia_prise_table
+    when 'MIT'
+      type = '宿敵表'
+      output, total_n = magicalogia_inveterate_enemy_table
+    when 'MOT'
+      type = '謀略表'
+      output, total_n =magicalogia_conspiracy_table
+    when 'MAT'
+      type = '因縁表'
+      output, total_n =magicalogia_fate_table
+    when 'MUT'
+      type = '奇人表'
+      output, total_n =magicalogia_cueball_table
+    when 'MFT'
+      type = '力場表'
+      output, total_n =magicalogia_force_field_table
+    when 'MLT'
+      type = '同盟表'
+      output, total_n =magicalogia_alliance_table
     when 'XEST'
       type = '極限環境シーン表'
       output, total_n = magicalogia_extreme_environment_scene_table
@@ -157,6 +172,7 @@ INFO_MESSAGE_TEXT
     when 'LWST'
       type = '迷宮世界シーン表'
       output, total_n = magicalogia_labyrinth_world_scene_table
+    
     end
     
     return "#{type}(#{total_n}) ＞ #{output}"
