@@ -28,6 +28,8 @@ class Kamigakari < DiceBot
     info = <<INFO_MESSAGE_TEXT
 ・各種表
  ・霊紋消費の代償表(RT)
+ ・伝奇名字・名前決定表(NT)
+ ・魔境臨界表(KT)
  ・獲得素材チャート(MTx xは［法則障害］の［強度］。省略時は１)
 　　例） MT　MT3　MT9
 ・D66ダイスあり
