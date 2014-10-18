@@ -29790,6 +29790,31 @@ output:
 KanColle :砲開発表(燃料3/弾薬6/鋼材6/ボーキ3)(24[6,6,6,6]) ＞ 九一式徹甲弾(建造壱p169)
 rand:6/6,6/6,6/6,6/6
 ============================
+input:BT2	KanColle
+output:
+KanColle :指定個性②(6[6]) ＞ 6-2　《電子戦》
+rand:6/6
+============================
+input:BT9	KanColle
+output:
+KanColle :指定個性⑨(6[6]) ＞ 6-9　《支援》
+rand:6/6
+============================
+input:BT10	KanColle
+output:
+KanColle :指定個性⑩(6[6]) ＞ 6-10　《魚雷》
+rand:6/6
+============================
+input:BT11	KanColle
+output:
+KanColle :指定個性⑪(6[6]) ＞ 6-11　《対潜戦闘》
+rand:6/6
+============================
+input:BT12	KanColle
+output:
+KanColle :指定個性⑫(6[6]) ＞ 6-12　《夜戦》
+rand:6/6
+============================
 input:3LH	LogHorizon
 output:
 LogHorizon : (3LH) ＞ 8[6,1,1] ＞ 8
