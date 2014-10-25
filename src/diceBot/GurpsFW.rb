@@ -6,7 +6,6 @@ class GurpsFW < DiceBot
   
   def initialize
     super
-    @sortType = 1
     @sendMode = 2
     @d66Type = 1
   end

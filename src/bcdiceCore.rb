@@ -1961,6 +1961,9 @@ class BCDice
     when /(^|\s)GurpsFW$/i
       require 'diceBot/GurpsFW'
       diceBot = GurpsFW.new
+    when /(^|\s)FilledWith$/i
+      require 'diceBot/FilledWith'
+      diceBot = FilledWith.new
     when /(^|\s)HarnMaster$/i
       require 'diceBot/HarnMaster'
       diceBot = HarnMaster.new
