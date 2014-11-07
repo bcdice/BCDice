@@ -63,7 +63,7 @@ class KillDeathBusiness < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定
 　JDx or JDx+y or JDx-y or JDx,z or JDx+y,z JDx-y,z
 　（x＝難易度、y＝補正、z＝ファンブル率(リスク)）
@@ -817,10 +817,10 @@ INFO_MESSAGE_TEXT
     result, number = get_table_by_d66_swap(table)
     
     return tableName, result, number
-     end
-   
-     
-    def getErTableResult()
+  end
+  
+  
+  def getErTableResult()
     tableName = "蘇生副作用表"
     table = [
              [11, 'おいそそうな匂いがするようになった'],
@@ -850,7 +850,7 @@ INFO_MESSAGE_TEXT
     return tableName, result, number
   end
   
-    def getWKTableResult() 
+  def getWKTableResult() 
     tableName = "一週間表"
     table = [
              [11, '家を追い出されたヘルＰが泊まりに来た'],
@@ -1069,7 +1069,7 @@ INFO_MESSAGE_TEXT
         after, = get_table_by_1d6(hellStylistwtable2)
         result = "#{before}#{result1}#{result2}#{after}"
         number = "#{num1},#{num2}"
-      end
+    end
     
     return tableName, result, number
   end
@@ -1196,25 +1196,25 @@ INFO_MESSAGE_TEXT
 				   [66, "陽気に登場"],
 	              ]
 	
-	case type
-	  when 1
-	    result, number = get_table_by_d66_swap(extraTable1)
-	  when 2
-	    result, number = get_table_by_d66_swap(extraTable2)
-	  when 3
-	    result, number = get_table_by_d66_swap(extraTable3)
-	  when 4
-	    result, number = get_table_by_d66_swap(extraTable4)
-	  else
-	    result1, num1 = get_table_by_d66_swap(extraTable1)
-	    result2, num2 = get_table_by_d66_swap(extraTable2)
-	    result3, num3 = get_table_by_d66_swap(extraTable3)
-	    result4, num4 = get_table_by_d66_swap(extraTable4)
-		result = "#{result1}#{result2}が#{result3}#{result4}"
-		number = "#{num1},#{num2},#{num3},#{num4}"
-	  end
-	  
-	  return tableName, result, number
+    case type
+    when 1
+      result, number = get_table_by_d66_swap(extraTable1)
+    when 2
+      result, number = get_table_by_d66_swap(extraTable2)
+    when 3
+      result, number = get_table_by_d66_swap(extraTable3)
+    when 4
+      result, number = get_table_by_d66_swap(extraTable4)
+    else
+      result1, num1 = get_table_by_d66_swap(extraTable1)
+      result2, num2 = get_table_by_d66_swap(extraTable2)
+      result3, num3 = get_table_by_d66_swap(extraTable3)
+      result4, num4 = get_table_by_d66_swap(extraTable4)
+      result = "#{result1}#{result2}が#{result3}#{result4}"
+      number = "#{num1},#{num2},#{num3},#{num4}"
+    end
+    
+    return tableName, result, number
   end
 
   def getpcTableResult()
@@ -1245,7 +1245,7 @@ INFO_MESSAGE_TEXT
     result, number = get_table_by_d66_swap(table)
     
     return tableName, result, number
-     end
+  end
 
   def getohTableResult()
     tableName = "実際どうだったのか表"

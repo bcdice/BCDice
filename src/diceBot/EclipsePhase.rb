@@ -18,7 +18,7 @@ class EclipsePhase < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 1D100<=m 方式の判定で成否、クリティカル・ファンブルを自動判定
 INFO_MESSAGE_TEXT
   end

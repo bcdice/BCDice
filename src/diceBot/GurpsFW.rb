@@ -41,7 +41,7 @@ class GurpsFW < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 --GURPS汎用コマンド----------
 ・判定においてクリティカル・ファンブルの自動判別、成功度の自動計算。(3d6<=目標値)
  ・祝福等のダイス目にかかる修正は「3d6-1<=目標値」といった記述で計算されます。
@@ -96,42 +96,42 @@ INFO_MESSAGE_TEXT
   end
   
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
-		if((dice_cnt == 3) && (signOfInequality == "<="))
-			
-			success = diff-total_n; #成功度
-			crt_string = " ＞ クリティカル(成功度：#{success})";
-			fmb_string = " ＞ ファンブル(失敗度：#{success})";
-			fail_string = " ＞ 自動失敗(失敗度：#{success})";
-			
-			#クリティカル
-			if   ((dice_n <= 6) && (diff >= 16))
-				return crt_string;
-			elsif((dice_n <= 5) && (diff >= 15))
-				return crt_string;
-			elsif(dice_n <= 4)
-				return crt_string;
-			end
-			#ファンブル			
-			if   (diff-dice_n <= -10)
-				return fmb_string;
-			elsif((dice_n >= 17) && (diff <=15))
-				return fmb_string;
-			elsif(dice_n >= 18)
-				return fmb_string;
-			elsif(dice_n >= 17)
-				return fail_string;
-			end
-			
-			if(total_n <= diff)
-				return " ＞ 成功(成功度：#{success})";
-			else
-				return " ＞ 失敗(失敗度：#{success})";
-			end
-			
-		end
-		
-		return ''
-	end
+    if((dice_cnt == 3) && (signOfInequality == "<="))
+      
+      success = diff-total_n; #成功度
+      crt_string = " ＞ クリティカル(成功度：#{success})";
+      fmb_string = " ＞ ファンブル(失敗度：#{success})";
+      fail_string = " ＞ 自動失敗(失敗度：#{success})";
+      
+      #クリティカル
+      if   ((dice_n <= 6) && (diff >= 16))
+        return crt_string;
+      elsif((dice_n <= 5) && (diff >= 15))
+        return crt_string;
+      elsif(dice_n <= 4)
+        return crt_string;
+      end
+      #ファンブル			
+      if   (diff-dice_n <= -10)
+        return fmb_string;
+      elsif((dice_n >= 17) && (diff <=15))
+        return fmb_string;
+      elsif(dice_n >= 18)
+        return fmb_string;
+      elsif(dice_n >= 17)
+        return fail_string;
+      end
+      
+      if(total_n <= diff)
+        return " ＞ 成功(成功度：#{success})";
+      else
+        return " ＞ 失敗(失敗度：#{success})";
+      end
+      
+    end
+    
+    return ''
+  end
 
   def getCommandResult(string, nick_e)
 	tableName = ""
@@ -655,7 +655,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 			lambda{return "#{normal2}"},
 			lambda{return "#{normal3}"},
 		]
-		result, number = get_table_by_1d6(table)
+		result, = get_table_by_1d6(table)
 		return result
 	end
 	#ノーマルくじ表2
@@ -668,7 +668,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 			lambda{return "#{normal3}"},
 			lambda{return "#{normal3}"},
 		]
-		result, number = get_table_by_1d6(table)
+		result, = get_table_by_1d6(table)
 		return result
 	end
 	#ノーマルくじ表3
@@ -681,7 +681,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 			'金獅子の剥製',
 			lambda{return "#{normal4}"},
 		]
-		result, number = get_table_by_1d6(table)
+		result, = get_table_by_1d6(table)
 		return result
 	end
 	#ノーマルくじ表4
@@ -694,7 +694,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 			'動くアダマンゴーレム',
 			lambda{return "#{normal5}"},
 		]
-		result, number = get_table_by_1d6(table)
+		result, = get_table_by_1d6(table)
 		return result
 	end
 	#ノーマルくじ表5
@@ -707,7 +707,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 			'箱舟の模型',
 			lambda{return "#{premium5}"},
 		]
-		result, number = get_table_by_1d6(table)
+		result, = get_table_by_1d6(table)
 		return result
 	end
 	
@@ -721,7 +721,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 			lambda{return "#{premium2}"},
 			lambda{return "#{premium2}"},
 		]
-		result, number = get_table_by_1d6(table)
+		result, = get_table_by_1d6(table)
 		return result
 	end
 	#プレミアムくじ表2
@@ -734,7 +734,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 			lambda{return "#{normal4}"},
 			lambda{return "#{premium3}"},
 		]
-		result, number = get_table_by_1d6(table)
+		result, = get_table_by_1d6(table)
 		return result
 	end
 	#プレミアムくじ表3
@@ -747,7 +747,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 			'ヒメショーグンドレス',
 			lambda{return "#{premium4}"},
 		]
-		result, number = get_table_by_1d6(table)
+		result, = get_table_by_1d6(table)
 		return result
 	end
 	#プレミアムくじ表4
@@ -760,7 +760,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 			'イグニスコンロ',
 			lambda{return "#{premium5}"},
 		]
-		result, number = get_table_by_1d6(table)
+		result, = get_table_by_1d6(table)
 		return result
 	end
 	#プレミアムくじ表5
@@ -773,7 +773,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 			'ザバーニヤ等身大フィギュア',
 			lambda{return "#{premium6}"},
 		]
-		result, number = get_table_by_1d6(table)
+		result, = get_table_by_1d6(table)
 		return result
 	end
 	#プレミアムくじ表6
@@ -786,7 +786,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 			'イレブンチキン(12ピース)',
 			'wish star',
 		]
-		result, number = get_table_by_1d6(table)
+		result, = get_table_by_1d6(table)
 		return result
 	end
 	

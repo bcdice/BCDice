@@ -22,7 +22,7 @@ class DemonParasite < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・衝動表　(URGEx)
 　"URGE衝動レベル"の形で指定します。
 　衝動表に従って自動でダイスロールを行い、結果を表示します。
@@ -117,7 +117,7 @@ INFO_MESSAGE_TEXT
     end
     
     urge = dp_urge_get( urge_type )
-    dice_now, dice_str = roll(2, 6)
+    dice_now, = roll(2, 6)
     
     if(urge_type <= 1)
       title = '衝動表'

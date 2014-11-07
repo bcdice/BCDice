@@ -14,7 +14,7 @@ class WARPS < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 失敗、成功度の自動判定を行います。
 INFO_MESSAGE_TEXT
   end

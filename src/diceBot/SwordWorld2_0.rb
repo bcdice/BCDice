@@ -22,7 +22,7 @@ class SwordWorld2_0 < SwordWorld
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 自動的成功、成功、失敗、自動的失敗の自動判定を行います。
 
 ・レーティング表　(Kx)

@@ -1,9 +1,10 @@
 #--*-coding:utf-8-*--
 
 class InfiniteFantasia < DiceBot
+  
   def gameName
     '無限のファンタジア'
-    end
+  end
   
   def gameType
     "InfiniteFantasia"
@@ -14,7 +15,7 @@ class InfiniteFantasia < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 失敗、成功レベルの自動判定を行います。
 INFO_MESSAGE_TEXT
   end

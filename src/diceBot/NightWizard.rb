@@ -19,7 +19,7 @@ class NightWizard < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定用コマンド　(nNW+m@x#y)
 　"(常時特殊能力含む基本値)NW(常時以外の特殊能力及び状態異常)@(クリティカル値)#(ファンブル値)"でロールします。
 　Rコマンド(2R6m[n,m]c[x]f[y]>=t tは目標値)に読替されます。
@@ -38,7 +38,7 @@ INFO_MESSAGE_TEXT
   end
   
   def dice_command_xRn(string, nick_e)
-    output_msg = checkRoll(string, nick_e)
+    return checkRoll(string, nick_e)
   end
   
   

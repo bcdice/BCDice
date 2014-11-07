@@ -21,7 +21,7 @@ class TunnelsAndTrolls < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 失敗、成功、自動失敗の自動判定とゾロ目の振り足し経験値の自動計算を行います。
 SAVEの難易度を「レベル」で表記することが出来ます。
 例えば「2Lv」と書くと「25」に置換されます。
@@ -59,7 +59,7 @@ INFO_MESSAGE_TEXT
   end
   
   def dice_command_xRn(string, nick_e)
-    output_msg = tandt_berserk(string, nick_e)
+    return tandt_berserk(string, nick_e)
   end
   
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)

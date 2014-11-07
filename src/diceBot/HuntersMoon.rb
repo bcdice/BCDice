@@ -23,7 +23,7 @@ class HuntersMoon < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定
 　判定時にクリティカルとファンブルを自動判定します。
 ・各種表

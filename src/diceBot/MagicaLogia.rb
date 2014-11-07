@@ -22,7 +22,7 @@ class MagicaLogia < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定
 スペシャル／ファンブル／成功／失敗を判定
 ・各種表
@@ -348,9 +348,6 @@ INFO_MESSAGE_TEXT
   
   # 指定特技ランダム決定表
   def magicalogia_random_skill_table
-    output = '1'
-    type = 'ランダム'
-    
     skillTableFull = [
                       ['星', ['黄金', '大地', '森', '道', '海', '静寂', '雨', '嵐', '太陽', '天空', '異界']],
                       ['獣', ['肉', '蟲', '花', '血', '鱗', '混沌', '牙', '叫び', '怒り', '翼', 'エロス']],
@@ -368,7 +365,7 @@ INFO_MESSAGE_TEXT
   
   #特技だけ抜きたい時用 あまりきれいでない
   def magicalogia_random_skill_table_text_only
-    text, num = magicalogia_random_skill_table
+    text, = magicalogia_random_skill_table
     return text
   end
   
@@ -381,16 +378,16 @@ INFO_MESSAGE_TEXT
   #時の流れ表
   def magicalogia_time_passage_table
     output = ""
-    num, dummy = roll(1,6)
+    num, = roll(1,6)
     
     if num == 1
       output = "標的となり追われる生活が続いた。ここ数年は苦しい戦いの日々だった。#{magicalogia_random_skill_table_text_only}の判定を行う。成功するとセッション終了時に追加の功績点1点。失敗すると「運命変転」発生。"
     elsif num == 2
       output = "冒険の日々の途中、大きな幸せが訪れる。#{magicalogia_random_skill_table_text_only}の判定を行う。成功すると、自分のアンカーの災厄か、自分の疵一つを無効化する。"
     elsif num == 3
-      text1, num1 = get_magic_element_type
-      text2, num2 = get_magic_element_type
-      text3, num3 = get_magic_element_type
+      text1, = get_magic_element_type
+      text2, = get_magic_element_type
+      text3, = get_magic_element_type
       output = "瞑想から目を覚ます。もうそんな時間か。おかげで十分な魔素を得ることができた。「#{text1}」「#{text2}」「#{text3}」の魔素を獲得する。"
     elsif num == 4
       output = "傷を癒すには十分な時間だ。自分の【魔力】を最大値まで回復する。もしくは「魔力のリセット」を行うことができる。好きな方を選ぶこと。"
@@ -510,7 +507,7 @@ INFO_MESSAGE_TEXT
   #宿敵表
   def magicalogia_inveterate_enemy_table
     output = ""
-    num, dummy = roll(1, 6)
+    num, = roll(1, 6)
     if num == 1
       output = '嫉妬。その人物は、実は調査者の実力をねたむ〈大法典〉の魔法使いだった。データは〈火刑人〉を使用する。ただし、魔法の使用には魔素を必要とし、魔法使いをコレクションすることはできない。GMは調査者やそのアンカーに魔法戦を挑み、邪魔をするように操作すること。'
     elsif num == 2
@@ -582,7 +579,7 @@ INFO_MESSAGE_TEXT
   #同盟表
   def magicalogia_alliance_table
     output = ""
-    num, dummy = roll(1, 6)
+    num, = roll(1, 6)
     if num == 1
       output = "精霊。その人物は、実は姿を変え、人間界に顕現した精霊だった。象徴する特技は#{magicalogia_random_skill_table_text_only}である。調査者は、そのセッションの間だけ、その特技の【精霊召喚】を修得する。また、セッションに一度だけ、その【精霊召喚】の判定を自動的に成功にすることができる。"
     elsif num == 2
@@ -603,7 +600,7 @@ INFO_MESSAGE_TEXT
   def magicalogia_blank_secret_table
     outtext = ""
     outnum = ''
-    num, dummy = roll(1, 6)
+    num, = roll(1, 6)
     if num == 1
       outtext, outnum = magicalogia_inveterate_enemy_table
       outtext = "宿敵。#{outtext}"

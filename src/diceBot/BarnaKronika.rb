@@ -20,7 +20,7 @@ class BarnaKronika < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・通常判定　nBK
 　ダイス数nで判定ロールを行います。
 　セット数が1以上の時はセット数も表示します。
@@ -49,7 +49,7 @@ INFO_MESSAGE_TEXT
   
   def dice_command_xRn(string, nick_e)
     @nick_e = nick_e
-    output_msg = check_barna_kronika(string)
+    return check_barna_kronika(string)
   end
   
   
@@ -63,7 +63,6 @@ INFO_MESSAGE_TEXT
     option = $5
     dice_n = $3
     dice_n ||= 1
-    total_n = 0
     
     @isBattleMode = false       # 0=判定モード, 1=戦闘モード
     criticalCallDice = 0         # 0=通常, 1〜6=クリティカルコール

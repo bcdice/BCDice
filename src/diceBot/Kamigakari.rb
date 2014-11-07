@@ -25,7 +25,7 @@ class Kamigakari < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・各種表
  ・霊紋消費の代償表(RT)
  ・伝奇名字・名前決定表(NT)
@@ -141,7 +141,7 @@ INFO_MESSAGE_TEXT
   
   
   def getMaterialEffect(rank)
-    number, dummy = roll(1, 6)
+    number, = roll(1, 6)
     
     result = ""
     type = ""
@@ -213,7 +213,7 @@ INFO_MESSAGE_TEXT
              [6, '※GMの任意'],
             ]
     
-    number, dummy = roll(1, 6)
+    number, = roll(1, 6)
     result = get_table_by_number(number, table)
     debug('getMaterialEffectRare result', result)
     

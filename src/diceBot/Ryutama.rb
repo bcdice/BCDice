@@ -19,7 +19,7 @@ class Ryutama < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定
 　Rx,y>=t（x,y：使用する能力値、t：目標値）
 　1ゾロ、クリティカルも含めて判定結果を表示します

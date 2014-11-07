@@ -327,6 +327,7 @@ MESSAGETEXT
     end
     
     part, value = get_table_by_nD6(partTable, diceCount)
+    return part, value
   end
   
   @@noCritical = '致命的命中はなかった'

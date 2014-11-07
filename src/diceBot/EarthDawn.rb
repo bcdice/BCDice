@@ -21,7 +21,7 @@ class EarthDawn < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ステップダイス　(xEn+k)
 ステップx、目標値n(省略可能）、カルマダイスk(D2-D20)でステップダイスをロールします。
 振り足しも自動。
@@ -51,7 +51,6 @@ INFO_MESSAGE_TEXT
     stepTotal = 0
     @isFailed = true
     step2 = 0
-    dice_now = 0
     
     step  = $1.to_i      #ステップ
     targetNumber  = 0    #目標値
@@ -79,13 +78,13 @@ INFO_MESSAGE_TEXT
     
     stable = getStepTable()
     
-    nmod = stable[0][step -1]
-    d20step  = stable[1][step -1]
-    d12step  = stable[2][step -1]
-    d10step  = stable[3][step -1]
-    d8step   = stable[4][step -1]
-    d6step   = stable[5][step -1]
-    d4step   = stable[6][step -1]
+    nmod = stable[0][step - 1]
+    d20step  = stable[1][step - 1]
+    d12step  = stable[2][step - 1]
+    d10step  = stable[3][step - 1]
+    d8step   = stable[4][step - 1]
+    d6step   = stable[5][step - 1]
+    d4step   = stable[6][step - 1]
     
     if( hasKarmaDice )
       case karmaDiceType
@@ -136,10 +135,10 @@ INFO_MESSAGE_TEXT
     #結果判定
     string += ' ＞ '
     
-    excelentSuccessNumber  = stable[7][targetNumber -1]
-    superSuccessNumber   = stable[8][targetNumber -1]
-    goodSuccessNumber   = stable[9][targetNumber -1]
-    failedNumber   = stable[11][targetNumber -1]
+    excelentSuccessNumber  = stable[7][targetNumber - 1]
+    superSuccessNumber   = stable[8][targetNumber - 1]
+    goodSuccessNumber   = stable[9][targetNumber - 1]
+    failedNumber   = stable[11][targetNumber - 1]
     
     if( @isFailed )
       string += '自動失敗'

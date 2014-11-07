@@ -19,7 +19,7 @@ class Oukahoushin3rd < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・各種表
 　・能力値判定裏成功表（NHT）
 　・武器攻撃裏成功表（BKT）

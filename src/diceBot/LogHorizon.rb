@@ -102,10 +102,10 @@ MESSAGETEXT
     
     
 	#クリティカル・ファンブルチェック
-	if( isCritical(diceList) )
-	  result += " ＞ クリティカル！"
-	elsif( isFamble(diceList, diceCount) )
-	  result += " ＞ ファンブル！"
+    if( isCritical(diceList) )
+      result += " ＞ クリティカル！"
+    elsif( isFamble(diceList, diceCount) )
+      result += " ＞ ファンブル！"
     else
       result += getJudgeResultString(difficulty, total)
     end

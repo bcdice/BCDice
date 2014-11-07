@@ -68,7 +68,7 @@ MESSAGETEXT
     
     result << "(#{base}d6)"
     
-    total, diceText = roll(base, 6)
+    _, diceText = roll(base, 6)
     
     diceList = diceText.split(/,/).collect{|i|i.to_i}.sort
     

@@ -19,7 +19,7 @@ class DarkBlaze < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・行為判定　(DBxy#n)
 　行為判定専用のコマンドです。
 　"DB(能力)(技能)#(修正)"でロールします。Rコマンド(3R6+n[x,y]>=m mは難易度)に読替をします。
@@ -47,7 +47,7 @@ INFO_MESSAGE_TEXT
   
   
   def dice_command_xRn(string, nick_e)
-    output_msg = check_roll(string, nick_e)
+    return check_roll(string, nick_e)
   end
   
   

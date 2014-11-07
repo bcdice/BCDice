@@ -18,7 +18,7 @@ class ZettaiReido < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定
 m-2DR+n>=x
 m(基本能力),n(修正値),x(目標値)
@@ -66,7 +66,7 @@ INFO_MESSAGE_TEXT
   
   
   def roll2DarkDice()
-    total, dice_str = roll(2, 6)
+    _, dice_str = roll(2, 6)
     dice1, dice2 = dice_str.split(',').collect{|i|i.to_i}
     
     darkDice1, darkPoint1 = changeDiceToDarkDice(dice1)

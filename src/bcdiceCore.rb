@@ -2003,6 +2003,9 @@ class BCDice
     when /(^|\s)(HouraiGakuen)$/i
       require 'diceBot/HouraiGakuen'
       diceBot = HouraiGakuen.new
+    when /(^|\s)(TwilightGunsmoke)$/i
+      require 'diceBot/TwilightGunsmoke'
+      diceBot = TwilightGunsmoke.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else

@@ -21,7 +21,7 @@ class GehennaAn < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 戦闘判定と通常判定に対応。幸運の助け、連撃増加値(戦闘判定)、闘技チット(戦闘判定)を自動表示します。
 ・戦闘判定　(nGAt+m)
 　ダイス数n、目標値t、修正値mで戦闘判定を行います。
@@ -42,7 +42,7 @@ INFO_MESSAGE_TEXT
   
   
   def dice_command_xRn(string, nick_e)
-    output_msg = checkGehenaAn(string, nick_e)
+    return checkGehenaAn(string, nick_e)
   end
   
 
@@ -59,7 +59,7 @@ INFO_MESSAGE_TEXT
     
     mod = parren_killer("(0#{modText})").to_i
     
-    diceValue, diceText, dummy = roll(diceCount, 6, (sortType & 1))
+    diceValue, diceText, = roll(diceCount, 6, (sortType & 1))
     
     diceArray = diceText.split(/,/).collect{|i|i.to_i}
     

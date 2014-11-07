@@ -21,7 +21,7 @@ class MeikyuDays < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定　(nMD+m)
 　n個のD6を振って大きい物二つだけみて達成値を算出します。修正mも可能です。
 　絶対成功と絶対失敗も自動判定します。
@@ -50,7 +50,7 @@ INFO_MESSAGE_TEXT
   
   def dice_command_xRn(string, nick_e)
     @nick = nick_e
-    output_msg = checkRoll(string)
+    return checkRoll(string)
   end
   
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
@@ -85,16 +85,15 @@ INFO_MESSAGE_TEXT
     diff = 0
     
     bonusText = $4
-    bonus = parren_killer("(0" + bonusText +")").to_i unless( bonusText.nil? )
+    bonus = parren_killer("(0" + bonusText + ")").to_i unless( bonusText.nil? )
     
     signOfInequality = $6 if($6)
     diff = $7.to_i if($7)
     dice_now = 0
     dice_str = ""
-    n_max = 0
     total_n = 0
     
-    dice, dice_str, = roll(dice_c, 6, (sortType & 1))
+    _, dice_str, = roll(dice_c, 6, (sortType & 1))
     dice_num = dice_str.split(/,/).collect{|i|i.to_i}
     
     dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1]

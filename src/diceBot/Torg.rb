@@ -20,7 +20,7 @@ class Torg < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定　(TGm)
 　TORG専用の判定コマンドです。
 　"TG(技能基本値)"でロールします。Rコマンドに読替されます。
@@ -51,7 +51,7 @@ INFO_MESSAGE_TEXT
   end
   
   def dice_command_xRn(string, nick_e)
-    output_msg = torg_check(string, nick_e)
+    return torg_check(string, nick_e)
   end
   
 ####################              TORG             ########################

@@ -47,7 +47,6 @@ MESSAGETEXT
     
     debug("matched.")
     
-    secretMarker = $2
     waponCommand = $3
     base = $4.to_i
     diff = $6
@@ -85,7 +84,7 @@ MESSAGETEXT
   def getJudgeDiceList
     diceList = []
     while( true )
-      value, dummy = roll(1, 100)
+      value, = roll(1, 100)
       diceList << value
       
       rank01 = value % 10
@@ -421,7 +420,7 @@ MESSAGETEXT
   end
   
   def getRandMartialArtCounter
-    value, dummy = roll(1, 10)
+    value, = roll(1, 10)
     dice = value * 10 + value
     dice = 100 if( value == 110 )
     

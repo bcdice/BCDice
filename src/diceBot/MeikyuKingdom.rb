@@ -33,10 +33,10 @@ class MeikyuKingdom < DiceBot
       'PNT\d*', 'MLT\d*',
       'KNT\d+', 'WORD\d+',
      ]
-    end
-
+  end
+  
   def getHelpMessage
-  info = <<INFO_MESSAGE_TEXT
+  return <<INFO_MESSAGE_TEXT
 ・判定　(nMK+m)
 　n個のD6を振って大きい物二つだけみて達成値を算出します。修正mも可能です。
 　絶対成功と絶対失敗も自動判定します。
@@ -78,7 +78,7 @@ INFO_MESSAGE_TEXT
   end
   
   def dice_command_xRn(string, nick_e)
-    output_msg = mayokin_check(string, nick_e)
+    return mayokin_check(string, nick_e)
   end
   
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
@@ -176,10 +176,9 @@ INFO_MESSAGE_TEXT
 
     dice_now = 0
     dice_str = ""
-    n_max = 0
     total_n = 0
     
-    total, dice_str, = roll(diceCount, 6, (sortType & 1))
+    _, dice_str, = roll(diceCount, 6, (sortType & 1))
     dice_num = dice_str.split(/,/).collect{|i|i.to_i}
     debug("diceCount, dice_num", diceCount, dice_num)
     
@@ -1187,7 +1186,7 @@ INFO_MESSAGE_TEXT
     
     num = 1
     num.times do |i|
-      dice, dummy = roll(2, 6)
+      dice, = roll(2, 6)
       output = output + ' / ' + mk_item_features_table(dice)
     end
     
@@ -1414,7 +1413,7 @@ INFO_MESSAGE_TEXT
   # アイテムの特性決定表(2D6)
   def mk_item_features_table(num)
     output = ""
-    dice, dummy = roll(2, 6)
+    dice, = roll(2, 6)
     
     if(num <= 2)
       output = '「' + mk_item_power_table((rand(6))+1) + '」の神力を宿す'

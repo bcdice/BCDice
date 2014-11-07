@@ -20,7 +20,7 @@ class CardRanker < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ランダムでモンスターカードを選ぶ (RM)
 特定のモンスターカードを選ぶ (CMxy　x：色、y：番号）
 　白：W、青：U、緑：V、金：G、赤：R、黒：B
@@ -78,6 +78,7 @@ INFO_MESSAGE_TEXT
     monsterName, monsterIndex = get_table_by_2d6(monsters)
     
     output = "#{type}(#{colorIndex},#{monsterIndex}) ＞ #{color}の#{monsterIndex}：#{monsterName}"
+    return output
   end
   
   def getColorTable
@@ -120,6 +121,7 @@ INFO_MESSAGE_TEXT
     return nil if( monsterName.nil? )
     
     output = "#{type} ＞ #{color}の#{monsterIndex}：#{monsterName}"
+    return output
   end
   
 end

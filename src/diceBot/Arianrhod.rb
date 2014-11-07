@@ -22,7 +22,7 @@ class Arianrhod < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・クリティカル、ファンブルの自動判定を行います。(クリティカル時の追加ダメージも表示されます)
 ・D66ダイスあり
 INFO_MESSAGE_TEXT

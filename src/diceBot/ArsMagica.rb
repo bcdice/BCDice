@@ -20,7 +20,7 @@ class ArsMagica < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・ストレスダイス　(ArSx+y)
 　"ArS(ボッチダイス)+(修正)"です。判定にも使えます。Rコマンド(1R10+y[m])に読替をします。
 　ボッチダイスと修正は省略可能です。(ボッチダイスを省略すると1として扱います)

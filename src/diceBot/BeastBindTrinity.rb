@@ -27,7 +27,7 @@ class BeastBindTrinity < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定　(nBB+m%w@x#y$z)
 　n個のD6を振り、出目の大きい2個から達成値を算出。修正mも可能。
 　＞%wは「現在の人間性が w」であることを表し、省略可能。
@@ -63,7 +63,7 @@ INFO_MESSAGE_TEXT
   
   def dice_command_xRn(string, nick_e)
     @nick = nick_e
-    output_msg = bbt_check(string)
+    return bbt_check(string)
   end
   
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
@@ -95,7 +95,7 @@ INFO_MESSAGE_TEXT
     diff = 0
     
     bonusText = $4
-    bonus = parren_killer("(0" + bonusText +")").to_i unless( bonusText.nil? )
+    bonus = parren_killer("(0" + bonusText + ")").to_i unless( bonusText.nil? )
     
     cri = 12					# クリティカル値の基本値は12。C値以上の出目が出た場合、達成値+20（クリティカル）。
     fum =  2					# ファンブル値の基本値は2。F値以下の出目が出た場合、達成値が0で固定される（ファンブル）。
@@ -135,7 +135,6 @@ INFO_MESSAGE_TEXT
     diff = $15.to_i if($15)
     dice_now = 0
     dice_str = ""
-    n_max = 0
     total_n = 0
     
     cri_flg   = false
@@ -153,8 +152,8 @@ INFO_MESSAGE_TEXT
     dice_tc = dice_c - rer_num.size
     
     if(dice_tc > 0)
-      dice, dice_str, = roll(dice_tc, 6, (sortType & 1))			# ダイス数修正、並べ替えせずに出力
-      dice_num = (dice_str.split(/,/) + rer_num).collect{|i|i.to_i} # 差し換え指定のダイスを挿入
+      _, dice_str, = roll(dice_tc, 6, (sortType & 1))			# ダイス数修正、並べ替えせずに出力
+      dice_num = (dice_str.split(/,/) + rer_num).collect{|n|n.to_i} # 差し換え指定のダイスを挿入
     elsif(rer_num.size == 0)
       return "ERROR:振るダイスの数が0個です"
     else

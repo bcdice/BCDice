@@ -21,7 +21,7 @@ class Warhammer < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・クリティカル表(whHxx/whAxx/whBxx/whLxx)
 　"WH部位 クリティカル値"の形で指定します。部位は「H(頭部)」「A(腕)」「B(胴体)」「L(足)」の４カ所です。
 　例）whH10 whA5 WHL4
@@ -172,7 +172,7 @@ INFO_MESSAGE_TEXT
       whppp = whw
     end
     
-    dice_now, dice_str = roll(1, 100)
+    dice_now, = roll(1, 100)
     
     crit_no = ((dice_now - 1) / 10).to_i * 10
     crit_num = criticalTable[crit_no + criticalValue - 1]
@@ -323,7 +323,7 @@ INFO_MESSAGE_TEXT
     
     diff = $1.to_i
     
-    total_n, dice_dmy = roll(1, 100)
+    total_n, = roll(1, 100)
     
     output = "(#{string}) ＞ #{total_n}"
     output += check_suc(total_n, 0, "<=", diff, 1, 100, 0, total_n)
