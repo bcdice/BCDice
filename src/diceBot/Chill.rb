@@ -13,7 +13,7 @@ class Chill < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・ストライク・ランク　(SRx)
 　"SRストライク・ランク"の形で記入します。
 　ストライク・ランク・チャートに従って自動でダイスロールを行い、

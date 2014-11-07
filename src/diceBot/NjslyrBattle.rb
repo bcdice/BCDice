@@ -4,7 +4,7 @@ class NjslyrBattle < DiceBot
   
   def gameName
     'NJSLYRBATTLE'
-    end
+  end
   
   def gameType
     "NJSLYRBATTLE"
@@ -15,7 +15,7 @@ class NjslyrBattle < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・カラテロール
 2d6<=(カラテ点)
 例）2d6<=5

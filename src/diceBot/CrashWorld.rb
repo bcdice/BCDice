@@ -14,7 +14,7 @@ class CrashWorld < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定 CWn
 初期目標値n (必須)
 例・CW8
@@ -43,7 +43,7 @@ INFO_MESSAGE_TEXT
     num = 0
     
     while( not isEnd )
-      num, dummy = roll(1, 12)
+      num, = roll(1, 12)
       
       # 振った数字を出力へ書き足す
       if(output == "(")

@@ -16,7 +16,7 @@ class RecordOfSteam < DiceBot
 
 
   def getHelpMessage
-    info = <<MESSAGETEXT
+    return <<MESSAGETEXT
 2S2@1
 RecordOfSteam : (2S2@1) ＞ 1,2,3,4 ＞ 1回転 ＞ 成功数2
 
@@ -81,7 +81,7 @@ MESSAGETEXT
     fumbleFlag = false
 
     while(diceCount > 0)
-      totalValue, diceListText, = roll(diceCount, 6)
+      _, diceListText, = roll(diceCount, 6)
       debug("diceListText", diceListText)
 
       rollResult += "," if(rollResult != "")

@@ -15,7 +15,7 @@ class Cthulhu < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・1D100の目標値判定で、クリティカル(決定的成功)／スペシャル／ファンブル(致命的失敗)の自動判定。
 　例）1D100<=50
 　　　Cthulhu : (1D100<=50) → 96 → 致命的失敗
@@ -94,7 +94,7 @@ INFO_MESSAGE_TEXT
     end
     
     # 通常判定
-    total_n, dice_dmy = roll(1, 100)
+    total_n, = roll(1, 100)
     if(total_n <= target)
       return "(1d100<=#{target}) ＞ #{total_n} ＞ 成功"
     end
@@ -111,7 +111,7 @@ INFO_MESSAGE_TEXT
     diff_1 = $1.to_i
     diff_2 = $2.to_i
     
-    total, dummy = roll(1, 100)
+    total, = roll(1, 100)
     
     result_1 = getCheckResultText(total, diff_1)
     result_2 = getCheckResultText(total, diff_2)

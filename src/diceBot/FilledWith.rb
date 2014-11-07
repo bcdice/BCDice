@@ -297,7 +297,7 @@ MESSAGETEXT
 	  end
 	  number = "#{num}#{number}"
 	  return result, number
-	end
+    end
 	
 	return cook(lv, "")
   
@@ -709,7 +709,7 @@ MESSAGETEXT
 			]
 	
 	result, number = get_table_by_d66(table)
-	dummy,  result = result
+	_,  result = result
 	
 	return "#{tableName}<#{difficultyText}>(#{number}):#{result}"
   end
@@ -728,7 +728,7 @@ MESSAGETEXT
 	  type  = 4
 	else
 	  return nil
-	end
+    end
 	
 	tableName = "ランダムイベント表"
 	
@@ -1235,7 +1235,7 @@ SLv3:ゴーレムアーム(装飾品)
 	  number = "#{area}4#{event}"
 	else
 	  return nil
-	end
+    end
 	
 	tableName = "エネミーデータ表"
 	
@@ -1467,7 +1467,7 @@ SLv3:ゴーレムアーム(装飾品)
 		        ]
 	  
 	  when 6
-	    aeraText = "墓場"
+	    areaText = "墓場"
 		table = [
 		         [1, [
 				      'ヤコ(CL6)3匹(【狐の送り火】のデータを「疲労:なし」に変更)',

@@ -21,7 +21,7 @@ class RokumonSekai2 < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定
 aRSm<=t
 能力値a,修正値m,目標値tで判定ロールを行います。
@@ -78,7 +78,7 @@ INFO_MESSAGE_TEXT
   def rokumon2_roll(mod, target, abl)
     suc = 0;
     
-    dtotal, dicestr, dummy = roll(3 + mod.abs, 6 , 1)
+    _, dicestr, = roll(3 + mod.abs, 6 , 1)
     
     dice = dicestr.split(/,/).collect{|i| i.to_i }
     

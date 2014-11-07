@@ -3,9 +3,10 @@
 require 'diceBot/DemonParasite'
 
 class ParasiteBlood < DemonParasite
+  
   def gameName
     'パラサイトブラッド'
-    end
+  end
 
   def gameType
     "ParasiteBlood"
@@ -16,7 +17,7 @@ class ParasiteBlood < DemonParasite
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・衝動表　(URGEx)
 　"URGE衝動レベル"の形で指定します。
 　衝動表に従って自動でダイスロールを行い、結果を表示します。
@@ -56,7 +57,7 @@ INFO_MESSAGE_TEXT
       return '1';
     end
     
-    dice_now, dice_str = roll(2, 6);
+    dice_now, = roll(2, 6);
     urge = get_pb_urge_table(urgelv, dice_now, urge_type)
     resultText = "#{urgelv}-#{dice_now}:#{urge}"
     if(urge_type <= 1)

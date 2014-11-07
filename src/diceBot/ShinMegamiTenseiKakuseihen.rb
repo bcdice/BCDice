@@ -19,7 +19,7 @@ class ShinMegamiTenseiKakuseihen < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定
 1D100<=(目標値) でスワップ・通常・逆スワップ判定を判定。
 威力ダイスは nU6[6] (nはダイス個数)でロール可能です。

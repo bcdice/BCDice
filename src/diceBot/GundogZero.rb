@@ -17,7 +17,7 @@ class GundogZero < Gundog
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 失敗、成功、クリティカル、ファンブルとロールの達成値の自動判定を行います。
 nD9ロールも対応。
 ・ダメージペナルティ表　　(〜DPTx) (x:修正)

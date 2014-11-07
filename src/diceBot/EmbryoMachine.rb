@@ -20,7 +20,7 @@ class EmbryoMachine < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定ロール(EMt+m@c#f)
 　目標値t、修正値m、クリティカル値c(省略時は20)、ファンブル値f(省略時は2)で攻撃判定を行います。
 　命中した場合は命中レベルと命中部位も自動出力します。
@@ -44,7 +44,7 @@ INFO_MESSAGE_TEXT
   end
   
   def dice_command_xRn(string, nick_e)
-    output_msg = checkRoll(string, nick_e)
+    return checkRoll(string, nick_e)
   end
   
   
@@ -71,7 +71,6 @@ INFO_MESSAGE_TEXT
     return output unless(/(^|\s)S?(2[rR]10([\+\-\d]+)?([>=]+(\d+))(\[(\d+),(\d+)\]))(\s|$)/i =~ string )
     
     string = $2
-    signOfInequality = ">="
     diff = 0
     crit = 20
     fumble = 2

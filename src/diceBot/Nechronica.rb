@@ -21,7 +21,7 @@ class Nechronica < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定　(nNC+m)
 　ダイス数n、修正値mで判定ロールを行います。
 　ダイス数が2以上の時のパーツ破損数も表示します。
@@ -43,7 +43,7 @@ INFO_MESSAGE_TEXT
   
   def dice_command_xRn(string, nick_e)
     @nick_e = nick_e
-    output_msg = nechronica_check(string)
+    return nechronica_check(string)
   end
   
   def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)# ゲーム別成功度判定(nD10)
@@ -101,8 +101,7 @@ INFO_MESSAGE_TEXT
     diff = 6
     total_n = 0
     
-    # $total, $dice_str, $cnt1, $cnt_max, $n_max, $cnt_suc, $cnt_re
-    dice_now, dice_str, n1, cnt_max, n_max = roll(dice_n, 10, 1)
+    _, dice_str, n1, cnt_max, n_max = roll(dice_n, 10, 1)
     
     total_n = n_max + mod
     

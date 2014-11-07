@@ -59,6 +59,7 @@ MESSAGETEXT
     end
     
     successText = "(#{results.join(' / ')}) ＞ " + getSuccessText(success)
+    return successText
   end
   
   def getSuccessText(success)

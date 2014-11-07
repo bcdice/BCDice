@@ -34,7 +34,7 @@ class GranCrest < DiceBot
   end
   
   def getHelpMessage
-    info = <<MESSAGETEXT
+    return <<MESSAGETEXT
 ・2D6の目標値判定でクリティカル処理
 　例）3d6>=19 3d6+5>=24
 ・邂逅表（MT）

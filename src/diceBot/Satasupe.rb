@@ -21,7 +21,7 @@ class Satasupe < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定コマンド　(nR>=x[y,z,c] or nR>=x or nR>=[,,c] etc)
 　nが最大ロール回数、xが難易度、yが目標成功度、zがファンブル値、cが必殺値。
 　y と z と c は省略可能です。(省略時、y＝無制限、z＝1、c=13(なし))
@@ -571,7 +571,7 @@ INFO_MESSAGE_TEXT
     return result if( name.empty? )
     
     counts.times do |i|
-      modify, index = getTableIndex(operator, value, 2, 6)
+      _, index = getTableIndex(operator, value, 2, 6)
       
       info = table[index - 2]
       text = "#{name}#{index}:#{info}"
@@ -596,7 +596,7 @@ INFO_MESSAGE_TEXT
     end
     
     if( index.nil? )
-      index, dummy = roll(diceCount, diceType)
+      index, = roll(diceCount, diceType)
       index += modify
     end
     

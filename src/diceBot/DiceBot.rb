@@ -227,7 +227,7 @@ class DiceBot
   end
   
   def get_table_by_nD6(table, count)
-    num, dummy = roll(count, 6)
+    num, = roll(count, 6)
     
     text = getTableValue(table[num - count])
     
@@ -239,7 +239,7 @@ class DiceBot
     debug("get_table_by_1d3")
 
     count = 1
-    num, dummy = roll(count, 6)
+    num, = roll(count, 6)
     debug("num", num)
     
     index = ((num - 1)/ 2)

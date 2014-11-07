@@ -1,9 +1,10 @@
 #--*-coding:utf-8-*--
 
 class ChaosFlare < DiceBot
+  
   def gameName
     'カオスフレア'
-    end
+  end
   
   def gameType
     "Chaos Flare"
@@ -14,7 +15,7 @@ class ChaosFlare < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 失敗、成功の判定。差分値の計算も行います。
 ファンブル時は達成値を-20します。
 INFO_MESSAGE_TEXT

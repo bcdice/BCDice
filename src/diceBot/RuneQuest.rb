@@ -15,7 +15,7 @@ class RuneQuest < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 クリティカル、エフェクティブ(効果的成功)、ファンブルの自動判定を行います。
 INFO_MESSAGE_TEXT
   end

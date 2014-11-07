@@ -67,7 +67,7 @@ MESSAGETEXT
 	diceFullList = []
 	
     while rollCount != 0
-      dice, dice_str = roll(rollCount, 6)
+      _, dice_str = roll(rollCount, 6)
       diceList = dice_str.split(/,/).collect{|i|i.to_i}.sort
 	  diceFullList.concat(diceList)
 	  
@@ -76,7 +76,7 @@ MESSAGETEXT
 	  
 	  result += "[#{diceList.join}]"
       result += " ダブルトリガー! " if(rollCount > 0)
-	end
+    end
 	
 	#ダイスの出目の個数を集計
 	result += " ＞"

@@ -25,7 +25,7 @@ class KanColle < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 例) 2D6 ： 単純に2D6した値を出します。
 例) 2D6>=7 ： 行為判定。2D6して目標値7以上出れば成功。
 例) 2D6+2>=7 ： 行為判定。2D6に修正+2をした上で目標値7以上になれば成功。
@@ -46,9 +46,10 @@ class KanColle < DiceBot
 　　　背景　KHT／魅力　KMT／性格　KST／趣味　KSYT／航海　KKT／戦闘　KSNT
 　・戦場表　SNZ　暴走表／RNT
 　・特殊開発表　WPMC　(燃料6/弾薬3/鋼材6/ボーキ3)
+　・新・特殊開発表　WPMCN
 　・艦載機関開発表　WPFA　(燃料3/弾薬6/鋼材3/ボーキ6)
 　・砲類開発表　WPCN　(燃料3/弾薬6/鋼材6/ボーキ3)　
-　・敵深海棲艦の装備決定 BT2～BT9
+　・敵深海棲艦の装備決定 BT2～BT12
 ・D66ダイス(D66S相当=低い方が10の桁になる)
 INFO_MESSAGE_TEXT
   end
@@ -468,12 +469,11 @@ INFO_MESSAGE_TEXT
   end
   
   def get_develop_matome_table
-    output1 = '1'
-    output2 = '2'
-    total_n1 = ""
+    output1 = ''
+    output2 = ''
     total_n2 = ""
 
-    dice, diceText = roll(1, 6)
+    dice, = roll(1, 6)
 
 	case dice
 		when 1
@@ -598,9 +598,8 @@ INFO_MESSAGE_TEXT
   end
 
   def get_kosei_table
-    output1 = '1'
-    output2 = '2'
-    total_n1 = ""
+    output1 = ''
+    output2 = ''
     total_n2 = ""
 
     output1, total_n1 = get_bunya_table

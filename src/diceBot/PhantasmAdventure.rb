@@ -19,7 +19,7 @@ class PhantasmAdventure < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 成功、失敗、決定的成功、決定的失敗の表示とクリティカル・ファンブル値計算の実装。
 INFO_MESSAGE_TEXT
   end
@@ -40,7 +40,7 @@ INFO_MESSAGE_TEXT
     fumble = 20 + skill_mod;
     fumble = 20 if(fumble > 20);
     critical = 1 + skill_mod;
-    dice_now, dice_str = roll(1, 20);
+    dice_now, = roll(1, 20);
     
     if(total_n >= fumble or total_n >= 20)
       fum_num = dice_now - skill_mod;

@@ -24,7 +24,7 @@ class DoubleCross < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定コマンド　(xDX+y@c or xDXc+y)
 　"(個数)DX(修正)@(クリティカル値)"もしくは"(個数)DX(クリティカル値)(修正)"で指定します。
 　加算減算のみ修正値も付けられます。
@@ -246,7 +246,7 @@ INFO_MESSAGE_TEXT
     
     pos_dice, pos_table = dx_feel_positive_table
     neg_dice, neg_table = dx_feel_negative_table
-    dice_now, dice_dmy = roll(1, 2)
+    dice_now, = roll(1, 2)
     
     if(pos_table != '1' and neg_table != '1')
       if(dice_now < 2)
@@ -323,7 +323,7 @@ INFO_MESSAGE_TEXT
   end
 
   def dx_feel_table(table)
-    dice_now, dice_dmy = roll(1, 100)
+    dice_now, = roll(1, 100)
     output = get_table_by_number(dice_now, table)
 
     return dice_now, output

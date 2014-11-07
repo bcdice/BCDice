@@ -21,7 +21,7 @@ class CthulhuTech < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 テストのダイス計算を実装。
 成功、失敗、クリティカル、ファンブルの自動判定。
 コンバットテスト(防御側有利なので「>=」ではなく「>」で入力)の時はダメージダイスも表示。
@@ -112,7 +112,7 @@ INFO_MESSAGE_TEXT
     max_num = 0
     
     dice_aRR.each do |dice_n|
-      dice_num[(dice_n -1)] += 1
+      dice_num[(dice_n - 1)] += 1
       
       if(dice_n > max_num)  # 1.個別のダイスの最大値
         max_num = dice_n

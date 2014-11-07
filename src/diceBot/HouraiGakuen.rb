@@ -23,7 +23,7 @@ class HouraiGakuen < DiceBot
   
   #説明文
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・基本ロール：ROL(x+n)
   ROLL(自分の能力値 + 簡単値 + 応石 or 蓬莱パワー)と記述します。3D6をロールし、成功したかどうかを表示します。
   例）ROL(4+6)
@@ -106,6 +106,7 @@ INFO_MESSAGE_TEXT
     
   def getDiceListFromText(diceText)
     diceList = diceText.split(/,/).collect{|i| i.to_i }.sort
+    return diceList
   end
   
   def isFamble( diceList )
@@ -206,7 +207,7 @@ INFO_MESSAGE_TEXT
     3.times do
       dice, = roll(1, 6)
       
-      if dice %2 == 0
+      if (dice % 2) == 0
         evenCount += 1 # 偶数カウント
       else
         oddCount += 1 # 奇数カウント
@@ -259,7 +260,7 @@ INFO_MESSAGE_TEXT
   def getOddEven
     dice, = roll(1,6)
     
-    return "偶数" if dice %2 == 0
+    return "偶数" if (dice % 2) == 0
     return "奇数"
   end
   

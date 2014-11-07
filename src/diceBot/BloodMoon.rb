@@ -22,7 +22,7 @@ class BloodMoon < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・各種表
 　・関係属性表　RAT
 　・導入タイプ決定表(ノーマル)　IDT
@@ -316,16 +316,7 @@ INFO_MESSAGE_TEXT
                  '環境12：休まない',
                 ]
 
-    table = [
-             '1社会',
-             '2頭部',
-             '3胴部',
-             '4腕部',
-             '5脚部',
-             '6環境',
-            ]
-    
-    categoryNum, categoryDummy = roll(1, 6)
+    categoryNum, = roll(1, 6)
     detailText = nil
     detailNum = 0
     if categoryNum == 1 then

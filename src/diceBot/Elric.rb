@@ -14,7 +14,7 @@ class Elric < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 貫通、クリティカル、ファンブルの自動判定を行います。
 INFO_MESSAGE_TEXT
   end

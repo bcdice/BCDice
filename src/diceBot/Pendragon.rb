@@ -4,7 +4,7 @@ class Pendragon < DiceBot
   
   def gameName
     'ペンドラゴン'
-    end
+  end
   
   def gameType
     "Pendragon"
@@ -15,7 +15,7 @@ class Pendragon < DiceBot
   end
   
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 クリティカル、成功、失敗、ファンブルの自動判定を行います。
 INFO_MESSAGE_TEXT
   end

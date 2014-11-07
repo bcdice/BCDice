@@ -1,6 +1,6 @@
 #--*-coding:utf-8-*--
 
-class _Template < DiceBot
+class Template < DiceBot
   
   def initialize
     super
@@ -36,7 +36,7 @@ class _Template < DiceBot
   def getHelpMessage
     return <<MESSAGETEXT
 ヘルプメッセージ
-ダイスボットの使い方書いておいて下さい。
+ダイスボットの使い方をここに記述します。
 MESSAGETEXT
   end
   

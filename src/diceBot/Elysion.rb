@@ -159,7 +159,7 @@ MESSAGETEXT
         getBossEncount(level)
       else
         ''
-    end
+      end
     
     return result
   end
@@ -249,7 +249,7 @@ MESSAGETEXT
     end
     
     result = getCheckResult(total)
-    result << " ／ (#{number -1}回目のアシストなら)大失敗"
+    result << " ／ (#{number - 1}回目のアシストなら)大失敗"
     
     debug("getFambleResultText result", result)
     
@@ -434,7 +434,7 @@ MESSAGETEXT
   end
   
   def getDateValue
-    dice1, dummy = roll(1, 6)
+    dice1, = roll(1, 6)
     return "#{dice1}"
   end
   
@@ -679,7 +679,7 @@ MESSAGETEXT
 
 
   def getBreakTable(name, table)
-    number, dice_dmy = roll(2, 6)
+    number, = roll(2, 6)
     index = number - 2
     
     text = table[index]
@@ -690,7 +690,7 @@ MESSAGETEXT
   
   
   def getD6Table(name, table)
-    number, dice_dmy = roll(1, 6)
+    number, = roll(1, 6)
     index = number - 1
     
     text = table[index]
