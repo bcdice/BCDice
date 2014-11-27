@@ -29,7 +29,7 @@ class EarthDawn3 < EarthDawn
 振り足しも自動。
 例）ステップ10：10E
 　　ステップ10、目標値8：10E8
-　　ステップ12、目標値8、カルマダイスD12：10E+1D12
+　　ステップ12、目標値8、カルマダイスD12：10E8+1D6
 INFO_MESSAGE_TEXT
   end
   
