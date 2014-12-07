@@ -70,8 +70,9 @@ class DiceBotTest
     end
 
     targetFiles.each do |filename|
-      source = File.read(filename)
-      dataSetSources = source.
+      dataSetSources = File.read(filename, encoding: 'UTF-8').
+        gsub("\r\n", "\n").
+        tr("\r", "\n").
         split("============================\n").
         map(&:chomp)
 
