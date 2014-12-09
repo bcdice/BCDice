@@ -1,0 +1,31 @@
+gametype:EclipsePhase
+============================
+input:
+1D100<=50
+output:
+EclipsePhase : (1D100<=50) ＞ 50 ＞ 成功
+rand:50/100
+============================
+input:
+1D100<=50
+output:
+EclipsePhase : (1D100<=50) ＞ 100 ＞ 00 ＞ クリティカル
+rand:100/100
+============================
+input:
+1D100<=50
+output:
+EclipsePhase : (1D100<=50) ＞ 44 ＞ クリティカル
+rand:44/100
+============================
+input:
+1D100<=50
+output:
+EclipsePhase : (1D100<=50) ＞ 49 ＞ 成功
+rand:49/100
+============================
+input:
+1D100<=50
+output:
+EclipsePhase : (1D100<=50) ＞ 55 ＞ ファンブル
+rand:55/100

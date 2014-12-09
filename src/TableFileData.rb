@@ -131,7 +131,7 @@ class TableFileData
   
   def getTableDataFromFile(fileName)
     table = []
-    lines = splitLines(fileName)
+    lines = File.read(fileName).toutf8.lines.map(&:chomp)
     
     defineLine = lines.shift
     dice, title = getDiceAndTitle(defineLine)
@@ -145,17 +145,6 @@ class TableFileData
     end
     
     return dice, title, table
-  end
-  
-  def splitLines(fileName)
-    buffer = ""
-    open(fileName, 'r') do |file|
-      buffer = file.read
-    end
-    
-    lines = buffer.split(/(\r\n|\n|\r)/)
-    
-    return lines
   end
   
   def getLineKeyValue(line)
