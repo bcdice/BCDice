@@ -8,7 +8,7 @@ class LogHorizon < DiceBot
   end
   
   def prefixs
-    ['\d+LH.*', 'PC.*', 'EC.*', 'GC.*', 'CC.*', 'CTR.*', 'MTR.*', 'ITR.*', 'HTR.*', 'PTAG', 'KOYU', 'MGR.', 'HLOC', 'PCNM', 'IAT.*', 'TIAS', 'ABDC', 'MII']
+    ['\d+LH.*', 'PC.*', 'EC.*', 'GC.*', 'CC.*', 'CTR.*', 'MTR.*', 'ITR.*', 'HTR.*', 'PTAG', 'KOYU', 'MGR.', 'HLOC', 'PCNM', 'IAT.*', 'TIAS', 'ABDC', 'MII.*', 'ESCT.*', 'CSCT.*']
   end
   
   def gameName
@@ -41,21 +41,22 @@ class LogHorizon < DiceBot
 　例） CTRS1　MTRS2+1　ITRS3-1　ITRS+27　CTRS3$
 ・パーソナリティタグ表(PTAG)
 ・交友表(KOYU)
-・プレフィックスドマジックアイテム効果表(MGRx)
-　x:MGを指定。
-　例） MGR1
+・プレフィックスドマジックアイテム効果表(MGRx) xはMGを指定。
+†楽器種別表(MIIx) xは楽器の種類(1～6を指定)、省略可能
+　1 打楽器１／2 鍵盤楽器／3 弦楽器１／4 弦楽器２／5 管楽器１／6 管楽器２
+☆特殊消耗表(tSCTx±y$z)　消耗表と同様、ただしCRは省略可能。
+　ESCT ロデ研は爆発だ！／CSCT アルヴの呪いじゃ！
 ※攻撃命中箇所ランダム決定表(HLOC)
 ※PC名ランダム決定表(PCNM)
 ※ロデ研の新発明ランダム決定表(IATt)
   IATA 特徴A(メリット)／IATB 特徴B(デメリット)／IATL 見た目／IATT 種類
-  tを省略すると全て表示。A/B/L/Tを任意の順で連結可能
+  tを省略すると全て表示。tにA/B/L/Tを任意の順で連結可能
   例）IAT　IATALT  IATABBLT  IATABL
 ※アキバの街で遭遇するトラブルランダム決定表(TIAS)
 ※廃棄児ランダム決定表(ABDC)
+†印は☆印は「イントゥ・ザ・セルデシア さらなるビルドの羽ばたき（１）」より、
+☆印はセルデシア・ガゼット「できるかな66」Vol.1より、
 ※印は「実録・七面体工房スタッフ座談会(夏の陣)」より。利用法などはそちら参照。
-†楽器種別表(MII)
-　例） MII
-†印は「ログ・ホライズン冒険者窓口（公式サイト）」より。利用法などはそちら参照。
 ・D66ダイスあり
 MESSAGETEXT
   end
@@ -153,10 +154,14 @@ MESSAGETEXT
   #消耗表
   def getConsumptionDiceComandResult( command )
     
-    return nil unless(/(P|E|G|C)CT(\d+)([\+\-\d]*)(\$(\d+))?/ === command)
+    return nil unless(/(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command)
     
     type = $1
-    rank = $2.to_i
+    is_special = ($1 && $1.length > 1)
+    rank = ($2 && $2 != '') ? $2.to_i : nil
+    return nil if !rank && !is_special
+    
+    rank = 0 if !rank
     is_choice = (not $4.nil?)
     dice_value = $5
     modifyText = $3
@@ -174,6 +179,10 @@ MESSAGETEXT
       tableName, tables = getGoodsConsumptionResultTables
     when "C"
       tableName, tables = getCashConsumptionResultTables
+    when "ES"
+      tableName, tables = getExplosionSpecialConsumptionResultTables
+    when "CS"
+      tableName, tables = getCurseSpecialConsumptionResultTables
     else
       return nil
     end
@@ -300,6 +309,38 @@ MESSAGETEXT
               ],
              ]
     
+    return tableName, tables
+  end
+  
+  
+  def getExplosionSpecialConsumptionResultTables
+    tableName = "特殊消耗表：ロデ研は爆発だ！"
+    tables = [[
+               [0, '……しかし特に何も起こらない！：効果なし。'],
+               [1, 'キミの頭髪が爆発した！　見事なアフロヘアーだ：シナリオ終了まで［頭部］タグのついた装備不可。'],
+               [2, '芸術は爆発である：所持しているアイテムがランダムに１つ、芸術品になり［換金］アイテム化する'],
+               [3, '反応起爆装甲：防具スロットに装備しているアイテムがチョバムアーマーになる。次にあなたが【ＨＰ】ダメージを受けた時、そのダメージを無効化し、そのアイテムを失う。'],
+               [4, '山羊スライムが爆発的に増殖する：［所持品］スロットを全て山羊スライム（［取引不可］、価格５０）で埋める。'],
+               [5, 'キミのリアルが爆発する：コネクションを１つ、シナリオ終了時まで失う。'],
+               [6, '工場が爆発する：［消耗品］タグを持つアイテムを購入することができなくなる。'],
+               [7, 'ボスエネミーが爆発する：シナリオはクライマックスを迎えることなく終了する。お疲れ様でした。'],
+             ]]
+    return tableName, tables
+  end
+  
+  
+  def getCurseSpecialConsumptionResultTables
+    tableName = "特殊消耗表：アルヴの呪いじゃ！"
+    tables = [[
+               [0, '「祝ってやる！」祝われる：あなたの【因果力】＋１。'],
+               [1, '空腹の呪い：すぐさま食料アイテムひとつを食べる。空腹のせいでとてもおいしい！'],
+               [2, '無職の呪い：サブ職が強制的に〈ニート〉に変更させられる。'],
+               [3, '種族変更の呪い：ランダムでダイスを振って別の種族に変わる。種族特技が使用不能になる。'],
+               [4, 'バリアフリーの呪い：［軽減］［障壁］状態になることができなくなる。'],
+               [5, '集中力を乱す囁きの呪い：フォームが崩れて［構え］タグを持つ特技が使用不能になる。'],
+               [6, '盲目の呪い：あなたの所持するコネクションのうちランダムに一つの関係が「熱愛」にかわる。'],
+               [7, 'やる気が萎える呪い：あーもーまじやる気しねえ、何もやる気しねえ。【因果力】使用不可。'],
+             ]]
     return tableName, tables
   end
   
@@ -1241,58 +1282,27 @@ MESSAGETEXT
   
   #楽器種別表
   def getMusicalInstrumentTypeDiceComandResult(command)
-    
-    return nil unless ("MII" === command)
-    
+    return nil unless(/MII(\d?)/ === command)
+     type, is_roll = if $1 && $1 != ''
+      [$1.to_i, false]
+    else
+      roll(1, 6)
+    end
+    return nil if type < 1 || 6 < type 
     tableName = "楽器種別表"
+    type_name = ['打楽器１', '鍵盤楽器', '弦楽器１', '弦楽器２', '管楽器１', '管楽器２'][type - 1]
     
-    table = [
-             'カスタネット',
-             'マラカス',
-             'シンバル',
-             'トライアングル',
-             '太鼓',
-             'ドラム',
-             
-             '木琴',
-             '鉄琴',
-             'ハーモニウム',
-             'ハープシコード',
-             'ピアノ',
-             'クラヴィコード',
-             
-             'ハーブ',
-             'リュート',
-             'ギター',
-             'バイオリン',
-             'チェロ',
-             'リラ',
-             
-             '琵琶',
-             '和琴',
-             '古琴',
-             '三味線',
-             'シタール',
-             'ダルシマー',
-             
-             'トランペット',
-             'ホルン',
-             'トロンボーン',
-             'チューバ',
-             'フルート',
-             'クラリネット',
-             
-             'リコーダー',
-             'オカリナ',
-             'オーボエ',
-             'ハーモニカ',
-             'アコーディオン',
-             '尺八'
-            ]
+    dice, = roll(1, 6)
+    result = [
+        ['カスタネット', 'マラカス', 'シンバル', 'トライアングル', '太鼓', 'ドラム'],
+        ['木琴', '鉄琴', 'ハーモニウム', 'ハープシコード', 'ピアノ', 'クラヴィコード'],
+        ['ハープ', 'リュート', 'ギター', 'バイオリン', 'チェロ', 'リラ'],
+        ['琵琶', '和琴', '胡琴', '三味線', 'シタール', 'ダルシマー'],
+        ['トランペット', 'ホルン', 'トロンボーン', 'チューバ', 'フルート', 'クラリネット'],
+        ['リコーダー', 'オカリナ', 'オーボエ', 'ハーモニカ', 'アコーディオン', '尺八']
+      ][type - 1][dice - 1]
     
-    result, number = get_table_by_d66(table)
-    
-    return "#{tableName}([#{number}]) ＞ #{result}"
+    return "#{tableName}" + (is_roll ? "(#{type})" : '') + "：#{type_name}(#{dice})：#{result}"
   end
   
 end
