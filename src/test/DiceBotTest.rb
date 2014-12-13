@@ -70,7 +70,13 @@ class DiceBotTest
     end
 
     targetFiles.each do |filename|
-      dataSetSources = File.read(filename, encoding: 'UTF-8').
+      source =
+        if RUBY_VERSION < '1.9'
+          File.read(filename)
+        else
+          File.read(filename, :encoding => 'UTF-8')
+        end
+      dataSetSources = source.
         gsub("\r\n", "\n").
         tr("\r", "\n").
         split("============================\n").
@@ -81,13 +87,20 @@ class DiceBotTest
       raise "missing gametype: #{filename}" unless matches
       gameType = matches[1]
 
-      dataSet = dataSetSources.map.with_index(1) do |dataSetSource, i|
-        DiceBotTestData.parse(dataSetSource, gameType, i)
-      end
+      dataSet =
+        if RUBY_VERSION < '1.9'
+          dataSetSources.each_with_index.map do |dataSetSource, i|
+            DiceBotTestData.parse(dataSetSource, gameType, i + 1)
+          end
+        else
+          dataSetSources.map.with_index(1) do |dataSetSource, i|
+            DiceBotTestData.parse(dataSetSource, gameType, i)
+          end
+        end
 
-      dataSet.select! { |data| data.index == @dataIndex } if @dataIndex
-
-      @testDataSet += dataSet
+      @testDataSet += @dataIndex ?
+        dataSet.select { |data| data.index == @dataIndex } :
+        dataSet
     end
   end
   private :readTestDataSet

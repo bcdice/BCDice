@@ -3,14 +3,18 @@
 # ダイスボットのテストを起動するプログラム
 # Ruby 1.9 以降に対応
 
+if RUBY_VERSION < '1.9'
+  $KCODE = 'u'
+end
+
 rootDir = File.expand_path(File.dirname(__FILE__))
 libPaths = [
   "#{rootDir}/test",
   rootDir,
   "#{rootDir}/irc"
 ]
-libPaths.reverse.each do |libPath|
-  $LOAD_PATH.unshift(libPath)
+libPaths.each do |libPath|
+  $LOAD_PATH << libPath
 end
 
 require 'DiceBotTest'
