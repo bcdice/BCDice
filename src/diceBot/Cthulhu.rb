@@ -116,12 +116,22 @@ INFO_MESSAGE_TEXT
     result_1 = getCheckResultText(total, diff_1)
     result_2 = getCheckResultText(total, diff_2)
     
-    ranks = ["決定的成功/スペシャル", "決定的成功", "スペシャル", "成功", "失敗", "致命的失敗"]
-    rankIndex_1 = ranks.index(result_1)
-    rankIndex_2 = ranks.index(result_2)
+    successList = ["決定的成功/スペシャル", "決定的成功", "スペシャル", "成功"]
+    failList = ["失敗", "致命的失敗"]
     
-    rankIndex = [rankIndex_1, rankIndex_2].max
-    rank = ranks[rankIndex]
+    succesCount = 0
+    succesCount += 1 if successList.include?( result_1 )
+    succesCount += 1 if successList.include?( result_2 )
+    debug("succesCount", succesCount)
+    
+    rank = 
+      if( succesCount >= 2 )
+        "成功"
+      elsif( succesCount == 1 )
+        "部分的成功"
+      else
+        "失敗"
+      end
     
     return "(1d100<=#{diff_1},#{diff_2}) ＞ #{total}[#{result_1},#{result_2}] ＞ #{rank}"
   end
