@@ -1,5 +1,3 @@
-gametype:LogHorizon
-============================
 input:
 3LH
 output:

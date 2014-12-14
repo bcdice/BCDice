@@ -6,10 +6,10 @@ require 'cgiDiceBot'
 require 'DiceBotTestData'
 
 class DiceBotTest
-  def initialize(gameType = nil, dataIndex = nil)
+  def initialize(testDataPath = nil, dataIndex = nil)
     testBaseDir = File.expand_path(File.dirname(__FILE__))
 
-    @gameType = gameType
+    @testDataPath = testDataPath
     @dataIndex = dataIndex
 
     @dataDir = "#{testBaseDir}/data"
@@ -56,14 +56,11 @@ class DiceBotTest
 
   # テストデータを読み込む
   def readTestDataSet
-    if @gameType
-      # ゲームシステムが指定された場合、そのテストデータを読み込む
-      testDataPath = "#{@dataDir}/#{@gameType}.txt"
-      # ゲームシステム名に対応するテストデータファイルが存在しない場合
-      # 中断する
-      return unless File.exist?(testDataPath)
+    if @testDataPath
+      # 指定されたファイルが存在しない場合、中断する
+      return unless File.exist?(@testDataPath)
 
-      targetFiles = [testDataPath]
+      targetFiles = [@testDataPath]
     else
       # すべてのテストデータを読み込む
       targetFiles = Dir.glob("#{@dataDir}/*.txt")
@@ -82,10 +79,8 @@ class DiceBotTest
         split("============================\n").
         map(&:chomp)
 
-      gameTypeLine = dataSetSources.shift || ''
-      matches = gameTypeLine.match(/^gametype:(.+)/)
-      raise "missing gametype: #{filename}" unless matches
-      gameType = matches[1]
+      # ゲームシステムをファイル名から判断する
+      gameType = File.basename(filename, '.txt')
 
       dataSet =
         if RUBY_VERSION < '1.9'
@@ -108,22 +103,26 @@ class DiceBotTest
   # 各テストを実行する
   def doTests
     @testDataSet.each do |testData|
-      success = true
       begin
         result = executeCommand(testData).lstrip
 
         unless result == testData.output
-          success = false
           @errorLog << logTextForUnexpected(result, testData)
           print('X')
+
+          # テスト失敗、次へ
+          next
         end
       rescue => e
-        success = false
         @errorLog << logTextForException(e, testData)
         print('E')
+
+        # テスト失敗、次へ
+        next
       end
 
-      print('.') if success
+      # テスト成功
+      print('.')
     end
 
     puts

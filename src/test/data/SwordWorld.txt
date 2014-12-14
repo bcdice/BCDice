@@ -1,5 +1,3 @@
-gametype:SwordWorld
-============================
 input:
 2d6>=4
 output:

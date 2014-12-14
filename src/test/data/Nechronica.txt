@@ -1,5 +1,3 @@
-gametype:Nechronica
-============================
 input:
 1D10>=1
 output:
