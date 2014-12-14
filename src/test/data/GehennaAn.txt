@@ -1,5 +1,3 @@
-gametype:GehennaAn
-============================
 input:
 5G2
 output:

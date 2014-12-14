@@ -1,5 +1,3 @@
-gametype:Utakaze
-============================
 input:
 6D6
 output:

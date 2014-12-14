@@ -1,5 +1,3 @@
-gametype:TwilightGunsmoke
-============================
 input:
 2D6>=7
 output:
