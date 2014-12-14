@@ -1,5 +1,3 @@
-gametype:DoubleCross
-============================
 input:
 10R6
 output:

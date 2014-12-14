@@ -1,5 +1,3 @@
-gametype:Oukahoushin3rd
-============================
 input:
 BKT
 output:

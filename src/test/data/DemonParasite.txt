@@ -1,5 +1,3 @@
-gametype:DemonParasite
-============================
 input:
 1D6
 output:

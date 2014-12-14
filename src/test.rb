@@ -1,7 +1,13 @@
 #--*-coding:utf-8-*--
 
 # ダイスボットのテストを起動するプログラム
-# Ruby 1.9 以降に対応
+#
+# 引数の数によって処理が変わる
+#
+# [0個] すべてのテストデータを使用してテストを行う
+# [1個] 指定したテストデータを使用してテストを行う。
+#       「.txt」で終わっていればテストデータのパスと見なす。
+# [2個] 最初の引数でテストデータを指定し、2番目の引数で番号を指定する
 
 if RUBY_VERSION < '1.9'
   $KCODE = 'u'
@@ -19,12 +25,17 @@ end
 
 require 'DiceBotTest'
 
-# テストを行うゲームシステム
-gameType = nil
+# 引数を解析してテストデータファイルのパスを返す
+getTestDataPath = lambda do |arg|
+  arg.end_with?('.txt') ? arg : "#{rootDir}/test/data/#{arg}.txt"
+end
+
+# テストデータファイルのパス
+testDataPath = nil
 # テストデータ番号
 dataIndex = nil
 
-HELP_MESSAGE = "Usage: #{File.basename($0)} [GAME_TYPE] [DATA_INDEX]"
+HELP_MESSAGE = "Usage: #{File.basename($0)} [TEST_DATA_PATH] [DATA_INDEX]"
 
 if ARGV.include?('-h') || ARGV.include?('--help')
   $stdout.puts(HELP_MESSAGE)
@@ -34,16 +45,16 @@ end
 case ARGV.length
 when 0
 when 1
-  # ゲームシステムを指定する
-  gameType = ARGV[0]
+  # テストデータを指定する
+  testDataPath = getTestDataPath[ARGV[0]]
 when 2
-  # ゲームシステムおよびテストデータ番号を指定する
-  gameType = ARGV[0]
+  # テストデータおよびテストデータ番号を指定する
+  testDataPath = getTestDataPath[ARGV[0]]
   dataIndex = ARGV[1].to_i
 else
   $stderr.puts(HELP_MESSAGE)
   abort
 end
 
-success = DiceBotTest.new(gameType, dataIndex).execute
+success = DiceBotTest.new(testDataPath, dataIndex).execute
 abort unless success

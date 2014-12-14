@@ -1,5 +1,3 @@
-gametype:EarthDawn3
-============================
 input:
 4E
 output:

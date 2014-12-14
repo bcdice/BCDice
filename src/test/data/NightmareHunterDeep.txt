@@ -1,5 +1,3 @@
-gametype:NightmareHunterDeep
-============================
 input:
 1D6>=3
 output:
