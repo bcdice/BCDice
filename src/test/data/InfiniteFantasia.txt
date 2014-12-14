@@ -1,5 +1,3 @@
-gametype:InfiniteFantasia
-============================
 input:
 1D20<=2
 output:

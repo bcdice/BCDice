@@ -1,5 +1,3 @@
-gametype:EclipsePhase
-============================
 input:
 1D100<=50
 output:

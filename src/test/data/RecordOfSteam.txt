@@ -1,5 +1,3 @@
-gametype:RecordOfSteam
-============================
 input:
 2S2@1
 output:

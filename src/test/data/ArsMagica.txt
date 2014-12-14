@@ -1,5 +1,3 @@
-gametype:ArsMagica
-============================
 input:
 Ars3+1
 output:

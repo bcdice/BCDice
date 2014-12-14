@@ -1,5 +1,3 @@
-gametype:EmbryoMachine
-============================
 input:
 1D10>=2
 output:

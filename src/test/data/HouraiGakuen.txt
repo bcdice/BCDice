@@ -1,5 +1,3 @@
-gametype:HouraiGakuen
-============================
 input:
 ROL(1+1)
 output:
