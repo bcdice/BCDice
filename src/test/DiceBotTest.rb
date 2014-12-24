@@ -36,7 +36,8 @@ class DiceBotTest
       $stderr.puts('No matched test data!')
       return false
     end
-
+    
+    puts
     doTests
 
     puts
@@ -125,7 +126,6 @@ class DiceBotTest
       print('.')
     end
 
-    puts
   end
 
   # ダイスコマンドを実行する
