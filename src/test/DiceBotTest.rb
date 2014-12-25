@@ -44,12 +44,10 @@ class DiceBotTest
     if @errorLog.empty?
       puts('OK.')
     else
-      if /mswin(?!ce)|mingw|cygwin|bccwin/ === RUBY_PLATFORM.downcase
-        @errorLog.map!(&:tosjis)
-      end
+      errorLog = $RUBY18_WIN ? @errorLog.map(&:tosjis) : @errorLog
 
       puts('[Failures]')
-      puts(@errorLog.join("\n===========================\n"))
+      puts(errorLog.join("\n===========================\n"))
     end
 
     true
