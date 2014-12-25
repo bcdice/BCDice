@@ -28,7 +28,7 @@ class DiceBotTest
 
   # テストを実行する
   # @return [true] テストを実行できたとき
-  # @return [false] テストを実行できなかったとき
+  # @return [false] テストに失敗した、あるいは実行できなかったとき
   def execute
     readTestDataSet
 
@@ -36,23 +36,25 @@ class DiceBotTest
       $stderr.puts('No matched test data!')
       return false
     end
-    
-    puts
+
     doTests
 
-    puts
     if @errorLog.empty?
+      # テスト成功
       puts('OK.')
+
+      true
     else
+      # テスト失敗
       if /mswin(?!ce)|mingw|cygwin|bccwin/ === RUBY_PLATFORM.downcase
         @errorLog.map!(&:tosjis)
       end
 
       puts('[Failures]')
       puts(@errorLog.join("\n===========================\n"))
-    end
 
-    true
+      false
+    end
   end
 
   # テストデータを読み込む
@@ -126,6 +128,7 @@ class DiceBotTest
       print('.')
     end
 
+    puts
   end
 
   # ダイスコマンドを実行する
