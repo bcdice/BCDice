@@ -1,5 +1,1 @@
-Dir.chdir('../test')
-command = "ruby -Ku test.rb #{ARGV.join(' ')}"
-print command
-print `#{command}`
-
+load(File.expand_path('../test.rb', File.dirname(__FILE__)))
