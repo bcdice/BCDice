@@ -29,11 +29,20 @@ end
 
 $debugText = nil
 
+# デバッグ文字列出力（末尾改行なし）
 def debugPrint(text)
-  return if( $debugText.nil? ) 
-  $debugText.append_text(text)
+  if $debugText
+    $debugText.append_text($RUBY18_WIN ? text.tosjis : text)
+  end
 end
 
+# デバッグ文字列出力（末尾改行あり）
+def debugPuts(text)
+  if $debugText
+    line = "#{text}\n"
+    $debugText.append_text($RUBY18_WIN ? text.tosjis : text)
+  end
+end
 
 class BCDiceDialog < Wx::Dialog
   
