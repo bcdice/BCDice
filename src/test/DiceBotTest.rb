@@ -81,7 +81,7 @@ class DiceBotTest
 
       # ゲームシステムをファイル名から判断する
       gameType = File.basename(filename, '.txt')
-
+      
       dataSet =
         if RUBY_VERSION < '1.9'
           dataSetSources.each_with_index.map do |dataSetSource, i|
@@ -92,12 +92,18 @@ class DiceBotTest
             DiceBotTestData.parse(dataSetSource, gameType, i)
           end
         end
-
-      @testDataSet += @dataIndex ?
-        dataSet.select { |data| data.index == @dataIndex } :
-        dataSet
+      
+      @testDataSet += 
+        if @dataIndex.nil?
+          dataSet
+        else
+          dataSet.select { |data| data.index == @dataIndex }
+        end
+      
     end
   end
+  
+  
   private :readTestDataSet
 
   # 各テストを実行する
