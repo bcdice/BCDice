@@ -4,7 +4,7 @@ require 'configBcDiceForSystem.rb'
 
 $isDebug = false
 
-$bcDiceVersion = "2.02.27"
+$bcDiceVersion = "2.02.28"
 
 
 $NOTICE_SW = 1;                  # 送信の際に、どちらのコマンドを使うか？(notice=1, msg=0)
@@ -59,6 +59,7 @@ EmbryoMachine
 EndBreaker
 FilledWith
 GURPS
+Garako
 GehennaAn
 GeishaGirlwithKatana
 Gorilla
