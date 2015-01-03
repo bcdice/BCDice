@@ -1,231 +1,269 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="ja">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>ダイスボットのつくりかた</title>
-</head>
-<body>
-<h1>ダイスボットのつくりかた</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ダイスボットのつくりかた</title>
+    <link rel="stylesheet" href="./README/bootstrap-3.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./README/highlight/styles/dark.css" />
+    <link rel="stylesheet" href="./README/README.css" />
+  </head>
+  <body>
+    <div id="main-container" class="container">
+      <div class="row">
+        <aside class="toc-container col-md-3">
+          <div class="toc">
+            <h1 class="h4">目次</h1>
+            <ul class="list-unstyled">
+              <li><a href="#summary">概要</a></li>
+              <li><a href="#what-is-a-dice-bot">そもそもダイスボットって何？</a></li>
+              <li><a href="#making-dice-bot">ダイスボットの自作って？</a></li>
+              <li><a href="#preparing-environment">環境の用意</a></li>
+              <li>
+                <a href="#how-to-make-a-dice-bot">自作ダイスボットの作り方</a>
+                <ol>
+                  <li><a href="#naming-is-significant">名前大事！</a></li>
+                  <li><a href="#form">まずは形から</a></li>
+                  <li><a href="#test-first">テストファースト！</a></li>
+                  <li><a href="#implementation">そして実装</a></li>
+                </ol>
+              </li>
+              <li><a href="#conclusion">終わりに</a></li>
+              <li>
+                <a href="#changes-of-test-data">追記：テスト方式の変更について</a>
+                <ol>
+                  <li><a href="#test-data-directory">テストデータの設置場所</a></li>
+                  <li><a href="#test-data-format">テストの記述方法</a></li>
+                  <li><a href="#test-execution">テストの実行方法</a></li>
+                </ol>
+              </li>
+            </ul>
+          </div>
+        </aside>
 
-<h2>■概要</h2>
-ここでは「どどんとふ」のダイスボットを自作してみたい人用に具体的な手順について記述しています。<br/>
-<br/>
-<h2>■そもそもダイスボットって何？</h2>
-「ダイス＋ロボット」でダイスボット。<br/>
-元々はチャットソフトでダイスを振ってくれるロボットの用なツールを指す言葉ですね。<br/>
-どどんとふではそのネーミングを引き継いでゲーム用のダイステキストを処理する機能を「ダイスボット」と呼んでいます。<br/>
-<br/>
-<h2>■ダイスボットの自作って？</h2>
-どどんとふで遊ぼうと思ったゲームがダイスボットの一覧に無い。<br/>
-そんな時にどうするか？<br/>
-<br/>
-作者に頼むのもモチロンいいですね。<br/>
-<br/>
-でも、超マイナールールだったり自作ＴＲＰＧだったり、あるいは単純にプログラミングってのが楽しそうだったり。<br/>
-色んな理由で自分で作りたくなる時ってのはあるものです。<br/>
-それが出来ちゃうのがどどんとふのダイスボットの魅力の一つ、というわけですね。<br/>
-<br/>
-どどんとふのダイスボットは「Ruby」というプログラミング言語でソースコードを書くことで追加・変更することができます。<br/>
-「うっはープログラミングとかサッパリだわー」という人は、流石にこの先は読まなくてもOKです。<br/>
-「Ruby！いいね！俺大好きなんだよ！」なんて酔狂な方はもちろんウェルカム！<br/>
-でも、どちらかというと「Rubyかー、この機会にちょっと勉強してみようかな？」という方向けに説明進めていきましょうね。<br/>
-<br/>
-<h2>■環境の用意</h2>
-それではWindows環境向けにダイスボットを自作するための手順を説明していきましょう。<br/>
-＃Unix系OSの人なら当然Rubyはインストール済みと信じて説明は割愛。<br/>
-ダイスボットの作成のためにはWindows用のRuby実行環境を作成する必要があります。<br/>
-RubyInstallerから、「Ruby 1.9.X-pXXX」（Xは任意の数字）をダウンロードします。<br/>
-<br/>
-　<a href="http://rubyinstaller.org/">http://rubyinstaller.org/</a><br/>
-<br/>
-あとは、インストーラーの指示に従ってインストール。<br/>
-そしてインストールディレクトリの bin にパスを通します。（パスを通す、の意味が知らない人はネットで検索だ！）<br/>
-Ruby1.9.3のデフォルトだと「C:\Program Files\Ruby193\bin」ですかね。 ruby.exe のある場所にパスを通すのがポイントです。<br/>
-後はコマンドプロンプト開いて（コマンドプロンプト、の意味が分からない人はネットで（略））、<br/>
-ruby -v <br/>
-とコマンドを実行して、Rubyのバージョン情報が表示されればOKです。<br/>
-準備万端。それではダイスボットを作っていきましょう！<br/>
-<br/>
-<h2>■自作ダイスボットの作り方：その１　名前大事！</h2>
-今回サンプルとして作るダイスボット用に架空のゲームシステムがあるとしましょう。<br/>
-<hr/>
-タイトル：仮ダイス
-<hr/>
-・判定方法<br/>
-　6面ダイスをX個振るシステム。<br/>
-　判定コマンドは<br/>
-　　KDx>=y（xはダイスロール数、yは目標値）<br/>
-<hr/>
-<br/>
-これをダイスボットで実装する方法を考えて行きましょう。<br/>
-<br/>
-まずは　diceBot　ディレクトリを開きます。<br/>
-どどんとふ なら　src_bcdice/diceBot<br/>
-B＆C Dice2.0 なら　src/diceBot<br/>
-その中に　_Template.rb　という名前のファイルがあります。<br/>
-<br/>
-テンプレート、TRPGでもよく使われる単語ですね。<br/>
-要は「ひな型」って意味でして、それをもとに作れば1から作るよりも楽だよーってニュアンスですね。<br/>
-ではでは、そのニュアンスを信じて　_Template.rb　ファイルを元に作ってみましょう。<br/>
-_Template.rb　ファイルをコピーして、今回のゲーム用のタイトルをファイル名に付けましょう。<br/>
-タイトルが「仮ダイス」ですから<br/>
-<br/>
-　KariDice.rb<br/>
-<br/>
-ですかね。<br/>
-このKariDiceという名前は「ダイスボットの型名」と呼んで他でも使いますので「ファイル名なんてなんでもいいや」とか思わずにしっかり決めてくださいね。<br/>
-プログラミングでは命名が何より大事ですので。<br/>
-この KariDice.rb　を以降は編集していきます。<br/>
-<br/>
-<h2>■自作ダイスボットの作り方：その２　まずは形から</h2>
-KariDice.rb はまだ中身は　_Template.rb　ファイルのままですね。<br/>
-この中身をチョイチョイっと書き換えて仮ダイスを実装していきましょう。<br/>
-ファイルを開いて、<br/>
-<br/>
-class Template < DiceBot<br/>
-<br/>
-ここを、今回のダイスボットは名前が 「KariDice」なので<br/>
-<br/>
-class KariDice < DiceBot<br/>
-<br/>
-と書き換え。ファイル名の（～.rb）部分と同じにするわけですね。<br/>
-続いて<br/>
-<pre><code>
-  def gameName
-    'ゲーム名'
-  end
-  
-  def gameType
-    "GameType"
-  end
+        <article class="content-container col-md-9">
+          <div class="content">
+            <h1>ダイスボットのつくりかた</h1>
+
+            <h2 id="summary">概要</h2>
+            <p>ここでは「どどんとふ」のダイスボットを自作してみたい人用に具体的な手順について記述しています。</p>
+
+            <h2 id="what-is-a-dice-bot">そもそもダイスボットって何？</h2>
+            <p>
+              「<b>ダイス＋ロボット</b>」でダイスボット。<br />
+              元々はチャットソフトでダイスを振ってくれるロボットの用なツールを指す言葉ですね。<br />
+              どどんとふではそのネーミングを引き継いでゲーム用のダイステキストを処理する機能を「<b>ダイスボット</b>」と呼んでいます。
+            </p>
+
+            <h2 id="making-dice-bot">ダイスボットの自作って？</h2>
+            <p>
+              どどんとふで遊ぼうと思ったゲームがダイスボットの一覧に無い。<br />
+              そんな時にどうするか？
+            </p>
+            <p>作者に頼むのもモチロンいいですね。</p>
+            <p>
+              でも、超マイナールールだったり自作TRPGだったり、あるいは単純にプログラミングってのが楽しそうだったり。<br />
+              色んな理由で自分で作りたくなる時ってのはあるものです。<br />
+              それが出来ちゃうのがどどんとふのダイスボットの魅力の一つ、というわけですね。
+            </p>
+            <p>
+              どどんとふのダイスボットは「<a href="https://www.ruby-lang.org/">Ruby</a>」というプログラミング言語でソースコードを書くことで追加・変更することができます。<br />
+              「うっはープログラミングとかサッパリだわー」という人は、流石にこの先は読まなくてもOKです。<br />
+              「Ruby！いいね！俺大好きなんだよ！」なんて酔狂な方はもちろんウェルカム！<br />
+              でも、どちらかというと「Rubyかー、この機会にちょっと勉強してみようかな？」という方向けに説明進めていきましょうね。
+            </p>
+
+            <h2 id="preparing-environment">環境の用意</h2>
+            <p>
+              それではWindows環境向けにダイスボットを自作するための手順を説明していきましょう。<br />
+              ＃Unix系OSの人なら当然Rubyはインストール済みと信じて説明は割愛。<br />
+              ダイスボットの作成のためにはWindows用のRuby実行環境を作成する必要があります。<br />
+              RubyInstaller（<a href="http://rubyinstaller.org/">http://rubyinstaller.org/</a>）から、「Ruby 1.9.X-pXXX」（Xは任意の数字）をダウンロードします。
+            </p>
+            <p>
+              あとは、インストーラーの指示に従ってインストール。<br />
+              そしてインストールディレクトリの bin にパスを通します。（パスを通す、の意味が知らない人はネットで検索だ！）<br />
+              Ruby1.9.3のデフォルトだと「C:\Program Files\Ruby193\bin」ですかね。 ruby.exe のある場所にパスを通すのがポイントです。<br />
+              後はコマンドプロンプト開いて（コマンドプロンプト、の意味が分からない人はネットで（略））、
+            </p>
+            <pre><code>ruby -v</code></pre>
+            <p>
+              とコマンドを実行して、Rubyのバージョン情報が表示されればOKです。<br />
+              準備万端。それではダイスボットを作っていきましょう！
+            </p>
+
+            <h2 id="how-to-make-a-dice-bot">自作ダイスボットの作り方</h2>
+
+            <h3 id="naming-is-significant">名前大事！</h3>
+            <p>今回サンプルとして作るダイスボット用に架空のゲームシステムがあるとしましょう。</p>
+            <div class="well">
+              <h4>タイトル</h4>
+              <p>仮ダイス</p>
+
+              <h4>判定方法</h4>
+              <p>6面ダイスをX個振るシステム。判定コマンドは</p>
+              <pre><code>KDx>=y</code></pre>
+              <p>（xはダイスロール数、yは目標値）</p>
+            </div>
+            <p>これをダイスボットで実装する方法を考えて行きましょう。</p>
+            <p>まずは diceBot ディレクトリを開きます。</p>
+            <ul>
+              <li>どどんとふ なら <b>src_bcdice/diceBot</b></li>
+              <li>B&amp;C Dice 2.0 なら <b>src/diceBot</b></li>
+            </ul>
+            <p>その中に <b>_Template.rb</b> という名前のファイルがあります。</p>
+            <p>
+              テンプレート、TRPGでもよく使われる単語ですね。<br />
+              要は「ひな型」って意味でして、それをもとに作れば1から作るよりも楽だよーってニュアンスですね。<br />
+              ではでは、そのニュアンスを信じて _Template.rb ファイルを元に作ってみましょう。<br />
+              _Template.rb ファイルをコピーして、今回のゲーム用のタイトルをファイル名に付けましょう。<br />
+              タイトルが「仮ダイス」ですから
+            </p>
+            <p class="well">KariDice.rb</p>
+            <p>
+              ですかね。<br />
+              この <b>KariDice</b> という名前は「ダイスボットの型名」と呼んで他でも使いますので「ファイル名なんてなんでもいいや」とか思わずにしっかり決めてくださいね。<br />
+              プログラミングでは命名が何より大事ですので。<br />
+              この KariDice.rb を以降は編集していきます。
+            </p>
+
+            <h3 id="form">まずは形から</h3>
+            <p>
+              KariDice.rb はまだ中身は _Template.rb ファイルのままですね。<br />
+              この中身をチョイチョイっと書き換えて仮ダイスを実装していきましょう。<br />
+              ファイルを開いて、
+            </p
+            >
+            <pre><code class="ruby">class Template &lt; DiceBot</code></pre>
+            <p>ここを、今回のダイスボットは名前が 「KariDice」なので</p>
+            <pre><code class="ruby">class KariDice &lt; DiceBot</code></pre>
+            <p>
+              と書き換え。ファイル名 ～.rb の〜の部分と同じにするわけですね。<br />
+              続いて
+            </p>
+<pre><code class="ruby">def gameName
+  &#39;ゲーム名&#39;
+end
+
+def gameType
+  &quot;GameType&quot;
+end
 </code></pre>
-を<br/>
-<pre><code>
-  def gameName
-    '仮ダイス'
-  end
-  
-  def gameType
-    "KariDice"
-  end
+            <p>を</p>
+<pre><code class="ruby">def gameName
+  &#39;仮ダイス&#39;
+end
+
+def gameType
+  &quot;KariDice&quot;
+end
 </code></pre>
-に変更。<br/>
-ゲームの日本語名とファイル名と同じ英文字での型名を定義しています。<br/>
-では書き間違いがないか、念のため　KariDice.rb　の置いてあるディレクトリで<br/>
-<br/>
-　ruby -cw KariDice.rb<br/>
-<br/>
-とコマンドを実行しましょう。<br/>
-<br/>
-　Syntax OK<br/>
-<br/>
-と表示されれば問題ありません。<br/>
-<br/>
-エラーが表示される場合はそこに文法間違いがあるので確認しましょう。<br/>
-もうこれだけでダイスボットとしての形は整ったことになります！<br/>
-<br/>
-試しにどどんとふで実際に動かしてみましょう。<br/>
-どどんとふサーバ上の　src_bcdice/diceBot　に　KariDice.rb　を置いてログイン。<br/>
-ダイスボット一覧の一番下に「仮ダイス」が表示されましたね。<br/>
-いい感じです！<br/>
-<br/>
-<h2>■自作ダイスボットの作り方：その３　テストファースト！</h2>
-では、今回実装する予定の判定コマンドを実装していきましょう。<br/>
-定義はこうでしたね。<br/>
-<br/>
-<hr/>
-・判定方法<br/>
-　6面ダイスをX個振るシステム。<br/>
-　判定コマンドは<br/>
-　　KDx>=y（xはダイスロール数、yは目標値）<br/>
-<hr/>
-<br/>
-これを実装するには、<br/>
-<pre><code>
-  def prefixs
-    []
-  end
-</code></pre>
-と<br/>
-<pre><code>
-  def rollDiceCommand(command)
-    ''
-  end
-</code></pre>
-の２つのメソッドを書き換えることになります。<br/>
-引数の　command　にダイスボットとして入力した文字列が渡されますので、そこからロールの判定を行い、結果の文字列を戻り値に渡せばOKです。<br/>
-では早速実装！<br/>
-…とその前に、動作テストの用意をしましょう。<br/>
-どどんとふのダイスボットは作成時に動作検証をしやすいように動作テスト用の仕組みが用意されています（ユニットテストと呼ばれるものですね）。<br/>
-これを活用すればダイスボットが正しく動いているかをどどんとふ上で確認しなくてもよいのでとっても楽です。<br/>
-どどんとふ なら　src_bcdice<br/>
-B＆C Dice2.0 なら　src　に移動。<br/>
-そこにある　test.rb　がテスト用のスクリプト。
-そして test/data/　配下にあるテキストファイルが全てテスト用のデータです。<br/>
-<br/>
-ここでは例として　Cthulhu.txt　を開きましょう。<br/>
-<br/>
-<hr/>
-============================<br/>
-input:<br/>
-1D100<=10<br/>
-output:<br/>
-Cthulhu : (1D100<=10) ＞ 98 ＞ 致命的失敗<br/>
-rand:98/100<br/>
-============================<br/>
-input:<br/>
-1D100<=10<br/>
-output:<br/>
-Cthulhu : (1D100<=10) ＞ 45 ＞ 失敗<br/>
-rand:45/100<br/>
-============================<br/>
-<hr/>
-<br/>
-といった記述が並んでいますね。<br/>
-テストデータの書式は<br/>
-<br/>
-<hr/>
+            <p>
+              に変更。<br >
+              ゲームの日本語名とファイル名と同じ英文字での型名を定義しています。<br />
+              では書き間違いがないか、念のため KariDice.rb の置いてあるディレクトリで
+            </p>
+            <pre><code>ruby -cw KariDice.rb</code></pre>
+            <p>とコマンドを実行しましょう。</p>
+            <pre><code>Syntax OK</code></pre>
+            <p>と表示されれば問題ありません。</p>
+            <p>
+              エラーが表示される場合はそこに文法間違いがあるので確認しましょう。<br />
+              もうこれだけでダイスボットとしての形は整ったことになります！
+            </p>
+            <p>
+              試しにどどんとふで実際に動かしてみましょう。<br />
+              どどんとふサーバ上の src_bcdice/diceBot に KariDice.rb を置いてログイン。<br />
+              ダイスボット一覧の一番下に「仮ダイス」が表示されましたね。<br />
+              いい感じです！
+            </p>
+
+            <h3 id="test-first">テストファースト！</h3>
+            <p>では、今回実装する予定の判定コマンドを実装していきましょう。</p>
+            <p>定義はこうでしたね。</p>
+            <div class="well">
+              <h4>タイトル</h4>
+              <p>仮ダイス</p>
+
+              <h4>判定方法</h4>
+              <p>6面ダイスをX個振るシステム。判定コマンドは</p>
+              <pre><code>KDx>=y</code></pre>
+              <p>（xはダイスロール数、yは目標値）</p>
+            </div>
+            <p>これを実装するには、</p>
+<pre><code class="ruby">def prefixs
+  []
+end</code></pre>
+            <p>と</p>
+<pre><code class="ruby">def rollDiceCommand(command)
+  &#39;&#39;
+end</code></pre>
+            <p>
+              の2つのメソッドを書き換えることになります。<br />
+              引数の <code>command</code> にダイスボットとして入力した文字列が渡されますので、そこからロールの判定を行い、結果の文字列を戻り値に渡せばOKです。
+            </p>
+            <p>では早速実装！</p>
+            <p>…とその前に、動作テストの用意をしましょう。</p>
+            <p>
+              どどんとふのダイスボットは作成時に動作検証をしやすいように動作テスト用の仕組みが用意されています（ユニットテストと呼ばれるものですね）。<br />
+              これを活用すればダイスボットが正しく動いているかをどどんとふ上で確認しなくてもよいのでとっても楽です。
+            </p>
+            <ul>
+              <li>どどんとふ なら <b>src_bcdice</b></li>
+              <li>B&amp;C Dice 2.0 なら <b>src</b></li>
+            </ul>
+            <p>
+              に移動。<br />
+              そこにある <b>test.rb</b> がテスト用のスクリプト。そして <b>test/data/</b> 配下にあるテキストファイルが全てテスト用のデータです。
+            </p>
+            <p>ここでは例として Cthulhu.txt を開きましょう。</p>
+<pre><code>============================
 input:
-（テストしたいデータ）<br/>
-output:<br/>
-（ダイスボットの型名） : （出力される文字列）<br/>
-rand:（テストしたいダイスの出目）<br/>
-<hr/>
-<br/>
-となります。<br/>
-また、複数テストデータを記述するときは、データの間を<br/>
-============================<br/>
-で区切る必要があります。<br/>
-<br/>
-output の「（ダイスボットの型名）：」はダイスボットの内部で自動的に生成されるので常に必要です。<br/>
-実際に表示される文字を意識したいので、省略はできなくなっています。<br/>
-rand の記述は　1/6,2/6　のように　（出目）/（ロールするダイス）　の形で記述します。<br/>
-これを使えば3D6で1,1,1を出すようなパターンでも　1/6,1/6,1/6 と記述してしまえばすぐ検証できるわけですね。便利！<br/>
-<br/>
-今回のテストとして新しいテストデータとして KariDice.txt　ファイルを作成しましょう。<br/>
- .rb と同じ名前でテストデータの .txt を作成するわけですね。<br/>
-<br/>
-<hr/>
-input:<br/>
-KD3>=10<br/>
-output:<br/>
-KariDice : (KD3>=10) ＞ 10[2,5,3] ＞ 成功<br/>
-rand:2/6,5/6,3/6<br/>
-============================<br/>
-input:<br/>
-KD3>=10<br/>
-output:<br/>
-KariDice : (KD3>=10) ＞ 9[1,5,3] ＞ 失敗<br/>
-rand:1/6,5/6,3/6<br/>
-<hr/>
-<br/>
-そしてテストの実行。<br/>
-<br/>
-ruby test.rb KariDice<br/>
-<br/>
-とコマンドを実行。<br/>
-<br/>
-<hr/>
+1D100&lt;=10
+output:
+Cthulhu : (1D100&lt;=10) ＞ 98 ＞ 致命的失敗
+rand:98/100
+============================
+input:
+1D100&lt;=10
+output:
+Cthulhu : (1D100&lt;=10) ＞ 45 ＞ 失敗
+rand:45/100
+============================</code></pre>
+            <p>といった記述が並んでいますね。</p>
+            <p>テストデータの書式は</p>
+<pre><code>input:
+（テストしたいデータ）
+output:
+（ダイスボットの型名） : （出力される文字列）
+rand:（テストしたいダイスの出目）</code></pre>
+            <p>となります。</p>
+            <p>また、複数テストデータを記述するときは、データの間を</p>
+            <pre><code>============================</code></pre>
+            <p>で区切る必要があります。</p>
+            <p>
+              <code>output</code> の <code>（ダイスボットの型名）：</code> はダイスボットの内部で自動的に生成されるので常に必要です。<br />
+              実際に表示される文字を意識したいので、省略はできなくなっています。<br />
+              <code>rand</code> の記述は <code>1/6,2/6</code> のように <code>（出目）/（ロールするダイス）</code> の形で記述します。<br />
+              これを使えば3D6で1,1,1を出すようなパターンでも <code>1/6,1/6,1/6</code> と記述してしまえばすぐ検証できるわけですね。便利！
+            </p>
+            <p>
+              今回のテストとして新しいテストデータとして <b>KariDice.txt</b> ファイルを作成しましょう。<br />
+              .rb と同じ名前でテストデータの .txt を作成するわけですね。
+            </p>
+<pre><code>input:
+KD3&gt;=10
+output:
+KariDice : (KD3&gt;=10) ＞ 10[2,5,3] ＞ 成功
+rand:2/6,5/6,3/6
+============================
+input:
+KD3&gt;=10
+output:
+KariDice : (KD3&gt;=10) ＞ 9[1,5,3] ＞ 失敗
+rand:1/6,5/6,3/6</code></pre>
+            <p>そしてテストの実行。</p>
+            <pre><code>ruby test.rb KariDice</code></pre>
+            <p>とコマンドを実行。</p>
 <pre><code>ruby test.rb KariDice
 XX
 
@@ -233,9 +271,9 @@ XX
 Game type: KariDice
 Index: 1
 Input:
-  KD3>=10
+  KD3&gt;=10
 Expected:
-  KariDice : (KD3>=10) ＞ 10[2,5,3] ＞ 成功
+  KariDice : (KD3&gt;=10) ＞ 10[2,5,3] ＞ 成功
 Result:
   ダイス残り：2/6, 5/6, 3/6
 Rands: 2/6, 5/6, 3/6
@@ -243,190 +281,183 @@ Rands: 2/6, 5/6, 3/6
 Game type: KariDice
 Index: 2
 Input:
-  KD3>=10
+  KD3&gt;=10
 Expected:
-  KariDice : (KD3>=10) ＞ 9[1,5,3] ＞ 失敗
+  KariDice : (KD3&gt;=10) ＞ 9[1,5,3] ＞ 失敗
 Result:
   ダイス残り：1/6, 5/6, 3/6
-Rands: 1/6, 5/6, 3/6
-</code></pre>
-<hr/>
-<br/>
-と出力されます。<br/>
-<br/>
-これは「xx」とｘが２つなので「テスト2件に失敗」を示します。成功なら「..」となって、「OK」が表示されます。<br/>
-ここでは判定成功時と失敗時の2件の動作を確認して、両方に失敗したということですね。<br/>
-早く「OK」が表示されるのが楽しみですね！<br/>
-<br/>
-以後はソースコードを変更したらテストを実行して動作を確認、<br/>
-新しい実装をする時には先にですとデータを作って、動作確認、を繰り返すことになります。<br/>
-テスト→実装→テスト→実装…の順ですね。<br/>
-<br/>
-ちなみ、こうやって先にテストを作ってからプログラムを作成する方法をテストファーストって呼んだりします。<br/>
-是非実績していきましょう！<br/>
-<br/>
-<h2>■自作ダイスボットの作り方：その４　そして実装</h2>
-準備もできたので、ダイスボットの実装を。<br/>
-<br/>
-まずはコマンドの定義を<br/>
-<pre><code>
-  def prefixs
-    ['KD\d+>=\d+']
-  end
-</code></pre>
-ここに書いて、どどんとふにコマンドを教えてやる必要があります。忘れがちなので注意！<br/>
-ポイントは、文字列を””ではなく’’で囲むことですね。<br/>
-こうしないと￥ｄのｄが￥文字でエスケープされてしまい、「￥ｄ」という文字にならないのですね。<br/>
-正規表現相当の文字をここで文字列として定義してRubyとActionScript両方で使っているので、扱いにクセがあります。<br/>
-分かりにくい場合は、今後の拡張性も考えて<br/>
-</code></pre>
-    ['KD.*']<br/>
-</code></pre>
-みたいに手を抜いた記述にしてしまうのも手です。<br/>
-とりあえず動かしてみたいですしね。<br/>
-次にコマンドの判定部分を実装。<br/>
-<pre><code>
-  def rollDiceCommand(command)
-    debug("rollDiceCommand Begin")
-    
-    return '' unless( /^KD(\d+)>=(\d+)$/ =~ command )
-    
-    debug("command", command)
-    
-    diceCount = $1.to_i
-    target = $2.to_i
-    
-    total, diceText, = roll(diceCount, 6)
-    result = (total >= target ? "成功" : "失敗")
-    
-    text = "(#{command}) ＞ #{total}[#{diceText}] ＞ #{result}"
-    debug("rollDiceCommand result")
-    
-    return text
-  end
-</code></pre>
-これで成否判定は実装完了。<br/>
-rollメソッドはDiceBotクラスで実装済みのメソッドで、<br/>
-    合計, ダイスの文字列, [その他のデータ] = roll(ダイス数, ダイス種別)<br/>
-みたいに使います。今回は[その他のデータ]は使わないので省略して<br/>
-　合計, ダイスの文字列, ＝<br/>
-となっています。　＝　の直前に「,」があるのがポイントです。<br/>
-この書き方で[その他のデータ]は無視するよーって宣言しているわけですね。<br/>
-あと、<br/>
-<pre><code>
-　debug("rollDiceCommand Begin")
-</code></pre>
-と書いている箇所はデバッグ用の文字列です。<br/>
-さっきテストを実行したときに<br/>
-<br/>
-<hr/>
-Index: 1<br/>
-<hr/>
-<br/>
-みたいな表示がありましたが、ここにあるIndexというのはテストの通番でして、<br/>
-<br/>
-　ruby test.rb KariDice 1<br/>
-<br/>
-のようにテスト時にダイスボット名と共にインデックス番号を指定すると、そのテスト１件だけを実行してくれます。<br/>
-特定のテストを詳細に検証する時に使うわけですが、その際にはデバッグ文が出力されるようになります。<br/>
-<br/>
-たとえば、<br/>
-<br/>
-　debug("command", command)<br/>
-<br/>
-と書くと<br/>
-<br/>
-　command : "KD3>=10"<br/>
-<br/>
-みたいにデバッグ文が出力されるので読みやすく検証に便利です。<br/>
-つまりテストでは<br/>
-<br/>
-　ruby test.rb （ダイスボット名）<br/>
-<br/>
-で全体を確認しつつ、失敗パターンをピックアップ確認したいときは<br/>
-<br/>
-　ruby test.rb （ダイスボット名） （インデックス番号）<br/>
-<br/>
-で実行。これがテストの王道ということですね。<br/>
-<br/>
-あ、ちなみに<br/>
-<br/>
-　ruby test.rb<br/>
-<br/>
-だけなら全ダイスボットのテストが実行されます。<br/>
-最後の最後に試しておくと、他に影響与えてないことが確認できて安心です。<br/>
-<br/>
-さてさて、では先ほど提示した内容を実装してテストしてみましょう。<br/>
-<br/>
-<hr/>
-ruby test.rb KariDice<br/>
-..<br/>
-OK.<br/>
-<hr/>
-<br/>
-「OK」が表示されました！やったね！！<br/>
-<br/>
-<h2>■終わりに</h2>
-ここまでできれば後は同じことを繰り返してダイスボットの実装ができます。<br/>
-<br/>
-まとめると<br/>
-<br/>
-　テストファーストでテスト作成し失敗することを確認。<br/>
-　→コードを実装、テスト。<br/>
-　→うまく動かなかったらインデックス指定しデバッグ表示で内容確認。<br/>
-　→OKが表示されたら祝杯！<br/>
-<br/>
-こんな感じですね。<br/>
-<br/>
-テストデータの作成にはパターンの網羅や以上・以下の閾値確認など色々ポイントがあるんですが、<br/>
-それ書き出すとまた長文になりそうなので各自で工夫してみてくださいね。<br/>
-<br/>
-ではでは！<br/>
-<br/>
-<br/>
-<hr/>
-<br/>
-<h2 id="aboutTestChanged">■追記：テスト方式の変更について。</h2>
-B&CVer2.02.27、どどんとふVer.1.46.07 以降ではテストの方式に変更があります。<br>
-ここでは、今までテストを行っていた人用に差分について説明します。<br/>
-<br/>
-◆テストデータの設置場所<br/>
-・これまで：<br/>
-test/testData.txt に各ゲーム種別のテストを追加。<br/>
-・これから：<br/>
-data/(各ゲーム種別名).txt に各ゲームのテストを追加。<br/>
-→ テストデータをゲーム毎に分割。<br/>
-<br/>
-◆テストの記述方法<br/>
-・これまで：
+Rands: 1/6, 5/6, 3/6</code></pre>
+            <p>と出力されます。</p>
+            <p>
+              これは <code>XX</code> と <code>X</code> が2つなので「テスト2件に失敗」を示します。成功なら <code>..</code> となって、<code>OK</code> が表示されます。<br />
+              ここでは判定成功時と失敗時の2件の動作を確認して、両方に失敗したということですね。<br />
+              早く <code>OK</code> が表示されるのが楽しみですね！
+            </p>
+            <p>
+              以後はソースコードを変更したらテストを実行して動作を確認、<br />
+              新しい実装をする時には先にテストデータを作って、動作確認、を繰り返すことになります。<br />
+              テスト→実装→テスト→実装…の順ですね。
+            </p>
+            <p>
+              ちなみ、こうやって先にテストを作ってからプログラムを作成する方法を<b>テストファースト</b>って呼んだりします。<br />
+              是非実績していきましょう！
+            </p>
+
+            <h3 id="implementation">そして実装</h3>
+            <p>準備もできたので、ダイスボットの実装を。</p>
+            <p>まずはコマンドの定義を</p>
+<pre><code class="ruby">def prefixs
+  [&#39;KD\d+>=\d+&#39;]
+end</code></pre>
+            <p>ここに書いて、どどんとふにコマンドを教えてやる必要があります。忘れがちなので注意！</p>
+            <p>
+              ポイントは、文字列を <code>&quot; &quot;</code> ではなく <code>&#39; &#39;</code> で囲むことですね。<br />
+              こうしないと <code>\d</code> の <code>d</code> が <code>\</code> 文字でエスケープされてしまい、<code>\d</code> という文字にならないのですね。<br />
+              正規表現相当の文字をここで文字列として定義してRubyとActionScript両方で使っているので、扱いにクセがあります。
+            </p>
+            <p>分かりにくい場合は、今後の拡張性も考えて</p>
+            <pre><code class="ruby">[&#39;KD.*&#39;]</code></pre>
+            <p>
+              みたいに手を抜いた記述にしてしまうのも手です。<br />
+              とりあえず動かしてみたいですしね。
+            </p>
+            <p>次にコマンドの判定部分を実装。</p>
+<pre><code class="ruby">def rollDiceCommand(command)
+  debug(&quot;rollDiceCommand Begin&quot;)
+
+  return &#39;&#39; unless( /^KD(\d+)>=(\d+)$/ =~ command )
+
+  debug(&quot;command&quot;, command)
+
+  diceCount = $1.to_i
+  target = $2.to_i
+
+  total, diceText, = roll(diceCount, 6)
+  result = (total &gt;= target ? &quot;成功&quot; : &quot;失敗&quot;)
+
+  text = &quot;(#{command}) ＞ #{total}[#{diceText}] ＞ #{result}&quot;
+  debug(&quot;rollDiceCommand result&quot;)
+
+  return text
+end</code></pre>
+            <p>これで成否判定は実装完了。</p>
+            <p>rollメソッドはDiceBotクラスで実装済みのメソッドで、</p>
+            <pre><code class="ruby">合計, ダイスの文字列, [その他のデータ] = roll(ダイス数, ダイス種別)</code></pre>
+            <p>みたいに使います。今回は <code>[その他のデータ]</code> は使わないので省略して</p>
+            <pre><code class="ruby">合計, ダイスの文字列, =</code></pre>
+            <p>
+              となっています。<code>=</code> の直前に <code>,</code> があるのがポイントです。<br />
+              この書き方で <code>[その他のデータ]</code> は無視するよーって宣言しているわけですね。
+            </p>
+            <p>あと、</p>
+            <pre><code class="ruby">debug(&quot;rollDiceCommand Begin&quot;)</code></pre>
+            <p>と書いている箇所はデバッグ用の文字列です。</p>
+            <p>さっきテストを実行したときに</p>
+            <pre><code>Index: 1</code></pre>
+            <p>みたいな表示がありましたが、ここにある <code>Index</code> というのはテストの通番でして、</p>
+            <pre><code>ruby test.rb KariDice 1</code></pre>
+            <p>
+              のようにテスト時にダイスボット名と共にインデックス番号を指定すると、そのテスト1件だけを実行してくれます。<br />
+              特定のテストを詳細に検証する時に使うわけですが、その際にはデバッグ文が出力されるようになります。
+            </p>
+            <p>たとえば、</p>
+            <pre><code class="ruby">debug(&quot;command&quot;, command)</code></pre>
+            <p>と書くと</p>
+            <pre><code>command : &quot;KD3&gt;=10&quot;</code></pre>
+            <p>みたいにデバッグ文が出力されるので読みやすく検証に便利です。</p>
+            <p>つまりテストでは</p>
+            <pre><code class="ruby">ruby test.rb （ダイスボット名）</code></pre>
+            <p>で全体を確認しつつ、失敗パターンをピックアップ確認したいときは</p>
+            <pre><code class="ruby">ruby test.rb （ダイスボット名） （インデックス番号）</code></pre>
+            <p>で実行。これがテストの王道ということですね。</p>
+            <p>あ、ちなみに</p>
+            <pre><code class="ruby">ruby test.rb</code></pre>
+            <p>
+              だけなら全ダイスボットのテストが実行されます。<br />
+              最後の最後に試しておくと、他に影響与えてないことが確認できて安心です。
+            </p>
+            <p>さてさて、では先ほど提示した内容を実装してテストしてみましょう。</p>
+<pre><code>ruby test.rb KariDice
+..
+OK.</code></pre>
+            <p><code>OK</code> が表示されました！やったね！！</p>
+
+            <h2 id="conclusion">終わりに</h2>
+            <p>ここまでできれば後は同じことを繰り返してダイスボットの実装ができます。</p>
+            <p>まとめると</p>
+            <div class="well">
+              <ol>
+                <li>テストファーストでテスト作成し失敗することを確認。</li>
+                <li>コードを実装、テスト。</li>
+                <li>うまく動かなかったらインデックス指定しデバッグ表示で内容確認。</li>
+                <li>OKが表示されたら祝杯！</li>
+              </ol>
+            </div>
+            <p>こんな感じですね。</p>
+            <p>
+              テストデータの作成にはパターンの網羅や以上・以下の閾値確認など色々ポイントがあるんですが、<br />
+              それ書き出すとまた長文になりそうなので各自で工夫してみてくださいね。
+            </p>
+            <p>ではでは！</p>
+
+            <h2 id="changes-of-test-data">追記：テスト方式の変更について</h2>
+            <p>
+              B&amp;C Ver2.02.27、どどんとふVer.1.46.07 以降ではテストの方式に変更があります。<br />
+              ここでは、今までテストを行っていた人用に差分について説明します。
+            </p>
+
+            <h3 id="test-data-directory">テストデータの設置場所</h3>
+
+            <h4>これまで</h4>
+            <p>test/testData.txt に各ゲーム種別のテストを追加。</p>
+
+            <h4>これから</h4>
+            <p><b>data/(各ゲーム種別名).txt</b> に各ゲームのテストを追加。</p>
+            <ul>
+              <li>テストデータをゲーム毎に分割。</li>
+            </ul>
+
+            <h3 id="test-data-format">テストの記述方法</h3>
+
+            <h4>これまで</h4>
 <pre><code>============================
-input:1D100<=10	Cthulhu
+input:1D100&lt;=10	Cthulhu
 output:
-Cthulhu : (1D100<=10) ＞ 45 ＞ 失敗
+Cthulhu : (1D100&gt;=10) ＞ 45 ＞ 失敗
 rand:45/100
-============================
-</code></pre>
-・これから：
+============================</code></pre>
+
+            <h4>これから</h4>
 <pre><code>============================
 input:
-1D100<=10
+1D100&lt;=10
 output:
-Cthulhu : (1D100<=10) ＞ 45 ＞ 失敗
+Cthulhu : (1D100&lt;=10) ＞ 45 ＞ 失敗
 rand:45/100
-============================
-</code></pre>
-→ テストデータにゲームの記述は不要に。<br/>
-　inputはoutputと同様に改行後に記述に。<br/>
-<br/>
-◆テストの実行方法<br/>
-　全テスト実施、ゲーム毎の一括実施は同様。異なるのは特定のテストだけを実施する場合。<br/>
-・これまで：<br/>
-ruby test.rb 1<br/>
-・これから：<br/>
-ruby test.rb Cthulhu 1<br/>
-→ゲーム種別を明示したうえで、実行するテスト番号を追記する必要があります。<br/>
-<br/>
-以上！<br/>
-<br/>
-</body>
+============================</code></pre>
+            <ul>
+              <li>テストデータにゲームの記述は不要に。</li>
+              <li><code>input</code> は <code>output</code> と同様に改行後に記述に。</li>
+            </ul>
+
+            <h3 id="test-execution">テストの実行方法</h3>
+            <p>全テスト実施、ゲーム毎の一括実施は同様。異なるのは特定のテストだけを実施する場合。</p>
+
+            <h4>これまで</h4>
+            <pre><code>ruby test.rb 1</code></pre>
+
+            <h4>これから</h4>
+            <pre><code>ruby test.rb Cthulhu 1</code></pre>
+            <ul>
+              <li>ゲーム種別を明示したうえで、実行するテスト番号を追記する必要があります。</li>
+            </ul>
+            <p>以上！</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <script src="./README/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
 </html>
