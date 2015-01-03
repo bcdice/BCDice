@@ -4,7 +4,7 @@ require 'configBcDiceForSystem.rb'
 
 $isDebug = false
 
-$bcDiceVersion = "2.02.28"
+$bcDiceVersion = "2.02.29"
 
 
 $NOTICE_SW = 1;                  # 送信の際に、どちらのコマンドを使うか？(notice=1, msg=0)
