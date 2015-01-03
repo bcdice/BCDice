@@ -8,20 +8,13 @@ class Garako < DiceBot
   
   
   def prefixs
-    #ダイスボットで使用するコマンドを配列で列挙すること。
     ['PNM', 'PNF', 'ENM', 'ENF', 'NNM', 'NNF',
      'RNM', 'RNF', 'BN1', 'BN2', 'TN1', 'TN2',
-     'IDI', 'MTV', 'HIT', '(C|E|F|A|L)DC\d+', 'GR.*']
+     'IDI', 'MTV', 'HIT', '(C|E|F|A|L)DC\d+', 'GR.*',
+     'GCC', 'WCC', 'EVC', 'BSD',
+    ]
   end
-
-# ---- 追加したいコマンド
-# 【部位ダメージチャート】　※テーブルだけ定義済み
-# 書式：'(C|E|F|A|L)DC\d*'
-# C：コックピット、E：エンジン、F：フレーム、A：アーム、L：レッグ
-# 
-# 「CDC5」のような書式で書くと、ダメージチャートの結果を返す。
-# ダイス不要。10以上の数値は10で返す。
-
+  
   def gameName
     'ガラコと破界の塔'
   end
@@ -36,83 +29,80 @@ class Garako < DiceBot
 GR+n>=X：「+n」で判定値を指定、「X」で目標値を指定。
 ・部位決定チャート：HIT
 ・ダメージチャート：xDC（CDC/EDC/FDC/ADC/LDC)
-　xはC：コックピット、E：エンジン、F：フレーム、A：アーム、L：レッグ
-・各種表
-　・個性表：IDI　　動機決定表：MTV
-　・名前表
-　ピグマー族　　男：PNM　女：PNF　　エレメント族　男：ENM　女：ENF
-　ノーマッド族　男：NNM　女：NNF　　ラット族　　　男：RNM　女：RNF
-　ブレイン族　　１：BN1　２：BN2　　テンタクル族　１：TN1　２：TN2
+　xは C：コックピット、E：エンジン、F：フレーム、A：アーム、L：レッグ
+各種表
+・個性表：IDI／動機決定表：MTV
+・名前表
+ピグマー族　　男：PNM　女：PNF　　エレメント族　男：ENM　女：ENF
+ノーマッド族　男：NNM　女：NNF　　ラット族　　　男：RNM　女：RNF
+ブレイン族　　１：BN1　２：BN2　　テンタクル族　１：TN1　２：TN2
+・ガラコ改造チャート表：GCC
+・武器改造チャート表：WCC
+・イベントチャート表：EVC
+・戦闘開始距離：BSD
 MESSAGETEXT
   end
   
   
   
   def rollDiceCommand(command)
-    output = ''
-    type = ''
-    total_n = ''
     
-    case command
-    when /^GR((\+|\-)\d+)?>=(\d+)$/
-      modifyString = $1
-      targetString = $3
-      return checkRoll(modifyString, targetString)
-    when 'PNM'
-      type = '名前表：ピグマー族（男）'
-      output, total_n = get_nametable_pm
-    when 'PNF'
-      type = '名前表：ピグマー族（女）'
-      output, total_n = get_nametable_pf
-    when 'ENM'
-      type = '名前表：エレメント族（男）'
-      output, total_n = get_nametable_em
-    when 'ENF'
-      type = '名前表：エレメント族（女）'
-      output, total_n = get_nametable_ef
-    when 'NNM'
-      type = '名前表：ノーマッド族（男）'
-      output, total_n = get_nametable_nm
-    when 'NNF'
-      type = '名前表：ノーマッド族（女）'
-      output, total_n = get_nametable_nf
-    when 'RNM'
-      type = '名前表：ラット族（男）'
-      output, total_n = get_nametable_rm
-    when 'RNF'
-      type = '名前表：ラット族（女）'
-      output, total_n = get_nametable_rf
-    when 'BN1'
-      type = '名前表：ブレイン族（その１）'
-      output, total_n = get_nametable_b1
-    when 'BN2'
-      type = '名前表：ブレイン族（その２）'
-      output, total_n = get_nametable_b2
-    when 'TN1'
-      type = '名前表：テンタクル族（その１）'
-      output, total_n = get_nametable_t1
-    when 'TN2'
-      type = '名前表：テンタクル族（その２）'
-      output, total_n = get_nametable_t2
-      
-    when 'IDI'
-      type = '個性表'
-      output, total_n = get_idiosyncrasy_table
-    when 'MTV'
-      type = '動機決定表'
-      output, total_n = get_motivation_table
-    when 'HIT'
-      type = '部位決定チャート'
-      output, total_n = get_damage_region_chart
-    when /(\w)DC(\d+)/
-      part = $1.upcase
-      damage = $2.to_i
-      type, output, total_n = get_damage_chart(part, damage)
-    end
+    output = 
+      case command.upcase
+        
+      when /^GR((\+|\-)\d+)?>=(\d+)$/i
+        modifyString = $1
+        targetString = $3
+        checkRoll(modifyString, targetString)
+        
+      when /(\w)DC(\d+)/i
+        part = $1.upcase
+        damage = $2.to_i
+        get_damage_chart(part, damage)
+        
+      when 'PNM'
+        get_nametable_pm
+      when 'PNF'
+        get_nametable_pf
+      when 'ENM'
+        get_nametable_em
+      when 'ENF'
+        get_nametable_ef
+      when 'NNM'
+        get_nametable_nm
+      when 'NNF'
+        get_nametable_nf
+      when 'RNM'
+        get_nametable_rm
+      when 'RNF'
+        get_nametable_rf
+      when 'BN1'
+        get_nametable_b1
+      when 'BN2'
+        get_nametable_b2
+      when 'TN1'
+        get_nametable_t1
+      when 'TN2'
+        get_nametable_t2
+      when 'IDI'
+        get_idiosyncrasy_table
+      when 'MTV'
+        get_motivation_table
+      when 'HIT'
+        get_damage_region_chart
+      when 'GCC'
+        get_garako_custom_chart
+      when 'WCC'
+        get_weapon_custom_chart
+      when 'EVC'
+        get_event_chart
+      when 'BSD'
+        get_battle_start_distance
+      else
+        nil
+      end
     
-    return '' if output.nil? or output.empty? 
-    
-    return "#{type}(#{total_n}) ＞ #{output}"
+    return output
   end
   
   
@@ -132,7 +122,8 @@ MESSAGETEXT
     
     return result
   end
-    
+  
+  
   def getResultText(dice, total, target)
     
     return "ファンブル" if( dice == 1 )
@@ -145,9 +136,9 @@ MESSAGETEXT
     return "成功"
   end
   
-
-  # 名前表：ピグマー族（男）
+  
   def get_nametable_pm
+    name = '名前表：ピグマー族（男）'
     table = [
               [1, 'バビロン'],
               [2, 'グリニッジ'],
@@ -160,13 +151,12 @@ MESSAGETEXT
               [9, 'グンマ'],
               [10, 'サマルトリア']
             ]
-    dice1, = roll(1, 10)
-    result1 = get_table_by_number(dice1, table)
-    return result1, dice1
+    return get_garako_1d10_table_result(name, table)
   end
-
-  # 名前表：ピグマー族（女）
+  
+  
   def get_nametable_pf
+    name = '名前表：ピグマー族（女）'
     table = [
               [1, 'ルアンダ'],
               [2, 'ローマ'],
@@ -179,13 +169,12 @@ MESSAGETEXT
               [9, 'チグリス'],
               [10, 'オーサカ']
             ]
-    dice1, = roll(1, 10)
-    result1 = get_table_by_number(dice1, table)
-    return result1, dice1
+    return get_garako_1d10_table_result(name, table)
   end
-
-  # 名前表：エレメント族（男）
+  
+  
   def get_nametable_em
+    name = '名前表：エレメント族（男）'
     table = [
               [1, 'アポロン'],
               [2, 'ミキストリ'],
@@ -198,13 +187,12 @@ MESSAGETEXT
               [9, 'フェムト'],
               [10, 'マイトレーヤ']
             ]
-    dice1, = roll(1, 10)
-    result1 = get_table_by_number(dice1, table)
-    return result1, dice1
+    return get_garako_1d10_table_result(name, table)
   end
-
-  # 名前表：エレメント族（女）
+  
+  
   def get_nametable_ef
+    name = '名前表：エレメント族（女）'
     table = [
               [1, 'クシナダ'],
               [2, 'アルテミス'],
@@ -217,13 +205,12 @@ MESSAGETEXT
               [9, 'スクルド'],
               [10, 'アテナ']
             ]
-    dice1, = roll(1, 10)
-    result1 = get_table_by_number(dice1, table)
-    return result1, dice1
+    return get_garako_1d10_table_result(name, table)
   end
-
-  # 名前表：ノーマッド族（男）
+  
+  
   def get_nametable_nm
+    name = '名前表：ノーマッド族（男）'
     table = [
               [1, 'ドラム'],
               [2, 'カホン'],
@@ -236,13 +223,12 @@ MESSAGETEXT
               [9, 'タンバリン'],
               [10, 'ユメコウネン']
             ]
-    dice1, = roll(1, 10)
-    result1 = get_table_by_number(dice1, table)
-    return result1, dice1
+    return get_garako_1d10_table_result(name, table)
   end
-
-  # 名前表：ノーマッド族（女）
+  
+  
   def get_nametable_nf
+    name = '名前表：ノーマッド族（女）'
     table = [
               [1, 'ピアノ'],
               [2, 'テルミン'],
@@ -255,13 +241,12 @@ MESSAGETEXT
               [9, 'ミザルー'],
               [10, 'ドナドナ']
             ]
-    dice1, = roll(1, 10)
-    result1 = get_table_by_number(dice1, table)
-    return result1, dice1
+    return get_garako_1d10_table_result(name, table)
   end
-
-  # 名前表：ラット族（男）
+  
+  
   def get_nametable_rm
+    name = '名前表：ラット族（男）'
     table = [
               [1, 'ポチ'],
               [2, 'シシマル'],
@@ -274,13 +259,12 @@ MESSAGETEXT
               [9, 'サカモト'],
               [10, 'オンソクマル']
             ]
-    dice1, = roll(1, 10)
-    result1 = get_table_by_number(dice1, table)
-    return result1, dice1
+    return get_garako_1d10_table_result(name, table)
   end
 
-  # 名前表：ラット族（女）
+  
   def get_nametable_rf
+    name = '名前表：ラット族（女）'
     table = [
               [1, 'タマ'],
               [2, 'ココ'],
@@ -293,13 +277,12 @@ MESSAGETEXT
               [9, 'ルナ'],
               [10, 'ク・メル']
             ]
-    dice1, = roll(1, 10)
-    result1 = get_table_by_number(dice1, table)
-    return result1, dice1
+    return get_garako_1d10_table_result(name, table)
   end
-
-  # 名前表：ブレイン族（その１）
+  
+  
   def get_nametable_b1
+    name = '名前表：ブレイン族（その１）'
     table = [
               [1, 'マリファナ'],
               [2, 'バファリン'],
@@ -312,13 +295,12 @@ MESSAGETEXT
               [9, 'エリクサー'],
               [10, 'クラレ']
             ]
-    dice1, = roll(1, 10)
-    result1 = get_table_by_number(dice1, table)
-    return result1, dice1
+    return get_garako_1d10_table_result(name, table)
   end
-
-  # 名前表：ブレイン族（その２）
+  
+  
   def get_nametable_b2
+    name = '名前表：ブレイン族（その２）'
     table = [
               [1, 'ニトロ'],
               [2, 'ダイオキシン'],
@@ -331,13 +313,12 @@ MESSAGETEXT
               [9, 'ドブロク'],
               [10, 'マティーニ']
             ]
-    dice1, = roll(1, 10)
-    result1 = get_table_by_number(dice1, table)
-    return result1, dice1
+    return get_garako_1d10_table_result(name, table)
   end
-
-  # 名前表：テンタクル族（その１）
+  
+  
   def get_nametable_t1
+    name = '名前表：テンタクル族（その１）'
     table = [
               [1, 'アップル'],
               [2, 'プリン'],
@@ -350,13 +331,12 @@ MESSAGETEXT
               [9, 'ギョーザ'],
               [10, 'タバスコ']
             ]
-    dice1, = roll(1, 10)
-    result1 = get_table_by_number(dice1, table)
-    return result1, dice1
+    return get_garako_1d10_table_result(name, table)
   end
 
-  # 名前表：テンタクル族（その２）
+  
   def get_nametable_t2
+    name = '名前表：テンタクル族（その２）'
     table = [
               [1, 'キノコ'],
               [2, 'セロリ'],
@@ -369,13 +349,12 @@ MESSAGETEXT
               [9, 'キャラメル'],
               [10, 'ワタアメ']
             ]
-    dice1, = roll(1, 10)
-    result1 = get_table_by_number(dice1, table)
-    return result1, dice1
+    return get_garako_1d10_table_result(name, table)
   end
 
-  # 個性表
+
   def get_idiosyncrasy_table
+    name = '個性表'
     table = [
               [1, '〈近接武器熟練〉 近接攻撃の火力+1。'],
               [2, '〈近接武器熟練〉 近接攻撃の火力+1。'],
@@ -482,11 +461,12 @@ MESSAGETEXT
     dice, = roll(1, 100)
     result = get_table_by_number(dice, table)
     
-    return result, dice
+    return get_garako_table_result(name, dice, result)
   end
   
-  # 動機決定表
+  
   def get_motivation_table
+    name = '動機決定表'
     table = [
               [1, '金。お宝の臭いがした。'],
               [2, '正義。破界の塔は災いのもと。絶たねばならない。'],
@@ -499,14 +479,11 @@ MESSAGETEXT
               [9, '山男。シティが肌に合わない。'],
               [10, '特に動機らしい動機はない。']
             ]
-    
-    dice, = roll(1, 10)
-    result = get_table_by_number(dice, table)
-    return result, dice
+    return get_garako_1d10_table_result(name, table)
   end
-
-  # 部位決定チャート
+  
   def get_damage_region_chart
+    name = '部位決定チャート'
     table = [
               [1, 'コックピット'],
               [2, 'エンジン'],
@@ -519,16 +496,14 @@ MESSAGETEXT
               [9, 'ライトレッグ'],
               [10, 'レフトレッグ']
             ]
-    dice, = roll(1, 10)
-    result = get_table_by_number(dice, table)
-    return result, dice
+    return get_garako_1d10_table_result(name, table)
   end
   
   
   # 部位ダメージチャート
   def get_damage_chart(part, damage)
     
-    type, table = 
+    name, table = 
       case part
       when 'C'
         get_damagechart_cockpit
@@ -551,12 +526,12 @@ MESSAGETEXT
     
     result = get_table_by_number(damage , table)
     
-    return type, result, damage
+    return get_garako_table_result(name, damage, result)
   end
   
   
   def get_damagechart_cockpit
-    type = "部位ダメージチャート：コックピット"
+    name = "部位ダメージチャート：コックピット"
     table = 
       [
        [1, '小破（アーマー損傷）：以後、この部位の【部位装甲】-1。'],
@@ -571,12 +546,12 @@ MESSAGETEXT
        [10, '修復不能（破壊）：コックピットが［修復不能］となる。キミは2d10-【身体】点のHPダメージを受ける。ガラコはすべての機能を停止する。コックピットのハッチが自動的に開く。'],
       ]
     
-    return type, table
+    return name, table
   end
   
   
   def get_damagechart_engine
-    type = "部位ダメージチャート：エンジン"
+    name = "部位ダメージチャート：エンジン"
     table = 
       [
        [1, '小破（アーマー損傷）：以後、この部位の【部位装甲】-1。'],
@@ -591,12 +566,12 @@ MESSAGETEXT
        [10, '修復不能（エンジン停止）：エンジンが停止する。ガラコはすべての機能を停止する。コックピットのハッチが自動的に開く。【操作性】10の判定を行うこと。失敗するとエンジンが爆発する。その場合、すべての部位が［修復不能］となり、キミは2d10-【身体】点のダメージを受ける。'],
       ]
     
-    return type, table
+    return name, table
   end
   
   
   def get_damagechart_frame
-    type = "部位ダメージチャート：フレーム"
+    name = "部位ダメージチャート：フレーム"
     table = 
       [
        [1, '小破（不安定）：体勢を崩す。次のターン、キミは攻撃を行えない。この部位の【部位装甲】-1。'],
@@ -608,17 +583,17 @@ MESSAGETEXT
        [7, '中破（貫通！）：パイロットに被害が！　キミはHPダメージ（1d10-【身体】）を受ける。［弱体1］を受ける。'],
        [8, '大破（停止）：フレームが動かない。キミは次のターンを失う。［弱体1］を受ける。'],
        [9, '大破（アーマー損傷）：フレームに甚大なダメージを受ける。以後、この部位の【部位装甲】に-3。［弱体1］    
-    return type, table
+    return name, table
 を受ける。'],
        [10, '修復不能（フレーム崩壊）：フレームが［修復不能］となる。フレームの大部分が剥がれ落ち、ガラコの内部が晒される。以後、キミに対して部位狙いが行われる場合、その命中判定に対する修正（p21）は発生しなくなる。［弱体2］を受ける。'],
       ]
     
-    return type, table
+    return name, table
   end
   
   
   def get_damagechart_arm
-    type = "部位ダメージチャート：アーム"
+    name = "部位ダメージチャート：アーム"
     table = 
       [
        [1, '小破（アーマー損傷）：アームの装甲にヒビが入る。【部位装甲】-1。'],
@@ -633,12 +608,12 @@ MESSAGETEXT
        [10, '修復不能（破壊）：ダメージを受けた側のアームが［修復不能］となる。［弱体2］を受ける。'],
       ]
     
-    return type, table
+    return name, table
   end
   
   
   def get_damagechart_leg
-    type = "部位ダメージチャート：レッグ"
+    name = "部位ダメージチャート：レッグ"
     table = 
       [
        [1, '小破（アーマー損傷）：以後、この部位の【部位装甲】-1。'],
@@ -653,8 +628,92 @@ MESSAGETEXT
        [10, '修復不能（破壊）：ダメージを受けた側のレッグが［修復不能］となる。【移動力】-2。［弱体2］を受ける。'],
       ]
     
-    return type, table
+    return name, table
   end
   
-
+  
+  def get_garako_custom_chart()
+    name = "ガラコ改造チャート表"
+    table = [
+             [1, "【命中+】価格+200。【操作性】+1。[不安定]1。"],
+             [2, "【回避+】価格+200。【機動性】+1。【不安定】1。"],
+             [3, "【視界+】価格+200。【視認性】+2。【不安定】1。"],
+             [4, "【移動+】価格+100。【移動力】+1。"],
+             [5, "【火力+】価格+200。その部位に装着した武器の火力を常に+2する。"],
+             [6, "【部位装甲+】価格+100。【部位装甲】+2。"],
+             [7, "【限界重量+】価格+100。【限界重量】+1000。"],
+             [8, "【安定性+】価格+50。[不安定]-1。"],
+             [9, "【スロット+】価格+500。【スロット】+1。"],
+             [10, "【弱体無効】価格+500。このパーツへの部位ダメージによる[弱体]の効果を無視する。"],
+            ]
+    return get_garako_1d10_table_result(name, table)
+  end
+  
+  
+  def get_weapon_custom_chart()
+    name = "武器改造チャート表"
+    table = [
+             [1, "【命中+】価格+200。【操作性】+1。"],
+             [2, "【火力+】価格+200。【火力】+2。"],
+             [3, "【射程】価格+200。【射程】+3。「射程：近接」の場合、「射程:3 or 近接」となる(攻撃する度にどちらかを選ぶ)。"],
+             [4, "【範囲+】価格+200。1シーンにつき1回、この武器の目標を「範囲2」に変更してもよい(フリーアクション)。もともと範囲攻撃できる武器の場合は、「範囲n+1」にできる(1シーン1回、フリーアクション)。"],
+             [5, "【部位変更】価格+200。装着できる部位がランダムに追加される。部位決定チャート(『GHT』p21)を使用して決めること。"],
+             [6, "【部位装甲+】価格+100。装着した部位の【部位装甲】+2。"],
+             [7, "【精度+】価格+100。この武器を使って狙い撃ちをする場合、命中判定に+1。"],
+             [8, "【装飾+】価格+500。特に効果はないが、売却した時の金額が上昇する。"],
+             [9, "【幸運+】価格+500。この武器による命中判定の出目が1だった場合、判定を振り直しても良い(1シーン1回まで)。"],
+             [10, "【回数無限】価格+500。武器の使用回数制限がなくなる。"],
+            ]
+    return get_garako_1d10_table_result(name, table)
+  end
+  
+  
+  def get_event_chart
+    name = "イベントチャート表"
+    table = [
+             [1, "【クリーチャー】スタートル(『GTD』p30)が1d10+3体現れる。戦闘開始。"],
+             [2, "【ビット】コーンノーズ(『GTD』p23)が1d10+3体現れる。戦闘開始。"],
+             [3, "【ノーマッド】ノーマッド族のランドクローラーと遭遇する。このシーンはノーマッドからアイテムを購入しても良い。ノーマッド族は天蓋都市で購入できるすべての相手を販売している(ただし金額は20%増し)。"],
+             [4, "【ピグマー族】君達の目的地方面から、ボロボロになったピグマー族のNPCが歩いてくる。NPCに何があったのかはGMが決めよ。ピグマー族を天蓋都市まで送った場合、謝礼として200クレジットを受け取ることが出来る。NPCは重量50のアイテムとして扱う。"],
+             [5, "【ビット】ダスクウォッチ(『GTD』p23)が1d10+3体現れる。戦闘開始。"],
+             [6, "【異常気象】嵐、竜巻、豪雨など、異常な気象によって行動を阻害される。PCのうち代表者1名が【視認】10の判定を行うこと。失敗した場合、次のシーンはスポットを移動できない。現在のスポットに留まることになる。"],
+             [7, "【クリーチャー】ナグ(『GTD』p31)が1d10+4体現れる。戦闘開始。"],
+             [8, "【ビット】ランオーバー(『GTD』p25)が3体現れる。戦闘開始。"],
+             [9, "【猛毒の霧】付近に毒の霧が立ち込める。全てのキャラクターは毒によって1d10のHPダメージを受ける。"],
+             [10, "【最悪の敵】ズルワーン(『GTD』p29)が1体現れる。戦闘開始。"],
+            ]
+    return get_garako_1d10_table_result(name, table)
+  end
+  
+  
+  def get_battle_start_distance
+    name = "戦闘開始距離"
+    table = [
+             [1, "3マス"],
+             [2, "3マス"],
+             [3, "6マス"],
+             [4, "6マス"],
+             [5, "9マス"],
+             [6, "9マス"],
+             [7, "12マス"],
+             [8, "12マス"],
+             [9, "15マス"],
+             [10, "15マス"],
+            ]
+    return get_garako_1d10_table_result(name, table)
+  end
+  
+  
+  def get_garako_1d10_table_result(name, table)
+    dice, = roll(1, 10)
+    output = get_table_by_number(dice, table)
+    return get_garako_table_result(name, dice, output)
+  end
+  
+  
+  def get_garako_table_result(name, dice, output)
+    return "#{name}(#{dice}) ＞ #{output}"
+  end
+  
+  
 end

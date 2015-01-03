@@ -64,11 +64,11 @@ MESSAGETEXT
   
   def rollDiceCommand(command)
     
-    # get～DiceComandResultという名前のメソッドを集めて実行、
+    # get～DiceCommandResultという名前のメソッドを集めて実行、
     # 結果がnil以外の場合それを返して終了。
     
     methodList = public_methods(false).select do |method|
-      method.to_s =~ /\Aget.+DiceComandResult\z/
+      method.to_s =~ /\Aget.+DiceCommandResult\z/
     end
     
     methodList.each do |method|
@@ -80,7 +80,7 @@ MESSAGETEXT
   end
   
   
-  def getCheckRollDiceComandResult(command)
+  def getCheckRollDiceCommandResult(command)
     
     return nil unless(/(\d+)LH([\+\-\d]*)(>=([\+\-\d]*))?/i === command)
     
@@ -152,7 +152,7 @@ MESSAGETEXT
   
   
   #消耗表
-  def getConsumptionDiceComandResult( command )
+  def getConsumptionDiceCommandResult( command )
     
     return nil unless(/(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command)
     
@@ -381,7 +381,7 @@ MESSAGETEXT
   
   
   #財宝表
-  def getTresureDiceComandResult(command)
+  def getTresureDiceCommandResult(command)
     
     return nil unless(/(C|M|I|H)TRS(\d*)([\+\-\d]*)(\$)?/ === command)
     
@@ -715,7 +715,7 @@ MESSAGETEXT
   
   
   #パーソナリティタグ表
-  def getPersonalityTagDiceComandResult(command)
+  def getPersonalityTagDiceCommandResult(command)
     
     return nil unless("PTAG" === command)
     
@@ -771,7 +771,7 @@ MESSAGETEXT
   end
   
   #交友表
-  def getFriendlyChartDiceComandResult(command)
+  def getFriendlyChartDiceCommandResult(command)
     
     return nil unless("KOYU" === command)
     
@@ -828,7 +828,7 @@ MESSAGETEXT
   end
   
   #プレフィックスドマジックアイテム表
-  def getPrefixedMagickItemDiceComandResult(command)
+  def getPrefixedMagickItemDiceCommandResult(command)
     
     return nil unless(/MGR([1-3])/ === command)
     
@@ -989,7 +989,7 @@ MESSAGETEXT
   end
   
   #攻撃命中箇所ランダム決定表
-  def getHitLocationDiceComandResult(command)
+  def getHitLocationDiceCommandResult(command)
     
     return nil unless("HLOC" === command)
     
@@ -1043,7 +1043,7 @@ MESSAGETEXT
   
   
   #PC名ランダム決定表
-  def getPCNameDiceComandResult(command)
+  def getPCNameDiceCommandResult(command)
     
     return nil unless("PCNM" === command)
     
@@ -1099,7 +1099,7 @@ MESSAGETEXT
   
   
   #ロデ研の新発明ランダム決定表
-  def getInventionAttributeTextDiceComandResult(command)
+  def getInventionAttributeTextDiceCommandResult(command)
     
     return nil unless(/IAT([ABMDLT]*)/ === command)
     
@@ -1159,7 +1159,7 @@ MESSAGETEXT
   
   
   #アキバの街で遭遇するトラブルランダム決定表
-  def getTroubleInAkibaStreetDiceComandResult(command)
+  def getTroubleInAkibaStreetDiceCommandResult(command)
     
     return nil unless command === "TIAS"
     
@@ -1212,7 +1212,7 @@ MESSAGETEXT
   
   
   #廃棄児ランダム決定表
-  def getAbandonedChildDiceComandResult(command)
+  def getAbandonedChildDiceCommandResult(command)
     
     return nil unless command === "ABDC"
     
@@ -1281,7 +1281,7 @@ MESSAGETEXT
   
   
   #楽器種別表
-  def getMusicalInstrumentTypeDiceComandResult(command)
+  def getMusicalInstrumentTypeDiceCommandResult(command)
     return nil unless(/MII(\d?)/ === command)
      type, is_roll = if $1 && $1 != ''
       [$1.to_i, false]
