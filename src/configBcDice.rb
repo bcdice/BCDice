@@ -49,6 +49,7 @@ Cthulhu
 CthulhuTech
 DarkBlaze
 DemonParasite
+DetatokoSaga
 DoubleCross
 EarthDawn
 EarthDawn3
@@ -99,6 +100,7 @@ SMTKakuseihen
 Satasupe
 ShadowRun
 ShadowRun4
+SharedFantasia
 ShinkuuGakuen
 ShinobiGami
 SwordWorld
