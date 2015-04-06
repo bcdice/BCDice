@@ -281,6 +281,96 @@ DiceBot : 計算結果 ＞ 5
 rand:
 ============================
 input:
+C(-1-1)
+output:
+DiceBot : 計算結果 ＞ -2
+rand:
+============================
+input:
+C(-1--1)
+output:
+DiceBot : 計算結果 ＞ 0
+rand:
+============================
+input:
+C(-1---1)
+output:
+DiceBot : 計算結果 ＞ -2
+rand:
+============================
+input:
+C(-1----1)
+output:
+DiceBot : 計算結果 ＞ 0
+rand:
+============================
+input:
+C(-1)
+output:
+DiceBot : 計算結果 ＞ -1
+rand:
+============================
+input:
+C((-1)*(-1))
+output:
+DiceBot : 計算結果 ＞ 1
+rand:
+============================
+input:
+C(-1*-1)
+output:
+DiceBot : 計算結果 ＞ 1
+rand:
+============================
+input:
+C(5/-1)
+output:
+DiceBot : 計算結果 ＞ -5
+rand:
+============================
+input:
+C(10/2)
+output:
+DiceBot : 計算結果 ＞ 5
+rand:
+============================
+input:
+C(1+(128/2)/2)
+output:
+DiceBot : 計算結果 ＞ 33
+rand:
+============================
+input:
+C(-1+-1)
+output:
+DiceBot : 計算結果 ＞ -2
+rand:
+============================
+input:
+C(-1+-1*2-32/8)
+output:
+DiceBot : 計算結果 ＞ -7
+rand:
+============================
+input:
+C(-20/-10)
+output:
+DiceBot : 計算結果 ＞ 2
+rand:
+============================
+input:
+C(-20/5)
+output:
+DiceBot : 計算結果 ＞ -4
+rand:
+============================
+input:
+C(20/-4)
+output:
+DiceBot : 計算結果 ＞ -5
+rand:
+============================
+input:
 1D6/2
 output:
 DiceBot : (1D6/2) ＞ 0
