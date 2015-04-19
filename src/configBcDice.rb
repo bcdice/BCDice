@@ -53,6 +53,7 @@ DetatokoSaga
 DoubleCross
 EarthDawn
 EarthDawn3
+EarthDawn4
 EclipsePhase
 Elric!
 Elysion
