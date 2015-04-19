@@ -1923,6 +1923,10 @@ class BCDice
       require 'diceBot/EarthDawn'
       require 'diceBot/EarthDawn3'
       diceBot = EarthDawn3.new
+    when /(^|\s)(Earth\s*Dawn|ED)4$/i
+      require 'diceBot/EarthDawn'
+      require 'diceBot/EarthDawn4'
+      diceBot = EarthDawn4.new
     when /(^|\s)(Embryo\s*Machine|EM)$/i
       require 'diceBot/EmbryoMachine'
       diceBot = EmbryoMachine.new
