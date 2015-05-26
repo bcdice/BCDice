@@ -49,47 +49,95 @@ INFO_MESSAGE_TEXT
   
   
   def getStepResult(str)
+    stepText, calcText, stepTotal, targetNumber = getStepResultInfos(str)
     
-    return nil unless( /^(\d+)E(\d+)?(K)?(\+\d)?/i =~ str)
+    return nil if stepText.nil?
+    
+    if(targetNumber == 0)
+      output = "#{stepText} ＞ #{calcText} ＞ #{stepTotal}"
+      return output
+    end
+    
+    #結果判定
+    successText = getSuccess(targetNumber, stepTotal)
+    
+    output = "#{stepText}>=#{targetNumber} ＞ #{calcText} ＞ #{stepTotal} ＞ #{successText}"
+    
+    return output
+  end
+  
+  
+  def getStepResultInfos(str)
+    steps = []
+    calcs = []
+    totals = []
+    target = 0
+    
+    while  (not str.nil?) and (not str.empty?)
+      
+      debug("=====>!! str", str)
+
+      step, calc, total, value, nextText = getStepResultInfo(str)
+      debug("=====> step",step)
+      
+      return nil if step.nil?
+      
+      steps << step
+      calcs << calc
+      totals << total
+      target = value unless value == 0
+      
+      debug("=====> nextText", nextText)
+      break if nextText == str
+      
+      str = nextText
+    end
+    
+    stepText = steps.join("+")
+    calcText = calcs.join(")+(")
+    stepTotal = totals.inject{|sum,i| sum + i}
+    
+    calcText = "(" + calcText + ")" if calcs.size > 1
+    calcText += " ＞ (#{totals.join('+')})" if totals.size > 1
+    
+    return stepText, calcText, stepTotal, target
+  end
+  
+  
+  def getStepResultInfo(str)
+    
+    return nil unless( /^(\d+)E(\d+)?(K)?(\+\d+$)?(\+(.*))?/i =~ str)
     
     stepTotal = 0
     @isFailed = true
     
     step  = $1.to_i      #ステップ
-    targetNumber = [$2.to_i, 20].min #目標値
+    targetNumber = $2.to_i #目標値
     return nil if(targetNumber < 0)
     
     hasKarmaDice = (not $3.nil?)  #カルマダイスの有無
     diceModify = $4.to_i
+    nextText = $6
     
     stepInfo = getStepInfo(step)
     debug('stepInfo', stepInfo)
     
-    string = ""
+    calcText = ""
     
     diceTypes = [20, 12, 10, 8, 6, 4]
     diceTypes.each do |type|
-      stepTotal += rollStep(type, stepInfo.shift, string)
+      stepTotal += rollStep(type, stepInfo.shift, calcText)
     end
     modify = stepInfo.shift
     
-    stepTotal += rollStep(6, 1, string) if( hasKarmaDice )
+    stepTotal += rollStep(6, 1, calcText) if( hasKarmaDice )
     
-    string += (getModifyText(modify) + getModifyText(diceModify))
+    calcText += (getModifyText(modify) + getModifyText(diceModify))
     stepTotal += (modify + diceModify)
     
-    #ステップ判定終了
-    string += " ＞ #{stepTotal}"
+    stepText = "ステップ#{step}"
     
-    output = "ステップ#{step} ＞ #{string}"
-    return output if(targetNumber == 0)
-    
-    #結果判定
-    string += ' ＞ ' + getSuccess(targetNumber, stepTotal)
-    
-    output = "ステップ#{step}>=#{targetNumber} ＞ #{string}"
-    
-    return output
+    return stepText, calcText, stepTotal, targetNumber, nextText
   end
   
   
@@ -139,7 +187,7 @@ INFO_MESSAGE_TEXT
     overStep = step - baseMaxStep - 1
     
     stepRythm = 
-    [
+      [
        # dice                          
        # D20  D12  D10  D8  D6  D4  mod
        [  0,   0,   0,  0,  2,  0,   0],
@@ -153,7 +201,7 @@ INFO_MESSAGE_TEXT
        [  0,   1,   0,  1,  1,  0,   0],
        [  0,   1,   0,  2,  0,  0,   0],
        [  0,   1,   1,  1,  0,  0,   0],
-    ]
+      ]
     
     # [  1,   0,   0,  0,  2,  0,   0],
     

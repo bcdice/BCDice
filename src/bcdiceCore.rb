@@ -1453,7 +1453,7 @@ class BCDice
     debug('check params : total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max',
           total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     
-    return "" unless(/([\d]+)[)]?$/ =~ total_n.to_s)
+    return "" unless(/((\+|\-)?[\d]+)[)]?$/ =~ total_n.to_s)
     
     total_n = $1.to_i
     diff = diff.to_i
