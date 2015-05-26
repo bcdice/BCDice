@@ -39,6 +39,7 @@ class KanColle < DiceBot
 　　演習イベント表　EVET／遠征イベント表　EVENT／作戦イベント表　EVST
 　・ほのぼのイベント表　ETHT／航海イベント表　ETVT　外出イベント表　ETGT
 　　激戦イベント表　ETBT／任務イベント表　ETMT／恐怖イベント表　ETFT／侵攻効果表　ETIT
+　・大規模部隊表 LSFT／艦隊敗北表 LFDT／艦隊勝利表 LFVT
 　・開発表　DVT／開発表（一括）DVTM
 　　　装備１種表　WP1T／装備２種表　WP2T／装備３種表　WP3T／装備４種表　WP4T
 　・アイテム表　ITT／目標表　MHT／戦果表　SNT／特殊戦果表　SPSNT
