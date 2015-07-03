@@ -1161,7 +1161,7 @@ class BCDice
   
   ####################             D66ダイス        ########################
   def rollD66(string)
-    return nil unless( /^D66/i === string )
+    return nil unless( /^S?D66/i === string )
     return nil if(@diceBot.d66Type == 0)
     
     debug("match D66 roll")
