@@ -34,6 +34,7 @@ $extraCardFileName = ""                #拡張カードファイル名
 $iniFileName = 'bcdice.ini'
 
 $allGameTypes = %w{
+Airgetlamh
 Arianrhod
 ArsMagica
 BarnaKronika

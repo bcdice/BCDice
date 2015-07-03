@@ -34,9 +34,7 @@ MESSAGETEXT
   end
   
   def changeText(string)
-    if(string =~ /^G/i)
-      string = string.gsub(/^G/i) {"2D6"}
-    end
+    string = string.gsub(/^(S)?G/i) {"#{$1}2D6"}
     return string
   end
 
