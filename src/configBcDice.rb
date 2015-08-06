@@ -40,6 +40,7 @@ ArsMagica
 BarnaKronika
 BattleTech
 BeastBindTrinity
+BeginningIdol
 BloodCrusade
 BloodMoon
 CardRanker
