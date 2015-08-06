@@ -27,6 +27,7 @@ class Kamigakari < DiceBot
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・各種表
+ ・感情表(ET)
  ・霊紋消費の代償表(RT)
  ・伝奇名字・名前決定表(NT)
  ・魔境臨界表(KT)

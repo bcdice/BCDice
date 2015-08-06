@@ -97,7 +97,7 @@ rand:1/6,1/6
 input:
 DBD
 output:
-TwilightGunsmoke : ドロップチャート：バンデッド(7) ＞ 9㎜ピストル
+TwilightGunsmoke : ドロップチャート：バンデッド(7) ＞ .45口径SMG
 rand:1/6,6/6
 ============================
 input:
