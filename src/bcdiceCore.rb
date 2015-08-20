@@ -1461,6 +1461,7 @@ class BCDice
     check_paramNew = [total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max]
     
     text = getSuccessText(*check_paramNew)
+    text ||= ""
     
     if( text.empty? )
       if( signOfInequality != "" )
@@ -1685,7 +1686,7 @@ class BCDice
     
     result = []
     
-    list.count.times do |i|
+    list.length.times do |i|
       unless result.empty?
         if /(\*|\/)$/ === result.last
           result.last << list[i]

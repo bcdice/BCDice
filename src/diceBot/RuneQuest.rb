@@ -23,7 +23,7 @@ INFO_MESSAGE_TEXT
   
   # ゲーム別成功度判定(1d100)
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    return unless(signOfInequality == "<=")
+    return "" unless(signOfInequality == "<=")
     
     cliticalValue = ((1.0 * diff / 20) + 0.5)
     
