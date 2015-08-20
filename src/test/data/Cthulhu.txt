@@ -356,3 +356,10 @@ input:
 invalidCommand
 output:
 rand:
+============================
+input:
+1d100>=(68+12)
+output:
+Cthulhu : (1D100>=80) ＞ 11 ＞ 失敗
+rand:11/100
+============================
