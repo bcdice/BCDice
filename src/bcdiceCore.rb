@@ -2050,6 +2050,9 @@ class BCDice
     when /(^|\s)(Garako)$/i
       require 'diceBot/Garako'
       diceBot = Garako.new
+    when /(^|\s)(ShoujoTenrankai)$/i
+      require 'diceBot/ShoujoTenrankai'
+      diceBot = ShoujoTenrankai.new
     when /(^|\s)None$/i, ""
       diceBot = DiceBot.new
     else

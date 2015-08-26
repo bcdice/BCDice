@@ -106,6 +106,7 @@ ShadowRun4
 SharedFantasia
 ShinkuuGakuen
 ShinobiGami
+ShoujoTenrankai
 SwordWorld
 SwordWorld2.0
 TORG
