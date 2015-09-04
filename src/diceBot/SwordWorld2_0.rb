@@ -50,11 +50,55 @@ class SwordWorld2_0 < SwordWorld
 
 ・グレイテストフォーチュンは末尾に gt
 　例）K20gf　K30+24@8GF　K40+24@8$12r10gf
+
+・超越判定用に2d6ロールに 2D6@10 書式でクリティカル値付与が可能に。
+　例）2D6@10　2D6@10+11>=30
 INFO_MESSAGE_TEXT
   end
   
   def isSW2_0Mode
     true
+  end
+  
+  
+  def is2dCritical
+    true
+  end
+  
+  
+  # SW2.0 の超成功用
+  def check2dCritical(critical, dice_new, dice_arry)
+    return if( critical <= 2 )
+    return if( dice_new == 12 )
+    return if( dice_new == 2 )
+    
+    if( dice_new >= critical )
+      dice_arry.push( 2 )
+    end
+  end
+  
+  
+  def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
+    
+    debug("check_nD6")
+    result = super(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
+    
+    return result unless( result == "" )
+    
+    string = @@bcdice.getOriginalMessage
+    
+    superSuccessValue = 41
+    
+    if( /@(\d+)/ === string )
+      critical = $1.to_i
+      if( dice_n >= critical ) 
+        if( total_n >= superSuccessValue )
+          return " ＞ 超成功"
+        end
+      end
+    end
+    
+    return result
   end
   
 end
