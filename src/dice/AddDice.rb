@@ -14,7 +14,7 @@ class AddDice
   def rollDice(string)
     debug("AddDice.rollDice() begin string", string)
     
-    unless( /(^|\s)S?(([\d\+\*\-]*[\d]+D[\d\/UR]*[\d\+\*\-D\/UR]*)(([<>=]+)([?\-\d]+))?)($|\s)/i =~ string )
+    unless( /(^|\s)S?(([\d\+\*\-]*[\d]+D[\d\/UR@]*[\d\+\*\-D\/UR]*)(([<>=]+)([?\-\d]+))?)($|\s)/i =~ string )
       return "1"
     end
     
@@ -113,6 +113,8 @@ class AddDice
     return output
   end
   
+  
+  
   def rollDiceAddingUp( string, isCheckSuccess = false)   # 加算ダイスロール(個別処理)
     debug("rollDiceAddingUp() begin string", string)
     
@@ -152,87 +154,32 @@ class AddDice
     
     debug("string", string)
     
+    emptyResult = [dice_total, dice_n, output, n1, n_max, dice_cnt_total, dice_max]
+    
     mul_cmd = string.split(/\*/)
     mul_cmd.each do |mul_line|
-      if( /([\d]+)D([\d]+)(\/\d+[UR]?)?/i =~ mul_line )
-        dice_cnt = $1.to_i
+      if( /([\d]+)D([\d]+)(@(\d+))?(\/\d+[UR]?)?/i =~ mul_line )
+        dice_count = $1.to_i
         dice_max = $2.to_i
-        slashMark = $3
-        debug('slashMark', slashMark)
-        if( dice_max > $DICE_MAXNUM )
-          return 0, 0, "", 0, 0, 0, 0
-        end
+        critical = $4.to_i
+        slashMark = $5
         
-        dice_now = 0
-        n1_wk = 0
-        n_max_wk = 0
-        dice_str = ""
-        dice_arr = []
-        dice_arr.push( dice_cnt )
+        return emptyResult if( (critical != 0) and (not @diceBot.is2dCritical) )
+        return emptyResult if( dice_max > $DICE_MAXNUM )
         
-        debug("before while dice_arr", dice_arr)
+        dice_max, dice_now, output_tmp, n1_count, max_number_tmp, result_dice_count =
+          rollDiceAddingUpCommand(dice_count, dice_max, slashMark, double_check, isCheckSuccess, critical)
         
-        while( not dice_arr.empty? )
-          debug("IN while dice_arr", dice_arr)
-          
-          dice_wk = dice_arr.shift
-          dice_cnt_total += dice_wk
-          
-          debug('dice_wk', dice_wk)
-          debug('dice_max', dice_max)
-          debug('(sortType & 1)', (@diceBot.sortType & 1))
-          
-          dice_dat = rollLocal(dice_wk, dice_max, (@diceBot.sortType & 1))
-          debug('dice_dat', dice_dat)
-          
-          dice_now += dice_dat[0]
-          
-          dice_now = getSlashedDice(slashMark, dice_now)
-          
-          dice_str += "][" if( dice_str != "")
-          debug('dice_str', dice_str)
-          
-          dice_str += dice_dat[1]
-          n1_wk += dice_dat[2]
-          n_max_wk += dice_dat[3]
-          
-          if( double_check and (dice_wk >= 2) )     # 振り足しありでダイスが二個以上
-            dice_num = dice_dat[1].split(/,/).collect{|s|s.to_i}
-            dice_face = []
-            
-            dice_max.times do |i|
-              dice_face.push( 0 )
-            end
-            
-            dice_num.each do |dice_o|
-              dice_face[dice_o - 1] += 1
-            end
-            
-            dice_face.each do |dice_o|
-              if( @diceBot.sameDiceRerollCount == 1) # 全部同じ目じゃないと振り足しなし
-                dice_arr.push(dice_o) if( dice_o == dice_wk )
-              else
-                dice_arr.push( dice_o ) if( dice_o >= @diceBot.sameDiceRerollCount )
-              end
-            end
-          end
-        end
-        
-        #ダイス目文字列からダイス値を変更する場合の処理（現状クトゥルフ・テック専用）
-        dice_now = @diceBot.changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
+        output += "*" if( output != "" )
+        output += output_tmp
         
         dice_total *= dice_now
+        
         dice_n += dice_now
-        n1 += n1_wk
-        n_max += n_max_wk
-        if( output != "" )
-          output += "*"
-        end
-        if( @diceBot.sendMode > 1 )
-          output += "#{dice_now}[#{dice_str}]"
-        elsif( @diceBot.sendMode > 0 )
-          output += "#{dice_now}"
-        end
+        dice_cnt_total += result_dice_count
+        n1 += n1_count
+        n_max += max_number_tmp
+        
       else
         mul_line = mul_line.to_i
         debug('dice_total', dice_total)
@@ -254,6 +201,87 @@ class AddDice
     
     debug("rollDiceAddingUp() end output", dice_total, dice_n, output, n1, n_max, dice_cnt_total, dice_max)
     return dice_total, dice_n, output, n1, n_max, dice_cnt_total, dice_max
+  end
+  
+  
+  def rollDiceAddingUpCommand(dice_count, dice_max, slashMark, double_check, isCheckSuccess, critical)
+    
+    result_dice_count = 0
+    dice_now = 0
+    n1_count = 0
+    max_number = 0
+    dice_str = ""
+    dice_arry = []
+    dice_arry.push( dice_count )
+    
+    debug("before while dice_arry", dice_arry)
+    
+    while( not dice_arry.empty? )
+      debug("IN while dice_arry", dice_arry)
+      
+      dice_wk = dice_arry.shift
+      result_dice_count += dice_wk
+      
+      debug('dice_wk', dice_wk)
+      debug('dice_max', dice_max)
+      debug('(sortType & 1)', (@diceBot.sortType & 1))
+      
+      dice_dat = rollLocal(dice_wk, dice_max, (@diceBot.sortType & 1))
+      debug('dice_dat', dice_dat)
+      
+      dice_new = dice_dat[0]
+      dice_now += dice_new
+      
+      debug('slashMark', slashMark)
+      dice_now = getSlashedDice(slashMark, dice_now)
+      
+      dice_str += "][" if( dice_str != "")
+      debug('dice_str', dice_str)
+      
+      dice_str += dice_dat[1]
+      n1_count += dice_dat[2]
+      max_number += dice_dat[3]
+      
+      if( double_check and (dice_wk >= 2) )     # 振り足しありでダイスが二個以上
+        addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_arry, dice_wk)
+      end
+      
+      @diceBot.check2dCritical(critical, dice_new, dice_arry)
+    end
+    
+    #ダイス目文字列からダイス値を変更する場合の処理（現状クトゥルフ・テック専用）
+    dice_now = @diceBot.changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
+    
+    output = ""
+    if( @diceBot.sendMode > 1 )
+      output += "#{dice_now}[#{dice_str}]"
+    elsif( @diceBot.sendMode > 0 )
+      output += "#{dice_now}"
+    end
+    
+    return dice_max, dice_now, output, n1_count, max_number, result_dice_count
+  end
+  
+  
+  def addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_arry, dice_wk)
+    dice_num = dice_dat[1].split(/,/).collect{|s|s.to_i}
+    dice_face = []
+        
+    dice_max.times do |i|
+      dice_face.push( 0 )
+    end
+    
+    dice_num.each do |dice_o|
+      dice_face[dice_o - 1] += 1
+    end
+    
+    dice_face.each do |dice_o|
+      if( @diceBot.sameDiceRerollCount == 1) # 全部同じ目じゃないと振り足しなし
+        dice_arry.push(dice_o) if( dice_o == dice_wk )
+      else
+        dice_arry.push( dice_o ) if( dice_o >= @diceBot.sameDiceRerollCount )
+      end
+    end
   end
   
   
@@ -314,5 +342,9 @@ class AddDice
     return '-' if(rate < 0)
     return '' if(output.empty?)
     return "+" 
+  end
+  
+  def parren_killer(*args)
+    @bcdice.parren_killer(*args)
   end
 end

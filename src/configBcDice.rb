@@ -35,6 +35,7 @@ $iniFileName = 'bcdice.ini'
 
 $allGameTypes = %w{
 Airgetlamh
+Amadeus
 Arianrhod
 ArsMagica
 BarnaKronika
