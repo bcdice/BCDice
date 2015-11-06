@@ -21,10 +21,10 @@ class NightWizard < DiceBot
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定用コマンド　(nNW+m@x#y)
-　"(常時特殊能力含む基本値)NW(常時以外の特殊能力及び状態異常)@(クリティカル値)#(ファンブル値)"でロールします。
+　"(基本値)NW(常時および常時に準じる特技等及び状態異常（省略可）)@(クリティカル値)#(ファンブル値)（常時以外の特技等及び味方の支援効果等の影響（省略可））"でロールします。
 　Rコマンド(2R6m[n,m]c[x]f[y]>=t tは目標値)に読替されます。
 　クリティカル値、ファンブル値が無い場合は1や13などのあり得ない数値を入れてください。
-　例）12NW-5@7#2　　1NW　　50nw+5@7,10#2,5
+　例）12NW-5@7#2　　1NW　　50nw+5@7,10#2,5　50nw-5+10@7,10#2,5+15+25
 INFO_MESSAGE_TEXT
   end
   
@@ -32,9 +32,9 @@ INFO_MESSAGE_TEXT
   def changeText(string)
     return string unless(string =~ /NW/i)
     
-    string = string.gsub(/(\d+)NW\+?([\-\d]+)@([,\d]+)#([,\d]+)/i) {"2R6m[#{$1},#{$2}]c[#{$3}]f[#{$4}]"}
-    string = string.gsub(/(\d+)NW\+?([\-\d]+)/i) {"2R6m[#{$1},#{$2}]"}
-    string = string.gsub(/(\d+)NW/i) {"2R6m[#{$1},0]"}
+    string = string.gsub(/([\-\d]+)NW([\+\-\d]*)@([,\d]+)#([,\d]+)([\+\-\d]*)/i) {"2R6m[#{$1}#{$2}#{$5}]c[#{$3}]f[#{$4}]"}
+    string = string.gsub(/([\-\d]+)NW([\+\-\d]*)/i) {"2R6m[#{$1}#{$2}]"}
+    string = string.gsub(/NW([\+\-\d]*)/i) {"2R6m[0#{$1}]"}
   end
   
   def dice_command_xRn(string, nick_e)
@@ -96,8 +96,11 @@ INFO_MESSAGE_TEXT
     
     base = parren_killer("(0#{base})").to_i
     mod = parren_killer("(0#{mod})").to_i
+    base_and_mod = parren_killer("(0#{base_and_mod})").to_i
+
     
-    total, out_str = nw_dice(base, mod, crit, fumble)
+    total, out_str = nw_dice(base_and_mod, crit, fumble)
+
     output = "#{nick_e}: (#{string}) ＞ #{out_str}"
     if(signOfInequality != "")  # 成功度判定処理
       output += check_suc(total, 0, signOfInequality, diff, 3, 6, 0, 0)
@@ -107,8 +110,8 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def nw_dice(base, mod, criticalText, fumbleText)
-    debug("nw_dice : base, mod, criticalText, fumbleText", base, mod, criticalText, fumbleText)
+  def nw_dice(base_and_mod, criticalText, fumbleText)
+    debug("nw_dice : base_and_mod, criticalText, fumbleText", base_and_mod, criticalText, fumbleText)
     
     @criticalValues = getValuesFromText(criticalText, [10])
     @fumbleValues = getValuesFromText(fumbleText, [5])
@@ -120,14 +123,14 @@ INFO_MESSAGE_TEXT
     
     dice_n, dice_str, = roll(2, 6, 0)
     
-    total = base + mod
+    total = base_and_mod
     
     if( @fumbleValues.include?(dice_n) )
-      total = base
+      total = base_and_mod
       total -= 10
-      output = "#{base}-10[#{dice_str}] ＞ #{total}"
+      output = "#{base_and_mod}-10[#{dice_str}] ＞ ファンブル ＞ #{total}"
     else
-      total = base + mod
+      total = base_and_mod
       total, output = checkCritical(total, dice_str, dice_n)
     end
     
@@ -151,25 +154,27 @@ INFO_MESSAGE_TEXT
     debug("addRollWhenCritical begin total, dice_str", total, dice_str)
     output = "#{total}"
     
-    isCritical = isCriticalValue(dice_n)
+    criticalText = ""
+    criticalValue = getCriticalValue(dice_n)
     
-    while(isCritical)
+    while(criticalValue)
       total += 10
       output += "+10[#{dice_str}]"
       
+      criticalText = "＞ クリティカル "
       dice_n, dice_str, = roll(2, 6, 0)
       
-      isCritical = isCriticalValue(dice_n)
-      debug("isCritical", isCritical)
+      criticalValue = getCriticalValue(dice_n)
+      debug("criticalValue", criticalValue)
     end
     
     total += dice_n
-    output += "+#{dice_n}[#{dice_str}] ＞ #{total}"
+    output += "+#{dice_n}[#{dice_str}] #{criticalText}＞ #{total}"
     
     return total, output
   end
   
-  def isCriticalValue(dice_n)
+  def getCriticalValue(dice_n)
     return @criticalValues.include?(dice_n)
   end
   
