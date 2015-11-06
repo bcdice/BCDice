@@ -27,7 +27,7 @@ class Amadeus < DiceBot
 　・境遇表　ECT／関係表　RT／親心表　PRT／戦場表　BST／
 　　休憩表　BT／ファンブル表　FT／致命傷表　FWT／
 　　戦果表 BRT／ランダムアイテム表　RIT／損傷表　WT／
-　　悪夢表　NMT／
+　　悪夢表　NMT
 INFO_MESSAGE_TEXT
   end
   
