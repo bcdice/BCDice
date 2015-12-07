@@ -47,6 +47,7 @@ BloodMoon
 CardRanker
 Chaos_Flare
 Chill
+Chill3
 CrashWorld
 Cthulhu
 CthulhuTech
@@ -78,6 +79,7 @@ HouraiGakuen
 HuntersMoon
 InfiniteFantasia
 Insane
+JamesBond
 Kamigakari
 KanColle
 KillDeathBusiness
