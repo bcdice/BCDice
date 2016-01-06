@@ -84,6 +84,7 @@ Kamigakari
 KanColle
 KillDeathBusiness
 LogHorizon
+LogHorizon:Korean
 MagicaLogia
 MeikyuDays
 MeikyuKingdom
