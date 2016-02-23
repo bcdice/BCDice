@@ -35,6 +35,7 @@ $iniFileName = 'bcdice.ini'
 
 $allGameTypes = %w{
 Airgetlamh
+Alsetto
 Amadeus
 Arianrhod
 ArsMagica
@@ -50,6 +51,7 @@ Chill
 Chill3
 CrashWorld
 Cthulhu
+Cthulhu7th
 CthulhuTech
 DarkBlaze
 DemonParasite
@@ -93,6 +95,7 @@ NJSLYRBATTLE
 Nechronica
 NightWizard
 NightmareHunterDeep
+Nuekagami
 Oukahoushin3rd
 ParasiteBlood
 Peekaboo

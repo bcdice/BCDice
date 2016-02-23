@@ -7,7 +7,6 @@ class Amadeus < DiceBot
     @sendMode = 2
     @sortType = 1
     @d66Type = 2
-    @defaultSuccessTarget = 4
   end
   
   def gameName
@@ -24,19 +23,26 @@ class Amadeus < DiceBot
   
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
-・判定(Rx±y>=z)
+・判定(Rx±y@z>=t)
 　能力値のダイスごとに成功・失敗の判定を行います。
 　x：xにランク(S,A~D)を入力。
 　y：yに修正値を入力。±の計算に対応。省略可能。
-　z：zに目標値を入力。±の計算に対応。省略可能。
+　z：zにスペシャルの出目の最低値を入力。省略可能。
+　省略した場合、6の出目の時だけスペシャルとなる。
+　t：tに目標値を入力。±の計算に対応。省略可能。
 　目標値を省略した場合、目標値は4で計算される。
-　例） RA　RB-1　RC>=5　RD+2
+　例） RA　RB-1　RC>=5　RD+2　RS-1@5>=6
+　※ RB++ や RA- など、プラスマイナスのみの表記では計算されません。
+
+　"達成値"_"判定結果"["出目""対応するインガ"]のように出力されます。
+　ただし、C,Dランクだと、対応するインガは出力されません。
+　出力例)　2_ファンブル！[1黒] / 3_失敗[3青]
 
 ・各種表
-　・境遇表　ECT／関係表　RT／親心表　PRT／戦場表　BST／
-　　休憩表　BT／ファンブル表　FT／致命傷表　FWT／
-　　戦果表　BRT／ランダムアイテム表　RIT／損傷表　WT／
-　　悪夢表　NMT／目標表　TGT
+　・境遇表 ECT／関係表 RT／親心表 PRT／戦場表 BST／
+　　休憩表 BT／ファンブル表 FT／致命傷表 FWT／
+　　戦果表 BRT／ランダムアイテム表 RIT／損傷表 WT／
+　　悪夢表 NMT／目標表 TGT
 INFO_MESSAGE_TEXT
   end
   
@@ -70,12 +76,20 @@ INFO_MESSAGE_TEXT
   end
   
   def amadeusDice(command)
-    return nil unless( /^(R([A-DS])([\+\-\d]*))(>=([\+\-\d]*))?/ =~ command )
+    return nil unless( /^(R([A-DS])([\+\-\d]*))(@(\d))?((>(=)?)([\+\-\d]*))?(@(\d))?$/i =~ command )
 
     commandText = $1
     skillRank = $2
     modifyText = $3
-    targetText = ( $5.nil? ? "#@defaultSuccessTarget" : $5 )
+    signOfInequality = ( $7.nil? ? ">=" : $7 )
+    targetText = ( $9.nil? ? "4" : $9 )
+    if( nil | $5 )
+      specialNum = $5.to_i
+    elsif( nil | $11 )
+      specialNum = $11.to_i
+    else
+      specialNum = 6
+    end
 
     diceCount = @@checkDiceCount[skillRank]
     modify = parren_killer("(" + modifyText + ")").to_i
@@ -83,32 +97,40 @@ INFO_MESSAGE_TEXT
 
     _, diceText, = roll(diceCount, 6)
     diceList = diceText.split(/,/).collect{|i| i.to_i}
+    specialText = ( specialNum == 6 ? "" : "@#{specialNum}" )
 
-    message = "(#{commandText}>=#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "
+    message = "(#{commandText}#{specialText}#{signOfInequality}#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "
     diceList = [diceList.min] if( skillRank == "D" )
     is_loop = false
     for dice in diceList do
       if( is_loop )
         message += " / "
-      else
+      elsif( diceList.length > 1)
         is_loop = true
       end
       achieve = dice + modify
-      case dice
-        when 1
-          result = "ファンブル！"
-        when 6
-          result = "スペシャル！"
-        else
-          result = ( achieve >= target ? "成功" : "失敗" )
+      result = check_success(achieve, dice, signOfInequality, target, specialNum)
+      if( is_loop )
+        message += "#{achieve}_#{result}[#{dice}#{@@checkInga[dice]}]"
+      else
+        message += "#{achieve}_#{result}[#{dice}]"
       end
-      message += "#{achieve}[#{dice}]:#{result}"
     end
 
     return message
   end
 
+  def check_success(total_n, dice_n, signOfInequality, diff, special_n)
+    return "ファンブル！" if( dice_n == 1 )
+    return "スペシャル！" if( dice_n >= special_n )
+
+    success = @@bcdice.check_hit(total_n, signOfInequality, diff)
+    return "成功" if(success >= 1)
+    return "失敗"
+  end
+
   @@checkDiceCount = { "S" => 4, "A" => 3, "B" => 2, "C" => 1, "D" => 2 }
+  @@checkInga = [ nil, "黒", "赤", "青", "緑", "白", "任意" ]
 
   @@tables =
     {
@@ -179,7 +201,7 @@ INFO_MESSAGE_TEXT
 [11, "土着の怪物が襲いかかってきた！　なんとか撃退するが、傷を負ってしまった。1D6点のダメージを受ける。"],
 [12, "美女の沐浴をのぞいてしまった。1D6を振る。1～2なら「堕落」、3～4なら「恥辱」、5～6なら「重傷1」の変調を受ける。"],
 [13, "強欲な商人に出会う。このシーンに登場したキャラクターは、アイテムを購入することができる。ただし、すべてのアイテムの価格は通常の値段より1高い。"],
-[14, "自分の過去の話をする。なんで、こんな話しちゃったんだろう？　PCの中から、自分に対してもっとも高い【想い】を持つPC全員の、関係の属性が判定する。"],
+[14, "自分の過去の話をする。なんで、こんな話しちゃったんだろう？　PCの中から、自分に対してもっとも高い【想い】を持つPC全員の、関係の属性が反転する。"],
 [15, "周囲の空気が変わった。運命の輪が動き出す予感！運命の輪の上にある赤の領域のインガを青の領域に、青の領域のインガを緑の領域に、緑の領域のインガを白の領域に、白の領域のインガを赤の領域に、それぞれ同時に移動させる。"],
 [16, "突然の空腹に襲われる。このシーン中に食事を行わなかったPCは「重傷2」の変調を受ける。この変調は、食事を行うと回復できる（ほかの方法でも回復可能）。"],
 [22, "＜絶界＞の外の世界の友人のことを思い出す。みんなは元気にしているだろうか？　この出目を振ったプレイヤーのPCは、【日常】で判定を行うことができる。成功すると、自分の変調を1つ回復するか、黒の領域からインガを1つ取り除くことができる。"],
@@ -232,7 +254,7 @@ PC全員、自分の人物欄の中から、パトスのチェックを1つ消�
 「お洒落」を1個獲得する。
 「護符」を1個獲得する。
 「甘露」を1個獲得する。
-「食事」を1D6個獲得する。
+「食料」を1D6個獲得する。
 「お香」を1個獲得する。
 「供物」を1個獲得する。
 「霊薬」を1個獲得する。

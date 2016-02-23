@@ -227,14 +227,19 @@ class DiceBot
   end
   
   def get_table_by_nD6(table, count)
-    num, = roll(count, 6)
+    get_table_by_nDx(table, count, 6)
+  end
+  
+  def get_table_by_nDx(table, count, diceType)
+    num, = roll(count, diceType)
     
     text = getTableValue(table[num - count])
     
     return '1', 0  if( text.nil? )
     return text, num
   end
-
+  
+  
   def get_table_by_1d3(table)
     debug("get_table_by_1d3")
 
