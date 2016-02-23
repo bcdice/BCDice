@@ -67,18 +67,20 @@ class DiceBotTest
     end
 
     targetFiles.each do |filename|
+      
       source =
         if RUBY_VERSION < '1.9'
           File.read(filename)
         else
           File.read(filename, :encoding => 'UTF-8')
         end
+      
       dataSetSources = source.
         gsub("\r\n", "\n").
         tr("\r", "\n").
         split("============================\n").
         map(&:chomp)
-
+      
       # ゲームシステムをファイル名から判断する
       gameType = File.basename(filename, '.txt')
       
