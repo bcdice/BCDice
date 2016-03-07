@@ -40,7 +40,7 @@ MESSAGETEXT
     text, number = 
       case type
       when '1D20'
-        num, = get_table_by_nDx(table, 1, 20)
+        get_table_by_nDx(table, 1, 20)
       else
         nil
       end
