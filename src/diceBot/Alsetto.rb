@@ -22,13 +22,14 @@ class Alsetto < DiceBot
 
   def getHelpMessage
     return <<MESSAGETEXT
-・成功判定：[n]AL[X]　　　　・トライアンフ無し：[n]ALC[X]
-・命中判定：[n]AL[X]*[p]　　・トライアンフ無し：[n]ALC[X]*[p]
+・成功判定：nAL[m]　　　　・トライアンフ無し：nALC[m]
+・命中判定：nAL[m]*p　　　・トライアンフ無し：nALC[m]*p
+[]内は省略可能。
 
 ALコマンドはトライアンフの分だけ、自動で振り足し処理を行います。
-「n」でダイス数を指定。必須。
-「X」で目標値を指定。省略時は、デフォルトの「3」が使用されます。
-「*[p]（x[p]）」を追記で攻撃力を指定。「*」と「x」のどちらでも可。
+「n」でダイス数を指定。
+「m」で目標値を指定。省略時は、デフォルトの「3」が使用されます。
+「p」で攻撃力を指定。「*」は「x」でも可。
 攻撃力指定で命中判定となり、成功数ではなく、ダメージを結果表示します。
 
 ALCコマンドはトライアンフ無しで、成功数、ダメージを結果表示します。
@@ -85,7 +86,7 @@ MESSAGETEXT
       end
       
       totalSuccessCount += successCount
-      totalCriticalCount += criticalCount
+      totalCriticalCount += 1 unless criticalCount == 0
       
       text += "+" unless( text.empty? )
       text += "#{successCount}[#{diceText}]"
