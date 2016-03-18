@@ -57,6 +57,7 @@ DarkBlaze
 DemonParasite
 DetatokoSaga
 DoubleCross
+Dracurouge
 EarthDawn
 EarthDawn3
 EarthDawn4
