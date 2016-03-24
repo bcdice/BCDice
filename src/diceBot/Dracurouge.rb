@@ -32,7 +32,7 @@ class Dracurouge < DiceBot
 ・堕落の兆し表（CS）
 ・絆内容決定表（BT）
 ・反応表（RTxy）x：血統、y：道　xy省略で一括表示
-　　血統　D：ドラク、R：ローゼンブルク、H：ヘルズガルド、D：ダストハイム、
+　　血統　D：ドラク、R：ローゼンブルク、H：ヘルズガルド、M：ダストハイム、
 　　　　　A：アヴァローム　N：ノスフェラス
 　　道　　F：領主、G：近衛、R：遍歴、W：賢者、J：狩人、N：夜獣
 　例）RT（一括表示）、RTDF（ドラク領主）、RTAN（アヴァロームの野獣）
@@ -155,7 +155,7 @@ MESSAGETEXT
     tableText, number = get_table_by_d66(table)
     
     type1 = %w{ドラク	ローゼンブルク	ヘルズガルド	ダストハイム	アヴァローム	ノスフェラス}
-    type1_indexTexts = %w{D R H D A N}
+    type1_indexTexts = %w{D R H M A N}
 	type2 = %w{領主	近衛	遍歴	賢者	狩人	夜獣}
     type2_indexTexts = %w{F G R W J N}
     
