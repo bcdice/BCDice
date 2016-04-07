@@ -31,7 +31,8 @@ class DiceBotLoader
     begin
       require "#{botFile}"
       diceBot = Module.const_get(gameTitle).new
-    rescue
+    rescue => e
+      debug("DiceBot load ERROR!!!", e.to_s)
     end
     
     return diceBot
