@@ -1,5 +1,5 @@
 #!/perl/bin/ruby -Ku
-#--*-coding:utf-8-*--
+# -*- coding: utf-8 -*-
 
 require 'kconv'
 require 'fileutils'
@@ -397,7 +397,7 @@ class TableFileEditer < TableFileCreator
     originalCommand = @originalCommand
     originalCommand ||= @command
     originalGameType = @originalGameType
-    originalGameType ||= gameType
+    originalGameType ||= @gameType
     
     originalFileName = getTableFileName(originalCommand, originalGameType)
     

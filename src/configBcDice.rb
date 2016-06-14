@@ -1,4 +1,4 @@
-#--*-coding:utf-8-*--
+# -*- coding: utf-8 -*-
 
 require 'configBcDiceForSystem.rb'
 
@@ -37,12 +37,14 @@ $allGameTypes = %w{
 Airgetlamh
 Alsetto
 Amadeus
+Amadeus:Korean
 Arianrhod
 ArsMagica
 BarnaKronika
 BattleTech
 BeastBindTrinity
 BeginningIdol
+BeginningIdol:Korean
 BloodCrusade
 BloodMoon
 CardRanker
@@ -52,12 +54,17 @@ Chill3
 CrashWorld
 Cthulhu
 Cthulhu7th
+Cthulhu7th:Korean
+Cthulhu:Korean
 CthulhuTech
 DarkBlaze
 DemonParasite
 DetatokoSaga
+DetatokoSaga:Korean
+DiceOfTheDead
 DoubleCross
 Dracurouge
+Dracurouge:Korean
 EarthDawn
 EarthDawn3
 EarthDawn4
@@ -83,18 +90,24 @@ HouraiGakuen
 HuntersMoon
 InfiniteFantasia
 Insane
+Insane:Korean
 JamesBond
 Kamigakari
+Kamigakari:Korean
 KanColle
 KillDeathBusiness
+KillDeathBusiness:Korean
+LiveraDoll
 LogHorizon
 LogHorizon:Korean
 MagicaLogia
 MeikyuDays
 MeikyuKingdom
 MonotoneMusium
+MonotoneMusium:Korean
 NJSLYRBATTLE
 Nechronica
+Nechronica:Korean
 NightWizard
 NightmareHunterDeep
 Nuekagami

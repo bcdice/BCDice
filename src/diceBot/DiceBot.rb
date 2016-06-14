@@ -1,4 +1,4 @@
-#--*-coding:utf-8-*--
+# -*- coding: utf-8 -*-
 
 class DiceBot
   @@bcdice = nil
@@ -11,7 +11,7 @@ class DiceBot
     @sortType = 0      #ソート設定(1 = 足し算ダイスでソート有, 2 = バラバラロール（Bコマンド）でソート有, 3 = １と２両方ソート有）
     @sameDiceRerollCount = 0     #ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
     @sameDiceRerollType = 0   #ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
-    @d66Type = 0        #d66の差し替え(0=D66無し, 1=順番そのまま([5,3]->53), 2=昇順入れ替え([5,3]->35)
+    @d66Type = 1        #d66の差し替え(0=D66無し, 1=順番そのまま([5,3]->53), 2=昇順入れ替え([5,3]->35)
     @isPrintMaxDice = false      #最大値表示
     @upplerRollThreshold = 0      #上方無限
     @unlimitedRollDiceType = 0    #無限ロールのダイス
@@ -141,8 +141,9 @@ class DiceBot
     
     debug('match')
     
-    output_msg = rollDiceCommandCatched(command)
+    output_msg, secret_flg = rollDiceCommandCatched(command)
     output_msg = '1' if( output_msg.nil? or output_msg.empty? )
+    secret_flg ||= false
     
     output_msg = "#{nick_e}: #{output_msg}" if(output_msg != '1')
     
@@ -169,14 +170,14 @@ class DiceBot
     result = nil
     begin
       debug('call rollDiceCommand command', command)
-      result = rollDiceCommand(command)
+      result, secret_flg = rollDiceCommand(command)
     rescue => e
       debug("executeCommand exception", e.to_s, $@.join("\n"))
     end
     
     debug('rollDiceCommand result', result)
     
-    return result
+    return result, secret_flg
   end
   
   def rollDiceCommand(command)
@@ -256,6 +257,9 @@ class DiceBot
     return text, num
   end
   
+  def getD66(isSwap)
+    number = bcdice.getD66(isSwap)
+  end
   
   # D66 ロール用（スワップ、たとえば出目が【６，４】なら「６４」ではなく「４６」とする
   def get_table_by_d66_swap(table)

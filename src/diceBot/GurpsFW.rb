@@ -1,4 +1,4 @@
-#--*-coding:utf-8-*--
+# -*- coding: utf-8 -*-
 # どどんとふ用 GURPS-FW オリジナルダイスボット
 # Last update 2013/11/07
 

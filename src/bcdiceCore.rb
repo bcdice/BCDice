@@ -1,5 +1,5 @@
 #!/bin/ruby -Ku 
-#--*-coding:utf-8-*--
+# -*- coding: utf-8 -*-
 
 require 'log'
 require 'configBcDice.rb'
