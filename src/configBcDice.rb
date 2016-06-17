@@ -45,6 +45,7 @@ BattleTech
 BeastBindTrinity
 BeginningIdol
 BeginningIdol:Korean
+BladeOfArcana
 BloodCrusade
 BloodMoon
 CardRanker
@@ -111,6 +112,7 @@ Nechronica:Korean
 NightWizard
 NightmareHunterDeep
 Nuekagami
+OneWayHeroics
 Oukahoushin3rd
 ParasiteBlood
 Peekaboo
