@@ -9,7 +9,7 @@ class OneWayHeroics < DiceBot
   
   
   def prefixs
-    ['JD.*'] + @@tables.keys
+    ['\d*JD.*'] + @@tables.keys
   end
   
   def gameName
@@ -22,10 +22,12 @@ class OneWayHeroics < DiceBot
   
   def getHelpMessage
     return <<MESSAGETEXT
-・判定　JDx+y,z
-　x:能力値、y:修正値（省略可。「＋」のみなら＋１）、z:目標値、
+・判定　aJDx+y,z
+　a:ダイス数（省略時2個)、x:能力値、
+　y:修正値（省略可。「＋」のみなら＋１）、z:目標値（省略可）
 　例１）JD2+1,8 or JD2+,8　：能力値２、修正＋１、目標値８
 　例２）JD3,10 能力値３、修正なし、目標値10
+　例３）3JD4+ ダイス3個から2個選択、能力値４、修正なし、目標値なし
 ・ファンブル表 FT
 ・魔王追撃表   DC
 ・進行ルート表 PR
@@ -63,31 +65,58 @@ MESSAGETEXT
   
   
   def judgeDice(command)
-    return nil unless /^JD(\d*)(\+(\d*))?,(\d+)$/ === command
+    return nil unless /^(\d*)JD(\d*)(\+(\d*))?(,(\d+))?$/ === command
     
-    ability = $1.to_i
-    target = $4.to_i
+    diceCount = $1
+    diceCount = 2 if diceCount.empty?
+    diceCount = diceCount.to_i
+    return nil if diceCount < 2
     
-    modifyText = ($2 || "")
+    ability = $2.to_i
+    target = $6
+    target = target.to_i unless target.nil?
+    
+    modifyText = ($3 || "")
     modifyText = "+1" if modifyText == "+" 
     modifyValue = modifyText.to_i
     
-    dice, diceText, = roll(2, 6)
+    dice, diceText = rollJudgeDice(diceCount)
     total = dice + ability + modifyValue
     
     text = "#{command}"
-    text += " ＞ 2D6[#{diceText}]+#{ability}#{modifyText}"
+    text += " ＞ #{diceCount}D6[#{diceText}]+#{ability}#{modifyText}"
     text += " ＞ #{total}"
     
     result = getJudgeReusltText(dice, total, target)
-    text += " ＞ #{result}"
+    text += " ＞ #{result}" unless result.empty?
     
     return text
   end
   
+  def rollJudgeDice(diceCount)
+    dice, diceText, = roll(diceCount, 6)
+    
+    if( diceCount == 2 )
+      return dice, diceText
+    end
+    
+    diceList = getDiceListFromDiceText(diceText)
+    diceList.sort!
+    diceList.reverse!
+    
+    total = diceList[0] + diceList[1]
+    text = "#{diceText}→#{diceList[0]},#{diceList[1]}"
+    
+    return total, text
+  end
+  
   def getJudgeReusltText(dice, total, target)
     return "ファンブル" if dice == 2
-    return "クリティカル" if dice == 12
+    return "スペシャル" if dice == 12
+    
+    debug("target", target)
+    
+    return "" if target.nil?
     
     return "成功" if total >= target
     return "失敗"
