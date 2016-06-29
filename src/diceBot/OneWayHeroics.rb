@@ -132,11 +132,11 @@ MESSAGETEXT
   end
       
   
-  def getLossGoldText(diceCount, times)
+  def getGoldText(diceCount, times, doSomething)
     total, diceText = roll(diceCount, 6)
     gold = total * times
     
-    return " ＞ #{diceCount}D6[#{diceText}]×#{times} ＞ 【所持金】 #{gold} を失う"
+    return " ＞ #{diceCount}D6[#{diceText}]×#{times} ＞ 【所持金】 #{gold} を#{doSomething}"
   end
   
   def getDownText(name, diceCount)
@@ -155,8 +155,8 @@ MESSAGETEXT
       [
        [1, "装備以外のアイテムのうちプレイヤー指定の１つを失う"],
        [2, "装備のうちプレイヤー指定の１つを失う"],
-       [3, "１Ｄ６に１００を掛け、それだけの【所持金】を失う", 'getLossGoldText(1, 100)'],
-       [4, "１Ｄ６に１００を掛け、それだけの【所持金】を拾う", 'getLossGoldText(1, 100)'],
+       [3, "１Ｄ６に１００を掛け、それだけの【所持金】を失う", 'getGoldText(1, 100, "失う")'],
+       [4, "１Ｄ６に１００を掛け、それだけの【所持金】を拾う", 'getGoldText(1, 100, "拾う")'],
        [5, "【経験値】２を獲得する"],
        [6, "【経験値】４を獲得する"],
       ],},
@@ -167,7 +167,7 @@ MESSAGETEXT
       :table => 
       [[1, "装備以外のアイテムのうちＧＭ指定の１つを失う"],
        [2, "装備のうちＧＭ指定の１つを失う"],
-       [3, "２Ｄ６に１００を掛け、それだけの【所持金】を失う", 'getLossGoldText(2, 100)'],
+       [3, "２Ｄ６に１００を掛け、それだけの【所持金】を失う", 'getGoldText(2, 100, "失う")'],
        [4, "【ＬＩＦＥ】が１Ｄ６減少する", 'getDownText("【ＬＩＦＥ】", 1)'],
        [5, "【ＳＴ】が１Ｄ６減少する", 'getDownText("【ＳＴ】", 1)'],
        [6, "【ＬＩＦＥ】が２Ｄ６減少する", 'getDownText("【ＬＩＦＥ】", 2)'],

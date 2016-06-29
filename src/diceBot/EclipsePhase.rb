@@ -6,7 +6,7 @@ class EclipsePhase < DiceBot
     super
   end
   def gameName
-    'Eclipse Phase'
+    'エクリプス・フェイズ'
   end
   
   def gameType

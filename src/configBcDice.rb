@@ -36,6 +36,7 @@ $iniFileName = 'bcdice.ini'
 $allGameTypes = %w{
 Airgetlamh
 Alsetto
+Alshard
 Amadeus
 Amadeus:Korean
 Arianrhod
@@ -66,6 +67,7 @@ DiceOfTheDead
 DoubleCross
 Dracurouge
 Dracurouge:Korean
+DungeonsAndDoragons
 EarthDawn
 EarthDawn3
 EarthDawn4
@@ -74,12 +76,15 @@ Elric!
 Elysion
 EmbryoMachine
 EndBreaker
+EtrianOdysseySRS
 FilledWith
+FullMetalPanic
 GURPS
 Garako
 GardenOrder
 GehennaAn
 GeishaGirlwithKatana
+GoldenSkyStories
 Gorilla
 GranCrest
 Gundog
@@ -92,6 +97,7 @@ HuntersMoon
 InfiniteFantasia
 Insane
 Insane:Korean
+IthaWenUa
 JamesBond
 Kamigakari
 Kamigakari:Korean
@@ -104,6 +110,8 @@ LogHorizon:Korean
 MagicaLogia
 MeikyuDays
 MeikyuKingdom
+MetalHead
+MetallicGuadian
 MonotoneMusium
 MonotoneMusium:Korean
 NJSLYRBATTLE
@@ -114,7 +122,9 @@ NightmareHunterDeep
 Nuekagami
 OneWayHeroics
 Oukahoushin3rd
+Paranoia
 ParasiteBlood
+Pathfinder
 Peekaboo
 Pendragon
 PhantasmAdventure
@@ -124,6 +134,7 @@ RoleMaster
 RuneQuest
 Ryutama
 SMTKakuseihen
+SRS
 Satasupe
 ShadowRun
 ShadowRun4
@@ -136,10 +147,12 @@ SwordWorld2.0
 TORG
 TORG1.5
 TokumeiTenkousei
+TokyoNova
 Tunnels_&_Trolls
 TwilightGunsmoke
 Utakaze
 WARPS
+WaresBlade
 Warhammer
 WitchQuest
 ZettaiReido
