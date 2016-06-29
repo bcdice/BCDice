@@ -4,12 +4,10 @@ class MetalHead < DiceBot
   
   def initialize
     super
-    @hitRoll = false
-    #$isDebug = true
   end
   
   def prefixs
-    ['AR','SR','HR','CC','ACT','ACL','ACS','CRC[A-Z]\d+']
+    ['AR','SR','HR<=.+','CC','ACT','ACL','ACS','CRC[A-Z]\d+']
   end
   
   def gameName
@@ -27,8 +25,8 @@ class MetalHead < DiceBot
 ・命中判定ロール    HR<=目標値(%)
 
   例）AR>=5
-  例）SR<=40+25
-  例）HR<=50-10
+  例）SR<=(40+25)
+  例）HR<=(50-10)
 
   これらのロールで成否、絶対成功/絶対失敗、クリティカル/アクシデントを自動判定します。
 
@@ -43,23 +41,26 @@ MESSAGETEXT
 
   def rollDiceCommand(command)
 
+    debug("rollDiceCommand", command)
+    
     tableName   = ""
     tableNumber = ""
     tableResult = ""
-
-    if(command =~ /^CC/)
-      tableName,tableResult,tableNumber = mh_cc_table
+    
+    case command.upcase
+    when /^CC/
+      tableName, tableResult, tableNumber = mh_cc_table
+    when /^ACL/
+      tableName, tableResult, tableNumber = mh_acl_table
+    when /^ACS/
+      tableName, tableResult, tableNumber = mh_acs_table
+    when /^CRC(\w)(\d+)/
+      tableName, tableResult, tableNumber = mh_crc_table($1, $2)
+    when /^HR<=(.+)$/
+      target = parren_killer("(" + $1 + ")").to_i
+      return rollHit(target)
     end
-    if(command =~ /^ACL/)
-      tableName,tableResult,tableNumber = mh_acl_table
-    end
-    if(command =~ /^ACS/)
-      tableName,tableResult,tableNumber = mh_acs_table
-    end
-    if(command =~ /^CRC(\w)(\d+)/)
-      tableName,tableResult,tableNumber = mh_crc_table($1,$2)
-    end
-
+    
     if(! tableName.empty?)
       return "#{tableName} ＞ #{tableNumber} ＞ #{tableResult}"
     end
@@ -67,73 +68,58 @@ MESSAGETEXT
   end
   
   def changeText(string)
-    @hitroll = false
     string = string.gsub(/^(S)?AR/i) { "#{$1}2D6" }
     string = string.gsub(/^(S)?SR/i) { "#{$1}1D100" }
-    string.match(/^(S)?HR/i) { @hitRoll = true }
-    string = string.gsub(/^(S)?HR/i) { "#{$1}1D100" }
     return string
   end
-
-  def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  
+  def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     return '' if(signOfInequality != ">=")
     return '' if(diff == "?")
     
-    if(dice_n >= 12)
-      return " ＞ 絶対成功";
-    end
+    return " ＞ 絶対成功" if(dice_n >= 12)
+    return " ＞ 絶対失敗" if(dice_n <=2)
     
-    if(dice_n <=2)
-      return " ＞ 絶対失敗";
-    end
-    
-    if(totalValue >= diff)
-      return " ＞ 成功";
-    end
-    
-    return " ＞ 失敗";
+    return " ＞ 成功" if(totalValue >= diff)
+    return " ＞ 失敗"
   end
-
-  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
+  
+  
+  def rollHit(target)
+    total, = roll(1, 100)
+    resultText = getHitResult(total, total, target)
+    
+    text = "(1D100<=#{target}) ＞ #{total}#{resultText}"
+    
+    return text
+  end
+  
+  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     return '' unless( signOfInequality == '<=' )
     
+    return getResult(total_n, dice_n, diff)
+  end
+  
+  def getHitResult(total_n, dice_n, diff)
     diceValue = total_n % 100
-    dice0 = diceValue / 10 #10の位を代入
     dice1 = diceValue % 10 # 1の位を代入
     
     debug("total_n", total_n)
-    debug("dice0, dice1", dice0, dice1)
     
-    if( @hitRoll )
-
-      if(total_n <= diff)
-        if( dice1 == 1 )
-          return ' ＞ 成功（クリティカル）'
-        elsif( dice1 == 0 )
-          return ' ＞ 失敗（アクシデント）'
-        else
-          return ' ＞ 成功'
-        end
-      else
-        return ' ＞ 失敗'
-      end
-
-    else
-
-      if( dice_n <= 5)
-        return ' ＞ 絶対成功'
-      elsif( dice_n >= 96 )
-        return ' ＞ 絶対失敗'
-      else
-        if(total_n <= diff)
-          return ' ＞ 成功'
-        else
-          return ' ＞ 失敗'
-        end
-      end
-
-    end
-
+    return ' ＞ 失敗' if(total_n > diff)
+    
+    return ' ＞ 成功（クリティカル）' if( dice1 == 1 )
+    return ' ＞ 失敗（アクシデント）' if( dice1 == 0 )
+    return ' ＞ 成功'
+  end
+  
+  def getResult(total_n, dice_n, diff)
+    
+    return ' ＞ 絶対成功' if( dice_n <= 5)
+    return ' ＞ 絶対失敗' if( dice_n >= 96 )
+    
+    return ' ＞ 成功' if(total_n <= diff)
+    return ' ＞ 失敗'
   end
 
 
