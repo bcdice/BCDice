@@ -321,7 +321,7 @@ class DiceBot
   end
   
   # SW2.0 の超成功用
-  def check2dCritical(critical, dice_new, dice_arry)
+  def check2dCritical(critical, dice_new, dice_arry, loop_count)
   end
   
   def is2dCritical

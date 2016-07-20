@@ -41,6 +41,7 @@ Amadeus
 Amadeus:Korean
 Arianrhod
 ArsMagica
+Avandner
 BarnaKronika
 BattleTech
 BeastBindTrinity

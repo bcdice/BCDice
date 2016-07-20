@@ -213,6 +213,7 @@ class AddDice
     dice_str = ""
     dice_arry = []
     dice_arry.push( dice_count )
+    loop_count = 0
     
     debug("before while dice_arry", dice_arry)
     
@@ -246,7 +247,8 @@ class AddDice
         addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_arry, dice_wk)
       end
       
-      @diceBot.check2dCritical(critical, dice_new, dice_arry)
+      @diceBot.check2dCritical(critical, dice_new, dice_arry, loop_count)
+      loop_count += 1
     end
     
     #ダイス目文字列からダイス値を変更する場合の処理（現状クトゥルフ・テック専用）

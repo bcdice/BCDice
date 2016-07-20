@@ -67,10 +67,13 @@ INFO_MESSAGE_TEXT
   
   
   # SW2.0 の超成功用
-  def check2dCritical(critical, dice_new, dice_arry)
+  def check2dCritical(critical, dice_new, dice_arry, loop_count)
     return if( critical <= 2 )
-    return if( dice_new == 12 )
-    return if( dice_new == 2 )
+    
+    if( loop_count == 0 )
+      return if( dice_new == 12 )
+      return if( dice_new == 2 )
+    end
     
     if( dice_new >= critical )
       dice_arry.push( 2 )
