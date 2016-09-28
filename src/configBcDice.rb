@@ -34,6 +34,7 @@ $extraCardFileName = ""                #拡張カードファイル名
 $iniFileName = 'bcdice.ini'
 
 $allGameTypes = %w{
+AceKillerGene
 Airgetlamh
 Alsetto
 Alshard
@@ -54,6 +55,7 @@ CardRanker
 Chaos_Flare
 Chill
 Chill3
+CodeLayerd
 CrashWorld
 Cthulhu
 Cthulhu7th
@@ -108,6 +110,7 @@ KillDeathBusiness:Korean
 LiveraDoll
 LogHorizon
 LogHorizon:Korean
+LostRoyal
 MagicaLogia
 MeikyuDays
 MeikyuKingdom
@@ -143,6 +146,8 @@ SharedFantasia
 ShinkuuGakuen
 ShinobiGami
 ShoujoTenrankai
+Skynauts
+StrangerOfSwordCity
 SwordWorld
 SwordWorld2.0
 TORG

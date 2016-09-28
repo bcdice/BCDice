@@ -24,33 +24,37 @@ INFO_MESSAGE_TEXT
   end
   
   
-  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
-    return '' unless( signOfInequality == '<=' )
+  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)\
     
-    diceValue = total_n % 100 #これで１〜１００の値を０〜９９にする。
-    dice0 = diceValue / 10 #10の位を代入
-    dice1 = diceValue % 10 # 1の位を代入
+    return '' unless signOfInequality == '<='
+    
+    diceValue = total_n % 100 # 出目00は100ではなく00とする
+    dice_ten_place = diceValue / 10
+    dice_one_place = diceValue % 10
     
     debug("total_n", total_n)
-    debug("dice0, dice1", dice0, dice1)
+    debug("dice_ten_place, dice_one_place", dice_ten_place, dice_one_place)
     
-    if( dice0 != dice1 )
-      if(total_n <= diff)
-        return ' ＞ 成功'
-        else
-        return ' ＞ 失敗'
-      end
+    if dice_ten_place == dice_one_place
+      return ' ＞ 決定的失敗' if diceValue == 99
+      return ' ＞ 00 ＞ 決定的成功' if diceValue == 0
+      return ' ＞ 決定的成功' if total_n <= diff
+      return ' ＞ 決定的失敗'
     end
     
-    if( (dice0 == 0) and (dice1 == 0) )
-      return ' ＞ 00 ＞ クリティカル'
-    end
     
-    if(total_n <= diff)
-      return ' ＞ クリティカル'
+    diff_threshold = 30
+    
+    if (total_n <= diff)
+      return ' ＞ エクセレント' if total_n >= diff_threshold
+      return ' ＞ 成功'
     else
-      return ' ＞ ファンブル'
+      return ' ＞ シビア' if (total_n - diff) >= diff_threshold
+      return ' ＞ 失敗'
     end
+    
   end
-
+  
+  
 end
+
