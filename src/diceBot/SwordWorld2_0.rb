@@ -18,7 +18,7 @@ class SwordWorld2_0 < SwordWorld
   end
   
   def prefixs
-     ['K\d+.*']
+     ['K\d+.*', 'Gr(\d+)?']
   end
   
   def getHelpMessage
@@ -53,7 +53,24 @@ class SwordWorld2_0 < SwordWorld
 
 ・超越判定用に2d6ロールに 2D6@10 書式でクリティカル値付与が可能に。
 　例）2D6@10　2D6@10+11>=30
+
+・成長　(Gr)
+　末尾に数字を付加することで、複数回の成長をまとめて行えます。
+　例）Gr3
 INFO_MESSAGE_TEXT
+  end
+  
+  def rollDiceCommand(command)
+    case command
+      when /^Gr(\d+)?/i
+        if command =~ /^Gr(\d+)/i then
+          growth($1.to_i)
+        else
+          growth
+        end
+      else
+        super(command)
+    end
   end
   
   def isSW2_0Mode
@@ -104,4 +121,21 @@ INFO_MESSAGE_TEXT
     return result
   end
   
+  def growth(count = 1)
+    ((1..count).map do growth_step end).join " | "
+  end
+  
+  def growth_step
+    d1, = roll(1, 6)
+    d2, = roll(1, 6)
+    
+    a1 = get_ability_by_dice(d1)
+    a2 = get_ability_by_dice(d2)
+    
+    return a1 != a2 ? "[#{d1},#{d2}]->(#{a1} or #{a2})" : "[#{d1},#{d2}]->(#{a1})"
+  end
+  
+  def get_ability_by_dice(dice)
+    ['器用度', '敏捷度', '筋力', '生命力', '知力', '精神力'][dice - 1]
+  end
 end
