@@ -13,7 +13,7 @@ class DiceBotLoader
   def loadUnknownGame(gameTitle)
     debug("loadUnknownGame gameTitle", gameTitle)
     
-    gameTitle = gameTitle.gsub(/(\.\.|\/|:)/, '_')
+    gameTitle = gameTitle.gsub(/(\.\.|\/|:|-)/, '_')
     
     botFile = "diceBot/#{gameTitle}.rb"
     fileName = "#{@@bcDicePath}/#{botFile}"
