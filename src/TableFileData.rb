@@ -83,19 +83,16 @@ class TableFileData
     
     baseName = File.basename(fileName, '.txt')
     
-    unless( /^#{prefix}([^_]+)(_(.+))?$/ === baseName )
-      return info 
-    end
-    
-    header = $1
-    tail = $3
-    
-    if( tail.nil? )
+    case baseName
+    when /^#{prefix}(.+)_(.+)_(.+)$/
+      info["command"] = $3
+      info["gameType"] = $1 + ":" + $2
+    when /^#{prefix}(.+)_(.+)$/
+      info["command"] = $2
+      info["gameType"] = $1
+    when /^#{prefix}(.+)$/
+      info["command"] = $1
       info["gameType"] = ''
-      info["command"] = header
-    else
-      info["gameType"] = header
-      info["command"] = tail
     end
     
     return info
@@ -254,6 +251,7 @@ class TableFileCreator
     @dir = dir
     @prefix = prefix
     @params = params
+    @logger = DodontoF::Logger.instance
   end
   
   def execute
@@ -282,6 +280,7 @@ class TableFileCreator
     
     gameType = @params['gameType'] if( gameType.nil? )
     gameType ||= ''
+    gameType.gsub!(':', '_')
     
     if( command.nil? )
       initCommand

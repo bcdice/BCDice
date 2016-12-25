@@ -56,10 +56,13 @@ Chaos_Flare
 Chill
 Chill3
 CodeLayerd
+ColossalHunter
 CrashWorld
 Cthulhu
 Cthulhu7th
+Cthulhu7th:ChineseTraditional
 Cthulhu7th:Korean
+Cthulhu:ChineseTraditional
 Cthulhu:Korean
 CthulhuTech
 DarkBlaze

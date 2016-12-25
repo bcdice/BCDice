@@ -373,4 +373,22 @@ class DiceBot
   end
   
   
+  
+  def analyzeDiceCommandResultMethod(command)
+    
+    # get～DiceCommandResultという名前のメソッドを集めて実行、
+    # 結果がnil以外の場合それを返して終了。
+    methodList = public_methods(false).select do |method|
+      /^get.+DiceCommandResult$/ === method.to_s
+    end
+    
+    methodList.each do |method|
+      result = send(method, command)
+      return result unless result.nil?
+    end
+    
+    return nil
+  end
+  
+  
 end

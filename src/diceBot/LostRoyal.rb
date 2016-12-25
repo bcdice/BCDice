@@ -30,7 +30,7 @@ class LostRoyal < DiceBot
 　　x の並びには【判定表】の数値を順番に入力する。
 　　（例： LR[1,3,0,1,2] ）
 
-ファンブル表 
+ファンブル表
 　FC
 
 風力決定表
@@ -79,8 +79,9 @@ INFO_MESSAGE_TEXT
     text = "3D6 => [#{keys.join(",")}] => (#{scores.join("+")}) => #{total_score}"
     
     unless chained_sequence.nil? || chained_sequence.empty? then
-      text += " | #{chained_sequence.size} chain! (#{chained_sequence.join(",")}) => #{total_score + chained_sequence.size}"
-      
+      bonus = is_fumble?(keys, chained_sequence) ? 3 : chained_sequence.size
+      text += " | #{chained_sequence.size} chain! (#{chained_sequence.join(",")}) => #{total_score + bonus}"
+
       if chained_sequence.size >= 3 then
         text += " [スペシャル]"
       end

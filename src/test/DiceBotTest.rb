@@ -67,6 +67,7 @@ class DiceBotTest
     end
 
     targetFiles.each do |filename|
+      next if /^_/ === File.basename(filename)
       
       source =
         if RUBY_VERSION < '1.9'
