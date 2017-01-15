@@ -43,6 +43,7 @@ Amadeus:Korean
 Arianrhod
 ArsMagica
 Avandner
+BadLife
 BarnaKronika
 BattleTech
 BeastBindTrinity
@@ -94,6 +95,7 @@ GoldenSkyStories
 Gorilla
 GranCrest
 Gundog
+GundogRevised
 GundogZero
 GurpsFW
 HarnMaster
@@ -151,10 +153,12 @@ ShinobiGami
 ShoujoTenrankai
 Skynauts
 StrangerOfSwordCity
+Strave
 SwordWorld
 SwordWorld2.0
 TORG
 TORG1.5
+TherapieSein
 TokumeiTenkousei
 TokyoNova
 Tunnels_&_Trolls
