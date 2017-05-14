@@ -35,9 +35,9 @@ MESSAGETEXT
     case command
     when /(\d+)?CL(\@?(\d))?(>=(\d+))?/i
       base  = ($1 || 1).to_i
-      judge = ($3 || 6).to_i
+      target = ($3 || 6).to_i
       diff  = $5.to_i
-      result= checkRoll(base, judge, diff)
+      result= checkRoll(base, target, diff)
     end
     
     return nil if result.empty? 
@@ -46,15 +46,15 @@ MESSAGETEXT
   end
   
   
-  def checkRoll(base, judge, diff = 0)
+  def checkRoll(base, target, diff)
     result = ""
     
     base  = getValue(base)
-    judge = getValue(judge)
+    target = getValue(target)
     
-    return result if( base < 1 )
+    return result if base < 1
     
-    judge = 10 if( judge > 10 )
+    target = 10 if target > 10
     
     result << "(#{base}d10)"
     
@@ -63,66 +63,53 @@ MESSAGETEXT
     diceList = diceText.split(/,/).collect{|i|i.to_i}.sort
     
     result << " ＞ [#{diceList.join(',')}] ＞ "
-    result << getRollResultString(diceList, judge, diff)
+    result << getRollResultString(diceList, target, diff)
     
     return result 
   end
   
   
-  def getRollResultString(diceList, judge, diff)
+  def getRollResultString(diceList, target, diff)
     
-    successnum,critnum = getSuccessInfo(diceList, judge)
+    successCount, criticalCount = getSuccessInfo(diceList, target)
     
-    successsum = successnum + critnum
+    successTotal = successCount + criticalCount
     result = ""
-
-    if(critnum > 0)
-      result << "判定値[#{judge}] 達成値[#{successnum}+#{critnum}=#{successsum}]"
-    else
-      result << "判定値[#{judge}] 達成値[#{successnum}]"
-    end
-
-    if( diff != 0 )
-      if( successsum >= diff )
-        result << " ＞ 成功"
-      elsif( successsum == 0 )
-        result << " ＞ ファンブル！"
-      else
-        result << " ＞ 失敗"
-      end
-    else
-      result << " ＞ #{successsum}"
-    end
+    
+    result << "判定値[#{target}] 達成値[#{successCount}]"
+    result << "+クリティカル[#{criticalCount}]=[#{successTotal}]" if criticalCount > 0
+    
+    successText = getSuccessResultText(successTotal, diff)
+    result << " ＞ #{successText}"
     
     return result
   end
   
+  def getSuccessResultText(successTotal, diff)
+    return "ファンブル！" if successTotal == 0
+    return "#{successTotal}" if diff == 0
+    return "成功" if successTotal >= diff
+    return "失敗"
+  end
   
-  def getSuccessInfo(diceList, judge)
-    debug("checkSuccess diceList, judge", diceList, judge)
+  
+  def getSuccessInfo(diceList, target)
+    debug("checkSuccess diceList, target", diceList, target)
     
-    num  = 0
-    crit = 0
-    successDiceList = []
+    successCount  = 0
+    criticalCount = 0
     
     diceList.each do |dice|
-      if( dice <= judge )
-        successDiceList << dice
-        num += 1
-      end
-      if( dice == 1 )
-        crit += 1
-      end
+      successCount += 1 if dice <= target
+      criticalCount += 1 if dice == 1
     end
     
-    debug("successDiceList", successDiceList)
-    
-    return num,crit
+    return successCount, criticalCount
   end
   
 
   def getValue(number)
-    return 0 if( number > 100 )
+    return 0 if number > 100
     return number
   end
   
