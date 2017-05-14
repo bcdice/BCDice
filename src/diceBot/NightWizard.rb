@@ -7,7 +7,7 @@ class NightWizard < DiceBot
     @sendMode = 2
   end
   def gameName
-    'ナイトウィザード'
+    'ナイトウィザード2版'
   end
   
   def gameType
@@ -32,7 +32,11 @@ INFO_MESSAGE_TEXT
   def changeText(string)
     return string unless(string =~ /NW/i)
     
-    string = string.gsub(/([\-\d]+)NW([\+\-\d]*)@([,\d]+)#([,\d]+)([\+\-\d]*)/i) {"2R6m[#{$1}#{$2}#{$5}]c[#{$3}]f[#{$4}]"}
+    string = string.gsub(/([\-\d]+)NW([\+\-\d]*)@([,\d]+)#([,\d]+)([\+\-\d]*)/i) do
+      modify = $5.empty? ? "" : ",#{$5}"
+      "2R6m[#{$1}#{$2}#{modify}]c[#{$3}]f[#{$4}]"
+    end
+    
     string = string.gsub(/([\-\d]+)NW([\+\-\d]*)/i) {"2R6m[#{$1}#{$2}]"}
     string = string.gsub(/NW([\+\-\d]*)/i) {"2R6m[0#{$1}]"}
   end
@@ -66,16 +70,15 @@ INFO_MESSAGE_TEXT
     debug('is valid string')
     
     string = $2
-    base_and_mod = $3
+    base_and_modify = $3
     criticalText = $4
     criticalValue = $5
-    fumbleTet = $6
+    fumbleText = $6
     fumbleValue = $7
     judgeText = $8
     judgeOperator = $9
     judgeValue = $10.to_i
     
-    base, mod = base_and_mod.split(/,/)
     crit = "0"
     fumble = "0"
     signOfInequality = ""
@@ -85,7 +88,7 @@ INFO_MESSAGE_TEXT
       crit = criticalValue
     end
     
-    if(fumbleTet)
+    if(fumbleText)
       fumble = fumbleValue
     end
     if(judgeText)
@@ -94,12 +97,13 @@ INFO_MESSAGE_TEXT
       signOfInequality = marshalSignOfInequality(judgeOperator)
     end
     
-    base = parren_killer("(0#{base})").to_i
-    mod = parren_killer("(0#{mod})").to_i
-    base_and_mod = parren_killer("(0#{base_and_mod})").to_i
-
     
-    total, out_str = nw_dice(base_and_mod, crit, fumble)
+    base, modify = base_and_modify.split(/,/)
+    base = parren_killer("(0#{base})").to_i
+    modify = parren_killer("(0#{modify})").to_i
+    debug("base_and_modify, base, modify", base_and_modify, base, modify)
+    
+    total, out_str = nw_dice(base, modify, crit, fumble)
 
     output = "#{nick_e}: (#{string}) ＞ #{out_str}"
     if(signOfInequality != "")  # 成功度判定処理
@@ -109,9 +113,14 @@ INFO_MESSAGE_TEXT
     return output
   end
   
+  def getValueText(text)
+    value = text.to_i
+    return "#{value}" if(value < 0)
+    return "+#{value}" 
+  end
   
-  def nw_dice(base_and_mod, criticalText, fumbleText)
-    debug("nw_dice : base_and_mod, criticalText, fumbleText", base_and_mod, criticalText, fumbleText)
+  def nw_dice(base, modify, criticalText, fumbleText)
+    debug("nw_dice : base, modify, criticalText, fumbleText", base, modify, criticalText, fumbleText)
     
     @criticalValues = getValuesFromText(criticalText, [10])
     @fumbleValues = getValuesFromText(fumbleText, [5])
@@ -123,20 +132,25 @@ INFO_MESSAGE_TEXT
     
     dice_n, dice_str, = roll(2, 6, 0)
     
-    total = base_and_mod
+    total = 0
     
     if( @fumbleValues.include?(dice_n) )
-      total = base_and_mod
-      total -= 10
-      output = "#{base_and_mod}-10[#{dice_str}] ＞ ファンブル ＞ #{total}"
+      fumble_text, total = getFumbleTextAndTotal(base, modify, dice_str)
+      output = "#{fumble_text} ＞ ファンブル ＞ #{total}"
     else
-      total = base_and_mod
+      total = base + modify
       total, output = checkCritical(total, dice_str, dice_n)
     end
     
     return total, output
   end
   
+  def getFumbleTextAndTotal(base, modify, dice_str)
+    total = base
+    total += -10
+    text = "#{base}-10[#{dice_str}]"
+    return text, total
+  end
   
   def setCriticalValues(text)
     @criticalValues = getValuesFromText(text, [10])

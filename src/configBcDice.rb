@@ -67,6 +67,7 @@ Cthulhu:ChineseTraditional
 Cthulhu:Korean
 CthulhuTech
 DarkBlaze
+DeadlineHeroes
 DemonParasite
 DetatokoSaga
 DetatokoSaga:Korean
@@ -120,6 +121,7 @@ MagicaLogia
 MeikyuDays
 MeikyuKingdom
 MetalHead
+MetalHeadExtream
 MetallicGuadian
 MonotoneMusium
 MonotoneMusium:Korean
@@ -127,6 +129,7 @@ NJSLYRBATTLE
 Nechronica
 Nechronica:Korean
 NightWizard
+NightWizard3rd
 NightmareHunterDeep
 Nuekagami
 OneWayHeroics
@@ -145,6 +148,7 @@ Ryutama
 SMTKakuseihen
 SRS
 Satasupe
+SevenFortressMobius
 ShadowRun
 ShadowRun4
 SharedFantasia
