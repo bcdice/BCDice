@@ -2057,8 +2057,7 @@ class BCDice
       diceBot = DiceBot.new
     else
       require 'diceBot/DiceBotLoader'
-      loader = DiceBotLoader.new
-      diceBot = loader.loadUnknownGame(gameTitle)
+      diceBot = DiceBotLoader.loadUnknownGame(gameTitle)
     end
     
     if( diceBot.nil? )
