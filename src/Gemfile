@@ -1,5 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'net-irc'
-gem 'wxruby-ruby19', '2.0.0'
-gem 'ocra'
+unless ENV['TRAVIS_CI'] == '1'
+  gem 'net-irc'
+  gem 'wxruby-ruby19', '2.0.0'
+  gem 'ocra'
+end
+
+group :development, :test do
+  if RUBY_VERSION < '1.9'
+    gem 'rake', '~> 10.5'
+    gem 'test-unit', '1.2.3'
+  else
+    gem 'rake'
+    gem 'test-unit'
+  end
+end
