@@ -445,6 +445,10 @@ class TestDiceBotLoaders < Test::Unit::TestCase
     assertDiceBot('ShoujoTenrankai', 'ShoujoTenrankai')
   end
 
+  def test_GardenOrder
+    assertDiceBot('GardenOrder', 'GardenOrder')
+  end
+
   private
 
   def assertDiceBot(gameType, pattern)
