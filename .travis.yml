@@ -14,5 +14,5 @@ gemfile:
 env:
   - TRAVIS_CI=1
 
-script:
-  - cd src && ruby test.rb
+before_script:
+  - cd src
