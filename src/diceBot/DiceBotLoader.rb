@@ -152,9 +152,8 @@ class DiceBotLoader
   end
 
   # ダイスボットを読み込む
-  # @param [BCDice] BCDice本体
   # @return [DiceBot]
-  def loadDiceBot(bcDice)
+  def loadDiceBot
     @filenames.each do |filename|
       require(
         File.expand_path(filename, File.dirname(__FILE__))

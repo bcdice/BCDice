@@ -1803,7 +1803,7 @@ class BCDice
     loader = DiceBotLoaderList.find(gameTitle)
     diceBot =
       if loader
-        loader.loadDiceBot(self)
+        loader.loadDiceBot
       else
         DiceBotLoader.loadUnknownGame(gameTitle) || DiceBot.new
       end
