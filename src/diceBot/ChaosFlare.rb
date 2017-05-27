@@ -1,6 +1,17 @@
 # -*- coding: utf-8 -*-
 
 class ChaosFlare < DiceBot
+  # ダイスボット設定後に行う処理
+  # @return [void]
+  def postSet
+    if @@bcdice
+      @@bcdice.cardTrader.set2Deck2Jorker
+      # 手札の他のカード置き場
+      @@bcdice.cardTrader.setCardPlace(0)
+      # 場札のタップ処理の必要があるか？
+      @@bcdice.cardTrader.setCanTapCard(false)
+    end
+  end
   
   def gameName
     'カオスフレア'
