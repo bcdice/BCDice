@@ -12,11 +12,11 @@ class BarnaKronika < DiceBot
   # @return [void]
   def postSet
     if @@bcdice
-      @@bcdice.cardTrader.set1Deck2Jorker
+      @@bcdice.cardTrader.set1Deck2Jokers
       # 手札の他のカード置き場
-      @@bcDice.cardTrader.setCardPlace(0)
+      @@bcdice.cardTrader.card_place = 0
       # 場札のタップ処理の必要があるか？
-      @@bcDice.cardTrader.setCanTapCard(false)
+      @@bcdice.cardTrader.canTapCard = false
     end
   end
 

@@ -5,11 +5,11 @@ class ChaosFlare < DiceBot
   # @return [void]
   def postSet
     if @@bcdice
-      @@bcdice.cardTrader.set2Deck2Jorker
+      @@bcdice.cardTrader.set2Decks2Jokers
       # 手札の他のカード置き場
-      @@bcdice.cardTrader.setCardPlace(0)
+      @@bcdice.cardTrader.card_place = 0
       # 場札のタップ処理の必要があるか？
-      @@bcdice.cardTrader.setCanTapCard(false)
+      @@bcdice.cardTrader.canTapCard = false
     end
   end
   

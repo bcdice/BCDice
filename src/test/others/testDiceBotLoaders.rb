@@ -12,6 +12,8 @@ require 'diceBot/DiceBotLoader'
 class TestDiceBotLoaders < Test::Unit::TestCase
   def setup
     $isDebug = false
+
+    @bcDice = BCDiceMaker.new.newBcDice
   end
 
   def test_None
@@ -154,6 +156,16 @@ class TestDiceBotLoaders < Test::Unit::TestCase
     assertDiceBot('Chaos Flare', 'CF')
   end
 
+  def test_ChaosFlare_cards
+    assertDiceBot('Chaos Flare', 'Chaos Flare')
+
+    cardTrader = @bcDice.cardTrader
+    assert_equal(2, cardTrader.numOfDecks)
+    assert_equal(2, cardTrader.numOfJokers)
+    assert_equal(0, cardTrader.card_place)
+    assert_equal(false, cardTrader.canTapCard)
+  end
+
   def test_CthulhuTech
     assertDiceBot('CthulhuTech', 'Cthulhu Tech')
     assertDiceBot('CthulhuTech', 'CthulhuTech')
@@ -284,6 +296,16 @@ class TestDiceBotLoaders < Test::Unit::TestCase
     assertDiceBot('BarnaKronika', 'Barna Kronika')
     assertDiceBot('BarnaKronika', 'BarnaKronika')
     assertDiceBot('BarnaKronika', 'BK')
+  end
+
+  def test_BarnaKronika_cards
+    assertDiceBot('BarnaKronika', 'Barna Kronika')
+
+    cardTrader = @bcDice.cardTrader
+    assert_equal(1, cardTrader.numOfDecks)
+    assert_equal(2, cardTrader.numOfJokers)
+    assert_equal(0, cardTrader.card_place)
+    assert_equal(false, cardTrader.canTapCard)
   end
 
   def test_RokumonSekai2
@@ -437,13 +459,12 @@ class TestDiceBotLoaders < Test::Unit::TestCase
     assert_equal(gameType, diceBot.gameType,
                  'loaderで読み込んだダイスボットのゲームタイプが等しい')
 
-    bcDice = BCDiceMaker.new.newBcDice
-    bcDice.setGameByTitle(pattern)
-    assert_equal(gameType, bcDice.getGameType,
+    @bcDice.setGameByTitle(pattern)
+    assert_equal(gameType, @bcDice.getGameType,
                  'setGameByTitle後のゲームタイプが等しい')
 
-    bcDice.setGameByTitle(pattern.downcase)
-    assert_equal(gameType, bcDice.getGameType,
+    @bcDice.setGameByTitle(pattern.downcase)
+    assert_equal(gameType, @bcDice.getGameType,
                  '小文字を指定したsetGameByTitle後のゲームタイプが等しい')
   end
 end

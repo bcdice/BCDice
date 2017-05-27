@@ -6,6 +6,19 @@ require 'configBcDice.rb'
 $ircNickRegExp = '[A-Za-z\d\-\[\]\\\'^{}_]+';
 
 class CardTrader
+  # カード置き場数。0なら無し。
+  # @return [Integer]
+  attr_accessor :card_place
+  # 場札のタップ処理の必要があるか？
+  # @return [Boolean]
+  attr_accessor :canTapCard
+
+  # デッキの数
+  # @return [Integer]
+  attr_reader :numOfDecks
+  # ジョーカーの数
+  # @return [Integer]
+  attr_reader :numOfJokers
   
   def initialize
     initValues
@@ -20,54 +33,77 @@ class CardTrader
   # カードをデフォルトに戻す
   def initValues
     @cardTitles = {}
-    @card_val = [
-                 'S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12','S13',
-                 'H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12','H13',
-                 'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13',
-                 'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13',
-                 'J1',
-                ];
     @cardRegExp = '[DHSCJdhscj][\d]+'; #カード指定文字列の正規表現
-    @cardRest = @card_val.clone
     @deal_cards = {'card_played' => []};
-    
-    setCardPlace( 1 )
-    setCanTapCard( true )
+
+    set1Deck1Joker
+    self.card_place = 1
+    @canTapCard = true
   end
-  
-  def setCardPlace(place)
-    #カード置き場数。0なら無し。
+
+  # カード置き場数を設定する
+  # @param [Integer] place カード置き場数。0なら無し。
+  def card_place=(place)
     @card_place = place
     debug("setCardPlace @card_place", @card_place)
   end
-  
-  def setCanTapCard(b)
-    @canTapCard = b
-  end
-  
-  def set1Deck2Jorker
-      @card_val = [
-                   'S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12','S13',
-                   'H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12','H13',
-                   'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13',
-                   'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13',
-                   'J1','J0',
-                   ];
+
+  # 1つのデッキ、1つのジョーカーを使う
+  # @return [self]
+  def set1Deck1Joker
+    @card_val = [
+      'S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12','S13',
+      'H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12','H13',
+      'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13',
+      'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13',
+      'J1',
+    ]
     @cardRest = @card_val.clone
+
+    @numOfDecks = 1
+    @numOfJokers = 1
+
+    self
   end
-  def set2Deck2Jorker
-      @card_val = [
-                   'S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12','S13',
-                   's1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13',
-                   'H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12','H13',
-                   'h1','h2','h3','h4','h5','h6','h7','h8','h9','h10','h11','h12','h13',
-                   'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13',
-                   'd1','d2','d3','d4','d5','d6','d7','d8','d9','d10','d11','d12','d13',
-                   'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13',
-                   'c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','c11','c12','c13',
-                   'J1','J2','J3','J4',
-                   ]
+
+  # 1つのデッキ、2つのジョーカーを使う
+  # @return [self]
+  def set1Deck2Jokers
+    @card_val = [
+      'S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12','S13',
+      'H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12','H13',
+      'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13',
+      'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13',
+      'J1','J0',
+    ]
     @cardRest = @card_val.clone
+
+    @numOfDecks = 1
+    @numOfJokers = 2
+
+    self
+  end
+
+  # 2つのデッキ、2つのジョーカーを使う
+  # @return [self]
+  def set2Decks2Jokers
+    @card_val = [
+      'S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12','S13',
+      's1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13',
+      'H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12','H13',
+      'h1','h2','h3','h4','h5','h6','h7','h8','h9','h10','h11','h12','h13',
+      'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13',
+      'd1','d2','d3','d4','d5','d6','d7','d8','d9','d10','d11','d12','d13',
+      'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13',
+      'c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','c11','c12','c13',
+      'J1','J2','J3','J4',
+    ]
+    @cardRest = @card_val.clone
+
+    @numOfDecks = 2
+    @numOfJokers = 2
+
+    self
   end
   
   def setBcDice(bcDice)
