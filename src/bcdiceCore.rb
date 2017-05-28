@@ -87,6 +87,8 @@ end
 
 
 class BCDice
+  # 設定コマンドのパターン
+  SET_COMMAND_PATTERN = /\Aset\s+(.+)/i
   
   def initialize(parent, cardTrader, diceBot, counterInfos, tableFileData)
     @parent = parent
@@ -138,29 +140,23 @@ class BCDice
   end
   
   def setMessage(message)
-    message = cutMessageCommend(message)
-    debug("setMessage message", message)
-    
-    @messageOriginal = parren_killer(message)
+    # 設定で変化し得るためopen系はここで正規表現を作る
+    openPattern = /\A\s*(?:#{$OPEN_DICE}|#{$OPEN_PLOT})\s*\z/i
+
+    messageToSet =
+      case message
+      when openPattern, SET_COMMAND_PATTERN
+        message
+      else
+        # 空白が含まれる場合、最初の部分だけを取り出す
+        message.split(/\s/, 2).first
+      end
+    debug("setMessage messageToSet", messageToSet)
+
+    @messageOriginal = parren_killer(messageToSet)
     @message = @messageOriginal.upcase
     debug("@message", @message)
   end
-  
-  
-  def cutMessageCommend(message)
-    case message
-    when /(^|\s+)(#{$OPEN_DICE}|#{$OPEN_PLOT})(\s+|$)/i
-      return message
-    end
-    
-    index = message.index(/\s/)
-    unless( index.nil? )
-      message = message[0...index]
-    end
-    
-    return message
-  end
-  
   
   def getOriginalMessage
     @messageOriginal
