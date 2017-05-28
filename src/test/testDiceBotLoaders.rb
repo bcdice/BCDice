@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-dodontof_root = File.expand_path('../..', File.dirname(__FILE__))
+dodontof_root = File.expand_path('..', File.dirname(__FILE__))
 unless $LOAD_PATH.include?(dodontof_root)
   $LOAD_PATH.unshift(dodontof_root)
 end

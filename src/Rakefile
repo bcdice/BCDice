@@ -11,7 +11,7 @@ namespace :test do
   end
 
   Rake::TestTask.new(:dicebot_loaders) do |t|
-    t.test_files = ['test/others/testDiceBotLoaders.rb']
+    t.test_files = ['test/testDiceBotLoaders.rb']
   end
 end
 
