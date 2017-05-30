@@ -87,6 +87,8 @@ end
 
 
 class BCDice
+  # 設定コマンドのパターン
+  SET_COMMAND_PATTERN = /\Aset\s+(.+)/i
   
   def initialize(parent, cardTrader, diceBot, counterInfos, tableFileData)
     @parent = parent
@@ -138,29 +140,23 @@ class BCDice
   end
   
   def setMessage(message)
-    message = cutMessageCommend(message)
-    debug("setMessage message", message)
-    
-    @messageOriginal = parren_killer(message)
+    # 設定で変化し得るためopen系はここで正規表現を作る
+    openPattern = /\A\s*(?:#{$OPEN_DICE}|#{$OPEN_PLOT})\s*\z/i
+
+    messageToSet =
+      case message
+      when openPattern, SET_COMMAND_PATTERN
+        message
+      else
+        # 空白が含まれる場合、最初の部分だけを取り出す
+        message.split(/\s/, 2).first
+      end
+    debug("setMessage messageToSet", messageToSet)
+
+    @messageOriginal = parren_killer(messageToSet)
     @message = @messageOriginal.upcase
     debug("@message", @message)
   end
-  
-  
-  def cutMessageCommend(message)
-    case message
-    when /(^|\s+)(#{$OPEN_DICE}|#{$OPEN_PLOT})(\s+|$)/i
-      return message
-    end
-    
-    index = message.index(/\s/)
-    unless( index.nil? )
-      message = message[0...index]
-    end
-    
-    return message
-  end
-  
   
   def getOriginalMessage
     @messageOriginal
@@ -195,8 +191,10 @@ class BCDice
     debug("@nick_e, @tnick", @nick_e, @tnick)
     
     # ===== 設定関係 ========
-    if( /^set[\s]/i =~ @message )
-      setCommand(@message)
+    setMatches = @message.match(SET_COMMAND_PATTERN)
+    if setMatches
+      setCommand(setMatches[1])
+      return
     end
     
     # ポイントカウンター関係
@@ -239,59 +237,58 @@ class BCDice
   def setQuitFuction(func)
     @parent.quitFunction = func
   end
-  
+
   def setCommand(arg)
     debug('setCommand arg', arg)
-    
-    case arg
-    when (/^set[\s]+master$/i)
+
+    case arg.downcase
+    when 'master'
       # マスター登録
       setMaster()
-      
-    when (/^set[\s]+game$/i)
+
+    when 'game'
       # ゲーム設定
       setGame()
-      
-    when (/^set[\s]+v(iew[\s]*)?mode$/i)
+
+    when /\Av(?:iew\s*)?mode\z/
       # 表示モード設定
       setDisplayMode()
-      
-    when (/^set[\s]+upper$/i)
+
+    when 'upper'
       # 上方無限ロール閾値設定 0=Clear
       setUpplerRollThreshold()
-      
-    when (/^set[\s]+reroll$/i)
+
+    when 'reroll'
       # 個数振り足しロール回数制限設定 0=無限
       setRerollLimit()
-      
-    when (/^set[\s]+s(end[\s]*)?mode$/i)
+
+    when /\As(?:end\s*)?mode\z/
       # データ送信モード設定
       setDataSendMode()
-      
-    when (/^set[\s]+r(ating[\s]*)?t(able)?$/i)
+
+    when /\Ar(?:ating\s*)?t(?:able)?\z/
       # レーティング表設定
       setRatingTable()
-      
-    when (/^set[\s]+sort$/i)
+
+    when 'sort'
       # ソートモード設定
       setSortMode()
-      
-    when (/^set[\s]+(cardplace|CP)$/i)
+
+    when 'cardplace', 'cp'
       # カードモード設定
       setCardMode()
-      
-    when (/^set[\s]+(shortspell|SS)$/i)
+
+    when 'shortspell', 'ss'
       # 呪文モード設定
       setSpellMode()
-      
-    when (/^set[\s]+tap$/i)
+
+    when 'tap'
       # タップモード設定
       setTapMode()
-      
-    when (/^set[\s]+(cardset|CS)$/i)
+
+    when 'cardset', 'cs'
       # カード読み込み
       readCardSet()
-    else
     end
   end
   
