@@ -14,10 +14,7 @@ class DiceBotTest
 
     @dataDir = "#{testBaseDir}/data"
     @tableDir = "#{testBaseDir}/../../extratables"
-    src_bcdice = "#{testBaseDir}/../../src_bcdice"
-    DiceBotLoader.setBcDicePath(
-      File.directory?(src_bcdice) ? src_bcdice : "#{testBaseDir}/../../src"
-    )
+
     @bot = CgiDiceBot.new
 
     @testDataSet = []
