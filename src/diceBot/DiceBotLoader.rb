@@ -7,21 +7,15 @@ class DiceBotLoader
     @@bcDicePath = path
   end
   
-  @@knownGameTypes = []
-  
-  def self.setKnownGameType(list)
-    @@knownGameTypes = list
-  end
-  
   def initialize
   end
   
   def loadUnknownGame(gameTitle)
     debug("loadUnknownGame gameTitle", gameTitle)
     
-    diceBotBaseFileName = gameTitle.gsub(/(\.\.|\/|:|-)/, '_')
+    gameTitle = gameTitle.gsub(/(\.\.|\/|:|-)/, '_')
     
-    botFile = "diceBot/#{diceBotBaseFileName}.rb"
+    botFile = "diceBot/#{gameTitle}.rb"
     fileName = "#{@@bcDicePath}/#{botFile}"
     fileName.untaint
     
@@ -32,14 +26,11 @@ class DiceBotLoader
     
     diceBot = nil
     
-    isKnownGameType = @@knownGameTypes.include?( gameTitle )
-    unless( isKnownGameType )
-      return diceBot unless( File.exist?(fileName) )
-    end
+    return diceBot unless( File.exist?(fileName) )
     
     begin
       require "#{botFile}"
-      diceBot = Module.const_get(diceBotBaseFileName).new
+      diceBot = Module.const_get(gameTitle).new
     rescue => e
       debug("DiceBot load ERROR!!!", e.to_s)
     end
