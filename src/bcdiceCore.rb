@@ -262,10 +262,6 @@ class BCDice
       # 個数振り足しロール回数制限設定 0=無限
       setRerollLimit()
 
-    when /\As(?:end\s*)?mode\z/
-      # データ送信モード設定
-      setDataSendMode()
-
     when /\Ar(?:ating\s*)?t(?:able)?\z/
       # レーティング表設定
       setRatingTable()
@@ -377,18 +373,6 @@ class BCDice
     else
       sendMessageToChannels("個数振り足しロールの回数を無限に設定しました")
     end
-  end
-  
-  
-  def setDataSendMode()
-    return unless( isMaster() )
-    
-    return unless( /(\d+)/  =~ @tnick )
-    $NOTICE_SW = $1.to_i
-    
-    $mode_str = ( ($NOTICE_SW != 0) ? "notice-mode" : "msg-mode" )
-    
-    sendMessageToChannels("SendModeを#{$mode_str}に変更しました")
   end
   
   def setRatingTable()

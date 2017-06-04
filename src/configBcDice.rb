@@ -7,7 +7,6 @@ $isDebug = false
 $bcDiceVersion = "2.02.29"
 
 
-$NOTICE_SW = 1;                  # 送信の際に、どちらのコマンドを使うか？(notice=1, msg=0)
 $SEND_STR_MAX = 405;             # 最大送信文字数(本来は500byte上限)
 $isRollVoidDiceAtAnyRecive = true;       # 発言の度に空ダイスを振るか？
 $DICE_MAXCNT = 200;              # ダイスが振れる最大個数
