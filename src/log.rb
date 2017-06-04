@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-$isDebug = false
-
 # デバッグ文字列出力（末尾改行なし）
 def debugPrint(text)
   print($RUBY18_WIN ? text.tosjis : text)
