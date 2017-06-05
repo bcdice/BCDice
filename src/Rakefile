@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+
+require "rake/testtask"
+
+task :default => :test
+
+namespace :test do
+  desc 'ダイスボットのテストを行う'
+  task :dicebots do
+    sh('ruby test.rb')
+  end
+
+  Rake::TestTask.new(:dicebot_loaders) do |t|
+    t.test_files = ['test/testDiceBotLoaders.rb']
+  end
+end
+
+desc 'すべてのテストを行う'
+task :test do
+  failures = []
+
+  puts('[ダイスボットのテスト]')
+  begin
+    Rake::Task['test:dicebots'].execute
+  rescue
+    failures << 'ダイスボット'
+  end
+
+  puts
+  puts('[ダイスボット読み込みのテスト]')
+  begin
+    Rake::Task['test:dicebot_loaders'].execute
+  rescue
+    failures << 'ダイスボット読み込み'
+  end
+
+  unless failures.empty?
+    raise "テスト失敗: #{failures.join(', ')}"
+  end
+end

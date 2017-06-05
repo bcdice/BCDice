@@ -29,6 +29,13 @@ class DiceBot
   attr_reader :isPrintMaxDice, :upplerRollThreshold, :unlimitedRollDiceType
   attr_reader :defaultSuccessTarget, :rerollNumber, :fractionType
   
+  # ダイスボット設定後に行う処理
+  # @return [void]
+  #
+  # 既定では何もしない。
+  def postSet
+    # 何もしない
+  end
   
   def info
     {

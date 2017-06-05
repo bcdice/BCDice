@@ -4,8 +4,6 @@
 $LOAD_PATH << File.dirname(__FILE__) # require_relative対策
 
 require 'configBcDice.rb'
-require 'diceBot/DiceBotLoader'
-
 
 class Cli
   def quit
@@ -50,8 +48,6 @@ end
 
 
 if $0 === __FILE__
-  
-  DiceBotLoader.setKnownGameType( $allGameTypes )
   
   if( ARGV.length < 1 or ARGV[0] == "createExe" )
     require 'bcdiceGui.rb'
