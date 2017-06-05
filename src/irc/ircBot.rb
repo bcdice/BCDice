@@ -230,65 +230,6 @@ class IrcClient < Net::IRC::Client
     @log.debug("newNick:#{newNick}")
     return newNick
   end
-
-=begin
-  def on_ping(event)
-    #nick = getNickEFromEvent(event)
-    #arg = getArg(event)
-    
-    #ctcp_reply(nick, args);
-    #debug_out("*** CTCP PING request from #{nick} received\n");
-  end
-  
-  def on_ping_reply(event)
-    args = (event.args)[1];
-    nick = event.nick;
-    
-    args = time - args; #FIXME
-    debug_out("*** CTCP PING reply from $nick: $args sec.\n");
-  end
-  
-  def on_nick(event)
-    debug('on_nick event', event)
-    super
-  end
-  
-  def on_action(event)
-    nick = event.nick
-    args = event.args;
-    
-    args.each do |arg_o|
-      arg_o = decode($ircCode, arg_o);
-    end
-    
-    debug_out("* #{nick} #{args.inspect}\n");
-  end
-  
-  def on_disconnect(event)
-    
-    debug_out("Disconnected from ", event.from(), " (",
-              (event.args())[0], "). Attempting to reconnect...\n");
-    self.connect();
-  end
-  
-  def on_topic(event)
-    args = event.args();
-    chan = decode($ircCode, (event.to())[0]);
-    
-    args.each do |arg_o|
-      arg_o = decode($ircCode, arg_o);
-    end
-    
-    if( event.type() == 'notopic' )
-      debug_out("No topic set for #{args[1]}.\n");
-    elsif ( (event.type() == 'topic') and event.to())
-      debug_out("Topic change for ", chan, ": $args[0]\n");
-    else
-      debug_out("The topic for $args[1] is \"$args[2]\".\n");
-    end
-  end
-=end
-  
   
   def isMaster
     bcdice = newBcDice()
@@ -328,32 +269,20 @@ class IrcClient < Net::IRC::Client
   end
   
   def sendMessage(to, message)
-    return if(message.empty?)
-    
+    return if message.empty?
+
     debug('sendMessage to, message', to, message)
-    
-    #if( message.length > $SEND_STR_MAX)         # 長すぎる出力はイタズラと見なす
-    #  message = '結果が長くなりすぎました';
-    #end
-    
+
     # 長すぎる出力は"\n"を挟み、分割送信されるように。
     message = insertEnterToTooLongMessage(message)
-    
+
     to = encode($ircCode ,to)
-    
-    msg_arr = message.split("\n")
-    msg_arr.each do |lineMessage|
-      lineMessage = encode($ircCode, lineMessage);        # noticeで送信
-      
-      if( $NOTICE_SW )
-        debug("notice  to, lineMessage", to, lineMessage)
-        notice(to, lineMessage);        # noticeで送信
-      else
-        debug("privmsg  to, lineMessage", to, lineMessage)
-        privmsg(to, lineMessage);       # privmsgで送信
-      end
-      
-      sleep( 1 )
+    encodedMessage = encode($ircCode, message)
+
+    encodedMessage.each_line do |line|
+      debug('notice to, line', to, line)
+      notice(to, line)
+      sleep(1)
     end
   end
   
