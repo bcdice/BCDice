@@ -93,10 +93,6 @@ class ArgsAnalizer
     $defaultGameType = @param
   end
   
-  def setMessageSendType
-    $NOTICE_SW = param.to_i
-  end
-  
   def readExtraCard
     $extraCardFileName = @param
   end
