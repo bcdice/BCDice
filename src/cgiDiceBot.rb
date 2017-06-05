@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+bcDiceRoot = File.expand_path(File.dirname(__FILE__))
+unless $LOAD_PATH.include?(bcDiceRoot)
+  $LOAD_PATH.unshift(bcDiceRoot)
+end
+
 require 'bcdiceCore.rb'
 
 class CgiDiceBot
