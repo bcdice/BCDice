@@ -66,6 +66,7 @@ Cthulhu:ChineseTraditional
 Cthulhu:Korean
 CthulhuTech
 DarkBlaze
+DarkSouls
 DeadlineHeroes
 DemonParasite
 DetatokoSaga
