@@ -6,7 +6,7 @@ require 'fileutils'
 $LOAD_PATH << File.dirname(__FILE__) # require_relative対策
 
 def updateConfig
-  ignoreBotNames = ['DiceBot', 'DiceBotLoader', 'baseBot', '_Template', 'test']
+  ignoreBotNames = ['DiceBot', 'DiceBotLoader', 'DiceBotLoaderList', 'baseBot', '_Template', 'test']
 
   require 'diceBot/DiceBot'
   

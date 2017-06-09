@@ -20,7 +20,6 @@ class BCDiceGuiApp < Wx::App
   private
 
   def on_init
-    DiceBotLoader.setBcDicePath( 'src' )
     BCDiceDialog.new.show_modal
     return false
   end
