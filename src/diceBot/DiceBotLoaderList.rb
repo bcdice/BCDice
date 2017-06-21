@@ -141,6 +141,7 @@ class DiceBotLoaderList
     DiceBotLoader.new('Garako'),
     DiceBotLoader.new('ShoujoTenrankai'),
     DiceBotLoader.new('GardenOrder'),
+    DiceBotLoader.new('DarkSouls'),
     DiceBotLoader.new('None', :filenames => [], :class => :DiceBot)
   ]
 end
