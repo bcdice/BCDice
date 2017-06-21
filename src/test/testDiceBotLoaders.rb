@@ -449,6 +449,10 @@ class TestDiceBotLoaders < Test::Unit::TestCase
     assertDiceBot('GardenOrder', 'GardenOrder')
   end
 
+  def test_DarkSouls
+    assertDiceBot('DarkSouls', 'DarkSouls')
+  end
+
   private
 
   def assertDiceBot(gameType, pattern)
