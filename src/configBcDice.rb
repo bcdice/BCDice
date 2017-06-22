@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+require 'kconv'
 require 'configBcDiceForSystem.rb'
 
 $isDebug = false
@@ -11,7 +12,7 @@ $SEND_STR_MAX = 405;             # 最大送信文字数(本来は500byte上限)
 $isRollVoidDiceAtAnyRecive = true;       # 発言の度に空ダイスを振るか？
 $DICE_MAXCNT = 200;              # ダイスが振れる最大個数
 $DICE_MAXNUM = 1000;             # ダイスの最大面数
-$ircCode = 6;                    # IRCサーバとの通信に使うコードをRuby::Kconv値で指定 (6:UTF-8)
+$ircCode = Kconv::UTF8;          # IRCサーバとの通信に使うコードをRuby::Kconv値で指定
 $isHandSort = true;              # 手札をソートする必要があるか？
 $quitCommand = 'お疲れ様';           # 終了用のTalkコマンド
 $quitMessage = 'さようなら';        # 終了時のメッセージ
