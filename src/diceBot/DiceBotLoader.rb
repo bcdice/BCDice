@@ -44,7 +44,11 @@ class DiceBotLoader
     botFiles = Dir.glob("#{diceBotDir}/*.rb")
     botNames =
       botFiles.map { |botFile| File.basename(botFile, '.rb').untaint }
-    validBotNames = botNames - BOT_NAMES_TO_IGNORE
+    validBotNames =
+      # 特別な名前のものを除外する
+      (botNames - BOT_NAMES_TO_IGNORE).
+      # 正しいクラス名になるものだけ選ぶ
+      select { |botName| /\A[A-Z]/ === botName }
 
     validBotNames.map { |botName|
       require("#{diceBotDir}/#{botName}")
