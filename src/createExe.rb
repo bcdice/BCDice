@@ -3,27 +3,15 @@
 
 require 'fileutils'
 
-$LOAD_PATH << File.dirname(__FILE__) # require_relative対策
+bcdiceRoot = File.expand_path(File.dirname(__FILE__))
+$LOAD_PATH.unshift(bcdiceRoot) unless $LOAD_PATH.include?(bcdiceRoot)
+
+require 'diceBot/DiceBotLoader'
 
 def updateConfig
-  ignoreBotNames = ['DiceBot', 'DiceBotLoader', 'DiceBotLoaderList', 'baseBot', '_Template', 'test']
-
-  require 'diceBot/DiceBot'
-  
-  botFiles = Dir.glob("diceBot/*.rb")
-  
-  botNames = botFiles.collect{|i| File.basename(i, ".rb").untaint}
-  botNames.delete_if{|i| ignoreBotNames.include?(i) }
-  
-  nameList = []
-  botNames.each do |botName|
-    require "diceBot/#{botName}"
-    diceBot = Module.const_get(botName).new
-    nameList << diceBot.gameType.gsub(/ /, '_')
-  end
-  
-  nameList.sort!
-  
+  nameList = DiceBotLoader.collectDiceBots.
+    map { |diceBot| diceBot.gameType.gsub(' ', '_') }.
+    sort
   writeToConfig(nameList)
 end
 

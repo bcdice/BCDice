@@ -2,6 +2,16 @@
 
 # ダイスボットの読み込みを担当するクラス
 class DiceBotLoader
+  # 収集時に無視するボット名
+  BOT_NAMES_TO_IGNORE = [
+    'DiceBot',
+    'DiceBotLoader',
+    'DiceBotLoaderList',
+    'baseBot',
+    '_Template',
+    'test'
+  ]
+
   # 登録されていないタイトルのダイスボットを読み込む
   # @param [String] gameTitle ゲームタイトル
   # @return [DiceBot] ダイスボットが存在した場合
@@ -22,6 +32,28 @@ class DiceBotLoader
       debug("DiceBot load ERROR!!!", e.to_s)
       nil
     end
+  end
+
+  # ダイスボットディレクトリに含まれるダイスボットを収集する
+  # @return [Array<DiceBot>]
+  def self.collectDiceBots
+    diceBotDir = File.expand_path(File.dirname(__FILE__))
+
+    require("#{diceBotDir}/DiceBot")
+
+    botFiles = Dir.glob("#{diceBotDir}/*.rb")
+    botNames =
+      botFiles.map { |botFile| File.basename(botFile, '.rb').untaint }
+    validBotNames =
+      # 特別な名前のものを除外する
+      (botNames - BOT_NAMES_TO_IGNORE).
+      # 正しいクラス名になるものだけ選ぶ
+      select { |botName| /\A[A-Z]/ === botName }
+
+    validBotNames.map { |botName|
+      require("#{diceBotDir}/#{botName}")
+      Object.const_get(botName).new
+    }
   end
 
   # 読み込み処理を初期化する
