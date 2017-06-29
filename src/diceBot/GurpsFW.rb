@@ -100,7 +100,7 @@ INFO_MESSAGE_TEXT
   def dice_command(string, name)
     secret_flg = false
 
-    return '1', secret_flg unless( /(^|\s)(S)?(#{prefixs.join('|')})(\s|$)/i =~ string )
+    return '1', secret_flg unless self.class.prefixesPattern =~ string
 
     secretMarker = $2
     command = $3.upcase
