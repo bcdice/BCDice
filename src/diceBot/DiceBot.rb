@@ -1,6 +1,45 @@
 # -*- coding: utf-8 -*-
 
 class DiceBot
+  # 接頭辞の配列を返す
+  # @return [Array<String>]
+  def self.prefixes
+    @prefixes
+  end
+
+  # 接頭辞の正規表現を返す
+  # @return [Regexp]
+  def self.prefixesPattern
+    @prefixesPattern
+  end
+
+  # 反応する接頭辞を設定する
+  # @param [Array<String>] prefixes 接頭辞のパターンの配列
+  # @return [self]
+  def self.setPrefixes(prefixes)
+    @prefixes = prefixes.
+      map(&:freeze).
+      freeze
+    @prefixesPattern = (/(^|\s)(S)?(#{prefixes.join('|')})(\s|$)/i).freeze
+
+    self
+  end
+
+  # 接頭辞をクリアする
+  # @return [self]
+  def self.clearPrefixes
+    @prefixes = [].freeze
+    @prefixesPattern = (/(^|\s)(S)?()(\s|$)/i).freeze
+
+    self
+  end
+
+  def self.inherited(subclass)
+    subclass.clearPrefixes
+  end
+
+  clearPrefixes
+
   @@bcdice = nil
   
   @@DEFAULT_SEND_MODE = 2                  # デフォルトの送信形式(0=結果のみ,1=0+式,2=1+ダイス個別)
