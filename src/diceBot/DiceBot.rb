@@ -80,7 +80,7 @@ class DiceBot
     {
       'name' => gameName,
       'gameType' => gameType,
-      'prefixs' => prefixs,
+      'prefixs' => self.class.prefixes,
       'info' => getHelpMessage,
     }
   end
@@ -173,9 +173,8 @@ class DiceBot
     debug('dice_command Begin string', string)
     secret_flg = false
     
-    prefixsRegText = prefixs.join('|')
-    unless( /(^|\s)(S)?(#{prefixsRegText})(\s|$)/i =~ string )
-      debug('not match in prefixs')
+    unless self.class.prefixesPattern =~ string
+      debug('not match in prefixes')
       return '1', secret_flg 
     end
     

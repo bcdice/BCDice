@@ -3,6 +3,7 @@
 require 'diceBot/Torg'
 
 class Torg1_5 < Torg
+  setPrefixes(Torg.prefixes)
   
   def gameName
     'トーグ1.5版'
