@@ -1,31 +1,33 @@
 # -*- coding: utf-8 -*-
 
 class DiceBot
-  # 接頭辞の配列を返す
+  # 接頭辞（反応するコマンド）の配列を返す
   # @return [Array<String>]
   def self.prefixes
     @prefixes
   end
 
-  # 接頭辞の正規表現を返す
+  # 接頭辞（反応するコマンド）の正規表現を返す
   # @return [Regexp]
   def self.prefixesPattern
     @prefixesPattern
   end
 
-  # 反応する接頭辞を設定する
+  # 接頭辞（反応するコマンド）を設定する
   # @param [Array<String>] prefixes 接頭辞のパターンの配列
   # @return [self]
   def self.setPrefixes(prefixes)
     @prefixes = prefixes.
+      # 最適化が効くように内容の文字列を変更不可にする
       map(&:freeze).
+      # 配列全体を変更不可にする
       freeze
     @prefixesPattern = (/(^|\s)(S)?(#{prefixes.join('|')})(\s|$)/i).freeze
 
     self
   end
 
-  # 接頭辞をクリアする
+  # 接頭辞（反応するコマンド）をクリアする
   # @return [self]
   def self.clearPrefixes
     @prefixes = [].freeze
@@ -34,6 +36,9 @@ class DiceBot
     self
   end
 
+  # 継承された際にダイスボットの接頭辞リストをクリアする
+  # @param [DiceBot] subclass DiceBotを継承したクラス
+  # @return [void]
   def self.inherited(subclass)
     subclass.clearPrefixes
   end
@@ -89,7 +94,7 @@ class DiceBot
     gameType
   end
 
-  # 接頭辞の配列を返す
+  # 接頭辞（反応するコマンド）の配列を返す
   # @return [Array<String>]
   def prefixes
     self.class.prefixes
