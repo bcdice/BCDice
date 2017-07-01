@@ -8,10 +8,6 @@ class Airgetlamh < DiceBot
     @sortType = 1 #ダイスのソート有
   end
 
-  def prefixs
-    ['\d+AL\d+(x|\*)\d+',]
-  end
-
   def gameName
     '朱の孤塔のエアゲトラム'
   end

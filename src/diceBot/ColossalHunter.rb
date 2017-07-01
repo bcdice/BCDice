@@ -6,10 +6,6 @@ class ColossalHunter < DiceBot
     @d66Type = 1
   end
 
-  def prefixs
-    ["CH.*", "B6T", "CNP"] + @@tables.keys
-  end
-
   def gameName
     'コロッサルハンター'
   end

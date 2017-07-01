@@ -19,10 +19,6 @@ class BloodMoon < DiceBot
     "BloodMoon"
   end
 
-  def prefixs
-     ['ST', 'IST', 'BRT', 'CHT', 'SHT', 'DHT', 'LHT', 'EHT', 'AST', 'MIT', 'SIT']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・各種表

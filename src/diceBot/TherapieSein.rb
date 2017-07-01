@@ -7,10 +7,6 @@ class TherapieSein < DiceBot
     super
   end
 
-  def prefixs
-     ['(TS|OP)(\d+)?([\+\-]\d)*(\@\d+)?']
-  end
-
   def gameName
     '青春疾患セラフィザイン'
   end

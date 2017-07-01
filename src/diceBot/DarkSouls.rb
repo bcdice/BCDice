@@ -7,10 +7,6 @@ class DarkSouls < DiceBot
     super
   end
 
-  def prefixs
-     ['(\d+)?(A)?DS([\+\-\d+]*)(\@\d+)?']
-  end
-
   def gameName
     'ダークソウルTRPG'
   end

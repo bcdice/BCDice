@@ -88,11 +88,16 @@ class DiceBot
   def gameName
     gameType
   end
-  
-  def prefixs
-    []
+
+  # 接頭辞の配列を返す
+  # @return [Array<String>]
+  def prefixes
+    self.class.prefixes
   end
-  
+
+  # @deprecated 代わりに {#prefixes} を使ってください
+  alias prefixs prefixes
+
   def gameType
     @gameType
   end

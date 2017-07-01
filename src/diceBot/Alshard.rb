@@ -19,10 +19,6 @@ class Alshard < SRS
     "Alshard"
   end
 
-  def prefixs
-    ['2D6.*','AL.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定

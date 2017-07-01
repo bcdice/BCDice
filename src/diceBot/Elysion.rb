@@ -15,16 +15,6 @@ class Elysion < DiceBot
     @d66Type = 2
   end
 
-  def prefixs
-    ['EL.*',
-     'DATE.*', 'FDATE.*', 'ODATE.*', 'MDATE.*',
-     'RBT', 'SBT', 'BBT','CBT','DBT','IBT','FBT','LBT','PBT','NBT','ABT','VBT','GBT','HBT',
-     'BFT', 'FWT', 'FT',
-     'SRT', 'ORT', 'DRT', 'URT',
-     'NJ\d+', 'BS\d+',
-     ]
-  end
-
   def gameName
     'エリュシオン'
   end

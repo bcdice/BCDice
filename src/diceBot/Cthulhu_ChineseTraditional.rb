@@ -19,10 +19,6 @@ class Cthulhu_ChineseTraditional < DiceBot
     "Cthulhu:ChineseTraditional"
   end
 
-  def prefixs
-     ['CC(B)?\(\d+\)', 'CC(B)?.*','RES(B)?.*', 'CBR(B)?\(\d+,\d+\)']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 c=爆擊率 ／ f=大失敗值 ／ s=特殊

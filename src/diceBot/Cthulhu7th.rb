@@ -18,10 +18,6 @@ class Cthulhu7th < DiceBot
     "Cthulhu7th"
   end
 
-  def prefixs
-     ['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)' , 'FAR.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ※私家翻訳のため、用語・ルールの詳細については原本を参照願います。

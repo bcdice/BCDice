@@ -9,11 +9,6 @@ class FilledWith < DiceBot
     # @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
   end
 
-  def prefixs
-    #ダイスボットで使用するコマンドを配列で列挙すること。
-    ['3FW.*', '[\+\-\d]*-3FW.*', 'LOT[NP]', 'HST', 'COOK[1-8]', 'RAND.*', 'RENC.*', 'RED.*', 'TRS.*', 'TRAP[ENHL]', 'ROP[ENHL]']
-  end
-
   def gameName
     'フィルトウィズ'
   end

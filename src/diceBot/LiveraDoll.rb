@@ -9,10 +9,6 @@ class LiveraDoll < DiceBot
     @sortType = 3
   end
 
-  def prefixs
-    ['(C|K|W|R|B|G|E)(L|D|O)\d+',]
-  end
-
   def gameName
     '紫縞のリヴラドール'
   end

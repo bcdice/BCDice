@@ -23,10 +23,6 @@ class BeastBindTrinity < DiceBot
     "BeastBindTrinity"
   end
 
-  def prefixs
-     ['\d+BB', 'EMO']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定　(nBB+m%w@x#y$z)

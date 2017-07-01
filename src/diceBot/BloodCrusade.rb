@@ -19,10 +19,6 @@ class BloodCrusade < DiceBot
     "BloodCrusade"
   end
 
-  def prefixs
-     ['RT', 'ST', 'IST', 'BRT', 'CHT', 'SHT', 'DHT', 'LHT', 'EHT', 'AST', 'MIT', 'SIT']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・各種表

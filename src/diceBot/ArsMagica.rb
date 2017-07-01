@@ -16,10 +16,6 @@ class ArsMagica < DiceBot
     "ArsMagica"
   end
 
-  def prefixs
-    ['ArS']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・ストレスダイス　(ArSx+y)

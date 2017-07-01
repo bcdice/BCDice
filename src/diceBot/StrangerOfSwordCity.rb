@@ -19,12 +19,6 @@ class StrangerOfSwordCity < DiceBot
     "StrangerOfSwordCity"
   end
 
-  def prefixs
-    [
-     '\d+SR.*',
-    ]
-  end
-
   def getHelpMessage
     info = <<INFO_MESSAGE_TEXT
 ・判定　xSR or xSRy or xSR+y or xSR-y or xSR+y>=z

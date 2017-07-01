@@ -18,10 +18,6 @@ class DemonParasite < DiceBot
     "DemonParasite"
   end
 
-  def prefixs
-     ['(N|A|M|U|C|)?URGE\d+']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・衝動表　(URGEx)

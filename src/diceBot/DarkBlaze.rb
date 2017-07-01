@@ -15,10 +15,6 @@ class DarkBlaze < DiceBot
     "DarkBlaze"
   end
 
-  def prefixs
-     ['DB.*', 'BT.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・行為判定　(DBxy#n)

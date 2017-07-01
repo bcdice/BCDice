@@ -16,10 +16,6 @@ class Amadeus < DiceBot
     "Amadeus"
   end
 
-  def prefixs
-    ['R[A-DS].*'] + @@tables.keys
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定(Rx±y@z>=t)

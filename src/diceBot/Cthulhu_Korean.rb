@@ -19,10 +19,6 @@ class Cthulhu_Korean < DiceBot
     "Cthulhu:Korean"
   end
 
-  def prefixs
-     ['CC(B)?\(\d+\)', 'CC(B)?.*','RES(B)?.*', 'CBR(B)?\(\d+,\d+\)']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 c=크리티컬치 ／ f=펌블치 ／ s=스페셜

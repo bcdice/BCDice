@@ -11,11 +11,6 @@ class Strave < DiceBot
     @sortType = 1 #ダイスのソート有
   end
 
-  def prefixs
-    ['MP\d+', '\d+ST\d+(x|\*)\d+',
-     'AFF', 'IDT', 'AFV', 'IDV']
-  end
-
   def gameName
     '碧空のストレイヴ'
   end

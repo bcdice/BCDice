@@ -18,10 +18,6 @@ class DiceOfTheDead < DiceBot
     "DiceOfTheDead"
   end
 
-  def prefixs
-    ['(ZMB|BIO).*']
-  end
-
   def getHelpMessage
     info = <<INFO_MESSAGE_TEXT
 ・ゾンビ化表　ZMB+x

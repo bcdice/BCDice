@@ -19,10 +19,6 @@ class Cthulhu < DiceBot
     "Cthulhu"
   end
 
-  def prefixs
-     ['CC(B)?\(\d+\)', 'CC(B)?.*','RES(B)?.*', 'CBR(B)?\(\d+,\d+\)']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 c=クリティカル値 ／ f=ファンブル値 ／ s=スペシャル

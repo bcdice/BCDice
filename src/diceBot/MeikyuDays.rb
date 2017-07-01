@@ -17,10 +17,6 @@ class MeikyuDays < DiceBot
     "MeikyuDays"
   end
 
-  def prefixs
-     ['\d+MD', 'DRT', 'DNT', 'DBT', 'DHT', 'KST', 'CAT', 'CFT', 'FWT', 'T1T', 'T2T', 'T3T', 'T4T', 'MPT', 'APT', 'DCT', 'MCT', 'PCT', 'LCT']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定　(nMD+m)

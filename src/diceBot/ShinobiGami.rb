@@ -18,10 +18,6 @@ class ShinobiGami < DiceBot
     "ShinobiGami"
   end
 
-  def prefixs
-     ['ST', 'FT', 'ET', 'WT', 'BT', 'CST', 'MST', 'IST','EST','DST','TST', 'NST', 'KST', 'TKST', 'GST', 'GWT', 'GAST', 'KYST', 'JBST', 'KFT', 'KWT', 'MT', 'RTT']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・各種表

@@ -3,10 +3,6 @@
 class WitchQuest < DiceBot
   setPrefixes(['WQ\d+', 'SET\d+'])
 
-  def prefixs
-    ['WQ\d+', 'SET\d+']
-  end
-
   def gameName
     'ウィッチクエスト'
   end

@@ -19,10 +19,6 @@ class MetallicGuadian < SRS
     "MetallicGuadian"
   end
 
-  def prefixs
-    ['2D6.*','MG.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定

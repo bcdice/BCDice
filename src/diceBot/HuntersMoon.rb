@@ -19,10 +19,6 @@ class HuntersMoon < DiceBot
     "HuntersMoon"
   end
 
-  def prefixs
-     ['(ET|CLT|SLT|HLT|FLT|DLT|MAT|SAT|SA2T|TST|THT|TAT|TBT|TLT|TET)\d*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定

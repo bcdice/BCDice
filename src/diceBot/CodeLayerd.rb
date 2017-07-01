@@ -3,10 +3,6 @@
 class CodeLayerd < DiceBot
   setPrefixes(['\d*CL[@\d]*.*'])
 
-  def prefixs
-    ['\d*CL[@\d]*.*']
-  end
-
   def gameName
     'コード：レイヤード'
   end

@@ -7,10 +7,6 @@ class Chill < DiceBot
     "Chill"
   end
 
-  def prefixs
-     ['SR\d+.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・ストライク・ランク　(SRx)

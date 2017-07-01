@@ -8,10 +8,6 @@ class Utakaze < DiceBot
     @arrayDragonDiceName = ['', '風', '雨', '雲', '影', '月', '歌']
   end
 
-  def prefixs
-    ['\d*UK[@\d]*.*']
-  end
-
   def gameName
     'ウタカゼ'
   end

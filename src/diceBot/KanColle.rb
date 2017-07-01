@@ -23,14 +23,6 @@ class KanColle < DiceBot
     "KanColle"
   end
 
-  def prefixs
-     ['ET', 'ACT',
-      'EVNT', 'EVKT', 'EVAT', 'EVET', 'EVENT', 'EVST', 'ETHT', 'ETVT', 'ETGT', 'ETBT', 'ETMT', 'ETFT',
-      'DVT', 'DVTM', 'WP1T', 'WP2T', 'WP3T', 'WP4T', 'ITT', 'MHT', 'SNT', 'SPSNT',
-      'KTM', 'BT', 'KHT', 'KMT', 'KST', 'KSYT', 'KKT', 'KSNT', 'SNZ', 'RNT',
-      ]
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 例) 2D6 ： 単純に2D6した値を出します。

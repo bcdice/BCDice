@@ -16,10 +16,6 @@ class NightWizard < DiceBot
     "NightWizard"
   end
 
-  def prefixs
-     ['\d+NW']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定用コマンド　(nNW+m@x#y)

@@ -17,10 +17,6 @@ class CardRanker < DiceBot
     "CardRanker"
   end
 
-  def prefixs
-     ['RM', 'CM.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ランダムでモンスターカードを選ぶ (RM)

@@ -21,10 +21,6 @@ class DoubleCross < DiceBot
     "DoubleCross"
   end
 
-  def prefixs
-     ['(\d+dx|ET)']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定コマンド　(xDX+y@c or xDXc+y)

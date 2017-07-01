@@ -16,16 +16,6 @@ class Kamigakari_Korean < DiceBot
     @d66Type = 1
   end
 
-  def prefixs
-    [
-     'RT',
-     'MT(\d*)',
-     'ET',
-     'NT',
-     'KT',
-	]
-  end
-
   def gameName
     '카미가카리'
   end

@@ -6,10 +6,6 @@ class Dracurouge < DiceBot
     @d66Type = 1
   end
 
-  def prefixs
-    ['DR.*', 'RT.*', 'HRT.*', 'CT\d+', "ST", "CO", "CA", "EP", "OS", "PN", "RS", "PP"] + @@tables.keys
-  end
-
   def gameName
     'ドラクルージュ'
   end

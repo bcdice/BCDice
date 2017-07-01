@@ -12,14 +12,6 @@ class Garako < DiceBot
     super
   end
 
-  def prefixs
-    ['PNM', 'PNF', 'ENM', 'ENF', 'NNM', 'NNF',
-     'RNM', 'RNF', 'BN1', 'BN2', 'TN1', 'TN2',
-     'IDI', 'MTV', 'HIT', '(C|E|F|A|L)DC\d+', 'GR.*',
-     'GCC', 'WCC', 'EVC', 'BSD',
-    ]
-  end
-
   def gameName
     'ガラコと破界の塔'
   end

@@ -18,10 +18,6 @@ class SwordWorld2_0 < SwordWorld
     return "SwordWorld2.0"
   end
 
-  def prefixs
-     ['K\d+.*', 'Gr(\d+)?', 'FT', 'TT']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 自動的成功、成功、失敗、自動的失敗の自動判定を行います。

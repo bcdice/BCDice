@@ -17,10 +17,6 @@ class EmbryoMachine < DiceBot
     "EmbryoMachine"
   end
 
-  def prefixs
-     ['(EM\t+|HLT|MFT|SFT)']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定ロール(EMt+m@c#f)

@@ -30,21 +30,6 @@ class GranCrest < DiceBot
     "GranCrest"
   end
 
-  def prefixs
-    [
-     'MT',
-     'PFT',
-     'NFT',
-     'CT',
-     'TCT',
-     'ICT',
-     'PCT',
-     'OCT',
-     'BCT',
-     'CCT',
-    ]
-  end
-
   def getHelpMessage
     return <<MESSAGETEXT
 ・2D6の目標値判定でクリティカル処理

@@ -7,10 +7,6 @@ class GoldenSkyStories < DiceBot
     super
   end
 
-  def prefixs
-    ['geta']
-  end
-
   def gameName
     'ゆうやけこやけ'
   end

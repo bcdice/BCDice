@@ -20,11 +20,6 @@ class ShoujoTenrankai < DiceBot
     # @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
   end
 
-  def prefixs
-    #ダイスボットで使用するコマンドを配列で列挙すること。
-    ["SPRING","SUMMER","AUTUMN","WINTER","MORNING","NOON","AFTERNOON","TWILIGHT","NIGHT","MIDNIGHT","NORBLE","MARCHEN","COLONIAL","SHELF","LITTLE","ELDER","ATERIEL","OPEN","HAUNTED","SIMPLE","LARGE","CORRIDOR","STAIRS","COSY","TERRACE","GARRET","KITCHEN","BATH","REST","CELLER","LUMBER","GARDEN","WASTED","RUIN","SHORE"]
-  end
-
   def gameName
     '少女展爛会'
   end

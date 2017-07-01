@@ -8,11 +8,6 @@ class Skynauts < DiceBot
     @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
   end
 
-  def prefixs
-    #ダイスボットで使用するコマンドを配列で列挙すること。
-    ['D.*', '2[Dd]6<=.*', 'SN.*', 'NV.*', 'AVO.*', 'BOM.*']
-  end
-
   def gameName
     '歯車の塔の探空士'
   end

@@ -18,10 +18,6 @@ class Cthulhu7th_Korean < DiceBot
     "Cthulhu7th:Korean"
   end
 
-  def prefixs
-     ['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)' , 'FAR.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・판정　CC(x)<=（목표치）

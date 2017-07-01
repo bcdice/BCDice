@@ -17,10 +17,6 @@ class TunnelsAndTrolls < DiceBot
     "Tunnels & Trolls"
   end
 
-  def prefixs
-     ['(\d+H?BS)']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・行為判定　(nD6+x>=nLV)

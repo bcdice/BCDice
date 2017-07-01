@@ -29,10 +29,6 @@ class BarnaKronika < DiceBot
     "BarnaKronika"
   end
 
-  def prefixs
-     ['\d+BK', '\d+BA', '\d+BKC\d+', '\d+BAC\d+']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・通常判定　nBK
