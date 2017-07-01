@@ -54,8 +54,8 @@ MESSAGETEXT
   end
 
   def getCommandTablesResult(command)
-    # @@tables の定義からコマンド検索
-    info = @@tables[command.upcase]
+    # TABLES の定義からコマンド検索
+    info = TABLES[command.upcase]
     return nil if info.nil?
 
     name = info[:name]
@@ -329,7 +329,7 @@ MESSAGETEXT
     }
   end
 
-  @@tables = {
+  TABLES = {
     "FT" => {
       :name => "ファンブル表",
       :type => '1D6',
@@ -967,5 +967,5 @@ MESSAGETEXT
     }
   }
 
-  setPrefixes(['\d*JD.*', 'RET\d+', 'RETP\d+', 'DNGN\d+'] + @@tables.keys)
+  setPrefixes(['\d*JD.*', 'RET\d+', 'RETP\d+', 'DNGN\d+'] + TABLES.keys)
 end
