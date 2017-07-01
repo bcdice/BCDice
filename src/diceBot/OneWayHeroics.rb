@@ -171,26 +171,10 @@ MESSAGETEXT
     return " ＞ \n #{command} ＞ #{text}"
   end
 
-  def getRandomEventDiceCommandResult(command)
-    return nil unless /^RET(\d+)$/ === command
-    day = $1.to_i
-
-    name = "ランダムイベント表"
-    table =
-      [[1, "さらに１Ｄ６を振る。現在ＰＣがいるエリアの【日数】以下なら「施設表(FCLT)」へ移動。【日数】を超えていれば「ダンジョン表(DNGN#{day})」（１５３ページ）へ移動。", lambda{ getRandomEventAddText(day, "FCLT", "DNGN#{day}") }],
-       [2, "さらに１Ｄ６を振る。現在ＰＣがいるエリアの【日数】以下なら「世界の旅表」（１５７ページ）へ移動。【日数】を超えていれば「野外遭遇表(OUTENC)」（１５５ページ）へ移動。", lambda{ getRandomEventAddText(day, " ＞ 「世界の旅表」（１５７ページ）へ。", "OUTENC") }],
-       [3, "「施設表」へ移動。", lambda{ getAddRoll("FCLT") }],
-       [4, "「世界の旅表」（１５７ページ）へ移動。"],
-       [5, "「野外遭遇表」（１５５ページ）へ移動。", lambda{ getAddRoll("OUTENC") }],
-       [6, "「ダンジョン表」（１５２ページ）へ移動。", lambda{ getAddRoll("DNGN#{day}") }],
-      ]
-
-    dice, = roll(1, 6)
-    number, text = getTableResult(table, dice)
-
-    return nil if( text.nil? )
-
-    return "#{name}(#{number}) ＞ #{text}"
+  def getAddRollProc(command)
+    # 引数なしのlambda
+    # Ruby 1.8と1.9以降で引数の個数の解釈が異なるため || が必要
+    lambda { || getAddRoll(command) }
   end
 
   def getRandomEventAddText(day, command1, command2)
@@ -208,24 +192,51 @@ MESSAGETEXT
     return text
   end
 
+  def getRandomEventAddTextProc(day, command1, command2)
+    # 引数なしのlambda
+    # Ruby 1.8と1.9以降で引数の個数の解釈が異なるため || が必要
+    lambda { || getRandomEventAddText(day, command1, command2) }
+  end
+
+  def getRandomEventDiceCommandResult(command)
+    return nil unless /^RET(\d+)$/ === command
+    day = $1.to_i
+
+    name = "ランダムイベント表"
+    table = [
+      [1, "さらに１Ｄ６を振る。現在ＰＣがいるエリアの【日数】以下なら「施設表(FCLT)」へ移動。【日数】を超えていれば「ダンジョン表(DNGN#{day})」（１５３ページ）へ移動。", getRandomEventAddTextProc(day, "FCLT", "DNGN#{day}")],
+      [2, "さらに１Ｄ６を振る。現在ＰＣがいるエリアの【日数】以下なら「世界の旅表」（１５７ページ）へ移動。【日数】を超えていれば「野外遭遇表(OUTENC)」（１５５ページ）へ移動。", getRandomEventAddTextProc(day, " ＞ 「世界の旅表」（１５７ページ）へ。", "OUTENC")],
+      [3, "「施設表」へ移動。", getAddRollProc("FCLT")],
+      [4, "「世界の旅表」（１５７ページ）へ移動。"],
+      [5, "「野外遭遇表」（１５５ページ）へ移動。", getAddRollProc("OUTENC")],
+      [6, "「ダンジョン表」（１５２ページ）へ移動。", getAddRollProc("DNGN#{day}")]
+    ]
+
+    dice, = roll(1, 6)
+    number, text = getTableResult(table, dice)
+
+    return nil if( text.nil? )
+
+    return "#{name}(#{number}) ＞ #{text}"
+  end
+
   def getRandomEventPlusDiceCommandResult(command)
     return nil unless /^RETP(\d+)$/ === command
     day = $1.to_i
 
     name = "ランダムイベント表プラス"
-    table =
-      [
-       [1, "さらに1D6を振る。現在PCがいるエリアの【日数】以下なら施設表プラス（０２２ページ）へ移動。【経過日数】を超えていればダンジョン表プラス（０２５ページ）へ移動",
-        lambda{ getRandomEventAddText(day, "FCLTP", "DNGNP#{day}") }],
-       [2, "さらに1D6を振る。現在PCがいるエリアの【日数】以下なら世界の旅表（基本１５７ページ）へ移動。【経過日数】を超えていれば野外遭遇表（基本１５５ページ）へ移動",
-        lambda{ getRandomEventAddText(day, " ＞ 「世界の旅表」（１５７ページ）へ。", "OUTENC") }],
-       [3, "さらに1D6を振る。現在PCがいるエリアの【日数】以下なら世界の旅表２（０２８ページ）へ移動。【経過日数】を超えていれば野外遭遇表プラス（０２５ページ）へ移動",
-        lambda{ getRandomEventAddText(day, " ＞ 世界の旅表２（０２８ページ）へ。", "OUTENCP") }],
-       [4, "さらに1D6を振る。奇数なら世界の旅表（基本１５７ページ）へ移動。偶数なら世界の旅表２（０２８ページ）へ移動",
-        lambda{ getRandomEventAddText(day, " ＞ 世界の旅表（基本１５７ページ）へ。", "偶数なら世界の旅表２（０２８ページ）へ。") }],
-       [5, "施設表プラスへ移動（０２２ページ）", lambda{ getAddRoll("FCLTP") }],
-       [6, "ダンジョン表プラスへ移動（０２５ページ）", lambda{ getAddRoll("DNGNP#{day}") }],
-      ]
+    table = [
+      [1, "さらに1D6を振る。現在PCがいるエリアの【日数】以下なら施設表プラス（０２２ページ）へ移動。【経過日数】を超えていればダンジョン表プラス（０２５ページ）へ移動",
+       getRandomEventAddTextProc(day, "FCLTP", "DNGNP#{day}")],
+      [2, "さらに1D6を振る。現在PCがいるエリアの【日数】以下なら世界の旅表（基本１５７ページ）へ移動。【経過日数】を超えていれば野外遭遇表（基本１５５ページ）へ移動",
+       getRandomEventAddTextProc(day, " ＞ 「世界の旅表」（１５７ページ）へ。", "OUTENC")],
+      [3, "さらに1D6を振る。現在PCがいるエリアの【日数】以下なら世界の旅表２（０２８ページ）へ移動。【経過日数】を超えていれば野外遭遇表プラス（０２５ページ）へ移動",
+       getRandomEventAddTextProc(day, " ＞ 世界の旅表２（０２８ページ）へ。", "OUTENCP")],
+      [4, "さらに1D6を振る。奇数なら世界の旅表（基本１５７ページ）へ移動。偶数なら世界の旅表２（０２８ページ）へ移動",
+       getRandomEventAddTextProc(day, " ＞ 世界の旅表（基本１５７ページ）へ。", "偶数なら世界の旅表２（０２８ページ）へ。")],
+      [5, "施設表プラスへ移動（０２２ページ）", getAddRollProc("FCLTP")],
+      [6, "ダンジョン表プラスへ移動（０２５ページ）", getAddRollProc("DNGNP#{day}")]
+    ]
 
     dice, = roll(1, 6)
     number, text = getTableResult(table, dice)
