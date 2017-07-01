@@ -17,10 +17,6 @@ class RokumonSekai2 < DiceBot
     "RokumonSekai2"
   end
 
-  def prefixs
-     ['\d+RS']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定

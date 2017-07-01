@@ -14,12 +14,6 @@ class ShinkuuGakuen < DiceBot
     "ShinkuuGakuen"
   end
 
-  def prefixs
-    ['CRL.*', 'CSW.*', 'CLS.*', 'CSS.*', 'CSP.*', 'CAX.*', 'CCL.*', 'CMA.*', 'CBX.*', 'CPR.*', 'CST.*',
-     'RL.*', 'SW.*', 'LS.*', 'SS.*', 'SP.*', 'AX.*', 'CL.*', 'BW.*', 'MA.*', 'BX.*', 'PR.*', 'ST.*']
-
-  end
-
   def getHelpMessage
     return <<MESSAGETEXT
 ・判定

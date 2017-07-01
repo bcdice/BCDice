@@ -19,10 +19,6 @@ class EarthDawn4 < EarthDawn
     "EarthDawn4"
   end
 
-  def prefixs
-    ['\d+e.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ステップダイス　(xEnK)

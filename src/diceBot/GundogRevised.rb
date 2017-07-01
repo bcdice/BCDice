@@ -13,10 +13,6 @@ class GundogRevised < DiceBot
     "GundogRevised"
   end
 
-  def prefixs
-     ['(.DPT|.FT)(\+|\-)?\d*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 失敗、成功、クリティカル、ファンブルとロールの達成値の自動判定を行います。

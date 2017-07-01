@@ -10,13 +10,6 @@ class Kamigakari < DiceBot
     @d66Type = 1
   end
 
-  def prefixs
-    [
-     'RT',
-     'MT(\d*)',
-	]
-  end
-
   def gameName
     '神我狩'
   end

@@ -14,10 +14,6 @@ class ZettaiReido < DiceBot
     "ZettaiReido"
   end
 
-  def prefixs
-     ['\d+\-2DR.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定

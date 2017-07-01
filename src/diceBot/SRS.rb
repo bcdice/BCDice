@@ -18,10 +18,6 @@ class SRS < DiceBot
     "SRS"
   end
 
-  def prefixs
-    ['2D6.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定

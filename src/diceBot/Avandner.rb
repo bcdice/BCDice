@@ -8,10 +8,6 @@ class Avandner < DiceBot
     @sortType = 1 #ダイスのソート有
   end
 
-  def prefixs
-    ['\d+AV\d+((x|\*)\d+(\+\d+)?)?(c\d+)?']
-  end
-
   def gameName
     '黒絢のアヴァンドナー'
   end

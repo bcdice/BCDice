@@ -24,15 +24,6 @@ class DetatokoSaga_Korean < DiceBot
     "DetatokoSaga:Korean"
   end
 
-  def prefixs
-    ['\d+DS.*', '\d+JD.*',
-     'SST', 'StrengthStigmaTable',
-     'WST', 'WillStigmaTable',
-     'SBET', 'StrengthBadEndTable',
-     'WBET', 'WillBadEndTable',
-    ]
-  end
-
   def getHelpMessage
     info = <<INFO_MESSAGE_TEXT
 ・통상판정　xDS or xDSy or xDS>=z or xDSy>=z

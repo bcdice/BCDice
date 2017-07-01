@@ -20,11 +20,6 @@ class Insane < DiceBot
     "Insane"
   end
 
-  def prefixs
-     ['ST', 'HJST', 'MTST', 'DVST', 'DT', 'BT', 'PT', 'FT', 'JT', 'BET', 'RTT', 'TVT', 'TET', 'TPT', 'TST', 'TKT', 'TMT',
-      'CHT', 'VHT', 'IHT', 'RHT', 'MHT', 'LHT', 'ECT','EMT','EAT','OPT','OHT','OWT','CNT1','CNT2','CNT3','RET',]
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定

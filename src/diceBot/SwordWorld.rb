@@ -16,10 +16,6 @@ class SwordWorld < DiceBot
     "SwordWorld"
   end
 
-  def prefixs
-     ['K\d+.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 自動的成功、成功、失敗、自動的失敗の自動判定を行います。

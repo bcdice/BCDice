@@ -16,10 +16,6 @@ class Amadeus_Korean < DiceBot
     "Amadeus:Korean"
   end
 
-  def prefixs
-    ['R[A-DS].*'] + @@tables.keys
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・판정(Rx±y@z>=t)

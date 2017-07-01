@@ -7,11 +7,6 @@ class HarnMaster < DiceBot
     super
   end
 
-  def prefixs
-    #ダイスボットで使用するコマンドを配列で列挙すること。
-    ['SHK\d+.*', 'SLH', 'SLHU', 'SLHD', ]
-  end
-
   def gameName
     'ハーンマスター'
   end

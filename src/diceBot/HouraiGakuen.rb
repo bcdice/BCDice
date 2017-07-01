@@ -14,10 +14,6 @@ class HouraiGakuen < DiceBot
   end
 
   #判定用前置文字
-  def prefixs
-    ['ROL.*', 'MED\(\d+,\d+\)', 'RES\(\d+,\d+\)' , 'INY.*' , 'HTK.*' , 'GOG.*']
-  end
-
   #説明文
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT

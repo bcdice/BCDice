@@ -7,10 +7,6 @@ class Paranoia < DiceBot
     super
   end
 
-  def prefixs
-    ['geta']
-  end
-
   def gameName
     'パラノイア'
   end

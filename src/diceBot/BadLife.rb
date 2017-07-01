@@ -7,10 +7,6 @@ class BadLife < DiceBot
     super
   end
 
-  def prefixs
-    ['\d?(BAD|BL|GL).*', '[TDGKSB]RN', 'SKL']
-  end
-
   def gameName
     '犯罪活劇RPGバッドライフ'
   end

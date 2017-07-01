@@ -18,10 +18,6 @@ class Nechronica < DiceBot
     "Nechronica"
   end
 
-  def prefixs
-     ['(\d+NC|\d+NA)']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定　(nNC+m)

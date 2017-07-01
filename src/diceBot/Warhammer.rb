@@ -17,10 +17,6 @@ class Warhammer < DiceBot
     "Warhammer"
   end
 
-  def prefixs
-     ['WH.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・クリティカル表(whHxx/whAxx/whBxx/whLxx)

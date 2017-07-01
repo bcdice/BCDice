@@ -11,10 +11,6 @@ class CrashWorld < DiceBot
     '墜落世界'
   end
 
-  def prefixs
-     ['CW\d+']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定 CWn

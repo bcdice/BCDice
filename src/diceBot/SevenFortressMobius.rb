@@ -18,10 +18,6 @@ class SevenFortressMobius < DiceBot
     "SevenFortressMobius"
   end
 
-  def prefixs
-     ['\d*SFM']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定用コマンド　(nSFM+m@x#y)

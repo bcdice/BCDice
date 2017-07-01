@@ -18,10 +18,6 @@ class Cthulhu7th_ChineseTraditional < DiceBot
     "Cthulhu7th:ChineseTraditional"
   end
 
-  def prefixs
-     ['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)' , 'FAR.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 

@@ -11,10 +11,6 @@ class RecordOfSteam < DiceBot
     "Record of Steam"
   end
 
-  def prefixs
-     ['\d+S\d+.*']
-  end
-
   def getHelpMessage
     return <<MESSAGETEXT
 2S2@1

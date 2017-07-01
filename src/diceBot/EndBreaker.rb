@@ -10,11 +10,6 @@ class EndBreaker < DiceBot
     @d66Type = 1
   end
 
-  def prefixs
-    #ダイスボットで使用するコマンドを配列で列挙すること。
-    ['\d+EB', 'LDUT']
-  end
-
   def gameName
     'エンドブレイカー'
   end

@@ -7,10 +7,6 @@ class BattleTech < DiceBot
     super
   end
 
-  def prefixs
-    ['\d*SRM\d+.+', '\d*LRM\d+.+', '\d*BT.+', 'CT', 'DW', 'CD\d+']
-  end
-
   def gameName
     'バトルテック'
   end

@@ -33,25 +33,6 @@ class MeikyuKingdom < DiceBot
     "MeikyuKingdom"
   end
 
-  def prefixs
-     ['\d+MK',
-      'LRT', 'ORT', 'CRT', 'ART', 'FRT',
-      'TBT', 'CBT', 'SBT', 'VBT', 'FBT', 'ABT', 'WBT', 'LBT',
-      'THT', 'CHT', 'SHT', 'VHT',
-      'KDT', 'KCT', 'KMT',
-      'CAT', 'FWT', 'CFT',
-      'TT', 'NT', 'ET', 'MPT',
-      'T1T', 'T2T', 'T3T', 'T4T', 'T5T',
-      'NAME.*',
-      'DFT', 'IDT\d*',
-      'WIT', 'LIT', 'RIT', 'SIT', 'RWIT', 'RUIT',
-      'IFT',
-      '\d+RET',
-      'PNT\d*', 'MLT\d*',
-      'KNT\d+', 'WORD\d+',
-     ]
-  end
-
   def getHelpMessage
   return <<INFO_MESSAGE_TEXT
 ・判定　(nMK+m)

@@ -18,10 +18,6 @@ class Nechronica_Korean < DiceBot
     "Nechronica:Korean"
   end
 
-  def prefixs
-     ['(\d+NC|\d+NA)']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・판정　(nNC+m)

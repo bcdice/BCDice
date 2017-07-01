@@ -15,10 +15,6 @@ class Gorilla < DiceBot
     "Gorilla"
   end
 
-  def prefixs
-     ['G.*']
-  end
-
   def getHelpMessage
     return <<MESSAGETEXT
 2D6ロール時のゴリティカル自動判定を行います。

@@ -17,10 +17,6 @@ class GehennaAn < DiceBot
     "GehennaAn"
   end
 
-  def prefixs
-     ['(\d+G\d+|\d+GA\d+)']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 戦闘判定と通常判定に対応。幸運の助け、連撃増加値(戦闘判定)、闘技チット(戦闘判定)を自動表示します。

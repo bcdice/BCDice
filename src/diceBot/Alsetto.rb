@@ -8,10 +8,6 @@ class Alsetto < DiceBot
     @sortType = 1 #ダイスのソート有
   end
 
-  def prefixs
-    ['\d+AL(C|G)?(\d+)?(x|\*)\d+', '\d+ALC?(\d+)?']
-  end
-
   def gameName
     '詩片のアルセット'
   end

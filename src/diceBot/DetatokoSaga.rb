@@ -24,15 +24,6 @@ class DetatokoSaga < DiceBot
     "DetatokoSaga"
   end
 
-  def prefixs
-    ['\d+DS.*', '\d+JD.*',
-     'SST', 'StrengthStigmaTable',
-     'WST', 'WillStigmaTable',
-     'SBET', 'StrengthBadEndTable',
-     'WBET', 'WillBadEndTable',
-    ]
-  end
-
   def getHelpMessage
     info = <<INFO_MESSAGE_TEXT
 ・通常判定　xDS or xDSy or xDS>=z or xDSy>=z

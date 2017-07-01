@@ -19,10 +19,6 @@ class MonotoneMusium < DiceBot
     "MonotoneMusium"
   end
 
-  def prefixs
-    ['2D6.*', 'ET','ET2', 'OT', 'DT', 'DT2', 'WDT', 'WDT2', 'OT2', 'DTO', 'DTS']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定

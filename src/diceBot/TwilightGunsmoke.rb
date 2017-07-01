@@ -23,13 +23,6 @@ class TwilightGunsmoke < DiceBot
     "TwilightGunsmoke"
   end
 
-  def prefixs
-    ['2D6.*', 'CT', 'OPR', 'OPC', 'EDR', 'EDC', 'RWL', 'RWB', 'RST',
-     'RUP', 'DCP', 'DBD', 'DCR', 'DNJ', 'DRB', 'DBS', 'DTR', 'DMK', 'DHL',
-     'DML', 'DZB', 'DMT', 'DHR', 'DKS', 'DFD',
-    ]
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定

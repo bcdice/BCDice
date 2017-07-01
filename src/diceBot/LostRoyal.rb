@@ -18,10 +18,6 @@ class LostRoyal < DiceBot
     "LostRoyal"
   end
 
-  def prefixs
-    ['LR\[[0-5],[0-5],[0-5],[0-5],[0-5],[0-5]\]', 'FC', 'WPC', 'EC', 'HR[1-2]']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・D66ダイスあり

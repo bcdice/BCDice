@@ -8,10 +8,6 @@ class LogHorizon < DiceBot
     @d66Type = 1;
   end
 
-  def prefixs
-    ['\d+LH.*', 'PC.*', 'EC.*', 'GC.*', 'CC.*', 'CTR.*', 'MTR.*', 'ITR.*', 'HTR.*','GTR.*', 'PTAG', 'KOYU', 'MGR.', 'HLOC', 'PCNM', 'IAT.*', 'TIAS', 'ABDC', 'MII.*', 'ESCT.*', 'CSCT.*', 'ESTL.*']
-  end
-
   def gameName
     'ログ・ホライズン'
   end

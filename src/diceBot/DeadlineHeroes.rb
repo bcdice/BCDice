@@ -16,15 +16,6 @@ class DeadlineHeroes < DiceBot
     "DeadlineHeroes"
   end
 
-  def prefixs
-    [
-      'DLH\\d+([\\+\\-]\\d+)*',
-      'DC(L|S|C)\d+',
-      'RNC[JO]',
-      'HNC',
-    ]
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・行為判定（DLHx）

@@ -17,10 +17,6 @@ class Satasupe < DiceBot
     "Satasupe"
   end
 
-  def prefixs
-    ['(\d+R|SR\d+|TAGT|\w+IET|\w+IHT|F\w*T|F\w*T|A\w*T|G\w*A\w*T|A\w*T|R\w*FT|NPCT|KusaiMT|EnterT|BudTT|GetgT|GetzT|GetnT|GetkT|GETSST).*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定コマンド　(nR>=x[y,z,c] or nR>=x or nR>=[,,c] etc)

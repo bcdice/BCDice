@@ -15,10 +15,6 @@ class Ryutama < DiceBot
     "Ryutama"
   end
 
-  def prefixs
-     ['R\d+.*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定

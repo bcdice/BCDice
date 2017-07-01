@@ -23,16 +23,6 @@ class BladeOfArcana < DiceBot
     "BladeOfArcana"
   end
 
-  def prefixs
-    [
-      '\d+A\d*[CF]?\d*[CF]?\d*',
-      'CT3[\+\-]?',
-      'CTR[\+\-]?',
-      'DJV\-?',
-      'AKST[\+\-]?',
-    ]
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ■行為判定　nA[m][Cx][Fy]

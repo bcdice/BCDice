@@ -17,10 +17,6 @@ class Gurps < DiceBot
     "GURPS"
   end
 
-  def prefixs
-    ['\w*CRT', '\w*FMB', 'HIT', 'FEAR((\+)?\d*)', 'REACT((\+|\-)?\d*)', '[\d\+\-]+\-3[dD]6?[\d\+\-]*']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定においてクリティカル・ファンブルの自動判別、成功度の自動計算。(3d6<=目標値／目標値-3d6)

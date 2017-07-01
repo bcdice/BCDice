@@ -18,10 +18,6 @@ class Peekaboo < DiceBot
     "Peekaboo"
   end
 
-  def prefixs
-    ['SET', 'PSET', 'OET', 'IBT', 'SBT', 'NET']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定

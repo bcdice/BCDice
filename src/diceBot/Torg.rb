@@ -16,10 +16,6 @@ class Torg < DiceBot
     "TORG"
   end
 
-  def prefixs
-     ['(TG.*|RT.*|Result.*|IT.*|Initimidate.*|TT.*|Taunt.*|Trick.*|CT.*|MT.*|Maneuver.*|ODT.*|ords.*|odamage.*|DT.*|damage.*|BT.*|bonus.*|total.*)']
-  end
-
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定　(TGm)

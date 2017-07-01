@@ -6,10 +6,6 @@ class DungeonsAndDoragons < DiceBot
     super
   end
   
-  def prefixs
-    []
-  end
-  
   def gameName
     'ダンジョンズ＆ドラゴンズ'
   end
