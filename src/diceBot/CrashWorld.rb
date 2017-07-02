@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 class CrashWorld < DiceBot
+  setPrefixes(['CW\d+'])
+
   def gameType
     "CrashWorld"
   end
@@ -8,11 +10,7 @@ class CrashWorld < DiceBot
   def gameName
     '墜落世界'
   end
-  
-  def prefixs
-     ['CW\d+']
-  end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定 CWn
@@ -20,38 +18,37 @@ class CrashWorld < DiceBot
 例・CW8
 INFO_MESSAGE_TEXT
   end
-  
 
   def rollDiceCommand(command)
     result = nil
-    
+
     case command
     when /CW(\d+)/i
       result = getCrashWorldRoll($1.to_i)
     else
     end
-    
+
     return result
   end
-  
+
   def getCrashWorldRoll(target)
     debug("target", target)
-    
+
     output = "("
     isEnd = false
     successness = 0
     num = 0
-    
+
     while( not isEnd )
       num, = roll(1, 12)
-      
+
       # 振った数字を出力へ書き足す
       if(output == "(")
         output = "(#{num}"
       else
         output = "#{output}, #{num}"
       end
-      
+
       if(num <= target || num == 11)
         # 成功/クリティカル(11)。 次回の目標値を変更して継続
         target = num
@@ -69,9 +66,9 @@ INFO_MESSAGE_TEXT
       # ファンブルの時、成功度は0
       successness = 0
     end
-    
+
     output = "#{output})  成功度 : #{successness}"
-    
+
     if(num == 12)
       output = "#{output} ファンブル"
     end
@@ -79,4 +76,3 @@ INFO_MESSAGE_TEXT
     return output
   end
 end
-

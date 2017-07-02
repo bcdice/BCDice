@@ -1,29 +1,28 @@
 # -*- coding: utf-8 -*-
 
 class TwilightGunsmoke < DiceBot
-  
+  setPrefixes([
+    '2D6.*', 'CT', 'OPR', 'OPC', 'EDR', 'EDC', 'RWL', 'RWB', 'RST',
+    'RUP', 'DCP', 'DBD', 'DCR', 'DNJ', 'DRB', 'DBS', 'DTR', 'DMK', 'DHL',
+    'DML', 'DZB', 'DMT', 'DHR', 'DKS', 'DFD'
+  ])
+
   def initialize
     super
-    
+
     @sendMode = 2
     @d66Type = 1
     @sortType = 1
   end
+
   def gameName
     'トワイライト・ガンスモーク'
   end
-  
+
   def gameType
     "TwilightGunsmoke"
   end
-  
-  def prefixs
-    ['2D6.*', 'CT', 'OPR', 'OPC', 'EDR', 'EDC', 'RWL', 'RWB', 'RST',
-     'RUP', 'DCP', 'DBD', 'DCR', 'DNJ', 'DRB', 'DBS', 'DTR', 'DMK', 'DHL',
-     'DML', 'DZB', 'DMT', 'DHR', 'DKS', 'DFD',
-    ]
-  end
- 
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定
@@ -47,41 +46,39 @@ class TwilightGunsmoke < DiceBot
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
-  
-  
+
   def rollDiceCommand(command)
-    
+
     result = checkRoll(command)
     return result unless(result.empty?)
-    
+
     debug("判定ロールではなかった")
-    
+
     debug("各種表として処理")
     return rollTableCommand(command)
   end
-  
-  
+
   def checkRoll(string)
     output = ''
-    
+
     crit = 12
     fumble = 2
-    
+
     return output unless(/^2D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i =~ string)
-    
+
     modText = $1
     target = $2.to_i
     crit = $4.to_i if($4)
     fumble = $6.to_i if($6)
-    
+
     mod = 0
     mod = parren_killer("(0#{modText})") unless( modText.nil? )
-    
+
     total, dice_str, = roll(2, 6, @sortType && 1)
     total_n = total + mod.to_i
-    
+
     output = "#{total}[#{dice_str}]＋#{mod} → #{total_n}"
-    
+
     if(total >= crit)
       output += " ＞ 自動成功"
     elsif(total <= fumble)
@@ -91,18 +88,17 @@ INFO_MESSAGE_TEXT
     else
       output += " ＞ 失敗"
     end
-    
+
     output = "(#{string}) ＞ #{output}"
-    
+
     return output
-    
+
   end
-  
-  
+
   def rollTableCommand(command)
     output = ''
     type = ""
-    
+
     case command
     when /CT/i
       type ="邂逅表"
@@ -180,12 +176,11 @@ INFO_MESSAGE_TEXT
       type = "ドロップチャート：フィーンド"
       output, total_n = tgs_drop_fiend_table()
     end
-    
+
     output = "#{type}(#{total_n}) ＞ #{output}" if(output != '')
-    
+
     return output
   end
-
 
   # 邂逅表(d66)[CT]
   def tgs_conection_table
@@ -272,7 +267,7 @@ INFO_MESSAGE_TEXT
     ]
     return get_table_by_d66(table)
   end
- 
+
   # オープニングチャート：シネマティック(d66)[OPC]
   def tgs_opening_cinema_table
     table = [
@@ -358,7 +353,7 @@ INFO_MESSAGE_TEXT
     ]
     return get_table_by_d66(table)
   end
- 
+
   # エンディングチャート：シネマティック(d66)[EDC]
   def tgs_ending_cinema_table
     table = [
@@ -589,7 +584,7 @@ INFO_MESSAGE_TEXT
       "スティムパック",
       "スティムパック",
     ]
-    
+
     return get_table_by_2d6(table)
   end
 
@@ -608,7 +603,7 @@ INFO_MESSAGE_TEXT
       "アッパードラッグ",
       "アッパードラッグ",
     ]
-    
+
     return get_table_by_2d6(table)
   end
 
@@ -627,7 +622,7 @@ INFO_MESSAGE_TEXT
       "派手なスーツ（$700）",
       "派手なスーツ（$700）",
     ]
-    
+
     return get_table_by_2d6(table)
   end
 
@@ -646,7 +641,7 @@ INFO_MESSAGE_TEXT
       "スティムパック",
       "カタナ",
     ]
-    
+
     return get_table_by_2d6(table)
   end
 
@@ -665,7 +660,7 @@ INFO_MESSAGE_TEXT
       "ヴォルトコーラ",
       "ヴォルトコーラ",
     ]
-    
+
     return get_table_by_2d6(table)
   end
 
@@ -684,10 +679,10 @@ INFO_MESSAGE_TEXT
       "5.56㎜アサルトライフル",
       "5.56㎜アサルトライフル",
     ]
-    
+
     return get_table_by_2d6(table)
   end
-  
+
  # ドロップチャート：ターレット(2d6)[DTR]
   def tgs_drop_turret_table
     table = [
@@ -703,7 +698,7 @@ INFO_MESSAGE_TEXT
       "廃棄部品（$30）×2",
       "7.62㎜マシンガン",
     ]
-    
+
     return get_table_by_2d6(table)
   end
 
@@ -722,7 +717,7 @@ INFO_MESSAGE_TEXT
       "アッパードラッグ",
       "アッパードラッグ",
     ]
-    
+
     return get_table_by_2d6(table)
   end
 
@@ -741,7 +736,7 @@ INFO_MESSAGE_TEXT
       "アッパードラッグ×2",
       "アッパードラッグ×2",
     ]
-    
+
     return get_table_by_2d6(table)
   end
 
@@ -760,7 +755,7 @@ INFO_MESSAGE_TEXT
       "未知の金属（$1,000）",
       "マシンライフコア（$10,000）",
     ]
-    
+
     return get_table_by_2d6(table)
   end
 
@@ -779,7 +774,7 @@ INFO_MESSAGE_TEXT
       "装飾品（$500）",
       "装飾品（$500）",
     ]
-    
+
     return get_table_by_2d6(table)
   end
 
@@ -798,10 +793,10 @@ INFO_MESSAGE_TEXT
       "戦前の酒（$1,500）",
       "戦前の酒（$1,500）",
     ]
-    
+
     return get_table_by_2d6(table)
   end
-  
+
  # ドロップチャート：BM／飛竜科(2d6)[DHR]
   def tgs_drop_hiryu_table
     table = [
@@ -817,7 +812,7 @@ INFO_MESSAGE_TEXT
       "飛竜の羽根（$2,000）",
       "飛竜の角（$10,000）",
     ]
-    
+
     return get_table_by_2d6(table)
   end
 
@@ -836,7 +831,7 @@ INFO_MESSAGE_TEXT
       "巨大な爪（$7,000）",
       "巨大な爪（$7,000）",
     ]
-    
+
     return get_table_by_2d6(table)
   end
 
@@ -855,8 +850,7 @@ INFO_MESSAGE_TEXT
       "異次元の結晶（$12,000）",
       "異次元の結晶（$12,000）",
     ]
-    
+
     return get_table_by_2d6(table)
   end
-
 end

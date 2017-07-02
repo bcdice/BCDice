@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 class HuntersMoon < DiceBot
-  
+  setPrefixes(['(ET|CLT|SLT|HLT|FLT|DLT|MAT|SAT|SA2T|TST|THT|TAT|TBT|TLT|TET)\d*'])
+
   def initialize
     super
     @sendMode = 2;
@@ -9,19 +10,15 @@ class HuntersMoon < DiceBot
     @d66Type = 2;
     @fractionType = "roundUp";     # 端数切り上げに設定
   end
-  
+
   def gameName
     'ハンターズムーン'
   end
-  
+
   def gameType
     "HuntersMoon"
   end
-  
-  def prefixs
-     ['(ET|CLT|SLT|HLT|FLT|DLT|MAT|SAT|SA2T|TST|THT|TAT|TBT|TLT|TET)\d*']
-  end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定
@@ -52,12 +49,11 @@ class HuntersMoon < DiceBot
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
-  
-  
+
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     return '' unless(signOfInequality == ">=")
-    
+
     if(dice_n <= 2)
       return " ＞ ファンブル(モノビースト追加行動+1)";
     elsif(dice_n >= 12)
@@ -68,17 +64,15 @@ INFO_MESSAGE_TEXT
       return " ＞ 失敗";
     end
   end
-  
-  
-  
+
   def rollDiceCommand(command)
     string = command.upcase
     output = '1';
     type = "";
     total_n = "";
-    
+
     case string
-      
+
     when /CLT/i
       type = '都市ロケーション';
       output, total_n = hm_city_location_table
@@ -94,19 +88,19 @@ INFO_MESSAGE_TEXT
     when /DLT/i
       type = '部位ダメージ決定';
       output, total_n = hm_hit_location_table
-      
+
     when /MAT/i
       type = 'モノビースト行動';
       output, total_n = hm_monobeast_action_table
-      
+
     when /SA(2)?T(\d*)/i
       isType2 = (not $1.nil?)
       count = $2.to_i
       count = 1 if(count == 0)
-      
+
       type = '異形アビリティー';
       output, total_n = get_strange_ability_table_result(count, isType2)
-      
+
     when /TST/i
       type = '指定特技(社会)';
       output, total_n = hm_social_skill_table
@@ -125,19 +119,18 @@ INFO_MESSAGE_TEXT
     when /TET/i
       type = '指定特技(環境)';
       output, total_n = hm_environmental_skill_table
-      
+
     when /ET/i
       type = '遭遇';
       output, total_n = hm_encount_table
     end
-    
+
     return output if(output == '1')
-    
+
     output = "#{type}表(#{total_n}) ＞ #{output}";
     return output;
   end
-  
-  
+
 #** ロケーション表
   def hm_city_location_table
     table = [
@@ -150,7 +143,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def hm_small_location_table
     table = [
              '地下倉庫/広々とした倉庫。探してみれば色々なものが転がっている。ハンターは戦闘開始時に好きなアイテムを一つ入手してもよい。',
@@ -162,7 +155,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def hm_hot_location_table
     table = [
              '温室/植物が栽培されている熱く湿った場所。生命に満ち溢れた様子は、戦闘開始時にハンターの【モラル】を1点増加する。',
@@ -199,8 +192,8 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  
-  #** 
+
+  #**
   def hm_monobeast_action_table
     table = [
              '社会/モノビーストは時間をかけて逃げ続けることで、ダメージを回復しようとしているようだ。部位ダメージを自由に一つ回復する。部位ダメージを受けていない場合、【モラル】が1D6回復する。',
@@ -212,7 +205,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   #** 部位ダメージ決定表
   def hm_hit_location_table
     table = [
@@ -230,51 +223,48 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_2d6(table)
   end
-  
-  
+
   def getStrangeAbilityTable1()
   end
-  
-  
+
   #** 異形アビリティー表
   def get_strange_ability_table_result(count, isType2)
     output = ''
     dice = ''
-    
+
     table1 = get_strange_ability_table_1
     table2 = get_strange_ability_table_2
-    
+
     count.times do |i|
-      
+
       if( i != 0 )
         output += "/"
         dice += ","
       end
-      
+
       table = table1
-      
+
       if( isType2 )
         number, = roll(1, 6)
         index = ((number % 2) == 1 ? 0 : 1)
-        
+
         table = [table1, table2][index]
         dice += "#{number}-"
         output += "[表#{index + 1}]"
       end
-      
+
       ability, indexText = get_table_by_d66(table)
       next if( ability == '1' )
-      
+
       output += "#{ability}"
       dice += indexText
     end
-    
+
     return '1', dice if(output.empty?)
-    
+
     return output, dice
   end
 
-  
   def get_strange_ability_table_1
     table = %w{
 大牙
@@ -359,7 +349,6 @@ INFO_MESSAGE_TEXT
     return table
   end
 
-  
 #** 指定特技ランダム決定(社会)
   def hm_social_skill_table
     table = [
@@ -377,7 +366,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_2d6(table)
   end
-  
+
 #** 指定特技ランダム決定(頭部)
   def hm_head_skill_table
     table = [
@@ -395,7 +384,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_2d6(table)
   end
-  
+
 #** 指定特技ランダム決定(腕部)
   def hm_arm_skill_table
     table = [
@@ -413,7 +402,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_2d6(table)
   end
-  
+
 #** 指定特技ランダム決定(胴部)
   def hm_trunk_skill_table
     table = [
@@ -431,7 +420,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_2d6(table)
   end
-  
+
 #** 指定特技ランダム決定(脚部)
   def hm_leg_skill_table
     table = [
@@ -449,7 +438,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_2d6(table)
   end
-  
+
 #** 指定特技ランダム決定(環境)
   def hm_environmental_skill_table
     table = [
@@ -467,5 +456,4 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_2d6(table)
   end
-  
 end

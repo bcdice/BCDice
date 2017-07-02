@@ -1,26 +1,21 @@
 # -*- coding: utf-8 -*-
 
 class Amadeus_Korean < DiceBot
-  
   def initialize
     super
     @sendMode = 2
     @sortType = 1
     @d66Type = 2
   end
-  
+
   def gameName
     '아마데우스'
   end
-  
+
   def gameType
     "Amadeus:Korean"
   end
-  
-  def prefixs
-    ['R[A-DS].*'] + @@tables.keys
-  end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・판정(Rx±y@z>=t)
@@ -47,20 +42,19 @@ class Amadeus_Korean < DiceBot
 　武勇 PRCT／技術 TCCT／頭脳 INCT／霊力 PSCT／愛 LVCT／日常 DACT
 INFO_MESSAGE_TEXT
   end
-  
-  
+
   def rollDiceCommand(command)
-    text = amadeusDice(command) 
+    text = amadeusDice(command)
     return text unless( text.nil? )
-    
+
     info = @@tables[command.upcase]
     return nil if info.nil?
-    
+
     name = info[:name]
     type = info[:type]
     table = info[:table]
-    
-    text, number = 
+
+    text, number =
       case type
       when '1D6'
         get_table_by_1d6(table)
@@ -71,12 +65,12 @@ INFO_MESSAGE_TEXT
       else
         nil
       end
-    
+
     return nil if( text.nil? )
-    
+
     return "#{name}(#{number}) ＞ #{text}"
   end
-  
+
   def amadeusDice(command)
     return nil unless( /^(R([A-DS])([\+\-\d]*))(@(\d))?((>(=)?)([\+\-\d]*))?(@(\d))?$/i =~ command )
 
@@ -222,7 +216,7 @@ INFO_MESSAGE_TEXT
 [56, "곤란해하는 신화생물을 도와줬다. 이 표를 굴린 PC는【일상】의 판정에 성공하면 다음 이동판정을 자동으로 성공한다.(달성치는 6으로 한다)"],
 [66, "부모신이 당신에게 이야기하고 있다. 부모자식간의 대화다. 이 표를 굴린 PC는 【일상】의 판정에 성공하면 자신의 부모신에 대한 【마음】이나 부모신의 자신에 대한 【마음】중 하나를 1점 상승시킨다."],
 ],},
-  
+
     "FWT" => {
       :name => "치명상표",
       :type => '1D6',
@@ -245,7 +239,7 @@ INFO_MESSAGE_TEXT
 "「랜덤 아이템표」를 1번 사용한다.",
 "PC 전원은 인물란의 체크를 1개 해제한다.",
 ],},
-    
+
     "RIT" => {
       :name => "랜덤아이템표",
       :type => '2D6',
@@ -310,7 +304,7 @@ INFO_MESSAGE_TEXT
 喧嘩
 干渉
 },},
-  
+
     "GCVT" => {
       :name => "ギリシャ神群試練表",
       :type => '1D6',
@@ -346,7 +340,7 @@ INFO_MESSAGE_TEXT
 目の前にアヌビスがいる。アヌビスは天秤を掲げて、心臓を要求してくる。「お前の罪を数えろ」【日常】で判定を行う。失敗すると、【活力】が0点になる。この効果によって【生命力】の現在値が最大値を超えた場合、最大値と同じ値に調整する。
 獅子頭の神、シェセムが、悪人の頭を砕いて、死者のためのワインにしている。悪人と見なされれば、頭をもがれてしまうだろう。【日常】で判定を行う。失敗すると、「重傷2」の変調を受ける。
 },},
-  
+
     "CCVT" => {
       :name => "クトゥルフ神群試練表",
       :type => '1D6',
@@ -469,5 +463,5 @@ INFO_MESSAGE_TEXT
 
   }
 
-
+  setPrefixes(['R[A-DS].*'] + @@tables.keys)
 end

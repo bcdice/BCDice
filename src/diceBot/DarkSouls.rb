@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 
 class DarkSouls < DiceBot
+  setPrefixes(['(\d+)?(A)?DS([\+\-\d+]*)(\@\d+)?'])
 
   def initialize
     super
-  end
-
-
-  def prefixs
-     ['(\d+)?(A)?DS([\+\-\d+]*)(\@\d+)?']
   end
 
   def gameName
@@ -33,47 +29,46 @@ class DarkSouls < DiceBot
 MESSAGETEXT
   end
 
-
   def rollDiceCommand(command)
-    
-    output = 
+
+    output =
       case command.upcase
-      
+
       when /(\d+)?(A)?DS([\+\-\d+]*)(\@(\d+))?$/i
         diceCount = ($1 || 2).to_i
         isActive = !$2.nil?
         modify = getValue($3)
         target = ($5 || 0).to_i
-        
+
         checkRoll(diceCount, isActive, modify, target)
-        
+
       else
         nil
       end
-    
+
     return output
   end
-  
+
   def checkRoll(diceCount, isActive, modify, target)
     dice, diceText = roll(diceCount, 6)
     successValue = dice + modify
     modifyText = getValueText(modify)
     targetText = (target == 0 ? '' : ">=#{target}")
-    
+
     if( isActive )
       diceArray = diceText.split(/,/).collect{|i|i.to_i}
       focusDamage = diceArray.count{|i| i == 1 }
-      
+
       if( focusDamage > 0 )
         focusText = "■" * focusDamage
         focusText = "（FP#{focusText}消費）"
       end
     end
-    
+
     result = "(#{diceCount}D6#{modifyText}#{targetText})"
     result += " ＞ #{dice}(#{diceText})#{modifyText}"
     result += " ＞ #{successValue}#{targetText}"
-    
+
     if( target > 0 )
       if( successValue >= target )
         result += " ＞ 【成功】"
@@ -81,21 +76,19 @@ MESSAGETEXT
         result += " ＞ 【失敗】"
       end
     end
-    
+
     result += "#{focusText}"
     return result
   end
-  
+
   def getValue(text)
     text ||= ""
     return parren_killer("(0#{ text })").to_i
   end
-  
+
   def getValueText(value)
     return "" if( value == 0 )
     return "#{value}" if( value < 0 )
     return "\+#{value}"
   end
-  
-  
 end

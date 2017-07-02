@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 class Template < DiceBot
+  # ダイスボットで使用するコマンドを配列で列挙する
+  setPrefixes([])
   
   def initialize
     super
@@ -17,12 +19,6 @@ class Template < DiceBot
     # @defaultSuccessTarget = "";      #目標値が空欄の時の目標値
     # @rerollLimitCount = 0;    #振り足し回数上限
     # @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
-  end
-  
-  
-  def prefixs
-    #ダイスボットで使用するコマンドを配列で列挙すること。
-    []
   end
   
   def gameName

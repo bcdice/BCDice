@@ -14,10 +14,6 @@ class Oukahoushin3rd < DiceBot
     "Oukahoushin3rd"
   end
   
-  def prefixs
-    []
-  end
-  
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・各種表

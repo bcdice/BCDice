@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-
 class SharedFantasia < DiceBot
-  
+  setPrefixes(['SF.*','ST.*'])
+
   def initialize
     #$isDebug = true
     super()
@@ -11,15 +11,11 @@ class SharedFantasia < DiceBot
   def gameName
     'Shared†Fantasia'
   end
-  
+
   def gameType
     "SharedFantasia"
   end
-  
-  def prefixs
-     ['SF.*','ST.*']
-  end
-  
+
   def getHelpMessage
     return <<MESSAGETEXT
 2D6の成功判定に 自動成功、自動失敗、致命的失敗、劇的成功 の判定があります。
@@ -33,7 +29,7 @@ MESSAGETEXT
   def isGetOriginalMessage
     false
   end
-  
+
   def changeText(string)
     @throwString = ''
     if(string =~ /SF/i)
@@ -84,6 +80,4 @@ MESSAGETEXT
     return resultString
 
   end
-  
 end
-

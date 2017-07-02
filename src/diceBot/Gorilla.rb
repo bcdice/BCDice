@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-
 class Gorilla < DiceBot
-  
+  setPrefixes(['G.*'])
+
   def initialize
     #$isDebug = true
     super()
@@ -10,15 +10,11 @@ class Gorilla < DiceBot
   def gameName
     'ゴリラTRPG'
   end
-  
+
   def gameType
     "Gorilla"
   end
-  
-  def prefixs
-     ['G.*']
-  end
-  
+
   def getHelpMessage
     return <<MESSAGETEXT
 2D6ロール時のゴリティカル自動判定を行います。
@@ -32,7 +28,7 @@ MESSAGETEXT
   def isGetOriginalMessage
     false
   end
-  
+
   def changeText(string)
     string = string.gsub(/^(S)?G/i) {"#{$1}2D6"}
     return string
@@ -59,6 +55,4 @@ MESSAGETEXT
     end
     return " ＞ 失敗";
   end
-  
 end
-

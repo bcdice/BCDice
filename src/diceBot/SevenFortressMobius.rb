@@ -3,24 +3,21 @@
 require 'diceBot/NightWizard'
 
 class SevenFortressMobius < DiceBot
-  
+  setPrefixes(['\d*SFM'])
+
   def initialize
     super
     @nightWizardDiceBot = NightWizard.new
   end
-  
+
   def gameName
     'セブン＝フォートレス メビウス'
   end
-  
+
   def gameType
     "SevenFortressMobius"
   end
-  
-  def prefixs
-     ['\d*SFM']
-  end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定用コマンド　(nSFM+m@x#y)
@@ -30,17 +27,14 @@ class SevenFortressMobius < DiceBot
 　例）12SFM-5@7#2　　1SFM　　50SFM+5@7,10#2,5　50SFM-5+10@7,10#2,5+15+25
 INFO_MESSAGE_TEXT
   end
-  
-  
+
   def changeText(string)
     string = string.sub(/(\d*)SFM/i){"#{$1}NW"}
-    
+
     string = @nightWizardDiceBot.changeText(string)
   end
-  
-  
+
   def dice_command_xRn(string, nick_e)
     return @nightWizardDiceBot.checkRoll(string, nick_e)
   end
-  
 end

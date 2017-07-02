@@ -1,30 +1,29 @@
 # -*- coding: utf-8 -*-
 
 class DetatokoSaga_Korean < DiceBot
-  
+  setPrefixes([
+    '\d+DS.*', '\d+JD.*',
+    'SST', 'StrengthStigmaTable',
+    'WST', 'WillStigmaTable',
+    'SBET', 'StrengthBadEndTable',
+    'WBET', 'WillBadEndTable'
+  ])
+
   def initialize
     super
     @sendMode = 2
     @sortType = 1
     @d66Type = 2
   end
+
   def gameName
     '데타토코 사가'
   end
-  
+
   def gameType
     "DetatokoSaga:Korean"
   end
-  
-  def prefixs
-    ['\d+DS.*', '\d+JD.*',
-     'SST', 'StrengthStigmaTable',
-     'WST', 'WillStigmaTable',
-     'SBET', 'StrengthBadEndTable',
-     'WBET', 'WillBadEndTable',
-    ]
-  end
-  
+
   def getHelpMessage
     info = <<INFO_MESSAGE_TEXT
 ・통상판정　xDS or xDSy or xDS>=z or xDSy>=z
@@ -39,136 +38,128 @@ class DetatokoSaga_Korean < DiceBot
 ・기력 배드엔딩표　WBET (WillBadEndTable)
 INFO_MESSAGE_TEXT
   end
-  
-  
+
   def rollDiceCommand(command)
     debug("rollDiceCommand begin string", command)
-    
+
     result = ''
-    
+
     result = checkRoll(command)
     return result unless(result.empty?)
-    
+
     result = checkJudgeValue(command)
     return result unless(result.empty?)
-    
+
     debug("각종표로서 처리")
     return rollTableCommand(command)
   end
-  
-  
+
   # 통상판정　xDS or xDSy or xDS>=z or xDSy>=z
   def checkRoll(string)
     debug("checkRoll begin string", string)
-    
+
     return '' unless(/^(\d+)DS(\d+)?((>=)(\d+))?$/i =~ string)
-    
+
     target = 8
-    
+
     skill = $1.to_i
     flag = $2.to_i
     target = $5.to_i unless( $5.nil? )
-    
+
     result = "판정！　스킬레벨：#{skill}　플래그：#{flag}　목표치：#{target}"
-    
+
     total, rollText = getRollResult(skill)
     result += " ＞ #{total}[#{rollText}] ＞ 판정치：#{total}"
-    
+
     success = getSuccess(total, target)
     result += " ＞ #{success}"
-    
+
     result += getCheckFlagResult(total, flag)
-    
+
     return result
   end
-  
-  
+
   def getRollResult(skill)
-    
+
     diceCount = skill + 1
     diceCount = 3 if( skill == 0 )
-    
+
     dice = []
     diceCount.times do |i|
       dice[i], = roll(1, 6)
     end
-    
+
     diceText = dice.join(',')
-    
+
     dice = dice.sort
     dice = dice.reverse if( skill != 0 )
 
     total = dice[0] + dice[1]
-    
+
     return total, diceText
   end
-  
-  
+
   def getSuccess(check, target)
-    
+
     if(check >= target)
       return "목표치 이상！【성공】"
     end
-    
+
     return "목표치 미달… 【실패】"
   end
-  
-  
+
   def getCheckFlagResult(total, flag)
-    
+
     if(total > flag)
       return ""
     end
-    
+
     willText = getDownWill(flag)
     result = ", 플래그 이하！ 【기력#{willText}점 감소】"
     result += " 【판정치 변경 불가】"
-    
+
     return result
   end
-  
+
   def getDownWill(flag)
     if(flag>=10)
       return "6"
     end
-    
+
     dice, = roll(1, 6)
     return "1D6->#{ dice }"
   end
-  
-  
-  
+
   #스킬판정치　xJD or xJDy or xJDy+z or xJDy-z or xJDy/z
   def checkJudgeValue(string)
-    
+
     debug("checkJudgeValue begin string", string)
-    
+
     return '' unless(/^(\d+)JD(\d+)?(([+]|[-]|[\/])(\d+))?$/i =~ string)
-    
+
     skill = $1.to_i
     flag = $2.to_i
     operator = $4
     value = $5.to_i
-    
+
     result = "판정！　스킬레벨：#{skill}　플래그：#{flag}"
-    
+
     modifyText = getModifyText(operator, value)
     result += "　수정치：#{modifyText}" unless( modifyText.empty? )
-    
+
     total, rollText = getRollResult(skill)
     result += " ＞ #{total}[#{rollText}]#{modifyText}"
-    
+
     totalResult = getTotalResultValue(total, value, operator)
     result += " ＞ #{totalResult}"
-    
+
     result += getCheckFlagResult(total, flag)
-    
+
     return result
   end
-  
-  
+
   def getModifyText(operator, value)
-    operatorText = 
+    operatorText =
       case operator
       when "+"
         "＋"
@@ -179,12 +170,10 @@ INFO_MESSAGE_TEXT
       else
         return ""
       end
-    
+
     return "#{operatorText}#{value}"
   end
-  
-  
-  
+
   def getTotalResultValue(total, value, operator)
     case operator
     when "+"
@@ -197,32 +186,29 @@ INFO_MESSAGE_TEXT
       return "판정치：#{total}"
     end
   end
-  
-  
+
   def getTotalResultValueWhenSlash(total, value)
     return "0으로는 나누어지지 않습니다" if( value == 0 )
-    
+
     quotient = ((1.0 * total) / value).ceil
-    
+
     result = "#{total}÷#{value} ＞ 판정치：#{quotient}"
     return result
   end
-  
-  
-  
+
   ####################
   # 각종표
-  
+
   def rollTableCommand(command)
     command = command.upcase
     result = []
-    
+
     debug("rollDiceCommand command", command)
-    
+
     name = ''
     text = ''
     total = 0
-    
+
     case command.upcase
     when "SST", "StrengthStigmaTable".upcase
       name, text, total = choiceStrengthStigmaTable()
@@ -235,15 +221,13 @@ INFO_MESSAGE_TEXT
     else
       return
     end
-    
+
     result = "#{name}(#{total}) ＞ #{text}"
-    
+
     return result
   end
 
-
 ###표 목록
-
 
   def choiceStrengthStigmaTable()
     name = "체력 낙인표"
@@ -264,11 +248,11 @@ INFO_MESSAGE_TEXT
     text, total = get_table_by_2d6(table)
     return name , text, total
   end
-  
+
   def choiceWillStigmaTable()
-    
+
     name = "기력 낙인표"
-    
+
     table = [
 "당신은 【낙인】을 2개 받는다. 이 표를 다시 2번 굴려 받을 【낙인】을 정한다(그 경우, 다시 이 눈이 나와도 【낙인】은 늘어나지 않는다).",
 "【절망】 어떻게 하지 못하는 상황. 희망은 사라지고……무릎을 꿇을 수밖에 없다.",
@@ -286,11 +270,11 @@ INFO_MESSAGE_TEXT
     text, total = get_table_by_2d6(table)
     return name , text, total
   end
-  
+
   def choiceStrengthBadEndTable()
 
     name = "체력 배드엔딩표"
-    
+
     table = [
 "【사망】 당신은 죽었다. 다음 세션에 참가하기 위해서는, 클래스 1개를 『몬스터』나 『암흑』으로 클래스 체인지해야만 한다.",
 "【목숨 구걸】 당신은 공포를 느껴, 목숨을 구걸했다! 다음 세션 개시 시에, 클래스 1개가 『자코』로 변경된다!",
@@ -308,11 +292,11 @@ INFO_MESSAGE_TEXT
     text, total = get_table_by_2d6(table)
     return name , text, total
   end
-  
+
   def choiceWillBadEndTable()
-    
+
     name = "기력 배드엔딩표"
-    
+
     table = [
 "【자해】 당신은 스스로 죽음을 골랐다. 다음 세션에 참가하기 위해서는 클래스 1개를 『암흑』으로 클래스 체인지해야만 한다.",
 "【타락】 당신은 마음속의 어둠에 먹혔다. 다음 세션 개시 시에, 클래스 1개가 『암흑』이나 『몬스터』로 변경된다!",
@@ -330,6 +314,4 @@ INFO_MESSAGE_TEXT
     text, total = get_table_by_2d6(table)
     return name , text, total
   end
-  
-  
 end

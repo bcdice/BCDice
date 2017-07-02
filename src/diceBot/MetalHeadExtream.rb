@@ -1,27 +1,26 @@
 # -*- coding: utf-8 -*-
 
 class MetalHeadExtream < DiceBot
+  setPrefixes([
+    '[AS]R\d+.*',
+    '(HU|BK|WA|SC|BG|IN|PT|HT|TA|AC|HE|TR|VT|BO|CS|TH|AM|GD|HC|BI|BT|AI)HIT\d*',
+    'SUV[A-Z]\d+', '[HTALMEBPD]DMG[LMHO]',
+    'CRT\d*', '[GSME]AC\d*', '[ASL]MA\d*(\+\d+)?',
+    'SEC', 'NAC', 'LDC', '[W]ENC\d*'
+  ])
 
   def initialize
     super
   end
-  
-  def prefixs
-    ['[AS]R\d+.*',
-     '(HU|BK|WA|SC|BG|IN|PT|HT|TA|AC|HE|TR|VT|BO|CS|TH|AM|GD|HC|BI|BT|AI)HIT\d*',
-     'SUV[A-Z]\d+', '[HTALMEBPD]DMG[LMHO]',
-     'CRT\d*', '[GSME]AC\d*', '[ASL]MA\d*(\+\d+)?',
-     'SEC', 'NAC', 'LDC', '[W]ENC\d*']
-  end
-  
+
   def gameName
     'メタルヘッドエクストリーム'
   end
-  
+
   def gameType
     "MetalHeadExtream"
   end
-  
+
   def getHelpMessage
     return <<MESSAGETEXT
 ◆判定：ARn or SRn[*/a][@b][Ac][Ld][!M]　　[]内省略可。
@@ -60,112 +59,110 @@ NPC攻撃処理チャート：NAC　　敗者運命チャート：LDC
 荒野ランダムエンカウント表：WENC[n]
 MESSAGETEXT
   end
-  
+
   def rollDiceCommand(command)
-    
-    text = 
+
+    text =
       case command.upcase
-        
+
       when /([AS])R(\d+)(([\*\/]\d+)*)?(((@|A|L)\d+)*)(\!M)?$/i
         type = $1
         target = $2.to_i
         modify = get_value(1, $3)
         paramText = ($5 || '')
         isMuse = (not $8.nil?)  # パンドラ《ミューズ》
-        
+
         accidentValue = 96
         advancedRoll = 1
         luckPoint = 0
-        
+
         params = paramText.scan(/(.)(\d+)/)
         params.each do |marker, value|
           accidentValue, advancedRoll, luckPoint = get_roll_parameter(accidentValue, advancedRoll, luckPoint, marker, value)
         end
-        
+
         checkRoll(type, target, modify, accidentValue, advancedRoll, luckPoint, isMuse)
-      
+
       when /(HU|BK|WA|SC|BG|IN|PT|HT|TA|AC|HE|TR|VT|BO|CS|TH|AM|GD|HC|BI|BT|AI)HIT(\d+)?/i
         hitPart = $1
         roc = ($2 || 0).to_i
         get_hit_table(hitPart, roc)
-      
+
       when /SUV([A-Z])(\d+)/i
         armorGrade = $1
         damage = $2.to_i
         get_SUV_table(armorGrade, damage)
-      
+
       when /([HTALMEBPD])DMG([LMHO])/i
         hitPart = $1
         damageStage = $2
         get_damageEffect_table(hitPart, damageStage)
-      
+
       when /CRT(\d+)?/i
         roc = ($1 || 0).to_i
         get_critical_table(roc)
-      
+
       when /([GSME])AC(\d+)?/i
         damageType = $1
         roc = ($2 || 0).to_i
         get_accident_table(damageType, roc)
-      
+
       when /([ASL])MA(\d+)?(\+(\d+))?/i
         locationType = $1
         roc = ($2 || 0).to_i
         correction = ($4 || 0).to_i
         get_mechanicAccident_table(locationType, roc, correction)
-      
+
       when 'SEC'
         get_strategyEvent_chart
-      
+
       when 'NAC'
         get_NPCAttack_chart
-      
+
       when 'LDC'
         get_loserDestiny_chart
-      
+
       when /([W])ENC(\d+)?/i
         locationType = $1
         roc = ($2 || 0).to_i
         get_randomEncounter_table(locationType, roc)
-      
+
       else
         nil
       end
-    
+
     return text
   end
-  
-  
+
   def checkRoll(rollText, target, modify, accidentValue, advancedRoll, luckPoint, isMuse)
     rollTarget = (target * modify / advancedRoll * (2 ** luckPoint)).to_i
-    
+
     dice, = roll(1, 100)
     resultText, successValue = getRollResultTextAndSuccesValue(dice, advancedRoll, rollTarget, accidentValue, isMuse)
-    
+
     resultText += " 達成値：#{successValue}"
-    
+
     complementText = "ACC:#{accidentValue}"
     complementText += ", ADV:\*#{advancedRoll}" if(advancedRoll > 1)
     complementText += ", LUC:#{luckPoint}" if(luckPoint > 0)
-    
+
     if(modify >= 1)
       modifyText = "#{modify.to_i}"
     else
       modifyText = "1\/#{(1 / modify).to_i}"
     end
-    
+
     formulaText = getFormulaText(target, modify, advancedRoll, luckPoint)
-    
+
     result = "#{rollText}R#{modifyText}(#{complementText})：1D100<=#{rollTarget}#{formulaText} ＞ [#{dice}] #{resultText}"
     result += " 《ミューズ》" if(isMuse)
-    
+
     return result
   end
-  
-  
+
   def get_roll_parameter(accident, advanced, luck, marker, value)
     value = value.to_i
-    
+
     case marker
     when '@'
       accident = value
@@ -174,57 +171,52 @@ MESSAGETEXT
     when 'L'
       luck = value
     end
-    
+
     return accident, advanced, luck
   end
-  
-  
+
   def getRollResultTextAndSuccesValue(dice, advancedRoll, rollTarget, accidentValue, isMuse)
     successValue = 0
-    
+
     if(dice >= accidentValue)
       resultText = "失敗（アクシデント）"
       return resultText, successValue
     end
-    
-    
+
     if(dice > rollTarget)
       resultText = "失敗"
       return resultText, successValue
     end
-    
-    
+
     dig1 = dice - ((dice / 10).to_i * 10)
-    
+
     if(isMuse)
       isCritical = (dig1 <= 1)
     else
       isCritical = (dig1 == 1)
     end
-    
+
     resultText = "成功"
     resultText += "（クリティカル）" if(isCritical)
-    
+
     successValue = dice * advancedRoll
-    
+
     return resultText, successValue
   end
-  
-  
+
   def getFormulaText(target, modify, advancedRoll, luckPoint)
-    
+
     formulaText = target.to_s
     formulaText += "\*#{modify.to_i}" if(modify > 1)
     formulaText += "\/#{(1 / modify).to_i}" if(modify < 1)
     formulaText += "\/#{advancedRoll}" if(advancedRoll > 1)
     formulaText += "\*#{2 ** luckPoint}" if(luckPoint > 0)
-    
+
     return "" if formulaText == target.to_s
-    
+
     return "[#{formulaText}]"
   end
-  
-  
+
   def get_hit_table(hitPart, roc)
     case hitPart
     when 'HU'
@@ -538,10 +530,10 @@ MESSAGETEXT
     else
       return nil
     end
-    
+
     return get_MetalHeadExtream_1d10_table_result(name, table, roc)
   end
-  
+
   def get_SUV_table(armorGrade, damage)
     name = '戦闘結果表'
     table = [
@@ -572,37 +564,35 @@ MESSAGETEXT
              [1, 206, 226, 286, 366, 406],
              [1, 226, 246, 306, 386, 406]
             ]
-    
+
     armorIndex = ('A'..'Z').to_a.index(armorGrade)
     damageInfo = table[armorIndex]
-    
+
     woundRanks = ['無傷', 'LW(軽傷)', 'MW(中傷)', 'HW(重傷)','MO(致命傷)', 'KL(死亡)']
-    
+
     woundText = ""
-    
+
     damageInfo.each_with_index do |rate, index|
       break if rate > damage
       woundText = woundRanks[index]
     end
-    
+
     return "#{name}(#{armorGrade})：#{damage} ＞ #{woundText}"
   end
-  
-  
+
   def get_damageEffect_table(hitPart, damageStage)
-    
+
     damageInfos = [['L', '(LW)'],
                    ['M', '(MW)'],
                    ['H', '(HW)'],
                    ['O', '(MO)']]
-    
+
     index = damageInfos.index{|type, text| type == damageStage}
     return nil if index == -1
-    
+
     damageIndex = index + 1
     damageText = damageInfos[index][1]
-    
-    
+
     case hitPart
     when 'H'
       name = '対人損傷効果表：頭部'
@@ -679,12 +669,11 @@ MESSAGETEXT
     else
       return nil
     end
-    
+
     text = get_table_by_number(damageIndex, table)
     return "#{name}#{damageText} ＞ #{text}"
   end
-  
-  
+
   def get_critical_table(roc)
     name = 'クリティカル表'
     table = [
@@ -701,8 +690,7 @@ MESSAGETEXT
             ]
     return get_MetalHeadExtream_1d10_table_result(name, table, roc)
   end
-  
-  
+
   def get_accident_table(damageType, roc)
     case damageType
     when 'G'
@@ -764,11 +752,10 @@ MESSAGETEXT
     else
       return nil
     end
-    
+
     return get_MetalHeadExtream_1d10_table_result(name, table, roc)
   end
-  
-  
+
   def get_mechanicAccident_table(locationType, roc, correction)
     case locationType
     when 'A'
@@ -801,19 +788,19 @@ MESSAGETEXT
     else
       return nil
     end
-    
+
     dice = get_roc_dice(roc, 10)
     diceText = dice.to_s
-    
+
     dice += correction
     dice = 10 if(dice > 10)
     diceText = "#{dice}[#{diceText}+#{correction}]" if(correction > 0)
-    
+
     tableText = get_table_by_number(dice, table)
     text = "#{name}(#{diceText}) ＞ #{tableText}"
     return text
   end
-  
+
   def get_strategyEvent_chart
     name = 'ストラテジーイベントチャート'
     table = [
@@ -842,7 +829,7 @@ MESSAGETEXT
             ]
     return get_MetalHeadExtream_1d100_table_result(name, table, 0)
   end
-  
+
   def get_NPCAttack_chart
     name = 'NPC攻撃処理チャート'
     table = [
@@ -852,7 +839,7 @@ MESSAGETEXT
             ]
     return get_MetalHeadExtream_1d10_table_result(name, table, 0)
   end
-  
+
   def get_loserDestiny_chart
     name = '敗者運命チャート'
     table = [
@@ -869,7 +856,7 @@ MESSAGETEXT
             ]
     return get_MetalHeadExtream_1d10_table_result(name, table, 0)
   end
-  
+
   def get_randomEncounter_table(locationType, roc)
     case locationType
     when 'W'
@@ -888,41 +875,36 @@ MESSAGETEXT
     else
       return nil
     end
-    
+
     return get_MetalHeadExtream_1d100_table_result(name, table, roc)
   end
-  
-  
+
   def get_MetalHeadExtream_1d10_table_result(name, table, roc)
     get_MetalHeadExtream_1dX_table_result(name, table, roc, 10)
   end
-  
+
   def get_MetalHeadExtream_1d100_table_result(name, table, roc)
     get_MetalHeadExtream_1dX_table_result(name, table, roc, 100)
   end
-  
-  
+
   def get_MetalHeadExtream_1dX_table_result(name, table, roc, diceMax)
     dice = get_roc_dice(roc, diceMax)
     text = get_table_by_number(dice, table)
-    
+
     return "#{name}(#{dice}) ＞ #{text}"
   end
-  
-  
+
   def get_roc_dice(roc, diceMax)
     dice = roc
     dice = diceMax if(dice > diceMax)
-    
+
     if(dice == 0)
       dice, = roll(1, diceMax)
     end
-    
+
     return dice
   end
-  
-  
-  
+
   # 端数が使いたいので、parren_killer未使用
   def get_value(originalValue, calculateText)
     result = originalValue.to_f
@@ -934,6 +916,4 @@ MESSAGETEXT
     end
     return result
   end
-  
-  
 end

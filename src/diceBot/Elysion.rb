@@ -1,36 +1,33 @@
 # -*- coding: utf-8 -*-
 
 class Elysion < DiceBot
-  
+  setPrefixes([
+    'EL.*',
+    'DATE.*', 'FDATE.*', 'ODATE.*', 'MDATE.*',
+    'RBT', 'SBT', 'BBT','CBT','DBT','IBT','FBT','LBT','PBT','NBT','ABT','VBT','GBT','HBT',
+    'BFT', 'FWT', 'FT',
+    'SRT', 'ORT', 'DRT', 'URT',
+    'NJ\d+', 'BS\d+'
+  ])
+
   def initialize
     super
     @d66Type = 2
   end
-  
-  
-  def prefixs
-    ['EL.*', 
-     'DATE.*', 'FDATE.*', 'ODATE.*', 'MDATE.*', 
-     'RBT', 'SBT', 'BBT','CBT','DBT','IBT','FBT','LBT','PBT','NBT','ABT','VBT','GBT','HBT',
-     'BFT', 'FWT', 'FT',
-     'SRT', 'ORT', 'DRT', 'URT',
-     'NJ\d+', 'BS\d+',
-     ]
-  end
-  
+
   def gameName
     'エリュシオン'
   end
-  
+
   def gameType
     "Elysion"
   end
-  
+
   def getHelpMessage
     return <<MESSAGETEXT
 ・判定（ELn+m）
 　能力値 n 、既存の達成値 m（アシストの場合）
-例）EL3　：能力値３で判定。 
+例）EL3　：能力値３で判定。
 　　EL5+10：能力値５、達成値が１０の状態にアシストで判定。
 ・ファンブル表 FT
 ・戦場表 BFT
@@ -57,18 +54,18 @@ class Elysion < DiceBot
 ・D66ダイスあり
 MESSAGETEXT
   end
-  
+
 #  教室 R:classRoom／購買 S:Shop／部室 B:Box／生徒会室 C:Council／学生寮 D:Dormitory／図書館 I:lIbrary／屋上 F:rooF／
 #　研究室 L:Labo／プール P:Pool／中庭 N:iNner／商店街 A:Avenue／廃墟 V:deVastation／ゲート G:Gate
 #  温泉 H:Hotsprings／修学旅行 T:School trip／お祭り室 E:festival／潜入調査 U:Infiltration study／
   def changeText(string)
     string
   end
-  
+
   def isGetOriginalMessage
     true
   end
-  
+
   def rollDiceCommand(command)
     debug('rollDiceCommand command', command)
 
@@ -78,36 +75,34 @@ MESSAGETEXT
       base = $1
       modify = $2
       result= check(base, modify)
-      
+
     when /^(F|O|M)?DATE\[(.*),(.*)\]/i
       type = $1
       pc1 = $2
       pc2 = $3
       result = getDateBothResult(type, pc1, pc2)
-      
+
     when /^(F|O|M)?DATE(\d\d)(\[(.*),(.*)\])?/i
       type = $1
       number = $2.to_i
       pc1 = $4
       pc2 = $5
       result =  getDateResult(type, number, pc1, pc2)
-      
+
     when /^(F|O|M)?DATE/i
       result =  getDateValue
-      
+
     else
       result = checkAnyCommand(command)
     end
-    
-    
-    return '' if result.empty? 
-    
+
+    return '' if result.empty?
+
     return "#{command} ＞ #{result}"
   end
-  
-  
+
   def checkAnyCommand(command)
-    result = 
+    result =
       case command.upcase
       when 'RBT'
         getClassRoomBreakTable
@@ -160,137 +155,133 @@ MESSAGETEXT
       else
         ''
       end
-    
+
     return result
   end
-  
-  
+
   def check(base, modify)
     base = getValue(base)
     modify = getValue(modify)
-    
+
     dice1, dummy = roll(1, 6)
     dice2, dummy = roll(1, 6)
-    
+
     diceTotal = dice1 + dice2
     addTotal = base + modify
     total = diceTotal + addTotal
-    
+
     result = ""
     result << "(2D6#{getValueString(base)}#{getValueString(modify)})"
     result << " ＞ #{diceTotal}[#{dice1},#{dice2}]#{getValueString(addTotal)} ＞ #{total}"
-    
+
     if dice1 == dice2
       result << getSpecialResult(dice1, total)
       return result
     end
-    
+
     result << getCheckResult(total)
-    
+
     return result
   end
-  
+
   def getValue(string)
-    return 0 if string.nil? 
+    return 0 if string.nil?
     return string.to_i
   end
-  
+
   def getValueString(value)
     return "+#{value}" if value > 0
     return "-#{value}" if value < 0
     return ""
   end
-  
-  
+
   def getCheckResult(total)
     success = getSuccessRank(total)
-    
+
     return " ＞ 失敗" if success == 0
     return getSuccessResult(success)
   end
-  
+
   def getSuccessResult(success)
-    
+
     result = " ＞ 成功度#{success}"
     result << " ＞ 大成功 《アウル》2点獲得" if success >= @@successMax
-    
+
     return result
   end
-  
+
   @@successMax = 5
-  
+
   def getSuccessRank(total)
     success = ((total - 9) / 5.0).ceil
-    success = 0 if success < 0 
+    success = 0 if success < 0
     success = @@successMax if success > @@successMax
     return success
   end
-  
-  
+
   def getSpecialResult(number, total)
     debug("getSpecialResult", number)
-    
+
     if number == 6
       return getCriticalResult
     end
-    
+
     return getFambleResultText(number, total)
   end
-  
+
   def getCriticalResult
     getSuccessResult(@@successMax)
   end
-  
+
   def getFambleResultText(number, total)
     debug("getFambleResultText number", number)
-    
+
     if number == 1
       return " ＞ 大失敗"
     end
-    
+
     result = getCheckResult(total)
     result << " ／ (#{number - 1}回目のアシストなら)大失敗"
-    
+
     debug("getFambleResultText result", result)
-    
+
     return result
   end
-  
+
   def getDateBothResult(type, pc1, pc2)
     dice1, dummy = roll(1, 6)
     dice2, dummy = roll(1, 6)
-    
+
     result =  "#{pc1}[#{dice1}],#{pc2}[#{dice2}] ＞ "
-    
+
     number = dice1 * 10 + dice2
-    
+
     if( dice1 > dice2 )
       tmp = pc1
       pc1 = pc2
       pc2 = tmp
       number = dice2 * 10 + dice1
     end
-    
+
     result <<  getDateResult(type, number, pc1, pc2)
-    
+
     return result
   end
-  
+
   def getDateResult(type, number, pc1, pc2)
-    
+
     name ,table = getDateTableByType(type)
     debug("getDateTable name", name)
-    
+
     text = get_table_by_number(number, table)
     text = changePcName(text, '受け身キャラ', pc1)
     text = changePcName(text, '攻め気キャラ', pc2)
-    
+
     return "#{name}表(#{number}) ＞ #{text}"
   end
-  
-  
+
   def getDateTableByType(type)
-    
+
     case type
     when nil
       return getDateTable()
@@ -301,14 +292,13 @@ MESSAGETEXT
     when /^M$/i
       return getMidnightDateTable()
     end
-    
+
     return '', []
   end
-  
-  
+
   def getDateTable()
     name = 'デート'
-    
+
     table = [
              [11, "「こんなはずじゃなかったのにッ！」仲良くするつもりが、ひどい喧嘩になってしまう。この表の使用者のお互いに対する《感情値》が1点上昇し、属性が《敵意》になる。"],
              [12, "「あなたってサイテー!!」大きな誤解が生まれる。受け身キャラの攻め気キャラ以外に対する《感情値》がすべて0になり、その値のぶんだけ攻め気キャラに対する《感情値》が上昇し、その属性が《敵意》になる。"],
@@ -334,11 +324,10 @@ MESSAGETEXT
             ]
     return name ,table
   end
-  
-  
+
   def getFrindDateTable()
     name = "友達デート"
-    
+
     table = [
              [11, "「こんなはずじゃなかったのにッ！」\n仲良くするつもりが、ひどい喧嘩になってしまう。この表の使用者のお互いに対する《感情値》が1点上昇し、属性が《敵意》になる。"],
              [12, "「……。」\n会話が続かなくて、非常に気まずい。この表の使用者は《生命力》が1Ｄ6天回復するが、お互いに対する《感情値》が1点減点する。"],
@@ -362,14 +351,13 @@ MESSAGETEXT
              [56, "「あ。ご、ごめん。」\nふとした拍子に、触れてはならない場所を触れてしまった。受け身キャラの攻め気キャラに対する《感情値》を0にして、元の値と同じだけ攻め気キャラの受け身キャラに対する《感情値》が上昇する。"],
              [66, "「実はコイツ……。」\n思っていたよりずっと近かった二人の距離に気付く。この表の使用者のお互いに対する《感情値》が3点上昇し、属性は《好意》になる。"],
             ]
-    
+
     return name ,table
   end
-  
-  
+
   def getOnewayDateTable()
     name = "片思いデート"
-    
+
     table = [
              [11, "「気付いてくれないあなたが悪いんだから……！」\n突然の告白と、刃物沙汰。撃退士じゃなかったら死んでいた。受け身キャラは《生命力》が3Ｄ6点減少する。攻め気キャラの受け身キャラに対する《感情値》が3点上昇し、属性が《敵意》にあんる。受け身キャラは攻め気キャラに対するフラグがあった場合、フラグを折る。"],
              [12, "「どうしてあの子の話ばかりするのかな？」\nあの人は、いつもそう。私の前であの子の話ばかり。受け身キャラはこの表の使用者以外のキャラクターを一人選ぶ。攻め気キャラは選ばれたキャラクターに対する《感情値》が2点上昇し、属性が《敵意》になる。"],
@@ -395,10 +383,10 @@ MESSAGETEXT
             ]
     return name ,table
   end
-  
+
   def getMidnightDateTable()
     name = "真夜中デート"
-    
+
     table = [
              [11, "「こんなはずじゃなかったのにッ！」\n仲良くするつもりが、ひどい喧嘩になってしまう。この表の使用者のお互いに対する《感情値》が1点上昇し、属性が《敵意》になる。"],
              [12, "「夜風が気持ちいい。」\n夜の風が二人を優しく撫でる。落ち着いて話をしよう。この表の使用者は、持っている《感情値》を一つ選んで好きな属性に変更できる。"],
@@ -422,25 +410,21 @@ MESSAGETEXT
              [56, "「ふー。」\nお互いに色々ぶちまけてスッキリした。この表の使用者は変調をすべて回復し、1Ｄ6をどちらかが振る。この表の使用者は、お互いの《感情値》が1Ｄ6の目と同じになる。"],
              [66, "「帰りの電車がなくなったの……。」\n二人で一夜を過ごす。この表の使用者はお互いに対する《感情値》が5点上昇するが、お互いに「バカ」の変調を受ける。"],
             ]
-    
+
     return name ,table
   end
-  
-  
+
   def changePcName(text, base, name)
     return text if name.nil? or name.empty?
-    
+
     return text.gsub(/(#{base})/){$1 + "(#{name})"}
   end
-  
+
   def getDateValue
     dice1, = roll(1, 6)
     return "#{dice1}"
   end
-  
 
-
-  
   def getClassRoomBreakTable
     name = '教室'
     table = [
@@ -458,7 +442,7 @@ MESSAGETEXT
             ]
     getBreakTable(name, table)
   end
-  
+
   def getSchoolStoreBrakeTable
     name = '購買'
     table = [
@@ -476,7 +460,7 @@ MESSAGETEXT
             ]
     getBreakTable(name, table)
   end
-  
+
   def getClubRoomBrakeTable
     name = '部室'
     table = [
@@ -675,31 +659,26 @@ MESSAGETEXT
     getBreakTable(name, table)
   end
 
-
-
-
   def getBreakTable(name, table)
     number, = roll(2, 6)
     index = number - 2
-    
+
     text = table[index]
     return '' if( text.nil? )
-    
+
     return "#{name}休憩表(#{number}) #{ text }"
   end
-  
-  
+
   def getD6Table(name, table)
     number, = roll(1, 6)
     index = number - 1
-    
+
     text = table[index]
     return '' if( text.nil? )
-    
+
     return "#{name}(#{number}) #{ text }"
   end
-  
-  
+
   def getBattleFieldTable
     name = '戦場表'
     table = [
@@ -725,7 +704,7 @@ MESSAGETEXT
              ]
     getD6Table(name, table)
   end
-  
+
   def getFumbleTable
     name = 'ファンブル表'
     table = [
@@ -738,10 +717,10 @@ MESSAGETEXT
             ]
     getD6Table(name, table)
   end
-  
+
   def getRandomNpcSchoolLife
     name = "学生生活関連ＮＰＣ表"
-    
+
     table = [
       [11, "振り直し／任意"],
       [12, "大山恵（おおやま・めぐみ）：中等部3年0組：P84"],
@@ -765,13 +744,13 @@ MESSAGETEXT
       [56, "筧鷹政（かけい・たかまさ）：OB：P83"],
       [66, "振り直し／任意"],
     ]
-    
+
     return getRandomNpc(name, table)
   end
-  
+
   def getRandomNpcOther
     name = "教師・その他ＮＰＣ表"
-    
+
     table = [
       [11, "振り直し／任意"],
       [12, "月摘紫蝶（るつみ・しちょう）：教師：P84"],
@@ -798,10 +777,10 @@ MESSAGETEXT
 
     return getRandomNpc(name, table)
   end
-  
+
   def getRandomNpcDownClassmen
     name = "学生図鑑　下級学年表"
-    
+
     table = [
       [11, "若菜白兎（わかな・しろう）：初等部2年2組：P72"],
       [12, "海原満月（かいばら・みづき）：初等部4年1組：P66"],
@@ -828,10 +807,10 @@ MESSAGETEXT
 
     return getRandomNpc(name, table)
   end
-  
+
   def getRandomNpcUpperClassmen
     name = "学生図鑑　上級学年表"
-    
+
     table = [
       [11, "下妻笹緒（しもつま・ささお）：高等部2年2組：P117"],
       [12, "ファティナ・Ｖ・アイゼンブルク（−・フォン・−）：高等部2年3組：P110"],
@@ -855,72 +834,69 @@ MESSAGETEXT
       [56, "澄野絣（すみの・かすり）：大学部4年6組：P61"],
       [66, "振り直し／任意"],
     ]
-    
+
     return getRandomNpc(name, table)
   end
-  
+
   def getRandomNpc(name, table)
     result, number = get_table_by_d66_swap(table)
     return "#{name}(#{number}) #{result}"
   end
-  
-  
+
   def getUsuallyEncount(level)
     name = "日常遭遇表"
     table = [
-             [2, "ブラックシープ（基本ｐ129）×2"], 
-             [3, "イフリート（基本ｐ126）、グリフォン（基本ｐ126）"], 
-             [4, "ファウスト（基本ｐ129）、ワーウルフ（基本ｐ129）"], 
-             [5, "焔の蝶（ｐ99）"], 
-             [6, "デビルキャリアー（ｐ102）、狂信者（ｐ104）"], 
-             [7, "ケルベロス（ｐ99）、百足女（ｐ99）"], 
-             [8, "カプリコーン（ｐ102）×2"], 
-             [9, "邪神怪人（基本ｐ135）"], 
-             [10, "聖少女（基本ｐ127）"], 
-             [11, "業魔（基本ｐ129）、デュアル（基本ｐ126）"], 
-             [12, "ファイアレーベン（ｐ98）×2、ゴーレム（ｐ99）"], 
-             [13, "ブラッドウォーリア（ｐ103）、ブラッドロード（ｐ103）"], 
-             [14, "フェニックス（ｐ99）、ドラゴンゾンビ（ｐ99）"], 
-             [15, "マッドマーマンティス（ｐ102）×2、バンパイアロード（ｐ103）"], 
-             [16, "ドラゴン（ｐ99）×2"], 
-             [17, "風紀委員（ｐ107）、保安委員（ｐ107）×2"], 
+             [2, "ブラックシープ（基本ｐ129）×2"],
+             [3, "イフリート（基本ｐ126）、グリフォン（基本ｐ126）"],
+             [4, "ファウスト（基本ｐ129）、ワーウルフ（基本ｐ129）"],
+             [5, "焔の蝶（ｐ99）"],
+             [6, "デビルキャリアー（ｐ102）、狂信者（ｐ104）"],
+             [7, "ケルベロス（ｐ99）、百足女（ｐ99）"],
+             [8, "カプリコーン（ｐ102）×2"],
+             [9, "邪神怪人（基本ｐ135）"],
+             [10, "聖少女（基本ｐ127）"],
+             [11, "業魔（基本ｐ129）、デュアル（基本ｐ126）"],
+             [12, "ファイアレーベン（ｐ98）×2、ゴーレム（ｐ99）"],
+             [13, "ブラッドウォーリア（ｐ103）、ブラッドロード（ｐ103）"],
+             [14, "フェニックス（ｐ99）、ドラゴンゾンビ（ｐ99）"],
+             [15, "マッドマーマンティス（ｐ102）×2、バンパイアロード（ｐ103）"],
+             [16, "ドラゴン（ｐ99）×2"],
+             [17, "風紀委員（ｐ107）、保安委員（ｐ107）×2"],
             ]
     getEncountTableResult(name, table, level)
   end
-  
+
   def getBossEncount(level)
-    
+
     name = "ボスキャラクター遭遇表"
     table = [
-             [2, "剥奪天使（ｐ101）、イフリート（基本ｐ126）×PCと同じ数"], 
-             [3, "没落悪魔（ｐ105）、ブラックシープ（基本ｐ129）×PCと同じ数"], 
-             [4, "技巧派教員（基本ｐ134）、一般人×PCと同じ数"], 
-             [5, "肉体派教員（基本ｐ135）、オペレーター×PCと同じ数"], 
-             [6, "フェニックス（ｐ99）、焔の蝶（ｐ99）×PCと同じ数"], 
-             [7, "美しきバンシー（ｐ103）、デビルキャリアー（ｐ102）×PCと同じ数"], 
-             [8, "ドラゴン（ｐ99）、キラー（基本ｐ126）×PCと同じ数"], 
-             [9, "バンパイアロード（ｐ103）、戦闘員（基本ｐ132）×PCと同じ数"], 
-             [10, "殺戮天使（ｐ101）、下級使徒（ｐ100）×PCと同じ数"], 
-             [11, "小悪魔（ｐ105）、デスストーカー（ｐ102）×PCと同じ数"], 
-             [12, "仙人（基本ｐ127）、サブラヒナイト（基本ｐ126）×PCと同じ数"], 
-             [13, "狂犬（ｐ104）、ワーウルフ（基本ｐ129）×PCと同じ数"], 
-             [14, "下級天使（基本ｐ128）、ケルベロス（ｐ99）×PCと同じ数"], 
-             [15, "誘惑悪魔（ｐ105）、カプリコーン（ｐ102）×PCと同じ数"], 
-             [16, "権天使（基本ｐ128）、百足女（ｐ99）×PCと同じ数"], 
-             [17, "悪魔貴族（基本ｐ131）、ブラッドウォーリア（ｐ103）×PCと同じ数"], 
+             [2, "剥奪天使（ｐ101）、イフリート（基本ｐ126）×PCと同じ数"],
+             [3, "没落悪魔（ｐ105）、ブラックシープ（基本ｐ129）×PCと同じ数"],
+             [4, "技巧派教員（基本ｐ134）、一般人×PCと同じ数"],
+             [5, "肉体派教員（基本ｐ135）、オペレーター×PCと同じ数"],
+             [6, "フェニックス（ｐ99）、焔の蝶（ｐ99）×PCと同じ数"],
+             [7, "美しきバンシー（ｐ103）、デビルキャリアー（ｐ102）×PCと同じ数"],
+             [8, "ドラゴン（ｐ99）、キラー（基本ｐ126）×PCと同じ数"],
+             [9, "バンパイアロード（ｐ103）、戦闘員（基本ｐ132）×PCと同じ数"],
+             [10, "殺戮天使（ｐ101）、下級使徒（ｐ100）×PCと同じ数"],
+             [11, "小悪魔（ｐ105）、デスストーカー（ｐ102）×PCと同じ数"],
+             [12, "仙人（基本ｐ127）、サブラヒナイト（基本ｐ126）×PCと同じ数"],
+             [13, "狂犬（ｐ104）、ワーウルフ（基本ｐ129）×PCと同じ数"],
+             [14, "下級天使（基本ｐ128）、ケルベロス（ｐ99）×PCと同じ数"],
+             [15, "誘惑悪魔（ｐ105）、カプリコーン（ｐ102）×PCと同じ数"],
+             [16, "権天使（基本ｐ128）、百足女（ｐ99）×PCと同じ数"],
+             [17, "悪魔貴族（基本ｐ131）、ブラッドウォーリア（ｐ103）×PCと同じ数"],
             ]
     getEncountTableResult(name, table, level)
   end
-  
+
   def getEncountTableResult(name, table, level)
     dice, = roll(1, 6)
     index = dice + level
-    
+
     text = get_table_by_number(index, table, table.last.last)
     return '' if( text.nil? )
-    
+
     return "#{name}(#{index}) #{ text }"
   end
-  
-
 end

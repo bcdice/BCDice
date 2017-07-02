@@ -13,26 +13,36 @@ namespace :test do
   Rake::TestTask.new(:dicebot_loaders) do |t|
     t.test_files = ['test/testDiceBotLoaders.rb']
   end
+
+  Rake::TestTask.new(:dicebot_prefixes_compatibility) do |t|
+    t.test_files = ['test/testDiceBotPrefixesCompatibility.rb']
+  end
 end
+
+BCDiceTestCase = Struct.new(:name, :task)
 
 desc 'すべてのテストを行う'
 task :test do
-  failures = []
+  test_cases = [
+    BCDiceTestCase.new('ダイスボット', 'test:dicebots'),
+    BCDiceTestCase.new('ダイスボット読み込み', 'test:dicebot_loaders'),
+    BCDiceTestCase.new('ダイスボットの接頭辞設定の後方互換性',
+                       'test:dicebot_prefixes_compatibility')
+  ]
 
-  puts('[ダイスボットのテスト]')
-  begin
-    Rake::Task['test:dicebots'].execute
-  rescue
-    failures << 'ダイスボット'
-  end
+  failures = test_cases.
+    map { |test_case|
+      puts
+      puts("[#{test_case.name}のテスト]")
 
-  puts
-  puts('[ダイスボット読み込みのテスト]')
-  begin
-    Rake::Task['test:dicebot_loaders'].execute
-  rescue
-    failures << 'ダイスボット読み込み'
-  end
+      begin
+        Rake::Task[test_case.task].execute
+        nil
+      rescue
+        test_case.name
+      end
+    }.
+    compact
 
   unless failures.empty?
     raise "テスト失敗: #{failures.join(', ')}"

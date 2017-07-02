@@ -1,26 +1,21 @@
 # -*- coding: utf-8 -*-
 
 class Amadeus < DiceBot
-  
   def initialize
     super
     @sendMode = 2
     @sortType = 1
     @d66Type = 2
   end
-  
+
   def gameName
     'アマデウス'
   end
-  
+
   def gameType
     "Amadeus"
   end
-  
-  def prefixs
-    ['R[A-DS].*'] + @@tables.keys
-  end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定(Rx±y@z>=t)
@@ -45,20 +40,19 @@ class Amadeus < DiceBot
 　武勇 PRCT／技術 TCCT／頭脳 INCT／霊力 PSCT／愛 LVCT／日常 DACT
 INFO_MESSAGE_TEXT
   end
-  
-  
+
   def rollDiceCommand(command)
-    text = amadeusDice(command) 
+    text = amadeusDice(command)
     return text unless( text.nil? )
-    
+
     info = @@tables[command.upcase]
     return nil if info.nil?
-    
+
     name = info[:name]
     type = info[:type]
     table = info[:table]
-    
-    text, number = 
+
+    text, number =
       case type
       when '1D6'
         get_table_by_1d6(table)
@@ -69,12 +63,12 @@ INFO_MESSAGE_TEXT
       else
         nil
       end
-    
+
     return nil if( text.nil? )
-    
+
     return "#{name}(#{number}) ＞ #{text}"
   end
-  
+
   def amadeusDice(command)
     return nil unless( /^(R([A-DS])([\+\-\d]*))(@(\d))?((>(=)?)([\+\-\d]*))?(@(\d))?$/i =~ command )
 
@@ -220,7 +214,7 @@ INFO_MESSAGE_TEXT
 [56, "困っている神話生物を助けてあげた。【日常】で判定を行う。成功すると、次に移動判定を行うことになったとき、自動的にそれを成功にすることができる（達成値が必要な場合6として扱う）。"],
 [66, "親神が、あなたに話しかけてくる。親子の会話だ。この出目を振ったプレイヤーのPCは、【日常】で判定を行うことができる。成功すると、自分の親神に対する【想い】か、親神の自分に対する【想い】のいずれかを1点上昇する。"],
 ],},
-  
+
     "FWT" => {
       :name => "致命傷表",
       :type => '1D6',
@@ -244,7 +238,7 @@ INFO_MESSAGE_TEXT
 「ランダムアイテム」表で、アイテムを入手できる。
 PC全員、自分の人物欄の中から、パトスのチェックを1つ消すことができる。
 },},
-    
+
     "RIT" => {
       :name => "ランダムアイテム表",
       :type => '2D6',
@@ -524,8 +518,8 @@ GMが選んだキャラクターと同じ神群の神群ギフトの中から選
 悪いドルイド僧から求婚を迫られる。急な話に戸惑っていると、ドルイド僧は怒りだし、PCを鹿に変える呪いをかけた。このセッションの間、【日常】のランクが一段階減少する（Dより下にはならない）。
 ウィッカーマンに閉じ込められ、焼かれてしまう。「重傷4」の変調を受ける。
 道案内をしてくれた美女にそそのかされて、女人の国にたどりついてしまう。誘惑に耐えながら、なんとか脱出する。「堕落」と「臆病2」の変調を受ける。
-},}, 
+},},
 }
-  
-  
+
+  setPrefixes(['R[A-DS].*'] + @@tables.keys)
 end
