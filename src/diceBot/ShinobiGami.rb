@@ -1,25 +1,23 @@
 # -*- coding: utf-8 -*-
 
 class ShinobiGami < DiceBot
-  
+  setPrefixes(['ST', 'FT', 'ET', 'WT', 'BT', 'CST', 'MST', 'IST','EST','DST','TST', 'NST', 'KST', 'TKST', 'GST', 'GWT', 'GAST', 'KYST', 'JBST', 'KFT', 'KWT', 'MT', 'RTT'])
+
   def initialize
     super
     @sendMode = 2
     @sortType = 1
     @d66Type = 2
   end
+
   def gameName
     'シノビガミ'
   end
-  
+
   def gameType
     "ShinobiGami"
   end
-  
-  def prefixs
-     ['ST', 'FT', 'ET', 'WT', 'BT', 'CST', 'MST', 'IST','EST','DST','TST', 'NST', 'KST', 'TKST', 'GST', 'GWT', 'GAST', 'KYST', 'JBST', 'KFT', 'KWT', 'MT', 'RTT']
-  end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・各種表
@@ -40,11 +38,10 @@ class ShinobiGami < DiceBot
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
-  
-  
+
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     return '' unless( signOfInequality == ">=")
-    
+
     if(dice_n <= 2)
       return " ＞ ファンブル"
     elsif(dice_n >= 12)
@@ -55,11 +52,10 @@ INFO_MESSAGE_TEXT
       return " ＞ 失敗"
     end
   end
-  
-  
+
   def rollDiceCommand(command)
     string = command.upcase
-    
+
     case string
     when /((\w)*ST)/i   # シーン表
       return sinobigami_scene_table(string)
@@ -76,15 +72,15 @@ INFO_MESSAGE_TEXT
     when /(MT)/i   # 異形表
       return sinobigami_metamorphose_table()
     end
-    
+
     return nil
   end
-  
+
   # シーン表
   def sinobigami_scene_table(string)
     type = ""
     table = []
-    
+
     case string
     when /CST/i
       type = '都市'
@@ -268,42 +264,40 @@ INFO_MESSAGE_TEXT
               ]
 
     end
-    
-    
+
     get_sinobigami_2d6_scene_table_output(type, table)
   end
-  
-  
+
   def get_sinobigami_2d6_scene_table_output(sceneType, table)
     total_n, = roll(2, 6)
     index = total_n - 2
-    
+
     text = table[index]
     return '1' if( text.nil? )
-    
+
     output = "#{sceneType}シーン表(#{total_n}) ＞ #{ text }"
-    
+
     return output
   end
-  
+
   def get_sinobigami_1d6_table_output(tableName, table)
     total_n, = roll(1, 6)
     index = total_n - 1
-    
+
     text = table[index]
     return '1' if( text.nil? )
-    
+
     output = "#{tableName}(#{total_n}) ＞ #{text}"
-    
+
     return output
-    
+
   end
-  
+
   # ファンブル表
   def sinobigami_fumble_table(string)
     table = []
     type = ''
-    
+
     case string
     when /KFT/
       type = '怪'
@@ -325,10 +319,10 @@ INFO_MESSAGE_TEXT
                'ふう。危ないところだった。特に何も起こらない。',
               ]
     end
-    
+
     return get_sinobigami_1d6_table_output("#{type}ファンブル表", table)
   end
-  
+
   # 感情表
   def sinobigami_emotion_table()
     table = [
@@ -339,15 +333,15 @@ INFO_MESSAGE_TEXT
              '憧憬（プラス）／劣等感（マイナス）',
              '狂信（プラス）／殺意（マイナス）',
             ]
-    
+
     return get_sinobigami_1d6_table_output("感情表", table)
   end
-  
+
   # 変調表
   def sinobigami_wrong_table(string)
     table = []
     type = ''
-    
+
     case string
     when /GWT/
       type = '戦国'
@@ -379,10 +373,10 @@ INFO_MESSAGE_TEXT
                '呪い:修得済み忍法がランダムに１つ使用不能。１サイクルの終了時に、《呪術》で成功すると無効化される。',
               ]
     end
-    
+
     return get_sinobigami_1d6_table_output("#{type}変調表", table)
   end
-  
+
   # 戦場表
   def sinobigami_battlefield_table()
     table = [
@@ -393,15 +387,15 @@ INFO_MESSAGE_TEXT
              '雑踏:人混みや教室、渋滞中の車道など。この戦場では、行為判定のとき、2D6の目がプロット値+1以下だとファンブルする。',
              '極地:宇宙や深海、溶岩、魔界など。ラウンドの終わりにＧＭが1D6を振り、経過ラウンド以下なら全員1点ダメージ。ここから脱落したものは変調表を適用する。',
             ]
-    
+
     return get_sinobigami_1d6_table_output("戦場表", table)
   end
-  
+
   # 指定特技ランダム決定表
   def sinobigami_random_skill_table()
     output = '1'
     type = 'ランダム'
-    
+
     skillTableFull = [
                       ['器術', ['絡繰術','火術','水術','針術','仕込み','衣装術','縄術','登術','拷問術','壊器術','掘削術']],
                       ['体術', ['騎乗術','砲術','手裏剣術','手練','身体操術','歩法','走法','飛術','骨法術','刀術','怪力']],
@@ -410,16 +404,16 @@ INFO_MESSAGE_TEXT
                       ['戦術', ['兵糧術','鳥獣術','野戦術','地の利','意気','用兵術','記憶術','見敵術','暗号術','伝達術','人脈']],
                       ['妖術', ['異形化','召喚術','死霊術','結界術','封術','言霊術','幻術','瞳術','千里眼の術','憑依術','呪術']],
                      ]
-    
+
     skillTable, total_n = get_table_by_1d6(skillTableFull)
     tableName, skillTable = skillTable
     skill, total_n2 = get_table_by_2d6(skillTable)
-    
+
     output = "#{type}指定特技表(#{total_n},#{total_n2}) ＞ 『#{tableName}』#{skill}"
-    
+
     return output
   end
-  
+
   # 異形表
   def sinobigami_metamorphose_table()
     output = '1'
@@ -435,13 +429,13 @@ INFO_MESSAGE_TEXT
     total_n, = roll(1, 6)
     text = table[total_n - 1]
     return '1' if( text.nil? )
-    
+
     output = "#{tableName}(#{total_n}) ＞ #{text}"
-    
+
     if (total_n > 3)
       return output
     end
-    
+
     powerTable = []
     powerType = ""
     powerPage = ""
@@ -480,14 +474,13 @@ INFO_MESSAGE_TEXT
                     '【蛭子】',
                    ]
     end
-    
+
     total_n, = roll(1, 6)
     text = powerTable[total_n - 1]
     return '1' if( text.nil? )
-    
+
     output += " #{powerType} ＞ #{ text }#{ powerPage }"
-    
+
     return output
   end
-  
 end

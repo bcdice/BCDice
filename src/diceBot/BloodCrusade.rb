@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 class BloodCrusade < DiceBot
-  
+  setPrefixes(['RT', 'ST', 'IST', 'BRT', 'CHT', 'SHT', 'DHT', 'LHT', 'EHT', 'AST', 'MIT', 'SIT'])
+
   def initialize
     super
     @sendMode = 2
@@ -9,18 +10,15 @@ class BloodCrusade < DiceBot
     @d66Type = 2
     @fractionType = "roundUp"     # 端数切り上げに設定
   end
+
   def gameName
     'ブラッド・クルセイド'
   end
-  
+
   def gameType
     "BloodCrusade"
   end
-  
-  def prefixs
-     ['RT', 'ST', 'IST', 'BRT', 'CHT', 'SHT', 'DHT', 'LHT', 'EHT', 'AST', 'MIT', 'SIT']
-  end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・各種表
@@ -45,11 +43,10 @@ class BloodCrusade < DiceBot
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
-  
-  
+
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     return '' unless(signOfInequality == ">=")
-    
+
     if(dice_n <= 2)
       return " ＞ ファンブル(【モラル】-3。追跡フェイズなら吸血シーンを追加。戦闘フェイズなら吸血鬼は追加行動を一回得る)"
     elsif(dice_n >= 12)
@@ -60,18 +57,17 @@ INFO_MESSAGE_TEXT
       return " ＞ 失敗"
     end
   end
-  
-  
+
   def rollDiceCommand(command)
     command = command.upcase
     output = '1'
     type = ""
     total_n = ""
-    
+
     debug('getTableResult command', command)
-    
+
     case command
-      
+
     when 'RT'
       type = '関係属性表'
       output, total_n = getRelationTable
@@ -109,14 +105,13 @@ INFO_MESSAGE_TEXT
       type = '重度狂気表'
       output, total_n = getSevereInsanityTable
     end
-    
+
     return output if(output == '1')
-    
+
     output = "#{type}(#{total_n}) ＞ #{output}"
     return output
   end
-  
-  
+
   def getRelationTable
     table = [
              '共感/不信',
@@ -128,7 +123,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def getSceneTable
     table = [
              'どこまでも広がる荒野。風が吹き抜けていく。',
@@ -145,8 +140,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_2d6(table)
   end
-  
-  
+
   def getInitiativeSkillTable
     table = [
              '《自信/社会5》',
@@ -158,7 +152,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def getBodyRegionTable
     table = [
              '《脳》',
@@ -175,7 +169,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_2d6(table)
   end
-  
+
   def getConfidenceHappyTable
     table = [
              '【戦闘能力】あなたは吸血鬼狩人としての自分の戦闘能力に自信を持っています。たとえ負けようとも、それは運か相手か仲間が悪かったので、あなたの戦闘能力が低いわけではありません。',
@@ -187,7 +181,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def getStatusHappyTable
     table = [
              '【役職】あなたは職場、あるいは吸血鬼狩人の組織のなかで高い階級についています。そのため、下にいるものには命令でき、相応の敬意を払われます。',
@@ -199,7 +193,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def getDailyHappyTable
     table = [
              '【家】あなたの家はとても快適な空間です。コストと時間をかけて作り上げられた、あなたが居住するための空間。それはあなたの幸せの源なのです。',
@@ -211,7 +205,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def getLinkHappyTable
     table = [
              '【理解ある家族】あなたの家族は、あなたが吸血鬼狩人であることを知ったうえで協力してくれます。これがどれほど稀なことかは、仲間に聞けば分かるでしょう。',
@@ -223,7 +217,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def getEvacuationHappyTable
     table = [
              '【故郷の町】あなたは生まれ育った街を離れて吸血鬼狩人として活動しています。いつの日かあの町へ帰る……その思いがあなたを戦いのなかで支えています。',
@@ -341,7 +335,7 @@ INFO_MESSAGE_TEXT
     end
     return detailText, "#{categoryNum},#{detailNum}"
   end
-  
+
   # 軽度狂気表
   def getMildInsanityTable
     table = [
@@ -367,5 +361,4 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-
 end

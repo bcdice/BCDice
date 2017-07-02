@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class BeastBindTrinity < DiceBot
+  setPrefixes(['\d+BB', 'EMO'])
 
 #●前ver(1.43.01)からの変更・修正
 #・「達成値の下限が０になっていない」ルール上の見落としを修正。
@@ -17,15 +18,11 @@ class BeastBindTrinity < DiceBot
   def gameName
     'ビーストバインド トリニティ'
   end
-  
+
   def gameType
     "BeastBindTrinity"
   end
-  
-  def prefixs
-     ['\d+BB', 'EMO']
-  end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定　(nBB+m%w@x#y$z)
@@ -48,8 +45,7 @@ class BeastBindTrinity < DiceBot
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
-  
-  
+
   def changeText(string)
     string = string.gsub(/(\d+)BB6/i) {"#{$1}R6"}
     string = string.gsub(/(\d+)BB/i)  {"#{$1}R6"}
@@ -59,48 +55,46 @@ INFO_MESSAGE_TEXT
     string = string.gsub(/\$(\d+)/i)  {"[S#{$1}]"}
     return string
   end
-  
-  
+
   def dice_command_xRn(string, nick_e)
     @nick = nick_e
     return bbt_check(string)
   end
-  
+
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     return '' unless(signOfInequality == ">=")
-    
+
     if(total_n >= diff)
       return " ＞ 成功"
     else
       return " ＞ 失敗"
     end
   end
-  
 
   ####################           ビーストバインド トリニティ         ########################
 
   def bbt_check(string)
     output = "1"
-    
+
     debug("bbt string", string)
     unless(/(^|\s)S?((\d+)[rR]6([\+\-\d]*)(\[H:([\-\d]+)\])?(\[C(\d+)\])?(\[F(\d+)\])?(\[S(\d+)\])?(([>=]+)(\d+))?)(\s|$)/i =~ string)
       debug("not mutch")
       return output
     end
-    
+
     string = $2
     dice_c = $3.to_i
     bonus = 0
     signOfInequality = ""
     diff = 0
-    
+
     bonusText = $4
     bonus = parren_killer("(0" + bonusText + ")").to_i unless( bonusText.nil? )
-    
+
     cri = 12					# クリティカル値の基本値は12。C値以上の出目が出た場合、達成値+20（クリティカル）。
     fum =  2					# ファンブル値の基本値は2。F値以下の出目が出た場合、達成値が0で固定される（ファンブル）。
     humanity = 99				# 指定されていない時のために人間性を仮代入。データ上、60を超える事はない
-    
+
     # 指定された人間性からクリティカル値を自動算出する
     if($5)
       humanity = $6.to_i if($6)
@@ -114,43 +108,43 @@ INFO_MESSAGE_TEXT
         cri = 12
       end
     end
-    
+
     # クリティカル値の指定		# 人間性からのC値自動計算より優先される
     if($7)
       cri = $8.to_i if($8)
     end
-    
+
     # ファンブル値の指定		# F値は、アーツやアイテムの効果によってのみ変化するため、手動で入力させる
     if($9)
       fum = $10.to_i if($10)
     end
-    
+
     # 出目差し換えの指定		# 《運命歪曲》等の「ダイスを１個選んで振り直す」アーツや、
     rer = 0						# 《勝利の旗印》等の「ダイスを１個選んで出目を書き換える」アーツの達成値再計算に使用する機能
     if($11)
       rer = $12.to_i if($12)
     end
-    
+
     signOfInequality = $14 if($14)
     diff = $15.to_i if($15)
     dice_now = 0
     dice_str = ""
     total_n = 0
-    
+
     cri_flg   = false
     cri_bonus = 0
     fum_flg   = false
     rer_num  = []
-    
+
     # 出目差し換えが入力されている場合の処理
     # 1～6以外の数字や、差し替えるダイス数が振るダイス数をオーバーしている場合は無視する
     if(rer > 0)
       rer_ary = rer.to_s.split(//).collect{|i|i.to_i}
       for i in rer_ary do rer_num.push(i) if([1,2,3,4,5,6].include?(i) && rer_num.size < dice_c) end
     end
-    
+
     dice_tc = dice_c - rer_num.size
-    
+
     if(dice_tc > 0)
       _, dice_str, = roll(dice_tc, 6, (sortType & 1))			# ダイス数修正、並べ替えせずに出力
       dice_num = (dice_str.split(/,/) + rer_num).collect{|n|n.to_i} # 差し換え指定のダイスを挿入
@@ -159,25 +153,25 @@ INFO_MESSAGE_TEXT
     else
       dice_num = rer_num											# 差し換えのみの場合は差し換え指定のみ（ダイスを振らない）
     end
-    
+
     dice_num.sort!													# 並べ替え
     dice_str = dice_num.join(",")									# dice_strの取得
     dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1]			# 判定の出目を確定
-    
+
     if(dice_now >= cri)												# クリティカル成立の判定
       cri_flg = true
       cri_bonus = 20
     end
-    
+
     total_n = [dice_now + bonus + cri_bonus, 0].max				# 達成値の最小値は0
-    
+
     if(fum >= dice_now)												# ファンブル成立の判定
       fum_flg = true
       total_n = 0
     end
-    
+
     dice_str = "[#{dice_str}]"
-    
+
     if(fum_flg == true)												# 結果出力文の作成
       output = "#{dice_now}#{dice_str}【ファンブル】"
     else
@@ -191,7 +185,7 @@ INFO_MESSAGE_TEXT
         output += "+#{cri_bonus}【クリティカル】"
       end
     end
-    
+
     showstring = "#{dice_c}R6"										# 結果出力文におけるダイスロール式の作成
     if(bonus > 0)													# （結果出力の時に必ずC値・F値を表示するようにする）
       showstring += "+#{bonus}"
@@ -202,7 +196,7 @@ INFO_MESSAGE_TEXT
     if(signOfInequality != "")
       showstring += "#{signOfInequality}#{diff}"
     end
-    
+
     if(sendMode > 0)												# 出力文の完成
       if(/[^\d\[\]]+/ =~ output)
         output = "#{@nick_e}: (#{showstring}) ＞ #{output} ＞ #{total_n}"
@@ -212,15 +206,14 @@ INFO_MESSAGE_TEXT
     else
       output = "#{@nick_e}: (#{showstring}) ＞ #{total_n}"
     end
-    
+
     if(signOfInequality != "")  # 成功度判定処理
       output += check_suc(total_n, dice_now, signOfInequality, diff, 2, 6, 0, 0)
     end
-    
+
     return output
   end
-  
-  
+
   ####################           ビーストバインド トリニティ          ########################
   def rollDiceCommand(command)
     output = '1'
@@ -228,20 +221,19 @@ INFO_MESSAGE_TEXT
     total_n = 0
 
     case command
-    
+
     # 邂逅表(d66)
     when /EMO/i
       type = '邂逅表'
       output, total_n = bbt_emotion_table
     end
-    
+
     if(output != '1')
       output = "#{type}(#{total_n}) ＞ #{output}"
     end
-    
+
     return output
   end
-  
 
   #**邂逅表(d66)
   def bbt_emotion_table
@@ -253,8 +245,7 @@ INFO_MESSAGE_TEXT
       '友情',      '友情',      '忠誠',      '忠誠',      '恐怖',      '恐怖',
       '執着',      '執着',      '軽蔑',      '軽蔑',      '憎悪',      '憎悪',
     ]
-    
+
     return get_table_by_d66(table)
   end
-  
 end

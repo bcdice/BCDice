@@ -1,67 +1,64 @@
 # -*- coding: utf-8 -*-
 
 class KillDeathBusiness < DiceBot
-  
+  setPrefixes([
+    'HST',
+    'ST[1-2]?',
+    'DWT', 'DeathWT',
+    'RWT', 'RevengeWT',
+    'VWT', 'VictoryWT',
+    'PWT', 'PossesionWT',
+    'CWT', 'ControlWT',
+    'FWT', 'FlourishWT',
+    'IWT', 'IntensifyWT',
+    'HWT', 'HealthWT',
+    'SaWT', 'SafetyWT',
+    'LWT', 'LongevityWT',
+    'EWT', 'ExistWT',
+    'NAME[1-3]?', 'NAME[1-3]?',
+    'OSPT', 'OccultSPT',
+    'FSPT', 'FamilySPT',
+    'LoSPT', 'LoveSPT',
+    'JSPT', 'JusticeSPT',
+    'TSPT', 'TrainingSPT',
+    'BSPT', 'BeamSPT',
+    'CMT',
+    'EST', 'sErviceST',
+    'SOUL',
+    'STGT',
+    'HSAT[1-2]?',
+    'EXT[1-4]?',
+    'SKLT',
+    'SKLJ',
+    'ERT',
+    'WKT',
+    'PCDT',
+    'OHT',
+    'PCT1',
+    'PCT2',
+    'PCT3',
+    'PCT4',
+    'PCT5',
+    'PCT6',
+    'PCT7',
+    'JD.*'
+  ])
+
   def initialize
     super
     @sendMode = 2
     @sortType = 1
     @d66Type = 2
   end
-  
-  def prefixs
-    [
-     'HST',
-     'ST[1-2]?',
-     'DWT', 'DeathWT',
-     'RWT', 'RevengeWT',
-     'VWT', 'VictoryWT',
-     'PWT', 'PossesionWT',
-     'CWT', 'ControlWT',
-     'FWT', 'FlourishWT',
-     'IWT', 'IntensifyWT',
-     'HWT', 'HealthWT',
-     'SaWT', 'SafetyWT',
-     'LWT', 'LongevityWT',
-     'EWT', 'ExistWT',
-     'NAME[1-3]?', 'NAME[1-3]?',
-     'OSPT', 'OccultSPT',
-     'FSPT', 'FamilySPT',
-	 'LoSPT', 'LoveSPT',
-     'JSPT', 'JusticeSPT',
-     'TSPT', 'TrainingSPT',
-     'BSPT', 'BeamSPT',
-     'CMT',
-     'EST', 'sErviceST',
-     'SOUL',
-     'STGT',
-     'HSAT[1-2]?',
-	 'EXT[1-4]?',
-     'SKLT',
-	 'SKLJ',
-	 'ERT',
-	 'WKT',
-	 'PCDT',
-	 'OHT',
-	 'PCT1',
-	 'PCT2',
-	 'PCT3',
-	 'PCT4',
-	 'PCT5',
-	 'PCT6',
-	 'PCT7',
-	 'JD.*',
-	]
-  end
-  
+
   def gameName
     'キルデスビジネス'
   end
-  
+
   def gameType
     "KillDeathBusiness"
   end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定
@@ -91,16 +88,15 @@ class KillDeathBusiness < DiceBot
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
-  
-  
+
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    
+
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    
+
     return '' unless(signOfInequality == ">=")
-    
-    output = 
+
+    output =
       if(dice_n <= 2)
         " ＞ ファンブル(判定失敗。【視聴率】が20％減少)"
       elsif(dice_n >= 12)
@@ -110,15 +106,14 @@ INFO_MESSAGE_TEXT
       else
         " ＞ 失敗"
       end
-    
+
     return output
   end
-  
-  
+
   def rollDiceCommand(command)
-    
+
     debug("rollDiceCommand command", command)
-    
+
     #判定チェックは先に処理
     case command
     when @@judogeDiceReg
@@ -126,48 +121,46 @@ INFO_MESSAGE_TEXT
       text = "判定#{result}"
       return text
     end
-    
+
     #判定以外なら表コマンドの処理に
     return rollTableCommand(command)
   end
-  
-  
+
   @@judogeDiceReg = /(^|\s)JD(\d+)([\+\-]\d+)?(,(\d+))?($|\s)/i
-  
+
   def judgeDice(command)
-    
+
     unless(@@judogeDiceReg === command)
       return '1'
     end
-    
+
     target = $2.to_i
     modify = $3.to_i
     fumble = $5.to_i
-    
+
     result = ""
-    
+
     if(target > 12 )
       result  += "【#{command}】 ＞ 難易度が12以上はスペシャルのみ成功。\n"
       target = 12
     end
-    
+
     if(target < 5 )
       result  += "【#{command}】 ＞ 難易度の最低は5。\n"
       target = 5
     end
-    
+
     if( fumble < 2 )
       fumble = 2
     elsif(fumble > 11 )
       result  += "【#{command}】 ＞ スペシャルを出すと必ず成功なので、ファンブル率は11とする。\n"
       fumble = 11
     end
-    
-    
+
     number, diceText, = roll(2, 6)
-    
+
     result += "【難易度#{target}、補正#{modify}、ファンブル率#{fumble}】 ＞ 出目(#{diceText}) ＞ "
-    
+
     if(number == 2 )
       result += "出目が2なのでファンブル！(判定失敗。【視聴率】が20％減少)"
     elsif(number == 12)
@@ -182,75 +175,72 @@ INFO_MESSAGE_TEXT
          result += "達成値#{number}、難易度以上なので判定成功！"
        end
     end
-    
-        
+
     return result
   end
-  
-  
-  
+
   def rollTableCommand(command)
-    
+
     tableName = ""
     result = ""
-    
+
 	case command
-      
+
     when "HST"
       tableName, result, number = getHistoryTableResult
-      
+
     when /^ST(\d)?$/
 	  #シーン表
       type = $1.to_i
-      
+
 	  tableName, result, number = getSceneTableResult(type)
-      
+
     when /^.+WT$/i
 	  #願い事表
       tableName, result, number = getWishTableResult(command)
-      
+
     when /^NAME(\d)?$/
 	  #万能命名表
       type = $1.to_i
       tableName, result, number = getNameTableResult(type)
-      
+
     when /^.+SPT$/i
 	  #サブプロット表
       tableName, result, number = getSubprotTableResult(command)
-      
+
     when "CMT"
 	  #CM表
       tableName, result, number = getCmTableResult()
-      
+
     when "ERT"
 	  #副作用蘇生表
       tableName, result, number = getErTableResult()
-      
+
     when "WKT"
 	  #一週間表
-      tableName, result, number = getWKTableResult() 
-            
+      tableName, result, number = getWKTableResult()
+
     when /^EST$/i, /^sErviceST$/i
       tableName, result, number = getServiceSceneTableResult()
-      
+
     when "SOUL"
       tableName, result, number = getSoulTableResult()
-	  
+
     when "STGT"
       tableName, result, number = getSceneTelopGenericTableResult()
-	  
+
     when /^HSAT(\d)?$/
       type = $1.to_i
       tableName, result, number = getHairStylistAbuseTableResult(type)
-	  
+
     when /^EXT(\d)?$/
       type = $1.to_i
       tableName, result, number = getExtraTableResult(type)
-	  
+
     when /^SKL(T|J)$/
 	  type = $1
       tableName, result, number = getSkillTableResult(type)
-      
+
     when "PCDT"
 	  #製作委員決定表
       tableName, result, number = getpcTableResult()
@@ -283,18 +273,18 @@ INFO_MESSAGE_TEXT
       debug("rollDiceCommand commandNOT matched -> command:", command)
       return ""
 	end
-    
+
     if( result.empty? )
       return ""
     end
-	
+
 	text = "#{tableName}(#{number})：#{result}"
 	return text
   end
-  
+
   def getHistoryTableResult
     tableName = "履歴表"
-    
+
     table = [
              '魔術
 あなたは悪魔との接触を目指して研磨を積んでいたオカルティスト、または恐怖の探索者である。たいへんな苦労の末、ようやく現れた悪魔は、願いと引き替えに番組に出ろ、などと言い出した。あなたは少々あっけにとられながらも、そもそも悪魔を探していた理由である願い事を叶えるため、彼らの主催する番組に出演する事を承諾した。',
@@ -310,16 +300,15 @@ INFO_MESSAGE_TEXT
 あなたは平穏な人生を送っていたが、あるとき目の前に悪魔が現れる。そいつは番組出演のエントリーシートを持っていて、そこにはあなたの名前が書かれていた。友人が勝手にあなたの名前で番組にエントリーシートを送っていたのだ！　あなたはそのまま拉致され、むりやり願い事を決めさせられ、悪趣味な番組で暴力を撒き散らす事になってしまった。',
             ]
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
-  
-  
+
   def getSceneTableResult(type)
     debug("getSceneTableResult type", type)
-    
+
     tableName = "シーン表"
-    
+
     sceneTable1 = [
                    [11, 'あなたが根城にしていた'],
                    [12, 'あなたの写真で壁が埋め尽くされた'],
@@ -366,10 +355,10 @@ INFO_MESSAGE_TEXT
                    [56, '民家'],
                    [66, '野原'],
                   ]
-    
+
     result = ''
     number = 0
-    
+
     case type
     when 1
       result, number = get_table_by_d66_swap(sceneTable1)
@@ -381,17 +370,16 @@ INFO_MESSAGE_TEXT
       result = "#{result1}#{result2}"
       number = "#{num1},#{num2}"
     end
-    
+
     return tableName, result, number
   end
-  
-  
+
   def getWishTableResult(command)
     debug("getWishTableResult command", command)
-    
+
     tableName = ''
     table = []
-    
+
     case command
     when /^DWT$/i, /^DeathWT$/i
       tableName = "願い事表「死」"
@@ -504,17 +492,16 @@ INFO_MESSAGE_TEXT
                '理想の人生を手に入れたい。',
               ]
     end
-    
+
     result, number = get_table_by_1d6(table)
     debug("getWishTableResult result", result)
-    
+
     return tableName, result, number
   end
-  
-  
+
   def getNameTableResult(type)
     tableName = "万能命名表"
-    
+
     nameTable1 = [
                   [11, 'アナログ'],
                   [12, 'イージー'],
@@ -584,10 +571,10 @@ INFO_MESSAGE_TEXT
                   [56, 'モーター'],
                   [66, 'レッグ'],
                  ]
-    
+
     result = ''
     number = 0
-    
+
     case type
     when 1
       result, number = get_table_by_d66_swap(nameTable1)
@@ -602,15 +589,14 @@ INFO_MESSAGE_TEXT
       result = "#{result1}#{result2}#{result3}"
       number = "#{num1},#{num2},#{num3}"
     end
-    
+
     return tableName, result, number
   end
-  
-  
+
   def getSubprotTableResult(command)
     tableName = ''
     table = []
-    
+
     case command
     when /^OSPT$/i, /^OccultSPT$/i
       tableName = "サブプロット表「オカルト」"
@@ -780,15 +766,14 @@ INFO_MESSAGE_TEXT
 クリア条件：相手への関係の【深度】を２以上にする。すると、あなたと相手は友情のようなもので結ばれるかもしれないし、やはり無理だったのだと、あなたが諦めるかもしれない。
 報酬：【視聴率】10%増加、200【ソウル】',
               ]
-      
+
     end
-    
+
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
-  
-  
+
   def getCmTableResult()
     tableName = "CM表"
     table = [
@@ -815,11 +800,10 @@ INFO_MESSAGE_TEXT
              [66, 'ヘル入浴剤／体が溶ける！新感覚で話題を呼んだヘル入浴剤がついに登場！死体の処理には使わないでください。'],
             ]
     result, number = get_table_by_d66_swap(table)
-    
+
     return tableName, result, number
   end
-  
-  
+
   def getErTableResult()
     tableName = "蘇生副作用表"
     table = [
@@ -846,11 +830,11 @@ INFO_MESSAGE_TEXT
              [66, '立派な角が額に生えた'],
             ]
     result, number = get_table_by_d66_swap(table)
-    
+
     return tableName, result, number
   end
-  
-  def getWKTableResult() 
+
+  def getWKTableResult()
     tableName = "一週間表"
     table = [
              [11, '家を追い出されたヘルＰが泊まりに来た'],
@@ -876,11 +860,10 @@ INFO_MESSAGE_TEXT
              [66, '妙に寄付を募る営業電話がかかってくる週だった'],
             ]
     result, number = get_table_by_d66_swap(table)
-    
+
     return tableName, result, number
   end
 
-  
   def getServiceSceneTableResult()
     tableName = "サービスシーン表"
     sceneTable = [
@@ -892,7 +875,7 @@ INFO_MESSAGE_TEXT
                   '別ジャンルサービスシーン表',
                  ]
     sceneGroup, number1 = get_table_by_1d6(sceneTable)
-    
+
     case sceneGroup
     when "脱衣系サービスシーン表"
       table = [
@@ -949,15 +932,14 @@ INFO_MESSAGE_TEXT
                'ロボ',
               ]
     end
-    
+
     resultTmp, number2 = get_table_by_1d6(table)
     result = "#{sceneGroup}「#{resultTmp}」を行う。"
     number = "#{number1}#{number2}"
-    
+
     return tableName, result, number
   end
-  
-  
+
   def getSoulTableResult()
     tableName = "ソウル放出表"
     table = [
@@ -969,11 +951,10 @@ INFO_MESSAGE_TEXT
              '300',
             ]
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
-  
-  
+
   def getSceneTelopGenericTableResult()
     tableName = "汎用演出表"
     table = [
@@ -985,14 +966,13 @@ INFO_MESSAGE_TEXT
              'ヘルバンドの新曲がBGMとして流れる',
             ]
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
-  
-  
+
   def getHairStylistAbuseTableResult(type)
     tableName = "ヘルスタイリスト罵倒表"
-    
+
     hellStylistAbuseTable1 = [
                               [11, ' 汁まみれになった'],
                               [12, ' お爺ちゃんがこのまえ捨てた'],
@@ -1039,7 +1019,7 @@ INFO_MESSAGE_TEXT
                               [56, ' 毛虫'],
                               [66, ' 野良犬'],
                              ]
-                             
+
       hellStylistwtable1 = [
                '「まるで『',
                '「まるで『',
@@ -1056,7 +1036,7 @@ INFO_MESSAGE_TEXT
                '』に見えるわ。」',
                '』そっくりよ！」',
               ]
-    
+
     case type
       when 1
         result, number = get_table_by_d66_swap(hellStylistAbuseTable1)
@@ -1070,11 +1050,10 @@ INFO_MESSAGE_TEXT
         result = "#{before}#{result1}#{result2}#{after}"
         number = "#{num1},#{num2}"
     end
-    
+
     return tableName, result, number
   end
-  
-  
+
   def getSkillTableResult(type)
     skillTableFull = [
                       ['職業', ['無職', '芸術家', '研究者', '家事手伝い', '学生', '悪漢', '労働者', '探偵', '大物', '医師', '公務員']],
@@ -1096,11 +1075,10 @@ INFO_MESSAGE_TEXT
       result = skillGroup
       number = num1
     end
-    
-    
+
     return tableName, result, number
   end
-  
+
   def getExtraTableResult(type)
     tableName = "エキストラ表"
     extraTable1 = [
@@ -1195,7 +1173,7 @@ INFO_MESSAGE_TEXT
 				   [56, "不機嫌に登場"],
 				   [66, "陽気に登場"],
 	              ]
-	
+
     case type
     when 1
       result, number = get_table_by_d66_swap(extraTable1)
@@ -1213,7 +1191,7 @@ INFO_MESSAGE_TEXT
       result = "#{result1}#{result2}が#{result3}#{result4}"
       number = "#{num1},#{num2},#{num3},#{num4}"
     end
-    
+
     return tableName, result, number
   end
 
@@ -1243,7 +1221,7 @@ INFO_MESSAGE_TEXT
              [66, 'ヘルベア'],
             ]
     result, number = get_table_by_d66_swap(table)
-    
+
     return tableName, result, number
   end
 
@@ -1258,7 +1236,7 @@ INFO_MESSAGE_TEXT
              'エピソード中の表現が微妙かつ厄介な問題を引き起こし、たくさんのヘルピープルが嫌な気分になったうえ公開ナシに。',
             ]
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
 
@@ -1273,7 +1251,7 @@ INFO_MESSAGE_TEXT
              '「長回し。」指定特技は《生》。カットの切り替わりなしで、30分ほど同じシーンが続く。NGは許されない。これで間を持たせられるのはプロの俳優くらいのものだが、回収人は演技の素人だ。',
             ]
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
   def getprTableResult()
@@ -1287,7 +1265,7 @@ INFO_MESSAGE_TEXT
              '「食事が出ない。」指定特技は《獲得》。食事の時間だが、ヘル仕出し弁当が来ない。その分の予算を着服されたのだ。空腹のままいい演技をするには、気合に頼るしかない。',
             ]
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
   def getpnTableResult()
@@ -1301,7 +1279,7 @@ INFO_MESSAGE_TEXT
              '「人類一般への憎しみ。」指定特技は《復讐》。理由なく人を憎むことを強要される。もともと性格のいい回収人にとってはかなりの難行だ。人類の悪いところ探しをしよう！',
             ]
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
   def getpdTableResult()
@@ -1315,7 +1293,7 @@ INFO_MESSAGE_TEXT
              '「お前そのものがNG。」指定特技は《安全》。回収人の人選そのものに難癖をつけられた。あなたにNGを出すことだけが目的だ。キレずに耐えてくれ。相手は超強いのだ。',
             ]
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
   def getpfTableResult()
@@ -1329,7 +1307,7 @@ INFO_MESSAGE_TEXT
              '「局部へのひどい打撃。」指定特技は《死》。ヘルADや他のキャラクターから局部を強打されることを強要される。死なずにうまく痛がれ。下手をするとショックでそのまま死ぬ！',
             ]
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
   def getpgTableResult()
@@ -1343,7 +1321,7 @@ INFO_MESSAGE_TEXT
              '「混ざってダンス。」指定特技は《健康》。いきなりダンスシーンが始まる！ただし回収人はバックダンサーだ。歌え！踊りきれ！息切れしたり笑顔が引きつるとNGだ！',
             ]
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
   def getpbTableResult()
@@ -1357,9 +1335,7 @@ INFO_MESSAGE_TEXT
              '「ヘルお札。」指定特技は《繁栄》。願いを成就する悪霊が、あなたの成功を確約！その後は成功したまま事故で死ぬことになるが、そんなの些細なことだ！',
             ]
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
-
 end
-

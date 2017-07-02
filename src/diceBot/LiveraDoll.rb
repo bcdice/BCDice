@@ -1,17 +1,14 @@
 # -*- coding: utf-8 -*-
 
 class LiveraDoll < DiceBot
-  
+  setPrefixes(['(C|K|W|R|B|G|E)(L|D|O)\d+'])
+
   def initialize
     super
-    
+
     @sortType = 3
   end
-  
-  def prefixs
-    ['(C|K|W|R|B|G|E)(L|D|O)\d+',]
-  end
-  
+
   def gameName
     '紫縞のリヴラドール'
   end
@@ -19,7 +16,7 @@ class LiveraDoll < DiceBot
   def gameType
     "LiveraDoll"
   end
-  
+
   def getHelpMessage
     return <<MESSAGETEXT
 このダイスボットは、リヴラデッキカードの補助を目的としたものです。
@@ -43,32 +40,30 @@ L：リヴラネイル　D：パッシヴドレス　O：オーナーズネイ�
 例：WO3（白のオーナーズネイルの3番目『罪なき純白』）
 MESSAGETEXT
   end
-  
-  
+
   def rollDiceCommand(command)
-    
-    output = 
+
+    output =
       case command.upcase
-        
+
       when /^(C|K|W|R|B|G|E)(L|D|O)(\d+)$/i
         color = $1.upcase
         cardtype = $2.upcase
         cardindex = $3.to_i
         get_card_text(color, cardtype, cardindex)
-        
+
       else
         nil
       end
-    
+
     return output
   end
-  
-  
+
   def get_card_text(color, cardtype, cardindex)
     if cardindex == 0
       return nil
     end
-    
+
     case color
     when 'C'
       case cardtype
@@ -348,8 +343,7 @@ MESSAGETEXT
     else
       nil
     end
-    
+
     return get_table_by_number(cardindex, table)
   end
-  
 end

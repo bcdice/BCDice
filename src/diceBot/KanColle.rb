@@ -1,29 +1,28 @@
 # -*- coding: utf-8 -*-
 
 class KanColle < DiceBot
-  
+  setPrefixes([
+    'ET', 'ACT',
+    'EVNT', 'EVKT', 'EVAT', 'EVET', 'EVENT', 'EVST', 'ETHT', 'ETVT', 'ETGT', 'ETBT', 'ETMT', 'ETFT',
+    'DVT', 'DVTM', 'WP1T', 'WP2T', 'WP3T', 'WP4T', 'ITT', 'MHT', 'SNT', 'SPSNT',
+    'KTM', 'BT', 'KHT', 'KMT', 'KST', 'KSYT', 'KKT', 'KSNT', 'SNZ', 'RNT'
+  ])
+
   def initialize
     super
     @sendMode = 2
     @sortType = 3
     @d66Type = 2
   end
+
   def gameName
     '艦これRPG'
   end
-  
+
   def gameType
     "KanColle"
   end
-  
-  def prefixs
-     ['ET', 'ACT',  
-      'EVNT', 'EVKT', 'EVAT', 'EVET', 'EVENT', 'EVST', 'ETHT', 'ETVT', 'ETGT', 'ETBT', 'ETMT', 'ETFT',
-      'DVT', 'DVTM', 'WP1T', 'WP2T', 'WP3T', 'WP4T', 'ITT', 'MHT', 'SNT', 'SPSNT',
-      'KTM', 'BT', 'KHT', 'KMT', 'KST', 'KSYT', 'KKT', 'KSNT', 'SNZ', 'RNT',
-      ]
-  end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 例) 2D6 ： 単純に2D6した値を出します。
@@ -54,11 +53,10 @@ class KanColle < DiceBot
 ・D66ダイス(D66S相当=低い方が10の桁になる)
 INFO_MESSAGE_TEXT
   end
-  
-  
+
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     return '' unless( signOfInequality == ">=")
-    
+
     if(dice_n <= 2)
       return " ＞ ファンブル（判定失敗。アクシデント表を自分のＰＣに適用）"
     elsif(dice_n >= 12)
@@ -69,7 +67,7 @@ INFO_MESSAGE_TEXT
       return " ＞ 失敗"
     end
   end
-  
+
   def rollDiceCommand(command)
     output = '1'
     type = ""
@@ -150,7 +148,7 @@ INFO_MESSAGE_TEXT
     when 'SPSNT'
       type='特殊戦果表'
       output, total_n =  get_special_senka_table
-    
+
     when 'KTM'
       type='個性：一括'
       output, total_n =  get_kosei_table
@@ -184,11 +182,11 @@ INFO_MESSAGE_TEXT
       output, total_n =  get_bousou_table
 
     end
-        
+
     return "#{type}(#{total_n}) ＞ #{output}"
-    
+
   end
-  
+
   # 感情表
   def get_emotion_table
     table = [
@@ -199,7 +197,7 @@ INFO_MESSAGE_TEXT
         'いとしい（プラス）／かまってほしい（マイナス）',
         'だいすき（プラス）／だいっきらい（マイナス）',
     ]
-    
+
     return get_table_by_1d6(table)
   end
 
@@ -213,11 +211,10 @@ INFO_MESSAGE_TEXT
         'いててて。損傷が一つ発生する。もしも艦隊戦中なら、自分と同じ航行序列にいる味方艦にも損傷が一つ発生する。',
         'ううう。やりすぎちゃった！自分の【行動力】が１Ｄ６点減少する。',
     ]
-    
+
     return get_table_by_1d6(table)
   end
-  
-    
+
   # 日常イベント表
   def get_nichijyou_event_table
       table = [
@@ -236,7 +233,7 @@ INFO_MESSAGE_TEXT
     table.each{|i| i.gsub!(/$/, '（着任p220）')}
     return get_table_by_2d6(table)
   end
-  
+
   # 交流イベント表
   def get_kouryu_event_table
       table = [
@@ -255,8 +252,7 @@ INFO_MESSAGE_TEXT
     table.each{|i| i.gsub!(/$/, '（着任p221）')}
     return get_table_by_2d6(table)
   end
-  
-  
+
   # 遊びイベント表
   def get_asobi_event_table
       table = [
@@ -294,7 +290,7 @@ INFO_MESSAGE_TEXT
     table.each{|i| i.gsub!(/$/, '（着任p223）')}
     return get_table_by_2d6(table)
   end
-  
+
   # 遠征イベント表
   def get_ensei_event_table
         table = [
@@ -333,7 +329,7 @@ INFO_MESSAGE_TEXT
     table.each{|i| i.gsub!(/$/, '（着任p225）')}
     return get_table_by_2d6(table)
   end
-  
+
   # ほのぼのイベント表
   def get_honobono_event_table
         table = [
@@ -353,8 +349,7 @@ INFO_MESSAGE_TEXT
     table.each{|i| i.gsub!(/$/, '（建造弐p134）')}
     return get_table_by_2d6(table)
   end
-  
-  
+
   # 航海イベント表
   def get_voyage_event_table
         table = [
@@ -374,8 +369,7 @@ INFO_MESSAGE_TEXT
     table.each{|i| i.gsub!(/$/, '（建造弐p135）')}
     return get_table_by_2d6(table)
   end
-  
-    
+
   # 外出イベント表
   def get_gaisyutsu_event_table
         table = [
@@ -395,7 +389,7 @@ INFO_MESSAGE_TEXT
     table.each{|i| i.gsub!(/$/, '（建造弐p136）')}
     return get_table_by_2d6(table)
   end
-    
+
   # 激戦イベント表
   def get_battle_event_table
         table = [
@@ -415,7 +409,7 @@ INFO_MESSAGE_TEXT
     table.each{|i| i.gsub!(/$/, '（建造弐p137）')}
     return get_table_by_2d6(table)
   end
-    
+
   # 任務イベント表
   def get_mission_event_table
         table = [
@@ -435,8 +429,7 @@ INFO_MESSAGE_TEXT
     table.each{|i| i.gsub!(/$/, '（建造弐p138）')}
     return get_table_by_2d6(table)
   end
-  
-    
+
   # 恐怖イベント表
   def get_fear_event_table
         table = [
@@ -456,7 +449,7 @@ INFO_MESSAGE_TEXT
     table.each{|i| i.gsub!(/$/, '（建造弐p139）')}
     return get_table_by_2d6(table)
   end
-  
+
   def get_develop_table
     table = [
         '装備１種表（WP1T）',
@@ -468,7 +461,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def get_develop_matome_table
     output1 = ''
     output2 = ''
@@ -548,7 +541,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def get_item_table
     table = [
         'アイス',
@@ -652,7 +645,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_2d6(table)
   end
-  
+
   def get_kosei_miryoku_table
     table = [
         '素直',
@@ -738,7 +731,6 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-
   def get_senzyou_table
     table = [
 		'同航戦',
@@ -752,7 +744,6 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-
   def get_bousou_table
     table = [
 		'妄想',
@@ -765,5 +756,4 @@ INFO_MESSAGE_TEXT
     table.each{|i| i.gsub!(/$/, '（建造弐p164）')}
     return get_table_by_1d6(table)
   end
-
 end

@@ -1,29 +1,23 @@
 # -*- coding: utf-8 -*-
 
 class Kamigakari < DiceBot
-  
+  setPrefixes(['RT', 'MT(\d*)'])
+
   def initialize
     super
     @sendMode = 2
     @sortType = 1
     @d66Type = 1
   end
-  
-  def prefixs
-    [
-     'RT',
-     'MT(\d*)',
-	]
-  end
-  
+
   def gameName
     '神我狩'
   end
-  
+
   def gameType
     "Kamigakari"
   end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・各種表
@@ -36,42 +30,40 @@ class Kamigakari < DiceBot
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
   end
-  
-  
+
   def rollDiceCommand(command)
     tableName = ""
     result = ""
-    
+
     debug("rollDiceCommand command", command)
-    
+
 	case command
-      
+
     when "RT"
       tableName, result, number = getReimonCompensationTableResult
-      
+
     when /^MT(\d*)$/
       rank = $1
       rank ||= 1
       rank = rank.to_i
       tableName, result, number = getGetMaterialTableResult(rank)
-      
+
     else
       debug("rollDiceCommand commandNOT matched -> command:", command)
       return ""
 	end
-    
+
     if( result.empty? )
       return ""
     end
-	
+
 	text = "#{tableName}(#{number})：#{result}"
 	return text
   end
-  
-  
+
   def getReimonCompensationTableResult
     tableName = "霊紋消費の代償表"
-    
+
     table = [
              '邪神化：物理法則を超過しすぎた代償として、霊魂そのものが歪み、PCは即座にアラミタマへと変貌する。アラミタマ化したPCは、いずこかへと消え去る。',
              '存在消滅：アラミタマ化を最後の力で抑え込む。だがその結果、PCの霊魂は燃え尽きてしまい、この世界から消滅する。そのPCは[状態変化：死亡]となり死体も残らない。',
@@ -81,10 +73,10 @@ INFO_MESSAGE_TEXT
              '影響なし：奇跡的に、霊魂の摩耗による悪影響を完全に退け、さらに霊紋の回復も早期を見込める。肉体や精神にも、特に影響はない。',
             ]
     result, number = get_table_by_1d6(table)
-    
+
     return tableName, result, number
   end
-  
+
   def getGetMaterialTableResult(rank)
     tableName = "獲得素材チャート"
     table = [
@@ -125,25 +117,24 @@ INFO_MESSAGE_TEXT
              '毛皮状の',
              '羽根状の',
             ]
-    
+
     result, number = get_table_by_d66(table)
     result += "断片"
-    
+
     effect, number2 = getMaterialEffect(rank)
     number = "#{number},#{number2}"
-    
+
     price = getPrice(effect)
-    
+
     result = "#{result}。#{effect}"
     result += "：#{price}" unless( price.nil? )
-    
+
     return tableName, result, number
   end
-  
-  
+
   def getMaterialEffect(rank)
     number, = roll(1, 6)
-    
+
     result = ""
     type = ""
     if( number < 6)
@@ -153,80 +144,79 @@ INFO_MESSAGE_TEXT
       result, number2 = getMaterialEffectRare()
       type = "珍しい素材"
     end
-    
+
     result = "#{type}：#{result}"
     number = "#{number},#{number2}"
-    
+
     return result, number
   end
-  
-  
+
   def getMaterialEffectNomal(rank)
     table = [
-             [13, '体力+n'], 
-             [16, '敏捷+n'], 
-             [23, '知性+n'], 
-             [26, '精神+n'], 
-             [33, '幸運+n'], 
-             [35, '物D+n'], 
-             [41, '魔D+n'], 
-             [43, '行動+n'], 
-             [46, '生命+n×3'], 
-             [53, '装甲+n'], 
-             [56, '結界+n'], 
-             [63, '移動+nマス'], 
+             [13, '体力+n'],
+             [16, '敏捷+n'],
+             [23, '知性+n'],
+             [26, '精神+n'],
+             [33, '幸運+n'],
+             [35, '物D+n'],
+             [41, '魔D+n'],
+             [43, '行動+n'],
+             [46, '生命+n×3'],
+             [53, '装甲+n'],
+             [56, '結界+n'],
+             [63, '移動+nマス'],
              [66, '※PCの任意'],
             ]
-    
+
     isSwap = false
     number = bcdice.getD66(isSwap)
-    
+
     result = get_table_by_number(number, table)
     debug("getMaterialEffectNomal result", result)
-    
+
     if( /\+n/ === result )
       power, number2 = getMaterialEffectPower(rank)
-      
+
       result.sub!(/\+n/, "+#{power}")
       number = "#{number},#{number2}"
     end
-    
+
     return result, number
   end
-  
+
   def getMaterialEffectPower(rank)
     table = [
              [  4, [1, 1, 1, 2, 2, 3]],
              [  8, [1, 1, 2, 2, 3, 3]],
              [  9, [1, 2, 3, 3, 4, 5]],
             ]
-    
+
     rank = 9 if( rank > 9 )
     rankTable = get_table_by_number(rank, table)
     power, number = get_table_by_1d6(rankTable)
-    
+
     return power, number
   end
-  
+
   def getMaterialEffectRare()
     table = [[3, '**付与'],
              [5, '**半減'],
              [6, '※GMの任意'],
             ]
-    
+
     number, = roll(1, 6)
     result = get_table_by_number(number, table)
     debug('getMaterialEffectRare result', result)
-    
+
     if( /\*\*/ === result )
       attribute, number2 = getAttribute()
       result.sub!(/\*\*/, "#{attribute}")
       number = "#{number},#{number2}"
     end
-      
+
     return result, number
   end
-  
+
   def getAttribute()
     table = [
              [21, '［火炎］'],
@@ -238,20 +228,19 @@ INFO_MESSAGE_TEXT
              [64, '［磁力］'],
              [66, '［閃光］'],
             ]
-    
+
     isSwap = false
     number = bcdice.getD66(isSwap)
-    
+
     result = get_table_by_number(number, table)
-    
+
     return result, number
   end
-  
-  
+
   def getPrice(effect)
-    
+
     power = 0
-    
+
     case effect
     when /\+(\d+)/
       power = $1.to_i
@@ -262,17 +251,16 @@ INFO_MESSAGE_TEXT
     else
       power = 0
     end
-    
+
     table = [nil,
-             '500G(効果値:1)', 
-             '1000G(効果値:2)', 
-             '1500G(効果値:3)', 
-             '2000G(効果値:4)', 
-             '3000G(効果値:5)', 
+             '500G(効果値:1)',
+             '1000G(効果値:2)',
+             '1500G(効果値:3)',
+             '2000G(効果値:4)',
+             '3000G(効果値:5)',
             ]
     price = table[power]
-    
+
     return price
   end
-  
 end
