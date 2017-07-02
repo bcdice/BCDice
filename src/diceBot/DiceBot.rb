@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 class DiceBot
+  # 空の接頭辞（反応するコマンド）
+  EMPTY_PREFIXES_PATTERN = (/(^|\s)(S)?()(\s|$)/i).freeze
+
   # 接頭辞（反応するコマンド）の配列を返す
   # @return [Array<String>]
   def self.prefixes
@@ -31,7 +34,7 @@ class DiceBot
   # @return [self]
   def self.clearPrefixes
     @prefixes = [].freeze
-    @prefixesPattern = (/(^|\s)(S)?()(\s|$)/i).freeze
+    @prefixesPattern = EMPTY_PREFIXES_PATTERN
 
     self
   end
@@ -65,6 +68,13 @@ class DiceBot
     @fractionType = "omit"     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
     
     @gameType = 'DiceBot'
+
+    if !prefixs.empty? && self.class.prefixes.empty?
+      # 従来の方法（#prefixs）で接頭辞を設定していた場合でも
+      # クラス側に接頭辞が設定されるようにする
+      $stderr.puts("#{gameType}: #prefixs is deprecated. Please use .setPrefixes.")
+      self.class.setPrefixes(prefixs)
+    end
   end
   
   attr_accessor :rerollLimitCount
