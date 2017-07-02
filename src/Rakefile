@@ -13,6 +13,10 @@ namespace :test do
   Rake::TestTask.new(:dicebot_loaders) do |t|
     t.test_files = ['test/testDiceBotLoaders.rb']
   end
+
+  Rake::TestTask.new(:dicebot_prefixes_compatibility) do |t|
+    t.test_files = ['test/testDiceBotPrefixesCompatibility.rb']
+  end
 end
 
 desc 'すべてのテストを行う'
