@@ -67,6 +67,7 @@ Cthulhu:ChineseTraditional
 Cthulhu:Korean
 CthulhuTech
 DarkBlaze
+DarkDaysDrive
 DarkSouls
 DeadlineHeroes
 DemonParasite
@@ -173,5 +174,6 @@ WARPS
 WaresBlade
 Warhammer
 WitchQuest
+YankeeYogSothoth
 ZettaiReido
 }
