@@ -67,6 +67,7 @@ Cthulhu:ChineseTraditional
 Cthulhu:Korean
 CthulhuTech
 DarkBlaze
+DarkDaysDrive
 DarkSouls
 DeadlineHeroes
 DemonParasite
@@ -101,6 +102,7 @@ GundogRevised
 GundogZero
 GurpsFW
 HarnMaster
+HatsuneMiku
 Hieizan
 HouraiGakuen
 HuntersMoon
@@ -173,5 +175,6 @@ WARPS
 WaresBlade
 Warhammer
 WitchQuest
+YankeeYogSothoth
 ZettaiReido
 }
