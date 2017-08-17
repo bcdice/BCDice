@@ -133,7 +133,7 @@ INFO_MESSAGE_TEXT
     totalValue = 0
     round = 0
 
-    begin
+    loop do
       dice, diceText = rollDice(isGratestFortune)
 
       if( firstDiceChanteTo != 0 )
@@ -160,7 +160,9 @@ INFO_MESSAGE_TEXT
       rateResults << ((dice > 2) ? rateValue : "**")
 
       round += 1
-    end while(dice >= crit)
+      
+      break unless(dice >= crit)
+    end
 
     limitLength = $SEND_STR_MAX - output.length
     output += getResultText(totalValue, addValue, diceResults, diceResultTotals,
