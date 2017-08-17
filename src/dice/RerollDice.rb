@@ -127,8 +127,7 @@ class RerollDice
       return output, round, successCount, dice_cnt_total
     end
     
-    
-    begin
+    loop do
       total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount = 
         @bcdice.roll(dice_cnt, dice_max, (@diceBot.sortType & 2), 0, signOfInequality, diff, rerollNumber)
       debug('total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount',
@@ -141,7 +140,8 @@ class RerollDice
       debug('dice_str', dice_str)
       output += " + #{dice_str}"
       
-    end while ( @bcdice.isReRollAgain(dice_cnt, round) )
+      break unless ( @bcdice.isReRollAgain(dice_cnt, round) )
+    end
     
     debug('output', output)
     debug('rerollNumber End')

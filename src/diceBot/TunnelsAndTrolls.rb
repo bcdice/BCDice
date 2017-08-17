@@ -155,7 +155,7 @@ INFO_MESSAGE_TEXT
     # ２回目以降
     dice_arr.push(dice_c)
 
-    begin
+    loop do
       debug('loop dice_arr', dice_arr)
       dice_wk = dice_arr.shift
 
@@ -220,7 +220,9 @@ INFO_MESSAGE_TEXT
       isFirstLoop = false
 
       debug('loop last chek dice_arr', dice_arr)
-    end while(dice_arr.length != 0)
+
+      break unless(dice_arr.length != 0)
+    end
 
     debug('loop breaked')
 

@@ -176,7 +176,7 @@ INFO_MESSAGE_TEXT
 
     if(next_roll > 0)
       dice_cnt = next_roll
-      begin
+      loop do
         subtotal = 0
         output2 += "#{output}+"
         output = ""
@@ -196,7 +196,9 @@ INFO_MESSAGE_TEXT
         end
         output += "#{subtotal}[#{dice_dat[1]}]"
         total_n += subtotal
-      end while ( @@bcdice.isReRollAgain(dice_cnt, round) )
+
+        break unless ( @@bcdice.isReRollAgain(dice_cnt, round) )
+      end
     end
 
     total_n += bonus_ttl
