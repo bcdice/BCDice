@@ -21,17 +21,35 @@ class DiceBotLoader
 
     escapedGameTitle = gameTitle.gsub(/(\.\.|\/|:|-)/, '_')
 
+    #begin
+    #  # ダイスボットファイルがこのディレクトリ内に存在すると仮定して読み込む
+    #  require(
+    #    File.expand_path("#{escapedGameTitle}.rb", File.dirname(__FILE__))
+    #  )
+
+    #  Object.const_get(escapedGameTitle).new
+    #rescue LoadError, StandardError => e
+    #  debug("DiceBot load ERROR!!!", e.to_s)
+    #  nil
+    #end
+    Dir.glob(File.join(File.dirname(__FILE__), '*.rb')) do |fileName|
+      botName = File.basename(fileName, '.rb')
+      next if botName !~ /\A[A-Z]/ || BOT_NAMES_TO_IGNORE.include?(botName)
+      if (botName == escapedGameTitle)
     begin
       # ダイスボットファイルがこのディレクトリ内に存在すると仮定して読み込む
       require(
-        File.expand_path("#{escapedGameTitle}.rb", File.dirname(__FILE__))
+            File.expand_path("#{botName}.rb", File.dirname(__FILE__))
       )
-
-      Object.const_get(gameTitle).new
+          return Object.const_get(botName).new
     rescue LoadError, StandardError => e
       debug("DiceBot load ERROR!!!", e.to_s)
-      nil
+          return nil
     end
+      end
+    end
+    debug("DiceBot not Found!", escapedGameTitle)
+    return nil
   end
 
   # ダイスボットディレクトリに含まれるダイスボットを収集する
