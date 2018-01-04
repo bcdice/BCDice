@@ -50,6 +50,7 @@ BeastBindTrinity
 BeginningIdol
 BeginningIdol:Korean
 BladeOfArcana
+BlindMythos
 BloodCrusade
 BloodMoon
 CardRanker
