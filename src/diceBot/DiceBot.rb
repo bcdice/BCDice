@@ -447,10 +447,6 @@ class DiceBot
       /^get.+DiceCommandResult$/ === method.to_s
     end
     
-    methodList.delete_if do |method|
-      "getTableDiceCommandResult" == method.to_s
-    end
-    
     methodList.each do |method|
       result = send(method, command)
       return result unless result.nil?
@@ -466,7 +462,7 @@ class DiceBot
     return text, number, diceText
   end
   
-  def getTableDiceCommandResult(command, tables, isPrintDiceText = true)
+  def getTableCommandResult(command, tables, isPrintDiceText = true)
 
     info = tables[command]
     return nil if info.nil?

@@ -48,7 +48,7 @@ INFO_MESSAGE_TEXT
       tableName, result, number = getGetMaterialTableResult(rank)
 
     else
-      return getTableDiceCommandResult(command, @@tables)
+      return getTableCommandResult(command, @@tables)
 	end
 
     if( result.empty? )
