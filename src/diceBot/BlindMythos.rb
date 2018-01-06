@@ -58,8 +58,8 @@ MESSAGETEXT
     text = getDurtyTableCommandReuslt(command)
     return text unless( text.nil? )
     
-    command = command.upcase
-    return getTableDiceCommandResult(command, @@tables)
+    text = getTableCommandResult(command, @@tables)
+    return text
   end
   
   

@@ -124,7 +124,7 @@ INFO_MESSAGE_TEXT
       output, total_n = hm_encount_table
 
     else
-      return getTableDiceCommandResult(command, @@tables)
+      return getTableCommandResult(command, @@tables)
     end
 
     return output if(output == '1')
