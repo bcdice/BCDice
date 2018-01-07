@@ -29,7 +29,7 @@ INFO_MESSAGE_TEXT
   
 
   def rollDiceCommand(command)
-    return getTableDiceCommandResult(command, @@tables)
+    return getTableCommandResult(command, @@tables)
   end
   
   

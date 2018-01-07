@@ -104,7 +104,7 @@ INFO_MESSAGE_TEXT
       type = '重度狂気表'
       output, total_n = getSevereInsanityTable
     else
-      return getTableDiceCommandResult(command, @@tables)
+      return getTableCommandResult(command, @@tables)
     end
 
     return output if(output == '1')

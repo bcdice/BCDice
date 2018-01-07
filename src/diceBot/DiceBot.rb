@@ -462,7 +462,7 @@ class DiceBot
     return text, number, diceText
   end
   
-  def getTableDiceCommandResult(command, tables, isPrintDiceText = true)
+  def getTableCommandResult(command, tables, isPrintDiceText = true)
 
     info = tables[command]
     return nil if info.nil?

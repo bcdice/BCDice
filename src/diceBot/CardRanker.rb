@@ -59,7 +59,7 @@ INFO_MESSAGE_TEXT
       index = $2.to_i
       return getMonster(color, index)
     else
-      return getTableDiceCommandResult(command, @@tables)
+      return getTableCommandResult(command, @@tables)
     end
 
     return nil
