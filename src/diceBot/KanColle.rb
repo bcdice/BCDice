@@ -174,7 +174,7 @@ INFO_MESSAGE_TEXT
       type='暴走表'
       output, total_n =  get_bousou_table
     else
-      return getTableDiceCommandResult(command, @@tables)
+      return getTableCommandResult(command, @@tables)
     end
 
     return "#{type}(#{total_n}) ＞ #{output}"

@@ -55,7 +55,7 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     string = command.upcase
 
-    result = getTableDiceCommandResult(command, @@tables)
+    result = getTableCommandResult(command, @@tables)
     return result unless result.nil?
     
     case string

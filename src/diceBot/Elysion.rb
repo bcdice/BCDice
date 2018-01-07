@@ -86,7 +86,7 @@ MESSAGETEXT
 
     else
       result = checkAnyCommand(command)
-      return getTableDiceCommandResult(command, @@tables) if result.empty?
+      return getTableCommandResult(command, @@tables) if result.empty?
     end
 
     return '' if result.empty?
