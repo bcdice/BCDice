@@ -8,6 +8,7 @@ end
 require 'test/unit'
 require 'bcdiceCore'
 require 'diceBot/DiceBotLoader'
+require 'diceBot/DiceBotLoaderList'
 
 class TestDiceBotLoaders < Test::Unit::TestCase
   # ダイスボットのディレクトリ
@@ -17,6 +18,36 @@ class TestDiceBotLoaders < Test::Unit::TestCase
     $isDebug = false
 
     @bcDice = BCDiceMaker.new.newBcDice
+  end
+
+  # 「Cthulhu」というゲームタイプは有効
+  def test_gameTypeCthulhuShouldBeValid
+    assert(DiceBotLoader.validGameType?('Cthulhu'))
+  end
+
+  # 「Cthulhu7th」というゲームタイプは有効
+  def test_gameTypeCthulhu7thShouldBeValid
+    assert(DiceBotLoader.validGameType?('Cthulhu7th'))
+  end
+
+  # 「Cthulhu7th_Korean」というゲームタイプは有効
+  def test_gameTypeCthulhu7th_KoreanShouldBeValid
+    assert(DiceBotLoader.validGameType?('Cthulhu7th_Korean'))
+  end
+
+  # 「_Template」というゲームタイプは無効
+  def test_gameType_TemplateShouldBeInvalid
+    assert(!DiceBotLoader.validGameType?('_Template'))
+  end
+
+  # 「test」というゲームタイプは無効
+  def test_gameType_testShouldBeInvalid
+    assert(!DiceBotLoader.validGameType?('test'))
+  end
+
+  # 存在しないダイスボットを読み込まない
+  def test_shouldNotLoadDiceBotNotFound
+    assertDiceBotNotFound('NotFound')
   end
 
   # 「DiceBot」という名前のダイスボットを読み込まない
@@ -493,12 +524,25 @@ class TestDiceBotLoaders < Test::Unit::TestCase
 
   private
 
+  # ダイスボットが存在しないことを表明する
+  # @param [String] gameType ゲームタイプ
+  # @return [void]
+  def assertDiceBotNotFound(gameType)
+    fileName = File.join(DICE_BOT_DIR, "#{gameType}.rb")
+    assert(!File.exist?(fileName), 'ファイルが存在しない')
+
+    assert_nil(DiceBotLoaderList.find(gameType),
+               '読み込み処理が存在しない')
+    assert_nil(DiceBotLoader.loadUnknownGame(gameType),
+               'loadUnknownGameで読み込まれない')
+  end
+
   # ダイスボットを読み込もうとしても無視されることを表明する
   # @param [String] gameType ゲームタイプ
   # @return [void]
   def assertDiceBotIgnored(gameType)
-    filename = File.join(DICE_BOT_DIR, "#{gameType}.rb")
-    assert(File.exist?(filename), 'ファイルが存在する')
+    fileName = File.join(DICE_BOT_DIR, "#{gameType}.rb")
+    assert(File.exist?(fileName), 'ファイルが存在する')
 
     assert_nil(DiceBotLoaderList.find(gameType),
                '読み込み処理が存在しない')
