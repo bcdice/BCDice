@@ -10,10 +10,48 @@ require 'bcdiceCore'
 require 'diceBot/DiceBotLoader'
 
 class TestDiceBotLoaders < Test::Unit::TestCase
+  # ダイスボットのディレクトリ
+  DICE_BOT_DIR = File.expand_path('../diceBot', File.dirname(__FILE__))
+
   def setup
     $isDebug = false
 
     @bcDice = BCDiceMaker.new.newBcDice
+  end
+
+  # 「DiceBot」という名前のダイスボットを読み込まない
+  def test_shouldNotLoadDiceBotNamedDiceBot
+    assertDiceBotIgnored('DiceBot')
+  end
+
+  # 「DiceBotLoader」という名前のダイスボットを読み込まない
+  def test_shouldNotLoadDiceBotNamedDiceBotLoader
+    assertDiceBotIgnored('DiceBotLoader')
+  end
+
+  # 「DiceBotLoaderList」という名前のダイスボットを読み込まない
+  def test_shouldNotLoadDiceBotNamedDiceBotLoaderList
+    assertDiceBotIgnored('DiceBotLoaderList')
+  end
+
+  # 「_Template」という名前のダイスボットを読み込まない
+  def test_shouldNotLoadDiceBotNamed_Template
+    assertDiceBotIgnored('_Template')
+  end
+
+  # 「test」という名前のダイスボットを読み込まない
+  def test_shouldNotLoadDiceBotNamedtest
+    assertDiceBotIgnored('test')
+  end
+
+  # 「_InsaneScp」という名前のダイスボットを読み込まない
+  def test_shouldNotLoadDiceBotNamed_InsaceScp
+    assertDiceBotIgnored('_InsaneScp')
+  end
+
+  # 「../TableFileData」（ダイスボットディレクトリ外）という名前のダイスボットを読み込まない
+  def test_shouldNotLoadDiceBotNamedTableFileData
+    assertDiceBotIgnored('../TableFileData')
   end
 
   def test_None
@@ -455,6 +493,23 @@ class TestDiceBotLoaders < Test::Unit::TestCase
 
   private
 
+  # ダイスボットを読み込もうとしても無視されることを表明する
+  # @param [String] gameType ゲームタイプ
+  # @return [void]
+  def assertDiceBotIgnored(gameType)
+    filename = File.join(DICE_BOT_DIR, "#{gameType}.rb")
+    assert(File.exist?(filename), 'ファイルが存在する')
+
+    assert_nil(DiceBotLoaderList.find(gameType),
+               '読み込み処理が存在しない')
+    assert_nil(DiceBotLoader.loadUnknownGame(gameType),
+               'loadUnknownGameで読み込まれない')
+  end
+
+  # 正しいダイスボットが読み込まれたことを表明する
+  # @param [String] gameType ゲームタイプ
+  # @param [String] pattern 読み込む際に指定する名前
+  # @return [void]
   def assertDiceBot(gameType, pattern)
     loader = DiceBotLoaderList.find(pattern)
     assert(loader, '読み込み処理が見つかる')
