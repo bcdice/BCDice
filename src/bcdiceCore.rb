@@ -946,7 +946,7 @@ class BCDice
     dice_result = []
     
     #dice_add = 0 if( ! dice_add )
-
+    
     if( (@diceBot.d66Type != 0) and (dice_max == 66) )
       dice_sort = 0
       dice_cnt = 2
@@ -1017,7 +1017,7 @@ class BCDice
     else
       dice_str = dice_result.join(",")
     end
-
+    
     return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, rerollCount
   end
   
