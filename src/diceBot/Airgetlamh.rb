@@ -57,7 +57,7 @@ MESSAGETEXT
     resultDamage = diceCount * damage
 
     result = ""
-    result << "(#{rapid}D10\<\=#{target}) ＞ #{diceText} ＞ Success：#{diceCount}*#{damage} ＞ #{resultDamage}ダメージ"
+    result += "(#{rapid}D10\<\=#{target}) ＞ #{diceText} ＞ Success：#{diceCount}*#{damage} ＞ #{resultDamage}ダメージ"
     return result
   end
 end

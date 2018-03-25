@@ -1391,7 +1391,7 @@ INFO_MESSAGE_TEXT
 
       numberString = ""
       nameParts.each do |index, src, text1, number1|
-        name.gsub!(src, text1)
+        name = name.gsub(src, text1)
         numberString += "#{src}#{number1},"
       end
       numberString = numberString[0, numberString.length - 1]
@@ -2264,8 +2264,8 @@ INFO_MESSAGE_TEXT
       text = "オフ"
       skill = ''
     else
-      text.slice!( matchedText)
-      text.slice!(/\n$/)
+      text = text.gsub(matchedText, '')
+      text = text.chomp
     end
 
     return text, skill
@@ -2413,7 +2413,7 @@ INFO_MESSAGE_TEXT
       text += 'と'
     end
 
-    text.slice!(/と$/)
+    text = text.sub(/と$/, '')
 
     return text
   end
@@ -2430,7 +2430,7 @@ INFO_MESSAGE_TEXT
     end
 
     substitution = text.clone
-    substitution.slice!($&)
+    substitution = substitution.gsub($&, '')
     substitution += "\n" unless substitution.empty? or /\n$/ =~ substitution
 
     return substitution + badStatus(counts)
@@ -2515,7 +2515,7 @@ INFO_MESSAGE_TEXT
     end
 
     text = textFromD66Table(title, table)
-    text.slice!(/\n.+$/) if brandOnly
+    text = text.split("\n").first if brandOnly
     return text
   end
 end

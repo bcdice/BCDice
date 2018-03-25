@@ -44,17 +44,17 @@ INFO_MESSAGE_TEXT
     diff, diffText = getDiffInfo(diffValue)
 
     output = ""
-    output << "(#{baseAvility}-2DR#{modText}#{diffText})"
-    output << " ＞ #{baseAvility}-#{diceTotal}[#{diceText}]#{modText}"
+    output += "(#{baseAvility}-2DR#{modText}#{diffText})"
+    output += " ＞ #{baseAvility}-#{diceTotal}[#{diceText}]#{modText}"
 
     total = baseAvility - diceTotal + mod
-    output << " ＞ #{total}"
+    output += " ＞ #{total}"
 
     successText = getSuccessText(diceTotal, total, diff)
-    output << successText
+    output += successText
 
     darkPointText = getDarkPointResult(total, diff, darkPoint)
-    output << darkPointText
+    output += darkPointText
 
     return output
   end

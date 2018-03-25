@@ -280,7 +280,7 @@ class TableFileCreator
     
     gameType = @params['gameType'] if( gameType.nil? )
     gameType ||= ''
-    gameType.gsub!(':', '_')
+    gameType = gameType.gsub(':', '_')
     
     if( command.nil? )
       initCommand

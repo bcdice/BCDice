@@ -66,42 +66,42 @@ INFO_MESSAGE_TEXT
     stepInfo = getStepInfo(step)
     debug('stepInfo', stepInfo)
 
-    string = ""
+    @string = ""
 
     diceTypes = [20, 12, 10, 8, 6, 4]
     diceTypes.each do |type|
-      stepTotal += rollStep(type, stepInfo.shift, string)
+      stepTotal += rollStep(type, stepInfo.shift)
     end
     modify = stepInfo.shift
 
     karmaDiceInfo.each do |diceType, diceCount|
-      stepTotal += rollStep(diceType, diceCount, string)
+      stepTotal += rollStep(diceType, diceCount)
     end
 
-    string += (getModifyText(modify) + getModifyText(diceModify))
+    @string += (getModifyText(modify) + getModifyText(diceModify))
     stepTotal += (modify + diceModify)
 
     #ステップ判定終了
-    string += " ＞ #{stepTotal}"
+    @string += " ＞ #{stepTotal}"
 
-    output = "ステップ#{step} ＞ #{string}"
+    output = "ステップ#{step} ＞ #{@string}"
     return output if(targetNumber == 0)
 
     #結果判定
-    string += ' ＞ ' + getSuccess(targetNumber, stepTotal)
+    @string += ' ＞ ' + getSuccess(targetNumber, stepTotal)
 
-    output = "ステップ#{step}>=#{targetNumber} ＞ #{string}"
+    output = "ステップ#{step}>=#{targetNumber} ＞ #{@string}"
 
     return output
   end
 
   def getModifyText(modify)
-    string = ""
-    return string if( modify == 0 )
+    @string = ""
+    return @string if( modify == 0 )
 
-    string += "+" if( modify > 0 )
-    string += "#{modify}"
-    return string
+    @string += "+" if( modify > 0 )
+    @string += "#{modify}"
+    return @string
   end
 
   def getBaseStepTable
@@ -237,17 +237,17 @@ INFO_MESSAGE_TEXT
     return successTable
   end
 
-  def rollStep(diceType, diceCount, string)
-    debug('rollStep diceType, diceCount, string', diceType, diceCount, string)
+  def rollStep(diceType, diceCount)
+    debug('rollStep diceType, diceCount, @string', diceType, diceCount, @string)
 
     stepTotal = 0
     return stepTotal unless(diceCount > 0)
 
     #diceぶんのステップ判定
 
-    string << "+" unless(string.empty? )
-    string << "#{diceCount}d#{diceType}["
-    debug('rollStep string', string)
+    @string += "+" unless(@string.empty? )
+    @string += "#{diceCount}d#{diceType}["
+    debug('rollStep @string', @string)
 
     diceCount.times do |i|
       dice_now, dummy = roll(1, diceType)
@@ -266,11 +266,11 @@ INFO_MESSAGE_TEXT
 
       stepTotal += dice_in
 
-      string << ',' if( i != 0 )
-      string << "#{dice_in}"
+      @string += ',' if( i != 0 )
+      @string += "#{dice_in}"
     end
 
-    string << "]"
+    @string += "]"
 
     return stepTotal
   end

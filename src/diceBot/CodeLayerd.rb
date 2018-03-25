@@ -52,14 +52,14 @@ MESSAGETEXT
 
     target = 10 if target > 10
 
-    result << "(#{base}d10)"
+    result += "(#{base}d10)"
 
     _, diceText = roll(base, 10)
 
     diceList = diceText.split(/,/).collect{|i|i.to_i}.sort
 
-    result << " ＞ [#{diceList.join(',')}] ＞ "
-    result << getRollResultString(diceList, target, diff)
+    result += " ＞ [#{diceList.join(',')}] ＞ "
+    result += getRollResultString(diceList, target, diff)
 
     return result
   end
@@ -71,11 +71,11 @@ MESSAGETEXT
     successTotal = successCount + criticalCount
     result = ""
 
-    result << "判定値[#{target}] 達成値[#{successCount}]"
-    result << "+クリティカル[#{criticalCount}]=[#{successTotal}]" if criticalCount > 0
+    result += "判定値[#{target}] 達成値[#{successCount}]"
+    result += "+クリティカル[#{criticalCount}]=[#{successTotal}]" if criticalCount > 0
 
     successText = getSuccessResultText(successTotal, diff)
-    result << " ＞ #{successText}"
+    result += " ＞ #{successText}"
 
     return result
   end
