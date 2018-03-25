@@ -111,8 +111,8 @@ MESSAGETEXT
     text = getResultText(dice, total, target)
 
     result = ""
-    result << "(1D10#{modifyString}>#{total})"
-    result << " ＞ #{total}[#{dice}#{modifyString}] ＞ #{total} ＞ #{text}"
+    result += "(1D10#{modifyString}>#{total})"
+    result += " ＞ #{total}[#{dice}#{modifyString}] ＞ #{total} ＞ #{text}"
 
     return result
   end

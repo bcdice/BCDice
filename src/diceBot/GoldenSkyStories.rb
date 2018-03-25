@@ -52,7 +52,7 @@ MESSAGETEXT
     diceList = diceText.split(/,/).collect{|i|i.to_i}
 
     #result << " あーしたてんきになーれっ ＞ [#{diceList.join(',')}] ＞ "
-    result << "下駄占い ＞ "
+    result += "下駄占い ＞ "
 
     getaString = ''
     case(diceList[0])
@@ -72,7 +72,7 @@ MESSAGETEXT
         getaString = '横：くもり'
     end
 
-    result << getaString
+    result += getaString
 
     return result
   end

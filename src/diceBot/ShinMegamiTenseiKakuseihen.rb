@@ -38,11 +38,11 @@ INFO_MESSAGE_TEXT
     isRepdigit = ( dice1 == dice2 )
     
     result = " ＞ スワップ"
-    result << getCheckResultText(diff, [total1, total2].min, isRepdigit)
-    result << "／通常"
-    result << getCheckResultText(diff, total_n, isRepdigit)
-    result << "／逆スワップ"
-    result << getCheckResultText(diff, [total1, total2].max, isRepdigit)
+    result += getCheckResultText(diff, [total1, total2].min, isRepdigit)
+    result += "／通常"
+    result += getCheckResultText(diff, total_n, isRepdigit)
+    result += "／逆スワップ"
+    result += getCheckResultText(diff, [total1, total2].max, isRepdigit)
     
     return result
   end

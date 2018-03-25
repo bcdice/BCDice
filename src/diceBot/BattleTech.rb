@@ -129,13 +129,13 @@ MESSAGETEXT
 
     count.times do
       isHit, hitResult = getHitText(base, target)
+      if isHit
+        hitCount += 1
+
+        damages, damageText = getDamages(damageFunc, partTable, damages)
+        hitResult += damageText
+      end
       resultTexts << hitResult
-
-      next unless( isHit )
-      hitCount += 1
-
-      damages, damageText = getDamages(damageFunc, partTable, damages)
-      resultTexts.last << damageText
     end
 
     totalResultText = resultTexts.join("\n")
@@ -144,8 +144,8 @@ MESSAGETEXT
       totalResultText = "..."
     end
 
-    totalResultText << "\n ＞ #{hitCount}回命中"
-    totalResultText << " 命中箇所：" + getTotalDamage(damages) if( hitCount > 0 )
+    totalResultText += "\n ＞ #{hitCount}回命中"
+    totalResultText += " 命中箇所：" + getTotalDamage(damages) if( hitCount > 0 )
 
     return totalResultText
   end
@@ -210,15 +210,15 @@ MESSAGETEXT
     damagePartCount = 1
     if( isLrm )
       damagePartCount = (1.0 * damage / @@lrmLimit).ceil
-      resultText << "[#{dice}] #{damage}点"
+      resultText += "[#{dice}] #{damage}点"
     end
 
     damagePartCount.times do |damageIndex|
       currentDamage, damageText = getDamageInfo(dice, damage, isLrm, damageIndex)
 
       text, part, criticalText = getHitResultOne(damageText, partTable)
-      resultText << " " if( isLrm )
-      resultText << text
+      resultText += " " if( isLrm )
+      resultText += text
 
       if( damages[part].nil? )
         damages[part] = {
@@ -268,8 +268,8 @@ MESSAGETEXT
       criticals = damageInfo[:criticals]
 
       text = ""
-      text << "#{part}(#{damageCount}回) #{damage}点"
-      text << " #{criticals.join(' ')}" unless( criticals.empty? )
+      text += "#{part}(#{damageCount}回) #{damage}点"
+      text += " #{criticals.join(' ')}" unless( criticals.empty? )
 
       damageTexts << text
     end
@@ -288,7 +288,7 @@ MESSAGETEXT
     part, value = getPart(partTable)
 
     result = ""
-    result << "[#{value}] #{part.gsub(/＠/, '（致命的命中）')} #{damageText}点"
+    result += "[#{value}] #{part.gsub(/＠/, '（致命的命中）')} #{damageText}点"
     debug('result', result)
 
     index = part.index('＠')
@@ -300,7 +300,7 @@ MESSAGETEXT
     criticalText = ''
     if( isCritical )
       criticalDice, criticalText = getCriticalResult()
-      result << " ＞ [#{criticalDice}] #{criticalText}"
+      result += " ＞ [#{criticalDice}] #{criticalText}"
     end
 
     criticalText = '' if( criticalText == @@noCritical )

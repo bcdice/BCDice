@@ -98,34 +98,34 @@ INFO_MESSAGE_TEXT
       end
     end
 
-    string = ""
+    @string = ""
 
     debug('d20step, d12step, d10step, d8step, d6step, d4step', d20step, d12step, d10step, d8step, d6step, d4step)
 
-    stepTotal += rollStep(20, d20step, string)
-    stepTotal += rollStep(12, d12step, string)
-    stepTotal += rollStep(10, d10step, string)
-    stepTotal += rollStep( 8,  d8step, string)
-    stepTotal += rollStep( 6,  d6step, string)
-    stepTotal += rollStep( 4,  d4step, string)
+    stepTotal += rollStep(20, d20step)
+    stepTotal += rollStep(12, d12step)
+    stepTotal += rollStep(10, d10step)
+    stepTotal += rollStep( 8,  d8step)
+    stepTotal += rollStep( 6,  d6step)
+    stepTotal += rollStep( 4,  d4step)
 
     if( nmod > 0 )     #修正分の適用
-      string += "+"
+      @string += "+"
     end
 
     if( nmod != 0 )
-      string += "#{nmod}"
+      @string += "#{nmod}"
       stepTotal += nmod
     end
 
     #ステップ判定終了
-    string += " ＞ #{stepTotal}"
+    @string += " ＞ #{stepTotal}"
 
-    output = "ステップ#{step} ＞ #{string}"
+    output = "ステップ#{step} ＞ #{@string}"
     return output if(targetNumber == 0)
 
     #結果判定
-    string += ' ＞ '
+    @string += ' ＞ '
 
     excelentSuccessNumber  = stable[7][targetNumber - 1]
     superSuccessNumber   = stable[8][targetNumber - 1]
@@ -133,22 +133,22 @@ INFO_MESSAGE_TEXT
     failedNumber   = stable[11][targetNumber - 1]
 
     if( @isFailed )
-      string += '自動失敗'
+      @string += '自動失敗'
     elsif(stepTotal >= excelentSuccessNumber)
-      string += '最良成功'
+      @string += '最良成功'
     elsif(stepTotal >= superSuccessNumber)
-      string += '優成功'
+      @string += '優成功'
     elsif(stepTotal >= goodSuccessNumber)
-      string += '良成功'
+      @string += '良成功'
     elsif(stepTotal >= targetNumber)
-      string += '成功'
+      @string += '成功'
     elsif(stepTotal < failedNumber)
-      string += '大失敗'
+      @string += '大失敗'
     else
-      string += '失敗'
+      @string += '失敗'
     end
 
-    output = "ステップ#{step}>=#{targetNumber} ＞ #{string}"
+    output = "ステップ#{step}>=#{targetNumber} ＞ #{@string}"
 
     return output
   end
@@ -186,17 +186,17 @@ INFO_MESSAGE_TEXT
   # + [(xx-45)/11]d20
   # + ステップ[(xx-34)を11で割った余り+3]のダイス
 
-  def rollStep(diceType, diceCount, string)
-    debug('rollStep diceType, diceCount, string', diceType, diceCount, string)
+  def rollStep(diceType, diceCount)
+    debug('rollStep diceType, diceCount, @string', diceType, diceCount, @string)
 
     stepTotal = 0
     return stepTotal unless(diceCount > 0)
 
     #diceぶんのステップ判定
 
-    string << "+" unless(string.empty? )
-    string << "#{diceCount}d#{diceType}["
-    debug('rollStep string', string)
+    @string += "+" unless(@string.empty? )
+    @string += "#{diceCount}d#{diceType}["
+    debug('rollStep @string', @string)
 
     diceCount.times do |i|
       dice_now, dummy = roll(1, diceType)
@@ -215,11 +215,11 @@ INFO_MESSAGE_TEXT
 
       stepTotal += dice_in
 
-      string << ',' if( i != 0 )
-      string << "#{dice_in}"
+      @string += ',' if( i != 0 )
+      @string += "#{dice_in}"
     end
 
-    string << "]"
+    @string += "]"
 
     return stepTotal
   end

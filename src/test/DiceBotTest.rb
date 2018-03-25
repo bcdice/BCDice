@@ -142,12 +142,12 @@ class DiceBotTest
 
     result = ''
     testData.input.each do |message|
-      result << @bot.roll(message, testData.gameType, @tableDir).first
+      result += @bot.roll(message, testData.gameType, @tableDir).first
     end
 
     unless rands.empty?
-      result << "\nダイス残り："
-      result << rands.map { |r| r.join('/') }.join(', ')
+      result += "\nダイス残り："
+      result += rands.map { |r| r.join('/') }.join(', ')
     end
 
     result

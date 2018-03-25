@@ -462,7 +462,7 @@ class BCDice
     end
     
     
-    arg << "->#{@tnick}" unless( @tnick.empty? )
+    arg += "->#{@tnick}" unless( @tnick.empty? )
     
     pointerMode = :sameNick
     output, pointerMode = countHolder.executeCommand(arg, @nick_e, channel, pointerMode)
@@ -737,7 +737,7 @@ class BCDice
     return if( output == "1" )
     
     if( @isTest )
-      output << "###secret dice###"
+      output += "###secret dice###"
     end
     
     broadmsg(output, @nick_e)

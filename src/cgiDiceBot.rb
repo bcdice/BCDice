@@ -50,16 +50,16 @@ class CgiDiceBot
     
     result = ""
     
-    result << "##>customBot BEGIN<##"
-    result << getDiceBotParamText('channel')
-    result << getDiceBotParamText('name')
-    result << getDiceBotParamText('state')
-    result << getDiceBotParamText('sendto')
-    result << getDiceBotParamText('color')
-    result << message
+    result += "##>customBot BEGIN<##"
+    result += getDiceBotParamText('channel')
+    result += getDiceBotParamText('name')
+    result += getDiceBotParamText('state')
+    result += getDiceBotParamText('sendto')
+    result += getDiceBotParamText('color')
+    result += message
     rollResult, randResults = roll(message, gameType)
-    result << rollResult
-    result << "##>customBot END<##"
+    result += rollResult
+    result += "##>customBot END<##"
     
     return result
   end
@@ -77,15 +77,15 @@ class CgiDiceBot
     result = ""
     
     unless( @isTest )
-      # result << "##>isSecretDice<##" if( @isSecret )
+      # result += "##>isSecretDice<##" if( @isSecret )
     end
     
     # 多言語対応のダイスボットは「GameType:Language」という書式なので、
     # ここで言語名を削って表示する。（内部的には必要だが、表示では不要のため）
-    gameType.gsub!(/:.+$/, '')
+    gameType = gameType.gsub(/:.+$/, '')
     
     unless( rollResult.empty? )
-      result << "\n#{gameType} #{rollResult}"
+      result += "\n#{gameType} #{rollResult}"
     end
     
     return result, randResults
@@ -149,16 +149,16 @@ class CgiDiceBot
   end
   
   def sendMessage(to, message)
-    @rollResult << message
+    @rollResult += message
   end
   
   def sendMessageToOnlySender(nick_e, message)
     @isSecret = true
-    @rollResult << message
+    @rollResult += message
   end
   
   def sendMessageToChannels(message)
-    @rollResult << message
+    @rollResult += message
   end
   
 end

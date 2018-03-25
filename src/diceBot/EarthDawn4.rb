@@ -9,6 +9,7 @@ class EarthDawn4 < EarthDawn
     super
     @sendMode = 2
     @sortType = 1
+    @calcText = ''
   end
 
   def gameName
@@ -36,7 +37,6 @@ INFO_MESSAGE_TEXT
 
   #アースドーンステップ表
   def ed_step(str)
-
     output = getStepResult(str)
 
     return output
@@ -114,22 +114,22 @@ INFO_MESSAGE_TEXT
     stepInfo = getStepInfo(step)
     debug('stepInfo', stepInfo)
 
-    calcText = ""
+    @calcText = ""
 
     diceTypes = [20, 12, 10, 8, 6, 4]
     diceTypes.each do |type|
-      stepTotal += rollStep(type, stepInfo.shift, calcText)
+      stepTotal += rollStep(type, stepInfo.shift)
     end
     modify = stepInfo.shift
 
-    stepTotal += rollStep(6, 1, calcText) if( hasKarmaDice )
+    stepTotal += rollStep(6, 1) if( hasKarmaDice )
 
-    calcText += (getModifyText(modify) + getModifyText(diceModify))
+    @calcText += (getModifyText(modify) + getModifyText(diceModify))
     stepTotal += (modify + diceModify)
 
     stepText = "ステップ#{step}"
 
-    return stepText, calcText, stepTotal, targetNumber, nextText
+    return stepText, @calcText, stepTotal, targetNumber, nextText
   end
 
   def getModifyText(modify)
@@ -232,17 +232,17 @@ INFO_MESSAGE_TEXT
     return "成功 レベル：#{level}"
   end
 
-  def rollStep(diceType, diceCount, string)
-    debug('rollStep diceType, diceCount, string', diceType, diceCount, string)
+  def rollStep(diceType, diceCount)
+    debug('rollStep diceType, diceCount, @calcText', diceType, diceCount, @calcText)
 
     stepTotal = 0
     return stepTotal unless(diceCount > 0)
 
     #diceぶんのステップ判定
 
-    string << "+" unless(string.empty? )
-    string << "#{diceCount}d#{diceType}["
-    debug('rollStep string', string)
+    @calcText += "+" unless(@calcText.empty?)
+    @calcText += "#{diceCount}d#{diceType}["
+    debug('rollStep string', @calcText)
 
     diceCount.times do |i|
       dice_now, dummy = roll(1, diceType)
@@ -261,11 +261,11 @@ INFO_MESSAGE_TEXT
 
       stepTotal += dice_in
 
-      string << ',' if( i != 0 )
-      string << "#{dice_in}"
+      @calcText += ',' if( i != 0 )
+      @calcText += "#{dice_in}"
     end
 
-    string << "]"
+    @calcText += "]"
 
     return stepTotal
   end
