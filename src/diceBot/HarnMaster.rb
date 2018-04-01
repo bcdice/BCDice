@@ -112,7 +112,7 @@ MESSAGETEXT
 
     side = (((number % 2) == 1) ? "左" : "右")
 
-    part.sub!(/\*/, side)
+    part.sub(/\*/, side)
   end
 
   def getFaceLocation(part)

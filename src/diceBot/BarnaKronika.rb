@@ -125,7 +125,7 @@ INFO_MESSAGE_TEXT
       next if(diceCount == 0)
 
       diceCount.times do |j|
-        output << "#{i + 1},"
+        output += "#{i + 1},"
       end
 
       if( isCriticalCall(i, criticalCallDice) )

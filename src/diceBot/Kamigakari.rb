@@ -175,7 +175,7 @@ INFO_MESSAGE_TEXT
     if( /\+n/ === result )
       power, number2 = getMaterialEffectPower(rank)
 
-      result.sub!(/\+n/, "+#{power}")
+      result = result.sub(/\+n/, "+#{power}")
       number = "#{number},#{number2}"
     end
 
@@ -208,7 +208,7 @@ INFO_MESSAGE_TEXT
 
     if( /\*\*/ === result )
       attribute, number2 = getAttribute()
-      result.sub!(/\*\*/, "#{attribute}")
+      result = result.sub(/\*\*/, "#{attribute}")
       number = "#{number},#{number2}"
     end
 
