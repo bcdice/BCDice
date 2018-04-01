@@ -162,15 +162,15 @@ MESSAGETEXT
     total = diceTotal + addTotal
 
     result = ""
-    result << "(2D6#{getValueString(base)}#{getValueString(modify)})"
-    result << " ＞ #{diceTotal}[#{dice1},#{dice2}]#{getValueString(addTotal)} ＞ #{total}"
+    result += "(2D6#{getValueString(base)}#{getValueString(modify)})"
+    result += " ＞ #{diceTotal}[#{dice1},#{dice2}]#{getValueString(addTotal)} ＞ #{total}"
 
     if dice1 == dice2
-      result << getSpecialResult(dice1, total)
+      result += getSpecialResult(dice1, total)
       return result
     end
 
-    result << getCheckResult(total)
+    result += getCheckResult(total)
 
     return result
   end
@@ -196,7 +196,7 @@ MESSAGETEXT
   def getSuccessResult(success)
 
     result = " ＞ 成功度#{success}"
-    result << " ＞ 大成功 《アウル》2点獲得" if success >= @@successMax
+    result += " ＞ 大成功 《アウル》2点獲得" if success >= @@successMax
 
     return result
   end
@@ -232,7 +232,7 @@ MESSAGETEXT
     end
 
     result = getCheckResult(total)
-    result << " ／ (#{number - 1}回目のアシストなら)大失敗"
+    result += " ／ (#{number - 1}回目のアシストなら)大失敗"
 
     debug("getFambleResultText result", result)
 
@@ -254,7 +254,7 @@ MESSAGETEXT
       number = dice2 * 10 + dice1
     end
 
-    result <<  getDateResult(type, number, pc1, pc2)
+    result +=  getDateResult(type, number, pc1, pc2)
 
     return result
   end

@@ -7,7 +7,11 @@ task :default => :test
 namespace :test do
   desc 'ダイスボットのテストを行う'
   task :dicebots do
-    sh('ruby test.rb')
+    if RUBY_VERSION < '1.9'
+      sh('ruby test.rb')
+    else
+      sh('RUBYOPT="--enable-frozen-string-literal" ruby test.rb')
+    end
   end
 
   Rake::TestTask.new(:dicebot_loaders) do |t|

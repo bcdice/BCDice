@@ -48,7 +48,7 @@ MESSAGETEXT
 
     diceList = diceText.split(/,/).collect{|i|i.to_i}
 
-    result << "幸福ですか？ ＞ "
+    result += "幸福ですか？ ＞ "
 
     getaString = ''
     case(diceList[0])
@@ -58,7 +58,7 @@ MESSAGETEXT
         getaString = '幸福ではありません'
     end
 
-    result << getaString
+    result += getaString
 
     return result
   end

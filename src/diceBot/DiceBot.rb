@@ -500,7 +500,7 @@ class DiceBot
         raise "invalid dice Type #{command}"
       end
 
-    text.gsub!("\\n", "\n")
+    text = text.gsub("\\n", "\n")
     text = @@bcdice.rollTableMessageDiceText(text)
     
     return nil if( text.nil? )

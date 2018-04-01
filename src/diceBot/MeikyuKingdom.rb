@@ -80,7 +80,7 @@ INFO_MESSAGE_TEXT
 
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     result = get2D6Result(total_n, dice_n, signOfInequality, diff)
-    result << getKiryokuResult(total_n, dice_n, signOfInequality, diff)
+    result += getKiryokuResult(total_n, dice_n, signOfInequality, diff)
 
     return result
   end
