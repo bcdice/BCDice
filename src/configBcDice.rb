@@ -117,6 +117,7 @@ Kamigakari:Korean
 KanColle
 KillDeathBusiness
 KillDeathBusiness:Korean
+KurayamiCrying
 LiveraDoll
 LogHorizon
 LogHorizon:Korean
