@@ -47,6 +47,7 @@ INFO_MESSAGE_TEXT
     string = string.gsub(/\[(\d+)\]/i) {"c[#{$1}]"}
     string = string.gsub(/\@(\d+)/i) {"c[#{$1}]"}
     string = string.gsub(/\$([\+\-]?[\d]+)/i) {"m[#{$1}]"}
+    string = string.gsub(/S([\+\-][\d]+)/i) {"a[#{$1}]"}
     string = string.gsub(/r([\+\-]?[\d]+)/i) {"r[#{$1}]"}
     debug('parren_killer_add after string', string)
 
@@ -79,8 +80,7 @@ INFO_MESSAGE_TEXT
   ####################        SWレーティング表       ########################
   def rating(string)     # レーティング表
     debug("rating string", string)
-
-    unless(/(^|\s)[sS]?(((k|K)[\d\+\-]+)([cmCM]\[([\d\+\-]+)\])*([\d\+\-]*)([cmrCMR]\[([\d\+\-]+)\]|gf|GF)*)($|\s)/ =~ string)
+    unless(/(^|\s)[sS]?(((k|K)[\d\+\-]+)([cmaCMA]\[([\d\+\-]+)\])*([\d\+\-]*)([cmraCMRA]\[([\d\+\-]+)\]|gf|GF)*)($|\s)/ =~ string)
       debug("not matched")
       return '1'
     end
@@ -91,6 +91,7 @@ INFO_MESSAGE_TEXT
     rateUp, string = getRateUpFromString(string)
     crit, string = getCriticalFromString(string)
     firstDiceChanteTo, firstDiceChangeModify, string = getDiceChangesFromString(string)
+    keptDiceChangeModify, string = getKeptDiceChangesFromString(string)
 
     key, addValue = getKeyAndAddValueFromString(string)
 
@@ -114,6 +115,7 @@ INFO_MESSAGE_TEXT
     output += "m[#{firstDiceChangeModify}]" if( firstDiceChangeModify != 0 )
     output += "m[#{firstDiceChanteTo}]" if( firstDiceChanteTo != 0)
     output += "r[#{rateUp}]" if( rateUp != 0 )
+    output += "a[#{keptDiceChangeModify}]" if( keptDiceChangeModify != 0 )
     output += "gf" if( isGratestFortune )
 
     debug('output', output)
@@ -142,6 +144,9 @@ INFO_MESSAGE_TEXT
       elsif( firstDiceChangeModify != 0 )
         dice += firstDiceChangeModify.to_i
         firstDiceChangeModify = 0;
+      end
+      if( keptDiceChangeModify != 0 and dice != 2 )
+        dice += keptDiceChangeModify.to_i;
       end
 
       dice = 2 if(dice < 2)
@@ -183,6 +188,20 @@ INFO_MESSAGE_TEXT
     end
 
     return crit, string
+  end
+
+  def getKeptDiceChangesFromString(string)
+    keptDiceChangeModify = 0
+
+    regexp = /a\[([\+\-]\d+)\]/i
+
+    if( regexp =~ string )
+      keptDiceChangeModify = $1
+
+      string = string.gsub(regexp, '')
+    end
+
+    return keptDiceChangeModify, string
   end
 
   def getDiceChangesFromString(string)
