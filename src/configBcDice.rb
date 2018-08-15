@@ -165,6 +165,7 @@ StrangerOfSwordCity
 Strave
 SwordWorld
 SwordWorld2.0
+SwordWorld2.5
 TORG
 TORG1.5
 TherapieSein
