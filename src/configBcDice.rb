@@ -38,6 +38,7 @@ AceKillerGene
 Airgetlamh
 Alsetto
 Alshard
+Alter_raise
 Amadeus
 Amadeus:Korean
 Arianrhod
@@ -107,6 +108,7 @@ HatsuneMiku
 Hieizan
 HouraiGakuen
 HuntersMoon
+Illusio
 InfiniteFantasia
 Insane
 Insane:Korean
@@ -138,6 +140,7 @@ NightWizard3rd
 NightmareHunterDeep
 Nuekagami
 OneWayHeroics
+OrgaRain
 Oukahoushin3rd
 Paranoia
 ParasiteBlood
@@ -145,6 +148,8 @@ Pathfinder
 Peekaboo
 Pendragon
 PhantasmAdventure
+Postman
+Raisondetre
 RecordOfSteam
 RokumonSekai2
 RoleMaster
@@ -161,6 +166,7 @@ ShinkuuGakuen
 ShinobiGami
 ShoujoTenrankai
 Skynauts
+StellarKnights
 StrangerOfSwordCity
 Strave
 SwordWorld
@@ -178,6 +184,7 @@ WARPS
 WaresBlade
 Warhammer
 WitchQuest
+WorldOfDarkness
 YankeeYogSothoth
 ZettaiReido
 }
