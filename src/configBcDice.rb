@@ -91,6 +91,7 @@ EndBreaker
 EtrianOdysseySRS
 FilledWith
 FullMetalPanic
+FutariSousa
 GURPS
 Garako
 GardenOrder
@@ -168,6 +169,7 @@ ShoujoTenrankai
 Skynauts
 StellarKnights
 StrangerOfSwordCity
+StratoShout
 Strave
 SwordWorld
 SwordWorld2.0
@@ -176,7 +178,9 @@ TORG
 TORG1.5
 TherapieSein
 TokumeiTenkousei
+TokyoGhostResearch
 TokyoNova
+TrinitySeven
 Tunnels_&_Trolls
 TwilightGunsmoke
 Utakaze
