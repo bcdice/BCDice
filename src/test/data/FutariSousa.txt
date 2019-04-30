@@ -41,6 +41,18 @@ FutariSousa : 1DT(6) ＞ スペシャル（助手の余裕を1点獲得）
 rand:6/10
 ============================
 input:
+1DT
+output:
+FutariSousa : 1DT(7) ＞ 成功
+rand:7/10
+============================
+input:
+1DT
+output:
+FutariSousa : 1DT(10) ＞ 成功
+rand:10/10
+============================
+input:
 3DT
 output:
 FutariSousa : 3DT(3,4,1) ＞ 成功

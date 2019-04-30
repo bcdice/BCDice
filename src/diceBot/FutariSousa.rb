@@ -6,8 +6,10 @@ class FutariSousa < DiceBot
     super
     @sendMode = 2
     @d66Type = 2
+    
+    @success_threshold = 4 # 成功の目標値（固定）
+    @special_dice = 6 # スペシャルとなる出目（ダイスの種別によらず固定）
   end
-  
   
   setPrefixes(
               ['(\d+)?DT', '(\d+)?AS', 'SHRD', 'SHFM', 'SHBT', 'SHPI', 'SHEG', 'SHWP', 'SHDS', 'SHFT', 'SHIN', 'SHEM', 'EVS', 'EVW', 'EVN', 'EVC', 'EVV', 'OBT', 'ACT', 'EWT', 'WMT', 'BGDD', 'BGDG', 'BGDM', 'BGAJ', 'BGAP', 'BGAI', 'HT', 'BT', 'GRT', 'MIT', 'JBT66', 'JBT10', 'FST66', 'FST10', 'FLT66', 'FLT10', 'LDT66', 'LDT10', 'NCT66', 'NCT10',])
@@ -197,23 +199,19 @@ MESSAGETEXT
       diceList << dice
     end
     
-    min = diceList.min
-    max = diceList.max
-    
-    output = 
-      if max <= 1
-        "ファンブル（変調を受け、助手の心労が1点上昇）"
-      elsif max >= 6
-        "スペシャル（助手の余裕を1点獲得）"
-      elsif max >= 4
-        "成功"
-      else
-        "失敗"
-      end
-    
+    output = get_dt_result(diceList)
     diceText = diceList.join(",")
     
     return output, diceText
+  end
+  
+  def get_dt_result(diceList)
+    max = diceList.max
+    
+    return "ファンブル（変調を受け、助手の心労が1点上昇）" if max <= 1
+    return "スペシャル（助手の余裕を1点獲得）" if diceList.include?(@special_dice)
+    return "成功" if max >= @success_threshold
+    return "失敗"
   end
   
   
@@ -226,25 +224,22 @@ MESSAGETEXT
       diceList << dice
     end
     
-    min = diceList.min
-    max = diceList.max
-    
-    output = 
-      if max <= 1
-        "ファンブル（変調を受け、心労が1点上昇）"
-      elsif max >= 6
-        "スペシャル（余裕2点と、探偵から助手への感情を獲得）"
-      elsif max >= 4
-        "成功（余裕1点と、探偵から助手への感情を獲得）"
-      else
-        "失敗"
-      end  
-    
+    output = get_as_result(diceList)
     diceText = diceList.join(",")
     
     return output, diceText
   end
 
+  def get_as_result(diceList)
+    max = diceList.max
+    
+    return "ファンブル（変調を受け、心労が1点上昇）" if max <= 1
+    return "スペシャル（余裕2点と、探偵から助手への感情を獲得）" if diceList.include?(@special_dice)
+    return "成功（余裕1点と、探偵から助手への感情を獲得）"  if max >= @success_threshold
+    return "失敗"
+  end
+  
+  
 
   def getTableResult(table, dice)
     number, text, command = table.assoc(dice)
