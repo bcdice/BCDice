@@ -2005,7 +2005,7 @@ MESSAGETEXT
 
     number = [getAdjustNumberMin(number, table), 162].min
     result = get_table_by_number(number, table)
-    result.chomp!
+    result = result.chomp
 
     return "#{tableName}(#{number}#{dice_str ? '[' + dice_str + ']' : ''})\n#{result}"
   end
