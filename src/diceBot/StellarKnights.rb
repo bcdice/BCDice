@@ -196,9 +196,9 @@ MESSAGETEXT
       table = table[:table]
       
       text, index = get_table_by_1d6(table)
-      
-      result << "\n" unless i == 0 
-      result << "#{tableName}(#{index}) ＞ #{text}"
+
+      result += "\n" unless i == 0
+      result += "#{tableName}(#{index}) ＞ #{text}"
     end
     
     return result
@@ -248,8 +248,8 @@ MESSAGETEXT
     result = ""
     
     commands.each_with_index do |command, i|
-      result << "\n" unless i == 0
-      result << analyzeDiceCommandResultMethod(command)
+      result += "\n" unless i == 0
+      result += analyzeDiceCommandResultMethod(command)
     end
     
     return result
