@@ -611,7 +611,7 @@ class TestDiceBotLoaders < Test::Unit::TestCase
 
   def test_Cthulhu7th_ChineseTraditional
     assertDiceBotWithoutLoader('Cthulhu7th:ChineseTraditional',
-                  'Cthulhu7th_ChineseTraditional')
+                               'Cthulhu7th_ChineseTraditional')
   end
 
   def test_Cthulhu7th_Korean
@@ -620,7 +620,7 @@ class TestDiceBotLoaders < Test::Unit::TestCase
 
   def test_Cthulhu_ChineseTraditional
     assertDiceBotWithoutLoader('Cthulhu:ChineseTraditional',
-                  'Cthulhu_ChineseTraditional')
+                               'Cthulhu_ChineseTraditional')
   end
 
   def test_Cthulhu_Korean
