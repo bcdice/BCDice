@@ -129,5 +129,3 @@ class TestPointer < Test::Unit::TestCase
   end
   
 end
-
-

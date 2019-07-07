@@ -489,4 +489,3 @@ V-FILES（P227)
 
   setPrefixes(['RTT'] + @@tables.keys)
 end
-
