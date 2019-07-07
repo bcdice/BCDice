@@ -21,17 +21,6 @@ Bundler/OrderedGems:
   Exclude:
     - 'Gemfile'
 
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: with_first_argument, with_fixed_indentation
-Layout/AlignArguments:
-  Exclude:
-    - 'dice/RerollDice.rb'
-    - 'diceBot/DiceBotLoader.rb'
-    - 'diceBot/TunnelsAndTrolls.rb'
-    - 'test/testDiceBotLoaders.rb'
-
 # Offense count: 442
 # Cop supports --auto-correct.
 Layout/AlignArray:

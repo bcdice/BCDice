@@ -183,13 +183,13 @@ class DiceBotLoader
     when Regexp
       unless options[:filenames]
         raise ArgumentError,
-          'options[:filenames] is required when gameTitlePattern is a Regexp'
+              'options[:filenames] is required when gameTitlePattern is a Regexp'
       end
 
       @gameTitlePattern = gameTitlePattern
     else
       raise TypeError,
-        'gameTitlePattern must be a String or an Array<String> or a Regexp'
+            'gameTitlePattern must be a String or an Array<String> or a Regexp'
     end
 
     # 既定の読み込むファイル名の配列
