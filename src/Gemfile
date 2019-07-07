@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 
 unless ENV['TRAVIS_CI'] == '1'
   gem 'net-irc'
-  gem 'wxruby-ruby19', '2.0.0'
+  if RUBY_VERSION < '2.0'
+    gem 'wxruby-ruby19', '2.0.0'
+  end
   gem 'ocra'
 end
 
@@ -13,5 +15,9 @@ group :development, :test do
   else
     gem 'rake'
     gem 'test-unit'
+  end
+
+  if RUBY_VERSION >= '2.3'
+    gem 'rubocop', '~> 0.72.0', :require => false
   end
 end

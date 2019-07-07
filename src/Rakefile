@@ -52,3 +52,9 @@ task :test do
     raise "テスト失敗: #{failures.join(', ')}"
   end
 end
+
+if RUBY_VERSION >= '2.3'
+  require 'rubocop/rake_task'
+  RuboCop::RakeTask.new
+  task :test => [:rubocop]
+end
