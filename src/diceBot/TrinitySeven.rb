@@ -3,19 +3,19 @@
 class  TrinitySeven < DiceBot
 
   setPrefixes(['(\d+)DM\d+(\+|\-)?\d*','(\d+)DM(\+|\-)?\d*','TR(\d+)<=(\d+)(\+|\-)?\d*','TR<=(\d+)(\+|\-)?\d*','TR(\+|\-)?(\d+)<=(\d+)(\+|\-)?\d*','TRNAME'])
-  
+
   def initialize
     super
   end
-  
+
   def gameName
     'トリニティセブンRPG'
   end
-  
+
   def gameType
     "TrinitySeven"
   end
-  
+
   def getHelpMessage
     return <<MESSAGETEXT
 クリティカルが変動した命中及び、7の出目がある場合のダメージ計算が行なえます。
@@ -37,19 +37,19 @@ class  TrinitySeven < DiceBot
 
 MESSAGETEXT
   end
-  
-  
-  
+
+
+
   def rollDiceCommand(command) #スパゲッティなコードだけど許して！！！ → 絶対に許さない。全力でリファクタリングした。
     debug("rollDiceCommand command", command)
-    
+
     string = command.upcase
     if ( /TRNAME/ =~ command )
       firstName, total_n =  get_NAME_table
       secondName, total_o =  get_NAMEtwo_table
       return "#{firstName} , #{secondName}"
     end
-    
+
     if /^TR([\+\-\d]*)<=([\d]*)([\+\-\d]*)/ =~ command
       critical = $1.to_i + 7
       target = $2.to_i
@@ -58,89 +58,89 @@ MESSAGETEXT
     end
 
     critical = 0
-    
+
     if  /([\d]*)DM([\d]*)([\+\-\d]*)/ =~ command
       diceCount = $1.to_i
       critical = $2.to_i
       modify = $3.to_i
       return rollDamage(command, diceCount, critical, modify)
     end
-    
+
     return ''
-  end  
-  
-  
+  end
+
+
   def rollHit(command, critical, target, modify)
-    
+
     target += modify
-    
+
     total, diceText, = roll(1, 100)
     result = getHitRollResult(total, target, critical)
-    
+
     text = "(#{command}) ＞ #{total}[#{diceText}] ＞ #{result}"
     debug("rollDiceCommand result text", text)
-    
+
     return text
   end
-  
+
   def getHitRollResult(total, target, critical)
     return "ファンブル" if total >= 96
-    return "クリティカル"  if total <= critical 
-    
+    return "クリティカル"  if total <= critical
+
     return "成功" if total <= target
     return "失敗"
   end
-  
-  
+
+
   def rollDamage(command, diceCount, critical, modify)
-    
+
     return "" if diceCount < critical
-    
+
     total, diceText, = roll(diceCount, 6)
-    
+
     additionalListText = ""
     total, additionalList = getRollDamageCritialText(diceCount, critical, total, diceText, modify)
-    
+
     additionalListText = "→[#{additionalList.join(',')}]" unless additionalList.empty?
-    
+
     modifyText = ""
     modifyText = "+#{modify}" if modify > 0
     modifyText = "#{modify}" if modify < 0
-    
+
     text = "(#{command}) [#{diceText}]#{additionalListText}#{modifyText} ＞ #{total}"
-    
+
     return text
   end
-  
-  
+
+
   def getRollDamageCritialText(diceCount, critical, total, diceText, modify)
     diceList = []
-    
+
     if critical == 0
       total += modify
       return total, diceList
     end
-    
+
     diceList = diceText.split(/,/).collect{|i|i.to_i}
-    
+
     diceList.sort!
     restDice = diceList.clone
-    
-    
+
+
     critical = diceCount if critical > diceCount
-    
+
     critical.times do
       restDice.shift
       diceList.shift
       diceList.push(7);
     end
-    
+
     max = restDice.pop
     max = 1 if max.nil?
-    
+
     total = max * (7 ** critical) + modify
     restDice.each{|i| total += i}
-    
+
     return total, diceList
   end
 
@@ -150,7 +150,7 @@ MESSAGETEXT
     return " ＞ クリティカル" if dice_n <= 7
   end
 
-  
+
   # 名前表
   def get_NAME_table
     table = [
@@ -258,11 +258,11 @@ MESSAGETEXT
 
 	dice_now, = roll(1, 100)
     output = get_table_by_number(dice_now, table)
-    
+
     return get_table_by_number(dice_now, table)
-    
+
   end
-  
+
   def get_NAMEtwo_table
     table = [
              [1, 'アラタ/聖'],
@@ -366,10 +366,10 @@ MESSAGETEXT
              [99,'機械の名前（洗濯機、テレビなど）'],
              [100,'目についた物の名前（シャーペン、メガネなど）'],
             ]
-    
+
 	dice_now, = roll(1, 100)
     output = get_table_by_number(dice_now, table)
-    
+
     return get_table_by_number(dice_now, table)
   end
 

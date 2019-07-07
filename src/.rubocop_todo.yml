@@ -161,20 +161,6 @@ Layout/EndAlignment:
     - 'diceBot/LogHorizon.rb'
     - 'diceBot/LogHorizon_Korean.rb'
 
-# Offense count: 8
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: native, lf, crlf
-Layout/EndOfLine:
-  Exclude:
-    - 'IniFile.rb'
-    - 'bcdiceGui.rb'
-    - 'createExe.rb'
-    - 'diceBot/Airgetlamh.rb'
-    - 'diceBot/Illusio.rb'
-    - 'diceBot/OrgaRain.rb'
-    - 'diceBot/Raisondetre.rb'
-    - 'diceBot/TrinitySeven.rb'
-
 # Offense count: 450
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment, AllowBeforeTrailingComments, ForceEqualSignAlignment.
