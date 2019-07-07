@@ -412,4 +412,3 @@ class TableFileEditer < TableFileCreator
   
   
 end
-

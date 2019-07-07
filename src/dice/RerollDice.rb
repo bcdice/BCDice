@@ -80,7 +80,7 @@ class RerollDice
       total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount =
         @bcdice.roll(dice_cnt, dice_max, (@diceBot.sortType & 2), 0, signOfInequality, diff, rerollNumber)
       debug('bcdice.roll : total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount',
-                      total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount)
+            total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount)
       
       successCount += success
       output += "," if(output != "")
@@ -131,7 +131,7 @@ class RerollDice
       total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount = 
         @bcdice.roll(dice_cnt, dice_max, (@diceBot.sortType & 2), 0, signOfInequality, diff, rerollNumber)
       debug('total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount',
-             total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount)
+            total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount)
       
       successCount += success
       round += 1

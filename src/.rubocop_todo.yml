@@ -21,17 +21,6 @@ Bundler/OrderedGems:
   Exclude:
     - 'Gemfile'
 
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: with_first_argument, with_fixed_indentation
-Layout/AlignArguments:
-  Exclude:
-    - 'dice/RerollDice.rb'
-    - 'diceBot/DiceBotLoader.rb'
-    - 'diceBot/TunnelsAndTrolls.rb'
-    - 'test/testDiceBotLoaders.rb'
-
 # Offense count: 442
 # Cop supports --auto-correct.
 Layout/AlignArray:
@@ -160,20 +149,6 @@ Layout/EndAlignment:
     - 'diceBot/Kamigakari.rb'
     - 'diceBot/LogHorizon.rb'
     - 'diceBot/LogHorizon_Korean.rb'
-
-# Offense count: 8
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: native, lf, crlf
-Layout/EndOfLine:
-  Exclude:
-    - 'IniFile.rb'
-    - 'bcdiceGui.rb'
-    - 'createExe.rb'
-    - 'diceBot/Airgetlamh.rb'
-    - 'diceBot/Illusio.rb'
-    - 'diceBot/OrgaRain.rb'
-    - 'diceBot/Raisondetre.rb'
-    - 'diceBot/TrinitySeven.rb'
 
 # Offense count: 450
 # Cop supports --auto-correct.
@@ -451,13 +426,6 @@ Layout/SpaceInsideStringInterpolation:
 # Cop supports --auto-correct.
 # Configuration parameters: IndentationWidth.
 Layout/Tab:
-  Enabled: false
-
-# Offense count: 17
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: final_newline, final_blank_line
-Layout/TrailingBlankLines:
   Enabled: false
 
 # Offense count: 2764

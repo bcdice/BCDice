@@ -65,6 +65,3 @@ class Net::IRC::Client
   end
   
 end
-
-
-

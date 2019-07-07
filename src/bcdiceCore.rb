@@ -1813,5 +1813,3 @@ class BCDice
   end
   
 end
-
-

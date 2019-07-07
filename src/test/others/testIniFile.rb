@@ -53,4 +53,3 @@ class TestIniFile < Test::Unit::TestCase
     assert_equal('irc.trpg.net', value)
   end
 end
-

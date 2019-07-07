@@ -109,4 +109,3 @@ class TorgtaitaiIRC
     @bcdice.setMessage(message)
   end
 end
-

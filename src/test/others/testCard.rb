@@ -505,5 +505,3 @@ class TestCardTrader < Test::Unit::TestCase
     $isDebug = true
   end
 end
-
-

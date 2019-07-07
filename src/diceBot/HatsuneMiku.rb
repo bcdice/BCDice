@@ -748,4 +748,3 @@ INFO_MESSAGE_TEXT
   
   setPrefixes(['R([A-DS]|\d+).*'] + @@tables.keys)
 end
-
