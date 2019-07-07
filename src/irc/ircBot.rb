@@ -351,5 +351,3 @@ def mainIrcBot(args = [])
   
   return ircBot
 end
-
-

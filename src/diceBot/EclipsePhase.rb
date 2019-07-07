@@ -53,4 +53,3 @@ INFO_MESSAGE_TEXT
   
   
 end
-

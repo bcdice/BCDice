@@ -474,4 +474,3 @@ __TABLE_END__
   
   setPrefixes(['BM.*', 'ReRoll\d+.*', 'RP\d+', 'DT'] + @@tables.keys)
 end
-

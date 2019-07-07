@@ -389,4 +389,3 @@ INFO_MESSAGE_TEXT
   
   setPrefixes(['RTT'] + @@tables.keys)
 end
-

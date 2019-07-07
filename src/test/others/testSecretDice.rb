@@ -84,5 +84,3 @@ class TestSecretDice < Test::Unit::TestCase
   end
   
 end
-
-

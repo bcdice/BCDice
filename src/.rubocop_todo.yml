@@ -453,13 +453,6 @@ Layout/SpaceInsideStringInterpolation:
 Layout/Tab:
   Enabled: false
 
-# Offense count: 17
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: final_newline, final_blank_line
-Layout/TrailingBlankLines:
-  Enabled: false
-
 # Offense count: 2764
 # Cop supports --auto-correct.
 # Configuration parameters: AllowInHeredoc.

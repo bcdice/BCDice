@@ -30,4 +30,3 @@ class TestArgs < Test::Unit::TestCase
   end
   
 end
-
