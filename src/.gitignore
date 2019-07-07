@@ -1,4 +1,4 @@
-
 *.rb~
 *.bak
 *.txt~
+Gemfile.lock
