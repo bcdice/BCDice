@@ -1,28 +1,28 @@
 # -*- coding: utf-8 -*-
 
 class FutariSousa < DiceBot
-  
+
   def initialize
     super
     @sendMode = 2
     @d66Type = 2
-    
+
     @success_threshold = 4 # 成功の目標値（固定）
     @special_dice = 6 # スペシャルとなる出目（ダイスの種別によらず固定）
   end
-  
+
   setPrefixes(
               ['(\d+)?DT', '(\d+)?AS', 'SHRD', 'SHFM', 'SHBT', 'SHPI', 'SHEG', 'SHWP', 'SHDS', 'SHFT', 'SHIN', 'SHEM', 'EVS', 'EVW', 'EVN', 'EVC', 'EVV', 'OBT', 'ACT', 'EWT', 'WMT', 'BGDD', 'BGDG', 'BGDM', 'BGAJ', 'BGAP', 'BGAI', 'HT', 'BT', 'GRT', 'MIT', 'JBT66', 'JBT10', 'FST66', 'FST10', 'FLT66', 'FLT10', 'LDT66', 'LDT10', 'NCT66', 'NCT10',])
-  
-  
+
+
   def gameName
     'フタリソウサ'
   end
-  
+
   def gameType
     "FutariSousa"
   end
-  
+
   def getHelpMessage
     return <<MESSAGETEXT
 ・判定用コマンド
@@ -48,11 +48,11 @@ class FutariSousa < DiceBot
 呼び名表A・B　NCT66・NCT10
 MESSAGETEXT
   end
-  
+
   def changeText(string)
     string
   end
-  
+
   def rollDiceCommand(command)
     output = '1'
     type = ""
@@ -192,54 +192,54 @@ MESSAGETEXT
 
   #DT
   def get_dt(count)
-    
+
     diceList = []
-    count.times do 
+    count.times do
       dice, =  roll(1 , 10)
       diceList << dice
     end
-    
+
     output = get_dt_result(diceList)
     diceText = diceList.join(",")
-    
+
     return output, diceText
   end
-  
+
   def get_dt_result(diceList)
     max = diceList.max
-    
+
     return "ファンブル（変調を受け、助手の心労が1点上昇）" if max <= 1
     return "スペシャル（助手の余裕を1点獲得）" if diceList.include?(@special_dice)
     return "成功" if max >= @success_threshold
     return "失敗"
   end
-  
-  
+
+
   #AS
   def get_as(count)
-    
+
     diceList = []
-    count.times do 
+    count.times do
       dice, =  roll(1 , 6)
       diceList << dice
     end
-    
+
     output = get_as_result(diceList)
     diceText = diceList.join(",")
-    
+
     return output, diceText
   end
 
   def get_as_result(diceList)
     max = diceList.max
-    
+
     return "ファンブル（変調を受け、心労が1点上昇）" if max <= 1
     return "スペシャル（余裕2点と、探偵から助手への感情を獲得）" if diceList.include?(@special_dice)
     return "成功（余裕1点と、探偵から助手への感情を獲得）"  if max >= @success_threshold
     return "失敗"
   end
-  
-  
+
+
 
   def getTableResult(table, dice)
     number, text, command = table.assoc(dice)
@@ -247,11 +247,11 @@ MESSAGETEXT
     if command.respond_to?(:call)
       text += command.call(self)
     end
-    
+
     return number, text
   end
 
-  
+
   def getAddRollProc(command)
     # 引数なしのlambda
     # Ruby 1.8と1.9以降で引数の個数の解釈が異なるため || が必要
@@ -282,10 +282,10 @@ MESSAGETEXT
              [10,'好きな「異常な癖」の表を使用する。'],
             ]
     diceText, = roll(1 , 10)
-    output = get_table_by_number(diceText, table)    
+    output = get_table_by_number(diceText, table)
     return output, diceText
   end
-  
+
   def get_strange_habit_from_mouth
     table = [
              [1, '猛烈に感謝の言葉を述べる'],
@@ -303,7 +303,7 @@ MESSAGETEXT
     output = get_table_by_number(diceText , table)
     return output, diceText
   end
-  
+
   def get_strange_habit_bull_through
     table = [
              [1, '勝手に捜査対象の鞄や引き出しを開ける'],
@@ -321,7 +321,7 @@ MESSAGETEXT
     output = get_table_by_number(diceText , table)
     return output, diceText
   end
-  
+
   def get_strange_habit_play_innocent
     table = [
              [1, '自分の身分を偽って関係者に話を聞く'],
@@ -339,7 +339,7 @@ MESSAGETEXT
     output = get_table_by_number(diceText , table)
     return output, diceText
   end
-  
+
   def get_strange_habit_engrossed
     table = [
              [1, 'パートナーの体を使って事件を再現しようとする'],
@@ -357,7 +357,7 @@ MESSAGETEXT
     output = get_table_by_number(diceText , table)
     return output, diceText
   end
-  
+
   def get_strange_habit_with_partner
     table = [
              [1, 'パートナーの信頼に甘える'],
@@ -393,7 +393,7 @@ MESSAGETEXT
     output = get_table_by_number(diceText , table)
     return output, diceText
   end
-  
+
   def get_strange_habit_fantastic
     table = [
              [1, 'やめろと言われていることをする'],
@@ -429,7 +429,7 @@ MESSAGETEXT
     output = get_table_by_number(diceText , table)
     return output, diceText
   end
-  
+
   def get_strange_habit_emotion
     table = [
              [1, '急に泣く'],
@@ -496,7 +496,7 @@ MESSAGETEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def get_event_vs
     table = [
              "容疑者の嘘（P.189）\n　人は、何か後ろめたいことがあったとき、嘘をつく。\n　この容疑者は嘘をついている。\n　なら、何を隠しているのだろうか？",
@@ -508,7 +508,7 @@ MESSAGETEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   #調査の障害表
   def get_obstruction_table
     table = [
@@ -564,7 +564,7 @@ MESSAGETEXT
     return get_table_by_1d6(table)
   end
 
-  #迷宮入り表  
+  #迷宮入り表
   def get_wrapped_in_mystery_table
     table = [
              [1, '真犯人とは別の人間が犯人にされてしまい、実刑を食らってしまった。その証拠はないが、そう直感できる。'],
@@ -583,7 +583,7 @@ MESSAGETEXT
     output = get_table_by_number(diceText , table)
     return output, diceText
   end
-  
+
   #背景表
   def get_background_detective_destiny
     table = [
@@ -600,10 +600,10 @@ MESSAGETEXT
             ]
     diceText, = roll(1 , 10)
     output = get_table_by_number(diceText, table)
-    
+
     return output, diceText
   end
-  
+
   def get_background_detective_genius
     table = [
              [1,'『超エリート』自分はエリートとして活躍すべく、あらゆる分野の訓練を行った。そして、望まれるままに優秀な人間となった。'],
@@ -619,7 +619,7 @@ MESSAGETEXT
             ]
     diceText, = roll(1 , 10)
     output = get_table_by_number(diceText, table)
-    
+
     return output, diceText
   end
 
@@ -638,10 +638,10 @@ MESSAGETEXT
             ]
     diceText, = roll(1 , 10)
     output = get_table_by_number(diceText, table)
-    
+
     return output, diceText
   end
-  
+
   def get_background_assistant_justice
     table = [
              '『お人よし』自分は他者からよくお人よしと言われている。そのため、人に頼まれて事件に絡むことがよくあった。だから、人の悩みを解決できる能力があるパートナーと一緒にいる。',
@@ -653,7 +653,7 @@ MESSAGETEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def get_background_assistant_passion
     table = [
              '『能力にほれ込んだ』自分はパートナーの事件に関する能力にほれ込んだ。その鋭い洞察力や、推理力、知識の深さ。すべてが自分を魅了している。',
@@ -665,7 +665,7 @@ MESSAGETEXT
             ]
     return get_table_by_1d6(table)
   end
-  
+
   def get_background_assistant_involved
     table = [
              '『一方的に気に入られた』パートナーから、一方的に気に入られている。どうしてそうなったのかはわからないが、そういうものらしい。一緒にいるのは、不本意なのだけど……。',
@@ -738,7 +738,7 @@ MESSAGETEXT
             ]
     return get_table_by_d66_swap(table)
   end
-  
+
   #思い出の品決定表
   def get_memorial_item_table
     table = [
@@ -892,7 +892,7 @@ MESSAGETEXT
 
     return get_table_by_d66_swap(table)
   end
-  
+
   #好きなもの／嫌いなもの表B
   def get_like_dislike_table_10
     table = [
@@ -989,7 +989,7 @@ MESSAGETEXT
 
     return get_table_by_d66_swap(table)
   end
-  
+
   #呼び名表B
   def get_name_to_call_table_10
     table = [
@@ -1010,5 +1010,5 @@ MESSAGETEXT
 
     return output, diceText
   end
-  
+
 end

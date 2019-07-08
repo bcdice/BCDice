@@ -427,12 +427,6 @@ Layout/SpaceInsideStringInterpolation:
 Layout/Tab:
   Enabled: false
 
-# Offense count: 2764
-# Cop supports --auto-correct.
-# Configuration parameters: AllowInHeredoc.
-Layout/TrailingWhitespace:
-  Enabled: false
-
 # Offense count: 1
 # Configuration parameters: AllowSafeAssignment.
 Lint/AssignmentInCondition:

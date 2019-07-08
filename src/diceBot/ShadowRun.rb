@@ -11,15 +11,15 @@ class ShadowRun < DiceBot
   def gameName
     'シャドウラン'
   end
-  
+
   def gameType
     "ShadowRun"
   end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 上方無限ロール(xUn)の境界値を6にセットします。
 INFO_MESSAGE_TEXT
   end
-  
+
 end

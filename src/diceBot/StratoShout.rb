@@ -33,7 +33,7 @@ class StratoShout < DiceBot
 
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
-    
+
 VOT, GUT, BAT, KEYT, DRT: (ボーカル、ギター、ベース、キーボード、ドラム)トラブル表
 EMO: 感情表
 AT[1-6]: 特技表(空: ランダム 1: 主義 2: 身体 3: モチーフ 4: エモーション 5: 行動 6: 逆境)
