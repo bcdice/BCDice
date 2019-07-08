@@ -131,8 +131,8 @@ INFO_MESSAGE_TEXT
       if( isCriticalCall(i, criticalCallDice) )
         debug("isCriticalCall")
         at_str += getAttackStringWhenCriticalCall(i, diceCount)
-      elsif( isNomalAtack(criticalCallDice, diceCount) )
-        debug("isNomalAtack")
+      elsif( isNomalAttack(criticalCallDice, diceCount) )
+        debug("isNomalAttack")
         at_str += getAttackStringWhenNomal(i, diceCount)
       end
 
@@ -166,28 +166,28 @@ INFO_MESSAGE_TEXT
     return (criticalCallDice == (index + 1))
   end
 
-  def isNomalAtack(criticalCallDice, diceCount)
+  def isNomalAttack(criticalCallDice, diceCount)
     return false unless( @isBattleMode )
     return false if(criticalCallDice != 0)
     return (diceCount > 1)
   end
 
   def getAttackStringWhenCriticalCall(index, diceCount)
-    hitLocation = getAtackHitLocation(index + 1)
-    atackValue = (diceCount * 2)
-    result = hitLocation + ":攻撃値#{atackValue},"
+    hitLocation = getAttackHitLocation(index + 1)
+    attackValue = (diceCount * 2)
+    result = hitLocation + ":攻撃値#{attackValue},"
     return result
   end
 
   def getAttackStringWhenNomal(index, diceCount)
-    hitLocation = getAtackHitLocation(index + 1)
-    atackValue = diceCount
-    result = hitLocation + ":攻撃値#{atackValue},"
+    hitLocation = getAttackHitLocation(index + 1)
+    attackValue = diceCount
+    result = hitLocation + ":攻撃値#{attackValue},"
     return result
   end
 
   # 命中部位表
-  def getAtackHitLocation(num)
+  def getAttackHitLocation(num)
     table = [
              [1, '頭部' ],
              [2, '右腕' ],

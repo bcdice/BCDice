@@ -21,7 +21,7 @@ BCDiceの問題を発見したり、機能の要望がある時に起こすア�
 3. Discordの [BCDice Offcial Chat][invite discord] にある各種チャンネルへ投稿する
 4. Twitterで [@ysakasin](https://twitter.com/ysakasin) にメンションを送る
 
-## LISENCE
+## LICENSE
 
 [BSD 3-Clause License](LICENSE)
 
