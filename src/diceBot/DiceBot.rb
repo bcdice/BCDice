@@ -95,7 +95,7 @@ class DiceBot
     {
       'name' => gameName,
       'gameType' => gameType,
-      'prefixs' => self.class.prefixes,
+      'prefixes' => self.class.prefixes,
       'info' => getHelpMessage,
     }
   end
