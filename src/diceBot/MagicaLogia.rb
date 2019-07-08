@@ -808,7 +808,7 @@ INFO_MESSAGE_TEXT
              '大勢で賑わう広場。祭りでも行われているのだろうか？ 誰かを呼ぶ声が聞こえる。そのシーンに獣の魔素が1点発生する。',
              '悲劇の予感。家族の不幸、友の絶望、仲間の死......このままだと起きてしまうかもしれない出来事の幻が見える。そのシーンに闇の魔素が1点発生する。',
             ]
-    
+
     return get_table_by_2d6(table)
   end
   # 指定特技（星）
@@ -816,7 +816,7 @@ INFO_MESSAGE_TEXT
     table = [
              '黄金', '大地', '森', '道', '海', '静寂', '雨', '嵐', '太陽', '天空', '異界',
             ]
-    
+
     return get_table_by_2d6(table)
   end
   # 指定特技（獣）
@@ -824,7 +824,7 @@ INFO_MESSAGE_TEXT
     table = [
              '肉', '蟲', '花', '血', '鱗', '混沌', '牙', '叫び', '怒り', '翼', 'エロス',
             ]
-    
+
     return get_table_by_2d6(table)
   end
   # 指定特技（力）
@@ -832,7 +832,7 @@ INFO_MESSAGE_TEXT
     table = [
              '重力', '風', '流れ', '水', '波', '自由', '衝撃', '雷', '炎', '光', '円環',
             ]
-    
+
     return get_table_by_2d6(table)
   end
   # 指定特技（歌）
@@ -840,13 +840,13 @@ INFO_MESSAGE_TEXT
     table = [
              '物語', '旋律', '涙', '別れ', '微笑み', '想い', '勝利', '恋', '情熱', '癒し', '時',
             ]
-    
+
     return get_table_by_2d6(table)
   end
   # 指定特技（夢）
   def magicalogia_random_skill_dream_table
     table = ['追憶', '謎', '嘘', '不安', '眠り', '偶然', '幻', '狂気', '祈り', '希望', '未来']
-    
+
     return get_table_by_2d6(table)
   end
   # 指定特技（闇）
@@ -854,7 +854,7 @@ INFO_MESSAGE_TEXT
     table = [
              '深淵', '腐敗', '裏切り', '迷い', '怠惰', '歪み', '不幸', 'バカ', '悪意', '絶望', '死',
             ]
-    
+
     return get_table_by_2d6(table)
   end
     #特技だけ抜きたい時用(星) あまりきれいでない
@@ -901,7 +901,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  # 魔法書架シーン表 
+  # 魔法書架シーン表
   def magicalogia_magic_bookshelf_scene_table
     table = [
              lambda{return "〈禁書〉の保管庫へ入ることを許可された。幾重にも張り巡らされた決壊や、鋭い目つきの書警たちが目に付く。その隙をついて、〈禁書〉が襲い掛かってきた！このシーンに登場したPCは一人だけ《#{magicalogia_random_skill_table_text_only_force}》の判定を行う。失敗すると、【魔力】が3点減少する。成功すると、【一時的魔力】を3点得る。誰かが判定すると、成否にかかわらず、この効果はなくなる。"},
@@ -916,10 +916,10 @@ INFO_MESSAGE_TEXT
              lambda{return "魔導書の閲覧室。数人の魔法使いが、熱心に魔導書を読んでいる。このシーンに登場しているPCのうち一人は、#{magicalogia_random_skill_table_text_only}の判定を行うことができる。成功すると、修得している魔法を一つ、修得可能な別の魔法に入れ替えることができる。失敗すると、「封印」の変調を受ける。誰かが判定すると、成否にかかわらず、この効果はなくなる。"},
              '本棚と本棚の間に、唐突に扉が浮かんでいる。この扉は、異界につながる戸口だ。一体どこにつながっているのだろう。異界シーン表の中からランダムに一つを選んで、その効果を適用する。',
             ]
-    
+
     return get_table_by_2d6(table)
   end
-  # 魔法学園シーン表 
+  # 魔法学園シーン表
   def magicalogia_magic_academy_scene_table
     table = [
              '目の前に美しい黒龍が現れた。学院の長、ザナルパトスだ。彼は、何を告げようとしているのだろうか。',
@@ -934,10 +934,10 @@ INFO_MESSAGE_TEXT
              lambda{return "生徒に何か魔法を見せて欲しいと乞われる。このシーンに登場しているPCは一人だけ、≪#{magicalogia_random_skill_table_text_only_dream}≫の判定を行う。失敗すると、「不運」の変調を受ける。成功すると、「夢」の魔素をを2点獲得する。誰かが判定すると、成否にかかわらず、この効果はなくなる。"},
              lambda{return "自習室。生徒たちが必死に魔導書を理解しようとしている。このシーンに登場しているPCは一人だけ、≪#{magicalogia_random_skill_table_text_only_star}≫の判定を行う。成功すると、好きな魔素をを2点獲得する。誰かが判定すると、成否にかかわらず、この効果はなくなる。"},
             ]
-    
+
     return get_table_by_2d6(table)
   end
-  # クレドの塔シーン表 
+  # クレドの塔シーン表
   def magicalogia_tower_credo_scene_table
     table = [
              '目の前に一人の少女が現れる。眠り姫の長、ラトゥナだ。ずっと眠り続けている筈の彼女が現れたのは、いったい何を告げるためなのだろうか。',
@@ -952,11 +952,11 @@ INFO_MESSAGE_TEXT
              '幻夢殿の中。眠り姫達の安らかな寝息が聞こえてくる。こちらも眠くなってくる。',
              '突然、目の前に扉が現れる。この扉は、異界につながる戸口だ。一体どこにつながっているのだろう。異界シーン表の中からランダムに一つを選んで、その効果を適用する。',
             ]
-    
+
     return get_table_by_2d6(table)
   end
 
-  # 並行世界シーン表 
+  # 並行世界シーン表
   def magicalogia_parallel_world_scene_table
     table = [
              'カフェのテーブル。FMラジオは、去年解散したはずのバンドの、先日発表した新曲を流している。このシーンに登場しているPCのうち一人は、「時の流れ表」を1回振り、効果を適用する。',
@@ -971,10 +971,10 @@ INFO_MESSAGE_TEXT
              lambda{return "小学校の前を通る。音楽室の窓から、見知らぬ音楽家の肖像が見える。≪#{magicalogia_random_skill_table_text_only_poem}≫の判定を行う。失敗すると、「封印」の変調を受ける。"},
              '目の前で、以前、経験した出来事が起きる。この世界では、これは、今から起きる出来事なのだ。このシーンに登場しているPCのうち一人は、このシーンの間、判定に+1の修正を受ける。',
             ]
-    
+
     return get_table_by_2d6(table)
   end
-  # 終末シーン表 
+  # 終末シーン表
   def magicalogia_post_apocalypse_scene_table
     table = [
              '夜。雨宿りのために足を踏み入れた寺院に危険は気配はなく、ゆっくり休めそうだ。静に時が流れていく。',
@@ -989,11 +989,11 @@ INFO_MESSAGE_TEXT
              '昼。崩壊した農村のかたわらで、美味しそうな果実を発見する。≪大地≫の判定に成功すると【魔力】が2点回復する。',
              '夕刻。錆び付いた線路。その先までたくさんのしゃれこうべが無造作に転がっている。虚憑が一体襲い掛かってくる。魔法戦を開始すること。2ラウンド経過するまでは昼、以降のラウンドは夜として処理する。この魔法戦はゲーム中に一度だけ発生する。',
             ]
-    
+
     return get_table_by_2d6(table)
   end
 
-  # 異世界酒場シーン表 
+  # 異世界酒場シーン表
   def magicalogia_god_bar_scene_table
     table = [
              'マスターの雷神に絡まれる。このシーンに登場しているPCのうち一人は、雷神相手に「事件表」を振る。',
@@ -1008,10 +1008,10 @@ INFO_MESSAGE_TEXT
              '上の階に登ろうとすると、竜が待ち構えている。このシーンに登場しているPCのうち一人は、≪牙≫で判定を行う。失敗すると、「綻び」の変調を受ける。成否にかかわらず、この効果は一度だけ発生する。',
              '美しい女神が、鏡をのぞき込んでいる。どうやら、運命が映る鏡だと言うのだが。このシーンに登場しているPCのうち一人は、≪未来≫で判定を行っても良い。成功すると好きなアンカーとの【運命】が1点上昇する。成否にかかわらず、この効果は一度だけ発生する。',
             ]
-    
+
     return get_table_by_2d6(table)
   end
-  # ほしかげシーン表 
+  # ほしかげシーン表
   def magicalogia_starlight_scene_table
     table = [
              'あなたの持つ「切符」は無効であると車掌に告げられる。他の乗客の視線を感じる。このシーンに登場しているPCのうち一人は、もう一度「切符」を調達しなければならない。魂の特技の判定を、成功するまで繰り返すこと。',
@@ -1026,7 +1026,7 @@ INFO_MESSAGE_TEXT
              '銀河を超える渡り鳥の群れ。しばし「汽車」と並走し、やがて離れ、天の川のようにきらきらした光の帯になっていく。このシーンに登場しているPCのうち一人は、≪翼≫で判定を行うことができる。成功すると魔力をリセットできる。誰かが判定すると、成否にかかわらず、この効果はなくなる。',
              '隣の車輛から誰かが移ってきた。なんと、あなたのアンカーである。このシーンに登場しているPCをランダムに一人選び、そのPCのアンカーの中から、この異境に存在しない〈愚者〉のアンカーをランダムで一人選ぶこと。そのアンカーが、元の世界へ無事戻ることができたら、ゲーム終了時に功績点を1点獲得する。',
             ]
-    
+
     return get_table_by_2d6(table)
   end
   #世界法則追加表
@@ -1065,7 +1065,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  # 旧図書館シーン表 
+  # 旧図書館シーン表
   def magicalogia_old_library_scene_table
     table = [
              lambda{return "曲がり角。唐突に〈禁書〉が現れ、襲いかかってきた！このシーンに登場するPCは、#{magicalogia_random_skill_table_text_only}で判定を行う。失敗すると、【魔力】を3点失う。"},
@@ -1084,7 +1084,7 @@ INFO_MESSAGE_TEXT
   end
   #大判時の流れ表
   def magicalogia_new_time_passage_table
-    table = [    
+    table = [
              lambda{return "波乱万丈の人生を送る。この時代に起きた有名な事件の背後では、多くの魔法的存在が暗躍していた。あなたも、その事件に関わり、〈禁書〉や〈書籍卿〉たちと戦いを繰り広げる。#{magicalogia_random_skill_table_text_only}の判定を行う。成功するとセッション終了時に追加で功績点を1点獲得する。失敗すると、自分に「運命変転」が発生する。"},
              lambda{return "冒険の日々の途中、大きな幸せがおとずれる。#{magicalogia_random_skill_table_text_only}の判定を行う。成功すると、自分のアンカーが負っている不幸か、自分が負っている疵一つを無効化する。"},
              '瞑想していたのか。それとも何か封印されていたのか。長い眠りから目を覚ます。もうそんな時間か。おかげで十分に休息できた。ランダムに魔素を三個獲得するか、自分が「魔力のリセット」を行うか、自分の受けている変調をすべて回復する。',
@@ -1094,7 +1094,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
-  # その後表 
+  # その後表
   def magicalogia_fallen_after_table_low
     table = [
              '成就者は、邪悪な魔法の力にひかれるようになる。成就者が、そのセッションで〈断章〉に憑依されていたり、魔法災厄の犠牲になったりしていた場合、【堕落値】が1点上昇し、堕落チェックを行う。堕落チェックに失敗した場合、成就者は命を落とし、そのPCの疵となる。',
@@ -1124,7 +1124,7 @@ INFO_MESSAGE_TEXT
     if num <= 3
       outtext, outnum = magicalogia_fallen_after_table_low
       outtext = "#{outtext}"
-    else 
+    else
       outtext, outnum = magicalogia_fallen_after_table_high
       outtext = "#{outtext}"
     end

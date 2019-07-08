@@ -98,18 +98,18 @@ INFO_MESSAGE_TEXT
   def getAdditionalString(string, output)
 
     output, values = super(string, output)
-    
+
     isGratestFortune, string = getGratestFortuneFromString(string)
-    
+
     values['isGratestFortune'] = isGratestFortune
     output += "gf" if( isGratestFortune )
-    
+
     return output, values
   end
-  
-  
+
+
   def rollDice(values)
-    
+
     unless values['isGratestFortune']
       return super(values)
     end
@@ -121,8 +121,8 @@ INFO_MESSAGE_TEXT
 
     return dice, diceText
   end
-  
-  
+
+
   def getGratestFortuneFromString(string)
     isGratestFortune = false
 

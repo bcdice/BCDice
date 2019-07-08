@@ -96,7 +96,7 @@ INFO_MESSAGE_TEXT
       debug("not mutch")
       return output
     end
-    
+
     # 各種値の初期設定
     humanity = 99					# 人間性（ゲームプレイ中の上限は60）
     critical = 12					# クリティカル値（基本値=12）
@@ -105,7 +105,7 @@ INFO_MESSAGE_TEXT
     nofumble = false				# ファンブルしても達成値が0にならないモードかどうかの判別
     dicepull = false				# 「出目●未満のダイス」を出目●として扱うモードが有効かどうかの判別
     pul_flg  = false				# 出目引き上げ機能が適用されたかどうかの確認
-    
+
     # 各種文字列の取得
     string    = $2					# ダイスボットで読み込んだ判定文全体
     dice_c    = $3.to_i				# 振るダイス数の取得
@@ -114,7 +114,7 @@ INFO_MESSAGE_TEXT
     diff      = 0					# 難易度
     bonusText = $4					# 修正値の取得
     bonus     = parren_killer("(0" + bonusText + ")").to_i unless( bonusText.nil? )
-    
+
     if($5)
       humanity = $6.to_i if($6)		# 人間性からクリティカル値を取得
       debug("▼現在人間性 取得 #{humanity}")
@@ -129,32 +129,32 @@ INFO_MESSAGE_TEXT
           debug("▼現在人間性からC値取得 #{critical}")
       end
     end
-    
+
     if($7)
       str_critical = $8 if($8)		# クリティカル値の文字列を取得
         debug("▼C値文字列 取得 #{str_critical}")
     end
-    
+
     if($9)
       nofumble = true if($10)		# ファンブル耐性指定
         debug("▼F値耐性 #{nofumble}")
       str_fumble = $11 if($11)		# ファンブル値の文字列を取得
         debug("▼F値文字列 取得 #{str_fumble}")
     end
-    
+
     if($12)
       str_dicesubs = $13 if($13)	# ダイス差し替え用の文字列を取得
         debug("▼出目予約用の文字列 取得 #{str_dicesubs}")
     end
-    
+
     if($14)
       dicepull = $15.to_i if($15)	# ダイス引き上げ用の文字列を取得
         debug("▼出目引き上げモード 取得 #{dicepull}")
     end
-    
+
     signOfInequality = $17 if($17);
     diff = $18.to_i if($18);
-    
+
     # 数値・数式からクリティカル値を決定
     if(str_critical)
       n_cri = eval(str_critical)
@@ -162,7 +162,7 @@ INFO_MESSAGE_TEXT
       critical = str_critical.match(/^[\+\-][\+\-\d]+/) ? [critical + n_cri, 12].min : n_cri
         debug("▼クリティカル値 #{critical}")
     end
-    
+
     # 数値・数式からファンブル値を決定
     if(str_fumble)
       n_fum = eval(str_fumble)
@@ -170,25 +170,25 @@ INFO_MESSAGE_TEXT
       fumble = str_fumble.match(/^[\+\-][\+\-\d]+/) ? fumble + n_fum : n_fum
         debug("▼ファンブル値 #{fumble}")
     end
-    
+
     # 出目予約の有無を確認
     if(str_dicesubs)
       for i in str_dicesubs.split(//) do dicesubs.push(i.to_i) if(dicesubs.size < dice_c) end
       debug("▼ダイス出目予約 #{dicesubs}")
     end
-    
+
     dice_now = 0
     dice_str = ""
     n_max = 0
     total_n = 0
-    
+
     cri_flg   = false
     cri_bonus = 0
     fum_flg   = false
     rer_num  = []
-    
+
     dice_tc = dice_c - dicesubs.size
-    
+
     if(dice_tc > 0)
       _, dice_str, = roll(dice_tc, 6, (sortType & 1))					# ダイス数修正、並べ替えせずに出力
       dice_num = (dice_str.split(/,/) + dicesubs).collect{|n|n.to_i} 	# 差し換え指定のダイスを挿入
@@ -197,50 +197,50 @@ INFO_MESSAGE_TEXT
     else
       dice_num = dicesubs												# 差し換えのみの場合は差し換え指定のみ（ダイスを振らない）
     end
-    
+
     dice_num.sort!														# 並べ替え
-    
+
     if(dicepull)														# 出目引き上げ機能
       debug("▼出目引き上げ #{dicepull}")
       dice_num_old = dice_num.dup
       for i in 0...dice_num.size do dice_num[i] = [dice_num[i], dicepull].max end
       pul_flg = dice_num == dice_num_old ? false : true
       debug("▼出目引き上げの有無について #{pul_flg}")
-      
+
       dice_num.sort!													# 置換後、再度並べ替え
       dold_str = dice_num_old.join(",")									# 置換前のダイス一覧を作成
     end
-    
+
     dice_str = dice_num.join(",")										# dice_strの取得
     if dice_c == 1
       dice_now = dice_num[dice_c - 1]									# ダイス数が1の場合、通常の処理だと配列の引数が「0」と「-1」となって二重に計算されるので処理を変更
     else
       dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1]			# 判定の出目を確定
     end
-    
+
     if(dice_now >= critical)											# クリティカル成立の判定
       cri_flg = true
       cri_bonus = 20
     end
-    
+
     total_n = [dice_now + bonus + cri_bonus, 0].max						# 達成値の最小値は0
-    
+
     if(fumble >= dice_now)												# ファンブル成立の判定
       fum_flg = true
       total_n = 0 unless nofumble
     end
-    
+
     dice_str = "[#{dice_str}]"
-    
+
     # 表示文章の作成
     output = ""
-    
+
     if(pul_flg)
       output += "[#{dold_str}] ＞ "
     end
-    
+
     output += "#{dice_now}#{dice_str}"
-    
+
     if(fum_flg == true && nofumble == false)
       output += "【ファンブル】"
     else
@@ -252,7 +252,7 @@ INFO_MESSAGE_TEXT
       end
       output += "+#{cri_bonus}【クリティカル】" if(cri_flg)
     end
-    
+
     showstring = "#{dice_c}R6"										# 結果出力文におけるダイスロール式の作成
     if(bonus > 0)													# （結果出力の時に必ずC値・F値を表示するようにする）
       showstring += "+#{bonus}"
@@ -263,7 +263,7 @@ INFO_MESSAGE_TEXT
     if(signOfInequality != "")
       showstring += "#{signOfInequality}#{diff}"
     end
-    
+
     if(sendMode > 0)												# 出力文の完成
       if(/[^\d\[\]]+/ =~ output)
         output = "#{@nick_e}: (#{showstring}) ＞ #{output} ＞ #{total_n}"
@@ -273,27 +273,27 @@ INFO_MESSAGE_TEXT
     else
       output = "#{@nick_e}: (#{showstring}) ＞ #{total_n}"
     end
-    
+
     if(signOfInequality != "")  # 成功度判定処理
       output += check_suc(total_n, dice_now, signOfInequality, diff, 2, 6, 0, 0)
     end
-    
+
     return output
   end
-  
+
   ####################           ビーストバインド トリニティ          ########################
   def rollDiceCommand(command)
     output = '1'
     type = ""
     total_n = 0
-    
+
     case command
-    
+
     # 邂逅表(d66)
     when /^EMO/i
       type = '邂逅表'
       output, total_n = bbt_emotion_table
-    
+
     # 暴露表
     when /^EXPO_([ABIJ])/
       case $1
@@ -311,7 +311,7 @@ INFO_MESSAGE_TEXT
           tabletype = 4
       end
       output, total_n = bbt_exposure_table(tabletype)
-      
+
     # 正体判明チャート
     when /^FACE_([ABC])/
       case $1
@@ -326,16 +326,16 @@ INFO_MESSAGE_TEXT
           tabletype = 3
       end
       output, total_n = bbt_face_table(tabletype)
-      
+
     end
-    
+
     if(output != '1')
       output = "#{type}(#{total_n}) ＞ #{output}"
     end
-    
+
     return output
   end
-  
+
   #**邂逅表(d66)
   def bbt_emotion_table
     table = [
@@ -346,10 +346,10 @@ INFO_MESSAGE_TEXT
       '友情',      '友情',      '忠誠',      '忠誠',      '恐怖',      '恐怖',
       '執着',      '執着',      '軽蔑',      '軽蔑',      '憎悪',      '憎悪',
     ]
-    
+
     return get_table_by_d66(table)
   end
-  
+
   #**暴露表（暴露表、魔獣化暴露表、アイドル専用暴露表、アイドル専用魔獣化暴露表）
   def bbt_exposure_table(type)
     case type
@@ -396,7 +396,7 @@ INFO_MESSAGE_TEXT
     end
     return get_table_by_1d6(table)
   end
-  
+
   #**正体判明チャート（正体判明チャートA～C）
   def bbt_face_table(type)
     case type
