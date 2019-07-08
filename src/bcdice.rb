@@ -35,8 +35,8 @@ def mainBcDiceCli(args)
   print message
   print "\n"
   
-  bcdiceMarker = BCDiceMaker.new
-  bcdice = bcdiceMarker.newBcDice()
+  bcdiceMaker = BCDiceMaker.new
+  bcdice = bcdiceMaker.newBcDice()
   bcdice.setIrcClient( Cli.new )
   bcdice.setGameByTitle( gameType )
   
