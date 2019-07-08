@@ -58,7 +58,6 @@ class Net::IRC::Client
         raise
       end
     end
-
   rescue IOError
   ensure
     finish

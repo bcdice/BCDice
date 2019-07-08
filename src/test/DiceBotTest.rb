@@ -99,7 +99,6 @@ class DiceBotTest
         else
           dataSet.select { |data| data.index == @dataIndex }
         end
-
     end
   end
 
