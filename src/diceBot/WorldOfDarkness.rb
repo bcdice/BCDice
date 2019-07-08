@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 class WorldOfDarkness < DiceBot
-  
+
   setPrefixes(['\d+st.*'])
-  
+
   def initialize
     super
     @successDice = 0
@@ -11,15 +11,15 @@ class WorldOfDarkness < DiceBot
     @rerollDice = 0
 
   end
-  
+
   def gameName
     'ワールドオブダークネス'
   end
-  
+
   def gameType
     "WorldOfDarkness"
   end
-  
+
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・判定コマンド(xSTn+y or xSTSn+y)
@@ -106,7 +106,7 @@ INFO_MESSAGE_TEXT
        end
 
        diceResults[i] = dice_now
-    end 
+    end
 
 	diceResults.sort!
 

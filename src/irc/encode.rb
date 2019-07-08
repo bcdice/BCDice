@@ -87,7 +87,7 @@ if RUBY_VERSION < '1.9.0' then
        self
      end
    end
-   
+
  end
- 
+
 end

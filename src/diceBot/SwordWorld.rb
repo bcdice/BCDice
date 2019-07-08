@@ -52,13 +52,13 @@ INFO_MESSAGE_TEXT
 
     return string
   end
-  
-  
+
+
   def getRatingCommandStrings
     "cmCM"
   end
-  
-  
+
+
   def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     if(dice_n >= 12)
       return " ＞ 自動的成功";
@@ -85,9 +85,9 @@ INFO_MESSAGE_TEXT
   ####################        SWレーティング表       ########################
   def rating(string)     # レーティング表
     debug("rating string", string)
-    
+
     commands = getRatingCommandStrings
-    
+
     unless(/(^|\s)[sS]?(((k|K)[\d\+\-]+)([#{commands}]\[([\d\+\-]+)\])*([\d\+\-]*)([cmrCMR]\[([\d\+\-]+)\]|gf|GF)*)($|\s)/ =~ string)
       debug("not matched")
       return '1'
@@ -121,7 +121,7 @@ INFO_MESSAGE_TEXT
     output += "m[#{firstDiceChangeModify}]" if( firstDiceChangeModify != 0 )
     output += "m[#{firstDiceChanteTo}]" if( firstDiceChanteTo != 0)
     output += "r[#{rateUp}]" if( rateUp != 0 )
-    
+
     output, values = getAdditionalString(string, output)
 
     debug('output', output)
@@ -151,7 +151,7 @@ INFO_MESSAGE_TEXT
         dice += firstDiceChangeModify.to_i
         firstDiceChangeModify = 0;
       end
-      
+
       dice += getAdditionalDiceValue(dice, values)
 
       dice = 2 if(dice < 2)
@@ -170,7 +170,7 @@ INFO_MESSAGE_TEXT
       rateResults << ((dice > 2) ? rateValue : "**")
 
       round += 1
-      
+
       break unless(dice >= crit)
     end
 
@@ -180,18 +180,18 @@ INFO_MESSAGE_TEXT
 
     return output
   end
-  
-  
+
+
   def getAdditionalString(string, output)
     values = {}
     return output, values
   end
-  
+
   def  getAdditionalDiceValue(dice, values)
     0
   end
-  
-  
+
+
   def getCriticalFromString(string)
     crit = 10
 

@@ -139,10 +139,10 @@ INFO_MESSAGE_TEXT
 
   def rollTableCommand(command)
 
-    
+
     result = getTableCommandResult(command, @@tables)
     return result unless result.nil?
-    
+
     tableName = ""
     result = ""
 

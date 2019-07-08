@@ -5,19 +5,19 @@ class TokyoGhostResearch < DiceBot
   setPrefixes([
   'OP', 'TB', 'TK?\(\d+\)'
   ])
-  
+
   def initialize
     super
   end
-  
+
   def gameName
     '東京ゴーストリサーチ'
   end
-  
+
   def gameType
     "TokyoGhostResearch"
   end
-  
+
   def getHelpMessage
     return <<MESSAGETEXT
 判定
@@ -29,15 +29,15 @@ class TokyoGhostResearch < DiceBot
   ・一般トラブル表  TB
 MESSAGETEXT
   end
-  
+
   def rollDiceCommand(command)
 
-    output = 
+    output =
       case command.upcase
-      
+
       when /TK/i
         return getCheckResult(command)
-      
+
       when 'OP'
         tgr_opening_table
       when 'TB'
@@ -45,22 +45,22 @@ MESSAGETEXT
       else
         nil
       end
-      
+
     return output
   end
 
   def getCheckResult(command)
-  
+
       output = ""
       diff = 0
-      
+
       if(/TK?<=(\d+)/i =~ command)
         diff = $2.to_i
       end
-      
+
       if (diff > 0)
         output += "(1D10<=#{diff})"
-      
+
         total_n, = roll(1, 10)
         output += ' ＞ ' + "#{total_n}"
         output += ' ＞ ' + getCheckResultText(total_n, diff)
@@ -74,10 +74,10 @@ MESSAGETEXT
     else
        result = "失敗"
     end
-    
+
     return result
   end
-  
+
   #導入表(1d10)[OP]
   def tgr_opening_table
     name = "導入表"
@@ -95,7 +95,7 @@ MESSAGETEXT
     ]
     return get_1d10_table_result(name, table)
   end
-  
+
   #一般トラブル表(1d10)[TB]
   def tgr_common_trouble_table
     name = "一般トラブル表"

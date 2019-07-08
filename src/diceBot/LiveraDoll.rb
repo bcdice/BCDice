@@ -64,7 +64,7 @@ MESSAGETEXT
         blockNo.delete(0)
         blockNo = blockNo.sort
         blockNo = blockNo.uniq
-        
+
         output = checkRoll(diceCount, blockNo)
 
       when /^(C|K|W|R|B|G|E)(L|D|O)(\d+)$/i
@@ -83,7 +83,7 @@ MESSAGETEXT
   def checkRoll(diceCount, blockNo)
     dice, diceText = roll(diceCount, 6, @sortType)
     diceArray = diceText.split(/,/).collect{|i|i.to_i}
-    
+
     resultArray = Array.new
     success = 0
     diceArray.each do |i|
@@ -94,12 +94,12 @@ MESSAGETEXT
         success += 1
       end
     end
-    
+
     blockText = blockNo.join(',')
     resultText = resultArray.join(',')
-    
+
     result = "#{diceCount}D6(Block:#{blockText}) ＞ #{diceText} ＞ #{resultText} ＞ 成功数：#{success}"
-    
+
     return result
   end
 

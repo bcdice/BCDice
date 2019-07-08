@@ -69,10 +69,10 @@ INFO_MESSAGE_TEXT
     when 'RTT'   # ランダム特技決定表
       return getRandomSkillTableResult(command)
     end
-    
+
     return getTableDiceCommandResult(command)
   end
-  
+
 
   # 指定特技ランダム決定表
   def getRandomSkillTableResult(command)
@@ -95,8 +95,8 @@ INFO_MESSAGE_TEXT
 
     return output
   end
-  
-  
+
+
   def getTableDiceCommandResult(command)
 
     info = @@tables[command]
@@ -123,7 +123,7 @@ INFO_MESSAGE_TEXT
 
     return "#{name}(#{number}) ＞ #{text}"
   end
-  
+
   def getD66Table(table)
     table.map do |item|
       if item.kind_of?(String) and  /^(\d+):(.*)/ === item
@@ -133,8 +133,8 @@ INFO_MESSAGE_TEXT
       end
     end
   end
-  
-  
+
+
   @@tables =
     {
     'FT' => {
@@ -148,7 +148,7 @@ INFO_MESSAGE_TEXT
 つまらないことで怪我をする。自分の【HP】が1D6点減少する。
 逆境に燃える。テンションが1段階上昇する。
 },},
-    
+
     'WT' => {
       :name => "変調表",
       :type => '1D6',
@@ -386,6 +386,6 @@ INFO_MESSAGE_TEXT
 66:売店で売っているお菓子をコンプリートした
 },},
   }
-  
+
   setPrefixes(['RTT'] + @@tables.keys)
 end
