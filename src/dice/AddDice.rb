@@ -43,7 +43,6 @@ class AddDice
     addUpTextList = string.split(/\+/)
 
     addUpTextList.each do |addUpText|
-
       subtractTextList = addUpText.split(/-/)
 
       subtractTextList.each_with_index do |subtractText, index|
