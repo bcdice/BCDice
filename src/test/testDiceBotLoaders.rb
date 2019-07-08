@@ -93,12 +93,7 @@ class TestDiceBotLoaders < Test::Unit::TestCase
   def test_shouldNotLoadDiceBotNamed_InsaceScp
     assertDiceBotIgnored('_InsaneScp')
   end
-
-  # 「../TableFileData」（ダイスボットディレクトリ外）という名前のダイスボットを読み込まない
-  def test_shouldNotLoadDiceBotNamedTableFileData
-    assertDiceBotIgnored('../TableFileData')
-  end
-
+  
   #--
   # 3. 複数の名前で読み込めるダイスボットの読み込みを確認するテストケース
   #++
