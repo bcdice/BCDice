@@ -8,6 +8,7 @@
 ## Documents
 
 - [ロードマップ](ROADMAP.md)
+- [ChangeLog](CHANGELOG.md)
 - [旧README](docs/README.txt)
 
 ## バグ報告や機能要望
