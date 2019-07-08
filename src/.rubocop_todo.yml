@@ -292,7 +292,6 @@ Layout/SpaceAfterMethodName:
 # Cop supports --auto-correct.
 Layout/SpaceAfterNot:
   Exclude:
-    - 'TableFileData.rb'
     - 'diceBot/MetalHead.rb'
 
 # Offense count: 53
@@ -503,7 +502,6 @@ Lint/ScriptPermission:
     - 'ArgsAnalizer.rb'
     - 'CardTrader.rb'
     - 'CountHolder.rb'
-    - 'TableFileData.rb'
     - 'bcdice.rb'
     - 'bcdiceCore.rb'
     - 'bcdiceGui.rb'
@@ -676,7 +674,6 @@ Security/Eval:
 # Offense count: 2
 Security/Open:
   Exclude:
-    - 'TableFileData.rb'
     - 'createExe.rb'
 
 # Offense count: 5
@@ -763,7 +760,6 @@ Style/ClassAndModuleChildren:
 # SupportedStyles: is_a?, kind_of?
 Style/ClassCheck:
   Exclude:
-    - 'TableFileData.rb'
     - 'diceBot/DarkDaysDrive.rb'
     - 'diceBot/DiceBot.rb'
     - 'diceBot/HatsuneMiku.rb'
@@ -841,7 +837,6 @@ Style/EmptyElse:
 # Cop supports --auto-correct.
 Style/EmptyLiteral:
   Exclude:
-    - 'TableFileData.rb'
     - 'diceBot/Illusio.rb'
     - 'diceBot/LiveraDoll.rb'
     - 'diceBot/OrgaRain.rb'
@@ -1042,7 +1037,6 @@ Style/MutableConstant:
 Style/NegatedIf:
   Exclude:
     - 'CardTrader.rb'
-    - 'TableFileData.rb'
     - 'dice/AddDice.rb'
     - 'diceBot/LogHorizon.rb'
     - 'diceBot/LogHorizon_Korean.rb'
@@ -1217,7 +1211,6 @@ Style/RescueStandardError:
   Exclude:
     - 'CardTrader.rb'
     - 'Rakefile'
-    - 'TableFileData.rb'
     - 'bcdiceCore.rb'
     - 'bcdiceGui.rb'
     - 'dice/RerollDice.rb'

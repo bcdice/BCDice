@@ -139,13 +139,9 @@ class CgiDiceBot
     return @bcdice
   end
   
+  # Unused method
   def getGameCommandInfos(dir, prefix)
-    require 'TableFileData'
-    
-    tableFileData = TableFileData.new
-    tableFileData.setDir(dir, prefix)
-    infos = tableFileData.getGameCommandInfos
-    return infos
+    return []
   end
   
   def sendMessage(to, message)
