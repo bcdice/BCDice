@@ -37,8 +37,8 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-    prefixsRegText = prefixs.collect{|i| i.sub(/\.\*/, '')}.join('|')
-    unless ( /(^|\s)(S)?(#{prefixsRegText})([\d\+\-]*)(>=(\d+))?/i === command )
+    prefixesRegText = prefixes.collect{|i| i.sub(/\.\*/, '')}.join('|')
+    unless ( /(^|\s)(S)?(#{prefixesRegText})([\d\+\-]*)(>=(\d+))?/i === command )
       debug("NOT match")
       return nil
     end
