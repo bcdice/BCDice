@@ -38,8 +38,8 @@ INFO_MESSAGE_TEXT
     case command.upcase
 
     when /^(WH\d+(@[\dWH]*)?)/i
-      atackCommand = $1
-      output_msg = getAtackResult(atackCommand)
+      attackCommand = $1
+      output_msg = getAttackResult(attackCommand)
 
     when /^(WH[HABTLW]\d+)/i
       criticalCommand = $1
@@ -301,8 +301,8 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  def getAtackResult(string)
-    debug("getAtackResult begin string", string)
+  def getAttackResult(string)
+    debug("getAttackResult begin string", string)
 
     pos_type = ""
 
