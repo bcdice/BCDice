@@ -57,7 +57,7 @@ INFO_MESSAGE_TEXT
 
     result = getTableCommandResult(command, @@tables)
     return result unless result.nil?
-    
+
     case string
     when /((\w)*ST)/i   # シーン表
       return sinobigami_scene_table(string)

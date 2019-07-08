@@ -11,7 +11,7 @@ require 'socket.so'
 require 'encode.rb'
 
 class Net::IRC::Client
-  
+
   # Connect to server and start loop.
   def start
     @log.debug "start begin";
@@ -36,7 +36,7 @@ class Net::IRC::Client
     post NICK, @opts.nick
     @log.debug "post USER";
     post USER, @opts.user, "0", "*", @opts.real
-    
+
     @log.debug "while loop begin";
     l = nil
     while true
@@ -58,10 +58,9 @@ class Net::IRC::Client
         raise
       end
     end
-    
   rescue IOError
   ensure
     finish
   end
-  
+
 end

@@ -45,9 +45,9 @@ PO@5+2 → 2Dで目標値7の判定。判定の成否と達成値を表示。
 ◆自由行動シチュエーション表：FRE
 MESSAGETEXT
   end
- 
+
   def rollDiceCommand(command)
- 
+
     text =
       case command.upcase
 

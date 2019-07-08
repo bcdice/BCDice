@@ -7,7 +7,7 @@ class HatsuneMiku < DiceBot
     @sendMode = 2
     @d66Type = 2
   end
-  
+
   def gameName
     '初音ミクTRPG ココロダンジョン'
   end
@@ -25,8 +25,8 @@ class HatsuneMiku < DiceBot
 　z：スペシャル最低値（省略：6）　t：目標値（省略：4）
 　　例） RA　R2　RB+1　RC++　RD+,+2　RA>=5　RS-1@5>=6
 　結果はネイロを取得した残りで最大値を表示
-例） RB 
-　HatsuneMiku : (RB>=4) ＞ [3,5] ＞ 
+例） RB
+　HatsuneMiku : (RB>=4) ＞ [3,5] ＞
 　　ネイロに3(青)を取得した場合 5:成功
 　　ネイロに5(白)を取得した場合 3:失敗
 ・各種表
@@ -53,7 +53,7 @@ INFO_MESSAGE_TEXT
     when 'RTT'   # ランダム特技決定表
       return getRandomSkillTableResult(command)
     end
-    
+
     return getTableDiceCommandResult(command)
   end
 
@@ -64,31 +64,31 @@ INFO_MESSAGE_TEXT
     modifyText = $3
     signOfInequality = ( $7.nil? ? ">=" : $7 )
     targetText = ( $9.nil? ? "4" : $9 )
-    
+
     specialNum = $5
     specialNum ||= $11
     specialNum ||= 6
     specialNum = specialNum.to_i
     specialText = ( specialNum == 6 ? "" : "@#{specialNum}" )
-    
+
     modifyText = getChangedModifyText(modifyText)
-    
+
     commandText = "R#{skillRank}#{modifyText}"
-    
+
     rankDiceList = { "S" => 4, "A" => 3, "B" => 2, "C" => 1, "D" => 2 }
     diceCount = rankDiceList[skillRank]
     diceCount = skillRank.to_i if /^\d+$/ === skillRank
-    
+
     modify = parren_killer("(" + modifyText + ")").to_i
     target = parren_killer("(" + targetText + ")").to_i
-    
+
     isSort = 1
     _, diceText, = roll(diceCount, 6, isSort)
     diceList = diceText.split(/,/).collect{|i| i.to_i}
     diceList = [diceList.min] if( skillRank == "D" )
 
     message = "(#{commandText}#{specialText}#{signOfInequality}#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "
-    
+
     if diceList.length <= 1
       dice = diceList.first
       total = dice + modify
@@ -102,7 +102,7 @@ INFO_MESSAGE_TEXT
         dice = rests.max
         total = dice + modify
         result = check_success(total, dice, signOfInequality, target, specialNum)
-        
+
         colorList = ["黒", "赤", "青", "緑", "白", "任意"]
         color = colorList[pickup_dice - 1]
         texts << "　ネイロに#{pickup_dice}(#{color})を取得した場合 #{total}:#{result}"
@@ -110,16 +110,16 @@ INFO_MESSAGE_TEXT
       texts.uniq!
       message += "\n" + texts.join("\n")
     end
-    
+
 
     return message
   end
-  
+
   def getChangedModifyText(text)
     modifyText = ""
     values = text.split(/,/)
-    
-    values.each do |value| 
+
+    values.each do |value|
       case value
       when "++"
         modifyText += "+2"
@@ -129,7 +129,7 @@ INFO_MESSAGE_TEXT
         modifyText += value
       end
     end
-    
+
     return modifyText
   end
 
@@ -142,7 +142,7 @@ INFO_MESSAGE_TEXT
     return "失敗"
   end
 
-  
+
   def getTableDiceCommandResult(command)
 
     info = @@tables[command]
@@ -169,7 +169,7 @@ INFO_MESSAGE_TEXT
 
     return "#{name}(#{number}) ＞ #{text}"
   end
-  
+
   def getD66Table(table)
     newTable = table.map do |item|
       if item.kind_of?(String) and  /^(\d+):(.*)/ === item
@@ -178,13 +178,13 @@ INFO_MESSAGE_TEXT
         item
       end
     end
-    
-    raise "invalid table size:#{newTable.size}\n#{newTable.inspect}" if newTable.size != 21 
-    
+
+    raise "invalid table size:#{newTable.size}\n#{newTable.inspect}" if newTable.size != 21
+
     return newTable
   end
-  
-  
+
+
   @@tables =
     {
     'FT' => {
@@ -210,7 +210,7 @@ INFO_MESSAGE_TEXT
 意識はあるが、立ち上がることができない。そのキャラクターは行動不能になる。次のシーンにまだ【生命力】が０点だった場合、自動的に１点に回復する。
 奇跡的に踏みとどまり、持ちこたえる。【生命力】が１点になる。
 },},
-    
+
     'BT' => {
       :name => "休憩表",
       :type => '1D6',
@@ -275,7 +275,7 @@ INFO_MESSAGE_TEXT
 そのエリアの風景にあなたの日常が浮かび上がる。「お前は何をしている？その暮らしをどう思っている？」
 あなたの目の前に、あなたの死体が横たわっている。「お前を殺すものは何だ？お前は誰に殺される？」
 },},
-    
+
     'ST' => {
       :name => "情景表",
       :type => 'D66',
@@ -302,7 +302,7 @@ INFO_MESSAGE_TEXT
 56:深夜のコンビニ
 66:誰もいない体育館
 },},
-    
+
     'DKT' => {
       :name => "ダーク・キーワード表",
       :type => 'D66',
@@ -383,7 +383,7 @@ INFO_MESSAGE_TEXT
 56:消せない炎
 66:オーバードライブ
 },},
-    
+
     'HNT' => {
       :name => "ホット・名前表",
       :type => 'D66',
@@ -437,7 +437,7 @@ INFO_MESSAGE_TEXT
 56:素敵な贈り物
 66:ビューティフルワールド
 },},
-    
+
     'LNT' => {
       :name => "ラブ・名前表",
       :type => 'D66',
@@ -702,7 +702,7 @@ INFO_MESSAGE_TEXT
       :name => "オトダマ呼び名表",
       :type => '2D6',
       :table => %w{
-ユー 
+ユー
 （ＰＣの名前）たん／きゅん
 同志（ＰＣの名前）
 キミ
@@ -745,6 +745,6 @@ INFO_MESSAGE_TEXT
 },},
 
   }
-  
+
   setPrefixes(['R([A-DS]|\d+).*'] + @@tables.keys)
 end
