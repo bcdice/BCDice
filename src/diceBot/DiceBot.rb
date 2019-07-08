@@ -95,7 +95,7 @@ class DiceBot
     {
       'name' => gameName,
       'gameType' => gameType,
-      'prefixs' => self.class.prefixes,
+      'prefixes' => self.class.prefixes,
       'info' => getHelpMessage,
     }
   end
@@ -226,7 +226,7 @@ class DiceBot
   end
   
   def removeDiceCommandMessage(command)
-    # "2d6 Atack" のAtackのようなメッセージ部分をここで除去
+    # "2d6 Attack" のAttackのようなメッセージ部分をここで除去
     command.sub(/[\s　].+/, '')
   end
   
