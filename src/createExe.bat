@@ -1,1 +1,0 @@
-ruby -Ku createExe.rb
