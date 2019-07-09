@@ -40,7 +40,6 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(nD6)
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-
     return '' unless(dice_cnt == 3 && signOfInequality == "<=")
 
     success = diff - total_n #成功度
@@ -73,12 +72,10 @@ INFO_MESSAGE_TEXT
     else
       return " ＞ 失敗(失敗度：#{success})"
     end
-
   end
 
   def rollDiceCommand(command)
-
-  result = getRollDiceResult(command)
+    result = getRollDiceResult(command)
   return result unless(result.nil?)
 
   #クリティカル・ファンブル表
@@ -101,8 +98,8 @@ INFO_MESSAGE_TEXT
   end
 
   def getRollDiceResult(command)
-
     return nil unless(/([\d\+\-]+)\-3[dD]6?([\d\+\-]*)/ === command)
+
   diffStr = $1
   modStr  = ($2 || '')
 
@@ -121,8 +118,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getCFTableResult(command)
-
-  return nil unless(/\w*(FMB|CRT)/ === command)
+    return nil unless(/\w*(FMB|CRT)/ === command)
 
   case command
   when "CRT"
@@ -282,8 +278,8 @@ INFO_MESSAGE_TEXT
   end
 
   def getFearResult(command)
+    return nil unless(/FEAR((\+)?\d+)?/ === command)
 
-  return nil unless(/FEAR((\+)?\d+)?/ === command)
   modify = $1.to_i
 
   tableName = "恐怖表"
@@ -340,8 +336,8 @@ INFO_MESSAGE_TEXT
   end
 
   def getReactResult(command)
+    return nil unless(/REACT((\+|\-)?\d*)/ === command)
 
-  return nil unless(/REACT((\+|\-)?\d*)/ === command)
   modify = $1.to_i
 
   tableName = "反応表"
@@ -349,28 +345,27 @@ INFO_MESSAGE_TEXT
   number = dice + modify
 
   if(number < 1)
-      result = "最悪"
+    result = "最悪"
   elsif(number < 4)
-      result = "とても悪い"
+    result = "とても悪い"
   elsif(number < 7)
-      result = "悪い"
+    result = "悪い"
   elsif(number < 10)
-      result = "良くない"
+    result = "良くない"
   elsif(number < 13)
-      result = "中立"
+    result = "中立"
   elsif(number < 16)
-      result = "良い"
+    result = "良い"
   elsif(number < 19)
-      result = "とても良い"
+    result = "とても良い"
   else
-      result = "最高"
+    result = "最高"
   end
 
   return "#{tableName}(#{number})：#{result}"
   end
 
   def getHitResult(command)
-
     return nil unless("HIT" === command)
 
   tableName = "命中部位表"
@@ -398,7 +393,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getValue(text, defaultValue)
-
     return defaultValue if( text == nil or text.empty? )
 
     parren_killer("(0" + text + ")").to_i

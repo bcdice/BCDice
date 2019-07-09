@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class FutariSousa < DiceBot
-
   def initialize
     super
     @sendMode = 2
@@ -13,7 +12,6 @@ class FutariSousa < DiceBot
 
   setPrefixes(
               ['(\d+)?DT', '(\d+)?AS', 'SHRD', 'SHFM', 'SHBT', 'SHPI', 'SHEG', 'SHWP', 'SHDS', 'SHFT', 'SHIN', 'SHEM', 'EVS', 'EVW', 'EVN', 'EVC', 'EVV', 'OBT', 'ACT', 'EWT', 'WMT', 'BGDD', 'BGDG', 'BGDM', 'BGAJ', 'BGAP', 'BGAI', 'HT', 'BT', 'GRT', 'MIT', 'JBT66', 'JBT10', 'FST66', 'FST10', 'FLT66', 'FLT10', 'LDT66', 'LDT10', 'NCT66', 'NCT10',])
-
 
   def gameName
     'フタリソウサ'
@@ -189,10 +187,8 @@ MESSAGETEXT
     return "#{type}(#{diceText}) ＞ #{output}"
   end
 
-
   #DT
   def get_dt(count)
-
     diceList = []
     count.times do
       dice, =  roll(1 , 10)
@@ -211,13 +207,12 @@ MESSAGETEXT
     return "ファンブル（変調を受け、助手の心労が1点上昇）" if max <= 1
     return "スペシャル（助手の余裕を1点獲得）" if diceList.include?(@special_dice)
     return "成功" if max >= @success_threshold
+
     return "失敗"
   end
 
-
   #AS
   def get_as(count)
-
     diceList = []
     count.times do
       dice, =  roll(1 , 6)
@@ -236,10 +231,9 @@ MESSAGETEXT
     return "ファンブル（変調を受け、心労が1点上昇）" if max <= 1
     return "スペシャル（余裕2点と、探偵から助手への感情を獲得）" if diceList.include?(@special_dice)
     return "成功（余裕1点と、探偵から助手への感情を獲得）"  if max >= @success_threshold
+
     return "失敗"
   end
-
-
 
   def getTableResult(table, dice)
     number, text, command = table.assoc(dice)
@@ -250,7 +244,6 @@ MESSAGETEXT
 
     return number, text
   end
-
 
   def getAddRollProc(command)
     # 引数なしのlambda
@@ -263,9 +256,9 @@ MESSAGETEXT
 
     text = rollDiceCommand(command)
     return " ＞ #{command} is NOT found." if text.nil?
+
     return " ＞ \n #{command} ＞ #{text}"
   end
-
 
   #異常な癖決定表
   def get_strange_habit_random
@@ -1010,5 +1003,4 @@ MESSAGETEXT
 
     return output, diceText
   end
-
 end

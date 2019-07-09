@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class CthulhuTech < DiceBot
-
   def initialize
     super
     @sendMode = 2
@@ -34,12 +33,9 @@ INFO_MESSAGE_TEXT
       @isCombatTest = true
       return check_nD10_combatTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     end
-
   end
 
-
   def check_nD10_nomalTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-
     if( n1 >= (dice_cnt / 2 + 0.9).to_i )
       return " ＞ ファンブル"
     end
@@ -62,7 +58,6 @@ INFO_MESSAGE_TEXT
     return " ＞ 成功"
   end
 
-
   def check_nD10_combatTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     result = check_nD10_nomalTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
@@ -83,7 +78,6 @@ INFO_MESSAGE_TEXT
     return damageDice
   end
 
-
   #ダイス目文字列からダイス値を変更する場合の処理
   #クトゥルフ・テックの判定用ダイス計算
   def changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
@@ -97,7 +91,6 @@ INFO_MESSAGE_TEXT
 
     return dice_now
   end
-
 
   ####################           CthulhuTech         ########################
   #CthulhuTechの判定用ダイス計算
@@ -146,5 +139,4 @@ INFO_MESSAGE_TEXT
 
     return max_num
   end
-
 end

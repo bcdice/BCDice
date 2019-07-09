@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class TorgtaitaiIRC
-
   def initialize()
     @isSecretMarkerPrinted = false
 
@@ -23,9 +22,6 @@ class TorgtaitaiIRC
 
     notice(to, message);
   end
-
-
-
 
   def notice(to, message)
     #print( "\n#{@game_type} " );

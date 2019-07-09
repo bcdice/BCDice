@@ -7,6 +7,7 @@ class DarkBlaze < DiceBot
     super
     @sendMode = 2
   end
+
   def gameName
     'ダークブレイズ'
   end
@@ -137,7 +138,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-
     case command
     when /BT(\d+)?/i
       dice = $1

@@ -102,7 +102,6 @@ class DiceBotTest
     end
   end
 
-
   private :readTestDataSet
 
   # 各テストを実行する

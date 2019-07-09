@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class Pendragon < DiceBot
-
   def gameName
     'ペンドラゴン'
   end
@@ -15,7 +14,6 @@ class Pendragon < DiceBot
 クリティカル、成功、失敗、ファンブルの自動判定を行います。
 INFO_MESSAGE_TEXT
   end
-
 
   # ゲーム別成功度判定(1d20)
   def check_1D20(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
@@ -35,6 +33,4 @@ INFO_MESSAGE_TEXT
       return " ＞ 失敗";
     end
   end
-
-
 end

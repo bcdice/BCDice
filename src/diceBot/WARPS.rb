@@ -34,7 +34,7 @@ INFO_MESSAGE_TEXT
         end
       end
     end
+
     return output
   end
-
 end

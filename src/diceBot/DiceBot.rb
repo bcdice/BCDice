@@ -52,7 +52,6 @@ class DiceBot
 
   @@DEFAULT_SEND_MODE = 2                  # デフォルトの送信形式(0=結果のみ,1=0+式,2=1+ダイス個別)
 
-
   def initialize
     @sendMode = @@DEFAULT_SEND_MODE #(0=結果のみ,1=0+式,2=1+ダイス個別)
     @sortType = 0      #ソート設定(1 = 足し算ダイスでソート有, 2 = バラバラロール（Bコマンド）でソート有, 3 = １と２両方ソート有）
@@ -165,7 +164,6 @@ class DiceBot
     @sortType = s
   end
 
-
   def d66(*args)
     @@bcdice.getD66Value(*args)
   end
@@ -230,7 +228,6 @@ class DiceBot
     command.sub(/[\s　].+/, '')
   end
 
-
   def rollDiceCommandCatched(command)
     result = nil
     begin
@@ -248,7 +245,6 @@ class DiceBot
   def rollDiceCommand(command)
     nil
   end
-
 
   def setDiceText(diceText)
     debug("setDiceText diceText", diceText)
@@ -283,7 +279,6 @@ class DiceBot
     ''
   end
 
-
   def get_table_by_2d6(table)
     get_table_by_nD6(table, 2)
   end
@@ -302,9 +297,9 @@ class DiceBot
     text = getTableValue(table[num - count])
 
     return '1', 0  if( text.nil? )
+
     return text, num
   end
-
 
   def get_table_by_1d3(table)
     debug("get_table_by_1d3")
@@ -319,6 +314,7 @@ class DiceBot
     text = table[index]
 
     return '1', 0  if( text.nil? )
+
     return text, num
   end
 
@@ -345,10 +341,9 @@ class DiceBot
     indexText = "#{dice1}#{dice2}"
 
     return '1', indexText  if( text.nil? )
+
     return text, indexText
   end
-
-
 
   #ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
   def getDiceRolledAdditionalText(n1, n_max, dice_max)
@@ -416,7 +411,6 @@ class DiceBot
     return diceList
   end
 
-
   #** 汎用表サブルーチン
   def get_table_by_number(index, table, default = '1')
     table.each do |item|
@@ -437,10 +431,7 @@ class DiceBot
     return data
   end
 
-
-
   def analyzeDiceCommandResultMethod(command)
-
     # get～DiceCommandResultという名前のメソッドを集めて実行、
     # 結果がnil以外の場合それを返して終了。
     methodList = public_methods(false).select do |method|
@@ -455,7 +446,6 @@ class DiceBot
     return nil
   end
 
-
   def get_table_by_nDx_extratable(table, count, diceType)
     number, diceText = roll(count, diceType)
     text = getTableValue(table[number - count])
@@ -463,7 +453,6 @@ class DiceBot
   end
 
   def getTableCommandResult(command, tables, isPrintDiceText = true)
-
     info = tables[command]
     return nil if info.nil?
 
@@ -474,7 +463,6 @@ class DiceBot
     if type == 'D66' and @d66Type == 2
       type = 'D66S'
     end
-
 
     text, number, diceText =
       case type
@@ -507,6 +495,7 @@ class DiceBot
     return nil if( text.nil? )
 
     return "#{name}(#{number}[#{diceText}]) ＞ #{text}" if isPrintDiceText and (not diceText.nil?)
+
     return "#{name}(#{number}) ＞ #{text}"
   end
 
@@ -531,5 +520,4 @@ class DiceBot
 
     return newTable
   end
-
 end

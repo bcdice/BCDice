@@ -84,6 +84,7 @@ MESSAGETEXT
     return '' if(difficulty.nil?)
 
     return " ＞ 成功" if(total >= difficulty)
+
     return " ＞ 失敗"
   end
 
@@ -144,7 +145,7 @@ debug('yearText', yearText)
       number = 0
 
       dice6Count.times do |i|
-      number *= 10
+        number *= 10
         dice, = roll(1, 6)
         number += dice
       end
@@ -255,7 +256,6 @@ debug('yearText', yearText)
   end
 
   def getTableDiceCommandResult(command)
-
     info = @@tables[command]
     return nil if info.nil?
 

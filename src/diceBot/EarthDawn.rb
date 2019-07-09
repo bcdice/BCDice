@@ -32,14 +32,12 @@ INFO_MESSAGE_TEXT
 
   #アースドーンステップ表
   def ed_step(str)
-
     output = getStepResult(str)
 
     return output
   end
 
   def getStepResult(str)
-
     return nil unless( /(\d+)E(\d+)?(\+)?(\d+)?(d\d+)?/i =~ str)
 
     stepTotal = 0
@@ -54,7 +52,7 @@ INFO_MESSAGE_TEXT
 
     #空値があった時の為のばんぺいくんRX
     if(step > 40)
-        step2 = step
+      step2 = step
         step = 40
     end
 
@@ -154,7 +152,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getStepTable
-
     #表      1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 34x 3x 4x 5x 6x 7x 8x 9x10x11x12x13x
 
     mod = [-2,-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]

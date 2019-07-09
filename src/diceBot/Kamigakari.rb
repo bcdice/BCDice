@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class Kamigakari < DiceBot
-
   def initialize
     super
     @sendMode = 2
@@ -236,7 +235,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getPrice(effect)
-
     power = 0
 
     case effect
@@ -396,5 +394,4 @@ TABLE_TEXT_END
   }
 
   setPrefixes(['RT', 'MT(\d*)'] + @@tables.keys)
-
 end

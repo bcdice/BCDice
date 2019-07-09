@@ -3,7 +3,6 @@
 require 'diceBot/DungeonsAndDoragons'
 
 class Pathfinder < DungeonsAndDoragons
-
   def initialize
     super
   end
@@ -21,5 +20,4 @@ class Pathfinder < DungeonsAndDoragons
 ※このダイスボットは部屋のシステム名表示用となります。
 MESSAGETEXT
   end
-
 end

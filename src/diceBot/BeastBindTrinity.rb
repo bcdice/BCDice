@@ -17,6 +17,7 @@ class BeastBindTrinity < DiceBot
     @sortType = 0
     @d66Type = 2
   end
+
   def gameName
     'ビーストバインド トリニティ'
   end

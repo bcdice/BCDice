@@ -8,9 +8,7 @@ require 'BCDice_forTest'
 
 $isDebug = false
 
-
 class TestPointer < Test::Unit::TestCase
-
   def setup
     $isDebug = false
     $isRollVoidDiceAtAnyRecive = false
@@ -107,7 +105,6 @@ class TestPointer < Test::Unit::TestCase
     execute("#OPEN!")
     assert_equal( "TEST_NICK(1/1) テスト(1/1)", getResultCutHeaderSendMessageToTestChannel )
 
-
     execute("#RENAME!テスト->テストb")
     assert_equal( "test_nick: テスト->テストB", getResultCutHeaderSendMessageToTestChannel )
 
@@ -127,5 +124,4 @@ class TestPointer < Test::Unit::TestCase
     execute(text)
     assert_equal( "", @bcdice.getResult())
   end
-
 end

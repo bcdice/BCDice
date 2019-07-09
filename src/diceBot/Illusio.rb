@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class Illusio < DiceBot
-
   def initialize
     super
     @sortType = 1 #ダイスのソート有
@@ -35,9 +34,7 @@ class Illusio < DiceBot
 MESSAGETEXT
   end
 
-
   def rollDiceCommand(command)
-
     if /(\d+)?IL([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?(P)?$/i === command
       diceCount = ($1 || 1).to_i
       blockNo = [($2 || 0).to_i, ($3 || 0).to_i, ($4 || 0).to_i, ($5 || 0).to_i, ($6 || 0).to_i, ($7 || 0).to_i]
@@ -51,7 +48,6 @@ MESSAGETEXT
 
     return nil
   end
-
 
   def checkRoll(diceCount, blockNo, isParry)
     dice, diceText = roll(diceCount, 6, @sortTye)
@@ -86,5 +82,4 @@ MESSAGETEXT
 
     return result
   end
-
 end

@@ -11,7 +11,6 @@ require 'socket.so'
 require 'encode.rb'
 
 class Net::IRC::Client
-
   # Connect to server and start loop.
   def start
     @log.debug "start begin";
@@ -45,6 +44,7 @@ class Net::IRC::Client
           @log.debug "RECEIVE: #{l.chomp}"
           m = Message.parse(l)
           next if on_message(m) === true
+
           name = "on_#{(COMMANDS[m.command.upcase] || m.command).downcase}"
           @log.debug "calling... on_xxx : #{name}";
           send(name, m) if respond_to?(name)
@@ -62,5 +62,4 @@ class Net::IRC::Client
   ensure
     finish
   end
-
 end

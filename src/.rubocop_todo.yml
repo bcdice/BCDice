@@ -92,54 +92,6 @@ Layout/ElseAlignment:
     - 'diceBot/LogHorizon_Korean.rb'
     - 'diceBot/WorldOfDarkness.rb'
 
-# Offense count: 108
-# Cop supports --auto-correct.
-Layout/EmptyLineAfterGuardClause:
-  Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Layout/EmptyLineAfterMagicComment:
-  Exclude:
-    - 'diceBot/GurpsFW.rb'
-
-# Offense count: 285
-# Cop supports --auto-correct.
-# Configuration parameters: AllowAdjacentOneLineDefs, NumberOfEmptyLines.
-Layout/EmptyLineBetweenDefs:
-  Enabled: false
-
-# Offense count: 55
-# Cop supports --auto-correct.
-Layout/EmptyLines:
-  Enabled: false
-
-# Offense count: 13
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, no_empty_lines
-Layout/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'diceBot/Cthulhu7th.rb'
-    - 'diceBot/Cthulhu7th_ChineseTraditional.rb'
-    - 'diceBot/Cthulhu7th_Korean.rb'
-    - 'diceBot/DiceOfTheDead.rb'
-    - 'diceBot/HuntersMoon.rb'
-    - 'diceBot/Satasupe.rb'
-    - 'diceBot/Skynauts.rb'
-
-# Offense count: 43
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
-Layout/EmptyLinesAroundClassBody:
-  Enabled: false
-
-# Offense count: 221
-# Cop supports --auto-correct.
-Layout/EmptyLinesAroundMethodBody:
-  Enabled: false
-
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleAlignWith, AutoCorrect, Severity.
@@ -188,24 +140,11 @@ Layout/IndentFirstArrayElement:
 Layout/IndentFirstHashElement:
   Enabled: false
 
-# Offense count: 423
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: squiggly, active_support, powerpack, unindent
-Layout/IndentHeredoc:
-  Enabled: false
-
 # Offense count: 241
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: normal, rails
 Layout/IndentationConsistency:
-  Enabled: false
-
-# Offense count: 270
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
   Enabled: false
 
 # Offense count: 820

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class IthaWenUa < DiceBot
-
   def initialize
     super
   end
@@ -47,7 +46,5 @@ MESSAGETEXT
       end
 
     end
-
   end
-
 end

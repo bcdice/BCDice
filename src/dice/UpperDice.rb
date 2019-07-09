@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
 
-
 class UpperDice
-
   def initialize(bcdice, diceBot)
     @bcdice = bcdice
     @diceBot = diceBot
     @nick_e = @bcdice.nick_e
   end
-
 
    # 上方無限型ダイスロール
   def rollDice(string)
@@ -105,7 +102,6 @@ class UpperDice
     return " ＞ #{maxValue}/#{totalValue}(最大/合計)"
   end
 
-
   def getAddRollUpperTarget(target1, target2)
     if( target1 )
       return target1.to_i
@@ -160,6 +156,4 @@ class UpperDice
 
     return totalDiceString, totalSuccessCount, totalDiceCount, maxDiceValue, totalValue
   end
-
-
 end

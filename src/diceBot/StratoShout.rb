@@ -62,7 +62,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-
     case command.upcase
     when 'VOT'
       title = 'ボーカルトラブル表(P167)'
@@ -251,7 +250,6 @@ INFO_MESSAGE_TEXT
     #   return textFromD66Table(title, table)
     end
 
-
     return nil
   end
 
@@ -313,7 +311,4 @@ INFO_MESSAGE_TEXT
 
     return "#{text} ＞ 《#{skill}／#{fieldName}#{number2}》"
   end
-
-
-
 end

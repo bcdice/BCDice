@@ -69,6 +69,7 @@ MESSAGETEXT
   def getTensionText(number1, number2)
     diff = (number1 - number2).abs
     return "" if diff == 0
+
     return "（テンション＋#{diff}）"
   end
 

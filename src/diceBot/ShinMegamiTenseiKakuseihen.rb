@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class ShinMegamiTenseiKakuseihen < DiceBot
-
   def initialize
     super
   end
@@ -21,7 +20,6 @@ class ShinMegamiTenseiKakuseihen < DiceBot
 威力ダイスは nU6[6] (nはダイス個数)でロール可能です。
 INFO_MESSAGE_TEXT
   end
-
 
   # ゲーム別成功度判定(1d100)
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
@@ -88,6 +86,4 @@ INFO_MESSAGE_TEXT
 
     return "失敗"
   end
-
-
 end

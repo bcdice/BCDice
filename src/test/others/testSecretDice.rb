@@ -8,9 +8,7 @@ require 'BCDice_forTest'
 
 $isDebug = false
 
-
 class TestSecretDice < Test::Unit::TestCase
-
   def setup
     $isDebug = false
     # $isRollVoidDiceAtAnyRecive = false
@@ -82,5 +80,4 @@ class TestSecretDice < Test::Unit::TestCase
   def trace
     $isDebug = true
   end
-
 end

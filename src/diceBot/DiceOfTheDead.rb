@@ -49,11 +49,9 @@ INFO_MESSAGE_TEXT
   end
 
   def checkInfection(roll_times)
-
     result = "感染度表"
 
     roll_times.times do
-
       d1, = roll(1, 6)
       d2, = roll(1, 6)
 
@@ -78,7 +76,6 @@ INFO_MESSAGE_TEXT
   # 各種表
 
   def rollZombie(value)
-
     d1, = roll(1, 6)
     d2, = roll(1, 6)
 

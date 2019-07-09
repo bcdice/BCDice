@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class BloodCrusade < DiceBot
-
   def initialize
     super
     @sendMode = 2
@@ -549,5 +548,4 @@ TABLE_TEXT_END
   }
 
   setPrefixes(['RT', 'ST', 'IST', 'BRT', 'CHT', 'SHT', 'DHT', 'LHT', 'EHT', 'AST', 'MIT', 'SIT'] + @@tables.keys)
-
 end

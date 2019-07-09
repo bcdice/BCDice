@@ -9,6 +9,7 @@ class Satasupe < DiceBot
     @sortType = 1
     @d66Type = 2
   end
+
   def gameName
     'サタスペ'
   end
@@ -184,7 +185,6 @@ INFO_MESSAGE_TEXT
       if(isCritical and isCriticalStop) #必殺止めの確認
         break
       end
-
     end
 
     return dice_str, total_suc, isCritical, isFumble
@@ -422,7 +422,6 @@ INFO_MESSAGE_TEXT
     baseParts += "  アクセサリ部品："
 
     counts.times do |i|
-
       number2 = d66(2)
       baseParts += get_table_by_number(number2, armsTable)
       partsEffect += get_table_by_number(number2, armsEffectTable)
@@ -463,7 +462,6 @@ INFO_MESSAGE_TEXT
       when 66
         abilities << "「爆発3」"
       end
-
     end
 
     result = []
@@ -583,7 +581,6 @@ INFO_MESSAGE_TEXT
   end
 
   def get2d6TableInfo(command)
-
     name = ""
     table = []
 

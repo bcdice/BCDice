@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 class PhantasmAdventure < DiceBot
-
   def initialize
     super
     @sendMode = 2;
   end
+
   def gameName
     'ファンタズムアドベンチャー'
   end
@@ -19,7 +19,6 @@ class PhantasmAdventure < DiceBot
 成功、失敗、決定的成功、決定的失敗の表示とクリティカル・ファンブル値計算の実装。
 INFO_MESSAGE_TEXT
   end
-
 
   # ゲーム別成功度判定(1d20)
   def check_1D20(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
@@ -67,6 +66,7 @@ INFO_MESSAGE_TEXT
       if(sendMode > 1)
         return " ＞ 決定的成功(#{dice_now}+#{skill_mod}=#{crit_num})";
       end
+
       return " ＞ 決定的成功(#{crit_num})";
 
     elsif(total_n <= diff)
@@ -74,7 +74,5 @@ INFO_MESSAGE_TEXT
     else
       return " ＞ 失敗";
     end
-
   end
-
 end

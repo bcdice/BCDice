@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class Arianrhod < DiceBot
-
   def initialize
     super
     @sendMode = 2
@@ -48,5 +47,4 @@ INFO_MESSAGE_TEXT
 
     return " ＞ 失敗"
   end
-
 end

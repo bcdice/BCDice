@@ -7,6 +7,7 @@ class Ryutama < DiceBot
     super
     @validDiceTypes = [20, 12, 10, 8, 6, 4, 2]
   end
+
   def gameName
     'りゅうたま'
   end
@@ -114,7 +115,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getDiffculty(difficulty)
-
     unless( difficulty.nil? )
       difficulty = difficulty.to_i
     end
@@ -189,6 +189,7 @@ INFO_MESSAGE_TEXT
     elsif( modify < 0 )
       return modify.to_s
     end
+
     return ''
   end
 end

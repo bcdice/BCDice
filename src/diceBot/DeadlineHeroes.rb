@@ -36,7 +36,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-
     case command
     when /^DLH(\d+([\+\-]\d+)*)/i
       expressions = $1
@@ -79,7 +78,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollJudge(expressions)
-
     target = parren_killer("(" + expressions + ")").to_i
     target = 100 if target > 100
     target = 0 if target < 0
@@ -142,6 +140,7 @@ INFO_MESSAGE_TEXT
 
   def getDeathChartByName(chartName)
     return {} unless @@deathCharts.has_key? chartName
+
     return @@deathCharts[chartName]
   end
 
@@ -208,6 +207,7 @@ INFO_MESSAGE_TEXT
     columns.each_with_index do |title, i|
       text = elements[i]
       next if text.nil?
+
       nameTextList << "#{title}: #{text}"
     end
 
@@ -218,6 +218,7 @@ INFO_MESSAGE_TEXT
 
   def getRealNameChartByName(chartName)
     return {} unless @@realNameCharts.has_key? chartName
+
     return @@realNameCharts[chartName]
   end
 
@@ -263,7 +264,6 @@ INFO_MESSAGE_TEXT
   }
 
   def rollHeroNameTemplateChart()
-
     chart = getHeroNameTemplateChart()
     return nil if chart.nil?
 
@@ -308,7 +308,7 @@ INFO_MESSAGE_TEXT
     result[:coreResult] = result[:result]
 
     if result[:result] =~ /［(.+)］/
-        innerResult = rollHeroNameElementChart($1.to_s)
+      innerResult = rollHeroNameElementChart($1.to_s)
       result[:innerResult] = innerResult
       result[:innerChartName] = innerResult[:chartName]
       result[:coreResult] = innerResult[:name]
@@ -319,7 +319,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollHeroNameElementChart(chartName)
-
     chart = getHeroNameElementChartByName(chartName.sub("/", "／"))
     return nil if chart.nil?
 

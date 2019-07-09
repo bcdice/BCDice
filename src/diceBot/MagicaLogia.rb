@@ -53,7 +53,6 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
     return '' unless(signOfInequality == ">=")
@@ -487,6 +486,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
+
   #精神的災厄
   def magicalogia_mental_fortune_change_table
     table = [
@@ -793,6 +793,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_2d6(table)
   end
+
   # 大判シーン表
   def magicalogia_new_scene_table
     table = [
@@ -811,6 +812,7 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_2d6(table)
   end
+
   # 指定特技（星）
   def magicalogia_random_skill_star_table
     table = [
@@ -819,6 +821,7 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_2d6(table)
   end
+
   # 指定特技（獣）
   def magicalogia_random_skill_beast_table
     table = [
@@ -827,6 +830,7 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_2d6(table)
   end
+
   # 指定特技（力）
   def magicalogia_random_skill_force_table
     table = [
@@ -835,6 +839,7 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_2d6(table)
   end
+
   # 指定特技（歌）
   def magicalogia_random_skill_poem_table
     table = [
@@ -843,12 +848,14 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_2d6(table)
   end
+
   # 指定特技（夢）
   def magicalogia_random_skill_dream_table
     table = ['追憶', '謎', '嘘', '不安', '眠り', '偶然', '幻', '狂気', '祈り', '希望', '未来']
 
     return get_table_by_2d6(table)
   end
+
   # 指定特技（闇）
   def magicalogia_random_skill_night_table
     table = [
@@ -857,37 +864,42 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_2d6(table)
   end
+
     #特技だけ抜きたい時用(星) あまりきれいでない
   def magicalogia_random_skill_table_text_only_star
     text, = magicalogia_random_skill_star_table
     return text
   end
+
     #特技だけ抜きたい時用(獣) あまりきれいでない
   def magicalogia_random_skill_table_text_only_beast
     text, = magicalogia_random_skill_beast_table
     return text
   end
+
     #特技だけ抜きたい時用(力) あまりきれいでない
   def magicalogia_random_skill_table_text_only_force
     text, = magicalogia_random_skill_force_table
     return text
   end
+
     #特技だけ抜きたい時用(歌) あまりきれいでない
   def magicalogia_random_skill_table_text_only_poem
     text, = magicalogia_random_skill_poem_table
     return text
   end
+
     #特技だけ抜きたい時用(夢) あまりきれいでない
   def magicalogia_random_skill_table_text_only_dream
     text, = magicalogia_random_skill_dream_table
     return text
   end
+
     #特技だけ抜きたい時用(闇) あまりきれいでない
   def magicalogia_random_skill_table_text_only_night
     text, = magicalogia_random_skill_night_table
     return text
   end
-
 
   #魔法使いの災厄
   def magicalogia_magi_fortune_change_table
@@ -901,6 +913,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
+
   # 魔法書架シーン表
   def magicalogia_magic_bookshelf_scene_table
     table = [
@@ -919,6 +932,7 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_2d6(table)
   end
+
   # 魔法学園シーン表
   def magicalogia_magic_academy_scene_table
     table = [
@@ -937,6 +951,7 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_2d6(table)
   end
+
   # クレドの塔シーン表
   def magicalogia_tower_credo_scene_table
     table = [
@@ -974,6 +989,7 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_2d6(table)
   end
+
   # 終末シーン表
   def magicalogia_post_apocalypse_scene_table
     table = [
@@ -1011,6 +1027,7 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_2d6(table)
   end
+
   # ほしかげシーン表
   def magicalogia_starlight_scene_table
     table = [
@@ -1029,6 +1046,7 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_2d6(table)
   end
+
   #世界法則追加表
   def magicalogia_world_low_add_table
     table = [
@@ -1041,6 +1059,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
+
   #さまよう怪物表
   def magicalogia_wondaring_monster_table
     table = [
@@ -1053,6 +1072,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
+
   #落花表
   def magicalogia_fallen_flower_table
     table = [
@@ -1065,6 +1085,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
+
   # 旧図書館シーン表
   def magicalogia_old_library_scene_table
     table = [
@@ -1082,6 +1103,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_2d6(table)
   end
+
   #大判時の流れ表
   def magicalogia_new_time_passage_table
     table = [
@@ -1094,6 +1116,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
+
   # その後表
   def magicalogia_fallen_after_table_low
     table = [
@@ -1106,6 +1129,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
+
   def magicalogia_fallen_after_table_high
     table = [
              '成就者は、突如自分に訪れた幸運に罪悪感を覚えるようになる。もし成就者の【堕落値】が1点以上だった場合、堕落チェックを行う。堕落チェックに失敗した場合、「運命変転表『精神的災厄』」を使用し、その不幸を受ける。',
@@ -1117,6 +1141,7 @@ INFO_MESSAGE_TEXT
             ]
     return get_table_by_1d6(table)
   end
+
   def magicalogia_fallen_after_table
     outtext = ""
     outnum = ''
@@ -1131,5 +1156,4 @@ INFO_MESSAGE_TEXT
     outnum = "#{num},#{outnum}"
     return outtext, outnum
   end
-
 end

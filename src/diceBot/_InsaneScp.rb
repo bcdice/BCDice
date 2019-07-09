@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 class Insane < DiceBot
-
   def initialize
     super
     @sendMode = 2
     @sortType = 3
     @d66Type = 2
   end
+
   def gameName
     'インセイン'
   end
@@ -17,8 +17,8 @@ class Insane < DiceBot
   end
 
   def prefixes
-     ['ST', 'HJST', 'MTST', 'DVST', 'DT', 'BT', 'PT', 'FT', 'JT', 'BET', 'RTT', 'TVT', 'TET', 'TPT', 'TST', 'TKT', 'TMT',
-      'CHT', 'VHT', 'IHT', 'RHT', 'MHT', 'LHT', 'ECT','EMT','EAT','OPT','OHT','OWT','CNT1','CNT2','CNT3','RET', 'IRN']
+    ['ST', 'HJST', 'MTST', 'DVST', 'DT', 'BT', 'PT', 'FT', 'JT', 'BET', 'RTT', 'TVT', 'TET', 'TPT', 'TST', 'TKT', 'TMT',
+     'CHT', 'VHT', 'IHT', 'RHT', 'MHT', 'LHT', 'ECT','EMT','EAT','OPT','OHT','OWT','CNT1','CNT2','CNT3','RET', 'IRN']
   end
 
   def getHelpMessage
@@ -55,11 +55,9 @@ class Insane < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-
   def changeText(string)
     string
   end
-
 
   def dice_command_xRn(string, nick_e)
     ''
@@ -67,7 +65,6 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
     return '' unless(signOfInequality == ">=")
@@ -85,8 +82,6 @@ INFO_MESSAGE_TEXT
 
     return output
   end
-
-
 
   def rollDiceCommand(command)
     output = '1'
@@ -128,7 +123,7 @@ INFO_MESSAGE_TEXT
       type = 'ランダム特技決定表'
       output, total_n = get_random_skill_table
         when 'TVT'
-      type = '指定特技（暴力）表'
+          type = '指定特技（暴力）表'
       output, total_n = get_violence_skill_table
     when 'TET'
       type = '指定特技（情動）表'
@@ -164,13 +159,13 @@ INFO_MESSAGE_TEXT
       type = '情報潜在ホラースケープ表 '
       output, total_n = get_latence_horror_table
     when 'ECT'
-          type = '遭遇表・都市'
+      type = '遭遇表・都市'
        output, total_n = get_city_table
     when 'EMT'
-          type = '遭遇表・山林'
+      type = '遭遇表・山林'
        output, total_n = get_mountainforest_table
     when 'EAT'
-          type = '遭遇表・海辺'
+      type = '遭遇表・海辺'
        output, total_n = get_seaside_table
     when 'OHT'
       type = '残業ホラースケープ表 '
@@ -219,7 +214,6 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_2d6(table)
   end
-
 
   # 本当は怖い現代日本シーン表
   def get_horror_scene_table
@@ -335,7 +329,6 @@ INFO_MESSAGE_TEXT
     return get_table_by_d66_swap(table)
   end
 
-
   # 部位表
   def get_parts_table
     table = [
@@ -364,7 +357,6 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_d66_swap(table)
   end
-
 
   # 感情表
   def get_fortunechange_table
@@ -831,5 +823,4 @@ INFO_MESSAGE_TEXT
     end
     return output, total_n
   end
-
 end
