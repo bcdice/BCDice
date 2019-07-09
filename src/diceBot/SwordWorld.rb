@@ -8,6 +8,7 @@ class SwordWorld < DiceBot
     super()
     @rating_table = rating_table;
   end
+
   def gameName
     'ソードワールド'
   end
@@ -53,11 +54,9 @@ INFO_MESSAGE_TEXT
     return string
   end
 
-
   def getRatingCommandStrings
     "cmCM"
   end
-
 
   def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     if(dice_n >= 12)
@@ -102,6 +101,7 @@ INFO_MESSAGE_TEXT
     key, addValue = getKeyAndAddValueFromString(string)
 
     return '1' unless( key =~ /([\d]+)/ )
+
     key = $1.to_i
 
     # 2.0対応
@@ -181,7 +181,6 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-
   def getAdditionalString(string, output)
     values = {}
     return output, values
@@ -190,7 +189,6 @@ INFO_MESSAGE_TEXT
   def  getAdditionalDiceValue(dice, values)
     0
   end
-
 
   def getCriticalFromString(string)
     crit = 10
@@ -230,7 +228,6 @@ INFO_MESSAGE_TEXT
     rateUp = 0
     return rateUp, string
   end
-
 
   def getKeyAndAddValueFromString(string)
     key = nil
@@ -408,7 +405,6 @@ INFO_MESSAGE_TEXT
     dice, diceText = roll(2, 6)
     return dice, diceText
   end
-
 
   def getResultText(totalValue, addValue, diceResults, diceResultTotals,
                     rateResults, diceOnlyTotal, round, crit, limitLength)

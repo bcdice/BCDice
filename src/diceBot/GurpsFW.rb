@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # どどんとふ用 GURPS-FW オリジナルダイスボット
 # Last update 2013/11/07
 
@@ -332,6 +333,7 @@ INFO_MESSAGE_TEXT
       if(table == nil)
         return ""
       end
+
       result, number = get_table_by_nD6(table, 3);
       result = "#{dif}：#{result}";
 
@@ -360,6 +362,7 @@ INFO_MESSAGE_TEXT
       if(table == nil)
         return ""
       end
+
       result, number = get_table_by_1d6(table);
 
     when /RAND(E|N|H|L)(\d)?/
@@ -641,7 +644,6 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 
   #GURPS-FW ナンバーワンくじ
   def getLotResult(type)
-
   #ノーマルくじ表1
   def normal1
     table = [
@@ -655,6 +657,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
     result, = get_table_by_1d6(table)
     return result
   end
+
   #ノーマルくじ表2
   def normal2
     table = [
@@ -668,6 +671,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
     result, = get_table_by_1d6(table)
     return result
   end
+
   #ノーマルくじ表3
   def normal3
     table = [
@@ -681,6 +685,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
     result, = get_table_by_1d6(table)
     return result
   end
+
   #ノーマルくじ表4
   def normal4
     table = [
@@ -694,6 +699,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
     result, = get_table_by_1d6(table)
     return result
   end
+
   #ノーマルくじ表5
   def normal5
     table = [
@@ -721,6 +727,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
     result, = get_table_by_1d6(table)
     return result
   end
+
   #プレミアムくじ表2
   def premium2
     table = [
@@ -734,6 +741,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
     result, = get_table_by_1d6(table)
     return result
   end
+
   #プレミアムくじ表3
   def premium3
     table = [
@@ -747,6 +755,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
     result, = get_table_by_1d6(table)
     return result
   end
+
   #プレミアムくじ表4
   def premium4
     table = [
@@ -760,6 +769,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
     result, = get_table_by_1d6(table)
     return result
   end
+
   #プレミアムくじ表5
   def premium5
     table = [
@@ -773,6 +783,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
     result, = get_table_by_1d6(table)
     return result
   end
+
   #プレミアムくじ表6
   def premium6
     table = [
@@ -794,7 +805,6 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
   end
 
   return ""
-
   end
 
   #GURPS-FW 夢幻の迷宮財宝テーブル(ver.2013/05/03)
@@ -976,7 +986,6 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 
   #ランダムイベント表(ver.2013/11/07)
   def getRandomEvent(dice1, dice2, diff)
-
   case diff
     when "E"
       dif = "初級";

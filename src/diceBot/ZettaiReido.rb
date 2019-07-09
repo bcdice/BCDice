@@ -6,6 +6,7 @@ class ZettaiReido < DiceBot
   def initialize
     super
   end
+
   def gameName
     '絶対隷奴'
   end
@@ -123,7 +124,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getSuccessText(diceTotal, total, diff)
-
     if( diceTotal == 0 )
       return " ＞ クリティカル"
     end

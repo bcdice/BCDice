@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class KanColle < DiceBot
-
   def initialize
     super
     @sendMode = 2
@@ -178,7 +177,6 @@ INFO_MESSAGE_TEXT
     end
 
     return "#{type}(#{total_n}) ＞ #{output}"
-
   end
 
   # 感情表
@@ -1038,5 +1036,4 @@ TABLE_TEXT_END
     'DVT', 'DVTM', 'WP1T', 'WP2T', 'WP3T', 'WP4T', 'ITT', 'MHT', 'SNT', 'SPSNT',
     'KTM', 'BT', 'KHT', 'KMT', 'KST', 'KSYT', 'KKT', 'KSNT', 'SNZ', 'RNT'
   ] + @@tables.keys)
-
 end

@@ -92,7 +92,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckResult(command)
-
     output = ""
     broken_num = 0
     diff = 0
@@ -128,7 +127,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckResultText(total_n, diff, broken_num = 0)
-
     result = ""
     diff_special = 0
     fumble = false

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class Elysion < DiceBot
-
   def initialize
     super
     @d66Type = 2
@@ -177,12 +176,14 @@ MESSAGETEXT
 
   def getValue(string)
     return 0 if string.nil?
+
     return string.to_i
   end
 
   def getValueString(value)
     return "+#{value}" if value > 0
     return "-#{value}" if value < 0
+
     return ""
   end
 
@@ -190,11 +191,11 @@ MESSAGETEXT
     success = getSuccessRank(total)
 
     return " ＞ 失敗" if success == 0
+
     return getSuccessResult(success)
   end
 
   def getSuccessResult(success)
-
     result = " ＞ 成功度#{success}"
     result += " ＞ 大成功 《アウル》2点獲得" if success >= @@successMax
 
@@ -260,7 +261,6 @@ MESSAGETEXT
   end
 
   def getDateResult(type, number, pc1, pc2)
-
     name ,table = getDateTableByType(type)
     debug("getDateTable name", name)
 
@@ -272,7 +272,6 @@ MESSAGETEXT
   end
 
   def getDateTableByType(type)
-
     case type
     when nil
       return getDateTable()
@@ -858,7 +857,6 @@ MESSAGETEXT
   end
 
   def getBossEncount(level)
-
     name = "ボスキャラクター遭遇表"
     table = [
              [2, "剥奪天使（ｐ101）、イフリート（基本ｐ126）×PCと同じ数"],
@@ -1229,5 +1227,4 @@ TABLE_TEXT_END
     'SRT', 'ORT', 'DRT', 'URT',
     'NJ\d+', 'BS\d+'
   ] + @@tables.keys)
-
 end

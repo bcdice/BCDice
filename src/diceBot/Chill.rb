@@ -27,6 +27,7 @@ INFO_MESSAGE_TEXT
     return " ＞ Ｌ成功" if(total_n >= (diff * 0.9))
     return " ＞ Ｍ成功" if(total_n >= (diff / 2))
     return " ＞ Ｈ成功" if(total_n >= (diff / 10))
+
     return " ＞ Ｃ成功"
   end
 

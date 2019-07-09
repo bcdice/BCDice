@@ -162,7 +162,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-
     case command.upcase
     when /^([1-7]*)PD(\d+)([\+\-]\d+)?$/
       counts = $2.to_i
@@ -2138,6 +2137,7 @@ INFO_MESSAGE_TEXT
         skill = getSkillList()
         text += "\n#{skill}"
         break unless skill.include?("신장") or skill.include?(category) or skill.include?("출신")
+
         text += " ＞ 振り直し"
       end
     end

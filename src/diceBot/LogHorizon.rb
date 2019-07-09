@@ -70,7 +70,6 @@ MESSAGETEXT
   end
 
   def getCheckRollDiceCommandResult(command)
-
     return nil unless(/(\d+)LH([\+\-\d]*)(>=([\+\-\d]*))?/i === command)
 
     diceCount = $1.to_i
@@ -106,7 +105,6 @@ MESSAGETEXT
     end
 
     return result
-
   end
 
   #成否判定
@@ -136,7 +134,6 @@ MESSAGETEXT
 
   #消耗表
   def getConsumptionDiceCommandResult( command )
-
     return nil unless(/(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command)
 
     type = $1
@@ -515,7 +512,6 @@ MESSAGETEXT
 
   #財宝表
   def getTresureDiceCommandResult(command)
-
     return nil unless(m = /(C|M|I|O|H|G)TRS(\d*)([\+\-\d]*)(\$)?/.match(command))
 
     type = m[1]
@@ -1394,7 +1390,6 @@ MESSAGETEXT
 
   #パーソナリティタグ表
   def getPersonalityTagDiceCommandResult(command)
-
     return nil unless("PTAG" === command)
 
     tableName = "パーソナリティタグ表"
@@ -1450,7 +1445,6 @@ MESSAGETEXT
 
   #交友表
   def getFriendlyChartDiceCommandResult(command)
-
     return nil unless("KOYU" === command)
 
     tableName = "交友表"
@@ -1502,12 +1496,10 @@ MESSAGETEXT
 
     text = "#{tableName}([#{number}]) ＞ #{result}"
     return text
-
   end
 
   #プレフィックスドマジックアイテム表
   def getPrefixedMagickItemDiceCommandResult(command)
-
     return nil unless(/MGR([1-3])/ === command)
 
     rank = $1.to_i
@@ -1663,12 +1655,10 @@ MESSAGETEXT
 
     text = "#{tableName}([#{number}]) ＞ #{result}"
     return text
-
   end
 
   #攻撃命中箇所ランダム決定表
   def getHitLocationDiceCommandResult(command)
-
     return nil unless("HLOC" === command)
 
     tableName = "攻撃命中箇所"
@@ -1721,7 +1711,6 @@ MESSAGETEXT
 
   #PC名ランダム決定表
   def getPCNameDiceCommandResult(command)
-
     return nil unless("PCNM" === command)
 
     tableName = "PC名"
@@ -1776,7 +1765,6 @@ MESSAGETEXT
 
   #ロデ研の新発明ランダム決定表
   def getInventionAttributeTextDiceCommandResult(command)
-
     return nil unless(/IAT([ABMDLT]*)/ === command)
 
     tableName = "ロデ研の新発明"
@@ -1835,7 +1823,6 @@ MESSAGETEXT
 
   #アキバの街で遭遇するトラブルランダム決定表
   def getTroubleInAkibaStreetDiceCommandResult(command)
-
     return nil unless command === "TIAS"
 
     tableName = "アキバの街で遭遇するトラブル"
@@ -1887,7 +1874,6 @@ MESSAGETEXT
 
   #廃棄児ランダム決定表
   def getAbandonedChildDiceCommandResult(command)
-
     return nil unless command === "ABDC"
 
     tableName = "廃棄児"
@@ -1956,12 +1942,14 @@ MESSAGETEXT
   #楽器種別表
   def getMusicalInstrumentTypeDiceCommandResult(command)
     return nil unless(/MII(\d?)/ === command)
+
      type, is_roll = if $1 && $1 != ''
       [$1.to_i, false]
     else
       roll(1, 6)
     end
     return nil if type < 1 || 6 < type
+
     tableName = "楽器種別表"
     type_name = ['打楽器１', '鍵盤楽器', '弦楽器１', '弦楽器２', '管楽器１', '管楽器２'][type - 1]
 

@@ -31,7 +31,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     output =
       case command.upcase
 
@@ -50,7 +49,6 @@ MESSAGETEXT
   end
 
   def getCheckResult(command)
-
       output = ""
       diff = 0
 
@@ -113,7 +111,6 @@ MESSAGETEXT
     ]
     return get_1d10_table_result(name, table)
   end
-
 
   def get_1d10_table_result(name, table)
     dice, = roll(1, 10)

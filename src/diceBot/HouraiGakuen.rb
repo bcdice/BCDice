@@ -62,7 +62,6 @@ INFO_MESSAGE_TEXT
 
   #基本ロール
   def getRollResult(command)
-
     return nil unless(/rol([-\d]+)/i =~ command)
 
     # 目標値セット
@@ -76,7 +75,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckResult(diceText, total, target)
-
     diceList = getDiceListFromText(diceText)
 
     if isFamble( diceList )
@@ -109,7 +107,6 @@ INFO_MESSAGE_TEXT
 
   #対人ロール
   def getMedResult(command)
-
     return nil unless(/med\((\d+),(\d+)\)/i =~ command)
 
     yourValue = $1.to_i # あなたの値
@@ -120,7 +117,6 @@ INFO_MESSAGE_TEXT
     result = getCheckResult(diceText, total, target)
 
     return "(あなたの値#{yourValue}、相手の値#{enemyValue}、3d6<=#{target}) ＞ 出目#{diceText}＝合計#{total} ＞ #{result}"
-
   end
 
   def getTargetFromValue(yourValue, enemyValue)
@@ -129,7 +125,6 @@ INFO_MESSAGE_TEXT
 
   #対抗ロール
   def getResResult(command)
-
     return nil unless(/res\((\d+),(\d+)\)/i =~ command)
 
     yourValue = $1.to_i # あなたの値
@@ -154,7 +149,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getResistCheckResult(yourResult, enemyResult)
-
     yourRank = getResultRank(yourResult)
     enemyRank = getResultRank(enemyResult)
 
@@ -182,7 +176,6 @@ INFO_MESSAGE_TEXT
 
   #陰陽コマンド
   def getInnyouResult(command)
-
     oddCount = 0
     evenCount = 0
 
@@ -201,12 +194,10 @@ INFO_MESSAGE_TEXT
     else
       return "陰（偶数の方が多い）"
     end
-
   end
 
   #八徳コマンド
   def getHattokuResult(command)
-
     # 3回振って、奇数・偶数がどの順序で出たかを記録する
     oddEvenList = []
     3.times do
@@ -235,13 +226,13 @@ INFO_MESSAGE_TEXT
     else
       return "異常終了"
     end
-
   end
 
   def getOddEven
     dice, = roll(1,6)
 
     return "偶数" if (dice % 2) == 0
+
     return "奇数"
   end
 

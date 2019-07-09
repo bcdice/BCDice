@@ -84,6 +84,7 @@ MESSAGETEXT
     return '' if(difficulty.nil?)
 
     return " ＞ 成功" if(total >= difficulty)
+
     return " ＞ 失敗"
   end
 
@@ -255,7 +256,6 @@ debug('yearText', yearText)
   end
 
   def getTableDiceCommandResult(command)
-
     info = @@tables[command]
     return nil if info.nil?
 

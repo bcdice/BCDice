@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class Chill3 < DiceBot
-
   def gameName
     'Chill 3'
   end
@@ -19,7 +18,6 @@ INFO_MESSAGE_TEXT
   end
 
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)     # ゲーム別成功度判定(1D100)
-
     return '' unless(signOfInequality == "<=")
 
     #ゾロ目ならC-ResultかBotch
@@ -35,6 +33,7 @@ INFO_MESSAGE_TEXT
         if(diff > 100)  # 目標値が100を超えている場合は、00を振ってもBotchにならない
           return " ＞ 失敗"
         end
+
         return " ＞ Botch"
       end
       return " ＞ Ｃ成功"
@@ -44,11 +43,10 @@ INFO_MESSAGE_TEXT
       if(total_n <= (diff / 2))
         return " ＞ Ｈ成功"
       end
+
       return " ＞ Ｌ成功"
     end
 
     return " ＞ 失敗"
   end
-
-
 end

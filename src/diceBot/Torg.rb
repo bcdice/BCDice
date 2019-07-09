@@ -183,7 +183,6 @@ INFO_MESSAGE_TEXT
 # 対人行為結果表
 # 威圧／威嚇(intimidate/Test)
   def get_torg_interaction_result_intimidate_test(value)
-
     interaction_results_table = [
         [0, "技能なし"],
         [5, "萎縮"],

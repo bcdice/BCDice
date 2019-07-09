@@ -67,8 +67,6 @@ class SwordWorld2_5 < SwordWorld2_0
 INFO_MESSAGE_TEXT
   end
 
-
-
   def changeText(string)
     return string unless( /(^|\s)[sS]?(K[\d]+)/i =~ string )
 
@@ -90,11 +88,9 @@ INFO_MESSAGE_TEXT
     return string
   end
 
-
   def getRatingCommandStrings
     super + "aA"
   end
-
 
   def getAdditionalString(string, output)
     output, values = super(string, output)
@@ -107,7 +103,6 @@ INFO_MESSAGE_TEXT
     return output, values
   end
 
-
   def getAdditionalDiceValue(dice, values)
     keptDiceChangeModify = values['keptDiceChangeModify'].to_i
 
@@ -116,7 +111,6 @@ INFO_MESSAGE_TEXT
 
     return value
   end
-
 
   def getKeptDiceChangesFromString(string)
     keptDiceChangeModify = 0
@@ -127,5 +121,4 @@ INFO_MESSAGE_TEXT
     end
     return keptDiceChangeModify, string
   end
-
 end

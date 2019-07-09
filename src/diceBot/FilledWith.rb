@@ -51,7 +51,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
   #ダイスロールコマンド
   result = checkRoll( command )
   return result unless( result.nil? )
@@ -167,7 +166,6 @@ MESSAGETEXT
   end
 
   def getAdjustNumber(number, table)
-
     min = table.first.first
   return min if(number < min)
 
@@ -192,7 +190,6 @@ MESSAGETEXT
 
   #マジカルクッキング
   def getCookResult(lv)
-
     def cook(lv, num)
     case lv
       when 1
@@ -295,12 +292,10 @@ MESSAGETEXT
     end
 
   return cook(lv, "")
-
   end
 
   #フィルトウィズナンバーワンくじ(GURPS-FW版)
   def getLotResult(type)
-
   #ノーマルくじ表
   def normal(phase, num)
     case phase
@@ -446,12 +441,12 @@ MESSAGETEXT
   end
 
   return ""
-
   end
 
   #夢幻の迷宮財宝表
   def getTresureResult(command)
     return nil unless(/TRS(\d+)([\+\-]\d)?/ === command)
+
   rank   = $1.to_i
   modify = $2.to_i
 
@@ -584,6 +579,7 @@ MESSAGETEXT
   #夢幻の迷宮トラップ表
   def getTrapResult(command)
     return nil unless( /TRAP(E|N|H|L)/ === command )
+
   dif = $1
   tableName = "トラップ表"
 
@@ -635,6 +631,7 @@ MESSAGETEXT
   #夢幻の迷宮追加オプション表
   def getRandomOptionResult(command)
   return nil unless(/ROP(E|N|H|L)/ === command)
+
   dif = $1
   tableName = "迷宮追加オプション表"
 
@@ -1559,7 +1556,5 @@ SLv3:ゴーレムアーム(装飾品)
   result = get_table_by_number(event, table)
 
   return "#{tableName}(#{number}):#{areaText}<#{difficultyText}>:#{result[difficulty]}"
-
   end
-
 end

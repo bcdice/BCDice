@@ -163,12 +163,14 @@ INFO_MESSAGE_TEXT
   def isCriticalCall(index, criticalCallDice)
     return false unless( @isBattleMode )
     return false if(criticalCallDice == 0)
+
     return (criticalCallDice == (index + 1))
   end
 
   def isNomalAttack(criticalCallDice, diceCount)
     return false unless( @isBattleMode )
     return false if(criticalCallDice != 0)
+
     return (diceCount > 1)
   end
 

@@ -42,7 +42,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     output =
       case command.upcase
 

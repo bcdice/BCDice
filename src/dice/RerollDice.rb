@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-
 class RerollDice
-
   def initialize(bcdice, diceBot)
     @bcdice = bcdice
     @diceBot = diceBot
@@ -11,7 +9,6 @@ class RerollDice
 
   ####################        個数振り足しダイス     ########################
   def rollDice(string)
-
     output = ''
 
     begin
@@ -111,7 +108,6 @@ class RerollDice
     return output
   end
 
-
   def reRollNextDice(next_roll, dice_max, signOfInequality, diff, rerollNumber)
     debug('rerollNumber Begin')
 
@@ -148,7 +144,6 @@ class RerollDice
 
     return output, round, successCount, dice_cnt_total
   end
-
 
   def getRerollNumber(rerollNumber_1, rerollNumber_2, judgeText, diff)
     if( rerollNumber_1 )
@@ -188,6 +183,4 @@ class RerollDice
       raiseErroForJudgeRule()
     end
   end
-
-
 end

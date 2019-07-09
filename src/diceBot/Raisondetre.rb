@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class Raisondetre < DiceBot
-
   def initialize
     super
     @sortType = 1 #ダイスのソート有
@@ -42,9 +41,7 @@ class Raisondetre < DiceBot
 MESSAGETEXT
   end
 
-
   def rollDiceCommand(command)
-
     if /(-)?(\d+)?RD(\d+)?(@(\d+))?$/i === command
       diceCount = ($2 || 1).to_i
       diceCount *= -1 if( !$1.nil? )
@@ -69,7 +66,6 @@ MESSAGETEXT
 
     return nil
   end
-
 
   def checkRoll(diceCount, choiceCount, target)
     if diceCount <= 0
@@ -166,5 +162,4 @@ MESSAGETEXT
 
     return result
   end
-
 end

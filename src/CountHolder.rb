@@ -4,9 +4,7 @@
 require 'log'
 require 'configBcDice.rb'
 
-
 class CountHolder
-
   def initialize(bcdice, countInfos)
     @bcdice = bcdice
     @countInfos = countInfos
@@ -55,7 +53,6 @@ class CountHolder
 
     return output, isSecret
   end
-
 
 #=========================================================================
 #**                       汎用ポイントカウンタ
@@ -138,7 +135,6 @@ class CountHolder
       return changeCount
     end
   end
-
 
   def setCount
     @countInfos[@channel] ||= {}
@@ -248,7 +244,6 @@ class CountHolder
 
     return output;
   end
-
 
   def getPointListAtSameNick(command, nick, channel, pointerMode, tag)
     debug("getPointListAtSameNick(command, nick, channel, pointerMode, tag)", command, nick, channel, pointerMode, tag)
@@ -373,6 +368,7 @@ class CountHolder
 
     return output
   end
+
 ####################          識別名の交換         ########################
   def rename_point_counter
     debug("rename_point_counter @command, @nick", @command, @nick)
@@ -396,7 +392,6 @@ class CountHolder
     output = "#{oldName}->#{newName}";   # 変更メッセージ
     return output;
   end
-
 
 ####################          その他の処理         ########################
 
@@ -424,7 +419,6 @@ class CountHolder
       cnt_list << data
     end
   end
-
 
   def sort_point_hash(base_hash)
     keys = base_hash.keys
@@ -457,8 +451,4 @@ class CountHolder
     end
     return 0, 0
   end
-
-
-
-
 end

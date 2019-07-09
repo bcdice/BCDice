@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class KurayamiCrying < DiceBot
-
   def initialize
     super
   end
@@ -37,7 +36,6 @@ MESSAGETEXT
     return result unless result.nil?
   end
 
-
   @@tables =
     {
 
@@ -61,5 +59,4 @@ TABLE_TEXT_END
   }
 
   setPrefixes(["ACT.*"] + @@tables.keys)
-
 end

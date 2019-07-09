@@ -10,6 +10,7 @@ class SwordWorld2_0 < SwordWorld
     super()
     @rating_table = rating_table;
   end
+
   def gameName
     'ソードワールド2.0'
   end
@@ -80,7 +81,6 @@ INFO_MESSAGE_TEXT
     end
   end
 
-
   def getRateUpFromString(string)
     rateUp = 0
 
@@ -94,9 +94,7 @@ INFO_MESSAGE_TEXT
     return rateUp, string
   end
 
-
   def getAdditionalString(string, output)
-
     output, values = super(string, output)
 
     isGratestFortune, string = getGratestFortuneFromString(string)
@@ -107,9 +105,7 @@ INFO_MESSAGE_TEXT
     return output, values
   end
 
-
   def rollDice(values)
-
     unless values['isGratestFortune']
       return super(values)
     end
@@ -121,7 +117,6 @@ INFO_MESSAGE_TEXT
 
     return dice, diceText
   end
-
 
   def getGratestFortuneFromString(string)
     isGratestFortune = false
@@ -136,11 +131,9 @@ INFO_MESSAGE_TEXT
     return isGratestFortune, string
   end
 
-
   def is2dCritical
     true
   end
-
 
   # SW2.0 の超成功用
   def check2dCritical(critical, dice_new, dice_arry, loop_count)
@@ -157,7 +150,6 @@ INFO_MESSAGE_TEXT
   end
 
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
-
     debug("check_nD6")
     result = super(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 

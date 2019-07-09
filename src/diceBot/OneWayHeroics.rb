@@ -135,6 +135,7 @@ MESSAGETEXT
     return "" if target.nil?
 
     return "成功" if total >= target
+
     return "失敗"
   end
 
@@ -145,6 +146,7 @@ MESSAGETEXT
       params = nil
       table.each do |data|
         break if data.first > dice
+
         params = data
       end
 
@@ -168,6 +170,7 @@ MESSAGETEXT
 
     text = rollDiceCommand(command)
     return " ＞ #{command} is NOT found." if text.nil?
+
     return " ＞ \n #{command} ＞ #{text}"
   end
 
@@ -200,6 +203,7 @@ MESSAGETEXT
 
   def getRandomEventDiceCommandResult(command)
     return nil unless /^RET(\d+)$/ === command
+
     day = $1.to_i
 
     name = "ランダムイベント表"
@@ -222,6 +226,7 @@ MESSAGETEXT
 
   def getRandomEventPlusDiceCommandResult(command)
     return nil unless /^RETP(\d+)$/ === command
+
     day = $1.to_i
 
     name = "ランダムイベント表プラス"
@@ -248,6 +253,7 @@ MESSAGETEXT
 
   def getDungeonTableDiceCommandResult(command)
     return nil unless /^DNGN(\d+)$/ === command
+
     day = $1.to_i
 
     name = "ダンジョン表"
@@ -275,6 +281,7 @@ MESSAGETEXT
 
   def getDungeonPlusTableDiceCommandResult(command)
     return nil unless /^DNGNP(\d+)$/ === command
+
     day = $1.to_i
 
     name = "ダンジョン表プラス"

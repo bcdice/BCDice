@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 class Insane < DiceBot
-
   def initialize
     super
     @sendMode = 2
     @sortType = 3
     @d66Type = 2
   end
+
   def gameName
     'インセイン'
   end
@@ -55,11 +55,9 @@ class Insane < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-
   def changeText(string)
     string
   end
-
 
   def dice_command_xRn(string, nick_e)
     ''
@@ -67,7 +65,6 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
     return '' unless(signOfInequality == ">=")
@@ -85,8 +82,6 @@ INFO_MESSAGE_TEXT
 
     return output
   end
-
-
 
   def rollDiceCommand(command)
     output = '1'
@@ -220,7 +215,6 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-
   # 本当は怖い現代日本シーン表
   def get_horror_scene_table
     table = [
@@ -335,7 +329,6 @@ INFO_MESSAGE_TEXT
     return get_table_by_d66_swap(table)
   end
 
-
   # 部位表
   def get_parts_table
     table = [
@@ -364,7 +357,6 @@ INFO_MESSAGE_TEXT
 
     return get_table_by_d66_swap(table)
   end
-
 
   # 感情表
   def get_fortunechange_table
@@ -831,5 +823,4 @@ INFO_MESSAGE_TEXT
     end
     return output, total_n
   end
-
 end

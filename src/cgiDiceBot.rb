@@ -8,7 +8,6 @@ end
 require 'bcdiceCore.rb'
 
 class CgiDiceBot
-
   def initialize
     @rollResult = ""
     @isSecret = false
@@ -156,9 +155,7 @@ class CgiDiceBot
   def sendMessageToChannels(message)
     @rollResult += message
   end
-
 end
-
 
 if( $0 === __FILE__ )
   bot = CgiDiceBot.new

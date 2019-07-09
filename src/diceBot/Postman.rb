@@ -47,7 +47,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     text =
       case command.upcase
 
@@ -176,5 +175,4 @@ MESSAGETEXT
     text = "#{name}(#{diceText}) ＞ #{dice}：#{tableText}"
     return text
   end
-
 end

@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-
 class AddDice
-
   def initialize(bcdice, diceBot)
     @bcdice = bcdice
     @diceBot = diceBot
@@ -100,7 +98,6 @@ class AddDice
       output += successText
     end
 
-
     #ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
     output += @diceBot.getDiceRolledAdditionalText(n1, n_max, dice_max)
 
@@ -111,8 +108,6 @@ class AddDice
     debug("AddDice.rollDice() end output", output)
     return output
   end
-
-
 
   def rollDiceAddingUp( string, isCheckSuccess = false)   # 加算ダイスロール(個別処理)
     debug("rollDiceAddingUp() begin string", string)
@@ -201,9 +196,7 @@ class AddDice
     return dice_total, dice_n, output, n1, n_max, dice_cnt_total, dice_max
   end
 
-
   def rollDiceAddingUpCommand(dice_count, dice_max, slashMark, double_check, isCheckSuccess, critical)
-
     result_dice_count = 0
     dice_now = 0
     n1_count = 0
@@ -262,7 +255,6 @@ class AddDice
     return dice_max, dice_now, output, n1_count, max_number, result_dice_count
   end
 
-
   def addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_arry, dice_wk)
     dice_num = dice_dat[1].split(/,/).collect{|s|s.to_i}
     dice_face = []
@@ -284,9 +276,7 @@ class AddDice
     end
   end
 
-
   def getSlashedDice(slashMark, dice)
-
     return dice unless( /^\/(\d+)(.)?$/i === slashMark )
 
     rate = $1.to_i
@@ -308,7 +298,6 @@ class AddDice
     return dice
   end
 
-
   def rollLocal(dice_wk, dice_max, sortType)
     if( dice_max == 66 )
       return rollD66(dice_wk)
@@ -318,7 +307,6 @@ class AddDice
   end
 
   def rollD66(count)
-
     d66List = []
 
     count.times do |i|
@@ -333,7 +321,6 @@ class AddDice
     result = [total, text, n1Count, nMaxCount, 0, 0, 0]
   end
 
-
   def marshalSignOfInequality(*arg)
     @bcdice.marshalSignOfInequality(*arg)
   end
@@ -341,6 +328,7 @@ class AddDice
   def getOperatorText(rate, output)
     return '-' if(rate < 0)
     return '' if(output.empty?)
+
     return "+"
   end
 

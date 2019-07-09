@@ -69,7 +69,6 @@ MESSAGETEXT
     ''
   end
 
-
   #以下のメソッドはテーブルの参照用に便利
   #get_table_by_2d6(table)
   #get_table_by_1d6(table)

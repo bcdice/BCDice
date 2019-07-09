@@ -28,7 +28,6 @@ require 'configBcDice.rb'
 # というデータフォーマットとなる。
 
 class TableFileData
-
   def initialize(isLoadCommonTable = true)
     @dirs = []
     @tableData = {}
@@ -41,6 +40,7 @@ class TableFileData
 
   def setDir(dir, prefix = '')
     return if( @dirs.include?(dir) )
+
     @dirs << dir
 
     tableData = searchTableFileDefine(dir, prefix)
@@ -168,6 +168,7 @@ class TableFileData
 
     @tableData.keys.each do |fileName|
       next unless(/.*_(.+)/ === fileName)
+
       key = $1
 
       next unless(/^(s|S)?#{key}(\s|$)/i === arg)
@@ -198,6 +199,7 @@ class TableFileData
     if( table.nil? )
         return newTable
     end
+
     table.each do |key, value|
       value = value.gsub(/\\n/, "\n")
       value = value.gsub(/\\\n/, "\\n")
@@ -209,6 +211,7 @@ class TableFileData
 
   def isTargetGameType(gameType, targetGameType)
     return true if( gameType.empty? )
+
     return ( gameType == targetGameType )
   end
 
@@ -264,7 +267,6 @@ class TableFileCreator
   end
 
   def getTableFileName(command = nil, gameType = nil)
-
     gameType = @params['gameType'] if( gameType.nil? )
     gameType ||= ''
     gameType = gameType.gsub(':', '_')
@@ -372,7 +374,6 @@ class TableFileEditer < TableFileCreator
   end
 
   def checkFileWhenFileNameChanged(fileName)
-
     originalCommand = @originalCommand
     originalCommand ||= @command
     originalGameType = @originalGameType

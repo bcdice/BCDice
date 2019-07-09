@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class BlindMythos < DiceBot
-
   def initialize
     super
   end
@@ -40,7 +39,6 @@ class BlindMythos < DiceBot
 MESSAGETEXT
   end
 
-
   def rollDiceCommand(command)
     debug("rollDiceCommand Begin")
 
@@ -51,7 +49,6 @@ MESSAGETEXT
     text, = reRoll(command, isStop)
     return text unless( text.nil? )
 
-
     text = getRulingPlanetDiceCommandResult(command)
     return text unless( text.nil? )
 
@@ -61,7 +58,6 @@ MESSAGETEXT
     text = getTableCommandResult(command, @@tables)
     return text
   end
-
 
   def judgeRoll(command)
     return nil unless( /^BM(S)?(\d*)(@(\d+))?>=(\d+)$/i =~ command )
@@ -84,11 +80,11 @@ MESSAGETEXT
     return message
   end
 
-
   def reRoll(command, isStop)
     debug("ReRoll Begin", command)
 
     return nil unless( /^ReRoll([\d,]+)(@(\d+))?>=(\d+)$/i =~ command )
+
     debug("ReRoll pass")
 
     rerollCountsText = $1
@@ -119,7 +115,6 @@ MESSAGETEXT
 
     return message, successList, countOneList, targetNumber
   end
-
 
   def getRollResult(rerollCounts, judgeNumberText, judgeNumber, targetNumber, isReRoll, isStop)
     bitList = []
@@ -191,7 +186,6 @@ MESSAGETEXT
   end
 
   def getTotalResultMessageText(bitList, successList, countOneList, targetNumber, isStop, canReRoll)
-
     success = successList.inject{|sum, i| sum + i}
     countOne = countOneList.inject{|sum, i| sum + i}
 
@@ -200,7 +194,6 @@ MESSAGETEXT
     if successList.size > 1
       result += "\n ＞ 最終成功数:#{success}"
     end
-
 
     if canReRoll and isStop
       result += "\n"
@@ -214,7 +207,6 @@ MESSAGETEXT
 
       return result
     end
-
 
     if success >= targetNumber
       result +=  " ＞ 成功"
@@ -231,7 +223,6 @@ MESSAGETEXT
     return result
   end
 
-
   def getSameDieList(diceList)
     sameDiceList = []
 
@@ -240,12 +231,12 @@ MESSAGETEXT
 
       list = diceList.find_all{|dice| dice == i}
       next if list.length <= 1
+
       sameDiceList << list
     end
 
     return sameDiceList
   end
-
 
   def getSuccessResultText(diceList, judgeNumber)
     success = 0
@@ -265,7 +256,6 @@ MESSAGETEXT
   end
 
   def getRulingPlanetDiceCommandResult(command)
-
     return nil unless /^RP(\d+)/i === command
 
     targetNumbers = $1.split(//).collect{|i|i.to_i}
@@ -300,9 +290,9 @@ MESSAGETEXT
 
   def changeRulingPlanetDice(dice)
     return 0 if dice == 10
+
     return dice
   end
-
 
   def getDurtyTableCommandReuslt(command)
     return nil unless( /^DT$/i =~ command )
@@ -352,7 +342,6 @@ __TABLE_END__
 
     return "汚染チャート(#{dice1},#{dice2}) ＞ #{table[index]}"
   end
-
 
   @@tables =
     {

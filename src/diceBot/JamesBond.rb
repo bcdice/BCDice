@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class JamesBond < DiceBot
-
   def gameName
     'ジェームズ・ボンド007'
   end
@@ -19,7 +18,6 @@ INFO_MESSAGE_TEXT
   end
 
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
-
     return '' unless(signOfInequality == "<=")
 
     if(total_n >= 100)   # 100は常に失敗
@@ -46,5 +44,4 @@ INFO_MESSAGE_TEXT
 
     return " ＞ 失敗"
   end
-
 end

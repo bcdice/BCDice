@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 
 class Airgetlamh < DiceBot
-
   def initialize
     super
     @sortType = 1 #ダイスのソート有
   end
-
 
   setPrefixes([
     ['(\d+)?A(A|L)(\d+)?((x|\*)(\d+)(\+(\d+))?)?(C(\d+))?']
@@ -50,9 +48,7 @@ class Airgetlamh < DiceBot
 MESSAGETEXT
   end
 
-
   def rollDiceCommand(command)
-
     # AA/ALコマンド：調査判定, 成功判定
     if /(\d+)?A(A|L)(\d+)?((x|\*)(\d+)(\+(\d+))?)?(C(\d+))?$/i === command
       diceCount = ($1 || 2).to_i
@@ -114,5 +110,4 @@ MESSAGETEXT
 
     return result
   end
-
 end

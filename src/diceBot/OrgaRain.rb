@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class OrgaRain < DiceBot
-
   def initialize
     super
     @sortType = 1 #ダイスのソート有
@@ -33,9 +32,7 @@ class OrgaRain < DiceBot
 MESSAGETEXT
   end
 
-
   def rollDiceCommand(command)
-
     if /(\d+)?OR([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?$/i === command
       diceCount = ($1 || 1).to_i
       countNo = [($2 || -1).to_i, ($3 || -1).to_i, ($4 || -1).to_i, ($5 || -1).to_i, ($6 || -1).to_i, ($7 || -1).to_i]
@@ -72,5 +69,4 @@ MESSAGETEXT
 
     return result
   end
-
 end

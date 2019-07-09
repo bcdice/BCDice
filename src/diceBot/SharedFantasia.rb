@@ -78,6 +78,5 @@ MESSAGETEXT
     end
 
     return resultString
-
   end
 end
