@@ -118,8 +118,8 @@ class TestPointer < Test::Unit::TestCase
   def getResultCutHeaderSendMessageToTestChannel
     text = @bcdice.getResult()
     text = text.toutf8
-    text.sub!(/^sendMessage\nto:test_channel\n/, '')
-    text.sub!(/\n\Z/, '')
+    text = text.sub(/^sendMessage\nto:test_channel\n/, '')
+    text = text.sub(/\n\Z/, '')
     return text
   end
 

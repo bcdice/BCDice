@@ -1629,7 +1629,7 @@ class BCDice
     string = $1
 
     #ex: --X => +X
-    string.gsub!(/\-\-/, '+')
+    string = string.gsub(/\-\-/, '+')
 
     debug("paren_k string", string )
     list = split_plus_minus(string)
