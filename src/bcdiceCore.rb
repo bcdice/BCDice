@@ -90,7 +90,7 @@ class BCDice
   # 設定コマンドのパターン
   SET_COMMAND_PATTERN = /\Aset\s+(.+)/i
 
-  VERSION = "2.03.00"
+  VERSION = "2.03.01"
 
   attr_reader :cardTrader
 
