@@ -165,7 +165,7 @@ INFO_MESSAGE_TEXT
     elsif(number <= fumble)
       result += "주사위 눈이	  펌블율 이하이므로 펌블!(판정 실패.【시청률】이 20%감소)"
     else
-       number += modify
+      number += modify
        if(number < target)
          result += "달성치#{number}、난이도미만이므로 판정 실패!"
        else
@@ -234,7 +234,7 @@ INFO_MESSAGE_TEXT
       tableName, result, number = getExtraTableResult(type)
 
     when /^SKL(T|J)$/
-    type = $1
+      type = $1
       tableName, result, number = getSkillTableResult(type)
 
     when "PCDT"

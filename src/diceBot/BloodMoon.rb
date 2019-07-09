@@ -64,7 +64,7 @@ INFO_MESSAGE_TEXT
     case command
 
      when 'ST'
-      type = 'シーン表'
+       type = 'シーン表'
       output, total_n = getSceneTable
     when 'IST'
       type = '先制判定指定特技表'

@@ -122,7 +122,7 @@ INFO_MESSAGE_TEXT
       type = 'ランダム特技決定表'
       output, total_n = get_random_skill_table
         when 'TVT'
-      type = '指定特技（暴力）表'
+          type = '指定特技（暴力）表'
       output, total_n = get_violence_skill_table
     when 'TET'
       type = '指定特技（情動）表'
@@ -158,13 +158,13 @@ INFO_MESSAGE_TEXT
       type = '情報潜在ホラースケープ表 '
       output, total_n = get_latence_horror_table
     when 'ECT'
-          type = '遭遇表・都市'
+      type = '遭遇表・都市'
        output, total_n = get_city_table
     when 'EMT'
-          type = '遭遇表・山林'
+      type = '遭遇表・山林'
        output, total_n = get_mountainforest_table
     when 'EAT'
-          type = '遭遇表・海辺'
+      type = '遭遇表・海辺'
        output, total_n = get_seaside_table
     when 'OHT'
       type = '残業ホラースケープ表 '

@@ -277,7 +277,7 @@ class CardTrader
       sendMessageToOnlySender(messageText);
 
     when /c-play(\d*)\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
-        playCardByCommandText(arg)
+      playCardByCommandText(arg)
 
     when /(c-rshuffle|c-rsh)($|\s)/
       output_msg = returnCards
@@ -301,10 +301,10 @@ class CardTrader
       transferCardsByCommandText(arg, sendTo)
 
     when /c-pick\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
-        pickupCardCommandText(arg)
+      pickupCardCommandText(arg)
             # FIXME
     when /c-back(\d)*\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
-        backCardCommandText(arg)
+      backCardCommandText(arg)
 
     when /c-deal(\[[\d]+\]|\s)\s*(#{$ircNickRegExp})($|\s)/
       count = $1
@@ -538,7 +538,7 @@ class CardTrader
 
   def backOneCard(targetCard, destination, place)
     if(getBurriedCard <= 0)
-        return '捨て札';    # 捨て札が無い
+      return '捨て札';    # 捨て札が無い
     end
 
     targetCard = targetCard.upcase

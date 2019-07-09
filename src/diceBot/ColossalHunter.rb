@@ -145,7 +145,7 @@ debug('yearText', yearText)
       number = 0
 
       dice6Count.times do |i|
-      number *= 10
+        number *= 10
         dice, = roll(1, 6)
         number += dice
       end

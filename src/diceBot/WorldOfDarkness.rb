@@ -45,11 +45,11 @@ INFO_MESSAGE_TEXT
     rerollNumber = 11
 
   if /STS/ =~ string
-        string = string.gsub(/(\d+)STS(\d*)([^\d\s][\+\-\d]+)/i) {"#{$1}STS#{$2}[#{$3}]"}
+    string = string.gsub(/(\d+)STS(\d*)([^\d\s][\+\-\d]+)/i) {"#{$1}STS#{$2}[#{$3}]"}
         string = string.gsub(/(\d+)STS(\d*)/i) {"#{$1}STS#{$2}"} unless $3
         rerollNumber = 10
     else
-        string = string.gsub(/(\d+)ST(\d*)([^\d\s][\+\-\d]+)/i) {"#{$1}ST#{$2}[#{$3}]"}
+      string = string.gsub(/(\d+)ST(\d*)([^\d\s][\+\-\d]+)/i) {"#{$1}ST#{$2}[#{$3}]"}
         string = string.gsub(/(\d+)ST(\d*)/i) {"#{$1}ST#{$2}"} unless $3
   end
 
@@ -86,20 +86,20 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceWorldOfDarknessSpecial(diceCount, difficulty, rerollNumber)
-  diceType = 10
+    diceType = 10
     diceResults = Array.new(diceCount)
 
     diceCount.times do |i|
-       dice_now, = roll(1, diceType)
+      dice_now, = roll(1, diceType)
 
        case dice_now
        when rerollNumber..12 then
-       @successDice += 1
+         @successDice += 1
            @rerollDice += 1
        when difficulty..11 then
-       @successDice += 1
+         @successDice += 1
        when 1 then
-       @successDice -= 1
+         @successDice -= 1
        @botchDice += 1
        end
 
@@ -110,7 +110,7 @@ INFO_MESSAGE_TEXT
 
   result = " ＞ "
     diceResults.each do |diceResult|
-       result += diceResult.to_s  + ','
+      result += diceResult.to_s  + ','
     end
 
   result = result.chop

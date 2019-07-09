@@ -85,7 +85,7 @@ INFO_MESSAGE_TEXT
     string += ':' + dice
 
     if( output.empty? )
-        return "1"
+      return "1"
     end
 
     output = "(#{string}) ＞ #{output}"
