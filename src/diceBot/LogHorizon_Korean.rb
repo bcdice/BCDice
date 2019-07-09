@@ -76,26 +76,26 @@ MESSAGETEXT
     modifyText = ($2 || '')
     difficultyText = $4
 
-	#修正値の計算
-	modify = getValue( modifyText, 0 )
+  #修正値の計算
+  modify = getValue( modifyText, 0 )
 
-	#目標値の計算
+  #目標値の計算
     difficulty = getValue( difficultyText, nil )
 
-	#ダイスロール
-	dice, dice_str = roll(diceCount, 6)
+  #ダイスロール
+  dice, dice_str = roll(diceCount, 6)
     diceList = dice_str.split(/,/).collect{|i|i.to_i}.sort
 
-	total = dice + modify
+  total = dice + modify
 
-	#出力用ダイスコマンドを生成
-	command =  "#{diceCount}LH#{modifyText}"
-	command += ">=#{difficulty}" unless(difficulty.nil?)
+  #出力用ダイスコマンドを生成
+  command =  "#{diceCount}LH#{modifyText}"
+  command += ">=#{difficulty}" unless(difficulty.nil?)
 
-	#출력문 생성
-	result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
+  #출력문 생성
+  result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
 
-	#クリティカル・ファンブルチェック
+  #クリティカル・ファンブルチェック
     if( isCritical(diceList) )
       result += " ＞ 크리티컬！"
     elsif( isFamble(diceList, diceCount) )
@@ -126,7 +126,7 @@ MESSAGETEXT
   end
 
   def isCritical(diceList)
-	(diceList.select{|i| i == 6 }.size >= 2)
+  (diceList.select{|i| i == 6 }.size >= 2)
   end
 
   def isFamble(diceList, diceCount)
@@ -322,10 +322,10 @@ MESSAGETEXT
   end
 
   def getTableByRank(rank, tables)
-	index = (rank - 1) / 5
+  index = (rank - 1) / 5
 
-	index = [0, index].max
-	index = [index, (tables.size - 1)].min
+  index = [0, index].max
+  index = [index, (tables.size - 1)].min
 
     return tables[index]
   end
@@ -357,11 +357,11 @@ MESSAGETEXT
 
     return nil unless(/(C|M|I|H|G)TRS(\d*)([\+\-\d]*)(\$)?/ === command)
 
-  	type = $1
-  	rank = $2.to_i
+    type = $1
+    rank = $2.to_i
     is_choice = ($2.empty? || (not $4.nil?))
-  	modifyText = $3
-  	modify = getValue(modifyText, 0)
+    modifyText = $3
+    modify = getValue(modifyText, 0)
     is_prize = ($4 == "$")
     dice_value = nil
     dice_value = '7' if is_prize
@@ -385,14 +385,14 @@ MESSAGETEXT
 
     return nil if table.nil?
 
-  	number, dice_str, =
+    number, dice_str, =
       if is_choice
         [dice_value.to_i, dice_value]
       else
         roll(2, 6)
       end
 
-  	number += (rank * (is_rank_enable ? 5 : 0)) + modify
+    number += (rank * (is_rank_enable ? 5 : 0)) + modify
 
     return command if is_choice and (number < getTableMinimum(table))
 
@@ -752,54 +752,54 @@ MESSAGETEXT
 
     return nil unless("PTAG" === command)
 
-	tableName = "퍼스널리티 태그"
-	table = [
-	         '[조숙]',
-	         '[호기심왕성]',
-	         '[외로움쟁이]',
-	         '[지극성실]',
-	         '[먹보]',
-	         '[개구쟁이]또는[말괄량이]',
+  tableName = "퍼스널리티 태그"
+  table = [
+           '[조숙]',
+           '[호기심왕성]',
+           '[외로움쟁이]',
+           '[지극성실]',
+           '[먹보]',
+           '[개구쟁이]또는[말괄량이]',
 
-	         '[사람좋음]',
-	         '[정열]',
-	         '[남챙겨주기]',
-	         '[이지적]',
-	         '[벽창호]',
-	         '[형님 기질]또는[누님 기질]',
+           '[사람좋음]',
+           '[정열]',
+           '[남챙겨주기]',
+           '[이지적]',
+           '[벽창호]',
+           '[형님 기질]또는[누님 기질]',
 
-	         '[의리투철]',
-	         '[변덕쟁이]',
-	         '[장인기질]',
-	         '[열혈한]',
-	         '[노력가]',
-	         '[남자밝힘]또는[여자밝힘]',
+           '[의리투철]',
+           '[변덕쟁이]',
+           '[장인기질]',
+           '[열혈한]',
+           '[노력가]',
+           '[남자밝힘]또는[여자밝힘]',
 
-	         '[가정적]',
-	         '[호승심]',
-	         '[순진]',
-	         '[무뚝뚝이]',
-	         '[자비로움]',
-	         '[마이페이스]',
+           '[가정적]',
+           '[호승심]',
+           '[순진]',
+           '[무뚝뚝이]',
+           '[자비로움]',
+           '[마이페이스]',
 
-	         '[낙천가]',
-	         '[동료애]',
-	         '[자긍심]',
-	         '[사교적]',
-	         '[냉정침착]',
-	         '[로맨티스트]',
+           '[낙천가]',
+           '[동료애]',
+           '[자긍심]',
+           '[사교적]',
+           '[냉정침착]',
+           '[로맨티스트]',
 
-	         '[학구적]',
-	         '[내향적]',
-	         '[사서고생]',
-	         '[허영심]',
-	         '[용맹과감]',
-	         '[미스테리어스]',
-	        ]
+           '[학구적]',
+           '[내향적]',
+           '[사서고생]',
+           '[허영심]',
+           '[용맹과감]',
+           '[미스테리어스]',
+          ]
 
-	result, number = get_table_by_d66(table)
+  result, number = get_table_by_d66(table)
 
-	text = "#{tableName}(#{number})：#{result}"
+  text = "#{tableName}(#{number})：#{result}"
     return text
   end
 
@@ -810,7 +810,7 @@ MESSAGETEXT
 
     tableName = "교우표"
     table = [
-	         "교우대상에 대한 보호\n당신은 교우대상을 보호하고 싶다. 당신에게는 지켜줄수 있는 강함이 있다.",
+           "교우대상에 대한 보호\n당신은 교우대상을 보호하고 싶다. 당신에게는 지켜줄수 있는 강함이 있다.",
              "교우대상에 대한 친애\n당신은 교우대상에게 호감을 가지고 있다. 그 마음을 상대에게 전했을지 아닐지는 임의. ",
              "교우대상에 대한 의형제\n당신은 교우대상과 형제나 다름없는 사이다. 물론 피는 이어지지 않았지만 그런것은 사소한 일이다.",
              "교우대상의 영웅\n당신은 교우대상에게서 영웅시되고 있다. 설령 당신이 부정하더라도 상관 없다.",
@@ -1028,48 +1028,48 @@ MESSAGETEXT
 
     tableName = "공격명중장소"
     table = [
-	         '이마',
-	         '뺨',
-	         '코',
-	         '턱',
-	         '뒷통수',
-	         '목',
+           '이마',
+           '뺨',
+           '코',
+           '턱',
+           '뒷통수',
+           '목',
 
-	         '귀',
-	         '눈',
-	         '관자놀이',
-	         '팔',
-	         '팔꿈치',
-	         '손',
+           '귀',
+           '눈',
+           '관자놀이',
+           '팔',
+           '팔꿈치',
+           '손',
 
-	         '손가락',
-	         '심장',
-	         '위',
-	         '폐',
-	         '갈비',
-	         '어깨',
+           '손가락',
+           '심장',
+           '위',
+           '폐',
+           '갈비',
+           '어깨',
 
-	         '등',
-	         '옆구리',
-	         '허리',
-	         '아랫배',
-	         '허벅지',
-	         '목',
+           '등',
+           '옆구리',
+           '허리',
+           '아랫배',
+           '허벅지',
+           '목',
 
-	         '장딴지',
-	         '아킬레스건',
-	         '발 뒤꿈치',
-	         '정강이',
-	         '새끼 발가락',
-	         '무릅',
+           '장딴지',
+           '아킬레스건',
+           '발 뒤꿈치',
+           '정강이',
+           '새끼 발가락',
+           '무릅',
 
-	         '사회적 신용',
-	         '인간관계',
-	         '첫사랑의 추억',
-	         '완벽한 예측',
-	         '마음',
-	         '안경',
-	        ]
+           '사회적 신용',
+           '인간관계',
+           '첫사랑의 추억',
+           '완벽한 예측',
+           '마음',
+           '안경',
+          ]
     result, number = get_table_by_d66(table)
     "#{tableName}(#{number})：#{result}"
   end
@@ -1081,47 +1081,47 @@ MESSAGETEXT
 
     tableName = "PC名"
     table = [
-	         'Kuraudo',
-	         'Sefirosu',
-	         'Kirito',
-	         'Asuna',
-	         'Leeroy Jenkins',
-	         'Buront',
+           'Kuraudo',
+           'Sefirosu',
+           'Kirito',
+           'Asuna',
+           'Leeroy Jenkins',
+           'Buront',
 
-	         '의사양반',
-	         '거대도너츠',
-	         '이등병가민',
-	         '버섯대위',
-	         '∃@ㅏ이돌전도사E',
-	         '작업장',
+           '의사양반',
+           '거대도너츠',
+           '이등병가민',
+           '버섯대위',
+           '∃@ㅏ이돌전도사E',
+           '작업장',
 
-	         '크로울리',
-	         '다이테스',
-	         '타츠야',
-	         '미유키',
-	         '슬레인',
-	         '타카본씨',
+           '크로울리',
+           '다이테스',
+           '타츠야',
+           '미유키',
+           '슬레인',
+           '타카본씨',
 
-	         '흑의 연금술사',
-	         '†사랑의천사네코히메†',
-	         '데스★건',
-	         '卍칠흑의타천사卍',
-	         '광속의이명을가지고중력을자유자재로조종하는고귀한기사',
-	         '신세계†영걸살해자',
+           '흑의 연금술사',
+           '†사랑의천사네코히메†',
+           '데스★건',
+           '卍칠흑의타천사卍',
+           '광속의이명을가지고중력을자유자재로조종하는고귀한기사',
+           '신세계†영걸살해자',
 
-	         '로그호라',
-	         'ㄱㄱㄱㄱ',
-	         '창고',
-	         '은행',
-	         '보관',
-	         '위탁',
+           '로그호라',
+           'ㄱㄱㄱㄱ',
+           '창고',
+           '은행',
+           '보관',
+           '위탁',
 
-	         '사스케',
-	         '라파엘로',
-	         '도나텔로',
-	         '미켈란젤로',
-	         '센다이',
-	         '후지키도',
+           '사스케',
+           '라파엘로',
+           '도나텔로',
+           '미켈란젤로',
+           '센다이',
+           '후지키도',
             ]
 
     result, number = get_table_by_d66(table)

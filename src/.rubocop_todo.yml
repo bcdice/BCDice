@@ -421,12 +421,6 @@ Layout/SpaceInsideStringInterpolation:
     - 'diceBot/Torg.rb'
     - 'diceBot/Warhammer.rb'
 
-# Offense count: 3822
-# Cop supports --auto-correct.
-# Configuration parameters: IndentationWidth.
-Layout/Tab:
-  Enabled: false
-
 # Offense count: 1
 # Configuration parameters: AllowSafeAssignment.
 Lint/AssignmentInCondition:
@@ -1388,4 +1382,4 @@ Style/ZeroLengthPredicate:
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
 Metrics/LineLength:
-  Max: 446
+  Max: 451
