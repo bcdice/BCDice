@@ -289,10 +289,10 @@ class IrcClient < Net::IRC::Client
     index = 1
 
     message.chars do |ch|
-      result << ch
+      result += ch
 
       if( result.length > ($SEND_STR_MAX * index) )
-        result << "\n"
+        result += "\n"
         index += 1
       end
     end
