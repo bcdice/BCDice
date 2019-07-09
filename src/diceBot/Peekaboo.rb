@@ -10,6 +10,7 @@ class Peekaboo < DiceBot
     @d66Type = 2
     @fractionType = "roundUp"     # 端数切り上げに設定
   end
+
   def gameName
     'ピーカーブー'
   end

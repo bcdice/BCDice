@@ -37,7 +37,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     debug("rollDiceCommand", command)
 
     tableName   = ""
@@ -61,7 +60,6 @@ MESSAGETEXT
     if(! tableName.empty?)
       return "#{tableName} ＞ #{tableNumber} ＞ #{tableResult}"
     end
-
   end
 
   def changeText(string)
@@ -78,6 +76,7 @@ MESSAGETEXT
     return " ＞ 絶対失敗" if(dice_n <=2)
 
     return " ＞ 成功" if(totalValue >= diff)
+
     return " ＞ 失敗"
   end
 
@@ -106,15 +105,16 @@ MESSAGETEXT
 
     return ' ＞ 成功（クリティカル）' if( dice1 == 1 )
     return ' ＞ 失敗（アクシデント）' if( dice1 == 0 )
+
     return ' ＞ 成功'
   end
 
   def getResult(total_n, dice_n, diff)
-
     return ' ＞ 絶対成功' if( dice_n <= 5)
     return ' ＞ 絶対失敗' if( dice_n >= 96 )
 
     return ' ＞ 成功' if(total_n <= diff)
+
     return ' ＞ 失敗'
   end
 

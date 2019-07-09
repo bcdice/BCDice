@@ -36,14 +36,12 @@ INFO_MESSAGE_TEXT
 
   #アースドーンステップ表
   def ed_step(str)
-
     output = getStepResult(str)
 
     return output
   end
 
   def getStepResult(str)
-
     return nil unless( /^(\d+)E(\d+)?(\+(\d*)D(\d+))?(\+\d)?/i =~ str)
 
     stepTotal = 0
@@ -105,7 +103,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getBaseStepTable
-
     stepTable =
       [
        #      dice
@@ -123,7 +120,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getStepInfo(step)
-
     baseStepTable = getBaseStepTable
     baseMaxStep = baseStepTable.last.first
 
@@ -172,7 +168,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getSuccess(targetNumber, stepTotal)
-
     return '自動失敗' if( @isFailed )
 
     successTable = getSuccessTable
@@ -186,7 +181,6 @@ INFO_MESSAGE_TEXT
     return 'Average(そこそこ)' if(stepTotal >= average)
     return 'Poor(お粗末)' if(stepTotal >= poor)
     return 'Pathetic(惨め)' if( stepTotal >= pathetic )
-
   end
 
   def getSuccessTable

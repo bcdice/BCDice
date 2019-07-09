@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class  TrinitySeven < DiceBot
-
   setPrefixes(['(\d+)DM\d+(\+|\-)?\d*','(\d+)DM(\+|\-)?\d*','TR(\d+)<=(\d+)(\+|\-)?\d*','TR<=(\d+)(\+|\-)?\d*','TR(\+|\-)?(\d+)<=(\d+)(\+|\-)?\d*','TRNAME'])
 
   def initialize
@@ -38,8 +37,6 @@ class  TrinitySeven < DiceBot
 MESSAGETEXT
   end
 
-
-
   def rollDiceCommand(command) #スパゲッティなコードだけど許して！！！ → 絶対に許さない。全力でリファクタリングした。
     debug("rollDiceCommand command", command)
 
@@ -69,9 +66,7 @@ MESSAGETEXT
     return ''
   end
 
-
   def rollHit(command, critical, target, modify)
-
     target += modify
 
     total, diceText, = roll(1, 100)
@@ -88,12 +83,11 @@ MESSAGETEXT
     return "クリティカル"  if total <= critical
 
     return "成功" if total <= target
+
     return "失敗"
   end
 
-
   def rollDamage(command, diceCount, critical, modify)
-
     return "" if diceCount < critical
 
     total, diceText, = roll(diceCount, 6)
@@ -112,7 +106,6 @@ MESSAGETEXT
     return text
   end
 
-
   def getRollDamageCritialText(diceCount, critical, total, diceText, modify)
     diceList = []
 
@@ -125,7 +118,6 @@ MESSAGETEXT
 
     diceList.sort!
     restDice = diceList.clone
-
 
     critical = diceCount if critical > diceCount
 
@@ -144,12 +136,10 @@ MESSAGETEXT
     return total, diceList
   end
 
-
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     return " ＞ ファンブル" if dice_n >= 96
     return " ＞ クリティカル" if dice_n <= 7
   end
-
 
   # 名前表
   def get_NAME_table
@@ -260,7 +250,6 @@ MESSAGETEXT
     output = get_table_by_number(dice_now, table)
 
     return get_table_by_number(dice_now, table)
-
   end
 
   def get_NAMEtwo_table
@@ -372,5 +361,4 @@ MESSAGETEXT
 
     return get_table_by_number(dice_now, table)
   end
-
 end

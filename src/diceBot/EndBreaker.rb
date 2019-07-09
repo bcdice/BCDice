@@ -28,7 +28,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     if( /(\d+)EB/i === command )
       diceCount = $1.to_i
       return checkRoll(diceCount)
@@ -52,7 +51,7 @@ MESSAGETEXT
   end
 
   def checkRoll(diceCount)
-  debug("EndBreaker diceCount", diceCount)
+    debug("EndBreaker diceCount", diceCount)
 
   rollCount = diceCount #ダブルトリガー
 

@@ -15,7 +15,6 @@ def updateConfig
   writeToConfig(nameList)
 end
 
-
 def writeToConfig(nameList)
   fileName = 'configBcDice.rb'
   text = File.readlines(fileName).join
@@ -27,10 +26,7 @@ def writeToConfig(nameList)
   open(fileName, "wb+") do |file|
     file.write(text)
   end
-
 end
-
-
 
 updateConfig
 

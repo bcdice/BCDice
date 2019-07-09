@@ -121,6 +121,7 @@ INFO_MESSAGE_TEXT
 
     success = @@bcdice.check_hit(total_n, signOfInequality, diff)
     return "成功" if(success >= 1)
+
     return "失敗"
   end
 

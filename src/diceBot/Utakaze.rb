@@ -75,7 +75,6 @@ MESSAGETEXT
   end
 
   def getRollResultString(diceList, crit, diff)
-
     success, maxnum, setCount = getSuccessInfo(diceList, crit, diff)
 
     result = ""
@@ -132,7 +131,6 @@ MESSAGETEXT
   end
 
   def getDiceCountHash(diceList, crit)
-
     diceCountHash = diceList.inject(Hash.new(0)) do |hash, dice|
       if( isNomalDice(crit) or (dice == crit) )
         hash[dice] += 1
@@ -153,6 +151,7 @@ MESSAGETEXT
 
   def getValue(number)
     return 0 if( number > 100 )
+
     return number
   end
 end

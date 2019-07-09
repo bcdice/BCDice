@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class DungeonsAndDoragons < DiceBot
-
   def initialize
     super
   end
@@ -19,5 +18,4 @@ class DungeonsAndDoragons < DiceBot
 ※このダイスボットは部屋のシステム名表示用となります。
 MESSAGETEXT
   end
-
 end

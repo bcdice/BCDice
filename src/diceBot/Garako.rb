@@ -41,7 +41,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     output =
       case command.upcase
 
@@ -101,7 +100,6 @@ MESSAGETEXT
   end
 
   def checkRoll(modifyString, targetString)
-
     modify = modifyString.to_i
     target = targetString.to_i
 
@@ -118,7 +116,6 @@ MESSAGETEXT
   end
 
   def getResultText(dice, total, target)
-
     return "ファンブル" if( dice == 1 )
     return "クリティカル" if( dice == 10 )
 
@@ -480,7 +477,6 @@ MESSAGETEXT
 
   # 部位ダメージチャート
   def get_damage_chart(part, damage)
-
     name, table =
       case part
       when 'C'

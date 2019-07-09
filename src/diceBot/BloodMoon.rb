@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class BloodMoon < DiceBot
-
   def initialize
     super
     @sendMode = 2
@@ -65,7 +64,7 @@ INFO_MESSAGE_TEXT
     case command
 
      when 'ST'
-      type = 'シーン表'
+       type = 'シーン表'
       output, total_n = getSceneTable
     when 'IST'
       type = '先制判定指定特技表'
@@ -446,5 +445,4 @@ TABLE_TEXT_END
   }
 
   setPrefixes(['ST', 'IST', 'BRT', 'CHT', 'SHT', 'DHT', 'LHT', 'EHT', 'AST', 'MIT', 'SIT'] + @@tables.keys)
-
 end

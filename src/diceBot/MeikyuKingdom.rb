@@ -25,6 +25,7 @@ class MeikyuKingdom < DiceBot
     @sortType = 1
     @d66Type = 2
   end
+
   def gameName
     '迷宮キングダム'
   end
@@ -34,7 +35,7 @@ class MeikyuKingdom < DiceBot
   end
 
   def getHelpMessage
-  return <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・判定　(nMK+m)
 　n個のD6を振って大きい物二つだけみて達成値を算出します。修正mも可能です。
 　絶対成功と絶対失敗も自動判定します。
@@ -467,13 +468,13 @@ INFO_MESSAGE_TEXT
     if(output != '1')
       output = "#{type}表(#{total_n}) ＞ #{output}"
     end
-
   end
 
   def getCount(countText)
     if( countText.empty? )
       return 1
     end
+
     return countText.to_i
   end
 
@@ -879,7 +880,6 @@ INFO_MESSAGE_TEXT
 
   # お宝表１（1d6）
   def mk_treasure1_table
-
     get_table_by_1d6( [
                         "何も無し",
                         "何も無し",

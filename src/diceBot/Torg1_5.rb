@@ -13,7 +13,6 @@ class Torg1_5 < Torg
     "TORG1.5"
   end
 
-
   # 一般結果表 成功度
   def get_torg_success_level(value)
     success_table = [
@@ -26,11 +25,9 @@ class Torg1_5 < Torg
     return get_torg_table_result( value, success_table )
   end
 
-
   # 対人行為結果表
   # 威圧／威嚇(intimidate/Test)
   def get_torg_interaction_result_intimidate_test(value)
-
     interaction_results_table = [
         [0, "萎縮"],
         [5, "技能なし"],
@@ -40,7 +37,6 @@ class Torg1_5 < Torg
 
     return get_torg_table_result( value, interaction_results_table )
   end
-
 
   # 挑発／トリック(Taunt/Trick)
   def get_torg_interaction_result_taunt_trick(value)
@@ -54,7 +50,6 @@ class Torg1_5 < Torg
     return get_torg_table_result( value, interaction_results_table )
   end
 
-
   # 間合い(maneuver)
   def get_torg_interaction_result_maneuver(value)
     interaction_results_table = [
@@ -66,7 +61,6 @@ class Torg1_5 < Torg
 
     return get_torg_table_result( value, interaction_results_table )
   end
-
 
   # オーズダメージチャート
   def get_torg_damage_ords(value)
@@ -91,7 +85,6 @@ class Torg1_5 < Torg
     return get_torg_damage(value, 4, 8, damage_table_ords)
   end
 
-
   # ポシビリティー能力者ダメージチャート
   def get_torg_damage_posibility(value)
     damage_table_posibility = [
@@ -115,9 +108,7 @@ class Torg1_5 < Torg
     return get_torg_damage(value, 3, 5, damage_table_posibility)
   end
 
-
   def get_torg_damage(value, max_damage, max_shock, damage_table)
-
     if( value < 0 )
       return '1'
     end

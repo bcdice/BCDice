@@ -34,16 +34,19 @@ MESSAGETEXT
 
   def getCheckResult(total, diff)
     return getFailResult(total) if total > diff
+
     return getSuccessResult(total)
   end
 
   def getFailResult(total)
     return "致命的失敗" if (total % 5) == 0
+
     return "失敗"
   end
 
   def getSuccessResult(total)
     return "決定的成功" if (total % 5) == 0
+
     return "成功"
   end
 
@@ -74,7 +77,6 @@ MESSAGETEXT
   end
 
   def getStrikeLocationHuman(type)
-
     typeName = ''
     table = nil
 

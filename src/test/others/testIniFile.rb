@@ -7,7 +7,6 @@ require 'log'
 require 'IniFile.rb'
 
 class TestIniFile < Test::Unit::TestCase
-
   def setup
     $isDebug = false
     @testIniFileName = 'test.ini'
@@ -29,7 +28,6 @@ class TestIniFile < Test::Unit::TestCase
     $isDebug = true
   end
 
-
   def test_readWrite
     ini = IniFile.new(@testIniFileName)
 
@@ -41,7 +39,6 @@ class TestIniFile < Test::Unit::TestCase
     value = ini.read('section', 'key', 'ffffff')
     assert_equal(value, 'mokeke')
   end
-
 
   def test_readWriteJapanease
     ini = IniFile.new(@testIniFileName)

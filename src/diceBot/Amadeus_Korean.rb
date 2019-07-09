@@ -122,6 +122,7 @@ INFO_MESSAGE_TEXT
 
     success = @@bcdice.check_hit(total_n, signOfInequality, diff)
     return "성공" if(success >= 1)
+
     return "실패"
   end
 

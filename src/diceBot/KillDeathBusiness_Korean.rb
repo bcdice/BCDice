@@ -91,7 +91,6 @@ INFO_MESSAGE_TEXT
 
   # 게임별 성공도 판정(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
     return '' unless(signOfInequality == ">=")
@@ -111,7 +110,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-
     debug("rollDiceCommand command", command)
 
     #판정체크는 먼저 처리
@@ -129,7 +127,6 @@ INFO_MESSAGE_TEXT
   @@judogeDiceReg = /(^|\s)JD(\d+)([\+\-]\d+)?(,(\d+))?($|\s)/i
 
   def judgeDice(command)
-
     unless(@@judogeDiceReg === command)
       return '1'
     end
@@ -168,7 +165,7 @@ INFO_MESSAGE_TEXT
     elsif(number <= fumble)
       result += "주사위 눈이	  펌블율 이하이므로 펌블!(판정 실패.【시청률】이 20%감소)"
     else
-       number += modify
+      number += modify
        if(number < target)
          result += "달성치#{number}、난이도미만이므로 판정 실패!"
        else
@@ -180,7 +177,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollTableCommand(command)
-
     tableName = ""
     result = ""
 
@@ -238,7 +234,7 @@ INFO_MESSAGE_TEXT
       tableName, result, number = getExtraTableResult(type)
 
     when /^SKL(T|J)$/
-    type = $1
+      type = $1
       tableName, result, number = getSkillTableResult(type)
 
     when "PCDT"
@@ -1384,6 +1380,7 @@ INFO_MESSAGE_TEXT
 
     return tableName, result, number
   end
+
   def getprTableResult()
     tableName = "헬 크로우터스크 표"
     table = [
@@ -1404,6 +1401,7 @@ INFO_MESSAGE_TEXT
 
     return tableName, result, number
   end
+
   def getpnTableResult()
     tableName = "헬 스네이크터스크 표"
     table = [
@@ -1424,6 +1422,7 @@ INFO_MESSAGE_TEXT
 
     return tableName, result, number
   end
+
   def getpdTableResult()
     tableName = "헬 드래곤터스크 표"
     table = [
@@ -1444,6 +1443,7 @@ INFO_MESSAGE_TEXT
 
     return tableName, result, number
   end
+
   def getpfTableResult()
     tableName = "헬 플라잉터스크 표"
     table = [
@@ -1463,6 +1463,7 @@ INFO_MESSAGE_TEXT
 
     return tableName, result, number
   end
+
   def getpgTableResult()
     tableName = "헬 갓터스크 표"
     table = [
@@ -1483,6 +1484,7 @@ INFO_MESSAGE_TEXT
 
     return tableName, result, number
   end
+
   def getpbTableResult()
     tableName = "헬 베어터스크 표"
     table = [

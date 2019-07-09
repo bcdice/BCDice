@@ -80,7 +80,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getRollResult(skill)
-
     diceCount = skill + 1
     diceCount = 3 if( skill == 0 )
 
@@ -100,7 +99,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getSuccess(check, target)
-
     if(check >= target)
       return "目標値以上！【成功】"
     end
@@ -109,7 +107,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckFlagResult(total, flag)
-
     if(total > flag)
       return ""
     end
@@ -132,7 +129,6 @@ INFO_MESSAGE_TEXT
 
   #スキル判定値　xJD or xJDy or xJDy+z or xJDy-z or xJDy/z
   def checkJudgeValue(string)
-
     debug("checkJudgeValue begin string", string)
 
     return '' unless(/^(\d+)JD(\d+)?(([+]|[-]|[\/])(\d+))?$/i =~ string)
@@ -250,7 +246,6 @@ INFO_MESSAGE_TEXT
   end
 
   def choiceWillStigmaTable()
-
     name = "気力烙印表"
 
     table = %w{
@@ -272,7 +267,6 @@ INFO_MESSAGE_TEXT
   end
 
   def choiceStrengthBadEndTable()
-
     name = "体力バッドエンド表"
 
     table = %w{
@@ -294,7 +288,6 @@ INFO_MESSAGE_TEXT
   end
 
   def choiceWillBadEndTable()
-
     name = "気力バッドエンド表"
 
     table = %w{

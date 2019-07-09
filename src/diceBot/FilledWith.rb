@@ -51,9 +51,8 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
   #ダイスロールコマンド
-  result = checkRoll( command )
+    result = checkRoll( command )
   return result unless( result.nil? )
 
     tableName = ""
@@ -112,7 +111,7 @@ MESSAGETEXT
   fmb = 17
 
     if(/(\d[\+\-\d]*)-(\d+)FW(\@(\d+))?(\#(\d+))?/i === command)
-    difficultyText = $1
+      difficultyText = $1
     diceCount = $2.to_i
     crt = $4.to_i unless($3.nil?)
     fmb = $6.to_i unless($5.nil?)
@@ -167,7 +166,6 @@ MESSAGETEXT
   end
 
   def getAdjustNumber(number, table)
-
     min = table.first.first
   return min if(number < min)
 
@@ -192,99 +190,98 @@ MESSAGETEXT
 
   #マジカルクッキング
   def getCookResult(lv)
-
     def cook(lv, num)
-    case lv
-      when 1
-        table = [
-          'おべんとミートボール',
-        'パリパリ小魚',
-        'キャロットタルト',
-        'おにぎり',
-        lambda{return cook(2, 5)},
-        lambda{return cook(2, 6)},
-        ]
-      when 2
-        table = [
-          'カリカリミミズ肉',
-        '竹つきチクワ',
-        'トロピカルジュース',
-        'イナリ寿司',
-        lambda{return cook(3, 5)},
-        lambda{return cook(3, 6)},
-        ]
+      case lv
+        when 1
+          table = [
+            'おべんとミートボール',
+          'パリパリ小魚',
+          'キャロットタルト',
+          'おにぎり',
+          lambda{return cook(2, 5)},
+          lambda{return cook(2, 6)},
+          ]
+        when 2
+          table = [
+            'カリカリミミズ肉',
+          '竹つきチクワ',
+          'トロピカルジュース',
+          'イナリ寿司',
+          lambda{return cook(3, 5)},
+          lambda{return cook(3, 6)},
+          ]
 
-      when 3
-        table = [
-          'ホットミートパイ',
-        '魔界魚の目玉',
-        'パンプキンプリン',
-        'スタミナ丼',
-        lambda{return cook(4, 5)},
-        lambda{return cook(4, 6)},
-        ]
+        when 3
+          table = [
+            'ホットミートパイ',
+          '魔界魚の目玉',
+          'パンプキンプリン',
+          'スタミナ丼',
+          lambda{return cook(4, 5)},
+          lambda{return cook(4, 6)},
+          ]
 
-      when 4
-        table = [
-          'ジャンボ串焼き',
-        'シルヴァまっしぐら',
-        'フラウアイスクリーム',
-        'ピクニックランチ',
-        lambda{return cook(5, 5)},
-        lambda{return cook(5, 6)},
-        ]
+        when 4
+          table = [
+            'ジャンボ串焼き',
+          'シルヴァまっしぐら',
+          'フラウアイスクリーム',
+          'ピクニックランチ',
+          lambda{return cook(5, 5)},
+          lambda{return cook(5, 6)},
+          ]
 
-      when 5
-        table = [
-          'グラント風香草焼き',
-        'エドマエスシ',
-        'スターフルーツパフェ',
-        '具沢山本格カレー',
-        lambda{return cook(6, 5)},
-        lambda{return cook(6, 6)},
-        ]
+        when 5
+          table = [
+            'グラント風香草焼き',
+          'エドマエスシ',
+          'スターフルーツパフェ',
+          '具沢山本格カレー',
+          lambda{return cook(6, 5)},
+          lambda{return cook(6, 6)},
+          ]
 
-      when 6
-        table = [
-          'ドラゴンステーキ',
-          '刺身盛り合わせ',
-        'エデンのアップルパイ',
-        'フォートレス炒飯',
-        lambda{return cook(7, 5)},
-        lambda{return cook(7, 6)},
-        ]
+        when 6
+          table = [
+            'ドラゴンステーキ',
+            '刺身盛り合わせ',
+          'エデンのアップルパイ',
+          'フォートレス炒飯',
+          lambda{return cook(7, 5)},
+          lambda{return cook(7, 6)},
+          ]
 
-      when 7
-        table = [
-          'マツザカスペシャル',
-        'オオトロスシ',
-        'スノーホワイトボンブ',
-        'よもつへぐい',
-        lambda{return cook(8, 5)},
-        lambda{return cook(8, 6)},
-       ]
+        when 7
+          table = [
+            'マツザカスペシャル',
+          'オオトロスシ',
+          'スノーホワイトボンブ',
+          'よもつへぐい',
+          lambda{return cook(8, 5)},
+          lambda{return cook(8, 6)},
+         ]
 
-      when 8
-        table = [
-          '超特大マンガ肉',
-        '特上うな丼',
-        '魔将樹のかき氷',
-        'ヘブンズランチ',
-        lambda{return cook(9, 5)},
-        lambda{return cook(9, 6)},
-        ]
+        when 8
+          table = [
+            '超特大マンガ肉',
+          '特上うな丼',
+          '魔将樹のかき氷',
+          'ヘブンズランチ',
+          lambda{return cook(9, 5)},
+          lambda{return cook(9, 6)},
+          ]
 
-      when 9
-        table = [
+        when 9
+          table = [
+            '世界樹のサラダ',
           '世界樹のサラダ',
-        '世界樹のサラダ',
-        '世界樹のサラダ',
-        '黄金のラダマン鍋',
-        '黄金のラダマン鍋',
-        '黄金のラダマン鍋',
-        ]
+          '世界樹のサラダ',
+          '黄金のラダマン鍋',
+          '黄金のラダマン鍋',
+          '黄金のラダマン鍋',
+          ]
 
-    end
+      end
       result, number = get_table_by_1d6(table)
     if(result.class.name == "Array")
       number = result[1]
@@ -295,75 +292,73 @@ MESSAGETEXT
     end
 
   return cook(lv, "")
-
   end
 
   #フィルトウィズナンバーワンくじ(GURPS-FW版)
   def getLotResult(type)
-
   #ノーマルくじ表
-  def normal(phase, num)
-    case phase
-      when 1
-        table = [
-          'イレブンチキン',
-          'イレブンチキン',
-          'イレブンチキン',
-          lambda{return normal(2, 4)},
-          lambda{return normal(2, 5)},
-          lambda{return normal(3, 6)},
-        ]
+    def normal(phase, num)
+      case phase
+        when 1
+          table = [
+            'イレブンチキン',
+            'イレブンチキン',
+            'イレブンチキン',
+            lambda{return normal(2, 4)},
+            lambda{return normal(2, 5)},
+            lambda{return normal(3, 6)},
+          ]
 
-      when 2
-        table = [
-          'バロールたわし',
-          'イグニスジッポ',
-          'ヤコ仮面or梟の文鎮(選択可)',
-          'ナレッジのハンモックorジンジャビースト',
-          lambda{return normal(3, 5)},
-          lambda{return normal(3, 6)},
-        ]
+        when 2
+          table = [
+            'バロールたわし',
+            'イグニスジッポ',
+            'ヤコ仮面or梟の文鎮(選択可)',
+            'ナレッジのハンモックorジンジャビースト',
+            lambda{return normal(3, 5)},
+            lambda{return normal(3, 6)},
+          ]
 
-      when 3
-        table = [
-          '特性HPポーション',
-          '特性MPポーション',
-          '黒い甲冑',
-          '天体望遠鏡',
-          '金獅子の剥製',
-          lambda{return normal(4, 6)},
-        ]
+        when 3
+          table = [
+            '特性HPポーション',
+            '特性MPポーション',
+            '黒い甲冑',
+            '天体望遠鏡',
+            '金獅子の剥製',
+            lambda{return normal(4, 6)},
+          ]
 
-      when 4
-        table = [
-          '特性スタミナポーション',
-          '戦乙女の兜',
-          'フェンリルの首輪',
-          'フェニックスカーペット',
-          '動くアダマンゴーレム',
-          lambda{return normal(5, 6)},
-        ]
+        when 4
+          table = [
+            '特性スタミナポーション',
+            '戦乙女の兜',
+            'フェンリルの首輪',
+            'フェニックスカーペット',
+            '動くアダマンゴーレム',
+            lambda{return normal(5, 6)},
+          ]
 
-      when 5
-        table = [
-          'キャンディークッション',
-          '屑鉄の金床',
-          '薪割り王の斧',
-          'ロジエの水差し',
-          '箱舟の模型',
-          lambda{return premium(5, 6)},
-        ]
+        when 5
+          table = [
+            'キャンディークッション',
+            '屑鉄の金床',
+            '薪割り王の斧',
+            'ロジエの水差し',
+            '箱舟の模型',
+            lambda{return premium(5, 6)},
+          ]
 
+      end
+
+      result, number = get_table_by_1d6(table)
+      if(result.class.name == "Array")
+        number = result[1]
+        result = result[0]
+      end
+      number = "#{num}#{number}"
+      return result, number
     end
-
-    result, number = get_table_by_1d6(table)
-    if(result.class.name == "Array")
-      number = result[1]
-      result = result[0]
-    end
-    number = "#{num}#{number}"
-    return result, number
-  end
 
   #プレミアムくじ表
   def premium(phase, num)
@@ -446,12 +441,12 @@ MESSAGETEXT
   end
 
   return ""
-
   end
 
   #夢幻の迷宮財宝表
   def getTresureResult(command)
     return nil unless(/TRS(\d+)([\+\-]\d)?/ === command)
+
   rank   = $1.to_i
   modify = $2.to_i
 
@@ -584,6 +579,7 @@ MESSAGETEXT
   #夢幻の迷宮トラップ表
   def getTrapResult(command)
     return nil unless( /TRAP(E|N|H|L)/ === command )
+
   dif = $1
   tableName = "トラップ表"
 
@@ -634,7 +630,8 @@ MESSAGETEXT
 
   #夢幻の迷宮追加オプション表
   def getRandomOptionResult(command)
-  return nil unless(/ROP(E|N|H|L)/ === command)
+    return nil unless(/ROP(E|N|H|L)/ === command)
+
   dif = $1
   tableName = "迷宮追加オプション表"
 
@@ -712,7 +709,7 @@ MESSAGETEXT
   #夢幻の迷宮ランダムイベント表
   def getRandomEventResult(command)
     if(/RAND(E|N|H|L)([1-6])?/ === command)
-    dif = $1
+      dif = $1
     area  = $2.to_i
     area, = roll(1, 6) if($2.nil?)
     type, = roll(1, 6)
@@ -1219,7 +1216,7 @@ SLv3:ゴーレムアーム(装飾品)
   #夢幻の迷宮エネミーデータ表
   def getRandomEnemyDataResult(command)
     if( /RED(E|N|H|L)(256|265|465|665|666)/ === command )
-    dif    = $1
+      dif    = $1
     area   = 0
     event  = $2.to_i
     number = event
@@ -1559,7 +1556,5 @@ SLv3:ゴーレムアーム(装飾品)
   result = get_table_by_number(event, table)
 
   return "#{tableName}(#{number}):#{areaText}<#{difficultyText}>:#{result[difficulty]}"
-
   end
-
 end

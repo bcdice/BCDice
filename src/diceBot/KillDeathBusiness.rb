@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class KillDeathBusiness < DiceBot
-
   def initialize
     super
     @sendMode = 2
@@ -49,7 +48,6 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
     return '' unless(signOfInequality == ">=")
@@ -69,7 +67,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-
     debug("rollDiceCommand command", command)
 
     #判定チェックは先に処理
@@ -87,7 +84,6 @@ INFO_MESSAGE_TEXT
   @@judogeDiceReg = /(^|\s)JD(\d+)([\+\-]\d+)?(,(\d+))?($|\s)/i
 
   def judgeDice(command)
-
     unless(@@judogeDiceReg === command)
       return '1'
     end
@@ -126,7 +122,7 @@ INFO_MESSAGE_TEXT
     elsif(number <= fumble)
       result += "出目がファンブル率以下なのでファンブル！(判定失敗。【視聴率】が20％減少)"
     else
-       number += modify
+      number += modify
        if(number < target)
          result += "達成値#{number}、難易度未満なので判定失敗！"
        else
@@ -138,8 +134,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollTableCommand(command)
-
-
     result = getTableCommandResult(command, @@tables)
     return result unless result.nil?
 
@@ -200,7 +194,7 @@ INFO_MESSAGE_TEXT
       tableName, result, number = getExtraTableResult(type)
 
     when /^SKL(T|J)$/
-    type = $1
+      type = $1
       tableName, result, number = getSkillTableResult(type)
 
     when "PCDT"
@@ -1212,6 +1206,7 @@ INFO_MESSAGE_TEXT
 
     return tableName, result, number
   end
+
   def getprTableResult()
     tableName = "ヘルクロウタスク表"
     table = [
@@ -1226,6 +1221,7 @@ INFO_MESSAGE_TEXT
 
     return tableName, result, number
   end
+
   def getpnTableResult()
     tableName = "ヘルスネークタスク表"
     table = [
@@ -1240,6 +1236,7 @@ INFO_MESSAGE_TEXT
 
     return tableName, result, number
   end
+
   def getpdTableResult()
     tableName = "ヘルドラゴンタスク表"
     table = [
@@ -1254,6 +1251,7 @@ INFO_MESSAGE_TEXT
 
     return tableName, result, number
   end
+
   def getpfTableResult()
     tableName = "ヘルフライタスク表"
     table = [
@@ -1268,6 +1266,7 @@ INFO_MESSAGE_TEXT
 
     return tableName, result, number
   end
+
   def getpgTableResult()
     tableName = "ヘルゴートタスク表"
     table = [
@@ -1282,6 +1281,7 @@ INFO_MESSAGE_TEXT
 
     return tableName, result, number
   end
+
   def getpbTableResult()
     tableName = "ヘルベアタスク表"
     table = [
@@ -1421,5 +1421,4 @@ TABLE_TEXT_END
     'PCT7',
     'JD.*'
   ] + @@tables.keys)
-
 end

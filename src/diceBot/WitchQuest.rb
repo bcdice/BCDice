@@ -130,6 +130,7 @@ MESSAGETEXT
 
     table = get_table_by_number(number, tables, nil)
     return nil if( table.nil? )
+
     text, index = get_table_by_1d6( table )
 
     person = getPersonTable1()

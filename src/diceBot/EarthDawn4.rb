@@ -97,7 +97,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getStepResultInfo(str)
-
     return nil unless( /^(\d+)E(\d+)?(K)?(\+\d+$)?(\+(.*))?/i =~ str)
 
     stepTotal = 0
@@ -142,7 +141,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getBaseStepTable
-
     stepTable =
       [
        #      dice
@@ -160,7 +158,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getStepInfo(step)
-
     baseStepTable = getBaseStepTable
     baseMaxStep = baseStepTable.last.first
 
@@ -217,7 +214,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getSuccess(targetNumber, stepTotal)
-
     return '自動失敗' if( @isFailed )
 
     diff = stepTotal - targetNumber

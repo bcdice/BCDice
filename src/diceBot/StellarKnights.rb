@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class StellarKnights < DiceBot
-
   # ダイスボットで使用するコマンドを配列で列挙する
   setPrefixes(['TT', 'STA', 'STB', 'STB2', 'STC', 'ALLS'])
 
@@ -30,16 +29,13 @@ ALLS ：シチュエーション表全てを一括で（学園編除く）
 MESSAGETEXT
   end
 
-
   def rollDiceCommand(command)
     command = command.upcase
 
     return analyzeDiceCommandResultMethod(command)
   end
 
-
   def getThemeTableDiceCommandResult(command)
-
     return unless command == "TT"
 
     tableName = "お題表"
@@ -58,9 +54,7 @@ MESSAGETEXT
     return result
   end
 
-
   def getSituationTableDiceCommandResult(command)
-
     return unless command == "STA"
 
     tableName = "シチュエーション表A：時間"
@@ -78,9 +72,7 @@ MESSAGETEXT
     return result
   end
 
-
   def getPlageTableDiceCommandResult(command)
-
     return unless command == "STB"
 
     tableName = "シチュエーション表B：場所"
@@ -121,9 +113,7 @@ MESSAGETEXT
     return result
   end
 
-
   def getSchoolTableDiceCommandResult(command)
-
     return unless command == "STB2"
 
     tables =
@@ -204,9 +194,7 @@ MESSAGETEXT
     return result
   end
 
-
   def getTpicTableDiceCommandResult(command)
-
     return unless command == "STC"
 
     tableName = "シチュエーション表C：話題"
@@ -238,9 +226,7 @@ MESSAGETEXT
     return result
   end
 
-
   def getAllSituationTableDiceCommandResult(command)
-
     return unless command == "ALLS"
 
     commands = ['STA', 'STB', 'STC']
@@ -254,6 +240,4 @@ MESSAGETEXT
 
     return result
   end
-
-
 end

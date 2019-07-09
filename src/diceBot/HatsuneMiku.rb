@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class HatsuneMiku < DiceBot
-
   def initialize
     super
     @sendMode = 2
@@ -41,7 +40,6 @@ class HatsuneMiku < DiceBot
 　リアクション表 ORT／出会い表 OMT
 INFO_MESSAGE_TEXT
   end
-
 
   def rollDiceCommand(command)
     text = judgeRoll(command)
@@ -111,7 +109,6 @@ INFO_MESSAGE_TEXT
       message += "\n" + texts.join("\n")
     end
 
-
     return message
   end
 
@@ -139,12 +136,11 @@ INFO_MESSAGE_TEXT
 
     success = @@bcdice.check_hit(total_n, signOfInequality, diff)
     return "成功" if(success >= 1)
+
     return "失敗"
   end
 
-
   def getTableDiceCommandResult(command)
-
     info = @@tables[command]
     return nil if info.nil?
 
@@ -183,7 +179,6 @@ INFO_MESSAGE_TEXT
 
     return newTable
   end
-
 
   @@tables =
     {

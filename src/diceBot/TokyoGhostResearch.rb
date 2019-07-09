@@ -31,7 +31,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     output =
       case command.upcase
 
@@ -50,8 +49,7 @@ MESSAGETEXT
   end
 
   def getCheckResult(command)
-
-      output = ""
+    output = ""
       diff = 0
 
       if(/TK?<=(\d+)/i =~ command)
@@ -70,9 +68,9 @@ MESSAGETEXT
 
   def getCheckResultText(total_n, diff)
     if((total_n >= diff) )
-       result = "成功"
+      result = "成功"
     else
-       result = "失敗"
+      result = "失敗"
     end
 
     return result
@@ -113,7 +111,6 @@ MESSAGETEXT
     ]
     return get_1d10_table_result(name, table)
   end
-
 
   def get_1d10_table_result(name, table)
     dice, = roll(1, 10)

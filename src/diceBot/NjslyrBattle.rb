@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class NjslyrBattle < DiceBot
-
   def gameName
     'NJSLYRBATTLE'
   end
@@ -19,10 +18,8 @@ class NjslyrBattle < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-
     return '' if(signOfInequality != "<=")
 
     success = checkSuccess(total_n, diff)
@@ -60,5 +57,4 @@ INFO_MESSAGE_TEXT
 
     return ''
   end
-
 end

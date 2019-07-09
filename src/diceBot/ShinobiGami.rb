@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class ShinobiGami < DiceBot
-
   def initialize
     super
     @sendMode = 2
@@ -292,7 +291,6 @@ INFO_MESSAGE_TEXT
     output = "#{tableName}(#{total_n}) ＞ #{text}"
 
     return output
-
   end
 
   # ファンブル表
@@ -728,5 +726,4 @@ TABLE_TEXT_END
   }
 
   setPrefixes(['ST', 'FT', 'ET', 'WT', 'BT', 'CST', 'MST', 'IST','EST','DST','TST', 'NST', 'KST', 'TKST', 'GST', 'GWT', 'GAST', 'KYST', 'JBST', 'KFT', 'KWT', 'MT', 'RTT'] + @@tables.keys)
-
 end

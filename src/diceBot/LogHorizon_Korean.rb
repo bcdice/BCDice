@@ -69,7 +69,6 @@ MESSAGETEXT
   end
 
   def getCheckRollDiceCommandResult(command)
-
     return nil unless(/(\d+)LH([\+\-\d]*)(>=([\+\-\d]*))?/i === command)
 
     diceCount = $1.to_i
@@ -105,7 +104,6 @@ MESSAGETEXT
     end
 
     return result
-
   end
 
   #成否判定
@@ -126,7 +124,7 @@ MESSAGETEXT
   end
 
   def isCritical(diceList)
-  (diceList.select{|i| i == 6 }.size >= 2)
+    (diceList.select{|i| i == 6 }.size >= 2)
   end
 
   def isFamble(diceList, diceCount)
@@ -135,7 +133,6 @@ MESSAGETEXT
 
   #消耗表
   def getConsumptionDiceCommandResult( command )
-
     return nil unless(/(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command)
 
     type = $1
@@ -322,7 +319,7 @@ MESSAGETEXT
   end
 
   def getTableByRank(rank, tables)
-  index = (rank - 1) / 5
+    index = (rank - 1) / 5
 
   index = [0, index].max
   index = [index, (tables.size - 1)].min
@@ -354,7 +351,6 @@ MESSAGETEXT
 
   #재보표
   def getTresureDiceCommandResult(command)
-
     return nil unless(m = /(C|M|I|H|G)TRS(\d*)([\+\-\d]*)(\$)?/.match(command))
 
     type = m[1]
@@ -683,73 +679,72 @@ MESSAGETEXT
     return tableName, table
   end
 
-    def getGoblinTresureResultTable
+  def getGoblinTresureResultTable
     tableName = "고블린 재물표"
-    table = [
-             [ 7, '라이트메이스'],
-             [ 8, '백과사전'],
-             [ 9, '42G'],
-             [10, '오래된 해골[코어소재](40G)'],
-             [11, '가속의 두루마리(초급)'],
-             [12, '46G'],
-             [13, '48G'],
-             [14, '50G'],
-             [15, '유리구슬[환전](60G)'],
-             [16, '피로 얼룩진 칼[코어소재](50G)'],
-             [17, '찌그러진 금접시[환전](60G)'],
-             [18, '59G'],
-             [19, '모피로 된 깔개[환전](60G)'],
-             [20, '뾰족한 발톱[코어소재](60G)'],
-             [21, '67G'],
-             [22, '흠집투성이의 상아상[환전](70G)'],
-             [23, '72G'],
-             [24, '라이트 랜스[파손]'],
-             [25, '골제 목걸이[환전](80G)'],
-             [26, '사금이 섞인 돌[환전](80G)'],
-             [27, '85G'],
-             [28, '향나무 파편[환전](90G)'],
-             [29, '기묘한 가면[환전](90G)'],
-             [30, '96G'],
-             [31, '시미터'],
-             [32, '우든 라운드'],
-             [33, '바람 소리의 방울[코어소재](80G)&철제 전립[코어소재](30G)'],
-             [34, '112G'],
-             [35, '산양슬라임(라지사이즈)[환전](120G)'],
-             [36, '121G'],
-             [37, '고급 노송나무[환전](125G)'],
-             [38, '130G'],
-             [39, '크리스탈제 체스말[환전](135G)'],
-             [40, '140G'],
-             [41, '텐트(캠핑용)'],
-             [42, '이상한 환약[코어소재](30G)×2&100G'],
-             [43, '수수께끼의 모피[코어소재](80G)&원한의 고리[코어소재](80G)'],
-             [44, '의식용 뼈 검[환전](160G)'],
-             [45, '낡은 동전[환전](165G)'],
-             [46, '낭아봉'],
-             [47, '법리회로[코어소재](60G)&120G'],
-             [48, '커다란 마력회로[코어소재](120G)&60G'],
-             [49, '189G'],
-             [50, '고급 통술[환전](200G)'],
-             [51, '201G'],
-             [52, '백색 반지'],
-             [53, '비취 목걸이[환전](210G)'],
-             [54, '황금 고블린상[환전](220G)'],
-             [55, '샤벨'],
-             [56, '진철 검신[코어소재](120G)&120G'],
-             [57, '지저분한청자[환전](240G)'],
-             [58, '톤스톤의 모듬 꼬치구이×2'],
-             [59, '고블린 왕의 훈장[환전](255G)'],
-             [60, '실눈뜨기의 두루마리(중급)×2'],
-             [61, '269G'],
-             [62, '백랑의 모피[환전](280G)'],
-            ]
+  table = [
+           [ 7, '라이트메이스'],
+           [ 8, '백과사전'],
+           [ 9, '42G'],
+           [10, '오래된 해골[코어소재](40G)'],
+           [11, '가속의 두루마리(초급)'],
+           [12, '46G'],
+           [13, '48G'],
+           [14, '50G'],
+           [15, '유리구슬[환전](60G)'],
+           [16, '피로 얼룩진 칼[코어소재](50G)'],
+           [17, '찌그러진 금접시[환전](60G)'],
+           [18, '59G'],
+           [19, '모피로 된 깔개[환전](60G)'],
+           [20, '뾰족한 발톱[코어소재](60G)'],
+           [21, '67G'],
+           [22, '흠집투성이의 상아상[환전](70G)'],
+           [23, '72G'],
+           [24, '라이트 랜스[파손]'],
+           [25, '골제 목걸이[환전](80G)'],
+           [26, '사금이 섞인 돌[환전](80G)'],
+           [27, '85G'],
+           [28, '향나무 파편[환전](90G)'],
+           [29, '기묘한 가면[환전](90G)'],
+           [30, '96G'],
+           [31, '시미터'],
+           [32, '우든 라운드'],
+           [33, '바람 소리의 방울[코어소재](80G)&철제 전립[코어소재](30G)'],
+           [34, '112G'],
+           [35, '산양슬라임(라지사이즈)[환전](120G)'],
+           [36, '121G'],
+           [37, '고급 노송나무[환전](125G)'],
+           [38, '130G'],
+           [39, '크리스탈제 체스말[환전](135G)'],
+           [40, '140G'],
+           [41, '텐트(캠핑용)'],
+           [42, '이상한 환약[코어소재](30G)×2&100G'],
+           [43, '수수께끼의 모피[코어소재](80G)&원한의 고리[코어소재](80G)'],
+           [44, '의식용 뼈 검[환전](160G)'],
+           [45, '낡은 동전[환전](165G)'],
+           [46, '낭아봉'],
+           [47, '법리회로[코어소재](60G)&120G'],
+           [48, '커다란 마력회로[코어소재](120G)&60G'],
+           [49, '189G'],
+           [50, '고급 통술[환전](200G)'],
+           [51, '201G'],
+           [52, '백색 반지'],
+           [53, '비취 목걸이[환전](210G)'],
+           [54, '황금 고블린상[환전](220G)'],
+           [55, '샤벨'],
+           [56, '진철 검신[코어소재](120G)&120G'],
+           [57, '지저분한청자[환전](240G)'],
+           [58, '톤스톤의 모듬 꼬치구이×2'],
+           [59, '고블린 왕의 훈장[환전](255G)'],
+           [60, '실눈뜨기의 두루마리(중급)×2'],
+           [61, '269G'],
+           [62, '백랑의 모피[환전](280G)'],
+          ]
 
-    return tableName, table
-  end
+  return tableName, table
+end
 
   #パーソナリティタグ表
   def getPersonalityTagDiceCommandResult(command)
-
     return nil unless("PTAG" === command)
 
   tableName = "퍼스널리티 태그"
@@ -805,7 +800,6 @@ MESSAGETEXT
 
   #交友表
   def getFriendlyChartDiceCommandResult(command)
-
     return nil unless("KOYU" === command)
 
     tableName = "교우표"
@@ -857,12 +851,10 @@ MESSAGETEXT
 
     text = "#{tableName}([#{number}]) ＞ #{result}"
     return text
-
   end
 
   #プレフィックスドマジックアイテム表
   def getPrefixedMagickItemDiceCommandResult(command)
-
     return nil unless(/MGR([1-3])/ === command)
 
     rank = $1.to_i
@@ -1018,12 +1010,10 @@ MESSAGETEXT
 
     text = "#{tableName}([#{number}]) ＞ #{result}"
     return text
-
   end
 
   #공격 명중 장소 랜덤결정표
   def getHitLocationDiceCommandResult(command)
-
     return nil unless("HLOC" === command)
 
     tableName = "공격명중장소"
@@ -1076,7 +1066,6 @@ MESSAGETEXT
 
   #PC명 랜덤 결정표
   def getPCNameDiceCommandResult(command)
-
     return nil unless("PCNM" === command)
 
     tableName = "PC名"
@@ -1131,7 +1120,6 @@ MESSAGETEXT
 
   #ロデ研の新発明ランダム決定表
   def getInventionAttributeTextDiceCommandResult(command)
-
     return nil unless(/IAT([ABMDLT]*)/ === command)
 
     tableName = "로데릭 연구소의 새로운 발명"
@@ -1190,7 +1178,6 @@ MESSAGETEXT
 
   #아키바 거리에서 발생하는 문제 랜덤결정 표
   def getTroubleInAkibaStreetDiceCommandResult(command)
-
     return nil unless command === "TIAS"
 
     tableName = "아키바 거리에서 발생하는 문제"
@@ -1242,7 +1229,6 @@ MESSAGETEXT
 
   #버림받은 아이 랜덤결정표
   def getAbandonedChildDiceCommandResult(command)
-
     return nil unless command === "ABDC"
 
     tableName = "버림받은 아이"
@@ -1311,12 +1297,14 @@ MESSAGETEXT
   #楽器種別表
   def getMusicalInstrumentTypeDiceCommandResult(command)
     return nil unless(/MII(\d?)/ === command)
+
      type, is_roll = if $1 && $1 != ''
-      [$1.to_i, false]
+                       [$1.to_i, false]
     else
       roll(1, 6)
     end
     return nil if type < 1 || 6 < type
+
     tableName = "악기 종류 표"
     type_name = ['타악기１', '건반악기', '현악기１', '현악기２', '관악기１', '관악기２'][type - 1]
 
@@ -1334,7 +1322,6 @@ MESSAGETEXT
   end
 
   def getEastalDiceCommandResult(command)
-
     return nil unless command =~ /ESTL(\d+)/
 
     cr = $1.to_i

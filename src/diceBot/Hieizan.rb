@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class Hieizan < DiceBot
-
   def gameName
     '比叡山炎上'
   end
@@ -22,6 +21,7 @@ INFO_MESSAGE_TEXT
       if(total_n <= (diff / 5))
         return " ＞ 大成功"    # 大成功 > 自動成功
       end
+
       return " ＞ 自動成功"
     end
 
@@ -38,10 +38,10 @@ INFO_MESSAGE_TEXT
       if(total_n <= (diff / 5))
         return " ＞ 大成功"    # 目標値の1/5以下は大成功
       end
+
       return " ＞ 成功"
     end
 
     return " ＞ 失敗"
   end
-
 end

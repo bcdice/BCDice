@@ -71,11 +71,11 @@ INFO_MESSAGE_TEXT
     sk_bonus = get_torg_bonus(skilled)
 
     if( mod )
-        if(mod > 0)
-          output = "#{sk_bonus}[#{dice_str}]+#{mod}"
-        else
-          output = "#{sk_bonus}[#{dice_str}]#{mod}"
-        end
+      if(mod > 0)
+        output = "#{sk_bonus}[#{dice_str}]+#{mod}"
+      else
+        output = "#{sk_bonus}[#{dice_str}]#{mod}"
+      end
     else
       output = "#{sk_bonus}[#{dice_str}]"
     end
@@ -183,7 +183,6 @@ INFO_MESSAGE_TEXT
 # 対人行為結果表
 # 威圧／威嚇(intimidate/Test)
   def get_torg_interaction_result_intimidate_test(value)
-
     interaction_results_table = [
         [0, "技能なし"],
         [5, "萎縮"],
@@ -288,13 +287,13 @@ INFO_MESSAGE_TEXT
 
   def get_torg_damage(value, maxDamage, maxDamageString, damage_table)
     if( value < 0 )
-        return '1'
+      return '1'
     end
 
     table_max_value = damage_table.length - 1
 
     if( value <= table_max_value )
-        return get_torg_table_result( value, damage_table )
+      return get_torg_table_result( value, damage_table )
     end
 
     over_kill_damage = ((value - table_max_value) / 2).to_i

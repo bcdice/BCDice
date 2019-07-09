@@ -403,7 +403,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getPrice(effect)
-
     power = 0
 
     case effect

@@ -9,6 +9,7 @@ class RokumonSekai2 < DiceBot
     @sendMode = 2;
     @sortType = 1;
   end
+
   def gameName
     '六門世界2nd'
   end

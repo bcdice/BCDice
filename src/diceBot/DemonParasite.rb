@@ -52,29 +52,28 @@ INFO_MESSAGE_TEXT
       if(total_n >= diff)
         return " ＞ 成功"
       end
+
       return " ＞ 失敗"
     when ">"
       if(total_n > diff)
         return " ＞ 成功"
       end
+
       return " ＞ 失敗"
     end
   end
 
   def rollDiceCommand(command)
-
     case command
     when /(\w)?URGE\s*(\d+)/i
       return get_urge(command)
     else
       return '1'
     end
-
   end
 
   # 衝動表
   def get_urge(string)
-
     unless(/(\w)?URGE\s*(\d+)/i =~ string)
       return '1'
     end

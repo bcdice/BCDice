@@ -10,7 +10,6 @@ require 'BCDice_forTest'
 $isDebug = false
 
 class TestCardTrader < Test::Unit::TestCase
-
   def setup
     $isDebug = false
 
@@ -147,7 +146,6 @@ class TestCardTrader < Test::Unit::TestCase
 
     @cardTrader.executeCard("c-play1[J1,S2]", "channel")
     assert_equal( "sendMessage\nto:channel\ntest_nick: 2枚出しました\nsendMessageToOnlySender\nto:\n[  ] 場札:[ J1,S1,S2 ] タップした場札:[  ]\n", @bcdice.getResult())
-
   end
 
   def test_rshuffle
@@ -187,7 +185,6 @@ class TestCardTrader < Test::Unit::TestCase
     assert_equal( "sendMessageToOnlySender\nto:\nC13\nsendMessage\nto:channel\ntest_nick: 1枚引きました\n", @bcdice.getResult())
   end
 
-
   def test_review
     @cardTrader.executeCard("c-review", "channel")
     assert_equal( "sendMessageToOnlySender\nto:\nS1,S2,S3,S4,S5,S6,S7,S8,S9,S10,S11,S12,S13,H1,H2,H3,H4,H5,H6,H7,H8,H9,H10,H11,H12,H13,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,J1\n", @bcdice.getResult())
@@ -199,7 +196,6 @@ class TestCardTrader < Test::Unit::TestCase
     @cardTrader.executeCard("c-review", "channel")
     assert_equal( "sendMessageToOnlySender\nto:\nS4,S5,S6,S7,S8,S9,S10,S11,S12,S13,H1,H2,H3,H4,H5,H6,H7,H8,H9,H10,H11,H12,H13,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13\n", @bcdice.getResult())
   end
-
 
   def test_pass
     @bcdice.setRandomValues([[1, 53], [1, 52], [1, 51], [50, 50]])
@@ -215,7 +211,6 @@ class TestCardTrader < Test::Unit::TestCase
 
     @cardTrader.executeCard("c-hand", "channel")
     assert_equal( "sendMessageToOnlySender\nto:\n[ J1,S1,S2 ] 場札:[ S3 ] タップした場札:[  ]\n", @bcdice.getResult())
-
 
     @cardTrader.executeCard("c-pass[S1]john", "channel")
     assert_equal( "sendMessage\nto:channel\ntest_nick: 1枚渡しました\nsendMessage\nto:john\n[ C13,S1 ] 場札:[  ] タップした場札:[  ]\nsendMessageToOnlySender\nto:\n[ J1,S2 ] 場札:[ S3 ] タップした場札:[  ]\n", @bcdice.getResult())
@@ -234,7 +229,6 @@ class TestCardTrader < Test::Unit::TestCase
     assert_equal( "sendMessageToOnlySender\nto:\n[ S2 ] 場札:[  ] タップした場札:[  ]\n", @bcdice.getResult())
   end
 
-
   def test_pick
     @cardTrader.executeCard("c-pick[S1]", "channel")
     assert_equal( "sendMessage\nto:channel\ntest_nick: 1枚選んで引きました\nsendMessageToOnlySender\nto:\n[ S1 ] 場札:[  ] タップした場札:[  ]\n", @bcdice.getResult())
@@ -251,7 +245,6 @@ class TestCardTrader < Test::Unit::TestCase
     assert_equal( "sendMessage\nto:channel\n[山札]がありません\nsendMessageToOnlySender\nto:\n[ C1,C10,C11,C12,C13,C2,C3,C4,C5,C6,C7,C8,C9,D1,D10,D11,D12,D13,D2,D3,D4,D5,D6,D7,D8,D9,H1,H10,H11,H12,H13,H2,H3,H4,H5,H6,H7,H8,H9,J1,S1,S10,S11,S12,S13,S2,S3,S4,S5,S6,S7,S8,S9 ] 場札:[  ] タップした場札:[  ]\n", @bcdice.getResult())
   end
 
-
   def drawCards(count, total)
     rands = []
     cardCount = count
@@ -267,8 +260,6 @@ class TestCardTrader < Test::Unit::TestCase
     @bcdice.getResult()
     #debug('drawCards, getResult@bcdice.getResult()', @bcdice.getResult())
   end
-
-
 
   def test_back
     @bcdice.setRandomValues([[1, 53], [1, 52], [1, 51], [1, 50], [49, 49]])
@@ -290,7 +281,6 @@ class TestCardTrader < Test::Unit::TestCase
     assert_equal( "sendMessage\nto:channel\n[捨て札]がありません\n", @bcdice.getResult())
   end
 
-
   def test_deal
     @bcdice.setRandomValues([[1, 53], [1, 52], [1, 51], [50, 50]])
 
@@ -302,8 +292,6 @@ class TestCardTrader < Test::Unit::TestCase
     assert_equal( "sendMessageToOnlySender\nto:\n[ J1,S1,S2,S3 ] 場札:[  ] タップした場札:[  ]\n", @bcdice.getResult())
   end
 
-
-
   def test_vdeal
     @bcdice.setRandomValues([[1, 53], [1, 52], [1, 51], [50, 50]])
     @cardTrader.executeCard("c-vdeal[4] john", "channel")
@@ -313,7 +301,6 @@ class TestCardTrader < Test::Unit::TestCase
     @cardTrader.executeCard("c-hand", "channel")
     assert_equal( "sendMessageToOnlySender\nto:\n[ J1,S1,S2,S3 ] 場札:[  ] タップした場札:[  ]\n", @bcdice.getResult())
   end
-
 
   def test_discard
     @bcdice.setRandomValues([[1, 53], [1, 52], [1, 51], [50, 50]])
@@ -342,7 +329,6 @@ class TestCardTrader < Test::Unit::TestCase
     @cardTrader.executeCard("c-odraw[4]", "channel")
     @cardTrader.executeCard("c-play1[S2]", "channel")
     debug( @bcdice.getResult() )
-
 
     @cardTrader.executeCard("c-hand", "channel")
     assert_equal( "sendMessageToOnlySender\nto:\n[ J1,S3,S4 ] 場札:[ S2 ] タップした場札:[  ]\n", @bcdice.getResult())
@@ -373,7 +359,6 @@ class TestCardTrader < Test::Unit::TestCase
     assert_equal( "sendMessageToOnlySender\nto:\n[  ] 場札:[  ] タップした場札:[  ]\n", @bcdice.getResult())
   end
 
-
   def test_tap_untap
     @bcdice.setRandomValues([[1, 53], [1, 52], [1, 51], [50, 50]])
     @cardTrader.executeCard("c-odraw[4] john", "channel")
@@ -389,7 +374,6 @@ class TestCardTrader < Test::Unit::TestCase
     @cardTrader.executeCard("c-tap1[J1,S2,S3]", "channel")
     assert_equal( "sendMessage\nto:channel\ntest_nick: 3枚タップしました\nsendMessageToOnlySender\nto:\n[  ] 場札:[  ] タップした場札:[ J1,S1,S2,S3 ]\n", @bcdice.getResult())
 
-
     @cardTrader.executeCard("c-untap1[S1]", "channel")
     assert_equal( "sendMessage\nto:channel\ntest_nick: 1枚アンタップしました\nsendMessageToOnlySender\nto:\n[  ] 場札:[ S1 ] タップした場札:[ J1,S2,S3 ]\n", @bcdice.getResult())
 
@@ -397,13 +381,11 @@ class TestCardTrader < Test::Unit::TestCase
     assert_equal( "sendMessage\nto:channel\ntest_nick: 3枚アンタップしました\nsendMessageToOnlySender\nto:\n[  ] 場札:[ J1,S1,S2,S3 ] タップした場札:[  ]\n", @bcdice.getResult())
   end
 
-
   def test_milstone
     @bcdice.setRandomValues([[1, 53], [1, 52], [1, 51], [50, 50]])
     @cardTrader.executeCard("c-milstone", "channel")
     assert_equal( "sendMessage\nto:channel\ntest_nick: S1が出ました\n", @bcdice.getResult())
   end
-
 
   def test_getSpell
     cardCount = 53
@@ -431,6 +413,7 @@ class TestCardTrader < Test::Unit::TestCase
 
     cardCount.times do |i|
       break if(i == cardCount)
+
       max = cardCount - i
       rands << [1, max]
     end
@@ -444,11 +427,9 @@ class TestCardTrader < Test::Unit::TestCase
 
     @cardTrader.executeCard("c-hand", "channel")
     assert_equal( "sendMessageToOnlySender\nto:\n[ C1,C10,C11,C12,C13,C3,C4,C5,C6,C7,C8,C9,D1,D10,D11,D12,D13,D2,D3,D4,D5,D6,D7,D8,D9,H1,H10,H11,H12,H13,H2,H3,H4,H5,H6,H7,H8,H9,S10,S11,S12,S13,S2,S3,S4,S5,S6,S7,S8,S9 ] 場札:[ S1 ] タップした場札:[  ]\n", @bcdice.getResult())
-
   end
 
   def test_getSpellLong
-
     @cardTrader.set2Deck2Jorker
 
     cardCount = 108
@@ -464,7 +445,6 @@ class TestCardTrader < Test::Unit::TestCase
     assert_equal( "sendMessage\nto:channel\ntest_nick: 2枚出しました\nsendMessageToOnlySender\nto:\n[ S4,S5 ] 場札:[ S2,S3 ] タップした場札:[  ]\n", @bcdice.getResult())
     @cardTrader.executeCard("c-tap1[S3]", "channel")
     assert_equal( "sendMessage\nto:channel\ntest_nick: 1枚タップしました\nsendMessageToOnlySender\nto:\n[ S4,S5 ] 場札:[ S2 ] タップした場札:[ S3 ]\n", @bcdice.getResult())
-
 
     @cardTrader.setNick('john')
     @cardTrader.executeCard("c-draw[5]", "channel")
@@ -492,14 +472,12 @@ class TestCardTrader < Test::Unit::TestCase
     @cardTrader.executeCard("c-hand", "channel")
     assert_equal( "sendMessageToOnlySender\nto:\n[ S6,S9 ] 場札:[ S7 ] タップした場札:[ S8 ]\n", @bcdice.getResult())
     setDefaultNick
-
   end
 
   def _test_
     @cardTrader.executeCard("c-", "channel")
     assert_equal( "", @bcdice.getResult())
   end
-
 
   def trace
     $isDebug = true

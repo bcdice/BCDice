@@ -48,7 +48,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-
     result = checkRoll(command)
     return result unless(result.empty?)
 
@@ -92,7 +91,6 @@ INFO_MESSAGE_TEXT
     output = "(#{string}) ＞ #{output}"
 
     return output
-
   end
 
   def rollTableCommand(command)

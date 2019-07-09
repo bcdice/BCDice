@@ -64,7 +64,6 @@ INFO_MESSAGE_TEXT
 
   # 게임 별 성공 여부 판정(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
     return '' unless(signOfInequality == ">=")
@@ -123,7 +122,7 @@ INFO_MESSAGE_TEXT
       type = '랜덤 특기 결정표'
       output, total_n = get_random_skill_table
         when 'TVT'
-      type = '지정특기(폭력)표'
+          type = '지정특기(폭력)표'
       output, total_n = get_violence_skill_table
     when 'TET'
       type = '지정특기(감정)표'
@@ -159,13 +158,13 @@ INFO_MESSAGE_TEXT
       type = '정보 속에 숨어 있는 공포표'
       output, total_n = get_latence_horror_table
     when 'ECT'
-          type = '조우표・도시'
+      type = '조우표・도시'
        output, total_n = get_city_table
     when 'EMT'
-          type = '조우표・산림'
+      type = '조우표・산림'
        output, total_n = get_mountainforest_table
     when 'EAT'
-          type = '조우표・해변'
+      type = '조우표・해변'
        output, total_n = get_seaside_table
     when 'OHT'
       type = '야근 시 조우하는 공포표'

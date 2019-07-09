@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class IniFile
-
   def initialize(fileName)
     @fileName = fileName
     getInfos
@@ -15,7 +14,6 @@ class IniFile
     if( File.exist?(@fileName) )
       lines = File.readlines(@fileName)
     end
-
 
     section = nil
     lines.each do |line|
@@ -49,7 +47,6 @@ class IniFile
     return value
   end
 
-
   def read(section, key, defaultValue = nil)
     info = @infos[section]
     if( info.nil? )
@@ -63,7 +60,6 @@ class IniFile
 
     return value
   end
-
 
   def write(section, key, value)
     @infos[section] ||= {}
@@ -107,5 +103,4 @@ class IniFile
     writeToFile
     getInfos
   end
-
 end

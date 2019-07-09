@@ -84,7 +84,6 @@ INFO_MESSAGE_TEXT
 
   # 個数振り足しダイスロール
   def check_dice(string)
-
     debug("dxdice begin string", string)
 
     dice_cnt = 0
