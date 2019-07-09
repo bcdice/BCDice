@@ -66,11 +66,13 @@ MESSAGETEXT
       case command.upcase
 
       when /([AS])R(\d+)(([\*\/]\d+)*)?(((@|A|L)\d+)*)(\!M)?$/i
-        type = $1
-        target = $2.to_i
-        modify = get_value(1, $3)
-        paramText = ($5 || '')
-        isMuse = (not $8.nil?)  # パンドラ《ミューズ》
+        m = Regexp.last_match
+
+        type = m[1]
+        target = m[2].to_i
+        modify = get_value(1, m[3])
+        paramText = (m[5] || '')
+        isMuse = (not m[8].nil?)  # パンドラ《ミューズ》
 
         accidentValue = 96
         advancedRoll = 1

@@ -355,14 +355,14 @@ MESSAGETEXT
   #재보표
   def getTresureDiceCommandResult(command)
 
-    return nil unless(/(C|M|I|H|G)TRS(\d*)([\+\-\d]*)(\$)?/ === command)
+    return nil unless(m = /(C|M|I|H|G)TRS(\d*)([\+\-\d]*)(\$)?/.match(command))
 
-    type = $1
-    rank = $2.to_i
-    is_choice = ($2.empty? || (not $4.nil?))
-    modifyText = $3
+    type = m[1]
+    rank = m[2].to_i
+    is_choice = (m[2].empty? || (not m[4].nil?))
+    modifyText = m[3]
     modify = getValue(modifyText, 0)
-    is_prize = ($4 == "$")
+    is_prize = (m[4] == "$")
     dice_value = nil
     dice_value = '7' if is_prize
     is_rank_enable = ( (not is_choice) || is_prize)

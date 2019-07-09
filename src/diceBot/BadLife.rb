@@ -69,28 +69,28 @@ MESSAGETEXT
   end
 
   def judgeDice(command)
-    unless /(\d+)?(BAD|BL|GL)([\+\-\d+]*)((C|F)([\+\-\d+]*)?)?((C|F)([\+\-\d+]*))?(\@([\+\-\d+]*))?(\!(\D*))?/i === command
+    unless (m = /(\d+)?(BAD|BL|GL)([\+\-\d+]*)((C|F)([\+\-\d+]*)?)?((C|F)([\+\-\d+]*))?(\@([\+\-\d+]*))?(\!(\D*))?/i.match(command))
       return nil
     end
 
-    diceCount = ($1 || 1).to_i
+    diceCount = (m[1] || 1).to_i
 
     critical = 20
     fumble = 1
 
-    isStormy = ($2 == 'GL')  # 波乱万丈
+    isStormy = (m[2] == 'GL')  # 波乱万丈
     if( isStormy )
       critical -= 3
       fumble += 1
     end
 
-    modify = get_value($3)
+    modify = get_value(m[3])
 
-    critical, fumble = get_critival_fumble(critical, fumble, $5, $6)
-    critical, fumble = get_critival_fumble(critical, fumble, $8, $9)
+    critical, fumble = get_critival_fumble(critical, fumble, m[5], m[6])
+    critical, fumble = get_critival_fumble(critical, fumble, m[8], m[9])
 
-    target = get_value($11)
-    optionalText = ($13 || '')
+    target = get_value(m[11])
+    optionalText = (m[13] || '')
 
     return checkRoll(diceCount, modify, critical, fumble, target, isStormy, optionalText)
   end

@@ -117,12 +117,12 @@ INFO_MESSAGE_TEXT
     end
 
     if( not $5.nil? )
-      signOfInequality = marshalSignOfInequality($6)
       diff = $7.to_i
+      signOfInequality = marshalSignOfInequality($6)
     elsif( defaultSuccessTarget != "" )
       if( /([<>=]+)(\d+)/ =~ defaultSuccessTarget )
-        signOfInequality = marshalSignOfInequality($1)
         diff = $2.to_i
+        signOfInequality = marshalSignOfInequality($1)
       end
     end
 
