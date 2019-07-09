@@ -224,7 +224,7 @@ INFO_MESSAGE_TEXT
         '海水浴：《突撃／戦闘６》で判定。',
         'マイブーム：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《口ぐせ／背景６》で判定。',
       ]
-    table.each{|i| i.gsub!(/$/, '（着任p220）')}
+    table.each{|i| i = i.gsub(/$/, '（着任p220）')}
     return get_table_by_2d6(table)
   end
 
@@ -243,7 +243,7 @@ INFO_MESSAGE_TEXT
             'お手紙：自分以外の好きなＰＣ１人を選んで、《古風／背景５》で判定。',
             '昔語り：自分以外の好きなＰＣ１人を選んで、提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《暗い過去／背景４》で判定。',
       ]
-    table.each{|i| i.gsub!(/$/, '（着任p221）')}
+    table.each{|i| i = i.gsub(/$/, '（着任p221）')}
     return get_table_by_2d6(table)
   end
 
@@ -262,7 +262,7 @@ INFO_MESSAGE_TEXT
         'スタイル自慢！：《スタイル／背景１１》で判定。',
         'ちゃんと面倒みるから！：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《生き物／趣味４》で判定。',
       ]
-    table.each{|i| i.gsub!(/$/, '（着任p222）')}
+    table.each{|i| i = i.gsub(/$/, '（着任p222）')}
     return get_table_by_2d6(table)
   end
 
@@ -281,7 +281,7 @@ INFO_MESSAGE_TEXT
         '開発演習：《秘密兵器／背景９》で判定。',
         '防空射撃演習：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《対空戦闘／戦闘５》で判定。',
       ]
-    table.each{|i| i.gsub!(/$/, '（着任p223）')}
+    table.each{|i| i = i.gsub(/$/, '（着任p223）')}
     return get_table_by_2d6(table)
   end
 
@@ -300,7 +300,7 @@ INFO_MESSAGE_TEXT
         '対潜警戒任務：《対潜戦闘／戦闘１１》で判定。',
         '大規模遠征作戦、発令！：提督の選んだ（キーワード）に対応した指定能力値で判定。思いつかな場合は《指揮／航海１０》で判定。',
       ]
-    table.each{|i| i.gsub!(/$/, '（着任p224）')}
+    table.each{|i| i = i.gsub(/$/, '（着任p224）')}
     return get_table_by_2d6(table)
   end
 
@@ -320,7 +320,7 @@ INFO_MESSAGE_TEXT
         '知彼知己者、百戦不殆：《読書／趣味５》で判定。',
 
       ]
-    table.each{|i| i.gsub!(/$/, '（着任p225）')}
+    table.each{|i| i = i.gsub(/$/, '（着任p225）')}
     return get_table_by_2d6(table)
   end
 
@@ -340,7 +340,7 @@ INFO_MESSAGE_TEXT
         '思い立ったが吉日：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《恋愛／趣味１２》で判定。',
 
       ]
-    table.each{|i| i.gsub!(/$/, '（建造弐p134）')}
+    table.each{|i| i = i.gsub(/$/, '（建造弐p134）')}
     return get_table_by_2d6(table)
   end
 
@@ -360,7 +360,7 @@ INFO_MESSAGE_TEXT
         '味の探求：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《読書／趣味５》で判定。',
 
       ]
-    table.each{|i| i.gsub!(/$/, '（建造弐p135）')}
+    table.each{|i| i = i.gsub(/$/, '（建造弐p135）')}
     return get_table_by_2d6(table)
   end
 
@@ -380,7 +380,7 @@ INFO_MESSAGE_TEXT
         '映画撮影：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《芸能／趣味９》で判定。',
 
       ]
-    table.each{|i| i.gsub!(/$/, '（建造弐p136）')}
+    table.each{|i| i = i.gsub(/$/, '（建造弐p136）')}
     return get_table_by_2d6(table)
   end
 
@@ -400,7 +400,7 @@ INFO_MESSAGE_TEXT
         '極限の集中：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《ばか／魅力８》で判定。',
 
       ]
-    table.each{|i| i.gsub!(/$/, '（建造弐p137）')}
+    table.each{|i| i = i.gsub(/$/, '（建造弐p137）')}
     return get_table_by_2d6(table)
   end
 
@@ -420,7 +420,7 @@ INFO_MESSAGE_TEXT
         'ストライキ：《おおらか／性格３》で判定。',
 
       ]
-    table.each{|i| i.gsub!(/$/, '（建造弐p138）')}
+    table.each{|i| i = i.gsub(/$/, '（建造弐p138）')}
     return get_table_by_2d6(table)
   end
 
@@ -440,7 +440,7 @@ INFO_MESSAGE_TEXT
         '死者の声：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《けなげ／魅力６》で判定。',
 
       ]
-    table.each{|i| i.gsub!(/$/, '（建造弐p139）')}
+    table.each{|i| i = i.gsub(/$/, '（建造弐p139）')}
     return get_table_by_2d6(table)
   end
 
@@ -545,7 +545,7 @@ INFO_MESSAGE_TEXT
         '応急修理要員',
         '思い出の品',
             ]
-    table.each{|i| i.gsub!(/$/, '（P241）')}
+    table.each{|i| i = i.gsub(/$/, '（P241）')}
     return get_table_by_1d6(table)
   end
 
@@ -734,7 +734,7 @@ INFO_MESSAGE_TEXT
     '悪天候',
     '悪海象（あくかいしょう）',
             ]
-    table.each{|i| i.gsub!(/$/, '（P231）')}
+    table.each{|i| i = i.gsub(/$/, '（P231）')}
     return get_table_by_1d6(table)
   end
 
@@ -747,7 +747,7 @@ INFO_MESSAGE_TEXT
     '慢心',
     '絶望',
             ]
-    table.each{|i| i.gsub!(/$/, '（建造弐p164）')}
+    table.each{|i| i = i.gsub(/$/, '（建造弐p164）')}
     return get_table_by_1d6(table)
   end
 
