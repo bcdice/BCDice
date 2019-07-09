@@ -67,11 +67,11 @@ MESSAGETEXT
 
   def getJudgeResult(command)
 
-    return nil unless /^2D6<=(\d)$/i === command or /^SN(\d*)$/i === command
+    return nil unless (m = (/^2D6<=(\d)$/i.match(command) or /^SN(\d*)$/i.match(command)))
 
     debug("====getJudgeResult====")
 
-    target = $1.empty? ? 7 : $1.to_i  # 目標値。省略時は7
+    target = m[1].empty? ? 7 : m[1].to_i # 目標値。省略時は7
     debug("目標値",target)
 
     total,diceText, = roll(2,6)
@@ -91,11 +91,11 @@ MESSAGETEXT
 
   def navigationResult(command)
 
-    return nil unless /^NV(\+(\d+))?$/ === command
+    return nil unless (m = /^NV(\+(\d+))?$/.match(command))
 
     debug("====navigationResult====")
 
-    bonus = $2.to_i  # 〈操舵室〉の修正。GMの任意修正にも対応できるように(マイナスは無視)
+    bonus = m[2].to_i # 〈操舵室〉の修正。GMの任意修正にも対応できるように(マイナスは無視)
     debug("移動修正", bonus)
 
     total, = roll(1,6)
@@ -130,13 +130,13 @@ MESSAGETEXT
 
   def getFireResult(command)
 
-    return nil unless /^D([1-4, 6-9]*)(\[.+\])*\/(\d+)(@([2,4,6,8]))?$/ === command
+    return nil unless (m = /^D([1-4, 6-9]*)(\[.+\])*\/(\d+)(@([2,4,6,8]))?$/.match(command))
 
     debug("====getFireResult====")
 
-    fireCount = $3.to_i # 砲撃回数
-    fireRange = $1.to_s # 砲撃範囲
-    ballistics = $5.to_i # 《弾道学》
+    fireCount = m[3].to_i # 砲撃回数
+    fireRange = m[1].to_s # 砲撃範囲
+    ballistics = m[5].to_i # 《弾道学》
     debug("fireCount", fireCount)
     debug("fireRange", fireRange)
     debug("ballistics", ballistics)
@@ -241,12 +241,12 @@ MESSAGETEXT
 
   def getBomberResult(command)
 
-    return nil unless /^BOM(\d*)?\/D([1-4, 6-9]*)(\[.+\])*\/(\d+)(@([2,4,6,8]))?$/i === command
+    return nil unless (m = /^BOM(\d*)?\/D([1-4, 6-9]*)(\[.+\])*\/(\d+)(@([2,4,6,8]))?$/i.match(command))
 
     debug("====getBomberResult====", command)
 
-    target = $1
-    direction = $6.to_i
+    target = m[1].to_s
+    direction = m[6].to_i
     debug("弾道学方向", direction)
 
     text = "#{command} ＞ "
@@ -264,16 +264,16 @@ MESSAGETEXT
 
   def getAvoidResult(command)
 
-    return nil unless /^AVO(\d*)?(@([2,4,6,8]))(\(?\[縦\d+,横\d+\]\)?,?)+$/ === command
+    return nil unless (m = /^AVO(\d*)?(@([2,4,6,8]))(\(?\[縦\d+,横\d+\]\)?,?)+$/.match(command))
 
     debug("====getAvoidResult====", command)
 
-    direction = $3.to_i
+    direction = m[3].to_i
     debug("回避方向", direction)
 
     judgeCommand = command.slice(/^AVO(\d*)?(@([2,4,6,8]))/)  # 判定部分
     text = "#{judgeCommand} ＞ 《回避運動》"
-    text += getJudgeResult("SN" + $1) # 操舵判定
+    text += getJudgeResult("SN" + $1.to_s) # 操舵判定
 
     return text unless /成功/ === text
 

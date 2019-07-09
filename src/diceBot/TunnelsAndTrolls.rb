@@ -133,15 +133,15 @@ INFO_MESSAGE_TEXT
 
     output = "1"
 
-    return output unless(/(^|\s)S?((\d+)[rR]6([\+\-\d]*)(\[(\w+)\])?)(\s|$)/i =~ string)
+    return output unless(m = /(^|\s)S?((\d+)[rR]6([\+\-\d]*)(\[(\w+)\])?)(\s|$)/i.match(string))
     debug('tandt_berserk matched')
 
-    string = $2
-    dice_c = $3.to_i
+    string = m[2]
+    dice_c = m[3].to_i
     bonus = 0
-    bonus = parren_killer("(0#{$4})").to_i if($4)
+    bonus = parren_killer("(0#{m[4]})").to_i if(m[4])
     isHyperBerserk = false
-    isHyperBerserk = true if($5 and ($6 =~ /[Hh]/))
+    isHyperBerserk = true if(m[5] and (m[6] =~ /[Hh]/))
     dice_arr = []
     dice_now = 0
     dice_str = ""

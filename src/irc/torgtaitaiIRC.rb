@@ -37,7 +37,7 @@ class TorgtaitaiIRC
     print(output) unless( @isTest )
 
     if( @isTest )
-      @buffer << output
+      @buffer += output
     end
   end
 

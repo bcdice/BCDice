@@ -70,7 +70,7 @@ INFO_MESSAGE_TEXT
   def arsmagica_stress(string, nick_e)
     output = "1";
 
-    return "1" unless (/(^|\s)S?(1[rR]10([\+\-\d]*)(\[(\d+)\])?(([>=]+)(\d+))?)(\s|$)/i =~ string)
+    return "1" unless (m = /(^|\s)S?(1[rR]10([\+\-\d]*)(\[(\d+)\])?(([>=]+)(\d+))?)(\s|$)/i.match(string))
 
     diff = 0;
     botch = 1;
@@ -78,18 +78,18 @@ INFO_MESSAGE_TEXT
     crit_mul = 1;
     total = 0;
     signOfInequality = "";
-    bonusText = $3
-    botch = $5.to_i if($4);
+    bonusText = m[3];
+    botch = m[5].to_i if(m[4]);
 
-    if($6)
-      signOfInequality = marshalSignOfInequality($7);
-      diff = $8;
+    if(m[6])
+      signOfInequality = marshalSignOfInequality(m[7]);
+      diff = m[8];
     end
 
     bonus = parren_killer("(0#{bonusText})").to_i unless( bonusText.empty? )
 
     die = rand(10);
-    output = "(#{$2}) ＞ ";
+    output = "(#{m[2]}) ＞ ";
 
     if(die == 0) # botch?
       count0 = 0;

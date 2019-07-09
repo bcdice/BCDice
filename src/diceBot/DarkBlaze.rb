@@ -62,25 +62,25 @@ INFO_MESSAGE_TEXT
   def check_roll(string, nick_e)
     output = "1"
 
-    return '1' unless(/(^|\s)S?(3[rR]6([\+\-\d]+)?(\[(\d+),(\d+)\])(([>=]+)(\d+))?)(\s|$)/i =~ string)
+    return '1' unless(m = /(^|\s)S?(3[rR]6([\+\-\d]+)?(\[(\d+),(\d+)\])(([>=]+)(\d+))?)(\s|$)/i.match(string))
 
-    string = $2
+    string = m[2]
     mod = 0
     abl = 1
     skl = 1
     signOfInequality = ""
     diff = 0
 
-    mod = parren_killer("(0#{$3})").to_i if($3)
+    mod = parren_killer("(0#{m[3]})").to_i if(m[3])
 
-    if($4)
-      abl = $5.to_i
-      skl = $6.to_i
+    if(m[4])
+      abl = m[5].to_i
+      skl = m[6].to_i
     end
 
-    if($7)
-      signOfInequality = marshalSignOfInequality($8)
-      diff = $9.to_i
+    if(m[7])
+      signOfInequality = marshalSignOfInequality(m[8])
+      diff = m[9].to_i
     end
 
     total, out_str = get_dice(mod, abl, skl)

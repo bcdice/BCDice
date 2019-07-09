@@ -66,22 +66,22 @@ INFO_MESSAGE_TEXT
     output = "1"
 
     debug("checkRoll string", string)
-    unless(/(^|\s)S?((\d+)[rR]6([\+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i =~ string)
+    unless(m = /(^|\s)S?((\d+)[rR]6([\+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i.match(string))
       debug("not mutch")
       return output
     end
 
-    string = $2
-    dice_c = $3.to_i
+    string = m[2]
+    dice_c = m[3].to_i
     bonus = 0
     signOfInequality = ""
     diff = 0
 
-    bonusText = $4
+    bonusText = m[4]
     bonus = parren_killer("(0" + bonusText + ")").to_i unless( bonusText.nil? )
 
-    signOfInequality = $6 if($6)
-    diff = $7.to_i if($7)
+    signOfInequality = m[6] if(m[6])
+    diff = m[7].to_i if(m[7])
     dice_now = 0
     dice_str = ""
     total_n = 0

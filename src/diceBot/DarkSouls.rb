@@ -31,20 +31,14 @@ MESSAGETEXT
 
   def rollDiceCommand(command)
 
-    output =
-      case command.upcase
+    return nil unless (m = /(\d+)?(A)?DS([\+\-\d+]*)(\@(\d+))?$/i.match(command.upcase))
 
-      when /(\d+)?(A)?DS([\+\-\d+]*)(\@(\d+))?$/i
-        diceCount = ($1 || 2).to_i
-        isActive = !$2.nil?
-        modify = getValue($3)
-        target = ($5 || 0).to_i
+    diceCount = (m[1] || 2).to_i
+    isActive = !m[2].nil?
+    modify = getValue(m[3])
+    target = (m[5] || 0).to_i
 
-        checkRoll(diceCount, isActive, modify, target)
-
-      else
-        nil
-      end
+    output = checkRoll(diceCount, isActive, modify, target)
 
     return output
   end

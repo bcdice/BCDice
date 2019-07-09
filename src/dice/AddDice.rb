@@ -28,8 +28,8 @@ class AddDice
 
     if( judgeText )
       isCheckSuccess = true
-      signOfInequality = @bcdice.marshalSignOfInequality(judgeOperator)
       string = $3
+      signOfInequality = @bcdice.marshalSignOfInequality(judgeOperator)
     end
 
     dice_cnt = 0
@@ -140,14 +140,13 @@ class AddDice
 
     debug("double_check", double_check)
 
-    while(/(^([\d]+\*[\d]+)\*(.+)|(.+)\*([\d]+\*[\d]+)$|(.+)\*([\d]+\*[\d]+)\*(.+))/ =~ string)
-
-      if( $2 )
-        string = parren_killer('(' + $2 + ')') + '*' + $3
-      elsif( $5 )
-        string = $4 + '*' + parren_killer('(' + $5 + ')')
-      elsif( $7 )
-        string = $6 + '*' + parren_killer('(' + $7 + ')') + '*' + $8
+    while(m = /(^([\d]+\*[\d]+)\*(.+)|(.+)\*([\d]+\*[\d]+)$|(.+)\*([\d]+\*[\d]+)\*(.+))/.match(string))
+      if( m[2] )
+        string = parren_killer('(' + m[2] + ')') + '*' + m[3]
+      elsif( m[5] )
+        string = m[4] + '*' + parren_killer('(' + m[5] + ')')
+      elsif( m[7] )
+        string = m[6] + '*' + parren_killer('(' + m[7] + ')') + '*' + m[8]
       end
     end
 
