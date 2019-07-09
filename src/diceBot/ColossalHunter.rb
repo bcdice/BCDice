@@ -48,26 +48,26 @@ MESSAGETEXT
     modifyText = ($2 || '')
     difficultyText = $4
 
-	#修正値の計算
-	modify = getValue( modifyText, 0 )
+  #修正値の計算
+  modify = getValue( modifyText, 0 )
 
-	#目標値の計算
+  #目標値の計算
     difficulty = getValue( difficultyText, nil )
 
-	#ダイスロール
-	dice, dice_str = roll(diceCount, 6)
+  #ダイスロール
+  dice, dice_str = roll(diceCount, 6)
     diceList = dice_str.split(/,/).collect{|i|i.to_i}.sort
 
-	total = dice + modify
+  total = dice + modify
 
-	#出力用ダイスコマンドを生成
-	command =  "#{diceCount}CH#{modifyText}"
-	command += ">=#{difficulty}" unless(difficulty.nil?)
+  #出力用ダイスコマンドを生成
+  command =  "#{diceCount}CH#{modifyText}"
+  command += ">=#{difficulty}" unless(difficulty.nil?)
 
-	#出力文の生成
-	result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
+  #出力文の生成
+  result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
 
-	#クリティカル・ファンブルチェック
+  #クリティカル・ファンブルチェック
     if( isFamble(dice) )
       result += " ＞ ファンブル"
     elsif( isCritical(total) )
