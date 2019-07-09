@@ -896,10 +896,11 @@ class BCDice
 
   def rollTableMessageDiceText(text)
     message = text.gsub(/(\d+)D(\d+)/) do
-      diceCount = $1
-      diceMax = $2
+      m = $~
+      diceCount = m[1]
+      diceMax = m[2]
       value, = roll(diceCount, diceMax)
-      "#{$1}D#{$2}(=>#{value})"
+      "#{diceCount}D#{diceMax}(=>#{value})"
     end
 
     return message
@@ -1085,12 +1086,12 @@ class BCDice
 
     string = $2
     if( $5 )
-      signOfInequality = marshalSignOfInequality( $6 )
       diff = $7.to_i
       string = $3
+      signOfInequality = marshalSignOfInequality( $6 )
     elsif( /([<>=]+)(\d+)/ =~ @diceBot.defaultSuccessTarget )
-      signOfInequality = marshalSignOfInequality($1)
       diff = $2.to_i
+      signOfInequality = marshalSignOfInequality($1)
     end
 
     dice_a = string.split(/\+/)

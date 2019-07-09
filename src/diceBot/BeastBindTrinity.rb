@@ -92,7 +92,7 @@ INFO_MESSAGE_TEXT
     output = "1"
 
     debug("bbt string", string)
-    unless(/(^|\s)S?((\d+)R6([\+\-\d]*)(\[H:([\-\d]+)\])?(\[C([\+\-\d]+)\])?(\[F(A)?([\+\-\d]+)\])?(\[S([1-6]+)\])?(\[U([1-6])\])?(([>=]+)(\d+))?)(\s|$)/i =~ string)
+    unless(m = /(^|\s)S?((\d+)R6([\+\-\d]*)(\[H:([\-\d]+)\])?(\[C([\+\-\d]+)\])?(\[F(A)?([\+\-\d]+)\])?(\[S([1-6]+)\])?(\[U([1-6])\])?(([>=]+)(\d+))?)(\s|$)/i.match(string))
       debug("not mutch")
       return output
     end
@@ -107,16 +107,16 @@ INFO_MESSAGE_TEXT
     pul_flg  = false        # 出目引き上げ機能が適用されたかどうかの確認
 
     # 各種文字列の取得
-    string    = $2          # ダイスボットで読み込んだ判定文全体
-    dice_c    = $3.to_i        # 振るダイス数の取得
+    string    = m[2]          # ダイスボットで読み込んだ判定文全体
+    dice_c    = m[3].to_i        # 振るダイス数の取得
     bonus     = 0          # 修正値の取得
     signOfInequality = ""			# 判定結果のための不等号
     diff      = 0          # 難易度
-    bonusText = $4          # 修正値の取得
+    bonusText = m[4]          # 修正値の取得
     bonus     = parren_killer("(0" + bonusText + ")").to_i unless( bonusText.nil? )
 
-    if($5)
-      humanity = $6.to_i if($6)    # 人間性からクリティカル値を取得
+    if(m[5])
+      humanity = m[6].to_i if(m[6])    # 人間性からクリティカル値を取得
       debug("▼現在人間性 取得 #{humanity}")
       if humanity <= 0
         critical = 9
@@ -130,30 +130,30 @@ INFO_MESSAGE_TEXT
       end
     end
 
-    if($7)
-      str_critical = $8 if($8)    # クリティカル値の文字列を取得
+    if(m[7])
+      str_critical = m[8] if(m[8])    # クリティカル値の文字列を取得
         debug("▼C値文字列 取得 #{str_critical}")
     end
 
-    if($9)
-      nofumble = true if($10)    # ファンブル耐性指定
+    if(m[9])
+      nofumble = true if(m[10])    # ファンブル耐性指定
         debug("▼F値耐性 #{nofumble}")
-      str_fumble = $11 if($11)    # ファンブル値の文字列を取得
+      str_fumble = m[11] if(m[11])    # ファンブル値の文字列を取得
         debug("▼F値文字列 取得 #{str_fumble}")
     end
 
-    if($12)
-      str_dicesubs = $13 if($13)  # ダイス差し替え用の文字列を取得
+    if(m[12])
+      str_dicesubs = m[13] if(m[13])  # ダイス差し替え用の文字列を取得
         debug("▼出目予約用の文字列 取得 #{str_dicesubs}")
     end
 
-    if($14)
-      dicepull = $15.to_i if($15)  # ダイス引き上げ用の文字列を取得
+    if(m[14])
+      dicepull = m[15].to_i if(m[15])  # ダイス引き上げ用の文字列を取得
         debug("▼出目引き上げモード 取得 #{dicepull}")
     end
 
-    signOfInequality = $17 if($17);
-    diff = $18.to_i if($18);
+    signOfInequality = m[17] if(m[17]);
+    diff = m[18].to_i if(m[18]);
 
     # 数値・数式からクリティカル値を決定
     if(str_critical)
