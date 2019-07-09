@@ -157,7 +157,10 @@ INFO_MESSAGE_TEXT
 
     # 数値・数式からクリティカル値を決定
     if(str_critical)
-      n_cri = eval(str_critical)
+      n_cri = 0
+      str_critical.scan(/[\+\-]?\d+/).each do |num|
+        n_cri += num.to_i
+      end
         debug("▼C値指定符 算出 #{n_cri}")
       critical = str_critical.match(/^[\+\-][\+\-\d]+/) ? [critical + n_cri, 12].min : n_cri
         debug("▼クリティカル値 #{critical}")
@@ -165,7 +168,10 @@ INFO_MESSAGE_TEXT
 
     # 数値・数式からファンブル値を決定
     if(str_fumble)
-      n_fum = eval(str_fumble)
+      n_fum = 0
+      str_fumble.scan(/[\+\-]?\d+/).each do |num|
+        n_fum += num.to_i
+      end
         debug("▼F値指定符 算出 #{n_fum}")
       fumble = str_fumble.match(/^[\+\-][\+\-\d]+/) ? fumble + n_fum : n_fum
         debug("▼ファンブル値 #{fumble}")
