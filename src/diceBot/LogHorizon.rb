@@ -1944,7 +1944,7 @@ MESSAGETEXT
     return nil unless(/MII(\d?)/ === command)
 
      type, is_roll = if $1 && $1 != ''
-      [$1.to_i, false]
+                       [$1.to_i, false]
     else
       roll(1, 6)
     end

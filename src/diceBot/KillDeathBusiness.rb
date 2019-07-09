@@ -122,7 +122,7 @@ INFO_MESSAGE_TEXT
     elsif(number <= fumble)
       result += "出目がファンブル率以下なのでファンブル！(判定失敗。【視聴率】が20％減少)"
     else
-       number += modify
+      number += modify
        if(number < target)
          result += "達成値#{number}、難易度未満なので判定失敗！"
        else
@@ -194,7 +194,7 @@ INFO_MESSAGE_TEXT
       tableName, result, number = getExtraTableResult(type)
 
     when /^SKL(T|J)$/
-    type = $1
+      type = $1
       tableName, result, number = getSkillTableResult(type)
 
     when "PCDT"

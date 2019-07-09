@@ -2,7 +2,7 @@
 
 if RUBY_VERSION < '1.9.0' then
 
- require 'kconv'
+  require 'kconv'
 
  # String クラスに擬似的な 1.9.0 互換の encoding および encode メソッドを追加します。
  # ただし、完全な互換性は持ちません。

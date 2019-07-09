@@ -504,5 +504,5 @@ class BCDiceDialog < Wx::Dialog
 end
 
 def mainBcDiceGui
- BCDiceGuiApp.new.main_loop
+  BCDiceGuiApp.new.main_loop
 end

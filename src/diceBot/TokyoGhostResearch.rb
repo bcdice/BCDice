@@ -49,7 +49,7 @@ MESSAGETEXT
   end
 
   def getCheckResult(command)
-      output = ""
+    output = ""
       diff = 0
 
       if(/TK?<=(\d+)/i =~ command)
@@ -68,9 +68,9 @@ MESSAGETEXT
 
   def getCheckResultText(total_n, diff)
     if((total_n >= diff) )
-       result = "成功"
+      result = "成功"
     else
-       result = "失敗"
+      result = "失敗"
     end
 
     return result

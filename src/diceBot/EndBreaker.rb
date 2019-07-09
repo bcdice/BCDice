@@ -51,7 +51,7 @@ MESSAGETEXT
   end
 
   def checkRoll(diceCount)
-  debug("EndBreaker diceCount", diceCount)
+    debug("EndBreaker diceCount", diceCount)
 
   rollCount = diceCount #ダブルトリガー
 

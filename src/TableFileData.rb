@@ -197,7 +197,7 @@ class TableFileData
   def changeEnterCode(table)
     newTable = {}
     if( table.nil? )
-        return newTable
+      return newTable
     end
 
     table.each do |key, value|

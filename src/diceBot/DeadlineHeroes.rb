@@ -308,7 +308,7 @@ INFO_MESSAGE_TEXT
     result[:coreResult] = result[:result]
 
     if result[:result] =~ /［(.+)］/
-        innerResult = rollHeroNameElementChart($1.to_s)
+      innerResult = rollHeroNameElementChart($1.to_s)
       result[:innerResult] = innerResult
       result[:innerChartName] = innerResult[:chartName]
       result[:coreResult] = innerResult[:name]
