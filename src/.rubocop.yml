@@ -2,3 +2,7 @@ inherit_from: .rubocop_todo.yml
 
 Layout/EndOfLine:
   EnforcedStyle: lf
+
+# Due to old Ruby
+Layout/IndentHeredoc:
+  Enabled: false
