@@ -190,7 +190,6 @@ class CardTrader
     end
   end
 
-
   def readCardSet()
     begin
       readExtraCard(@tnick);
@@ -199,7 +198,6 @@ class CardTrader
       sendMessageToOnlySender(e.to_s)
     end
   end
-
 
   def sendMessage(to, message)
     @bcdice.sendMessage(to, message)
@@ -212,7 +210,6 @@ class CardTrader
   def sendMessageToChannels(message)
     @bcdice.sendMessageToChannels(message)
   end
-
 
   ###########################################################################
   #**                        ゲーム設定関連
@@ -248,7 +245,6 @@ class CardTrader
       raise ("カードデータを開けません :『#{cardFileName}』" + e.to_s)
     end
   end
-
 
   def executeCard(arg, channel)
     @channel = channel
@@ -431,7 +427,6 @@ class CardTrader
     sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"));
   end
 
-
   def pickupCard(string)
     okCount = 0
     ngCardList = []
@@ -493,7 +488,6 @@ class CardTrader
     end
   end
 
-
   def backCardCommandText(command)
     count, output_msg = backCard(command);
 
@@ -547,7 +541,6 @@ class CardTrader
         return '捨て札';    # 捨て札が無い
     end
 
-
     targetCard = targetCard.upcase
 
     if(@card_place > 0)   # 場があるときのみ処理
@@ -566,7 +559,6 @@ class CardTrader
 
     return "${targetCard}"; # 戻せるカードが無かったらNGのカードを返す
   end
-
 
   def dealCard(count, targetNick, isLook = false)
     debug("dealCard count, targetNick", count, targetNick)
@@ -616,7 +608,6 @@ class CardTrader
     end
   end
 
-
 ####################             プレイ            ########################
   def playCardByCommandText(arg)
     debug('c-play pattern', arg)
@@ -632,7 +623,6 @@ class CardTrader
     end
     sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto", @nick_e));
   end
-
 
   def playCard(cardPlayCommandText)
     debug('playCard cardPlayCommandText', cardPlayCommandText)
@@ -655,11 +645,9 @@ class CardTrader
       ngCardText = ngCardList.join(',')
     end
 
-
     # 出せた枚数、NGだったカード、出せたカード
     return okCardCount, ngCardText, okCardText
   end
-
 
   def playCardByCardsBlockTextAndPlaceNo(cardsBlockText, place)
     okCardList = []
@@ -779,7 +767,6 @@ class CardTrader
     return okList, ngList
   end
 
-
   def discardOneCard(card, place, destination)
     card = card.upcase
     destination = destination.upcase
@@ -789,7 +776,6 @@ class CardTrader
     rest_cards = []
 
     temp_cards = getCardsFromDealCards(destination)
-
 
     result = temp_cards.reject! {|i| i == card}
     isTargetCardInHand = ( not result.nil? )
@@ -984,7 +970,6 @@ class CardTrader
     return $okResult;
   end
 
-
   def ejectOneCardRandomFromCards(cards)
     debug('ejectOneCardRandomFromCards cards.length', cards.length)
 
@@ -1044,8 +1029,6 @@ class CardTrader
 
     return isSuccess
   end
-
-
 
   def sendCardToTargetNickPlaceCommandText(commandText, targetNick)
     debug('sendCardToTargetNickPlaceCommandText commandText, targetNick', commandText, targetNick)
@@ -1129,7 +1112,6 @@ class CardTrader
 
     return okCardList, ngCardList
   end
-
 
   def printRegistCardResult(targetNick, okCards)
     sendMessage(@channel, "#{@nick_e}: #{ okCards.length }枚場に置きました");
@@ -1268,7 +1250,6 @@ class CardTrader
     return count, cardInfo;    # めくれた枚数と出たカードを返す
   end
 
-
   # 全員の場に出たカードを捨てる（手札はそのまま）
   def clearAllPlaceAllPlayerCards
     @deal_cards.each do |place, cards|
@@ -1291,7 +1272,6 @@ class CardTrader
     @deal_cards[place] ||= []
     @deal_cards[place].clear
   end
-
 
   # 捨て札をデッキに戻す
   def returnCards
@@ -1371,7 +1351,6 @@ class CardTrader
     return hand + place
   end
 
-
   def getHandCardInfoText(destination)
     destination = destination.upcase
     debug("getHandCardInfoText destination", destination)
@@ -1384,7 +1363,6 @@ class CardTrader
 
     return out_msg
   end
-
 
   def getDealCardsText(destination)
     debug("getDealCardsText destination", destination)
@@ -1422,7 +1400,6 @@ class CardTrader
 
     return result
   end
-
 
   def getPlaceCardInfoText(destination)
     destination = destination.upcase
@@ -1502,7 +1479,6 @@ class CardTrader
     end
   end
 
-
   def throwCardRestorationSpell(spellText)
     output = '0';
 
@@ -1522,7 +1498,6 @@ class CardTrader
     return output; # 結果を返す
   end
 
-
   def getNewSpellText
     debug("getNewSpellText begin")
 
@@ -1537,7 +1512,6 @@ class CardTrader
     return textList.join(",")
   end
 
-
   def getSpellWords
     spellWords = ""
 
@@ -1551,7 +1525,6 @@ class CardTrader
 
     return spellWords
   end
-
 
   def getIndexWord(index)
     @card_spell[index + 1]
@@ -1568,7 +1541,6 @@ class CardTrader
     return -1
   end
 
-
   def shrinkSpellWords(spellWords)
     @card_spell.each do |word|
       spellWords = spellWords.gsub(/#{word}(#{word}+)/){ word + ($1.length + 1).to_s }
@@ -1577,14 +1549,12 @@ class CardTrader
     return spellWords
   end
 
-
   def setNewSpellText(spellText)
     shuffleCards()
 
     textList = spellText.split(',')
     spellWords = textList.pop
     placeNames = textList
-
 
     debug("placeNames", placeNames)
     debug("spellWords", spellWords)
@@ -1626,5 +1596,4 @@ class CardTrader
 
     return cards
   end
-
 end

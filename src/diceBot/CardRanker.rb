@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 class CardRanker < DiceBot
-
   def initialize
     super
     @sendMode = 2;
     @sortType = 1;
     @d66Type = 2;
   end
+
   def gameName
     'カードランカー'
   end
@@ -95,7 +95,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getMonster(color, monsterIndex)
-
     return nil if( monsterIndex < 2 )
 
     type = "モンスター選択";
@@ -255,5 +254,4 @@ TABLE_TEXT_END
   }
 
   setPrefixes(['RM', 'CM.*'] + @@tables.keys)
-
 end

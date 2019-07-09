@@ -8,7 +8,6 @@ require 'bcdiceCore.rb'
 require 'ArgsAnalizer.rb'
 
 class TestArgs < Test::Unit::TestCase
-
   def setup
     $isDebug = false
   end
@@ -16,7 +15,6 @@ class TestArgs < Test::Unit::TestCase
   def trace
     $isDebug = true
   end
-
 
   def test_args
     argv = ['-sirc.trpg.net:6667', '-c#OnlineTRPG', '-gCthulhu', '-nfDICE_CoC']
@@ -28,5 +26,4 @@ class TestArgs < Test::Unit::TestCase
     assert_equal($defaultGameType, 'Cthulhu')
     assert_equal($nick, 'fDICE_CoC')
   end
-
 end

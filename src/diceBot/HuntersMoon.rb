@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class HuntersMoon < DiceBot
-
   def initialize
     super
     @sendMode = 2;
@@ -238,7 +237,6 @@ INFO_MESSAGE_TEXT
     table2 = get_strange_ability_table_2
 
     count.times do |i|
-
       if( i != 0 )
         output += "/"
         dice += ","
@@ -646,5 +644,4 @@ TABLE_TEXT_END
   }
 
   setPrefixes(['(ET|CLT|SLT|HLT|FLT|DLT|MAT|SAT|SA2T|TST|THT|TAT|TBT|TLT|TET)\d*'] + @@tables.keys)
-
 end

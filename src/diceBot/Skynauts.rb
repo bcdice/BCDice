@@ -66,7 +66,6 @@ MESSAGETEXT
   end
 
   def getJudgeResult(command)
-
     return nil unless (m = (/^2D6<=(\d)$/i.match(command) or /^SN(\d*)$/i.match(command)))
 
     debug("====getJudgeResult====")
@@ -90,7 +89,6 @@ MESSAGETEXT
   end
 
   def navigationResult(command)
-
     return nil unless (m = /^NV(\+(\d+))?$/.match(command))
 
     debug("====navigationResult====")
@@ -129,7 +127,6 @@ MESSAGETEXT
   end
 
   def getFireResult(command)
-
     return nil unless (m = /^D([1-4, 6-9]*)(\[.+\])*\/(\d+)(@([2,4,6,8]))?$/.match(command))
 
     debug("====getFireResult====")
@@ -160,7 +157,6 @@ MESSAGETEXT
   end
 
   def getFirePoint(fireRange, fireCount)
-
     debug("====getFirePoint====")
 
     firePoint = []
@@ -199,10 +195,8 @@ MESSAGETEXT
 
     fireTextList = []
     firePoint.each do |point|
-
       text = ""
       point.each do |x, y|
-
         # 《弾道学》《回避運動》などによる座標移動
         x, y = getMovePoint(x, y, direction)
 
@@ -240,7 +234,6 @@ MESSAGETEXT
   end
 
   def getBomberResult(command)
-
     return nil unless (m = /^BOM(\d*)?\/D([1-4, 6-9]*)(\[.+\])*\/(\d+)(@([2,4,6,8]))?$/i.match(command))
 
     debug("====getBomberResult====", command)
@@ -263,7 +256,6 @@ MESSAGETEXT
   end
 
   def getAvoidResult(command)
-
     return nil unless (m = /^AVO(\d*)?(@([2,4,6,8]))(\(?\[縦\d+,横\d+\]\)?,?)+$/.match(command))
 
     debug("====getAvoidResult====", command)
@@ -311,6 +303,7 @@ MESSAGETEXT
         firePoint[-1] << []
 
         next unless/[^\d]*(\d+),[^\d]*(\d+)/ === point
+
         y = $1.to_i
         x = $2.to_i
 

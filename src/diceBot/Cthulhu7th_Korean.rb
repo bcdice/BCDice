@@ -53,7 +53,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckResult(command)
-
     nil unless (/^CC([-\d]+)?<=(\d+)/i =~ command)
     bonus_dice_count = $1.to_i #보너스, 패널티 주사위의 개수
     diff = $2.to_i
@@ -91,7 +90,6 @@ INFO_MESSAGE_TEXT
 
     tens_digit_count = 1 + bonus_dice_count.abs
     tens_digit_count.times do
-
       bonus = rollPercentD10
       total = (bonus * 10) + units_digit
       total = 100 if (total == 0)
@@ -104,15 +102,16 @@ INFO_MESSAGE_TEXT
 
   def getTotal(total_list, bonus_dice_count)
     return total_list.min if( bonus_dice_count >= 0 )
+
     return total_list.max
   end
 
   def getCheckResultText(total, diff, fumbleable = false)
-
     if(total <= diff)
       return "대성공" if(total == 1)
       return "대단한 성공" if(total <= (diff / 5))
       return "어려운 성공" if(total <= (diff / 2))
+
       return "보통 성공"
     end
 
@@ -132,7 +131,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getCombineRoll(command)
-
     return nil unless(/CBR\((\d+),(\d+)\)/i =~ command)
 
     diff_1 = $1.to_i
@@ -163,7 +161,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getFullAutoResult(command)
-
     return nil unless (/^FAR\((-?\d+)(,(-?\d+))(,(-?\d+))(,(-?\d+))?\)/i =~ command)
 
     bullet_count = $1.to_i
@@ -199,7 +196,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollFullAuto(bullet_count, diff, broken_number, dice_num)
-
     output = ""
     loopCount = 0
 
@@ -211,7 +207,6 @@ INFO_MESSAGE_TEXT
 
     # 난이도 변경용 루프
     (0 .. 3).each do |more_difficlty|
-
       output += getNextDifficltyMessage(more_difficlty)
 
       # 패널티 다이스를 줄이면서 굴리는 용 루프
@@ -269,7 +264,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getBulletResults(bullet_count, hit_type, diff)
-
     bullet_set_count = getSetOfBullet(diff)
     hit_bullet_count_base = getHitBulletCountBase(diff, bullet_set_count)
     impale_bullet_count_base = (bullet_set_count / 2.to_f)
@@ -311,7 +305,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getSuccessListImpaleBulletList(more_difficlty)
-
     successList = []
     impaleBulletList = []
 
@@ -371,7 +364,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getLastHitBulletCount(bullet_count)
-
     #잔탄 1발일 때의 최저수치 보장 처리
     if (bullet_count == 1)
       return 1

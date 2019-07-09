@@ -125,7 +125,6 @@ MESSAGETEXT
     diceList = rollDiceList(diceCount)
 
   result = "(#{command}) ＞ #{diceCount}D6 ＞ [ #{diceList.join(', ')} ]"
-
   end
 
   def getReactionResult(command)
@@ -155,6 +154,7 @@ MESSAGETEXT
     else
       index = indexTexts.index(typeText)
       return nil if index.nil?
+
       resultText = getReactionTex(index, type, tableText)
     end
 
@@ -223,7 +223,6 @@ TEXT_BLOCK
   end
 
   def getCorruptionResult(command)
-
     return nil unless /^CT(\d+)$/ === command.upcase
 
     modify = $1.to_i
@@ -250,7 +249,6 @@ TEXT_BLOCK
   end
 
   def getTableResult(command)
-
     info = @@tables[command.upcase]
     return nil if info.nil?
 

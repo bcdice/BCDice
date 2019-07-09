@@ -9,6 +9,7 @@ class TunnelsAndTrolls < DiceBot
     @sortType = 1
     @sameDiceRerollCount = 1
   end
+
   def gameName
     'トンネルズ＆トロールズ'
   end
@@ -134,6 +135,7 @@ INFO_MESSAGE_TEXT
     output = "1"
 
     return output unless(m = /(^|\s)S?((\d+)[rR]6([\+\-\d]*)(\[(\w+)\])?)(\s|$)/i.match(string))
+
     debug('tandt_berserk matched')
 
     string = m[2]

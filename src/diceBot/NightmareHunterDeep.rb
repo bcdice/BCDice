@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class NightmareHunterDeep < DiceBot
-
   def initialize
     super
     @sendMode = 2
@@ -65,7 +64,6 @@ INFO_MESSAGE_TEXT
     end
   end
 
-
   #ナイトメアハンターディープ用宿命表示
   def getDiceRolledAdditionalText(n1, n_max, dice_max)
     debug('getDiceRolledAdditionalText begin: n1, n_max, dice_max', n1, n_max, dice_max)
@@ -89,5 +87,4 @@ INFO_MESSAGE_TEXT
 
     return addText, revision
   end
-
 end

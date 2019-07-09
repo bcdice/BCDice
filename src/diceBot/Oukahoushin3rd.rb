@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class Oukahoushin3rd < DiceBot
-
   def initialize
     super
   end
@@ -27,11 +26,9 @@ class Oukahoushin3rd < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-
   def rollDiceCommand(command)
     return getTableCommandResult(command, @@tables)
   end
-
 
   @@tables =
     {
@@ -159,5 +156,4 @@ TABLE_TEXT_END
   }
 
   setPrefixes([ ] + @@tables.keys)
-
 end

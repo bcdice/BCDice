@@ -29,7 +29,6 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-
     case command
     when /GO(\d+)(\/(\d+))?(@(\d+))?/i
       success_rate = $1.to_i
@@ -49,7 +48,6 @@ INFO_MESSAGE_TEXT
   end
 
   def get_critical_border(critical_border_text, success_rate)
-
     return critical_border_text.to_i unless critical_border_text.nil?
 
     critical_border = [success_rate / 5, 1].max
@@ -76,6 +74,7 @@ INFO_MESSAGE_TEXT
     return "クリティカル" if dice_value <= critical_border
     return "ファンブル" if dice_value >= fumble_border
     return "成功" if dice_value <= success_rate
+
     return "失敗"
   end
 

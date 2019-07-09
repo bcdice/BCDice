@@ -23,7 +23,6 @@ class BCDiceGuiApp < Wx::App
     BCDiceDialog.new.show_modal
     return false
   end
-
 end
 
 $debugText = nil
@@ -44,7 +43,6 @@ def debugPuts(text)
 end
 
 class BCDiceDialog < Wx::Dialog
-
   def initialize
     super(nil, -1, 'B&C Dice')
 
@@ -73,7 +71,6 @@ class BCDiceDialog < Wx::Dialog
 
     addCtrlOnLine( @executeButton, @stopButton)
 
-
     addTestTextBoxs
     # initDebugTextBox
 
@@ -92,7 +89,6 @@ class BCDiceDialog < Wx::Dialog
       destroy
     end
   end
-
 
   def analizeArgs
     argsAnalizer = ArgsAnalizer.new(ARGV)
@@ -115,7 +111,6 @@ class BCDiceDialog < Wx::Dialog
 
     addCtrl(@serverSetChoise, "設定", @saveButton, @deleteButton)
   end
-
 
   def initServerSetChoiseList
     @serverSetChoise.clear()
@@ -177,7 +172,6 @@ class BCDiceDialog < Wx::Dialog
     setChoiseText(choise, value)
   end
 
-
   def on_save
     debug( 'on_save begin')
     serverSet = @serverSetChoise.get_value
@@ -209,7 +203,6 @@ class BCDiceDialog < Wx::Dialog
 
     initServerSetChoiseList
   end
-
 
   def createButton(labelText)
     Wx::Button.new(self, -1, labelText)
@@ -267,7 +260,6 @@ class BCDiceDialog < Wx::Dialog
     return line
   end
 
-
   def initGameType
     @gameType = Wx::Choice.new(self, -1)
     addCtrl(@gameType, "ゲームタイトル")
@@ -300,10 +292,9 @@ class BCDiceDialog < Wx::Dialog
 
   def onChoiseGame
     return if( @ircBot.nil? )
+
     @ircBot.setGameByTitle( @gameType.get_string_selection )
   end
-
-
 
   @@characterCodeInfo = {
     'ISO-2022-JP' => Kconv::JIS,
@@ -377,7 +368,6 @@ class BCDiceDialog < Wx::Dialog
     print( "#{message}\n" )
   end
 
-
   def expressTestInput
     begin
       onEnterTestInputCatched
@@ -415,7 +405,6 @@ class BCDiceDialog < Wx::Dialog
   def sendMessageToChannels(message)
     sendMessage(to, message)
   end
-
 
   def initDebugTextBox
     size = Wx::Size.new(600, 200)
@@ -458,7 +447,6 @@ class BCDiceDialog < Wx::Dialog
   end
 
   def startIrcBotOnThread
-
     printText("connect to IRC server.")
 
     ircThread = Thread.new do
@@ -482,7 +470,6 @@ class BCDiceDialog < Wx::Dialog
     end
   end
 
-
   def close(force = false)
     on_stop
     super
@@ -505,7 +492,6 @@ class BCDiceDialog < Wx::Dialog
     end
   end
 
-
   def loadSaveData
     serverName = @iniFile.read("default", "serverSet")
     if( serverName.nil? )
@@ -515,10 +501,7 @@ class BCDiceDialog < Wx::Dialog
     end
     on_load
   end
-
 end
-
-
 
 def mainBcDiceGui
  BCDiceGuiApp.new.main_loop

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class InfiniteFantasia < DiceBot
-
   def gameName
     '無限のファンタジア'
   end
@@ -16,21 +15,17 @@ class InfiniteFantasia < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-
   # ゲーム別成功度判定(1d20)
   def check_1D20(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-
     return '' unless(signOfInequality == "<=")
 
     return " ＞ 失敗" unless(total_n <= diff)
-
 
     critical = ""
 
     if(total_n <= 1)
       critical = "/クリティカル"
     end
-
 
     if(total_n <= (diff / 32))
       return " ＞ 32レベル成功(32Lv+)#{critical}"
@@ -45,7 +40,5 @@ INFO_MESSAGE_TEXT
     end
 
     return " ＞ 1レベル成功#{critical}"
-
   end
-
 end

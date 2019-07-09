@@ -9,6 +9,7 @@ class MeikyuDays < DiceBot
     @sortType = 1
     @d66Type = 2
   end
+
   def gameName
     '迷宮デイズ'
   end

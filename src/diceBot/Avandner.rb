@@ -40,7 +40,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     # AVコマンド：調査判定, 成功判定
     if /(\d+)AV(\d+)((x|\*)(\d+))?(\+(\d+))?(C(\d+))?$/i === command
       diceCount = $1.to_i

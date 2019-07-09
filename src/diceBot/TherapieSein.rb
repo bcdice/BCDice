@@ -35,7 +35,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     output =
       case command.upcase
 
@@ -88,7 +87,7 @@ MESSAGETEXT
   def getValueText(value)
     return "" if( value == 0 )
     return "#{value}" if( value < 0 )
+
     return "\+#{value}"
   end
-
 end

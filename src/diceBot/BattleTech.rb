@@ -44,7 +44,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     count = 1
     if( /^(\d+)(.+)/ === command )
       count = $1.to_i
@@ -113,8 +112,8 @@ MESSAGETEXT
   @@lrmLimit = 5
 
   def getHitResult(count, damageFunc, tail)
-
     return nil unless( /(\w*)(\+\d+)?>=(\d+)/ === tail )
+
     side = $1
     baseString = $2
     target = $3.to_i

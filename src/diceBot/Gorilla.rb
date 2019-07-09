@@ -7,6 +7,7 @@ class Gorilla < DiceBot
     #$isDebug = true
     super()
   end
+
   def gameName
     'ゴリラTRPG'
   end

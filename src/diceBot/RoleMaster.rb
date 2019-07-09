@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 class RoleMaster < DiceBot
-
   def initialize
     super
     @upplerRollThreshold = 96;
     @unlimitedRollDiceType = 100;
   end
+
   def gameName
     'ロールマスター'
   end
@@ -20,5 +20,4 @@ class RoleMaster < DiceBot
 上方無限ロール(xUn)の境界値を96にセットします。
 INFO_MESSAGE_TEXT
   end
-
 end

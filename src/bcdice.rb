@@ -22,7 +22,6 @@ class Cli
   end
 end
 
-
 def mainBcDiceCli(args)
   message = args[0]
   gameType = "DiceBot"
@@ -30,7 +29,6 @@ def mainBcDiceCli(args)
     gameType = args[0]
     message = args[1]
   end
-
 
   print message
   print "\n"
@@ -45,7 +43,6 @@ def mainBcDiceCli(args)
   bcdice.setChannel(channel)
   bcdice.recievePublicMessage(gameType)
 end
-
 
 if $0 === __FILE__
 

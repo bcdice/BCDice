@@ -5,7 +5,6 @@ require 'configBcDice.rb'
 require 'ArgsAnalizer.rb'
 
 class IrcClient < Net::IRC::Client
-
   def initialize(*args)
     super
 
@@ -52,13 +51,11 @@ class IrcClient < Net::IRC::Client
     printText( "login to channels(#{channelNames}), so wait a moment..." )
   end
 
-
   def on_rpl_welcome(message)
     printText( '  -> login to channel successed.' )
     #post JOIN, @room.encode($ircCode).force_encoding_maybe('external')
     post(JOIN, encode($ircCode, @room))
   end
-
 
   def on_init( event )
     args = event.args;
@@ -72,7 +69,6 @@ class IrcClient < Net::IRC::Client
 
     debug_out("*** %s has left channel %s\n", event.nick, channel);
   end
-
 
   def on_join( event )
     debug('on_join event', event)
@@ -278,9 +274,7 @@ class IrcClient < Net::IRC::Client
     end
   end
 
-
   def insertEnterToTooLongMessage(message)
-
     if( message.length <= $SEND_STR_MAX)
       return message
     end
@@ -300,7 +294,6 @@ class IrcClient < Net::IRC::Client
     return result
   end
 
-
   def notice(to, message)
     post(NOTICE, to, encode($ircCode, message))
   end
@@ -309,9 +302,6 @@ class IrcClient < Net::IRC::Client
     post(PRIVMSG, to, encode($ircCode, message))
   end
 end
-
-
-
 
 def getInitializedIrcBot()
   ircBot = IrcClient.new($server, $port, {

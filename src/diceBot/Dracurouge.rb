@@ -128,6 +128,7 @@ MESSAGETEXT
 
   def getReactionDiceCommandResult(command)
     return nil unless /^RT((\w\d*)(\w\d*))?/ === command
+
     typeText1 = $2
     typeText2 = $3
 
@@ -138,6 +139,7 @@ MESSAGETEXT
 
   def getHeresyReactionDiceCommandResult(command)
     return nil unless /^HRT((\w\d*)(\w\d*))?/ === command
+
     typeText1 = $2
     typeText2 = $3
 
@@ -147,7 +149,6 @@ MESSAGETEXT
   end
 
   def getReactionText(name, typeText1, typeText2, infos1, infos2)
-
     return nil unless checkTypeText(typeText1, infos1)
     return nil unless checkTypeText(typeText2, infos2)
 
@@ -745,7 +746,6 @@ MESSAGETEXT
       ]
 
     return infos
-
   end
 
   def getHeresyReactionInfoBlood
@@ -1246,11 +1246,9 @@ MESSAGETEXT
       ]
 
     return infos
-
   end
 
   def getCorruptionDiceCommandResult(command)
-
     return nil unless /^CT(\d+)$/ === command
 
     modify = $1.to_i
@@ -1277,7 +1275,6 @@ MESSAGETEXT
   end
 
   def getTableDiceCommandResult(command)
-
     info = @@tables[command]
     return nil if info.nil?
 

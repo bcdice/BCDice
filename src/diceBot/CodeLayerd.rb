@@ -65,7 +65,6 @@ MESSAGETEXT
   end
 
   def getRollResultString(diceList, target, diff)
-
     successCount, criticalCount = getSuccessInfo(diceList, target)
 
     successTotal = successCount + criticalCount
@@ -84,6 +83,7 @@ MESSAGETEXT
     return "ファンブル！" if successTotal == 0
     return "#{successTotal}" if diff == 0
     return "成功" if successTotal >= diff
+
     return "失敗"
   end
 
@@ -103,6 +103,7 @@ MESSAGETEXT
 
   def getValue(number)
     return 0 if number > 100
+
     return number
   end
 end

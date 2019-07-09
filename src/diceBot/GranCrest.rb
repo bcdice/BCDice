@@ -73,7 +73,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     debug("rollDiceCommand command", command)
 
     tableName = ""

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class WorldOfDarkness < DiceBot
-
   setPrefixes(['\d+st.*'])
 
   def initialize
@@ -9,7 +8,6 @@ class WorldOfDarkness < DiceBot
     @successDice = 0
     @botchDice = 0
     @rerollDice = 0
-
   end
 
   def gameName

@@ -25,6 +25,7 @@ class MeikyuKingdom < DiceBot
     @sortType = 1
     @d66Type = 2
   end
+
   def gameName
     '迷宮キングダム'
   end
@@ -467,13 +468,13 @@ INFO_MESSAGE_TEXT
     if(output != '1')
       output = "#{type}表(#{total_n}) ＞ #{output}"
     end
-
   end
 
   def getCount(countText)
     if( countText.empty? )
       return 1
     end
+
     return countText.to_i
   end
 
@@ -879,7 +880,6 @@ INFO_MESSAGE_TEXT
 
   # お宝表１（1d6）
   def mk_treasure1_table
-
     get_table_by_1d6( [
                         "何も無し",
                         "何も無し",

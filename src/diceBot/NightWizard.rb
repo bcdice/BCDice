@@ -109,6 +109,7 @@ INFO_MESSAGE_TEXT
   def getValueText(text)
     value = text.to_i
     return "#{value}" if(value < 0)
+
     return "+#{value}"
   end
 

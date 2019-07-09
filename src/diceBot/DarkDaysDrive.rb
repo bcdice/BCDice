@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 class DarkDaysDrive < DiceBot
-
   def initialize
     super
     @d66Type = 2
   end
+
   def gameName
     'ダークデイズドライブ'
   end
@@ -49,7 +49,6 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-
     return '' unless(signOfInequality == ">=")
 
     output =
@@ -66,7 +65,6 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-
   def rollDiceCommand(command)
     string = command.upcase
 
@@ -77,7 +75,6 @@ INFO_MESSAGE_TEXT
 
     return getTableDiceCommandResult(command)
   end
-
 
   # 指定特技ランダム決定表
   def getRandomSkillTableResult(command)
@@ -102,7 +99,6 @@ INFO_MESSAGE_TEXT
   end
 
   def getTableDiceCommandResult(command)
-
     info = @@tables[command]
     return nil if info.nil?
 
@@ -143,7 +139,6 @@ INFO_MESSAGE_TEXT
       end
     end
   end
-
 
   @@tables =
     {
@@ -482,8 +477,6 @@ V-FILES（P227)
 闇を生み出す（かっこよさ：6）
 光る（かっこよさ：6）
 },}
-
-
 
   }
 

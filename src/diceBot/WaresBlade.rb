@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class WaresBlade < DiceBot
-
   def initialize
     super
   end
@@ -40,7 +39,5 @@ MESSAGETEXT
       end
 
     end
-
   end
-
 end

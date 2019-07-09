@@ -61,7 +61,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     text =
       case command.upcase
 
@@ -207,7 +206,6 @@ MESSAGETEXT
   end
 
   def getFormulaText(target, modify, advancedRoll, luckPoint)
-
     formulaText = target.to_s
     formulaText += "\*#{modify.to_i}" if(modify > 1)
     formulaText += "\/#{(1 / modify).to_i}" if(modify < 1)
@@ -576,6 +574,7 @@ MESSAGETEXT
 
     damageInfo.each_with_index do |rate, index|
       break if rate > damage
+
       woundText = woundRanks[index]
     end
 
@@ -583,7 +582,6 @@ MESSAGETEXT
   end
 
   def get_damageEffect_table(hitPart, damageStage)
-
     damageInfos = [['L', '(LW)'],
                    ['M', '(MW)'],
                    ['H', '(HW)'],

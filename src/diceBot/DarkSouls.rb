@@ -30,7 +30,6 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-
     return nil unless (m = /(\d+)?(A)?DS([\+\-\d+]*)(\@(\d+))?$/i.match(command.upcase))
 
     diceCount = (m[1] || 2).to_i
@@ -83,6 +82,7 @@ MESSAGETEXT
   def getValueText(value)
     return "" if( value == 0 )
     return "#{value}" if( value < 0 )
+
     return "\+#{value}"
   end
 end

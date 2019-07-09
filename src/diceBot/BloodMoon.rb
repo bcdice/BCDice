@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class BloodMoon < DiceBot
-
   def initialize
     super
     @sendMode = 2
@@ -446,5 +445,4 @@ TABLE_TEXT_END
   }
 
   setPrefixes(['ST', 'IST', 'BRT', 'CHT', 'SHT', 'DHT', 'LHT', 'EHT', 'AST', 'MIT', 'SIT'] + @@tables.keys)
-
 end

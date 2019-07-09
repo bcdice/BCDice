@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 class ArgsAnalizer
-
   def initialize(args)
     @args = args
     @isStartIrc = true
@@ -25,13 +24,11 @@ class ArgsAnalizer
     return isAnalized
   end
 
-
   def checkArg(arg)
     if( isCreateExeMode(arg) )
       @isStartIrc = false
     end
   end
-
 
   def isCreateExeMode(arg)
     if( arg == "createExe" )
@@ -42,8 +39,6 @@ class ArgsAnalizer
 
     return false
   end
-
-
 
   def analizeArg(arg)
     return false unless( /^-([scngmeir])(.+)$/i =~ arg )
@@ -73,7 +68,6 @@ class ArgsAnalizer
     return true
   end
 
-
   def setServer
     # サーバ設定(Server:Port)
     data = @param.split(/:/)
@@ -100,5 +94,4 @@ class ArgsAnalizer
   def setIrcServerCharacterCode
     $ircCode = param;
   end
-
 end
