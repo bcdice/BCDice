@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-$LOAD_PATH << File.dirname(__FILE__) + "/.."
+$LOAD_PATH = $LOAD_PATH + File.dirname(__FILE__) + "/.."
 
 require 'test/unit'
 require 'log'

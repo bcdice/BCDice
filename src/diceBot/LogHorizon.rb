@@ -516,14 +516,14 @@ MESSAGETEXT
   #財宝表
   def getTresureDiceCommandResult(command)
 
-    return nil unless(/(C|M|I|O|H|G)TRS(\d*)([\+\-\d]*)(\$)?/ === command)
+    return nil unless(m = /(C|M|I|O|H|G)TRS(\d*)([\+\-\d]*)(\$)?/.match(command))
 
-    type = $1
-    rank = $2.to_i
-    is_choice = ($2.empty? || (not $4.nil?))
-    modifyText = $3
+    type = m[1]
+    rank = m[2].to_i
+    is_choice = (m[2].empty? || (not m[4].nil?))
+    modifyText = m[3]
     modify = getValue(modifyText, 0)
-    is_prize = ($4 == "$")
+    is_prize = (m[4] == "$")
     dice_value = nil
     dice_value = '7' if is_prize
     is_rank_enable = ( (not is_choice) || is_prize)
@@ -1980,16 +1980,16 @@ MESSAGETEXT
 
   #イースタル探索表
   def getEastalDiceCommandResult(command)
-    return nil unless /ESTL(\d*)([\+\-\d]*)(\$(\d+))?/ =~ command
+    return nil unless (m = /ESTL(\d*)([\+\-\d]*)(\$(\d+))?/.match(command))
 
-    return command if ($1.empty? && $2.empty? && $3.nil?)
+    return command if (m[1].empty? && m[2].empty? && m[3].nil?)
 
-    rank = $1.to_i
-    is_choice = ($1.empty? || (not $3.nil?))
-    modifyText = $2
+    rank = m[1].to_i
+    is_choice = (m[1].empty? || (not m[3].nil?))
+    modifyText = m[2]
     modify = getValue(modifyText, 0)
-    is_fix_roll = (not $3.nil?)
-    dice_value = $4
+    is_fix_roll = (not m[3].nil?)
+    dice_value = m[4]
     is_rank_enable = ( (not is_choice) || is_fix_roll)
 
     tableName, table = getEastalExplorationResultTable

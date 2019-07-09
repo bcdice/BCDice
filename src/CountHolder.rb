@@ -154,12 +154,12 @@ class CountHolder
     debug('setCount @nick, @characterName', @nick, @characterName)
 
     output = ""
-    output << "#{@characterName.downcase}" if(@nick != @characterName)
-    output << "(#{@tagName}) #{@currentValue}";
+    output += "#{@characterName.downcase}" if(@nick != @characterName)
+    output += "(#{@tagName}) #{@currentValue}";
 
     debug("setCount @maxValue", @maxValue)
     unless( @maxValue.nil? )
-      output << "/#{@maxValue}";
+      output += "/#{@maxValue}";
     end
 
     return output
@@ -189,8 +189,8 @@ class CountHolder
     nowText = getValueText(currentValue, maxValue)
 
     output = ""
-    output << "#{@characterName.downcase}" if(@nick != @characterName)
-    output << "(#{@tagName}) #{preText} -> #{nowText}";
+    output += "#{@characterName.downcase}" if(@nick != @characterName)
+    output += "(#{@tagName}) #{preText} -> #{nowText}";
 
     debug("changeCount end output", output)
 
@@ -343,7 +343,7 @@ class CountHolder
 
     output = ""
 
-    output << "#{tagName}:" unless( tagName.empty? )
+    output += "#{tagName}:" unless( tagName.empty? )
 
     debug("getPointListAtSameChannel @countInfos", @countInfos)
     characterInfoList = getCharacterInfoList
@@ -361,19 +361,18 @@ class CountHolder
         currentValue = info[:currentValue]
         maxValue = info[:maxValue]
 
-        tagText << "#{currentValue}"
-        tagText << "/#{maxValue}" unless( maxValue.nil? )
+        tagText += "#{currentValue}"
+        tagText += "/#{maxValue}" unless( maxValue.nil? )
       end
 
       unless( tagText.empty? )
-        output << " " unless( output.empty? )
-        output << "#{characterName}(#{tagText})"
+        output += " " unless( output.empty? )
+        output += "#{characterName}(#{tagText})"
       end
     end
 
     return output
   end
-
 ####################          識別名の交換         ########################
   def rename_point_counter
     debug("rename_point_counter @command, @nick", @command, @nick)

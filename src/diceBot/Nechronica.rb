@@ -84,11 +84,12 @@ INFO_MESSAGE_TEXT
     dice_n = 1
     dice_n = $3.to_i if($3)
 
+    battleMode = $6.to_i
+
     modText = $4
     mod = parren_killer("(0#{modText})").to_i
 
     # 0=判定モード, 1=戦闘モード
-    battleMode = $6.to_i
     isBattleMode = (battleMode == 1)
     debug("nechronica_check string", string)
     debug("isBattleMode", isBattleMode)
