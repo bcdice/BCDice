@@ -98,25 +98,25 @@ INFO_MESSAGE_TEXT
     end
 
     # 各種値の初期設定
-    humanity = 99					# 人間性（ゲームプレイ中の上限は60）
-    critical = 12					# クリティカル値（基本値=12）
-    fumble   =  2					# ファンブル値（基本値=2）
-    dicesubs = []					# 出目を固定して振る場合の出目予約
-    nofumble = false				# ファンブルしても達成値が0にならないモードかどうかの判別
-    dicepull = false				# 「出目●未満のダイス」を出目●として扱うモードが有効かどうかの判別
-    pul_flg  = false				# 出目引き上げ機能が適用されたかどうかの確認
+    humanity = 99          # 人間性（ゲームプレイ中の上限は60）
+    critical = 12          # クリティカル値（基本値=12）
+    fumble   =  2          # ファンブル値（基本値=2）
+    dicesubs = []          # 出目を固定して振る場合の出目予約
+    nofumble = false        # ファンブルしても達成値が0にならないモードかどうかの判別
+    dicepull = false        # 「出目●未満のダイス」を出目●として扱うモードが有効かどうかの判別
+    pul_flg  = false        # 出目引き上げ機能が適用されたかどうかの確認
 
     # 各種文字列の取得
-    string    = $2					# ダイスボットで読み込んだ判定文全体
-    dice_c    = $3.to_i				# 振るダイス数の取得
-    bonus     = 0					# 修正値の取得
+    string    = $2          # ダイスボットで読み込んだ判定文全体
+    dice_c    = $3.to_i        # 振るダイス数の取得
+    bonus     = 0          # 修正値の取得
     signOfInequality = ""			# 判定結果のための不等号
-    diff      = 0					# 難易度
-    bonusText = $4					# 修正値の取得
+    diff      = 0          # 難易度
+    bonusText = $4          # 修正値の取得
     bonus     = parren_killer("(0" + bonusText + ")").to_i unless( bonusText.nil? )
 
     if($5)
-      humanity = $6.to_i if($6)		# 人間性からクリティカル値を取得
+      humanity = $6.to_i if($6)    # 人間性からクリティカル値を取得
       debug("▼現在人間性 取得 #{humanity}")
       if humanity <= 0
         critical = 9
@@ -131,24 +131,24 @@ INFO_MESSAGE_TEXT
     end
 
     if($7)
-      str_critical = $8 if($8)		# クリティカル値の文字列を取得
+      str_critical = $8 if($8)    # クリティカル値の文字列を取得
         debug("▼C値文字列 取得 #{str_critical}")
     end
 
     if($9)
-      nofumble = true if($10)		# ファンブル耐性指定
+      nofumble = true if($10)    # ファンブル耐性指定
         debug("▼F値耐性 #{nofumble}")
-      str_fumble = $11 if($11)		# ファンブル値の文字列を取得
+      str_fumble = $11 if($11)    # ファンブル値の文字列を取得
         debug("▼F値文字列 取得 #{str_fumble}")
     end
 
     if($12)
-      str_dicesubs = $13 if($13)	# ダイス差し替え用の文字列を取得
+      str_dicesubs = $13 if($13)  # ダイス差し替え用の文字列を取得
         debug("▼出目予約用の文字列 取得 #{str_dicesubs}")
     end
 
     if($14)
-      dicepull = $15.to_i if($15)	# ダイス引き上げ用の文字列を取得
+      dicepull = $15.to_i if($15)  # ダイス引き上げ用の文字列を取得
         debug("▼出目引き上げモード 取得 #{dicepull}")
     end
 
@@ -190,42 +190,42 @@ INFO_MESSAGE_TEXT
     dice_tc = dice_c - dicesubs.size
 
     if(dice_tc > 0)
-      _, dice_str, = roll(dice_tc, 6, (sortType & 1))					# ダイス数修正、並べ替えせずに出力
+      _, dice_str, = roll(dice_tc, 6, (sortType & 1))          # ダイス数修正、並べ替えせずに出力
       dice_num = (dice_str.split(/,/) + dicesubs).collect{|n|n.to_i} 	# 差し換え指定のダイスを挿入
     elsif(dicesubs.size == 0)
       return "ERROR:振るダイスの数が0個です"
     else
-      dice_num = dicesubs												# 差し換えのみの場合は差し換え指定のみ（ダイスを振らない）
+      dice_num = dicesubs                        # 差し換えのみの場合は差し換え指定のみ（ダイスを振らない）
     end
 
-    dice_num.sort!														# 並べ替え
+    dice_num.sort!                            # 並べ替え
 
-    if(dicepull)														# 出目引き上げ機能
+    if(dicepull)                            # 出目引き上げ機能
       debug("▼出目引き上げ #{dicepull}")
       dice_num_old = dice_num.dup
       for i in 0...dice_num.size do dice_num[i] = [dice_num[i], dicepull].max end
       pul_flg = dice_num == dice_num_old ? false : true
       debug("▼出目引き上げの有無について #{pul_flg}")
 
-      dice_num.sort!													# 置換後、再度並べ替え
+      dice_num.sort!                          # 置換後、再度並べ替え
       dold_str = dice_num_old.join(",")									# 置換前のダイス一覧を作成
     end
 
     dice_str = dice_num.join(",")										# dice_strの取得
     if dice_c == 1
-      dice_now = dice_num[dice_c - 1]									# ダイス数が1の場合、通常の処理だと配列の引数が「0」と「-1」となって二重に計算されるので処理を変更
+      dice_now = dice_num[dice_c - 1]                  # ダイス数が1の場合、通常の処理だと配列の引数が「0」と「-1」となって二重に計算されるので処理を変更
     else
-      dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1]			# 判定の出目を確定
+      dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1]      # 判定の出目を確定
     end
 
-    if(dice_now >= critical)											# クリティカル成立の判定
+    if(dice_now >= critical)                      # クリティカル成立の判定
       cri_flg = true
       cri_bonus = 20
     end
 
-    total_n = [dice_now + bonus + cri_bonus, 0].max						# 達成値の最小値は0
+    total_n = [dice_now + bonus + cri_bonus, 0].max            # 達成値の最小値は0
 
-    if(fumble >= dice_now)												# ファンブル成立の判定
+    if(fumble >= dice_now)                        # ファンブル成立の判定
       fum_flg = true
       total_n = 0 unless nofumble
     end
@@ -254,7 +254,7 @@ INFO_MESSAGE_TEXT
     end
 
     showstring = "#{dice_c}R6"										# 結果出力文におけるダイスロール式の作成
-    if(bonus > 0)													# （結果出力の時に必ずC値・F値を表示するようにする）
+    if(bonus > 0)                          # （結果出力の時に必ずC値・F値を表示するようにする）
       showstring += "+#{bonus}"
     elsif(bonus < 0)
       showstring += "#{bonus}"
@@ -264,7 +264,7 @@ INFO_MESSAGE_TEXT
       showstring += "#{signOfInequality}#{diff}"
     end
 
-    if(sendMode > 0)												# 出力文の完成
+    if(sendMode > 0)                        # 出力文の完成
       if(/[^\d\[\]]+/ =~ output)
         output = "#{@nick_e}: (#{showstring}) ＞ #{output} ＞ #{total_n}"
       else

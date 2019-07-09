@@ -49,14 +49,14 @@ INFO_MESSAGE_TEXT
 
     else
       return getTableCommandResult(command, @@tables)
-	end
+  end
 
     if( result.empty? )
       return ""
     end
 
-	text = "#{tableName}(#{number})：#{result}"
-	return text
+  text = "#{tableName}(#{number})：#{result}"
+  return text
   end
 
   def getReimonCompensationTableResult
