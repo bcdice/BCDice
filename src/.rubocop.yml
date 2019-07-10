@@ -23,3 +23,6 @@ Style/HashSyntax:
 
 Style/NumericLiterals:
   MinDigits: 6
+
+Style/WordArray:
+  Enabled: false
