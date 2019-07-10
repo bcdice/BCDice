@@ -47,7 +47,7 @@ MESSAGETEXT
       value1, = roll(1, 6)
       value2, = roll(1, 6)
 
-      if( value1 == value2 )
+      if value1 == value2
         success += 1
       end
 
@@ -68,7 +68,7 @@ MESSAGETEXT
              [6, "６レベル成功(神話的大成功)"],
             ]
 
-    if( success >= table.last.first )
+    if success >= table.last.first
       return table.last.last
     end
 
@@ -129,9 +129,9 @@ MESSAGETEXT
              ]
 
     table = get_table_by_number(number, tables, nil)
-    return nil if( table.nil? )
+    return nil if table.nil?
 
-    text, index = get_table_by_1d6( table )
+    text, index = get_table_by_1d6(table)
 
     person = getPersonTable1()
 
@@ -139,7 +139,7 @@ MESSAGETEXT
   end
 
   def getPersonTable1()
-    gotoNextTable = lambda{ "表２へ" + getPersonTable2() }
+    gotoNextTable = lambda { "表２へ" + getPersonTable2() }
 
     table = [[11, "おじさん"],
              [12, "おばさん"],
@@ -173,7 +173,7 @@ MESSAGETEXT
   end
 
   def getPersonTable2()
-    gotoNextTable = lambda{ "表３へ" + getPersonTable3() }
+    gotoNextTable = lambda { "表３へ" + getPersonTable3() }
 
     table = [[11, "魔法使い"],
              [12, "観光客"],
@@ -207,7 +207,7 @@ MESSAGETEXT
   end
 
   def getPersonTable3()
-    gotoNextTable = lambda{ "表４へ" + getPersonTable4() }
+    gotoNextTable = lambda { "表４へ" + getPersonTable4() }
 
     table = [[11, "貴族"],
              [12, "いるか"],

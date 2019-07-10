@@ -32,21 +32,21 @@ INFO_MESSAGE_TEXT
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     output = ''
 
-    if(dice_n <= 2)
+    if dice_n <= 2
       total_n -= 20
       output += " ＞ ファンブル(-20)"
     end
 
-    return output unless(signOfInequality == ">=")
+    return output unless signOfInequality == ">="
 
-    if(total_n >= diff)
+    if total_n >= diff
       output += " ＞ 成功"
-      if(total_n > diff)
-        output += " ＞ 差分値#{total_n-diff}"
+      if total_n > diff
+        output += " ＞ 差分値#{total_n - diff}"
       end
     else
       output += " ＞ 失敗"
-      output += " ＞ 差分値#{total_n-diff}"
+      output += " ＞ 差分値#{total_n - diff}"
     end
 
     return output

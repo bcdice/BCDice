@@ -54,22 +54,22 @@ class BCDiceDialog < Wx::Dialog
 
     initServerSet
 
-    @serverName = createAddedTextInput( $server, "サーバ名" )
-    @portNo = createAddedTextInput( $port.to_s, "ポート番号" )
-    @channel = createAddedTextInput( $defaultLoginChannelsText, "ログインチャンネル" )
-    @nickName = createAddedTextInput( $nick, "ニックネーム" )
+    @serverName = createAddedTextInput($server, "サーバ名")
+    @portNo = createAddedTextInput($port.to_s, "ポート番号")
+    @channel = createAddedTextInput($defaultLoginChannelsText, "ログインチャンネル")
+    @nickName = createAddedTextInput($nick, "ニックネーム")
     initGameType
     initCharacterCode
-    @extraCardFileText = createAddedTextInput( $extraCardFileName, "拡張カードファイル名" )
+    @extraCardFileText = createAddedTextInput($extraCardFileName, "拡張カードファイル名")
 
     @executeButton = createButton('接続')
-    evt_button(@executeButton.get_id) {|event| on_execute }
+    evt_button(@executeButton.get_id) { |event| on_execute }
 
     @stopButton = createButton('切断')
     @stopButton.enable(false)
-    evt_button(@stopButton.get_id) {|event| on_stop }
+    evt_button(@stopButton.get_id) { |event| on_stop }
 
-    addCtrlOnLine( @executeButton, @stopButton)
+    addCtrlOnLine(@executeButton, @stopButton)
 
     addTestTextBoxs
     # initDebugTextBox
@@ -83,7 +83,7 @@ class BCDiceDialog < Wx::Dialog
     argsAnalizer.analize
 
     @ircBot = nil
-    unless( argsAnalizer.isStartIrc )
+    unless  argsAnalizer.isStartIrc
       @ircBot = getInitializedIrcBot()
       setAllGames(@ircBot)
       destroy
@@ -104,10 +104,10 @@ class BCDiceDialog < Wx::Dialog
     evt_combobox(@serverSetChoise.get_id) { |event| on_load }
 
     @saveButton = createButton('この設定で保存')
-    evt_button(@saveButton.get_id) {|event| on_save }
+    evt_button(@saveButton.get_id) { |event| on_save }
 
     @deleteButton = createButton('この設定を削除')
-    evt_button(@deleteButton.get_id) {|event| on_delete }
+    evt_button(@deleteButton.get_id) { |event| on_delete }
 
     addCtrl(@serverSetChoise, "設定", @saveButton, @deleteButton)
   end
@@ -118,7 +118,7 @@ class BCDiceDialog < Wx::Dialog
     list = loadServerSetNameList
 
     list.each_with_index do |name, index|
-      @serverSetChoise.insert( name, index )
+      @serverSetChoise.insert(name, index)
     end
   end
 
@@ -127,7 +127,7 @@ class BCDiceDialog < Wx::Dialog
     serverSetNameList = []
 
     sectionNames.each do |name|
-      if( /#{@@serverSertPrefix}(.+)/ === name )
+      if /#{@@serverSertPrefix}(.+)/ === name
         serverSetNameList << $1
       end
     end
@@ -137,7 +137,7 @@ class BCDiceDialog < Wx::Dialog
 
   def on_load
     serverSet = @serverSetChoise.get_value
-    debug( 'on_load serverSet', serverSet )
+    debug('on_load serverSet', serverSet)
 
     sectionName = getServerSetSectionName(serverSet)
 
@@ -154,9 +154,9 @@ class BCDiceDialog < Wx::Dialog
 
   def loadTextValueFromIniFile(section, key, input)
     value = @iniFile.read(section, key)
-    return if( value.nil? )
+    return if value.nil?
 
-    input.set_value( value )
+    input.set_value(value)
   end
 
   @@serverSertPrefix = "ServerSet_"
@@ -167,18 +167,18 @@ class BCDiceDialog < Wx::Dialog
 
   def loadChoiseValueFromIniFile(section, key, choise)
     value = @iniFile.read(section, key)
-    return if( value.nil? )
+    return if value.nil?
 
     setChoiseText(choise, value)
   end
 
   def on_save
-    debug( 'on_save begin')
+    debug('on_save begin')
     serverSet = @serverSetChoise.get_value
-    debug( 'on_save serverSet', serverSet )
+    debug('on_save serverSet', serverSet)
 
     sectionName = getServerSetSectionName(serverSet)
-    debug( 'sectionName', sectionName )
+    debug('sectionName', sectionName)
 
     saveTextValueToIniFile(sectionName, "serverName", @serverName.get_value)
     saveTextValueToIniFile(sectionName, "portNo", @portNo.get_value)
@@ -223,13 +223,13 @@ class BCDiceDialog < Wx::Dialog
   end
 
   def addCtrl(ctrl, labelText = nil, *addCtrls)
-    if( labelText.nil? )
+    if  labelText.nil?
       @allBox.add(ctrl, 0, Wx::ALL, 2)
       return ctrl
     end
 
     ctrls = []
-    unless( labelText.nil? )
+    unless  labelText.nil?
       label = createLabel(labelText)
       ctrls << label
     end
@@ -237,7 +237,7 @@ class BCDiceDialog < Wx::Dialog
     ctrls << ctrl
     ctrls += addCtrls
 
-    line = getLineCtrl( ctrls )
+    line = getLineCtrl(ctrls)
 
     @allBox.add(line, 0, Wx::ALL, 2)
 
@@ -266,10 +266,10 @@ class BCDiceDialog < Wx::Dialog
 
     gameTypes = getAllGameTypes.sort
     gameTypes.each_with_index do |type, index|
-      @gameType.insert( type, index )
+      @gameType.insert(type, index)
     end
 
-    @gameType.insert( "NonTitle", 0 )
+    @gameType.insert("NonTitle", 0)
 
     setChoiseText(@gameType, $defaultGameType)
 
@@ -279,7 +279,7 @@ class BCDiceDialog < Wx::Dialog
   def setChoiseText(choise, text)
     index = choise.find_string(text)
 
-    if( index == -1 )
+    if index == -1
       index = 0
     end
 
@@ -287,20 +287,20 @@ class BCDiceDialog < Wx::Dialog
   end
 
   def getAllGameTypes
-    return $allGameTypes.collect{|i| i.gsub(/_/, ' ')}
+    return $allGameTypes.collect { |i| i.gsub(/_/, ' ') }
   end
 
   def onChoiseGame
-    return if( @ircBot.nil? )
+    return if @ircBot.nil?
 
-    @ircBot.setGameByTitle( @gameType.get_string_selection )
+    @ircBot.setGameByTitle(@gameType.get_string_selection)
   end
 
   @@characterCodeInfo = {
     'ISO-2022-JP' => Kconv::JIS,
     'EUC-JP'      => Kconv::EUC,
     'Shift_JIS'   => Kconv::SJIS,
-    'バイナリ'    => Kconv::BINARY,
+    'バイナリ' => Kconv::BINARY,
     'ASCII'       => Kconv::ASCII,
     'UTF-8'       => Kconv::UTF8,
     'UTF-16'      => Kconv::UTF16,
@@ -313,11 +313,11 @@ class BCDiceDialog < Wx::Dialog
     list = @@characterCodeInfo.keys.sort
 
     list.each_with_index do |type, index|
-      @characterCode.insert( type, index )
+      @characterCode.insert(type, index)
     end
 
-    found = @@characterCodeInfo.find{|key, value| value == $ircCode}
-    unless( found.nil? )
+    found = @@characterCodeInfo.find { |key, value| value == $ircCode }
+    unless  found.nil?
       codeText = found.first
       setChoiseText(@characterCode, codeText)
     end
@@ -343,9 +343,9 @@ class BCDiceDialog < Wx::Dialog
 
     evt_text_enter(@testInput.get_id) { |event| expressTestInput }
     @testButton = createButton('テスト実施')
-    evt_button(@testButton.get_id) {|event| expressTestInput }
+    evt_button(@testButton.get_id) { |event| expressTestInput }
 
-    addCtrlOnLine( label, @testInput, @testButton )
+    addCtrlOnLine(label, @testInput, @testButton)
 
     # addOutput
   end
@@ -365,7 +365,7 @@ class BCDiceDialog < Wx::Dialog
   # コンソール出力に変更。
   def printText(message)
     # @outputText.append_text( "#{message}\r\n" )
-    print( "#{message}\n" )
+    print("#{message}\n")
   end
 
   def expressTestInput
@@ -382,7 +382,7 @@ class BCDiceDialog < Wx::Dialog
     bcdiceMarker = BCDiceMaker.new
     bcdice = bcdiceMarker.newBcDice()
     bcdice.setIrcClient(self)
-    bcdice.setGameByTitle( @gameType.get_string_selection )
+    bcdice.setGameByTitle(@gameType.get_string_selection)
 
     arg = @testInput.get_value
     channel = ""
@@ -395,7 +395,7 @@ class BCDiceDialog < Wx::Dialog
   end
 
   def sendMessage(to, message)
-    printText( message )
+    printText(message)
   end
 
   def sendMessageToOnlySender(nick_e, message)
@@ -439,8 +439,8 @@ class BCDiceDialog < Wx::Dialog
   def startIrcBot
     @ircBot = getInitializedIrcBot()
 
-    @ircBot.setQuitFuction( Proc.new{destroy} )
-    @ircBot.setPrintFuction( Proc.new{|message| printText(message) } )
+    @ircBot.setQuitFuction(Proc.new { destroy })
+    @ircBot.setPrintFuction(Proc.new { |message| printText(message) })
 
     startIrcBotOnThread
     startThreadTimer
@@ -476,7 +476,7 @@ class BCDiceDialog < Wx::Dialog
   end
 
   def on_stop
-    return if( @ircBot.nil? )
+    return if @ircBot.nil?
 
     @ircBot.quit
 
@@ -488,13 +488,13 @@ class BCDiceDialog < Wx::Dialog
 
   def setAllGames(ircBot)
     getAllGameTypes.each do |type|
-      @ircBot.setGameByTitle( type )
+      @ircBot.setGameByTitle(type)
     end
   end
 
   def loadSaveData
     serverName = @iniFile.read("default", "serverSet")
-    if( serverName.nil? )
+    if serverName.nil?
       @serverSetChoise.set_selection(0)
     else
       setChoiseText(@serverSetChoise, serverName)

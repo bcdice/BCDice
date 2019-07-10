@@ -28,9 +28,9 @@ class RerollDice
     output = ""
     next_roll = 0
 
-    string = string.gsub(/-[\d]+R[\d]+/, '');   # 振り足しロールの引き算している部分をカット
+    string = string.gsub(/-[\d]+R[\d]+/, ''); # 振り足しロールの引き算している部分をカット
 
-    unless( /(^|\s)S?([\d]+R[\d\+R]+)(\[(\d+)\])?(([<>=]+)([\d]+))?(\@(\d+))?($|\s)/ =~ string )
+    unless /(^|\s)S?([\d]+R[\d\+R]+)(\[(\d+)\])?(([<>=]+)([\d]+))?(\@(\d+))?($|\s)/ =~ string
       debug("is invaild rdice", string)
       return '1'
     end
@@ -42,14 +42,14 @@ class RerollDice
     operator = $6
     diff = $7
 
-    if( judgeText )
+    if judgeText
       diff = diff.to_i
-      signOfInequality = @bcdice.marshalSignOfInequality( operator )
-    elsif( @diceBot.defaultSuccessTarget != "" )
-      if( @diceBot.defaultSuccessTarget =~/([<>=]+)(\d+)/)
+      signOfInequality = @bcdice.marshalSignOfInequality(operator)
+    elsif @diceBot.defaultSuccessTarget != ""
+      if @diceBot.defaultSuccessTarget =~ /([<>=]+)(\d+)/
         operator = $1
         diff = $2.to_i
-        signOfInequality = @bcdice.marshalSignOfInequality( operator )
+        signOfInequality = @bcdice.marshalSignOfInequality(operator)
       end
     end
 
@@ -59,7 +59,7 @@ class RerollDice
     debug("diff", diff)
 
     numberSpot1Total = 0
-    dice_cnt_total =0
+    dice_cnt_total = 0
     dice_max = 0
 
     dice_a = string.split(/\+/)
@@ -68,7 +68,7 @@ class RerollDice
     dice_a.each do |dice_o|
       debug('dice_o', dice_o)
 
-      dice_cnt, dice_max = dice_o.split(/[rR]/).collect{|s|s.to_i}
+      dice_cnt, dice_max = dice_o.split(/[rR]/).collect { |s| s.to_i }
       debug('dice_cnt', dice_cnt)
       debug('dice_max', dice_max)
 
@@ -80,7 +80,7 @@ class RerollDice
             total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount)
 
       successCount += success
-      output += "," if(output != "")
+      output += "," if output != ""
       output += dice_str
       next_roll += rerollCount
       numberSpot1Total += numberSpot1
@@ -101,7 +101,7 @@ class RerollDice
 
     output = "(#{string}) ＞ #{output}"
 
-    if( output.length > $SEND_STR_MAX )    # 長すぎたときの救済
+    if output.length > $SEND_STR_MAX # 長すぎたときの救済
       output = "(#{string}) ＞ ... ＞ 回転数#{round} ＞ 成功数#{successCount}"
     end
 
@@ -119,7 +119,7 @@ class RerollDice
     successCount = 0
     dice_cnt_total = 0
 
-    if( next_roll <= 0 )
+    if next_roll <= 0
       return output, round, successCount, dice_cnt_total
     end
 
@@ -146,13 +146,13 @@ class RerollDice
   end
 
   def getRerollNumber(rerollNumber_1, rerollNumber_2, judgeText, diff)
-    if( rerollNumber_1 )
+    if  rerollNumber_1
       return rerollNumber_1.to_i
-    elsif( rerollNumber_2 )
+    elsif  rerollNumber_2
       return rerollNumber_2.to_i
-    elsif( @diceBot.rerollNumber != 0 )
+    elsif  @diceBot.rerollNumber != 0
       return @diceBot.rerollNumber
-    elsif( !diff.nil? )
+    elsif  !diff.nil?
       return diff
     else
       raiseErroForJudgeRule()
@@ -163,23 +163,23 @@ class RerollDice
     raise "条件が間違っています。2R6>=5 あるいは 2R6[5] のように振り足し目標値を指定してください。"
   end
 
-  def checkReRollRule(dice_max, signOfInequality, diff)   # 振り足しロールの条件確認
+  def checkReRollRule(dice_max, signOfInequality, diff) # 振り足しロールの条件確認
     valid = true
 
     case signOfInequality
     when '<='
-      valid = false if(diff >= dice_max)
+      valid = false if diff >= dice_max
     when '>='
-      valid = false if(diff <= 1)
+      valid = false if diff <= 1
     when '<>'
-      valid = false if((diff > dice_max)||(diff < 1))
+      valid = false if (diff > dice_max) || (diff < 1)
     when '<'
-      valid = false if(diff > dice_max)
+      valid = false if diff > dice_max
     when '>'
-      valid = false if(diff < 1)
+      valid = false if diff < 1
     end
 
-    unless( valid )
+    unless valid
       raiseErroForJudgeRule()
     end
   end

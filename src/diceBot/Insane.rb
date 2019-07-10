@@ -3,7 +3,7 @@
 class Insane < DiceBot
   setPrefixes([
     'ST', 'HJST', 'MTST', 'DVST', 'DT', 'BT', 'PT', 'FT', 'JT', 'BET', 'RTT', 'TVT', 'TET', 'TPT', 'TST', 'TKT', 'TMT',
-    'CHT', 'VHT', 'IHT', 'RHT', 'MHT', 'LHT', 'ECT','EMT','EAT','OPT','OHT','OWT','CNT1','CNT2','CNT3','RET'
+    'CHT', 'VHT', 'IHT', 'RHT', 'MHT', 'LHT', 'ECT', 'EMT', 'EAT', 'OPT', 'OHT', 'OWT', 'CNT1', 'CNT2', 'CNT3', 'RET'
   ])
 
   def initialize
@@ -66,14 +66,14 @@ INFO_MESSAGE_TEXT
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
     output =
-      if(dice_n <= 2)
+      if dice_n <= 2
         " ＞ ファンブル(判定失敗。山札から【狂気】を1枚獲得)"
-      elsif(dice_n >= 12)
+      elsif dice_n >= 12
         " ＞ スペシャル(判定成功。【生命力】1点か【正気度】1点回復)"
-      elsif(total_n >= diff)
+      elsif total_n >= diff
         " ＞ 成功"
       else
         " ＞ 失敗"
@@ -401,7 +401,7 @@ INFO_MESSAGE_TEXT
   def get_badend_table
     table = [
              'あなたの周りに漆黒の闇が、異形の前肢が、無数の触手が集まってくる。彼らは、新たな仲間の誕生を祝福しているのだ。あなたは、もう怪異に怖がることはない。なぜなら、あなた自身が怪異となったからだ。以降、あなたは怪異のNPCとなって登場する。',
-             lambda{return "牢獄のような、手術室のような薄暗い部屋に監禁される。そして、毎日のようにひどい拷問を受けることになった。何とか隙を見て逃げ出すことができたが……。#{get_random_skill_table_text_only}の特技が【恐怖心】になる。"},
+             lambda { return "牢獄のような、手術室のような薄暗い部屋に監禁される。そして、毎日のようにひどい拷問を受けることになった。何とか隙を見て逃げ出すことができたが……。#{get_random_skill_table_text_only}の特技が【恐怖心】になる。" },
              '間一髪のところを、謎の組織のエージェントに助けられる。「君は見所がある。どうだい？　我々と一緒にやってみないか」あなたは望むなら、忍者／魔法使い／ハンターとして怪異と戦うことができる。その場合、あなたは別のサイコロ・フィクションのキャラクターとして生まれ変わる。',
              '病院のベッドで目を覚ます。長い間、ひどい悪夢を見ていたような気がする。そのセッションの後遺症判定は、マイナス１の修正がつき、ファンブル値が１上昇する。',
              'どこかの民家で目を覚ます。素敵な人物に助けられ、手厚い介護を受けたようだ。特にペナルティはなし。',
@@ -409,7 +409,7 @@ INFO_MESSAGE_TEXT
              '別の新たな怪事件に巻き込まれる。苦労のすえ、そちらは何とか無事解決！　特にペナルティはなし。',
              '大きな傷を負い、生死の境をさまよう。好きな特技で判定を行うこと。失敗すると死亡する。このとき、減少している【生命力】の分だけマイナスの修正がつく。',
              '目が覚めると見慣れない場所にいた。ここはどこだ？　私は誰だ？　どうやら、恐怖のあまり、記憶を失ってしまったようだ。功績点があれば、それを1点失う。',
-             lambda{return "目を覚ますと、そこはいつもの場所だった。しかし、どこか違和感を覚える。君たち以外、誰も事件のことを知らないようだ。死んだはずのあの人物も生きている。時間を旅したのか、ここは違う世界線か……？　#{get_random_skill_table_text_only}の特技が【恐怖心】になる。"},
+             lambda { return "目を覚ますと、そこはいつもの場所だった。しかし、どこか違和感を覚える。君たち以外、誰も事件のことを知らないようだ。死んだはずのあの人物も生きている。時間を旅したのか、ここは違う世界線か……？　#{get_random_skill_table_text_only}の特技が【恐怖心】になる。" },
              '振り返ると、そこには圧倒的な「それ」が待ち構えていた。無慈悲な一撃が、あなたを襲い、あなたは死亡する。',
             ]
     return get_table_by_2d6(table)

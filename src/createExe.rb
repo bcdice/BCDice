@@ -42,7 +42,7 @@ updateConfig
 # 一時ファイルを作ることでコンパイル時かどうかを区別しています。
 #
 compileMarkerFile = "__createExe__.txt"
-File.open(compileMarkerFile, "w+") {|f| f.write("")}
+File.open(compileMarkerFile, "w+") { |f| f.write("") }
 
 `ocra bcdice.rb -- createExe`
 sleep 2

@@ -20,7 +20,7 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    return '' if(signOfInequality != "<=")
+    return '' if signOfInequality != "<="
 
     success = checkSuccess(total_n, diff)
     juuten = getJuuten
@@ -29,7 +29,7 @@ INFO_MESSAGE_TEXT
   end
 
   def checkSuccess(total_n, diff)
-    if(total_n <= diff)
+    if total_n <= diff
       return " ＞ 成功"
     end
 
@@ -38,20 +38,20 @@ INFO_MESSAGE_TEXT
 
   def getJuuten
     diceList = getDiceList
-    return '' if( diceList.length != 2)
+    return '' if diceList.length != 2
 
     juuten = 0
 
     diceList.each do |i|
-      juuten += 1 if( i == 1 )
-      juuten += 1 if( i == 6 )
+      juuten += 1 if  i == 1
+      juuten += 1 if  i == 6
     end
 
-    if( diceList[0] == diceList[1] )
+    if diceList[0] == diceList[1]
       juuten += 1
     end
 
-    if( juuten > 0 )
+    if juuten > 0
       return " 重点 #{juuten} 溜まる"
     end
 

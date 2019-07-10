@@ -48,11 +48,11 @@ MESSAGETEXT
     modifyText = getValueText(modify)
     targetText = (target == 0 ? '' : ">=#{target}")
 
-    if( isActive )
-      diceArray = diceText.split(/,/).collect{|i|i.to_i}
-      focusDamage = diceArray.count{|i| i == 1 }
+    if isActive
+      diceArray = diceText.split(/,/).collect { |i| i.to_i }
+      focusDamage = diceArray.count { |i| i == 1 }
 
-      if( focusDamage > 0 )
+      if focusDamage > 0
         focusText = "■" * focusDamage
         focusText = "（FP#{focusText}消費）"
       end
@@ -62,8 +62,8 @@ MESSAGETEXT
     result += " ＞ #{dice}(#{diceText})#{modifyText}"
     result += " ＞ #{successValue}#{targetText}"
 
-    if( target > 0 )
-      if( successValue >= target )
+    if target > 0
+      if  successValue >= target
         result += " ＞ 【成功】"
       else
         result += " ＞ 【失敗】"
@@ -80,8 +80,8 @@ MESSAGETEXT
   end
 
   def getValueText(value)
-    return "" if( value == 0 )
-    return value.to_s if( value < 0 )
+    return "" if value == 0
+    return value.to_s if value < 0
 
     return "\+#{value}"
   end

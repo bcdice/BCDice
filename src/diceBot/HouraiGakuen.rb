@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class HouraiGakuen < DiceBot
-  setPrefixes(['ROL.*', 'MED\(\d+,\d+\)', 'RES\(\d+,\d+\)' , 'INY.*' , 'HTK.*' , 'GOG.*'])
+  setPrefixes(['ROL.*', 'MED\(\d+,\d+\)', 'RES\(\d+,\d+\)', 'INY.*', 'HTK.*', 'GOG.*'])
 
   #ゲームの名前
   def gameName
@@ -62,7 +62,7 @@ INFO_MESSAGE_TEXT
 
   #基本ロール
   def getRollResult(command)
-    return nil unless(/rol([-\d]+)/i =~ command)
+    return nil unless /rol([-\d]+)/i =~ command
 
     # 目標値セット
     target = $1.to_i
@@ -77,15 +77,15 @@ INFO_MESSAGE_TEXT
   def getCheckResult(diceText, total, target)
     diceList = getDiceListFromText(diceText)
 
-    if isFamble( diceList )
+    if isFamble(diceList)
       return @@famble
     end
 
-    if isCritical( diceList )
+    if isCritical(diceList)
       return @@critical
     end
 
-    if(total <= target)
+    if total <= target
       return @@success
     end
 
@@ -93,21 +93,21 @@ INFO_MESSAGE_TEXT
   end
 
   def getDiceListFromText(diceText)
-    diceList = diceText.split(/,/).collect{|i| i.to_i }.sort
+    diceList = diceText.split(/,/).collect { |i| i.to_i }.sort
     return diceList
   end
 
-  def isFamble( diceList )
+  def isFamble(diceList)
     return diceList === [6, 6, 6]
   end
 
-  def isCritical( diceList )
+  def isCritical(diceList)
     return diceList === [1, 2, 3]
   end
 
   #対人ロール
   def getMedResult(command)
-    return nil unless(/med\((\d+),(\d+)\)/i =~ command)
+    return nil unless /med\((\d+),(\d+)\)/i =~ command
 
     yourValue = $1.to_i # あなたの値
     enemyValue = $2.to_i # 相手の値
@@ -125,7 +125,7 @@ INFO_MESSAGE_TEXT
 
   #対抗ロール
   def getResResult(command)
-    return nil unless(/res\((\d+),(\d+)\)/i =~ command)
+    return nil unless /res\((\d+),(\d+)\)/i =~ command
 
     yourValue = $1.to_i # あなたの値
     enemyValue = $2.to_i # 相手の値
@@ -229,7 +229,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getOddEven
-    dice, = roll(1,6)
+    dice, = roll(1, 6)
 
     return "偶数" if (dice % 2) == 0
 

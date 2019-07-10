@@ -102,12 +102,6 @@ Layout/EndAlignment:
     - 'diceBot/LogHorizon.rb'
     - 'diceBot/LogHorizon_Korean.rb'
 
-# Offense count: 450
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment, AllowBeforeTrailingComments, ForceEqualSignAlignment.
-Layout/ExtraSpacing:
-  Enabled: false
-
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: IndentationWidth.
@@ -216,11 +210,6 @@ Layout/MultilineOperationIndentation:
   Exclude:
     - 'bcdiceCore.rb'
 
-# Offense count: 2240
-# Cop supports --auto-correct.
-Layout/SpaceAfterComma:
-  Enabled: false
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Layout/SpaceAfterMethodName:
@@ -232,37 +221,6 @@ Layout/SpaceAfterMethodName:
 Layout/SpaceAfterNot:
   Exclude:
     - 'diceBot/MetalHead.rb'
-
-# Offense count: 53
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleInsidePipes.
-# SupportedStylesInsidePipes: space, no_space
-Layout/SpaceAroundBlockParameters:
-  Enabled: false
-
-# Offense count: 1871
-# Cop supports --auto-correct.
-Layout/SpaceAroundKeyword:
-  Enabled: false
-
-# Offense count: 218
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment.
-Layout/SpaceAroundOperators:
-  Enabled: false
-
-# Offense count: 255
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceBeforeBlockBraces:
-  Enabled: false
-
-# Offense count: 197
-# Cop supports --auto-correct.
-Layout/SpaceBeforeComma:
-  Enabled: false
 
 # Offense count: 27
 # Cop supports --auto-correct.
@@ -294,27 +252,12 @@ Layout/SpaceBeforeFirstArg:
 Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: false
 
-# Offense count: 628
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideBlockBraces:
-  Enabled: false
-
 # Offense count: 524
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
 # SupportedStyles: space, no_space, compact
 # SupportedStylesForEmptyBraces: space, no_space
 Layout/SpaceInsideHashLiteralBraces:
-  Enabled: false
-
-# Offense count: 2174
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: space, no_space
-Layout/SpaceInsideParens:
   Enabled: false
 
 # Offense count: 15

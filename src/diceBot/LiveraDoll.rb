@@ -79,12 +79,12 @@ MESSAGETEXT
 
   def checkRoll(diceCount, blockNo)
     dice, diceText = roll(diceCount, 6, @sortType)
-    diceArray = diceText.split(/,/).collect{|i|i.to_i}
+    diceArray = diceText.split(/,/).collect { |i| i.to_i }
 
     resultArray = Array.new
     success = 0
     diceArray.each do |i|
-      if( blockNo.count(i) > 0 )
+      if blockNo.count(i) > 0
         resultArray.push("×")
       else
         resultArray.push(i)

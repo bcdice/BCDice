@@ -50,14 +50,14 @@ INFO_MESSAGE_TEXT
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
     output =
-      if(dice_n <= 2)
+      if dice_n <= 2
         " ＞ ファンブル(判定失敗。【視聴率】が20％減少)"
-      elsif(dice_n >= 12)
+      elsif dice_n >= 12
         " ＞ スペシャル(判定成功。【視聴率】が10％増加)"
-      elsif(total_n >= diff)
+      elsif total_n >= diff
         " ＞ 成功"
       else
         " ＞ 失敗"
@@ -84,7 +84,7 @@ INFO_MESSAGE_TEXT
   @@judogeDiceReg = /(^|\s)JD(\d+)([\+\-]\d+)?(,(\d+))?($|\s)/i
 
   def judgeDice(command)
-    unless(@@judogeDiceReg === command)
+    unless @@judogeDiceReg === command
       return '1'
     end
 
@@ -94,20 +94,20 @@ INFO_MESSAGE_TEXT
 
     result = ""
 
-    if(target > 12 )
-      result  += "【#{command}】 ＞ 難易度が12以上はスペシャルのみ成功。\n"
+    if target > 12
+      result += "【#{command}】 ＞ 難易度が12以上はスペシャルのみ成功。\n"
       target = 12
     end
 
-    if(target < 5 )
-      result  += "【#{command}】 ＞ 難易度の最低は5。\n"
+    if target < 5
+      result += "【#{command}】 ＞ 難易度の最低は5。\n"
       target = 5
     end
 
-    if( fumble < 2 )
+    if  fumble < 2
       fumble = 2
-    elsif(fumble > 11 )
-      result  += "【#{command}】 ＞ スペシャルを出すと必ず成功なので、ファンブル率は11とする。\n"
+    elsif fumble > 11
+      result += "【#{command}】 ＞ スペシャルを出すと必ず成功なので、ファンブル率は11とする。\n"
       fumble = 11
     end
 
@@ -115,15 +115,15 @@ INFO_MESSAGE_TEXT
 
     result += "【難易度#{target}、補正#{modify}、ファンブル率#{fumble}】 ＞ 出目(#{diceText}) ＞ "
 
-    if(number == 2 )
+    if number == 2
       result += "出目が2なのでファンブル！(判定失敗。【視聴率】が20％減少)"
-    elsif(number == 12)
+    elsif number == 12
       result += "出目が12なのでスペシャル！(判定成功。【視聴率】が10％増加)"
-    elsif(number <= fumble)
+    elsif number <= fumble
       result += "出目がファンブル率以下なのでファンブル！(判定失敗。【視聴率】が20％減少)"
     else
       number += modify
-       if(number < target)
+       if number < target
          result += "達成値#{number}、難易度未満なので判定失敗！"
        else
          result += "達成値#{number}、難易度以上なので判定成功！"
@@ -226,7 +226,7 @@ INFO_MESSAGE_TEXT
       tableName, result, number = getpbTableResult()
   end
 
-    if( result.empty? )
+    if result.empty?
       return ""
     end
 
@@ -997,7 +997,7 @@ INFO_MESSAGE_TEXT
       else
         result1, num1 = get_table_by_d66_swap(hellStylistAbuseTable1)
         result2, num2 = get_table_by_d66_swap(hellStylistAbuseTable2)
-        before,  = get_table_by_1d6(hellStylistwtable1)
+        before, = get_table_by_1d6(hellStylistwtable1)
         after, = get_table_by_1d6(hellStylistwtable2)
         result = "#{before}#{result1}#{result2}#{after}"
         number = "#{num1},#{num2}"
@@ -1013,11 +1013,11 @@ INFO_MESSAGE_TEXT
                       ['小道具', ['ピアス', '髪飾り', '銃', 'ネックレス', 'ベルト', '眼鏡', '帽子', '時計', '剣', 'リング', 'タトゥー']],
                       ['衣装', ['ネイキッド', 'アウトドア', 'エスニック', 'ヒップホップ', 'ミリタリー', 'フォーマル', 'トラッド', 'ゴシック', 'パンク', 'メタル', 'アイドル']],
                       ['情動', ['愛', '喜び', '期待', '焦り', '自負', '怒り', '悲しみ', '嫉妬', '恐怖', '恥', '嫌悪']],
-                      ['願望', ['死', '復讐', '勝利', '支配', '獲得', '繁栄', '強化', '安全', '健康', '長寿','生']],
+                      ['願望', ['死', '復讐', '勝利', '支配', '獲得', '繁栄', '強化', '安全', '健康', '長寿', '生']],
                      ]
     skillTable, num1 = get_table_by_1d6(skillTableFull)
     skillGroup, table = skillTable
-    if(type == "T")
+    if type == "T"
       tableName = "指定特技ランダム決定表"
       skill, num2 = get_table_by_2d6(table)
       result = "「#{skillGroup}」《#{skill}》"

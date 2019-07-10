@@ -65,7 +65,7 @@ MESSAGETEXT
     diceList = rollDiceList(diceCount)
 
     gloryDiceCount = getGloryDiceCount(diceList)
-    gloryDiceCount.times{ diceList << 10 }
+    gloryDiceCount.times { diceList << 10 }
 
     diceList, calculationProcess = getThirstyAddedResult(diceList, thirstyPoint)
     thirstyPointMarker = (thirstyPoint == 0 ? "" : "+#{thirstyPoint}")
@@ -78,7 +78,7 @@ MESSAGETEXT
 
   def rollDiceList(diceCount)
     dice, str = roll(diceCount, 6)
-    diceList = str.split(/,/).collect{|i|i.to_i}.sort
+    diceList = str.split(/,/).collect { |i| i.to_i }.sort
 
     return diceList
   end
@@ -92,13 +92,13 @@ MESSAGETEXT
   end
 
   def countTargetDice(diceList, target)
-    diceList.select{|i|i == target}.count
+    diceList.select { |i| i == target }.count
   end
 
   def getThirstyAddedResult(diceList, thirstyPoint)
     return diceList, '' if thirstyPoint == 0
 
-    targetIndex = diceList.rindex{|i| i <= 6}
+    targetIndex = diceList.rindex { |i| i <= 6 }
     return diceList, '' if targetIndex.nil?
 
     textList = []
@@ -143,7 +143,7 @@ MESSAGETEXT
     type2_indexTexts = %w{F G R W J N}
 
     tensValue = number.to_i / 10
-    isBefore = (tensValue < 4 )
+    isBefore = (tensValue < 4)
     type = (isBefore ? type1 : type2)
     indexTexts = (isBefore ? type1_indexTexts : type2_indexTexts)
     typeText = (isBefore ? typeText1 : typeText2)
@@ -264,7 +264,7 @@ TEXT_BLOCK
         get_table_by_1d6(table)
       end
 
-    return nil if( text.nil? )
+    return nil if text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end
@@ -289,7 +289,7 @@ TEXT_BLOCK
 "이상한 빛을 발하는 눈",
 "튀어나온 송곳니",
 "눈에 보이는 변화는 없다……",
-],},
+], },
 
   'BT' => {
     :name => "인연 내용 결정표：루주／누아르",
@@ -300,8 +300,8 @@ TEXT_BLOCK
 "신뢰(Trust)　상대를 신뢰한다. ／욕망(Desire)　상대를 원하고 나의 것으로 만들고 싶어한다.",
 "사랑(Love)　상대를 좋아하고 사랑한다. ／분노(Anger)　상대에게 분노를 느낀다. ",
 "존경(Respect)　상대의 실력이나 정신을 존경한다. ／살의(Kill)　상대에게 살의를 느끼고 없애고자 한다.",
-"복종(Obey)　상대를 주군으로서 받들고 충의를 맹세한다. ／복수(Vendetta)　상대를 원망하고 원수로 여긴다." ,
-],},
+"복종(Obey)　상대를 주군으로서 받들고 충의를 맹세한다. ／복수(Vendetta)　상대를 원망하고 원수로 여긴다.",
+], },
 }
 
   setPrefixes(['DR.*', 'RT.*', 'CT\d+'] + @@tables.keys)

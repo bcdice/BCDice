@@ -114,8 +114,8 @@ MESSAGETEXT
   end
 
   def getResultText(dice, total, target)
-    return "ファンブル" if( dice == 1 )
-    return "クリティカル" if( dice == 10 )
+    return "ファンブル" if dice == 1
+    return "クリティカル" if dice == 10
 
     if total < target
       return "失敗"
@@ -494,7 +494,7 @@ MESSAGETEXT
     tableMaxValue = table.last[0]
     damage = [damage, tableMaxValue].min
 
-    result = get_table_by_number(damage , table)
+    result = get_table_by_number(damage, table)
 
     return get_garako_table_result(name, damage, result)
   end

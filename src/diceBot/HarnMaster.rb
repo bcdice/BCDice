@@ -26,7 +26,7 @@ MESSAGETEXT
   end
 
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    return '' unless(signOfInequality == "<=")
+    return '' unless signOfInequality == "<="
 
     result = getCheckResult(total_n, diff)
     return "＞ #{result}"
@@ -164,7 +164,7 @@ MESSAGETEXT
 
   def getStrikeLocationHumanNormalTable()
     table = [
-             [  5, "頭部"],
+             [ 5, "頭部"],
              [ 10, "顔+"],
              [ 15, "首"],
              [ 27, "*肩"],
@@ -186,7 +186,7 @@ MESSAGETEXT
 
   def getStrikeLocationHumanDownTable()
     table = [
-             [  6, "*前腕"],
+             [ 6, "*前腕"],
              [ 12, "*手"],
              [ 19, "胸部"],
              [ 29, "腹部"],

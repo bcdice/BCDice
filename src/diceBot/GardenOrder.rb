@@ -79,7 +79,7 @@ INFO_MESSAGE_TEXT
   end
 
   def look_up_damage_chart(type, damage_value)
-    name, table= get_damage_table_info_by_type( type )
+    name, table = get_damage_table_info_by_type(type)
 
     row = get_table_by_number(damage_value, table, nil)
     return nil if row.nil?
@@ -87,7 +87,7 @@ INFO_MESSAGE_TEXT
     "負傷表：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
   end
 
-  def get_damage_table_info_by_type( type )
+  def get_damage_table_info_by_type(type)
     data = @@damage_table[type]
     return nil if data.nil?
 
@@ -102,7 +102,7 @@ INFO_MESSAGE_TEXT
                  [ 5,
                    { :name => "切り傷",
                      :text => "皮膚が切り裂かれる。",
-                     :damage=> "軽傷1"}],
+                     :damage => "軽傷1"}],
                  [10,
                   { :name => "脚部負傷",
                     :text => "足が切り裂かれ、思わずひざまずく。",

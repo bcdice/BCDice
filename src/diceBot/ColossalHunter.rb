@@ -42,35 +42,35 @@ MESSAGETEXT
   def getCheckRollDiceCommandResult(command)
     debug("getCheckRollDiceCommandResult command", command)
 
-    return nil unless(/(\d+)?CH([\+\-\d]*)(>=([\+\-\d]*))?$/i === command)
+    return nil unless /(\d+)?CH([\+\-\d]*)(>=([\+\-\d]*))?$/i === command
 
     diceCount = ($1 || 3).to_i
     modifyText = ($2 || '')
     difficultyText = $4
 
   #修正値の計算
-  modify = getValue( modifyText, 0 )
+  modify = getValue(modifyText, 0)
 
   #目標値の計算
-    difficulty = getValue( difficultyText, nil )
+    difficulty = getValue(difficultyText, nil)
 
   #ダイスロール
   dice, dice_str = roll(diceCount, 6)
-    diceList = dice_str.split(/,/).collect{|i|i.to_i}.sort
+    diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
 
   total = dice + modify
 
   #出力用ダイスコマンドを生成
   command =  "#{diceCount}CH#{modifyText}"
-  command += ">=#{difficulty}" unless(difficulty.nil?)
+  command += ">=#{difficulty}" unless difficulty.nil?
 
   #出力文の生成
   result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
 
   #クリティカル・ファンブルチェック
-    if( isFamble(dice) )
+    if isFamble(dice)
       result += " ＞ ファンブル"
-    elsif( isCritical(total) )
+    elsif isCritical(total)
       result += " ＞ クリティカル"
     else
       result += getJudgeResultString(difficulty, total)
@@ -81,15 +81,15 @@ MESSAGETEXT
 
   #成否判定
   def getJudgeResultString(difficulty, total)
-    return '' if(difficulty.nil?)
+    return '' if difficulty.nil?
 
-    return " ＞ 成功" if(total >= difficulty)
+    return " ＞ 成功" if total >= difficulty
 
     return " ＞ 失敗"
   end
 
   def getValue(text, defaultValue)
-    return defaultValue if( (text == nil) || text.empty? )
+    return defaultValue if (text == nil) || text.empty?
 
     parren_killer("(0" + text + ")").to_i
   end
@@ -128,10 +128,10 @@ debug('yearText', yearText)
   end
 
   def getYear(yearText)
-    text = yearText.gsub(/(\d+)D(6+)/){ getD6xResult($1.to_i, $2.length) }
+    text = yearText.gsub(/(\d+)D(6+)/) { getD6xResult($1.to_i, $2.length) }
 
     calculateText = "(#{text})"
-    year = parren_killer( calculateText.gsub(/×/, "*") )
+    year = parren_killer(calculateText.gsub(/×/, "*"))
     return nil if year == calculateText
     return nil if year == text
 
@@ -273,7 +273,7 @@ debug('yearText', yearText)
         get_table_by_d66(table)
       end
 
-    return nil if( text.nil? )
+    return nil if text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end
@@ -321,7 +321,7 @@ ZOS壊滅：住んでいたZOSがコロッサルに蹂躙される。全てが�
 ガイアの声：地の底から、呼びかける声を聞いた。コロッサルの傍にいたわけではない。しかし、その声を聞いた瞬間、あなたはハンターとなった。なってしまったのだ。
 天性のハンター：初めてコロッサルに対峙した時、自然にリクラフトして武装していた。しかも、歴戦のハンターと同等以上の巧みさで。あなたはこの時代、待望された天才だ。
 ありえぬ存在：BIG-6以前から、あるいはものごころつく以前から、ハンターの能力が開花していた。周囲の目は期待と不安、そして打算にまみれている。
-},},
+}, },
 
     'CST' => {
       :name => "現状表",
@@ -363,7 +363,7 @@ ZOS壊滅：住んでいたZOSがコロッサルに蹂躙される。全てが�
 孤児院長：偽善と知りつつ、あなたは多数の孤児らを集め育てている。彼らを受け入れ、育てられるのはマテリアルを直接獲得してくるハンターくらいなのだ。　リーダー度：11
 導き手：自身も葛藤しつつ、あなたは宗教者として人に教えを説く。神に見放されたこの世界でも、心の支えは必要だ。人の心は救われねばならない。　リーダー度：11
 指導者：あなたはZOSの顔役だ。多くの人望を集め、ハンターの地位を向上させている。一挙一動が注目を受ける。気をひきしめて日々を過ごさねば。　リーダー度：12
-},},
+}, },
 
     'HMT' => {
       :name => "ハンターマーク表",
@@ -405,7 +405,7 @@ ZOS壊滅：住んでいたZOSがコロッサルに蹂躙される。全てが�
 足裏
 全身
 片眼
-},},
+}, },
 
     'SPT' => {
       :name => "特徴表",
@@ -447,7 +447,7 @@ ZOS壊滅：住んでいたZOSがコロッサルに蹂躙される。全てが�
 明るい笑顔
 健康的な体
 整った容貌
-},},
+}, },
 
     'PRT' => {
       :name => "プレシャス表",
@@ -489,7 +489,7 @@ ZOS壊滅：住んでいたZOSがコロッサルに蹂躙される。全てが�
 千切れたネックレス
 開かない懐中時計
 一組のダイス
-},},
+}, },
 
     'EXT' => {
       :name => "専門能力表",
@@ -531,7 +531,7 @@ ZOS壊滅：住んでいたZOSがコロッサルに蹂躙される。全てが�
 ナイトビジネス　分類：日常
 祭事　分類：日常
 商売　分類：日常
-},},
+}, },
 
     'CAT' => {
       :name => "コロッサル行動表",
@@ -543,7 +543,7 @@ ZOS壊滅：住んでいたZOSがコロッサルに蹂躙される。全てが�
 何もしない。
 何もしない。
 何もしない。
-},},
+}, },
 
   }
 

@@ -3,7 +3,7 @@
 class Insane_Korean < DiceBot
   setPrefixes([
     'ST', 'HJST', 'MTST', 'DVST', 'DT', 'BT', 'PT', 'FT', 'JT', 'BET', 'RTT', 'TVT', 'TET', 'TPT', 'TST', 'TKT', 'TMT',
-    'CHT', 'VHT', 'IHT', 'RHT', 'MHT', 'LHT', 'ECT','EMT','EAT','OPT','OHT','OWT','CNT1','CNT2','CNT3','RET'
+    'CHT', 'VHT', 'IHT', 'RHT', 'MHT', 'LHT', 'ECT', 'EMT', 'EAT', 'OPT', 'OHT', 'OWT', 'CNT1', 'CNT2', 'CNT3', 'RET'
   ])
 
   def initialize
@@ -66,14 +66,14 @@ INFO_MESSAGE_TEXT
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
     output =
-      if(dice_n <= 2)
+      if dice_n <= 2
         " ＞ 펌블(판정실패。 덱에서 【광기】를 1장 획득)"
-      elsif(dice_n >= 12)
+      elsif dice_n >= 12
         " ＞ 스페셜(판정성공。 【생명력】 1점이나 【정신력】 1점 회복)"
-      elsif(total_n >= diff)
+      elsif total_n >= diff
         " ＞ 성공"
       else
         " ＞ 실패"
@@ -401,7 +401,7 @@ INFO_MESSAGE_TEXT
   def get_badend_table
     table = [
              '당신 주위에 칠흑의 어둠이, 이형의 앞다리가, 무수한 촉수가 모여든다. 새로운 동료를 축복하고 있는 것이다. 당신은 이제 괴이를 무서워하지 않는다. 왜냐하면, 당신 자신이 괴이가 되었기 떄문이다. 이후, 당신은 괴이 NPC로서 등장한다',
-             lambda{return "감옥과도 같은, 수술실 같은 어둑한 방에 감금당했다. 그리고, 매일같이고문을 받게 되었다. 어떻게든 도망칠 수는 있었지만…….  #{get_random_skill_table_text_only}의 특기가 【공포심】이 된다."},
+             lambda { return "감옥과도 같은, 수술실 같은 어둑한 방에 감금당했다. 그리고, 매일같이고문을 받게 되었다. 어떻게든 도망칠 수는 있었지만…….  #{get_random_skill_table_text_only}의 특기가 【공포심】이 된다." },
              '아슬아슬한 순간, 수수께끼의 조직의 에이전트에게 구해진다. 「당신, 장래성이 있군. 어떤가? 우리들과 함께 하지 않겠나?」\n 당신은 원한다면, 닌자／마법사／헌터로서 괴이와 싸워나가는 것이 가능하다. 그 경우, 당신은 다른 사이코로 픽션의 캐릭터로 다시 태어난다.',
              '병원 침대에서 눈을 뜬다. 오랫동안, 무서운 악몽을 꾼 것 같은 기분이 든다. 그 세션의 후유증 판정은, 마이너스 1의 수정이 붙고, 펌블 수치가 1 상승한다. ',
              '어딘가의 민가에서 눈을 뜬다. 근사한 사람에게 구해져서, 극진한 간호를 받은 듯 하다. 딱히 페널티는 없다.',
@@ -409,7 +409,7 @@ INFO_MESSAGE_TEXT
              '다른 새로운 괴사건에 휘말린다. 고생은 끝, 그쪽은 어떻게든 무사해결! 딱히 패널티는 없다. ',
              '커다란 상처를 입고, 생사의 경계를 헤맨다. 원하는 특기로 판정을 시행하라. 실패하면 사망한다. 【생명력】만큼 마이너스의 수정이 붙는다.',
              '눈을 뜨면 익숙하지 않은 장소다. 여긴 어디지? 나는 누구? 아무래도 지나친 공포로 기억을 잃어버린 것 같다. 공적점이 있다면, 그것을 1점 잃는다.',
-             lambda{return "눈을 뜨니, 그곳은 평소의 그곳이었다. 하지만, 어딘가 위화감을 느낀다. 당신들 외에, 누구도 사건에 대해서는 모르는 것 같다. 죽었을 터인 그 인물도 살아있다. 시간을 여행한 것일까, 여긴 다른 세계선인가……? 　#{get_random_skill_table_text_only}의 특기가 【공포심】이 된다."},
+             lambda { return "눈을 뜨니, 그곳은 평소의 그곳이었다. 하지만, 어딘가 위화감을 느낀다. 당신들 외에, 누구도 사건에 대해서는 모르는 것 같다. 죽었을 터인 그 인물도 살아있다. 시간을 여행한 것일까, 여긴 다른 세계선인가……? 　#{get_random_skill_table_text_only}의 특기가 【공포심】이 된다." },
              '뒤를 돌아보자, 거기에는 압도적인 「그것」이 기다리고 있었다. 무자비한 일격이 당신을 덮치고, 당신은 사망한다.',
             ]
     return get_table_by_2d6(table)

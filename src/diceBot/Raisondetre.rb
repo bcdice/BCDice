@@ -44,7 +44,7 @@ MESSAGETEXT
   def rollDiceCommand(command)
     if /(-)?(\d+)?RD(\d+)?(@(\d+))?$/i === command
       diceCount = ($2 || 1).to_i
-      diceCount *= -1 if( !$1.nil? )
+      diceCount *= -1 if !$1.nil?
       choiceCount = ($3 || 1).to_i
       target = ($5 || 0).to_i
 
@@ -52,12 +52,12 @@ MESSAGETEXT
 
     elsif /(-)?(\d+)?DD([1-9])?([\+\-]\d+)?$/i === command
       diceCount = ($2 || 1).to_i
-      diceCount *= -1 if( !$1.nil? )
+      diceCount *= -1 if !$1.nil?
       armor = ($3 || 0).to_i
-      if( armor > 0 )
+      if armor > 0
         armor += ($4 || 0).to_i
-        armor = 1 if( armor < 1 )
-        armor = 9 if( armor > 9 )
+        armor = 1 if  armor < 1
+        armor = 9 if  armor > 9
       end
 
       return checkDamage(diceCount, armor)
@@ -78,16 +78,16 @@ MESSAGETEXT
 
     dice, diceText = roll(rollCount, 10, @sortTye)
     diceText2 = diceText.gsub('10', '0')
-    diceArray = diceText2.split(/,/).collect{|i|i.to_i}
-    diceArray.map!{|i|i - correction}
+    diceArray = diceText2.split(/,/).collect { |i| i.to_i }
+    diceArray.map! { |i| i - correction }
     diceText2 = diceArray.sort.join(',')
 
-    funbleArray = diceArray.select{|i|i <= 1}
+    funbleArray = diceArray.select { |i| i <= 1 }
     isFunble = (funbleArray.size >= rollCount)
 
     dice = 0
     success = 0
-    if( !isFunble )
+    if !isFunble
       criticalCount = diceArray.count(0)
       critical = criticalCount * 10
 
@@ -100,22 +100,22 @@ MESSAGETEXT
     end
 
     result = "#{rollCount}D10"
-    result += "-#{correction}" if( correction > 0 )
+    result += "-#{correction}" if correction > 0
     result += " ＞ [#{diceText}] ＞ [#{diceText2}] ＞ "
 
-    if( isFunble )
+    if isFunble
       result += "達成値：0 (Funble)"
     else
       result += "#{dice}[#{choiceText}]"
-      result += "+#{critical}" if( critical > 0 )
+      result += "+#{critical}" if critical > 0
       result += "=達成値：#{success}"
-      result += " (#{criticalCount}Critical)" if( critical > 0 )
+      result += " (#{criticalCount}Critical)" if critical > 0
     end
 
-    if( target > 0 )
+    if target > 0
       result += ">=#{target} "
-      result += "【成功】" if( success >= target )
-      result += "【失敗】" if( success < target )
+      result += "【成功】" if  success >= target
+      result += "【失敗】" if  success < target
     end
 
     return result
@@ -132,21 +132,21 @@ MESSAGETEXT
 
     dice, diceText = roll(rollCount, 10, @sortTye)
     diceText2 = diceText.gsub('10', '0')
-    diceArray = (diceText2.split(/,/).collect{|i|i.to_i}).sort
+    diceArray = (diceText2.split(/,/).collect { |i| i.to_i }).sort
     criticalCount = diceArray.count(0)
-    diceArray.map!{|i|i - correction}
+    diceArray.map! { |i| i - correction }
     diceText2 = diceArray.join(',')
 
     result = "#{rollCount}D10"
-    result += "-#{correction}" if( correction > 0 )
+    result += "-#{correction}" if correction > 0
     result += " ＞ [#{diceText}] ＞ [#{diceText2}]"
 
-    if( armor > 0 )
+    if armor > 0
       resultArray = Array.new
       success = 0
 
       diceArray.each do |i|
-        if( i >= armor )
+        if i >= armor
           resultArray.push(i)
           success += 1
         else
