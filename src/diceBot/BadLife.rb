@@ -61,8 +61,6 @@ MESSAGETEXT
       when 'SKL'
         get_skill_table
 
-      else
-        nil
       end
 
     return output
@@ -130,7 +128,7 @@ MESSAGETEXT
     result = "#{diceCount}D20\(C:#{critical},F:#{fumble}\) ＞ "
     result += "#{diceMax}\[#{diceText}\]"
     result += "\+" if( modify > 0 )
-    result += "#{modify}" if( modify != 0 )
+    result += modify.to_s if( modify != 0 )
     result += "\+5" if( isAnticipation && diceMax <= 7 )  # 先見の明
     result += " ＞ 達成値：#{total}"
 

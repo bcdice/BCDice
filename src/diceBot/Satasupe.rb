@@ -87,7 +87,7 @@ INFO_MESSAGE_TEXT
       end
     end
 
-    if(critical < 1 or critical > 12)
+    if((critical < 1) || (critical > 12))
       critical = 13
     end
 
@@ -109,7 +109,7 @@ INFO_MESSAGE_TEXT
       result += " ＞ ファンブル"
     end
 
-    if( isCritical and total_suc > 0 )
+    if( isCritical && (total_suc > 0) )
       result += " ＞ 必殺発動可能！"
     end
 
@@ -129,7 +129,7 @@ INFO_MESSAGE_TEXT
         min_suc = $1.to_i
         fumble = $3.to_i if( $3.to_i != 0 )
         critical = $5.to_i if( $4 )
-        isCriticalStop = (not $6.nil? )
+        isCriticalStop = !$6.nil?
       end
     end
 
@@ -176,13 +176,13 @@ INFO_MESSAGE_TEXT
         dice_str += "『必殺！』"
       end
 
-      if((d1 == d2) and (d1 <= fumble))  # ファンブルの確認
+      if((d1 == d2) && (d1 <= fumble))  # ファンブルの確認
         isFumble = true
         isCritical = false
         break
       end
 
-      if(isCritical and isCriticalStop) #必殺止めの確認
+      if(isCritical && isCriticalStop) #必殺止めの確認
         break
       end
     end
@@ -204,7 +204,7 @@ INFO_MESSAGE_TEXT
 
     unless( operator.nil? )
       modify = value  if( operator == "+")
-      modify = value * (-1)  if( operator == "-")
+      modify = value * -1  if( operator == "-")
     end
 
     diceTotal = dice + modify
@@ -564,7 +564,7 @@ INFO_MESSAGE_TEXT
     when "+"
       modify = value
     when "-"
-      modify = value * (-1)
+      modify = value * -1
     when "="
       index = value
     end

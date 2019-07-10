@@ -62,7 +62,7 @@ MESSAGETEXT
   def judgeRoll(command)
     return nil unless( /^BM(S)?(\d*)(@(\d+))?>=(\d+)$/i =~ command )
 
-    isStop = (not $1.nil?)
+    isStop = !$1.nil?
     skillRank = $2.to_i
     judgeNumberText = $3
     judgeNumber = ($4 || 4).to_i
@@ -171,7 +171,7 @@ MESSAGETEXT
       message += "\n ＞ コマンド：#{rerollCommand}" if isStop
     end
 
-    canReRoll = (not rerollCommand.empty?)
+    canReRoll = !rerollCommand.empty?
 
     if canReRoll
       unless isStop
@@ -195,7 +195,7 @@ MESSAGETEXT
       result += "\n ＞ 最終成功数:#{success}"
     end
 
-    if canReRoll and isStop
+    if canReRoll && isStop
       result += "\n"
 
       if success >= targetNumber

@@ -106,7 +106,7 @@ INFO_MESSAGE_TEXT
   end
 
   def isValidDice(dice1, dice2)
-    return ( isValidDiceOne(dice1) and
+    return ( isValidDiceOne(dice1) &&
              isValidDiceOne(dice2) )
   end
 
@@ -150,17 +150,17 @@ INFO_MESSAGE_TEXT
   end
 
   def isFamble(value1, value2)
-    return ((value1 == 1) and (value2 == 1 ))
+    return ((value1 == 1) && (value2 == 1 ))
   end
 
   def isCritical(value1, value2, dice1, dice2)
     return false if( value2 == 0 )
 
-    if( ( value1 == 6 ) and (value2 == 6 ) )
+    if( ( value1 == 6 ) && (value2 == 6 ) )
       return true
     end
 
-    if( (value1 == dice1) and (value2 == dice2) )
+    if( (value1 == dice1) && (value2 == dice2) )
       return true
     end
 

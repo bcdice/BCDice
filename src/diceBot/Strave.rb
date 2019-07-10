@@ -67,8 +67,6 @@ MESSAGETEXT
       when 'IDV'
         get_identity_table2
 
-      else
-        nil
       end
 
     return output
@@ -83,7 +81,7 @@ MESSAGETEXT
 
     successCount = diceArray.find_all{|i| (i <= target)}.size
 
-    isDamage = (not damage.nil?)
+    isDamage = !damage.nil?
 
     if( isDamage )
       totalDamage = successCount * damage

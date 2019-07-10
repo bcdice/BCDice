@@ -611,18 +611,6 @@ Style/AccessModifierDeclarations:
     - 'irc/encode.rb'
     - 'test/DiceBotTest.rb'
 
-# Offense count: 110
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, conditionals
-Style/AndOr:
-  Enabled: false
-
-# Offense count: 1628
-# Configuration parameters: AllowedChars.
-Style/AsciiComments:
-  Enabled: false
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/Attr:
@@ -731,10 +719,6 @@ Style/Dir:
     - 'test.rb'
     - 'test/DiceBotTest.rb'
 
-# Offense count: 179
-Style/Documentation:
-  Enabled: false
-
 # Offense count: 1
 Style/DoubleNegation:
   Exclude:
@@ -752,13 +736,6 @@ Style/EmptyBlockParameter:
   Exclude:
     - 'diceBot/FutariSousa.rb'
     - 'diceBot/OneWayHeroics.rb'
-
-# Offense count: 31
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty, nil, both
-Style/EmptyElse:
-  Enabled: false
 
 # Offense count: 7
 # Cop supports --auto-correct.
@@ -780,11 +757,6 @@ Style/EmptyMethod:
     - 'diceBot/Dracurouge_Korean.rb'
     - 'diceBot/HuntersMoon.rb'
     - 'irc/torgtaitaiIRC.rb'
-
-# Offense count: 194
-# Cop supports --auto-correct.
-Style/Encoding:
-  Enabled: false
 
 # Offense count: 8
 # Cop supports --auto-correct.
@@ -846,13 +818,6 @@ Style/GlobalVars:
 # Offense count: 78
 # Configuration parameters: MinBodyLength.
 Style/GuardClause:
-  Enabled: false
-
-# Offense count: 1501
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
-# SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
-Style/HashSyntax:
   Enabled: false
 
 # Offense count: 4
@@ -1011,11 +976,6 @@ Style/NonNilCheck:
     - 'diceBot/GurpsFW.rb'
     - 'irc/encode.rb'
 
-# Offense count: 48
-# Cop supports --auto-correct.
-Style/Not:
-  Enabled: false
-
 # Offense count: 27
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedOctalStyle.
@@ -1024,12 +984,6 @@ Style/NumericLiteralPrefix:
   Exclude:
     - 'diceBot/DeadlineHeroes.rb'
     - 'diceBot/ShinkuuGakuen.rb'
-
-# Offense count: 23
-# Cop supports --auto-correct.
-# Configuration parameters: Strict.
-Style/NumericLiterals:
-  MinDigits: 6
 
 # Offense count: 297
 # Cop supports --auto-correct.
@@ -1043,12 +997,6 @@ Style/NumericPredicate:
 Style/OneLineConditional:
   Exclude:
     - 'diceBot/ShinkuuGakuen.rb'
-
-# Offense count: 95
-# Cop supports --auto-correct.
-# Configuration parameters: AllowSafeAssignment, AllowInMultilineConditions.
-Style/ParenthesesAroundCondition:
-  Enabled: false
 
 # Offense count: 362
 # Cop supports --auto-correct.
@@ -1096,11 +1044,6 @@ Style/RedundantBegin:
 Style/RedundantConditional:
   Exclude:
     - 'diceBot/BeastBindTrinity.rb'
-
-# Offense count: 26
-# Cop supports --auto-correct.
-Style/RedundantParentheses:
-  Enabled: false
 
 # Offense count: 1767
 # Cop supports --auto-correct.
@@ -1162,12 +1105,6 @@ Style/SelfAssignment:
     - 'diceBot/EarthDawn.rb'
     - 'diceBot/MetalHead.rb'
     - 'diceBot/Satasupe.rb'
-
-# Offense count: 519
-# Cop supports --auto-correct.
-# Configuration parameters: AllowAsExpressionSeparator.
-Style/Semicolon:
-  Enabled: false
 
 # Offense count: 7
 # Cop supports --auto-correct.
@@ -1260,11 +1197,6 @@ Style/UnlessElse:
   Exclude:
     - 'diceBot/LostRoyal.rb'
 
-# Offense count: 87
-# Cop supports --auto-correct.
-Style/UnneededInterpolation:
-  Enabled: false
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/UnneededSort:
@@ -1285,13 +1217,6 @@ Style/WhileUntilModifier:
     - 'diceBot/BlindMythos.rb'
     - 'diceBot/NightmareHunterDeep.rb'
     - 'diceBot/TunnelsAndTrolls.rb'
-
-# Offense count: 502
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, MinSize, WordRegex.
-# SupportedStyles: percent, brackets
-Style/WordArray:
-  Enabled: false
 
 # Offense count: 4
 # Cop supports --auto-correct.

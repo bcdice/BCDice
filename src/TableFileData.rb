@@ -179,7 +179,7 @@ class TableFileData
       next unless( isTargetGameType(gameType, targetGameType) )
 
       oneTableData = data
-      isSecret = (not $1.nil?)
+      isSecret = !$1.nil?
       break
     end
 
@@ -362,7 +362,7 @@ class TableFileEditer < TableFileCreator
     @gameType = @params['gameType']
     @originalGameType = @params['originalGameType']
 
-    if( (@originalCommand == @command) and (@originalGameType == @gameType) )
+    if( (@originalCommand == @command) && (@originalGameType == @gameType) )
       checkFileWhenFileNameNotChanged(fileName)
     else
       checkFileWhenFileNameChanged(fileName)

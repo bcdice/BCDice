@@ -115,7 +115,7 @@ INFO_MESSAGE_TEXT
       return "クリティカル値が低すぎます。2以上を指定してください。"
     end
 
-    if( not $5.nil? )
+    if( !$5.nil? )
       diff = $7.to_i
       signOfInequality = marshalSignOfInequality($6)
     elsif( defaultSuccessTarget != "" )
@@ -196,7 +196,7 @@ INFO_MESSAGE_TEXT
         output += "#{subtotal}[#{dice_dat[1]}]"
         total_n += subtotal
 
-        break unless ( @@bcdice.isReRollAgain(dice_cnt, round) )
+        break unless  @@bcdice.isReRollAgain(dice_cnt, round)
       end
     end
 
@@ -243,7 +243,7 @@ INFO_MESSAGE_TEXT
     neg_dice, neg_table = dx_feel_negative_table
     dice_now, = roll(1, 2)
 
-    if(pos_table != '1' and neg_table != '1')
+    if((pos_table != '1') && (neg_table != '1'))
       if(dice_now < 2)
         pos_table = "○" + pos_table
       else

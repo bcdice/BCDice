@@ -89,7 +89,7 @@ MESSAGETEXT
   end
 
   def getValue(text, defaultValue)
-    return defaultValue if( text == nil or text.empty? )
+    return defaultValue if( (text == nil) || text.empty? )
 
     parren_killer("(0" + text + ")").to_i
   end
@@ -271,8 +271,6 @@ debug('yearText', yearText)
         get_table_by_1d6(table)
       when 'D66'
         get_table_by_d66(table)
-      else
-        nil
       end
 
     return nil if( text.nil? )

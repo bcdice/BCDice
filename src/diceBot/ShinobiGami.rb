@@ -432,7 +432,7 @@ INFO_MESSAGE_TEXT
 
     output = "#{tableName}(#{total_n}) ＞ #{text}"
 
-    if (total_n > 3)
+    if total_n > 3
       return output
     end
 

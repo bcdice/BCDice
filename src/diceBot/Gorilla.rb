@@ -40,20 +40,20 @@ MESSAGETEXT
       diceList = getDiceList()
       if(diceList[0] == 5)
         # 2d6の合計が10で片方5ならもう片方も5であろうという手抜き判定
-        return " ＞ ゴリティカル（自動的成功）";
+        return " ＞ ゴリティカル（自動的成功）"
       end
     end
     # 2014.02.24 余り無いと思うが'>'に対応できてなかったので追記
     if(signOfInequality == '>=')
       if(totalValue >= diff)
-        return " ＞ 成功";
+        return " ＞ 成功"
       end
     end
     if(signOfInequality == '>')
       if(totalValue > diff)
-        return " ＞ 成功";
+        return " ＞ 成功"
       end
     end
-    return " ＞ 失敗";
+    return " ＞ 失敗"
   end
 end

@@ -103,7 +103,7 @@ INFO_MESSAGE_TEXT
 
     output = "#{@nick_t}: (#{string}) ＞ [#{dice_str}]"
     if(mod < 0)
-      output += "#{mod}"
+      output += mod.to_s
     elsif(mod > 0)
       output += "+#{mod}"
     end

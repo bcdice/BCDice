@@ -81,8 +81,6 @@ MESSAGETEXT
         roc = ($1 || 0).to_i
         get_emotion_table(roc)
 
-      else
-        nil
       end
 
     return output

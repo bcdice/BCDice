@@ -150,7 +150,7 @@ INFO_MESSAGE_TEXT
       end
     end
 
-    if( @isBattleMode and suc < 2)
+    if( @isBattleMode && (suc < 2))
       at_str = "失敗"
     end
 

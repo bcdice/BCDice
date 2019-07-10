@@ -108,7 +108,7 @@ INFO_MESSAGE_TEXT
 
   def getValueText(text)
     value = text.to_i
-    return "#{value}" if(value < 0)
+    return value.to_s if(value < 0)
 
     return "+#{value}"
   end
@@ -160,7 +160,7 @@ INFO_MESSAGE_TEXT
 
   def checkCritical(total, dice_str, dice_n)
     debug("addRollWhenCritical begin total, dice_str", total, dice_str)
-    output = "#{total}"
+    output = total.to_s
 
     criticalText = ""
     criticalValue = getCriticalValue(dice_n)

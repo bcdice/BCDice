@@ -100,7 +100,7 @@ INFO_MESSAGE_TEXT
       urge_type = 1
     end
 
-    if(( urgelv < 1 ) or ( urgelv > 5 ))
+    if(( urgelv < 1 ) || ( urgelv > 5 ))
       return '衝動段階は1から5です'
     end
 

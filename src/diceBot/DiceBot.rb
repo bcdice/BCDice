@@ -2,7 +2,7 @@
 
 class DiceBot
   # 空の接頭辞（反応するコマンド）
-  EMPTY_PREFIXES_PATTERN = (/(^|\s)(S)?()(\s|$)/i).freeze
+  EMPTY_PREFIXES_PATTERN = /(^|\s)(S)?()(\s|$)/i.freeze
 
   # 接頭辞（反応するコマンド）の配列を返す
   # @return [Array<String>]
@@ -25,7 +25,7 @@ class DiceBot
       map(&:freeze).
       # 配列全体を変更不可にする
       freeze
-    @prefixesPattern = (/(^|\s)(S)?(#{prefixes.join('|')})(\s|$)/i).freeze
+    @prefixesPattern = /(^|\s)(S)?(#{prefixes.join('|')})(\s|$)/i.freeze
 
     self
   end
@@ -205,7 +205,7 @@ class DiceBot
     debug('match')
 
     output_msg, secret_flg = rollDiceCommandCatched(command)
-    output_msg = '1' if( output_msg.nil? or output_msg.empty? )
+    output_msg = '1' if( output_msg.nil? || output_msg.empty? )
     secret_flg ||= false
 
     output_msg = "#{nick_e}: #{output_msg}" if(output_msg != '1')
@@ -460,7 +460,7 @@ class DiceBot
     type = info[:type].upcase
     table = info[:table]
 
-    if type == 'D66' and @d66Type == 2
+    if (type == 'D66') && (@d66Type == 2)
       type = 'D66S'
     end
 
@@ -494,7 +494,7 @@ class DiceBot
 
     return nil if( text.nil? )
 
-    return "#{name}(#{number}[#{diceText}]) ＞ #{text}" if isPrintDiceText and (not diceText.nil?)
+    return "#{name}(#{number}[#{diceText}]) ＞ #{text}" if isPrintDiceText && !diceText.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end
@@ -505,7 +505,7 @@ class DiceBot
     end
 
     newTable = text.map do |item|
-      if item.kind_of?(String) and  /^(\d+):(.*)/ === item
+      if item.kind_of?(String) &&  (/^(\d+):(.*)/ === item)
         [$1.to_i, $2]
       else
         item

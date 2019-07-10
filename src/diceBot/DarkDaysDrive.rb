@@ -121,8 +121,6 @@ INFO_MESSAGE_TEXT
         number = bcdice.getD66(isSwap)
         result = get_table_by_number(number, table)
         [result, number]
-      else
-        nil
       end
 
     return nil if( text.nil? )
@@ -132,7 +130,7 @@ INFO_MESSAGE_TEXT
 
   def getD66Table(table)
     table.map do |item|
-      if item.kind_of?(String) and  /^(\d+):(.*)/ === item
+      if item.kind_of?(String) &&  (/^(\d+):(.*)/ === item)
         [$1.to_i, $2]
       else
         item

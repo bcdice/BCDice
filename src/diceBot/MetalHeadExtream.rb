@@ -71,7 +71,7 @@ MESSAGETEXT
         target = m[2].to_i
         modify = get_value(1, m[3])
         paramText = (m[5] || '')
-        isMuse = (not m[8].nil?)  # パンドラ《ミューズ》
+        isMuse = !m[8].nil?  # パンドラ《ミューズ》
 
         accidentValue = 96
         advancedRoll = 1
@@ -128,8 +128,6 @@ MESSAGETEXT
         roc = ($2 || 0).to_i
         get_randomEncounter_table(locationType, roc)
 
-      else
-        nil
       end
 
     return text
@@ -148,7 +146,7 @@ MESSAGETEXT
     complementText += ", LUC:#{luckPoint}" if(luckPoint > 0)
 
     if(modify >= 1)
-      modifyText = "#{modify.to_i}"
+      modifyText = modify.to_i.to_s
     else
       modifyText = "1\/#{(1 / modify).to_i}"
     end

@@ -100,7 +100,7 @@ INFO_MESSAGE_TEXT
     if(bonus > 0)
       output += "+#{bonus}"
     elsif(bonus < 0)
-      output += "#{bonus}"
+      output += bonus.to_s
     end
 
     if(sendMode > 0)

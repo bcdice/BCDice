@@ -3,7 +3,7 @@
 
 require 'configBcDice.rb'
 
-$ircNickRegExp = '[A-Za-z\d\-\[\]\\\'^{}_]+';
+$ircNickRegExp = '[A-Za-z\d\-\[\]\\\'^{}_]+'
 
 class CardTrader
   # カード置き場数。0なら無し。
@@ -23,7 +23,7 @@ class CardTrader
   def initialize
     initValues
 
-    @card_channels = {};
+    @card_channels = {}
     @card_spell = [
                    'A','B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z',
                    'a','b','c','d','e','f','g','h','i','j','k','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
@@ -34,7 +34,7 @@ class CardTrader
   def initValues
     @cardTitles = {}
     @cardRegExp = '[DHSCJdhscj][\d]+'; #カード指定文字列の正規表現
-    @deal_cards = {'card_played' => []};
+    @deal_cards = {'card_played' => []}
 
     set1Deck1Joker
     self.card_place = 1
@@ -192,8 +192,8 @@ class CardTrader
 
   def readCardSet()
     begin
-      readExtraCard(@tnick);
-      sendMessageToOnlySender("カードセットの読み込み成功しました");
+      readExtraCard(@tnick)
+      sendMessageToOnlySender("カードセットの読み込み成功しました")
     rescue => e
       sendMessageToOnlySender(e.to_s)
     end
@@ -220,9 +220,9 @@ class CardTrader
     return if(cardFileName.nil?)
     return if(cardFileName.empty?)
 
-    debug("Loading Cardset『#{cardFileName}』...\n");
+    debug("Loading Cardset『#{cardFileName}』...\n")
 
-    @card_val = [];
+    @card_val = []
 
     begin
       lines = File.readlines(cardFileName)
@@ -230,17 +230,17 @@ class CardTrader
       lines.each do |line|
         next unless(/^(\d+)->(.+)$/ =~ line)  # 番号->タイトル
 
-        cardNumber = $1.to_i;
-        cardTitle = $2;
-        @card_val.push(cardNumber);
-        @cardTitles[cardNumber] = cardTitle;
+        cardNumber = $1.to_i
+        cardTitle = $2
+        @card_val.push(cardNumber)
+        @cardTitles[cardNumber] = cardTitle
       end
 
       @cardRegExp = '[\d]+';    #カード指定文字列の正規表現
       @cardRest = @card_val.clone
-      @deal_cards = {'card_played' => []};
+      @deal_cards = {'card_played' => []}
 
-      debug("Load Finished...\n");
+      debug("Load Finished...\n")
     rescue => e
       raise ("カードデータを開けません :『#{cardFileName}』" + e.to_s)
     end
@@ -258,7 +258,7 @@ class CardTrader
     case arg
     when /(c-shuffle|c-sh)($|\s)/
       output_msg = shuffleCards
-      sendMessage(@channel, output_msg);
+      sendMessage(@channel, output_msg)
 
     when /c-draw(\[[\d]+\])?($|\s)/
       drawCardByCommandText(arg)
@@ -268,33 +268,33 @@ class CardTrader
       drawCardOpen(value)
 
     when /c-hand($|\s)/
-      sendMessageToOnlySender(getHandAndPlaceCardInfoText(arg, @nick_e));
+      sendMessageToOnlySender(getHandAndPlaceCardInfoText(arg, @nick_e))
 
     when /c-vhand\s*(#{$ircNickRegExp})($|\s)/
       name = $1
       debug("c-vhand name", name)
       messageText = ("#{name} の手札は" + getHandAndPlaceCardInfoText("c-hand", name) + "です")
-      sendMessageToOnlySender(messageText);
+      sendMessageToOnlySender(messageText)
 
     when /c-play(\d*)\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
       playCardByCommandText(arg)
 
     when /(c-rshuffle|c-rsh)($|\s)/
       output_msg = returnCards
-      sendMessage(@channel, output_msg);
+      sendMessage(@channel, output_msg)
 
     when /c-clean($|\s)/
       output_msg = clearAllPlaceAllPlayerCards
-      sendMessage(@channel, output_msg);
+      sendMessage(@channel, output_msg)
 
     when /c-review($|\s)/
       output_msg = reviewCards
-      sendMessageToOnlySender(output_msg);
+      sendMessageToOnlySender(output_msg)
 
     when /c-check($|\s)/
       out_msg, place_msg = getAllCardLocation
-      sendMessage(@channel, out_msg);
-      sendMessage(@channel, place_msg);
+      sendMessage(@channel, out_msg)
+      sendMessage(@channel, place_msg)
 
     when /c-pass(\d)*(\[#{@cardRegExp}(,#{@cardRegExp})*\])?\s*(#{$ircNickRegExp})($|\s)/
       sendTo = $4
@@ -342,37 +342,37 @@ class CardTrader
   # デッキと手札の初期化
   def shuffleCards
     @cardRest = @card_val.clone
-    @deal_cards = {'card_played' => []};
-    return "シャッフルしました";
+    @deal_cards = {'card_played' => []}
+    return "シャッフルしました"
   end
 
 ####################             ドロウ            ########################
   def drawCardByCommandText(arg)
     debug("drawCardByCommandText arg", arg)
 
-    cards = drawCard(arg);
+    cards = drawCard(arg)
     debug("drawCardByCommandText cards", cards)
 
     if(cards.length > 0)
-      sendMessageToOnlySender(getCardsTextFromCards(cards));
-      sendMessage(@channel, "#{@nick_e}: #{cards.length}枚引きました");
+      sendMessageToOnlySender(getCardsTextFromCards(cards))
+      sendMessage(@channel, "#{@nick_e}: #{cards.length}枚引きました")
     else
-      sendMessage(@channel, "カードが残っていません");
+      sendMessage(@channel, "カードが残っていません")
     end
 
     @card_channels[@nick_e] ||= @channel
   end
 
   def drawCardOpen(value)
-    cmd = "c-draw";
+    cmd = "c-draw"
     cmd += value unless( value.nil? )
 
-    cards = drawCard(cmd);
+    cards = drawCard(cmd)
 
     if(cards.length > 0)
-      sendMessage(@channel, "#{@nick_e}: " + getCardsTextFromCards(cards) + 'を引きました');
+      sendMessage(@channel, "#{@nick_e}: " + getCardsTextFromCards(cards) + 'を引きました')
     else
-      sendMessage(@channel, "カードが残っていません");
+      sendMessage(@channel, "カードが残っていません")
     end
 
     @card_channels[@nick_e] ||= @channel
@@ -419,12 +419,12 @@ class CardTrader
 
     count, output_msg = pickupCard(string)
     if( count > 0 )
-      sendMessage(@channel, "#{@nick_e}: #{count}枚選んで引きました");
+      sendMessage(@channel, "#{@nick_e}: #{count}枚選んで引きました")
     end
     if( output_msg != "" )
-      sendMessage(@channel, "[" + getCardsText(output_msg) + "]がありません");
+      sendMessage(@channel, "[" + getCardsText(output_msg) + "]がありません")
     end
-    sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"));
+    sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"))
   end
 
   def pickupCard(string)
@@ -460,7 +460,7 @@ class CardTrader
     cards.each do |card|
       string = pickupOneCard(card)
       if(string == $okResult)
-        okCount += 1;
+        okCount += 1
       else
         ngCardList << string
       end
@@ -482,32 +482,32 @@ class CardTrader
     if( isDelete )
       @deal_cards[destination] ||= []
       @deal_cards[destination] << targetCard
-      return $okResult;
+      return $okResult
     else
       return targetCard;   # 無かったカードを返す
     end
   end
 
   def backCardCommandText(command)
-    count, output_msg = backCard(command);
+    count, output_msg = backCard(command)
 
     if(count > 0)
-      sendMessage(@channel, "#{@nick_e}: #{count}枚戻しました");
+      sendMessage(@channel, "#{@nick_e}: #{count}枚戻しました")
     end
 
     if(output_msg != "")
-      sendMessage(@channel, "[#{getCardsText(output_msg)}]がありません");
+      sendMessage(@channel, "[#{getCardsText(output_msg)}]がありません")
     else
-      sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"));
+      sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"))
     end
   end
 
   def backCard(command)
-    okCount = 0;
+    okCount = 0
     ngCards = []
 
     if(/(c-back(\d*)\[((,)?#{@cardRegExp})+\])/ =~ command)
-      commandset = $1;
+      commandset = $1
       place = $2.to_i
       okCount, ngCards = backCardByCommandSetAndPlace(commandset, place)
     end
@@ -516,7 +516,7 @@ class CardTrader
   end
 
   def backCardByCommandSetAndPlace(commandset, place)
-    okCount = 0;
+    okCount = 0
     ngCards = []
     destination = @nick_e.upcase
 
@@ -524,9 +524,9 @@ class CardTrader
       cards = $1.split(/,/)
 
       cards.each do |card|
-        string = backOneCard(card, destination, place);
+        string = backOneCard(card, destination, place)
         if(string == $okResult)
-          okCount += 1;
+          okCount += 1
         else
           ngCards << string
         end
@@ -545,7 +545,7 @@ class CardTrader
 
     if(@card_place > 0)   # 場があるときのみ処理
       string = transferOneCard(targetCard, "#{place}#{destination}", destination);   # 場から手札への移動
-      return $okResult if(string == $okResult);
+      return $okResult if(string == $okResult)
     end
 
     @deal_cards['card_played'] ||= []
@@ -554,7 +554,7 @@ class CardTrader
 
     if( isDelete )
       @deal_cards[destination] << targetCard
-      return $okResult;
+      return $okResult
     end
 
     return "${targetCard}"; # 戻せるカードが無かったらNGのカードを返す
@@ -563,11 +563,11 @@ class CardTrader
   def dealCard(count, targetNick, isLook = false)
     debug("dealCard count, targetNick", count, targetNick)
 
-    cards = drawCard("c-draw#{count}", targetNick);
+    cards = drawCard("c-draw#{count}", targetNick)
     if(cards.length > 0)
       sendDealResult(targetNick, count, getCardsTextFromCards(cards), isLook)
     else
-      sendMessage(@channel, "カードが残っていません");
+      sendMessage(@channel, "カードが残っていません")
     end
 
     @card_channels[targetNick] ||= @channel
@@ -576,7 +576,7 @@ class CardTrader
   end
 
   def sendDealResult(targetNick, count, output_msg, isLook)
-    sendMessage(targetNick, output_msg);
+    sendMessage(targetNick, output_msg)
     if( isLook )
       sendMessage(@nick_e, "#{targetNick} に #{output_msg} を配りました")
     end
@@ -592,7 +592,7 @@ class CardTrader
     count, output_msg, card_ok = discardCards(commandText)
 
     if(count > 0)
-      sendMessage(@channel, "#{@nick_e}: #{count}枚捨てました");
+      sendMessage(@channel, "#{@nick_e}: #{count}枚捨てました")
 
       unless( @cardTitles.empty? )
         cardText = getCardsText($card_ok)
@@ -602,9 +602,9 @@ class CardTrader
 
     if(output_msg != "")
       cardText = getCardsText(output_msg)
-      sendMessageToOnlySender("[#{cardText}]がありません");
+      sendMessageToOnlySender("[#{cardText}]がありません")
     else
-      sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"));
+      sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"))
     end
   end
 
@@ -612,16 +612,16 @@ class CardTrader
   def playCardByCommandText(arg)
     debug('c-play pattern', arg)
 
-    count, output_msg, card_ok = playCard(arg);
+    count, output_msg, card_ok = playCard(arg)
     if( count > 0 )
-      sendMessage(@channel, "#{@nick_e}: #{count}枚出しました");
+      sendMessage(@channel, "#{@nick_e}: #{count}枚出しました")
       sendMessage(@channel, "[" + getCardsText($card_ok) + "]") unless( @cardTitles.empty? )
     end
     if( output_msg != "")
       debug("output_msg", output_msg)
-      sendMessage(@channel, "[" + getCardsText(output_msg) + "]は持っていません");
+      sendMessage(@channel, "[" + getCardsText(output_msg) + "]は持っていません")
     end
-    sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto", @nick_e));
+    sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto", @nick_e))
   end
 
   def playCard(cardPlayCommandText)
@@ -687,7 +687,7 @@ class CardTrader
     debug("playOneCard result", result)
 
     if(result == $okResult)
-      okList << card;
+      okList << card
     else
       ngList << result
     end
@@ -699,7 +699,7 @@ class CardTrader
     debug("playOneCard card, place", card, place)
 
     destination = @nick_e.upcase
-    result = "";
+    result = ""
 
     if(place > 0)
       debug("playOneCard place > 0")
@@ -727,7 +727,7 @@ class CardTrader
 
     if(/(c-(dis|discard)(\d*)\[((,)?#{@cardRegExp})+\])/ =~ command)
       debug("discardCards reg OK")
-      commandSet = $1;
+      commandSet = $1
       place = $3.to_i
       okList, ngList = discardCardsByCommandSetAndPlaceAndDestination(commandSet, place, destination)
     end
@@ -755,7 +755,7 @@ class CardTrader
     ngList = []
 
     cards.each do |card|
-      result = discardOneCard(card, place, destination);
+      result = discardOneCard(card, place, destination)
 
       if(result == $okResult)
         okList << card
@@ -778,7 +778,7 @@ class CardTrader
     temp_cards = getCardsFromDealCards(destination)
 
     result = temp_cards.reject! {|i| i == card}
-    isTargetCardInHand = ( not result.nil? )
+    isTargetCardInHand =  !result.nil?
     if( isTargetCardInHand )
       this_cards << card
     else
@@ -795,7 +795,7 @@ class CardTrader
       @deal_cards['card_played'] += this_cards
       debug("@deal_cards", @deal_cards)
 
-      return $okResult;
+      return $okResult
     else
       return card;   # 指定のカードが無いので、無いカードを返す
     end
@@ -830,33 +830,33 @@ class CardTrader
 
   def transferCardsByCommandText(commandText, sendTo)
     debug("transferCardsByCommandText commandText, sendTo", commandText, sendTo)
-    count, output_msg = transferCards(commandText);
+    count, output_msg = transferCards(commandText)
 
     if( count < 0 )
-      sendMessage(@channel, "#{@nick_e}: 相手が登録されていません");
+      sendMessage(@channel, "#{@nick_e}: 相手が登録されていません")
     else
       if( output_msg != "" )
-        sendMessage(@channel, "[" + getCardsText(output_msg) + "]がありません");
+        sendMessage(@channel, "[" + getCardsText(output_msg) + "]がありません")
       end
       if( count > 0 )
-        sendMessage(@channel, "#{@nick_e}: #{count}枚渡しました");
+        sendMessage(@channel, "#{@nick_e}: #{count}枚渡しました")
         debug('transferCardsByCommandText sendTo', sendTo)
-        sendMessage(sendTo, getHandAndPlaceCardInfoText("Auto", sendTo));
+        sendMessage(sendTo, getHandAndPlaceCardInfoText("Auto", sendTo))
       end
     end
 
-    sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"));
+    sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"))
   end
 
   def transferCards(command)
     debug('transferCards command', command)
 
-    okCount = 0;
+    okCount = 0
     ngCardList = []
 
     if(/(c-pass(\d*)(\[(((,)?#{@cardRegExp})*)\])?)\s*(#{$ircNickRegExp})/ =~ command)
       destination = $7.upcase
-      commandset = $1;
+      commandset = $1
       place = $2.to_i
       place ||= 0
       okCount, ngCardList = transferCardsByCommand(commandset, place, destination)
@@ -873,7 +873,7 @@ class CardTrader
 
     nick_e = @nick_e
 
-    if(place > 0);
+    if(place > 0)
       nick_e = "#{place}#{nick_e}"
     end
 
@@ -908,7 +908,7 @@ class CardTrader
       when $ngResult
         return -1, ['渡す相手が登録されていません']
       when $okResult
-        okCount += 1;
+        okCount += 1
       else
         ngCardList << result
       end
@@ -917,16 +917,16 @@ class CardTrader
     return okCount, ngCardList
   end
 
-  def transferOneCard(card, from, toSend);
+  def transferOneCard(card, from, toSend)
     debug('transferOneCard card, from, toSend', card, from, toSend)
 
     targetCard = card.upcase
     toSend = toSend.upcase
     from = from.upcase
 
-    isTargetCardInHand = false;
+    isTargetCardInHand = false
     restCards = []
-    thisCard = "";
+    thisCard = ""
 
     @deal_cards[from] ||= []
     cards = @deal_cards[from]
@@ -945,8 +945,8 @@ class CardTrader
 
     debug("transferOneCard isTargetCardInHand", isTargetCardInHand)
 
-    if( not isTargetCardInHand )
-      return targetCard;
+    if( !isTargetCardInHand )
+      return targetCard
     end
 
     debug("transferOneCard @deal_cards", @deal_cards)
@@ -967,7 +967,7 @@ class CardTrader
     @deal_cards[from] = restCards
     debug("transferOneCard @deal_cards", @deal_cards)
 
-    return $okResult;
+    return $okResult
   end
 
   def ejectOneCardRandomFromCards(cards)
@@ -975,7 +975,7 @@ class CardTrader
 
     return nil if( cards.empty? )
 
-    cardNumber, dummy = @bcdice.roll(1, cards.length);
+    cardNumber, dummy = @bcdice.roll(1, cards.length)
     cardNumber -= 1
     debug("cardNumber", cardNumber)
 
@@ -993,7 +993,7 @@ class CardTrader
     isTargetCardInHand = false
 
     cards.each do |card|
-      if((not isTargetCardInHand) and(card == targetCard))
+      if(!isTargetCardInHand &&(card == targetCard))
         isTargetCardInHand = true
         thisCard = card
       else
@@ -1009,7 +1009,7 @@ class CardTrader
     debug("transferTargetCardToNewMember destination, thisCard", destination, thisCard)
     debug("@card_place", @card_place)
 
-    isSuccess = false;
+    isSuccess = false
 
     if(@card_place > 0)
 
@@ -1022,7 +1022,7 @@ class CardTrader
           #手札は登録されていたら宛先間違いではない
           @deal_cards[destination] ||= []
           @deal_cards[destination] << thisCard
-          isSuccess = true;
+          isSuccess = true
         end
       end
     end
@@ -1037,21 +1037,21 @@ class CardTrader
 
     if(okCardList.length < 0)
 
-      sendMessage(@channel, "#{@nick_e}: 相手が登録されていません");
-      return;
+      sendMessage(@channel, "#{@nick_e}: 相手が登録されていません")
+      return
     end
 
     unless( ngCardList.empty? )
       ngCardText = getCardsTextFromCards(ngCardList)
-      sendMessage(@channel, "[#{ngCardText}]がありません");
-      return;
+      sendMessage(@channel, "[#{ngCardText}]がありません")
+      return
     end
 
     if(okCardList.length > 0)
       printRegistCardResult(targetNick, okCards)
     end
 
-    sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"));
+    sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"))
   end
 
   #相手の場にカードを置く
@@ -1061,7 +1061,7 @@ class CardTrader
 
     debug("commandText", commandText)
     if(/(c-place(\d*)(\[(((,)?#{@cardRegExp})*)\])?)\s*(#{$ircNickRegExp})/ =~ commandText)
-      cardset = $1;
+      cardset = $1
       placeNumber = $2.to_i
       destination = $7.upcase
 
@@ -1102,7 +1102,7 @@ class CardTrader
 
       case result
       when $ngResult
-        return -1, '渡す相手が登録されていません';
+        return -1, '渡す相手が登録されていません'
       when $okResult
         okCardList << card
       else
@@ -1114,40 +1114,40 @@ class CardTrader
   end
 
   def printRegistCardResult(targetNick, okCards)
-    sendMessage(@channel, "#{@nick_e}: #{ okCards.length }枚場に置きました");
+    sendMessage(@channel, "#{@nick_e}: #{ okCards.length }枚場に置きました")
 
     unless( @cardTitles.empty? )
       cardText = getCardsTextFromCards(okCards)
       sendMessage(@channel, "[#{cardText}]")
     end
 
-    sendMessage(targetNick, getHandAndPlaceCardInfoText("Auto", targetNick));
+    sendMessage(targetNick, getHandAndPlaceCardInfoText("Auto", targetNick))
   end
 
 ####################             タップ            ########################
   def tapCardCommandText(commandText)
     debug("tapCardCommandText commandText", commandText)
 
-    okList, ngList, isUntap = tapCard(commandText);
+    okList, ngList, isUntap = tapCard(commandText)
 
     if(okList.length > 0)
-      tapTypeName = ( isUntap ? 'アンタップ' : 'タップ');
-      sendMessage(@channel, "#{@nick_e}: #{okList.length}枚#{tapTypeName}しました");
+      tapTypeName = ( isUntap ? 'アンタップ' : 'タップ')
+      sendMessage(@channel, "#{@nick_e}: #{okList.length}枚#{tapTypeName}しました")
       sendMessage(@channel, "[#{getCardsTextFromCards(okList)}]") unless( @cardTitles.empty? )
     end
 
     if(ngList.length > 0)
-      sendMessage(@channel, "[#{getCardsTextFromCards(ngList)}]は場にありません");
+      sendMessage(@channel, "[#{getCardsTextFromCards(ngList)}]は場にありません")
     end
 
-    sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto", @nick_e));
+    sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto", @nick_e))
   end
 
   def tapCard(command)
     okCardList = []
     ngCardList = []
 
-    unless(@canTapCard and @card_place)
+    unless(@canTapCard && @card_place)
       return okCardList, ngCardList
     end
 
@@ -1155,7 +1155,7 @@ class CardTrader
       return okCardList, ngCardList
     end
 
-    place = $3.to_i;
+    place = $3.to_i
     isUntap = $2
     cardsText = $1
 
@@ -1170,17 +1170,17 @@ class CardTrader
     if( /\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ cardsText)
       cards = $1.split(/,/)
       cards.each do |card|
-        okCard, ngCard = tapOneCardByCardAndPlace(card, place, isUntap);
+        okCard, ngCard = tapOneCardByCardAndPlace(card, place, isUntap)
 
         okCardList << okCard unless(okCard.nil?)
         ngCardList << ngCard unless(ngCard.nil?)
       end
     end
 
-    return okCardList, ngCardList;
+    return okCardList, ngCardList
   end
 
-  def tapOneCardByCardAndPlace(card, place, isUntap);
+  def tapOneCardByCardAndPlace(card, place, isUntap)
     card = card.upcase
     result = ""
 
@@ -1215,15 +1215,15 @@ class CardTrader
     count, output_msg = getCardMilstone(commandText)
 
     if(count > 0)
-      sendMessage(@channel, "#{@nick_e}: #{getCardsText(output_msg)}が出ました");
+      sendMessage(@channel, "#{@nick_e}: #{getCardsText(output_msg)}が出ました")
     else
-      sendMessage(@channel, "カードが残っていません");
+      sendMessage(@channel, "カードが残っていません")
     end
   end
 
   # 山からカードをめくって即座に捨てる
   def getCardMilstone(commandText)
-    command = "c-draw";
+    command = "c-draw"
     count = 0
     if( /\[(\d+)\]/ =~ commandText )
       count = $1.to_i
@@ -1241,7 +1241,7 @@ class CardTrader
       debug("discardCards okCount, ngCount, text", okCount, ngCount, text)
       count = okCount
     else
-      count = 0;
+      count = 0
     end
 
     debug("count", count)
@@ -1256,7 +1256,7 @@ class CardTrader
       clearAllPlayerCardsWhenPlayedPlace(place, cards)
     end
 
-    return '場のカードを捨てました';
+    return '場のカードを捨てました'
   end
 
   def clearAllPlayerCardsWhenPlayedPlace(place, cards)
@@ -1267,7 +1267,7 @@ class CardTrader
 
   def clearAllPlayerCards(place, cards)
     cardset = cards.join(',')
-    discardCards("c-discard[#{cardset}]", place);
+    discardCards("c-discard[#{cardset}]", place)
 
     @deal_cards[place] ||= []
     @deal_cards[place].clear
@@ -1282,7 +1282,7 @@ class CardTrader
       @cardRest.push(cards.shift)
     end
 
-    return "捨て札を山に戻しました";
+    return "捨て札を山に戻しました"
   end
 
   def getBurriedCard
@@ -1298,8 +1298,8 @@ class CardTrader
   end
 
   def getAllCardLocation   # 今のカード配置を見る
-    allText = "山札:#{ @cardRest.length }枚 捨札:#{ getBurriedCard }枚";
-    allPlaceText = "";
+    allText = "山札:#{ @cardRest.length }枚 捨札:#{ getBurriedCard }枚"
+    allPlaceText = ""
 
     @deal_cards.each do |place, cards|
       next if(place == 'card_played')
@@ -1317,11 +1317,11 @@ class CardTrader
     placeText = ""
 
     if(place =~ /^(\d+)(#{$ircNickRegExp})/)
-      placeNumber = $1;
-      cnick = $2;
+      placeNumber = $1
+      cnick = $2
       placeText = getCardLocationOnNumberdPlace(cards, placeNumber, cnick)
     else
-      text = " #{place}:#{cards.length}枚";
+      text = " #{place}:#{cards.length}枚"
     end
 
     return text, placeText
@@ -1332,7 +1332,7 @@ class CardTrader
     if( isTapCardPlace(placeNumber) )
       return " #{cnick}のタップした場札:#{cardText}"
     else
-      return " #{cnick}の場札:#{cardText}";
+      return " #{cnick}の場札:#{cardText}"
     end
   end
 
@@ -1358,7 +1358,7 @@ class CardTrader
     out_msg = getDealCardsText(destination)
 
     if( out_msg.empty? )
-      out_msg = "カードを持っていません";
+      out_msg = "カードを持っていません"
     end
 
     return out_msg
@@ -1375,7 +1375,7 @@ class CardTrader
 
     cardsText = getCardsTextFromCards(cards)
 
-    return "[ #{cardsText} ]";
+    return "[ #{cardsText} ]"
   end
 
   # ソートサブルーチン
@@ -1389,12 +1389,12 @@ class CardTrader
 
   def compareCardByCardNumber(a, b)
     /([^\d]+)(\d+)/ =~ a
-    a1 = $1;
-    a2 = $2;
+    a1 = $1
+    a2 = $2
 
     /([^\d]+)(\d+)/ =~ b
-    b1 = $1;
-    b2 = $2;
+    b1 = $1
+    b2 = $2
 
     result = [a1, a2] <=> [b1, b2]
 
@@ -1404,14 +1404,14 @@ class CardTrader
   def getPlaceCardInfoText(destination)
     destination = destination.upcase
 
-    out_msg = "";
+    out_msg = ""
 
     unless( @card_place > 0 )
       return out_msg
     end
 
-    place_max = @card_place;
-    place_max *= 2 if(@canTapCard);
+    place_max = @card_place
+    place_max *= 2 if(@canTapCard)
 
     debug("place_max", place_max)
     place_max.times do |i|
@@ -1423,16 +1423,16 @@ class CardTrader
       cards = @deal_cards[dealCardsKey]
       cards ||= []
 
-      cardsText = getCardsTextFromCards(cards);
+      cardsText = getCardsTextFromCards(cards)
 
       if( isTapCardPlace(index) )
-        out_msg += " タップした場札:[ #{cardsText} ]";
+        out_msg += " タップした場札:[ #{cardsText} ]"
       else
-        out_msg += " 場札:[ #{cardsText} ]";
+        out_msg += " 場札:[ #{cardsText} ]"
       end
     end
 
-    return out_msg;
+    return out_msg
   end
 
   def getCardsText(cardsText)    # 汎用カードセット用カードタイトルの表示
@@ -1449,17 +1449,17 @@ class CardTrader
       return cards.join(',')
     end
 
-    out_msg = "";
+    out_msg = ""
 
     cards.each do |cardNumber|
-      out_msg += "," if(out_msg != "");
+      out_msg += "," if(out_msg != "")
       title = @cardTitles[cardNumber]
       out_msg += "#{cardNumber}-#{title}"
     end
 
-    out_msg = '無し' if(out_msg == "");
+    out_msg = '無し' if(out_msg == "")
 
-    return out_msg;
+    return out_msg
   end
 
   def isTapCardPlace(index)
@@ -1471,16 +1471,16 @@ class CardTrader
 ####################           復活の呪文          ########################
 
   def printCardRestorationSpellResult(spellText)
-    output_msg = throwCardRestorationSpell(spellText);
+    output_msg = throwCardRestorationSpell(spellText)
     if(output_msg == "readSpell")
-      sendMessage(@channel, "#{@nick_e}: カード配置を復活しました");
+      sendMessage(@channel, "#{@nick_e}: カード配置を復活しました")
     else
-      sendMessage(@channel, output_msg);
+      sendMessage(@channel, output_msg)
     end
   end
 
   def throwCardRestorationSpell(spellText)
-    output = '0';
+    output = '0'
 
     debug("spellText", spellText)
 

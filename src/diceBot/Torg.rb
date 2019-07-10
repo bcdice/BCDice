@@ -105,7 +105,7 @@ INFO_MESSAGE_TEXT
       unskilled += dice_n if(isCritical)
 
       dice_str += "," unless(dice_str.empty?)
-      dice_str += "#{dice_n}"
+      dice_str += dice_n.to_s
 
       if(dice_n == 20)
         isCritical = false
@@ -311,7 +311,7 @@ INFO_MESSAGE_TEXT
     debug('TORG BT mod', mod)
 
     if(mod == 0)
-      output = "#{resultValue}"
+      output = resultValue.to_s
     else
       output = getTorgBonusOutputTextWhenModDefined(value, resultValue, mod)
       value = "#{value}+#{mod}"

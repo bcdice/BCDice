@@ -26,7 +26,7 @@ INFO_MESSAGE_TEXT
 
     return " ＞ 決定的成功" if(total_n <= (diff / 5 + 0.9))
     return " ＞ 成功"       if(total_n <= diff)
-    return " ＞ 致命的失敗" if((total_n >= 99) and (diff < 100))
+    return " ＞ 致命的失敗" if((total_n >= 99) && (diff < 100))
 
     return " ＞ 失敗"
   end

@@ -41,8 +41,6 @@ MESSAGETEXT
         tgr_opening_table
       when 'TB'
         tgr_common_trouble_table
-      else
-        nil
       end
 
     return output
@@ -56,11 +54,11 @@ MESSAGETEXT
         diff = $2.to_i
       end
 
-      if (diff > 0)
+      if diff > 0
         output += "(1D10<=#{diff})"
 
         total_n, = roll(1, 10)
-        output += ' ＞ ' + "#{total_n}"
+        output += ' ＞ ' + total_n.to_s
         output += ' ＞ ' + getCheckResultText(total_n, diff)
       end
     return output

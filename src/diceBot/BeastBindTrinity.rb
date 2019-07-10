@@ -153,8 +153,8 @@ INFO_MESSAGE_TEXT
         debug("▼出目引き上げモード 取得 #{dicepull}")
     end
 
-    signOfInequality = m[17] if(m[17]);
-    diff = m[18].to_i if(m[18]);
+    signOfInequality = m[17] if(m[17])
+    diff = m[18].to_i if(m[18])
 
     # 数値・数式からクリティカル値を決定
     if(str_critical)
@@ -255,7 +255,7 @@ INFO_MESSAGE_TEXT
       if(bonus > 0)
         output += "+#{bonus}"
       elsif(bonus < 0)
-        output += "#{bonus}"
+        output += bonus.to_s
       end
       output += "+#{cri_bonus}【クリティカル】" if(cri_flg)
     end
@@ -264,7 +264,7 @@ INFO_MESSAGE_TEXT
     if(bonus > 0)                          # （結果出力の時に必ずC値・F値を表示するようにする）
       showstring += "+#{bonus}"
     elsif(bonus < 0)
-      showstring += "#{bonus}"
+      showstring += bonus.to_s
     end
     showstring += "[C#{critical},F#{fumble}]"
     if(signOfInequality != "")

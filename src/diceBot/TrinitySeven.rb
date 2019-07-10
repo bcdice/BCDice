@@ -41,7 +41,7 @@ MESSAGETEXT
     debug("rollDiceCommand command", command)
 
     string = command.upcase
-    if ( /TRNAME/ =~ command )
+    if  /TRNAME/ =~ command
       firstName, total_n =  get_NAME_table
       secondName, total_o =  get_NAMEtwo_table
       return "#{firstName} , #{secondName}"
@@ -99,7 +99,7 @@ MESSAGETEXT
 
     modifyText = ""
     modifyText = "+#{modify}" if modify > 0
-    modifyText = "#{modify}" if modify < 0
+    modifyText = modify.to_s if modify < 0
 
     text = "(#{command}) [#{diceText}]#{additionalListText}#{modifyText} ＞ #{total}"
 
@@ -124,7 +124,7 @@ MESSAGETEXT
     critical.times do
       restDice.shift
       diceList.shift
-      diceList.push(7);
+      diceList.push(7)
     end
 
     max = restDice.pop

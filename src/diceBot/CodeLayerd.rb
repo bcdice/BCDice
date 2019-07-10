@@ -81,7 +81,7 @@ MESSAGETEXT
 
   def getSuccessResultText(successTotal, diff)
     return "ファンブル！" if successTotal == 0
-    return "#{successTotal}" if diff == 0
+    return successTotal.to_s if diff == 0
     return "成功" if successTotal >= diff
 
     return "失敗"

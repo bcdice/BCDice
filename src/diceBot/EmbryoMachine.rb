@@ -88,7 +88,7 @@ INFO_MESSAGE_TEXT
     if(mod > 0)
       output += "+#{mod}"
     elsif(mod < 0)
-      output += "#{mod}"
+      output += mod.to_s
     end
     if(output =~ /[^\d\[\]]+/)
       output = "#{@nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}"

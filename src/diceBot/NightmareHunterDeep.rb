@@ -68,7 +68,7 @@ INFO_MESSAGE_TEXT
   def getDiceRolledAdditionalText(n1, n_max, dice_max)
     debug('getDiceRolledAdditionalText begin: n1, n_max, dice_max', n1, n_max, dice_max)
 
-    if( (n1 != 0) and (dice_max == 6) )
+    if( (n1 != 0) && (dice_max == 6) )
       return " ＞ 宿命獲得"
     end
 
@@ -80,9 +80,9 @@ INFO_MESSAGE_TEXT
     addText = ''
     revision = 0
 
-    if( (n_max > 0) and (dice_max == 6) )
+    if( (n_max > 0) && (dice_max == 6) )
       revision = (n_max * 4)
-      addText = ("+#{n_max}*4 ＞ #{total_n + revision}")
+      addText = "+#{n_max}*4 ＞ #{total_n + revision}"
     end
 
     return addText, revision

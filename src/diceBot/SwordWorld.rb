@@ -6,7 +6,7 @@ class SwordWorld < DiceBot
   def initialize
     rating_table = 0
     super()
-    @rating_table = rating_table;
+    @rating_table = rating_table
   end
 
   def gameName
@@ -60,21 +60,21 @@ INFO_MESSAGE_TEXT
 
   def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
     if(dice_n >= 12)
-      return " ＞ 自動的成功";
+      return " ＞ 自動的成功"
     end
 
     if(dice_n <=2)
-      return " ＞ 自動的失敗";
+      return " ＞ 自動的失敗"
     end
 
     return '' if(signOfInequality != ">=")
     return '' if(diff == "?")
 
     if(totalValue >= diff)
-      return " ＞ 成功";
+      return " ＞ 成功"
     end
 
-    return " ＞ 失敗";
+    return " ＞ 失敗"
   end
 
   def rollDiceCommand(command)
@@ -128,7 +128,7 @@ INFO_MESSAGE_TEXT
 
     if( addValue != 0 )
       output += "+#{addValue}" if(addValue > 0)
-      output +=  "#{addValue}" if(addValue < 0)
+      output +=  addValue.to_s if(addValue < 0)
     end
 
     output += " ＞ "
@@ -149,7 +149,7 @@ INFO_MESSAGE_TEXT
         firstDiceChanteTo = 0
       elsif( firstDiceChangeModify != 0 )
         dice += firstDiceChangeModify.to_i
-        firstDiceChangeModify = 0;
+        firstDiceChangeModify = 0
       end
 
       dice += getAdditionalDiceValue(dice, values)
@@ -165,8 +165,8 @@ INFO_MESSAGE_TEXT
       totalValue += rateValue
       diceOnlyTotal += dice
 
-      diceResultTotals << "#{dice}"
-      diceResults << "#{diceText}"
+      diceResultTotals << dice.to_s
+      diceResults << diceText.to_s
       rateResults << ((dice > 2) ? rateValue : "**")
 
       round += 1
@@ -234,12 +234,12 @@ INFO_MESSAGE_TEXT
     addValue = 0
 
     if(/K(\d+)([\d\+\-]*)/i =~ string)    # ボーナスの抽出
-      key = $1;
+      key = $1
       if($2)
         addValue = parren_killer("(" + $2 + ")").to_i
       end
     else
-      key = string;
+      key = string
     end
 
     return key, addValue
@@ -419,7 +419,7 @@ INFO_MESSAGE_TEXT
     elsif(sendMode > 0)  # 表示モード１以上
       output += "2D:#{diceResultTotals.join(',')}"
     else                     # 表示モード０
-      output += "#{totalValue}"
+      output += totalValue.to_s
     end
 
     if(diceOnlyTotal <= 2)
@@ -436,7 +436,7 @@ INFO_MESSAGE_TEXT
 
     output += "#{roundText}#{totalText}"
 
-    if ( output.length > limitLength) # 回りすぎて文字列オーバーしたときの救済
+    if  output.length > limitLength # 回りすぎて文字列オーバーしたときの救済
       output = "... ＞ #{roundText}#{totalText}"
     end
 
@@ -456,31 +456,31 @@ INFO_MESSAGE_TEXT
 
   def setRatingTable(tnick)
     mode_str = ""
-    pre_mode = @rating_table;
+    pre_mode = @rating_table
 
     if( /(\d+)/ =~ tnick )
-      @rating_table = $1.to_i;
-      if (@rating_table > 1)
-        mode_str = "2.0-mode";
-        @rating_table = 2;
-      elsif (@rating_table > 0)
-        mode_str = "new-mode";
-        @rating_table = 1;
+      @rating_table = $1.to_i
+      if @rating_table > 1
+        mode_str = "2.0-mode"
+        @rating_table = 2
+      elsif @rating_table > 0
+        mode_str = "new-mode"
+        @rating_table = 1
       else
-        mode_str = "old-mode";
-        @rating_table = 0;
+        mode_str = "old-mode"
+        @rating_table = 0
       end
     else
       case tnick
       when /old/i
-        @rating_table = 0;
-        mode_str = "old-mode";
+        @rating_table = 0
+        mode_str = "old-mode"
       when /new/i
-        @rating_table = 1;
-        mode_str = "new-mode";
+        @rating_table = 1
+        mode_str = "new-mode"
       when /2\.0/i
-        @rating_table = 2;
-        mode_str = "2.0-mode";
+        @rating_table = 2
+        mode_str = "2.0-mode"
       end
     end
 

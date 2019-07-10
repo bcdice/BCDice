@@ -132,7 +132,7 @@ MESSAGETEXT
 
   def getDiceCountHash(diceList, crit)
     diceCountHash = diceList.inject(Hash.new(0)) do |hash, dice|
-      if( isNomalDice(crit) or (dice == crit) )
+      if( isNomalDice(crit) || (dice == crit) )
         hash[dice] += 1
       end
       hash
@@ -142,7 +142,7 @@ MESSAGETEXT
   end
 
   def isNomalDice(crit)
-    not isDragonDice(crit)
+    !isDragonDice(crit)
   end
 
   def isDragonDice(crit)

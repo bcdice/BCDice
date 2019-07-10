@@ -38,7 +38,7 @@ MESSAGETEXT
 
   def rollDiceCommand(command)
     prefixesRegText = prefixes.collect{|i| i.sub(/\.\*/, '')}.join('|')
-    unless ( /(^|\s)(S)?(#{prefixesRegText})([\d\+\-]*)(>=(\d+))?/i === command )
+    unless  /(^|\s)(S)?(#{prefixesRegText})([\d\+\-]*)(>=(\d+))?/i === command
       debug("NOT match")
       return nil
     end
@@ -100,7 +100,7 @@ MESSAGETEXT
 
     return " ＞ ファンブル" if( first <= 9 )
 
-    if( diff.nil? and (first != 10) )
+    if( diff.nil? && (first != 10) )
       return ''
     end
 
@@ -112,7 +112,7 @@ MESSAGETEXT
       result += ' ＞ ' if( skillText.empty? )
 
       success = (allTotal >= diff.to_i ? "成功" : "失敗")
-      result += "#{success}"
+      result += success.to_s
     end
 
     return result

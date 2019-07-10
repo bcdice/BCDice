@@ -207,7 +207,7 @@ INFO_MESSAGE_TEXT
 
     if( /\*\*/ === result )
       attribute, number2 = getAttribute()
-      result = result.sub(/\*\*/, "#{attribute}")
+      result = result.sub(/\*\*/, attribute.to_s)
       number = "#{number},#{number2}"
     end
 
