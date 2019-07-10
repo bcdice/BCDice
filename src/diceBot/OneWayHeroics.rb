@@ -73,8 +73,6 @@ MESSAGETEXT
         isSwap = (@d66Type == 2)
         dice = getD66(isSwap)
         getTableResult(table, dice, hasGap)
-      else
-        nil
       end
 
     return nil if( text.nil? )

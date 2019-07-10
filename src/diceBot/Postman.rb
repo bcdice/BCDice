@@ -78,8 +78,6 @@ MESSAGETEXT
       when 'FRE'
         get_free_situation_table
 
-      else
-        nil
       end
 
     return text

@@ -25,7 +25,6 @@ INFO_MESSAGE_TEXT
     case command
     when /CW(\d+)/i
       result = getCrashWorldRoll($1.to_i)
-    else
     end
 
     return result

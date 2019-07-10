@@ -737,13 +737,6 @@ Style/EmptyBlockParameter:
     - 'diceBot/FutariSousa.rb'
     - 'diceBot/OneWayHeroics.rb'
 
-# Offense count: 31
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty, nil, both
-Style/EmptyElse:
-  Enabled: false
-
 # Offense count: 7
 # Cop supports --auto-correct.
 Style/EmptyLiteral:

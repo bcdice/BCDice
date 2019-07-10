@@ -62,8 +62,6 @@ INFO_MESSAGE_TEXT
         get_table_by_2d6(table)
       when 'D66'
         get_table_by_d66_swap(table)
-      else
-        nil
       end
 
     return nil if( text.nil? )

@@ -61,8 +61,6 @@ MESSAGETEXT
       when 'SKL'
         get_skill_table
 
-      else
-        nil
       end
 
     return output
