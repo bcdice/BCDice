@@ -110,7 +110,7 @@ MESSAGETEXT
 
     dice, diceText = roll(diceCount, 20)
     diceMax = 0
-    diceArray = diceText.split(/,/).collect{|i|i.to_i}
+    diceArray = diceText.split(/,/).collect { |i| i.to_i }
     diceArray.each do |i| # さくら鯖で.maxを使うと、何故か.minになる……
       diceMax = i if  i > diceMax
     end

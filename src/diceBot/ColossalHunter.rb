@@ -56,7 +56,7 @@ MESSAGETEXT
 
   #ダイスロール
   dice, dice_str = roll(diceCount, 6)
-    diceList = dice_str.split(/,/).collect{|i|i.to_i}.sort
+    diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
 
   total = dice + modify
 
@@ -128,7 +128,7 @@ debug('yearText', yearText)
   end
 
   def getYear(yearText)
-    text = yearText.gsub(/(\d+)D(6+)/){ getD6xResult($1.to_i, $2.length) }
+    text = yearText.gsub(/(\d+)D(6+)/) { getD6xResult($1.to_i, $2.length) }
 
     calculateText = "(#{text})"
     year = parren_killer(calculateText.gsub(/×/, "*"))

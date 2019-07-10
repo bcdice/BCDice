@@ -106,9 +106,9 @@ INFO_MESSAGE_TEXT
   dice_cnt = 3
   dice_max = 6
   dice_n, dice_str = roll(dice_cnt, dice_max)
-    diceList = dice_str.split(/,/).collect{|i|i.to_i}.sort
-  n1    = diceList.select{|i| i == 1        }.size
-  n_max = diceList.select{|i| i == dice_max }.size
+    diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
+  n1    = diceList.select { |i| i == 1        }.size
+  n_max = diceList.select { |i| i == dice_max }.size
   diff = getValue(diffStr, 0)
   total_n = dice_n + getValue(modStr, 0)
   signOfInequality = "<="

@@ -37,7 +37,7 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-    prefixesRegText = prefixes.collect{|i| i.sub(/\.\*/, '')}.join('|')
+    prefixesRegText = prefixes.collect { |i| i.sub(/\.\*/, '') }.join('|')
     unless /(^|\s)(S)?(#{prefixesRegText})([\d\+\-]*)(>=(\d+))?/i === command
       debug("NOT match")
       return nil
@@ -63,7 +63,7 @@ MESSAGETEXT
     weaponTable = weaponInfo[:table]
 
     diceList = getJudgeDiceList
-    total = diceList.inject(){|value, i| value += i}
+    total = diceList.inject() { |value, i| value += i }
     allTotal = total + base
 
     diffText = if diff.nil? then "" else ">=#{diff}" end

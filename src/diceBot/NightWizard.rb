@@ -34,8 +34,8 @@ INFO_MESSAGE_TEXT
       "2R6m[#{$1}#{$2}#{modify}]c[#{$3}]f[#{$4}]"
     end
 
-    string = string.gsub(/([\-\d]+)NW([\+\-\d]*)/i) {"2R6m[#{$1}#{$2}]"}
-    string = string.gsub(/NW([\+\-\d]*)/i) {"2R6m[0#{$1}]"}
+    string = string.gsub(/([\-\d]+)NW([\+\-\d]*)/i) { "2R6m[#{$1}#{$2}]" }
+    string = string.gsub(/NW([\+\-\d]*)/i) { "2R6m[0#{$1}]" }
   end
 
   def dice_command_xRn(string, nick_e)
@@ -155,7 +155,7 @@ INFO_MESSAGE_TEXT
       return default
     end
 
-    return text.split(/,/).collect{|i|i.to_i}
+    return text.split(/,/).collect { |i| i.to_i }
   end
 
   def checkCritical(total, dice_str, dice_n)

@@ -31,10 +31,10 @@ INFO_MESSAGE_TEXT
   def changeText(string)
     return string unless /ArS/i =~ string
 
-    string = string.gsub(/ArS(\d+)([^\d\s][\+\-\d]+)/i) {"1R10#{$2}[#{$1}]"}
-    string = string.gsub(/ArS([^\d\s][\+\-\d]+)/i) {"1R10#{$1}"}
-    string = string.gsub(/ArS(\d+)/i) {"1R10[#{$1}]"}
-    string = string.gsub(/ArS/i) {"1R10"}
+    string = string.gsub(/ArS(\d+)([^\d\s][\+\-\d]+)/i) { "1R10#{$2}[#{$1}]" }
+    string = string.gsub(/ArS([^\d\s][\+\-\d]+)/i) { "1R10#{$1}" }
+    string = string.gsub(/ArS(\d+)/i) { "1R10[#{$1}]" }
+    string = string.gsub(/ArS/i) { "1R10" }
 
     return string
   end

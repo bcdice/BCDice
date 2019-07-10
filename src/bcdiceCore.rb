@@ -975,7 +975,7 @@ class BCDice
     end
 
     if dice_sort != 0
-      dice_str = dice_result.sort_by{|a| dice_num(a)}.join(",")
+      dice_str = dice_result.sort_by { |a| dice_num(a) }.join(",")
     else
       dice_str = dice_result.join(",")
     end
@@ -1555,7 +1555,7 @@ class BCDice
     string = @diceBot.changeText(string)
     debug("diceBot.changeText(string) end", string)
 
-    string = string.gsub(/([\d]+[dD])([^\d\w]|$)/) {"#{$1}6#{$2}"}
+    string = string.gsub(/([\d]+[dD])([^\d\w]|$)/) { "#{$1}6#{$2}" }
 
     debug("parren_killer output", string)
 

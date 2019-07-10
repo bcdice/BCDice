@@ -79,10 +79,10 @@ MESSAGETEXT
 
     while rollCount > 0
       dice, diceText = roll(rollCount, 10, @sortType)
-      diceArray = diceText.split(/,/).collect{|i|i.to_i}
+      diceArray = diceText.split(/,/).collect { |i| i.to_i }
 
-      successCount = diceArray.count{|i| i <= target}
-      criticalCount = diceArray.count{|i| i <= criticalNumber }
+      successCount = diceArray.count { |i| i <= target }
+      criticalCount = diceArray.count { |i| i <= criticalNumber }
 
       totalSuccessCount += successCount
       totalCriticalCount += criticalCount

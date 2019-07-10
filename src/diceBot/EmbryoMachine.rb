@@ -31,14 +31,14 @@ INFO_MESSAGE_TEXT
   end
 
   def changeText(string)
-    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))(\#(\d+))/i) {"2R10#{$2}>=#{$1}[#{$4},#{$6}]"}
-    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(\#(\d+))/i) {"2R10#{$2}>=#{$1}[20,#{$4}]"}
-    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))/i) {"2R10#{$2}>=#{$1}[#{$4},2]"}
-    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)/i) {"2R10#{$2}>=#{$1}[20,2]"}
-    string = string.gsub(/EM(\d+)(@(\d+))(\#(\d+))/i) {"2R10>=#{$1}[#{$3},#{$5}]"}
-    string = string.gsub(/EM(\d+)(\#(\d+))/i) {"2R10>=#{$1}[20,#{$3}]"}
-    string = string.gsub(/EM(\d+)(@(\d+))/i) {"2R10>=#{$1}[#{$3},2]"}
-    string = string.gsub(/EM(\d+)/i) {"2R10>=#{$1}[20,2]"}
+    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))(\#(\d+))/i) { "2R10#{$2}>=#{$1}[#{$4},#{$6}]" }
+    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(\#(\d+))/i) { "2R10#{$2}>=#{$1}[20,#{$4}]" }
+    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))/i) { "2R10#{$2}>=#{$1}[#{$4},2]" }
+    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)/i) { "2R10#{$2}>=#{$1}[20,2]" }
+    string = string.gsub(/EM(\d+)(@(\d+))(\#(\d+))/i) { "2R10>=#{$1}[#{$3},#{$5}]" }
+    string = string.gsub(/EM(\d+)(\#(\d+))/i) { "2R10>=#{$1}[20,#{$3}]" }
+    string = string.gsub(/EM(\d+)(@(\d+))/i) { "2R10>=#{$1}[#{$3},2]" }
+    string = string.gsub(/EM(\d+)/i) { "2R10>=#{$1}[20,2]" }
   end
 
   def dice_command_xRn(string, nick_e)
@@ -81,7 +81,7 @@ INFO_MESSAGE_TEXT
 
     dice_now, dice_str, = roll(2, 10, (sortType & 1))
     dice_loc, = roll(2, 10)
-    dice_arr = dice_str.split(/,/).collect{|i|i.to_i}
+    dice_arr = dice_str.split(/,/).collect { |i| i.to_i }
     big_dice = dice_arr[1]
     output = "#{dice_now}[#{dice_str}]"
     total_n = dice_now + mod

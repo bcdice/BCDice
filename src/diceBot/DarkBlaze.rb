@@ -34,11 +34,11 @@ INFO_MESSAGE_TEXT
   def changeText(string)
     return string unless string =~ /DB/i
 
-    string = string.gsub(/DB(\d),(\d)/) {"DB#{$1}#{$2}"}
-    string = string.gsub(/DB\@(\d)\@(\d)/) {"DB#{$1}#{$2}"}
-    string = string.gsub(/DB(\d)(\d)(#([\d][\+\-\d]*))/) {"3R6+#{$4}[#{$1},#{$2}]"}
-    string = string.gsub(/DB(\d)(\d)(#([\+\-\d]*))/) {"3R6#{$4}[#{$1},#{$2}]"}
-    string = string.gsub(/DB(\d)(\d)/) {"3R6[#{$1},#{$2}]"}
+    string = string.gsub(/DB(\d),(\d)/) { "DB#{$1}#{$2}" }
+    string = string.gsub(/DB\@(\d)\@(\d)/) { "DB#{$1}#{$2}" }
+    string = string.gsub(/DB(\d)(\d)(#([\d][\+\-\d]*))/) { "3R6+#{$4}[#{$1},#{$2}]" }
+    string = string.gsub(/DB(\d)(\d)(#([\+\-\d]*))/) { "3R6#{$4}[#{$1},#{$2}]" }
+    string = string.gsub(/DB(\d)(\d)/) { "3R6[#{$1},#{$2}]" }
 
     return string
   end
@@ -105,7 +105,7 @@ INFO_MESSAGE_TEXT
     dummy.shift
     dice_str = dummy.shift
 
-    dice_arr = dice_str.split(/,/).collect{|i|i.to_i}
+    dice_arr = dice_str.split(/,/).collect { |i| i.to_i }
 
     3.times do |i|
       ch = dice_arr[i]

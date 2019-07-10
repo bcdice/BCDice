@@ -82,7 +82,7 @@ INFO_MESSAGE_TEXT
 
     isSort = 1
     _, diceText, = roll(diceCount, 6, isSort)
-    diceList = diceText.split(/,/).collect{|i| i.to_i}
+    diceList = diceText.split(/,/).collect { |i| i.to_i }
     diceList = [diceList.min] if skillRank == "D"
 
     message = "(#{commandText}#{specialText}#{signOfInequality}#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "

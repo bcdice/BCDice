@@ -42,14 +42,14 @@ INFO_MESSAGE_TEXT
 
     if /(\d+)LV/i =~ string
       level_diff = $1.to_i * 5 + 15
-      string = string.sub(/(\d+)LV/i) {level_diff.to_s}
+      string = string.sub(/(\d+)LV/i) { level_diff.to_s }
     end
 
     if /BS/i =~ string
-      string = string.gsub(/(\d+)HBS([^\d\s][\+\-\d]+)/i) {"#{$1}R6#{$2}[H]"}
-      string = string.gsub(/(\d+)HBS/i) {"#{$1}R6[H]"}
-      string = string.gsub(/(\d+)BS([^\d\s][\+\-\d]+)/i) {"#{$1}R6#{$2}"}
-      string = string.gsub(/(\d+)BS/i) {"#{$1}R6"}
+      string = string.gsub(/(\d+)HBS([^\d\s][\+\-\d]+)/i) { "#{$1}R6#{$2}[H]" }
+      string = string.gsub(/(\d+)HBS/i) { "#{$1}R6[H]" }
+      string = string.gsub(/(\d+)BS([^\d\s][\+\-\d]+)/i) { "#{$1}R6#{$2}" }
+      string = string.gsub(/(\d+)BS/i) { "#{$1}R6" }
     end
 
     return string
@@ -169,7 +169,7 @@ INFO_MESSAGE_TEXT
 
       if dice_wk >= 2 # ダイスが二個以上
 
-        dice_num = rollDiceResultText.split(/,/).collect{|i|i.to_i}
+        dice_num = rollDiceResultText.split(/,/).collect { |i| i.to_i }
         debug('dice_num', dice_num)
 
         diceType = 6

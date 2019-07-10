@@ -47,10 +47,10 @@ INFO_MESSAGE_TEXT
   def changeText(string)
     debug('parren_killer_add begin string', string)
 
-    string = string.gsub(/(\d+)BKC(\d)/) {"#{$1}R6[0,#{$2}]"}
-    string = string.gsub(/(\d+)BAC(\d)/) {"#{$1}R6[1,#{$2}]"}
-    string = string.gsub(/(\d+)BK/) {"#{$1}R6[0,0]"}
-    string = string.gsub(/(\d+)BA/) {"#{$1}R6[1,0]"}
+    string = string.gsub(/(\d+)BKC(\d)/) { "#{$1}R6[0,#{$2}]" }
+    string = string.gsub(/(\d+)BAC(\d)/) { "#{$1}R6[1,#{$2}]" }
+    string = string.gsub(/(\d+)BK/) { "#{$1}R6[0,0]" }
+    string = string.gsub(/(\d+)BA/) { "#{$1}R6[1,0]" }
 
     debug('parren_killer_add end string', string)
     return string
@@ -75,7 +75,7 @@ INFO_MESSAGE_TEXT
     criticalCallDice = 0 # 0=通常, 1〜6=クリティカルコール
 
     if option
-      battleModeText, criticalCallDice = option.split(",").collect{|i|i.to_i}
+      battleModeText, criticalCallDice = option.split(",").collect { |i| i.to_i }
       @isBattleMode = (battleModeText == 1)
     end
 

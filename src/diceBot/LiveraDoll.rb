@@ -79,7 +79,7 @@ MESSAGETEXT
 
   def checkRoll(diceCount, blockNo)
     dice, diceText = roll(diceCount, 6, @sortType)
-    diceArray = diceText.split(/,/).collect{|i|i.to_i}
+    diceArray = diceText.split(/,/).collect { |i| i.to_i }
 
     resultArray = Array.new
     success = 0

@@ -89,7 +89,7 @@ INFO_MESSAGE_TEXT
     target = parren_killer("(" + targetText + ")").to_i
 
     _, diceText, = roll(diceCount, 6)
-    diceList = diceText.split(/,/).collect{|i| i.to_i}
+    diceList = diceText.split(/,/).collect { |i| i.to_i }
     specialText = (specialNum == 6 ? "" : "@#{specialNum}")
 
     message = "(#{commandText}#{specialText}#{signOfInequality}#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "

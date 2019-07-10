@@ -77,9 +77,9 @@ MESSAGETEXT
     target = 10 if target > 10
 
     dice, diceText = roll(diceCount, 10, @sortType)
-    diceArray = diceText.split(/,/).collect{|i|i.to_i}
+    diceArray = diceText.split(/,/).collect { |i| i.to_i }
 
-    successCount = diceArray.find_all{|i| (i <= target)}.size
+    successCount = diceArray.find_all { |i| (i <= target) }.size
 
     isDamage = !damage.nil?
 

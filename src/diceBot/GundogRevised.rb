@@ -92,7 +92,7 @@ INFO_MESSAGE_TEXT
     dice, diceText = roll(2, 10)
 
     dice = mod
-    diceArray = diceText.split(/,/).collect{|i|i.to_i}
+    diceArray = diceText.split(/,/).collect { |i| i.to_i }
     diceArray.each do |i|
       dice += i if  i < 10
     end

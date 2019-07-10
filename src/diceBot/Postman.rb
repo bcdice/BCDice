@@ -62,11 +62,11 @@ MESSAGETEXT
         targetAddString = $8
 
         modify_list = modifyAddString.scan(/[+-]\d+/)
-        modify_list.each{|i| modify += i.to_i }
+        modify_list.each { |i| modify += i.to_i }
 
         if target != 0
           target_list = targetAddString.scan(/[+-]\d+/)
-          target_list.each{|j| target += j.to_i }
+          target_list.each { |j| target += j.to_i }
         end
 
         checkRoll(diceCount, modify, type, target)
@@ -86,10 +86,10 @@ MESSAGETEXT
   def checkRoll(diceCount, modify, type, target)
     dice, diceText = roll(diceCount, 6, @sortTye)
 
-    diceArray = diceText.split(/,/).collect{|i|i.to_i}
+    diceArray = diceText.split(/,/).collect { |i| i.to_i }
     dice2 = diceArray[-2] + diceArray[-1]
     diceText2 = "#{diceArray[-2]},#{diceArray[-1]}"
-    criticalCount = diceArray.count{|i| i == 6}
+    criticalCount = diceArray.count { |i| i == 6 }
 
     if modify != 0
       modifyText = ''

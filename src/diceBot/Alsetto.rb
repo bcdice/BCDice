@@ -75,7 +75,7 @@ MESSAGETEXT
 
     while rollCount > 0
       dice, diceText = roll(rollCount, 6, @sortType)
-      diceArray = diceText.split(/,/).collect{|i|i.to_i}
+      diceArray = diceText.split(/,/).collect { |i| i.to_i }
 
       successCount = 0
       criticalCount = 0

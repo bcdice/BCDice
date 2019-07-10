@@ -88,7 +88,7 @@ INFO_MESSAGE_TEXT
 
     stepText = steps.join("+")
     calcText = calcs.join(")+(")
-    stepTotal = totals.inject{|sum,i| sum + i}
+    stepTotal = totals.inject { |sum,i| sum + i }
 
     calcText = "(" + calcText + ")" if calcs.size > 1
     calcText += " ＞ (#{totals.join('+')})" if totals.size > 1

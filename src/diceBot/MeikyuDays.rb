@@ -39,8 +39,8 @@ INFO_MESSAGE_TEXT
   end
 
   def changeText(string)
-    string = string.gsub(/(\d+)MD6/i) {"#{$1}R6"}
-    string = string.gsub(/(\d+)MD/i) {"#{$1}R6"}
+    string = string.gsub(/(\d+)MD6/i) { "#{$1}R6" }
+    string = string.gsub(/(\d+)MD/i) { "#{$1}R6" }
     return string
   end
 
@@ -88,7 +88,7 @@ INFO_MESSAGE_TEXT
     total_n = 0
 
     _, dice_str, = roll(dice_c, 6, (sortType & 1))
-    dice_num = dice_str.split(/,/).collect{|i|i.to_i}
+    dice_num = dice_str.split(/,/).collect { |i| i.to_i }
 
     dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1]
     total_n = dice_now + bonus

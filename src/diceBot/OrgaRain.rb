@@ -48,7 +48,7 @@ MESSAGETEXT
   def checkRoll(diceCount, countNo)
     dice, diceText = roll(diceCount, 10, @sortType)
     diceText2 = diceText.gsub('10', '0')
-    diceArray = diceText2.split(/,/).collect{|i|i.to_i}
+    diceArray = diceText2.split(/,/).collect { |i| i.to_i }
 
     resultArray = Array.new
     success = 0

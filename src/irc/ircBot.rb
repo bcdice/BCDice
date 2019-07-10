@@ -243,7 +243,7 @@ class IrcClient < Net::IRC::Client
   end
 
   def deleteChannel(del_ch)
-    @loginChannelList.delete_if{|i| i == del_ch}
+    @loginChannelList.delete_if { |i| i == del_ch }
   end
 
   def sendMessageToChannels(message)

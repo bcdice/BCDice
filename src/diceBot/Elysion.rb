@@ -407,7 +407,7 @@ MESSAGETEXT
   def changePcName(text, base, name)
     return text if name.nil? || name.empty?
 
-    return text.gsub(/(#{base})/){$1 + "(#{name})"}
+    return text.gsub(/(#{base})/) { $1 + "(#{name})" }
   end
 
   def getDateValue

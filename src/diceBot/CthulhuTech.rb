@@ -95,7 +95,7 @@ INFO_MESSAGE_TEXT
   ####################           CthulhuTech         ########################
   #CthulhuTechの判定用ダイス計算
   def cthulhutech_check (dice_str)
-    dice_aRR = dice_str.split(/,/).collect{|i|i.to_i}
+    dice_aRR = dice_str.split(/,/).collect { |i| i.to_i }
 
     dice_num = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     max_num = 0

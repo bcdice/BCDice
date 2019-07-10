@@ -80,7 +80,7 @@ MESSAGETEXT
       rollResult += "," if rollResult != ""
       rollResult += diceListText
 
-      diceList = diceListText.split(/,/).collect{|i|i.to_i}
+      diceList = diceListText.split(/,/).collect { |i| i.to_i }
       if diceList.uniq.length == 1 && roundCount == 0
         if diceList.uniq.first <= specialValue
           specialFlag = true

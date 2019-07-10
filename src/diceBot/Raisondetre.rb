@@ -78,11 +78,11 @@ MESSAGETEXT
 
     dice, diceText = roll(rollCount, 10, @sortTye)
     diceText2 = diceText.gsub('10', '0')
-    diceArray = diceText2.split(/,/).collect{|i|i.to_i}
-    diceArray.map!{|i|i - correction}
+    diceArray = diceText2.split(/,/).collect { |i| i.to_i }
+    diceArray.map! { |i| i - correction }
     diceText2 = diceArray.sort.join(',')
 
-    funbleArray = diceArray.select{|i|i <= 1}
+    funbleArray = diceArray.select { |i| i <= 1 }
     isFunble = (funbleArray.size >= rollCount)
 
     dice = 0
@@ -132,9 +132,9 @@ MESSAGETEXT
 
     dice, diceText = roll(rollCount, 10, @sortTye)
     diceText2 = diceText.gsub('10', '0')
-    diceArray = (diceText2.split(/,/).collect{|i|i.to_i}).sort
+    diceArray = (diceText2.split(/,/).collect { |i| i.to_i }).sort
     criticalCount = diceArray.count(0)
-    diceArray.map!{|i|i - correction}
+    diceArray.map! { |i| i - correction }
     diceText2 = diceArray.join(',')
 
     result = "#{rollCount}D10"

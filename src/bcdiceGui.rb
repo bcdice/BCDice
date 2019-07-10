@@ -63,11 +63,11 @@ class BCDiceDialog < Wx::Dialog
     @extraCardFileText = createAddedTextInput($extraCardFileName, "拡張カードファイル名")
 
     @executeButton = createButton('接続')
-    evt_button(@executeButton.get_id) {|event| on_execute }
+    evt_button(@executeButton.get_id) { |event| on_execute }
 
     @stopButton = createButton('切断')
     @stopButton.enable(false)
-    evt_button(@stopButton.get_id) {|event| on_stop }
+    evt_button(@stopButton.get_id) { |event| on_stop }
 
     addCtrlOnLine(@executeButton, @stopButton)
 
@@ -104,10 +104,10 @@ class BCDiceDialog < Wx::Dialog
     evt_combobox(@serverSetChoise.get_id) { |event| on_load }
 
     @saveButton = createButton('この設定で保存')
-    evt_button(@saveButton.get_id) {|event| on_save }
+    evt_button(@saveButton.get_id) { |event| on_save }
 
     @deleteButton = createButton('この設定を削除')
-    evt_button(@deleteButton.get_id) {|event| on_delete }
+    evt_button(@deleteButton.get_id) { |event| on_delete }
 
     addCtrl(@serverSetChoise, "設定", @saveButton, @deleteButton)
   end
@@ -287,7 +287,7 @@ class BCDiceDialog < Wx::Dialog
   end
 
   def getAllGameTypes
-    return $allGameTypes.collect{|i| i.gsub(/_/, ' ')}
+    return $allGameTypes.collect { |i| i.gsub(/_/, ' ') }
   end
 
   def onChoiseGame
@@ -316,7 +316,7 @@ class BCDiceDialog < Wx::Dialog
       @characterCode.insert(type, index)
     end
 
-    found = @@characterCodeInfo.find{|key, value| value == $ircCode}
+    found = @@characterCodeInfo.find { |key, value| value == $ircCode }
     unless  found.nil?
       codeText = found.first
       setChoiseText(@characterCode, codeText)
@@ -343,7 +343,7 @@ class BCDiceDialog < Wx::Dialog
 
     evt_text_enter(@testInput.get_id) { |event| expressTestInput }
     @testButton = createButton('テスト実施')
-    evt_button(@testButton.get_id) {|event| expressTestInput }
+    evt_button(@testButton.get_id) { |event| expressTestInput }
 
     addCtrlOnLine(label, @testInput, @testButton)
 
@@ -439,8 +439,8 @@ class BCDiceDialog < Wx::Dialog
   def startIrcBot
     @ircBot = getInitializedIrcBot()
 
-    @ircBot.setQuitFuction(Proc.new{destroy})
-    @ircBot.setPrintFuction(Proc.new{|message| printText(message) })
+    @ircBot.setQuitFuction(Proc.new { destroy })
+    @ircBot.setPrintFuction(Proc.new { |message| printText(message) })
 
     startIrcBotOnThread
     startThreadTimer

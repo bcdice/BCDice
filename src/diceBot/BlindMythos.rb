@@ -92,7 +92,7 @@ MESSAGETEXT
     judgeNumber = ($3 || 4).to_i
     targetNumber = $4.to_i
 
-    rerollCounts = rerollCountsText.split(/,/).collect{|i|i.to_i}
+    rerollCounts = rerollCountsText.split(/,/).collect { |i| i.to_i }
 
     commandText = ""
     rerollCounts.each do |diceCount|
@@ -139,13 +139,13 @@ MESSAGETEXT
       isSort = 1
       _, diceText, = roll(diceCount, 6, isSort)
 
-      diceList = diceText.split(/,/).collect{|i| i.to_i}
+      diceList = diceText.split(/,/).collect { |i| i.to_i }
 
       message += " ＞ " if isReRoll
       message += "(#{commandText}) ＞ #{diceCount}D6[#{diceText}] ＞ "
 
       success, countOne, resultText = getSuccessResultText(diceList, judgeNumber)
-      bitList += diceList.find_all{|i| i >= 4} unless isReRoll
+      bitList += diceList.find_all { |i| i >= 4 } unless isReRoll
       successList << success
       countOneList << countOne
       message += resultText
@@ -159,7 +159,7 @@ MESSAGETEXT
           rerollText += list.join('')
         end
 
-        rerollTargetList << sameDiceList.collect{|i| i.count}.join(",")
+        rerollTargetList << sameDiceList.collect { |i| i.count }.join(",")
 
         message += "、リロール[#{rerollText}]"
       end
@@ -186,8 +186,8 @@ MESSAGETEXT
   end
 
   def getTotalResultMessageText(bitList, successList, countOneList, targetNumber, isStop, canReRoll)
-    success = successList.inject{|sum, i| sum + i}
-    countOne = countOneList.inject{|sum, i| sum + i}
+    success = successList.inject { |sum, i| sum + i }
+    countOne = countOneList.inject { |sum, i| sum + i }
 
     result = ""
 
@@ -229,7 +229,7 @@ MESSAGETEXT
     diceList.uniq.each do |i|
       next if i == 1
 
-      list = diceList.find_all{|dice| dice == i}
+      list = diceList.find_all { |dice| dice == i }
       next if list.length <= 1
 
       sameDiceList << list
@@ -258,7 +258,7 @@ MESSAGETEXT
   def getRulingPlanetDiceCommandResult(command)
     return nil unless /^RP(\d+)/i === command
 
-    targetNumbers = $1.split(//).collect{|i|i.to_i}
+    targetNumbers = $1.split(//).collect { |i| i.to_i }
     diceList = getRulingPlanetDice
 
     matchResult = "失敗"
