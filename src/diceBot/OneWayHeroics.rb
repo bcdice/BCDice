@@ -99,7 +99,7 @@ MESSAGETEXT
     dice, diceText = rollJudgeDice(diceCount)
     total = dice + ability + modifyValue
 
-    text = "#{command}"
+    text = command.to_s
     text += " ＞ #{diceCount}D6[#{diceText}]+#{ability}#{modifyText}"
     text += " ＞ #{total}"
 

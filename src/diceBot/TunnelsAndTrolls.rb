@@ -42,7 +42,7 @@ INFO_MESSAGE_TEXT
 
     if(/(\d+)LV/i =~ string)
       level_diff = $1.to_i * 5 + 15
-      string = string.sub(/(\d+)LV/i) {"#{level_diff}"}
+      string = string.sub(/(\d+)LV/i) {level_diff.to_s}
     end
 
     if(/BS/i =~ string)
@@ -236,14 +236,14 @@ INFO_MESSAGE_TEXT
 
     if(bonus2 < 0)
       debug('bonus2', bonus2)
-      output += "#{bonus2}"
+      output += bonus2.to_s
     end
 
     debug('bonus', bonus)
     if(bonus > 0)
       output += "+#{bonus}"
     elsif(bonus < 0)
-      output += "#{bonus}"
+      output += bonus.to_s
     end
 
     if(sendMode > 0)

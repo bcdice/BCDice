@@ -94,7 +94,7 @@ MESSAGETEXT
     if(modify != 0)
       modifyText = ''
       modifyText = "+" if(modify > 0)
-      modifyText += "#{modify}"
+      modifyText += modify.to_s
     end
 
     result = dice2 + modify
@@ -118,7 +118,7 @@ MESSAGETEXT
 
     text = "#{diceCount}D6(#{diceText})#{modifyText} ＞ #{dice2}(#{diceText2})#{modifyText} = 達成値：#{result}"
     text += "#{operatorText}#{target} " if(target > 0)
-    text += "#{resultText}"
+    text += resultText.to_s
 
     return text
   end

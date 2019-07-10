@@ -187,7 +187,7 @@ class AddDice
         if( mul_line < 0)
           output += "(#{mul_line})"
         else
-          output += "#{mul_line}"
+          output += mul_line.to_s
         end
       end
     end
@@ -249,7 +249,7 @@ class AddDice
     if( @diceBot.sendMode > 1 )
       output += "#{dice_now}[#{dice_str}]"
     elsif( @diceBot.sendMode > 0 )
-      output += "#{dice_now}"
+      output += dice_now.to_s
     end
 
     return dice_max, dice_now, output, n1_count, max_number, result_dice_count

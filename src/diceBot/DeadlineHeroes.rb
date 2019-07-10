@@ -289,7 +289,7 @@ INFO_MESSAGE_TEXT
 
   def getHeroNameElementText(info)
     result = ""
-    result += "#{info[:chartName]}" if info.has_key?(:chartName)
+    result += (info[:chartName]).to_s if info.has_key?(:chartName)
     result += "(1D10[#{info[:dice]}]) ＞ " if info.has_key?(:dice)
     result += "［#{info[:innerChartName]}］ ＞ 1D10[#{info[:innerResult][:dice]}] ＞ " if info.has_key?(:innerChartName)
     result += "「#{info[:coreResult]}」"

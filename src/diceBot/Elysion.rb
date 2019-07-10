@@ -412,7 +412,7 @@ MESSAGETEXT
 
   def getDateValue
     dice1, = roll(1, 6)
-    return "#{dice1}"
+    return dice1.to_s
   end
 
   def getClassRoomBreakTable

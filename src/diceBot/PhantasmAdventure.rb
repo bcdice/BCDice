@@ -46,7 +46,7 @@ INFO_MESSAGE_TEXT
         return " ＞ 致命的失敗(#{fum_num})"
       end
 
-      fum_str = "#{dice_now}"
+      fum_str = dice_now.to_s
       if(skill_mod < 0)
         fum_str += "+#{skill_mod * -1}=#{fum_num}"
       else

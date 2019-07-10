@@ -99,7 +99,7 @@ MESSAGETEXT
 
     modifyText = ""
     modifyText = "+#{modify}" if modify > 0
-    modifyText = "#{modify}" if modify < 0
+    modifyText = modify.to_s if modify < 0
 
     text = "(#{command}) [#{diceText}]#{additionalListText}#{modifyText} ＞ #{total}"
 

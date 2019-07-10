@@ -84,7 +84,7 @@ MESSAGETEXT
 
   def getValueText(value)
     return "" if( value == 0 )
-    return "#{value}" if( value < 0 )
+    return value.to_s if( value < 0 )
 
     return "\+#{value}"
   end

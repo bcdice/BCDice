@@ -134,7 +134,7 @@ INFO_MESSAGE_TEXT
       end
       total = die * crit_mul
       crit_dice = crit_dice.sub(/,$/, '')
-      output += "#{total}"
+      output += total.to_s
       if( sendMode != 0 )
         output += "[1,#{crit_dice}]"
       end
@@ -151,7 +151,7 @@ INFO_MESSAGE_TEXT
       elsif(bonus < 0)
         output += "#{die$bonus} ＞ #{total}"
       else
-        output += "#{total}"
+        output += total.to_s
       end
     end
     if(signOfInequality != "")  # 成功度判定処理

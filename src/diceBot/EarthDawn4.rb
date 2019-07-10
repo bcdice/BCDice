@@ -136,7 +136,7 @@ INFO_MESSAGE_TEXT
     return string if( modify == 0 )
 
     string += "+" if( modify > 0 )
-    string += "#{modify}"
+    string += modify.to_s
     return string
   end
 
@@ -258,7 +258,7 @@ INFO_MESSAGE_TEXT
       stepTotal += dice_in
 
       @calcText += ',' if( i != 0 )
-      @calcText += "#{dice_in}"
+      @calcText += dice_in.to_s
     end
 
     @calcText += "]"

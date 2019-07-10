@@ -112,7 +112,7 @@ MESSAGETEXT
       result += ' ＞ ' if( skillText.empty? )
 
       success = (allTotal >= diff.to_i ? "成功" : "失敗")
-      result += "#{success}"
+      result += success.to_s
     end
 
     return result

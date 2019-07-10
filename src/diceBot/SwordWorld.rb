@@ -128,7 +128,7 @@ INFO_MESSAGE_TEXT
 
     if( addValue != 0 )
       output += "+#{addValue}" if(addValue > 0)
-      output +=  "#{addValue}" if(addValue < 0)
+      output +=  addValue.to_s if(addValue < 0)
     end
 
     output += " ＞ "
@@ -165,8 +165,8 @@ INFO_MESSAGE_TEXT
       totalValue += rateValue
       diceOnlyTotal += dice
 
-      diceResultTotals << "#{dice}"
-      diceResults << "#{diceText}"
+      diceResultTotals << dice.to_s
+      diceResults << diceText.to_s
       rateResults << ((dice > 2) ? rateValue : "**")
 
       round += 1
@@ -419,7 +419,7 @@ INFO_MESSAGE_TEXT
     elsif(sendMode > 0)  # 表示モード１以上
       output += "2D:#{diceResultTotals.join(',')}"
     else                     # 表示モード０
-      output += "#{totalValue}"
+      output += totalValue.to_s
     end
 
     if(diceOnlyTotal <= 2)

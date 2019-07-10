@@ -255,7 +255,7 @@ INFO_MESSAGE_TEXT
       if(bonus > 0)
         output += "+#{bonus}"
       elsif(bonus < 0)
-        output += "#{bonus}"
+        output += bonus.to_s
       end
       output += "+#{cri_bonus}【クリティカル】" if(cri_flg)
     end
@@ -264,7 +264,7 @@ INFO_MESSAGE_TEXT
     if(bonus > 0)                          # （結果出力の時に必ずC値・F値を表示するようにする）
       showstring += "+#{bonus}"
     elsif(bonus < 0)
-      showstring += "#{bonus}"
+      showstring += bonus.to_s
     end
     showstring += "[C#{critical},F#{fumble}]"
     if(signOfInequality != "")

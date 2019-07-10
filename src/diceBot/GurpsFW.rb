@@ -650,9 +650,9 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
         'イレブンチキン',
         'イレブンチキン',
         'イレブンチキン',
-        lambda{return "#{normal2}"},
-        lambda{return "#{normal2}"},
-        lambda{return "#{normal3}"},
+        lambda{return normal2.to_s},
+        lambda{return normal2.to_s},
+        lambda{return normal3.to_s},
       ]
       result, = get_table_by_1d6(table)
       return result
@@ -665,8 +665,8 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
       'イグニスジッポ',
       'ヤコ仮面or梟の文鎮(選択可)',
       'ナレッジのハンモックorジンジャビースト',
-      lambda{return "#{normal3}"},
-      lambda{return "#{normal3}"},
+      lambda{return normal3.to_s},
+      lambda{return normal3.to_s},
     ]
     result, = get_table_by_1d6(table)
     return result
@@ -680,7 +680,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
       '黒い甲冑',
       '天体望遠鏡',
       '金獅子の剥製',
-      lambda{return "#{normal4}"},
+      lambda{return normal4.to_s},
     ]
     result, = get_table_by_1d6(table)
     return result
@@ -694,7 +694,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
       'フェンリルの首輪',
       'フェニックスカーペット',
       '動くアダマンゴーレム',
-      lambda{return "#{normal5}"},
+      lambda{return normal5.to_s},
     ]
     result, = get_table_by_1d6(table)
     return result
@@ -708,7 +708,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
       '薪割り王の斧',
       'ロジエの水差し',
       '箱舟の模型',
-      lambda{return "#{premium5}"},
+      lambda{return premium5.to_s},
     ]
     result, = get_table_by_1d6(table)
     return result
@@ -720,9 +720,9 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
       'プレミアムチキン',
       'プレミアムチキン',
       'プレミアムチキン',
-      lambda{return "#{normal3}"},
-      lambda{return "#{premium2}"},
-      lambda{return "#{premium2}"},
+      lambda{return normal3.to_s},
+      lambda{return premium2.to_s},
+      lambda{return premium2.to_s},
     ]
     result, = get_table_by_1d6(table)
     return result
@@ -735,8 +735,8 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
       'ハタモトチャブダイ',
       '星のコンパス',
       '白銀の甲冑',
-      lambda{return "#{normal4}"},
-      lambda{return "#{premium3}"},
+      lambda{return normal4.to_s},
+      lambda{return premium3.to_s},
     ]
     result, = get_table_by_1d6(table)
     return result
@@ -750,7 +750,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
       '特製クイックスタミナポーション',
       '火龍のフィギュアor氷龍のフィギュア(選択可)',
       'ヒメショーグンドレス',
-      lambda{return "#{premium4}"},
+      lambda{return premium4.to_s},
     ]
     result, = get_table_by_1d6(table)
     return result
@@ -764,7 +764,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
       '銀河龍のフィギュア/魔族',
       '魔族チェスセット',
       'イグニスコンロ',
-      lambda{return "#{premium5}"},
+      lambda{return premium5.to_s},
     ]
     result, = get_table_by_1d6(table)
     return result
@@ -778,7 +778,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
       '世界樹の蔦',
       '死神の飾りドレス',
       'ザバーニヤ等身大フィギュア',
-      lambda{return "#{premium6}"},
+      lambda{return premium6.to_s},
     ]
     result, = get_table_by_1d6(table)
     return result
