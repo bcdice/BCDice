@@ -164,7 +164,7 @@ MESSAGETEXT
 
   def getStrikeLocationHumanNormalTable()
     table = [
-             [  5, "頭部"],
+             [ 5, "頭部"],
              [ 10, "顔+"],
              [ 15, "首"],
              [ 27, "*肩"],
@@ -186,7 +186,7 @@ MESSAGETEXT
 
   def getStrikeLocationHumanDownTable()
     table = [
-             [  6, "*前腕"],
+             [ 6, "*前腕"],
              [ 12, "*手"],
              [ 19, "胸部"],
              [ 29, "腹部"],

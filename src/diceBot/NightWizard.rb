@@ -99,7 +99,7 @@ INFO_MESSAGE_TEXT
     total, out_str = nw_dice(base, modify, crit, fumble)
 
     output = "#{nick_e}: (#{string}) ＞ #{out_str}"
-    if(signOfInequality != "")  # 成功度判定処理
+    if(signOfInequality != "") # 成功度判定処理
       output += check_suc(total, 0, signOfInequality, diff, 3, 6, 0, 0)
     end
 

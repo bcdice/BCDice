@@ -13,7 +13,7 @@ class UpperDice
 
     output = '1'
 
-    string = string.gsub(/-[sS]?[\d]+[uU][\d]+/, '')   # 上方無限の引き算しようとしてる部分をカット
+    string = string.gsub(/-[sS]?[\d]+[uU][\d]+/, '') # 上方無限の引き算しようとしてる部分をカット
 
     unless(m = /(^|\s)[sS]?(\d+[uU][\d\+\-uU]+)(\[(\d+)\])?([\+\-\d]*)(([<>=]+)(\d+))?(\@(\d+))?($|\s)/.match(string))
       return output

@@ -32,7 +32,7 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-    return  ed_step(command)
+    return ed_step(command)
   end
 
   #アースドーンステップ表
@@ -102,11 +102,11 @@ INFO_MESSAGE_TEXT
     stepTotal = 0
     @isFailed = true
 
-    step  = $1.to_i      #ステップ
+    step = $1.to_i #ステップ
     targetNumber = $2.to_i #目標値
     return nil if(targetNumber < 0)
 
-    hasKarmaDice = !$3.nil?  #カルマダイスの有無
+    hasKarmaDice = !$3.nil? #カルマダイスの有無
     diceModify = $4.to_i
     nextText = $6
 
@@ -167,7 +167,7 @@ INFO_MESSAGE_TEXT
 
     #              dice
     #                D20  D12  D10  D8  D6  D4  mod
-    overBounusStep = [  1,   0,   0,  0,  0,  0,   0]
+    overBounusStep = [ 1, 0, 0, 0, 0, 0, 0]
     overStep = step - baseMaxStep - 1
 
     stepRythm =
@@ -189,7 +189,7 @@ INFO_MESSAGE_TEXT
 
     # [  1,   0,   0,  0,  2,  0,   0],
 
-    result = [  0,   0,   0,  0,  0,  0,   0]
+    result = [  0, 0, 0, 0, 0, 0, 0]
 
     loopCount = (overStep / stepRythm.size)
 
@@ -247,7 +247,7 @@ INFO_MESSAGE_TEXT
         @isFailed = false
       end
 
-      dice_in =  dice_now
+      dice_in = dice_now
 
       while( dice_now == diceType )
         dice_now, dummy = roll(1, diceType)

@@ -59,7 +59,7 @@ INFO_MESSAGE_TEXT
 
     return "에러. 목표치는 1 이상입니다." if(diff <= 0)
 
-    unless  @bonus_dice_range.include?(bonus_dice_count)
+    unless @bonus_dice_range.include?(bonus_dice_count)
       return "에러. 보너스, 패널티 주사위의 수치는 #{@bonus_dice_range.min}~#{@bonus_dice_range.max}입니다."
     end
 
@@ -185,7 +185,7 @@ INFO_MESSAGE_TEXT
       broken_number = broken_number.abs
     end
 
-    unless  @bonus_dice_range.include?(bonus_dice_count)
+    unless @bonus_dice_range.include?(bonus_dice_count)
       return "\n에러. 보너스, 패널티 주사위의 수치는 #{@bonus_dice_range.min}~#{@bonus_dice_range.max}입니다."
     end
 
@@ -272,7 +272,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count = 0
     impale_bullet_count = 0
 
-    if  !isLastBulletTurn(bullet_count, bullet_set_count)
+    if !isLastBulletTurn(bullet_count, bullet_set_count)
 
       case hit_type
       when :hit
@@ -280,7 +280,7 @@ INFO_MESSAGE_TEXT
 
       when :impale
         hit_bullet_count = impale_bullet_count_base.floor
-        impale_bullet_count = impale_bullet_count_base.ceil  #관통한 탄수의 계산
+        impale_bullet_count = impale_bullet_count_base.ceil #관통한 탄수의 계산
       end
 
       lost_bullet_count = bullet_set_count
@@ -343,7 +343,7 @@ INFO_MESSAGE_TEXT
     bullet_set_count = diff / 10
 
     if (diff >= 1) && (diff < 10)
-      bullet_set_count = 1  #기능 수치가 9 이하일 때의 최저수치 보장 처리
+      bullet_set_count = 1 #기능 수치가 9 이하일 때의 최저수치 보장 처리
     end
 
     return bullet_set_count
@@ -353,7 +353,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count_base = (bullet_set_count / 2)
 
     if (diff >= 1) && (diff < 10)
-      hit_bullet_count_base = 1  #기능 수치가 9 이하일 때의 최저수치 보장
+      hit_bullet_count_base = 1 #기능 수치가 9 이하일 때의 최저수치 보장
     end
 
     return hit_bullet_count_base

@@ -92,7 +92,7 @@ class AddDice
 
     total_n += revision
 
-    if( signOfInequality != "" )   # 成功度判定処理
+    if( signOfInequality != "" ) # 成功度判定処理
       successText = @bcdice.check_suc(total_n, dice_n, signOfInequality, diffText, dice_cnt, dice_max, n1, n_max)
       debug("check_suc successText", successText)
       output += successText
@@ -109,7 +109,7 @@ class AddDice
     return output
   end
 
-  def rollDiceAddingUp( string, isCheckSuccess = false)   # 加算ダイスロール(個別処理)
+  def rollDiceAddingUp( string, isCheckSuccess = false) # 加算ダイスロール(個別処理)
     debug("rollDiceAddingUp() begin string", string)
 
     dice_max = 0
@@ -122,13 +122,13 @@ class AddDice
     double_check = false
 
     if( @diceBot.sameDiceRerollCount != 0 ) # 振り足しありのゲームでダイスが二個以上
-      if( @diceBot.sameDiceRerollType <= 0 )  # 判定のみ振り足し
+      if( @diceBot.sameDiceRerollType <= 0 ) # 判定のみ振り足し
         debug('判定のみ振り足し')
         double_check = true if( isCheckSuccess )
       elsif( @diceBot.sameDiceRerollType <= 1 ) # ダメージのみ振り足し
         debug('ダメージのみ振り足し')
         double_check = true if( !isCheckSuccess )
-      else     # 両方振り足し
+      else # 両方振り足し
         double_check = true
       end
     end
@@ -234,7 +234,7 @@ class AddDice
       n1_count += dice_dat[2]
       max_number += dice_dat[3]
 
-      if( double_check && (dice_wk >= 2) )     # 振り足しありでダイスが二個以上
+      if( double_check && (dice_wk >= 2) ) # 振り足しありでダイスが二個以上
         addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_arry, dice_wk)
       end
 

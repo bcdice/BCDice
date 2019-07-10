@@ -107,7 +107,7 @@ INFO_MESSAGE_TEXT
     if( fumble < 2 )
       fumble = 2
     elsif(fumble > 11 )
-      result  += "【#{command}】 ＞ スペシャルを出すと必ず成功なので、ファンブル率は11とする。\n"
+      result += "【#{command}】 ＞ スペシャルを出すと必ず成功なので、ファンブル率は11とする。\n"
       fumble = 11
     end
 

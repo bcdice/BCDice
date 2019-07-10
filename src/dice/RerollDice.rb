@@ -28,7 +28,7 @@ class RerollDice
     output = ""
     next_roll = 0
 
-    string = string.gsub(/-[\d]+R[\d]+/, '');   # 振り足しロールの引き算している部分をカット
+    string = string.gsub(/-[\d]+R[\d]+/, ''); # 振り足しロールの引き算している部分をカット
 
     unless( /(^|\s)S?([\d]+R[\d\+R]+)(\[(\d+)\])?(([<>=]+)([\d]+))?(\@(\d+))?($|\s)/ =~ string )
       debug("is invaild rdice", string)
@@ -101,7 +101,7 @@ class RerollDice
 
     output = "(#{string}) ＞ #{output}"
 
-    if( output.length > $SEND_STR_MAX )    # 長すぎたときの救済
+    if( output.length > $SEND_STR_MAX ) # 長すぎたときの救済
       output = "(#{string}) ＞ ... ＞ 回転数#{round} ＞ 成功数#{successCount}"
     end
 
@@ -163,7 +163,7 @@ class RerollDice
     raise "条件が間違っています。2R6>=5 あるいは 2R6[5] のように振り足し目標値を指定してください。"
   end
 
-  def checkReRollRule(dice_max, signOfInequality, diff)   # 振り足しロールの条件確認
+  def checkReRollRule(dice_max, signOfInequality, diff) # 振り足しロールの条件確認
     valid = true
 
     case signOfInequality

@@ -32,7 +32,7 @@ INFO_MESSAGE_TEXT
       dig10 = (total_n / 10).to_i
       dig1 = total_n - dig10 * 10
       dig10 = 0 if(dig10 >= 10)
-      dig1 = 0 if(dig1 >= 10)  # 条件的にはあり得ない(笑
+      dig1 = 0 if(dig1 >= 10) # 条件的にはあり得ない(笑
 
       if(dig1 <= 0)
         return " ＞ クリティカル(達成値20+SL)"

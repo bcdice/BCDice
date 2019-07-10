@@ -64,7 +64,7 @@ INFO_MESSAGE_TEXT
     string = command.upcase
 
     case string
-    when 'RTT'   # ランダム特技決定表
+    when 'RTT' # ランダム特技決定表
       return getRandomSkillTableResult(command)
     end
 
@@ -119,7 +119,7 @@ INFO_MESSAGE_TEXT
 
   def getD66Table(table)
     table.map do |item|
-      if item.kind_of?(String) &&  (/^(\d+):(.*)/ === item)
+      if item.kind_of?(String) && (/^(\d+):(.*)/ === item)
         [$1.to_i, $2]
       else
         item

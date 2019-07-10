@@ -41,7 +41,7 @@ MESSAGETEXT
     return string
   end
 
-  def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
     resultString = ''
     critical = false
     fumble   = false
@@ -60,7 +60,7 @@ MESSAGETEXT
     if(signOfInequality =~ />/)
       if((totalValue + totalValueBonus) > diff)
         if(critical)
-          resultString +=  " ＞ 自動成功(劇的成功)"
+          resultString += " ＞ 自動成功(劇的成功)"
         elsif(fumble)
           resultString += " ＞ 自動失敗"
         else
@@ -70,7 +70,7 @@ MESSAGETEXT
         if(critical)
           resultString += " ＞ 自動成功"
         elsif(fumble)
-          resultString +=  " ＞ 自動失敗(致命的失敗)"
+          resultString += " ＞ 自動失敗(致命的失敗)"
         else
           resultString += " ＞ 失敗"
         end

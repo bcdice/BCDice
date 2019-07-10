@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-class  TrinitySeven < DiceBot
+class TrinitySeven < DiceBot
   setPrefixes(['(\d+)DM\d+(\+|\-)?\d*','(\d+)DM(\+|\-)?\d*','TR(\d+)<=(\d+)(\+|\-)?\d*','TR<=(\d+)(\+|\-)?\d*','TR(\+|\-)?(\d+)<=(\d+)(\+|\-)?\d*','TRNAME'])
 
   def initialize
@@ -41,8 +41,8 @@ MESSAGETEXT
     debug("rollDiceCommand command", command)
 
     string = command.upcase
-    if  /TRNAME/ =~ command
-      firstName, total_n =  get_NAME_table
+    if /TRNAME/ =~ command
+      firstName, total_n = get_NAME_table
       secondName, total_o =  get_NAMEtwo_table
       return "#{firstName} , #{secondName}"
     end
@@ -56,7 +56,7 @@ MESSAGETEXT
 
     critical = 0
 
-    if  /([\d]*)DM([\d]*)([\+\-\d]*)/ =~ command
+    if /([\d]*)DM([\d]*)([\+\-\d]*)/ =~ command
       diceCount = $1.to_i
       critical = $2.to_i
       modify = $3.to_i
@@ -80,7 +80,7 @@ MESSAGETEXT
 
   def getHitRollResult(total, target, critical)
     return "ファンブル" if total >= 96
-    return "クリティカル"  if total <= critical
+    return "クリティカル" if total <= critical
 
     return "成功" if total <= target
 

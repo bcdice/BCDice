@@ -6,7 +6,7 @@ class Warhammer < DiceBot
   def initialize
     super
     @sendMode = 2
-    @fractionType = "roundUp"     # 端数切り上げに設定
+    @fractionType = "roundUp" # 端数切り上げに設定
   end
 
   def gameName
@@ -49,7 +49,7 @@ INFO_MESSAGE_TEXT
     return output_msg
   end
 
-  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
+  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(1d100)
     return '' unless(signOfInequality == "<=")
 
     if(total_n <= diff)
@@ -142,8 +142,8 @@ INFO_MESSAGE_TEXT
       return '1'
     end
 
-    partsWord = $1     #部位
-    criticalValue = $2.to_i    #クリティカル値
+    partsWord = $1 #部位
+    criticalValue = $2.to_i #クリティカル値
     criticalValue = 10 if(criticalValue > 10)
     criticalValue = 1 if(criticalValue < 1)
 
@@ -185,7 +185,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  def wh_atpos(pos_num, pos_type)   #WHFRP2命中部位表
+  def wh_atpos(pos_num, pos_type) #WHFRP2命中部位表
     debug("wh_atpos begin pos_type", pos_type)
     pos_2l = [
       '二足',

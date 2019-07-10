@@ -64,11 +64,11 @@ INFO_MESSAGE_TEXT
     string = string.gsub(/(\d+)BB/i)  {"#{$1}R6"}
     string = string.gsub(/(\d+)BF6/i) {"#{$1}Q6"}
     string = string.gsub(/(\d+)BF/i)  {"#{$1}Q6"}
-    string = string.gsub(/\%([\-\d]+)/i)  {"[H:#{$1}]"}
-    string = string.gsub(/\@([\+\-\d]+)/i)  {"[C#{$1}]"}
-    string = string.gsub(/\#([A]?[\+\-\d]+)/i)  {"[F#{$1}]"}
-    string = string.gsub(/\$([1-6]+)/i)  {"[S#{$1}]"}
-    string = string.gsub(/\&(\d)/i)   {"[U#{$1}]"}
+    string = string.gsub(/\%([\-\d]+)/i) {"[H:#{$1}]"}
+    string = string.gsub(/\@([\+\-\d]+)/i) {"[C#{$1}]"}
+    string = string.gsub(/\#([A]?[\+\-\d]+)/i) {"[F#{$1}]"}
+    string = string.gsub(/\$([1-6]+)/i) {"[S#{$1}]"}
+    string = string.gsub(/\&(\d)/i) {"[U#{$1}]"}
     return string
   end
 
@@ -77,7 +77,7 @@ INFO_MESSAGE_TEXT
     return bbt_check(string)
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
     return '' unless(signOfInequality == ">=")
 
     if(total_n >= diff)
@@ -108,16 +108,16 @@ INFO_MESSAGE_TEXT
     pul_flg  = false        # 出目引き上げ機能が適用されたかどうかの確認
 
     # 各種文字列の取得
-    string    = m[2]          # ダイスボットで読み込んだ判定文全体
-    dice_c    = m[3].to_i        # 振るダイス数の取得
-    bonus     = 0          # 修正値の取得
-    signOfInequality = ""			# 判定結果のための不等号
-    diff      = 0          # 難易度
-    bonusText = m[4]          # 修正値の取得
+    string    = m[2] # ダイスボットで読み込んだ判定文全体
+    dice_c    = m[3].to_i # 振るダイス数の取得
+    bonus     = 0 # 修正値の取得
+    signOfInequality = ""	# 判定結果のための不等号
+    diff      = 0 # 難易度
+    bonusText = m[4] # 修正値の取得
     bonus     = parren_killer("(0" + bonusText + ")").to_i unless( bonusText.nil? )
 
     if(m[5])
-      humanity = m[6].to_i if(m[6])    # 人間性からクリティカル値を取得
+      humanity = m[6].to_i if(m[6]) # 人間性からクリティカル値を取得
       debug("▼現在人間性 取得 #{humanity}")
       if humanity <= 0
         critical = 9
@@ -132,12 +132,12 @@ INFO_MESSAGE_TEXT
     end
 
     if(m[7])
-      str_critical = m[8] if(m[8])    # クリティカル値の文字列を取得
+      str_critical = m[8] if(m[8]) # クリティカル値の文字列を取得
         debug("▼C値文字列 取得 #{str_critical}")
     end
 
     if(m[9])
-      nofumble = true if(m[10])    # ファンブル耐性指定
+      nofumble = true if(m[10]) # ファンブル耐性指定
         debug("▼F値耐性 #{nofumble}")
       str_fumble = m[11] if(m[11])    # ファンブル値の文字列を取得
         debug("▼F値文字列 取得 #{str_fumble}")
@@ -149,7 +149,7 @@ INFO_MESSAGE_TEXT
     end
 
     if(m[14])
-      dicepull = m[15].to_i if(m[15])  # ダイス引き上げ用の文字列を取得
+      dicepull = m[15].to_i if(m[15]) # ダイス引き上げ用の文字列を取得
         debug("▼出目引き上げモード 取得 #{dicepull}")
     end
 
@@ -192,47 +192,47 @@ INFO_MESSAGE_TEXT
     cri_flg   = false
     cri_bonus = 0
     fum_flg   = false
-    rer_num  = []
+    rer_num = []
 
     dice_tc = dice_c - dicesubs.size
 
     if(dice_tc > 0)
-      _, dice_str, = roll(dice_tc, 6, (sortType & 1))          # ダイス数修正、並べ替えせずに出力
-      dice_num = (dice_str.split(/,/) + dicesubs).collect{|n|n.to_i} 	# 差し換え指定のダイスを挿入
+      _, dice_str, = roll(dice_tc, 6, (sortType & 1)) # ダイス数修正、並べ替えせずに出力
+      dice_num = (dice_str.split(/,/) + dicesubs).collect{|n|n.to_i}	# 差し換え指定のダイスを挿入
     elsif(dicesubs.size == 0)
       return "ERROR:振るダイスの数が0個です"
     else
-      dice_num = dicesubs                        # 差し換えのみの場合は差し換え指定のみ（ダイスを振らない）
+      dice_num = dicesubs # 差し換えのみの場合は差し換え指定のみ（ダイスを振らない）
     end
 
-    dice_num.sort!                            # 並べ替え
+    dice_num.sort! # 並べ替え
 
-    if(dicepull)                            # 出目引き上げ機能
+    if(dicepull) # 出目引き上げ機能
       debug("▼出目引き上げ #{dicepull}")
       dice_num_old = dice_num.dup
       for i in 0...dice_num.size do dice_num[i] = [dice_num[i], dicepull].max end
       pul_flg = dice_num == dice_num_old ? false : true
       debug("▼出目引き上げの有無について #{pul_flg}")
 
-      dice_num.sort!                          # 置換後、再度並べ替え
-      dold_str = dice_num_old.join(",")									# 置換前のダイス一覧を作成
+      dice_num.sort! # 置換後、再度並べ替え
+      dold_str = dice_num_old.join(",")	# 置換前のダイス一覧を作成
     end
 
-    dice_str = dice_num.join(",")										# dice_strの取得
+    dice_str = dice_num.join(",")	# dice_strの取得
     if dice_c == 1
-      dice_now = dice_num[dice_c - 1]                  # ダイス数が1の場合、通常の処理だと配列の引数が「0」と「-1」となって二重に計算されるので処理を変更
+      dice_now = dice_num[dice_c - 1] # ダイス数が1の場合、通常の処理だと配列の引数が「0」と「-1」となって二重に計算されるので処理を変更
     else
-      dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1]      # 判定の出目を確定
+      dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1] # 判定の出目を確定
     end
 
-    if(dice_now >= critical)                      # クリティカル成立の判定
+    if(dice_now >= critical) # クリティカル成立の判定
       cri_flg = true
       cri_bonus = 20
     end
 
-    total_n = [dice_now + bonus + cri_bonus, 0].max            # 達成値の最小値は0
+    total_n = [dice_now + bonus + cri_bonus, 0].max # 達成値の最小値は0
 
-    if(fumble >= dice_now)                        # ファンブル成立の判定
+    if(fumble >= dice_now) # ファンブル成立の判定
       fum_flg = true
       total_n = 0 unless nofumble
     end
@@ -260,8 +260,8 @@ INFO_MESSAGE_TEXT
       output += "+#{cri_bonus}【クリティカル】" if(cri_flg)
     end
 
-    showstring = "#{dice_c}R6"										# 結果出力文におけるダイスロール式の作成
-    if(bonus > 0)                          # （結果出力の時に必ずC値・F値を表示するようにする）
+    showstring = "#{dice_c}R6"	# 結果出力文におけるダイスロール式の作成
+    if(bonus > 0) # （結果出力の時に必ずC値・F値を表示するようにする）
       showstring += "+#{bonus}"
     elsif(bonus < 0)
       showstring += bonus.to_s
@@ -271,7 +271,7 @@ INFO_MESSAGE_TEXT
       showstring += "#{signOfInequality}#{diff}"
     end
 
-    if(sendMode > 0)                        # 出力文の完成
+    if(sendMode > 0) # 出力文の完成
       if(/[^\d\[\]]+/ =~ output)
         output = "#{@nick_e}: (#{showstring}) ＞ #{output} ＞ #{total_n}"
       else
@@ -281,7 +281,7 @@ INFO_MESSAGE_TEXT
       output = "#{@nick_e}: (#{showstring}) ＞ #{total_n}"
     end
 
-    if(signOfInequality != "")  # 成功度判定処理
+    if(signOfInequality != "") # 成功度判定処理
       output += check_suc(total_n, dice_now, signOfInequality, diff, 2, 6, 0, 0)
     end
 
@@ -349,7 +349,7 @@ INFO_MESSAGE_TEXT
       '家族',      '家族',      '信頼',      '信頼',      '忘却',      '忘却',
       '慈愛',      '慈愛',      '憧憬',      '憧憬',      '感銘',      '感銘',
       '同志',      '同志',      '幼子',      '幼子',      '興味',      '興味',
-      'ビジネス',  'ビジネス',  '師事',      '師事',      '好敵手',    '好敵手',
+      'ビジネス', 'ビジネス', '師事', '師事', '好敵手', '好敵手',
       '友情',      '友情',      '忠誠',      '忠誠',      '恐怖',      '恐怖',
       '執着',      '執着',      '軽蔑',      '軽蔑',      '憎悪',      '憎悪',
     ]

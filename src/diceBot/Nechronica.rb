@@ -7,7 +7,7 @@ class Nechronica < DiceBot
     super
     @sendMode = 2
     @sortType = 3
-    @defaultSuccessTarget = "6"      #目標値が空欄の時の目標値
+    @defaultSuccessTarget = "6" #目標値が空欄の時の目標値
   end
 
   def gameName

@@ -86,7 +86,7 @@ INFO_MESSAGE_TEXT
 
     output_msg = getCommandResult(command, name)
 
-    if( secretMarker )    # 隠しロール
+    if( secretMarker ) # 隠しロール
       secret_flg = true if(output_msg != '1')
     end
 
@@ -110,7 +110,7 @@ INFO_MESSAGE_TEXT
         return crt_string
       end
       #ファンブル
-      if   diff-dice_n <= -10
+      if diff-dice_n <= -10
         return fmb_string
       elsif((dice_n >= 17) && (diff <=15))
         return fmb_string

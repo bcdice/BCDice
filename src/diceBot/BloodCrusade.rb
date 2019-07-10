@@ -6,7 +6,7 @@ class BloodCrusade < DiceBot
     @sendMode = 2
     @sortType = 1
     @d66Type = 2
-    @fractionType = "roundUp"     # 端数切り上げに設定
+    @fractionType = "roundUp" # 端数切り上げに設定
   end
 
   def gameName
@@ -42,7 +42,7 @@ class BloodCrusade < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
     return '' unless(signOfInequality == ">=")
 
     if(dice_n <= 2)

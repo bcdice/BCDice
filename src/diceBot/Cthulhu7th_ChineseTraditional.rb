@@ -63,7 +63,7 @@ INFO_MESSAGE_TEXT
 
     return "錯誤。目標值需為1以上。" if(diff <= 0)
 
-    unless  @bonus_dice_range.include?(bonus_dice_count)
+    unless @bonus_dice_range.include?(bonus_dice_count)
       return "錯誤。獎勵、懲罰骰値為#{@bonus_dice_range.min}～#{@bonus_dice_range.max}。"
     end
 
@@ -189,7 +189,7 @@ INFO_MESSAGE_TEXT
       broken_number = broken_number.abs
     end
 
-    unless  @bonus_dice_range.include?(bonus_dice_count)
+    unless @bonus_dice_range.include?(bonus_dice_count)
       return "\n錯誤。獎勵、懲罰骰値為#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
     end
 
@@ -276,7 +276,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count = 0
     impale_bullet_count = 0
 
-    if  !isLastBulletTurn(bullet_count, bullet_set_count)
+    if !isLastBulletTurn(bullet_count, bullet_set_count)
 
       case hit_type
       when :hit
@@ -284,7 +284,7 @@ INFO_MESSAGE_TEXT
 
       when :impale
         hit_bullet_count = impale_bullet_count_base.floor
-        impale_bullet_count = impale_bullet_count_base.ceil  #貫穿彈藥數之計算
+        impale_bullet_count = impale_bullet_count_base.ceil #貫穿彈藥數之計算
       end
 
       lost_bullet_count = bullet_set_count
@@ -347,7 +347,7 @@ INFO_MESSAGE_TEXT
     bullet_set_count = diff / 10
 
     if (diff >= 1) && (diff < 10)
-      bullet_set_count = 1  #技能值９以下的最低限度保障處理
+      bullet_set_count = 1 #技能值９以下的最低限度保障處理
     end
 
     return bullet_set_count
@@ -357,7 +357,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count_base = (bullet_set_count / 2)
 
     if (diff >= 1) && (diff < 10)
-      hit_bullet_count_base = 1  #技能值９以下的最低限度保障處理
+      hit_bullet_count_base = 1 #技能值９以下的最低限度保障處理
     end
 
     return hit_bullet_count_base

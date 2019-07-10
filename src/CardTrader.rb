@@ -27,7 +27,7 @@ class CardTrader
     @card_spell = [
                    'A','B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z',
                    'a','b','c','d','e','f','g','h','i','j','k','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-                  ];  # 64種類の記号
+                  ]; # 64種類の記号
   end
 
   # カードをデフォルトに戻す
@@ -228,7 +228,7 @@ class CardTrader
       lines = File.readlines(cardFileName)
 
       lines.each do |line|
-        next unless(/^(\d+)->(.+)$/ =~ line)  # 番号->タイトル
+        next unless(/^(\d+)->(.+)$/ =~ line) # 番号->タイトル
 
         cardNumber = $1.to_i
         cardTitle = $2
@@ -236,7 +236,7 @@ class CardTrader
         @cardTitles[cardNumber] = cardTitle
       end
 
-      @cardRegExp = '[\d]+';    #カード指定文字列の正規表現
+      @cardRegExp = '[\d]+'; #カード指定文字列の正規表現
       @cardRest = @card_val.clone
       @deal_cards = {'card_played' => []}
 
@@ -438,7 +438,7 @@ class CardTrader
 
     ngCardText = ngCardList.join(",")
 
-    return okCount, ngCardText;   # 抜き出せた枚数とデッキに無かったカードを返す
+    return okCount, ngCardText; # 抜き出せた枚数とデッキに無かったカードを返す
   end
 
   def pickupCardByCardName(cardName)
@@ -484,7 +484,7 @@ class CardTrader
       @deal_cards[destination] << targetCard
       return $okResult
     else
-      return targetCard;   # 無かったカードを返す
+      return targetCard; # 無かったカードを返す
     end
   end
 
@@ -533,18 +533,18 @@ class CardTrader
       end
     end
 
-    return okCount, ngCards;   # 戻せた枚数とNGだったカードを返す
+    return okCount, ngCards; # 戻せた枚数とNGだったカードを返す
   end
 
   def backOneCard(targetCard, destination, place)
     if(getBurriedCard <= 0)
-      return '捨て札';    # 捨て札が無い
+      return '捨て札'; # 捨て札が無い
     end
 
     targetCard = targetCard.upcase
 
-    if(@card_place > 0)   # 場があるときのみ処理
-      string = transferOneCard(targetCard, "#{place}#{destination}", destination);   # 場から手札への移動
+    if(@card_place > 0) # 場があるときのみ処理
+      string = transferOneCard(targetCard, "#{place}#{destination}", destination); # 場から手札への移動
       return $okResult if(string == $okResult)
     end
 
@@ -706,7 +706,7 @@ class CardTrader
       result = transferOneCard(card, destination, "#{place}#{destination}" ); # 場に出す処理
     else
       debug("playOneCard place <= 0")
-      result = discardOneCard(card, place, destination);    # 場を使わないときは捨て札扱い
+      result = discardOneCard(card, place, destination); # 場を使わないときは捨て札扱い
     end
 
     if(result == $okResult)
@@ -778,7 +778,7 @@ class CardTrader
     temp_cards = getCardsFromDealCards(destination)
 
     result = temp_cards.reject! {|i| i == card}
-    isTargetCardInHand =  !result.nil?
+    isTargetCardInHand = !result.nil?
     if( isTargetCardInHand )
       this_cards << card
     else
@@ -797,7 +797,7 @@ class CardTrader
 
       return $okResult
     else
-      return card;   # 指定のカードが無いので、無いカードを返す
+      return card; # 指定のカードが無いので、無いカードを返す
     end
   end
 
@@ -865,7 +865,7 @@ class CardTrader
     end
 
     ngCardText = ngCardList.join(",")
-    return okCount, ngCardText;  # 渡せた枚数とNGなカードを返す
+    return okCount, ngCardText; # 渡せた枚数とNGなカードを返す
   end
 
   def transferCardsByCommand(commandset, place, destination)
@@ -1247,7 +1247,7 @@ class CardTrader
     debug("count", count)
     debug("cardInfo", cardInfo)
 
-    return count, cardInfo;    # めくれた枚数と出たカードを返す
+    return count, cardInfo; # めくれた枚数と出たカードを返す
   end
 
   # 全員の場に出たカードを捨てる（手札はそのまま）
@@ -1260,7 +1260,7 @@ class CardTrader
   end
 
   def clearAllPlayerCardsWhenPlayedPlace(place, cards)
-    if(place =~ /^\d+/)  # 最初が数値=場に出ているカードなので、カードを全部捨てて場も削除
+    if(place =~ /^\d+/) # 最初が数値=場に出ているカードなので、カードを全部捨てて場も削除
       clearAllPlayerCards(place, cards)
     end
   end
@@ -1297,7 +1297,7 @@ class CardTrader
     @cardRest.join(',')
   end
 
-  def getAllCardLocation   # 今のカード配置を見る
+  def getAllCardLocation # 今のカード配置を見る
     allText = "山札:#{ @cardRest.length }枚 捨札:#{ getBurriedCard }枚"
     allPlaceText = ""
 
@@ -1309,7 +1309,7 @@ class CardTrader
       allPlaceText += placeText
     end
 
-    return allText, allPlaceText;   # 山札＆捨て札＆各自の手札枚数表示 と 各自の場札表示の配列を返す。(表示レイアウトの関係)
+    return allText, allPlaceText; # 山札＆捨て札＆各自の手札枚数表示 と 各自の場札表示の配列を返す。(表示レイアウトの関係)
   end
 
   def getCardLocationOnPlace(place, cards)
@@ -1336,7 +1336,7 @@ class CardTrader
     end
   end
 
-  def getHandAndPlaceCardInfoText(str, destination = nil)    # 自分の手札と場札の確認
+  def getHandAndPlaceCardInfoText(str, destination = nil) # 自分の手札と場札の確認
     debug("getHandAndPlaceCardInfoText(str, destination)", str, destination)
 
     destination = @nick_e if( destination.nil? )
@@ -1435,7 +1435,7 @@ class CardTrader
     return out_msg
   end
 
-  def getCardsText(cardsText)    # 汎用カードセット用カードタイトルの表示
+  def getCardsText(cardsText) # 汎用カードセット用カードタイトルの表示
     cards = cardsText.split(/,/)
     return getCardsTextFromCards(cards)
   end
@@ -1488,8 +1488,8 @@ class CardTrader
     if( spellText.nil? )
       debug("getNewSpellText")
       spellText = getNewSpellText()
-      output = "復活の呪文 ＞ [#{spellText}]";    # 呪文表示を返す
-    else    # 呪文の実行
+      output = "復活の呪文 ＞ [#{spellText}]"; # 呪文表示を返す
+    else # 呪文の実行
       debug("setNewSpellText")
       output = setNewSpellText( spellText )
     end

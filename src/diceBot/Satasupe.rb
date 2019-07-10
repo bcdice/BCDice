@@ -176,7 +176,7 @@ INFO_MESSAGE_TEXT
         dice_str += "『必殺！』"
       end
 
-      if((d1 == d2) && (d1 <= fumble))  # ファンブルの確認
+      if((d1 == d2) && (d1 <= fumble)) # ファンブルの確認
         isFumble = true
         isCritical = false
         break
@@ -204,7 +204,7 @@ INFO_MESSAGE_TEXT
 
     unless( operator.nil? )
       modify = value  if( operator == "+")
-      modify = value * -1  if( operator == "-")
+      modify = value * -1 if( operator == "-")
     end
 
     diceTotal = dice + modify

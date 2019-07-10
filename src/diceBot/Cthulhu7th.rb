@@ -61,7 +61,7 @@ INFO_MESSAGE_TEXT
 
     return "エラー。目標値は1以上です。" if(diff <= 0)
 
-    unless  @bonus_dice_range.include?(bonus_dice_count)
+    unless @bonus_dice_range.include?(bonus_dice_count)
       return "エラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
     end
 
@@ -187,7 +187,7 @@ INFO_MESSAGE_TEXT
       broken_number = broken_number.abs
     end
 
-    unless  @bonus_dice_range.include?(bonus_dice_count)
+    unless @bonus_dice_range.include?(bonus_dice_count)
       return "\nエラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
     end
 
@@ -274,7 +274,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count = 0
     impale_bullet_count = 0
 
-    if  !isLastBulletTurn(bullet_count, bullet_set_count)
+    if !isLastBulletTurn(bullet_count, bullet_set_count)
 
       case hit_type
       when :hit
@@ -282,7 +282,7 @@ INFO_MESSAGE_TEXT
 
       when :impale
         hit_bullet_count = impale_bullet_count_base.floor
-        impale_bullet_count = impale_bullet_count_base.ceil  #貫通した弾数の計算
+        impale_bullet_count = impale_bullet_count_base.ceil #貫通した弾数の計算
       end
 
       lost_bullet_count = bullet_set_count
@@ -345,7 +345,7 @@ INFO_MESSAGE_TEXT
     bullet_set_count = diff / 10
 
     if (diff >= 1) && (diff < 10)
-      bullet_set_count = 1  #技能値が9以下での最低値保障処理
+      bullet_set_count = 1 #技能値が9以下での最低値保障処理
     end
 
     return bullet_set_count
@@ -355,7 +355,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count_base = (bullet_set_count / 2)
 
     if (diff >= 1) && (diff < 10)
-      hit_bullet_count_base = 1  #技能値9以下での最低値保障
+      hit_bullet_count_base = 1 #技能値9以下での最低値保障
     end
 
     return hit_bullet_count_base

@@ -79,7 +79,7 @@ INFO_MESSAGE_TEXT
     return mayokin_check(string, nick_e)
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
     result = get2D6Result(total_n, dice_n, signOfInequality, diff)
     result += getKiryokuResult(total_n, dice_n, signOfInequality, diff)
 
@@ -139,7 +139,7 @@ INFO_MESSAGE_TEXT
     none6Dice_n = maxDice1 + maxDice2
     debug("none6Dice_n", none6Dice_n)
     debug("diff", diff)
-    none6DiceReuslt =  get2D6ResultOnlySuccess(none6Total_n, diff)
+    none6DiceReuslt = get2D6ResultOnlySuccess(none6Total_n, diff)
 
     return " (もしくは) #{none6Total_n}#{none6DiceReuslt} ＆ 《気力》#{dice6List.length}点獲得"
   end
@@ -207,7 +207,7 @@ INFO_MESSAGE_TEXT
       output = "#{nick_e}: (#{string}) ＞ #{total_n}"
     end
 
-    if(signOfInequality != "")  # 成功度判定処理
+    if(signOfInequality != "") # 成功度判定処理
       output += check_suc(total_n, dice_now, signOfInequality, diff, 2, 6, 0, 0)
     end
 

@@ -7,10 +7,10 @@ class DoubleCross < DiceBot
     super
     @sendMode = 2
     @sortType = 2
-    @isPrintMaxDice = true      #最大値表示
+    @isPrintMaxDice = true #最大値表示
     @upplerRollThreshold = 10     #上方無限
     @unlimitedRollDiceType = 10   #無限ロールのダイス
-    @rerollNumber = 10     #振り足しする条件
+    @rerollNumber = 10 #振り足しする条件
   end
 
   def gameName
@@ -96,7 +96,7 @@ INFO_MESSAGE_TEXT
     output2 = ""
     next_roll = 0
 
-    string = string.gsub(/-[\d]+[rR][\d]+/, '')    # 振り足しロールの引き算している部分をカット
+    string = string.gsub(/-[\d]+[rR][\d]+/, '') # 振り足しロールの引き算している部分をカット
 
     unless(/(^|\s)[sS]?([\d]+[rR][\d\+\-rR]+)(\[(\d+)\])?(([<>=]+)(\d+))?($|\s)/ =~ string)
       debug("invaid string", string)
@@ -158,10 +158,10 @@ INFO_MESSAGE_TEXT
       next_roll += dice_dat[6]
       numberSpot1 += dice_dat[2]
       dice_cnt_total += dice_cnt
-      if(dice_dat[6] > 0)   # リロール時の特殊処理
+      if(dice_dat[6] > 0) # リロール時の特殊処理
         if(dice_max == 10)
           subtotal = 10
-        else             # 特殊処理無し(最大値)
+        else # 特殊処理無し(最大値)
           subtotal = dice_dat[4]
         end
       else
@@ -184,10 +184,10 @@ INFO_MESSAGE_TEXT
         #               numberSpot1 += dice_dat[2]
         dice_cnt_total += dice_cnt
         dice_cnt = dice_dat[6]
-        if(dice_dat[6] > 0)   # リロール時の特殊処理
+        if(dice_dat[6] > 0) # リロール時の特殊処理
           if(dice_max == 10)
             subtotal = 10
-          else             # 特殊処理無し(最大値)
+          else # 特殊処理無し(最大値)
             subtotal = dice_dat[4]
           end
         else
@@ -196,7 +196,7 @@ INFO_MESSAGE_TEXT
         output += "#{subtotal}[#{dice_dat[1]}]"
         total_n += subtotal
 
-        break unless  @@bcdice.isReRollAgain(dice_cnt, round)
+        break unless @@bcdice.isReRollAgain(dice_cnt, round)
       end
     end
 
@@ -212,13 +212,13 @@ INFO_MESSAGE_TEXT
     string += "[#{critical}]"
     string += "#{signOfInequality}#{diff}" if(signOfInequality != "")
     output = "(#{string}) ＞ #{output}"
-    if(output.length > $SEND_STR_MAX)    # 長すぎたときの救済
+    if(output.length > $SEND_STR_MAX) # 長すぎたときの救済
       output = "(#{string}) ＞ ... ＞ 回転数#{round} ＞ #{total_n}"
     end
 
-    if(signOfInequality != "")   # 成功度判定処理
+    if(signOfInequality != "") # 成功度判定処理
       output += check_suc(total_n, 0, signOfInequality, diff, dice_cnt_total, dice_max, numberSpot1, 0)
-    else     # 目標値無し判定
+    else # 目標値無し判定
       if(round <= 0)
         if(dice_max == 10)
           if(numberSpot1 >= dice_cnt_total)

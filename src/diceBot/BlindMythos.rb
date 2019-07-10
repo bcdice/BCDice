@@ -199,7 +199,7 @@ MESSAGETEXT
       result += "\n"
 
       if success >= targetNumber
-        result +=  " ＞ 現状で成功。コマンド実行で追加リロールも可能"
+        result += " ＞ 現状で成功。コマンド実行で追加リロールも可能"
       else
         result += " ＞ 現状のままでは失敗"
         result += "。汚染ポイント+#{countOne}" if countOne >= 1
@@ -209,7 +209,7 @@ MESSAGETEXT
     end
 
     if success >= targetNumber
-      result +=  " ＞ 成功"
+      result += " ＞ 成功"
 
       if bitList.size >= 1
         result += "、禁書ビット発生[#{bitList.join(',')}]"

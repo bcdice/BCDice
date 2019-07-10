@@ -6,7 +6,7 @@ class HuntersMoon < DiceBot
     @sendMode = 2
     @sortType = 1
     @d66Type = 2
-    @fractionType = "roundUp";     # 端数切り上げに設定
+    @fractionType = "roundUp"; # 端数切り上げに設定
   end
 
   def gameName

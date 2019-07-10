@@ -76,7 +76,7 @@ MESSAGETEXT
     critical = 20
     fumble = 1
 
-    isStormy = (m[2] == 'GL')  # 波乱万丈
+    isStormy = (m[2] == 'GL') # 波乱万丈
     if( isStormy )
       critical -= 3
       fumble += 1
@@ -129,7 +129,7 @@ MESSAGETEXT
     result += "#{diceMax}\[#{diceText}\]"
     result += "\+" if( modify > 0 )
     result += modify.to_s if( modify != 0 )
-    result += "\+5" if( isAnticipation && diceMax <= 7 )  # 先見の明
+    result += "\+5" if( isAnticipation && diceMax <= 7 ) # 先見の明
     result += " ＞ 達成値：#{total}"
 
     if(target > 0)

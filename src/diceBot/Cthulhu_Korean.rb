@@ -201,7 +201,7 @@ INFO_MESSAGE_TEXT
 
     # 통상판정
     total_n, = roll(1, 100)
-    result =  getCheckResultText(total_n, target)
+    result = getCheckResultText(total_n, target)
 
     return "(1d100<=#{target}) ＞ #{total_n} ＞ #{result}"
   end
