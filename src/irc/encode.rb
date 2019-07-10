@@ -39,7 +39,7 @@ if RUBY_VERSION < '1.9.0' then
 
    # エンコードを変更します（options 未対応）。
    def encode(to_encoding, from_encoding = nil, options = nil)
-     if (from_encoding == nil)
+     if from_encoding == nil
        if @encoding == nil then
          f_encoding = Kconv::AUTO
        else

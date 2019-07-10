@@ -5,7 +5,7 @@ class LogHorizon < DiceBot
 
   def initialize
     super
-    @d66Type = 1;
+    @d66Type = 1
   end
 
   def gameName
@@ -119,7 +119,7 @@ MESSAGETEXT
   end
 
   def getValue(text, defaultValue)
-    return defaultValue if( text == nil or text.empty? )
+    return defaultValue if( (text == nil) || text.empty? )
 
     parren_killer("(0" + text + ")").to_i
   end
@@ -142,7 +142,7 @@ MESSAGETEXT
     return nil if !rank && !is_special
 
     rank = 0 if !rank
-    is_choice = (not $4.nil?)
+    is_choice = !$4.nil?
     dice_value = $5
     modifyText = $3
     modify  = getValue(modifyText, 0)
@@ -516,13 +516,13 @@ MESSAGETEXT
 
     type = m[1]
     rank = m[2].to_i
-    is_choice = (m[2].empty? || (not m[4].nil?))
+    is_choice = (m[2].empty? || !m[4].nil?)
     modifyText = m[3]
     modify = getValue(modifyText, 0)
     is_prize = (m[4] == "$")
     dice_value = nil
     dice_value = '7' if is_prize
-    is_rank_enable = ( (not is_choice) || is_prize)
+    is_rank_enable = ( !is_choice || is_prize)
 
     tableName, table =
       case type
@@ -538,8 +538,6 @@ MESSAGETEXT
         getHeroineTresureResultTable
       when "G"
         getGoblinTresureResultTable
-      else
-        nil
       end
 
     return nil if table.nil?
@@ -553,7 +551,7 @@ MESSAGETEXT
 
     number += (rank * (is_rank_enable ? 5 : 0)) + modify
 
-    return command if is_choice and (number < getTableMinimum(table))
+    return command if is_choice && (number < getTableMinimum(table))
 
     if type == "H"
       number = [getAdjustNumberMin(number, table), 87].min
@@ -1963,22 +1961,22 @@ MESSAGETEXT
         ['リコーダー', 'オカリナ', 'オーボエ', 'ハーモニカ', 'アコーディオン', '尺八']
       ][type - 1][dice - 1]
 
-    return "#{tableName}" + (is_roll ? "(#{type})" : '') + "：#{type_name}(#{dice})：#{result}"
+    return tableName.to_s + (is_roll ? "(#{type})" : '') + "：#{type_name}(#{dice})：#{result}"
   end
 
   #イースタル探索表
   def getEastalDiceCommandResult(command)
     return nil unless (m = /ESTL(\d*)([\+\-\d]*)(\$(\d+))?/.match(command))
 
-    return command if (m[1].empty? && m[2].empty? && m[3].nil?)
+    return command if m[1].empty? && m[2].empty? && m[3].nil?
 
     rank = m[1].to_i
-    is_choice = (m[1].empty? || (not m[3].nil?))
+    is_choice = (m[1].empty? || !m[3].nil?)
     modifyText = m[2]
     modify = getValue(modifyText, 0)
-    is_fix_roll = (not m[3].nil?)
+    is_fix_roll = !m[3].nil?
     dice_value = m[4]
-    is_rank_enable = ( (not is_choice) || is_fix_roll)
+    is_rank_enable = ( !is_choice || is_fix_roll)
 
     tableName, table = getEastalExplorationResultTable
 

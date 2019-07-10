@@ -30,10 +30,10 @@ INFO_MESSAGE_TEXT
 
   def checkSuccess(total_n, diff)
     if(total_n <= diff)
-      return " ＞ 成功";
+      return " ＞ 成功"
     end
 
-    return " ＞ 失敗";
+    return " ＞ 失敗"
   end
 
   def getJuuten

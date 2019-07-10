@@ -73,8 +73,6 @@ MESSAGETEXT
         isSwap = (@d66Type == 2)
         dice = getD66(isSwap)
         getTableResult(table, dice, hasGap)
-      else
-        nil
       end
 
     return nil if( text.nil? )
@@ -101,7 +99,7 @@ MESSAGETEXT
     dice, diceText = rollJudgeDice(diceCount)
     total = dice + ability + modifyValue
 
-    text = "#{command}"
+    text = command.to_s
     text += " ＞ #{diceCount}D6[#{diceText}]+#{ability}#{modifyText}"
     text += " ＞ #{total}"
 
@@ -142,7 +140,7 @@ MESSAGETEXT
   def getTableResult(table, dice, hasGap = false)
     number, text, command = table.assoc(dice)
 
-    if number.nil? and hasGap
+    if number.nil? && hasGap
       params = nil
       table.each do |data|
         break if data.first > dice

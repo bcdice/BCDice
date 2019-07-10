@@ -49,8 +49,6 @@ MESSAGETEXT
 
         checkRoll(hasCritical, modify, target)
 
-      else
-        nil
       end
 
     return output
@@ -66,7 +64,7 @@ MESSAGETEXT
     result = "(2D6#{modifyText}#{targetText})"
     result += " ＞ #{dice}(#{diceText})#{modifyText}"
 
-    if( hasCritical and dice == 12 )
+    if( hasCritical && (dice == 12) )
       result += " ＞ クリティカル！"
       return result
     end
@@ -86,7 +84,7 @@ MESSAGETEXT
 
   def getValueText(value)
     return "" if( value == 0 )
-    return "#{value}" if( value < 0 )
+    return value.to_s if( value < 0 )
 
     return "\+#{value}"
   end

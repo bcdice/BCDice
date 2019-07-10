@@ -328,7 +328,7 @@ class BCDice
   end
 
   def isMaster()
-    return ((@nick_e == @parent.master) or (@parent.master == ""))
+    return ((@nick_e == @parent.master) || (@parent.master == ""))
   end
 
   def setDisplayMode()
@@ -662,7 +662,7 @@ class BCDice
   end
 
   def isTalkChannel
-    (not (/^#/ === @channel))
+    !(/^#/ === @channel)
   end
 
   def printSecretRoll
@@ -811,17 +811,17 @@ class BCDice
 
     return nil unless( /(S)?[\d]+R[\d]+/i === arg)
 
-    secret = (not $1.nil?)
+    secret = !$1.nil?
 
     output = @diceBot.dice_command_xRn(arg, @nick_e)
-    return nil if( output.nil? or output == '1' )
+    return nil if( output.nil? || (output == '1') )
 
     if( output.empty? )
       dice = RerollDice.new(self, @diceBot)
       output = dice.rollDice(arg)
     end
 
-    return nil if( output.nil? or output == '1' )
+    return nil if( output.nil? || (output == '1') )
 
     debug('xRn output', output)
 
@@ -833,7 +833,7 @@ class BCDice
 
     return nil unless(/(S)?[\d]+U[\d]+/i === arg)
 
-    secret = (not $1.nil?)
+    secret = !$1.nil?
 
     dice = UpperDice.new(self, @diceBot)
     output = dice.rollDice(arg)
@@ -847,7 +847,7 @@ class BCDice
 
     return nil unless(/((^|\s)(S)?choice\[[^,]+(,[^,]+)+\]($|\s))/i === arg)
 
-    secret = (not $3.nil?)
+    secret = !$3.nil?
     output = choice_random($1)
 
     return output, secret
@@ -909,18 +909,18 @@ class BCDice
 
     #dice_add = 0 if( ! dice_add )
 
-    if( (@diceBot.d66Type != 0) and (dice_max == 66) )
+    if( (@diceBot.d66Type != 0) && (dice_max == 66) )
       dice_sort = 0
       dice_cnt = 2
       dice_max = 6
     end
 
-    if( @diceBot.isD9 and (dice_max == 9))
+    if( @diceBot.isD9 && (dice_max == 9))
       d9_on = true
       dice_max += 1
     end
 
-    unless( (dice_cnt <= $DICE_MAXCNT) and (dice_max <= $DICE_MAXNUM) )
+    unless( (dice_cnt <= $DICE_MAXCNT) && (dice_max <= $DICE_MAXNUM) )
       return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, rerollCount
     end
 
@@ -945,11 +945,11 @@ class BCDice
         debug('@diceBot.sendMode', @diceBot.sendMode)
         if( @diceBot.sendMode >= 2 )
           dice_st_n += "," unless( dice_st_n.empty? )
-          dice_st_n += "#{dice_n}"
+          dice_st_n += dice_n.to_s
         end
         round += 1
 
-        break unless ( (dice_add > 1) and (dice_n >= dice_add) )
+        break unless  (dice_add > 1) && (dice_n >= dice_add)
       end
 
       total +=  dice_now
@@ -963,7 +963,7 @@ class BCDice
         rerollCount += 1 if(dice_now >= dice_re)
       end
 
-      if( (@diceBot.sendMode >= 2) and (round >= 2) )
+      if( (@diceBot.sendMode >= 2) && (round >= 2) )
         dice_result.push( "#{dice_now}[#{dice_st_n}]" )
       else
         dice_result.push( dice_now )
@@ -1103,7 +1103,7 @@ class BCDice
 
   def isReRollAgain(dice_cnt, round)
     debug("isReRollAgain dice_cnt, round", dice_cnt, round)
-    ( (dice_cnt > 0) and ((round < @diceBot.rerollLimitCount) or (@diceBot.rerollLimitCount == 0)) )
+    ( (dice_cnt > 0) && ((round < @diceBot.rerollLimitCount) || (@diceBot.rerollLimitCount == 0)) )
   end
 
   ####################             D66ダイス        ########################
@@ -1144,7 +1144,7 @@ class BCDice
 
     return nil unless(/(^|\s)(S)?((\d+)?D66(N|S)?)(\s|$)/i === string)
 
-    secret = (not $2.nil?)
+    secret = !$2.nil?
     string = $3
     count = ($4 || 1).to_i
     swapMarker = ($5 || "").upcase
@@ -1180,7 +1180,7 @@ class BCDice
     debug("dice_a", dice_a)
     debug("dice_b", dice_b)
 
-    if( isSwap and (dice_a > dice_b))
+    if( isSwap && (dice_a > dice_b))
       # 大小でスワップするタイプ
       output = dice_a + dice_b * 10
     else
@@ -1423,12 +1423,12 @@ class BCDice
 
     debug("dice_max, dice_cnt", dice_max, dice_cnt)
 
-    if((dice_max == 100) and (dice_cnt == 1))
+    if((dice_max == 100) && (dice_cnt == 1))
       debug('1D100判定')
       return @diceBot.check_1D100(*check_param)
     end
 
-    if((dice_max == 20) and (dice_cnt == 1))
+    if((dice_max == 20) && (dice_cnt == 1))
       debug('1d20判定')
       return @diceBot.check_1D20(*check_param)
     end
@@ -1599,7 +1599,7 @@ class BCDice
   def paren_k(string)
     result = 0
 
-    return result unless (/([\d\/*+-]+)/ =~ string)
+    return result unless /([\d\/*+-]+)/ =~ string
 
     string = $1
 
@@ -1709,7 +1709,7 @@ class BCDice
     return result if( divide == 0 )
     return result unless(/([-\d]+)/ =~ string)
 
-    work = ($1.to_i) * multi
+    work = $1.to_i * multi
 
     case @diceBot.fractionType
     when "roundUp"  # 端数切り上げ

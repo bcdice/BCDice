@@ -405,14 +405,14 @@ MESSAGETEXT
   end
 
   def changePcName(text, base, name)
-    return text if name.nil? or name.empty?
+    return text if name.nil? || name.empty?
 
     return text.gsub(/(#{base})/){$1 + "(#{name})"}
   end
 
   def getDateValue
     dice1, = roll(1, 6)
-    return "#{dice1}"
+    return dice1.to_s
   end
 
   def getClassRoomBreakTable

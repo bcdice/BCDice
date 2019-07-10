@@ -92,8 +92,6 @@ MESSAGETEXT
         get_event_chart
       when 'BSD'
         get_battle_start_distance
-      else
-        nil
       end
 
     return output
@@ -489,8 +487,6 @@ MESSAGETEXT
         get_damagechart_arm
       when 'L'
         get_damagechart_leg
-      else
-        nil
       end
 
     return nil if table.nil?

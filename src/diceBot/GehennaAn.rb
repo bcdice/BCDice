@@ -64,7 +64,7 @@ INFO_MESSAGE_TEXT
     # 幸運の助けチェック
     diceArray.each do |i|
       if( dice_1st != "" )
-        if( dice_1st != i or i < diff )
+        if( (dice_1st != i) || (i < diff) )
           isLuck = false
         end
       else
@@ -74,7 +74,7 @@ INFO_MESSAGE_TEXT
       diceValue += 1 if(i >= diff)
     end
 
-    diceValue *= 2 if(isLuck and (diceCount > 1))
+    diceValue *= 2 if(isLuck && (diceCount > 1))
 
     output = "#{diceValue}[#{diceText}]"
     success = diceValue + mod
@@ -86,7 +86,7 @@ INFO_MESSAGE_TEXT
     if(mod > 0)
       output += "+#{mod}"
     elsif(mod < 0)
-      output += "#{mod}"
+      output += mod.to_s
     end
 
     if(/[^\d\[\]]+/ =~ output )

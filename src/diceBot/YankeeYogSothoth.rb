@@ -110,8 +110,6 @@ INFO_MESSAGE_TEXT
       when 'D66', 'D66S'
         table = getD66Table(table)
         get_table_by_d66_swap(table)
-      else
-        nil
       end
 
     return nil if( text.nil? )
@@ -121,7 +119,7 @@ INFO_MESSAGE_TEXT
 
   def getD66Table(table)
     table.map do |item|
-      if item.kind_of?(String) and  /^(\d+):(.*)/ === item
+      if item.kind_of?(String) &&  (/^(\d+):(.*)/ === item)
         [$1.to_i, $2]
       else
         item

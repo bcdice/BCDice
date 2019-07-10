@@ -6,3 +6,23 @@ Layout/EndOfLine:
 # Due to old Ruby
 Layout/IndentHeredoc:
   Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+# Due to old Ruby
+Style/Encoding:
+  Enabled: false
+
+# Due to old Ruby
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
+
+Style/NumericLiterals:
+  MinDigits: 6
+
+Style/WordArray:
+  Enabled: false

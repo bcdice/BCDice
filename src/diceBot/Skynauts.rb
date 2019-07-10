@@ -66,7 +66,7 @@ MESSAGETEXT
   end
 
   def getJudgeResult(command)
-    return nil unless (m = (/^2D6<=(\d)$/i.match(command) or /^SN(\d*)$/i.match(command)))
+    return nil unless (m = (/^2D6<=(\d)$/i.match(command) || /^SN(\d*)$/i.match(command)))
 
     debug("====getJudgeResult====")
 
@@ -215,7 +215,7 @@ MESSAGETEXT
   end
 
   def isInMapPosition(x, y)
-    (1 <= y and y <= 6) and (2 <= x and x <= 12)
+    ((1 <= y) && (y <= 6)) && ((2 <= x) && (x <= 12))
   end
 
   def getMovePoint(x, y, direction)

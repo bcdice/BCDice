@@ -29,11 +29,11 @@ MESSAGETEXT
     debug("total_n", total_n)
     debug("dice0, dice1", dice0, dice1)
 
-    if( (dice0 == 0) and (dice1 == 1) )
+    if( (dice0 == 0) && (dice1 == 1) )
 
       return ' ＞ 01 ＞ クリティカル'
 
-    elsif( (dice0 == 0) and (dice1 == 0) )
+    elsif( (dice0 == 0) && (dice1 == 0) )
 
       return ' ＞ 00 ＞ ファンブル'
 

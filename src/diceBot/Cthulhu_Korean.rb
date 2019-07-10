@@ -96,31 +96,31 @@ INFO_MESSAGE_TEXT
     broken_num = 0
     diff = 0
 
-    if (/CC(B)?(\d+)<=(\d+)/i =~ command)
+    if /CC(B)?(\d+)<=(\d+)/i =~ command
       # /\(\d+\)/의()는 pattern-killer로 해석되는 듯 함
       broken_num = $2.to_i
       diff = $3.to_i
-    elsif (/CC(B)?<=(\d+)/i =~ command)
+    elsif /CC(B)?<=(\d+)/i =~ command
       diff = $2.to_i
     end
 
-    if (diff > 0)
+    if diff > 0
       output += "(1D100<=#{diff})"
 
-      if (broken_num > 0)
+      if broken_num > 0
         output += " 고장넘버[#{broken_num}]"
       end
 
       total_n, = roll(1, 100)
 
-      output += ' ＞ ' + "#{total_n}"
+      output += ' ＞ ' + total_n.to_s
       output += ' ＞ ' + getCheckResultText(total_n, diff, broken_num)
     else
       # 1D100단순 치환 취급
       # 필요없을지도
       output += "(1D100)"
       total_n, = roll(1, 100)
-      output += ' ＞ ' + "#{total_n}"
+      output += ' ＞ ' + total_n.to_s
     end
 
     return output
@@ -139,7 +139,7 @@ INFO_MESSAGE_TEXT
       end
     end
 
-    if((total_n <= diff) and (total_n < 100))
+    if((total_n <= diff) && (total_n < 100))
 
       result = "성공"
 
@@ -162,7 +162,7 @@ INFO_MESSAGE_TEXT
       result = "실패"
 
       if( diff_special > 0)
-        if((total_n >= (101 - @fumble_percentage)) and (diff < 100))
+        if((total_n >= (101 - @fumble_percentage)) && (diff < 100))
           result = "펌블"
           fumble = true
         end

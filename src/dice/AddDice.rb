@@ -54,7 +54,7 @@ class AddDice
 
         rate = (index == 0 ? 1 : -1)
 
-        total_n += (dice_now) * rate
+        total_n += dice_now * rate
         dice_n += dice_n_wk * rate
         n1 += n1_wk
         n_max += n_max_wk
@@ -101,7 +101,7 @@ class AddDice
     #ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
     output += @diceBot.getDiceRolledAdditionalText(n1, n_max, dice_max)
 
-    if( (dice_cnt == 0) or (dice_max == 0) )
+    if( (dice_cnt == 0) || (dice_max == 0) )
       output = '1'
     end
 
@@ -127,7 +127,7 @@ class AddDice
         double_check = true if( isCheckSuccess )
       elsif( @diceBot.sameDiceRerollType <= 1 ) # ダメージのみ振り足し
         debug('ダメージのみ振り足し')
-        double_check = true if( not isCheckSuccess )
+        double_check = true if( !isCheckSuccess )
       else     # 両方振り足し
         double_check = true
       end
@@ -157,7 +157,7 @@ class AddDice
         critical = $4.to_i
         slashMark = $5
 
-        return emptyResult if( (critical != 0) and (not @diceBot.is2dCritical) )
+        return emptyResult if( (critical != 0) && !@diceBot.is2dCritical )
         return emptyResult if( dice_max > $DICE_MAXNUM )
 
         dice_max, dice_now, output_tmp, n1_count, max_number_tmp, result_dice_count =
@@ -187,7 +187,7 @@ class AddDice
         if( mul_line < 0)
           output += "(#{mul_line})"
         else
-          output += "#{mul_line}"
+          output += mul_line.to_s
         end
       end
     end
@@ -208,7 +208,7 @@ class AddDice
 
     debug("before while dice_arry", dice_arry)
 
-    while( not dice_arry.empty? )
+    while( !dice_arry.empty? )
       debug("IN while dice_arry", dice_arry)
 
       dice_wk = dice_arry.shift
@@ -234,7 +234,7 @@ class AddDice
       n1_count += dice_dat[2]
       max_number += dice_dat[3]
 
-      if( double_check and (dice_wk >= 2) )     # 振り足しありでダイスが二個以上
+      if( double_check && (dice_wk >= 2) )     # 振り足しありでダイスが二個以上
         addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_arry, dice_wk)
       end
 
@@ -249,7 +249,7 @@ class AddDice
     if( @diceBot.sendMode > 1 )
       output += "#{dice_now}[#{dice_str}]"
     elsif( @diceBot.sendMode > 0 )
-      output += "#{dice_now}"
+      output += dice_now.to_s
     end
 
     return dice_max, dice_now, output, n1_count, max_number, result_dice_count

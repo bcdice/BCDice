@@ -112,7 +112,7 @@ INFO_MESSAGE_TEXT
     end
 
     if( nmod != 0 )
-      @string += "#{nmod}"
+      @string += nmod.to_s
       stepTotal += nmod
     end
 
@@ -213,7 +213,7 @@ INFO_MESSAGE_TEXT
       stepTotal += dice_in
 
       @string += ',' if( i != 0 )
-      @string += "#{dice_in}"
+      @string += dice_in.to_s
     end
 
     @string += "]"

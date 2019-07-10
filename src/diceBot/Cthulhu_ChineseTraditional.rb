@@ -99,31 +99,31 @@ INFO_MESSAGE_TEXT
     broken_num = 0
     diff = 0
 
-    if (/CC(B)?(\d+)<=(\d+)/i =~ command)
+    if /CC(B)?(\d+)<=(\d+)/i =~ command
       # /\(\d+\)/の()はpattern-killerにカイシャクされるらしい
       broken_num = $2.to_i
       diff = $3.to_i
-    elsif (/CC(B)?<=(\d+)/i =~ command)
+    elsif /CC(B)?<=(\d+)/i =~ command
       diff = $2.to_i
     end
 
-    if (diff > 0)
+    if diff > 0
       output += "(1D100<=#{diff})"
 
-      if (broken_num > 0)
+      if broken_num > 0
         output += " 故障率[#{broken_num}]"
       end
 
       total_n, = roll(1, 100)
 
-      output += ' ＞ ' + "#{total_n}"
+      output += ' ＞ ' + total_n.to_s
       output += ' ＞ ' + getCheckResultText(total_n, diff, broken_num)
     else
       # 1D100單純交換處理
       # 或許不需要
       output += "(1D100)"
       total_n, = roll(1, 100)
-      output += ' ＞ ' + "#{total_n}"
+      output += ' ＞ ' + total_n.to_s
     end
 
     return output
@@ -142,7 +142,7 @@ INFO_MESSAGE_TEXT
       end
     end
 
-    if((total_n <= diff) and (total_n < 100))
+    if((total_n <= diff) && (total_n < 100))
 
       result = "成功"
 
@@ -165,7 +165,7 @@ INFO_MESSAGE_TEXT
       result = "失敗"
 
       if( diff_special > 0)
-        if((total_n >= (101 - @fumble_percentage)) and (diff < 100))
+        if((total_n >= (101 - @fumble_percentage)) && (diff < 100))
           result = "致命性失敗"
           fumble = true
         end
