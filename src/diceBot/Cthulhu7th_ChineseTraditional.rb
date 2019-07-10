@@ -276,7 +276,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count = 0
     impale_bullet_count = 0
 
-    if ( not isLastBulletTurn(bullet_count, bullet_set_count) )
+    if ( !isLastBulletTurn(bullet_count, bullet_set_count) )
 
       case hit_type
       when :hit

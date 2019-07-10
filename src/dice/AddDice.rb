@@ -127,7 +127,7 @@ class AddDice
         double_check = true if( isCheckSuccess )
       elsif( @diceBot.sameDiceRerollType <= 1 ) # ダメージのみ振り足し
         debug('ダメージのみ振り足し')
-        double_check = true if( not isCheckSuccess )
+        double_check = true if( !isCheckSuccess )
       else     # 両方振り足し
         double_check = true
       end
@@ -157,7 +157,7 @@ class AddDice
         critical = $4.to_i
         slashMark = $5
 
-        return emptyResult if( (critical != 0) && (not @diceBot.is2dCritical) )
+        return emptyResult if( (critical != 0) && (!@diceBot.is2dCritical) )
         return emptyResult if( dice_max > $DICE_MAXNUM )
 
         dice_max, dice_now, output_tmp, n1_count, max_number_tmp, result_dice_count =
@@ -208,7 +208,7 @@ class AddDice
 
     debug("before while dice_arry", dice_arry)
 
-    while( not dice_arry.empty? )
+    while( !dice_arry.empty? )
       debug("IN while dice_arry", dice_arry)
 
       dice_wk = dice_arry.shift

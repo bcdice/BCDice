@@ -129,7 +129,7 @@ INFO_MESSAGE_TEXT
         min_suc = $1.to_i
         fumble = $3.to_i if( $3.to_i != 0 )
         critical = $5.to_i if( $4 )
-        isCriticalStop = (not $6.nil? )
+        isCriticalStop = (!$6.nil? )
       end
     end
 

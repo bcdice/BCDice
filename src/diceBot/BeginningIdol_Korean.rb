@@ -1803,7 +1803,7 @@ INFO_MESSAGE_TEXT
       counts = $1.to_i
       return nil if counts <= 0
 
-      sure = (not $2.empty?)
+      sure = (!$2.empty?)
       remove = $3
       adjust = $4
       adjust ||= ''
@@ -2076,7 +2076,7 @@ INFO_MESSAGE_TEXT
         total = 15 + adjust
         text += "【ミラクルシンクロ】#{total}＋シンフォニーを行った人数"
       end
-    elsif (total == 21) && (not diceUse.include?(7))
+    elsif (total == 21) && (!diceUse.include?(7))
       unless residual.empty?
         text += '[' + diceUse.join(',') + "]#{string} ＞ "
       end

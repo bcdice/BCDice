@@ -291,7 +291,7 @@ MESSAGETEXT
     debug('result', result)
 
     index = part.index('＠')
-    isCritical = (not index.nil?)
+    isCritical = (!index.nil?)
     debug("isCritical", isCritical)
 
     part = part.gsub(/＠/, '')

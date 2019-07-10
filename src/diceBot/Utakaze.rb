@@ -142,7 +142,7 @@ MESSAGETEXT
   end
 
   def isNomalDice(crit)
-    not isDragonDice(crit)
+    !isDragonDice(crit)
   end
 
   def isDragonDice(crit)

@@ -778,7 +778,7 @@ class CardTrader
     temp_cards = getCardsFromDealCards(destination)
 
     result = temp_cards.reject! {|i| i == card}
-    isTargetCardInHand = ( not result.nil? )
+    isTargetCardInHand = ( !result.nil? )
     if( isTargetCardInHand )
       this_cards << card
     else
@@ -945,7 +945,7 @@ class CardTrader
 
     debug("transferOneCard isTargetCardInHand", isTargetCardInHand)
 
-    if( not isTargetCardInHand )
+    if( !isTargetCardInHand )
       return targetCard;
     end
 
@@ -993,7 +993,7 @@ class CardTrader
     isTargetCardInHand = false
 
     cards.each do |card|
-      if((not isTargetCardInHand) &&(card == targetCard))
+      if((!isTargetCardInHand) &&(card == targetCard))
         isTargetCardInHand = true
         thisCard = card
       else
