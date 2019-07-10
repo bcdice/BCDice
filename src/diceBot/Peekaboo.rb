@@ -56,10 +56,10 @@ INFO_MESSAGE_TEXT
     when /((\w)+ET)/i # イベント表
       head = $1.upcase
       debug("head", head)
-      output = pk_event_table( head )
+      output = pk_event_table(head)
     when /((\w)+BT)/i # バタンキュー表
       head = $1.upcase
-      output = pk_batankyu_table( head )
+      output = pk_batankyu_table(head)
     end
 
     return output
@@ -169,7 +169,7 @@ INFO_MESSAGE_TEXT
   end
 
   #  バタンキュー表
-  def pk_batankyu_table( string )
+  def pk_batankyu_table(string)
     output = '1'
     type = ""
 

@@ -35,8 +35,8 @@ def mainBcDiceCli(args)
 
   bcdiceMaker = BCDiceMaker.new
   bcdice = bcdiceMaker.newBcDice()
-  bcdice.setIrcClient( Cli.new )
-  bcdice.setGameByTitle( gameType )
+  bcdice.setIrcClient(Cli.new)
+  bcdice.setGameByTitle(gameType)
 
   bcdice.setMessage(message)
   channel = ""

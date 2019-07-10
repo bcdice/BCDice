@@ -184,10 +184,10 @@ MESSAGETEXT
 
     if dice <= day
       text += " ＞ 日数[#{day}]以下"
-      text += getAddRoll( command1 )
+      text += getAddRoll(command1)
     else
       text += " ＞ 日数[#{day}]を超えている"
-      text += getAddRoll( command2 )
+      text += getAddRoll(command2)
     end
 
     return text

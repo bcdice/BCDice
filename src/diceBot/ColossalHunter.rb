@@ -49,10 +49,10 @@ MESSAGETEXT
     difficultyText = $4
 
   #修正値の計算
-  modify = getValue( modifyText, 0 )
+  modify = getValue(modifyText, 0)
 
   #目標値の計算
-    difficulty = getValue( difficultyText, nil )
+    difficulty = getValue(difficultyText, nil)
 
   #ダイスロール
   dice, dice_str = roll(diceCount, 6)
@@ -131,7 +131,7 @@ debug('yearText', yearText)
     text = yearText.gsub(/(\d+)D(6+)/){ getD6xResult($1.to_i, $2.length) }
 
     calculateText = "(#{text})"
-    year = parren_killer( calculateText.gsub(/×/, "*") )
+    year = parren_killer(calculateText.gsub(/×/, "*"))
     return nil if year == calculateText
     return nil if year == text
 

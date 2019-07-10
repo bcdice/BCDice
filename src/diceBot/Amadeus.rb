@@ -74,8 +74,8 @@ INFO_MESSAGE_TEXT
     commandText = $1
     skillRank = $2
     modifyText = $3
-    signOfInequality = ( $7.nil? ? ">=" : $7 )
-    targetText = ( $9.nil? ? "4" : $9 )
+    signOfInequality = ($7.nil? ? ">=" : $7)
+    targetText = ($9.nil? ? "4" : $9)
     if nil | $5
       specialNum = $5.to_i
     elsif nil | $11
@@ -90,7 +90,7 @@ INFO_MESSAGE_TEXT
 
     _, diceText, = roll(diceCount, 6)
     diceList = diceText.split(/,/).collect{|i| i.to_i}
-    specialText = ( specialNum == 6 ? "" : "@#{specialNum}" )
+    specialText = (specialNum == 6 ? "" : "@#{specialNum}")
 
     message = "(#{commandText}#{specialText}#{signOfInequality}#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "
     diceList = [diceList.min] if skillRank == "D"

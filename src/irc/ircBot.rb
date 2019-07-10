@@ -40,7 +40,7 @@ class IrcClient < Net::IRC::Client
   end
 
   def on_connected(*args)
-    printText( '  -> IRC server is connected.' )
+    printText('  -> IRC server is connected.')
 
     channelNames = @loginChannelList.join(',')
     channelNames = encode($ircCode, channelNames)
@@ -48,29 +48,29 @@ class IrcClient < Net::IRC::Client
     join(channelNames)
     topic(channelNames)
 
-    printText( "login to channels(#{channelNames}), so wait a moment..." )
+    printText("login to channels(#{channelNames}), so wait a moment...")
   end
 
   def on_rpl_welcome(message)
-    printText( '  -> login to channel successed.' )
+    printText('  -> login to channel successed.')
     #post JOIN, @room.encode($ircCode).force_encoding_maybe('external')
     post(JOIN, encode($ircCode, @room))
   end
 
-  def on_init( event )
+  def on_init(event)
     args = event.args
 
-    shift( args )
+    shift(args)
     debug_out("*** #{args.ispect}\n")
   end
 
-  def on_part( event )
+  def on_part(event)
     channel = getChannel(event)
 
     debug_out("*** %s has left channel %s\n", event.nick, channel)
   end
 
-  def on_join( event )
+  def on_join(event)
     debug('on_join event', event)
 
     channel = getChannel(event)
@@ -81,22 +81,22 @@ class IrcClient < Net::IRC::Client
 
     if host_j =~ /^someone\@somewhere\.else\.com$/ # Auto-ops anyone who
       debug_out("Give  to #{nick_e}\n")
-      self.mode( encode($ircCode, channel), "+o", nick_e); # matches hostmask.
+      self.mode(encode($ircCode, channel), "+o", nick_e); # matches hostmask.
     end
   end
 
-  def on_invite( event )
+  def on_invite(event)
     channel = getChannel(event)
 
     debug_out("*** %s (%s) has invited me to channel %s\n",
               event.nick, event.userhost, channel)
 
     addChannel(channel)
-    self.join( encode($ircCode, channel) )
-    self.topic( encode($ircCode, channel) )
+    self.join(encode($ircCode, channel))
+    self.topic(encode($ircCode, channel))
   end
 
-  def on_kick( event )
+  def on_kick(event)
     channel = getChannel(event)
 
     mynick = self.nick
@@ -108,7 +108,7 @@ class IrcClient < Net::IRC::Client
     end
   end
 
-  def on_msg( event )
+  def on_msg(event)
     debug('on_msg begin')
 
     nick_e = getNickEFromEvent(event)
@@ -142,7 +142,7 @@ class IrcClient < Net::IRC::Client
     debug('on_public channel', channel)
 
     if channel == ownNick
-      return on_msg( event )
+      return on_msg(event)
     end
 
     arg = getArg(event)
@@ -189,7 +189,7 @@ class IrcClient < Net::IRC::Client
     @opts.nick = newNick
     debug_out("newNick", newNick)
 
-    printText( "  -> nick \"#{oldNick}\" is already used, so change \"#{oldNick}\" -> \"#{newNick}\"" )
+    printText("  -> nick \"#{oldNick}\" is already used, so change \"#{oldNick}\" -> \"#{newNick}\"")
 
     post(NICK, @opts.nick)
   end
@@ -312,10 +312,10 @@ def getInitializedIrcBot()
   room = $defaultLoginChannelsText.split(',').first
   ircBot.setRoom(room)
 
-  ircBot.setGameByTitle( $defaultGameType )
+  ircBot.setGameByTitle($defaultGameType)
 
   unless $extraCardFileName.empty?
-    ircBot.readExtraCard( $extraCardFileName )
+    ircBot.readExtraCard($extraCardFileName)
   end
 
   return ircBot

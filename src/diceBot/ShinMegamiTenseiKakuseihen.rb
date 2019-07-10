@@ -33,7 +33,7 @@ INFO_MESSAGE_TEXT
     total2 = dice2 * 10 + dice1
 
     #ゾロ目
-    isRepdigit = ( dice1 == dice2 )
+    isRepdigit = (dice1 == dice2)
 
     result = " ＞ スワップ"
     result += getCheckResultText(diff, [total1, total2].min, isRepdigit)

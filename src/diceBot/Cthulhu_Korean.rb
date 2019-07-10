@@ -223,8 +223,8 @@ INFO_MESSAGE_TEXT
     failList = ["실패", "펌블"]
 
     succesCount = 0
-    succesCount += 1 if successList.include?( result_1 )
-    succesCount += 1 if successList.include?( result_2 )
+    succesCount += 1 if successList.include?(result_1)
+    succesCount += 1 if successList.include?(result_2)
     debug("succesCount", succesCount)
 
     rank =

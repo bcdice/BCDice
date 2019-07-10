@@ -52,8 +52,8 @@ MESSAGETEXT
 
   def rollDiceCommand(command)
   #ダイスロールコマンド
-    result = checkRoll( command )
-  return result unless  result.nil?
+    result = checkRoll(command)
+  return result unless result.nil?
 
     tableName = ""
   text = ""

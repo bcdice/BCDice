@@ -111,12 +111,12 @@ INFO_MESSAGE_TEXT
     debug("diff", diff)
     debug("dice_n", dice_n)
 
-    experiencePoint = ( 1.0 * (diff - 15) / 5 * dice_n )
+    experiencePoint = (1.0 * (diff - 15) / 5 * dice_n)
 
     if is_int?(experiencePoint)
       experiencePoint = experiencePoint.to_i
     else
-      experiencePoint = sprintf("%.1f",experiencePoint )
+      experiencePoint = sprintf("%.1f",experiencePoint)
     end
 
     debug("experiencePoint", experiencePoint)

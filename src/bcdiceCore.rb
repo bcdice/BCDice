@@ -183,10 +183,10 @@ class BCDice
     debug('recieveMessage nick_e, tnick', nick_e, tnick)
 
     @nick_e = nick_e
-    @cardTrader.setTnick( @nick_e )
+    @cardTrader.setTnick(@nick_e)
 
     @tnick = tnick
-    @cardTrader.setTnick( @tnick )
+    @cardTrader.setTnick(@tnick)
 
     debug("@nick_e, @tnick", @nick_e, @tnick)
 
@@ -226,8 +226,8 @@ class BCDice
     @ircClient.quit
 
     if @parent.quitFunction.nil?
-      sleepForIrc( 3 )
-      exit( 0 )
+      sleepForIrc(3)
+      exit(0)
     else
       @parent.quitFunction.call()
     end
@@ -405,7 +405,7 @@ class BCDice
 
     return unless  /(\d+)/ =~ @tnick
 
-    @isShortSpell = ($1.to_i != 0 )
+    @isShortSpell = ($1.to_i != 0)
 
     if @isShortSpell
       sendMessageToChannels("短い呪文モードに変更しました")
@@ -736,8 +736,8 @@ class BCDice
 
   def executeCard
     debug('executeCard begin')
-    @cardTrader.setNick( @nick_e )
-    @cardTrader.setTnick( @tnick )
+    @cardTrader.setNick(@nick_e)
+    @cardTrader.setTnick(@tnick)
     @cardTrader.executeCard(@message, @channel)
     debug('executeCard end')
   end
@@ -790,7 +790,7 @@ class BCDice
     output = dice.rollDice(arg)
     return nil if output == '1'
 
-    secret = ( /S[-\d]+D[\d+-]+/ === arg )
+    secret = (/S[-\d]+D[\d+-]+/ === arg)
 
     return output, secret
   end
@@ -964,9 +964,9 @@ class BCDice
       end
 
       if (@diceBot.sendMode >= 2) && (round >= 2)
-        dice_result.push( "#{dice_now}[#{dice_st_n}]" )
+        dice_result.push("#{dice_now}[#{dice_st_n}]")
       else
-        dice_result.push( dice_now )
+        dice_result.push(dice_now)
       end
 
       numberSpot1 += 1 if dice_now == 1
@@ -1068,7 +1068,7 @@ class BCDice
     if $5
       diff = $7.to_i
       string = $3
-      signOfInequality = marshalSignOfInequality( $6 )
+      signOfInequality = marshalSignOfInequality($6)
     elsif  /([<>=]+)(\d+)/ =~ @diceBot.defaultSuccessTarget
       diff = $2.to_i
       signOfInequality = marshalSignOfInequality($1)
@@ -1103,7 +1103,7 @@ class BCDice
 
   def isReRollAgain(dice_cnt, round)
     debug("isReRollAgain dice_cnt, round", dice_cnt, round)
-    ( (dice_cnt > 0) && ((round < @diceBot.rerollLimitCount) || (@diceBot.rerollLimitCount == 0)) )
+    ((dice_cnt > 0) && ((round < @diceBot.rerollLimitCount) || (@diceBot.rerollLimitCount == 0)))
   end
 
   ####################             D66ダイス        ########################
@@ -1168,7 +1168,7 @@ class BCDice
   def getD66Value(mode = nil)
     mode ||= @diceBot.d66Type
 
-    isSwap = ( mode > 1)
+    isSwap = (mode > 1)
     getD66(isSwap)
   end
 
@@ -1216,7 +1216,7 @@ class BCDice
       debug("openSecretRoll diceResult", diceResult)
 
       if diceResult
-        messages.push( diceResult )
+        messages.push(diceResult)
         $secretDiceResultHolder.delete(diceResultKey)
       end
     end
@@ -1606,7 +1606,7 @@ class BCDice
     #ex: --X => +X
     string = string.gsub(/\-\-/, '+')
 
-    debug("paren_k string", string )
+    debug("paren_k string", string)
     list = split_plus_minus(string)
     debug("paren_k list", list)
 
@@ -1743,7 +1743,7 @@ class BCDice
     diceBot.postSet
 
     message = "Game設定を#{diceBot.gameName}に設定しました"
-    debug( 'setGameByTitle message', message )
+    debug('setGameByTitle message', message)
 
     return message
   end
@@ -1754,7 +1754,7 @@ class BCDice
 
   def sleepForIrc(second)
     if @isIrcMode
-      sleep( second )
+      sleep(second)
     end
   end
 end

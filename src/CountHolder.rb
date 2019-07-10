@@ -13,8 +13,8 @@ class CountHolder
     # という形式でデータを保持します。
   end
 
-  def executeCommand( command, nick, channel, pointerMode )
-    debug("point_counter_command begin(command, nick, channel, pointerMode)", command, nick, channel, pointerMode )
+  def executeCommand(command, nick, channel, pointerMode)
+    debug("point_counter_command begin(command, nick, channel, pointerMode)", command, nick, channel, pointerMode)
 
     @command = command
     @nick = @bcdice.getNick(nick)
@@ -415,7 +415,7 @@ class CountHolder
     debug("$point_counterにkeyが存在する場合")
 
     cnt_list = $point_counter[key]
-    unless cnt_list.include?( data )
+    unless cnt_list.include?(data)
       cnt_list << data
     end
   end

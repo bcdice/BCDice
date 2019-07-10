@@ -1027,7 +1027,7 @@ INFO_MESSAGE_TEXT
       return textFrom1D6Table(title, table1, table2)
 
     when /^BT(\d+)?$/
-      counts = ( $1 || 1 ).to_i
+      counts = ($1 || 1).to_i
       return badStatus(counts)
 
     when 'SGT'
@@ -1550,7 +1550,7 @@ INFO_MESSAGE_TEXT
       return textFromD66Table(title, table)
 
     when /^IT(\d+)?$/
-      counts = ( $1 || 1 ).to_i
+      counts = ($1 || 1).to_i
       return getItem(counts)
 
     when 'ACT'

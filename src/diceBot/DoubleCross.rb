@@ -133,19 +133,19 @@ INFO_MESSAGE_TEXT
       if /[Rr]/ =~ dice_o
         if /-/ =~ dice_o
           dice_wk = dice_o.split(/-/)
-          dice_cmd.push(dice_wk.shift )
-          dice_bns.push( "0-" + dice_wk.join("-") )
+          dice_cmd.push(dice_wk.shift)
+          dice_bns.push("0-" + dice_wk.join("-"))
         else
-          dice_cmd.push( dice_o )
+          dice_cmd.push(dice_o)
         end
       else
-        dice_bns.push( dice_o )
+        dice_bns.push(dice_o)
       end
     end
 
     bonus_str = dice_bns.join("+")
     bonus_ttl = 0
-    bonus_ttl = parren_killer( "(#{bonus_str})").to_i if bonus_str != ""
+    bonus_ttl = parren_killer("(#{bonus_str})").to_i if bonus_str != ""
 
     numberSpot1 = 0
     dice_cnt_total =0
@@ -283,7 +283,7 @@ INFO_MESSAGE_TEXT
       [102, '任意(にんい)'],
     ]
 
-    return dx_feel_table( table )
+    return dx_feel_table(table)
   end
 
   #** 感情表（ネガティブ）
@@ -314,7 +314,7 @@ INFO_MESSAGE_TEXT
       [102, '任意(にんい)'],
     ]
 
-    return dx_feel_table( table )
+    return dx_feel_table(table)
   end
 
   def dx_feel_table(table)

@@ -190,7 +190,7 @@ INFO_MESSAGE_TEXT
     columns, chart, = chartInfo
 
     range, elements = chart.find do |range, elements|
-      range.include?( keyNumber )
+      range.include?(keyNumber)
     end
 
     return nil if range.nil?
@@ -302,7 +302,7 @@ INFO_MESSAGE_TEXT
     return defaultResult if chart.nil?
 
     dice, = roll(1, 10)
-    return defaultResult unless chart.has_key?( dice )
+    return defaultResult unless chart.has_key?(dice)
 
     result = {:dice => dice, :result => chart[dice], :chartName => chartName}
     result[:coreResult] = result[:result]
@@ -323,7 +323,7 @@ INFO_MESSAGE_TEXT
     return nil if chart.nil?
 
     dice, = roll(1, 10)
-    return nil unless chart.has_key?( dice )
+    return nil unless chart.has_key?(dice)
 
     name, mean, = chart[dice]
 

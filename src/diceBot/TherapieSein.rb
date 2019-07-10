@@ -39,7 +39,7 @@ MESSAGETEXT
       case command.upcase
 
       when /(TS|OP)(\d+)?(([\+\-]\d+)*)(\@(\d+))?$/i
-        hasCritical = ( $1 == "OP" )
+        hasCritical = ($1 == "OP")
         target = ($6 || 0).to_i
         modify = ($2 || 0).to_i
         modifyAddString = $3

@@ -44,12 +44,12 @@ class RerollDice
 
     if judgeText
       diff = diff.to_i
-      signOfInequality = @bcdice.marshalSignOfInequality( operator )
+      signOfInequality = @bcdice.marshalSignOfInequality(operator)
     elsif @diceBot.defaultSuccessTarget != ""
       if @diceBot.defaultSuccessTarget =~/([<>=]+)(\d+)/
         operator = $1
         diff = $2.to_i
-        signOfInequality = @bcdice.marshalSignOfInequality( operator )
+        signOfInequality = @bcdice.marshalSignOfInequality(operator)
       end
     end
 

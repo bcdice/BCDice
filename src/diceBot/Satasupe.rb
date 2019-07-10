@@ -113,7 +113,7 @@ INFO_MESSAGE_TEXT
       result += " ＞ 必殺発動可能！"
     end
 
-    debug( 'checkRoll result result', result )
+    debug('checkRoll result result', result)
     return result
   end
 
@@ -219,7 +219,7 @@ INFO_MESSAGE_TEXT
     result += " ＞ 1ゾロのため〔性業値〕が1点上昇！" if  dice == 2
     result += " ＞ 6ゾロのため〔性業値〕が1点減少！" if  dice == 12
 
-    debug( 'check_seigou result result', result )
+    debug('check_seigou result result', result)
     return result
   end
 
@@ -302,7 +302,7 @@ INFO_MESSAGE_TEXT
     counts.times do |i|
       info, number = get_table_by_d66(table)
       text = "#{name}:#{number}:#{info}"
-      result.push( text )
+      result.push(text)
     end
 
     return result
@@ -465,8 +465,8 @@ INFO_MESSAGE_TEXT
     end
 
     result = []
-    result.push( baseParts )
-    result.push( partsEffect )
+    result.push(baseParts)
+    result.push(partsEffect)
 
     text = "完成品：サタスペ  （ダメージ＋#{damage}・命中#{hit}・射撃、"
     text += "「（判定前宣言）#{kutibeni}回だけ、必殺10」" if kutibeni > 0
@@ -476,7 +476,7 @@ INFO_MESSAGE_TEXT
 
     text += "「サタスペ#{counts}」「耐久度#{life}」）"
 
-    result.push( text )
+    result.push(text)
 
     return result
   end
@@ -526,7 +526,7 @@ INFO_MESSAGE_TEXT
       agen_text = agen[age_type]
       age_num = agen_text.split(/\+/)
 
-      total, dummy = rollDiceAddingUp( age_num[1] )
+      total, dummy = rollDiceAddingUp(age_num[1])
       ysold = total + age_num[0].to_i
 
       lmodValue = lmood[(rand 6)]

@@ -703,7 +703,7 @@ class CardTrader
 
     if place > 0
       debug("playOneCard place > 0")
-      result = transferOneCard(card, destination, "#{place}#{destination}" ); # 場に出す処理
+      result = transferOneCard(card, destination, "#{place}#{destination}"); # 場に出す処理
     else
       debug("playOneCard place <= 0")
       result = discardOneCard(card, place, destination); # 場を使わないときは捨て札扱い
@@ -1131,7 +1131,7 @@ class CardTrader
     okList, ngList, isUntap = tapCard(commandText)
 
     if okList.length > 0
-      tapTypeName = ( isUntap ? 'アンタップ' : 'タップ')
+      tapTypeName = (isUntap ? 'アンタップ' : 'タップ')
       sendMessage(@channel, "#{@nick_e}: #{okList.length}枚#{tapTypeName}しました")
       sendMessage(@channel, "[#{getCardsTextFromCards(okList)}]") unless @cardTitles.empty?
     end
@@ -1491,7 +1491,7 @@ class CardTrader
       output = "復活の呪文 ＞ [#{spellText}]"; # 呪文表示を返す
     else # 呪文の実行
       debug("setNewSpellText")
-      output = setNewSpellText( spellText )
+      output = setNewSpellText(spellText)
     end
 
     debug("throwCardRestorationSpell output", output)

@@ -148,8 +148,8 @@ INFO_MESSAGE_TEXT
     successList = ["決定性的成功", "極限的成功", "困難的成功", "通常成功"]
 
     succesCount = 0
-    succesCount += 1 if successList.include?( result_1 )
-    succesCount += 1 if successList.include?( result_2 )
+    succesCount += 1 if successList.include?(result_1)
+    succesCount += 1 if successList.include?(result_2)
     debug("succesCount", succesCount)
 
     rank =
@@ -261,8 +261,8 @@ INFO_MESSAGE_TEXT
   def getHitType(more_difficlty, hit_result)
     successList, impaleBulletList = getSuccessListImpaleBulletList(more_difficlty)
 
-    return :hit if successList.include?( hit_result )
-    return :impale if impaleBulletList.include?( hit_result )
+    return :hit if successList.include?(hit_result)
+    return :impale if impaleBulletList.include?(hit_result)
 
     return ""
   end
@@ -293,7 +293,7 @@ INFO_MESSAGE_TEXT
 
       case hit_type
       when :hit
-        hit_bullet_count = getLastHitBulletCount( bullet_count )
+        hit_bullet_count = getLastHitBulletCount(bullet_count)
 
       when :impale
         halfbull = bullet_count / 2.to_f
@@ -379,6 +379,6 @@ INFO_MESSAGE_TEXT
 
   def getFumbleable(more_difficlty)
     #成功判定時因只擲出４９以下數值，而大失敗率上昇
-    return ( more_difficlty >= 1 )
+    return (more_difficlty >= 1)
   end
 end

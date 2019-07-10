@@ -44,7 +44,7 @@ class TableFileData
     @dirs << dir
 
     tableData = searchTableFileDefine(dir, prefix)
-    @tableData.merge!( tableData )
+    @tableData.merge!(tableData)
   end
 
   def searchTableFileDefine(dir, prefix = '')
@@ -212,7 +212,7 @@ class TableFileData
   def isTargetGameType(gameType, targetGameType)
     return true if gameType.empty?
 
-    return ( gameType == targetGameType )
+    return (gameType == targetGameType)
   end
 
   def readOneTableData(oneTableData)

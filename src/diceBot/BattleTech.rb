@@ -188,7 +188,7 @@ MESSAGETEXT
     dice1, = roll(1, 6)
     dice2, = roll(1, 6)
     total = dice1 + dice2 + base
-    isHit = ( total >= target )
+    isHit = (total >= target)
     baseString = (base > 0 ? "+#{base}" : "")
 
     result = "#{total}[#{dice1},#{dice2}#{baseString}]>=#{target} ＞ "
@@ -360,7 +360,7 @@ MESSAGETEXT
     dice1, = roll(1, 6)
     dice2, = roll(1, 6)
     total = dice1 + dice2
-    result = ( total >= target ) ? "成功" : "失敗"
+    result = (total >= target) ? "成功" : "失敗"
     text = "#{total}[#{dice1},#{dice2}]>=#{target} ＞ #{result}"
 
     return text

@@ -76,10 +76,10 @@ MESSAGETEXT
     difficultyText = $4
 
   #修正値の計算
-  modify = getValue( modifyText, 0 )
+  modify = getValue(modifyText, 0)
 
   #目標値の計算
-    difficulty = getValue( difficultyText, nil )
+    difficulty = getValue(difficultyText, nil)
 
   #ダイスロール
   dice, dice_str = roll(diceCount, 6)
@@ -132,7 +132,7 @@ MESSAGETEXT
   end
 
   #消耗表
-  def getConsumptionDiceCommandResult( command )
+  def getConsumptionDiceCommandResult(command)
     return nil unless /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command
 
     type = $1
@@ -361,7 +361,7 @@ MESSAGETEXT
     is_prize = (m[4] == "$")
     dice_value = nil
     dice_value = '7' if is_prize
-    is_rank_enable = ( !is_choice || is_prize)
+    is_rank_enable = (!is_choice || is_prize)
 
     tableName, table =
       case type

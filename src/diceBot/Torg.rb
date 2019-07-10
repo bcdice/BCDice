@@ -177,7 +177,7 @@ INFO_MESSAGE_TEXT
         [7, "かなりよい"],
         [12, "すごい" ]]
 
-    return get_torg_table_result( value, success_table )
+    return get_torg_table_result(value, success_table)
   end
 
 # 対人行為結果表
@@ -190,7 +190,7 @@ INFO_MESSAGE_TEXT
         [15, "モラル崩壊"],
         [17, "プレイヤーズコール" ]]
 
-    return get_torg_table_result( value, interaction_results_table )
+    return get_torg_table_result(value, interaction_results_table)
   end
 
 # 挑発／トリック(Taunt/Trick)
@@ -202,7 +202,7 @@ INFO_MESSAGE_TEXT
         [15, "高揚／逆転負け"],
         [17, "プレイヤーズコール" ]]
 
-    return get_torg_table_result( value, interaction_results_table )
+    return get_torg_table_result(value, interaction_results_table)
   end
 
 # 間合い(maneuver)
@@ -214,7 +214,7 @@ INFO_MESSAGE_TEXT
         [15, "逆転負け／疲労"],
         [17, "プレイヤーズコール" ]]
 
-    return get_torg_table_result( value, interaction_results_table )
+    return get_torg_table_result(value, interaction_results_table)
   end
 
   def get_torg_table_result(value, table)
@@ -293,7 +293,7 @@ INFO_MESSAGE_TEXT
     table_max_value = damage_table.length - 1
 
     if value <= table_max_value
-      return get_torg_table_result( value, damage_table )
+      return get_torg_table_result(value, damage_table)
     end
 
     over_kill_damage = ((value - table_max_value) / 2).to_i
@@ -348,7 +348,7 @@ INFO_MESSAGE_TEXT
                    [19, 6],
                    [20, 7]]
 
-    bonus = get_torg_table_result( value, bonus_table )
+    bonus = get_torg_table_result(value, bonus_table)
 
     if value > 20
       over_value_bonus = ((value - 21) / 5).to_i + 1

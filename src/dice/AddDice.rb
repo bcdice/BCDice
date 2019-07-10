@@ -109,7 +109,7 @@ class AddDice
     return output
   end
 
-  def rollDiceAddingUp( string, isCheckSuccess = false) # 加算ダイスロール(個別処理)
+  def rollDiceAddingUp(string, isCheckSuccess = false) # 加算ダイスロール(個別処理)
     debug("rollDiceAddingUp() begin string", string)
 
     dice_max = 0
@@ -203,7 +203,7 @@ class AddDice
     max_number = 0
     dice_str = ""
     dice_arry = []
-    dice_arry.push( dice_count )
+    dice_arry.push(dice_count)
     loop_count = 0
 
     debug("before while dice_arry", dice_arry)
@@ -260,7 +260,7 @@ class AddDice
     dice_face = []
 
     dice_max.times do |i|
-      dice_face.push( 0 )
+      dice_face.push(0)
     end
 
     dice_num.each do |dice_o|
@@ -271,7 +271,7 @@ class AddDice
       if @diceBot.sameDiceRerollCount == 1 # 全部同じ目じゃないと振り足しなし
         dice_arry.push(dice_o) if  dice_o == dice_wk
       else
-        dice_arry.push( dice_o ) if dice_o >= @diceBot.sameDiceRerollCount
+        dice_arry.push(dice_o) if dice_o >= @diceBot.sameDiceRerollCount
       end
     end
   end
