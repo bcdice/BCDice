@@ -16,3 +16,7 @@ Style/Documentation:
 # Due to old Ruby
 Style/Encoding:
   Enabled: false
+
+# Due to old Ruby
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
