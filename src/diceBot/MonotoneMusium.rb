@@ -87,16 +87,16 @@ INFO_MESSAGE_TEXT
 
     case command
     when /ET2/i
-      type ="感情表2.0"
+      type = "感情表2.0"
       output, total_n = mm_emotion_table_ver2()
     when /ET/i
-      type ="感情表"
+      type = "感情表"
       output, total_n = mm_emotion_table()
     when /OT2/i
-      type ="兆候表ver2.0"
+      type = "兆候表ver2.0"
       output, total_n = mm_omens_table_ver2()
     when /OT/i
-      type ="兆候表"
+      type = "兆候表"
       output, total_n = mm_omens_table()
     when /WDT2/i
       type = "世界歪曲表ver2.0"

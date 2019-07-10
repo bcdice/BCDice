@@ -134,7 +134,7 @@ MESSAGETEXT
   end
 
   def checkRoll(rollText, target, modify, accidentValue, advancedRoll, luckPoint, isMuse)
-    rollTarget = (target * modify / advancedRoll * (2 ** luckPoint)).to_i
+    rollTarget = (target * modify / advancedRoll * (2**luckPoint)).to_i
 
     dice, = roll(1, 100)
     resultText, successValue = getRollResultTextAndSuccesValue(dice, advancedRoll, rollTarget, accidentValue, isMuse)
@@ -208,7 +208,7 @@ MESSAGETEXT
     formulaText += "\*#{modify.to_i}" if modify > 1
     formulaText += "\/#{(1 / modify).to_i}" if modify < 1
     formulaText += "\/#{advancedRoll}" if advancedRoll > 1
-    formulaText += "\*#{2 ** luckPoint}" if luckPoint > 0
+    formulaText += "\*#{2**luckPoint}" if luckPoint > 0
 
     return "" if formulaText == target.to_s
 

@@ -300,7 +300,7 @@ class BCDiceDialog < Wx::Dialog
     'ISO-2022-JP' => Kconv::JIS,
     'EUC-JP'      => Kconv::EUC,
     'Shift_JIS'   => Kconv::SJIS,
-    'バイナリ'    => Kconv::BINARY,
+    'バイナリ' => Kconv::BINARY,
     'ASCII'       => Kconv::ASCII,
     'UTF-8'       => Kconv::UTF8,
     'UTF-16'      => Kconv::UTF16,

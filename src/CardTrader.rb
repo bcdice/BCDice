@@ -993,7 +993,7 @@ class CardTrader
     isTargetCardInHand = false
 
     cards.each do |card|
-      if !isTargetCardInHand &&(card == targetCard)
+      if !isTargetCardInHand && (card == targetCard)
         isTargetCardInHand = true
         thisCard = card
       else

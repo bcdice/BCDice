@@ -146,7 +146,7 @@ INFO_MESSAGE_TEXT
     when 'MT'
       value = parren_killer("(0#{num})").to_i
       output = get_torg_interaction_result_maneuver(value)
-      ttype= '間合い'
+      ttype = '間合い'
     when 'DT'
       value = parren_killer("(0#{num})").to_i
       if string =~ /ODT/i

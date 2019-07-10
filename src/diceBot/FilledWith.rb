@@ -147,8 +147,8 @@ MESSAGETEXT
   else
     #成否判定
     unless difficultyText.nil?
-      success = difficulty-dice
-      if dice<=difficulty
+      success = difficulty - dice
+      if dice <= difficulty
         result += " ＞ 成功(成功度:#{success})"
       else
         result += " ＞ 失敗(失敗度:#{success})"
@@ -1216,7 +1216,7 @@ SLv3:ゴーレムアーム(装飾品)
   #夢幻の迷宮エネミーデータ表
   def getRandomEnemyDataResult(command)
     if /RED(E|N|H|L)(256|265|465|665|666)/ === command
-      dif    = $1
+      dif = $1
     area   = 0
     event  = $2.to_i
     number = event
@@ -1532,7 +1532,7 @@ SLv3:ゴーレムアーム(装飾品)
             '『白銀の猛将』ジェネラル(CL55/ネームド)1匹([命中]+4、あらゆる致傷力+20、[HP]+500)'
          ]],
             ]
-    case event/100
+    case event / 100
       when 1
         areaText = "洞窟"
       when 2

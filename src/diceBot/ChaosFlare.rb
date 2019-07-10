@@ -42,11 +42,11 @@ INFO_MESSAGE_TEXT
     if total_n >= diff
       output += " ＞ 成功"
       if total_n > diff
-        output += " ＞ 差分値#{total_n-diff}"
+        output += " ＞ 差分値#{total_n - diff}"
       end
     else
       output += " ＞ 失敗"
-      output += " ＞ 差分値#{total_n-diff}"
+      output += " ＞ 差分値#{total_n - diff}"
     end
 
     return output

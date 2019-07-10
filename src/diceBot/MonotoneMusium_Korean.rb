@@ -87,13 +87,13 @@ INFO_MESSAGE_TEXT
 
     case command
     when /ET2/i
-      type ="감정표2.0"
+      type = "감정표2.0"
       output, total_n = mm_emotion_table_ver2()
     when /ET/i
-      type ="감정표"
+      type = "감정표"
       output, total_n = mm_emotion_table()
     when /OT/i
-      type ="징조표"
+      type = "징조표"
       output, total_n = mm_omens_table()
     when /DT2/i
       type = "일그러짐표ver2.0"

@@ -59,7 +59,7 @@ INFO_MESSAGE_TEXT
     #ファンブル
     if (diff - dice_n) <= -10
       return fmb_string
-    elsif (dice_n >= 17) && (diff <=15)
+    elsif (dice_n >= 17) && (diff <= 15)
       return fmb_string
     elsif dice_n >= 18
       return fmb_string

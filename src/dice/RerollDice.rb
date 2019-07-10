@@ -46,7 +46,7 @@ class RerollDice
       diff = diff.to_i
       signOfInequality = @bcdice.marshalSignOfInequality(operator)
     elsif @diceBot.defaultSuccessTarget != ""
-      if @diceBot.defaultSuccessTarget =~/([<>=]+)(\d+)/
+      if @diceBot.defaultSuccessTarget =~ /([<>=]+)(\d+)/
         operator = $1
         diff = $2.to_i
         signOfInequality = @bcdice.marshalSignOfInequality(operator)
@@ -59,7 +59,7 @@ class RerollDice
     debug("diff", diff)
 
     numberSpot1Total = 0
-    dice_cnt_total =0
+    dice_cnt_total = 0
     dice_max = 0
 
     dice_a = string.split(/\+/)
@@ -172,7 +172,7 @@ class RerollDice
     when '>='
       valid = false if diff <= 1
     when '<>'
-      valid = false if (diff > dice_max)||(diff < 1)
+      valid = false if (diff > dice_max) || (diff < 1)
     when '<'
       valid = false if diff > dice_max
     when '>'

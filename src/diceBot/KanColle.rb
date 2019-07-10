@@ -68,109 +68,109 @@ INFO_MESSAGE_TEXT
 
     case command
     when 'ET'
-      type='感情表'
+      type = '感情表'
       output, total_n = get_emotion_table
     when 'ACT'
-      type='アクシデント表'
+      type = 'アクシデント表'
       output, total_n = get_accident_table
 
     when 'EVNT'
-      type='日常イベント表'
+      type = '日常イベント表'
       output, total_n = get_nichijyou_event_table
     when 'EVKT'
-      type='交流イベント表'
+      type = '交流イベント表'
       output, total_n = get_kouryu_event_table
     when 'EVAT'
-      type='遊びイベント表'
+      type = '遊びイベント表'
       output, total_n = get_asobi_event_table
     when 'EVET'
-      type='演習イベント表'
+      type = '演習イベント表'
       output, total_n = get_ensyuu_event_table
     when 'EVENT'
-      type='遠征イベント表'
+      type = '遠征イベント表'
       output, total_n = get_ensei_event_table
     when 'EVST'
-      type='作戦イベント表'
+      type = '作戦イベント表'
       output, total_n = get_sakusen_event_table
     when 'ETHT'
-      type='ほのぼのイベント表'
+      type = 'ほのぼのイベント表'
       output, total_n = get_honobono_event_table
     when 'ETVT'
-      type='航海イベント表'
+      type = '航海イベント表'
       output, total_n = get_voyage_event_table
     when 'ETGT'
-      type='外出イベント表'
+      type = '外出イベント表'
       output, total_n = get_gaisyutsu_event_table
     when 'ETBT'
-      type='激戦イベント表'
+      type = '激戦イベント表'
       output, total_n = get_battle_event_table
     when 'ETMT'
-      type='任務イベント表'
+      type = '任務イベント表'
       output, total_n = get_mission_event_table
     when 'ETFT'
-      type='恐怖イベント表'
+      type = '恐怖イベント表'
       output, total_n = get_fear_event_table
 
     when 'DVT'
-      type='開発表'
+      type = '開発表'
       output, total_n = get_develop_table
     when 'DVTM'
-      type='開発表（一括）'
+      type = '開発表（一括）'
       output, total_n = get_develop_matome_table
     when 'WP1T'
-      type='装備１種表'
+      type = '装備１種表'
       output, total_n = get_weapon1_table
     when 'WP2T'
-      type='装備２種表'
+      type = '装備２種表'
       output, total_n = get_weapon2_table
     when 'WP3T'
-      type='装備３種表'
+      type = '装備３種表'
       output, total_n = get_weapon3_table
     when 'WP4T'
-      type='装備４種表'
+      type = '装備４種表'
       output, total_n = get_weapon4_table
     when 'ITT'
-      type='アイテム表'
+      type = 'アイテム表'
       output, total_n = get_item_table
     when 'MHT'
-      type='目標表'
+      type = '目標表'
       output, total_n = get_mokuhyou_table
     when 'SNT'
-      type='戦果表'
+      type = '戦果表'
       output, total_n = get_senka_table
     when 'SPSNT'
-      type='特殊戦果表'
+      type = '特殊戦果表'
       output, total_n = get_special_senka_table
 
     when 'KTM'
-      type='個性：一括'
+      type = '個性：一括'
       output, total_n = get_kosei_table
     when 'BT'
-      type='個性：分野表'
+      type = '個性：分野表'
       output, total_n = get_bunya_table
     when 'KHT'
-      type='個性：背景表'
+      type = '個性：背景表'
       output, total_n = get_kosei_haikei_table
     when 'KMT'
-      type='個性：魅力表'
+      type = '個性：魅力表'
       output, total_n = get_kosei_miryoku_table
     when 'KST'
-      type='個性：性格表'
+      type = '個性：性格表'
       output, total_n = get_kosei_seikaku_table
     when 'KSYT'
-      type='個性：趣味表'
+      type = '個性：趣味表'
       output, total_n = get_kosei_syumi_table
     when 'KKT'
-      type='個性：航海表'
+      type = '個性：航海表'
       output, total_n = get_kosei_koukai_table
     when 'KSNT'
-      type='個性：戦闘表'
+      type = '個性：戦闘表'
       output, total_n = get_kosei_sentou_table
     when 'SNZ'
-      type='戦場表'
+      type = '戦場表'
       output, total_n = get_senzyou_table
     when 'RNT'
-      type='暴走表'
+      type = '暴走表'
       output, total_n = get_bousou_table
     else
       return getTableCommandResult(command, @@tables)

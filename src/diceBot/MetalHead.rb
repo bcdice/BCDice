@@ -73,7 +73,7 @@ MESSAGETEXT
     return '' if diff == "?"
 
     return " ＞ 絶対成功" if dice_n >= 12
-    return " ＞ 絶対失敗" if dice_n <=2
+    return " ＞ 絶対失敗" if dice_n <= 2
 
     return " ＞ 成功" if totalValue >= diff
 

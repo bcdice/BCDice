@@ -227,12 +227,6 @@ Layout/SpaceAfterNot:
   Exclude:
     - 'diceBot/MetalHead.rb'
 
-# Offense count: 218
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment.
-Layout/SpaceAroundOperators:
-  Enabled: false
-
 # Offense count: 197
 # Cop supports --auto-correct.
 Layout/SpaceBeforeComma:

@@ -938,7 +938,7 @@ class BCDice
         end
 
         dice_n = rand(dice_max).to_i + 1
-        dice_n -=1 if d9_on
+        dice_n -= 1 if d9_on
 
         dice_now += dice_n
 
