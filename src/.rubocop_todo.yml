@@ -985,12 +985,6 @@ Style/NumericLiteralPrefix:
     - 'diceBot/DeadlineHeroes.rb'
     - 'diceBot/ShinkuuGakuen.rb'
 
-# Offense count: 23
-# Cop supports --auto-correct.
-# Configuration parameters: Strict.
-Style/NumericLiterals:
-  MinDigits: 6
-
 # Offense count: 297
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, EnforcedStyle, IgnoredMethods.
