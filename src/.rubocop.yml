@@ -6,3 +6,6 @@ Layout/EndOfLine:
 # Due to old Ruby
 Layout/IndentHeredoc:
   Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
