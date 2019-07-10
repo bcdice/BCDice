@@ -758,11 +758,6 @@ Style/EmptyMethod:
     - 'diceBot/HuntersMoon.rb'
     - 'irc/torgtaitaiIRC.rb'
 
-# Offense count: 194
-# Cop supports --auto-correct.
-Style/Encoding:
-  Enabled: false
-
 # Offense count: 8
 # Cop supports --auto-correct.
 Style/EvenOdd:

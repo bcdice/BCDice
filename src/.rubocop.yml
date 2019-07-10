@@ -12,3 +12,7 @@ Style/AsciiComments:
 
 Style/Documentation:
   Enabled: false
+
+# Due to old Ruby
+Style/Encoding:
+  Enabled: false
