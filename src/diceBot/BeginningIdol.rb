@@ -2190,7 +2190,7 @@ INFO_MESSAGE_TEXT
 
     string = ''
     string += '+' if adjust > 0
-    string += "#{adjust}" unless adjust == 0
+    string += adjust.to_s unless adjust == 0
 
     result = roll(counts, 6, 1)
     diceAll = result[1].delete(",") + residual
@@ -2237,7 +2237,7 @@ INFO_MESSAGE_TEXT
         text += '[' + diceUse.join(',') + "]#{string} ＞ "
       end
       total += adjust
-      text += "#{total}"
+      text += total.to_s
     end
 
     return text

@@ -58,7 +58,7 @@ MESSAGETEXT
         output += "(1D10<=#{diff})"
 
         total_n, = roll(1, 10)
-        output += ' ＞ ' + "#{total_n}"
+        output += ' ＞ ' + total_n.to_s
         output += ' ＞ ' + getCheckResultText(total_n, diff)
       end
     return output

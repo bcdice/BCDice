@@ -86,7 +86,7 @@ INFO_MESSAGE_TEXT
     if(mod > 0)
       output += "+#{mod}"
     elsif(mod < 0)
-      output += "#{mod}"
+      output += mod.to_s
     end
 
     if(/[^\d\[\]]+/ =~ output )

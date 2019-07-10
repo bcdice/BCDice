@@ -116,14 +116,14 @@ INFO_MESSAGE_TEXT
 
       total_n, = roll(1, 100)
 
-      output += ' ＞ ' + "#{total_n}"
+      output += ' ＞ ' + total_n.to_s
       output += ' ＞ ' + getCheckResultText(total_n, diff, broken_num)
     else
       # 1D100單純交換處理
       # 或許不需要
       output += "(1D100)"
       total_n, = roll(1, 100)
-      output += ' ＞ ' + "#{total_n}"
+      output += ' ＞ ' + total_n.to_s
     end
 
     return output

@@ -945,7 +945,7 @@ class BCDice
         debug('@diceBot.sendMode', @diceBot.sendMode)
         if( @diceBot.sendMode >= 2 )
           dice_st_n += "," unless( dice_st_n.empty? )
-          dice_st_n += "#{dice_n}"
+          dice_st_n += dice_n.to_s
         end
         round += 1
 

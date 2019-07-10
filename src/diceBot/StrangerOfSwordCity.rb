@@ -79,7 +79,7 @@ INFO_MESSAGE_TEXT
 
   def getModifyText(modify)
     return "" if( modify == 0 )
-    return "#{modify}" if modify < 0
+    return modify.to_s if modify < 0
 
     return "+#{modify}"
   end

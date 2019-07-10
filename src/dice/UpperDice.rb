@@ -67,7 +67,7 @@ class UpperDice
     if(bonus > 0)
       output += "+#{bonus}"
     elsif(bonus < 0)
-      output += "#{bonus}"
+      output += bonus.to_s
     end
 
     maxValue = maxDiceValue + bonus

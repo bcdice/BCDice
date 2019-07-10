@@ -1961,7 +1961,7 @@ MESSAGETEXT
         ['リコーダー', 'オカリナ', 'オーボエ', 'ハーモニカ', 'アコーディオン', '尺八']
       ][type - 1][dice - 1]
 
-    return "#{tableName}" + (is_roll ? "(#{type})" : '') + "：#{type_name}(#{dice})：#{result}"
+    return tableName.to_s + (is_roll ? "(#{type})" : '') + "：#{type_name}(#{dice})：#{result}"
   end
 
   #イースタル探索表

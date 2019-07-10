@@ -234,7 +234,7 @@ MESSAGETEXT
   end
 
   def getDamageInfo(dice, damage, isLrm, index)
-    return damage, "#{damage}" if( dice.nil? )
+    return damage, damage.to_s if( dice.nil? )
     return damage, "[#{dice}] #{damage}" unless( isLrm )
 
     currentDamage = damage - (@@lrmLimit * index)
@@ -242,7 +242,7 @@ MESSAGETEXT
       currentDamage = @@lrmLimit
     end
 
-    return currentDamage, "#{currentDamage}"
+    return currentDamage, currentDamage.to_s
   end
 
   def getTotalDamage(damages)

@@ -256,7 +256,7 @@ INFO_MESSAGE_TEXT
       ability, indexText = get_table_by_d66(table)
       next if( ability == '1' )
 
-      output += "#{ability}"
+      output += ability.to_s
       dice += indexText
     end
 

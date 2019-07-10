@@ -1316,7 +1316,7 @@ end
         ['리코더', '오카리나', '오보에', '하모니카', '아코디언', '퉁소']
       ][type - 1][dice - 1]
 
-    return "#{tableName}" + (is_roll ? "(#{type})" : '') + "：#{type_name}(#{dice})：#{result}"
+    return tableName.to_s + (is_roll ? "(#{type})" : '') + "：#{type_name}(#{dice})：#{result}"
   end
 
   def getEastalDiceCommandResult(command)

@@ -150,7 +150,7 @@ class CountHolder
     debug('setCount @nick, @characterName', @nick, @characterName)
 
     output = ""
-    output += "#{@characterName.downcase}" if(@nick != @characterName)
+    output += @characterName.downcase.to_s if(@nick != @characterName)
     output += "(#{@tagName}) #{@currentValue}"
 
     debug("setCount @maxValue", @maxValue)
@@ -185,7 +185,7 @@ class CountHolder
     nowText = getValueText(currentValue, maxValue)
 
     output = ""
-    output += "#{@characterName.downcase}" if(@nick != @characterName)
+    output += @characterName.downcase.to_s if(@nick != @characterName)
     output += "(#{@tagName}) #{preText} -> #{nowText}"
 
     debug("changeCount end output", output)
@@ -194,7 +194,7 @@ class CountHolder
   end
 
   def getValueText(currentValue, maxValue)
-    text = "#{currentValue}"
+    text = currentValue.to_s
     text += "/#{maxValue}" unless( maxValue.nil? )
 
     return text
@@ -324,7 +324,7 @@ class CountHolder
         if(tag_out)
           debug("中身があるなら")
           pc_out += ", " if(pc_out)
-          pc_out += "#{tag_out}"
+          pc_out += tag_out.to_s
         end
       end
     end
@@ -356,7 +356,7 @@ class CountHolder
         currentValue = info[:currentValue]
         maxValue = info[:maxValue]
 
-        tagText += "#{currentValue}"
+        tagText += currentValue.to_s
         tagText += "/#{maxValue}" unless( maxValue.nil? )
       end
 

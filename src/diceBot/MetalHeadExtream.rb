@@ -146,7 +146,7 @@ MESSAGETEXT
     complementText += ", LUC:#{luckPoint}" if(luckPoint > 0)
 
     if(modify >= 1)
-      modifyText = "#{modify.to_i}"
+      modifyText = modify.to_i.to_s
     else
       modifyText = "1\/#{(1 / modify).to_i}"
     end
