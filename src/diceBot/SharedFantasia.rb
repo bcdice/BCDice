@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class SharedFantasia < DiceBot
-  setPrefixes(['SF.*','ST.*'])
+  setPrefixes(['SF.*', 'ST.*'])
 
   def initialize
     #$isDebug = true

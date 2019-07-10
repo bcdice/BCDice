@@ -71,7 +71,7 @@ INFO_MESSAGE_TEXT
       debug("=====>!! str", str)
 
       step, calc, total, value, nextText = getStepResultInfo(str)
-      debug("=====> step",step)
+      debug("=====> step", step)
 
       return nil if step.nil?
 
@@ -88,7 +88,7 @@ INFO_MESSAGE_TEXT
 
     stepText = steps.join("+")
     calcText = calcs.join(")+(")
-    stepTotal = totals.inject { |sum,i| sum + i }
+    stepTotal = totals.inject { |sum, i| sum + i }
 
     calcText = "(" + calcText + ")" if calcs.size > 1
     calcText += " ＞ (#{totals.join('+')})" if totals.size > 1

@@ -75,7 +75,7 @@ INFO_MESSAGE_TEXT
   def rokumon2_roll(mod, target, abl)
     suc = 0
 
-    _, dicestr, = roll(3 + mod.abs, 6 , 1)
+    _, dicestr, = roll(3 + mod.abs, 6, 1)
 
     dice = dicestr.split(/,/).collect { |i| i.to_i }
 
@@ -111,7 +111,7 @@ INFO_MESSAGE_TEXT
   end
 
   def rokumon2_suc_rank(suc)
-    suc_rank = ['E','D','C','B','A','S']
+    suc_rank = ['E', 'D', 'C', 'B', 'A', 'S']
     return suc_rank[ suc ]
   end
 end

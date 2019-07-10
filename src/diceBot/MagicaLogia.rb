@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class MagicaLogia < DiceBot
-  setPrefixes(['WT', 'FCT', 'ST', 'FT', 'AT', 'BGT', 'DAT', 'FAT', 'WIT', 'RTT', 'TPT', 'TCT', 'PCT', 'MCT', 'ICT', 'SCT', 'XCT', 'WCT', 'CCT', 'BST', 'PT', 'XEST', 'IWST', 'MCST', 'WDST', 'LWST','MIT','MOT','MAT','MUT','MFT','MLT','STB','RTS','RTB','RTF','RTP','RTD','RTN','MGCT','MBST','MAST','TCST','PWST','PAST','GBST','SLST','WLAT','WMT','FFT','OLST','TPTB','FLT'])
+  setPrefixes(['WT', 'FCT', 'ST', 'FT', 'AT', 'BGT', 'DAT', 'FAT', 'WIT', 'RTT', 'TPT', 'TCT', 'PCT', 'MCT', 'ICT', 'SCT', 'XCT', 'WCT', 'CCT', 'BST', 'PT', 'XEST', 'IWST', 'MCST', 'WDST', 'LWST', 'MIT', 'MOT', 'MAT', 'MUT', 'MFT', 'MLT', 'STB', 'RTS', 'RTB', 'RTF', 'RTP', 'RTD', 'RTN', 'MGCT', 'MBST', 'MAST', 'TCST', 'PWST', 'PAST', 'GBST', 'SLST', 'WLAT', 'WMT', 'FFT', 'OLST', 'TPTB', 'FLT'])
 
   def initialize
     super
@@ -342,7 +342,7 @@ INFO_MESSAGE_TEXT
     return "" unless dice1 == dice2
 
     # ゾロ目
-    table = ['星','獣','力','歌','夢','闇']
+    table = ['星', '獣', '力', '歌', '夢', '闇']
     return " ＞ " + table[dice1 - 1] + "の魔素2が発生"
   end
 
@@ -432,14 +432,14 @@ INFO_MESSAGE_TEXT
 
   #魔素の種類獲得表
   def get_magic_element_type
-    table = ['星','獣','力','歌','夢','闇']
+    table = ['星', '獣', '力', '歌', '夢', '闇']
     return get_table_by_1d6(table)
   end
 
   #時の流れ表
   def magicalogia_time_passage_table
     output = ""
-    num, = roll(1,6)
+    num, = roll(1, 6)
 
     if num == 1
       output = "標的となり追われる生活が続いた。ここ数年は苦しい戦いの日々だった。#{magicalogia_random_skill_table_text_only}の判定を行う。成功するとセッション終了時に追加の功績点1点。失敗すると「運命変転」発生。"

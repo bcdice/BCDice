@@ -46,7 +46,7 @@ MESSAGETEXT
 
     specialValue = criticalValue
 
-    rollResult, successCount, roundCount, specialCount , fumbleCount = getDiceRollResult(diceCount, targetNumber, criticalValue, specialValue)
+    rollResult, successCount, roundCount, specialCount, fumbleCount = getDiceRollResult(diceCount, targetNumber, criticalValue, specialValue)
 
     output = "(#{command}) ＞ #{rollResult}"
 
@@ -94,11 +94,11 @@ MESSAGETEXT
         specialCount = 1
         successCount = diceCount * 3
 
-        return rollResult, successCount ,roundCount, specialCount, fumbleCount
+        return rollResult, successCount, roundCount, specialCount, fumbleCount
       elsif fumbleFlag
         fumbleCount = 1
 
-        return rollResult, successCount ,roundCount, specialCount, fumbleCount
+        return rollResult, successCount, roundCount, specialCount, fumbleCount
       end
 
       diceCount = 0
@@ -117,7 +117,7 @@ MESSAGETEXT
       end
     end
 
-    return rollResult, successCount ,roundCount, specialCount, fumbleCount
+    return rollResult, successCount, roundCount, specialCount, fumbleCount
   end
 
   def getRoundCountText(roundCount)

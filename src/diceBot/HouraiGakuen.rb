@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class HouraiGakuen < DiceBot
-  setPrefixes(['ROL.*', 'MED\(\d+,\d+\)', 'RES\(\d+,\d+\)' , 'INY.*' , 'HTK.*' , 'GOG.*'])
+  setPrefixes(['ROL.*', 'MED\(\d+,\d+\)', 'RES\(\d+,\d+\)', 'INY.*', 'HTK.*', 'GOG.*'])
 
   #ゲームの名前
   def gameName
@@ -229,7 +229,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getOddEven
-    dice, = roll(1,6)
+    dice, = roll(1, 6)
 
     return "偶数" if (dice % 2) == 0
 

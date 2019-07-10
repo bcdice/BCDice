@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class LogHorizon < DiceBot
-  setPrefixes(['\d+LH.*', 'PC.*', 'EC.*', 'GC.*', 'CC.*', 'CTR.*', 'MTR.*', 'ITR.*', 'OTR.*', 'HTR.*','GTR.*', 'PTAG', 'KOYU', 'MGR.', 'HLOC', 'PCNM', 'IAT.*', 'TIAS', 'ABDC', 'MII.*', 'ESCT.*', 'CSCT.*', 'ESTL.*'])
+  setPrefixes(['\d+LH.*', 'PC.*', 'EC.*', 'GC.*', 'CC.*', 'CTR.*', 'MTR.*', 'ITR.*', 'OTR.*', 'HTR.*', 'GTR.*', 'PTAG', 'KOYU', 'MGR.', 'HLOC', 'PCNM', 'IAT.*', 'TIAS', 'ABDC', 'MII.*', 'ESCT.*', 'CSCT.*', 'ESTL.*'])
 
   def initialize
     super

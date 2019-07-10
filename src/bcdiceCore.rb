@@ -892,7 +892,7 @@ class BCDice
   #**                           ランダマイザ
   #=========================================================================
   # ダイスロール
-  def roll(dice_cnt, dice_max, dice_sort = 0, dice_add = 0 , dice_ul = '' , dice_diff = 0 , dice_re = nil)
+  def roll(dice_cnt, dice_max, dice_sort = 0, dice_add = 0, dice_ul = '', dice_diff = 0, dice_re = nil)
     dice_cnt = dice_cnt.to_i
     dice_max = dice_max.to_i
     dice_re = dice_re.to_i

@@ -210,7 +210,7 @@ INFO_MESSAGE_TEXT
       name, text, total = choiceStrengthStigmaTable()
     when "WST", "WillStigmaTable".upcase
       name, text, total = choiceWillStigmaTable()
-    when "SBET","StrengthBadEndTable".upcase
+    when "SBET", "StrengthBadEndTable".upcase
       name, text, total = choiceStrengthBadEndTable()
     when "WBET", "WillBadEndTable".upcase
       name, text, total = choiceWillBadEndTable()
@@ -242,7 +242,7 @@ INFO_MESSAGE_TEXT
 ]
 
     text, total = get_table_by_2d6(table)
-    return name , text, total
+    return name, text, total
   end
 
   def choiceWillStigmaTable()
@@ -263,7 +263,7 @@ INFO_MESSAGE_TEXT
 ]
 
     text, total = get_table_by_2d6(table)
-    return name , text, total
+    return name, text, total
   end
 
   def choiceStrengthBadEndTable()
@@ -284,7 +284,7 @@ INFO_MESSAGE_TEXT
 ]
 
     text, total = get_table_by_2d6(table)
-    return name , text, total
+    return name, text, total
   end
 
   def choiceWillBadEndTable()
@@ -305,6 +305,6 @@ INFO_MESSAGE_TEXT
 ]
 
     text, total = get_table_by_2d6(table)
-    return name , text, total
+    return name, text, total
   end
 end

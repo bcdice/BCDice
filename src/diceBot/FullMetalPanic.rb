@@ -3,7 +3,7 @@
 require 'diceBot/MetallicGuadian'
 
 class FullMetalPanic < MetallicGuadian
-  setPrefixes(['2D6.*','MG.*','FP.*'])
+  setPrefixes(['2D6.*', 'MG.*', 'FP.*'])
 
   def initialize
     super

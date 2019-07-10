@@ -3,7 +3,7 @@
 require 'diceBot/SRS'
 
 class MetallicGuadian < SRS
-  setPrefixes(['2D6.*','MG.*'])
+  setPrefixes(['2D6.*', 'MG.*'])
 
   def initialize
     super
