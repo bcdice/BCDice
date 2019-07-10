@@ -1968,7 +1968,7 @@ MESSAGETEXT
   def getEastalDiceCommandResult(command)
     return nil unless (m = /ESTL(\d*)([\+\-\d]*)(\$(\d+))?/.match(command))
 
-    return command if (m[1].empty? && m[2].empty? && m[3].nil?)
+    return command if m[1].empty? && m[2].empty? && m[3].nil?
 
     rank = m[1].to_i
     is_choice = (m[1].empty? || (!m[3].nil?))

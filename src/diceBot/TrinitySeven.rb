@@ -41,7 +41,7 @@ MESSAGETEXT
     debug("rollDiceCommand command", command)
 
     string = command.upcase
-    if ( /TRNAME/ =~ command )
+    if  /TRNAME/ =~ command
       firstName, total_n =  get_NAME_table
       secondName, total_o =  get_NAMEtwo_table
       return "#{firstName} , #{secondName}"

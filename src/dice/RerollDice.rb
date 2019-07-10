@@ -136,7 +136,7 @@ class RerollDice
       debug('dice_str', dice_str)
       output += " + #{dice_str}"
 
-      break unless ( @bcdice.isReRollAgain(dice_cnt, round) )
+      break unless  @bcdice.isReRollAgain(dice_cnt, round)
     end
 
     debug('output', output)

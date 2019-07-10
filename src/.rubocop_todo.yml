@@ -998,12 +998,6 @@ Style/OneLineConditional:
   Exclude:
     - 'diceBot/ShinkuuGakuen.rb'
 
-# Offense count: 95
-# Cop supports --auto-correct.
-# Configuration parameters: AllowSafeAssignment, AllowInMultilineConditions.
-Style/ParenthesesAroundCondition:
-  Enabled: false
-
 # Offense count: 362
 # Cop supports --auto-correct.
 # Configuration parameters: PreferredDelimiters.

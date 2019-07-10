@@ -88,7 +88,7 @@ class UpperDice
 
     output = "#{@nick_e}: (#{string}) ＞ #{output}";
 
-    if (output.length > $SEND_STR_MAX)
+    if output.length > $SEND_STR_MAX
       output ="#{@nick_e}: (#{string}) ＞ ... ＞ #{totalValue}";
       if(@signOfInequality == "")
         output += getMaxAndTotalValueResultStirng(maxValue, totalValue, totalDiceCount)

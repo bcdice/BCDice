@@ -79,7 +79,7 @@ class IrcClient < Net::IRC::Client
 
     debug("join nick_e, host_j, channel", nick_e, host_j, channel);
 
-    if ( host_j =~ /^someone\@somewhere\.else\.com$/)  # Auto-ops anyone who
+    if  host_j =~ /^someone\@somewhere\.else\.com$/  # Auto-ops anyone who
       debug_out("Give  to #{nick_e}\n");
       self.mode( encode($ircCode, channel), "+o", nick_e);      # matches hostmask.
     end
