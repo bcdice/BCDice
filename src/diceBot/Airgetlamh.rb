@@ -55,7 +55,7 @@ MESSAGETEXT
       target = ($3 || 6).to_i
       damage = ($6 || 0).to_i
 
-      if($2 == 'L')  # 旧Ver対応
+      if($2 == 'L') # 旧Ver対応
         criticalTrigger = 0
         criticalNumber = 0
       else

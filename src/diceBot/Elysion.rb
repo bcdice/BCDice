@@ -244,7 +244,7 @@ MESSAGETEXT
     dice1, dummy = roll(1, 6)
     dice2, dummy = roll(1, 6)
 
-    result =  "#{pc1}[#{dice1}],#{pc2}[#{dice2}] ＞ "
+    result = "#{pc1}[#{dice1}],#{pc2}[#{dice2}] ＞ "
 
     number = dice1 * 10 + dice2
 
@@ -255,7 +255,7 @@ MESSAGETEXT
       number = dice2 * 10 + dice1
     end
 
-    result +=  getDateResult(type, number, pc1, pc2)
+    result += getDateResult(type, number, pc1, pc2)
 
     return result
   end

@@ -4,8 +4,8 @@ class ShadowRun4 < DiceBot
   def initialize
     super
     @sortType = 3
-    @rerollNumber = 6      #振り足しする出目
-    @defaultSuccessTarget = ">=5"   #目標値が空欄の時の目標値
+    @rerollNumber = 6 #振り足しする出目
+    @defaultSuccessTarget = ">=5" #目標値が空欄の時の目標値
   end
 
   def gameName

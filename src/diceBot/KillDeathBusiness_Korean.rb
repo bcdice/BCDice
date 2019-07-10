@@ -150,7 +150,7 @@ INFO_MESSAGE_TEXT
     if( fumble < 2 )
       fumble = 2
     elsif(fumble > 11 )
-      result  += "【#{command}】 ＞ 스페셜을 내면 반드시 성공이므로, 펌블치은 11으로 한다.\n"
+      result += "【#{command}】 ＞ 스페셜을 내면 반드시 성공이므로, 펌블치은 11으로 한다.\n"
       fumble = 11
     end
 

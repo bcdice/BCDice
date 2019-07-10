@@ -31,7 +31,7 @@ MESSAGETEXT
 
     case command
     when /(\d+)?CL(\@?(\d))?(>=(\d+))?/i
-      base  = ($1 || 1).to_i
+      base = ($1 || 1).to_i
       target = ($3 || 6).to_i
       diff  = $5.to_i
       result= checkRoll(base, target, diff)
@@ -45,7 +45,7 @@ MESSAGETEXT
   def checkRoll(base, target, diff)
     result = ""
 
-    base  = getValue(base)
+    base = getValue(base)
     target = getValue(target)
 
     return result if base < 1

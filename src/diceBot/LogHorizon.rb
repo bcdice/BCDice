@@ -145,7 +145,7 @@ MESSAGETEXT
     is_choice = !$4.nil?
     dice_value = $5
     modifyText = $3
-    modify  = getValue(modifyText, 0)
+    modify = getValue(modifyText, 0)
 
     tableName = ""
     tables = nil
@@ -1999,14 +1999,14 @@ MESSAGETEXT
   def getEastalExplorationResultTable
     tableName = "イースタル探索表"
     table = [
-             [  7, <<EOS
+             [ 7, <<EOS
 香りに誘われて：
 　小さな街道沿いで、商隊が〈走り茸〉にまとわりつかれている。
 　奴らを追い払うと、商隊のリーダーがお礼にと人数分の「干した〈走り松茸〉[換金](40G)」をくれる。
 　追われていた理由はこれだったらしい。
 EOS
              ],
-             [  8, <<EOS
+             [ 8, <<EOS
 不幸な出会い：
 　街道を歩いていると、横合いの茂みから〈小牙竜鬼〉の一団が飛び出してきた。
 　突然のことでとても驚いたけど、向こうも〈冒険者〉がいるとは思っていなかったらしい。
@@ -2014,7 +2014,7 @@ EOS
 　PCは全員[疲労:10]を受ける。
 EOS
              ],
-             [  9, <<EOS
+             [ 9, <<EOS
 釣果はいかが？：
 　〈大地人〉の村近くの川で釣りが盛んなようだ。
 　挑戦するならば長靴の中に(2D*5)Gを見つけることができる。

@@ -227,7 +227,7 @@ class TableFileData
 
     return unless( File.exist?(fileName) )
 
-    dice, title, table  = getTableDataFromFile(fileName)
+    dice, title, table = getTableDataFromFile(fileName)
 
     oneTableData["dice"] = dice
     oneTableData["title"] = title
@@ -283,7 +283,7 @@ class TableFileCreator
       prefix2 = "#{gameType}_"
     end
 
-    fileName =  "#{@dir}/#{@prefix}#{prefix2}#{command}.txt"
+    fileName = "#{@dir}/#{@prefix}#{prefix2}#{command}.txt"
     fileName.untaint
 
     return fileName

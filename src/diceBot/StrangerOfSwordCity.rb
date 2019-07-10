@@ -87,7 +87,7 @@ INFO_MESSAGE_TEXT
   def getCriticalResult(diceList)
     dice6Count = diceList.select{|i| i == 6 }.size
 
-    if  dice6Count >= 2
+    if dice6Count >= 2
       return dice6Count.to_s
     end
 

@@ -50,21 +50,21 @@ class DiceBot
 
   @@bcdice = nil
 
-  @@DEFAULT_SEND_MODE = 2                  # デフォルトの送信形式(0=結果のみ,1=0+式,2=1+ダイス個別)
+  @@DEFAULT_SEND_MODE = 2 # デフォルトの送信形式(0=結果のみ,1=0+式,2=1+ダイス個別)
 
   def initialize
     @sendMode = @@DEFAULT_SEND_MODE #(0=結果のみ,1=0+式,2=1+ダイス個別)
-    @sortType = 0      #ソート設定(1 = 足し算ダイスでソート有, 2 = バラバラロール（Bコマンド）でソート有, 3 = １と２両方ソート有）
-    @sameDiceRerollCount = 0     #ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
-    @sameDiceRerollType = 0   #ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
-    @d66Type = 1        #d66の差し替え(0=D66無し, 1=順番そのまま([5,3]->53), 2=昇順入れ替え([5,3]->35)
-    @isPrintMaxDice = false      #最大値表示
+    @sortType = 0 #ソート設定(1 = 足し算ダイスでソート有, 2 = バラバラロール（Bコマンド）でソート有, 3 = １と２両方ソート有）
+    @sameDiceRerollCount = 0 #ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
+    @sameDiceRerollType = 0 #ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
+    @d66Type = 1 #d66の差し替え(0=D66無し, 1=順番そのまま([5,3]->53), 2=昇順入れ替え([5,3]->35)
+    @isPrintMaxDice = false #最大値表示
     @upplerRollThreshold = 0      #上方無限
     @unlimitedRollDiceType = 0    #無限ロールのダイス
-    @rerollNumber = 0      #振り足しする条件
-    @defaultSuccessTarget = ""      #目標値が空欄の時の目標値
-    @rerollLimitCount = 10000    #振り足し回数上限
-    @fractionType = "omit"     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
+    @rerollNumber = 0 #振り足しする条件
+    @defaultSuccessTarget = "" #目標値が空欄の時の目標値
+    @rerollLimitCount = 10000 #振り足し回数上限
+    @fractionType = "omit" #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
 
     @gameType = 'DiceBot'
 
@@ -210,7 +210,7 @@ class DiceBot
 
     output_msg = "#{nick_e}: #{output_msg}" if(output_msg != '1')
 
-    if( secretMarker )   # 隠しロール
+    if( secretMarker ) # 隠しロール
       secret_flg = true if(output_msg != '1')
     end
 
@@ -259,7 +259,7 @@ class DiceBot
     ''
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
     ''
   end
 
@@ -296,7 +296,7 @@ class DiceBot
 
     text = getTableValue(table[num - count])
 
-    return '1', 0  if( text.nil? )
+    return '1', 0 if( text.nil? )
 
     return text, num
   end
@@ -313,7 +313,7 @@ class DiceBot
 
     text = table[index]
 
-    return '1', 0  if( text.nil? )
+    return '1', 0 if( text.nil? )
 
     return text, num
   end
@@ -340,7 +340,7 @@ class DiceBot
 
     indexText = "#{dice1}#{dice2}"
 
-    return '1', indexText  if( text.nil? )
+    return '1', indexText if( text.nil? )
 
     return text, indexText
   end
@@ -477,13 +477,13 @@ class DiceBot
         item, value = get_table_by_d66(table)
         value = value.to_i
         output = item[1]
-        diceText = (value / 10).to_s  + "," + (value % 10).to_s
+        diceText = (value / 10).to_s + "," + (value % 10).to_s
         [output, value, diceText]
       when 'D66S'
         table = getTableInfoFromExtraTableText(table, 21)
         output, value = get_table_by_d66_swap(table)
         value = value.to_i
-        diceText = (value / 10).to_s  + "," + (value % 10).to_s
+        diceText = (value / 10).to_s + "," + (value % 10).to_s
         [output, value, diceText]
       else
         raise "invalid dice Type #{command}"
@@ -505,7 +505,7 @@ class DiceBot
     end
 
     newTable = text.map do |item|
-      if item.kind_of?(String) &&  (/^(\d+):(.*)/ === item)
+      if item.kind_of?(String) && (/^(\d+):(.*)/ === item)
         [$1.to_i, $2]
       else
         item

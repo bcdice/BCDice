@@ -31,7 +31,7 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-    return  ed_step(command)
+    return ed_step(command)
   end
 
   #アースドーンステップ表
@@ -47,9 +47,9 @@ INFO_MESSAGE_TEXT
     stepTotal = 0
     @isFailed = true
 
-    step  = $1.to_i      #ステップ
+    step = $1.to_i #ステップ
     targetNumber = [$2.to_i, 20].min #目標値
-    hasKarmaDice = !$3.nil?  #カルマダイスの有無
+    hasKarmaDice = !$3.nil? #カルマダイスの有無
     karmaDiceCount = [1, $4.to_i].max #カルマダイスの個数
     karmaDiceType = $5.to_i #カルマダイスの種類
     diceModify = $6.to_i
@@ -127,7 +127,7 @@ INFO_MESSAGE_TEXT
       return get_table_by_number(step, baseStepTable)
     end
 
-    baseStepInfo = [  0,   1,   0,  0,  0,  0,   0]
+    baseStepInfo = [  0, 1, 0, 0, 0, 0, 0]
     overStep = step - baseMaxStep - 1
 
     stepRythm =
@@ -143,7 +143,7 @@ INFO_MESSAGE_TEXT
        [  0,   2,   0,  0,  0,  0,   0],
     ]
 
-    result = [  0,   0,   0,  0,  0,  0,   0]
+    result = [  0, 0, 0, 0, 0, 0, 0]
 
     loopCount = (overStep / stepRythm.size)
 
@@ -187,7 +187,7 @@ INFO_MESSAGE_TEXT
     successTable =
       [
        #       Pathetic Poor Average Good Excellent Extraordinary
-       [ 2,  [     0,     1,     2,     5,     7,     9  ] ],
+       [ 2,  [     0,     1,     2,     5,     7, 9  ] ],
        [ 3,  [     0,     1,     3,     6,     8,    10  ] ],
        [ 4,  [     0,     1,     4,     7,    10,    12  ] ],
        [ 5,  [     1,     2,     5,     8,    11,    14  ] ],
@@ -250,7 +250,7 @@ INFO_MESSAGE_TEXT
         @isFailed = false
       end
 
-      dice_in =  dice_now
+      dice_in = dice_now
 
       while( dice_now == diceType )
         dice_now, dummy = roll(1, diceType)

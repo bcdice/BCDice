@@ -230,7 +230,7 @@ MESSAGETEXT
 
     return "ファンブル（変調を受け、心労が1点上昇）" if max <= 1
     return "スペシャル（余裕2点と、探偵から助手への感情を獲得）" if diceList.include?(@special_dice)
-    return "成功（余裕1点と、探偵から助手への感情を獲得）"  if max >= @success_threshold
+    return "成功（余裕1点と、探偵から助手への感情を獲得）" if max >= @success_threshold
 
     return "失敗"
   end

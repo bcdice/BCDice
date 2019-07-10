@@ -144,7 +144,7 @@ MESSAGETEXT
     is_choice = !$4.nil?
     dice_value = $5
     modifyText = $3
-    modify  = getValue(modifyText, 0)
+    modify = getValue(modifyText, 0)
 
     tableName = ""
     tables = nil

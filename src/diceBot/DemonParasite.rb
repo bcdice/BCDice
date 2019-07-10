@@ -37,11 +37,11 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(nD6)
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    if(n1 >= 2)  # １の目が２個以上ならファンブル
+    if(n1 >= 2) # １の目が２個以上ならファンブル
       return " ＞ 致命的失敗"
     end
 
-    if(n_max >= 2)  # ６の目が２個以上あったらクリティカル
+    if(n_max >= 2) # ６の目が２個以上あったらクリティカル
       return " ＞ 効果的成功"
     end
 
@@ -86,7 +86,7 @@ INFO_MESSAGE_TEXT
     case initialWord
     when nil
       urge_type = 1
-    when /n/i    # 新衝動表
+    when /n/i # 新衝動表
       urge_type = 2
     when /a/i   # 誤作動表
       urge_type = 3
@@ -96,7 +96,7 @@ INFO_MESSAGE_TEXT
       urge_type = 5
     when /c/i   # 鬼御魂(戦闘中)衝動表
       urge_type = 6
-    else     # あり得ない文字
+    else # あり得ない文字
       urge_type = 1
     end
 
@@ -463,7 +463,7 @@ INFO_MESSAGE_TEXT
           '『本性』瞬時に異形化。異形化中であれば、さらに禍々しい姿へ変質する。[20点]',
           '『覚醒』1時間、全身から閃光を発し、高さが【精神】mの"光の柱"に包まれる。[30点]',
         ]]
-    else                     # 鬼御魂(戦闘中)衝動表
+    else # 鬼御魂(戦闘中)衝動表
       return [[
           '『恐怖』効果が発生したターンの終了時まで「行動不能」状態となる。',
           '『落涙』1ターン(10秒)「通常」行動を行えない。回避行動に影響はない。',

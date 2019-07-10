@@ -26,7 +26,7 @@ class ParasiteBlood < DemonParasite
 INFO_MESSAGE_TEXT
   end
 
-  def get_urge(string)    # パラサイトブラッドの衝動表
+  def get_urge(string) # パラサイトブラッドの衝動表
     urge = []
 
     unless(/(\w*)URGE\s*(\d+)/i =~ string)
@@ -70,11 +70,11 @@ INFO_MESSAGE_TEXT
   def get_pb_urge_table(level, dice, urge_type)
     table = nil
 
-    if(urge_type <= 1)  # 衝動表
+    if(urge_type <= 1) # 衝動表
       table =  get_pb_normal_urge_table
-    elsif(urge_type <= 2)  # AASとサイボーグの誤作動表
+    elsif(urge_type <= 2) # AASとサイボーグの誤作動表
       table = get_pb_aas_urge_table
-    else   # エラートラップ
+    else # エラートラップ
       table = get_pb_normal_urge_table
     end
 

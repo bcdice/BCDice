@@ -58,7 +58,7 @@ INFO_MESSAGE_TEXT
     "cmCM"
   end
 
-  def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
     if(dice_n >= 12)
       return " ＞ 自動的成功"
     end
@@ -82,7 +82,7 @@ INFO_MESSAGE_TEXT
   end
 
   ####################        SWレーティング表       ########################
-  def rating(string)     # レーティング表
+  def rating(string) # レーティング表
     debug("rating string", string)
 
     commands = getRatingCommandStrings
@@ -128,7 +128,7 @@ INFO_MESSAGE_TEXT
 
     if( addValue != 0 )
       output += "+#{addValue}" if(addValue > 0)
-      output +=  addValue.to_s if(addValue < 0)
+      output += addValue.to_s if(addValue < 0)
     end
 
     output += " ＞ "
@@ -186,7 +186,7 @@ INFO_MESSAGE_TEXT
     return output, values
   end
 
-  def  getAdditionalDiceValue(dice, values)
+  def getAdditionalDiceValue(dice, values)
     0
   end
 
@@ -197,7 +197,7 @@ INFO_MESSAGE_TEXT
 
     if( regexp =~ string )
       crit = $1.to_i
-      crit = 3 if(crit < 3)        # エラートラップ(クリティカル値が3未満なら3とする)
+      crit = 3 if(crit < 3) # エラートラップ(クリティカル値が3未満なら3とする)
       string = string.gsub(regexp, '')
     end
 
@@ -233,7 +233,7 @@ INFO_MESSAGE_TEXT
     key = nil
     addValue = 0
 
-    if(/K(\d+)([\d\+\-]*)/i =~ string)    # ボーナスの抽出
+    if(/K(\d+)([\d\+\-]*)/i =~ string) # ボーナスの抽出
       key = $1
       if($2)
         addValue = parren_killer("(" + $2 + ")").to_i
@@ -412,13 +412,13 @@ INFO_MESSAGE_TEXT
 
     totalText = (totalValue + addValue).to_s
 
-    if(sendMode > 1)           # 表示モード２以上
+    if(sendMode > 1) # 表示モード２以上
       output += "2D:[#{diceResults.join(' ')}]=#{diceResultTotals.join(',')}"
       rateResultsText = rateResults.join(',')
       output += " ＞ #{rateResultsText}" unless( rateResultsText == totalText )
-    elsif(sendMode > 0)  # 表示モード１以上
+    elsif(sendMode > 0) # 表示モード１以上
       output += "2D:#{diceResultTotals.join(',')}"
-    else                     # 表示モード０
+    else # 表示モード０
       output += totalValue.to_s
     end
 
@@ -436,7 +436,7 @@ INFO_MESSAGE_TEXT
 
     output += "#{roundText}#{totalText}"
 
-    if  output.length > limitLength # 回りすぎて文字列オーバーしたときの救済
+    if output.length > limitLength # 回りすぎて文字列オーバーしたときの救済
       output = "... ＞ #{roundText}#{totalText}"
     end
 

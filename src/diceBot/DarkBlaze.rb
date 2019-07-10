@@ -87,7 +87,7 @@ INFO_MESSAGE_TEXT
     total, out_str = get_dice(mod, abl, skl)
     output = "#{nick_e}: (#{string}) ＞ #{out_str}"
 
-    if(signOfInequality != "")  # 成功度判定処理
+    if(signOfInequality != "") # 成功度判定処理
       output += check_suc(total, 0, signOfInequality, diff, 3, 6, 0, 0)
     end
 
@@ -152,7 +152,7 @@ INFO_MESSAGE_TEXT
   def get_horidasibukuro_table(dice)
     output = '1'
 
-    material_kind = [   #2D6
+    material_kind = [ #2D6
       "蟲甲",     #5
       "金属",     #6
       "金貨",     #7

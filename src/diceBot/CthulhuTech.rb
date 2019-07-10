@@ -24,7 +24,7 @@ INFO_MESSAGE_TEXT
   end
 
   def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)# ゲーム別成功度判定(nD10)
-    if(signOfInequality == ">=")    # 通常のテスト
+    if(signOfInequality == ">=") # 通常のテスト
       @isCombatTest = false
       return check_nD10_nomalTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     end
@@ -73,7 +73,7 @@ INFO_MESSAGE_TEXT
     debug('getDamageDice total_n, diff', total_n, diff)
     damageDiceCount = ((total_n - diff) / 5.0).ceil
     debug('damageDiceCount', damageDiceCount)
-    damageDice = "(#{damageDiceCount}d10)"   # ダメージダイスの表示
+    damageDice = "(#{damageDiceCount}d10)" # ダメージダイスの表示
 
     return damageDice
   end
@@ -103,12 +103,12 @@ INFO_MESSAGE_TEXT
     dice_aRR.each do |dice_n|
       dice_num[(dice_n - 1)] += 1
 
-      if(dice_n > max_num)  # 1.個別のダイスの最大値
+      if(dice_n > max_num) # 1.個別のダイスの最大値
         max_num = dice_n
       end
     end
 
-    if(dice_aRR.length >= 2)  # ダイスが2個以上ロールされている
+    if(dice_aRR.length >= 2) # ダイスが2個以上ロールされている
       10.times do |i|
         if(dice_num[i] > 1) # 2.同じ出目の合計値
           dice_now = dice_num[i] * (i + 1)
@@ -116,13 +116,13 @@ INFO_MESSAGE_TEXT
         end
       end
 
-      if(dice_aRR.length >= 3)  # ダイスが3個以上ロールされている
+      if(dice_aRR.length >= 3) # ダイスが3個以上ロールされている
         10.times do |i|
           break if( dice_num[i + 2] == nil )
 
           if(dice_num[i] > 0)
-            if( (dice_num[i + 1] > 0) && (dice_num[i + 2] > 0) )    # 3.連続する出目の合計
-              dice_now = i * 3 + 6  # ($i+1) + ($i+2) + ($i+3) = $i*3 + 6
+            if( (dice_num[i + 1] > 0) && (dice_num[i + 2] > 0) ) # 3.連続する出目の合計
+              dice_now = i * 3 + 6 # ($i+1) + ($i+2) + ($i+3) = $i*3 + 6
 
               ((i + 3)...10).step do |i2|
                 break if(dice_num[i2] == 0)

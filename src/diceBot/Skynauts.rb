@@ -5,7 +5,7 @@ class Skynauts < DiceBot
 
   def initialize
     super
-    @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
+    @fractionType = "omit"; #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
   end
 
   def gameName
@@ -109,13 +109,13 @@ MESSAGETEXT
 
   @@directionInfos = {
     1 => { :name => "左下", :position_diff => {:x => -1, :y => +1}},
-    2 => { :name => "下",   :position_diff => {:x =>  0, :y => +1}},
+    2 => { :name => "下", :position_diff => {:x => 0, :y => +1}},
     3 => { :name => "右下", :position_diff => {:x => +1, :y => +1}},
     4 => { :name => "左",   :position_diff => {:x => -1, :y =>  0}},
     # 5 は中央。算出する意味がないので対象外
     6 => { :name => "右",   :position_diff => {:x => +1, :y =>  0}},
     7 => { :name => "左上", :position_diff => {:x => -1, :y => -1}},
-    8 => { :name => "上",   :position_diff => {:x =>  0, :y => -1}},
+    8 => { :name => "上", :position_diff => {:x => 0, :y => -1}},
     9 => { :name => "右上", :position_diff => {:x => +1, :y => -1}},
   }
 
@@ -142,7 +142,7 @@ MESSAGETEXT
     fireCount = [fireCount, fireCountMax].min
 
     firePoint = getFirePoint(fireRange, fireCount) # 着弾座標取得（3次元配列）
-    fireText = getFirePointText(firePoint, fireCount)  # 表示用文字列作成
+    fireText = getFirePointText(firePoint, fireCount) # 表示用文字列作成
 
     if ballistics != 0 # 《弾道学》有
       fireText += " ＞ 《弾道学》:"
@@ -263,13 +263,13 @@ MESSAGETEXT
     direction = m[3].to_i
     debug("回避方向", direction)
 
-    judgeCommand = command.slice(/^AVO(\d*)?(@([2,4,6,8]))/)  # 判定部分
+    judgeCommand = command.slice(/^AVO(\d*)?(@([2,4,6,8]))/) # 判定部分
     text = "#{judgeCommand} ＞ 《回避運動》"
     text += getJudgeResult("SN" + $1.to_s) # 操舵判定
 
     return text unless /成功/ === text
 
-    pointCommand = command.slice(/(\(?\[縦\d+,横\d+\]\)?,?)+/)  # 砲撃座標
+    pointCommand = command.slice(/(\(?\[縦\d+,横\d+\]\)?,?)+/) # 砲撃座標
 
     firePoint = scanFirePoints(pointCommand)
     fireCount = firePoint.size

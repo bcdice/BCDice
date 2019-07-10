@@ -110,7 +110,7 @@ INFO_MESSAGE_TEXT
 
   result = " ＞ "
     diceResults.each do |diceResult|
-      result += diceResult.to_s  + ','
+      result += diceResult.to_s + ','
     end
 
   result = result.chop

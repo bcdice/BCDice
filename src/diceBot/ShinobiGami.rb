@@ -37,7 +37,7 @@ class ShinobiGami < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
     return '' unless( signOfInequality == ">=")
 
     if(dice_n <= 2)
@@ -58,19 +58,19 @@ INFO_MESSAGE_TEXT
     return result unless result.nil?
 
     case string
-    when /((\w)*ST)/i   # シーン表
+    when /((\w)*ST)/i # シーン表
       return sinobigami_scene_table(string)
-    when /([K]*FT)/i   # ファンブル表
+    when /([K]*FT)/i # ファンブル表
       return sinobigami_fumble_table(string)
-    when /(ET)/i   # 感情表
+    when /(ET)/i # 感情表
       return sinobigami_emotion_table()
-    when /([GK]?WT)/i   # 変調表
+    when /([GK]?WT)/i # 変調表
       return sinobigami_wrong_table(string)
-    when /(BT)/i   # 戦場表
+    when /(BT)/i # 戦場表
       return sinobigami_battlefield_table()
-    when /((\w)*RTT)/i   # ランダム特技決定表
+    when /((\w)*RTT)/i # ランダム特技決定表
       return sinobigami_random_skill_table()
-    when /(MT)/i   # 異形表
+    when /(MT)/i # 異形表
       return sinobigami_metamorphose_table()
     end
 

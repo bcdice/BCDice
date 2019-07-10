@@ -18,11 +18,11 @@ class Chill < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)     # ゲーム別成功度判定(1D10)
+  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(1D10)
     return '' if(signOfInequality != "<=")
 
     return " ＞ ファンブル" if(total_n >= 100)
-    return " ＞ 失敗"   if(total_n > diff)
+    return " ＞ 失敗" if(total_n > diff)
 
     return " ＞ Ｌ成功" if(total_n >= (diff * 0.9))
     return " ＞ Ｍ成功" if(total_n >= (diff / 2))

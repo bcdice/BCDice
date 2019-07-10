@@ -71,8 +71,8 @@ INFO_MESSAGE_TEXT
     dice_n = $3
     dice_n ||= 1
 
-    @isBattleMode = false       # 0=判定モード, 1=戦闘モード
-    criticalCallDice = 0         # 0=通常, 1〜6=クリティカルコール
+    @isBattleMode = false # 0=判定モード, 1=戦闘モード
+    criticalCallDice = 0 # 0=通常, 1〜6=クリティカルコール
 
     if( option )
       battleModeText, criticalCallDice = option.split(",").collect{|i|i.to_i}

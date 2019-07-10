@@ -49,7 +49,7 @@ INFO_MESSAGE_TEXT
     return checkRoll(string)
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
     return '' unless(signOfInequality == ">=")
 
     if(dice_n <= 2)
@@ -113,7 +113,7 @@ INFO_MESSAGE_TEXT
       output = "#{@nick_e}: (#{string}) ＞ #{total_n}"
     end
 
-    if(signOfInequality != "")  # 成功度判定処理
+    if(signOfInequality != "") # 成功度判定処理
       output += check_suc(total_n, dice_now, signOfInequality, diff, 2, 6, 0, 0)
     end
 

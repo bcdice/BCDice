@@ -334,7 +334,7 @@ class BCDice
   def setDisplayMode()
     return unless( isMaster() )
 
-    return unless( /(\d+)/  =~ @tnick )
+    return unless( /(\d+)/ =~ @tnick )
 
     mode = $1.to_i
     @diceBot.setSendMode(mode)
@@ -345,7 +345,7 @@ class BCDice
   def setUpplerRollThreshold()
     return unless( isMaster() )
 
-    return unless( /(\d+)/  =~ @tnick )
+    return unless( /(\d+)/ =~ @tnick )
 
     @diceBot.upplerRollThreshold = $1.to_i
 
@@ -359,7 +359,7 @@ class BCDice
   def setRerollLimit()
     return unless( isMaster() )
 
-    return unless( /(\d+)/  =~ @tnick )
+    return unless( /(\d+)/ =~ @tnick )
 
     @diceBot.rerollLimitCount = $1.to_i
 
@@ -382,7 +382,7 @@ class BCDice
   def setSortMode()
     return unless( isMaster() )
 
-    return unless( /(\d+)/  =~ @tnick )
+    return unless( /(\d+)/ =~ @tnick )
 
     sortType = $1.to_i
     @diceBot.setSortType(sortType)
@@ -403,7 +403,7 @@ class BCDice
   def setSpellMode()
     return unless( isMaster() )
 
-    return unless( /(\d+)/  =~ @tnick )
+    return unless( /(\d+)/ =~ @tnick )
 
     @isShortSpell = ($1.to_i != 0 )
 
@@ -501,7 +501,7 @@ class BCDice
 
   def getPrintPlotChannel(nick)
     nick = getNick(nick)
-    return  $plotPrintChannels[nick]
+    return $plotPrintChannels[nick]
   end
 
   def checkMode()
@@ -749,7 +749,7 @@ class BCDice
   #=========================================================================
   #**                           コマンド分岐
   #=========================================================================
-  def dice_command   # ダイスコマンドの分岐処理
+  def dice_command # ダイスコマンドの分岐処理
     arg = @message.upcase
 
     debug('dice_command arg', arg)
@@ -869,7 +869,7 @@ class BCDice
     string, secret, count, swapMarker = getD66Infos(dice)
     unless( string.nil? )
       value = getD66ValueByMarker(swapMarker)
-      diceText = (value / 10).to_s  + "," + (value % 10).to_s
+      diceText = (value / 10).to_s + "," + (value % 10).to_s
       return value, diceText
     end
 
@@ -949,10 +949,10 @@ class BCDice
         end
         round += 1
 
-        break unless  (dice_add > 1) && (dice_n >= dice_add)
+        break unless (dice_add > 1) && (dice_n >= dice_add)
       end
 
-      total +=  dice_now
+      total += dice_now
 
       if( dice_ul != '' )
         suc = check_hit(dice_now, dice_ul, dice_diff)
@@ -1057,7 +1057,7 @@ class BCDice
     diff = 0
     output = ""
 
-    string = string.gsub(/-[\d]+B[\d]+/, '')   # バラバラダイスを引き算しようとしているのを除去
+    string = string.gsub(/-[\d]+B[\d]+/, '') # バラバラダイスを引き算しようとしているのを除去
 
     unless( /(^|\s)S?(([\d]+B[\d]+(\+[\d]+B[\d]+)*)(([<>=]+)([\d]+))?)($|\s)/ =~ string )
       output = '1'
@@ -1221,7 +1221,7 @@ class BCDice
       end
     end
 
-    if(mode <= 0)  # 記録しておいたデータを削除
+    if(mode <= 0) # 記録しておいたデータを削除
       debug("delete recorde data")
       $secretRollMembersHolder.delete(channel)
     end
@@ -1236,7 +1236,7 @@ class BCDice
     nick = nick.upcase
 
     /[_\d]*(.+)[_\d]*/ =~ nick
-    nick = $1   # Nick端の数字はカウンター変わりに使われることが多いので除去
+    nick = $1 # Nick端の数字はカウンター変わりに使われることが多いので除去
 
     return nick
   end
@@ -1279,7 +1279,7 @@ class BCDice
     end
 
     key = getSecretDiceResultHolderKey(channel, mode, nick)
-    $secretDiceResultHolder[key] = diceResult    # 複数チャンネルも一応想定
+    $secretDiceResultHolder[key] = diceResult # 複数チャンネルも一応想定
 
     debug("key", key)
     debug("secretDiceResultHolder", $secretDiceResultHolder)
@@ -1329,7 +1329,7 @@ class BCDice
     return marshalSignOfInequality(text)
   end
 
-  def marshalSignOfInequality(signOfInequality)  # 不等号の整列
+  def marshalSignOfInequality(signOfInequality) # 不等号の整列
     case signOfInequality
     when /(<=|=<)/
       return "<="
@@ -1365,7 +1365,7 @@ class BCDice
         suc += 1
       end
     when /(>=|=>)/
-      if( dice_now >=  diff)
+      if( dice_now >= diff)
         suc += 1
       end
     when /(<>)/
@@ -1452,7 +1452,7 @@ class BCDice
     return ""
   end
 
-  def check_nDx(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(ダイスごちゃ混ぜ系)
+  def check_nDx(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(ダイスごちゃ混ぜ系)
     debug('check_nDx begin diff', diff)
     success = check_hit(total_n, signOfInequality, diff)
     debug('check_nDx success', success)

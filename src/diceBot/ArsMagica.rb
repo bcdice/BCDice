@@ -55,7 +55,7 @@ INFO_MESSAGE_TEXT
     return " ＞ 失敗"
   end
 
-  def check_1D10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)     # ゲーム別成功度判定(1D10)
+  def check_1D10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(1D10)
     if(signOfInequality != ">=")
       return ""
     end
@@ -125,7 +125,7 @@ INFO_MESSAGE_TEXT
         end
         total = bonus
       end
-    elsif(die == 1)    # Crit
+    elsif(die == 1) # Crit
       crit_dice = ""
       while die == 1
         crit_mul *= 2
@@ -154,7 +154,7 @@ INFO_MESSAGE_TEXT
         output += total.to_s
       end
     end
-    if(signOfInequality != "")  # 成功度判定処理
+    if(signOfInequality != "") # 成功度判定処理
       output += check_suc(total, 0, signOfInequality, diff, 1, 10, 0, 0)
     end
 

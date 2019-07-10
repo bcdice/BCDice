@@ -37,7 +37,7 @@ class CountHolder
       output = rename_point_counter()
       if( output != "1" )
         output = "#{nick}: #{output}"
-        isSecret = false  # 出力は常にPublic側
+        isSecret = false # 出力は常にPublic側
       end
 
     else
@@ -389,7 +389,7 @@ class CountHolder
 
     characterInfoList[newName] = counterInfo
 
-    output = "#{oldName}->#{newName}";   # 変更メッセージ
+    output = "#{oldName}->#{newName}"; # 変更メッセージ
     return output
   end
 

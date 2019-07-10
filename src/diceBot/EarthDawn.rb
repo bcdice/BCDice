@@ -27,7 +27,7 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-    return  ed_step(command)
+    return ed_step(command)
   end
 
   #アースドーンステップ表
@@ -44,11 +44,11 @@ INFO_MESSAGE_TEXT
     @isFailed = true
     step2 = 0
 
-    step  = $1.to_i      #ステップ
-    targetNumber  = 0    #目標値
-    hasKarmaDice = false         #カルマダイスの有無
-    karmaDiceCount = 0         #カルマダイスの個数又は修正
-    karmaDiceType = 0         #カルマダイスの種類
+    step  = $1.to_i #ステップ
+    targetNumber = 0 #目標値
+    hasKarmaDice = false #カルマダイスの有無
+    karmaDiceCount = 0 #カルマダイスの個数又は修正
+    karmaDiceType = 0 #カルマダイスの種類
 
     #空値があった時の為のばんぺいくんRX
     if(step > 40)
@@ -107,7 +107,7 @@ INFO_MESSAGE_TEXT
     stepTotal += rollStep( 6,  d6step)
     stepTotal += rollStep( 4,  d4step)
 
-    if( nmod > 0 )     #修正分の適用
+    if( nmod > 0 ) #修正分の適用
       @string += "+"
     end
 
@@ -125,10 +125,10 @@ INFO_MESSAGE_TEXT
     #結果判定
     @string += ' ＞ '
 
-    excelentSuccessNumber  = stable[7][targetNumber - 1]
-    superSuccessNumber   = stable[8][targetNumber - 1]
-    goodSuccessNumber   = stable[9][targetNumber - 1]
-    failedNumber   = stable[11][targetNumber - 1]
+    excelentSuccessNumber = stable[7][targetNumber - 1]
+    superSuccessNumber = stable[8][targetNumber - 1]
+    goodSuccessNumber = stable[9][targetNumber - 1]
+    failedNumber = stable[11][targetNumber - 1]
 
     if( @isFailed )
       @string += '自動失敗'
@@ -202,7 +202,7 @@ INFO_MESSAGE_TEXT
         @isFailed = false
       end
 
-      dice_in =  dice_now
+      dice_in = dice_now
 
       while( dice_now == diceType )
         dice_now, dummy = roll(1, diceType)
