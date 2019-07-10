@@ -611,11 +611,6 @@ Style/AccessModifierDeclarations:
     - 'irc/encode.rb'
     - 'test/DiceBotTest.rb'
 
-# Offense count: 1628
-# Configuration parameters: AllowedChars.
-Style/AsciiComments:
-  Enabled: false
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/Attr:
