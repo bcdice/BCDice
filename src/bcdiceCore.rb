@@ -949,7 +949,7 @@ class BCDice
         end
         round += 1
 
-        break unless ( (dice_add > 1) && (dice_n >= dice_add) )
+        break unless  (dice_add > 1) && (dice_n >= dice_add)
       end
 
       total +=  dice_now
@@ -1599,7 +1599,7 @@ class BCDice
   def paren_k(string)
     result = 0
 
-    return result unless (/([\d\/*+-]+)/ =~ string)
+    return result unless /([\d\/*+-]+)/ =~ string
 
     string = $1
 

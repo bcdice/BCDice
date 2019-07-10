@@ -1323,7 +1323,7 @@ end
     return nil unless command =~ /ESTL(\d+)/
 
     cr = $1.to_i
-    return nil unless (cr >= 1 && cr <= 10)
+    return nil unless cr >= 1 && cr <= 10
 
     tableName = "이스탈 탐색표"
 

@@ -55,13 +55,13 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckResult(command)
-    nil unless (/^CC([-\d]+)?<=(\d+)/i =~ command)
+    nil unless /^CC([-\d]+)?<=(\d+)/i =~ command
     bonus_dice_count = $1.to_i #ボーナス・ペナルティダイスの個数
     diff = $2.to_i
 
     return "エラー。目標値は1以上です。" if(diff <= 0)
 
-    unless ( @bonus_dice_range.include?(bonus_dice_count) )
+    unless  @bonus_dice_range.include?(bonus_dice_count)
       return "エラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
     end
 
@@ -94,7 +94,7 @@ INFO_MESSAGE_TEXT
     tens_digit_count.times do
       bonus = rollPercentD10
       total = (bonus * 10) + units_digit
-      total = 100 if (total == 0)
+      total = 100 if total == 0
 
       total_list.push(total)
     end
@@ -119,10 +119,10 @@ INFO_MESSAGE_TEXT
 
     fumble_text = "致命的失敗"
 
-    return fumble_text if (total == 100)
+    return fumble_text if total == 100
 
-    if (total >= 96)
-      if (diff < 50)
+    if total >= 96
+      if diff < 50
         return fumble_text
       else
         return fumble_text if fumbleable
@@ -163,7 +163,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getFullAutoResult(command)
-    return nil unless (/^FAR\((-?\d+)(,(-?\d+))(,(-?\d+))(,(-?\d+))?\)/i =~ command)
+    return nil unless /^FAR\((-?\d+)(,(-?\d+))(,(-?\d+))(,(-?\d+))?\)/i =~ command
 
     bullet_count = $1.to_i
     diff = $3.to_i
@@ -174,20 +174,20 @@ INFO_MESSAGE_TEXT
 
     #最大で（8回*（PC技能値最大値/10））＝72発しか撃てないはずなので上限
     bullet_count_limit = 100
-    if (bullet_count > bullet_count_limit)
+    if bullet_count > bullet_count_limit
       output += "\n弾薬が多すぎます。装填された弾薬を#{bullet_count_limit}発に変更します。\n"
       bullet_count = bullet_count_limit
     end
 
-    return "弾薬は正の数です。" if (bullet_count <= 0)
-    return "目標値は正の数です。" if (diff <= 0)
+    return "弾薬は正の数です。" if bullet_count <= 0
+    return "目標値は正の数です。" if diff <= 0
 
-    if (broken_number < 0)
+    if broken_number < 0
       output += "\n故障ナンバーは正の数です。マイナス記号を外します。\n"
       broken_number = broken_number.abs
     end
 
-    unless ( @bonus_dice_range.include?(bonus_dice_count) )
+    unless  @bonus_dice_range.include?(bonus_dice_count)
       return "\nエラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
     end
 
@@ -212,13 +212,13 @@ INFO_MESSAGE_TEXT
       output += getNextDifficltyMessage(more_difficlty)
 
       # ペナルティダイスを減らしながらロール用ループ
-      while (dice_num >= @bonus_dice_range.min)
+      while dice_num >= @bonus_dice_range.min
 
         loopCount += 1
         hit_result, total, total_list = getHitResultInfos(dice_num, diff, more_difficlty)
         output += "\n#{loopCount}回目: ＞ #{total_list.join(", ")} ＞ #{hit_result}"
 
-        if (total >= broken_number)
+        if total >= broken_number
           output += "ジャム"
           return getHitResultText(output, counts)
         end
@@ -230,7 +230,7 @@ INFO_MESSAGE_TEXT
         counts[:impale_bullet] += impale_bullet
         counts[:bullet] -= lost_bullet
 
-        return getHitResultText(output, counts) if (counts[:bullet] <= 0)
+        return getHitResultText(output, counts) if counts[:bullet] <= 0
 
         dice_num -= 1
       end
@@ -274,7 +274,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count = 0
     impale_bullet_count = 0
 
-    if ( !isLastBulletTurn(bullet_count, bullet_set_count) )
+    if  !isLastBulletTurn(bullet_count, bullet_set_count)
 
       case hit_type
       when :hit
@@ -344,7 +344,7 @@ INFO_MESSAGE_TEXT
   def getSetOfBullet(diff)
     bullet_set_count = diff / 10
 
-    if ((diff >= 1) && (diff < 10))
+    if (diff >= 1) && (diff < 10)
       bullet_set_count = 1  #技能値が9以下での最低値保障処理
     end
 
@@ -354,7 +354,7 @@ INFO_MESSAGE_TEXT
   def getHitBulletCountBase(diff, bullet_set_count)
     hit_bullet_count_base = (bullet_set_count / 2)
 
-    if ((diff >= 1) && (diff < 10))
+    if (diff >= 1) && (diff < 10)
       hit_bullet_count_base = 1  #技能値9以下での最低値保障
     end
 
@@ -367,7 +367,7 @@ INFO_MESSAGE_TEXT
 
   def getLastHitBulletCount(bullet_count)
     #残弾1での最低値保障処理
-    if (bullet_count == 1)
+    if bullet_count == 1
       return 1
     end
 

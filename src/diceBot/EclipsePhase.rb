@@ -39,7 +39,7 @@ INFO_MESSAGE_TEXT
 
     diff_threshold = 30
 
-    if (total_n <= diff)
+    if total_n <= diff
       return ' ＞ エクセレント' if total_n >= diff_threshold
 
       return ' ＞ 成功'

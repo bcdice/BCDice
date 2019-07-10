@@ -436,7 +436,7 @@ INFO_MESSAGE_TEXT
 
     output += "#{roundText}#{totalText}"
 
-    if ( output.length > limitLength) # 回りすぎて文字列オーバーしたときの救済
+    if  output.length > limitLength # 回りすぎて文字列オーバーしたときの救済
       output = "... ＞ #{roundText}#{totalText}"
     end
 
@@ -460,10 +460,10 @@ INFO_MESSAGE_TEXT
 
     if( /(\d+)/ =~ tnick )
       @rating_table = $1.to_i;
-      if (@rating_table > 1)
+      if @rating_table > 1
         mode_str = "2.0-mode";
         @rating_table = 2;
-      elsif (@rating_table > 0)
+      elsif @rating_table > 0
         mode_str = "new-mode";
         @rating_table = 1;
       else

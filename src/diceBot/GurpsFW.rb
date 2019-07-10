@@ -102,7 +102,7 @@ INFO_MESSAGE_TEXT
       fail_string = " ＞ 自動失敗(失敗度：#{success})";
 
       #クリティカル
-      if   ((dice_n <= 6) && (diff >= 16))
+      if   (dice_n <= 6) && (diff >= 16)
         return crt_string;
       elsif((dice_n <= 5) && (diff >= 15))
         return crt_string;
@@ -110,7 +110,7 @@ INFO_MESSAGE_TEXT
         return crt_string;
       end
       #ファンブル
-      if   (diff-dice_n <= -10)
+      if   diff-dice_n <= -10
         return fmb_string;
       elsif((dice_n >= 17) && (diff <=15))
         return fmb_string;

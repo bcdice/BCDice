@@ -127,7 +127,7 @@ INFO_MESSAGE_TEXT
       end
     elsif(die == 1)    # Crit
       crit_dice = "";
-      while (die == 1)
+      while die == 1
         crit_mul *= 2;
         die = rand(10) + 1;
         crit_dice += "#{die},";

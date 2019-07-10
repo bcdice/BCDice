@@ -54,7 +54,7 @@ MESSAGETEXT
         diff = $2.to_i
       end
 
-      if (diff > 0)
+      if diff > 0
         output += "(1D10<=#{diff})"
 
         total_n, = roll(1, 10)

@@ -53,13 +53,13 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckResult(command)
-    nil unless (/^CC([-\d]+)?<=(\d+)/i =~ command)
+    nil unless /^CC([-\d]+)?<=(\d+)/i =~ command
     bonus_dice_count = $1.to_i #보너스, 패널티 주사위의 개수
     diff = $2.to_i
 
     return "에러. 목표치는 1 이상입니다." if(diff <= 0)
 
-    unless ( @bonus_dice_range.include?(bonus_dice_count) )
+    unless  @bonus_dice_range.include?(bonus_dice_count)
       return "에러. 보너스, 패널티 주사위의 수치는 #{@bonus_dice_range.min}~#{@bonus_dice_range.max}입니다."
     end
 
@@ -92,7 +92,7 @@ INFO_MESSAGE_TEXT
     tens_digit_count.times do
       bonus = rollPercentD10
       total = (bonus * 10) + units_digit
-      total = 100 if (total == 0)
+      total = 100 if total == 0
 
       total_list.push(total)
     end
@@ -117,10 +117,10 @@ INFO_MESSAGE_TEXT
 
     fumble_text = "대실패"
 
-    return fumble_text if (total == 100)
+    return fumble_text if total == 100
 
-    if (total >= 96)
-      if (diff < 50)
+    if total >= 96
+      if diff < 50
         return fumble_text
       else
         return fumble_text if fumbleable
@@ -161,7 +161,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getFullAutoResult(command)
-    return nil unless (/^FAR\((-?\d+)(,(-?\d+))(,(-?\d+))(,(-?\d+))?\)/i =~ command)
+    return nil unless /^FAR\((-?\d+)(,(-?\d+))(,(-?\d+))(,(-?\d+))?\)/i =~ command
 
     bullet_count = $1.to_i
     diff = $3.to_i
@@ -172,20 +172,20 @@ INFO_MESSAGE_TEXT
 
     #최대(8번*(PC기능 수치 최대값/10))＝72발밖에 쏠 수 없으니 상한
     bullet_count_limit = 100
-    if (bullet_count > bullet_count_limit)
+    if bullet_count > bullet_count_limit
       output += "\n탄약이 너무 많습니다. 장전된 탄약을 #{bullet_count_limit}개로 변경합니다.\n"
       bullet_count = bullet_count_limit
     end
 
-    return "탄약은 1 이상입니다." if (bullet_count <= 0)
-    return "목표치는 1 이상입니다." if (diff <= 0)
+    return "탄약은 1 이상입니다." if bullet_count <= 0
+    return "목표치는 1 이상입니다." if diff <= 0
 
-    if (broken_number < 0)
+    if broken_number < 0
       output += "\n고장 넘버는 1 이상입니다. 마이너스 기호를 제거합니다.\n"
       broken_number = broken_number.abs
     end
 
-    unless ( @bonus_dice_range.include?(bonus_dice_count) )
+    unless  @bonus_dice_range.include?(bonus_dice_count)
       return "\n에러. 보너스, 패널티 주사위의 수치는 #{@bonus_dice_range.min}~#{@bonus_dice_range.max}입니다."
     end
 
@@ -210,13 +210,13 @@ INFO_MESSAGE_TEXT
       output += getNextDifficltyMessage(more_difficlty)
 
       # 패널티 다이스를 줄이면서 굴리는 용 루프
-      while (dice_num >= @bonus_dice_range.min)
+      while dice_num >= @bonus_dice_range.min
 
         loopCount += 1
         hit_result, total, total_list = getHitResultInfos(dice_num, diff, more_difficlty)
         output += "\n#{loopCount}번째: ＞ #{total_list.join(", ")} ＞ #{hit_result}"
 
-        if (total >= broken_number)
+        if total >= broken_number
           output += " 총알 걸림"
           return getHitResultText(output, counts)
         end
@@ -228,7 +228,7 @@ INFO_MESSAGE_TEXT
         counts[:impale_bullet] += impale_bullet
         counts[:bullet] -= lost_bullet
 
-        return getHitResultText(output, counts) if (counts[:bullet] <= 0)
+        return getHitResultText(output, counts) if counts[:bullet] <= 0
 
         dice_num -= 1
       end
@@ -272,7 +272,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count = 0
     impale_bullet_count = 0
 
-    if ( !isLastBulletTurn(bullet_count, bullet_set_count) )
+    if  !isLastBulletTurn(bullet_count, bullet_set_count)
 
       case hit_type
       when :hit
@@ -342,7 +342,7 @@ INFO_MESSAGE_TEXT
   def getSetOfBullet(diff)
     bullet_set_count = diff / 10
 
-    if ((diff >= 1) && (diff < 10))
+    if (diff >= 1) && (diff < 10)
       bullet_set_count = 1  #기능 수치가 9 이하일 때의 최저수치 보장 처리
     end
 
@@ -352,7 +352,7 @@ INFO_MESSAGE_TEXT
   def getHitBulletCountBase(diff, bullet_set_count)
     hit_bullet_count_base = (bullet_set_count / 2)
 
-    if ((diff >= 1) && (diff < 10))
+    if (diff >= 1) && (diff < 10)
       hit_bullet_count_base = 1  #기능 수치가 9 이하일 때의 최저수치 보장
     end
 
@@ -365,7 +365,7 @@ INFO_MESSAGE_TEXT
 
   def getLastHitBulletCount(bullet_count)
     #잔탄 1발일 때의 최저수치 보장 처리
-    if (bullet_count == 1)
+    if bullet_count == 1
       return 1
     end
 

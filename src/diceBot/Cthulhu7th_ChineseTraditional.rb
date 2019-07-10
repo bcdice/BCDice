@@ -57,13 +57,13 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckResult(command)
-    nil unless (/^CC([-\d]+)?<=(\d+)/i =~ command)
+    nil unless /^CC([-\d]+)?<=(\d+)/i =~ command
     bonus_dice_count = $1.to_i #獎勵、懲罰骰數量
     diff = $2.to_i
 
     return "錯誤。目標值需為1以上。" if(diff <= 0)
 
-    unless ( @bonus_dice_range.include?(bonus_dice_count) )
+    unless  @bonus_dice_range.include?(bonus_dice_count)
       return "錯誤。獎勵、懲罰骰値為#{@bonus_dice_range.min}～#{@bonus_dice_range.max}。"
     end
 
@@ -96,7 +96,7 @@ INFO_MESSAGE_TEXT
     tens_digit_count.times do
       bonus = rollPercentD10
       total = (bonus * 10) + units_digit
-      total = 100 if (total == 0)
+      total = 100 if total == 0
 
       total_list.push(total)
     end
@@ -121,10 +121,10 @@ INFO_MESSAGE_TEXT
 
     fumble_text = "致命的失敗"
 
-    return fumble_text if (total == 100)
+    return fumble_text if total == 100
 
-    if (total >= 96)
-      if (diff < 50)
+    if total >= 96
+      if diff < 50
         return fumble_text
       else
         return fumble_text if fumbleable
@@ -165,7 +165,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getFullAutoResult(command)
-    return nil unless (/^FAR\((-?\d+)(,(-?\d+))(,(-?\d+))(,(-?\d+))?\)/i =~ command)
+    return nil unless /^FAR\((-?\d+)(,(-?\d+))(,(-?\d+))(,(-?\d+))?\)/i =~ command
 
     bullet_count = $1.to_i
     diff = $3.to_i
@@ -176,20 +176,20 @@ INFO_MESSAGE_TEXT
 
     #射擊數不超過（8回*（PC技能値最大値/10））＝72的上限
     bullet_count_limit = 100
-    if (bullet_count > bullet_count_limit)
+    if bullet_count > bullet_count_limit
       output += "\n彈藥太多。請改裝填#{bullet_count_limit}發。\n"
       bullet_count = bullet_count_limit
     end
 
-    return "正確裝填數。" if (bullet_count <= 0)
-    return "正確目標值。" if (diff <= 0)
+    return "正確裝填數。" if bullet_count <= 0
+    return "正確目標值。" if diff <= 0
 
-    if (broken_number < 0)
+    if broken_number < 0
       output += "\n正確故障值。排除獎勵記號。\n"
       broken_number = broken_number.abs
     end
 
-    unless ( @bonus_dice_range.include?(bonus_dice_count) )
+    unless  @bonus_dice_range.include?(bonus_dice_count)
       return "\n錯誤。獎勵、懲罰骰値為#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
     end
 
@@ -214,13 +214,13 @@ INFO_MESSAGE_TEXT
       output += getNextDifficltyMessage(more_difficlty)
 
       # ペナルティダイスを減らしながらロール用ループ削減獎勵骰時角色用Lｏｏｐ
-      while (dice_num >= @bonus_dice_range.min)
+      while dice_num >= @bonus_dice_range.min
 
         loopCount += 1
         hit_result, total, total_list = getHitResultInfos(dice_num, diff, more_difficlty)
         output += "\n#{loopCount}次: ＞ #{total_list.join(", ")} ＞ #{hit_result}"
 
-        if (total >= broken_number)
+        if total >= broken_number
           output += "卡彈"
           return getHitResultText(output, counts)
         end
@@ -232,7 +232,7 @@ INFO_MESSAGE_TEXT
         counts[:impale_bullet] += impale_bullet
         counts[:bullet] -= lost_bullet
 
-        return getHitResultText(output, counts) if (counts[:bullet] <= 0)
+        return getHitResultText(output, counts) if counts[:bullet] <= 0
 
         dice_num -= 1
       end
@@ -276,7 +276,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count = 0
     impale_bullet_count = 0
 
-    if ( !isLastBulletTurn(bullet_count, bullet_set_count) )
+    if  !isLastBulletTurn(bullet_count, bullet_set_count)
 
       case hit_type
       when :hit
@@ -346,7 +346,7 @@ INFO_MESSAGE_TEXT
   def getSetOfBullet(diff)
     bullet_set_count = diff / 10
 
-    if ((diff >= 1) && (diff < 10))
+    if (diff >= 1) && (diff < 10)
       bullet_set_count = 1  #技能值９以下的最低限度保障處理
     end
 
@@ -356,7 +356,7 @@ INFO_MESSAGE_TEXT
   def getHitBulletCountBase(diff, bullet_set_count)
     hit_bullet_count_base = (bullet_set_count / 2)
 
-    if ((diff >= 1) && (diff < 10))
+    if (diff >= 1) && (diff < 10)
       hit_bullet_count_base = 1  #技能值９以下的最低限度保障處理
     end
 
@@ -369,7 +369,7 @@ INFO_MESSAGE_TEXT
 
   def getLastHitBulletCount(bullet_count)
     #在剩餘彈藥為１的最低限度保障處理
-    if (bullet_count == 1)
+    if bullet_count == 1
       return 1
     end
 
