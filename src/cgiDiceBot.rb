@@ -44,7 +44,7 @@ class CgiDiceBot
   def rollFromCgiParams
     message = @cgiParams['message']
     gameType = @cgiParams['gameType']
-    gameType ||= 'diceBot';
+    gameType ||= 'diceBot'
     # $rand_seed = @cgiParams['randomSeed']
 
     result = ""

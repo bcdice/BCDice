@@ -124,7 +124,7 @@ MESSAGETEXT
     critical.times do
       restDice.shift
       diceList.shift
-      diceList.push(7);
+      diceList.push(7)
     end
 
     max = restDice.pop

@@ -3,9 +3,9 @@
 class CardRanker < DiceBot
   def initialize
     super
-    @sendMode = 2;
-    @sortType = 1;
-    @d66Type = 2;
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
   end
 
   def gameName
@@ -38,13 +38,13 @@ INFO_MESSAGE_TEXT
     return '' unless( signOfInequality == ">=")
 
     if(dice_n <= 2)
-      return " ＞ ファンブル";
+      return " ＞ ファンブル"
     elsif(dice_n >= 12)
-      return " ＞ スペシャル ＞ " + getRandumMonster();
+      return " ＞ スペシャル ＞ " + getRandumMonster()
     elsif(total_n >= diff)
-      return " ＞ 成功";
+      return " ＞ 成功"
     else
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     end
   end
 
@@ -66,7 +66,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getRandumMonster
-    type = "ランダムモンスター選択";
+    type = "ランダムモンスター選択"
     colorTable = getColorTable
     color, colorIndex = get_table_by_1d6(colorTable)
 
@@ -97,7 +97,7 @@ INFO_MESSAGE_TEXT
   def getMonster(color, monsterIndex)
     return nil if( monsterIndex < 2 )
 
-    type = "モンスター選択";
+    type = "モンスター選択"
 
     colorWords = ['W', 'U', 'V', 'G', 'R', 'B']
     colorIndex = colorWords.index(color)

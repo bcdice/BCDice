@@ -8,7 +8,7 @@ class SwordWorld2_0 < SwordWorld
   def initialize
     rating_table = 2
     super()
-    @rating_table = rating_table;
+    @rating_table = rating_table
   end
 
   def gameName

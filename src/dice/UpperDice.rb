@@ -11,17 +11,17 @@ class UpperDice
   def rollDice(string)
     debug('udice begin string', string)
 
-    output = '1';
+    output = '1'
 
     string = string.gsub(/-[sS]?[\d]+[uU][\d]+/, '')   # 上方無限の引き算しようとしてる部分をカット
 
     unless(m = /(^|\s)[sS]?(\d+[uU][\d\+\-uU]+)(\[(\d+)\])?([\+\-\d]*)(([<>=]+)(\d+))?(\@(\d+))?($|\s)/.match(string))
-      return output;
+      return output
     end
 
-    command = m[2];
+    command = m[2]
     signOfInequalityText = m[7]
-    diff = m[8].to_i;
+    diff = m[8].to_i
     upperTarget1 = m[4]
     upperTarget2 = m[10]
 
@@ -49,9 +49,9 @@ class UpperDice
 
     dice_a.each do |dice_o|
       if(/[Uu]/ =~ dice_o)
-        diceCommands.push( dice_o );
+        diceCommands.push( dice_o )
       else
-        bonusValues.push( dice_o );
+        bonusValues.push( dice_o )
       end
     end
 
@@ -65,37 +65,37 @@ class UpperDice
     output = totalDiceString
 
     if(bonus > 0)
-      output += "+#{bonus}";
+      output += "+#{bonus}"
     elsif(bonus < 0)
-      output += "#{bonus}";
+      output += "#{bonus}"
     end
 
     maxValue = maxDiceValue + bonus
     totalValue += bonus
 
-    string += "[#{@upper}]" + modify;
+    string += "[#{@upper}]" + modify
 
     if( @diceBot.isPrintMaxDice && (totalDiceCount > 1) )
-      output = "#{output} ＞ #{totalValue}";
+      output = "#{output} ＞ #{totalValue}"
     end
 
     if(@signOfInequality != "")
-      output = "#{output} ＞ 成功数#{totalSuccessCount}";
-      string += "#{@signOfInequality}#{diff}";
+      output = "#{output} ＞ 成功数#{totalSuccessCount}"
+      string += "#{@signOfInequality}#{diff}"
     else
       output += getMaxAndTotalValueResultStirng(maxValue, totalValue, totalDiceCount)
     end
 
-    output = "#{@nick_e}: (#{string}) ＞ #{output}";
+    output = "#{@nick_e}: (#{string}) ＞ #{output}"
 
     if output.length > $SEND_STR_MAX
-      output ="#{@nick_e}: (#{string}) ＞ ... ＞ #{totalValue}";
+      output ="#{@nick_e}: (#{string}) ＞ ... ＞ #{totalValue}"
       if(@signOfInequality == "")
         output += getMaxAndTotalValueResultStirng(maxValue, totalValue, totalDiceCount)
       end
     end
 
-    return output;
+    return output
   end
 
   def getMaxAndTotalValueResultStirng(maxValue, totalValue, totalDiceCount)
@@ -114,7 +114,7 @@ class UpperDice
     if(@diceBot.upplerRollThreshold == "Max")
       return 2
     else
-      return @diceBot.upplerRollThreshold;
+      return @diceBot.upplerRollThreshold
     end
   end
 
@@ -129,26 +129,26 @@ class UpperDice
 
   def getUpperDiceCommandResult(diceCommands, diceDiff)
     diceStringList = []
-    totalSuccessCount = 0;
+    totalSuccessCount = 0
     totalDiceCount = 0
-    maxDiceValue = 0;
+    maxDiceValue = 0
     totalValue = 0
 
     diceCommands.each do |diceCommand|
       diceCount, diceMax = diceCommand.split(/[uU]/).collect{|s|s.to_i}
 
       if( @diceBot.upplerRollThreshold == "Max" )
-        @upper = diceMax;
+        @upper = diceMax
       end
 
       total, diceString, cnt1, cnt_max, maxDiceResult, successCount, cnt_re =
-        @bcdice.roll(diceCount, diceMax, (@diceBot.sortType & 2), @upper, @signOfInequality, diceDiff);
+        @bcdice.roll(diceCount, diceMax, (@diceBot.sortType & 2), @upper, @signOfInequality, diceDiff)
 
       diceStringList << diceString
 
-      totalSuccessCount += successCount;
+      totalSuccessCount += successCount
       maxDiceValue = maxDiceResult if(maxDiceResult > maxDiceValue)
-      totalDiceCount += diceCount;
+      totalDiceCount += diceCount
       totalValue += total
     end
 

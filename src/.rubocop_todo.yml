@@ -1106,12 +1106,6 @@ Style/SelfAssignment:
     - 'diceBot/MetalHead.rb'
     - 'diceBot/Satasupe.rb'
 
-# Offense count: 519
-# Cop supports --auto-correct.
-# Configuration parameters: AllowAsExpressionSeparator.
-Style/Semicolon:
-  Enabled: false
-
 # Offense count: 7
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.

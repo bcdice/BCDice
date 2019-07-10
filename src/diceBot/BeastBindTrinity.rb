@@ -153,8 +153,8 @@ INFO_MESSAGE_TEXT
         debug("▼出目引き上げモード 取得 #{dicepull}")
     end
 
-    signOfInequality = m[17] if(m[17]);
-    diff = m[18].to_i if(m[18]);
+    signOfInequality = m[17] if(m[17])
+    diff = m[18].to_i if(m[18])
 
     # 数値・数式からクリティカル値を決定
     if(str_critical)

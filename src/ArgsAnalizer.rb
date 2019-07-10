@@ -71,8 +71,8 @@ class ArgsAnalizer
   def setServer
     # サーバ設定(Server:Port)
     data = @param.split(/:/)
-    $server = data[0];
-    $port = data[1] if( data[1] );
+    $server = data[0]
+    $port = data[1] if( data[1] )
   end
 
   def setChannel
@@ -80,7 +80,7 @@ class ArgsAnalizer
   end
 
   def setNick
-    $nick = @param;
+    $nick = @param
   end
 
   def setGame
@@ -92,6 +92,6 @@ class ArgsAnalizer
   end
 
   def setIrcServerCharacterCode
-    $ircCode = param;
+    $ircCode = param
   end
 end

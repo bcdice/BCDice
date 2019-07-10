@@ -3,9 +3,9 @@
 class HuntersMoon < DiceBot
   def initialize
     super
-    @sendMode = 2;
-    @sortType = 1;
-    @d66Type = 2;
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
     @fractionType = "roundUp";     # 端数切り上げに設定
   end
 
@@ -53,42 +53,42 @@ INFO_MESSAGE_TEXT
     return '' unless(signOfInequality == ">=")
 
     if(dice_n <= 2)
-      return " ＞ ファンブル(モノビースト追加行動+1)";
+      return " ＞ ファンブル(モノビースト追加行動+1)"
     elsif(dice_n >= 12)
-      return " ＞ スペシャル(変調1つ回復orダメージ+1D6)";
+      return " ＞ スペシャル(変調1つ回復orダメージ+1D6)"
     elsif(total_n >= diff)
-      return " ＞ 成功";
+      return " ＞ 成功"
     else
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     end
   end
 
   def rollDiceCommand(command)
     string = command.upcase
-    output = '1';
-    type = "";
-    total_n = "";
+    output = '1'
+    type = ""
+    total_n = ""
 
     case string.upcase
 
     when /CLT/i
-      type = '都市ロケーション';
+      type = '都市ロケーション'
       output, total_n = hm_city_location_table
     when /SLT/i
-      type = '閉所ロケーション';
+      type = '閉所ロケーション'
       output, total_n = hm_small_location_table
     when /HLT/i
-      type = '炎熱ロケーション';
+      type = '炎熱ロケーション'
       output, total_n = hm_hot_location_table
     when /FLT/i
-      type = '冷暗ロケーション';
+      type = '冷暗ロケーション'
       output, total_n = hm_freezing_location_table
     when /DLT/i
-      type = '部位ダメージ決定';
+      type = '部位ダメージ決定'
       output, total_n = hm_hit_location_table
 
     when /MAT/i
-      type = 'モノビースト行動';
+      type = 'モノビースト行動'
       output, total_n = hm_monobeast_action_table
 
     when /SA(2)?T(\d*)/i
@@ -96,30 +96,30 @@ INFO_MESSAGE_TEXT
       count = $2.to_i
       count = 1 if(count == 0)
 
-      type = '異形アビリティー';
+      type = '異形アビリティー'
       output, total_n = get_strange_ability_table_result(count, isType2)
 
     when /TST/i
-      type = '指定特技(社会)';
+      type = '指定特技(社会)'
       output, total_n = hm_social_skill_table
     when /THT/i
-      type = '指定特技(頭部)';
+      type = '指定特技(頭部)'
       output, total_n = hm_head_skill_table
     when /TAT/i
-      type = '指定特技(腕部)';
+      type = '指定特技(腕部)'
       output, total_n = hm_arm_skill_table
     when /TBT/i
-      type = '指定特技(胴部)';
+      type = '指定特技(胴部)'
       output, total_n = hm_trunk_skill_table
     when /TLT/i
-      type = '指定特技(脚部)';
+      type = '指定特技(脚部)'
       output, total_n = hm_leg_skill_table
     when /TET/i
-      type = '指定特技(環境)';
+      type = '指定特技(環境)'
       output, total_n = hm_environmental_skill_table
 
     when 'ET'
-      type = '遭遇';
+      type = '遭遇'
       output, total_n = hm_encount_table
 
     else
@@ -128,8 +128,8 @@ INFO_MESSAGE_TEXT
 
     return output if(output == '1')
 
-    output = "#{type}表(#{total_n}) ＞ #{output}";
-    return output;
+    output = "#{type}表(#{total_n}) ＞ #{output}"
+    return output
   end
 
 #** ロケーション表
