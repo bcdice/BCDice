@@ -42,13 +42,13 @@ INFO_MESSAGE_TEXT
 
     debug("DoubleCross parren_killer_add string", string)
 
-    string = string.gsub(/(\d+)DX(\d*)([^\d\s][\+\-\d]+)/i) {"#{$1}R10#{$3}[#{$2}]"}
-    string = string.gsub(/(\d+)DX(\d+)/i) {"#{$1}R10[#{$2}]"}
-    string = string.gsub(/(\d+)DX([^\d\s][\+\-\d]+)/i) {"#{$1}R10#{$2}"}
-    string = string.gsub(/(\d+)DX/i) {"#{$1}R10"}
+    string = string.gsub(/(\d+)DX(\d*)([^\d\s][\+\-\d]+)/i) { "#{$1}R10#{$3}[#{$2}]" }
+    string = string.gsub(/(\d+)DX(\d+)/i) { "#{$1}R10[#{$2}]" }
+    string = string.gsub(/(\d+)DX([^\d\s][\+\-\d]+)/i) { "#{$1}R10#{$2}" }
+    string = string.gsub(/(\d+)DX/i) { "#{$1}R10" }
     if /\@(\d+)/ =~ string
       crit = $1
-      string = string.gsub(/\[\]/) {"\[#{crit}\]"}
+      string = string.gsub(/\[\]/) { "\[#{crit}\]" }
       string = string.gsub(/\@(\d+)/, "")
     end
     string = string.gsub(/\[\]/, "")
@@ -152,7 +152,7 @@ INFO_MESSAGE_TEXT
 
     dice_cmd.each do |dice_o|
       subtotal = 0
-      dice_cnt, dice_max = dice_o.split(/[rR]/).collect{|s|s.to_i}
+      dice_cnt, dice_max = dice_o.split(/[rR]/).collect { |s| s.to_i }
       dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, critical)
       output += "," if output != ""
       next_roll += dice_dat[6]

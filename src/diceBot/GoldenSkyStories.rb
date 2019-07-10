@@ -49,7 +49,7 @@ MESSAGETEXT
 
     _, diceText = roll(1, 7)
 
-    diceList = diceText.split(/,/).collect{|i|i.to_i}
+    diceList = diceText.split(/,/).collect { |i| i.to_i }
 
     #result << " あーしたてんきになーれっ ＞ [#{diceList.join(',')}] ＞ "
     result += "下駄占い ＞ "

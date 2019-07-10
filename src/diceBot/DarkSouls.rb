@@ -49,8 +49,8 @@ MESSAGETEXT
     targetText = (target == 0 ? '' : ">=#{target}")
 
     if isActive
-      diceArray = diceText.split(/,/).collect{|i|i.to_i}
-      focusDamage = diceArray.count{|i| i == 1 }
+      diceArray = diceText.split(/,/).collect { |i| i.to_i }
+      focusDamage = diceArray.count { |i| i == 1 }
 
       if focusDamage > 0
         focusText = "■" * focusDamage

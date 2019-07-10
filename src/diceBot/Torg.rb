@@ -41,7 +41,7 @@ INFO_MESSAGE_TEXT
     string = string.gsub(/(ords|odamage)/i, 'ODT')
     string = string.gsub(/damage/i, 'DT')
     string = string.gsub(/(bonus|total)/i, 'BT')
-    string = string.gsub(/TG(\d+)/i) {"1R20+#{$1}"}
+    string = string.gsub(/TG(\d+)/i) { "1R20+#{$1}" }
     string = string.gsub(/TG/i, '1R20')
 
     return string

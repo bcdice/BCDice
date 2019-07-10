@@ -477,7 +477,7 @@ class CardTrader
     targetCard = card.upcase; # デッキから抜き出すカードの指定
     destination = @nick_e.upcase
 
-    isDelete = @cardRest.delete_if{|card| card == targetCard}
+    isDelete = @cardRest.delete_if { |card| card == targetCard }
 
     if isDelete
       @deal_cards[destination] ||= []
@@ -550,7 +550,7 @@ class CardTrader
 
     @deal_cards['card_played'] ||= []
     cards = @deal_cards['card_played']
-    isDelete = cards.delete_if{|i| i == targetCard}
+    isDelete = cards.delete_if { |i| i == targetCard }
 
     if isDelete
       @deal_cards[destination] << targetCard
@@ -777,7 +777,7 @@ class CardTrader
 
     temp_cards = getCardsFromDealCards(destination)
 
-    result = temp_cards.reject! {|i| i == card}
+    result = temp_cards.reject! { |i| i == card }
     isTargetCardInHand = !result.nil?
     if  isTargetCardInHand
       this_cards << card
@@ -1442,7 +1442,7 @@ class CardTrader
 
   def getCardsTextFromCards(cards)
     if $isHandSort
-      cards = cards.sort{|a, b| compareCard(a, b)}
+      cards = cards.sort { |a, b| compareCard(a, b) }
     end
 
     if @cardTitles.empty?
@@ -1543,7 +1543,7 @@ class CardTrader
 
   def shrinkSpellWords(spellWords)
     @card_spell.each do |word|
-      spellWords = spellWords.gsub(/#{word}(#{word}+)/){ word + ($1.length + 1).to_s }
+      spellWords = spellWords.gsub(/#{word}(#{word}+)/) { word + ($1.length + 1).to_s }
     end
 
     return spellWords
@@ -1575,7 +1575,7 @@ class CardTrader
 
   def expandSpellWords(spellWords)
     @card_spell.each do |word|
-      spellWords = spellWords.gsub(/#{word}(\d+)/){ word * $1.to_i }
+      spellWords = spellWords.gsub(/#{word}(\d+)/) { word * $1.to_i }
     end
 
     return spellWords
@@ -1588,7 +1588,7 @@ class CardTrader
       next unless indexWord == word
 
       card = @card_val[index]
-      isDelete = @cardRest.delete_if{|i| i == card}
+      isDelete = @cardRest.delete_if { |i| i == card }
       next unless isDelete
 
       cards << card

@@ -404,7 +404,7 @@ class DiceBot
     return diceList unless /([\d,]+)/ =~ diceText
 
     diceString = $1
-    diceList = diceString.split(/,/).collect{|i| i.to_i}
+    diceList = diceString.split(/,/).collect { |i| i.to_i }
 
     debug("diceList", diceList)
 

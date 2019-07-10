@@ -60,15 +60,15 @@ INFO_MESSAGE_TEXT
   end
 
   def changeText(string)
-    string = string.gsub(/(\d+)BB6/i) {"#{$1}R6"}
-    string = string.gsub(/(\d+)BB/i)  {"#{$1}R6"}
-    string = string.gsub(/(\d+)BF6/i) {"#{$1}Q6"}
-    string = string.gsub(/(\d+)BF/i)  {"#{$1}Q6"}
-    string = string.gsub(/\%([\-\d]+)/i) {"[H:#{$1}]"}
-    string = string.gsub(/\@([\+\-\d]+)/i) {"[C#{$1}]"}
-    string = string.gsub(/\#([A]?[\+\-\d]+)/i) {"[F#{$1}]"}
-    string = string.gsub(/\$([1-6]+)/i) {"[S#{$1}]"}
-    string = string.gsub(/\&(\d)/i) {"[U#{$1}]"}
+    string = string.gsub(/(\d+)BB6/i) { "#{$1}R6" }
+    string = string.gsub(/(\d+)BB/i)  { "#{$1}R6" }
+    string = string.gsub(/(\d+)BF6/i) { "#{$1}Q6" }
+    string = string.gsub(/(\d+)BF/i)  { "#{$1}Q6" }
+    string = string.gsub(/\%([\-\d]+)/i) { "[H:#{$1}]" }
+    string = string.gsub(/\@([\+\-\d]+)/i) { "[C#{$1}]" }
+    string = string.gsub(/\#([A]?[\+\-\d]+)/i) { "[F#{$1}]" }
+    string = string.gsub(/\$([1-6]+)/i) { "[S#{$1}]" }
+    string = string.gsub(/\&(\d)/i) { "[U#{$1}]" }
     return string
   end
 
@@ -198,7 +198,7 @@ INFO_MESSAGE_TEXT
 
     if dice_tc > 0
       _, dice_str, = roll(dice_tc, 6, (sortType & 1)) # ダイス数修正、並べ替えせずに出力
-      dice_num = (dice_str.split(/,/) + dicesubs).collect{|n|n.to_i}	# 差し換え指定のダイスを挿入
+      dice_num = (dice_str.split(/,/) + dicesubs).collect { |n| n.to_i }	# 差し換え指定のダイスを挿入
     elsif dicesubs.size == 0
       return "ERROR:振るダイスの数が0個です"
     else

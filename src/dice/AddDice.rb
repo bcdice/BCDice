@@ -256,7 +256,7 @@ class AddDice
   end
 
   def addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_arry, dice_wk)
-    dice_num = dice_dat[1].split(/,/).collect{|s|s.to_i}
+    dice_num = dice_dat[1].split(/,/).collect { |s| s.to_i }
     dice_face = []
 
     dice_max.times do |i|
@@ -313,10 +313,10 @@ class AddDice
       d66List << @bcdice.getD66Value()
     end
 
-    total = d66List.inject{|sum, i| sum + i}
+    total = d66List.inject { |sum, i| sum + i }
     text = d66List.join(',')
-    n1Count = d66List.collect{|i| i == 1}.length
-    nMaxCount = d66List.collect{|i| i == 66}.length
+    n1Count = d66List.collect { |i| i == 1 }.length
+    nMaxCount = d66List.collect { |i| i == 66 }.length
 
     result = [total, text, n1Count, nMaxCount, 0, 0, 0]
   end

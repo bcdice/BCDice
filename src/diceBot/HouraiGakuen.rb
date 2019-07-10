@@ -93,7 +93,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getDiceListFromText(diceText)
-    diceList = diceText.split(/,/).collect{|i| i.to_i }.sort
+    diceList = diceText.split(/,/).collect { |i| i.to_i }.sort
     return diceList
   end
 

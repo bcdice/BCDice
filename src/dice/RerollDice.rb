@@ -68,7 +68,7 @@ class RerollDice
     dice_a.each do |dice_o|
       debug('dice_o', dice_o)
 
-      dice_cnt, dice_max = dice_o.split(/[rR]/).collect{|s|s.to_i}
+      dice_cnt, dice_max = dice_o.split(/[rR]/).collect { |s| s.to_i }
       debug('dice_cnt', dice_cnt)
       debug('dice_max', dice_max)
 

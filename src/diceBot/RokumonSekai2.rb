@@ -32,8 +32,8 @@ INFO_MESSAGE_TEXT
   def changeText(string)
     debug('parren_killer_add begin stirng', string)
 
-    string = string.gsub(/(\d+)RS([\+\-][\+\-\d]+)<=(\d+)/i) {"3R6#{$2}<=#{$3}[#{$1}]"}
-    string = string.gsub(/(\d+)RS<=(\d+)/i) {"3R6<=#{$2}[#{$1}]"}
+    string = string.gsub(/(\d+)RS([\+\-][\+\-\d]+)<=(\d+)/i) { "3R6#{$2}<=#{$3}[#{$1}]" }
+    string = string.gsub(/(\d+)RS<=(\d+)/i) { "3R6<=#{$2}[#{$1}]" }
 
     debug('parren_killer_add end stirng', string)
 
@@ -77,7 +77,7 @@ INFO_MESSAGE_TEXT
 
     _, dicestr, = roll(3 + mod.abs, 6 , 1)
 
-    dice = dicestr.split(/,/).collect{|i| i.to_i }
+    dice = dicestr.split(/,/).collect { |i| i.to_i }
 
     mod.abs.times do |i|
       if mod < 0

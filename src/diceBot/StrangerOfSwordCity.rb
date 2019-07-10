@@ -53,7 +53,7 @@ INFO_MESSAGE_TEXT
     difficulty = $4.to_i if $4
 
     dice, diceText = roll(diceCount, 6)
-    diceList = diceText.split(/,/).collect{|i|i.to_i}.sort
+    diceList = diceText.split(/,/).collect { |i| i.to_i }.sort
 
     totalValue = (dice + modify)
     modifyText = getModifyText(modify)
@@ -85,7 +85,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getCriticalResult(diceList)
-    dice6Count = diceList.select{|i| i == 6 }.size
+    dice6Count = diceList.select { |i| i == 6 }.size
 
     if dice6Count >= 2
       return dice6Count.to_s
@@ -95,6 +95,6 @@ INFO_MESSAGE_TEXT
   end
 
   def isFumble(diceList, diceCount)
-    (diceList.select{|i| i == 1 }.size >= diceCount)
+    (diceList.select { |i| i == 1 }.size >= diceCount)
   end
 end

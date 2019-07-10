@@ -45,10 +45,10 @@ INFO_MESSAGE_TEXT
     return string unless /(^|\s)[sS]?(K[\d]+)/i =~ string
 
     debug('parren_killer_add before string', string)
-    string = string.gsub(/\[(\d+)\]/i) {"c[#{$1}]"}
-    string = string.gsub(/\@(\d+)/i) {"c[#{$1}]"}
-    string = string.gsub(/\$([\+\-]?[\d]+)/i) {"m[#{$1}]"}
-    string = string.gsub(/r([\+\-]?[\d]+)/i) {"r[#{$1}]"}
+    string = string.gsub(/\[(\d+)\]/i) { "c[#{$1}]" }
+    string = string.gsub(/\@(\d+)/i) { "c[#{$1}]" }
+    string = string.gsub(/\$([\+\-]?[\d]+)/i) { "m[#{$1}]" }
+    string = string.gsub(/r([\+\-]?[\d]+)/i) { "r[#{$1}]" }
     debug('parren_killer_add after string', string)
 
     return string

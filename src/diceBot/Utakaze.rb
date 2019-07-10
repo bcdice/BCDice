@@ -66,7 +66,7 @@ MESSAGETEXT
 
     _, diceText = roll(base, 6)
 
-    diceList = diceText.split(/,/).collect{|i|i.to_i}.sort
+    diceList = diceText.split(/,/).collect { |i| i.to_i }.sort
 
     result += " ＞ [#{diceList.join(',')}] ＞ "
     result += getRollResultString(diceList, crit, diff)

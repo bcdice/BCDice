@@ -65,13 +65,13 @@ MESSAGETEXT
     when /^((S|L)RM\d+)(.+)/
       tail = $3
       type = $1
-      damageFunc = lambda{getXrmDamage(type)}
+      damageFunc = lambda { getXrmDamage(type) }
       return getHitResult(count, damageFunc, tail)
     when /^BT(\d+)(.+)/
       debug('BT pattern')
       tail = $2
       damageValue = $1.to_i
-      damageFunc = lambda{ damageValue }
+      damageFunc = lambda { damageValue }
       return getHitResult(count, damageFunc, tail)
     end
 
@@ -81,7 +81,7 @@ MESSAGETEXT
   def getXrmDamage(type)
     table, isLrm = getXrmDamageTable(type)
 
-    table = table.collect{|i|i*2} unless isLrm
+    table = table.collect { |i| i*2 } unless isLrm
 
     damage, dice = get_table_by_2d6(table)
     return damage, dice, isLrm
@@ -261,7 +261,7 @@ MESSAGETEXT
       damageInfo = damages.delete(part)
       next if  damageInfo.nil?
 
-      damage = damageInfo[:partDamages].inject(0){|sum, i| sum + i}
+      damage = damageInfo[:partDamages].inject(0) { |sum, i| sum + i }
       allDamage += damage
       damageCount = damageInfo[:partDamages].size
       criticals = damageInfo[:criticals]

@@ -45,7 +45,7 @@ MESSAGETEXT
         modifyAddString = $3
 
         modify_list = modifyAddString.scan(/[\+\-]\d+/) # 修正値を分割して配列へ
-        modify_list.each{|i| modify += i.to_i }
+        modify_list.each { |i| modify += i.to_i }
 
         checkRoll(hasCritical, modify, target)
 

@@ -585,7 +585,7 @@ MESSAGETEXT
                    ['H', '(HW)'],
                    ['O', '(MO)']]
 
-    index = damageInfos.index{|type, text| type == damageStage}
+    index = damageInfos.index { |type, text| type == damageStage }
     return nil if index == -1
 
     damageIndex = index + 1

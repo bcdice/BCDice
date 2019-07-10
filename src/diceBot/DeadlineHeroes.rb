@@ -277,10 +277,10 @@ INFO_MESSAGE_TEXT
 
     elements = chart[dice][:elements]
 
-    resolvedElements = elements.map{|i| rollHeroNameBaseChart(i) }
+    resolvedElements = elements.map { |i| rollHeroNameBaseChart(i) }
 
-    text = resolvedElements.map{|i| getHeroNameElementText(i)}.join(" ＋ ")
-    resultText = resolvedElements.map{|i| i[:coreResult]}.join("").sub(/・{2,}/, "・").sub(/・$/, "")
+    text = resolvedElements.map { |i| getHeroNameElementText(i) }.join(" ＋ ")
+    resultText = resolvedElements.map { |i| i[:coreResult] }.join("").sub(/・{2,}/, "・").sub(/・$/, "")
 
     result[:result] += " ＞ ( #{text} ) ＞ 「#{resultText}」"
 

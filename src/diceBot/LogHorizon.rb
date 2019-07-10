@@ -84,7 +84,7 @@ MESSAGETEXT
 
     #ダイスロール
     dice, dice_str = roll(diceCount, 6)
-    diceList = dice_str.split(/,/).collect{|i|i.to_i}.sort
+    diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
 
     total = dice + modify
 
@@ -125,11 +125,11 @@ MESSAGETEXT
   end
 
   def isCritical(diceList)
-    (diceList.select{|i| i == 6 }.size >= 2)
+    (diceList.select { |i| i == 6 }.size >= 2)
   end
 
   def isFamble(diceList, diceCount)
-    (diceList.select{|i| i == 1 }.size >= diceCount)
+    (diceList.select { |i| i == 1 }.size >= diceCount)
   end
 
   #消耗表
@@ -568,7 +568,7 @@ MESSAGETEXT
   end
 
   def getHiroineTresureResultString(table, number)
-    table_max_number = table.map {|e| e.first }.max
+    table_max_number = table.map { |e| e.first }.max
 
     result =
       if number <= table_max_number
@@ -1785,7 +1785,7 @@ MESSAGETEXT
                    'すごく速い',
                    '大量生産できる',
                    'よい手触り',
-                  ].map {|e| (is_single ? '特徴A(メリット)：' : '') + e }
+                  ].map { |e| (is_single ? '特徴A(メリット)：' : '') + e }
                 when 'B', 'D'
                   [
                    '中毒性のある',
@@ -1794,7 +1794,7 @@ MESSAGETEXT
                    '壊れやすい',
                    'マニュアルが超厚い',
                    '捨てても戻ってくる',
-                  ].map {|e| (is_single ? '特徴B(デメリット)：' : '') + e }
+                  ].map { |e| (is_single ? '特徴B(デメリット)：' : '') + e }
                 when 'L'
                   [
                    '美しい',
@@ -1803,7 +1803,7 @@ MESSAGETEXT
                    '斬新な',
                    '名状しがたき',
                    '命を刈り取る形をしている',
-                  ].map {|e| (is_single ? '見た目：' : '') + e }
+                  ].map { |e| (is_single ? '見た目：' : '') + e }
                 when 'T'
                   [
                    '武器',
@@ -1812,7 +1812,7 @@ MESSAGETEXT
                    '食料',
                    '薬品',
                    '乗り物',
-                  ].map {|e| (is_single ? '発明品の種類：' : '') + e }
+                  ].map { |e| (is_single ? '発明品の種類：' : '') + e }
                 end[dice_result - 1]
     end
 
@@ -1887,7 +1887,7 @@ MESSAGETEXT
       '石の名前',
       '動物の名前',
       '番号'
-     ].map {|e| '名前：' + e },
+     ].map { |e| '名前：' + e },
      [
       '廃ビル',
       '道端',
@@ -1895,7 +1895,7 @@ MESSAGETEXT
       '木の上',
       '公園',
       '下水道'
-     ].map {|e| '住居：' + e },
+     ].map { |e| '住居：' + e },
      [
       '探し物',
       '料理',
@@ -1903,7 +1903,7 @@ MESSAGETEXT
       '商売',
       '手先が器用',
       'あざといポーズ'
-     ].map {|e| '特技：' + e },
+     ].map { |e| '特技：' + e },
      [
       '痩せている',
       'ちびっこ',
@@ -1911,7 +1911,7 @@ MESSAGETEXT
       '背が高い',
       'ぷにぷに',
       'ガチムチ'
-     ].map {|e| '体型：' + e },
+     ].map { |e| '体型：' + e },
      [
       '果物',
       'お肉',
@@ -1919,7 +1919,7 @@ MESSAGETEXT
       'お魚',
       'お菓子',
       '虫'
-     ].map {|e| '好きな食べ物：' + e },
+     ].map { |e| '好きな食べ物：' + e },
      [
       'ぼく/わたし',
       'オイラ/アタシ',
@@ -1927,7 +1927,7 @@ MESSAGETEXT
       '拙者/わらわ',
       '自分の名前',
       'ミー'
-     ].map {|e| '一人称：' + e }
+     ].map { |e| '一人称：' + e }
     ].each do |table|
       dice_result, dice_str = roll(1, 6)
       number << dice_str

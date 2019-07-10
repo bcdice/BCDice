@@ -114,7 +114,7 @@ MESSAGETEXT
       return total, diceList
     end
 
-    diceList = diceText.split(/,/).collect{|i|i.to_i}
+    diceList = diceText.split(/,/).collect { |i| i.to_i }
 
     diceList.sort!
     restDice = diceList.clone
@@ -131,7 +131,7 @@ MESSAGETEXT
     max = 1 if max.nil?
 
     total = max * (7 ** critical) + modify
-    restDice.each{|i| total += i}
+    restDice.each { |i| total += i }
 
     return total, diceList
   end

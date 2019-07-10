@@ -65,7 +65,7 @@ MESSAGETEXT
     diceList = rollDiceList(diceCount)
 
     gloryDiceCount = getGloryDiceCount(diceList)
-    gloryDiceCount.times{ diceList << 10 }
+    gloryDiceCount.times { diceList << 10 }
 
     diceList, calculationProcess = getThirstyAddedResult(diceList, thirstyPoint)
     thirstyPointMarker = (thirstyPoint == 0 ? "" : "+#{thirstyPoint}")
@@ -78,7 +78,7 @@ MESSAGETEXT
 
   def rollDiceList(diceCount)
     dice, str = roll(diceCount, 6)
-    diceList = str.split(/,/).collect{|i|i.to_i}.sort
+    diceList = str.split(/,/).collect { |i| i.to_i }.sort
 
     return diceList
   end
@@ -92,13 +92,13 @@ MESSAGETEXT
   end
 
   def countTargetDice(diceList, target)
-    diceList.select{|i|i == target}.count
+    diceList.select { |i| i == target }.count
   end
 
   def getThirstyAddedResult(diceList, thirstyPoint)
     return diceList, '' if thirstyPoint == 0
 
-    targetIndex = diceList.rindex{|i| i <= 6}
+    targetIndex = diceList.rindex { |i| i <= 6 }
     return diceList, '' if targetIndex.nil?
 
     textList = []

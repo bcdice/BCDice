@@ -83,7 +83,7 @@ MESSAGETEXT
 
   #ダイスロール
   dice, dice_str = roll(diceCount, 6)
-    diceList = dice_str.split(/,/).collect{|i|i.to_i}.sort
+    diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
 
   total = dice + modify
 
@@ -124,11 +124,11 @@ MESSAGETEXT
   end
 
   def isCritical(diceList)
-    (diceList.select{|i| i == 6 }.size >= 2)
+    (diceList.select { |i| i == 6 }.size >= 2)
   end
 
   def isFamble(diceList, diceCount)
-    (diceList.select{|i| i == 1 }.size >= diceCount)
+    (diceList.select { |i| i == 1 }.size >= diceCount)
   end
 
   #消耗表
@@ -403,7 +403,7 @@ MESSAGETEXT
   end
 
   def getHiroineTresureResultString(table, number)
-    table_max_number = table.map {|e| e.first }.max
+    table_max_number = table.map { |e| e.first }.max
 
     result =
       if number <= table_max_number
@@ -1140,7 +1140,7 @@ end
                    '굉장히 빠르거나 거친',
                    '대량 생산이 가능한',
                    '좋은 감촉의',
-                  ].map {|e| (is_single ? '특징A(장점)：' : '') + e }
+                  ].map { |e| (is_single ? '특징A(장점)：' : '') + e }
                 when 'B', 'D'
                   [
                    '중독성 있는',
@@ -1149,7 +1149,7 @@ end
                    '망가지기 쉬운',
                    '설명할 것이 많은',
                    '버려도 버려도 되돌아오는	',
-                  ].map {|e| (is_single ? '특징B(단점)：' : '') + e }
+                  ].map { |e| (is_single ? '특징B(단점)：' : '') + e }
                 when 'L'
                   [
                    '아름다운',
@@ -1158,7 +1158,7 @@ end
                    '참신한',
                    '형언할 수 없는',
                    '목숨을 깍는 형태를 한',
-                  ].map {|e| (is_single ? '형용：' : '') + e }
+                  ].map { |e| (is_single ? '형용：' : '') + e }
                 when 'T'
                   [
                    '무기',
@@ -1167,7 +1167,7 @@ end
                    '식량',
                    '약품',
                    '장난감',
-                  ].map {|e| (is_single ? '발명품의 종류：' : '') + e }
+                  ].map { |e| (is_single ? '발명품의 종류：' : '') + e }
                 end[dice_result - 1]
     end
 
@@ -1242,7 +1242,7 @@ end
       '돌의 이름',
       '동물 이름',
       '번호'
-     ].map {|e| '이름：' + e },
+     ].map { |e| '이름：' + e },
      [
       '폐 건물',
       '길가',
@@ -1250,7 +1250,7 @@ end
       '나무 위',
       '공원',
       '하수도'
-     ].map {|e| '주거：' + e },
+     ].map { |e| '주거：' + e },
      [
       '무언가를 찾기',
       '요리',
@@ -1258,7 +1258,7 @@ end
       '장사',
       '손재주있는',
       '약삭빠른 행동'
-     ].map {|e| '특기：' + e },
+     ].map { |e| '특기：' + e },
      [
       '깡마른',
       '키작은',
@@ -1266,7 +1266,7 @@ end
       '키가 큰',
       '부드럽고 탄력있는',
       '근육질의'
-     ].map {|e| '체형：' + e },
+     ].map { |e| '체형：' + e },
      [
       '과일',
       '고기',
@@ -1274,7 +1274,7 @@ end
       '생선',
       '과자',
       '벌레'
-     ].map {|e| '좋아하는 음식：' + e },
+     ].map { |e| '좋아하는 음식：' + e },
      [
       '말이 서툰',
       '사투리',
@@ -1282,7 +1282,7 @@ end
       '사극체',
       '3인칭',
       '귀국자녀'
-     ].map {|e| '말투：' + e }
+     ].map { |e| '말투：' + e }
     ].each do |table|
       dice_result, dice_str = roll(1, 6)
       number << dice_str

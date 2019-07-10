@@ -135,7 +135,7 @@ class UpperDice
     totalValue = 0
 
     diceCommands.each do |diceCommand|
-      diceCount, diceMax = diceCommand.split(/[uU]/).collect{|s|s.to_i}
+      diceCount, diceMax = diceCommand.split(/[uU]/).collect { |s| s.to_i }
 
       if @diceBot.upplerRollThreshold == "Max"
         @upper = diceMax
