@@ -20,3 +20,6 @@ Style/Encoding:
 # Due to old Ruby
 Style/HashSyntax:
   EnforcedStyle: hash_rockets
+
+Style/NumericLiterals:
+  MinDigits: 6
