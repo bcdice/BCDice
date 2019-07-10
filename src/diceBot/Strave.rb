@@ -81,7 +81,7 @@ MESSAGETEXT
 
     successCount = diceArray.find_all{|i| (i <= target)}.size
 
-    isDamage = (!damage.nil?)
+    isDamage = !damage.nil?
 
     if( isDamage )
       totalDamage = successCount * damage

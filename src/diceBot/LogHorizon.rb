@@ -142,7 +142,7 @@ MESSAGETEXT
     return nil if !rank && !is_special
 
     rank = 0 if !rank
-    is_choice = (!$4.nil?)
+    is_choice = !$4.nil?
     dice_value = $5
     modifyText = $3
     modify  = getValue(modifyText, 0)
@@ -516,13 +516,13 @@ MESSAGETEXT
 
     type = m[1]
     rank = m[2].to_i
-    is_choice = (m[2].empty? || (!m[4].nil?))
+    is_choice = (m[2].empty? || !m[4].nil?)
     modifyText = m[3]
     modify = getValue(modifyText, 0)
     is_prize = (m[4] == "$")
     dice_value = nil
     dice_value = '7' if is_prize
-    is_rank_enable = ( (!is_choice) || is_prize)
+    is_rank_enable = ( !is_choice || is_prize)
 
     tableName, table =
       case type
@@ -1971,12 +1971,12 @@ MESSAGETEXT
     return command if m[1].empty? && m[2].empty? && m[3].nil?
 
     rank = m[1].to_i
-    is_choice = (m[1].empty? || (!m[3].nil?))
+    is_choice = (m[1].empty? || !m[3].nil?)
     modifyText = m[2]
     modify = getValue(modifyText, 0)
-    is_fix_roll = (!m[3].nil?)
+    is_fix_roll = !m[3].nil?
     dice_value = m[4]
-    is_rank_enable = ( (!is_choice) || is_fix_roll)
+    is_rank_enable = ( !is_choice || is_fix_roll)
 
     tableName, table = getEastalExplorationResultTable
 

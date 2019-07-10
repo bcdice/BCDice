@@ -2,7 +2,7 @@
 
 class DiceBot
   # 空の接頭辞（反応するコマンド）
-  EMPTY_PREFIXES_PATTERN = (/(^|\s)(S)?()(\s|$)/i).freeze
+  EMPTY_PREFIXES_PATTERN = /(^|\s)(S)?()(\s|$)/i.freeze
 
   # 接頭辞（反応するコマンド）の配列を返す
   # @return [Array<String>]
@@ -25,7 +25,7 @@ class DiceBot
       map(&:freeze).
       # 配列全体を変更不可にする
       freeze
-    @prefixesPattern = (/(^|\s)(S)?(#{prefixes.join('|')})(\s|$)/i).freeze
+    @prefixesPattern = /(^|\s)(S)?(#{prefixes.join('|')})(\s|$)/i.freeze
 
     self
   end
@@ -494,7 +494,7 @@ class DiceBot
 
     return nil if( text.nil? )
 
-    return "#{name}(#{number}[#{diceText}]) ＞ #{text}" if isPrintDiceText && (!diceText.nil?)
+    return "#{name}(#{number}[#{diceText}]) ＞ #{text}" if isPrintDiceText && !diceText.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end

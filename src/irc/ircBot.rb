@@ -100,7 +100,7 @@ class IrcClient < Net::IRC::Client
     channel = getChannel(event)
 
     mynick = self.nick;
-    target = (event.to)[0];
+    target = event.to[0];
 
     debug_out("%s Kicked on %s by %s.\n", target, channel);
     if( mynick == target )

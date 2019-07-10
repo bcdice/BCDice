@@ -80,7 +80,7 @@ MESSAGETEXT
     diceText2 = diceText.gsub('10', '0')
     diceArray = diceText2.split(/,/).collect{|i|i.to_i}
     diceArray.map!{|i|i - correction}
-    diceText2 = (diceArray.sort).join(',')
+    diceText2 = diceArray.sort.join(',')
 
     funbleArray = diceArray.select{|i|i <= 1}
     isFunble = (funbleArray.size >= rollCount)

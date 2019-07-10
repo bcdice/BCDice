@@ -41,7 +41,7 @@ INFO_MESSAGE_TEXT
 
     if((n1 != 0) && (dice_max == 6))
       point = n1 * 5
-      return (" ＞ #{point}EPP獲得")
+      return " ＞ #{point}EPP獲得"
     end
 
     return ''

@@ -54,7 +54,7 @@ class AddDice
 
         rate = (index == 0 ? 1 : -1)
 
-        total_n += (dice_now) * rate
+        total_n += dice_now * rate
         dice_n += dice_n_wk * rate
         n1 += n1_wk
         n_max += n_max_wk
@@ -157,7 +157,7 @@ class AddDice
         critical = $4.to_i
         slashMark = $5
 
-        return emptyResult if( (critical != 0) && (!@diceBot.is2dCritical) )
+        return emptyResult if( (critical != 0) && !@diceBot.is2dCritical )
         return emptyResult if( dice_max > $DICE_MAXNUM )
 
         dice_max, dice_now, output_tmp, n1_count, max_number_tmp, result_dice_count =

@@ -66,7 +66,7 @@ INFO_MESSAGE_TEXT
     totals = []
     target = 0
 
-    while  (!str.nil?) && (!str.empty?)
+    while  !str.nil? && !str.empty?
 
       debug("=====>!! str", str)
 
@@ -106,7 +106,7 @@ INFO_MESSAGE_TEXT
     targetNumber = $2.to_i #目標値
     return nil if(targetNumber < 0)
 
-    hasKarmaDice = (!$3.nil?)  #カルマダイスの有無
+    hasKarmaDice = !$3.nil?  #カルマダイスの有無
     diceModify = $4.to_i
     nextText = $6
 

@@ -82,7 +82,7 @@ INFO_MESSAGE_TEXT
 
     if( (n_max > 0) && (dice_max == 6) )
       revision = (n_max * 4)
-      addText = ("+#{n_max}*4 ＞ #{total_n + revision}")
+      addText = "+#{n_max}*4 ＞ #{total_n + revision}"
     end
 
     return addText, revision
