@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class MonotoneMusium < DiceBot
-  setPrefixes(['2D6.*', 'ET','ET2', 'OT', 'DT', 'DT2', 'WDT', 'WDT2', 'OT2', 'DTO', 'DTS'])
+  setPrefixes(['2D6.*', 'ET', 'ET2', 'OT', 'DT', 'DT2', 'WDT', 'WDT2', 'OT2', 'DTO', 'DTS'])
 
   def initialize
     super
@@ -37,7 +37,7 @@ INFO_MESSAGE_TEXT
 
   def rollDiceCommand(command)
     result = checkRoll(command)
-    return result unless(result.empty?)
+    return result unless result.empty?
 
     debug("判定ロールではなかった")
 
@@ -51,26 +51,26 @@ INFO_MESSAGE_TEXT
     crit = 12
     fumble = 2
 
-    return output unless(/^2D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i =~ string)
+    return output unless /^2D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i =~ string
 
     modText = $1
     target = $2.to_i
-    crit = $4.to_i if($4)
-    fumble = $6.to_i if($6)
+    crit = $4.to_i if $4
+    fumble = $6.to_i if $6
 
     mod = 0
-    mod = parren_killer("(0#{modText})") unless( modText.nil? )
+    mod = parren_killer("(0#{modText})") unless modText.nil?
 
     total, dice_str, = roll(2, 6, @sortType && 1)
     total_n = total + mod.to_i
 
     output = "#{total}[#{dice_str}]＋#{mod} → #{total_n}"
 
-    if(total >= crit)
+    if total >= crit
       output += " ＞ 自動成功"
-    elsif(total <= fumble)
+    elsif total <= fumble
       output += " ＞ 自動失敗"
-    elsif(total_n >= target)
+    elsif total_n >= target
       output += " ＞ 成功"
     else
       output += " ＞ 失敗"
@@ -87,16 +87,16 @@ INFO_MESSAGE_TEXT
 
     case command
     when /ET2/i
-      type ="感情表2.0"
+      type = "感情表2.0"
       output, total_n = mm_emotion_table_ver2()
     when /ET/i
-      type ="感情表"
+      type = "感情表"
       output, total_n = mm_emotion_table()
     when /OT2/i
-      type ="兆候表ver2.0"
+      type = "兆候表ver2.0"
       output, total_n = mm_omens_table_ver2()
     when /OT/i
-      type ="兆候表"
+      type = "兆候表"
       output, total_n = mm_omens_table()
     when /WDT2/i
       type = "世界歪曲表ver2.0"
@@ -118,7 +118,7 @@ INFO_MESSAGE_TEXT
       output, total_n = mm_distortion_table()
     end
 
-    output = "#{type}(#{total_n}) ＞ #{output}" if(output != '')
+    output = "#{type}(#{total_n}) ＞ #{output}" if output != ''
 
     return output
   end

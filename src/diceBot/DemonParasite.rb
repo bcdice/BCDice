@@ -37,25 +37,25 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(nD6)
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    if(n1 >= 2)  # １の目が２個以上ならファンブル
+    if n1 >= 2 # １の目が２個以上ならファンブル
       return " ＞ 致命的失敗"
     end
 
-    if(n_max >= 2)  # ６の目が２個以上あったらクリティカル
+    if n_max >= 2 # ６の目が２個以上あったらクリティカル
       return " ＞ 効果的成功"
     end
 
-    return '' if(diff == "?")
+    return '' if diff == "?"
 
     case signOfInequality
     when ">="
-      if(total_n >= diff)
+      if total_n >= diff
         return " ＞ 成功"
       end
 
       return " ＞ 失敗"
     when ">"
-      if(total_n > diff)
+      if total_n > diff
         return " ＞ 成功"
       end
 
@@ -74,7 +74,7 @@ INFO_MESSAGE_TEXT
 
   # 衝動表
   def get_urge(string)
-    unless(/(\w)?URGE\s*(\d+)/i =~ string)
+    unless /(\w)?URGE\s*(\d+)/i =~ string
       return '1'
     end
 
@@ -86,7 +86,7 @@ INFO_MESSAGE_TEXT
     case initialWord
     when nil
       urge_type = 1
-    when /n/i    # 新衝動表
+    when /n/i # 新衝動表
       urge_type = 2
     when /a/i   # 誤作動表
       urge_type = 3
@@ -96,30 +96,30 @@ INFO_MESSAGE_TEXT
       urge_type = 5
     when /c/i   # 鬼御魂(戦闘中)衝動表
       urge_type = 6
-    else     # あり得ない文字
+    else # あり得ない文字
       urge_type = 1
     end
 
-    if(( urgelv < 1 ) || ( urgelv > 5 ))
+    if (urgelv < 1) || (urgelv > 5)
       return '衝動段階は1から5です'
     end
 
-    if( urge_type == 0 )
+    if urge_type == 0
       return '1'
     end
 
-    urge = dp_urge_get( urge_type )
+    urge = dp_urge_get(urge_type)
     dice_now, = roll(2, 6)
 
-    if(urge_type <= 1)
+    if urge_type <= 1
       title = '衝動表'
-    elsif(urge_type <= 2)
+    elsif urge_type <= 2
       title = '新衝動表'
-    elsif(urge_type <= 3)
+    elsif urge_type <= 3
       title = '誤作動表'
-    elsif(urge_type <= 4)
+    elsif urge_type <= 4
       title = 'ミュータント衝動表'
-    elsif(urge_type <= 5)
+    elsif urge_type <= 5
       title = '鬼御魂(戦闘外)衝動表'
     else
       title = '鬼御魂(戦闘中)衝動表'
@@ -132,8 +132,8 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  def dp_urge_get( urge_type )
-    if(urge_type <= 1)
+  def dp_urge_get(urge_type)
+    if urge_type <= 1
       return [[
           '『怒り』突然強い怒りに駆られる。近くの対象に(非暴力の)怒りを全力でぶつける。このターンの終了まで「行動不能」となる。[経験値20点]',
           '『絶叫』寄生生物が体内で蠢く。その恐怖に絶叫。このターンの終了まで「行動不能」となる。[経験値10点]',
@@ -199,7 +199,7 @@ INFO_MESSAGE_TEXT
           '『定着』変身していなければ、即座に変身。肉体が変身に馴染んでしまう。24時間、変身が解除されなくなる。[経験値30点]',
           '『眠り』猛烈な睡魔に襲われる。60ターン(10分)、もしくは戦闘終了まで起こしても起きない。[経験値30点]',
         ]]
-    elsif(urge_type <= 2)   # 新衝動表
+    elsif urge_type <= 2   # 新衝動表
       return [[
           '『開眼』潜在能力が発揮される。10分間、あらゆる戦闘以外の判定に+5。',
           '『集中』感覚が研ぎ澄まされる。次のターンの終了まで、射撃の命中判定に+5。',
@@ -265,7 +265,7 @@ INFO_MESSAGE_TEXT
           '『超人』運動神経が飛躍的に加速される。10ターンの間、すべての命中判定に+15。',
           '『悟り』心が解放され無我の境地に達する。衝動が３点回復する',
         ]]
-    elsif(urge_type <= 3)   # 誤作動表
+    elsif urge_type <= 3   # 誤作動表
       return [[
           '『緊急停止』機能に異常発生。次のターンの終了まで、「行動不能」になる。[30点]',
           '『動力不調』動力装置に異常発生。このターンの終了時まで、「行動不能」になる。[30点]',
@@ -331,7 +331,7 @@ INFO_MESSAGE_TEXT
           '『負荷軽減』急激に機体の負荷が低下。『負荷』が2点回復する。[50点]',
           '『複合反応』この表を2回振る。ただし、同じ結果が出た場合は適用するのは一度だけ。獲得経験値は累積する。[0点]',
         ]]
-    elsif(urge_type <= 4)   # ミュータント衝動表
+    elsif urge_type <= 4   # ミュータント衝動表
       return [[
           '『怒り』突然強い怒りに駆られる。近くの対象にあたりちらす。このターンの終了まで「行動不能」となる。[20点]',
           '『絶叫』悪魔寄生体が蠢きだす。その恐怖に絶叫。このターンの終了まで「行動不能」となる。[10点]',
@@ -397,7 +397,7 @@ INFO_MESSAGE_TEXT
           '『喪失』《擬態変化》が使用中なら、即座に解除。さらに24時間、《擬態変化》が使えなくなる。[30点]',
           '『進化』共生生物たちが上手く混じって身体能力が向上する。次の判定の達成値+10。[30点]',
         ]]
-    elsif(urge_type <= 5)   # 鬼御魂(戦闘外)衝動表
+    elsif urge_type <= 5   # 鬼御魂(戦闘外)衝動表
       return [[
           '『恐怖』恐怖の感情が爆発し、目に映るすべてが恐ろしくなる。[20点]',
           '『落涙』過去の悲しい思い出が去来し、涙が溢れる。[10点]',
@@ -463,7 +463,7 @@ INFO_MESSAGE_TEXT
           '『本性』瞬時に異形化。異形化中であれば、さらに禍々しい姿へ変質する。[20点]',
           '『覚醒』1時間、全身から閃光を発し、高さが【精神】mの"光の柱"に包まれる。[30点]',
         ]]
-    else                     # 鬼御魂(戦闘中)衝動表
+    else # 鬼御魂(戦闘中)衝動表
       return [[
           '『恐怖』効果が発生したターンの終了時まで「行動不能」状態となる。',
           '『落涙』1ターン(10秒)「通常」行動を行えない。回避行動に影響はない。',

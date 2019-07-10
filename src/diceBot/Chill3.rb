@@ -17,20 +17,20 @@ class Chill3 < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)     # ゲーム別成功度判定(1D100)
-    return '' unless(signOfInequality == "<=")
+  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(1D100)
+    return '' unless signOfInequality == "<="
 
     #ゾロ目ならC-ResultかBotch
-    s10 = dice_n.div(10)  # 10'sダイスの出目
-    s1 = dice_n % 10  # 1'sダイスの出目
+    s10 = dice_n.div(10) # 10'sダイスの出目
+    s1 = dice_n % 10 # 1'sダイスの出目
 
-    if( s10 == 10 )
-      s10 = 0  # 10'sと1'sの表記をそろえる
+    if s10 == 10
+      s10 = 0 # 10'sと1'sの表記をそろえる
     end
 
-    if(s10 == s1)
-      if((total_n > diff) || (dice_n == 100))   # 00は必ず失敗
-        if(diff > 100)  # 目標値が100を超えている場合は、00を振ってもBotchにならない
+    if s10 == s1
+      if (total_n > diff) || (dice_n == 100) # 00は必ず失敗
+        if diff > 100 # 目標値が100を超えている場合は、00を振ってもBotchにならない
           return " ＞ 失敗"
         end
 
@@ -39,8 +39,8 @@ INFO_MESSAGE_TEXT
       return " ＞ Ｃ成功"
     end
 
-    if((total_n <= diff) || (dice_n == 1))  #01は必ず成功
-      if(total_n <= (diff / 2))
+    if (total_n <= diff) || (dice_n == 1) #01は必ず成功
+      if total_n <= (diff / 2)
         return " ＞ Ｈ成功"
       end
 

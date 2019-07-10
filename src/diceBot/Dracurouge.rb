@@ -63,7 +63,7 @@ MESSAGETEXT
     diceList = rollDiceList(diceCount)
 
     gloryDiceCount = getGloryDiceCount(diceList)
-    gloryDiceCount.times{ diceList << 10 }
+    gloryDiceCount.times { diceList << 10 }
 
     diceList, calculationProcess = getThirstyAddedResult(diceList, thirstyPoint)
     thirstyPointMarker = (thirstyPoint == 0 ? "" : "+#{thirstyPoint}")
@@ -76,7 +76,7 @@ MESSAGETEXT
 
   def rollDiceList(diceCount)
     _, str = roll(diceCount, 6)
-    diceList = str.split(/,/).collect{|i|i.to_i}.sort
+    diceList = str.split(/,/).collect { |i| i.to_i }.sort
 
     return diceList
   end
@@ -90,13 +90,13 @@ MESSAGETEXT
   end
 
   def countTargetDice(diceList, target)
-    diceList.select{|i|i == target}.count
+    diceList.select { |i| i == target }.count
   end
 
   def getThirstyAddedResult(diceList, thirstyPoint)
     return diceList, '' if thirstyPoint == 0
 
-    targetIndex = diceList.rindex{|i| i <= 6}
+    targetIndex = diceList.rindex { |i| i <= 6 }
     return diceList, '' if targetIndex.nil?
 
     textList = []
@@ -156,7 +156,7 @@ MESSAGETEXT
     one_value, = roll(1, 6)
     number = "#{ten_value}#{one_value}"
 
-    isBefore = (ten_value < 4 )
+    isBefore = (ten_value < 4)
     infos = isBefore ? infos1 : infos2
 
     typeText = (isBefore ? typeText1 : typeText2)
@@ -168,7 +168,7 @@ MESSAGETEXT
     if typeText.nil?
       resultText = getReactionTextFull(infos, index)
     else
-      info = infos.find{|i| i[:type] == typeText }
+      info = infos.find { |i| i[:type] == typeText }
       return nil if info.nil?
 
       resultText = getReactionTex(info, index)
@@ -180,7 +180,7 @@ MESSAGETEXT
   def checkTypeText(typeText, infos)
     return true if typeText.nil?
 
-    keys = infos.collect{|i| i[:type] }
+    keys = infos.collect { |i| i[:type] }
     return keys.include?(typeText)
   end
 
@@ -1292,7 +1292,7 @@ MESSAGETEXT
         get_table_by_d66(table)
       end
 
-    return nil if( text.nil? )
+    return nil if text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end
@@ -1394,10 +1394,10 @@ MESSAGETEXT
   end
 
   def getYear(yearText)
-    text = yearText.gsub(/(\d+)D(6+)/){ getD6xResult($1.to_i, $2.length) }
+    text = yearText.gsub(/(\d+)D(6+)/) { getD6xResult($1.to_i, $2.length) }
     text = "(#{text})"
 
-    year = parren_killer( text.gsub(/×/, "*") )
+    year = parren_killer(text.gsub(/×/, "*"))
     return year, text
   end
 
@@ -1782,7 +1782,7 @@ MESSAGETEXT
 異様な光を宿す目
 突き出した犬歯
 目に見える変化はない……
-},},
+}, },
 
     'ECS' => {
       :name => "拡張・堕落の兆し表",
@@ -1824,7 +1824,7 @@ MESSAGETEXT
 堕落の影：紅い月光が照らす貴卿の影は、もはや堕落者のものだ。初対面ならともかく、長く気づかれずには……いられまい。
 月光欲：屋根があると不快感を感じる。なるべく月光を浴びられる場所でいたい。宮廷でも庭園やバルコニーを好むだろう。
 幸運：自覚するような兆しはないようだが……己を戒めねばなるまい。貴卿は今や堕落の瀬戸際にいると自覚せよ。
-},},
+}, },
 
     'BT' => {
       :name => "絆内容決定表：ルージュ／ノワール",
@@ -1836,7 +1836,7 @@ MESSAGETEXT
 恋(Love)　相手に恋し、愛する。／怒(Anger)　相手に怒りを感じる。
 敬(Respect)　相手の実力や精神を敬う。／殺(Kill)　相手に殺意を持ち、滅ぼそうと思う。
 主(Obey)　相手を主と仰ぎ、忠誠を誓う。／仇(Vendetta)　相手を怨み、仇と狙う。
-},},
+}, },
   }
 
   setPrefixes(['DR.*', 'RT.*', 'HRT.*', 'CT\d+', "ST", "CO", "CA", "EP", "OS", "PN", "RS", "PP"] + @@tables.keys)

@@ -24,18 +24,18 @@ INFO_MESSAGE_TEXT
 
   def changeText(string)
     debug("parren_killer_add before string", string)
-    string = string.sub(/^(.+?)Lv(\d+)(.*)/i) {"#{$1}#{ ($2.to_i * 5 - 1) }#{$3}"}
-    string = string.sub(/^(.+?)NL(\d+)(.*)/i) {"#{$1}#{ ($2.to_i * 5 + 5) }#{$3}"}
+    string = string.sub(/^(.+?)Lv(\d+)(.*)/i) { "#{$1}#{ ($2.to_i * 5 - 1) }#{$3}" }
+    string = string.sub(/^(.+?)NL(\d+)(.*)/i) { "#{$1}#{ ($2.to_i * 5 + 5) }#{$3}" }
     debug("parren_killer_add after string", string)
 
     return string
   end
 
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
-    return '' unless($signOfInequality == ">=")
+    return '' unless $signOfInequality == ">="
 
-    if(diff != "?")
-      if(total_n >= diff)
+    if diff != "?"
+      if total_n >= diff
         return " ＞ 成功"
       end
 
@@ -46,18 +46,18 @@ INFO_MESSAGE_TEXT
     sucLv = 1
     sucNL = 0
 
-    while(total_n >= sucLv*5-1)
+    while total_n >= sucLv * 5 - 1
       sucLv += 1
     end
 
-    while(total_n >= (sucNL * 5 + 5))
+    while total_n >= (sucNL * 5 + 5)
       sucNL += 1
     end
 
     sucLv -= 1
     sucNL -= 1
 
-    if(sucLv <= 0)
+    if sucLv <= 0
       return " ＞ 失敗"
     else
       return " ＞ Lv#{sucLv}/NL#{sucNL}成功"
@@ -68,7 +68,7 @@ INFO_MESSAGE_TEXT
   def getDiceRolledAdditionalText(n1, n_max, dice_max)
     debug('getDiceRolledAdditionalText begin: n1, n_max, dice_max', n1, n_max, dice_max)
 
-    if( (n1 != 0) && (dice_max == 6) )
+    if (n1 != 0) && (dice_max == 6)
       return " ＞ 宿命獲得"
     end
 
@@ -80,7 +80,7 @@ INFO_MESSAGE_TEXT
     addText = ''
     revision = 0
 
-    if( (n_max > 0) && (dice_max == 6) )
+    if (n_max > 0) && (dice_max == 6)
       revision = (n_max * 4)
       addText = "+#{n_max}*4 ＞ #{total_n + revision}"
     end

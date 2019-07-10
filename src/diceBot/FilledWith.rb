@@ -5,7 +5,7 @@ class FilledWith < DiceBot
 
   def initialize
     super
-    @d66Type = 1;        #d66の差し替え
+    @d66Type = 1; #d66の差し替え
     # @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
   end
 
@@ -52,8 +52,8 @@ MESSAGETEXT
 
   def rollDiceCommand(command)
   #ダイスロールコマンド
-    result = checkRoll( command )
-  return result unless( result.nil? )
+    result = checkRoll(command)
+  return result unless result.nil?
 
     tableName = ""
   text = ""
@@ -63,7 +63,7 @@ MESSAGETEXT
   case command
     when /LOT(N|P)/
       type = $1
-      if(type == "P")
+      if type == "P"
         tableName = "ナンバーワンプレミアムくじ"
       else
         tableName = "ナンバーワンノーマルくじ"
@@ -110,15 +110,15 @@ MESSAGETEXT
     crt = 4
   fmb = 17
 
-    if(/(\d[\+\-\d]*)-(\d+)FW(\@(\d+))?(\#(\d+))?/i === command)
+    if /(\d[\+\-\d]*)-(\d+)FW(\@(\d+))?(\#(\d+))?/i === command
       difficultyText = $1
     diceCount = $2.to_i
-    crt = $4.to_i unless($3.nil?)
-    fmb = $6.to_i unless($5.nil?)
-    elsif( /(\d+)FW(\@(\d+))?(\#(\d+))?(<=([\+\-\d]*))?/i === command )
+    crt = $4.to_i unless $3.nil?
+    fmb = $6.to_i unless $5.nil?
+    elsif /(\d+)FW(\@(\d+))?(\#(\d+))?(<=([\+\-\d]*))?/i === command
       diceCount = $1.to_i
-    crt = $3.to_i unless($2.nil?)
-    fmb = $5.to_i unless($4.nil?)
+    crt = $3.to_i unless $2.nil?
+    fmb = $5.to_i unless $4.nil?
     difficultyText = $7
   else
     return nil
@@ -132,23 +132,23 @@ MESSAGETEXT
 
   #出力用ダイスコマンドを生成
   command = "#{diceCount}FW"
-  command += "@#{crt}" unless(crt == 4)
-  command += "##{fmb}" unless(fmb == 17)
-  command += "<=#{difficulty}" unless(difficulty.nil?)
+  command += "@#{crt}" unless crt == 4
+  command += "##{fmb}" unless fmb == 17
+  command += "<=#{difficulty}" unless difficulty.nil?
 
   #出力文の生成
   result = "(#{command}) ＞ #{dice}[#{dice_str}]"
 
   #クリティカル・ファンブルチェック
-  if(dice <= crt)
+  if dice <= crt
     result += " ＞ クリティカル！"
-  elsif(dice >= fmb)
+  elsif dice >= fmb
     result += " ＞ ファンブル！"
   else
     #成否判定
-    unless(difficultyText.nil?)
-      success = difficulty-dice
-      if(dice<=difficulty)
+    unless difficultyText.nil?
+      success = difficulty - dice
+      if dice <= difficulty
         result += " ＞ 成功(成功度:#{success})"
       else
         result += " ＞ 失敗(失敗度:#{success})"
@@ -160,17 +160,17 @@ MESSAGETEXT
   end
 
   def getValue(text, defaultValue)
-    return defaultValue if( (text == nil) || text.empty? )
+    return defaultValue if (text == nil) || text.empty?
 
     parren_killer("(0" + text + ")").to_i
   end
 
   def getAdjustNumber(number, table)
     min = table.first.first
-  return min if(number < min)
+  return min if number < min
 
     max = table.last.first
-  return max if(number > max)
+  return max if number > max
 
     return number
   end
@@ -198,8 +198,8 @@ MESSAGETEXT
           'パリパリ小魚',
           'キャロットタルト',
           'おにぎり',
-          lambda{return cook(2, 5)},
-          lambda{return cook(2, 6)},
+          lambda { return cook(2, 5) },
+          lambda { return cook(2, 6) },
           ]
         when 2
           table = [
@@ -207,8 +207,8 @@ MESSAGETEXT
           '竹つきチクワ',
           'トロピカルジュース',
           'イナリ寿司',
-          lambda{return cook(3, 5)},
-          lambda{return cook(3, 6)},
+          lambda { return cook(3, 5) },
+          lambda { return cook(3, 6) },
           ]
 
         when 3
@@ -217,8 +217,8 @@ MESSAGETEXT
           '魔界魚の目玉',
           'パンプキンプリン',
           'スタミナ丼',
-          lambda{return cook(4, 5)},
-          lambda{return cook(4, 6)},
+          lambda { return cook(4, 5) },
+          lambda { return cook(4, 6) },
           ]
 
         when 4
@@ -227,8 +227,8 @@ MESSAGETEXT
           'シルヴァまっしぐら',
           'フラウアイスクリーム',
           'ピクニックランチ',
-          lambda{return cook(5, 5)},
-          lambda{return cook(5, 6)},
+          lambda { return cook(5, 5) },
+          lambda { return cook(5, 6) },
           ]
 
         when 5
@@ -237,8 +237,8 @@ MESSAGETEXT
           'エドマエスシ',
           'スターフルーツパフェ',
           '具沢山本格カレー',
-          lambda{return cook(6, 5)},
-          lambda{return cook(6, 6)},
+          lambda { return cook(6, 5) },
+          lambda { return cook(6, 6) },
           ]
 
         when 6
@@ -247,8 +247,8 @@ MESSAGETEXT
             '刺身盛り合わせ',
           'エデンのアップルパイ',
           'フォートレス炒飯',
-          lambda{return cook(7, 5)},
-          lambda{return cook(7, 6)},
+          lambda { return cook(7, 5) },
+          lambda { return cook(7, 6) },
           ]
 
         when 7
@@ -257,8 +257,8 @@ MESSAGETEXT
           'オオトロスシ',
           'スノーホワイトボンブ',
           'よもつへぐい',
-          lambda{return cook(8, 5)},
-          lambda{return cook(8, 6)},
+          lambda { return cook(8, 5) },
+          lambda { return cook(8, 6) },
          ]
 
         when 8
@@ -267,8 +267,8 @@ MESSAGETEXT
           '特上うな丼',
           '魔将樹のかき氷',
           'ヘブンズランチ',
-          lambda{return cook(9, 5)},
-          lambda{return cook(9, 6)},
+          lambda { return cook(9, 5) },
+          lambda { return cook(9, 6) },
           ]
 
         when 9
@@ -283,7 +283,7 @@ MESSAGETEXT
 
       end
       result, number = get_table_by_1d6(table)
-    if(result.class.name == "Array")
+    if result.class.name == "Array"
       number = result[1]
       result = result[0]
     end
@@ -304,9 +304,9 @@ MESSAGETEXT
             'イレブンチキン',
             'イレブンチキン',
             'イレブンチキン',
-            lambda{return normal(2, 4)},
-            lambda{return normal(2, 5)},
-            lambda{return normal(3, 6)},
+            lambda { return normal(2, 4) },
+            lambda { return normal(2, 5) },
+            lambda { return normal(3, 6) },
           ]
 
         when 2
@@ -315,8 +315,8 @@ MESSAGETEXT
             'イグニスジッポ',
             'ヤコ仮面or梟の文鎮(選択可)',
             'ナレッジのハンモックorジンジャビースト',
-            lambda{return normal(3, 5)},
-            lambda{return normal(3, 6)},
+            lambda { return normal(3, 5) },
+            lambda { return normal(3, 6) },
           ]
 
         when 3
@@ -326,7 +326,7 @@ MESSAGETEXT
             '黒い甲冑',
             '天体望遠鏡',
             '金獅子の剥製',
-            lambda{return normal(4, 6)},
+            lambda { return normal(4, 6) },
           ]
 
         when 4
@@ -336,7 +336,7 @@ MESSAGETEXT
             'フェンリルの首輪',
             'フェニックスカーペット',
             '動くアダマンゴーレム',
-            lambda{return normal(5, 6)},
+            lambda { return normal(5, 6) },
           ]
 
         when 5
@@ -346,13 +346,13 @@ MESSAGETEXT
             '薪割り王の斧',
             'ロジエの水差し',
             '箱舟の模型',
-            lambda{return premium(5, 6)},
+            lambda { return premium(5, 6) },
           ]
 
       end
 
       result, number = get_table_by_1d6(table)
-      if(result.class.name == "Array")
+      if result.class.name == "Array"
         number = result[1]
         result = result[0]
       end
@@ -368,9 +368,9 @@ MESSAGETEXT
           'プレミアムチキン',
           'プレミアムチキン',
           'プレミアムチキン',
-          lambda{return normal(3, 4)},
-          lambda{return premium(2, 5)},
-          lambda{return premium(2, 6)},
+          lambda { return normal(3, 4) },
+          lambda { return premium(2, 5) },
+          lambda { return premium(2, 6) },
         ]
 
       when 2
@@ -379,8 +379,8 @@ MESSAGETEXT
           'ハタモトチャブダイ',
           '星のコンパス',
           '白銀の甲冑',
-          lambda{return normal(4, 5)},
-          lambda{return premium(3, 6)},
+          lambda { return normal(4, 5) },
+          lambda { return premium(3, 6) },
         ]
 
       when 3
@@ -390,7 +390,7 @@ MESSAGETEXT
           '特製クイックスタミナポーション',
           '火龍のフィギュアor氷龍のフィギュア(選択可)',
           'ヒメショーグンドレス',
-          lambda{return premium(4, 6)},
+          lambda { return premium(4, 6) },
         ]
 
       when 4
@@ -400,7 +400,7 @@ MESSAGETEXT
           '銀河龍のフィギュア/魔族',
           '魔族チェスセット',
           'イグニスコンロ',
-          lambda{return premium(5, 6)},
+          lambda { return premium(5, 6) },
         ]
 
       when 5
@@ -410,7 +410,7 @@ MESSAGETEXT
           '世界樹の蔦',
           '死神の飾りドレス',
           'ザバーニヤ等身大フィギュア',
-          lambda{return premium(6, 6)},
+          lambda { return premium(6, 6) },
         ]
 
       when 6
@@ -426,7 +426,7 @@ MESSAGETEXT
     end
 
     result, number = get_table_by_1d6(table)
-    if(result.class.name == "Array")
+    if result.class.name == "Array"
       number = result[1]
       result = result[0]
     end
@@ -434,7 +434,7 @@ MESSAGETEXT
     return result, number
   end
 
-  if(type == "P")
+  if type == "P"
     return premium(1, "")
   else
     return normal(1, "")
@@ -445,16 +445,16 @@ MESSAGETEXT
 
   #夢幻の迷宮財宝表
   def getTresureResult(command)
-    return nil unless(/TRS(\d+)([\+\-]\d)?/ === command)
+    return nil unless /TRS(\d+)([\+\-]\d)?/ === command
 
   rank   = $1.to_i
   modify = $2.to_i
 
   tableName = "財宝表"
 
-  rank += modify unless(modify.nil?)
-  rank = 0  if( rank < 0  )
-  rank = 10 if( rank > 10 )
+  rank += modify unless modify.nil?
+  rank = 0  if  rank < 0
+  rank = 10 if  rank > 10
 
   case rank
     when 0
@@ -578,7 +578,7 @@ MESSAGETEXT
 
   #夢幻の迷宮トラップ表
   def getTrapResult(command)
-    return nil unless( /TRAP(E|N|H|L)/ === command )
+    return nil unless /TRAP(E|N|H|L)/ === command
 
   dif = $1
   tableName = "トラップ表"
@@ -630,7 +630,7 @@ MESSAGETEXT
 
   #夢幻の迷宮追加オプション表
   def getRandomOptionResult(command)
-    return nil unless(/ROP(E|N|H|L)/ === command)
+    return nil unless /ROP(E|N|H|L)/ === command
 
   dif = $1
   tableName = "迷宮追加オプション表"
@@ -708,15 +708,15 @@ MESSAGETEXT
 
   #夢幻の迷宮ランダムイベント表
   def getRandomEventResult(command)
-    if(/RAND(E|N|H|L)([1-6])?/ === command)
+    if /RAND(E|N|H|L)([1-6])?/ === command
       dif = $1
     area  = $2.to_i
-    area, = roll(1, 6) if($2.nil?)
+    area, = roll(1, 6) if $2.nil?
     type, = roll(1, 6)
-  elsif(/RENC(E|N|H|L)([1-6])?/ === command)
+  elsif /RENC(E|N|H|L)([1-6])?/ === command
     dif = $1
     area  = $2.to_i
-    area, = roll(1, 6) if($2.nil?)
+    area, = roll(1, 6) if $2.nil?
     type  = 4
   else
     return nil
@@ -1215,12 +1215,12 @@ SLv3:ゴーレムアーム(装飾品)
 
   #夢幻の迷宮エネミーデータ表
   def getRandomEnemyDataResult(command)
-    if( /RED(E|N|H|L)(256|265|465|665|666)/ === command )
-      dif    = $1
+    if /RED(E|N|H|L)(256|265|465|665|666)/ === command
+      dif = $1
     area   = 0
     event  = $2.to_i
     number = event
-  elsif( /RED(E|N|H|L)([1-6])4([1-6])/ === command )
+  elsif /RED(E|N|H|L)([1-6])4([1-6])/ === command
     dif    = $1
     area   = $2.to_i
     event  = $3.to_i
@@ -1532,7 +1532,7 @@ SLv3:ゴーレムアーム(装飾品)
             '『白銀の猛将』ジェネラル(CL55/ネームド)1匹([命中]+4、あらゆる致傷力+20、[HP]+500)'
          ]],
             ]
-    case event/100
+    case event / 100
       when 1
         areaText = "洞窟"
       when 2

@@ -43,24 +43,24 @@ MESSAGETEXT
     debug("rollDiceCommand Begin")
 
     text = judgeRoll(command)
-    return text unless( text.nil? )
+    return text unless text.nil?
 
     isStop = true
     text, = reRoll(command, isStop)
-    return text unless( text.nil? )
+    return text unless text.nil?
 
     text = getRulingPlanetDiceCommandResult(command)
-    return text unless( text.nil? )
+    return text unless text.nil?
 
     text = getDurtyTableCommandReuslt(command)
-    return text unless( text.nil? )
+    return text unless text.nil?
 
     text = getTableCommandResult(command, @@tables)
     return text
   end
 
   def judgeRoll(command)
-    return nil unless( /^BM(S)?(\d*)(@(\d+))?>=(\d+)$/i =~ command )
+    return nil unless /^BM(S)?(\d*)(@(\d+))?>=(\d+)$/i =~ command
 
     isStop = !$1.nil?
     skillRank = $2.to_i
@@ -83,7 +83,7 @@ MESSAGETEXT
   def reRoll(command, isStop)
     debug("ReRoll Begin", command)
 
-    return nil unless( /^ReRoll([\d,]+)(@(\d+))?>=(\d+)$/i =~ command )
+    return nil unless /^ReRoll([\d,]+)(@(\d+))?>=(\d+)$/i =~ command
 
     debug("ReRoll pass")
 
@@ -92,7 +92,7 @@ MESSAGETEXT
     judgeNumber = ($3 || 4).to_i
     targetNumber = $4.to_i
 
-    rerollCounts = rerollCountsText.split(/,/).collect{|i|i.to_i}
+    rerollCounts = rerollCountsText.split(/,/).collect { |i| i.to_i }
 
     commandText = ""
     rerollCounts.each do |diceCount|
@@ -129,9 +129,9 @@ MESSAGETEXT
       commandName = "ReRoll#{diceCount}"
       unless isReRoll
         if isStop
-          commandName = "BMS#{diceCount -2 }"
+          commandName = "BMS#{diceCount - 2 }"
         else
-          commandName = "BM#{diceCount -2 }"
+          commandName = "BM#{diceCount - 2 }"
         end
       end
       commandText = "#{commandName}#{judgeNumberText}>=#{targetNumber}"
@@ -139,13 +139,13 @@ MESSAGETEXT
       isSort = 1
       _, diceText, = roll(diceCount, 6, isSort)
 
-      diceList = diceText.split(/,/).collect{|i| i.to_i}
+      diceList = diceText.split(/,/).collect { |i| i.to_i }
 
       message += " ＞ " if isReRoll
       message += "(#{commandText}) ＞ #{diceCount}D6[#{diceText}] ＞ "
 
       success, countOne, resultText = getSuccessResultText(diceList, judgeNumber)
-      bitList += diceList.find_all{|i| i >= 4} unless isReRoll
+      bitList += diceList.find_all { |i| i >= 4 } unless isReRoll
       successList << success
       countOneList << countOne
       message += resultText
@@ -159,7 +159,7 @@ MESSAGETEXT
           rerollText += list.join('')
         end
 
-        rerollTargetList << sameDiceList.collect{|i| i.count}.join(",")
+        rerollTargetList << sameDiceList.collect { |i| i.count }.join(",")
 
         message += "、リロール[#{rerollText}]"
       end
@@ -186,8 +186,8 @@ MESSAGETEXT
   end
 
   def getTotalResultMessageText(bitList, successList, countOneList, targetNumber, isStop, canReRoll)
-    success = successList.inject{|sum, i| sum + i}
-    countOne = countOneList.inject{|sum, i| sum + i}
+    success = successList.inject { |sum, i| sum + i }
+    countOne = countOneList.inject { |sum, i| sum + i }
 
     result = ""
 
@@ -199,7 +199,7 @@ MESSAGETEXT
       result += "\n"
 
       if success >= targetNumber
-        result +=  " ＞ 現状で成功。コマンド実行で追加リロールも可能"
+        result += " ＞ 現状で成功。コマンド実行で追加リロールも可能"
       else
         result += " ＞ 現状のままでは失敗"
         result += "。汚染ポイント+#{countOne}" if countOne >= 1
@@ -209,7 +209,7 @@ MESSAGETEXT
     end
 
     if success >= targetNumber
-      result +=  " ＞ 成功"
+      result += " ＞ 成功"
 
       if bitList.size >= 1
         result += "、禁書ビット発生[#{bitList.join(',')}]"
@@ -229,7 +229,7 @@ MESSAGETEXT
     diceList.uniq.each do |i|
       next if i == 1
 
-      list = diceList.find_all{|dice| dice == i}
+      list = diceList.find_all { |dice| dice == i }
       next if list.length <= 1
 
       sameDiceList << list
@@ -258,7 +258,7 @@ MESSAGETEXT
   def getRulingPlanetDiceCommandResult(command)
     return nil unless /^RP(\d+)/i === command
 
-    targetNumbers = $1.split(//).collect{|i|i.to_i}
+    targetNumbers = $1.split(//).collect { |i| i.to_i }
     diceList = getRulingPlanetDice
 
     matchResult = "失敗"
@@ -295,7 +295,7 @@ MESSAGETEXT
   end
 
   def getDurtyTableCommandReuslt(command)
-    return nil unless( /^DT$/i =~ command )
+    return nil unless /^DT$/i =~ command
 
     table = <<__TABLE_END__
 汚染チャートを２回振り、その効果を適用する（1・2-2,5・6-12 なら振り直す）
@@ -355,7 +355,7 @@ __TABLE_END__
 楽：もはや楽しいことなどない。希望を抱くだけ無駄なのだ。
 愛：愛など幻想……無力で儚い、役に立たない世迷い言だ。
 感：なにを見ても、感動はない。心は凍てついている。
-},},
+}, },
 
     'ESH' => {
       :name => "「喜」の感情後遺症表",
@@ -372,7 +372,7 @@ __TABLE_END__
 「喜」の後遺症をひとつ消してもよい。
 「喜」の後遺症をひとつ消してもよい。
 「喜」の後遺症をひとつ消してもよい。
-},},
+}, },
 
     'ESA' => {
       :name => "「怒」の感情後遺症表",
@@ -389,7 +389,7 @@ __TABLE_END__
 「怒」の後遺症をひとつ消してもよい。
 「怒」の後遺症をひとつ消してもよい。
 「怒」の後遺症をひとつ消してもよい。
-},},
+}, },
 
     'ESS' => {
       :name => "「哀」の感情後遺症表",
@@ -406,7 +406,7 @@ __TABLE_END__
 「哀」の後遺症をひとつ消してもよい。
 「哀」の後遺症をひとつ消してもよい。
 「哀」の後遺症をひとつ消してもよい。
-},},
+}, },
 
     'ESP' => {
       :name => "「楽」の感情後遺症表",
@@ -423,7 +423,7 @@ __TABLE_END__
 「楽」の後遺症をひとつ消してもよい。
 「楽」の後遺症をひとつ消してもよい。
 「楽」の後遺症をひとつ消してもよい。
-},},
+}, },
 
     'ESL' => {
       :name => "「愛」の感情後遺症表",
@@ -440,7 +440,7 @@ __TABLE_END__
 「愛」の後遺症をひとつ消してもよい。
 「愛」の後遺症をひとつ消してもよい。
 「愛」の後遺症をひとつ消してもよい。
-},},
+}, },
 
     'ESE' => {
       :name => "「感」の感情後遺症表",
@@ -457,7 +457,7 @@ __TABLE_END__
 「感」の後遺症をひとつ消してもよい。
 「感」の後遺症をひとつ消してもよい。
 「感」の後遺症をひとつ消してもよい。
-},},
+}, },
 
   }
 

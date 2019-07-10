@@ -47,14 +47,14 @@ class KanColle < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
-    return '' unless( signOfInequality == ">=")
+  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
+    return '' unless signOfInequality == ">="
 
-    if(dice_n <= 2)
+    if dice_n <= 2
       return " ＞ ファンブル（判定失敗。アクシデント表を自分のＰＣに適用）"
-    elsif(dice_n >= 12)
+    elsif dice_n >= 12
       return " ＞ スペシャル（判定成功。【行動力】が１Ｄ６点回復）"
-    elsif(total_n >= diff)
+    elsif total_n >= diff
       return " ＞ 成功"
     else
       return " ＞ 失敗"
@@ -68,110 +68,110 @@ INFO_MESSAGE_TEXT
 
     case command
     when 'ET'
-      type='感情表'
-      output, total_n =  get_emotion_table
+      type = '感情表'
+      output, total_n = get_emotion_table
     when 'ACT'
-      type='アクシデント表'
-      output, total_n =  get_accident_table
+      type = 'アクシデント表'
+      output, total_n = get_accident_table
 
     when 'EVNT'
-      type='日常イベント表'
-      output, total_n =  get_nichijyou_event_table
+      type = '日常イベント表'
+      output, total_n = get_nichijyou_event_table
     when 'EVKT'
-      type='交流イベント表'
-      output, total_n =  get_kouryu_event_table
+      type = '交流イベント表'
+      output, total_n = get_kouryu_event_table
     when 'EVAT'
-      type='遊びイベント表'
-      output, total_n =  get_asobi_event_table
+      type = '遊びイベント表'
+      output, total_n = get_asobi_event_table
     when 'EVET'
-      type='演習イベント表'
-      output, total_n =  get_ensyuu_event_table
+      type = '演習イベント表'
+      output, total_n = get_ensyuu_event_table
     when 'EVENT'
-      type='遠征イベント表'
-      output, total_n =  get_ensei_event_table
+      type = '遠征イベント表'
+      output, total_n = get_ensei_event_table
     when 'EVST'
-      type='作戦イベント表'
-      output, total_n =  get_sakusen_event_table
+      type = '作戦イベント表'
+      output, total_n = get_sakusen_event_table
     when 'ETHT'
-      type='ほのぼのイベント表'
-      output, total_n =  get_honobono_event_table
+      type = 'ほのぼのイベント表'
+      output, total_n = get_honobono_event_table
     when 'ETVT'
-      type='航海イベント表'
-      output, total_n =  get_voyage_event_table
+      type = '航海イベント表'
+      output, total_n = get_voyage_event_table
     when 'ETGT'
-      type='外出イベント表'
-      output, total_n =  get_gaisyutsu_event_table
+      type = '外出イベント表'
+      output, total_n = get_gaisyutsu_event_table
     when 'ETBT'
-      type='激戦イベント表'
-      output, total_n =  get_battle_event_table
+      type = '激戦イベント表'
+      output, total_n = get_battle_event_table
     when 'ETMT'
-      type='任務イベント表'
-      output, total_n =  get_mission_event_table
+      type = '任務イベント表'
+      output, total_n = get_mission_event_table
     when 'ETFT'
-      type='恐怖イベント表'
-      output, total_n =  get_fear_event_table
+      type = '恐怖イベント表'
+      output, total_n = get_fear_event_table
 
     when 'DVT'
-      type='開発表'
-      output, total_n =  get_develop_table
+      type = '開発表'
+      output, total_n = get_develop_table
     when 'DVTM'
-      type='開発表（一括）'
-      output, total_n =  get_develop_matome_table
+      type = '開発表（一括）'
+      output, total_n = get_develop_matome_table
     when 'WP1T'
-      type='装備１種表'
-      output, total_n =  get_weapon1_table
+      type = '装備１種表'
+      output, total_n = get_weapon1_table
     when 'WP2T'
-      type='装備２種表'
-      output, total_n =  get_weapon2_table
+      type = '装備２種表'
+      output, total_n = get_weapon2_table
     when 'WP3T'
-      type='装備３種表'
-      output, total_n =  get_weapon3_table
+      type = '装備３種表'
+      output, total_n = get_weapon3_table
     when 'WP4T'
-      type='装備４種表'
-      output, total_n =  get_weapon4_table
+      type = '装備４種表'
+      output, total_n = get_weapon4_table
     when 'ITT'
-      type='アイテム表'
-      output, total_n =  get_item_table
+      type = 'アイテム表'
+      output, total_n = get_item_table
     when 'MHT'
-      type='目標表'
-      output, total_n =  get_mokuhyou_table
+      type = '目標表'
+      output, total_n = get_mokuhyou_table
     when 'SNT'
-      type='戦果表'
-      output, total_n =  get_senka_table
+      type = '戦果表'
+      output, total_n = get_senka_table
     when 'SPSNT'
-      type='特殊戦果表'
-      output, total_n =  get_special_senka_table
+      type = '特殊戦果表'
+      output, total_n = get_special_senka_table
 
     when 'KTM'
-      type='個性：一括'
-      output, total_n =  get_kosei_table
+      type = '個性：一括'
+      output, total_n = get_kosei_table
     when 'BT'
-      type='個性：分野表'
-      output, total_n =  get_bunya_table
+      type = '個性：分野表'
+      output, total_n = get_bunya_table
     when 'KHT'
-      type='個性：背景表'
-      output, total_n =  get_kosei_haikei_table
+      type = '個性：背景表'
+      output, total_n = get_kosei_haikei_table
     when 'KMT'
-      type='個性：魅力表'
-      output, total_n =  get_kosei_miryoku_table
+      type = '個性：魅力表'
+      output, total_n = get_kosei_miryoku_table
     when 'KST'
-      type='個性：性格表'
-      output, total_n =  get_kosei_seikaku_table
+      type = '個性：性格表'
+      output, total_n = get_kosei_seikaku_table
     when 'KSYT'
-      type='個性：趣味表'
-      output, total_n =  get_kosei_syumi_table
+      type = '個性：趣味表'
+      output, total_n = get_kosei_syumi_table
     when 'KKT'
-      type='個性：航海表'
-      output, total_n =  get_kosei_koukai_table
+      type = '個性：航海表'
+      output, total_n = get_kosei_koukai_table
     when 'KSNT'
-      type='個性：戦闘表'
-      output, total_n =  get_kosei_sentou_table
+      type = '個性：戦闘表'
+      output, total_n = get_kosei_sentou_table
     when 'SNZ'
-      type='戦場表'
-      output, total_n =  get_senzyou_table
+      type = '戦場表'
+      output, total_n = get_senzyou_table
     when 'RNT'
-      type='暴走表'
-      output, total_n =  get_bousou_table
+      type = '暴走表'
+      output, total_n = get_bousou_table
     else
       return getTableCommandResult(command, @@tables)
     end
@@ -221,7 +221,7 @@ INFO_MESSAGE_TEXT
       '取材：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《名声／背景３》で判定。',
       '海水浴：《突撃／戦闘６》で判定。',
       'マイブーム：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《口ぐせ／背景６》で判定。',
-    ].map {|i| i.gsub(/$/, '（着任p220）')}
+    ].map { |i| i.gsub(/$/, '（着任p220）') }
     return get_table_by_2d6(table)
   end
 
@@ -239,7 +239,7 @@ INFO_MESSAGE_TEXT
           '差し入れ：自分以外の好きなＰＣ１人を選んで、提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《優しい／魅力４》で判定。',
           'お手紙：自分以外の好きなＰＣ１人を選んで、《古風／背景５》で判定。',
           '昔語り：自分以外の好きなＰＣ１人を選んで、提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《暗い過去／背景４》で判定。',
-    ].map {|i| i.gsub(/$/, '（着任p221）')}
+    ].map { |i| i.gsub(/$/, '（着任p221）') }
     return get_table_by_2d6(table)
   end
 
@@ -257,7 +257,7 @@ INFO_MESSAGE_TEXT
       'アイドルコンサート：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《アイドル／背景８》で判定。',
       'スタイル自慢！：《スタイル／背景１１》で判定。',
       'ちゃんと面倒みるから！：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《生き物／趣味４》で判定。',
-    ].map {|i| i.gsub(/$/, '（着任p222）')}
+    ].map { |i| i.gsub(/$/, '（着任p222）') }
     return get_table_by_2d6(table)
   end
 
@@ -275,7 +275,7 @@ INFO_MESSAGE_TEXT
     '夜戦演習：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《夜戦／戦闘１２》で判定。',
     '開発演習：《秘密兵器／背景９》で判定。',
     '防空射撃演習：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《対空戦闘／戦闘５》で判定。',
-  ].map {|i| i.gsub(/$/, '（着任p223）')}
+  ].map { |i| i.gsub(/$/, '（着任p223）') }
     return get_table_by_2d6(table)
   end
 
@@ -293,7 +293,7 @@ INFO_MESSAGE_TEXT
     '社交界デビュー？：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《お嬢様／背景１０》で判定。',
     '対潜警戒任務：《対潜戦闘／戦闘１１》で判定。',
     '大規模遠征作戦、発令！：提督の選んだ（キーワード）に対応した指定能力値で判定。思いつかな場合は《指揮／航海１０》で判定。',
-  ].map {|i| i.gsub(/$/, '（着任p224）')}
+  ].map { |i| i.gsub(/$/, '（着任p224）') }
     return get_table_by_2d6(table)
   end
 
@@ -312,7 +312,7 @@ INFO_MESSAGE_TEXT
     'クイーンズ・ギャンビット：《いじわる／性格１０》で判定。',
     '知彼知己者、百戦不殆：《読書／趣味５》で判定。',
 
-  ].map {|i| i.gsub(/$/, '（着任p225）')}
+  ].map { |i| i.gsub(/$/, '（着任p225）') }
     return get_table_by_2d6(table)
   end
 
@@ -331,7 +331,7 @@ INFO_MESSAGE_TEXT
     '気になる視線：《えっち／魅力１１》で判定。',
     '思い立ったが吉日：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《恋愛／趣味１２》で判定。',
 
-  ].map {|i| i.gsub(/$/, '（建造弐p134）')}
+  ].map { |i| i.gsub(/$/, '（建造弐p134）') }
     return get_table_by_2d6(table)
   end
 
@@ -350,7 +350,7 @@ INFO_MESSAGE_TEXT
     'ネズミ上陸：《衛生／航海１１》で判定。',
     '味の探求：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《読書／趣味５》で判定。',
 
-  ].map {|i| i.gsub(/$/, '（建造弐p135）')}
+  ].map { |i| i.gsub(/$/, '（建造弐p135）') }
     return get_table_by_2d6(table)
   end
 
@@ -369,7 +369,7 @@ INFO_MESSAGE_TEXT
     '臨時講師：《おしゃべり／性格１０》で判定。',
     '映画撮影：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《芸能／趣味９》で判定。',
 
-  ].map {|i| i.gsub(/$/, '（建造弐p136）')}
+  ].map { |i| i.gsub(/$/, '（建造弐p136）') }
     return get_table_by_2d6(table)
   end
 
@@ -388,7 +388,7 @@ INFO_MESSAGE_TEXT
     '生き延びろ：《負けず嫌い／性格１０》で判定。',
     '極限の集中：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《ばか／魅力８》で判定。',
 
-  ].map {|i| i.gsub(/$/, '（建造弐p137）')}
+  ].map { |i| i.gsub(/$/, '（建造弐p137）') }
     return get_table_by_2d6(table)
   end
 
@@ -407,7 +407,7 @@ INFO_MESSAGE_TEXT
     'ちゃんと伝えたってば！：《クール／魅力３》で判定。',
     'ストライキ：《おおらか／性格３》で判定。',
 
-  ].map {|i| i.gsub(/$/, '（建造弐p138）')}
+  ].map { |i| i.gsub(/$/, '（建造弐p138）') }
     return get_table_by_2d6(table)
   end
 
@@ -426,7 +426,7 @@ INFO_MESSAGE_TEXT
     '深海の呼び声：《素直／魅力２》で判定。',
     '死者の声：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《けなげ／魅力６》で判定。',
 
-  ].map {|i| i.gsub(/$/, '（建造弐p139）')}
+  ].map { |i| i.gsub(/$/, '（建造弐p139）') }
     return get_table_by_2d6(table)
   end
 
@@ -452,19 +452,19 @@ INFO_MESSAGE_TEXT
   case dice
     when 1
       output1 = '装備１種表'
-      output2, total_n2 =  get_weapon1_table
+      output2, total_n2 = get_weapon1_table
     when 2
       output1 = '装備１種表'
-      output2, total_n2 =  get_weapon1_table
+      output2, total_n2 = get_weapon1_table
     when 3
       output1 = '装備２種表'
-      output2, total_n2 =  get_weapon2_table
+      output2, total_n2 = get_weapon2_table
     when 4
       output1 = '装備２種表'
-      output2, total_n2 =  get_weapon2_table
+      output2, total_n2 = get_weapon2_table
     when 5
       output1 = '装備３種表'
-      output2, total_n2 =  get_weapon3_table
+      output2, total_n2 = get_weapon3_table
     when 6
       output1 = '装備４種表'
       output2, total_n2 =  get_weapon4_table
@@ -530,7 +530,7 @@ INFO_MESSAGE_TEXT
         '高速修復剤',
         '応急修理要員',
         '思い出の品',
-            ].map {|i| i.gsub(/$/, '（P241）')}
+            ].map { |i| i.gsub(/$/, '（P241）') }
     return get_table_by_1d6(table)
   end
 
@@ -718,7 +718,7 @@ INFO_MESSAGE_TEXT
     'Ｔ字不利',
     '悪天候',
     '悪海象（あくかいしょう）',
-            ].map {|i| i.gsub(/$/, '（P231）')}
+            ].map { |i| i.gsub(/$/, '（P231）') }
     return get_table_by_1d6(table)
   end
 
@@ -730,7 +730,7 @@ INFO_MESSAGE_TEXT
     '溺愛',
     '慢心',
     '絶望',
-            ].map {|i| i.gsub(/$/, '（建造弐p164）')}
+            ].map { |i| i.gsub(/$/, '（建造弐p164）') }
     return get_table_by_1d6(table)
   end
 

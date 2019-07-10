@@ -36,7 +36,7 @@ MESSAGETEXT
 
     case command
     when /geta/i
-      result= getaRoll()
+      result = getaRoll()
     end
 
     return nil if result.empty?
@@ -49,13 +49,13 @@ MESSAGETEXT
 
     _, diceText = roll(1, 7)
 
-    diceList = diceText.split(/,/).collect{|i|i.to_i}
+    diceList = diceText.split(/,/).collect { |i| i.to_i }
 
     #result << " あーしたてんきになーれっ ＞ [#{diceList.join(',')}] ＞ "
     result += "下駄占い ＞ "
 
     getaString = ''
-    case(diceList[0])
+    case (diceList[0])
       when 1
         getaString = '裏：あめ'
       when 2

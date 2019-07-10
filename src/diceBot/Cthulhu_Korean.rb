@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Cthulhu_Korean < DiceBot
-  setPrefixes(['CC(B)?\(\d+\)', 'CC(B)?.*','RES(B)?.*', 'CBR(B)?\(\d+,\d+\)'])
+  setPrefixes(['CC(B)?\(\d+\)', 'CC(B)?.*', 'RES(B)?.*', 'CBR(B)?\(\d+,\d+\)'])
 
   def initialize
     #$isDebug = true
@@ -131,27 +131,27 @@ INFO_MESSAGE_TEXT
     diff_special = 0
     fumble = false
 
-    if( @special_percentage > 0)
+    if @special_percentage > 0
       # special의 값설정이 없는 경우 크리티컬/펌블 판정도 없다
       diff_special = (diff * @special_percentage / 100).floor
-      if(diff_special < 1)
+      if diff_special < 1
         diff_special = 1
       end
     end
 
-    if((total_n <= diff) && (total_n < 100))
+    if (total_n <= diff) && (total_n < 100)
 
       result = "성공"
 
-      if( diff_special > 0)
-        if(total_n <= @critical_percentage)
-          if(total_n <= diff_special)
+      if diff_special > 0
+        if total_n <= @critical_percentage
+          if total_n <= diff_special
             result = "크리티컬/스페셜"
           else
             result = "크리티컬"
           end
         else
-          if(total_n <= diff_special)
+          if total_n <= diff_special
             result = "스페셜"
           end
         end
@@ -161,8 +161,8 @@ INFO_MESSAGE_TEXT
 
       result = "실패"
 
-      if( diff_special > 0)
-        if((total_n >= (101 - @fumble_percentage)) && (diff < 100))
+      if diff_special > 0
+        if (total_n >= (101 - @fumble_percentage)) && (diff < 100)
           result = "펌블"
           fumble = true
         end
@@ -170,9 +170,9 @@ INFO_MESSAGE_TEXT
 
     end
 
-    if(broken_num > 0)
-      if(total_n >= broken_num)
-        if(fumble)
+    if broken_num > 0
+      if total_n >= broken_num
+        if fumble
           result += "/고장"
         else
           result = "고장"
@@ -186,22 +186,22 @@ INFO_MESSAGE_TEXT
   def getRegistResult(command)
     output = "1"
 
-    return output unless(/RES(B)?([-\d]+)/i =~ command)
+    return output unless /RES(B)?([-\d]+)/i =~ command
 
     value = $2.to_i
-    target =  value * 5 + 50
+    target = value * 5 + 50
 
-    if(target < 5)
+    if target < 5
       return "(1d100<=#{target}) ＞ 자동실패"
     end
 
-    if(target > 95)
+    if target > 95
       return "(1d100<=#{target}) ＞ 자동성공"
     end
 
     # 통상판정
     total_n, = roll(1, 100)
-    result =  getCheckResultText(total_n, target)
+    result = getCheckResultText(total_n, target)
 
     return "(1d100<=#{target}) ＞ #{total_n} ＞ #{result}"
   end
@@ -209,7 +209,7 @@ INFO_MESSAGE_TEXT
   def getCombineRoll(command)
     output = "1"
 
-    return output unless(/CBR(B)?\((\d+),(\d+)\)/i =~ command)
+    return output unless /CBR(B)?\((\d+),(\d+)\)/i =~ command
 
     diff_1 = $2.to_i
     diff_2 = $3.to_i
@@ -223,14 +223,14 @@ INFO_MESSAGE_TEXT
     failList = ["실패", "펌블"]
 
     succesCount = 0
-    succesCount += 1 if successList.include?( result_1 )
-    succesCount += 1 if successList.include?( result_2 )
+    succesCount += 1 if successList.include?(result_1)
+    succesCount += 1 if successList.include?(result_2)
     debug("succesCount", succesCount)
 
     rank =
-      if( succesCount >= 2 )
+      if succesCount >= 2
         "성공"
-      elsif( succesCount == 1 )
+      elsif  succesCount == 1
         "부분적 성공"
       else
         "실패"

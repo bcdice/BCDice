@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Cthulhu7th_Korean < DiceBot
-  setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)' , 'FAR.*'])
+  setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*'])
 
   def initialize
     #$isDebug = true
@@ -57,9 +57,9 @@ INFO_MESSAGE_TEXT
     bonus_dice_count = $1.to_i #보너스, 패널티 주사위의 개수
     diff = $2.to_i
 
-    return "에러. 목표치는 1 이상입니다." if(diff <= 0)
+    return "에러. 목표치는 1 이상입니다." if diff <= 0
 
-    unless  @bonus_dice_range.include?(bonus_dice_count)
+    unless @bonus_dice_range.include?(bonus_dice_count)
       return "에러. 보너스, 패널티 주사위의 수치는 #{@bonus_dice_range.min}~#{@bonus_dice_range.max}입니다."
     end
 
@@ -80,7 +80,7 @@ INFO_MESSAGE_TEXT
 
   def rollPercentD10
     dice, = roll(1, 10)
-    dice = 0 if(dice == 10)
+    dice = 0 if dice == 10
 
     return dice
   end
@@ -101,16 +101,16 @@ INFO_MESSAGE_TEXT
   end
 
   def getTotal(total_list, bonus_dice_count)
-    return total_list.min if( bonus_dice_count >= 0 )
+    return total_list.min if bonus_dice_count >= 0
 
     return total_list.max
   end
 
   def getCheckResultText(total, diff, fumbleable = false)
-    if(total <= diff)
-      return "대성공" if(total == 1)
-      return "대단한 성공" if(total <= (diff / 5))
-      return "어려운 성공" if(total <= (diff / 2))
+    if total <= diff
+      return "대성공" if total == 1
+      return "대단한 성공" if total <= (diff / 5)
+      return "어려운 성공" if total <= (diff / 2)
 
       return "보통 성공"
     end
@@ -131,7 +131,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getCombineRoll(command)
-    return nil unless(/CBR\((\d+),(\d+)\)/i =~ command)
+    return nil unless /CBR\((\d+),(\d+)\)/i =~ command
 
     diff_1 = $1.to_i
     diff_2 = $2.to_i
@@ -144,14 +144,14 @@ INFO_MESSAGE_TEXT
     successList = ["대성공", "대단한 성공", "어려운 성공", "보통성공"]
 
     succesCount = 0
-    succesCount += 1 if successList.include?( result_1 )
-    succesCount += 1 if successList.include?( result_2 )
+    succesCount += 1 if successList.include?(result_1)
+    succesCount += 1 if successList.include?(result_2)
     debug("succesCount", succesCount)
 
     rank =
-      if( succesCount >= 2 )
+      if succesCount >= 2
         "성공"
-      elsif( succesCount == 1 )
+      elsif  succesCount == 1
         "부분적 성공"
       else
         "실패"
@@ -185,7 +185,7 @@ INFO_MESSAGE_TEXT
       broken_number = broken_number.abs
     end
 
-    unless  @bonus_dice_range.include?(bonus_dice_count)
+    unless @bonus_dice_range.include?(bonus_dice_count)
       return "\n에러. 보너스, 패널티 주사위의 수치는 #{@bonus_dice_range.min}~#{@bonus_dice_range.max}입니다."
     end
 
@@ -247,7 +247,7 @@ INFO_MESSAGE_TEXT
     fumbleable = getFumbleable(more_difficlty)
     hit_result = getCheckResultText(total, diff, fumbleable)
 
-    return hit_result , total, total_list
+    return hit_result, total, total_list
   end
 
   def getHitResultText(output, counts)
@@ -257,8 +257,8 @@ INFO_MESSAGE_TEXT
   def getHitType(more_difficlty, hit_result)
     successList, impaleBulletList = getSuccessListImpaleBulletList(more_difficlty)
 
-    return :hit if successList.include?( hit_result )
-    return :impale if impaleBulletList.include?( hit_result )
+    return :hit if successList.include?(hit_result)
+    return :impale if impaleBulletList.include?(hit_result)
 
     return ""
   end
@@ -272,7 +272,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count = 0
     impale_bullet_count = 0
 
-    if  !isLastBulletTurn(bullet_count, bullet_set_count)
+    if !isLastBulletTurn(bullet_count, bullet_set_count)
 
       case hit_type
       when :hit
@@ -280,7 +280,7 @@ INFO_MESSAGE_TEXT
 
       when :impale
         hit_bullet_count = impale_bullet_count_base.floor
-        impale_bullet_count = impale_bullet_count_base.ceil  #관통한 탄수의 계산
+        impale_bullet_count = impale_bullet_count_base.ceil #관통한 탄수의 계산
       end
 
       lost_bullet_count = bullet_set_count
@@ -289,7 +289,7 @@ INFO_MESSAGE_TEXT
 
       case hit_type
       when :hit
-        hit_bullet_count = getLastHitBulletCount( bullet_count )
+        hit_bullet_count = getLastHitBulletCount(bullet_count)
 
       when :impale
         halfbull = bullet_count / 2.to_f
@@ -343,7 +343,7 @@ INFO_MESSAGE_TEXT
     bullet_set_count = diff / 10
 
     if (diff >= 1) && (diff < 10)
-      bullet_set_count = 1  #기능 수치가 9 이하일 때의 최저수치 보장 처리
+      bullet_set_count = 1 #기능 수치가 9 이하일 때의 최저수치 보장 처리
     end
 
     return bullet_set_count
@@ -353,13 +353,13 @@ INFO_MESSAGE_TEXT
     hit_bullet_count_base = (bullet_set_count / 2)
 
     if (diff >= 1) && (diff < 10)
-      hit_bullet_count_base = 1  #기능 수치가 9 이하일 때의 최저수치 보장
+      hit_bullet_count_base = 1 #기능 수치가 9 이하일 때의 최저수치 보장
     end
 
     return hit_bullet_count_base
   end
 
-  def isLastBulletTurn(bullet_count,bullet_set_count)
+  def isLastBulletTurn(bullet_count, bullet_set_count)
     ((bullet_count - bullet_set_count) < 0)
   end
 
@@ -375,6 +375,6 @@ INFO_MESSAGE_TEXT
 
   def getFumbleable(more_difficlty)
     #성공이 49 이하일때만이기 때문에 펌블치는 상승
-    return ( more_difficlty >= 1 )
+    return (more_difficlty >= 1)
   end
 end

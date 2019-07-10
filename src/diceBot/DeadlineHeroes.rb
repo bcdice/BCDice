@@ -190,7 +190,7 @@ INFO_MESSAGE_TEXT
     columns, chart, = chartInfo
 
     range, elements = chart.find do |range, elements|
-      range.include?( keyNumber )
+      range.include?(keyNumber)
     end
 
     return nil if range.nil?
@@ -277,10 +277,10 @@ INFO_MESSAGE_TEXT
 
     elements = chart[dice][:elements]
 
-    resolvedElements = elements.map{|i| rollHeroNameBaseChart(i) }
+    resolvedElements = elements.map { |i| rollHeroNameBaseChart(i) }
 
-    text = resolvedElements.map{|i| getHeroNameElementText(i)}.join(" ＋ ")
-    resultText = resolvedElements.map{|i| i[:coreResult]}.join("").sub(/・{2,}/, "・").sub(/・$/, "")
+    text = resolvedElements.map { |i| getHeroNameElementText(i) }.join(" ＋ ")
+    resultText = resolvedElements.map { |i| i[:coreResult] }.join("").sub(/・{2,}/, "・").sub(/・$/, "")
 
     result[:result] += " ＞ ( #{text} ) ＞ 「#{resultText}」"
 
@@ -302,7 +302,7 @@ INFO_MESSAGE_TEXT
     return defaultResult if chart.nil?
 
     dice, = roll(1, 10)
-    return defaultResult unless chart.has_key?( dice )
+    return defaultResult unless chart.has_key?(dice)
 
     result = {:dice => dice, :result => chart[dice], :chartName => chartName}
     result[:coreResult] = result[:result]
@@ -323,7 +323,7 @@ INFO_MESSAGE_TEXT
     return nil if chart.nil?
 
     dice, = roll(1, 10)
-    return nil unless chart.has_key?( dice )
+    return nil unless chart.has_key?(dice)
 
     name, mean, = chart[dice]
 
@@ -343,15 +343,15 @@ INFO_MESSAGE_TEXT
   end
 
   @@heroNameTemplates = {
-    1 => {:text => 'ベースＡ＋ベースＢ',               :elements => ['ベースＡ', 'ベースＢ']},
-    2 => {:text => 'ベースＢ',                         :elements => ['ベースＢ']},
-    3 => {:text => 'ベースＢ×２回',                   :elements => ['ベースＢ', 'ベースＢ']},
-    4 => {:text => 'ベースＢ＋ベースＣ',               :elements => ['ベースＢ', 'ベースＣ']},
-    5 => {:text => 'ベースＡ＋ベースＢ＋ベースＣ',     :elements => ['ベースＡ', 'ベースＢ', 'ベースＣ']},
+    1 => {:text => 'ベースＡ＋ベースＢ', :elements => ['ベースＡ', 'ベースＢ']},
+    2 => {:text => 'ベースＢ', :elements => ['ベースＢ']},
+    3 => {:text => 'ベースＢ×２回', :elements => ['ベースＢ', 'ベースＢ']},
+    4 => {:text => 'ベースＢ＋ベースＣ', :elements => ['ベースＢ', 'ベースＣ']},
+    5 => {:text => 'ベースＡ＋ベースＢ＋ベースＣ', :elements => ['ベースＡ', 'ベースＢ', 'ベースＣ']},
     6 => {:text => 'ベースＡ＋ベースＢ×２回',         :elements => ['ベースＡ', 'ベースＢ', 'ベースＢ']},
     7 => {:text => 'ベースＢ×２回＋ベースＣ',         :elements => ['ベースＢ', 'ベースＢ', 'ベースＣ']},
     8 => {:text => '（ベースＢ）・オブ・（ベースＢ）', :elements => ['ベースＢ', '・オブ・', 'ベースＢ']},
-    9 => {:text => '（ベースＢ）・ザ・（ベースＢ）',   :elements => ['ベースＢ', '・ザ・', 'ベースＢ']},
+    9 => {:text => '（ベースＢ）・ザ・（ベースＢ）', :elements => ['ベースＢ', '・ザ・', 'ベースＢ']},
     10 => {:text => '任意', :elements => ['任意']},
   }
 

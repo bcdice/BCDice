@@ -25,9 +25,9 @@ class CardTrader
 
     @card_channels = {}
     @card_spell = [
-                   'A','B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z',
-                   'a','b','c','d','e','f','g','h','i','j','k','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-                  ];  # 64種類の記号
+                   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                   'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                  ]; # 64種類の記号
   end
 
   # カードをデフォルトに戻す
@@ -52,10 +52,10 @@ class CardTrader
   # @return [self]
   def set1Deck1Joker
     @card_val = [
-      'S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12','S13',
-      'H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12','H13',
-      'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13',
-      'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13',
+      'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11', 'S12', 'S13',
+      'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10', 'H11', 'H12', 'H13',
+      'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10', 'D11', 'D12', 'D13',
+      'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C11', 'C12', 'C13',
       'J1',
     ]
     @cardRest = @card_val.clone
@@ -70,11 +70,11 @@ class CardTrader
   # @return [self]
   def set1Deck2Jokers
     @card_val = [
-      'S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12','S13',
-      'H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12','H13',
-      'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13',
-      'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13',
-      'J1','J0',
+      'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11', 'S12', 'S13',
+      'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10', 'H11', 'H12', 'H13',
+      'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10', 'D11', 'D12', 'D13',
+      'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C11', 'C12', 'C13',
+      'J1', 'J0',
     ]
     @cardRest = @card_val.clone
 
@@ -88,15 +88,15 @@ class CardTrader
   # @return [self]
   def set2Decks2Jokers
     @card_val = [
-      'S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12','S13',
-      's1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13',
-      'H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12','H13',
-      'h1','h2','h3','h4','h5','h6','h7','h8','h9','h10','h11','h12','h13',
-      'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13',
-      'd1','d2','d3','d4','d5','d6','d7','d8','d9','d10','d11','d12','d13',
-      'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13',
-      'c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','c11','c12','c13',
-      'J1','J2','J3','J4',
+      'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11', 'S12', 'S13',
+      's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 's11', 's12', 's13',
+      'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10', 'H11', 'H12', 'H13',
+      'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'h11', 'h12', 'h13',
+      'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10', 'D11', 'D12', 'D13',
+      'd1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'd11', 'd12', 'd13',
+      'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C11', 'C12', 'C13',
+      'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'c11', 'c12', 'c13',
+      'J1', 'J2', 'J3', 'J4',
     ]
     @cardRest = @card_val.clone
 
@@ -179,11 +179,11 @@ class CardTrader
   end
 
   def setCardMode()
-    return unless( /(\d+)/  =~ @tnick )
+    return unless /(\d+)/ =~ @tnick
 
     @card_place = $1.to_i
 
-    if( @card_place > 0 )
+    if @card_place > 0
       sendMessageToChannels("カード置き場ありに変更しました")
     else
       sendMessageToChannels("カード置き場無しに変更しました")
@@ -217,8 +217,8 @@ class CardTrader
 
   # 専用カードセットのロード
   def readExtraCard(cardFileName)
-    return if(cardFileName.nil?)
-    return if(cardFileName.empty?)
+    return if cardFileName.nil?
+    return if cardFileName.empty?
 
     debug("Loading Cardset『#{cardFileName}』...\n")
 
@@ -228,7 +228,7 @@ class CardTrader
       lines = File.readlines(cardFileName)
 
       lines.each do |line|
-        next unless(/^(\d+)->(.+)$/ =~ line)  # 番号->タイトル
+        next unless /^(\d+)->(.+)$/ =~ line # 番号->タイトル
 
         cardNumber = $1.to_i
         cardTitle = $2
@@ -236,7 +236,7 @@ class CardTrader
         @cardTitles[cardNumber] = cardTitle
       end
 
-      @cardRegExp = '[\d]+';    #カード指定文字列の正規表現
+      @cardRegExp = '[\d]+'; #カード指定文字列の正規表現
       @cardRest = @card_val.clone
       @deal_cards = {'card_played' => []}
 
@@ -250,7 +250,7 @@ class CardTrader
     @channel = channel
 
     debug('executeCard arg', arg)
-    return unless( /(c-)/ =~ arg )
+    return unless /(c-)/ =~ arg
 
     card_ok = 0
     count = 0
@@ -353,7 +353,7 @@ class CardTrader
     cards = drawCard(arg)
     debug("drawCardByCommandText cards", cards)
 
-    if(cards.length > 0)
+    if cards.length > 0
       sendMessageToOnlySender(getCardsTextFromCards(cards))
       sendMessage(@channel, "#{@nick_e}: #{cards.length}枚引きました")
     else
@@ -365,11 +365,11 @@ class CardTrader
 
   def drawCardOpen(value)
     cmd = "c-draw"
-    cmd += value unless( value.nil? )
+    cmd += value unless value.nil?
 
     cards = drawCard(cmd)
 
-    if(cards.length > 0)
+    if cards.length > 0
       sendMessage(@channel, "#{@nick_e}: " + getCardsTextFromCards(cards) + 'を引きました')
     else
       sendMessage(@channel, "カードが残っていません")
@@ -386,11 +386,11 @@ class CardTrader
     outputCards = []
 
     debug("@cardRest.length", @cardRest.length)
-    if(@cardRest.length <= 0)
+    if @cardRest.length <= 0
       return outputCards
     end
 
-    unless(/(c-draw(\[([\d]+)\])?)/ =~ command)
+    unless /(c-draw(\[([\d]+)\])?)/ =~ command
       return outputCards
     end
 
@@ -400,10 +400,10 @@ class CardTrader
     debug("draw count", count)
 
     count.times do |i|
-      break if(@cardRest.length <= 0)
+      break if @cardRest.length <= 0
 
       card = ejectOneCardRandomFromCards(@cardRest)
-      break if( card.nil? )
+      break if  card.nil?
 
       @deal_cards[ destination ] ||= []
       @deal_cards[ destination ] << card
@@ -418,10 +418,10 @@ class CardTrader
     debug('pickupCardCommandText string', string)
 
     count, output_msg = pickupCard(string)
-    if( count > 0 )
+    if count > 0
       sendMessage(@channel, "#{@nick_e}: #{count}枚選んで引きました")
     end
-    if( output_msg != "" )
+    if output_msg != ""
       sendMessage(@channel, "[" + getCardsText(output_msg) + "]がありません")
     end
     sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"))
@@ -431,21 +431,21 @@ class CardTrader
     okCount = 0
     ngCardList = []
 
-    if(/(c-pick\[((,)?#{@cardRegExp})+\])/ =~ string)
+    if /(c-pick\[((,)?#{@cardRegExp})+\])/ =~ string
       cardName = $1
       okCount, ngCardList = pickupCardByCardName(cardName)
     end
 
     ngCardText = ngCardList.join(",")
 
-    return okCount, ngCardText;   # 抜き出せた枚数とデッキに無かったカードを返す
+    return okCount, ngCardText; # 抜き出せた枚数とデッキに無かったカードを返す
   end
 
   def pickupCardByCardName(cardName)
     okCount = 0
     ngCardList = []
 
-    if(/\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ cardName)
+    if /\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ cardName
       cards = $1.split(/,/)
       okCount, ngCardList = pickupCardByCards(cards)
     end
@@ -459,7 +459,7 @@ class CardTrader
 
     cards.each do |card|
       string = pickupOneCard(card)
-      if(string == $okResult)
+      if string == $okResult
         okCount += 1
       else
         ngCardList << string
@@ -470,32 +470,32 @@ class CardTrader
   end
 
   def pickupOneCard(card)
-    if(@cardRest.length <= 0)
+    if @cardRest.length <= 0
       return '山札'
     end
 
     targetCard = card.upcase; # デッキから抜き出すカードの指定
     destination = @nick_e.upcase
 
-    isDelete = @cardRest.delete_if{|card| card == targetCard}
+    isDelete = @cardRest.delete_if { |card| card == targetCard }
 
-    if( isDelete )
+    if isDelete
       @deal_cards[destination] ||= []
       @deal_cards[destination] << targetCard
       return $okResult
     else
-      return targetCard;   # 無かったカードを返す
+      return targetCard; # 無かったカードを返す
     end
   end
 
   def backCardCommandText(command)
     count, output_msg = backCard(command)
 
-    if(count > 0)
+    if count > 0
       sendMessage(@channel, "#{@nick_e}: #{count}枚戻しました")
     end
 
-    if(output_msg != "")
+    if output_msg != ""
       sendMessage(@channel, "[#{getCardsText(output_msg)}]がありません")
     else
       sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"))
@@ -506,7 +506,7 @@ class CardTrader
     okCount = 0
     ngCards = []
 
-    if(/(c-back(\d*)\[((,)?#{@cardRegExp})+\])/ =~ command)
+    if /(c-back(\d*)\[((,)?#{@cardRegExp})+\])/ =~ command
       commandset = $1
       place = $2.to_i
       okCount, ngCards = backCardByCommandSetAndPlace(commandset, place)
@@ -520,12 +520,12 @@ class CardTrader
     ngCards = []
     destination = @nick_e.upcase
 
-    if( /\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ commandset )
+    if /\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ commandset
       cards = $1.split(/,/)
 
       cards.each do |card|
         string = backOneCard(card, destination, place)
-        if(string == $okResult)
+        if string == $okResult
           okCount += 1
         else
           ngCards << string
@@ -533,26 +533,26 @@ class CardTrader
       end
     end
 
-    return okCount, ngCards;   # 戻せた枚数とNGだったカードを返す
+    return okCount, ngCards; # 戻せた枚数とNGだったカードを返す
   end
 
   def backOneCard(targetCard, destination, place)
-    if(getBurriedCard <= 0)
-      return '捨て札';    # 捨て札が無い
+    if getBurriedCard <= 0
+      return '捨て札'; # 捨て札が無い
     end
 
     targetCard = targetCard.upcase
 
-    if(@card_place > 0)   # 場があるときのみ処理
-      string = transferOneCard(targetCard, "#{place}#{destination}", destination);   # 場から手札への移動
-      return $okResult if(string == $okResult)
+    if @card_place > 0 # 場があるときのみ処理
+      string = transferOneCard(targetCard, "#{place}#{destination}", destination); # 場から手札への移動
+      return $okResult if string == $okResult
     end
 
     @deal_cards['card_played'] ||= []
     cards = @deal_cards['card_played']
-    isDelete = cards.delete_if{|i| i == targetCard}
+    isDelete = cards.delete_if { |i| i == targetCard }
 
-    if( isDelete )
+    if isDelete
       @deal_cards[destination] << targetCard
       return $okResult
     end
@@ -564,7 +564,7 @@ class CardTrader
     debug("dealCard count, targetNick", count, targetNick)
 
     cards = drawCard("c-draw#{count}", targetNick)
-    if(cards.length > 0)
+    if cards.length > 0
       sendDealResult(targetNick, count, getCardsTextFromCards(cards), isLook)
     else
       sendMessage(@channel, "カードが残っていません")
@@ -577,7 +577,7 @@ class CardTrader
 
   def sendDealResult(targetNick, count, output_msg, isLook)
     sendMessage(targetNick, output_msg)
-    if( isLook )
+    if isLook
       sendMessage(@nick_e, "#{targetNick} に #{output_msg} を配りました")
     end
     sendMessage(@channel, "#{@nick_e}: #{targetNick}に#{count}枚配りました")
@@ -591,16 +591,16 @@ class CardTrader
   def discardCardCommandText(commandText)
     count, output_msg, card_ok = discardCards(commandText)
 
-    if(count > 0)
+    if count > 0
       sendMessage(@channel, "#{@nick_e}: #{count}枚捨てました")
 
-      unless( @cardTitles.empty? )
+      unless @cardTitles.empty?
         cardText = getCardsText($card_ok)
         sendMessage(@channel, "[#{cardText}]")
       end
     end
 
-    if(output_msg != "")
+    if output_msg != ""
       cardText = getCardsText(output_msg)
       sendMessageToOnlySender("[#{cardText}]がありません")
     else
@@ -613,11 +613,11 @@ class CardTrader
     debug('c-play pattern', arg)
 
     count, output_msg, card_ok = playCard(arg)
-    if( count > 0 )
+    if count > 0
       sendMessage(@channel, "#{@nick_e}: #{count}枚出しました")
-      sendMessage(@channel, "[" + getCardsText($card_ok) + "]") unless( @cardTitles.empty? )
+      sendMessage(@channel, "[" + getCardsText($card_ok) + "]") unless @cardTitles.empty?
     end
-    if( output_msg != "")
+    if output_msg != ""
       debug("output_msg", output_msg)
       sendMessage(@channel, "[" + getCardsText(output_msg) + "]は持っていません")
     end
@@ -631,7 +631,7 @@ class CardTrader
     okCardList = []
     ngCardList = []
 
-    if(/(c-play(\d*)\[((,)?#{@cardRegExp})+\])/ =~ cardPlayCommandText)
+    if /(c-play(\d*)\[((,)?#{@cardRegExp})+\])/ =~ cardPlayCommandText
       cardsBlockText = $1
       place = $2.to_i
       debug("cardsBlockText", cardsBlockText)
@@ -653,7 +653,7 @@ class CardTrader
     okCardList = []
     ngCardList = []
 
-    if(/\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ cardsBlockText)
+    if /\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ cardsBlockText
       cardsText = $1
       okCardList, ngCardList = playCardByCardsTextAndPlaceNo(cardsText, place)
     end
@@ -686,7 +686,7 @@ class CardTrader
     result = playOneCard(card, place)
     debug("playOneCard result", result)
 
-    if(result == $okResult)
+    if result == $okResult
       okList << card
     else
       ngList << result
@@ -701,15 +701,15 @@ class CardTrader
     destination = @nick_e.upcase
     result = ""
 
-    if(place > 0)
+    if place > 0
       debug("playOneCard place > 0")
-      result = transferOneCard(card, destination, "#{place}#{destination}" ); # 場に出す処理
+      result = transferOneCard(card, destination, "#{place}#{destination}"); # 場に出す処理
     else
       debug("playOneCard place <= 0")
-      result = discardOneCard(card, place, destination);    # 場を使わないときは捨て札扱い
+      result = discardOneCard(card, place, destination); # 場を使わないときは捨て札扱い
     end
 
-    if(result == $okResult)
+    if result == $okResult
       return result
     else
       return card
@@ -719,13 +719,13 @@ class CardTrader
   def discardCards(command, destination = nil)
     debug("discardCards command, destination", command, destination)
 
-    destination = @nick_e if( destination.nil? )
+    destination = @nick_e if  destination.nil?
     destination = destination.upcase
 
     okList = []
     ngList = []
 
-    if(/(c-(dis|discard)(\d*)\[((,)?#{@cardRegExp})+\])/ =~ command)
+    if /(c-(dis|discard)(\d*)\[((,)?#{@cardRegExp})+\])/ =~ command
       debug("discardCards reg OK")
       commandSet = $1
       place = $3.to_i
@@ -742,7 +742,7 @@ class CardTrader
     okList = []
     ngList = []
 
-    if(/\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ commandSet)
+    if /\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ commandSet
       cards = $1.split(/,/)
       okList, ngList = discardCardsByCardsAndPlace(cards, place, destination)
     end
@@ -757,7 +757,7 @@ class CardTrader
     cards.each do |card|
       result = discardOneCard(card, place, destination)
 
-      if(result == $okResult)
+      if result == $okResult
         okList << card
       else
         ngList << result
@@ -777,9 +777,9 @@ class CardTrader
 
     temp_cards = getCardsFromDealCards(destination)
 
-    result = temp_cards.reject! {|i| i == card}
-    isTargetCardInHand =  !result.nil?
-    if( isTargetCardInHand )
+    result = temp_cards.reject! { |i| i == card }
+    isTargetCardInHand = !result.nil?
+    if  isTargetCardInHand
       this_cards << card
     else
       rest_cards << card
@@ -787,7 +787,7 @@ class CardTrader
 
     debug("isTargetCardInHand", isTargetCardInHand)
 
-    if( isTargetCardInHand )
+    if isTargetCardInHand
       debug("isTargetCardInHand OK, so set card info")
       @deal_cards[destination] ||= []
       @deal_cards[destination] += rest_cards
@@ -797,12 +797,12 @@ class CardTrader
 
       return $okResult
     else
-      return card;   # 指定のカードが無いので、無いカードを返す
+      return card; # 指定のカードが無いので、無いカードを返す
     end
   end
 
   def getDestinationWhenPlaceIsNotHand(place, destination)
-    if(place > 0)
+    if place > 0
       # 場札から出すときは「出した人」を場札に書き替え
       destination = "#{place}#{destination}"
       return destination
@@ -816,7 +816,7 @@ class CardTrader
     debug('@deal_cards', @deal_cards)
     debug('@deal_cards[destination]', @deal_cards[destination])
 
-    if( @deal_cards[destination].nil? )
+    if @deal_cards[destination].nil?
       debug('getCardsFromDealCards empty')
       return []
     end
@@ -832,13 +832,13 @@ class CardTrader
     debug("transferCardsByCommandText commandText, sendTo", commandText, sendTo)
     count, output_msg = transferCards(commandText)
 
-    if( count < 0 )
+    if count < 0
       sendMessage(@channel, "#{@nick_e}: 相手が登録されていません")
     else
-      if( output_msg != "" )
+      if output_msg != ""
         sendMessage(@channel, "[" + getCardsText(output_msg) + "]がありません")
       end
-      if( count > 0 )
+      if count > 0
         sendMessage(@channel, "#{@nick_e}: #{count}枚渡しました")
         debug('transferCardsByCommandText sendTo', sendTo)
         sendMessage(sendTo, getHandAndPlaceCardInfoText("Auto", sendTo))
@@ -854,7 +854,7 @@ class CardTrader
     okCount = 0
     ngCardList = []
 
-    if(/(c-pass(\d*)(\[(((,)?#{@cardRegExp})*)\])?)\s*(#{$ircNickRegExp})/ =~ command)
+    if /(c-pass(\d*)(\[(((,)?#{@cardRegExp})*)\])?)\s*(#{$ircNickRegExp})/ =~ command
       destination = $7.upcase
       commandset = $1
       place = $2.to_i
@@ -865,7 +865,7 @@ class CardTrader
     end
 
     ngCardText = ngCardList.join(",")
-    return okCount, ngCardText;  # 渡せた枚数とNGなカードを返す
+    return okCount, ngCardText; # 渡せた枚数とNGなカードを返す
   end
 
   def transferCardsByCommand(commandset, place, destination)
@@ -873,7 +873,7 @@ class CardTrader
 
     nick_e = @nick_e
 
-    if(place > 0)
+    if place > 0
       nick_e = "#{place}#{nick_e}"
     end
 
@@ -882,7 +882,7 @@ class CardTrader
     debug('LINE', __LINE__)
 
     cards = ['']
-    if(/\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ commandset)
+    if /\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ commandset
       cards = $1.split(/,/)
     end
 
@@ -932,7 +932,7 @@ class CardTrader
     cards = @deal_cards[from]
     debug("from, cards, @deal_cards", from, cards, @deal_cards)
 
-    if(targetCard == '')
+    if targetCard == ''
       debug("カード指定がないのでランダムで一枚渡す")
       thisCard = ejectOneCardRandomFromCards(cards)
       isTargetCardInHand = true
@@ -945,14 +945,14 @@ class CardTrader
 
     debug("transferOneCard isTargetCardInHand", isTargetCardInHand)
 
-    if( !isTargetCardInHand )
+    if !isTargetCardInHand
       return targetCard
     end
 
     debug("transferOneCard @deal_cards", @deal_cards)
     debug("transferOneCard toSend", toSend)
 
-    if( @deal_cards[toSend] )
+    if @deal_cards[toSend]
       debug("alreadyRegisted")
       # debug('相手は登録済み')
       @deal_cards[toSend] << thisCard
@@ -961,7 +961,7 @@ class CardTrader
       # debug('相手は未登録済み')
       isSuccess = transferTargetCardToNewMember(toSend, thisCard)
       debug('isSuccess', isSuccess)
-      return $ngResult unless( isSuccess )
+      return $ngResult unless isSuccess
     end
 
     @deal_cards[from] = restCards
@@ -973,7 +973,7 @@ class CardTrader
   def ejectOneCardRandomFromCards(cards)
     debug('ejectOneCardRandomFromCards cards.length', cards.length)
 
-    return nil if( cards.empty? )
+    return nil if cards.empty?
 
     cardNumber, dummy = @bcdice.roll(1, cards.length)
     cardNumber -= 1
@@ -993,7 +993,7 @@ class CardTrader
     isTargetCardInHand = false
 
     cards.each do |card|
-      if(!isTargetCardInHand &&(card == targetCard))
+      if !isTargetCardInHand && (card == targetCard)
         isTargetCardInHand = true
         thisCard = card
       else
@@ -1011,14 +1011,14 @@ class CardTrader
 
     isSuccess = false
 
-    if(@card_place > 0)
+    if @card_place > 0
 
-      if(/^\d+(.+)/ =~ destination)
+      if /^\d+(.+)/ =~ destination
         #渡すNickが数字で始まっていたら、場に出す処理の最初の一枚目
         placeName = $1
         debug("placeName", placeName)
 
-        if( @deal_cards[placeName] )
+        if @deal_cards[placeName]
           #手札は登録されていたら宛先間違いではない
           @deal_cards[destination] ||= []
           @deal_cards[destination] << thisCard
@@ -1035,19 +1035,19 @@ class CardTrader
     okCardList, ngCardList = getSendCardToTargetNickPlace(commandText, targetNick)
     debug('getSendCardToTargetNickPlace okCardList, ngCardList', okCardList, ngCardList)
 
-    if(okCardList.length < 0)
+    if okCardList.length < 0
 
       sendMessage(@channel, "#{@nick_e}: 相手が登録されていません")
       return
     end
 
-    unless( ngCardList.empty? )
+    unless ngCardList.empty?
       ngCardText = getCardsTextFromCards(ngCardList)
       sendMessage(@channel, "[#{ngCardText}]がありません")
       return
     end
 
-    if(okCardList.length > 0)
+    if okCardList.length > 0
       printRegistCardResult(targetNick, okCards)
     end
 
@@ -1060,7 +1060,7 @@ class CardTrader
     okCardList = []
 
     debug("commandText", commandText)
-    if(/(c-place(\d*)(\[(((,)?#{@cardRegExp})*)\])?)\s*(#{$ircNickRegExp})/ =~ commandText)
+    if /(c-place(\d*)(\[(((,)?#{@cardRegExp})*)\])?)\s*(#{$ircNickRegExp})/ =~ commandText
       cardset = $1
       placeNumber = $2.to_i
       destination = $7.upcase
@@ -1079,12 +1079,12 @@ class CardTrader
     debug("toSend", toSend)
 
     from = @nick_e
-    if( placeNumber > 0 )
+    if placeNumber > 0
       from = "#{placeNumber}#{from}"
     end
     debug("from", from)
 
-    if( /\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ cardset )
+    if /\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ cardset
       cards = $1.split(/,/)
       okCardList, ngCardList = getSendCardToTargetNickPlaceByCards(cards, from, toSend)
     end
@@ -1116,7 +1116,7 @@ class CardTrader
   def printRegistCardResult(targetNick, okCards)
     sendMessage(@channel, "#{@nick_e}: #{ okCards.length }枚場に置きました")
 
-    unless( @cardTitles.empty? )
+    unless @cardTitles.empty?
       cardText = getCardsTextFromCards(okCards)
       sendMessage(@channel, "[#{cardText}]")
     end
@@ -1130,13 +1130,13 @@ class CardTrader
 
     okList, ngList, isUntap = tapCard(commandText)
 
-    if(okList.length > 0)
-      tapTypeName = ( isUntap ? 'アンタップ' : 'タップ')
+    if okList.length > 0
+      tapTypeName = (isUntap ? 'アンタップ' : 'タップ')
       sendMessage(@channel, "#{@nick_e}: #{okList.length}枚#{tapTypeName}しました")
-      sendMessage(@channel, "[#{getCardsTextFromCards(okList)}]") unless( @cardTitles.empty? )
+      sendMessage(@channel, "[#{getCardsTextFromCards(okList)}]") unless @cardTitles.empty?
     end
 
-    if(ngList.length > 0)
+    if ngList.length > 0
       sendMessage(@channel, "[#{getCardsTextFromCards(ngList)}]は場にありません")
     end
 
@@ -1147,11 +1147,11 @@ class CardTrader
     okCardList = []
     ngCardList = []
 
-    unless(@canTapCard && @card_place)
+    unless @canTapCard && @card_place
       return okCardList, ngCardList
     end
 
-    unless( /(c-(un)?tap(\d+)\[((,)?#{@cardRegExp})+\])/ =~ command )
+    unless /(c-(un)?tap(\d+)\[((,)?#{@cardRegExp})+\])/ =~ command
       return okCardList, ngCardList
     end
 
@@ -1167,13 +1167,13 @@ class CardTrader
     okCardList = []
     ngCardList = []
 
-    if( /\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ cardsText)
+    if /\[(#{@cardRegExp}(,#{@cardRegExp})*)\]/ =~ cardsText
       cards = $1.split(/,/)
       cards.each do |card|
         okCard, ngCard = tapOneCardByCardAndPlace(card, place, isUntap)
 
-        okCardList << okCard unless(okCard.nil?)
-        ngCardList << ngCard unless(ngCard.nil?)
+        okCardList << okCard unless okCard.nil?
+        ngCardList << ngCard unless ngCard.nil?
       end
     end
 
@@ -1191,7 +1191,7 @@ class CardTrader
     @nick_e = @nick_e.upcase
 
     nick_to = ""
-    if( isUntap )
+    if isUntap
       destination = "#{place * 2 - 1}#{@nick_e}"
       nick_to = "#{place * 2}#{@nick_e}"
     else
@@ -1203,7 +1203,7 @@ class CardTrader
 
     @nick_e = nick_e_original
 
-    if( result == $okResult )
+    if result == $okResult
       return card, nil
     else
       return nil, card
@@ -1214,7 +1214,7 @@ class CardTrader
   def printMilStoneResult(commandText)
     count, output_msg = getCardMilstone(commandText)
 
-    if(count > 0)
+    if count > 0
       sendMessage(@channel, "#{@nick_e}: #{getCardsText(output_msg)}が出ました")
     else
       sendMessage(@channel, "カードが残っていません")
@@ -1225,7 +1225,7 @@ class CardTrader
   def getCardMilstone(commandText)
     command = "c-draw"
     count = 0
-    if( /\[(\d+)\]/ =~ commandText )
+    if /\[(\d+)\]/ =~ commandText
       count = $1.to_i
       command += "[#{count}]"
     end
@@ -1235,7 +1235,7 @@ class CardTrader
 
     text = ""
 
-    if(cards.length > 0)
+    if cards.length > 0
       cardInfo = getCardsTextFromCards(cards)
       okCount, ngCount, text = discardCards("c-discard[#{ cardInfo }]")
       debug("discardCards okCount, ngCount, text", okCount, ngCount, text)
@@ -1247,7 +1247,7 @@ class CardTrader
     debug("count", count)
     debug("cardInfo", cardInfo)
 
-    return count, cardInfo;    # めくれた枚数と出たカードを返す
+    return count, cardInfo; # めくれた枚数と出たカードを返す
   end
 
   # 全員の場に出たカードを捨てる（手札はそのまま）
@@ -1260,7 +1260,7 @@ class CardTrader
   end
 
   def clearAllPlayerCardsWhenPlayedPlace(place, cards)
-    if(place =~ /^\d+/)  # 最初が数値=場に出ているカードなので、カードを全部捨てて場も削除
+    if place =~ /^\d+/ # 最初が数値=場に出ているカードなので、カードを全部捨てて場も削除
       clearAllPlayerCards(place, cards)
     end
   end
@@ -1278,7 +1278,7 @@ class CardTrader
     @deal_cards[ 'card_played' ] ||= []
     cards = @deal_cards[ 'card_played' ]
 
-    while(cards.length > 0)
+    while cards.length > 0
       @cardRest.push(cards.shift)
     end
 
@@ -1297,26 +1297,26 @@ class CardTrader
     @cardRest.join(',')
   end
 
-  def getAllCardLocation   # 今のカード配置を見る
+  def getAllCardLocation # 今のカード配置を見る
     allText = "山札:#{ @cardRest.length }枚 捨札:#{ getBurriedCard }枚"
     allPlaceText = ""
 
     @deal_cards.each do |place, cards|
-      next if(place == 'card_played')
+      next if place == 'card_played'
 
       text, placeText = getCardLocationOnPlace(place, cards)
       allText += text
       allPlaceText += placeText
     end
 
-    return allText, allPlaceText;   # 山札＆捨て札＆各自の手札枚数表示 と 各自の場札表示の配列を返す。(表示レイアウトの関係)
+    return allText, allPlaceText; # 山札＆捨て札＆各自の手札枚数表示 と 各自の場札表示の配列を返す。(表示レイアウトの関係)
   end
 
   def getCardLocationOnPlace(place, cards)
     text = ""
     placeText = ""
 
-    if(place =~ /^(\d+)(#{$ircNickRegExp})/)
+    if place =~ /^(\d+)(#{$ircNickRegExp})/
       placeNumber = $1
       cnick = $2
       placeText = getCardLocationOnNumberdPlace(cards, placeNumber, cnick)
@@ -1329,17 +1329,17 @@ class CardTrader
 
   def getCardLocationOnNumberdPlace(cards, placeNumber, cnick)
     cardText = getCardsText(cards)
-    if( isTapCardPlace(placeNumber) )
+    if isTapCardPlace(placeNumber)
       return " #{cnick}のタップした場札:#{cardText}"
     else
       return " #{cnick}の場札:#{cardText}"
     end
   end
 
-  def getHandAndPlaceCardInfoText(str, destination = nil)    # 自分の手札と場札の確認
+  def getHandAndPlaceCardInfoText(str, destination = nil) # 自分の手札と場札の確認
     debug("getHandAndPlaceCardInfoText(str, destination)", str, destination)
 
-    destination = @nick_e if( destination.nil? )
+    destination = @nick_e if destination.nil?
     destination = destination.upcase
 
     hand = getHandCardInfoText(destination)
@@ -1357,7 +1357,7 @@ class CardTrader
 
     out_msg = getDealCardsText(destination)
 
-    if( out_msg.empty? )
+    if out_msg.empty?
       out_msg = "カードを持っていません"
     end
 
@@ -1371,7 +1371,7 @@ class CardTrader
     debug("@deal_cards", @deal_cards)
     debug("getDealCardsText cards", cards)
 
-    return '' if( cards.nil? )
+    return '' if cards.nil?
 
     cardsText = getCardsTextFromCards(cards)
 
@@ -1380,7 +1380,7 @@ class CardTrader
 
   # ソートサブルーチン
   def compareCard(a, b)
-    if(a =~ /[^\d]/)
+    if a =~ /[^\d]/
       compareCardByCardNumber(a, b)
     else
       a <=> b
@@ -1406,12 +1406,12 @@ class CardTrader
 
     out_msg = ""
 
-    unless( @card_place > 0 )
+    unless  @card_place > 0
       return out_msg
     end
 
     place_max = @card_place
-    place_max *= 2 if(@canTapCard)
+    place_max *= 2 if @canTapCard
 
     debug("place_max", place_max)
     place_max.times do |i|
@@ -1425,7 +1425,7 @@ class CardTrader
 
       cardsText = getCardsTextFromCards(cards)
 
-      if( isTapCardPlace(index) )
+      if isTapCardPlace(index)
         out_msg += " タップした場札:[ #{cardsText} ]"
       else
         out_msg += " 場札:[ #{cardsText} ]"
@@ -1435,35 +1435,35 @@ class CardTrader
     return out_msg
   end
 
-  def getCardsText(cardsText)    # 汎用カードセット用カードタイトルの表示
+  def getCardsText(cardsText) # 汎用カードセット用カードタイトルの表示
     cards = cardsText.split(/,/)
     return getCardsTextFromCards(cards)
   end
 
   def getCardsTextFromCards(cards)
-    if( $isHandSort )
-      cards = cards.sort{|a, b| compareCard(a, b)}
+    if $isHandSort
+      cards = cards.sort { |a, b| compareCard(a, b) }
     end
 
-    if( @cardTitles.empty? )
+    if @cardTitles.empty?
       return cards.join(',')
     end
 
     out_msg = ""
 
     cards.each do |cardNumber|
-      out_msg += "," if(out_msg != "")
+      out_msg += "," if out_msg != ""
       title = @cardTitles[cardNumber]
       out_msg += "#{cardNumber}-#{title}"
     end
 
-    out_msg = '無し' if(out_msg == "")
+    out_msg = '無し' if out_msg == ""
 
     return out_msg
   end
 
   def isTapCardPlace(index)
-    return false unless(@canTapCard)
+    return false unless @canTapCard
 
     return ((index % 2) == 0)
   end
@@ -1472,7 +1472,7 @@ class CardTrader
 
   def printCardRestorationSpellResult(spellText)
     output_msg = throwCardRestorationSpell(spellText)
-    if(output_msg == "readSpell")
+    if output_msg == "readSpell"
       sendMessage(@channel, "#{@nick_e}: カード配置を復活しました")
     else
       sendMessage(@channel, output_msg)
@@ -1485,13 +1485,13 @@ class CardTrader
     debug("spellText", spellText)
 
     # 呪文の取得
-    if( spellText.nil? )
+    if spellText.nil?
       debug("getNewSpellText")
       spellText = getNewSpellText()
-      output = "復活の呪文 ＞ [#{spellText}]";    # 呪文表示を返す
-    else    # 呪文の実行
+      output = "復活の呪文 ＞ [#{spellText}]"; # 呪文表示を返す
+    else # 呪文の実行
       debug("setNewSpellText")
-      output = setNewSpellText( spellText )
+      output = setNewSpellText(spellText)
     end
 
     debug("throwCardRestorationSpell output", output)
@@ -1533,7 +1533,7 @@ class CardTrader
   def getDealCardIndex(card)
     @deal_cards.keys.sort.each_with_index do |place, index|
       cards = @deal_cards[place]
-      if( cards.include?(card) )
+      if cards.include?(card)
         return index
       end
     end
@@ -1543,7 +1543,7 @@ class CardTrader
 
   def shrinkSpellWords(spellWords)
     @card_spell.each do |word|
-      spellWords = spellWords.gsub(/#{word}(#{word}+)/){ word + ($1.length + 1).to_s }
+      spellWords = spellWords.gsub(/#{word}(#{word}+)/) { word + ($1.length + 1).to_s }
     end
 
     return spellWords
@@ -1575,7 +1575,7 @@ class CardTrader
 
   def expandSpellWords(spellWords)
     @card_spell.each do |word|
-      spellWords = spellWords.gsub(/#{word}(\d+)/){ word * $1.to_i }
+      spellWords = spellWords.gsub(/#{word}(\d+)/) { word * $1.to_i }
     end
 
     return spellWords
@@ -1585,11 +1585,11 @@ class CardTrader
     cards = []
 
     spellText.split(//).each_with_index do |word, index|
-      next unless(indexWord == word)
+      next unless indexWord == word
 
       card = @card_val[index]
-      isDelete = @cardRest.delete_if{|i| i == card}
-      next unless( isDelete )
+      isDelete = @cardRest.delete_if { |i| i == card }
+      next unless isDelete
 
       cards << card
     end

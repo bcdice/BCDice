@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Cthulhu7th < DiceBot
-  setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)' , 'FAR.*'])
+  setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*'])
 
   def initialize
     #$isDebug = true
@@ -59,9 +59,9 @@ INFO_MESSAGE_TEXT
     bonus_dice_count = $1.to_i #ボーナス・ペナルティダイスの個数
     diff = $2.to_i
 
-    return "エラー。目標値は1以上です。" if(diff <= 0)
+    return "エラー。目標値は1以上です。" if diff <= 0
 
-    unless  @bonus_dice_range.include?(bonus_dice_count)
+    unless @bonus_dice_range.include?(bonus_dice_count)
       return "エラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
     end
 
@@ -82,7 +82,7 @@ INFO_MESSAGE_TEXT
 
   def rollPercentD10
     dice, = roll(1, 10)
-    dice = 0 if(dice == 10)
+    dice = 0 if dice == 10
 
     return dice
   end
@@ -103,16 +103,16 @@ INFO_MESSAGE_TEXT
   end
 
   def getTotal(total_list, bonus_dice_count)
-    return total_list.min if( bonus_dice_count >= 0 )
+    return total_list.min if bonus_dice_count >= 0
 
     return total_list.max
   end
 
   def getCheckResultText(total, diff, fumbleable = false)
-    if(total <= diff)
-      return "決定的成功" if(total == 1)
-      return "極限の成功" if(total <= (diff / 5))
-      return "困難な成功" if(total <= (diff / 2))
+    if total <= diff
+      return "決定的成功" if total == 1
+      return "極限の成功" if total <= (diff / 5)
+      return "困難な成功" if total <= (diff / 2)
 
       return "通常成功"
     end
@@ -133,7 +133,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getCombineRoll(command)
-    return nil unless(/CBR\((\d+),(\d+)\)/i =~ command)
+    return nil unless /CBR\((\d+),(\d+)\)/i =~ command
 
     diff_1 = $1.to_i
     diff_2 = $2.to_i
@@ -146,14 +146,14 @@ INFO_MESSAGE_TEXT
     successList = ["決定的成功", "極限の成功", "困難な成功", "通常成功"]
 
     succesCount = 0
-    succesCount += 1 if successList.include?( result_1 )
-    succesCount += 1 if successList.include?( result_2 )
+    succesCount += 1 if successList.include?(result_1)
+    succesCount += 1 if successList.include?(result_2)
     debug("succesCount", succesCount)
 
     rank =
-      if( succesCount >= 2 )
+      if succesCount >= 2
         "成功"
-      elsif( succesCount == 1 )
+      elsif succesCount == 1
         "部分的成功"
       else
         "失敗"
@@ -187,7 +187,7 @@ INFO_MESSAGE_TEXT
       broken_number = broken_number.abs
     end
 
-    unless  @bonus_dice_range.include?(bonus_dice_count)
+    unless @bonus_dice_range.include?(bonus_dice_count)
       return "\nエラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
     end
 
@@ -249,7 +249,7 @@ INFO_MESSAGE_TEXT
     fumbleable = getFumbleable(more_difficlty)
     hit_result = getCheckResultText(total, diff, fumbleable)
 
-    return hit_result , total, total_list
+    return hit_result, total, total_list
   end
 
   def getHitResultText(output, counts)
@@ -259,8 +259,8 @@ INFO_MESSAGE_TEXT
   def getHitType(more_difficlty, hit_result)
     successList, impaleBulletList = getSuccessListImpaleBulletList(more_difficlty)
 
-    return :hit if successList.include?( hit_result )
-    return :impale if impaleBulletList.include?( hit_result )
+    return :hit if successList.include?(hit_result)
+    return :impale if impaleBulletList.include?(hit_result)
 
     return ""
   end
@@ -274,7 +274,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count = 0
     impale_bullet_count = 0
 
-    if  !isLastBulletTurn(bullet_count, bullet_set_count)
+    if !isLastBulletTurn(bullet_count, bullet_set_count)
 
       case hit_type
       when :hit
@@ -282,7 +282,7 @@ INFO_MESSAGE_TEXT
 
       when :impale
         hit_bullet_count = impale_bullet_count_base.floor
-        impale_bullet_count = impale_bullet_count_base.ceil  #貫通した弾数の計算
+        impale_bullet_count = impale_bullet_count_base.ceil #貫通した弾数の計算
       end
 
       lost_bullet_count = bullet_set_count
@@ -291,7 +291,7 @@ INFO_MESSAGE_TEXT
 
       case hit_type
       when :hit
-        hit_bullet_count = getLastHitBulletCount( bullet_count )
+        hit_bullet_count = getLastHitBulletCount(bullet_count)
 
       when :impale
         halfbull = bullet_count / 2.to_f
@@ -345,7 +345,7 @@ INFO_MESSAGE_TEXT
     bullet_set_count = diff / 10
 
     if (diff >= 1) && (diff < 10)
-      bullet_set_count = 1  #技能値が9以下での最低値保障処理
+      bullet_set_count = 1 #技能値が9以下での最低値保障処理
     end
 
     return bullet_set_count
@@ -355,13 +355,13 @@ INFO_MESSAGE_TEXT
     hit_bullet_count_base = (bullet_set_count / 2)
 
     if (diff >= 1) && (diff < 10)
-      hit_bullet_count_base = 1  #技能値9以下での最低値保障
+      hit_bullet_count_base = 1 #技能値9以下での最低値保障
     end
 
     return hit_bullet_count_base
   end
 
-  def isLastBulletTurn(bullet_count,bullet_set_count)
+  def isLastBulletTurn(bullet_count, bullet_set_count)
     ((bullet_count - bullet_set_count) < 0)
   end
 
@@ -377,6 +377,6 @@ INFO_MESSAGE_TEXT
 
   def getFumbleable(more_difficlty)
     #成功が49以下の出目のみとなるため、ファンブル値は上昇
-    return ( more_difficlty >= 1 )
+    return (more_difficlty >= 1)
   end
 end

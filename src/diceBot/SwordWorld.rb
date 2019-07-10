@@ -42,13 +42,13 @@ INFO_MESSAGE_TEXT
   end
 
   def changeText(string)
-    return string unless( /(^|\s)[sS]?(K[\d]+)/i =~ string )
+    return string unless /(^|\s)[sS]?(K[\d]+)/i =~ string
 
     debug('parren_killer_add before string', string)
-    string = string.gsub(/\[(\d+)\]/i) {"c[#{$1}]"}
-    string = string.gsub(/\@(\d+)/i) {"c[#{$1}]"}
-    string = string.gsub(/\$([\+\-]?[\d]+)/i) {"m[#{$1}]"}
-    string = string.gsub(/r([\+\-]?[\d]+)/i) {"r[#{$1}]"}
+    string = string.gsub(/\[(\d+)\]/i) { "c[#{$1}]" }
+    string = string.gsub(/\@(\d+)/i) { "c[#{$1}]" }
+    string = string.gsub(/\$([\+\-]?[\d]+)/i) { "m[#{$1}]" }
+    string = string.gsub(/r([\+\-]?[\d]+)/i) { "r[#{$1}]" }
     debug('parren_killer_add after string', string)
 
     return string
@@ -58,19 +58,19 @@ INFO_MESSAGE_TEXT
     "cmCM"
   end
 
-  def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)  # ゲーム別成功度判定(2D6)
-    if(dice_n >= 12)
+  def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
+    if dice_n >= 12
       return " ＞ 自動的成功"
     end
 
-    if(dice_n <=2)
+    if dice_n <= 2
       return " ＞ 自動的失敗"
     end
 
-    return '' if(signOfInequality != ">=")
-    return '' if(diff == "?")
+    return '' if signOfInequality != ">="
+    return '' if diff == "?"
 
-    if(totalValue >= diff)
+    if totalValue >= diff
       return " ＞ 成功"
     end
 
@@ -82,12 +82,12 @@ INFO_MESSAGE_TEXT
   end
 
   ####################        SWレーティング表       ########################
-  def rating(string)     # レーティング表
+  def rating(string) # レーティング表
     debug("rating string", string)
 
     commands = getRatingCommandStrings
 
-    unless(/(^|\s)[sS]?(((k|K)[\d\+\-]+)([#{commands}]\[([\d\+\-]+)\])*([\d\+\-]*)([cmrCMR]\[([\d\+\-]+)\]|gf|GF)*)($|\s)/ =~ string)
+    unless /(^|\s)[sS]?(((k|K)[\d\+\-]+)([#{commands}]\[([\d\+\-]+)\])*([\d\+\-]*)([cmrCMR]\[([\d\+\-]+)\]|gf|GF)*)($|\s)/ =~ string
       debug("not matched")
       return '1'
     end
@@ -100,7 +100,7 @@ INFO_MESSAGE_TEXT
 
     key, addValue = getKeyAndAddValueFromString(string)
 
-    return '1' unless( key =~ /([\d]+)/ )
+    return '1' unless key =~ /([\d]+)/
 
     key = $1.to_i
 
@@ -109,7 +109,7 @@ INFO_MESSAGE_TEXT
 
     keyMax = rate_sw2_0.length - 1
     debug("keyMax", keyMax)
-    if(key > keyMax)
+    if key > keyMax
       return "キーナンバーは#{keyMax}までです"
     end
 
@@ -117,18 +117,18 @@ INFO_MESSAGE_TEXT
 
     output = "KeyNo.#{key}"
 
-    output += "c[#{crit}]" if(crit < 13)
-    output += "m[#{firstDiceChangeModify}]" if( firstDiceChangeModify != 0 )
-    output += "m[#{firstDiceChanteTo}]" if( firstDiceChanteTo != 0)
-    output += "r[#{rateUp}]" if( rateUp != 0 )
+    output += "c[#{crit}]" if crit < 13
+    output += "m[#{firstDiceChangeModify}]" if firstDiceChangeModify != 0
+    output += "m[#{firstDiceChanteTo}]" if  firstDiceChanteTo != 0
+    output += "r[#{rateUp}]" if rateUp != 0
 
     output, values = getAdditionalString(string, output)
 
     debug('output', output)
 
-    if( addValue != 0 )
-      output += "+#{addValue}" if(addValue > 0)
-      output +=  addValue.to_s if(addValue < 0)
+    if addValue != 0
+      output += "+#{addValue}" if addValue > 0
+      output += addValue.to_s if addValue < 0
     end
 
     output += " ＞ "
@@ -144,18 +144,18 @@ INFO_MESSAGE_TEXT
     loop do
       dice, diceText = rollDice(values)
 
-      if( firstDiceChanteTo != 0 )
+      if  firstDiceChanteTo != 0
         dice = firstDiceChanteTo
         firstDiceChanteTo = 0
-      elsif( firstDiceChangeModify != 0 )
+      elsif  firstDiceChangeModify != 0
         dice += firstDiceChangeModify.to_i
         firstDiceChangeModify = 0
       end
 
       dice += getAdditionalDiceValue(dice, values)
 
-      dice = 2 if(dice < 2)
-      dice = 12 if(dice > 12)
+      dice = 2 if dice < 2
+      dice = 12 if dice > 12
 
       currentKey = [key + round * rateUp, keyMax].min
       debug("currentKey", currentKey)
@@ -171,7 +171,7 @@ INFO_MESSAGE_TEXT
 
       round += 1
 
-      break unless(dice >= crit)
+      break unless dice >= crit
     end
 
     limitLength = $SEND_STR_MAX - output.length
@@ -186,7 +186,7 @@ INFO_MESSAGE_TEXT
     return output, values
   end
 
-  def  getAdditionalDiceValue(dice, values)
+  def getAdditionalDiceValue(dice, values)
     0
   end
 
@@ -195,9 +195,9 @@ INFO_MESSAGE_TEXT
 
     regexp = /c\[(\d+)\]/i
 
-    if( regexp =~ string )
+    if regexp =~ string
       crit = $1.to_i
-      crit = 3 if(crit < 3)        # エラートラップ(クリティカル値が3未満なら3とする)
+      crit = 3 if crit < 3 # エラートラップ(クリティカル値が3未満なら3とする)
       string = string.gsub(regexp, '')
     end
 
@@ -210,10 +210,10 @@ INFO_MESSAGE_TEXT
 
     regexp = /m\[([\d\+\-]+)\]/i
 
-    if( regexp =~ string )
+    if  regexp =~ string
       firstDiceChangeModify = $1
 
-      unless(/[\+\-]/ =~ firstDiceChangeModify)
+      unless /[\+\-]/ =~ firstDiceChangeModify
         firstDiceChanteTo = firstDiceChangeModify.to_i
         firstDiceChangeModify = 0
       end
@@ -233,9 +233,9 @@ INFO_MESSAGE_TEXT
     key = nil
     addValue = 0
 
-    if(/K(\d+)([\d\+\-]*)/i =~ string)    # ボーナスの抽出
+    if /K(\d+)([\d\+\-]*)/i =~ string # ボーナスの抽出
       key = $1
-      if($2)
+      if $2
         addValue = parren_killer("(" + $2 + ")").to_i
       end
     else
@@ -378,20 +378,20 @@ INFO_MESSAGE_TEXT
 
     rate_sw2_0.each do |rateText|
       rate_arr = rateText.split(/,/)
-      zeroArray.push( 0 )
-      rate_3.push( rate_arr[1].to_i )
-      rate_4.push( rate_arr[2].to_i )
-      rate_5.push( rate_arr[3].to_i )
-      rate_6.push( rate_arr[4].to_i )
-      rate_7.push( rate_arr[5].to_i )
-      rate_8.push( rate_arr[6].to_i )
-      rate_9.push( rate_arr[7].to_i )
-      rate_10.push( rate_arr[8].to_i )
-      rate_11.push( rate_arr[9].to_i )
-      rate_12.push( rate_arr[10].to_i )
+      zeroArray.push(0)
+      rate_3.push(rate_arr[1].to_i)
+      rate_4.push(rate_arr[2].to_i)
+      rate_5.push(rate_arr[3].to_i)
+      rate_6.push(rate_arr[4].to_i)
+      rate_7.push(rate_arr[5].to_i)
+      rate_8.push(rate_arr[6].to_i)
+      rate_9.push(rate_arr[7].to_i)
+      rate_10.push(rate_arr[8].to_i)
+      rate_11.push(rate_arr[9].to_i)
+      rate_12.push(rate_arr[10].to_i)
     end
 
-    if(@rating_table == 1)
+    if @rating_table == 1
       # 完全版準拠に差し替え
       rate_12[31] = rate_12[32] = rate_12[33] = 10
     end
@@ -412,17 +412,17 @@ INFO_MESSAGE_TEXT
 
     totalText = (totalValue + addValue).to_s
 
-    if(sendMode > 1)           # 表示モード２以上
+    if sendMode > 1 # 表示モード２以上
       output += "2D:[#{diceResults.join(' ')}]=#{diceResultTotals.join(',')}"
       rateResultsText = rateResults.join(',')
-      output += " ＞ #{rateResultsText}" unless( rateResultsText == totalText )
-    elsif(sendMode > 0)  # 表示モード１以上
+      output += " ＞ #{rateResultsText}" unless rateResultsText == totalText
+    elsif sendMode > 0 # 表示モード１以上
       output += "2D:#{diceResultTotals.join(',')}"
-    else                     # 表示モード０
+    else # 表示モード０
       output += totalValue.to_s
     end
 
-    if(diceOnlyTotal <= 2)
+    if diceOnlyTotal <= 2
       return "#{output} ＞ 自動的失敗"
     end
 
@@ -430,13 +430,13 @@ INFO_MESSAGE_TEXT
     output += "#{addText} ＞ "
 
     roundText = ""
-    if(round > 1)
+    if round > 1
       roundText += "#{round - 1}回転 ＞ "
     end
 
     output += "#{roundText}#{totalText}"
 
-    if  output.length > limitLength # 回りすぎて文字列オーバーしたときの救済
+    if output.length > limitLength # 回りすぎて文字列オーバーしたときの救済
       output = "... ＞ #{roundText}#{totalText}"
     end
 
@@ -446,7 +446,7 @@ INFO_MESSAGE_TEXT
   def getAddText(addValue)
     addText = ""
 
-    return addText if( addValue == 0 )
+    return addText if addValue == 0
 
     operator = ((addValue > 0) ? "+" : "")
     addText += "#{operator}#{addValue}"
@@ -458,7 +458,7 @@ INFO_MESSAGE_TEXT
     mode_str = ""
     pre_mode = @rating_table
 
-    if( /(\d+)/ =~ tnick )
+    if /(\d+)/ =~ tnick
       @rating_table = $1.to_i
       if @rating_table > 1
         mode_str = "2.0-mode"
@@ -484,7 +484,7 @@ INFO_MESSAGE_TEXT
       end
     end
 
-    return '1' if( @rating_table == pre_mode )
+    return '1' if @rating_table == pre_mode
 
     return "RatingTableを#{mode_str}に変更しました"
   end

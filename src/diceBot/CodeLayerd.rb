@@ -31,10 +31,10 @@ MESSAGETEXT
 
     case command
     when /(\d+)?CL(\@?(\d))?(>=(\d+))?/i
-      base  = ($1 || 1).to_i
+      base = ($1 || 1).to_i
       target = ($3 || 6).to_i
-      diff  = $5.to_i
-      result= checkRoll(base, target, diff)
+      diff = $5.to_i
+      result = checkRoll(base, target, diff)
     end
 
     return nil if result.empty?
@@ -45,7 +45,7 @@ MESSAGETEXT
   def checkRoll(base, target, diff)
     result = ""
 
-    base  = getValue(base)
+    base = getValue(base)
     target = getValue(target)
 
     return result if base < 1
@@ -56,7 +56,7 @@ MESSAGETEXT
 
     _, diceText = roll(base, 10)
 
-    diceList = diceText.split(/,/).collect{|i|i.to_i}.sort
+    diceList = diceText.split(/,/).collect { |i| i.to_i }.sort
 
     result += " ＞ [#{diceList.join(',')}] ＞ "
     result += getRollResultString(diceList, target, diff)
