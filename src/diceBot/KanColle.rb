@@ -48,13 +48,13 @@ INFO_MESSAGE_TEXT
   end
 
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
-    return '' unless( signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
-    if(dice_n <= 2)
+    if dice_n <= 2
       return " ＞ ファンブル（判定失敗。アクシデント表を自分のＰＣに適用）"
-    elsif(dice_n >= 12)
+    elsif dice_n >= 12
       return " ＞ スペシャル（判定成功。【行動力】が１Ｄ６点回復）"
-    elsif(total_n >= diff)
+    elsif total_n >= diff
       return " ＞ 成功"
     else
       return " ＞ 失敗"

@@ -44,14 +44,14 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
     output =
-      if(dice_n <= 2)
+      if dice_n <= 2
         " ＞ ファンブル(判定失敗。ファンブル表（FT）を振ること)"
-      elsif(dice_n >= 12)
+      elsif dice_n >= 12
         " ＞ スペシャル(判定成功。【テンション】が１段階上昇)"
-      elsif(total_n >= diff)
+      elsif total_n >= diff
         " ＞ 成功"
       else
         " ＞ 失敗"
@@ -112,7 +112,7 @@ INFO_MESSAGE_TEXT
         get_table_by_d66_swap(table)
       end
 
-    return nil if( text.nil? )
+    return nil if text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end

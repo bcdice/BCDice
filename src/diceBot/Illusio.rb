@@ -56,7 +56,7 @@ MESSAGETEXT
     resultArray = Array.new
     success = 0
     diceArray.each do |i|
-      if( blockNo.count(i) > 0 )
+      if blockNo.count(i) > 0
         resultArray.push("×")
       else
         resultArray.push(i)
@@ -66,12 +66,12 @@ MESSAGETEXT
 
     blockText = blockNo.join(',')
     blockText2 = "Block"
-    blockText2 = "Parry" if( isParry )
+    blockText2 = "Parry" if isParry
     resultText = resultArray.join(',')
 
     result = "#{diceCount}D6(#{blockText2}:#{blockText}) ＞ #{diceText} ＞ #{resultText} ＞ "
-    if( isParry )
-      if( success < diceCount )
+    if isParry
+      if  success < diceCount
         result += "パリィ成立！　次の非ダメージ2倍。"
       else
         result += "成功数：#{success}　パリィ失敗"

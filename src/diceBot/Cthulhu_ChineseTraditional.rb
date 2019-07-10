@@ -134,27 +134,27 @@ INFO_MESSAGE_TEXT
     diff_special = 0
     fumble = false
 
-    if( @special_percentage > 0)
+    if @special_percentage > 0
       # 需有special的數值設定才能做爆擊/大失敗的判定
       diff_special = (diff * @special_percentage / 100).floor
-      if(diff_special < 1)
+      if diff_special < 1
         diff_special = 1
       end
     end
 
-    if((total_n <= diff) && (total_n < 100))
+    if (total_n <= diff) && (total_n < 100)
 
       result = "成功"
 
-      if( diff_special > 0)
-        if(total_n <= @critical_percentage)
-          if(total_n <= diff_special)
+      if diff_special > 0
+        if total_n <= @critical_percentage
+          if total_n <= diff_special
             result = "決定性的成功/特殊"
           else
             result = "決定性的成功"
           end
         else
-          if(total_n <= diff_special)
+          if total_n <= diff_special
             result = "特殊"
           end
         end
@@ -164,8 +164,8 @@ INFO_MESSAGE_TEXT
 
       result = "失敗"
 
-      if( diff_special > 0)
-        if((total_n >= (101 - @fumble_percentage)) && (diff < 100))
+      if diff_special > 0
+        if (total_n >= (101 - @fumble_percentage)) && (diff < 100)
           result = "致命性失敗"
           fumble = true
         end
@@ -173,9 +173,9 @@ INFO_MESSAGE_TEXT
 
     end
 
-    if(broken_num > 0)
-      if(total_n >= broken_num)
-        if(fumble)
+    if broken_num > 0
+      if total_n >= broken_num
+        if fumble
           result += "/故障"
         else
           result = "故障"
@@ -189,16 +189,16 @@ INFO_MESSAGE_TEXT
   def getRegistResult(command)
     output = "1"
 
-    return output unless(/RES(B)?([-\d]+)/i =~ command)
+    return output unless /RES(B)?([-\d]+)/i =~ command
 
     value = $2.to_i
-    target =  value * 5 + 50
+    target = value * 5 + 50
 
-    if(target < 5)
+    if target < 5
       return "(1d100<=#{target}) ＞ 自動失敗"
     end
 
-    if(target > 95)
+    if target > 95
       return "(1d100<=#{target}) ＞ 自動成功"
     end
 
@@ -212,7 +212,7 @@ INFO_MESSAGE_TEXT
   def getCombineRoll(command)
     output = "1"
 
-    return output unless(/CBR(B)?\((\d+),(\d+)\)/i =~ command)
+    return output unless /CBR(B)?\((\d+),(\d+)\)/i =~ command
 
     diff_1 = $2.to_i
     diff_2 = $3.to_i
@@ -231,9 +231,9 @@ INFO_MESSAGE_TEXT
     debug("succesCount", succesCount)
 
     rank =
-      if( succesCount >= 2 )
+      if succesCount >= 2
         "成功"
-      elsif( succesCount == 1 )
+      elsif succesCount == 1
         "部分性成功"
       else
         "失敗"

@@ -248,7 +248,7 @@ MESSAGETEXT
 
     number = dice1 * 10 + dice2
 
-    if( dice1 > dice2 )
+    if dice1 > dice2
       tmp = pc1
       pc1 = pc2
       pc2 = tmp
@@ -654,7 +654,7 @@ MESSAGETEXT
     index = number - 2
 
     text = table[index]
-    return '' if( text.nil? )
+    return '' if text.nil?
 
     return "#{name}休憩表(#{number}) #{ text }"
   end
@@ -664,7 +664,7 @@ MESSAGETEXT
     index = number - 1
 
     text = table[index]
-    return '' if( text.nil? )
+    return '' if text.nil?
 
     return "#{name}(#{number}) #{ text }"
   end
@@ -884,7 +884,7 @@ MESSAGETEXT
     index = dice + level
 
     text = get_table_by_number(index, table, table.last.last)
-    return '' if( text.nil? )
+    return '' if text.nil?
 
     return "#{name}(#{index}) #{ text }"
   end

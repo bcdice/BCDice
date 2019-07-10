@@ -50,13 +50,13 @@ INFO_MESSAGE_TEXT
   end
 
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
-    if(dice_n <= 2)
+    if dice_n <= 2
       return " ＞ 絶対失敗"
-    elsif(dice_n >= 12)
+    elsif dice_n >= 12
       return " ＞ 絶対成功"
-    elsif(total_n >= diff)
+    elsif total_n >= diff
       return " ＞ 成功"
     else
       return " ＞ 失敗"
@@ -67,7 +67,7 @@ INFO_MESSAGE_TEXT
     output = "1"
 
     debug("checkRoll string", string)
-    unless(m = /(^|\s)S?((\d+)[rR]6([\+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i.match(string))
+    unless (m = /(^|\s)S?((\d+)[rR]6([\+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i.match(string))
       debug("not mutch")
       return output
     end
@@ -79,10 +79,10 @@ INFO_MESSAGE_TEXT
     diff = 0
 
     bonusText = m[4]
-    bonus = parren_killer("(0" + bonusText + ")").to_i unless( bonusText.nil? )
+    bonus = parren_killer("(0" + bonusText + ")").to_i unless bonusText.nil?
 
-    signOfInequality = m[6] if(m[6])
-    diff = m[7].to_i if(m[7])
+    signOfInequality = m[6] if m[6]
+    diff = m[7].to_i if m[7]
     dice_now = 0
     dice_str = ""
     total_n = 0
@@ -97,14 +97,14 @@ INFO_MESSAGE_TEXT
 
     output = "#{dice_now}#{dice_str}"
 
-    if(bonus > 0)
+    if bonus > 0
       output += "+#{bonus}"
-    elsif(bonus < 0)
+    elsif bonus < 0
       output += bonus.to_s
     end
 
-    if(sendMode > 0)
-      if(/[^\d\[\]]+/ =~ output)
+    if sendMode > 0
+      if /[^\d\[\]]+/ =~ output
         output = "#{@nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}"
       else
         output = "#{@nick_e}: (#{string}) ＞ #{total_n}"
@@ -113,7 +113,7 @@ INFO_MESSAGE_TEXT
       output = "#{@nick_e}: (#{string}) ＞ #{total_n}"
     end
 
-    if(signOfInequality != "") # 成功度判定処理
+    if signOfInequality != "" # 成功度判定処理
       output += check_suc(total_n, dice_now, signOfInequality, diff, 2, 6, 0, 0)
     end
 
@@ -190,7 +190,7 @@ INFO_MESSAGE_TEXT
       output, total_n = md_kernel_stop_table
     end
 
-    if(output != '1')
+    if output != '1'
       output = "#{type}表(#{total_n}) ＞ #{output}"
     end
 

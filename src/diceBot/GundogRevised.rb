@@ -29,23 +29,23 @@ INFO_MESSAGE_TEXT
   # ---- 以降、Gundog.rbよりほぼコピペ（絶対成功→ベアリーに用語変更対応の為、継承だと不都合）
   # ゲーム別成功度判定(1d100)
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    return '' unless(signOfInequality == "<=")
+    return '' unless signOfInequality == "<="
 
-    if(total_n >= 100)
+    if total_n >= 100
       return " ＞ ファンブル"
     end
 
-    if(total_n <= 1)
+    if total_n <= 1
       return " ＞ ベアリー(達成値1+SL)"
     end
 
-    if(total_n <= diff)
+    if total_n <= diff
       dig10 = (total_n / 10).to_i
       dig1 = total_n - dig10 * 10
-      dig10 = 0 if(dig10 >= 10)
-      dig1 = 0 if(dig1 >= 10) # 条件的にはあり得ない(笑
+      dig10 = 0 if dig10 >= 10
+      dig1 = 0 if dig1 >= 10 # 条件的にはあり得ない(笑
 
-      if(dig1 <= 0)
+      if dig1 <= 0
         return " ＞ クリティカル(達成値20+SL)"
       end
 
@@ -70,35 +70,35 @@ INFO_MESSAGE_TEXT
     mod = 0
 
     # ダメージペナルティ表
-    if(/(\w)DPT([\+\-\d]*)/i =~ string)
+    if /(\w)DPT([\+\-\d]*)/i =~ string
       ttype = 'ダメージペナルティー'
       head = $1
-      mod = parren_killer("(0#{$2})").to_i if($2)
+      mod = parren_killer("(0#{$2})").to_i if $2
 
       type, table = getDamageTypeAndTable(head)
     end
 
     # ファンブル表
-    if(/(\w)FT([\+\-\d]*)/i =~ string)
+    if /(\w)FT([\+\-\d]*)/i =~ string
       ttype = 'ファンブル'
       head = $1
-      mod = parren_killer("(0#{$2})").to_i if($2)
+      mod = parren_killer("(0#{$2})").to_i if $2
 
       type, table = getFumbleTypeAndTable(head)
     end
 
-    return '1' if( type.empty? )
+    return '1' if  type.empty?
 
     dice, diceText = roll(2, 10)
 
     dice = mod
     diceArray = diceText.split(/,/).collect{|i|i.to_i}
     diceArray.each do |i|
-      dice += i if( i < 10 )
+      dice += i if  i < 10
     end
     diceOriginalText = dice
-    dice = 0 if(dice < 0)
-    dice = 18 if(dice > 18)
+    dice = 0 if dice < 0
+    dice = 18 if dice > 18
 
     output = "#{type}#{ttype}表[#{diceOriginalText}] ＞ #{table[dice]}"
 

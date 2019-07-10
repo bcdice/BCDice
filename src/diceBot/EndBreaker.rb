@@ -28,7 +28,7 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-    if( /(\d+)EB/i === command )
+    if /(\d+)EB/i === command
       diceCount = $1.to_i
       return checkRoll(diceCount)
     end
@@ -67,14 +67,14 @@ MESSAGETEXT
     rollCount = diceList.select{|i| i == 1 }.size * 2
 
     result += "[#{diceList.join}]"
-      result += " ダブルトリガー! " if(rollCount > 0)
+      result += " ダブルトリガー! " if rollCount > 0
     end
 
   #ダイスの出目の個数を集計
   result += " ＞"
   for num in 2..6
     count = diceFullList.select{|i| i == num}.size
-    result += " [#{num}:#{count}個]" unless(count == 0)
+    result += " [#{num}:#{count}個]" unless count == 0
   end
 
   return result

@@ -42,7 +42,7 @@ MESSAGETEXT
   def getCheckRollDiceCommandResult(command)
     debug("getCheckRollDiceCommandResult command", command)
 
-    return nil unless(/(\d+)?CH([\+\-\d]*)(>=([\+\-\d]*))?$/i === command)
+    return nil unless /(\d+)?CH([\+\-\d]*)(>=([\+\-\d]*))?$/i === command
 
     diceCount = ($1 || 3).to_i
     modifyText = ($2 || '')
@@ -62,15 +62,15 @@ MESSAGETEXT
 
   #出力用ダイスコマンドを生成
   command =  "#{diceCount}CH#{modifyText}"
-  command += ">=#{difficulty}" unless(difficulty.nil?)
+  command += ">=#{difficulty}" unless difficulty.nil?
 
   #出力文の生成
   result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
 
   #クリティカル・ファンブルチェック
-    if( isFamble(dice) )
+    if isFamble(dice)
       result += " ＞ ファンブル"
-    elsif( isCritical(total) )
+    elsif isCritical(total)
       result += " ＞ クリティカル"
     else
       result += getJudgeResultString(difficulty, total)
@@ -81,15 +81,15 @@ MESSAGETEXT
 
   #成否判定
   def getJudgeResultString(difficulty, total)
-    return '' if(difficulty.nil?)
+    return '' if difficulty.nil?
 
-    return " ＞ 成功" if(total >= difficulty)
+    return " ＞ 成功" if total >= difficulty
 
     return " ＞ 失敗"
   end
 
   def getValue(text, defaultValue)
-    return defaultValue if( (text == nil) || text.empty? )
+    return defaultValue if (text == nil) || text.empty?
 
     parren_killer("(0" + text + ")").to_i
   end
@@ -273,7 +273,7 @@ debug('yearText', yearText)
         get_table_by_d66(table)
       end
 
-    return nil if( text.nil? )
+    return nil if text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end

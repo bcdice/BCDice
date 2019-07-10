@@ -70,7 +70,7 @@ MESSAGETEXT
   end
 
   def getCheckRollDiceCommandResult(command)
-    return nil unless(/(\d+)LH([\+\-\d]*)(>=([\+\-\d]*))?/i === command)
+    return nil unless /(\d+)LH([\+\-\d]*)(>=([\+\-\d]*))?/i === command
 
     diceCount = $1.to_i
     modifyText = ($2 || '')
@@ -90,15 +90,15 @@ MESSAGETEXT
 
     #出力用ダイスコマンドを生成
     command =  "#{diceCount}LH#{modifyText}"
-    command += ">=#{difficulty}" unless(difficulty.nil?)
+    command += ">=#{difficulty}" unless difficulty.nil?
 
     #出力文の生成
     result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
 
     #クリティカル・ファンブルチェック
-    if( isCritical(diceList) )
+    if isCritical(diceList)
       result += " ＞ クリティカル！"
-    elsif( isFamble(diceList, diceCount) )
+    elsif isFamble(diceList, diceCount)
       result += " ＞ ファンブル！"
     else
       result += getJudgeResultString(difficulty, total)
@@ -109,9 +109,9 @@ MESSAGETEXT
 
   #成否判定
   def getJudgeResultString(difficulty, total)
-    return '' if(difficulty.nil?)
+    return '' if difficulty.nil?
 
-    if(total >= difficulty)
+    if total >= difficulty
       return " ＞ 成功"
     else
       return " ＞ 失敗"
@@ -119,7 +119,7 @@ MESSAGETEXT
   end
 
   def getValue(text, defaultValue)
-    return defaultValue if( (text == nil) || text.empty? )
+    return defaultValue if (text == nil) || text.empty?
 
     parren_killer("(0" + text + ")").to_i
   end
@@ -134,7 +134,7 @@ MESSAGETEXT
 
   #消耗表
   def getConsumptionDiceCommandResult( command )
-    return nil unless(/(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command)
+    return nil unless /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command
 
     type = $1
     is_special = ($1 && $1.length > 1)
@@ -512,7 +512,7 @@ MESSAGETEXT
 
   #財宝表
   def getTresureDiceCommandResult(command)
-    return nil unless(m = /(C|M|I|O|H|G)TRS(\d*)([\+\-\d]*)(\$)?/.match(command))
+    return nil unless (m = /(C|M|I|O|H|G)TRS(\d*)([\+\-\d]*)(\$)?/.match(command))
 
     type = m[1]
     rank = m[2].to_i
@@ -1388,7 +1388,7 @@ MESSAGETEXT
 
   #パーソナリティタグ表
   def getPersonalityTagDiceCommandResult(command)
-    return nil unless("PTAG" === command)
+    return nil unless "PTAG" === command
 
     tableName = "パーソナリティタグ表"
     table = [
@@ -1443,7 +1443,7 @@ MESSAGETEXT
 
   #交友表
   def getFriendlyChartDiceCommandResult(command)
-    return nil unless("KOYU" === command)
+    return nil unless "KOYU" === command
 
     tableName = "交友表"
     table = [
@@ -1498,7 +1498,7 @@ MESSAGETEXT
 
   #プレフィックスドマジックアイテム表
   def getPrefixedMagickItemDiceCommandResult(command)
-    return nil unless(/MGR([1-3])/ === command)
+    return nil unless /MGR([1-3])/ === command
 
     rank = $1.to_i
 
@@ -1657,7 +1657,7 @@ MESSAGETEXT
 
   #攻撃命中箇所ランダム決定表
   def getHitLocationDiceCommandResult(command)
-    return nil unless("HLOC" === command)
+    return nil unless "HLOC" === command
 
     tableName = "攻撃命中箇所"
     table = [
@@ -1709,7 +1709,7 @@ MESSAGETEXT
 
   #PC名ランダム決定表
   def getPCNameDiceCommandResult(command)
-    return nil unless("PCNM" === command)
+    return nil unless "PCNM" === command
 
     tableName = "PC名"
     table = [
@@ -1763,7 +1763,7 @@ MESSAGETEXT
 
   #ロデ研の新発明ランダム決定表
   def getInventionAttributeTextDiceCommandResult(command)
-    return nil unless(/IAT([ABMDLT]*)/ === command)
+    return nil unless /IAT([ABMDLT]*)/ === command
 
     tableName = "ロデ研の新発明"
 
@@ -1939,7 +1939,7 @@ MESSAGETEXT
 
   #楽器種別表
   def getMusicalInstrumentTypeDiceCommandResult(command)
-    return nil unless(/MII(\d?)/ === command)
+    return nil unless /MII(\d?)/ === command
 
      type, is_roll = if $1 && $1 != ''
                        [$1.to_i, false]

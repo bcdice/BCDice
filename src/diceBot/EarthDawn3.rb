@@ -42,7 +42,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getStepResult(str)
-    return nil unless( /^(\d+)E(\d+)?(\+(\d*)D(\d+))?(\+\d)?/i =~ str)
+    return nil unless /^(\d+)E(\d+)?(\+(\d*)D(\d+))?(\+\d)?/i =~ str
 
     stepTotal = 0
     @isFailed = true
@@ -55,11 +55,11 @@ INFO_MESSAGE_TEXT
     diceModify = $6.to_i
 
     karmaDiceInfo = Hash.new(0)
-    if( hasKarmaDice )
+    if hasKarmaDice
       karmaDiceInfo[karmaDiceType] = karmaDiceCount
     end
 
-    return nil if(targetNumber < 0)
+    return nil if targetNumber < 0
 
     stepInfo = getStepInfo(step)
     debug('stepInfo', stepInfo)
@@ -83,7 +83,7 @@ INFO_MESSAGE_TEXT
     @string += " ＞ #{stepTotal}"
 
     output = "ステップ#{step} ＞ #{@string}"
-    return output if(targetNumber == 0)
+    return output if targetNumber == 0
 
     #結果判定
     @string += ' ＞ ' + getSuccess(targetNumber, stepTotal)
@@ -95,9 +95,9 @@ INFO_MESSAGE_TEXT
 
   def getModifyText(modify)
     @string = ""
-    return @string if( modify == 0 )
+    return @string if  modify == 0
 
-    @string += "+" if( modify > 0 )
+    @string += "+" if  modify > 0
     @string += modify.to_s
     return @string
   end
@@ -123,7 +123,7 @@ INFO_MESSAGE_TEXT
     baseStepTable = getBaseStepTable
     baseMaxStep = baseStepTable.last.first
 
-    if( step <= baseMaxStep )
+    if step <= baseMaxStep
       return get_table_by_number(step, baseStepTable)
     end
 
@@ -168,19 +168,19 @@ INFO_MESSAGE_TEXT
   end
 
   def getSuccess(targetNumber, stepTotal)
-    return '自動失敗' if( @isFailed )
+    return '自動失敗' if @isFailed
 
     successTable = getSuccessTable
     successInfo = get_table_by_number(targetNumber, successTable)
 
     pathetic, poor, average, good, excelent, extraordinary = successInfo
 
-    return 'Extraordinary(極上)' if(stepTotal >= extraordinary)
-    return 'Excelent(最高)' if(stepTotal >= excelent)
-    return 'Good(上出来)' if(stepTotal >= good)
-    return 'Average(そこそこ)' if(stepTotal >= average)
-    return 'Poor(お粗末)' if(stepTotal >= poor)
-    return 'Pathetic(惨め)' if( stepTotal >= pathetic )
+    return 'Extraordinary(極上)' if stepTotal >= extraordinary
+    return 'Excelent(最高)' if stepTotal >= excelent
+    return 'Good(上出来)' if stepTotal >= good
+    return 'Average(そこそこ)' if stepTotal >= average
+    return 'Poor(お粗末)' if stepTotal >= poor
+    return 'Pathetic(惨め)' if stepTotal >= pathetic
   end
 
   def getSuccessTable
@@ -235,24 +235,24 @@ INFO_MESSAGE_TEXT
     debug('rollStep diceType, diceCount, @string', diceType, diceCount, @string)
 
     stepTotal = 0
-    return stepTotal unless(diceCount > 0)
+    return stepTotal unless diceCount > 0
 
     #diceぶんのステップ判定
 
-    @string += "+" unless(@string.empty? )
+    @string += "+" unless @string.empty?
     @string += "#{diceCount}d#{diceType}["
     debug('rollStep @string', @string)
 
     diceCount.times do |i|
       dice_now, dummy = roll(1, diceType)
 
-      if(dice_now != 1)
+      if dice_now != 1
         @isFailed = false
       end
 
       dice_in = dice_now
 
-      while( dice_now == diceType )
+      while dice_now == diceType
         dice_now, dummy = roll(1, diceType)
 
         dice_in += dice_now
@@ -260,7 +260,7 @@ INFO_MESSAGE_TEXT
 
       stepTotal += dice_in
 
-      @string += ',' if( i != 0 )
+      @string += ',' if i != 0
       @string += dice_in.to_s
     end
 

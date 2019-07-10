@@ -50,9 +50,9 @@ INFO_MESSAGE_TEXT
   end
 
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(1d100)
-    return '' unless(signOfInequality == "<=")
+    return '' unless signOfInequality == "<="
 
-    if(total_n <= diff)
+    if total_n <= diff
       return " ＞ 成功(成功度#{ ((diff - total_n)/10) })"
     end
 
@@ -138,14 +138,14 @@ INFO_MESSAGE_TEXT
 
     output = "1"
 
-    unless(/WH([HABTLW])(\d+)/ =~ string)
+    unless /WH([HABTLW])(\d+)/ =~ string
       return '1'
     end
 
     partsWord = $1 #部位
     criticalValue = $2.to_i #クリティカル値
-    criticalValue = 10 if(criticalValue > 10)
-    criticalValue = 1 if(criticalValue < 1)
+    criticalValue = 10 if criticalValue > 10
+    criticalValue = 1 if criticalValue < 1
 
     whpp = ''
     whppp = ''
@@ -174,7 +174,7 @@ INFO_MESSAGE_TEXT
     crit_num = criticalTable[crit_no + criticalValue - 1]
 
     resultText = whppp[crit_num - 1]
-    if(crit_num >= 5)
+    if crit_num >= 5
       resultText += 'サドンデス×'
     else
       resultText += 'サドンデス○'
@@ -252,7 +252,7 @@ INFO_MESSAGE_TEXT
 
     pos_t = 0
     debug("pos_type", pos_type)
-    if(pos_type != "")
+    if pos_type != ""
       case pos_type
       when /\@(2W|W2)/i
         pos_t = 1
@@ -265,7 +265,7 @@ INFO_MESSAGE_TEXT
       when /\@W/i
         pos_t = 5
       else
-        unless( /\@(2H|H2|2)/i =~ pos_type)
+        unless  /\@(2H|H2|2)/i =~ pos_type
           pos_t = -1
         end
       end
@@ -274,7 +274,7 @@ INFO_MESSAGE_TEXT
     output = ""
 
     debug("pos_t", pos_t)
-    if(pos_t < 0)
+    if pos_t < 0
       wh_pos.each do |pos_i|
         output += get_wh_atpos_message(pos_i, pos_num)
       end
@@ -292,7 +292,7 @@ INFO_MESSAGE_TEXT
     output += ' ' + pos_i[0] + ":"
 
     1.step(pos_i.length + 1, 2) do |i|
-      if( pos_num <= pos_i[i] )
+      if pos_num <= pos_i[i]
         output += pos_i[i + 1]
         break
       end
@@ -306,13 +306,13 @@ INFO_MESSAGE_TEXT
 
     pos_type = ""
 
-    if( /(.+)(@.*)/ =~ string )
+    if /(.+)(@.*)/ =~ string
       string = $1
       pos_type = $2
       debug("pos_type", pos_type)
     end
 
-    unless(/WH(\d+)/i =~ string)
+    unless /WH(\d+)/i =~ string
       return '1'
     end
 
@@ -324,9 +324,9 @@ INFO_MESSAGE_TEXT
     output += check_suc(total_n, 0, "<=", diff, 1, 100, 0, total_n)
 
     pos_num = (total_n % 10) * 10 + (total_n / 10).to_i
-    pos_num = 100 if(total_n >= 100)
+    pos_num = 100 if total_n >= 100
 
-    output += wh_atpos(pos_num, pos_type) if(total_n <= diff)
+    output += wh_atpos(pos_num, pos_type) if total_n <= diff
 
     return output
   end

@@ -36,29 +36,29 @@ INFO_MESSAGE_TEXT
     mod = 0
 
     # ダメージペナルティ表
-    if(/(\w)DPT([\+\-\d]*)/i =~ string)
+    if /(\w)DPT([\+\-\d]*)/i =~ string
       ttype = 'ダメージペナルティー'
       head = $1
-      mod = parren_killer("(0#{$2})").to_i if($2)
+      mod = parren_killer("(0#{$2})").to_i if $2
 
       type, table = getDamageTypeAndTable(head)
     end
 
     # ファンブル表
-    if(/(\w)FT([\+\-\d]*)/i =~ string)
+    if /(\w)FT([\+\-\d]*)/i =~ string
       ttype = 'ファンブル'
       head = $1
-      mod = parren_killer("(0#{$2})").to_i if($2)
+      mod = parren_killer("(0#{$2})").to_i if $2
 
       type, table = getFumbleTypeAndTable(head)
     end
 
-    return '1' if( type.empty? )
+    return '1' if type.empty?
 
     dice = rand(10) + rand(10) + mod
     diceOriginalText = dice
-    dice = 0 if(dice < 0)
-    dice = 18 if(dice > 18)
+    dice = 0 if dice < 0
+    dice = 18 if dice > 18
 
     output = "#{type}#{ttype}表[#{diceOriginalText}] ＞ #{table[dice]}"
 

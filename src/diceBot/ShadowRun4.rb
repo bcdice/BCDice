@@ -24,7 +24,7 @@ INFO_MESSAGE_TEXT
   end
 
   def changeText(string)
-    if(string =~ /(\d+)S6/i)
+    if string =~ /(\d+)S6/i
       string = string.gsub(/(\d+)S6/i) {"#{$1}B6"}
     end
 
@@ -40,12 +40,12 @@ INFO_MESSAGE_TEXT
     dice_cnt_total_half = (1.0 * dice_cnt_total / 2)
     debug("dice_cnt_total_half", dice_cnt_total_half)
 
-    unless( numberSpot1 >= dice_cnt_total_half )
+    unless numberSpot1 >= dice_cnt_total_half
       return ''
     end
 
     # グリッチ！
-    if( successCount == 0 )
+    if successCount == 0
       return ' ＞ クリティカルグリッチ'
     end
 

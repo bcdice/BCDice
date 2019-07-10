@@ -109,13 +109,13 @@ class Torg1_5 < Torg
   end
 
   def get_torg_damage(value, max_damage, max_shock, damage_table)
-    if( value < 0 )
+    if value < 0
       return '1'
     end
 
     table_max_value = damage_table.length - 1
 
-    if( value <= table_max_value )
+    if value <= table_max_value
       return get_torg_table_result( value, damage_table )
     end
 

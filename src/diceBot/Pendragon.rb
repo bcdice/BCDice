@@ -17,16 +17,16 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(1d20)
   def check_1D20(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    return '' unless(signOfInequality == "<=")
+    return '' unless signOfInequality == "<="
 
-    if(total_n <= diff)
-      if((total_n >= (40 - diff)) || (total_n == diff))
+    if total_n <= diff
+      if (total_n >= (40 - diff)) || (total_n == diff)
         return " ＞ クリティカル"
       end
 
       return " ＞ 成功"
     else
-      if(total_n == 20)
+      if total_n == 20
         return " ＞ ファンブル"
       end
 

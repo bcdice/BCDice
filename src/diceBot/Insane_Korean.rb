@@ -66,14 +66,14 @@ INFO_MESSAGE_TEXT
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
     output =
-      if(dice_n <= 2)
+      if dice_n <= 2
         " ＞ 펌블(판정실패。 덱에서 【광기】를 1장 획득)"
-      elsif(dice_n >= 12)
+      elsif dice_n >= 12
         " ＞ 스페셜(판정성공。 【생명력】 1점이나 【정신력】 1점 회복)"
-      elsif(total_n >= diff)
+      elsif total_n >= diff
         " ＞ 성공"
       else
         " ＞ 실패"

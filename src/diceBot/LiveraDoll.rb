@@ -84,7 +84,7 @@ MESSAGETEXT
     resultArray = Array.new
     success = 0
     diceArray.each do |i|
-      if( blockNo.count(i) > 0 )
+      if blockNo.count(i) > 0
         resultArray.push("×")
       else
         resultArray.push(i)

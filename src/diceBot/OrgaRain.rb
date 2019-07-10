@@ -54,7 +54,7 @@ MESSAGETEXT
     success = 0
     diceArray.each do |i|
       multiple = countNo.count(i)
-      if( multiple > 0 )
+      if multiple > 0
         resultArray.push("#{i}(x#{multiple})")
         success += multiple
       else

@@ -75,7 +75,7 @@ MESSAGETEXT
         getTableResult(table, dice, hasGap)
       end
 
-    return nil if( text.nil? )
+    return nil if text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end
@@ -112,7 +112,7 @@ MESSAGETEXT
   def rollJudgeDice(diceCount)
     dice, diceText, = roll(diceCount, 6)
 
-    if( diceCount == 2 )
+    if diceCount == 2
       return dice, diceText
     end
 
@@ -217,7 +217,7 @@ MESSAGETEXT
     dice, = roll(1, 6)
     number, text = getTableResult(table, dice)
 
-    return nil if( text.nil? )
+    return nil if  text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end
@@ -244,7 +244,7 @@ MESSAGETEXT
     dice, = roll(1, 6)
     number, text = getTableResult(table, dice)
 
-    return nil if( text.nil? )
+    return nil if  text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end
@@ -272,7 +272,7 @@ MESSAGETEXT
     hasGap = true
     number, text = getTableResult(table, dice, hasGap)
 
-    return nil if( text.nil? )
+    return nil if  text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end
@@ -306,7 +306,7 @@ MESSAGETEXT
     hasGap = true
     number, text = getTableResult(table, dice, hasGap)
 
-    return nil if( text.nil? )
+    return nil if  text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end

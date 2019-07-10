@@ -61,7 +61,7 @@ INFO_MESSAGE_TEXT
     bonus_dice_count = $1.to_i #獎勵、懲罰骰數量
     diff = $2.to_i
 
-    return "錯誤。目標值需為1以上。" if(diff <= 0)
+    return "錯誤。目標值需為1以上。" if diff <= 0
 
     unless @bonus_dice_range.include?(bonus_dice_count)
       return "錯誤。獎勵、懲罰骰値為#{@bonus_dice_range.min}～#{@bonus_dice_range.max}。"
@@ -84,7 +84,7 @@ INFO_MESSAGE_TEXT
 
   def rollPercentD10
     dice, = roll(1, 10)
-    dice = 0 if(dice == 10)
+    dice = 0 if dice == 10
 
     return dice
   end
@@ -105,16 +105,16 @@ INFO_MESSAGE_TEXT
   end
 
   def getTotal(total_list, bonus_dice_count)
-    return total_list.min if( bonus_dice_count >= 0 )
+    return total_list.min if bonus_dice_count >= 0
 
     return total_list.max
   end
 
   def getCheckResultText(total, diff, fumbleable = false)
-    if(total <= diff)
-      return "決定性的成功" if(total == 1)
-      return "極限的成功" if(total <= (diff / 5))
-      return "困難的成功" if(total <= (diff / 2))
+    if total <= diff
+      return "決定性的成功" if total == 1
+      return "極限的成功" if total <= (diff / 5)
+      return "困難的成功" if total <= (diff / 2)
 
       return "通常成功"
     end
@@ -135,7 +135,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getCombineRoll(command)
-    return nil unless(/CBR\((\d+),(\d+)\)/i =~ command)
+    return nil unless /CBR\((\d+),(\d+)\)/i =~ command
 
     diff_1 = $1.to_i
     diff_2 = $2.to_i
@@ -153,9 +153,9 @@ INFO_MESSAGE_TEXT
     debug("succesCount", succesCount)
 
     rank =
-      if( succesCount >= 2 )
+      if succesCount >= 2
         "成功"
-      elsif( succesCount == 1 )
+      elsif succesCount == 1
         "部分的成功"
       else
         "失敗"

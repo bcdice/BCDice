@@ -38,7 +38,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getStepResult(str)
-    return nil unless( /(\d+)E(\d+)?(\+)?(\d+)?(d\d+)?/i =~ str)
+    return nil unless /(\d+)E(\d+)?(\+)?(\d+)?(d\d+)?/i =~ str
 
     stepTotal = 0
     @isFailed = true
@@ -51,21 +51,21 @@ INFO_MESSAGE_TEXT
     karmaDiceType = 0 #カルマダイスの種類
 
     #空値があった時の為のばんぺいくんRX
-    if(step > 40)
+    if step > 40
       step2 = step
         step = 40
     end
 
-    if($2)
+    if $2
       targetNumber = $2.to_i
-      targetNumber = 42 if(targetNumber > 43)
+      targetNumber = 42 if targetNumber > 43
     end
 
-    hasKarmaDice = $3.to_i if($3)
-    karmaDiceCount= $4.to_i if($4)
-    karmaDiceType= ($5) if($5)
+    hasKarmaDice = $3.to_i if $3
+    karmaDiceCount= $4.to_i if $4
+    karmaDiceType= ($5) if $5
 
-    return nil if(targetNumber < 0)
+    return nil if targetNumber < 0
 
     stable = getStepTable()
 
@@ -77,7 +77,7 @@ INFO_MESSAGE_TEXT
     d6step   = stable[5][step - 1]
     d4step   = stable[6][step - 1]
 
-    if( hasKarmaDice )
+    if hasKarmaDice
       case karmaDiceType
       when /d20/i
         d20step = d20step + karmaDiceCount
@@ -107,11 +107,11 @@ INFO_MESSAGE_TEXT
     stepTotal += rollStep( 6,  d6step)
     stepTotal += rollStep( 4,  d4step)
 
-    if( nmod > 0 ) #修正分の適用
+    if nmod > 0 #修正分の適用
       @string += "+"
     end
 
-    if( nmod != 0 )
+    if nmod != 0
       @string += nmod.to_s
       stepTotal += nmod
     end
@@ -120,7 +120,7 @@ INFO_MESSAGE_TEXT
     @string += " ＞ #{stepTotal}"
 
     output = "ステップ#{step} ＞ #{@string}"
-    return output if(targetNumber == 0)
+    return output if targetNumber == 0
 
     #結果判定
     @string += ' ＞ '
@@ -130,17 +130,17 @@ INFO_MESSAGE_TEXT
     goodSuccessNumber = stable[9][targetNumber - 1]
     failedNumber = stable[11][targetNumber - 1]
 
-    if( @isFailed )
+    if @isFailed
       @string += '自動失敗'
-    elsif(stepTotal >= excelentSuccessNumber)
+    elsif stepTotal >= excelentSuccessNumber
       @string += '最良成功'
-    elsif(stepTotal >= superSuccessNumber)
+    elsif stepTotal >= superSuccessNumber
       @string += '優成功'
-    elsif(stepTotal >= goodSuccessNumber)
+    elsif stepTotal >= goodSuccessNumber
       @string += '良成功'
-    elsif(stepTotal >= targetNumber)
+    elsif stepTotal >= targetNumber
       @string += '成功'
-    elsif(stepTotal < failedNumber)
+    elsif stepTotal < failedNumber
       @string += '大失敗'
     else
       @string += '失敗'
@@ -187,24 +187,24 @@ INFO_MESSAGE_TEXT
     debug('rollStep diceType, diceCount, @string', diceType, diceCount, @string)
 
     stepTotal = 0
-    return stepTotal unless(diceCount > 0)
+    return stepTotal unless diceCount > 0
 
     #diceぶんのステップ判定
 
-    @string += "+" unless(@string.empty? )
+    @string += "+" unless @string.empty?
     @string += "#{diceCount}d#{diceType}["
     debug('rollStep @string', @string)
 
     diceCount.times do |i|
       dice_now, dummy = roll(1, diceType)
 
-      if(dice_now != 1)
+      if dice_now != 1
         @isFailed = false
       end
 
       dice_in = dice_now
 
-      while( dice_now == diceType )
+      while dice_now == diceType
         dice_now, dummy = roll(1, diceType)
 
         dice_in += dice_now
@@ -212,7 +212,7 @@ INFO_MESSAGE_TEXT
 
       stepTotal += dice_in
 
-      @string += ',' if( i != 0 )
+      @string += ',' if i != 0
       @string += dice_in.to_s
     end
 

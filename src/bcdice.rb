@@ -25,7 +25,7 @@ end
 def mainBcDiceCli(args)
   message = args[0]
   gameType = "DiceBot"
-  if( args.length >= 2 )
+  if args.length >= 2
     gameType = args[0]
     message = args[1]
   end
@@ -46,7 +46,7 @@ end
 
 if $0 === __FILE__
 
-  if( (ARGV.length < 1) || (ARGV[0] == "createExe") )
+  if  (ARGV.length < 1) || (ARGV[0] == "createExe")
     require 'bcdiceGui.rb'
     mainBcDiceGui
   else

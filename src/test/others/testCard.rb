@@ -412,7 +412,7 @@ class TestCardTrader < Test::Unit::TestCase
     rands = []
 
     cardCount.times do |i|
-      break if(i == cardCount)
+      break if i == cardCount
 
       max = cardCount - i
       rands << [1, max]

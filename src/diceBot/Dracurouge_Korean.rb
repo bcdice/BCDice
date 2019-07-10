@@ -264,7 +264,7 @@ TEXT_BLOCK
         get_table_by_1d6(table)
       end
 
-    return nil if( text.nil? )
+    return nil if text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end

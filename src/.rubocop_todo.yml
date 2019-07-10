@@ -234,11 +234,6 @@ Layout/SpaceAfterNot:
 Layout/SpaceAroundBlockParameters:
   Enabled: false
 
-# Offense count: 1871
-# Cop supports --auto-correct.
-Layout/SpaceAroundKeyword:
-  Enabled: false
-
 # Offense count: 218
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment.

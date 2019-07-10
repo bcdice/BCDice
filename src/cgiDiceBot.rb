@@ -75,7 +75,7 @@ class CgiDiceBot
 
     result = ""
 
-    unless( @isTest )
+    unless @isTest
       # result += "##>isSecretDice<##" if( @isSecret )
     end
 
@@ -83,7 +83,7 @@ class CgiDiceBot
     # ここで言語名を削って表示する。（内部的には必要だが、表示では不要のため）
     gameType = gameType.gsub(/:.+$/, '')
 
-    unless( rollResult.empty? )
+    unless rollResult.empty?
       result += "\n#{gameType} #{rollResult}"
     end
 
@@ -109,7 +109,7 @@ class CgiDiceBot
     bcdice.setDir(dir, prefix)
     bcdice.setIrcMode(false)
 
-    if( bcdice.getGameType != gameType )
+    if bcdice.getGameType != gameType
       bcdice.setGameByTitle( gameType )
       gameType = bcdice.getGameType
     end
@@ -130,7 +130,7 @@ class CgiDiceBot
   end
 
   def newBcDice
-    if( @bcdice.nil? )
+    if @bcdice.nil?
       bcdiceMaker = BCDiceMaker.new
       @bcdice = bcdiceMaker.newBcDice()
     end
@@ -157,11 +157,11 @@ class CgiDiceBot
   end
 end
 
-if( $0 === __FILE__ )
+if $0 === __FILE__
   bot = CgiDiceBot.new
 
   result = ''
-  if( ARGV.length > 0 )
+  if ARGV.length > 0
     result, randResults = bot.roll(ARGV[0], ARGV[1])
   else
     result = bot.rollFromCgiParamsDummy

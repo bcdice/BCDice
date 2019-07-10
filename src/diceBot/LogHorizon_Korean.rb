@@ -69,7 +69,7 @@ MESSAGETEXT
   end
 
   def getCheckRollDiceCommandResult(command)
-    return nil unless(/(\d+)LH([\+\-\d]*)(>=([\+\-\d]*))?/i === command)
+    return nil unless /(\d+)LH([\+\-\d]*)(>=([\+\-\d]*))?/i === command
 
     diceCount = $1.to_i
     modifyText = ($2 || '')
@@ -89,15 +89,15 @@ MESSAGETEXT
 
   #出力用ダイスコマンドを生成
   command =  "#{diceCount}LH#{modifyText}"
-  command += ">=#{difficulty}" unless(difficulty.nil?)
+  command += ">=#{difficulty}" unless difficulty.nil?
 
   #출력문 생성
   result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
 
   #クリティカル・ファンブルチェック
-    if( isCritical(diceList) )
+    if isCritical(diceList)
       result += " ＞ 크리티컬！"
-    elsif( isFamble(diceList, diceCount) )
+    elsif isFamble(diceList, diceCount)
       result += " ＞ 펌블！"
     else
       result += getJudgeResultString(difficulty, total)
@@ -108,9 +108,9 @@ MESSAGETEXT
 
   #成否判定
   def getJudgeResultString(difficulty, total)
-    return '' if(difficulty.nil?)
+    return '' if difficulty.nil?
 
-    if(total >= difficulty)
+    if total >= difficulty
       return " ＞ 성공"
     else
       return " ＞ 실패"
@@ -118,7 +118,7 @@ MESSAGETEXT
   end
 
   def getValue(text, defaultValue)
-    return defaultValue if( (text == nil) || text.empty? )
+    return defaultValue if (text == nil) || text.empty?
 
     parren_killer("(0" + text + ")").to_i
   end
@@ -133,7 +133,7 @@ MESSAGETEXT
 
   #消耗表
   def getConsumptionDiceCommandResult( command )
-    return nil unless(/(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command)
+    return nil unless /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command
 
     type = $1
     is_special = ($1 && $1.length > 1)
@@ -351,7 +351,7 @@ MESSAGETEXT
 
   #재보표
   def getTresureDiceCommandResult(command)
-    return nil unless(m = /(C|M|I|H|G)TRS(\d*)([\+\-\d]*)(\$)?/.match(command))
+    return nil unless (m = /(C|M|I|H|G)TRS(\d*)([\+\-\d]*)(\$)?/.match(command))
 
     type = m[1]
     rank = m[2].to_i
@@ -743,7 +743,7 @@ end
 
   #パーソナリティタグ表
   def getPersonalityTagDiceCommandResult(command)
-    return nil unless("PTAG" === command)
+    return nil unless "PTAG" === command
 
   tableName = "퍼스널리티 태그"
   table = [
@@ -798,7 +798,7 @@ end
 
   #交友表
   def getFriendlyChartDiceCommandResult(command)
-    return nil unless("KOYU" === command)
+    return nil unless "KOYU" === command
 
     tableName = "교우표"
     table = [
@@ -853,7 +853,7 @@ end
 
   #プレフィックスドマジックアイテム表
   def getPrefixedMagickItemDiceCommandResult(command)
-    return nil unless(/MGR([1-3])/ === command)
+    return nil unless /MGR([1-3])/ === command
 
     rank = $1.to_i
 
@@ -1012,7 +1012,7 @@ end
 
   #공격 명중 장소 랜덤결정표
   def getHitLocationDiceCommandResult(command)
-    return nil unless("HLOC" === command)
+    return nil unless "HLOC" === command
 
     tableName = "공격명중장소"
     table = [
@@ -1064,7 +1064,7 @@ end
 
   #PC명 랜덤 결정표
   def getPCNameDiceCommandResult(command)
-    return nil unless("PCNM" === command)
+    return nil unless "PCNM" === command
 
     tableName = "PC名"
     table = [
@@ -1118,7 +1118,7 @@ end
 
   #ロデ研の新発明ランダム決定表
   def getInventionAttributeTextDiceCommandResult(command)
-    return nil unless(/IAT([ABMDLT]*)/ === command)
+    return nil unless /IAT([ABMDLT]*)/ === command
 
     tableName = "로데릭 연구소의 새로운 발명"
 
@@ -1294,7 +1294,7 @@ end
 
   #楽器種別表
   def getMusicalInstrumentTypeDiceCommandResult(command)
-    return nil unless(/MII(\d?)/ === command)
+    return nil unless /MII(\d?)/ === command
 
      type, is_roll = if $1 && $1 != ''
                        [$1.to_i, false]

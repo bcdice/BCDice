@@ -26,7 +26,7 @@ MESSAGETEXT
   end
 
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    return '' unless(signOfInequality == "<=")
+    return '' unless signOfInequality == "<="
 
     result = getCheckResult(total_n, diff)
     return "＞ #{result}"

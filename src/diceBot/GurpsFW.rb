@@ -86,15 +86,15 @@ INFO_MESSAGE_TEXT
 
     output_msg = getCommandResult(command, name)
 
-    if( secretMarker ) # 隠しロール
-      secret_flg = true if(output_msg != '1')
+    if secretMarker # 隠しロール
+      secret_flg = true if output_msg != '1'
     end
 
     return output_msg, secret_flg
   end
 
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
-    if((dice_cnt == 3) && (signOfInequality == "<="))
+    if (dice_cnt == 3) && (signOfInequality == "<=")
 
       success = diff-total_n; #成功度
       crt_string = " ＞ クリティカル(成功度：#{success})"
@@ -102,25 +102,25 @@ INFO_MESSAGE_TEXT
       fail_string = " ＞ 自動失敗(失敗度：#{success})"
 
       #クリティカル
-      if   (dice_n <= 6) && (diff >= 16)
+      if (dice_n <= 6) && (diff >= 16)
         return crt_string
-      elsif((dice_n <= 5) && (diff >= 15))
+      elsif (dice_n <= 5) && (diff >= 15)
         return crt_string
-      elsif(dice_n <= 4)
+      elsif dice_n <= 4
         return crt_string
       end
       #ファンブル
       if diff-dice_n <= -10
         return fmb_string
-      elsif((dice_n >= 17) && (diff <=15))
+      elsif (dice_n >= 17) && (diff <=15)
         return fmb_string
-      elsif(dice_n >= 18)
+      elsif dice_n >= 18
         return fmb_string
-      elsif(dice_n >= 17)
+      elsif dice_n >= 17
         return fail_string
       end
 
-      if(total_n <= diff)
+      if total_n <= diff
         return " ＞ 成功(成功度：#{success})"
       else
         return " ＞ 失敗(失敗度：#{success})"
@@ -294,7 +294,7 @@ INFO_MESSAGE_TEXT
 
       dice, dummy = roll(3, 6)
       number = dice + modify
-      if(number > 40)
+      if number > 40
         num = 36
       else
         num = number - 4
@@ -308,19 +308,19 @@ INFO_MESSAGE_TEXT
       dice, dummy = roll(3, 6)
       number = dice + modify
 
-      if(number < 1)
+      if number < 1
         result = "最悪"
-      elsif(number < 4)
+      elsif number < 4
         result = "とても悪い"
-      elsif(number < 7)
+      elsif number < 7
         result = "悪い"
-      elsif(number < 10)
+      elsif number < 10
         result = "良くない"
-      elsif(number < 13)
+      elsif number < 13
         result = "中立"
-      elsif(number < 16)
+      elsif number < 16
         result = "良い"
-      elsif(number < 19)
+      elsif number < 19
         result = "とても良い"
       else
         result = "最高"
@@ -330,7 +330,7 @@ INFO_MESSAGE_TEXT
       tableName = "トラップリスト"
       diff = $1
       dif, table = getTrapTable(diff)
-      if(table == nil)
+      if table == nil
         return ""
       end
 
@@ -342,7 +342,7 @@ INFO_MESSAGE_TEXT
       diff = $1
       depth = $2.to_i
       num = depth/10
-      if(num >= 6)
+      if num >= 6
         num = 5
       end
       case diff
@@ -355,11 +355,11 @@ INFO_MESSAGE_TEXT
         when "L"
           num += 3
       end
-      if($4 != nil)
+      if $4 != nil
         num += $3.to_i
       end
       table = getTresureTable(num)
-      if(table == nil)
+      if table == nil
         return ""
       end
 
@@ -368,7 +368,7 @@ INFO_MESSAGE_TEXT
     when /RAND(E|N|H|L)(\d)?/
       tableName = "ランダムイベント表"
       diff = $1
-      if($2 != nil)
+      if $2 != nil
         dice1 = $2.to_i
       else
         dice1, dummy = roll(1, 6)
@@ -382,7 +382,7 @@ INFO_MESSAGE_TEXT
     when /RENC(E|N|H|L)(\d)?/
       tableName = "ランダムエンカウント表"
       diff = $1
-      if($2 != nil)
+      if $2 != nil
         dice1 = $2.to_i
       else
         dice1, dummy = roll(1, 6)
@@ -445,24 +445,24 @@ INFO_MESSAGE_TEXT
       text = ""
       modify = 0
 
-      if($1 != nil)
+      if $1 != nil
         mode = $1
       end
-      if($4 != nil)
+      if $4 != nil
         modify = $4.to_i
       end
 
       dice, dummy = roll(3, 6)
       number = dice-modify
 
-      if(number <= 3)
+      if number <= 3
         result = "レアアイテム1"
 
-      elsif((number <= 4) && (mode == "N"))
+      elsif (number <= 4) && (mode == "N")
         result = "レアアイテム2"
 
-      elsif(number < 7)
-        if(mode == "N")
+      elsif number < 7
+        if mode == "N"
           result = "CL×200GP"
 
         else
@@ -471,7 +471,7 @@ INFO_MESSAGE_TEXT
         end
 
       else
-        if(mode == "N")
+        if mode == "N"
           result = "CL×20GP"
 
         else
@@ -625,7 +625,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 
     when /LOT(N|P)/
       type = $1
-      if(type == "P")
+      if type == "P"
         tableName = "ナンバーワンプレミアムくじ"
       else
         tableName = "ナンバーワンノーマルくじ"
@@ -798,7 +798,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
     return result
   end
 
-  if(type == "P")
+  if type == "P"
     return premium1
   else
     return normal1

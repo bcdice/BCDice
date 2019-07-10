@@ -55,7 +55,7 @@ MESSAGETEXT
     result += "下駄占い ＞ "
 
     getaString = ''
-    case(diceList[0])
+    case (diceList[0])
       when 1
         getaString = '裏：あめ'
       when 2

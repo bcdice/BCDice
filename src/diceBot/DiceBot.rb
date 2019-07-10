@@ -186,7 +186,7 @@ class DiceBot
   end
 
   def dice_command(string, nick_e)
-    string = @@bcdice.getOriginalMessage if( isGetOriginalMessage )
+    string = @@bcdice.getOriginalMessage if isGetOriginalMessage
 
     debug('dice_command Begin string', string)
     secret_flg = false
@@ -205,13 +205,13 @@ class DiceBot
     debug('match')
 
     output_msg, secret_flg = rollDiceCommandCatched(command)
-    output_msg = '1' if( output_msg.nil? || output_msg.empty? )
+    output_msg = '1' if output_msg.nil? || output_msg.empty?
     secret_flg ||= false
 
-    output_msg = "#{nick_e}: #{output_msg}" if(output_msg != '1')
+    output_msg = "#{nick_e}: #{output_msg}" if output_msg != '1'
 
-    if( secretMarker ) # 隠しロール
-      secret_flg = true if(output_msg != '1')
+    if secretMarker # 隠しロール
+      secret_flg = true if output_msg != '1'
     end
 
     return output_msg, secret_flg
@@ -296,7 +296,7 @@ class DiceBot
 
     text = getTableValue(table[num - count])
 
-    return '1', 0 if( text.nil? )
+    return '1', 0 if text.nil?
 
     return text, num
   end
@@ -313,7 +313,7 @@ class DiceBot
 
     text = table[index]
 
-    return '1', 0 if( text.nil? )
+    return '1', 0 if text.nil?
 
     return text, num
   end
@@ -340,7 +340,7 @@ class DiceBot
 
     indexText = "#{dice1}#{dice2}"
 
-    return '1', indexText if( text.nil? )
+    return '1', indexText if text.nil?
 
     return text, indexText
   end
@@ -397,11 +397,11 @@ class DiceBot
 
     diceList = []
 
-    if( /\[([\d,]+)\]/ =~ diceText )
+    if /\[([\d,]+)\]/ =~ diceText
       diceText = $1
     end
 
-    return diceList unless( /([\d,]+)/ =~ diceText )
+    return diceList unless /([\d,]+)/ =~ diceText
 
     diceString = $1
     diceList = diceString.split(/,/).collect{|i| i.to_i}
@@ -415,7 +415,7 @@ class DiceBot
   def get_table_by_number(index, table, default = '1')
     table.each do |item|
       number = item[0]
-      if( number >= index )
+      if number >= index
         return getTableValue( item[1] )
       end
     end
@@ -424,7 +424,7 @@ class DiceBot
   end
 
   def getTableValue(data)
-    if( data.kind_of?( Proc ) )
+    if data.kind_of?( Proc )
       return data.call()
     end
 
@@ -492,7 +492,7 @@ class DiceBot
     text = text.gsub("\\n", "\n")
     text = @@bcdice.rollTableMessageDiceText(text)
 
-    return nil if( text.nil? )
+    return nil if text.nil?
 
     return "#{name}(#{number}[#{diceText}]) ＞ #{text}" if isPrintDiceText && !diceText.nil?
 

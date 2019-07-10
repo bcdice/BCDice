@@ -86,7 +86,7 @@ INFO_MESSAGE_TEXT
 
     regexp = /r\[(\d+)\]/i
 
-    if( regexp === string )
+    if regexp === string
       rateUp = $1.to_i
       string = string.gsub(regexp, '')
     end
@@ -100,7 +100,7 @@ INFO_MESSAGE_TEXT
     isGratestFortune, string = getGratestFortuneFromString(string)
 
     values['isGratestFortune'] = isGratestFortune
-    output += "gf" if( isGratestFortune )
+    output += "gf" if isGratestFortune
 
     return output, values
   end
@@ -123,7 +123,7 @@ INFO_MESSAGE_TEXT
 
     regexp = /gf/i
 
-    if( regexp === string )
+    if regexp === string
       isGratestFortune = true
       string = string.gsub(regexp, '')
     end
@@ -137,14 +137,14 @@ INFO_MESSAGE_TEXT
 
   # SW2.0 の超成功用
   def check2dCritical(critical, dice_new, dice_arry, loop_count)
-    return if( critical <= 2 )
+    return if critical <= 2
 
-    if( loop_count == 0 )
-      return if( dice_new == 12 )
-      return if( dice_new == 2 )
+    if loop_count == 0
+      return if  dice_new == 12
+      return if  dice_new == 2
     end
 
-    if( dice_new >= critical )
+    if dice_new >= critical
       dice_arry.push( 2 )
     end
   end
@@ -153,16 +153,16 @@ INFO_MESSAGE_TEXT
     debug("check_nD6")
     result = super(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
-    return result unless( result == "" )
+    return result unless  result == ""
 
     string = @@bcdice.getOriginalMessage
 
     superSuccessValue = 41
 
-    if( /@(\d+)/ === string )
+    if /@(\d+)/ === string
       critical = $1.to_i
-      if( dice_n >= critical )
-        if( total_n >= superSuccessValue )
+      if dice_n >= critical
+        if  total_n >= superSuccessValue
           return " ＞ 超成功"
         end
       end

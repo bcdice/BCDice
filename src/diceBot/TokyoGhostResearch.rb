@@ -50,7 +50,7 @@ MESSAGETEXT
     output = ""
       diff = 0
 
-      if(/TK?<=(\d+)/i =~ command)
+      if /TK?<=(\d+)/i =~ command
         diff = $2.to_i
       end
 
@@ -65,7 +65,7 @@ MESSAGETEXT
   end
 
   def getCheckResultText(total_n, diff)
-    if((total_n >= diff) )
+    if total_n >= diff
       result = "成功"
     else
       result = "失敗"
