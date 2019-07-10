@@ -71,7 +71,7 @@ MESSAGETEXT
         target = m[2].to_i
         modify = get_value(1, m[3])
         paramText = (m[5] || '')
-        isMuse = (not m[8].nil?)  # パンドラ《ミューズ》
+        isMuse = (!m[8].nil?)  # パンドラ《ミューズ》
 
         accidentValue = 96
         advancedRoll = 1

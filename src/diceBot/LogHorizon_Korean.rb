@@ -141,7 +141,7 @@ MESSAGETEXT
     return nil if !rank && !is_special
 
     rank = 0 if !rank
-    is_choice = (not $4.nil?)
+    is_choice = (!$4.nil?)
     dice_value = $5
     modifyText = $3
     modify  = getValue(modifyText, 0)
@@ -355,13 +355,13 @@ MESSAGETEXT
 
     type = m[1]
     rank = m[2].to_i
-    is_choice = (m[2].empty? || (not m[4].nil?))
+    is_choice = (m[2].empty? || (!m[4].nil?))
     modifyText = m[3]
     modify = getValue(modifyText, 0)
     is_prize = (m[4] == "$")
     dice_value = nil
     dice_value = '7' if is_prize
-    is_rank_enable = ( (not is_choice) || is_prize)
+    is_rank_enable = ( (!is_choice) || is_prize)
 
     tableName, table =
       case type

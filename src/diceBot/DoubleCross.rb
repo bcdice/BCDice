@@ -115,7 +115,7 @@ INFO_MESSAGE_TEXT
       return "クリティカル値が低すぎます。2以上を指定してください。"
     end
 
-    if( not $5.nil? )
+    if( !$5.nil? )
       diff = $7.to_i
       signOfInequality = marshalSignOfInequality($6)
     elsif( defaultSuccessTarget != "" )

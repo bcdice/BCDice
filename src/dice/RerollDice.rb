@@ -152,7 +152,7 @@ class RerollDice
       return rerollNumber_2.to_i
     elsif( @diceBot.rerollNumber != 0 )
       return @diceBot.rerollNumber
-    elsif( not diff.nil? )
+    elsif( !diff.nil? )
       return diff
     else
       raiseErroForJudgeRule()

@@ -92,7 +92,7 @@ INFO_MESSAGE_TEXT
       output, total_n = hm_monobeast_action_table
 
     when /SA(2)?T(\d*)/i
-      isType2 = (not $1.nil?)
+      isType2 = (!$1.nil?)
       count = $2.to_i
       count = 1 if(count == 0)
 

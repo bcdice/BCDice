@@ -179,7 +179,7 @@ class TableFileData
       next unless( isTargetGameType(gameType, targetGameType) )
 
       oneTableData = data
-      isSecret = (not $1.nil?)
+      isSecret = (!$1.nil?)
       break
     end
 

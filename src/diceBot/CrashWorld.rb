@@ -38,7 +38,7 @@ INFO_MESSAGE_TEXT
     successness = 0
     num = 0
 
-    while( not isEnd )
+    while( !isEnd )
       num, = roll(1, 12)
 
       # 振った数字を出力へ書き足す

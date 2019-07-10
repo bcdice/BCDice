@@ -494,7 +494,7 @@ class DiceBot
 
     return nil if( text.nil? )
 
-    return "#{name}(#{number}[#{diceText}]) ＞ #{text}" if isPrintDiceText && (not diceText.nil?)
+    return "#{name}(#{number}[#{diceText}]) ＞ #{text}" if isPrintDiceText && (!diceText.nil?)
 
     return "#{name}(#{number}) ＞ #{text}"
   end
