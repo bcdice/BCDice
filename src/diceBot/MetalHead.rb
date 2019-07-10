@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class MetalHead < DiceBot
-  setPrefixes(['AR','SR','HR<=.+','CC','ACT','ACL','ACS','CRC[A-Z]\d+'])
+  setPrefixes(['AR', 'SR', 'HR<=.+', 'CC', 'ACT', 'ACL', 'ACS', 'CRC[A-Z]\d+'])
 
   def initialize
     super
@@ -223,7 +223,7 @@ MESSAGETEXT
 
     damage_level = ''
     table_damage[suv].each { |v|
-      v.each { |d,n|
+      v.each { |d, n|
         debug("suv[#{suv}] #{v} #{d} #{n}")
         if n <= numbuf
           damage_level = d

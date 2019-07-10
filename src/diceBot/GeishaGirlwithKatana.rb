@@ -43,7 +43,7 @@ MESSAGETEXT
       return getChombaResultText()
     end
 
-    _, dice_str = roll(3,6)
+    _, dice_str = roll(3, 6)
     diceList = dice_str.split(/,/).collect { |i| i.to_i }
     diceList.sort!
 
@@ -68,7 +68,7 @@ MESSAGETEXT
     chomba_counter ||= 5
     chomba_counter = chomba_counter.to_i
 
-    chomba, = roll(1,100)
+    chomba, = roll(1, 100)
 
     return (chomba <= chomba_counter)
   end

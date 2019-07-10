@@ -264,7 +264,7 @@ class IrcClient < Net::IRC::Client
     # 長すぎる出力は"\n"を挟み、分割送信されるように。
     message = insertEnterToTooLongMessage(message)
 
-    to = encode($ircCode ,to)
+    to = encode($ircCode, to)
     encodedMessage = encode($ircCode, message)
 
     encodedMessage.each_line do |line|

@@ -261,7 +261,7 @@ MESSAGETEXT
   end
 
   def getDateResult(type, number, pc1, pc2)
-    name ,table = getDateTableByType(type)
+    name, table = getDateTableByType(type)
     debug("getDateTable name", name)
 
     text = get_table_by_number(number, table)
@@ -312,7 +312,7 @@ MESSAGETEXT
              [56, "「え？え？えぇぇぇぇッ?!」ふとした拍子に唇がふれあう。受け身キャラの攻め気キャラ以外に対する《感情値》が全て0になり、その値の分だけ攻め気キャラに対する《感情値》が上昇し、その属性が《好意》になる。"],
              [66, "「…………」気がつくとお互い、目をそらせなくなってしまう。そのまま顔を寄せ合い…。この表の使用者のお互いに対する《感情値》が3点上昇する。"],
             ]
-    return name ,table
+    return name, table
   end
 
   def getFrindDateTable()
@@ -342,7 +342,7 @@ MESSAGETEXT
              [66, "「実はコイツ……。」\n思っていたよりずっと近かった二人の距離に気付く。この表の使用者のお互いに対する《感情値》が3点上昇し、属性は《好意》になる。"],
             ]
 
-    return name ,table
+    return name, table
   end
 
   def getOnewayDateTable()
@@ -371,7 +371,7 @@ MESSAGETEXT
              [56, "「贈り物だよっ！」\n愛情がたくさん入ったアイテムを送る。攻め気キャラは好きなアイテムを一つ選び、調達判定を行う。成功した場合、アイテムを受け身キャラに渡す。渡したアイテムの価格の値と同じだけ、攻め気キャラの受け身キャラに対する《感情値》が上昇する。"],
              [66, "「そっか、私……。」\n思いが届かないうちに、片思いの相手が他の人と仲良くしているところをみせつけられる。受け身キャラは攻め気キャラ以外のキャラクターを一人選んで《感情値》を3点上昇し、属性を《好意》にする。この表の使用者のお互いに対するフラグがあった場合、フラグを折る。"],
             ]
-    return name ,table
+    return name, table
   end
 
   def getMidnightDateTable()
@@ -401,7 +401,7 @@ MESSAGETEXT
              [66, "「帰りの電車がなくなったの……。」\n二人で一夜を過ごす。この表の使用者はお互いに対する《感情値》が5点上昇するが、お互いに「バカ」の変調を受ける。"],
             ]
 
-    return name ,table
+    return name, table
   end
 
   def changePcName(text, base, name)
@@ -1222,7 +1222,7 @@ TABLE_TEXT_END
   setPrefixes([
     'EL.*',
     'DATE.*', 'FDATE.*', 'ODATE.*', 'MDATE.*',
-    'RBT', 'SBT', 'BBT','CBT','DBT','IBT','FBT','LBT','PBT','NBT','ABT','VBT','GBT','HBT',
+    'RBT', 'SBT', 'BBT', 'CBT', 'DBT', 'IBT', 'FBT', 'LBT', 'PBT', 'NBT', 'ABT', 'VBT', 'GBT', 'HBT',
     'BFT', 'FWT', 'FT',
     'SRT', 'ORT', 'DRT', 'URT',
     'NJ\d+', 'BS\d+'

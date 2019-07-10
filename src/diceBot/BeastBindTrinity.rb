@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class BeastBindTrinity < DiceBot
-  setPrefixes(['\d+BB' , 'EMO' , 'EXPO_.' , 'FACE_.'])
+  setPrefixes(['\d+BB', 'EMO', 'EXPO_.', 'FACE_.'])
 
 #●前ver(1.43.07)からの変更・修正
 #・nBBで判定を行う際、「ダイスを１個しか振らない場合」の達成値計算が正しくなかった誤りを修正。

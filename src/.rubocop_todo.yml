@@ -210,11 +210,6 @@ Layout/MultilineOperationIndentation:
   Exclude:
     - 'bcdiceCore.rb'
 
-# Offense count: 2240
-# Cop supports --auto-correct.
-Layout/SpaceAfterComma:
-  Enabled: false
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Layout/SpaceAfterMethodName:
@@ -226,11 +221,6 @@ Layout/SpaceAfterMethodName:
 Layout/SpaceAfterNot:
   Exclude:
     - 'diceBot/MetalHead.rb'
-
-# Offense count: 197
-# Cop supports --auto-correct.
-Layout/SpaceBeforeComma:
-  Enabled: false
 
 # Offense count: 27
 # Cop supports --auto-correct.

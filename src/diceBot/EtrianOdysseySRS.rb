@@ -3,7 +3,7 @@
 require 'diceBot/SRS'
 
 class EtrianOdysseySRS < SRS
-  setPrefixes(['2D6.*','EO.*','SQ.*'])
+  setPrefixes(['2D6.*', 'EO.*', 'SQ.*'])
 
   def initialize
     super

@@ -3,7 +3,7 @@
 require 'diceBot/SRS'
 
 class Alshard < SRS
-  setPrefixes(['2D6.*','AL.*'])
+  setPrefixes(['2D6.*', 'AL.*'])
 
   def initialize
     super

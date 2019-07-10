@@ -566,7 +566,7 @@ MESSAGETEXT
     armorIndex = ('A'..'Z').to_a.index(armorGrade)
     damageInfo = table[armorIndex]
 
-    woundRanks = ['無傷', 'LW(軽傷)', 'MW(中傷)', 'HW(重傷)','MO(致命傷)', 'KL(死亡)']
+    woundRanks = ['無傷', 'LW(軽傷)', 'MW(中傷)', 'HW(重傷)', 'MO(致命傷)', 'KL(死亡)']
 
     woundText = ""
 

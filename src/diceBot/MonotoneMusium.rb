@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class MonotoneMusium < DiceBot
-  setPrefixes(['2D6.*', 'ET','ET2', 'OT', 'DT', 'DT2', 'WDT', 'WDT2', 'OT2', 'DTO', 'DTS'])
+  setPrefixes(['2D6.*', 'ET', 'ET2', 'OT', 'DT', 'DT2', 'WDT', 'WDT2', 'OT2', 'DTO', 'DTS'])
 
   def initialize
     super

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Cthulhu7th_Korean < DiceBot
-  setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)' , 'FAR.*'])
+  setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*'])
 
   def initialize
     #$isDebug = true
@@ -247,7 +247,7 @@ INFO_MESSAGE_TEXT
     fumbleable = getFumbleable(more_difficlty)
     hit_result = getCheckResultText(total, diff, fumbleable)
 
-    return hit_result , total, total_list
+    return hit_result, total, total_list
   end
 
   def getHitResultText(output, counts)
@@ -359,7 +359,7 @@ INFO_MESSAGE_TEXT
     return hit_bullet_count_base
   end
 
-  def isLastBulletTurn(bullet_count,bullet_set_count)
+  def isLastBulletTurn(bullet_count, bullet_set_count)
     ((bullet_count - bullet_set_count) < 0)
   end
 

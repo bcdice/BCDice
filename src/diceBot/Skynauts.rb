@@ -71,9 +71,9 @@ MESSAGETEXT
     debug("====getJudgeResult====")
 
     target = m[1].empty? ? 7 : m[1].to_i # 目標値。省略時は7
-    debug("目標値",target)
+    debug("目標値", target)
 
-    total,diceText, = roll(2,6)
+    total, diceText, = roll(2, 6)
 
     if total <= 2
       result = "ファンブル"
@@ -96,7 +96,7 @@ MESSAGETEXT
     bonus = m[2].to_i # 〈操舵室〉の修正。GMの任意修正にも対応できるように(マイナスは無視)
     debug("移動修正", bonus)
 
-    total, = roll(1,6)
+    total, = roll(1, 6)
     movePointBase = (total / 2) <= 0 ? 1 : (total / 2)
     movePoint = movePointBase + bonus
     debug("移動エリア数", movePoint)
@@ -221,15 +221,15 @@ MESSAGETEXT
   def getMovePoint(x, y, direction)
     debug("====getMovePoint====")
     debug("方向", direction)
-    debug("座標移動前x",x)
-    debug("座標移動前y",y)
+    debug("座標移動前x", x)
+    debug("座標移動前y", y)
 
     position_diff = getDirectionInfo(direction, :position_diff, {})
     x += position_diff[:x].to_i
     y += position_diff[:y].to_i
 
-    debug("\n座標移動後x",x)
-    debug("座標移動後y",y)
+    debug("\n座標移動後x", x)
+    debug("座標移動後y", y)
     return x, y
   end
 
