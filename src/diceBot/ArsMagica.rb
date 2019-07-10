@@ -98,7 +98,7 @@ INFO_MESSAGE_TEXT
       botch.times do |i|
         botch_die = rand(10)
         count0 += 1 if botch_die == 0
-        dice_n.push( botch_die )
+        dice_n.push(botch_die)
       end
 
       dice_n = dice_n.sort if sortType != 0

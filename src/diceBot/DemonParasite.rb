@@ -100,7 +100,7 @@ INFO_MESSAGE_TEXT
       urge_type = 1
     end
 
-    if ( urgelv < 1 ) || ( urgelv > 5 )
+    if (urgelv < 1) || (urgelv > 5)
       return '衝動段階は1から5です'
     end
 
@@ -108,7 +108,7 @@ INFO_MESSAGE_TEXT
       return '1'
     end
 
-    urge = dp_urge_get( urge_type )
+    urge = dp_urge_get(urge_type)
     dice_now, = roll(2, 6)
 
     if urge_type <= 1
@@ -132,7 +132,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  def dp_urge_get( urge_type )
+  def dp_urge_get(urge_type)
     if urge_type <= 1
       return [[
           '『怒り』突然強い怒りに駆られる。近くの対象に(非暴力の)怒りを全力でぶつける。このターンの終了まで「行動不能」となる。[経験値20点]',

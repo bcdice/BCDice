@@ -56,7 +56,7 @@ INFO_MESSAGE_TEXT
     dice_wa = ''
 
     if strikeRank < 14
-      sta_loss, dice, dice_add, dice_str = check_strike_rank( strikeRank )
+      sta_loss, dice, dice_add, dice_str = check_strike_rank(strikeRank)
       wounds, dice_w, dice_wa, dice_ws = check_strike_rank(strikeRank - 3)
       dice = dice + ', ' + dice_w
       dice_add += ', ' + dice_wa

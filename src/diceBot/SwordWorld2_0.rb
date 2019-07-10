@@ -145,7 +145,7 @@ INFO_MESSAGE_TEXT
     end
 
     if dice_new >= critical
-      dice_arry.push( 2 )
+      dice_arry.push(2)
     end
   end
 

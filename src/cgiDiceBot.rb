@@ -110,7 +110,7 @@ class CgiDiceBot
     bcdice.setIrcMode(false)
 
     if bcdice.getGameType != gameType
-      bcdice.setGameByTitle( gameType )
+      bcdice.setGameByTitle(gameType)
       gameType = bcdice.getGameType
     end
 
@@ -167,5 +167,5 @@ if $0 === __FILE__
     result = bot.rollFromCgiParamsDummy
   end
 
-  print( result + "\n" )
+  print(result + "\n")
 end

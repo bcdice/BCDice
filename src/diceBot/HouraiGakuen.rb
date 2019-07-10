@@ -77,11 +77,11 @@ INFO_MESSAGE_TEXT
   def getCheckResult(diceText, total, target)
     diceList = getDiceListFromText(diceText)
 
-    if isFamble( diceList )
+    if isFamble(diceList)
       return @@famble
     end
 
-    if isCritical( diceList )
+    if isCritical(diceList)
       return @@critical
     end
 
@@ -97,11 +97,11 @@ INFO_MESSAGE_TEXT
     return diceList
   end
 
-  def isFamble( diceList )
+  def isFamble(diceList)
     return diceList === [6, 6, 6]
   end
 
-  def isCritical( diceList )
+  def isCritical(diceList)
     return diceList === [1, 2, 3]
   end
 

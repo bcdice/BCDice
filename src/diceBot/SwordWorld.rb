@@ -378,17 +378,17 @@ INFO_MESSAGE_TEXT
 
     rate_sw2_0.each do |rateText|
       rate_arr = rateText.split(/,/)
-      zeroArray.push( 0 )
-      rate_3.push( rate_arr[1].to_i )
-      rate_4.push( rate_arr[2].to_i )
-      rate_5.push( rate_arr[3].to_i )
-      rate_6.push( rate_arr[4].to_i )
-      rate_7.push( rate_arr[5].to_i )
-      rate_8.push( rate_arr[6].to_i )
-      rate_9.push( rate_arr[7].to_i )
-      rate_10.push( rate_arr[8].to_i )
-      rate_11.push( rate_arr[9].to_i )
-      rate_12.push( rate_arr[10].to_i )
+      zeroArray.push(0)
+      rate_3.push(rate_arr[1].to_i)
+      rate_4.push(rate_arr[2].to_i)
+      rate_5.push(rate_arr[3].to_i)
+      rate_6.push(rate_arr[4].to_i)
+      rate_7.push(rate_arr[5].to_i)
+      rate_8.push(rate_arr[6].to_i)
+      rate_9.push(rate_arr[7].to_i)
+      rate_10.push(rate_arr[8].to_i)
+      rate_11.push(rate_arr[9].to_i)
+      rate_12.push(rate_arr[10].to_i)
     end
 
     if @rating_table == 1

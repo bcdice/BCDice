@@ -416,15 +416,15 @@ class DiceBot
     table.each do |item|
       number = item[0]
       if number >= index
-        return getTableValue( item[1] )
+        return getTableValue(item[1])
       end
     end
 
-    return getTableValue( default )
+    return getTableValue(default)
   end
 
   def getTableValue(data)
-    if data.kind_of?( Proc )
+    if data.kind_of?(Proc)
       return data.call()
     end
 

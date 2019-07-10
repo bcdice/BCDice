@@ -143,7 +143,7 @@ MESSAGETEXT
     type2_indexTexts = %w{F G R W J N}
 
     tensValue = number.to_i / 10
-    isBefore = (tensValue < 4 )
+    isBefore = (tensValue < 4)
     type = (isBefore ? type1 : type2)
     indexTexts = (isBefore ? type1_indexTexts : type2_indexTexts)
     typeText = (isBefore ? typeText1 : typeText2)

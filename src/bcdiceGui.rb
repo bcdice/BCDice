@@ -54,13 +54,13 @@ class BCDiceDialog < Wx::Dialog
 
     initServerSet
 
-    @serverName = createAddedTextInput( $server, "サーバ名" )
-    @portNo = createAddedTextInput( $port.to_s, "ポート番号" )
-    @channel = createAddedTextInput( $defaultLoginChannelsText, "ログインチャンネル" )
-    @nickName = createAddedTextInput( $nick, "ニックネーム" )
+    @serverName = createAddedTextInput($server, "サーバ名")
+    @portNo = createAddedTextInput($port.to_s, "ポート番号")
+    @channel = createAddedTextInput($defaultLoginChannelsText, "ログインチャンネル")
+    @nickName = createAddedTextInput($nick, "ニックネーム")
     initGameType
     initCharacterCode
-    @extraCardFileText = createAddedTextInput( $extraCardFileName, "拡張カードファイル名" )
+    @extraCardFileText = createAddedTextInput($extraCardFileName, "拡張カードファイル名")
 
     @executeButton = createButton('接続')
     evt_button(@executeButton.get_id) {|event| on_execute }
@@ -69,7 +69,7 @@ class BCDiceDialog < Wx::Dialog
     @stopButton.enable(false)
     evt_button(@stopButton.get_id) {|event| on_stop }
 
-    addCtrlOnLine( @executeButton, @stopButton)
+    addCtrlOnLine(@executeButton, @stopButton)
 
     addTestTextBoxs
     # initDebugTextBox
@@ -118,7 +118,7 @@ class BCDiceDialog < Wx::Dialog
     list = loadServerSetNameList
 
     list.each_with_index do |name, index|
-      @serverSetChoise.insert( name, index )
+      @serverSetChoise.insert(name, index)
     end
   end
 
@@ -137,7 +137,7 @@ class BCDiceDialog < Wx::Dialog
 
   def on_load
     serverSet = @serverSetChoise.get_value
-    debug( 'on_load serverSet', serverSet )
+    debug('on_load serverSet', serverSet)
 
     sectionName = getServerSetSectionName(serverSet)
 
@@ -156,7 +156,7 @@ class BCDiceDialog < Wx::Dialog
     value = @iniFile.read(section, key)
     return if value.nil?
 
-    input.set_value( value )
+    input.set_value(value)
   end
 
   @@serverSertPrefix = "ServerSet_"
@@ -173,12 +173,12 @@ class BCDiceDialog < Wx::Dialog
   end
 
   def on_save
-    debug( 'on_save begin')
+    debug('on_save begin')
     serverSet = @serverSetChoise.get_value
-    debug( 'on_save serverSet', serverSet )
+    debug('on_save serverSet', serverSet)
 
     sectionName = getServerSetSectionName(serverSet)
-    debug( 'sectionName', sectionName )
+    debug('sectionName', sectionName)
 
     saveTextValueToIniFile(sectionName, "serverName", @serverName.get_value)
     saveTextValueToIniFile(sectionName, "portNo", @portNo.get_value)
@@ -237,7 +237,7 @@ class BCDiceDialog < Wx::Dialog
     ctrls << ctrl
     ctrls += addCtrls
 
-    line = getLineCtrl( ctrls )
+    line = getLineCtrl(ctrls)
 
     @allBox.add(line, 0, Wx::ALL, 2)
 
@@ -266,10 +266,10 @@ class BCDiceDialog < Wx::Dialog
 
     gameTypes = getAllGameTypes.sort
     gameTypes.each_with_index do |type, index|
-      @gameType.insert( type, index )
+      @gameType.insert(type, index)
     end
 
-    @gameType.insert( "NonTitle", 0 )
+    @gameType.insert("NonTitle", 0)
 
     setChoiseText(@gameType, $defaultGameType)
 
@@ -293,7 +293,7 @@ class BCDiceDialog < Wx::Dialog
   def onChoiseGame
     return if @ircBot.nil?
 
-    @ircBot.setGameByTitle( @gameType.get_string_selection )
+    @ircBot.setGameByTitle(@gameType.get_string_selection)
   end
 
   @@characterCodeInfo = {
@@ -313,7 +313,7 @@ class BCDiceDialog < Wx::Dialog
     list = @@characterCodeInfo.keys.sort
 
     list.each_with_index do |type, index|
-      @characterCode.insert( type, index )
+      @characterCode.insert(type, index)
     end
 
     found = @@characterCodeInfo.find{|key, value| value == $ircCode}
@@ -345,7 +345,7 @@ class BCDiceDialog < Wx::Dialog
     @testButton = createButton('テスト実施')
     evt_button(@testButton.get_id) {|event| expressTestInput }
 
-    addCtrlOnLine( label, @testInput, @testButton )
+    addCtrlOnLine(label, @testInput, @testButton)
 
     # addOutput
   end
@@ -365,7 +365,7 @@ class BCDiceDialog < Wx::Dialog
   # コンソール出力に変更。
   def printText(message)
     # @outputText.append_text( "#{message}\r\n" )
-    print( "#{message}\n" )
+    print("#{message}\n")
   end
 
   def expressTestInput
@@ -382,7 +382,7 @@ class BCDiceDialog < Wx::Dialog
     bcdiceMarker = BCDiceMaker.new
     bcdice = bcdiceMarker.newBcDice()
     bcdice.setIrcClient(self)
-    bcdice.setGameByTitle( @gameType.get_string_selection )
+    bcdice.setGameByTitle(@gameType.get_string_selection)
 
     arg = @testInput.get_value
     channel = ""
@@ -395,7 +395,7 @@ class BCDiceDialog < Wx::Dialog
   end
 
   def sendMessage(to, message)
-    printText( message )
+    printText(message)
   end
 
   def sendMessageToOnlySender(nick_e, message)
@@ -439,8 +439,8 @@ class BCDiceDialog < Wx::Dialog
   def startIrcBot
     @ircBot = getInitializedIrcBot()
 
-    @ircBot.setQuitFuction( Proc.new{destroy} )
-    @ircBot.setPrintFuction( Proc.new{|message| printText(message) } )
+    @ircBot.setQuitFuction(Proc.new{destroy})
+    @ircBot.setPrintFuction(Proc.new{|message| printText(message) })
 
     startIrcBotOnThread
     startThreadTimer
@@ -488,7 +488,7 @@ class BCDiceDialog < Wx::Dialog
 
   def setAllGames(ircBot)
     getAllGameTypes.each do |type|
-      @ircBot.setGameByTitle( type )
+      @ircBot.setGameByTitle(type)
     end
   end
 

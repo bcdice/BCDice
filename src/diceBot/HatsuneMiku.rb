@@ -60,14 +60,14 @@ INFO_MESSAGE_TEXT
 
     skillRank = $2
     modifyText = $3
-    signOfInequality = ( $7.nil? ? ">=" : $7 )
-    targetText = ( $9.nil? ? "4" : $9 )
+    signOfInequality = ($7.nil? ? ">=" : $7)
+    targetText = ($9.nil? ? "4" : $9)
 
     specialNum = $5
     specialNum ||= $11
     specialNum ||= 6
     specialNum = specialNum.to_i
-    specialText = ( specialNum == 6 ? "" : "@#{specialNum}" )
+    specialText = (specialNum == 6 ? "" : "@#{specialNum}")
 
     modifyText = getChangedModifyText(modifyText)
 

@@ -22,7 +22,7 @@ class Torg1_5 < Torg
         [7, "かなりよい"],
         [12, "すごい" ]]
 
-    return get_torg_table_result( value, success_table )
+    return get_torg_table_result(value, success_table)
   end
 
   # 対人行為結果表
@@ -35,7 +35,7 @@ class Torg1_5 < Torg
         [15, "モラル崩壊"],
         [17, "プレイヤーズコール" ]]
 
-    return get_torg_table_result( value, interaction_results_table )
+    return get_torg_table_result(value, interaction_results_table)
   end
 
   # 挑発／トリック(Taunt/Trick)
@@ -47,7 +47,7 @@ class Torg1_5 < Torg
         [15, "高揚／逆転負け"],
         [17, "プレイヤーズコール" ]]
 
-    return get_torg_table_result( value, interaction_results_table )
+    return get_torg_table_result(value, interaction_results_table)
   end
 
   # 間合い(maneuver)
@@ -59,7 +59,7 @@ class Torg1_5 < Torg
         [15, "逆転負け／疲労"],
         [17, "プレイヤーズコール" ]]
 
-    return get_torg_table_result( value, interaction_results_table )
+    return get_torg_table_result(value, interaction_results_table)
   end
 
   # オーズダメージチャート
@@ -116,7 +116,7 @@ class Torg1_5 < Torg
     table_max_value = damage_table.length - 1
 
     if value <= table_max_value
-      return get_torg_table_result( value, damage_table )
+      return get_torg_table_result(value, damage_table)
     end
 
     over_kill_value = ((value - table_max_value) / 2).to_i

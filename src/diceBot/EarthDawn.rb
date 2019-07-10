@@ -103,9 +103,9 @@ INFO_MESSAGE_TEXT
     stepTotal += rollStep(20, d20step)
     stepTotal += rollStep(12, d12step)
     stepTotal += rollStep(10, d10step)
-    stepTotal += rollStep( 8,  d8step)
-    stepTotal += rollStep( 6,  d6step)
-    stepTotal += rollStep( 4,  d4step)
+    stepTotal += rollStep(8,  d8step)
+    stepTotal += rollStep(6,  d6step)
+    stepTotal += rollStep(4,  d4step)
 
     if nmod > 0 #修正分の適用
       @string += "+"

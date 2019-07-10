@@ -59,11 +59,11 @@ MESSAGETEXT
     case command
     when /^(\d+)?DT$/i
       type = command
-      count = ( $1 || 2 ).to_i
+      count = ($1 || 2).to_i
       output, diceText = get_dt(count)
     when /^(\d+)?AS$/i
       type = command
-      count = ( $1 || 2 ).to_i
+      count = ($1 || 2).to_i
       output, diceText = get_as(count)
     when 'SHRD'
       type = '異常な癖決定表'

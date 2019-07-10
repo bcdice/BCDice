@@ -33,7 +33,7 @@ class UpperDice
 
     string = command
 
-    @signOfInequality = @bcdice.getMarshaledSignOfInequality( signOfInequalityText )
+    @signOfInequality = @bcdice.getMarshaledSignOfInequality(signOfInequalityText)
     @upper = getAddRollUpperTarget(upperTarget1, upperTarget2)
 
     if @upper <= 1
@@ -49,13 +49,13 @@ class UpperDice
 
     dice_a.each do |dice_o|
       if /[Uu]/ =~ dice_o
-        diceCommands.push( dice_o )
+        diceCommands.push(dice_o)
       else
-        bonusValues.push( dice_o )
+        bonusValues.push(dice_o)
       end
     end
 
-    bonus = getBonusValue( bonusValues )
+    bonus = getBonusValue(bonusValues)
     debug('bonus', bonus)
 
     diceDiff = diff - bonus
@@ -118,7 +118,7 @@ class UpperDice
     end
   end
 
-  def getBonusValue( bonusValues )
+  def getBonusValue(bonusValues)
     return 0 if bonusValues.empty?
 
     diceBonusText = bonusValues.join("+")

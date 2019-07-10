@@ -201,7 +201,7 @@ MESSAGETEXT
         x, y = getMovePoint(x, y, direction)
 
         # マップ外の座標は括弧を付ける
-        text += ( isInMapPosition(x, y) ? "[縦#{y},横#{x}]" :"([縦#{y},横#{x}])" )
+        text += (isInMapPosition(x, y) ? "[縦#{y},横#{x}]" :"([縦#{y},横#{x}])")
         debug("着弾点テキスト", text)
       end
 
