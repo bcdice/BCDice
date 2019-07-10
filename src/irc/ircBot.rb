@@ -45,8 +45,8 @@ class IrcClient < Net::IRC::Client
     channelNames = @loginChannelList.join(',')
     channelNames = encode($ircCode, channelNames)
 
-    join(channelNames);
-    topic(channelNames);
+    join(channelNames)
+    topic(channelNames)
 
     printText( "login to channels(#{channelNames}), so wait a moment..." )
   end
@@ -58,16 +58,16 @@ class IrcClient < Net::IRC::Client
   end
 
   def on_init( event )
-    args = event.args;
+    args = event.args
 
-    shift( args );
-    debug_out("*** #{args.ispect}\n");
+    shift( args )
+    debug_out("*** #{args.ispect}\n")
   end
 
   def on_part( event )
     channel = getChannel(event)
 
-    debug_out("*** %s has left channel %s\n", event.nick, channel);
+    debug_out("*** %s has left channel %s\n", event.nick, channel)
   end
 
   def on_join( event )
@@ -75,12 +75,12 @@ class IrcClient < Net::IRC::Client
 
     channel = getChannel(event)
     nick_e = getNickEFromEvent(event)
-    host_j = event.prefix.host;
+    host_j = event.prefix.host
 
-    debug("join nick_e, host_j, channel", nick_e, host_j, channel);
+    debug("join nick_e, host_j, channel", nick_e, host_j, channel)
 
     if  host_j =~ /^someone\@somewhere\.else\.com$/  # Auto-ops anyone who
-      debug_out("Give  to #{nick_e}\n");
+      debug_out("Give  to #{nick_e}\n")
       self.mode( encode($ircCode, channel), "+o", nick_e);      # matches hostmask.
     end
   end
@@ -89,22 +89,22 @@ class IrcClient < Net::IRC::Client
     channel = getChannel(event)
 
     debug_out("*** %s (%s) has invited me to channel %s\n",
-              event.nick, event.userhost, channel);
+              event.nick, event.userhost, channel)
 
-    addChannel(channel);
-    self.join( encode($ircCode, channel) );
-    self.topic( encode($ircCode, channel) );
+    addChannel(channel)
+    self.join( encode($ircCode, channel) )
+    self.topic( encode($ircCode, channel) )
   end
 
   def on_kick( event )
     channel = getChannel(event)
 
-    mynick = self.nick;
-    target = event.to[0];
+    mynick = self.nick
+    target = event.to[0]
 
-    debug_out("%s Kicked on %s by %s.\n", target, channel);
+    debug_out("%s Kicked on %s by %s.\n", target, channel)
     if( mynick == target )
-      deleteChannel(channel);
+      deleteChannel(channel)
     end
   end
 
@@ -115,7 +115,7 @@ class IrcClient < Net::IRC::Client
     channel = getChannel(event)
 
     arg = getArg(event)
-    tnick = "";
+    tnick = ""
     if( /->/ =~ arg )
       arg, tnick, *dummy = arg.split(/->/)
     end
@@ -248,7 +248,7 @@ class IrcClient < Net::IRC::Client
 
   def sendMessageToChannels(message)
     @loginChannelList.each do |channel|
-      sendMessage(channel, message);
+      sendMessage(channel, message)
     end
   end
 

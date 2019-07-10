@@ -21,30 +21,30 @@ class CountHolder
     @channel = channel
     @pointerMode = pointerMode
 
-    output = "1";
+    output = "1"
     isSecret = (pointerMode == :sameNick)
 
     case @command
     when /^#OPEN!/i
-      output = get_point_list();
+      output = get_point_list()
     when /^#(.*)DIED!/i
-      output = delete_point_list();
+      output = delete_point_list()
       unless( output.nil? )
-        output = "#{nick}: #{output} のカウンタが削除されました";
+        output = "#{nick}: #{output} のカウンタが削除されました"
         isSecret = true # 出力は常にTalk側
       end
     when /^#RENAME!/i
-      output = rename_point_counter();
+      output = rename_point_counter()
       if( output != "1" )
-        output = "#{nick}: #{output}";
+        output = "#{nick}: #{output}"
         isSecret = false  # 出力は常にPublic側
       end
 
     else
       if( /^#/ =~ @command )
-        output = executeSetCommand();
+        output = executeSetCommand()
         if( output != "1" )
-          output = "#{nick}: #{output}";
+          output = "#{nick}: #{output}"
         end
       end
     end
@@ -70,7 +70,7 @@ class CountHolder
     @modifyText = nil
 
     debug("$point_counter", $point_counter)
-    output = '1';
+    output = '1'
 
     debug("@command", @command)
 
@@ -151,11 +151,11 @@ class CountHolder
 
     output = ""
     output += "#{@characterName.downcase}" if(@nick != @characterName)
-    output += "(#{@tagName}) #{@currentValue}";
+    output += "(#{@tagName}) #{@currentValue}"
 
     debug("setCount @maxValue", @maxValue)
     unless( @maxValue.nil? )
-      output += "/#{@maxValue}";
+      output += "/#{@maxValue}"
     end
 
     return output
@@ -186,7 +186,7 @@ class CountHolder
 
     output = ""
     output += "#{@characterName.downcase}" if(@nick != @characterName)
-    output += "(#{@tagName}) #{preText} -> #{nowText}";
+    output += "(#{@tagName}) #{preText} -> #{nowText}"
 
     debug("changeCount end output", output)
 
@@ -224,107 +224,107 @@ class CountHolder
   def get_point_list
     debug("get_point_list(command, nick, channel, pointerMode)", @command, @nick, @channel, @pointerMode)
 
-    output = "1";
+    output = "1"
 
     return output unless(/^#OPEN![\s]*(\w*)(\s|$)/ =~ @command)
 
-    tag = $1;
+    tag = $1
     case @pointerMode
     when :sameNick
       debug("same nick")
       pc_out = getPointListAtSameNick(tag)
-      output = pc_out unless(pc_out.empty?);
+      output = pc_out unless(pc_out.empty?)
     when :sameChannel
       if( tag )
         debug("same Channel")
         pc_out = getPointListAtSameChannel(tag)
-        output = pc_out unless(pc_out.empty?);
+        output = pc_out unless(pc_out.empty?)
       end
     end
 
-    return output;
+    return output
   end
 
   def getPointListAtSameNick(command, nick, channel, pointerMode, tag)
     debug("getPointListAtSameNick(command, nick, channel, pointerMode, tag)", command, nick, channel, pointerMode, tag)
     debug("同一Nick, 自キャラの一覧表示(パラメータ指定不要)")
 
-    pc_list = $point_counter[nick];
-    pc_out = "";
+    pc_list = $point_counter[nick]
+    pc_out = ""
     if( pc_list )
       sort_pc = {}
       pc_list.each do |pc_o|
         if( $point_counter["#{nick},#{pc_o}"] )
-          tag_out = "";
+          tag_out = ""
           if( tag )
-            check_name = "#{nick},#{pc_o}";
+            check_name = "#{nick},#{pc_o}"
             if($point_counter["#{check_name},#{tag},0"])
-              sort_pc[check_name] = $point_counter["#{check_name},#{tag},0"];
+              sort_pc[check_name] = $point_counter["#{check_name},#{tag},0"]
             end
             if($point_counter["#{check_name},#{tag},1"])
-              sort_pc[check_name] = $point_counter["#{check_name},#{tag},1"];
+              sort_pc[check_name] = $point_counter["#{check_name},#{tag},1"]
             end
           else
-            tag_arr = $point_counter["#{nick},#{pc_o}"];
+            tag_arr = $point_counter["#{nick},#{pc_o}"]
             tag_arr.each do |tag_o|
-              check_name = "#{nick},#{pc_o},#{tag_o}";
+              check_name = "#{nick},#{pc_o},#{tag_o}"
               if($point_counter["#{check_name},0"])
-                tag_out += "$tag_o(" + $point_counter["#{check_name},0"] + ") ";
+                tag_out += "$tag_o(" + $point_counter["#{check_name},0"] + ") "
               end
               if($point_counter["#{check_name},1"])
-                tag_out += "#{tag_o}[" + $point_counter["#{check_name},1"] + "] ";
+                tag_out += "#{tag_o}[" + $point_counter["#{check_name},1"] + "] "
               end
             end
           end
           if(tag_out)
             debug("中身があるなら")
-            pc_out += ", " if(pc_out);
-            pc_out += "#{pc_o.downcase}:#{tag_out}";
+            pc_out += ", " if(pc_out)
+            pc_out += "#{pc_o.downcase}:#{tag_out}"
           end
         end
       end
 
       if(tag)
-        out_pc = "";
-        pc_sorted = sort_point_hash(sort_pc);
+        out_pc = ""
+        pc_sorted = sort_point_hash(sort_pc)
         pc_sorted.each do |pc_o|
           pc_name = pc_o.split(/,/)
-          out_pc += ", " if(out_pc);
+          out_pc += ", " if(out_pc)
           if($pc_name[1])
             if($point_counter["#{pc_o},#{tag},0"])
-              out_pc += "#{pc_name[1].upcase}(" + $point_counter["#{pc_o},#{tag},0"] + ")";
+              out_pc += "#{pc_name[1].upcase}(" + $point_counter["#{pc_o},#{tag},0"] + ")"
             end
             if($point_counter["#{pc_o},#{tag},1"])
-              out_pc += "#{pc_name[1].upcase}[" + $point_counter["#{pc_o},#{tag},1"] + "]";
+              out_pc += "#{pc_name[1].upcase}[" + $point_counter["#{pc_o},#{tag},1"] + "]"
             end
           else
             if($point_counter["#{pc_o},#{tag},0"])
-              out_pc += "#{pc_name[0].upcase}(" + $point_counter["#{pc_o},#{tag},0"] + ")";
+              out_pc += "#{pc_name[0].upcase}(" + $point_counter["#{pc_o},#{tag},0"] + ")"
             end
             if($point_counter["#{pc_o},#{tag},1"])
-              out_pc += "#{pc_name[0].upcase}[" + $point_counter["#{pc_o},#{tag},1"] + "]";
+              out_pc += "#{pc_name[0].upcase}[" + $point_counter["#{pc_o},#{tag},1"] + "]"
             end
           end
         end
-        pc_out = "#{tag}: #{out_pc}" if(out_pc);
+        pc_out = "#{tag}: #{out_pc}" if(out_pc)
       end
     else
       if($point_counter["$nick,"])
-        tag_arr = $point_counter["$nick,"];
-        tag_out = "";
+        tag_arr = $point_counter["$nick,"]
+        tag_out = ""
         tag_arr.each do |tag_o|
-          check_name = "#{nick},,#{tag_o}";
+          check_name = "#{nick},,#{tag_o}"
           if($point_counter["#{check_name},0"])
-            tag_out += "#{tag_o}(" + $point_counter["#{check_name},0"] + ") ";
+            tag_out += "#{tag_o}(" + $point_counter["#{check_name},0"] + ") "
           end
           if($point_counter["#{check_name},1"])
-            tag_out += "#{tag_o}[" + $point_counter["#{check_name},1"] + "] ";
+            tag_out += "#{tag_o}[" + $point_counter["#{check_name},1"] + "] "
           end
         end
         if(tag_out)
           debug("中身があるなら")
-          pc_out += ", " if(pc_out);
-          pc_out += "#{tag_out}";
+          pc_out += ", " if(pc_out)
+          pc_out += "#{tag_out}"
         end
       end
     end
@@ -377,8 +377,8 @@ class CountHolder
 
     return output unless( /^#RENAME!\s*(.+?)\s*\-\>\s*(.+?)(\s|$)/ =~ @command )
 
-    oldName = $1;
-    newName = $2;
+    oldName = $1
+    newName = $2
     debug("oldName, newName", oldName, newName)
 
     # {:channelName => {:characterName => (カウンター情報) }
@@ -390,7 +390,7 @@ class CountHolder
     characterInfoList[newName] = counterInfo
 
     output = "#{oldName}->#{newName}";   # 変更メッセージ
-    return output;
+    return output
   end
 
 ####################          その他の処理         ########################
@@ -440,13 +440,13 @@ class CountHolder
       compare
     end
 
-    return pc_sorted;
+    return pc_sorted
   end
 
   def getPointHashCurrentAndMax(key)
     if(/(\d+)[\/](\d+)/ =~ key)
-      current = $1;
-      max = $2;
+      current = $1
+      max = $2
       return current, max
     end
     return 0, 0

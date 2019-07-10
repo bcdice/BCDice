@@ -6,8 +6,8 @@ class RokumonSekai2 < DiceBot
   def initialize
     super
 
-    @sendMode = 2;
-    @sortType = 1;
+    @sendMode = 2
+    @sortType = 1
   end
 
   def gameName
@@ -45,7 +45,7 @@ INFO_MESSAGE_TEXT
   end
 
   def checkRoll(string, nick_e)
-    output = '1';
+    output = '1'
 
     unless(/3R6([\+\-\d]*)<=(\d+)\[(\d+)\]/i =~ string)
       return output
@@ -69,11 +69,11 @@ INFO_MESSAGE_TEXT
 
     output = "#{nick_e}: (#{string}) ＞ #{output}"
 
-    return output;
+    return output
   end
 
   def rokumon2_roll(mod, target, abl)
-    suc = 0;
+    suc = 0
 
     _, dicestr, = roll(3 + mod.abs, 6 , 1)
 
@@ -87,9 +87,9 @@ INFO_MESSAGE_TEXT
       end
     end
 
-    cnt5 = 0;
-    cnt2 = 0;
-    sum = 0;
+    cnt5 = 0
+    cnt2 = 0
+    sum = 0
 
     dice.each do |die1|
       cnt5 += 1 if(die1 >= 5)
@@ -99,9 +99,9 @@ INFO_MESSAGE_TEXT
     end
 
     if(sum < target)
-      suc += 2;
+      suc += 2
     elsif(sum == target)
-      suc += 1;
+      suc += 1
     end
 
     suc = 0 if(cnt5 >= 3)
@@ -112,6 +112,6 @@ INFO_MESSAGE_TEXT
 
   def rokumon2_suc_rank(suc)
     suc_rank = ['E','D','C','B','A','S']
-    return suc_rank[ suc ];
+    return suc_rank[ suc ]
   end
 end

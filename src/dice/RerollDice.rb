@@ -23,19 +23,19 @@ class RerollDice
   def rollDiceCatched(string)
     debug('RerollDice.rollDice string', string)
 
-    successCount = 0;
-    signOfInequality = "";
-    output = "";
-    next_roll = 0;
+    successCount = 0
+    signOfInequality = ""
+    output = ""
+    next_roll = 0
 
     string = string.gsub(/-[\d]+R[\d]+/, '');   # 振り足しロールの引き算している部分をカット
 
     unless( /(^|\s)S?([\d]+R[\d\+R]+)(\[(\d+)\])?(([<>=]+)([\d]+))?(\@(\d+))?($|\s)/ =~ string )
       debug("is invaild rdice", string)
-      return '1';
+      return '1'
     end
 
-    string = $2;
+    string = $2
     rerollNumber_1 = $4
     rerollNumber_2 = $9
     judgeText = $5

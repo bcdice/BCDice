@@ -5,7 +5,7 @@ class LogHorizon < DiceBot
 
   def initialize
     super
-    @d66Type = 1;
+    @d66Type = 1
   end
 
   def gameName

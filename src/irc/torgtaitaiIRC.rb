@@ -20,7 +20,7 @@ class TorgtaitaiIRC
       @isSecretMarkerPrinted = true
     end
 
-    notice(to, message);
+    notice(to, message)
   end
 
   def notice(to, message)

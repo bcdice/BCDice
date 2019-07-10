@@ -21,16 +21,16 @@ INFO_MESSAGE_TEXT
 
     if(total_n <= diff)
       if((total_n >= (40 - diff)) || (total_n == diff))
-        return " ＞ クリティカル";
+        return " ＞ クリティカル"
       end
 
-      return " ＞ 成功";
+      return " ＞ 成功"
     else
       if(total_n == 20)
-        return " ＞ ファンブル";
+        return " ＞ ファンブル"
       end
 
-      return " ＞ 失敗";
+      return " ＞ 失敗"
     end
   end
 end
