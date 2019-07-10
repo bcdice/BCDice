@@ -39,7 +39,7 @@ INFO_MESSAGE_TEXT
   def getDiceRolledAdditionalText(n1, n_max, dice_max)
     debug('getExtraPowerPointTextForTokumeiTenkousei n1, dice_max', n1, dice_max)
 
-    if((n1 != 0) and (dice_max == 6))
+    if((n1 != 0) && (dice_max == 6))
       point = n1 * 5
       return (" ＞ #{point}EPP獲得")
     end

@@ -100,7 +100,7 @@ MESSAGETEXT
 
     return " ＞ ファンブル" if( first <= 9 )
 
-    if( diff.nil? and (first != 10) )
+    if( diff.nil? && (first != 10) )
       return ''
     end
 

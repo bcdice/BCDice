@@ -993,7 +993,7 @@ class CardTrader
     isTargetCardInHand = false
 
     cards.each do |card|
-      if((not isTargetCardInHand) and(card == targetCard))
+      if((not isTargetCardInHand) &&(card == targetCard))
         isTargetCardInHand = true
         thisCard = card
       else
@@ -1147,7 +1147,7 @@ class CardTrader
     okCardList = []
     ngCardList = []
 
-    unless(@canTapCard and @card_place)
+    unless(@canTapCard && @card_place)
       return okCardList, ngCardList
     end
 

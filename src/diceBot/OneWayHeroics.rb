@@ -142,7 +142,7 @@ MESSAGETEXT
   def getTableResult(table, dice, hasGap = false)
     number, text, command = table.assoc(dice)
 
-    if number.nil? and hasGap
+    if number.nil? && hasGap
       params = nil
       table.each do |data|
         break if data.first > dice

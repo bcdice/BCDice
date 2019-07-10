@@ -87,7 +87,7 @@ INFO_MESSAGE_TEXT
       end
     end
 
-    if(critical < 1 or critical > 12)
+    if((critical < 1) || (critical > 12))
       critical = 13
     end
 
@@ -109,7 +109,7 @@ INFO_MESSAGE_TEXT
       result += " ＞ ファンブル"
     end
 
-    if( isCritical and total_suc > 0 )
+    if( isCritical && (total_suc > 0) )
       result += " ＞ 必殺発動可能！"
     end
 
@@ -176,13 +176,13 @@ INFO_MESSAGE_TEXT
         dice_str += "『必殺！』"
       end
 
-      if((d1 == d2) and (d1 <= fumble))  # ファンブルの確認
+      if((d1 == d2) && (d1 <= fumble))  # ファンブルの確認
         isFumble = true
         isCritical = false
         break
       end
 
-      if(isCritical and isCriticalStop) #必殺止めの確認
+      if(isCritical && isCriticalStop) #必殺止めの確認
         break
       end
     end

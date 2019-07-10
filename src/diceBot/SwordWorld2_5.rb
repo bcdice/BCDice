@@ -107,7 +107,7 @@ INFO_MESSAGE_TEXT
     keptDiceChangeModify = values['keptDiceChangeModify'].to_i
 
     value = 0
-    value += keptDiceChangeModify.to_i if( keptDiceChangeModify != 0 and dice != 2 )
+    value += keptDiceChangeModify.to_i if( (keptDiceChangeModify != 0) && (dice != 2) )
 
     return value
   end

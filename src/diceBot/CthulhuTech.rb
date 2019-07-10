@@ -82,7 +82,7 @@ INFO_MESSAGE_TEXT
   #クトゥルフ・テックの判定用ダイス計算
   def changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
     debug("changeDiceValueByDiceText dice_now, dice_str, isCheckSuccess, dice_max", dice_now, dice_str, isCheckSuccess, dice_max)
-    if( isCheckSuccess and dice_max == 10)
+    if( isCheckSuccess && (dice_max == 10))
       debug('cthulhutech_check(dice_str) called')
       debug('dice_str, dice_now', dice_str, dice_now)
       dice_now = cthulhutech_check(dice_str)
@@ -121,7 +121,7 @@ INFO_MESSAGE_TEXT
           break if( dice_num[i + 2] == nil )
 
           if(dice_num[i] > 0)
-            if( (dice_num[i + 1] > 0) and (dice_num[i + 2] > 0) )    # 3.連続する出目の合計
+            if( (dice_num[i + 1] > 0) && (dice_num[i + 2] > 0) )    # 3.連続する出目の合計
               dice_now = i * 3 + 6  # ($i+1) + ($i+2) + ($i+3) = $i*3 + 6
 
               ((i + 3)...10).step do |i2|

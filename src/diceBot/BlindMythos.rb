@@ -195,7 +195,7 @@ MESSAGETEXT
       result += "\n ＞ 最終成功数:#{success}"
     end
 
-    if canReRoll and isStop
+    if canReRoll && isStop
       result += "\n"
 
       if success >= targetNumber

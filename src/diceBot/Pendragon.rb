@@ -20,7 +20,7 @@ INFO_MESSAGE_TEXT
     return '' unless(signOfInequality == "<=")
 
     if(total_n <= diff)
-      if((total_n >= (40 - diff)) or (total_n == diff))
+      if((total_n >= (40 - diff)) || (total_n == diff))
         return " ＞ クリティカル";
       end
 

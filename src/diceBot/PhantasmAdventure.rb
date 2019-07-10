@@ -37,7 +37,7 @@ INFO_MESSAGE_TEXT
     critical = 1 + skill_mod;
     dice_now, = roll(1, 20);
 
-    if(total_n >= fumble or total_n >= 20)
+    if((total_n >= fumble) || (total_n >= 20))
       fum_num = dice_now - skill_mod;
       fum_num = 20 if(fum_num > 20);
       fum_num = 1 if(fum_num < 1);
@@ -54,7 +54,7 @@ INFO_MESSAGE_TEXT
       end
       return " ＞ 致命的失敗(#{fum_str})";
 
-    elsif(total_n <= critical or total_n <= 1)
+    elsif((total_n <= critical) || (total_n <= 1))
       crit_num = dice_now + skill_mod;
       crit_num = 20 if(crit_num > 20);
       crit_num = 1 if(crit_num < 1);

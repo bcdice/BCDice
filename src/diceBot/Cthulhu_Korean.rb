@@ -139,7 +139,7 @@ INFO_MESSAGE_TEXT
       end
     end
 
-    if((total_n <= diff) and (total_n < 100))
+    if((total_n <= diff) && (total_n < 100))
 
       result = "성공"
 
@@ -162,7 +162,7 @@ INFO_MESSAGE_TEXT
       result = "실패"
 
       if( diff_special > 0)
-        if((total_n >= (101 - @fumble_percentage)) and (diff < 100))
+        if((total_n >= (101 - @fumble_percentage)) && (diff < 100))
           result = "펌블"
           fumble = true
         end

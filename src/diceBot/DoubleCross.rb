@@ -243,7 +243,7 @@ INFO_MESSAGE_TEXT
     neg_dice, neg_table = dx_feel_negative_table
     dice_now, = roll(1, 2)
 
-    if(pos_table != '1' and neg_table != '1')
+    if((pos_table != '1') && (neg_table != '1'))
       if(dice_now < 2)
         pos_table = "○" + pos_table
       else

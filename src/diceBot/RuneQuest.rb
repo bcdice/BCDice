@@ -22,7 +22,7 @@ INFO_MESSAGE_TEXT
     cliticalValue = ((1.0 * diff / 20) + 0.5)
 
     # 1は常に決定的成功
-    return " ＞ 決定的成功" if((total_n <= 1) or (total_n <= cliticalValue))
+    return " ＞ 決定的成功" if((total_n <= 1) || (total_n <= cliticalValue))
 
     # 100は常に致命的失敗
     return " ＞ 致命的失敗" if(total_n >= 100)

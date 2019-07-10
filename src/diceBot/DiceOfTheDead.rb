@@ -36,7 +36,7 @@ INFO_MESSAGE_TEXT
 
     case command
     when /^BIO(\d+)?$/i
-      roll_times = ($1 or 1).to_i
+      roll_times = ($1 || 1).to_i
       result = checkInfection( roll_times )
       secret_flg = true
     when /^ZMB(\+(\d+))?$/i

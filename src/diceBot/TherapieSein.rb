@@ -66,7 +66,7 @@ MESSAGETEXT
     result = "(2D6#{modifyText}#{targetText})"
     result += " ＞ #{dice}(#{diceText})#{modifyText}"
 
-    if( hasCritical and dice == 12 )
+    if( hasCritical && (dice == 12) )
       result += " ＞ クリティカル！"
       return result
     end
