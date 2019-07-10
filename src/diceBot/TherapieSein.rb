@@ -64,16 +64,16 @@ MESSAGETEXT
     result = "(2D6#{modifyText}#{targetText})"
     result += " ＞ #{dice}(#{diceText})#{modifyText}"
 
-    if( hasCritical && (dice == 12) )
+    if hasCritical && (dice == 12)
       result += " ＞ クリティカル！"
       return result
     end
 
     result += " ＞ #{successValue}#{targetText}"
 
-    return result if( target == 0 )
+    return result if target == 0
 
-    if( successValue >= target )
+    if  successValue >= target
       result += " ＞ 【成功】"
     else
       result += " ＞ 【失敗】"
@@ -83,8 +83,8 @@ MESSAGETEXT
   end
 
   def getValueText(value)
-    return "" if( value == 0 )
-    return value.to_s if( value < 0 )
+    return "" if value == 0
+    return value.to_s if value < 0
 
     return "\+#{value}"
   end

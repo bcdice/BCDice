@@ -32,14 +32,14 @@ class TableFileData
     @dirs = []
     @tableData = {}
 
-    return unless( isLoadCommonTable )
+    return unless isLoadCommonTable
 
     @dir = FileTest.directory?('./extratables') ? './extratables' : '../extratables'
     @tableData = searchTableFileDefine(@dir)
   end
 
   def setDir(dir, prefix = '')
-    return if( @dirs.include?(dir) )
+    return if  @dirs.include?(dir)
 
     @dirs << dir
 
@@ -50,9 +50,9 @@ class TableFileData
   def searchTableFileDefine(dir, prefix = '')
     tableData = {}
 
-    return tableData if( dir.nil? )
-    return tableData unless( File.exist?(dir) )
-    return tableData unless( File.directory?(dir) )
+    return tableData if dir.nil?
+    return tableData unless  File.exist?(dir)
+    return tableData unless  File.directory?(dir)
 
     fileNames = Dir.glob("#{dir}/#{prefix}*.txt")
 
@@ -63,7 +63,7 @@ class TableFileData
       gameType = info["gameType"]
       gameType ||= ""
       command = info["command"]
-      next if(command.empty?)
+      next if command.empty?
 
       tableData["#{gameType}_#{command}"] = info
     end
@@ -130,7 +130,7 @@ class TableFileData
 
     lines.each do |line|
       key, value = getLineKeyValue(line)
-      next if( key.empty? )
+      next if key.empty?
 
       key = key.to_i
       table << [key, value]
@@ -146,7 +146,7 @@ class TableFileData
   def self.getLineKeyValue(line)
     line = line.toutf8.chomp
 
-    unless(/^[\s　]*([^:：]+)[\s　]*[:：][\s　]*(.+)/ === line)
+    unless /^[\s　]*([^:：]+)[\s　]*[:：][\s　]*(.+)/ === line
       return '', ''
     end
 
@@ -167,16 +167,16 @@ class TableFileData
     isSecret = false
 
     @tableData.keys.each do |fileName|
-      next unless(/.*_(.+)/ === fileName)
+      next unless /.*_(.+)/ === fileName
 
       key = $1
 
-      next unless(/^(s|S)?#{key}(\s|$)/i === arg)
+      next unless /^(s|S)?#{key}(\s|$)/i === arg
 
       data = @tableData[fileName]
       gameType = data["gameType"]
 
-      next unless( isTargetGameType(gameType, targetGameType) )
+      next unless  isTargetGameType(gameType, targetGameType)
 
       oneTableData = data
       isSecret = !$1.nil?
@@ -196,7 +196,7 @@ class TableFileData
 
   def changeEnterCode(table)
     newTable = {}
-    if( table.nil? )
+    if  table.nil?
       return newTable
     end
 
@@ -210,22 +210,22 @@ class TableFileData
   end
 
   def isTargetGameType(gameType, targetGameType)
-    return true if( gameType.empty? )
+    return true if gameType.empty?
 
     return ( gameType == targetGameType )
   end
 
   def readOneTableData(oneTableData)
-    return if( oneTableData.nil? )
-    return unless( oneTableData["table"].nil? )
+    return if oneTableData.nil?
+    return unless oneTableData["table"].nil?
 
     command = oneTableData["command"]
     gameType = oneTableData["gameType"]
     fileName = oneTableData["fileName"]
 
-    return if( command.nil? )
+    return if  command.nil?
 
-    return unless( File.exist?(fileName) )
+    return unless File.exist?(fileName)
 
     dice, title, table = getTableDataFromFile(fileName)
 
@@ -259,19 +259,19 @@ class TableFileCreator
   end
 
   def checkFileNotExist(fileName)
-    raise "commandNameAlreadyExist" if( File.exist?(fileName) )
+    raise "commandNameAlreadyExist" if File.exist?(fileName)
   end
 
   def checkFileExist(fileName)
-    raise "commandNameIsNotExist" unless( File.exist?(fileName) )
+    raise "commandNameIsNotExist" unless File.exist?(fileName)
   end
 
   def getTableFileName(command = nil, gameType = nil)
-    gameType = @params['gameType'] if( gameType.nil? )
+    gameType = @params['gameType'] if gameType.nil?
     gameType ||= ''
     gameType = gameType.gsub(':', '_')
 
-    if( command.nil? )
+    if command.nil?
       initCommand
       command = @command
     end
@@ -279,7 +279,7 @@ class TableFileCreator
     checkCommand(command)
 
     prefix2 = ""
-    unless( gameType.empty? )
+    unless  gameType.empty?
       prefix2 = "#{gameType}_"
     end
 
@@ -298,9 +298,9 @@ class TableFileCreator
   end
 
   def checkCommand(command)
-    raise "commandNameIsEmpty" if( command.empty? )
+    raise "commandNameIsEmpty" if command.empty?
 
-    unless( /^[a-zA-Z\d]+$/ === command )
+    unless  /^[a-zA-Z\d]+$/ === command
       raise "commandNameCanUseOnlyAlphabetAndNumber"
     end
   end
@@ -312,7 +312,7 @@ class TableFileCreator
 
     text = ""
     text << "#{dice}:#{title}\n"
-    unless( table.is_a?(String) )
+    unless  table.is_a?(String)
       table = getFormatedTableText(table)
     end
 
@@ -337,11 +337,11 @@ class TableFileCreator
   end
 
   def checkTableKey(key, index)
-    return if( key == "0" )
+    return if  key == "0"
 
     keyValue = key.to_i
 
-    if( keyValue == 0 )
+    if keyValue == 0
       raise "tableFormatIsInvalid\t#{index + 1}\t#{key}"
     end
 
@@ -362,7 +362,7 @@ class TableFileEditer < TableFileCreator
     @gameType = @params['gameType']
     @originalGameType = @params['originalGameType']
 
-    if( (@originalCommand == @command) && (@originalGameType == @gameType) )
+    if (@originalCommand == @command) && (@originalGameType == @gameType)
       checkFileWhenFileNameNotChanged(fileName)
     else
       checkFileWhenFileNameChanged(fileName)

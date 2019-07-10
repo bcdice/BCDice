@@ -15,8 +15,8 @@ class TorgtaitaiIRC
   def privmsg(to, message)
     #シークレットダイスの場合はここでマーカーを出力し、どどんとふにその旨を通達。
     #マーカーは1回だけ出力すれば十分なので2回目以降は抑止
-    unless( @isSecretMarkerPrinted )
-      print("##>isSecretDice<##") unless( @isTest )
+    unless  @isSecretMarkerPrinted
+      print("##>isSecretDice<##") unless @isTest
       @isSecretMarkerPrinted = true
     end
 
@@ -30,9 +30,9 @@ class TorgtaitaiIRC
     #output = "#{to.inspect}:#{message.tosjis}\n"
     #output = "#{message.tosjis}\n"
     output = "\n#{@gameType} #{message.tosjis}\n"
-    print(output) unless( @isTest )
+    print(output) unless @isTest
 
-    if( @isTest )
+    if @isTest
       @buffer += output
     end
   end
@@ -58,7 +58,7 @@ class TorgtaitaiIRC
   end
 
   def add_handler(name, function)
-    if( name == "public" )
+    if  name == "public"
       function.call(self)
     end
   end

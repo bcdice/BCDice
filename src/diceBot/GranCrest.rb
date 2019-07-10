@@ -60,10 +60,10 @@ MESSAGETEXT
       result += " ＞ #{total_n}"
     end
 
-    return result unless(signOfInequality == ">=")
-    return result if(diff == "?")
+    return result unless signOfInequality == ">="
+    return result if diff == "?"
 
-    if(total_n >= diff)
+    if total_n >= diff
       result += " ＞ 成功"
     else
       result += " ＞ 失敗"

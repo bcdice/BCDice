@@ -302,7 +302,7 @@ MESSAGETEXT
 
         firePoint[-1] << []
 
-        next unless/[^\d]*(\d+),[^\d]*(\d+)/ === point
+        next unless /[^\d]*(\d+),[^\d]*(\d+)/ === point
 
         y = $1.to_i
         x = $2.to_i

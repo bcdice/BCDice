@@ -55,14 +55,14 @@ INFO_MESSAGE_TEXT
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
     output =
-      if(dice_n <= 2)
+      if dice_n <= 2
         " ＞ ファンブル"
-      elsif(dice_n >= 12)
+      elsif dice_n >= 12
         " ＞ スペシャル(魔力1D6点か変調1つ回復)"
-      elsif(total_n >= diff)
+      elsif total_n >= diff
         " ＞ 成功"
       else
         " ＞ 失敗"
@@ -329,7 +329,7 @@ INFO_MESSAGE_TEXT
     diceList = getDiceList
     debug("getGainMagicElementText diceList", diceList)
 
-    return '' if( diceList.empty? )
+    return '' if diceList.empty?
 
     dice1 = diceList[0]
     dice2 = diceList[1]
@@ -339,7 +339,7 @@ INFO_MESSAGE_TEXT
   end
 
   def gainMagicElement(dice1, dice2)
-    return "" unless(dice1 == dice2)
+    return "" unless dice1 == dice2
 
     # ゾロ目
     table = ['星','獣','力','歌','夢','闇']

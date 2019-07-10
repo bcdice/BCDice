@@ -23,7 +23,7 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(1d100)
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    return '' unless(signOfInequality == "<=")
+    return '' unless signOfInequality == "<="
 
     total_n = total_n % 100
 
@@ -64,7 +64,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckResult(diff, total, isRepdigit)
-    if( diff >= total )
+    if diff >= total
       return getSuccessResult(isRepdigit)
     end
 
@@ -72,7 +72,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getSuccessResult(isRepdigit)
-    if( isRepdigit )
+    if isRepdigit
       return "絶対成功"
     end
 
@@ -80,7 +80,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getFailResult(isRepdigit)
-    if( isRepdigit )
+    if isRepdigit
       return "絶対失敗"
     end
 

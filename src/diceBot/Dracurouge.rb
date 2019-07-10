@@ -1292,7 +1292,7 @@ MESSAGETEXT
         get_table_by_d66(table)
       end
 
-    return nil if( text.nil? )
+    return nil if text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end

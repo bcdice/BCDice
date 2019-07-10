@@ -16,7 +16,7 @@ class ArgsAnalizer
       result = analizeArg(arg)
       checkArg(arg)
 
-      if( result )
+      if result
         isAnalized = true
       end
     end
@@ -25,14 +25,14 @@ class ArgsAnalizer
   end
 
   def checkArg(arg)
-    if( isCreateExeMode(arg) )
+    if isCreateExeMode(arg)
       @isStartIrc = false
     end
   end
 
   def isCreateExeMode(arg)
-    if( arg == "createExe" )
-      if( File.exist?("__createExe__.txt") )
+    if arg == "createExe"
+      if File.exist?("__createExe__.txt")
         return true
       end
     end
@@ -41,7 +41,7 @@ class ArgsAnalizer
   end
 
   def analizeArg(arg)
-    return false unless( /^-([scngmeir])(.+)$/i =~ arg )
+    return false unless /^-([scngmeir])(.+)$/i =~ arg
 
     command = $1.downcase
     @param = $2
@@ -72,7 +72,7 @@ class ArgsAnalizer
     # サーバ設定(Server:Port)
     data = @param.split(/:/)
     $server = data[0]
-    $port = data[1] if( data[1] )
+    $port = data[1] if data[1]
   end
 
   def setChannel

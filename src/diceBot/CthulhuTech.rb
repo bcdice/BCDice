@@ -24,34 +24,34 @@ INFO_MESSAGE_TEXT
   end
 
   def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)# ゲーム別成功度判定(nD10)
-    if(signOfInequality == ">=") # 通常のテスト
+    if signOfInequality == ">=" # 通常のテスト
       @isCombatTest = false
       return check_nD10_nomalTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     end
 
-    if(signOfInequality == ">") # コンバットテスト
+    if signOfInequality == ">" # コンバットテスト
       @isCombatTest = true
       return check_nD10_combatTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     end
   end
 
   def check_nD10_nomalTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    if( n1 >= (dice_cnt / 2 + 0.9).to_i )
+    if n1 >= (dice_cnt / 2 + 0.9).to_i
       return " ＞ ファンブル"
     end
 
     isSuccess = false
-    if( @isCombatTest )
+    if @isCombatTest
       isSuccess = (total_n > diff)
     else
       isSuccess = (total_n >= diff)
     end
 
-    unless( isSuccess )
+    unless isSuccess
       return " ＞ 失敗"
     end
 
-    if(total_n >= diff + 10)
+    if total_n >= diff + 10
       return " ＞ クリティカル"
     end
 
@@ -82,7 +82,7 @@ INFO_MESSAGE_TEXT
   #クトゥルフ・テックの判定用ダイス計算
   def changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
     debug("changeDiceValueByDiceText dice_now, dice_str, isCheckSuccess, dice_max", dice_now, dice_str, isCheckSuccess, dice_max)
-    if( isCheckSuccess && (dice_max == 10))
+    if isCheckSuccess && (dice_max == 10)
       debug('cthulhutech_check(dice_str) called')
       debug('dice_str, dice_now', dice_str, dice_now)
       dice_now = cthulhutech_check(dice_str)
@@ -103,34 +103,34 @@ INFO_MESSAGE_TEXT
     dice_aRR.each do |dice_n|
       dice_num[(dice_n - 1)] += 1
 
-      if(dice_n > max_num) # 1.個別のダイスの最大値
+      if dice_n > max_num # 1.個別のダイスの最大値
         max_num = dice_n
       end
     end
 
-    if(dice_aRR.length >= 2) # ダイスが2個以上ロールされている
+    if dice_aRR.length >= 2 # ダイスが2個以上ロールされている
       10.times do |i|
-        if(dice_num[i] > 1) # 2.同じ出目の合計値
+        if dice_num[i] > 1 # 2.同じ出目の合計値
           dice_now = dice_num[i] * (i + 1)
-          max_num = dice_now if(dice_now > max_num)
+          max_num = dice_now if dice_now > max_num
         end
       end
 
-      if(dice_aRR.length >= 3) # ダイスが3個以上ロールされている
+      if dice_aRR.length >= 3 # ダイスが3個以上ロールされている
         10.times do |i|
-          break if( dice_num[i + 2] == nil )
+          break if  dice_num[i + 2] == nil
 
-          if(dice_num[i] > 0)
-            if( (dice_num[i + 1] > 0) && (dice_num[i + 2] > 0) ) # 3.連続する出目の合計
+          if dice_num[i] > 0
+            if (dice_num[i + 1] > 0) && (dice_num[i + 2] > 0) # 3.連続する出目の合計
               dice_now = i * 3 + 6 # ($i+1) + ($i+2) + ($i+3) = $i*3 + 6
 
               ((i + 3)...10).step do |i2|
-                break if(dice_num[i2] == 0)
+                break if dice_num[i2] == 0
 
                 dice_now += i2 + 1
               end
 
-              max_num = dice_now if(dice_now > max_num)
+              max_num = dice_now if dice_now > max_num
             end
           end
         end

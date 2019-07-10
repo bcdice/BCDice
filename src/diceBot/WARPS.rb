@@ -20,13 +20,13 @@ INFO_MESSAGE_TEXT
     debug('diff', diff)
     debug('total_n', total_n)
 
-    if(dice_n <= 2)
+    if dice_n <= 2
       return " ＞ クリティカル"
-    elsif(dice_n >= 12)
+    elsif dice_n >= 12
       return " ＞ ファンブル"
-    elsif(signOfInequality == "<=")
-      if(diff != "?")
-        if(total_n <= diff)
+    elsif signOfInequality == "<="
+      if diff != "?"
+        if total_n <= diff
           success = diff - total_n
           return " ＞ #{success}成功"
         else

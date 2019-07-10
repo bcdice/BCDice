@@ -50,13 +50,13 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
-    if(dice_n <= 2)
+    if dice_n <= 2
       return " ＞ ファンブル(モノビースト追加行動+1)"
-    elsif(dice_n >= 12)
+    elsif dice_n >= 12
       return " ＞ スペシャル(変調1つ回復orダメージ+1D6)"
-    elsif(total_n >= diff)
+    elsif total_n >= diff
       return " ＞ 成功"
     else
       return " ＞ 失敗"
@@ -94,7 +94,7 @@ INFO_MESSAGE_TEXT
     when /SA(2)?T(\d*)/i
       isType2 = !$1.nil?
       count = $2.to_i
-      count = 1 if(count == 0)
+      count = 1 if count == 0
 
       type = '異形アビリティー'
       output, total_n = get_strange_ability_table_result(count, isType2)
@@ -126,7 +126,7 @@ INFO_MESSAGE_TEXT
       return getTableCommandResult(command, @@tables)
     end
 
-    return output if(output == '1')
+    return output if output == '1'
 
     output = "#{type}表(#{total_n}) ＞ #{output}"
     return output
@@ -237,14 +237,14 @@ INFO_MESSAGE_TEXT
     table2 = get_strange_ability_table_2
 
     count.times do |i|
-      if( i != 0 )
+      if i != 0
         output += "/"
         dice += ","
       end
 
       table = table1
 
-      if( isType2 )
+      if isType2
         number, = roll(1, 6)
         index = ((number % 2) == 1 ? 0 : 1)
 
@@ -254,13 +254,13 @@ INFO_MESSAGE_TEXT
       end
 
       ability, indexText = get_table_by_d66(table)
-      next if( ability == '1' )
+      next if  ability == '1'
 
       output += ability.to_s
       dice += indexText
     end
 
-    return '1', dice if(output.empty?)
+    return '1', dice if output.empty?
 
     return output, dice
   end

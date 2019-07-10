@@ -47,7 +47,7 @@ MESSAGETEXT
       value1, = roll(1, 6)
       value2, = roll(1, 6)
 
-      if( value1 == value2 )
+      if value1 == value2
         success += 1
       end
 
@@ -68,7 +68,7 @@ MESSAGETEXT
              [6, "６レベル成功(神話的大成功)"],
             ]
 
-    if( success >= table.last.first )
+    if success >= table.last.first
       return table.last.last
     end
 
@@ -129,7 +129,7 @@ MESSAGETEXT
              ]
 
     table = get_table_by_number(number, tables, nil)
-    return nil if( table.nil? )
+    return nil if table.nil?
 
     text, index = get_table_by_1d6( table )
 

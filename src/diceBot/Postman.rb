@@ -52,7 +52,7 @@ MESSAGETEXT
 
       when /(\d+)?PO(\d+)?(([+-]\d+)*)?((>|>=|@)(\d+)(([+-]\d+)*)?)?/i
         diceCount = ($1 || 2).to_i
-        diceCount = 2 if(diceCount < 2)
+        diceCount = 2 if diceCount < 2
 
         modify = ($2 || 0).to_i
         modifyAddString = $3
@@ -64,7 +64,7 @@ MESSAGETEXT
         modify_list = modifyAddString.scan(/[+-]\d+/)
         modify_list.each{|i| modify += i.to_i }
 
-        if(target != 0)
+        if target != 0
           target_list = targetAddString.scan(/[+-]\d+/)
           target_list.each{|j| target += j.to_i }
         end
@@ -91,33 +91,33 @@ MESSAGETEXT
     diceText2 = "#{diceArray[-2]},#{diceArray[-1]}"
     criticalCount = diceArray.count{|i| i == 6}
 
-    if(modify != 0)
+    if modify != 0
       modifyText = ''
-      modifyText = "+" if(modify > 0)
+      modifyText = "+" if modify > 0
       modifyText += modify.to_s
     end
 
     result = dice2 + modify
 
-    if(type != '')
+    if type != ''
       resultText = " 【失敗】"
       operatorText = ">"
-      if(type == '>')
-        resultText = " 【成功】" if(result > target)
+      if type == '>'
+        resultText = " 【成功】" if result > target
       else
         operatorText += "="
-        resultText = " 【成功】" if(result >= target)
+        resultText = " 【成功】" if result >= target
       end
     end
 
-    if(criticalCount >= 2)
+    if criticalCount >= 2
       resultText = " 【成功】（クリティカル）"
-    elsif(dice == diceCount)
+    elsif dice == diceCount
       resultText = " 【失敗】（ファンブル）"
     end
 
     text = "#{diceCount}D6(#{diceText})#{modifyText} ＞ #{dice2}(#{diceText2})#{modifyText} = 達成値：#{result}"
-    text += "#{operatorText}#{target} " if(target > 0)
+    text += "#{operatorText}#{target} " if target > 0
     text += resultText.to_s
 
     return text
@@ -139,11 +139,11 @@ MESSAGETEXT
               [12, '風が強い1日になりそう。探索判定の難易度に+2。']
             ]
 
-    if(roc == 0)
+    if roc == 0
       dice, diceText = roll(2, 6)
     else
-      roc = 2 if(roc < 2)
-      roc = 12 if(roc > 12)
+      roc = 2 if roc < 2
+      roc = 12 if roc > 12
       dice = roc
       diceText = "Choice:#{roc}"
     end

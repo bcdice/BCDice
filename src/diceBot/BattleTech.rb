@@ -45,7 +45,7 @@ MESSAGETEXT
 
   def rollDiceCommand(command)
     count = 1
-    if( /^(\d+)(.+)/ === command )
+    if /^(\d+)(.+)/ === command
       count = $1.to_i
       command = $2
     end
@@ -81,7 +81,7 @@ MESSAGETEXT
   def getXrmDamage(type)
     table, isLrm = getXrmDamageTable(type)
 
-    table = table.collect{|i|i*2} unless(isLrm)
+    table = table.collect{|i|i*2} unless isLrm
 
     damage, dice = get_table_by_2d6(table)
     return damage, dice, isLrm
@@ -112,7 +112,7 @@ MESSAGETEXT
   @@lrmLimit = 5
 
   def getHitResult(count, damageFunc, tail)
-    return nil unless( /(\w*)(\+\d+)?>=(\d+)/ === tail )
+    return nil unless /(\w*)(\+\d+)?>=(\d+)/ === tail
 
     side = $1
     baseString = $2
@@ -139,19 +139,19 @@ MESSAGETEXT
 
     totalResultText = resultTexts.join("\n")
 
-    if( totalResultText.length >= $SEND_STR_MAX )
+    if  totalResultText.length >= $SEND_STR_MAX
       totalResultText = "..."
     end
 
     totalResultText += "\n ＞ #{hitCount}回命中"
-    totalResultText += " 命中箇所：" + getTotalDamage(damages) if( hitCount > 0 )
+    totalResultText += " 命中箇所：" + getTotalDamage(damages) if hitCount > 0
 
     return totalResultText
   end
 
   def getBaseValue(baseString)
     base = 0
-    return base if( baseString.nil? )
+    return base if baseString.nil?
 
     base = parren_killer("(" + baseString + ")").to_i
     return base
@@ -193,7 +193,7 @@ MESSAGETEXT
 
     result = "#{total}[#{dice1},#{dice2}#{baseString}]>=#{target} ＞ "
 
-    if( isHit )
+    if isHit
       result += "命中 ＞ "
     else
       result += "外れ"
@@ -207,7 +207,7 @@ MESSAGETEXT
     damage, dice, isLrm = damageFunc.call()
 
     damagePartCount = 1
-    if( isLrm )
+    if isLrm
       damagePartCount = (1.0 * damage / @@lrmLimit).ceil
       resultText += "[#{dice}] #{damage}点"
     end
@@ -216,10 +216,10 @@ MESSAGETEXT
       currentDamage, damageText = getDamageInfo(dice, damage, isLrm, damageIndex)
 
       text, part, criticalText = getHitResultOne(damageText, partTable)
-      resultText += " " if( isLrm )
+      resultText += " " if isLrm
       resultText += text
 
-      if( damages[part].nil? )
+      if damages[part].nil?
         damages[part] = {
           :partDamages => [],
           :criticals => [],
@@ -227,18 +227,18 @@ MESSAGETEXT
       end
 
       damages[part][:partDamages] << currentDamage
-      damages[part][:criticals] << criticalText unless( criticalText.empty? )
+      damages[part][:criticals] << criticalText unless criticalText.empty?
     end
 
     return damages, resultText
   end
 
   def getDamageInfo(dice, damage, isLrm, index)
-    return damage, damage.to_s if( dice.nil? )
-    return damage, "[#{dice}] #{damage}" unless( isLrm )
+    return damage, damage.to_s if dice.nil?
+    return damage, "[#{dice}] #{damage}" unless isLrm
 
     currentDamage = damage - (@@lrmLimit * index)
-    if( currentDamage > @@lrmLimit )
+    if currentDamage > @@lrmLimit
       currentDamage = @@lrmLimit
     end
 
@@ -259,7 +259,7 @@ MESSAGETEXT
     damageTexts = []
     parts.each do |part|
       damageInfo = damages.delete(part)
-      next if( damageInfo.nil? )
+      next if  damageInfo.nil?
 
       damage = damageInfo[:partDamages].inject(0){|sum, i| sum + i}
       allDamage += damage
@@ -268,12 +268,12 @@ MESSAGETEXT
 
       text = ""
       text += "#{part}(#{damageCount}回) #{damage}点"
-      text += " #{criticals.join(' ')}" unless( criticals.empty? )
+      text += " #{criticals.join(' ')}" unless criticals.empty?
 
       damageTexts << text
     end
 
-    if( damages.length > 0 )
+    if damages.length > 0
       raise "damages rest!! #{damages.inspect()}"
     end
 
@@ -297,19 +297,19 @@ MESSAGETEXT
     part = part.gsub(/＠/, '')
 
     criticalText = ''
-    if( isCritical )
+    if  isCritical
       criticalDice, criticalText = getCriticalResult()
       result += " ＞ [#{criticalDice}] #{criticalText}"
     end
 
-    criticalText = '' if( criticalText == @@noCritical )
+    criticalText = '' if criticalText == @@noCritical
 
     return result, part, criticalText
   end
 
   def getPart(partTable)
     diceCount = 2
-    if( partTable.length == 6 )
+    if partTable.length == 6
       diceCount = 1
     end
 
@@ -345,7 +345,7 @@ MESSAGETEXT
   end
 
   def getCheckDieResult(damage)
-    if( damage >= 6 )
+    if damage >= 6
       return "死亡"
     end
 

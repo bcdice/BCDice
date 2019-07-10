@@ -68,7 +68,7 @@ INFO_MESSAGE_TEXT
   end
 
   def changeText(string)
-    return string unless( /(^|\s)[sS]?(K[\d]+)/i =~ string )
+    return string unless /(^|\s)[sS]?(K[\d]+)/i =~ string
 
     string = super(string)
 
@@ -98,7 +98,7 @@ INFO_MESSAGE_TEXT
     keptDiceChangeModify, string = getKeptDiceChangesFromString(string)
 
     values['keptDiceChangeModify'] = keptDiceChangeModify
-    output += "a[#{keptDiceChangeModify}]" if( keptDiceChangeModify != 0 )
+    output += "a[#{keptDiceChangeModify}]" if keptDiceChangeModify != 0
 
     return output, values
   end
@@ -107,7 +107,7 @@ INFO_MESSAGE_TEXT
     keptDiceChangeModify = values['keptDiceChangeModify'].to_i
 
     value = 0
-    value += keptDiceChangeModify.to_i if( (keptDiceChangeModify != 0) && (dice != 2) )
+    value += keptDiceChangeModify.to_i if (keptDiceChangeModify != 0) && (dice != 2)
 
     return value
   end
@@ -115,7 +115,7 @@ INFO_MESSAGE_TEXT
   def getKeptDiceChangesFromString(string)
     keptDiceChangeModify = 0
     regexp = /a\[([\+\-]\d+)\]/i
-    if( regexp =~ string )
+    if regexp =~ string
       keptDiceChangeModify = $1
       string = string.gsub(regexp, '')
     end

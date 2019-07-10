@@ -36,13 +36,13 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
-    if(dice_n <= 2)
+    if dice_n <= 2
       return " ＞ ファンブル(【眠気】が1d6点上昇)"
-    elsif(dice_n >= 12)
+    elsif dice_n >= 12
       return " ＞ スペシャル(【魔力】あるいは【眠気】が1d6点回復)"
-    elsif(total_n >= diff)
+    elsif total_n >= diff
       return " ＞ 成功"
     else
       return " ＞ 失敗"

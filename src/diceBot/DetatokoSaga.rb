@@ -45,10 +45,10 @@ INFO_MESSAGE_TEXT
     result = ''
 
     result = checkRoll(command)
-    return result unless(result.empty?)
+    return result unless result.empty?
 
     result = checkJudgeValue(command)
-    return result unless(result.empty?)
+    return result unless result.empty?
 
     debug("各種表として処理")
     return rollTableCommand(command)
@@ -58,13 +58,13 @@ INFO_MESSAGE_TEXT
   def checkRoll(string)
     debug("checkRoll begin string", string)
 
-    return '' unless(/^(\d+)DS(\d+)?((>=)(\d+))?$/i =~ string)
+    return '' unless /^(\d+)DS(\d+)?((>=)(\d+))?$/i =~ string
 
     target = 8
 
     skill = $1.to_i
     flag = $2.to_i
-    target = $5.to_i unless( $5.nil? )
+    target = $5.to_i unless $5.nil?
 
     result = "判定！　スキルレベル：#{skill}　フラグ：#{flag}　目標値：#{target}"
 
@@ -81,7 +81,7 @@ INFO_MESSAGE_TEXT
 
   def getRollResult(skill)
     diceCount = skill + 1
-    diceCount = 3 if( skill == 0 )
+    diceCount = 3 if  skill == 0
 
     dice = []
     diceCount.times do |i|
@@ -91,7 +91,7 @@ INFO_MESSAGE_TEXT
     diceText = dice.join(',')
 
     dice = dice.sort
-    dice = dice.reverse if( skill != 0 )
+    dice = dice.reverse if skill != 0
 
     total = dice[0] + dice[1]
 
@@ -99,7 +99,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getSuccess(check, target)
-    if(check >= target)
+    if check >= target
       return "目標値以上！【成功】"
     end
 
@@ -107,7 +107,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckFlagResult(total, flag)
-    if(total > flag)
+    if total > flag
       return ""
     end
 
@@ -119,7 +119,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getDownWill(flag)
-    if(flag>=10)
+    if flag>=10
       return "6"
     end
 
@@ -131,7 +131,7 @@ INFO_MESSAGE_TEXT
   def checkJudgeValue(string)
     debug("checkJudgeValue begin string", string)
 
-    return '' unless(/^(\d+)JD(\d+)?(([+]|[-]|[\/])(\d+))?$/i =~ string)
+    return '' unless /^(\d+)JD(\d+)?(([+]|[-]|[\/])(\d+))?$/i =~ string
 
     skill = $1.to_i
     flag = $2.to_i
@@ -141,7 +141,7 @@ INFO_MESSAGE_TEXT
     result = "判定！　スキルレベル：#{skill}　フラグ：#{flag}"
 
     modifyText = getModifyText(operator, value)
-    result += "　修正値：#{modifyText}" unless( modifyText.empty? )
+    result += "　修正値：#{modifyText}" unless modifyText.empty?
 
     total, rollText = getRollResult(skill)
     result += " ＞ #{total}[#{rollText}]#{modifyText}"
@@ -175,7 +175,7 @@ INFO_MESSAGE_TEXT
     when "+"
       return "#{total}+#{value} ＞ 判定値：#{total+value}"
     when "-"
-      return"#{total}-#{value} ＞ 判定値：#{total-value}"
+      return "#{total}-#{value} ＞ 判定値：#{total-value}"
     when "/"
       return getTotalResultValueWhenSlash(total, value)
     else
@@ -184,7 +184,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getTotalResultValueWhenSlash(total, value)
-    return "0では割れません" if( value == 0 )
+    return "0では割れません" if value == 0
 
     quotient = ((1.0 * total) / value).ceil
 

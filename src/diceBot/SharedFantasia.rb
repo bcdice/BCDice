@@ -32,10 +32,10 @@ MESSAGETEXT
 
   def changeText(string)
     @throwString = ''
-    if(string =~ /SF/i)
+    if string =~ /SF/i
       string = string.gsub(/SF/i) {"2D6"}
     end
-    if(string =~ /ST/i)
+    if string =~ /ST/i
       string = string.gsub(/ST/i) {"2D6"}
     end
     return string
@@ -46,30 +46,30 @@ MESSAGETEXT
     critical = false
     fumble   = false
 
-    if(dice_n == 12)
+    if dice_n == 12
       critical = true
-    elsif(dice_n == 2)
+    elsif dice_n == 2
       fumble   = true
     end
 
     totalValueBonus = 0
-    if(signOfInequality == '>=')
+    if signOfInequality == '>='
       totalValueBonus = 1
     end
 
-    if(signOfInequality =~ />/)
-      if((totalValue + totalValueBonus) > diff)
-        if(critical)
+    if signOfInequality =~ />/
+      if (totalValue + totalValueBonus) > diff
+        if critical
           resultString += " ＞ 自動成功(劇的成功)"
-        elsif(fumble)
+        elsif fumble
           resultString += " ＞ 自動失敗"
         else
           resultString += " ＞ 成功"
         end
       else
-        if(critical)
+        if critical
           resultString += " ＞ 自動成功"
-        elsif(fumble)
+        elsif fumble
           resultString += " ＞ 自動失敗(致命的失敗)"
         else
           resultString += " ＞ 失敗"

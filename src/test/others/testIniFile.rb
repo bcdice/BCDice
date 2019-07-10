@@ -19,7 +19,7 @@ class TestIniFile < Test::Unit::TestCase
   end
 
   def deleteIniFile
-    if( File.exist?(@testIniFileName) )
+    if File.exist?(@testIniFileName)
       File.delete(@testIniFileName)
     end
   end

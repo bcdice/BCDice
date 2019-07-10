@@ -67,14 +67,14 @@ INFO_MESSAGE_TEXT
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
     output =
-      if(dice_n <= 2)
+      if dice_n <= 2
         " ＞ ファンブル(判定失敗。山札から【狂気】を1枚獲得)"
-      elsif(dice_n >= 12)
+      elsif dice_n >= 12
         " ＞ スペシャル(判定成功。【生命力】1点か【正気度】1点回復)"
-      elsif(total_n >= diff)
+      elsif total_n >= diff
         " ＞ 成功"
       else
         " ＞ 失敗"

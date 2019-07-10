@@ -44,24 +44,24 @@ INFO_MESSAGE_TEXT
   end
 
   def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)# ゲーム別成功度判定(nD10)
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
-    if(total_n >= 11)
+    if total_n >= 11
       return " ＞ 大成功"
     end
 
-    if(total_n >= diff)
+    if total_n >= diff
       return " ＞ 成功"
     end
 
     #失敗パターン
 
-    if(n1 <= 0)
+    if n1 <= 0
       return " ＞ 失敗"
     end
 
     result = " ＞ 大失敗"
-    if( dice_cnt > 1 )
+    if dice_cnt > 1
       result += " ＞ 使用パーツ全損"
     end
 
@@ -73,7 +73,7 @@ INFO_MESSAGE_TEXT
 
     debug("nechronica_check string", string)
 
-    unless(/(^|\s)S?((\d+)[rR]10([\+\-\d]+)?(\[(\d+)\])?)(\s|$)/i =~ string)
+    unless /(^|\s)S?((\d+)[rR]10([\+\-\d]+)?(\[(\d+)\])?)(\s|$)/i =~ string
       debug("nechronica_check unmuched")
       return output
     end
@@ -82,7 +82,7 @@ INFO_MESSAGE_TEXT
     signOfInequality = ">="
 
     dice_n = 1
-    dice_n = $3.to_i if($3)
+    dice_n = $3.to_i if $3
 
     battleMode = $6.to_i
 
@@ -102,9 +102,9 @@ INFO_MESSAGE_TEXT
     total_n = n_max + mod
 
     output = "#{@nick_t}: (#{string}) ＞ [#{dice_str}]"
-    if(mod < 0)
+    if mod < 0
       output += mod.to_s
-    elsif(mod > 0)
+    elsif mod > 0
       output += "+#{mod}"
     end
 
@@ -114,8 +114,8 @@ INFO_MESSAGE_TEXT
     dice = dice_str.split(/,/).collect{|i|i.to_i}
     dice.length.times do |i|
       dice[i] += mod
-      n1 += 1 if(dice[i] <= 1)
-      cnt_max += 1 if(dice[i] >= 10)
+      n1 += 1 if dice[i] <= 1
+      cnt_max += 1 if dice[i] >= 10
     end
 
     dice_str = dice.join(",")
@@ -131,9 +131,9 @@ INFO_MESSAGE_TEXT
 #      output += " ＞ 損傷#{n1}"
 #    end
 
-    if( isBattleMode )
+    if isBattleMode
       hit_loc = getHitLocation(total_n)
-      if(hit_loc != '1')
+      if hit_loc != '1'
         output += " ＞ #{hit_loc}"
       end
     end
@@ -145,7 +145,7 @@ INFO_MESSAGE_TEXT
     output = '1'
 
     debug("getHitLocation dice", dice)
-    return output if(dice <= 5)
+    return output if dice <= 5
 
     output = ''
     table = [
@@ -159,7 +159,7 @@ INFO_MESSAGE_TEXT
     index = dice - 6
 
     addDamage = ""
-    if(dice > 10)
+    if dice > 10
       index = 5
       addDamage = "(追加ダメージ#{dice - 10})"
     end

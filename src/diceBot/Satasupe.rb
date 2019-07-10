@@ -53,12 +53,12 @@ INFO_MESSAGE_TEXT
     result = ''
 
     result = checkRoll(command)
-    return result unless(result.empty?)
+    return result unless result.empty?
 
     debug("判定ロールではなかった")
 
     result = check_seigou(command)
-    return result unless(result.empty?)
+    return result unless result.empty?
 
     debug("〔性業値〕チェックでもなかった")
 
@@ -69,7 +69,7 @@ INFO_MESSAGE_TEXT
   def checkRoll(string)
     debug("checkRoll begin string", string)
 
-    return '' unless(/^(\d+)R>=(\d+)(\[(\d+)?(,|,\d+)?(,\d+(S)?)?\])?$/i =~ string)
+    return '' unless /^(\d+)R>=(\d+)(\[(\d+)?(,|,\d+)?(,\d+(S)?)?\])?$/i =~ string
 
     roll_times = $1.to_i
     target = $2.to_i
@@ -79,25 +79,25 @@ INFO_MESSAGE_TEXT
 
     result = ""
 
-    if(target > 12 )
-      result  += "【#{string}】 ＞ 難易度が12を超えたため、超過分、ファンブル率が上昇！\n"
-      while(target > 12)
+    if target > 12
+      result += "【#{string}】 ＞ 難易度が12を超えたため、超過分、ファンブル率が上昇！\n"
+      while target > 12
         target = target - 1
         fumble = fumble + 1
       end
     end
 
-    if((critical < 1) || (critical > 12))
+    if (critical < 1) || (critical > 12)
       critical = 13
     end
 
-    if(fumble >= 6 )
+    if fumble >= 6
       result += "#{getJudgeInfo(target, fumble, critical)} ＞ ファンブル率が6を超えたため自動失敗！"
       return result
     end
 
-    if(target < 5 )
-      result  += "【#{string}】 ＞ あらゆる難易度は5未満にはならないため、難易度は5になる！\n"
+    if target < 5
+      result += "【#{string}】 ＞ あらゆる難易度は5未満にはならないため、難易度は5になる！\n"
       target = 5
     end
 
@@ -105,11 +105,11 @@ INFO_MESSAGE_TEXT
 
     result += "#{getJudgeInfo(target, fumble, critical)} ＞ #{dice_str} ＞ 成功度#{total_suc}"
 
-    if( isFumble )
+    if isFumble
       result += " ＞ ファンブル"
     end
 
-    if( isCritical && (total_suc > 0) )
+    if isCritical && (total_suc > 0)
       result += " ＞ 必殺発動可能！"
     end
 
@@ -124,11 +124,11 @@ INFO_MESSAGE_TEXT
   isCriticalStop = false
 
     # params => "[x,y,cS]"
-    unless( params.nil? )
-      if( /\[(\d*)(,(\d*)?)?(,(\d*)(S)?)?\]/ =~ params )
+    unless params.nil?
+      if /\[(\d*)(,(\d*)?)?(,(\d*)(S)?)?\]/ =~ params
         min_suc = $1.to_i
-        fumble = $3.to_i if( $3.to_i != 0 )
-        critical = $5.to_i if( $4 )
+        fumble = $3.to_i if $3.to_i != 0
+        critical = $5.to_i if $4
         isCriticalStop = !$6.nil?
       end
     end
@@ -155,8 +155,8 @@ INFO_MESSAGE_TEXT
       debug('roll_times', roll_times)
 
       debug('min_suc, total_suc', min_suc, total_suc)
-      if( min_suc != 0 )
-        if(total_suc >= min_suc)
+      if min_suc != 0
+        if total_suc >= min_suc
           debug('(total_suc >= min_suc) break')
           break
         end
@@ -166,23 +166,23 @@ INFO_MESSAGE_TEXT
       d2, = roll(1, 6)
 
       dice_suc = 0
-      dice_suc = 1 if(target <= (d1 + d2))
-      dice_str += "+" unless( dice_str.empty? )
+      dice_suc = 1 if target <= (d1 + d2)
+      dice_str += "+" unless dice_str.empty?
       dice_str += "#{dice_suc}[#{d1},#{d2}]"
       total_suc += dice_suc
 
-      if(critical <= d1+d2)
+      if critical <= d1+d2
         isCritical = true
         dice_str += "『必殺！』"
       end
 
-      if((d1 == d2) && (d1 <= fumble)) # ファンブルの確認
+      if (d1 == d2) && (d1 <= fumble) # ファンブルの確認
         isFumble = true
         isCritical = false
         break
       end
 
-      if(isCritical && isCriticalStop) #必殺止めの確認
+      if isCritical && isCriticalStop #必殺止めの確認
         break
       end
     end
@@ -193,7 +193,7 @@ INFO_MESSAGE_TEXT
   def check_seigou(string)
     debug("check_seigou begin string", string)
 
-    return '' unless(/^SR(\d+)(([+]|[-])(\d+))?$/i =~ string)
+    return '' unless /^SR(\d+)(([+]|[-])(\d+))?$/i =~ string
 
     target = $1.to_i
     operator = $3
@@ -202,22 +202,22 @@ INFO_MESSAGE_TEXT
     dice,  = roll(2, 6)
     modify = 0
 
-    unless( operator.nil? )
-      modify = value  if( operator == "+")
-      modify = value * -1 if( operator == "-")
+    unless operator.nil?
+      modify = value if operator == "+"
+      modify = value * -1 if operator == "-"
     end
 
     diceTotal = dice + modify
 
     seigou = ""
-    seigou = "「激」" if(target < diceTotal)
-    seigou = "「迷」" if(target == diceTotal)
-    seigou = "「律」" if(target > diceTotal)
+    seigou = "「激」" if target < diceTotal
+    seigou = "「迷」" if target == diceTotal
+    seigou = "「律」" if target > diceTotal
 
     result = "〔性業値〕#{target}、「修正値」#{modify} ＞ ダイス結果：（#{dice}） ＞ #{dice}＋（#{modify}）＝#{diceTotal} ＞ #{seigou}"
 
-    result += " ＞ 1ゾロのため〔性業値〕が1点上昇！" if( dice == 2 )
-    result += " ＞ 6ゾロのため〔性業値〕が1点減少！" if( dice == 12 )
+    result += " ＞ 1ゾロのため〔性業値〕が1点上昇！" if  dice == 2
+    result += " ＞ 6ゾロのため〔性業値〕が1点減少！" if  dice == 12
 
     debug( 'check_seigou result result', result )
     return result
@@ -230,11 +230,11 @@ INFO_MESSAGE_TEXT
     command = command.upcase
     result = []
 
-    return result unless( /([A-Za-z]+)(\d+)?(([+]|[-]|[=])(\d+))?/ === command )
+    return result unless /([A-Za-z]+)(\d+)?(([+]|[-]|[=])(\d+))?/ === command
 
     command = $1
     counts = 1
-    counts = $2.to_i if($2)
+    counts = $2.to_i if $2
     operator = $4
     value = $5.to_i
 
@@ -469,8 +469,8 @@ INFO_MESSAGE_TEXT
     result.push( partsEffect )
 
     text = "完成品：サタスペ  （ダメージ＋#{damage}・命中#{hit}・射撃、"
-    text += "「（判定前宣言）#{kutibeni}回だけ、必殺10」" if( kutibeni > 0 )
-    text += "「（判定前宣言）#{kiba}回だけ、ダメージ＋２」" if( kiba > 0 )
+    text += "「（判定前宣言）#{kutibeni}回だけ、必殺10」" if kutibeni > 0
+    text += "「（判定前宣言）#{kiba}回だけ、ダメージ＋２」" if kiba > 0
 
     text += abilities.sort.uniq.join
 
@@ -543,7 +543,7 @@ INFO_MESSAGE_TEXT
     result = []
 
     name, table = get2d6TableInfo(command)
-    return result if( name.empty? )
+    return result if name.empty?
 
     counts.times do |i|
       _, index = getTableIndex(operator, value, 2, 6)
@@ -569,7 +569,7 @@ INFO_MESSAGE_TEXT
       index = value
     end
 
-    if( index.nil? )
+    if index.nil?
       index, = roll(diceCount, diceType)
       index += modify
     end

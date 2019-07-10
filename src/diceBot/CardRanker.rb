@@ -35,13 +35,13 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    return '' unless( signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
-    if(dice_n <= 2)
+    if dice_n <= 2
       return " ＞ ファンブル"
-    elsif(dice_n >= 12)
+    elsif dice_n >= 12
       return " ＞ スペシャル ＞ " + getRandumMonster()
-    elsif(total_n >= diff)
+    elsif total_n >= diff
       return " ＞ 成功"
     else
       return " ＞ 失敗"
@@ -95,7 +95,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getMonster(color, monsterIndex)
-    return nil if( monsterIndex < 2 )
+    return nil if monsterIndex < 2
 
     type = "モンスター選択"
 
@@ -103,7 +103,7 @@ INFO_MESSAGE_TEXT
     colorIndex = colorWords.index(color)
     debug("colorIndex")
 
-    return nil if( colorIndex.nil? )
+    return nil if colorIndex.nil?
 
     colorTable = getColorTable
     color = colorTable[colorIndex]
@@ -113,7 +113,7 @@ INFO_MESSAGE_TEXT
     debug("monsterIndex", monsterIndex)
     monsterName = monsters[monsterIndex - 2]
 
-    return nil if( monsterName.nil? )
+    return nil if monsterName.nil?
 
     output = "#{type} ＞ #{color}の#{monsterIndex}：#{monsterName}"
     return output

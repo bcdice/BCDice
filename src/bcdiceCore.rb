@@ -122,7 +122,7 @@ class BCDice
   end
 
   def setDiceBot(diceBot)
-    return if( diceBot.nil? )
+    return if  diceBot.nil?
 
     @diceBot = diceBot
     @diceBot.bcdice = self
@@ -225,7 +225,7 @@ class BCDice
   def quit
     @ircClient.quit
 
-    if( @parent.quitFunction.nil? )
+    if @parent.quitFunction.nil?
       sleepForIrc( 3 )
       exit( 0 )
     else
@@ -288,7 +288,7 @@ class BCDice
   end
 
   def setMaster()
-    if( @parent.master != "" )
+    if @parent.master != ""
       setMasterWhenMasterAlreadySet()
     else
       setMasterWhenMasterYetSet()
@@ -296,7 +296,7 @@ class BCDice
   end
 
   def setMasterWhenMasterAlreadySet()
-    if( @nick_e == @parent.master )
+    if @nick_e == @parent.master
       setMasterByCurrentMasterOwnself()
     else
       sendMessageToOnlySender("Masterは#{@parent.master}さんになっています")
@@ -304,7 +304,7 @@ class BCDice
   end
 
   def setMasterByCurrentMasterOwnself()
-    if( @tnick != "" )
+    if @tnick != ""
       @parent.master = @tnick
       sendMessageToChannels("#{@parent.master}さんをMasterに設定しました")
     else
@@ -314,7 +314,7 @@ class BCDice
   end
 
   def setMasterWhenMasterYetSet()
-    if( @tnick != "" )
+    if @tnick != ""
       @parent.master = @tnick
     else
       @parent.master = @nick_e
@@ -332,9 +332,9 @@ class BCDice
   end
 
   def setDisplayMode()
-    return unless( isMaster() )
+    return unless  isMaster()
 
-    return unless( /(\d+)/ =~ @tnick )
+    return unless  /(\d+)/ =~ @tnick
 
     mode = $1.to_i
     @diceBot.setSendMode(mode)
@@ -343,13 +343,13 @@ class BCDice
   end
 
   def setUpplerRollThreshold()
-    return unless( isMaster() )
+    return unless  isMaster()
 
-    return unless( /(\d+)/ =~ @tnick )
+    return unless  /(\d+)/ =~ @tnick
 
     @diceBot.upplerRollThreshold = $1.to_i
 
-    if( @diceBot.upplerRollThreshold > 0 )
+    if @diceBot.upplerRollThreshold > 0
       sendMessageToChannels("上方無限ロールを#{@diceBot.upplerRollThreshold}以上に設定しました")
     else
       sendMessageToChannels("上方無限ロールの閾値設定を解除しました")
@@ -357,13 +357,13 @@ class BCDice
   end
 
   def setRerollLimit()
-    return unless( isMaster() )
+    return unless  isMaster()
 
-    return unless( /(\d+)/ =~ @tnick )
+    return unless  /(\d+)/ =~ @tnick
 
     @diceBot.rerollLimitCount = $1.to_i
 
-    if(@diceBot.rerollLimitCount > 0)
+    if @diceBot.rerollLimitCount > 0
       sendMessageToChannels("個数振り足しロール回数を#{@diceBot.rerollLimitCount}以下に設定しました")
     else
       sendMessageToChannels("個数振り足しロールの回数を無限に設定しました")
@@ -371,23 +371,23 @@ class BCDice
   end
 
   def setRatingTable()
-    return unless( isMaster() )
+    return unless isMaster()
 
     output = @diceBot.setRatingTable(@tnick)
-    return if( output == '1' )
+    return if output == '1'
 
     sendMessageToChannels(output)
   end
 
   def setSortMode()
-    return unless( isMaster() )
+    return unless  isMaster()
 
-    return unless( /(\d+)/ =~ @tnick )
+    return unless  /(\d+)/ =~ @tnick
 
     sortType = $1.to_i
     @diceBot.setSortType(sortType)
 
-    if( @diceBot.sortType != 0 )
+    if @diceBot.sortType != 0
       sendMessageToChannels("ソート有りに変更しました")
     else
       sendMessageToChannels("ソート無しに変更しました")
@@ -395,19 +395,19 @@ class BCDice
   end
 
   def setCardMode()
-    return unless( isMaster() )
+    return unless isMaster()
 
     @cardTrader.setCardMode()
   end
 
   def setSpellMode()
-    return unless( isMaster() )
+    return unless  isMaster()
 
-    return unless( /(\d+)/ =~ @tnick )
+    return unless  /(\d+)/ =~ @tnick
 
     @isShortSpell = ($1.to_i != 0 )
 
-    if( @isShortSpell )
+    if @isShortSpell
       sendMessageToChannels("短い呪文モードに変更しました")
     else
       sendMessageToChannels("通常呪文モードに変更しました")
@@ -415,13 +415,13 @@ class BCDice
   end
 
   def setTapMode()
-    return unless( isMaster() )
+    return unless  isMaster()
 
-    return unless( /(\d+)/  =~ @tnick )
+    return unless  /(\d+)/ =~ @tnick
 
     @canTapCard = ($1.to_i != 0)
 
-    if( @canTapCard )
+    if @canTapCard
       sendMessageToChannels("タップ可能モードに変更しました")
     else
       sendMessageToChannels("タップ不可モードに変更しました")
@@ -429,7 +429,7 @@ class BCDice
   end
 
   def readCardSet()
-    return unless( isMaster() )
+    return unless isMaster()
 
     @cardTrader.readCardSet()
   end
@@ -438,7 +438,7 @@ class BCDice
     arg = @messages
     debug("executePointCounter arg", arg)
 
-    unless(arg =~ /^#/)
+    unless arg =~ /^#/
       debug("executePointCounter is NOT matched")
       return
     end
@@ -446,12 +446,12 @@ class BCDice
     channel = getPrintPlotChannel(@nick_e)
     debug("getPrintPlotChannel get channel", channel)
 
-    if( channel == "1")
+    if channel == "1"
       sendMessageToOnlySender("表示チャンネルが登録されていません")
       return
     end
 
-    arg += "->#{@tnick}" unless( @tnick.empty? )
+    arg += "->#{@tnick}" unless @tnick.empty?
 
     pointerMode = :sameNick
     output, pointerMode = countHolder.executeCommand(arg, @nick_e, channel, pointerMode)
@@ -459,7 +459,7 @@ class BCDice
     debug("output", output)
     debug("pointerMode", pointerMode)
 
-    if( output == "1" )
+    if output == "1"
       debug("executePointCounter point_counter_command output is \"1\"")
       return
     end
@@ -479,7 +479,7 @@ class BCDice
   def addPlot(arg)
     debug("addPlot begin arg", arg)
 
-    unless(/#{$ADD_PLOT}[:：](.+)/i =~ arg)
+    unless /#{$ADD_PLOT}[:：](.+)/i =~ arg
       debug("addPlot exit")
       return
     end
@@ -489,7 +489,7 @@ class BCDice
 
     debug('addPlot channel', channel)
 
-    if( channel.nil? )
+    if channel.nil?
       debug('channel.nil?')
       sendMessageToOnlySender("プロット出力先が登録されていません")
     else
@@ -505,7 +505,7 @@ class BCDice
   end
 
   def checkMode()
-    return unless( isMaster() )
+    return unless isMaster()
 
     output = "GameType = " + @diceBot.gameType + ", ViewMode = " + @diceBot.sendMode + ", Sort = " + @diceBot.sortType
     sendMessageToOnlySender(output)
@@ -595,13 +595,13 @@ class BCDice
     setChannelForPlotOrSecretDice
 
     #プロットの表示
-    if(/(^|\s+)#{$OPEN_PLOT}(\s+|$)/i =~ @message)
+    if /(^|\s+)#{$OPEN_PLOT}(\s+|$)/i =~ @message
       debug('print plot', @message)
       printPlot()
     end
 
     # シークレットロールの表示
-    if(/(^|\s+)#{$OPEN_DICE}(\s+|$)/i =~ @message)
+    if /(^|\s+)#{$OPEN_DICE}(\s+|$)/i =~ @message
       debug('print secret roll', @message)
       printSecretRoll()
     end
@@ -613,9 +613,9 @@ class BCDice
     executeDiceRoll
 
     # 四則計算代行
-    if(/(^|\s)C([-\d]+)\s*$/i =~ @message)
+    if /(^|\s)C([-\d]+)\s*$/i =~ @message
       output = $2
-      if( output != "" )
+      if output != ""
         sendMessage(@channel, "#{@nick_e}: 計算結果 ＞ #{output}")
       end
     end
@@ -626,7 +626,7 @@ class BCDice
     # カード処理
     executeCard
 
-    unless( @isMessagePrinted ) # ダイスロール以外の発言では捨てダイス処理を
+    unless @isMessagePrinted # ダイスロール以外の発言では捨てダイス処理を
       # rand 100 if($isRollVoidDiceAtAnyRecive)
     end
 
@@ -639,7 +639,7 @@ class BCDice
     debug("messageList", messageList)
 
     messageList.each do |message|
-      if( message.empty?)
+      if message.empty?
         debug("message is empty")
         setPrintPlotChannel
       else
@@ -653,10 +653,10 @@ class BCDice
   def setChannelForPlotOrSecretDice
     debug("setChannelForPlotOrSecretDice Begin")
 
-    return if( isTalkChannel )
+    return if isTalkChannel
 
     channel = getPrintPlotChannel(@nick_e)
-    if( channel.nil? )
+    if channel.nil?
       setPrintPlotChannel
     end
   end
@@ -669,7 +669,7 @@ class BCDice
     outputs = openSecretRoll(@channel, 0)
 
     outputs.each do |diceResult|
-      next if( diceResult.empty?)
+      next if diceResult.empty?
 
       sendMessage(@channel, diceResult)
       sleepForIrc 1
@@ -679,13 +679,13 @@ class BCDice
   def executePointCounterPublic
     debug("executePointCounterPublic begin")
 
-    if(/^#{$READY_CMD}(\s+|$)/i =~ @message)
+    if /^#{$READY_CMD}(\s+|$)/i =~ @message
       setPrintPlotChannel
       sendMessageToOnlySender("表示チャンネルを設定しました")
       return
     end
 
-    unless( /^#/ =~ @message)
+    unless /^#/ =~ @message
       debug("executePointCounterPublic NOT match")
       return
     end
@@ -695,12 +695,12 @@ class BCDice
     output, secret = countHolder.executeCommand(@message, @nick_e, @channel, pointerMode)
     debug("executePointCounterPublic output, secret", output, secret)
 
-    if( secret )
+    if secret
       debug("is secret")
-      sendMessageToOnlySender(output) if(output != "1")
+      sendMessageToOnlySender(output) if output != "1"
     else
       debug("is NOT secret")
-      sendMessage(@channel, output) if(output != "1")
+      sendMessage(@channel, output) if output != "1"
     end
   end
 
@@ -710,22 +710,22 @@ class BCDice
 
     output, secret = dice_command
 
-    unless( secret )
+    unless  secret
       debug("executeDiceRoll @channel", @channel)
-      sendMessage(@channel,  output) if(output != "1")
+      sendMessage(@channel,  output) if output != "1"
       return
     end
 
     # 隠しロール
-    return if( output == "1" )
+    return if output == "1"
 
-    if( @isTest )
+    if @isTest
       output += "###secret dice###"
     end
 
     broadmsg(output, @nick_e)
 
-    if( @isKeepSecretDice )
+    if @isKeepSecretDice
       addToSecretDiceResult(output, @channel, 0)
     end
   end
@@ -755,28 +755,28 @@ class BCDice
     debug('dice_command arg', arg)
 
     output, secret = @diceBot.dice_command(@message, @nick_e)
-    return output, secret if( output != '1' )
+    return output, secret if output != '1'
 
     output, secret = rollD66(arg)
-    return output, secret unless( output.nil? )
+    return output, secret unless output.nil?
 
     output, secret = checkAddRoll(arg)
-    return output, secret unless( output.nil? )
+    return output, secret unless output.nil?
 
     output, secret = checkBDice(arg)
-    return output, secret unless( output.nil? )
+    return output, secret unless output.nil?
 
     output, secret = checkRnDice(arg)
-    return output, secret unless( output.nil? )
+    return output, secret unless output.nil?
 
     output, secret = checkUpperRoll(arg)
-    return output, secret unless( output.nil? )
+    return output, secret unless output.nil?
 
     output, secret = checkChoiceCommand(arg)
-    return output, secret unless( output.nil? )
+    return output, secret unless output.nil?
 
     output, secret = getTableDataResult(arg)
-    return output, secret unless( output.nil? )
+    return output, secret unless output.nil?
 
     output = '1'
     secret = false
@@ -788,7 +788,7 @@ class BCDice
 
     dice = AddDice.new(self, @diceBot)
     output = dice.rollDice(arg)
-    return nil if(output == '1')
+    return nil if output == '1'
 
     secret = ( /S[-\d]+D[\d+-]+/ === arg )
 
@@ -799,7 +799,7 @@ class BCDice
     debug("check barabara roll")
 
     output = bdice(arg)
-    return nil if(output == '1')
+    return nil if output == '1'
 
     secret = (/S[\d]+B[\d]+/i === arg)
 
@@ -809,19 +809,19 @@ class BCDice
   def checkRnDice(arg)
     debug('check xRn roll arg', arg)
 
-    return nil unless( /(S)?[\d]+R[\d]+/i === arg)
+    return nil unless /(S)?[\d]+R[\d]+/i === arg
 
     secret = !$1.nil?
 
     output = @diceBot.dice_command_xRn(arg, @nick_e)
-    return nil if( output.nil? || (output == '1') )
+    return nil if  output.nil? || (output == '1')
 
-    if( output.empty? )
+    if output.empty?
       dice = RerollDice.new(self, @diceBot)
       output = dice.rollDice(arg)
     end
 
-    return nil if( output.nil? || (output == '1') )
+    return nil if output.nil? || (output == '1')
 
     debug('xRn output', output)
 
@@ -831,13 +831,13 @@ class BCDice
   def checkUpperRoll(arg)
     debug("check upper roll")
 
-    return nil unless(/(S)?[\d]+U[\d]+/i === arg)
+    return nil unless /(S)?[\d]+U[\d]+/i === arg
 
     secret = !$1.nil?
 
     dice = UpperDice.new(self, @diceBot)
     output = dice.rollDice(arg)
-    return nil if(output == '1')
+    return nil if output == '1'
 
     return output, secret
   end
@@ -845,7 +845,7 @@ class BCDice
   def checkChoiceCommand(arg)
     debug("check choice command")
 
-    return nil unless(/((^|\s)(S)?choice\[[^,]+(,[^,]+)+\]($|\s))/i === arg)
+    return nil unless /((^|\s)(S)?choice\[[^,]+(,[^,]+)+\]($|\s))/i === arg
 
     secret = !$3.nil?
     output = choice_random($1)
@@ -859,7 +859,7 @@ class BCDice
   end
 
   def getTableIndexDiceValueAndDiceText(dice)
-    if( /(\d+)D(\d+)/i === dice )
+    if /(\d+)D(\d+)/i === dice
       diceCount = $1
       diceType = $2
       value, diceText = roll(diceCount, diceType)
@@ -867,7 +867,7 @@ class BCDice
     end
 
     string, secret, count, swapMarker = getD66Infos(dice)
-    unless( string.nil? )
+    unless  string.nil?
       value = getD66ValueByMarker(swapMarker)
       diceText = (value / 10).to_s + "," + (value % 10).to_s
       return value, diceText
@@ -909,18 +909,18 @@ class BCDice
 
     #dice_add = 0 if( ! dice_add )
 
-    if( (@diceBot.d66Type != 0) && (dice_max == 66) )
+    if (@diceBot.d66Type != 0) && (dice_max == 66)
       dice_sort = 0
       dice_cnt = 2
       dice_max = 6
     end
 
-    if( @diceBot.isD9 && (dice_max == 9))
+    if @diceBot.isD9 && (dice_max == 9)
       d9_on = true
       dice_max += 1
     end
 
-    unless( (dice_cnt <= $DICE_MAXCNT) && (dice_max <= $DICE_MAXNUM) )
+    unless (dice_cnt <= $DICE_MAXCNT) && (dice_max <= $DICE_MAXNUM)
       return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, rerollCount
     end
 
@@ -932,19 +932,19 @@ class BCDice
       round = 0
 
       loop do
-        if( round >= 1 )
+        if round >= 1
           # 振り足し時のダイス読み替え処理用（ダブルクロスはクリティカルでダイス10に読み替える)
           dice_now += @diceBot.getJackUpValueOnAddRoll(dice_n)
         end
 
         dice_n = rand(dice_max).to_i + 1
-        dice_n -=1 if( d9_on )
+        dice_n -=1 if d9_on
 
         dice_now += dice_n
 
         debug('@diceBot.sendMode', @diceBot.sendMode)
-        if( @diceBot.sendMode >= 2 )
-          dice_st_n += "," unless( dice_st_n.empty? )
+        if @diceBot.sendMode >= 2
+          dice_st_n += "," unless dice_st_n.empty?
           dice_st_n += dice_n.to_s
         end
         round += 1
@@ -954,27 +954,27 @@ class BCDice
 
       total += dice_now
 
-      if( dice_ul != '' )
+      if dice_ul != ''
         suc = check_hit(dice_now, dice_ul, dice_diff)
         cnt_suc += suc
       end
 
-      if( dice_re )
-        rerollCount += 1 if(dice_now >= dice_re)
+      if dice_re
+        rerollCount += 1 if dice_now >= dice_re
       end
 
-      if( (@diceBot.sendMode >= 2) && (round >= 2) )
+      if (@diceBot.sendMode >= 2) && (round >= 2)
         dice_result.push( "#{dice_now}[#{dice_st_n}]" )
       else
         dice_result.push( dice_now )
       end
 
-      numberSpot1 += 1 if( dice_now == 1 )
-      cnt_max += 1 if( dice_now == dice_max )
-      n_max = dice_now if( dice_now > n_max)
+      numberSpot1 += 1 if dice_now == 1
+      cnt_max += 1 if  dice_now == dice_max
+      n_max = dice_now if dice_now > n_max
     end
 
-    if( dice_sort != 0 )
+    if dice_sort != 0
       dice_str = dice_result.sort_by{|a| dice_num(a)}.join(",")
     else
       dice_str = dice_result.join(",")
@@ -991,13 +991,13 @@ class BCDice
     debug('rand called @rands', @rands)
 
     value = 0
-    if( @rands.nil? )
+    if @rands.nil?
       value = randNomal(max)
     else
       value = randFromRands(max)
     end
 
-    unless( @randResults.nil? )
+    unless @randResults.nil?
       @randResults << [(value + 1), max]
     end
 
@@ -1005,7 +1005,7 @@ class BCDice
   end
 
   def setCollectRandResult(b)
-    if( b )
+    if b
       @randResults = []
     else
       @randResults = nil
@@ -1023,7 +1023,7 @@ class BCDice
   def randFromRands(targetMax)
     nextRand = @rands.shift
 
-    if( nextRand.nil? )
+    if nextRand.nil?
       #return randNomal(targetMax)
       raise "nextRand is nil, so @rands is empty!! @rands:#{@rands.inspect}"
     end
@@ -1032,7 +1032,7 @@ class BCDice
     value = value.to_i
     max = max.to_i
 
-    if( max != targetMax )
+    if  max != targetMax
       #return randNomal(targetMax)
       raise "invalid max value! [ #{value} / #{max} ] but NEED [ #{targetMax} ] dice"
     end
@@ -1059,17 +1059,17 @@ class BCDice
 
     string = string.gsub(/-[\d]+B[\d]+/, '') # バラバラダイスを引き算しようとしているのを除去
 
-    unless( /(^|\s)S?(([\d]+B[\d]+(\+[\d]+B[\d]+)*)(([<>=]+)([\d]+))?)($|\s)/ =~ string )
+    unless /(^|\s)S?(([\d]+B[\d]+(\+[\d]+B[\d]+)*)(([<>=]+)([\d]+))?)($|\s)/ =~ string
       output = '1'
       return output
     end
 
     string = $2
-    if( $5 )
+    if $5
       diff = $7.to_i
       string = $3
       signOfInequality = marshalSignOfInequality( $6 )
-    elsif( /([<>=]+)(\d+)/ =~ @diceBot.defaultSuccessTarget )
+    elsif  /([<>=]+)(\d+)/ =~ @diceBot.defaultSuccessTarget
       diff = $2.to_i
       signOfInequality = marshalSignOfInequality($1)
     end
@@ -1085,13 +1085,13 @@ class BCDice
 
       dice_dat = roll(dice_cnt, dice_max, (@diceBot.sortType & 2), 0, signOfInequality, diff)
       suc += dice_dat[5]
-      output += "," if(output != "")
+      output += "," if output != ""
       output += dice_dat[1]
       numberSpot1 += dice_dat[2]
       dice_cnt_total += dice_cnt
     end
 
-    if(signOfInequality != "")
+    if signOfInequality != ""
       string += "#{signOfInequality}#{diff}"
       output = "#{output} ＞ 成功数#{suc}"
       output += @diceBot.getGrichText(numberSpot1, dice_cnt_total, suc)
@@ -1108,8 +1108,8 @@ class BCDice
 
   ####################             D66ダイス        ########################
   def rollD66(string)
-    return nil unless( /^S?D66/i === string )
-    return nil if(@diceBot.d66Type == 0)
+    return nil unless /^S?D66/i === string
+    return nil if @diceBot.d66Type == 0
 
     debug("match D66 roll")
     output, secret = d66dice(string)
@@ -1123,7 +1123,7 @@ class BCDice
     output = '1'
 
     string, secret, count, swapMarker = getD66Infos(string)
-    return output, secret if( string.nil? )
+    return output, secret if string.nil?
 
     debug('d66dice count', count)
 
@@ -1142,7 +1142,7 @@ class BCDice
   def getD66Infos(string)
     debug("getD66Infos, string", string)
 
-    return nil unless(/(^|\s)(S)?((\d+)?D66(N|S)?)(\s|$)/i === string)
+    return nil unless /(^|\s)(S)?((\d+)?D66(N|S)?)(\s|$)/i === string
 
     secret = !$2.nil?
     string = $3
@@ -1180,7 +1180,7 @@ class BCDice
     debug("dice_a", dice_a)
     debug("dice_b", dice_b)
 
-    if( isSwap && (dice_a > dice_b))
+    if isSwap && (dice_a > dice_b)
       # 大小でスワップするタイプ
       output = dice_a + dice_b * 10
     else
@@ -1203,7 +1203,7 @@ class BCDice
     memberKey = getSecretRollMembersHolderKey(channel, mode)
     members = $secretRollMembersHolder[memberKey]
 
-    if( members.nil? )
+    if members.nil?
       debug("openSecretRoll members is nil. messages", messages)
       return messages
     end
@@ -1215,13 +1215,13 @@ class BCDice
       diceResult = $secretDiceResultHolder[diceResultKey]
       debug("openSecretRoll diceResult", diceResult)
 
-      if( diceResult )
+      if diceResult
         messages.push( diceResult )
         $secretDiceResultHolder.delete(diceResultKey)
       end
     end
 
-    if(mode <= 0) # 記録しておいたデータを削除
+    if mode <= 0 # 記録しておいたデータを削除
       debug("delete recorde data")
       $secretRollMembersHolder.delete(channel)
     end
@@ -1262,7 +1262,7 @@ class BCDice
 
     nick = getNick()
 
-    unless( members.include?(nick) )
+    unless members.include?(nick)
       members.push(nick)
     end
   end
@@ -1274,7 +1274,7 @@ class BCDice
   def saveSecretDiceResult(diceResult, channel, mode)
     nick = getNick()
 
-    if( mode != 0 )
+    if mode != 0
       diceResult = "#{nick}: #{diceResult}" # プロットにNickを追加
     end
 
@@ -1301,14 +1301,14 @@ class BCDice
   def choice_random(string)
     output = "1"
 
-    unless(/(^|\s)((S)?choice\[([^,]+(,[^,]+)+)\])($|\s)/i =~ string)
+    unless /(^|\s)((S)?choice\[([^,]+(,[^,]+)+)\])($|\s)/i =~ string
       return output
     end
 
     string = $2
     targetList = $4
 
-    unless(targetList)
+    unless targetList
       return output
     end
 
@@ -1324,7 +1324,7 @@ class BCDice
   #**                            結果判定関連
   #==========================================================================
   def getMarshaledSignOfInequality(text)
-    return "" if( text.nil? )
+    return "" if text.nil?
 
     return marshalSignOfInequality(text)
   end
@@ -1351,8 +1351,8 @@ class BCDice
   def check_hit(dice_now, signOfInequality, diff) # 成功数判定用
     suc = 0
 
-    if( diff.is_a?(String) )
-      unless( /\d/ =~ diff )
+    if  diff.is_a?(String)
+      unless /\d/ =~ diff
         return suc
       end
 
@@ -1361,27 +1361,27 @@ class BCDice
 
     case signOfInequality
     when /(<=|=<)/
-      if( dice_now <= diff)
+      if dice_now <= diff
         suc += 1
       end
     when /(>=|=>)/
-      if( dice_now >= diff)
+      if dice_now >= diff
         suc += 1
       end
     when /(<>)/
-      if(dice_now != diff)
+      if dice_now != diff
         suc += 1
       end
     when /[<]+/
-      if(dice_now < diff)
+      if dice_now < diff
         suc += 1
       end
     when /[>]+/
-      if(dice_now > diff)
+      if dice_now > diff
         suc += 1
       end
     when /[=]+/
-      if(dice_now == diff)
+      if dice_now == diff
         suc += 1
       end
     end
@@ -1396,7 +1396,7 @@ class BCDice
     debug('check params : total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max',
           total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
-    return "" unless(/((\+|\-)?[\d]+)[)]?$/ =~ total_n.to_s)
+    return "" unless /((\+|\-)?[\d]+)[)]?$/ =~ total_n.to_s
 
     total_n = $1.to_i
     diff = diff.to_i
@@ -1406,8 +1406,8 @@ class BCDice
     text = getSuccessText(*check_paramNew)
     text ||= ""
 
-    if( text.empty? )
-      if( signOfInequality != "" )
+    if text.empty?
+      if signOfInequality != ""
         debug('どれでもないけど判定するとき')
         return check_nDx(*check_param)
       end
@@ -1423,26 +1423,26 @@ class BCDice
 
     debug("dice_max, dice_cnt", dice_max, dice_cnt)
 
-    if((dice_max == 100) && (dice_cnt == 1))
+    if (dice_max == 100) && (dice_cnt == 1)
       debug('1D100判定')
       return @diceBot.check_1D100(*check_param)
     end
 
-    if((dice_max == 20) && (dice_cnt == 1))
+    if (dice_max == 20) && (dice_cnt == 1)
       debug('1d20判定')
       return @diceBot.check_1D20(*check_param)
     end
 
-    if(dice_max == 10)
+    if dice_max == 10
       debug('d10ベース判定')
       return @diceBot.check_nD10(*check_param)
     end
 
-    if(dice_max == 6)
-      if(dice_cnt == 2)
+    if dice_max == 6
+      if dice_cnt == 2
         debug('2d6判定')
         result = @diceBot.check_2D6(*check_param)
-        return result unless( result.empty? )
+        return result unless result.empty?
       end
 
       debug('xD6判定')
@@ -1457,7 +1457,7 @@ class BCDice
     success = check_hit(total_n, signOfInequality, diff)
     debug('check_nDx success', success)
 
-    if(success >= 1)
+    if success >= 1
       return " ＞ 成功"
     end
 
@@ -1472,11 +1472,11 @@ class BCDice
     debug("broadmsg output, nick", output, nick)
     debug("@nick_e", @nick_e)
 
-    if(output == "1")
+    if output == "1"
       return
     end
 
-    if( nick == @nick_e )
+    if  nick == @nick_e
       sendMessageToOnlySender(output) #encode($ircCode, output))
     else
       sendMessage(nick, output)
@@ -1505,19 +1505,19 @@ class BCDice
   def parren_killer(string)
     debug("parren_killer input", string)
 
-    while( /^(.*?)\[(\d+[Dd]\d+)\](.*)/ =~ string )
+    while /^(.*?)\[(\d+[Dd]\d+)\](.*)/ =~ string
       str_before = ""
       str_after = ""
       dice_cmd = $2
-      str_before = $1 if($1)
-      str_after = $3 if($3)
+      str_before = $1 if $1
+      str_after = $3 if $3
       rolled, dmy = rollDiceAddingUp(dice_cmd)
       string = "#{str_before}#{rolled}#{str_after}"
     end
 
     string = changeRangeTextToNumberText(string)
 
-    while(/^(.*?)(\([\d\/*+-]+?\))(.*)/ =~ string)
+    while /^(.*?)(\([\d\/*+-]+?\))(.*)/ =~ string
       debug("while string", string)
 
       str_a = $3
@@ -1533,18 +1533,18 @@ class BCDice
       par_o = paren_k(par_i)
       debug("par_o", par_o)
 
-      if(par_o != 0)
-        if(par_o < 0)
-          if(/(.+?)(\+)$/ =~ str_b)
+      if par_o != 0
+        if par_o < 0
+          if /(.+?)(\+)$/ =~ str_b
             str_b = $1
-          elsif(/(.+?)(-)$/ =~ str_b)
+          elsif /(.+?)(-)$/ =~ str_b
             str_b = "#{$1}+"
             par_o = par_o * -1
           end
         end
         string = "#{str_b}#{par_o}#{str_a}"
       else
-        if(/^([DBRUdbru][\d]+)(.*)/ =~ $str_a)
+        if /^([DBRUdbru][\d]+)(.*)/ =~ $str_a
           str_a = $2
         end
         string = "#{str_b}0#{str_a}"
@@ -1571,7 +1571,7 @@ class BCDice
   def changeRangeTextToNumberText(string)
     debug('[st...ed] before string', string)
 
-    while(/^(.*?)\[(\d+)[.]{3}(\d+)\](.*)/ =~ string )
+    while /^(.*?)\[(\d+)[.]{3}(\d+)\](.*)/ =~ string
       beforeText = $1
       beforeText ||= ""
 
@@ -1581,7 +1581,7 @@ class BCDice
       afterText = $4
       afterText ||= ""
 
-      if(rangeBegin < rangeEnd)
+      if rangeBegin < rangeEnd
         range = (rangeEnd - rangeBegin + 1)
         debug('range', range)
 
@@ -1670,12 +1670,12 @@ class BCDice
     debug("paren_k_multi Begin string", string)
     multi = 1
 
-    while(/(.*?)(\*[-\d]+)(.*)/ =~ string)
+    while /(.*?)(\*[-\d]+)(.*)/ =~ string
       before = $1
       after = $3
       calculate_text = $2
       string = "#{before}#{after}"
-      if(/([-\d]+)/ =~ calculate_text)
+      if /([-\d]+)/ =~ calculate_text
         multi = multi * $1.to_i
       end
     end
@@ -1690,12 +1690,12 @@ class BCDice
   def paren_k_devide(string)
     divide = 1
 
-    while(/(.*?)(\/[-\d]+)(.*)/ =~ string)
+    while /(.*?)(\/[-\d]+)(.*)/ =~ string
       before = $1
       after = $3
       calculate_text = $2
       string = "#{before}#{after}"
-      if(/([-\d]+)/ =~ calculate_text)
+      if /([-\d]+)/ =~ calculate_text
         divide = divide * $1.to_i
       end
     end
@@ -1706,8 +1706,8 @@ class BCDice
   def calculate_multiple_divide(string, multi, divide)
     result = 0
 
-    return result if( divide == 0 )
-    return result unless(/([-\d]+)/ =~ string)
+    return result if divide == 0
+    return result unless /([-\d]+)/ =~ string
 
     work = $1.to_i * multi
 
@@ -1753,7 +1753,7 @@ class BCDice
   end
 
   def sleepForIrc(second)
-    if( @isIrcMode  )
+    if @isIrcMode
       sleep( second )
     end
   end

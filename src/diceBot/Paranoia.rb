@@ -51,7 +51,7 @@ MESSAGETEXT
     result += "幸福ですか？ ＞ "
 
     getaString = ''
-    case(diceList[0])
+    case (diceList[0])
       when 1
         getaString = '幸福です'
       when 2

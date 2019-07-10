@@ -84,7 +84,7 @@ MESSAGETEXT
 
     text = getTableValue(table[index])
 
-    return nil if( text.nil? )
+    return nil if text.nil?
 
     return text, number1, number2
   end

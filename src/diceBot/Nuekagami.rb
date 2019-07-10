@@ -37,7 +37,7 @@ MESSAGETEXT
         get_table_by_nDx(table, 1, 20)
       end
 
-    return nil if( text.nil? )
+    return nil if text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end

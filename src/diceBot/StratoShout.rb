@@ -50,11 +50,11 @@ INFO_MESSAGE_TEXT
 
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     return '' unless signOfInequality == ">="
-    if(dice_n <= 2)
+    if dice_n <= 2
       return " ＞ ファンブル！ (ドラマフェイズ: 【ディスコード】+2 / ライブフェイズ: 【コンディション】-2)"
-    elsif(dice_n >= 12)
+    elsif dice_n >= 12
       return " ＞ スペシャル！ (【コンディション】+2)"
-    elsif(total_n >= diff)
+    elsif total_n >= diff
       return " ＞ 成功"
     else
       return " ＞ 失敗"

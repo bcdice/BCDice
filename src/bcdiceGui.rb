@@ -83,7 +83,7 @@ class BCDiceDialog < Wx::Dialog
     argsAnalizer.analize
 
     @ircBot = nil
-    unless( argsAnalizer.isStartIrc )
+    unless  argsAnalizer.isStartIrc
       @ircBot = getInitializedIrcBot()
       setAllGames(@ircBot)
       destroy
@@ -127,7 +127,7 @@ class BCDiceDialog < Wx::Dialog
     serverSetNameList = []
 
     sectionNames.each do |name|
-      if( /#{@@serverSertPrefix}(.+)/ === name )
+      if /#{@@serverSertPrefix}(.+)/ === name
         serverSetNameList << $1
       end
     end
@@ -154,7 +154,7 @@ class BCDiceDialog < Wx::Dialog
 
   def loadTextValueFromIniFile(section, key, input)
     value = @iniFile.read(section, key)
-    return if( value.nil? )
+    return if value.nil?
 
     input.set_value( value )
   end
@@ -167,7 +167,7 @@ class BCDiceDialog < Wx::Dialog
 
   def loadChoiseValueFromIniFile(section, key, choise)
     value = @iniFile.read(section, key)
-    return if( value.nil? )
+    return if value.nil?
 
     setChoiseText(choise, value)
   end
@@ -223,13 +223,13 @@ class BCDiceDialog < Wx::Dialog
   end
 
   def addCtrl(ctrl, labelText = nil, *addCtrls)
-    if( labelText.nil? )
+    if  labelText.nil?
       @allBox.add(ctrl, 0, Wx::ALL, 2)
       return ctrl
     end
 
     ctrls = []
-    unless( labelText.nil? )
+    unless  labelText.nil?
       label = createLabel(labelText)
       ctrls << label
     end
@@ -279,7 +279,7 @@ class BCDiceDialog < Wx::Dialog
   def setChoiseText(choise, text)
     index = choise.find_string(text)
 
-    if( index == -1 )
+    if index == -1
       index = 0
     end
 
@@ -291,7 +291,7 @@ class BCDiceDialog < Wx::Dialog
   end
 
   def onChoiseGame
-    return if( @ircBot.nil? )
+    return if @ircBot.nil?
 
     @ircBot.setGameByTitle( @gameType.get_string_selection )
   end
@@ -317,7 +317,7 @@ class BCDiceDialog < Wx::Dialog
     end
 
     found = @@characterCodeInfo.find{|key, value| value == $ircCode}
-    unless( found.nil? )
+    unless  found.nil?
       codeText = found.first
       setChoiseText(@characterCode, codeText)
     end
@@ -476,7 +476,7 @@ class BCDiceDialog < Wx::Dialog
   end
 
   def on_stop
-    return if( @ircBot.nil? )
+    return if @ircBot.nil?
 
     @ircBot.quit
 
@@ -494,7 +494,7 @@ class BCDiceDialog < Wx::Dialog
 
   def loadSaveData
     serverName = @iniFile.read("default", "serverSet")
-    if( serverName.nil? )
+    if serverName.nil?
       @serverSetChoise.set_selection(0)
     else
       setChoiseText(@serverSetChoise, serverName)

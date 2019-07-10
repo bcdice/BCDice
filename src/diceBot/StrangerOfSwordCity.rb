@@ -37,7 +37,7 @@ INFO_MESSAGE_TEXT
     result = ''
 
     result = checkRoll(command)
-    return result unless(result.empty?)
+    return result unless result.empty?
 
     return result
   end
@@ -46,7 +46,7 @@ INFO_MESSAGE_TEXT
     debug("checkRoll begin command", command)
 
     result = ''
-    return result unless(/^(\d+)SR([\+\-]?\d+)?(>=(\d+))?$/i === command)
+    return result unless /^(\d+)SR([\+\-]?\d+)?(>=(\d+))?$/i === command
 
     diceCount = $1.to_i
     modify = $2.to_i
@@ -78,7 +78,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getModifyText(modify)
-    return "" if( modify == 0 )
+    return "" if modify == 0
     return modify.to_s if modify < 0
 
     return "+#{modify}"

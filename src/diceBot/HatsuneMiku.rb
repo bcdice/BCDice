@@ -43,7 +43,7 @@ INFO_MESSAGE_TEXT
 
   def rollDiceCommand(command)
     text = judgeRoll(command)
-    return text unless( text.nil? )
+    return text unless text.nil?
 
     string = command.upcase
 
@@ -56,7 +56,7 @@ INFO_MESSAGE_TEXT
   end
 
   def judgeRoll(command)
-    return nil unless( /^(R([A-DS]|\d+)([\+\-\d,]*))(@(\d))?((>(=)?)([\+\-\d]*))?(@(\d))?$/i =~ command )
+    return nil unless /^(R([A-DS]|\d+)([\+\-\d,]*))(@(\d))?((>(=)?)([\+\-\d]*))?(@(\d))?$/i =~ command
 
     skillRank = $2
     modifyText = $3
@@ -83,7 +83,7 @@ INFO_MESSAGE_TEXT
     isSort = 1
     _, diceText, = roll(diceCount, 6, isSort)
     diceList = diceText.split(/,/).collect{|i| i.to_i}
-    diceList = [diceList.min] if( skillRank == "D" )
+    diceList = [diceList.min] if skillRank == "D"
 
     message = "(#{commandText}#{specialText}#{signOfInequality}#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "
 
@@ -131,11 +131,11 @@ INFO_MESSAGE_TEXT
   end
 
   def check_success(total_n, dice_n, signOfInequality, diff, special_n)
-    return "ファンブル" if( dice_n == 1 )
-    return "スペシャル" if( dice_n >= special_n )
+    return "ファンブル" if  dice_n == 1
+    return "スペシャル" if  dice_n >= special_n
 
     success = @@bcdice.check_hit(total_n, signOfInequality, diff)
-    return "成功" if(success >= 1)
+    return "成功" if success >= 1
 
     return "失敗"
   end
@@ -161,7 +161,7 @@ INFO_MESSAGE_TEXT
         raise "invaolid dice Type #{command}"
       end
 
-    return nil if( text.nil? )
+    return nil if text.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
   end

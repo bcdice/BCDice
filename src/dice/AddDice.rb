@@ -12,7 +12,7 @@ class AddDice
   def rollDice(string)
     debug("AddDice.rollDice() begin string", string)
 
-    unless( /(^|\s)S?(([\d\+\*\-]*[\d]+D[\d\/UR@]*[\d\+\*\-D\/UR]*)(([<>=]+)([?\-\d]+))?)($|\s)/i =~ string )
+    unless /(^|\s)S?(([\d\+\*\-]*[\d]+D[\d\/UR@]*[\d\+\*\-D\/UR]*)(([<>=]+)([?\-\d]+))?)($|\s)/i =~ string
       return "1"
     end
 
@@ -24,7 +24,7 @@ class AddDice
     signOfInequality = ""
     isCheckSuccess = false
 
-    if( judgeText )
+    if judgeText
       isCheckSuccess = true
       string = $3
       signOfInequality = @bcdice.marshalSignOfInequality(judgeOperator)
@@ -44,7 +44,7 @@ class AddDice
       subtractTextList = addUpText.split(/-/)
 
       subtractTextList.each_with_index do |subtractText, index|
-        next if( subtractText.empty? )
+        next if subtractText.empty?
 
         debug("begin rollDiceAddingUp(subtractText, isCheckSuccess)", subtractText, isCheckSuccess)
         dice_now, dice_n_wk, dice_str, n1_wk, n_max_wk, cnt_wk, max_wk = rollDiceAddingUp(subtractText, isCheckSuccess)
@@ -59,16 +59,16 @@ class AddDice
         n1 += n1_wk
         n_max += n_max_wk
         dice_cnt += cnt_wk
-        dice_max = max_wk if(max_wk > dice_max)
+        dice_max = max_wk if max_wk > dice_max
 
-        next if(@diceBot.sendMode == 0)
+        next if @diceBot.sendMode == 0
 
         operatorText = getOperatorText(rate, output)
         output += "#{operatorText}#{dice_str}"
       end
     end
 
-    if( signOfInequality != "" )
+    if signOfInequality != ""
       string += "#{signOfInequality}#{diffText}"
     end
 
@@ -80,8 +80,8 @@ class AddDice
     debug('addText, revision', addText, revision)
 
     debug("@nick_e", @nick_e)
-    if( @diceBot.sendMode > 0 )
-      if( output =~ /[^\d\[\]]+/ )
+    if @diceBot.sendMode > 0
+      if output =~ /[^\d\[\]]+/
         output = "#{@nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}#{addText}"
       else
         output = "#{@nick_e}: (#{string}) ＞ #{total_n}#{addText}"
@@ -92,7 +92,7 @@ class AddDice
 
     total_n += revision
 
-    if( signOfInequality != "" ) # 成功度判定処理
+    if signOfInequality != "" # 成功度判定処理
       successText = @bcdice.check_suc(total_n, dice_n, signOfInequality, diffText, dice_cnt, dice_max, n1, n_max)
       debug("check_suc successText", successText)
       output += successText
@@ -101,7 +101,7 @@ class AddDice
     #ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
     output += @diceBot.getDiceRolledAdditionalText(n1, n_max, dice_max)
 
-    if( (dice_cnt == 0) || (dice_max == 0) )
+    if (dice_cnt == 0) || (dice_max == 0)
       output = '1'
     end
 
@@ -121,13 +121,13 @@ class AddDice
     dice_cnt_total = 0
     double_check = false
 
-    if( @diceBot.sameDiceRerollCount != 0 ) # 振り足しありのゲームでダイスが二個以上
-      if( @diceBot.sameDiceRerollType <= 0 ) # 判定のみ振り足し
+    if @diceBot.sameDiceRerollCount != 0 # 振り足しありのゲームでダイスが二個以上
+      if @diceBot.sameDiceRerollType <= 0 # 判定のみ振り足し
         debug('判定のみ振り足し')
-        double_check = true if( isCheckSuccess )
-      elsif( @diceBot.sameDiceRerollType <= 1 ) # ダメージのみ振り足し
+        double_check = true if isCheckSuccess
+      elsif  @diceBot.sameDiceRerollType <= 1 # ダメージのみ振り足し
         debug('ダメージのみ振り足し')
-        double_check = true if( !isCheckSuccess )
+        double_check = true if !isCheckSuccess
       else # 両方振り足し
         double_check = true
       end
@@ -135,12 +135,12 @@ class AddDice
 
     debug("double_check", double_check)
 
-    while(m = /(^([\d]+\*[\d]+)\*(.+)|(.+)\*([\d]+\*[\d]+)$|(.+)\*([\d]+\*[\d]+)\*(.+))/.match(string))
-      if( m[2] )
+    while (m = /(^([\d]+\*[\d]+)\*(.+)|(.+)\*([\d]+\*[\d]+)$|(.+)\*([\d]+\*[\d]+)\*(.+))/.match(string))
+      if  m[2]
         string = parren_killer('(' + m[2] + ')') + '*' + m[3]
-      elsif( m[5] )
+      elsif  m[5]
         string = m[4] + '*' + parren_killer('(' + m[5] + ')')
-      elsif( m[7] )
+      elsif  m[7]
         string = m[6] + '*' + parren_killer('(' + m[7] + ')') + '*' + m[8]
       end
     end
@@ -151,19 +151,19 @@ class AddDice
 
     mul_cmd = string.split(/\*/)
     mul_cmd.each do |mul_line|
-      if( /([\d]+)D([\d]+)(@(\d+))?(\/\d+[UR]?)?/i =~ mul_line )
+      if /([\d]+)D([\d]+)(@(\d+))?(\/\d+[UR]?)?/i =~ mul_line
         dice_count = $1.to_i
         dice_max = $2.to_i
         critical = $4.to_i
         slashMark = $5
 
-        return emptyResult if( (critical != 0) && !@diceBot.is2dCritical )
-        return emptyResult if( dice_max > $DICE_MAXNUM )
+        return emptyResult if  (critical != 0) && !@diceBot.is2dCritical
+        return emptyResult if  dice_max > $DICE_MAXNUM
 
         dice_max, dice_now, output_tmp, n1_count, max_number_tmp, result_dice_count =
           rollDiceAddingUpCommand(dice_count, dice_max, slashMark, double_check, isCheckSuccess, critical)
 
-        output += "*" if( output != "" )
+        output += "*" if output != ""
         output += output_tmp
 
         dice_total *= dice_now
@@ -180,11 +180,11 @@ class AddDice
 
         dice_total *= mul_line
 
-        unless(output.empty?)
+        unless output.empty?
           output += "*"
         end
 
-        if( mul_line < 0)
+        if mul_line < 0
           output += "(#{mul_line})"
         else
           output += mul_line.to_s
@@ -208,7 +208,7 @@ class AddDice
 
     debug("before while dice_arry", dice_arry)
 
-    while( !dice_arry.empty? )
+    while !dice_arry.empty?
       debug("IN while dice_arry", dice_arry)
 
       dice_wk = dice_arry.shift
@@ -227,14 +227,14 @@ class AddDice
       debug('slashMark', slashMark)
       dice_now = getSlashedDice(slashMark, dice_now)
 
-      dice_str += "][" if( dice_str != "")
+      dice_str += "][" if dice_str != ""
       debug('dice_str', dice_str)
 
       dice_str += dice_dat[1]
       n1_count += dice_dat[2]
       max_number += dice_dat[3]
 
-      if( double_check && (dice_wk >= 2) ) # 振り足しありでダイスが二個以上
+      if  double_check && (dice_wk >= 2) # 振り足しありでダイスが二個以上
         addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_arry, dice_wk)
       end
 
@@ -246,9 +246,9 @@ class AddDice
     dice_now = @diceBot.changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
 
     output = ""
-    if( @diceBot.sendMode > 1 )
+    if @diceBot.sendMode > 1
       output += "#{dice_now}[#{dice_str}]"
-    elsif( @diceBot.sendMode > 0 )
+    elsif @diceBot.sendMode > 0
       output += dice_now.to_s
     end
 
@@ -268,21 +268,21 @@ class AddDice
     end
 
     dice_face.each do |dice_o|
-      if( @diceBot.sameDiceRerollCount == 1) # 全部同じ目じゃないと振り足しなし
-        dice_arry.push(dice_o) if( dice_o == dice_wk )
+      if @diceBot.sameDiceRerollCount == 1 # 全部同じ目じゃないと振り足しなし
+        dice_arry.push(dice_o) if  dice_o == dice_wk
       else
-        dice_arry.push( dice_o ) if( dice_o >= @diceBot.sameDiceRerollCount )
+        dice_arry.push( dice_o ) if dice_o >= @diceBot.sameDiceRerollCount
       end
     end
   end
 
   def getSlashedDice(slashMark, dice)
-    return dice unless( /^\/(\d+)(.)?$/i === slashMark )
+    return dice unless /^\/(\d+)(.)?$/i === slashMark
 
     rate = $1.to_i
     mark = $2
 
-    return dice if( rate == 0 )
+    return dice if rate == 0
 
     value = (1.0 * dice / rate)
 
@@ -299,7 +299,7 @@ class AddDice
   end
 
   def rollLocal(dice_wk, dice_max, sortType)
-    if( dice_max == 66 )
+    if dice_max == 66
       return rollD66(dice_wk)
     end
 
@@ -326,8 +326,8 @@ class AddDice
   end
 
   def getOperatorText(rate, output)
-    return '-' if(rate < 0)
-    return '' if(output.empty?)
+    return '-' if rate < 0
+    return '' if output.empty?
 
     return "+"
   end

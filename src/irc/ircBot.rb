@@ -103,7 +103,7 @@ class IrcClient < Net::IRC::Client
     target = event.to[0]
 
     debug_out("%s Kicked on %s by %s.\n", target, channel)
-    if( mynick == target )
+    if mynick == target
       deleteChannel(channel)
     end
   end
@@ -116,7 +116,7 @@ class IrcClient < Net::IRC::Client
 
     arg = getArg(event)
     tnick = ""
-    if( /->/ =~ arg )
+    if /->/ =~ arg
       arg, tnick, *dummy = arg.split(/->/)
     end
 
@@ -141,7 +141,7 @@ class IrcClient < Net::IRC::Client
     channel = getChannel(event)
     debug('on_public channel', channel)
 
-    if( channel == ownNick )
+    if channel == ownNick
       return on_msg( event )
     end
 
@@ -175,7 +175,7 @@ class IrcClient < Net::IRC::Client
   end
 
   def printText(text)
-    return if( @printFunction.nil? )
+    return if @printFunction.nil?
 
     @printFunction.call(text)
   end
@@ -209,7 +209,7 @@ class IrcClient < Net::IRC::Client
     @log.debug("newNick:#{newNick}, newNick.length#{newNick.length}")
     @log.debug("diff:#{diff}")
 
-    if( diff > 0 )
+    if diff > 0
       nickBase = nick[0...(diff * -1)]
       @log.debug("getNewNick nickBase:#{nickBase}")
       newNick = nickBase + nickIndexText
@@ -228,7 +228,7 @@ class IrcClient < Net::IRC::Client
     debug('quitCommand')
     debug('isMaster()', isMaster())
 
-    return unless( isMaster() )
+    return unless isMaster()
 
     post(QUIT, encode($ircCode, $quitMessage))
   end
@@ -275,7 +275,7 @@ class IrcClient < Net::IRC::Client
   end
 
   def insertEnterToTooLongMessage(message)
-    if( message.length <= $SEND_STR_MAX)
+    if message.length <= $SEND_STR_MAX
       return message
     end
 
@@ -285,7 +285,7 @@ class IrcClient < Net::IRC::Client
     message.chars do |ch|
       result += ch
 
-      if( result.length > ($SEND_STR_MAX * index) )
+      if result.length > ($SEND_STR_MAX * index)
         result += "\n"
         index += 1
       end
@@ -314,7 +314,7 @@ def getInitializedIrcBot()
 
   ircBot.setGameByTitle( $defaultGameType )
 
-  unless( $extraCardFileName.empty? )
+  unless $extraCardFileName.empty?
     ircBot.readExtraCard( $extraCardFileName )
   end
 
@@ -327,7 +327,7 @@ def mainIrcBot(args = [])
 
   ircBot = getInitializedIrcBot()
 
-  if( argsAnalizer.isStartIrc )
+  if argsAnalizer.isStartIrc
     ircBot.start
   end
 

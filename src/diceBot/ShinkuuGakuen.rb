@@ -68,7 +68,7 @@ MESSAGETEXT
 
     diffText = if diff.nil? then "" else ">=#{diff}" end
     result = "(#{weaponName}：#{base}#{diffText}) ＞ 1D100+#{base} ＞ #{total}"
-    result += "[#{diceList.join(',')}]" if( diceList.length >= 2 )
+    result += "[#{diceList.join(',')}]" if diceList.length >= 2
     result += "+#{base}"
     result += " ＞ #{allTotal}"
     result += getSuccessText(allTotal, diff, diceList, weaponTable)
@@ -81,14 +81,14 @@ MESSAGETEXT
 
   def getJudgeDiceList
     diceList = []
-    while( true )
+    loop do
       value, = roll(1, 100)
       diceList << value
 
       rank01 = value % 10
       debug("rank01", rank01)
 
-      break unless( rank01 == 0 )
+      break unless rank01 == 0
     end
 
     return diceList
@@ -96,11 +96,11 @@ MESSAGETEXT
 
   def getSuccessText(allTotal, diff, diceList, isWeapon)
     first = diceList.first
-    return '' if( first.nil? )
+    return '' if first.nil?
 
-    return " ＞ ファンブル" if( first <= 9 )
+    return " ＞ ファンブル" if first <= 9
 
-    if( diff.nil? && (first != 10) )
+    if diff.nil? && (first != 10)
       return ''
     end
 
@@ -108,8 +108,8 @@ MESSAGETEXT
     skillText = getSkillText(first, diff, isWeapon)
     result += skillText
 
-    unless( diff.nil? )
-      result += ' ＞ ' if( skillText.empty? )
+    unless diff.nil?
+      result += ' ＞ ' if  skillText.empty?
 
       success = (allTotal >= diff.to_i ? "成功" : "失敗")
       result += success.to_s
@@ -120,14 +120,14 @@ MESSAGETEXT
 
   def getSkillText(first, diff, isWeapon)
     result = ''
-    return result if( isWeapon )
+    return result if isWeapon
 
     result = ' ＞ '
-    return result unless( first == 10 )
+    return result unless first == 10
 
     result += "技能なし：ファンブル"
 
-    return result if( diff.nil? )
+    return result if diff.nil?
 
     result += "／技能あり："
 
@@ -418,7 +418,7 @@ MESSAGETEXT
   def getRandMartialArtCounter
     value, = roll(1, 10)
     dice = value * 10 + value
-    dice = 100 if( value == 110 )
+    dice = 100 if  value == 110
 
     tableInfo = getWeaponTableMartialArt
     weaponTable = tableInfo[:table]
@@ -525,7 +525,7 @@ MESSAGETEXT
   def getWeaponSkillText(weaponTable, dice)
     debug('getWeaponSkillText', dice)
 
-    return '' if( weaponTable.nil? )
+    return '' if weaponTable.nil?
 
     preName = ''
     preEffect = ''
@@ -537,7 +537,7 @@ MESSAGETEXT
       effect ||= preEffect
       preEffect = effect
 
-      next unless( index == (dice % 100) )
+      next unless index == (dice % 100)
 
       return " ＞ 「#{name}」#{effect}"
     end

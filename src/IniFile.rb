@@ -11,7 +11,7 @@ class IniFile
 
     lines = []
 
-    if( File.exist?(@fileName) )
+    if File.exist?(@fileName)
       lines = File.readlines(@fileName)
     end
 
@@ -23,7 +23,7 @@ class IniFile
       when /^\[(.+)\]/
         section = $1
       when /^([^=]*)=(.*)/
-        next if( section.nil? )
+        next if section.nil?
 
         key = $1
         value = $2
@@ -39,7 +39,7 @@ class IniFile
 
   def readAndWrite(section, key, defaultValue)
     value = read(section, key)
-    return value unless( value.nil? )
+    return value unless value.nil?
 
     write(section, key, defaultValue)
 
@@ -49,12 +49,12 @@ class IniFile
 
   def read(section, key, defaultValue = nil)
     info = @infos[section]
-    if( info.nil? )
+    if info.nil?
       return defaultValue
     end
 
     value = info[key]
-    if( value.nil? )
+    if value.nil?
       return defaultValue
     end
 

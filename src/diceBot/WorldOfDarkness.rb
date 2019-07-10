@@ -33,7 +33,7 @@ INFO_MESSAGE_TEXT
 
   def rollDiceCommand(command)
     result = rollWorldOfDarkness(command)
-    return result unless(result.empty?)
+    return result unless result.empty?
   end
 
   def rollWorldOfDarkness(string)

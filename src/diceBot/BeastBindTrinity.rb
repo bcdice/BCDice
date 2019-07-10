@@ -78,9 +78,9 @@ INFO_MESSAGE_TEXT
   end
 
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
-    if(total_n >= diff)
+    if total_n >= diff
       return " ＞ 成功"
     else
       return " ＞ 失敗"
@@ -93,7 +93,7 @@ INFO_MESSAGE_TEXT
     output = "1"
 
     debug("bbt string", string)
-    unless(m = /(^|\s)S?((\d+)R6([\+\-\d]*)(\[H:([\-\d]+)\])?(\[C([\+\-\d]+)\])?(\[F(A)?([\+\-\d]+)\])?(\[S([1-6]+)\])?(\[U([1-6])\])?(([>=]+)(\d+))?)(\s|$)/i.match(string))
+    unless (m = /(^|\s)S?((\d+)R6([\+\-\d]*)(\[H:([\-\d]+)\])?(\[C([\+\-\d]+)\])?(\[F(A)?([\+\-\d]+)\])?(\[S([1-6]+)\])?(\[U([1-6])\])?(([>=]+)(\d+))?)(\s|$)/i.match(string))
       debug("not mutch")
       return output
     end
@@ -114,10 +114,10 @@ INFO_MESSAGE_TEXT
     signOfInequality = ""	# 判定結果のための不等号
     diff      = 0 # 難易度
     bonusText = m[4] # 修正値の取得
-    bonus     = parren_killer("(0" + bonusText + ")").to_i unless( bonusText.nil? )
+    bonus     = parren_killer("(0" + bonusText + ")").to_i unless bonusText.nil?
 
-    if(m[5])
-      humanity = m[6].to_i if(m[6]) # 人間性からクリティカル値を取得
+    if m[5]
+      humanity = m[6].to_i if m[6] # 人間性からクリティカル値を取得
       debug("▼現在人間性 取得 #{humanity}")
       if humanity <= 0
         critical = 9
@@ -131,33 +131,33 @@ INFO_MESSAGE_TEXT
       end
     end
 
-    if(m[7])
-      str_critical = m[8] if(m[8]) # クリティカル値の文字列を取得
+    if m[7]
+      str_critical = m[8] if m[8] # クリティカル値の文字列を取得
         debug("▼C値文字列 取得 #{str_critical}")
     end
 
-    if(m[9])
-      nofumble = true if(m[10]) # ファンブル耐性指定
+    if m[9]
+      nofumble = true if m[10] # ファンブル耐性指定
         debug("▼F値耐性 #{nofumble}")
-      str_fumble = m[11] if(m[11])    # ファンブル値の文字列を取得
+      str_fumble = m[11] if m[11]    # ファンブル値の文字列を取得
         debug("▼F値文字列 取得 #{str_fumble}")
     end
 
-    if(m[12])
-      str_dicesubs = m[13] if(m[13])  # ダイス差し替え用の文字列を取得
+    if m[12]
+      str_dicesubs = m[13] if m[13]  # ダイス差し替え用の文字列を取得
         debug("▼出目予約用の文字列 取得 #{str_dicesubs}")
     end
 
-    if(m[14])
-      dicepull = m[15].to_i if(m[15]) # ダイス引き上げ用の文字列を取得
+    if m[14]
+      dicepull = m[15].to_i if m[15] # ダイス引き上げ用の文字列を取得
         debug("▼出目引き上げモード 取得 #{dicepull}")
     end
 
-    signOfInequality = m[17] if(m[17])
-    diff = m[18].to_i if(m[18])
+    signOfInequality = m[17] if m[17]
+    diff = m[18].to_i if m[18]
 
     # 数値・数式からクリティカル値を決定
-    if(str_critical)
+    if str_critical
       n_cri = 0
       str_critical.scan(/[\+\-]?\d+/).each do |num|
         n_cri += num.to_i
@@ -168,7 +168,7 @@ INFO_MESSAGE_TEXT
     end
 
     # 数値・数式からファンブル値を決定
-    if(str_fumble)
+    if str_fumble
       n_fum = 0
       str_fumble.scan(/[\+\-]?\d+/).each do |num|
         n_fum += num.to_i
@@ -179,8 +179,8 @@ INFO_MESSAGE_TEXT
     end
 
     # 出目予約の有無を確認
-    if(str_dicesubs)
-      for i in str_dicesubs.split(//) do dicesubs.push(i.to_i) if(dicesubs.size < dice_c) end
+    if str_dicesubs
+      for i in str_dicesubs.split(//) do dicesubs.push(i.to_i) if dicesubs.size < dice_c end
       debug("▼ダイス出目予約 #{dicesubs}")
     end
 
@@ -196,10 +196,10 @@ INFO_MESSAGE_TEXT
 
     dice_tc = dice_c - dicesubs.size
 
-    if(dice_tc > 0)
+    if dice_tc > 0
       _, dice_str, = roll(dice_tc, 6, (sortType & 1)) # ダイス数修正、並べ替えせずに出力
       dice_num = (dice_str.split(/,/) + dicesubs).collect{|n|n.to_i}	# 差し換え指定のダイスを挿入
-    elsif(dicesubs.size == 0)
+    elsif dicesubs.size == 0
       return "ERROR:振るダイスの数が0個です"
     else
       dice_num = dicesubs # 差し換えのみの場合は差し換え指定のみ（ダイスを振らない）
@@ -207,7 +207,7 @@ INFO_MESSAGE_TEXT
 
     dice_num.sort! # 並べ替え
 
-    if(dicepull) # 出目引き上げ機能
+    if dicepull # 出目引き上げ機能
       debug("▼出目引き上げ #{dicepull}")
       dice_num_old = dice_num.dup
       for i in 0...dice_num.size do dice_num[i] = [dice_num[i], dicepull].max end
@@ -225,14 +225,14 @@ INFO_MESSAGE_TEXT
       dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1] # 判定の出目を確定
     end
 
-    if(dice_now >= critical) # クリティカル成立の判定
+    if dice_now >= critical # クリティカル成立の判定
       cri_flg = true
       cri_bonus = 20
     end
 
     total_n = [dice_now + bonus + cri_bonus, 0].max # 達成値の最小値は0
 
-    if(fumble >= dice_now) # ファンブル成立の判定
+    if fumble >= dice_now # ファンブル成立の判定
       fum_flg = true
       total_n = 0 unless nofumble
     end
@@ -242,37 +242,37 @@ INFO_MESSAGE_TEXT
     # 表示文章の作成
     output = ""
 
-    if(pul_flg)
+    if pul_flg
       output += "[#{dold_str}] ＞ "
     end
 
     output += "#{dice_now}#{dice_str}"
 
-    if(fum_flg == true && nofumble == false)
+    if fum_flg == true && nofumble == false
       output += "【ファンブル】"
     else
-      output += "【ファンブル】" if(fum_flg)
-      if(bonus > 0)
+      output += "【ファンブル】" if fum_flg
+      if bonus > 0
         output += "+#{bonus}"
-      elsif(bonus < 0)
+      elsif bonus < 0
         output += bonus.to_s
       end
-      output += "+#{cri_bonus}【クリティカル】" if(cri_flg)
+      output += "+#{cri_bonus}【クリティカル】" if cri_flg
     end
 
     showstring = "#{dice_c}R6"	# 結果出力文におけるダイスロール式の作成
-    if(bonus > 0) # （結果出力の時に必ずC値・F値を表示するようにする）
+    if bonus > 0 # （結果出力の時に必ずC値・F値を表示するようにする）
       showstring += "+#{bonus}"
-    elsif(bonus < 0)
+    elsif bonus < 0
       showstring += bonus.to_s
     end
     showstring += "[C#{critical},F#{fumble}]"
-    if(signOfInequality != "")
+    if signOfInequality != ""
       showstring += "#{signOfInequality}#{diff}"
     end
 
-    if(sendMode > 0) # 出力文の完成
-      if(/[^\d\[\]]+/ =~ output)
+    if sendMode > 0 # 出力文の完成
+      if /[^\d\[\]]+/ =~ output
         output = "#{@nick_e}: (#{showstring}) ＞ #{output} ＞ #{total_n}"
       else
         output = "#{@nick_e}: (#{showstring}) ＞ #{total_n}"
@@ -281,7 +281,7 @@ INFO_MESSAGE_TEXT
       output = "#{@nick_e}: (#{showstring}) ＞ #{total_n}"
     end
 
-    if(signOfInequality != "") # 成功度判定処理
+    if signOfInequality != "" # 成功度判定処理
       output += check_suc(total_n, dice_now, signOfInequality, diff, 2, 6, 0, 0)
     end
 
@@ -336,7 +336,7 @@ INFO_MESSAGE_TEXT
 
     end
 
-    if(output != '1')
+    if output != '1'
       output = "#{type}(#{total_n}) ＞ #{output}"
     end
 

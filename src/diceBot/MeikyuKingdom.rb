@@ -87,11 +87,11 @@ INFO_MESSAGE_TEXT
   end
 
   def get2D6Result(total_n, dice_n, signOfInequality, diff)
-    return '' unless(signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
-    if(dice_n <= 2)
+    if dice_n <= 2
       return " ＞ 絶対失敗"
-    elsif(dice_n >= 12)
+    elsif dice_n >= 12
       return " ＞ 絶対成功"
     end
 
@@ -99,7 +99,7 @@ INFO_MESSAGE_TEXT
   end
 
   def get2D6ResultOnlySuccess(total_n, diff)
-    if(total_n >= diff)
+    if total_n >= diff
       return " ＞ 成功"
     end
 
@@ -115,11 +115,11 @@ INFO_MESSAGE_TEXT
     dice6List = diceList.find_all{|i| i == 6}
     debug("dice6List", dice6List)
 
-    if( dice6List.length == 0 )
+    if dice6List.length == 0
       return output_msg
     end
 
-    if( dice6List.length >= 2 )
+    if dice6List.length >= 2
       return " ＆ 《気力》#{dice6List.length}点獲得"
     end
 
@@ -150,7 +150,7 @@ INFO_MESSAGE_TEXT
 
     output = "1"
 
-    return output unless(/(^|\s)S?((\d+)[rR]6([\+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i =~ string)
+    return output unless /(^|\s)S?((\d+)[rR]6([\+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i =~ string
 
     string = $2
     diceCount = $3.to_i
@@ -166,7 +166,7 @@ INFO_MESSAGE_TEXT
     debug("modifyText", modifyText)
 
     bonus = 0
-    if( modifyText )
+    if modifyText
       bonus = parren_killer("(0#{modifyText})").to_i
     end
     debug("bonus", bonus)
@@ -181,8 +181,8 @@ INFO_MESSAGE_TEXT
 
     dice1 = 0
     dice2 = 0
-    dice1 = dice_num[diceCount - 2] if( diceCount >= 2)
-    dice2 = dice_num[diceCount - 1] if( diceCount >= 1)
+    dice1 = dice_num[diceCount - 2] if  diceCount >= 2
+    dice2 = dice_num[diceCount - 1] if  diceCount >= 1
     dice_now = dice1 + dice2
     debug("dice1, dice2, dice_now", dice1, dice2, dice_now)
 
@@ -191,14 +191,14 @@ INFO_MESSAGE_TEXT
     setDiceText(dice_str)
 
     output = "#{dice_now}#{dice_str}"
-    if(bonus > 0)
+    if bonus > 0
       output += "+#{bonus}"
-    elsif(bonus < 0)
+    elsif bonus < 0
       output += bonus.to_s
     end
 
-    if(sendMode > 0)
-      if(output =~ /[^\d\[\]]+/)
+    if sendMode > 0
+      if output =~ /[^\d\[\]]+/
         output = "#{nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}"
       else
         output = "#{nick_e}: (#{string}) ＞ #{total_n}"
@@ -207,7 +207,7 @@ INFO_MESSAGE_TEXT
       output = "#{nick_e}: (#{string}) ＞ #{total_n}"
     end
 
-    if(signOfInequality != "") # 成功度判定処理
+    if signOfInequality != "" # 成功度判定処理
       output += check_suc(total_n, dice_now, signOfInequality, diff, 2, 6, 0, 0)
     end
 
@@ -465,13 +465,13 @@ INFO_MESSAGE_TEXT
       output, total_n = getLoversBreakTable()
     end
 
-    if(output != '1')
+    if output != '1'
       output = "#{type}表(#{total_n}) ＞ #{output}"
     end
   end
 
   def getCount(countText)
-    if( countText.empty? )
+    if countText.empty?
       return 1
     end
 
@@ -951,19 +951,19 @@ INFO_MESSAGE_TEXT
     debug("d1, d2", d1, d2)
 
     debug("name_n", name_n)
-    if(name_n <= 1)
+    if name_n <= 1
       # 名前表A＋二つ名表A
       output = mk_nick_a_table(mk_name_a_table(d1), d2)
-    elsif(name_n <= 2)
+    elsif name_n <= 2
       # 名前表B＋二つ名表A
       output = mk_nick_a_table(mk_name_b_table(d1), d2)
-    elsif(name_n <= 3)
+    elsif name_n <= 3
       # 名前表エキゾチック＋二つ名表A
       output = mk_nick_a_table(mk_name_ex_table(d1), d2)
-    elsif(name_n <= 4)
+    elsif name_n <= 4
       # 名前表A＋二つ名表B
       output = mk_nick_b_table(mk_name_a_table(d1), d2)
-    elsif(name_n <= 5)
+    elsif name_n <= 5
       # 名前表B＋二つ名表B
       output = mk_nick_b_table(mk_name_b_table(d1), d2)
     else
@@ -1000,7 +1000,7 @@ INFO_MESSAGE_TEXT
       [55, "“両手に花の”"],
       [56, "“（ゲーム会場の地名）でも一、二を争う”"],
     ]
-    if(num < 66)
+    if num < 66
       output = get_table_by_number(num, table) + output
     else
       output = "#{output}#{(rand(6) + 1)}世"
@@ -1387,28 +1387,28 @@ INFO_MESSAGE_TEXT
     output = ""
     dice, = roll(2, 6)
 
-    if(num <= 2)
+    if num <= 2
       output = '「' + mk_item_power_table(rand(6)+1) + '」の神力を宿す'
-    elsif(num <= 3)
+    elsif num <= 3
       output = '寿命を持つ。寿命の値を決定する。' + "\n"
       output += 'さらに、' + mk_item_features_table(dice)
-    elsif(num <= 4)
+    elsif num <= 4
       output = '境界障壁を持つ。《HP》の値を決定する。'
-    elsif(num <= 5)
+    elsif num <= 5
       output = '銘を持つ。銘を決定する。'
-    elsif(num <= 6)
+    elsif num <= 6
       output = '合成具である。もう1つの機能は「' + mk_item_decide_table(rand(6)+1) + '」である。'
-    elsif(num <= 7)
+    elsif num <= 7
       output = 'そのアイテムにレベルがあれば、レベルを1点上昇する。' + "\n"
       output +='レベルが設定されていなければ、' + mk_item_features_table(dice)
-    elsif(num <= 8)
+    elsif num <= 8
       output = '「' + mk_item_jyumon_table(dice) + '」の呪紋を持つ。'
-    elsif(num <= 9)
+    elsif num <= 9
       output = '「' + mk_item_jyuka_table(rand(6)+1) + '」の呪禍を持つ。' + "\n"
       output +='さらに、' + mk_item_features_table(dice)
-    elsif(num <= 10)
+    elsif num <= 10
       output = '高価だ。価格を設定する。'
-    elsif(num <= 11)
+    elsif num <= 11
       output = '「条件：' + mk_item_aptitude_table(rand(6)+1) + '」の適性を持つ。' + "\n"
       output +='さらに、' + mk_item_features_table(dice)
     else
@@ -1496,7 +1496,7 @@ INFO_MESSAGE_TEXT
   def mk_gender_table(num)
     output = '1'
 
-    if( (num % 2) != 0)
+    if (num % 2) != 0
       output = '男'
     else
       output = '女'

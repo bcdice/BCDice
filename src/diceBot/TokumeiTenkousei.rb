@@ -24,11 +24,11 @@ INFO_MESSAGE_TEXT
   end
 
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
-    return '' unless($signOfInequality == ">=")
+    return '' unless $signOfInequality == ">="
 
-    return '' if(diff == "?")
+    return '' if diff == "?"
 
-    if(total_n >= diff)
+    if total_n >= diff
       return " ＞ 成功"
     else
       return " ＞ 失敗"
@@ -39,7 +39,7 @@ INFO_MESSAGE_TEXT
   def getDiceRolledAdditionalText(n1, n_max, dice_max)
     debug('getExtraPowerPointTextForTokumeiTenkousei n1, dice_max', n1, dice_max)
 
-    if((n1 != 0) && (dice_max == 6))
+    if (n1 != 0) && (dice_max == 6)
       point = n1 * 5
       return " ＞ #{point}EPP獲得"
     end

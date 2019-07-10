@@ -47,7 +47,7 @@ MESSAGETEXT
       damage = ($5 || 0).to_i
       criticalTrigger = ($7 || 0).to_i
       criticalNumber = ($9 || 1).to_i
-      criticalNumber = 2 if( criticalNumber > 3 )
+      criticalNumber = 2 if criticalNumber > 3
       return checkRoll(diceCount, target, damage, criticalTrigger, criticalNumber)
     end
 
@@ -71,7 +71,7 @@ MESSAGETEXT
       totalSuccessCount += successCount
       totalCriticalCount += criticalCount
 
-      text += "+" unless( text.empty? )
+      text += "+" unless text.empty?
       text += "#{successCount}[#{diceText}]"
 
       rollCount = criticalCount
@@ -80,17 +80,17 @@ MESSAGETEXT
     result = ""
     isDamage = (damage != 0)
 
-    if( isDamage )
+    if isDamage
       totalDamage = totalSuccessCount * damage + totalCriticalCount * criticalTrigger
 
       result += "(#{diceCount}D10\<\=#{target}) ＞ #{text} ＞ Hits：#{totalSuccessCount}*#{damage}"
-      result += " + Trigger：#{totalCriticalCount}*#{criticalTrigger}" if( criticalTrigger > 0 )
+      result += " + Trigger：#{totalCriticalCount}*#{criticalTrigger}" if  criticalTrigger > 0
       result += " ＞ #{totalDamage}ダメージ"
     else
       result += "(#{diceCount}D10\<\=#{target}) ＞ #{text} ＞ 成功数：#{totalSuccessCount}"
     end
 
-    result += " / #{totalCriticalCount}クリティカル" if( totalCriticalCount > 0 )
+    result += " / #{totalCriticalCount}クリティカル" if totalCriticalCount > 0
 
     return result
   end

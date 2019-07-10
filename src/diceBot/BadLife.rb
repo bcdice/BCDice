@@ -77,7 +77,7 @@ MESSAGETEXT
     fumble = 1
 
     isStormy = (m[2] == 'GL') # 波乱万丈
-    if( isStormy )
+    if  isStormy
       critical -= 3
       fumble += 1
     end
@@ -111,49 +111,49 @@ MESSAGETEXT
     dice, diceText = roll(diceCount, 20)
     diceMax = 0
     diceArray = diceText.split(/,/).collect{|i|i.to_i}
-    diceArray.each do |i|                            # さくら鯖で.maxを使うと、何故か.minになる……
-      diceMax = i if( i > diceMax )
+    diceArray.each do |i| # さくら鯖で.maxを使うと、何故か.minになる……
+      diceMax = i if  i > diceMax
     end
 
-    diceMax = 5 if( isHeavyAttack && diceMax <= 5 )  # 重撃
+    diceMax = 5 if isHeavyAttack && diceMax <= 5   # 重撃
 
     isCritical = (diceMax >= critical)
     isFumble = (diceMax <= fumble)
 
-    diceMax = 20 if( isCritical )                    # クリティカル
+    diceMax = 20 if isCritical                     # クリティカル
     total = diceMax + modify
-    total += 5 if( isAnticipation && diceMax <= 7 )  # 先見の明
-    total = 0 if( isFumble )                         # ファンブル
+    total += 5 if isAnticipation && diceMax <= 7   # 先見の明
+    total = 0 if isFumble                          # ファンブル
 
     result = "#{diceCount}D20\(C:#{critical},F:#{fumble}\) ＞ "
     result += "#{diceMax}\[#{diceText}\]"
-    result += "\+" if( modify > 0 )
-    result += modify.to_s if( modify != 0 )
-    result += "\+5" if( isAnticipation && diceMax <= 7 ) # 先見の明
+    result += "\+" if modify > 0
+    result += modify.to_s if modify != 0
+    result += "\+5" if isAnticipation && diceMax <= 7 # 先見の明
     result += " ＞ 達成値：#{total}"
 
-    if(target > 0)
+    if target > 0
       success = total - target
       result += ">=#{target} 成功度：#{success} ＞ "
 
-      if( isCritical )
+      if isCritical
         result += "成功（クリティカル）"
-      elsif( total >= target )
+      elsif  total >= target
         result += "成功"
       else
         result += "失敗"
-        result += "（ファンブル）" if( isFumble )
+        result += "（ファンブル）" if isFumble
       end
     else
-      result += " クリティカル" if( isCritical )
-      result += " ファンブル" if( isFumble )
+      result += " クリティカル" if isCritical
+      result += " ファンブル" if isFumble
     end
 
     skillText = ""
-    skillText += "〈波乱万丈〉" if( isStormy )
-    skillText += "〈先見の明〉" if( isAnticipation )
-    skillText += "［重撃］" if( isHeavyAttack )
-    result += " #{skillText}" if( skillText != "" )
+    skillText += "〈波乱万丈〉" if  isStormy
+    skillText += "〈先見の明〉" if  isAnticipation
+    skillText += "［重撃］" if isHeavyAttack
+    result += " #{skillText}" if skillText != ""
 
     return result
   end

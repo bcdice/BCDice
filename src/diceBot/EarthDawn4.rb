@@ -47,7 +47,7 @@ INFO_MESSAGE_TEXT
 
     return nil if stepText.nil?
 
-    if(targetNumber == 0)
+    if targetNumber == 0
       output = "#{stepText} ＞ #{calcText} ＞ #{stepTotal}"
       return output
     end
@@ -97,14 +97,14 @@ INFO_MESSAGE_TEXT
   end
 
   def getStepResultInfo(str)
-    return nil unless( /^(\d+)E(\d+)?(K)?(\+\d+$)?(\+(.*))?/i =~ str)
+    return nil unless /^(\d+)E(\d+)?(K)?(\+\d+$)?(\+(.*))?/i =~ str
 
     stepTotal = 0
     @isFailed = true
 
     step = $1.to_i #ステップ
     targetNumber = $2.to_i #目標値
-    return nil if(targetNumber < 0)
+    return nil if targetNumber < 0
 
     hasKarmaDice = !$3.nil? #カルマダイスの有無
     diceModify = $4.to_i
@@ -121,7 +121,7 @@ INFO_MESSAGE_TEXT
     end
     modify = stepInfo.shift
 
-    stepTotal += rollStep(6, 1) if( hasKarmaDice )
+    stepTotal += rollStep(6, 1) if hasKarmaDice
 
     @calcText += (getModifyText(modify) + getModifyText(diceModify))
     stepTotal += (modify + diceModify)
@@ -133,9 +133,9 @@ INFO_MESSAGE_TEXT
 
   def getModifyText(modify)
     string = ""
-    return string if( modify == 0 )
+    return string if  modify == 0
 
-    string += "+" if( modify > 0 )
+    string += "+" if  modify > 0
     string += modify.to_s
     return string
   end
@@ -161,7 +161,7 @@ INFO_MESSAGE_TEXT
     baseStepTable = getBaseStepTable
     baseMaxStep = baseStepTable.last.first
 
-    if( step <= baseMaxStep )
+    if step <= baseMaxStep
       return get_table_by_number(step, baseStepTable)
     end
 
@@ -214,12 +214,12 @@ INFO_MESSAGE_TEXT
   end
 
   def getSuccess(targetNumber, stepTotal)
-    return '自動失敗' if( @isFailed )
+    return '自動失敗' if @isFailed
 
     diff = stepTotal - targetNumber
     debug("diff", diff)
 
-    if( diff < 0 )
+    if diff < 0
       return "失敗"
     end
 
@@ -232,24 +232,24 @@ INFO_MESSAGE_TEXT
     debug('rollStep diceType, diceCount, @calcText', diceType, diceCount, @calcText)
 
     stepTotal = 0
-    return stepTotal unless(diceCount > 0)
+    return stepTotal unless diceCount > 0
 
     #diceぶんのステップ判定
 
-    @calcText += "+" unless(@calcText.empty?)
+    @calcText += "+" unless @calcText.empty?
     @calcText += "#{diceCount}d#{diceType}["
     debug('rollStep string', @calcText)
 
     diceCount.times do |i|
       dice_now, dummy = roll(1, diceType)
 
-      if(dice_now != 1)
+      if dice_now != 1
         @isFailed = false
       end
 
       dice_in = dice_now
 
-      while( dice_now == diceType )
+      while dice_now == diceType
         dice_now, dummy = roll(1, diceType)
 
         dice_in += dice_now
@@ -257,7 +257,7 @@ INFO_MESSAGE_TEXT
 
       stepTotal += dice_in
 
-      @calcText += ',' if( i != 0 )
+      @calcText += ',' if i != 0
       @calcText += dice_in.to_s
     end
 

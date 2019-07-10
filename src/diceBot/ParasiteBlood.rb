@@ -29,7 +29,7 @@ INFO_MESSAGE_TEXT
   def get_urge(string) # パラサイトブラッドの衝動表
     urge = []
 
-    unless(/(\w*)URGE\s*(\d+)/i =~ string)
+    unless /(\w*)URGE\s*(\d+)/i =~ string
       return '1'
     end
 
@@ -45,20 +45,20 @@ INFO_MESSAGE_TEXT
       urge_type = 1
     end
 
-    if((urgelv < 1) || (urgelv > 5))
+    if (urgelv < 1) || (urgelv > 5)
       return '衝動段階は1から5です'
     end
 
-    if(urge_type == 0)
+    if urge_type == 0
       return '1'
     end
 
     dice_now, = roll(2, 6)
     urge = get_pb_urge_table(urgelv, dice_now, urge_type)
     resultText = "#{urgelv}-#{dice_now}:#{urge}"
-    if(urge_type <= 1)
+    if urge_type <= 1
       output = "衝動表#{resultText}"
-    elsif(urge_type <= 2)
+    elsif urge_type <= 2
       output = "誤作動表#{resultText}"
     else
       output = '1'
@@ -70,9 +70,9 @@ INFO_MESSAGE_TEXT
   def get_pb_urge_table(level, dice, urge_type)
     table = nil
 
-    if(urge_type <= 1) # 衝動表
+    if urge_type <= 1 # 衝動表
       table =  get_pb_normal_urge_table
-    elsif(urge_type <= 2) # AASとサイボーグの誤作動表
+    elsif urge_type <= 2 # AASとサイボーグの誤作動表
       table = get_pb_aas_urge_table
     else # エラートラップ
       table = get_pb_normal_urge_table

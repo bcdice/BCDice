@@ -48,7 +48,7 @@ MESSAGETEXT
     diceList.sort!
 
     yakuResult = getYaku(diceList)
-    unless( yakuResult.nil? )
+    unless yakuResult.nil?
       return getResultTextByDice(diceList, "【役】#{yakuResult}")
     end
 

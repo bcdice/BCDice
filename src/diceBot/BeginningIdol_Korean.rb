@@ -150,11 +150,11 @@ INFO_MESSAGE_TEXT
 
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     return '' unless signOfInequality == ">="
-    if(dice_n <= 2)
+    if dice_n <= 2
       return " ＞ ファンブル(変調がランダムに1つ発生し、PCは【思い出】を1つ獲得する)"
-    elsif(dice_n >= 12)
+    elsif dice_n >= 12
       return " ＞ 스페셜!(PC는 【추억】 1개 획득)"
-    elsif(total_n >= diff)
+    elsif total_n >= diff
       return " ＞ 성공"
     else
       return " ＞ 실패"

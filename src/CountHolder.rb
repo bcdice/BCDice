@@ -29,21 +29,21 @@ class CountHolder
       output = get_point_list()
     when /^#(.*)DIED!/i
       output = delete_point_list()
-      unless( output.nil? )
+      unless output.nil?
         output = "#{nick}: #{output} のカウンタが削除されました"
         isSecret = true # 出力は常にTalk側
       end
     when /^#RENAME!/i
       output = rename_point_counter()
-      if( output != "1" )
+      if output != "1"
         output = "#{nick}: #{output}"
         isSecret = false # 出力は常にPublic側
       end
 
     else
-      if( /^#/ =~ @command )
+      if /^#/ =~ @command
         output = executeSetCommand()
-        if( output != "1" )
+        if output != "1"
           output = "#{nick}: #{output}"
         end
       end
@@ -114,7 +114,7 @@ class CountHolder
       return ''
     end
 
-    unless( @maxValue.nil? )
+    unless @maxValue.nil?
       @maxValue = @maxValue.to_i
     end
 
@@ -129,7 +129,7 @@ class CountHolder
 
   def setCountHolderByParams
     debug("@modifyText", @modifyText)
-    if( @modifyText.nil? )
+    if @modifyText.nil?
       return setCount
     else
       return changeCount
@@ -150,11 +150,11 @@ class CountHolder
     debug('setCount @nick, @characterName', @nick, @characterName)
 
     output = ""
-    output += @characterName.downcase.to_s if(@nick != @characterName)
+    output += @characterName.downcase.to_s if @nick != @characterName
     output += "(#{@tagName}) #{@currentValue}"
 
     debug("setCount @maxValue", @maxValue)
-    unless( @maxValue.nil? )
+    unless @maxValue.nil?
       output += "/#{@maxValue}"
     end
 
@@ -170,7 +170,7 @@ class CountHolder
     info = characterInfo[@tagName]
     debug("characterInfo", characterInfo)
     debug("info", info)
-    return "" if( info.nil? )
+    return "" if  info.nil?
 
     currentValue = info[:currentValue]
     maxValue = info[:maxValue]
@@ -185,7 +185,7 @@ class CountHolder
     nowText = getValueText(currentValue, maxValue)
 
     output = ""
-    output += @characterName.downcase.to_s if(@nick != @characterName)
+    output += @characterName.downcase.to_s if @nick != @characterName
     output += "(#{@tagName}) #{preText} -> #{nowText}"
 
     debug("changeCount end output", output)
@@ -195,7 +195,7 @@ class CountHolder
 
   def getValueText(currentValue, maxValue)
     text = currentValue.to_s
-    text += "/#{maxValue}" unless( maxValue.nil? )
+    text += "/#{maxValue}" unless maxValue.nil?
 
     return text
   end
@@ -226,19 +226,19 @@ class CountHolder
 
     output = "1"
 
-    return output unless(/^#OPEN![\s]*(\w*)(\s|$)/ =~ @command)
+    return output unless /^#OPEN![\s]*(\w*)(\s|$)/ =~ @command
 
     tag = $1
     case @pointerMode
     when :sameNick
       debug("same nick")
       pc_out = getPointListAtSameNick(tag)
-      output = pc_out unless(pc_out.empty?)
+      output = pc_out unless pc_out.empty?
     when :sameChannel
-      if( tag )
+      if tag
         debug("same Channel")
         pc_out = getPointListAtSameChannel(tag)
-        output = pc_out unless(pc_out.empty?)
+        output = pc_out unless pc_out.empty?
       end
     end
 
@@ -251,79 +251,79 @@ class CountHolder
 
     pc_list = $point_counter[nick]
     pc_out = ""
-    if( pc_list )
+    if pc_list
       sort_pc = {}
       pc_list.each do |pc_o|
-        if( $point_counter["#{nick},#{pc_o}"] )
+        if $point_counter["#{nick},#{pc_o}"]
           tag_out = ""
-          if( tag )
+          if tag
             check_name = "#{nick},#{pc_o}"
-            if($point_counter["#{check_name},#{tag},0"])
+            if $point_counter["#{check_name},#{tag},0"]
               sort_pc[check_name] = $point_counter["#{check_name},#{tag},0"]
             end
-            if($point_counter["#{check_name},#{tag},1"])
+            if $point_counter["#{check_name},#{tag},1"]
               sort_pc[check_name] = $point_counter["#{check_name},#{tag},1"]
             end
           else
             tag_arr = $point_counter["#{nick},#{pc_o}"]
             tag_arr.each do |tag_o|
               check_name = "#{nick},#{pc_o},#{tag_o}"
-              if($point_counter["#{check_name},0"])
+              if $point_counter["#{check_name},0"]
                 tag_out += "$tag_o(" + $point_counter["#{check_name},0"] + ") "
               end
-              if($point_counter["#{check_name},1"])
+              if $point_counter["#{check_name},1"]
                 tag_out += "#{tag_o}[" + $point_counter["#{check_name},1"] + "] "
               end
             end
           end
-          if(tag_out)
+          if tag_out
             debug("中身があるなら")
-            pc_out += ", " if(pc_out)
+            pc_out += ", " if pc_out
             pc_out += "#{pc_o.downcase}:#{tag_out}"
           end
         end
       end
 
-      if(tag)
+      if tag
         out_pc = ""
         pc_sorted = sort_point_hash(sort_pc)
         pc_sorted.each do |pc_o|
           pc_name = pc_o.split(/,/)
-          out_pc += ", " if(out_pc)
-          if($pc_name[1])
-            if($point_counter["#{pc_o},#{tag},0"])
+          out_pc += ", " if out_pc
+          if $pc_name[1]
+            if $point_counter["#{pc_o},#{tag},0"]
               out_pc += "#{pc_name[1].upcase}(" + $point_counter["#{pc_o},#{tag},0"] + ")"
             end
-            if($point_counter["#{pc_o},#{tag},1"])
+            if $point_counter["#{pc_o},#{tag},1"]
               out_pc += "#{pc_name[1].upcase}[" + $point_counter["#{pc_o},#{tag},1"] + "]"
             end
           else
-            if($point_counter["#{pc_o},#{tag},0"])
+            if $point_counter["#{pc_o},#{tag},0"]
               out_pc += "#{pc_name[0].upcase}(" + $point_counter["#{pc_o},#{tag},0"] + ")"
             end
-            if($point_counter["#{pc_o},#{tag},1"])
+            if $point_counter["#{pc_o},#{tag},1"]
               out_pc += "#{pc_name[0].upcase}[" + $point_counter["#{pc_o},#{tag},1"] + "]"
             end
           end
         end
-        pc_out = "#{tag}: #{out_pc}" if(out_pc)
+        pc_out = "#{tag}: #{out_pc}" if out_pc
       end
     else
-      if($point_counter["$nick,"])
+      if $point_counter["$nick,"]
         tag_arr = $point_counter["$nick,"]
         tag_out = ""
         tag_arr.each do |tag_o|
           check_name = "#{nick},,#{tag_o}"
-          if($point_counter["#{check_name},0"])
+          if $point_counter["#{check_name},0"]
             tag_out += "#{tag_o}(" + $point_counter["#{check_name},0"] + ") "
           end
-          if($point_counter["#{check_name},1"])
+          if $point_counter["#{check_name},1"]
             tag_out += "#{tag_o}[" + $point_counter["#{check_name},1"] + "] "
           end
         end
-        if(tag_out)
+        if tag_out
           debug("中身があるなら")
-          pc_out += ", " if(pc_out)
+          pc_out += ", " if pc_out
           pc_out += tag_out.to_s
         end
       end
@@ -338,7 +338,7 @@ class CountHolder
 
     output = ""
 
-    output += "#{tagName}:" unless( tagName.empty? )
+    output += "#{tagName}:" unless tagName.empty?
 
     debug("getPointListAtSameChannel @countInfos", @countInfos)
     characterInfoList = getCharacterInfoList
@@ -348,8 +348,8 @@ class CountHolder
 
       tagText = ''
       characterInfo.keys.sort.each do |currentTag|
-        unless( tagName.empty? )
-          next unless( tagName == currentTag )
+        unless tagName.empty?
+          next unless  tagName == currentTag
         end
 
         info = characterInfo[currentTag]
@@ -357,11 +357,11 @@ class CountHolder
         maxValue = info[:maxValue]
 
         tagText += currentValue.to_s
-        tagText += "/#{maxValue}" unless( maxValue.nil? )
+        tagText += "/#{maxValue}" unless maxValue.nil?
       end
 
-      unless( tagText.empty? )
-        output += " " unless( output.empty? )
+      unless tagText.empty?
+        output += " " unless output.empty?
         output += "#{characterName}(#{tagText})"
       end
     end
@@ -375,7 +375,7 @@ class CountHolder
 
     output = "1"
 
-    return output unless( /^#RENAME!\s*(.+?)\s*\-\>\s*(.+?)(\s|$)/ =~ @command )
+    return output unless /^#RENAME!\s*(.+?)\s*\-\>\s*(.+?)(\s|$)/ =~ @command
 
     oldName = $1
     newName = $2
@@ -385,7 +385,7 @@ class CountHolder
     characterInfoList = getCharacterInfoList(@channel)
 
     counterInfo = characterInfoList.delete(oldName)
-    return output if( counterInfo.nil? )
+    return output if counterInfo.nil?
 
     characterInfoList[newName] = counterInfo
 
@@ -406,7 +406,7 @@ class CountHolder
   def setPointCounter(key, data)
     debug("setPointCounter begin key, data", key, data)
 
-    unless( $point_counter.include?(key) )
+    unless $point_counter.include?(key)
       debug("$point_counterにkeyが存在しないので新規作成")
       $point_counter[key] = data
       return
@@ -415,7 +415,7 @@ class CountHolder
     debug("$point_counterにkeyが存在する場合")
 
     cnt_list = $point_counter[key]
-    unless( cnt_list.include?( data ) )
+    unless cnt_list.include?( data )
       cnt_list << data
     end
   end
@@ -430,9 +430,9 @@ class CountHolder
       # 現在値が小さい方が後ろ、同じ時はダメージが大きい方が後ろ(後方が危険)
 
       compare = (b_crr <=> a_crr)
-      if( compare == 0 )
+      if compare == 0
         compare = (a_max <=> b_max)
-        if( compare == 0 )
+        if compare == 0
           compare = (a <=> b)
         end
       end
@@ -444,7 +444,7 @@ class CountHolder
   end
 
   def getPointHashCurrentAndMax(key)
-    if(/(\d+)[\/](\d+)/ =~ key)
+    if /(\d+)[\/](\d+)/ =~ key
       current = $1
       max = $2
       return current, max

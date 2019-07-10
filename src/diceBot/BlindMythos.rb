@@ -43,24 +43,24 @@ MESSAGETEXT
     debug("rollDiceCommand Begin")
 
     text = judgeRoll(command)
-    return text unless( text.nil? )
+    return text unless text.nil?
 
     isStop = true
     text, = reRoll(command, isStop)
-    return text unless( text.nil? )
+    return text unless text.nil?
 
     text = getRulingPlanetDiceCommandResult(command)
-    return text unless( text.nil? )
+    return text unless text.nil?
 
     text = getDurtyTableCommandReuslt(command)
-    return text unless( text.nil? )
+    return text unless text.nil?
 
     text = getTableCommandResult(command, @@tables)
     return text
   end
 
   def judgeRoll(command)
-    return nil unless( /^BM(S)?(\d*)(@(\d+))?>=(\d+)$/i =~ command )
+    return nil unless /^BM(S)?(\d*)(@(\d+))?>=(\d+)$/i =~ command
 
     isStop = !$1.nil?
     skillRank = $2.to_i
@@ -83,7 +83,7 @@ MESSAGETEXT
   def reRoll(command, isStop)
     debug("ReRoll Begin", command)
 
-    return nil unless( /^ReRoll([\d,]+)(@(\d+))?>=(\d+)$/i =~ command )
+    return nil unless /^ReRoll([\d,]+)(@(\d+))?>=(\d+)$/i =~ command
 
     debug("ReRoll pass")
 
@@ -295,7 +295,7 @@ MESSAGETEXT
   end
 
   def getDurtyTableCommandReuslt(command)
-    return nil unless( /^DT$/i =~ command )
+    return nil unless /^DT$/i =~ command
 
     table = <<__TABLE_END__
 汚染チャートを２回振り、その効果を適用する（1・2-2,5・6-12 なら振り直す）

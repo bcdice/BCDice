@@ -38,13 +38,13 @@ INFO_MESSAGE_TEXT
   end
 
   def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
-    return '' unless( signOfInequality == ">=")
+    return '' unless signOfInequality == ">="
 
-    if(dice_n <= 2)
+    if dice_n <= 2
       return " ＞ ファンブル"
-    elsif(dice_n >= 12)
+    elsif dice_n >= 12
       return " ＞ スペシャル(生命点1点か変調1つ回復)"
-    elsif(total_n >= diff)
+    elsif total_n >= diff
       return " ＞ 成功"
     else
       return " ＞ 失敗"
@@ -274,7 +274,7 @@ INFO_MESSAGE_TEXT
     index = total_n - 2
 
     text = table[index]
-    return '1' if( text.nil? )
+    return '1' if text.nil?
 
     output = "#{sceneType}シーン表(#{total_n}) ＞ #{ text }"
 
@@ -286,7 +286,7 @@ INFO_MESSAGE_TEXT
     index = total_n - 1
 
     text = table[index]
-    return '1' if( text.nil? )
+    return '1' if text.nil?
 
     output = "#{tableName}(#{total_n}) ＞ #{text}"
 
@@ -428,7 +428,7 @@ INFO_MESSAGE_TEXT
             ]
     total_n, = roll(1, 6)
     text = table[total_n - 1]
-    return '1' if( text.nil? )
+    return '1' if  text.nil?
 
     output = "#{tableName}(#{total_n}) ＞ #{text}"
 
@@ -477,7 +477,7 @@ INFO_MESSAGE_TEXT
 
     total_n, = roll(1, 6)
     text = powerTable[total_n - 1]
-    return '1' if( text.nil? )
+    return '1' if text.nil?
 
     output += " #{powerType} ＞ #{ text }#{ powerPage }"
 

@@ -62,7 +62,7 @@ INFO_MESSAGE_TEXT
 
   #基本ロール
   def getRollResult(command)
-    return nil unless(/rol([-\d]+)/i =~ command)
+    return nil unless /rol([-\d]+)/i =~ command
 
     # 目標値セット
     target = $1.to_i
@@ -85,7 +85,7 @@ INFO_MESSAGE_TEXT
       return @@critical
     end
 
-    if(total <= target)
+    if total <= target
       return @@success
     end
 
@@ -107,7 +107,7 @@ INFO_MESSAGE_TEXT
 
   #対人ロール
   def getMedResult(command)
-    return nil unless(/med\((\d+),(\d+)\)/i =~ command)
+    return nil unless /med\((\d+),(\d+)\)/i =~ command
 
     yourValue = $1.to_i # あなたの値
     enemyValue = $2.to_i # 相手の値
@@ -125,7 +125,7 @@ INFO_MESSAGE_TEXT
 
   #対抗ロール
   def getResResult(command)
-    return nil unless(/res\((\d+),(\d+)\)/i =~ command)
+    return nil unless /res\((\d+),(\d+)\)/i =~ command
 
     yourValue = $1.to_i # あなたの値
     enemyValue = $2.to_i # 相手の値
