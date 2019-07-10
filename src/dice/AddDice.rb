@@ -101,7 +101,7 @@ class AddDice
     #ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
     output += @diceBot.getDiceRolledAdditionalText(n1, n_max, dice_max)
 
-    if( (dice_cnt == 0) or (dice_max == 0) )
+    if( (dice_cnt == 0) || (dice_max == 0) )
       output = '1'
     end
 
@@ -157,7 +157,7 @@ class AddDice
         critical = $4.to_i
         slashMark = $5
 
-        return emptyResult if( (critical != 0) and (not @diceBot.is2dCritical) )
+        return emptyResult if( (critical != 0) && (not @diceBot.is2dCritical) )
         return emptyResult if( dice_max > $DICE_MAXNUM )
 
         dice_max, dice_now, output_tmp, n1_count, max_number_tmp, result_dice_count =
@@ -234,7 +234,7 @@ class AddDice
       n1_count += dice_dat[2]
       max_number += dice_dat[3]
 
-      if( double_check and (dice_wk >= 2) )     # 振り足しありでダイスが二個以上
+      if( double_check && (dice_wk >= 2) )     # 振り足しありでダイスが二個以上
         addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_arry, dice_wk)
       end
 

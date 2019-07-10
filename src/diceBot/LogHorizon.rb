@@ -119,7 +119,7 @@ MESSAGETEXT
   end
 
   def getValue(text, defaultValue)
-    return defaultValue if( text == nil or text.empty? )
+    return defaultValue if( (text == nil) || text.empty? )
 
     parren_killer("(0" + text + ")").to_i
   end
@@ -553,7 +553,7 @@ MESSAGETEXT
 
     number += (rank * (is_rank_enable ? 5 : 0)) + modify
 
-    return command if is_choice and (number < getTableMinimum(table))
+    return command if is_choice && (number < getTableMinimum(table))
 
     if type == "H"
       number = [getAdjustNumberMin(number, table), 87].min

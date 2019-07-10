@@ -1759,7 +1759,7 @@ INFO_MESSAGE_TEXT
       title = 'バーストタイム'
       degrees = $1.to_i
       counts = 6
-      if degrees < 45 or degrees > 55
+      if (degrees < 45) || (degrees > 55)
         return nil
       elsif degrees <= 49
         counts = 3
@@ -1813,11 +1813,11 @@ INFO_MESSAGE_TEXT
 
       text = "#{title} ＞ [" + result[1] + "]#{adjust} ＞ "
 
-      unless dice.count == counts or dice.empty?
+      unless (dice.count == counts) || dice.empty?
         text += '[' + dice.join(",") + "]#{adjust} ＞ "
       end
 
-      if sure or (dice.count == dice.uniq.count)
+      if sure || (dice.count == dice.uniq.count)
         total = adjust.to_i
         total += dice.map(&:to_i).inject(:+) unless dice.empty?
         total = 0 if total < 0
@@ -2076,14 +2076,14 @@ INFO_MESSAGE_TEXT
         total = 15 + adjust
         text += "【ミラクルシンクロ】#{total}＋シンフォニーを行った人数"
       end
-    elsif total == 21 and not diceUse.include?(7)
+    elsif (total == 21) && (not diceUse.include?(7))
       unless residual.empty?
         text += '[' + diceUse.join(',') + "]#{string} ＞ "
       end
       total = 30 + adjust
       text += "【パーフェクトミラクル】#{total}"
     else
-      unless residual.empty? and diceUse.count == diceAll.length
+      unless residual.empty? && (diceUse.count == diceAll.length)
         text += '[' + diceUse.join(',') + "]#{string} ＞ "
       end
       total += adjust
@@ -2136,7 +2136,7 @@ INFO_MESSAGE_TEXT
       while true
         skill = getSkillList()
         text += "\n#{skill}"
-        break unless skill.include?("신장") or skill.include?(category) or skill.include?("출신")
+        break unless skill.include?("신장") || skill.include?(category) || skill.include?("출신")
 
         text += " ＞ 振り直し"
       end
@@ -2207,7 +2207,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getSkillText(skill)
-    return '' if skill.nil? or skill.empty?
+    return '' if skill.nil? || skill.empty?
 
     text = skill
     if /^AT([1-6]?)$/ =~ text
@@ -2281,7 +2281,7 @@ INFO_MESSAGE_TEXT
 
     substitution = text.clone
     substitution = substitution.gsub($&, '')
-    substitution += "\n" unless substitution.empty? or /\n$/ =~ substitution
+    substitution += "\n" unless substitution.empty? || /\n$/ =~ substitution
 
     return substitution + badStatus(counts)
   end

@@ -66,7 +66,7 @@ INFO_MESSAGE_TEXT
     totals = []
     target = 0
 
-    while  (not str.nil?) and (not str.empty?)
+    while  (not str.nil?) && (not str.empty?)
 
       debug("=====>!! str", str)
 

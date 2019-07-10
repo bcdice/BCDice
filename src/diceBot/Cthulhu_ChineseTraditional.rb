@@ -142,7 +142,7 @@ INFO_MESSAGE_TEXT
       end
     end
 
-    if((total_n <= diff) and (total_n < 100))
+    if((total_n <= diff) && (total_n < 100))
 
       result = "成功"
 
@@ -165,7 +165,7 @@ INFO_MESSAGE_TEXT
       result = "失敗"
 
       if( diff_special > 0)
-        if((total_n >= (101 - @fumble_percentage)) and (diff < 100))
+        if((total_n >= (101 - @fumble_percentage)) && (diff < 100))
           result = "致命性失敗"
           fumble = true
         end

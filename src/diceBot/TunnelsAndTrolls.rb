@@ -100,7 +100,7 @@ INFO_MESSAGE_TEXT
 
   def getDiceRolledAdditionalText(n1, n_max, dice_max)
     debug("getDiceRolledAdditionalText n1, n_max, dice_max", n1, n_max, dice_max)
-    if((n_max > 0) and (dice_max == 6))
+    if((n_max > 0) && (dice_max == 6))
       return " ＞ 悪意#{n_max}"
     end
 
@@ -143,7 +143,7 @@ INFO_MESSAGE_TEXT
     bonus = 0
     bonus = parren_killer("(0#{m[4]})").to_i if(m[4])
     isHyperBerserk = false
-    isHyperBerserk = true if(m[5] and (m[6] =~ /[Hh]/))
+    isHyperBerserk = true if(m[5] && (m[6] =~ /[Hh]/))
     dice_arr = []
     dice_now = 0
     dice_str = ""
@@ -190,7 +190,7 @@ INFO_MESSAGE_TEXT
           end
         end
 
-        if(isFirstLoop and (dice_arr.length < 1))
+        if(isFirstLoop && (dice_arr.length < 1))
           min1 = 0
           min2 = 0
 

@@ -75,7 +75,7 @@ class UpperDice
 
     string += "[#{@upper}]" + modify;
 
-    if( @diceBot.isPrintMaxDice and (totalDiceCount > 1) )
+    if( @diceBot.isPrintMaxDice && (totalDiceCount > 1) )
       output = "#{output} ＞ #{totalValue}";
     end
 

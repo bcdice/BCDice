@@ -346,7 +346,7 @@ INFO_MESSAGE_TEXT
   def getSetOfBullet(diff)
     bullet_set_count = diff / 10
 
-    if ((diff >= 1) and (diff < 10))
+    if ((diff >= 1) && (diff < 10))
       bullet_set_count = 1  #技能值９以下的最低限度保障處理
     end
 
@@ -356,7 +356,7 @@ INFO_MESSAGE_TEXT
   def getHitBulletCountBase(diff, bullet_set_count)
     hit_bullet_count_base = (bullet_set_count / 2)
 
-    if ((diff >= 1) and (diff < 10))
+    if ((diff >= 1) && (diff < 10))
       hit_bullet_count_base = 1  #技能值９以下的最低限度保障處理
     end
 
