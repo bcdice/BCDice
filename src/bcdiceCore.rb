@@ -662,7 +662,7 @@ class BCDice
   end
 
   def isTalkChannel
-    (!(/^#/ === @channel))
+    !(/^#/ === @channel)
   end
 
   def printSecretRoll
@@ -811,7 +811,7 @@ class BCDice
 
     return nil unless( /(S)?[\d]+R[\d]+/i === arg)
 
-    secret = (!$1.nil?)
+    secret = !$1.nil?
 
     output = @diceBot.dice_command_xRn(arg, @nick_e)
     return nil if( output.nil? || (output == '1') )
@@ -833,7 +833,7 @@ class BCDice
 
     return nil unless(/(S)?[\d]+U[\d]+/i === arg)
 
-    secret = (!$1.nil?)
+    secret = !$1.nil?
 
     dice = UpperDice.new(self, @diceBot)
     output = dice.rollDice(arg)
@@ -847,7 +847,7 @@ class BCDice
 
     return nil unless(/((^|\s)(S)?choice\[[^,]+(,[^,]+)+\]($|\s))/i === arg)
 
-    secret = (!$3.nil?)
+    secret = !$3.nil?
     output = choice_random($1)
 
     return output, secret
@@ -1144,7 +1144,7 @@ class BCDice
 
     return nil unless(/(^|\s)(S)?((\d+)?D66(N|S)?)(\s|$)/i === string)
 
-    secret = (!$2.nil?)
+    secret = !$2.nil?
     string = $3
     count = ($4 || 1).to_i
     swapMarker = ($5 || "").upcase
@@ -1709,7 +1709,7 @@ class BCDice
     return result if( divide == 0 )
     return result unless(/([-\d]+)/ =~ string)
 
-    work = ($1.to_i) * multi
+    work = $1.to_i * multi
 
     case @diceBot.fractionType
     when "roundUp"  # 端数切り上げ

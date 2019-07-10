@@ -49,7 +49,7 @@ INFO_MESSAGE_TEXT
 
     step  = $1.to_i      #ステップ
     targetNumber = [$2.to_i, 20].min #目標値
-    hasKarmaDice = (!$3.nil?)  #カルマダイスの有無
+    hasKarmaDice = !$3.nil?  #カルマダイスの有無
     karmaDiceCount = [1, $4.to_i].max #カルマダイスの個数
     karmaDiceType = $5.to_i #カルマダイスの種類
     diceModify = $6.to_i

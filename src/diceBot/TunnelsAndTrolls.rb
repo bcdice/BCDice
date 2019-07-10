@@ -41,7 +41,7 @@ INFO_MESSAGE_TEXT
     debug('Tunnels & Trolls parren_killer begin string', string)
 
     if(/(\d+)LV/i =~ string)
-      level_diff = ($1.to_i) * 5 + 15
+      level_diff = $1.to_i * 5 + 15
       string = string.sub(/(\d+)LV/i) {"#{level_diff}"}
     end
 

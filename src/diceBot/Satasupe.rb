@@ -129,7 +129,7 @@ INFO_MESSAGE_TEXT
         min_suc = $1.to_i
         fumble = $3.to_i if( $3.to_i != 0 )
         critical = $5.to_i if( $4 )
-        isCriticalStop = (!$6.nil? )
+        isCriticalStop = !$6.nil?
       end
     end
 
@@ -204,7 +204,7 @@ INFO_MESSAGE_TEXT
 
     unless( operator.nil? )
       modify = value  if( operator == "+")
-      modify = value * (-1)  if( operator == "-")
+      modify = value * -1  if( operator == "-")
     end
 
     diceTotal = dice + modify
@@ -564,7 +564,7 @@ INFO_MESSAGE_TEXT
     when "+"
       modify = value
     when "-"
-      modify = value * (-1)
+      modify = value * -1
     when "="
       index = value
     end
