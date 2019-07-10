@@ -110,8 +110,6 @@ INFO_MESSAGE_TEXT
       when 'D66', 'D66S'
         table = getD66Table(table)
         get_table_by_d66_swap(table)
-      else
-        nil
       end
 
     return nil if( text.nil? )

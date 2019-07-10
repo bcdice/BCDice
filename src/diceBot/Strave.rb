@@ -67,8 +67,6 @@ MESSAGETEXT
       when 'IDV'
         get_identity_table2
 
-      else
-        nil
       end
 
     return output

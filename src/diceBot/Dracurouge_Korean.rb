@@ -262,8 +262,6 @@ TEXT_BLOCK
         get_table_by_2d6(table)
       when '1D6'
         get_table_by_1d6(table)
-      else
-        nil
       end
 
     return nil if( text.nil? )

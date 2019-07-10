@@ -121,8 +121,6 @@ INFO_MESSAGE_TEXT
         number = bcdice.getD66(isSwap)
         result = get_table_by_number(number, table)
         [result, number]
-      else
-        nil
       end
 
     return nil if( text.nil? )

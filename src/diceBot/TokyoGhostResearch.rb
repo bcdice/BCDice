@@ -41,8 +41,6 @@ MESSAGETEXT
         tgr_opening_table
       when 'TB'
         tgr_common_trouble_table
-      else
-        nil
       end
 
     return output

@@ -375,8 +375,6 @@ MESSAGETEXT
         getHeroineTresureResultTable
       when "G"
         getGoblinTresureResultTable
-      else
-        nil
       end
 
     return nil if table.nil?

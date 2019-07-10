@@ -271,8 +271,6 @@ debug('yearText', yearText)
         get_table_by_1d6(table)
       when 'D66'
         get_table_by_d66(table)
-      else
-        nil
       end
 
     return nil if( text.nil? )

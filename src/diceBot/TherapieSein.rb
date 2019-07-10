@@ -49,8 +49,6 @@ MESSAGETEXT
 
         checkRoll(hasCritical, modify, target)
 
-      else
-        nil
       end
 
     return output

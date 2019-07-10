@@ -128,8 +128,6 @@ MESSAGETEXT
         roc = ($2 || 0).to_i
         get_randomEncounter_table(locationType, roc)
 
-      else
-        nil
       end
 
     return text
