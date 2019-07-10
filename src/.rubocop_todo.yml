@@ -1218,13 +1218,6 @@ Style/WhileUntilModifier:
     - 'diceBot/NightmareHunterDeep.rb'
     - 'diceBot/TunnelsAndTrolls.rb'
 
-# Offense count: 502
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, MinSize, WordRegex.
-# SupportedStyles: percent, brackets
-Style/WordArray:
-  Enabled: false
-
 # Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
