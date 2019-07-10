@@ -115,7 +115,7 @@ class AddDice
     dice_max = 0
     dice_total = 1
     dice_n = 0
-    output =""
+    output = ""
     n1 = 0
     n_max = 0
     dice_cnt_total = 0

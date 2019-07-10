@@ -148,7 +148,7 @@ INFO_MESSAGE_TEXT
     bonus_ttl = parren_killer("(#{bonus_str})").to_i if bonus_str != ""
 
     numberSpot1 = 0
-    dice_cnt_total =0
+    dice_cnt_total = 0
 
     dice_cmd.each do |dice_o|
       subtotal = 0

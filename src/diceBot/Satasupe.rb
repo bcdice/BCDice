@@ -171,7 +171,7 @@ INFO_MESSAGE_TEXT
       dice_str += "#{dice_suc}[#{d1},#{d2}]"
       total_suc += dice_suc
 
-      if critical <= d1+d2
+      if critical <= d1 + d2
         isCritical = true
         dice_str += "『必殺！』"
       end
@@ -372,7 +372,7 @@ INFO_MESSAGE_TEXT
       abilities << "「両手」"
     end
 
-    armsTable =[
+    armsTable = [
              [11, '「パチンコ玉」'],
              [12, '「釘や画鋲、針」'],
              [13, '「砂利や小石、ガラスの破片」'],

@@ -336,7 +336,7 @@ MESSAGETEXT
   end
 
   def getWeaponTableClub
-    {:name =>'棍棒',
+    {:name => '棍棒',
       :table =>
       [[11, 'ハードヒット', '防御力無視'],
        [22, 'ダブルヒット', '２連続攻撃'],
@@ -352,7 +352,7 @@ MESSAGETEXT
   end
 
   def getWeaponTableClubCounter
-    {:name =>'棍棒カウンター',
+    {:name => '棍棒カウンター',
       :table =>
       [[11, 'ブロッキング', '攻撃の無効化'],
        [22, nil, nil],

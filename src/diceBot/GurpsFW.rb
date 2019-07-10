@@ -96,7 +96,7 @@ INFO_MESSAGE_TEXT
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
     if (dice_cnt == 3) && (signOfInequality == "<=")
 
-      success = diff-total_n; #成功度
+      success = diff - total_n; #成功度
       crt_string = " ＞ クリティカル(成功度：#{success})"
       fmb_string = " ＞ ファンブル(失敗度：#{success})"
       fail_string = " ＞ 自動失敗(失敗度：#{success})"
@@ -110,9 +110,9 @@ INFO_MESSAGE_TEXT
         return crt_string
       end
       #ファンブル
-      if diff-dice_n <= -10
+      if diff - dice_n <= -10
         return fmb_string
-      elsif (dice_n >= 17) && (diff <=15)
+      elsif (dice_n >= 17) && (diff <= 15)
         return fmb_string
       elsif dice_n >= 18
         return fmb_string
@@ -341,7 +341,7 @@ INFO_MESSAGE_TEXT
       tableName = "財宝テーブル"
       diff = $1
       depth = $2.to_i
-      num = depth/10
+      num = depth / 10
       if num >= 6
         num = 5
       end
@@ -453,7 +453,7 @@ INFO_MESSAGE_TEXT
       end
 
       dice, dummy = roll(3, 6)
-      number = dice-modify
+      number = dice - modify
 
       if number <= 3
         result = "レアアイテム1"
@@ -951,7 +951,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 
       when "H" #上級
         dif = "上級"
-        d= 2
+        d = 2
 
       when "L" #悪夢
         dif = "悪夢"

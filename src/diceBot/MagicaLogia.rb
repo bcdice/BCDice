@@ -148,19 +148,19 @@ INFO_MESSAGE_TEXT
       output, total_n = magicalogia_inveterate_enemy_table
     when 'MOT'
       type = '謀略表'
-      output, total_n =magicalogia_conspiracy_table
+      output, total_n = magicalogia_conspiracy_table
     when 'MAT'
       type = '因縁表'
-      output, total_n =magicalogia_fate_table
+      output, total_n = magicalogia_fate_table
     when 'MUT'
       type = '奇人表'
-      output, total_n =magicalogia_cueball_table
+      output, total_n = magicalogia_cueball_table
     when 'MFT'
       type = '力場表'
-      output, total_n =magicalogia_force_field_table
+      output, total_n = magicalogia_force_field_table
     when 'MLT'
       type = '同盟表'
-      output, total_n =magicalogia_alliance_table
+      output, total_n = magicalogia_alliance_table
     when 'XEST'
       type = '極限環境シーン表'
       output, total_n = magicalogia_extreme_environment_scene_table

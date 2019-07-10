@@ -308,7 +308,7 @@ class DiceBot
     num, = roll(count, 6)
     debug("num", num)
 
-    index = ((num - 1)/ 2)
+    index = ((num - 1) / 2)
     debug("index", index)
 
     text = table[index]

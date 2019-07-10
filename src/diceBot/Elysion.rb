@@ -65,7 +65,7 @@ MESSAGETEXT
     when /^EL(\d*)(\+\d+)?/i
       base = $1
       modify = $2
-      result= check(base, modify)
+      result = check(base, modify)
 
     when /^(F|O|M)?DATE\[(.*),(.*)\]/i
       type = $1

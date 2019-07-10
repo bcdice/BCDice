@@ -44,7 +44,7 @@ MESSAGETEXT
       base = ($1 || 2).to_i
       crit = $3.to_i
       diff = $5.to_i
-      result= checkRoll(base, crit, diff)
+      result = checkRoll(base, crit, diff)
     end
 
     return nil if result.empty?

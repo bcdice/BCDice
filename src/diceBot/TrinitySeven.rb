@@ -130,7 +130,7 @@ MESSAGETEXT
     max = restDice.pop
     max = 1 if max.nil?
 
-    total = max * (7 ** critical) + modify
+    total = max * (7**critical) + modify
     restDice.each { |i| total += i }
 
     return total, diceList

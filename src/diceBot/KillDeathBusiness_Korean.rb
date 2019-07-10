@@ -1165,7 +1165,7 @@ INFO_MESSAGE_TEXT
       else
         result1, num1 = get_table_by_d66_swap(hellStylistAbuseTable1)
         result2, num2 = get_table_by_d66_swap(hellStylistAbuseTable2)
-        before,  = get_table_by_1d6(hellStylistwtable1)
+        before, = get_table_by_1d6(hellStylistwtable1)
         after, = get_table_by_1d6(hellStylistwtable2)
         result = "#{before}#{result1}#{result2}#{after}"
         number = "#{num1},#{num2}"

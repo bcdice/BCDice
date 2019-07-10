@@ -63,7 +63,7 @@ INFO_MESSAGE_TEXT
       return " ＞ 自動的成功"
     end
 
-    if dice_n <=2
+    if dice_n <= 2
       return " ＞ 自動的失敗"
     end
 

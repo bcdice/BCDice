@@ -162,7 +162,7 @@ MESSAGETEXT
     firePoint = []
 
     fireCount.times do |count|
-      debug("\n砲撃回数", count+1)
+      debug("\n砲撃回数", count + 1)
 
       firePoint << []
 
@@ -201,7 +201,7 @@ MESSAGETEXT
         x, y = getMovePoint(x, y, direction)
 
         # マップ外の座標は括弧を付ける
-        text += (isInMapPosition(x, y) ? "[縦#{y},横#{x}]" :"([縦#{y},横#{x}])")
+        text += (isInMapPosition(x, y) ? "[縦#{y},横#{x}]" : "([縦#{y},横#{x}])")
         debug("着弾点テキスト", text)
       end
 

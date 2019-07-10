@@ -99,7 +99,7 @@ INFO_MESSAGE_TEXT
 
     case command
     when /CT/i
-      type ="邂逅表"
+      type = "邂逅表"
       output, total_n = tgs_conection_table()
     when /OPR/i
       type = "オープニングチャート：リアリスティック"

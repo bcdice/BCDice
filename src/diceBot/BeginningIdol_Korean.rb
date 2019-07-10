@@ -1182,7 +1182,7 @@ INFO_MESSAGE_TEXT
         "クイーン／キング",
       ]
       describeTitle = '形容表'
-      describeTable =[
+      describeTable = [
         [11, "ビギニング"],
         [12, "パワフル"],
         [13, "ビューティフル"],
@@ -1206,7 +1206,7 @@ INFO_MESSAGE_TEXT
         [66, "アルティメット"],
       ]
       sceneTitle = '情景表'
-      sceneTable =[
+      sceneTable = [
         [11, "マーメイド"],
         [12, "ドリーム"],
         [13, "ピュア"],
@@ -1230,7 +1230,7 @@ INFO_MESSAGE_TEXT
         [66, "ギャラクシー"],
       ]
       materialTitle = 'マテリアル表'
-      materialTable =[
+      materialTable = [
         [11, "バスケット"],
         [12, "エクスプレス"],
         [13, "エア플레인"],
@@ -1254,7 +1254,7 @@ INFO_MESSAGE_TEXT
         [66, "フェニックス"],
       ]
       actionTitle = 'アクション表'
-      actionTable =[
+      actionTable = [
         [11, "スパイラル"],
         [12, "フライ"],
         [13, "シャワー"],

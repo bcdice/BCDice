@@ -119,7 +119,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getDownWill(flag)
-    if flag>=10
+    if flag >= 10
       return "6"
     end
 
@@ -173,9 +173,9 @@ INFO_MESSAGE_TEXT
   def getTotalResultValue(total, value, operator)
     case operator
     when "+"
-      return "#{total}+#{value} ＞ 判定値：#{total+value}"
+      return "#{total}+#{value} ＞ 判定値：#{total + value}"
     when "-"
-      return "#{total}-#{value} ＞ 判定値：#{total-value}"
+      return "#{total}-#{value} ＞ 判定値：#{total - value}"
     when "/"
       return getTotalResultValueWhenSlash(total, value)
     else

@@ -81,7 +81,7 @@ MESSAGETEXT
   def getXrmDamage(type)
     table, isLrm = getXrmDamageTable(type)
 
-    table = table.collect { |i| i*2 } unless isLrm
+    table = table.collect { |i| i * 2 } unless isLrm
 
     damage, dice = get_table_by_2d6(table)
     return damage, dice, isLrm

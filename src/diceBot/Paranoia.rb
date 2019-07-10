@@ -33,7 +33,7 @@ MESSAGETEXT
 
     case command
     when /geta/i
-      result= getaRoll()
+      result = getaRoll()
     end
 
     return nil if result.empty?

@@ -46,7 +46,7 @@ INFO_MESSAGE_TEXT
     sucLv = 1
     sucNL = 0
 
-    while total_n >= sucLv*5-1
+    while total_n >= sucLv * 5 - 1
       sucLv += 1
     end
 
