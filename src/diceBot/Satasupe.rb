@@ -121,7 +121,7 @@ INFO_MESSAGE_TEXT
     min_suc = 0
     fumble = 1
     critical = 13
-  isCriticalStop = false
+    isCriticalStop = false
 
     # params => "[x,y,cS]"
     unless params.nil?

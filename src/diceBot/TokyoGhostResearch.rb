@@ -48,19 +48,19 @@ MESSAGETEXT
 
   def getCheckResult(command)
     output = ""
-      diff = 0
+    diff = 0
 
-      if /TK?<=(\d+)/i =~ command
-        diff = $2.to_i
-      end
+    if /TK?<=(\d+)/i =~ command
+      diff = $2.to_i
+    end
 
-      if diff > 0
-        output += "(1D10<=#{diff})"
+    if diff > 0
+      output += "(1D10<=#{diff})"
 
-        total_n, = roll(1, 10)
-        output += ' ＞ ' + total_n.to_s
-        output += ' ＞ ' + getCheckResultText(total_n, diff)
-      end
+      total_n, = roll(1, 10)
+      output += ' ＞ ' + total_n.to_s
+      output += ' ＞ ' + getCheckResultText(total_n, diff)
+    end
     return output
   end
 

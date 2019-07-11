@@ -53,7 +53,7 @@ INFO_MESSAGE_TEXT
     #空値があった時の為のばんぺいくんRX
     if step > 40
       step2 = step
-        step = 40
+      step = 40
     end
 
     if $2

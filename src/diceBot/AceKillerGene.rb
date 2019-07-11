@@ -42,8 +42,8 @@ INFO_MESSAGE_TEXT
 
      when /^DC(SL|BL|IM|BR|RF|EL)(\d+)/i
        type = $1
-      damage_value = $2.to_i
-      return look_up_damage_chart(type, damage_value)
+       damage_value = $2.to_i
+       return look_up_damage_chart(type, damage_value)
     end
 
     return nil

@@ -449,29 +449,29 @@ INFO_MESSAGE_TEXT
 
     dice, = roll(1, 6)
 
-  case dice
-    when 1
-      output1 = '装備１種表'
-      output2, total_n2 = get_weapon1_table
-    when 2
-      output1 = '装備１種表'
-      output2, total_n2 = get_weapon1_table
-    when 3
-      output1 = '装備２種表'
-      output2, total_n2 = get_weapon2_table
-    when 4
-      output1 = '装備２種表'
-      output2, total_n2 = get_weapon2_table
-    when 5
-      output1 = '装備３種表'
-      output2, total_n2 = get_weapon3_table
-    when 6
-      output1 = '装備４種表'
-      output2, total_n2 =  get_weapon4_table
-  end
+    case dice
+      when 1
+        output1 = '装備１種表'
+        output2, total_n2 = get_weapon1_table
+      when 2
+        output1 = '装備１種表'
+        output2, total_n2 = get_weapon1_table
+      when 3
+        output1 = '装備２種表'
+        output2, total_n2 = get_weapon2_table
+      when 4
+        output1 = '装備２種表'
+        output2, total_n2 = get_weapon2_table
+      when 5
+        output1 = '装備３種表'
+        output2, total_n2 = get_weapon3_table
+      when 6
+        output1 = '装備４種表'
+        output2, total_n2 = get_weapon4_table
+    end
     result = "#{output1}：#{output2}"
     number = "#{dice},#{total_n2}"
-  return result, number
+    return result, number
   end
 
   def get_weapon1_table
@@ -577,23 +577,23 @@ INFO_MESSAGE_TEXT
 
     output1, total_n1 = get_bunya_table
 
-  case total_n1
-    when 1
-      output2, total_n2 =  get_kosei_haikei_table
-    when 2
-      output2, total_n2 =  get_kosei_miryoku_table
-    when 3
-      output2, total_n2 =  get_kosei_seikaku_table
-    when 4
-      output2, total_n2 =  get_kosei_syumi_table
-    when 5
-      output2, total_n2 =  get_kosei_koukai_table
-    when 6
-      output2, total_n2 =  get_kosei_sentou_table
-  end
+    case total_n1
+      when 1
+        output2, total_n2 =  get_kosei_haikei_table
+      when 2
+        output2, total_n2 =  get_kosei_miryoku_table
+      when 3
+        output2, total_n2 =  get_kosei_seikaku_table
+      when 4
+        output2, total_n2 =  get_kosei_syumi_table
+      when 5
+        output2, total_n2 =  get_kosei_koukai_table
+      when 6
+        output2, total_n2 =  get_kosei_sentou_table
+    end
     result = "《#{output2}／#{output1}#{total_n2}》"
     number = "#{total_n1},#{total_n2}"
-  return result, number
+    return result, number
   end
 
   def get_bunya_table

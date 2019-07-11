@@ -246,7 +246,7 @@ MESSAGETEXT
              [100, '魔王'],
             ]
 
-  dice_now, = roll(1, 100)
+    dice_now, = roll(1, 100)
     output = get_table_by_number(dice_now, table)
 
     return get_table_by_number(dice_now, table)
@@ -356,7 +356,7 @@ MESSAGETEXT
              [100, '目についた物の名前（シャーペン、メガネなど）'],
             ]
 
-  dice_now, = roll(1, 100)
+    dice_now, = roll(1, 100)
     output = get_table_by_number(dice_now, table)
 
     return get_table_by_number(dice_now, table)

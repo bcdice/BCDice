@@ -1941,11 +1941,11 @@ MESSAGETEXT
   def getMusicalInstrumentTypeDiceCommandResult(command)
     return nil unless /MII(\d?)/ === command
 
-     type, is_roll = if $1 && $1 != ''
-                       [$1.to_i, false]
-    else
-      roll(1, 6)
-    end
+    type, is_roll = if $1 && $1 != ''
+                      [$1.to_i, false]
+   else
+     roll(1, 6)
+   end
     return nil if type < 1 || 6 < type
 
     tableName = "楽器種別表"

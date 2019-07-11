@@ -162,7 +162,14 @@ Layout/IndentFirstHashElement:
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: normal, rails
 Layout/IndentationConsistency:
-  Enabled: false
+  Exclude:
+    - diceBot/FilledWith.rb
+    - diceBot/Gurps.rb
+    - diceBot/GurpsFW.rb
+    - diceBot/KillDeathBusiness.rb
+    - diceBot/KillDeathBusiness_Korean.rb
+    - diceBot/LogHorizon_Korean.rb
+    - irc/encode.rb
 
 # Offense count: 820
 # Cop supports --auto-correct.

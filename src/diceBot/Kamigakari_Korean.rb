@@ -43,37 +43,37 @@ INFO_MESSAGE_TEXT
 
     debug("rollDiceCommand command", command)
 
-  case command
+    case command
 
-    when "RT"
-      tableName, result, number = getReimonCompensationTableResult
+      when "RT"
+        tableName, result, number = getReimonCompensationTableResult
 
-    when /^MT(\d*)$/
-      rank = $1
-      rank ||= 1
-      rank = rank.to_i
-      tableName, result, number = getGetMaterialTableResult(rank)
+      when /^MT(\d*)$/
+        rank = $1
+        rank ||= 1
+        rank = rank.to_i
+        tableName, result, number = getGetMaterialTableResult(rank)
 
-    when "ET"
-      tableName, result, number = getEmotionTableResult
+      when "ET"
+        tableName, result, number = getEmotionTableResult
 
-    when "NT"
-      tableName, result, number = getNameTableResult
+      when "NT"
+        tableName, result, number = getNameTableResult
 
-    when "KT"
-      tableName, result, number = getKyoukaiTableResult
+      when "KT"
+        tableName, result, number = getKyoukaiTableResult
 
-    else
-      debug("rollDiceCommand commandNOT matched -> command:", command)
-      return ""
-  end
+      else
+        debug("rollDiceCommand commandNOT matched -> command:", command)
+        return ""
+    end
 
     if result.empty?
       return ""
     end
 
-  text = "#{tableName}(#{number})：#{result}"
-  return text
+    text = "#{tableName}(#{number})：#{result}"
+    return text
   end
 
   def getReimonCompensationTableResult
