@@ -545,16 +545,6 @@ Naming/VariableNumber:
     - 'diceBot/StellarKnights.rb'
     - 'diceBot/SwordWorld.rb'
 
-# Offense count: 2
-Security/Eval:
-  Exclude:
-    - 'diceBot/BeastBindTrinity.rb'
-
-# Offense count: 2
-Security/Open:
-  Exclude:
-    - 'createExe.rb'
-
 # Offense count: 5
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: inline, group

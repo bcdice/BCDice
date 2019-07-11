@@ -23,7 +23,7 @@ def writeToConfig(nameList)
     "$allGameTypes = %w{\n" + nameList.join("\n") + "\n}"
   end
 
-  open(fileName, "wb+") do |file|
+  File.open(fileName, "wb+") do |file|
     file.write(text)
   end
 end
