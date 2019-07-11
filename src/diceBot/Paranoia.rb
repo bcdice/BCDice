@@ -52,10 +52,10 @@ MESSAGETEXT
 
     getaString = ''
     case (diceList[0])
-      when 1
-        getaString = '幸福です'
-      when 2
-        getaString = '幸福ではありません'
+    when 1
+      getaString = '幸福です'
+    when 2
+      getaString = '幸福ではありません'
     end
 
     result += getaString
