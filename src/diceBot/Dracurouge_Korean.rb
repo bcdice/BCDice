@@ -70,9 +70,9 @@ MESSAGETEXT
     diceList, calculationProcess = getThirstyAddedResult(diceList, thirstyPoint)
     thirstyPointMarker = (thirstyPoint == 0 ? "" : "+#{thirstyPoint}")
 
-  result = "(#{command}) ＞ #{diceCount}D6#{thirstyPointMarker} ＞ "
-  result += "[ #{calculationProcess} ] ＞ " unless calculationProcess.empty?
-  result += "[ #{diceList.join(', ')} ]"
+    result = "(#{command}) ＞ #{diceCount}D6#{thirstyPointMarker} ＞ "
+    result += "[ #{calculationProcess} ] ＞ " unless calculationProcess.empty?
+    result += "[ #{diceList.join(', ')} ]"
     return result
   end
 
@@ -124,7 +124,7 @@ MESSAGETEXT
 
     diceList = rollDiceList(diceCount)
 
-  result = "(#{command}) ＞ #{diceCount}D6 ＞ [ #{diceList.join(', ')} ]"
+    result = "(#{command}) ＞ #{diceCount}D6 ＞ [ #{diceList.join(', ')} ]"
   end
 
   def getReactionResult(command)
@@ -139,7 +139,7 @@ MESSAGETEXT
 
     type1 = %w{드라크	로젠부르크	헬스가르드	더스트하임	아발롬	노스페라스}
     type1_indexTexts = %w{D R H M A N}
-  type2 = %w{영주	근위	방랑	현자	사냥꾼	야수}
+    type2 = %w{영주	근위	방랑	현자	사냥꾼	야수}
     type2_indexTexts = %w{F G R W J N}
 
     tensValue = number.to_i / 10
@@ -173,10 +173,10 @@ MESSAGETEXT
 
   def getReactionTex(index, type, tableText)
     typeName = type[index]
-      texts = tableText.split(/\t/)
-      string = texts[index]
+    texts = tableText.split(/\t/)
+    string = texts[index]
 
-      return "#{typeName}：#{string}"
+    return "#{typeName}：#{string}"
   end
 
   def getReactionTable

@@ -121,36 +121,36 @@ INFO_MESSAGE_TEXT
       debug("▼現在人間性 取得 #{humanity}")
       if humanity <= 0
         critical = 9
-          debug("▼現在人間性からC値取得 #{critical}")
+        debug("▼現在人間性からC値取得 #{critical}")
       elsif humanity <= 20
         critical = 10
-          debug("▼現在人間性からC値取得 #{critical}")
+        debug("▼現在人間性からC値取得 #{critical}")
       elsif humanity <= 40
         critical = 11
-          debug("▼現在人間性からC値取得 #{critical}")
+        debug("▼現在人間性からC値取得 #{critical}")
       end
     end
 
     if m[7]
       str_critical = m[8] if m[8] # クリティカル値の文字列を取得
-        debug("▼C値文字列 取得 #{str_critical}")
+      debug("▼C値文字列 取得 #{str_critical}")
     end
 
     if m[9]
       nofumble = true if m[10] # ファンブル耐性指定
-        debug("▼F値耐性 #{nofumble}")
+      debug("▼F値耐性 #{nofumble}")
       str_fumble = m[11] if m[11]    # ファンブル値の文字列を取得
-        debug("▼F値文字列 取得 #{str_fumble}")
+      debug("▼F値文字列 取得 #{str_fumble}")
     end
 
     if m[12]
       str_dicesubs = m[13] if m[13]  # ダイス差し替え用の文字列を取得
-        debug("▼出目予約用の文字列 取得 #{str_dicesubs}")
+      debug("▼出目予約用の文字列 取得 #{str_dicesubs}")
     end
 
     if m[14]
       dicepull = m[15].to_i if m[15] # ダイス引き上げ用の文字列を取得
-        debug("▼出目引き上げモード 取得 #{dicepull}")
+      debug("▼出目引き上げモード 取得 #{dicepull}")
     end
 
     signOfInequality = m[17] if m[17]
@@ -162,9 +162,9 @@ INFO_MESSAGE_TEXT
       str_critical.scan(/[\+\-]?\d+/).each do |num|
         n_cri += num.to_i
       end
-        debug("▼C値指定符 算出 #{n_cri}")
+      debug("▼C値指定符 算出 #{n_cri}")
       critical = str_critical.match(/^[\+\-][\+\-\d]+/) ? [critical + n_cri, 12].min : n_cri
-        debug("▼クリティカル値 #{critical}")
+      debug("▼クリティカル値 #{critical}")
     end
 
     # 数値・数式からファンブル値を決定
@@ -173,9 +173,9 @@ INFO_MESSAGE_TEXT
       str_fumble.scan(/[\+\-]?\d+/).each do |num|
         n_fum += num.to_i
       end
-        debug("▼F値指定符 算出 #{n_fum}")
+      debug("▼F値指定符 算出 #{n_fum}")
       fumble = str_fumble.match(/^[\+\-][\+\-\d]+/) ? fumble + n_fum : n_fum
-        debug("▼ファンブル値 #{fumble}")
+      debug("▼ファンブル値 #{fumble}")
     end
 
     # 出目予約の有無を確認
