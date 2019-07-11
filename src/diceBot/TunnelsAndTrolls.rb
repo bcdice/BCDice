@@ -128,7 +128,7 @@ INFO_MESSAGE_TEXT
     return (v == v.to_i)
   end
 
-####################   Tunnels and Trolls Berserk  ########################
+  ####################   Tunnels and Trolls Berserk  ########################
   def tandt_berserk(string, nick_e)
     debug('tandt_berserk string', string)
 

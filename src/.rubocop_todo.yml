@@ -61,11 +61,6 @@ Layout/CaseIndentation:
     - diceBot/FilledWith.rb
     - diceBot/GurpsFW.rb
 
-# Offense count: 102
-# Cop supports --auto-correct.
-Layout/CommentIndentation:
-  Enabled: false
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleAlignWith, AutoCorrect, Severity.

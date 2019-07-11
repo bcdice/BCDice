@@ -223,7 +223,7 @@ INFO_MESSAGE_TEXT
     return result
   end
 
-###표 목록
+  ###표 목록
 
   def choiceStrengthStigmaTable()
     name = "체력 낙인표"

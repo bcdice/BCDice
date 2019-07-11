@@ -132,7 +132,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-#** ロケーション表
+  #** ロケーション表
   def hm_city_location_table
     table = [
         '住宅街/閑静な住宅街。不意打ちに適しているため、ハンターの攻撃判定に+1の修正をつけてもよい。',
@@ -181,7 +181,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-#** 遭遇表
+  #** 遭遇表
   def hm_encount_table
     table = [
              '獲物/恐怖/あなたはモノビーストの獲物として追い回される。満月の夜でないと傷を負わせることができない怪物相手に、あなたは逃げ回るしかない。',
@@ -349,7 +349,7 @@ INFO_MESSAGE_TEXT
     return table
   end
 
-#** 指定特技ランダム決定(社会)
+  #** 指定特技ランダム決定(社会)
   def hm_social_skill_table
     table = [
              '怯える',
@@ -367,7 +367,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-#** 指定特技ランダム決定(頭部)
+  #** 指定特技ランダム決定(頭部)
   def hm_head_skill_table
     table = [
              '聴く',
@@ -385,7 +385,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-#** 指定特技ランダム決定(腕部)
+  #** 指定特技ランダム決定(腕部)
   def hm_arm_skill_table
     table = [
              '操作',
@@ -403,7 +403,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-#** 指定特技ランダム決定(胴部)
+  #** 指定特技ランダム決定(胴部)
   def hm_trunk_skill_table
     table = [
              '塞ぐ',
@@ -421,7 +421,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-#** 指定特技ランダム決定(脚部)
+  #** 指定特技ランダム決定(脚部)
   def hm_leg_skill_table
     table = [
              '迫る',
@@ -439,7 +439,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-#** 指定特技ランダム決定(環境)
+  #** 指定特技ランダム決定(環境)
   def hm_environmental_skill_table
     table = [
              '耐熱',

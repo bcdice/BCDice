@@ -567,7 +567,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_d66(table)
   end
 
- # ドロップチャート：コーポレイト(2d6)[DCP]
+  # ドロップチャート：コーポレイト(2d6)[DCP]
   def tgs_drop_corporate_table
     table = [
       "特になし",
@@ -586,7 +586,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：バンデッド(2d6)[DBD]
+  # ドロップチャート：バンデッド(2d6)[DBD]
   def tgs_drop_bandit_table
     table = [
       "特になし",
@@ -605,7 +605,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：クリミナル(2d6)[DCR]
+  # ドロップチャート：クリミナル(2d6)[DCR]
   def tgs_drop_criminal_table
     table = [
       "特になし",
@@ -624,7 +624,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：ニンジャ(2d6)[DNJ]
+  # ドロップチャート：ニンジャ(2d6)[DNJ]
   def tgs_drop_ninja_table
     table = [
       "特になし",
@@ -643,7 +643,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：ロボ (2d6)[DRB]
+  # ドロップチャート：ロボ (2d6)[DRB]
   def tgs_drop_robot_table
     table = [
       "特になし",
@@ -662,7 +662,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：武装車輛(2d6)[DBS]
+  # ドロップチャート：武装車輛(2d6)[DBS]
   def tgs_drop_busousyaryou_table
     table = [
       "特になし",
@@ -681,7 +681,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：ターレット(2d6)[DTR]
+  # ドロップチャート：ターレット(2d6)[DTR]
   def tgs_drop_turret_table
     table = [
       "特になし",
@@ -700,7 +700,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：メルカバ (2d6)[DMK]
+  # ドロップチャート：メルカバ (2d6)[DMK]
   def tgs_drop_merkava_table
     table = [
       "特になし",
@@ -719,7 +719,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：ヘリ(2d6)[DHL]
+  # ドロップチャート：ヘリ(2d6)[DHL]
   def tgs_drop_heli_table
     table = [
       "特になし",
@@ -738,7 +738,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：マシンライフ(2d6)[DML]
+  # ドロップチャート：マシンライフ(2d6)[DML]
   def tgs_drop_machinelife_table
     table = [
       "特になし",
@@ -757,7 +757,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：ゾンビ (2d6)[DZB]
+  # ドロップチャート：ゾンビ (2d6)[DZB]
   def tgs_drop_zombie_table
     table = [
       "特になし",
@@ -776,7 +776,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：ミュータント(2d6)[DMT]
+  # ドロップチャート：ミュータント(2d6)[DMT]
   def tgs_drop_mutant_table
     table = [
       "特になし",
@@ -795,7 +795,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：BM／飛竜科(2d6)[DHR]
+  # ドロップチャート：BM／飛竜科(2d6)[DHR]
   def tgs_drop_hiryu_table
     table = [
       "特になし",
@@ -814,7 +814,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：BM／巨爪科 (2d6)[DKS]
+  # ドロップチャート：BM／巨爪科 (2d6)[DKS]
   def tgs_drop_kyosou_table
     table = [
       "特になし",
@@ -833,7 +833,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
- # ドロップチャート：フィーンド(2d6)[DFD]
+  # ドロップチャート：フィーンド(2d6)[DFD]
   def tgs_drop_fiend_table
     table = [
       "特になし",

@@ -197,7 +197,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_d66(table)
   end
 
- # 징조표(2d6)[OT]
+  # 징조표(2d6)[OT]
   def mm_omens_table
     table = [
       "【신념의 상실】\n［출신］을 상실한다. 특징은 없어지지 않는다.",

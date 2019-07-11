@@ -302,7 +302,7 @@ class CardTrader
 
     when /c-pick\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
       pickupCardCommandText(arg)
-            # FIXME
+    # FIXME
     when /c-back(\d)*\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
       backCardCommandText(arg)
 
@@ -346,7 +346,7 @@ class CardTrader
     return "シャッフルしました"
   end
 
-####################             ドロウ            ########################
+  ####################             ドロウ            ########################
   def drawCardByCommandText(arg)
     debug("drawCardByCommandText arg", arg)
 
@@ -608,7 +608,7 @@ class CardTrader
     end
   end
 
-####################             プレイ            ########################
+  ####################             プレイ            ########################
   def playCardByCommandText(arg)
     debug('c-play pattern', arg)
 
@@ -826,7 +826,7 @@ class CardTrader
     return cards
   end
 
-####################              パス             ########################
+  ####################              パス             ########################
 
   def transferCardsByCommandText(commandText, sendTo)
     debug("transferCardsByCommandText commandText, sendTo", commandText, sendTo)
@@ -1124,7 +1124,7 @@ class CardTrader
     sendMessage(targetNick, getHandAndPlaceCardInfoText("Auto", targetNick))
   end
 
-####################             タップ            ########################
+  ####################             タップ            ########################
   def tapCardCommandText(commandText)
     debug("tapCardCommandText commandText", commandText)
 
@@ -1210,7 +1210,7 @@ class CardTrader
     end
   end
 
-####################            山札関連           ########################
+  ####################            山札関連           ########################
   def printMilStoneResult(commandText)
     count, output_msg = getCardMilstone(commandText)
 
@@ -1292,7 +1292,7 @@ class CardTrader
     cards.length
   end
 
-####################             その他            ########################
+  ####################             その他            ########################
   def reviewCards
     @cardRest.join(',')
   end
@@ -1468,7 +1468,7 @@ class CardTrader
     return ((index % 2) == 0)
   end
 
-####################           復活の呪文          ########################
+  ####################           復活の呪文          ########################
 
   def printCardRestorationSpellResult(spellText)
     output_msg = throwCardRestorationSpell(spellText)

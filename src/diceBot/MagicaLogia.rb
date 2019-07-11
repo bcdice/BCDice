@@ -865,37 +865,37 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-    #特技だけ抜きたい時用(星) あまりきれいでない
+  #特技だけ抜きたい時用(星) あまりきれいでない
   def magicalogia_random_skill_table_text_only_star
     text, = magicalogia_random_skill_star_table
     return text
   end
 
-    #特技だけ抜きたい時用(獣) あまりきれいでない
+  #特技だけ抜きたい時用(獣) あまりきれいでない
   def magicalogia_random_skill_table_text_only_beast
     text, = magicalogia_random_skill_beast_table
     return text
   end
 
-    #特技だけ抜きたい時用(力) あまりきれいでない
+  #特技だけ抜きたい時用(力) あまりきれいでない
   def magicalogia_random_skill_table_text_only_force
     text, = magicalogia_random_skill_force_table
     return text
   end
 
-    #特技だけ抜きたい時用(歌) あまりきれいでない
+  #特技だけ抜きたい時用(歌) あまりきれいでない
   def magicalogia_random_skill_table_text_only_poem
     text, = magicalogia_random_skill_poem_table
     return text
   end
 
-    #特技だけ抜きたい時用(夢) あまりきれいでない
+  #特技だけ抜きたい時用(夢) あまりきれいでない
   def magicalogia_random_skill_table_text_only_dream
     text, = magicalogia_random_skill_dream_table
     return text
   end
 
-    #特技だけ抜きたい時用(闇) あまりきれいでない
+  #特技だけ抜きたい時用(闇) あまりきれいでない
   def magicalogia_random_skill_table_text_only_night
     text, = magicalogia_random_skill_night_table
     return text
