@@ -32,7 +32,7 @@ INFO_MESSAGE_TEXT
     total1 = dice1 * 10 + dice2
     total2 = dice2 * 10 + dice1
 
-    #ゾロ目
+    # ゾロ目
     isRepdigit = (dice1 == dice2)
 
     result = " ＞ スワップ"

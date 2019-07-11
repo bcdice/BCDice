@@ -148,22 +148,22 @@ INFO_MESSAGE_TEXT
     return nil
   end
 
-  #** 掘り出し袋表
+  # ** 掘り出し袋表
   def get_horidasibukuro_table(dice)
     output = '1'
 
-    material_kind = [ #2D6
-      "蟲甲",     #5
-      "金属",     #6
-      "金貨",     #7
-      "植物",     #8
-      "獣皮",     #9
-      "竜鱗",     #10
-      "レアモノ", #11
-      "レアモノ", #12
+    material_kind = [ # 2D6
+      "蟲甲",     # 5
+      "金属",     # 6
+      "金貨",     # 7
+      "植物",     # 8
+      "獣皮",     # 9
+      "竜鱗",     # 10
+      "レアモノ", # 11
+      "レアモノ", # 12
     ]
 
-    magic_stone = [ #1D3
+    magic_stone = [ # 1D3
       "火炎石",
       "雷撃石",
       "氷結石",

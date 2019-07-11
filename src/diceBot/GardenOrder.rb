@@ -38,8 +38,8 @@ INFO_MESSAGE_TEXT
 
       return check_roll_repeat_attack(success_rate, repeat_count, critical_border)
 
-     when /^DC(SL|BL|IM|BR|RF|EL)(\d+)/i
-       type = $1
+    when /^DC(SL|BL|IM|BR|RF|EL)(\d+)/i
+      type = $1
       damage_value = $2.to_i
       return look_up_damage_chart(type, damage_value)
     end

@@ -30,7 +30,7 @@ INFO_MESSAGE_TEXT
     return ed_step(command)
   end
 
-  #アースドーンステップ表
+  # アースドーンステップ表
   def ed_step(str)
     output = getStepResult(str)
 
@@ -44,16 +44,16 @@ INFO_MESSAGE_TEXT
     @isFailed = true
     step2 = 0
 
-    step  = $1.to_i #ステップ
-    targetNumber = 0 #目標値
-    hasKarmaDice = false #カルマダイスの有無
-    karmaDiceCount = 0 #カルマダイスの個数又は修正
-    karmaDiceType = 0 #カルマダイスの種類
+    step  = $1.to_i # ステップ
+    targetNumber = 0 # 目標値
+    hasKarmaDice = false # カルマダイスの有無
+    karmaDiceCount = 0 # カルマダイスの個数又は修正
+    karmaDiceType = 0 # カルマダイスの種類
 
-    #空値があった時の為のばんぺいくんRX
+    # 空値があった時の為のばんぺいくんRX
     if step > 40
       step2 = step
-        step = 40
+      step = 40
     end
 
     if $2
@@ -107,7 +107,7 @@ INFO_MESSAGE_TEXT
     stepTotal += rollStep(6,  d6step)
     stepTotal += rollStep(4,  d4step)
 
-    if nmod > 0 #修正分の適用
+    if nmod > 0 # 修正分の適用
       @string += "+"
     end
 
@@ -116,13 +116,13 @@ INFO_MESSAGE_TEXT
       stepTotal += nmod
     end
 
-    #ステップ判定終了
+    # ステップ判定終了
     @string += " ＞ #{stepTotal}"
 
     output = "ステップ#{step} ＞ #{@string}"
     return output if targetNumber == 0
 
-    #結果判定
+    # 結果判定
     @string += ' ＞ '
 
     excelentSuccessNumber = stable[7][targetNumber - 1]
@@ -152,7 +152,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getStepTable
-    #表      1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 34x 3x 4x 5x 6x 7x 8x 9x10x11x12x13x
+    # 表      1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 34x 3x 4x 5x 6x 7x 8x 9x10x11x12x13x
 
     mod = [-2, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
     d20 = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
@@ -175,11 +175,11 @@ INFO_MESSAGE_TEXT
   # 41以上のステップの為の配列です。
   # 以下のようなルールでダイスを増やしています。より正しいステップ計算法をご存知の方は、
   # どうぞそちらに合せて調整して下さい。
-  #　基本：　2d20+d10+d8
-  #　これを仮にステップ34xとしています。
-  #　一般式としては、ステップxxのダイスは、
+  # 　基本：　2d20+d10+d8
+  # 　これを仮にステップ34xとしています。
+  # 　一般式としては、ステップxxのダイスは、
 
-  #　 ステップ34xのダイス
+  # 　 ステップ34xのダイス
   # + [(xx-45)/11]d20
   # + ステップ[(xx-34)を11で割った余り+3]のダイス
 
@@ -189,7 +189,7 @@ INFO_MESSAGE_TEXT
     stepTotal = 0
     return stepTotal unless diceCount > 0
 
-    #diceぶんのステップ判定
+    # diceぶんのステップ判定
 
     @string += "+" unless @string.empty?
     @string += "#{diceCount}d#{diceType}["

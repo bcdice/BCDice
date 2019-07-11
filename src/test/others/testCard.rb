@@ -258,7 +258,7 @@ class TestCardTrader < Test::Unit::TestCase
     @bcdice.setRandomValues(rands)
     @cardTrader.executeCard("c-draw[#{count}]", "channel")
     @bcdice.getResult()
-    #debug('drawCards, getResult@bcdice.getResult()', @bcdice.getResult())
+    # debug('drawCards, getResult@bcdice.getResult()', @bcdice.getResult())
   end
 
   def test_back

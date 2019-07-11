@@ -20,7 +20,7 @@ INFO_MESSAGE_TEXT
   def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(1D100)
     return '' unless signOfInequality == "<="
 
-    #ゾロ目ならC-ResultかBotch
+    # ゾロ目ならC-ResultかBotch
     s10 = dice_n.div(10) # 10'sダイスの出目
     s1 = dice_n % 10 # 1'sダイスの出目
 
@@ -39,7 +39,7 @@ INFO_MESSAGE_TEXT
       return " ＞ Ｃ成功"
     end
 
-    if (total_n <= diff) || (dice_n == 1) #01は必ず成功
+    if (total_n <= diff) || (dice_n == 1) # 01は必ず成功
       if total_n <= (diff / 2)
         return " ＞ Ｈ成功"
       end

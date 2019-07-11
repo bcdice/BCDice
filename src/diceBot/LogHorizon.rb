@@ -76,26 +76,26 @@ MESSAGETEXT
     modifyText = ($2 || '')
     difficultyText = $4
 
-    #修正値の計算
+    # 修正値の計算
     modify = getValue(modifyText, 0)
 
-    #目標値の計算
+    # 目標値の計算
     difficulty = getValue(difficultyText, nil)
 
-    #ダイスロール
+    # ダイスロール
     dice, dice_str = roll(diceCount, 6)
     diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
 
     total = dice + modify
 
-    #出力用ダイスコマンドを生成
+    # 出力用ダイスコマンドを生成
     command =  "#{diceCount}LH#{modifyText}"
     command += ">=#{difficulty}" unless difficulty.nil?
 
-    #出力文の生成
+    # 出力文の生成
     result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
 
-    #クリティカル・ファンブルチェック
+    # クリティカル・ファンブルチェック
     if isCritical(diceList)
       result += " ＞ クリティカル！"
     elsif isFamble(diceList, diceCount)
@@ -107,7 +107,7 @@ MESSAGETEXT
     return result
   end
 
-  #成否判定
+  # 成否判定
   def getJudgeResultString(difficulty, total)
     return '' if difficulty.nil?
 
@@ -132,7 +132,7 @@ MESSAGETEXT
     (diceList.select { |i| i == 1 }.size >= diceCount)
   end
 
-  #消耗表
+  # 消耗表
   def getConsumptionDiceCommandResult(command)
     return nil unless /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command
 
@@ -494,7 +494,7 @@ MESSAGETEXT
     return number
   end
 
-  #最少値の調整（値が小さすぎるなら表の最小値に）
+  # 最少値の調整（値が小さすぎるなら表の最小値に）
   def getAdjustNumberMin(number, table)
     value = getTableMinimum(table)
     return [number, value].max
@@ -504,13 +504,13 @@ MESSAGETEXT
     table.first.first
   end
 
-  #最大値の調整（値が大きすぎるなら表の最大値に）
+  # 最大値の調整（値が大きすぎるなら表の最大値に）
   def getAdjustNumberMax(number, table)
     value = table.last.first
     return [number, value].min
   end
 
-  #財宝表
+  # 財宝表
   def getTresureDiceCommandResult(command)
     return nil unless (m = /(C|M|I|O|H|G)TRS(\d*)([\+\-\d]*)(\$)?/.match(command))
 
@@ -1386,7 +1386,7 @@ MESSAGETEXT
     return tableName, table
   end
 
-  #パーソナリティタグ表
+  # パーソナリティタグ表
   def getPersonalityTagDiceCommandResult(command)
     return nil unless "PTAG" === command
 
@@ -1441,7 +1441,7 @@ MESSAGETEXT
     return text
   end
 
-  #交友表
+  # 交友表
   def getFriendlyChartDiceCommandResult(command)
     return nil unless "KOYU" === command
 
@@ -1496,7 +1496,7 @@ MESSAGETEXT
     return text
   end
 
-  #プレフィックスドマジックアイテム表
+  # プレフィックスドマジックアイテム表
   def getPrefixedMagickItemDiceCommandResult(command)
     return nil unless /MGR([1-3])/ === command
 
@@ -1655,7 +1655,7 @@ MESSAGETEXT
     return text
   end
 
-  #攻撃命中箇所ランダム決定表
+  # 攻撃命中箇所ランダム決定表
   def getHitLocationDiceCommandResult(command)
     return nil unless "HLOC" === command
 
@@ -1707,7 +1707,7 @@ MESSAGETEXT
     "#{tableName}(#{number})：#{result}"
   end
 
-  #PC名ランダム決定表
+  # PC名ランダム決定表
   def getPCNameDiceCommandResult(command)
     return nil unless "PCNM" === command
 
@@ -1761,7 +1761,7 @@ MESSAGETEXT
     return "#{tableName}(#{number})：#{result}"
   end
 
-  #ロデ研の新発明ランダム決定表
+  # ロデ研の新発明ランダム決定表
   def getInventionAttributeTextDiceCommandResult(command)
     return nil unless /IAT([ABMDLT]*)/ === command
 
@@ -1819,7 +1819,7 @@ MESSAGETEXT
     return "#{tableName}([#{number.join(',')}])：#{result.join(' ')}"
   end
 
-  #アキバの街で遭遇するトラブルランダム決定表
+  # アキバの街で遭遇するトラブルランダム決定表
   def getTroubleInAkibaStreetDiceCommandResult(command)
     return nil unless command === "TIAS"
 
@@ -1870,7 +1870,7 @@ MESSAGETEXT
     return "#{tableName}([#{number.join(',')}])：#{result.join(' ')}"
   end
 
-  #廃棄児ランダム決定表
+  # 廃棄児ランダム決定表
   def getAbandonedChildDiceCommandResult(command)
     return nil unless command === "ABDC"
 
@@ -1937,15 +1937,15 @@ MESSAGETEXT
     return "#{tableName}([#{number.join(',')}])：#{result.join('　')}"
   end
 
-  #楽器種別表
+  # 楽器種別表
   def getMusicalInstrumentTypeDiceCommandResult(command)
     return nil unless /MII(\d?)/ === command
 
-     type, is_roll = if $1 && $1 != ''
-                       [$1.to_i, false]
-    else
-      roll(1, 6)
-    end
+    type, is_roll = if $1 && $1 != ''
+                      [$1.to_i, false]
+   else
+     roll(1, 6)
+   end
     return nil if type < 1 || 6 < type
 
     tableName = "楽器種別表"
@@ -1964,7 +1964,7 @@ MESSAGETEXT
     return tableName.to_s + (is_roll ? "(#{type})" : '') + "：#{type_name}(#{dice})：#{result}"
   end
 
-  #イースタル探索表
+  # イースタル探索表
   def getEastalDiceCommandResult(command)
     return nil unless (m = /ESTL(\d*)([\+\-\d]*)(\$(\d+))?/.match(command))
 

@@ -121,7 +121,7 @@ INFO_MESSAGE_TEXT
     min_suc = 0
     fumble = 1
     critical = 13
-  isCriticalStop = false
+    isCriticalStop = false
 
     # params => "[x,y,cS]"
     unless params.nil?
@@ -182,7 +182,7 @@ INFO_MESSAGE_TEXT
         break
       end
 
-      if isCritical && isCriticalStop #必殺止めの確認
+      if isCritical && isCriticalStop # 必殺止めの確認
         break
       end
     end
@@ -482,7 +482,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getNpcTableResult(counts)
-    #好み／雰囲気表
+    # 好み／雰囲気表
     lmood = [
              'ダークな',
              'お金持ちな',
@@ -491,28 +491,28 @@ INFO_MESSAGE_TEXT
              'ワイルドな',
              'バランスがとれてる',
             ]
-    #好み／年齢表
+    # 好み／年齢表
     lage = [
             '年下が好き。',
             '同い年が好き。',
             '年上が好き。',
            ]
-    #年齢表
+    # 年齢表
     age = [
-           '幼年', #6+2D6歳
-           '少年', #10+2D6歳
-           '青年', #15+3D6歳
-           '中年', #25+4D6歳
-           '壮年', #40+5D6歳
-           '老年', #60+6D6歳
+           '幼年', # 6+2D6歳
+           '少年', # 10+2D6歳
+           '青年', # 15+3D6歳
+           '中年', # 25+4D6歳
+           '壮年', # 40+5D6歳
+           '老年', # 60+6D6歳
           ]
     agen = [
-            '6+2D6',  #幼年
-            '10+2D6', #少年
-            '15+3D6', #青年
-            '25+4D6', #中年
-            '40+5D6', #壮年
-            '60+6D6', #老年
+            '6+2D6',  # 幼年
+            '10+2D6', # 少年
+            '15+3D6', # 青年
+            '25+4D6', # 中年
+            '40+5D6', # 壮年
+            '60+6D6', # 老年
            ]
 
     name = "NPC表:"

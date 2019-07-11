@@ -334,7 +334,7 @@ INFO_MESSAGE_TEXT
     dice1 = diceList[0]
     dice2 = diceList[1]
 
-    #マギカロギア用魔素取得判定
+    # マギカロギア用魔素取得判定
     return  gainMagicElement(dice1, dice2)
   end
 
@@ -424,19 +424,19 @@ INFO_MESSAGE_TEXT
     return "「#{tableName}」≪#{skill}≫", "#{total_n},#{total_n2}"
   end
 
-  #特技だけ抜きたい時用 あまりきれいでない
+  # 特技だけ抜きたい時用 あまりきれいでない
   def magicalogia_random_skill_table_text_only
     text, = magicalogia_random_skill_table
     return text
   end
 
-  #魔素の種類獲得表
+  # 魔素の種類獲得表
   def get_magic_element_type
     table = ['星', '獣', '力', '歌', '夢', '闇']
     return get_table_by_1d6(table)
   end
 
-  #時の流れ表
+  # 時の流れ表
   def magicalogia_time_passage_table
     output = ""
     num, = roll(1, 6)
@@ -461,7 +461,7 @@ INFO_MESSAGE_TEXT
     return output, num
   end
 
-  #典型的災厄
+  # 典型的災厄
   def magicalogia_typical_fortune_change_table
     table = [
              '挫折。自分にとって大切だった夢をあきらめる。',
@@ -474,7 +474,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #物理的災厄
+  # 物理的災厄
   def magicalogia_physical_fortune_change_table
     table = [
              '火事。自分の家が焼け落ち、帰るところが無くなる。',
@@ -487,7 +487,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #精神的災厄
+  # 精神的災厄
   def magicalogia_mental_fortune_change_table
     table = [
              '倦怠。疲労感に襲われ、何もやる気がなくなる。',
@@ -500,7 +500,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #狂気的災厄
+  # 狂気的災厄
   def magicalogia_insanity_fortune_change_table
     table = [
              '二重人格。もう一つの人格が現れ、勝手な行動を始める。',
@@ -513,7 +513,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #社会的災厄
+  # 社会的災厄
   def magicalogia_social_fortune_change_table
     table = [
              '逮捕。無実の罪で捕らわれ、留置される。',
@@ -526,7 +526,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #超常的災厄
+  # 超常的災厄
   def magicalogia_paranormal_fortune_change_table
     table = [
              '霊感。見えるはずのないものが見えるようになる。',
@@ -539,7 +539,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #不思議系災厄
+  # 不思議系災厄
   def magicalogia_wonderful_fortune_change_table
     table = [
              '邪気眼。ついつい痛い言動を繰り返すようになってしまう。',
@@ -552,7 +552,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #コミカル系災厄
+  # コミカル系災厄
   def magicalogia_comical_fortune_change_table
     table = [
              '性別逆転。自分の肉体の性別が逆転してしまう。',
@@ -565,8 +565,8 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #ブランク秘密表用テーブル
-  #宿敵表
+  # ブランク秘密表用テーブル
+  # 宿敵表
   def magicalogia_inveterate_enemy_table
     output = ""
     num, = roll(1, 6)
@@ -586,7 +586,7 @@ INFO_MESSAGE_TEXT
     return output, num
   end
 
-  #謀略表
+  # 謀略表
   def magicalogia_conspiracy_table
     table = [
              '爆弾。その人物には、調査者の肉体を爆発させる魔法爆弾が仕掛けられていた。この【秘密】が公開されると、調査者は1d6点のダメージを受ける。',
@@ -599,7 +599,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #因縁表
+  # 因縁表
   def magicalogia_fate_table
     table = [
              '思慕。その人物は、実は調査者のことを知っており、深く愛していた。調査者はその人物に対する【運命】を2点上昇し、その属性を「恋愛」にする。その人物の【運命】の属性が「恋愛」の間、調査者は、この人物に対する【運命】が1点上昇するたび、【魔力】がその【運命】の値だけ回復する。',
@@ -612,7 +612,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #奇人表
+  # 奇人表
   def magicalogia_cueball_table
     table = [
              '寿命。その人物の命脈は尽きていた。この【秘密】が公開されると、その人物は死亡する。',
@@ -625,7 +625,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #力場表
+  # 力場表
   def magicalogia_force_field_table
     table = [
              '加護。その人物の頭上には、常に星の恩寵が降り注いでいる。この【秘密】が公開されると、そのシーンに「星」の魔素が2点発生する。また、このセッションの間、この人物に対する【運命】が1点上昇したキャラクターは「星」の魔素を2点獲得する。',
@@ -638,7 +638,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #同盟表
+  # 同盟表
   def magicalogia_alliance_table
     output = ""
     num, = roll(1, 6)
@@ -658,7 +658,7 @@ INFO_MESSAGE_TEXT
     return output, num
   end
 
-  #ブランク秘密表
+  # ブランク秘密表
   def magicalogia_blank_secret_table
     outtext = ""
     outnum = ''
@@ -686,7 +686,7 @@ INFO_MESSAGE_TEXT
     return outtext, outnum
   end
 
-  #プライズ表
+  # プライズ表
   def magicalogia_prise_table
     table = [
              '敗者は内側から破裂し、四散する。功績点を1点獲得する。',
@@ -704,7 +704,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #極限環境シーン表
+  # 極限環境シーン表
   def magicalogia_extreme_environment_scene_table
     table = [
              '上下左右も分からない、完全なる闇。このシーンに登場しているPCのうち一人は、≪光≫の判定を行う。成功すると、闇の魔素二個を獲得する。失敗すると、｢遮断｣の変調を受ける。誰かが判定を行うと、成否に関わらずこの効果はなくなる。',
@@ -722,7 +722,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #内面世界シーン表
+  # 内面世界シーン表
   def magicalogia_innner_world_scene_table
     table = [
              '肌の色と熱い吐息で満たされた場所。無数の男女が、思いつく限りの肉の欲望を実践している。このシーンに登場しているPCのうち一人は、≪エロス≫の判定を行うことができる。成功すると【一時的魔力】を1点獲得する。失敗すると【魔力】が2点減少する。誰かが判定を行うと、成否にかかわらずこの効果はなくなる。',
@@ -740,7 +740,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #魔法都市シーン表
+  # 魔法都市シーン表
   def magicalogia_magic_city_scene_table
     table = [
              '急に爆発が起こる。誰かが実験で失敗したらしい。「綻び」の変調を受けた後、「力」の魔素を二個獲得する。',
@@ -758,7 +758,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #死後世界シーン表
+  # 死後世界シーン表
   def magicalogia_world_after_dead_scene_table
     table = [
              '寂しげな村。影のような人々が時折行き来する。ここでは、死んだキャラクターに会うことができる。このシーンに登場しているPCのうち一人は、疵をひとつだけ、克服することができる。',
@@ -776,7 +776,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #迷宮世界シーン表
+  # 迷宮世界シーン表
   def magicalogia_labyrinth_world_scene_table
     table = [
              'がらんとした、石畳の部屋。床に描かれた魔法陣が、不気味な光を放っている。このシーンに登場しているPCのうち一人は、≪異界≫で判定を行うことができる。成功すると、その魔法陣を地球に帰還できる魔法門として使用できる。失敗すると、魔法門から現れた道の怪物に襲われ、このシーンに登場しているPC全員の【魔力】が1D6減少する。誰かが判定を行うと、成否にかかわらずこの効果はなくなる。',
@@ -865,43 +865,43 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-    #特技だけ抜きたい時用(星) あまりきれいでない
+  # 特技だけ抜きたい時用(星) あまりきれいでない
   def magicalogia_random_skill_table_text_only_star
     text, = magicalogia_random_skill_star_table
     return text
   end
 
-    #特技だけ抜きたい時用(獣) あまりきれいでない
+  # 特技だけ抜きたい時用(獣) あまりきれいでない
   def magicalogia_random_skill_table_text_only_beast
     text, = magicalogia_random_skill_beast_table
     return text
   end
 
-    #特技だけ抜きたい時用(力) あまりきれいでない
+  # 特技だけ抜きたい時用(力) あまりきれいでない
   def magicalogia_random_skill_table_text_only_force
     text, = magicalogia_random_skill_force_table
     return text
   end
 
-    #特技だけ抜きたい時用(歌) あまりきれいでない
+  # 特技だけ抜きたい時用(歌) あまりきれいでない
   def magicalogia_random_skill_table_text_only_poem
     text, = magicalogia_random_skill_poem_table
     return text
   end
 
-    #特技だけ抜きたい時用(夢) あまりきれいでない
+  # 特技だけ抜きたい時用(夢) あまりきれいでない
   def magicalogia_random_skill_table_text_only_dream
     text, = magicalogia_random_skill_dream_table
     return text
   end
 
-    #特技だけ抜きたい時用(闇) あまりきれいでない
+  # 特技だけ抜きたい時用(闇) あまりきれいでない
   def magicalogia_random_skill_table_text_only_night
     text, = magicalogia_random_skill_night_table
     return text
   end
 
-  #魔法使いの災厄
+  # 魔法使いの災厄
   def magicalogia_magi_fortune_change_table
     table = [
              '嫌悪。〈愚者〉たちを嫌悪し、〈大法典〉のやり方に疑問を覚えるようになる。この不幸が二度発生すると、その魔法使いは死亡しないで〈書籍卿〉になり、NPCとなる。この不幸が〈書籍卿〉に降り注いだ場合、不幸は無効化される。',
@@ -1047,7 +1047,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #世界法則追加表
+  # 世界法則追加表
   def magicalogia_world_low_add_table
     table = [
              '世界法則「楽園」。この「停車駅」は美しく、慰めに満ちている。この「停車駅」で降りた〈愚者〉は魅了され、ここで一生を過ごすことになる。「刻印百景」の特技で判定に成功すると、これを押しとどめることができる。この判定は、対象の〈愚者〉一人につき一回しかできない。',
@@ -1060,7 +1060,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #さまよう怪物表
+  # さまよう怪物表
   def magicalogia_wondaring_monster_table
     table = [
              lambda { return "トロールに率いられたオークとゴブリンの大軍団に遭遇する。数百という怪物たちが野蛮な叫び声をあげながら、魔法使いたちに襲い掛かってくる。≪#{magicalogia_random_skill_table_text_only_star}≫の判定を行う。全員の判定が終わったら、失敗したPCは1d6点のダメージを受ける。このとき、判定に成功したPCの数だけそのダメージの値を軽減できる。" },
@@ -1073,7 +1073,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #落花表
+  # 落花表
   def magicalogia_fallen_flower_table
     table = [
              '肉体が枯れるように崩壊する。その苦痛は耐え難いもののようだ。人の言葉にならない断末魔が聞く者を苛み、死ぬ。〈永遠〉をアンカーにしているものは、それが疵になる。',
@@ -1104,7 +1104,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #大判時の流れ表
+  # 大判時の流れ表
   def magicalogia_new_time_passage_table
     table = [
              lambda { return "波乱万丈の人生を送る。この時代に起きた有名な事件の背後では、多くの魔法的存在が暗躍していた。あなたも、その事件に関わり、〈禁書〉や〈書籍卿〉たちと戦いを繰り広げる。#{magicalogia_random_skill_table_text_only}の判定を行う。成功するとセッション終了時に追加で功績点を1点獲得する。失敗すると、自分に「運命変転」が発生する。" },

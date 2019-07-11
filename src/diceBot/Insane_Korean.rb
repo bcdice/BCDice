@@ -121,8 +121,8 @@ INFO_MESSAGE_TEXT
     when 'RTT'
       type = '랜덤 특기 결정표'
       output, total_n = get_random_skill_table
-        when 'TVT'
-          type = '지정특기(폭력)표'
+    when 'TVT'
+      type = '지정특기(폭력)표'
       output, total_n = get_violence_skill_table
     when 'TET'
       type = '지정특기(감정)표'
@@ -159,13 +159,13 @@ INFO_MESSAGE_TEXT
       output, total_n = get_latence_horror_table
     when 'ECT'
       type = '조우표・도시'
-       output, total_n = get_city_table
+      output, total_n = get_city_table
     when 'EMT'
       type = '조우표・산림'
-       output, total_n = get_mountainforest_table
+      output, total_n = get_mountainforest_table
     when 'EAT'
       type = '조우표・해변'
-       output, total_n = get_seaside_table
+      output, total_n = get_seaside_table
     when 'OHT'
       type = '야근 시 조우하는 공포표'
       output, total_n = get_overtime_horror_table
@@ -432,7 +432,7 @@ INFO_MESSAGE_TEXT
     return "「#{tableName}」≪#{skill}≫", "#{total_n},#{total_n2}"
   end
 
-  #특기만 뽑고싶을 때 사용. 별로 예쁘진 않다.
+  # 특기만 뽑고싶을 때 사용. 별로 예쁘진 않다.
   def get_random_skill_table_text_only
     text, = get_random_skill_table
     return text
@@ -556,7 +556,7 @@ INFO_MESSAGE_TEXT
              "지정특기：고문\n대화 도중, 피 맛이 났다. 동시에 갈그랑거리는 위화감을 느꼈다. 상대가 새파랗게 질려서 당신의 얼굴을 가리킨다. 어찌된 일인지 물어보려 입을 열자, 뚝하고 무언가가 땅바닥으로 떨어졌다. 내려다보면, 피 웅덩이 속에 새하얗게 당신의 이빨이 한 개 떨어져 있다. ",
              "지정특기：인류학\n대화 도중, 시야에 위화감을 느낀 당신은 눈을 깜빡였다. 상대의 얼굴이, 이상하게 되어 있었다. 잡아 늘여서, 휘저은 것처럼, 그로테스크하게 일그러져 있다. 엣? 하고 자세히 보지만 일그러짐은 변함없다. 상대는 전혀 눈치채지 못한 듯하다. 눈을 질끈 감았다가 다시 보자, 겨우 일그러짐이 사라졌다. 당신은 마음에 한가지 의심이 생겨난다. 눈 앞에 있는 상대는, 정말로 인간인걸까? ",
             ]
-        return get_table_by_1d6(table)
+    return get_table_by_1d6(table)
   end
 
   # 거리에서 조우하는 공포표

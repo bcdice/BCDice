@@ -209,7 +209,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_d66(table)
   end
 
- # 兆候表(2d6)[OT]
+  # 兆候表(2d6)[OT]
   def mm_omens_table
     table = [
       "【信念の喪失】\n[出自]を喪失する。特徴は失われない。",
@@ -437,7 +437,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_d66(table)
   end
 
-# 歪み表(海)(d66)[DTS]
+  # 歪み表(海)(d66)[DTS]
   def mm_distortion_table_sea
     table = [
       "【海域汚染】\n赤潮が発生する。あるいは海水そのものが毒に変わる。登場している全てのキャラクターは【体力】難易度10の判定を行い、失敗すると邪毒5を受ける。エキストラがどうなるかはGMが決定するが、治療されなければ早晩死亡するだろう。",

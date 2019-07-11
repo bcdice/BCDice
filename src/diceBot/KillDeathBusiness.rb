@@ -69,7 +69,7 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     debug("rollDiceCommand command", command)
 
-    #判定チェックは先に処理
+    # 判定チェックは先に処理
     case command
     when @@judogeDiceReg
       result = judgeDice(command)
@@ -77,7 +77,7 @@ INFO_MESSAGE_TEXT
       return text
     end
 
-    #判定以外なら表コマンドの処理に
+    # 判定以外なら表コマンドの処理に
     return rollTableCommand(command)
   end
 
@@ -142,88 +142,88 @@ INFO_MESSAGE_TEXT
 
   case command
 
-    when "HST"
-      tableName, result, number = getHistoryTableResult
+  when "HST"
+    tableName, result, number = getHistoryTableResult
 
-    when /^ST(\d)?$/
-    #シーン表
-      type = $1.to_i
+  when /^ST(\d)?$/
+    # シーン表
+    type = $1.to_i
 
     tableName, result, number = getSceneTableResult(type)
 
-    when /^.+WT$/i
-    #願い事表
-      tableName, result, number = getWishTableResult(command)
+  when /^.+WT$/i
+    # 願い事表
+    tableName, result, number = getWishTableResult(command)
 
-    when /^NAME(\d)?$/
-    #万能命名表
-      type = $1.to_i
+  when /^NAME(\d)?$/
+    # 万能命名表
+    type = $1.to_i
       tableName, result, number = getNameTableResult(type)
 
-    when /^.+SPT$/i
-    #サブプロット表
-      tableName, result, number = getSubprotTableResult(command)
+  when /^.+SPT$/i
+    # サブプロット表
+    tableName, result, number = getSubprotTableResult(command)
 
-    when "CMT"
-    #CM表
-      tableName, result, number = getCmTableResult()
+  when "CMT"
+    # CM表
+    tableName, result, number = getCmTableResult()
 
-    when "ERT"
-    #副作用蘇生表
-      tableName, result, number = getErTableResult()
+  when "ERT"
+    # 副作用蘇生表
+    tableName, result, number = getErTableResult()
 
-    when "WKT"
-    #一週間表
-      tableName, result, number = getWKTableResult()
+  when "WKT"
+    # 一週間表
+    tableName, result, number = getWKTableResult()
 
-    when /^EST$/i, /^sErviceST$/i
-      tableName, result, number = getServiceSceneTableResult()
+  when /^EST$/i, /^sErviceST$/i
+    tableName, result, number = getServiceSceneTableResult()
 
-    when "SOUL"
-      tableName, result, number = getSoulTableResult()
+  when "SOUL"
+    tableName, result, number = getSoulTableResult()
 
-    when "STGT"
-      tableName, result, number = getSceneTelopGenericTableResult()
+  when "STGT"
+    tableName, result, number = getSceneTelopGenericTableResult()
 
-    when /^HSAT(\d)?$/
-      type = $1.to_i
+  when /^HSAT(\d)?$/
+    type = $1.to_i
       tableName, result, number = getHairStylistAbuseTableResult(type)
 
-    when /^EXT(\d)?$/
-      type = $1.to_i
+  when /^EXT(\d)?$/
+    type = $1.to_i
       tableName, result, number = getExtraTableResult(type)
 
-    when /^SKL(T|J)$/
-      type = $1
+  when /^SKL(T|J)$/
+    type = $1
       tableName, result, number = getSkillTableResult(type)
 
-    when "PCDT"
-    #製作委員決定表
-      tableName, result, number = getpcTableResult()
-    when "OHT"
-    #実際どうだったのか表
-      tableName, result, number = getohTableResult()
-    when "PCT1"
-    #ヘルライオンタスク表
-      tableName, result, number = getplTableResult()
-    when "PCT2"
-    #ヘルクロウタスク表
-      tableName, result, number = getprTableResult()
-    when "PCT3"
-    #ヘルスネークタスク表
-      tableName, result, number = getpnTableResult()
-    when "PCT4"
-    #ヘルドラゴンタスク表
-      tableName, result, number = getpdTableResult()
-    when "PCT5"
-    #ヘルフライタスク表
-      tableName, result, number = getpfTableResult()
-    when "PCT6"
-    #ヘルゴートタスク表
-      tableName, result, number = getpgTableResult()
-    when "PCT7"
-    #ヘルベアタスク表
-      tableName, result, number = getpbTableResult()
+  when "PCDT"
+    # 製作委員決定表
+    tableName, result, number = getpcTableResult()
+  when "OHT"
+    # 実際どうだったのか表
+    tableName, result, number = getohTableResult()
+  when "PCT1"
+    # ヘルライオンタスク表
+    tableName, result, number = getplTableResult()
+  when "PCT2"
+    # ヘルクロウタスク表
+    tableName, result, number = getprTableResult()
+  when "PCT3"
+    # ヘルスネークタスク表
+    tableName, result, number = getpnTableResult()
+  when "PCT4"
+    # ヘルドラゴンタスク表
+    tableName, result, number = getpdTableResult()
+  when "PCT5"
+    # ヘルフライタスク表
+    tableName, result, number = getpfTableResult()
+  when "PCT6"
+    # ヘルゴートタスク表
+    tableName, result, number = getpgTableResult()
+  when "PCT7"
+    # ヘルベアタスク表
+    tableName, result, number = getpbTableResult()
   end
 
     if result.empty?
@@ -990,12 +990,12 @@ INFO_MESSAGE_TEXT
               ]
 
     case type
-      when 1
-        result, number = get_table_by_d66_swap(hellStylistAbuseTable1)
-      when 2
-        result, number = get_table_by_d66_swap(hellStylistAbuseTable2)
-      else
-        result1, num1 = get_table_by_d66_swap(hellStylistAbuseTable1)
+    when 1
+      result, number = get_table_by_d66_swap(hellStylistAbuseTable1)
+    when 2
+      result, number = get_table_by_d66_swap(hellStylistAbuseTable2)
+    else
+      result1, num1 = get_table_by_d66_swap(hellStylistAbuseTable1)
         result2, num2 = get_table_by_d66_swap(hellStylistAbuseTable2)
         before, = get_table_by_1d6(hellStylistwtable1)
         after, = get_table_by_1d6(hellStylistwtable2)

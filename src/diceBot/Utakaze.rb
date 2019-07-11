@@ -123,7 +123,7 @@ MESSAGETEXT
       return false, 0, 0
     end
 
-    #竜のダイスの場合
+    # 竜のダイスの場合
     maxnum *= 2 if isDragonDice(crit)
 
     # 成功：ゾロ目あり

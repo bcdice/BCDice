@@ -34,18 +34,18 @@ MESSAGETEXT
     end
 
     tableName = ""
-  text = ""
-  number = 0
+    text = ""
+    number = 0
 
-  case command
+    case command
     when "LDUT"
       tableName = "生死不明表"
       text, number = getLifeAndDeathUnknownResult()
     else
       return nil
-  end
+    end
 
-  result = "#{tableName}(#{number}):#{text}"
+    result = "#{tableName}(#{number}):#{text}"
 
     return result
   end
@@ -53,31 +53,31 @@ MESSAGETEXT
   def checkRoll(diceCount)
     debug("EndBreaker diceCount", diceCount)
 
-  rollCount = diceCount #ダブルトリガー
+    rollCount = diceCount # ダブルトリガー
 
-  result = ""
-  diceFullList = []
+    result = ""
+    diceFullList = []
 
     while rollCount != 0
       _, dice_str = roll(rollCount, 6)
       diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
-    diceFullList.concat(diceList)
+      diceFullList.concat(diceList)
 
-      #1の出目ごとにダブルトリガーで2個ダイス追加
-    rollCount = diceList.select { |i| i == 1 }.size * 2
+      # 1の出目ごとにダブルトリガーで2個ダイス追加
+      rollCount = diceList.select { |i| i == 1 }.size * 2
 
-    result += "[#{diceList.join}]"
+      result += "[#{diceList.join}]"
       result += " ダブルトリガー! " if rollCount > 0
     end
 
-  #ダイスの出目の個数を集計
-  result += " ＞"
-  for num in 2..6
-    count = diceFullList.select { |i| i == num }.size
-    result += " [#{num}:#{count}個]" unless count == 0
-  end
+    # ダイスの出目の個数を集計
+    result += " ＞"
+    for num in 2..6
+      count = diceFullList.select { |i| i == num }.size
+      result += " [#{num}:#{count}個]" unless count == 0
+    end
 
-  return result
+    return result
   end
 
   def getLifeAndDeathUnknownResult()

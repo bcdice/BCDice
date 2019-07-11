@@ -34,7 +34,7 @@ INFO_MESSAGE_TEXT
     return ed_step(command)
   end
 
-  #アースドーンステップ表
+  # アースドーンステップ表
   def ed_step(str)
     output = getStepResult(str)
 
@@ -47,11 +47,11 @@ INFO_MESSAGE_TEXT
     stepTotal = 0
     @isFailed = true
 
-    step = $1.to_i #ステップ
-    targetNumber = [$2.to_i, 20].min #目標値
-    hasKarmaDice = !$3.nil? #カルマダイスの有無
-    karmaDiceCount = [1, $4.to_i].max #カルマダイスの個数
-    karmaDiceType = $5.to_i #カルマダイスの種類
+    step = $1.to_i # ステップ
+    targetNumber = [$2.to_i, 20].min # 目標値
+    hasKarmaDice = !$3.nil? # カルマダイスの有無
+    karmaDiceCount = [1, $4.to_i].max # カルマダイスの個数
+    karmaDiceType = $5.to_i # カルマダイスの種類
     diceModify = $6.to_i
 
     karmaDiceInfo = Hash.new(0)
@@ -79,13 +79,13 @@ INFO_MESSAGE_TEXT
     @string += (getModifyText(modify) + getModifyText(diceModify))
     stepTotal += (modify + diceModify)
 
-    #ステップ判定終了
+    # ステップ判定終了
     @string += " ＞ #{stepTotal}"
 
     output = "ステップ#{step} ＞ #{@string}"
     return output if targetNumber == 0
 
-    #結果判定
+    # 結果判定
     @string += ' ＞ ' + getSuccess(targetNumber, stepTotal)
 
     output = "ステップ#{step}>=#{targetNumber} ＞ #{@string}"
@@ -237,7 +237,7 @@ INFO_MESSAGE_TEXT
     stepTotal = 0
     return stepTotal unless diceCount > 0
 
-    #diceぶんのステップ判定
+    # diceぶんのステップ判定
 
     @string += "+" unless @string.empty?
     @string += "#{diceCount}d#{diceType}["

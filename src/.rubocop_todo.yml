@@ -57,12 +57,9 @@ Layout/AlignHash:
 # Configuration parameters: EnforcedStyle, IndentOneStep, IndentationWidth.
 # SupportedStyles: case, end
 Layout/CaseIndentation:
-  Enabled: false
-
-# Offense count: 102
-# Cop supports --auto-correct.
-Layout/CommentIndentation:
-  Enabled: false
+  Exclude:
+    - diceBot/FilledWith.rb
+    - diceBot/GurpsFW.rb
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -120,31 +117,49 @@ Layout/IndentFirstArgument:
   Exclude:
     - 'diceBot/FutariSousa.rb'
 
-# Offense count: 2350
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: special_inside_parentheses, consistent, align_brackets
-Layout/IndentFirstArrayElement:
-  Enabled: false
-
 # Offense count: 55
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: special_inside_parentheses, consistent, align_braces
 Layout/IndentFirstHashElement:
-  Enabled: false
+  Exclude:
+    - diceBot/Amadeus.rb
+    - diceBot/Amadeus_Korean.rb
+    - diceBot/BlindMythos.rb
+    - diceBot/BloodCrusade.rb
+    - diceBot/BloodMoon.rb
+    - diceBot/CardRanker.rb
+    - diceBot/ColossalHunter.rb
+    - diceBot/DarkDaysDrive.rb
+    - diceBot/Dracurouge.rb
+    - diceBot/Dracurouge_Korean.rb
+    - diceBot/Elysion.rb
+    - diceBot/HatsuneMiku.rb
+    - diceBot/HuntersMoon.rb
+    - diceBot/Kamigakari.rb
+    - diceBot/KanColle.rb
+    - diceBot/KillDeathBusiness.rb
+    - diceBot/KurayamiCrying.rb
+    - diceBot/Nuekagami.rb
+    - diceBot/Oukahoushin3rd.rb
+    - diceBot/ShinobiGami.rb
+    - diceBot/ShoujoTenrankai.rb
+    - diceBot/YankeeYogSothoth.rb
+    - irc/ircBot.rb
 
 # Offense count: 241
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: normal, rails
 Layout/IndentationConsistency:
-  Enabled: false
-
-# Offense count: 820
-# Cop supports --auto-correct.
-Layout/LeadingCommentSpace:
-  Enabled: false
+  Exclude:
+    - diceBot/FilledWith.rb
+    - diceBot/Gurps.rb
+    - diceBot/GurpsFW.rb
+    - diceBot/KillDeathBusiness.rb
+    - diceBot/KillDeathBusiness_Korean.rb
+    - diceBot/LogHorizon_Korean.rb
+    - irc/encode.rb
 
 # Offense count: 55
 # Cop supports --auto-correct.
@@ -244,21 +259,15 @@ Layout/SpaceBeforeFirstArg:
   Exclude:
     - 'diceBot/ArsMagica.rb'
 
-# Offense count: 1956
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBrackets.
-# SupportedStyles: space, no_space, compact
-# SupportedStylesForEmptyBrackets: space, no_space
-Layout/SpaceInsideArrayLiteralBrackets:
-  Enabled: false
-
 # Offense count: 524
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
 # SupportedStyles: space, no_space, compact
 # SupportedStylesForEmptyBraces: space, no_space
 Layout/SpaceInsideHashLiteralBraces:
-  Enabled: false
+  Exclude:
+    -  diceBot/Dracurouge.rb
+    -  diceBot/GardenOrder.rb
 
 # Offense count: 15
 # Cop supports --auto-correct.

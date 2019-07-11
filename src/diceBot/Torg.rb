@@ -51,7 +51,7 @@ INFO_MESSAGE_TEXT
     return torg_check(string, nick_e)
   end
 
-####################              TORG             ########################
+  ####################              TORG             ########################
   def torg_check(string, nick_e)
     output = '1'
 
@@ -168,7 +168,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-# 一般結果表 成功度
+  # 一般結果表 成功度
   def get_torg_success_level(value)
     success_table = [
         [0, "ぎりぎり"],
@@ -180,8 +180,8 @@ INFO_MESSAGE_TEXT
     return get_torg_table_result(value, success_table)
   end
 
-# 対人行為結果表
-# 威圧／威嚇(intimidate/Test)
+  # 対人行為結果表
+  # 威圧／威嚇(intimidate/Test)
   def get_torg_interaction_result_intimidate_test(value)
     interaction_results_table = [
         [0, "技能なし"],
@@ -193,7 +193,7 @@ INFO_MESSAGE_TEXT
     return get_torg_table_result(value, interaction_results_table)
   end
 
-# 挑発／トリック(Taunt/Trick)
+  # 挑発／トリック(Taunt/Trick)
   def get_torg_interaction_result_taunt_trick(value)
     interaction_results_table = [
         [0, "技能なし"],
@@ -205,7 +205,7 @@ INFO_MESSAGE_TEXT
     return get_torg_table_result(value, interaction_results_table)
   end
 
-# 間合い(maneuver)
+  # 間合い(maneuver)
   def get_torg_interaction_result_maneuver(value)
     interaction_results_table = [
         [0, "技能なし"],
@@ -233,7 +233,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-# オーズダメージチャート
+  # オーズダメージチャート
   def get_torg_damage_ords(value)
     damage_table_ords = [
         [0, "1"],

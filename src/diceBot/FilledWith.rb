@@ -5,7 +5,7 @@ class FilledWith < DiceBot
 
   def initialize
     super
-    @d66Type = 1; #d66の差し替え
+    @d66Type = 1; # d66の差し替え
     # @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
   end
 
@@ -51,7 +51,7 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-  #ダイスロールコマンド
+    # ダイスロールコマンド
     result = checkRoll(command)
   return result unless result.nil?
 
@@ -59,7 +59,7 @@ MESSAGETEXT
   text = ""
   number = 0
 
-  #各種コマンド
+  # 各種コマンド
   case command
     when /LOT(N|P)/
       type = $1
@@ -124,28 +124,28 @@ MESSAGETEXT
     return nil
     end
 
-  #目標値の計算
+    # 目標値の計算
     difficulty = getValue(difficultyText, nil)
 
-  #ダイスロール
+  # ダイスロール
   dice, dice_str = roll(diceCount, 6)
 
-  #出力用ダイスコマンドを生成
+  # 出力用ダイスコマンドを生成
   command = "#{diceCount}FW"
   command += "@#{crt}" unless crt == 4
   command += "##{fmb}" unless fmb == 17
   command += "<=#{difficulty}" unless difficulty.nil?
 
-  #出力文の生成
+  # 出力文の生成
   result = "(#{command}) ＞ #{dice}[#{dice_str}]"
 
-  #クリティカル・ファンブルチェック
+  # クリティカル・ファンブルチェック
   if dice <= crt
     result += " ＞ クリティカル！"
   elsif dice >= fmb
     result += " ＞ ファンブル！"
   else
-    #成否判定
+    # 成否判定
     unless difficultyText.nil?
       success = difficulty - dice
       if dice <= difficulty
@@ -175,7 +175,7 @@ MESSAGETEXT
     return number
   end
 
-  #必殺技表
+  # 必殺技表
   def getSpecialResult
     table = [
            '[命中]判定に出目[1,1,1]でクリティカル。更に致傷力に「SLv×20」のボーナスを得る。',
@@ -188,7 +188,7 @@ MESSAGETEXT
   return get_table_by_1d6(table)
   end
 
-  #マジカルクッキング
+  # マジカルクッキング
   def getCookResult(lv)
     def cook(lv, num)
       case lv
@@ -294,9 +294,9 @@ MESSAGETEXT
   return cook(lv, "")
   end
 
-  #フィルトウィズナンバーワンくじ(GURPS-FW版)
+  # フィルトウィズナンバーワンくじ(GURPS-FW版)
   def getLotResult(type)
-  #ノーマルくじ表
+    # ノーマルくじ表
     def normal(phase, num)
       case phase
         when 1
@@ -360,7 +360,7 @@ MESSAGETEXT
       return result, number
     end
 
-  #プレミアムくじ表
+  # プレミアムくじ表
   def premium(phase, num)
     case phase
       when 1
@@ -443,7 +443,7 @@ MESSAGETEXT
   return ""
   end
 
-  #夢幻の迷宮財宝表
+  # 夢幻の迷宮財宝表
   def getTresureResult(command)
     return nil unless /TRS(\d+)([\+\-]\d)?/ === command
 
@@ -576,7 +576,7 @@ MESSAGETEXT
   return "#{tableName}(#{number}):#{result}"
   end
 
-  #夢幻の迷宮トラップ表
+  # 夢幻の迷宮トラップ表
   def getTrapResult(command)
     return nil unless /TRAP(E|N|H|L)/ === command
 
@@ -628,7 +628,7 @@ MESSAGETEXT
   return "#{tableName}<#{difficultyText}>(#{number}):#{result}"
   end
 
-  #夢幻の迷宮追加オプション表
+  # 夢幻の迷宮追加オプション表
   def getRandomOptionResult(command)
     return nil unless /ROP(E|N|H|L)/ === command
 
@@ -706,7 +706,7 @@ MESSAGETEXT
   return "#{tableName}<#{difficultyText}>(#{number}):#{result}"
   end
 
-  #夢幻の迷宮ランダムイベント表
+  # 夢幻の迷宮ランダムイベント表
   def getRandomEventResult(command)
     if /RAND(E|N|H|L)([1-6])?/ === command
       dif = $1
@@ -1213,7 +1213,7 @@ SLv3:ゴーレムアーム(装飾品)
   return "#{tableName}(#{number}):#{areaText}<#{difficultyText}>:#{result}"
   end
 
-  #夢幻の迷宮エネミーデータ表
+  # 夢幻の迷宮エネミーデータ表
   def getRandomEnemyDataResult(command)
     if /RED(E|N|H|L)(256|265|465|665|666)/ === command
       dif = $1

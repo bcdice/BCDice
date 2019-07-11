@@ -7,10 +7,10 @@ class DoubleCross < DiceBot
     super
     @sendMode = 2
     @sortType = 2
-    @isPrintMaxDice = true #最大値表示
-    @upplerRollThreshold = 10     #上方無限
-    @unlimitedRollDiceType = 10   #無限ロールのダイス
-    @rerollNumber = 10 #振り足しする条件
+    @isPrintMaxDice = true # 最大値表示
+    @upplerRollThreshold = 10     # 上方無限
+    @unlimitedRollDiceType = 10   # 無限ロールのダイス
+    @rerollNumber = 10 # 振り足しする条件
   end
 
   def gameName
@@ -235,7 +235,7 @@ INFO_MESSAGE_TEXT
     get_emotion_table()
   end
 
-  #** 感情表
+  # ** 感情表
   def get_emotion_table()
     output = nil
 
@@ -255,7 +255,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  #** 感情表（ポジティブ）
+  # ** 感情表（ポジティブ）
   def dx_feel_positive_table
     table = [
       [0, '傾倒(けいとう)'],
@@ -286,7 +286,7 @@ INFO_MESSAGE_TEXT
     return dx_feel_table(table)
   end
 
-  #** 感情表（ネガティブ）
+  # ** 感情表（ネガティブ）
   def dx_feel_negative_table
     table = [
       [0, '侮蔑(ぶべつ)'],

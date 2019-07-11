@@ -48,19 +48,19 @@ MESSAGETEXT
 
   def getCheckResult(command)
     output = ""
-      diff = 0
+    diff = 0
 
-      if /TK?<=(\d+)/i =~ command
-        diff = $2.to_i
-      end
+    if /TK?<=(\d+)/i =~ command
+      diff = $2.to_i
+    end
 
-      if diff > 0
-        output += "(1D10<=#{diff})"
+    if diff > 0
+      output += "(1D10<=#{diff})"
 
-        total_n, = roll(1, 10)
-        output += ' ＞ ' + total_n.to_s
-        output += ' ＞ ' + getCheckResultText(total_n, diff)
-      end
+      total_n, = roll(1, 10)
+      output += ' ＞ ' + total_n.to_s
+      output += ' ＞ ' + getCheckResultText(total_n, diff)
+    end
     return output
   end
 
@@ -74,7 +74,7 @@ MESSAGETEXT
     return result
   end
 
-  #導入表(1d10)[OP]
+  # 導入表(1d10)[OP]
   def tgr_opening_table
     name = "導入表"
     table = [
@@ -92,7 +92,7 @@ MESSAGETEXT
     return get_1d10_table_result(name, table)
   end
 
-  #一般トラブル表(1d10)[TB]
+  # 一般トラブル表(1d10)[TB]
   def tgr_common_trouble_table
     name = "一般トラブル表"
     table = [
