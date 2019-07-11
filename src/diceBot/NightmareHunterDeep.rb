@@ -42,7 +42,7 @@ INFO_MESSAGE_TEXT
       return " ＞ 失敗"
     end
 
-    #diff == "?"
+    # diff == "?"
     sucLv = 1
     sucNL = 0
 
@@ -64,7 +64,7 @@ INFO_MESSAGE_TEXT
     end
   end
 
-  #ナイトメアハンターディープ用宿命表示
+  # ナイトメアハンターディープ用宿命表示
   def getDiceRolledAdditionalText(n1, n_max, dice_max)
     debug('getDiceRolledAdditionalText begin: n1, n_max, dice_max', n1, n_max, dice_max)
 
@@ -75,7 +75,7 @@ INFO_MESSAGE_TEXT
     return ''
   end
 
-  #ダイス目による補正処理（現状ナイトメアハンターディープ専用）
+  # ダイス目による補正処理（現状ナイトメアハンターディープ専用）
   def getDiceRevision(n_max, dice_max, total_n)
     addText = ''
     revision = 0

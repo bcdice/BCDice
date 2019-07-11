@@ -462,8 +462,8 @@ class BCDiceDialog < Wx::Dialog
     end
   end
 
-  #Rubyスレッドの処理が正常に実行されるように、
-  #定期的にGUI処理をSleepし、スレッド処理権限を譲渡する
+  # Rubyスレッドの処理が正常に実行されるように、
+  # 定期的にGUI処理をSleepし、スレッド処理権限を譲渡する
   def startThreadTimer
     Wx::Timer.every(100) do
       sleep 0.05

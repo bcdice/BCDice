@@ -4,7 +4,7 @@ class Gorilla < DiceBot
   setPrefixes(['G.*'])
 
   def initialize
-    #$isDebug = true
+    # $isDebug = true
     super()
   end
 

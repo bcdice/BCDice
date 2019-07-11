@@ -53,7 +53,7 @@ class IrcClient < Net::IRC::Client
 
   def on_rpl_welcome(message)
     printText('  -> login to channel successed.')
-    #post JOIN, @room.encode($ircCode).force_encoding_maybe('external')
+    # post JOIN, @room.encode($ircCode).force_encoding_maybe('external')
     post(JOIN, encode($ircCode, @room))
   end
 

@@ -112,7 +112,7 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     debug("rollDiceCommand command", command)
 
-    #판정체크는 먼저 처리
+    # 판정체크는 먼저 처리
     case command
     when @@judogeDiceReg
       result = judgeDice(command)
@@ -120,7 +120,7 @@ INFO_MESSAGE_TEXT
       return text
     end
 
-    #판정 이외라면 표 커멘드의 처리를 한다
+    # 판정 이외라면 표 커멘드의 처리를 한다
     return rollTableCommand(command)
   end
 
@@ -186,34 +186,34 @@ INFO_MESSAGE_TEXT
     tableName, result, number = getHistoryTableResult
 
   when /^ST(\d)?$/
-    #씬표
+    # 씬표
     type = $1.to_i
 
     tableName, result, number = getSceneTableResult(type)
 
   when /^.+WT$/i
-    #소원표
+    # 소원표
     tableName, result, number = getWishTableResult(command)
 
   when /^NAME(\d)?$/
-    #만능이름표
+    # 만능이름표
     type = $1.to_i
       tableName, result, number = getNameTableResult(type)
 
   when /^.+SPT$/i
-    #서브플롯표
+    # 서브플롯표
     tableName, result, number = getSubprotTableResult(command)
 
   when "CMT"
-    #CM표
+    # CM표
     tableName, result, number = getCmTableResult()
 
   when "ERT"
-    #소생 부작용 표
+    # 소생 부작용 표
     tableName, result, number = getErTableResult()
 
   when "WKT"
-    #일주일간 표
+    # 일주일간 표
     tableName, result, number = getWKTableResult()
 
   when /^EST$/i, /^sErviceST$/i
@@ -238,31 +238,31 @@ INFO_MESSAGE_TEXT
       tableName, result, number = getSkillTableResult(type)
 
   when "PCDT"
-    #제작위원 결정표
+    # 제작위원 결정표
     tableName, result, number = getpcTableResult()
   when "OHT"
-    #실제 어떠했는가 표
+    # 실제 어떠했는가 표
     tableName, result, number = getohTableResult()
   when "PCT1"
-    #헬 스타일리스트 표
+    # 헬 스타일리스트 표
     tableName, result, number = getplTableResult()
   when "PCT2"
-    #헬 크로우 태스크 표
+    # 헬 크로우 태스크 표
     tableName, result, number = getprTableResult()
   when "PCT3"
-    #헬 스네이크 태스크 표
+    # 헬 스네이크 태스크 표
     tableName, result, number = getpnTableResult()
   when "PCT4"
-    #헬 드래곤 태스크 표
+    # 헬 드래곤 태스크 표
     tableName, result, number = getpdTableResult()
   when "PCT5"
-    #헬 플라이 태스크 표
+    # 헬 플라이 태스크 표
     tableName, result, number = getpfTableResult()
   when "PCT6"
-    #헬 갓 태스크 표
+    # 헬 갓 태스크 표
     tableName, result, number = getpgTableResult()
   when "PCT7"
-    #헬 베어 태스크 표
+    # 헬 베어 태스크 표
     tableName, result, number = getpbTableResult()
 
   else
@@ -1043,7 +1043,7 @@ INFO_MESSAGE_TEXT
                '높은 곳에서 멋진 걸 말한다',
               ]
     else
-      table = [#"다른 장르계 서비스 신표"
+      table = [# "다른 장르계 서비스 신표"
                '사이코 서스펜스',
                '스페이스 오페라',
                '동화',

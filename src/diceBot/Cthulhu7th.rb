@@ -4,7 +4,7 @@ class Cthulhu7th < DiceBot
   setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*'])
 
   def initialize
-    #$isDebug = true
+    # $isDebug = true
     super
 
     @bonus_dice_range = (-2 .. 2)
@@ -56,7 +56,7 @@ INFO_MESSAGE_TEXT
 
   def getCheckResult(command)
     nil unless /^CC([-\d]+)?<=(\d+)/i =~ command
-    bonus_dice_count = $1.to_i #ボーナス・ペナルティダイスの個数
+    bonus_dice_count = $1.to_i # ボーナス・ペナルティダイスの個数
     diff = $2.to_i
 
     return "エラー。目標値は1以上です。" if diff <= 0
@@ -172,7 +172,7 @@ INFO_MESSAGE_TEXT
 
     output = ""
 
-    #最大で（8回*（PC技能値最大値/10））＝72発しか撃てないはずなので上限
+    # 最大で（8回*（PC技能値最大値/10））＝72発しか撃てないはずなので上限
     bullet_count_limit = 100
     if bullet_count > bullet_count_limit
       output += "\n弾薬が多すぎます。装填された弾薬を#{bullet_count_limit}発に変更します。\n"
@@ -278,11 +278,11 @@ INFO_MESSAGE_TEXT
 
       case hit_type
       when :hit
-        hit_bullet_count = hit_bullet_count_base #通常命中した弾数の計算
+        hit_bullet_count = hit_bullet_count_base # 通常命中した弾数の計算
 
       when :impale
         hit_bullet_count = impale_bullet_count_base.floor
-        impale_bullet_count = impale_bullet_count_base.ceil #貫通した弾数の計算
+        impale_bullet_count = impale_bullet_count_base.ceil # 貫通した弾数の計算
       end
 
       lost_bullet_count = bullet_set_count
@@ -345,7 +345,7 @@ INFO_MESSAGE_TEXT
     bullet_set_count = diff / 10
 
     if (diff >= 1) && (diff < 10)
-      bullet_set_count = 1 #技能値が9以下での最低値保障処理
+      bullet_set_count = 1 # 技能値が9以下での最低値保障処理
     end
 
     return bullet_set_count
@@ -355,7 +355,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count_base = (bullet_set_count / 2)
 
     if (diff >= 1) && (diff < 10)
-      hit_bullet_count_base = 1 #技能値9以下での最低値保障
+      hit_bullet_count_base = 1 # 技能値9以下での最低値保障
     end
 
     return hit_bullet_count_base
@@ -366,7 +366,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getLastHitBulletCount(bullet_count)
-    #残弾1での最低値保障処理
+    # 残弾1での最低値保障処理
     if bullet_count == 1
       return 1
     end
@@ -376,7 +376,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getFumbleable(more_difficlty)
-    #成功が49以下の出目のみとなるため、ファンブル値は上昇
+    # 成功が49以下の出目のみとなるため、ファンブル値は上昇
     return (more_difficlty >= 1)
   end
 end

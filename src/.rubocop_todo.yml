@@ -161,11 +161,6 @@ Layout/IndentationConsistency:
     - diceBot/LogHorizon_Korean.rb
     - irc/encode.rb
 
-# Offense count: 820
-# Cop supports --auto-correct.
-Layout/LeadingCommentSpace:
-  Enabled: false
-
 # Offense count: 55
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
