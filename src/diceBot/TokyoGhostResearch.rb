@@ -74,7 +74,7 @@ MESSAGETEXT
     return result
   end
 
-  #導入表(1d10)[OP]
+  # 導入表(1d10)[OP]
   def tgr_opening_table
     name = "導入表"
     table = [
@@ -92,7 +92,7 @@ MESSAGETEXT
     return get_1d10_table_result(name, table)
   end
 
-  #一般トラブル表(1d10)[TB]
+  # 一般トラブル表(1d10)[TB]
   def tgr_common_trouble_table
     name = "一般トラブル表"
     table = [

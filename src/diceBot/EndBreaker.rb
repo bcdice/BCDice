@@ -53,7 +53,7 @@ MESSAGETEXT
   def checkRoll(diceCount)
     debug("EndBreaker diceCount", diceCount)
 
-    rollCount = diceCount #ダブルトリガー
+    rollCount = diceCount # ダブルトリガー
 
     result = ""
     diceFullList = []
@@ -63,14 +63,14 @@ MESSAGETEXT
       diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
       diceFullList.concat(diceList)
 
-      #1の出目ごとにダブルトリガーで2個ダイス追加
+      # 1の出目ごとにダブルトリガーで2個ダイス追加
       rollCount = diceList.select { |i| i == 1 }.size * 2
 
       result += "[#{diceList.join}]"
       result += " ダブルトリガー! " if rollCount > 0
     end
 
-    #ダイスの出目の個数を集計
+    # ダイスの出目の個数を集計
     result += " ＞"
     for num in 2..6
       count = diceFullList.select { |i| i == num }.size

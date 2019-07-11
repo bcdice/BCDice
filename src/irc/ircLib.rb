@@ -1,7 +1,7 @@
 #!ruby -Ks
 # -*- coding: utf-8 -*-
 
-#require 'rubygems'
+# require 'rubygems'
 require 'net/irc.rb'
 require 'net/irc/client.rb'
 require 'net/irc/message.rb'

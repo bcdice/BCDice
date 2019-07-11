@@ -13,8 +13,8 @@ class TorgtaitaiIRC
   end
 
   def privmsg(to, message)
-    #シークレットダイスの場合はここでマーカーを出力し、どどんとふにその旨を通達。
-    #マーカーは1回だけ出力すれば十分なので2回目以降は抑止
+    # シークレットダイスの場合はここでマーカーを出力し、どどんとふにその旨を通達。
+    # マーカーは1回だけ出力すれば十分なので2回目以降は抑止
     unless  @isSecretMarkerPrinted
       print("##>isSecretDice<##") unless @isTest
       @isSecretMarkerPrinted = true
@@ -24,11 +24,11 @@ class TorgtaitaiIRC
   end
 
   def notice(to, message)
-    #print( "\n#{@game_type} " );
-    #print( message.tosjis + "\n");
+    # print( "\n#{@game_type} " );
+    # print( message.tosjis + "\n");
 
-    #output = "#{to.inspect}:#{message.tosjis}\n"
-    #output = "#{message.tosjis}\n"
+    # output = "#{to.inspect}:#{message.tosjis}\n"
+    # output = "#{message.tosjis}\n"
     output = "\n#{@gameType} #{message.tosjis}\n"
     print(output) unless @isTest
 

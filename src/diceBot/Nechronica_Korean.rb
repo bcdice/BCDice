@@ -7,7 +7,7 @@ class Nechronica_Korean < DiceBot
     super
     @sendMode = 2
     @sortType = 3
-    @defaultSuccessTarget = "6" #목표치가 딱히 없을때의 난이도
+    @defaultSuccessTarget = "6" # 목표치가 딱히 없을때의 난이도
   end
 
   def gameName
@@ -54,7 +54,7 @@ INFO_MESSAGE_TEXT
       return " ＞ 성공"
     end
 
-    #失敗パターン
+    # 失敗パターン
 
     if n1 <= 0
       return " ＞ 실패"

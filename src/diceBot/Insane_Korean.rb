@@ -432,7 +432,7 @@ INFO_MESSAGE_TEXT
     return "「#{tableName}」≪#{skill}≫", "#{total_n},#{total_n2}"
   end
 
-  #특기만 뽑고싶을 때 사용. 별로 예쁘진 않다.
+  # 특기만 뽑고싶을 때 사용. 별로 예쁘진 않다.
   def get_random_skill_table_text_only
     text, = get_random_skill_table
     return text

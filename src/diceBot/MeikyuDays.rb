@@ -197,7 +197,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  #**散策表(2d6)
+  # **散策表(2d6)
   def md_research_table
     table = [
       '次に挑む迷宮の迷宮支配者を倒さなければ人類文明が滅ぶことを偶然知ってしまう。《気力》を最大値まで回復する。',
@@ -216,7 +216,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**休憩表（2d6）
+  # **休憩表（2d6）
   def md_break_table
     table = [
       'アイテムの改善案を出し合ってみる。各キャラクターは、好きなキャラクター1体を選び、1d6を振ってそのキャラクターのアイテムスロットから1つをランダムに選ぶ。出た目のアイテムにレベルがあれば、1上昇する。',
@@ -235,7 +235,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**交渉表（2d6）
+  # **交渉表（2d6）
   def md_negotiation_table
     table = [
       '中立的な態度は偽装だった。彼らは不意打ちを行う。奇襲扱いで戦闘を開始すること。',
@@ -253,7 +253,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**ハプニング表（2d6）
+  # **ハプニング表（2d6）
   def md_happening_table
     table = [
       '急に絶望に襲われる。【お酒】を消費することが出来なければ、このゲーム中、最も高い能力値が1点減少する。',
@@ -272,7 +272,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**カーネル停止表（2d6）
+  # **カーネル停止表（2d6）
   def md_kernel_stop_table
     table = [
       'カーネルが肉体に致命的な迷宮化を引き起こす！致命傷表を振ること。カーネルはまだ停止しない。',
@@ -291,7 +291,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**痛打表（2d6）
+  # **痛打表（2d6）
   def md_critical_attack_table
     table = [
       '武器の伝説がまた一つ増えた。攻撃に使用した武具アイテムにレベルがあれば、そのレベルが1点上昇する。',
@@ -310,7 +310,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**致命傷表（2d6）
+  # **致命傷表（2d6）
   def md_fatal_wounds_table
     table = [
       '重要器官を粉砕される。キャラクターは即座に死亡する。',
@@ -328,7 +328,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**戦闘ファンブル表（2d6）
+  # **戦闘ファンブル表（2d6）
   def md_combat_fumble_table
     table = [
       'ぶざまな失敗に熱くなる。攻撃の目標のキャラクターに対して《敵意》を4点得る。',
@@ -346,7 +346,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**登場表（2d6）
+  # **登場表（2d6）
   def md_appearance_table
     table = [
       '「ここから先に行かせるわけにはいかん」急ぐ途中に敵が立ちふさがる。〔武勇〕で難易度11の判定を行う。成功すればバトルフィールドの好きなエリアにそのキャラクターを配置することができる。失敗した場合、《HP》を1にした状態でバトルフィールドの好きなエリアにそのキャラクターを配置することができる。',
@@ -364,7 +364,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**因縁表（2d6）
+  # **因縁表（2d6）
   def md_connection_table
     table = [
       '対象はあなたの父、もしくは母である。幼い頃に家庭を捨てて失踪した対象を、あなたはずっと憎んでいた。対象への《敵意》が1点上昇する。また、対象を戦闘で倒した際に、経験点10点を得ることができる。',
@@ -382,7 +382,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**怪物因縁表（2d6）
+  # **怪物因縁表（2d6）
   def md_monster_connection_table
     table = [
       '対象はあなたの故郷を滅ぼした。そこは、もうペンペン草すら生えない廃墟となっている。対象への《敵意》が4点上昇する。',
@@ -400,7 +400,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**PC因縁表（2d6）
+  # **PC因縁表（2d6）
   def md_pc_connection_table
     table = [
       '対象はあなたが追い求めていた敵だった。なぜ敵なのか設定すること。対象への《敵意》が4点上昇する。対象を殺害すると経験点100点を得る。',
@@ -418,7 +418,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**ラブ因縁表（2d6）
+  # **ラブ因縁表（2d6）
   def md_love_connection_table
     table = [
       'あなたは対象と過去にいい友人だった。対象への《好意》が2点上昇するが、その属性は友情に変化する。',
@@ -436,7 +436,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**相場表（2d6）
+  # **相場表（2d6）
   def md_market_price_table
     table = [
       'なし',
@@ -454,7 +454,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  #**お宝表１（1d6）
+  # **お宝表１（1d6）
   def md_treasure1_table
     table = [
       '何もなし。',
@@ -467,7 +467,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #**お宝表２（1d6）
+  # **お宝表２（1d6）
   def md_treasure2_table
     table = [
       'そのモンスターの素材欄の中から、好きな素材を3個。',
@@ -480,7 +480,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #**お宝表３（1d6）
+  # **お宝表３（1d6）
   def md_treasure3_table
     table = [
       'そのモンスターの素材欄の中から、好きな素材を5個。',
@@ -493,7 +493,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  #**お宝表４（1d6）
+  # **お宝表４（1d6）
   def md_treasure4_table
     table = [
       'そのモンスターの素材欄の中から、好きな素材を5個。',

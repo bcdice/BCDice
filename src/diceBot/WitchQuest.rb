@@ -280,13 +280,13 @@ MESSAGETEXT
     " ＞ #{number}:" + get_table_by_number(number, table)
   end
 
-  #以下のメソッドはテーブルの参照用に便利
-  #get_table_by_2d6(table)
-  #get_table_by_1d6(table)
-  #get_table_by_nD6(table, 1)
-  #get_table_by_nD6(table, count)
-  #get_table_by_1d3(table)
-  #get_table_by_number(index, table)
+  # 以下のメソッドはテーブルの参照用に便利
+  # get_table_by_2d6(table)
+  # get_table_by_1d6(table)
+  # get_table_by_nD6(table, 1)
+  # get_table_by_nD6(table, count)
+  # get_table_by_1d3(table)
+  # get_table_by_number(index, table)
 
-  #ダイス目が知りたくなったら getDiceList を呼び出すこと(DiceBot.rbにて定義)
+  # ダイス目が知りたくなったら getDiceList を呼び出すこと(DiceBot.rbにて定義)
 end

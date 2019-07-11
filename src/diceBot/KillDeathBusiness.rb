@@ -69,7 +69,7 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     debug("rollDiceCommand command", command)
 
-    #判定チェックは先に処理
+    # 判定チェックは先に処理
     case command
     when @@judogeDiceReg
       result = judgeDice(command)
@@ -77,7 +77,7 @@ INFO_MESSAGE_TEXT
       return text
     end
 
-    #判定以外なら表コマンドの処理に
+    # 判定以外なら表コマンドの処理に
     return rollTableCommand(command)
   end
 
@@ -146,34 +146,34 @@ INFO_MESSAGE_TEXT
     tableName, result, number = getHistoryTableResult
 
   when /^ST(\d)?$/
-    #シーン表
+    # シーン表
     type = $1.to_i
 
     tableName, result, number = getSceneTableResult(type)
 
   when /^.+WT$/i
-    #願い事表
+    # 願い事表
     tableName, result, number = getWishTableResult(command)
 
   when /^NAME(\d)?$/
-    #万能命名表
+    # 万能命名表
     type = $1.to_i
       tableName, result, number = getNameTableResult(type)
 
   when /^.+SPT$/i
-    #サブプロット表
+    # サブプロット表
     tableName, result, number = getSubprotTableResult(command)
 
   when "CMT"
-    #CM表
+    # CM表
     tableName, result, number = getCmTableResult()
 
   when "ERT"
-    #副作用蘇生表
+    # 副作用蘇生表
     tableName, result, number = getErTableResult()
 
   when "WKT"
-    #一週間表
+    # 一週間表
     tableName, result, number = getWKTableResult()
 
   when /^EST$/i, /^sErviceST$/i
@@ -198,31 +198,31 @@ INFO_MESSAGE_TEXT
       tableName, result, number = getSkillTableResult(type)
 
   when "PCDT"
-    #製作委員決定表
+    # 製作委員決定表
     tableName, result, number = getpcTableResult()
   when "OHT"
-    #実際どうだったのか表
+    # 実際どうだったのか表
     tableName, result, number = getohTableResult()
   when "PCT1"
-    #ヘルライオンタスク表
+    # ヘルライオンタスク表
     tableName, result, number = getplTableResult()
   when "PCT2"
-    #ヘルクロウタスク表
+    # ヘルクロウタスク表
     tableName, result, number = getprTableResult()
   when "PCT3"
-    #ヘルスネークタスク表
+    # ヘルスネークタスク表
     tableName, result, number = getpnTableResult()
   when "PCT4"
-    #ヘルドラゴンタスク表
+    # ヘルドラゴンタスク表
     tableName, result, number = getpdTableResult()
   when "PCT5"
-    #ヘルフライタスク表
+    # ヘルフライタスク表
     tableName, result, number = getpfTableResult()
   when "PCT6"
-    #ヘルゴートタスク表
+    # ヘルゴートタスク表
     tableName, result, number = getpgTableResult()
   when "PCT7"
-    #ヘルベアタスク表
+    # ヘルベアタスク表
     tableName, result, number = getpbTableResult()
   end
 

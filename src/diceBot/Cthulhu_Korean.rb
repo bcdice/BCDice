@@ -4,7 +4,7 @@ class Cthulhu_Korean < DiceBot
   setPrefixes(['CC(B)?\(\d+\)', 'CC(B)?.*', 'RES(B)?.*', 'CBR(B)?\(\d+,\d+\)'])
 
   def initialize
-    #$isDebug = true
+    # $isDebug = true
     super
     @special_percentage  = 20
     @critical_percentage = 1

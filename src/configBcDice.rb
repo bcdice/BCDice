@@ -27,8 +27,8 @@ $defaultLoginChannelsText = "#Dice_Test"; # ボットが最初に参加するチ
 $nick = "bcDICE"
 $userName = "v" + $bcDiceVersion # ユーザー名
 $ircName = "rubydice";              # IRCネーム
-$defaultGameType = ""               #デフォルトゲームタイプ
-$extraCardFileName = "" #拡張カードファイル名
+$defaultGameType = ""               # デフォルトゲームタイプ
+$extraCardFileName = "" # 拡張カードファイル名
 
 $iniFileName = 'bcdice.ini'
 

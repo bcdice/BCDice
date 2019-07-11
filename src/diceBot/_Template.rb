@@ -69,14 +69,14 @@ MESSAGETEXT
     ''
   end
 
-  #以下のメソッドはテーブルの参照用に便利
-  #get_table_by_2d6(table)
-  #get_table_by_1d6(table)
-  #get_table_by_nD6(table, 1)
-  #get_table_by_nD6(table, count)
-  #get_table_by_1d3(table)
-  #get_table_by_number(index, table)
-  #get_table_by_d66(table)
+  # 以下のメソッドはテーブルの参照用に便利
+  # get_table_by_2d6(table)
+  # get_table_by_1d6(table)
+  # get_table_by_nD6(table, 1)
+  # get_table_by_nD6(table, count)
+  # get_table_by_1d3(table)
+  # get_table_by_number(index, table)
+  # get_table_by_d66(table)
 
-  #getDiceList を呼び出すとロース結果のダイス目の配列が手に入ります。
+  # getDiceList を呼び出すとロース結果のダイス目の配列が手に入ります。
 end

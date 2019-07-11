@@ -187,7 +187,7 @@ MESSAGETEXT
     return "#{type}(#{diceText}) ＞ #{output}"
   end
 
-  #DT
+  # DT
   def get_dt(count)
     diceList = []
     count.times do
@@ -211,7 +211,7 @@ MESSAGETEXT
     return "失敗"
   end
 
-  #AS
+  # AS
   def get_as(count)
     diceList = []
     count.times do
@@ -260,7 +260,7 @@ MESSAGETEXT
     return " ＞ \n #{command} ＞ #{text}"
   end
 
-  #異常な癖決定表
+  # 異常な癖決定表
   def get_strange_habit_random
     table = [
              [1, '「異常な癖・口から出る表」の表を使用する。'],
@@ -441,7 +441,7 @@ MESSAGETEXT
     return output, diceText
   end
 
-  #イベント表
+  # イベント表
   def get_event_scene
     table = [
              "気になるもの（P.165）\n　事件の起きた現場は、まだ残されている。\n　ここで起きた“何か”は、霧の向こうに隠されていた。\n　その霧に手を突っ込む者たちがいる。",
@@ -502,7 +502,7 @@ MESSAGETEXT
     return get_table_by_1d6(table)
   end
 
-  #調査の障害表
+  # 調査の障害表
   def get_obstruction_table
     table = [
              [11, '探偵と助手が警察にマークされる'],
@@ -531,7 +531,7 @@ MESSAGETEXT
     return get_table_by_d66_swap(table)
   end
 
-  #変調表
+  # 変調表
   def get_abnormal_condition
     table = [
              'すれ違い',
@@ -544,7 +544,7 @@ MESSAGETEXT
     return get_table_by_1d6(table)
   end
 
-  #目撃者表
+  # 目撃者表
   def get_eyewitness_table
     table = [
              "遊び相手が欲しい若者。判定技能：≪流行≫",
@@ -557,7 +557,7 @@ MESSAGETEXT
     return get_table_by_1d6(table)
   end
 
-  #迷宮入り表
+  # 迷宮入り表
   def get_wrapped_in_mystery_table
     table = [
              [1, '真犯人とは別の人間が犯人にされてしまい、実刑を食らってしまった。その証拠はないが、そう直感できる。'],
@@ -577,7 +577,7 @@ MESSAGETEXT
     return output, diceText
   end
 
-  #背景表
+  # 背景表
   def get_background_detective_destiny
     table = [
              [1, '『名探偵の先祖（真）』自分の先祖に著名な探偵がいる。その名を出せば、誰もが知るような大人物だ。自分はその血を濃く引いているようで、探偵としての才能を存分に発揮している。'],
@@ -671,7 +671,7 @@ MESSAGETEXT
     return get_table_by_1d6(table)
   end
 
-  #身長表
+  # 身長表
   def get_height_table
     table = [
              '非常に高い',
@@ -685,7 +685,7 @@ MESSAGETEXT
     return get_table_by_1d6(table)
   end
 
-  #たまり場表
+  # たまり場表
   def get_base_table
     table = [
              [1, 'PCが働いている職場'],
@@ -704,7 +704,7 @@ MESSAGETEXT
     return output, diceText
   end
 
-  #関係表
+  # 関係表
   def get_guest_relation_table
     table = [
              [11, '昔のバディ'],
@@ -732,7 +732,7 @@ MESSAGETEXT
     return get_table_by_d66_swap(table)
   end
 
-  #思い出の品決定表
+  # 思い出の品決定表
   def get_memorial_item_table
     table = [
              [11, 'たまり場にずっと置いてある宅配ピザの箱'],
@@ -760,7 +760,7 @@ MESSAGETEXT
     return get_table_by_d66_swap(table)
   end
 
-  #職業表A
+  # 職業表A
   def get_job_table_66
     table = [
              [11, 'パートナーと同じ'],
@@ -789,7 +789,7 @@ MESSAGETEXT
     return get_table_by_d66_swap(table)
   end
 
-  #職業表B
+  # 職業表B
   def get_job_table_10
     table = [
              [1, 'ディレッタント'],
@@ -809,7 +809,7 @@ MESSAGETEXT
     return output, diceText
   end
 
-  #ファッション特徴表A
+  # ファッション特徴表A
   def get_fashion_table_66
     table = [
              [11, '高級志向'],
@@ -837,7 +837,7 @@ MESSAGETEXT
     return get_table_by_d66_swap(table)
   end
 
-  #ファッション特徴表B
+  # ファッション特徴表B
   def get_fashion_table_10
     table = [
              [1, 'スーツ'],
@@ -857,7 +857,7 @@ MESSAGETEXT
     return output, diceText
   end
 
-  #好きなもの／嫌いなもの表A
+  # 好きなもの／嫌いなもの表A
   def get_like_dislike_table_66
     table = [
              [11, '死体'],
@@ -886,7 +886,7 @@ MESSAGETEXT
     return get_table_by_d66_swap(table)
   end
 
-  #好きなもの／嫌いなもの表B
+  # 好きなもの／嫌いなもの表B
   def get_like_dislike_table_10
     table = [
              [1, '犯罪'],
@@ -906,7 +906,7 @@ MESSAGETEXT
     return output, diceText
   end
 
-  #感情表A
+  # 感情表A
   def get_feeling_table_66
     table = [
              [11, '顔'],
@@ -935,7 +935,7 @@ MESSAGETEXT
     return get_table_by_d66_swap(table)
   end
 
-  #感情表B
+  # 感情表B
   def get_feeling_table_10
     table = [
              [1, '人間性'],
@@ -954,7 +954,7 @@ MESSAGETEXT
     return output, diceText
   end
 
-  #呼び名表A
+  # 呼び名表A
   def get_name_to_call_table_66
     table = [
              [11, 'ダーリン、ハニー'],
@@ -983,7 +983,7 @@ MESSAGETEXT
     return get_table_by_d66_swap(table)
   end
 
-  #呼び名表B
+  # 呼び名表B
   def get_name_to_call_table_10
     table = [
              [1, '呼び捨て'],

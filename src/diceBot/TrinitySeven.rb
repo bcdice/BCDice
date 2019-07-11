@@ -37,7 +37,7 @@ class TrinitySeven < DiceBot
 MESSAGETEXT
   end
 
-  def rollDiceCommand(command) #スパゲッティなコードだけど許して！！！ → 絶対に許さない。全力でリファクタリングした。
+  def rollDiceCommand(command) # スパゲッティなコードだけど許して！！！ → 絶対に許さない。全力でリファクタリングした。
     debug("rollDiceCommand command", command)
 
     string = command.upcase

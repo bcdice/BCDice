@@ -51,7 +51,7 @@ MESSAGETEXT
 
     diceList = diceText.split(/,/).collect { |i| i.to_i }
 
-    #result << " あーしたてんきになーれっ ＞ [#{diceList.join(',')}] ＞ "
+    # result << " あーしたてんきになーれっ ＞ [#{diceList.join(',')}] ＞ "
     result += "下駄占い ＞ "
 
     getaString = ''
