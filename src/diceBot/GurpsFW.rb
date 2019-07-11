@@ -644,7 +644,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
 
   #GURPS-FW ナンバーワンくじ
   def getLotResult(type)
-  #ノーマルくじ表1
+    #ノーマルくじ表1
     def normal1
       table = [
         'イレブンチキン',

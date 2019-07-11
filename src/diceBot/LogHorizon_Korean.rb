@@ -78,7 +78,7 @@ MESSAGETEXT
   #修正値の計算
   modify = getValue(modifyText, 0)
 
-  #目標値の計算
+    #目標値の計算
     difficulty = getValue(difficultyText, nil)
 
   #ダイスロール
@@ -94,7 +94,7 @@ MESSAGETEXT
   #출력문 생성
   result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
 
-  #クリティカル・ファンブルチェック
+    #クリティカル・ファンブルチェック
     if isCritical(diceList)
       result += " ＞ 크리티컬！"
     elsif isFamble(diceList, diceCount)

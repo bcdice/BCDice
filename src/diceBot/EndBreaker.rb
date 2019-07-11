@@ -70,7 +70,7 @@ MESSAGETEXT
       result += " ダブルトリガー! " if rollCount > 0
     end
 
-  #ダイスの出目の個数を集計
+    #ダイスの出目の個数を集計
     result += " ＞"
     for num in 2..6
       count = diceFullList.select { |i| i == num }.size

@@ -51,7 +51,7 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-  #ダイスロールコマンド
+    #ダイスロールコマンド
     result = checkRoll(command)
   return result unless result.nil?
 
@@ -124,7 +124,7 @@ MESSAGETEXT
     return nil
     end
 
-  #目標値の計算
+    #目標値の計算
     difficulty = getValue(difficultyText, nil)
 
   #ダイスロール
@@ -296,7 +296,7 @@ MESSAGETEXT
 
   #フィルトウィズナンバーワンくじ(GURPS-FW版)
   def getLotResult(type)
-  #ノーマルくじ表
+    #ノーマルくじ表
     def normal(phase, num)
       case phase
         when 1

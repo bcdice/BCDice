@@ -126,10 +126,10 @@ INFO_MESSAGE_TEXT
 
     debug("dice_n, n1, total_n diff", dice_n, n1, total_n, diff)
 
-# β판의 실장
-#    if( (dice_n > 1) and (n1 >= 1) and (total_n <= diff) )
-#      output += " ＞ 파손#{n1}"
-#    end
+    # β판의 실장
+    #    if( (dice_n > 1) and (n1 >= 1) and (total_n <= diff) )
+    #      output += " ＞ 파손#{n1}"
+    #    end
 
     if isBattleMode
       hit_loc = getHitLocation(total_n)

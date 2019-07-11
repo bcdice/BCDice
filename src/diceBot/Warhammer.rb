@@ -59,7 +59,7 @@ INFO_MESSAGE_TEXT
     return " ＞ 失敗(失敗度#{ ((total_n - diff) / 10) })"
   end
 
-####################            WHFRP関連          ########################
+  ####################            WHFRP関連          ########################
   def getCriticalResult(string)
     # クリティカル効果データ
     whh = [

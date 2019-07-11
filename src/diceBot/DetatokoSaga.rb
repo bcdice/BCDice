@@ -223,7 +223,7 @@ INFO_MESSAGE_TEXT
     return result
   end
 
-###表一覧
+  ###表一覧
 
   def choiceStrengthStigmaTable()
     name = "体力烙印表"
