@@ -132,7 +132,30 @@ Layout/IndentFirstArrayElement:
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: special_inside_parentheses, consistent, align_braces
 Layout/IndentFirstHashElement:
-  Enabled: false
+  Exclude:
+    - diceBot/Amadeus.rb
+    - diceBot/Amadeus_Korean.rb
+    - diceBot/BlindMythos.rb
+    - diceBot/BloodCrusade.rb
+    - diceBot/BloodMoon.rb
+    - diceBot/CardRanker.rb
+    - diceBot/ColossalHunter.rb
+    - diceBot/DarkDaysDrive.rb
+    - diceBot/Dracurouge.rb
+    - diceBot/Dracurouge_Korean.rb
+    - diceBot/Elysion.rb
+    - diceBot/HatsuneMiku.rb
+    - diceBot/HuntersMoon.rb
+    - diceBot/Kamigakari.rb
+    - diceBot/KanColle.rb
+    - diceBot/KillDeathBusiness.rb
+    - diceBot/KurayamiCrying.rb
+    - diceBot/Nuekagami.rb
+    - diceBot/Oukahoushin3rd.rb
+    - diceBot/ShinobiGami.rb
+    - diceBot/ShoujoTenrankai.rb
+    - diceBot/YankeeYogSothoth.rb
+    - irc/ircBot.rb
 
 # Offense count: 241
 # Cop supports --auto-correct.
