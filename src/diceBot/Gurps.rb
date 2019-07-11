@@ -42,12 +42,12 @@ INFO_MESSAGE_TEXT
   def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
     return '' unless dice_cnt == 3 && signOfInequality == "<="
 
-    success = diff - total_n #成功度
+    success = diff - total_n # 成功度
     crt_string  = " ＞ クリティカル(成功度：#{success})"
     fmb_string  = " ＞ ファンブル(失敗度：#{success})"
   fail_string = " ＞ 自動失敗(失敗度：#{success})"
 
-    #クリティカル
+    # クリティカル
     if (dice_n <= 6) && (diff >= 16)
       return crt_string
     elsif (dice_n <= 5) && (diff >= 15)
@@ -56,7 +56,7 @@ INFO_MESSAGE_TEXT
       return crt_string
     end
 
-    #ファンブル
+    # ファンブル
     if (diff - dice_n) <= -10
       return fmb_string
     elsif (dice_n >= 17) && (diff <= 15)
@@ -78,19 +78,19 @@ INFO_MESSAGE_TEXT
     result = getRollDiceResult(command)
   return result unless result.nil?
 
-  #クリティカル・ファンブル表
+  # クリティカル・ファンブル表
   result = getCFTableResult(command)
   return result unless result.nil?
 
-  #恐怖表
+  # 恐怖表
   result = getFearResult(command)
   return result unless result.nil?
 
-  #反応表
+  # 反応表
   result = getReactResult(command)
   return result unless result.nil?
 
-  #命中部位表
+  # 命中部位表
   result = getHitResult(command)
   return result unless result.nil?
 

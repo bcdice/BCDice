@@ -137,7 +137,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-#** 命中部位表
+  # ** 命中部位表
   def get_hit_location_table(num)
     table = [
         [ 4, '頭'],
@@ -152,7 +152,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_number(num, table)
   end
 
-#** ファンブル表
+  # ** ファンブル表
   def get_shoot_fumble_table(num) # 射撃攻撃ファンブル表
     output = '1'
     table = [

@@ -33,7 +33,7 @@ class CardTrader
   # カードをデフォルトに戻す
   def initValues
     @cardTitles = {}
-    @cardRegExp = '[DHSCJdhscj][\d]+'; #カード指定文字列の正規表現
+    @cardRegExp = '[DHSCJdhscj][\d]+'; # カード指定文字列の正規表現
     @deal_cards = {'card_played' => []}
 
     set1Deck1Joker
@@ -212,7 +212,7 @@ class CardTrader
   end
 
   ###########################################################################
-  #**                        ゲーム設定関連
+  # **                        ゲーム設定関連
   ###########################################################################
 
   # 専用カードセットのロード
@@ -236,7 +236,7 @@ class CardTrader
         @cardTitles[cardNumber] = cardTitle
       end
 
-      @cardRegExp = '[\d]+'; #カード指定文字列の正規表現
+      @cardRegExp = '[\d]+'; # カード指定文字列の正規表現
       @cardRest = @card_val.clone
       @deal_cards = {'card_played' => []}
 
@@ -302,7 +302,7 @@ class CardTrader
 
     when /c-pick\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
       pickupCardCommandText(arg)
-            # FIXME
+    # FIXME
     when /c-back(\d)*\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
       backCardCommandText(arg)
 
@@ -329,7 +329,7 @@ class CardTrader
     when /c-spell(\[(#{$ircNickRegExp}[^\]]+?)\])?($|\s)/
       spellText = $2
       printCardRestorationSpellResult(spellText)
-      #c_spell_caller(arg)
+      # c_spell_caller(arg)
 
     when /(c-mil(stone)?(\[[\d]+\])?)($|\s)/
       commandText = $1
@@ -346,7 +346,7 @@ class CardTrader
     return "シャッフルしました"
   end
 
-####################             ドロウ            ########################
+  ####################             ドロウ            ########################
   def drawCardByCommandText(arg)
     debug("drawCardByCommandText arg", arg)
 
@@ -608,7 +608,7 @@ class CardTrader
     end
   end
 
-####################             プレイ            ########################
+  ####################             プレイ            ########################
   def playCardByCommandText(arg)
     debug('c-play pattern', arg)
 
@@ -826,7 +826,7 @@ class CardTrader
     return cards
   end
 
-####################              パス             ########################
+  ####################              パス             ########################
 
   def transferCardsByCommandText(commandText, sendTo)
     debug("transferCardsByCommandText commandText, sendTo", commandText, sendTo)
@@ -1014,12 +1014,12 @@ class CardTrader
     if @card_place > 0
 
       if /^\d+(.+)/ =~ destination
-        #渡すNickが数字で始まっていたら、場に出す処理の最初の一枚目
+        # 渡すNickが数字で始まっていたら、場に出す処理の最初の一枚目
         placeName = $1
         debug("placeName", placeName)
 
         if @deal_cards[placeName]
-          #手札は登録されていたら宛先間違いではない
+          # 手札は登録されていたら宛先間違いではない
           @deal_cards[destination] ||= []
           @deal_cards[destination] << thisCard
           isSuccess = true
@@ -1054,7 +1054,7 @@ class CardTrader
     sendMessageToOnlySender(getHandAndPlaceCardInfoText("Auto"))
   end
 
-  #相手の場にカードを置く
+  # 相手の場にカードを置く
   def getSendCardToTargetNickPlace(commandText, nick_e)
     ngCardList = []
     okCardList = []
@@ -1124,7 +1124,7 @@ class CardTrader
     sendMessage(targetNick, getHandAndPlaceCardInfoText("Auto", targetNick))
   end
 
-####################             タップ            ########################
+  ####################             タップ            ########################
   def tapCardCommandText(commandText)
     debug("tapCardCommandText commandText", commandText)
 
@@ -1210,7 +1210,7 @@ class CardTrader
     end
   end
 
-####################            山札関連           ########################
+  ####################            山札関連           ########################
   def printMilStoneResult(commandText)
     count, output_msg = getCardMilstone(commandText)
 
@@ -1292,7 +1292,7 @@ class CardTrader
     cards.length
   end
 
-####################             その他            ########################
+  ####################             その他            ########################
   def reviewCards
     @cardRest.join(',')
   end
@@ -1468,7 +1468,7 @@ class CardTrader
     return ((index % 2) == 0)
   end
 
-####################           復活の呪文          ########################
+  ####################           復活の呪文          ########################
 
   def printCardRestorationSpellResult(spellText)
     output_msg = throwCardRestorationSpell(spellText)

@@ -54,11 +54,11 @@ class CountHolder
     return output, isSecret
   end
 
-#=========================================================================
-#**                       汎用ポイントカウンタ
-#=========================================================================
+  #=========================================================================
+  # **                       汎用ポイントカウンタ
+  #=========================================================================
 
-####################          カウンタ操作         ########################
+  ####################          カウンタ操作         ########################
   def executeSetCommand
     debug("setCountHolder nick, channel, pointerMode", @nick, @channel, @pointerMode)
 
@@ -220,7 +220,7 @@ class CountHolder
     return characterInfo
   end
 
-####################          カウンタ一覧         ########################
+  ####################          カウンタ一覧         ########################
   def get_point_list
     debug("get_point_list(command, nick, channel, pointerMode)", @command, @nick, @channel, @pointerMode)
 
@@ -369,7 +369,7 @@ class CountHolder
     return output
   end
 
-####################          識別名の交換         ########################
+  ####################          識別名の交換         ########################
   def rename_point_counter
     debug("rename_point_counter @command, @nick", @command, @nick)
 
@@ -393,7 +393,7 @@ class CountHolder
     return output
   end
 
-####################          その他の処理         ########################
+  ####################          その他の処理         ########################
 
   def setPointCounters(nick, pc, target)
     key = "#{nick},#{pc}"

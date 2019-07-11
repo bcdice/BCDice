@@ -4,7 +4,7 @@ class Cthulhu7th_ChineseTraditional < DiceBot
   setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*'])
 
   def initialize
-    #$isDebug = true
+    # $isDebug = true
     super
 
     @bonus_dice_range = (-2 .. 2)
@@ -58,7 +58,7 @@ INFO_MESSAGE_TEXT
 
   def getCheckResult(command)
     nil unless /^CC([-\d]+)?<=(\d+)/i =~ command
-    bonus_dice_count = $1.to_i #獎勵、懲罰骰數量
+    bonus_dice_count = $1.to_i # 獎勵、懲罰骰數量
     diff = $2.to_i
 
     return "錯誤。目標值需為1以上。" if diff <= 0
@@ -174,7 +174,7 @@ INFO_MESSAGE_TEXT
 
     output = ""
 
-    #射擊數不超過（8回*（PC技能値最大値/10））＝72的上限
+    # 射擊數不超過（8回*（PC技能値最大値/10））＝72的上限
     bullet_count_limit = 100
     if bullet_count > bullet_count_limit
       output += "\n彈藥太多。請改裝填#{bullet_count_limit}發。\n"
@@ -280,11 +280,11 @@ INFO_MESSAGE_TEXT
 
       case hit_type
       when :hit
-        hit_bullet_count = hit_bullet_count_base #正常命中彈藥數之計算
+        hit_bullet_count = hit_bullet_count_base # 正常命中彈藥數之計算
 
       when :impale
         hit_bullet_count = impale_bullet_count_base.floor
-        impale_bullet_count = impale_bullet_count_base.ceil #貫穿彈藥數之計算
+        impale_bullet_count = impale_bullet_count_base.ceil # 貫穿彈藥數之計算
       end
 
       lost_bullet_count = bullet_set_count
@@ -347,7 +347,7 @@ INFO_MESSAGE_TEXT
     bullet_set_count = diff / 10
 
     if (diff >= 1) && (diff < 10)
-      bullet_set_count = 1 #技能值９以下的最低限度保障處理
+      bullet_set_count = 1 # 技能值９以下的最低限度保障處理
     end
 
     return bullet_set_count
@@ -357,7 +357,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count_base = (bullet_set_count / 2)
 
     if (diff >= 1) && (diff < 10)
-      hit_bullet_count_base = 1 #技能值９以下的最低限度保障處理
+      hit_bullet_count_base = 1 # 技能值９以下的最低限度保障處理
     end
 
     return hit_bullet_count_base
@@ -368,7 +368,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getLastHitBulletCount(bullet_count)
-    #在剩餘彈藥為１的最低限度保障處理
+    # 在剩餘彈藥為１的最低限度保障處理
     if bullet_count == 1
       return 1
     end
@@ -378,7 +378,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getFumbleable(more_difficlty)
-    #成功判定時因只擲出４９以下數值，而大失敗率上昇
+    # 成功判定時因只擲出４９以下數值，而大失敗率上昇
     return (more_difficlty >= 1)
   end
 end

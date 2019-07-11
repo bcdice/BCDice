@@ -3,18 +3,18 @@
 class HouraiGakuen < DiceBot
   setPrefixes(['ROL.*', 'MED\(\d+,\d+\)', 'RES\(\d+,\d+\)', 'INY.*', 'HTK.*', 'GOG.*'])
 
-  #ゲームの名前
+  # ゲームの名前
   def gameName
     '蓬莱学園の冒険!!'
   end
 
-  #チャット欄表示名
+  # チャット欄表示名
   def gameType
     "HouraiGakuen"
   end
 
-  #判定用前置文字
-  #説明文
+  # 判定用前置文字
+  # 説明文
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
 ・基本ロール：ROL(x+n)
@@ -35,7 +35,7 @@ class HouraiGakuen < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-  #コマンド分岐
+  # コマンド分岐
   def rollDiceCommand(command)
     case command
     when /^ROL/i
@@ -60,7 +60,7 @@ INFO_MESSAGE_TEXT
   @@failure = "失敗"
   @@famble = "大失敗"
 
-  #基本ロール
+  # 基本ロール
   def getRollResult(command)
     return nil unless /rol([-\d]+)/i =~ command
 
@@ -105,7 +105,7 @@ INFO_MESSAGE_TEXT
     return diceList === [1, 2, 3]
   end
 
-  #対人ロール
+  # 対人ロール
   def getMedResult(command)
     return nil unless /med\((\d+),(\d+)\)/i =~ command
 
@@ -123,7 +123,7 @@ INFO_MESSAGE_TEXT
     yourValue + (10 - enemyValue) # 値から目標値を作出
   end
 
-  #対抗ロール
+  # 対抗ロール
   def getResResult(command)
     return nil unless /res\((\d+),(\d+)\)/i =~ command
 
@@ -174,7 +174,7 @@ INFO_MESSAGE_TEXT
     return ranks.index(result)
   end
 
-  #陰陽コマンド
+  # 陰陽コマンド
   def getInnyouResult(command)
     oddCount = 0
     evenCount = 0
@@ -196,7 +196,7 @@ INFO_MESSAGE_TEXT
     end
   end
 
-  #八徳コマンド
+  # 八徳コマンド
   def getHattokuResult(command)
     # 3回振って、奇数・偶数がどの順序で出たかを記録する
     oddEvenList = []
@@ -246,7 +246,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  #五行コマンド
+  # 五行コマンド
   def getGogyouTable
     table = [
              '五行【木】',

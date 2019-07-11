@@ -121,8 +121,8 @@ INFO_MESSAGE_TEXT
     when 'RTT'
       type = 'ランダム特技決定表'
       output, total_n = get_random_skill_table
-        when 'TVT'
-          type = '指定特技（暴力）表'
+    when 'TVT'
+      type = '指定特技（暴力）表'
       output, total_n = get_violence_skill_table
     when 'TET'
       type = '指定特技（情動）表'
@@ -159,13 +159,13 @@ INFO_MESSAGE_TEXT
       output, total_n = get_latence_horror_table
     when 'ECT'
       type = '遭遇表・都市'
-       output, total_n = get_city_table
+      output, total_n = get_city_table
     when 'EMT'
       type = '遭遇表・山林'
-       output, total_n = get_mountainforest_table
+      output, total_n = get_mountainforest_table
     when 'EAT'
       type = '遭遇表・海辺'
-       output, total_n = get_seaside_table
+      output, total_n = get_seaside_table
     when 'OHT'
       type = '残業ホラースケープ表 '
       output, total_n = get_overtime_horror_table
@@ -432,7 +432,7 @@ INFO_MESSAGE_TEXT
     return "「#{tableName}」≪#{skill}≫", "#{total_n},#{total_n2}"
   end
 
-  #特技だけ抜きたい時用 あまりきれいでない
+  # 特技だけ抜きたい時用 あまりきれいでない
   def get_random_skill_table_text_only
     text, = get_random_skill_table
     return text
@@ -556,7 +556,7 @@ INFO_MESSAGE_TEXT
              "指定特技：拷問\n会話の最中、血の味を感じた。同時に、口の中にごろごろした違和感を覚える。相手が真っ青になってあなたの顔を指差す。どうしたのか訊ねようと口を開くと、ぽろりと何かが地面に落ちた。見下ろすと、血溜まりの中に白々と、あなたの歯が一本落ちていた。",
              "指定特技：人類学\n会話の最中、視界に違和感を覚えて、あなたは瞬きする。相手の顔が、変になっていた。引き延ばして、かき回したように、グロテスクに歪んでいる。えっ？と思ってよく見るが、歪みは変わらない。相手はまったく気付いていないようだ。きつく目を瞑ってから見直すと、ようやく歪みは消えた。君の心に一つの疑いが生まれる。目の前の相手は、本当に人間なのだろうか？",
             ]
-        return get_table_by_1d6(table)
+    return get_table_by_1d6(table)
   end
 
   # 街中ホラースケープ表

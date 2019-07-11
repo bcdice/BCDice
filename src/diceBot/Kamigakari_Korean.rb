@@ -43,7 +43,7 @@ INFO_MESSAGE_TEXT
 
     debug("rollDiceCommand command", command)
 
-  case command
+    case command
 
     when "RT"
       tableName, result, number = getReimonCompensationTableResult
@@ -66,14 +66,14 @@ INFO_MESSAGE_TEXT
     else
       debug("rollDiceCommand commandNOT matched -> command:", command)
       return ""
-  end
+    end
 
     if result.empty?
       return ""
     end
 
-  text = "#{tableName}(#{number})：#{result}"
-  return text
+    text = "#{tableName}(#{number})：#{result}"
+    return text
   end
 
   def getReimonCompensationTableResult

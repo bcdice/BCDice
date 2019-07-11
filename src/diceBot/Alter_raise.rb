@@ -107,7 +107,7 @@ MESSAGETEXT
     end
 
     tableText = get_table_by_number(dice, table)
-# ''だと\nは文字列扱いに。
+    # ''だと\nは文字列扱いに。
     tableText += "\n【達成値7以上】GM：攻撃ルーチン1つを開示（番号はペアPLが指定）　PL：戦闘開始時のアクセルレベル+1" if dice >= 7
     return "#{name} ＞ #{dice}#{diceText}：#{tableText}"
   end

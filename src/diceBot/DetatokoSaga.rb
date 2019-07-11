@@ -127,7 +127,7 @@ INFO_MESSAGE_TEXT
     return "1D6->#{ dice }"
   end
 
-  #スキル判定値　xJD or xJDy or xJDy+z or xJDy-z or xJDy/z
+  # スキル判定値　xJD or xJDy or xJDy+z or xJDy-z or xJDy/z
   def checkJudgeValue(string)
     debug("checkJudgeValue begin string", string)
 
@@ -223,7 +223,7 @@ INFO_MESSAGE_TEXT
     return result
   end
 
-###表一覧
+  # ##表一覧
 
   def choiceStrengthStigmaTable()
     name = "体力烙印表"

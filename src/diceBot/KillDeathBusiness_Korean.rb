@@ -112,7 +112,7 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     debug("rollDiceCommand command", command)
 
-    #판정체크는 먼저 처리
+    # 판정체크는 먼저 처리
     case command
     when @@judogeDiceReg
       result = judgeDice(command)
@@ -120,7 +120,7 @@ INFO_MESSAGE_TEXT
       return text
     end
 
-    #판정 이외라면 표 커멘드의 처리를 한다
+    # 판정 이외라면 표 커멘드의 처리를 한다
     return rollTableCommand(command)
   end
 
@@ -182,91 +182,91 @@ INFO_MESSAGE_TEXT
 
   case command
 
-    when "HST"
-      tableName, result, number = getHistoryTableResult
+  when "HST"
+    tableName, result, number = getHistoryTableResult
 
-    when /^ST(\d)?$/
-    #씬표
-      type = $1.to_i
+  when /^ST(\d)?$/
+    # 씬표
+    type = $1.to_i
 
     tableName, result, number = getSceneTableResult(type)
 
-    when /^.+WT$/i
-    #소원표
-      tableName, result, number = getWishTableResult(command)
+  when /^.+WT$/i
+    # 소원표
+    tableName, result, number = getWishTableResult(command)
 
-    when /^NAME(\d)?$/
-    #만능이름표
-      type = $1.to_i
+  when /^NAME(\d)?$/
+    # 만능이름표
+    type = $1.to_i
       tableName, result, number = getNameTableResult(type)
 
-    when /^.+SPT$/i
-    #서브플롯표
-      tableName, result, number = getSubprotTableResult(command)
+  when /^.+SPT$/i
+    # 서브플롯표
+    tableName, result, number = getSubprotTableResult(command)
 
-    when "CMT"
-    #CM표
-      tableName, result, number = getCmTableResult()
+  when "CMT"
+    # CM표
+    tableName, result, number = getCmTableResult()
 
-    when "ERT"
-    #소생 부작용 표
-      tableName, result, number = getErTableResult()
+  when "ERT"
+    # 소생 부작용 표
+    tableName, result, number = getErTableResult()
 
-    when "WKT"
-    #일주일간 표
-      tableName, result, number = getWKTableResult()
+  when "WKT"
+    # 일주일간 표
+    tableName, result, number = getWKTableResult()
 
-    when /^EST$/i, /^sErviceST$/i
-      tableName, result, number = getServiceSceneTableResult()
+  when /^EST$/i, /^sErviceST$/i
+    tableName, result, number = getServiceSceneTableResult()
 
-    when "SOUL"
-      tableName, result, number = getSoulTableResult()
+  when "SOUL"
+    tableName, result, number = getSoulTableResult()
 
-    when "STGT"
-      tableName, result, number = getSceneTelopGenericTableResult()
+  when "STGT"
+    tableName, result, number = getSceneTelopGenericTableResult()
 
-    when /^HSAT(\d)?$/
-      type = $1.to_i
+  when /^HSAT(\d)?$/
+    type = $1.to_i
       tableName, result, number = getHairStylistAbuseTableResult(type)
 
-    when /^EXT(\d)?$/
-      type = $1.to_i
+  when /^EXT(\d)?$/
+    type = $1.to_i
       tableName, result, number = getExtraTableResult(type)
 
-    when /^SKL(T|J)$/
-      type = $1
+  when /^SKL(T|J)$/
+    type = $1
       tableName, result, number = getSkillTableResult(type)
 
-    when "PCDT"
-    #제작위원 결정표
-      tableName, result, number = getpcTableResult()
-    when "OHT"
-    #실제 어떠했는가 표
-      tableName, result, number = getohTableResult()
-    when "PCT1"
-    #헬 스타일리스트 표
-      tableName, result, number = getplTableResult()
-    when "PCT2"
-    #헬 크로우 태스크 표
-      tableName, result, number = getprTableResult()
-    when "PCT3"
-    #헬 스네이크 태스크 표
-      tableName, result, number = getpnTableResult()
-    when "PCT4"
-    #헬 드래곤 태스크 표
-      tableName, result, number = getpdTableResult()
-    when "PCT5"
-    #헬 플라이 태스크 표
-      tableName, result, number = getpfTableResult()
-    when "PCT6"
-    #헬 갓 태스크 표
-      tableName, result, number = getpgTableResult()
-    when "PCT7"
-    #헬 베어 태스크 표
-      tableName, result, number = getpbTableResult()
+  when "PCDT"
+    # 제작위원 결정표
+    tableName, result, number = getpcTableResult()
+  when "OHT"
+    # 실제 어떠했는가 표
+    tableName, result, number = getohTableResult()
+  when "PCT1"
+    # 헬 스타일리스트 표
+    tableName, result, number = getplTableResult()
+  when "PCT2"
+    # 헬 크로우 태스크 표
+    tableName, result, number = getprTableResult()
+  when "PCT3"
+    # 헬 스네이크 태스크 표
+    tableName, result, number = getpnTableResult()
+  when "PCT4"
+    # 헬 드래곤 태스크 표
+    tableName, result, number = getpdTableResult()
+  when "PCT5"
+    # 헬 플라이 태스크 표
+    tableName, result, number = getpfTableResult()
+  when "PCT6"
+    # 헬 갓 태스크 표
+    tableName, result, number = getpgTableResult()
+  when "PCT7"
+    # 헬 베어 태스크 표
+    tableName, result, number = getpbTableResult()
 
-    else
-      debug("rollDiceCommand commandNOT matched -> command:", command)
+  else
+    debug("rollDiceCommand commandNOT matched -> command:", command)
       return ""
   end
 
@@ -1043,7 +1043,7 @@ INFO_MESSAGE_TEXT
                '높은 곳에서 멋진 걸 말한다',
               ]
     else
-      table = [#"다른 장르계 서비스 신표"
+      table = [# "다른 장르계 서비스 신표"
                '사이코 서스펜스',
                '스페이스 오페라',
                '동화',
@@ -1158,12 +1158,12 @@ INFO_MESSAGE_TEXT
               ]
 
     case type
-      when 1
-        result, number = get_table_by_d66_swap(hellStylistAbuseTable1)
-      when 2
-        result, number = get_table_by_d66_swap(hellStylistAbuseTable2)
-      else
-        result1, num1 = get_table_by_d66_swap(hellStylistAbuseTable1)
+    when 1
+      result, number = get_table_by_d66_swap(hellStylistAbuseTable1)
+    when 2
+      result, number = get_table_by_d66_swap(hellStylistAbuseTable2)
+    else
+      result1, num1 = get_table_by_d66_swap(hellStylistAbuseTable1)
         result2, num2 = get_table_by_d66_swap(hellStylistAbuseTable2)
         before, = get_table_by_1d6(hellStylistwtable1)
         after, = get_table_by_1d6(hellStylistwtable2)

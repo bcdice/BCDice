@@ -127,7 +127,7 @@ INFO_MESSAGE_TEXT
     return "1D6->#{ dice }"
   end
 
-  #스킬판정치　xJD or xJDy or xJDy+z or xJDy-z or xJDy/z
+  # 스킬판정치　xJD or xJDy or xJDy+z or xJDy-z or xJDy/z
   def checkJudgeValue(string)
     debug("checkJudgeValue begin string", string)
 
@@ -223,7 +223,7 @@ INFO_MESSAGE_TEXT
     return result
   end
 
-###표 목록
+  # ##표 목록
 
   def choiceStrengthStigmaTable()
     name = "체력 낙인표"

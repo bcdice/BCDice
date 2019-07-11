@@ -70,9 +70,9 @@ MESSAGETEXT
     diceList, calculationProcess = getThirstyAddedResult(diceList, thirstyPoint)
     thirstyPointMarker = (thirstyPoint == 0 ? "" : "+#{thirstyPoint}")
 
-  result = "(#{command}) ＞ #{diceCount}D6#{thirstyPointMarker} ＞ "
-  result += "[ #{calculationProcess} ] ＞ " unless calculationProcess.empty?
-  result += "[ #{diceList.join(', ')} ]"
+    result = "(#{command}) ＞ #{diceCount}D6#{thirstyPointMarker} ＞ "
+    result += "[ #{calculationProcess} ] ＞ " unless calculationProcess.empty?
+    result += "[ #{diceList.join(', ')} ]"
     return result
   end
 
@@ -124,7 +124,7 @@ MESSAGETEXT
 
     diceList = rollDiceList(diceCount)
 
-  result = "(#{command}) ＞ #{diceCount}D6 ＞ [ #{diceList.join(', ')} ]"
+    result = "(#{command}) ＞ #{diceCount}D6 ＞ [ #{diceList.join(', ')} ]"
   end
 
   def getReactionResult(command)
@@ -139,7 +139,7 @@ MESSAGETEXT
 
     type1 = %w{드라크	로젠부르크	헬스가르드	더스트하임	아발롬	노스페라스}
     type1_indexTexts = %w{D R H M A N}
-  type2 = %w{영주	근위	방랑	현자	사냥꾼	야수}
+    type2 = %w{영주	근위	방랑	현자	사냥꾼	야수}
     type2_indexTexts = %w{F G R W J N}
 
     tensValue = number.to_i / 10
@@ -173,10 +173,10 @@ MESSAGETEXT
 
   def getReactionTex(index, type, tableText)
     typeName = type[index]
-      texts = tableText.split(/\t/)
-      string = texts[index]
+    texts = tableText.split(/\t/)
+    string = texts[index]
 
-      return "#{typeName}：#{string}"
+    return "#{typeName}：#{string}"
   end
 
   def getReactionTable
@@ -289,7 +289,7 @@ TEXT_BLOCK
 "이상한 빛을 발하는 눈",
 "튀어나온 송곳니",
 "눈에 보이는 변화는 없다……",
-], },
+],},
 
   'BT' => {
     :name => "인연 내용 결정표：루주／누아르",
@@ -301,7 +301,7 @@ TEXT_BLOCK
 "사랑(Love)　상대를 좋아하고 사랑한다. ／분노(Anger)　상대에게 분노를 느낀다. ",
 "존경(Respect)　상대의 실력이나 정신을 존경한다. ／살의(Kill)　상대에게 살의를 느끼고 없애고자 한다.",
 "복종(Obey)　상대를 주군으로서 받들고 충의를 맹세한다. ／복수(Vendetta)　상대를 원망하고 원수로 여긴다.",
-], },
+],},
 }
 
   setPrefixes(['DR.*', 'RT.*', 'CT\d+'] + @@tables.keys)

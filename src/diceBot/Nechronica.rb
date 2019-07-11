@@ -7,7 +7,7 @@ class Nechronica < DiceBot
     super
     @sendMode = 2
     @sortType = 3
-    @defaultSuccessTarget = "6" #目標値が空欄の時の目標値
+    @defaultSuccessTarget = "6" # 目標値が空欄の時の目標値
   end
 
   def gameName
@@ -54,7 +54,7 @@ INFO_MESSAGE_TEXT
       return " ＞ 成功"
     end
 
-    #失敗パターン
+    # 失敗パターン
 
     if n1 <= 0
       return " ＞ 失敗"
@@ -126,10 +126,10 @@ INFO_MESSAGE_TEXT
 
     debug("dice_n, n1, total_n diff", dice_n, n1, total_n, diff)
 
-# β版の実装
-#    if( (dice_n > 1) and (n1 >= 1) and (total_n <= diff) )
-#      output += " ＞ 損傷#{n1}"
-#    end
+    # β版の実装
+    #    if( (dice_n > 1) and (n1 >= 1) and (total_n <= diff) )
+    #      output += " ＞ 損傷#{n1}"
+    #    end
 
     if isBattleMode
       hit_loc = getHitLocation(total_n)

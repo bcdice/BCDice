@@ -54,8 +54,8 @@ INFO_MESSAGE_TEXT
       return ""
     end
 
-  text = "#{tableName}(#{number})：#{result}"
-  return text
+    text = "#{tableName}(#{number})：#{result}"
+    return text
   end
 
   def getReimonCompensationTableResult

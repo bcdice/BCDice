@@ -81,14 +81,14 @@ MESSAGETEXT
     case command
 
     when "MT"
-      #邂逅表
+      # 邂逅表
       tableName, result, number = getMeetingTableResult()
     when /^.+FT$/i
-      #感情表
+      # 感情表
       tableName, result, number = getFeelingTableResult(command)
 
     when /^.*CT$/i
-      #国特徴表
+      # 国特徴表
       tableName, result, number = getCountryTableResult(command)
 
     else

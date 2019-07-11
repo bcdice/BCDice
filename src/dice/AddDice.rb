@@ -50,7 +50,7 @@ class AddDice
         dice_now, dice_n_wk, dice_str, n1_wk, n_max_wk, cnt_wk, max_wk = rollDiceAddingUp(subtractText, isCheckSuccess)
         debug("end rollDiceAddingUp(subtractText, isCheckSuccess) -> dice_now", dice_now)
 
-        #return "1" if(dice_now <= 0)
+        # return "1" if(dice_now <= 0)
 
         rate = (index == 0 ? 1 : -1)
 
@@ -75,7 +75,7 @@ class AddDice
     @diceBot.setDiceText(output)
     @diceBot.setDiffText(diffText)
 
-    #ダイス目による補正処理（現状ナイトメアハンターディープ専用）
+    # ダイス目による補正処理（現状ナイトメアハンターディープ専用）
     addText, revision = @diceBot.getDiceRevision(n_max, dice_max, total_n)
     debug('addText, revision', addText, revision)
 
@@ -98,7 +98,7 @@ class AddDice
       output += successText
     end
 
-    #ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
+    # ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
     output += @diceBot.getDiceRolledAdditionalText(n1, n_max, dice_max)
 
     if (dice_cnt == 0) || (dice_max == 0)
@@ -242,7 +242,7 @@ class AddDice
       loop_count += 1
     end
 
-    #ダイス目文字列からダイス値を変更する場合の処理（現状クトゥルフ・テック専用）
+    # ダイス目文字列からダイス値を変更する場合の処理（現状クトゥルフ・テック専用）
     dice_now = @diceBot.changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
 
     output = ""

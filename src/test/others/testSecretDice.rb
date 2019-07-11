@@ -67,7 +67,7 @@ class TestSecretDice < Test::Unit::TestCase
     execute("Open Dice!")
     assert_equal("sendMessage\nto:test_channel\ntest_nick: (3D6) ＞ 18[6,6,6] ＞ 18\n", @bcdice.getResult())
 
-    #履歴は1件しか残らないので何も表示されない
+    # 履歴は1件しか残らないので何も表示されない
     execute("Open Dice!")
     assert_equal("", @bcdice.getResult())
   end

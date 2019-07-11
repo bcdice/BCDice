@@ -11,7 +11,7 @@ class CgiDiceBot
   def initialize
     @rollResult = ""
     @isSecret = false
-    @rands = nil #テスト以外ではnilで良い。ダイス目操作パラメータ
+    @rands = nil # テスト以外ではnilで良い。ダイス目操作パラメータ
     @isTest = false
     @bcdice = nil
 

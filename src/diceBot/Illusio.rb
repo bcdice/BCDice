@@ -3,7 +3,7 @@
 class Illusio < DiceBot
   def initialize
     super
-    @sortType = 1 #ダイスのソート有
+    @sortType = 1 # ダイスのソート有
   end
 
   setPrefixes([

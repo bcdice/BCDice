@@ -71,7 +71,7 @@ INFO_MESSAGE_TEXT
       wounds_wk, dice_ws = roll((strikeRank - 13) * 2, 10)
       dice_str += "+#{dice_ws}"
       dice_add += "+#{wounds_wk}"
-        wounds += wounds_wk
+      wounds += wounds_wk
     end
 
     if sendMode > 1

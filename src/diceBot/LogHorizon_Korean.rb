@@ -75,26 +75,26 @@ MESSAGETEXT
     modifyText = ($2 || '')
     difficultyText = $4
 
-  #修正値の計算
+  # 修正値の計算
   modify = getValue(modifyText, 0)
 
-  #目標値の計算
+    # 目標値の計算
     difficulty = getValue(difficultyText, nil)
 
-  #ダイスロール
+  # ダイスロール
   dice, dice_str = roll(diceCount, 6)
     diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
 
   total = dice + modify
 
-  #出力用ダイスコマンドを生成
+  # 出力用ダイスコマンドを生成
   command =  "#{diceCount}LH#{modifyText}"
   command += ">=#{difficulty}" unless difficulty.nil?
 
-  #출력문 생성
+  # 출력문 생성
   result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
 
-  #クリティカル・ファンブルチェック
+    # クリティカル・ファンブルチェック
     if isCritical(diceList)
       result += " ＞ 크리티컬！"
     elsif isFamble(diceList, diceCount)
@@ -106,7 +106,7 @@ MESSAGETEXT
     return result
   end
 
-  #成否判定
+  # 成否判定
   def getJudgeResultString(difficulty, total)
     return '' if difficulty.nil?
 
@@ -131,7 +131,7 @@ MESSAGETEXT
     (diceList.select { |i| i == 1 }.size >= diceCount)
   end
 
-  #消耗表
+  # 消耗表
   def getConsumptionDiceCommandResult(command)
     return nil unless /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command
 
@@ -333,7 +333,7 @@ MESSAGETEXT
     return number
   end
 
-  #최소치의 조정(값이 너무 작은경우 표의 최소)
+  # 최소치의 조정(값이 너무 작은경우 표의 최소)
   def getAdjustNumberMin(number, table)
     value = getTableMinimum(table)
     return [number, value].max
@@ -343,13 +343,13 @@ MESSAGETEXT
     table.first.first
   end
 
-  #최대치의 조정(값이 너무 큰 경우 표의 최대)
+  # 최대치의 조정(값이 너무 큰 경우 표의 최대)
   def getAdjustNumberMax(number, table)
     value = table.last.first
     return [number, value].min
   end
 
-  #재보표
+  # 재보표
   def getTresureDiceCommandResult(command)
     return nil unless (m = /(C|M|I|H|G)TRS(\d*)([\+\-\d]*)(\$)?/.match(command))
 
@@ -626,37 +626,37 @@ MESSAGETEXT
   def getHeroineTresureResultTable
     tableName = "히로인 재보표"
     table = [
-             [ 7, '쓰러져 있는 초라한 말라깽이의 유녀'], #라스트오더
+             [ 7, '쓰러져 있는 초라한 말라깽이의 유녀'], # 라스트오더
              [ 8, '돈을 밝히는 경단머리인 차이나 아가씨'],
              [ 9, '응석부리고고 캐미솔을 어깨에 한 스웨터의 요술사'],
              [10, '작은 등으로 모두를 지키는 장면의 청바지를 입은 무투가'],
-             [11, '오징어 모자를 쓴 도짓코 침략자'], #이카무스메
+             [11, '오징어 모자를 쓴 도짓코 침략자'], # 이카무스메
              [12, '지나치게 긍정적인 자칭 명탐정씨'],
              [13, '중요한 곳에서 실수하는 부스스한 포니테일의 클레릭'],
              [14, '계란밥 좋아하는 빈유의 칸나기'],
              [15, '보석을 너무 좋아하는 억척스런 큰 리본의 이도류 세검사'],
-             [16, '오크에게서 간신히 도망쳐온 검의 처녀'], #큿 코로
+             [16, '오크에게서 간신히 도망쳐온 검의 처녀'], # 큿 코로
              [17, '당신을 맹목적으로 찬미하는 자칭 여동생'],
-             [18, '어필을 하지만 인식되지 않는 칸나기'], #금서목록 히메가미아이사
-             [19, '밝고 긍정적인 분홍색 리본의 소녀'], #카나메 마도카(?)
-             [20, '마법을 사용할수 없는 가슴이 작은게 컴플렉스인 마녀'], #루이즈
-             [21, '식욕에 일체 주저함이 없는 포동포동한 가슴의 아이돌'], #미무라 카나코
-             [22, '눈물점이 매혹의 저주인 누님계의 스워시버클러 '], #FATE 시리즈 랜서(4차)TS?!?!
-             [23, '집착심이 강한 젊게 차려입은 노처녀 신화생무'], #알퀘이드
-             [24, '시가를 사랑하는 헤이안 히키코모리 공주'], #NEET히메
+             [18, '어필을 하지만 인식되지 않는 칸나기'], # 금서목록 히메가미아이사
+             [19, '밝고 긍정적인 분홍색 리본의 소녀'], # 카나메 마도카(?)
+             [20, '마법을 사용할수 없는 가슴이 작은게 컴플렉스인 마녀'], # 루이즈
+             [21, '식욕에 일체 주저함이 없는 포동포동한 가슴의 아이돌'], # 미무라 카나코
+             [22, '눈물점이 매혹의 저주인 누님계의 스워시버클러 '], # FATE 시리즈 랜서(4차)TS?!?!
+             [23, '집착심이 강한 젊게 차려입은 노처녀 신화생무'], # 알퀘이드
+             [24, '시가를 사랑하는 헤이안 히키코모리 공주'], # NEET히메
              [25, '병약하지만 프라이드있는 몰락귀족 아가씨'],
-             [26, '활기가득! 왜소한 낭아족 야생 소녀'], #원령공주 산
-             [27, '빚더미에 올라 골판지 상자에서 사는 리코핀(로그호라 엑스트라 캐릭터)'], #로그호라이즌 리코핀
-             [28, '귀국자녀인 무녀복 스타일의 마포소녀에YO!'], #콩고
-             [29, '붙어 왔다갔다 하기만 할 수 있는 좀비 아가씨'], #유클리우드 헬사이즈
-             [30, '꿈에 한결같은 녹색머리 초시공 아이돌 후보생'], #란카 리
+             [26, '활기가득! 왜소한 낭아족 야생 소녀'], # 원령공주 산
+             [27, '빚더미에 올라 골판지 상자에서 사는 리코핀(로그호라 엑스트라 캐릭터)'], # 로그호라이즌 리코핀
+             [28, '귀국자녀인 무녀복 스타일의 마포소녀에YO!'], # 콩고
+             [29, '붙어 왔다갔다 하기만 할 수 있는 좀비 아가씨'], # 유클리우드 헬사이즈
+             [30, '꿈에 한결같은 녹색머리 초시공 아이돌 후보생'], # 란카 리
              [31, '바로 발이 올라가는 뾰족한 이빨의 불량소녀'],
              [32, '지치지 않는 방패'],
-             [33, '외환거래에 가진 돈을 전부 잃어 공허한 선배'], #아이마이미의 포노카선배
-             [34, '팔뚝이 말랑말랑하지만 가계부를 쓰는 마왕'], #마오유우 마왕
-             [35, '그 가슴 실로 풍만하였다는 기억상실의 여자 닌자'], #닌자 슬레이어 유카노
+             [33, '외환거래에 가진 돈을 전부 잃어 공허한 선배'], # 아이마이미의 포노카선배
+             [34, '팔뚝이 말랑말랑하지만 가계부를 쓰는 마왕'], # 마오유우 마왕
+             [35, '그 가슴 실로 풍만하였다는 기억상실의 여자 닌자'], # 닌자 슬레이어 유카노
              [36, '잘 옷자락을 붙잡는 양갈래 땋은 머리의 빵집 소녀'],
-             [37, '「더럽다는건 칭찬이다!」라는 주관의 여자 암살자'], #파이널 판타지 11
+             [37, '「더럽다는건 칭찬이다!」라는 주관의 여자 암살자'], # 파이널 판타지 11
              [38, '단추가 터질것 같고 울상인 길드 창구의 간판아가씨'],
              [39, '뭐든지 오컬트에 아수라장이 되는 소녀'],
              [40, '전투 때마다 많이 먹어지게 되는게 고민인 궁술소녀'],
@@ -741,7 +741,7 @@ MESSAGETEXT
   return tableName, table
 end
 
-  #パーソナリティタグ表
+  # パーソナリティタグ表
   def getPersonalityTagDiceCommandResult(command)
     return nil unless "PTAG" === command
 
@@ -796,7 +796,7 @@ end
     return text
   end
 
-  #交友表
+  # 交友表
   def getFriendlyChartDiceCommandResult(command)
     return nil unless "KOYU" === command
 
@@ -851,7 +851,7 @@ end
     return text
   end
 
-  #プレフィックスドマジックアイテム表
+  # プレフィックスドマジックアイテム表
   def getPrefixedMagickItemDiceCommandResult(command)
     return nil unless /MGR([1-3])/ === command
 
@@ -1010,7 +1010,7 @@ end
     return text
   end
 
-  #공격 명중 장소 랜덤결정표
+  # 공격 명중 장소 랜덤결정표
   def getHitLocationDiceCommandResult(command)
     return nil unless "HLOC" === command
 
@@ -1062,7 +1062,7 @@ end
     "#{tableName}(#{number})：#{result}"
   end
 
-  #PC명 랜덤 결정표
+  # PC명 랜덤 결정표
   def getPCNameDiceCommandResult(command)
     return nil unless "PCNM" === command
 
@@ -1116,7 +1116,7 @@ end
     return "#{tableName}(#{number})：#{result}"
   end
 
-  #ロデ研の新発明ランダム決定表
+  # ロデ研の新発明ランダム決定表
   def getInventionAttributeTextDiceCommandResult(command)
     return nil unless /IAT([ABMDLT]*)/ === command
 
@@ -1174,7 +1174,7 @@ end
     return "#{tableName}([#{number.join(',')}])：#{result.join(' ')}"
   end
 
-  #아키바 거리에서 발생하는 문제 랜덤결정 표
+  # 아키바 거리에서 발생하는 문제 랜덤결정 표
   def getTroubleInAkibaStreetDiceCommandResult(command)
     return nil unless command === "TIAS"
 
@@ -1225,7 +1225,7 @@ end
     return "#{tableName}([#{number.join(',')}])：#{result.join(' ')}"
   end
 
-  #버림받은 아이 랜덤결정표
+  # 버림받은 아이 랜덤결정표
   def getAbandonedChildDiceCommandResult(command)
     return nil unless command === "ABDC"
 
@@ -1292,7 +1292,7 @@ end
     return "#{tableName}([#{number.join(',')}])：#{result.join('　')}"
   end
 
-  #楽器種別表
+  # 楽器種別表
   def getMusicalInstrumentTypeDiceCommandResult(command)
     return nil unless /MII(\d?)/ === command
 

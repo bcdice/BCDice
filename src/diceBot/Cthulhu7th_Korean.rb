@@ -4,7 +4,7 @@ class Cthulhu7th_Korean < DiceBot
   setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*'])
 
   def initialize
-    #$isDebug = true
+    # $isDebug = true
     super
 
     @bonus_dice_range = (-2 .. 2)
@@ -54,7 +54,7 @@ INFO_MESSAGE_TEXT
 
   def getCheckResult(command)
     nil unless /^CC([-\d]+)?<=(\d+)/i =~ command
-    bonus_dice_count = $1.to_i #보너스, 패널티 주사위의 개수
+    bonus_dice_count = $1.to_i # 보너스, 패널티 주사위의 개수
     diff = $2.to_i
 
     return "에러. 목표치는 1 이상입니다." if diff <= 0
@@ -170,7 +170,7 @@ INFO_MESSAGE_TEXT
 
     output = ""
 
-    #최대(8번*(PC기능 수치 최대값/10))＝72발밖에 쏠 수 없으니 상한
+    # 최대(8번*(PC기능 수치 최대값/10))＝72발밖에 쏠 수 없으니 상한
     bullet_count_limit = 100
     if bullet_count > bullet_count_limit
       output += "\n탄약이 너무 많습니다. 장전된 탄약을 #{bullet_count_limit}개로 변경합니다.\n"
@@ -276,11 +276,11 @@ INFO_MESSAGE_TEXT
 
       case hit_type
       when :hit
-        hit_bullet_count = hit_bullet_count_base #보통명중한 탄수의 계산
+        hit_bullet_count = hit_bullet_count_base # 보통명중한 탄수의 계산
 
       when :impale
         hit_bullet_count = impale_bullet_count_base.floor
-        impale_bullet_count = impale_bullet_count_base.ceil #관통한 탄수의 계산
+        impale_bullet_count = impale_bullet_count_base.ceil # 관통한 탄수의 계산
       end
 
       lost_bullet_count = bullet_set_count
@@ -343,7 +343,7 @@ INFO_MESSAGE_TEXT
     bullet_set_count = diff / 10
 
     if (diff >= 1) && (diff < 10)
-      bullet_set_count = 1 #기능 수치가 9 이하일 때의 최저수치 보장 처리
+      bullet_set_count = 1 # 기능 수치가 9 이하일 때의 최저수치 보장 처리
     end
 
     return bullet_set_count
@@ -353,7 +353,7 @@ INFO_MESSAGE_TEXT
     hit_bullet_count_base = (bullet_set_count / 2)
 
     if (diff >= 1) && (diff < 10)
-      hit_bullet_count_base = 1 #기능 수치가 9 이하일 때의 최저수치 보장
+      hit_bullet_count_base = 1 # 기능 수치가 9 이하일 때의 최저수치 보장
     end
 
     return hit_bullet_count_base
@@ -364,7 +364,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getLastHitBulletCount(bullet_count)
-    #잔탄 1발일 때의 최저수치 보장 처리
+    # 잔탄 1발일 때의 최저수치 보장 처리
     if bullet_count == 1
       return 1
     end
@@ -374,7 +374,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getFumbleable(more_difficlty)
-    #성공이 49 이하일때만이기 때문에 펌블치는 상승
+    # 성공이 49 이하일때만이기 때문에 펌블치는 상승
     return (more_difficlty >= 1)
   end
 end

@@ -66,18 +66,18 @@ INFO_MESSAGE_TEXT
 
   def rollDiceCommand(command)
     case command
-      when /^Gr(\d+)?/i
-        if command =~ /^Gr(\d+)/i then
-          growth($1.to_i)
-        else
-          growth
-        end
-      when 'FT'
-        get_fumble_table
-      when 'TT'
-        get_tangle_table
+    when /^Gr(\d+)?/i
+      if command =~ /^Gr(\d+)/i then
+        growth($1.to_i)
       else
-        super(command)
+        growth
+      end
+    when 'FT'
+      get_fumble_table
+    when 'TT'
+      get_tangle_table
+    else
+      super(command)
     end
   end
 
