@@ -45,27 +45,27 @@ INFO_MESSAGE_TEXT
 
     case command
 
-      when "RT"
-        tableName, result, number = getReimonCompensationTableResult
+    when "RT"
+      tableName, result, number = getReimonCompensationTableResult
 
-      when /^MT(\d*)$/
-        rank = $1
-        rank ||= 1
-        rank = rank.to_i
-        tableName, result, number = getGetMaterialTableResult(rank)
+    when /^MT(\d*)$/
+      rank = $1
+      rank ||= 1
+      rank = rank.to_i
+      tableName, result, number = getGetMaterialTableResult(rank)
 
-      when "ET"
-        tableName, result, number = getEmotionTableResult
+    when "ET"
+      tableName, result, number = getEmotionTableResult
 
-      when "NT"
-        tableName, result, number = getNameTableResult
+    when "NT"
+      tableName, result, number = getNameTableResult
 
-      when "KT"
-        tableName, result, number = getKyoukaiTableResult
+    when "KT"
+      tableName, result, number = getKyoukaiTableResult
 
-      else
-        debug("rollDiceCommand commandNOT matched -> command:", command)
-        return ""
+    else
+      debug("rollDiceCommand commandNOT matched -> command:", command)
+      return ""
     end
 
     if result.empty?

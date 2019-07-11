@@ -38,11 +38,11 @@ MESSAGETEXT
     number = 0
 
     case command
-      when "LDUT"
-        tableName = "生死不明表"
-        text, number = getLifeAndDeathUnknownResult()
-      else
-        return nil
+    when "LDUT"
+      tableName = "生死不明表"
+      text, number = getLifeAndDeathUnknownResult()
+    else
+      return nil
     end
 
     result = "#{tableName}(#{number}):#{text}"

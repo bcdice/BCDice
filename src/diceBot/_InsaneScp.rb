@@ -122,9 +122,9 @@ INFO_MESSAGE_TEXT
     when 'RTT'
       type = 'ランダム特技決定表'
       output, total_n = get_random_skill_table
-        when 'TVT'
-          type = '指定特技（暴力）表'
-          output, total_n = get_violence_skill_table
+    when 'TVT'
+      type = '指定特技（暴力）表'
+      output, total_n = get_violence_skill_table
     when 'TET'
       type = '指定特技（情動）表'
       output, total_n = get_emotion_skill_table

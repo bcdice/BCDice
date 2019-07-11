@@ -57,7 +57,9 @@ Layout/AlignHash:
 # Configuration parameters: EnforcedStyle, IndentOneStep, IndentationWidth.
 # SupportedStyles: case, end
 Layout/CaseIndentation:
-  Enabled: false
+  Exclude:
+    - diceBot/FilledWith.rb
+    - diceBot/GurpsFW.rb
 
 # Offense count: 102
 # Cop supports --auto-correct.

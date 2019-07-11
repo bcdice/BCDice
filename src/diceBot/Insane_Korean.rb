@@ -121,9 +121,9 @@ INFO_MESSAGE_TEXT
     when 'RTT'
       type = '랜덤 특기 결정표'
       output, total_n = get_random_skill_table
-        when 'TVT'
-          type = '지정특기(폭력)표'
-          output, total_n = get_violence_skill_table
+    when 'TVT'
+      type = '지정특기(폭력)표'
+      output, total_n = get_violence_skill_table
     when 'TET'
       type = '지정특기(감정)표'
       output, total_n = get_emotion_skill_table
