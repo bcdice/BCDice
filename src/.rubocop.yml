@@ -13,6 +13,9 @@ Layout/IndentHeredoc:
 Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: false
 
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
 Style/AsciiComments:
   Enabled: false
 
