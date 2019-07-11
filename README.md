@@ -1,7 +1,7 @@
 # BCDice
 
 [![Build Status](https://travis-ci.org/bcdice/BCDice.svg?branch=master)](https://travis-ci.org/bcdice/BCDice)
-[![Discord](https://img.shields.io/discord/597133335243784192.svg?color=7289DA&logo=discord)][invite discord]
+[![Discord](https://img.shields.io/discord/597133335243784192.svg?color=7289DA&logo=discord&logoColor=fff)][invite discord]
 
 様々なTRPGシステムの判定に対応したIRC用ダイスボット兼オンセツール用ダイスエンジン
 
