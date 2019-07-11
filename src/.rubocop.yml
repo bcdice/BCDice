@@ -10,6 +10,9 @@ Layout/IndentFirstArrayElement:
 Layout/IndentHeredoc:
   Enabled: false
 
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: false
+
 Style/AsciiComments:
   Enabled: false
 
