@@ -273,7 +273,9 @@ Layout/SpaceBeforeFirstArg:
 # SupportedStyles: space, no_space, compact
 # SupportedStylesForEmptyBraces: space, no_space
 Layout/SpaceInsideHashLiteralBraces:
-  Enabled: false
+  Exclude:
+    -  diceBot/Dracurouge.rb
+    -  diceBot/GardenOrder.rb
 
 # Offense count: 15
 # Cop supports --auto-correct.

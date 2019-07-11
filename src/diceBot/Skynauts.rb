@@ -108,15 +108,15 @@ MESSAGETEXT
   end
 
   @@directionInfos = {
-    1 => { :name => "左下", :position_diff => {:x => -1, :y => +1}},
-    2 => { :name => "下", :position_diff => {:x => 0, :y => +1}},
-    3 => { :name => "右下", :position_diff => {:x => +1, :y => +1}},
-    4 => { :name => "左",   :position_diff => {:x => -1, :y =>  0}},
+    1 => {:name => "左下", :position_diff => {:x => -1, :y => +1}},
+    2 => {:name => "下", :position_diff => {:x => 0, :y => +1}},
+    3 => {:name => "右下", :position_diff => {:x => +1, :y => +1}},
+    4 => {:name => "左",   :position_diff => {:x => -1, :y =>  0}},
     # 5 は中央。算出する意味がないので対象外
-    6 => { :name => "右",   :position_diff => {:x => +1, :y =>  0}},
-    7 => { :name => "左上", :position_diff => {:x => -1, :y => -1}},
-    8 => { :name => "上", :position_diff => {:x => 0, :y => -1}},
-    9 => { :name => "右上", :position_diff => {:x => +1, :y => -1}},
+    6 => {:name => "右",   :position_diff => {:x => +1, :y =>  0}},
+    7 => {:name => "左上", :position_diff => {:x => -1, :y => -1}},
+    8 => {:name => "上", :position_diff => {:x => 0, :y => -1}},
+    9 => {:name => "右上", :position_diff => {:x => +1, :y => -1}},
   }
 
   def getDirectionInfo(direction, key, defaultValue = nil)
