@@ -1629,7 +1629,7 @@ class BCDice
     list.length.times do |i|
       unless result.empty?
         if /(\*|\/)$/ === result.last
-          result.last << list[i]
+          result[result.length - 1] += list[i]
           next
         end
       end
