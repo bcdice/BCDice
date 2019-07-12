@@ -19,6 +19,15 @@ Layout/SpaceInsideHashLiteralBraces:
 Style/AsciiComments:
   Enabled: false
 
+Style/CommentedKeyword:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+Style/DefWithParentheses:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
@@ -34,4 +43,37 @@ Style/NumericLiterals:
   MinDigits: 6
 
 Style/WordArray:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/SymbolProc:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
   Enabled: false
