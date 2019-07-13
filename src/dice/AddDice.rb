@@ -49,8 +49,6 @@ class AddDice
         dice_now, dice_n_wk, dice_str, n1_wk, n_max_wk, cnt_wk, max_wk = rollDiceAddingUp(subtractText, isCheckSuccess)
         debug("end rollDiceAddingUp(subtractText, isCheckSuccess) -> dice_now", dice_now)
 
-        # return "1" if(dice_now <= 0)
-
         rate = (index == 0 ? 1 : -1)
 
         total_n += dice_now * rate
@@ -233,7 +231,8 @@ class AddDice
       n1_count += dice_dat[2]
       max_number += dice_dat[3]
 
-      if  double_check && (dice_wk >= 2) # 振り足しありでダイスが二個以上
+      # 振り足しありでダイスが二個以上
+      if double_check && (dice_wk >= 2)
         addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_arry, dice_wk)
       end
 
@@ -254,48 +253,41 @@ class AddDice
     return dice_max, dice_now, output, n1_count, max_number, result_dice_count
   end
 
-  def addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_arry, dice_wk)
-    dice_num = dice_dat[1].split(",").collect { |s| s.to_i }
-    dice_face = []
+  def addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_queue, roll_times)
+    values = dice_dat[1].split(",").map(&:to_i)
+    count_bucket = {}
 
-    dice_max.times do |i|
-      dice_face.push(0)
+    values.each do |val|
+      count_bucket[val] ||= 0
+      count_bucket[val] += 1
     end
 
-    dice_num.each do |dice_o|
-      dice_face[dice_o - 1] += 1
-    end
-
-    dice_face.each do |dice_o|
-      if @diceBot.sameDiceRerollCount == 1 # 全部同じ目じゃないと振り足しなし
-        dice_arry.push(dice_o) if  dice_o == dice_wk
-      else
-        dice_arry.push(dice_o) if dice_o >= @diceBot.sameDiceRerollCount
+    reroll_threshold = @diceBot.sameDiceRerollCount == 1 ? roll_times : @diceBot.sameDiceRerollCount
+    count_bucket.each do |_, num|
+      if num >= reroll_threshold
+        dice_queue.push(num)
       end
     end
   end
 
-  def getSlashedDice(slashMark, dice)
-    m = slackMark.match(/^\/(\d+)(.)?$/i)
-    return dice unless m
+  def getSlashedDice(slashMark, lhs)
+    m = /^\/(\d+)(.)?$/i.match(slashMark)
+    return lhs unless m
 
-    rate = m[1].to_i
+    rhs = m[1].to_i
     mark = m[2]
 
-    return dice if rate == 0
+    return lhs if rhs == 0
 
-    value = (1.0 * dice / rate)
+    value = lhs.to_f / rhs
 
-    case mark
-    when "U"
-      dice = value.ceil
-    when "R"
-      dice = value.round
+    if mark == "U"
+      return value.ceil
+    elsif mark == "R"
+      return value.round
     else
-      dice = value.floor
+      return value.floor
     end
-
-    return dice
   end
 
   def rollLocal(dice_wk, dice_max, sortType)
@@ -309,14 +301,14 @@ class AddDice
   def rollD66(count)
     d66List = []
 
-    count.times do |i|
+    count.times do
       d66List << @bcdice.getD66Value()
     end
 
     total = d66List.inject { |sum, i| sum + i }
     text = d66List.join(',')
-    n1Count = d66List.collect { |i| i == 1 }.length
-    nMaxCount = d66List.collect { |i| i == 66 }.length
+    n1Count = d66List.count(1)
+    nMaxCount = d66List.count(66)
 
     result = [total, text, n1Count, nMaxCount, 0, 0, 0]
   end
@@ -326,10 +318,13 @@ class AddDice
   end
 
   def getOperatorText(rate, output)
-    return '-' if rate < 0
-    return '' if output.empty?
-
-    return "+"
+    if rate < 0
+      '-'
+    elsif output.empty?
+      ''
+    else
+      "+"
+    end
   end
 
   def parren_killer(*args)
