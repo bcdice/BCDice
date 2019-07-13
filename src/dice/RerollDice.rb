@@ -30,25 +30,27 @@ class RerollDice
 
     string = string.gsub(/-[\d]+R[\d]+/, ''); # 振り足しロールの引き算している部分をカット
 
-    unless /(^|\s)S?([\d]+R[\d\+R]+)(\[(\d+)\])?(([<>=]+)([\d]+))?(\@(\d+))?($|\s)/ =~ string
+    m = /(^|\s)S?([\d]+R[\d\+R]+)(\[(\d+)\])?(([<>=]+)([\d]+))?(\@(\d+))?($|\s)/.match(string)
+    unless m
       debug("is invaild rdice", string)
       return '1'
     end
 
-    string = $2
-    rerollNumber_1 = $4
-    rerollNumber_2 = $9
-    judgeText = $5
-    operator = $6
-    diff = $7
+    string = m[2]
+    rerollNumber_1 = m[4]
+    rerollNumber_2 = m[9]
+    judgeText = m[5]
+    operator = m[6]
+    diff = m[7]
 
     if judgeText
       diff = diff.to_i
       signOfInequality = @bcdice.marshalSignOfInequality(operator)
     elsif @diceBot.defaultSuccessTarget != ""
-      if @diceBot.defaultSuccessTarget =~ /([<>=]+)(\d+)/
-        operator = $1
-        diff = $2.to_i
+      m = /([<>=]+)(\d+)/.match(@diceBot.defaultSuccessTarget)
+      if m
+        operator = m[1]
+        diff = m[2].to_i
         signOfInequality = @bcdice.marshalSignOfInequality(operator)
       end
     end
