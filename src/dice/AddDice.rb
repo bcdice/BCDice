@@ -12,21 +12,20 @@ class AddDice
   def rollDice(string)
     debug("AddDice.rollDice() begin string", string)
 
-    unless /(^|\s)S?(([\d\+\*\-]*[\d]+D[\d\/UR@]*[\d\+\*\-D\/UR]*)(([<>=]+)([?\-\d]+))?)($|\s)/i =~ string
-      return "1"
-    end
+    m = /(^|\s)S?(([\d\+\*\-]*[\d]+D[\d\/UR@]*[\d\+\*\-D\/UR]*)(([<>=]+)([?\-\d]+))?)($|\s)/i.match(string)
+    return "1" unless m
 
-    string = $2
-    judgeText = $4 # '>=10'といった成否判定文字
-    judgeOperator = $5 # '>=' といった判定の条件演算子 文字
-    diffText = $6
+    string = m[2]
+    judgeText = m[4] # '>=10'といった成否判定文字
+    judgeOperator = m[5] # '>=' といった判定の条件演算子 文字
+    diffText = m[6]
 
     signOfInequality = ""
     isCheckSuccess = false
 
     if judgeText
       isCheckSuccess = true
-      string = $3
+      string = m[3]
       signOfInequality = @bcdice.marshalSignOfInequality(judgeOperator)
     end
 
@@ -151,11 +150,11 @@ class AddDice
 
     mul_cmd = string.split(/\*/)
     mul_cmd.each do |mul_line|
-      if /([\d]+)D([\d]+)(@(\d+))?(\/\d+[UR]?)?/i =~ mul_line
-        dice_count = $1.to_i
-        dice_max = $2.to_i
-        critical = $4.to_i
-        slashMark = $5
+      if (m = mul_line.match(/([\d]+)D([\d]+)(@(\d+))?(\/\d+[UR]?)?/i))
+        dice_count = m[1].to_i
+        dice_max = m[2].to_i
+        critical = m[4].to_i
+        slashMark = m[5]
 
         return emptyResult if  (critical != 0) && !@diceBot.is2dCritical
         return emptyResult if  dice_max > $DICE_MAXNUM
@@ -277,10 +276,11 @@ class AddDice
   end
 
   def getSlashedDice(slashMark, dice)
-    return dice unless /^\/(\d+)(.)?$/i === slashMark
+    m = slackMark.match(/^\/(\d+)(.)?$/i)
+    return dice unless m
 
-    rate = $1.to_i
-    mark = $2
+    rate = m[1].to_i
+    mark = m[2]
 
     return dice if rate == 0
 
