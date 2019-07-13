@@ -37,10 +37,10 @@ class AddDice
     n1 = 0
     n_max = 0
 
-    addUpTextList = string.split(/\+/)
+    addUpTextList = string.split("+")
 
     addUpTextList.each do |addUpText|
-      subtractTextList = addUpText.split(/-/)
+      subtractTextList = addUpText.split("-")
 
       subtractTextList.each_with_index do |subtractText, index|
         next if subtractText.empty?
@@ -148,7 +148,7 @@ class AddDice
 
     emptyResult = [dice_total, dice_n, output, n1, n_max, dice_cnt_total, dice_max]
 
-    mul_cmd = string.split(/\*/)
+    mul_cmd = string.split("*")
     mul_cmd.each do |mul_line|
       if (m = mul_line.match(/([\d]+)D([\d]+)(@(\d+))?(\/\d+[UR]?)?/i))
         dice_count = m[1].to_i
@@ -255,7 +255,7 @@ class AddDice
   end
 
   def addDiceArrayByAddDiceCount(dice_dat, dice_max, dice_arry, dice_wk)
-    dice_num = dice_dat[1].split(/,/).collect { |s| s.to_i }
+    dice_num = dice_dat[1].split(",").collect { |s| s.to_i }
     dice_face = []
 
     dice_max.times do |i|

@@ -64,7 +64,7 @@ class RerollDice
     dice_cnt_total = 0
     dice_max = 0
 
-    dice_a = string.split(/\+/)
+    dice_a = string.split("+")
     debug('dice_a', dice_a)
 
     dice_a.each do |dice_o|
