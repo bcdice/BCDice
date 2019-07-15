@@ -610,7 +610,6 @@ Style/CaseEquality:
     - test/DiceBotTest.rb
     - irc/ircLib.rb
     - irc/encode.rb
-    - dice/AddDice.rb
     - diceBot/Kamigakari_Korean.rb
     - diceBot/HouraiGakuen.rb
     - diceBot/FilledWith.rb
@@ -857,7 +856,6 @@ Style/IdenticalConditionalBranches:
 Style/IfInsideElse:
   Exclude:
     - 'CountHolder.rb'
-    - 'dice/AddDice.rb'
     - 'diceBot/Alsetto.rb'
     - 'diceBot/Cthulhu.rb'
     - 'diceBot/Cthulhu7th.rb'
@@ -945,7 +943,6 @@ Style/MutableConstant:
 Style/NegatedIf:
   Exclude:
     - 'CardTrader.rb'
-    - 'dice/AddDice.rb'
     - 'diceBot/LogHorizon.rb'
     - 'diceBot/LogHorizon_Korean.rb'
     - 'diceBot/MetalHead.rb'
@@ -1018,8 +1015,6 @@ Style/PerlBackrefs:
     - TableFileData.rb
     - bcdiceCore.rb
     - bcdiceGui.rb
-    - dice/AddDice.rb
-    - dice/RerollDice.rb
     - diceBot/AceKillerGene.rb
     - diceBot/Airgetlamh.rb
     - diceBot/Alsetto.rb
@@ -1187,7 +1182,6 @@ Style/RegexpLiteral:
   Exclude:
     - 'CountHolder.rb'
     - 'bcdiceCore.rb'
-    - 'dice/AddDice.rb'
     - 'diceBot/AceKillerGene.rb'
     - 'diceBot/DetatokoSaga.rb'
     - 'diceBot/DetatokoSaga_Korean.rb'
@@ -1205,7 +1199,6 @@ Style/RescueStandardError:
     - 'Rakefile'
     - 'bcdiceCore.rb'
     - 'bcdiceGui.rb'
-    - 'dice/RerollDice.rb'
     - 'diceBot/DiceBot.rb'
     - 'test/DiceBotTest.rb'
 
