@@ -41,7 +41,7 @@ class UpperDice
       return output
     end
 
-    dice_a = (string + modify).split(/\+/)
+    dice_a = (string + modify).split("+")
     debug('dice_a', dice_a)
 
     diceCommands = []
