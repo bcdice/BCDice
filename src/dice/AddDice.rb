@@ -12,7 +12,7 @@ class AddDice
   def rollDice(string)
     debug("AddDice.rollDice() begin string", string)
 
-    m = /(^|\s)S?(([\d\+\*\-]*[\d]+D[\d\/UR@]*[\d\+\*\-D\/UR]*)(([<>=]+)([?\-\d]+))?)($|\s)/i.match(string)
+    m = %r{(^|\s)S?(([\d\+\*\-]*[\d]+D[\d/UR@]*[\d\+\*\-D/UR]*)(([<>=]+)([?\-\d]+))?)($|\s)}i.match(string)
     return "1" unless m
 
     string = m[2]
@@ -124,7 +124,7 @@ class AddDice
         double_check = true if isCheckSuccess
       elsif  @diceBot.sameDiceRerollType <= 1 # ダメージのみ振り足し
         debug('ダメージのみ振り足し')
-        double_check = true if !isCheckSuccess
+        double_check = true unless isCheckSuccess
       else # 両方振り足し
         double_check = true
       end
@@ -134,11 +134,11 @@ class AddDice
 
     while (m = /(^([\d]+\*[\d]+)\*(.+)|(.+)\*([\d]+\*[\d]+)$|(.+)\*([\d]+\*[\d]+)\*(.+))/.match(string))
       if  m[2]
-        string = parren_killer('(' + m[2] + ')') + '*' + m[3]
+        string = @bcdice.parren_killer('(' + m[2] + ')') + '*' + m[3]
       elsif  m[5]
-        string = m[4] + '*' + parren_killer('(' + m[5] + ')')
+        string = m[4] + '*' + @bcdice.parren_killer('(' + m[5] + ')')
       elsif  m[7]
-        string = m[6] + '*' + parren_killer('(' + m[7] + ')') + '*' + m[8]
+        string = m[6] + '*' + @bcdice.parren_killer('(' + m[7] + ')') + '*' + m[8]
       end
     end
 
@@ -148,7 +148,7 @@ class AddDice
 
     mul_cmd = string.split("*")
     mul_cmd.each do |mul_line|
-      if (m = mul_line.match(/([\d]+)D([\d]+)(@(\d+))?(\/\d+[UR]?)?/i))
+      if (m = mul_line.match(%r{([\d]+)D([\d]+)(@(\d+))?(/\d+[UR]?)?}i))
         dice_count = m[1].to_i
         dice_max = m[2].to_i
         critical = m[4].to_i
@@ -271,7 +271,7 @@ class AddDice
   end
 
   def getSlashedDice(slashMark, lhs)
-    m = /^\/(\d+)(.)?$/i.match(slashMark)
+    m = %r{^/(\d+)(.)?$}i.match(slashMark)
     return lhs unless m
 
     rhs = m[1].to_i
@@ -313,10 +313,6 @@ class AddDice
     result = [total, text, n1Count, nMaxCount, 0, 0, 0]
   end
 
-  def marshalSignOfInequality(*arg)
-    @bcdice.marshalSignOfInequality(*arg)
-  end
-
   def getOperatorText(rate, output)
     if rate < 0
       '-'
@@ -325,9 +321,5 @@ class AddDice
     else
       "+"
     end
-  end
-
-  def parren_killer(*args)
-    @bcdice.parren_killer(*args)
   end
 end
