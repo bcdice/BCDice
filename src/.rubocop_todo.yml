@@ -1015,7 +1015,6 @@ Style/PerlBackrefs:
     - TableFileData.rb
     - bcdiceCore.rb
     - bcdiceGui.rb
-    - dice/RerollDice.rb
     - diceBot/AceKillerGene.rb
     - diceBot/Airgetlamh.rb
     - diceBot/Alsetto.rb
@@ -1200,7 +1199,6 @@ Style/RescueStandardError:
     - 'Rakefile'
     - 'bcdiceCore.rb'
     - 'bcdiceGui.rb'
-    - 'dice/RerollDice.rb'
     - 'diceBot/DiceBot.rb'
     - 'test/DiceBotTest.rb'
 

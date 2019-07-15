@@ -13,7 +13,7 @@ class RerollDice
 
     begin
       output = rollDiceCatched(string)
-    rescue => e
+    rescue StandardError => e
       output = "#{string} ＞ " + e.to_s
     end
 
