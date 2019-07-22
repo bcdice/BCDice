@@ -20,7 +20,7 @@ libPaths = [
   "#{rootDir}/irc"
 ]
 libPaths.each do |libPath|
-  $LOAD_PATH << libPath
+  $LOAD_PATH.push(libPath)
 end
 
 require 'DiceBotTest'
