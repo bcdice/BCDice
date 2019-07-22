@@ -142,6 +142,7 @@ Layout/IndentFirstHashElement:
     - diceBot/KurayamiCrying.rb
     - diceBot/Nuekagami.rb
     - diceBot/Oukahoushin3rd.rb
+    - diceBot/Peekaboo.rb
     - diceBot/ShinobiGami.rb
     - diceBot/ShoujoTenrankai.rb
     - diceBot/YankeeYogSothoth.rb
@@ -700,6 +701,7 @@ Style/ClassVars:
     - diceBot/DiceBot.rb
     - diceBot/Dracurouge_Korean.rb
     - diceBot/Oukahoushin3rd.rb
+    - diceBot/Peekaboo.rb
     - diceBot/Nuekagami.rb
     - diceBot/ShinobiGami.rb
     - diceBot/Dracurouge.rb
