@@ -4,6 +4,15 @@ require "rake/testtask"
 
 task :default => :test
 
+desc 'Clean coverage resuts'
+task :clean_coverage do
+  if RUBY_VERSION > '1.8.x'
+    require 'simplecov'
+    resultset_path = SimpleCov::ResultMerger.resultset_path
+    FileUtils.rm resultset_path if File.exist? resultset_path
+  end
+end
+
 namespace :test do
   desc 'ダイスボットのテストを行う'
   task :dicebots do
@@ -26,7 +35,7 @@ end
 BCDiceTestCase = Struct.new(:name, :task)
 
 desc 'すべてのテストを行う'
-task :test do
+task :test => :clean_coverage do
   test_cases = [
     BCDiceTestCase.new('ダイスボット', 'test:dicebots'),
     BCDiceTestCase.new('ダイスボット読み込み', 'test:dicebot_loaders'),
