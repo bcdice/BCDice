@@ -21,3 +21,7 @@ group :development, :test do
     gem 'rubocop', '~> 0.72.0', :require => false
   end
 end
+
+if RUBY_VERSION > '1.8.x'
+  gem 'simplecov', :require => false
+end
