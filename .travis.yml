@@ -14,9 +14,6 @@ rvm:
 gemfile:
   - src/Gemfile
 
-env:
-  - TRAVIS_CI=1
-
 before_script:
   - cd src
 
