@@ -63,7 +63,7 @@ INFO_MESSAGE_TEXT
     when 'RTT' # ランダム特技決定表
       return getRandomSkillTableResult(command)
     end
-    getTableCommandResult(command, @@tables)
+    getTableCommandResult(command, TABLES)
   end
 
   # 指定特技表
@@ -88,7 +88,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  tables =
+  TABLES =
     {
       'SET' => {
         :name => "学校イベント表",
@@ -347,5 +347,5 @@ TABLE_TEXT_END
 
     }
 
-  setPrefixes(['RTT'] + @@tables.keys)
+  setPrefixes(['RTT'] + TABLES.keys)
 end
