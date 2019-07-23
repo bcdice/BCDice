@@ -16,7 +16,3 @@ gemfile:
 
 before_script:
   - cd src
-
-branches:
-  only:
-  - master
