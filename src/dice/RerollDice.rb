@@ -22,31 +22,21 @@ class RerollDice
 
   def rollDiceCatched(string)
     debug('RerollDice.rollDice string', string)
-
-    successCount = 0
-    signOfInequality = ""
-    output = ""
-    next_roll = 0
-
     string = string.strip
 
-    m = /^(S)?(\d+R\d+(\+\d+R\d+)*)(\[(\d+)\])?(([<>=]+)(\d+))?(@(\d+))?$/.match(string)
+    m = /^S?(\d+R\d+(?:\+\d+R\d+)*)(?:\[(\d+)\])?(?:([<>=]+)(\d+))?(?:@(\d+))?$/.match(string)
     unless m
       debug("is invaild rdice", string)
       return '1'
     end
 
-    string = m[2]
+    string = m[1]
 
-    signOfInequality, diff = getCondition(m[7], m[8])
-    rerollNumber = getRerollNumber(m[5], m[10], diff)
+    signOfInequality, diff = getCondition(m[3], m[4])
+    rerollNumber = getRerollNumber(m[2], m[5], diff)
     debug('rerollNumber', rerollNumber)
 
     debug("diff", diff)
-
-    numberSpot1Total = 0
-    dice_cnt_total = 0
-    dice_max = 0
 
     diceStack = []
     string.split("+").each do |xRn|
@@ -58,6 +48,8 @@ class RerollDice
 
     successCount = 0
     diceStrList = []
+    dice_cnt_total = 0
+    numberSpot1Total = 0
     loopCount = 0
 
     while !diceStack.empty? && reroll?(loopCount)
