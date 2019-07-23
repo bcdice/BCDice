@@ -88,7 +88,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  @@tables =
+  tables =
     {
     'SET' => {
       :name => "学校イベント表",
