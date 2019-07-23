@@ -48,38 +48,42 @@ class RerollDice
     dice_cnt_total = 0
     dice_max = 0
 
-    dice_a = string.split("+")
-    debug('dice_a', dice_a)
+    diceStack = []
+    string.split("+").each do |xRn|
+      x, n = xRn.split("R").map { |s| s.to_i }
+      checkReRollRule(n, signOfInequality, diff)
 
-    dice_a.each do |dice_o|
-      debug('dice_o', dice_o)
+      diceStack.push([x, n, 0])
+    end
 
-      dice_cnt, dice_max = dice_o.split(/[rR]/).collect { |s| s.to_i }
-      debug('dice_cnt', dice_cnt)
-      debug('dice_max', dice_max)
+    successCount = 0
+    diceStrList = []
+    loopCount = 0
 
-      checkReRollRule(dice_max, signOfInequality, diff)
+    while !diceStack.empty? && reroll?(loopCount)
+      # xRn
+      x, n, depth = diceStack.shift
+      loopCount += 1
 
       total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount =
-        @bcdice.roll(dice_cnt, dice_max, (@diceBot.sortType & 2), 0, signOfInequality, diff, rerollNumber)
+        @bcdice.roll(x, n, (@diceBot.sortType & 2), 0, signOfInequality, diff, rerollNumber)
       debug('bcdice.roll : total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount',
             total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount)
 
       successCount += success
-      output += "," if output != ""
-      output += dice_str
-      next_roll += rerollCount
-      numberSpot1Total += numberSpot1
-      dice_cnt_total += dice_cnt
+      diceStrList.push(dice_str)
+      dice_cnt_total += x
+
+      if depth.zero?
+        numberSpot1Total += numberSpot1
+      end
+
+      if rerollCount > 0
+        diceStack.push([rerollCount, n, depth + 1])
+      end
     end
 
-    output2, round, success, dice_cnt =
-      reRollNextDice(next_roll, dice_max, signOfInequality, diff, rerollNumber)
-
-    successCount += success
-    dice_cnt_total += dice_cnt
-
-    output = "#{output}#{output2} ＞ 成功数#{successCount}"
+    output = "#{diceStrList.join(' + ')} ＞ 成功数#{successCount}"
     string += "[#{rerollNumber}]#{signOfInequality}#{diff}"
 
     debug("string", string)
@@ -94,41 +98,8 @@ class RerollDice
     return output
   end
 
-  def reRollNextDice(next_roll, dice_max, signOfInequality, diff, rerollNumber)
-    debug('rerollNumber Begin')
-
-    dice_cnt = next_roll
-    debug('dice_cnt', dice_cnt)
-
-    output = ""
-    round = 0
-    successCount = 0
-    dice_cnt_total = 0
-
-    if next_roll <= 0
-      return output, round, successCount, dice_cnt_total
-    end
-
-    loop do
-      total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount =
-        @bcdice.roll(dice_cnt, dice_max, (@diceBot.sortType & 2), 0, signOfInequality, diff, rerollNumber)
-      debug('total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount',
-            total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount)
-
-      successCount += success
-      round += 1
-      dice_cnt_total += dice_cnt
-      dice_cnt = rerollCount
-      debug('dice_str', dice_str)
-      output += " + #{dice_str}"
-
-      break unless  @bcdice.isReRollAgain(dice_cnt, round)
-    end
-
-    debug('output', output)
-    debug('rerollNumber End')
-
-    return output, round, successCount, dice_cnt_total
+  def reroll?(loopCount)
+    loopCount < @diceBot.rerollLimitCount || @diceBot.rerollLimitCount == 0
   end
 
   def getCondition(operator, conditionValue)
