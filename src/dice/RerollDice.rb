@@ -28,20 +28,20 @@ class RerollDice
     output = ""
     next_roll = 0
 
-    string = string.gsub(/-[\d]+R[\d]+/, ''); # 振り足しロールの引き算している部分をカット
+    string = string.strip
 
-    m = /(^|\s)S?([\d]+R[\d\+R]+)(\[(\d+)\])?(([<>=]+)([\d]+))?(\@(\d+))?($|\s)/.match(string)
+    m = /^(S)?(\d+R\d+(\+\d+R\d+)*)(\[(\d+)\])?(([<>=]+)(\d+))?(@(\d+))?$/.match(string)
     unless m
       debug("is invaild rdice", string)
       return '1'
     end
 
     string = m[2]
-    rerollNumber_1 = m[4]
-    rerollNumber_2 = m[9]
-    judgeText = m[5]
-    operator = m[6]
-    diff = m[7]
+    rerollNumber_1 = m[5]
+    rerollNumber_2 = m[10]
+    judgeText = m[8]
+    operator = m[7]
+    diff = m[8]
 
     if judgeText
       diff = diff.to_i
