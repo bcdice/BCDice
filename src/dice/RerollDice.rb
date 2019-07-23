@@ -37,25 +37,9 @@ class RerollDice
     end
 
     string = m[2]
-    rerollNumber_1 = m[5]
-    rerollNumber_2 = m[10]
-    judgeText = m[8]
-    operator = m[7]
-    diff = m[8]
 
-    if judgeText
-      diff = diff.to_i
-      signOfInequality = @bcdice.marshalSignOfInequality(operator)
-    elsif @diceBot.defaultSuccessTarget != ""
-      m = /([<>=]+)(\d+)/.match(@diceBot.defaultSuccessTarget)
-      if m
-        operator = m[1]
-        diff = m[2].to_i
-        signOfInequality = @bcdice.marshalSignOfInequality(operator)
-      end
-    end
-
-    rerollNumber = getRerollNumber(rerollNumber_1, rerollNumber_2, judgeText, diff)
+    signOfInequality, diff = getCondition(m[7], m[8])
+    rerollNumber = getRerollNumber(m[5], m[10], diff)
     debug('rerollNumber', rerollNumber)
 
     debug("diff", diff)
@@ -147,15 +131,27 @@ class RerollDice
     return output, round, successCount, dice_cnt_total
   end
 
-  def getRerollNumber(rerollNumber_1, rerollNumber_2, judgeText, diff)
-    if  rerollNumber_1
-      return rerollNumber_1.to_i
-    elsif  rerollNumber_2
-      return rerollNumber_2.to_i
-    elsif  @diceBot.rerollNumber != 0
-      return @diceBot.rerollNumber
-    elsif  !diff.nil?
-      return diff
+  def getCondition(operator, conditionValue)
+    if operator && conditionValue
+      operator = @bcdice.marshalSignOfInequality(operator)
+      conditionValue = conditionValue.to_i
+    elsif (m = /([<>=]+)(\d+)/.match(@diceBot.defaultSuccessTarget))
+      operator = @bcdice.marshalSignOfInequality(m[1])
+      conditionValue = m[2].to_i
+    end
+
+    return operator, conditionValue
+  end
+
+  def getRerollNumber(braceThreshold, atmarkThreshold, conditionValue)
+    if braceThreshold
+      braceThreshold.to_i
+    elsif atmarkThreshold
+      atmarkThreshold.to_i
+    elsif @diceBot.rerollNumber != 0
+      @diceBot.rerollNumber
+    elsif conditionValue
+      conditionValue.to_i
     else
       raiseErroForJudgeRule()
     end
