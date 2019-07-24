@@ -38,12 +38,12 @@ class RerollDice
 
     debug("diff", diff)
 
-    diceStack = []
+    diceQueue = []
     string.split("+").each do |xRn|
       x, n = xRn.split("R").map { |s| s.to_i }
       checkReRollRule(n, signOfInequality, diff)
 
-      diceStack.push([x, n, 0])
+      diceQueue.push([x, n, 0])
     end
 
     successCount = 0
@@ -52,9 +52,9 @@ class RerollDice
     numberSpot1Total = 0
     loopCount = 0
 
-    while !diceStack.empty? && shouldReroll?(loopCount)
+    while !diceQueue.empty? && shouldReroll?(loopCount)
       # xRn
-      x, n, depth = diceStack.shift
+      x, n, depth = diceQueue.shift
       loopCount += 1
 
       total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount =
@@ -71,7 +71,7 @@ class RerollDice
       end
 
       if rerollCount > 0
-        diceStack.push([rerollCount, n, depth + 1])
+        diceQueue.push([rerollCount, n, depth + 1])
       end
     end
 
