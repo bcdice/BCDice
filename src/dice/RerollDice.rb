@@ -52,7 +52,7 @@ class RerollDice
     numberSpot1Total = 0
     loopCount = 0
 
-    while !diceStack.empty? && reroll?(loopCount)
+    while !diceStack.empty? && shouldReroll?(loopCount)
       # xRn
       x, n, depth = diceStack.shift
       loopCount += 1
@@ -90,7 +90,7 @@ class RerollDice
     return output
   end
 
-  def reroll?(loopCount)
+  def shouldReroll?(loopCount)
     loopCount < @diceBot.rerollLimitCount || @diceBot.rerollLimitCount == 0
   end
 
