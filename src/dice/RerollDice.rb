@@ -30,10 +30,10 @@ class RerollDice
       return '1'
     end
 
-    string = m[1]
+    string, braceThreshold, operator, conditionValue, atmarkThreshold = m.captures
 
-    signOfInequality, diff = getCondition(m[3], m[4])
-    rerollNumber = getRerollNumber(m[2], m[5], diff)
+    signOfInequality, diff = getCondition(operator, conditionValue)
+    rerollNumber = getRerollNumber(braceThreshold, atmarkThreshold, diff)
     debug('rerollNumber', rerollNumber)
 
     debug("diff", diff)
