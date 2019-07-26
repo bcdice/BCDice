@@ -84,11 +84,6 @@ class TestDiceBotLoaders < Test::Unit::TestCase
     assertDiceBotIgnored('_Template')
   end
 
-  # 「test」という名前のダイスボットを読み込まない
-  def test_shouldNotLoadDiceBotNamedtest
-    assertDiceBotIgnored('test')
-  end
-
   # 「_InsaneScp」という名前のダイスボットを読み込まない
   def test_shouldNotLoadDiceBotNamed_InsaceScp
     assertDiceBotIgnored('_InsaneScp')
