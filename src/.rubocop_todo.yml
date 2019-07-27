@@ -522,29 +522,6 @@ Naming/UncommunicativeBlockParamName:
 Naming/UncommunicativeMethodParamName:
   Enabled: false
 
-# Offense count: 3093
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: snake_case, camelCase
-Naming/VariableName:
-  Enabled: false
-
-# Offense count: 52
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: snake_case, normalcase, non_integer
-Naming/VariableNumber:
-  Exclude:
-    - 'dice/RerollDice.rb'
-    - 'diceBot/Cthulhu.rb'
-    - 'diceBot/Cthulhu7th.rb'
-    - 'diceBot/Cthulhu7th_ChineseTraditional.rb'
-    - 'diceBot/Cthulhu7th_Korean.rb'
-    - 'diceBot/Cthulhu_ChineseTraditional.rb'
-    - 'diceBot/Cthulhu_Korean.rb'
-    - 'diceBot/LogHorizon.rb'
-    - 'diceBot/LogHorizon_Korean.rb'
-    - 'diceBot/StellarKnights.rb'
-    - 'diceBot/SwordWorld.rb'
-
 # Offense count: 5
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: inline, group
@@ -1037,12 +1014,9 @@ Style/PerlBackrefs:
     - diceBot/CodeLayerd.rb
     - diceBot/ColossalHunter.rb
     - diceBot/CrashWorld.rb
-    - diceBot/Cthulhu.rb
     - diceBot/Cthulhu7th.rb
     - diceBot/Cthulhu7th_ChineseTraditional.rb
     - diceBot/Cthulhu7th_Korean.rb
-    - diceBot/Cthulhu_ChineseTraditional.rb
-    - diceBot/Cthulhu_Korean.rb
     - diceBot/DarkBlaze.rb
     - diceBot/DarkDaysDrive.rb
     - diceBot/DeadlineHeroes.rb
