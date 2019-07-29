@@ -95,20 +95,21 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckResult(command)
-    output = ""
     broken_num = 0
     diff = 0
 
-    if /CC(B)?(\d+)<=(\d+)/i =~ command
-      # /\(\d+\)/の()はpattern-killerにカイシャクされるらしい
-      broken_num = $2.to_i
-      diff = $3.to_i
-    elsif /CC(B)?<=(\d+)/i =~ command
-      diff = $2.to_i
+    if (m = /CC(B)?(\d+)<=(\d+)/i.match(command))
+      # /\(\d+\)/の()はpattern-killerにカイシャクされる
+      broken_num = m[2].to_i
+      diff = m[3].to_i
+    elsif (m = /CC(B)?<=(\d+)/i.match(command))
+      diff = m[2].to_i
     end
 
+    output = ""
+
     if diff > 0
-      output += "(1D100<=#{diff})"
+      output = "(1D100<=#{diff})"
 
       if broken_num > 0
         output += " 故障率[#{broken_num}]"
@@ -116,14 +117,11 @@ INFO_MESSAGE_TEXT
 
       total_n, = roll(1, 100)
 
-      output += ' ＞ ' + total_n.to_s
-      output += ' ＞ ' + getCheckResultText(total_n, diff, broken_num)
+      output += " ＞ #{total_n}"
+      output += " ＞ #{getCheckResultText(total_n, diff, broken_num)}"
     else
-      # 1D100單純交換處理
-      # 或許不需要
-      output += "(1D100)"
       total_n, = roll(1, 100)
-      output += ' ＞ ' + total_n.to_s
+      output = "(1D100) ＞ #{total_n}"
     end
 
     return output
@@ -143,7 +141,6 @@ INFO_MESSAGE_TEXT
     end
 
     if (total_n <= diff) && (total_n < 100)
-
       result = "成功"
 
       if diff_special > 0
@@ -159,9 +156,7 @@ INFO_MESSAGE_TEXT
           end
         end
       end
-
     else
-
       result = "失敗"
 
       if diff_special > 0
@@ -170,7 +165,6 @@ INFO_MESSAGE_TEXT
           fumble = true
         end
       end
-
     end
 
     if broken_num > 0
@@ -187,11 +181,12 @@ INFO_MESSAGE_TEXT
   end
 
   def getRegistResult(command)
-    output = "1"
+    m = /RES(B)?([-\d]+)/i.match(command)
+    unless m
+      return "1"
+    end
 
-    return output unless /RES(B)?([-\d]+)/i =~ command
-
-    value = $2.to_i
+    value = m[2].to_i
     target = value * 5 + 50
 
     if target < 5
@@ -210,12 +205,13 @@ INFO_MESSAGE_TEXT
   end
 
   def getCombineRoll(command)
-    output = "1"
+    m = /CBR(B)?\((\d+),(\d+)\)/i.match(command)
+    unless m
+      return "1"
+    end
 
-    return output unless /CBR(B)?\((\d+),(\d+)\)/i =~ command
-
-    diff_1 = $2.to_i
-    diff_2 = $3.to_i
+    diff_1 = m[2].to_i
+    diff_2 = m[3].to_i
 
     total, = roll(1, 100)
 
@@ -223,7 +219,6 @@ INFO_MESSAGE_TEXT
     result_2 = getCheckResultText(total, diff_2)
 
     successList = ["決定性成功/特殊", "決定性成功", "特殊", "成功"]
-    failList = ["失敗", "致命性失敗"]
 
     succesCount = 0
     succesCount += 1 if successList.include?(result_1)
