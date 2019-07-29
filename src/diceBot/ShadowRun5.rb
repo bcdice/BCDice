@@ -35,7 +35,7 @@ INFO_MESSAGE_TEXT
     command.match(/(\d+)B6@(\d+)/)
     dicepool = Regexp.last_match(1).to_i
     limit = Regexp.last_match(2).to_i
-    output_before_limited, secret = @@bcdice.checkBDice(dicepool.to_s + 'B6')
+    output_before_limited, secret = bcdice.checkBDice(dicepool.to_s + 'B6')
     output_before_limited.match(/成功数(\d+)/)
     output_after_limited = output_before_limited
     before_suc_cnt = Regexp.last_match(1).to_i
@@ -48,9 +48,9 @@ INFO_MESSAGE_TEXT
       output_after_limited += '(リミット超過' + over_suc_cnt.to_s + ')'
     end
     output = output_after_limited
-    output = output.gsub(/^../, '')
-    output = output.gsub(/B/, 'B6')
-    output = output.gsub(/6>=5/, '[6]Limit[' + limit.to_s + ']>=5')
+    output = output.slice(2..-1)
+    output = output.gsub('B', 'B6')
+    output = output.gsub('6>=5', '[6]Limit[' + limit.to_s + ']>=5')
     debug(output)
     return output
   end
