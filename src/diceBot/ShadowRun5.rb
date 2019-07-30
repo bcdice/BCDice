@@ -32,25 +32,27 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     debug('chatch limit prefix')
 
-    command.match(/(\d+)B6@(\d+)/)
-    dicepool = Regexp.last_match(1).to_i
-    limit = Regexp.last_match(2).to_i
-    output_before_limited, secret = bcdice.checkBDice(dicepool.to_s + 'B6')
-    output_before_limited.match(/成功数(\d+)/)
+    m = /(\d+B6)@(\d+)/.match(command)
+    b_dice = m[1]
+    limit = m[2].to_i
+    output_before_limited, secret = bcdice.checkBDice(b_dice)
+
+    m = /成功数(\d+)/.match(output_before_limited)
     output_after_limited = output_before_limited
-    before_suc_cnt = Regexp.last_match(1).to_i
-    after_suc_cnt = Regexp.last_match(1).to_i
+    before_suc_cnt = m[1].to_i
+    after_suc_cnt = m[1].to_i
     over_suc_cnt = 0
     if before_suc_cnt > limit
       after_suc_cnt = limit
       over_suc_cnt = before_suc_cnt - limit
-      output_after_limited = output_before_limited.gsub(/成功数(\d+)/, '成功数' + after_suc_cnt.to_s)
-      output_after_limited += '(リミット超過' + over_suc_cnt.to_s + ')'
+      output_after_limited = output_before_limited.gsub(/成功数(\d+)/, "成功数#{after_suc_cnt}")
+      output_after_limited += "(リミット超過#{over_suc_cnt})"
     end
+
     output = output_after_limited
     output = output.slice(2..-1)
     output = output.gsub('B', 'B6')
-    output = output.gsub('6>=5', '[6]Limit[' + limit.to_s + ']>=5')
+    output = output.gsub('6>=5', "[6]Limit[#{limit}]>=5")
     debug(output)
     return output
   end
