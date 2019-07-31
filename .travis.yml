@@ -14,5 +14,9 @@ rvm:
 gemfile:
   - src/Gemfile
 
+before_install:
+  - gem update --system --no-document
+  - gem update --no-document
+
 before_script:
   - cd src
