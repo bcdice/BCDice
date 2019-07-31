@@ -5,6 +5,7 @@ unless $LOAD_PATH.include?(dodontof_root)
   $LOAD_PATH.unshift(dodontof_root)
 end
 
+require 'test/setup'
 require 'test/unit'
 require 'diceBot/DiceBot'
 
