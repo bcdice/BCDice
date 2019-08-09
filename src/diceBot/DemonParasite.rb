@@ -74,12 +74,13 @@ INFO_MESSAGE_TEXT
 
   # 衝動表
   def get_urge(string)
-    unless /(\w)?URGE\s*(\d+)/i =~ string
+    m = /(\w)?URGE\s*(\d+)/i.match(string)
+    unless m
       return '1'
     end
 
-    initialWord = $1
-    urgelv = $2.to_i
+    initialWord = m[1]
+    urgelv = m[2].to_i
 
     urge_type = 0
 
