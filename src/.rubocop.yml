@@ -4,7 +4,7 @@ Layout/EndOfLine:
   EnforcedStyle: lf
 
 Layout/IndentFirstArrayElement:
-  Enabled: false
+  EnforcedStyle: consistent
 
 # Due to old Ruby
 Layout/IndentHeredoc:
