@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class DemonParasite < DiceBot
-  setPrefixes(['(N|A|M|U|C|)?URGE\d+'])
+  setPrefixes(['[NAMUC]?URGE\d+'])
 
   def initialize
     super
@@ -64,17 +64,12 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-    case command
-    when /(\w)?URGE\s*(\d+)/i
-      return get_urge(command)
-    else
-      return '1'
-    end
+    return get_urge(command)
   end
 
   # 衝動表
   def get_urge(string)
-    m = /(\w)?URGE\s*(\d+)/i.match(string)
+    m = /([NAMUC])?URGE\s*(\d+)/i.match(string)
     unless m
       return '1'
     end
@@ -82,74 +77,39 @@ INFO_MESSAGE_TEXT
     initialWord = m[1]
     urgelv = m[2].to_i
 
-    urge_type = 0
-
     case initialWord
     when nil
-      urge_type = 1
-    when /n/i # 新衝動表
-      urge_type = 2
-    when /a/i   # 誤作動表
-      urge_type = 3
-    when /m/i   # ミュータント衝動表
-      urge_type = 4
-    when /u/i   # 鬼御魂(戦闘外)衝動表
-      urge_type = 5
-    when /c/i   # 鬼御魂(戦闘中)衝動表
-      urge_type = 6
-    else # あり得ない文字
-      urge_type = 1
-    end
-
-    if (urgelv < 1) || (urgelv > 5)
-      return '衝動段階は1から5です'
-    end
-
-    if urge_type == 0
+      title = "衝動表"
+      urge = URGE_TABLE
+    when "N"
+      title = "新衝動表"
+      urge = NEW_URGE_TABLE
+    when "A"
+      title = "誤作動表"
+      urge = MALFUNCTION_TABLE
+    when "M"
+      title = "ミュータント衝動表"
+      urge = MUTANT_TABLE
+    when "U"
+      title = "鬼御魂(戦闘外)衝動表"
+      urge = ONIMITAMA_OUT_OF_BATTLE_TABLE
+    when "C"
+      title = "鬼御魂(戦闘中)衝動表"
+      urge = ONIMITAMA_BATTLE_TABLE
+    else
+      # あり得ない文字
       return '1'
     end
 
-    urge = dp_urge_get(urge_type)
-    dice_now, = roll(2, 6)
-
-    if urge_type <= 1
-      title = '衝動表'
-    elsif urge_type <= 2
-      title = '新衝動表'
-    elsif urge_type <= 3
-      title = '誤作動表'
-    elsif urge_type <= 4
-      title = 'ミュータント衝動表'
-    elsif urge_type <= 5
-      title = '鬼御魂(戦闘外)衝動表'
-    else
-      title = '鬼御魂(戦闘中)衝動表'
+    if urgelv < 1 || urgelv > 5
+      return '衝動段階は1から5です'
     end
+
+    dice_now, = roll(2, 6)
 
     resultText = urge[urgelv - 1][dice_now - 2]
 
-    output = "#{title}#{urgelv}-#{dice_now}:#{resultText}"
-
-    return output
-  end
-
-  def dp_urge_get(urge_type)
-    case urge_type
-    when 1
-      URGE_TABLE
-    when 2
-      NEW_URGE_TABLE
-    when 3
-      MALFUNCTION_TABLE
-    when 4
-      MUTANT_TABLE
-    when 5
-      ONIMITAMA_OUT_OF_BATTLE_TABLE
-    when 6
-      ONIMITAMA_BATTLE_TABLE
-    else
-      []
-    end
+    return "#{title}#{urgelv}-#{dice_now}:#{resultText}"
   end
 
   # 衝動表
