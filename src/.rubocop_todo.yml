@@ -25,7 +25,6 @@ Bundler/OrderedGems:
 # Cop supports --auto-correct.
 Layout/AlignArray:
   Exclude:
-    - 'diceBot/DemonParasite.rb'
     - 'diceBot/FilledWith.rb'
     - 'diceBot/HuntersMoon.rb'
     - 'diceBot/KillDeathBusiness_Korean.rb'
@@ -276,7 +275,6 @@ Layout/IndentFirstArrayElement:
     - diceBot/CardRanker.rb
     - diceBot/ColossalHunter.rb
     - diceBot/DarkDaysDrive.rb
-    - diceBot/DemonParasite.rb
     - diceBot/DetatokoSaga.rb
     - diceBot/DetatokoSaga_Korean.rb
     - diceBot/DiceOfTheDead.rb
@@ -491,7 +489,6 @@ Lint/StringConversionInInterpolation:
 Lint/UnreachableCode:
   Exclude:
     - 'diceBot/CardRanker.rb'
-    - 'diceBot/DemonParasite.rb'
     - 'diceBot/FilledWith.rb'
     - 'diceBot/GurpsFW.rb'
 
