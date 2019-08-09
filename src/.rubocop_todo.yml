@@ -259,6 +259,84 @@ Layout/SpaceBeforeFirstArg:
   Exclude:
     - 'diceBot/ArsMagica.rb'
 
+Layout/IndentFirstArrayElement:
+  Exclude:
+    - CardTrader.rb
+    - configBcDice.rb
+    - diceBot/Alter_raise.rb
+    - diceBot/Amadeus.rb
+    - diceBot/Amadeus_Korean.rb
+    - diceBot/BadLife.rb
+    - diceBot/BarnaKronika.rb
+    - diceBot/BeginningIdol.rb
+    - diceBot/BeginningIdol_Korean.rb
+    - diceBot/BlindMythos.rb
+    - diceBot/BloodCrusade.rb
+    - diceBot/BloodMoon.rb
+    - diceBot/CardRanker.rb
+    - diceBot/ColossalHunter.rb
+    - diceBot/DarkDaysDrive.rb
+    - diceBot/DemonParasite.rb
+    - diceBot/DetatokoSaga.rb
+    - diceBot/DetatokoSaga_Korean.rb
+    - diceBot/DiceOfTheDead.rb
+    - diceBot/Dracurouge.rb
+    - diceBot/Dracurouge_Korean.rb
+    - diceBot/EarthDawn3.rb
+    - diceBot/EarthDawn4.rb
+    - diceBot/Elysion.rb
+    - diceBot/EmbryoMachine.rb
+    - diceBot/EndBreaker.rb
+    - diceBot/FilledWith.rb
+    - diceBot/FutariSousa.rb
+    - diceBot/Garako.rb
+    - diceBot/GardenOrder.rb
+    - diceBot/GehennaAn.rb
+    - diceBot/GranCrest.rb
+    - diceBot/Gurps.rb
+    - diceBot/GurpsFW.rb
+    - diceBot/HarnMaster.rb
+    - diceBot/HatsuneMiku.rb
+    - diceBot/HouraiGakuen.rb
+    - diceBot/HuntersMoon.rb
+    - diceBot/Insane.rb
+    - diceBot/Insane_Korean.rb
+    - diceBot/Kamigakari.rb
+    - diceBot/Kamigakari_Korean.rb
+    - diceBot/KanColle.rb
+    - diceBot/KillDeathBusiness.rb
+    - diceBot/KillDeathBusiness_Korean.rb
+    - diceBot/LiveraDoll.rb
+    - diceBot/LogHorizon.rb
+    - diceBot/LogHorizon_Korean.rb
+    - diceBot/MagicaLogia.rb
+    - diceBot/MeikyuKingdom.rb
+    - diceBot/MetalHead.rb
+    - diceBot/MetalHeadExtream.rb
+    - diceBot/Nechronica.rb
+    - diceBot/Nechronica_Korean.rb
+    - diceBot/NinjaSlayer.rb
+    - diceBot/Nuekagami.rb
+    - diceBot/OneWayHeroics.rb
+    - diceBot/ParasiteBlood.rb
+    - diceBot/Peekaboo.rb
+    - diceBot/Postman.rb
+    - diceBot/Satasupe.rb
+    - diceBot/ShinobiGami.rb
+    - diceBot/ShoujoTenrankai.rb
+    - diceBot/StellarKnights.rb
+    - diceBot/StratoShout.rb
+    - diceBot/Strave.rb
+    - diceBot/SwordWorld.rb
+    - diceBot/SwordWorld2_0.rb
+    - diceBot/TokyoGhostResearch.rb
+    - diceBot/Torg.rb
+    - diceBot/Torg1_5.rb
+    - diceBot/TrinitySeven.rb
+    - diceBot/Warhammer.rb
+    - diceBot/YankeeYogSothoth.rb
+    - diceBot/_InsaneScp.rb
+
 # Offense count: 524
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
