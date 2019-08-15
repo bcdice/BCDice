@@ -61,7 +61,7 @@ INFO_MESSAGE_TEXT
       type = $1
       chartName = ((type == 'J') ? '日本' : '海外')
 
-      dice10, dice01, diceTotal = rollD100
+      diceTotal, dice10, dice01 = roll_d100
 
       text = "リアルネームチャート（#{chartName}）"
       text += ": 1D100[#{dice10},#{dice01}]=#{diceTotal}"
@@ -82,7 +82,7 @@ INFO_MESSAGE_TEXT
     target = 100 if target > 100
     target = 0 if target < 0
 
-    dice10, dice01, diceTotal = rollD100
+    diceTotal, dice10, dice01 = roll_d100
 
     text = "行為判定(成功率:#{target}％)"
     text += " ＞ 1D100[#{dice10},#{dice01}]=#{'%02d' % [diceTotal]}"
@@ -99,7 +99,7 @@ INFO_MESSAGE_TEXT
     return text
   end
 
-  def rollD100
+  def roll_d100
     dice10, = roll(1, 10)
     dice10 = 0 if dice10 == 10
     dice01, = roll(1, 10)
@@ -108,7 +108,7 @@ INFO_MESSAGE_TEXT
     diceTotal = dice10 * 10 + dice01
     diceTotal = 100 if diceTotal == 0
 
-    return dice10, dice01, diceTotal
+    return diceTotal, dice10, dice01
   end
 
   def isRepdigit?(diceA, diceB)
