@@ -39,7 +39,7 @@ INFO_MESSAGE_TEXT
     case command
     when /^DLH(\d+([\+\-]\d+)*)/i
       expressions = $1
-      return rollJudge(expressions)
+      return resolute_action(expressions)
 
     when /^DC(L||S|C)(\d+)/i
       type = $1
@@ -61,11 +61,11 @@ INFO_MESSAGE_TEXT
       type = $1
       chartName = ((type == 'J') ? '日本' : '海外')
 
-      diceTotal, dice10, dice01 = roll_d100
+      roll_result, dice10, dice01 = roll_d100
 
       text = "リアルネームチャート（#{chartName}）"
-      text += ": 1D100[#{dice10},#{dice01}]=#{diceTotal}"
-      text += " ＞ " + fetchResultFromRealNameChart(diceTotal, getRealNameChartByName(chartName))
+      text += ": 1D100[#{dice10},#{dice01}]=#{roll_result}"
+      text += " ＞ " + fetchResultFromRealNameChart(roll_result, getRealNameChartByName(chartName))
 
       return text
 
@@ -77,18 +77,18 @@ INFO_MESSAGE_TEXT
     return nil
   end
 
-  def rollJudge(expressions)
-    target = parren_killer("(" + expressions + ")").to_i
-    target = 100 if target > 100
-    target = 0 if target < 0
+  def resolute_action(expressions)
+    success_rate = parren_killer("(" + expressions + ")").to_i
+    success_rate = 100 if success_rate > 100
+    success_rate = 0 if success_rate < 0
 
-    diceTotal, dice10, dice01 = roll_d100
+    roll_result, dice10, dice01 = roll_d100
 
-    text = "行為判定(成功率:#{target}％)"
-    text += " ＞ 1D100[#{dice10},#{dice01}]=#{'%02d' % [diceTotal]}"
-    text += " ＞ #{'%02d' % [diceTotal]}"
+    text = "行為判定(成功率:#{success_rate}％)"
+    text += " ＞ 1D100[#{dice10},#{dice01}]=#{'%02d' % [roll_result]}"
+    text += " ＞ #{'%02d' % [roll_result]}"
 
-    if diceTotal <= target
+    if roll_result <= success_rate
       text += " ＞ 成功"
       text += " ＞ クリティカル！ パワーの代償１／２" if isRepdigit?(dice10, dice01)
     else
@@ -105,10 +105,10 @@ INFO_MESSAGE_TEXT
     dice01, = roll(1, 10)
     dice01 = 0 if dice01 == 10
 
-    diceTotal = dice10 * 10 + dice01
-    diceTotal = 100 if diceTotal == 0
+    roll_result = dice10 * 10 + dice01
+    roll_result = 100 if roll_result == 0
 
-    return diceTotal, dice10, dice01
+    return roll_result, dice10, dice01
   end
 
   def isRepdigit?(diceA, diceB)
