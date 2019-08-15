@@ -77,23 +77,35 @@ INFO_MESSAGE_TEXT
     return nil
   end
 
+  SUCCESS_STR = " ＞ 成功".freeze
+  FAILURE_STR = " ＞ 失敗".freeze
+  CRITICAL_STR = (SUCCESS_STR + " ＞ クリティカル！ パワーの代償１／２").freeze
+  FUMBLE_STR = (FAILURE_STR + " ＞ ファンブル！ パワーの代償２倍＆振り直し不可").freeze
+
   def resolute_action(expressions)
     success_rate = parren_killer("(" + expressions + ")").to_i
-    success_rate = 100 if success_rate > 100
-    success_rate = 0 if success_rate < 0
+
+    success_rate_repr = success_rate.to_s
+    if success_rate > 100
+      success_rate_repr = '100'
+    elsif success_rate < 0
+      success_rate_repr = '0'
+    end
 
     roll_result, dice10, dice01 = roll_d100
 
-    text = "行為判定(成功率:#{success_rate}％)"
+    text = "行為判定(成功率:#{success_rate_repr}％)"
     text += " ＞ 1D100[#{dice10},#{dice01}]=#{'%02d' % [roll_result]}"
     text += " ＞ #{'%02d' % [roll_result]}"
 
-    if roll_result <= success_rate
-      text += " ＞ 成功"
-      text += " ＞ クリティカル！ パワーの代償１／２" if isRepdigit?(dice10, dice01)
+    if roll_result == 100 || success_rate <= 0
+      text += FUMBLE_STR
+    elsif roll_result <= success_rate - 100
+      text += CRITICAL_STR
+    elsif roll_result <= success_rate
+      text += dice10 == dice01 ? CRITICAL_STR : SUCCESS_STR
     else
-      text += " ＞ 失敗"
-      text += " ＞ ファンブル！ パワーの代償２倍＆振り直し不可" if isRepdigit?(dice10, dice01)
+      text += dice10 == dice01 ? FUMBLE_STR : FAILURE_STR
     end
 
     return text
@@ -109,10 +121,6 @@ INFO_MESSAGE_TEXT
     roll_result = 100 if roll_result == 0
 
     return roll_result, dice10, dice01
-  end
-
-  def isRepdigit?(diceA, diceB)
-    return diceA == diceB
   end
 
   def fetchDeathChart(chartName, minusScore)
