@@ -85,16 +85,9 @@ INFO_MESSAGE_TEXT
   def resolute_action(expressions)
     success_rate = parren_killer("(" + expressions + ")").to_i
 
-    success_rate_repr = success_rate.to_s
-    if success_rate > 100
-      success_rate_repr = '100'
-    elsif success_rate < 0
-      success_rate_repr = '0'
-    end
-
     roll_result, dice10, dice01 = roll_d100
 
-    text = "行為判定(成功率:#{success_rate_repr}％)"
+    text = "行為判定(成功率:#{success_rate}％)"
     text += " ＞ 1D100[#{dice10},#{dice01}]=#{'%02d' % [roll_result]}"
     text += " ＞ #{'%02d' % [roll_result]}"
 
