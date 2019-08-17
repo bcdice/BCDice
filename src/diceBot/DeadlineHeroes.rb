@@ -39,7 +39,7 @@ INFO_MESSAGE_TEXT
     case command
     when /^DLH(\d+([\+\-]\d+)*)/i
       expressions = $1
-      return rollJudge(expressions)
+      return resolute_action(expressions)
 
     when /^DC(L||S|C)(\d+)/i
       type = $1
@@ -61,11 +61,11 @@ INFO_MESSAGE_TEXT
       type = $1
       chartName = ((type == 'J') ? '日本' : '海外')
 
-      dice10, dice01, diceTotal = rollD100
+      roll_result, dice10, dice01 = roll_d100
 
       text = "リアルネームチャート（#{chartName}）"
-      text += ": 1D100[#{dice10},#{dice01}]=#{diceTotal}"
-      text += " ＞ " + fetchResultFromRealNameChart(diceTotal, getRealNameChartByName(chartName))
+      text += ": 1D100[#{dice10},#{dice01}]=#{roll_result}"
+      text += " ＞ " + fetchResultFromRealNameChart(roll_result, getRealNameChartByName(chartName))
 
       return text
 
@@ -77,42 +77,43 @@ INFO_MESSAGE_TEXT
     return nil
   end
 
-  def rollJudge(expressions)
-    target = parren_killer("(" + expressions + ")").to_i
-    target = 100 if target > 100
-    target = 0 if target < 0
+  SUCCESS_STR = " ＞ 成功".freeze
+  FAILURE_STR = " ＞ 失敗".freeze
+  CRITICAL_STR = (SUCCESS_STR + " ＞ クリティカル！ パワーの代償１／２").freeze
+  FUMBLE_STR = (FAILURE_STR + " ＞ ファンブル！ パワーの代償２倍＆振り直し不可").freeze
 
-    dice10, dice01, diceTotal = rollD100
+  def resolute_action(expressions)
+    success_rate = parren_killer("(" + expressions + ")").to_i
 
-    text = "行為判定(成功率:#{target}％)"
-    text += " ＞ 1D100[#{dice10},#{dice01}]=#{'%02d' % [diceTotal]}"
-    text += " ＞ #{'%02d' % [diceTotal]}"
+    roll_result, dice10, dice01 = roll_d100
 
-    if diceTotal <= target
-      text += " ＞ 成功"
-      text += " ＞ クリティカル！ パワーの代償１／２" if isRepdigit?(dice10, dice01)
+    text = "行為判定(成功率:#{success_rate}％)"
+    text += " ＞ 1D100[#{dice10},#{dice01}]=#{'%02d' % [roll_result]}"
+    text += " ＞ #{'%02d' % [roll_result]}"
+
+    if roll_result == 100 || success_rate <= 0
+      text += FUMBLE_STR
+    elsif roll_result <= success_rate - 100
+      text += CRITICAL_STR
+    elsif roll_result <= success_rate
+      text += dice10 == dice01 ? CRITICAL_STR : SUCCESS_STR
     else
-      text += " ＞ 失敗"
-      text += " ＞ ファンブル！ パワーの代償２倍＆振り直し不可" if isRepdigit?(dice10, dice01)
+      text += dice10 == dice01 ? FUMBLE_STR : FAILURE_STR
     end
 
     return text
   end
 
-  def rollD100
+  def roll_d100
     dice10, = roll(1, 10)
     dice10 = 0 if dice10 == 10
     dice01, = roll(1, 10)
     dice01 = 0 if dice01 == 10
 
-    diceTotal = dice10 * 10 + dice01
-    diceTotal = 100 if diceTotal == 0
+    roll_result = dice10 * 10 + dice01
+    roll_result = 100 if roll_result == 0
 
-    return dice10, dice01, diceTotal
-  end
-
-  def isRepdigit?(diceA, diceB)
-    return diceA == diceB
+    return roll_result, dice10, dice01
   end
 
   def fetchDeathChart(chartName, minusScore)
