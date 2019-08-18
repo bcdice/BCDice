@@ -876,13 +876,13 @@ rand:
 input:
 C(-1---1)
 output:
-DiceBot : 計算結果 ＞ 0
+DiceBot : 計算結果 ＞ -2
 rand:
 ============================
 input:
 C(-1----1)
 output:
-DiceBot : 計算結果 ＞ -2
+DiceBot : 計算結果 ＞ 0
 rand:
 ============================
 input:
