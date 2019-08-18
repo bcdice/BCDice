@@ -5,6 +5,7 @@ require 'log'
 require 'configBcDice.rb'
 require 'CountHolder.rb'
 require 'kconv'
+require 'utils/ArithmeticEvaluator.rb'
 
 #============================== 起動法 ==============================
 # 上記設定をしてダブルクリック、
@@ -1517,38 +1518,9 @@ class BCDice
 
     string = changeRangeTextToNumberText(string)
 
-    while /^(.*?)(\([\d\/*+-]+?\))(.*)/ =~ string
-      debug("while string", string)
-
-      str_a = $3
-      str_a ||= ""
-
-      str_b = $1
-      str_b ||= ""
-      debug("str_b", str_b)
-
-      par_i = $2
-
-      debug("par_i", par_i)
-      par_o = paren_k(par_i)
-      debug("par_o", par_o)
-
-      if par_o != 0
-        if par_o < 0
-          if /(.+?)(\+)$/ =~ str_b
-            str_b = $1
-          elsif /(.+?)(-)$/ =~ str_b
-            str_b = "#{$1}+"
-            par_o = par_o * -1
-          end
-        end
-        string = "#{str_b}#{par_o}#{str_a}"
-      else
-        if /^([DBRUdbru][\d]+)(.*)/ =~ $str_a
-          str_a = $2
-        end
-        string = "#{str_b}0#{str_a}"
-      end
+    round_type = @diceBot.fractionType.to_sym
+    string = string.gsub(/\([\d\/\+\*\-\(\)]+\)/) do |expr|
+      ArithmeticEvaluator.new.eval(expr, round_type)
     end
 
     debug("diceBot.changeText(string) begin", string)
@@ -1594,133 +1566,6 @@ class BCDice
     debug('[st...ed] after string', string)
 
     return string
-  end
-
-  def paren_k(string)
-    result = 0
-
-    return result unless /([\d\/*+-]+)/ =~ string
-
-    string = $1
-
-    # ex: --X => +X
-    string = string.gsub(/\-\-/, '+')
-
-    debug("paren_k string", string)
-    list = split_plus_minus(string)
-    debug("paren_k list", list)
-
-    result = 0
-
-    list.each do |text|
-      result += paren_k_loop(text)
-    end
-
-    return result
-  end
-
-  def split_plus_minus(string)
-    list = string.scan(/[\+\-]?[^\+\-]+/)
-
-    debug('split_plus_minus list', list)
-
-    result = []
-
-    list.length.times do |i|
-      unless result.empty?
-        if /(\*|\/)$/ === result.last
-          result[result.length - 1] += list[i]
-          next
-        end
-      end
-
-      result << list[i]
-    end
-
-    debug('split_plus_minus result', result)
-    return result
-  end
-
-  def paren_k_loop(string)
-    debug("paren_k_plus Begin", string)
-
-    result = paren_k_calculate_multiple_divide_text(string)
-    debug("paren_k_plus End result", result)
-
-    return result
-  end
-
-  def paren_k_calculate_multiple_divide_text(string)
-    multi = 1
-    divide = 1
-
-    # ex: X*Y(...) => X(...) & multi(=*Y)
-    string, multi = paren_k_multi(string)
-
-    # ex: X/Y(...) => X(...) & divide(=/Y)
-    string, divide = paren_k_devide(string)
-
-    # 掛け算・割り算
-    result = calculate_multiple_divide(string, multi, divide)
-    return result
-  end
-
-  # ex: X*Y(...) => X(...) & multi(=*Y)
-  def paren_k_multi(string)
-    debug("paren_k_multi Begin string", string)
-    multi = 1
-
-    while /(.*?)(\*[-\d]+)(.*)/ =~ string
-      before = $1
-      after = $3
-      calculate_text = $2
-      string = "#{before}#{after}"
-      if /([-\d]+)/ =~ calculate_text
-        multi = multi * $1.to_i
-      end
-    end
-
-    debug("paren_k_multi End multi", multi)
-    debug("paren_k_multi End", string)
-
-    return string, multi
-  end
-
-  # ex: X/Y(...) => X(...) & divide(=/Y)
-  def paren_k_devide(string)
-    divide = 1
-
-    while /(.*?)(\/[-\d]+)(.*)/ =~ string
-      before = $1
-      after = $3
-      calculate_text = $2
-      string = "#{before}#{after}"
-      if /([-\d]+)/ =~ calculate_text
-        divide = divide * $1.to_i
-      end
-    end
-
-    return string, divide
-  end
-
-  def calculate_multiple_divide(string, multi, divide)
-    result = 0
-
-    return result if divide == 0
-    return result unless /([-\d]+)/ =~ string
-
-    work = $1.to_i * multi
-
-    case @diceBot.fractionType
-    when "roundUp"  # 端数切り上げ
-      result = (work / divide + 0.999).to_i
-    when "roundOff" # 四捨五入
-      result = (work / divide + 0.5).to_i
-    else # 切り捨て
-      result = (work / divide).to_i
-    end
-
-    return result
   end
 
   # 指定したタイトルのゲームを設定する
