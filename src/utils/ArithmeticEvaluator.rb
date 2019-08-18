@@ -62,9 +62,9 @@ class ArithmeticEvaluator
   def div(left, right)
     case @round_type
     when :roundUp
-      (left.to.f / right).ceil
+      (left.to_f / right).ceil
     when :roundOff
-      (left.to.f / right).round
+      (left.to_f / right).round
     else
       left / right
     end
