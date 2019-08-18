@@ -72,9 +72,9 @@ class ArithmeticEvaluator
 
   def unary
     if consume("+")
-      term()
+      unary()
     elsif consume("-")
-      -term()
+      -unary()
     else
       term()
     end
@@ -108,8 +108,20 @@ class ArithmeticEvaluator
   end
 
   def expect_number()
-    ret = @tokens[@idx].to_i(10)
+    unless integer?(@tokens[@idx])
+      @error = true
+      @idx += 1
+      return 0
+    end
+
+    ret = @tokens[@idx].to_i
     @idx += 1
     return ret
+  end
+
+  def integer?(str)
+    # Ruby 1.9 以降では Kernel.#Integer を使うべき
+    # Ruby 1.8 にもあるが、基数を指定できない問題がある
+    !/^\d+$/.match(str).nil?
   end
 end
