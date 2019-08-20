@@ -142,7 +142,7 @@ MESSAGETEXT
     result += " ＞ [#{diceText}] ＞ [#{diceText2}]"
 
     if armor > 0
-      resultArray = Array.new
+      resultArray = []
       success = 0
 
       diceArray.each do |i|

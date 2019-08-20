@@ -50,7 +50,7 @@ MESSAGETEXT
     diceText2 = diceText.gsub('10', '0')
     diceArray = diceText2.split(/,/).collect { |i| i.to_i }
 
-    resultArray = Array.new
+    resultArray = []
     success = 0
     diceArray.each do |i|
       multiple = countNo.count(i)

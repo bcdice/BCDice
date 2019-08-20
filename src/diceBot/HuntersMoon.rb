@@ -225,8 +225,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  def getStrangeAbilityTable1()
-  end
+  def getStrangeAbilityTable1; end
 
   # ** 異形アビリティー表
   def get_strange_ability_table_result(count, isType2)

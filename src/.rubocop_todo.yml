@@ -302,34 +302,6 @@ Style/DoubleNegation:
   Exclude:
     - 'test/DiceBotTest.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Style/EmptyBlockParameter:
-  Exclude:
-    - 'diceBot/FutariSousa.rb'
-    - 'diceBot/OneWayHeroics.rb'
-
-# Offense count: 7
-# Cop supports --auto-correct.
-Style/EmptyLiteral:
-  Exclude:
-    - 'diceBot/Illusio.rb'
-    - 'diceBot/LiveraDoll.rb'
-    - 'diceBot/OrgaRain.rb'
-    - 'diceBot/Raisondetre.rb'
-
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: compact, expanded
-Style/EmptyMethod:
-  Exclude:
-    - 'bcdice.rb'
-    - 'diceBot/DiceBot.rb'
-    - 'diceBot/Dracurouge_Korean.rb'
-    - 'diceBot/HuntersMoon.rb'
-    - 'irc/torgtaitaiIRC.rb'
-
 # Offense count: 8
 # Cop supports --auto-correct.
 Style/EvenOdd:

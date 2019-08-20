@@ -63,14 +63,11 @@ class TorgtaitaiIRC
     end
   end
 
-  def add_global_handler
-  end
+  def add_global_handler; end
 
-  def start
-  end
+  def start; end
 
-  def quitCommand(arg)
-  end
+  def quitCommand(arg); end
 
   def sendMessage(to, message)
     notice(to, message)

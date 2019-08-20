@@ -269,8 +269,7 @@ TEXT_BLOCK
     return "#{name}(#{number}) ＞ #{text}"
   end
 
-  def getCorruptionTable
-  end
+  def getCorruptionTable; end
 
   @@tables =
     {
