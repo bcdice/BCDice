@@ -20,6 +20,10 @@ Style/EmptyBlockParameter:
 Style/Lambda:
   EnforcedStyle: lambda
 
+# Due to old Ruby 2.2.x
+Style/SafeNavigation:
+  Enabled: false
+
 Layout/EndOfLine:
   EnforcedStyle: lf
 
