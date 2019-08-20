@@ -49,7 +49,7 @@ if RUBY_VERSION < '1.9.0' then
         f_encoding = get_kconv_encoding(from_encoding)
       end
 
-      result = Kconv::kconv(self, get_kconv_encoding(to_encoding), f_encoding)
+      result = Kconv.kconv(self, get_kconv_encoding(to_encoding), f_encoding)
       result.set_encoding(to_encoding)
       return result
     end

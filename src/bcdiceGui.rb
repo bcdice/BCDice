@@ -422,7 +422,7 @@ class BCDiceDialog < Wx::Dialog
       @executeButton.enable(false)
       @stopButton.enable(true)
     rescue => e
-      Wx::message_box(e.to_s)
+      Wx.message_box(e.to_s)
     end
   end
 
