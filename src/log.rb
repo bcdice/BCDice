@@ -23,7 +23,7 @@ def debug(target, *values)
     debugPuts(targetStr)
   else
     valueStrs = values.map do |value|
-      value.kind_of?(String) ? %Q("#{value}") : value.inspect
+      value.kind_of?(String) ? %("#{value}") : value.inspect
     end
 
     debugPuts("#{targetStr}: #{valueStrs.join(', ')}")
