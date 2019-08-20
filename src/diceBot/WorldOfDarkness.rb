@@ -65,7 +65,7 @@ INFO_MESSAGE_TEXT
     @rerollDice = 0
 
     output += rollDiceWorldOfDarknessSpecial(diceCount, difficulty, rerollNumber)
-    while @rerollDice > 0 do
+    while @rerollDice > 0
       diceCount = @rerollDice
       @rerollDice = 0
       output += rollDiceWorldOfDarknessSpecial(diceCount, difficulty, rerollNumber)
