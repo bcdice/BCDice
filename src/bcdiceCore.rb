@@ -1515,7 +1515,7 @@ class BCDice
     string = changeRangeTextToNumberText(string)
 
     round_type = @diceBot.fractionType.to_sym
-    string = string.gsub(/\([\d\/\+\*\-\(\)]+\)/) do |expr|
+    string = string.gsub(%r{\([\d/\+\*\-\(\)]+\)}) do |expr|
       ArithmeticEvaluator.new.eval(expr, round_type)
     end
 

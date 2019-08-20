@@ -399,21 +399,6 @@ Style/RandomWithOffset:
     - 'diceBot/ArsMagica.rb'
     - 'diceBot/MeikyuKingdom.rb'
 
-# Offense count: 20
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, AllowInnerSlashes.
-# SupportedStyles: slashes, percent_r, mixed
-Style/RegexpLiteral:
-  Exclude:
-    - 'CountHolder.rb'
-    - 'bcdiceCore.rb'
-    - 'diceBot/AceKillerGene.rb'
-    - 'diceBot/DetatokoSaga.rb'
-    - 'diceBot/DetatokoSaga_Korean.rb'
-    - 'diceBot/GardenOrder.rb'
-    - 'diceBot/MetalHeadExtream.rb'
-    - 'diceBot/Skynauts.rb'
-
 # Offense count: 11
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.

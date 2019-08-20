@@ -30,7 +30,7 @@ INFO_MESSAGE_TEXT
 
   def rollDiceCommand(command)
     case command
-    when /GO(\d+)(\/(\d+))?(@(\d+))?/i
+    when %r{GO(\d+)(/(\d+))?(@(\d+))?}i
       success_rate = Regexp.last_match(1).to_i
       repeat_count = (Regexp.last_match(3) || 1).to_i
       critical_border_text = Regexp.last_match(5)
