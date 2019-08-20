@@ -164,7 +164,7 @@ class CountHolder
   def changeCount
     debug("changeCount begin")
 
-    modifyValue = @bcdice.parren_killer("(0#{ @modifyText })").to_i
+    modifyValue = @bcdice.parren_killer("(0#{@modifyText})").to_i
     characterInfo = getCharacterInfo(@channel, @characterName)
 
     info = characterInfo[@tagName]

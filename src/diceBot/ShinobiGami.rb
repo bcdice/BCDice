@@ -276,7 +276,7 @@ INFO_MESSAGE_TEXT
     text = table[index]
     return '1' if text.nil?
 
-    output = "#{sceneType}シーン表(#{total_n}) ＞ #{ text }"
+    output = "#{sceneType}シーン表(#{total_n}) ＞ #{text}"
 
     return output
   end
@@ -479,7 +479,7 @@ INFO_MESSAGE_TEXT
     text = powerTable[total_n - 1]
     return '1' if text.nil?
 
-    output += " #{powerType} ＞ #{ text }#{ powerPage }"
+    output += " #{powerType} ＞ #{text}#{powerPage}"
 
     return output
   end

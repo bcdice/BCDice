@@ -129,9 +129,9 @@ MESSAGETEXT
       commandName = "ReRoll#{diceCount}"
       unless isReRoll
         if isStop
-          commandName = "BMS#{diceCount - 2 }"
+          commandName = "BMS#{diceCount - 2}"
         else
-          commandName = "BM#{diceCount - 2 }"
+          commandName = "BM#{diceCount - 2}"
         end
       end
       commandText = "#{commandName}#{judgeNumberText}>=#{targetNumber}"

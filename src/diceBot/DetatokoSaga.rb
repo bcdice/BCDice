@@ -124,7 +124,7 @@ INFO_MESSAGE_TEXT
     end
 
     dice, = roll(1, 6)
-    return "1D6->#{ dice }"
+    return "1D6->#{dice}"
   end
 
   # スキル判定値　xJD or xJDy or xJDy+z or xJDy-z or xJDy/z

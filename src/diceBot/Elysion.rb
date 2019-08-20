@@ -656,7 +656,7 @@ MESSAGETEXT
     text = table[index]
     return '' if text.nil?
 
-    return "#{name}休憩表(#{number}) #{ text }"
+    return "#{name}休憩表(#{number}) #{text}"
   end
 
   def getD6Table(name, table)
@@ -666,7 +666,7 @@ MESSAGETEXT
     text = table[index]
     return '' if text.nil?
 
-    return "#{name}(#{number}) #{ text }"
+    return "#{name}(#{number}) #{text}"
   end
 
   def getBattleFieldTable
@@ -886,7 +886,7 @@ MESSAGETEXT
     text = get_table_by_number(index, table, table.last.last)
     return '' if text.nil?
 
-    return "#{name}(#{index}) #{ text }"
+    return "#{name}(#{index}) #{text}"
   end
 
   @@tables =

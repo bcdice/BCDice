@@ -43,7 +43,7 @@ INFO_MESSAGE_TEXT
     arsmagica_stress(string, nick_e)
   end
 
-  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)# ゲーム別成功度判定(nD10)
+  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD10)
     if signOfInequality != ">="
       return ""
     end
@@ -103,7 +103,7 @@ INFO_MESSAGE_TEXT
 
       dice_n = dice_n.sort if sortType != 0
 
-      output += "0[#{die},#{ dice_n.join(',') }]"
+      output += "0[#{die},#{dice_n.join(',')}]"
 
       if count0 != 0
         bonus = 0
@@ -149,7 +149,7 @@ INFO_MESSAGE_TEXT
       if bonus > 0
         output += "#{die}+#{bonus} ＞ #{total}"
       elsif bonus < 0
-        output += "#{die$bonus} ＞ #{total}"
+        output += "#{die $bonus} ＞ #{total}"
       else
         output += total.to_s
       end

@@ -23,7 +23,7 @@ class CthulhuTech < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)# ゲーム別成功度判定(nD10)
+  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD10)
     if signOfInequality == ">=" # 通常のテスト
       @isCombatTest = false
       return check_nD10_nomalTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
@@ -94,7 +94,7 @@ INFO_MESSAGE_TEXT
 
   ####################           CthulhuTech         ########################
   # CthulhuTechの判定用ダイス計算
-  def cthulhutech_check (dice_str)
+  def cthulhutech_check(dice_str)
     dice_aRR = dice_str.split(/,/).collect { |i| i.to_i }
 
     dice_num = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]

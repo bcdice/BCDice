@@ -405,8 +405,8 @@ class CardTrader
       card = ejectOneCardRandomFromCards(@cardRest)
       break if  card.nil?
 
-      @deal_cards[ destination ] ||= []
-      @deal_cards[ destination ] << card
+      @deal_cards[destination] ||= []
+      @deal_cards[destination] << card
 
       outputCards << card
     end
@@ -1114,7 +1114,7 @@ class CardTrader
   end
 
   def printRegistCardResult(targetNick, okCards)
-    sendMessage(@channel, "#{@nick_e}: #{ okCards.length }枚場に置きました")
+    sendMessage(@channel, "#{@nick_e}: #{okCards.length}枚場に置きました")
 
     unless @cardTitles.empty?
       cardText = getCardsTextFromCards(okCards)
@@ -1237,7 +1237,7 @@ class CardTrader
 
     if cards.length > 0
       cardInfo = getCardsTextFromCards(cards)
-      okCount, ngCount, text = discardCards("c-discard[#{ cardInfo }]")
+      okCount, ngCount, text = discardCards("c-discard[#{cardInfo}]")
       debug("discardCards okCount, ngCount, text", okCount, ngCount, text)
       count = okCount
     else
@@ -1275,8 +1275,8 @@ class CardTrader
 
   # 捨て札をデッキに戻す
   def returnCards
-    @deal_cards[ 'card_played' ] ||= []
-    cards = @deal_cards[ 'card_played' ]
+    @deal_cards['card_played'] ||= []
+    cards = @deal_cards['card_played']
 
     while cards.length > 0
       @cardRest.push(cards.shift)
@@ -1286,8 +1286,8 @@ class CardTrader
   end
 
   def getBurriedCard
-    @deal_cards[ 'card_played' ] ||= []
-    cards = @deal_cards[ 'card_played' ]
+    @deal_cards['card_played'] ||= []
+    cards = @deal_cards['card_played']
 
     cards.length
   end
@@ -1298,7 +1298,7 @@ class CardTrader
   end
 
   def getAllCardLocation # 今のカード配置を見る
-    allText = "山札:#{ @cardRest.length }枚 捨札:#{ getBurriedCard }枚"
+    allText = "山札:#{@cardRest.length}枚 捨札:#{getBurriedCard}枚"
     allPlaceText = ""
 
     @deal_cards.each do |place, cards|
