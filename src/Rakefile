@@ -44,7 +44,7 @@ task :test => :clean_coverage do
   ]
 
   failures = test_cases.
-             map { |test_case|
+             map do |test_case|
     puts
     puts("[#{test_case.name}のテスト]")
 
@@ -54,7 +54,7 @@ task :test => :clean_coverage do
     rescue
       test_case.name
     end
-  }.
+  end.
              compact
 
   unless failures.empty?

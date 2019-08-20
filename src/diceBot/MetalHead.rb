@@ -222,14 +222,14 @@ MESSAGETEXT
     end
 
     damage_level = ''
-    table_damage[suv].each { |v|
-      v.each { |d, n|
+    table_damage[suv].each do |v|
+      v.each do |d, n|
         debug("suv[#{suv}] #{v} #{d} #{n}")
         if n <= numbuf
           damage_level = d
         end
-      }
-    }
+      end
+    end
 
     result = ""
 

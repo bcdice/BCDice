@@ -67,7 +67,7 @@ INFO_MESSAGE_TEXT
       keys << key
     end
 
-    scores = (keys.map do |k| checking_table[k - 1] end).to_a
+    scores = (keys.map { |k| checking_table[k - 1] }).to_a
     total_score = scores.inject(:+)
 
     chained_sequence = find_sequence(keys)
