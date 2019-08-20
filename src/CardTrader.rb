@@ -193,7 +193,7 @@ class CardTrader
   def readCardSet()
     readExtraCard(@tnick)
     sendMessageToOnlySender("カードセットの読み込み成功しました")
-  rescue => e
+  rescue StandardError => e
     sendMessageToOnlySender(e.to_s)
   end
 
@@ -239,7 +239,7 @@ class CardTrader
       @deal_cards = {'card_played' => []}
 
       debug("Load Finished...\n")
-    rescue => e
+    rescue StandardError => e
       raise ("カードデータを開けません :『#{cardFileName}』" + e.to_s)
     end
   end

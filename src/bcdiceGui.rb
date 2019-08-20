@@ -370,7 +370,7 @@ class BCDiceDialog < Wx::Dialog
 
   def expressTestInput
     onEnterTestInputCatched
-  rescue => e
+  rescue StandardError => e
     debug("onEnterTestInput error " + e.to_s)
   end
 
@@ -418,7 +418,7 @@ class BCDiceDialog < Wx::Dialog
     startIrcBot
     @executeButton.enable(false)
     @stopButton.enable(true)
-  rescue => e
+  rescue StandardError => e
     Wx.message_box(e.to_s)
   end
 

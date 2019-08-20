@@ -399,19 +399,6 @@ Style/RandomWithOffset:
     - 'diceBot/ArsMagica.rb'
     - 'diceBot/MeikyuKingdom.rb'
 
-# Offense count: 11
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: implicit, explicit
-Style/RescueStandardError:
-  Exclude:
-    - 'CardTrader.rb'
-    - 'Rakefile'
-    - 'bcdiceCore.rb'
-    - 'bcdiceGui.rb'
-    - 'diceBot/DiceBot.rb'
-    - 'test/DiceBotTest.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: ConvertCodeThatCanStartToReturnNil, Whitelist.
