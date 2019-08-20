@@ -54,6 +54,7 @@ Lint/LiteralAsCondition:
 
 # Offense count: 1
 # Cop supports --auto-correct.
+# Bug?
 Lint/LiteralInInterpolation:
   Exclude:
     - 'diceBot/GurpsFW.rb'
@@ -391,19 +392,12 @@ Style/NegatedWhile:
 
 # Offense count: 7
 # Cop supports --auto-correct.
+# テスト用randの置き換えが必要？
 Style/RandomWithOffset:
   Exclude:
     - 'bcdiceCore.rb'
     - 'diceBot/ArsMagica.rb'
     - 'diceBot/MeikyuKingdom.rb'
-
-# Offense count: 5
-# Cop supports --auto-correct.
-Style/RedundantBegin:
-  Exclude:
-    - 'CardTrader.rb'
-    - 'bcdiceCore.rb'
-    - 'bcdiceGui.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

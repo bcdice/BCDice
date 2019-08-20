@@ -191,12 +191,10 @@ class CardTrader
   end
 
   def readCardSet()
-    begin
-      readExtraCard(@tnick)
-      sendMessageToOnlySender("カードセットの読み込み成功しました")
-    rescue => e
-      sendMessageToOnlySender(e.to_s)
-    end
+    readExtraCard(@tnick)
+    sendMessageToOnlySender("カードセットの読み込み成功しました")
+  rescue => e
+    sendMessageToOnlySender(e.to_s)
   end
 
   def sendMessage(to, message)
