@@ -2283,7 +2283,7 @@ INFO_MESSAGE_TEXT
 
     if /ランダムに決定した特技が指定特技のアイドルスキル\(身長分野、(属性|才能)分野、出身分野が出たら振り直し\)$/ =~ text
       category = $1
-      while true
+      loop do
         skill = getSkillList()
         text += "\n#{skill}"
         break unless skill.include?("身長") || skill.include?(category) || skill.include?("出身")

@@ -2133,7 +2133,7 @@ INFO_MESSAGE_TEXT
 
     if /랜덤으로 지정한 특기가 지정 특기인 아이돌 스킬\(신장분야、(속성|재능)분야、출신분야가 나올경우 재굴림\)$/ =~ text
       category = $1
-      while true
+      loop do
         skill = getSkillList()
         text += "\n#{skill}"
         break unless skill.include?("신장") || skill.include?(category) || skill.include?("출신")
