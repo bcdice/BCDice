@@ -44,18 +44,18 @@ task :test => :clean_coverage do
   ]
 
   failures = test_cases.
-    map { |test_case|
-      puts
-      puts("[#{test_case.name}のテスト]")
+             map { |test_case|
+    puts
+    puts("[#{test_case.name}のテスト]")
 
-      begin
-        Rake::Task[test_case.task].execute
-        nil
-      rescue
-        test_case.name
-      end
-    }.
-    compact
+    begin
+      Rake::Task[test_case.task].execute
+      nil
+    rescue
+      test_case.name
+    end
+  }.
+             compact
 
   unless failures.empty?
     raise "テスト失敗: #{failures.join(', ')}"

@@ -10,8 +10,8 @@ require 'diceBot/DiceBotLoader'
 
 def updateConfig
   nameList = DiceBotLoader.collectDiceBots.
-    map { |diceBot| diceBot.gameType.gsub(' ', '_') }.
-    sort
+             map { |diceBot| diceBot.gameType.gsub(' ', '_') }.
+             sort
   writeToConfig(nameList)
 end
 
