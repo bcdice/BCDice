@@ -171,11 +171,11 @@ INFO_MESSAGE_TEXT
   # 一般結果表 成功度
   def get_torg_success_level(value)
     success_table = [
-        [0, "ぎりぎり"],
-        [1, "ふつう"],
-        [3, "まあよい"],
-        [7, "かなりよい"],
-        [12, "すごい" ]]
+      [0, "ぎりぎり"],
+      [1, "ふつう"],
+      [3, "まあよい"],
+      [7, "かなりよい"],
+      [12, "すごい" ]]
 
     return get_torg_table_result(value, success_table)
   end
@@ -184,11 +184,11 @@ INFO_MESSAGE_TEXT
   # 威圧／威嚇(intimidate/Test)
   def get_torg_interaction_result_intimidate_test(value)
     interaction_results_table = [
-        [0, "技能なし"],
-        [5, "萎縮"],
-        [10, "逆転負け"],
-        [15, "モラル崩壊"],
-        [17, "プレイヤーズコール" ]]
+      [0, "技能なし"],
+      [5, "萎縮"],
+      [10, "逆転負け"],
+      [15, "モラル崩壊"],
+      [17, "プレイヤーズコール" ]]
 
     return get_torg_table_result(value, interaction_results_table)
   end
@@ -196,11 +196,11 @@ INFO_MESSAGE_TEXT
   # 挑発／トリック(Taunt/Trick)
   def get_torg_interaction_result_taunt_trick(value)
     interaction_results_table = [
-        [0, "技能なし"],
-        [5, "萎縮"],
-        [10, "逆転負け"],
-        [15, "高揚／逆転負け"],
-        [17, "プレイヤーズコール" ]]
+      [0, "技能なし"],
+      [5, "萎縮"],
+      [10, "逆転負け"],
+      [15, "高揚／逆転負け"],
+      [17, "プレイヤーズコール" ]]
 
     return get_torg_table_result(value, interaction_results_table)
   end
@@ -208,11 +208,11 @@ INFO_MESSAGE_TEXT
   # 間合い(maneuver)
   def get_torg_interaction_result_maneuver(value)
     interaction_results_table = [
-        [0, "技能なし"],
-        [5, "疲労"],
-        [10, "萎縮／疲労"],
-        [15, "逆転負け／疲労"],
-        [17, "プレイヤーズコール" ]]
+      [0, "技能なし"],
+      [5, "疲労"],
+      [10, "萎縮／疲労"],
+      [15, "逆転負け／疲労"],
+      [17, "プレイヤーズコール" ]]
 
     return get_torg_table_result(value, interaction_results_table)
   end
@@ -236,22 +236,22 @@ INFO_MESSAGE_TEXT
   # オーズダメージチャート
   def get_torg_damage_ords(value)
     damage_table_ords = [
-        [0, "1"],
-        [1, "O1"],
-        [2, "K1"],
-        [3, "O2"],
-        [4, "O3"],
-        [5, "K3"],
-        [6, "転倒 K／O4"],
-        [7, "転倒 K／O5"],
-        [8, "1レベル負傷  K／O7"],
-        [9, "1レベル負傷  K／O9"],
-        [10, "1レベル負傷  K／O10"],
-        [11, "2レベル負傷  K／O11"],
-        [12, "2レベル負傷  KO12"],
-        [13, "3レベル負傷  KO13"],
-        [14, "3レベル負傷  KO14"],
-        [15, "4レベル負傷  KO15"]]
+      [0, "1"],
+      [1, "O1"],
+      [2, "K1"],
+      [3, "O2"],
+      [4, "O3"],
+      [5, "K3"],
+      [6, "転倒 K／O4"],
+      [7, "転倒 K／O5"],
+      [8, "1レベル負傷  K／O7"],
+      [9, "1レベル負傷  K／O9"],
+      [10, "1レベル負傷  K／O10"],
+      [11, "2レベル負傷  K／O11"],
+      [12, "2レベル負傷  KO12"],
+      [13, "3レベル負傷  KO13"],
+      [14, "3レベル負傷  KO14"],
+      [15, "4レベル負傷  KO15"]]
 
     return get_torg_damage(value,
                            4,
@@ -262,22 +262,22 @@ INFO_MESSAGE_TEXT
   # ポシビリティー能力者ダメージチャート
   def get_torg_damage_posibility(value)
     damage_table_posibility = [
-        [0, "1"],
-        [1, "1"],
-        [2, "O1"],
-        [3, "K2"],
-        [4, "2"],
-        [5, "O2"],
-        [6, "転倒 O2"],
-        [7, "転倒 K2"],
-        [8, "転倒 K2"],
-        [9, "1レベル負傷  K3"],
-        [10, "1レベル負傷  K4"],
-        [11, "1レベル負傷  O4"],
-        [12, "1レベル負傷  K5"],
-        [13, "2レベル負傷  O4"],
-        [14, "2レベル負傷  KO5"],
-        [15, "3レベル負傷  KO5"]]
+      [0, "1"],
+      [1, "1"],
+      [2, "O1"],
+      [3, "K2"],
+      [4, "2"],
+      [5, "O2"],
+      [6, "転倒 O2"],
+      [7, "転倒 K2"],
+      [8, "転倒 K2"],
+      [9, "1レベル負傷  K3"],
+      [10, "1レベル負傷  K4"],
+      [11, "1レベル負傷  O4"],
+      [12, "1レベル負傷  K5"],
+      [13, "2レベル負傷  O4"],
+      [14, "2レベル負傷  KO5"],
+      [15, "3レベル負傷  KO5"]]
 
     return get_torg_damage(value,
                            3,
@@ -333,20 +333,20 @@ INFO_MESSAGE_TEXT
 
   def get_torg_bonus(value)
     bonus_table = [
-                   [1, -12],
-                   [2, -10],
-                   [3, -8],
-                   [5, -5],
-                   [7, -2],
-                   [9, -1],
-                   [11, 0],
-                   [13, 1],
-                   [15, 2],
-                   [16, 3],
-                   [17, 4],
-                   [18, 5],
-                   [19, 6],
-                   [20, 7]]
+      [1, -12],
+      [2, -10],
+      [3, -8],
+      [5, -5],
+      [7, -2],
+      [9, -1],
+      [11, 0],
+      [13, 1],
+      [15, 2],
+      [16, 3],
+      [17, 4],
+      [18, 5],
+      [19, 6],
+      [20, 7]]
 
     bonus = get_torg_table_result(value, bonus_table)
 

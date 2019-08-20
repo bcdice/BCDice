@@ -305,8 +305,8 @@ end
 
 def getInitializedIrcBot()
   ircBot = IrcClient.new($server, $port, {
-               :nick => $nick, :user => $userName, :real => $ircName
-             })
+                           :nick => $nick, :user => $userName, :real => $ircName
+                         })
   debug("$server, $port, $nick, $userName, $ircName", $server, $port, $nick, $userName, $ircName)
 
   room = $defaultLoginChannelsText.split(',').first

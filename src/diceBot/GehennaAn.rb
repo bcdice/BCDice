@@ -115,12 +115,12 @@ INFO_MESSAGE_TEXT
 
   def getTougiBonus(success)
     table = [
-             [ 6, '1'],
-             [13, '2'],
-             [18, '3'],
-             [22, '4'],
-             [99, '5'],
-            ]
+      [ 6, '1'],
+      [13, '2'],
+      [18, '3'],
+      [22, '4'],
+      [99, '5'],
+    ]
 
     return get_table_by_number(success, table)
   end

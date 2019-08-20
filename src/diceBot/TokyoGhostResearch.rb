@@ -3,7 +3,7 @@
 class TokyoGhostResearch < DiceBot
   # ダイスボットで使用するコマンドを配列で列挙する
   setPrefixes([
-  'OP', 'TB', 'TK?\(\d+\)'
+    'OP', 'TB', 'TK?\(\d+\)'
   ])
 
   def initialize

@@ -165,10 +165,10 @@ INFO_MESSAGE_TEXT
 
   def getResultRank(result)
     ranks = [
-     @@famble,
-     @@failure,
-     @@success,
-     @@critical,
+      @@famble,
+      @@failure,
+      @@success,
+      @@critical,
     ]
 
     return ranks.index(result)
@@ -249,13 +249,13 @@ INFO_MESSAGE_TEXT
   # 五行コマンド
   def getGogyouTable
     table = [
-             '五行【木】',
-             '五行【火】',
-             '五行【土】',
-             '五行【金】',
-             '五行【水】',
-             '五行は【任意選択】',
-            ]
+      '五行【木】',
+      '五行【火】',
+      '五行【土】',
+      '五行【金】',
+      '五行【水】',
+      '五行は【任意選択】',
+    ]
     return table
   end
 end
