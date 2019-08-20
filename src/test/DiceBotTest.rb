@@ -117,7 +117,7 @@ class DiceBotTest
           # テスト失敗、次へ
           next
         end
-      rescue => e
+      rescue StandardError => e
         @errorLog << logTextForException(e, testData)
         print('E')
 

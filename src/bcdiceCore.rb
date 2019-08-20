@@ -170,7 +170,7 @@ class BCDice
 
   def recieveMessage(nick_e, tnick)
     recieveMessageCatched(nick_e, tnick)
-  rescue => e
+  rescue StandardError => e
     printErrorMessage(e)
   end
 
@@ -574,7 +574,7 @@ class BCDice
 
   def recievePublicMessage(nick_e)
     recievePublicMessageCatched(nick_e)
-  rescue => e
+  rescue StandardError => e
     printErrorMessage(e)
   end
 

@@ -51,7 +51,7 @@ task :test => :clean_coverage do
     begin
       Rake::Task[test_case.task].execute
       nil
-    rescue
+    rescue StandardError
       test_case.name
     end
   end.
