@@ -80,7 +80,7 @@ MESSAGETEXT
     result = ""
 
     if isDragonDice(crit)
-      result += "龍のダイス「#{@arrayDragonDiceName[crit]}」(#{crit.to_s})を使用 ＞ "
+      result += "龍のダイス「#{@arrayDragonDiceName[crit]}」(#{crit})を使用 ＞ "
     end
 
     if  success

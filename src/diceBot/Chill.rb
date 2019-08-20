@@ -67,7 +67,7 @@ INFO_MESSAGE_TEXT
       wounds, dice_ws = roll(4, 10)
       dice = '5d10*3, 4d10+' + ((strikeRank - 13) * 2).to_s + 'd10'
       dice_add += ', ' + wounds.to_s
-      dice_str = "#{dice_str}, #{dice_ws.to_s}"
+      dice_str = "#{dice_str}, #{dice_ws}"
       wounds_wk, dice_ws = roll((strikeRank - 13) * 2, 10)
       dice_str += "+#{dice_ws}"
       dice_add += "+#{wounds_wk}"

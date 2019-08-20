@@ -89,13 +89,6 @@ Lint/ShadowingOuterLocalVariable:
     - 'diceBot/Dracurouge.rb'
     - 'diceBot/StellarKnights.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Lint/StringConversionInInterpolation:
-  Exclude:
-    - 'diceBot/Chill.rb'
-    - 'diceBot/Utakaze.rb'
-
 # Offense count: 4
 Lint/UnreachableCode:
   Exclude:
