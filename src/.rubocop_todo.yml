@@ -389,12 +389,6 @@ Style/NegatedWhile:
     - 'dice/AddDice.rb'
     - 'diceBot/CrashWorld.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/OneLineConditional:
-  Exclude:
-    - 'diceBot/ShinkuuGakuen.rb'
-
 # Offense count: 1094
 # Cop supports --auto-correct.
 Style/PerlBackrefs:
