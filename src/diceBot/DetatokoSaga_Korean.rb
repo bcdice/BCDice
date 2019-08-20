@@ -131,7 +131,7 @@ INFO_MESSAGE_TEXT
   def checkJudgeValue(string)
     debug("checkJudgeValue begin string", string)
 
-    return '' unless /^(\d+)JD(\d+)?(([+]|[-]|[\/])(\d+))?$/i =~ string
+    return '' unless %r{^(\d+)JD(\d+)?(([+]|[-]|[/])(\d+))?$}i =~ string
 
     skill = Regexp.last_match(1).to_i
     flag = Regexp.last_match(2).to_i

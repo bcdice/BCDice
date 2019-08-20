@@ -32,7 +32,7 @@ INFO_MESSAGE_TEXT
 
   def rollDiceCommand(command)
     case command
-    when /(AK|AKG)(\d+)(\/(\d+))?(@(\d+))?/i
+    when %r{(AK|AKG)(\d+)(/(\d+))?(@(\d+))?}i
       success_rate = Regexp.last_match(2).to_i
       repeat_count = (Regexp.last_match(4) || 1).to_i
       critical_border_text = Regexp.last_match(6)

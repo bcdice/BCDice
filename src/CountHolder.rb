@@ -75,7 +75,7 @@ class CountHolder
     debug("@command", @command)
 
     case @command
-    when /^#([^:：]+)(:|：)(\w+?)\s*(\d+)(\/(\d+))?/
+    when %r{^#([^:：]+)(:|：)(\w+?)\s*(\d+)(/(\d+))?}
       debug(" #(識別名):(タグ)(現在値)/(最大値) で指定します。最大値がないものは省略できます。")
       # #Zako1:HP9/9　　　#orc1:HP10/10　　#商人:HP8/8
       @characterName = Regexp.last_match(1)
@@ -88,7 +88,7 @@ class CountHolder
       @characterName = Regexp.last_match(1)
       @tagName = Regexp.last_match(3)
       @modifyText = Regexp.last_match(4)
-    when /^#(\w+?)\s*(\d+)\/(\d+)/
+    when %r{^#(\w+?)\s*(\d+)/(\d+)}
       debug(" #(タグ)(現在値)/(最大値) 現在値/最大値指定は半角のみ。")
       # #HP12/12　　　#衝動0/10
       @tagName = Regexp.last_match(1)
@@ -444,7 +444,7 @@ class CountHolder
   end
 
   def getPointHashCurrentAndMax(key)
-    if /(\d+)[\/](\d+)/ =~ key
+    if %r{(\d+)[/](\d+)} =~ key
       current = Regexp.last_match(1)
       max = Regexp.last_match(2)
       return current, max
