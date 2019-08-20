@@ -1404,10 +1404,10 @@ MESSAGETEXT
   def getD6xResult(count, dice6Count)
     total = 0
 
-    count.times do |i|
+    count.times do |_i|
       number = 0
 
-      dice6Count.times do |i|
+      dice6Count.times do |_i|
         number *= 10
         dice, = roll(1, 6)
         number += dice

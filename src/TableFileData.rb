@@ -98,7 +98,7 @@ class TableFileData
   def getAllTableInfo
     result = []
 
-    @tableData.each do |key, oneTableData|
+    @tableData.each do |_key, oneTableData|
       tableData = readOneTableData(oneTableData)
       result << tableData
     end
@@ -109,7 +109,7 @@ class TableFileData
   def getGameCommandInfos
     commandInfos = []
 
-    @tableData.each do |command, info|
+    @tableData.each do |_command, info|
       commandInfo = {
         "gameType" => info["gameType"],
         "command" => info["command"],

@@ -399,7 +399,7 @@ class CardTrader
     count = count.to_i
     debug("draw count", count)
 
-    count.times do |i|
+    count.times do |_i|
       break if @cardRest.length <= 0
 
       card = ejectOneCardRandomFromCards(@cardRest)

@@ -95,7 +95,7 @@ INFO_MESSAGE_TEXT
       count0 = 0
       dice_n = []
 
-      botch.times do |i|
+      botch.times do |_i|
         botch_die = rand(10)
         count0 += 1 if botch_die == 0
         dice_n.push(botch_die)

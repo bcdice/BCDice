@@ -79,7 +79,7 @@ INFO_MESSAGE_TEXT
 
     dice = dicestr.split(/,/).collect { |i| i.to_i }
 
-    mod.abs.times do |i|
+    mod.abs.times do |_i|
       if mod < 0
         dice.shift
       else
