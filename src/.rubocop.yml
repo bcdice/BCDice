@@ -4,6 +4,10 @@ inherit_from: .rubocop_todo.yml
 Layout/DotPosition:
   EnforcedStyle: trailing
 
+# Due to old Ruby 1.9.x
+Style/Dir:
+  Enabled: false
+
 Layout/EndOfLine:
   EnforcedStyle: lf
 

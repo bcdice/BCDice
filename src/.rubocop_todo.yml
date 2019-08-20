@@ -297,16 +297,6 @@ Style/ClassVars:
     - diceBot/DarkDaysDrive.rb
     - diceBot/YankeeYogSothoth.rb
 
-# Offense count: 5
-# Cop supports --auto-correct.
-Style/Dir:
-  Exclude:
-    - 'cgiDiceBot.rb'
-    - 'createExe.rb'
-    - 'diceBot/DiceBotLoader.rb'
-    - 'test.rb'
-    - 'test/DiceBotTest.rb'
-
 # Offense count: 1
 Style/DoubleNegation:
   Exclude:
