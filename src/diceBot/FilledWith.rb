@@ -97,7 +97,7 @@ MESSAGETEXT
   when /ROP[ENHL]/
     return getRandomOptionResult(command)
 
-    else
+  else
     return nil
   end
 
@@ -120,8 +120,8 @@ MESSAGETEXT
     crt = $3.to_i unless $2.nil?
     fmb = $5.to_i unless $4.nil?
     difficultyText = $7
-  else
-    return nil
+    else
+      return nil
     end
 
     # 目標値の計算
@@ -567,7 +567,7 @@ MESSAGETEXT
            '黄金の守護者の証(装飾品)(【ハッキング】があれば黄金の電子暗号キー(装飾品)も追加)',
           ]
 
-    else
+  else
     return nil
   end
 
@@ -600,7 +600,7 @@ MESSAGETEXT
     difficultyText = "悪夢"
     difficulty = 3
 
-    else
+  else
     return nil
   end
 
@@ -652,7 +652,7 @@ MESSAGETEXT
     difficultyText = "悪夢"
     difficulty = 3
 
-    else
+  else
     return nil
   end
 
@@ -713,13 +713,13 @@ MESSAGETEXT
     area  = $2.to_i
     area, = roll(1, 6) if $2.nil?
     type, = roll(1, 6)
-  elsif /RENC(E|N|H|L)([1-6])?/ === command
-    dif = $1
+    elsif /RENC(E|N|H|L)([1-6])?/ === command
+      dif = $1
     area  = $2.to_i
     area, = roll(1, 6) if $2.nil?
     type  = 4
-  else
-    return nil
+    else
+      return nil
     end
 
   tableName = "ランダムイベント表"
@@ -741,7 +741,7 @@ MESSAGETEXT
     difficultyText = "悪夢"
     difficulty = 3
 
-    else
+  else
     return nil
   end
 
@@ -816,7 +816,7 @@ MESSAGETEXT
              "怪しい光を放つ鉱石の部屋。鉱石は不気味な振動を放っており、ラウンド終了時にランダムなPC1人の武器が1つ壊れてシナリオ終了まで使用できなくなる。鉱石は「打撃」属性で合計#{[100, 200, 300, 500][difficulty]}点のダメージを与えると破壊される。鉱石はどのヘクスからでも隣接扱いで攻撃可能。",
             ]
 
-      else
+    else
       return nil
     end
 
@@ -898,7 +898,7 @@ MESSAGETEXT
              "なぜここに呼ばれたかお分かりになりますでしょうか?ラダマンティス崇拝者の作りだした審判の部屋に飛ばされてしまった!ラウンド終了時に部屋の中央のラダマンティス像から裁きの光が放たれ、PC全員が「3D+#{[50, 80, 110, 150][difficulty]}」の防護点無視ダメージを受ける。#{[200, 400, 600, 1000][difficulty]}点のダメージを与えれば破壊可能でダメージも受けない。ラダマンティス像はどのヘクスからでも隣接扱いで攻撃可能。破壊に成功すると財宝ランク#{[3, 5, 7, 9][difficulty]}のアイテムが入手可能。",
             ]
 
-      else
+    else
       return nil
     end
 
@@ -976,7 +976,7 @@ MESSAGETEXT
              "岩壁が大きく崩れていく!崩落に巻き込まれて入口付近まで戻されてしまい、クリア時の財宝ランク-2。だが、崩落した後に鈍く輝くアイテムが転がっている…?[感覚-#{[6, 9, 12, 15][difficulty]}]判定に成功すれば#{["アダマンソード(剣/8000GP)", "アダマンスケイル(鎧/15000GP)", "アダマンプレート(鎧/30000GP)", "ヒュージーブレード(剣/45000GP)"][difficulty]}を入手可能。有効:「鷹の目」",
             ]
 
-      else
+    else
       return nil
     end
 
@@ -1047,7 +1047,7 @@ MESSAGETEXT
              "貝の群生地だ。貝の中にはキラリと光るものが…あれは真珠だ!行動を消費して[敏捷-#{[6, 9, 12, 15][difficulty]}]判定を行い、成功すれば1回ごとにアイテム「真珠」を入手可能。これは1つ#{[1000, 2000, 4000, 8000][difficulty]}GPで売却可能で、4ラウンド目が終了するまで何回でも入手可能。ただし、判定の成否に関わらず[FP]を2点消費する。「水中行動」があれば判定不要で[FP]も消費しない。有効:【野伏の歩み】",
             ]
 
-      else
+    else
       return nil
     end
 
@@ -1125,7 +1125,7 @@ MESSAGETEXT
              "ランダムに選んだPC1人が、うっかり泉に武器を落としてしまう。すると泉から女神が出現して、落とした武器と同じ種類の超高級品の武器(魔将ドロップ品など)を落としたかどうかを聞いてくる。[意思#{["", "-2", "-4", "-6"][difficulty]}]判定に成功すれば正直に答え、武器に#{[5000, 10000, 30000, 50000][difficulty]}GPまでの任意のアタッチメントを追加してくれる。失敗すると嘘をついて女神を怒らせてしまい、装備していた武器を失ってしまう。",
             ]
 
-      else
+    else
       return nil
     end
 
@@ -1199,11 +1199,11 @@ MESSAGETEXT
              "『千ノ戦イデ千ノ勝チヲ知ル者、ココニ眠ル』と刻まれた棺を見つける。棺を開けた場合はエネミーとエンカウント。勝利すると#{["キメラパーツ(装飾品)", "キメラパーツ(装飾品)", "グレートキメラパーツ(装飾品)", "ウェポンマスターの証(装飾品)"][difficulty]}を入手できる。不利な特異点「好奇心は猫を殺す」「脳みそ筋肉」を持つキャラクターは[意思]判定を行い、失敗すると棺を開けてしまう。",
             ]
 
-      else
+    else
       return nil
     end
 
-    else
+  else
     return nil
   end
 
@@ -1220,13 +1220,13 @@ MESSAGETEXT
     area   = 0
     event  = $2.to_i
     number = event
-  elsif /RED(E|N|H|L)([1-6])4([1-6])/ === command
-    dif    = $1
+    elsif /RED(E|N|H|L)([1-6])4([1-6])/ === command
+      dif = $1
     area   = $2.to_i
     event  = $3.to_i
     number = "#{area}4#{event}"
-  else
-    return nil
+    else
+      return nil
     end
 
   tableName = "エネミーデータ表"
@@ -1248,7 +1248,7 @@ MESSAGETEXT
     difficultyText = "悪夢"
     difficulty = 3
 
-    else
+  else
     return nil
   end
 
@@ -1545,11 +1545,11 @@ MESSAGETEXT
       areaText = "森林"
     when 6
       areaText = "墓場"
-      else
+    else
       return nil
     end
 
-    else
+  else
     return nil
   end
 

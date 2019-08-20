@@ -48,7 +48,7 @@ INFO_MESSAGE_TEXT
 
     else
       return getTableCommandResult(command, @@tables)
-  end
+    end
 
     if result.empty?
       return ""

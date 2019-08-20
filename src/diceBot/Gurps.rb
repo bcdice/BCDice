@@ -63,8 +63,8 @@ INFO_MESSAGE_TEXT
       return fmb_string
     elsif dice_n >= 18
       return fmb_string
-  elsif dice_n >= 17
-    return fail_string
+    elsif dice_n >= 17
+      return fail_string
     end
 
     if total_n <= diff

@@ -13,26 +13,6 @@ Bundler/DuplicatedGem:
   Exclude:
     - 'Gemfile'
 
-# Offense count: 9
-# Cop supports --auto-correct.
-Layout/ElseAlignment:
-  Exclude:
-    - 'diceBot/FilledWith.rb'
-    - 'diceBot/Gurps.rb'
-    - 'diceBot/LogHorizon.rb'
-    - 'diceBot/LogHorizon_Korean.rb'
-    - 'diceBot/WorldOfDarkness.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleAlignWith, AutoCorrect, Severity.
-# SupportedStylesAlignWith: keyword, variable, start_of_line
-Layout/EndAlignment:
-  Exclude:
-    - 'diceBot/Kamigakari.rb'
-    - 'diceBot/LogHorizon.rb'
-    - 'diceBot/LogHorizon_Korean.rb'
-
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: IndentationWidth.

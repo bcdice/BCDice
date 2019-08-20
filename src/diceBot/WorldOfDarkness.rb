@@ -48,9 +48,9 @@ INFO_MESSAGE_TEXT
       string = string.gsub(/(\d+)STS(\d*)([^\d\s][\+\-\d]+)/i) { "#{$1}STS#{$2}[#{$3}]" }
       string = string.gsub(/(\d+)STS(\d*)/i) { "#{$1}STS#{$2}" } unless $3
       rerollNumber = 10
-      else
-        string = string.gsub(/(\d+)ST(\d*)([^\d\s][\+\-\d]+)/i) { "#{$1}ST#{$2}[#{$3}]" }
-        string = string.gsub(/(\d+)ST(\d*)/i) { "#{$1}ST#{$2}" } unless $3
+    else
+      string = string.gsub(/(\d+)ST(\d*)([^\d\s][\+\-\d]+)/i) { "#{$1}ST#{$2}[#{$3}]" }
+      string = string.gsub(/(\d+)ST(\d*)/i) { "#{$1}ST#{$2}" } unless $3
     end
 
     diceCount = $1.to_i if $1
