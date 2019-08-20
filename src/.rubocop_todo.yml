@@ -13,21 +13,6 @@ Bundler/DuplicatedGem:
   Exclude:
     - 'Gemfile'
 
-# Offense count: 42
-# Cop supports --auto-correct.
-# Configuration parameters: AllowMultipleStyles, EnforcedHashRocketStyle, EnforcedColonStyle, EnforcedLastArgumentHashStyle.
-# SupportedHashRocketStyles: key, separator, table
-# SupportedColonStyles: key, separator, table
-# SupportedLastArgumentHashStyles: always_inspect, always_ignore, ignore_implicit, ignore_explicit
-Layout/AlignHash:
-  Exclude:
-    - 'bcdiceGui.rb'
-    - 'diceBot/DarkDaysDrive.rb'
-    - 'diceBot/GardenOrder.rb'
-    - 'diceBot/HatsuneMiku.rb'
-    - 'diceBot/ShinkuuGakuen.rb'
-    - 'diceBot/StellarKnights.rb'
-
 # Offense count: 303
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentOneStep, IndentationWidth.
