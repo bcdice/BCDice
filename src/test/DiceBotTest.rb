@@ -73,11 +73,11 @@ class DiceBotTest
           File.read(filename, :encoding => 'UTF-8')
         end
 
-      dataSetSources = source.
-        gsub("\r\n", "\n").
-        tr("\r", "\n").
-        split("============================\n").
-        map(&:chomp)
+      dataSetSources = source
+        .gsub("\r\n", "\n")
+        .tr("\r", "\n")
+        .split("============================\n")
+        .map(&:chomp)
 
       # ゲームシステムをファイル名から判断する
       gameType = File.basename(filename, '.txt')

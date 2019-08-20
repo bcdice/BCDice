@@ -43,8 +43,8 @@ task :test => :clean_coverage do
                        'test:dicebot_prefixes_compatibility')
   ]
 
-  failures = test_cases.
-    map { |test_case|
+  failures = test_cases
+    .map { |test_case|
       puts
       puts("[#{test_case.name}のテスト]")
 
@@ -54,8 +54,8 @@ task :test => :clean_coverage do
       rescue
         test_case.name
       end
-    }.
-    compact
+    }
+    .compact
 
   unless failures.empty?
     raise "テスト失敗: #{failures.join(', ')}"
