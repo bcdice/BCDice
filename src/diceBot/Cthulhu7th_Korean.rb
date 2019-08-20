@@ -73,7 +73,7 @@ INFO_MESSAGE_TEXT
     total = getTotal(total_list, bonus_dice_count)
     result_text = getCheckResultText(total, diff)
 
-    output += " ＞ #{total_list.join(", ")} ＞ #{total} ＞ #{result_text}"
+    output += " ＞ #{total_list.join(', ')} ＞ #{total} ＞ #{result_text}"
 
     return output
   end
@@ -214,7 +214,7 @@ INFO_MESSAGE_TEXT
 
         loopCount += 1
         hit_result, total, total_list = getHitResultInfos(dice_num, diff, more_difficlty)
-        output += "\n#{loopCount}번째: ＞ #{total_list.join(", ")} ＞ #{hit_result}"
+        output += "\n#{loopCount}번째: ＞ #{total_list.join(', ')} ＞ #{hit_result}"
 
         if total >= broken_number
           output += " 총알 걸림"
