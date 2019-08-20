@@ -56,9 +56,9 @@ MESSAGETEXT
   def getConductDiceCommandResult(command)
     return nil unless /^DR(\d*)(\+(\d+))?$/ === command
 
-    diceCount = $1.to_i
+    diceCount = Regexp.last_match(1).to_i
     diceCount = 4 if diceCount == 0
-    thirstyPoint = $3.to_i
+    thirstyPoint = Regexp.last_match(3).to_i
 
     diceList = rollDiceList(diceCount)
 
@@ -117,7 +117,7 @@ MESSAGETEXT
   def getResistDiceCommandResult(command)
     return nil unless /^DRR(\d+)$/ === command
 
-    diceCount = $1.to_i
+    diceCount = Regexp.last_match(1).to_i
     diceCount = 4 if diceCount == 0
 
     diceList = rollDiceList(diceCount)
@@ -129,8 +129,8 @@ MESSAGETEXT
   def getReactionDiceCommandResult(command)
     return nil unless /^RT((\w\d*)(\w\d*))?/ === command
 
-    typeText1 = $2
-    typeText2 = $3
+    typeText1 = Regexp.last_match(2)
+    typeText2 = Regexp.last_match(3)
 
     name = "反応表"
 
@@ -140,8 +140,8 @@ MESSAGETEXT
   def getHeresyReactionDiceCommandResult(command)
     return nil unless /^HRT((\w\d*)(\w\d*))?/ === command
 
-    typeText1 = $2
-    typeText2 = $3
+    typeText1 = Regexp.last_match(2)
+    typeText2 = Regexp.last_match(3)
 
     name = "異端の反応表"
 
@@ -1251,7 +1251,7 @@ MESSAGETEXT
   def getCorruptionDiceCommandResult(command)
     return nil unless /^CT(\d+)$/ === command
 
-    modify = $1.to_i
+    modify = Regexp.last_match(1).to_i
 
     name = "堕落表"
     table =
@@ -1394,7 +1394,7 @@ MESSAGETEXT
   end
 
   def getYear(yearText)
-    text = yearText.gsub(/(\d+)D(6+)/) { getD6xResult($1.to_i, $2.length) }
+    text = yearText.gsub(/(\d+)D(6+)/) { getD6xResult(Regexp.last_match(1).to_i, Regexp.last_match(2).length) }
     text = "(#{text})"
 
     year = parren_killer(text.gsub(/×/, "*"))

@@ -54,8 +54,8 @@ INFO_MESSAGE_TEXT
 
   def getCheckResult(command)
     nil unless /^CC([-\d]+)?<=(\d+)/i =~ command
-    bonus_dice_count = $1.to_i # 보너스, 패널티 주사위의 개수
-    diff = $2.to_i
+    bonus_dice_count = Regexp.last_match(1).to_i # 보너스, 패널티 주사위의 개수
+    diff = Regexp.last_match(2).to_i
 
     return "에러. 목표치는 1 이상입니다." if diff <= 0
 
@@ -133,8 +133,8 @@ INFO_MESSAGE_TEXT
   def getCombineRoll(command)
     return nil unless /CBR\((\d+),(\d+)\)/i =~ command
 
-    diff_1 = $1.to_i
-    diff_2 = $2.to_i
+    diff_1 = Regexp.last_match(1).to_i
+    diff_2 = Regexp.last_match(2).to_i
 
     total, = roll(1, 100)
 
@@ -163,10 +163,10 @@ INFO_MESSAGE_TEXT
   def getFullAutoResult(command)
     return nil unless /^FAR\((-?\d+)(,(-?\d+))(,(-?\d+))(,(-?\d+))?\)/i =~ command
 
-    bullet_count = $1.to_i
-    diff = $3.to_i
-    broken_number = $5.to_i
-    bonus_dice_count = ($7 || 0).to_i
+    bullet_count = Regexp.last_match(1).to_i
+    diff = Regexp.last_match(3).to_i
+    broken_number = Regexp.last_match(5).to_i
+    bonus_dice_count = (Regexp.last_match(7) || 0).to_i
 
     output = ""
 

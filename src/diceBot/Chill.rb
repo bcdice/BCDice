@@ -50,7 +50,7 @@ INFO_MESSAGE_TEXT
       return "1"
     end
 
-    strikeRank = $3.to_i
+    strikeRank = Regexp.last_match(3).to_i
     dice_w = ''
     dice_ws = ''
     dice_wa = ''

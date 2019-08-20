@@ -164,11 +164,11 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     case command.upcase
     when /^([1-7]*)PD(\d+)([\+\-]\d+)?$/
-      counts = $2.to_i
+      counts = Regexp.last_match(2).to_i
       return nil if counts <= 0
 
-      residual = $1
-      adjust = $3.to_i
+      residual = Regexp.last_match(1)
+      adjust = Regexp.last_match(3).to_i
 
       return rollPerformance(counts, residual, adjust)
 
@@ -293,7 +293,7 @@ INFO_MESSAGE_TEXT
       return textFromD66Table(title, table)
 
     when /^LO(\d{0,2})$/
-      value = $1
+      value = Regexp.last_match(1)
       title = '로컬 아이돌 업무표'
       table = [
         [11, "오프", ''],
@@ -807,7 +807,7 @@ INFO_MESSAGE_TEXT
       return textFromD66Table(title, table)
 
     when /^AT([1-6]?)$/
-      value = $1.to_i
+      value = Regexp.last_match(1).to_i
       return getSkillList(value)
 
     when 'LUR'
@@ -931,7 +931,7 @@ INFO_MESSAGE_TEXT
       return textFrom1D6Table(title, table1, table2)
 
     when /^BT(\d+)?$/
-      counts = ($1 || 1).to_i
+      counts = (Regexp.last_match(1) || 1).to_i
       return badStatus(counts)
 
     when 'SGT'
@@ -1400,7 +1400,7 @@ INFO_MESSAGE_TEXT
       return textFrom1D6Table(title, table)
 
     when /^IT(\d+)?$/
-      counts = ($1 || 1).to_i
+      counts = (Regexp.last_match(1) || 1).to_i
       return getItem(counts)
 
     when 'ACT'
@@ -1596,7 +1596,7 @@ INFO_MESSAGE_TEXT
       ]
       text = textFrom1D6Table(title, table)
       /『(.+)』/ =~ text
-      bookTitle = $1
+      bookTitle = Regexp.last_match(1)
       return text + "\n" + costume('의상(' + bookTitle + ')', true)
 
     when 'ACE'
@@ -1757,7 +1757,7 @@ INFO_MESSAGE_TEXT
 
     when /^(\d{2})C$/
       title = 'バーストタイム'
-      degrees = $1.to_i
+      degrees = Regexp.last_match(1).to_i
       counts = 6
       if (degrees < 45) || (degrees > 55)
         return nil
@@ -1800,12 +1800,12 @@ INFO_MESSAGE_TEXT
 
     when /^(\d+)(S?)A([1-6]*)([\+\-]\d+)?$/
       title = '攻撃'
-      counts = $1.to_i
+      counts = Regexp.last_match(1).to_i
       return nil if counts <= 0
 
-      sure = !$2.empty?
-      remove = $3
-      adjust = $4
+      sure = !Regexp.last_match(2).empty?
+      remove = Regexp.last_match(3)
+      adjust = Regexp.last_match(4)
       adjust ||= ''
 
       result = roll(counts, 6, 1)
@@ -2106,7 +2106,7 @@ INFO_MESSAGE_TEXT
     return text, skill if chance.empty?
     return text, skill unless /チャンスが(\d{1,2})以下なら오프。/ === text
 
-    target = $1.to_i
+    target = Regexp.last_match(1).to_i
     matchedText = $&
 
     if target >= chance.to_i
@@ -2132,7 +2132,7 @@ INFO_MESSAGE_TEXT
     end
 
     if /랜덤으로 지정한 특기가 지정 특기인 아이돌 스킬\(신장분야、(속성|재능)분야、출신분야가 나올경우 재굴림\)$/ =~ text
-      category = $1
+      category = Regexp.last_match(1)
       loop do
         skill = getSkillList()
         text += "\n#{skill}"
@@ -2211,7 +2211,7 @@ INFO_MESSAGE_TEXT
 
     text = skill
     if /^AT([1-6]?)$/ =~ text
-      text = getSkillList($1.to_i)
+      text = getSkillList(Regexp.last_match(1).to_i)
     else
       text = "特技 : #{text}"
     end
@@ -2272,7 +2272,7 @@ INFO_MESSAGE_TEXT
     return text unless /変調がランダムに(一|二|三)つ発生する。/ =~ text
 
     counts = 1
-    case $1
+    case Regexp.last_match(1)
     when '二'
       counts = 2
     when '三'

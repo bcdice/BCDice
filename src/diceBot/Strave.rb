@@ -47,14 +47,14 @@ MESSAGETEXT
       # MPコマンド：モラトリアムフェイズ用判定
       when /MP(\d+)$/i
         diceCount = 2
-        target = $1.to_i
+        target = Regexp.last_match(1).to_i
         checkRoll(diceCount, target, nil)
 
       # STコマンド：命中判定
       when /(\d+)ST(\d+)(x|\*)(\d+)$/i
-        diceCount = $1.to_i
-        target = $2.to_i
-        damage = ($4 || 0).to_i
+        diceCount = Regexp.last_match(1).to_i
+        target = Regexp.last_match(2).to_i
+        damage = (Regexp.last_match(4) || 0).to_i
         checkRoll(diceCount, target, damage)
 
       # 各種表

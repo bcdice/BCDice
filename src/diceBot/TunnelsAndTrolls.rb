@@ -41,15 +41,15 @@ INFO_MESSAGE_TEXT
     debug('Tunnels & Trolls parren_killer begin string', string)
 
     if /(\d+)LV/i =~ string
-      level_diff = $1.to_i * 5 + 15
+      level_diff = Regexp.last_match(1).to_i * 5 + 15
       string = string.sub(/(\d+)LV/i) { level_diff.to_s }
     end
 
     if /BS/i =~ string
-      string = string.gsub(/(\d+)HBS([^\d\s][\+\-\d]+)/i) { "#{$1}R6#{$2}[H]" }
-      string = string.gsub(/(\d+)HBS/i) { "#{$1}R6[H]" }
-      string = string.gsub(/(\d+)BS([^\d\s][\+\-\d]+)/i) { "#{$1}R6#{$2}" }
-      string = string.gsub(/(\d+)BS/i) { "#{$1}R6" }
+      string = string.gsub(/(\d+)HBS([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(2)}[H]" }
+      string = string.gsub(/(\d+)HBS/i) { "#{Regexp.last_match(1)}R6[H]" }
+      string = string.gsub(/(\d+)BS([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(2)}" }
+      string = string.gsub(/(\d+)BS/i) { "#{Regexp.last_match(1)}R6" }
     end
 
     return string

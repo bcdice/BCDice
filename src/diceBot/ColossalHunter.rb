@@ -44,9 +44,9 @@ MESSAGETEXT
 
     return nil unless /(\d+)?CH([\+\-\d]*)(>=([\+\-\d]*))?$/i === command
 
-    diceCount = ($1 || 3).to_i
-    modifyText = ($2 || '')
-    difficultyText = $4
+    diceCount = (Regexp.last_match(1) || 3).to_i
+    modifyText = (Regexp.last_match(2) || '')
+    difficultyText = Regexp.last_match(4)
 
     # 修正値の計算
     modify = getValue(modifyText, 0)
@@ -128,7 +128,7 @@ MESSAGETEXT
   end
 
   def getYear(yearText)
-    text = yearText.gsub(/(\d+)D(6+)/) { getD6xResult($1.to_i, $2.length) }
+    text = yearText.gsub(/(\d+)D(6+)/) { getD6xResult(Regexp.last_match(1).to_i, Regexp.last_match(2).length) }
 
     calculateText = "(#{text})"
     year = parren_killer(calculateText.gsub(/×/, "*"))

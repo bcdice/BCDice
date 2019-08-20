@@ -82,13 +82,13 @@ class TableFileData
 
     case baseName
     when /^#{prefix}(.+)_(.+)_(.+)$/
-      info["command"] = $3
-      info["gameType"] = $1 + ":" + $2
+      info["command"] = Regexp.last_match(3)
+      info["gameType"] = Regexp.last_match(1) + ":" + Regexp.last_match(2)
     when /^#{prefix}(.+)_(.+)$/
-      info["command"] = $2
-      info["gameType"] = $1
+      info["command"] = Regexp.last_match(2)
+      info["gameType"] = Regexp.last_match(1)
     when /^#{prefix}(.+)$/
-      info["command"] = $1
+      info["command"] = Regexp.last_match(1)
       info["gameType"] = ''
     end
 
@@ -150,8 +150,8 @@ class TableFileData
       return '', ''
     end
 
-    key = $1
-    value = $2
+    key = Regexp.last_match(1)
+    value = Regexp.last_match(2)
 
     return key, value
   end
@@ -169,7 +169,7 @@ class TableFileData
     @tableData.keys.each do |fileName|
       next unless /.*_(.+)/ === fileName
 
-      key = $1
+      key = Regexp.last_match(1)
 
       next unless /^(s|S)?#{key}(\s|$)/i === arg
 
@@ -179,7 +179,7 @@ class TableFileData
       next unless  isTargetGameType(gameType, targetGameType)
 
       oneTableData = data
-      isSecret = !$1.nil?
+      isSecret = !Regexp.last_match(1).nil?
       break
     end
 

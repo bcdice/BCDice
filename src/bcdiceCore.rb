@@ -337,7 +337,7 @@ class BCDice
 
     return unless  /(\d+)/ =~ @tnick
 
-    mode = $1.to_i
+    mode = Regexp.last_match(1).to_i
     @diceBot.setSendMode(mode)
 
     sendMessageToChannels("ViewMode#{@diceBot.sendMode}に変更しました")
@@ -348,7 +348,7 @@ class BCDice
 
     return unless  /(\d+)/ =~ @tnick
 
-    @diceBot.upplerRollThreshold = $1.to_i
+    @diceBot.upplerRollThreshold = Regexp.last_match(1).to_i
 
     if @diceBot.upplerRollThreshold > 0
       sendMessageToChannels("上方無限ロールを#{@diceBot.upplerRollThreshold}以上に設定しました")
@@ -362,7 +362,7 @@ class BCDice
 
     return unless  /(\d+)/ =~ @tnick
 
-    @diceBot.rerollLimitCount = $1.to_i
+    @diceBot.rerollLimitCount = Regexp.last_match(1).to_i
 
     if @diceBot.rerollLimitCount > 0
       sendMessageToChannels("個数振り足しロール回数を#{@diceBot.rerollLimitCount}以下に設定しました")
@@ -385,7 +385,7 @@ class BCDice
 
     return unless  /(\d+)/ =~ @tnick
 
-    sortType = $1.to_i
+    sortType = Regexp.last_match(1).to_i
     @diceBot.setSortType(sortType)
 
     if @diceBot.sortType != 0
@@ -406,7 +406,7 @@ class BCDice
 
     return unless  /(\d+)/ =~ @tnick
 
-    @isShortSpell = ($1.to_i != 0)
+    @isShortSpell = (Regexp.last_match(1).to_i != 0)
 
     if @isShortSpell
       sendMessageToChannels("短い呪文モードに変更しました")
@@ -420,7 +420,7 @@ class BCDice
 
     return unless  /(\d+)/ =~ @tnick
 
-    @canTapCard = ($1.to_i != 0)
+    @canTapCard = (Regexp.last_match(1).to_i != 0)
 
     if @canTapCard
       sendMessageToChannels("タップ可能モードに変更しました")
@@ -484,7 +484,7 @@ class BCDice
       debug("addPlot exit")
       return
     end
-    plot = $1
+    plot = Regexp.last_match(1)
 
     channel = getPrintPlotChannel(@nick_e)
 
@@ -615,7 +615,7 @@ class BCDice
 
     # 四則計算代行
     if /(^|\s)C([-\d]+)\s*$/i =~ @message
-      output = $2
+      output = Regexp.last_match(2)
       if output != ""
         sendMessage(@channel, "#{@nick_e}: 計算結果 ＞ #{output}")
       end
@@ -812,7 +812,7 @@ class BCDice
 
     return nil unless /(S)?[\d]+R[\d]+/i === arg
 
-    secret = !$1.nil?
+    secret = !Regexp.last_match(1).nil?
 
     output = @diceBot.dice_command_xRn(arg, @nick_e)
     return nil if  output.nil? || (output == '1')
@@ -834,7 +834,7 @@ class BCDice
 
     return nil unless /(S)?[\d]+U[\d]+/i === arg
 
-    secret = !$1.nil?
+    secret = !Regexp.last_match(1).nil?
 
     dice = UpperDice.new(self, @diceBot)
     output = dice.rollDice(arg)
@@ -848,8 +848,8 @@ class BCDice
 
     return nil unless /((^|\s)(S)?choice\[[^,]+(,[^,]+)+\]($|\s))/i === arg
 
-    secret = !$3.nil?
-    output = choice_random($1)
+    secret = !Regexp.last_match(3).nil?
+    output = choice_random(Regexp.last_match(1))
 
     return output, secret
   end
@@ -861,8 +861,8 @@ class BCDice
 
   def getTableIndexDiceValueAndDiceText(dice)
     if /(\d+)D(\d+)/i === dice
-      diceCount = $1
-      diceType = $2
+      diceCount = Regexp.last_match(1)
+      diceType = Regexp.last_match(2)
       value, diceText = roll(diceCount, diceType)
       return value, diceText
     end
@@ -1065,14 +1065,14 @@ class BCDice
       return output
     end
 
-    string = $2
-    if $5
-      diff = $7.to_i
-      string = $3
-      signOfInequality = marshalSignOfInequality($6)
+    string = Regexp.last_match(2)
+    if Regexp.last_match(5)
+      diff = Regexp.last_match(7).to_i
+      string = Regexp.last_match(3)
+      signOfInequality = marshalSignOfInequality(Regexp.last_match(6))
     elsif  /([<>=]+)(\d+)/ =~ @diceBot.defaultSuccessTarget
-      diff = $2.to_i
-      signOfInequality = marshalSignOfInequality($1)
+      diff = Regexp.last_match(2).to_i
+      signOfInequality = marshalSignOfInequality(Regexp.last_match(1))
     end
 
     dice_a = string.split(/\+/)
@@ -1145,10 +1145,10 @@ class BCDice
 
     return nil unless /(^|\s)(S)?((\d+)?D66(N|S)?)(\s|$)/i === string
 
-    secret = !$2.nil?
-    string = $3
-    count = ($4 || 1).to_i
-    swapMarker = ($5 || "").upcase
+    secret = !Regexp.last_match(2).nil?
+    string = Regexp.last_match(3)
+    count = (Regexp.last_match(4) || 1).to_i
+    swapMarker = (Regexp.last_match(5) || "").upcase
 
     return string, secret, count, swapMarker
   end
@@ -1237,7 +1237,7 @@ class BCDice
     nick = nick.upcase
 
     /[_\d]*(.+)[_\d]*/ =~ nick
-    nick = $1 # Nick端の数字はカウンター変わりに使われることが多いので除去
+    nick = Regexp.last_match(1) # Nick端の数字はカウンター変わりに使われることが多いので除去
 
     return nick
   end
@@ -1306,8 +1306,8 @@ class BCDice
       return output
     end
 
-    string = $2
-    targetList = $4
+    string = Regexp.last_match(2)
+    targetList = Regexp.last_match(4)
 
     unless targetList
       return output
@@ -1399,7 +1399,7 @@ class BCDice
 
     return "" unless /((\+|\-)?[\d]+)[)]?$/ =~ total_n.to_s
 
-    total_n = $1.to_i
+    total_n = Regexp.last_match(1).to_i
     diff = diff.to_i
 
     check_paramNew = [total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max]
@@ -1509,9 +1509,9 @@ class BCDice
     while /^(.*?)\[(\d+[Dd]\d+)\](.*)/ =~ string
       str_before = ""
       str_after = ""
-      dice_cmd = $2
-      str_before = $1 if $1
-      str_after = $3 if $3
+      dice_cmd = Regexp.last_match(2)
+      str_before = Regexp.last_match(1) if Regexp.last_match(1)
+      str_after = Regexp.last_match(3) if Regexp.last_match(3)
       rolled, dmy = rollDiceAddingUp(dice_cmd)
       string = "#{str_before}#{rolled}#{str_after}"
     end
@@ -1527,7 +1527,7 @@ class BCDice
     string = @diceBot.changeText(string)
     debug("diceBot.changeText(string) end", string)
 
-    string = string.gsub(/([\d]+[dD])([^\d\w]|$)/) { "#{$1}6#{$2}" }
+    string = string.gsub(/([\d]+[dD])([^\d\w]|$)/) { "#{Regexp.last_match(1)}6#{Regexp.last_match(2)}" }
 
     debug("parren_killer output", string)
 
@@ -1544,13 +1544,13 @@ class BCDice
     debug('[st...ed] before string', string)
 
     while /^(.*?)\[(\d+)[.]{3}(\d+)\](.*)/ =~ string
-      beforeText = $1
+      beforeText = Regexp.last_match(1)
       beforeText ||= ""
 
-      rangeBegin = $2.to_i
-      rangeEnd = $3.to_i
+      rangeBegin = Regexp.last_match(2).to_i
+      rangeEnd = Regexp.last_match(3).to_i
 
-      afterText = $4
+      afterText = Regexp.last_match(4)
       afterText ||= ""
 
       next unless rangeBegin < rangeEnd

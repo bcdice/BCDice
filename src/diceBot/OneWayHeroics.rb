@@ -66,7 +66,7 @@ MESSAGETEXT
     number, text =
       case type
       when /^(\d+)D6$/i
-        count = $1.to_i
+        count = Regexp.last_match(1).to_i
         dice, = roll(count, 6)
         getTableResult(table, dice, hasGap)
       when 'D66'
@@ -83,16 +83,16 @@ MESSAGETEXT
   def getRollDiceCommandResult(command)
     return nil unless /^(\d*)JD(\d*)(\+(\d*))?(,(\d+))?$/ === command
 
-    diceCount = $1
+    diceCount = Regexp.last_match(1)
     diceCount = 2 if diceCount.empty?
     diceCount = diceCount.to_i
     return nil if diceCount < 2
 
-    ability = $2.to_i
-    target = $6
+    ability = Regexp.last_match(2).to_i
+    target = Regexp.last_match(6)
     target = target.to_i unless target.nil?
 
-    modifyText = ($3 || "")
+    modifyText = (Regexp.last_match(3) || "")
     modifyText = "+1" if modifyText == "+"
     modifyValue = modifyText.to_i
 
@@ -202,7 +202,7 @@ MESSAGETEXT
   def getRandomEventDiceCommandResult(command)
     return nil unless /^RET(\d+)$/ === command
 
-    day = $1.to_i
+    day = Regexp.last_match(1).to_i
 
     name = "ランダムイベント表"
     table = [
@@ -225,7 +225,7 @@ MESSAGETEXT
   def getRandomEventPlusDiceCommandResult(command)
     return nil unless /^RETP(\d+)$/ === command
 
-    day = $1.to_i
+    day = Regexp.last_match(1).to_i
 
     name = "ランダムイベント表プラス"
     table = [
@@ -252,7 +252,7 @@ MESSAGETEXT
   def getDungeonTableDiceCommandResult(command)
     return nil unless /^DNGN(\d+)$/ === command
 
-    day = $1.to_i
+    day = Regexp.last_match(1).to_i
 
     name = "ダンジョン表"
     table =
@@ -280,7 +280,7 @@ MESSAGETEXT
   def getDungeonPlusTableDiceCommandResult(command)
     return nil unless /^DNGNP(\d+)$/ === command
 
-    day = $1.to_i
+    day = Regexp.last_match(1).to_i
 
     name = "ダンジョン表プラス"
     table =

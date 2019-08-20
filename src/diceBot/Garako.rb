@@ -45,13 +45,13 @@ MESSAGETEXT
       case command.upcase
 
       when /^GR((\+|\-)\d+)?>=(\d+)$/i
-        modifyString = $1
-        targetString = $3
+        modifyString = Regexp.last_match(1)
+        targetString = Regexp.last_match(3)
         checkRoll(modifyString, targetString)
 
       when /(\w)DC(\d+)/i
-        part = $1.upcase
-        damage = $2.to_i
+        part = Regexp.last_match(1).upcase
+        damage = Regexp.last_match(2).to_i
         get_damage_chart(part, damage)
 
       when 'PNM'

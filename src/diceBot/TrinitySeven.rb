@@ -48,18 +48,18 @@ MESSAGETEXT
     end
 
     if /^TR([\+\-\d]*)<=([\d]*)([\+\-\d]*)/ =~ command
-      critical = $1.to_i + 7
-      target = $2.to_i
-      modify = $3.to_i
+      critical = Regexp.last_match(1).to_i + 7
+      target = Regexp.last_match(2).to_i
+      modify = Regexp.last_match(3).to_i
       return rollHit(command, critical, target, modify)
     end
 
     critical = 0
 
     if /([\d]*)DM([\d]*)([\+\-\d]*)/ =~ command
-      diceCount = $1.to_i
-      critical = $2.to_i
-      modify = $3.to_i
+      diceCount = Regexp.last_match(1).to_i
+      critical = Regexp.last_match(2).to_i
+      modify = Regexp.last_match(3).to_i
       return rollDamage(command, diceCount, critical, modify)
     end
 

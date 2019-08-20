@@ -128,7 +128,7 @@ class BCDiceDialog < Wx::Dialog
 
     sectionNames.each do |name|
       if /#{@@serverSertPrefix}(.+)/ === name
-        serverSetNameList << $1
+        serverSetNameList << Regexp.last_match(1)
       end
     end
 

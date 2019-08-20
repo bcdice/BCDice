@@ -72,9 +72,9 @@ MESSAGETEXT
   def getCheckRollDiceCommandResult(command)
     return nil unless /(\d+)LH([\+\-\d]*)(>=([\+\-\d]*))?/i === command
 
-    diceCount = $1.to_i
-    modifyText = ($2 || '')
-    difficultyText = $4
+    diceCount = Regexp.last_match(1).to_i
+    modifyText = (Regexp.last_match(2) || '')
+    difficultyText = Regexp.last_match(4)
 
     # 修正値の計算
     modify = getValue(modifyText, 0)
@@ -136,15 +136,15 @@ MESSAGETEXT
   def getConsumptionDiceCommandResult(command)
     return nil unless /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command
 
-    type = $1
-    is_special = ($1 && $1.length > 1)
-    rank = ($2 && $2 != '') ? $2.to_i : nil
+    type = Regexp.last_match(1)
+    is_special = (Regexp.last_match(1) && Regexp.last_match(1).length > 1)
+    rank = (Regexp.last_match(2) && Regexp.last_match(2) != '') ? Regexp.last_match(2).to_i : nil
     return nil if !rank && !is_special
 
     rank ||= 0
-    is_choice = !$4.nil?
-    dice_value = $5
-    modifyText = $3
+    is_choice = !Regexp.last_match(4).nil?
+    dice_value = Regexp.last_match(5)
+    modifyText = Regexp.last_match(3)
     modify = getValue(modifyText, 0)
 
     tableName = ""
@@ -1496,7 +1496,7 @@ MESSAGETEXT
   def getPrefixedMagickItemDiceCommandResult(command)
     return nil unless /MGR([1-3])/ === command
 
-    rank = $1.to_i
+    rank = Regexp.last_match(1).to_i
 
     table_1 = [
       "接頭語：気合の　対応タグ：すべての武器\nアイテム効果：この武器の【攻撃力】に＋１する。",
@@ -1763,7 +1763,7 @@ MESSAGETEXT
 
     tableName = "ロデ研の新発明"
 
-    table_indicate_string = ($1 && $1 != '') ? $1 : 'MDLT'
+    table_indicate_string = (Regexp.last_match(1) && Regexp.last_match(1) != '') ? Regexp.last_match(1) : 'MDLT'
     is_single = (table_indicate_string.length == 1)
 
     result = []
@@ -1937,8 +1937,8 @@ MESSAGETEXT
   def getMusicalInstrumentTypeDiceCommandResult(command)
     return nil unless /MII(\d?)/ === command
 
-    type, is_roll = if $1 && $1 != ''
-                      [$1.to_i, false]
+    type, is_roll = if Regexp.last_match(1) && Regexp.last_match(1) != ''
+                      [Regexp.last_match(1).to_i, false]
                     else
                       roll(1, 6)
                     end

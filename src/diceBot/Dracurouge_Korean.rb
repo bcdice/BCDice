@@ -58,9 +58,9 @@ MESSAGETEXT
   def getConductResult(command)
     return nil unless /^DR(\d*)(\+(\d+))?$/ === command
 
-    diceCount = $1.to_i
+    diceCount = Regexp.last_match(1).to_i
     diceCount = 4 if diceCount == 0
-    thirstyPoint = $3.to_i
+    thirstyPoint = Regexp.last_match(3).to_i
 
     diceList = rollDiceList(diceCount)
 
@@ -119,7 +119,7 @@ MESSAGETEXT
   def getResistResult(command)
     return nil unless /^DRR(\d+)$/ === command
 
-    diceCount = $1.to_i
+    diceCount = Regexp.last_match(1).to_i
     diceCount = 4 if diceCount == 0
 
     diceList = rollDiceList(diceCount)
@@ -130,8 +130,8 @@ MESSAGETEXT
   def getReactionResult(command)
     return nil unless /^RT((\w)(\w))?/ === command.upcase
 
-    typeText1 = $2
-    typeText2 = $3
+    typeText1 = Regexp.last_match(2)
+    typeText2 = Regexp.last_match(3)
 
     name = "반응표"
     table = getReactionTable
@@ -225,7 +225,7 @@ TEXT_BLOCK
   def getCorruptionResult(command)
     return nil unless /^CT(\d+)$/ === command.upcase
 
-    modify = $1.to_i
+    modify = Regexp.last_match(1).to_i
 
     name = "타락표"
     table =

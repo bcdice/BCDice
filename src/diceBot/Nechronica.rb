@@ -30,10 +30,10 @@ INFO_MESSAGE_TEXT
   end
 
   def changeText(string)
-    string = string.gsub(/(\d+)NC(10)?([\+\-][\+\-\d]+)/i) { "#{$1}R10#{$3}[0]" }
-    string = string.gsub(/(\d+)NC(10)?/i) { "#{$1}R10[0]" }
-    string = string.gsub(/(\d+)NA(10)?([\+\-][\+\-\d]+)/i) { "#{$1}R10#{$3}[1]" }
-    string = string.gsub(/(\d+)NA(10)?/i) { "#{$1}R10[1]" }
+    string = string.gsub(/(\d+)NC(10)?([\+\-][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(3)}[0]" }
+    string = string.gsub(/(\d+)NC(10)?/i) { "#{Regexp.last_match(1)}R10[0]" }
+    string = string.gsub(/(\d+)NA(10)?([\+\-][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(3)}[1]" }
+    string = string.gsub(/(\d+)NA(10)?/i) { "#{Regexp.last_match(1)}R10[1]" }
 
     return string
   end
@@ -78,15 +78,15 @@ INFO_MESSAGE_TEXT
       return output
     end
 
-    string = $2
+    string = Regexp.last_match(2)
     signOfInequality = ">="
 
     dice_n = 1
-    dice_n = $3.to_i if $3
+    dice_n = Regexp.last_match(3).to_i if Regexp.last_match(3)
 
-    battleMode = $6.to_i
+    battleMode = Regexp.last_match(6).to_i
 
-    modText = $4
+    modText = Regexp.last_match(4)
     mod = parren_killer("(0#{modText})").to_i
 
     # 0=判定モード, 1=戦闘モード

@@ -31,9 +31,9 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     return nil unless /^(\d+)-2DR([\+\-\d]*)(>=(\d+))?$/i === command
 
-    baseAvility = $1.to_i
-    modText = $2
-    diffValue = $4
+    baseAvility = Regexp.last_match(1).to_i
+    modText = Regexp.last_match(2)
+    diffValue = Regexp.last_match(4)
 
     return roll2DR(baseAvility, modText, diffValue)
   end

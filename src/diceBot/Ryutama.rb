@@ -35,10 +35,10 @@ INFO_MESSAGE_TEXT
     end
     debug('matched')
 
-    dice1 = $1.to_i
-    dice2 = $3.to_i
-    modifyString = $4
-    difficulty = $6
+    dice1 = Regexp.last_match(1).to_i
+    dice2 = Regexp.last_match(3).to_i
+    modifyString = Regexp.last_match(4)
+    difficulty = Regexp.last_match(6)
 
     dice1, dice2 = getDiceType(dice1, dice2)
     if dice1 == 0

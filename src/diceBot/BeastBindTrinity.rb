@@ -60,15 +60,15 @@ INFO_MESSAGE_TEXT
   end
 
   def changeText(string)
-    string = string.gsub(/(\d+)BB6/i) { "#{$1}R6" }
-    string = string.gsub(/(\d+)BB/i)  { "#{$1}R6" }
-    string = string.gsub(/(\d+)BF6/i) { "#{$1}Q6" }
-    string = string.gsub(/(\d+)BF/i)  { "#{$1}Q6" }
-    string = string.gsub(/\%([\-\d]+)/i) { "[H:#{$1}]" }
-    string = string.gsub(/\@([\+\-\d]+)/i) { "[C#{$1}]" }
-    string = string.gsub(/\#([A]?[\+\-\d]+)/i) { "[F#{$1}]" }
-    string = string.gsub(/\$([1-6]+)/i) { "[S#{$1}]" }
-    string = string.gsub(/\&(\d)/i) { "[U#{$1}]" }
+    string = string.gsub(/(\d+)BB6/i) { "#{Regexp.last_match(1)}R6" }
+    string = string.gsub(/(\d+)BB/i)  { "#{Regexp.last_match(1)}R6" }
+    string = string.gsub(/(\d+)BF6/i) { "#{Regexp.last_match(1)}Q6" }
+    string = string.gsub(/(\d+)BF/i)  { "#{Regexp.last_match(1)}Q6" }
+    string = string.gsub(/\%([\-\d]+)/i) { "[H:#{Regexp.last_match(1)}]" }
+    string = string.gsub(/\@([\+\-\d]+)/i) { "[C#{Regexp.last_match(1)}]" }
+    string = string.gsub(/\#([A]?[\+\-\d]+)/i) { "[F#{Regexp.last_match(1)}]" }
+    string = string.gsub(/\$([1-6]+)/i) { "[S#{Regexp.last_match(1)}]" }
+    string = string.gsub(/\&(\d)/i) { "[U#{Regexp.last_match(1)}]" }
     return string
   end
 
@@ -303,7 +303,7 @@ INFO_MESSAGE_TEXT
 
     # 暴露表
     when /^EXPO_([ABIJ])/
-      case $1
+      case Regexp.last_match(1)
       when /A/
         type = '暴露表'
         tabletype = 1
@@ -321,7 +321,7 @@ INFO_MESSAGE_TEXT
 
     # 正体判明チャート
     when /^FACE_([ABC])/
-      case $1
+      case Regexp.last_match(1)
       when /A/
         type = '正体判明チャートA'
         tabletype = 1

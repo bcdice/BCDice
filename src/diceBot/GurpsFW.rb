@@ -81,8 +81,8 @@ INFO_MESSAGE_TEXT
 
     return '1', secret_flg unless self.class.prefixesPattern =~ string
 
-    secretMarker = $2
-    command = $3.upcase
+    secretMarker = Regexp.last_match(2)
+    command = Regexp.last_match(3).upcase
 
     output_msg = getCommandResult(command, name)
 
@@ -249,7 +249,7 @@ INFO_MESSAGE_TEXT
       result, number = get_table_by_nD6(table, 3)
 
     when /FEAR((\+)?\d+)?/
-      modify = $1.to_i
+      modify = Regexp.last_match(1).to_i
 
       tableName = "恐怖表"
       table = [
@@ -302,7 +302,7 @@ INFO_MESSAGE_TEXT
       result = table[num]
 
     when /REACT((\+|\-)?\d*)/
-      modify = $1.to_i
+      modify = Regexp.last_match(1).to_i
 
       tableName = "反応表"
       dice, dummy = roll(3, 6)
@@ -328,7 +328,7 @@ INFO_MESSAGE_TEXT
 
     when /TRAP(\w)/
       tableName = "トラップリスト"
-      diff = $1
+      diff = Regexp.last_match(1)
       dif, table = getTrapTable(diff)
       if table.nil?
         return ""
@@ -339,8 +339,8 @@ INFO_MESSAGE_TEXT
 
     when /TRS(E|N|H|L)(\d+)((\+|\-)?\d*)/
       tableName = "財宝テーブル"
-      diff = $1
-      depth = $2.to_i
+      diff = Regexp.last_match(1)
+      depth = Regexp.last_match(2).to_i
       num = depth / 10
       if num >= 6
         num = 5
@@ -355,8 +355,8 @@ INFO_MESSAGE_TEXT
       when "L"
         num += 3
       end
-      unless $4.nil?
-        num += $3.to_i
+      unless Regexp.last_match(4).nil?
+        num += Regexp.last_match(3).to_i
       end
       table = getTresureTable(num)
       if table.nil?
@@ -367,9 +367,9 @@ INFO_MESSAGE_TEXT
 
     when /RAND(E|N|H|L)(\d)?/
       tableName = "ランダムイベント表"
-      diff = $1
-      if !$2.nil?
-        dice1 = $2.to_i
+      diff = Regexp.last_match(1)
+      if !Regexp.last_match(2).nil?
+        dice1 = Regexp.last_match(2).to_i
       else
         dice1, dummy = roll(1, 6)
       end
@@ -381,9 +381,9 @@ INFO_MESSAGE_TEXT
 
     when /RENC(E|N|H|L)(\d)?/
       tableName = "ランダムエンカウント表"
-      diff = $1
-      if !$2.nil?
-        dice1 = $2.to_i
+      diff = Regexp.last_match(1)
+      if !Regexp.last_match(2).nil?
+        dice1 = Regexp.last_match(2).to_i
       else
         dice1, dummy = roll(1, 6)
       end
@@ -445,11 +445,11 @@ INFO_MESSAGE_TEXT
       text = ""
       modify = 0
 
-      unless $1.nil?
-        mode = $1
+      unless Regexp.last_match(1).nil?
+        mode = Regexp.last_match(1)
       end
-      unless $4.nil?
-        modify = $4.to_i
+      unless Regexp.last_match(4).nil?
+        modify = Regexp.last_match(4).to_i
       end
 
       dice, dummy = roll(3, 6)
@@ -624,7 +624,7 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
       result, number = get_table_by_d66(table)
 
     when /LOT(N|P)/
-      type = $1
+      type = Regexp.last_match(1)
       if type == "P"
         tableName = "ナンバーワンプレミアムくじ"
       else

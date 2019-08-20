@@ -55,8 +55,8 @@ INFO_MESSAGE_TEXT
     when /^RM$/i
       return getRandumMonster
     when /^CM(\w)(\d+)$/i
-      color = $1.upcase
-      index = $2.to_i
+      color = Regexp.last_match(1).upcase
+      index = Regexp.last_match(2).to_i
       return getMonster(color, index)
     else
       return getTableCommandResult(command, @@tables)

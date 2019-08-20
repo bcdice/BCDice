@@ -62,7 +62,7 @@ MESSAGETEXT
     # 各種コマンド
     case command
     when /LOT(N|P)/
-      type = $1
+      type = Regexp.last_match(1)
       if type == "P"
         tableName = "ナンバーワンプレミアムくじ"
       else
@@ -75,7 +75,7 @@ MESSAGETEXT
       result, number = getSpecialResult
 
     when /COOK([1-8])/
-      lv = $1.to_i
+      lv = Regexp.last_match(1).to_i
       tableName = "マジカルクッキング"
       result, number = getCookResult(lv)
 
@@ -111,15 +111,15 @@ MESSAGETEXT
     fmb = 17
 
     if /(\d[\+\-\d]*)-(\d+)FW(\@(\d+))?(\#(\d+))?/i === command
-      difficultyText = $1
-      diceCount = $2.to_i
-      crt = $4.to_i unless $3.nil?
-      fmb = $6.to_i unless $5.nil?
+      difficultyText = Regexp.last_match(1)
+      diceCount = Regexp.last_match(2).to_i
+      crt = Regexp.last_match(4).to_i unless Regexp.last_match(3).nil?
+      fmb = Regexp.last_match(6).to_i unless Regexp.last_match(5).nil?
     elsif /(\d+)FW(\@(\d+))?(\#(\d+))?(<=([\+\-\d]*))?/i === command
-      diceCount = $1.to_i
-      crt = $3.to_i unless $2.nil?
-      fmb = $5.to_i unless $4.nil?
-      difficultyText = $7
+      diceCount = Regexp.last_match(1).to_i
+      crt = Regexp.last_match(3).to_i unless Regexp.last_match(2).nil?
+      fmb = Regexp.last_match(5).to_i unless Regexp.last_match(4).nil?
+      difficultyText = Regexp.last_match(7)
     else
       return nil
     end
@@ -447,8 +447,8 @@ MESSAGETEXT
   def getTresureResult(command)
     return nil unless /TRS(\d+)([\+\-]\d)?/ === command
 
-    rank   = $1.to_i
-    modify = $2.to_i
+    rank   = Regexp.last_match(1).to_i
+    modify = Regexp.last_match(2).to_i
 
     tableName = "財宝表"
 
@@ -580,7 +580,7 @@ MESSAGETEXT
   def getTrapResult(command)
     return nil unless /TRAP(E|N|H|L)/ === command
 
-    dif = $1
+    dif = Regexp.last_match(1)
     tableName = "トラップ表"
 
     case dif
@@ -632,7 +632,7 @@ MESSAGETEXT
   def getRandomOptionResult(command)
     return nil unless /ROP(E|N|H|L)/ === command
 
-    dif = $1
+    dif = Regexp.last_match(1)
     tableName = "迷宮追加オプション表"
 
     case dif
@@ -709,14 +709,14 @@ MESSAGETEXT
   # 夢幻の迷宮ランダムイベント表
   def getRandomEventResult(command)
     if /RAND(E|N|H|L)([1-6])?/ === command
-      dif = $1
-      area  = $2.to_i
-      area, = roll(1, 6) if $2.nil?
+      dif = Regexp.last_match(1)
+      area  = Regexp.last_match(2).to_i
+      area, = roll(1, 6) if Regexp.last_match(2).nil?
       type, = roll(1, 6)
     elsif /RENC(E|N|H|L)([1-6])?/ === command
-      dif = $1
-      area  = $2.to_i
-      area, = roll(1, 6) if $2.nil?
+      dif = Regexp.last_match(1)
+      area  = Regexp.last_match(2).to_i
+      area, = roll(1, 6) if Regexp.last_match(2).nil?
       type  = 4
     else
       return nil
@@ -1216,14 +1216,14 @@ MESSAGETEXT
   # 夢幻の迷宮エネミーデータ表
   def getRandomEnemyDataResult(command)
     if /RED(E|N|H|L)(256|265|465|665|666)/ === command
-      dif = $1
+      dif = Regexp.last_match(1)
       area   = 0
-      event  = $2.to_i
+      event  = Regexp.last_match(2).to_i
       number = event
     elsif /RED(E|N|H|L)([1-6])4([1-6])/ === command
-      dif = $1
-      area   = $2.to_i
-      event  = $3.to_i
+      dif = Regexp.last_match(1)
+      area   = Regexp.last_match(2).to_i
+      event  = Regexp.last_match(3).to_i
       number = "#{area}4#{event}"
     else
       return nil

@@ -62,11 +62,11 @@ MESSAGETEXT
   def judgeRoll(command)
     return nil unless /^BM(S)?(\d*)(@(\d+))?>=(\d+)$/i =~ command
 
-    isStop = !$1.nil?
-    skillRank = $2.to_i
-    judgeNumberText = $3
-    judgeNumber = ($4 || 4).to_i
-    targetNumber = ($5 || 1).to_i
+    isStop = !Regexp.last_match(1).nil?
+    skillRank = Regexp.last_match(2).to_i
+    judgeNumberText = Regexp.last_match(3)
+    judgeNumber = (Regexp.last_match(4) || 4).to_i
+    targetNumber = (Regexp.last_match(5) || 1).to_i
 
     message = ""
     diceCount = skillRank + 2
@@ -87,10 +87,10 @@ MESSAGETEXT
 
     debug("ReRoll pass")
 
-    rerollCountsText = $1
-    judgeNumberText = $2
-    judgeNumber = ($3 || 4).to_i
-    targetNumber = $4.to_i
+    rerollCountsText = Regexp.last_match(1)
+    judgeNumberText = Regexp.last_match(2)
+    judgeNumber = (Regexp.last_match(3) || 4).to_i
+    targetNumber = Regexp.last_match(4).to_i
 
     rerollCounts = rerollCountsText.split(/,/).collect { |i| i.to_i }
 
@@ -257,7 +257,7 @@ MESSAGETEXT
   def getRulingPlanetDiceCommandResult(command)
     return nil unless /^RP(\d+)/i === command
 
-    targetNumbers = $1.split(//).collect { |i| i.to_i }
+    targetNumbers = Regexp.last_match(1).split(//).collect { |i| i.to_i }
     diceList = getRulingPlanetDice
 
     matchResult = "失敗"

@@ -130,7 +130,7 @@ INFO_MESSAGE_TEXT
       ]
       return textFrom1D6Table(title, table)
     when /^AT([1-6]?)$/
-      value = $1.to_i
+      value = Regexp.last_match(1).to_i
       return getSkillList(value)
     when "SCENE"
       title = "シーン表(P199)"

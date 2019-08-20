@@ -72,15 +72,15 @@ INFO_MESSAGE_TEXT
   def amadeusDice(command)
     return nil unless /^(R([A-DS])([\+\-\d]*))(@(\d))?((>(=)?)([\+\-\d]*))?(@(\d))?$/i =~ command
 
-    commandText = $1
-    skillRank = $2
-    modifyText = $3
-    signOfInequality = ($7.nil? ? ">=" : $7)
-    targetText = ($9.nil? ? "4" : $9)
-    if nil | $5
-      specialNum = $5.to_i
-    elsif nil | $11
-      specialNum = $11.to_i
+    commandText = Regexp.last_match(1)
+    skillRank = Regexp.last_match(2)
+    modifyText = Regexp.last_match(3)
+    signOfInequality = (Regexp.last_match(7).nil? ? ">=" : Regexp.last_match(7))
+    targetText = (Regexp.last_match(9).nil? ? "4" : Regexp.last_match(9))
+    if nil | Regexp.last_match(5)
+      specialNum = Regexp.last_match(5).to_i
+    elsif nil | Regexp.last_match(11)
+      specialNum = Regexp.last_match(11).to_i
     else
       specialNum = 6
     end

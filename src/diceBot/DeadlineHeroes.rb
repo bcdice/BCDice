@@ -38,12 +38,12 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     case command
     when /^DLH(\d+([\+\-]\d+)*)/i
-      expressions = $1
+      expressions = Regexp.last_match(1)
       return resolute_action(expressions)
 
     when /^DC(L||S|C)(\d+)/i
-      type = $1
-      minusScore = $2.to_i
+      type = Regexp.last_match(1)
+      minusScore = Regexp.last_match(2).to_i
 
       chartName =
         case type
@@ -58,7 +58,7 @@ INFO_MESSAGE_TEXT
       return fetchDeathChart(chartName, minusScore)
 
     when /^RNC([JO])/i
-      type = $1
+      type = Regexp.last_match(1)
       chartName = ((type == 'J') ? '日本' : '海外')
 
       roll_result, dice10, dice01 = roll_d100
@@ -309,7 +309,7 @@ INFO_MESSAGE_TEXT
     result[:coreResult] = result[:result]
 
     if result[:result] =~ /［(.+)］/
-      innerResult = rollHeroNameElementChart($1.to_s)
+      innerResult = rollHeroNameElementChart(Regexp.last_match(1).to_s)
       result[:innerResult] = innerResult
       result[:innerChartName] = innerResult[:chartName]
       result[:coreResult] = innerResult[:name]

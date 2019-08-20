@@ -22,7 +22,7 @@ MESSAGETEXT
   def rollDiceCommand(command)
     case command
     when /^ACT(\d+)$/i
-      number = $1.to_i
+      number = Regexp.last_match(1).to_i
       info = @@tables["ACT"]
       name = info[:name]
       table = getTableInfoFromExtraTableText(info[:table])

@@ -46,8 +46,8 @@ MESSAGETEXT
   def rollDiceCommand(command)
     count = 1
     if /^(\d+)(.+)/ === command
-      count = $1.to_i
-      command = $2
+      count = Regexp.last_match(1).to_i
+      command = Regexp.last_match(2)
     end
 
     debug('executeCommandCatched count', count)
@@ -60,17 +60,17 @@ MESSAGETEXT
     when /^DW$/
       return getDownResult()
     when /^CD(\d+)$/
-      damage = $1.to_i
+      damage = Regexp.last_match(1).to_i
       return getCheckDieResult(damage)
     when /^((S|L)RM\d+)(.+)/
-      tail = $3
-      type = $1
+      tail = Regexp.last_match(3)
+      type = Regexp.last_match(1)
       damageFunc = lambda { getXrmDamage(type) }
       return getHitResult(count, damageFunc, tail)
     when /^BT(\d+)(.+)/
       debug('BT pattern')
-      tail = $2
-      damageValue = $1.to_i
+      tail = Regexp.last_match(2)
+      damageValue = Regexp.last_match(1).to_i
       damageFunc = lambda { damageValue }
       return getHitResult(count, damageFunc, tail)
     end
@@ -114,9 +114,9 @@ MESSAGETEXT
   def getHitResult(count, damageFunc, tail)
     return nil unless /(\w*)(\+\d+)?>=(\d+)/ === tail
 
-    side = $1
-    baseString = $2
-    target = $3.to_i
+    side = Regexp.last_match(1)
+    baseString = Regexp.last_match(2)
+    target = Regexp.last_match(3).to_i
     base = getBaseValue(baseString)
     debug("side, base, target", side, base, target)
 

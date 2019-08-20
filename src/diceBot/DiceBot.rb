@@ -196,8 +196,8 @@ class DiceBot
       return '1', secret_flg
     end
 
-    secretMarker = $2
-    command = $3
+    secretMarker = Regexp.last_match(2)
+    command = Regexp.last_match(3)
 
     command = removeDiceCommandMessage(command)
     debug("dicebot after command", command)
@@ -397,12 +397,12 @@ class DiceBot
     diceList = []
 
     if /\[([\d,]+)\]/ =~ diceText
-      diceText = $1
+      diceText = Regexp.last_match(1)
     end
 
     return diceList unless /([\d,]+)/ =~ diceText
 
-    diceString = $1
+    diceString = Regexp.last_match(1)
     diceList = diceString.split(/,/).collect { |i| i.to_i }
 
     debug("diceList", diceList)
@@ -466,8 +466,8 @@ class DiceBot
     text, number, diceText =
       case type
       when /(\d+)D(\d+)/
-        count = $1.to_i
-        diceType = $2.to_i
+        count = Regexp.last_match(1).to_i
+        diceType = Regexp.last_match(2).to_i
         limit = diceType * count - (count - 1)
         table = getTableInfoFromExtraTableText(table, limit)
         get_table_by_nDx_extratable(table, count, diceType)
@@ -505,7 +505,7 @@ class DiceBot
 
     newTable = text.map do |item|
       if item.is_a?(String) && (/^(\d+):(.*)/ === item)
-        [$1.to_i, $2]
+        [Regexp.last_match(1).to_i, Regexp.last_match(2)]
       else
         item
       end

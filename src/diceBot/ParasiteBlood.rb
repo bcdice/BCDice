@@ -33,8 +33,8 @@ INFO_MESSAGE_TEXT
       return '1'
     end
 
-    initialWord = $1
-    urgelv = $2.to_i
+    initialWord = Regexp.last_match(1)
+    urgelv = Regexp.last_match(2).to_i
 
     case initialWord
     when ""

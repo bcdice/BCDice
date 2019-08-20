@@ -31,7 +31,7 @@ MESSAGETEXT
   end
 
   def changeText(string)
-    string = string.gsub(/^(S)?G/i) { "#{$1}2D6" }
+    string = string.gsub(/^(S)?G/i) { "#{Regexp.last_match(1)}2D6" }
     return string
   end
 

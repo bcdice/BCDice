@@ -41,7 +41,7 @@ INFO_MESSAGE_TEXT
       tableName, result, number = getReimonCompensationTableResult
 
     when /^MT(\d*)$/
-      rank = $1
+      rank = Regexp.last_match(1)
       rank ||= 1
       rank = rank.to_i
       tableName, result, number = getGetMaterialTableResult(rank)
@@ -238,7 +238,7 @@ INFO_MESSAGE_TEXT
 
     case effect
     when /\+(\d+)/
-      power = $1.to_i
+      power = Regexp.last_match(1).to_i
     when /付与/
       power = 3
     when /半減/

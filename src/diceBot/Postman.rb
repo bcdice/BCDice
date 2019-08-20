@@ -51,15 +51,15 @@ MESSAGETEXT
       case command.upcase
 
       when /(\d+)?PO(\d+)?(([+-]\d+)*)?((>|>=|@)(\d+)(([+-]\d+)*)?)?/i
-        diceCount = ($1 || 2).to_i
+        diceCount = (Regexp.last_match(1) || 2).to_i
         diceCount = 2 if diceCount < 2
 
-        modify = ($2 || 0).to_i
-        modifyAddString = $3
+        modify = (Regexp.last_match(2) || 0).to_i
+        modifyAddString = Regexp.last_match(3)
 
-        type = ($6 || '')
-        target = ($7 || 0).to_i
-        targetAddString = $8
+        type = (Regexp.last_match(6) || '')
+        target = (Regexp.last_match(7) || 0).to_i
+        targetAddString = Regexp.last_match(8)
 
         modify_list = modifyAddString.scan(/[+-]\d+/)
         modify_list.each { |i| modify += i.to_i }
@@ -72,7 +72,7 @@ MESSAGETEXT
         checkRoll(diceCount, modify, type, target)
 
       when /WEA(\d+)?/i
-        roc = ($1 || 0).to_i
+        roc = (Regexp.last_match(1) || 0).to_i
         get_weather_table(roc)
 
       when 'FRE'

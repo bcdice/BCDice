@@ -51,7 +51,7 @@ MESSAGETEXT
     diff = 0
 
     if /TK?<=(\d+)/i =~ command
-      diff = $2.to_i
+      diff = Regexp.last_match(2).to_i
     end
 
     if diff > 0

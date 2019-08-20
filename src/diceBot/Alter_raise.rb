@@ -46,39 +46,39 @@ MESSAGETEXT
       case command.upcase
 
       when /EMA(\d+)?$/i
-        roc = ($1 || 0).to_i
+        roc = (Regexp.last_match(1) || 0).to_i
         get_emancipation_table(roc)
 
       when /PER(\d+)?$/i
-        roc = ($1 || 0).to_i
+        roc = (Regexp.last_match(1) || 0).to_i
         get_personality_table(roc)
 
       when /LOC(\d+)?$/i
-        roc = ($1 || 0).to_i
+        roc = (Regexp.last_match(1) || 0).to_i
         get_location_table(roc)
 
       when /QUI(\d+)?$/i
-        roc = ($1 || 0).to_i
+        roc = (Regexp.last_match(1) || 0).to_i
         get_quiet_table(roc)
 
       when /DEL(\d+)?$/i
-        roc = ($1 || 0).to_i
+        roc = (Regexp.last_match(1) || 0).to_i
         get_delight_table(roc)
 
       when /TRA(\d+)?$/i
-        roc = ($1 || 0).to_i
+        roc = (Regexp.last_match(1) || 0).to_i
         get_trauma_table(roc)
 
       when /SCE(\d+)?$/i
-        roc = ($1 || 0).to_i
+        roc = (Regexp.last_match(1) || 0).to_i
         get_scene_production_table(roc)
 
       when /STA(\d+)?$/i
-        roc = ($1 || 0).to_i
+        roc = (Regexp.last_match(1) || 0).to_i
         get_stance_table(roc)
 
       when /EMO(\d+)?$/i
-        roc = ($1 || 0).to_i
+        roc = (Regexp.last_match(1) || 0).to_i
         get_emotion_table(roc)
 
       end

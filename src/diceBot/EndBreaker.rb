@@ -29,7 +29,7 @@ MESSAGETEXT
 
   def rollDiceCommand(command)
     if /(\d+)EB/i === command
-      diceCount = $1.to_i
+      diceCount = Regexp.last_match(1).to_i
       return checkRoll(diceCount)
     end
 
