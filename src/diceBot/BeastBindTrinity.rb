@@ -180,7 +180,7 @@ INFO_MESSAGE_TEXT
 
     # 出目予約の有無を確認
     if str_dicesubs
-      for i in str_dicesubs.split(//) do dicesubs.push(i.to_i) if dicesubs.size < dice_c end
+      str_dicesubs.split(//).each { |i| dicesubs.push(i.to_i) if dicesubs.size < dice_c }
       debug("▼ダイス出目予約 #{dicesubs}")
     end
 
@@ -210,7 +210,7 @@ INFO_MESSAGE_TEXT
     if dicepull # 出目引き上げ機能
       debug("▼出目引き上げ #{dicepull}")
       dice_num_old = dice_num.dup
-      for i in 0...dice_num.size do dice_num[i] = [dice_num[i], dicepull].max end
+      (0...dice_num.size).each { |i| dice_num[i] = [dice_num[i], dicepull].max }
       pul_flg = dice_num == dice_num_old ? false : true
       debug("▼出目引き上げの有無について #{pul_flg}")
 

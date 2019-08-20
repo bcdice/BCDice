@@ -95,7 +95,7 @@ INFO_MESSAGE_TEXT
     message = "(#{commandText}#{specialText}#{signOfInequality}#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "
     diceList = [diceList.min] if skillRank == "D"
     is_loop = false
-    for dice in diceList do
+    diceList.each do |dice|
       if  is_loop
         message += " / "
       elsif diceList.length > 1

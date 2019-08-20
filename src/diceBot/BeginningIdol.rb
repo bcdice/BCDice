@@ -2197,7 +2197,7 @@ INFO_MESSAGE_TEXT
 
     total = 0
     diceUse = []
-    for i in 1..7
+    (1..7).each do |i|
       if diceAll.count(i.to_s) == 1
         total += i
         diceUse.push(i)

@@ -62,7 +62,7 @@ INFO_MESSAGE_TEXT
   def check_lostroyal(checking_table)
     keys = []
 
-    for i in 0...3
+    (0...3).each do |_i|
       key, = roll(1, 6)
       keys << key
     end
@@ -126,7 +126,7 @@ INFO_MESSAGE_TEXT
   end
 
   def is_fumble?(keys, chained_sequence)
-    for k in chained_sequence
+    chained_sequence.each do |k|
       if keys.count(k) >= 2 then
         return true
       end

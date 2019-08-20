@@ -302,20 +302,6 @@ Style/DoubleNegation:
   Exclude:
     - 'test/DiceBotTest.rb'
 
-# Offense count: 9
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: each, for
-Style/For:
-  Exclude:
-    - 'diceBot/Amadeus.rb'
-    - 'diceBot/Amadeus_Korean.rb'
-    - 'diceBot/BeastBindTrinity.rb'
-    - 'diceBot/BeginningIdol.rb'
-    - 'diceBot/BeginningIdol_Korean.rb'
-    - 'diceBot/EndBreaker.rb'
-    - 'diceBot/LostRoyal.rb'
-
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
