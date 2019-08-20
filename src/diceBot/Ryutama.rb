@@ -59,7 +59,7 @@ INFO_MESSAGE_TEXT
     end
 
     value1Text = "#{value1}(#{dice1})"
-    value2Text = ((value2 == 0) ? "" : "+#{value2}(#{dice2})")
+    value2Text = (value2 == 0 ? "" : "+#{value2}(#{dice2})")
     modifyText = getModifyString(modify)
 
     baseText = getBaseText(dice1, dice2, modify, difficulty)

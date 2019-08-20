@@ -71,7 +71,7 @@ INFO_MESSAGE_TEXT
     end
 
     unless difficulty.nil?
-      result += (totalValue >= difficulty) ? ' ＞ 成功' : ' ＞ 失敗'
+      result += totalValue >= difficulty ? ' ＞ 成功' : ' ＞ 失敗'
     end
 
     return result

@@ -70,7 +70,7 @@ MESSAGETEXT
 
   def getCheckShockResult(damage, toughness)
     dice, diceText = roll(damage, 6)
-    result = ((dice <= toughness) ? '成功' : '失敗')
+    result = (dice <= toughness ? '成功' : '失敗')
 
     text = "ショック判定(ダメージ:#{damage}, 耐久力:#{toughness}) ＞ (#{dice}[#{diceText}]) ＞ #{result}"
     return text

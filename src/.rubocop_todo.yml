@@ -399,22 +399,7 @@ Style/RandomWithOffset:
     - 'diceBot/ArsMagica.rb'
     - 'diceBot/MeikyuKingdom.rb'
 
-# Offense count: 12
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, AllowSafeAssignment.
-# SupportedStyles: require_parentheses, require_no_parentheses, require_parentheses_when_complex
-Style/TernaryParentheses:
-  Exclude:
-    - 'diceBot/BattleTech.rb'
-    - 'diceBot/DeadlineHeroes.rb'
-    - 'diceBot/HarnMaster.rb'
-    - 'diceBot/LogHorizon.rb'
-    - 'diceBot/LogHorizon_Korean.rb'
-    - 'diceBot/Ryutama.rb'
-    - 'diceBot/StrangerOfSwordCity.rb'
-    - 'diceBot/SwordWorld.rb'
-
-# Offense count: 1
+# Offense count: 6
 # Cop supports --auto-correct.
 # Configuration parameters: ExactNameMatch, AllowPredicates, AllowDSLWriters, IgnoreClassMethods, Whitelist.
 # Whitelist: to_ary, to_a, to_c, to_enum, to_h, to_hash, to_i, to_int, to_io, to_open, to_path, to_proc, to_r, to_regexp, to_str, to_s, to_sym
