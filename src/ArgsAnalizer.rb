@@ -7,7 +7,7 @@ class ArgsAnalizer
     @isStartIrc = true
   end
 
-  attr :isStartIrc
+  attr_reader :isStartIrc
 
   def analize
     isAnalized = false

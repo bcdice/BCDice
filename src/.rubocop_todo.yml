@@ -197,13 +197,6 @@ Style/AccessModifierDeclarations:
     - 'irc/encode.rb'
     - 'test/DiceBotTest.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/Attr:
-  Exclude:
-    - 'ArgsAnalizer.rb'
-    - 'cgiDiceBot.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
