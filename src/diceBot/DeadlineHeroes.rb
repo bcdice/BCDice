@@ -59,7 +59,7 @@ INFO_MESSAGE_TEXT
 
     when /^RNC([JO])/i
       type = Regexp.last_match(1)
-      chartName = ((type == 'J') ? '日本' : '海外')
+      chartName = (type == 'J' ? '日本' : '海外')
 
       roll_result, dice10, dice01 = roll_d100
 

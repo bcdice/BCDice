@@ -138,7 +138,7 @@ MESSAGETEXT
 
     type = Regexp.last_match(1)
     is_special = (Regexp.last_match(1) && Regexp.last_match(1).length > 1)
-    rank = (Regexp.last_match(2) && Regexp.last_match(2) != '') ? Regexp.last_match(2).to_i : nil
+    rank = Regexp.last_match(2) && Regexp.last_match(2) != '' ? Regexp.last_match(2).to_i : nil
     return nil if !rank && !is_special
 
     rank ||= 0
@@ -1763,7 +1763,7 @@ MESSAGETEXT
 
     tableName = "ロデ研の新発明"
 
-    table_indicate_string = (Regexp.last_match(1) && Regexp.last_match(1) != '') ? Regexp.last_match(1) : 'MDLT'
+    table_indicate_string = Regexp.last_match(1) && Regexp.last_match(1) != '' ? Regexp.last_match(1) : 'MDLT'
     is_single = (table_indicate_string.length == 1)
 
     result = []

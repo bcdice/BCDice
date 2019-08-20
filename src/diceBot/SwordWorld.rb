@@ -167,7 +167,7 @@ INFO_MESSAGE_TEXT
 
       diceResultTotals << dice.to_s
       diceResults << diceText.to_s
-      rateResults << ((dice > 2) ? rateValue : "**")
+      rateResults << (dice > 2 ? rateValue : "**")
 
       round += 1
 
@@ -448,7 +448,7 @@ INFO_MESSAGE_TEXT
 
     return addText if addValue == 0
 
-    operator = ((addValue > 0) ? "+" : "")
+    operator = (addValue > 0 ? "+" : "")
     addText += "#{operator}#{addValue}"
 
     return addText
