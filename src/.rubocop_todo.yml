@@ -372,15 +372,6 @@ Style/IfWithSemicolon:
   Exclude:
     - 'CardTrader.rb'
 
-# Offense count: 5
-# Cop supports --auto-correct.
-Style/InfiniteLoop:
-  Exclude:
-    - 'diceBot/BeginningIdol.rb'
-    - 'diceBot/BeginningIdol_Korean.rb'
-    - 'diceBot/LostRoyal.rb'
-    - 'irc/ircLib.rb'
-
 # Offense count: 122
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.

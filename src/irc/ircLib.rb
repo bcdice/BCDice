@@ -40,7 +40,7 @@ class Net
 
         @log.debug "while loop begin"
         l = nil
-        while true
+        loop do
           begin
             while l = @socket.gets
               @log.debug "RECEIVE: #{l.chomp}"

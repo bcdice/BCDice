@@ -155,7 +155,7 @@ INFO_MESSAGE_TEXT
     total_bonus = 0
     text = ""
 
-    while true
+    loop do
       dice, = roll(1, 6)
       key += dice
 
@@ -209,7 +209,7 @@ INFO_MESSAGE_TEXT
     total = 0
     text = ""
 
-    while true
+    loop do
       d1, = roll(1, 6)
       d2 = 0
 
