@@ -24,6 +24,10 @@ Style/Lambda:
 Style/SafeNavigation:
   Enabled: false
 
+# Due to old Ruby 1.8.x
+Style/SpecialGlobalVars:
+  EnforcedStyle: use_perl_names
+
 Layout/EndOfLine:
   EnforcedStyle: lf
 

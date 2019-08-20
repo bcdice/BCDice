@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 bcDiceRoot = File.expand_path(File.dirname(__FILE__))
-unless $LOAD_PATH.include?(bcDiceRoot)
-  $LOAD_PATH.unshift(bcDiceRoot)
+unless $:.include?(bcDiceRoot)
+  $:.unshift(bcDiceRoot)
 end
 
 require 'bcdiceCore.rb'

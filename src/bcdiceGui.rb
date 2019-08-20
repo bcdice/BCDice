@@ -10,7 +10,7 @@ require 'ArgsAnalizer.rb'
 require 'IniFile.rb'
 require 'diceBot/DiceBotLoader'
 
-$LOAD_PATH.push(File.dirname(__FILE__) + "/irc")
+$:.push(File.dirname(__FILE__) + "/irc")
 require 'ircLib.rb'
 require 'ircBot.rb'
 

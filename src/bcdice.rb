@@ -1,7 +1,7 @@
 #!/bin/ruby -Ku
 # -*- coding: utf-8 -*-
 
-$LOAD_PATH.push(File.dirname(__FILE__)) # require_relative対策
+$:.push(File.dirname(__FILE__)) # require_relative対策
 
 require 'configBcDice.rb'
 
