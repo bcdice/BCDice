@@ -382,18 +382,6 @@ Style/MultipleComparison:
   Exclude:
     - 'diceBot/LostRoyal.rb'
 
-# Offense count: 12
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: both, prefix, postfix
-Style/NegatedIf:
-  Exclude:
-    - 'CardTrader.rb'
-    - 'diceBot/LogHorizon.rb'
-    - 'diceBot/LogHorizon_Korean.rb'
-    - 'diceBot/MetalHead.rb'
-    - 'diceBot/Raisondetre.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/NegatedWhile:

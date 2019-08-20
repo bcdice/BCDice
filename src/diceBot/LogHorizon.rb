@@ -141,7 +141,7 @@ MESSAGETEXT
     rank = ($2 && $2 != '') ? $2.to_i : nil
     return nil if !rank && !is_special
 
-    rank = 0 if !rank
+    rank ||= 0
     is_choice = !$4.nil?
     dice_value = $5
     modifyText = $3
