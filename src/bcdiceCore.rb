@@ -1553,14 +1553,14 @@ class BCDice
       afterText = $4
       afterText ||= ""
 
-      if rangeBegin < rangeEnd
-        range = (rangeEnd - rangeBegin + 1)
-        debug('range', range)
+      next unless rangeBegin < rangeEnd
 
-        rolledNumber, = roll(1, range)
-        resultNumber = rangeBegin - 1 + rolledNumber
-        string = "#{beforeText}#{resultNumber}#{afterText}"
-      end
+      range = (rangeEnd - rangeBegin + 1)
+      debug('range', range)
+
+      rolledNumber, = roll(1, range)
+      resultNumber = rangeBegin - 1 + rolledNumber
+      string = "#{beforeText}#{resultNumber}#{afterText}"
     end
 
     debug('[st...ed] after string', string)

@@ -254,34 +254,34 @@ class CountHolder
     if pc_list
       sort_pc = {}
       pc_list.each do |pc_o|
-        if $point_counter["#{nick},#{pc_o}"]
-          tag_out = ""
-          if tag
-            check_name = "#{nick},#{pc_o}"
-            if $point_counter["#{check_name},#{tag},0"]
-              sort_pc[check_name] = $point_counter["#{check_name},#{tag},0"]
-            end
-            if $point_counter["#{check_name},#{tag},1"]
-              sort_pc[check_name] = $point_counter["#{check_name},#{tag},1"]
-            end
-          else
-            tag_arr = $point_counter["#{nick},#{pc_o}"]
-            tag_arr.each do |tag_o|
-              check_name = "#{nick},#{pc_o},#{tag_o}"
-              if $point_counter["#{check_name},0"]
-                tag_out += "$tag_o(" + $point_counter["#{check_name},0"] + ") "
-              end
-              if $point_counter["#{check_name},1"]
-                tag_out += "#{tag_o}[" + $point_counter["#{check_name},1"] + "] "
-              end
-            end
+        next unless $point_counter["#{nick},#{pc_o}"]
+
+        tag_out = ""
+        if tag
+          check_name = "#{nick},#{pc_o}"
+          if $point_counter["#{check_name},#{tag},0"]
+            sort_pc[check_name] = $point_counter["#{check_name},#{tag},0"]
           end
-          if tag_out
-            debug("中身があるなら")
-            pc_out += ", " if pc_out
-            pc_out += "#{pc_o.downcase}:#{tag_out}"
+          if $point_counter["#{check_name},#{tag},1"]
+            sort_pc[check_name] = $point_counter["#{check_name},#{tag},1"]
+          end
+        else
+          tag_arr = $point_counter["#{nick},#{pc_o}"]
+          tag_arr.each do |tag_o|
+            check_name = "#{nick},#{pc_o},#{tag_o}"
+            if $point_counter["#{check_name},0"]
+              tag_out += "$tag_o(" + $point_counter["#{check_name},0"] + ") "
+            end
+            if $point_counter["#{check_name},1"]
+              tag_out += "#{tag_o}[" + $point_counter["#{check_name},1"] + "] "
+            end
           end
         end
+        next unless tag_out
+
+        debug("中身があるなら")
+        pc_out += ", " if pc_out
+        pc_out += "#{pc_o.downcase}:#{tag_out}"
       end
 
       if tag

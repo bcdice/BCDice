@@ -151,18 +151,17 @@ MESSAGETEXT
       message += resultText
 
       sameDiceList = getSameDieList(diceList)
-      unless sameDiceList.empty?
+      next if sameDiceList.empty?
 
-        rerollText = ""
-        sameDiceList.each do |list|
-          rerollText += "," unless rerollText.empty?
-          rerollText += list.join('')
-        end
-
-        rerollTargetList << sameDiceList.collect { |i| i.count }.join(",")
-
-        message += "、リロール[#{rerollText}]"
+      rerollText = ""
+      sameDiceList.each do |list|
+        rerollText += "," unless rerollText.empty?
+        rerollText += list.join('')
       end
+
+      rerollTargetList << sameDiceList.collect { |i| i.count }.join(",")
+
+      message += "、リロール[#{rerollText}]"
     end
 
     rerollCommand = ""
