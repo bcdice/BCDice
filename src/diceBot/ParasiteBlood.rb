@@ -78,7 +78,7 @@ INFO_MESSAGE_TEXT
       table = get_pb_normal_urge_table
     end
 
-    return table[level - 1 ][dice - 2]
+    return table[level - 1][dice - 2]
   end
 
   def get_pb_normal_urge_table

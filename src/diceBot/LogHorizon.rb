@@ -579,11 +579,11 @@ MESSAGETEXT
   def getOtherTresureResultString(table, number)
     result =
       case number
-      when 63 .. 72
+      when 63..72
         get_table_by_number(number - 10, table) + '&80G'
-      when 73 .. 82
+      when 73..82
         get_table_by_number(number - 20, table) + '&160G'
-      when 83 .. 87
+      when 83..87
         get_table_by_number(number - 30, table) + '&260G'
       else
         get_table_by_number(number, table)
@@ -595,11 +595,11 @@ MESSAGETEXT
   def getOtherTresureResultStringEx(table, number)
     result =
       case number
-      when 163 .. 172
+      when 163..172
         get_table_by_number(number - 10, table) + '&200G'
-      when 173 .. 182
+      when 173..182
         get_table_by_number(number - 20, table) + '&400G'
-      when 183 .. 187
+      when 183..187
         get_table_by_number(number - 30, table) + '&600G'
       else
         get_table_by_number(number, table)

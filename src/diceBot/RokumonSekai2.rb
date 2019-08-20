@@ -61,7 +61,7 @@ INFO_MESSAGE_TEXT
     end
 
     dstr, suc, sum = rokumon2_roll(mod, target, abl)
-    output = "#{sum}[#{dstr}] ＞ #{suc} ＞ 評価#{ rokumon2_suc_rank(suc) }"
+    output = "#{sum}[#{dstr}] ＞ #{suc} ＞ 評価#{rokumon2_suc_rank(suc)}"
 
     if suc != 0
       output += "(+#{suc}d6)"
@@ -112,6 +112,6 @@ INFO_MESSAGE_TEXT
 
   def rokumon2_suc_rank(suc)
     suc_rank = ['E', 'D', 'C', 'B', 'A', 'S']
-    return suc_rank[ suc ]
+    return suc_rank[suc]
   end
 end

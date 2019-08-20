@@ -589,7 +589,7 @@ class BCDice
 
     @nick_e = nick_e
 
-    mynick = ''# self.nick
+    mynick = '' # self.nick
     secret = false
 
     # プロットやシークレットダイス用に今のチャンネル名を記憶
@@ -1315,7 +1315,7 @@ class BCDice
 
     targets = targetList.split(/,/)
     index = rand(targets.length)
-    target = targets[ index ]
+    target = targets[index]
     output = "#{@nick_e}: (#{string}) ＞ #{target}"
 
     return output

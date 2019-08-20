@@ -57,7 +57,7 @@ MESSAGETEXT
       return rollHit(target)
     end
 
-    if ! tableName.empty?
+    if !tableName.empty?
       return "#{tableName} ＞ #{tableNumber} ＞ #{tableResult}"
     end
   end

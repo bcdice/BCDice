@@ -310,7 +310,7 @@ INFO_MESSAGE_TEXT
     val_arr = num.split(/\+/)
     value = val_arr.shift.to_i
 
-    mod = parren_killer("(0#{ val_arr.join('+') })").to_i
+    mod = parren_killer("(0#{val_arr.join('+')})").to_i
     resultValue = get_torg_bonus(value)
 
     debug('TORG BT resultValue', resultValue)

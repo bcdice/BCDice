@@ -7,7 +7,7 @@ class Cthulhu7th_ChineseTraditional < DiceBot
     # $isDebug = true
     super
 
-    @bonus_dice_range = (-2 .. 2)
+    @bonus_dice_range = (-2..2)
   end
 
   def gameName
@@ -210,7 +210,7 @@ INFO_MESSAGE_TEXT
     }
 
     # 難度變更用Lｏｏｐ
-    (0 .. 3).each do |more_difficlty|
+    (0..3).each do |more_difficlty|
       output += getNextDifficltyMessage(more_difficlty)
 
       # ペナルティダイスを減らしながらロール用ループ削減獎勵骰時角色用Lｏｏｐ
