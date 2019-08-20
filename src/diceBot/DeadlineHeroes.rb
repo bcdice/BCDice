@@ -133,14 +133,14 @@ INFO_MESSAGE_TEXT
 
       return ["#{minKey}以下", chart[minKey]] if keyNumber < minKey
       return ["#{maxKey}以上", chart[maxKey]] if keyNumber > maxKey
-      return [keyNumber.to_s, chart[keyNumber]] if chart.has_key? keyNumber
+      return [keyNumber.to_s, chart[keyNumber]] if chart.key? keyNumber
     end
 
     return ["未定義", "？？？"]
   end
 
   def getDeathChartByName(chartName)
-    return {} unless @@deathCharts.has_key? chartName
+    return {} unless @@deathCharts.key? chartName
 
     return @@deathCharts[chartName]
   end
@@ -218,7 +218,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getRealNameChartByName(chartName)
-    return {} unless @@realNameCharts.has_key? chartName
+    return {} unless @@realNameCharts.key? chartName
 
     return @@realNameCharts[chartName]
   end
@@ -290,9 +290,9 @@ INFO_MESSAGE_TEXT
 
   def getHeroNameElementText(info)
     result = ""
-    result += (info[:chartName]).to_s if info.has_key?(:chartName)
-    result += "(1D10[#{info[:dice]}]) ＞ " if info.has_key?(:dice)
-    result += "［#{info[:innerChartName]}］ ＞ 1D10[#{info[:innerResult][:dice]}] ＞ " if info.has_key?(:innerChartName)
+    result += (info[:chartName]).to_s if info.key?(:chartName)
+    result += "(1D10[#{info[:dice]}]) ＞ " if info.key?(:dice)
+    result += "［#{info[:innerChartName]}］ ＞ 1D10[#{info[:innerResult][:dice]}] ＞ " if info.key?(:innerChartName)
     result += "「#{info[:coreResult]}」"
   end
 
@@ -303,7 +303,7 @@ INFO_MESSAGE_TEXT
     return defaultResult if chart.nil?
 
     dice, = roll(1, 10)
-    return defaultResult unless chart.has_key?(dice)
+    return defaultResult unless chart.key?(dice)
 
     result = {:dice => dice, :result => chart[dice], :chartName => chartName}
     result[:coreResult] = result[:result]
@@ -324,7 +324,7 @@ INFO_MESSAGE_TEXT
     return nil if chart.nil?
 
     dice, = roll(1, 10)
-    return nil unless chart.has_key?(dice)
+    return nil unless chart.key?(dice)
 
     name, mean, = chart[dice]
 

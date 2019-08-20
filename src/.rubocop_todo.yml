@@ -389,14 +389,6 @@ Style/NegatedWhile:
     - 'dice/AddDice.rb'
     - 'diceBot/CrashWorld.rb'
 
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: short, verbose
-Style/PreferredHashMethods:
-  Exclude:
-    - 'diceBot/DeadlineHeroes.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/Proc:
