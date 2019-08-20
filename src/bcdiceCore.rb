@@ -1129,7 +1129,7 @@ class BCDice
     debug('d66dice count', count)
 
     d66List = []
-    count.times do |i|
+    count.times do |_i|
       d66List << getD66ValueByMarker(swapMarker)
     end
     d66Text = d66List.join(',')

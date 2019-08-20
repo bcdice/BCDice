@@ -245,7 +245,7 @@ INFO_MESSAGE_TEXT
       type = '名前'
       count = getCount($1)
       names = ""
-      count.times do |i|
+      count.times do |_i|
         name, dice = mk_name_table
         names += "[#{dice}]#{name} "
       end
@@ -1157,7 +1157,7 @@ INFO_MESSAGE_TEXT
     output = mk_item_decide_table(rand(6) + 1)
 
     num = 1
-    num.times do |i|
+    num.times do |_i|
       dice, = roll(2, 6)
       output = output + ' / ' + mk_item_features_table(dice)
     end
@@ -1630,7 +1630,7 @@ INFO_MESSAGE_TEXT
     d1 = (d1 / 2.0).ceil.to_i
     d2 = (d2 / 2.0).ceil.to_i
 
-    num.times do |i|
+    num.times do |_i|
       output += "「" + mk_decoration_table(d1) + mk_placename_table(d2) + "」"
     end
 
@@ -1830,7 +1830,7 @@ INFO_MESSAGE_TEXT
   # 迷宮風景決定表
   def mk_ls_decide_table(num)
     output = ''
-    num.times do |i|
+    num.times do |_i|
       output += "「" + mk_landscape_table(rand(6) + 1) + "」"
     end
     return output

@@ -75,20 +75,6 @@ Lint/RescueException:
     - 'bcdiceGui.rb'
     - 'irc/ircLib.rb'
 
-# Offense count: 10
-# Cop supports --auto-correct.
-Lint/ScriptPermission:
-  Exclude:
-    - 'ArgsAnalizer.rb'
-    - 'CardTrader.rb'
-    - 'CountHolder.rb'
-    - 'bcdice.rb'
-    - 'bcdiceCore.rb'
-    - 'bcdiceGui.rb'
-    - 'createExe.rb'
-    - 'irc/ircBot.rb'
-    - 'irc/ircLib.rb'
-
 # Offense count: 1
 # Configuration parameters: IgnoreImplicitReferences.
 Lint/ShadowedArgument:
@@ -116,12 +102,6 @@ Lint/UnreachableCode:
     - 'diceBot/CardRanker.rb'
     - 'diceBot/FilledWith.rb'
     - 'diceBot/GurpsFW.rb'
-
-# Offense count: 38
-# Cop supports --auto-correct.
-# Configuration parameters: IgnoreEmptyBlocks, AllowUnusedKeywordArguments.
-Lint/UnusedBlockArgument:
-  Enabled: false
 
 # Offense count: 401
 # Cop supports --auto-correct.

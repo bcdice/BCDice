@@ -151,7 +151,7 @@ INFO_MESSAGE_TEXT
     isCritical = false
     total_suc = 0
 
-    roll_times.times do |i|
+    roll_times.times do |_i|
       debug('roll_times', roll_times)
 
       debug('min_suc, total_suc', min_suc, total_suc)
@@ -299,7 +299,7 @@ INFO_MESSAGE_TEXT
 
     result = []
 
-    counts.times do |i|
+    counts.times do |_i|
       info, number = get_table_by_d66(table)
       text = "#{name}:#{number}:#{info}"
       result.push(text)
@@ -421,7 +421,7 @@ INFO_MESSAGE_TEXT
 
     baseParts += "  アクセサリ部品："
 
-    counts.times do |i|
+    counts.times do |_i|
       number2 = d66(2)
       baseParts += get_table_by_number(number2, armsTable)
       partsEffect += get_table_by_number(number2, armsEffectTable)
@@ -519,7 +519,7 @@ INFO_MESSAGE_TEXT
 
     result = []
 
-    counts.times do |i|
+    counts.times do |_i|
       age_type, dummy = roll(1, 6)
       age_type -= 1
 
@@ -545,7 +545,7 @@ INFO_MESSAGE_TEXT
     name, table = get2d6TableInfo(command)
     return result if name.empty?
 
-    counts.times do |i|
+    counts.times do |_i|
       _, index = getTableIndex(operator, value, 2, 6)
 
       info = table[index - 2]

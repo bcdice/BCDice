@@ -1293,7 +1293,7 @@ INFO_MESSAGE_TEXT
       nameParts.sort!
 
       numberString = ""
-      nameParts.each do |index, src, text1, number1|
+      nameParts.each do |_index, src, text1, number1|
         name = name.gsub(src, text1)
         numberString += "#{src}#{number1},"
       end

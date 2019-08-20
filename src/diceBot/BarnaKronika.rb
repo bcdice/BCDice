@@ -111,7 +111,7 @@ INFO_MESSAGE_TEXT
     at_str = ''
     diceCountList = [0, 0, 0, 0, 0, 0]
 
-    dice_n.times do |i|
+    dice_n.times do |_i|
       index = rand(6)
       diceCountList[index] += 1
       if diceCountList[index] > suc
@@ -124,7 +124,7 @@ INFO_MESSAGE_TEXT
 
       next if diceCount == 0
 
-      diceCount.times do |j|
+      diceCount.times do |_j|
         output += "#{i + 1},"
       end
 

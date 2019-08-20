@@ -190,7 +190,7 @@ INFO_MESSAGE_TEXT
   def fetchResultFromRealNameChart(keyNumber, chartInfo)
     columns, chart, = chartInfo
 
-    range, elements = chart.find do |range, elements|
+    range, elements = chart.find do |range, _elements|
       range.include?(keyNumber)
     end
 

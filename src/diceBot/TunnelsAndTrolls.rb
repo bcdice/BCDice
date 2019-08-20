@@ -175,7 +175,7 @@ INFO_MESSAGE_TEXT
         diceType = 6
 
         dice_face = []
-        diceType.times do |i|
+        diceType.times do |_i|
           dice_face.push(0)
         end
 
