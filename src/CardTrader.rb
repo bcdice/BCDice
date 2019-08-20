@@ -1465,7 +1465,7 @@ class CardTrader
   def isTapCardPlace(index)
     return false unless @canTapCard
 
-    return ((index % 2) == 0)
+    return index.even?
   end
 
   ####################           復活の呪文          ########################

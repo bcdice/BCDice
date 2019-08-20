@@ -1496,7 +1496,7 @@ INFO_MESSAGE_TEXT
   def mk_gender_table(num)
     output = '1'
 
-    if (num % 2) != 0
+    if num.odd?
       output = '男'
     else
       output = '女'

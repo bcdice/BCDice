@@ -112,7 +112,7 @@ MESSAGETEXT
 
     debug("part has side", part)
 
-    side = (((number % 2) == 1) ? "左" : "右")
+    side = (number.odd? ? "左" : "右")
 
     part.sub(/\*/, side)
   end

@@ -245,7 +245,7 @@ INFO_MESSAGE_TEXT
 
       if isType2
         number, = roll(1, 6)
-        index = ((number % 2) == 1 ? 0 : 1)
+        index = (number.odd? ? 0 : 1)
 
         table = [table1, table2][index]
         dice += "#{number}-"

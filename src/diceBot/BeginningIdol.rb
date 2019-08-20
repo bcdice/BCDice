@@ -788,7 +788,7 @@ INFO_MESSAGE_TEXT
       title = 'ランダムイベント'
 
       number, = roll(1, 6)
-      if number % 2 == 0
+      if number.even?
         name = 'オンイベント表'
         table = [
           [11, "雨女は誰？", 96],
