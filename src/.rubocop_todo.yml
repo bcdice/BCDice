@@ -263,14 +263,6 @@ Style/CaseEquality:
     - diceBot/SharedFantasia.rb
     - diceBot/YankeeYogSothoth.rb
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect, EnforcedStyle.
-# SupportedStyles: nested, compact
-Style/ClassAndModuleChildren:
-  Exclude:
-    - 'irc/ircLib.rb'
-
 # Offense count: 11
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
