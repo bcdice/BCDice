@@ -58,7 +58,7 @@ INFO_MESSAGE_TEXT
     "cmCM"
   end
 
-  def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
+  def check_2D6(totalValue, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(2D6)
     if dice_n >= 12
       return " ＞ 自動的成功"
     end
@@ -181,12 +181,12 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  def getAdditionalString(string, output)
+  def getAdditionalString(_string, output)
     values = {}
     return output, values
   end
 
-  def getAdditionalDiceValue(dice, values)
+  def getAdditionalDiceValue(_dice, _values)
     0
   end
 
@@ -401,13 +401,13 @@ INFO_MESSAGE_TEXT
     return newRates
   end
 
-  def rollDice(values)
+  def rollDice(_values)
     dice, diceText = roll(2, 6)
     return dice, diceText
   end
 
   def getResultText(totalValue, addValue, diceResults, diceResultTotals,
-                    rateResults, diceOnlyTotal, round, crit, limitLength)
+                    rateResults, diceOnlyTotal, round, _crit, limitLength)
     output = ""
 
     totalText = (totalValue + addValue).to_s

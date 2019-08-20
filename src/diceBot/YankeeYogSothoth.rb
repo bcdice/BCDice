@@ -43,7 +43,7 @@ INFO_MESSAGE_TEXT
   end
 
   # ゲーム別成功度判定(2D6)
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
     return '' unless signOfInequality == ">="
 
     output =
@@ -72,7 +72,7 @@ INFO_MESSAGE_TEXT
   end
 
   # 指定特技ランダム決定表
-  def getRandomSkillTableResult(command)
+  def getRandomSkillTableResult(_command)
     name = 'ランダム'
 
     skillTableFull = [

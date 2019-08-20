@@ -23,7 +23,7 @@ class TorgtaitaiIRC
     notice(to, message)
   end
 
-  def notice(to, message)
+  def notice(_to, message)
     # print( "\n#{@game_type} " );
     # print( message.tosjis + "\n");
 

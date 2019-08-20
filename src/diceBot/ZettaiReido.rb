@@ -113,7 +113,7 @@ INFO_MESSAGE_TEXT
     return diffValue, diffText
   end
 
-  def getDarkPointResult(total, diff, darkPoint)
+  def getDarkPointResult(_total, _diff, darkPoint)
     text = ''
 
     if darkPoint > 0

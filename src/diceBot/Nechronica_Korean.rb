@@ -43,7 +43,7 @@ INFO_MESSAGE_TEXT
     return nechronica_check(string)
   end
 
-  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD10)
+  def check_nD10(total_n, _dice_n, signOfInequality, diff, dice_cnt, _dice_max, n1, _n_max) # ゲーム別成功度判定(nD10)
     return '' unless signOfInequality == ">="
 
     if total_n >= 11

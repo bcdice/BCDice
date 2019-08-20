@@ -101,7 +101,7 @@ MESSAGETEXT
     return result
   end
 
-  def getSuccessInfo(diceList, crit, diff)
+  def getSuccessInfo(diceList, crit, _diff)
     debug("checkSuccess diceList, crit", diceList, crit)
 
     diceCountHash = getDiceCountHash(diceList, crit)

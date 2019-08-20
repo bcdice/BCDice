@@ -58,7 +58,7 @@ INFO_MESSAGE_TEXT
     string
   end
 
-  def dice_command_xRn(string, nick_e)
+  def dice_command_xRn(_string, _nick_e)
     ''
   end
 

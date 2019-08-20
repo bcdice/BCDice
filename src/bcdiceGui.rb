@@ -394,11 +394,11 @@ class BCDiceDialog < Wx::Dialog
     bcdice.recievePublicMessage(nick_e)
   end
 
-  def sendMessage(to, message)
+  def sendMessage(_to, message)
     printText(message)
   end
 
-  def sendMessageToOnlySender(nick_e, message)
+  def sendMessageToOnlySender(_nick_e, message)
     sendMessage(to, message)
   end
 
@@ -486,7 +486,7 @@ class BCDiceDialog < Wx::Dialog
     printText("IRC disconnected.")
   end
 
-  def setAllGames(ircBot)
+  def setAllGames(_ircBot)
     getAllGameTypes.each do |type|
       @ircBot.setGameByTitle(type)
     end

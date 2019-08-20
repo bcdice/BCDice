@@ -68,7 +68,7 @@ MESSAGETEXT
     return string
   end
 
-  def check_2D6(totalValue, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
+  def check_2D6(totalValue, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
     return '' if signOfInequality != ">="
     return '' if diff == "?"
 
@@ -89,13 +89,13 @@ MESSAGETEXT
     return text
   end
 
-  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
+  def check_1D100(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
     return '' unless signOfInequality == '<='
 
     return getResult(total_n, dice_n, diff)
   end
 
-  def getHitResult(total_n, dice_n, diff)
+  def getHitResult(total_n, _dice_n, diff)
     diceValue = total_n % 100
     dice1 = diceValue % 10 # 1の位を代入
 

@@ -242,7 +242,7 @@ class DiceBot
     return result, secret_flg
   end
 
-  def rollDiceCommand(command)
+  def rollDiceCommand(_command)
     nil
   end
 
@@ -255,27 +255,27 @@ class DiceBot
     @diffText = diffText
   end
 
-  def dice_command_xRn(string, nick_e)
+  def dice_command_xRn(_string, _nick_e)
     ''
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
+  def check_2D6(_total_n, _dice_n, _signOfInequality, _diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(2D6)
     ''
   end
 
-  def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
+  def check_nD6(_total_n, _dice_n, _signOfInequality, _diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(nD6)
     ''
   end
 
-  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD10)
+  def check_nD10(_total_n, _dice_n, _signOfInequality, _diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(nD10)
     ''
   end
 
-  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)    # ゲーム別成功度判定(1d100)
+  def check_1D100(_total_n, _dice_n, _signOfInequality, _diff, _dice_cnt, _dice_max, _n1, _n_max)    # ゲーム別成功度判定(1d100)
     ''
   end
 
-  def check_1D20(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)     # ゲーム別成功度判定(1d20)
+  def check_1D20(_total_n, _dice_n, _signOfInequality, _diff, _dice_cnt, _dice_max, _n1, _n_max)     # ゲーム別成功度判定(1d20)
     ''
   end
 
@@ -346,27 +346,27 @@ class DiceBot
   end
 
   # ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
-  def getDiceRolledAdditionalText(n1, n_max, dice_max)
+  def getDiceRolledAdditionalText(_n1, _n_max, _dice_max)
     ''
   end
 
   # ダイス目による補正処理（現状ナイトメアハンターディープ専用）
-  def getDiceRevision(n_max, dice_max, total_n)
+  def getDiceRevision(_n_max, _dice_max, _total_n)
     return '', 0
   end
 
   # ダイス目文字列からダイス値を変更する場合の処理（現状クトゥルフ・テック専用）
-  def changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
+  def changeDiceValueByDiceText(dice_now, _dice_str, _isCheckSuccess, _dice_max)
     dice_now
   end
 
   # SW専用
-  def setRatingTable(nick_e, tnick, channel_to_list)
+  def setRatingTable(_nick_e, _tnick, _channel_to_list)
     '1'
   end
 
   # 振り足し時のダイス読み替え処理用（ダブルクロスはクリティカルでダイス10に読み替える)
-  def getJackUpValueOnAddRoll(dice_n)
+  def getJackUpValueOnAddRoll(_dice_n)
     0
   end
 
@@ -376,7 +376,7 @@ class DiceBot
   end
 
   # シャドウラン4版用グリッチ判定
-  def getGrichText(numberSpot1, dice_cnt_total, suc)
+  def getGrichText(_numberSpot1, _dice_cnt_total, _suc)
     ''
   end
 

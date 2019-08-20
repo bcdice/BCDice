@@ -175,7 +175,7 @@ INFO_MESSAGE_TEXT
   end
 
   # 陰陽コマンド
-  def getInnyouResult(command)
+  def getInnyouResult(_command)
     oddCount = 0
     evenCount = 0
 
@@ -197,7 +197,7 @@ INFO_MESSAGE_TEXT
   end
 
   # 八徳コマンド
-  def getHattokuResult(command)
+  def getHattokuResult(_command)
     # 3回振って、奇数・偶数がどの順序で出たかを記録する
     oddEvenList = []
     3.times do
@@ -236,7 +236,7 @@ INFO_MESSAGE_TEXT
     return "奇数"
   end
 
-  def getGogyouResult(command)
+  def getGogyouResult(_command)
     type = '五行表'
 
     table = getGogyouTable
