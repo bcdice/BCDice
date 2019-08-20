@@ -30,7 +30,7 @@ class DiceBotTest
     readTestDataSet
 
     if @testDataSet.empty?
-      $stderr.puts('No matched test data!')
+      warn('No matched test data!')
       return false
     end
 

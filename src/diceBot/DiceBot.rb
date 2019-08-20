@@ -71,7 +71,7 @@ class DiceBot
     if !prefixs.empty? && self.class.prefixes.empty?
       # 従来の方法（#prefixs）で接頭辞を設定していた場合でも
       # クラス側に接頭辞が設定されるようにする
-      $stderr.puts("#{gameType}: #prefixs is deprecated. Please use .setPrefixes.")
+      warn("#{gameType}: #prefixs is deprecated. Please use .setPrefixes.")
       self.class.setPrefixes(prefixs)
     end
   end
