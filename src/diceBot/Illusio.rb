@@ -53,7 +53,7 @@ MESSAGETEXT
     dice, diceText = roll(diceCount, 6, @sortTye)
     diceArray = diceText.split(/,/).collect { |i| i.to_i }
 
-    resultArray = Array.new
+    resultArray = []
     success = 0
     diceArray.each do |i|
       if blockNo.count(i) > 0
