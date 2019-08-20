@@ -389,21 +389,6 @@ Style/NegatedWhile:
     - 'dice/AddDice.rb'
     - 'diceBot/CrashWorld.rb'
 
-# Offense count: 10
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: predicate, comparison
-Style/NilComparison:
-  Exclude:
-    - 'diceBot/ColossalHunter.rb'
-    - 'diceBot/CthulhuTech.rb'
-    - 'diceBot/FilledWith.rb'
-    - 'diceBot/Gurps.rb'
-    - 'diceBot/GurpsFW.rb'
-    - 'diceBot/LogHorizon.rb'
-    - 'diceBot/LogHorizon_Korean.rb'
-    - 'irc/encode.rb'
-
 # Offense count: 7
 # Cop supports --auto-correct.
 # Configuration parameters: IncludeSemanticChanges.

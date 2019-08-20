@@ -118,7 +118,7 @@ INFO_MESSAGE_TEXT
 
       if dice_aRR.length >= 3 # ダイスが3個以上ロールされている
         10.times do |i|
-          break if  dice_num[i + 2] == nil
+          break if  dice_num[i + 2].nil?
 
           next unless dice_num[i] > 0
 

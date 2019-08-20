@@ -330,7 +330,7 @@ INFO_MESSAGE_TEXT
       tableName = "トラップリスト"
       diff = $1
       dif, table = getTrapTable(diff)
-      if table == nil
+      if table.nil?
         return ""
       end
 
@@ -359,7 +359,7 @@ INFO_MESSAGE_TEXT
         num += $3.to_i
       end
       table = getTresureTable(num)
-      if table == nil
+      if table.nil?
         return ""
       end
 
