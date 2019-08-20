@@ -123,11 +123,11 @@ INFO_MESSAGE_TEXT
       result += "出目がファンブル率以下なのでファンブル！(判定失敗。【視聴率】が20％減少)"
     else
       number += modify
-       if number < target
-         result += "達成値#{number}、難易度未満なので判定失敗！"
-       else
-         result += "達成値#{number}、難易度以上なので判定成功！"
-       end
+      if number < target
+        result += "達成値#{number}、難易度未満なので判定失敗！"
+      else
+        result += "達成値#{number}、難易度以上なので判定成功！"
+      end
     end
 
     return result
@@ -140,98 +140,98 @@ INFO_MESSAGE_TEXT
     tableName = ""
     result = ""
 
-  case command
+    case command
 
-  when "HST"
-    tableName, result, number = getHistoryTableResult
+    when "HST"
+      tableName, result, number = getHistoryTableResult
 
-  when /^ST(\d)?$/
-    # シーン表
-    type = $1.to_i
+    when /^ST(\d)?$/
+      # シーン表
+      type = $1.to_i
 
-    tableName, result, number = getSceneTableResult(type)
+      tableName, result, number = getSceneTableResult(type)
 
-  when /^.+WT$/i
-    # 願い事表
-    tableName, result, number = getWishTableResult(command)
+    when /^.+WT$/i
+      # 願い事表
+      tableName, result, number = getWishTableResult(command)
 
-  when /^NAME(\d)?$/
-    # 万能命名表
-    type = $1.to_i
+    when /^NAME(\d)?$/
+      # 万能命名表
+      type = $1.to_i
       tableName, result, number = getNameTableResult(type)
 
-  when /^.+SPT$/i
-    # サブプロット表
-    tableName, result, number = getSubprotTableResult(command)
+    when /^.+SPT$/i
+      # サブプロット表
+      tableName, result, number = getSubprotTableResult(command)
 
-  when "CMT"
-    # CM表
-    tableName, result, number = getCmTableResult()
+    when "CMT"
+      # CM表
+      tableName, result, number = getCmTableResult()
 
-  when "ERT"
-    # 副作用蘇生表
-    tableName, result, number = getErTableResult()
+    when "ERT"
+      # 副作用蘇生表
+      tableName, result, number = getErTableResult()
 
-  when "WKT"
-    # 一週間表
-    tableName, result, number = getWKTableResult()
+    when "WKT"
+      # 一週間表
+      tableName, result, number = getWKTableResult()
 
-  when /^EST$/i, /^sErviceST$/i
-    tableName, result, number = getServiceSceneTableResult()
+    when /^EST$/i, /^sErviceST$/i
+      tableName, result, number = getServiceSceneTableResult()
 
-  when "SOUL"
-    tableName, result, number = getSoulTableResult()
+    when "SOUL"
+      tableName, result, number = getSoulTableResult()
 
-  when "STGT"
-    tableName, result, number = getSceneTelopGenericTableResult()
+    when "STGT"
+      tableName, result, number = getSceneTelopGenericTableResult()
 
-  when /^HSAT(\d)?$/
-    type = $1.to_i
+    when /^HSAT(\d)?$/
+      type = $1.to_i
       tableName, result, number = getHairStylistAbuseTableResult(type)
 
-  when /^EXT(\d)?$/
-    type = $1.to_i
+    when /^EXT(\d)?$/
+      type = $1.to_i
       tableName, result, number = getExtraTableResult(type)
 
-  when /^SKL(T|J)$/
-    type = $1
+    when /^SKL(T|J)$/
+      type = $1
       tableName, result, number = getSkillTableResult(type)
 
-  when "PCDT"
-    # 製作委員決定表
-    tableName, result, number = getpcTableResult()
-  when "OHT"
-    # 実際どうだったのか表
-    tableName, result, number = getohTableResult()
-  when "PCT1"
-    # ヘルライオンタスク表
-    tableName, result, number = getplTableResult()
-  when "PCT2"
-    # ヘルクロウタスク表
-    tableName, result, number = getprTableResult()
-  when "PCT3"
-    # ヘルスネークタスク表
-    tableName, result, number = getpnTableResult()
-  when "PCT4"
-    # ヘルドラゴンタスク表
-    tableName, result, number = getpdTableResult()
-  when "PCT5"
-    # ヘルフライタスク表
-    tableName, result, number = getpfTableResult()
-  when "PCT6"
-    # ヘルゴートタスク表
-    tableName, result, number = getpgTableResult()
-  when "PCT7"
-    # ヘルベアタスク表
-    tableName, result, number = getpbTableResult()
-  end
+    when "PCDT"
+      # 製作委員決定表
+      tableName, result, number = getpcTableResult()
+    when "OHT"
+      # 実際どうだったのか表
+      tableName, result, number = getohTableResult()
+    when "PCT1"
+      # ヘルライオンタスク表
+      tableName, result, number = getplTableResult()
+    when "PCT2"
+      # ヘルクロウタスク表
+      tableName, result, number = getprTableResult()
+    when "PCT3"
+      # ヘルスネークタスク表
+      tableName, result, number = getpnTableResult()
+    when "PCT4"
+      # ヘルドラゴンタスク表
+      tableName, result, number = getpdTableResult()
+    when "PCT5"
+      # ヘルフライタスク表
+      tableName, result, number = getpfTableResult()
+    when "PCT6"
+      # ヘルゴートタスク表
+      tableName, result, number = getpgTableResult()
+    when "PCT7"
+      # ヘルベアタスク表
+      tableName, result, number = getpbTableResult()
+    end
 
     if result.empty?
       return ""
     end
 
-  text = "#{tableName}(#{number})：#{result}"
-  return text
+    text = "#{tableName}(#{number})：#{result}"
+    return text
   end
 
   def getHistoryTableResult
@@ -972,22 +972,22 @@ INFO_MESSAGE_TEXT
       [66, ' 野良犬'],
     ]
 
-      hellStylistwtable1 = [
-        '「まるで『',
-        '「まるで『',
-        '「まさに『',
-        '「まさに『',
-        '「あなたは『',
-        '「あなたは『',
-      ]
-      hellStylistwtable2 = [
-        '』みたいよ！」',
-        '』みたいだわ！」',
-        '』じゃないの！」',
-        '』ね。」',
-        '』に見えるわ。」',
-        '』そっくりよ！」',
-      ]
+    hellStylistwtable1 = [
+      '「まるで『',
+      '「まるで『',
+      '「まさに『',
+      '「まさに『',
+      '「あなたは『',
+      '「あなたは『',
+    ]
+    hellStylistwtable2 = [
+      '』みたいよ！」',
+      '』みたいだわ！」',
+      '』じゃないの！」',
+      '』ね。」',
+      '』に見えるわ。」',
+      '』そっくりよ！」',
+    ]
 
     case type
     when 1
@@ -996,11 +996,11 @@ INFO_MESSAGE_TEXT
       result, number = get_table_by_d66_swap(hellStylistAbuseTable2)
     else
       result1, num1 = get_table_by_d66_swap(hellStylistAbuseTable1)
-        result2, num2 = get_table_by_d66_swap(hellStylistAbuseTable2)
-        before, = get_table_by_1d6(hellStylistwtable1)
-        after, = get_table_by_1d6(hellStylistwtable2)
-        result = "#{before}#{result1}#{result2}#{after}"
-        number = "#{num1},#{num2}"
+      result2, num2 = get_table_by_d66_swap(hellStylistAbuseTable2)
+      before, = get_table_by_1d6(hellStylistwtable1)
+      after, = get_table_by_1d6(hellStylistwtable2)
+      result = "#{before}#{result1}#{result2}#{after}"
+      number = "#{num1},#{num2}"
     end
 
     return tableName, result, number
@@ -1056,29 +1056,29 @@ INFO_MESSAGE_TEXT
       [56, "『#{getNameTableResult(0)[1]}』の異名を持つ"],
       [66, "歴史上の人物だが実は生きていた"],
     ]
-  extraTable2 = [
-    [11, "サラリーマン"],
-    [12, "スポーツ選手"],
-    [13, "チンピラ"],
-    [14, "ドライバー"],
-    [15, "ねずみ"],
-    [16, "パイロット"],
-    [22, "映画監督"],
-    [23, "犬"],
-    [24, "刺客"],
-    [25, "主婦"],
-    [26, "小説家"],
-    [33, "雀士"],
-    [34, "政治家"],
-    [35, "大金持ち"],
-    [36, "大男"],
-    [44, "謎の美女"],
-    [45, "猫"],
-    [46, "美少女"],
-    [55, "文化人"],
-    [56, "勇者"],
-    [66, "神"],
-  ]
+    extraTable2 = [
+      [11, "サラリーマン"],
+      [12, "スポーツ選手"],
+      [13, "チンピラ"],
+      [14, "ドライバー"],
+      [15, "ねずみ"],
+      [16, "パイロット"],
+      [22, "映画監督"],
+      [23, "犬"],
+      [24, "刺客"],
+      [25, "主婦"],
+      [26, "小説家"],
+      [33, "雀士"],
+      [34, "政治家"],
+      [35, "大金持ち"],
+      [36, "大男"],
+      [44, "謎の美女"],
+      [45, "猫"],
+      [46, "美少女"],
+      [55, "文化人"],
+      [56, "勇者"],
+      [66, "神"],
+    ]
     extraTable3 = [
       [11, "怪しい箱の中から"],
       [12, "哀れな犠牲者を殺しながら"],
@@ -1102,29 +1102,29 @@ INFO_MESSAGE_TEXT
       [56, "ヘルポータルを通って"],
       [66, "炎をバックに"],
     ]
-  extraTable4 = [
-    [11, "愛らしく登場"],
-    [12, "あざやかに登場"],
-    [13, "あっさりと登場"],
-    [14, "怪しく登場"],
-    [15, "荒々しく登場"],
-    [16, "勢い良く登場"],
-    [22, "美しく登場"],
-    [23, "偉そうに登場"],
-    [24, "おごそかに登場"],
-    [25, "恐ろしく登場"],
-    [26, "かっこよく登場"],
-    [33, "気取って登場"],
-    [34, "死の予感とともに登場"],
-    [35, "しめやかに登場"],
-    [36, "上品に登場"],
-    [44, "だらしなく登場"],
-    [45, "知的に登場"],
-    [46, "なごやかに登場"],
-    [55, "なめらかに登場"],
-    [56, "不機嫌に登場"],
-    [66, "陽気に登場"],
-  ]
+    extraTable4 = [
+      [11, "愛らしく登場"],
+      [12, "あざやかに登場"],
+      [13, "あっさりと登場"],
+      [14, "怪しく登場"],
+      [15, "荒々しく登場"],
+      [16, "勢い良く登場"],
+      [22, "美しく登場"],
+      [23, "偉そうに登場"],
+      [24, "おごそかに登場"],
+      [25, "恐ろしく登場"],
+      [26, "かっこよく登場"],
+      [33, "気取って登場"],
+      [34, "死の予感とともに登場"],
+      [35, "しめやかに登場"],
+      [36, "上品に登場"],
+      [44, "だらしなく登場"],
+      [45, "知的に登場"],
+      [46, "なごやかに登場"],
+      [55, "なめらかに登場"],
+      [56, "不機嫌に登場"],
+      [66, "陽気に登場"],
+    ]
 
     case type
     when 1
