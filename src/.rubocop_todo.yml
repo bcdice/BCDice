@@ -13,25 +13,6 @@ Bundler/DuplicatedGem:
   Exclude:
     - 'Gemfile'
 
-# Offense count: 10
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: aligned, indented, indented_relative_to_receiver
-Layout/MultilineMethodCallIndentation:
-  Exclude:
-    - 'Rakefile'
-    - 'createExe.rb'
-    - 'diceBot/DiceBot.rb'
-    - 'test/DiceBotTest.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: aligned, indented
-Layout/MultilineOperationIndentation:
-  Exclude:
-    - 'bcdiceCore.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Layout/SpaceAfterMethodName:

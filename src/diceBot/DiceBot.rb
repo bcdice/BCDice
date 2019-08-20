@@ -21,10 +21,10 @@ class DiceBot
   # @return [self]
   def self.setPrefixes(prefixes)
     @prefixes = prefixes.
-      # 最適化が効くように内容の文字列を変更不可にする
-      map(&:freeze).
-      # 配列全体を変更不可にする
-      freeze
+                # 最適化が効くように内容の文字列を変更不可にする
+                map(&:freeze).
+                # 配列全体を変更不可にする
+                freeze
     @prefixesPattern = /(^|\s)(S)?(#{prefixes.join('|')})(\s|$)/i.freeze
 
     self

@@ -43,7 +43,7 @@ end
 # WindowsでかつRuby 1.9未満の環境であるかどうかを示す
 # 端末にShift_JISで出力する必要性の判定に用いる
 $RUBY18_WIN = RUBY_VERSION < '1.9' &&
-  /mswin(?!ce)|mingw|cygwin|bccwin/i === RUBY_PLATFORM
+              /mswin(?!ce)|mingw|cygwin|bccwin/i === RUBY_PLATFORM
 
 $secretRollMembersHolder = {}
 $secretDiceResultHolder = {}
