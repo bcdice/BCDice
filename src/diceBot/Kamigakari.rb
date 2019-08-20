@@ -198,8 +198,7 @@ INFO_MESSAGE_TEXT
   def getMaterialEffectRare()
     table = [[3, '**付与'],
              [5, '**半減'],
-             [6, '※GMの任意'],
-            ]
+             [6, '※GMの任意'],]
 
     number, = roll(1, 6)
     result = get_table_by_number(number, table)
@@ -253,8 +252,7 @@ INFO_MESSAGE_TEXT
              '1000G(効果値:2)',
              '1500G(効果値:3)',
              '2000G(効果値:4)',
-             '3000G(効果値:5)',
-            ]
+             '3000G(効果値:5)',]
     price = table[power]
 
     return price

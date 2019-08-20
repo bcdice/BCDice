@@ -201,8 +201,7 @@ MESSAGETEXT
                 [5, '[피로:30]을 받는다'],
                 [6, '[피로:35]를 받는다'],
                 [7, '[피로:40]을 받는다'],
-              ],
-             ]
+              ],]
 
     return tableName, tables
   end
@@ -228,8 +227,7 @@ MESSAGETEXT
                 [5, '【인과력】을 2점 잃는다'],
                 [6, '【인과력】을 2점 잃는다'],
                 [7, '【인과력】을 3점 잃는다'],
-              ],
-             ]
+              ],]
 
     return tableName, tables
   end
@@ -255,8 +253,7 @@ MESSAGETEXT
                 [5, '[소모품] 아이템을 3개 잃는다.'],
                 [6, '[소모품] 아이템을 3개 잃는다.'],
                 [7, '[소모품] 아이템을 4개 잃는다.'],
-              ],
-             ]
+              ],]
 
     return tableName, tables
   end
@@ -282,8 +279,7 @@ MESSAGETEXT
                 [5, '소지금 75G 잃는다.'],
                 [6, '소지금 90G 잃는다.'],
                 [7, '소지금 100G 잃는다.'],
-              ],
-             ]
+              ],]
 
     return tableName, tables
   end
