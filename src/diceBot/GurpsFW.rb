@@ -355,7 +355,7 @@ INFO_MESSAGE_TEXT
       when "L"
         num += 3
       end
-      if $4 != nil
+      unless $4.nil?
         num += $3.to_i
       end
       table = getTresureTable(num)
@@ -368,7 +368,7 @@ INFO_MESSAGE_TEXT
     when /RAND(E|N|H|L)(\d)?/
       tableName = "ランダムイベント表"
       diff = $1
-      if $2 != nil
+      if !$2.nil?
         dice1 = $2.to_i
       else
         dice1, dummy = roll(1, 6)
@@ -382,7 +382,7 @@ INFO_MESSAGE_TEXT
     when /RENC(E|N|H|L)(\d)?/
       tableName = "ランダムエンカウント表"
       diff = $1
-      if $2 != nil
+      if !$2.nil?
         dice1 = $2.to_i
       else
         dice1, dummy = roll(1, 6)
@@ -445,10 +445,10 @@ INFO_MESSAGE_TEXT
       text = ""
       modify = 0
 
-      if $1 != nil
+      unless $1.nil?
         mode = $1
       end
-      if $4 != nil
+      unless $4.nil?
         modify = $4.to_i
       end
 
