@@ -18,7 +18,7 @@ class CgiDiceBot
     $SEND_STR_MAX = 99999 # 最大送信文字数(本来は500byte上限)
   end
 
-  attr :isSecret
+  attr_reader :isSecret
 
   def rollFromCgi()
     cgi = CGI.new
