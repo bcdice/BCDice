@@ -273,7 +273,7 @@ MESSAGETEXT
       damageTexts << text
     end
 
-    if damages.length > 0
+    unless damages.empty?
       raise "damages rest!! #{damages.inspect()}"
     end
 

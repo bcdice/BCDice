@@ -161,7 +161,7 @@ if $0 === __FILE__
   bot = CgiDiceBot.new
 
   result = ''
-  if ARGV.length > 0
+  if !ARGV.empty?
     result, randResults = bot.roll(ARGV[0], ARGV[1])
   else
     result = bot.rollFromCgiParamsDummy

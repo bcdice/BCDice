@@ -351,7 +351,7 @@ class CardTrader
     cards = drawCard(arg)
     debug("drawCardByCommandText cards", cards)
 
-    if cards.length > 0
+    if !cards.empty?
       sendMessageToOnlySender(getCardsTextFromCards(cards))
       sendMessage(@channel, "#{@nick_e}: #{cards.length}枚引きました")
     else
@@ -367,7 +367,7 @@ class CardTrader
 
     cards = drawCard(cmd)
 
-    if cards.length > 0
+    if !cards.empty?
       sendMessage(@channel, "#{@nick_e}: " + getCardsTextFromCards(cards) + 'を引きました')
     else
       sendMessage(@channel, "カードが残っていません")
@@ -562,7 +562,7 @@ class CardTrader
     debug("dealCard count, targetNick", count, targetNick)
 
     cards = drawCard("c-draw#{count}", targetNick)
-    if cards.length > 0
+    if !cards.empty?
       sendDealResult(targetNick, count, getCardsTextFromCards(cards), isLook)
     else
       sendMessage(@channel, "カードが残っていません")
@@ -1045,7 +1045,7 @@ class CardTrader
       return
     end
 
-    if okCardList.length > 0
+    unless okCardList.empty?
       printRegistCardResult(targetNick, okCards)
     end
 
@@ -1128,13 +1128,13 @@ class CardTrader
 
     okList, ngList, isUntap = tapCard(commandText)
 
-    if okList.length > 0
+    unless okList.empty?
       tapTypeName = (isUntap ? 'アンタップ' : 'タップ')
       sendMessage(@channel, "#{@nick_e}: #{okList.length}枚#{tapTypeName}しました")
       sendMessage(@channel, "[#{getCardsTextFromCards(okList)}]") unless @cardTitles.empty?
     end
 
-    if ngList.length > 0
+    unless ngList.empty?
       sendMessage(@channel, "[#{getCardsTextFromCards(ngList)}]は場にありません")
     end
 
@@ -1233,7 +1233,7 @@ class CardTrader
 
     text = ""
 
-    if cards.length > 0
+    if !cards.empty?
       cardInfo = getCardsTextFromCards(cards)
       okCount, ngCount, text = discardCards("c-discard[#{cardInfo}]")
       debug("discardCards okCount, ngCount, text", okCount, ngCount, text)
@@ -1276,7 +1276,7 @@ class CardTrader
     @deal_cards['card_played'] ||= []
     cards = @deal_cards['card_played']
 
-    while cards.length > 0
+    while !cards.empty?
       @cardRest.push(cards.shift)
     end
 
