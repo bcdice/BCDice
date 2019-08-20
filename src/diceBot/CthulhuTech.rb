@@ -120,19 +120,19 @@ INFO_MESSAGE_TEXT
         10.times do |i|
           break if  dice_num[i + 2] == nil
 
-          if dice_num[i] > 0
-            if (dice_num[i + 1] > 0) && (dice_num[i + 2] > 0) # 3.連続する出目の合計
-              dice_now = i * 3 + 6 # ($i+1) + ($i+2) + ($i+3) = $i*3 + 6
+          next unless dice_num[i] > 0
 
-              ((i + 3)...10).step do |i2|
-                break if dice_num[i2] == 0
+          next unless (dice_num[i + 1] > 0) && (dice_num[i + 2] > 0) # 3.連続する出目の合計
 
-                dice_now += i2 + 1
-              end
+          dice_now = i * 3 + 6 # ($i+1) + ($i+2) + ($i+3) = $i*3 + 6
 
-              max_num = dice_now if dice_now > max_num
-            end
+          ((i + 3)...10).step do |i2|
+            break if dice_num[i2] == 0
+
+            dice_now += i2 + 1
           end
+
+          max_num = dice_now if dice_now > max_num
         end
       end
     end

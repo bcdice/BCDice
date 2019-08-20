@@ -389,17 +389,6 @@ Style/NegatedWhile:
     - 'dice/AddDice.rb'
     - 'diceBot/CrashWorld.rb'
 
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, MinBodyLength.
-# SupportedStyles: skip_modifier_ifs, always
-Style/Next:
-  Exclude:
-    - 'CountHolder.rb'
-    - 'bcdiceCore.rb'
-    - 'diceBot/BlindMythos.rb'
-    - 'diceBot/CthulhuTech.rb'
-
 # Offense count: 10
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
