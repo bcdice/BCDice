@@ -389,15 +389,6 @@ Style/NegatedWhile:
     - 'dice/AddDice.rb'
     - 'diceBot/CrashWorld.rb'
 
-# Offense count: 27
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedOctalStyle.
-# SupportedOctalStyles: zero_with_o, zero_only
-Style/NumericLiteralPrefix:
-  Exclude:
-    - 'diceBot/DeadlineHeroes.rb'
-    - 'diceBot/ShinkuuGakuen.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/OneLineConditional:
