@@ -97,9 +97,9 @@ INFO_MESSAGE_TEXT
       find_sequence_from_start_key(keys, start_key)
     end.find_all do |x|
       x.size > 1
-    end.sort do |a, b|
+    end.max do |a, b|
       a.size <=> b.size
-    end.last
+    end
 
     sequence
   end
