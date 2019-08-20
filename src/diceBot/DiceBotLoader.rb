@@ -92,10 +92,10 @@ class DiceBotLoader
       # 正しいクラス名になるものだけ選ぶ
       select { |botName| BOT_NAME_PATTERN === botName }
 
-    validBotNames.map { |botName|
+    validBotNames.map do |botName|
       require("#{diceBotDir}/#{botName}")
       Object.const_get(botName).new
-    }
+    end
   end
 
   # 読み込み処理を初期化する

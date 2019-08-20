@@ -172,7 +172,7 @@ INFO_MESSAGE_TEXT
   end
 
   def growth(count = 1)
-    ((1..count).map do growth_step end).join " | "
+    ((1..count).map { growth_step }).join " | "
   end
 
   def growth_step
