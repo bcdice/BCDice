@@ -6,14 +6,14 @@ class DiceBot
 
   # 接頭辞（反応するコマンド）の配列を返す
   # @return [Array<String>]
-  def self.prefixes
-    @prefixes
+  class << self
+    attr_reader :prefixes
   end
 
   # 接頭辞（反応するコマンド）の正規表現を返す
   # @return [Regexp]
-  def self.prefixesPattern
-    @prefixesPattern
+  class << self
+    attr_reader :prefixesPattern
   end
 
   # 接頭辞（反応するコマンド）を設定する
@@ -112,9 +112,7 @@ class DiceBot
   # @deprecated 代わりに {#prefixes} を使ってください
   alias prefixs prefixes
 
-  def gameType
-    @gameType
-  end
+  attr_reader :gameType
 
   def setGameType(type)
     @gameType = type
@@ -124,9 +122,7 @@ class DiceBot
     @sendMode = m
   end
 
-  def upplerRollThreshold=(v)
-    @upplerRollThreshold = v
-  end
+  attr_writer :upplerRollThreshold
 
   def bcdice=(b)
     @@bcdice = b
@@ -156,9 +152,7 @@ class DiceBot
     @@bcdice.unlimitedRollDiceType
   end
 
-  def sortType
-    @sortType
-  end
+  attr_reader :sortType
 
   def setSortType(s)
     @sortType = s
