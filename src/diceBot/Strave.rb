@@ -3,7 +3,7 @@
 class Strave < DiceBot
   setPrefixes([
     'MP\d+', '\d+ST\d+(x|\*)\d+',
-     'AFF', 'IDT', 'AFV', 'IDV'
+    'AFF', 'IDT', 'AFV', 'IDV'
   ])
 
   def initialize

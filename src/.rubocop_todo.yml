@@ -13,21 +13,6 @@ Bundler/DuplicatedGem:
   Exclude:
     - 'Gemfile'
 
-# Offense count: 442
-# Cop supports --auto-correct.
-Layout/AlignArray:
-  Exclude:
-    - 'diceBot/FilledWith.rb'
-    - 'diceBot/HuntersMoon.rb'
-    - 'diceBot/KillDeathBusiness_Korean.rb'
-    - 'diceBot/LogHorizon_Korean.rb'
-    - 'diceBot/MonotoneMusium_Korean.rb'
-    - 'diceBot/ParasiteBlood.rb'
-    - 'diceBot/ShinkuuGakuen.rb'
-    - 'diceBot/StellarKnights.rb'
-    - 'diceBot/Strave.rb'
-    - 'diceBot/Warhammer.rb'
-
 # Offense count: 42
 # Cop supports --auto-correct.
 # Configuration parameters: AllowMultipleStyles, EnforcedHashRocketStyle, EnforcedColonStyle, EnforcedLastArgumentHashStyle.
@@ -1362,4 +1347,4 @@ Style/ZeroLengthPredicate:
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
 Metrics/LineLength:
-  Max: 451
+  Max: 455
