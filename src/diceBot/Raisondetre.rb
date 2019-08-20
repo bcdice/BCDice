@@ -44,7 +44,7 @@ MESSAGETEXT
   def rollDiceCommand(command)
     if /(-)?(\d+)?RD(\d+)?(@(\d+))?$/i === command
       diceCount = ($2 || 1).to_i
-      diceCount *= -1 if !$1.nil?
+      diceCount *= -1 unless $1.nil?
       choiceCount = ($3 || 1).to_i
       target = ($5 || 0).to_i
 
@@ -52,7 +52,7 @@ MESSAGETEXT
 
     elsif /(-)?(\d+)?DD([1-9])?([\+\-]\d+)?$/i === command
       diceCount = ($2 || 1).to_i
-      diceCount *= -1 if !$1.nil?
+      diceCount *= -1 unless $1.nil?
       armor = ($3 || 0).to_i
       if armor > 0
         armor += ($4 || 0).to_i
@@ -87,7 +87,7 @@ MESSAGETEXT
 
     dice = 0
     success = 0
-    if !isFunble
+    unless isFunble
       criticalCount = diceArray.count(0)
       critical = criticalCount * 10
 

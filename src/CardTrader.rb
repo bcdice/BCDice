@@ -945,7 +945,7 @@ class CardTrader
 
     debug("transferOneCard isTargetCardInHand", isTargetCardInHand)
 
-    if !isTargetCardInHand
+    unless isTargetCardInHand
       return targetCard
     end
 
