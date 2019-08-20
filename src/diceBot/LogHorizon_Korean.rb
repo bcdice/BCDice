@@ -75,24 +75,24 @@ MESSAGETEXT
     modifyText = ($2 || '')
     difficultyText = $4
 
-  # 修正値の計算
-  modify = getValue(modifyText, 0)
+    # 修正値の計算
+    modify = getValue(modifyText, 0)
 
     # 目標値の計算
     difficulty = getValue(difficultyText, nil)
 
-  # ダイスロール
-  dice, dice_str = roll(diceCount, 6)
+    # ダイスロール
+    dice, dice_str = roll(diceCount, 6)
     diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
 
-  total = dice + modify
+    total = dice + modify
 
-  # 出力用ダイスコマンドを生成
-  command =  "#{diceCount}LH#{modifyText}"
-  command += ">=#{difficulty}" unless difficulty.nil?
+    # 出力用ダイスコマンドを生成
+    command =  "#{diceCount}LH#{modifyText}"
+    command += ">=#{difficulty}" unless difficulty.nil?
 
-  # 출력문 생성
-  result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
+    # 출력문 생성
+    result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
 
     # クリティカル・ファンブルチェック
     if isCritical(diceList)
@@ -321,8 +321,8 @@ MESSAGETEXT
   def getTableByRank(rank, tables)
     index = (rank - 1) / 5
 
-  index = [0, index].max
-  index = [index, (tables.size - 1)].min
+    index = [0, index].max
+    index = [index, (tables.size - 1)].min
 
     return tables[index]
   end
@@ -745,54 +745,54 @@ MESSAGETEXT
   def getPersonalityTagDiceCommandResult(command)
     return nil unless "PTAG" === command
 
-  tableName = "퍼스널리티 태그"
-  table = [
-    '[조숙]',
-    '[호기심왕성]',
-    '[외로움쟁이]',
-    '[지극성실]',
-    '[먹보]',
-    '[개구쟁이]또는[말괄량이]',
+    tableName = "퍼스널리티 태그"
+    table = [
+      '[조숙]',
+      '[호기심왕성]',
+      '[외로움쟁이]',
+      '[지극성실]',
+      '[먹보]',
+      '[개구쟁이]또는[말괄량이]',
 
-    '[사람좋음]',
-    '[정열]',
-    '[남챙겨주기]',
-    '[이지적]',
-    '[벽창호]',
-    '[형님 기질]또는[누님 기질]',
+      '[사람좋음]',
+      '[정열]',
+      '[남챙겨주기]',
+      '[이지적]',
+      '[벽창호]',
+      '[형님 기질]또는[누님 기질]',
 
-    '[의리투철]',
-    '[변덕쟁이]',
-    '[장인기질]',
-    '[열혈한]',
-    '[노력가]',
-    '[남자밝힘]또는[여자밝힘]',
+      '[의리투철]',
+      '[변덕쟁이]',
+      '[장인기질]',
+      '[열혈한]',
+      '[노력가]',
+      '[남자밝힘]또는[여자밝힘]',
 
-    '[가정적]',
-    '[호승심]',
-    '[순진]',
-    '[무뚝뚝이]',
-    '[자비로움]',
-    '[마이페이스]',
+      '[가정적]',
+      '[호승심]',
+      '[순진]',
+      '[무뚝뚝이]',
+      '[자비로움]',
+      '[마이페이스]',
 
-    '[낙천가]',
-    '[동료애]',
-    '[자긍심]',
-    '[사교적]',
-    '[냉정침착]',
-    '[로맨티스트]',
+      '[낙천가]',
+      '[동료애]',
+      '[자긍심]',
+      '[사교적]',
+      '[냉정침착]',
+      '[로맨티스트]',
 
-    '[학구적]',
-    '[내향적]',
-    '[사서고생]',
-    '[허영심]',
-    '[용맹과감]',
-    '[미스테리어스]',
-  ]
+      '[학구적]',
+      '[내향적]',
+      '[사서고생]',
+      '[허영심]',
+      '[용맹과감]',
+      '[미스테리어스]',
+    ]
 
-  result, number = get_table_by_d66(table)
+    result, number = get_table_by_d66(table)
 
-  text = "#{tableName}(#{number})：#{result}"
+    text = "#{tableName}(#{number})：#{result}"
     return text
   end
 
@@ -1296,11 +1296,11 @@ MESSAGETEXT
   def getMusicalInstrumentTypeDiceCommandResult(command)
     return nil unless /MII(\d?)/ === command
 
-     type, is_roll = if $1 && $1 != ''
-                       [$1.to_i, false]
-                     else
-                       roll(1, 6)
-                     end
+    type, is_roll = if $1 && $1 != ''
+                      [$1.to_i, false]
+                    else
+                      roll(1, 6)
+                    end
     return nil if type < 1 || 6 < type
 
     tableName = "악기 종류 표"
