@@ -54,7 +54,7 @@ MESSAGETEXT
 
     result = ''
 
-    if n_max >= 2 then
+    if n_max >= 2
       total_n += 10
       result += "（クリティカル）"
       result += " ＞ #{total_n}"

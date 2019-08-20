@@ -67,7 +67,7 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     case command
     when /^Gr(\d+)?/i
-      if command =~ /^Gr(\d+)/i then
+      if command =~ /^Gr(\d+)/i
         growth($1.to_i)
       else
         growth

@@ -74,15 +74,15 @@ INFO_MESSAGE_TEXT
 
     text = "3D6 => [#{keys.join(",")}] => (#{scores.join("+")}) => #{total_score}"
 
-    unless chained_sequence.nil? || chained_sequence.empty? then
+    unless chained_sequence.nil? || chained_sequence.empty?
       bonus = is_fumble?(keys, chained_sequence) ? 3 : chained_sequence.size
       text += " | #{chained_sequence.size} chain! (#{chained_sequence.join(",")}) => #{total_score + bonus}"
 
-      if chained_sequence.size >= 3 then
+      if chained_sequence.size >= 3
         text += " [スペシャル]"
       end
 
-      if is_fumble?(keys, chained_sequence) then
+      if is_fumble?(keys, chained_sequence)
         text += " [ファンブル]"
       end
     end
@@ -114,7 +114,7 @@ INFO_MESSAGE_TEXT
       key += 1
     end
 
-    if chained_keys.size > 0 && chained_keys[0] == 1 then
+    if chained_keys.size > 0 && chained_keys[0] == 1
       key = 6
       while keys.include? key
         chained_keys.unshift key
@@ -127,7 +127,7 @@ INFO_MESSAGE_TEXT
 
   def is_fumble?(keys, chained_sequence)
     chained_sequence.each do |k|
-      if keys.count(k) >= 2 then
+      if keys.count(k) >= 2
         return true
       end
     end
@@ -171,19 +171,19 @@ INFO_MESSAGE_TEXT
 
       total_bonus += bonus
 
-      if key != dice then
+      if key != dice
         current_text = "1D6[#{dice}]+#{key - dice} #{current_text}"
       else
         current_text = "1D6[#{dice}] #{current_text}"
       end
 
-      unless text.empty? then
+      unless text.empty?
         text = "#{text} => #{current_text}"
       else
         text = current_text
       end
 
-      unless add then
+      unless add
         text += " [合計：儀式点 +#{total_bonus} ]"
         return text
       end
@@ -213,19 +213,19 @@ INFO_MESSAGE_TEXT
       d1, = roll(1, 6)
       d2 = 0
 
-      if number_of_dice >= 2 then
+      if number_of_dice >= 2
         d2, = roll(1, 6)
       end
 
       total += d1 + d2
 
-      if number_of_dice == 2 then
+      if number_of_dice == 2
         text += "2D6[#{d1},#{d2}]"
       else
         text += "1D6[#{d1}]"
       end
 
-      if is_1or2(d1) || is_1or2(d2) then
+      if is_1or2(d1) || is_1or2(d2)
         text += " （振り足し） => "
       else
         text += " => 合計 #{total}"

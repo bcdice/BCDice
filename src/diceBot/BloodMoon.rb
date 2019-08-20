@@ -314,17 +314,17 @@ INFO_MESSAGE_TEXT
     categoryNum, = roll(1, 6)
     detailText = nil
     detailNum = 0
-    if categoryNum == 1 then
+    if categoryNum == 1
       detailText, detailNum = get_table_by_2d6(tableCSKT)
-    elsif categoryNum == 2 then
+    elsif categoryNum == 2
       detailText, detailNum = get_table_by_2d6(tableHSKT)
-    elsif categoryNum == 3 then
+    elsif categoryNum == 3
       detailText, detailNum = get_table_by_2d6(tableBSKT)
-    elsif categoryNum == 4 then
+    elsif categoryNum == 4
       detailText, detailNum = get_table_by_2d6(tableASKT)
-    elsif categoryNum == 5 then
+    elsif categoryNum == 5
       detailText, detailNum = get_table_by_2d6(tableLSKT)
-    elsif categoryNum == 6 then
+    elsif categoryNum == 6
       detailText, detailNum = get_table_by_2d6(tableESKT)
     end
     return detailText, "#{categoryNum},#{detailNum}"

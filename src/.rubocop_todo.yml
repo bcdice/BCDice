@@ -377,17 +377,6 @@ Style/MultilineBlockChain:
   Exclude:
     - 'diceBot/LostRoyal.rb'
 
-# Offense count: 29
-# Cop supports --auto-correct.
-Style/MultilineIfThen:
-  Exclude:
-    - 'diceBot/BloodCrusade.rb'
-    - 'diceBot/BloodMoon.rb'
-    - 'diceBot/GranCrest.rb'
-    - 'diceBot/LostRoyal.rb'
-    - 'diceBot/SwordWorld2_0.rb'
-    - 'irc/encode.rb'
-
 # Offense count: 1
 Style/MultipleComparison:
   Exclude:

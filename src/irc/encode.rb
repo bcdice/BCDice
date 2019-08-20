@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-if RUBY_VERSION < '1.9.0' then
+if RUBY_VERSION < '1.9.0'
 
   require 'kconv'
 
@@ -11,7 +11,7 @@ if RUBY_VERSION < '1.9.0' then
 
     # エンコーディングを取得します。
     def encoding
-      if @encoding != nil then
+      if @encoding != nil
         return @encoding
       else
         case Kconv.guess(self)
@@ -40,7 +40,7 @@ if RUBY_VERSION < '1.9.0' then
     # エンコードを変更します（options 未対応）。
     def encode(to_encoding, from_encoding = nil, _options = nil)
       if from_encoding == nil
-        if @encoding == nil then
+        if @encoding == nil
           f_encoding = Kconv::AUTO
         else
           f_encoding = @encoding
@@ -55,7 +55,7 @@ if RUBY_VERSION < '1.9.0' then
     end
 
     def get_kconv_encoding(encoding)
-      if encoding != nil then
+      if encoding != nil
         case encoding.upcase
         when "ISO-2022-JP"
           return Kconv::JIS
