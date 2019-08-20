@@ -409,12 +409,6 @@ Style/TrivialAccessors:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/UnlessElse:
-  Exclude:
-    - 'diceBot/LostRoyal.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 Style/UnneededSort:
   Exclude:
     - 'diceBot/LostRoyal.rb'
