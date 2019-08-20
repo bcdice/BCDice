@@ -13,51 +13,6 @@ Bundler/DuplicatedGem:
   Exclude:
     - 'Gemfile'
 
-# Offense count: 55
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: symmetrical, new_line, same_line
-Layout/MultilineArrayBraceLayout:
-  Exclude:
-    - 'diceBot/BattleTech.rb'
-    - 'diceBot/DiceOfTheDead.rb'
-    - 'diceBot/GurpsFW.rb'
-    - 'diceBot/Kamigakari.rb'
-    - 'diceBot/Kamigakari_Korean.rb'
-    - 'diceBot/LogHorizon.rb'
-    - 'diceBot/LogHorizon_Korean.rb'
-    - 'diceBot/ShinkuuGakuen.rb'
-    - 'diceBot/Torg.rb'
-    - 'diceBot/Torg1_5.rb'
-    - 'diceBot/WitchQuest.rb'
-
-# Offense count: 190
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: symmetrical, new_line, same_line
-Layout/MultilineHashBraceLayout:
-  Exclude:
-    - 'diceBot/Amadeus.rb'
-    - 'diceBot/Amadeus_Korean.rb'
-    - 'diceBot/BlindMythos.rb'
-    - 'diceBot/ColossalHunter.rb'
-    - 'diceBot/DarkDaysDrive.rb'
-    - 'diceBot/Dracurouge.rb'
-    - 'diceBot/Dracurouge_Korean.rb'
-    - 'diceBot/GardenOrder.rb'
-    - 'diceBot/HatsuneMiku.rb'
-    - 'diceBot/Nuekagami.rb'
-    - 'diceBot/ShoujoTenrankai.rb'
-    - 'diceBot/YankeeYogSothoth.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: symmetrical, new_line, same_line
-Layout/MultilineMethodCallBraceLayout:
-  Exclude:
-    - 'diceBot/FutariSousa.rb'
-
 # Offense count: 10
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.

@@ -20,7 +20,8 @@ class Torg1_5 < Torg
       [1, "ふつう"],
       [3, "まあよい"],
       [7, "かなりよい"],
-      [12, "すごい" ]]
+      [12, "すごい" ]
+    ]
 
     return get_torg_table_result(value, success_table)
   end
@@ -33,7 +34,8 @@ class Torg1_5 < Torg
       [5, "技能なし"],
       [10, "逆転負け"],
       [15, "モラル崩壊"],
-      [17, "プレイヤーズコール" ]]
+      [17, "プレイヤーズコール" ]
+    ]
 
     return get_torg_table_result(value, interaction_results_table)
   end
@@ -45,7 +47,8 @@ class Torg1_5 < Torg
       [5, "技能なし"],
       [10, "逆転負け"],
       [15, "高揚／逆転負け"],
-      [17, "プレイヤーズコール" ]]
+      [17, "プレイヤーズコール" ]
+    ]
 
     return get_torg_table_result(value, interaction_results_table)
   end
@@ -57,7 +60,8 @@ class Torg1_5 < Torg
       [5, "萎縮"],
       [10, "技能なし"],
       [15, "逆転負け／疲労"],
-      [17, "プレイヤーズコール" ]]
+      [17, "プレイヤーズコール" ]
+    ]
 
     return get_torg_table_result(value, interaction_results_table)
   end
@@ -80,7 +84,8 @@ class Torg1_5 < Torg
       [12, "2レベル負傷  KO6"],
       [13, "3レベル負傷  K／O7"],
       [14, "3レベル負傷  KO7"],
-      [15, "4レベル負傷  KO8"]]
+      [15, "4レベル負傷  KO8"]
+    ]
 
     return get_torg_damage(value, 4, 8, damage_table_ords)
   end
@@ -103,7 +108,8 @@ class Torg1_5 < Torg
       [12, "1レベル負傷  KO4"],
       [13, "2レベル負傷  K／O5"],
       [14, "2レベル負傷  KO5"],
-      [15, "3レベル負傷  KO5"]]
+      [15, "3レベル負傷  KO5"]
+    ]
 
     return get_torg_damage(value, 3, 5, damage_table_posibility)
   end

@@ -175,7 +175,8 @@ INFO_MESSAGE_TEXT
       [1, "ふつう"],
       [3, "まあよい"],
       [7, "かなりよい"],
-      [12, "すごい" ]]
+      [12, "すごい" ]
+    ]
 
     return get_torg_table_result(value, success_table)
   end
@@ -188,7 +189,8 @@ INFO_MESSAGE_TEXT
       [5, "萎縮"],
       [10, "逆転負け"],
       [15, "モラル崩壊"],
-      [17, "プレイヤーズコール" ]]
+      [17, "プレイヤーズコール" ]
+    ]
 
     return get_torg_table_result(value, interaction_results_table)
   end
@@ -200,7 +202,8 @@ INFO_MESSAGE_TEXT
       [5, "萎縮"],
       [10, "逆転負け"],
       [15, "高揚／逆転負け"],
-      [17, "プレイヤーズコール" ]]
+      [17, "プレイヤーズコール" ]
+    ]
 
     return get_torg_table_result(value, interaction_results_table)
   end
@@ -212,7 +215,8 @@ INFO_MESSAGE_TEXT
       [5, "疲労"],
       [10, "萎縮／疲労"],
       [15, "逆転負け／疲労"],
-      [17, "プレイヤーズコール" ]]
+      [17, "プレイヤーズコール" ]
+    ]
 
     return get_torg_table_result(value, interaction_results_table)
   end
@@ -251,7 +255,8 @@ INFO_MESSAGE_TEXT
       [12, "2レベル負傷  KO12"],
       [13, "3レベル負傷  KO13"],
       [14, "3レベル負傷  KO14"],
-      [15, "4レベル負傷  KO15"]]
+      [15, "4レベル負傷  KO15"]
+    ]
 
     return get_torg_damage(value,
                            4,
@@ -277,7 +282,8 @@ INFO_MESSAGE_TEXT
       [12, "1レベル負傷  K5"],
       [13, "2レベル負傷  O4"],
       [14, "2レベル負傷  KO5"],
-      [15, "3レベル負傷  KO5"]]
+      [15, "3レベル負傷  KO5"]
+    ]
 
     return get_torg_damage(value,
                            3,
@@ -346,7 +352,8 @@ INFO_MESSAGE_TEXT
       [17, 4],
       [18, 5],
       [19, 6],
-      [20, 7]]
+      [20, 7]
+    ]
 
     bonus = get_torg_table_result(value, bonus_table)
 
