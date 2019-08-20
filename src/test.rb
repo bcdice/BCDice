@@ -53,7 +53,7 @@ when 2
   testDataPath = getTestDataPath[ARGV[0]]
   dataIndex = ARGV[1].to_i
 else
-  $stderr.puts(HELP_MESSAGE)
+  warn(HELP_MESSAGE)
   abort
 end
 
