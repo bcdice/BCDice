@@ -399,19 +399,6 @@ Style/RandomWithOffset:
     - 'diceBot/ArsMagica.rb'
     - 'diceBot/MeikyuKingdom.rb'
 
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: use_perl_names, use_english_names
-Style/SpecialGlobalVars:
-  Exclude:
-    - 'bcdice.rb'
-    - 'bcdiceCore.rb'
-    - 'cgiDiceBot.rb'
-    - 'diceBot/DiceBot.rb'
-    - 'irc/ircLib.rb'
-    - 'test.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 Style/StderrPuts:
@@ -447,7 +434,7 @@ Style/TernaryParentheses:
     - 'diceBot/StrangerOfSwordCity.rb'
     - 'diceBot/SwordWorld.rb'
 
-# Offense count: 6
+# Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: ExactNameMatch, AllowPredicates, AllowDSLWriters, IgnoreClassMethods, Whitelist.
 # Whitelist: to_ary, to_a, to_c, to_enum, to_h, to_hash, to_i, to_int, to_io, to_open, to_path, to_proc, to_r, to_regexp, to_str, to_s, to_sym

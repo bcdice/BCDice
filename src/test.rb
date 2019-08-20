@@ -20,7 +20,7 @@ libPaths = [
   "#{rootDir}/irc"
 ]
 libPaths.each do |libPath|
-  $LOAD_PATH.push(libPath)
+  $:.push(libPath)
 end
 
 require 'test/setup'
