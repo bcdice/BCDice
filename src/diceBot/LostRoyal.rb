@@ -72,11 +72,11 @@ INFO_MESSAGE_TEXT
 
     chained_sequence = find_sequence(keys)
 
-    text = "3D6 => [#{keys.join(",")}] => (#{scores.join("+")}) => #{total_score}"
+    text = "3D6 => [#{keys.join(',')}] => (#{scores.join('+')}) => #{total_score}"
 
     unless chained_sequence.nil? || chained_sequence.empty?
       bonus = is_fumble?(keys, chained_sequence) ? 3 : chained_sequence.size
-      text += " | #{chained_sequence.size} chain! (#{chained_sequence.join(",")}) => #{total_score + bonus}"
+      text += " | #{chained_sequence.size} chain! (#{chained_sequence.join(',')}) => #{total_score + bonus}"
 
       if chained_sequence.size >= 3
         text += " [スペシャル]"

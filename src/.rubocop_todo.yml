@@ -399,18 +399,6 @@ Style/RandomWithOffset:
     - 'diceBot/ArsMagica.rb'
     - 'diceBot/MeikyuKingdom.rb'
 
-# Offense count: 161
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiteralsInInterpolation:
-  Exclude:
-    - 'diceBot/Cthulhu7th.rb'
-    - 'diceBot/Cthulhu7th_ChineseTraditional.rb'
-    - 'diceBot/Cthulhu7th_Korean.rb'
-    - 'diceBot/FilledWith.rb'
-    - 'diceBot/LostRoyal.rb'
-
 # Offense count: 12
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, AllowSafeAssignment.
