@@ -399,17 +399,6 @@ Style/RandomWithOffset:
     - 'diceBot/ArsMagica.rb'
     - 'diceBot/MeikyuKingdom.rb'
 
-# Offense count: 17
-# Cop supports --auto-correct.
-Style/SelfAssignment:
-  Exclude:
-    - 'bcdiceCore.rb'
-    - 'diceBot/Chill.rb'
-    - 'diceBot/CrashWorld.rb'
-    - 'diceBot/EarthDawn.rb'
-    - 'diceBot/MetalHead.rb'
-    - 'diceBot/Satasupe.rb'
-
 # Offense count: 7
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.

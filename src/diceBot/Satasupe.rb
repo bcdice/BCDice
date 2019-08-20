@@ -82,8 +82,8 @@ INFO_MESSAGE_TEXT
     if target > 12
       result += "【#{string}】 ＞ 難易度が12を超えたため、超過分、ファンブル率が上昇！\n"
       while target > 12
-        target = target - 1
-        fumble = fumble + 1
+        target -= 1
+        fumble += 1
       end
     end
 

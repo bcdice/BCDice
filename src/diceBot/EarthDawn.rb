@@ -80,19 +80,19 @@ INFO_MESSAGE_TEXT
     if hasKarmaDice
       case karmaDiceType
       when /d20/i
-        d20step = d20step + karmaDiceCount
+        d20step += karmaDiceCount
       when /d12/i
-        d12step = d12step + karmaDiceCount
+        d12step += karmaDiceCount
       when /d10/i
-        d10step = d10step + karmaDiceCount
+        d10step += karmaDiceCount
       when /d8/i
-        d8step  = d8step  + karmaDiceCount
+        d8step  += karmaDiceCount
       when /d6/i
-        d6step  = d6step  + karmaDiceCount
+        d6step  += karmaDiceCount
       when /d4/i
-        d4step  = d4step  + karmaDiceCount
+        d4step  += karmaDiceCount
       else
-        nmod = nmod + karmaDiceCount
+        nmod += karmaDiceCount
       end
     end
 

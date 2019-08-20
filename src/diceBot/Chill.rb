@@ -133,13 +133,13 @@ INFO_MESSAGE_TEXT
       dice = (strikeRank - 6).to_s + 'd10*2'
       damage, dice_str = roll(strikeRank - 6, 10)
       dice_add = damage.to_s + '*2'
-      damage = damage * 2
+      damage *= 2
       dice_str = "(#{dice_str})*2"
     else
       dice = '5d10*3'
       damage, dice_str = roll(5, 10)
       dice_add = damage.to_s + '*3'
-      damage = damage * 3
+      damage *= 3
       dice_str = "(#{dice_str})*3"
     end
 

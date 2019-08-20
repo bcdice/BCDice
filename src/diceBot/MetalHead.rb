@@ -184,10 +184,10 @@ MESSAGETEXT
     num_d1 = numbuf % 10
     debug("num_d1[#{num_d1}]")
     if num_d1 == 1
-      numbuf = numbuf + 1
+      numbuf += 1
     end
     if num_d1 == 0
-      numbuf = numbuf - 1
+      numbuf -= 1
     end
     num_d1 = numbuf % 10
     debug("num_d1[#{num_d1}]")
