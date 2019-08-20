@@ -36,7 +36,7 @@ testDataPath = nil
 # テストデータ番号
 dataIndex = nil
 
-HELP_MESSAGE = "Usage: #{File.basename($0)} [TEST_DATA_PATH] [DATA_INDEX]"
+HELP_MESSAGE = "Usage: #{File.basename($0)} [TEST_DATA_PATH] [DATA_INDEX]".freeze
 
 if ARGV.include?('-h') || ARGV.include?('--help')
   $stdout.puts(HELP_MESSAGE)

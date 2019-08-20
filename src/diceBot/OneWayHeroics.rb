@@ -970,7 +970,7 @@ MESSAGETEXT
         [6, "【絶望の王の】（０４７ページ）"],
       ]
     }
-  }
+  }.freeze
 
   setPrefixes(['\d*JD.*', 'RET\d+', 'RETP\d+', 'DNGN\d+'] + TABLES.keys)
 end
