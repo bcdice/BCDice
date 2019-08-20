@@ -197,13 +197,6 @@ Style/AccessModifierDeclarations:
     - 'irc/encode.rb'
     - 'test/DiceBotTest.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Style/BlockComments:
-  Exclude:
-    - 'CountHolder.rb'
-    - 'irc/ircBot.rb'
-
 # Offense count: 7
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, ProceduralMethods, FunctionalMethods, IgnoredMethods, AllowBracesOnProceduralOneLiners.
