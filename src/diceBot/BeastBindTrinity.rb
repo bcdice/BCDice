@@ -211,7 +211,7 @@ INFO_MESSAGE_TEXT
       debug("▼出目引き上げ #{dicepull}")
       dice_num_old = dice_num.dup
       (0...dice_num.size).each { |i| dice_num[i] = [dice_num[i], dicepull].max }
-      pul_flg = dice_num == dice_num_old ? false : true
+      pul_flg = dice_num != dice_num_old
       debug("▼出目引き上げの有無について #{pul_flg}")
 
       dice_num.sort! # 置換後、再度並べ替え
