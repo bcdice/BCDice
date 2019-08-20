@@ -177,10 +177,10 @@ INFO_MESSAGE_TEXT
         current_text = "1D6[#{dice}] #{current_text}"
       end
 
-      unless text.empty?
-        text = "#{text} => #{current_text}"
-      else
+      if text.empty?
         text = current_text
+      else
+        text = "#{text} => #{current_text}"
       end
 
       unless add
