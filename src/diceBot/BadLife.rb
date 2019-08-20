@@ -55,7 +55,7 @@ MESSAGETEXT
       case command
 
       when /([TDGKSB])RN/i
-        initials = $1
+        initials = Regexp.last_match(1)
         get_name_table(initials)
 
       when 'SKL'

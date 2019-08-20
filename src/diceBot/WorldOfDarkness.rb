@@ -45,18 +45,18 @@ INFO_MESSAGE_TEXT
     rerollNumber = 11
 
     if /STS/ =~ string
-      string = string.gsub(/(\d+)STS(\d*)([^\d\s][\+\-\d]+)/i) { "#{$1}STS#{$2}[#{$3}]" }
-      string = string.gsub(/(\d+)STS(\d*)/i) { "#{$1}STS#{$2}" } unless $3
+      string = string.gsub(/(\d+)STS(\d*)([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}STS#{Regexp.last_match(2)}[#{Regexp.last_match(3)}]" }
+      string = string.gsub(/(\d+)STS(\d*)/i) { "#{Regexp.last_match(1)}STS#{Regexp.last_match(2)}" } unless Regexp.last_match(3)
       rerollNumber = 10
     else
-      string = string.gsub(/(\d+)ST(\d*)([^\d\s][\+\-\d]+)/i) { "#{$1}ST#{$2}[#{$3}]" }
-      string = string.gsub(/(\d+)ST(\d*)/i) { "#{$1}ST#{$2}" } unless $3
+      string = string.gsub(/(\d+)ST(\d*)([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}ST#{Regexp.last_match(2)}[#{Regexp.last_match(3)}]" }
+      string = string.gsub(/(\d+)ST(\d*)/i) { "#{Regexp.last_match(1)}ST#{Regexp.last_match(2)}" } unless Regexp.last_match(3)
     end
 
-    diceCount = $1.to_i if $1
-    difficulty = $2.to_i if $2
+    diceCount = Regexp.last_match(1).to_i if Regexp.last_match(1)
+    difficulty = Regexp.last_match(2).to_i if Regexp.last_match(2)
     difficulty = 6 if difficulty < 2
-    automaticSuccess = $3.to_i if $3
+    automaticSuccess = Regexp.last_match(3).to_i if Regexp.last_match(3)
 
     output = 'DicePool=' + diceCount.to_s + ', Difficulty=' + difficulty.to_s + ', AutomaticSuccess=' + automaticSuccess.to_s
 

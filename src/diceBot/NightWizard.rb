@@ -30,12 +30,12 @@ INFO_MESSAGE_TEXT
     return string unless string =~ /NW/i
 
     string = string.gsub(/([\-\d]+)NW([\+\-\d]*)@([,\d]+)#([,\d]+)([\+\-\d]*)/i) do
-      modify = $5.empty? ? "" : ",#{$5}"
-      "2R6m[#{$1}#{$2}#{modify}]c[#{$3}]f[#{$4}]"
+      modify = Regexp.last_match(5).empty? ? "" : ",#{Regexp.last_match(5)}"
+      "2R6m[#{Regexp.last_match(1)}#{Regexp.last_match(2)}#{modify}]c[#{Regexp.last_match(3)}]f[#{Regexp.last_match(4)}]"
     end
 
-    string = string.gsub(/([\-\d]+)NW([\+\-\d]*)/i) { "2R6m[#{$1}#{$2}]" }
-    string = string.gsub(/NW([\+\-\d]*)/i) { "2R6m[0#{$1}]" }
+    string = string.gsub(/([\-\d]+)NW([\+\-\d]*)/i) { "2R6m[#{Regexp.last_match(1)}#{Regexp.last_match(2)}]" }
+    string = string.gsub(/NW([\+\-\d]*)/i) { "2R6m[0#{Regexp.last_match(1)}]" }
   end
 
   def dice_command_xRn(string, nick_e)
@@ -63,15 +63,15 @@ INFO_MESSAGE_TEXT
 
     debug('is valid string')
 
-    string = $2
-    base_and_modify = $3
-    criticalText = $4
-    criticalValue = $5
-    fumbleText = $6
-    fumbleValue = $7
-    judgeText = $8
-    judgeOperator = $9
-    judgeValue = $10.to_i
+    string = Regexp.last_match(2)
+    base_and_modify = Regexp.last_match(3)
+    criticalText = Regexp.last_match(4)
+    criticalValue = Regexp.last_match(5)
+    fumbleText = Regexp.last_match(6)
+    fumbleValue = Regexp.last_match(7)
+    judgeText = Regexp.last_match(8)
+    judgeOperator = Regexp.last_match(9)
+    judgeValue = Regexp.last_match(10).to_i
 
     crit = "0"
     fumble = "0"

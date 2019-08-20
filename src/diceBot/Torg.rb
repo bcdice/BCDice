@@ -41,7 +41,7 @@ INFO_MESSAGE_TEXT
     string = string.gsub(/(ords|odamage)/i, 'ODT')
     string = string.gsub(/damage/i, 'DT')
     string = string.gsub(/(bonus|total)/i, 'BT')
-    string = string.gsub(/TG(\d+)/i) { "1R20+#{$1}" }
+    string = string.gsub(/TG(\d+)/i) { "1R20+#{Regexp.last_match(1)}" }
     string = string.gsub(/TG/i, '1R20')
 
     return string
@@ -59,8 +59,8 @@ INFO_MESSAGE_TEXT
       return '1'
     end
 
-    string = $2
-    mod = $3
+    string = Regexp.last_match(2)
+    mod = Regexp.last_match(3)
 
     debug(mod)
     mod = parren_killer("(0#{mod})").to_i if mod
@@ -127,8 +127,8 @@ INFO_MESSAGE_TEXT
 
     return '1' unless /([RITMDB]T)(\d+([\+\-]\d+)*)/i =~ string
 
-    type = $1
-    num = $2
+    type = Regexp.last_match(1)
+    num = Regexp.last_match(2)
 
     case type
     when 'RT'

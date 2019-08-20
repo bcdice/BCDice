@@ -45,7 +45,7 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     case command
     when /LR\[([0-5]),([0-5]),([0-5]),([0-5]),([0-5]),([0-5])\]/i
-      return check_lostroyal([$1.to_i, $2.to_i, $3.to_i, $4.to_i, $5.to_i, $6.to_i,])
+      return check_lostroyal([Regexp.last_match(1).to_i, Regexp.last_match(2).to_i, Regexp.last_match(3).to_i, Regexp.last_match(4).to_i, Regexp.last_match(5).to_i, Regexp.last_match(6).to_i,])
     when /FC/
       return roll_fumble_chart
     when /WPC/
@@ -53,7 +53,7 @@ INFO_MESSAGE_TEXT
     when /EC/
       return roll_emotion_chart
     when /HR([1-2])/
-      return roll_hope($1.to_i)
+      return roll_hope(Regexp.last_match(1).to_i)
     end
 
     return nil

@@ -38,11 +38,11 @@ INFO_MESSAGE_TEXT
     case command.upcase
 
     when /^(WH\d+(@[\dWH]*)?)/i
-      attackCommand = $1
+      attackCommand = Regexp.last_match(1)
       output_msg = getAttackResult(attackCommand)
 
     when /^(WH[HABTLW]\d+)/i
-      criticalCommand = $1
+      criticalCommand = Regexp.last_match(1)
       output_msg = getCriticalResult(criticalCommand)
     end
 
@@ -142,8 +142,8 @@ INFO_MESSAGE_TEXT
       return '1'
     end
 
-    partsWord = $1 # 部位
-    criticalValue = $2.to_i # クリティカル値
+    partsWord = Regexp.last_match(1) # 部位
+    criticalValue = Regexp.last_match(2).to_i # クリティカル値
     criticalValue = 10 if criticalValue > 10
     criticalValue = 1 if criticalValue < 1
 
@@ -307,8 +307,8 @@ INFO_MESSAGE_TEXT
     pos_type = ""
 
     if /(.+)(@.*)/ =~ string
-      string = $1
-      pos_type = $2
+      string = Regexp.last_match(1)
+      pos_type = Regexp.last_match(2)
       debug("pos_type", pos_type)
     end
 
@@ -316,7 +316,7 @@ INFO_MESSAGE_TEXT
       return '1'
     end
 
-    diff = $1.to_i
+    diff = Regexp.last_match(1).to_i
 
     total_n, = roll(1, 100)
 

@@ -71,9 +71,9 @@ INFO_MESSAGE_TEXT
 
     return '' unless /^(\d+)R>=(\d+)(\[(\d+)?(,|,\d+)?(,\d+(S)?)?\])?$/i =~ string
 
-    roll_times = $1.to_i
-    target = $2.to_i
-    params = $3
+    roll_times = Regexp.last_match(1).to_i
+    target = Regexp.last_match(2).to_i
+    params = Regexp.last_match(3)
 
     min_suc, fumble, critical, isCriticalStop = getRollParams(params)
 
@@ -126,10 +126,10 @@ INFO_MESSAGE_TEXT
     # params => "[x,y,cS]"
     unless params.nil?
       if /\[(\d*)(,(\d*)?)?(,(\d*)(S)?)?\]/ =~ params
-        min_suc = $1.to_i
-        fumble = $3.to_i if $3.to_i != 0
-        critical = $5.to_i if $4
-        isCriticalStop = !$6.nil?
+        min_suc = Regexp.last_match(1).to_i
+        fumble = Regexp.last_match(3).to_i if Regexp.last_match(3).to_i != 0
+        critical = Regexp.last_match(5).to_i if Regexp.last_match(4)
+        isCriticalStop = !Regexp.last_match(6).nil?
       end
     end
 
@@ -195,9 +195,9 @@ INFO_MESSAGE_TEXT
 
     return '' unless /^SR(\d+)(([+]|[-])(\d+))?$/i =~ string
 
-    target = $1.to_i
-    operator = $3
-    value = $4.to_i
+    target = Regexp.last_match(1).to_i
+    operator = Regexp.last_match(3)
+    value = Regexp.last_match(4).to_i
 
     dice,  = roll(2, 6)
     modify = 0
@@ -232,11 +232,11 @@ INFO_MESSAGE_TEXT
 
     return result unless /([A-Za-z]+)(\d+)?(([+]|[-]|[=])(\d+))?/ === command
 
-    command = $1
+    command = Regexp.last_match(1)
     counts = 1
-    counts = $2.to_i if $2
-    operator = $4
-    value = $5.to_i
+    counts = Regexp.last_match(2).to_i if Regexp.last_match(2)
+    operator = Regexp.last_match(4)
+    value = Regexp.last_match(5).to_i
 
     debug("rollDiceCommand command", command)
 

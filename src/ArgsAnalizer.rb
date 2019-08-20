@@ -43,8 +43,8 @@ class ArgsAnalizer
   def analizeArg(arg)
     return false unless /^-([scngmeir])(.+)$/i =~ arg
 
-    command = $1.downcase
-    @param = $2
+    command = Regexp.last_match(1).downcase
+    @param = Regexp.last_match(2)
 
     case command
     when "s"

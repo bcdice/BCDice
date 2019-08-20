@@ -85,33 +85,33 @@ MESSAGETEXT
         checkRoll(type, target, modify, accidentValue, advancedRoll, luckPoint, isMuse)
 
       when /(HU|BK|WA|SC|BG|IN|PT|HT|TA|AC|HE|TR|VT|BO|CS|TH|AM|GD|HC|BI|BT|AI)HIT(\d+)?/i
-        hitPart = $1
-        roc = ($2 || 0).to_i
+        hitPart = Regexp.last_match(1)
+        roc = (Regexp.last_match(2) || 0).to_i
         get_hit_table(hitPart, roc)
 
       when /SUV([A-Z])(\d+)/i
-        armorGrade = $1
-        damage = $2.to_i
+        armorGrade = Regexp.last_match(1)
+        damage = Regexp.last_match(2).to_i
         get_SUV_table(armorGrade, damage)
 
       when /([HTALMEBPD])DMG([LMHO])/i
-        hitPart = $1
-        damageStage = $2
+        hitPart = Regexp.last_match(1)
+        damageStage = Regexp.last_match(2)
         get_damageEffect_table(hitPart, damageStage)
 
       when /CRT(\d+)?/i
-        roc = ($1 || 0).to_i
+        roc = (Regexp.last_match(1) || 0).to_i
         get_critical_table(roc)
 
       when /([GSME])AC(\d+)?/i
-        damageType = $1
-        roc = ($2 || 0).to_i
+        damageType = Regexp.last_match(1)
+        roc = (Regexp.last_match(2) || 0).to_i
         get_accident_table(damageType, roc)
 
       when /([ASL])MA(\d+)?(\+(\d+))?/i
-        locationType = $1
-        roc = ($2 || 0).to_i
-        correction = ($4 || 0).to_i
+        locationType = Regexp.last_match(1)
+        roc = (Regexp.last_match(2) || 0).to_i
+        correction = (Regexp.last_match(4) || 0).to_i
         get_mechanicAccident_table(locationType, roc, correction)
 
       when 'SEC'
@@ -124,8 +124,8 @@ MESSAGETEXT
         get_loserDestiny_chart
 
       when /([W])ENC(\d+)?/i
-        locationType = $1
-        roc = ($2 || 0).to_i
+        locationType = Regexp.last_match(1)
+        roc = (Regexp.last_match(2) || 0).to_i
         get_randomEncounter_table(locationType, roc)
 
       end
@@ -909,8 +909,8 @@ MESSAGETEXT
     calculateArray = calculateText.scan(/[\*\/]\d*/)  # 修正値を分割して配列へ
     calculateArray.each do |i|                        # 配列内ループで補正率を計算
       i =~ /([\*\/])(\d*)/i
-      result *= $2.to_i if $1 == '*'
-      result /= $2.to_i if $1 == '/'
+      result *= Regexp.last_match(2).to_i if Regexp.last_match(1) == '*'
+      result /= Regexp.last_match(2).to_i if Regexp.last_match(1) == '/'
     end
     return result
   end

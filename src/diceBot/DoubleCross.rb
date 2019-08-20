@@ -42,12 +42,12 @@ INFO_MESSAGE_TEXT
 
     debug("DoubleCross parren_killer_add string", string)
 
-    string = string.gsub(/(\d+)DX(\d*)([^\d\s][\+\-\d]+)/i) { "#{$1}R10#{$3}[#{$2}]" }
-    string = string.gsub(/(\d+)DX(\d+)/i) { "#{$1}R10[#{$2}]" }
-    string = string.gsub(/(\d+)DX([^\d\s][\+\-\d]+)/i) { "#{$1}R10#{$2}" }
-    string = string.gsub(/(\d+)DX/i) { "#{$1}R10" }
+    string = string.gsub(/(\d+)DX(\d*)([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(3)}[#{Regexp.last_match(2)}]" }
+    string = string.gsub(/(\d+)DX(\d+)/i) { "#{Regexp.last_match(1)}R10[#{Regexp.last_match(2)}]" }
+    string = string.gsub(/(\d+)DX([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(2)}" }
+    string = string.gsub(/(\d+)DX/i) { "#{Regexp.last_match(1)}R10" }
     if /\@(\d+)/ =~ string
-      crit = $1
+      crit = Regexp.last_match(1)
       string = string.gsub(/\[\]/) { "\[#{crit}\]" }
       string = string.gsub(/\@(\d+)/, "")
     end
@@ -103,9 +103,9 @@ INFO_MESSAGE_TEXT
       return nil
     end
 
-    string = $2
+    string = Regexp.last_match(2)
 
-    critical = $4
+    critical = Regexp.last_match(4)
     critical ||= rerollNumber
     critical = critical.to_i
 
@@ -115,13 +115,13 @@ INFO_MESSAGE_TEXT
       return "クリティカル値が低すぎます。2以上を指定してください。"
     end
 
-    if !$5.nil?
-      diff = $7.to_i
-      signOfInequality = marshalSignOfInequality($6)
+    if !Regexp.last_match(5).nil?
+      diff = Regexp.last_match(7).to_i
+      signOfInequality = marshalSignOfInequality(Regexp.last_match(6))
     elsif defaultSuccessTarget != ""
       if /([<>=]+)(\d+)/ =~ defaultSuccessTarget
-        diff = $2.to_i
-        signOfInequality = marshalSignOfInequality($1)
+        diff = Regexp.last_match(2).to_i
+        signOfInequality = marshalSignOfInequality(Regexp.last_match(1))
       end
     end
 

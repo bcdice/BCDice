@@ -44,7 +44,7 @@ INFO_MESSAGE_TEXT
     @isFailed = true
     step2 = 0
 
-    step  = $1.to_i # ステップ
+    step  = Regexp.last_match(1).to_i # ステップ
     targetNumber = 0 # 目標値
     hasKarmaDice = false # カルマダイスの有無
     karmaDiceCount = 0 # カルマダイスの個数又は修正
@@ -56,14 +56,14 @@ INFO_MESSAGE_TEXT
       step = 40
     end
 
-    if $2
-      targetNumber = $2.to_i
+    if Regexp.last_match(2)
+      targetNumber = Regexp.last_match(2).to_i
       targetNumber = 42 if targetNumber > 43
     end
 
-    hasKarmaDice = $3.to_i if $3
-    karmaDiceCount = $4.to_i if $4
-    karmaDiceType = ($5) if $5
+    hasKarmaDice = Regexp.last_match(3).to_i if Regexp.last_match(3)
+    karmaDiceCount = Regexp.last_match(4).to_i if Regexp.last_match(4)
+    karmaDiceType = Regexp.last_match(5) if Regexp.last_match(5)
 
     return nil if targetNumber < 0
 

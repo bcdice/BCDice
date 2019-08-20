@@ -62,9 +62,9 @@ INFO_MESSAGE_TEXT
 
     target = 8
 
-    skill = $1.to_i
-    flag = $2.to_i
-    target = $5.to_i unless $5.nil?
+    skill = Regexp.last_match(1).to_i
+    flag = Regexp.last_match(2).to_i
+    target = Regexp.last_match(5).to_i unless Regexp.last_match(5).nil?
 
     result = "판정！　스킬레벨：#{skill}　플래그：#{flag}　목표치：#{target}"
 
@@ -133,10 +133,10 @@ INFO_MESSAGE_TEXT
 
     return '' unless /^(\d+)JD(\d+)?(([+]|[-]|[\/])(\d+))?$/i =~ string
 
-    skill = $1.to_i
-    flag = $2.to_i
-    operator = $4
-    value = $5.to_i
+    skill = Regexp.last_match(1).to_i
+    flag = Regexp.last_match(2).to_i
+    operator = Regexp.last_match(4)
+    value = Regexp.last_match(5).to_i
 
     result = "판정！　스킬레벨：#{skill}　플래그：#{flag}"
 

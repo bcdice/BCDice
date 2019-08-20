@@ -32,8 +32,8 @@ INFO_MESSAGE_TEXT
   def changeText(string)
     debug('parren_killer_add begin stirng', string)
 
-    string = string.gsub(/(\d+)RS([\+\-][\+\-\d]+)<=(\d+)/i) { "3R6#{$2}<=#{$3}[#{$1}]" }
-    string = string.gsub(/(\d+)RS<=(\d+)/i) { "3R6<=#{$2}[#{$1}]" }
+    string = string.gsub(/(\d+)RS([\+\-][\+\-\d]+)<=(\d+)/i) { "3R6#{Regexp.last_match(2)}<=#{Regexp.last_match(3)}[#{Regexp.last_match(1)}]" }
+    string = string.gsub(/(\d+)RS<=(\d+)/i) { "3R6<=#{Regexp.last_match(2)}[#{Regexp.last_match(1)}]" }
 
     debug('parren_killer_add end stirng', string)
 
@@ -51,9 +51,9 @@ INFO_MESSAGE_TEXT
       return output
     end
 
-    modText = $1
-    target = $2.to_i
-    abl = $3.to_i
+    modText = Regexp.last_match(1)
+    target = Regexp.last_match(2).to_i
+    abl = Regexp.last_match(3).to_i
 
     mod = 0
     if modText

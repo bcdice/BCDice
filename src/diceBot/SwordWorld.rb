@@ -45,10 +45,10 @@ INFO_MESSAGE_TEXT
     return string unless /(^|\s)[sS]?(K[\d]+)/i =~ string
 
     debug('parren_killer_add before string', string)
-    string = string.gsub(/\[(\d+)\]/i) { "c[#{$1}]" }
-    string = string.gsub(/\@(\d+)/i) { "c[#{$1}]" }
-    string = string.gsub(/\$([\+\-]?[\d]+)/i) { "m[#{$1}]" }
-    string = string.gsub(/r([\+\-]?[\d]+)/i) { "r[#{$1}]" }
+    string = string.gsub(/\[(\d+)\]/i) { "c[#{Regexp.last_match(1)}]" }
+    string = string.gsub(/\@(\d+)/i) { "c[#{Regexp.last_match(1)}]" }
+    string = string.gsub(/\$([\+\-]?[\d]+)/i) { "m[#{Regexp.last_match(1)}]" }
+    string = string.gsub(/r([\+\-]?[\d]+)/i) { "r[#{Regexp.last_match(1)}]" }
     debug('parren_killer_add after string', string)
 
     return string
@@ -92,7 +92,7 @@ INFO_MESSAGE_TEXT
       return '1'
     end
 
-    string = $2
+    string = Regexp.last_match(2)
 
     rateUp, string = getRateUpFromString(string)
     crit, string = getCriticalFromString(string)
@@ -102,7 +102,7 @@ INFO_MESSAGE_TEXT
 
     return '1' unless key =~ /([\d]+)/
 
-    key = $1.to_i
+    key = Regexp.last_match(1).to_i
 
     # 2.0対応
     rate_sw2_0 = getSW2_0_RatingTable
@@ -196,7 +196,7 @@ INFO_MESSAGE_TEXT
     regexp = /c\[(\d+)\]/i
 
     if regexp =~ string
-      crit = $1.to_i
+      crit = Regexp.last_match(1).to_i
       crit = 3 if crit < 3 # エラートラップ(クリティカル値が3未満なら3とする)
       string = string.gsub(regexp, '')
     end
@@ -211,7 +211,7 @@ INFO_MESSAGE_TEXT
     regexp = /m\[([\d\+\-]+)\]/i
 
     if  regexp =~ string
-      firstDiceChangeModify = $1
+      firstDiceChangeModify = Regexp.last_match(1)
 
       unless /[\+\-]/ =~ firstDiceChangeModify
         firstDiceChanteTo = firstDiceChangeModify.to_i
@@ -234,9 +234,9 @@ INFO_MESSAGE_TEXT
     addValue = 0
 
     if /K(\d+)([\d\+\-]*)/i =~ string # ボーナスの抽出
-      key = $1
-      if $2
-        addValue = parren_killer("(" + $2 + ")").to_i
+      key = Regexp.last_match(1)
+      if Regexp.last_match(2)
+        addValue = parren_killer("(" + Regexp.last_match(2) + ")").to_i
       end
     else
       key = string
@@ -459,7 +459,7 @@ INFO_MESSAGE_TEXT
     pre_mode = @rating_table
 
     if /(\d+)/ =~ tnick
-      @rating_table = $1.to_i
+      @rating_table = Regexp.last_match(1).to_i
       if @rating_table > 1
         mode_str = "2.0-mode"
         @rating_table = 2

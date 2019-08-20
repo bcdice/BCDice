@@ -63,21 +63,21 @@ MESSAGETEXT
     result = ''
     case command
     when /^EL(\d*)(\+\d+)?/i
-      base = $1
-      modify = $2
+      base = Regexp.last_match(1)
+      modify = Regexp.last_match(2)
       result = check(base, modify)
 
     when /^(F|O|M)?DATE\[(.*),(.*)\]/i
-      type = $1
-      pc1 = $2
-      pc2 = $3
+      type = Regexp.last_match(1)
+      pc1 = Regexp.last_match(2)
+      pc2 = Regexp.last_match(3)
       result = getDateBothResult(type, pc1, pc2)
 
     when /^(F|O|M)?DATE(\d\d)(\[(.*),(.*)\])?/i
-      type = $1
-      number = $2.to_i
-      pc1 = $4
-      pc2 = $5
+      type = Regexp.last_match(1)
+      number = Regexp.last_match(2).to_i
+      pc1 = Regexp.last_match(4)
+      pc2 = Regexp.last_match(5)
       result =  getDateResult(type, number, pc1, pc2)
 
     when /^(F|O|M)?DATE/i
@@ -137,10 +137,10 @@ MESSAGETEXT
       when 'URT'
         getRandomNpcUpperClassmen
       when /^NJ(\d+)$/i
-        level = $1.to_i
+        level = Regexp.last_match(1).to_i
         getUsuallyEncount(level)
       when /^BS(\d+)$/i
-        level = $1.to_i
+        level = Regexp.last_match(1).to_i
         getBossEncount(level)
       else
         ''
@@ -407,7 +407,7 @@ MESSAGETEXT
   def changePcName(text, base, name)
     return text if name.nil? || name.empty?
 
-    return text.gsub(/(#{base})/) { $1 + "(#{name})" }
+    return text.gsub(/(#{base})/) { Regexp.last_match(1) + "(#{name})" }
   end
 
   def getDateValue

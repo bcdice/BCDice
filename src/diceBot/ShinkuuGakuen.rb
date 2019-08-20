@@ -45,9 +45,9 @@ MESSAGETEXT
 
     debug("matched.")
 
-    weaponCommand = $3
-    base = $4.to_i
-    diff = $6
+    weaponCommand = Regexp.last_match(3)
+    base = Regexp.last_match(4).to_i
+    diff = Regexp.last_match(6)
 
     weaponInfo = getWeaponTable(weaponCommand)
     output_msg = rollJudge(base, diff, weaponInfo)

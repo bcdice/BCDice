@@ -68,7 +68,7 @@ INFO_MESSAGE_TEXT
     case command
     when /^Gr(\d+)?/i
       if command =~ /^Gr(\d+)/i
-        growth($1.to_i)
+        growth(Regexp.last_match(1).to_i)
       else
         growth
       end
@@ -87,7 +87,7 @@ INFO_MESSAGE_TEXT
     regexp = /r\[(\d+)\]/i
 
     if regexp === string
-      rateUp = $1.to_i
+      rateUp = Regexp.last_match(1).to_i
       string = string.gsub(regexp, '')
     end
 
@@ -160,7 +160,7 @@ INFO_MESSAGE_TEXT
     superSuccessValue = 41
 
     if /@(\d+)/ === string
-      critical = $1.to_i
+      critical = Regexp.last_match(1).to_i
       if dice_n >= critical
         if  total_n >= superSuccessValue
           return " ＞ 超成功"

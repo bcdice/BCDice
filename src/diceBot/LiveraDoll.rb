@@ -58,8 +58,8 @@ MESSAGETEXT
       case command.upcase
 
       when /^(\d+)?ATK([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?$/i
-        diceCount = ($1 || 1).to_i
-        blockNo = [($2 || 0).to_i, ($3 || 0).to_i, ($4 || 0).to_i, ($5 || 0).to_i, ($6 || 0).to_i, ($7 || 0).to_i]
+        diceCount = (Regexp.last_match(1) || 1).to_i
+        blockNo = [(Regexp.last_match(2) || 0).to_i, (Regexp.last_match(3) || 0).to_i, (Regexp.last_match(4) || 0).to_i, (Regexp.last_match(5) || 0).to_i, (Regexp.last_match(6) || 0).to_i, (Regexp.last_match(7) || 0).to_i]
         blockNo.delete(0)
         blockNo = blockNo.sort
         blockNo = blockNo.uniq
@@ -67,9 +67,9 @@ MESSAGETEXT
         output = checkRoll(diceCount, blockNo)
 
       when /^(C|K|W|R|B|G|E)(L|D|O)(\d+)$/i
-        color = $1.upcase
-        cardtype = $2.upcase
-        cardindex = $3.to_i
+        color = Regexp.last_match(1).upcase
+        cardtype = Regexp.last_match(2).upcase
+        cardindex = Regexp.last_match(3).to_i
         get_card_text(color, cardtype, cardindex)
 
       end

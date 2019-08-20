@@ -88,9 +88,9 @@ INFO_MESSAGE_TEXT
       return '1'
     end
 
-    target = $2.to_i
-    modify = $3.to_i
-    fumble = $5.to_i
+    target = Regexp.last_match(2).to_i
+    modify = Regexp.last_match(3).to_i
+    fumble = Regexp.last_match(5).to_i
 
     result = ""
 
@@ -147,7 +147,7 @@ INFO_MESSAGE_TEXT
 
     when /^ST(\d)?$/
       # シーン表
-      type = $1.to_i
+      type = Regexp.last_match(1).to_i
 
       tableName, result, number = getSceneTableResult(type)
 
@@ -157,7 +157,7 @@ INFO_MESSAGE_TEXT
 
     when /^NAME(\d)?$/
       # 万能命名表
-      type = $1.to_i
+      type = Regexp.last_match(1).to_i
       tableName, result, number = getNameTableResult(type)
 
     when /^.+SPT$/i
@@ -186,15 +186,15 @@ INFO_MESSAGE_TEXT
       tableName, result, number = getSceneTelopGenericTableResult()
 
     when /^HSAT(\d)?$/
-      type = $1.to_i
+      type = Regexp.last_match(1).to_i
       tableName, result, number = getHairStylistAbuseTableResult(type)
 
     when /^EXT(\d)?$/
-      type = $1.to_i
+      type = Regexp.last_match(1).to_i
       tableName, result, number = getExtraTableResult(type)
 
     when /^SKL(T|J)$/
-      type = $1
+      type = Regexp.last_match(1)
       tableName, result, number = getSkillTableResult(type)
 
     when "PCDT"

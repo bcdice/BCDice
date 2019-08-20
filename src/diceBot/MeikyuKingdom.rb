@@ -67,8 +67,8 @@ INFO_MESSAGE_TEXT
   def changeText(string)
     debug("changeText before string", string)
 
-    string = string.gsub(/(\d+)MK6/i) { "#{$1}R6" }
-    string = string.gsub(/(\d+)MK/i) { "#{$1}R6" }
+    string = string.gsub(/(\d+)MK6/i) { "#{Regexp.last_match(1)}R6" }
+    string = string.gsub(/(\d+)MK/i) { "#{Regexp.last_match(1)}R6" }
 
     debug("changeText after string", string)
 
@@ -152,13 +152,13 @@ INFO_MESSAGE_TEXT
 
     return output unless /(^|\s)S?((\d+)[rR]6([\+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i =~ string
 
-    string = $2
-    diceCount = $3.to_i
-    modifyText = $4
-    signOfInequality = $6
+    string = Regexp.last_match(2)
+    diceCount = Regexp.last_match(3).to_i
+    modifyText = Regexp.last_match(4)
+    signOfInequality = Regexp.last_match(6)
     signOfInequality ||= ""
 
-    diff = $7.to_i
+    diff = Regexp.last_match(7).to_i
     diff ||= 0
 
     debug("string", string)
@@ -243,7 +243,7 @@ INFO_MESSAGE_TEXT
 
     when /^NAME(\d*)/i
       type = '名前'
-      count = getCount($1)
+      count = getCount(Regexp.last_match(1))
       names = ""
       count.times do |_i|
         name, dice = mk_name_table
@@ -254,19 +254,19 @@ INFO_MESSAGE_TEXT
 
     when /^PNT(\d*)/i
       type = '地名'
-      count = getCount($1)
+      count = getCount(Regexp.last_match(1))
       output = mk_pn_decide_table(count)
       total_n = count
 
     when /^MLT(\d*)/i
       type = '地名'
-      count = getCount($1)
+      count = getCount(Regexp.last_match(1))
       output = mk_ls_decide_table(count)
       total_n = count
 
     when /^DFT(\d*)/i
       type = 'デバイスファクトリー'
-      count = getCount($1)
+      count = getCount(Regexp.last_match(1))
       output = mk_device_factory_table(count)
       total_n = count
 
@@ -426,7 +426,7 @@ INFO_MESSAGE_TEXT
 
     when /^KNT(\d+)/i
       type = '王国名'
-      count = getCount($1)
+      count = getCount(Regexp.last_match(1))
       total_n = d66(2)
 
       case count
@@ -440,7 +440,7 @@ INFO_MESSAGE_TEXT
 
     when /^WORD(\d+)/i
       type = '単語'
-      count = getCount($1)
+      count = getCount(Regexp.last_match(1))
       total_n = d66(2)
 
       case count

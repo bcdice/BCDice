@@ -24,8 +24,8 @@ INFO_MESSAGE_TEXT
 
   def changeText(string)
     debug("parren_killer_add before string", string)
-    string = string.sub(/^(.+?)Lv(\d+)(.*)/i) { "#{$1}#{($2.to_i * 5 - 1)}#{$3}" }
-    string = string.sub(/^(.+?)NL(\d+)(.*)/i) { "#{$1}#{($2.to_i * 5 + 5)}#{$3}" }
+    string = string.sub(/^(.+?)Lv(\d+)(.*)/i) { "#{Regexp.last_match(1)}#{(Regexp.last_match(2).to_i * 5 - 1)}#{Regexp.last_match(3)}" }
+    string = string.sub(/^(.+?)NL(\d+)(.*)/i) { "#{Regexp.last_match(1)}#{(Regexp.last_match(2).to_i * 5 + 5)}#{Regexp.last_match(3)}" }
     debug("parren_killer_add after string", string)
 
     return string

@@ -102,13 +102,13 @@ INFO_MESSAGE_TEXT
     stepTotal = 0
     @isFailed = true
 
-    step = $1.to_i # ステップ
-    targetNumber = $2.to_i # 目標値
+    step = Regexp.last_match(1).to_i # ステップ
+    targetNumber = Regexp.last_match(2).to_i # 目標値
     return nil if targetNumber < 0
 
-    hasKarmaDice = !$3.nil? # カルマダイスの有無
-    diceModify = $4.to_i
-    nextText = $6
+    hasKarmaDice = !Regexp.last_match(3).nil? # カルマダイスの有無
+    diceModify = Regexp.last_match(4).to_i
+    nextText = Regexp.last_match(6)
 
     stepInfo = getStepInfo(step)
     debug('stepInfo', stepInfo)

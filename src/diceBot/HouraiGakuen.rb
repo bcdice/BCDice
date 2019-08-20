@@ -65,7 +65,7 @@ INFO_MESSAGE_TEXT
     return nil unless /rol([-\d]+)/i =~ command
 
     # 目標値セット
-    target = $1.to_i
+    target = Regexp.last_match(1).to_i
 
     total, diceText = roll(3, 6)
 
@@ -109,8 +109,8 @@ INFO_MESSAGE_TEXT
   def getMedResult(command)
     return nil unless /med\((\d+),(\d+)\)/i =~ command
 
-    yourValue = $1.to_i # あなたの値
-    enemyValue = $2.to_i # 相手の値
+    yourValue = Regexp.last_match(1).to_i # あなたの値
+    enemyValue = Regexp.last_match(2).to_i # 相手の値
     target = getTargetFromValue(yourValue, enemyValue) # 値から目標値を作出
 
     total, diceText = roll(3, 6)
@@ -127,8 +127,8 @@ INFO_MESSAGE_TEXT
   def getResResult(command)
     return nil unless /res\((\d+),(\d+)\)/i =~ command
 
-    yourValue = $1.to_i # あなたの値
-    enemyValue = $2.to_i # 相手の値
+    yourValue = Regexp.last_match(1).to_i # あなたの値
+    enemyValue = Regexp.last_match(2).to_i # 相手の値
 
     # 値から目標値を作出
     yourTarget = getTargetFromValue(yourValue, enemyValue)

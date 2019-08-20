@@ -31,14 +31,14 @@ INFO_MESSAGE_TEXT
   end
 
   def changeText(string)
-    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))(\#(\d+))/i) { "2R10#{$2}>=#{$1}[#{$4},#{$6}]" }
-    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(\#(\d+))/i) { "2R10#{$2}>=#{$1}[20,#{$4}]" }
-    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))/i) { "2R10#{$2}>=#{$1}[#{$4},2]" }
-    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)/i) { "2R10#{$2}>=#{$1}[20,2]" }
-    string = string.gsub(/EM(\d+)(@(\d+))(\#(\d+))/i) { "2R10>=#{$1}[#{$3},#{$5}]" }
-    string = string.gsub(/EM(\d+)(\#(\d+))/i) { "2R10>=#{$1}[20,#{$3}]" }
-    string = string.gsub(/EM(\d+)(@(\d+))/i) { "2R10>=#{$1}[#{$3},2]" }
-    string = string.gsub(/EM(\d+)/i) { "2R10>=#{$1}[20,2]" }
+    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))(\#(\d+))/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[#{Regexp.last_match(4)},#{Regexp.last_match(6)}]" }
+    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(\#(\d+))/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[20,#{Regexp.last_match(4)}]" }
+    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[#{Regexp.last_match(4)},2]" }
+    string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[20,2]" }
+    string = string.gsub(/EM(\d+)(@(\d+))(\#(\d+))/i) { "2R10>=#{Regexp.last_match(1)}[#{Regexp.last_match(3)},#{Regexp.last_match(5)}]" }
+    string = string.gsub(/EM(\d+)(\#(\d+))/i) { "2R10>=#{Regexp.last_match(1)}[20,#{Regexp.last_match(3)}]" }
+    string = string.gsub(/EM(\d+)(@(\d+))/i) { "2R10>=#{Regexp.last_match(1)}[#{Regexp.last_match(3)},2]" }
+    string = string.gsub(/EM(\d+)/i) { "2R10>=#{Regexp.last_match(1)}[20,2]" }
   end
 
   def dice_command_xRn(string, nick_e)
@@ -66,17 +66,17 @@ INFO_MESSAGE_TEXT
 
     return output unless /(^|\s)S?(2[rR]10([\+\-\d]+)?([>=]+(\d+))(\[(\d+),(\d+)\]))(\s|$)/i =~ string
 
-    string = $2
+    string = Regexp.last_match(2)
     diff = 0
     crit = 20
     fumble = 2
     mod = 0
     total_n = 0
-    modText = $3
+    modText = Regexp.last_match(3)
 
-    diff = $5.to_i if $5
-    crit = $7.to_i if $7
-    fumble = $8.to_i if $8
+    diff = Regexp.last_match(5).to_i if Regexp.last_match(5)
+    crit = Regexp.last_match(7).to_i if Regexp.last_match(7)
+    fumble = Regexp.last_match(8).to_i if Regexp.last_match(8)
     mod = parren_killer("(0#{modText})").to_i if modText
 
     dice_now, dice_str, = roll(2, 10, (sortType & 1))

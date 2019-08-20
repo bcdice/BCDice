@@ -29,10 +29,10 @@ MESSAGETEXT
   def rollDiceCommand(command)
     case command
     when /WQ(\d+)/
-      number = $1.to_i
+      number = Regexp.last_match(1).to_i
       return challenge(number)
     when /SET(\d+)/
-      number = $1.to_i
+      number = Regexp.last_match(1).to_i
       return getStructureEncounter(number)
     end
 

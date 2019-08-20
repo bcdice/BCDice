@@ -58,13 +58,13 @@ INFO_MESSAGE_TEXT
   def judgeRoll(command)
     return nil unless /^(R([A-DS]|\d+)([\+\-\d,]*))(@(\d))?((>(=)?)([\+\-\d]*))?(@(\d))?$/i =~ command
 
-    skillRank = $2
-    modifyText = $3
-    signOfInequality = ($7.nil? ? ">=" : $7)
-    targetText = ($9.nil? ? "4" : $9)
+    skillRank = Regexp.last_match(2)
+    modifyText = Regexp.last_match(3)
+    signOfInequality = (Regexp.last_match(7).nil? ? ">=" : Regexp.last_match(7))
+    targetText = (Regexp.last_match(9).nil? ? "4" : Regexp.last_match(9))
 
-    specialNum = $5
-    specialNum ||= $11
+    specialNum = Regexp.last_match(5)
+    specialNum ||= Regexp.last_match(11)
     specialNum ||= 6
     specialNum = specialNum.to_i
     specialText = (specialNum == 6 ? "" : "@#{specialNum}")
@@ -169,7 +169,7 @@ INFO_MESSAGE_TEXT
   def getD66Table(table)
     newTable = table.map do |item|
       if item.is_a?(String) && (/^(\d+):(.*)/ === item)
-        [$1.to_i, $2]
+        [Regexp.last_match(1).to_i, Regexp.last_match(2)]
       else
         item
       end

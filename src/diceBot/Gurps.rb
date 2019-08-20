@@ -100,8 +100,8 @@ INFO_MESSAGE_TEXT
   def getRollDiceResult(command)
     return nil unless /([\d\+\-]+)\-3[dD]6?([\d\+\-]*)/ === command
 
-    diffStr = $1
-    modStr  = ($2 || '')
+    diffStr = Regexp.last_match(1)
+    modStr  = (Regexp.last_match(2) || '')
 
     dice_cnt = 3
     dice_max = 6
@@ -280,7 +280,7 @@ INFO_MESSAGE_TEXT
   def getFearResult(command)
     return nil unless /FEAR((\+)?\d+)?/ === command
 
-    modify = $1.to_i
+    modify = Regexp.last_match(1).to_i
 
     tableName = "恐怖表"
     table = [
@@ -338,7 +338,7 @@ INFO_MESSAGE_TEXT
   def getReactResult(command)
     return nil unless /REACT((\+|\-)?\d*)/ === command
 
-    modify = $1.to_i
+    modify = Regexp.last_match(1).to_i
 
     tableName = "反応表"
     dice, dummy = roll(3, 6)

@@ -51,9 +51,9 @@ MESSAGETEXT
     when /^ACS/
       tableName, tableResult, tableNumber = mh_acs_table
     when /^CRC(\w)(\d+)/
-      tableName, tableResult, tableNumber = mh_crc_table($1, $2)
+      tableName, tableResult, tableNumber = mh_crc_table(Regexp.last_match(1), Regexp.last_match(2))
     when /^HR<=(.+)$/
-      target = parren_killer("(" + $1 + ")").to_i
+      target = parren_killer("(" + Regexp.last_match(1) + ")").to_i
       return rollHit(target)
     end
 
@@ -63,8 +63,8 @@ MESSAGETEXT
   end
 
   def changeText(string)
-    string = string.gsub(/^(S)?AR/i) { "#{$1}2D6" }
-    string = string.gsub(/^(S)?SR/i) { "#{$1}1D100" }
+    string = string.gsub(/^(S)?AR/i) { "#{Regexp.last_match(1)}2D6" }
+    string = string.gsub(/^(S)?SR/i) { "#{Regexp.last_match(1)}1D100" }
     return string
   end
 

@@ -24,7 +24,7 @@ INFO_MESSAGE_TEXT
 
     case command
     when /CW(\d+)/i
-      result = getCrashWorldRoll($1.to_i)
+      result = getCrashWorldRoll(Regexp.last_match(1).to_i)
     end
 
     return result

@@ -78,37 +78,37 @@ class CountHolder
     when /^#([^:：]+)(:|：)(\w+?)\s*(\d+)(\/(\d+))?/
       debug(" #(識別名):(タグ)(現在値)/(最大値) で指定します。最大値がないものは省略できます。")
       # #Zako1:HP9/9　　　#orc1:HP10/10　　#商人:HP8/8
-      @characterName = $1
-      @tagName = $3
-      @currentValue = $4.to_i
-      @maxValue = $6
+      @characterName = Regexp.last_match(1)
+      @tagName = Regexp.last_match(3)
+      @currentValue = Regexp.last_match(4).to_i
+      @maxValue = Regexp.last_match(6)
     when /^#([^:：]+)(:|：)(\w+?)\s*([\+\-]\d+)/
       debug(" #(識別名):(タグ)(変更量)")
       # #Zako1:HP-1
-      @characterName = $1
-      @tagName = $3
-      @modifyText = $4
+      @characterName = Regexp.last_match(1)
+      @tagName = Regexp.last_match(3)
+      @modifyText = Regexp.last_match(4)
     when /^#(\w+?)\s*(\d+)\/(\d+)/
       debug(" #(タグ)(現在値)/(最大値) 現在値/最大値指定は半角のみ。")
       # #HP12/12　　　#衝動0/10
-      @tagName = $1
-      @currentValue = $2.to_i
-      @maxValue = $3
+      @tagName = Regexp.last_match(1)
+      @currentValue = Regexp.last_match(2).to_i
+      @maxValue = Regexp.last_match(3)
     when /^#(\w+?)\s*([\+\-]\d+)/
       debug(" #(タグ)(変更量)")
       # #HP-1
-      @tagName = $1
-      @modifyText = $2
+      @tagName = Regexp.last_match(1)
+      @modifyText = Regexp.last_match(2)
     when /^#(\w+?)\s*(\d+)/
       debug(" #(タグ)(現在値) で指定します。現在値は半角です。")
       # #DEX12　　　#浸食率0
-      @tagName = $1
-      @currentValue = $2.to_i
+      @tagName = Regexp.last_match(1)
+      @currentValue = Regexp.last_match(2).to_i
     when /^#(\w+?)\s*([\+\-]\d+)/
       debug(" #(タグ)(変更量) ")
       # #DEX-1
-      @tagName = $1
-      @modifyText = $2
+      @tagName = Regexp.last_match(1)
+      @modifyText = Regexp.last_match(2)
     else
       debug("not match command", @command)
       return ''
@@ -228,7 +228,7 @@ class CountHolder
 
     return output unless /^#OPEN![\s]*(\w*)(\s|$)/ =~ @command
 
-    tag = $1
+    tag = Regexp.last_match(1)
     case @pointerMode
     when :sameNick
       debug("same nick")
@@ -377,8 +377,8 @@ class CountHolder
 
     return output unless /^#RENAME!\s*(.+?)\s*\-\>\s*(.+?)(\s|$)/ =~ @command
 
-    oldName = $1
-    newName = $2
+    oldName = Regexp.last_match(1)
+    newName = Regexp.last_match(2)
     debug("oldName, newName", oldName, newName)
 
     # {:channelName => {:characterName => (カウンター情報) }
@@ -445,8 +445,8 @@ class CountHolder
 
   def getPointHashCurrentAndMax(key)
     if /(\d+)[\/](\d+)/ =~ key
-      current = $1
-      max = $2
+      current = Regexp.last_match(1)
+      max = Regexp.last_match(2)
       return current, max
     end
     return 0, 0

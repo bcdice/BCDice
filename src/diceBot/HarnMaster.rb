@@ -55,11 +55,11 @@ MESSAGETEXT
 
     case command
     when /^SHK(\d*),(\d+)/i
-      toughness = $1.to_i
-      damage = $2.to_i
+      toughness = Regexp.last_match(1).to_i
+      damage = Regexp.last_match(2).to_i
       result = getCheckShockResult(damage, toughness)
     when /SLH(U|D)?/i
-      type = $1
+      type = Regexp.last_match(1)
       result = getStrikeLocationHuman(type)
     else
       result = nil
