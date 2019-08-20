@@ -197,14 +197,6 @@ Style/AccessModifierDeclarations:
     - 'irc/encode.rb'
     - 'test/DiceBotTest.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: percent_q, bare_percent
-Style/BarePercentLiterals:
-  Exclude:
-    - 'log.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 Style/BlockComments:
