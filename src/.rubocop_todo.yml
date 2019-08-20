@@ -302,12 +302,6 @@ Style/DoubleNegation:
   Exclude:
     - 'test/DiceBotTest.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/EachWithObject:
-  Exclude:
-    - 'diceBot/Utakaze.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 Style/EmptyBlockParameter:
