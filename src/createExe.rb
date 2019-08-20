@@ -9,9 +9,9 @@ $LOAD_PATH.unshift(bcdiceRoot) unless $LOAD_PATH.include?(bcdiceRoot)
 require 'diceBot/DiceBotLoader'
 
 def updateConfig
-  nameList = DiceBotLoader.collectDiceBots.
-    map { |diceBot| diceBot.gameType.gsub(' ', '_') }.
-    sort
+  nameList = DiceBotLoader.collectDiceBots
+    .map { |diceBot| diceBot.gameType.gsub(' ', '_') }
+    .sort
   writeToConfig(nameList)
 end
 
