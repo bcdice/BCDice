@@ -16,6 +16,10 @@ Style/EachWithObject:
 Style/EmptyBlockParameter:
   Enabled: false
 
+# Due to old Ruby 1.8.x
+Style/Lambda:
+  EnforcedStyle: lambda
+
 Layout/EndOfLine:
   EnforcedStyle: lf
 
