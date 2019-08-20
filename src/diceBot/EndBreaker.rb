@@ -72,7 +72,7 @@ MESSAGETEXT
 
     # ダイスの出目の個数を集計
     result += " ＞"
-    for num in 2..6
+    (2..6).each do |num|
       count = diceFullList.select { |i| i == num }.size
       result += " [#{num}:#{count}個]" unless count == 0
     end
