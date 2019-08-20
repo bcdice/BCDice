@@ -190,7 +190,7 @@ INFO_MESSAGE_TEXT
           end
         end
 
-        if isFirstLoop && (dice_arr.length < 1)
+        if isFirstLoop && dice_arr.empty?
           min1 = 0
           min2 = 0
 
@@ -223,7 +223,7 @@ INFO_MESSAGE_TEXT
 
       debug('loop last chek dice_arr', dice_arr)
 
-      break unless dice_arr.length != 0
+      break if dice_arr.empty?
     end
 
     debug('loop breaked')

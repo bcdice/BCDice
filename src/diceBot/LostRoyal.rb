@@ -114,7 +114,7 @@ INFO_MESSAGE_TEXT
       key += 1
     end
 
-    if chained_keys.size > 0 && chained_keys[0] == 1
+    if !chained_keys.empty? && chained_keys[0] == 1
       key = 6
       while keys.include? key
         chained_keys.unshift key

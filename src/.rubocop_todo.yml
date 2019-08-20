@@ -387,6 +387,7 @@ Style/MultipleComparison:
 # Cop supports --auto-correct.
 Style/NegatedWhile:
   Exclude:
+    - 'CardTrader.rb'
     - 'dice/AddDice.rb'
     - 'diceBot/CrashWorld.rb'
 
@@ -425,19 +426,6 @@ Style/YodaCondition:
     - 'diceBot/LogHorizon.rb'
     - 'diceBot/LogHorizon_Korean.rb'
     - 'diceBot/Skynauts.rb'
-
-# Offense count: 16
-# Cop supports --auto-correct.
-Style/ZeroLengthPredicate:
-  Exclude:
-    - 'CardTrader.rb'
-    - 'bcdice.rb'
-    - 'cgiDiceBot.rb'
-    - 'diceBot/BattleTech.rb'
-    - 'diceBot/BeastBindTrinity.rb'
-    - 'diceBot/LostRoyal.rb'
-    - 'diceBot/MeikyuKingdom.rb'
-    - 'diceBot/TunnelsAndTrolls.rb'
 
 # Offense count: 3827
 # Cop supports --auto-correct.

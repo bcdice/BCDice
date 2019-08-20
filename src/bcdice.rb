@@ -45,7 +45,7 @@ end
 
 if $0 === __FILE__
 
-  if  (ARGV.length < 1) || (ARGV[0] == "createExe")
+  if  ARGV.empty? || (ARGV[0] == "createExe")
     require 'bcdiceGui.rb'
     mainBcDiceGui
   else

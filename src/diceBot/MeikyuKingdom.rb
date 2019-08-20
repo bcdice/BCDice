@@ -115,7 +115,7 @@ INFO_MESSAGE_TEXT
     dice6List = diceList.find_all { |i| i == 6 }
     debug("dice6List", dice6List)
 
-    if dice6List.length == 0
+    if dice6List.empty?
       return output_msg
     end
 
