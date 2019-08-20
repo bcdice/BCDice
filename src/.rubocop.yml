@@ -1,5 +1,9 @@
 inherit_from: .rubocop_todo.yml
 
+# Due to old Ruby 1.8.x
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
 Layout/EndOfLine:
   EnforcedStyle: lf
 
