@@ -201,7 +201,7 @@ class IrcClient < Net::IRC::Client
     @nickIndex += 1
     @log.debug("@nickIndex:#{@nickIndex}")
 
-    nickIndexText = sprintf("%d", @nickIndex)
+    nickIndexText = format("%d", @nickIndex)
     @log.debug("nickIndexText:#{nickIndexText}")
 
     newNick = nick + nickIndexText

@@ -88,8 +88,8 @@ INFO_MESSAGE_TEXT
     roll_result, dice10, dice01 = roll_d100
 
     text = "行為判定(成功率:#{success_rate}％)"
-    text += " ＞ 1D100[#{dice10},#{dice01}]=#{'%02d' % [roll_result]}"
-    text += " ＞ #{'%02d' % [roll_result]}"
+    text += " ＞ 1D100[#{dice10},#{dice01}]=#{format('%02d', roll_result)}"
+    text += " ＞ #{format('%02d', roll_result)}"
 
     if roll_result == 100 || success_rate <= 0
       text += FUMBLE_STR
