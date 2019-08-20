@@ -298,12 +298,12 @@ class BCDiceDialog < Wx::Dialog
 
   @@characterCodeInfo = {
     'ISO-2022-JP' => Kconv::JIS,
-    'EUC-JP'      => Kconv::EUC,
-    'Shift_JIS'   => Kconv::SJIS,
+    'EUC-JP' => Kconv::EUC,
+    'Shift_JIS' => Kconv::SJIS,
     'バイナリ' => Kconv::BINARY,
-    'ASCII'       => Kconv::ASCII,
-    'UTF-8'       => Kconv::UTF8,
-    'UTF-16'      => Kconv::UTF16,
+    'ASCII' => Kconv::ASCII,
+    'UTF-8' => Kconv::UTF8,
+    'UTF-16' => Kconv::UTF16,
   }
 
   def initCharacterCode

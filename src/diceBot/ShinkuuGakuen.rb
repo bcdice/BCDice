@@ -187,7 +187,7 @@ MESSAGETEXT
 
   def getWeaponTableSword
     {:name => '剣',
-      :table =>
+     :table =>
       [[11, '失礼剣', '成功度＋５'],
        [22, '隼斬り', '回避不可'],
        [33, 'みじん斬り', '攻撃量２倍'],
@@ -203,7 +203,7 @@ MESSAGETEXT
 
   def getWeaponTableSwordCounter
     {:name => '剣カウンター',
-      :table =>
+     :table =>
       [[33, 'パリィ', '攻撃の無効化'],
        [44, nil, nil],
        [55, nil, nil],
@@ -217,7 +217,7 @@ MESSAGETEXT
 
   def getWeaponTableLongSword
     {:name => '大剣',
-      :table =>
+     :table =>
       [[11, 'スマッシュ', '敵防御半分'],
        [22, '峰打ち', '麻痺硬化「根性」０'],
        [33, '水鳥剣', '敵防御判定ー５０'],
@@ -233,7 +233,7 @@ MESSAGETEXT
 
   def getWeaponTableLongSwordCounter
     {:name => '大剣カウンター',
-      :table =>
+     :table =>
       [[22, '無形の位', '攻撃の無効化'],
        [33, nil, nil],
        [44, nil, nil],
@@ -248,7 +248,7 @@ MESSAGETEXT
 
   def getWeaponTableShortSword
     {:name => '小剣',
-      :table =>
+     :table =>
       [[11, '乱れ突き', '２連続攻撃'],
        [22, 'フェイクタング', 'スタン効果「注意力」５'],
        [33, 'マインドステア', '麻痺効果「注意力」０'],
@@ -264,7 +264,7 @@ MESSAGETEXT
 
   def getWeaponTableShortSwordCounter
     {:name => '小剣カウンター',
-      :table =>
+     :table =>
       [[11, 'リポスト', 'カウンター'],
        [22, nil, nil],
        [33, nil, nil],
@@ -280,7 +280,7 @@ MESSAGETEXT
 
   def getWeaponTableSpear
     {:name => '槍',
-      :table =>
+     :table =>
       [[11, 'チャージ', 'ダメージ１．５倍、盾受けー３０'],
        [22, '稲妻突き', '回避不可'],
        [33, '脳削り', '麻痺効果「根性」０'],
@@ -296,7 +296,7 @@ MESSAGETEXT
 
   def getWeaponTableSpearCounter
     {:name => '槍カウンター',
-      :table =>
+     :table =>
       [[55, '風車', 'カウンター、ダメージ２倍'],
        [66, nil, nil],
        [77, nil, nil],
@@ -308,7 +308,7 @@ MESSAGETEXT
 
   def getWeaponTableAx
     {:name => '斧',
-      :table =>
+     :table =>
       [[11, '一人時間差', '防御行動ー１００'],
        [22, 'トマホーク', 'カウンター不可'],
        [33, '大木断', 'ダメージ２倍'],
@@ -324,7 +324,7 @@ MESSAGETEXT
 
   def getWeaponTableAxCounter
     {:name => '斧カウンター',
-      :table =>
+     :table =>
       [[44, '真っ向唐竹割り', 'クロスカウンター、Ｂ・Ｄ'],
        [55, nil, nil],
        [66, nil, nil],
@@ -337,7 +337,7 @@ MESSAGETEXT
 
   def getWeaponTableClub
     {:name => '棍棒',
-      :table =>
+     :table =>
       [[11, 'ハードヒット', '防御力無視'],
        [22, 'ダブルヒット', '２連続攻撃'],
        [33, '回転撃', '防御判定ー１００'],
@@ -353,7 +353,7 @@ MESSAGETEXT
 
   def getWeaponTableClubCounter
     {:name => '棍棒カウンター',
-      :table =>
+     :table =>
       [[11, 'ブロッキング', '攻撃の無効化'],
        [22, nil, nil],
        [33, nil, nil],
@@ -369,7 +369,7 @@ MESSAGETEXT
 
   def getWeaponTableBow
     {:name => '弓',
-      :table =>
+     :table =>
       [[11, '影縫い', '麻痺効果「注意力」０'],
        [22, 'アローレイン', '全体攻撃・回避ー５０'],
        [33, '速射', '２連続攻撃'],
@@ -385,7 +385,7 @@ MESSAGETEXT
 
   def getWeaponTableMartialArt
     {:name => '体術',
-      :table =>
+     :table =>
       [[11, '集気法', '通常ダメージ分自分のＨＰ回復'],
        [22, 'コンビネーション', '２連続攻撃'],
        [33, '逆一本', '盾受け不可、防御力半分、スタン効果「根性」０'],
@@ -401,7 +401,7 @@ MESSAGETEXT
 
   def getWeaponTableMartialArtCounter
     {:name => '体術カウンター',
-      :table =>
+     :table =>
       [[11, 'スウェイバック', '攻撃の無効化'],
        [22, nil, nil],
        [33, '当て身投げ', 'カウンター'],
@@ -431,7 +431,7 @@ MESSAGETEXT
 
   def getWeaponTableBoxing
     {:name => 'ボクシング',
-      :table =>
+     :table =>
       [[11, 'ワン・ツー', '２連続攻撃・２攻撃目盾受け、回避不可'],
        [22, 'リバーブロー', '麻痺効果「根性」５'],
        [33, 'フリッカー', '２連続攻撃・全て盾受け、カウンター不可'],
@@ -447,7 +447,7 @@ MESSAGETEXT
 
   def getWeaponTableBoxingCounter
     {:name => 'ボクシングカウンター',
-      :table =>
+     :table =>
       [[11, 'ダッキングブロー', 'カウンター'],
        [22, 'ジョルトカウンター', 'クロスカウンター、Ｂ・Ｄ'],
        [33, nil, nil],
@@ -463,7 +463,7 @@ MESSAGETEXT
 
   def getWeaponTableProWrestling
     {:name => 'プロレス',
-      :table =>
+     :table =>
       [[11, 'ボディスラム', '盾受け不可'],
        [22, 'ドロップキック', 'Ｂ・Ｄ'],
        [33, '水車落とし', '盾受け不可、成功度＋５'],
@@ -479,7 +479,7 @@ MESSAGETEXT
 
   def getWeaponTableProWrestlingCounter
     {:name => 'プロレスカウンター',
-      :table =>
+     :table =>
       [[22, 'パワースラム', 'カウンター'],
        [55, 'アックスボンバー', 'カウンター、Ｂ・Ｄ'],
        [66, nil, nil],
@@ -492,7 +492,7 @@ MESSAGETEXT
 
   def getWeaponTableStand
     {:name => '幽波紋',
-      :table =>
+     :table =>
       [[11, 'SILER CHARIOT', '攻撃量５倍、刺しタイプ攻撃'],
        [22, 'TOWER OF GRAY', '防御力無視'],
        [33, 'DARK BLUE MOON', '全体攻撃、攻撃量２倍、水属性斬りタイプ攻撃'],
@@ -508,7 +508,7 @@ MESSAGETEXT
 
   def getWeaponTableStandCounter
     {:name => '幽波紋カウンター',
-      :table =>
+     :table =>
       [[11, 'ANUBIS', '技のみカウンター、ダメージ（カウンターした回数の２乗）倍、斬りタイプ攻撃'],
        [22, nil, nil],
        [33, nil, nil],
