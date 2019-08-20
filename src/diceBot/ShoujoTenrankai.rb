@@ -77,7 +77,7 @@ MESSAGETEXT
     number1, = roll(1, 6)
     number2, = roll(1, 6)
 
-    isOdd = ((number1 % 2) == 0)
+    isOdd = number1.even?
 
     index = number2 - 1
     index += 6 if isOdd

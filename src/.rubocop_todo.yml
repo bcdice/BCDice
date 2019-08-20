@@ -302,18 +302,6 @@ Style/DoubleNegation:
   Exclude:
     - 'test/DiceBotTest.rb'
 
-# Offense count: 8
-# Cop supports --auto-correct.
-Style/EvenOdd:
-  Exclude:
-    - 'CardTrader.rb'
-    - 'diceBot/BeginningIdol.rb'
-    - 'diceBot/HarnMaster.rb'
-    - 'diceBot/HouraiGakuen.rb'
-    - 'diceBot/HuntersMoon.rb'
-    - 'diceBot/MeikyuKingdom.rb'
-    - 'diceBot/ShoujoTenrankai.rb'
-
 # Offense count: 9
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.

@@ -182,7 +182,7 @@ INFO_MESSAGE_TEXT
     3.times do
       dice, = roll(1, 6)
 
-      if (dice % 2) == 0
+      if dice.even?
         evenCount += 1 # 偶数カウント
       else
         oddCount += 1 # 奇数カウント
@@ -231,7 +231,7 @@ INFO_MESSAGE_TEXT
   def getOddEven
     dice, = roll(1, 6)
 
-    return "偶数" if (dice % 2) == 0
+    return "偶数" if dice.even?
 
     return "奇数"
   end
