@@ -372,26 +372,6 @@ Style/IfWithSemicolon:
   Exclude:
     - 'CardTrader.rb'
 
-# Offense count: 122
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: line_count_dependent, lambda, literal
-Style/Lambda:
-  Exclude:
-    - 'CardTrader.rb'
-    - 'bcdiceCore.rb'
-    - 'diceBot/BattleTech.rb'
-    - 'diceBot/FilledWith.rb'
-    - 'diceBot/FutariSousa.rb'
-    - 'diceBot/GurpsFW.rb'
-    - 'diceBot/Insane.rb'
-    - 'diceBot/Insane_Korean.rb'
-    - 'diceBot/MagicaLogia.rb'
-    - 'diceBot/MeikyuKingdom.rb'
-    - 'diceBot/OneWayHeroics.rb'
-    - 'diceBot/WitchQuest.rb'
-    - 'diceBot/_InsaneScp.rb'
-
 # Offense count: 2
 Style/MultilineBlockChain:
   Exclude:
