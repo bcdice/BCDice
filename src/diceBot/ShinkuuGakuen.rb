@@ -66,7 +66,7 @@ MESSAGETEXT
     total = diceList.inject() { |value, i| value += i }
     allTotal = total + base
 
-    diffText = if diff.nil? then "" else ">=#{diff}" end
+    diffText = diff.nil? ? "" : ">=#{diff}"
     result = "(#{weaponName}：#{base}#{diffText}) ＞ 1D100+#{base} ＞ #{total}"
     result += "[#{diceList.join(',')}]" if diceList.length >= 2
     result += "+#{base}"
