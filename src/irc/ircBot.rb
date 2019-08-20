@@ -81,7 +81,7 @@ class IrcClient < Net::IRC::Client
 
     if host_j =~ /^someone\@somewhere\.else\.com$/ # Auto-ops anyone who
       debug_out("Give  to #{nick_e}\n")
-      self.mode(encode($ircCode, channel), "+o", nick_e); # matches hostmask.
+      mode(encode($ircCode, channel), "+o", nick_e); # matches hostmask.
     end
   end
 
@@ -92,14 +92,14 @@ class IrcClient < Net::IRC::Client
               event.nick, event.userhost, channel)
 
     addChannel(channel)
-    self.join(encode($ircCode, channel))
-    self.topic(encode($ircCode, channel))
+    join(encode($ircCode, channel))
+    topic(encode($ircCode, channel))
   end
 
   def on_kick(event)
     channel = getChannel(event)
 
-    mynick = self.nick
+    mynick = nick
     target = event.to[0]
 
     debug_out("%s Kicked on %s by %s.\n", target, channel)

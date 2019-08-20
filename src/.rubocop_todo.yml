@@ -399,18 +399,6 @@ Style/RandomWithOffset:
     - 'diceBot/ArsMagica.rb'
     - 'diceBot/MeikyuKingdom.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/RedundantConditional:
-  Exclude:
-    - 'diceBot/BeastBindTrinity.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-Style/RedundantSelf:
-  Exclude:
-    - 'irc/ircBot.rb'
-
 # Offense count: 20
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, AllowInnerSlashes.
