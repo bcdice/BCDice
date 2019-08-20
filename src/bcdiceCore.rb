@@ -110,7 +110,7 @@ class BCDice
   end
 
   # Unused method
-  def setDir(dir, prefix)
+  def setDir(_dir, _prefix)
     nil
   end
 
@@ -855,7 +855,7 @@ class BCDice
   end
 
   # Unused method.
-  def getTableDataResult(arg)
+  def getTableDataResult(_arg)
     nil
   end
 
@@ -1453,7 +1453,7 @@ class BCDice
     return ""
   end
 
-  def check_nDx(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(ダイスごちゃ混ぜ系)
+  def check_nDx(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(ダイスごちゃ混ぜ系)
     debug('check_nDx begin diff', diff)
     success = check_hit(total_n, signOfInequality, diff)
     debug('check_nDx success', success)

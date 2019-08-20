@@ -139,15 +139,15 @@ class CgiDiceBot
   end
 
   # Unused method
-  def getGameCommandInfos(dir, prefix)
+  def getGameCommandInfos(_dir, _prefix)
     return []
   end
 
-  def sendMessage(to, message)
+  def sendMessage(_to, message)
     @rollResult += message
   end
 
-  def sendMessageToOnlySender(nick_e, message)
+  def sendMessageToOnlySender(_nick_e, message)
     @isSecret = true
     @rollResult += message
   end

@@ -96,12 +96,6 @@ Lint/UnreachableCode:
     - 'diceBot/FilledWith.rb'
     - 'diceBot/GurpsFW.rb'
 
-# Offense count: 401
-# Cop supports --auto-correct.
-# Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods.
-Lint/UnusedMethodArgument:
-  Enabled: false
-
 # Offense count: 177
 Lint/UselessAssignment:
   Enabled: false

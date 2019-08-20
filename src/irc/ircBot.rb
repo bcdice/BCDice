@@ -39,7 +39,7 @@ class IrcClient < Net::IRC::Client
     bcdice.setGameByTitle(game_type)
   end
 
-  def on_connected(*args)
+  def on_connected(*_args)
     printText('  -> IRC server is connected.')
 
     channelNames = @loginChannelList.join(',')
@@ -51,7 +51,7 @@ class IrcClient < Net::IRC::Client
     printText("login to channels(#{channelNames}), so wait a moment...")
   end
 
-  def on_rpl_welcome(message)
+  def on_rpl_welcome(_message)
     printText('  -> login to channel successed.')
     # post JOIN, @room.encode($ircCode).force_encoding_maybe('external')
     post(JOIN, encode($ircCode, @room))
@@ -180,7 +180,7 @@ class IrcClient < Net::IRC::Client
     @printFunction.call(text)
   end
 
-  def on_err_nicknameinuse(event)
+  def on_err_nicknameinuse(_event)
     debug_out("on_err_nicknameinuse being !")
     debug_out("@opts.nick", @opts.nick)
 

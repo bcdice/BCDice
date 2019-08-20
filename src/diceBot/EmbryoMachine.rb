@@ -46,7 +46,7 @@ INFO_MESSAGE_TEXT
   end
 
   # ゲーム別成功度判定(nD10)
-  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
+  def check_nD10(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
     debug("EmbryoMachine check_nD10 begin")
     return '' unless signOfInequality == ">="
 
@@ -61,7 +61,7 @@ INFO_MESSAGE_TEXT
     end
   end
 
-  def checkRoll(string, nick_e)
+  def checkRoll(string, _nick_e)
     output = '1'
 
     return output unless /(^|\s)S?(2[rR]10([\+\-\d]+)?([>=]+(\d+))(\[(\d+),(\d+)\]))(\s|$)/i =~ string

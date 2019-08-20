@@ -1055,7 +1055,7 @@ class CardTrader
   end
 
   # 相手の場にカードを置く
-  def getSendCardToTargetNickPlace(commandText, nick_e)
+  def getSendCardToTargetNickPlace(commandText, _nick_e)
     ngCardList = []
     okCardList = []
 

@@ -65,7 +65,7 @@ INFO_MESSAGE_TEXT
     return "#{nick_e}: #{output_msg}"
   end
 
-  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD10)
+  def check_nD10(total_n, _dice_n, signOfInequality, diff, dice_cnt, _dice_max, n1, _n_max) # ゲーム別成功度判定(nD10)
     return '' unless signOfInequality == ">="
 
     if n1 >= dice_cnt
@@ -78,7 +78,7 @@ INFO_MESSAGE_TEXT
   end
 
   # 振り足し時のダイス読み替え処理用（ダブルクロスはクリティカルでダイス10に読み替える)
-  def getJackUpValueOnAddRoll(dice_n, round)
+  def getJackUpValueOnAddRoll(dice_n, _round)
     return (10 - dice_n)
   end
 
@@ -231,7 +231,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  def rollDiceCommand(command)
+  def rollDiceCommand(_command)
     get_emotion_table()
   end
 

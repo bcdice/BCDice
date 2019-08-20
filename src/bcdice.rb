@@ -9,11 +9,11 @@ class Cli
   def quit
   end
 
-  def sendMessage(to, message)
+  def sendMessage(_to, message)
     print message
   end
 
-  def sendMessageToOnlySender(nick_e, message)
+  def sendMessageToOnlySender(_nick_e, message)
     print message
   end
 

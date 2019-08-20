@@ -79,7 +79,7 @@ INFO_MESSAGE_TEXT
     return mayokin_check(string, nick_e)
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(2D6)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(2D6)
     result = get2D6Result(total_n, dice_n, signOfInequality, diff)
     result += getKiryokuResult(total_n, dice_n, signOfInequality, diff)
 
@@ -106,7 +106,7 @@ INFO_MESSAGE_TEXT
     return " ＞ 失敗"
   end
 
-  def getKiryokuResult(total_n, dice_n, signOfInequality, diff)
+  def getKiryokuResult(total_n, _dice_n, _signOfInequality, diff)
     output_msg = ""
 
     diceList = getDiceList

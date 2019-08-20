@@ -190,7 +190,7 @@ MESSAGETEXT
     return firePoint
   end
 
-  def getFirePointText(firePoint, fireCount, direction = 0)
+  def getFirePointText(firePoint, _fireCount, direction = 0)
     debug("====getFirePointText====")
 
     fireTextList = []

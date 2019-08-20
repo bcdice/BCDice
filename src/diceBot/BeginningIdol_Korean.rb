@@ -148,7 +148,7 @@ INFO_MESSAGE_TEXT
     check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
   end
 
-  def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
+  def check_nD6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
     return '' unless signOfInequality == ">="
     if dice_n <= 2
       return " ＞ ファンブル(変調がランダムに1つ発生し、PCは【思い出】を1つ獲得する)"

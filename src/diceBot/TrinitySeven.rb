@@ -136,7 +136,7 @@ MESSAGETEXT
     return total, diceList
   end
 
-  def check_1D100(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
+  def check_1D100(_total_n, dice_n, _signOfInequality, _diff, _dice_cnt, _dice_max, _n1, _n_max)
     return " ＞ ファンブル" if dice_n >= 96
     return " ＞ クリティカル" if dice_n <= 7
   end
