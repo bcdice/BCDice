@@ -168,7 +168,7 @@ INFO_MESSAGE_TEXT
 
   def getD66Table(table)
     newTable = table.map do |item|
-      if item.kind_of?(String) && (/^(\d+):(.*)/ === item)
+      if item.is_a?(String) && (/^(\d+):(.*)/ === item)
         [$1.to_i, $2]
       else
         item

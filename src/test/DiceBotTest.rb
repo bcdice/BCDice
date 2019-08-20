@@ -191,9 +191,9 @@ EOS
   # インデントした結果を返す
   def indent(s)
     target =
-      if s.kind_of?(Array)
+      if s.is_a?(Array)
         s
-      elsif s.kind_of?(String)
+      elsif s.is_a?(String)
         s.lines
       else
         raise TypeError

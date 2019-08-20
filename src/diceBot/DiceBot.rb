@@ -424,7 +424,7 @@ class DiceBot
   end
 
   def getTableValue(data)
-    if data.kind_of?(Proc)
+    if data.is_a?(Proc)
       return data.call()
     end
 
@@ -500,12 +500,12 @@ class DiceBot
   end
 
   def getTableInfoFromExtraTableText(text, count = nil)
-    if text.kind_of?(String)
+    if text.is_a?(String)
       text = text.split(/\n/)
     end
 
     newTable = text.map do |item|
-      if item.kind_of?(String) && (/^(\d+):(.*)/ === item)
+      if item.is_a?(String) && (/^(\d+):(.*)/ === item)
         [$1.to_i, $2]
       else
         item
