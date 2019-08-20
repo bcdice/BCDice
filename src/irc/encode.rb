@@ -11,7 +11,7 @@ if RUBY_VERSION < '1.9.0'
 
     # エンコーディングを取得します。
     def encoding
-      if @encoding != nil
+      if !@encoding.nil?
         return @encoding
       else
         case Kconv.guess(self)
@@ -55,7 +55,7 @@ if RUBY_VERSION < '1.9.0'
     end
 
     def get_kconv_encoding(encoding)
-      if encoding != nil
+      unless encoding.nil?
         case encoding.upcase
         when "ISO-2022-JP"
           return Kconv::JIS

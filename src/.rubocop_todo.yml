@@ -389,14 +389,6 @@ Style/NegatedWhile:
     - 'dice/AddDice.rb'
     - 'diceBot/CrashWorld.rb'
 
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: IncludeSemanticChanges.
-Style/NonNilCheck:
-  Exclude:
-    - 'diceBot/GurpsFW.rb'
-    - 'irc/encode.rb'
-
 # Offense count: 27
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedOctalStyle.
