@@ -67,13 +67,17 @@ class DiceBotTest
     targetFiles.each do |filename|
       next if /^_/ === File.basename(filename)
 
-      source = YAML.safe_load(
-        if RUBY_VERSION < '1.9'
-          File.read(filename)
-        else
-          File.read(filename, :encoding => 'UTF-8')
-        end
-      )
+      yaml = if RUBY_VERSION < '1.9'
+               File.read(filename)
+             else
+               File.read(filename, :encoding => 'UTF-8')
+             end
+
+      source = if RUBY_VERSION < '2.1'
+                 YAML.load(yaml) # rubocop:disable Security/YAMLLoad
+               else
+                 YAML.safe_load(yaml)
+               end
 
       # ゲームシステムをファイル名から判断する
       gameType = File.basename(filename, '.yml')
