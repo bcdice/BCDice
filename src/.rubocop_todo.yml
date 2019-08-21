@@ -317,6 +317,7 @@ Style/GlobalVars:
     - configBcDice.rb
     - log.rb
     - configBcDiceForSystem.rb
+    - test/testDiceBots.rb
     - test/testDiceBotLoaders.rb
     - test/DiceBotTest.rb
     - test/others/testPointer.rb
@@ -383,6 +384,14 @@ Style/RandomWithOffset:
     - 'bcdiceCore.rb'
     - 'diceBot/ArsMagica.rb'
     - 'diceBot/MeikyuKingdom.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: MinSize.
+# SupportedStyles: percent, brackets
+Style/SymbolArray:
+  Exclude:
+    - 'Rakefile'
 
 # Offense count: 1
 # Cop supports --auto-correct.
