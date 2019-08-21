@@ -112,5 +112,8 @@ Style/TrailingCommaInArrayLiteral:
 Style/TrailingCommaInHashLiteral:
   Enabled: false
 
+Style/WhileUntilModifier:
+  Enabled: false
+
 Style/YodaCondition:
   EnforcedStyle: forbid_for_equality_operators_only
