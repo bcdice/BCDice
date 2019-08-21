@@ -72,6 +72,10 @@ Style/PercentLiteralDelimiters:
 Style/RedundantReturn:
   Enabled: false
 
+# Due to old Ruby
+Style/SafeNavigation:
+  Enabled: false
+
 Style/StringLiterals:
   Enabled: false
 
