@@ -46,13 +46,13 @@ MESSAGETEXT
   end
 
   # 難易度の値の正規表現
-  DIFFICULTY_VALUE_RE = /UH|[2-6KENH]/i
+  DIFFICULTY_VALUE_RE = /UH|[2-6KENH]/i.freeze
   # 難易度の正規表現
-  DIFFICULTY_RE = /\[(#{DIFFICULTY_VALUE_RE})\]|@(#{DIFFICULTY_VALUE_RE})/io
+  DIFFICULTY_RE = /\[(#{DIFFICULTY_VALUE_RE})\]|@(#{DIFFICULTY_VALUE_RE})/io.freeze
   # 通常判定の正規表現
-  NJ_RE = /\ANJ(\d+)#{DIFFICULTY_RE}?\z/io
+  NJ_RE = /\ANJ(\d+)#{DIFFICULTY_RE}?\z/io.freeze
   # 回避判定の正規表現
-  EV_RE = %r{\AEV(\d+)#{DIFFICULTY_RE}?(?:/(\d+))?\z}io
+  EV_RE = %r{\AEV(\d+)#{DIFFICULTY_RE}?(?:/(\d+))?\z}io.freeze
 
   # 回避判定のノード
   EV = Struct.new(:num, :difficulty, :targetValue)
@@ -64,7 +64,7 @@ MESSAGETEXT
     'N' => 4,
     'H' => 5,
     'UH' => 6
-  }
+  }.freeze
 
   def changeText(str)
     m = NJ_RE.match(str)
@@ -245,16 +245,14 @@ MESSAGETEXT
   # @return [String] 回避判定結果
   def executeEV(ev)
     command = bRollCommand(ev.num, ev.difficulty)
-    rollResult = bcdice.
-      bdice(command).
-      sub(/\A[^(]+/, '')
 
+    rollResult = bcdice.bdice(command).sub(/\A[^(]+/, '')
     return rollResult unless ev.targetValue
 
     m = /成功数(\d+)/.match(rollResult)
     raise '成功数が見つかりません' unless m
-    numOfSuccesses = m[1].to_i
 
+    numOfSuccesses = m[1].to_i
     if numOfSuccesses > ev.targetValue
       return "#{rollResult} ＞ カウンターカラテ!!"
     end
