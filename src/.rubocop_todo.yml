@@ -408,15 +408,6 @@ Style/TrivialAccessors:
   Exclude:
     - 'bcdiceCore.rb' # def isKeepSecretDice(b)
 
-# Offense count: 5
-# Cop supports --auto-correct.
-Style/WhileUntilModifier:
-  Exclude:
-    - 'CardTrader.rb'
-    - 'diceBot/BlindMythos.rb'
-    - 'diceBot/NightmareHunterDeep.rb'
-    - 'diceBot/TunnelsAndTrolls.rb'
-
 # Offense count: 3827
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
