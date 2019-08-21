@@ -1,0 +1,153 @@
+---
+tests:
+- input:
+  - 1D20<=2
+  output: 'InfiniteFantasia : (1D20<=2) ＞ 20 ＞ 失敗'
+  rands:
+  - [20, 20]
+- input:
+  - 1D20<=2
+  output: 'InfiniteFantasia : (1D20<=2) ＞ 17 ＞ 失敗'
+  rands:
+  - [17, 20]
+- input:
+  - 1D20<=2
+  output: 'InfiniteFantasia : (1D20<=2) ＞ 8 ＞ 失敗'
+  rands:
+  - [8, 20]
+- input:
+  - 1D20<=2
+  output: 'InfiniteFantasia : (1D20<=2) ＞ 3 ＞ 失敗'
+  rands:
+  - [3, 20]
+- input:
+  - 1D20<=2
+  output: 'InfiniteFantasia : (1D20<=2) ＞ 13 ＞ 失敗'
+  rands:
+  - [13, 20]
+- input:
+  - 1D20<=2
+  output: 'InfiniteFantasia : (1D20<=2) ＞ 14 ＞ 失敗'
+  rands:
+  - [14, 20]
+- input:
+  - 1D20<=2
+  output: 'InfiniteFantasia : (1D20<=2) ＞ 2 ＞ 1レベル成功'
+  rands:
+  - [2, 20]
+- input:
+  - 1D20<=2
+  output: 'InfiniteFantasia : (1D20<=2) ＞ 4 ＞ 失敗'
+  rands:
+  - [4, 20]
+- input:
+  - 1D20<=2
+  output: 'InfiniteFantasia : (1D20<=2) ＞ 4 ＞ 失敗'
+  rands:
+  - [4, 20]
+- input:
+  - 1D20<=2
+  output: 'InfiniteFantasia : (1D20<=2) ＞ 5 ＞ 失敗'
+  rands:
+  - [5, 20]
+- input:
+  - 1D20<=19
+  output: 'InfiniteFantasia : (1D20<=19) ＞ 17 ＞ 1レベル成功'
+  rands:
+  - [17, 20]
+- input:
+  - 1D20<=19
+  output: 'InfiniteFantasia : (1D20<=19) ＞ 18 ＞ 1レベル成功'
+  rands:
+  - [18, 20]
+- input:
+  - 1D20<=19
+  output: 'InfiniteFantasia : (1D20<=19) ＞ 13 ＞ 1レベル成功'
+  rands:
+  - [13, 20]
+- input:
+  - 1D20<=19
+  output: 'InfiniteFantasia : (1D20<=19) ＞ 17 ＞ 1レベル成功'
+  rands:
+  - [17, 20]
+- input:
+  - 1D20<=19
+  output: 'InfiniteFantasia : (1D20<=19) ＞ 14 ＞ 1レベル成功'
+  rands:
+  - [14, 20]
+- input:
+  - 1D20<=19
+  output: 'InfiniteFantasia : (1D20<=19) ＞ 6 ＞ 2レベル成功'
+  rands:
+  - [6, 20]
+- input:
+  - 1D20<=19
+  output: 'InfiniteFantasia : (1D20<=19) ＞ 15 ＞ 1レベル成功'
+  rands:
+  - [15, 20]
+- input:
+  - 1D20<=19
+  output: 'InfiniteFantasia : (1D20<=19) ＞ 13 ＞ 1レベル成功'
+  rands:
+  - [13, 20]
+- input:
+  - 1D20<=19
+  output: 'InfiniteFantasia : (1D20<=19) ＞ 11 ＞ 1レベル成功'
+  rands:
+  - [11, 20]
+- input:
+  - 1D20<=19
+  output: 'InfiniteFantasia : (1D20<=19) ＞ 14 ＞ 1レベル成功'
+  rands:
+  - [14, 20]
+- input:
+  - 1D20<=10
+  output: 'InfiniteFantasia : (1D20<=10) ＞ 16 ＞ 失敗'
+  rands:
+  - [16, 20]
+- input:
+  - 1D20<=10
+  output: 'InfiniteFantasia : (1D20<=10) ＞ 20 ＞ 失敗'
+  rands:
+  - [20, 20]
+- input:
+  - 1D20<=10
+  output: 'InfiniteFantasia : (1D20<=10) ＞ 17 ＞ 失敗'
+  rands:
+  - [17, 20]
+- input:
+  - 1D20<=10
+  output: 'InfiniteFantasia : (1D20<=10) ＞ 17 ＞ 失敗'
+  rands:
+  - [17, 20]
+- input:
+  - 1D20<=10
+  output: 'InfiniteFantasia : (1D20<=10) ＞ 10 ＞ 1レベル成功'
+  rands:
+  - [10, 20]
+- input:
+  - 1D20<=10
+  output: 'InfiniteFantasia : (1D20<=10) ＞ 9 ＞ 1レベル成功'
+  rands:
+  - [9, 20]
+- input:
+  - 1D20<=10
+  output: 'InfiniteFantasia : (1D20<=10) ＞ 18 ＞ 失敗'
+  rands:
+  - [18, 20]
+- input:
+  - 1D20<=10
+  output: 'InfiniteFantasia : (1D20<=10) ＞ 8 ＞ 1レベル成功'
+  rands:
+  - [8, 20]
+- input:
+  - 1D20<=10
+  output: 'InfiniteFantasia : (1D20<=10) ＞ 17 ＞ 失敗'
+  rands:
+  - [17, 20]
+- input:
+  - 1D20<=10
+  output: 'InfiniteFantasia : (1D20<=10) ＞ 11 ＞ 失敗'
+  rands:
+  - [11, 20]
+gameType: InfiniteFantasia

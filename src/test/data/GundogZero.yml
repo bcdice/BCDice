@@ -1,0 +1,1653 @@
+---
+tests:
+- input:
+  - 1D100<=10
+  output: 'GundogZero : (1D100<=10) ＞ 66 ＞ 失敗'
+  rands:
+  - [66, 100]
+- input:
+  - 1D100<=10
+  output: 'GundogZero : (1D100<=10) ＞ 88 ＞ 失敗'
+  rands:
+  - [88, 100]
+- input:
+  - 1D100<=10
+  output: 'GundogZero : (1D100<=10) ＞ 52 ＞ 失敗'
+  rands:
+  - [52, 100]
+- input:
+  - 1D100<=10
+  output: 'GundogZero : (1D100<=10) ＞ 75 ＞ 失敗'
+  rands:
+  - [75, 100]
+- input:
+  - 1D100<=10
+  output: 'GundogZero : (1D100<=10) ＞ 93 ＞ 失敗'
+  rands:
+  - [93, 100]
+- input:
+  - 1D100<=10
+  output: 'GundogZero : (1D100<=10) ＞ 52 ＞ 失敗'
+  rands:
+  - [52, 100]
+- input:
+  - 1D100<=10
+  output: 'GundogZero : (1D100<=10) ＞ 77 ＞ 失敗'
+  rands:
+  - [77, 100]
+- input:
+  - 1D100<=10
+  output: 'GundogZero : (1D100<=10) ＞ 4 ＞ 成功(達成値4+SL)'
+  rands:
+  - [4, 100]
+- input:
+  - 1D100<=10
+  output: 'GundogZero : (1D100<=10) ＞ 30 ＞ 失敗'
+  rands:
+  - [30, 100]
+- input:
+  - 1D100<=10
+  output: 'GundogZero : (1D100<=10) ＞ 54 ＞ 失敗'
+  rands:
+  - [54, 100]
+- input:
+  - 1D100<=90
+  output: 'GundogZero : (1D100<=90) ＞ 71 ＞ 成功(達成値8+SL)'
+  rands:
+  - [71, 100]
+- input:
+  - 1D100<=90
+  output: 'GundogZero : (1D100<=90) ＞ 13 ＞ 成功(達成値4+SL)'
+  rands:
+  - [13, 100]
+- input:
+  - 1D100<=90
+  output: 'GundogZero : (1D100<=90) ＞ 90 ＞ クリティカル(達成値20+SL)'
+  rands:
+  - [90, 100]
+- input:
+  - 1D100<=90
+  output: 'GundogZero : (1D100<=90) ＞ 52 ＞ 成功(達成値7+SL)'
+  rands:
+  - [52, 100]
+- input:
+  - 1D100<=90
+  output: 'GundogZero : (1D100<=90) ＞ 22 ＞ 成功(達成値4+SL)'
+  rands:
+  - [22, 100]
+- input:
+  - 1D100<=90
+  output: 'GundogZero : (1D100<=90) ＞ 74 ＞ 成功(達成値11+SL)'
+  rands:
+  - [74, 100]
+- input:
+  - 1D100<=90
+  output: 'GundogZero : (1D100<=90) ＞ 74 ＞ 成功(達成値11+SL)'
+  rands:
+  - [74, 100]
+- input:
+  - 1D100<=90
+  output: 'GundogZero : (1D100<=90) ＞ 37 ＞ 成功(達成値10+SL)'
+  rands:
+  - [37, 100]
+- input:
+  - 1D100<=90
+  output: 'GundogZero : (1D100<=90) ＞ 22 ＞ 成功(達成値4+SL)'
+  rands:
+  - [22, 100]
+- input:
+  - 1D100<=90
+  output: 'GundogZero : (1D100<=90) ＞ 99 ＞ 失敗'
+  rands:
+  - [99, 100]
+- input:
+  - 1D100<=50
+  output: 'GundogZero : (1D100<=50) ＞ 60 ＞ 失敗'
+  rands:
+  - [60, 100]
+- input:
+  - 1D100<=50
+  output: 'GundogZero : (1D100<=50) ＞ 94 ＞ 失敗'
+  rands:
+  - [94, 100]
+- input:
+  - 1D100<=50
+  output: 'GundogZero : (1D100<=50) ＞ 22 ＞ 成功(達成値4+SL)'
+  rands:
+  - [22, 100]
+- input:
+  - 1D100<=50
+  output: 'GundogZero : (1D100<=50) ＞ 60 ＞ 失敗'
+  rands:
+  - [60, 100]
+- input:
+  - 1D100<=50
+  output: 'GundogZero : (1D100<=50) ＞ 100 ＞ ファンブル'
+  rands:
+  - [100, 100]
+- input:
+  - 1D100<=50
+  output: 'GundogZero : (1D100<=50) ＞ 6 ＞ 成功(達成値6+SL)'
+  rands:
+  - [6, 100]
+- input:
+  - 1D100<=50
+  output: 'GundogZero : (1D100<=50) ＞ 91 ＞ 失敗'
+  rands:
+  - [91, 100]
+- input:
+  - 1D100<=50
+  output: 'GundogZero : (1D100<=50) ＞ 33 ＞ 成功(達成値6+SL)'
+  rands:
+  - [33, 100]
+- input:
+  - 1D100<=50
+  output: 'GundogZero : (1D100<=50) ＞ 53 ＞ 失敗'
+  rands:
+  - [53, 100]
+- input:
+  - 1D100<=50
+  output: 'GundogZero : (1D100<=50) ＞ 83 ＞ 失敗'
+  rands:
+  - [83, 100]
+- input:
+  - SDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[17] ＞ 手に持った武器を落とす'
+  rands:
+  - [10, 10]
+  - [9, 10]
+- input:
+  - SDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[14] ＞ [軽傷]-20％'
+  rands:
+  - [9, 10]
+  - [7, 10]
+- input:
+  - SDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[13] ＞ [追加D]1D6/[軽傷]-10％'
+  rands:
+  - [7, 10]
+  - [8, 10]
+- input:
+  - SDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[11] ＞ [追加D]1D6/[軽傷]-20％'
+  rands:
+  - [7, 10]
+  - [6, 10]
+- input:
+  - SDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[12] ＞ [追加D]1D6/[軽傷]-20％'
+  rands:
+  - [10, 10]
+  - [4, 10]
+- input:
+  - SDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[6] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]10'
+  rands:
+  - [7, 10]
+  - [1, 10]
+- input:
+  - SDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[6] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]10'
+  rands:
+  - [6, 10]
+  - [2, 10]
+- input:
+  - SDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[6] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]10'
+  rands:
+  - [5, 10]
+  - [3, 10]
+- input:
+  - SDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[10] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]4'
+  rands:
+  - [4, 10]
+  - [8, 10]
+- input:
+  - SDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[13] ＞ [追加D]1D6/[軽傷]-10％'
+  rands:
+  - [7, 10]
+  - [8, 10]
+- input:
+  - MDPT
+  output: 'GundogZero : 格闘ダメージペナルティー表[7] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]10'
+  rands:
+  - [4, 10]
+  - [5, 10]
+- input:
+  - MDPT
+  output: 'GundogZero : 格闘ダメージペナルティー表[13] ＞ [軽傷]-10％/[朦朧判定]4'
+  rands:
+  - [8, 10]
+  - [7, 10]
+- input:
+  - MDPT
+  output: 'GundogZero : 格闘ダメージペナルティー表[11] ＞ [軽傷]-20％/[朦朧判定]6'
+  rands:
+  - [5, 10]
+  - [8, 10]
+- input:
+  - MDPT
+  output: 'GundogZero : 格闘ダメージペナルティー表[12] ＞ [軽傷]-10％/[朦朧判定]6'
+  rands:
+  - [5, 10]
+  - [9, 10]
+- input:
+  - MDPT
+  output: 'GundogZero : 格闘ダメージペナルティー表[13] ＞ [軽傷]-10％/[朦朧判定]4'
+  rands:
+  - [6, 10]
+  - [9, 10]
+- input:
+  - MDPT
+  output: 'GundogZero : 格闘ダメージペナルティー表[5] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]12'
+  rands:
+  - [4, 10]
+  - [3, 10]
+- input:
+  - MDPT
+  output: 'GundogZero : 格闘ダメージペナルティー表[5] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]12'
+  rands:
+  - [5, 10]
+  - [2, 10]
+- input:
+  - MDPT
+  output: 'GundogZero : 格闘ダメージペナルティー表[6] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]12'
+  rands:
+  - [2, 10]
+  - [6, 10]
+- input:
+  - MDPT
+  output: 'GundogZero : 格闘ダメージペナルティー表[8] ＞ [追加D]1D6/[軽傷]-20％/[朦朧判定]8'
+  rands:
+  - [7, 10]
+  - [3, 10]
+- input:
+  - MDPT
+  output: 'GundogZero : 格闘ダメージペナルティー表[7] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]10'
+  rands:
+  - [4, 10]
+  - [5, 10]
+- input:
+  - VDPT
+  output: 'GundogZero : 車両ダメージペナルティー表[5] ＞ [乗員D]3D6/[スピード]-2/[スピン判定]'
+  rands:
+  - [3, 10]
+  - [4, 10]
+- input:
+  - VDPT
+  output: 'GundogZero : 車両ダメージペナルティー表[4] ＞ [乗員D]2D6/[操縦性]-10％/[スピン判定]'
+  rands:
+  - [1, 10]
+  - [5, 10]
+- input:
+  - VDPT
+  output: 'GundogZero : 車両ダメージペナルティー表[10] ＞ [乗員D]2D6/[操縦判定]-20％'
+  rands:
+  - [6, 10]
+  - [6, 10]
+- input:
+  - VDPT
+  output: 'GundogZero : 車両ダメージペナルティー表[12] ＞ [乗員D]1D6/[操縦判定]-10％'
+  rands:
+  - [6, 10]
+  - [8, 10]
+- input:
+  - VDPT
+  output: 'GundogZero : 車両ダメージペナルティー表[10] ＞ [乗員D]2D6/[操縦判定]-20％'
+  rands:
+  - [2, 10]
+  - [10, 10]
+- input:
+  - VDPT
+  output: 'GundogZero : 車両ダメージペナルティー表[9] ＞ [乗員D]2D6/[操縦判定]-20％'
+  rands:
+  - [4, 10]
+  - [7, 10]
+- input:
+  - VDPT
+  output: 'GundogZero : 車両ダメージペナルティー表[5] ＞ [乗員D]3D6/[スピード]-2/[スピン判定]'
+  rands:
+  - [4, 10]
+  - [3, 10]
+- input:
+  - VDPT
+  output: 'GundogZero : 車両ダメージペナルティー表[2] ＞ [乗員D]3D6/[操縦性]-20％/[スピン判定]'
+  rands:
+  - [2, 10]
+  - [2, 10]
+- input:
+  - VDPT
+  output: 'GundogZero : 車両ダメージペナルティー表[1] ＞ [乗員D]3D6/[操縦性]-20％/[スピン判定]'
+  rands:
+  - [1, 10]
+  - [2, 10]
+- input:
+  - VDPT
+  output: 'GundogZero : 車両ダメージペナルティー表[4] ＞ [乗員D]2D6/[操縦性]-10％/[スピン判定]'
+  rands:
+  - [2, 10]
+  - [4, 10]
+- input:
+  - GDPT
+  output: 'GundogZero : 汎用ダメージペナルティー表[11] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]6'
+  rands:
+  - [7, 10]
+  - [6, 10]
+- input:
+  - GDPT
+  output: 'GundogZero : 汎用ダメージペナルティー表[18] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [10, 10]
+- input:
+  - GDPT
+  output: 'GundogZero : 汎用ダメージペナルティー表[15] ＞ [追加D]1D6/[軽傷]-10％'
+  rands:
+  - [7, 10]
+  - [10, 10]
+- input:
+  - GDPT
+  output: 'GundogZero : 汎用ダメージペナルティー表[16] ＞ [軽傷]-20％'
+  rands:
+  - [10, 10]
+  - [8, 10]
+- input:
+  - GDPT
+  output: 'GundogZero : 汎用ダメージペナルティー表[11] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]6'
+  rands:
+  - [8, 10]
+  - [5, 10]
+- input:
+  - GDPT
+  output: 'GundogZero : 汎用ダメージペナルティー表[6] ＞ [追加D]2D6/[出血]1D6/[重傷]-10％/[朦朧判定]12'
+  rands:
+  - [7, 10]
+  - [1, 10]
+- input:
+  - GDPT
+  output: 'GundogZero : 汎用ダメージペナルティー表[10] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]8'
+  rands:
+  - [8, 10]
+  - [4, 10]
+- input:
+  - GDPT
+  output: 'GundogZero : 汎用ダメージペナルティー表[10] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]8'
+  rands:
+  - [2, 10]
+  - [10, 10]
+- input:
+  - GDPT
+  output: 'GundogZero : 汎用ダメージペナルティー表[7] ＞ [追加D]2D6/[軽傷]-30％/[朦朧判定]12'
+  rands:
+  - [2, 10]
+  - [7, 10]
+- input:
+  - GDPT
+  output: 'GundogZero : 汎用ダメージペナルティー表[7] ＞ [追加D]2D6/[軽傷]-30％/[朦朧判定]12'
+  rands:
+  - [2, 10]
+  - [7, 10]
+- input:
+  - SDPT1
+  output: 'GundogZero : 射撃ダメージペナルティー表[7] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]10'
+  rands:
+  - [5, 10]
+  - [3, 10]
+- input:
+  - SDPT1
+  output: 'GundogZero : 射撃ダメージペナルティー表[16] ＞ [軽傷]-10％'
+  rands:
+  - [10, 10]
+  - [7, 10]
+- input:
+  - SDPT1
+  output: 'GundogZero : 射撃ダメージペナルティー表[7] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]10'
+  rands:
+  - [4, 10]
+  - [4, 10]
+- input:
+  - SDPT1
+  output: 'GundogZero : 射撃ダメージペナルティー表[10] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]4'
+  rands:
+  - [2, 10]
+  - [9, 10]
+- input:
+  - SDPT1
+  output: 'GundogZero : 射撃ダメージペナルティー表[17] ＞ 手に持った武器を落とす'
+  rands:
+  - [8, 10]
+  - [10, 10]
+- input:
+  - SDPT1
+  output: 'GundogZero : 射撃ダメージペナルティー表[16] ＞ [軽傷]-10％'
+  rands:
+  - [10, 10]
+  - [7, 10]
+- input:
+  - SDPT1
+  output: 'GundogZero : 射撃ダメージペナルティー表[18] ＞ ペナルティー無し'
+  rands:
+  - [9, 10]
+  - [10, 10]
+- input:
+  - SDPT1
+  output: 'GundogZero : 射撃ダメージペナルティー表[17] ＞ 手に持った武器を落とす'
+  rands:
+  - [8, 10]
+  - [10, 10]
+- input:
+  - SDPT1
+  output: 'GundogZero : 射撃ダメージペナルティー表[10] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]4'
+  rands:
+  - [6, 10]
+  - [5, 10]
+- input:
+  - SDPT1
+  output: 'GundogZero : 射撃ダメージペナルティー表[5] ＞ [追加D]2D6/[出血]1D6/[重傷]-10％/[朦朧判定]12'
+  rands:
+  - [3, 10]
+  - [3, 10]
+- input:
+  - MDPT1
+  output: 'GundogZero : 格闘ダメージペナルティー表[8] ＞ [追加D]1D6/[軽傷]-20％/[朦朧判定]8'
+  rands:
+  - [7, 10]
+  - [2, 10]
+- input:
+  - MDPT1
+  output: 'GundogZero : 格闘ダメージペナルティー表[7] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]10'
+  rands:
+  - [1, 10]
+  - [7, 10]
+- input:
+  - MDPT1
+  output: 'GundogZero : 格闘ダメージペナルティー表[12] ＞ [軽傷]-10％/[朦朧判定]6'
+  rands:
+  - [10, 10]
+  - [3, 10]
+- input:
+  - MDPT1
+  output: 'GundogZero : 格闘ダメージペナルティー表[11] ＞ [軽傷]-20％/[朦朧判定]6'
+  rands:
+  - [3, 10]
+  - [9, 10]
+- input:
+  - MDPT1
+  output: 'GundogZero : 格闘ダメージペナルティー表[2] ＞ [追加D]2D6/[出血]2D6/[重傷]-30％/[朦朧判定]14'
+  rands:
+  - [1, 10]
+  - [2, 10]
+- input:
+  - MDPT1
+  output: 'GundogZero : 格闘ダメージペナルティー表[12] ＞ [軽傷]-10％/[朦朧判定]6'
+  rands:
+  - [4, 10]
+  - [9, 10]
+- input:
+  - MDPT1
+  output: 'GundogZero : 格闘ダメージペナルティー表[9] ＞ [追加D]1D6/[軽傷]-10％/[朦朧判定]8'
+  rands:
+  - [4, 10]
+  - [6, 10]
+- input:
+  - MDPT1
+  output: 'GundogZero : 格闘ダメージペナルティー表[6] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]12'
+  rands:
+  - [4, 10]
+  - [3, 10]
+- input:
+  - MDPT1
+  output: 'GundogZero : 格闘ダメージペナルティー表[9] ＞ [追加D]1D6/[軽傷]-10％/[朦朧判定]8'
+  rands:
+  - [1, 10]
+  - [9, 10]
+- input:
+  - MDPT1
+  output: 'GundogZero : 格闘ダメージペナルティー表[15] ＞ [軽傷]-10％'
+  rands:
+  - [7, 10]
+  - [9, 10]
+- input:
+  - VDPT1
+  output: 'GundogZero : 車両ダメージペナルティー表[15] ＞ 乗員に[ショック]-20％'
+  rands:
+  - [7, 10]
+  - [9, 10]
+- input:
+  - VDPT1
+  output: 'GundogZero : 車両ダメージペナルティー表[8] ＞ [乗員D]2D6/[スピード]-1/[スピン判定]'
+  rands:
+  - [7, 10]
+  - [2, 10]
+- input:
+  - VDPT1
+  output: 'GundogZero : 車両ダメージペナルティー表[15] ＞ 乗員に[ショック]-20％'
+  rands:
+  - [7, 10]
+  - [9, 10]
+- input:
+  - VDPT1
+  output: 'GundogZero : 車両ダメージペナルティー表[9] ＞ [乗員D]2D6/[操縦判定]-20％'
+  rands:
+  - [6, 10]
+  - [4, 10]
+- input:
+  - VDPT1
+  output: 'GundogZero : 車両ダメージペナルティー表[4] ＞ [乗員D]2D6/[操縦性]-10％/[スピン判定]'
+  rands:
+  - [4, 10]
+  - [1, 10]
+- input:
+  - VDPT1
+  output: 'GundogZero : 車両ダメージペナルティー表[12] ＞ [乗員D]1D6/[操縦判定]-10％'
+  rands:
+  - [9, 10]
+  - [4, 10]
+- input:
+  - VDPT1
+  output: 'GundogZero : 車両ダメージペナルティー表[11] ＞ [乗員D]1D6/[操縦判定]-10％'
+  rands:
+  - [3, 10]
+  - [9, 10]
+- input:
+  - VDPT1
+  output: 'GundogZero : 車両ダメージペナルティー表[14] ＞ [スピン判定]'
+  rands:
+  - [6, 10]
+  - [9, 10]
+- input:
+  - VDPT1
+  output: 'GundogZero : 車両ダメージペナルティー表[13] ＞ [スピン判定]'
+  rands:
+  - [5, 10]
+  - [9, 10]
+- input:
+  - VDPT1
+  output: 'GundogZero : 車両ダメージペナルティー表[9] ＞ [乗員D]2D6/[操縦判定]-20％'
+  rands:
+  - [5, 10]
+  - [5, 10]
+- input:
+  - GDPT1
+  output: 'GundogZero : 汎用ダメージペナルティー表[7] ＞ [追加D]2D6/[軽傷]-30％/[朦朧判定]12'
+  rands:
+  - [5, 10]
+  - [3, 10]
+- input:
+  - GDPT1
+  output: 'GundogZero : 汎用ダメージペナルティー表[3] ＞ [追加D]3D6/[出血]2D6/[重傷]-20％/[朦朧判定]14'
+  rands:
+  - [3, 10]
+  - [1, 10]
+- input:
+  - GDPT1
+  output: 'GundogZero : 汎用ダメージペナルティー表[7] ＞ [追加D]2D6/[軽傷]-30％/[朦朧判定]12'
+  rands:
+  - [4, 10]
+  - [4, 10]
+- input:
+  - GDPT1
+  output: 'GundogZero : 汎用ダメージペナルティー表[4] ＞ [追加D]3D6/[出血]2D6/[重傷]-20％/[朦朧判定]14'
+  rands:
+  - [2, 10]
+  - [3, 10]
+- input:
+  - GDPT1
+  output: 'GundogZero : 汎用ダメージペナルティー表[7] ＞ [追加D]2D6/[軽傷]-30％/[朦朧判定]12'
+  rands:
+  - [5, 10]
+  - [3, 10]
+- input:
+  - GDPT1
+  output: 'GundogZero : 汎用ダメージペナルティー表[13] ＞ [追加D]1D6/[軽傷]-20％/[朦朧判定]4'
+  rands:
+  - [6, 10]
+  - [8, 10]
+- input:
+  - GDPT1
+  output: 'GundogZero : 汎用ダメージペナルティー表[10] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]8'
+  rands:
+  - [4, 10]
+  - [7, 10]
+- input:
+  - GDPT1
+  output: 'GundogZero : 汎用ダメージペナルティー表[5] ＞ [追加D]3D6/[出血]1D6/[重傷]-10％/[朦朧判定]12'
+  rands:
+  - [5, 10]
+  - [1, 10]
+- input:
+  - GDPT1
+  output: 'GundogZero : 汎用ダメージペナルティー表[8] ＞ [追加D]2D6/[軽傷]-30％/[朦朧判定]10'
+  rands:
+  - [3, 10]
+  - [6, 10]
+- input:
+  - GDPT1
+  output: 'GundogZero : 汎用ダメージペナルティー表[10] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]8'
+  rands:
+  - [10, 10]
+  - [1, 10]
+- input:
+  - SDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[23] ＞ ペナルティー無し'
+  rands:
+  - [9, 10]
+  - [6, 10]
+- input:
+  - SDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[20] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [2, 10]
+- input:
+  - SDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[20] ＞ ペナルティー無し'
+  rands:
+  - [3, 10]
+  - [9, 10]
+- input:
+  - SDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[12] ＞ [追加D]1D6/[軽傷]-20％'
+  rands:
+  - [1, 10]
+  - [3, 10]
+- input:
+  - SDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[22] ＞ ペナルティー無し'
+  rands:
+  - [7, 10]
+  - [7, 10]
+- input:
+  - SDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[22] ＞ ペナルティー無し'
+  rands:
+  - [4, 10]
+  - [10, 10]
+- input:
+  - SDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[26] ＞ ペナルティー無し'
+  rands:
+  - [8, 10]
+  - [10, 10]
+- input:
+  - SDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[17] ＞ 手に持った武器を落とす'
+  rands:
+  - [5, 10]
+  - [4, 10]
+- input:
+  - SDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[16] ＞ [軽傷]-10％'
+  rands:
+  - [7, 10]
+  - [1, 10]
+- input:
+  - SDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[17] ＞ 手に持った武器を落とす'
+  rands:
+  - [5, 10]
+  - [4, 10]
+- input:
+  - MDPT10
+  output: 'GundogZero : 格闘ダメージペナルティー表[21] ＞ ペナルティー無し'
+  rands:
+  - [9, 10]
+  - [4, 10]
+- input:
+  - MDPT10
+  output: 'GundogZero : 格闘ダメージペナルティー表[23] ＞ ペナルティー無し'
+  rands:
+  - [9, 10]
+  - [6, 10]
+- input:
+  - MDPT10
+  output: 'GundogZero : 格闘ダメージペナルティー表[24] ＞ ペナルティー無し'
+  rands:
+  - [8, 10]
+  - [8, 10]
+- input:
+  - MDPT10
+  output: 'GundogZero : 格闘ダメージペナルティー表[21] ＞ ペナルティー無し'
+  rands:
+  - [5, 10]
+  - [8, 10]
+- input:
+  - MDPT10
+  output: 'GundogZero : 格闘ダメージペナルティー表[12] ＞ [軽傷]-10％/[朦朧判定]6'
+  rands:
+  - [1, 10]
+  - [3, 10]
+- input:
+  - MDPT10
+  output: 'GundogZero : 格闘ダメージペナルティー表[14] ＞ [軽傷]-20％'
+  rands:
+  - [2, 10]
+  - [4, 10]
+- input:
+  - MDPT10
+  output: 'GundogZero : 格闘ダメージペナルティー表[20] ＞ ペナルティー無し'
+  rands:
+  - [3, 10]
+  - [9, 10]
+- input:
+  - MDPT10
+  output: 'GundogZero : 格闘ダメージペナルティー表[25] ＞ ペナルティー無し'
+  rands:
+  - [8, 10]
+  - [9, 10]
+- input:
+  - MDPT10
+  output: 'GundogZero : 格闘ダメージペナルティー表[16] ＞ [軽傷]-10％'
+  rands:
+  - [4, 10]
+  - [4, 10]
+- input:
+  - MDPT10
+  output: 'GundogZero : 格闘ダメージペナルティー表[20] ＞ ペナルティー無し'
+  rands:
+  - [6, 10]
+  - [6, 10]
+- input:
+  - VDPT10
+  output: 'GundogZero : 車両ダメージペナルティー表[21] ＞ ペナルティー無し'
+  rands:
+  - [3, 10]
+  - [10, 10]
+- input:
+  - VDPT10
+  output: 'GundogZero : 車両ダメージペナルティー表[20] ＞ ペナルティー無し'
+  rands:
+  - [3, 10]
+  - [9, 10]
+- input:
+  - VDPT10
+  output: 'GundogZero : 車両ダメージペナルティー表[13] ＞ [スピン判定]'
+  rands:
+  - [3, 10]
+  - [2, 10]
+- input:
+  - VDPT10
+  output: 'GundogZero : 車両ダメージペナルティー表[14] ＞ [スピン判定]'
+  rands:
+  - [4, 10]
+  - [2, 10]
+- input:
+  - VDPT10
+  output: 'GundogZero : 車両ダメージペナルティー表[19] ＞ ペナルティー無し'
+  rands:
+  - [4, 10]
+  - [7, 10]
+- input:
+  - VDPT10
+  output: 'GundogZero : 車両ダメージペナルティー表[11] ＞ [乗員D]1D6/[操縦判定]-10％'
+  rands:
+  - [1, 10]
+  - [2, 10]
+- input:
+  - VDPT10
+  output: 'GundogZero : 車両ダメージペナルティー表[13] ＞ [スピン判定]'
+  rands:
+  - [4, 10]
+  - [1, 10]
+- input:
+  - VDPT10
+  output: 'GundogZero : 車両ダメージペナルティー表[25] ＞ ペナルティー無し'
+  rands:
+  - [7, 10]
+  - [10, 10]
+- input:
+  - VDPT10
+  output: 'GundogZero : 車両ダメージペナルティー表[13] ＞ [スピン判定]'
+  rands:
+  - [2, 10]
+  - [3, 10]
+- input:
+  - VDPT10
+  output: 'GundogZero : 車両ダメージペナルティー表[17] ＞ 乗員に[ショック]-10％'
+  rands:
+  - [3, 10]
+  - [6, 10]
+- input:
+  - GDPT10
+  output: 'GundogZero : 汎用ダメージペナルティー表[20] ＞ ペナルティー無し'
+  rands:
+  - [2, 10]
+  - [10, 10]
+- input:
+  - GDPT10
+  output: 'GundogZero : 汎用ダメージペナルティー表[13] ＞ [追加D]1D6/[軽傷]-20％/[朦朧判定]4'
+  rands:
+  - [2, 10]
+  - [3, 10]
+- input:
+  - GDPT10
+  output: 'GundogZero : 汎用ダメージペナルティー表[14] ＞ [追加D]1D6/[軽傷]-20％'
+  rands:
+  - [2, 10]
+  - [4, 10]
+- input:
+  - GDPT10
+  output: 'GundogZero : 汎用ダメージペナルティー表[25] ＞ ペナルティー無し'
+  rands:
+  - [9, 10]
+  - [8, 10]
+- input:
+  - GDPT10
+  output: 'GundogZero : 汎用ダメージペナルティー表[21] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [3, 10]
+- input:
+  - GDPT10
+  output: 'GundogZero : 汎用ダメージペナルティー表[17] ＞ [軽傷]-10％'
+  rands:
+  - [6, 10]
+  - [3, 10]
+- input:
+  - GDPT10
+  output: 'GundogZero : 汎用ダメージペナルティー表[19] ＞ ペナルティー無し'
+  rands:
+  - [2, 10]
+  - [9, 10]
+- input:
+  - GDPT10
+  output: 'GundogZero : 汎用ダメージペナルティー表[14] ＞ [追加D]1D6/[軽傷]-20％'
+  rands:
+  - [2, 10]
+  - [4, 10]
+- input:
+  - GDPT10
+  output: 'GundogZero : 汎用ダメージペナルティー表[23] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [5, 10]
+- input:
+  - GDPT10
+  output: 'GundogZero : 汎用ダメージペナルティー表[24] ＞ ペナルティー無し'
+  rands:
+  - [7, 10]
+  - [9, 10]
+- input:
+  - SFT
+  output: 'GundogZero : 射撃ファンブル表[5] ＞ 銃器が完全に故障'
+  rands:
+  - [4, 10]
+  - [3, 10]
+- input:
+  - SFT
+  output: 'GundogZero : 射撃ファンブル表[10] ＞ 作動不良。[アイテム使用]を行って修理するまで射撃不可'
+  rands:
+  - [6, 10]
+  - [6, 10]
+- input:
+  - SFT
+  output: 'GundogZero : 射撃ファンブル表[15] ＞ 姿勢を崩す。[ショック]-20％'
+  rands:
+  - [10, 10]
+  - [7, 10]
+- input:
+  - SFT
+  output: 'GundogZero : 射撃ファンブル表[5] ＞ 銃器が完全に故障'
+  rands:
+  - [6, 10]
+  - [1, 10]
+- input:
+  - SFT
+  output: 'GundogZero : 射撃ファンブル表[5] ＞ 銃器が完全に故障'
+  rands:
+  - [4, 10]
+  - [3, 10]
+- input:
+  - SFT
+  output: 'GundogZero : 射撃ファンブル表[9] ＞ 作動不良。[アイテム使用]を2回行って修理するまで射撃不可'
+  rands:
+  - [1, 10]
+  - [10, 10]
+- input:
+  - SFT
+  output: 'GundogZero : 射撃ファンブル表[10] ＞ 作動不良。[アイテム使用]を行って修理するまで射撃不可'
+  rands:
+  - [8, 10]
+  - [4, 10]
+- input:
+  - SFT
+  output: 'GundogZero : 射撃ファンブル表[1] ＞ 銃器が暴発、自分に命中。[非貫通D]'
+  rands:
+  - [2, 10]
+  - [1, 10]
+- input:
+  - SFT
+  output: 'GundogZero : 射撃ファンブル表[8] ＞ 作動不良。[アイテム使用]を2回行って修理するまで射撃不可'
+  rands:
+  - [6, 10]
+  - [4, 10]
+- input:
+  - SFT
+  output: 'GundogZero : 射撃ファンブル表[4] ＞ 銃器が完全に故障'
+  rands:
+  - [5, 10]
+  - [1, 10]
+- input:
+  - MFT
+  output: 'GundogZero : 格闘ファンブル表[7] ＞ 無理な姿勢で筋を伸ばす。[軽傷]-30％'
+  rands:
+  - [6, 10]
+  - [3, 10]
+- input:
+  - MFT
+  output: 'GundogZero : 格闘ファンブル表[4] ＞ 武器がガタつく。〈手先〉判定に成功するまで使用不可'
+  rands:
+  - [3, 10]
+  - [3, 10]
+- input:
+  - MFT
+  output: 'GundogZero : 格闘ファンブル表[11] ＞ 無理な姿勢で筋を伸ばす。[軽傷]-10％'
+  rands:
+  - [9, 10]
+  - [4, 10]
+- input:
+  - MFT
+  output: 'GundogZero : 格闘ファンブル表[5] ＞ 武器がガタつく。〈手先〉判定に成功するまで使用不可'
+  rands:
+  - [6, 10]
+  - [1, 10]
+- input:
+  - MFT
+  output: 'GundogZero : 格闘ファンブル表[0] ＞ 避けられて[転倒]、[朦朧]状態'
+  rands:
+  - [1, 10]
+  - [1, 10]
+- input:
+  - MFT
+  output: 'GundogZero : 格闘ファンブル表[2] ＞ ランダムに[至近距離]の味方(居なければ自分)に命中。[貫通D]'
+  rands:
+  - [3, 10]
+  - [1, 10]
+- input:
+  - MFT
+  output: 'GundogZero : 格闘ファンブル表[12] ＞ 姿勢を崩す。[不安定]'
+  rands:
+  - [9, 10]
+  - [5, 10]
+- input:
+  - MFT
+  output: 'GundogZero : 格闘ファンブル表[2] ＞ ランダムに[至近距離]の味方(居なければ自分)に命中。[貫通D]'
+  rands:
+  - [1, 10]
+  - [3, 10]
+- input:
+  - MFT
+  output: 'GundogZero : 格闘ファンブル表[11] ＞ 無理な姿勢で筋を伸ばす。[軽傷]-10％'
+  rands:
+  - [4, 10]
+  - [9, 10]
+- input:
+  - MFT
+  output: 'GundogZero : 格闘ファンブル表[14] ＞ 姿勢を崩す。[ショック]-20％'
+  rands:
+  - [9, 10]
+  - [7, 10]
+- input:
+  - TFT
+  output: 'GundogZero : 投擲ファンブル表[9] ＞ 肩を痛める。[軽傷]-20％'
+  rands:
+  - [6, 10]
+  - [5, 10]
+- input:
+  - TFT
+  output: 'GundogZero : 投擲ファンブル表[9] ＞ 肩を痛める。[軽傷]-20％'
+  rands:
+  - [9, 10]
+  - [2, 10]
+- input:
+  - TFT
+  output: 'GundogZero : 投擲ファンブル表[15] ＞ 姿勢を崩す。[ショック]-20％'
+  rands:
+  - [7, 10]
+  - [10, 10]
+- input:
+  - TFT
+  output: 'GundogZero : 投擲ファンブル表[15] ＞ 姿勢を崩す。[ショック]-20％'
+  rands:
+  - [8, 10]
+  - [9, 10]
+- input:
+  - TFT
+  output: 'GundogZero : 投擲ファンブル表[7] ＞ 腰を痛める。[軽傷]-30％'
+  rands:
+  - [8, 10]
+  - [1, 10]
+- input:
+  - TFT
+  output: 'GundogZero : 投擲ファンブル表[7] ＞ 腰を痛める。[軽傷]-30％'
+  rands:
+  - [8, 10]
+  - [1, 10]
+- input:
+  - TFT
+  output: 'GundogZero : 投擲ファンブル表[10] ＞ 肘に違和感。[軽傷]-10％'
+  rands:
+  - [5, 10]
+  - [7, 10]
+- input:
+  - TFT
+  output: 'GundogZero : 投擲ファンブル表[14] ＞ 姿勢を崩す。[ショック]-20％'
+  rands:
+  - [6, 10]
+  - [10, 10]
+- input:
+  - TFT
+  output: 'GundogZero : 投擲ファンブル表[10] ＞ 肘に違和感。[軽傷]-10％'
+  rands:
+  - [3, 10]
+  - [9, 10]
+- input:
+  - TFT
+  output: 'GundogZero : 投擲ファンブル表[9] ＞ 肩を痛める。[軽傷]-20％'
+  rands:
+  - [9, 10]
+  - [2, 10]
+- input:
+  - SFT1
+  output: 'GundogZero : 射撃ファンブル表[7] ＞ 故障。〈メカニック〉判定に成功するまで射撃不可'
+  rands:
+  - [4, 10]
+  - [4, 10]
+- input:
+  - SFT1
+  output: 'GundogZero : 射撃ファンブル表[2] ＞ 誤射。ランダムに味方に命中。[貫通D]'
+  rands:
+  - [2, 10]
+  - [1, 10]
+- input:
+  - SFT1
+  output: 'GundogZero : 射撃ファンブル表[12] ＞ 姿勢を崩す。[不安定]'
+  rands:
+  - [5, 10]
+  - [8, 10]
+- input:
+  - SFT1
+  output: 'GundogZero : 射撃ファンブル表[4] ＞ 銃器が完全に故障'
+  rands:
+  - [4, 10]
+  - [1, 10]
+- input:
+  - SFT1
+  output: 'GundogZero : 射撃ファンブル表[9] ＞ 作動不良。[アイテム使用]を2回行って修理するまで射撃不可'
+  rands:
+  - [6, 10]
+  - [4, 10]
+- input:
+  - SFT1
+  output: 'GundogZero : 射撃ファンブル表[12] ＞ 姿勢を崩す。[不安定]'
+  rands:
+  - [4, 10]
+  - [9, 10]
+- input:
+  - SFT1
+  output: 'GundogZero : 射撃ファンブル表[7] ＞ 故障。〈メカニック〉判定に成功するまで射撃不可'
+  rands:
+  - [3, 10]
+  - [5, 10]
+- input:
+  - SFT1
+  output: 'GundogZero : 射撃ファンブル表[10] ＞ 作動不良。[アイテム使用]を行って修理するまで射撃不可'
+  rands:
+  - [3, 10]
+  - [8, 10]
+- input:
+  - SFT1
+  output: 'GundogZero : 射撃ファンブル表[2] ＞ 誤射。ランダムに味方に命中。[貫通D]'
+  rands:
+  - [1, 10]
+  - [2, 10]
+- input:
+  - SFT1
+  output: 'GundogZero : 射撃ファンブル表[5] ＞ 銃器が完全に故障'
+  rands:
+  - [5, 10]
+  - [1, 10]
+- input:
+  - MFT1
+  output: 'GundogZero : 格闘ファンブル表[8] ＞ 無理な姿勢で筋を伸ばす。[軽傷]-20％'
+  rands:
+  - [7, 10]
+  - [2, 10]
+- input:
+  - MFT1
+  output: 'GundogZero : 格闘ファンブル表[3] ＞ 武器が完全に壊れる'
+  rands:
+  - [3, 10]
+  - [1, 10]
+- input:
+  - MFT1
+  output: 'GundogZero : 格闘ファンブル表[1] ＞ ランダムに[至近距離]の味方(居なければ自分)に命中。[貫通D]'
+  rands:
+  - [1, 10]
+  - [1, 10]
+- input:
+  - MFT1
+  output: 'GundogZero : 格闘ファンブル表[12] ＞ 姿勢を崩す。[不安定]'
+  rands:
+  - [9, 10]
+  - [4, 10]
+- input:
+  - MFT1
+  output: 'GundogZero : 格闘ファンブル表[7] ＞ 無理な姿勢で筋を伸ばす。[軽傷]-30％'
+  rands:
+  - [7, 10]
+  - [1, 10]
+- input:
+  - MFT1
+  output: 'GundogZero : 格闘ファンブル表[13] ＞ 姿勢を崩す。[不安定]'
+  rands:
+  - [10, 10]
+  - [4, 10]
+- input:
+  - MFT1
+  output: 'GundogZero : 格闘ファンブル表[10] ＞ 無理な姿勢で筋を伸ばす。[軽傷]-10％'
+  rands:
+  - [9, 10]
+  - [2, 10]
+- input:
+  - MFT1
+  output: 'GundogZero : 格闘ファンブル表[9] ＞ 無理な姿勢で筋を伸ばす。[軽傷]-20％'
+  rands:
+  - [5, 10]
+  - [5, 10]
+- input:
+  - MFT1
+  output: 'GundogZero : 格闘ファンブル表[5] ＞ 武器がガタつく。〈手先〉判定に成功するまで使用不可'
+  rands:
+  - [1, 10]
+  - [5, 10]
+- input:
+  - MFT1
+  output: 'GundogZero : 格闘ファンブル表[10] ＞ 無理な姿勢で筋を伸ばす。[軽傷]-10％'
+  rands:
+  - [1, 10]
+  - [10, 10]
+- input:
+  - TFT1
+  output: 'GundogZero : 投擲ファンブル表[6] ＞ 武器が完全に壊れる'
+  rands:
+  - [3, 10]
+  - [4, 10]
+- input:
+  - TFT1
+  output: 'GundogZero : 投擲ファンブル表[13] ＞ 姿勢を崩す。[不安定]'
+  rands:
+  - [8, 10]
+  - [6, 10]
+- input:
+  - TFT1
+  output: 'GundogZero : 投擲ファンブル表[10] ＞ 肘に違和感。[軽傷]-10％'
+  rands:
+  - [5, 10]
+  - [6, 10]
+- input:
+  - TFT1
+  output: 'GundogZero : 投擲ファンブル表[8] ＞ 肩を痛める。[軽傷]-20％'
+  rands:
+  - [6, 10]
+  - [3, 10]
+- input:
+  - TFT1
+  output: 'GundogZero : 投擲ファンブル表[14] ＞ 姿勢を崩す。[ショック]-20％'
+  rands:
+  - [5, 10]
+  - [10, 10]
+- input:
+  - TFT1
+  output: 'GundogZero : 投擲ファンブル表[16] ＞ 姿勢を崩す。[ショック]-10％'
+  rands:
+  - [10, 10]
+  - [7, 10]
+- input:
+  - TFT1
+  output: 'GundogZero : 投擲ファンブル表[8] ＞ 肩を痛める。[軽傷]-20％'
+  rands:
+  - [3, 10]
+  - [6, 10]
+- input:
+  - TFT1
+  output: 'GundogZero : 投擲ファンブル表[8] ＞ 肩を痛める。[軽傷]-20％'
+  rands:
+  - [3, 10]
+  - [6, 10]
+- input:
+  - TFT1
+  output: 'GundogZero : 投擲ファンブル表[4] ＞ ランダムに味方(居なければ自分)に命中。[非貫通D]'
+  rands:
+  - [4, 10]
+  - [1, 10]
+- input:
+  - TFT1
+  output: 'GundogZero : 投擲ファンブル表[4] ＞ ランダムに味方(居なければ自分)に命中。[非貫通D]'
+  rands:
+  - [4, 10]
+  - [1, 10]
+- input:
+  - SFT10
+  output: 'GundogZero : 射撃ファンブル表[17] ＞ 姿勢を崩す。[ショック]-10％'
+  rands:
+  - [8, 10]
+  - [1, 10]
+- input:
+  - SFT10
+  output: 'GundogZero : 射撃ファンブル表[22] ＞ ペナルティー無し'
+  rands:
+  - [4, 10]
+  - [10, 10]
+- input:
+  - SFT10
+  output: 'GundogZero : 射撃ファンブル表[14] ＞ 姿勢を崩す。[ショック]-20％'
+  rands:
+  - [2, 10]
+  - [4, 10]
+- input:
+  - SFT10
+  output: 'GundogZero : 射撃ファンブル表[20] ＞ ペナルティー無し'
+  rands:
+  - [6, 10]
+  - [6, 10]
+- input:
+  - SFT10
+  output: 'GundogZero : 射撃ファンブル表[15] ＞ 姿勢を崩す。[ショック]-20％'
+  rands:
+  - [2, 10]
+  - [5, 10]
+- input:
+  - SFT10
+  output: 'GundogZero : 射撃ファンブル表[16] ＞ 姿勢を崩す。[ショック]-10％'
+  rands:
+  - [1, 10]
+  - [7, 10]
+- input:
+  - SFT10
+  output: 'GundogZero : 射撃ファンブル表[21] ＞ ペナルティー無し'
+  rands:
+  - [9, 10]
+  - [4, 10]
+- input:
+  - SFT10
+  output: 'GundogZero : 射撃ファンブル表[21] ＞ ペナルティー無し'
+  rands:
+  - [3, 10]
+  - [10, 10]
+- input:
+  - SFT10
+  output: 'GundogZero : 射撃ファンブル表[22] ＞ ペナルティー無し'
+  rands:
+  - [5, 10]
+  - [9, 10]
+- input:
+  - SFT10
+  output: 'GundogZero : 射撃ファンブル表[16] ＞ 姿勢を崩す。[ショック]-10％'
+  rands:
+  - [6, 10]
+  - [2, 10]
+- input:
+  - MFT10
+  output: 'GundogZero : 格闘ファンブル表[19] ＞ ペナルティー無し'
+  rands:
+  - [8, 10]
+  - [3, 10]
+- input:
+  - MFT10
+  output: 'GundogZero : 格闘ファンブル表[13] ＞ 姿勢を崩す。[不安定]'
+  rands:
+  - [2, 10]
+  - [3, 10]
+- input:
+  - MFT10
+  output: 'GundogZero : 格闘ファンブル表[18] ＞ ペナルティー無し'
+  rands:
+  - [5, 10]
+  - [5, 10]
+- input:
+  - MFT10
+  output: 'GundogZero : 格闘ファンブル表[25] ＞ ペナルティー無し'
+  rands:
+  - [8, 10]
+  - [9, 10]
+- input:
+  - MFT10
+  output: 'GundogZero : 格闘ファンブル表[22] ＞ ペナルティー無し'
+  rands:
+  - [5, 10]
+  - [9, 10]
+- input:
+  - MFT10
+  output: 'GundogZero : 格闘ファンブル表[10] ＞ 無理な姿勢で筋を伸ばす。[軽傷]-10％'
+  rands:
+  - [1, 10]
+  - [1, 10]
+- input:
+  - MFT10
+  output: 'GundogZero : 格闘ファンブル表[22] ＞ ペナルティー無し'
+  rands:
+  - [5, 10]
+  - [9, 10]
+- input:
+  - MFT10
+  output: 'GundogZero : 格闘ファンブル表[18] ＞ ペナルティー無し'
+  rands:
+  - [4, 10]
+  - [6, 10]
+- input:
+  - MFT10
+  output: 'GundogZero : 格闘ファンブル表[20] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [2, 10]
+- input:
+  - MFT10
+  output: 'GundogZero : 格闘ファンブル表[21] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [3, 10]
+- input:
+  - TFT10
+  output: 'GundogZero : 投擲ファンブル表[21] ＞ ペナルティー無し'
+  rands:
+  - [5, 10]
+  - [8, 10]
+- input:
+  - TFT10
+  output: 'GundogZero : 投擲ファンブル表[13] ＞ 姿勢を崩す。[不安定]'
+  rands:
+  - [4, 10]
+  - [1, 10]
+- input:
+  - TFT10
+  output: 'GundogZero : 投擲ファンブル表[20] ＞ ペナルティー無し'
+  rands:
+  - [2, 10]
+  - [10, 10]
+- input:
+  - TFT10
+  output: 'GundogZero : 投擲ファンブル表[26] ＞ ペナルティー無し'
+  rands:
+  - [8, 10]
+  - [10, 10]
+- input:
+  - TFT10
+  output: 'GundogZero : 投擲ファンブル表[15] ＞ 姿勢を崩す。[ショック]-20％'
+  rands:
+  - [3, 10]
+  - [4, 10]
+- input:
+  - TFT10
+  output: 'GundogZero : 投擲ファンブル表[27] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [9, 10]
+- input:
+  - TFT10
+  output: 'GundogZero : 投擲ファンブル表[20] ＞ ペナルティー無し'
+  rands:
+  - [5, 10]
+  - [7, 10]
+- input:
+  - TFT10
+  output: 'GundogZero : 投擲ファンブル表[21] ＞ ペナルティー無し'
+  rands:
+  - [3, 10]
+  - [10, 10]
+- input:
+  - TFT10
+  output: 'GundogZero : 投擲ファンブル表[21] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [3, 10]
+- input:
+  - TFT10
+  output: 'GundogZero : 投擲ファンブル表[16] ＞ 姿勢を崩す。[ショック]-10％'
+  rands:
+  - [3, 10]
+  - [5, 10]
+- input:
+  - XDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[9] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]6'
+  rands:
+  - [4, 10]
+  - [7, 10]
+- input:
+  - XDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[9] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]6'
+  rands:
+  - [1, 10]
+  - [10, 10]
+- input:
+  - XDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[7] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]10'
+  rands:
+  - [5, 10]
+  - [4, 10]
+- input:
+  - XDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[16] ＞ [軽傷]-10％'
+  rands:
+  - [9, 10]
+  - [9, 10]
+- input:
+  - XDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[10] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]4'
+  rands:
+  - [10, 10]
+  - [2, 10]
+- input:
+  - XDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[10] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]4'
+  rands:
+  - [2, 10]
+  - [10, 10]
+- input:
+  - XDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[10] ＞ [追加D]2D6/[軽傷]-10％/[朦朧判定]4'
+  rands:
+  - [3, 10]
+  - [9, 10]
+- input:
+  - XDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[4] ＞ [追加D]3D6/[出血]1D6/[重傷]-20％/[朦朧判定]12'
+  rands:
+  - [3, 10]
+  - [3, 10]
+- input:
+  - XDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[4] ＞ [追加D]3D6/[出血]1D6/[重傷]-20％/[朦朧判定]12'
+  rands:
+  - [4, 10]
+  - [2, 10]
+- input:
+  - XDPT
+  output: 'GundogZero : 射撃ダメージペナルティー表[15] ＞ [軽傷]-10％'
+  rands:
+  - [8, 10]
+  - [9, 10]
+- input:
+  - XDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[22] ＞ ペナルティー無し'
+  rands:
+  - [8, 10]
+  - [6, 10]
+- input:
+  - XDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[19] ＞ ペナルティー無し'
+  rands:
+  - [9, 10]
+  - [2, 10]
+- input:
+  - XDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[17] ＞ 手に持った武器を落とす'
+  rands:
+  - [2, 10]
+  - [7, 10]
+- input:
+  - XDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[15] ＞ [軽傷]-10％'
+  rands:
+  - [4, 10]
+  - [3, 10]
+- input:
+  - XDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[21] ＞ ペナルティー無し'
+  rands:
+  - [5, 10]
+  - [8, 10]
+- input:
+  - XDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[17] ＞ 手に持った武器を落とす'
+  rands:
+  - [2, 10]
+  - [7, 10]
+- input:
+  - XDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[21] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [3, 10]
+- input:
+  - XDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[26] ＞ ペナルティー無し'
+  rands:
+  - [8, 10]
+  - [10, 10]
+- input:
+  - XDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[23] ＞ ペナルティー無し'
+  rands:
+  - [5, 10]
+  - [10, 10]
+- input:
+  - XDPT10
+  output: 'GundogZero : 射撃ダメージペナルティー表[15] ＞ [軽傷]-10％'
+  rands:
+  - [4, 10]
+  - [3, 10]
+- input:
+  - XFT
+  output: 'GundogZero : 射撃ファンブル表[5] ＞ 銃器が完全に故障'
+  rands:
+  - [5, 10]
+  - [2, 10]
+- input:
+  - XFT
+  output: 'GundogZero : 射撃ファンブル表[4] ＞ 銃器が完全に故障'
+  rands:
+  - [2, 10]
+  - [4, 10]
+- input:
+  - XFT
+  output: 'GundogZero : 射撃ファンブル表[4] ＞ 銃器が完全に故障'
+  rands:
+  - [3, 10]
+  - [3, 10]
+- input:
+  - XFT
+  output: 'GundogZero : 射撃ファンブル表[9] ＞ 作動不良。[アイテム使用]を2回行って修理するまで射撃不可'
+  rands:
+  - [9, 10]
+  - [2, 10]
+- input:
+  - XFT
+  output: 'GundogZero : 射撃ファンブル表[11] ＞ 作動不良。[アイテム使用]を行って修理するまで射撃不可'
+  rands:
+  - [9, 10]
+  - [4, 10]
+- input:
+  - XFT
+  output: 'GundogZero : 射撃ファンブル表[10] ＞ 作動不良。[アイテム使用]を行って修理するまで射撃不可'
+  rands:
+  - [7, 10]
+  - [5, 10]
+- input:
+  - XFT
+  output: 'GundogZero : 射撃ファンブル表[8] ＞ 作動不良。[アイテム使用]を2回行って修理するまで射撃不可'
+  rands:
+  - [9, 10]
+  - [1, 10]
+- input:
+  - XFT
+  output: 'GundogZero : 射撃ファンブル表[7] ＞ 故障。〈メカニック〉判定に成功するまで射撃不可'
+  rands:
+  - [3, 10]
+  - [6, 10]
+- input:
+  - XFT
+  output: 'GundogZero : 射撃ファンブル表[7] ＞ 故障。〈メカニック〉判定に成功するまで射撃不可'
+  rands:
+  - [4, 10]
+  - [5, 10]
+- input:
+  - XFT
+  output: 'GundogZero : 射撃ファンブル表[11] ＞ 作動不良。[アイテム使用]を行って修理するまで射撃不可'
+  rands:
+  - [9, 10]
+  - [4, 10]
+- input:
+  - XFT10
+  output: 'GundogZero : 射撃ファンブル表[23] ＞ ペナルティー無し'
+  rands:
+  - [6, 10]
+  - [9, 10]
+- input:
+  - XFT10
+  output: 'GundogZero : 射撃ファンブル表[13] ＞ 姿勢を崩す。[不安定]'
+  rands:
+  - [4, 10]
+  - [1, 10]
+- input:
+  - XFT10
+  output: 'GundogZero : 射撃ファンブル表[24] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [6, 10]
+- input:
+  - XFT10
+  output: 'GundogZero : 射撃ファンブル表[22] ＞ ペナルティー無し'
+  rands:
+  - [8, 10]
+  - [6, 10]
+- input:
+  - XFT10
+  output: 'GundogZero : 射撃ファンブル表[19] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [1, 10]
+- input:
+  - XFT10
+  output: 'GundogZero : 射撃ファンブル表[14] ＞ 姿勢を崩す。[ショック]-20％'
+  rands:
+  - [2, 10]
+  - [4, 10]
+- input:
+  - XFT10
+  output: 'GundogZero : 射撃ファンブル表[22] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [4, 10]
+- input:
+  - XFT10
+  output: 'GundogZero : 射撃ファンブル表[16] ＞ 姿勢を崩す。[ショック]-10％'
+  rands:
+  - [7, 10]
+  - [1, 10]
+- input:
+  - XFT10
+  output: 'GundogZero : 射撃ファンブル表[22] ＞ ペナルティー無し'
+  rands:
+  - [4, 10]
+  - [10, 10]
+- input:
+  - XFT10
+  output: 'GundogZero : 射撃ファンブル表[25] ＞ ペナルティー無し'
+  rands:
+  - [10, 10]
+  - [7, 10]
+gameType: GundogZero

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+require 'yaml'
 require 'bcdiceCore'
 require 'diceBot/DiceBotLoader'
 require 'cgiDiceBot'
@@ -60,36 +61,31 @@ class DiceBotTest
       targetFiles = [@testDataPath]
     else
       # すべてのテストデータを読み込む
-      targetFiles = Dir.glob("#{@dataDir}/*.txt")
+      targetFiles = Dir.glob("#{@dataDir}/*.yml")
     end
 
     targetFiles.each do |filename|
       next if /^_/ === File.basename(filename)
 
-      source =
+      source = YAML.safe_load(
         if RUBY_VERSION < '1.9'
           File.read(filename)
         else
           File.read(filename, :encoding => 'UTF-8')
         end
-
-      dataSetSources = source.
-                       gsub("\r\n", "\n").
-                       tr("\r", "\n").
-                       split("============================\n").
-                       map(&:chomp)
+      )
 
       # ゲームシステムをファイル名から判断する
-      gameType = File.basename(filename, '.txt')
+      gameType = File.basename(filename, '.yml')
 
       dataSet =
         if RUBY_VERSION < '1.9'
-          dataSetSources.each_with_index.map do |dataSetSource, i|
-            DiceBotTestData.parse(dataSetSource, gameType, i + 1)
+          source['tests'].each_with_index.map do |test, i|
+            DiceBotTestData.new(gameType, test['input'], test['output'], test['rands'], i + 1)
           end
         else
-          dataSetSources.map.with_index(1) do |dataSetSource, i|
-            DiceBotTestData.parse(dataSetSource, gameType, i)
+          source['tests'].map.with_index(1) do |test, i|
+            DiceBotTestData.new(gameType, test['input'], test['output'], test['rands'], i + 1)
           end
         end
 

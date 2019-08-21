@@ -1,0 +1,98 @@
+---
+tests:
+- input:
+  - 1D100<=50
+  output: 'HarnMaster : (1D100<=50) ＞ 49＞ 成功'
+  rands:
+  - [49, 100]
+- input:
+  - 1D100<=50
+  output: 'HarnMaster : (1D100<=50) ＞ 51＞ 失敗'
+  rands:
+  - [51, 100]
+- input:
+  - 1D100<=50
+  output: 'HarnMaster : (1D100<=50) ＞ 50＞ 決定的成功'
+  rands:
+  - [50, 100]
+- input:
+  - 1D100<=50
+  output: 'HarnMaster : (1D100<=50) ＞ 55＞ 致命的失敗'
+  rands:
+  - [55, 100]
+- input:
+  - SLH
+  output: 'HarnMaster : 命中部位(人型 中段) ＞ (1)頭部'
+  rands:
+  - [1, 100]
+- input:
+  - SLH
+  output: 'HarnMaster : 命中部位(人型 中段) ＞ (5)頭部'
+  rands:
+  - [5, 100]
+- input:
+  - SLH
+  output: 'HarnMaster : 命中部位(人型 中段) ＞ (6)顔 ＞ (81)左耳'
+  rands:
+  - [6, 100]
+  - [81, 100]
+- input:
+  - SLH
+  output: 'HarnMaster : 命中部位(人型 中段) ＞ (6)顔 ＞ (82)右耳'
+  rands:
+  - [6, 100]
+  - [82, 100]
+- input:
+  - SLH
+  output: 'HarnMaster : 命中部位(人型 中段) ＞ (7)顔 ＞ (82)右耳'
+  rands:
+  - [7, 100]
+  - [82, 100]
+- input:
+  - SLH
+  output: 'HarnMaster : 命中部位(人型 中段) ＞ (100)右足'
+  rands:
+  - [100, 100]
+- input:
+  - SLHU
+  output: 'HarnMaster : 命中部位(人型 上段) ＞ (15)頭部'
+  rands:
+  - [15, 100]
+- input:
+  - SLHU
+  output: 'HarnMaster : 命中部位(人型 上段) ＞ (16)顔 ＞ (65)鼻'
+  rands:
+  - [16, 100]
+  - [65, 100]
+- input:
+  - SLHD
+  output: 'HarnMaster : 命中部位(人型 下段) ＞ (30)股間'
+  rands:
+  - [30, 100]
+- input:
+  - SLHD
+  output: 'HarnMaster : 命中部位(人型 下段) ＞ (36)右臀部'
+  rands:
+  - [36, 100]
+- input:
+  - SHK12,3
+  output: 'HarnMaster : ショック判定(ダメージ:3, 耐久力:12) ＞ (11[3,4,4]) ＞ 成功'
+  rands:
+  - [3, 6]
+  - [4, 6]
+  - [4, 6]
+- input:
+  - SHK12,3
+  output: 'HarnMaster : ショック判定(ダメージ:3, 耐久力:12) ＞ (12[4,4,4]) ＞ 成功'
+  rands:
+  - [4, 6]
+  - [4, 6]
+  - [4, 6]
+- input:
+  - SHK12,3
+  output: 'HarnMaster : ショック判定(ダメージ:3, 耐久力:12) ＞ (13[5,4,4]) ＞ 失敗'
+  rands:
+  - [5, 6]
+  - [4, 6]
+  - [4, 6]
+gameType: HarnMaster

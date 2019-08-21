@@ -1,0 +1,153 @@
+---
+tests:
+- input:
+  - 1D20<=2
+  output: 'Pendragon : (1D20<=2) ＞ 19 ＞ 失敗'
+  rands:
+  - [19, 20]
+- input:
+  - 1D20<=2
+  output: 'Pendragon : (1D20<=2) ＞ 9 ＞ 失敗'
+  rands:
+  - [9, 20]
+- input:
+  - 1D20<=2
+  output: 'Pendragon : (1D20<=2) ＞ 12 ＞ 失敗'
+  rands:
+  - [12, 20]
+- input:
+  - 1D20<=2
+  output: 'Pendragon : (1D20<=2) ＞ 8 ＞ 失敗'
+  rands:
+  - [8, 20]
+- input:
+  - 1D20<=2
+  output: 'Pendragon : (1D20<=2) ＞ 16 ＞ 失敗'
+  rands:
+  - [16, 20]
+- input:
+  - 1D20<=2
+  output: 'Pendragon : (1D20<=2) ＞ 17 ＞ 失敗'
+  rands:
+  - [17, 20]
+- input:
+  - 1D20<=2
+  output: 'Pendragon : (1D20<=2) ＞ 18 ＞ 失敗'
+  rands:
+  - [18, 20]
+- input:
+  - 1D20<=2
+  output: 'Pendragon : (1D20<=2) ＞ 15 ＞ 失敗'
+  rands:
+  - [15, 20]
+- input:
+  - 1D20<=2
+  output: 'Pendragon : (1D20<=2) ＞ 17 ＞ 失敗'
+  rands:
+  - [17, 20]
+- input:
+  - 1D20<=2
+  output: 'Pendragon : (1D20<=2) ＞ 1 ＞ 成功'
+  rands:
+  - [1, 20]
+- input:
+  - 1D20<=19
+  output: 'Pendragon : (1D20<=19) ＞ 13 ＞ 成功'
+  rands:
+  - [13, 20]
+- input:
+  - 1D20<=19
+  output: 'Pendragon : (1D20<=19) ＞ 6 ＞ 成功'
+  rands:
+  - [6, 20]
+- input:
+  - 1D20<=19
+  output: 'Pendragon : (1D20<=19) ＞ 13 ＞ 成功'
+  rands:
+  - [13, 20]
+- input:
+  - 1D20<=19
+  output: 'Pendragon : (1D20<=19) ＞ 1 ＞ 成功'
+  rands:
+  - [1, 20]
+- input:
+  - 1D20<=19
+  output: 'Pendragon : (1D20<=19) ＞ 3 ＞ 成功'
+  rands:
+  - [3, 20]
+- input:
+  - 1D20<=19
+  output: 'Pendragon : (1D20<=19) ＞ 6 ＞ 成功'
+  rands:
+  - [6, 20]
+- input:
+  - 1D20<=19
+  output: 'Pendragon : (1D20<=19) ＞ 13 ＞ 成功'
+  rands:
+  - [13, 20]
+- input:
+  - 1D20<=19
+  output: 'Pendragon : (1D20<=19) ＞ 5 ＞ 成功'
+  rands:
+  - [5, 20]
+- input:
+  - 1D20<=19
+  output: 'Pendragon : (1D20<=19) ＞ 13 ＞ 成功'
+  rands:
+  - [13, 20]
+- input:
+  - 1D20<=19
+  output: 'Pendragon : (1D20<=19) ＞ 9 ＞ 成功'
+  rands:
+  - [9, 20]
+- input:
+  - 1D20<=10
+  output: 'Pendragon : (1D20<=10) ＞ 7 ＞ 成功'
+  rands:
+  - [7, 20]
+- input:
+  - 1D20<=10
+  output: 'Pendragon : (1D20<=10) ＞ 9 ＞ 成功'
+  rands:
+  - [9, 20]
+- input:
+  - 1D20<=10
+  output: 'Pendragon : (1D20<=10) ＞ 19 ＞ 失敗'
+  rands:
+  - [19, 20]
+- input:
+  - 1D20<=10
+  output: 'Pendragon : (1D20<=10) ＞ 12 ＞ 失敗'
+  rands:
+  - [12, 20]
+- input:
+  - 1D20<=10
+  output: 'Pendragon : (1D20<=10) ＞ 1 ＞ 成功'
+  rands:
+  - [1, 20]
+- input:
+  - 1D20<=10
+  output: 'Pendragon : (1D20<=10) ＞ 9 ＞ 成功'
+  rands:
+  - [9, 20]
+- input:
+  - 1D20<=10
+  output: 'Pendragon : (1D20<=10) ＞ 11 ＞ 失敗'
+  rands:
+  - [11, 20]
+- input:
+  - 1D20<=10
+  output: 'Pendragon : (1D20<=10) ＞ 7 ＞ 成功'
+  rands:
+  - [7, 20]
+- input:
+  - 1D20<=10
+  output: 'Pendragon : (1D20<=10) ＞ 20 ＞ ファンブル'
+  rands:
+  - [20, 20]
+- input:
+  - 1D20<=10
+  output: 'Pendragon : (1D20<=10) ＞ 6 ＞ 成功'
+  rands:
+  - [6, 20]
+gameType: Pendragon

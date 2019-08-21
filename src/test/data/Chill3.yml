@@ -1,0 +1,83 @@
+---
+tests:
+- input:
+  - 1D100<=50
+  output: 'Chill3 : (1D100<=50) ＞ 51 ＞ 失敗'
+  rands:
+  - [51, 100]
+- input:
+  - 1D100<=50
+  output: 'Chill3 : (1D100<=50) ＞ 50 ＞ Ｌ成功'
+  rands:
+  - [50, 100]
+- input:
+  - 1D100<=50
+  output: 'Chill3 : (1D100<=50) ＞ 26 ＞ Ｌ成功'
+  rands:
+  - [26, 100]
+- input:
+  - 1D100<=50
+  output: 'Chill3 : (1D100<=50) ＞ 25 ＞ Ｈ成功'
+  rands:
+  - [25, 100]
+- input:
+  - 1D100<=50
+  output: 'Chill3 : (1D100<=50) ＞ 100 ＞ Botch'
+  rands:
+  - [100, 100]
+- input:
+  - 1D100<=100
+  output: 'Chill3 : (1D100<=100) ＞ 100 ＞ Botch'
+  rands:
+  - [100, 100]
+- input:
+  - 1D100<=101
+  output: 'Chill3 : (1D100<=101) ＞ 100 ＞ 失敗'
+  rands:
+  - [100, 100]
+- input:
+  - 1D100<=50
+  output: 'Chill3 : (1D100<=50) ＞ 99 ＞ Botch'
+  rands:
+  - [99, 100]
+- input:
+  - 1D100<=50
+  output: 'Chill3 : (1D100<=50) ＞ 98 ＞ 失敗'
+  rands:
+  - [98, 100]
+- input:
+  - 1D100<=50
+  output: 'Chill3 : (1D100<=50) ＞ 55 ＞ Botch'
+  rands:
+  - [55, 100]
+- input:
+  - 1D100<=50
+  output: 'Chill3 : (1D100<=50) ＞ 54 ＞ 失敗'
+  rands:
+  - [54, 100]
+- input:
+  - 1D100<=50
+  output: 'Chill3 : (1D100<=50) ＞ 45 ＞ Ｌ成功'
+  rands:
+  - [45, 100]
+- input:
+  - 1D100<=50
+  output: 'Chill3 : (1D100<=50) ＞ 44 ＞ Ｃ成功'
+  rands:
+  - [44, 100]
+- input:
+  - 1D100<=0
+  output: 'Chill3 : (1D100<=0) ＞ 1 ＞ Ｌ成功'
+  rands:
+  - [1, 100]
+- input:
+  - 1D100<=1
+  output: 'Chill3 : (1D100<=1) ＞ 1 ＞ Ｌ成功'
+  rands:
+  - [1, 100]
+- input:
+  - 1D100<=2
+  output: 'Chill3 : (1D100<=2) ＞ 1 ＞ Ｈ成功'
+  rands:
+  - [1, 100]
+gameType: Chill3

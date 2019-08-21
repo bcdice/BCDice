@@ -1,0 +1,34 @@
+---
+tests:
+- input:
+  - 1d6
+  output: 'GoldenSkyStories : (1D6) ＞ 2'
+  rands:
+  - [2, 6]
+- input:
+  - 2d6
+  output: 'GoldenSkyStories : (2D6) ＞ 2[1,1] ＞ 2'
+  rands:
+  - [1, 6]
+  - [1, 6]
+- input:
+  - "geta\t[1]"
+  output: 'GoldenSkyStories : geta ＞ 下駄占い ＞ 裏：あめ'
+  rands:
+  - [1, 7]
+- input:
+  - "geta\t[3]"
+  output: 'GoldenSkyStories : geta ＞ 下駄占い ＞ 裏：あめ'
+  rands:
+  - [3, 7]
+- input:
+  - "geta\t[6]"
+  output: 'GoldenSkyStories : geta ＞ 下駄占い ＞ 表：はれ'
+  rands:
+  - [6, 7]
+- input:
+  - "geta\t[7]"
+  output: 'GoldenSkyStories : geta ＞ 下駄占い ＞ 横：くもり'
+  rands:
+  - [7, 7]
+gameType: GoldenSkyStories

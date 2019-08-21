@@ -1,0 +1,329 @@
+---
+tests:
+- input:
+  - 1DM1+1
+  output: 'TrinitySeven : (1DM1+1) [1]→[7]+1 ＞ 8'
+  rands:
+  - [1, 6]
+- input:
+  - 1DM1-1
+  output: 'TrinitySeven : (1DM1-1) [1]→[7]-1 ＞ 6'
+  rands:
+  - [1, 6]
+- input:
+  - 1DM1
+  output: 'TrinitySeven : (1DM1) [1]→[7] ＞ 7'
+  rands:
+  - [1, 6]
+- input:
+  - 1DM
+  output: 'TrinitySeven : (1DM) [1] ＞ 1'
+  rands:
+  - [1, 6]
+- input:
+  - 1DM<+1
+  output: ''
+  rands: []
+- input:
+  - 1DM-1
+  output: 'TrinitySeven : (1DM-1) [1]-1 ＞ 0'
+  rands:
+  - [1, 6]
+- input:
+  - 2DM1-1
+  output: ''
+  rands:
+  - [1, 6]
+- input:
+  - 2DM1+1
+  output: 'TrinitySeven : (2DM1+1) [1,6]→[6,7]+1 ＞ 43'
+  rands:
+  - [1, 6]
+  - [6, 6]
+- input:
+  - 2DM1
+  output: 'TrinitySeven : (2DM1) [1,6]→[6,7] ＞ 42'
+  rands:
+  - [1, 6]
+  - [6, 6]
+- input:
+  - 2DM2
+  output: 'TrinitySeven : (2DM2) [1,6]→[7,7] ＞ 49'
+  rands:
+  - [1, 6]
+  - [6, 6]
+- input:
+  - 2DM1-1
+  output: 'TrinitySeven : (2DM1-1) [1,6]→[6,7]-1 ＞ 41'
+  rands:
+  - [1, 6]
+  - [6, 6]
+- input:
+  - 2DM1+1
+  output: 'TrinitySeven : (2DM1+1) [1,6]→[6,7]+1 ＞ 43'
+  rands:
+  - [1, 6]
+  - [6, 6]
+- input:
+  - 2DM
+  output: 'TrinitySeven : (2DM) [1,6] ＞ 7'
+  rands:
+  - [1, 6]
+  - [6, 6]
+- input:
+  - 2DM+1
+  output: 'TrinitySeven : (2DM+1) [1,6]+1 ＞ 8'
+  rands:
+  - [1, 6]
+  - [6, 6]
+- input:
+  - 2DM-1
+  output: 'TrinitySeven : (2DM-1) [1,6]-1 ＞ 6'
+  rands:
+  - [1, 6]
+  - [6, 6]
+- input:
+  - 3DM1-1
+  output: 'TrinitySeven : (3DM1-1) [1,6,3]→[3,6,7]-1 ＞ 44'
+  rands:
+  - [1, 6]
+  - [6, 6]
+  - [3, 6]
+- input:
+  - 3DM1+1
+  output: 'TrinitySeven : (3DM1+1) [1,6,3]→[3,6,7]+1 ＞ 46'
+  rands:
+  - [1, 6]
+  - [6, 6]
+  - [3, 6]
+- input:
+  - 3DM1
+  output: 'TrinitySeven : (3DM1) [1,6,3]→[3,6,7] ＞ 45'
+  rands:
+  - [1, 6]
+  - [6, 6]
+  - [3, 6]
+- input:
+  - 3DM2
+  output: 'TrinitySeven : (3DM2) [1,6,3]→[6,7,7] ＞ 294'
+  rands:
+  - [1, 6]
+  - [6, 6]
+  - [3, 6]
+- input:
+  - 3DM3
+  output: 'TrinitySeven : (3DM3) [1,6,3]→[7,7,7] ＞ 343'
+  rands:
+  - [1, 6]
+  - [6, 6]
+  - [3, 6]
+- input:
+  - 4DM2
+  output: 'TrinitySeven : (4DM2) [1,2,3,4]→[3,4,7,7] ＞ 199'
+  rands:
+  - [1, 6]
+  - [2, 6]
+  - [3, 6]
+  - [4, 6]
+- input:
+  - 4DM4
+  output: 'TrinitySeven : (4DM4) [1,2,3,4]→[7,7,7,7] ＞ 2401'
+  rands:
+  - [1, 6]
+  - [2, 6]
+  - [3, 6]
+  - [4, 6]
+- input:
+  - 3DM1-1
+  output: 'TrinitySeven : (3DM1-1) [1,6,3]→[3,6,7]-1 ＞ 44'
+  rands:
+  - [1, 6]
+  - [6, 6]
+  - [3, 6]
+- input:
+  - 3DM1+1
+  output: 'TrinitySeven : (3DM1+1) [1,6,3]→[3,6,7]+1 ＞ 46'
+  rands:
+  - [1, 6]
+  - [6, 6]
+  - [3, 6]
+- input:
+  - 3DM
+  output: 'TrinitySeven : (3DM) [1,6,3] ＞ 10'
+  rands:
+  - [1, 6]
+  - [6, 6]
+  - [3, 6]
+- input:
+  - 3DM+1
+  output: 'TrinitySeven : (3DM+1) [1,6,3]+1 ＞ 11'
+  rands:
+  - [1, 6]
+  - [6, 6]
+  - [3, 6]
+- input:
+  - 3DM-1
+  output: 'TrinitySeven : (3DM-1) [1,6,3]-1 ＞ 9'
+  rands:
+  - [1, 6]
+  - [6, 6]
+  - [3, 6]
+- input:
+  - TR-1<=50+20
+  output: 'TrinitySeven : (TR-1<=50+20) ＞ 1[1] ＞ クリティカル'
+  rands:
+  - [1, 100]
+- input:
+  - TR-1<=50+20
+  output: 'TrinitySeven : (TR-1<=50+20) ＞ 100[100] ＞ ファンブル'
+  rands:
+  - [100, 100]
+- input:
+  - TR-1<=50+20
+  output: ''
+  rands:
+  - [100, 20]
+- input:
+  - TR-1<=50+20
+  output: ''
+  rands:
+  - [100, 90]
+- input:
+  - TR+1<=50-20
+  output: 'TrinitySeven : (TR+1<=50-20) ＞ 1[1] ＞ クリティカル'
+  rands:
+  - [1, 100]
+- input:
+  - TR+1<=50-20
+  output: 'TrinitySeven : (TR+1<=50-20) ＞ 100[100] ＞ ファンブル'
+  rands:
+  - [100, 100]
+- input:
+  - TR+1<=50-20
+  output: ''
+  rands:
+  - [100, 20]
+- input:
+  - TR+1<=50-20
+  output: ''
+  rands:
+  - [100, 90]
+- input:
+  - TR+1<=50
+  output: 'TrinitySeven : (TR+1<=50) ＞ 1[1] ＞ クリティカル'
+  rands:
+  - [1, 100]
+- input:
+  - TR-1<=50
+  output: 'TrinitySeven : (TR-1<=50) ＞ 100[100] ＞ ファンブル'
+  rands:
+  - [100, 100]
+- input:
+  - TR-1<=50
+  output: ''
+  rands:
+  - [100, 20]
+- input:
+  - TR-1<=50
+  output: ''
+  rands:
+  - [100, 90]
+- input:
+  - TR<=50+20
+  output: 'TrinitySeven : (TR<=50+20) ＞ 1[1] ＞ クリティカル'
+  rands:
+  - [1, 100]
+- input:
+  - TR<=50+20
+  output: 'TrinitySeven : (TR<=50+20) ＞ 100[100] ＞ ファンブル'
+  rands:
+  - [100, 100]
+- input:
+  - TR<=50+20
+  output: ''
+  rands:
+  - [100, 20]
+- input:
+  - TR<=50+20
+  output: ''
+  rands:
+  - [100, 90]
+- input:
+  - TR<=50
+  output: 'TrinitySeven : (TR<=50) ＞ 1[1] ＞ クリティカル'
+  rands:
+  - [1, 100]
+- input:
+  - TR<=50
+  output: 'TrinitySeven : (TR<=50) ＞ 100[100] ＞ ファンブル'
+  rands:
+  - [100, 100]
+- input:
+  - TR<=50
+  output: ''
+  rands:
+  - [100, 20]
+- input:
+  - TR<=50
+  output: ''
+  rands:
+  - [100, 90]
+- input:
+  - TRNAME
+  output: ''
+  rands: []
+- input:
+  - TRNAME
+  output: 'TrinitySeven : 春日 , アラタ/聖'
+  rands:
+  - [1, 100]
+  - [1, 100]
+- input:
+  - TRNAME
+  output: 'TrinitySeven : 魔王 , 目についた物の名前（シャーペン、メガネなど）'
+  rands:
+  - [100, 100]
+  - [100, 100]
+- input:
+  - TRNAME
+  output: 'TrinitySeven : サンクチュアリ , ミフユ/サリエル'
+  rands:
+  - [70, 100]
+  - [70, 100]
+- input:
+  - TRNAME
+  output: 'TrinitySeven : 北千住 , スカー/綾瀬'
+  rands:
+  - [30, 100]
+  - [30, 100]
+- input:
+  - 1D100<=50
+  output: 'TrinitySeven : (1D100<=50) ＞ 1 ＞ クリティカル'
+  rands:
+  - [1, 100]
+- input:
+  - 1D100<=50
+  output: 'TrinitySeven : (1D100<=50) ＞ 99 ＞ ファンブル'
+  rands:
+  - [99, 100]
+- input:
+  - 1D100<=50
+  output: 'TrinitySeven : (1D100<=50) ＞ 100 ＞ ファンブル'
+  rands:
+  - [100, 100]
+- input:
+  - 1D100<=50
+  output: 'TrinitySeven : (1D100<=50) ＞ 49 ＞ 成功'
+  rands:
+  - [49, 100]
+- input:
+  - 1D100<=50
+  output: 'TrinitySeven : (1D100<=50) ＞ 50 ＞ 成功'
+  rands:
+  - [50, 100]
+- input:
+  - 1D100<=50
+  output: 'TrinitySeven : (1D100<=50) ＞ 51 ＞ 失敗'
+  rands:
+  - [51, 100]
+gameType: TrinitySeven

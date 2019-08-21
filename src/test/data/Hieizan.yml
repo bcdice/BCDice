@@ -1,0 +1,153 @@
+---
+tests:
+- input:
+  - 1D100<=10
+  output: 'Hieizan : (1D100<=10) ＞ 55 ＞ 失敗'
+  rands:
+  - [55, 100]
+- input:
+  - 1D100<=10
+  output: 'Hieizan : (1D100<=10) ＞ 76 ＞ 失敗'
+  rands:
+  - [76, 100]
+- input:
+  - 1D100<=10
+  output: 'Hieizan : (1D100<=10) ＞ 29 ＞ 失敗'
+  rands:
+  - [29, 100]
+- input:
+  - 1D100<=10
+  output: 'Hieizan : (1D100<=10) ＞ 7 ＞ 成功'
+  rands:
+  - [7, 100]
+- input:
+  - 1D100<=10
+  output: 'Hieizan : (1D100<=10) ＞ 63 ＞ 失敗'
+  rands:
+  - [63, 100]
+- input:
+  - 1D100<=10
+  output: 'Hieizan : (1D100<=10) ＞ 67 ＞ 失敗'
+  rands:
+  - [67, 100]
+- input:
+  - 1D100<=10
+  output: 'Hieizan : (1D100<=10) ＞ 59 ＞ 失敗'
+  rands:
+  - [59, 100]
+- input:
+  - 1D100<=10
+  output: 'Hieizan : (1D100<=10) ＞ 60 ＞ 失敗'
+  rands:
+  - [60, 100]
+- input:
+  - 1D100<=10
+  output: 'Hieizan : (1D100<=10) ＞ 17 ＞ 失敗'
+  rands:
+  - [17, 100]
+- input:
+  - 1D100<=10
+  output: 'Hieizan : (1D100<=10) ＞ 54 ＞ 失敗'
+  rands:
+  - [54, 100]
+- input:
+  - 1D100<=100
+  output: 'Hieizan : (1D100<=100) ＞ 91 ＞ 成功'
+  rands:
+  - [91, 100]
+- input:
+  - 1D100<=100
+  output: 'Hieizan : (1D100<=100) ＞ 65 ＞ 成功'
+  rands:
+  - [65, 100]
+- input:
+  - 1D100<=100
+  output: 'Hieizan : (1D100<=100) ＞ 49 ＞ 成功'
+  rands:
+  - [49, 100]
+- input:
+  - 1D100<=100
+  output: 'Hieizan : (1D100<=100) ＞ 60 ＞ 成功'
+  rands:
+  - [60, 100]
+- input:
+  - 1D100<=100
+  output: 'Hieizan : (1D100<=100) ＞ 50 ＞ 成功'
+  rands:
+  - [50, 100]
+- input:
+  - 1D100<=100
+  output: 'Hieizan : (1D100<=100) ＞ 22 ＞ 成功'
+  rands:
+  - [22, 100]
+- input:
+  - 1D100<=100
+  output: 'Hieizan : (1D100<=100) ＞ 1 ＞ 大成功'
+  rands:
+  - [1, 100]
+- input:
+  - 1D100<=100
+  output: 'Hieizan : (1D100<=100) ＞ 81 ＞ 成功'
+  rands:
+  - [81, 100]
+- input:
+  - 1D100<=100
+  output: 'Hieizan : (1D100<=100) ＞ 28 ＞ 成功'
+  rands:
+  - [28, 100]
+- input:
+  - 1D100<=100
+  output: 'Hieizan : (1D100<=100) ＞ 54 ＞ 成功'
+  rands:
+  - [54, 100]
+- input:
+  - 1D100<=50
+  output: 'Hieizan : (1D100<=50) ＞ 39 ＞ 成功'
+  rands:
+  - [39, 100]
+- input:
+  - 1D100<=50
+  output: 'Hieizan : (1D100<=50) ＞ 58 ＞ 失敗'
+  rands:
+  - [58, 100]
+- input:
+  - 1D100<=50
+  output: 'Hieizan : (1D100<=50) ＞ 35 ＞ 成功'
+  rands:
+  - [35, 100]
+- input:
+  - 1D100<=50
+  output: 'Hieizan : (1D100<=50) ＞ 85 ＞ 失敗'
+  rands:
+  - [85, 100]
+- input:
+  - 1D100<=50
+  output: 'Hieizan : (1D100<=50) ＞ 87 ＞ 失敗'
+  rands:
+  - [87, 100]
+- input:
+  - 1D100<=50
+  output: 'Hieizan : (1D100<=50) ＞ 85 ＞ 失敗'
+  rands:
+  - [85, 100]
+- input:
+  - 1D100<=50
+  output: 'Hieizan : (1D100<=50) ＞ 34 ＞ 成功'
+  rands:
+  - [34, 100]
+- input:
+  - 1D100<=50
+  output: 'Hieizan : (1D100<=50) ＞ 39 ＞ 成功'
+  rands:
+  - [39, 100]
+- input:
+  - 1D100<=50
+  output: 'Hieizan : (1D100<=50) ＞ 89 ＞ 失敗'
+  rands:
+  - [89, 100]
+- input:
+  - 1D100<=50
+  output: 'Hieizan : (1D100<=50) ＞ 46 ＞ 成功'
+  rands:
+  - [46, 100]
+gameType: Hieizan
