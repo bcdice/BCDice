@@ -383,14 +383,6 @@ Style/MultipleComparison:
   Exclude:
     - 'diceBot/LostRoyal.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/NegatedWhile:
-  Exclude:
-    - 'CardTrader.rb'
-    - 'dice/AddDice.rb'
-    - 'diceBot/CrashWorld.rb'
-
 # Offense count: 7
 # Cop supports --auto-correct.
 # テスト用randの置き換えが必要？

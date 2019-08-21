@@ -73,6 +73,9 @@ Style/Encoding:
 Style/HashSyntax:
   EnforcedStyle: hash_rockets
 
+Style/NegatedWhile:
+  Enabled: false
+
 Style/NumericLiterals:
   MinDigits: 6
 
