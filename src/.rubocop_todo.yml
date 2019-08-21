@@ -417,16 +417,6 @@ Style/WhileUntilModifier:
     - 'diceBot/NightmareHunterDeep.rb'
     - 'diceBot/TunnelsAndTrolls.rb'
 
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: forbid_for_all_comparison_operators, forbid_for_equality_operators_only, require_for_all_comparison_operators, require_for_equality_operators_only
-Style/YodaCondition:
-  Exclude:
-    - 'diceBot/LogHorizon.rb'
-    - 'diceBot/LogHorizon_Korean.rb'
-    - 'diceBot/Skynauts.rb'
-
 # Offense count: 3827
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
