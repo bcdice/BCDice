@@ -53,6 +53,10 @@ Naming/VariableNumber:
 Style/AsciiComments:
   Enabled: false
 
+# Due to old Ruby 1.9.x
+Style/BracesAroundHashParameters:
+  Enabled: false
+
 Style/CommentedKeyword:
   Enabled: false
 
