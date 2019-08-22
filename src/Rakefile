@@ -17,7 +17,10 @@ namespace :test do
   Rake::TestTask.new(:dicebots) do |t|
     t.description = 'ダイスボット'
 
-    t.test_files = ['test/testDiceBots.rb']
+    t.test_files = [
+      'test/setup',
+      'test/testDiceBots.rb',
+    ]
     t.libs = [
       'test',
       '.',
@@ -31,22 +34,20 @@ namespace :test do
     end
   end
 
-  Rake::TestTask.new(:dicebot_loaders) do |t|
-    t.description = 'ダイスボット読み込み'
-    t.test_files = ['test/testDiceBotLoaders.rb']
-  end
-
-  Rake::TestTask.new(:dicebot_prefixes_compatibility) do |t|
-    t.description = 'ダイスボットの接頭辞設定の後方互換性'
-    t.test_files = ['test/testDiceBotPrefixesCompatibility.rb']
+  Rake::TestTask.new(:unit) do |t|
+    t.description = 'ユニットテスト'
+    t.test_files = [
+      'test/setup',
+      'test/testDiceBotLoaders.rb',
+      'test/testDiceBotPrefixesCompatibility.rb'
+    ]
   end
 end
 
 task :test => [
   :clean_coverage,
   'test:dicebots',
-  'test:dicebot_loaders',
-  'test:dicebot_prefixes_compatibility'
+  'test:unit',
 ]
 
 if RUBY_VERSION >= '2.3'
