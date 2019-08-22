@@ -4,11 +4,7 @@ require 'diceBot/DiceBot'
 
 class NinjaSlayer < DiceBot
   # ダイスボットで使用するコマンドを配列で列挙する
-  setPrefixes([
-      'NJ\d+.*',
-      'EV\d+.*',
-      'AT\d+.*'
-      ])
+  setPrefixes(['NJ\d+.*', 'EV\d+.*', 'AT\d+.*'])
 
   def initialize
     super
@@ -49,13 +45,18 @@ MESSAGETEXT
   DIFFICULTY_VALUE_RE = /UH|[2-6KENH]/i.freeze
   # 難易度の正規表現
   DIFFICULTY_RE = /\[(#{DIFFICULTY_VALUE_RE})\]|@(#{DIFFICULTY_VALUE_RE})/io.freeze
+
   # 通常判定の正規表現
   NJ_RE = /\ANJ(\d+)#{DIFFICULTY_RE}?\z/io.freeze
   # 回避判定の正規表現
   EV_RE = %r{\AEV(\d+)#{DIFFICULTY_RE}?(?:/(\d+))?\z}io.freeze
+  # 近接攻撃の正規表現
+  AT_RE = /\AAT(\d+)#{DIFFICULTY_RE}?\z/io.freeze
 
   # 回避判定のノード
   EV = Struct.new(:num, :difficulty, :targetValue)
+  # 近接攻撃のノード
+  AT = Struct.new(:num, :difficulty)
 
   # 難易度の文字表現から整数値への対応
   DIFFICULTY_SYMBOL_TO_INTEGER = {
@@ -79,151 +80,24 @@ MESSAGETEXT
     case node = parse(command)
     when EV
       return executeEV(node)
-    end
-
-    result = ''
-
-    # combat attack difficults
-    at_kids_pattern = /^(?:at)(\d+)(?:@|\[)?[k2](?:\])?/i
-    at_easy_pattern = /^(?:at)(\d+)(?:@|\[)?[e3](?:\])?/i
-    at_normal_pattern = /^(?:at)(\d+)(?:@|\[)?[n4](?:\])?/i
-    at_hard_pattern = /^(?:at)(\d+)(?:@|\[)?[h5](?:\])?/i
-    at_ultrahard_pattern = /^(?:at)(\d+)(?:@|\[)?(?:uh|6)(?:\])?/i
-    at_short_pattern = /^(?:at)(\d+)$/i
-
-    # AT evaluate
-    if (m = at_kids_pattern.match(command))
-      debug('at kids: ', command)
-
-      dice_cnt = m[1]
-      dice = roll(m[1], 6, 0, 0, '>=', 2)
-      dice_str = dice[1]
-      suc_cnt = dice[5]
-      satsubatsu = false
-
-      six_cnt = dice[3]
-
-      if six_cnt >= 2
-        satsubatsu = true
-      end
-
-      result += "(#{dice_cnt}B6>=2) ＞ #{dice_str} ＞ 成功数#{suc_cnt}"
-      if satsubatsu
-        result += ' ＞ サツバツ!!'
-      end
-    elsif (m = at_easy_pattern.match(command))
-      debug('at easy: ', command)
-
-      dice_cnt = m[1]
-      dice = roll(m[1], 6, 0, 0, '>=', 3)
-      dice_str = dice[1]
-      suc_cnt = dice[5]
-      satsubatsu = false
-
-      six_cnt = dice[3]
-
-      if six_cnt >= 2
-        satsubatsu = true
-      end
-
-      result += "(#{dice_cnt}B6>=3) ＞ #{dice_str} ＞ 成功数#{suc_cnt}"
-      if satsubatsu
-        result += ' ＞ サツバツ!!'
-      end
-    elsif (m = at_normal_pattern.match(command))
-      debug('at normal: ', command)
-
-      dice_cnt = m[1]
-      dice = roll(m[1], 6, 0, 0, '>=', 4)
-      dice_str = dice[1]
-      suc_cnt = dice[5]
-      satsubatsu = false
-
-      six_cnt = dice[3]
-
-      if six_cnt >= 2
-        satsubatsu = true
-      end
-
-      result += "(#{dice_cnt}B6>=4) ＞ #{dice_str} ＞ 成功数#{suc_cnt}"
-      if satsubatsu
-        result += ' ＞ サツバツ!!'
-      end
-    elsif (m = at_hard_pattern.match(command))
-      debug('at hard: ', command)
-
-      dice_cnt = m[1]
-      dice = roll(m[1], 6, 0, 0, '>=', 5)
-      dice_str = dice[1]
-      suc_cnt = dice[5]
-      satsubatsu = false
-
-      six_cnt = dice[3]
-
-      if six_cnt >= 2
-        satsubatsu = true
-      end
-
-      result += "(#{dice_cnt}B6>=5) ＞ #{dice_str} ＞ 成功数#{suc_cnt}"
-      if satsubatsu
-        result += ' ＞ サツバツ!!'
-      end
-    elsif (m = at_ultrahard_pattern.match(command))
-      debug('at ultrahard: ', command)
-
-      dice_cnt = m[1]
-      dice = roll(m[1], 6, 0, 0, '>=', 6)
-      dice_str = dice[1]
-      suc_cnt = dice[5]
-      satsubatsu = false
-
-      six_cnt = dice[3]
-
-      if six_cnt >= 2
-        satsubatsu = true
-      end
-
-      result += "(#{dice_cnt}B6>=6) ＞ #{dice_str} ＞ 成功数#{suc_cnt}"
-      if satsubatsu
-        result += ' ＞ サツバツ!!'
-      end
-    elsif (m = at_short_pattern.match(command))
-      debug('at short: ', command)
-
-      dice_cnt = m[1]
-      dice = roll(m[1], 6, 0, 0, '>=', 4)
-      dice_str = dice[1]
-      suc_cnt = dice[5]
-      satsubatsu = false
-
-      six_cnt = dice[3]
-
-      if six_cnt >= 2
-        satsubatsu = true
-      end
-
-      result += "(#{dice_cnt}B6>=4) ＞ #{dice_str} ＞ 成功数#{suc_cnt}"
-      if satsubatsu
-        result += ' ＞ サツバツ!!'
-      end
-
+    when AT
+      return executeAT(node)
     else
-      debug('rollDiceCommand else: ', command)
-      result = nil
+      return nil
     end
-
-    return result
   end
 
   private
 
   # 構文解析する
   # @param [String] command コマンド文字列
-  # @return [EV, nil]
+  # @return [EV, AT, nil]
   def parse(command)
     case
-    when mEV = EV_RE.match(command)
-      return parseEV(mEV)
+    when m = EV_RE.match(command)
+      return parseEV(m)
+    when m = AT_RE.match(command)
+      return parseAT(m)
     else
       return nil
     end
@@ -238,6 +112,16 @@ MESSAGETEXT
     targetValue = m[4] && m[4].to_i
 
     return EV.new(num, difficulty, targetValue)
+  end
+
+  # 正規表現のマッチ情報から近接攻撃ノードを作る
+  # @param [MatchData] m 正規表現のマッチ情報
+  # @return [AT]
+  def parseAT(m)
+    num = m[1].to_i
+    difficulty = integerValueOfDifficulty(m[2] || m[3])
+
+    return AT.new(num, difficulty)
   end
 
   # 回避判定を行う
@@ -258,6 +142,23 @@ MESSAGETEXT
     end
 
     return rollResult
+  end
+
+  # 近接攻撃を行う
+  # @param [AT] at 近接攻撃ノード
+  # @return [String] 近接攻撃結果
+  def executeAT(at)
+    command = bRollCommand(at.num, at.difficulty)
+    rollResult = bcdice.bdice(command).sub(/\A[^(]+/, '')
+
+    # バラバラロールの出目を取得する
+    # TODO: バラバラロールの結果として、出目を配列で取得できるようにする
+    m = /＞ (\d+(?:,\d+)*)/.match(rollResult)
+    values = m[1].split(',').map(&:to_i)
+
+    numOfMaxValues = values.select { |v| v == 6 }.length
+
+    return numOfMaxValues >= 2 ? "#{rollResult} ＞ サツバツ!!" : rollResult
   end
 
   # 難易度の整数値を返す
