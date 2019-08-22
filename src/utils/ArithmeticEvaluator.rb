@@ -66,7 +66,7 @@ class ArithmeticEvaluator
     when :roundOff
       (left.to_f / right).round
     else
-      left / right
+      left.div(right)
     end
   end
 
