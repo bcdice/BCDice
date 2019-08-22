@@ -43,41 +43,27 @@ class NinjaSlayer < DiceBot
 MESSAGETEXT
   end
 
+  # 難易度の値の正規表現
+  DIFFICULTY_VALUE_RE = /UH|[2-6KENH]/i
+  # 難易度の正規表現
+  DIFFICULTY_RE = /\[(#{DIFFICULTY_VALUE_RE})\]|@(#{DIFFICULTY_VALUE_RE})/io
+  # 通常判定の正規表現
+  NJ_RE = /\ANJ(\d+)#{DIFFICULTY_RE}?\z/io
+
+  # 難易度の文字表現から整数値への対応
+  DIFFICULTY_SYMBOL_TO_INTEGER = {
+    'K' => 2,
+    'E' => 3,
+    'N' => 4,
+    'H' => 5,
+    'UH' => 6
+  }
+
   def changeText(str)
-    # roll difficults
-    kids_pattern = /^(?:nj)(\d+)(?:@|\[)?[k2](?:\])?/i
-    easy_pattern = /^(?:nj)(\d+)(?:@|\[)?[e3](?:\])?/i
-    normal_pattern = /^(?:nj)(\d+)(?:@|\[)?[n4](?:\])?/i
-    hard_pattern = /^(?:nj)(\d+)(?:@|\[)?[h5](?:\])?/i
-    ultrahard_pattern = /^(?:nj)(\d+)(?:@|\[)?(?:uh|6)(?:\])?/i
-    short_pattern = /^(?:nj)(\d+)$/i
+    m = NJ_RE.match(str)
+    return str unless m
 
-    debug('src word: ', str)
-
-    # NJ evaluate
-    if (m = kids_pattern.match(str))
-      debug('nj kids: ', str)
-      m[1] + 'B6>=2'
-    elsif (m = easy_pattern.match(str))
-      debug('nj easy: ', str)
-      m[1] + 'B6>=3'
-    elsif (m = normal_pattern.match(str))
-      debug('nj normal: ', str)
-      m[1] + 'B6>=4'
-    elsif (m = hard_pattern.match(str))
-      debug('nj hard: ', str)
-      m[1] + 'B6>=5'
-    elsif (m = ultrahard_pattern.match(str))
-      debug('nj ultrahard: ', str)
-      m[1] + 'B6>=6'
-    elsif (m = short_pattern.match(str))
-      debug('nj short: ', str)
-      m[1] + 'B6>=4'
-
-    else
-      debug('else: ', str)
-      str
-    end
+    return "#{m[1]}B6>=#{integerValueOfDifficulty(m[2] || m[3])}"
   end
 
   def rollDiceCommand(command)
@@ -340,5 +326,22 @@ MESSAGETEXT
     end
 
     return result
+  end
+
+  private
+
+  # 難易度の整数値を返す
+  # @param [String, nil] s 難易度表記
+  # @return [Integer] 難易度の整数値
+  # @raise [KeyError, IndexError] 無効な難易度表記が渡された場合。
+  #
+  # sは2から6までの数字あるいは'K', 'E', 'N', 'H', 'UH'。
+  # sがnilの場合は 4 を返す。
+  def integerValueOfDifficulty(s)
+    return 4 unless s
+
+    return s.to_i if /\A[2-6]\z/.match(s)
+
+    return DIFFICULTY_SYMBOL_TO_INTEGER.fetch(s.upcase)
   end
 end
