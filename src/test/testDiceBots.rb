@@ -1,3 +1,5 @@
+require 'test/setup'
+
 if RUBY_VERSION < '1.9'
   $KCODE = 'u'
 end
