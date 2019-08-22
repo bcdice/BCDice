@@ -8,7 +8,7 @@ class DiceBotLoader
   #
   # * 最初の文字は大文字のアルファベット
   # * 2文字目以降は英数字かアンダースコア（_）
-  BOT_NAME_PATTERN = /\A[A-Z]\w*\z/
+  BOT_NAME_PATTERN = /\A[A-Z]\w*\z/.freeze
 
   # 収集時に無視するボット名
   #
@@ -20,7 +20,7 @@ class DiceBotLoader
     'DiceBot',
     'DiceBotLoader',
     'DiceBotLoaderList'
-  ]
+  ].freeze
 
   # 有効なゲームタイプかを返す
   # @param [String] gameType ゲームタイプ
@@ -92,10 +92,10 @@ class DiceBotLoader
       # 正しいクラス名になるものだけ選ぶ
       select { |botName| BOT_NAME_PATTERN === botName }
 
-    validBotNames.map { |botName|
+    validBotNames.map do |botName|
       require("#{diceBotDir}/#{botName}")
       Object.const_get(botName).new
-    }
+    end
   end
 
   # 読み込み処理を初期化する
