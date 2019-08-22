@@ -1232,8 +1232,9 @@ class BCDice
     nick ||= @nick_e
     nick = nick.upcase
 
-    /[_\d]*(.+)[_\d]*/ =~ nick
-    nick = Regexp.last_match(1) # Nick端の数字はカウンター変わりに使われることが多いので除去
+    if /[_\d]*(.+)[_\d]*/ =~ nick
+      nick = Regexp.last_match(1) # Nick端の数字はカウンター変わりに使われることが多いので除去
+    end
 
     return nick
   end
