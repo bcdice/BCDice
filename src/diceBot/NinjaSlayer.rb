@@ -53,6 +53,9 @@ MESSAGETEXT
   # 近接攻撃の正規表現
   AT_RE = /\AAT(\d+)#{DIFFICULTY_RE}?\z/io.freeze
 
+  # バラバラロール結果の "(" の前までの先頭部分
+  B_ROLL_RESULT_HEAD_RE = /\A[^(]+/.freeze
+
   # 回避判定のノード
   EV = Struct.new(:num, :difficulty, :targetValue)
   # 近接攻撃のノード
@@ -130,7 +133,7 @@ MESSAGETEXT
   def executeEV(ev)
     command = bRollCommand(ev.num, ev.difficulty)
 
-    rollResult = bcdice.bdice(command).sub(/\A[^(]+/, '')
+    rollResult = bcdice.bdice(command).sub(B_ROLL_RESULT_HEAD_RE, '')
     return rollResult unless ev.targetValue
 
     m = /成功数(\d+)/.match(rollResult)
@@ -149,7 +152,7 @@ MESSAGETEXT
   # @return [String] 近接攻撃結果
   def executeAT(at)
     command = bRollCommand(at.num, at.difficulty)
-    rollResult = bcdice.bdice(command).sub(/\A[^(]+/, '')
+    rollResult = bcdice.bdice(command).sub(B_ROLL_RESULT_HEAD_RE, '')
 
     # バラバラロールの出目を取得する
     # TODO: バラバラロールの結果として、出目を配列で取得できるようにする
