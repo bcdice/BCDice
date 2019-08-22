@@ -191,7 +191,7 @@ INFO_MESSAGE_TEXT
 
     result = [  0, 0, 0, 0, 0, 0, 0]
 
-    loopCount = (overStep / stepRythm.size)
+    loopCount = overStep.div(stepRythm.size)
 
     loopCount.times do
       addStepToResult(result, overBounusStep)
@@ -223,7 +223,7 @@ INFO_MESSAGE_TEXT
       return "失敗"
     end
 
-    level = (diff / 5) + 1
+    level = diff.div(5) + 1
 
     return "成功 レベル：#{level}"
   end

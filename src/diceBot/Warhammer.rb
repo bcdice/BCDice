@@ -53,10 +53,10 @@ INFO_MESSAGE_TEXT
     return '' unless signOfInequality == "<="
 
     if total_n <= diff
-      return " ＞ 成功(成功度#{((diff - total_n) / 10)})"
+      return " ＞ 成功(成功度#{(diff - total_n).div(10)})"
     end
 
-    return " ＞ 失敗(失敗度#{((total_n - diff) / 10)})"
+    return " ＞ 失敗(失敗度#{(total_n - diff).div(10)})"
   end
 
   ####################            WHFRP関連          ########################

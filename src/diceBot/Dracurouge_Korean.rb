@@ -87,7 +87,7 @@ MESSAGETEXT
     oneCount = countTargetDice(diceList, 1)
     sixCount = countTargetDice(diceList, 6)
 
-    gloryDiceCount = (oneCount / 2) + (sixCount / 2)
+    gloryDiceCount = oneCount.div(2) + sixCount.div(2)
     return gloryDiceCount
   end
 
@@ -142,7 +142,7 @@ MESSAGETEXT
     type2 = %w{영주	근위	방랑	현자	사냥꾼	야수}
     type2_indexTexts = %w{F G R W J N}
 
-    tensValue = number.to_i / 10
+    tensValue = number.to_i.div(10)
     isBefore = (tensValue < 4)
     type = (isBefore ? type1 : type2)
     indexTexts = (isBefore ? type1_indexTexts : type2_indexTexts)

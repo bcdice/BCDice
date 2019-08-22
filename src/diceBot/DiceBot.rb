@@ -470,13 +470,13 @@ class DiceBot
         item, value = get_table_by_d66(table)
         value = value.to_i
         output = item[1]
-        diceText = (value / 10).to_s + "," + (value % 10).to_s
+        diceText = value.div(10).to_s + "," + (value % 10).to_s
         [output, value, diceText]
       when 'D66S'
         table = getTableInfoFromExtraTableText(table, 21)
         output, value = get_table_by_d66_swap(table)
         value = value.to_i
-        diceText = (value / 10).to_s + "," + (value % 10).to_s
+        diceText = value.div(10).to_s + "," + (value % 10).to_s
         [output, value, diceText]
       else
         raise "invalid dice Type #{command}"

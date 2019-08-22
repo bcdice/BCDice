@@ -84,14 +84,14 @@ INFO_MESSAGE_TEXT
 
     diceBase = dice1
 
-    dice1 = diceBase / 10
+    dice1 = diceBase.div(10)
     dice2 = diceBase % 10
 
     if isValidDice(dice1, dice2)
       return dice1, dice2
     end
 
-    dice1 = diceBase / 100
+    dice1 = diceBase.div(100)
     dice2 = diceBase % 100
 
     if isValidDice(dice1, dice2)

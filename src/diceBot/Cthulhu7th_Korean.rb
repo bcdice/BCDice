@@ -340,7 +340,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getSetOfBullet(diff)
-    bullet_set_count = diff / 10
+    bullet_set_count = diff.div(10)
 
     if (diff >= 1) && (diff < 10)
       bullet_set_count = 1 # 기능 수치가 9 이하일 때의 최저수치 보장 처리
@@ -350,7 +350,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getHitBulletCountBase(diff, bullet_set_count)
-    hit_bullet_count_base = (bullet_set_count / 2)
+    hit_bullet_count_base = bullet_set_count.div(2)
 
     if (diff >= 1) && (diff < 10)
       hit_bullet_count_base = 1 # 기능 수치가 9 이하일 때의 최저수치 보장

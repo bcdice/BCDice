@@ -145,7 +145,7 @@ INFO_MESSAGE_TEXT
 
     result = [  0, 0, 0, 0, 0, 0, 0]
 
-    loopCount = (overStep / stepRythm.size)
+    loopCount = overStep.div(stepRythm.size)
 
     loopCount.times do
       addStepToResult(result, baseStepInfo)

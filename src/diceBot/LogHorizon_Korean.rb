@@ -315,7 +315,7 @@ MESSAGETEXT
   end
 
   def getTableByRank(rank, tables)
-    index = (rank - 1) / 5
+    index = (rank - 1).div(5)
 
     index = [0, index].max
     index = [index, (tables.size - 1)].min

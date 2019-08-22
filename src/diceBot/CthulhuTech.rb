@@ -36,7 +36,7 @@ INFO_MESSAGE_TEXT
   end
 
   def check_nD10_nomalTest(total_n, _dice_n, _signOfInequality, diff, dice_cnt, _dice_max, n1, _n_max)
-    if n1 >= (dice_cnt / 2 + 0.9).to_i
+    if n1 >= (dice_cnt.div(2) + 0.9).to_i
       return " ＞ ファンブル"
     end
 

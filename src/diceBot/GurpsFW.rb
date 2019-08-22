@@ -341,7 +341,7 @@ INFO_MESSAGE_TEXT
       tableName = "財宝テーブル"
       diff = Regexp.last_match(1)
       depth = Regexp.last_match(2).to_i
-      num = depth / 10
+      num = depth.div(10)
       if num >= 6
         num = 5
       end

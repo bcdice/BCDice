@@ -1532,7 +1532,7 @@ MESSAGETEXT
           '『白銀の猛将』ジェネラル(CL55/ネームド)1匹([命中]+4、あらゆる致傷力+20、[HP]+500)'
         ]],
       ]
-      case event / 100
+      case event.div(100)
       when 1
         areaText = "洞窟"
       when 2

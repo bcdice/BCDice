@@ -866,7 +866,7 @@ class BCDice
     string, secret, count, swapMarker = getD66Infos(dice)
     unless  string.nil?
       value = getD66ValueByMarker(swapMarker)
-      diceText = (value / 10).to_s + "," + (value % 10).to_s
+      diceText = value.div(10).to_s + "," + (value % 10).to_s
       return value, diceText
     end
 
