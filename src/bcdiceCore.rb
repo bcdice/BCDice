@@ -175,7 +175,7 @@ class BCDice
   end
 
   def printErrorMessage(e)
-    sendMessageToOnlySender("error " + e.to_s + caller().join("\n"))
+    sendMessageToOnlySender("error " + e.to_s + e.backtrace.join("\n"))
   end
 
   def recieveMessageCatched(nick_e, tnick)
