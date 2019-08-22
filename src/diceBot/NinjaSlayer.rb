@@ -3,10 +3,10 @@
 class NinjaSlayer < DiceBot
   # ダイスボットで使用するコマンドを配列で列挙する
   setPrefixes([
-      'NJ\d+.*',
-      'EV\d+.*',
-      'AT\d+.*'
-      ])
+    'NJ\d+.*',
+    'EV\d+.*',
+    'AT\d+.*'
+  ])
 
   def initialize
     super
