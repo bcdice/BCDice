@@ -317,6 +317,7 @@ Style/GlobalVars:
     - configBcDice.rb
     - log.rb
     - configBcDiceForSystem.rb
+    - test/testDiceBots.rb
     - test/testDiceBotLoaders.rb
     - test/DiceBotTest.rb
     - test/others/testPointer.rb
