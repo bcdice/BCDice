@@ -4,7 +4,11 @@ require 'diceBot/DiceBot'
 
 class NinjaSlayer < DiceBot
   # ダイスボットで使用するコマンドを配列で列挙する
-  setPrefixes(['NJ\d+.*', 'EV\d+.*', 'AT\d+.*'])
+  setPrefixes([
+    'NJ\d+.*',
+    'EV\d+.*',
+    'AT\d+.*'
+  ])
 
   def initialize
     super
