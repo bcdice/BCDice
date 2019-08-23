@@ -44,19 +44,13 @@ INFO_MESSAGE_TEXT
     output = ''
     rerollNumber = 11
 
-    if /STS/ =~ string
-      string = string.gsub(/(\d+)STS(\d*)([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}STS#{Regexp.last_match(2)}[#{Regexp.last_match(3)}]" }
-      string = string.gsub(/(\d+)STS(\d*)/i) { "#{Regexp.last_match(1)}STS#{Regexp.last_match(2)}" } unless Regexp.last_match(3)
-      rerollNumber = 10
-    else
-      string = string.gsub(/(\d+)ST(\d*)([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}ST#{Regexp.last_match(2)}[#{Regexp.last_match(3)}]" }
-      string = string.gsub(/(\d+)ST(\d*)/i) { "#{Regexp.last_match(1)}ST#{Regexp.last_match(2)}" } unless Regexp.last_match(3)
-    end
+    m = string.match(/(\d+)(STS?)(\d*)([^\d\s][\+\-\d]+)?/i)
+    diceCount = m[1].to_i
+    rerollNumber = 10 if m[2] == 'STS'
+    difficulty = m[3].to_i
+    automaticSuccess = m[4].to_i if m[4]
 
-    diceCount = Regexp.last_match(1).to_i if Regexp.last_match(1)
-    difficulty = Regexp.last_match(2).to_i if Regexp.last_match(2)
     difficulty = 6 if difficulty < 2
-    automaticSuccess = Regexp.last_match(3).to_i if Regexp.last_match(3)
 
     output = 'DicePool=' + diceCount.to_s + ', Difficulty=' + difficulty.to_s + ', AutomaticSuccess=' + automaticSuccess.to_s
 
