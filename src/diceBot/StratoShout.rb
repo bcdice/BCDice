@@ -44,7 +44,7 @@ TENKAI: シーン展開表 奔走シーン 練習シーンで使用
 INFO_MESSAGE_TEXT
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, _, _, _, _)
+  def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
     return '' unless signOfInequality == ">="
 
     if dice_n <= 2
