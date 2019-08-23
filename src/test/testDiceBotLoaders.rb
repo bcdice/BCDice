@@ -5,7 +5,6 @@ unless $:.include?(dodontof_root)
   $:.unshift(dodontof_root)
 end
 
-require 'test/setup'
 require 'test/unit'
 require 'bcdiceCore'
 require 'diceBot/DiceBotLoader'
