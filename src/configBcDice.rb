@@ -138,6 +138,7 @@ $allGameTypes = %w{
   NightWizard
   NightWizard3rd
   NightmareHunterDeep
+  NinjaSlayer
   Nuekagami
   OneWayHeroics
   OrgaRain
@@ -161,6 +162,7 @@ $allGameTypes = %w{
   SevenFortressMobius
   ShadowRun
   ShadowRun4
+  ShadowRun5
   SharedFantasia
   ShinkuuGakuen
   ShinobiGami
@@ -183,6 +185,7 @@ $allGameTypes = %w{
   Tunnels_&_Trolls
   TwilightGunsmoke
   Utakaze
+  Villaciel
   WARPS
   WaresBlade
   Warhammer
