@@ -160,6 +160,7 @@ $allGameTypes = %w{
   SRS
   Satasupe
   SevenFortressMobius
+  ScreamHighSchool
   ShadowRun
   ShadowRun4
   ShadowRun5
