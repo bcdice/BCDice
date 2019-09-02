@@ -196,7 +196,7 @@ INFO_MESSAGE_TEXT
         output += "#{subtotal}[#{dice_dat[1]}]"
         total_n += subtotal
 
-        break unless @@bcdice.isReRollAgain(dice_cnt, round)
+        break unless bcdice.isReRollAgain(dice_cnt, round)
       end
     end
 

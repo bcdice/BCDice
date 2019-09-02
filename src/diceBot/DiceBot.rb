@@ -228,7 +228,7 @@ class DiceBot
       debug('call rollDiceCommand command', command)
       result, secret_flg = rollDiceCommand(command)
     rescue StandardError => e
-      debug("executeCommand exception", e.to_s, $@.join("\n"))
+      debug("executeCommand exception", e.to_s, e.backtrace.join("\n"))
     end
 
     debug('rollDiceCommand result', result)

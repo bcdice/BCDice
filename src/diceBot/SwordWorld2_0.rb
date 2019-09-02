@@ -153,9 +153,9 @@ INFO_MESSAGE_TEXT
     debug("check_nD6")
     result = super(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
 
-    return result unless  result == ""
+    return result unless result == ""
 
-    string = @@bcdice.getOriginalMessage
+    string = bcdice.getOriginalMessage
 
     superSuccessValue = 41
 
