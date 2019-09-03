@@ -233,7 +233,7 @@ class CardTrader
 
       debug("Load Finished...\n")
     rescue StandardError => e
-      raise ("カードデータを開けません :『#{cardFileName}』" + e.to_s)
+      raise "カードデータを開けません :『#{cardFileName}』#{e}"
     end
   end
 

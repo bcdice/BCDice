@@ -37,11 +37,6 @@ Lint/LiteralInInterpolation:
   Exclude:
     - 'diceBot/GurpsFW.rb'
 
-# Offense count: 1
-Lint/ParenthesesAsGroupedExpression:
-  Exclude:
-    - 'CardTrader.rb'
-
 # Offense count: 3
 Lint/RescueException:
   Exclude:
