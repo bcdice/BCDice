@@ -30,15 +30,6 @@ Lint/HandleExceptions:
   Exclude:
     - 'irc/ircLib.rb'
 
-# Offense count: 6
-Lint/LiteralAsCondition:
-  Exclude:
-    - 'diceBot/BeginningIdol.rb'
-    - 'diceBot/BeginningIdol_Korean.rb'
-    - 'diceBot/LostRoyal.rb'
-    - 'diceBot/ShinkuuGakuen.rb'
-    - 'irc/ircLib.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Bug?
