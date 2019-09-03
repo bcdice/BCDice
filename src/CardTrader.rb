@@ -468,7 +468,7 @@ class CardTrader
     targetCard = card.upcase; # デッキから抜き出すカードの指定
     destination = @nick_e.upcase
 
-    isDelete = @cardRest.delete_if { |card| card == targetCard }
+    isDelete = @cardRest.delete_if { |c| c == targetCard }
 
     if isDelete
       @deal_cards[destination] ||= []
