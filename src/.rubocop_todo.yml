@@ -43,13 +43,6 @@ Lint/RescueException:
     - 'bcdiceGui.rb'
     - 'irc/ircLib.rb'
 
-# Offense count: 4
-Lint/UnreachableCode:
-  Exclude:
-    - 'diceBot/CardRanker.rb'
-    - 'diceBot/FilledWith.rb'
-    - 'diceBot/GurpsFW.rb'
-
 # Offense count: 177
 Lint/UselessAssignment:
   Enabled: false

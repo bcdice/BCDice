@@ -290,12 +290,10 @@ MESSAGETEXT
   # フィルトウィズナンバーワンくじ(GURPS-FW版)
   def getLotResult(type)
     if type == "P"
-      return premium(1, "")
+      premium(1, "")
     else
-      return normal(1, "")
+      normal(1, "")
     end
-
-    return ""
   end
 
   # ノーマルくじ表
