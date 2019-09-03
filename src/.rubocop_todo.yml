@@ -19,13 +19,6 @@ Lint/AssignmentInCondition:
   Exclude:
     - 'irc/ircLib.rb'
 
-# Offense count: 3
-Lint/DuplicateMethods:
-  Exclude:
-    - 'CardTrader.rb'
-    - 'diceBot/DiceBot.rb'
-    - 'diceBot/SwordWorld.rb'
-
 # Offense count: 1
 Lint/EmptyWhen:
   Exclude:

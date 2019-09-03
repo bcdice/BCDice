@@ -41,13 +41,6 @@ class CardTrader
     @canTapCard = true
   end
 
-  # カード置き場数を設定する
-  # @param [Integer] place カード置き場数。0なら無し。
-  def card_place=(place)
-    @card_place = place
-    debug("setCardPlace @card_place", @card_place)
-  end
-
   # 1つのデッキ、1つのジョーカーを使う
   # @return [self]
   def set1Deck1Joker

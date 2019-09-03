@@ -79,7 +79,7 @@ class DiceBot
   attr_accessor :rerollLimitCount
 
   attr_reader :sendMode, :sameDiceRerollCount, :sameDiceRerollType, :d66Type
-  attr_reader :isPrintMaxDice, :upplerRollThreshold, :unlimitedRollDiceType
+  attr_reader :isPrintMaxDice, :upplerRollThreshold
   attr_reader :defaultSuccessTarget, :rerollNumber, :fractionType
 
   # ダイスボット設定後に行う処理
