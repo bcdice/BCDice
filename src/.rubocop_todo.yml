@@ -19,12 +19,6 @@ Lint/AssignmentInCondition:
   Exclude:
     - 'irc/ircLib.rb'
 
-# Offense count: 2
-Lint/DuplicateCaseCondition:
-  Exclude:
-    - 'CountHolder.rb'
-    - 'diceBot/TwilightGunsmoke.rb'
-
 # Offense count: 3
 Lint/DuplicateMethods:
   Exclude:
