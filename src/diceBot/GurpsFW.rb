@@ -799,12 +799,10 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
   # GURPS-FW ナンバーワンくじ
   def getLotResult(type)
     if type == "P"
-      return premium1
+      premium1
     else
-      return normal1
+      normal1
     end
-
-    return ""
   end
 
   # GURPS-FW 夢幻の迷宮財宝テーブル(ver.2013/05/03)
