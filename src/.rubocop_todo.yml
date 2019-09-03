@@ -44,14 +44,6 @@ Lint/RescueException:
     - 'irc/ircLib.rb'
 
 # Offense count: 4
-Lint/ShadowingOuterLocalVariable:
-  Exclude:
-    - 'CardTrader.rb'
-    - 'diceBot/ColossalHunter.rb'
-    - 'diceBot/Dracurouge.rb'
-    - 'diceBot/StellarKnights.rb'
-
-# Offense count: 4
 Lint/UnreachableCode:
   Exclude:
     - 'diceBot/CardRanker.rb'
