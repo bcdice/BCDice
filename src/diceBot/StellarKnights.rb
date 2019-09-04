@@ -233,9 +233,9 @@ MESSAGETEXT
 
     result = ""
 
-    commands.each_with_index do |command, i|
+    commands.each_with_index do |cmd, i|
       result += "\n" unless i == 0
-      result += analyzeDiceCommandResultMethod(command)
+      result += analyzeDiceCommandResultMethod(cmd)
     end
 
     return result
