@@ -1168,31 +1168,19 @@ INFO_MESSAGE_TEXT
   def Occupation_text(command)
     rule = 2
     # rule = 0:探索者ブックから職業ランダム、1：探索者ブックから現代を除いた職業ランダム、2：KPルールブックから職業ランダム、3：KPルールブックから現代を除いた職業ランダム
-    if /^KOC\((edu|str|dex|app|pow)\)/i =~ command
-      characteristics = Regexp.last_match(1).to_s.downcase
+
+    m = /^([A-Z]+)(\((edu|str|dex|app|pow)\))?/i.match(command)
+    case m[1]
+    when "KOC"
       rule = 3
-    elsif /^KO\((edu|str|dex|app|pow)\)/i =~ command
-      characteristics = Regexp.last_match(1).to_s.downcase
+    when "KO"
       rule = 2
-    elsif /^KOC/i =~ command
-      characteristics = ""
-      rule = 3
-    elsif /^KO/i =~ command
-      characteristics = ""
-      rule = 2
-    elsif /^IOC\((edu|str|dex|app|pow)\)/i =~ command
-      characteristics = Regexp.last_match(1).to_s.downcase
+    when "IOC"
       rule = 1
-    elsif /^IO\((edu|str|dex|app|pow)\)/i =~ command
-      characteristics = Regexp.last_match(1).to_s.downcase
-      rule = 0
-    elsif /^IOC/i =~ command
-      characteristics = ""
-      rule = 1
-    elsif /^IO/i =~ command
-      characteristics = ""
+    when "IO"
       rule = 0
     end
+    characteristics = m[3] || ""
 
     output = getOccupation_table(characteristics, rule)
     return output[0]
