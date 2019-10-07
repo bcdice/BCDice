@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
+require 'diceBot/DiceBot'
+require 'utils/ArithmeticEvaluator'
 
 class DoubleCross < DiceBot
-  setPrefixes(['(\d+dx|ET)'])
+  setPrefixes(['\d+DX.*', 'ET'])
 
   def initialize
     super
@@ -26,7 +30,6 @@ class DoubleCross < DiceBot
 ・判定コマンド　(xDX+y@c or xDXc+y)
 　"(個数)DX(修正)@(クリティカル値)"もしくは"(個数)DX(クリティカル値)(修正)"で指定します。
 　加算減算のみ修正値も付けられます。
-　内部で読み替えています。
 　例）10dx　　　10dx+5@8(OD tool式)　　　5DX7+7-3(疾風怒濤式)
 
 ・各種表
@@ -37,32 +40,182 @@ class DoubleCross < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-  def changeText(string)
-    return string unless /(\d+)DX/i =~ string
+  # 修正値の正規表現
+  MODIFIER_RE = /[-+][-+\d]+/.freeze
+  # 比較式の左辺以外の部分の正規表現
+  COMPARE_RE = />=(\d+)/.freeze
 
-    debug("DoubleCross parren_killer_add string", string)
+  # OD Tool式の成功判定コマンドの正規表現
+  #
+  # キャプチャ内容は以下のとおり:
+  #
+  # 1. ダイス数
+  # 2. 修正値
+  # 3. クリティカル値
+  # 4. 達成値
+  DX_OD_TOLL_RE = /\A(\d+)DX(#{MODIFIER_RE})?@(\d+)#{COMPARE_RE}?\z/io.freeze
 
-    string = string.gsub(/(\d+)DX(\d*)([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(3)}[#{Regexp.last_match(2)}]" }
-    string = string.gsub(/(\d+)DX(\d+)/i) { "#{Regexp.last_match(1)}R10[#{Regexp.last_match(2)}]" }
-    string = string.gsub(/(\d+)DX([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(2)}" }
-    string = string.gsub(/(\d+)DX/i) { "#{Regexp.last_match(1)}R10" }
-    if /\@(\d+)/ =~ string
-      crit = Regexp.last_match(1)
-      string = string.gsub(/\[\]/) { "\[#{crit}\]" }
-      string = string.gsub(/\@(\d+)/, "")
+  # 疾風怒濤式の成功判定コマンドの正規表現
+  #
+  # キャプチャ内容は以下のとおり:
+  #
+  # 1. ダイス数
+  # 2. クリティカル値
+  # 3. 修正値
+  # 4. 達成値
+  DX_SHIPPU_DOTO_RE = /\A(\d+)DX(\d+)?(#{MODIFIER_RE})?#{COMPARE_RE}?\z/io.freeze
+
+  # 成功判定コマンドのノード
+  DXNode = Struct.new(:num, :criticalValue, :modifier, :targetValue) do
+    # 成功判定の文字列表記を返す
+    # @return [String]
+    def to_s
+      lhs = "#{num}R10#{formattedModifier}[#{criticalValue}]"
+
+      return targetValue ? "#{lhs}>=#{targetValue}" : lhs
     end
-    string = string.gsub(/\[\]/, "")
 
-    debug("DoubleCross parren_killer_add changed string", string)
-
-    return string
+    # 出力用に整形された修正値を返す
+    # @return [String]
+    def formattedModifier
+      if modifier == 0
+        ''
+      elsif modifier > 0
+        "+#{modifier}"
+      else
+        modifier.to_s
+      end
+    end
   end
 
-  def dice_command_xRn(string, nick_e)
-    output_msg = check_dice(string)
-    return nil if output_msg.nil?
+  # 出目のグループを表すクラス
+  class ValueGroup
+    # 出目の配列
+    # @return [Array<Integer>]
+    attr_reader :values
+    # クリティカル値
+    # @return [Integer]
+    attr_reader :criticalValue
 
-    return "#{nick_e}: #{output_msg}"
+    # 出目のグループを初期化する
+    # @param [Array<Integer>] values 出目の配列
+    # @param [Integer] criticalValue クリティカル値
+    def initialize(values, criticalValue)
+      @values = values.sort
+      @criticalValue = criticalValue
+    end
+
+    # 出目のグループの文字列表記を返す
+    # @return [String]
+    def to_s
+      "#{max}[#{@values.join(',')}]"
+    end
+
+    # 出目のグループ中の最大値を返す
+    # @return [Integer]
+    #
+    # クリティカル値以上の出目が含まれていた場合は10を返す
+    def max
+      @values.any? { |value| critical?(value) } ? 10 : @values.max
+    end
+
+    # クリティカルの発生数を返す
+    # @return [Integer]
+    def numOfCriticalOccurrences
+      @values.
+        select { |value| critical?(value) }.
+        length
+    end
+
+    # クリティカルが発生したかを返す
+    # @param [Integer] value 出目
+    # @return [Boolean]
+    def critical?(value)
+      value >= @criticalValue
+    end
+  end
+
+  # 成功判定コマンドのダイスロール結果を表すクラス
+  class DXDiceRollResult
+    # 成功判定コマンドのノード
+    # @return [DXNode]
+    attr_reader :dxNode
+    # 出目のグループの配列
+    # @return [Array<ValueGroup>]
+    attr_reader :valueGroups
+    # 回転数
+    # @return [Integer]
+    attr_reader :loopCount
+
+    # 達成値
+    # @return [Integer]
+    attr_reader :achievedValue
+    # ファンブルかどうか
+    # @return [Boolean]
+    attr_reader :isFumble
+
+    # 成功判定コマンドのダイスロール結果を初期化する
+    # @param [DXNode] dxNode 成功判定コマンドのノード
+    # @param [Array<ValueGroup>] valueGroups 出目のグループの配列
+    # @param [Integer] loopCount 回転数
+    def initialize(dxNode, valueGroups, loopCount)
+      @dxNode = dxNode
+      @valueGroups = valueGroups
+      @loopCount = loopCount
+
+      sum = @valueGroups.reduce(0) { |acc, group| acc + group.max }
+      @achievedValue = sum + @dxNode.modifier
+
+      @isFumble = @valueGroups[0].values.all? { |value| value == 1 }
+    end
+
+    # ダイスロール結果の文字列表記を返す
+    # @return [String]
+    def to_s
+      longStr = to_s_long
+
+      # 通常の表記が長すぎた場合は短い表記を返す
+      return longStr.length > $SEND_STR_MAX ? to_s_short : longStr
+    end
+
+    # ダイスロール結果の長い文字列表記を返す
+    # @return [String]
+    def to_s_long
+      parts = [
+        "(#{@dxNode})",
+        "#{@valueGroups.join('+')}#{@dxNode.formattedModifier}",
+        @achievedValue
+      ]
+
+      parts.push('ファンブル') if @isFumble
+      parts.push(compareResult)
+
+      return parts.compact.join(' ＞ ')
+    end
+
+    # ダイスロール結果の短い文字列表記を返す
+    # @return [String]
+    def to_s_short
+      parts = [
+        "(#{@dxNode})",
+        '...',
+        "回転数#{@loopCount}",
+        @achievedValue
+      ]
+
+      parts.push('ファンブル') if @isFumble
+      parts.push(compareResult)
+
+      return parts.compact.join(' ＞ ')
+    end
+
+    # 達成値と目標値を比較した結果を返す
+    # @return [String, nil]
+    def compareResult
+      return nil if !@dxNode.targetValue || @isFumble
+
+      return @achievedValue >= @dxNode.targetValue ? '成功' : '失敗'
+    end
   end
 
   def check_nD10(total_n, _dice_n, signOfInequality, diff, dice_cnt, _dice_max, n1, _n_max) # ゲーム別成功度判定(nD10)
@@ -77,162 +230,88 @@ INFO_MESSAGE_TEXT
     end
   end
 
-  # 振り足し時のダイス読み替え処理用（ダブルクロスはクリティカルでダイス10に読み替える)
-  def getJackUpValueOnAddRoll(dice_n, _round)
-    return (10 - dice_n)
-  end
-
-  # 個数振り足しダイスロール
-  def check_dice(string)
-    debug("dxdice begin string", string)
-
-    dice_cnt = 0
-    dice_max = 0
-    round = 0
-    total_n = 0
-    signOfInequality = ""
-    diff = 0
-    output = ""
-    output2 = ""
-    next_roll = 0
-
-    string = string.gsub(/-[\d]+[rR][\d]+/, '') # 振り足しロールの引き算している部分をカット
-
-    unless /(^|\s)[sS]?([\d]+[rR][\d\+\-rR]+)(\[(\d+)\])?(([<>=]+)(\d+))?($|\s)/ =~ string
-      debug("invaid string", string)
+  def rollDiceCommand(command)
+    case
+    when dx = parse(command)
+      return executeDX(dx)
+    when command == 'ET'
+      return get_emotion_table
+    else
       return nil
     end
-
-    string = Regexp.last_match(2)
-
-    critical = Regexp.last_match(4)
-    critical ||= rerollNumber
-    critical = critical.to_i
-
-    debug("critical", critical)
-
-    if critical <= 1
-      return "クリティカル値が低すぎます。2以上を指定してください。"
-    end
-
-    if !Regexp.last_match(5).nil?
-      diff = Regexp.last_match(7).to_i
-      signOfInequality = marshalSignOfInequality(Regexp.last_match(6))
-    elsif defaultSuccessTarget != ""
-      if /([<>=]+)(\d+)/ =~ defaultSuccessTarget
-        diff = Regexp.last_match(2).to_i
-        signOfInequality = marshalSignOfInequality(Regexp.last_match(1))
-      end
-    end
-
-    dice_cmd = []
-    dice_bns = []
-
-    dice_a = string.split(/\+/)
-    dice_a.each do |dice_o|
-      if /[Rr]/ =~ dice_o
-        if /-/ =~ dice_o
-          dice_wk = dice_o.split(/-/)
-          dice_cmd.push(dice_wk.shift)
-          dice_bns.push("0-" + dice_wk.join("-"))
-        else
-          dice_cmd.push(dice_o)
-        end
-      else
-        dice_bns.push(dice_o)
-      end
-    end
-
-    bonus_str = dice_bns.join("+")
-    bonus_ttl = 0
-    bonus_ttl = parren_killer("(#{bonus_str})").to_i if bonus_str != ""
-
-    numberSpot1 = 0
-    dice_cnt_total = 0
-
-    dice_cmd.each do |dice_o|
-      subtotal = 0
-      dice_cnt, dice_max = dice_o.split(/[rR]/).collect { |s| s.to_i }
-      dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, critical)
-      output += "," if output != ""
-      next_roll += dice_dat[6]
-      numberSpot1 += dice_dat[2]
-      dice_cnt_total += dice_cnt
-      if dice_dat[6] > 0 # リロール時の特殊処理
-        if dice_max == 10
-          subtotal = 10
-        else # 特殊処理無し(最大値)
-          subtotal = dice_dat[4]
-        end
-      else
-        subtotal = dice_dat[4]
-      end
-      output += "#{subtotal}[#{dice_dat[1]}]"
-      total_n += subtotal
-    end
-
-    round = 0
-
-    if next_roll > 0
-      dice_cnt = next_roll
-      loop do
-        subtotal = 0
-        output2 += "#{output}+"
-        output = ""
-        dice_dat = roll(dice_cnt, dice_max, (sortType & 2), 0, "", 0, critical)
-        round += 1
-        #               numberSpot1 += dice_dat[2]
-        dice_cnt_total += dice_cnt
-        dice_cnt = dice_dat[6]
-        if dice_dat[6] > 0 # リロール時の特殊処理
-          if dice_max == 10
-            subtotal = 10
-          else # 特殊処理無し(最大値)
-            subtotal = dice_dat[4]
-          end
-        else
-          subtotal = dice_dat[4]
-        end
-        output += "#{subtotal}[#{dice_dat[1]}]"
-        total_n += subtotal
-
-        break unless bcdice.isReRollAgain(dice_cnt, round)
-      end
-    end
-
-    total_n += bonus_ttl
-    if bonus_ttl > 0
-      output = "#{output2}#{output}+#{bonus_ttl} ＞ #{total_n}"
-    elsif bonus_ttl < 0
-      output = "#{output2}#{output}#{bonus_ttl} ＞ #{total_n}"
-    else
-      output = "#{output2}#{output} ＞ #{total_n}"
-    end
-
-    string += "[#{critical}]"
-    string += "#{signOfInequality}#{diff}" if signOfInequality != ""
-    output = "(#{string}) ＞ #{output}"
-    if output.length > $SEND_STR_MAX # 長すぎたときの救済
-      output = "(#{string}) ＞ ... ＞ 回転数#{round} ＞ #{total_n}"
-    end
-
-    if signOfInequality != "" # 成功度判定処理
-      output += check_suc(total_n, 0, signOfInequality, diff, dice_cnt_total, dice_max, numberSpot1, 0)
-    else # 目標値無し判定
-      if round <= 0
-        if dice_max == 10
-          if numberSpot1 >= dice_cnt_total
-            output += " ＞ ファンブル"
-          end
-        end
-      end
-    end
-
-    return output
   end
 
-  def rollDiceCommand(_command)
-    get_emotion_table()
+  # 構文解析する
+  # @param [String] command コマンド文字列
+  # @return [DXNode, nil]
+  def parse(command)
+    case
+    when m = DX_OD_TOLL_RE.match(command)
+      return parseDX_OD(m)
+    when m = DX_SHIPPU_DOTO_RE.match(command)
+      return parseDX_ShippuDoto(m)
+    else
+      return nil
+    end
+  end
+
+  # OD Tool式の成功判定コマンドの正規表現マッチ情報からノードを作る
+  # @param [MatchData] m 正規表現のマッチ情報
+  # @return [DXNode]
+  def parseDX_OD(m)
+    num = m[1].to_i
+    modifier = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
+    criticalValue = m[3] ? m[3].to_i : 10
+
+    # @type [Integer, nil]
+    targetValue = m[4] && m[4].to_i
+
+    return DXNode.new(num, criticalValue, modifier, targetValue)
+  end
+
+  # 疾風怒濤式の成功判定コマンドの正規表現マッチ情報からノードを作る
+  # @param [MatchData] m 正規表現のマッチ情報
+  # @return [DXNode]
+  def parseDX_ShippuDoto(m)
+    num = m[1].to_i
+    criticalValue = m[2] ? m[2].to_i : 10
+    modifier = m[3] ? ArithmeticEvaluator.new.eval(m[3]) : 0
+
+    # @type [Integer, nil]
+    targetValue = m[4] && m[4].to_i
+
+    return DXNode.new(num, criticalValue, modifier, targetValue)
+  end
+
+  # 成功判定を行う
+  # @param [DXNode] node 成功判定ノード
+  def executeDX(node)
+    if node.criticalValue < 2
+      return "(#{node}) ＞ クリティカル値が低すぎます。2以上を指定してください。"
+    end
+
+    if node.num < 1
+      return "(#{node}) ＞ 自動失敗"
+    end
+
+    # 出目のグループの配列
+    valueGroups = []
+    # 次にダイスロールを行う際のダイス数
+    numOfDice = node.num
+    # 回転数
+    loopCount = 0
+
+    while numOfDice > 0 && shouldReroll?(loopCount)
+      values = Array.new(numOfDice) { roll(1, 10)[0] }
+
+      valueGroup = ValueGroup.new(values, node.criticalValue)
+      valueGroups.push(valueGroup)
+
+      numOfDice = valueGroup.numOfCriticalOccurrences
+      loopCount += 1
+    end
+
+    return DXDiceRollResult.new(node, valueGroups, loopCount).to_s
   end
 
   # ** 感情表

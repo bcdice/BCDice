@@ -381,6 +381,13 @@ class DiceBot
     false
   end
 
+  # 振り足しを行うべきかを返す
+  # @param [Integer] loopCount ループ数
+  # @return [Boolean]
+  def shouldReroll?(loopCount)
+    loopCount < @rerollLimitCount || @rerollLimitCount == 0
+  end
+
   def getDiceList
     getDiceListFromDiceText(@diceText)
   end
