@@ -93,59 +93,59 @@ INFO_MESSAGE_TEXT
       return getFullAutoResult(command)
     when /^SI/i # 技能成長
       return getCheckRoll(command)
-    when /(^BMR)/i # 即時の狂気の発作表
+    when /^BMR/i # 即時の狂気の発作表
       return BMR_table()
-    when /(^BMS)/i # 略式の狂気の発作表
+    when /^BMS/i # 略式の狂気の発作表
       return getBMS_table()
-    when /(^FCL)/i # 詠唱ロールのプッシュに失敗した場合（小）
+    when /^FCL/i # 詠唱ロールのプッシュに失敗した場合（小）
       return getFCL_table()
-    when /(^FCM)/i # 詠唱ロールのプッシュに失敗した場合（大）
+    when /^FCM/i # 詠唱ロールのプッシュに失敗した場合（大）
       return getFCM_table()
-    when /(^PH)/i # 恐怖症表
+    when /^PH/i # 恐怖症表
       return getPH_table()
-    when /(^MA)/i # マニア表
+    when /^MA/i # マニア表
       return getMA_table()
-    when /(^COM)/i # キャラクター能力値生成
+    when /^COM/i # キャラクター能力値生成
       return getCOMResult()
-    when /(^IHI)/i # 探索者ブックキャラクターデータ生成
+    when /^IHI/i # 探索者ブックキャラクターデータ生成
       return getCOMALLResult(command)
-    when /(^IHIC)/i # 探索者ブックキャラクターデータ生成現代職業なし
+    when /^IHIC/i # 探索者ブックキャラクターデータ生成現代職業なし
       return getCOMALLResult(command)
-    when /(^KRI)/i # KPルールブックキャラクターデータ生成
+    when /^KRI/i # KPルールブックキャラクターデータ生成
       return getCOMALLResult(command)
-    when /(^KRIC)/i # KPルールブックキャラクターデータ生成現代職業なし
+    when /^KRIC/i # KPルールブックキャラクターデータ生成現代職業なし
       return getCOMALLResult(command)
-    when /(^PD)/i # Personal Description
+    when /^PD/i # Personal Description
       return PD_text()
-    when /(^IB)/i # Ideology/Beliefs
+    when /^IB/i # Ideology/Beliefs
       return IB_text()
-    when /(^SP)/i # Significant People
+    when /^SP/i # Significant People
       return SP_text()
-    when /(^ML)/i # Meaningful Locations
+    when /^ML/i # Meaningful Locations
       return ML_text()
-    when /(^TP)/i # Treasured Possessions
+    when /^TP/i # Treasured Possessions
       return TP_text()
-    when /(^TR)/i # Traits
+    when /^TR/i # Traits
       return TR_text()
-    when /(^ABG)/i # バックグラウンド全部
+    when /^ABG/i # バックグラウンド全部
       return getAllBG_text()
-    when /(^KO)/i # ルールブック職業ランダム
+    when /^KO/i # ルールブック職業ランダム
       return Occupation_text(command)
-    when /(^KOC)/i # ルールブック現代抜き職業ランダム
+    when /^KOC/i # ルールブック現代抜き職業ランダム
       return Occupation_text(command)
-    when /(^IO)/i # 探索者ハンドブック職業ランダム
+    when /^IO/i # 探索者ハンドブック職業ランダム
       return Occupation_text(command)
-    when /(^IOC)/i # 探索者ハンドブック現代抜き職業ランダム
+    when /^IOC/i # 探索者ハンドブック現代抜き職業ランダム
       return Occupation_text(command)
-    when /(^MN)/i # 男性名前ランダム
+    when /^MN/i # 男性名前ランダム
       return MaleNames_text()
-    when /(^FN)/i # 女性名前ランダム
+    when /^FN/i # 女性名前ランダム
       return FemaleNames_text()
-    when /(^RN)/i # 名前ランダム
+    when /^RN/i # 名前ランダム
       return RandomNames_text()
+    else
+      return nil
     end
-
-    return nil
   end
 
   def get_coc7th_1d8_table_output(tableName, table)
