@@ -1138,26 +1138,9 @@ INFO_MESSAGE_TEXT
 
     if characteristics == ""
       number = table
-    elsif characteristics == "str"
-      number = table.select { |x| x[2] == 'STR' }
-      number += table.select { |x| x[3] == 'STR' }
-      number += table.select { |x| x[4] == 'STR' }
-    elsif characteristics == "edu"
-      number = table.select { |x| x[2] == 'EDU' }
-      number += table.select { |x| x[3] == 'EDU' }
-      number += table.select { |x| x[4] == 'EDU' }
-    elsif characteristics == "dex"
-      number = table.select { |x| x[2] == 'DEX' }
-      number += table.select { |x| x[3] == 'DEX' }
-      number += table.select { |x| x[4] == 'DEX' }
-    elsif characteristics == "app"
-      number = table.select { |x| x[2] == 'APP' }
-      number += table.select { |x| x[3] == 'APP' }
-      number += table.select { |x| x[4] == 'APP' }
-    elsif characteristics == "pow"
-      number = table.select { |x| x[2] == 'POW' }
-      number += table.select { |x| x[3] == 'POW' }
-      number += table.select { |x| x[4] == 'POW' }
+    elsif ["str", "edu", "dex", "app", "pow"].include?(characteristics)
+      target = characteristics.upcase
+      number = table.select { |x| x.include?(target) }
     else
       number = ['Error(エラー)', '：職業技能ポイント EDU×2+null×2', '']
     end
@@ -1167,18 +1150,17 @@ INFO_MESSAGE_TEXT
       number = number.reject { |a| a[0].include?("Modern") }
     end
 
-    choice_table = number.sample
+    idx = role(1, number.size) - 1
+    choice_table = number[idx]
 
     occupation_name = choice_table[0]
     occupation_sub = choice_table[1]
-    return '1' if occupation_name.nil?
 
     output = "#{tableName} ＞ #{occupation_name}#{occupation_sub}"
 
     occupation_characteristics_A = choice_table[2]
     occupation_characteristics_B = choice_table[3]
     occupation_characteristics_C = choice_table[4]
-    return '1' if occupation_name.nil?
 
     return output, occupation_name, occupation_characteristics_A, occupation_characteristics_B, occupation_characteristics_C
   end
