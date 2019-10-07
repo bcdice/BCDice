@@ -752,15 +752,15 @@ INFO_MESSAGE_TEXT
   end
 
   def getAllBG_text()
-    output = ""
-    pd = getPD_table()
-    ib = getIB_table()
-    sp = getSP_table()
-    ml = getML_table()
-    tp = getTP_table()
-    tr = getTR_table()
-    output = "\n#{pd}\n#{ib}\n#{sp}\n#{ml}\n#{tp}\n#{tr}"
-    return output
+    texts = [
+      getPD_table(),
+      getIB_table(),
+      getSP_table(),
+      getML_table(),
+      getTP_table(),
+      getTR_table(),
+    ]
+    return "\n" + texts.join("\n")
   end
 
   # 恐怖症表
