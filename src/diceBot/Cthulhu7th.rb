@@ -116,17 +116,17 @@ INFO_MESSAGE_TEXT
     when /^KRIC/i # KPルールブックキャラクターデータ生成現代職業なし
       return getCOMALLResult(command)
     when /^PD/i # Personal Description
-      return PD_text()
+      return getPD_table()
     when /^IB/i # Ideology/Beliefs
-      return IB_text()
+      return getIB_table()
     when /^SP/i # Significant People
-      return SP_text()
+      return getSP_table()
     when /^ML/i # Meaningful Locations
-      return ML_text()
+      return getML_table()
     when /^TP/i # Treasured Possessions
-      return TP_text()
+      return getTP_table()
     when /^TR/i # Traits
-      return TR_text()
+      return getTR_table()
     when /^ABG/i # バックグラウンド全部
       return getAllBG_text()
     when /^KO/i # ルールブック職業ランダム
@@ -604,37 +604,6 @@ INFO_MESSAGE_TEXT
       '神話の神が誤って招来される。'
     ]
     return get_coc7th_1d8_table_output("詠唱ロール失敗(大)表", table)
-  end
-
-  # バックグラウンド出力
-  def PD_text()
-    output = getPD_table()
-    return output
-  end
-
-  def IB_text()
-    output = getIB_table()
-    return output
-  end
-
-  def SP_text()
-    output = getSP_table()
-    return output
-  end
-
-  def ML_text()
-    output = getML_table()
-    return output
-  end
-
-  def TP_text()
-    output = getTP_table()
-    return output
-  end
-
-  def TR_text()
-    output = getTR_table()
-    return output
   end
 
   # バックグラウンド表
