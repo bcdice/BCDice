@@ -148,6 +148,8 @@ INFO_MESSAGE_TEXT
     end
   end
 
+  private
+
   def get_coc7th_1d8_table_output(tableName, table)
     total_n, = roll(1, 8)
     index = total_n - 1
