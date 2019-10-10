@@ -68,9 +68,9 @@ INFO_MESSAGE_TEXT
     when /^BMS/i # 略式の狂気の発作表
       return getBMS_table()
     when /^FCL/i # 詠唱ロールのプッシュに失敗した場合（小）
-      return getFCL_table()
+      return role_1d8_table("詠唱ロール失敗(小)表", FAILED_CASTING_L_TABLE)
     when /^FCM/i # 詠唱ロールのプッシュに失敗した場合（大）
-      return getFCM_table()
+      return role_1d8_table("詠唱ロール失敗(大)表", FAILED_CASTING_M_TABLE)
     when /^PH/i # 恐怖症表
       return roll_1d100_table("恐怖症表", PHOBIAS_TABLE)
     when /^MA/i # マニア表
@@ -82,16 +82,13 @@ INFO_MESSAGE_TEXT
 
   private
 
-  def get_coc7th_1d8_table_output(tableName, table)
+  def role_1d8_table(table_name, table)
     total_n, = roll(1, 8)
     index = total_n - 1
 
     text = table[index]
-    return '1' if text.nil?
 
-    output = "#{tableName}(#{total_n}) ＞ #{text}"
-
-    return output
+    return "#{table_name}(#{total_n}) ＞ #{text}"
   end
 
   def roll_1d100_table(table_name, table)
@@ -506,34 +503,28 @@ INFO_MESSAGE_TEXT
   end
 
   # 詠唱ロールのプッシュに失敗した場合（小）
-  def getFCL_table()
-    table = [
-      '目がかすむか、一時的な失明。',
-      '姿が見えない相手からの悲鳴や声や雑音など。',
-      '強風やその他大気効果。',
-      '呪文の使い手や他のその場にいる人物、周囲の物体（例えば壁）からの出血。',
-      '奇妙なビジョンや幻覚。',
-      '付近の小動物が爆ぜる。',
-      '硫黄の悪臭。',
-      'クトゥルフ神話の怪物が誤って召喚される。'
-    ]
-    return get_coc7th_1d8_table_output("詠唱ロール失敗(小)表", table)
-  end
+  FAILED_CASTING_L_TABLE = [
+    '目がかすむか、一時的な失明。',
+    '姿が見えない相手からの悲鳴や声や雑音など。',
+    '強風やその他大気効果。',
+    '呪文の使い手や他のその場にいる人物、周囲の物体（例えば壁）からの出血。',
+    '奇妙なビジョンや幻覚。',
+    '付近の小動物が爆ぜる。',
+    '硫黄の悪臭。',
+    'クトゥルフ神話の怪物が誤って召喚される。'
+  ].freeze
 
   # 詠唱ロールのプッシュに失敗した場合（大）
-  def getFCM_table()
-    table = [
-      '大地が揺れ、壁が崩壊する。',
-      '途方も無い雷や稲妻。',
-      '空から血が降ってくる。',
-      '呪文の使い手の手が萎びて黒こげになる。',
-      '呪文の使い手が異常に老ける（+2D10歳）。',
-      '強力あるいは数多くの神話の存在が現れ、呪文の使い手を最初にして、近くの全ての者を攻撃する。',
-      '呪文の使い手や周囲の全員が遠くの場所や時間に吸い込まれる。',
-      '神話の神が誤って招来される。'
-    ]
-    return get_coc7th_1d8_table_output("詠唱ロール失敗(大)表", table)
-  end
+  FAILED_CASTING_M_TABLE = [
+    '大地が揺れ、壁が崩壊する。',
+    '途方も無い雷や稲妻。',
+    '空から血が降ってくる。',
+    '呪文の使い手の手が萎びて黒こげになる。',
+    '呪文の使い手が異常に老ける（+2D10歳）。',
+    '強力あるいは数多くの神話の存在が現れ、呪文の使い手を最初にして、近くの全ての者を攻撃する。',
+    '呪文の使い手や周囲の全員が遠くの場所や時間に吸い込まれる。',
+    '神話の神が誤って招来される。'
+  ].freeze
 
   # 恐怖症表
   PHOBIAS_TABLE = [
