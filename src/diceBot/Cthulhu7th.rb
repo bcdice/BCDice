@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Cthulhu7th < DiceBot
-  setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*', 'SI.*', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA', 'COM', 'IHI(C)?.*', 'IHI(C)?\(\d+,\d+\)', 'KRI(C)?.*', 'KRI(C)?\(\d+,\d+\)', 'PD', 'IB', 'SP', 'ML', 'TP', 'TR', 'ABG', 'IO(C)?.*', 'IO(C)?\(\w+\)', 'KO(C)?.*', 'KO(C)?\(\w+\)', 'MN', 'FN', 'RN'])
+  setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA'])
 
   def initialize
     # $isDebug = true
