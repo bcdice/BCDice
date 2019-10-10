@@ -61,16 +61,14 @@ INFO_MESSAGE_TEXT
       return getCombineRoll(command)
     when /^FAR/i
       return getFullAutoResult(command)
-    when /^SI/i # 技能成長
-      return getCheckRoll(command)
     when /^BMR/i # 即時の狂気の発作表
       return roll_bmr_table()
     when /^BMS/i # 略式の狂気の発作表
       return roll_bms_table()
     when /^FCL/i # 詠唱ロールのプッシュに失敗した場合（小）
-      return role_1d8_table("詠唱ロール失敗(小)表", FAILED_CASTING_L_TABLE)
+      return roll_1d8_table("詠唱ロール失敗(小)表", FAILED_CASTING_L_TABLE)
     when /^FCM/i # 詠唱ロールのプッシュに失敗した場合（大）
-      return role_1d8_table("詠唱ロール失敗(大)表", FAILED_CASTING_M_TABLE)
+      return roll_1d8_table("詠唱ロール失敗(大)表", FAILED_CASTING_M_TABLE)
     when /^PH/i # 恐怖症表
       return roll_1d100_table("恐怖症表", PHOBIAS_TABLE)
     when /^MA/i # マニア表
@@ -82,7 +80,7 @@ INFO_MESSAGE_TEXT
 
   private
 
-  def role_1d8_table(table_name, table)
+  def roll_1d8_table(table_name, table)
     total_n, = roll(1, 8)
     index = total_n - 1
 
