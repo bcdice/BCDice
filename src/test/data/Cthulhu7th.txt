@@ -626,14 +626,38 @@ rand:5/10,3/10
 input:
 PH
 output:
+Cthulhu7th : 恐怖症表(1) ＞ Ablutophobia　洗浄恐怖症:洗濯や風呂への恐怖。
+rand:1/100
+============================
+input:
+PH
+output:
 Cthulhu7th : 恐怖症表(36) ＞ Enetophobia　ピン恐怖症:ピンや針に対する恐怖。
 rand:36/100
+============================
+input:
+PH
+output:
+Cthulhu7th : 恐怖症表(100) ＞ Zoophobia　動物恐怖症:動物への恐怖。
+rand:100/100
+============================
+input:
+MA
+output:
+Cthulhu7th : マニア表(1) ＞ Ablutomania　洗浄狂：自分自身を洗うことへの強迫。
+rand:1/100
 ============================
 input:
 MA
 output:
 Cthulhu7th : マニア表(30) ＞ Coulromania　ピエロ狂：道化師への執着。
 rand:30/100
+============================
+input:
+MA
+output:
+Cthulhu7th : マニア表(100) ＞ Zoomania　動物狂：動物への常軌を逸した愛好。
+rand:100/100
 ============================
 input:
 FCL
