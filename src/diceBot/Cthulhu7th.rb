@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Cthulhu7th < DiceBot
-  setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA'])
+  setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA'])
 
   def initialize
     # $isDebug = true
@@ -211,13 +211,13 @@ INFO_MESSAGE_TEXT
   end
 
   def getFullAutoResult(command)
-    return nil unless /^FAR\((-?\d+)(,(-?\d+))(,(-?\d+))(,|,(-?\d+))?(,|,(-?\w+))?\)/i =~ command
+    return nil unless /^FAR\((-?\d+),(-?\d+),(-?\d+)(?:,(-?\d+)?)?(?:,(-?\w+)?)?\)/i =~ command
 
     bullet_count = Regexp.last_match(1).to_i
-    diff = Regexp.last_match(3).to_i
-    broken_number = Regexp.last_match(5).to_i
-    bonus_dice_count = (Regexp.last_match(7) || 0).to_i
-    stop_count = (Regexp.last_match(9) || "").to_s.downcase
+    diff = Regexp.last_match(2).to_i
+    broken_number = Regexp.last_match(3).to_i
+    bonus_dice_count = (Regexp.last_match(4) || 0).to_i
+    stop_count = (Regexp.last_match(5) || "").to_s.downcase
 
     output = ""
 
