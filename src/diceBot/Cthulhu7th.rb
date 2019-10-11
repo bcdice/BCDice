@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Cthulhu7th < DiceBot
-  setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA'])
+  setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA'])
 
   def initialize
     # $isDebug = true
@@ -211,13 +211,13 @@ INFO_MESSAGE_TEXT
   end
 
   def getFullAutoResult(command)
-    return nil unless /^FAR\((-?\d+)(,(-?\d+))(,(-?\d+))(,|,(-?\d+))?(,|,(-?\w+))?\)/i =~ command
+    return nil unless /^FAR\((-?\d+),(-?\d+),(-?\d+)(?:,(-?\d+)?)?(?:,(-?\w+)?)?\)/i =~ command
 
     bullet_count = Regexp.last_match(1).to_i
-    diff = Regexp.last_match(3).to_i
-    broken_number = Regexp.last_match(5).to_i
-    bonus_dice_count = (Regexp.last_match(7) || 0).to_i
-    stop_count = (Regexp.last_match(9) || "").to_s.downcase
+    diff = Regexp.last_match(2).to_i
+    broken_number = Regexp.last_match(3).to_i
+    bonus_dice_count = (Regexp.last_match(4) || 0).to_i
+    stop_count = (Regexp.last_match(5) || "").to_s.downcase
 
     output = ""
 
@@ -257,14 +257,14 @@ INFO_MESSAGE_TEXT
     }
 
     # 難易度変更用ループ
-    (0..3).each do |more_difficlty|
-      output += getNextDifficltyMessage(more_difficlty)
+    (0..3).each do |more_difficulty|
+      output += getNextDifficultyMessage(more_difficulty)
 
       # ペナルティダイスを減らしながらロール用ループ
       while dice_num >= @bonus_dice_range.min
 
         loopCount += 1
-        hit_result, total, total_list = getHitResultInfos(dice_num, diff, more_difficlty)
+        hit_result, total, total_list = getHitResultInfos(dice_num, diff, more_difficulty)
         output += "\n#{loopCount}回目: ＞ #{total_list.join(', ')} ＞ #{hit_result}"
 
         if total >= broken_number
@@ -272,7 +272,7 @@ INFO_MESSAGE_TEXT
           return getHitResultText(output, counts)
         end
 
-        hit_type = getHitType(more_difficlty, hit_result)
+        hit_type = getHitType(more_difficulty, hit_result)
         hit_bullet, impale_bullet, lost_bullet = getBulletResults(counts[:bullet], hit_type, diff)
 
         counts[:hit_bullet] += hit_bullet
@@ -284,22 +284,10 @@ INFO_MESSAGE_TEXT
         dice_num -= 1
       end
 
-      # 連射処理を途中で止める機能の追加
-      if stop_count == "r"
-        if more_difficlty == 0
-          output += "\n指定の難易度となったので、処理を終了します。"
-          break
-        end
-      elsif stop_count == "h"
-        if more_difficlty == 1
-          output += "\n指定の難易度となったので、処理を終了します。"
-          break
-        end
-      elsif stop_count == "e"
-        if more_difficlty == 2
-          output += "\n指定の難易度となったので、処理を終了します。"
-          break
-        end
+      # 指定された難易度となった場合、連射処理を途中で止める
+      if shouldStopRollFullAuto?(stop_count, more_difficulty)
+        output += "\n指定の難易度となったので、処理を終了します。"
+        break
       end
 
       dice_num += 1
@@ -308,12 +296,34 @@ INFO_MESSAGE_TEXT
     return getHitResultText(output, counts)
   end
 
-  def getHitResultInfos(dice_num, diff, more_difficlty)
+  # 連射処理を止める条件（難易度の閾値）
+  # @return [Hash<String, Integer>]
+  #
+  # 成功の種類の小文字表記 => 難易度の閾値
+  ROLL_FULL_AUTO_DIFFICULTY_THRESHOLD = {
+    # 通常成功
+    'r' => 0,
+    # 困難な成功
+    'h' => 1,
+    # 極限の成功
+    'e' => 2
+  }.freeze
+
+  # 連射処理を止めるべきかどうかを返す
+  # @param [String] stop_count 成功の種類
+  # @param [Integer] difficulty 難易度
+  # @return [Boolean]
+  def shouldStopRollFullAuto?(stop_count, difficulty)
+    difficulty_threshold = ROLL_FULL_AUTO_DIFFICULTY_THRESHOLD[stop_count]
+    return difficulty_threshold && difficulty >= difficulty_threshold
+  end
+
+  def getHitResultInfos(dice_num, diff, more_difficulty)
     units_digit = rollPercentD10
     total_list = getTotalLists(dice_num, units_digit)
     total = getTotal(total_list, dice_num)
 
-    fumbleable = getFumbleable(more_difficlty)
+    fumbleable = getFumbleable(more_difficulty)
     hit_result = getCheckResultText(total, diff, fumbleable)
 
     return hit_result, total, total_list
@@ -323,8 +333,8 @@ INFO_MESSAGE_TEXT
     return "#{output}\n＞ #{counts[:hit_bullet]}発が命中、#{counts[:impale_bullet]}発が貫通、残弾#{counts[:bullet]}発"
   end
 
-  def getHitType(more_difficlty, hit_result)
-    successList, impaleBulletList = getSuccessListImpaleBulletList(more_difficlty)
+  def getHitType(more_difficulty, hit_result)
+    successList, impaleBulletList = getSuccessListImpaleBulletList(more_difficulty)
 
     return :hit if successList.include?(hit_result)
     return :impale if impaleBulletList.include?(hit_result)
@@ -373,11 +383,11 @@ INFO_MESSAGE_TEXT
     return hit_bullet_count, impale_bullet_count, lost_bullet_count
   end
 
-  def getSuccessListImpaleBulletList(more_difficlty)
+  def getSuccessListImpaleBulletList(more_difficulty)
     successList = []
     impaleBulletList = []
 
-    case more_difficlty
+    case more_difficulty
     when 0
       successList = ["困難な成功", "通常成功"]
       impaleBulletList = ["決定的成功", "極限の成功"]
@@ -395,8 +405,8 @@ INFO_MESSAGE_TEXT
     return successList, impaleBulletList
   end
 
-  def getNextDifficltyMessage(more_difficlty)
-    case more_difficlty
+  def getNextDifficultyMessage(more_difficulty)
+    case more_difficulty
     when 1
       return "\n    難易度が困難な成功に変更"
     when 2
@@ -442,9 +452,9 @@ INFO_MESSAGE_TEXT
     return count
   end
 
-  def getFumbleable(more_difficlty)
+  def getFumbleable(more_difficulty)
     # 成功が49以下の出目のみとなるため、ファンブル値は上昇
-    return (more_difficlty >= 1)
+    return (more_difficulty >= 1)
   end
 
   # 表一式
