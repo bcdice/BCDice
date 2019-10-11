@@ -284,28 +284,38 @@ INFO_MESSAGE_TEXT
         dice_num -= 1
       end
 
-      # 連射処理を途中で止める機能の追加
-      if stop_count == "r"
-        if more_difficulty == 0
-          output += "\n指定の難易度となったので、処理を終了します。"
-          break
-        end
-      elsif stop_count == "h"
-        if more_difficulty == 1
-          output += "\n指定の難易度となったので、処理を終了します。"
-          break
-        end
-      elsif stop_count == "e"
-        if more_difficulty == 2
-          output += "\n指定の難易度となったので、処理を終了します。"
-          break
-        end
+      # 指定された難易度となった場合、連射処理を途中で止める
+      if shouldStopRollFullAuto?(stop_count, more_difficulty)
+        output += "\n指定の難易度となったので、処理を終了します。"
+        break
       end
 
       dice_num += 1
     end
 
     return getHitResultText(output, counts)
+  end
+
+  # 連射処理を止める条件（難易度の閾値）
+  # @return [Hash<String, Integer>]
+  #
+  # 成功の種類の小文字表記 => 難易度の閾値
+  ROLL_FULL_AUTO_DIFFICULTY_THRESHOLD = {
+    # 通常成功
+    'r' => 0,
+    # 困難な成功
+    'h' => 1,
+    # 極限の成功
+    'e' => 2
+  }.freeze
+
+  # 連射処理を止めるべきかどうかを返す
+  # @param [String] stop_count 成功の種類
+  # @param [Integer] difficulty 難易度
+  # @return [Boolean]
+  def shouldStopRollFullAuto?(stop_count, difficulty)
+    difficulty_threshold = ROLL_FULL_AUTO_DIFFICULTY_THRESHOLD[stop_count]
+    return difficulty_threshold && difficulty >= difficulty_threshold
   end
 
   def getHitResultInfos(dice_num, diff, more_difficulty)
