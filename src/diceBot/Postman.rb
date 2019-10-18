@@ -84,7 +84,7 @@ MESSAGETEXT
   end
 
   def checkRoll(diceCount, modify, type, target)
-    dice, diceText = roll(diceCount, 6, @sortTye)
+    dice, diceText = roll(diceCount, 6, @sortType)
 
     diceArray = diceText.split(/,/).collect { |i| i.to_i }
     dice2 = diceArray[-2] + diceArray[-1]
