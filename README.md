@@ -11,6 +11,7 @@
 - [ロードマップ](ROADMAP.md)
 - [ChangeLog](CHANGELOG.md)
 - [旧README](docs/README.txt)
+- [ダイスボットの作り方](docs/how_to_make_dicebot.md)
 
 ## バグ報告や機能要望
 
