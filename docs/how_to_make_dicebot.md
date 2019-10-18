@@ -183,7 +183,7 @@ Syntax OK
 `src` に移動。
 そこにある `test.rb` がテスト用のスクリプト。 そして `test/data/` 配下にあるテキストファイルが全てテスト用のデータです。
 
-ここでは例として [src/test/data/Cthulhu.txt](src/test/data/Cthulhu.txt) を開きましょう。
+ここでは例として [Cthulhu.txt](../src/test/data/Cthulhu.txt) を開きましょう。
 
 ```
 ============================
