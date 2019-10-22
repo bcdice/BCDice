@@ -70,7 +70,7 @@ INFO_MESSAGE_TEXT
     # 成功判定の文字列表記を返す
     # @return [String]
     def to_s
-      lhs = "#{num}R10#{formattedModifier}[#{criticalValue}]"
+      lhs = "#{num}DX#{criticalValue}#{formattedModifier}"
 
       return targetValue ? "#{lhs}>=#{targetValue}" : lhs
     end
