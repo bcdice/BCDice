@@ -359,11 +359,6 @@ class DiceBot
     '1'
   end
 
-  # 振り足し時のダイス読み替え処理用（ダブルクロスはクリティカルでダイス10に読み替える)
-  def getJackUpValueOnAddRoll(_dice_n)
-    0
-  end
-
   # ガンドッグのnD9専用
   def isD9
     false
