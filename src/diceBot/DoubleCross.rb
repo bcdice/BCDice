@@ -9,12 +9,6 @@ class DoubleCross < DiceBot
 
   def initialize
     super
-    @sendMode = 2
-    @sortType = 2
-    @isPrintMaxDice = true # 最大値表示
-    @upplerRollThreshold = 10     # 上方無限
-    @unlimitedRollDiceType = 10   # 無限ロールのダイス
-    @rerollNumber = 10 # 振り足しする条件
   end
 
   def gameName
