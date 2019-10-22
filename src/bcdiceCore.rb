@@ -1093,11 +1093,6 @@ class BCDice
     return output
   end
 
-  def isReRollAgain(dice_cnt, round)
-    debug("isReRollAgain dice_cnt, round", dice_cnt, round)
-    ((dice_cnt > 0) && ((round < @diceBot.rerollLimitCount) || (@diceBot.rerollLimitCount == 0)))
-  end
-
   ####################             D66ダイス        ########################
   def rollD66(string)
     return nil unless /^S?D66/i === string
