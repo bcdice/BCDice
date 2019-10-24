@@ -39,8 +39,6 @@
 ダイスボットの作成のためにはWindows用のRuby実行環境を作成する必要があります。
 [RubyInstaller](https://rubyinstaller.org/)の「Download」ページから、 `Ruby+Devkit 2.X.X-X (x64)` （Xは任意の数字）をダウンロードします。
 
-　http://rubyinstaller.org/
-
 あとは、インストーラーの指示に従ってインストール。
 そしてインストールディレクトリの bin にパスを通します。（パスを通す、の意味が知らない人はネットで検索だ！）
 Ruby 2.6.5のデフォルトだと `C:\Program Files\Ruby265\bin` ですかね（多分）。 
