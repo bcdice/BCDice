@@ -313,7 +313,7 @@ class DiceBot
   end
 
   def getD66(isSwap)
-    number = bcdice.getD66(isSwap)
+    return bcdice.getD66(isSwap)
   end
 
   # D66 ロール用（スワップ、たとえば出目が【６，４】なら「６４」ではなく「４６」とする

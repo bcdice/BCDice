@@ -42,9 +42,8 @@ INFO_MESSAGE_TEXT
 
     stepTotal = 0
     @isFailed = true
-    step2 = 0
 
-    step  = Regexp.last_match(1).to_i # ステップ
+    step = Regexp.last_match(1).to_i # ステップ
     targetNumber = 0 # 目標値
     hasKarmaDice = false # カルマダイスの有無
     karmaDiceCount = 0 # カルマダイスの個数又は修正
@@ -52,7 +51,6 @@ INFO_MESSAGE_TEXT
 
     # 空値があった時の為のばんぺいくんRX
     if step > 40
-      step2 = step
       step = 40
     end
 

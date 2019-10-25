@@ -124,7 +124,7 @@ MESSAGETEXT
 
     diceList = rollDiceList(diceCount)
 
-    result = "(#{command}) ＞ #{diceCount}D6 ＞ [ #{diceList.join(', ')} ]"
+    return "(#{command}) ＞ #{diceCount}D6 ＞ [ #{diceList.join(', ')} ]"
   end
 
   def getReactionResult(command)

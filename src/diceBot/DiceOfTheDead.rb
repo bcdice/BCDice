@@ -103,7 +103,7 @@ INFO_MESSAGE_TEXT
     index = [minDice, index].max
     index = [index, maxDice].min
 
-    number, text = table.assoc(index)
+    _number, text = table.assoc(index)
     result = "ゾンビ化表　＞　出目：#{d1}＋#{d2}　感染度：#{value}　合計値：#{diceTotal}　＞　#{text}"
 
     return result
