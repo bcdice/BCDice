@@ -77,7 +77,7 @@ MESSAGETEXT
   end
 
   def rollDiceList(diceCount)
-    dice, str = roll(diceCount, 6)
+    _dice, str = roll(diceCount, 6)
     diceList = str.split(/,/).collect { |i| i.to_i }.sort
 
     return diceList
