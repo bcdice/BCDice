@@ -127,7 +127,7 @@ MESSAGETEXT
   end
 
   def getFireResult(command)
-    return nil unless (m = %r{^D([\d&&[^05]]*)(\[.+\])*/(\d+)(@([2468]))?$}.match(command))
+    return nil unless (m = %r{^D([12346789]*)(\[.+\])*/(\d+)(@([2468]))?$}.match(command))
 
     debug("====getFireResult====")
 
@@ -234,7 +234,7 @@ MESSAGETEXT
   end
 
   def getBomberResult(command)
-    return nil unless (m = %r{^BOM(\d*)?/D([\d&&[^05]]*)(\[.+\])*/(\d+)(@([2468]))?$}i.match(command))
+    return nil unless (m = %r{^BOM(\d*)?/D([12346789]*)(\[.+\])*/(\d+)(@([2468]))?$}i.match(command))
 
     debug("====getBomberResult====", command)
 
@@ -248,7 +248,7 @@ MESSAGETEXT
     return text unless /成功/ === text
 
     # ダメージチェック部分
-    fireCommand = command.slice(%r{D([\d&&[^05]]*)(\[.+\])*/(\d+)(@([2468]))?})
+    fireCommand = command.slice(%r{D([12346789]*)(\[.+\])*/(\d+)(@([2468]))?})
 
     text += "\n ＞ #{getFireResult(fireCommand)}"
 
