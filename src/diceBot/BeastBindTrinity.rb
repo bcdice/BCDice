@@ -73,7 +73,7 @@ INFO_MESSAGE_TEXT
   end
 
   def dice_command_xRn(string, nick_e)
-    @nick = nick_e
+    @nick_e = nick_e
     return bbt_check(string)
   end
 
