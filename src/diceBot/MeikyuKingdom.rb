@@ -359,37 +359,37 @@ INFO_MESSAGE_TEXT
       output = mk_search_item_table(total_n)
     when /^IFT/i
       type = 'アイテム特性'
-      total_n, dummy = roll(2, 6)
+      total_n, = roll(2, 6)
       output = mk_item_features_table(total_n)
     when /^IDT/i
       type = 'アイテムカテゴリ決定'
-      total_n, dummy = roll(1, 6)
+      total_n, = roll(1, 6)
       output = mk_item_decide_table(total_n)
 
       # ランダムエンカウント表
     when /^1RET/i
       type = '1Lvランダムエンカウント'
-      total_n, dummy = roll(1, 6)
+      total_n, = roll(1, 6)
       output = mk_random_encount1_table(total_n)
     when /^2RET/i
       type = '2Lvランダムエンカウント'
-      total_n, dummy = roll(1, 6)
+      total_n, = roll(1, 6)
       output = mk_random_encount2_table(total_n)
     when /^3RET/i
       type = '3Lvランダムエンカウント'
-      total_n, dummy = roll(1, 6)
+      total_n, = roll(1, 6)
       output = mk_random_encount3_table(total_n)
     when /^4RET/i
       type = '4Lvランダムエンカウント'
-      total_n, dummy = roll(1, 6)
+      total_n, = roll(1, 6)
       output = mk_random_encount4_table(total_n)
     when /^5RET/i
       type = '5Lvランダムエンカウント'
-      total_n, dummy = roll(1, 6)
+      total_n, = roll(1, 6)
       output = mk_random_encount5_table(total_n)
     when /^6RET/i
       type = '6Lvランダムエンカウント'
-      total_n, dummy = roll(1, 6)
+      total_n, = roll(1, 6)
       output = mk_random_encount6_table(total_n)
 
       # その他表
