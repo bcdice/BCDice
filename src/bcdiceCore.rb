@@ -1509,7 +1509,7 @@ class BCDice
       dice_cmd = Regexp.last_match(2)
       str_before = Regexp.last_match(1) if Regexp.last_match(1)
       str_after = Regexp.last_match(3) if Regexp.last_match(3)
-      rolled, dmy = rollDiceAddingUp(dice_cmd)
+      rolled, = rollDiceAddingUp(dice_cmd)
       string = "#{str_before}#{rolled}#{str_after}"
     end
 
