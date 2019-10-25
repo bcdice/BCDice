@@ -1524,7 +1524,7 @@ class BCDice
     string = @diceBot.changeText(string)
     debug("diceBot.changeText(string) end", string)
 
-    string = string.gsub(/([\d]+[dD])([^\d\w]|$)/) { "#{Regexp.last_match(1)}6#{Regexp.last_match(2)}" }
+    string = string.gsub(/([\d]+[dD])([^\w]|$)/) { "#{Regexp.last_match(1)}6#{Regexp.last_match(2)}" }
 
     debug("parren_killer output", string)
 

@@ -67,7 +67,7 @@ MESSAGETEXT
   end
 
   def judgeDice(command)
-    unless (m = /(\d+)?(BAD|BL|GL)([\+\-\d+]*)((C|F)([\+\-\d+]*)?)?((C|F)([\+\-\d+]*))?(\@([\+\-\d+]*))?(\!(\D*))?/i.match(command))
+    unless (m = /(\d+)?(BAD|BL|GL)([\+\-\d]*)((C|F)([\+\-\d]*)?)?((C|F)([\+\-\d]*))?(\@([\+\-\d]*))?(\!(\D*))?/i.match(command))
       return nil
     end
 
