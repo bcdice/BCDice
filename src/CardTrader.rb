@@ -966,7 +966,7 @@ class CardTrader
 
     return nil if cards.empty?
 
-    cardNumber, dummy = @bcdice.roll(1, cards.length)
+    cardNumber, = @bcdice.roll(1, cards.length)
     cardNumber -= 1
     debug("cardNumber", cardNumber)
 

@@ -292,7 +292,7 @@ INFO_MESSAGE_TEXT
         '昏睡状態。1時間ごとに生命力判定を行い、成功すると目覚める。目覚めてから6時間はあらゆる判定に-2の修正。さらに強い恐怖症、ないし-30CPぶんの精神的特徴を植え付けられる。知力が1点永遠に低下する。あわせて精神系の技能、呪文、超能力のレベルも低下する。',
       ]
 
-      dice, dummy = roll(3, 6)
+      dice, = roll(3, 6)
       number = dice + modify
       if number > 40
         num = 36
@@ -305,7 +305,7 @@ INFO_MESSAGE_TEXT
       modify = Regexp.last_match(1).to_i
 
       tableName = "反応表"
-      dice, dummy = roll(3, 6)
+      dice, = roll(3, 6)
       number = dice + modify
 
       if number < 1
@@ -371,9 +371,9 @@ INFO_MESSAGE_TEXT
       if !Regexp.last_match(2).nil?
         dice1 = Regexp.last_match(2).to_i
       else
-        dice1, dummy = roll(1, 6)
+        dice1, = roll(1, 6)
       end
-      dice2, dummy = roll(1, 6)
+      dice2, = roll(1, 6)
       area, dif, table = getRandomEvent(dice1, dice2, diff)
       result, dice3 = get_table_by_1d6(table)
       number = "#{dice1}#{dice2}#{dice3}"
@@ -385,7 +385,7 @@ INFO_MESSAGE_TEXT
       if !Regexp.last_match(2).nil?
         dice1 = Regexp.last_match(2).to_i
       else
-        dice1, dummy = roll(1, 6)
+        dice1, = roll(1, 6)
       end
       dice2 = 4
       area, dif, table = getRandomEvent(dice1, dice2, diff)
@@ -452,7 +452,7 @@ INFO_MESSAGE_TEXT
         modify = Regexp.last_match(4).to_i
       end
 
-      dice, dummy = roll(3, 6)
+      dice, = roll(3, 6)
       number = dice - modify
 
       if number <= 3
