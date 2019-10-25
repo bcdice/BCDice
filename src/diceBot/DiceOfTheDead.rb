@@ -19,7 +19,7 @@ class DiceOfTheDead < DiceBot
   end
 
   def getHelpMessage
-    info = <<INFO_MESSAGE_TEXT
+    return <<INFO_MESSAGE_TEXT
 ・ゾンビ化表　ZMB+x
 （x=オープン中の感染度マスの数。+xは省略可能、省略時は0）
 ・感染度表　BIOx
