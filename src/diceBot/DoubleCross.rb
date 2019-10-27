@@ -225,28 +225,29 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-    case
-    when dx = parse(command)
+    if (dx = parse(command))
       return executeDX(dx)
-    when command == 'ET'
-      return get_emotion_table
-    else
-      return nil
     end
+
+    if command == 'ET'
+      return get_emotion_table
+    end
+
+    return nil
   end
 
   # 構文解析する
   # @param [String] command コマンド文字列
   # @return [DXNode, nil]
   def parse(command)
-    case
-    when m = DX_OD_TOLL_RE.match(command)
-      return parseDX_OD(m)
-    when m = DX_SHIPPU_DOTO_RE.match(command)
-      return parseDX_ShippuDoto(m)
-    else
-      return nil
+    case command
+    when DX_OD_TOLL_RE
+      return parseDX_OD(Regexp.last_match)
+    when DX_SHIPPU_DOTO_RE
+      return parseDX_ShippuDoto(Regexp.last_match)
     end
+
+    return nil
   end
 
   # OD Tool式の成功判定コマンドの正規表現マッチ情報からノードを作る
