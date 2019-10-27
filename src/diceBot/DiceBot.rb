@@ -535,4 +535,8 @@ class DiceBot
 
     return "#{table_name}(#{value}) ＞ #{table[index]}"
   end
+
+  def roll_1d6_table(table_name, table)
+    roll_table(table_name, table, 1, 6)
+  end
 end
