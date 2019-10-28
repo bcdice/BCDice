@@ -60,18 +60,18 @@ INFO_MESSAGE_TEXT
   DX_SHIPPU_DOTO_RE = /\A(\d+)DX(\d+)?(#{MODIFIER_RE})?#{COMPARE_RE}?\z/io.freeze
 
   # 成功判定コマンドのノード
-  DXNode = Struct.new(:num, :criticalValue, :modifier, :targetValue) do
+  DXNode = Struct.new(:num, :critical_value, :modifier, :target_value) do
     # 成功判定の文字列表記を返す
     # @return [String]
     def to_s
-      lhs = "#{num}DX#{criticalValue}#{formattedModifier}"
+      lhs = "#{num}DX#{critical_value}#{formatted_modifier}"
 
-      return targetValue ? "#{lhs}>=#{targetValue}" : lhs
+      return target_value ? "#{lhs}>=#{target_value}" : lhs
     end
 
     # 出力用に整形された修正値を返す
     # @return [String]
-    def formattedModifier
+    def formatted_modifier
       if modifier == 0
         ''
       elsif modifier > 0
@@ -89,14 +89,14 @@ INFO_MESSAGE_TEXT
     attr_reader :values
     # クリティカル値
     # @return [Integer]
-    attr_reader :criticalValue
+    attr_reader :critical_value
 
     # 出目のグループを初期化する
     # @param [Array<Integer>] values 出目の配列
-    # @param [Integer] criticalValue クリティカル値
-    def initialize(values, criticalValue)
+    # @param [Integer] critical_value クリティカル値
+    def initialize(values, critical_value)
       @values = values.sort
-      @criticalValue = criticalValue
+      @critical_value = critical_value
     end
 
     # 出目のグループの文字列表記を返す
@@ -116,7 +116,7 @@ INFO_MESSAGE_TEXT
 
     # クリティカルの発生数を返す
     # @return [Integer]
-    def numOfCriticalOccurrences
+    def num_of_critical_occurrences
       @values.
         select { |value| critical?(value) }.
         length
@@ -129,7 +129,7 @@ INFO_MESSAGE_TEXT
     # クリティカル値以上の値が出た場合、クリティカルとする。
     # [3rd ルールブック1 pp. 185-186]
     def critical?(value)
-      value >= @criticalValue
+      value >= @critical_value
     end
   end
 
@@ -137,58 +137,58 @@ INFO_MESSAGE_TEXT
   class DXDiceRollResult
     # 成功判定コマンドのノード
     # @return [DXNode]
-    attr_reader :dxNode
+    attr_reader :dx_node
     # 出目のグループの配列
     # @return [Array<ValueGroup>]
-    attr_reader :valueGroups
+    attr_reader :value_groups
     # 回転数
     # @return [Integer]
-    attr_reader :loopCount
+    attr_reader :loop_count
 
     # 達成値
     # @return [Integer]
-    attr_reader :achievedValue
+    attr_reader :achieved_value
     # ファンブルかどうか
     # @return [Boolean]
-    attr_reader :isFumble
+    attr_reader :is_fumble
 
     # 成功判定コマンドのダイスロール結果を初期化する
-    # @param [DXNode] dxNode 成功判定コマンドのノード
-    # @param [Array<ValueGroup>] valueGroups 出目のグループの配列
-    # @param [Integer] loopCount 回転数
-    def initialize(dxNode, valueGroups, loopCount)
-      @dxNode = dxNode
-      @valueGroups = valueGroups
-      @loopCount = loopCount
+    # @param [DXNode] dx_node 成功判定コマンドのノード
+    # @param [Array<ValueGroup>] value_groups 出目のグループの配列
+    # @param [Integer] loop_count 回転数
+    def initialize(dx_node, value_groups, loop_count)
+      @dx_node = dx_node
+      @value_groups = value_groups
+      @loop_count = loop_count
 
       # ダイスの目がすべて1の場合はファンブル [3rd ルールブック1 p. 186]
-      @isFumble = @valueGroups[0].values.all? { |value| value == 1 }
+      @is_fumble = @value_groups[0].values.all? { |value| value == 1 }
 
       # 出目（各グループの最大値の和）
-      sum = @valueGroups.map(&:max).reduce(0, :+)
+      sum = @value_groups.map(&:max).reduce(0, :+)
       # 達成値 = 出目 + (技能のレベル + 修正)。
       # ただしファンブルの場合は0。
       # [3rd ルールブック1 p. 187]
-      @achievedValue = @isFumble ? 0 : (sum + @dxNode.modifier)
+      @achieved_value = @is_fumble ? 0 : (sum + @dx_node.modifier)
     end
 
     # ダイスロール結果の文字列表記を返す
     # @return [String]
     def to_s
-      longStr = to_s_long
+      long_str = to_s_long
 
       # 通常の表記が長すぎた場合は短い表記を返す
-      return longStr.length > $SEND_STR_MAX ? to_s_short : longStr
+      return long_str.length > $SEND_STR_MAX ? to_s_short : long_str
     end
 
     # ダイスロール結果の長い文字列表記を返す
     # @return [String]
     def to_s_long
       parts = [
-        "(#{@dxNode})",
-        "#{@valueGroups.join('+')}#{@dxNode.formattedModifier}",
+        "(#{@dx_node})",
+        "#{@value_groups.join('+')}#{@dx_node.formatted_modifier}",
         achieved_value_with_if_fumble,
-        compareResult
+        compare_result
       ]
 
       return parts.compact.join(' ＞ ')
@@ -198,11 +198,11 @@ INFO_MESSAGE_TEXT
     # @return [String]
     def to_s_short
       parts = [
-        "(#{@dxNode})",
+        "(#{@dx_node})",
         '...',
-        "回転数#{@loopCount}",
+        "回転数#{@loop_count}",
         achieved_value_with_if_fumble,
-        compareResult
+        compare_result
       ]
 
       return parts.compact.join(' ＞ ')
@@ -211,21 +211,21 @@ INFO_MESSAGE_TEXT
     # ファンブルかどうかを含む達成値の表記を返す
     # @return [String]
     def achieved_value_with_if_fumble
-      @isFumble ? "#{@achievedValue} (ファンブル)" : @achievedValue.to_s
+      @is_fumble ? "#{@achieved_value} (ファンブル)" : @achieved_value.to_s
     end
 
     # 達成値と目標値を比較した結果を返す
     # @return [String, nil]
-    def compareResult
-      return nil unless @dxNode.targetValue
+    def compare_result
+      return nil unless @dx_node.target_value
 
       # ファンブル時は自動失敗
       # [3rd ルールブック1 pp. 186-187]
-      return '失敗' if @isFumble
+      return '失敗' if @is_fumble
 
       # 達成値が目標値以上ならば行為判定成功
       # [3rd ルールブック1 p. 187]
-      return @achievedValue >= @dxNode.targetValue ? '成功' : '失敗'
+      return @achieved_value >= @dx_node.target_value ? '成功' : '失敗'
     end
   end
 
@@ -243,7 +243,7 @@ INFO_MESSAGE_TEXT
 
   def rollDiceCommand(command)
     if (dx = parse(command))
-      return executeDX(dx)
+      return execute_dx(dx)
     end
 
     if command == 'ET'
@@ -259,9 +259,9 @@ INFO_MESSAGE_TEXT
   def parse(command)
     case command
     when DX_OD_TOLL_RE
-      return parseDX_OD(Regexp.last_match)
+      return parse_dx_od(Regexp.last_match)
     when DX_SHIPPU_DOTO_RE
-      return parseDX_ShippuDoto(Regexp.last_match)
+      return parse_dx_shippu_doto(Regexp.last_match)
     end
 
     return nil
@@ -270,35 +270,35 @@ INFO_MESSAGE_TEXT
   # OD Tool式の成功判定コマンドの正規表現マッチ情報からノードを作る
   # @param [MatchData] m 正規表現のマッチ情報
   # @return [DXNode]
-  def parseDX_OD(m)
+  def parse_dx_od(m)
     num = m[1].to_i
     modifier = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
-    criticalValue = m[3] ? m[3].to_i : 10
+    critical_value = m[3] ? m[3].to_i : 10
 
     # @type [Integer, nil]
-    targetValue = m[4] && m[4].to_i
+    target_value = m[4] && m[4].to_i
 
-    return DXNode.new(num, criticalValue, modifier, targetValue)
+    return DXNode.new(num, critical_value, modifier, target_value)
   end
 
   # 疾風怒濤式の成功判定コマンドの正規表現マッチ情報からノードを作る
   # @param [MatchData] m 正規表現のマッチ情報
   # @return [DXNode]
-  def parseDX_ShippuDoto(m)
+  def parse_dx_shippu_doto(m)
     num = m[1].to_i
-    criticalValue = m[2] ? m[2].to_i : 10
+    critical_value = m[2] ? m[2].to_i : 10
     modifier = m[3] ? ArithmeticEvaluator.new.eval(m[3]) : 0
 
     # @type [Integer, nil]
-    targetValue = m[4] && m[4].to_i
+    target_value = m[4] && m[4].to_i
 
-    return DXNode.new(num, criticalValue, modifier, targetValue)
+    return DXNode.new(num, critical_value, modifier, target_value)
   end
 
   # 成功判定を行う
   # @param [DXNode] node 成功判定ノード
-  def executeDX(node)
-    if node.criticalValue < 2
+  def execute_dx(node)
+    if node.critical_value < 2
       return "(#{node}) ＞ クリティカル値が低すぎます。2以上を指定してください。"
     end
 
@@ -307,26 +307,26 @@ INFO_MESSAGE_TEXT
     end
 
     # 出目のグループの配列
-    valueGroups = []
+    value_groups = []
     # 次にダイスロールを行う際のダイス数
-    numOfDice = node.num
+    num_of_dice = node.num
     # 回転数
-    loopCount = 0
+    loop_count = 0
 
-    while numOfDice > 0 && shouldReroll?(loopCount)
-      values = Array.new(numOfDice) { roll(1, 10)[0] }
+    while num_of_dice > 0 && should_reroll?(loop_count)
+      values = Array.new(num_of_dice) { roll(1, 10)[0] }
 
-      valueGroup = ValueGroup.new(values, node.criticalValue)
-      valueGroups.push(valueGroup)
+      value_group = ValueGroup.new(values, node.critical_value)
+      value_groups.push(value_group)
 
       # 次回はクリティカル発生数と等しい個数のダイスを振る
       # [3rd ルールブック1 p. 185]
-      numOfDice = valueGroup.numOfCriticalOccurrences
+      num_of_dice = value_group.num_of_critical_occurrences
 
-      loopCount += 1
+      loop_count += 1
     end
 
-    return DXDiceRollResult.new(node, valueGroups, loopCount).to_s
+    return DXDiceRollResult.new(node, value_groups, loop_count).to_s
   end
 
   # ** 感情表
