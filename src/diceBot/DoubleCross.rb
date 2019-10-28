@@ -108,7 +108,8 @@ INFO_MESSAGE_TEXT
     # 出目のグループ中の最大値を返す
     # @return [Integer]
     #
-    # クリティカル値以上の出目が含まれていた場合は10を返す
+    # クリティカル値以上の出目が含まれていた場合は10を返す。
+    # [3rd ルールブック1 pp. 185-186]
     def max
       @values.any? { |value| critical?(value) } ? 10 : @values.max
     end
@@ -124,6 +125,9 @@ INFO_MESSAGE_TEXT
     # クリティカルが発生したかを返す
     # @param [Integer] value 出目
     # @return [Boolean]
+    #
+    # クリティカル値以上の値が出た場合、クリティカルとする。
+    # [3rd ルールブック1 pp. 185-186]
     def critical?(value)
       value >= @criticalValue
     end
@@ -157,12 +161,15 @@ INFO_MESSAGE_TEXT
       @valueGroups = valueGroups
       @loopCount = loopCount
 
+      # ダイスの目がすべて1の場合はファンブル [3rd ルールブック1 p. 186]
+      @isFumble = @valueGroups[0].values.all? { |value| value == 1 }
+
       # 出目（各グループの最大値の和）
       sum = @valueGroups.map(&:max).reduce(0, :+)
-      # 達成値 = 出目 + (技能のレベル + 修正) [3rd ルールブック1 p. 187]
-      @achievedValue = sum + @dxNode.modifier
-
-      @isFumble = @valueGroups[0].values.all? { |value| value == 1 }
+      # 達成値 = 出目 + (技能のレベル + 修正)。
+      # ただしファンブルの場合は0。
+      # [3rd ルールブック1 p. 187]
+      @achievedValue = @isFumble ? 0 : (sum + @dxNode.modifier)
     end
 
     # ダイスロール結果の文字列表記を返す
@@ -180,11 +187,9 @@ INFO_MESSAGE_TEXT
       parts = [
         "(#{@dxNode})",
         "#{@valueGroups.join('+')}#{@dxNode.formattedModifier}",
-        @achievedValue
+        achieved_value_with_if_fumble,
+        compareResult
       ]
-
-      parts.push('ファンブル') if @isFumble
-      parts.push(compareResult)
 
       return parts.compact.join(' ＞ ')
     end
@@ -196,20 +201,30 @@ INFO_MESSAGE_TEXT
         "(#{@dxNode})",
         '...',
         "回転数#{@loopCount}",
-        @achievedValue
+        achieved_value_with_if_fumble,
+        compareResult
       ]
 
-      parts.push('ファンブル') if @isFumble
-      parts.push(compareResult)
-
       return parts.compact.join(' ＞ ')
+    end
+
+    # ファンブルかどうかを含む達成値の表記を返す
+    # @return [String]
+    def achieved_value_with_if_fumble
+      @isFumble ? "#{@achievedValue} (ファンブル)" : @achievedValue.to_s
     end
 
     # 達成値と目標値を比較した結果を返す
     # @return [String, nil]
     def compareResult
-      return nil if !@dxNode.targetValue || @isFumble
+      return nil unless @dxNode.targetValue
 
+      # ファンブル時は自動失敗
+      # [3rd ルールブック1 pp. 186-187]
+      return '失敗' if @isFumble
+
+      # 達成値が目標値以上ならば行為判定成功
+      # [3rd ルールブック1 p. 187]
       return @achievedValue >= @dxNode.targetValue ? '成功' : '失敗'
     end
   end
@@ -304,7 +319,10 @@ INFO_MESSAGE_TEXT
       valueGroup = ValueGroup.new(values, node.criticalValue)
       valueGroups.push(valueGroup)
 
+      # 次回はクリティカル発生数と等しい個数のダイスを振る
+      # [3rd ルールブック1 p. 185]
       numOfDice = valueGroup.numOfCriticalOccurrences
+
       loopCount += 1
     end
 
