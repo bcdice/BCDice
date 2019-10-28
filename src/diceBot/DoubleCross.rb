@@ -122,6 +122,8 @@ INFO_MESSAGE_TEXT
         length
     end
 
+    private
+
     # クリティカルが発生したかを返す
     # @param [Integer] value 出目
     # @return [Boolean]
@@ -180,6 +182,8 @@ INFO_MESSAGE_TEXT
       # 通常の表記が長すぎた場合は短い表記を返す
       return long_str.length > $SEND_STR_MAX ? to_s_short : long_str
     end
+
+    private
 
     # ダイスロール結果の長い文字列表記を返す
     # @return [String]
@@ -252,6 +256,8 @@ INFO_MESSAGE_TEXT
 
     return nil
   end
+
+  private
 
   # 構文解析する
   # @param [String] command コマンド文字列
