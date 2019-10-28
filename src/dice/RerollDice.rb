@@ -52,7 +52,7 @@ class RerollDice
     numberSpot1Total = 0
     loopCount = 0
 
-    while !diceQueue.empty? && @diceBot.shouldReroll?(loopCount)
+    while !diceQueue.empty? && @diceBot.should_reroll?(loopCount)
       # xRn
       x, n, depth = diceQueue.shift
       loopCount += 1
