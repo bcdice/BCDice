@@ -157,7 +157,9 @@ INFO_MESSAGE_TEXT
       @valueGroups = valueGroups
       @loopCount = loopCount
 
-      sum = @valueGroups.reduce(0) { |acc, group| acc + group.max }
+      # 出目（各グループの最大値の和）
+      sum = @valueGroups.map(&:max).reduce(0, :+)
+      # 達成値 = 出目 + (技能のレベル + 修正) [3rd ルールブック1 p. 187]
       @achievedValue = sum + @dxNode.modifier
 
       @isFumble = @valueGroups[0].values.all? { |value| value == 1 }
