@@ -300,7 +300,6 @@ Style/IfInsideElse:
     - 'diceBot/Cthulhu7th_Korean.rb'
     - 'diceBot/Cthulhu_ChineseTraditional.rb'
     - 'diceBot/Cthulhu_Korean.rb'
-    - 'diceBot/DoubleCross.rb'
     - 'diceBot/GurpsFW.rb'
     - 'diceBot/IthaWenUa.rb'
     - 'diceBot/SharedFantasia.rb'
