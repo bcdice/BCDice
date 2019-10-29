@@ -929,11 +929,6 @@ class BCDice
       round = 0
 
       loop do
-        if round >= 1
-          # 振り足し時のダイス読み替え処理用（ダブルクロスはクリティカルでダイス10に読み替える)
-          dice_now += @diceBot.getJackUpValueOnAddRoll(dice_n)
-        end
-
         dice_n = rand(dice_max).to_i + 1
         dice_n -= 1 if d9_on
 
@@ -1096,11 +1091,6 @@ class BCDice
     output = "#{@nick_e}: (#{string}) ＞ #{output}"
 
     return output
-  end
-
-  def isReRollAgain(dice_cnt, round)
-    debug("isReRollAgain dice_cnt, round", dice_cnt, round)
-    ((dice_cnt > 0) && ((round < @diceBot.rerollLimitCount) || (@diceBot.rerollLimitCount == 0)))
   end
 
   ####################             D66ダイス        ########################

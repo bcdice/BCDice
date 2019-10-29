@@ -359,11 +359,6 @@ class DiceBot
     '1'
   end
 
-  # 振り足し時のダイス読み替え処理用（ダブルクロスはクリティカルでダイス10に読み替える)
-  def getJackUpValueOnAddRoll(_dice_n)
-    0
-  end
-
   # ガンドッグのnD9専用
   def isD9
     false
@@ -379,6 +374,13 @@ class DiceBot
 
   def is2dCritical
     false
+  end
+
+  # 振り足しを行うべきかを返す
+  # @param [Integer] loop_count ループ数
+  # @return [Boolean]
+  def should_reroll?(loop_count)
+    loop_count < @rerollLimitCount || @rerollLimitCount == 0
   end
 
   def getDiceList
