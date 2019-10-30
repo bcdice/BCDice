@@ -34,11 +34,6 @@ class DoubleCross < DiceBot
 INFO_MESSAGE_TEXT
   end
 
-  # 修正値の正規表現
-  MODIFIER_RE = /[-+][-+\d]+/.freeze
-  # 比較式の左辺以外の部分の正規表現
-  COMPARE_RE = />=(\d+)/.freeze
-
   # OD Tool式の成功判定コマンドの正規表現
   #
   # キャプチャ内容は以下のとおり:
@@ -47,7 +42,7 @@ INFO_MESSAGE_TEXT
   # 2. 修正値
   # 3. クリティカル値
   # 4. 達成値
-  DX_OD_TOLL_RE = /\A(\d+)DX(#{MODIFIER_RE})?@(\d+)#{COMPARE_RE}?\z/io.freeze
+  DX_OD_TOLL_RE = /\A(\d+)DX([-+][-+\d]+)?@(\d+)(?:>=(\d+))?\z/io.freeze
 
   # 疾風怒濤式の成功判定コマンドの正規表現
   #
@@ -57,7 +52,7 @@ INFO_MESSAGE_TEXT
   # 2. クリティカル値
   # 3. 修正値
   # 4. 達成値
-  DX_SHIPPU_DOTO_RE = /\A(\d+)DX(\d+)?(#{MODIFIER_RE})?#{COMPARE_RE}?\z/io.freeze
+  DX_SHIPPU_DOTO_RE = /\A(\d+)DX(\d+)?([-+][-+\d]+)?(?:>=(\d+))?\z/io.freeze
 
   # 成功判定コマンドのノード
   DXNode = Struct.new(:num, :critical_value, :modifier, :target_value) do
