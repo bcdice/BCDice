@@ -54,4 +54,19 @@ if RUBY_VERSION >= '2.3'
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new
   task :test => [:rubocop]
+
+  require 'yard'
+  require 'yard/rake/yardoc_task'
+
+  YARD::Rake::YardocTask.new do |t|
+    t.files = [
+      '*.rb',
+      'dice/**/*.rb',
+      'diceBot/**/*.rb',
+      'irc/**/*.rb',
+      'test/**/*.rb',
+      'utils/**/*.rb'
+    ]
+    t.options = []
+  end
 end
