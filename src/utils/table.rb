@@ -14,7 +14,7 @@ class Table
       @times = m[1].to_i
       @sides = m[2].to_i
     else
-      raise "Unexpected table type: #{type}"
+      raise ArgumentError, "Unexpected table type: #{type}"
     end
   end
 
