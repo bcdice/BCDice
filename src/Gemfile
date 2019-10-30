@@ -20,6 +20,7 @@ group :development, :test do
 
   if RUBY_VERSION >= '2.3'
     gem 'rubocop', '~> 0.72.0', :require => false
+    gem 'yard'
   end
 end
 
