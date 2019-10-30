@@ -70,7 +70,6 @@ class CountHolder
     @modifyText = nil
 
     debug("$point_counter", $point_counter)
-    output = '1'
 
     debug("@command", @command)
 
@@ -416,6 +415,7 @@ class CountHolder
     end
   end
 
+  # unused?
   def sort_point_hash(base_hash)
     keys = base_hash.keys
 
