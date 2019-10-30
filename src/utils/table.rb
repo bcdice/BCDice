@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # 表を表すクラス
 class Table
   # @param [String] name 表の名前
