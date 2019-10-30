@@ -515,4 +515,13 @@ class DiceBot
 
     return newTable
   end
+
+  def roll_tables(command, tables)
+    table = tables[command]
+    unless table
+      return nil
+    end
+
+    return table.roll(bcdice)
+  end
 end
