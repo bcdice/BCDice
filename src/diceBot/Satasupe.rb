@@ -527,13 +527,13 @@ INFO_MESSAGE_TEXT
     result = []
 
     counts.times do |_i|
-      age_type, dummy = roll(1, 6)
+      age_type, = roll(1, 6)
       age_type -= 1
 
       agen_text = agen[age_type]
       age_num = agen_text.split(/\+/)
 
-      total, dummy = rollDiceAddingUp(age_num[1])
+      total, = rollDiceAddingUp(age_num[1])
       ysold = total + age_num[0].to_i
 
       lmodValue = lmood[(rand 6)]

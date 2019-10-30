@@ -243,7 +243,6 @@ class CardTrader
     debug('executeCard arg', arg)
     return unless /(c-)/ =~ arg
 
-    card_ok = 0
     count = 0
 
     case arg
@@ -580,7 +579,7 @@ class CardTrader
   end
 
   def discardCardCommandText(commandText)
-    count, output_msg, card_ok = discardCards(commandText)
+    count, output_msg, _card_ok = discardCards(commandText)
 
     if count > 0
       sendMessage(@channel, "#{@nick_e}: #{count}枚捨てました")
@@ -603,7 +602,7 @@ class CardTrader
   def playCardByCommandText(arg)
     debug('c-play pattern', arg)
 
-    count, output_msg, card_ok = playCard(arg)
+    count, output_msg, _card_ok = playCard(arg)
     if count > 0
       sendMessage(@channel, "#{@nick_e}: #{count}枚出しました")
       sendMessage(@channel, "[" + getCardsText($card_ok) + "]") unless @cardTitles.empty?
@@ -966,7 +965,7 @@ class CardTrader
 
     return nil if cards.empty?
 
-    cardNumber, dummy = @bcdice.roll(1, cards.length)
+    cardNumber, = @bcdice.roll(1, cards.length)
     cardNumber -= 1
     debug("cardNumber", cardNumber)
 
