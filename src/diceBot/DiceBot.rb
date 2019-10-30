@@ -520,23 +520,6 @@ class DiceBot
       return nil
     end
 
-    if (m = /(\d+)D(\d+)/i.match(table[:type]))
-      times = m[1].to_i
-      sides = m[2].to_i
-      return roll_table(table[:name], table[:table], times, sides)
-    else
-      return nil
-    end
-  end
-
-  def roll_table(table_name, table, times, sides)
-    value, = roll(times, sides)
-    index = value - times
-
-    return "#{table_name}(#{value}) ＞ #{table[index]}"
-  end
-
-  def roll_1d6_table(table_name, table)
-    roll_table(table_name, table, 1, 6)
+    return table.roll(bcdice)
   end
 end
