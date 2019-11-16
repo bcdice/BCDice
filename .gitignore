@@ -5,3 +5,5 @@
 /src/tmp.txt
 /src/test/*.html~
 /extratables/*.txt~
+src/.bundle
+src/vendor
