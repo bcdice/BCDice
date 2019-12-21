@@ -63,8 +63,6 @@ MESSAGETEXT
   EV_RE = %r{\AEV(\d+)#{DIFFICULTY_RE}?(?:/(\d+))?\z}io.freeze
   # 近接攻撃の正規表現
   AT_RE = /\AAT(\d+)#{DIFFICULTY_RE}?\z/io.freeze
-  # サツバツ判定の正規表現
-  SB_RE = /\ASB\z/io.freeze
   # 電子戦の正規表現
   EL_RE = /\AEL(\d+)#{DIFFICULTY_RE}?\z/io.freeze
 
