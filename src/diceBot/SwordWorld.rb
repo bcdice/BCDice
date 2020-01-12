@@ -122,14 +122,25 @@ class SwordWorld < DiceBot
     round = 0
 
     loop do
-      dice, diceText = rollDice(values)
+      dice_raw, diceText = rollDice(values)
+      dice = dice_raw
 
       if  firstDiceChanteTo != 0
-        dice = firstDiceChanteTo
+        dice = dice_raw = firstDiceChanteTo
         firstDiceChanteTo = 0
       elsif  firstDiceChangeModify != 0
         dice += firstDiceChangeModify.to_i
         firstDiceChangeModify = 0
+      end
+
+      # 出目がピンゾロの時にはそこで終了
+      if dice_raw <= 2
+        diceResultTotals << dice_raw.to_s
+        diceResults << diceText.to_s
+        rateResults << "**"
+
+        round += 1
+        break
       end
 
       dice += getAdditionalDiceValue(dice, values)
