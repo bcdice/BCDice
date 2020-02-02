@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 require "utils/table"
+require "utils/d66_grid_table"
 
 class StellarKnights < DiceBot
   def initialize
@@ -795,84 +796,68 @@ MESSAGETEXT
       "1D6",
       GAKUEN_TABLE
     ),
-    "HOT" => Table.new(
+    "HOT" => D66GridTable.new(
       "希望表",
-      Table::D66_GRID,
       HOPE_TABLE
     ),
-    "DET" => Table.new(
+    "DET" => D66GridTable.new(
       "絶望表",
-      Table::D66_GRID,
       DESPAIR_TABLE
     ),
-    "WIT" => Table.new(
+    "WIT" => D66GridTable.new(
       "願い事表",
-      Table::D66_GRID,
       WISH_TABLE
     ),
-    "YST" => Table.new(
+    "YST" => D66GridTable.new(
       "あなたの物語表",
-      Table::D66_GRID,
       YOUR_STORY_TABLE
     ),
-    "YSTA" => Table.new(
+    "YSTA" => D66GridTable.new(
       "あなたの物語表：異世界",
-      Table::D66_GRID,
       YOUR_STORY_TABLE_ANOTHER_WORLD
     ),
-    "YSTM" => Table.new(
+    "YSTM" => D66GridTable.new(
       "あなたの物語表：マルジナリア世界",
-      Table::D66_GRID,
       YOUR_STORY_TABLE_MARGINALIA
     ),
-    "STM" => Table.new(
+    "STM" => D66GridTable.new(
       "シチュエーション表：マルジナリア世界",
-      Table::D66_GRID,
       SITUATION_TABLE_MARGINALIA
     ),
-    "YSTL" => Table.new(
+    "YSTL" => D66GridTable.new(
       "あなたの物語表：手紙世界",
-      Table::D66_GRID,
       YOUR_STORY_TABLE_LETTER
     ),
-    "YSTR" => Table.new(
+    "YSTR" => D66GridTable.new(
       "あなたの物語表：リコレクト・ドール",
-      Table::D66_GRID,
       YOUR_STORY_TABLE_RECOLLECT_DOLL
     ),
-    "STBR" => Table.new(
+    "STBR" => D66GridTable.new(
       "シチュエーション表B：場所（リコレクト・ドール）",
-      Table::D66_GRID,
       SITUATION_TABLE_B_RECOLLECT_DOLL
     ),
-    "STCR" => Table.new(
+    "STCR" => D66GridTable.new(
       "シチュエーション表C：リコレクト",
-      Table::D66_GRID,
       SITUATION_TABLE_C_RECOLLECT_DOLL
     ),
-    "STBS" => Table.new(
+    "STBS" => D66GridTable.new(
       "シチュエーション表B：シトラセッティング",
-      Table::D66_GRID,
       SITUATION_TABLE_B_RECOLLECT_SUT_TU_REAL
     ),
-    "STE" => Table.new(
+    "STE" => D66GridTable.new(
       "シチュエーション表：エクリプス専用",
-      Table::D66_GRID,
       SITUATION_TABLE_ECLIPSE
     ),
-    "YSTB" => Table.new(
+    "YSTB" => D66GridTable.new(
       "あなたの物語表：ブリンガー",
-      Table::D66_GRID,
       YOUR_STORY_TABLE_BRINGER
     ),
-    "YSTF" => Table.new(
+    "YSTF" => D66GridTable.new(
       "あなたの物語表：フォージ",
-      Table::D66_GRID,
       YOUR_STORY_TABLE_FORGE
     ),
-    "STAL" => Table.new(
+    "STAL" => D66GridTable.new(
       "シチュエーション表：オルトリヴート",
-      Table::D66_GRID,
       SITUATION_TABLE_ALT_LEVOOT
     ),
   }.freeze
