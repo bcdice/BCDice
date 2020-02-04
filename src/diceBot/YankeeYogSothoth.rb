@@ -97,7 +97,7 @@ INFO_MESSAGE_TEXT
 
   # 二つ名決定表
   def get_nickname_table(_command)
-    result1, _ = roll(1,6)
+    result1, = roll(1, 6)
 
     case result1
     when 1, 2
@@ -207,7 +207,7 @@ INFO_MESSAGE_TEXT
 
     nicknameTable = getD66Table(nicknameTableFull[nicknameTableName])
     nickName, result2 = get_table_by_d66_swap(nicknameTable)
-    
+
     return "二つ名決定表(#{result1},#{result2}) ＞ 「#{nickName}」"
   end
 
