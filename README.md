@@ -12,7 +12,7 @@
 - [ChangeLog](CHANGELOG.md)
 - [旧README](docs/README.txt)
 - [ダイスボットの作り方](docs/how_to_make_dicebot.md)
-- [Pull Requestを送る前に確認したいこと](wiki/Pull-Requestを送る前に確認したいこと)
+- [Pull Requestを送る前に確認したいこと](https://github.com/bcdice/BCDice/wiki/Pull-Requestを送る前に確認したいこと)
 
 ## バグ報告や機能要望
 
