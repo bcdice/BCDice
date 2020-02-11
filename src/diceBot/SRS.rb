@@ -8,6 +8,7 @@ class SRS < DiceBot
 
     @sendMode = 2
     @sortType = 1
+    @need_check_critical_2d6 = false
   end
 
   def gameName
@@ -33,17 +34,14 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-    result = checkRoll(command)
-    return result unless result.empty?
+    return roll_2d6_with_compare(command) || roll_2d6_without_compare(command)
   end
 
-  def checkRoll(string)
-    output = ''
-
+  def roll_2d6_with_compare(string)
     crit = 12
     fumble = 2
 
-    return output unless /^2D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i =~ string
+    return nil unless /^2D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i =~ string
 
     modText = Regexp.last_match(1)
     target = Regexp.last_match(2).to_i
@@ -70,6 +68,36 @@ INFO_MESSAGE_TEXT
       output += " ＞ 成功"
     else
       output += " ＞ 失敗"
+    end
+
+    output = "(#{string}) ＞ #{output}"
+    return output
+  end
+
+  def roll_2d6_without_compare(string)
+    unless @need_check_critical_2d6
+      return nil
+    end
+
+    m = /^2D6([\+\-\d]*)$/i.match(string)
+    unless m
+      return nil
+    end
+
+    constant = ArithmeticEvaluator.new.eval(m[1], @fractionType.to_sym)
+    total, dice_str, = roll(2, 6, @sortType && 1)
+    total_n = total + constant
+
+    if constant < 0
+      output = "#{total}[#{dice_str}]－#{constant.abs} ＞ #{total_n}"
+    else
+      output = "#{total}[#{dice_str}]＋#{constant} ＞ #{total_n}"
+    end
+
+    if total >= 12
+      output += " ＞ 自動成功"
+    elsif total <= 2
+      output += " ＞ 自動失敗"
     end
 
     output = "(#{string}) ＞ #{output}"
