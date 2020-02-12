@@ -11,7 +11,7 @@ class Cthulhu7th < DiceBot
   end
 
   def gameName
-    'クトゥルフ第7版'
+    '新クトゥルフ'
   end
 
   def gameType
