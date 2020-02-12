@@ -43,8 +43,8 @@ class Cthulhu7th < DiceBot
 
 ・各種表
 　【狂気関連】
-　・即時の狂気の発作（Bouts of Madness Real Time）表　BMR
-　・略式の狂気の発作（Bouts of Madness Summary）表　BMS
+　・狂気の発作（リアルタイム）（Bouts of Madness Real Time）　BMR
+　・狂気の発作（サマリー）（Bouts of Madness Summary）　BMS
 　・恐怖症（Sample Phobias）表　PH／マニア（Sample Manias）表　MA
 　【魔術関連】
 　・プッシュ時の詠唱ロール（Casting Roll）での失敗表
@@ -60,9 +60,9 @@ INFO_MESSAGE_TEXT
       return getCombineRoll(command)
     when /^FAR/i
       return getFullAutoResult(command)
-    when /^BMR/i # 即時の狂気の発作表
+    when /^BMR/i # 狂気の発作（リアルタイム）
       return roll_bmr_table()
-    when /^BMS/i # 略式の狂気の発作表
+    when /^BMS/i # 狂気の発作（サマリー）
       return roll_bms_table()
     when /^FCL/i # 詠唱ロールのプッシュに失敗した場合（小）
       return roll_1d8_table("詠唱ロール失敗(小)表", FAILED_CASTING_L_TABLE)
@@ -469,7 +469,7 @@ INFO_MESSAGE_TEXT
 
     time_n, = roll(1, 10)
 
-    return "即時の狂気の発作表(#{total_n}) ＞ #{text}(1D10＞#{time_n}ラウンド)"
+    return "狂気の発作（リアルタイム）(#{total_n}) ＞ #{text}(1D10＞#{time_n}ラウンド)"
   end
 
   MADNESS_REAL_TIME_TABLE = [
@@ -492,7 +492,7 @@ INFO_MESSAGE_TEXT
 
     time_n, = roll(1, 10)
 
-    return "略式の狂気の発作表(#{total_n}) ＞ #{text}(1D10＞#{time_n}時間)"
+    return "狂気の発作（サマリー）(#{total_n}) ＞ #{text}(1D10＞#{time_n}時間)"
   end
 
   MADNESS_SUMMARY_TABLE = [
