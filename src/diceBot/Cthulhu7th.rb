@@ -25,9 +25,8 @@ class Cthulhu7th < DiceBot
 ・判定　CC(x)<=（目標値）
 　x：ボーナス・ペナルティダイス：Bonus/Penalty Dice (2～－2)。省略可。
 　目標値が無くても1D100は表示される。
-　致命的失敗：Fumble／失敗：Failure／通常成功：Regular success／
-　困難な成功：Hard success／極限の成功：Extreme success／
-　決定的成功：Critical success　を自動判定。
+　ファンブル／失敗／
+　成功／ハード成功／イクストリーム成功／クリティカル を自動判定。
 例）CC<=30　CC(2)<=50　CC(-1)<=75 CC-1<=50 CC1<=65 CC
 
 ・組み合わせ判定　(CBR(x,y))
@@ -37,7 +36,7 @@ class Cthulhu7th < DiceBot
 ・連射（Full Auto）判定　FAR(w,x,y,z,d)
 　w：弾数(1～100）、x：技能値（1～100）、y：故障ナンバー、
 　z：ボーナス・ペナルティダイス(-2～2)。省略可。
-　d：指定難易度で連射を終える（通常成功：r,困難な成功：h,極限の成功：e）。省略可。
+　d：指定難易度で連射を終える（レギュラー：r,ハード：h,イクストリーム：e）。省略可。
 　命中数と貫通数、残弾数のみ算出。ダメージ算出はありません。
 例）FAR(25,70,98)　FAR(50,80,98,-1)　far(30,70,99,1,R)
 　　far(25,88,96,2,h)　FaR(40,77,100,,e)
@@ -163,14 +162,14 @@ INFO_MESSAGE_TEXT
 
   def getCheckResultText(total, diff, fumbleable = false)
     if total <= diff
-      return "決定的成功" if total == 1
-      return "極限の成功" if total <= (diff / 5)
-      return "困難な成功" if total <= (diff / 2)
+      return "クリティカル" if total == 1
+      return "イクストリーム成功" if total <= (diff / 5)
+      return "ハード成功" if total <= (diff / 2)
 
-      return "通常成功"
+      return "成功"
     end
 
-    fumble_text = "致命的失敗"
+    fumble_text = "ファンブル"
 
     return fumble_text if total == 100
 
@@ -196,7 +195,7 @@ INFO_MESSAGE_TEXT
     result_1 = getCheckResultText(total, diff_1)
     result_2 = getCheckResultText(total, diff_2)
 
-    successList = ["決定的成功", "極限の成功", "困難な成功", "通常成功"]
+    successList = ["クリティカル", "イクストリーム成功", "ハード成功", "成功"]
 
     succesCount = 0
     succesCount += 1 if successList.include?(result_1)
@@ -273,7 +272,7 @@ INFO_MESSAGE_TEXT
         output += "\n#{loopCount}回目: ＞ #{total_list.join(', ')} ＞ #{hit_result}"
 
         if total >= broken_number
-          output += "ジャム"
+          output += " ジャム"
           return getHitResultText(output, counts)
         end
 
@@ -306,11 +305,11 @@ INFO_MESSAGE_TEXT
   #
   # 成功の種類の小文字表記 => 難易度の閾値
   ROLL_FULL_AUTO_DIFFICULTY_THRESHOLD = {
-    # 通常成功
+    # レギュラー
     'r' => 0,
-    # 困難な成功
+    # ハード
     'h' => 1,
-    # 極限の成功
+    # イクストリーム
     'e' => 2
   }.freeze
 
@@ -394,16 +393,16 @@ INFO_MESSAGE_TEXT
 
     case more_difficulty
     when 0
-      successList = ["困難な成功", "通常成功"]
-      impaleBulletList = ["決定的成功", "極限の成功"]
+      successList = ["ハード成功", "成功"]
+      impaleBulletList = ["クリティカル", "イクストリーム成功"]
     when 1
-      successList = ["困難な成功"]
-      impaleBulletList = ["決定的成功", "極限の成功"]
+      successList = ["ハード成功"]
+      impaleBulletList = ["クリティカル", "イクストリーム成功"]
     when 2
       successList = []
-      impaleBulletList = ["決定的成功", "極限の成功"]
+      impaleBulletList = ["クリティカル", "イクストリーム成功"]
     when 3
-      successList = ["決定的成功"]
+      successList = ["クリティカル"]
       impaleBulletList = []
     end
 
@@ -413,11 +412,11 @@ INFO_MESSAGE_TEXT
   def getNextDifficultyMessage(more_difficulty)
     case more_difficulty
     when 1
-      return "\n    難易度が困難な成功に変更"
+      return "\n    難易度がハードに変更"
     when 2
-      return "\n    難易度が極限の成功に変更"
+      return "\n    難易度がイクストリームに変更"
     when 3
-      return "\n    難易度が決定的成功に変更"
+      return "\n    難易度がクリティカルに変更"
     end
 
     return ""
