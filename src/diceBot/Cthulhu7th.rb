@@ -99,12 +99,16 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckResult(command)
-    nil unless /^CC([-\d]+)?<=(\d+)/i =~ command
-    bonus_dice_count = Regexp.last_match(1).to_i # ボーナス・ペナルティダイスの個数
-    diff = Regexp.last_match(2).to_i
+    m = /^CC([-\d]+)?(<=(\d+))?/i.match(command)
+    unless m
+      return nil
+    end
 
-    # 「return "エラー。目標値は1以上です。" if diff <= 0」は、以下の処理に置き換えて、CCのみでロールできるように変更。
-    if diff <= 0
+    bonus_dice_count = m[1].to_i # ボーナス・ペナルティダイスの個数
+    diff = m[3].to_i
+    without_compare = m[2].nil? || diff <= 0
+
+    if bonus_dice_count == 0 && diff <= 0
       dice, = roll(1, 100)
       return  "1D100 ＞ #{dice}"
     end
@@ -113,17 +117,18 @@ INFO_MESSAGE_TEXT
       return "エラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
     end
 
-    output = ""
-    output += "(1D100<=#{diff})"
-    output += " ボーナス・ペナルティダイス[#{bonus_dice_count}]"
-
     units_digit = rollPercentD10
     total_list = getTotalLists(bonus_dice_count, units_digit)
-
     total = getTotal(total_list, bonus_dice_count)
-    result_text = getCheckResultText(total, diff)
 
-    output += " ＞ #{total_list.join(', ')} ＞ #{total} ＞ #{result_text}"
+    if without_compare
+      output = "(1D100) ボーナス・ペナルティダイス[#{bonus_dice_count}]"
+      output += " ＞ #{total_list.join(', ')} ＞ #{total}"
+    else
+      result_text = getCheckResultText(total, diff)
+      output = "(1D100<=#{diff}) ボーナス・ペナルティダイス[#{bonus_dice_count}]"
+      output += " ＞ #{total_list.join(', ')} ＞ #{total} ＞ #{result_text}"
+    end
 
     return output
   end
