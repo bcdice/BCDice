@@ -17,6 +17,18 @@ MetallicGuadian : (2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功###secre
 rand:5/6,6/6
 ============================
 input:
+MG1>=7
+output:
+
+rand:
+============================
+input:
+MGA>=7
+output:
+
+rand:
+============================
+input:
 D66
 output:
 MetallicGuadian : (D66) ＞ 65
@@ -33,6 +45,18 @@ MG
 output:
 MetallicGuadian : (2D6[12,2]) ＞ 2[1,1] ＞ 2 ＞ 自動失敗
 rand:1/6,1/6
+============================
+input:
+MG1
+output:
+
+rand:
+============================
+input:
+MGA
+output:
+
+rand:
 ============================
 input:
 MG+1
