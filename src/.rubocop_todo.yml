@@ -144,6 +144,11 @@ Style/AccessModifierDeclarations:
     - 'irc/encode.rb'
     - 'test/DiceBotTest.rb'
 
+Style/BlockDelimiters:
+  Exclude:
+    # SRS: 長い文字列リテラルがあるため、複数行のブロックを使わなければ見にくい
+    - diceBot/SRS.rb
+
 # Offense count: 137
 Style/CaseEquality:
   Exclude:
