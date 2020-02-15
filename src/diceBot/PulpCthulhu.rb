@@ -43,9 +43,9 @@ class PulpCthulhu < DiceBot
 
 ・各種表
 　【狂気関連】
-　・狂気の発作（リアルタイム）　BMR
-　・狂気の発作（サマリー）　BMS
-　・恐怖症表　PH／マニア表　MA
+　・狂気の発作（リアルタイム）（Bouts of Madness Real Time）　BMR
+　・狂気の発作（サマリー）（Bouts of Madness Summary）　BMS
+　・恐怖症（Sample Phobias）表　PH／マニア（Sample Manias）表　MA
 　・狂気のタレント（Insane Talents）表　IT
 　【魔術関連】
 　・プッシュ時のキャスティング・ロールの失敗（Failed Casting Effects）表　FCE
