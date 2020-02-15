@@ -42,11 +42,11 @@ class Cthulhu7th < DiceBot
 
 ・各種表
 　【狂気関連】
-　・狂気の発作（リアルタイム）　BMR
-　・狂気の発作（サマリー）　BMS
-　・恐怖症表　PH／マニア表　MA
+　・狂気の発作（リアルタイム）（Bouts of Madness Real Time）　BMR
+　・狂気の発作（サマリー）（Bouts of Madness Summary）　BMS
+　・恐怖症（Sample Phobias）表　PH／マニア（Sample Manias）表　MA
 　【魔術関連】
-　・プッシュ時のキャスティング・ロールの失敗表
+　・プッシュ時のキャスティング・ロール（Casting Roll）の失敗表
 　　強力でない呪文の場合　FCL／強力な呪文の場合　FCM
 INFO_MESSAGE_TEXT
   end
