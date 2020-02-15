@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
+require 'diceBot/DiceBot'
+
 class SRS < DiceBot
+  # 固有のコマンドの接頭辞を設定する
   setPrefixes(['2D6.*'])
 
   def initialize
@@ -8,6 +11,10 @@ class SRS < DiceBot
 
     @sendMode = 2
     @sortType = 1
+
+    # SRSダイスロールのエイリアスコマンド
+    # @type [Regexp, nil]
+    @aliases_pattern_for_srs_roll = nil
   end
 
   def gameName
@@ -31,6 +38,15 @@ class SRS < DiceBot
 　　例) 2d6+2>=10[12,4] ↑をクリティカル値12、ファンブル値4で判定
 INFO_MESSAGE_TEXT
   end
+
+  # 固有のダイスロールコマンドを実行する
+  # @param [String] command 入力されたコマンド
+  # @return [String] ダイスロールコマンドの実行結果
+  #
+  # * 2D6+m: クリティカル/ファンブル判定無し
+  # * 2D6+m[c,f]: クリティカル/ファンブル判定有り
+  # * エイリアス+m: 2D6+m[2,12] に変換
+  # * エイリアス+m[c,f]: 2D6+m[c,f] に変換
 
   def rollDiceCommand(command)
     result = checkRoll(command)
@@ -75,5 +91,24 @@ INFO_MESSAGE_TEXT
     output = "(#{string}) ＞ #{output}"
 
     return output
+  end
+
+  protected
+
+  # SRSダイスロールのエイリアスコマンドを設定する
+  # @param [String] aliases エイリアスコマンド（可変長引数）
+  # @return [self]
+  #
+  # エイリアスコマンドとして指定した文字列がコマンドの先頭にあれば、
+  # それが2D6に置き換わる。
+  def set_aliases_for_srs_roll(*aliases)
+    alias_part = aliases.
+                 map { |a| Regexp.escape(a.upcase) }.
+                 join('|')
+
+    @aliases_pattern_for_srs_roll =
+      Regexp.new("\\A(S)?(?:#{alias_part})\\b")
+
+    self
   end
 end
