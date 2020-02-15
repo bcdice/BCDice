@@ -24,14 +24,24 @@ class SRS < DiceBot
     @sendMode = 2
     # バラバラロール（Bコマンド）でソートする
     @sortType = 1
+    # D66ダイスあり（出目をソートしない）
+    @d66Type = 1
 
-    # 目標値あり成功判定のエイリアスコマンド
+    # 目標値あり成功判定のエイリアスコマンドの正規表現
     # @type [Regexp, nil]
     @aliases_re_for_srs_roll_with_target_value = nil
 
-    # 目標値なし成功判定のエイリアスコマンド
+    # 目標値なし成功判定のエイリアスコマンドの正規表現
     # @type [Regexp, nil]
     @aliases_re_for_srs_roll_without_target_value = nil
+
+    # 目標値あり成功判定のエイリアスコマンドの説明文
+    @help_msg_for_aliases_for_srs_roll_with_target_value = ''
+    # 目標値なし成功判定のエイリアスコマンドの説明文
+    @help_msg_for_aliases_for_srs_roll_without_target_value = ''
+
+    # ダイスボットの説明文
+    @help_message = concatenate_help_messages
   end
 
   # ゲームシステム名を返す
@@ -49,29 +59,7 @@ class SRS < DiceBot
   # ダイスボットの説明文を返す
   # @return [String]
   def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
-・判定
-　・通常判定：2D6+m>=t[c,f]
-　　修正値m、目標値t、クリティカル値c、ファンブル値fで判定ロールを行います。
-　　修正値、クリティカル値、ファンブル値は省略可能です（[]ごと省略可）。
-　　クリティカル値、ファンブル値の既定値は、それぞれ12、2です。
-　　自動成功、自動失敗、成功、失敗を自動表示します。
-
-　　例) 2d6>=10　　　　　修正値0、目標値10で判定
-　　例) 2d6+2>=10　　　　修正値+2、目標値10で判定
-　　例) 2d6+2>=10[11]　　↑をクリティカル値11で判定
-　　例) 2d6+2>=10[12,4]　↑をクリティカル値12、ファンブル値4で判定
-
-　・クリティカルおよびファンブルのみの判定：2D6+m[c,f]
-　　目標値を指定せず、修正値m、クリティカル値c、ファンブル値fで判定ロールを行います。
-　　修正値、クリティカル値、ファンブル値は省略可能です（[]は省略不可）。
-　　自動成功、自動失敗を自動表示します。
-
-　　例) 2d6[]　　　　修正値0、クリティカル値12、ファンブル値2で判定
-　　例) 2d6+2[]　　　修正値+2、クリティカル値12、ファンブル値2で判定
-　　例) 2d6+2[11]　　修正値+2、クリティカル値11、ファンブル値2で判定
-　　例) 2d6+2[12,4]　修正値+2、クリティカル値12、ファンブル値4で判定
-INFO_MESSAGE_TEXT
+    @help_message
   end
 
   # 既定のクリティカル値
@@ -128,8 +116,9 @@ INFO_MESSAGE_TEXT
   # エイリアスコマンドとして指定した文字列がコマンドの先頭にあれば、
   # 実行時にそれが2D6に置換されるようになる。
   def set_aliases_for_srs_roll(*aliases)
-    alias_part = aliases.
-                 map { |a| Regexp.escape(a.upcase) }.
+    aliases_upcase = aliases.map(&:upcase)
+    alias_part = aliases_upcase.
+                 map { |a| Regexp.escape(a) }.
                  join('|')
 
     @aliases_re_for_srs_roll_with_target_value = Regexp.new(
@@ -144,10 +133,75 @@ INFO_MESSAGE_TEXT
       '([-+][-+\d]+)?(\[\d*(?:,\d+)?\])?\z'
     )
 
+    prepare_help_msg_for_aliases_for_srs_roll(aliases_upcase)
+    @help_message = concatenate_help_messages
+
     self
   end
 
   private
+
+  HELP_MESSAGE_1 = <<HELP_MESSAGE
+・判定
+　・通常判定：2D6+m>=t[c,f]
+　　修正値m、目標値t、クリティカル値c、ファンブル値fで判定ロールを行います。
+　　修正値、クリティカル値、ファンブル値は省略可能です（[]ごと省略可）。
+　　クリティカル値、ファンブル値の既定値は、それぞれ12、2です。
+　　自動成功、自動失敗、成功、失敗を自動表示します。
+
+　　例) 2d6>=10　　　　　修正値0、目標値10で判定
+　　例) 2d6+2>=10　　　　修正値+2、目標値10で判定
+　　例) 2d6+2>=10[11]　　↑をクリティカル値11で判定
+　　例) 2d6+2>=10[12,4]　↑をクリティカル値12、ファンブル値4で判定
+HELP_MESSAGE
+
+  HELP_MESSAGE_2 = <<HELP_MESSAGE
+　・クリティカルおよびファンブルのみの判定：2D6+m[c,f]
+　　目標値を指定せず、修正値m、クリティカル値c、ファンブル値fで判定ロールを行います。
+　　修正値、クリティカル値、ファンブル値は省略可能です（[]は省略不可）。
+　　自動成功、自動失敗を自動表示します。
+
+　　例) 2d6[]　　　　修正値0、クリティカル値12、ファンブル値2で判定
+　　例) 2d6+2[11]　　修正値+2、クリティカル値11、ファンブル値2で判定
+　　例) 2d6+2[12,4]　修正値+2、クリティカル値12、ファンブル値4で判定
+HELP_MESSAGE
+
+  HELP_MESSAGE_3 = <<HELP_MESSAGE
+・D66ダイスあり（入れ替えなし)
+HELP_MESSAGE
+
+  # ダイスボットの説明文を結合する
+  # @return [String] 結合された説明文
+  def concatenate_help_messages
+    "#{HELP_MESSAGE_1}" \
+      "#{@help_msg_for_aliases_for_srs_roll_with_target_value}\n" \
+      "#{HELP_MESSAGE_2}" \
+      "#{@help_msg_for_aliases_for_srs_roll_without_target_value}\n" \
+      "#{HELP_MESSAGE_3}"
+  end
+
+  # 成功判定のエイリアスコマンドの説明文を用意する
+  # @param [Array<String>] aliases エイリアスコマンドの配列
+  # @return [self]
+  # @todo 現在は2文字のエイリアスコマンドに幅を合わせてある。
+  #   エイリアスコマンドの文字数が変わる場合があれば、位置を調整するコードが
+  #   必要。
+  def prepare_help_msg_for_aliases_for_srs_roll(aliases)
+    @help_msg_for_aliases_for_srs_roll_with_target_value =
+      aliases.
+      map { |a| "　　例) #{a}+2>=10　　　　 2d6+2>=10と同じ（#{a}が2D6のショートカットコマンド）\n" }.
+      join()
+
+    @help_msg_for_aliases_for_srs_roll_without_target_value =
+      aliases.
+      map { |a|
+        "　　例) #{a}　　　　　 2d6[]と同じ（#{a}が2D6のショートカットコマンド）\n" \
+        "　　例) #{a}+2[12,4]　 2d6+2[12,4]と同じ（#{a}が2D6のショートカットコマンド）\n"
+      }.
+      join()
+
+    self
+  end
 
   # 成功判定のエイリアスコマンドを2D6に置換する
   # @param [String] input 入力文字列
