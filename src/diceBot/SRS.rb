@@ -9,7 +9,7 @@ require 'utils/modifier_formatter'
 #
 # スタンダードRPGシステムにおいて共通な2D6成功判定を実装している。
 # また、各ゲームシステムに合わせた2D6成功判定のエイリアスコマンドを
-# 登録する機能を持つ。
+# 登録する機能（set_aliases_for_srs_roll）を持つ。
 class SRS < DiceBot
   include ModifierFormatter
 
@@ -25,9 +25,13 @@ class SRS < DiceBot
     # バラバラロール（Bコマンド）でソートする
     @sortType = 1
 
-    # SRSダイスロールのエイリアスコマンド
+    # 目標値あり成功判定のエイリアスコマンド
     # @type [Regexp, nil]
-    @aliases_pattern_for_srs_roll = nil
+    @aliases_re_for_srs_roll_with_target_value = nil
+
+    # 目標値なし成功判定のエイリアスコマンド
+    # @type [Regexp, nil]
+    @aliases_re_for_srs_roll_without_target_value = nil
   end
 
   # ゲームシステム名を返す
@@ -82,6 +86,10 @@ INFO_MESSAGE_TEXT
   SRS_ROLL_WITHOUT_TARGET_VALUE_RE =
     /\A2D6([-+][-+\d]+)?\[(\d+)?(?:,(\d+))?\]\z/.freeze
 
+  # 既定の閾値指定表記
+  SRS_ROLL_DEFAULT_THRESHOLDS =
+    "[#{DEFAULT_CRITICAL_VALUE},#{DEFAULT_FUMBLE_VALUE}]"
+
   # 成功判定コマンドのノード
   SRSRollNode = Struct.new(
     :modifier, :critical_value, :fumble_value, :target_value
@@ -102,7 +110,9 @@ INFO_MESSAGE_TEXT
   # @param [String] command 入力されたコマンド
   # @return [String, nil] ダイスロールコマンドの実行結果
   def rollDiceCommand(command)
-    if (node = parse(command))
+    alias_replaced_with_2d6 = replace_alias_for_srs_roll_with_2d6(command)
+
+    if (node = parse(alias_replaced_with_2d6))
       return execute_srs_roll(node)
     end
 
@@ -111,22 +121,50 @@ INFO_MESSAGE_TEXT
 
   protected
 
-  # SRSダイスロールのエイリアスコマンドを設定する
+  # 成功判定のエイリアスコマンドを設定する
   # @param [String] aliases エイリアスコマンド（可変長引数）
   # @return [self]
   #
   # エイリアスコマンドとして指定した文字列がコマンドの先頭にあれば、
-  # それが2D6に置き換わる。
+  # 実行時にそれが2D6に置換されるようになる。
   def set_aliases_for_srs_roll(*aliases)
     alias_part = aliases.
                  map { |a| Regexp.escape(a.upcase) }.
                  join('|')
-    @aliases_pattern_for_srs_roll = Regexp.new("\\A(S)?(?:#{alias_part})\\b")
+
+    @aliases_re_for_srs_roll_with_target_value = Regexp.new(
+      '\A' \
+      "(?:#{alias_part})" \
+      '((?:[-+][-+\d]+)?>=\d+(?:\[\d*(?:,\d+)?\])?)\z'
+    )
+
+    @aliases_re_for_srs_roll_without_target_value = Regexp.new(
+      '\A' \
+      "(?:#{alias_part})" \
+      '([-+][-+\d]+)?(\[\d*(?:,\d+)?\])?\z'
+    )
 
     self
   end
 
   private
+
+  # 成功判定のエイリアスコマンドを2D6に置換する
+  # @param [String] input 入力文字列
+  # @return [String]
+  def replace_alias_for_srs_roll_with_2d6(input)
+    case input
+    when @aliases_re_for_srs_roll_with_target_value
+      return "2D6#{Regexp.last_match(1)}"
+    when @aliases_re_for_srs_roll_without_target_value
+      modifier = Regexp.last_match(1)
+      thresholds = Regexp.last_match(2) || SRS_ROLL_DEFAULT_THRESHOLDS
+
+      return "2D6#{modifier}#{thresholds}"
+    else
+      return input
+    end
+  end
 
   # 構文解析する
   # @param [String] command コマンド文字列
