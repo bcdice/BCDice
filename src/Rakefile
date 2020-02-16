@@ -39,7 +39,8 @@ namespace :test do
     t.test_files = [
       'test/setup',
       'test/testDiceBotLoaders.rb',
-      'test/testDiceBotPrefixesCompatibility.rb'
+      'test/testDiceBotPrefixesCompatibility.rb',
+      'test/test_srs_help_messages.rb'
     ]
   end
 end
