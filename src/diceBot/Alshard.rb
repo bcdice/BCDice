@@ -8,13 +8,8 @@ class Alshard < SRS
   # 固有のコマンドの接頭辞を設定する
   setPrefixes(['2D6.*', 'AL.*'])
 
-  # ダイスボットを初期化する
-  def initialize
-    super
-
-    # 成功判定のエイリアスコマンドを設定する
-    set_aliases_for_srs_roll('AL')
-  end
+  # 成功判定のエイリアスコマンドを設定する
+  set_aliases_for_srs_roll('AL')
 
   # ゲームシステム名を返す
   # @return [String]
