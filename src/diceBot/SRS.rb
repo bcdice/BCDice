@@ -9,9 +9,159 @@ require 'utils/modifier_formatter'
 #
 # スタンダードRPGシステムにおいて共通な2D6成功判定を実装している。
 # また、各ゲームシステムに合わせた2D6成功判定のエイリアスコマンドを
-# 登録する機能（set_aliases_for_srs_roll）を持つ。
+# 登録するクラスメソッド set_aliases_for_srs_roll を持つ。
 class SRS < DiceBot
   include ModifierFormatter
+
+  HELP_MESSAGE_1 = <<HELP_MESSAGE
+・判定
+　・通常判定：2D6+m>=t[c,f]
+　　修正値m、目標値t、クリティカル値c、ファンブル値fで判定ロールを行います。
+　　修正値、クリティカル値、ファンブル値は省略可能です（[]ごと省略可）。
+　　クリティカル値、ファンブル値の既定値は、それぞれ12、2です。
+　　自動成功、自動失敗、成功、失敗を自動表示します。
+
+　　例) 2d6>=10　　　　　修正値0、目標値10で判定
+　　例) 2d6+2>=10　　　　修正値+2、目標値10で判定
+　　例) 2d6+2>=10[11]　　↑をクリティカル値11で判定
+　　例) 2d6+2>=10[12,4]　↑をクリティカル値12、ファンブル値4で判定
+HELP_MESSAGE
+
+  HELP_MESSAGE_2 = <<HELP_MESSAGE
+　・クリティカルおよびファンブルのみの判定：2D6+m[c,f]
+　　目標値を指定せず、修正値m、クリティカル値c、ファンブル値fで判定ロールを行います。
+　　修正値、クリティカル値、ファンブル値は省略可能です（[]は省略不可）。
+　　自動成功、自動失敗を自動表示します。
+
+　　例) 2d6[]　　　　修正値0、クリティカル値12、ファンブル値2で判定
+　　例) 2d6+2[11]　　修正値+2、クリティカル値11、ファンブル値2で判定
+　　例) 2d6+2[12,4]　修正値+2、クリティカル値12、ファンブル値4で判定
+HELP_MESSAGE
+
+  HELP_MESSAGE_3 = <<HELP_MESSAGE
+・D66ダイスあり（入れ替えなし)
+HELP_MESSAGE
+
+  # 既定のダイスボット説明文
+  DEFAULT_HELP_MESSAGE = "#{HELP_MESSAGE_1}\n#{HELP_MESSAGE_2}\n#{HELP_MESSAGE_3}"
+
+  # 成功判定のエイリアスコマンド定義用のクラスメソッドを提供するモジュール
+  module ClassMethods
+    # ダイスボットの説明文を返す
+    # @return [String]
+    attr_reader :help_message
+
+    # 目標値あり成功判定のエイリアスコマンドの正規表現を返す
+    # @return [Regexp, nil]
+    attr_reader :aliases_re_for_srs_roll_with_target_value
+
+    # 目標値なし成功判定のエイリアスコマンドの正規表現を返す
+    # @return [Regexp, nil]
+    attr_reader :aliases_re_for_srs_roll_without_target_value
+
+    # 成功判定のエイリアスコマンドを設定する
+    # @param [String] aliases エイリアスコマンド（可変長引数）
+    # @return [self]
+    #
+    # エイリアスコマンドとして指定した文字列がコマンドの先頭にあれば、
+    # 実行時にそれが2D6に置換されるようになる。
+    def set_aliases_for_srs_roll(*aliases)
+      aliases_upcase = aliases.map(&:upcase)
+      aliases_part = aliases_upcase.
+                     map { |a| Regexp.escape(a) }.
+                     join('|')
+
+      @aliases_re_for_srs_roll_with_target_value = Regexp.new(
+        '\A' \
+        "(?:#{aliases_part})" \
+        '((?:[-+][-+\d]+)?>=\d+(?:\[\d*(?:,\d+)?\])?)\z'
+      )
+
+      @aliases_re_for_srs_roll_without_target_value = Regexp.new(
+        '\A' \
+        "(?:#{aliases_part})" \
+        '([-+][-+\d]+)?(\[\d*(?:,\d+)?\])?\z'
+      )
+
+      prepare_help_msg_for_aliases_for_srs_roll(aliases_upcase)
+      @help_message = concatenate_help_messages
+
+      return self
+    end
+
+    # 成功判定のエイリアスコマンドを未設定にする
+    # @return [self]
+    def clear_aliases_for_srs_roll
+      @aliases_re_for_srs_roll_with_target_value = nil
+      @aliases_re_for_srs_roll_without_target_value = nil
+      @help_message = SRS::DEFAULT_HELP_MESSAGE
+
+      return self
+    end
+
+    private
+
+    # 成功判定のエイリアスコマンドの説明文を用意する
+    # @param [Array<String>] aliases エイリアスコマンドの配列
+    # @return [self]
+    # @todo 現在は2文字のエイリアスコマンドに幅を合わせてある。
+    #   エイリアスコマンドの文字数が変わる場合があれば、位置を調整するコードが
+    #   必要。
+    def prepare_help_msg_for_aliases_for_srs_roll(aliases)
+      @help_msg_for_aliases_for_srs_roll_with_target_value =
+        aliases.
+        map { |a| "　　例) #{a}+2>=10　　　　 2d6+2>=10と同じ（#{a}が2D6のショートカットコマンド）\n" }.
+        join()
+
+      @help_msg_for_aliases_for_srs_roll_without_target_value =
+        aliases.
+        map { |a|
+          "　　例) #{a}　　　　　 2d6[]と同じ（#{a}が2D6のショートカットコマンド）\n" \
+          "　　例) #{a}+2[12,4]　 2d6+2[12,4]と同じ（#{a}が2D6のショートカットコマンド）\n"
+        }.
+        join()
+
+      return self
+    end
+
+    # ダイスボットの説明文を結合する
+    # @return [String] 結合された説明文
+    def concatenate_help_messages
+      "#{SRS::HELP_MESSAGE_1}" \
+        "#{@help_msg_for_aliases_for_srs_roll_with_target_value}\n" \
+        "#{SRS::HELP_MESSAGE_2}" \
+        "#{@help_msg_for_aliases_for_srs_roll_without_target_value}\n" \
+        "#{SRS::HELP_MESSAGE_3}"
+    end
+  end
+
+  class << self
+    # クラスが継承されたときに行う処理
+    # @return [void]
+    def inherited(subclass)
+      subclass.
+        extend(ClassMethods).
+        clear_aliases_for_srs_roll
+    end
+
+    # ダイスボットの説明文を返す
+    # @return [String] 既定のダイスボット説明文
+    def help_message
+      DEFAULT_HELP_MESSAGE
+    end
+
+    # 目標値あり成功判定のエイリアスコマンドの正規表現を返す
+    # @return [nil]
+    def aliases_re_for_srs_roll_with_target_value
+      nil
+    end
+
+    # 目標値なし成功判定のエイリアスコマンドの正規表現を返す
+    # @return [nil]
+    def aliases_re_for_srs_roll_without_target_value
+      nil
+    end
+  end
 
   # 固有のコマンドの接頭辞を設定する
   setPrefixes(['2D6.*'])
@@ -26,22 +176,6 @@ class SRS < DiceBot
     @sortType = 1
     # D66ダイスあり（出目をソートしない）
     @d66Type = 1
-
-    # 目標値あり成功判定のエイリアスコマンドの正規表現
-    # @type [Regexp, nil]
-    @aliases_re_for_srs_roll_with_target_value = nil
-
-    # 目標値なし成功判定のエイリアスコマンドの正規表現
-    # @type [Regexp, nil]
-    @aliases_re_for_srs_roll_without_target_value = nil
-
-    # 目標値あり成功判定のエイリアスコマンドの説明文
-    @help_msg_for_aliases_for_srs_roll_with_target_value = ''
-    # 目標値なし成功判定のエイリアスコマンドの説明文
-    @help_msg_for_aliases_for_srs_roll_without_target_value = ''
-
-    # ダイスボットの説明文
-    @help_message = concatenate_help_messages
   end
 
   # ゲームシステム名を返す
@@ -59,7 +193,7 @@ class SRS < DiceBot
   # ダイスボットの説明文を返す
   # @return [String]
   def getHelpMessage
-    @help_message
+    self.class.help_message
   end
 
   # 既定のクリティカル値
@@ -107,110 +241,16 @@ class SRS < DiceBot
     return nil
   end
 
-  protected
-
-  # 成功判定のエイリアスコマンドを設定する
-  # @param [String] aliases エイリアスコマンド（可変長引数）
-  # @return [self]
-  #
-  # エイリアスコマンドとして指定した文字列がコマンドの先頭にあれば、
-  # 実行時にそれが2D6に置換されるようになる。
-  def set_aliases_for_srs_roll(*aliases)
-    aliases_upcase = aliases.map(&:upcase)
-    alias_part = aliases_upcase.
-                 map { |a| Regexp.escape(a) }.
-                 join('|')
-
-    @aliases_re_for_srs_roll_with_target_value = Regexp.new(
-      '\A' \
-      "(?:#{alias_part})" \
-      '((?:[-+][-+\d]+)?>=\d+(?:\[\d*(?:,\d+)?\])?)\z'
-    )
-
-    @aliases_re_for_srs_roll_without_target_value = Regexp.new(
-      '\A' \
-      "(?:#{alias_part})" \
-      '([-+][-+\d]+)?(\[\d*(?:,\d+)?\])?\z'
-    )
-
-    prepare_help_msg_for_aliases_for_srs_roll(aliases_upcase)
-    @help_message = concatenate_help_messages
-
-    self
-  end
-
   private
-
-  HELP_MESSAGE_1 = <<HELP_MESSAGE
-・判定
-　・通常判定：2D6+m>=t[c,f]
-　　修正値m、目標値t、クリティカル値c、ファンブル値fで判定ロールを行います。
-　　修正値、クリティカル値、ファンブル値は省略可能です（[]ごと省略可）。
-　　クリティカル値、ファンブル値の既定値は、それぞれ12、2です。
-　　自動成功、自動失敗、成功、失敗を自動表示します。
-
-　　例) 2d6>=10　　　　　修正値0、目標値10で判定
-　　例) 2d6+2>=10　　　　修正値+2、目標値10で判定
-　　例) 2d6+2>=10[11]　　↑をクリティカル値11で判定
-　　例) 2d6+2>=10[12,4]　↑をクリティカル値12、ファンブル値4で判定
-HELP_MESSAGE
-
-  HELP_MESSAGE_2 = <<HELP_MESSAGE
-　・クリティカルおよびファンブルのみの判定：2D6+m[c,f]
-　　目標値を指定せず、修正値m、クリティカル値c、ファンブル値fで判定ロールを行います。
-　　修正値、クリティカル値、ファンブル値は省略可能です（[]は省略不可）。
-　　自動成功、自動失敗を自動表示します。
-
-　　例) 2d6[]　　　　修正値0、クリティカル値12、ファンブル値2で判定
-　　例) 2d6+2[11]　　修正値+2、クリティカル値11、ファンブル値2で判定
-　　例) 2d6+2[12,4]　修正値+2、クリティカル値12、ファンブル値4で判定
-HELP_MESSAGE
-
-  HELP_MESSAGE_3 = <<HELP_MESSAGE
-・D66ダイスあり（入れ替えなし)
-HELP_MESSAGE
-
-  # ダイスボットの説明文を結合する
-  # @return [String] 結合された説明文
-  def concatenate_help_messages
-    "#{HELP_MESSAGE_1}" \
-      "#{@help_msg_for_aliases_for_srs_roll_with_target_value}\n" \
-      "#{HELP_MESSAGE_2}" \
-      "#{@help_msg_for_aliases_for_srs_roll_without_target_value}\n" \
-      "#{HELP_MESSAGE_3}"
-  end
-
-  # 成功判定のエイリアスコマンドの説明文を用意する
-  # @param [Array<String>] aliases エイリアスコマンドの配列
-  # @return [self]
-  # @todo 現在は2文字のエイリアスコマンドに幅を合わせてある。
-  #   エイリアスコマンドの文字数が変わる場合があれば、位置を調整するコードが
-  #   必要。
-  def prepare_help_msg_for_aliases_for_srs_roll(aliases)
-    @help_msg_for_aliases_for_srs_roll_with_target_value =
-      aliases.
-      map { |a| "　　例) #{a}+2>=10　　　　 2d6+2>=10と同じ（#{a}が2D6のショートカットコマンド）\n" }.
-      join()
-
-    @help_msg_for_aliases_for_srs_roll_without_target_value =
-      aliases.
-      map { |a|
-        "　　例) #{a}　　　　　 2d6[]と同じ（#{a}が2D6のショートカットコマンド）\n" \
-        "　　例) #{a}+2[12,4]　 2d6+2[12,4]と同じ（#{a}が2D6のショートカットコマンド）\n"
-      }.
-      join()
-
-    self
-  end
 
   # 成功判定のエイリアスコマンドを2D6に置換する
   # @param [String] input 入力文字列
   # @return [String]
   def replace_alias_for_srs_roll_with_2d6(input)
     case input
-    when @aliases_re_for_srs_roll_with_target_value
+    when self.class.aliases_re_for_srs_roll_with_target_value
       return "2D6#{Regexp.last_match(1)}"
-    when @aliases_re_for_srs_roll_without_target_value
+    when self.class.aliases_re_for_srs_roll_without_target_value
       modifier = Regexp.last_match(1)
       thresholds = Regexp.last_match(2) || SRS_ROLL_DEFAULT_THRESHOLDS
 

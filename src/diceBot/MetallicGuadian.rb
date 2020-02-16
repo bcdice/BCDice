@@ -8,13 +8,8 @@ class MetallicGuadian < SRS
   # 固有のコマンドの接頭辞を設定する
   setPrefixes(['2D6.*', 'MG.*'])
 
-  # ダイスボットを初期化する
-  def initialize
-    super
-
-    # 成功判定のエイリアスコマンドを設定する
-    set_aliases_for_srs_roll('MG')
-  end
+  # 成功判定のエイリアスコマンドを設定する
+  set_aliases_for_srs_roll('MG')
 
   # ゲームシステム名を返す
   # @return [String]
