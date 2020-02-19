@@ -240,6 +240,7 @@ Style/ClassVars:
     - diceBot/KillDeathBusiness_Korean.rb
     - diceBot/DarkDaysDrive.rb
     - diceBot/YankeeYogSothoth.rb
+    - diceBot/Kemono.rb
 
 # Offense count: 1
 Style/DoubleNegation:
