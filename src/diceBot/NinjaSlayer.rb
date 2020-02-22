@@ -58,7 +58,7 @@ MESSAGETEXT
   DIFFICULTY_RE = /\[(#{DIFFICULTY_VALUE_RE})\]|@(#{DIFFICULTY_VALUE_RE})/io.freeze
 
   # 通常判定の正規表現
-  NJ_RE = /\ANJ(\d+)#{DIFFICULTY_RE}?\z/io.freeze
+  NJ_RE = /\A(S)?NJ(\d+)#{DIFFICULTY_RE}?\z/io.freeze
   # 回避判定の正規表現
   EV_RE = %r{\AEV(\d+)#{DIFFICULTY_RE}?(?:/(\d+))?\z}io.freeze
   # 近接攻撃の正規表現
@@ -89,7 +89,8 @@ MESSAGETEXT
     m = NJ_RE.match(str)
     return str unless m
 
-    return bRollCommand(m[1], integerValueOfDifficulty(m[2] || m[3]))
+    b_roll = bRollCommand(m[2], integerValueOfDifficulty(m[3] || m[4]))
+    return "#{m[1]}#{b_roll}"
   end
 
   def rollDiceCommand(command)

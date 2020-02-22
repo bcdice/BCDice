@@ -29,6 +29,12 @@ NinjaSlayer : (4B6>=4) ＞ 2,3,6,4 ＞ 成功数2
 rand:2/6,3/6,6/6,4/6
 ============================
 input:
+SNJ4
+output:
+NinjaSlayer : (4B6>=4) ＞ 2,3,6,4 ＞ 成功数2###secret dice###
+rand:2/6,3/6,6/6,4/6
+============================
+input:
 NJ4@N
 output:
 NinjaSlayer : (4B6>=4) ＞ 2,3,6,4 ＞ 成功数2
