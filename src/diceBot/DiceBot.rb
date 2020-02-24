@@ -4,46 +4,46 @@ class DiceBot
   # 空の接頭辞（反応するコマンド）
   EMPTY_PREFIXES_PATTERN = /(^|\s)(S)?()(\s|$)/i.freeze
 
-  # 接頭辞（反応するコマンド）の配列を返す
-  # @return [Array<String>]
   class << self
+    # 接頭辞（反応するコマンド）の配列を返す
+    # @return [Array<String>]
     attr_reader :prefixes
-  end
 
-  # 接頭辞（反応するコマンド）の正規表現を返す
-  # @return [Regexp]
-  class << self
+    # 接頭辞（反応するコマンド）の正規表現を返す
+    # @return [Regexp]
     attr_reader :prefixesPattern
-  end
 
-  # 接頭辞（反応するコマンド）を設定する
-  # @param [Array<String>] prefixes 接頭辞のパターンの配列
-  # @return [self]
-  def self.setPrefixes(prefixes)
-    @prefixes = prefixes.
-                # 最適化が効くように内容の文字列を変更不可にする
-                map(&:freeze).
-                # 配列全体を変更不可にする
-                freeze
-    @prefixesPattern = /(^|\s)(S)?(#{prefixes.join('|')})(\s|$)/i.freeze
+    # 接頭辞（反応するコマンド）を設定する
+    # @param [Array<String>] prefixes 接頭辞のパターンの配列
+    # @return [self]
+    def setPrefixes(prefixes)
+      @prefixes = prefixes.
+                  # 最適化が効くように内容の文字列を変更不可にする
+                  map(&:freeze).
+                  # 配列全体を変更不可にする
+                  freeze
+      @prefixesPattern = /(^|\s)(S)?(#{prefixes.join('|')})(\s|$)/i.freeze
 
-    self
-  end
+      self
+    end
 
-  # 接頭辞（反応するコマンド）をクリアする
-  # @return [self]
-  def self.clearPrefixes
-    @prefixes = [].freeze
-    @prefixesPattern = EMPTY_PREFIXES_PATTERN
+    # 接頭辞（反応するコマンド）をクリアする
+    # @return [self]
+    def clearPrefixes
+      @prefixes = [].freeze
+      @prefixesPattern = EMPTY_PREFIXES_PATTERN
 
-    self
-  end
+      self
+    end
 
-  # 継承された際にダイスボットの接頭辞リストをクリアする
-  # @param [DiceBot] subclass DiceBotを継承したクラス
-  # @return [void]
-  def self.inherited(subclass)
-    subclass.clearPrefixes
+    private
+
+    # 継承された際にダイスボットの接頭辞リストをクリアする
+    # @param [DiceBot] subclass DiceBotを継承したクラス
+    # @return [void]
+    def inherited(subclass)
+      subclass.clearPrefixes
+    end
   end
 
   clearPrefixes
