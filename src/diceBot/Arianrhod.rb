@@ -8,6 +8,9 @@ class Arianrhod < DiceBot
   # ゲームシステム名
   NAME = 'アリアンロッド'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ありあんろつと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・クリティカル、ファンブルの自動判定を行います。(クリティカル時の追加ダメージも表示されます)

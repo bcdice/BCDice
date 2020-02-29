@@ -8,6 +8,9 @@ class Raisondetre < DiceBot
   # ゲームシステム名
   NAME = '叛逆レゾンデートル'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'はんきやくれそんてとおる'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 判定：[判定値]RD[技能][@目標値]

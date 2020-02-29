@@ -8,6 +8,9 @@ class Elysion < DiceBot
   # ゲームシステム名
   NAME = 'エリュシオン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'えりゆしおん'
+
   # ダイスボットの使い方
   #
   #  教室 R:classRoom／購買 S:Shop／部室 B:Box／生徒会室 C:Council／学生寮 D:Dormitory／図書館 I:lIbrary／屋上 F:rooF／

@@ -8,6 +8,9 @@ class Avandner < DiceBot
   # ゲームシステム名
   NAME = '黒絢のアヴァンドナー'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'あうあんとなあ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・調査判定：nAVm[Cx]

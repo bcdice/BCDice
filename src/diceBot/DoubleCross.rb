@@ -11,6 +11,9 @@ class DoubleCross < DiceBot
   # ゲームシステム名
   NAME = 'ダブルクロス2nd,3rd'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'たふるくろす2'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定コマンド　(xDX+y@c or xDXc+y)

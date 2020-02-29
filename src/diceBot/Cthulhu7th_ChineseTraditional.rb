@@ -8,6 +8,9 @@ class Cthulhu7th_ChineseTraditional < DiceBot
   # ゲームシステム名
   NAME = '克蘇魯神話第7版'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Chinese Traditional:克蘇魯神話'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定　CC(x)<=（目標値）

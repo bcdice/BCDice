@@ -11,6 +11,9 @@ class FullMetalPanic < SRS
   # ゲームシステム名
   NAME = 'フルメタル・パニック！'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ふるめたるはにつく'
+
   # 固有のコマンドの接頭辞を設定する
   setPrefixes(['2D6.*', 'MG.*', 'FP.*'])
 

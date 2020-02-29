@@ -8,6 +8,9 @@ class StrangerOfSwordCity < DiceBot
   # ゲームシステム名
   NAME = '剣の街の異邦人TRPG'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'けんのまちのいほうしんTRPG'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定　xSR or xSRy or xSR+y or xSR-y or xSR+y>=z

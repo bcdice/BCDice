@@ -8,6 +8,9 @@ class GehennaAn < DiceBot
   # ゲームシステム名
   NAME = 'ゲヘナ・アナスタシス'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'けへなあなすたしす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 戦闘判定と通常判定に対応。幸運の助け、連撃増加値(戦闘判定)、闘技チット(戦闘判定)を自動表示します。

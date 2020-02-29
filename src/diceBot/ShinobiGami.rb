@@ -10,6 +10,9 @@ class ShinobiGami < DiceBot
   # ゲームシステム名
   NAME = 'シノビガミ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'しのひかみ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・各種表

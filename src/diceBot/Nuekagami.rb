@@ -8,6 +8,9 @@ class Nuekagami < DiceBot
   # ゲームシステム名
   NAME = '鵺鏡'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ぬえかかみ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・喪失表（xL）

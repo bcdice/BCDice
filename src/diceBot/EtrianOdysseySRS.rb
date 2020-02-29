@@ -11,6 +11,9 @@ class EtrianOdysseySRS < SRS
   # ゲームシステム名
   NAME = '世界樹の迷宮SRS'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'せかいしゆのめいきゆうSRS'
+
   # 固有のコマンドの接頭辞を設定する
   setPrefixes(['2D6.*', 'EO.*', 'SQ.*'])
 

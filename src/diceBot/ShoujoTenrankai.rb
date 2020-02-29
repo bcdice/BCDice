@@ -8,6 +8,9 @@ class ShoujoTenrankai < DiceBot
   # ゲームシステム名
   NAME = '少女展爛会'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'しようしよてんらんかい'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 出来事表：

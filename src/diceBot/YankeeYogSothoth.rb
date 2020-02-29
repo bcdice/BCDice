@@ -8,6 +8,9 @@ class YankeeYogSothoth < DiceBot
   # ゲームシステム名
   NAME = 'ヤンキー＆ヨグ＝ソトース'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'やんきいあんとよくそとおす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定

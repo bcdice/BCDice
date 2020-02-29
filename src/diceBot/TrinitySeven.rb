@@ -8,6 +8,9 @@ class TrinitySeven < DiceBot
   # ゲームシステム名
   NAME = 'トリニティセブンRPG'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'とりにていせふんRPG'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 クリティカルが変動した命中及び、7の出目がある場合のダメージ計算が行なえます。

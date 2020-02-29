@@ -8,6 +8,9 @@ class Pendragon < DiceBot
   # ゲームシステム名
   NAME = 'ペンドラゴン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'へんとらこん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 クリティカル、成功、失敗、ファンブルの自動判定を行います。

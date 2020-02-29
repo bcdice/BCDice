@@ -8,6 +8,9 @@ class RokumonSekai2 < DiceBot
   # ゲームシステム名
   NAME = '六門世界2nd'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ろくもんせかい2'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定

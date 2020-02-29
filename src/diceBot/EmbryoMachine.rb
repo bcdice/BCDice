@@ -8,6 +8,9 @@ class EmbryoMachine < DiceBot
   # ゲームシステム名
   NAME = 'エムブリオマシン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'えむふりおましん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定ロール(EMt+m@c#f)

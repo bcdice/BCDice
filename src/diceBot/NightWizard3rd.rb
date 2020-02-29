@@ -7,6 +7,9 @@ class NightWizard3rd < NightWizard
   # ゲームシステム名
   NAME = 'ナイトウィザード3版'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ないとういさあと3'
+
   # ゲームシステムの識別子
   ID = 'NightWizard3rd'
 

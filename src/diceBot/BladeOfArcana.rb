@@ -8,6 +8,9 @@ class BladeOfArcana < DiceBot
   # ゲームシステム名
   NAME = 'ブレイド・オブ・アルカナ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ふれいとおふあるかな'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ■行為判定　nA[m][Cx][Fy]

@@ -8,6 +8,9 @@ class JamesBond < DiceBot
   # ゲームシステム名
   NAME = 'ジェームズ・ボンド007'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'しええむすほんと007'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・1D100の目標値判定で、効果レーティングを1～4で自動判定。

@@ -8,6 +8,9 @@ class CthulhuTech < DiceBot
   # ゲームシステム名
   NAME = 'クトゥルフテック'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'くとうるふてつく'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 テストのダイス計算を実装。

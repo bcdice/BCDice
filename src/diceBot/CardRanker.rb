@@ -8,6 +8,9 @@ class CardRanker < DiceBot
   # ゲームシステム名
   NAME = 'カードランカー'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かあとらんかあ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ランダムでモンスターカードを選ぶ (RM)

@@ -7,6 +7,9 @@ class ChaosFlare < DiceBot
   # ゲームシステム名
   NAME = 'カオスフレア'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かおすふれあ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 失敗、成功の判定。差分値の計算も行います。

@@ -8,6 +8,9 @@ class OneWayHeroics < DiceBot
   # ゲームシステム名
   NAME = '片道勇者'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かたみちゆうしや'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定　aJDx+y,z

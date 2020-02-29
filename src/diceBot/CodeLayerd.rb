@@ -8,6 +8,9 @@ class CodeLayerd < DiceBot
   # ゲームシステム名
   NAME = 'コード：レイヤード'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'こおとれいやあと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・行為判定（nCL@m） クリティカル・ファンブル判定あり

@@ -10,6 +10,9 @@ class GundogZero < Gundog
   # ゲームシステム名
   NAME = 'ガンドッグ・ゼロ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かんとつくせろ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 失敗、成功、クリティカル、ファンブルとロールの達成値の自動判定を行います。

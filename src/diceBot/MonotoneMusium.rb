@@ -8,6 +8,9 @@ class MonotoneMusium < DiceBot
   # ゲームシステム名
   NAME = 'モノトーン・ミュージアム'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ものとおんみゆうしあむ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定

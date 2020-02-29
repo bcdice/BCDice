@@ -8,6 +8,9 @@ class Kamigakari < DiceBot
   # ゲームシステム名
   NAME = '神我狩'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かみかかり'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・各種表

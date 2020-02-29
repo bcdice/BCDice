@@ -8,6 +8,9 @@ class LogHorizon_Korean < DiceBot
   # ゲームシステム名
   NAME = '로그 호라이즌'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:로그 호라이즌'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・판정(xLH±y>=z)

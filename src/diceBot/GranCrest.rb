@@ -8,6 +8,9 @@ class GranCrest < DiceBot
   # ゲームシステム名
   NAME = 'グランクレスト'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'くらんくれすと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・2D6の目標値判定でクリティカル処理

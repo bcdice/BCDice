@@ -8,6 +8,9 @@ class BeginningIdol < DiceBot
   # ゲームシステム名
   NAME = 'ビギニングアイドル'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ひきにんくあいとる'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・パフォーマンス　[r]PDn[+m/-m](r：場に残った出目　n：振る数　m：修正値)

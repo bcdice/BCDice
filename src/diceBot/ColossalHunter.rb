@@ -8,6 +8,9 @@ class ColossalHunter < DiceBot
   # ゲームシステム名
   NAME = 'コロッサルハンター'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ころつさるはんたあ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定（CH±x>=y)

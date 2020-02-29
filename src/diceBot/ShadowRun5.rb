@@ -10,6 +10,9 @@ class ShadowRun5 < ShadowRun4
   # ゲームシステム名
   NAME = 'シャドウラン第5版'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'しやとうらん5'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 個数振り足しロール(xRn)の境界値を6にセット、バラバラロール(xBn)の目標値を5以上にセットします。

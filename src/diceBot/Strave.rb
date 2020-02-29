@@ -8,6 +8,9 @@ class Strave < DiceBot
   # ゲームシステム名
   NAME = '碧空のストレイヴ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'へきくうのすとれいふ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・モラトリアムフェイズ用判定：MPm

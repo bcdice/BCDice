@@ -8,6 +8,9 @@ class SwordWorld < DiceBot
   # ゲームシステム名
   NAME = 'ソードワールド'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'そおとわあると'
+
   # ダイスボットの使い方
   HELP_MESSAGE = "・SW　レーティング表　(Kx[c]+m$f) (x:キー, c:クリティカル値, m:ボーナス, f:出目修正)\n"
 

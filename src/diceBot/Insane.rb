@@ -8,6 +8,9 @@ class Insane < DiceBot
   # ゲームシステム名
   NAME = 'インセイン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'いんせいん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定

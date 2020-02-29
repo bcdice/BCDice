@@ -8,6 +8,9 @@ class EndBreaker < DiceBot
   # ゲームシステム名
   NAME = 'エンドブレイカー'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'えんとふれいかあ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定 (nEB)

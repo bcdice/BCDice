@@ -8,6 +8,9 @@ class Villaciel < DiceBot
   # ゲームシステム名
   NAME = '蒼天のヴィラシエル'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'そうてんのういらしえる'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定　　　　　　　　nVBS[>=d]

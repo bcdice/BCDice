@@ -8,6 +8,9 @@ class WitchQuest < DiceBot
   # ゲームシステム名
   NAME = 'ウィッチクエスト'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ういつちくえすと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・チャレンジ(成功判定)(WQn)

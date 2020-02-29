@@ -8,6 +8,9 @@ class DarkBlaze < DiceBot
   # ゲームシステム名
   NAME = 'ダークブレイズ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'たあくふれいす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・行為判定　(DBxy#n)

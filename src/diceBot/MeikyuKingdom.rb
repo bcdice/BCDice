@@ -8,6 +8,9 @@ class MeikyuKingdom < DiceBot
   # ゲームシステム名
   NAME = '迷宮キングダム'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'めいきゆうきんくたむ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定　(nMK+m)

@@ -10,6 +10,9 @@ class NinjaSlayer < DiceBot
   # ゲームシステム名
   NAME = 'ニンジャスレイヤーTRPG'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'にんしやすれいやあRPG'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・通常判定　NJ

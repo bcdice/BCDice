@@ -8,6 +8,9 @@ class MetalHead < DiceBot
   # ゲームシステム名
   NAME = 'メタルヘッド'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'めたるへつと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・アビリティロール  AR>=目標値

@@ -8,6 +8,9 @@ class Warhammer < DiceBot
   # ゲームシステム名
   NAME = 'ウォーハンマー'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'うおおはんまあ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・クリティカル表(whHxx/whAxx/whBxx/whLxx)

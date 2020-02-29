@@ -8,6 +8,9 @@ class GoldenSkyStories < DiceBot
   # ゲームシステム名
   NAME = 'ゆうやけこやけ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ゆうやけこやけ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ※「ゆうやけこやけ」はダイスロールを使用しないシステムです。

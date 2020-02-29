@@ -8,6 +8,9 @@ class Cthulhu7th < DiceBot
   # ゲームシステム名
   NAME = '新クトゥルフ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'しんくとうるふ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ※コマンドは入力内容の前方一致で検出しています。

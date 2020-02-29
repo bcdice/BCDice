@@ -8,6 +8,9 @@ class TherapieSein < DiceBot
   # ゲームシステム名
   NAME = '青春疾患セラフィザイン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'せいしゆんしつかんせらふいさいん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・一般判定：TS[n][±m][@t]　　[]内のコマンドは省略可能。クリティカル無。

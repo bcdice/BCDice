@@ -8,6 +8,9 @@ class TunnelsAndTrolls < DiceBot
   # ゲームシステム名
   NAME = 'トンネルズ＆トロールズ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'とんねるすあんととろおるす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・行為判定　(nD6+x>=nLV)

@@ -8,6 +8,9 @@ class NightmareHunterDeep < DiceBot
   # ゲームシステム名
   NAME = 'ナイトメアハンター=ディープ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ないとめあはんたあていいふ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 加算ロール時に６の個数をカウントして、その４倍を自動的に加算します。

@@ -8,6 +8,9 @@ class GardenOrder < DiceBot
   # ゲームシステム名
   NAME = 'ガーデンオーダー'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かあてんおおたあ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・基本判定

@@ -8,6 +8,9 @@ class Chill < DiceBot
   # ゲームシステム名
   NAME = 'Chill'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ちる'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・ストライク・ランク　(SRx)

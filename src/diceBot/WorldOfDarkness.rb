@@ -8,6 +8,9 @@ class WorldOfDarkness < DiceBot
   # ゲームシステム名
   NAME = 'ワールドオブダークネス'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'わあるとおふたあくねす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定コマンド(xSTn+y or xSTSn+y)

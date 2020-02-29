@@ -8,6 +8,9 @@ class Satasupe < DiceBot
   # ゲームシステム名
   NAME = 'サタスペ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'さたすへ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定コマンド　(nR>=x[y,z,c] or nR>=x or nR>=[,,c] etc)

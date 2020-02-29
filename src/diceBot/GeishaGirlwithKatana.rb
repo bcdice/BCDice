@@ -8,6 +8,9 @@ class GeishaGirlwithKatana < DiceBot
   # ゲームシステム名
   NAME = 'ゲイシャ・ガール・ウィズ・カタナ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'けいしやかあるういすかたな'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定 (GK#n)

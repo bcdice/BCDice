@@ -8,6 +8,9 @@ class FilledWith < DiceBot
   # ゲームシステム名
   NAME = 'フィルトウィズ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ふいるとういす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定 (3FW@x#y<=z or z-3FW@x#y)

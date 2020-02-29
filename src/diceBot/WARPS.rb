@@ -8,6 +8,9 @@ class WARPS < DiceBot
   # ゲームシステム名
   NAME = 'ワープス'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'わあふす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = "失敗、成功度の自動判定を行います。\n"
 

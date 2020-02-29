@@ -17,6 +17,9 @@ class BeastBindTrinity < DiceBot
   # ゲームシステム名
   NAME = 'ビーストバインド トリニティ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ひいすとはいんととりにてい'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定　(nBB+m%w@x#y$z&v)

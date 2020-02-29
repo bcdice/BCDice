@@ -8,6 +8,9 @@ class Dracurouge_Korean < DiceBot
   # ゲームシステム名
   NAME = '드라크루주'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:드라크루주'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・행동판정（DRx+y）

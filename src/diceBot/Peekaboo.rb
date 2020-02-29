@@ -8,6 +8,9 @@ class Peekaboo < DiceBot
   # ゲームシステム名
   NAME = 'ピーカーブー'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ひいかあふう'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定

@@ -8,6 +8,9 @@ class LostRecord < DiceBot
   # ゲームシステム名
   NAME = 'ロストレコード'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ろすとれこおと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ※このダイスボットは部屋のシステム名表示用となります。

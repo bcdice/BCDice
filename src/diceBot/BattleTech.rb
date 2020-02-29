@@ -8,6 +8,9 @@ class BattleTech < DiceBot
   # ゲームシステム名
   NAME = 'バトルテック'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'はとるてつく'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定方法

@@ -8,6 +8,9 @@ class ShinkuuGakuen < DiceBot
   # ゲームシステム名
   NAME = '真空学園'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'しんくうかくえん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定

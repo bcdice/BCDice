@@ -8,6 +8,9 @@ class Alsetto < DiceBot
   # ゲームシステム名
   NAME = '詩片のアルセット'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'あるせつと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・成功判定：nAL[m]　　　　・トライアンフ無し：nALC[m]

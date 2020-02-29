@@ -8,6 +8,9 @@ class RecordOfSteam < DiceBot
   # ゲームシステム名
   NAME = 'Record of Steam'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'れこおとおふすちいむ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 2S2@1

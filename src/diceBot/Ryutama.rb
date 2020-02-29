@@ -8,6 +8,9 @@ class Ryutama < DiceBot
   # ゲームシステム名
   NAME = 'りゅうたま'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'りゆうたま'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定

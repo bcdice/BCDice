@@ -8,6 +8,9 @@ class BeginningIdol_Korean < DiceBot
   # ゲームシステム名
   NAME = '비기닝 아이돌'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:비기닝 아이돌'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・퍼포먼스　[r]PDn[+m/-m](r：남은 주사위 눈　n：굴릴 갯수　m：수정치)
