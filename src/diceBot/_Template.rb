@@ -8,6 +8,12 @@ class Template < DiceBot
   # ゲームシステム名
   NAME = 'ゲームシステム名'
 
+  # ゲームシステム名の読みがな
+  #
+  # 「ゲームシステム名の読みがなの設定方法」（docs/dicebot_sort_key.md）を参考にして
+  # 設定してください
+  SORT_KEY = 'けえむしすてむめい'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ヘルプメッセージ
