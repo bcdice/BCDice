@@ -1,25 +1,15 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class OrgaRain < DiceBot
-  def initialize
-    super
-    @sortType = 1 # ダイスのソート有
-  end
+  # ゲームシステムの識別子
+  ID = 'OrgaRain'
 
-  setPrefixes([
-    '(\d+)?OR([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?'
-  ])
+  # ゲームシステム名
+  NAME = '在りて遍くオルガレイン'
 
-  def gameName
-    '在りて遍くオルガレイン'
-  end
-
-  def gameType
-    "OrgaRain"
-  end
-
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 判定：[n]OR(count)
 
 []内のコマンドは省略可能。
@@ -30,7 +20,15 @@ class OrgaRain < DiceBot
 ・5OR6042 → 5dで命数「0,2,4,6」の判定
 ・6OR33333 → 6dで命数「3,3,3,3,3」の判定。
 MESSAGETEXT
+
+  def initialize
+    super
+    @sortType = 1 # ダイスのソート有
   end
+
+  setPrefixes([
+    '(\d+)?OR([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?'
+  ])
 
   def rollDiceCommand(command)
     if /(\d+)?OR([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?$/i === command

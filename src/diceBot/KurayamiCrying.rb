@@ -1,23 +1,15 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class KurayamiCrying < DiceBot
-  def initialize
-    super
-  end
+  # ゲームシステムの識別子
+  ID = 'KurayamiCrying'
 
-  def gameName
-    'クラヤミクライン'
-  end
+  # ゲームシステム名
+  NAME = 'クラヤミクライン'
 
-  def gameType
-    "KurayamiCrying"
-  end
-
-  def getHelpMessage
-    return <<MESSAGETEXT
-・アクシデント表（ACT）
-MESSAGETEXT
-  end
+  # ダイスボットの使い方
+  HELP_MESSAGE = "・アクシデント表（ACT）\n"
 
   def rollDiceCommand(command)
     case command

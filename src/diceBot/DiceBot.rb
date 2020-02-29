@@ -1,8 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class DiceBot
   # 空の接頭辞（反応するコマンド）
   EMPTY_PREFIXES_PATTERN = /(^|\s)(S)?()(\s|$)/i.freeze
+
+  # ゲームシステムの識別子
+  ID = 'DiceBot'
+
+  # ゲームシステム名
+  NAME = 'DiceBot'
+
+  # ダイスボットの使い方
+  HELP_MESSAGE = ''
 
   class << self
     # 接頭辞（反応するコマンド）の配列を返す
@@ -66,12 +76,10 @@ class DiceBot
     @rerollLimitCount = 10000 # 振り足し回数上限
     @fractionType = "omit" # 端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
 
-    @gameType = 'DiceBot'
-
     if !prefixs.empty? && self.class.prefixes.empty?
       # 従来の方法（#prefixs）で接頭辞を設定していた場合でも
       # クラス側に接頭辞が設定されるようにする
-      warn("#{gameType}: #prefixs is deprecated. Please use .setPrefixes.")
+      warn("#{id}: #prefixs is deprecated. Please use .setPrefixes.")
       self.class.setPrefixes(prefixs)
     end
   end
@@ -92,15 +100,53 @@ class DiceBot
 
   def info
     {
-      'name' => gameName,
-      'gameType' => gameType,
+      'name' => name,
+      'gameType' => id,
       'prefixs' => self.class.prefixes,
-      'info' => getHelpMessage,
+      'info' => help_message,
     }
   end
 
+  # ゲームシステムの識別子を返す
+  # @return [String]
+  def id
+    self.class::ID
+  end
+
+  # ゲームシステムの識別子を返す
+  # @return [String]
+  # @deprecated 代わりに {#id} を使ってください
+  def gameType
+    warn("#{id}: #gameType is deprecated. Please use #id.")
+    return id
+  end
+
+  # ゲームシステム名を返す
+  # @return [String]
+  def name
+    self.class::NAME
+  end
+
+  # ゲームシステム名を返す
+  # @return [String]
+  # @deprecated 代わりに {#name} を使ってください
   def gameName
-    gameType
+    warn("#{id}: #gameName is deprecated. Please use #name.")
+    return name
+  end
+
+  # ダイスボットの使い方を返す
+  # @return [String]
+  def help_message
+    self.class::HELP_MESSAGE
+  end
+
+  # ダイスボットの使い方を返す
+  # @return [String]
+  # @deprecated 代わりに {#help_message} を使ってください
+  def getHelpMessage
+    warn("#{id}: #getHelpMessage is deprecated. Please use #help_message.")
+    return help_message
   end
 
   # 接頭辞（反応するコマンド）の配列を返す
@@ -111,12 +157,6 @@ class DiceBot
 
   # @deprecated 代わりに {#prefixes} を使ってください
   alias prefixs prefixes
-
-  attr_reader :gameType
-
-  def setGameType(type)
-    @gameType = type
-  end
 
   def setSendMode(m)
     @sendMode = m
@@ -164,10 +204,6 @@ class DiceBot
 
   def rollDiceAddingUp(*arg)
     @@bcdice.rollDiceAddingUp(*arg)
-  end
-
-  def getHelpMessage
-    ''
   end
 
   def parren_killer(string)

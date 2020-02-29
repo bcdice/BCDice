@@ -1,22 +1,15 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class MetalHead < DiceBot
-  setPrefixes(['AR', 'SR', 'HR<=.+', 'CC', 'ACT', 'ACL', 'ACS', 'CRC[A-Z]\d+'])
+  # ゲームシステムの識別子
+  ID = 'MetalHead'
 
-  def initialize
-    super
-  end
+  # ゲームシステム名
+  NAME = 'メタルヘッド'
 
-  def gameName
-    'メタルヘッド'
-  end
-
-  def gameType
-    "MetalHead"
-  end
-
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 ・アビリティロール  AR>=目標値
 ・スキルロール      SR<=目標値(%)
 ・命中判定ロール    HR<=目標値(%)
@@ -34,7 +27,8 @@ class MetalHead < DiceBot
   例）CRCA61 SUV=Aを対象とした数値61(62に変換される)の戦闘結果を参照する。
   例）CRCM98 対物で数値98の戦闘結果を参照する。
 MESSAGETEXT
-  end
+
+  setPrefixes(['AR', 'SR', 'HR<=.+', 'CC', 'ACT', 'ACL', 'ACS', 'CRC[A-Z]\d+'])
 
   def rollDiceCommand(command)
     debug("rollDiceCommand", command)

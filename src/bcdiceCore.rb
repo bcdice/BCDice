@@ -119,7 +119,7 @@ class BCDice
   end
 
   def getGameType
-    @diceBot.gameType
+    @diceBot.id
   end
 
   def setDiceBot(diceBot)
@@ -506,7 +506,7 @@ class BCDice
   def checkMode()
     return unless isMaster()
 
-    output = "GameType = " + @diceBot.gameType + ", ViewMode = " + @diceBot.sendMode + ", Sort = " + @diceBot.sortType
+    output = "GameType = " + @diceBot.id + ", ViewMode = " + @diceBot.sendMode + ", Sort = " + @diceBot.sortType
     sendMessageToOnlySender(output)
   end
 
@@ -526,7 +526,7 @@ class BCDice
 
     sleepForIrc 2
 
-    @diceBot.getHelpMessage.lines.each_slice(5) do |lines|
+    @diceBot.help_message.lines.each_slice(5) do |lines|
       lines.each(&send_to_sender)
       sleepForIrc 1
     end
@@ -1569,7 +1569,7 @@ class BCDice
     setDiceBot(diceBot)
     diceBot.postSet
 
-    message = "Game設定を#{diceBot.gameName}に設定しました"
+    message = "Game設定を#{diceBot.name}に設定しました"
     debug('setGameByTitle message', message)
 
     return message
