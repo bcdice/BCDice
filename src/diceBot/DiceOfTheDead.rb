@@ -8,6 +8,9 @@ class DiceOfTheDead < DiceBot
   # ゲームシステム名
   NAME = 'ダイス・オブ・ザ・デッド'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'たいすおふさてつと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・ゾンビ化表　ZMB+x

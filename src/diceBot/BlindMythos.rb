@@ -8,6 +8,9 @@ class BlindMythos < DiceBot
   # ゲームシステム名
   NAME = 'ブラインド・ミトス'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ふらいんとみとす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定：BMx@y>=z、BMSx@y>=z

@@ -17,6 +17,9 @@ class SRS < DiceBot
   # ゲームシステム名
   NAME = 'Standard RPG System'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'すたんたあとRPGしすてむ'
+
   include ModifierFormatter
 
   HELP_MESSAGE_1 = <<HELP_MESSAGE

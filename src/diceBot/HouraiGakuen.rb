@@ -8,6 +8,9 @@ class HouraiGakuen < DiceBot
   # ゲームシステム名
   NAME = '蓬莱学園の冒険!!'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ほうらいかくえんのほうけん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・基本ロール：ROL(x+n)

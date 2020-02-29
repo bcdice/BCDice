@@ -8,6 +8,9 @@ class DarkSouls < DiceBot
   # ゲームシステム名
   NAME = 'ダークソウルTRPG'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'たあくそうるTRPG'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・行為判定：[n]DS[a±b][@t]　　[]内のコマンドは省略可

@@ -8,6 +8,9 @@ class NightWizard < DiceBot
   # ゲームシステム名
   NAME = 'ナイトウィザード2版'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ないとういさあと2'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定用コマンド　(nNW+m@x#y)

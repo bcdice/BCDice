@@ -8,6 +8,9 @@ class MagicaLogia < DiceBot
   # ゲームシステム名
   NAME = 'マギカロギア'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'まきかろきあ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定

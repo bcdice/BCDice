@@ -8,6 +8,9 @@ class BarnaKronika < DiceBot
   # ゲームシステム名
   NAME = 'バルナ・クロニカ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'はるなくろにか'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・通常判定　nBK

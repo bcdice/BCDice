@@ -8,6 +8,9 @@ class BadLife < DiceBot
   # ゲームシステム名
   NAME = '犯罪活劇RPGバッドライフ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'はつとらいふ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定：nBADm[±a][Cb±c][Fd±e][@X±f][!OP]　　[]内のコマンドは省略可。

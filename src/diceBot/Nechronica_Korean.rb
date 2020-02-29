@@ -8,6 +8,9 @@ class Nechronica_Korean < DiceBot
   # ゲームシステム名
   NAME = '네크로니카'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:네크로니카'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・판정　(nNC+m)

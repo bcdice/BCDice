@@ -8,6 +8,9 @@ class RuneQuest < DiceBot
   # ゲームシステム名
   NAME = 'ルーンクエスト'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'るうんくえすと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 クリティカル、エフェクティブ(効果的成功)、ファンブルの自動判定を行います。

@@ -8,6 +8,9 @@ class Amadeus < DiceBot
   # ゲームシステム名
   NAME = 'アマデウス'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'あまてうす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定(Rx±y@z>=t)

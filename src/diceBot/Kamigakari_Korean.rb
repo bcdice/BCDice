@@ -8,6 +8,9 @@ class Kamigakari_Korean < DiceBot
   # ゲームシステム名
   NAME = '카미가카리'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:카미가카리'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・각종표

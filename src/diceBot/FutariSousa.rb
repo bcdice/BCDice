@@ -8,6 +8,9 @@ class FutariSousa < DiceBot
   # ゲームシステム名
   NAME = 'フタリソウサ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ふたりそうさ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定用コマンド

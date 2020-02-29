@@ -8,6 +8,9 @@ class Postman < DiceBot
   # ゲームシステム名
   NAME = '壊れた世界のポストマン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ほすとまん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ◆判定：[n]PO[+-a][> or >= or @X]　　[]内省略可。

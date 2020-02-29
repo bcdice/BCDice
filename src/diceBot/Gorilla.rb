@@ -8,6 +8,9 @@ class Gorilla < DiceBot
   # ゲームシステム名
   NAME = 'ゴリラTRPG'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'こりらTRPG'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 2D6ロール時のゴリティカル自動判定を行います。

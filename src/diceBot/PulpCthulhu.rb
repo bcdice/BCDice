@@ -10,6 +10,9 @@ class PulpCthulhu < Cthulhu7th
   # ゲームシステム名
   NAME = 'パルプ・クトゥルフ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'はるふくとうるふ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ※私家翻訳のため、用語・ルールの詳細については原本を参照願います。

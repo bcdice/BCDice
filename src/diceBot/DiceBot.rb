@@ -11,6 +11,9 @@ class DiceBot
   # ゲームシステム名
   NAME = 'DiceBot'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = '*たいすほつと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = ''
 
@@ -98,10 +101,13 @@ class DiceBot
     # 何もしない
   end
 
+  # ダイスボットについての情報を返す
+  # @return [Hash]
   def info
     {
-      'name' => name,
       'gameType' => id,
+      'name' => name,
+      'sortKey' => sort_key,
       'prefixs' => self.class.prefixes,
       'info' => help_message,
     }
@@ -133,6 +139,12 @@ class DiceBot
   def gameName
     warn("#{id}: #gameName is deprecated. Please use #name.")
     return name
+  end
+
+  # ゲームシステム名の読みがなを返す
+  # @return [String]
+  def sort_key
+    self.class::SORT_KEY
   end
 
   # ダイスボットの使い方を返す

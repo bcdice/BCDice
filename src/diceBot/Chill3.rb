@@ -8,6 +8,9 @@ class Chill3 < DiceBot
   # ゲームシステム名
   NAME = 'Chill 3'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ちる3'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・1D100で判定時に成否、Botchを判定

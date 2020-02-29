@@ -8,6 +8,9 @@ class LogHorizon < DiceBot
   # ゲームシステム名
   NAME = 'ログ・ホライズン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ろくほらいすん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定(xLH±y>=z)

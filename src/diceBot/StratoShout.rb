@@ -8,6 +8,9 @@ class StratoShout < DiceBot
   # ゲームシステム名
   NAME = 'ストラトシャウト'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'すとらとしやうと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 

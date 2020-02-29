@@ -10,6 +10,9 @@ class EarthDawn4 < EarthDawn
   # ゲームシステム名
   NAME = 'アースドーン4版'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ああすとおん4'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ステップダイス　(xEnK)

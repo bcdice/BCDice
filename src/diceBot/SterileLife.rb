@@ -8,6 +8,9 @@ class SterileLife < DiceBot
   # ゲームシステム名
   NAME = 'ステラーライフ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'すてらあらいふ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ◆判定　nDAc[s,d,t]　n:ダイス数　c:各種修正　s:1成功（省略不可）　d:2成功（省略不可）　t:3成功（ダイス目一致時のみ　省略時:無し）

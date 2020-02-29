@@ -8,6 +8,9 @@ class Skynauts < DiceBot
   # ゲームシステム名
   NAME = '歯車の塔の探空士'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'すかいのおつ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ◆判定　(SNn)、(2D6<=n)　n:目標値（省略時:7）

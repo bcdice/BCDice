@@ -8,6 +8,9 @@ class LiveraDoll < DiceBot
   # ゲームシステム名
   NAME = '紫縞のリヴラドール'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'りうらとおる'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 アタックX：[x]ATK(BNo)

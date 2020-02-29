@@ -11,6 +11,9 @@ class StellarKnights < DiceBot
   # ゲームシステム名
   NAME = '銀剣のステラナイツ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'すてらないつ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・基本

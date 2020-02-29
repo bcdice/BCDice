@@ -8,6 +8,9 @@ class Airgetlamh < DiceBot
   # ゲームシステム名
   NAME = '朱の孤塔のエアゲトラム'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'えあけとらむ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 【Reg2.0『THE ANSWERER』～】

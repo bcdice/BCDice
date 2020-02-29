@@ -8,6 +8,9 @@ class Cthulhu_Korean < DiceBot
   # ゲームシステム名
   NAME = '크툴루'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:크툴루의부름7'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 c=크리티컬치 ／ f=펌블치 ／ s=스페셜

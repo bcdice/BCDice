@@ -10,6 +10,9 @@ class Torg1_5 < Torg
   # ゲームシステム名
   NAME = 'トーグ1.5版'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'とおく1.5'
+
   setPrefixes(Torg.prefixes)
 
   # 一般結果表 成功度

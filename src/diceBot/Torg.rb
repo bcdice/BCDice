@@ -8,6 +8,9 @@ class Torg < DiceBot
   # ゲームシステム名
   NAME = 'トーグ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'とおく'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定　(TGm)

@@ -8,6 +8,9 @@ class TwilightGunsmoke < DiceBot
   # ゲームシステム名
   NAME = 'トワイライト・ガンスモーク'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'とわいらいとかんすもおく'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定

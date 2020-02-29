@@ -8,6 +8,9 @@ class Illusio < DiceBot
   # ゲームシステム名
   NAME = '晃天のイルージオ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'いるうしお'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 判定：[n]IL(BNo)[P]

@@ -8,6 +8,9 @@ class TokumeiTenkousei < DiceBot
   # ゲームシステム名
   NAME = '特命転攻生'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'とくめいてんこうせい'
+
   # ダイスボットの使い方
   HELP_MESSAGE = "「1の出目でEPP獲得」、判定時の「成功」「失敗」「ゾロ目で自動振り足し」を判定。\n"
 

@@ -8,6 +8,9 @@ class MeikyuDays < DiceBot
   # ゲームシステム名
   NAME = '迷宮デイズ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'めいきゆうていす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定　(nMD+m)

@@ -8,6 +8,9 @@ class MetalHeadExtream < DiceBot
   # ゲームシステム名
   NAME = 'メタルヘッドエクストリーム'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'めたるへつとえくすとりいむ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ◆判定：ARn or SRn[*/a][@b][Ac][Ld][!M]　　[]内省略可。

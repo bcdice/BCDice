@@ -8,6 +8,9 @@ class InfiniteFantasia < DiceBot
   # ゲームシステム名
   NAME = '無限のファンタジア'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'むけんのふあんたしあ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = "失敗、成功レベルの自動判定を行います。\n"
 

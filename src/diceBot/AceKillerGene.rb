@@ -10,6 +10,9 @@ class AceKillerGene < GardenOrder
   # ゲームシステム名
   NAME = 'エースキラージーン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ええすきらあしいん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・基本判定

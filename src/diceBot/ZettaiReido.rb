@@ -8,6 +8,9 @@ class ZettaiReido < DiceBot
   # ゲームシステム名
   NAME = '絶対隷奴'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'せつたいれいと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定

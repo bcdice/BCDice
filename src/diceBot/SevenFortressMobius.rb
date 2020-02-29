@@ -10,6 +10,9 @@ class SevenFortressMobius < DiceBot
   # ゲームシステム名
   NAME = 'セブン＝フォートレス メビウス'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'せふんふおおとれすめひうす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定用コマンド　(nSFM+m@x#y)

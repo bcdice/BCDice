@@ -10,6 +10,9 @@ class ParasiteBlood < DemonParasite
   # ゲームシステム名
   NAME = 'パラサイトブラッド'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'はらさいとふらつと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・衝動表　(URGEx)

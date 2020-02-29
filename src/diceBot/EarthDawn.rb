@@ -8,6 +8,9 @@ class EarthDawn < DiceBot
   # ゲームシステム名
   NAME = 'アースドーン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ああすとおん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ステップダイス　(xEn+k)

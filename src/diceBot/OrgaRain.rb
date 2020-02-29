@@ -8,6 +8,9 @@ class OrgaRain < DiceBot
   # ゲームシステム名
   NAME = '在りて遍くオルガレイン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'おるかれいん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 判定：[n]OR(count)

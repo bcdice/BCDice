@@ -11,6 +11,9 @@ class GurpsFW < DiceBot
   # ゲームシステム名
   NAME = 'ガープスフィルトウィズ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かあふすふいるとういす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 --GURPS汎用コマンド----------

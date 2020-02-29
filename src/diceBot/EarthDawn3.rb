@@ -10,6 +10,9 @@ class EarthDawn3 < EarthDawn
   # ゲームシステム名
   NAME = 'アースドーン3版'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ああすとおん3'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ステップダイス　(xEn+k)

@@ -8,6 +8,9 @@ class DetatokoSaga_Korean < DiceBot
   # ゲームシステム名
   NAME = '데타토코 사가'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:데타토코 사가'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・통상판정　xDS or xDSy or xDS>=z or xDSy>=z

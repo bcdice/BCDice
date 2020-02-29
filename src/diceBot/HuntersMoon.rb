@@ -8,6 +8,9 @@ class HuntersMoon < DiceBot
   # ゲームシステム名
   NAME = 'ハンターズムーン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'はんたあすむうん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定

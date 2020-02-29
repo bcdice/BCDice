@@ -8,6 +8,9 @@ class Alter_raise < DiceBot
   # ゲームシステム名
   NAME = '心衝想機TRPGアルトレイズ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'あるとれいす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ◆解放判定：EMA[x]

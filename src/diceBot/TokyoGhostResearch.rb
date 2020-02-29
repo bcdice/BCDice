@@ -8,6 +8,9 @@ class TokyoGhostResearch < DiceBot
   # ゲームシステム名
   NAME = '東京ゴーストリサーチ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'とうきようこおすとりさあち'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 判定

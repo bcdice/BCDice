@@ -8,6 +8,9 @@ class WaresBlade < DiceBot
   # ゲームシステム名
   NAME = 'ワースブレイド'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'わあすふれいと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = "nD10>=m 方式の判定で成否、完全成功、完全失敗を自動判定します。\n"
 

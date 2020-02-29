@@ -8,6 +8,9 @@ class KillDeathBusiness < DiceBot
   # ゲームシステム名
   NAME = 'キルデスビジネス'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'きるてすひしねす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定

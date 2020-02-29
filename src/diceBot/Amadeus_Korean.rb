@@ -8,6 +8,9 @@ class Amadeus_Korean < DiceBot
   # ゲームシステム名
   NAME = '아마데우스'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:아마데우스'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・판정(Rx±y@z>=t)

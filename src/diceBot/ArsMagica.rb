@@ -8,6 +8,9 @@ class ArsMagica < DiceBot
   # ゲームシステム名
   NAME = 'アルスマギカ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'あるすまきか'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・ストレスダイス　(ArSx+y)

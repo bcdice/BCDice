@@ -8,6 +8,9 @@ class Utakaze < DiceBot
   # ゲームシステム名
   NAME = 'ウタカゼ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'うたかせ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・行為判定ロール（nUK）

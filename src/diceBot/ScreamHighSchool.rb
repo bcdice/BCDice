@@ -10,6 +10,9 @@ class ScreamHighSchool < GardenOrder
   # ゲームシステム名
   NAME = 'スクリームハイスクール'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'すくりいむはいすくうる'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・基本判定

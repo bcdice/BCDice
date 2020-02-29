@@ -8,6 +8,9 @@ class KillDeathBusiness_Korean < DiceBot
   # ゲームシステム名
   NAME = 'Kill Death Business (한국어)'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:Kill Death Business'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・판정

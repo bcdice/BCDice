@@ -8,6 +8,9 @@ class KanColle < DiceBot
   # ゲームシステム名
   NAME = '艦これRPG'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かんこれRPG'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 例) 2D6 ： 単純に2D6した値を出します。

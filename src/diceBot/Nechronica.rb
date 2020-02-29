@@ -8,6 +8,9 @@ class Nechronica < DiceBot
   # ゲームシステム名
   NAME = 'ネクロニカ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ねくろにか'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定　(nNC+m)

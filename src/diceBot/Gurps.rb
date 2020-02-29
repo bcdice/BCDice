@@ -8,6 +8,9 @@ class Gurps < DiceBot
   # ゲームシステム名
   NAME = 'ガープス'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かあふす'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定においてクリティカル・ファンブルの自動判別、成功度の自動計算。(3d6<=目標値／目標値-3d6)

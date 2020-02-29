@@ -10,6 +10,9 @@ class Pathfinder < DungeonsAndDoragons
   # ゲームシステム名
   NAME = 'Pathfinder'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'はすふあいんたあ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = "※このダイスボットは部屋のシステム名表示用となります。\n"
 end

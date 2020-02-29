@@ -8,6 +8,9 @@ class Garako < DiceBot
   # ゲームシステム名
   NAME = 'ガラコと破界の塔'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'からことはかいのとう'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定

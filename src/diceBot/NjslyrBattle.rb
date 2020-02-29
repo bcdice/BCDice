@@ -8,6 +8,9 @@ class NjslyrBattle < DiceBot
   # ゲームシステム名
   NAME = 'NJSLYRBATTLE'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'にんしやすれいやあはとる'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・カラテロール

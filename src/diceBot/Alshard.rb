@@ -8,6 +8,9 @@ class Alshard < SRS
   # ゲームシステム名
   NAME = 'アルシャード'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'あるしやあと'
+
   # ゲームシステムの識別子
   ID = 'Alshard'
 

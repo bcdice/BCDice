@@ -10,6 +10,9 @@ class SwordWorld2_0 < SwordWorld
   # ゲームシステム名
   NAME = 'ソードワールド2.0'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'そおとわあると2.0'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 自動的成功、成功、失敗、自動的失敗の自動判定を行います。

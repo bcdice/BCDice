@@ -8,6 +8,9 @@ class HarnMaster < DiceBot
   # ゲームシステム名
   NAME = 'ハーンマスター'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'はあんますたあ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・判定

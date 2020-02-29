@@ -8,6 +8,9 @@ class KurayamiCrying < DiceBot
   # ゲームシステム名
   NAME = 'クラヤミクライン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'くらやみくらいん'
+
   # ダイスボットの使い方
   HELP_MESSAGE = "・アクシデント表（ACT）\n"
 

@@ -8,6 +8,9 @@ class DemonParasite < DiceBot
   # ゲームシステム名
   NAME = 'デモンパラサイト'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'てもんはらさいと'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・衝動表　(URGEx)

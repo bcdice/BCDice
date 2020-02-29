@@ -8,6 +8,9 @@ class Dracurouge < DiceBot
   # ゲームシステム名
   NAME = 'ドラクルージュ'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'とらくるうしゆ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・行い判定（DRx+y）

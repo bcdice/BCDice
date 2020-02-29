@@ -8,6 +8,9 @@ class SharedFantasia < DiceBot
   # ゲームシステム名
   NAME = 'Shared†Fantasia'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'しえああとふあんたしあ'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 2D6の成功判定に 自動成功、自動失敗、致命的失敗、劇的成功 の判定があります。

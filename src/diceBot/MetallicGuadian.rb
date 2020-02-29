@@ -16,6 +16,9 @@ class MetallicGuadian < SRS
   # ゲームシステム名
   NAME = 'メタリックガーディアン'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'めたりつくかあていあん'
+
   # ゲームシステム識別子を返す
   # @return [String]
   # ゲームシステムの識別子

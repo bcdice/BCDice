@@ -8,6 +8,9 @@ class CrashWorld < DiceBot
   # ゲームシステム名
   NAME = '墜落世界'
 
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ついらくせかい'
+
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定 CWn
