@@ -1,19 +1,14 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 require 'diceBot/NightWizard'
 
 class NightWizard3rd < NightWizard
-  def initialize
-    super
-  end
+  # ゲームシステム名
+  NAME = 'ナイトウィザード3版'
 
-  def gameName
-    'ナイトウィザード3版'
-  end
-
-  def gameType
-    "NightWizard3rd"
-  end
+  # ゲームシステムの識別子
+  ID = 'NightWizard3rd'
 
   def getFumbleTextAndTotal(base, modify, dice_str)
     total = base + modify

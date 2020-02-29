@@ -1,25 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 require "utils/table"
 require "utils/d66_grid_table"
 
 class StellarKnights < DiceBot
-  def initialize
-    super
+  # ゲームシステムの識別子
+  ID = 'StellarKnights'
 
-    @d66Type = 1
-  end
+  # ゲームシステム名
+  NAME = '銀剣のステラナイツ'
 
-  def gameName
-    '銀剣のステラナイツ'
-  end
-
-  def gameType
-    "StellarKnights"
-  end
-
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 ・基本
 TT：お題表
 STA ：シチュエーション表A：時間 (Situation Table A)
@@ -54,6 +47,11 @@ YSTB：あなたの物語表：ブリンガー (YST Bringer)
 YSTF：あなたの物語表：フォージ (YST Forge)
 STAL：シチュエーション表：オルトリヴート (ST Alt-Levoot)
 MESSAGETEXT
+
+  def initialize
+    super
+
+    @d66Type = 1
   end
 
   def rollDiceCommand(command)

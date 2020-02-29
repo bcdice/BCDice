@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 # ダイスボットの読み込みを担当するクラス
 class DiceBotLoader

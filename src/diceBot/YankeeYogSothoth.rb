@@ -1,21 +1,15 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class YankeeYogSothoth < DiceBot
-  def initialize
-    super
-    @d66Type = 2
-  end
+  # ゲームシステムの識別子
+  ID = 'YankeeYogSothoth'
 
-  def gameName
-    'ヤンキー＆ヨグ＝ソトース'
-  end
+  # ゲームシステム名
+  NAME = 'ヤンキー＆ヨグ＝ソトース'
 
-  def gameType
-    "YankeeYogSothoth"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定
 スペシャル／ファンブル／成功／失敗を判定
 ・各種表
@@ -40,6 +34,10 @@ GYST	ガイヤンキー生活表
 HPST	病院生活表
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
+
+  def initialize
+    super
+    @d66Type = 2
   end
 
   # ゲーム別成功度判定(2D6)
