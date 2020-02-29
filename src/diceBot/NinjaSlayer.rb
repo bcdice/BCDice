@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require 'diceBot/DiceBot'
+require 'utils/table'
 
 class NinjaSlayer < DiceBot
   # ゲームシステムの識別子
@@ -59,7 +60,7 @@ MESSAGETEXT
   DIFFICULTY_RE = /\[(#{DIFFICULTY_VALUE_RE})\]|@(#{DIFFICULTY_VALUE_RE})/io.freeze
 
   # 通常判定の正規表現
-  NJ_RE = /\ANJ(\d+)#{DIFFICULTY_RE}?\z/io.freeze
+  NJ_RE = /\A(S)?NJ(\d+)#{DIFFICULTY_RE}?\z/io.freeze
   # 回避判定の正規表現
   EV_RE = %r{\AEV(\d+)#{DIFFICULTY_RE}?(?:/(\d+))?\z}io.freeze
   # 近接攻撃の正規表現
@@ -90,11 +91,16 @@ MESSAGETEXT
     m = NJ_RE.match(str)
     return str unless m
 
-    return bRollCommand(m[1], integerValueOfDifficulty(m[2] || m[3]))
+    b_roll = bRollCommand(m[2], integerValueOfDifficulty(m[3] || m[4]))
+    return "#{m[1]}#{b_roll}"
   end
 
   def rollDiceCommand(command)
     debug('rollDiceCommand begin string', command)
+
+    if (table = TABLES[command])
+      return table.roll(bcdice)
+    end
 
     case node = parse(command)
     when EV
@@ -103,8 +109,6 @@ MESSAGETEXT
       return executeAT(node)
     when EL
       return executeEL(node)
-    when :SB
-      return executeSB
     else
       return nil
     end
@@ -123,8 +127,6 @@ MESSAGETEXT
       return parseAT(Regexp.last_match)
     when EL_RE
       return parseEL(Regexp.last_match)
-    when 'SB'
-      return :SB
     else
       return nil
     end
@@ -217,24 +219,6 @@ MESSAGETEXT
     return numOfMaxValues >= 1 ? "#{rollResult} + #{numOfMaxValues} ＞ #{sumOfTrueValues + numOfMaxValues}" : rollResult
   end
 
-  # サツバツ判定を行う
-  def executeSB
-    table_name = "サツバツ表"
-    table = [
-      '「死ねーッ！」腹部に強烈な一撃！　敵はくの字に折れ曲がり、ワイヤーアクションめいて吹っ飛んだ！：本来のダメージ＋１ダメージを与える。敵は後方の壁または障害物に向かって、何マスでもまっすぐ弾き飛ばされる（他のキャラのいるマスは通過する）。壁または障害物に接触した時点で、敵はさらに１ダメージを受ける。敵はこの激突ダメージに対して改めて『回避判定』を行っても良い。',
-      '「イヤーッ！」頭部への痛烈なカラテ！　眼球破壊もしくは激しい脳震盪が敵を襲う！：本来のダメージを与える。さらに敵の【ニューロン】と【ワザマエ】がそれぞれ１ずつ減少する（これによる最低値は１）。残虐ボーナスにより【万札】がD３発生。この攻撃を【カルマ：善】のキャラに対して行ってしまった場合、【DKK】がD３上昇する。',
-      '「苦しみ抜いて死ぬがいい」急所を情け容赦なく破壊！：本来のダメージ＋１ダメージを与える。耐え難い苦痛により、敵は【精神力】が–２され、【ニューロン】が１減少する（これによる最低値は１）。残虐ボーナスにより【万札】がD３発生。この攻撃を【カルマ：善】のキャラに対して行ってしまった場合、【DKK】がD３上昇する。',
-      '「逃げられるものなら逃げてみよ」敵の脚を粉砕！：本来のダメージを与える。さらに敵の【脚力】がD３減少する（最低値は１）。残虐ボーナスにより【万札】がD３発生。この攻撃を【カルマ：善】のキャラに対して行ってしまった場合、【DKK】がD３上昇する。',
-      '「これで手も足も出まい！」敵の両腕を切り飛ばした！　鮮血がスプリンクラーめいて噴き出す！：本来のダメージ＋１ダメージを与える。さらに敵の【ワザマエ】と【カラテ】がそれぞれ２減少する（最低値は１）。残虐ボーナスにより【万札】がD３発生。この攻撃を【カルマ：善】のキャラに対して行ってしまった場合、【DKK】がD３上昇する。',
-      '「イイイヤアアアアーーーーッ！」ヤリめいたチョップが敵の胸を貫通！　さらに心臓を掴み取り、握りつぶした！　ナムアミダブツ！：敵は残り【体力】に関係なく即死する。残虐ボーナスにより【万札】がD６発生。この攻撃を【カルマ：善】のキャラに対して行ってしまった場合、【DKK】がD６上昇する。'
-    ]
-
-    info, number = get_table_by_1d6(table)
-    text = "#{table_name}(#{number}) ＞ #{info}"
-
-    return text
-  end
-
   # 難易度の整数値を返す
   # @param [String, nil] s 難易度表記
   # @return [Integer] 難易度の整数値
@@ -257,4 +241,31 @@ MESSAGETEXT
   def bRollCommand(num, difficulty)
     "#{num}B6>=#{difficulty}"
   end
+
+  # サツバツ表
+  SATSUBATSU_TABLE = [
+    '「死ねーッ！」腹部に強烈な一撃！　敵はくの字に折れ曲がり、ワイヤーアクションめいて吹っ飛んだ！：本来のダメージ+1ダメージを与える。敵は後方の壁または障害物に向かって、何マスでもまっすぐ弾き飛ばされる（他のキャラのいるマスは通過する）。壁または障害物に接触した時点で、敵はさらに1ダメージを受ける。敵はこの激突ダメージに対して改めて『回避判定』を行っても良い。',
+    '「イヤーッ！」頭部への痛烈なカラテ！　眼球破壊もしくは激しい脳震盪が敵を襲う！：本来のダメージを与える。さらに敵の【ニューロン】と【ワザマエ】がそれぞれ1ずつ減少する（これによる最低値は1）。残虐ボーナスにより【万札】がD3発生。この攻撃を【カルマ：善】のキャラに対して行ってしまった場合、【DKK】がD3上昇する。',
+    '「苦しみ抜いて死ぬがいい」急所を情け容赦なく破壊！：本来のダメージ+1ダメージを与える。耐え難い苦痛により、敵は【精神力】が-2され、【ニューロン】が1減少する（これによる最低値は1）。残虐ボーナスにより【万札】がD3発生。この攻撃を【カルマ：善】のキャラに対して行ってしまった場合、【DKK】がD3上昇する。',
+    '「逃げられるものなら逃げてみよ」敵の脚を粉砕！：本来のダメージを与える。さらに敵の【脚力】がD3減少する（最低値は1）。残虐ボーナスにより【万札】がD3発生。この攻撃を【カルマ：善】のキャラに対して行ってしまった場合、【DKK】がD3上昇する。',
+    '「これで手も足も出まい！」敵の両腕を切り飛ばした！　鮮血がスプリンクラーめいて噴き出す！：本来のダメージ+1ダメージを与える。さらに敵の【ワザマエ】と【カラテ】がそれぞれ2減少する（最低値は1）。残虐ボーナスにより【万札】がD3発生。この攻撃を【カルマ：善】のキャラに対して行ってしまった場合、【DKK】がD3上昇する。',
+    '「イイイヤアアアアーーーーッ！」ヤリめいたチョップが敵の胸を貫通！　さらに心臓を掴み取り、握りつぶした！　ナムアミダブツ！：敵は残り【体力】に関係なく即死する。残虐ボーナスにより【万札】がD6発生。この攻撃を【カルマ：善】のキャラに対して行ってしまった場合、【DKK】がD6上昇する。'
+  ].freeze
+
+  # 表の定義
+  TABLES = {
+    'SB' => Table.new(
+      'サツバツ表',
+      '1D6',
+      SATSUBATSU_TABLE
+    )
+  }.freeze
+
+  # ダイスボットで使用するコマンドを配列で列挙する
+  setPrefixes([
+    'NJ\d+.*',
+    'EV\d+.*',
+    'AT\d+.*',
+    'EL\d+.*'
+  ] + TABLES.keys)
 end
