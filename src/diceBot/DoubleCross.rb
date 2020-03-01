@@ -42,7 +42,7 @@ INFO_MESSAGE_TEXT
   # 2. 修正値
   # 3. クリティカル値
   # 4. 達成値
-  DX_OD_TOLL_RE = /\A(\d+)DX([-+][-+\d]+)?@(\d+)(?:>=(\d+))?\z/io.freeze
+  DX_OD_TOOL_RE = /\A(\d+)DX([-+][-+\d]+)?@(\d+)(?:>=(\d+))?\z/io.freeze
 
   # 疾風怒濤式の成功判定コマンドの正規表現
   #
@@ -259,7 +259,7 @@ INFO_MESSAGE_TEXT
   # @return [DXNode, nil]
   def parse(command)
     case command
-    when DX_OD_TOLL_RE
+    when DX_OD_TOOL_RE
       return parse_dx_od(Regexp.last_match)
     when DX_SHIPPU_DOTO_RE
       return parse_dx_shippu_doto(Regexp.last_match)
