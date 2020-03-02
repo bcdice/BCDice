@@ -23,7 +23,7 @@ class DoubleCross < DiceBot
     return <<INFO_MESSAGE_TEXT
 ・判定コマンド　(xDX+y@c or xDXc+y)
 　"(個数)DX(修正)@(クリティカル値)"もしくは"(個数)DX(クリティカル値)(修正)"で指定します。
-　加算減算のみ修正値も付けられます。
+　修正値も付けられます。
 　例）10dx　　　10dx+5@8(OD tool式)　　　5DX7+7-3(疾風怒濤式)
 
 ・各種表
@@ -40,9 +40,9 @@ INFO_MESSAGE_TEXT
   #
   # 1. ダイス数
   # 2. 修正値
-  # 3. クリティカル値
-  # 4. 達成値
-  DX_OD_TOLL_RE = /\A(\d+)DX([-+][-+\d]+)?@(\d+)(?:>=(\d+))?\z/io.freeze
+  # 4. クリティカル値
+  # 5. 達成値
+  DX_OD_TOOL_RE = /\A(\d+)DX([-+]\d+([-+*]\d+)*)?@(\d+)(?:>=(\d+))?\z/io.freeze
 
   # 疾風怒濤式の成功判定コマンドの正規表現
   #
@@ -51,8 +51,8 @@ INFO_MESSAGE_TEXT
   # 1. ダイス数
   # 2. クリティカル値
   # 3. 修正値
-  # 4. 達成値
-  DX_SHIPPU_DOTO_RE = /\A(\d+)DX(\d+)?([-+][-+\d]+)?(?:>=(\d+))?\z/io.freeze
+  # 5. 達成値
+  DX_SHIPPU_DOTO_RE = /\A(\d+)DX(\d+)?([-+]\d+([-+*]\d+)*)?(?:>=(\d+))?\z/io.freeze
 
   # 成功判定コマンドのノード
   DXNode = Struct.new(:num, :critical_value, :modifier, :target_value) do
@@ -259,7 +259,7 @@ INFO_MESSAGE_TEXT
   # @return [DXNode, nil]
   def parse(command)
     case command
-    when DX_OD_TOLL_RE
+    when DX_OD_TOOL_RE
       return parse_dx_od(Regexp.last_match)
     when DX_SHIPPU_DOTO_RE
       return parse_dx_shippu_doto(Regexp.last_match)
@@ -274,10 +274,10 @@ INFO_MESSAGE_TEXT
   def parse_dx_od(m)
     num = m[1].to_i
     modifier = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
-    critical_value = m[3] ? m[3].to_i : 10
+    critical_value = m[4] ? m[4].to_i : 10
 
     # @type [Integer, nil]
-    target_value = m[4] && m[4].to_i
+    target_value = m[5] && m[5].to_i
 
     return DXNode.new(num, critical_value, modifier, target_value)
   end
@@ -291,7 +291,7 @@ INFO_MESSAGE_TEXT
     modifier = m[3] ? ArithmeticEvaluator.new.eval(m[3]) : 0
 
     # @type [Integer, nil]
-    target_value = m[4] && m[4].to_i
+    target_value = m[5] && m[5].to_i
 
     return DXNode.new(num, critical_value, modifier, target_value)
   end
