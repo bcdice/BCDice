@@ -117,7 +117,7 @@ $allGameTypes = %w{
   Kamigakari
   Kamigakari:Korean
   KanColle
-  Kemono
+  KemonoNoMori
   KillDeathBusiness
   KillDeathBusiness:Korean
   KurayamiCrying
