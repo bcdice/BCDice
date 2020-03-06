@@ -689,6 +689,10 @@ class TestDiceBotLoaders < Test::Unit::TestCase
     assertDiceBotWithoutLoader('Kamigakari:Korean', 'Kamigakari_Korean')
   end
 
+  def test_KemonoNoMori
+    assertDiceBotWithoutLoader('KemonoNoMori')
+  end
+
   def test_KillDeathBusiness_Korean
     assertDiceBotWithoutLoader('KillDeathBusiness:Korean',
                                'KillDeathBusiness_Korean')
