@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
+require 'utils/ArithmeticEvaluator'
 
 class MetalHead < DiceBot
   setPrefixes(['AR', 'SR', 'HR<=.+', 'CC', 'ACT', 'ACL', 'ACS', 'CRC[A-Z]\d+'])
@@ -37,13 +40,11 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-    debug("rollDiceCommand", command)
-
     tableName   = ""
     tableNumber = ""
     tableResult = ""
 
-    case command.upcase
+    case command
     when /^CC/
       tableName, tableResult, tableNumber = mh_cc_table
     when /^ACL/
@@ -51,9 +52,13 @@ MESSAGETEXT
     when /^ACS/
       tableName, tableResult, tableNumber = mh_acs_table
     when /^CRC(\w)(\d+)/
-      tableName, tableResult, tableNumber = mh_crc_table(Regexp.last_match(1), Regexp.last_match(2))
+      suv = Regexp.last_match(1)
+      num = Regexp.last_match(2)
+      return mh_crc_table(suv, num)
     when /^HR<=(.+)$/
-      target = parren_killer("(" + Regexp.last_match(1) + ")").to_i
+      target = ArithmeticEvaluator.new.eval(
+        Regexp.last_match(1), @fractionType.to_sym
+      )
       return rollHit(target)
     end
 
@@ -172,13 +177,18 @@ MESSAGETEXT
     return name, result, num
   end
 
+  # 戦闘結果チャートを振る
+  # @param [String] suv 耐久レベル
+  # @param [String] num 数値
+  # @return [String] 振った結果
   def mh_crc_table(suv, num)
-    name = "戦闘結果チャート"
+    header_parts = ['戦闘結果チャート', num]
+    separator = ' ＞ '
 
     suv = suv.to_s.upcase
     numbuf = num.to_i
     if numbuf < 1
-      return name, '数値が不正です', num
+      return (header_parts + ['数値が不正です']).join(separator)
     end
 
     num_d1 = numbuf % 10
@@ -218,7 +228,10 @@ MESSAGETEXT
     }
 
     if table_damage[suv].nil?
-      return name, "耐久レベル(SUV)[#{suv}] ＞ 耐久レベル(SUV)の値が不正です", num
+      return (header_parts + [
+        "耐久レベル(SUV)[#{suv}]",
+        "耐久レベル(SUV)の値が不正です",
+      ]).join(separator)
     end
 
     damage_level = ''
@@ -231,18 +244,21 @@ MESSAGETEXT
       end
     end
 
-    result = ""
+    result_parts = []
 
     if numbuf != num.to_i
-      result = "#{numbuf} ＞ "
+      result_parts.push(numbuf.to_s)
     end
 
     if suv == 'M'
-      result += "耐物 ＞ HP[#{damage_level}]"
+      result_parts.push('耐物', "HP[#{damage_level}]")
     else
-      result += "耐久レベル(SUV)[#{suv}] ＞ 部位[#{table_point[num_d1]}] ： 損傷種別[#{damage_level}]"
+      result_parts.push(
+        "耐久レベル(SUV)[#{suv}]",
+        "部位[#{table_point[num_d1]}] ： 損傷種別[#{damage_level}]"
+      )
     end
 
-    return name, result, num
+    return (header_parts + result_parts).join(separator)
   end
 end
