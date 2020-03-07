@@ -46,10 +46,6 @@ MESSAGETEXT
     string.sub(/PPC/, 'BT10')
   end
 
-  def undefCommandResult
-    '1'
-  end
-
   def rollDiceCommand(command)
     result = roll_tables(command, TABLES)
     return result if result
