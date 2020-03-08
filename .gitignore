@@ -7,3 +7,4 @@
 /extratables/*.txt~
 src/.bundle
 src/vendor
+Gemfile.lock
