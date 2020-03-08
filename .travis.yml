@@ -12,11 +12,5 @@ rvm:
   - 1.9.3
   - 1.8.7
 
-gemfile:
-  - src/Gemfile
-
 before_install:
   - dpkg --compare-versions $(ruby --version | grep -Eo "([0-9]\.)+[0-9]+") ge 2.3 && gem update --system --no-document && gem update --no-document || true
-
-before_script:
-  - cd src
