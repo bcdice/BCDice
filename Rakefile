@@ -18,13 +18,13 @@ namespace :test do
     t.description = 'ダイスボット'
 
     t.test_files = [
-      'test/setup',
-      'test/testDiceBots.rb',
+      'src/test/setup',
+      'src/test/testDiceBots.rb',
     ]
     t.libs = [
-      'test',
-      '.',
-      'irc'
+      'src/test',
+      'src/',
+      'src/irc'
     ]
 
     unless RUBY_VERSION < '1.9'
@@ -37,10 +37,10 @@ namespace :test do
   Rake::TestTask.new(:unit) do |t|
     t.description = 'ユニットテスト'
     t.test_files = [
-      'test/setup',
-      'test/testDiceBotLoaders.rb',
-      'test/testDiceBotPrefixesCompatibility.rb',
-      'test/test_srs_help_messages.rb'
+      'src/test/setup',
+      'src/test/testDiceBotLoaders.rb',
+      'src/test/testDiceBotPrefixesCompatibility.rb',
+      'src/test/test_srs_help_messages.rb'
     ]
   end
 end
@@ -61,12 +61,7 @@ if RUBY_VERSION >= '2.3'
 
   YARD::Rake::YardocTask.new do |t|
     t.files = [
-      '*.rb',
-      'dice/**/*.rb',
-      'diceBot/**/*.rb',
-      'irc/**/*.rb',
-      'test/**/*.rb',
-      'utils/**/*.rb'
+      'src/**/*.rb'
     ]
     t.options = []
   end

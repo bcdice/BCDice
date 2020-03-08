@@ -8,3 +8,6 @@
 src/.bundle
 src/vendor
 Gemfile.lock
+coverage/
+doc/
+.yardoc/
