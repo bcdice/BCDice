@@ -39,6 +39,9 @@ class BattleTech < DiceBot
 MESSAGETEXT
   end
 
+  # 致命的命中が発生しない上限値
+  NO_CRITICAL_HIT_LIMIT = 7
+
   def changeText(string)
     string.sub(/PPC/, 'BT10')
   end
@@ -275,18 +278,23 @@ MESSAGETEXT
     debug('result', result)
 
     index = part.index('＠')
-    isCritical = !index.nil?
-    debug("isCritical", isCritical)
+    critical_hit_may_occur = !index.nil?
+    debug('critical_hit_may_occur', critical_hit_may_occur)
 
     part = part.gsub(/＠/, '')
 
+    critical_hit_occurred = false
     criticalText = ''
-    if  isCritical
-      criticalDice, criticalText = getCriticalResult()
-      result += " ＞ [#{criticalDice}] #{criticalText}"
-    end
+    if critical_hit_may_occur
+      ct_result = TABLES['CT'].roll(bcdice)
 
-    criticalText = '' if criticalText == @@noCritical
+      critical_hit_occurred = ct_result.sum > NO_CRITICAL_HIT_LIMIT
+      if critical_hit_occurred
+        criticalText = ct_result.content
+      end
+
+      result += " ＞ [#{ct_result.sum}] #{ct_result.content}"
+    end
 
     return result, part, criticalText
   end
@@ -299,20 +307,6 @@ MESSAGETEXT
 
     part, value = get_table_by_nD6(partTable, diceCount)
     return part, value
-  end
-
-  @@noCritical = '致命的命中はなかった'
-
-  def getCriticalResult()
-    table = [[ 7, @@noCritical],
-             [ 9, '1箇所の致命的命中'],
-             [11, '2箇所の致命的命中'],
-             [12, 'その部位が吹き飛ぶ（腕、脚、頭）または3箇所の致命的命中（胴）'],]
-
-    dice, = roll(2, 6)
-    result = get_table_by_number(dice, table, '')
-
-    return dice, result
   end
 
   def getCheckDieResult(damage)
@@ -342,10 +336,10 @@ MESSAGETEXT
       '致命的命中表',
       '2D6',
       [
-        [2..7,   '致命的命中はなかった'],
-        [8..9,   '1箇所の致命的命中'],
-        [10..11, '2箇所の致命的命中'],
-        [12,     'その部位が吹き飛ぶ（腕、脚、頭）または3箇所の致命的命中（胴）'],
+        [2..NO_CRITICAL_HIT_LIMIT, '致命的命中はなかった'],
+        [8..9,                     '1箇所の致命的命中'],
+        [10..11,                   '2箇所の致命的命中'],
+        [12,                       'その部位が吹き飛ぶ（腕、脚、頭）または3箇所の致命的命中（胴）'],
       ]
     ),
     'DW' => Table.new(
