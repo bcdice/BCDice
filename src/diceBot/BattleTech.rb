@@ -81,34 +81,16 @@ MESSAGETEXT
   end
 
   def getXrmDamage(type)
-    table, isLrm = getXrmDamageTable(type)
+    raise "unknown XRM type:#{type}" unless XRM_DAMAGE_TABLES.key?(type)
 
-    table = table.collect { |i| i * 2 } unless isLrm
+    table = XRM_DAMAGE_TABLES[type]
+    roll_result = table.roll(bcdice)
 
-    damage, dice = get_table_by_2d6(table)
-    return damage, dice, isLrm
-  end
+    lrm = type.start_with?('L')
+    damage = roll_result.content
+    modified_damage = lrm ? damage : (2 * damage)
 
-  def getXrmDamageTable(type)
-    # table, isLrm
-    case type
-    when /^SRM2$/i
-      [[1,  1,  1,  1,  1,  1,  2,  2,  2,  2,  2], false]
-    when /^SRM4$/i
-      [[1,  2,  2,  2,  2,  3,  3,  3,  3,  4,  4], false]
-    when /^SRM6$/i
-      [[2,  2,  3,  3,  4,  4,  4,  5,  5,  6,  6], false]
-    when /^LRM5$/i
-      [[1,  2,  2,  3,  3,  3,  3,  4,  4,  5,  5], true]
-    when /^LRM10$/i
-      [[3,  3,  4,  6,  6,  6,  6,  8,  8,  10, 10], true]
-    when /^LRM15$/i
-      [[5,  5,  6,  9,  9,  9,  9,  12, 12, 15, 15], true]
-    when /^LRM20$/i
-      [[6,  6,  9,  12,  12, 12, 12, 16, 16, 20, 20], true]
-    else
-      raise "unknown XRM type:#{type}"
-    end
+    return modified_damage, roll_result.sum, lrm
   end
 
   @@lrmLimit = 5
@@ -376,6 +358,83 @@ MESSAGETEXT
         '180度逆（背面から転倒） 正面／背面',
         '2ヘクスサイド左（側面から転倒） 左側面',
         '1ヘクスサイド左（側面から転倒） 左側面',
+      ]
+    )
+  }.freeze
+
+  # ミサイルダメージ表
+  XRM_DAMAGE_TABLES = {
+    'SRM2' => RangeTable.new(
+      'SRM2ダメージ表',
+      '2D6',
+      [
+        [2..7,  1],
+        [8..12, 2],
+      ]
+    ),
+    'SRM4' => RangeTable.new(
+      'SRM4ダメージ表',
+      '2D6',
+      [
+        [2,      1],
+        [3..6,   2],
+        [7..10,  3],
+        [11..12, 4],
+      ]
+    ),
+    'SRM6' => RangeTable.new(
+      'SRM6ダメージ表',
+      '2D6',
+      [
+        [2..3,   2],
+        [4..5,   3],
+        [6..8,   4],
+        [9..10,  5],
+        [11..12, 6],
+      ]
+    ),
+    'LRM5' => RangeTable.new(
+      'LRM5ダメージ表',
+      '2D6',
+      [
+        [2,      1],
+        [3..4,   2],
+        [5..8,   3],
+        [9..10,  4],
+        [11..12, 5],
+      ]
+    ),
+    'LRM10' => RangeTable.new(
+      'LRM10ダメージ表',
+      '2D6',
+      [
+        [2..3,    3],
+        [4,       4],
+        [5..8,    6],
+        [9..10,   8],
+        [11..12, 10],
+      ]
+    ),
+    'LRM15' => RangeTable.new(
+      'LRM15ダメージ表',
+      '2D6',
+      [
+        [2..3,    5],
+        [4,       6],
+        [5..8,    9],
+        [9..10,  12],
+        [11..12, 15],
+      ]
+    ),
+    'LRM20' => RangeTable.new(
+      'LRM20ダメージ表',
+      '2D6',
+      [
+        [2..3,    6],
+        [4,       9],
+        [5..8,   12],
+        [9..10,  16],
+        [11..12, 20],
       ]
     )
   }.freeze
