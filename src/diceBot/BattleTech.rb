@@ -99,15 +99,16 @@ MESSAGETEXT
   @@lrmLimit = 5
 
   def getHitResult(count, damageFunc, tail)
-    return nil unless /(\w*)(\+\d+)?>=(\d+)/ === tail
+    m = /([LCR][LU]?)?(\+\d+)?>=(\d+)/.match(tail)
+    return nil unless m
 
-    side = Regexp.last_match(1)
-    baseString = Regexp.last_match(2)
-    target = Regexp.last_match(3).to_i
+    side = m[1] || 'C'
+    baseString = m[2]
+    target = m[3].to_i
     base = getBaseValue(baseString)
     debug("side, base, target", side, base, target)
 
-    partTable = getHitPart(side)
+    partTable = HitPart::TABLES[side]
 
     resultTexts = []
     damages = {}
@@ -144,33 +145,6 @@ MESSAGETEXT
     return base
   end
 
-  def getHitPart(side)
-    case side
-    when /^L$/i
-      ['左胴＠', '左脚', '左腕', '左腕', '左脚', '左胴', '胴中央', '右胴', '右腕', '右脚', '頭']
-    when /^C$/i, '', nil
-      ['胴中央＠', '右腕', '右腕', '右脚', '右胴', '胴中央', '左胴', '左脚', '左腕', '左腕', '頭']
-    when /^R$/i
-      ['右胴＠', '右脚', '右腕', '右腕', '右脚', '右胴', '胴中央', '左胴', '左腕', '左脚', '頭']
-
-    when /^LU$/i
-      ['左胴', '左胴', '胴中央', '左腕', '左腕', '頭']
-    when /^CU$/i
-      ['左腕', '左胴', '胴中央', '右胴', '右腕', '頭']
-    when /^RU$/i
-      ['右胴', '右胴', '胴中央', '右腕', '右腕', '頭']
-
-    when /^LL$/i
-      ['左脚', '左脚', '左脚', '左脚', '左脚', '左脚']
-    when /^CL$/i
-      ['右脚', '右脚', '右脚', '左脚', '左脚', '左脚']
-    when /^RL$/i
-      ['右脚', '右脚', '右脚', '右脚', '右脚', '右脚']
-    else
-      raise "unknown hit part side :#{side}"
-    end
-  end
-
   def getHitText(base, target)
     dice1, = roll(1, 6)
     dice2, = roll(1, 6)
@@ -189,6 +163,9 @@ MESSAGETEXT
     return isHit, result
   end
 
+  # @param [Proc] damageFunc ダメージを返す手続き
+  # @param [RangeTable] partTable 命中部位表
+  # @param [Hash] damages 蓄積したダメージの情報
   def getDamages(damageFunc, partTable, damages)
     resultText = ''
     damage, dice, isLrm = damageFunc.call()
@@ -270,43 +247,40 @@ MESSAGETEXT
     return result
   end
 
-  def getHitResultOne(damageText, partTable)
-    part, value = getPart(partTable)
+  # 攻撃を1回行い、その結果を返す
+  # @param [String] damage_text ダメージを表す文字列
+  # @param [RangeTable] hit_part_table 命中部位表
+  def getHitResultOne(damage_text, hit_part_table)
+    hit_part_roll_result = hit_part_table.roll(bcdice)
+    hit_part = hit_part_roll_result.content
 
-    result = ""
-    result += "[#{value}] #{part.gsub(/＠/, '（致命的命中）')} #{damageText}点"
-    debug('result', result)
+    critical_hit_may_occur_str =
+      hit_part.critical_hit_may_occur ? '（致命的命中）' : ''
 
-    index = part.index('＠')
-    critical_hit_may_occur = !index.nil?
-    debug('critical_hit_may_occur', critical_hit_may_occur)
-
-    part = part.gsub(/＠/, '')
+    result_parts = [
+      [
+        "[#{hit_part_roll_result.sum}]",
+        "#{hit_part.name}#{critical_hit_may_occur_str}",
+        "#{damage_text}点",
+      ].join(' ')
+    ]
 
     critical_hit_occurred = false
     criticalText = ''
-    if critical_hit_may_occur
-      ct_result = TABLES['CT'].roll(bcdice)
+    if hit_part.critical_hit_may_occur
+      ct_roll_result = TABLES['CT'].roll(bcdice)
 
-      critical_hit_occurred = ct_result.sum > NO_CRITICAL_HIT_LIMIT
+      # 致命的命中が発生したか
+      critical_hit_occurred = ct_roll_result.sum > NO_CRITICAL_HIT_LIMIT
       if critical_hit_occurred
-        criticalText = ct_result.content
+        criticalText = ct_roll_result.content
       end
 
-      result += " ＞ [#{ct_result.sum}] #{ct_result.content}"
+      result_parts.push("[#{ct_roll_result.sum}] #{ct_roll_result.content}")
     end
 
-    return result, part, criticalText
-  end
-
-  def getPart(partTable)
-    diceCount = 2
-    if partTable.length == 6
-      diceCount = 1
-    end
-
-    part, value = get_table_by_nD6(partTable, diceCount)
-    return part, value
+    # TODO: 構造体で表現する
+    return result_parts.join(' ＞ '), hit_part.name, criticalText
   end
 
   def getCheckDieResult(damage)
@@ -331,6 +305,7 @@ MESSAGETEXT
     return text
   end
 
+  # 表の集合
   TABLES = {
     'CT' => RangeTable.new(
       '致命的命中表',
@@ -355,6 +330,133 @@ MESSAGETEXT
       ]
     )
   }.freeze
+
+  # 命中部位を表す構造体
+  # [+name+]                   部位名
+  # [+critical_hit_may_occur+] 致命的命中が発生し得るか
+  HitPart = Struct.new(:name, :critical_hit_may_occur)
+
+  class HitPart
+    LEFT_TORSO = '左胴'
+    CENTER_TORSO = '胴中央'
+    RIGHT_TORSO = '右胴'
+
+    LEFT_ARM = '左腕'
+    RIGHT_ARM = '右腕'
+
+    LEFT_LEG = '左脚'
+    RIGHT_LEG = '右脚'
+
+    HEAD = '頭'
+
+    # 命中部位表
+    TABLES = {
+      'L' => RangeTable.new(
+        '命中部位表（左）',
+        '2D6',
+        [
+          [2,    new(LEFT_TORSO, true)],
+          [3,    new(LEFT_LEG, false)],
+          [4..5, new(LEFT_ARM, false)],
+          [6,    new(LEFT_LEG, false)],
+          [7,    new(LEFT_TORSO, false)],
+          [8,    new(CENTER_TORSO, false)],
+          [9,    new(RIGHT_TORSO, false)],
+          [10,   new(RIGHT_ARM, false)],
+          [11,   new(RIGHT_LEG, false)],
+          [12,   new(HEAD, false)],
+        ]
+      ),
+      'C' => RangeTable.new(
+        '命中部位表（正面）',
+        '2D6',
+        [
+          [2,      new(CENTER_TORSO, true)],
+          [3..4,   new(RIGHT_ARM, false)],
+          [5,      new(RIGHT_LEG, false)],
+          [6,      new(RIGHT_TORSO, false)],
+          [7,      new(CENTER_TORSO, false)],
+          [8,      new(LEFT_TORSO, false)],
+          [9,      new(LEFT_LEG, false)],
+          [10..11, new(LEFT_ARM, false)],
+          [12,     new(HEAD, false)],
+        ]
+      ),
+      'R' => RangeTable.new(
+        '命中部位表（右）',
+        '2D6',
+        [
+          [2,    new(RIGHT_TORSO, true)],
+          [3,    new(RIGHT_LEG, false)],
+          [4..5, new(RIGHT_ARM, false)],
+          [6,    new(RIGHT_LEG, false)],
+          [7,    new(RIGHT_TORSO, false)],
+          [8,    new(CENTER_TORSO, false)],
+          [9,    new(LEFT_TORSO, false)],
+          [10,   new(LEFT_ARM, false)],
+          [11,   new(LEFT_LEG, false)],
+          [12,   new(HEAD, false)],
+        ]
+      ),
+
+      'LU' => RangeTable.new(
+        '命中部位表（左上半身）',
+        '1D6',
+        [
+          [1..2, new(LEFT_TORSO, false)],
+          [3,    new(CENTER_TORSO, false)],
+          [4..5, new(LEFT_ARM, false)],
+          [6,    new(HEAD, false)],
+        ]
+      ),
+      # TODO: 普通のTableで書く
+      'CU' => RangeTable.new(
+        '命中部位表（正面上半身）',
+        '1D6',
+        [
+          [1, new(LEFT_ARM, false)],
+          [2, new(LEFT_TORSO, false)],
+          [3, new(CENTER_TORSO, false)],
+          [4, new(RIGHT_TORSO, false)],
+          [5, new(RIGHT_ARM, false)],
+          [6, new(HEAD, false)],
+        ]
+      ),
+      'RU' => RangeTable.new(
+        '命中部位表（右上半身）',
+        '1D6',
+        [
+          [1..2, new(RIGHT_TORSO, false)],
+          [3,    new(CENTER_TORSO, false)],
+          [4..5, new(RIGHT_ARM, false)],
+          [6,    new(HEAD, false)],
+        ]
+      ),
+
+      'LL' => RangeTable.new(
+        '命中部位表（左下半身）',
+        '1D6',
+        [
+          [1..6, new(LEFT_LEG, false)],
+        ]
+      ),
+      'CL' => RangeTable.new(
+        '命中部位表（右下半身）',
+        '1D6',
+        [
+          [1..3, new(RIGHT_LEG, false)],
+          [4..6, new(LEFT_LEG, false)],
+        ]
+      ),
+      'RL' => RangeTable.new(
+        '命中部位表（右下半身）',
+        '1D6',
+        [
+          [1..6, new(RIGHT_LEG, false)],
+        ]
+      ),
+    }.freeze
+  end
 
   # ミサイルダメージ表
   XRM_DAMAGE_TABLES = {
