@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require 'utils/ArithmeticEvaluator'
+require 'utils/range_table'
 
 class MetalHead < DiceBot
   setPrefixes(['AR', 'SR', 'HR<=.+', 'CC', 'ACT', 'ACL', 'ACS', 'CRC[A-Z]\d+'])
@@ -40,31 +41,22 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
-    tableName   = ""
-    tableNumber = ""
-    tableResult = ""
+    result = roll_tables(command, TABLES)
+    return result if result
 
     case command
-    when /^CC/
-      tableName, tableResult, tableNumber = mh_cc_table
-    when /^ACL/
-      tableName, tableResult, tableNumber = mh_acl_table
-    when /^ACS/
-      tableName, tableResult, tableNumber = mh_acs_table
-    when /^CRC(\w)(\d+)/
+    when /\ACRC(\w)(\d+)\z/
       suv = Regexp.last_match(1)
       num = Regexp.last_match(2)
       return mh_crc_table(suv, num)
-    when /^HR<=(.+)$/
+    when /\AHR<=(.+)/
       target = ArithmeticEvaluator.new.eval(
         Regexp.last_match(1), @fractionType.to_sym
       )
       return rollHit(target)
     end
 
-    unless tableName.empty?
-      return "#{tableName} ＞ #{tableNumber} ＞ #{tableResult}"
-    end
+    return nil
   end
 
   def changeText(string)
@@ -121,60 +113,6 @@ MESSAGETEXT
     return ' ＞ 成功' if total_n <= diff
 
     return ' ＞ 失敗'
-  end
-
-  def mh_cc_table
-    name = "クリティカルチャート"
-    table = [
-      "相手は知覚系に多大なダメージを受けた。PERを1にして頭部にHWのダメージ、および心理チェック。",
-      "相手の運動神経を断ち切った。DEXを1にして腕部にHWのダメージ、および心理チェック。さらに腕に持っていた武器などは落としてしまう。",
-      "相手の移動手段は完全に奪われた。REFを1にして脚部にHWダメージと心理チェック。また、次回からのこちらの攻撃は必ず命中する。",
-      "相手の急所に命中。激痛のため気絶した上、胴にHWダメージ。",
-      "相手の急所に命中。激痛のため気絶した上、胴にHWダメージ。",
-      "効果的な一撃。胴にHWダメージ。心理チェック。",
-      "効果的な一撃。胴にMOダメージ。心理チェック。",
-      "君の一撃は相手の中枢を完全に破壊した。即死である。",
-      "君の一撃は相手の中枢を完全に破壊した。即死である。",
-      "君の一撃は相手の中枢を完全に破壊した。即死である。",
-    ]
-    result, num = get_table_by_nDx(table, 1, 10)
-    return name, result, num
-  end
-
-  def mh_acl_table
-    name = "アクシデントチャート（射撃・投擲）"
-    table = [
-      "ささいなミス。特にペナルティーはない。",
-      "ささいなミス。特にペナルティーはない。",
-      "ささいなミス。特にペナルティーはない。",
-      "ささいなミス。特にペナルティーはない。",
-      "ささいなミス。特にペナルティーはない。",
-      "ささいなミス。特にペナルティーはない。",
-      "ささいなミス。特にペナルティーはない。",
-      "不発、またはジャム。弾を取り出さねばならない物は次のターンは射撃できない。",
-      "ささいな故障。可能なら次のターンから個別武器のスキルロールで修理を行える。",
-      "武器の暴発、または爆発。頭部HWの心理効果ロール。さらに、その武器は破壊されPERとDEXのどちらか、または両方に計2ポイントのマイナスを与える。（遠隔操作の場合、射手への被害は無し）",
-    ]
-    result, num = get_table_by_nDx(table, 1, 10)
-    return name, result, num
-  end
-
-  def mh_acs_table
-    name = "アクシデントチャート（格闘）"
-    table = [
-      "足を滑らせて転倒し、起き上がるまで相手に+20の命中修正を与える。",
-      "足を滑らせて転倒し、起き上がるまで相手に+20の命中修正を与える。",
-      "足を滑らせて転倒し、起き上がるまで相手に+20の命中修正を与える。",
-      "手を滑らせて、武器を落とす。素手の時は関係ない。",
-      "手を滑らせて、武器を落とす。素手の時は関係ない。",
-      "手を滑らせて、武器を落とす。素手の時は関係ない。",
-      "使用武器の破壊。素手戦闘のときはMWのダメージを受ける。",
-      "使用武器の破壊。素手戦闘のときはMWのダメージを受ける。",
-      "使用武器の破壊。素手戦闘のときはMWのダメージを受ける。",
-      "手を滑らせ、不幸にも武器は飛んでいき、5m以内に人がいれば誰かに刺さるか、または打撃を与えるかもしれない。ランダムに決定し、普通どおり判定を続ける。素手のときは関係ない。",
-    ]
-    result, num = get_table_by_nDx(table, 1, 10)
-    return name, result, num
   end
 
   # 戦闘結果チャートを振る
@@ -261,4 +199,49 @@ MESSAGETEXT
 
     return (header_parts + result_parts).join(separator)
   end
+
+  # 表を振った結果の整形処理
+  TABLE_ROLL_RESULT_FORMATTER = lambda do |table, result|
+    [table.name, result.sum, result.content].join(' ＞ ')
+  end
+
+  # 表の集合
+  TABLES = {
+    'CC' => RangeTable.new(
+      'クリティカルチャート',
+      '1D10',
+      [
+        [1,     '相手は知覚系に多大なダメージを受けた。PERを1にして頭部にHWのダメージ、および心理チェック。'],
+        [2,     '相手の運動神経を断ち切った。DEXを1にして腕部にHWのダメージ、および心理チェック。さらに腕に持っていた武器などは落としてしまう。'],
+        [3,     '相手の移動手段は完全に奪われた。REFを1にして脚部にHWダメージと心理チェック。また、次回からのこちらの攻撃は必ず命中する。'],
+        [4..5,  '相手の急所に命中。激痛のため気絶した上、胴にHWダメージ。'],
+        [6,     '効果的な一撃。胴にHWダメージ。心理チェック。'],
+        [7,     '効果的な一撃。胴にMOダメージ。心理チェック。'],
+        [8..10, '君の一撃は相手の中枢を完全に破壊した。即死である。'],
+      ],
+      &TABLE_ROLL_RESULT_FORMATTER
+    ),
+    'ACL' => RangeTable.new(
+      'アクシデントチャート（射撃・投擲）',
+      '1D10',
+      [
+        [1..7, 'ささいなミス。特にペナルティーはない。'],
+        [8,    '不発、またはジャム。弾を取り出さねばならない物は次のターンは射撃できない。'],
+        [9,    'ささいな故障。可能なら次のターンから個別武器のスキルロールで修理を行える。'],
+        [10,   '武器の暴発、または爆発。頭部HWの心理効果ロール。さらに、その武器は破壊されPERとDEXのどちらか、または両方に計2ポイントのマイナスを与える。（遠隔操作の場合、射手への被害は無し）'],
+      ],
+      &TABLE_ROLL_RESULT_FORMATTER
+    ),
+    'ACS' => RangeTable.new(
+      'アクシデントチャート（格闘）',
+      '1D10',
+      [
+        [1..3, '足を滑らせて転倒し、起き上がるまで相手に+20の命中修正を与える。'],
+        [4..6, '手を滑らせて、武器を落とす。素手の時は関係ない。'],
+        [7..9, '使用武器の破壊。素手戦闘のときはMWのダメージを受ける。'],
+        [10,   '手を滑らせ、不幸にも武器は飛んでいき、5m以内に人がいれば誰かに刺さるか、または打撃を与えるかもしれない。ランダムに決定し、普通どおり判定を続ける。素手のときは関係ない。'],
+      ],
+      &TABLE_ROLL_RESULT_FORMATTER
+    ),
+  }.freeze
 end
