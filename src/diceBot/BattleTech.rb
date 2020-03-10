@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
+require 'utils/table'
+require 'utils/range_table'
 
 class BattleTech < DiceBot
   setPrefixes(['\d*SRM\d+.+', '\d*LRM\d+.+', '\d*BT.+', 'CT', 'DW', 'CD\d+'])
@@ -44,6 +48,9 @@ MESSAGETEXT
   end
 
   def rollDiceCommand(command)
+    result = roll_tables(command, TABLES)
+    return result if result
+
     count = 1
     if /^(\d+)(.+)/ === command
       count = Regexp.last_match(1).to_i
@@ -54,11 +61,6 @@ MESSAGETEXT
     debug('executeCommandCatched command', command)
 
     case command
-    when /^CT$/
-      criticalDice, criticalText = getCriticalResult()
-      return "#{criticalDice} ＞ #{criticalText}"
-    when /^DW$/
-      return getDownResult()
     when /^CD(\d+)$/
       damage = Regexp.last_match(1).to_i
       return getCheckDieResult(damage)
@@ -331,18 +333,6 @@ MESSAGETEXT
     return dice, result
   end
 
-  def getDownResult()
-    table = ['同じ（前面から転倒） 正面／背面',
-             '1ヘクスサイド右（側面から転倒） 右側面',
-             '2ヘクスサイド右（側面から転倒） 右側面',
-             '180度逆（背面から転倒） 正面／背面',
-             '2ヘクスサイド左（側面から転倒） 左側面',
-             '1ヘクスサイド左（側面から転倒） 左側面',]
-    result, dice = get_table_by_1d6(table)
-
-    return "#{dice} ＞ #{result}"
-  end
-
   def getCheckDieResult(damage)
     if damage >= 6
       return "死亡"
@@ -364,4 +354,29 @@ MESSAGETEXT
 
     return text
   end
+
+  TABLES = {
+    'CT' => RangeTable.new(
+      '致命的命中表',
+      '2D6',
+      [
+        [2..7,   '致命的命中はなかった'],
+        [8..9,   '1箇所の致命的命中'],
+        [10..11, '2箇所の致命的命中'],
+        [12,     'その部位が吹き飛ぶ（腕、脚、頭）または3箇所の致命的命中（胴）'],
+      ]
+    ),
+    'DW' => Table.new(
+      '転倒後の向き表',
+      '1D6',
+      [
+        '同じ（前面から転倒） 正面／背面',
+        '1ヘクスサイド右（側面から転倒） 右側面',
+        '2ヘクスサイド右（側面から転倒） 右側面',
+        '180度逆（背面から転倒） 正面／背面',
+        '2ヘクスサイド左（側面から転倒） 左側面',
+        '1ヘクスサイド左（側面から転倒） 左側面',
+      ]
+    )
+  }.freeze
 end
