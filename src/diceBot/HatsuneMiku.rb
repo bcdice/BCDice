@@ -9,7 +9,7 @@ class HatsuneMiku < DiceBot
   NAME = '初音ミクTRPG ココロダンジョン'
 
   # ゲームシステム名の読みがな
-  SORT_KEY = 'こころたんしよん'
+  SORT_KEY = 'はつねみくTRPGこころたんしよん'
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT

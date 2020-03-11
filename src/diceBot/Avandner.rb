@@ -9,7 +9,7 @@ class Avandner < DiceBot
   NAME = '黒絢のアヴァンドナー'
 
   # ゲームシステム名の読みがな
-  SORT_KEY = 'あうあんとなあ'
+  SORT_KEY = 'こつけんのあうあんとなあ'
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT

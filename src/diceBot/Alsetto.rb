@@ -9,7 +9,7 @@ class Alsetto < DiceBot
   NAME = '詩片のアルセット'
 
   # ゲームシステム名の読みがな
-  SORT_KEY = 'あるせつと'
+  SORT_KEY = 'うたかたのあるせつと'
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT

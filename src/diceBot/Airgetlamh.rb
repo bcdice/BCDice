@@ -9,7 +9,7 @@ class Airgetlamh < DiceBot
   NAME = '朱の孤塔のエアゲトラム'
 
   # ゲームシステム名の読みがな
-  SORT_KEY = 'えあけとらむ'
+  SORT_KEY = 'あけのことうのえあけとらむ'
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
