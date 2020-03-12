@@ -328,8 +328,10 @@ MESSAGETEXT
   }.freeze
 
   # 命中部位を表す構造体
-  # [+name+]                   部位名
-  # [+critical_hit_may_occur+] 致命的命中が発生し得るか
+  # @!attribute [rw] name
+  #   @return [String] 部位名
+  # @!attribute [rw] critical_hit_may_occur
+  #   @return [Boolean]  致命的命中が発生し得るか
   HitPart = Struct.new(:name, :critical_hit_may_occur)
 
   class HitPart
