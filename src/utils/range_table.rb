@@ -25,61 +25,30 @@
 #   )
 #
 # @example 表を振った結果
-#   CRITICAL_TABLE.roll(bcdice).format
+#   CRITICAL_TABLE.roll(bcdice).formatted
 #   # 出目の合計が7の場合 ："致命的命中表(7) ＞ 致命的命中はなかった"
 #   # 出目の合計が8の場合 ："致命的命中表(8) ＞ 1箇所の致命的命中"
 #   # 出目の合計が9の場合 ："致命的命中表(9) ＞ 1箇所の致命的命中"
 #   # 出目の合計が10の場合："致命的命中表(10) ＞ 2箇所の致命的命中"
 class RangeTable
-  # 表を振った結果を表すクラス
-  class RollResult
-    # 振った表
-    # @return [RangeTable]
-    attr_reader :table
-    # 出目の合計
-    # @return [Integer]
-    attr_reader :sum
-    # 出目の配列
-    # @return [Array<Integer>]
-    attr_reader :values
-    # 選ばれた項目の内容
-    # @return [Object]
-    attr_reader :content
-
-    # 結果を初期化する
-    # @param [RangeTable] table 振った表
-    # @param [Array<Integer>] values 出目の配列
-    # @param [Proc] formatter 結果の整形処理
-    def initialize(table, values, formatter)
-      @table = table
-      @values = values.dup.freeze
-      @formatter = formatter
-
-      # TODO: Ruby 2.4以降では Array#sum を使う
-      @sum = @values.reduce(0, :+)
-
-      @content = table.fetch(@sum).content
-    end
-
-    # 表を振った結果を整形する
-    #
-    # 別名として to_s が指定されているので、式展開を使うと簡潔に整形された結果が得られる。
-    #
-    # @return [String]
-    # @example 式展開
-    #   result = some_sparse_table.roll(bcdice)
-    #   result_str = "結果: #{result}"
-    def format
-      @formatter[@table, self]
-    end
-
-    alias to_s format
+  # 表を振った結果を表す構造体
+  # @!attribute [rw] sum
+  #   @return [Integer] 出目の合計
+  # @!attribute [rw] values
+  #   @return [Array<Integer>] 出目の配列
+  # @!attribute [rw] content
+  #   @return [Object] 選ばれた項目の内容
+  # @!attribute [rw] formatted
+  #   @return [String] 整形された結果
+  RollResult = Struct.new(:sum, :values, :content, :formatted) do
+    alias_method :to_s, :formatted
   end
 
   # 表の項目を表す構造体
-  #
-  # [+range+]   出目の合計の範囲
-  # [+content+] 内容
+  # @!attribute [rw] range
+  #   @return [Range] 出目の合計の範囲
+  # @!attribute [rw] content
+  #   @return [Object] 内容
   Item = Struct.new(:range, :content)
 
   # 項目を選ぶときのダイスロールの方法を表す正規表現
@@ -141,7 +110,7 @@ class RangeTable
   #     "致命的命中発生? ＞ #{result.sum}[#{result.values}] ＞ #{result.content}"
   #   end
   #
-  #   CRITICAL_TABLE_WITH_FORMATTER.roll(bcdice).format
+  #   CRITICAL_TABLE_WITH_FORMATTER.roll(bcdice).formatted
   #   #=> "致命的命中発生? ＞ 11[5,6] ＞ 2箇所の致命的命中"
   def initialize(name, dice_roll_method, items, &formatter)
     @name = name.freeze
@@ -178,11 +147,15 @@ class RangeTable
   # @param [BCDice] bcdice BCDice本体
   # @return [RollResult] 表を振った結果
   def roll(bcdice)
-    _sum, values_str, = bcdice.roll(@num_of_dice, @num_of_sides)
+    sum, values_str, = bcdice.roll(@num_of_dice, @num_of_sides)
+
     # TODO: BCDice#roll から直接、整数の配列として出目を受け取りたい
     values = values_str.split(',').map(&:to_i)
 
-    return RollResult.new(self, values, @formatter)
+    result = RollResult.new(sum, values, fetch(sum).content)
+    result.formatted = @formatter[self, result]
+
+    return result
   end
 
   private
