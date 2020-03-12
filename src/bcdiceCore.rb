@@ -926,8 +926,11 @@ class BCDice
       round = 0
 
       loop do
-        dice_n = rand(dice_max).to_i + 1
-        dice_n -= 1 if d9_on
+        if d9_on
+          dice_n = roll_d9()
+        else
+          dice_n = rand(dice_max).to_i + 1
+        end
 
         dice_now += dice_n
 
@@ -976,7 +979,9 @@ class BCDice
     @rands = rands
   end
 
-  def rand(max)
+  # @params [Integer] max
+  # @return [Integer] 0以上max未満の整数
+  def rand_inner(max)
     debug('rand called @rands', @rands)
 
     value = 0
@@ -993,16 +998,68 @@ class BCDice
     return value
   end
 
+  # @params [Integer] max
+  # @return [Integer] 0以上max未満の整数
+  def rand(max)
+    ret = rand_inner(max)
+
+    push_to_detail(max.to_s, ret + 1)
+    return ret
+  end
+
+  # 十の位をd10を使って決定するためのダイスロール
+  # @return [Integer] 0以上90以下で10の倍数となる整数
+  def roll_tens_d10()
+    # rand_innerの戻り値を10倍すればすむ話なのだが、既存のテストとの互換性の為に処理をする
+    r = rand_inner(10) + 1
+    if r == 10
+      r = 0
+    end
+
+    ret = r * 10
+
+    push_to_detail("tens_d10", ret)
+    return ret
+  end
+
+  # d10を0~9として扱うダイスロール
+  # @return [Integer] 0以上9以下の整数
+  def roll_d9()
+    ret = rand_inner(10)
+
+    push_to_detail("d9", ret)
+    return ret
+  end
+
   def setCollectRandResult(b)
     if b
       @randResults = []
+      @detailedRandResults = []
     else
       @randResults = nil
+      @detailedRandResults = nil
     end
   end
 
+  def push_to_detail(sides, value)
+    unless @detailedRandResults.nil?
+      @detailedRandResults.push([value, sides])
+    end
+  end
+
+  # @return [Array<Array<(Integer, Integer)>>]
   def getRandResults
     @randResults
+  end
+
+  # ダイスロールの詳細結果
+  # ダイスのタイプ
+  # - "tens_d10": 10面ダイスで十の位を決めるダイス
+  # - "d9": 10面ダイスで0~9を決めるダイス
+  # - 整数.to_s : #{整数}面ダイス
+  # @return [Array<Array<(Integer, String)>>]
+  def getDetailedRandResults
+    @detailedRandResults
   end
 
   def randNomal(max)
