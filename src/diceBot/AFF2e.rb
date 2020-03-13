@@ -3,16 +3,16 @@
 class AFF2e < DiceBot
   # ダイスボットで使用するコマンドを配列で列挙する
   setPrefixes(['FF.+', 'FR.+', 'FD.+'])
-  
+
   def gameName
     # 'ADVANCED FIGHTING FANTASY 2nd Edition'
     'AFF2e'
   end
-  
+
   def gameType
     'AFF2e'
   end
-  
+
   def getHelpMessage
     return <<MESSAGETEXT
 対抗なしロール\tFF{目標値}+{補正}
@@ -21,9 +21,9 @@ class AFF2e < DiceBot
 防具ロール\tFD[0,0,0,0,1+1,1+1,2+2]+{補正}
 MESSAGETEXT
   end
-  
+
   def explicit_sign(i)
-    '%+d' % i
+    format('%+d', i)
   end
 
   def eval_term(term)
@@ -95,7 +95,7 @@ MESSAGETEXT
       end
 
       term = $'
-      damage_slots = $1.split(/,/).map { |t| eval_term(t) }
+      damage_slots = md[1].split(/,/).map { |t| eval_term(t) }
       if damage_slots.size != 7
         return 'ダメージスロットの長さに誤りがあります。', false
       end
@@ -107,7 +107,7 @@ MESSAGETEXT
       total, dice_str = roll(1, 6)
       expr = "#{total}#{explicit_sign corr}"
       slot_number = clamp(total + corr, 1, 7)
-      damage = damage_slots[slot_number-1]
+      damage = damage_slots[slot_number - 1]
       sequence = [ parentheses(dice_command), expr, total + corr, "#{damage}ダメージ" ]
     end
 
