@@ -998,12 +998,14 @@ class BCDice
     return value
   end
 
+  DetailedRandResult = Struct.new(:kind, :sides, :value)
+
   # @params [Integer] max
   # @return [Integer] 0以上max未満の整数
   def rand(max)
     ret = rand_inner(max)
 
-    push_to_detail(max.to_s, ret + 1)
+    push_to_detail(:nomal, max, ret + 1)
     return ret
   end
 
@@ -1018,7 +1020,7 @@ class BCDice
 
     ret = r * 10
 
-    push_to_detail("tens_d10", ret)
+    push_to_detail(:tens_d10, 10, ret)
     return ret
   end
 
@@ -1027,7 +1029,7 @@ class BCDice
   def roll_d9()
     ret = rand_inner(10)
 
-    push_to_detail("d9", ret)
+    push_to_detail(:d9, 10, ret)
     return ret
   end
 
@@ -1041,9 +1043,13 @@ class BCDice
     end
   end
 
-  def push_to_detail(sides, value)
+  # @params [Symbol] kind
+  # @params [Integer] sides
+  # @params [Integer] value
+  def push_to_detail(kind, sides, value)
     unless @detailedRandResults.nil?
-      @detailedRandResults.push([value, sides])
+      detail = DetailedRandResult.new(kind, sides, value)
+      @detailedRandResults.push(detail)
     end
   end
 
