@@ -19,8 +19,9 @@ class TestDetailedRandResults < Test::Unit::TestCase
     assert_equal(49 - 1, value)
 
     assert_equal(1, @bcdice.getDetailedRandResults.size)
-    assert_equal("100", @bcdice.getDetailedRandResults[0][1])
-    assert_equal(49, @bcdice.getDetailedRandResults[0][0])
+    assert_equal(:nomal, @bcdice.getDetailedRandResults[0].kind)
+    assert_equal(100, @bcdice.getDetailedRandResults[0].sides)
+    assert_equal(49, @bcdice.getDetailedRandResults[0].value)
 
     assert_equal(1, @bcdice.getRandResults.size)
     assert_equal(100, @bcdice.getRandResults[0][1])
@@ -34,8 +35,9 @@ class TestDetailedRandResults < Test::Unit::TestCase
     assert_equal(30, value)
 
     assert_equal(1, @bcdice.getDetailedRandResults.size)
-    assert_equal("tens_d10", @bcdice.getDetailedRandResults[0][1])
-    assert_equal(30, @bcdice.getDetailedRandResults[0][0])
+    assert_equal(:tens_d10, @bcdice.getDetailedRandResults[0].kind)
+    assert_equal(10, @bcdice.getDetailedRandResults[0].sides)
+    assert_equal(30, @bcdice.getDetailedRandResults[0].value)
 
     assert_equal(1, @bcdice.getRandResults.size)
     assert_equal(10, @bcdice.getRandResults[0][1])
@@ -47,7 +49,7 @@ class TestDetailedRandResults < Test::Unit::TestCase
     value = @bcdice.roll_tens_d10()
 
     assert_equal(0, value)
-    assert_equal(0, @bcdice.getDetailedRandResults[0][0])
+    assert_equal(0, @bcdice.getDetailedRandResults[0].value)
     assert_equal(10, @bcdice.getRandResults[0][0])
   end
 
@@ -58,8 +60,9 @@ class TestDetailedRandResults < Test::Unit::TestCase
     assert_equal(2, value)
 
     assert_equal(1, @bcdice.getDetailedRandResults.size)
-    assert_equal("d9", @bcdice.getDetailedRandResults[0][1])
-    assert_equal(2, @bcdice.getDetailedRandResults[0][0])
+    assert_equal(:d9, @bcdice.getDetailedRandResults[0].kind)
+    assert_equal(10, @bcdice.getDetailedRandResults[0].sides)
+    assert_equal(2, @bcdice.getDetailedRandResults[0].value)
 
     assert_equal(1, @bcdice.getRandResults.size)
     assert_equal(10, @bcdice.getRandResults[0][1])
