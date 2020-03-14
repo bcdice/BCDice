@@ -5,8 +5,7 @@ class AFF2e < DiceBot
   setPrefixes(['FF.+', 'FR.+', 'FD.+'])
 
   def gameName
-    # 'ADVANCED FIGHTING FANTASY 2nd Edition'
-    'AFF2e'
+    'ADVANCED FIGHTING FANTASY 2nd Edition'
   end
 
   def gameType
@@ -50,9 +49,13 @@ MESSAGETEXT
   end
 
   def clamp(i, min, max)
-    i = min if i < min
-    i = max if i > max
-    i
+    if i < min
+      min
+    elsif i > max
+      max
+    else
+      i
+    end
   end
 
   def rollDiceCommand(command)
@@ -95,7 +98,7 @@ MESSAGETEXT
       end
 
       term = $'
-      damage_slots = md[1].split(/,/).map { |t| eval_term(t) }
+      damage_slots = md[1].split(',').map { |t| eval_term(t) }
       if damage_slots.size != 7
         return 'ダメージスロットの長さに誤りがあります。', false
       end
@@ -111,7 +114,7 @@ MESSAGETEXT
       sequence = [ parentheses(dice_command), expr, total + corr, "#{damage}ダメージ" ]
     end
 
-    result = sequence.join(' → ')
+    result = sequence.join(' ＞ ')
     secret = false
     return result, secret
   end
