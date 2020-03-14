@@ -64,7 +64,8 @@ MESSAGETEXT
       # 対抗なしロール
       # '成功' or '失敗' を出力する
       #
-      term = $'
+      md = Regexp.last_match
+      term = md.post_match
 
       # 目標値
       diff = eval_term(term)
@@ -78,7 +79,8 @@ MESSAGETEXT
       # 対抗ロール
       # 値を出力する
       #
-      term = $'
+      md = Regexp.last_match
+      term = md.post_match
 
       # 補正値
       corr = eval_term(term)
@@ -91,13 +93,14 @@ MESSAGETEXT
       # 武器防具ロール
       # ダメージを出力する
       #
-      term = $'
+      md = Regexp.last_match
+      term = md.post_match
       md = /\A\[(.+)\]/.match(term)
       unless md
         return 'ダメージスロットは必須です。', false
       end
 
-      term = $'
+      term = md.post_match
       damage_slots = md[1].split(',').map { |t| eval_term(t) }
       if damage_slots.size != 7
         return 'ダメージスロットの長さに誤りがあります。', false
