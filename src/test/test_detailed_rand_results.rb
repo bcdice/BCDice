@@ -88,7 +88,7 @@ class TestDetailedRandResults < Test::Unit::TestCase
     assert_equal(10, details[1].sides)
     assert_equal(50, details[1].value)
 
-    assert_equal(:tens_d10, details[1].kind)
+    assert_equal(:tens_d10, details[2].kind)
     assert_equal(10, details[2].sides)
     assert_equal(60, details[2].value)
   end
