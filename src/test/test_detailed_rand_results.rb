@@ -19,7 +19,7 @@ class TestDetailedRandResults < Test::Unit::TestCase
     assert_equal(49 - 1, value)
 
     assert_equal(1, @bcdice.detailed_rand_results.size)
-    assert_equal(:nomal, @bcdice.detailed_rand_results[0].kind)
+    assert_equal(:normal, @bcdice.detailed_rand_results[0].kind)
     assert_equal(100, @bcdice.detailed_rand_results[0].sides)
     assert_equal(49, @bcdice.detailed_rand_results[0].value)
 
@@ -80,7 +80,7 @@ class TestDetailedRandResults < Test::Unit::TestCase
     details = @bcdice.detailed_rand_results
     assert_equal(3, details.size)
 
-    assert_equal(:nomal, details[0].kind)
+    assert_equal(:normal, details[0].kind)
     assert_equal(10, details[0].sides)
     assert_equal(4, details[0].value)
 
