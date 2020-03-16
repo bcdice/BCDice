@@ -1,14 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class WorldOfDarkness < DiceBot
-  setPrefixes(['\d+st.*'])
-
-  def initialize
-    super
-    @successDice = 0
-    @botchDice = 0
-    @rerollDice = 0
-  end
+  setPrefixes(['\d+ST.*'])
 
   def gameName
     'ワールドオブダークネス'
@@ -20,95 +13,130 @@ class WorldOfDarkness < DiceBot
 
   def getHelpMessage
     return <<INFO_MESSAGE_TEXT
-・判定コマンド(xSTn+y or xSTSn+y)
+・判定コマンド(xSTn+y or xSTSn+y or xSTAn+y)
 　(ダイス個数)ST(難易度)+(自動成功)
-　(ダイス個数)STS(難易度)+(自動成功)　※出目10で振り足し
+　(ダイス個数)STS(難易度)+(自動成功) ※出目10で振り足し
+　(ダイス個数)STA(難易度)+(自動成功) ※出目10は2成功 [20thルール]
 
 　難易度=省略時6
 　自動成功=省略時0
-
-　例）3ST7　5ST+1　4ST5+2
 INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-    result = rollWorldOfDarkness(command)
-    return result unless result.empty?
-  end
+    dice_pool = 1
+    diff = 6
+    auto_success = 0
 
-  def rollWorldOfDarkness(string)
-    diceCount = 1
-    difficulty = 6
-    automaticSuccess = 0
+    enable_reroll = false
+    enable_20th = false
 
-    output = ''
-    rerollNumber = 11
+    md = command.match(/\A(\d+)(ST[SA]?)(\d+)?([+-]\d+)?/)
 
-    m = string.match(/(\d+)(STS?)(\d*)([^\d\s][\+\-\d]+)?/i)
-    diceCount = m[1].to_i
-    rerollNumber = 10 if m[2] == 'STS'
-    difficulty = m[3].to_i
-    automaticSuccess = m[4].to_i if m[4]
-
-    difficulty = 6 if difficulty < 2
-
-    output = 'DicePool=' + diceCount.to_s + ', Difficulty=' + difficulty.to_s + ', AutomaticSuccess=' + automaticSuccess.to_s
-
-    @successDice = 0
-    @botchDice = 0
-    @rerollDice = 0
-
-    output += rollDiceWorldOfDarknessSpecial(diceCount, difficulty, rerollNumber)
-    while @rerollDice > 0
-      diceCount = @rerollDice
-      @rerollDice = 0
-      output += rollDiceWorldOfDarknessSpecial(diceCount, difficulty, rerollNumber)
+    dice_pool = md[1].to_i
+    case md[2]
+    when 'STS'
+      enable_reroll = true
+    when 'STA'
+      enable_20th = true
     end
+    diff = md[3].to_i if md[3]
+    auto_success = md[4].to_i if md[4]
 
-    @successDice += automaticSuccess
-    if @successDice > 0
-      output += " ＞ 成功数" + @successDice.to_s
+    diff = 6 if diff < 3
+
+    sequence = []
+    sequence.push "DicePool=#{dice_pool}, Difficulty=#{diff}, AutomaticSuccess=#{auto_success}"
+
+    # 出力では Difficulty=11..12 もあり得る
+    diff = 10 if diff > 10
+
+    total_success = auto_success
+    total_botch = 0
+
+    if enable_20th
+      # 20th Edition
+      dice, success, botch, auto_success = roll_wod_20th(dice_pool, diff)
+      sequence.push dice.join(',')
+      total_success += success
+      total_botch += botch
     else
-      if @botchDice > 0
-        output += " ＞ 大失敗"
-      else
-        output += " ＞ 失敗"
+      # Revised Edition
+      dice, success, botch, auto_success = roll_wod(dice_pool, diff)
+      sequence.push dice.join(',')
+      total_success += success
+      total_botch += botch
+
+      if enable_reroll
+        # 振り足し
+        while auto_success > 0
+          dice_pool = auto_success
+          # 振り足しの出目1は大失敗ではない
+          dice, success, botch, auto_success = roll_wod(dice_pool, diff, false)
+          sequence.push dice.join(',')
+          total_success += success
+          total_botch += botch
+        end
       end
     end
 
-    return output
+    if total_success > 0
+      sequence.push "成功数#{total_success}"
+    elsif total_botch > 0
+      sequence.push "大失敗"
+    else
+      sequence.push "失敗"
+    end
+
+    output = sequence.join(' ＞ ')
+    secret = false
+    return output, secret
   end
 
-  def rollDiceWorldOfDarknessSpecial(diceCount, difficulty, rerollNumber)
-    diceType = 10
-    diceResults = Array.new(diceCount)
+  # Revised Edition
+  # 出目10は1自動成功 振り足し
+  # 出目1は大失敗: 成功を1つ相殺
+  def roll_wod(dice_pool, diff, enable_botch = true, auto_success_value = 1)
+    dice = Array.new(dice_pool)
 
-    diceCount.times do |i|
-      dice_now, = roll(1, diceType)
+    # FIXME: まとめて振る
+    dice_pool.times do |i|
+      dice_now, = roll(1, 10)
+      dice[i] = dice_now
+    end
 
-      case dice_now
-      when rerollNumber..12 then
-        @successDice += 1
-        @rerollDice += 1
-      when difficulty..11 then
-        @successDice += 1
-      when 1 then
-        @successDice -= 1
-        @botchDice += 1
+    dice.sort!
+
+    success = 0
+    botch = 0
+    auto_success = 0
+
+    dice.each do |d|
+      case d
+      when 10
+        auto_success += auto_success_value
+      when diff..10
+        success += 1
+      when 1
+        botch += 1 if enable_botch
       end
-
-      diceResults[i] = dice_now
     end
 
-    diceResults.sort!
+    # 自動成功を成功に加算する
+    success += auto_success
 
-    result = " ＞ "
-    diceResults.each do |diceResult|
-      result += diceResult.to_s + ','
-    end
+    # 成功と大失敗を相殺する
+    c = [ success, botch ].min
+    success -= c
+    botch -= c
 
-    result = result.chop
+    return dice, success, botch, auto_success
+  end
 
-    return result
+  # 20th Edition
+  # 出目10は2自動成功
+  # 出目1は大失敗: 成功を1つ相殺
+  def roll_wod_20th(dice_pool, diff)
+    roll_wod(dice_pool, diff, true, 2)
   end
 end
