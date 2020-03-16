@@ -89,6 +89,9 @@ class BCDice
   VERSION = "2.03.05".freeze
 
   attr_reader :cardTrader
+  attr_reader :rand_results, :detailed_rand_results
+
+  alias getRandResults rand_results
 
   def initialize(parent, cardTrader, diceBot, counterInfos, tableFileData)
     @parent = parent
@@ -105,7 +108,6 @@ class BCDice
     @isMessagePrinted = false
     @rands = nil
     @isKeepSecretDice = true
-    @randResults = nil
     @isIrcMode = true
   end
 
@@ -991,8 +993,8 @@ class BCDice
       value = randFromRands(max)
     end
 
-    unless @randResults.nil?
-      @randResults << [(value + 1), max]
+    unless @rand_results.nil?
+      @rand_results << [(value + 1), max]
     end
 
     return value
@@ -1035,11 +1037,11 @@ class BCDice
 
   def setCollectRandResult(b)
     if b
-      @randResults = []
-      @detailedRandResults = []
+      @rand_results = []
+      @detailed_rand_results = []
     else
-      @randResults = nil
-      @detailedRandResults = nil
+      @rand_results = nil
+      @detailed_rand_results = nil
     end
   end
 
@@ -1047,25 +1049,10 @@ class BCDice
   # @params [Integer] sides
   # @params [Integer] value
   def push_to_detail(kind, sides, value)
-    unless @detailedRandResults.nil?
+    unless @detailed_rand_results.nil?
       detail = DetailedRandResult.new(kind, sides, value)
-      @detailedRandResults.push(detail)
+      @detailed_rand_results.push(detail)
     end
-  end
-
-  # @return [Array<Array<(Integer, Integer)>>]
-  def getRandResults
-    @randResults
-  end
-
-  # ダイスロールの詳細結果
-  # ダイスのタイプ
-  # - "tens_d10": 10面ダイスで十の位を決めるダイス
-  # - "d9": 10面ダイスで0~9を決めるダイス
-  # - 整数.to_s : #{整数}面ダイス
-  # @return [Array<Array<(Integer, String)>>]
-  def getDetailedRandResults
-    @detailedRandResults
   end
 
   def randNomal(max)
