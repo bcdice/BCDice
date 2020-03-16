@@ -43,7 +43,7 @@ INFO_MESSAGE_TEXT
     diff = md[3].to_i if md[3]
     auto_success = md[4].to_i if md[4]
 
-    diff = 6 if diff < 3
+    diff = 6 if diff < 2
 
     sequence = []
     sequence.push "DicePool=#{dice_pool}, Difficulty=#{diff}, AutomaticSuccess=#{auto_success}"
