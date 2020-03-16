@@ -1007,7 +1007,7 @@ class BCDice
   def rand(max)
     ret = rand_inner(max)
 
-    push_to_detail(:nomal, max, ret + 1)
+    push_to_detail(:normal, max, ret + 1)
     return ret
   end
 
