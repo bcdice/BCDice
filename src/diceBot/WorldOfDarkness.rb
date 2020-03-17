@@ -88,12 +88,10 @@ INFO_MESSAGE_TEXT
   # 出目10は1自動成功 振り足し
   # 出目1は大失敗: 成功を1つ相殺
   def roll_wod(dice_pool, diff, enable_botch = true, auto_success_value = 1)
-    dice = Array.new(dice_pool)
-
     # FIXME: まとめて振る
-    dice_pool.times do |i|
+    dice = Array.new(dice_pool) do |i|
       dice_now, = roll(1, 10)
-      dice[i] = dice_now
+      dice_now
     end
 
     dice.sort!
