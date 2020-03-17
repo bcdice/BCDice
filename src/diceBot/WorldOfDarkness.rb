@@ -89,7 +89,7 @@ INFO_MESSAGE_TEXT
   # 出目1は大失敗: 成功を1つ相殺
   def roll_wod(dice_pool, diff, enable_botch = true, auto_success_value = 1)
     # FIXME: まとめて振る
-    dice = Array.new(dice_pool) do |i|
+    dice = Array.new(dice_pool) do
       dice_now, = roll(1, 10)
       dice_now
     end
