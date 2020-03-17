@@ -54,29 +54,20 @@ INFO_MESSAGE_TEXT
     total_success = auto_success
     total_botch = 0
 
-    if enable_20th
-      # 20th Edition
-      dice, success, botch, auto_success = roll_wod(dice_pool, diff, true, 2)
-      sequence.push dice.join(',')
-      total_success += success
-      total_botch += botch
-    else
-      # Revised Edition
-      dice, success, botch, auto_success = roll_wod(dice_pool, diff, true, 1)
-      sequence.push dice.join(',')
-      total_success += success
-      total_botch += botch
+    dice, success, botch, auto_success = roll_wod(dice_pool, diff, true, enable_20th ? 2 : 1)
+    sequence.push dice.join(',')
+    total_success += success
+    total_botch += botch
 
-      if enable_reroll
-        # 振り足し
-        while auto_success > 0
-          dice_pool = auto_success
-          # 振り足しの出目1は大失敗ではない
-          dice, success, botch, auto_success = roll_wod(dice_pool, diff, false)
-          sequence.push dice.join(',')
-          total_success += success
-          total_botch += botch
-        end
+    if enable_reroll
+      # 振り足し
+      while auto_success > 0
+        dice_pool = auto_success
+        # 振り足しの出目1は大失敗ではない
+        dice, success, botch, auto_success = roll_wod(dice_pool, diff, false)
+        sequence.push dice.join(',')
+        total_success += success
+        total_botch += botch
       end
     end
 
