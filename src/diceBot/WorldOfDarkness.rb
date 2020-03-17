@@ -56,13 +56,13 @@ INFO_MESSAGE_TEXT
 
     if enable_20th
       # 20th Edition
-      dice, success, botch, auto_success = roll_wod_20th(dice_pool, diff)
+      dice, success, botch, auto_success = roll_wod(dice_pool, diff, true, 2)
       sequence.push dice.join(',')
       total_success += success
       total_botch += botch
     else
       # Revised Edition
-      dice, success, botch, auto_success = roll_wod(dice_pool, diff)
+      dice, success, botch, auto_success = roll_wod(dice_pool, diff, true, 1)
       sequence.push dice.join(',')
       total_success += success
       total_botch += botch
@@ -125,18 +125,13 @@ INFO_MESSAGE_TEXT
     # 自動成功を成功に加算する
     success += auto_success
 
-    # 成功と大失敗を相殺する
-    c = [ success, botch ].min
-    success -= c
-    botch -= c
+    if enable_botch
+      # 成功と大失敗を相殺する
+      c = [ success, botch ].min
+      success -= c
+      botch -= c
+    end
 
     return dice, success, botch, auto_success
-  end
-
-  # 20th Edition
-  # 出目10は2自動成功
-  # 出目1は大失敗: 成功を1つ相殺
-  def roll_wod_20th(dice_pool, diff)
-    roll_wod(dice_pool, diff, true, 2)
   end
 end
