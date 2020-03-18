@@ -1,23 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Amadeus < DiceBot
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @d66Type = 2
-  end
+  # ゲームシステムの識別子
+  ID = 'Amadeus'
 
-  def gameName
-    'アマデウス'
-  end
+  # ゲームシステム名
+  NAME = 'アマデウス'
 
-  def gameType
-    "Amadeus"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'あまてうす'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定(Rx±y@z>=t)
 　能力値のダイスごとに成功・失敗の判定を行います。
 　x：能力ランク(S,A～D)　y：修正値（省略可）
@@ -40,6 +35,12 @@ class Amadeus < DiceBot
 ・挑戦テーマ表（～CT）
 　武勇 PRCT／技術 TCCT／頭脳 INCT／霊力 PSCT／愛 LVCT／日常 DACT
 INFO_MESSAGE_TEXT
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
   end
 
   def rollDiceCommand(command)

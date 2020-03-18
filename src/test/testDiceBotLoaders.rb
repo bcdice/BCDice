@@ -12,7 +12,7 @@ require 'diceBot/DiceBotLoaderList'
 
 # ダイスボット読み込みのテスト
 #
-# 1. ゲームタイプ名が有効かを調べるテストケース
+# 1. ゲームシステムの識別子が有効かを調べるテストケース
 # 2. 特定の名前のダイスボットの読み込み禁止を確認するテストケース
 # 3. 複数の名前で読み込めるダイスボットの読み込みを確認するテストケース
 # 4. ダイスボットファイルを置いただけで読み込めることを確認するテストケース
@@ -27,31 +27,31 @@ class TestDiceBotLoaders < Test::Unit::TestCase
   end
 
   #--
-  # 1. ゲームタイプ名が有効かを調べるテストケース
+  # 1. ゲームシステムの識別子が有効かを調べるテストケース
   #++
 
-  # 「Cthulhu」というゲームタイプは有効
-  def test_gameTypeCthulhuShouldBeValid
+  # 「Cthulhu」という識別子は有効
+  def test_id_Cthulhu_should_be_valid
     assert(DiceBotLoader.validGameType?('Cthulhu'))
   end
 
-  # 「Cthulhu7th」というゲームタイプは有効
-  def test_gameTypeCthulhu7thShouldBeValid
+  # 「Cthulhu7th」という識別子は有効
+  def test_id_Cthulhu7th_should_be_valid
     assert(DiceBotLoader.validGameType?('Cthulhu7th'))
   end
 
-  # 「Cthulhu7th_Korean」というゲームタイプは有効
-  def test_gameTypeCthulhu7th_KoreanShouldBeValid
+  # 「Cthulhu7th_Korean」という識別子は有効
+  def test_id_Cthulhu7th_Korean_should_be_valid
     assert(DiceBotLoader.validGameType?('Cthulhu7th_Korean'))
   end
 
-  # 「_Template」というゲームタイプは無効
-  def test_gameType_TemplateShouldBeInvalid
+  # 「_Template」という識別子は無効
+  def test_id_Template_should_be_invalid
     assert(!DiceBotLoader.validGameType?('_Template'))
   end
 
-  # 「test」というゲームタイプは無効
-  def test_gameType_testShouldBeInvalid
+  # 「test」という識別子は無効
+  def test_id_test_should_be_invalid
     assert(!DiceBotLoader.validGameType?('test'))
   end
 
@@ -802,36 +802,36 @@ class TestDiceBotLoaders < Test::Unit::TestCase
   private
 
   # ダイスボットが存在しないことを表明する
-  # @param [String] gameType ゲームタイプ
+  # @param [String] id ゲームシステムの識別子
   # @return [void]
-  def assertDiceBotNotFound(gameType)
-    fileName = File.join(DICE_BOT_DIR, "#{gameType}.rb")
+  def assertDiceBotNotFound(id)
+    fileName = File.join(DICE_BOT_DIR, "#{id}.rb")
     assert(!File.exist?(fileName), 'ファイルが存在しない')
 
-    assert_nil(DiceBotLoaderList.find(gameType),
+    assert_nil(DiceBotLoaderList.find(id),
                '読み込み処理が存在しない')
-    assert_nil(DiceBotLoader.loadUnknownGame(gameType),
+    assert_nil(DiceBotLoader.loadUnknownGame(id),
                'loadUnknownGameで読み込まれない')
   end
 
   # ダイスボットを読み込もうとしても無視されることを表明する
-  # @param [String] gameType ゲームタイプ
+  # @param [String] id ゲームシステムの識別子
   # @return [void]
-  def assertDiceBotIgnored(gameType)
-    fileName = File.join(DICE_BOT_DIR, "#{gameType}.rb")
+  def assertDiceBotIgnored(id)
+    fileName = File.join(DICE_BOT_DIR, "#{id}.rb")
     assert(File.exist?(fileName), 'ファイルが存在する')
 
-    assert_nil(DiceBotLoaderList.find(gameType),
+    assert_nil(DiceBotLoaderList.find(id),
                '読み込み処理が存在しない')
-    assert_nil(DiceBotLoader.loadUnknownGame(gameType),
+    assert_nil(DiceBotLoader.loadUnknownGame(id),
                'loadUnknownGameで読み込まれない')
   end
 
   # DiceBotLoaderを通じて正しいダイスボットが読み込まれることを表明する
-  # @param [String] gameType ゲームタイプ
+  # @param [String] id ゲームシステムの識別子
   # @param [String] pattern 読み込む際に指定する名前
   # @return [void]
-  def assertDiceBotWithLoader(gameType, pattern)
+  def assertDiceBotWithLoader(id, pattern)
     loader = DiceBotLoaderList.find(pattern)
     assert(loader, '読み込み処理が見つかる')
 
@@ -840,27 +840,27 @@ class TestDiceBotLoaders < Test::Unit::TestCase
                 '小文字指定で読み込み処理が見つかる')
 
     diceBot = loader.loadDiceBot
-    assert_equal(gameType, diceBot.gameType,
-                 'loaderで読み込んだダイスボットのゲームタイプが等しい')
+    assert_equal(id, diceBot.id,
+                 'loaderで読み込んだダイスボットのゲームシステム識別子が等しい')
 
     @bcDice.setGameByTitle(pattern)
-    assert_equal(gameType, @bcDice.getGameType,
-                 'setGameByTitle後のゲームタイプが等しい')
+    assert_equal(id, @bcDice.getGameType,
+                 'setGameByTitle後のダイスボットのゲームシステム識別子が等しい')
 
     @bcDice.setGameByTitle(pattern.downcase)
-    assert_equal(gameType, @bcDice.getGameType,
-                 '小文字を指定したsetGameByTitle後のゲームタイプが等しい')
+    assert_equal(id, @bcDice.getGameType,
+                 '小文字を指定したsetGameByTitle後のダイスボットのゲームシステム識別子が等しい')
   end
 
   # DiceBotLoaderなしでも正しいダイスボットが読み込まれることを表明する
-  # @param [String] gameType ゲームタイプ
+  # @param [String] id ゲームシステムの識別子
   # @param [String] pattern 読み込む際に指定する名前
   # @return [void]
-  def assertDiceBotWithoutLoader(gameType, pattern = gameType)
+  def assertDiceBotWithoutLoader(id, pattern = id)
     assert_nil(DiceBotLoaderList.find(pattern), '読み込み処理が存在しない')
 
     @bcDice.setGameByTitle(pattern)
-    assert_equal(gameType, @bcDice.getGameType,
-                 'setGameByTitle後のゲームタイプが等しい')
+    assert_equal(id, @bcDice.getGameType,
+                 'setGameByTitle後のダイスボットのゲームシステム識別子が等しい')
   end
 end

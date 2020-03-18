@@ -1,26 +1,27 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class CthulhuTech < DiceBot
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-  end
+  # ゲームシステムの識別子
+  ID = 'CthulhuTech'
 
-  def gameName
-    'クトゥルフテック'
-  end
+  # ゲームシステム名
+  NAME = 'クトゥルフテック'
 
-  def gameType
-    "CthulhuTech"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'くとうるふてつく'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 テストのダイス計算を実装。
 成功、失敗、クリティカル、ファンブルの自動判定。
 コンバットテスト(防御側有利なので「>=」ではなく「>」で入力)の時はダメージダイスも表示。
 INFO_MESSAGE_TEXT
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
   end
 
   def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD10)

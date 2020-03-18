@@ -1,23 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class KanColle < DiceBot
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 3
-    @d66Type = 2
-  end
+  # ゲームシステムの識別子
+  ID = 'KanColle'
 
-  def gameName
-    '艦これRPG'
-  end
+  # ゲームシステム名
+  NAME = '艦これRPG'
 
-  def gameType
-    "KanColle"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かんこれRPG'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 例) 2D6 ： 単純に2D6した値を出します。
 例) 2D6>=7 ： 行為判定。2D6して目標値7以上出れば成功。
 例) 2D6+2>=7 ： 行為判定。2D6に修正+2をした上で目標値7以上になれば成功。
@@ -45,6 +40,12 @@ class KanColle < DiceBot
 　・敵深海棲艦の装備決定 BT2～BT12
 ・D66ダイス(D66S相当=低い方が10の桁になる)
 INFO_MESSAGE_TEXT
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 3
+    @d66Type = 2
   end
 
   def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(2D6)

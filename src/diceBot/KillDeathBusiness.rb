@@ -1,23 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class KillDeathBusiness < DiceBot
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @d66Type = 2
-  end
+  # ゲームシステムの識別子
+  ID = 'KillDeathBusiness'
 
-  def gameName
-    'キルデスビジネス'
-  end
+  # ゲームシステム名
+  NAME = 'キルデスビジネス'
 
-  def gameType
-    "KillDeathBusiness"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'きるてすひしねす'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定
 　JDx or JDx+y or JDx-y or JDx,z or JDx+y,z JDx-y,z
 　（x＝難易度、y＝補正、z＝ファンブル率(リスク)）
@@ -44,6 +39,12 @@ class KillDeathBusiness < DiceBot
 　ヘルドラゴン　PCT4/ヘルフライ　PCT5/ヘルゴート　PCT6/ヘルベア　PCT7
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
   end
 
   # ゲーム別成功度判定(2D6)

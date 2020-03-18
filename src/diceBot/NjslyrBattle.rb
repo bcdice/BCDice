@@ -1,22 +1,23 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class NjslyrBattle < DiceBot
-  def gameName
-    'NJSLYRBATTLE'
-  end
+  # ゲームシステムの識別子
+  ID = 'NJSLYRBATTLE'
 
-  def gameType
-    "NJSLYRBATTLE"
-  end
+  # ゲームシステム名
+  NAME = 'NJSLYRBATTLE'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'にんしやすれいやあはとる'
+
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・カラテロール
 2d6<=(カラテ点)
 例）2d6<=5
 (2D6<=5) ＞ 2[1,1] ＞ 2 ＞ 成功 重点 3 溜まる
 INFO_MESSAGE_TEXT
-  end
 
   # ゲーム別成功度判定(2D6)
   def check_2D6(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)

@@ -1,23 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Kamigakari < DiceBot
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @d66Type = 1
-  end
+  # ゲームシステムの識別子
+  ID = 'Kamigakari'
 
-  def gameName
-    '神我狩'
-  end
+  # ゲームシステム名
+  NAME = '神我狩'
 
-  def gameType
-    "Kamigakari"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かみかかり'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・各種表
  ・感情表(ET)
  ・霊紋消費の代償表(RT)
@@ -27,6 +22,12 @@ class Kamigakari < DiceBot
 　　例） MT　MT3　MT9
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 1
   end
 
   def rollDiceCommand(command)

@@ -1,24 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Peekaboo < DiceBot
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @d66Type = 2
-    @fractionType = "roundUp" # 端数切り上げに設定
-  end
+  # ゲームシステムの識別子
+  ID = 'Peekaboo'
 
-  def gameName
-    'ピーカーブー'
-  end
+  # ゲームシステム名
+  NAME = 'ピーカーブー'
 
-  def gameType
-    "Peekaboo"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ひいかあふう'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定
 　判定時にクリティカルとファンブルを自動判定します。
 ・各種表
@@ -39,6 +33,13 @@ class Peekaboo < DiceBot
 　・指定特技(大人)表　　　　　　　TAT
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
+    @fractionType = "roundUp" # 端数切り上げに設定
   end
 
   # ゲーム別成功度判定(2D6)

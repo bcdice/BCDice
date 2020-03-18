@@ -1,25 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class TunnelsAndTrolls < DiceBot
-  setPrefixes(['(\d+H?BS)'])
+  # ゲームシステムの識別子
+  ID = 'Tunnels & Trolls'
 
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @sameDiceRerollCount = 1
-  end
+  # ゲームシステム名
+  NAME = 'トンネルズ＆トロールズ'
 
-  def gameName
-    'トンネルズ＆トロールズ'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'とんねるすあんととろおるす'
 
-  def gameType
-    "Tunnels & Trolls"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・行為判定　(nD6+x>=nLV)
 失敗、成功、自動失敗の自動判定とゾロ目の振り足し経験値の自動計算を行います。
 SAVEの難易度を「レベル」で表記することが出来ます。
@@ -35,6 +28,14 @@ SAVEの難易度を「レベル」で表記することが出来ます。
 　最初のダイスの読替は、個別の出目はそのままで表示。
 　下から２番目の出目をずらした分だけ合計にマイナス修正を追加して表示します。
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['(\d+H?BS)'])
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @sameDiceRerollCount = 1
   end
 
   def changeText(string)

@@ -1,24 +1,25 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class CodeLayerd < DiceBot
-  setPrefixes(['\d*CL[@\d]*.*'])
+  # ゲームシステムの識別子
+  ID = 'CodeLayerd'
 
-  def gameName
-    'コード：レイヤード'
-  end
+  # ゲームシステム名
+  NAME = 'コード：レイヤード'
 
-  def gameType
-    "CodeLayerd"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'こおとれいやあと'
 
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 ・行為判定（nCL@m） クリティカル・ファンブル判定あり
   n個のD10でmを判定値とした行為判定を行う。mは省略可能。（@6扱い）
   例）7CL>=5 ：サイコロ7個で判定値6のロールを行い、目標値5に対して判定
   例）4CL@7  ：サイコロ4個で判定値7のロールを行い達成値を出す
 MESSAGETEXT
-  end
+
+  setPrefixes(['\d*CL[@\d]*.*'])
 
   def isGetOriginalMessage
     true

@@ -38,6 +38,7 @@ namespace :test do
     t.description = 'ユニットテスト'
     t.test_files = [
       'src/test/setup',
+      'src/test/test_dicebot_info_is_defined.rb',
       'src/test/testDiceBotLoaders.rb',
       'src/test/testDiceBotPrefixesCompatibility.rb',
       'src/test/test_srs_help_messages.rb',

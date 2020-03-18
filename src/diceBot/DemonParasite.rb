@@ -1,25 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class DemonParasite < DiceBot
-  setPrefixes(['[NAMUC]?URGE\d+'])
+  # ゲームシステムの識別子
+  ID = 'DemonParasite'
 
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @d66Type = 1
-  end
+  # ゲームシステム名
+  NAME = 'デモンパラサイト'
 
-  def gameName
-    'デモンパラサイト'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'てもんはらさいと'
 
-  def gameType
-    "DemonParasite"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・衝動表　(URGEx)
 　"URGE衝動レベル"の形で指定します。
 　衝動表に従って自動でダイスロールを行い、結果を表示します。
@@ -33,6 +26,14 @@ class DemonParasite < DiceBot
 例）URGE1　　　urge5　　　Surge2
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['[NAMUC]?URGE\d+'])
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 1
   end
 
   # ゲーム別成功度判定(nD6)

@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class WARPS < DiceBot
-  def gameName
-    'ワープス'
-  end
+  # ゲームシステムの識別子
+  ID = 'WARPS'
 
-  def gameType
-    "WARPS"
-  end
+  # ゲームシステム名
+  NAME = 'ワープス'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
-失敗、成功度の自動判定を行います。
-INFO_MESSAGE_TEXT
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'わあふす'
+
+  # ダイスボットの使い方
+  HELP_MESSAGE = "失敗、成功度の自動判定を行います。\n"
 
   def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(2D6)
     debug('WARPS check_2D6 betgin')

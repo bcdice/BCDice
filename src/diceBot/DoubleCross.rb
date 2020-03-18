@@ -5,22 +5,17 @@ require 'diceBot/DiceBot'
 require 'utils/ArithmeticEvaluator'
 
 class DoubleCross < DiceBot
-  setPrefixes(['\d+DX.*', 'ET'])
+  # ゲームシステムの識別子
+  ID = 'DoubleCross'
 
-  def initialize
-    super
-  end
+  # ゲームシステム名
+  NAME = 'ダブルクロス2nd,3rd'
 
-  def gameName
-    'ダブルクロス2nd,3rd'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'たふるくろす2'
 
-  def gameType
-    "DoubleCross"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定コマンド　(xDX+y@c or xDXc+y)
 　"(個数)DX(修正)@(クリティカル値)"もしくは"(個数)DX(クリティカル値)(修正)"で指定します。
 　修正値も付けられます。
@@ -32,7 +27,8 @@ class DoubleCross < DiceBot
 
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
-  end
+
+  setPrefixes(['\d+DX.*', 'ET'])
 
   # OD Tool式の成功判定コマンドの正規表現
   #

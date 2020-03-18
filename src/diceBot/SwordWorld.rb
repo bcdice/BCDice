@@ -1,24 +1,25 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class SwordWorld < DiceBot
+  # ゲームシステムの識別子
+  ID = 'SwordWorld'
+
+  # ゲームシステム名
+  NAME = 'ソードワールド'
+
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'そおとわあると'
+
+  # ダイスボットの使い方
+  HELP_MESSAGE = "・SW　レーティング表　(Kx[c]+m$f) (x:キー, c:クリティカル値, m:ボーナス, f:出目修正)\n"
+
   setPrefixes(['K\d+.*'])
 
   def initialize
     rating_table = 0
     super()
     @rating_table = rating_table
-  end
-
-  def gameName
-    'ソードワールド'
-  end
-
-  def gameType
-    "SwordWorld"
-  end
-
-  def getHelpMessage
-    '・SW　レーティング表　　　　　(Kx[c]+m$f) (x:キー, c:クリティカル値, m:ボーナス, f:出目修正)'
   end
 
   def changeText(string)

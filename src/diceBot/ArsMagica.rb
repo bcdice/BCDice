@@ -1,23 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class ArsMagica < DiceBot
-  setPrefixes(['ArS'])
+  # ゲームシステムの識別子
+  ID = 'ArsMagica'
 
-  def initialize
-    super
-    @sendMode = 2
-  end
+  # ゲームシステム名
+  NAME = 'アルスマギカ'
 
-  def gameName
-    'アルスマギカ'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'あるすまきか'
 
-  def gameType
-    "ArsMagica"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・ストレスダイス　(ArSx+y)
 　"ArS(ボッチダイス)+(修正)"です。判定にも使えます。Rコマンド(1R10+y[m])に読替をします。
 　ボッチダイスと修正は省略可能です。(ボッチダイスを省略すると1として扱います)
@@ -26,6 +21,12 @@ class ArsMagica < DiceBot
 　例) (1R10[5]) ＞ 0[0,1,8,0,8,1] ＞ Botch!
 　　最初の0が判断基準で、その右側5つがボッチダイスです。1*2,8*2,0*1なので1botchという訳です。
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['ArS'])
+
+  def initialize
+    super
+    @sendMode = 2
   end
 
   def changeText(string)

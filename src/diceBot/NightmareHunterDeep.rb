@@ -1,25 +1,26 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class NightmareHunterDeep < DiceBot
+  # ゲームシステムの識別子
+  ID = 'NightmareHunterDeep'
+
+  # ゲームシステム名
+  NAME = 'ナイトメアハンター=ディープ'
+
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ないとめあはんたあていいふ'
+
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
+加算ロール時に６の個数をカウントして、その４倍を自動的に加算します。
+(出目はそのまま表示で合計値が6-10の読み替えになります)
+INFO_MESSAGE_TEXT
+
   def initialize
     super
     @sendMode = 2
     @sortType = 1
-  end
-
-  def gameName
-    'ナイトメアハンター=ディープ'
-  end
-
-  def gameType
-    "NightmareHunterDeep"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
-加算ロール時に６の個数をカウントして、その４倍を自動的に加算します。
-(出目はそのまま表示で合計値が6-10の読み替えになります)
-INFO_MESSAGE_TEXT
   end
 
   def changeText(string)

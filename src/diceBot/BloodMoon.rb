@@ -1,24 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class BloodMoon < DiceBot
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @d66Type = 2
-    @fractionType = "roundUp" # 端数切り上げに設定
-  end
+  # ゲームシステムの識別子
+  ID = 'BloodMoon'
 
-  def gameName
-    'ブラッド・ムーン'
-  end
+  # ゲームシステム名
+  NAME = 'ブラッド・ムーン'
 
-  def gameType
-    "BloodMoon"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ふらつとむうん'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・各種表
 　・関係属性表　RAT
 　・導入タイプ決定表(ノーマル)　IDT
@@ -36,6 +30,13 @@ class BloodMoon < DiceBot
 　・重度狂気表　　　　 SIT
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
+    @fractionType = "roundUp" # 端数切り上げに設定
   end
 
   # ゲーム別成功度判定(2D6)

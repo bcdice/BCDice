@@ -1,21 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Dracurouge < DiceBot
-  def initialize
-    super
-    @d66Type = 1
-  end
+  # ゲームシステムの識別子
+  ID = 'Dracurouge'
 
-  def gameName
-    'ドラクルージュ'
-  end
+  # ゲームシステム名
+  NAME = 'ドラクルージュ'
 
-  def gameType
-    "Dracurouge"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'とらくるうしゆ'
 
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 ・行い判定（DRx+y）
 　x：振るサイコロの数（省略時４）、y：渇き修正（省略時０）
 　例） DR　DR6　DR+1　DR5+2
@@ -43,6 +40,10 @@ class Dracurouge < DiceBot
 　例）HRT（一括表示）、HRTVW（ヴルコラクの野伏）、HRTF2X（フリッガの検体）
 ・D66ダイスあり
 MESSAGETEXT
+
+  def initialize
+    super
+    @d66Type = 1
   end
 
   def rollDiceCommand(command)

@@ -1,25 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Nechronica_Korean < DiceBot
-  setPrefixes(['(\d+NC|\d+NA)'])
+  # ゲームシステムの識別子
+  ID = 'Nechronica:Korean'
 
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 3
-    @defaultSuccessTarget = "6" # 목표치가 딱히 없을때의 난이도
-  end
+  # ゲームシステム名
+  NAME = '네크로니카'
 
-  def gameName
-    '네크로니카'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:네크로니카'
 
-  def gameType
-    "Nechronica:Korean"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・판정　(nNC+m)
 　주사위 수n、수정치m으로 판정굴림을 행합니다.
 　주사위 수가 2개 이상일 때에 파츠파손 수도 표시합니다.
@@ -27,6 +20,14 @@ class Nechronica_Korean < DiceBot
 　주사위 수n、수정치m으로 공격판정굴림을 행합니다.
 　명중부위와 주사위 수가 2개 이상일 때에 파츠파손 수도 표시합니다.
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['(\d+NC|\d+NA)'])
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 3
+    @defaultSuccessTarget = "6" # 목표치가 딱히 없을때의 난이도
   end
 
   def changeText(string)

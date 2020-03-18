@@ -1,29 +1,30 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class NightWizard < DiceBot
-  setPrefixes(['\d+NW'])
+  # ゲームシステムの識別子
+  ID = 'NightWizard'
 
-  def initialize
-    super
-    @sendMode = 2
-  end
+  # ゲームシステム名
+  NAME = 'ナイトウィザード2版'
 
-  def gameName
-    'ナイトウィザード2版'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ないとういさあと2'
 
-  def gameType
-    "NightWizard"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定用コマンド　(nNW+m@x#y)
 　"(基本値)NW(常時および常時に準じる特技等及び状態異常（省略可）)@(クリティカル値)#(ファンブル値)（常時以外の特技等及び味方の支援効果等の影響（省略可））"でロールします。
 　Rコマンド(2R6m[n,m]c[x]f[y]>=t tは目標値)に読替されます。
 　クリティカル値、ファンブル値が無い場合は1や13などのあり得ない数値を入れてください。
 　例）12NW-5@7#2　　1NW　　50nw+5@7,10#2,5　50nw-5+10@7,10#2,5+15+25
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['\d+NW'])
+
+  def initialize
+    super
+    @sendMode = 2
   end
 
   def changeText(string)

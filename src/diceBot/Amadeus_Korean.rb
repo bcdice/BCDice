@@ -1,23 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Amadeus_Korean < DiceBot
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @d66Type = 2
-  end
+  # ゲームシステムの識別子
+  ID = 'Amadeus:Korean'
 
-  def gameName
-    '아마데우스'
-  end
+  # ゲームシステム名
+  NAME = '아마데우스'
 
-  def gameType
-    "Amadeus:Korean"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:아마데우스'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・판정(Rx±y@z>=t)
 　다이스별로 성공, 실패의 판정을 합니다.
 　x：x에 랭크(S,A～D)를 입력.
@@ -41,6 +36,12 @@ class Amadeus_Korean < DiceBot
 ・挑戦テーマ表（～CT）
 　武勇 PRCT／技術 TCCT／頭脳 INCT／霊力 PSCT／愛 LVCT／日常 DACT
 INFO_MESSAGE_TEXT
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
   end
 
   def rollDiceCommand(command)

@@ -1,25 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Nechronica < DiceBot
-  setPrefixes(['(\d+NC|\d+NA)'])
+  # ゲームシステムの識別子
+  ID = 'Nechronica'
 
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 3
-    @defaultSuccessTarget = "6" # 目標値が空欄の時の目標値
-  end
+  # ゲームシステム名
+  NAME = 'ネクロニカ'
 
-  def gameName
-    'ネクロニカ'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ねくろにか'
 
-  def gameType
-    "Nechronica"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定　(nNC+m)
 　ダイス数n、修正値mで判定ロールを行います。
 　ダイス数が2以上の時のパーツ破損数も表示します。
@@ -27,6 +20,14 @@ class Nechronica < DiceBot
 　ダイス数n、修正値mで攻撃判定ロールを行います。
 　命中部位とダイス数が2以上の時のパーツ破損数も表示します。
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['(\d+NC|\d+NA)'])
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 3
+    @defaultSuccessTarget = "6" # 目標値が空欄の時の目標値
   end
 
   def changeText(string)

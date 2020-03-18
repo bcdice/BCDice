@@ -1,24 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Warhammer < DiceBot
-  setPrefixes(['WH.*'])
+  # ゲームシステムの識別子
+  ID = 'Warhammer'
 
-  def initialize
-    super
-    @sendMode = 2
-    @fractionType = "roundUp" # 端数切り上げに設定
-  end
+  # ゲームシステム名
+  NAME = 'ウォーハンマー'
 
-  def gameName
-    'ウォーハンマー'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'うおおはんまあ'
 
-  def gameType
-    "Warhammer"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・クリティカル表(whHxx/whAxx/whBxx/whLxx)
 　"WH部位 クリティカル値"の形で指定します。部位は「H(頭部)」「A(腕)」「B(胴体)」「L(足)」の４カ所です。
 　例）whH10 whA5 WHL4
@@ -30,6 +24,13 @@ class Warhammer < DiceBot
 　なお、種別指定を省略すると「二足」、「@」だけにすると全種別の命中部位を表示します。(コマンドを忘れた時の対応です)
 　例）wh60　　wh43@4W　　WH65@
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['WH.*'])
+
+  def initialize
+    super
+    @sendMode = 2
+    @fractionType = "roundUp" # 端数切り上げに設定
   end
 
   def rollDiceCommand(command)

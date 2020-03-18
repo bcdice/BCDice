@@ -1,24 +1,20 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 require 'diceBot/SwordWorld2_0'
 
 class SwordWorld2_5 < SwordWorld2_0
-  setPrefixes(['K\d+.*', 'Gr(\d+)?', 'FT', 'TT'])
+  # ゲームシステムの識別子
+  ID = 'SwordWorld2.5'
 
-  def initialize
-    super
-  end
+  # ゲームシステム名
+  NAME = 'ソードワールド2.5'
 
-  def gameName
-    'ソードワールド2.5'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'そおとわあると2.5'
 
-  def gameType
-    return "SwordWorld2.5"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 自動的成功、成功、失敗、自動的失敗の自動判定を行います。
 
 ・レーティング表　(Kx)
@@ -65,7 +61,8 @@ class SwordWorld2_5 < SwordWorld2_0
 ・絡み効果表　(TT)
 　絡み効果表を出すことができます。
 INFO_MESSAGE_TEXT
-  end
+
+  setPrefixes(['K\d+.*', 'Gr(\d+)?', 'FT', 'TT'])
 
   def changeText(string)
     return string unless /(^|\s)[sS]?(K[\d]+)/i =~ string
