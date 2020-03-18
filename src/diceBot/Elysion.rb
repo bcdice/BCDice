@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Elysion < DiceBot
-  def initialize
-    super
-    @d66Type = 2
-  end
+  # ゲームシステムの識別子
+  ID = 'Elysion'
 
-  def gameName
-    'エリュシオン'
-  end
+  # ゲームシステム名
+  NAME = 'エリュシオン'
 
-  def gameType
-    "Elysion"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'えりゆしおん'
 
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  #
+  #  教室 R:classRoom／購買 S:Shop／部室 B:Box／生徒会室 C:Council／学生寮 D:Dormitory／図書館 I:lIbrary／屋上 F:rooF／
+  # 　研究室 L:Labo／プール P:Pool／中庭 N:iNner／商店街 A:Avenue／廃墟 V:deVastation／ゲート G:Gate
+  #  温泉 H:Hotsprings／修学旅行 T:School trip／お祭り室 E:festival／潜入調査 U:Infiltration study／
+  HELP_MESSAGE = <<MESSAGETEXT
 ・判定（ELn+m）
 　能力値 n 、既存の達成値 m（アシストの場合）
 例）EL3　：能力値３で判定。
@@ -44,13 +45,10 @@ class Elysion < DiceBot
 　1コマンドでデート判定を行い、デート表の結果を表示します。
 ・D66ダイスあり
 MESSAGETEXT
-  end
 
-  #  教室 R:classRoom／購買 S:Shop／部室 B:Box／生徒会室 C:Council／学生寮 D:Dormitory／図書館 I:lIbrary／屋上 F:rooF／
-  # 　研究室 L:Labo／プール P:Pool／中庭 N:iNner／商店街 A:Avenue／廃墟 V:deVastation／ゲート G:Gate
-  #  温泉 H:Hotsprings／修学旅行 T:School trip／お祭り室 E:festival／潜入調査 U:Infiltration study／
-  def changeText(string)
-    string
+  def initialize
+    super
+    @d66Type = 2
   end
 
   def isGetOriginalMessage

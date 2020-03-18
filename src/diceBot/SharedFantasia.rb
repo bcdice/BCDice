@@ -1,34 +1,26 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class SharedFantasia < DiceBot
-  setPrefixes(['SF.*', 'ST.*'])
+  # ゲームシステムの識別子
+  ID = 'SharedFantasia'
 
-  def initialize
-    # $isDebug = true
-    super()
-  end
+  # ゲームシステム名
+  NAME = 'Shared†Fantasia'
 
-  def gameName
-    'Shared†Fantasia'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'しえああとふあんたしあ'
 
-  def gameType
-    "SharedFantasia"
-  end
-
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 2D6の成功判定に 自動成功、自動失敗、致命的失敗、劇的成功 の判定があります。
 
 SF/ST = 2D6のショートカット
 
 例) SF+4>=9 : 2D6して4を足した値が9以上なら成功
 MESSAGETEXT
-  end
 
-  def isGetOriginalMessage
-    false
-  end
+  setPrefixes(['SF.*', 'ST.*'])
 
   def changeText(string)
     @throwString = ''

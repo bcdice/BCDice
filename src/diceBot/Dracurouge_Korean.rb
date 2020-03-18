@@ -1,21 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Dracurouge_Korean < DiceBot
-  def initialize
-    super
-    @d66Type = 1
-  end
+  # ゲームシステムの識別子
+  ID = 'Dracurouge:Korean'
 
-  def gameName
-    '드라크루주'
-  end
+  # ゲームシステム名
+  NAME = '드라크루주'
 
-  def gameType
-    "Dracurouge:Korean"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:드라크루주'
 
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 ・행동판정（DRx+y）
 　x：굴리는 주사위의 수（생략시４）, y：갈증수정（생략시０）
 　예） DR　DR6　DR+1　DR5+2
@@ -32,6 +29,10 @@ class Dracurouge_Korean < DiceBot
 　예）RT（일괄표시）, RTDF（드라크 영주）, RTAN（아발롬 야수）
 ・D66 다이스 있음
 MESSAGETEXT
+
+  def initialize
+    super
+    @d66Type = 1
   end
 
   def rollDiceCommand(command)

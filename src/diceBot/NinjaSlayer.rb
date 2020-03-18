@@ -5,22 +5,17 @@ require 'diceBot/DiceBot'
 require 'utils/table'
 
 class NinjaSlayer < DiceBot
-  def initialize
-    super
+  # ゲームシステムの識別子
+  ID = 'NinjaSlayer'
 
-    @defaultSuccessTarget = ">=4"
-  end
+  # ゲームシステム名
+  NAME = 'ニンジャスレイヤーTRPG'
 
-  def gameName
-    'ニンジャスレイヤーTRPG'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'にんしやすれいやあRPG'
 
-  def gameType
-    "NinjaSlayer"
-  end
-
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 ・通常判定　NJ
 　NJx[y] or NJx@y or NJx
 　x=判定ダイス y=難易度 省略時はNORMAL(4)
@@ -43,6 +38,20 @@ class NinjaSlayer < DiceBot
 ・難易度
 　KIDS=K,EASY=E,NORMAL=N,HARD=H,ULTRA HARD=UH 数字にも対応
 MESSAGETEXT
+
+  # ダイスボットで使用するコマンドを配列で列挙する
+  setPrefixes([
+    'NJ\d+.*',
+    'EV\d+.*',
+    'AT\d+.*',
+    'EL\d+.*',
+    'SB'
+  ])
+
+  def initialize
+    super
+
+    @defaultSuccessTarget = ">=4"
   end
 
   # 難易度の値の正規表現

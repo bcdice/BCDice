@@ -1,6 +1,25 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Template < DiceBot
+  # ゲームシステムの識別子
+  ID = 'SystemID'
+
+  # ゲームシステム名
+  NAME = 'ゲームシステム名'
+
+  # ゲームシステム名の読みがな
+  #
+  # 「ゲームシステム名の読みがなの設定方法」（docs/dicebot_sort_key.md）を参考にして
+  # 設定してください
+  SORT_KEY = 'けえむしすてむめい'
+
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
+ヘルプメッセージ
+ダイスボットの使い方をここに記述します。
+MESSAGETEXT
+
   # ダイスボットで使用するコマンドを配列で列挙する
   setPrefixes([])
 
@@ -19,21 +38,6 @@ class Template < DiceBot
     # @defaultSuccessTarget = "";      #目標値が空欄の時の目標値
     # @rerollLimitCount = 0;    #振り足し回数上限
     # @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
-  end
-
-  def gameName
-    'ゲーム名'
-  end
-
-  def gameType
-    "GameType"
-  end
-
-  def getHelpMessage
-    return <<MESSAGETEXT
-ヘルプメッセージ
-ダイスボットの使い方をここに記述します。
-MESSAGETEXT
   end
 
   def changeText(string)

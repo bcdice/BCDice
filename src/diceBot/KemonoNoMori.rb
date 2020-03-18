@@ -1,23 +1,21 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 require 'utils/table.rb'
 require 'utils/range_table'
 
 class KemonoNoMori < DiceBot
-  def initialize
-    super
-  end
+  # ゲームシステムの識別子
+  ID = 'KemonoNoMori'
 
-  def gameName
-    '獸ノ森'
-  end
+  # ゲームシステム名
+  NAME = '獸ノ森'
 
-  def gameType
-    'KemonoNoMori'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'けもののもり'
 
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 ・行為判定(成功度自動算出): KAx[±y]
 ・継続判定(成功度+1固定): KCx[±y]
    x=目標値
@@ -40,7 +38,6 @@ class KemonoNoMori < DiceBot
   ・水採集表: GWT
   ・白の魔石効果表: WST
 MESSAGETEXT
-  end
 
   def rollDiceCommand(command)
     case command

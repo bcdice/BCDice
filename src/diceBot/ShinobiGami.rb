@@ -1,25 +1,20 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 require 'utils/table.rb'
 
 class ShinobiGami < DiceBot
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @d66Type = 2
-  end
+  # ゲームシステムの識別子
+  ID = 'ShinobiGami'
 
-  def gameName
-    'シノビガミ'
-  end
+  # ゲームシステム名
+  NAME = 'シノビガミ'
 
-  def gameType
-    "ShinobiGami"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'しのひかみ'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・各種表
 　・(無印)シーン表　ST／ファンブル表　FT／感情表　ET
 　　　／変調表　WT／戦場表　BT／異形表　MT／ランダム特技決定表　RTT
@@ -37,6 +32,12 @@ class ShinobiGami < DiceBot
 　　/夜行列車シーン表　HY/病院シーン表　HO/龍動シーン表　HR/密室シーン表　HM/催眠シーン表　HS
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
   end
 
   def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(2D6)

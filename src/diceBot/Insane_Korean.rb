@@ -1,28 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Insane_Korean < DiceBot
-  setPrefixes([
-    'ST', 'HJST', 'MTST', 'DVST', 'DT', 'BT', 'PT', 'FT', 'JT', 'BET', 'RTT', 'TVT', 'TET', 'TPT', 'TST', 'TKT', 'TMT',
-    'CHT', 'VHT', 'IHT', 'RHT', 'MHT', 'LHT', 'ECT', 'EMT', 'EAT', 'OPT', 'OHT', 'OWT', 'CNT1', 'CNT2', 'CNT3', 'RET'
-  ])
+  # ゲームシステムの識別子
+  ID = 'Insane:Korean'
 
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 3
-    @d66Type = 2
-  end
+  # ゲームシステム名
+  NAME = '인세인'
 
-  def gameName
-    '인세인'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = '国際化:Korean:인세인'
 
-  def gameType
-    "Insane:Korean"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・판정
 스페셜／펌블／성공／실패를 판정
 ・각종표
@@ -52,14 +42,17 @@ class Insane_Korean < DiceBot
 회사명 결정표1　CNT1/회사명 결정표2　CNT2/회사명 결정표3　CNT3
 ・D66 다이스 있음.
 INFO_MESSAGE_TEXT
-  end
 
-  def changeText(string)
-    string
-  end
+  setPrefixes([
+    'ST', 'HJST', 'MTST', 'DVST', 'DT', 'BT', 'PT', 'FT', 'JT', 'BET', 'RTT', 'TVT', 'TET', 'TPT', 'TST', 'TKT', 'TMT',
+    'CHT', 'VHT', 'IHT', 'RHT', 'MHT', 'LHT', 'ECT', 'EMT', 'EAT', 'OPT', 'OHT', 'OWT', 'CNT1', 'CNT2', 'CNT3', 'RET'
+  ])
 
-  def dice_command_xRn(_string, _nick_e)
-    ''
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 3
+    @d66Type = 2
   end
 
   # 게임 별 성공 여부 판정(2D6)

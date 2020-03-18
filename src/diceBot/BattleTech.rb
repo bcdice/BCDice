@@ -5,22 +5,17 @@ require 'utils/table'
 require 'utils/range_table'
 
 class BattleTech < DiceBot
-  setPrefixes(['\d*SRM\d+.+', '\d*LRM\d+.+', '\d*BT.+', 'CT', 'DW', 'CD\d+'])
+  # ゲームシステムの識別子
+  ID = 'BattleTech'
 
-  def initialize
-    super
-  end
+  # ゲームシステム名
+  NAME = 'バトルテック'
 
-  def gameName
-    'バトルテック'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'はとるてつく'
 
-  def gameType
-    "BattleTech"
-  end
-
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 ・判定方法
 　(回数)BT(ダメージ)(部位)+(基本値)>=(目標値)
 　回数は省略時 1固定。
@@ -37,7 +32,8 @@ class BattleTech < DiceBot
 ・DW：転倒後の向き表
 ・CDx：メック戦士意識維持表。ダメージ値xで判定　例）CD3
 MESSAGETEXT
-  end
+
+  setPrefixes(['\d*SRM\d+.+', '\d*LRM\d+.+', '\d*BT.+', 'CT', 'DW', 'CD\d+'])
 
   # 致命的命中が発生しない上限値
   NO_CRITICAL_HIT_LIMIT = 7

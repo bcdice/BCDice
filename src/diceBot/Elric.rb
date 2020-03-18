@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Elric < DiceBot
-  def gameName
-    'エルリック！'
-  end
+  # ゲームシステムの識別子
+  ID = 'Elric!'
 
-  def gameType
-    "Elric!"
-  end
+  # ゲームシステム名
+  NAME = 'エルリック！'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
-貫通、クリティカル、ファンブルの自動判定を行います。
-INFO_MESSAGE_TEXT
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'えるりつく'
+
+  # ダイスボットの使い方
+  HELP_MESSAGE = "貫通、クリティカル、ファンブルの自動判定を行います。\n"
 
   # ゲーム別成功度判定(1d100)
   def check_1D100(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)

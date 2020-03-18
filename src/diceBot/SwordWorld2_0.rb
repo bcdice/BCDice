@@ -1,26 +1,20 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 require 'diceBot/SwordWorld'
 
 class SwordWorld2_0 < SwordWorld
-  setPrefixes(['K\d+.*', 'Gr(\d+)?', 'FT', 'TT'])
+  # ゲームシステムの識別子
+  ID = 'SwordWorld2.0'
 
-  def initialize
-    rating_table = 2
-    super()
-    @rating_table = rating_table
-  end
+  # ゲームシステム名
+  NAME = 'ソードワールド2.0'
 
-  def gameName
-    'ソードワールド2.0'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'そおとわあると2.0'
 
-  def gameType
-    return "SwordWorld2.0"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 自動的成功、成功、失敗、自動的失敗の自動判定を行います。
 
 ・レーティング表　(Kx)
@@ -62,6 +56,13 @@ class SwordWorld2_0 < SwordWorld
 ・絡み効果表　(TT)
 　絡み効果表を出すことができます。
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['K\d+.*', 'Gr(\d+)?', 'FT', 'TT'])
+
+  def initialize
+    rating_table = 2
+    super()
+    @rating_table = rating_table
   end
 
   def rollDiceCommand(command)

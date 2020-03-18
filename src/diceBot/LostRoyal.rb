@@ -1,25 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class LostRoyal < DiceBot
-  setPrefixes(['LR\[[0-5],[0-5],[0-5],[0-5],[0-5],[0-5]\]', 'FC', 'WPC', 'EC', 'HR[1-2]'])
+  # ゲームシステムの識別子
+  ID = 'LostRoyal'
 
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @d66Type = 1
-  end
+  # ゲームシステム名
+  NAME = 'ロストロイヤル'
 
-  def gameName
-    'ロストロイヤル'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ろすとろいやる'
 
-  def gameType
-    "LostRoyal"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・D66ダイスあり
 
 行為判定
@@ -40,6 +33,14 @@ class LostRoyal < DiceBot
 　HRx
 　　x にはダイスの数（ 1 - 2 ）を指定
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['LR\[[0-5],[0-5],[0-5],[0-5],[0-5],[0-5]\]', 'FC', 'WPC', 'EC', 'HR[1-2]'])
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 1
   end
 
   def rollDiceCommand(command)

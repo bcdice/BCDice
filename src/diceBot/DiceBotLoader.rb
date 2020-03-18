@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 # ダイスボットの読み込みを担当するクラス
 class DiceBotLoader
@@ -92,10 +93,12 @@ class DiceBotLoader
       # 正しいクラス名になるものだけ選ぶ
       select { |botName| BOT_NAME_PATTERN === botName }
 
-    validBotNames.map do |botName|
+    bots = validBotNames.map do |botName|
       require("#{diceBotDir}/#{botName}")
       Object.const_get(botName).new
     end
+
+    return bots.sort_by(&:sort_key)
   end
 
   # 読み込み処理を初期化する

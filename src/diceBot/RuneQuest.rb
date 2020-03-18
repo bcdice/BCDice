@@ -1,19 +1,20 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class RuneQuest < DiceBot
-  def gameName
-    'ルーンクエスト'
-  end
+  # ゲームシステムの識別子
+  ID = 'RuneQuest'
 
-  def gameType
-    "RuneQuest"
-  end
+  # ゲームシステム名
+  NAME = 'ルーンクエスト'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'るうんくえすと'
+
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 クリティカル、エフェクティブ(効果的成功)、ファンブルの自動判定を行います。
 INFO_MESSAGE_TEXT
-  end
 
   # ゲーム別成功度判定(1d100)
   def check_1D100(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)

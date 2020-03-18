@@ -1,21 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class ColossalHunter < DiceBot
-  def initialize
-    super
-    @d66Type = 1
-  end
+  # ゲームシステムの識別子
+  ID = 'ColossalHunter'
 
-  def gameName
-    'コロッサルハンター'
-  end
+  # ゲームシステム名
+  NAME = 'コロッサルハンター'
 
-  def gameType
-    "ColossalHunter"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ころつさるはんたあ'
 
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 ・判定（CH±x>=y)
 　3D6の判定。クリティカル、ファンブルの自動判定を行います。
 　x：修正値。省略可能。y：目標値。省略可能。
@@ -31,6 +28,10 @@ class ColossalHunter < DiceBot
 ・NPC作成表(CNP)
 ・D66ダイスあり
 MESSAGETEXT
+
+  def initialize
+    super
+    @d66Type = 1
   end
 
   def rollDiceCommand(command)

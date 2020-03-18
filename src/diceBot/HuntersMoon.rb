@@ -1,24 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class HuntersMoon < DiceBot
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @d66Type = 2
-    @fractionType = "roundUp"; # 端数切り上げに設定
-  end
+  # ゲームシステムの識別子
+  ID = 'HuntersMoon'
 
-  def gameName
-    'ハンターズムーン'
-  end
+  # ゲームシステム名
+  NAME = 'ハンターズムーン'
 
-  def gameType
-    "HuntersMoon"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'はんたあすむうん'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定
 　判定時にクリティカルとファンブルを自動判定します。
 ・各種表
@@ -46,6 +40,13 @@ class HuntersMoon < DiceBot
 　・トラッキング遭遇表1/2/3 (TK1ET/TK2ET/TK3ET)
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
+    @fractionType = "roundUp"; # 端数切り上げに設定
   end
 
   # ゲーム別成功度判定(2D6)

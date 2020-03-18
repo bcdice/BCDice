@@ -1,25 +1,26 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class AFF2e < DiceBot
-  # ダイスボットで使用するコマンドを配列で列挙する
-  setPrefixes(['FF.+', 'FR.+', 'FD.+'])
+  # ゲームシステムの識別子
+  ID = 'AFF2e'
 
-  def gameName
-    'ADVANCED FIGHTING FANTASY 2nd Edition'
-  end
+  # ゲームシステム名
+  NAME = 'ADVANCED FIGHTING FANTASY 2nd Edition'
 
-  def gameType
-    'AFF2e'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'あとはんすとふあいていんくふあんたしい2'
 
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 対抗なしロール\tFF{目標値}+{補正}
 対抗ロール\tFR{能力値}+{補正}
 武器ロール\tFD[2,3,3,3,3,3,4]+{補正}
 防具ロール\tFD[0,0,0,0,1+1,1+1,2+2]+{補正}
 MESSAGETEXT
-  end
+
+  # ダイスボットで使用するコマンドを配列で列挙する
+  setPrefixes(['FF.+', 'FR.+', 'FD.+'])
 
   def explicit_sign(i)
     format('%+d', i)

@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class WorldOfDarkness < DiceBot
-  setPrefixes(['\d+ST.*'])
+  # ゲームシステムの識別子
+  ID = 'WorldOfDarkness'
 
-  def gameName
-    'ワールドオブダークネス'
-  end
+  # ゲームシステム名
+  NAME = 'ワールドオブダークネス'
 
-  def gameType
-    "WorldOfDarkness"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'わあるとおふたあくねす'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定コマンド(xSTn+y or xSTSn+y or xSTAn+y)
 　(ダイス個数)ST(難易度)+(自動成功)
 　(ダイス個数)STS(難易度)+(自動成功) ※出目10で振り足し
@@ -21,6 +21,14 @@ class WorldOfDarkness < DiceBot
 　難易度=省略時6
 　自動成功=省略時0
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['\d+ST.*'])
+
+  def initialize
+    super
+    @successDice = 0
+    @botchDice = 0
+    @rerollDice = 0
   end
 
   def rollDiceCommand(command)

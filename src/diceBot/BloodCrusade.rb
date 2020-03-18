@@ -1,24 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class BloodCrusade < DiceBot
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @d66Type = 2
-    @fractionType = "roundUp" # 端数切り上げに設定
-  end
+  # ゲームシステムの識別子
+  ID = 'BloodCrusade'
 
-  def gameName
-    'ブラッド・クルセイド'
-  end
+  # ゲームシステム名
+  NAME = 'ブラッド・クルセイド'
 
-  def gameType
-    "BloodCrusade"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ふらつとくるせいと'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・各種表
 　・関係属性表         RT
 　・シーン表           ST
@@ -40,6 +34,13 @@ class BloodCrusade < DiceBot
 　・時間経過表（10代～60代、半吸血鬼）TD1T～TD6T、TDHT
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
+    @fractionType = "roundUp" # 端数切り上げに設定
   end
 
   def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(2D6)

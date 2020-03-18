@@ -1,25 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class MagicaLogia < DiceBot
-  setPrefixes(['WT', 'FCT', 'ST', 'FT', 'AT', 'BGT', 'DAT', 'FAT', 'WIT', 'RTT', 'TPT', 'TCT', 'PCT', 'MCT', 'ICT', 'SCT', 'XCT', 'WCT', 'CCT', 'BST', 'PT', 'XEST', 'IWST', 'MCST', 'WDST', 'LWST', 'MIT', 'MOT', 'MAT', 'MUT', 'MFT', 'MLT', 'STB', 'RTS', 'RTB', 'RTF', 'RTP', 'RTD', 'RTN', 'MGCT', 'MBST', 'MAST', 'TCST', 'PWST', 'PAST', 'GBST', 'SLST', 'WLAT', 'WMT', 'FFT', 'OLST', 'TPTB', 'FLT'])
+  # ゲームシステムの識別子
+  ID = 'MagicaLogia'
 
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 3
-    @d66Type = 2
-  end
+  # ゲームシステム名
+  NAME = 'マギカロギア'
 
-  def gameName
-    'マギカロギア'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'まきかろきあ'
 
-  def gameType
-    "MagicaLogia"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定
 スペシャル／ファンブル／成功／失敗を判定
 ・各種表
@@ -49,6 +42,14 @@ class MagicaLogia < DiceBot
 その後表 FLT
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['WT', 'FCT', 'ST', 'FT', 'AT', 'BGT', 'DAT', 'FAT', 'WIT', 'RTT', 'TPT', 'TCT', 'PCT', 'MCT', 'ICT', 'SCT', 'XCT', 'WCT', 'CCT', 'BST', 'PT', 'XEST', 'IWST', 'MCST', 'WDST', 'LWST', 'MIT', 'MOT', 'MAT', 'MUT', 'MFT', 'MLT', 'STB', 'RTS', 'RTB', 'RTF', 'RTP', 'RTD', 'RTN', 'MGCT', 'MBST', 'MAST', 'TCST', 'PWST', 'PAST', 'GBST', 'SLST', 'WLAT', 'WMT', 'FFT', 'OLST', 'TPTB', 'FLT'])
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 3
+    @d66Type = 2
   end
 
   # ゲーム別成功度判定(2D6)

@@ -1,24 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Gurps < DiceBot
-  setPrefixes(['\w*CRT', '\w*FMB', 'HIT', 'FEAR((\+)?\d*)', 'REACT((\+|\-)?\d*)', '[\d\+\-]+\-3[dD]6?[\d\+\-]*'])
+  # ゲームシステムの識別子
+  ID = 'GURPS'
 
-  def initialize
-    super
-    @sendMode = 2
-    @d66Type = 1
-  end
+  # ゲームシステム名
+  NAME = 'ガープス'
 
-  def gameName
-    'ガープス'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かあふす'
 
-  def gameType
-    "GURPS"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定においてクリティカル・ファンブルの自動判別、成功度の自動計算。(3d6<=目標値／目標値-3d6)
  ・祝福等のダイス目にかかる修正は「3d6-1<=目標値」といった記述で計算されます。(ダイス目の修正値はクリティカル・ファンブルに影響を与えません)
  ・クリティカル値・ファンブル値への修正については現在対応していません。
@@ -36,6 +30,13 @@ class Gurps < DiceBot
 　nには反応修正を入れてください。
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['\w*CRT', '\w*FMB', 'HIT', 'FEAR((\+)?\d*)', 'REACT((\+|\-)?\d*)', '[\d\+\-]+\-3[dD]6?[\d\+\-]*'])
+
+  def initialize
+    super
+    @sendMode = 2
+    @d66Type = 1
   end
 
   # ゲーム別成功度判定(nD6)

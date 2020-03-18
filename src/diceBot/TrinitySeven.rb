@@ -1,22 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class TrinitySeven < DiceBot
-  setPrefixes(['(\d+)DM\d+(\+|\-)?\d*', '(\d+)DM(\+|\-)?\d*', 'TR(\d+)<=(\d+)(\+|\-)?\d*', 'TR<=(\d+)(\+|\-)?\d*', 'TR(\+|\-)?(\d+)<=(\d+)(\+|\-)?\d*', 'TRNAME'])
+  # ゲームシステムの識別子
+  ID = 'TrinitySeven'
 
-  def initialize
-    super
-  end
+  # ゲームシステム名
+  NAME = 'トリニティセブンRPG'
 
-  def gameName
-    'トリニティセブンRPG'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'とりにていせふんRPG'
 
-  def gameType
-    "TrinitySeven"
-  end
-
-  def getHelpMessage
-    return <<MESSAGETEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<MESSAGETEXT
 クリティカルが変動した命中及び、7の出目がある場合のダメージ計算が行なえます。
 なお、通常の判定としても利用できます。
 
@@ -35,7 +31,8 @@ class TrinitySeven < DiceBot
 名字と名前を出します。PCや突然現れたNPCの名付けにどうぞ。
 
 MESSAGETEXT
-  end
+
+  setPrefixes(['(\d+)DM\d+(\+|\-)?\d*', '(\d+)DM(\+|\-)?\d*', 'TR(\d+)<=(\d+)(\+|\-)?\d*', 'TR<=(\d+)(\+|\-)?\d*', 'TR(\+|\-)?(\d+)<=(\d+)(\+|\-)?\d*', 'TRNAME'])
 
   def rollDiceCommand(command) # スパゲッティなコードだけど許して！！！ → 絶対に許さない。全力でリファクタリングした。
     debug("rollDiceCommand command", command)

@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Chill < DiceBot
-  setPrefixes(['SR\d+.*'])
+  # ゲームシステムの識別子
+  ID = 'Chill'
 
-  def gameType
-    "Chill"
-  end
+  # ゲームシステム名
+  NAME = 'Chill'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ちる'
+
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・ストライク・ランク　(SRx)
 　"SRストライク・ランク"の形で記入します。
 　ストライク・ランク・チャートに従って自動でダイスロールを行い、
@@ -16,7 +20,8 @@ class Chill < DiceBot
 　ダイスロールと同様に、他のプレイヤーに隠れてロールすることも可能です。
 　例）SR7　　　sr13　　　SR(7+4)　　　Ssr10
 INFO_MESSAGE_TEXT
-  end
+
+  setPrefixes(['SR\d+.*'])
 
   def check_1D100(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(1D10)
     return '' if signOfInequality != "<="

@@ -1,41 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class MeikyuKingdom < DiceBot
-  setPrefixes([
-    '\d+MK',
-    'LRT', 'ORT', 'CRT', 'ART', 'FRT',
-    'TBT', 'CBT', 'SBT', 'VBT', 'FBT', 'ABT', 'WBT', 'LBT',
-    'THT', 'CHT', 'SHT', 'VHT',
-    'KDT', 'KCT', 'KMT',
-    'CAT', 'FWT', 'CFT',
-    'TT', 'NT', 'ET', 'MPT',
-    'T1T', 'T2T', 'T3T', 'T4T', 'T5T',
-    'NAME.*',
-    'DFT', 'IDT\d*',
-    'WIT', 'LIT', 'RIT', 'SIT', 'RWIT', 'RUIT',
-    'IFT',
-    '\d+RET',
-    'PNT\d*', 'MLT\d*',
-    'KNT\d+', 'WORD\d+'
-  ])
+  # ゲームシステムの識別子
+  ID = 'MeikyuKingdom'
 
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 1
-    @d66Type = 2
-  end
+  # ゲームシステム名
+  NAME = '迷宮キングダム'
 
-  def gameName
-    '迷宮キングダム'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'めいきゆうきんくたむ'
 
-  def gameType
-    "MeikyuKingdom"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定　(nMK+m)
 　n個のD6を振って大きい物二つだけみて達成値を算出します。修正mも可能です。
 　絶対成功と絶対失敗も自動判定します。
@@ -62,6 +39,30 @@ class MeikyuKingdom < DiceBot
 　・単語表１／２／３／４　WORD1／WORD2／WORD3／WORD4
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
+
+  setPrefixes([
+    '\d+MK',
+    'LRT', 'ORT', 'CRT', 'ART', 'FRT',
+    'TBT', 'CBT', 'SBT', 'VBT', 'FBT', 'ABT', 'WBT', 'LBT',
+    'THT', 'CHT', 'SHT', 'VHT',
+    'KDT', 'KCT', 'KMT',
+    'CAT', 'FWT', 'CFT',
+    'TT', 'NT', 'ET', 'MPT',
+    'T1T', 'T2T', 'T3T', 'T4T', 'T5T',
+    'NAME.*',
+    'DFT', 'IDT\d*',
+    'WIT', 'LIT', 'RIT', 'SIT', 'RWIT', 'RUIT',
+    'IFT',
+    '\d+RET',
+    'PNT\d*', 'MLT\d*',
+    'KNT\d+', 'WORD\d+'
+  ])
+
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 1
+    @d66Type = 2
   end
 
   def changeText(string)

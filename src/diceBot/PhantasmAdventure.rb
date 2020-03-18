@@ -1,23 +1,24 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class PhantasmAdventure < DiceBot
+  # ゲームシステムの識別子
+  ID = 'PhantasmAdventure'
+
+  # ゲームシステム名
+  NAME = 'ファンタズムアドベンチャー'
+
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ふあんたすむあとへんちやあ'
+
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
+成功、失敗、決定的成功、決定的失敗の表示とクリティカル・ファンブル値計算の実装。
+INFO_MESSAGE_TEXT
+
   def initialize
     super
     @sendMode = 2
-  end
-
-  def gameName
-    'ファンタズムアドベンチャー'
-  end
-
-  def gameType
-    "PhantasmAdventure"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
-成功、失敗、決定的成功、決定的失敗の表示とクリティカル・ファンブル値計算の実装。
-INFO_MESSAGE_TEXT
   end
 
   # ゲーム別成功度判定(1d20)

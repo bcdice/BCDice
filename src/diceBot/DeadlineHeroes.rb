@@ -1,23 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class DeadlineHeroes < DiceBot
-  setPrefixes([
-    'DLH\\d+([\\+\\-]\\d+)*',
-    'DC(L|S|C)\d+',
-    'RNC[JO]',
-    'HNC'
-  ])
+  # ゲームシステムの識別子
+  ID = 'DeadlineHeroes'
 
-  def gameName
-    'デッドラインヒーローズ'
-  end
+  # ゲームシステム名
+  NAME = 'デッドラインヒーローズ'
 
-  def gameType
-    "DeadlineHeroes"
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'てつとらいんひいろおす'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・行為判定（DLHx）
 　x：成功率
 　例）DLH80
@@ -33,7 +28,13 @@ class DeadlineHeroes < DiceBot
 ・ヒーローネームチャート（HNC）
 ・リアルネームチャート　日本（RNCJ）、海外（RNCO）
 INFO_MESSAGE_TEXT
-  end
+
+  setPrefixes([
+    'DLH\\d+([\\+\\-]\\d+)*',
+    'DC(L|S|C)\d+',
+    'RNC[JO]',
+    'HNC'
+  ])
 
   def rollDiceCommand(command)
     case command
@@ -77,8 +78,8 @@ INFO_MESSAGE_TEXT
     return nil
   end
 
-  SUCCESS_STR = " ＞ 成功".freeze
-  FAILURE_STR = " ＞ 失敗".freeze
+  SUCCESS_STR = " ＞ 成功"
+  FAILURE_STR = " ＞ 失敗"
   CRITICAL_STR = (SUCCESS_STR + " ＞ クリティカル！ パワーの代償１／２").freeze
   FUMBLE_STR = (FAILURE_STR + " ＞ ファンブル！ パワーの代償２倍＆振り直し不可").freeze
 

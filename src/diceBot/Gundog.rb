@@ -1,20 +1,21 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Gundog < DiceBot
-  def gameName
-    'ガンドッグ'
-  end
+  # ゲームシステムの識別子
+  ID = 'Gundog'
 
-  def gameType
-    "Gundog"
-  end
+  # ゲームシステム名
+  NAME = 'ガンドッグ'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'かんとつく'
+
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 失敗、成功、クリティカル、ファンブルとロールの達成値の自動判定を行います。
 nD9ロールも対応。
 INFO_MESSAGE_TEXT
-  end
 
   # ゲーム別成功度判定(1d100)
   def check_1D100(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)

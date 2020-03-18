@@ -1,23 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class DarkBlaze < DiceBot
-  setPrefixes(['DB.*', 'BT.*'])
+  # ゲームシステムの識別子
+  ID = 'DarkBlaze'
 
-  def initialize
-    super
-    @sendMode = 2
-  end
+  # ゲームシステム名
+  NAME = 'ダークブレイズ'
 
-  def gameName
-    'ダークブレイズ'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'たあくふれいす'
 
-  def gameType
-    "DarkBlaze"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・行為判定　(DBxy#n)
 　行為判定専用のコマンドです。
 　"DB(能力)(技能)#(修正)"でロールします。Rコマンド(3R6+n[x,y]>=m mは難易度)に読替をします。
@@ -29,6 +24,12 @@ class DarkBlaze < DiceBot
 　"BT(ダイス数)"で掘り出し袋表を自動で振り、結果を表示します。
 　例）BT1　　　BT2　　　BT[1...3]
 INFO_MESSAGE_TEXT
+
+  setPrefixes(['DB.*', 'BT.*'])
+
+  def initialize
+    super
+    @sendMode = 2
   end
 
   def changeText(string)

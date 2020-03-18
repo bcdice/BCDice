@@ -1,28 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Insane < DiceBot
-  setPrefixes([
-    'ST', 'HJST', 'MTST', 'DVST', 'DT', 'BT', 'PT', 'FT', 'JT', 'BET', 'RTT', 'TVT', 'TET', 'TPT', 'TST', 'TKT', 'TMT',
-    'CHT', 'VHT', 'IHT', 'RHT', 'MHT', 'LHT', 'ECT', 'EMT', 'EAT', 'OPT', 'OHT', 'OWT', 'CNT1', 'CNT2', 'CNT3', 'RET'
-  ])
+  # ゲームシステムの識別子
+  ID = 'Insane'
 
-  def initialize
-    super
-    @sendMode = 2
-    @sortType = 3
-    @d66Type = 2
-  end
+  # ゲームシステム名
+  NAME = 'インセイン'
 
-  def gameName
-    'インセイン'
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'いんせいん'
 
-  def gameType
-    "Insane"
-  end
-
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
+  # ダイスボットの使い方
+  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定
 スペシャル／ファンブル／成功／失敗を判定
 ・各種表
@@ -52,14 +42,17 @@ class Insane < DiceBot
 社名決定表1　CNT1/社名決定表2　CNT2/社名決定表3　CNT3
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
-  end
 
-  def changeText(string)
-    string
-  end
+  setPrefixes([
+    'ST', 'HJST', 'MTST', 'DVST', 'DT', 'BT', 'PT', 'FT', 'JT', 'BET', 'RTT', 'TVT', 'TET', 'TPT', 'TST', 'TKT', 'TMT',
+    'CHT', 'VHT', 'IHT', 'RHT', 'MHT', 'LHT', 'ECT', 'EMT', 'EAT', 'OPT', 'OHT', 'OWT', 'CNT1', 'CNT2', 'CNT3', 'RET'
+  ])
 
-  def dice_command_xRn(_string, _nick_e)
-    ''
+  def initialize
+    super
+    @sendMode = 2
+    @sortType = 3
+    @d66Type = 2
   end
 
   # ゲーム別成功度判定(2D6)

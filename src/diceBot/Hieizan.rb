@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 
 class Hieizan < DiceBot
-  def gameName
-    '比叡山炎上'
-  end
+  # ゲームシステムの識別子
+  ID = 'Hieizan'
 
-  def gameType
-    "Hieizan"
-  end
+  # ゲームシステム名
+  NAME = '比叡山炎上'
 
-  def getHelpMessage
-    return <<INFO_MESSAGE_TEXT
-大成功、自動成功、失敗、自動失敗、大失敗の自動判定を行います。
-INFO_MESSAGE_TEXT
-  end
+  # ゲームシステム名の読みがな
+  SORT_KEY = 'ひえいさんえんしよう'
+
+  # ダイスボットの使い方
+  HELP_MESSAGE = "大成功、自動成功、失敗、自動失敗、大失敗の自動判定を行います。\n"
 
   # ゲーム別成功度判定(1d100)
   def check_1D100(total_n, _dice_n, _signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
