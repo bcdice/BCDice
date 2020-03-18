@@ -42,6 +42,7 @@ namespace :test do
       'src/test/testDiceBotLoaders.rb',
       'src/test/testDiceBotPrefixesCompatibility.rb',
       'src/test/test_srs_help_messages.rb',
+      'src/test/range_table_test.rb',
     ]
   end
 end

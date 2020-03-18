@@ -570,6 +570,6 @@ class DiceBot
       return nil
     end
 
-    return table.roll(bcdice)
+    return table.roll(bcdice).to_s
   end
 end
