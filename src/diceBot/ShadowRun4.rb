@@ -24,14 +24,6 @@ INFO_MESSAGE_TEXT
     @defaultSuccessTarget = ">=5" # 目標値が空欄の時の目標値
   end
 
-  def changeText(string)
-    if string =~ /(\d+)S6/i
-      string = string.gsub(/(\d+)S6/i) { "#{Regexp.last_match(1)}B6" }
-    end
-
-    return string
-  end
-
   # シャドウラン4版用グリッチ判定
   def getGrichText(numberSpot1, dice_cnt_total, successCount)
     debug("getGrichText numberSpot1", numberSpot1)
