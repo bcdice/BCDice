@@ -89,6 +89,9 @@ class BCDice
   VERSION = "2.03.05".freeze
 
   attr_reader :cardTrader
+  attr_reader :rand_results, :detailed_rand_results
+
+  alias getRandResults rand_results
 
   def initialize(parent, cardTrader, diceBot, counterInfos, tableFileData)
     @parent = parent
@@ -105,7 +108,6 @@ class BCDice
     @isMessagePrinted = false
     @rands = nil
     @isKeepSecretDice = true
-    @randResults = nil
     @isIrcMode = true
   end
 
@@ -926,8 +928,11 @@ class BCDice
       round = 0
 
       loop do
-        dice_n = rand(dice_max).to_i + 1
-        dice_n -= 1 if d9_on
+        if d9_on
+          dice_n = roll_d9()
+        else
+          dice_n = rand(dice_max).to_i + 1
+        end
 
         dice_now += dice_n
 
@@ -976,7 +981,9 @@ class BCDice
     @rands = rands
   end
 
-  def rand(max)
+  # @params [Integer] max
+  # @return [Integer] 0以上max未満の整数
+  def rand_inner(max)
     debug('rand called @rands', @rands)
 
     value = 0
@@ -986,23 +993,66 @@ class BCDice
       value = randFromRands(max)
     end
 
-    unless @randResults.nil?
-      @randResults << [(value + 1), max]
+    unless @rand_results.nil?
+      @rand_results << [(value + 1), max]
     end
 
     return value
   end
 
+  DetailedRandResult = Struct.new(:kind, :sides, :value)
+
+  # @params [Integer] max
+  # @return [Integer] 0以上max未満の整数
+  def rand(max)
+    ret = rand_inner(max)
+
+    push_to_detail(:normal, max, ret + 1)
+    return ret
+  end
+
+  # 十の位をd10を使って決定するためのダイスロール
+  # @return [Integer] 0以上90以下で10の倍数となる整数
+  def roll_tens_d10()
+    # rand_innerの戻り値を10倍すればすむ話なのだが、既存のテストとの互換性の為に処理をする
+    r = rand_inner(10) + 1
+    if r == 10
+      r = 0
+    end
+
+    ret = r * 10
+
+    push_to_detail(:tens_d10, 10, ret)
+    return ret
+  end
+
+  # d10を0~9として扱うダイスロール
+  # @return [Integer] 0以上9以下の整数
+  def roll_d9()
+    ret = rand_inner(10)
+
+    push_to_detail(:d9, 10, ret)
+    return ret
+  end
+
   def setCollectRandResult(b)
     if b
-      @randResults = []
+      @rand_results = []
+      @detailed_rand_results = []
     else
-      @randResults = nil
+      @rand_results = nil
+      @detailed_rand_results = nil
     end
   end
 
-  def getRandResults
-    @randResults
+  # @params [Symbol] kind
+  # @params [Integer] sides
+  # @params [Integer] value
+  def push_to_detail(kind, sides, value)
+    unless @detailed_rand_results.nil?
+      detail = DetailedRandResult.new(kind, sides, value)
+      @detailed_rand_results.push(detail)
+    end
   end
 
   def randNomal(max)

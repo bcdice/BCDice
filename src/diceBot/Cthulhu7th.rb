@@ -144,8 +144,8 @@ INFO_MESSAGE_TEXT
 
     tens_digit_count = 1 + bonus_dice_count.abs
     tens_digit_count.times do
-      bonus = rollPercentD10
-      total = (bonus * 10) + units_digit
+      bonus = bcdice.roll_tens_d10()
+      total = bonus + units_digit
       total = 100 if total == 0
 
       total_list.push(total)
