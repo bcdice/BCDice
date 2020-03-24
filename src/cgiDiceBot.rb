@@ -155,6 +155,14 @@ class CgiDiceBot
   def sendMessageToChannels(message)
     @rollResult += message
   end
+
+  def rand_results
+    @bcdice.rand_results
+  end
+
+  def detailed_rand_results
+    @bcdice.detailed_rand_results
+  end
 end
 
 if $0 === __FILE__
