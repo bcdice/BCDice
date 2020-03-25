@@ -105,7 +105,7 @@ MESSAGETEXT
     end
 
     unless defence.nil?
-      success = dices.size - dices.bsearch_index { |dice| dice >= defence }
+      success = dices.size - dices.find_index { |dice| dice >= defence }
       output += " ＞ 成功数: #{success}"
     end
 
