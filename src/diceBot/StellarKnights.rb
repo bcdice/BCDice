@@ -94,17 +94,17 @@ MESSAGETEXT
 
   # num_dices: Integer, defence: Integer/NilClass, dice_change_text: String/NilClass, command: String
   def resolute_action(num_dices, defence, dice_change_text, command)
-    _, dice_text, _ = roll(num_dices, D6, @sortType)
+    _, dice_text, = roll(num_dices, D6, @sortType)
     output = "(#{command}) ＞ #{dice_text}"
 
     dices = dice_text.split(',').map(&:to_i)
-    if !dice_change_text.nil?
+    unless dice_change_text.nil?
       dice_maps = dice_change_text[1..-1].split(',').map { |text| text.split('>').map(&:to_i) }
-      dices.map! { |dice| dice_maps.inject(dice) { |dice, dice_map| dice == dice_map[0] ? dice_map[1] : dice } }.sort!
+      dices.map! { |dice| dice_maps.inject(dice) { |new_dice, dice_map| new_dice == dice_map[0] ? dice_map[1] : new_dice } }.sort!
       output += " ＞ [#{dices.join(',')}]"
     end
 
-    if !defence.nil?
+    unless defence.nil?
       success = dices.size - dices.bsearch_index { |dice| dice >= defence }
       output += " ＞ 成功数: #{success}"
     end
