@@ -28,11 +28,12 @@ d省略時はダイスを振った結果のみ表示。（nSKはnB6と同じ）
 
 ・基本
 TT：お題表
-STA ：シチュエーション表A：時間 (Situation Table A)
-STB ：シチュエーション表B：場所 (ST B)
-STB2：シチュエーション表B その2：学園編 (ST B 2)
-STC ：シチュエーション表C：話題 (ST C)
-ALLS ：シチュエーション表全てを一括で（学園編除く）
+STA    ：シチュエーション表A：時間 (Situation Table A)
+STB    ：シチュエーション表B：場所 (ST B)
+STB2[n]：シチュエーション表B その2：学園編 (ST B 2)
+　n: 1(アーセルトレイ), 2(イデアグロリア), 3(シトラ), 4(フィロソフィア), 5(聖アージェティア), 6(SoA)
+STC    ：シチュエーション表C：話題 (ST C)
+ALLS   ：シチュエーション表全てを一括で（学園編除く）
 GAT：所属組織決定 (Gakuen Table)
 HOT：希望表 (Hope Table)
 DET：絶望表 (Despair Table)
@@ -72,100 +73,19 @@ MESSAGETEXT
     command = command.upcase
 
     if (table = TABLES[command])
-      return table.roll(bcdice)
+      table.roll(bcdice)
     elsif (m = /(\d+)SK(\d)?((,\d>\d)+)?/.match(command))
-      return resolute_action(m[1].to_i, m[2] && m[2].to_i, m[3], command)
+      resolute_action(m[1].to_i, m[2] && m[2].to_i, m[3], command)
+    elsif command == 'STB2'
+      roll_all_situation_b2_tables
     elsif command == 'ALLS'
-      return roll_all_situation_tables
+      roll_all_situation_tables
     elsif command == "PET"
-      return roll_personality_table
+      roll_personality_table
     elsif (m = /FT(\d+)?/.match(command))
       num = (m[1] || 5).to_i
-      return roll_fragment_table(num)
+      roll_fragment_table(num)
     end
-
-    return analyzeDiceCommandResultMethod(command)
-  end
-
-  def getSchoolTableDiceCommandResult(command)
-    return unless command == "STB2"
-
-    tables =
-      [
-        {:tableName => "アーセルトレイ公立大学",
-         :table => %w{
-           地下のだだっぴろい学食
-           パンの種類が豊富な購買の前
-           本当は進入禁止の屋上
-           キャンプ部が手入れしている中庭
-           共用の広いグラウンド
-           使い古された教室
-         }},
-
-        {:tableName => "イデアグロリア芸術総合大学",
-         :table => %w{
-           （美術ｏｒ音楽）準備室
-           美しく整備された中庭
-           音楽室
-           格調高いカフェテラス
-           誰もいない大型劇場
-           完璧な調和を感じる温室
-         }},
-
-        {:tableName => "シトラ女学院",
-         :table => %w{
-           中庭の神殿めいた温室
-           質素だが美しい会食室
-           天井まで届く本棚の並ぶ図書館
-           誰もいない学習室
-           寮生たちの秘密のお茶会室
-           寮の廊下
-         }},
-
-        {:tableName => "フィロソフィア大学",
-         :table => %w{
-           遠く聞こえる爆発音
-           学生のアンケート調査を受ける
-           空から降ってくるドローン
-           膨大な蔵書を備えた閉架書庫
-           鳴らすと留年するという小さな鐘の前
-           木漏れ日のあたたかな森
-         }},
-
-        {:tableName => "聖アージェティア学園",
-         :table => %w{
-           おしゃれなカフェテラス
-           小さなプラネタリウム
-           ローマの神殿めいた屋内プール
-           誰もいない講堂
-           謎のおしゃれな空き部屋
-           花々の咲き乱れる温室
-         }},
-
-        {:tableName => "スポーン・オブ・アーセルトレイ",
-         :table => %w{
-           人気のない教室
-           歴代の寄せ書きの刻まれた校門前
-           珍しく人気のない学食
-           鍵の外れっぱなしの屋上
-           校舎裏
-           外周環状道路へ繋がる橋
-         }},
-      ]
-
-    result = ''
-
-    tables.each_with_index do |table, i|
-      tableName = table[:tableName]
-      table = table[:table]
-
-      text, index = get_table_by_1d6(table)
-
-      result += "\n" unless i == 0
-      result += "#{tableName}(#{index}) ＞ #{text}"
-    end
-
-    return result
   end
 
   private
@@ -190,6 +110,10 @@ MESSAGETEXT
     end
 
     output
+  end
+
+  def roll_all_situation_b2_tables
+    (1..6).map { |num| TABLES["STB2#{num}"].roll(bcdice) }.join("\n")
   end
 
   def roll_all_situation_tables
@@ -267,6 +191,60 @@ MESSAGETEXT
     SITUATION_TABLE_B_5_6,
     SITUATION_TABLE_B_5_6,
   ].freeze
+
+  SITUATION_TABLE_B2_1 = %w(
+    地下のだだっぴろい学食
+    パンの種類が豊富な購買の前
+    本当は進入禁止の屋上
+    キャンプ部が手入れしている中庭
+    共用の広いグラウンド
+    使い古された教室
+  ).freeze
+
+  SITUATION_TABLE_B2_2 = %w(
+    （美術ｏｒ音楽）準備室
+    美しく整備された中庭
+    音楽室
+    格調高いカフェテラス
+    誰もいない大型劇場
+    完璧な調和を感じる温室
+  ).freeze
+
+  SITUATION_TABLE_B2_3 = %w(
+    中庭の神殿めいた温室
+    質素だが美しい会食室
+    天井まで届く本棚の並ぶ図書館
+    誰もいない学習室
+    寮生たちの秘密のお茶会室
+    寮の廊下
+  ).freeze
+
+  SITUATION_TABLE_B2_4 = %w(
+    遠く聞こえる爆発音
+    学生のアンケート調査を受ける
+    空から降ってくるドローン
+    膨大な蔵書を備えた閉架書庫
+    鳴らすと留年するという小さな鐘の前
+    木漏れ日のあたたかな森
+  ).freeze
+
+  SITUATION_TABLE_B2_5 = %w(
+    おしゃれなカフェテラス
+    小さなプラネタリウム
+    ローマの神殿めいた屋内プール
+    誰もいない講堂
+    謎のおしゃれな空き部屋
+    花々の咲き乱れる温室
+  ).freeze
+
+  SITUATION_TABLE_B2_6 = %w(
+    人気のない教室
+    歴代の寄せ書きの刻まれた校門前
+    珍しく人気のない学食
+    鍵の外れっぱなしの屋上
+    校舎裏
+    外周環状道路へ繋がる橋
+  ).freeze
 
   SITUATION_TABLE_C_1_2_3 = [
     "未来の話：決闘を勝ち抜いたら、あるいは負けてしまったら……未来のふたりはどうなるのだろう。",
@@ -803,6 +781,36 @@ MESSAGETEXT
     "STB" => D66GridTable.new(
       "シチュエーション表B：場所",
       SITUATION_TABLE_B
+    ),
+    "STB21" => Table.new(
+      "シチュエーション表Bその2：学園編　アーセルトレイ公立大学",
+      "1D6",
+      SITUATION_TABLE_B2_1
+    ),
+    "STB22" => Table.new(
+      "シチュエーション表Bその2：学園編　イデアグロリア芸術総合大学",
+      "1D6",
+      SITUATION_TABLE_B2_2
+    ),
+    "STB23" => Table.new(
+      "シチュエーション表Bその2：学園編　シトラ女学院",
+      "1D6",
+      SITUATION_TABLE_B2_3
+    ),
+    "STB24" => Table.new(
+      "シチュエーション表Bその2：学園編　フィロソフィア大学",
+      "1D6",
+      SITUATION_TABLE_B2_4
+    ),
+    "STB25" => Table.new(
+      "シチュエーション表Bその2：学園編　聖アージェティア学園",
+      "1D6",
+      SITUATION_TABLE_B2_5
+    ),
+    "STB26" => Table.new(
+      "シチュエーション表Bその2：学園編　スポーン・オブ・アーセルトレイ",
+      "1D6",
+      SITUATION_TABLE_B2_6
     ),
     "STC" => D66GridTable.new(
       "シチュエーション表C：話題",
