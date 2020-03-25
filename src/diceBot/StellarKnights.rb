@@ -90,26 +90,50 @@ MESSAGETEXT
 
   private
 
-  D6 = 6
-
-  # num_dices: Integer, defence: Integer/NilClass, dice_change_text: String/NilClass, command: String
+  # @param [Integer] num_dices
+  # @param [Integer | nil] defence
+  # @param [String] dice_change_text
+  # @param [String] command
+  # @return [String]
   def resolute_action(num_dices, defence, dice_change_text, command)
-    _, dice_text, = roll(num_dices, D6, @sortType)
+    _, dice_text, = roll(num_dices, 6, @sortType)
     output = "(#{command}) ＞ #{dice_text}"
 
     dices = dice_text.split(',').map(&:to_i)
-    unless dice_change_text.nil?
-      dice_maps = dice_change_text[1..-1].split(',').map { |text| text.split('>').map(&:to_i) }
-      dices.map! { |dice| dice_maps.inject(dice) { |new_dice, dice_map| new_dice == dice_map[0] ? dice_map[1] : new_dice } }.sort!
+
+    # FAQによると、ダイスの置き換えは宣言された順番に適用されていく
+    dice_change_rules = parse_dice_change_rules(dice_change_text)
+    dice_change_rules.each do |rule|
+      dices.map! { |val| val == rule[:from] ? rule[:to] : val }
+    end
+
+    unless dice_change_rules.empty?
+      dices.sort!
       output += " ＞ [#{dices.join(',')}]"
     end
 
     unless defence.nil?
-      success = dices.size - dices.find_index { |dice| dice >= defence }
+      success = dices.count { |val| val >= defence }
       output += " ＞ 成功数: #{success}"
     end
 
     output
+  end
+
+  def parse_dice_change_rules(text)
+    return [] if text.nil?
+
+    # 正規表現の都合で先頭に ',' が残っているので取っておく
+    text = text[1..-1]
+    rules = text.split(',').map do |rule|
+      v = rule.split('>').map(&:to_i)
+      {
+        :from => v[0],
+        :to => v[1],
+      }
+    end
+
+    rules
   end
 
   def roll_all_situation_b2_tables
