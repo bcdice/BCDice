@@ -16,6 +16,16 @@ class StellarKnights < DiceBot
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
+・判定　nSK[d][,k>l,...]
+[]内は省略可能。
+n: ダイス数、d: アタック判定における対象の防御力、k, l: ダイスの出目がkならばlに変更（アマランサスのスキル「始まりの部屋」用）
+d省略時はダイスを振った結果のみ表示。（nSKはnB6と同じ）
+
+4SK: ダイスを4個振って、その結果を表示
+5SK3: 【アタック判定：5ダイス】、対象の防御力を3として成功数を表示
+3SK,1>6: ダイスを3個振り、出目が1のダイスを全て6に変更し、その結果を表示
+6SK4,1>6,2>6: 【アタック判定：6ダイス】、出目が1と2のダイスを全て6に変更、対象の防御力を4として成功数を表示
+
 ・基本
 TT：お題表
 STA ：シチュエーション表A：時間 (Situation Table A)
@@ -54,6 +64,7 @@ MESSAGETEXT
   def initialize
     super
 
+    @sortType = 2 # バラバラロール（Bコマンド）でソート有
     @d66Type = 1
   end
 
@@ -62,6 +73,8 @@ MESSAGETEXT
 
     if (table = TABLES[command])
       return table.roll(bcdice)
+    elsif (m = /(\d+)SK(\d)?((,\d>\d)+)?/.match(command))
+      return resolute_action(m[1].to_i, m[2] && m[2].to_i, m[3], command)
     elsif command == "PET"
       return roll_personality_table()
     elsif (m = /FT(\d+)?/.match(command))
@@ -276,6 +289,30 @@ MESSAGETEXT
     end
 
     return result
+  end
+
+  private
+
+  D6 = 6
+
+  # num_dices: Integer, defence: Integer/NilClass, dice_change_text: String/NilClass, command: String
+  def resolute_action(num_dices, defence, dice_change_text, command)
+    _, dice_text, _ = roll(num_dices, D6, @sortType)
+    output = "(#{command}) ＞ #{dice_text}"
+
+    dices = dice_text.split(',').map(&:to_i)
+    if !dice_change_text.nil?
+      dice_maps = dice_change_text[1..-1].split(',').map { |text| text.split('>').map(&:to_i) }
+      dices.map! { |dice| dice_maps.inject(dice) { |dice, dice_map| dice == dice_map[0] ? dice_map[1] : dice } }.sort!
+      output += " ＞ [#{dices.join(',')}]"
+    end
+
+    if !defence.nil?
+      success = dices.size - dices.bsearch_index { |dice| dice >= defence }
+      output += " ＞ 成功数: #{success}"
+    end
+
+    output
   end
 
   def roll_personality_table()
@@ -863,5 +900,5 @@ MESSAGETEXT
     ),
   }.freeze
 
-  setPrefixes(['TT', 'STA', 'STB', 'STB2', 'STC', 'ALLS', 'PET', 'FT\d*'] + TABLES.keys)
+  setPrefixes(['\d+SK\d?(,\d>\d)*', 'TT', 'STA', 'STB', 'STB2', 'STC', 'ALLS', 'PET', 'FT\d*'] + TABLES.keys)
 end
