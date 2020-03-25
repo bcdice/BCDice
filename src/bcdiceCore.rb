@@ -51,6 +51,7 @@ $plotPrintChannels = {}
 $point_counter = {}
 
 require 'CardTrader'
+require 'TableFileData'
 require 'diceBot/DiceBot'
 require 'diceBot/DiceBotLoader'
 require 'diceBot/DiceBotLoaderList'
@@ -65,6 +66,7 @@ class BCDiceMaker
     @cardTrader.initValues
 
     @counterInfos = {}
+    @tableFileData = TableFileData.new
 
     @master = ""
     @quitFunction = nil
@@ -76,7 +78,7 @@ class BCDiceMaker
   attr_accessor :diceBotPath
 
   def newBcDice
-    bcdice = BCDice.new(self, @cardTrader, @diceBot, @counterInfos, nil)
+    bcdice = BCDice.new(self, @cardTrader, @diceBot, @counterInfos, @tableFileData)
 
     return bcdice
   end
@@ -111,9 +113,8 @@ class BCDice
     @isIrcMode = true
   end
 
-  # Unused method
-  def setDir(_dir, _prefix)
-    nil
+  def setDir(dir, prefix)
+    @tableFileData.setDir(dir, prefix)
   end
 
   def isKeepSecretDice(b)
@@ -849,9 +850,30 @@ class BCDice
     return output, secret
   end
 
-  # Unused method.
-  def getTableDataResult(_arg)
-    nil
+  def getTableDataResult(arg)
+    debug("getTableDataResult Begin")
+
+    dice, title, table, secret = @tableFileData.getTableData(arg, @diceBot.id)
+    debug("dice", dice)
+
+    if table.nil?
+      debug("table is null")
+      return nil
+    end
+
+    value, diceText = getTableIndexDiceValueAndDiceText(dice)
+    return nil if value.nil?
+
+    debug("value", value)
+
+    key, message = table.find { |i| i.first === value }
+    return nil if message.nil?
+
+    message = rollTableMessageDiceText(message)
+
+    output = "#{nick_e}:#{title}(#{value}[#{diceText}]) ＞ #{message}"
+
+    return output, secret
   end
 
   def getTableIndexDiceValueAndDiceText(dice)
