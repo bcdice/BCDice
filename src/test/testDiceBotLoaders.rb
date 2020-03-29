@@ -645,8 +645,8 @@ class TestDiceBotLoaders < Test::Unit::TestCase
     assertDiceBotWithoutLoader('Dracurouge:Korean', 'Dracurouge_Korean')
   end
 
-  def test_DungeonsAndDoragons
-    assertDiceBotWithoutLoader('DungeonsAndDoragons')
+  def test_DungeonsAndDragons
+    assertDiceBotWithoutLoader('DungeonsAndDragons')
   end
 
   def test_EtrianOdysseySRS

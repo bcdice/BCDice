@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/DungeonsAndDoragons'
+require 'diceBot/DungeonsAndDragons'
 
-class Pathfinder < DungeonsAndDoragons
+class Pathfinder < DungeonsAndDragons
   # ゲームシステムの識別子
   ID = 'Pathfinder'
 
