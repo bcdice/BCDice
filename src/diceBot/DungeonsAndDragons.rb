@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-class DungeonsAndDoragons < DiceBot
+class DungeonsAndDragons < DiceBot
   # ゲームシステムの識別子
-  ID = 'DungeonsAndDoragons'
+  ID = 'DungeonsAndDragons'
 
   # ゲームシステム名
   NAME = 'ダンジョンズ＆ドラゴンズ'

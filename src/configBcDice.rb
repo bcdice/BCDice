@@ -78,7 +78,7 @@ $allGameTypes = %w{
   DoubleCross
   Dracurouge
   Dracurouge:Korean
-  DungeonsAndDoragons
+  DungeonsAndDragons
   EarthDawn
   EarthDawn3
   EarthDawn4
