@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-class MonotoneMusium < DiceBot
+class MonotoneMuseum < DiceBot
   # ゲームシステムの識別子
-  ID = 'MonotoneMusium'
+  ID = 'MonotoneMuseum'
 
   # ゲームシステム名
   NAME = 'モノトーン・ミュージアム'
