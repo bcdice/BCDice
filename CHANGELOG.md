@@ -1,5 +1,8 @@
 # ChangeLog
 
+### Unreleased
+- ダンジョンズ&ドラゴンズのIDを修正 (#143)
+
 ### Ver2.04.00 2020/03/26
 - ダイスボットに「獸ノ森」を追加。ゆいこさんありがとうっ！ (#124)
 - ダイスボットに「ADVANCED FIGHTING FANTASY 2nd Edition」を追加。opparcoさんありがとうっ！ (#135)
