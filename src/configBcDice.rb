@@ -131,8 +131,8 @@ $allGameTypes = %w{
   MetalHead
   MetalHeadExtream
   MetallicGuadian
-  MonotoneMusium
-  MonotoneMusium:Korean
+  MonotoneMuseum
+  MonotoneMuseum:Korean
   NJSLYRBATTLE
   Nechronica
   Nechronica:Korean
