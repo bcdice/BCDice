@@ -52,7 +52,7 @@ MESSAGETEXT
     text = getDurtyTableCommandReuslt(command)
     return text unless text.nil?
 
-    text = getTableCommandResult(command, @@tables)
+    text = getTableCommandResult(command, TABLES)
     return text
   end
 
@@ -339,7 +339,7 @@ __TABLE_END__
     return "汚染チャート(#{dice1},#{dice2}) ＞ #{table[index]}"
   end
 
-  @@tables =
+  TABLES =
     {
       'LE' => {
         :name => "失う感情表",
@@ -462,7 +462,7 @@ __TABLE_END__
         },
       },
 
-    }
+    }.freeze
 
-  setPrefixes(['BM.*', 'ReRoll\d+.*', 'RP\d+', 'DT'] + @@tables.keys)
+  setPrefixes(['BM.*', 'ReRoll\d+.*', 'RP\d+', 'DT'] + TABLES.keys)
 end

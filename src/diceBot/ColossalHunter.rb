@@ -256,7 +256,7 @@ MESSAGETEXT
   end
 
   def getTableDiceCommandResult(command)
-    info = @@tables[command]
+    info = TABLES[command]
     return nil if info.nil?
 
     name = info[:name]
@@ -278,7 +278,7 @@ MESSAGETEXT
     return "#{name}(#{number}) ＞ #{text}"
   end
 
-  @@tables =
+  TABLES =
     {
 
       'AWT' => {
@@ -552,7 +552,7 @@ MESSAGETEXT
         },
       },
 
-    }
+    }.freeze
 
-  setPrefixes(["CH.*", "B6T", "CNP"] + @@tables.keys)
+  setPrefixes(["CH.*", "B6T", "CNP"] + TABLES.keys)
 end

@@ -83,7 +83,7 @@ MESSAGETEXT
 
     else
       result = checkAnyCommand(command)
-      return getTableCommandResult(command, @@tables) if result.empty?
+      return getTableCommandResult(command, TABLES) if result.empty?
     end
 
     return '' if result.empty?
@@ -195,17 +195,17 @@ MESSAGETEXT
 
   def getSuccessResult(success)
     result = " ＞ 成功度#{success}"
-    result += " ＞ 大成功 《アウル》2点獲得" if success >= @@successMax
+    result += " ＞ 大成功 《アウル》2点獲得" if success >= SUCCESS_MAX
 
     return result
   end
 
-  @@successMax = 5
+  SUCCESS_MAX = 5
 
   def getSuccessRank(total)
     success = ((total - 9) / 5.0).ceil
     success = 0 if success < 0
-    success = @@successMax if success > @@successMax
+    success = SUCCESS_MAX if success > SUCCESS_MAX
     return success
   end
 
@@ -220,7 +220,7 @@ MESSAGETEXT
   end
 
   def getCriticalResult
-    getSuccessResult(@@successMax)
+    getSuccessResult(SUCCESS_MAX)
   end
 
   def getFambleResultText(number, total)
@@ -887,7 +887,7 @@ MESSAGETEXT
     return "#{name}(#{index}) #{text}"
   end
 
-  @@tables =
+  TABLES =
     {
 
       'EBT' => {
@@ -1215,7 +1215,7 @@ TABLE_TEXT_END
 66:ブルー
 TABLE_TEXT_END
       },
-    }
+    }.freeze
 
   setPrefixes([
     'EL.*',
@@ -1224,5 +1224,5 @@ TABLE_TEXT_END
     'BFT', 'FWT', 'FT',
     'SRT', 'ORT', 'DRT', 'URT',
     'NJ\d+', 'BS\d+'
-  ] + @@tables.keys)
+  ] + TABLES.keys)
 end

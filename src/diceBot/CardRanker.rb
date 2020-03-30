@@ -60,7 +60,7 @@ INFO_MESSAGE_TEXT
       index = Regexp.last_match(2).to_i
       return getMonster(color, index)
     else
-      return getTableCommandResult(command, @@tables)
+      return getTableCommandResult(command, TABLES)
     end
   end
 
@@ -118,7 +118,7 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  @@tables =
+  TABLES =
     {
 
       'BFT' => {
@@ -250,7 +250,7 @@ TABLE_TEXT_END
 暗闇/「タイプ：支援」のモンスターカードを使用できない。
 TABLE_TEXT_END
       },
-    }
+    }.freeze
 
-  setPrefixes(['RM', 'CM.*'] + @@tables.keys)
+  setPrefixes(['RM', 'CM.*'] + TABLES.keys)
 end

@@ -108,7 +108,7 @@ MESSAGETEXT
     return text
   end
 
-  @@directionInfos = {
+  DIRECTION_INFOS = {
     1 => {:name => "左下", :position_diff => {:x => -1, :y => +1}},
     2 => {:name => "下", :position_diff => {:x => 0, :y => +1}},
     3 => {:name => "右下", :position_diff => {:x => +1, :y => +1}},
@@ -118,10 +118,10 @@ MESSAGETEXT
     7 => {:name => "左上", :position_diff => {:x => -1, :y => -1}},
     8 => {:name => "上", :position_diff => {:x => 0, :y => -1}},
     9 => {:name => "右上", :position_diff => {:x => +1, :y => -1}},
-  }
+  }.freeze
 
   def getDirectionInfo(direction, key, defaultValue = nil)
-    info = @@directionInfos[direction.to_i]
+    info = DIRECTION_INFOS[direction.to_i]
     return defaultValue if info.nil?
 
     return info[key]

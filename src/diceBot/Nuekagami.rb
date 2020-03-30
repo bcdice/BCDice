@@ -21,7 +21,7 @@ class Nuekagami < DiceBot
 MESSAGETEXT
 
   def rollDiceCommand(command)
-    info = @@tables[command.upcase]
+    info = TABLES[command.upcase]
     return nil if info.nil?
 
     name = info[:name]
@@ -39,7 +39,7 @@ MESSAGETEXT
     return "#{name}(#{number}) ＞ #{text}"
   end
 
-  @@tables =
+  TABLES =
     {
       "LR" => {
         :name => "喪失取戻表",
@@ -284,7 +284,7 @@ MESSAGETEXT
         },
       },
 
-    }
+    }.freeze
 
-  setPrefixes(@@tables.keys)
+  setPrefixes(TABLES.keys)
 end

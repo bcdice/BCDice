@@ -100,7 +100,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getTableDiceCommandResult(command)
-    info = @@tables[command]
+    info = TABLES[command]
     return nil if info.nil?
 
     name = info[:name]
@@ -139,7 +139,7 @@ INFO_MESSAGE_TEXT
     end
   end
 
-  @@tables =
+  TABLES =
     {
       'ABRT' => {
         :name => "アビリティ決定表",
@@ -500,7 +500,7 @@ INFO_MESSAGE_TEXT
         },
       }
 
-    }
+    }.freeze
 
-  setPrefixes(['RTT'] + @@tables.keys)
+  setPrefixes(['RTT'] + TABLES.keys)
 end

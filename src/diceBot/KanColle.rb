@@ -36,7 +36,7 @@ class KanColle < DiceBot
 　・特殊開発表　WPMC　(燃料6/弾薬3/鋼材6/ボーキ3)
 　・新・特殊開発表　WPMCN
 　・艦載機関開発表　WPFA　(燃料3/弾薬6/鋼材3/ボーキ6)
-　・砲類開発表　WPCN　(燃料3/弾薬6/鋼材6/ボーキ3)　
+　・砲類開発表　WPCN　(燃料3/弾薬6/鋼材6/ボーキ3)
 　・敵深海棲艦の装備決定 BT2～BT12
 ・D66ダイス(D66S相当=低い方が10の桁になる)
 INFO_MESSAGE_TEXT
@@ -174,7 +174,7 @@ INFO_MESSAGE_TEXT
       type = '暴走表'
       output, total_n = get_bousou_table
     else
-      return getTableCommandResult(command, @@tables)
+      return getTableCommandResult(command, TABLES)
     end
 
     return "#{type}(#{total_n}) ＞ #{output}"
@@ -735,7 +735,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  @@tables =
+  TABLES =
     {
 
       'BT10' => {
@@ -1029,12 +1029,12 @@ TABLE_TEXT_END
 増設バルジ(中型艦)(建造壱p169)
 TABLE_TEXT_END
       },
-    }
+    }.freeze
 
   setPrefixes([
     'ET', 'ACT',
     'EVNT', 'EVKT', 'EVAT', 'EVET', 'EVENT', 'EVST', 'ETHT', 'ETVT', 'ETGT', 'ETBT', 'ETMT', 'ETFT',
     'DVT', 'DVTM', 'WP1T', 'WP2T', 'WP3T', 'WP4T', 'ITT', 'MHT', 'SNT', 'SPSNT',
     'KTM', 'BT', 'KHT', 'KMT', 'KST', 'KSYT', 'KKT', 'KSNT', 'SNZ', 'RNT'
-  ] + @@tables.keys)
+  ] + TABLES.keys)
 end
