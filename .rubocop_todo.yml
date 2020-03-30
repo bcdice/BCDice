@@ -259,12 +259,6 @@ Style/GlobalVars:
     - src/diceBot/NightmareHunterDeep.rb
     - src/diceBot/DoubleCross.rb
 
-# Offense count: 4
-Style/IdenticalConditionalBranches:
-  Exclude:
-    - 'src/diceBot/Alsetto.rb'
-    - 'src/diceBot/MagicaLogia.rb'
-
 # Offense count: 15
 Style/IfInsideElse:
   Exclude:
