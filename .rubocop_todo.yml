@@ -282,11 +282,6 @@ Style/IfInsideElse:
     - 'src/diceBot/WaresBlade.rb'
     - 'src/diceBot/WorldOfDarkness.rb'
 
-# Offense count: 1
-Style/IfWithSemicolon:
-  Exclude:
-    - 'src/CardTrader.rb'
-
 # Offense count: 2
 Style/MultilineBlockChain:
   Exclude:
