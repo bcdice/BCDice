@@ -40,14 +40,14 @@ INFO_MESSAGE_TEXT
   end
 
   # ゲーム別成功度判定(2D6)
-  def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
-    return '' unless signOfInequality == ">="
+  def check_2D6(total, dice_total, _dice_list, cmp_op, target)
+    return '' unless cmp_op == :>=
 
-    if dice_n <= 2
+    if dice_total <= 2
       return " ＞ ファンブル(【余裕】が 0 に)"
-    elsif dice_n >= 12
+    elsif dice_total >= 12
       return " ＞ スペシャル(【余裕】+3）"
-    elsif total_n >= diff
+    elsif total >= target
       return " ＞ 成功"
     else
       return " ＞ 失敗"

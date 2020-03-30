@@ -150,11 +150,10 @@ INFO_MESSAGE_TEXT
     end
   end
 
-  def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD6)
-    debug("check_nD6")
-    result = super(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
+  def check_nD6(total, dice_total, dice_list, cmp_op, target)
+    result = super(total, dice_total, dice_list, cmp_op, target)
 
-    return result unless result == ""
+    return result unless result.nil?
 
     string = bcdice.getOriginalMessage
 
@@ -162,8 +161,8 @@ INFO_MESSAGE_TEXT
 
     if /@(\d+)/ === string
       critical = Regexp.last_match(1).to_i
-      if dice_n >= critical
-        if  total_n >= superSuccessValue
+      if dice_total >= critical
+        if  total >= superSuccessValue
           return " ＞ 超成功"
         end
       end

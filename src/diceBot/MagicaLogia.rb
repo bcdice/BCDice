@@ -53,23 +53,21 @@ INFO_MESSAGE_TEXT
   end
 
   # ゲーム別成功度判定(2D6)
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-
-    return '' unless signOfInequality == ">="
+  def check_2D6(total, dice_total, dice_list, cmp_op, target)
+    return '' unless cmp_op == :>=
 
     output =
-      if dice_n <= 2
+      if dice_total <= 2
         " ＞ ファンブル"
-      elsif dice_n >= 12
+      elsif dice_total >= 12
         " ＞ スペシャル(魔力1D6点か変調1つ回復)"
-      elsif total_n >= diff
+      elsif total >= target
         " ＞ 成功"
       else
         " ＞ 失敗"
       end
 
-    output += getGainMagicElementText()
+    output += gainMagicElement(dice_list[0], dice_list[1])
 
     return output
   end
@@ -326,19 +324,6 @@ INFO_MESSAGE_TEXT
   end
 
   # 魔素獲得チェック
-  def getGainMagicElementText()
-    diceList = getDiceList
-    debug("getGainMagicElementText diceList", diceList)
-
-    return '' if diceList.empty?
-
-    dice1 = diceList[0]
-    dice2 = diceList[1]
-
-    # マギカロギア用魔素取得判定
-    return  gainMagicElement(dice1, dice2)
-  end
-
   def gainMagicElement(dice1, dice2)
     return "" unless dice1 == dice2
 

@@ -40,17 +40,17 @@ INFO_MESSAGE_TEXT
     @d66Type = 2
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(2D6)
-    return '' unless signOfInequality == ">="
+  def check_2D6(total, dice_total, _dice_list, cmp_op, target)
+    return '' unless cmp_op == :>=
 
-    if dice_n <= 2
-      return " ＞ ファンブル"
-    elsif dice_n >= 12
-      return " ＞ スペシャル(生命点1点か変調1つ回復)"
-    elsif total_n >= diff
-      return " ＞ 成功"
+    if dice_total <= 2
+      " ＞ ファンブル"
+    elsif dice_total >= 12
+      " ＞ スペシャル(生命点1点か変調1つ回復)"
+    elsif total >= target
+      " ＞ 成功"
     else
-      return " ＞ 失敗"
+      " ＞ 失敗"
     end
   end
 

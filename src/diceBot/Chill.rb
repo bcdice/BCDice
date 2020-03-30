@@ -23,17 +23,22 @@ INFO_MESSAGE_TEXT
 
   setPrefixes(['SR\d+.*'])
 
-  def check_1D100(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(1D10)
-    return '' if signOfInequality != "<="
+  def check_1D100(total, _dice_total, cmp_op, target)
+    return '' if cmp_op != :<=
 
-    return " ＞ ファンブル" if total_n >= 100
-    return " ＞ 失敗" if total_n > diff
-
-    return " ＞ Ｌ成功" if total_n >= (diff * 0.9)
-    return " ＞ Ｍ成功" if total_n >= (diff / 2)
-    return " ＞ Ｈ成功" if total_n >= (diff / 10)
-
-    return " ＞ Ｃ成功"
+    if total >= 100
+      " ＞ ファンブル"
+    elsif total > target
+      " ＞ 失敗"
+    elsif total >= (target * 0.9)
+      " ＞ Ｌ成功"
+    elsif total >= (target / 2)
+      " ＞ Ｍ成功"
+    elsif total >= (target / 10)
+      " ＞ Ｈ成功"
+    else
+      " ＞ Ｃ成功"
+    end
   end
 
   def rollDiceCommand(command)

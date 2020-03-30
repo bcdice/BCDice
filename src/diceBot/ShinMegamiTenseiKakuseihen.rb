@@ -19,12 +19,10 @@ class ShinMegamiTenseiKakuseihen < DiceBot
 INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(1d100)
-  def check_1D100(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
-    return '' unless signOfInequality == "<="
+  def check_1D100(total, dice_total, cmp_op, target)
+    return '' unless cmp_op == :<=
 
-    total_n = total_n % 100
-
-    dice1, dice2 = getTwoDice
+    dice1, dice2 = split_tens(dice_total)
 
     total1 = dice1 * 10 + dice2
     total2 = dice2 * 10 + dice1
@@ -33,25 +31,22 @@ INFO_MESSAGE_TEXT
     isRepdigit = (dice1 == dice2)
 
     result = " ＞ スワップ"
-    result += getCheckResultText(diff, [total1, total2].min, isRepdigit)
+    result += getCheckResultText(target, [total1, total2].min, isRepdigit)
     result += "／通常"
-    result += getCheckResultText(diff, total_n, isRepdigit)
+    result += getCheckResultText(target, total % 100, isRepdigit)
     result += "／逆スワップ"
-    result += getCheckResultText(diff, [total1, total2].max, isRepdigit)
+    result += getCheckResultText(target, [total1, total2].max, isRepdigit)
 
     return result
   end
 
-  def getTwoDice
-    value = getDiceList.first
-    value ||= 0
-
+  def split_tens(value)
     value %= 100
 
-    dice1 = value / 10
-    dice2 = value % 10
+    ones = value / 10
+    tens = value % 10
 
-    return [dice1, dice2]
+    return [ones, tens]
   end
 
   def getCheckResultText(diff, total, isRepdigit)

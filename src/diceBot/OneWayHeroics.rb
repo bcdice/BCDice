@@ -117,7 +117,7 @@ MESSAGETEXT
       return dice, diceText
     end
 
-    diceList = getDiceListFromDiceText(diceText)
+    diceList = diceText.split(",").map(&:to_i)
     diceList.sort!
     diceList.reverse!
 

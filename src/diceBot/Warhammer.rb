@@ -50,14 +50,14 @@ INFO_MESSAGE_TEXT
     return output_msg
   end
 
-  def check_1D100(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(1d100)
-    return '' unless signOfInequality == "<="
+  def check_1D100(total, _dice_total, cmp_op, target)
+    return '' unless cmp_op == :<=
 
-    if total_n <= diff
-      return " ＞ 成功(成功度#{((diff - total_n) / 10)})"
+    if total <= target
+      " ＞ 成功(成功度#{(target - total) / 10})"
+    else
+      " ＞ 失敗(失敗度#{(total - target) / 10})"
     end
-
-    return " ＞ 失敗(失敗度#{((total_n - diff) / 10)})"
   end
 
   ####################            WHFRP関連          ########################
@@ -322,7 +322,7 @@ INFO_MESSAGE_TEXT
     total_n, = roll(1, 100)
 
     output = "(#{string}) ＞ #{total_n}"
-    output += check_suc(total_n, 0, "<=", diff, 1, 100, 0, total_n)
+    output += check_1D100(total_n, total_n, :<=, diff)
 
     pos_num = (total_n % 10) * 10 + (total_n / 10).to_i
     pos_num = 100 if total_n >= 100
