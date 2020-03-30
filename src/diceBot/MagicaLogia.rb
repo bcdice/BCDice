@@ -1144,16 +1144,13 @@ INFO_MESSAGE_TEXT
   end
 
   def magicalogia_fallen_after_table
-    outtext = ""
-    outnum = ''
     num, = roll(1, 6)
     if num <= 3
       outtext, outnum = magicalogia_fallen_after_table_low
-      outtext = outtext.to_s
     else
       outtext, outnum = magicalogia_fallen_after_table_high
-      outtext = outtext.to_s
     end
+    outtext = outtext.to_s
     outnum = "#{num},#{outnum}"
     return outtext, outnum
   end
