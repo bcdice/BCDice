@@ -114,8 +114,6 @@ Naming/MethodName:
 Naming/PredicateName:
   Exclude:
     - 'src/spec/**/*'
-    - 'src/diceBot/LostRoyal.rb'
-    - 'src/diceBot/TunnelsAndTrolls.rb'
 
 # Offense count: 33
 # Configuration parameters: MinNameLength, AllowNamesEndingInNumbers, AllowedNames, ForbiddenNames.
