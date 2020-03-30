@@ -212,11 +212,6 @@ Style/ClassVars:
   Exclude:
     - src/diceBot/DiceBot.rb
 
-# Offense count: 1
-Style/DoubleNegation:
-  Exclude:
-    - 'src/test/DiceBotTest.rb'
-
 # Offense count: 219
 # Configuration parameters: AllowedVariables.
 Style/GlobalVars:
