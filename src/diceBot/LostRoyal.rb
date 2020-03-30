@@ -94,13 +94,10 @@ INFO_MESSAGE_TEXT
   def find_sequence(keys)
     keys = keys.sort
 
-    sequence = (1...6).map do |start_key|
+    sequences = (1...6).map do |start_key|
       find_sequence_from_start_key(keys, start_key)
-    end.find_all do |x|
-      x.size > 1
-    end.max do |a, b|
-      a.size <=> b.size
     end
+    sequence = sequences.select { |x| x.size > 1 }.max { |a, b| a.size <=> b.size }
 
     sequence
   end
@@ -236,6 +233,6 @@ INFO_MESSAGE_TEXT
   end
 
   def is_1or2(n)
-    n == 1 || n == 2
+    [1, 2].include?(n)
   end
 end

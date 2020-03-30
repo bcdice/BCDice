@@ -282,16 +282,6 @@ Style/IfInsideElse:
     - 'src/diceBot/WaresBlade.rb'
     - 'src/diceBot/WorldOfDarkness.rb'
 
-# Offense count: 2
-Style/MultilineBlockChain:
-  Exclude:
-    - 'src/diceBot/LostRoyal.rb'
-
-# Offense count: 1
-Style/MultipleComparison:
-  Exclude:
-    - 'src/diceBot/LostRoyal.rb'
-
 # Offense count: 7
 # Cop supports --auto-correct.
 # テスト用randの置き換えが必要？
