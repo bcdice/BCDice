@@ -124,7 +124,7 @@ INFO_MESSAGE_TEXT
       output, total_n = hm_encount_table
 
     else
-      return getTableCommandResult(command, @@tables)
+      return getTableCommandResult(command, TABLES)
     end
 
     return output if output == '1'
@@ -457,7 +457,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_2d6(table)
   end
 
-  @@tables =
+  TABLES =
     {
 
       'DS1ET' => {
@@ -641,7 +641,7 @@ TABLE_TEXT_END
 状況　モノビーストの出現ポイントにあたりをつけ、あなたは狩りの前に休息をとる。あの獣を自分の手で殺すため、今は力をたくわえよう。\n指定特技　《休む/環境３》\n成功  英気を養った。【モラル】が２点増加する。\n失敗 じっとしているうちに不安になってきた。感情属性が反転する。
 TABLE_TEXT_END
       },
-    }
+    }.freeze
 
-  setPrefixes(['(ET|CLT|SLT|HLT|FLT|DLT|MAT|SAT|SA2T|TST|THT|TAT|TBT|TLT|TET)\d*'] + @@tables.keys)
+  setPrefixes(['(ET|CLT|SLT|HLT|FLT|DLT|MAT|SAT|SA2T|TST|THT|TAT|TBT|TLT|TET)\d*'] + TABLES.keys)
 end

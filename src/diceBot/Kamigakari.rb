@@ -48,7 +48,7 @@ INFO_MESSAGE_TEXT
       tableName, result, number = getGetMaterialTableResult(rank)
 
     else
-      return getTableCommandResult(command, @@tables)
+      return getTableCommandResult(command, TABLES)
     end
 
     if result.empty?
@@ -259,7 +259,7 @@ INFO_MESSAGE_TEXT
     return price
   end
 
-  @@tables =
+  TABLES =
     {
 
       'ET' => {
@@ -390,7 +390,7 @@ TABLE_TEXT_END
 66:草壁（くさかべ）　大悟/文
 TABLE_TEXT_END
       },
-    }
+    }.freeze
 
-  setPrefixes(['RT', 'MT(\d*)'] + @@tables.keys)
+  setPrefixes(['RT', 'MT(\d*)'] + TABLES.keys)
 end

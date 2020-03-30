@@ -108,10 +108,12 @@ MESSAGETEXT
       totalDamage = totalSuccessCount * damage
 
       result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ Hits：#{totalSuccessCount}*#{damage} ＞ #{totalDamage}ダメージ"
-      result += " / #{totalCriticalCount}トライアンフ" if isCritical
     else
       result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ 成功数：#{totalSuccessCount}"
-      result += " / #{totalCriticalCount}トライアンフ" if isCritical
+    end
+
+    if isCritical
+      result += " / #{totalCriticalCount}トライアンフ"
     end
 
     return result

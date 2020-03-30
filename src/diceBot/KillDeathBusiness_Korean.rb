@@ -115,7 +115,7 @@ INFO_MESSAGE_TEXT
 
     # 판정체크는 먼저 처리
     case command
-    when @@judogeDiceReg
+    when JUDGE_DICE_REG
       result = judgeDice(command)
       text = "판정#{result}"
       return text
@@ -125,10 +125,10 @@ INFO_MESSAGE_TEXT
     return rollTableCommand(command)
   end
 
-  @@judogeDiceReg = /(^|\s)JD(\d+)([\+\-]\d+)?(,(\d+))?($|\s)/i
+  JUDGE_DICE_REG = /(^|\s)JD(\d+)([\+\-]\d+)?(,(\d+))?($|\s)/i.freeze
 
   def judgeDice(command)
-    unless @@judogeDiceReg === command
+    unless JUDGE_DICE_REG === command
       return '1'
     end
 

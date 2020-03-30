@@ -142,7 +142,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getTableDiceCommandResult(command)
-    info = @@tables[command]
+    info = TABLES[command]
     return nil if info.nil?
 
     name = info[:name]
@@ -181,7 +181,7 @@ INFO_MESSAGE_TEXT
     return newTable
   end
 
-  @@tables =
+  TABLES =
     {
       'FT' => {
         :name => "ファンブル表",
@@ -766,7 +766,7 @@ INFO_MESSAGE_TEXT
         },
       },
 
-    }
+    }.freeze
 
-  setPrefixes(['R([A-DS]|\d+).*'] + @@tables.keys)
+  setPrefixes(['R([A-DS]|\d+).*'] + TABLES.keys)
 end

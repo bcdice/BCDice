@@ -250,7 +250,7 @@ TEXT_BLOCK
   end
 
   def getTableResult(command)
-    info = @@tables[command.upcase]
+    info = TABLES[command.upcase]
     return nil if info.nil?
 
     name = info[:name]
@@ -272,7 +272,7 @@ TEXT_BLOCK
 
   def getCorruptionTable; end
 
-  @@tables =
+  TABLES =
     {
       'CS' => {
         :name => "타락의 전조표",
@@ -304,7 +304,7 @@ TEXT_BLOCK
           "복종(Obey)　상대를 주군으로서 받들고 충의를 맹세한다. ／복수(Vendetta)　상대를 원망하고 원수로 여긴다.",
         ],
       },
-    }
+    }.freeze
 
-  setPrefixes(['DR.*', 'RT.*', 'CT\d+'] + @@tables.keys)
+  setPrefixes(['DR.*', 'RT.*', 'CT\d+'] + TABLES.keys)
 end

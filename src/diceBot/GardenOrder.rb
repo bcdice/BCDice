@@ -90,14 +90,13 @@ INFO_MESSAGE_TEXT
   end
 
   def get_damage_table_info_by_type(type)
-    data = @@damage_table[type]
+    data = DAMAGE_TABLE[type]
     return nil if data.nil?
 
     return data[:name], data[:table]
   end
 
-  @@damage_table = {
-
+  DAMAGE_TABLE = {
     "SL" => {
       :name => "切断",
       :table => [
@@ -445,5 +444,5 @@ INFO_MESSAGE_TEXT
           :damage => "致命傷２／スタン"}],
       ]
     }
-  }
+  }.freeze
 end

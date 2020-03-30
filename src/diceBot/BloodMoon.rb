@@ -98,7 +98,7 @@ INFO_MESSAGE_TEXT
       type = '重度狂気表'
       output, total_n = getSevereInsanityTable
     else
-      return getTableCommandResult(command, @@tables)
+      return getTableCommandResult(command, TABLES)
     end
 
     return output if output == '1'
@@ -357,7 +357,7 @@ INFO_MESSAGE_TEXT
     return get_table_by_1d6(table)
   end
 
-  @@tables =
+  TABLES =
     {
 
       'ID2T' => {
@@ -443,7 +443,7 @@ TABLE_TEXT_END
 66:喜び
 TABLE_TEXT_END
       },
-    }
+    }.freeze
 
-  setPrefixes(['ST', 'IST', 'BRT', 'CHT', 'SHT', 'DHT', 'LHT', 'EHT', 'AST', 'MIT', 'SIT'] + @@tables.keys)
+  setPrefixes(['ST', 'IST', 'BRT', 'CHT', 'SHT', 'DHT', 'LHT', 'EHT', 'AST', 'MIT', 'SIT'] + TABLES.keys)
 end

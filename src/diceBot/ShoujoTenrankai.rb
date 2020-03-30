@@ -35,7 +35,7 @@ MESSAGETEXT
   setPrefixes(["SPRING", "SUMMER", "AUTUMN", "WINTER", "MORNING", "NOON", "AFTERNOON", "TWILIGHT", "NIGHT", "MIDNIGHT", "NORBLE", "MARCHEN", "COLONIAL", "SHELF", "LITTLE", "ELDER", "ATERIEL", "OPEN", "HAUNTED", "SIMPLE", "LARGE", "CORRIDOR", "STAIRS", "COSY", "TERRACE", "GARRET", "KITCHEN", "BATH", "REST", "CELLER", "LUMBER", "GARDEN", "WASTED", "RUIN", "SHORE"])
 
   def rollDiceCommand(command)
-    info = @@eventTables[command.upcase]
+    info = EVENT_TABLES[command.upcase]
 
     return nil if info.nil?
 
@@ -73,7 +73,7 @@ MESSAGETEXT
     return text, number1, number2
   end
 
-  @@eventTables =
+  EVENT_TABLES =
     {
       "SPRING" => {
         :name => "春",
@@ -670,5 +670,5 @@ MESSAGETEXT
           【偶・6】水の中で、魚の影が翻りました。
         },
       },
-    }
+    }.freeze
 end
