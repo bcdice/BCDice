@@ -18,31 +18,24 @@ class JamesBond < DiceBot
 　　　JamesBond : (1D100<=50) → 20 → 効果3（良）
 INFO_MESSAGE_TEXT
 
-  def check_1D100(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(1d100)
-    return '' unless signOfInequality == "<="
+  def check_1D100(total, _dice_total, cmp_op, target) # ゲーム別成功度判定(1d100)
+    return '' unless cmp_op == :<=
 
-    if total_n >= 100 # 100は常に失敗
-      return " ＞ 失敗"
+    base = ((target + 9) / 10).floor
+
+    if total >= 100
+      # 100は常に失敗
+      " ＞ 失敗"
+    elsif total <= base
+      " ＞ 効果1（完璧）"
+    elsif total <= base * 2
+      " ＞ 効果2（かなり良い）"
+    elsif total <= base * 5
+      " ＞ 効果3（良）"
+    elsif total <= target
+      " ＞ 効果4（まあまあ）"
+    else
+      " ＞ 失敗"
     end
-
-    base = ((diff + 9) / 10).floor
-
-    if total_n <= base
-      return " ＞ 効果1（完璧）"
-    end
-
-    if total_n <= base * 2
-      return " ＞ 効果2（かなり良い）"
-    end
-
-    if total_n <= base * 5
-      return " ＞ 効果3（良）"
-    end
-
-    if total_n <= diff
-      return " ＞ 効果4（まあまあ）"
-    end
-
-    return " ＞ 失敗"
   end
 end

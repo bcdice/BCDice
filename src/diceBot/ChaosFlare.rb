@@ -29,24 +29,25 @@ INFO_MESSAGE_TEXT
   end
 
   # ゲーム別成功度判定(2D6)
-  def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
+  def check_2D6(total, dice_total, _dice_list, cmp_op, target)
     output = ''
 
-    if dice_n <= 2
-      total_n -= 20
-      output += " ＞ ファンブル(-20)"
+    if dice_total <= 2
+      total -= 20
+      output = " ＞ ファンブル(-20)"
     end
 
-    return output unless signOfInequality == ">="
+    unless cmp_op == :>=
+      return output
+    end
 
-    if total_n >= diff
+    if total >= target
       output += " ＞ 成功"
-      if total_n > diff
-        output += " ＞ 差分値#{total_n - diff}"
+      if total > target
+        output += " ＞ 差分値#{total - target}"
       end
     else
-      output += " ＞ 失敗"
-      output += " ＞ 差分値#{total_n - diff}"
+      output += " ＞ 失敗 ＞ 差分値#{total - target}"
     end
 
     return output

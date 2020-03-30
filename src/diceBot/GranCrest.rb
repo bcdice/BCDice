@@ -44,27 +44,20 @@ MESSAGETEXT
     @fractionType = "omit"
   end
 
-  # ゲーム別成功度判定(2D6)
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-  end
-
   # ゲーム別成功度判定(nD6)
-  def check_nD6(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, n_max)
-    debug("check_nD6 begin")
-
+  def check_nD6(total, _dice_total, dice_list, cmp_op, target)
     result = ''
 
-    if n_max >= 2
-      total_n += 10
-      result += "（クリティカル）"
-      result += " ＞ #{total_n}"
+    if dice_list.count(6) >= 2
+      total += 10
+      result = "（クリティカル） ＞ #{total}"
     end
 
-    return result unless signOfInequality == ">="
-    return result if diff == "?"
+    if cmp_op != :>= || target == '?'
+      return result
+    end
 
-    if total_n >= diff
+    if total >= target
       result += " ＞ 成功"
     else
       result += " ＞ 失敗"
@@ -72,6 +65,8 @@ MESSAGETEXT
 
     return result
   end
+
+  alias check_2D6 check_nD6
 
   def rollDiceCommand(command)
     debug("rollDiceCommand command", command)

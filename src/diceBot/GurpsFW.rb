@@ -94,42 +94,39 @@ INFO_MESSAGE_TEXT
     return output_msg, secret_flg
   end
 
-  def check_nD6(total_n, dice_n, signOfInequality, diff, dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(nD6)
-    if (dice_cnt == 3) && (signOfInequality == "<=")
+  def check_nD6(total, dice_total, dice_list, cmp_op, target)
+    return "" unless dice_list.size == 3 && cmp_op == :<=
 
-      success = diff - total_n; # 成功度
-      crt_string = " ＞ クリティカル(成功度：#{success})"
-      fmb_string = " ＞ ファンブル(失敗度：#{success})"
-      fail_string = " ＞ 自動失敗(失敗度：#{success})"
+    success = target - total # 成功度
+    crt_string  = " ＞ クリティカル(成功度：#{success})"
+    fmb_string  = " ＞ ファンブル(失敗度：#{success})"
+    fail_string = " ＞ 自動失敗(失敗度：#{success})"
 
-      # クリティカル
-      if (dice_n <= 6) && (diff >= 16)
-        return crt_string
-      elsif (dice_n <= 5) && (diff >= 15)
-        return crt_string
-      elsif dice_n <= 4
-        return crt_string
-      end
-      # ファンブル
-      if diff - dice_n <= -10
-        return fmb_string
-      elsif (dice_n >= 17) && (diff <= 15)
-        return fmb_string
-      elsif dice_n >= 18
-        return fmb_string
-      elsif dice_n >= 17
-        return fail_string
-      end
-
-      if total_n <= diff
-        return " ＞ 成功(成功度：#{success})"
-      else
-        return " ＞ 失敗(失敗度：#{success})"
-      end
-
+    # クリティカル
+    if (dice_total <= 6) && (target >= 16)
+      return crt_string
+    elsif (dice_total <= 5) && (target >= 15)
+      return crt_string
+    elsif dice_total <= 4
+      return crt_string
     end
 
-    return ''
+    # ファンブル
+    if (target - dice_total) <= -10
+      return fmb_string
+    elsif (dice_total >= 17) && (target <= 15)
+      return fmb_string
+    elsif dice_total >= 18
+      return fmb_string
+    elsif dice_total >= 17
+      return fail_string
+    end
+
+    if total <= target
+      return " ＞ 成功(成功度：#{success})"
+    else
+      return " ＞ 失敗(失敗度：#{success})"
+    end
   end
 
   def getCommandResult(string, nick_e)

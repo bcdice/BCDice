@@ -47,21 +47,18 @@ INFO_MESSAGE_TEXT
   end
 
   # ゲーム別成功度判定(2D6)
-  def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
-    return '' unless signOfInequality == ">="
+  def check_2D6(total, dice_total, _dice_list, cmp_op, target)
+    return '' unless cmp_op == :>=
 
-    output =
-      if dice_n <= 2
-        " ＞ ファンブル(判定失敗。ファンブル表（FT）を振ること)"
-      elsif dice_n >= 12
-        " ＞ スペシャル(判定成功。【テンション】が１段階上昇)"
-      elsif total_n >= diff
-        " ＞ 成功"
-      else
-        " ＞ 失敗"
-      end
-
-    return output
+    if dice_total <= 2
+      " ＞ ファンブル(判定失敗。ファンブル表（FT）を振ること)"
+    elsif dice_total >= 12
+      " ＞ スペシャル(判定成功。【テンション】が１段階上昇)"
+    elsif total >= target
+      " ＞ 成功"
+    else
+      " ＞ 失敗"
+    end
   end
 
   def rollDiceCommand(command)

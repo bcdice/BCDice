@@ -47,18 +47,17 @@ INFO_MESSAGE_TEXT
   end
 
   # ゲーム別成功度判定(nD10)
-  def check_nD10(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
-    debug("EmbryoMachine check_nD10 begin")
-    return '' unless signOfInequality == ">="
+  def check_nD10(total, dice_total, _dice_list, cmp_op, target)
+    return '' unless cmp_op == :>=
 
-    if dice_n <= 2
-      return " ＞ ファンブル"
-    elsif dice_n >= 20
-      return " ＞ クリティカル"
-    elsif total_n >= diff
-      return " ＞ 成功"
+    if dice_total <= 2
+      " ＞ ファンブル"
+    elsif dice_total >= 20
+      " ＞ クリティカル"
+    elsif total >= target
+      " ＞ 成功"
     else
-      return " ＞ 失敗"
+      " ＞ 失敗"
     end
   end
 

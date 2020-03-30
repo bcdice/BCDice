@@ -17,21 +17,19 @@ class Pendragon < DiceBot
 INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(1d20)
-  def check_1D20(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
-    return '' unless signOfInequality == "<="
+  def check_1D20(total, _dice_total, cmp_op, target)
+    return '' unless cmp_op == :<=
 
-    if total_n <= diff
-      if (total_n >= (40 - diff)) || (total_n == diff)
-        return " ＞ クリティカル"
+    if total <= target
+      if (total >= (40 - target)) || (total == target)
+        " ＞ クリティカル"
+      else
+        " ＞ 成功"
       end
-
-      return " ＞ 成功"
+    elsif total == 20
+      " ＞ ファンブル"
     else
-      if total_n == 20
-        return " ＞ ファンブル"
-      end
-
-      return " ＞ 失敗"
+      " ＞ 失敗"
     end
   end
 end
