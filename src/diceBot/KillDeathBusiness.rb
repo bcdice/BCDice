@@ -72,7 +72,7 @@ INFO_MESSAGE_TEXT
 
     # 判定チェックは先に処理
     case command
-    when @@judogeDiceReg
+    when JUDGE_DICE_REG
       result = judgeDice(command)
       text = "判定#{result}"
       return text
@@ -82,10 +82,10 @@ INFO_MESSAGE_TEXT
     return rollTableCommand(command)
   end
 
-  @@judogeDiceReg = /(^|\s)JD(\d+)([\+\-]\d+)?(,(\d+))?($|\s)/i
+  JUDGE_DICE_REG = /(^|\s)JD(\d+)([\+\-]\d+)?(,(\d+))?($|\s)/i.freeze
 
   def judgeDice(command)
-    unless @@judogeDiceReg === command
+    unless JUDGE_DICE_REG === command
       return '1'
     end
 
@@ -135,7 +135,7 @@ INFO_MESSAGE_TEXT
   end
 
   def rollTableCommand(command)
-    result = getTableCommandResult(command, @@tables)
+    result = getTableCommandResult(command, TABLES)
     return result unless result.nil?
 
     tableName = ""
@@ -1298,7 +1298,7 @@ INFO_MESSAGE_TEXT
     return tableName, result, number
   end
 
-  @@tables =
+  TABLES =
     {
 
       'ANSPT' => {
@@ -1378,7 +1378,7 @@ TABLE_TEXT_END
 『服よこせ』\nキャラクターから一人を選び、相手が「衣装」で修得している特技を指定特技として判定を行う。判定に成功すると、その衣装は本当はあなたが着たかったものだと判明する。ヘルスタイリストへの抗議がひどい罵倒とともに却下されるシーンが脳裏にフラッシュバックする。相手への関係を、属性「服よこせ」で獲得する。【深度】は１になる。\nクリア条件:相手への関係の【深度】を2以上にし、かつ相手からあなたへの関係の【深度】を1以上にする。根負けした相手はちょっとヘルドレスを貸してくれて、あなたは満足する。ちなみに、本当に似合っているかどうかは関係ない。\n報酬:【視聴率】１０％増加、あなたと相手の両方に300【ソウル】
 TABLE_TEXT_END
       },
-    }
+    }.freeze
 
   setPrefixes([
     'HST',
@@ -1421,5 +1421,5 @@ TABLE_TEXT_END
     'PCT6',
     'PCT7',
     'JD.*'
-  ] + @@tables.keys)
+  ] + TABLES.keys)
 end

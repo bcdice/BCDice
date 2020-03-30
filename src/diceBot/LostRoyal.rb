@@ -76,14 +76,14 @@ INFO_MESSAGE_TEXT
     text = "3D6 => [#{keys.join(',')}] => (#{scores.join('+')}) => #{total_score}"
 
     unless chained_sequence.nil? || chained_sequence.empty?
-      bonus = is_fumble?(keys, chained_sequence) ? 3 : chained_sequence.size
+      bonus = fumble?(keys, chained_sequence) ? 3 : chained_sequence.size
       text += " | #{chained_sequence.size} chain! (#{chained_sequence.join(',')}) => #{total_score + bonus}"
 
       if chained_sequence.size >= 3
         text += " [スペシャル]"
       end
 
-      if is_fumble?(keys, chained_sequence)
+      if fumble?(keys, chained_sequence)
         text += " [ファンブル]"
       end
     end
@@ -94,13 +94,10 @@ INFO_MESSAGE_TEXT
   def find_sequence(keys)
     keys = keys.sort
 
-    sequence = (1...6).map do |start_key|
+    sequences = (1...6).map do |start_key|
       find_sequence_from_start_key(keys, start_key)
-    end.find_all do |x|
-      x.size > 1
-    end.max do |a, b|
-      a.size <=> b.size
     end
+    sequence = sequences.select { |x| x.size > 1 }.max { |a, b| a.size <=> b.size }
 
     sequence
   end
@@ -126,7 +123,7 @@ INFO_MESSAGE_TEXT
     return chained_keys
   end
 
-  def is_fumble?(keys, chained_sequence)
+  def fumble?(keys, chained_sequence)
     chained_sequence.each do |k|
       if keys.count(k) >= 2
         return true
@@ -236,6 +233,6 @@ INFO_MESSAGE_TEXT
   end
 
   def is_1or2(n)
-    n == 1 || n == 2
+    [1, 2].include?(n)
   end
 end

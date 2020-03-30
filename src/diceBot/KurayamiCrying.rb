@@ -18,7 +18,7 @@ class KurayamiCrying < DiceBot
     case command
     when /^ACT(\d+)$/i
       number = Regexp.last_match(1).to_i
-      info = @@tables["ACT"]
+      info = TABLES["ACT"]
       name = info[:name]
       table = getTableInfoFromExtraTableText(info[:table])
 
@@ -27,11 +27,11 @@ class KurayamiCrying < DiceBot
       result = "#{name}(#{number}) ＞ #{text}"
       return text
     end
-    result = getTableCommandResult(command, @@tables)
+    result = getTableCommandResult(command, TABLES)
     return result unless result.nil?
   end
 
-  @@tables =
+  TABLES =
     {
 
       'ACT' => {
@@ -51,7 +51,7 @@ class KurayamiCrying < DiceBot
 TABLE_TEXT_END
       },
 
-    }
+    }.freeze
 
-  setPrefixes(["ACT.*"] + @@tables.keys)
+  setPrefixes(["ACT.*"] + TABLES.keys)
 end

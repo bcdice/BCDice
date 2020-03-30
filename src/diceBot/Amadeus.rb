@@ -47,7 +47,7 @@ INFO_MESSAGE_TEXT
     text = amadeusDice(command)
     return text unless text.nil?
 
-    info = @@tables[command.upcase]
+    info = TABLES[command.upcase]
     return nil if info.nil?
 
     name = info[:name]
@@ -85,7 +85,7 @@ INFO_MESSAGE_TEXT
       specialNum = 6
     end
 
-    diceCount = @@checkDiceCount[skillRank]
+    diceCount = CHECK_DICE_COUNT[skillRank]
     modify = parren_killer("(" + modifyText + ")").to_i
     target = parren_killer("(" + targetText + ")").to_i
 
@@ -105,7 +105,7 @@ INFO_MESSAGE_TEXT
       achieve = dice + modify
       result = check_success(achieve, dice, signOfInequality, target, specialNum)
       if is_loop
-        message += "#{achieve}_#{result}[#{dice}#{@@checkInga[dice]}]"
+        message += "#{achieve}_#{result}[#{dice}#{INGA_TABLE[dice]}]"
       else
         message += "#{achieve}_#{result}[#{dice}]"
       end
@@ -124,10 +124,10 @@ INFO_MESSAGE_TEXT
     return "失敗"
   end
 
-  @@checkDiceCount = {"S" => 4, "A" => 3, "B" => 2, "C" => 1, "D" => 2}
-  @@checkInga = [ nil, "黒", "赤", "青", "緑", "白", "任意" ]
+  CHECK_DICE_COUNT = {"S" => 4, "A" => 3, "B" => 2, "C" => 1, "D" => 2}.freeze
+  INGA_TABLE = [ nil, "黒", "赤", "青", "緑", "白", "任意" ].freeze
 
-  @@tables =
+  TABLES =
     {
       "ECT" => {
         :name => "境遇表",
@@ -608,7 +608,7 @@ INFO_MESSAGE_TEXT
         ],
       },
 
-    }
+    }.freeze
 
-  setPrefixes(['R[A-DS].*'] + @@tables.keys)
+  setPrefixes(['R[A-DS].*'] + TABLES.keys)
 end

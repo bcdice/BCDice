@@ -141,12 +141,12 @@ INFO_MESSAGE_TEXT
   end
 
   def getDeathChartByName(chartName)
-    return {} unless @@deathCharts.key? chartName
+    return {} unless DEATH_CHARTS.key? chartName
 
-    return @@deathCharts[chartName]
+    return DEATH_CHARTS[chartName]
   end
 
-  @@deathCharts = {
+  DEATH_CHARTS = {
     '肉体' => {
       10 => "何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。",
       11 => "激痛が走る。以後、イベント終了時まで、全ての判定の成功率－10％。",
@@ -186,7 +186,7 @@ INFO_MESSAGE_TEXT
       19 => "以後、イベント終了時まで、全ての判定の成功率－30％。",
       20 => "キミの名は史上最悪の汚点として永遠に歴史に刻まれる。もはやキミを信じる仲間はなく、キミを助ける社会もない。キミは［汚名］を受けた。",
     },
-  }
+  }.freeze
 
   def fetchResultFromRealNameChart(keyNumber, chartInfo)
     columns, chart, = chartInfo
@@ -219,12 +219,12 @@ INFO_MESSAGE_TEXT
   end
 
   def getRealNameChartByName(chartName)
-    return {} unless @@realNameCharts.key? chartName
+    return {} unless REAL_NAME_CHARTS.key? chartName
 
-    return @@realNameCharts[chartName]
+    return REAL_NAME_CHARTS[chartName]
   end
 
-  @@realNameCharts = {
+  REAL_NAME_CHARTS = {
     '日本' => [['姓', '名（男）', '名（女）'], [
       [ 1..6, ['アイカワ／相川、愛川', 'アキラ／晶、章', 'アン／杏']],
       [ 7..12, ['アマミヤ／雨宮', 'エイジ／映司、英治', 'イノリ／祈鈴、祈']],
@@ -263,11 +263,10 @@ INFO_MESSAGE_TEXT
       [91..96, ['ライアン', 'ワンダ', 'ワード']],
       [97..100, ['名無し（何らかの理由で名前を持たない、もしくは失った）']],
     ]],
-  }
+  }.freeze
 
   def rollHeroNameTemplateChart()
-    chart = getHeroNameTemplateChart()
-    return nil if chart.nil?
+    chart = HERO_NAME_TEMPLATES
 
     dice, = roll(1, 10)
 
@@ -300,7 +299,7 @@ INFO_MESSAGE_TEXT
   def rollHeroNameBaseChart(chartName)
     defaultResult = {:result => chartName, :coreResult => chartName}
 
-    chart = getHeroNameBaseChartByName(chartName)
+    chart = HERO_NAME_BASE_CHARTS[chartName]
     return defaultResult if chart.nil?
 
     dice, = roll(1, 10)
@@ -321,7 +320,7 @@ INFO_MESSAGE_TEXT
   end
 
   def rollHeroNameElementChart(chartName)
-    chart = getHeroNameElementChartByName(chartName.sub("/", "／"))
+    chart = HERO_NAME_ELEMENT_CHARTS[chartName.sub("/", "／")]
     return nil if chart.nil?
 
     dice, = roll(1, 10)
@@ -332,19 +331,7 @@ INFO_MESSAGE_TEXT
     return {:dice => dice, :name => name, :coreResult => name, :mean => mean, :chartName => chartName}
   end
 
-  def getHeroNameTemplateChart()
-    @@heroNameTemplates
-  end
-
-  def getHeroNameBaseChartByName(chartName)
-    return @@heroNameBaseCharts[chartName]
-  end
-
-  def getHeroNameElementChartByName(chartName)
-    return @@heroNameElementCharts[chartName]
-  end
-
-  @@heroNameTemplates = {
+  HERO_NAME_TEMPLATES = {
     1 => {:text => 'ベースＡ＋ベースＢ', :elements => ['ベースＡ', 'ベースＢ']},
     2 => {:text => 'ベースＢ', :elements => ['ベースＢ']},
     3 => {:text => 'ベースＢ×２回', :elements => ['ベースＢ', 'ベースＢ']},
@@ -355,9 +342,9 @@ INFO_MESSAGE_TEXT
     8 => {:text => '（ベースＢ）・オブ・（ベースＢ）', :elements => ['ベースＢ', '・オブ・', 'ベースＢ']},
     9 => {:text => '（ベースＢ）・ザ・（ベースＢ）', :elements => ['ベースＢ', '・ザ・', 'ベースＢ']},
     10 => {:text => '任意', :elements => ['任意']},
-  }
+  }.freeze
 
-  @@heroNameBaseCharts = {
+  HERO_NAME_BASE_CHARTS = {
     'ベースＡ' => {
       1 => 'ザ・',
       2 => 'キャプテン・',
@@ -394,9 +381,9 @@ INFO_MESSAGE_TEXT
       9 => 'ヒーロー／スペシャル',
       10 => 'ヒーロー／スペシャル',
     },
-  }
+  }.freeze
 
-  @@heroNameElementCharts = {
+  HERO_NAME_ELEMENT_CHARTS = {
     '部位' => {
       1 => ['ハート', '心臓'],
       2 => ['フェイス', '顔'],
@@ -529,5 +516,5 @@ INFO_MESSAGE_TEXT
       9 => ['グレイテスト', '至高の'],
       10 => ['マーベラス', '驚くべき'],
     },
-  }
+  }.freeze
 end

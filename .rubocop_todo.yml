@@ -99,14 +99,6 @@ Naming/ClassAndModuleCamelCase:
 Naming/FileName:
   Enabled: false
 
-# Offense count: 158
-# Configuration parameters: Blacklist.
-# Blacklist: (?-mix:(^|\s)(EO[A-Z]{1}|END)(\s|$))
-Naming/HeredocDelimiterNaming:
-  Exclude:
-    - 'src/diceBot/LogHorizon.rb'
-    - 'src/test/DiceBotTest.rb'
-
 # Offense count: 2115
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: snake_case, camelCase
@@ -122,8 +114,6 @@ Naming/MethodName:
 Naming/PredicateName:
   Exclude:
     - 'src/spec/**/*'
-    - 'src/diceBot/LostRoyal.rb'
-    - 'src/diceBot/TunnelsAndTrolls.rb'
 
 # Offense count: 33
 # Configuration parameters: MinNameLength, AllowNamesEndingInNumbers, AllowedNames, ForbiddenNames.
@@ -210,49 +200,7 @@ Style/CaseEquality:
 # Offense count: 47
 Style/ClassVars:
   Exclude:
-    - src/bcdiceGui.rb
-    - src/diceBot/HouraiGakuen.rb
-    - src/diceBot/KillDeathBusiness.rb
-    - src/diceBot/HatsuneMiku.rb
-    - src/diceBot/CardRanker.rb
-    - src/diceBot/BattleTech.rb
-    - src/diceBot/ColossalHunter.rb
-    - src/diceBot/DeadlineHeroes.rb
-    - src/diceBot/GardenOrder.rb
-    - src/diceBot/Skynauts.rb
-    - src/diceBot/Elysion.rb
-    - src/diceBot/Kamigakari.rb
-    - src/diceBot/HuntersMoon.rb
-    - src/diceBot/KurayamiCrying.rb
-    - src/diceBot/Amadeus.rb
-    - src/diceBot/BloodCrusade.rb
     - src/diceBot/DiceBot.rb
-    - src/diceBot/Dracurouge_Korean.rb
-    - src/diceBot/Oukahoushin3rd.rb
-    - src/diceBot/Nuekagami.rb
-    - src/diceBot/ShinobiGami.rb
-    - src/diceBot/Dracurouge.rb
-    - src/diceBot/ShoujoTenrankai.rb
-    - src/diceBot/BloodMoon.rb
-    - src/diceBot/BlindMythos.rb
-    - src/diceBot/Amadeus_Korean.rb
-    - src/diceBot/KanColle.rb
-    - src/diceBot/KillDeathBusiness_Korean.rb
-    - src/diceBot/DarkDaysDrive.rb
-    - src/diceBot/YankeeYogSothoth.rb
-
-# Offense count: 1
-Style/DoubleNegation:
-  Exclude:
-    - 'src/test/DiceBotTest.rb'
-
-# Offense count: 2
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: annotated, template, unannotated
-Style/FormatStringToken:
-  Exclude:
-    - 'src/diceBot/ShinMegamiTenseiKakuseihen.rb'
-    - 'src/irc/ircBot.rb'
 
 # Offense count: 219
 # Configuration parameters: AllowedVariables.
@@ -288,12 +236,6 @@ Style/GlobalVars:
     - src/diceBot/NightmareHunterDeep.rb
     - src/diceBot/DoubleCross.rb
 
-# Offense count: 4
-Style/IdenticalConditionalBranches:
-  Exclude:
-    - 'src/diceBot/Alsetto.rb'
-    - 'src/diceBot/MagicaLogia.rb'
-
 # Offense count: 15
 Style/IfInsideElse:
   Exclude:
@@ -310,21 +252,6 @@ Style/IfInsideElse:
     - 'src/diceBot/SharedFantasia.rb'
     - 'src/diceBot/WaresBlade.rb'
     - 'src/diceBot/WorldOfDarkness.rb'
-
-# Offense count: 1
-Style/IfWithSemicolon:
-  Exclude:
-    - 'src/CardTrader.rb'
-
-# Offense count: 2
-Style/MultilineBlockChain:
-  Exclude:
-    - 'src/diceBot/LostRoyal.rb'
-
-# Offense count: 1
-Style/MultipleComparison:
-  Exclude:
-    - 'src/diceBot/LostRoyal.rb'
 
 # Offense count: 7
 # Cop supports --auto-correct.
