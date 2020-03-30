@@ -88,7 +88,7 @@ MESSAGETEXT
     return modified_damage, roll_result.sum, lrm
   end
 
-  @@lrmLimit = 5
+  LRM_LIMIT = 5
 
   def getHitResult(count, damageFunc, tail)
     m = /([LCR][LU]?)?(\+\d+)?>=(\d+)/.match(tail)
@@ -164,7 +164,7 @@ MESSAGETEXT
 
     damagePartCount = 1
     if isLrm
-      damagePartCount = (1.0 * damage / @@lrmLimit).ceil
+      damagePartCount = (1.0 * damage / LRM_LIMIT).ceil
       resultText += "[#{dice}] #{damage}点"
     end
 
@@ -193,9 +193,9 @@ MESSAGETEXT
     return damage, damage.to_s if dice.nil?
     return damage, "[#{dice}] #{damage}" unless isLrm
 
-    currentDamage = damage - (@@lrmLimit * index)
-    if currentDamage > @@lrmLimit
-      currentDamage = @@lrmLimit
+    currentDamage = damage - (LRM_LIMIT * index)
+    if currentDamage > LRM_LIMIT
+      currentDamage = LRM_LIMIT
     end
 
     return currentDamage, currentDamage.to_s

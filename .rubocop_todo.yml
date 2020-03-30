@@ -210,36 +210,7 @@ Style/CaseEquality:
 # Offense count: 47
 Style/ClassVars:
   Exclude:
-    - src/bcdiceGui.rb
-    - src/diceBot/HouraiGakuen.rb
-    - src/diceBot/KillDeathBusiness.rb
-    - src/diceBot/HatsuneMiku.rb
-    - src/diceBot/CardRanker.rb
-    - src/diceBot/BattleTech.rb
-    - src/diceBot/ColossalHunter.rb
-    - src/diceBot/DeadlineHeroes.rb
-    - src/diceBot/GardenOrder.rb
-    - src/diceBot/Skynauts.rb
-    - src/diceBot/Elysion.rb
-    - src/diceBot/Kamigakari.rb
-    - src/diceBot/HuntersMoon.rb
-    - src/diceBot/KurayamiCrying.rb
-    - src/diceBot/Amadeus.rb
-    - src/diceBot/BloodCrusade.rb
     - src/diceBot/DiceBot.rb
-    - src/diceBot/Dracurouge_Korean.rb
-    - src/diceBot/Oukahoushin3rd.rb
-    - src/diceBot/Nuekagami.rb
-    - src/diceBot/ShinobiGami.rb
-    - src/diceBot/Dracurouge.rb
-    - src/diceBot/ShoujoTenrankai.rb
-    - src/diceBot/BloodMoon.rb
-    - src/diceBot/BlindMythos.rb
-    - src/diceBot/Amadeus_Korean.rb
-    - src/diceBot/KanColle.rb
-    - src/diceBot/KillDeathBusiness_Korean.rb
-    - src/diceBot/DarkDaysDrive.rb
-    - src/diceBot/YankeeYogSothoth.rb
 
 # Offense count: 1
 Style/DoubleNegation:

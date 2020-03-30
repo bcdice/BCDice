@@ -56,10 +56,10 @@ INFO_MESSAGE_TEXT
     return nil
   end
 
-  @@critical = "大成功"
-  @@success = "成功"
-  @@failure = "失敗"
-  @@famble = "大失敗"
+  CRITICAL = "大成功"
+  SUCCESS = "成功"
+  FAILURE = "失敗"
+  FUMBLE = "大失敗"
 
   # 基本ロール
   def getRollResult(command)
@@ -79,18 +79,18 @@ INFO_MESSAGE_TEXT
     diceList = getDiceListFromText(diceText)
 
     if isFamble(diceList)
-      return @@famble
+      return FUMBLE
     end
 
     if isCritical(diceList)
-      return @@critical
+      return CRITICAL
     end
 
     if total <= target
-      return @@success
+      return SUCCESS
     end
 
-    return @@failure
+    return FAILURE
   end
 
   def getDiceListFromText(diceText)
@@ -166,10 +166,10 @@ INFO_MESSAGE_TEXT
 
   def getResultRank(result)
     ranks = [
-      @@famble,
-      @@failure,
-      @@success,
-      @@critical,
+      FUMBLE,
+      FAILURE,
+      SUCCESS,
+      CRITICAL,
     ]
 
     return ranks.index(result)

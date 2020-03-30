@@ -1276,7 +1276,7 @@ MESSAGETEXT
   end
 
   def getTableDiceCommandResult(command)
-    info = @@tables[command]
+    info = TABLES[command]
     return nil if info.nil?
 
     name = info[:name]
@@ -1766,7 +1766,7 @@ MESSAGETEXT
     return table
   end
 
-  @@tables =
+  TABLES =
     {
       'CS' => {
         :name => "堕落の兆し表",
@@ -1841,7 +1841,7 @@ MESSAGETEXT
           主(Obey)　相手を主と仰ぎ、忠誠を誓う。／仇(Vendetta)　相手を怨み、仇と狙う。
         },
       },
-    }
+    }.freeze
 
-  setPrefixes(['DR.*', 'RT.*', 'HRT.*', 'CT\d+', "ST", "CO", "CA", "EP", "OS", "PN", "RS", "PP"] + @@tables.keys)
+  setPrefixes(['DR.*', 'RT.*', 'HRT.*', 'CT\d+', "ST", "CO", "CA", "EP", "OS", "PN", "RS", "PP"] + TABLES.keys)
 end

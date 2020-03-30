@@ -24,10 +24,10 @@ class Oukahoushin3rd < DiceBot
 INFO_MESSAGE_TEXT
 
   def rollDiceCommand(command)
-    return getTableCommandResult(command, @@tables)
+    return getTableCommandResult(command, TABLES)
   end
 
-  @@tables =
+  TABLES =
     {
 
       'BKT' => {
@@ -150,7 +150,7 @@ TABLE_TEXT_END
 1ポイント清徳値が低下。機敏または知覚（攻撃を防御した者が選択する）が1ポイント上昇。
 TABLE_TEXT_END
       },
-    }
+    }.freeze
 
-  setPrefixes([ ] + @@tables.keys)
+  setPrefixes([ ] + TABLES.keys)
 end
