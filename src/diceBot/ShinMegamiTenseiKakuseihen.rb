@@ -56,7 +56,7 @@ INFO_MESSAGE_TEXT
 
   def getCheckResultText(diff, total, isRepdigit)
     checkResult = getCheckResult(diff, total, isRepdigit)
-    text = format("(%02d)%s", total, checkResult)
+    text = format("(%02d)", total) + checkResult
     return text
   end
 

@@ -217,14 +217,6 @@ Style/DoubleNegation:
   Exclude:
     - 'src/test/DiceBotTest.rb'
 
-# Offense count: 2
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: annotated, template, unannotated
-Style/FormatStringToken:
-  Exclude:
-    - 'src/diceBot/ShinMegamiTenseiKakuseihen.rb'
-    - 'src/irc/ircBot.rb'
-
 # Offense count: 219
 # Configuration parameters: AllowedVariables.
 Style/GlobalVars:
