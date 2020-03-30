@@ -44,6 +44,9 @@ Layout/SpaceInsideArrayLiteralBrackets:
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
+Naming/HeredocDelimiterNaming:
+  Enabled: false
+
 Naming/VariableName:
   Enabled: false
 
