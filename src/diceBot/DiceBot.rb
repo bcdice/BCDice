@@ -188,10 +188,6 @@ class DiceBot
     @@bcdice.rand(max)
   end
 
-  def check_suc(*params)
-    @@bcdice.check_suc(*params)
-  end
-
   def roll(*args)
     @@bcdice.roll(*args)
   end
@@ -288,38 +284,83 @@ class DiceBot
     nil
   end
 
-  def setDiceText(diceText)
-    debug("setDiceText diceText", diceText)
-    @diceText = diceText
-  end
-
-  def setDiffText(diffText)
-    @diffText = diffText
-  end
-
   def dice_command_xRn(_string, _nick_e)
     ''
   end
 
-  def check_2D6(_total_n, _dice_n, _signOfInequality, _diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(2D6)
-    ''
+  # @param total [Integer] コマンド合計値
+  # @param dice_total [Integer] ダイス目の合計値
+  # @param dice_list [Array<Integer>] ダイスの一覧
+  # @param sides [Integer] 振ったダイスの面数
+  # @param cmp_op [Symbol] 比較演算子
+  # @param target [Integer, String] 目標値の整数か'?'
+  # @return [String]
+  def check_suc(total, dice_total, dice_list, sides, cmp_op, target)
+    ret =
+      case [dice_list.size, sides]
+      when [1, 100]
+        check_1D100(total, dice_total, cmp_op, target)
+      when [1, 20]
+        check_1D20(total, dice_total, cmp_op, target)
+      when [2, 6]
+        check_2D6(total, dice_total, dice_list, cmp_op, target)
+      end
+
+    return ret unless ret.nil? || ret.empty?
+
+    ret =
+      case sides
+      when 10
+        check_nD10(total, dice_total, dice_list, cmp_op, target)
+      when 6
+        check_nD6(total, dice_total, dice_list, cmp_op, target)
+      end
+
+    return ret unless ret.nil? || ret.empty?
+
+    check_nDx(total, cmp_op, target)
   end
 
-  def check_nD6(_total_n, _dice_n, _signOfInequality, _diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(nD6)
-    ''
+  # 成功か失敗かを文字列で返す
+  #
+  # @param (see #check_suc)
+  # @return [String]
+  def check_nDx(total, cmp_op, target)
+    return " ＞ 失敗" if target.is_a?(String)
+
+    # Due to Ruby 1.8
+    success = cmp_op == :"!=" ? total != target : total.send(cmp_op, target)
+    if success
+      " ＞ 成功"
+    else
+      " ＞ 失敗"
+    end
   end
 
-  def check_nD10(_total_n, _dice_n, _signOfInequality, _diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(nD10)
-    ''
-  end
+  # @abstruct
+  # @param (see #check_suc)
+  # @return [nil]
+  def check_1D100(total, dice_total, cmp_op, target); end
 
-  def check_1D100(_total_n, _dice_n, _signOfInequality, _diff, _dice_cnt, _dice_max, _n1, _n_max)    # ゲーム別成功度判定(1d100)
-    ''
-  end
+  # @abstruct
+  # @param (see #check_suc)
+  # @return [nil]
+  def check_1D20(total, dice_total, cmp_op, target); end
 
-  def check_1D20(_total_n, _dice_n, _signOfInequality, _diff, _dice_cnt, _dice_max, _n1, _n_max)     # ゲーム別成功度判定(1d20)
-    ''
-  end
+  # @abstruct
+  # @param (see #check_suc)
+  # @return [nil]
+  def check_nD10(total, dice_total, dice_list, cmp_op, target); end
+
+  # @abstruct
+  # @param (see #check_suc)
+  # @return [nil]
+  def check_2D6(total, dice_total, dice_list, cmp_op, target); end
+
+  # @abstruct
+  # @param (see #check_suc)
+  # @return [nil]
+  def check_nD6(total, dice_total, dice_list, cmp_op, target); end
 
   def get_table_by_2d6(table)
     get_table_by_nD6(table, 2)
@@ -429,29 +470,6 @@ class DiceBot
   # @return [Boolean]
   def should_reroll?(loop_count)
     loop_count < @rerollLimitCount || @rerollLimitCount == 0
-  end
-
-  def getDiceList
-    getDiceListFromDiceText(@diceText)
-  end
-
-  def getDiceListFromDiceText(diceText)
-    debug("getDiceList diceText", diceText)
-
-    diceList = []
-
-    if /\[([\d,]+)\]/ =~ diceText
-      diceText = Regexp.last_match(1)
-    end
-
-    return diceList unless /([\d,]+)/ =~ diceText
-
-    diceString = Regexp.last_match(1)
-    diceList = diceString.split(/,/).collect { |i| i.to_i }
-
-    debug("diceList", diceList)
-
-    return diceList
   end
 
   # ** 汎用表サブルーチン
