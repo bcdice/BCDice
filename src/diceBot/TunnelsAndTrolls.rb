@@ -114,7 +114,7 @@ INFO_MESSAGE_TEXT
 
     experiencePoint = (1.0 * (diff - 15) / 5 * dice_n)
 
-    if is_int?(experiencePoint)
+    if int?(experiencePoint)
       experiencePoint = experiencePoint.to_i
     else
       experiencePoint = format("%.1f", experiencePoint)
@@ -125,7 +125,7 @@ INFO_MESSAGE_TEXT
     return experiencePoint
   end
 
-  def is_int?(v)
+  def int?(v)
     return (v == v.to_i)
   end
 
