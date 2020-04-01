@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-require "utils/normalizer"
+require "utils/normalize"
 
 class AddDice
   def initialize(bcdice, diceBot)
@@ -91,8 +91,8 @@ class AddDice
     total_n += revision
 
     if signOfInequality != "" # 成功度判定処理
-      cmp_op = Normalizer.comparison_op(signOfInequality)
-      target = Normalizer.target_number(diffText)
+      cmp_op = Normalize.comparison_operator(signOfInequality)
+      target = Normalize.target_number(diffText)
       successText = @diceBot.check_result(total_n, dice_n, @dice_list, dice_max, cmp_op, target)
       debug("check_suc successText", successText)
       output += successText

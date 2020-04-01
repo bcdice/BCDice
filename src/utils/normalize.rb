@@ -1,11 +1,11 @@
-module Normalizer
+module Normalize
   module_function
 
   # 比較演算子をシンボルに正規化する
   #
   # @param op [String]
   # @return [Symbol, nil]
-  def comparison_op(op)
+  def comparison_operator(op)
     case op
     when /<=|=</
       :<=

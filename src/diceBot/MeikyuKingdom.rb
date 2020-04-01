@@ -191,7 +191,7 @@ INFO_MESSAGE_TEXT
     end
 
     if signOfInequality != "" # 成功度判定処理
-      cmp_op = Normalizer.comparison_op(signOfInequality)
+      cmp_op = Normalize.comparison_operator(signOfInequality)
       output += check_result(total_n, dice_now, dice_list, 6, cmp_op, diff)
     end
 
