@@ -5,7 +5,7 @@ module Normalizer
   #
   # @param op [String]
   # @return [Symbol, nil]
-  def cmp_op(op)
+  def comparison_op(op)
     case op
     when /<=|=</
       :<=
