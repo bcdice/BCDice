@@ -93,7 +93,7 @@ class AddDice
     if signOfInequality != "" # 成功度判定処理
       cmp_op = Normalizer.cmp_op(signOfInequality)
       target = Normalizer.target_number(diffText)
-      successText = @diceBot.check_suc(total_n, dice_n, @dice_list, dice_max, cmp_op, target)
+      successText = @diceBot.check_result(total_n, dice_n, @dice_list, dice_max, cmp_op, target)
       debug("check_suc successText", successText)
       output += successText
     end

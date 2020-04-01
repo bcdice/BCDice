@@ -156,7 +156,7 @@ INFO_MESSAGE_TEXT
       end
     end
     if signOfInequality != "" # 成功度判定処理
-      output += check_suc(total, 0, signOfInequality, diff, 1, 10, 0, 0)
+      output += check_result(total, 0, signOfInequality, diff, 1, 10, 0, 0)
     end
 
     return output

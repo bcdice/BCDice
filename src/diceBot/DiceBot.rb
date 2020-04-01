@@ -295,7 +295,7 @@ class DiceBot
   # @param cmp_op [Symbol] 比較演算子
   # @param target [Integer, String] 目標値の整数か'?'
   # @return [String]
-  def check_suc(total, dice_total, dice_list, sides, cmp_op, target)
+  def check_result(total, dice_total, dice_list, sides, cmp_op, target)
     ret =
       case [dice_list.size, sides]
       when [1, 100]
@@ -323,7 +323,7 @@ class DiceBot
 
   # 成功か失敗かを文字列で返す
   #
-  # @param (see #check_suc)
+  # @param (see #check_result)
   # @return [String]
   def check_nDx(total, cmp_op, target)
     return " ＞ 失敗" if target.is_a?(String)
@@ -338,27 +338,27 @@ class DiceBot
   end
 
   # @abstruct
-  # @param (see #check_suc)
+  # @param (see #check_result)
   # @return [nil]
   def check_1D100(total, dice_total, cmp_op, target); end
 
   # @abstruct
-  # @param (see #check_suc)
+  # @param (see #check_result)
   # @return [nil]
   def check_1D20(total, dice_total, cmp_op, target); end
 
   # @abstruct
-  # @param (see #check_suc)
+  # @param (see #check_result)
   # @return [nil]
   def check_nD10(total, dice_total, dice_list, cmp_op, target); end
 
   # @abstruct
-  # @param (see #check_suc)
+  # @param (see #check_result)
   # @return [nil]
   def check_2D6(total, dice_total, dice_list, cmp_op, target); end
 
   # @abstruct
-  # @param (see #check_suc)
+  # @param (see #check_result)
   # @return [nil]
   def check_nD6(total, dice_total, dice_list, cmp_op, target); end
 
