@@ -359,11 +359,11 @@ INFO_MESSAGE_TEXT
 
       case hit_type
       when :hit
-          hit_bullet_count = hit_bullet_count_base # 通常命中した弾数の計算
+        hit_bullet_count = hit_bullet_count_base # 通常命中した弾数の計算
 
       when :impale
-          impale_bullet_count = impale_bullet_count_base.floor # 貫通した弾数の計算
-          hit_bullet_count = impale_bullet_count_base.ceil
+        impale_bullet_count = impale_bullet_count_base.floor # 貫通した弾数の計算
+        hit_bullet_count = impale_bullet_count_base.ceil
       end
 
       lost_bullet_count = bullet_set_count
@@ -377,10 +377,6 @@ INFO_MESSAGE_TEXT
       when :impale
         impale_bullet_count = getLastHitBulletCount(bullet_count)
         hit_bullet_count = bullet_count - impale_bullet_count
-        #halfbull = bullet_count / 2.to_f
-
-        #hit_bullet_count = halfbull.ceil
-        #impale_bullet_count = halfbull.floor
       end
 
       lost_bullet_count = bullet_count
