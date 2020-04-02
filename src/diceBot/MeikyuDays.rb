@@ -50,17 +50,17 @@ INFO_MESSAGE_TEXT
     return checkRoll(string)
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(2D6)
-    return '' unless signOfInequality == ">="
+  def check_2D6(total, dice_total, _dice_list, cmp_op, target)
+    return '' unless cmp_op == :>=
 
-    if dice_n <= 2
-      return " ＞ 絶対失敗"
-    elsif dice_n >= 12
-      return " ＞ 絶対成功"
-    elsif total_n >= diff
-      return " ＞ 成功"
+    if dice_total <= 2
+      " ＞ 絶対失敗"
+    elsif dice_total >= 12
+      " ＞ 絶対成功"
+    elsif total >= target
+      " ＞ 成功"
     else
-      return " ＞ 失敗"
+      " ＞ 失敗"
     end
   end
 
@@ -89,7 +89,7 @@ INFO_MESSAGE_TEXT
     total_n = 0
 
     _, dice_str, = roll(dice_c, 6, (sortType & 1))
-    dice_num = dice_str.split(/,/).collect { |i| i.to_i }
+    dice_num = dice_str.split(',').map(&:to_i)
 
     dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1]
     total_n = dice_now + bonus
@@ -115,7 +115,8 @@ INFO_MESSAGE_TEXT
     end
 
     if signOfInequality != "" # 成功度判定処理
-      output += check_suc(total_n, dice_now, signOfInequality, diff, 2, 6, 0, 0)
+      cmp_op = Normalize.comparison_operator(signOfInequality)
+      output += check_2D6(total_n, dice_now, dice_num, cmp_op, diff)
     end
 
     return output

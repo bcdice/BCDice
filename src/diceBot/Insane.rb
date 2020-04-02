@@ -56,23 +56,18 @@ INFO_MESSAGE_TEXT
   end
 
   # ゲーム別成功度判定(2D6)
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
+  def check_2D6(total, dice_total, _dice_list, cmp_op, target)
+    return '' unless cmp_op == :>=
 
-    return '' unless signOfInequality == ">="
-
-    output =
-      if dice_n <= 2
-        " ＞ ファンブル(判定失敗。山札から【狂気】を1枚獲得)"
-      elsif dice_n >= 12
-        " ＞ スペシャル(判定成功。【生命力】1点か【正気度】1点回復)"
-      elsif total_n >= diff
-        " ＞ 成功"
-      else
-        " ＞ 失敗"
-      end
-
-    return output
+    if dice_total <= 2
+      " ＞ ファンブル(判定失敗。山札から【狂気】を1枚獲得)"
+    elsif dice_total >= 12
+      " ＞ スペシャル(判定成功。【生命力】1点か【正気度】1点回復)"
+    elsif total >= target
+      " ＞ 成功"
+    else
+      " ＞ 失敗"
+    end
   end
 
   def rollDiceCommand(command)

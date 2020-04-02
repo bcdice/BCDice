@@ -56,23 +56,18 @@ INFO_MESSAGE_TEXT
   end
 
   # 게임 별 성공 여부 판정(2D6)
-  def check_2D6(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    debug("total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max", total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
+  def check_2D6(total, dice_total, _dice_list, cmp_op, target)
+    return '' unless cmp_op == :>=
 
-    return '' unless signOfInequality == ">="
-
-    output =
-      if dice_n <= 2
-        " ＞ 펌블(판정실패。 덱에서 【광기】를 1장 획득)"
-      elsif dice_n >= 12
-        " ＞ 스페셜(판정성공。 【생명력】 1점이나 【정신력】 1점 회복)"
-      elsif total_n >= diff
-        " ＞ 성공"
-      else
-        " ＞ 실패"
-      end
-
-    return output
+    if dice_total <= 2
+      " ＞ 펌블(판정실패。 덱에서 【광기】를 1장 획득)"
+    elsif dice_total >= 12
+      " ＞ 스페셜(판정성공。 【생명력】 1점이나 【정신력】 1점 회복)"
+    elsif total >= target
+      " ＞ 성공"
+    else
+      " ＞ 실패"
+    end
   end
 
   def rollDiceCommand(command)

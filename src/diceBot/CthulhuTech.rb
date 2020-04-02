@@ -24,47 +24,47 @@ INFO_MESSAGE_TEXT
     @sortType = 1
   end
 
-  def check_nD10(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max) # ゲーム別成功度判定(nD10)
-    if signOfInequality == ">=" # 通常のテスト
+  def check_nD10(total, dice_total, dice_list, cmp_op, target)
+    if cmp_op == :>=
+      # 通常のテスト
       @isCombatTest = false
-      return check_nD10_nomalTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    end
-
-    if signOfInequality == ">" # コンバットテスト
+      return check_nD10_nomalTest(total, dice_total, dice_list, cmp_op, target)
+    elsif cmp_op == :>
+      # コンバットテスト
       @isCombatTest = true
-      return check_nD10_combatTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
+      return check_nD10_combatTest(total, dice_total, dice_list, cmp_op, target)
     end
   end
 
-  def check_nD10_nomalTest(total_n, _dice_n, _signOfInequality, diff, dice_cnt, _dice_max, n1, _n_max)
-    if n1 >= (dice_cnt / 2 + 0.9).to_i
+  def check_nD10_nomalTest(total, _dice_total, dice_list, _cmp_op, target)
+    if dice_list.count(1) >= (dice_list.size + 1) / 2
       return " ＞ ファンブル"
     end
 
     isSuccess = false
     if @isCombatTest
-      isSuccess = (total_n > diff)
+      isSuccess = (total > target)
     else
-      isSuccess = (total_n >= diff)
+      isSuccess = (total >= target)
     end
 
     unless isSuccess
       return " ＞ 失敗"
     end
 
-    if total_n >= diff + 10
+    if total >= target + 10
       return " ＞ クリティカル"
     end
 
     return " ＞ 成功"
   end
 
-  def check_nD10_combatTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
-    result = check_nD10_nomalTest(total_n, dice_n, signOfInequality, diff, dice_cnt, dice_max, n1, n_max)
+  def check_nD10_combatTest(total, dice_total, dice_list, cmp_op, target)
+    result = check_nD10_nomalTest(total, dice_total, dice_list, cmp_op, target)
 
     case result
     when " ＞ クリティカル", " ＞ 成功"
-      result += getDamageDice(total_n, diff)
+      result += getDamageDice(total, target)
     end
 
     return result

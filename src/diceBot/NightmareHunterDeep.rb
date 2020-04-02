@@ -32,26 +32,25 @@ INFO_MESSAGE_TEXT
     return string
   end
 
-  def check_nD6(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(nD6)
-    return '' unless signOfInequality == ">="
+  def check_nD6(total, _dice_total, _dice_list, cmp_op, target)
+    return '' unless cmp_op == :>=
 
-    if diff != "?"
-      if total_n >= diff
+    if target != "?"
+      if total >= target
         return " ＞ 成功"
+      else
+        return " ＞ 失敗"
       end
-
-      return " ＞ 失敗"
     end
 
-    # diff == "?"
     sucLv = 1
     sucNL = 0
 
-    while total_n >= sucLv * 5 - 1
+    while total >= sucLv * 5 - 1
       sucLv += 1
     end
 
-    while total_n >= (sucNL * 5 + 5)
+    while total >= (sucNL * 5 + 5)
       sucNL += 1
     end
 
@@ -59,9 +58,9 @@ INFO_MESSAGE_TEXT
     sucNL -= 1
 
     if sucLv <= 0
-      return " ＞ 失敗"
+      " ＞ 失敗"
     else
-      return " ＞ Lv#{sucLv}/NL#{sucNL}成功"
+      " ＞ Lv#{sucLv}/NL#{sucNL}成功"
     end
   end
 

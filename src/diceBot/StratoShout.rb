@@ -45,14 +45,14 @@ INFO_MESSAGE_TEXT
     @d66Type = 2
   end
 
-  def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
-    return '' unless signOfInequality == ">="
+  def check_2D6(total, dice_total, _dice_list, cmp_op, target)
+    return '' unless cmp_op == :>=
 
-    if dice_n <= 2
+    if dice_total <= 2
       " ＞ ファンブル！ (ドラマフェイズ: 【ディスコード】+2 / ライブフェイズ: 【コンディション】-2)"
-    elsif dice_n >= 12
+    elsif dice_total >= 12
       " ＞ スペシャル！ (【コンディション】+2)"
-    elsif total_n >= diff
+    elsif total >= target
       " ＞ 成功"
     else
       " ＞ 失敗"

@@ -224,15 +224,15 @@ INFO_MESSAGE_TEXT
     end
   end
 
-  def check_nD10(total_n, _dice_n, signOfInequality, diff, dice_cnt, _dice_max, n1, _n_max) # ゲーム別成功度判定(nD10)
-    return '' unless signOfInequality == ">="
+  def check_nD10(total, _dice_total, dice_list, cmp_op, target)
+    return '' unless cmp_op == :>=
 
-    if n1 >= dice_cnt
-      return " ＞ ファンブル"
-    elsif total_n >= diff
-      return " ＞ 成功"
+    if dice_list.count(1) == dice_list.size
+      " ＞ ファンブル"
+    elsif total >= target
+      " ＞ 成功"
     else
-      return " ＞ 失敗"
+      " ＞ 失敗"
     end
   end
 

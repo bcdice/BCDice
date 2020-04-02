@@ -50,17 +50,17 @@ INFO_MESSAGE_TEXT
   end
 
   # ゲーム別成功度判定(2D6)
-  def check_2D6(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
-    return '' unless signOfInequality == ">="
+  def check_2D6(total, dice_total, _dice_list, cmp_op, target)
+    return '' unless cmp_op == :>=
 
-    if dice_n <= 2
-      return " ＞ ファンブル(モノビースト追加行動+1)"
-    elsif dice_n >= 12
-      return " ＞ スペシャル(変調1つ回復orダメージ+1D6)"
-    elsif total_n >= diff
-      return " ＞ 成功"
+    if dice_total <= 2
+      " ＞ ファンブル(モノビースト追加行動+1)"
+    elsif dice_total >= 12
+      " ＞ スペシャル(変調1つ回復orダメージ+1D6)"
+    elsif total >= target
+      " ＞ 成功"
     else
-      return " ＞ 失敗"
+      " ＞ 失敗"
     end
   end
 

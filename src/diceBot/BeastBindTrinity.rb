@@ -24,7 +24,7 @@ class BeastBindTrinity < DiceBot
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定　(nBB+m%w@x#y$z&v)
 　n個のD6を振り、出目の大きい2個から達成値を算出。修正mも可能。
-　
+
 　%w、@x、#y、$z、&vはすべて省略可能。
 ＞%w：現在の人間性が w であるとして、クリティカル値(C値)を計算。
 ・省略した場合、C値=12として達成値を算出する。
@@ -77,16 +77,6 @@ INFO_MESSAGE_TEXT
   def dice_command_xRn(string, nick_e)
     @nick_e = nick_e
     return bbt_check(string)
-  end
-
-  def check_2D6(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(2D6)
-    return '' unless signOfInequality == ">="
-
-    if total_n >= diff
-      return " ＞ 成功"
-    else
-      return " ＞ 失敗"
-    end
   end
 
   ####################           ビーストバインド トリニティ         ########################
@@ -282,7 +272,9 @@ INFO_MESSAGE_TEXT
     end
 
     if signOfInequality != "" # 成功度判定処理
-      output += check_suc(total_n, dice_now, signOfInequality, diff, 2, 6, 0, 0)
+      cmp_op = Normalize.comparison_operator(signOfInequality)
+      dice_list = dice_num
+      output += check_result(total_n, dice_now, dice_list, 6, cmp_op, diff)
     end
 
     return output

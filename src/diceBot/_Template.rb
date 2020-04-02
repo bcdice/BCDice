@@ -81,6 +81,4 @@ MESSAGETEXT
   # get_table_by_1d3(table)
   # get_table_by_number(index, table)
   # get_table_by_d66(table)
-
-  # getDiceList を呼び出すとロース結果のダイス目の配列が手に入ります。
 end
