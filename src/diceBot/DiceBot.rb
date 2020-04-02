@@ -210,10 +210,6 @@ class DiceBot
     @@bcdice.getD66Value(*args)
   end
 
-  def rollDiceAddingUp(*arg)
-    @@bcdice.rollDiceAddingUp(*arg)
-  end
-
   def parren_killer(string)
     @@bcdice.parren_killer(string)
   end
