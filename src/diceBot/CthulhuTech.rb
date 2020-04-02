@@ -81,23 +81,17 @@ INFO_MESSAGE_TEXT
 
   # ダイス目文字列からダイス値を変更する場合の処理
   # クトゥルフ・テックの判定用ダイス計算
-  def changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
-    debug("changeDiceValueByDiceText dice_now, dice_str, isCheckSuccess, dice_max", dice_now, dice_str, isCheckSuccess, dice_max)
-    if isCheckSuccess && (dice_max == 10)
-      debug('cthulhutech_check(dice_str) called')
-      debug('dice_str, dice_now', dice_str, dice_now)
-      dice_now = cthulhutech_check(dice_str)
+  def changeDiceValueByDiceText(dice_total, dice_list, cmp_op, sides)
+    if cmp_op && (sides == 10)
+      dice_total = cthulhutech_check(dice_list)
     end
-    debug('dice_str, dice_now', dice_str, dice_now)
 
-    return dice_now
+    return dice_total
   end
 
   ####################           CthulhuTech         ########################
   # CthulhuTechの判定用ダイス計算
-  def cthulhutech_check(dice_str)
-    dice_aRR = dice_str.split(/,/).collect { |i| i.to_i }
-
+  def cthulhutech_check(dice_aRR)
     dice_num = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     max_num = 0
 
