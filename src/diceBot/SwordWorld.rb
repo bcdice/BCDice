@@ -39,23 +39,18 @@ class SwordWorld < DiceBot
     "cmCM"
   end
 
-  def check_2D6(totalValue, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(2D6)
-    if dice_n >= 12
-      return " ＞ 自動的成功"
+  def check_2D6(total, dice_total, _dice_list, cmp_op, target)
+    if dice_total >= 12
+      " ＞ 自動的成功"
+    elsif dice_total <= 2
+      " ＞ 自動的失敗"
+    elsif cmp_op != :>= || target == "?"
+      ''
+    elsif total >= target
+      " ＞ 成功"
+    else
+      " ＞ 失敗"
     end
-
-    if dice_n <= 2
-      return " ＞ 自動的失敗"
-    end
-
-    return '' if signOfInequality != ">="
-    return '' if diff == "?"
-
-    if totalValue >= diff
-      return " ＞ 成功"
-    end
-
-    return " ＞ 失敗"
   end
 
   def rollDiceCommand(command)

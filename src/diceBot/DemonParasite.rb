@@ -37,30 +37,21 @@ INFO_MESSAGE_TEXT
   end
 
   # ゲーム別成功度判定(nD6)
-  def check_nD6(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, n1, n_max)
-    if n1 >= 2 # １の目が２個以上ならファンブル
+  def check_nD6(total, _dice_total, dice_list, cmp_op, target)
+    if dice_list.count(1) >= 2 # １の目が２個以上ならファンブル
       return " ＞ 致命的失敗"
-    end
-
-    if n_max >= 2 # ６の目が２個以上あったらクリティカル
+    elsif dice_list.count(6) >= 2 # ６の目が２個以上あったらクリティカル
       return " ＞ 効果的成功"
+    elsif target == "?"
+      return ''
     end
 
-    return '' if diff == "?"
-
-    case signOfInequality
-    when ">="
-      if total_n >= diff
-        return " ＞ 成功"
+    if [:>=, :>].include?(cmp_op)
+      if total.send(cmp_op, target)
+        " ＞ 成功"
+      else
+        " ＞ 失敗"
       end
-
-      return " ＞ 失敗"
-    when ">"
-      if total_n > diff
-        return " ＞ 成功"
-      end
-
-      return " ＞ 失敗"
     end
   end
 

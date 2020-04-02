@@ -22,10 +22,10 @@ MESSAGETEXT
 
   setPrefixes(['SHK\d+.*', 'SLH', 'SLHU', 'SLHD'])
 
-  def check_1D100(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
-    return '' unless signOfInequality == "<="
+  def check_1D100(total, _dice_total, cmp_op, target)
+    return '' unless cmp_op == :<=
 
-    result = getCheckResult(total_n, diff)
+    result = getCheckResult(total, target)
     return "＞ #{result}"
   end
 

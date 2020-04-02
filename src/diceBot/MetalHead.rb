@@ -61,16 +61,18 @@ MESSAGETEXT
     return string
   end
 
-  def check_2D6(totalValue, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
-    return '' if signOfInequality != ">="
-    return '' if diff == "?"
+  def check_2D6(total, dice_total, _dice_list, cmp_op, target)
+    return '' if cmp_op != :>= || target == "?"
 
-    return " ＞ 絶対成功" if dice_n >= 12
-    return " ＞ 絶対失敗" if dice_n <= 2
-
-    return " ＞ 成功" if totalValue >= diff
-
-    return " ＞ 失敗"
+    if dice_total >= 12
+      " ＞ 絶対成功"
+    elsif dice_total <= 2
+      " ＞ 絶対失敗"
+    elsif total >= target
+      " ＞ 成功"
+    else
+      " ＞ 失敗"
+    end
   end
 
   def rollHit(target)
@@ -82,10 +84,10 @@ MESSAGETEXT
     return text
   end
 
-  def check_1D100(total_n, dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max)
-    return '' unless signOfInequality == '<='
+  def check_1D100(total, dice_total, cmp_op, target)
+    return '' unless cmp_op == :<=
 
-    return getResult(total_n, dice_n, diff)
+    return getResult(total, dice_total, target)
   end
 
   def getHitResult(total_n, _dice_n, diff)

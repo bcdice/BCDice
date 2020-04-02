@@ -76,7 +76,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckResult(diceText, total, target)
-    diceList = getDiceListFromText(diceText)
+    diceList = diceText.split(',').map(&:to_i).sort
 
     if isFamble(diceList)
       return FUMBLE
@@ -91,11 +91,6 @@ INFO_MESSAGE_TEXT
     end
 
     return FAILURE
-  end
-
-  def getDiceListFromText(diceText)
-    diceList = diceText.split(/,/).collect { |i| i.to_i }.sort
-    return diceList
   end
 
   def isFamble(diceList)

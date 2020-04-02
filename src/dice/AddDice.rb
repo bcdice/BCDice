@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 
+require "utils/normalize"
+
 class AddDice
   def initialize(bcdice, diceBot)
     @bcdice = bcdice
     @diceBot = diceBot
     @nick_e = @bcdice.nick_e
+
+    @dice_list = []
   end
 
   ####################             加算ダイス        ########################
@@ -69,9 +73,6 @@ class AddDice
       string += "#{signOfInequality}#{diffText}"
     end
 
-    @diceBot.setDiceText(output)
-    @diceBot.setDiffText(diffText)
-
     # ダイス目による補正処理（現状ナイトメアハンターディープ専用）
     addText, revision = @diceBot.getDiceRevision(n_max, dice_max, total_n)
     debug('addText, revision', addText, revision)
@@ -90,7 +91,9 @@ class AddDice
     total_n += revision
 
     if signOfInequality != "" # 成功度判定処理
-      successText = @bcdice.check_suc(total_n, dice_n, signOfInequality, diffText, dice_cnt, dice_max, n1, n_max)
+      cmp_op = Normalize.comparison_operator(signOfInequality)
+      target = Normalize.target_number(diffText)
+      successText = @diceBot.check_result(total_n, dice_n, @dice_list, dice_max, cmp_op, target)
       debug("check_suc successText", successText)
       output += successText
     end
@@ -295,7 +298,10 @@ class AddDice
       return rollD66(dice_wk)
     end
 
-    return @bcdice.roll(dice_wk, dice_max, sortType)
+    ret = @bcdice.roll(dice_wk, dice_max, sortType)
+    @dice_list.concat(ret[1].split(",").map(&:to_i))
+
+    return ret
   end
 
   def rollD66(count)
@@ -309,6 +315,8 @@ class AddDice
     text = d66List.join(',')
     n1Count = d66List.count(1)
     nMaxCount = d66List.count(66)
+
+    @dice_list.concat(d66List)
 
     return [total, text, n1Count, nMaxCount, 0, 0, 0]
   end

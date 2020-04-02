@@ -22,12 +22,12 @@ class TokumeiTenkousei < DiceBot
     @sameDiceRerollType = 2 # ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
   end
 
-  def check_nD6(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(nD6)
-    return '' unless signOfInequality == ">="
+  def check_nD6(total, _dice_total, _dice_list, cmp_op, target)
+    if cmp_op != :>= && target == "?"
+      return ''
+    end
 
-    return '' if diff == "?"
-
-    if total_n >= diff
+    if total >= target
       return " ＞ 成功"
     else
       return " ＞ 失敗"
