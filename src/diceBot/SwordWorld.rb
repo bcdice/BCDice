@@ -68,14 +68,14 @@ class SwordWorld < DiceBot
 
     commands = getRatingCommandStrings
 
-    m = /^S?(H?K[\d\+\-]+([#{commands}]\[([\d\+\-]+)\])*([\d\+\-]*)([CMR]\[([\d\+\-]+)\]|GF)*)/i.match(string)
+    m = /^S?(H?K[\d\+\-]+([#{commands}]\[([\d\+\-]+)\])*([\d\+\-]*)([CMR]\[([\d\+\-]+)\]|GF|H)*)/i.match(string)
     unless m
       debug("not matched")
       return '1'
     end
 
     string = m[1]
-    half = string.start_with?("HK")
+    half = string.include?("H")
 
     rateUp, string = getRateUpFromString(string)
     crit, string = getCriticalFromString(string, half)
