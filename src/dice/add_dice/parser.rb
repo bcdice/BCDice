@@ -2,8 +2,8 @@
 
 require "utils/ArithmeticEvaluator"
 require "utils/normalize"
-require "utils/add_dice/node"
-require "utils/add_dice/constant_folding"
+require "dice/add_dice/node"
+require "dice/add_dice/constant_folding"
 
 class AddDice
   class Parser

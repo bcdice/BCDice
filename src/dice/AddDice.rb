@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 require "utils/normalize"
-require "utils/add_dice/parser"
-require "utils/add_dice/randomizer"
+require "dice/add_dice/parser"
+require "dice/add_dice/randomizer"
 
 class AddDice
   def initialize(bcdice, diceBot)
