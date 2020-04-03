@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
+require "utils/modifier_formatter"
+
 class SwordWorld < DiceBot
+  include ModifierFormatter
   # ゲームシステムの識別子
   ID = 'SwordWorld'
 
@@ -57,18 +60,21 @@ class SwordWorld < DiceBot
     rating(command)
   end
 
+  private
+
   ####################        SWレーティング表       ########################
   def rating(string) # レーティング表
     debug("rating string", string)
 
     commands = getRatingCommandStrings
 
-    unless /(^|\s)[sS]?(((k|K)[\d\+\-]+)([#{commands}]\[([\d\+\-]+)\])*([\d\+\-]*)([cmrCMR]\[([\d\+\-]+)\]|gf|GF)*)($|\s)/ =~ string
+    m = /^S?(K[\d\+\-]+([#{commands}]\[([\d\+\-]+)\])*([\d\+\-]*)([CMR]\[([\d\+\-]+)\]|GF)*)/i.match(string)
+    unless m
       debug("not matched")
       return '1'
     end
 
-    string = Regexp.last_match(2)
+    string = m[1]
 
     rateUp, string = getRateUpFromString(string)
     crit, string = getCriticalFromString(string)
@@ -163,7 +169,7 @@ class SwordWorld < DiceBot
 
     limitLength = $SEND_STR_MAX - output.length
     output += getResultText(totalValue, addValue, diceResults, diceResultTotals,
-                            rateResults, diceOnlyTotal, round, crit, limitLength)
+                            rateResults, diceOnlyTotal, round, limitLength)
 
     return output
   end
@@ -393,52 +399,48 @@ class SwordWorld < DiceBot
     return dice, diceText
   end
 
-  def getResultText(totalValue, addValue, diceResults, diceResultTotals,
-                    rateResults, diceOnlyTotal, round, _crit, limitLength)
-    output = ""
+  # @param total [Integer]
+  # @param modifier [Integer]
+  # @param diceResults [Array<String>]
+  # @param diceResultTotals [Array<String>]
+  # @param rateResults  [Array<String>]
+  # @param dice_total [Integer]
+  # @param round [Integer]
+  # @param limitLength [Integer]
+  def getResultText(total, modifier, diceResults, diceResultTotals,
+                    rateResults, dice_total, round, limitLength)
+    sequence = []
+    short = ["..."]
 
-    totalText = (totalValue + addValue).to_s
+    sequence.push("2D:[#{diceResults.join(' ')}]=#{diceResultTotals.join(',')}")
 
-    if sendMode > 1 # 表示モード２以上
-      output += "2D:[#{diceResults.join(' ')}]=#{diceResultTotals.join(',')}"
-      rateResultsText = rateResults.join(',')
-      output += " ＞ #{rateResultsText}" unless rateResultsText == totalText
-    elsif sendMode > 0 # 表示モード１以上
-      output += "2D:#{diceResultTotals.join(',')}"
-    else # 表示モード０
-      output += totalValue.to_s
+    if dice_total <= 2
+      sequence.push(rateResults.join(','))
+      sequence.push("自動的失敗")
+      return sequence.join(" ＞ ")
     end
 
-    if diceOnlyTotal <= 2
-      return "#{output} ＞ 自動的失敗"
+    # rate回数が1回で、修正値がない時には途中式と最終結果が一致するので、途中式を省略する
+    if rateResults.size > 1 || modifier != 0
+      sequence.push(rateResults.join(',') + format_modifier(modifier))
     end
 
-    addText = getAddText(addValue)
-    output += "#{addText} ＞ "
-
-    roundText = ""
     if round > 1
-      roundText += "#{round - 1}回転 ＞ "
+      round_text = "#{round - 1}回転"
+      sequence.push(round_text)
+      short.push(round_text)
     end
 
-    output += "#{roundText}#{totalText}"
+    total_text = (total + modifier).to_s
+    sequence.push(total_text)
+    short.push(total_text)
 
-    if output.length > limitLength # 回りすぎて文字列オーバーしたときの救済
-      output = "... ＞ #{roundText}#{totalText}"
+    ret = sequence.join(" ＞ ")
+    if ret.length > limitLength
+      short.join(" ＞ ")
+    else
+      ret
     end
-
-    return output
-  end
-
-  def getAddText(addValue)
-    addText = ""
-
-    return addText if addValue == 0
-
-    operator = (addValue > 0 ? "+" : "")
-    addText += "#{operator}#{addValue}"
-
-    return addText
   end
 
   def setRatingTable(tnick)
