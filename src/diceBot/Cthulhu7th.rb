@@ -334,7 +334,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getHitResultText(output, counts)
-    return "#{output}\n＞ #{counts[:hit_bullet]}発が命中、#{counts[:impale_bullet]}発が貫通、残弾#{counts[:bullet]}発"
+    return "#{output}\n＞ #{counts[:hit_bullet]}発が通常命中、#{counts[:impale_bullet]}発が貫通、残弾#{counts[:bullet]}発"
   end
 
   def getHitType(more_difficulty, hit_result)
@@ -362,8 +362,8 @@ INFO_MESSAGE_TEXT
         hit_bullet_count = hit_bullet_count_base # 通常命中した弾数の計算
 
       when :impale
-        hit_bullet_count = impale_bullet_count_base.floor
-        impale_bullet_count = impale_bullet_count_base.ceil # 貫通した弾数の計算
+        impale_bullet_count = impale_bullet_count_base.floor # 貫通した弾数の計算
+        hit_bullet_count = impale_bullet_count_base.ceil
       end
 
       lost_bullet_count = bullet_set_count
@@ -375,10 +375,8 @@ INFO_MESSAGE_TEXT
         hit_bullet_count = getLastHitBulletCount(bullet_count)
 
       when :impale
-        halfbull = bullet_count / 2.to_f
-
-        hit_bullet_count = halfbull.floor
-        impale_bullet_count = halfbull.ceil
+        impale_bullet_count = getLastHitBulletCount(bullet_count)
+        hit_bullet_count = bullet_count - impale_bullet_count
       end
 
       lost_bullet_count = bullet_count
@@ -425,8 +423,8 @@ INFO_MESSAGE_TEXT
   def getSetOfBullet(diff)
     bullet_set_count = diff / 10
 
-    if (diff >= 1) && (diff < 10)
-      bullet_set_count = 1 # 技能値が9以下での最低値保障処理
+    if (diff >= 1) && (diff < 30)
+      bullet_set_count = 3 # 技能値が29以下での最低値保障処理
     end
 
     return bullet_set_count
@@ -435,8 +433,8 @@ INFO_MESSAGE_TEXT
   def getHitBulletCountBase(diff, bullet_set_count)
     hit_bullet_count_base = (bullet_set_count / 2)
 
-    if (diff >= 1) && (diff < 10)
-      hit_bullet_count_base = 1 # 技能値9以下での最低値保障
+    if (diff >= 1) && (diff < 30)
+      hit_bullet_count_base = 1 # 技能値29以下での最低値保障
     end
 
     return hit_bullet_count_base
