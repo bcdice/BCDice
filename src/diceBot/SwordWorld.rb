@@ -17,7 +17,7 @@ class SwordWorld < DiceBot
   # ダイスボットの使い方
   HELP_MESSAGE = "・SW　レーティング表　(Kx[c]+m$f) (x:キー, c:クリティカル値, m:ボーナス, f:出目修正)\n"
 
-  setPrefixes(['K\d+.*'])
+  setPrefixes(['H?K\d+.*'])
 
   def initialize
     rating_table = 0
@@ -26,7 +26,7 @@ class SwordWorld < DiceBot
   end
 
   def changeText(string)
-    return string unless /(^|\s)[sS]?(K[\d]+)/i =~ string
+    return string unless /^S?(H?K[\d]+)/i =~ string
 
     debug('parren_killer_add before string', string)
     string = string.gsub(/\[(\d+)\]/i) { "c[#{Regexp.last_match(1)}]" }
@@ -68,16 +68,17 @@ class SwordWorld < DiceBot
 
     commands = getRatingCommandStrings
 
-    m = /^S?(K[\d\+\-]+([#{commands}]\[([\d\+\-]+)\])*([\d\+\-]*)([CMR]\[([\d\+\-]+)\]|GF)*)/i.match(string)
+    m = /^S?(H?K[\d\+\-]+([#{commands}]\[([\d\+\-]+)\])*([\d\+\-]*)([CMR]\[([\d\+\-]+)\]|GF)*)/i.match(string)
     unless m
       debug("not matched")
       return '1'
     end
 
     string = m[1]
+    half = string.start_with?("HK")
 
     rateUp, string = getRateUpFromString(string)
-    crit, string = getCriticalFromString(string)
+    crit, string = getCriticalFromString(string, half)
     firstDiceChanteTo, firstDiceChangeModify, string = getDiceChangesFromString(string)
 
     key, addValue = getKeyAndAddValueFromString(string)
@@ -169,7 +170,7 @@ class SwordWorld < DiceBot
 
     limitLength = $SEND_STR_MAX - output.length
     output += getResultText(totalValue, addValue, diceResults, diceResultTotals,
-                            rateResults, diceOnlyTotal, round, limitLength)
+                            rateResults, diceOnlyTotal, round, limitLength, half)
 
     return output
   end
@@ -183,8 +184,8 @@ class SwordWorld < DiceBot
     0
   end
 
-  def getCriticalFromString(string)
-    crit = 10
+  def getCriticalFromString(string, half)
+    crit = half ? 13 : 10
 
     regexp = /c\[(\d+)\]/i
 
@@ -399,7 +400,7 @@ class SwordWorld < DiceBot
     return dice, diceText
   end
 
-  # @param total [Integer]
+  # @param rating_total [Integer]
   # @param modifier [Integer]
   # @param diceResults [Array<String>]
   # @param diceResultTotals [Array<String>]
@@ -407,8 +408,9 @@ class SwordWorld < DiceBot
   # @param dice_total [Integer]
   # @param round [Integer]
   # @param limitLength [Integer]
-  def getResultText(total, modifier, diceResults, diceResultTotals,
-                    rateResults, dice_total, round, limitLength)
+  # @param half [Boolean]
+  def getResultText(rating_total, modifier, diceResults, diceResultTotals,
+                    rateResults, dice_total, round, limitLength, half)
     sequence = []
     short = ["..."]
 
@@ -422,7 +424,13 @@ class SwordWorld < DiceBot
 
     # rate回数が1回で、修正値がない時には途中式と最終結果が一致するので、途中式を省略する
     if rateResults.size > 1 || modifier != 0
-      sequence.push(rateResults.join(',') + format_modifier(modifier))
+      text = rateResults.join(',') + format_modifier(modifier)
+      if half
+        text = "(#{text})/2"
+      end
+      sequence.push(text)
+    elsif half
+      sequence.push("#{rateResults.first}/2")
     end
 
     if round > 1
@@ -431,7 +439,12 @@ class SwordWorld < DiceBot
       short.push(round_text)
     end
 
-    total_text = (total + modifier).to_s
+    total = rating_total + modifier
+    if half
+      total /= 2
+    end
+
+    total_text = total.to_s
     sequence.push(total_text)
     short.push(total_text)
 
