@@ -441,7 +441,7 @@ class SwordWorld < DiceBot
 
     total = rating_total + modifier
     if half
-      total /= 2
+      total = (total / 2.0).ceil
     end
 
     total_text = total.to_s
