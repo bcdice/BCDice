@@ -40,13 +40,13 @@ MESSAGETEXT
     result = ''
 
     case command
-    when /(\d+)?CL([+-]\d+)?(\@(\d))?(\[(\d{1,2})\])?([+-]\d+)?(>=(\d+))?/i
+    when /(\d+)?CL([+-]\d+)?(\@(\d))?(\[(\d+)\])?([+-]\d+)?(>=(\d+))?/i
       m = Regexp.last_match
       base = (m[1] || 1).to_i
-      modifier1 = (m[2].to_i || 0)
+      modifier1 = m[2].to_i
       target = (m[4] || 6).to_i
       criticalTarget = (m[6] || 1).to_i
-      modifier2 = (m[7].to_i || 0)
+      modifier2 = m[7].to_i
       diff = m[9].to_i
       result = checkRoll(base, target, criticalTarget, diff, modifier1 + modifier2)
     end
