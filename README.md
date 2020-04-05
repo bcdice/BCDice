@@ -1,6 +1,6 @@
 # BCDice
 
-[![Build Status](https://travis-ci.org/bcdice/BCDice.svg?branch=master)](https://travis-ci.org/bcdice/BCDice)
+[![Build Status](https://travis-ci.com/bcdice/BCDice.svg?branch=master)](https://travis-ci.com/bcdice/BCDice)
 [![codecov](https://codecov.io/gh/bcdice/BCDice/branch/master/graph/badge.svg)](https://codecov.io/gh/bcdice/BCDice)
 [![Discord](https://img.shields.io/discord/597133335243784192.svg?color=7289DA&logo=discord&logoColor=fff)][invite discord]
 
