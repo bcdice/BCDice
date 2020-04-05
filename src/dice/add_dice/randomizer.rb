@@ -53,7 +53,7 @@ class AddDice
       dice_list = dice_list.split(",").map(&:to_i)
       @dice_list.concat(dice_list)
 
-      total = dice_list.inject(&:+) || 0
+      total = dice_list.inject(0, &:+)
       return [total, dice_list]
     end
 
@@ -61,7 +61,7 @@ class AddDice
       dice_list = Array.new(times) { @bcdice.getD66Value() }
       @dice_list.concat(dice_list)
 
-      total = dice_list.inject(&:+)
+      total = dice_list.inject(0, &:+)
       return [total, dice_list]
     end
 
