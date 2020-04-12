@@ -45,6 +45,7 @@ namespace :test do
       'src/test/test_srs_help_messages.rb',
       'src/test/test_detailed_rand_results.rb',
       'src/test/range_table_test.rb',
+      'src/test/add_dice_parser_test.rb',
     ]
   end
 end
