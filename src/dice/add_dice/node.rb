@@ -15,6 +15,16 @@ class AddDice
         @lhs.to_s + cmp_op_text + @rhs.to_s
       end
 
+      # ノードのS式を返す
+      # @return [String]
+      def s_exp
+        if @cmp_op
+          "(Command (#{@cmp_op} #{@lhs.s_exp} #{@rhs}))"
+        else
+          "(Command #{@lhs.s_exp})"
+        end
+      end
+
       private
 
       def cmp_op_text
@@ -50,6 +60,12 @@ class AddDice
 
       def output
         @lhs.output + @op.to_s + @rhs.output + round_type_suffix()
+      end
+
+      # ノードのS式を返す
+      # @return [String]
+      def s_exp
+        "(#{@op}#{round_type_suffix} #{@lhs.s_exp} #{@rhs.s_exp})"
       end
 
       private
@@ -103,6 +119,12 @@ class AddDice
       def output
         "-#{@body.output}"
       end
+
+      # ノードのS式を返す
+      # @return [String]
+      def s_exp
+        "(- #{@body.s_exp})"
+      end
     end
 
     class DiceRoll
@@ -130,6 +152,14 @@ class AddDice
       def output
         @text
       end
+
+      # ノードのS式を返す
+      # @return [String]
+      def s_exp
+        parts = [@times, @sides, @critical].compact
+
+        "(DiceRoll #{parts.join(' ')})"
+      end
     end
 
     class Number
@@ -152,6 +182,7 @@ class AddDice
       end
 
       alias output to_s
+      alias s_exp to_s
     end
   end
 end
