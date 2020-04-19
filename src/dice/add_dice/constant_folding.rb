@@ -12,6 +12,10 @@ class AddDice
     # @param round_type [Symbol, nil]
     # @param rhs [Object]
     def push(op, round_type, rhs)
+      if op == :- && rhs.is_a?(Node::Number)
+        op = :+
+        rhs = rhs.negate
+      end
       @sequence.push(op, round_type, rhs)
     end
 
