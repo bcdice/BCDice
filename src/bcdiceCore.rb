@@ -111,6 +111,10 @@ class BCDice
     @rands = nil
     @isKeepSecretDice = true
     @isIrcMode = true
+
+    @collect_rand_results = false
+    @rand_results = []
+    @detailed_rand_results = []
   end
 
   def setDir(dir, prefix)
@@ -1015,7 +1019,7 @@ class BCDice
       value = randFromRands(max)
     end
 
-    unless @rand_results.nil?
+    if @collect_rand_results
       @rand_results << [(value + 1), max]
     end
 
@@ -1057,21 +1061,18 @@ class BCDice
     return ret
   end
 
+  # @param b [Boolean]
   def setCollectRandResult(b)
-    if b
-      @rand_results = []
-      @detailed_rand_results = []
-    else
-      @rand_results = nil
-      @detailed_rand_results = nil
-    end
+    @collect_rand_results = b
+    @rand_results.clear
+    @detailed_rand_results.clear
   end
 
   # @params [Symbol] kind
   # @params [Integer] sides
   # @params [Integer] value
   def push_to_detail(kind, sides, value)
-    unless @detailed_rand_results.nil?
+    if @collect_rand_results
       detail = DetailedRandResult.new(kind, sides, value)
       @detailed_rand_results.push(detail)
     end
