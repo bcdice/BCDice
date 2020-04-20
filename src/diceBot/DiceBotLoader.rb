@@ -86,7 +86,7 @@ class DiceBotLoader
 
     botFiles = Dir.glob("#{diceBotDir}/*.rb")
     botNames =
-      botFiles.map { |botFile| File.basename(botFile, '.rb').untaint }
+      botFiles.map { |botFile| File.basename(botFile, '.rb') }
     validBotNames =
       # 特別な名前のものを除外する
       (botNames - BOT_NAMES_TO_IGNORE).
