@@ -444,6 +444,8 @@ INFO_MESSAGE_TEXT
     when /^LBT/i
       type = 'カップル休憩'
       output, total_n = getLoversBreakTable()
+    else
+      return nil
     end
 
     if output != '1'
