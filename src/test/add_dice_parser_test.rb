@@ -23,9 +23,9 @@ class AddDiceParserTest < Test::Unit::TestCase
     test_parse('2D6+1', '(Command (+ (DiceRoll 2 6) 1))')
   end
 
-  # 定数畳み込み
-  def test_parse_constant_folding
-    test_parse('2D6+1-1-2-3-4', '(Command (- (DiceRoll 2 6) 9))')
+  # 定数畳み込みはしない
+  def test_parse_long_modifier
+    test_parse('2D6+1-1-2-3-4', '(Command (- (- (- (- (+ (DiceRoll 2 6) 1) 1) 2) 3) 4))')
   end
 
   # 複数のダイスロール
@@ -100,7 +100,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_target_value_constant_fonding
     test_parse(
       '1D6+1-2>=1+2',
-      '(Command (>= (- (DiceRoll 1 6) 1) 3))'
+      '(Command (>= (- (+ (DiceRoll 1 6) 1) 2) 3))'
     )
   end
 

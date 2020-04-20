@@ -3,7 +3,6 @@
 require "utils/ArithmeticEvaluator"
 require "utils/normalize"
 require "dice/add_dice/node"
-require "dice/add_dice/constant_folding"
 
 class AddDice
   class Parser
@@ -48,37 +47,49 @@ class AddDice
     end
 
     def add
-      folder = ConstantFolding.new(mul())
+      node = mul()
 
       loop do
         if consume("+")
-          folder.push(:+, nil, mul())
+          op, rhs = sub_negative_number(:+, mul())
+          node = AddDice::Node::BinaryOp.new(node, op, rhs)
         elsif consume("-")
-          folder.push(:-, nil, mul())
+          op, rhs = sub_negative_number(:-, mul())
+          node = AddDice::Node::BinaryOp.new(node, op, rhs)
         else
           break
         end
       end
 
-      return folder.construct_node()
+      return node
+    end
+
+    def sub_negative_number(op, rhs)
+      if rhs.is_a?(Node::Number) && rhs.literal < 0
+        if op == :+
+          return [:-, rhs.negate]
+        elsif op == :-
+          return [:+, rhs.negate]
+        end
+      end
+
+      [op, rhs]
     end
 
     def mul
-      folder = ConstantFolding.new(unary())
+      node = unary()
 
       loop do
         if consume("*")
-          folder.push(:*, nil, unary())
+          node = AddDice::Node::BinaryOp.new(node, :*, unary())
         elsif consume("/")
-          rhs = unary()
-          round_type = consume_round_type()
-          folder.push(:/, round_type, rhs)
+          node = AddDice::Node::BinaryOp.new(node, :/, unary(), consume_round_type())
         else
           break
         end
       end
 
-      return folder.construct_node()
+      return node
     end
 
     def unary
