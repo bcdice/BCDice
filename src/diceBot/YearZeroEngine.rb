@@ -39,23 +39,23 @@ INFO_MESSAGE_TEXT
     abilityDiceText, successDice = makeDiceRoll(matchText, successDice)
 
     diceCountText = "(#{matchText}D6)"
-	diceText = abilityDiceText
+    diceText = abilityDiceText
 
     matchText = m[ConstSkillIndex.to_i]
-	if matchText
+    if matchText
       skillDiceText, successDice = makeDiceRoll(matchText, successDice)
       
       diceCountText += "+(#{matchText}D6)"
       diceText += "+#{skillDiceText}"
-	end
+    end
 
     matchText = m[ConstModifiedAbility.to_i]
-	if matchText
+    if matchText
       modifiedDiceText, successDice = makeDiceRoll(matchText, successDice)
       
       diceCountText += "+(#{matchText}D6)"
       diceText += "+#{modifiedDiceText}"
-	end
+    end
     
     return "#{diceCountText} ＞ #{diceText} 成功数:#{successDice}"
   end
