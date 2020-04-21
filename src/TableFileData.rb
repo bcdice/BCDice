@@ -57,8 +57,6 @@ class TableFileData
     fileNames = Dir.glob("#{dir}/#{prefix}*.txt")
 
     fileNames.each do |fileName|
-      fileName = fileName.untaint
-
       info = readGameCommandInfo(fileName, prefix)
       gameType = info["gameType"]
       gameType ||= ""
@@ -284,7 +282,6 @@ class TableFileCreator
     end
 
     fileName = "#{@dir}/#{@prefix}#{prefix2}#{command}.txt"
-    fileName.untaint
 
     return fileName
   end
@@ -294,7 +291,6 @@ class TableFileCreator
     @command ||= ''
 
     @command.gsub!(/\./, '_')
-    @command.untaint
   end
 
   def checkCommand(command)
