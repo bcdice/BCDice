@@ -1064,8 +1064,8 @@ class BCDice
   # @param b [Boolean]
   def setCollectRandResult(b)
     @collect_rand_results = b
-    @rand_results.clear
-    @detailed_rand_results.clear
+    @rand_results = []
+    @detailed_rand_results = []
   end
 
   # @params [Symbol] kind
