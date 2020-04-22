@@ -64,12 +64,11 @@ INFO_MESSAGE_TEXT
     dice = matchText.to_i
     _, diceText, = roll(dice, 6)
 
-    diceText.split(',').each {
-      |dice|
-      if dice == "6"
+    diceText.split(',').each do |takeDice|
+      if takeDice == "6"
         successDice += 1
       end
-    }
+    end
     return "[#{diceText}]", successDice
   end
 end
