@@ -14,13 +14,13 @@ class YearZeroEngine < DiceBot
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定コマンド(YZEn+n+n)
-  (難易度)YZE(能力ダイス数)+(技能ダイス数)+(修正ダイス数)  # YearZeroEngine(TALES FROM THE LOOP等)の判定(6のみ数える)
+  YZE(能力ダイス数)+(技能ダイス数)+(修正ダイス数)  # YearZeroEngine(TALES FROM THE LOOP等)の判定(6のみ数える)
   ※ 技能と修正ダイス数は省略可能
 INFO_MESSAGE_TEXT
 
-  ConstAbilityIndex    = 2 # 能力値ダイスのインデックス
-  ConstSkillIndex      = 4 # 技能値ダイスのインデックス
-  ConstModifiedAbility = 6 # 修正ダイスのインデックス
+  ABILITY_INDEX    = 2 # 能力値ダイスのインデックス
+  SKILL_INDEX      = 4 # 技能値ダイスのインデックス
+  MODIFIED_INDEX = 6 # 修正ダイスのインデックス
 
   setPrefixes(['\A(YZE)(\d+)(\+(\d+))?(\+(\d+))?'])
 
@@ -28,49 +28,48 @@ INFO_MESSAGE_TEXT
     super
   end
 
-  def rollDiceCommand(_command)
-    m = /\A(YZE)(\d+)(\+(\d+))?(\+(\d+))?/.match(_command)
+  def rollDiceCommand(command)
+    m = /\A(YZE)(\d+)(\+(\d+))?(\+(\d+))?/.match(command)
     unless m
       return ''
     end
-        
+
     successDice = 0
-    matchText = m[ConstAbilityIndex.to_i]
+    matchText = m[ABILITY_INDEX.to_i]
     abilityDiceText, successDice = makeDiceRoll(matchText, successDice)
 
     diceCountText = "(#{matchText}D6)"
     diceText = abilityDiceText
 
-    matchText = m[ConstSkillIndex.to_i]
+    matchText = m[SKILL_INDEX.to_i]
     if matchText
       skillDiceText, successDice = makeDiceRoll(matchText, successDice)
-      
+
       diceCountText += "+(#{matchText}D6)"
       diceText += "+#{skillDiceText}"
     end
 
-    matchText = m[ConstModifiedAbility.to_i]
+    matchText = m[MODIFIED_INDEX.to_i]
     if matchText
       modifiedDiceText, successDice = makeDiceRoll(matchText, successDice)
-      
+
       diceCountText += "+(#{matchText}D6)"
       diceText += "+#{modifiedDiceText}"
     end
-    
+
     return "#{diceCountText} ＞ #{diceText} 成功数:#{successDice}"
   end
-  
-  def makeDiceRoll(matchText, successDice)
-    resultText = ""
-    
-    dice = matchText.to_i
-    _, diceText, _ = roll(dice, 6)
 
-    for dice in diceText.split(',') do
+  def makeDiceRoll(matchText, successDice)
+    dice = matchText.to_i
+    _, diceText, = roll(dice, 6)
+
+    diceText.split(',').each {
+      |dice|
       if dice == "6"
         successDice += 1
       end
-    end
+    }
     return "[#{diceText}]", successDice
   end
 end
