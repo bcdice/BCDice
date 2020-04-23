@@ -64,19 +64,13 @@ class AddDice
     # 二項演算子のノード
     class BinaryOp
       # ノードを初期化する
-      #
-      # +round_type+ には、+:roundUp+（切り上げ）、+:roundOff+（四捨五入）、
-      # または +nil+ を指定する。
-      #
-      # @param [Object] lhs 左辺のノード
+      # @param [Object] lhs 左のオペランドのノード
       # @param [Symbol] op 演算子
-      # @param [Object] rhs 右辺のノード
-      # @param [Symbol, nil] round_type 除算における小数の丸め方
-      def initialize(lhs, op, rhs, round_type = nil)
+      # @param [Object] rhs 右のオペランドのノード
+      def initialize(lhs, op, rhs)
         @lhs = lhs
         @op = op
         @rhs = rhs
-        @round_type = round_type
       end
 
       # ノードを評価する
@@ -89,25 +83,25 @@ class AddDice
         lhs = @lhs.eval(randomizer)
         rhs = @rhs.eval(randomizer)
 
-        calc(lhs, rhs)
+        return calc(lhs, rhs)
       end
 
       # 文字列に変換する
       # @return [String]
       def to_s
-        @lhs.to_s + @op.to_s + @rhs.to_s + round_type_suffix()
+        "#{@lhs}#{@op}#{@rhs}"
       end
 
       # メッセージへの出力を返す
       # @return [String]
       def output
-        @lhs.output + @op.to_s + @rhs.output + round_type_suffix()
+        "#{@lhs.output}#{@op}#{@rhs.output}"
       end
 
       # ノードのS式を返す
       # @return [String]
       def s_exp
-        "(#{@op}#{round_type_suffix} #{@lhs.s_exp} #{@rhs.s_exp})"
+        "(#{op_for_s_exp} #{@lhs.s_exp} #{@rhs.s_exp})"
       end
 
       private
@@ -117,33 +111,127 @@ class AddDice
       # @param [Integer] rhs 右のオペランド
       # @return [Integer] 演算の結果
       def calc(lhs, rhs)
-        if @op != :/
-          return lhs.send(@op, rhs)
-        end
+        lhs.send(@op, rhs)
+      end
 
+      # S式で使う演算子の表現を返す
+      # @return [String]
+      def op_for_s_exp
+        @op
+      end
+    end
+
+    # 除算ノードの基底クラス
+    #
+    # 定数 +ROUNDING_METHOD_SYMBOL+ で端数処理方法を示す記号
+    # ( +'U'+, +'R'+, +''+ ) を定義すること。
+    # また、除算および端数処理を行う +divide_and_round+ メソッドを実装すること。
+    class DivideBase < BinaryOp
+      # ノードを初期化する
+      # @param [Object] lhs 左のオペランドのノード
+      # @param [Object] rhs 右のオペランドのノード
+      def initialize(lhs, rhs)
+        super(lhs, :/, rhs)
+      end
+
+      # 文字列に変換する
+      #
+      # 通常の結果の末尾に、端数処理方法を示す記号を付加する。
+      #
+      # @return [String]
+      def to_s
+        "#{super}#{rounding_method_symbol}"
+      end
+
+      # メッセージへの出力を返す
+      #
+      # 通常の結果の末尾に、端数処理方法を示す記号を付加する。
+      #
+      # @return [String]
+      def output
+        "#{super}#{rounding_method_symbol}"
+      end
+
+      private
+
+      # 端数処理方法を示す記号を返す
+      # @return [String]
+      def rounding_method_symbol
+        self.class::ROUNDING_METHOD_SYMBOL
+      end
+
+      # S式で使う演算子の表現を返す
+      # @return [String]
+      def op_for_s_exp
+        "#{@op}#{rounding_method_symbol}"
+      end
+
+      # 演算を行う
+      # @param [Integer] lhs 左のオペランド
+      # @param [Integer] rhs 右のオペランド
+      # @return [Integer] 演算の結果
+      def calc(lhs, rhs)
         if rhs.zero?
           return 1
         end
 
-        case @round_type
-        when :roundUp
-          (lhs.to_f / rhs).ceil
-        when :roundOff
-          (lhs.to_f / rhs).round
-        else
-          lhs / rhs
-        end
+        return divide_and_round(lhs, rhs)
       end
 
-      def round_type_suffix
-        case @round_type
-        when :roundUp
-          "U"
-        when :roundOff
-          "R"
-        else
-          ""
-        end
+      # 除算および端数処理を行う
+      # @param [Integer] _dividend 被除数
+      # @param [Integer] _divisor 除数（0以外）
+      # @return [Integer]
+      def divide_and_round(_dividend, _divisor)
+        raise NotImplementedError
+      end
+    end
+
+    # 除算（切り上げ）のノード
+    class DivideWithRoundingUp < DivideBase
+      # 端数処理方法を示す記号
+      ROUNDING_METHOD_SYMBOL = 'U'
+
+      private
+
+      # 除算および端数処理を行う
+      # @param [Integer] dividend 被除数
+      # @param [Integer] divisor 除数（0以外）
+      # @return [Integer]
+      def divide_and_round(dividend, divisor)
+        (dividend.to_f / divisor).ceil
+      end
+    end
+
+    # 除算（四捨五入）のノード
+    class DivideWithRoundingOff < DivideBase
+      # 端数処理方法を示す記号
+      ROUNDING_METHOD_SYMBOL = 'R'
+
+      private
+
+      # 除算および端数処理を行う
+      # @param [Integer] dividend 被除数
+      # @param [Integer] divisor 除数（0以外）
+      # @return [Integer]
+      def divide_and_round(dividend, divisor)
+        (dividend.to_f / divisor).round
+      end
+    end
+
+    # 除算（切り捨て）のノード
+    class DivideWithRoundingDown < DivideBase
+      # 端数処理方法を示す記号
+      ROUNDING_METHOD_SYMBOL = ''
+
+      private
+
+      # 除算および端数処理を行う
+      # @param [Integer] dividend 被除数
+      # @param [Integer] divisor 除数（0以外）
+      # @return [Integer]
+      def divide_and_round(dividend, divisor)
+        dividend / divisor
       end
     end
 
