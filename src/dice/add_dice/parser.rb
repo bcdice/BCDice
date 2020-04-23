@@ -100,13 +100,30 @@ class AddDice
         if consume("*")
           node = AddDice::Node::BinaryOp.new(node, :*, unary())
         elsif consume("/")
-          node = AddDice::Node::BinaryOp.new(node, :/, unary(), consume_round_type())
+          rhs = unary()
+          klass = divide_node_class()
+          node = klass.new(node, rhs)
         else
           break
         end
       end
 
       return node
+    end
+
+    # 端数処理方法を示す記号を読み込み、対応する除算ノードのクラスを返す
+    # @return [Class] 除算ノードのクラス
+    def divide_node_class
+      if consume('U')
+        # 切り上げ
+        Node::DivideWithRoundingUp
+      elsif consume('R')
+        # 四捨五入
+        Node::DivideWithRoundingOff
+      else
+        # 切り捨て
+        Node::DivideWithRoundingDown
+      end
     end
 
     # 単項演算
@@ -158,14 +175,6 @@ class AddDice
 
       @idx += 1
       return true
-    end
-
-    def consume_round_type()
-      if consume("U")
-        :roundUp
-      elsif consume("R")
-        :roundOff
-      end
     end
 
     # 指定された文字列のトークンを要求する
