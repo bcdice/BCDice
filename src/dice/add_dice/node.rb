@@ -123,7 +123,7 @@ class AddDice
 
     # 除算ノードの基底クラス
     #
-    # 定数 +ROUNDING_METHOD_SYMBOL+ で端数処理方法を示す記号
+    # 定数 +ROUNDING_METHOD+ で端数処理方法を示す記号
     # ( +'U'+, +'R'+, +''+ ) を定義すること。
     # また、除算および端数処理を行う +divide_and_round+ メソッドを実装すること。
     class DivideBase < BinaryOp
@@ -140,7 +140,7 @@ class AddDice
       #
       # @return [String]
       def to_s
-        "#{super}#{rounding_method_symbol}"
+        "#{super}#{rounding_method}"
       end
 
       # メッセージへの出力を返す
@@ -149,21 +149,21 @@ class AddDice
       #
       # @return [String]
       def output
-        "#{super}#{rounding_method_symbol}"
+        "#{super}#{rounding_method}"
       end
 
       private
 
       # 端数処理方法を示す記号を返す
       # @return [String]
-      def rounding_method_symbol
-        self.class::ROUNDING_METHOD_SYMBOL
+      def rounding_method
+        self.class::ROUNDING_METHOD
       end
 
       # S式で使う演算子の表現を返す
       # @return [String]
       def op_for_s_exp
-        "#{@op}#{rounding_method_symbol}"
+        "#{@op}#{rounding_method}"
       end
 
       # 演算を行う
@@ -190,7 +190,7 @@ class AddDice
     # 除算（切り上げ）のノード
     class DivideWithRoundingUp < DivideBase
       # 端数処理方法を示す記号
-      ROUNDING_METHOD_SYMBOL = 'U'
+      ROUNDING_METHOD = 'U'
 
       private
 
@@ -206,7 +206,7 @@ class AddDice
     # 除算（四捨五入）のノード
     class DivideWithRoundingOff < DivideBase
       # 端数処理方法を示す記号
-      ROUNDING_METHOD_SYMBOL = 'R'
+      ROUNDING_METHOD = 'R'
 
       private
 
@@ -222,7 +222,7 @@ class AddDice
     # 除算（切り捨て）のノード
     class DivideWithRoundingDown < DivideBase
       # 端数処理方法を示す記号
-      ROUNDING_METHOD_SYMBOL = ''
+      ROUNDING_METHOD = ''
 
       private
 
