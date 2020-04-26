@@ -1,7 +1,14 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
+require 'diceBot/DiceBot'
+require 'utils/modifier_formatter'
+require 'utils/ArithmeticEvaluator'
+
+# クトゥルフテックのダイスボット
 class CthulhuTech < DiceBot
+  setPrefixes(['\d+D10.*'])
+
   # ゲームシステムの識別子
   ID = 'CthulhuTech'
 
@@ -18,126 +25,288 @@ class CthulhuTech < DiceBot
 コンバットテスト(防御側有利なので「>=」ではなく「>」で入力)の時はダメージダイスも表示。
 INFO_MESSAGE_TEXT
 
+  # 比較処理のノード（行為判定、対抗判定の基底クラス）
+  class Compare
+    # 判定値と難易度の比較結果
+    # @!attribute diff
+    #   @return [Integer] 判定値と難易度の差
+    # @!attribute success
+    #   @return [Boolean] 成功したかどうか
+    # @!attribute fumble
+    #   @return [Boolean] ファンブルかどうか
+    # @!attribute critical
+    #   @return [Boolean] クリティカルかどうか
+    Result = Struct.new(:diff, :success, :fumble, :critical)
+
+    include ModifierFormatter
+
+    # ダイス数
+    # @return [Integer]
+    attr_reader :num
+    # 修正値
+    # @return [Integer]
+    attr_reader :modifier
+
+    # ノードを初期化する
+    # @param [Integer] num ダイス数
+    # @param [Integer] modifier 修正値
+    # @param [Symbol] cmp_op 比較演算子（ +:>=+, +:>+ ）
+    # @param [Integer] difficulty 難易度
+    def initialize(num, modifier, cmp_op, difficulty)
+      @num = num
+      @modifier = modifier
+      @cmp_op = cmp_op
+      @difficulty = difficulty
+    end
+
+    # 比較の数式表現を返す
+    # @return [String]
+    def expression
+      modifier_str = format_modifier(@modifier)
+      return "#{@num}D10#{modifier_str}#{@cmp_op}#{@difficulty}"
+    end
+
+    # 比較を行う
+    # @param [TestResult] test_result 判定値
+    # @return [Compare::Result]
+    def compare(test_result)
+      diff = test_result.value - @difficulty
+
+      # 成功したかどうか
+      # 例：@cmp_op が :> ならば、diff.send(@cmp_op, 0) は diff > 0 と同じ
+      success = !test_result.fumble && diff.send(@cmp_op, 0)
+
+      critical = diff >= 10
+
+      return Result.new(diff, success, test_result.fumble, critical)
+    end
+
+    # 比較結果を整形する
+    # @param [Compare::Result] result 比較結果
+    # @return [String]
+    def format_compare_result(result)
+      return 'ファンブル' if result.fumble
+      return 'クリティカル' if result.critical
+
+      return result.success ? '成功' : '失敗'
+    end
+  end
+
+  # 行為判定のノード
+  class Test < Compare
+    # ノードを初期化する
+    # @param [Integer] num ダイス数
+    # @param [Integer] modifier 修正値
+    # @param [Integer] difficulty 難易度
+    def initialize(num, modifier, difficulty)
+      super(num, modifier, :>=, difficulty)
+    end
+  end
+
+  # 対抗判定のノード
+  class Contest < Compare
+    # ノードを初期化する
+    # @param [Integer] num ダイス数
+    # @param [Integer] modifier 修正値
+    # @param [Integer] difficulty 難易度
+    def initialize(num, modifier, difficulty)
+      super(num, modifier, :>, difficulty)
+    end
+
+    # 比較結果を整形する
+    #
+    # 成功した場合（クリティカルを含む）、ダメージロールのコマンドを末尾に
+    # 追加する。
+    #
+    # @param [Compare::Result] result 比較結果
+    # @return [String]
+    def format_compare_result(result)
+      formatted = super(result)
+
+      if result.success
+        damage_roll_num = (result.diff / 5.0).ceil
+        damage_roll = "#{damage_roll_num}D10"
+
+        "#{formatted}（ダメージ：#{damage_roll}）"
+      else
+        formatted
+      end
+    end
+  end
+
+  # 判定値のクラス
+  class TestResult
+    include ModifierFormatter
+
+    # 計算された判定値（ダイスロール結果 + 修正値）
+    # @return [Integer]
+    attr_reader :value
+
+    # ファンブルかどうか
+    # @return [Boolean]
+    attr_reader :fumble
+
+    # 値を初期化し、計算を行う
+    # @param [Array<Integer>] dice_values 出目の配列
+    # @param [Integer] modifier 修正値
+    def initialize(dice_values, modifier)
+      @dice_values = dice_values.sort
+      @modifier = modifier
+
+      # ファンブル：出目の半分（小数点以下切り上げ）以上が1の場合
+      @fumble = @dice_values.count(1) >= (@dice_values.length + 1) / 2
+
+      @roll_result = calculate_roll_result(@dice_values)
+      @value = @roll_result + @modifier
+    end
+
+    # 数式表現を返す
+    # @return [String]
+    def expression
+      dice_str = @dice_values.join(',')
+      modifier_str = format_modifier(@modifier)
+
+      return "#{@roll_result}[#{dice_str}]#{modifier_str}"
+    end
+
+    private
+
+    # ダイスロール結果を計算する
+    #
+    # 以下のうち最大のものを返す。
+    #
+    # * 出目の最大値
+    # * ゾロ目の和の最大値
+    # * ストレート（昇順で連続する3個以上の値）の和の最大値
+    #
+    # @param [Array<Integer>] sorted_values 昇順でソートされた出目の配列
+    # @return [Integer]
+    def calculate_roll_result(sorted_values)
+      highest_single_roll = sorted_values.last
+
+      candidates = [
+        highest_single_roll,
+        sum_of_highest_set_of_multiples(sorted_values),
+        sum_of_largest_straight(sorted_values)
+      ]
+
+      return candidates.max
+    end
+
+    # ゾロ目の和の最大値を求める
+    # @param [Array<Integer>] values 出目の配列
+    # @return [Integer]
+    def sum_of_highest_set_of_multiples(values)
+      values.
+        # TODO: Ruby 2.2以降では group_by(&:itself) が使える
+        group_by { |i| i }.
+        # TODO: Ruby 2.4以降では value_group.sum が使える
+        map { |_, value_group| value_group.reduce(0, &:+) }.
+        max
+    end
+
+    # ストレートの和の最大値を求める
+    #
+    # ストレートとは、昇順で3個以上連続した値のこと。
+    #
+    # @param [Array<Integer>] sorted_values 昇順にソートされた出目の配列
+    # @return [Integer] ストレートの和の最大値
+    # @return [0] ストレートが存在しなかった場合
+    def sum_of_largest_straight(sorted_values)
+      # 出目が3個未満ならば、ストレートは存在しない
+      return 0 if sorted_values.length < 3
+
+      # ストレートの和の最大値
+      max_sum = 0
+
+      # 連続した値の数
+      n_consecutive_values = 0
+      # 連続した値の和
+      sum = 0
+      # 直前の値
+      # 初期値を負の値にして、最初の値と連続にならないようにする
+      last = -1
+
+      sorted_values.uniq.each do |value|
+        # 値が連続でなければ、状態を初期化する（現在の値を連続1個目とする）
+        if value - last > 1
+          n_consecutive_values = 1
+          sum = value
+          last = value
+
+          next
+        end
+
+        # 連続した値なので溜める
+        n_consecutive_values += 1
+        sum += value
+        last = value
+
+        # ストレートならば、和の最大値を更新する
+        if n_consecutive_values >= 3 && sum > max_sum
+          max_sum = sum
+        end
+      end
+
+      return max_sum
+    end
+  end
+
+  # ダイスボットを初期化する
   def initialize
     super
-    @sendMode = 2
+
+    # 加算ロールで出目をソートする
     @sortType = 1
   end
 
-  def check_nD10(total, dice_total, dice_list, cmp_op, target)
-    if cmp_op == :>=
-      # 通常のテスト
-      @isCombatTest = false
-      return check_nD10_nomalTest(total, dice_total, dice_list, cmp_op, target)
-    elsif cmp_op == :>
-      # コンバットテスト
-      @isCombatTest = true
-      return check_nD10_combatTest(total, dice_total, dice_list, cmp_op, target)
-    end
+  # ダイスボット固有コマンドの処理を行う
+  # @param [String] command コマンド
+  # @return [String] ダイスボット固有コマンドの結果
+  # @return [nil] 無効なコマンドだった場合
+  def rollDiceCommand(command)
+    node = parse(command)
+    return nil unless node
+
+    return execute(node)
   end
 
-  def check_nD10_nomalTest(total, _dice_total, dice_list, _cmp_op, target)
-    if dice_list.count(1) >= (dice_list.size + 1) / 2
-      return " ＞ ファンブル"
-    end
+  private
 
-    isSuccess = false
-    if @isCombatTest
-      isSuccess = (total > target)
-    else
-      isSuccess = (total >= target)
-    end
+  # 判定コマンドの正規表現
+  TEST_RE = /\A(\d+)D10((?:[-+]\d+)+)?(>=?)(\d+)\z/.freeze
 
-    unless isSuccess
-      return " ＞ 失敗"
-    end
+  # 構文解析する
+  # @param [String] command コマンド
+  # @return [Test, Contest] 判定のノード
+  # @return [nil] 無効なコマンドだった場合
+  def parse(command)
+    m = TEST_RE.match(command)
+    return nil unless m
 
-    if total >= target + 10
-      return " ＞ クリティカル"
-    end
+    num = m[1].to_i
+    modifier = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
+    node_class = m[3] == '>' ? Contest : Test
+    difficulty = m[4].to_i
 
-    return " ＞ 成功"
+    return node_class.new(num, modifier, difficulty)
   end
 
-  def check_nD10_combatTest(total, dice_total, dice_list, cmp_op, target)
-    result = check_nD10_nomalTest(total, dice_total, dice_list, cmp_op, target)
+  # 判定を行う
+  # @param [Test, Contest] test 判定のノード
+  # @return [String]
+  def execute(test)
+    dice_values = Array.new(test.num) { roll(1, 10)[0] }
+    test_result = TestResult.new(dice_values, test.modifier)
+    compare_result = test.compare(test_result)
 
-    case result
-    when " ＞ クリティカル", " ＞ 成功"
-      result += getDamageDice(total, target)
-    end
+    output_parts = [
+      "(#{test.expression})",
+      test_result.expression,
+      test_result.value,
+      test.format_compare_result(compare_result)
+    ]
 
-    return result
-  end
-
-  def getDamageDice(total_n, diff)
-    debug('getDamageDice total_n, diff', total_n, diff)
-    damageDiceCount = ((total_n - diff) / 5.0).ceil
-    debug('damageDiceCount', damageDiceCount)
-    damageDice = "(#{damageDiceCount}d10)" # ダメージダイスの表示
-
-    return damageDice
-  end
-
-  # ダイス目文字列からダイス値を変更する場合の処理
-  # クトゥルフ・テックの判定用ダイス計算
-  def changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
-    debug("changeDiceValueByDiceText dice_now, dice_str, isCheckSuccess, dice_max", dice_now, dice_str, isCheckSuccess, dice_max)
-    if isCheckSuccess && (dice_max == 10)
-      debug('cthulhutech_check(dice_str) called')
-      debug('dice_str, dice_now', dice_str, dice_now)
-      dice_now = cthulhutech_check(dice_str)
-    end
-    debug('dice_str, dice_now', dice_str, dice_now)
-
-    return dice_now
-  end
-
-  ####################           CthulhuTech         ########################
-  # CthulhuTechの判定用ダイス計算
-  def cthulhutech_check(dice_str)
-    dice_aRR = dice_str.split(/,/).collect { |i| i.to_i }
-
-    dice_num = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    max_num = 0
-
-    dice_aRR.each do |dice_n|
-      dice_num[(dice_n - 1)] += 1
-
-      if dice_n > max_num # 1.個別のダイスの最大値
-        max_num = dice_n
-      end
-    end
-
-    if dice_aRR.length >= 2 # ダイスが2個以上ロールされている
-      10.times do |i|
-        if dice_num[i] > 1 # 2.同じ出目の合計値
-          dice_now = dice_num[i] * (i + 1)
-          max_num = dice_now if dice_now > max_num
-        end
-      end
-
-      if dice_aRR.length >= 3 # ダイスが3個以上ロールされている
-        10.times do |i|
-          break if  dice_num[i + 2].nil?
-
-          next unless dice_num[i] > 0
-
-          next unless (dice_num[i + 1] > 0) && (dice_num[i + 2] > 0) # 3.連続する出目の合計
-
-          dice_now = i * 3 + 6 # ($i+1) + ($i+2) + ($i+3) = $i*3 + 6
-
-          ((i + 3)...10).step do |i2|
-            break if dice_num[i2] == 0
-
-            dice_now += i2 + 1
-          end
-
-          max_num = dice_now if dice_now > max_num
-        end
-      end
-    end
-
-    return max_num
+    return output_parts.join(' ＞ ')
   end
 end
