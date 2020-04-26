@@ -243,9 +243,6 @@ class AddDice
       loop_count += 1
     end
 
-    # ダイス目文字列からダイス値を変更する場合の処理（現状クトゥルフ・テック専用）
-    dice_now = @diceBot.changeDiceValueByDiceText(dice_now, dice_str, isCheckSuccess, dice_max)
-
     output = ""
     if @diceBot.sendMode > 1
       output += "#{dice_now}[#{dice_str}]"
