@@ -4,13 +4,10 @@
 class TorgEternity < DiceBot
   # ゲームシステムの識別子
   ID = 'TorgEternity'
-
   # ゲームシステム名
   NAME = 'TORG Eternity'
-
   # ゲームシステム名の読みがな
   SORT_KEY = 'とおくえたあにてい'
-
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定
@@ -43,9 +40,7 @@ class TorgEternity < DiceBot
 　・ダメージ結果表「DTx or DAMAGEx」
 　・ロールボーナス表「BTx+y or BONUSx+y or TOTALx+y」 xは数値, yは技能基本値
 INFO_MESSAGE_TEXT
-
   setPrefixes(['(TE.*|UP.*|POS.*|\d+BD.*|TG.*|RT.*|Result.*|DT.*|damage.*|BT.*|bonus.*|total.*)'])
-
   def initialize
     super
     @sendMode = 2
@@ -70,22 +65,18 @@ INFO_MESSAGE_TEXT
 
   def torg_check(string, nick_e)
     output = '1'
-
     unless /(^|\s)S?(1R20([+-]\d+)*)(\s|$)/i =~ string
       return '1'
     end
 
     string = Regexp.last_match(2)
     mod = Regexp.last_match(3)
-
     debug(mod)
     mod = parren_killer("(0#{mod})").to_i if mod
     debug(mod)
     mod = mod.to_i
-
     skilled, unskilled, dice_str, = torg_eternity_dice(false, false)
     sk_bonus = get_torg_eternity_bonus(skilled)
-
     if mod
       if mod > 0
         output = "#{sk_bonus}[#{dice_str}]+#{mod}"
@@ -95,15 +86,11 @@ INFO_MESSAGE_TEXT
     else
       output = "#{sk_bonus}[#{dice_str}]"
     end
-
     output += " ＞ " + (sk_bonus + mod).to_s
-
     if skilled != unskilled
       output += "(技能無" + (get_torg_eternity_bonus(unskilled) + mod).to_s + ")"
     end
-
     output = "#{nick_e}: (#{string}) ＞ #{output}"
-
     return output
   end
 
@@ -205,7 +192,6 @@ INFO_MESSAGE_TEXT
     debug("Yes!")
     number_bonus_die = Regexp.last_match(1).to_i
     value_modifier, output_modifier = get_torg_eternity_modifier(Regexp.last_match(3))
-
     if number_bonus_die <= 0
       output = "エラーです。xBD (x≧1) として下さい"
     else
@@ -286,17 +272,14 @@ INFO_MESSAGE_TEXT
 
   def get_torg_eternity_table_result(value, table)
     output = nil
-
     table.each do |item|
       item_index = item[0]
-
       if item_index > value
         break
       end
 
       output = item[1]
     end
-
     return output
   end
 
@@ -323,7 +306,6 @@ INFO_MESSAGE_TEXT
     unskilled = 0
     mishap = 0
     dice_str = ""
-
     while isSkilledCritical
       dice_str += "," unless dice_str.empty?
       dummy = roll(1, 20, 0)
@@ -340,10 +322,8 @@ INFO_MESSAGE_TEXT
       else
         dice_str += dice_n.to_s
       end
-
       skilled += dice_n
       unskilled += dice_n if isCritical
-
       if dice_n == 20
         isCritical = false
       elsif dice_n != 10
@@ -356,7 +336,6 @@ INFO_MESSAGE_TEXT
       check_pos = false
       check_mishap = false
     end
-
     return skilled, unskilled, dice_str, mishap
   end
 
@@ -365,11 +344,9 @@ INFO_MESSAGE_TEXT
     debug("bonus dice roll : #{number}")
     value_roll = 0
     output_roll = ""
-
     if number > 0
       value_roll = 0
       output_roll = ""
-
       while number > 0
         output_roll = "#{output_roll}," unless output_roll.empty?
         dice_value, dice_text = roll(1, 6)
@@ -399,7 +376,6 @@ INFO_MESSAGE_TEXT
       [5, "Success - Good!"],
       [10, "Success - Outstanding!!"]
     ]
-
     return get_torg_eternity_table_result(value, success_table)
   end
 
@@ -420,7 +396,6 @@ INFO_MESSAGE_TEXT
       [45, "9レベル負傷 + 18ショック"],
       [50, "10レベル負傷 + 20ショック"]
     ]
-
     return get_torg_eternity_table_result(value, damage_table)
   end
 
@@ -441,14 +416,11 @@ INFO_MESSAGE_TEXT
       [19, 6],
       [20, 7]
     ]
-
     bonus = get_torg_eternity_table_result(value, bonus_table)
-
     if value > 20
       over_value_bonus = ((value - 21) / 5).to_i + 1
       bonus += over_value_bonus
     end
-
     return bonus
   end
 end
