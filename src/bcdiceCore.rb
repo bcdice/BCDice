@@ -1486,14 +1486,13 @@ class BCDice
   def parren_killer(string)
     debug("parren_killer input", string)
 
-    while /^(.*?)\[(\d+[Dd]\d+)\](.*)/ =~ string
-      str_before = ""
-      str_after = ""
-      dice_cmd = Regexp.last_match(2)
-      str_before = Regexp.last_match(1) if Regexp.last_match(1)
-      str_after = Regexp.last_match(3) if Regexp.last_match(3)
-      rolled, = rollDiceAddingUp(dice_cmd)
-      string = "#{str_before}#{rolled}#{str_after}"
+    string = string.gsub(/\[\d+D\d+\]/i) do |matched|
+      # Remove '[' and ']'
+      command = matched[1..-2].upcase
+      times, sides = command.split("D").map(&:to_i)
+      rolled, = roll(times, sides)
+
+      rolled
     end
 
     string = changeRangeTextToNumberText(string)
@@ -1512,11 +1511,6 @@ class BCDice
     debug("parren_killer output", string)
 
     return string
-  end
-
-  def rollDiceAddingUp(*arg)
-    dice = AddDice.new(self, @diceBot)
-    dice.rollDiceAddingUp(*arg)
   end
 
   # [1...4]D[2...7] -> 2D7 のように[n...m]をランダムな数値へ変換
