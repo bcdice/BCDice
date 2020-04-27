@@ -31,151 +31,88 @@ class CthulhuTech < DiceBot
 　ダメージダイスも表示します。
 INFO_MESSAGE_TEXT
 
-  # 比較処理のノード（行為判定、対抗判定の基底クラス）
-  class Compare
-    # 判定値と難易度の比較結果
-    # @!attribute diff
-    #   @return [Integer] 判定値と難易度の差
-    # @!attribute success
-    #   @return [Boolean] 成功したかどうか
-    # @!attribute fumble
-    #   @return [Boolean] ファンブルかどうか
-    # @!attribute critical
-    #   @return [Boolean] クリティカルかどうか
-    Result = Struct.new(:diff, :success, :fumble, :critical)
-
+  # 行為判定のノード
+  class Test
     include ModifierFormatter
 
-    # ダイス数
-    # @return [Integer]
-    attr_reader :num
-    # 修正値
-    # @return [Integer]
-    attr_reader :modifier
+    # 判定で用いる比較演算子
+    #
+    # 対抗判定で変えられるように定数で定義する。
+    COMPARE_OP = :>=
 
     # ノードを初期化する
     # @param [Integer] num ダイス数
     # @param [Integer] modifier 修正値
-    # @param [Symbol] cmp_op 比較演算子（ +:>=+, +:>+ ）
     # @param [Integer] difficulty 難易度
-    def initialize(num, modifier, cmp_op, difficulty)
+    def initialize(num, modifier, difficulty)
       @num = num
       @modifier = modifier
-      @cmp_op = cmp_op
       @difficulty = difficulty
     end
 
-    # 比較の数式表現を返す
-    # @return [String]
-    def expression
-      modifier_str = format_modifier(@modifier)
-      return "#{@num}D10#{modifier_str}#{@cmp_op}#{@difficulty}"
-    end
+    # 判定を行う
+    # @param [DiceBot] bot ダイスボット
+    # @return [String] 判定結果
+    def execute(bot)
+      dice_values = Array.new(@num) { bot.roll(1, 10)[0] }
 
-    # 比較を行う
-    # @param [TestResult] test_result 判定値
-    # @return [Compare::Result]
-    def compare(test_result)
-      diff = test_result.value - @difficulty
+      # ファンブル：出目の半分（小数点以下切り上げ）以上が1の場合
+      fumble = dice_values.count(1) >= (dice_values.length + 1) / 2
 
-      # 成功したかどうか
-      # 例：@cmp_op が :> ならば、diff.send(@cmp_op, 0) は diff > 0 と同じ
-      success = !test_result.fumble && diff.send(@cmp_op, 0)
+      sorted_dice_values = dice_values.sort
+      roll_result = calculate_roll_result(sorted_dice_values)
+      test_value = roll_result + @modifier
+
+      diff = test_value - @difficulty
+
+      # diff と @difficulty との比較の演算子が変わるので、send で対応
+      # 例：COMPARE_OP が :>= ならば、diff >= 0 と同じ
+      success = !fumble && diff.send(self.class::COMPARE_OP, 0)
 
       critical = diff >= 10
 
-      return Result.new(diff, success, test_result.fumble, critical)
+      output_parts = [
+        "(#{expression()})",
+        test_value_expression(sorted_dice_values, roll_result),
+        test_value,
+        result_str(success, fumble, critical, diff)
+      ]
+
+      return output_parts.join(' ＞ ')
     end
 
-    # 比較結果を整形する
-    # @param [Compare::Result] result 比較結果
-    # @return [String]
-    def format_compare_result(result)
-      return 'ファンブル' if result.fumble
-      return 'クリティカル' if result.critical
-
-      return result.success ? '成功' : '失敗'
-    end
-  end
-
-  # 行為判定のノード
-  class Test < Compare
-    # ノードを初期化する
-    # @param [Integer] num ダイス数
-    # @param [Integer] modifier 修正値
-    # @param [Integer] difficulty 難易度
-    def initialize(num, modifier, difficulty)
-      super(num, modifier, :>=, difficulty)
-    end
-  end
-
-  # 対抗判定のノード
-  class Contest < Compare
-    # ノードを初期化する
-    # @param [Integer] num ダイス数
-    # @param [Integer] modifier 修正値
-    # @param [Integer] difficulty 難易度
-    def initialize(num, modifier, difficulty)
-      super(num, modifier, :>, difficulty)
-    end
-
-    # 比較結果を整形する
-    #
-    # 成功した場合（クリティカルを含む）、ダメージロールのコマンドを末尾に
-    # 追加する。
-    #
-    # @param [Compare::Result] result 比較結果
-    # @return [String]
-    def format_compare_result(result)
-      formatted = super(result)
-
-      if result.success
-        damage_roll_num = (result.diff / 5.0).ceil
-        damage_roll = "#{damage_roll_num}D10"
-
-        "#{formatted}（ダメージ：#{damage_roll}）"
-      else
-        formatted
-      end
-    end
-  end
-
-  # 判定値のクラス
-  class TestResult
-    include ModifierFormatter
-
-    # 計算された判定値（ダイスロール結果 + 修正値）
-    # @return [Integer]
-    attr_reader :value
-
-    # ファンブルかどうか
-    # @return [Boolean]
-    attr_reader :fumble
-
-    # 値を初期化し、計算を行う
-    # @param [Array<Integer>] dice_values 出目の配列
-    # @param [Integer] modifier 修正値
-    def initialize(dice_values, modifier)
-      @dice_values = dice_values.sort
-      @modifier = modifier
-
-      # ファンブル：出目の半分（小数点以下切り上げ）以上が1の場合
-      @fumble = @dice_values.count(1) >= (@dice_values.length + 1) / 2
-
-      @roll_result = calculate_roll_result(@dice_values)
-      @value = @roll_result + @modifier
-    end
+    private
 
     # 数式表現を返す
     # @return [String]
     def expression
-      dice_str = @dice_values.join(',')
       modifier_str = format_modifier(@modifier)
-
-      return "#{@roll_result}[#{dice_str}]#{modifier_str}"
+      return "#{@num}D10#{modifier_str}#{self.class::COMPARE_OP}#{@difficulty}"
     end
 
-    private
+    # 判定値の数式表現を返す
+    # @param [Array<Integer>] dice_values 出目の配列
+    # @param [Integer] roll_result ダイスロール結果の値
+    # @return [String]
+    def test_value_expression(dice_values, roll_result)
+      dice_str = dice_values.join(',')
+      modifier_str = format_modifier(@modifier)
+
+      return "#{roll_result}[#{dice_str}]#{modifier_str}"
+    end
+
+    # 判定結果の文字列を返す
+    # @param [Boolean] success 成功したか
+    # @param [Boolean] fumble ファンブルだったか
+    # @param [Boolean] critical クリティカルだったか
+    # @param [Integer] _diff 判定値と難易度の差
+    # @return [String]
+    def result_str(success, fumble, critical, _diff)
+      return 'ファンブル' if fumble
+      return 'クリティカル' if critical
+
+      return success ? '成功' : '失敗'
+    end
 
     # ダイスロール結果を計算する
     #
@@ -185,25 +122,25 @@ INFO_MESSAGE_TEXT
     # * ゾロ目の和の最大値
     # * ストレート（昇順で連続する3個以上の値）の和の最大値
     #
-    # @param [Array<Integer>] sorted_values 昇順でソートされた出目の配列
+    # @param [Array<Integer>] sorted_dice_values 昇順でソートされた出目の配列
     # @return [Integer]
-    def calculate_roll_result(sorted_values)
-      highest_single_roll = sorted_values.last
+    def calculate_roll_result(sorted_dice_values)
+      highest_single_roll = sorted_dice_values.last
 
       candidates = [
         highest_single_roll,
-        sum_of_highest_set_of_multiples(sorted_values),
-        sum_of_largest_straight(sorted_values)
+        sum_of_highest_set_of_multiples(sorted_dice_values),
+        sum_of_largest_straight(sorted_dice_values)
       ]
 
       return candidates.max
     end
 
     # ゾロ目の和の最大値を求める
-    # @param [Array<Integer>] values 出目の配列
+    # @param [Array<Integer>] dice_values 出目の配列
     # @return [Integer]
-    def sum_of_highest_set_of_multiples(values)
-      values.
+    def sum_of_highest_set_of_multiples(dice_values)
+      dice_values.
         # TODO: Ruby 2.2以降では group_by(&:itself) が使える
         group_by { |i| i }.
         # TODO: Ruby 2.4以降では value_group.sum が使える
@@ -215,12 +152,12 @@ INFO_MESSAGE_TEXT
     #
     # ストレートとは、昇順で3個以上連続した値のこと。
     #
-    # @param [Array<Integer>] sorted_values 昇順にソートされた出目の配列
+    # @param [Array<Integer>] sorted_dice_values 昇順にソートされた出目の配列
     # @return [Integer] ストレートの和の最大値
     # @return [0] ストレートが存在しなかった場合
-    def sum_of_largest_straight(sorted_values)
+    def sum_of_largest_straight(sorted_dice_values)
       # 出目が3個未満ならば、ストレートは存在しない
-      return 0 if sorted_values.length < 3
+      return 0 if sorted_dice_values.length < 3
 
       # ストレートの和の最大値
       max_sum = 0
@@ -233,7 +170,7 @@ INFO_MESSAGE_TEXT
       # 初期値を負の値にして、最初の値と連続にならないようにする
       last = -1
 
-      sorted_values.uniq.each do |value|
+      sorted_dice_values.uniq.each do |value|
         # 値が連続でなければ、状態を初期化する（現在の値を連続1個目とする）
         if value - last > 1
           n_consecutive_values = 1
@@ -258,6 +195,33 @@ INFO_MESSAGE_TEXT
     end
   end
 
+  # 対抗判定のノード
+  class Contest < Test
+    # 判定で用いる比較演算子
+    COMPARE_OP = :>
+
+    # 判定結果の文字列を返す
+    #
+    # 成功した場合（クリティカルを含む）、ダメージロールのコマンドを末尾に
+    # 追加する。
+    #
+    # @param [Boolean] success 成功したか
+    # @param [Integer] diff 判定値と難易度の差
+    # @return [String]
+    def result_str(success, _fumble, _critical, diff)
+      formatted = super
+
+      if success
+        damage_roll_num = (diff / 5.0).ceil
+        damage_roll = "#{damage_roll_num}D10"
+
+        "#{formatted}（ダメージ：#{damage_roll}）"
+      else
+        formatted
+      end
+    end
+  end
+
   # ダイスボットを初期化する
   def initialize
     super
@@ -274,7 +238,7 @@ INFO_MESSAGE_TEXT
     node = parse(command)
     return nil unless node
 
-    return execute(node)
+    return node.execute(self)
   end
 
   private
@@ -296,23 +260,5 @@ INFO_MESSAGE_TEXT
     difficulty = m[4].to_i
 
     return node_class.new(num, modifier, difficulty)
-  end
-
-  # 判定を行う
-  # @param [Test, Contest] test 判定のノード
-  # @return [String]
-  def execute(test)
-    dice_values = Array.new(test.num) { roll(1, 10)[0] }
-    test_result = TestResult.new(dice_values, test.modifier)
-    compare_result = test.compare(test_result)
-
-    output_parts = [
-      "(#{test.expression})",
-      test_result.expression,
-      test_result.value,
-      test.format_compare_result(compare_result)
-    ]
-
-    return output_parts.join(' ＞ ')
   end
 end
