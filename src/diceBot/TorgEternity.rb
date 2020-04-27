@@ -371,6 +371,7 @@ INFO_MESSAGE_TEXT
       output_roll = ""
 
       while number > 0
+        output_roll = "#{output_roll}," unless output_roll.empty?
         dice_value, dice_text = roll(1, 6)
         if dice_value == 6
           dice_value = 5
@@ -378,12 +379,11 @@ INFO_MESSAGE_TEXT
           number += 1
         end
         value_roll += dice_value
-        output_roll = "#{output_roll}#{dice_text},"
+        output_roll = "#{output_roll}#{dice_text}"
         debug(value_roll)
         debug(output_roll)
         number -= 1
       end
-      output_roll = output_roll.delete_suffix(",")
     else
       output_roll = "0"
     end
