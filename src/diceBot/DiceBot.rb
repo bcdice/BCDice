@@ -434,11 +434,6 @@ class DiceBot
     return '', 0
   end
 
-  # ダイス目文字列からダイス値を変更する場合の処理（現状クトゥルフ・テック専用）
-  def changeDiceValueByDiceText(dice_now, _dice_str, _isCheckSuccess, _dice_max)
-    dice_now
-  end
-
   # SW専用
   def setRatingTable(_nick_e, _tnick, _channel_to_list)
     '1'
