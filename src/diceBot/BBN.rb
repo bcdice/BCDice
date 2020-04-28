@@ -4,13 +4,13 @@ class BBN < DiceBot
   # ダイスボットで使用するコマンドを配列で列挙する
   setPrefixes(['\d+BN.*'])
 
-  ID = 'BBN'
+  ID = 'BBN'.freeze
 
-  NAME = 'BBNTRPG'
+  NAME = 'BBNTRPG'.freeze
 
-  SORT_KEY = 'ひいひいえぬTRPG'
+  SORT_KEY = 'ひいひいえぬTRPG'.freeze
 
-  HELP_MESSAGE =  <<MESSAGETEXT
+  HELP_MESSAGE = <<MESSAGETEXT.freeze
 ・判定(xBN±y>=z[c,f])
 　xD6の判定。クリティカル、ファンブルの自動判定を行います。
 　1Dの場合はクリティカル、ファンブルなし。2Dの場合は6ゾロと1ゾロのみクリティカル、ファンブルになります。
@@ -24,165 +24,114 @@ class BBN < DiceBot
 MESSAGETEXT
 
   def rollDiceCommand(command)
-    return getCheckRollDiceCommandResult(command)
-  end
-
-  def getCheckRollDiceCommandResult(command)
-    test = "test"
-    return nil unless /(\d+)BN([\+\-\d]*)(>=([\+\-\d]*))?(\[([\+\-\d]*)?(,[\+\-\d]*)?\])?/i === command
-
-    diceCount = Regexp.last_match(1).to_i
-    modifyText = (Regexp.last_match(2) || '')
-    difficultyText = (Regexp.last_match(4) || '')
-    cfText = (Regexp.last_match(5) || '')
-
-    modify = RetNum(modifyText)
-    difficulty = RetNum(difficultyText)
+    unless parse(command)
+      return nil
+    end
 
     # ダイスロール
-    dice, dice_str = roll(diceCount, 6)
-    diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
+    dice, dice_str = roll(@roll_times, 6)
+    dice_list = dice_str.split(',').map(&:to_i).sort
 
-    total = dice + modify
+    total = dice + @modify
 
     # 出力文の生成
-    result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
+    sequence = [
+      "(#{command})",
+      "#{dice}[#{dice_str}]#{@modify_str}",
+      total
+    ]
 
-    cricicalCheck = isCritical(diceList, cfText, diceCount)
-    fambleCheck = isFamble(diceList, cfText, diceCount)
-
-    # クリティカル・ファンブルチェック
-    if cricicalCheck != 0 && fambleCheck != 0
-      result += getJudgeResultString(difficulty, total)
-    elsif cricicalCheck >= 1
-      result += " ＞ クリティカル！ ＞ "
-      result += getCriticalResultString(difficulty, total, cricicalCheck)
-    elsif fambleCheck >= 1
-      result += " ＞ ファンブル！"
-    else
-      result += getJudgeResultString(difficulty, total)
+    # クリティカルとファンブルが同時に発生した時にはクリティカルが優先
+    if critical?(dice_list)
+      sequence.push "クリティカル！", *additional_roll(dice_list.count(6), total)
+    elsif fumble?(dice_list)
+      sequence.push "ファンブル！"
+    elsif @difficulty
+      sequence.push total >= @difficulty ? "成功" : "失敗"
     end
 
-    return result
+    return sequence.join(" ＞ ")
   end
 
-  def isCritical(diceList, cfText, dicecount)
-    temp = diceList.select { |i| i == 6 }.size
+  private
 
-    if cfText.nil?
-      critical = 0
-    else
-      if /\[([\+\-\d]*)(,([\+\-\d]*)?)?\]/ =~ cfText
-        criticalText = Regexp.last_match(1)
-        critical = RetNum(criticalText)
-      else
-        critical = 0
-      end
+  # コマンド文字列をパースする
+  #
+  # @param command [String] コマンド
+  # @return [Boolean] パースに成功したか
+  def parse(command)
+    m = /^(\d+)BN([+-]\d+)?(>=(([+-]?\d+)))?(\[([+-]?\d+)?(,([+-]?\d+))?\])?/.match(command)
+    unless m
+      return false
     end
 
-    result = 0
+    @roll_times = m[1].to_i
+    @modify_str = m[2] || ''
+    @modify = m[2].to_i
+    @difficulty = m[4] ? m[4].to_i : nil
 
-    targetFloat = dicecount.to_f / 2
-    target = targetFloat.ceil.to_i + critical
+    base = critical_base(@roll_times)
+    @critical = base + m[7].to_i
+    @fumble = base + m[9].to_i
 
-    if dicecount == 2
-      target += 1
-    elsif dicecount == 1
-      temp = 0
-    end
-
-    if temp >= target
-      result = temp
-    else
-      result = 0
-    end
-    return result
+    return true
   end
 
-  def isFamble(diceList, cfText, dicecount)
-    temp = diceList.select { |i| i == 1 }.size
-
-    if cfText.nil?
-      famble = 0
+  # 振るダイスの数からクリティカルとファンブルの基本値を算出する
+  #
+  # @param roll_times [Integer] 振るダイスの数
+  # @return [Integer] クリティカルの値
+  def critical_base(roll_times)
+    case roll_times
+    when 1, 2
+      roll_times
     else
-      if /\[([\+\-\d]*)(,([\+\-\d]*)?)?\]/ =~ cfText
-        fambleText = Regexp.last_match(3)
-        famble = RetNum(fambleText)
-      else
-        famble = 0
-      end
-    end
-
-    result = 0
-
-    targetFloat = dicecount.to_f / 2
-    target = targetFloat.ceil.to_i + famble
-
-    if dicecount == 2
-      target += 1
-    elsif dicecount == 1
-      temp = 0
-    end
-
-    if temp >= target
-      result = temp
-    else
-      result = 0
-    end
-    return result
-  end
-end
-
-# 成否判定
-def getJudgeResultString(difficulty, total)
-  return '' if difficulty.nil?
-
-  if total >= difficulty
-    return " ＞ 成功"
-  else
-    return " ＞ 失敗"
-  end
-end
-
-# クリティカルの成否判定
-def getCriticalResultString(difficulty, total, cricicalCheck)
-  return '' if difficulty.nil?
-
-  result = ""
-
-  flag = 0
-  count = cricicalCheck
-  while flag == 0
-    dice, dice_str = roll(count, 6)
-    diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
-    temp = diceList.select { |i| i == 6 }.size
-
-    temp2 = total
-    total += dice
-
-    if temp >= 1
-      count = temp
-      result += "#{temp2}+#{dice}[#{dice_str}]"
-      result += " ＞ 追加クリティカル！ ＞ "
-    else
-      result += "#{temp2}+#{dice}[#{dice_str}] ＞ #{total}"
-      flag = 1
+      (roll_times.to_f / 2).ceil
     end
   end
 
-  if total >= difficulty
-    result += " ＞ 成功"
-  else
-    result += " ＞ 失敗"
+  # @return [Boolean] クリティカルか
+  def critical?(dice_list)
+    dice_list.count(6) >= @critical
   end
-  return result
-end
 
-def RetNum(text)
-  if !text.nil?
-    result = text.gsub(/[^0-9\-]/, "")
-    return result.to_i
-  else
-    return 0
+  # @return [Boolean] ファンブルか
+  def fumble?(dice_list)
+    dice_list.count(1) >= @fumble
+  end
+
+  # クリティカルの追加ロールをする
+  # 追加ロールで6が出た場合、さらに追加ロールが行われる
+  #
+  # @param additional_dice [Integer] クリティカルによる追加のダイス数
+  # @param total [Integer] 現在の合計値
+  # @return [Array<String>]
+  def additional_roll(additional_dice, total)
+    sequence = []
+    reroll_count = 0
+
+    # 追加クリティカルは無限ループしうるので、10回に制限
+    while additional_dice > 0 && reroll_count < 10
+      reroll_count += 1
+
+      dice_total, dice_str = roll(additional_dice, 6)
+      additional_dice = dice_str.split(',').map(&:to_i).count(6)
+
+      sequence.push "#{total}+#{dice_total}[#{dice_str}]"
+      sequence.push "追加クリティカル！" if additional_dice > 0
+
+      total += dice_total
+    end
+
+    if additional_dice > 0
+      sequence.push "無限ループ防止のため中断"
+    end
+
+    sequence.push total
+    if @difficulty
+      sequence.push total >= @difficulty ? "成功" : "失敗"
+    end
+
+    return sequence
   end
 end
