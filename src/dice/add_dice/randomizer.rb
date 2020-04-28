@@ -30,8 +30,6 @@ class AddDice
         loop_count += 1
       end
 
-      total = @dicebot.changeDiceValueByDiceText(total, results_list.flatten, @cmp_op, sides)
-
       text = total.to_s
       results_list.each do |list|
         text += '[' + list.join(',') + ']'
