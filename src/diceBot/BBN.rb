@@ -44,11 +44,11 @@ MESSAGETEXT
 
     # クリティカルとファンブルが同時に発生した時にはクリティカルが優先
     if critical?(dice_list)
-      sequence.push "クリティカル！", *additional_roll(dice_list.count(6), total)
+      sequence.push("クリティカル！", *additional_roll(dice_list.count(6), total))
     elsif fumble?(dice_list)
-      sequence.push "ファンブル！"
+      sequence.push("ファンブル！")
     elsif @difficulty
-      sequence.push total >= @difficulty ? "成功" : "失敗"
+      sequence.push(total >= @difficulty ? "成功" : "失敗")
     end
 
     return sequence.join(" ＞ ")
@@ -118,19 +118,19 @@ MESSAGETEXT
       dice_total, dice_str = roll(additional_dice, 6)
       additional_dice = dice_str.split(',').map(&:to_i).count(6)
 
-      sequence.push "#{total}+#{dice_total}[#{dice_str}]"
-      sequence.push "追加クリティカル！" if additional_dice > 0
+      sequence.push("#{total}+#{dice_total}[#{dice_str}]")
+      sequence.push("追加クリティカル！") if additional_dice > 0
 
       total += dice_total
     end
 
     if additional_dice > 0
-      sequence.push "無限ループ防止のため中断"
+      sequence.push("無限ループ防止のため中断")
     end
 
     sequence.push total
     if @difficulty
-      sequence.push total >= @difficulty ? "成功" : "失敗"
+      sequence.push(total >= @difficulty ? "成功" : "失敗")
     end
 
     return sequence
