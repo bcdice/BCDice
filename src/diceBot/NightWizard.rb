@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
+require "utils/normalize"
+
 class NightWizard < DiceBot
   # ゲームシステムの識別子
   ID = 'NightWizard'
@@ -65,7 +67,7 @@ INFO_MESSAGE_TEXT
 
     crit = "0"
     fumble = "0"
-    signOfInequality = ""
+    cmp_op = nil
     diff = 0
 
     if criticalText
@@ -78,7 +80,7 @@ INFO_MESSAGE_TEXT
     if judgeText
       diff = judgeValue
       debug('judgeOperator', judgeOperator)
-      signOfInequality = marshalSignOfInequality(judgeOperator)
+      cmp_op = Normalize.comparison_operator(judgeOperator)
     end
 
     base, modify = base_and_modify.split(/,/)
@@ -89,8 +91,8 @@ INFO_MESSAGE_TEXT
     total, out_str = nw_dice(base, modify, crit, fumble)
 
     output = "#{nick_e}: (#{string}) ＞ #{out_str}"
-    if signOfInequality != "" # 成功度判定処理
-      output += check_result(total, 0, signOfInequality, diff, 3, 6, 0, 0)
+    if cmp_op
+      output += check_nDx(total, cmp_op, diff)
     end
 
     return output
