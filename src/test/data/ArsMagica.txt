@@ -369,3 +369,39 @@ Ars10
 output:
 ArsMagica : (1R10[10]) ＞ 8
 rand:9/10
+============================
+input:
+Ars-3
+output:
+ArsMagica : (1R10-3) ＞ 8-3 ＞ 5
+rand:9/10
+============================
+input:
+Ars+3
+output:
+ArsMagica : (1R10+3) ＞ 8+3 ＞ 11
+rand:9/10
+============================
+input:
+Ars10>=7
+output:
+ArsMagica : (1R10[10]>=7) ＞ 2 ＞ 失敗
+rand:3/10
+============================
+input:
+Ars10>=7
+output:
+ArsMagica : (1R10[10]>=7) ＞ 9 ＞ 成功
+rand:10/10
+============================
+input:
+Ars10>=7
+output:
+ArsMagica : (1R10[10]>=7) ＞ 7 ＞ 成功
+rand:8/10
+============================
+input:
+Ars2>=7 Botchの時には目標値を使った判定はされない
+output:
+ArsMagica : (1R10[2]>=7) ＞ 0[0,0,0] ＞ 2Botch!
+rand:1/10,1/10,1/10

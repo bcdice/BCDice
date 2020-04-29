@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
+require "utils/normalize"
+
 class ArsMagica < DiceBot
   # ゲームシステムの識別子
   ID = 'ArsMagica'
@@ -44,33 +46,7 @@ INFO_MESSAGE_TEXT
     arsmagica_stress(string, nick_e)
   end
 
-  def check_nD10(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(nD10)
-    if signOfInequality != ">="
-      return ""
-    end
-
-    if total_n >= diff
-      return " ＞ 成功"
-    end
-
-    return " ＞ 失敗"
-  end
-
-  def check_1D10(total_n, _dice_n, signOfInequality, diff, _dice_cnt, _dice_max, _n1, _n_max) # ゲーム別成功度判定(1D10)
-    if signOfInequality != ">="
-      return ""
-    end
-
-    if total_n >= diff
-      return " ＞ 成功"
-    end
-
-    return " ＞ 失敗"
-  end
-
   def arsmagica_stress(string, _nick_e)
-    output = "1"
-
     return "1" unless (m = /(^|\s)S?(1[rR]10([\+\-\d]*)(\[(\d+)\])?(([>=]+)(\d+))?)(\s|$)/i.match(string))
 
     diff = 0
@@ -78,13 +54,13 @@ INFO_MESSAGE_TEXT
     bonus = 0
     crit_mul = 1
     total = 0
-    signOfInequality = ""
+    cmp_op = nil
     bonusText = m[3]
     botch = m[5].to_i if m[4]
 
     if m[6]
-      signOfInequality = marshalSignOfInequality(m[7])
-      diff = m[8]
+      cmp_op = Normalize.comparison_operator(m[7])
+      diff = m[8].to_i
     end
 
     bonus = parren_killer("(0#{bonusText})").to_i unless bonusText.empty?
@@ -115,7 +91,8 @@ INFO_MESSAGE_TEXT
           output += " ＞ Botch!"
         end
 
-        signOfInequality = ""
+        # Botchの時には目標値を使った判定はしない
+        cmp_op = nil
       else
         if bonus > 0
           output += "+#{bonus} ＞ #{bonus}"
@@ -150,13 +127,14 @@ INFO_MESSAGE_TEXT
       if bonus > 0
         output += "#{die}+#{bonus} ＞ #{total}"
       elsif bonus < 0
-        output += "#{die $bonus} ＞ #{total}"
+        output += "#{die}#{bonus} ＞ #{total}"
       else
         output += total.to_s
       end
     end
-    if signOfInequality != "" # 成功度判定処理
-      output += check_result(total, 0, signOfInequality, diff, 1, 10, 0, 0)
+
+    if cmp_op == :>=
+      output += (total >= diff ? " ＞ 成功" : " ＞ 失敗")
     end
 
     return ": #{output}"
