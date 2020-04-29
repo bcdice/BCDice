@@ -1,0 +1,1774 @@
+Inspecting 222 files
+CCCCCWCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC.CCCCCCCCCCCCCCCCCCWCCCCCCCCCCCCCCCCCCCCWCCCCCCC
+
+Offenses:
+
+Gemfile:1:1: C: Layout/EndOfLine: Carriage return character detected.
+source 'https://rubygems.org' ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Gemfile:17:5: C: Bundler/DuplicatedGem: Gem rake requirements already given on line 13 of the Gemfile.
+    gem 'rake'
+    ^^^^^^^^^^
+Gemfile:18:5: C: Bundler/DuplicatedGem: Gem test-unit requirements already given on line 14 of the Gemfile.
+    gem 'test-unit'
+    ^^^^^^^^^^^^^^^
+Rakefile:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/ArgsAnalizer.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+#!ruby -Ku ...
+^^^^^^^^^^
+src/ArgsAnalizer.rb:74:5: C: Style/GlobalVars: Do not introduce global variables.
+    $server = data[0]
+    ^^^^^^^
+src/ArgsAnalizer.rb:75:5: C: Style/GlobalVars: Do not introduce global variables.
+    $port = data[1] if data[1]
+    ^^^^^
+src/ArgsAnalizer.rb:79:5: C: Style/GlobalVars: Do not introduce global variables.
+    $defaultLoginChannelsText = decode($ircCode, @param)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+src/ArgsAnalizer.rb:79:40: C: Style/GlobalVars: Do not introduce global variables.
+    $defaultLoginChannelsText = decode($ircCode, @param)
+                                       ^^^^^^^^
+src/ArgsAnalizer.rb:83:5: C: Style/GlobalVars: Do not introduce global variables.
+    $nick = @param
+    ^^^^^
+src/ArgsAnalizer.rb:87:5: C: Style/GlobalVars: Do not introduce global variables.
+    $defaultGameType = @param
+    ^^^^^^^^^^^^^^^^
+src/ArgsAnalizer.rb:91:5: C: Style/GlobalVars: Do not introduce global variables.
+    $extraCardFileName = @param
+    ^^^^^^^^^^^^^^^^^^
+src/ArgsAnalizer.rb:95:5: C: Style/GlobalVars: Do not introduce global variables.
+    $ircCode = param
+    ^^^^^^^^
+src/bcdice.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+#!/bin/ruby -Ku ...
+^^^^^^^^^^^^^^^
+src/bcdice.rb:46:7: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+if $0 === __FILE__
+      ^^^
+src/bcdiceCore.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+#!/bin/ruby -Ku ...
+^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:45:1: C: Style/GlobalVars: Do not introduce global variables.
+$RUBY18_WIN = RUBY_VERSION < '1.9' &&
+^^^^^^^^^^^
+src/bcdiceCore.rb:46:50: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+              /mswin(?!ce)|mingw|cygwin|bccwin/i === RUBY_PLATFORM
+                                                 ^^^
+src/bcdiceCore.rb:48:1: C: Style/GlobalVars: Do not introduce global variables.
+$secretRollMembersHolder = {}
+^^^^^^^^^^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:49:1: C: Style/GlobalVars: Do not introduce global variables.
+$secretDiceResultHolder = {}
+^^^^^^^^^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:50:1: C: Style/GlobalVars: Do not introduce global variables.
+$plotPrintChannels = {}
+^^^^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:51:1: C: Style/GlobalVars: Do not introduce global variables.
+$point_counter = {}
+^^^^^^^^^^^^^^
+src/bcdiceCore.rb:124:3: C: Style/TrivialAccessors: Use attr_writer to define trivial writer methods.
+  def isKeepSecretDice(b)
+  ^^^
+src/bcdiceCore.rb:152:30: C: Style/GlobalVars: Do not introduce global variables.
+    openPattern = /\A\s*(?:#{$OPEN_DICE}|#{$OPEN_PLOT})\s*\z/i
+                             ^^^^^^^^^^
+src/bcdiceCore.rb:152:44: C: Style/GlobalVars: Do not introduce global variables.
+    openPattern = /\A\s*(?:#{$OPEN_DICE}|#{$OPEN_PLOT})\s*\z/i
+                                           ^^^^^^^^^^
+src/bcdiceCore.rb:214:10: C: Style/GlobalVars: Do not introduce global variables.
+    when $quitCommand
+         ^^^^^^^^^^^^
+src/bcdiceCore.rb:488:15: C: Style/GlobalVars: Do not introduce global variables.
+    unless /#{$ADD_PLOT}[:：](.+)/i =~ arg
+              ^^^^^^^^^
+src/bcdiceCore.rb:510:12: C: Style/GlobalVars: Do not introduce global variables.
+    return $plotPrintChannels[nick]
+           ^^^^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:530:25: C: Style/GlobalVars: Do not introduce global variables.
+      "・シークレットをオープンする(#{$OPEN_DICE})",
+                        ^^^^^^^^^^
+src/bcdiceCore.rb:546:26: C: Style/GlobalVars: Do not introduce global variables.
+      "・プロット表示　　　　　　　　(#{$OPEN_PLOT})",
+                         ^^^^^^^^^^
+src/bcdiceCore.rb:547:32: C: Style/GlobalVars: Do not introduce global variables.
+      "・プロット記録　　　　　　　　(Talkで #{$ADD_PLOT}:プロット)",
+                               ^^^^^^^^^
+src/bcdiceCore.rb:566:26: C: Style/GlobalVars: Do not introduce global variables.
+      "・カウンタ表示チャンネル登録　(#{$READY_CMD})",
+                         ^^^^^^^^^^
+src/bcdiceCore.rb:599:18: C: Style/GlobalVars: Do not introduce global variables.
+    if /(^|\s+)#{$OPEN_PLOT}(\s+|$)/i =~ @message
+                 ^^^^^^^^^^
+src/bcdiceCore.rb:605:18: C: Style/GlobalVars: Do not introduce global variables.
+    if /(^|\s+)#{$OPEN_DICE}(\s+|$)/i =~ @message
+                 ^^^^^^^^^^
+src/bcdiceCore.rb:666:12: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    !(/^#/ === @channel)
+           ^^^
+src/bcdiceCore.rb:683:12: C: Style/GlobalVars: Do not introduce global variables.
+    if /^#{$READY_CMD}(\s+|$)/i =~ @message
+           ^^^^^^^^^^
+src/bcdiceCore.rb:794:33: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    secret = (/S[-\d]+D[\d+-]+/ === arg)
+                                ^^^
+src/bcdiceCore.rb:805:31: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    secret = (/S[\d]+B[\d]+/i === arg)
+                              ^^^
+src/bcdiceCore.rb:813:42: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /(S)?[\d]+R[\d]+/i === arg
+                                         ^^^
+src/bcdiceCore.rb:835:42: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /(S)?[\d]+U[\d]+/i === arg
+                                         ^^^
+src/bcdiceCore.rb:849:69: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /((^|\s)(S)?choice\[[^,]+(,[^,]+)+\]($|\s))/i === arg
+                                                                    ^^^
+src/bcdiceCore.rb:873:45: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    key, message = table.find { |i| i.first === value }
+                                            ^^^
+src/bcdiceCore.rb:884:23: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /(\d+)D(\d+)/i === dice
+                      ^^^
+src/bcdiceCore.rb:945:25: C: Style/GlobalVars: Do not introduce global variables.
+    unless (dice_cnt <= $DICE_MAXCNT) && (dice_max <= $DICE_MAXNUM)
+                        ^^^^^^^^^^^^
+src/bcdiceCore.rb:945:55: C: Style/GlobalVars: Do not introduce global variables.
+    unless (dice_cnt <= $DICE_MAXCNT) && (dice_max <= $DICE_MAXNUM)
+                                                      ^^^^^^^^^^^^
+src/bcdiceCore.rb:1167:33: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^S?D66/i === string
+                                ^^^
+src/bcdiceCore.rb:1201:60: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /(^|\s)(S)?((\d+)?D66(N|S)?)(\s|$)/i === string
+                                                           ^^^
+src/bcdiceCore.rb:1260:15: C: Style/GlobalVars: Do not introduce global variables.
+    members = $secretRollMembersHolder[memberKey]
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:1271:20: C: Style/GlobalVars: Do not introduce global variables.
+      diceResult = $secretDiceResultHolder[diceResultKey]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:1276:9: C: Style/GlobalVars: Do not introduce global variables.
+        $secretDiceResultHolder.delete(diceResultKey)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:1282:7: C: Style/GlobalVars: Do not introduce global variables.
+      $secretRollMembersHolder.delete(channel)
+      ^^^^^^^^^^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:1316:5: C: Style/GlobalVars: Do not introduce global variables.
+    $secretRollMembersHolder[key] ||= []
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:1317:15: C: Style/GlobalVars: Do not introduce global variables.
+    members = $secretRollMembersHolder[key]
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:1338:5: C: Style/GlobalVars: Do not introduce global variables.
+    $secretDiceResultHolder[key] = diceResult # 複数チャンネルも一応想定
+    ^^^^^^^^^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:1341:37: C: Style/GlobalVars: Do not introduce global variables.
+    debug("secretDiceResultHolder", $secretDiceResultHolder)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^
+src/bcdiceCore.rb:1351:5: C: Style/GlobalVars: Do not introduce global variables.
+    $plotPrintChannels[nick] = @channel
+    ^^^^^^^^^^^^^^^^^^
+src/bcdiceGui.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+#!/bin/ruby -Ku ...
+^^^^^^^^^^^^^^^
+src/bcdiceGui.rb:17:1: C: Style/GlobalVars: Do not introduce global variables.
+$isDebug = false
+^^^^^^^^
+src/bcdiceGui.rb:28:1: C: Style/GlobalVars: Do not introduce global variables.
+$debugText = nil
+^^^^^^^^^^
+src/bcdiceGui.rb:32:6: C: Style/GlobalVars: Do not introduce global variables.
+  if $debugText
+     ^^^^^^^^^^
+src/bcdiceGui.rb:33:5: C: Style/GlobalVars: Do not introduce global variables.
+    $debugText.append_text($RUBY18_WIN ? text.tosjis : text)
+    ^^^^^^^^^^
+src/bcdiceGui.rb:33:28: C: Style/GlobalVars: Do not introduce global variables.
+    $debugText.append_text($RUBY18_WIN ? text.tosjis : text)
+                           ^^^^^^^^^^^
+src/bcdiceGui.rb:39:6: C: Style/GlobalVars: Do not introduce global variables.
+  if $debugText
+     ^^^^^^^^^^
+src/bcdiceGui.rb:41:5: C: Style/GlobalVars: Do not introduce global variables.
+    $debugText.append_text($RUBY18_WIN ? text.tosjis : text)
+    ^^^^^^^^^^
+src/bcdiceGui.rb:41:28: C: Style/GlobalVars: Do not introduce global variables.
+    $debugText.append_text($RUBY18_WIN ? text.tosjis : text)
+                           ^^^^^^^^^^^
+src/bcdiceGui.rb:49:28: C: Style/GlobalVars: Do not introduce global variables.
+    @iniFile = IniFile.new($iniFileName)
+                           ^^^^^^^^^^^^
+src/bcdiceGui.rb:57:40: C: Style/GlobalVars: Do not introduce global variables.
+    @serverName = createAddedTextInput($server, "サーバ名")
+                                       ^^^^^^^
+src/bcdiceGui.rb:58:36: C: Style/GlobalVars: Do not introduce global variables.
+    @portNo = createAddedTextInput($port.to_s, "ポート番号")
+                                   ^^^^^
+src/bcdiceGui.rb:59:37: C: Style/GlobalVars: Do not introduce global variables.
+    @channel = createAddedTextInput($defaultLoginChannelsText, "ログインチャンネル")
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+src/bcdiceGui.rb:60:38: C: Style/GlobalVars: Do not introduce global variables.
+    @nickName = createAddedTextInput($nick, "ニックネーム")
+                                     ^^^^^
+src/bcdiceGui.rb:63:47: C: Style/GlobalVars: Do not introduce global variables.
+    @extraCardFileText = createAddedTextInput($extraCardFileName, "拡張カードファイル名")
+                                              ^^^^^^^^^^^^^^^^^^
+src/bcdiceGui.rb:130:38: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+      if /#{SERVER_SERT_PREFIX}(.+)/ === name
+                                     ^^^
+src/bcdiceGui.rb:274:30: C: Style/GlobalVars: Do not introduce global variables.
+    setChoiseText(@gameType, $defaultGameType)
+                             ^^^^^^^^^^^^^^^^
+src/bcdiceGui.rb:290:12: C: Style/GlobalVars: Do not introduce global variables.
+    return $allGameTypes.collect { |i| i.gsub(/_/, ' ') }
+           ^^^^^^^^^^^^^
+src/bcdiceGui.rb:319:63: C: Style/GlobalVars: Do not introduce global variables.
+    found = CHARACTER_CODE_INFO.find { |_key, value| value == $ircCode }
+                                                              ^^^^^^^^
+src/bcdiceGui.rb:329:5: C: Style/GlobalVars: Do not introduce global variables.
+    $ircCode = getSelectedCharacterCode
+    ^^^^^^^^
+src/bcdiceGui.rb:409:5: C: Style/GlobalVars: Do not introduce global variables.
+    $debugText = Wx::TextCtrl.new(self, -1, "",
+    ^^^^^^^^^^
+src/bcdiceGui.rb:412:13: C: Style/GlobalVars: Do not introduce global variables.
+    addCtrl($debugText)
+            ^^^^^^^^^^
+src/bcdiceGui.rb:413:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = true
+    ^^^^^^^^
+src/bcdiceGui.rb:426:5: C: Style/GlobalVars: Do not introduce global variables.
+    $server = @serverName.get_value
+    ^^^^^^^
+src/bcdiceGui.rb:427:5: C: Style/GlobalVars: Do not introduce global variables.
+    $port = @portNo.get_value.to_i
+    ^^^^^
+src/bcdiceGui.rb:428:5: C: Style/GlobalVars: Do not introduce global variables.
+    $defaultLoginChannelsText = @channel.get_value
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+src/bcdiceGui.rb:429:5: C: Style/GlobalVars: Do not introduce global variables.
+    $nick = @nickName.get_value
+    ^^^^^
+src/bcdiceGui.rb:430:5: C: Style/GlobalVars: Do not introduce global variables.
+    $defaultGameType = @gameType.get_string_selection
+    ^^^^^^^^^^^^^^^^
+src/bcdiceGui.rb:431:5: C: Style/GlobalVars: Do not introduce global variables.
+    $ircCode = getSelectedCharacterCode
+    ^^^^^^^^
+src/bcdiceGui.rb:432:5: C: Style/GlobalVars: Do not introduce global variables.
+    $extraCardFileName = @extraCardFileText.get_value
+    ^^^^^^^^^^^^^^^^^^
+src/bcdiceGui.rb:452:7: W: Lint/RescueException: Avoid rescuing the Exception class. Perhaps you meant to rescue StandardError?
+      rescue Exception => e ...
+      ^^^^^^^^^^^^^^^^^^^^^
+src/CardTrader.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+#!/perl/bin/ruby -Ku ...
+^^^^^^^^^^^^^^^^^^^^
+src/CardTrader.rb:6:1: C: Style/GlobalVars: Do not introduce global variables.
+$ircNickRegExp = '[A-Za-z\d\-\[\]\\\'^{}_]+'
+^^^^^^^^^^^^^^
+src/CardTrader.rb:263:24: C: Style/GlobalVars: Do not introduce global variables.
+    when /c-vhand\s*(#{$ircNickRegExp})($|\s)/
+                       ^^^^^^^^^^^^^^
+src/CardTrader.rb:289:67: C: Style/GlobalVars: Do not introduce global variables.
+    when /c-pass(\d)*(\[#{@cardRegExp}(,#{@cardRegExp})*\])?\s*(#{$ircNickRegExp})($|\s)/
+                                                                  ^^^^^^^^^^^^^^
+src/CardTrader.rb:299:37: C: Style/GlobalVars: Do not introduce global variables.
+    when /c-deal(\[[\d]+\]|\s)\s*(#{$ircNickRegExp})($|\s)/
+                                    ^^^^^^^^^^^^^^
+src/CardTrader.rb:304:38: C: Style/GlobalVars: Do not introduce global variables.
+    when /c-vdeal(\[[\d]+\]|\s)\s*(#{$ircNickRegExp})($|\s)/
+                                     ^^^^^^^^^^^^^^
+src/CardTrader.rb:312:68: C: Style/GlobalVars: Do not introduce global variables.
+    when /c-place(\d)*(\[#{@cardRegExp}(,#{@cardRegExp})*\])?\s*(#{$ircNickRegExp})($|\s)/
+                                                                   ^^^^^^^^^^^^^^
+src/CardTrader.rb:319:24: C: Style/GlobalVars: Do not introduce global variables.
+    when /c-spell(\[(#{$ircNickRegExp}[^\]]+?)\])?($|\s)/
+                       ^^^^^^^^^^^^^^
+src/CardTrader.rb:452:20: C: Style/GlobalVars: Do not introduce global variables.
+      if string == $okResult
+                   ^^^^^^^^^
+src/CardTrader.rb:475:14: C: Style/GlobalVars: Do not introduce global variables.
+      return $okResult
+             ^^^^^^^^^
+src/CardTrader.rb:518:22: C: Style/GlobalVars: Do not introduce global variables.
+        if string == $okResult
+                     ^^^^^^^^^
+src/CardTrader.rb:538:14: C: Style/GlobalVars: Do not introduce global variables.
+      return $okResult if string == $okResult
+             ^^^^^^^^^
+src/CardTrader.rb:538:37: C: Style/GlobalVars: Do not introduce global variables.
+      return $okResult if string == $okResult
+                                    ^^^^^^^^^
+src/CardTrader.rb:547:14: C: Style/GlobalVars: Do not introduce global variables.
+      return $okResult
+             ^^^^^^^^^
+src/CardTrader.rb:588:33: C: Style/GlobalVars: Do not introduce global variables.
+        cardText = getCardsText($card_ok)
+                                ^^^^^^^^
+src/CardTrader.rb:608:48: C: Style/GlobalVars: Do not introduce global variables.
+      sendMessage(@channel, "[" + getCardsText($card_ok) + "]") unless @cardTitles.empty?
+                                               ^^^^^^^^
+src/CardTrader.rb:679:18: C: Style/GlobalVars: Do not introduce global variables.
+    if result == $okResult
+                 ^^^^^^^^^
+src/CardTrader.rb:702:18: C: Style/GlobalVars: Do not introduce global variables.
+    if result == $okResult
+                 ^^^^^^^^^
+src/CardTrader.rb:750:20: C: Style/GlobalVars: Do not introduce global variables.
+      if result == $okResult
+                   ^^^^^^^^^
+src/CardTrader.rb:788:14: C: Style/GlobalVars: Do not introduce global variables.
+      return $okResult
+             ^^^^^^^^^
+src/CardTrader.rb:847:58: C: Style/GlobalVars: Do not introduce global variables.
+    if /(c-pass(\d*)(\[(((,)?#{@cardRegExp})*)\])?)\s*(#{$ircNickRegExp})/ =~ command
+                                                         ^^^^^^^^^^^^^^
+src/CardTrader.rb:898:12: C: Style/GlobalVars: Do not introduce global variables.
+      when $ngResult
+           ^^^^^^^^^
+src/CardTrader.rb:900:12: C: Style/GlobalVars: Do not introduce global variables.
+      when $okResult
+           ^^^^^^^^^
+src/CardTrader.rb:954:14: C: Style/GlobalVars: Do not introduce global variables.
+      return $ngResult unless isSuccess
+             ^^^^^^^^^
+src/CardTrader.rb:960:12: C: Style/GlobalVars: Do not introduce global variables.
+    return $okResult
+           ^^^^^^^^^
+src/CardTrader.rb:1053:59: C: Style/GlobalVars: Do not introduce global variables.
+    if /(c-place(\d*)(\[(((,)?#{@cardRegExp})*)\])?)\s*(#{$ircNickRegExp})/ =~ commandText
+                                                          ^^^^^^^^^^^^^^
+src/CardTrader.rb:1094:12: C: Style/GlobalVars: Do not introduce global variables.
+      when $ngResult
+           ^^^^^^^^^
+src/CardTrader.rb:1096:12: C: Style/GlobalVars: Do not introduce global variables.
+      when $okResult
+           ^^^^^^^^^
+src/CardTrader.rb:1196:18: C: Style/GlobalVars: Do not introduce global variables.
+    if result == $okResult
+                 ^^^^^^^^^
+src/CardTrader.rb:1309:27: C: Style/GlobalVars: Do not introduce global variables.
+    if place =~ /^(\d+)(#{$ircNickRegExp})/
+                          ^^^^^^^^^^^^^^
+src/CardTrader.rb:1434:8: C: Style/GlobalVars: Do not introduce global variables.
+    if $isHandSort
+       ^^^^^^^^^^^
+src/cgiDiceBot.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/cgiDiceBot.rb:18:5: C: Style/GlobalVars: Do not introduce global variables.
+    $SEND_STR_MAX = 99999 # 最大送信文字数(本来は500byte上限)
+    ^^^^^^^^^^^^^
+src/cgiDiceBot.rb:172:7: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+if $0 === __FILE__
+      ^^^
+src/configBcDice.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/configBcDice.rb:6:1: C: Style/GlobalVars: Do not introduce global variables.
+$isDebug = false
+^^^^^^^^
+src/configBcDice.rb:8:1: C: Style/GlobalVars: Do not introduce global variables.
+$bcDiceVersion = "2.03.05"
+^^^^^^^^^^^^^^
+src/configBcDice.rb:10:1: C: Style/GlobalVars: Do not introduce global variables.
+$SEND_STR_MAX = 405; # 最大送信文字数(本来は500byte上限)
+^^^^^^^^^^^^^
+src/configBcDice.rb:11:1: C: Style/GlobalVars: Do not introduce global variables.
+$isRollVoidDiceAtAnyRecive = true; # 発言の度に空ダイスを振るか？
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/configBcDice.rb:12:1: C: Style/GlobalVars: Do not introduce global variables.
+$DICE_MAXCNT = 200;              # ダイスが振れる最大個数
+^^^^^^^^^^^^
+src/configBcDice.rb:13:1: C: Style/GlobalVars: Do not introduce global variables.
+$DICE_MAXNUM = 1000;             # ダイスの最大面数
+^^^^^^^^^^^^
+src/configBcDice.rb:14:1: C: Style/GlobalVars: Do not introduce global variables.
+$ircCode = Kconv::UTF8;          # IRCサーバとの通信に使うコードをRuby::Kconv値で指定
+^^^^^^^^
+src/configBcDice.rb:15:1: C: Style/GlobalVars: Do not introduce global variables.
+$isHandSort = true;              # 手札をソートする必要があるか？
+^^^^^^^^^^^
+src/configBcDice.rb:16:1: C: Style/GlobalVars: Do not introduce global variables.
+$quitCommand = 'お疲れ様';           # 終了用のTalkコマンド
+^^^^^^^^^^^^
+src/configBcDice.rb:17:1: C: Style/GlobalVars: Do not introduce global variables.
+$quitMessage = 'さようなら'; # 終了時のメッセージ
+^^^^^^^^^^^^
+src/configBcDice.rb:18:1: C: Style/GlobalVars: Do not introduce global variables.
+$OPEN_DICE = 'Open Dice!';       # シークレットダイスの出目表示コマンド
+^^^^^^^^^^
+src/configBcDice.rb:19:1: C: Style/GlobalVars: Do not introduce global variables.
+$OPEN_PLOT = 'Open Plot!';       # プロットの表示コマンド
+^^^^^^^^^^
+src/configBcDice.rb:20:1: C: Style/GlobalVars: Do not introduce global variables.
+$ADD_PLOT = 'PLOT';              # プロットの入力コマンド
+^^^^^^^^^
+src/configBcDice.rb:21:1: C: Style/GlobalVars: Do not introduce global variables.
+$READY_CMD = '#HERE';            # 自分の居るチャンネルの宣言コマンド
+^^^^^^^^^^
+src/configBcDice.rb:24:1: C: Style/GlobalVars: Do not introduce global variables.
+$server = "irc.trpg.net";           # サーバー
+^^^^^^^
+src/configBcDice.rb:25:1: C: Style/GlobalVars: Do not introduce global variables.
+$port = 6667;                       # ポート番号
+^^^^^
+src/configBcDice.rb:26:1: C: Style/GlobalVars: Do not introduce global variables.
+$defaultLoginChannelsText = "#Dice_Test"; # ボットが最初に参加するチャンネル名
+^^^^^^^^^^^^^^^^^^^^^^^^^
+src/configBcDice.rb:27:1: C: Style/GlobalVars: Do not introduce global variables.
+$nick = "bcDICE"
+^^^^^
+src/configBcDice.rb:28:1: C: Style/GlobalVars: Do not introduce global variables.
+$userName = "v" + $bcDiceVersion # ユーザー名
+^^^^^^^^^
+src/configBcDice.rb:28:19: C: Style/GlobalVars: Do not introduce global variables.
+$userName = "v" + $bcDiceVersion # ユーザー名
+                  ^^^^^^^^^^^^^^
+src/configBcDice.rb:29:1: C: Style/GlobalVars: Do not introduce global variables.
+$ircName = "rubydice";              # IRCネーム
+^^^^^^^^
+src/configBcDice.rb:30:1: C: Style/GlobalVars: Do not introduce global variables.
+$defaultGameType = ""               # デフォルトゲームタイプ
+^^^^^^^^^^^^^^^^
+src/configBcDice.rb:31:1: C: Style/GlobalVars: Do not introduce global variables.
+$extraCardFileName = "" # 拡張カードファイル名
+^^^^^^^^^^^^^^^^^^
+src/configBcDice.rb:33:1: C: Style/GlobalVars: Do not introduce global variables.
+$iniFileName = 'bcdice.ini'
+^^^^^^^^^^^^
+src/configBcDice.rb:35:1: C: Style/GlobalVars: Do not introduce global variables.
+$allGameTypes = %w{
+^^^^^^^^^^^^^
+src/configBcDiceForSystem.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/configBcDiceForSystem.rb:4:1: C: Style/GlobalVars: Do not introduce global variables.
+$okResult = '_OK_'
+^^^^^^^^^
+src/configBcDiceForSystem.rb:5:1: C: Style/GlobalVars: Do not introduce global variables.
+$ngResult = '_NG_'
+^^^^^^^^^
+src/configBcDiceForSystem.rb:7:1: C: Style/GlobalVars: Do not introduce global variables.
+$ircNickMaxLength = 9
+^^^^^^^^^^^^^^^^^
+src/CountHolder.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+#!/bin/ruby -Ku ...
+^^^^^^^^^^^^^^^
+src/CountHolder.rb:72:29: C: Style/GlobalVars: Do not introduce global variables.
+    debug("$point_counter", $point_counter)
+                            ^^^^^^^^^^^^^^
+src/CountHolder.rb:247:15: C: Style/GlobalVars: Do not introduce global variables.
+    pc_list = $point_counter[nick]
+              ^^^^^^^^^^^^^^
+src/CountHolder.rb:252:21: C: Style/GlobalVars: Do not introduce global variables.
+        next unless $point_counter["#{nick},#{pc_o}"]
+                    ^^^^^^^^^^^^^^
+src/CountHolder.rb:257:14: C: Style/GlobalVars: Do not introduce global variables.
+          if $point_counter["#{check_name},#{tag},0"]
+             ^^^^^^^^^^^^^^
+src/CountHolder.rb:258:35: C: Style/GlobalVars: Do not introduce global variables.
+            sort_pc[check_name] = $point_counter["#{check_name},#{tag},0"]
+                                  ^^^^^^^^^^^^^^
+src/CountHolder.rb:260:14: C: Style/GlobalVars: Do not introduce global variables.
+          if $point_counter["#{check_name},#{tag},1"]
+             ^^^^^^^^^^^^^^
+src/CountHolder.rb:261:35: C: Style/GlobalVars: Do not introduce global variables.
+            sort_pc[check_name] = $point_counter["#{check_name},#{tag},1"]
+                                  ^^^^^^^^^^^^^^
+src/CountHolder.rb:264:21: C: Style/GlobalVars: Do not introduce global variables.
+          tag_arr = $point_counter["#{nick},#{pc_o}"]
+                    ^^^^^^^^^^^^^^
+src/CountHolder.rb:267:16: C: Style/GlobalVars: Do not introduce global variables.
+            if $point_counter["#{check_name},0"]
+               ^^^^^^^^^^^^^^
+src/CountHolder.rb:268:38: C: Style/GlobalVars: Do not introduce global variables.
+              tag_out += "$tag_o(" + $point_counter["#{check_name},0"] + ") "
+                                     ^^^^^^^^^^^^^^
+src/CountHolder.rb:270:16: C: Style/GlobalVars: Do not introduce global variables.
+            if $point_counter["#{check_name},1"]
+               ^^^^^^^^^^^^^^
+src/CountHolder.rb:271:40: C: Style/GlobalVars: Do not introduce global variables.
+              tag_out += "#{tag_o}[" + $point_counter["#{check_name},1"] + "] "
+                                       ^^^^^^^^^^^^^^
+src/CountHolder.rb:288:14: C: Style/GlobalVars: Do not introduce global variables.
+          if $pc_name[1]
+             ^^^^^^^^
+src/CountHolder.rb:289:16: C: Style/GlobalVars: Do not introduce global variables.
+            if $point_counter["#{pc_o},#{tag},0"]
+               ^^^^^^^^^^^^^^
+src/CountHolder.rb:290:51: C: Style/GlobalVars: Do not introduce global variables.
+              out_pc += "#{pc_name[1].upcase}(" + $point_counter["#{pc_o},#{tag},0"] + ")"
+                                                  ^^^^^^^^^^^^^^
+src/CountHolder.rb:292:16: C: Style/GlobalVars: Do not introduce global variables.
+            if $point_counter["#{pc_o},#{tag},1"]
+               ^^^^^^^^^^^^^^
+src/CountHolder.rb:293:51: C: Style/GlobalVars: Do not introduce global variables.
+              out_pc += "#{pc_name[1].upcase}[" + $point_counter["#{pc_o},#{tag},1"] + "]"
+                                                  ^^^^^^^^^^^^^^
+src/CountHolder.rb:296:16: C: Style/GlobalVars: Do not introduce global variables.
+            if $point_counter["#{pc_o},#{tag},0"]
+               ^^^^^^^^^^^^^^
+src/CountHolder.rb:297:51: C: Style/GlobalVars: Do not introduce global variables.
+              out_pc += "#{pc_name[0].upcase}(" + $point_counter["#{pc_o},#{tag},0"] + ")"
+                                                  ^^^^^^^^^^^^^^
+src/CountHolder.rb:299:16: C: Style/GlobalVars: Do not introduce global variables.
+            if $point_counter["#{pc_o},#{tag},1"]
+               ^^^^^^^^^^^^^^
+src/CountHolder.rb:300:51: C: Style/GlobalVars: Do not introduce global variables.
+              out_pc += "#{pc_name[0].upcase}[" + $point_counter["#{pc_o},#{tag},1"] + "]"
+                                                  ^^^^^^^^^^^^^^
+src/CountHolder.rb:307:7: C: Style/IfInsideElse: Convert if nested inside else to elsif.
+      if $point_counter["$nick,"]
+      ^^
+src/CountHolder.rb:307:10: C: Style/GlobalVars: Do not introduce global variables.
+      if $point_counter["$nick,"]
+         ^^^^^^^^^^^^^^
+src/CountHolder.rb:308:19: C: Style/GlobalVars: Do not introduce global variables.
+        tag_arr = $point_counter["$nick,"]
+                  ^^^^^^^^^^^^^^
+src/CountHolder.rb:312:14: C: Style/GlobalVars: Do not introduce global variables.
+          if $point_counter["#{check_name},0"]
+             ^^^^^^^^^^^^^^
+src/CountHolder.rb:313:38: C: Style/GlobalVars: Do not introduce global variables.
+            tag_out += "#{tag_o}(" + $point_counter["#{check_name},0"] + ") "
+                                     ^^^^^^^^^^^^^^
+src/CountHolder.rb:315:14: C: Style/GlobalVars: Do not introduce global variables.
+          if $point_counter["#{check_name},1"]
+             ^^^^^^^^^^^^^^
+src/CountHolder.rb:316:38: C: Style/GlobalVars: Do not introduce global variables.
+            tag_out += "#{tag_o}[" + $point_counter["#{check_name},1"] + "] "
+                                     ^^^^^^^^^^^^^^
+src/CountHolder.rb:404:12: C: Style/GlobalVars: Do not introduce global variables.
+    unless $point_counter.include?(key)
+           ^^^^^^^^^^^^^^
+src/CountHolder.rb:406:7: C: Style/GlobalVars: Do not introduce global variables.
+      $point_counter[key] = data
+      ^^^^^^^^^^^^^^
+src/CountHolder.rb:412:16: C: Style/GlobalVars: Do not introduce global variables.
+    cnt_list = $point_counter[key]
+               ^^^^^^^^^^^^^^
+src/createExe.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+#!/bin/ruby -Ku ...
+^^^^^^^^^^^^^^^
+src/dice/AddDice.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/dice/AddDice.rb:161:43: C: Style/GlobalVars: Do not introduce global variables.
+        return emptyResult if  dice_max > $DICE_MAXNUM
+                                          ^^^^^^^^^^^^
+src/dice/RerollDice.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/dice/RerollDice.rb:86:24: C: Style/GlobalVars: Do not introduce global variables.
+    if output.length > $SEND_STR_MAX # 長すぎたときの救済
+                       ^^^^^^^^^^^^^
+src/dice/UpperDice.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/dice/UpperDice.rb:74:24: C: Style/GlobalVars: Do not introduce global variables.
+    if output.length > $SEND_STR_MAX
+                       ^^^^^^^^^^^^^
+src/diceBot/AceKillerGene.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/AFF2e.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Airgetlamh.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Airgetlamh.rb:54:64: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /(\d+)?A(A|L)(\d+)?((x|\*)(\d+)(\+(\d+))?)?(C(\d+))?$/i === command
+                                                               ^^^
+src/diceBot/Alsetto.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Alsetto.rb:49:46: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /(\d+)AL(C|G)?(\d+)?((x|\*)(\d+))?$/i === command
+                                             ^^^
+src/diceBot/Alsetto.rb:55:9: C: Style/IfInsideElse: Convert if nested inside else to elsif.
+        if Regexp.last_match(2) == "G"
+        ^^
+src/diceBot/Alshard.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Alter_raise.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Amadeus.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Amadeus_Korean.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Arianrhod.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ArsMagica.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ArsMagica.rb:153:26: C: Style/GlobalVars: Do not introduce global variables.
+        output += "#{die $bonus} ＞ #{total}"
+                         ^^^^^^
+src/diceBot/Avandner.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Avandner.rb:45:58: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /(\d+)AV(\d+)((x|\*)(\d+))?(\+(\d+))?(C(\d+))?$/i === command
+                                                         ^^^
+src/diceBot/BadLife.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/BarnaKronika.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/BattleTech.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/BattleTech.rb:50:21: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /^(\d+)(.+)/ === command
+                    ^^^
+src/diceBot/BattleTech.rb:122:35: C: Style/GlobalVars: Do not introduce global variables.
+    if  totalResultText.length >= $SEND_STR_MAX
+                                  ^^^^^^^^^^^^^
+src/diceBot/BeastBindTrinity.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/BeginningIdol.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/BeginningIdol.rb:2257:55: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return text, skill unless /チャンスが(\d{1,2})以下ならオフ。/ === text
+                                                      ^^^
+src/diceBot/BeginningIdol_Korean.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/BeginningIdol_Korean.rb:2107:55: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return text, skill unless /チャンスが(\d{1,2})以下なら오프。/ === text
+                                                      ^^^
+src/diceBot/BladeOfArcana.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/BlindMythos.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/BlindMythos.rb:255:35: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^RP(\d+)/i === command
+                                  ^^^
+src/diceBot/BloodCrusade.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/BloodMoon.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/CardRanker.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ChaosFlare.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Chill.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Chill3.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/CodeLayerd.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ColossalHunter.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ColossalHunter.rb:46:63: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /(\d+)?CH([\+\-\d]*)(>=([\+\-\d]*))?$/i === command
+                                                              ^^^
+src/diceBot/ColossalHunter.rb:106:31: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^B6T$/ === command
+                              ^^^
+src/diceBot/ColossalHunter.rb:203:31: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^CNP$/ === command
+                              ^^^
+src/diceBot/CrashWorld.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Cthulhu.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Cthulhu.rb:152:11: C: Style/IfInsideElse: Convert if nested inside else to elsif.
+          if total_n <= diff_special
+          ^^
+src/diceBot/Cthulhu7th.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Cthulhu7th.rb:180:28: C: Style/IfInsideElse: Convert if nested inside else to elsif.
+        return fumble_text if fumbleable
+                           ^^
+src/diceBot/Cthulhu7th_ChineseTraditional.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Cthulhu7th_ChineseTraditional.rb:130:28: C: Style/IfInsideElse: Convert if nested inside else to elsif.
+        return fumble_text if fumbleable
+                           ^^
+src/diceBot/Cthulhu7th_Korean.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Cthulhu7th_Korean.rb:127:28: C: Style/IfInsideElse: Convert if nested inside else to elsif.
+        return fumble_text if fumbleable
+                           ^^
+src/diceBot/CthulhuTech.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Cthulhu_ChineseTraditional.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Cthulhu_ChineseTraditional.rb:155:11: C: Style/IfInsideElse: Convert if nested inside else to elsif.
+          if total_n <= diff_special
+          ^^
+src/diceBot/Cthulhu_Korean.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Cthulhu_Korean.rb:153:11: C: Style/IfInsideElse: Convert if nested inside else to elsif.
+          if total_n <= diff_special
+          ^^
+src/diceBot/DarkBlaze.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/DarkDaysDrive.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/DarkDaysDrive.rb:131:47: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+      if item.is_a?(String) && (/^(\d+):(.*)/ === item)
+                                              ^^^
+src/diceBot/DarkSouls.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/DeadlineHeroes.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/DemonParasite.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/DetatokoSaga.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/DetatokoSaga_Korean.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/DiceBot.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/DiceBot.rb:64:3: C: Style/ClassVars: Replace class var @@bcdice with a class instance var.
+  @@bcdice = nil
+  ^^^^^^^^
+src/diceBot/DiceBot.rb:180:5: C: Style/ClassVars: Replace class var @@bcdice with a class instance var.
+    @@bcdice = b
+    ^^^^^^^^
+src/diceBot/DiceBot.rb:499:34: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+      /^get.+DiceCommandResult$/ === method.to_s
+                                 ^^^
+src/diceBot/DiceBot.rb:569:47: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+      if item.is_a?(String) && (/^(\d+):(.*)/ === item)
+                                              ^^^
+src/diceBot/DiceBotLoader.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/DiceBotLoader.rb:38:22: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    BOT_NAME_PATTERN === gameType &&
+                     ^^^
+src/diceBot/DiceBotLoader.rb:94:43: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+      select { |botName| BOT_NAME_PATTERN === botName }
+                                          ^^^
+src/diceBot/DiceBotLoader.rb:227:25: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+      @gameTitlePattern === gameTitle
+                        ^^^
+src/diceBot/DiceBotLoaderList.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/DiceOfTheDead.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/DoubleCross.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/DoubleCross.rb:174:32: C: Style/GlobalVars: Do not introduce global variables.
+      return long_str.length > $SEND_STR_MAX ? to_s_short : long_str
+                               ^^^^^^^^^^^^^
+src/diceBot/Dracurouge.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Dracurouge.rb:58:45: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^DR(\d*)(\+(\d+))?$/ === command
+                                            ^^^
+src/diceBot/Dracurouge.rb:119:36: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^DRR(\d+)$/ === command
+                                   ^^^
+src/diceBot/Dracurouge.rb:131:46: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^RT((\w\d*)(\w\d*))?/ === command
+                                             ^^^
+src/diceBot/Dracurouge.rb:142:47: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^HRT((\w\d*)(\w\d*))?/ === command
+                                              ^^^
+src/diceBot/Dracurouge.rb:1253:35: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^CT(\d+)$/ === command
+                                  ^^^
+src/diceBot/Dracurouge.rb:1302:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^ST$/ === command
+                             ^^^
+src/diceBot/Dracurouge.rb:1310:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^PN$/ === command
+                             ^^^
+src/diceBot/Dracurouge.rb:1328:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^CO$/ === command
+                             ^^^
+src/diceBot/Dracurouge.rb:1338:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^CA$/ === command
+                             ^^^
+src/diceBot/Dracurouge.rb:1348:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^EP$/ === command
+                             ^^^
+src/diceBot/Dracurouge.rb:1358:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^OS$/ === command
+                             ^^^
+src/diceBot/Dracurouge.rb:1368:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^RS$/ === command
+                             ^^^
+src/diceBot/Dracurouge.rb:1378:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^PP$/ === command
+                             ^^^
+src/diceBot/Dracurouge_Korean.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Dracurouge_Korean.rb:60:45: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^DR(\d*)(\+(\d+))?$/ === command
+                                            ^^^
+src/diceBot/Dracurouge_Korean.rb:121:36: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^DRR(\d+)$/ === command
+                                   ^^^
+src/diceBot/Dracurouge_Korean.rb:132:40: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^RT((\w)(\w))?/ === command.upcase
+                                       ^^^
+src/diceBot/Dracurouge_Korean.rb:227:35: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^CT(\d+)$/ === command.upcase
+                                  ^^^
+src/diceBot/DungeonsAndDragons.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/EarthDawn.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/EarthDawn3.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/EarthDawn4.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/EclipsePhase.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Elric.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Elysion.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/EmbryoMachine.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/EndBreaker.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/EndBreaker.rb:32:19: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /(\d+)EB/i === command
+                  ^^^
+src/diceBot/EtrianOdysseySRS.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/FilledWith.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/FilledWith.rb:114:53: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /(\d[\+\-\d]*)-(\d+)FW(\@(\d+))?(\#(\d+))?/i === command
+                                                    ^^^
+src/diceBot/FilledWith.rb:119:58: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    elsif /(\d+)FW(\@(\d+))?(\#(\d+))?(<=([\+\-\d]*))?/i === command
+                                                         ^^^
+src/diceBot/FilledWith.rb:429:45: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /TRS(\d+)([\+\-]\d)?/ === command
+                                            ^^^
+src/diceBot/FilledWith.rb:562:39: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /TRAP(E|N|H|L)/ === command
+                                      ^^^
+src/diceBot/FilledWith.rb:614:38: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /ROP(E|N|H|L)/ === command
+                                     ^^^
+src/diceBot/FilledWith.rb:692:32: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /RAND(E|N|H|L)([1-6])?/ === command
+                               ^^^
+src/diceBot/FilledWith.rb:697:35: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    elsif /RENC(E|N|H|L)([1-6])?/ === command
+                                  ^^^
+src/diceBot/FilledWith.rb:1199:44: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /RED(E|N|H|L)(256|265|465|665|666)/ === command
+                                           ^^^
+src/diceBot/FilledWith.rb:1204:41: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    elsif /RED(E|N|H|L)([1-6])4([1-6])/ === command
+                                        ^^^
+src/diceBot/FullMetalPanic.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/FutariSousa.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/FutariSousa.rb:253:29: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return command if /^\s/ === command
+                            ^^^
+src/diceBot/Garako.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/GardenOrder.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/GehennaAn.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/GeishaGirlwithKatana.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/GoldenSkyStories.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Gorilla.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/GranCrest.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Gundog.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/GundogRevised.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/GundogZero.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Gurps.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Gurps.rb:102:57: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /([\d\+\-]+)\-3[dD]6?([\d\+\-]*)/ === command
+                                                        ^^^
+src/diceBot/Gurps.rb:119:38: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /\w*(FMB|CRT)/ === command
+                                     ^^^
+src/diceBot/Gurps.rb:279:41: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /FEAR((\+)?\d+)?/ === command
+                                        ^^^
+src/diceBot/Gurps.rb:337:44: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /REACT((\+|\-)?\d*)/ === command
+                                           ^^^
+src/diceBot/Gurps.rb:367:29: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless "HIT" === command
+                            ^^^
+src/diceBot/GurpsFW.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/GurpsFW.rb:472:9: C: Style/IfInsideElse: Convert if nested inside else to elsif.
+        if mode == "N"
+        ^^
+src/diceBot/HarnMaster.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/HarnMaster.rb:105:18: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    unless /^\*/ === part
+                 ^^^
+src/diceBot/HarnMaster.rb:120:18: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    unless /\+$/ === part
+                 ^^^
+src/diceBot/HatsuneMiku.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/HatsuneMiku.rb:79:43: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    diceCount = skillRank.to_i if /^\d+$/ === skillRank
+                                          ^^^
+src/diceBot/HatsuneMiku.rb:172:47: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+      if item.is_a?(String) && (/^(\d+):(.*)/ === item)
+                                              ^^^
+src/diceBot/Hieizan.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/HouraiGakuen.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/HouraiGakuen.rb:97:21: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return diceList === [6, 6, 6]
+                    ^^^
+src/diceBot/HouraiGakuen.rb:101:21: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return diceList === [1, 2, 3]
+                    ^^^
+src/diceBot/HuntersMoon.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Illusio.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Illusio.rb:39:73: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /(\d+)?IL([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?(P)?$/i === command
+                                                                        ^^^
+src/diceBot/InfiniteFantasia.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Insane.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Insane_Korean.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/IthaWenUa.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/JamesBond.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Kamigakari.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Kamigakari.rb:175:14: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /\+n/ === result
+             ^^^
+src/diceBot/Kamigakari.rb:208:15: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /\*\*/ === result
+              ^^^
+src/diceBot/Kamigakari_Korean.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Kamigakari_Korean.rb:343:14: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /\+n/ === result
+             ^^^
+src/diceBot/Kamigakari_Korean.rb:376:15: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /\*\*/ === result
+              ^^^
+src/diceBot/KanColle.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/KemonoNoMori.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/KillDeathBusiness.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/KillDeathBusiness.rb:83:27: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    unless JUDGE_DICE_REG === command
+                          ^^^
+src/diceBot/KillDeathBusiness_Korean.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/KillDeathBusiness_Korean.rb:126:27: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    unless JUDGE_DICE_REG === command
+                          ^^^
+src/diceBot/KurayamiCrying.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/LiveraDoll.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/LogHorizon.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/LogHorizon.rb:74:61: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /(\d+)LH([\+\-\d]*)(>=([\+\-\d]*))?/i === command
+                                                            ^^^
+src/diceBot/LogHorizon.rb:138:70: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command
+                                                                     ^^^
+src/diceBot/LogHorizon.rb:1388:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless "PTAG" === command
+                             ^^^
+src/diceBot/LogHorizon.rb:1443:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless "KOYU" === command
+                             ^^^
+src/diceBot/LogHorizon.rb:1498:36: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /MGR([1-3])/ === command
+                                   ^^^
+src/diceBot/LogHorizon.rb:1657:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless "HLOC" === command
+                             ^^^
+src/diceBot/LogHorizon.rb:1709:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless "PCNM" === command
+                             ^^^
+src/diceBot/LogHorizon.rb:1763:40: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /IAT([ABMDLT]*)/ === command
+                                       ^^^
+src/diceBot/LogHorizon.rb:1821:31: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless command === "TIAS"
+                              ^^^
+src/diceBot/LogHorizon.rb:1872:31: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless command === "ABDC"
+                              ^^^
+src/diceBot/LogHorizon.rb:1939:34: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /MII(\d?)/ === command
+                                 ^^^
+src/diceBot/LogHorizon_Korean.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/LogHorizon_Korean.rb:73:61: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /(\d+)LH([\+\-\d]*)(>=([\+\-\d]*))?/i === command
+                                                            ^^^
+src/diceBot/LogHorizon_Korean.rb:137:70: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command
+                                                                     ^^^
+src/diceBot/LogHorizon_Korean.rb:743:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless "PTAG" === command
+                             ^^^
+src/diceBot/LogHorizon_Korean.rb:798:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless "KOYU" === command
+                             ^^^
+src/diceBot/LogHorizon_Korean.rb:853:36: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /MGR([1-3])/ === command
+                                   ^^^
+src/diceBot/LogHorizon_Korean.rb:1012:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless "HLOC" === command
+                             ^^^
+src/diceBot/LogHorizon_Korean.rb:1064:30: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless "PCNM" === command
+                             ^^^
+src/diceBot/LogHorizon_Korean.rb:1118:40: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /IAT([ABMDLT]*)/ === command
+                                       ^^^
+src/diceBot/LogHorizon_Korean.rb:1176:31: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless command === "TIAS"
+                              ^^^
+src/diceBot/LogHorizon_Korean.rb:1227:31: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless command === "ABDC"
+                              ^^^
+src/diceBot/LogHorizon_Korean.rb:1294:34: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /MII(\d?)/ === command
+                                 ^^^
+src/diceBot/LostRecord.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/LostRoyal.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/MagicaLogia.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/MeikyuDays.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/MeikyuKingdom.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/MeikyuKingdomBasic.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/MetalHead.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/MetalHeadExtream.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/MetallicGuadian.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/MonotoneMuseum.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/MonotoneMuseum_Korean.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Nechronica.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Nechronica_Korean.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/NightmareHunterDeep.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/NightWizard.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/NightWizard3rd.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/NinjaSlayer.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/NjslyrBattle.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Nuekagami.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/OneWayHeroics.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/OneWayHeroics.rb:85:59: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^(\d*)JD(\d*)(\+(\d*))?(,(\d+))?$/ === command
+                                                          ^^^
+src/diceBot/OneWayHeroics.rb:168:29: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return command if /^\s/ === command
+                            ^^^
+src/diceBot/OneWayHeroics.rb:204:36: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^RET(\d+)$/ === command
+                                   ^^^
+src/diceBot/OneWayHeroics.rb:227:37: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^RETP(\d+)$/ === command
+                                    ^^^
+src/diceBot/OneWayHeroics.rb:254:37: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^DNGN(\d+)$/ === command
+                                    ^^^
+src/diceBot/OneWayHeroics.rb:282:38: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^DNGNP(\d+)$/ === command
+                                     ^^^
+src/diceBot/OrgaRain.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/OrgaRain.rb:37:69: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /(\d+)?OR([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?$/i === command
+                                                                    ^^^
+src/diceBot/Oukahoushin3rd.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Paradiso.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Paranoia.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ParasiteBlood.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Pathfinder.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Peekaboo.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Pendragon.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/PhantasmAdventure.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Postman.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/PulpCthulhu.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Raisondetre.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Raisondetre.rb:46:40: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /(-)?(\d+)?RD(\d+)?(@(\d+))?$/i === command
+                                       ^^^
+src/diceBot/Raisondetre.rb:54:48: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    elsif /(-)?(\d+)?DD([1-9])?([\+\-]\d+)?$/i === command
+                                               ^^^
+src/diceBot/RecordOfSteam.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/RecordOfSteam.rb:54:24: C: Style/GlobalVars: Do not introduce global variables.
+    if output.length > $SEND_STR_MAX
+                       ^^^^^^^^^^^^^
+src/diceBot/RokumonSekai2.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/RoleMaster.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/RuneQuest.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Ryutama.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Ryutama.rb:33:53: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    unless /^R(\d+)(,(\d+))?([\+\-\d]+)?(>=(\d+))?/ === command
+                                                    ^^^
+src/diceBot/Satasupe.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Satasupe.rb:241:67: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return result unless /([A-Za-z]+)(\d+)?(([+]|[-]|[=])(\d+))?/ === command
+                                                                  ^^^
+src/diceBot/ScreamHighSchool.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/SevenFortressMobius.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ShadowRun.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ShadowRun4.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ShadowRun5.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/SharedFantasia.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/SharedFantasia.rb:61:9: C: Style/IfInsideElse: Convert if nested inside else to elsif.
+        if critical
+        ^^
+src/diceBot/ShinkuuGakuen.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ShinkuuGakuen.rb:42:67: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    unless /(^|\s)(S)?(#{prefixesRegText})([\d\+\-]*)(>=(\d+))?/i === command
+                                                                  ^^^
+src/diceBot/ShinMegamiTenseiKakuseihen.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ShinobiGami.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ShoujoTenrankai.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Skynauts.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Skynauts.rb:249:29: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return text unless /成功/ === text
+                            ^^^
+src/diceBot/Skynauts.rb:271:29: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return text unless /成功/ === text
+                            ^^^
+src/diceBot/Skynauts.rb:306:47: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+        next unless /[^\d]*(\d+),[^\d]*(\d+)/ === point
+                                              ^^^
+src/diceBot/SRS.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/StellarKnights.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/SterileLife.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/StrangerOfSwordCity.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/StrangerOfSwordCity.rb:50:62: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return result unless /^(\d+)SR([\+\-]?\d+)?(>=(\d+))?$/i === command
+                                                             ^^^
+src/diceBot/StratoShout.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Strave.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/SwordWorld.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/SwordWorld.rb:171:19: C: Style/GlobalVars: Do not introduce global variables.
+    limitLength = $SEND_STR_MAX - output.length
+                  ^^^^^^^^^^^^^
+src/diceBot/SwordWorld2_0.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/SwordWorld2_0.rb:95:15: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if regexp === string
+              ^^^
+src/diceBot/SwordWorld2_0.rb:132:15: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if regexp === string
+              ^^^
+src/diceBot/SwordWorld2_0.rb:167:17: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    if /@(\d+)/ === string
+                ^^^
+src/diceBot/SwordWorld2_5.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/TherapieSein.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/TokumeiTenkousei.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/TokyoGhostResearch.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/TokyoNova.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Torg.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Torg1_5.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/TrinitySeven.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/TunnelsAndTrolls.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/TwilightGunsmoke.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Utakaze.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Villaciel.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/WaresBlade.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/Warhammer.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/WARPS.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/WitchQuest.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/WorldOfDarkness.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/YankeeYogSothoth.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/YankeeYogSothoth.rb:217:47: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+      if item.is_a?(String) && (/^(\d+):(.*)/ === item)
+                                              ^^^
+src/diceBot/YearZeroEngine.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ZettaiReido.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/ZettaiReido.rb:25:59: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    return nil unless /^(\d+)-2DR([\+\-\d]*)(>=(\d+))?$/i === command
+                                                          ^^^
+src/diceBot/_InsaneScp.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/diceBot/_Template.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/IniFile.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/irc/encode.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/irc/encode.rb:77:5: C: Style/AccessModifierDeclarations: private should not be inlined in method definitions.
+    private :get_kconv_encoding
+    ^^^^^^^
+src/irc/ircBot.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+#!ruby -Ku ...
+^^^^^^^^^^
+src/irc/ircBot.rb:15:25: C: Style/GlobalVars: Do not introduce global variables.
+    @loginChannelList = $defaultLoginChannelsText.split(',')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^
+src/irc/ircBot.rb:46:27: C: Style/GlobalVars: Do not introduce global variables.
+    channelNames = encode($ircCode, channelNames)
+                          ^^^^^^^^
+src/irc/ircBot.rb:57:23: C: Style/GlobalVars: Do not introduce global variables.
+    post(JOIN, encode($ircCode, @room))
+                      ^^^^^^^^
+src/irc/ircBot.rb:84:19: C: Style/GlobalVars: Do not introduce global variables.
+      mode(encode($ircCode, channel), "+o", nick_e); # matches hostmask.
+                  ^^^^^^^^
+src/irc/ircBot.rb:95:17: C: Style/GlobalVars: Do not introduce global variables.
+    join(encode($ircCode, channel))
+                ^^^^^^^^
+src/irc/ircBot.rb:96:18: C: Style/GlobalVars: Do not introduce global variables.
+    topic(encode($ircCode, channel))
+                 ^^^^^^^^
+src/irc/ircBot.rb:208:29: C: Style/GlobalVars: Do not introduce global variables.
+    diff = newNick.length - $ircNickMaxLength
+                            ^^^^^^^^^^^^^^^^^
+src/irc/ircBot.rb:233:23: C: Style/GlobalVars: Do not introduce global variables.
+    post(QUIT, encode($ircCode, $quitMessage))
+                      ^^^^^^^^
+src/irc/ircBot.rb:233:33: C: Style/GlobalVars: Do not introduce global variables.
+    post(QUIT, encode($ircCode, $quitMessage))
+                                ^^^^^^^^^^^^
+src/irc/ircBot.rb:267:17: C: Style/GlobalVars: Do not introduce global variables.
+    to = encode($ircCode, to)
+                ^^^^^^^^
+src/irc/ircBot.rb:268:29: C: Style/GlobalVars: Do not introduce global variables.
+    encodedMessage = encode($ircCode, message)
+                            ^^^^^^^^
+src/irc/ircBot.rb:278:26: C: Style/GlobalVars: Do not introduce global variables.
+    if message.length <= $SEND_STR_MAX
+                         ^^^^^^^^^^^^^
+src/irc/ircBot.rb:288:27: C: Style/GlobalVars: Do not introduce global variables.
+      if result.length > ($SEND_STR_MAX * index)
+                          ^^^^^^^^^^^^^
+src/irc/ircBot.rb:298:29: C: Style/GlobalVars: Do not introduce global variables.
+    post(NOTICE, to, encode($ircCode, message))
+                            ^^^^^^^^
+src/irc/ircBot.rb:302:30: C: Style/GlobalVars: Do not introduce global variables.
+    post(PRIVMSG, to, encode($ircCode, message))
+                             ^^^^^^^^
+src/irc/ircBot.rb:307:26: C: Style/GlobalVars: Do not introduce global variables.
+  ircBot = IrcClient.new($server, $port, {
+                         ^^^^^^^
+src/irc/ircBot.rb:307:35: C: Style/GlobalVars: Do not introduce global variables.
+  ircBot = IrcClient.new($server, $port, {
+                                  ^^^^^
+src/irc/ircBot.rb:308:37: C: Style/GlobalVars: Do not introduce global variables.
+                           :nick => $nick, :user => $userName, :real => $ircName
+                                    ^^^^^
+src/irc/ircBot.rb:308:53: C: Style/GlobalVars: Do not introduce global variables.
+                           :nick => $nick, :user => $userName, :real => $ircName
+                                                    ^^^^^^^^^
+src/irc/ircBot.rb:308:73: C: Style/GlobalVars: Do not introduce global variables.
+                           :nick => $nick, :user => $userName, :real => $ircName
+                                                                        ^^^^^^^^
+src/irc/ircBot.rb:310:55: C: Style/GlobalVars: Do not introduce global variables.
+  debug("$server, $port, $nick, $userName, $ircName", $server, $port, $nick, $userName, $ircName)
+                                                      ^^^^^^^
+src/irc/ircBot.rb:310:64: C: Style/GlobalVars: Do not introduce global variables.
+  debug("$server, $port, $nick, $userName, $ircName", $server, $port, $nick, $userName, $ircName)
+                                                               ^^^^^
+src/irc/ircBot.rb:310:71: C: Style/GlobalVars: Do not introduce global variables.
+  debug("$server, $port, $nick, $userName, $ircName", $server, $port, $nick, $userName, $ircName)
+                                                                      ^^^^^
+src/irc/ircBot.rb:310:78: C: Style/GlobalVars: Do not introduce global variables.
+  debug("$server, $port, $nick, $userName, $ircName", $server, $port, $nick, $userName, $ircName)
+                                                                             ^^^^^^^^^
+src/irc/ircBot.rb:310:89: C: Style/GlobalVars: Do not introduce global variables.
+  debug("$server, $port, $nick, $userName, $ircName", $server, $port, $nick, $userName, $ircName)
+                                                                                        ^^^^^^^^
+src/irc/ircBot.rb:312:10: C: Style/GlobalVars: Do not introduce global variables.
+  room = $defaultLoginChannelsText.split(',').first
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+src/irc/ircBot.rb:315:25: C: Style/GlobalVars: Do not introduce global variables.
+  ircBot.setGameByTitle($defaultGameType)
+                        ^^^^^^^^^^^^^^^^
+src/irc/ircBot.rb:317:10: C: Style/GlobalVars: Do not introduce global variables.
+  unless $extraCardFileName.empty?
+         ^^^^^^^^^^^^^^^^^^
+src/irc/ircBot.rb:318:26: C: Style/GlobalVars: Do not introduce global variables.
+    ircBot.readExtraCard($extraCardFileName)
+                         ^^^^^^^^^^^^^^^^^^
+src/irc/ircLib.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+#!ruby -Ks ...
+^^^^^^^^^^
+src/irc/ircLib.rb:26:9: W: Lint/RescueException: Avoid rescuing the Exception class. Perhaps you meant to rescue StandardError?
+        rescue Exception => e ...
+        ^^^^^^^^^^^^^^^^^^^^^
+src/irc/ircLib.rb:45:21: W: Lint/AssignmentInCondition: Use == if you meant to do a comparison or wrap the expression in parentheses to indicate you meant to assign in a condition.
+            while l = @socket.gets
+                    ^
+src/irc/ircLib.rb:48:37: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+              next if on_message(m) === true
+                                    ^^^
+src/irc/ircLib.rb:56:11: W: Lint/RescueException: Avoid rescuing the Exception class. Perhaps you meant to rescue StandardError?
+          rescue Exception => e ...
+          ^^^^^^^^^^^^^^^^^^^^^
+src/irc/ircLib.rb:63:7: W: Lint/HandleExceptions: Do not suppress exceptions.
+      rescue IOError
+      ^^^^^^^^^^^^^^
+src/irc/torgtaitaiIRC.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/log.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/log.rb:5:9: C: Style/GlobalVars: Do not introduce global variables.
+  print($RUBY18_WIN ? text.tosjis : text)
+        ^^^^^^^^^^^
+src/log.rb:11:8: C: Style/GlobalVars: Do not introduce global variables.
+  puts($RUBY18_WIN ? line.tosjis : line)
+       ^^^^^^^^^^^
+src/log.rb:18:17: C: Style/GlobalVars: Do not introduce global variables.
+  return unless $isDebug
+                ^^^^^^^^
+src/TableFileData.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/TableFileData.rb:147:50: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    unless /^[\s　]*([^:：]+)[\s　]*[:：][\s　]*(.+)/ === line
+                                                 ^^^
+src/TableFileData.rb:168:29: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+      next unless /.*_(.+)/ === fileName
+                            ^^^
+src/TableFileData.rb:172:42: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+      next unless /^(s|S)?#{key}(\s|$)/i === arg
+                                         ^^^
+src/TableFileData.rb:299:29: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+    unless  /^[a-zA-Z\d]+$/ === command
+                            ^^^
+src/test/data/test.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+load(File.expand_path('../../test.rb', File.dirname(__FILE__))) ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/test/DiceBotTest.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/DiceBotTest.rb:23:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = !@dataIndex.nil?
+    ^^^^^^^^
+src/test/DiceBotTest.rb:45:18: C: Style/GlobalVars: Do not introduce global variables.
+      errorLog = $RUBY18_WIN ? @errorLog.map(&:tosjis) : @errorLog
+                 ^^^^^^^^^^^
+src/test/DiceBotTest.rb:67:20: C: Style/CaseEquality: Avoid the use of the case equality operator ===.
+      next if /^_/ === File.basename(filename)
+                   ^^^
+src/test/DiceBotTest.rb:105:3: C: Style/AccessModifierDeclarations: private should not be inlined in method definitions.
+  private :readTestDataSet
+  ^^^^^^^
+src/test/DiceBotTest.rb:170:3: C: Style/AccessModifierDeclarations: private should not be inlined in method definitions.
+  private :logTextForUnexpected
+  ^^^^^^^
+src/test/DiceBotTest.rb:189:3: C: Style/AccessModifierDeclarations: private should not be inlined in method definitions.
+  private :logTextForException
+  ^^^^^^^
+src/test/DiceBotTest.rb:204:3: C: Style/AccessModifierDeclarations: private should not be inlined in method definitions.
+  private :indent
+  ^^^^^^^
+src/test/DiceBotTestData.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/others/testArgs.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/others/testArgs.rb:12:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = false
+    ^^^^^^^^
+src/test/others/testArgs.rb:16:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = true
+    ^^^^^^^^
+src/test/others/testArgs.rb:23:18: C: Style/GlobalVars: Do not introduce global variables.
+    assert_equal($server, 'irc.trpg.net')
+                 ^^^^^^^
+src/test/others/testArgs.rb:24:18: C: Style/GlobalVars: Do not introduce global variables.
+    assert_equal($port, '6667')
+                 ^^^^^
+src/test/others/testArgs.rb:25:18: C: Style/GlobalVars: Do not introduce global variables.
+    assert_equal($defaultLoginChannelsText, '#OnlineTRPG')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+src/test/others/testArgs.rb:26:18: C: Style/GlobalVars: Do not introduce global variables.
+    assert_equal($defaultGameType, 'Cthulhu')
+                 ^^^^^^^^^^^^^^^^
+src/test/others/testArgs.rb:27:18: C: Style/GlobalVars: Do not introduce global variables.
+    assert_equal($nick, 'fDICE_CoC')
+                 ^^^^^
+src/test/others/testCard.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/others/testCard.rb:10:1: C: Style/GlobalVars: Do not introduce global variables.
+$isDebug = false
+^^^^^^^^
+src/test/others/testCard.rb:14:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = false
+    ^^^^^^^^
+src/test/others/testCard.rb:483:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = true
+    ^^^^^^^^
+src/test/others/testIniFile.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/others/testIniFile.rb:11:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = false
+    ^^^^^^^^
+src/test/others/testIniFile.rb:28:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = true
+    ^^^^^^^^
+src/test/others/testPointer.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/others/testPointer.rb:9:1: C: Style/GlobalVars: Do not introduce global variables.
+$isDebug = false
+^^^^^^^^
+src/test/others/testPointer.rb:13:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = false
+    ^^^^^^^^
+src/test/others/testPointer.rb:14:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isRollVoidDiceAtAnyRecive = false
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/test/others/testPointer.rb:24:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = true
+    ^^^^^^^^
+src/test/others/testSecretDice.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/others/testSecretDice.rb:9:1: C: Style/GlobalVars: Do not introduce global variables.
+$isDebug = false
+^^^^^^^^
+src/test/others/testSecretDice.rb:13:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = false
+    ^^^^^^^^
+src/test/others/testSecretDice.rb:81:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = true
+    ^^^^^^^^
+src/test/range_table_test.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/setup.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+if RUBY_VERSION > '1.8.x' ...
+^^^^^^^^^^^^^^^^^^^^^^^^^
+src/test/testDiceBotLoaders.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/testDiceBotLoaders.rb:24:5: C: Style/GlobalVars: Do not introduce global variables.
+    $isDebug = false
+    ^^^^^^^^
+src/test/testDiceBotPrefixesCompatibility.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/testDiceBots.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+if RUBY_VERSION < '1.9' ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/testDiceBots.rb:2:3: C: Style/GlobalVars: Do not introduce global variables.
+  $KCODE = 'u'
+  ^^^^^^
+src/test/test_d66_table.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/test_detailed_rand_results.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/test_dicebot_info_is_defined.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test/test_srs_help_messages.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/test.rb:13:3: C: Style/GlobalVars: Do not introduce global variables.
+  $KCODE = 'u'
+  ^^^^^^
+src/test.rb:47:1: W: Lint/EmptyWhen: Avoid when branches without a body.
+when 0
+^^^^^^
+src/utils/ArithmeticEvaluator.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# ...
+^
+src/utils/d66_grid_table.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/utils/d66_table.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/utils/modifier_formatter.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/utils/normalize.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+module Normalize ...
+^^^^^^^^^^^^^^^^
+src/utils/range_table.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+src/utils/table.rb:1:1: C: Layout/EndOfLine: Carriage return character detected.
+# -*- coding: utf-8 -*- ...
+^^^^^^^^^^^^^^^^^^^^^^^
+
+222 files inspected, 589 offenses detected

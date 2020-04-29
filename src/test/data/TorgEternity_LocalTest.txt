@@ -1,0 +1,978 @@
+input:
+TG14
+output:
+TorgEternity : (1R20+14) ＞ -4[6]+14 ＞ 10
+rand:6/20
+============================
+input:
+TG14
+output:
+TorgEternity : (1R20+14) ＞ -10[1]+14 ＞ 4
+rand:1/20
+============================
+input:
+TG14
+output:
+TorgEternity : (1R20+14) ＞ 2[15]+14 ＞ 16
+rand:15/20
+============================
+input:
+TG14
+output:
+TorgEternity : (1R20+14) ＞ 8[20,2]+14 ＞ 22(技能無21)
+rand:20/20,2/20
+============================
+input:
+TG14
+output:
+TorgEternity : (1R20+14) ＞ 1[14]+14 ＞ 15
+rand:14/20
+============================
+input:
+TG14
+output:
+TorgEternity : (1R20+14) ＞ -6[3]+14 ＞ 8
+rand:3/20
+============================
+input:
+TG14
+output:
+TorgEternity : (1R20+14) ＞ 5[18]+14 ＞ 19
+rand:18/20
+============================
+input:
+TG14
+output:
+TorgEternity : (1R20+14) ＞ 0[12]+14 ＞ 14
+rand:12/20
+============================
+input:
+TG14
+output:
+TorgEternity : (1R20+14) ＞ -1[9]+14 ＞ 13
+rand:9/20
+============================
+input:
+TG14
+output:
+TorgEternity : (1R20+14) ＞ -4[5]+14 ＞ 10
+rand:5/20
+============================
+input:
+TG12+5
+output:
+TorgEternity : (1R20+12+5) ＞ 6[19]+5 ＞ 11
+rand:19/20
+============================
+input:
+TG12+5
+output:
+TorgEternity : (1R20+12+5) ＞ -4[5]+5 ＞ 1
+rand:5/20
+============================
+input:
+TG12+5
+output:
+TorgEternity : (1R20+12+5) ＞ -6[4]+5 ＞ -1
+rand:4/20
+============================
+input:
+TG12+5
+output:
+TorgEternity : (1R20+12+5) ＞ -4[5]+5 ＞ 1
+rand:5/20
+============================
+input:
+TG12+5
+output:
+TorgEternity : (1R20+12+5) ＞ -6[4]+5 ＞ -1
+rand:4/20
+============================
+input:
+TG12+5
+output:
+TorgEternity : (1R20+12+5) ＞ 10[20,13]+5 ＞ 15(技能無12)
+rand:20/20,13/20
+============================
+input:
+TG12+5
+output:
+TorgEternity : (1R20+12+5) ＞ 10[20,13]+5 ＞ 15(技能無12)
+rand:20/20,13/20
+============================
+input:
+TG12+5
+output:
+TorgEternity : (1R20+12+5) ＞ -8[2]+5 ＞ -3
+rand:2/20
+============================
+input:
+TG12+5
+output:
+TorgEternity : (1R20+12+5) ＞ 3[16]+5 ＞ 8
+rand:16/20
+============================
+input:
+TG12+5
+output:
+TorgEternity : (1R20+12+5) ＞ -2[8]+5 ＞ 3
+rand:8/20
+============================
+input:
+RT[1...20]
+output:
+TorgEternity : 成功レベル表[2] ＞ Success - Standard.
+rand:2/20
+============================
+input:
+RT[1...20]
+output:
+TorgEternity : 成功レベル表[0] ＞ Success - Standard.
+rand:0/20
+============================
+input:
+RT[1...20]
+output:
+TorgEternity : 成功レベル表[4] ＞ Success - Standard.
+rand:4/20
+============================
+input:
+RT[1...20]
+output:
+TorgEternity : 成功レベル表[5] ＞ Success - Good!
+rand:5/20
+============================
+input:
+RT[1...20]
+output:
+TorgEternity : 成功レベル表[7] ＞ Success - Good!
+rand:7/20
+============================
+input:
+RT[1...20]
+output:
+TorgEternity : 成功レベル表[9] ＞ Success - Good!
+rand:9/20
+============================
+input:
+RT[1...20]
+output:
+TorgEternity : 成功レベル表[10] ＞ Success - Outstanding!!
+rand:10/20
+============================
+input:
+RT[1...20]
+output:
+TorgEternity : 成功レベル表[13] ＞ Success - Outstanding!!
+rand:13/20
+============================
+input:
+RT[1...20]-2
+output:
+TorgEternity : 成功レベル表[-1] ＞ Failure.
+rand:1/20
+============================
+input:
+Result[1...20]
+output:
+TorgEternity : 成功レベル表[2] ＞ Success - Standard.
+rand:2/20
+============================
+input:
+Result[1...20]
+output:
+TorgEternity : 成功レベル表[0] ＞ Success - Standard.
+rand:0/20
+============================
+input:
+Result[1...20]
+output:
+TorgEternity : 成功レベル表[4] ＞ Success - Standard.
+rand:4/20
+============================
+input:
+Result[1...20]
+output:
+TorgEternity : 成功レベル表[5] ＞ Success - Good!
+rand:5/20
+============================
+input:
+Result[1...20]
+output:
+TorgEternity : 成功レベル表[7] ＞ Success - Good!
+rand:7/20
+============================
+input:
+Result[1...20]
+output:
+TorgEternity : 成功レベル表[9] ＞ Success - Good!
+rand:9/20
+============================
+input:
+Result[1...20]
+output:
+TorgEternity : 成功レベル表[10] ＞ Success - Outstanding!!
+rand:10/20
+============================
+input:
+Result[1...20]-2+4
+output:
+TorgEternity : 成功レベル表[11] ＞ Success - Outstanding!!
+rand:9/20
+============================
+input:
+Result[1...20]-4
+output:
+TorgEternity : 成功レベル表[-2] ＞ Failure.
+rand:2/20
+============================
+input:
+DT[1...50]-11
+output:
+TorgEternity : ダメージ結果表[-10] ＞ ノーダメージ
+rand:1/50
+============================
+input:
+DT[1...50]-8
+output:
+TorgEternity : ダメージ結果表[-6] ＞ ノーダメージ
+rand:2/50
+============================
+input:
+DT[1...50]-8
+output:
+TorgEternity : ダメージ結果表[-5] ＞ 1ショック
+rand:3/50
+============================
+input:
+DT[1...50]-8
+output:
+TorgEternity : ダメージ結果表[-1] ＞ 1ショック
+rand:7/50
+============================
+input:
+DT[1...50]-8
+output:
+TorgEternity : ダメージ結果表[0] ＞ 2ショック
+rand:8/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[4] ＞ 2ショック
+rand:4/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[5] ＞ 1レベル負傷 + 2ショック
+rand:5/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[9] ＞ 1レベル負傷 + 2ショック
+rand:9/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[10] ＞ 2レベル負傷 + 4ショック
+rand:10/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[14] ＞ 2レベル負傷 + 4ショック
+rand:14/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[15] ＞ 3レベル負傷 + 6ショック
+rand:15/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[19] ＞ 3レベル負傷 + 6ショック
+rand:19/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[20] ＞ 4レベル負傷 + 8ショック
+rand:20/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[24] ＞ 4レベル負傷 + 8ショック
+rand:24/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[25] ＞ 5レベル負傷 + 10ショック
+rand:25/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[29] ＞ 5レベル負傷 + 10ショック
+rand:29/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[30] ＞ 6レベル負傷 + 12ショック
+rand:30/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[34] ＞ 6レベル負傷 + 12ショック
+rand:34/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[35] ＞ 7レベル負傷 + 14ショック
+rand:35/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[39] ＞ 7レベル負傷 + 14ショック
+rand:39/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[40] ＞ 8レベル負傷 + 16ショック
+rand:40/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[44] ＞ 8レベル負傷 + 16ショック
+rand:44/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[45] ＞ 9レベル負傷 + 18ショック
+rand:45/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[49] ＞ 9レベル負傷 + 18ショック
+rand:49/50
+============================
+input:
+DT[1...50]
+output:
+TorgEternity : ダメージ結果表[50] ＞ 10レベル負傷 + 20ショック
+rand:50/50
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[1] ＞ Mishap!!
+rand:1/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[2] ＞ -8
+rand:2/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[3] ＞ -6
+rand:3/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[4] ＞ -6
+rand:4/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[5] ＞ -4
+rand:5/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[6] ＞ -4
+rand:6/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[7] ＞ -2
+rand:7/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[8] ＞ -2
+rand:8/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[9] ＞ -1
+rand:9/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[10] ＞ -1
+rand:10/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[11] ＞ 0
+rand:11/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[12] ＞ 0
+rand:12/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[13] ＞ 1
+rand:13/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[14] ＞ 1
+rand:14/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[15] ＞ 2
+rand:15/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[16] ＞ 3
+rand:16/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[17] ＞ 4
+rand:17/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[18] ＞ 5
+rand:18/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[19] ＞ 6
+rand:19/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[20] ＞ 7
+rand:20/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[21] ＞ 8
+rand:21/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[23] ＞ 8
+rand:23/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[25] ＞ 8
+rand:25/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[26] ＞ 9
+rand:26/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[28] ＞ 9
+rand:28/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[30] ＞ 9
+rand:30/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[31] ＞ 10
+rand:31/80
+============================
+input:
+BT19
+output:
+TorgEternity : ロールボーナス表[19] ＞ 6
+rand:
+============================
+input:
+BT20
+output:
+TorgEternity : ロールボーナス表[20] ＞ 7
+rand:
+============================
+input:
+BT21
+output:
+TorgEternity : ロールボーナス表[21] ＞ 8
+rand:
+============================
+input:
+BT24
+output:
+TorgEternity : ロールボーナス表[24] ＞ 8
+rand:
+============================
+input:
+BT25
+output:
+TorgEternity : ロールボーナス表[25] ＞ 8
+rand:
+============================
+input:
+BT26
+output:
+TorgEternity : ロールボーナス表[26] ＞ 9
+rand:
+============================
+input:
+BT30
+output:
+TorgEternity : ロールボーナス表[30] ＞ 9
+rand:
+============================
+input:
+BT31
+output:
+TorgEternity : ロールボーナス表[31] ＞ 10
+rand:
+============================
+input:
+BT60
+output:
+TorgEternity : ロールボーナス表[60] ＞ 15
+rand:
+============================
+input:
+BT61
+output:
+TorgEternity : ロールボーナス表[61] ＞ 16
+rand:
+============================
+input:
+BT100
+output:
+TorgEternity : ロールボーナス表[100] ＞ 23
+rand:
+============================
+input:
+BT101
+output:
+TorgEternity : ロールボーナス表[101] ＞ 24
+rand:
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[53] ＞ 14
+rand:53/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[27] ＞ 9
+rand:27/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[44] ＞ 12
+rand:44/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[58] ＞ 15
+rand:58/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[50] ＞ 13
+rand:50/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[34] ＞ 10
+rand:34/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[48] ＞ 13
+rand:48/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[54] ＞ 14
+rand:54/80
+============================
+input:
+BT[1...80]
+output:
+TorgEternity : ロールボーナス表[71] ＞ 18
+rand:71/80
+============================
+input:
+BT[1...80]+1
+output:
+TorgEternity : ロールボーナス表[4]+1 ＞ -6[4]+1 ＞ -5
+rand:4/80
+============================
+input:
+BT[1...80]+1
+output:
+TorgEternity : ロールボーナス表[4]+1 ＞ -6[4]+1 ＞ -5
+rand:4/80
+============================
+input:
+BT[1...80]+1
+output:
+TorgEternity : ロールボーナス表[21]+1 ＞ 8[21]+1 ＞ 9
+rand:21/80
+============================
+input:
+BT[1...80]+1
+output:
+TorgEternity : ロールボーナス表[13]+1 ＞ 1[13]+1 ＞ 2
+rand:13/80
+============================
+input:
+BT[1...80]+1
+output:
+TorgEternity : ロールボーナス表[39]+1 ＞ 11[39]+1 ＞ 12
+rand:39/80
+============================
+input:
+BT[1...80]+1
+output:
+TorgEternity : ロールボーナス表[56]+1 ＞ 15[56]+1 ＞ 16
+rand:56/80
+============================
+input:
+BT[1...80]+1
+output:
+TorgEternity : ロールボーナス表[40]+1 ＞ 11[40]+1 ＞ 12
+rand:40/80
+============================
+input:
+BT[1...80]+1
+output:
+TorgEternity : ロールボーナス表[12]+1 ＞ 0[12]+1 ＞ 1
+rand:12/80
+============================
+input:
+BT[1...80]+1
+output:
+TorgEternity : ロールボーナス表[44]+1 ＞ 12[44]+1 ＞ 13
+rand:44/80
+============================
+input:
+BT[1...80]+1
+output:
+TorgEternity : ロールボーナス表[17]+1 ＞ 4[17]+1 ＞ 5
+rand:17/80
+============================
+input:
+BT[1...80]+2-4
+output:
+TorgEternity : ロールボーナス表[15]-2 ＞ 2[15]-2 ＞ 0
+rand:15/80
+============================
+input:
+BT[1...80]+2-4
+output:
+TorgEternity : ロールボーナス表[1] ＞ Mishap!!
+rand:1/80
+============================
+input:
+3BD+10
+output:
+TorgEternity : ボーナスダメージロール(3BD+10) ＞ 19[5,1,5∞,5∞,3]+10 ＞ 29ダメージ
+rand:5/6, 1/6, 6/6, 6/6, 3/6
+============================
+input:
+3BD+2-4
+output:
+TorgEternity : ボーナスダメージロール(3BD-2) ＞ 9[2,3,4]-2 ＞ 7ダメージ
+rand:2/6, 3/6, 4/6
+============================
+input:
+3BD
+output:
+TorgEternity : ボーナスダメージロール(3BD) ＞ 19[5,1,5∞,5∞,3] ＞ 19ダメージ
+rand:5/6, 1/6, 6/6, 6/6, 3/6
+============================
+input:
+3BD
+output:
+TorgEternity : ボーナスダメージロール(3BD) ＞ 9[2,3,4] ＞ 9ダメージ
+rand:2/6, 3/6, 4/6
+============================
+input:
+0BD
+output:
+TorgEternity : エラーです。xBD (x≧1) として下さい
+rand:
+============================
+input:
+-5BD
+output:
+
+rand:
+============================
+input:
+TE7
+output:
+
+rand:
+============================
+input:
+TE-2
+output:
+
+rand:
+============================
+input:
+TE1+2+3
+output:
+
+rand:
+============================
+input:
+TE
+output:
+TorgEternity : d20ロール（通常） ＞ 1d20[1] ＞ Mishap!　絶対失敗！
+rand:1/20
+============================
+input:
+TE
+output:
+TorgEternity : d20ロール（通常） ＞ 1d20[15] ＞ +2[15]
+rand:15/20
+============================
+input:
+TE
+output:
+TorgEternity : d20ロール（通常） ＞ 1d20[10,20,11] ＞ +12[41]（技能有） / +9[30]（技能無）
+rand:10/20,20/20,11/20
+============================
+input:
+TE
+output:
+TorgEternity : d20ロール（通常） ＞ 1d20[10,1] ＞ +0[11]
+rand:10/20,1/20
+============================
+input:
+TE
+output:
+TorgEternity : d20ロール（通常） ＞ 1d20[10,8] ＞ +5[18]
+rand:10/20,8/20
+============================
+input:
+TE
+output:
+TorgEternity : d20ロール（通常） ＞ 1d20[10,10,1] ＞ +8[21]
+rand:10/20,10/20,1/20
+============================
+input:
+TE
+output:
+TorgEternity : d20ロール（通常） ＞ 1d20[10,20,5] ＞ +10[35]（技能有） / +9[30]（技能無）
+rand:10/20,20/20,5/20
+============================
+input:
+TE
+output:
+TorgEternity : d20ロール（通常） ＞ 1d20[20,1] ＞ +8[21]（技能有） / +7[20]（技能無）
+rand:20/20,1/20
+============================
+input:
+TE
+output:
+TorgEternity : d20ロール（通常） ＞ 1d20[20,11] ＞ +10[31]（技能有） / +7[20]（技能無）
+rand:20/20,11/20
+============================
+input:
+TE
+output:
+TorgEternity : d20ロール（通常） ＞ 1d20[20,10,1] ＞ +10[31]（技能有） / +7[20]（技能無）
+rand:20/20,10/20,1/20
+============================
+ input:
+TE
+output:
+TorgEternity : d20ロール（通常） ＞ 1d20[20,20,20,1] ＞ +16[61]（技能有） / +7[20]（技能無）
+rand:20/20,20/20,20/20,1/20
+============================
+input:
+UP
+output:
+TorgEternity : d20ロール（高揚） ＞ 1d20[1] ＞ Mishap!　絶対失敗！
+rand:1/20
+============================
+input:
+UP
+output:
+TorgEternity : d20ロール（高揚） ＞ 1d20[5] + 1d20[10,20,11] ＞ +13[46]（技能有） / +10[35]（技能無）
+rand:5/20,10/20,20/20,11/20
+============================
+input:
+UP
+output:
+TorgEternity : d20ロール（高揚） ＞ 1d20[5] + 1d20[20,1] ＞ +9[26]（技能有） / +8[25]（技能無）
+rand:5/20,20/20,1/20
+============================
+input:
+UP
+output:
+TorgEternity : d20ロール（高揚） ＞ 1d20[17] + 1d20[1] ＞ +5[18]
+rand:17/20,1/20
+============================
+input:
+POS
+output:
+
+rand:
+============================
+input:
+POS+10
+output:
+
+rand:
+============================
+input:
+POS-5
+output:
+
+rand:
+============================
+input:
+POS0
+output:
+TorgEternity : d20ロール（ポシビリティ） ＞ 0+1d20[1→10] ＞ -1[10]
+rand:1/20
+============================
+input:
+POS8
+output:
+TorgEternity : d20ロール（ポシビリティ） ＞ 8+1d20[5→10] ＞ +5[18]
+rand:5/20
+============================
+input:
+POS12
+output:
+TorgEternity : d20ロール（ポシビリティ） ＞ 12+1d20[15] ＞ +9[27]
+rand:15/20
+============================
+input:
+POS11
+output:
+TorgEternity : d20ロール（ポシビリティ） ＞ 11+1d20[10,1] ＞ +8[22]
+rand:10/20,1/20
+============================
+input:
+POS6
+output:
+TorgEternity : d20ロール（ポシビリティ） ＞ 6+1d20[10,15] ＞ +10[31]
+rand:10/20,15/20
+============================
+input:
+POS13
+output:
+TorgEternity : d20ロール（ポシビリティ） ＞ 13+1d20[10,10,13] ＞ +13[46]
+rand:10/20,10/20,13/20
+============================
+input:
+POS3
+output:
+TorgEternity : d20ロール（ポシビリティ） ＞ 3+1d20[10,20,3] ＞ +11[36]（技能有） / +10[33]（技能無）
+rand:10/20,20/20,3/20
+============================
+input:
+POS5
+output:
+TorgEternity : d20ロール（ポシビリティ） ＞ 5+1d20[20,1] ＞ +9[26]（技能有） / +8[25]（技能無）
+rand:20/20,1/20
+============================
+input:
+POS4
+output:
+TorgEternity : d20ロール（ポシビリティ） ＞ 4+1d20[20,18] ＞ +12[42]（技能有） / +8[24]（技能無）
+rand:20/20,18/20
+============================
+input:
+POS15
+output:
+TorgEternity : d20ロール（ポシビリティ） ＞ 15+1d20[20,10,1] ＞ +13[46]（技能有） / +10[35]（技能無）
+rand:20/20,10/20,1/20
+============================
+input:
+POS2
+output:
+TorgEternity : d20ロール（ポシビリティ） ＞ 2+1d20[20,20,10,11] ＞ +16[63]（技能有） / +8[22]（技能無）
+rand:20/20,20/20,10/20,11/20
+============================
+input:
+POS6+12
+output:
+TorgEternity : d20ロール（ポシビリティ） ＞ 18+1d20[5→10] ＞ +9[28]
+rand:5/20
+============================
+input:
+POS12-2
+output:
+
+rand:
+============================
