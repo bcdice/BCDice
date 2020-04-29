@@ -37,12 +37,6 @@ rand:8/10
 input:
 Ars1
 output:
-ArsMagica : (1R10[1]) ＞ 9
-rand:10/10
-============================
-input:
-Ars1
-output:
 ArsMagica : (1R10[1]) ＞ 5
 rand:6/10
 ============================
@@ -55,20 +49,8 @@ rand:4/10
 input:
 Ars1
 output:
-ArsMagica : (1R10[1]) ＞ 3
-rand:4/10
-============================
-input:
-Ars1
-output:
 ArsMagica : (1R10[1]) ＞ 0[0,7] ＞ 0
 rand:1/10,8/10
-============================
-input:
-Ars1
-output:
-ArsMagica : (1R10[1]) ＞ 7
-rand:8/10
 ============================
 input:
 Ars3
@@ -85,12 +67,6 @@ rand:4/10
 input:
 Ars3
 output:
-ArsMagica : (1R10[3]) ＞ 7
-rand:8/10
-============================
-input:
-Ars3
-output:
 ArsMagica : (1R10[3]) ＞ 9
 rand:10/10
 ============================
@@ -99,30 +75,6 @@ Ars3
 output:
 ArsMagica : (1R10[3]) ＞ 7
 rand:8/10
-============================
-input:
-Ars3
-output:
-ArsMagica : (1R10[3]) ＞ 9
-rand:10/10
-============================
-input:
-Ars3
-output:
-ArsMagica : (1R10[3]) ＞ 7
-rand:8/10
-============================
-input:
-Ars3
-output:
-ArsMagica : (1R10[3]) ＞ 7
-rand:8/10
-============================
-input:
-Ars3
-output:
-ArsMagica : (1R10[3]) ＞ 4
-rand:5/10
 ============================
 input:
 Ars3
@@ -145,20 +97,8 @@ rand:9/10
 input:
 Ars5
 output:
-ArsMagica : (1R10[5]) ＞ 4
-rand:5/10
-============================
-input:
-Ars5
-output:
 ArsMagica : (1R10[5]) ＞ 6
 rand:7/10
-============================
-input:
-Ars5
-output:
-ArsMagica : (1R10[5]) ＞ 3
-rand:4/10
 ============================
 input:
 Ars5
@@ -171,12 +111,6 @@ Ars5
 output:
 ArsMagica : (1R10[5]) ＞ 3
 rand:4/10
-============================
-input:
-Ars5
-output:
-ArsMagica : (1R10[5]) ＞ 4
-rand:5/10
 ============================
 input:
 Ars5
@@ -217,26 +151,8 @@ rand:1/10,10/10,6/10,10/10,6/10,8/10,2/10,6/10
 input:
 Ars7
 output:
-ArsMagica : (1R10[7]) ＞ 9
-rand:10/10
-============================
-input:
-Ars7
-output:
-ArsMagica : (1R10[7]) ＞ 4
-rand:5/10
-============================
-input:
-Ars7
-output:
 ArsMagica : (1R10[7]) ＞ 10[1,5]
 rand:2/10,5/10
-============================
-input:
-Ars7
-output:
-ArsMagica : (1R10[7]) ＞ 3
-rand:4/10
 ============================
 input:
 Ars7
@@ -253,62 +169,14 @@ rand:8/10
 input:
 Ars9
 output:
-ArsMagica : (1R10[9]) ＞ 3
-rand:4/10
-============================
-input:
-Ars9
-output:
-ArsMagica : (1R10[9]) ＞ 9
-rand:10/10
-============================
-input:
-Ars9
-output:
-ArsMagica : (1R10[9]) ＞ 8
-rand:9/10
-============================
-input:
-Ars9
-output:
-ArsMagica : (1R10[9]) ＞ 2
-rand:3/10
-============================
-input:
-Ars9
-output:
-ArsMagica : (1R10[9]) ＞ 4
-rand:5/10
-============================
-input:
-Ars9
-output:
 ArsMagica : (1R10[9]) ＞ 20[1,1,5]
 rand:2/10,1/10,5/10
 ============================
 input:
 Ars9
 output:
-ArsMagica : (1R10[9]) ＞ 4
-rand:5/10
-============================
-input:
-Ars9
-output:
 ArsMagica : (1R10[9]) ＞ 8[1,4]
 rand:2/10,4/10
-============================
-input:
-Ars9
-output:
-ArsMagica : (1R10[9]) ＞ 7
-rand:8/10
-============================
-input:
-Ars9
-output:
-ArsMagica : (1R10[9]) ＞ 5
-rand:6/10
 ============================
 input:
 Ars10
@@ -319,56 +187,8 @@ rand:2/10,7/10
 input:
 Ars10
 output:
-ArsMagica : (1R10[10]) ＞ 6
-rand:7/10
-============================
-input:
-Ars10
-output:
-ArsMagica : (1R10[10]) ＞ 5
-rand:6/10
-============================
-input:
-Ars10
-output:
-ArsMagica : (1R10[10]) ＞ 7
-rand:8/10
-============================
-input:
-Ars10
-output:
-ArsMagica : (1R10[10]) ＞ 5
-rand:6/10
-============================
-input:
-Ars10
-output:
-ArsMagica : (1R10[10]) ＞ 2
-rand:3/10
-============================
-input:
-Ars10
-output:
-ArsMagica : (1R10[10]) ＞ 9
-rand:10/10
-============================
-input:
-Ars10
-output:
-ArsMagica : (1R10[10]) ＞ 7
-rand:8/10
-============================
-input:
-Ars10
-output:
 ArsMagica : (1R10[10]) ＞ 0[0,2,4,7,9,4,5,5,7,4,2] ＞ 0
 rand:1/10,3/10,5/10,8/10,10/10,5/10,6/10,6/10,8/10,5/10,3/10
-============================
-input:
-Ars10
-output:
-ArsMagica : (1R10[10]) ＞ 8
-rand:9/10
 ============================
 input:
 Ars-3
