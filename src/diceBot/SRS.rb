@@ -124,10 +124,10 @@ HELP_MESSAGE
 
       @help_msg_for_aliases_for_srs_roll_without_target_value =
         aliases.
-        map do |a|
+        map { |a|
           "　　例) #{a}　　　　　 2d6[]と同じ（#{a}が2D6のショートカットコマンド）\n" \
           "　　例) #{a}+2[12,4]　 2d6+2[12,4]と同じ（#{a}が2D6のショートカットコマンド）\n"
-        end.
+        }.
         join()
 
       return self

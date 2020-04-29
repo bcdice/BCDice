@@ -130,7 +130,7 @@ INFO_MESSAGE_TEXT
       crit_dice = ""
       while die == 1
         crit_mul *= 2
-        die = rand(1..10)
+        die = rand(10) + 1
         crit_dice += "#{die},"
       end
       total = die * crit_mul

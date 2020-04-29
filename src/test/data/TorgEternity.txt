@@ -143,214 +143,214 @@ TorgEternity : (1R20) ＞ 15[20,20,10,9]0 ＞ 15(技能無7)
 rand:20/20,20/20,10/20,9/20
 ============================
 input:
-RT0
+RT[1...20]
 output:
 TorgEternity : 成功レベル表[0] ＞ Success - Standard.
-rand:
+rand:0/20
 ============================
 input:
-Result4
+Result[1...20]
 output:
 TorgEternity : 成功レベル表[4] ＞ Success - Standard.
-rand:
+rand:4/20
 ============================
 input:
-Result5
+Result[1...20]
 output:
 TorgEternity : 成功レベル表[5] ＞ Success - Good!
-rand:
+rand:5/20
 ============================
 input:
-RT9
+RT[1...20]
 output:
 TorgEternity : 成功レベル表[9] ＞ Success - Good!
-rand:
+rand:9/20
 ============================
 input:
-RT10
+RT[1...20]
 output:
 TorgEternity : 成功レベル表[10] ＞ Success - Outstanding!!
-rand:
+rand:10/20
 ============================
 input:
-Result1-2
+Result[1...20]-2
 output:
 TorgEternity : 成功レベル表[-1] ＞ Failure.
-rand:
+rand:1/20
 ============================
 input:
-RT9-2+4
+RT[1...20]-2+4
 output:
 TorgEternity : 成功レベル表[11] ＞ Success - Outstanding!!
-rand:
+rand:9/20
 ============================
 input:
-DT2-8
+DT[1...50]-8
 output:
 TorgEternity : ダメージ結果表[-6] ＞ ノーダメージ
-rand:
+rand:2/50
 ============================
 input:
-Damage3-8
+Damage[1...50]-8
 output:
 TorgEternity : ダメージ結果表[-5] ＞ 1ショック
-rand:
+rand:3/50
 ============================
 input:
-Damage7-8
+Damage[1...50]-8
 output:
 TorgEternity : ダメージ結果表[-1] ＞ 1ショック
-rand:
+rand:7/50
 ============================
 input:
-DT8-8
+DT[1...50]-8
 output:
 TorgEternity : ダメージ結果表[0] ＞ 2ショック
-rand:
+rand:8/50
 ============================
 input:
-Damage4
+Damage[1...50]
 output:
 TorgEternity : ダメージ結果表[4] ＞ 2ショック
-rand:
+rand:4/50
 ============================
 input:
-Damage5
+Damage[1...50]
 output:
 TorgEternity : ダメージ結果表[5] ＞ 1レベル負傷 + 2ショック
-rand:
+rand:5/50
 ============================
 input:
-Damage9
+Damage[1...50]
 output:
 TorgEternity : ダメージ結果表[9] ＞ 1レベル負傷 + 2ショック
-rand:
+rand:9/50
 ============================
 input:
-DT10
+DT[1...50]
 output:
 TorgEternity : ダメージ結果表[10] ＞ 2レベル負傷 + 4ショック
-rand:
+rand:10/50
 ============================
 input:
-DT14
+DT[1...50]
 output:
 TorgEternity : ダメージ結果表[14] ＞ 2レベル負傷 + 4ショック
-rand:
+rand:14/50
 ============================
 input:
-Damage15
+Damage[1...50]
 output:
 TorgEternity : ダメージ結果表[15] ＞ 3レベル負傷 + 6ショック
-rand:
+rand:15/50
 ============================
 input:
-Damage19
+Damage[1...50]
 output:
 TorgEternity : ダメージ結果表[19] ＞ 3レベル負傷 + 6ショック
-rand:
+rand:19/50
 ============================
 input:
-DT20
+DT[1...50]
 output:
 TorgEternity : ダメージ結果表[20] ＞ 4レベル負傷 + 8ショック
-rand:
+rand:20/50
 ============================
 input:
-DT24
+DT[1...50]
 output:
 TorgEternity : ダメージ結果表[24] ＞ 4レベル負傷 + 8ショック
-rand:
+rand:24/50
 ============================
 input:
-Damage25
+Damage[1...50]
 output:
 TorgEternity : ダメージ結果表[25] ＞ 5レベル負傷 + 10ショック
-rand:
+rand:25/50
 ============================
 input:
-Damage29
+Damage[1...50]
 output:
 TorgEternity : ダメージ結果表[29] ＞ 5レベル負傷 + 10ショック
-rand:
+rand:29/50
 ============================
 input:
-DT30
+DT[1...50]
 output:
 TorgEternity : ダメージ結果表[30] ＞ 6レベル負傷 + 12ショック
-rand:
+rand:30/50
 ============================
 input:
-DT34
+DT[1...50]
 output:
 TorgEternity : ダメージ結果表[34] ＞ 6レベル負傷 + 12ショック
-rand:
+rand:34/50
 ============================
 input:
-Damage35
+Damage[1...50]
 output:
 TorgEternity : ダメージ結果表[35] ＞ 7レベル負傷 + 14ショック
-rand:
+rand:35/50
 ============================
 input:
-Damage39
+Damage[1...50]
 output:
 TorgEternity : ダメージ結果表[39] ＞ 7レベル負傷 + 14ショック
-rand:
+rand:39/50
 ============================
 input:
-DT40
+DT[1...50]
 output:
 TorgEternity : ダメージ結果表[40] ＞ 8レベル負傷 + 16ショック
-rand:
+rand:40/50
 ============================
 input:
-DT44
+DT[1...50]
 output:
 TorgEternity : ダメージ結果表[44] ＞ 8レベル負傷 + 16ショック
-rand:
+rand:44/50
 ============================
 input:
-Damage45
+Damage[1...50]
 output:
 TorgEternity : ダメージ結果表[45] ＞ 9レベル負傷 + 18ショック
-rand:
+rand:45/50
 ============================
 input:
-Damage49
+Damage[1...50]
 output:
 TorgEternity : ダメージ結果表[49] ＞ 9レベル負傷 + 18ショック
-rand:
+rand:49/50
 ============================
 input:
-DT50
+DT[1...50]
 output:
 TorgEternity : ダメージ結果表[50] ＞ 10レベル負傷 + 20ショック
-rand:
+rand:50/50
 ============================
 input:
-BT1
+BT[1...80]
 output:
 TorgEternity : ロールボーナス表[1] ＞ Mishap!!
-rand:
+rand:1/80
 ============================
 input:
-Bonus62
+Bonus[1...80]
 output:
 TorgEternity : ロールボーナス表[62] ＞ 16
-rand:
+rand:62/80
 ============================
 input:
-Bonus1+2-4
+Bonus[1...80]+2-4
 output:
 TorgEternity : ロールボーナス表[1] ＞ Mishap!!
-rand:
+rand:1/80
 ============================
 input:
-BT21+2-4
+BT[1...80]+2-4
 output:
 TorgEternity : ロールボーナス表[21]-2 ＞ 8[21]-2 ＞ 6
-rand:
+rand:21/80
 ============================
 input:
 3BD+10

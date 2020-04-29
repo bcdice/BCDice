@@ -926,7 +926,7 @@ INFO_MESSAGE_TEXT
     debug("mk_name_table begin")
     output = '1'
     # 名前表
-    name_n = rand(1..6)
+    name_n = (rand(6) + 1)
     debug("name_n", name_n)
 
     d1 = d66(2)
@@ -986,7 +986,7 @@ INFO_MESSAGE_TEXT
     if num < 66
       output = get_table_by_number(num, table) + output
     else
-      output = "#{output}#{rand(1..6)}世"
+      output = "#{output}#{(rand(6) + 1)}世"
     end
 
     return output
@@ -1137,7 +1137,7 @@ INFO_MESSAGE_TEXT
 
   # デバイスファクトリー(1D6)
   def mk_device_factory_table()
-    output = mk_item_decide_table(rand(1..6))
+    output = mk_item_decide_table(rand(6) + 1)
 
     dice, = roll(2, 6)
     output = output + ' / ' + mk_item_features_table(dice)
@@ -1367,7 +1367,7 @@ INFO_MESSAGE_TEXT
     dice, = roll(2, 6)
 
     if num <= 2
-      output = '「' + mk_item_power_table(rand(1..6)) + '」の神力を宿す'
+      output = '「' + mk_item_power_table(rand(6) + 1) + '」の神力を宿す'
     elsif num <= 3
       output = '寿命を持つ。寿命の値を決定する。' + "\n"
       output += 'さらに、' + mk_item_features_table(dice)
@@ -1376,22 +1376,22 @@ INFO_MESSAGE_TEXT
     elsif num <= 5
       output = '銘を持つ。銘を決定する。'
     elsif num <= 6
-      output = '合成具である。もう1つの機能は「' + mk_item_decide_table(rand(1..6)) + '」である。'
+      output = '合成具である。もう1つの機能は「' + mk_item_decide_table(rand(6) + 1) + '」である。'
     elsif num <= 7
       output = 'そのアイテムにレベルがあれば、レベルを1点上昇する。' + "\n"
       output += 'レベルが設定されていなければ、' + mk_item_features_table(dice)
     elsif num <= 8
       output = '「' + mk_item_jyumon_table(dice) + '」の呪紋を持つ。'
     elsif num <= 9
-      output = '「' + mk_item_jyuka_table(rand(1..6)) + '」の呪禍を持つ。' + "\n"
+      output = '「' + mk_item_jyuka_table(rand(6) + 1) + '」の呪禍を持つ。' + "\n"
       output += 'さらに、' + mk_item_features_table(dice)
     elsif num <= 10
       output = '高価だ。価格を設定する。'
     elsif num <= 11
-      output = '「条件：' + mk_item_aptitude_table(rand(1..6)) + '」の適性を持つ。' + "\n"
+      output = '「条件：' + mk_item_aptitude_table(rand(6) + 1) + '」の適性を持つ。' + "\n"
       output += 'さらに、' + mk_item_features_table(dice)
     else
-      output = '「' + mk_item_attribute_table(rand(1..6)) + '」の属性を持つ。'
+      output = '「' + mk_item_attribute_table(rand(6) + 1) + '」の属性を持つ。'
     end
 
     return '特性[' + num.to_s + ']：' + output
@@ -1810,7 +1810,7 @@ INFO_MESSAGE_TEXT
   def mk_ls_decide_table(num)
     output = ''
     num.times do |_i|
-      output += "「" + mk_landscape_table(rand(1..6)) + "」"
+      output += "「" + mk_landscape_table(rand(6) + 1) + "」"
     end
     return output
   end

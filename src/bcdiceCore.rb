@@ -1231,8 +1231,8 @@ class BCDice
   def getD66(isSwap)
     output = 0
 
-    dice_a = rand(1..6)
-    dice_b = rand(1..6)
+    dice_a = rand(6) + 1
+    dice_b = rand(6) + 1
     debug("dice_a", dice_a)
     debug("dice_b", dice_b)
 
