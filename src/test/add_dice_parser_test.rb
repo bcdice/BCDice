@@ -104,6 +104,70 @@ class AddDiceParserTest < Test::Unit::TestCase
     )
   end
 
+  # 大きな出目から複数個取る
+  def test_parse_keep_high
+    test_parse(
+      '5D10KH3',
+      '(Command (DiceRollWithFilter 5 10 :KH 3))'
+    )
+  end
+
+  # 小さな出目から複数個取る
+  def test_parse_keep_low
+    test_parse(
+      '5D10KL3',
+      '(Command (DiceRollWithFilter 5 10 :KL 3))'
+    )
+  end
+
+  # 大きな出目から複数個除く
+  def test_parse_drop_high
+    test_parse(
+      '5D10DH3',
+      '(Command (DiceRollWithFilter 5 10 :DH 3))'
+    )
+  end
+
+  # 小さな出目から複数個除く
+  def test_parse_drop_low
+    test_parse(
+      '5D10DL3',
+      '(Command (DiceRollWithFilter 5 10 :DL 3))'
+    )
+  end
+
+  # 大きな値キープ機能、修正値付き
+  def test_parse_keep_high_with_modifier
+    test_parse(
+      '5D10KH3+1',
+      '(Command (+ (DiceRollWithFilter 5 10 :KH 3) 1))'
+    )
+  end
+
+  # 小さな値キープ機能、修正値付き
+  def test_parse_keep_low_with_modifier
+    test_parse(
+      '5D10KL3+1',
+      '(Command (+ (DiceRollWithFilter 5 10 :KL 3) 1))'
+    )
+  end
+
+  # 大きな値ドロップ機能、修正値付き
+  def test_parse_drop_high_with_modifier
+    test_parse(
+      '5D10DH3+1',
+      '(Command (+ (DiceRollWithFilter 5 10 :DH 3) 1))'
+    )
+  end
+
+  # 小さな値ドロップ機能、修正値付き
+  def test_parse_drop_low_with_modifier
+    test_parse(
+      '5D10DL3+1',
+      '(Command (+ (DiceRollWithFilter 5 10 :DL 3) 1))'
+    )
+  end
+
   private
 
   # 構文解析をテストする
