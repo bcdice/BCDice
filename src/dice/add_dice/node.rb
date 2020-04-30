@@ -299,9 +299,17 @@ class AddDice
       # @param [Randomizer] randomizer ランダマイザ
       # @return [Integer] 評価結果（出目の合計値）
       def eval(randomizer)
-        total, @text = randomizer.roll(@times, @sides, @critical)
+        dice_groups = randomizer.roll(@times, @sides, @critical)
 
-        total
+        # TODO: Ruby 2.4以降では Array#sum が使える
+        total = dice_groups.flatten.reduce(0, &:+)
+
+        dice_str = dice_groups.
+                   map { |dice_list| "[#{dice_list.join(',')}]" }.
+                   join
+        @text = "#{total}#{dice_str}"
+
+        return total
       end
 
       # 文字列に変換する
