@@ -47,7 +47,7 @@ INFO_MESSAGE_TEXT
     debug("checkRoll begin command", command)
 
     result = ''
-    return result unless /^(\d+)SR([\+\-]?\d+)?(>=(\d+))?$/i === command
+    return result unless /^(\d+)SR([\+\-]?\d+)?(>=(\d+))?$/i =~ command
 
     diceCount = Regexp.last_match(1).to_i
     modify = Regexp.last_match(2).to_i

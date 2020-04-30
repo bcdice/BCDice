@@ -250,7 +250,7 @@ MESSAGETEXT
   end
 
   def getAddRoll(command)
-    return command if /^\s/ === command
+    return command if /^\s/ =~ command
 
     text = rollDiceCommand(command)
     return " ＞ #{command} is NOT found." if text.nil?

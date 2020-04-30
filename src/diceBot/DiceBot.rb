@@ -487,7 +487,7 @@ class DiceBot
     # get～DiceCommandResultという名前のメソッドを集めて実行、
     # 結果がnil以外の場合それを返して終了。
     methodList = public_methods(false).select do |method|
-      /^get.+DiceCommandResult$/ === method.to_s
+      /^get.+DiceCommandResult$/ =~ method.to_s
     end
 
     methodList.each do |method|
@@ -557,7 +557,7 @@ class DiceBot
     end
 
     newTable = text.map do |item|
-      if item.is_a?(String) && (/^(\d+):(.*)/ === item)
+      if item.is_a?(String) && (/^(\d+):(.*)/ =~ item)
         [Regexp.last_match(1).to_i, Regexp.last_match(2)]
       else
         item

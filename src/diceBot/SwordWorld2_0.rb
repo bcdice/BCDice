@@ -92,7 +92,7 @@ INFO_MESSAGE_TEXT
 
     regexp = /r\[(\d+)\]/i
 
-    if regexp === string
+    if regexp =~ string
       rateUp = Regexp.last_match(1).to_i
       string = string.gsub(regexp, '')
     end
@@ -129,7 +129,7 @@ INFO_MESSAGE_TEXT
 
     regexp = /gf/i
 
-    if regexp === string
+    if regexp =~ string
       isGratestFortune = true
       string = string.gsub(regexp, '')
     end
@@ -164,7 +164,7 @@ INFO_MESSAGE_TEXT
 
     superSuccessValue = 41
 
-    if /@(\d+)/ === string
+    if /@(\d+)/ =~ string
       critical = Regexp.last_match(1).to_i
       if dice_total >= critical
         if  total >= superSuccessValue

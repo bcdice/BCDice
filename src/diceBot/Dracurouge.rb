@@ -55,7 +55,7 @@ MESSAGETEXT
   end
 
   def getConductDiceCommandResult(command)
-    return nil unless /^DR(\d*)(\+(\d+))?$/ === command
+    return nil unless /^DR(\d*)(\+(\d+))?$/ =~ command
 
     diceCount = Regexp.last_match(1).to_i
     diceCount = 4 if diceCount == 0
@@ -116,7 +116,7 @@ MESSAGETEXT
   end
 
   def getResistDiceCommandResult(command)
-    return nil unless /^DRR(\d+)$/ === command
+    return nil unless /^DRR(\d+)$/ =~ command
 
     diceCount = Regexp.last_match(1).to_i
     diceCount = 4 if diceCount == 0
@@ -128,7 +128,7 @@ MESSAGETEXT
   end
 
   def getReactionDiceCommandResult(command)
-    return nil unless /^RT((\w\d*)(\w\d*))?/ === command
+    return nil unless /^RT((\w\d*)(\w\d*))?/ =~ command
 
     typeText1 = Regexp.last_match(2)
     typeText2 = Regexp.last_match(3)
@@ -139,7 +139,7 @@ MESSAGETEXT
   end
 
   def getHeresyReactionDiceCommandResult(command)
-    return nil unless /^HRT((\w\d*)(\w\d*))?/ === command
+    return nil unless /^HRT((\w\d*)(\w\d*))?/ =~ command
 
     typeText1 = Regexp.last_match(2)
     typeText2 = Regexp.last_match(3)
@@ -1250,7 +1250,7 @@ MESSAGETEXT
   end
 
   def getCorruptionDiceCommandResult(command)
-    return nil unless /^CT(\d+)$/ === command
+    return nil unless /^CT(\d+)$/ =~ command
 
     modify = Regexp.last_match(1).to_i
 
@@ -1299,7 +1299,7 @@ MESSAGETEXT
   end
 
   def getSourceSceneDiceCommandResult(command)
-    return nil unless /^ST$/ === command
+    return nil unless /^ST$/ =~ command
 
     name = "原風景表"
     table = getSourceSceneTable
@@ -1307,7 +1307,7 @@ MESSAGETEXT
   end
 
   def getPassionDiceCommandResult(command)
-    return nil unless /^PN$/ === command
+    return nil unless /^PN$/ =~ command
 
     name = "受難表"
     table = getPassionTable
@@ -1325,7 +1325,7 @@ MESSAGETEXT
   end
 
   def getConfermentDiceCommandResult(command)
-    return nil unless /^CO$/ === command
+    return nil unless /^CO$/ =~ command
 
     name = "叙勲表"
     table = getConfermentTable
@@ -1335,7 +1335,7 @@ MESSAGETEXT
   end
 
   def getConfermentAfterDiceCommandResult(command)
-    return nil unless /^CA$/ === command
+    return nil unless /^CA$/ =~ command
 
     name = "叙勲後表"
     table = getConfermentAfterTable
@@ -1345,7 +1345,7 @@ MESSAGETEXT
   end
 
   def getElderPastDiceCommandResult(command)
-    return nil unless /^EP$/ === command
+    return nil unless /^EP$/ =~ command
 
     name = "遥か過去表"
     table = getElderPastTable
@@ -1355,7 +1355,7 @@ MESSAGETEXT
   end
 
   def getOriginalSinDiceCommandResult(command)
-    return nil unless /^OS$/ === command
+    return nil unless /^OS$/ =~ command
 
     name = "原罪表"
     table = getOriginalSinTable
@@ -1365,7 +1365,7 @@ MESSAGETEXT
   end
 
   def getRecentStateDiceCommandResult(command)
-    return nil unless /^RS$/ === command
+    return nil unless /^RS$/ =~ command
 
     name = "近況表"
     table = getRecentStateTable
@@ -1375,7 +1375,7 @@ MESSAGETEXT
   end
 
   def getPeacefulPastDiceCommandResult(command)
-    return nil unless /^PP$/ === command
+    return nil unless /^PP$/ =~ command
 
     name = "平和な過去表"
     table = getPeacefulPastTable

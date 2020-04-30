@@ -76,7 +76,7 @@ INFO_MESSAGE_TEXT
 
     rankDiceList = {"S" => 4, "A" => 3, "B" => 2, "C" => 1, "D" => 2}
     diceCount = rankDiceList[skillRank]
-    diceCount = skillRank.to_i if /^\d+$/ === skillRank
+    diceCount = skillRank.to_i if /^\d+$/ =~ skillRank
 
     modify = parren_killer("(" + modifyText + ")").to_i
     target = parren_killer("(" + targetText + ")").to_i
@@ -169,7 +169,7 @@ INFO_MESSAGE_TEXT
 
   def getD66Table(table)
     newTable = table.map do |item|
-      if item.is_a?(String) && (/^(\d+):(.*)/ === item)
+      if item.is_a?(String) && (/^(\d+):(.*)/ =~ item)
         [Regexp.last_match(1).to_i, Regexp.last_match(2)]
       else
         item

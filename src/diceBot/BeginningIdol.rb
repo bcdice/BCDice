@@ -2254,7 +2254,7 @@ INFO_MESSAGE_TEXT
 
   def checkChance(text, skill, chance)
     return text, skill if chance.empty?
-    return text, skill unless /チャンスが(\d{1,2})以下ならオフ。/ === text
+    return text, skill unless /チャンスが(\d{1,2})以下ならオフ。/ =~ text
 
     target = Regexp.last_match(1).to_i
     matchedText = $&

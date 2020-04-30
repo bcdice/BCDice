@@ -46,7 +46,7 @@ MESSAGETEXT
   def rollDiceCommand(command)
     # ALCコマンド：命中判定
     # ALCコマンド：成功判定
-    if /(\d+)AL(C|G)?(\d+)?((x|\*)(\d+))?$/i === command
+    if /(\d+)AL(C|G)?(\d+)?((x|\*)(\d+))?$/i =~ command
       rapid = Regexp.last_match(1).to_i
       isCritical = Regexp.last_match(2).nil?
       if  isCritical

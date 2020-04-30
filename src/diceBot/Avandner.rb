@@ -42,7 +42,7 @@ MESSAGETEXT
 
   def rollDiceCommand(command)
     # AVコマンド：調査判定, 成功判定
-    if /(\d+)AV(\d+)((x|\*)(\d+))?(\+(\d+))?(C(\d+))?$/i === command
+    if /(\d+)AV(\d+)((x|\*)(\d+))?(\+(\d+))?(C(\d+))?$/i =~ command
       diceCount = Regexp.last_match(1).to_i
       target = Regexp.last_match(2).to_i
       damage = (Regexp.last_match(5) || 0).to_i

@@ -102,7 +102,7 @@ MESSAGETEXT
   end
 
   def getLocationSide(part, number)
-    unless /^\*/ === part
+    unless /^\*/ =~ part
       debug("part has NO side", part)
       return part
     end
@@ -117,7 +117,7 @@ MESSAGETEXT
   def getFaceLocation(part)
     debug("getFaceLocation part", part)
 
-    unless /\+$/ === part
+    unless /\+$/ =~ part
       debug("is NOT Face")
       return part
     end

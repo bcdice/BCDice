@@ -82,7 +82,7 @@ MESSAGETEXT
   end
 
   def getRollDiceCommandResult(command)
-    return nil unless /^(\d*)JD(\d*)(\+(\d*))?(,(\d+))?$/ === command
+    return nil unless /^(\d*)JD(\d*)(\+(\d*))?(,(\d+))?$/ =~ command
 
     diceCount = Regexp.last_match(1)
     diceCount = 2 if diceCount.empty?
@@ -165,7 +165,7 @@ MESSAGETEXT
   end
 
   def getAddRoll(command)
-    return command if /^\s/ === command
+    return command if /^\s/ =~ command
 
     text = rollDiceCommand(command)
     return " ＞ #{command} is NOT found." if text.nil?
@@ -201,7 +201,7 @@ MESSAGETEXT
   end
 
   def getRandomEventDiceCommandResult(command)
-    return nil unless /^RET(\d+)$/ === command
+    return nil unless /^RET(\d+)$/ =~ command
 
     day = Regexp.last_match(1).to_i
 
@@ -224,7 +224,7 @@ MESSAGETEXT
   end
 
   def getRandomEventPlusDiceCommandResult(command)
-    return nil unless /^RETP(\d+)$/ === command
+    return nil unless /^RETP(\d+)$/ =~ command
 
     day = Regexp.last_match(1).to_i
 
@@ -251,7 +251,7 @@ MESSAGETEXT
   end
 
   def getDungeonTableDiceCommandResult(command)
-    return nil unless /^DNGN(\d+)$/ === command
+    return nil unless /^DNGN(\d+)$/ =~ command
 
     day = Regexp.last_match(1).to_i
 
@@ -279,7 +279,7 @@ MESSAGETEXT
   end
 
   def getDungeonPlusTableDiceCommandResult(command)
-    return nil unless /^DNGNP(\d+)$/ === command
+    return nil unless /^DNGNP(\d+)$/ =~ command
 
     day = Regexp.last_match(1).to_i
 

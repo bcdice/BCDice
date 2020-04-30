@@ -47,7 +47,7 @@ MESSAGETEXT
     return result if result
 
     count = 1
-    if /^(\d+)(.+)/ === command
+    if /^(\d+)(.+)/ =~ command
       count = Regexp.last_match(1).to_i
       command = Regexp.last_match(2)
     end

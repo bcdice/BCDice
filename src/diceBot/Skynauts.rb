@@ -246,7 +246,7 @@ MESSAGETEXT
     text = "#{command} ＞ "
     text += getJudgeResult("SN" + target) # 砲撃判定
 
-    return text unless /成功/ === text
+    return text unless /成功/ =~ text
 
     # ダメージチェック部分
     fireCommand = command.slice(%r{D([12346789]*)(\[.+\])*/(\d+)(@([2468]))?})
@@ -268,7 +268,7 @@ MESSAGETEXT
     text = "#{judgeCommand} ＞ 《回避運動》"
     text += getJudgeResult("SN" + Regexp.last_match(1).to_s) # 操舵判定
 
-    return text unless /成功/ === text
+    return text unless /成功/ =~ text
 
     pointCommand = command.slice(/(\(?\[縦\d+,横\d+\]\)?,?)+/) # 砲撃座標
 
@@ -303,7 +303,7 @@ MESSAGETEXT
 
         firePoint[-1] << []
 
-        next unless /[^\d]*(\d+),[^\d]*(\d+)/ === point
+        next unless /[^\d]*(\d+),[^\d]*(\d+)/ =~ point
 
         y = Regexp.last_match(1).to_i
         x = Regexp.last_match(2).to_i

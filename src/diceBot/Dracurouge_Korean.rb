@@ -57,7 +57,7 @@ MESSAGETEXT
   end
 
   def getConductResult(command)
-    return nil unless /^DR(\d*)(\+(\d+))?$/ === command
+    return nil unless /^DR(\d*)(\+(\d+))?$/ =~ command
 
     diceCount = Regexp.last_match(1).to_i
     diceCount = 4 if diceCount == 0
@@ -118,7 +118,7 @@ MESSAGETEXT
   end
 
   def getResistResult(command)
-    return nil unless /^DRR(\d+)$/ === command
+    return nil unless /^DRR(\d+)$/ =~ command
 
     diceCount = Regexp.last_match(1).to_i
     diceCount = 4 if diceCount == 0
@@ -129,7 +129,7 @@ MESSAGETEXT
   end
 
   def getReactionResult(command)
-    return nil unless /^RT((\w)(\w))?/ === command.upcase
+    return nil unless /^RT((\w)(\w))?/ =~ command.upcase
 
     typeText1 = Regexp.last_match(2)
     typeText2 = Regexp.last_match(3)
@@ -224,7 +224,7 @@ TEXT_BLOCK
   end
 
   def getCorruptionResult(command)
-    return nil unless /^CT(\d+)$/ === command.upcase
+    return nil unless /^CT(\d+)$/ =~ command.upcase
 
     modify = Regexp.last_match(1).to_i
 

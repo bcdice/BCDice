@@ -43,7 +43,7 @@ MESSAGETEXT
   ])
 
   def rollDiceCommand(command)
-    if /(-)?(\d+)?RD(\d+)?(@(\d+))?$/i === command
+    if /(-)?(\d+)?RD(\d+)?(@(\d+))?$/i =~ command
       diceCount = (Regexp.last_match(2) || 1).to_i
       diceCount *= -1 unless Regexp.last_match(1).nil?
       choiceCount = (Regexp.last_match(3) || 1).to_i
@@ -51,7 +51,7 @@ MESSAGETEXT
 
       return checkRoll(diceCount, choiceCount, target)
 
-    elsif /(-)?(\d+)?DD([1-9])?([\+\-]\d+)?$/i === command
+    elsif /(-)?(\d+)?DD([1-9])?([\+\-]\d+)?$/i =~ command
       diceCount = (Regexp.last_match(2) || 1).to_i
       diceCount *= -1 unless Regexp.last_match(1).nil?
       armor = (Regexp.last_match(3) || 0).to_i
