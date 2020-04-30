@@ -12,55 +12,62 @@ class AddDice
       @dice_list = []
     end
 
+    # ダイスを振る
+    # @param [Integer] times ダイス数
+    # @param [Integer] sides 面数
+    # @param [Integer] critical クリティカルヒットの閾値
+    # @return [(Integer, String)] 合計、および出目の文字列
     def roll(times, sides, critical)
-      total = 0
+      # 振り足し分も含めた出目の総計
+      total_sum = 0
+      # 振り足し分も含めた出目グループの配列
       results_list = []
 
       loop_count = 0
       queue = [times]
       while !queue.empty?
         times = queue.shift
-        val, dice_list = roll_once(times, sides)
 
-        total += val
+        dice_list = roll_once(times, sides)
+        @dice_list.concat(dice_list)
+
+        # 出目の小計
+        # TODO: Ruby 2.4以降では dice_list.sum とできる
+        sum = dice_list.reduce(0, &:+)
+
+        total_sum += sum
         results_list.push(dice_list)
 
         enqueue_reroll(dice_list, queue, times)
-        @dicebot.check2dCritical(critical, val, queue, loop_count)
+        @dicebot.check2dCritical(critical, sum, queue, loop_count)
         loop_count += 1
       end
 
-      text = total.to_s
+      text = total_sum.to_s
       results_list.each do |list|
         text += '[' + list.join(',') + ']'
       end
 
-      [total, text]
+      [total_sum, text]
     end
 
     private
 
+    # ダイスを振る（振り足しなしの1回分）
+    # @param [Integer] times ダイス数
+    # @param [Integer] sides 面数
+    # @return [Array<Integer>] 出目の配列
     def roll_once(times, sides)
       @sides = sides if @sides < sides
 
       if sides == 66
-        return rollD66(dice_wk)
+        return Array.new(times) { @bcdice.getD66Value() }
       end
 
-      _, dice_list, = @bcdice.roll(times, sides, @dicebot.sortType & 1)
-      dice_list = dice_list.split(",").map(&:to_i)
-      @dice_list.concat(dice_list)
+      _, dice_str, = @bcdice.roll(times, sides, @dicebot.sortType & 1)
 
-      total = dice_list.inject(0, &:+)
-      return [total, dice_list]
-    end
-
-    def roll_d66(times)
-      dice_list = Array.new(times) { @bcdice.getD66Value() }
-      @dice_list.concat(dice_list)
-
-      total = dice_list.inject(0, &:+)
-      return [total, dice_list]
+      # 現在は出目が文字列で返ってきてしまうので、整数の配列に変換する
+      return dice_str.split(',').map(&:to_i)
     end
 
     def double_check?
