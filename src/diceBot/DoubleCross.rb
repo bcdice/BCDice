@@ -4,6 +4,7 @@
 require 'diceBot/DiceBot'
 require 'utils/ArithmeticEvaluator'
 require 'utils/modifier_formatter'
+require 'utils/range_table'
 
 class DoubleCross < DiceBot
   # ゲームシステムの識別子
@@ -248,7 +249,7 @@ INFO_MESSAGE_TEXT
     end
 
     if command == 'ET'
-      return get_emotion_table
+      return roll_emotion_table()
     end
 
     return nil
@@ -316,92 +317,90 @@ INFO_MESSAGE_TEXT
     return DX.new(num, critical_value, modifier, target_value)
   end
 
-  # ** 感情表
-  def get_emotion_table()
-    output = nil
+  # 感情表を振る
+  #
+  # ポジティブとネガティブの両方を振って、表になっている側に○を付ける。
+  #
+  # @return [String]
+  def roll_emotion_table
+    pos_result = POSITIVE_EMOTION_TABLE.roll(bcdice)
+    neg_result = NEGATIVE_EMOTION_TABLE.roll(bcdice)
 
-    pos_dice, pos_table = dx_feel_positive_table
-    neg_dice, neg_table = dx_feel_negative_table
-    dice_now, = roll(1, 2)
-
-    if (pos_table != '1') && (neg_table != '1')
-      if dice_now < 2
-        pos_table = "○" + pos_table
+    positive = roll(1, 2)[0] == 1
+    pos_neg_text =
+      if positive
+        ["○#{pos_result.content}", neg_result.content]
       else
-        neg_table = "○" + neg_table
+        [pos_result.content, "○#{neg_result.content}"]
       end
-      output = "感情表(#{pos_dice}-#{neg_dice}) ＞ #{pos_table} - #{neg_table}"
-    end
 
-    return output
-  end
-
-  # ** 感情表（ポジティブ）
-  def dx_feel_positive_table
-    table = [
-      [0, '傾倒(けいとう)'],
-      [5, '好奇心(こうきしん)'],
-      [10, '憧憬(どうけい)'],
-      [15, '尊敬(そんけい)'],
-      [20, '連帯感(れんたいかん)'],
-      [25, '慈愛(じあい)'],
-      [30, '感服(かんぷく)'],
-      [35, '純愛(じゅんあい)'],
-      [40, '友情(ゆうじょう)'],
-      [45, '慕情(ぼじょう)'],
-      [50, '同情(どうじょう)'],
-      [55, '遺志(いし)'],
-      [60, '庇護(ひご)'],
-      [65, '幸福感(こうふくかん)'],
-      [70, '信頼(しんらい)'],
-      [75, '執着(しゅうちゃく)'],
-      [80, '親近感(しんきんかん)'],
-      [85, '誠意(せいい)'],
-      [90, '好意(こうい)'],
-      [95, '有為(ゆうい)'],
-      [100, '尽力(じんりょく)'],
-      [101, '懐旧(かいきゅう)'],
-      [102, '任意(にんい)'],
+    output_parts = [
+      "感情表(#{pos_result.sum}-#{neg_result.sum})",
+      pos_neg_text.join(' - ')
     ]
 
-    return dx_feel_table(table)
+    return output_parts.join(' ＞ ')
   end
 
-  # ** 感情表（ネガティブ）
-  def dx_feel_negative_table
-    table = [
-      [0, '侮蔑(ぶべつ)'],
-      [5, '食傷(しょくしょう)'],
-      [10, '脅威(きょうい)'],
-      [15, '嫉妬(しっと)'],
-      [20, '悔悟(かいご)'],
-      [25, '恐怖(きょうふ)'],
-      [30, '不安(ふあん)'],
-      [35, '劣等感(れっとうかん)'],
-      [40, '疎外感(そがいかん)'],
-      [45, '恥辱(ちじょく)'],
-      [50, '憐憫(れんびん)'],
-      [55, '偏愛(へんあい)'],
-      [60, '憎悪(ぞうお)'],
-      [65, '隔意(かくい)'],
-      [70, '嫌悪(けんお)'],
-      [75, '猜疑心(さいぎしん)'],
-      [80, '厭気(いやけ)'],
-      [85, '不信感(ふしんかん)'],
-      [90, '不快感(ふかいかん)'],
-      [95, '憤懣(ふんまん)'],
-      [100, '敵愾心(てきがいしん)'],
-      [101, '無関心(むかんしん)'],
-      [102, '任意(にんい)'],
+  # 感情表（ポジティブ）
+  POSITIVE_EMOTION_TABLE = RangeTable.new(
+    '感情表（ポジティブ）',
+    '1D100',
+    [
+      # [0, '傾倒(けいとう)'],
+      [1..5,    '好奇心(こうきしん)'],
+      [6..10,   '憧憬(どうけい)'],
+      [11..15,  '尊敬(そんけい)'],
+      [16..20,  '連帯感(れんたいかん)'],
+      [21..25,  '慈愛(じあい)'],
+      [26..30,  '感服(かんぷく)'],
+      [31..35,  '純愛(じゅんあい)'],
+      [36..40,  '友情(ゆうじょう)'],
+      [41..45,  '慕情(ぼじょう)'],
+      [46..50,  '同情(どうじょう)'],
+      [51..55,  '遺志(いし)'],
+      [56..60,  '庇護(ひご)'],
+      [61..65,  '幸福感(こうふくかん)'],
+      [66..70,  '信頼(しんらい)'],
+      [71..75,  '執着(しゅうちゃく)'],
+      [76..80,  '親近感(しんきんかん)'],
+      [81..85,  '誠意(せいい)'],
+      [86..90,  '好意(こうい)'],
+      [91..95,  '有為(ゆうい)'],
+      [96..100, '尽力(じんりょく)'],
+      # [101, '懐旧(かいきゅう)'],
+      # [102, '任意(にんい)'],
     ]
+  ).freeze
 
-    return dx_feel_table(table)
-  end
-
-  def dx_feel_table(table)
-    dice_now, = roll(1, 100)
-    output = get_table_by_number(dice_now, table)
-
-    return dice_now, output
-  end
+  # 感情表（ネガティブ）
+  NEGATIVE_EMOTION_TABLE = RangeTable.new(
+    '感情表（ネガティブ）',
+    '1D100',
+    [
+      # [0, '侮蔑(ぶべつ)'],
+      [1..5,    '食傷(しょくしょう)'],
+      [6..10,   '脅威(きょうい)'],
+      [11..15,  '嫉妬(しっと)'],
+      [16..20,  '悔悟(かいご)'],
+      [21..25,  '恐怖(きょうふ)'],
+      [26..30,  '不安(ふあん)'],
+      [31..35,  '劣等感(れっとうかん)'],
+      [36..40,  '疎外感(そがいかん)'],
+      [41..45,  '恥辱(ちじょく)'],
+      [46..50,  '憐憫(れんびん)'],
+      [51..55,  '偏愛(へんあい)'],
+      [56..60,  '憎悪(ぞうお)'],
+      [61..65,  '隔意(かくい)'],
+      [66..70,  '嫌悪(けんお)'],
+      [71..75,  '猜疑心(さいぎしん)'],
+      [76..80,  '厭気(いやけ)'],
+      [81..85,  '不信感(ふしんかん)'],
+      [86..90,  '不快感(ふかいかん)'],
+      [91..95,  '憤懣(ふんまん)'],
+      [96..100, '敵愾心(てきがいしん)'],
+      # [101, '無関心(むかんしん)'],
+      # [102, '任意(にんい)'],
+    ]
+  ).freeze
 end
