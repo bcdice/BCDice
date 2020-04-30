@@ -3,6 +3,7 @@
 
 require 'diceBot/DiceBot'
 require 'utils/ArithmeticEvaluator'
+require 'utils/modifier_formatter'
 
 class DoubleCross < DiceBot
   # ゲームシステムの識別子
@@ -31,46 +32,144 @@ INFO_MESSAGE_TEXT
 
   setPrefixes(['\d+DX.*', 'ET'])
 
-  # OD Tool式の成功判定コマンドの正規表現
-  #
-  # キャプチャ内容は以下のとおり:
-  #
-  # 1. ダイス数
-  # 2. 修正値
-  # 4. クリティカル値
-  # 5. 達成値
-  DX_OD_TOOL_RE = /\A(\d+)DX([-+]\d+([-+*]\d+)*)?@(\d+)(?:>=(\d+))?\z/io.freeze
-
-  # 疾風怒濤式の成功判定コマンドの正規表現
-  #
-  # キャプチャ内容は以下のとおり:
-  #
-  # 1. ダイス数
-  # 2. クリティカル値
-  # 3. 修正値
-  # 5. 達成値
-  DX_SHIPPU_DOTO_RE = /\A(\d+)DX(\d+)?([-+]\d+([-+*]\d+)*)?(?:>=(\d+))?\z/io.freeze
-
   # 成功判定コマンドのノード
-  DXNode = Struct.new(:num, :critical_value, :modifier, :target_value) do
-    # 成功判定の文字列表記を返す
-    # @return [String]
-    def to_s
-      lhs = "#{num}DX#{critical_value}#{formatted_modifier}"
+  class DX
+    include ModifierFormatter
 
-      return target_value ? "#{lhs}>=#{target_value}" : lhs
+    # ノードを初期化する
+    # @param [Integer] num ダイス数
+    # @param [Integer] critical_value クリティカル値
+    # @param [Integer] modifier 修正値
+    # @param [Integer] target_value 目標値
+    def initialize(num, critical_value, modifier, target_value)
+      @num = num
+      @critical_value = critical_value
+      @modifier = modifier
+      @target_value = target_value
+
+      @modifier_str = format_modifier(@modifier)
+      @expression = node_expression()
     end
 
-    # 出力用に整形された修正値を返す
-    # @return [String]
-    def formatted_modifier
-      if modifier == 0
-        ''
-      elsif modifier > 0
-        "+#{modifier}"
-      else
-        modifier.to_s
+    # 成功判定を行う
+    # @param [DiceBot] bot ダイスボット
+    # @return [String] 判定結果
+    def execute(bot)
+      if @critical_value < 2
+        return "(#{@expression}) ＞ クリティカル値が低すぎます。2以上を指定してください。"
       end
+
+      if @num < 1
+        return "(#{@expression}) ＞ 自動失敗"
+      end
+
+      # 出目のグループの配列
+      value_groups = []
+      # 次にダイスロールを行う際のダイス数
+      num_of_dice = @num
+      # 回転数
+      loop_count = 0
+
+      while num_of_dice > 0 && bot.should_reroll?(loop_count)
+        values = Array.new(num_of_dice) { bot.roll(1, 10)[0] }
+
+        value_group = ValueGroup.new(values, @critical_value)
+        value_groups.push(value_group)
+
+        # 次回はクリティカル発生数と等しい個数のダイスを振る
+        # [3rd ルールブック1 p. 185]
+        num_of_dice = value_group.num_of_critical_occurrences
+
+        loop_count += 1
+      end
+
+      return result_str(value_groups, loop_count)
+    end
+
+    private
+
+    # 数式表記を返す
+    # @return [String]
+    def node_expression
+      lhs = "#{@num}DX#{@critical_value}#{@modifier_str}"
+
+      return @target_value ? "#{lhs}>=#{@target_value}" : lhs
+    end
+
+    # 判定結果の文字列を返す
+    # @param [Array<ValueGroup>] value_groups 出目のグループの配列
+    # @param [Integer] loop_count 回転数
+    # @return [String]
+    def result_str(value_groups, loop_count)
+      fumble = value_groups[0].values.all? { |value| value == 1 }
+      # TODO: Ruby 2.4以降では Array#sum が使える
+      sum = value_groups.map(&:max).reduce(0, &:+)
+      achieved_value = fumble ? 0 : (sum + @modifier)
+
+      long_str = result_str_long(value_groups, achieved_value, fumble)
+
+      if long_str.length > $SEND_STR_MAX
+        return result_str_short(loop_count, achieved_value, fumble)
+      end
+
+      return long_str
+    end
+
+    # ダイスロール結果の長い文字列表記を返す
+    # @param [Array<ValueGroup>] value_groups 出目のグループの配列
+    # @param [Integer] achieved_value 達成値
+    # @param [Boolean] fumble ファンブルしたか
+    # @return [String]
+    def result_str_long(value_groups, achieved_value, fumble)
+      parts = [
+        "(#{@expression})",
+        "#{value_groups.join('+')}#{@modifier_str}",
+        achieved_value_with_if_fumble(achieved_value, fumble),
+        compare_result(achieved_value, fumble)
+      ]
+
+      return parts.compact.join(' ＞ ')
+    end
+
+    # ダイスロール結果の短い文字列表記を返す
+    # @param [Integer] loop_count 回転数
+    # @param [Integer] achieved_value 達成値
+    # @param [Boolean] fumble ファンブルしたか
+    # @return [String]
+    def result_str_short(loop_count, achieved_value, fumble)
+      parts = [
+        "(#{@expression})",
+        '...',
+        "回転数#{loop_count}",
+        achieved_value_with_if_fumble(achieved_value, fumble),
+        compare_result(achieved_value, fumble)
+      ]
+
+      return parts.compact.join(' ＞ ')
+    end
+
+    # ファンブルかどうかを含む達成値の表記を返す
+    # @param [Integer] achieved_value 達成値
+    # @param [Boolean] fumble ファンブルしたか
+    # @return [String]
+    def achieved_value_with_if_fumble(achieved_value, fumble)
+      fumble ? "#{achieved_value} (ファンブル)" : achieved_value.to_s
+    end
+
+    # 達成値と目標値を比較した結果を返す
+    # @param [Integer] achieved_value 達成値
+    # @param [Boolean] fumble ファンブルしたか
+    # @return [String, nil]
+    def compare_result(achieved_value, fumble)
+      return nil unless @target_value
+
+      # ファンブル時は自動失敗
+      # [3rd ルールブック1 pp. 186-187]
+      return '失敗' if fumble
+
+      # 達成値が目標値以上ならば行為判定成功
+      # [3rd ルールブック1 p. 187]
+      return achieved_value >= @target_value ? '成功' : '失敗'
     end
   end
 
@@ -127,104 +226,6 @@ INFO_MESSAGE_TEXT
     end
   end
 
-  # 成功判定コマンドのダイスロール結果を表すクラス
-  class DXDiceRollResult
-    # 成功判定コマンドのノード
-    # @return [DXNode]
-    attr_reader :dx_node
-    # 出目のグループの配列
-    # @return [Array<ValueGroup>]
-    attr_reader :value_groups
-    # 回転数
-    # @return [Integer]
-    attr_reader :loop_count
-
-    # 達成値
-    # @return [Integer]
-    attr_reader :achieved_value
-    # ファンブルかどうか
-    # @return [Boolean]
-    attr_reader :is_fumble
-
-    # 成功判定コマンドのダイスロール結果を初期化する
-    # @param [DXNode] dx_node 成功判定コマンドのノード
-    # @param [Array<ValueGroup>] value_groups 出目のグループの配列
-    # @param [Integer] loop_count 回転数
-    def initialize(dx_node, value_groups, loop_count)
-      @dx_node = dx_node
-      @value_groups = value_groups
-      @loop_count = loop_count
-
-      # ダイスの目がすべて1の場合はファンブル [3rd ルールブック1 p. 186]
-      @is_fumble = @value_groups[0].values.all? { |value| value == 1 }
-
-      # 出目（各グループの最大値の和）
-      sum = @value_groups.map(&:max).reduce(0, :+)
-      # 達成値 = 出目 + (技能のレベル + 修正)。
-      # ただしファンブルの場合は0。
-      # [3rd ルールブック1 p. 187]
-      @achieved_value = @is_fumble ? 0 : (sum + @dx_node.modifier)
-    end
-
-    # ダイスロール結果の文字列表記を返す
-    # @return [String]
-    def to_s
-      long_str = to_s_long
-
-      # 通常の表記が長すぎた場合は短い表記を返す
-      return long_str.length > $SEND_STR_MAX ? to_s_short : long_str
-    end
-
-    private
-
-    # ダイスロール結果の長い文字列表記を返す
-    # @return [String]
-    def to_s_long
-      parts = [
-        "(#{@dx_node})",
-        "#{@value_groups.join('+')}#{@dx_node.formatted_modifier}",
-        achieved_value_with_if_fumble,
-        compare_result
-      ]
-
-      return parts.compact.join(' ＞ ')
-    end
-
-    # ダイスロール結果の短い文字列表記を返す
-    # @return [String]
-    def to_s_short
-      parts = [
-        "(#{@dx_node})",
-        '...',
-        "回転数#{@loop_count}",
-        achieved_value_with_if_fumble,
-        compare_result
-      ]
-
-      return parts.compact.join(' ＞ ')
-    end
-
-    # ファンブルかどうかを含む達成値の表記を返す
-    # @return [String]
-    def achieved_value_with_if_fumble
-      @is_fumble ? "#{@achieved_value} (ファンブル)" : @achieved_value.to_s
-    end
-
-    # 達成値と目標値を比較した結果を返す
-    # @return [String, nil]
-    def compare_result
-      return nil unless @dx_node.target_value
-
-      # ファンブル時は自動失敗
-      # [3rd ルールブック1 pp. 186-187]
-      return '失敗' if @is_fumble
-
-      # 達成値が目標値以上ならば行為判定成功
-      # [3rd ルールブック1 p. 187]
-      return @achieved_value >= @dx_node.target_value ? '成功' : '失敗'
-    end
-  end
-
   def check_nD10(total, _dice_total, dice_list, cmp_op, target)
     return '' unless cmp_op == :>=
 
@@ -237,9 +238,13 @@ INFO_MESSAGE_TEXT
     end
   end
 
+  # ダイスボット固有コマンドの処理を行う
+  # @param [String] command コマンド
+  # @return [String] ダイスボット固有コマンドの結果
+  # @return [nil] 無効なコマンドだった場合
   def rollDiceCommand(command)
-    if (dx = parse(command))
-      return execute_dx(dx)
+    if (dx = parse_dx(command))
+      return dx.execute(self)
     end
 
     if command == 'ET'
@@ -251,10 +256,30 @@ INFO_MESSAGE_TEXT
 
   private
 
-  # 構文解析する
+  # OD Tool式の成功判定コマンドの正規表現
+  #
+  # キャプチャ内容は以下のとおり:
+  #
+  # 1. ダイス数
+  # 2. 修正値
+  # 3. クリティカル値
+  # 4. 達成値
+  DX_OD_TOOL_RE = /\A(\d+)DX([-+]\d+(?:[-+*]\d+)*)?@(\d+)(?:>=(\d+))?\z/io.freeze
+
+  # 疾風怒濤式の成功判定コマンドの正規表現
+  #
+  # キャプチャ内容は以下のとおり:
+  #
+  # 1. ダイス数
+  # 2. クリティカル値
+  # 3. 修正値
+  # 4. 達成値
+  DX_SHIPPU_DOTO_RE = /\A(\d+)DX(\d+)?([-+]\d+(?:[-+*]\d+)*)?(?:>=(\d+))?\z/io.freeze
+
+  # 成功判定コマンドの構文解析を行う
   # @param [String] command コマンド文字列
-  # @return [DXNode, nil]
-  def parse(command)
+  # @return [DX, nil]
+  def parse_dx(command)
     case command
     when DX_OD_TOOL_RE
       return parse_dx_od(Regexp.last_match)
@@ -267,64 +292,28 @@ INFO_MESSAGE_TEXT
 
   # OD Tool式の成功判定コマンドの正規表現マッチ情報からノードを作る
   # @param [MatchData] m 正規表現のマッチ情報
-  # @return [DXNode]
+  # @return [DX]
   def parse_dx_od(m)
     num = m[1].to_i
     modifier = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
-    critical_value = m[4] ? m[4].to_i : 10
+    critical_value = m[3] ? m[3].to_i : 10
 
-    # @type [Integer, nil]
-    target_value = m[5] && m[5].to_i
+    target_value = m[4] && m[4].to_i
 
-    return DXNode.new(num, critical_value, modifier, target_value)
+    return DX.new(num, critical_value, modifier, target_value)
   end
 
   # 疾風怒濤式の成功判定コマンドの正規表現マッチ情報からノードを作る
   # @param [MatchData] m 正規表現のマッチ情報
-  # @return [DXNode]
+  # @return [DX]
   def parse_dx_shippu_doto(m)
     num = m[1].to_i
     critical_value = m[2] ? m[2].to_i : 10
     modifier = m[3] ? ArithmeticEvaluator.new.eval(m[3]) : 0
 
-    # @type [Integer, nil]
-    target_value = m[5] && m[5].to_i
+    target_value = m[4] && m[4].to_i
 
-    return DXNode.new(num, critical_value, modifier, target_value)
-  end
-
-  # 成功判定を行う
-  # @param [DXNode] node 成功判定ノード
-  def execute_dx(node)
-    if node.critical_value < 2
-      return "(#{node}) ＞ クリティカル値が低すぎます。2以上を指定してください。"
-    end
-
-    if node.num < 1
-      return "(#{node}) ＞ 自動失敗"
-    end
-
-    # 出目のグループの配列
-    value_groups = []
-    # 次にダイスロールを行う際のダイス数
-    num_of_dice = node.num
-    # 回転数
-    loop_count = 0
-
-    while num_of_dice > 0 && should_reroll?(loop_count)
-      values = Array.new(num_of_dice) { roll(1, 10)[0] }
-
-      value_group = ValueGroup.new(values, node.critical_value)
-      value_groups.push(value_group)
-
-      # 次回はクリティカル発生数と等しい個数のダイスを振る
-      # [3rd ルールブック1 p. 185]
-      num_of_dice = value_group.num_of_critical_occurrences
-
-      loop_count += 1
-    end
-
-    return DXDiceRollResult.new(node, value_groups, loop_count).to_s
+    return DX.new(num, critical_value, modifier, target_value)
   end
 
   # ** 感情表
