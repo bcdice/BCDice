@@ -51,8 +51,6 @@ class AddDice
       [total_sum, text]
     end
 
-    private
-
     # ダイスを振る（振り足しなしの1回分）
     # @param [Integer] times ダイス数
     # @param [Integer] sides 面数
@@ -69,6 +67,8 @@ class AddDice
       # 現在は出目が文字列で返ってきてしまうので、整数の配列に変換する
       return dice_str.split(',').map(&:to_i)
     end
+
+    private
 
     def double_check?
       if @dicebot.sameDiceRerollCount != 0 # 振り足しありのゲームでダイスが二個以上
