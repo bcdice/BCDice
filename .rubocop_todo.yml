@@ -167,7 +167,33 @@ Naming/FileName:
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: snake_case, camelCase
 Naming/MethodName:
-  Enabled: false
+  Exclude:
+    - 'src/diceBot/*'
+    - 'src/ArgsAnalizer.rb'
+    - 'src/CardTrader.rb'
+    - 'src/CountHolder.rb'
+    - 'src/IniFile.rb'
+    - 'src/TableFileData.rb'
+    - 'src/bcdice.rb'
+    - 'src/bcdiceCore.rb'
+    - 'src/bcdiceGui.rb'
+    - 'src/cgiDiceBot.rb'
+    - 'src/createExe.rb'
+    - 'src/dice/AddDice.rb'
+    - 'src/dice/RerollDice.rb'
+    - 'src/dice/UpperDice.rb'
+    - 'src/irc/ircBot.rb'
+    - 'src/irc/torgtaitaiIRC.rb'
+    - 'src/log.rb'
+    - 'src/test/DiceBotTest.rb'
+    - 'src/test/DiceBotTestData.rb'
+    - 'src/test/others/testCard.rb'
+    - 'src/test/others/testIniFile.rb'
+    - 'src/test/others/testPointer.rb'
+    - 'src/test/others/testSecretDice.rb'
+    - 'src/test/testDiceBotLoaders.rb'
+    - 'src/test/testDiceBotPrefixesCompatibility.rb'
+    - 'src/test/test_srs_help_messages.rb'
 
 # Offense count: 2
 # Configuration parameters: NamePrefix, NamePrefixBlacklist, NameWhitelist, MethodDefinitionMacros.
