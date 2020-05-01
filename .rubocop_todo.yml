@@ -134,7 +134,25 @@ Naming/AccessorMethodName:
 
 # Offense count: 18
 Naming/ClassAndModuleCamelCase:
-  Enabled: false
+  Exclude:
+    - 'src/diceBot/Alter_raise.rb'
+    - 'src/diceBot/Amadeus_Korean.rb'
+    - 'src/diceBot/BeginningIdol_Korean.rb'
+    - 'src/diceBot/Cthulhu7th_ChineseTraditional.rb'
+    - 'src/diceBot/Cthulhu7th_Korean.rb'
+    - 'src/diceBot/Cthulhu_ChineseTraditional.rb'
+    - 'src/diceBot/Cthulhu_Korean.rb'
+    - 'src/diceBot/DetatokoSaga_Korean.rb'
+    - 'src/diceBot/Dracurouge_Korean.rb'
+    - 'src/diceBot/Insane_Korean.rb'
+    - 'src/diceBot/Kamigakari_Korean.rb'
+    - 'src/diceBot/KillDeathBusiness_Korean.rb'
+    - 'src/diceBot/LogHorizon_Korean.rb'
+    - 'src/diceBot/MonotoneMuseum_Korean.rb'
+    - 'src/diceBot/Nechronica_Korean.rb'
+    - 'src/diceBot/SwordWorld2_0.rb'
+    - 'src/diceBot/SwordWorld2_5.rb'
+    - 'src/diceBot/Torg1_5.rb'
 
 # Offense count: 181
 # Configuration parameters: ExpectMatchingDefinition, Regex, IgnoreExecutableScripts, AllowedAcronyms.
