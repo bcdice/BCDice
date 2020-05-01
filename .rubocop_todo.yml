@@ -130,7 +130,28 @@ Metrics/PerceivedComplexity:
 
 # Offense count: 221
 Naming/AccessorMethodName:
-  Enabled: false
+  Exclude:
+    - 'src/CountHolder.rb'
+    - 'src/diceBot/BadLife.rb'
+    - 'src/diceBot/DoubleCross.rb'
+    - 'src/diceBot/FutariSousa.rb'
+    - 'src/diceBot/Garako.rb'
+    - 'src/diceBot/HuntersMoon.rb'
+    - 'src/diceBot/Insane.rb'
+    - 'src/diceBot/Insane_Korean.rb'
+    - 'src/diceBot/KanColle.rb'
+    - 'src/diceBot/MagicaLogia.rb'
+    - 'src/diceBot/MetalHeadExtream.rb'
+    - 'src/diceBot/Paradiso.rb'
+    - 'src/diceBot/ParasiteBlood.rb'
+    - 'src/diceBot/Postman.rb'
+    - 'src/diceBot/SRS.rb'
+    - 'src/diceBot/SterileLife.rb'
+    - 'src/diceBot/Strave.rb'
+    - 'src/diceBot/SwordWorld2_0.rb'
+    - 'src/diceBot/TrinitySeven.rb'
+    - 'src/diceBot/_InsaneScp.rb'
+    - 'src/irc/encode.rb'
 
 # Offense count: 18
 Naming/ClassAndModuleCamelCase:
