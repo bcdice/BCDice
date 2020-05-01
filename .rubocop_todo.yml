@@ -140,7 +140,28 @@ Naming/ClassAndModuleCamelCase:
 # Configuration parameters: ExpectMatchingDefinition, Regex, IgnoreExecutableScripts, AllowedAcronyms.
 # AllowedAcronyms: CLI, DSL, ACL, API, ASCII, CPU, CSS, DNS, EOF, GUID, HTML, HTTP, HTTPS, ID, IP, JSON, LHS, QPS, RAM, RHS, RPC, SLA, SMTP, SQL, SSH, TCP, TLS, TTL, UDP, UI, UID, UUID, URI, URL, UTF8, VM, XML, XMPP, XSRF, XSS
 Naming/FileName:
-  Enabled: false
+  Exclude:
+    - 'src/diceBot/*'
+    - 'src/IniFile.rb'
+    - 'src/TableFileData.rb'
+    - 'src/cgiDiceBot.rb'
+    - 'src/configBcDice.rb'
+    - 'src/configBcDiceForSystem.rb'
+    - 'src/dice/AddDice.rb'
+    - 'src/dice/RerollDice.rb'
+    - 'src/dice/UpperDice.rb'
+    - 'src/irc/torgtaitaiIRC.rb'
+    - 'src/test/DiceBotTest.rb'
+    - 'src/test/DiceBotTestData.rb'
+    - 'src/test/others/testArgs.rb'
+    - 'src/test/others/testCard.rb'
+    - 'src/test/others/testIniFile.rb'
+    - 'src/test/others/testPointer.rb'
+    - 'src/test/others/testSecretDice.rb'
+    - 'src/test/testDiceBotLoaders.rb'
+    - 'src/test/testDiceBotPrefixesCompatibility.rb'
+    - 'src/test/testDiceBots.rb'
+    - 'src/utils/ArithmeticEvaluator.rb'
 
 # Offense count: 2115
 # Configuration parameters: EnforcedStyle.
