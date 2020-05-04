@@ -32,7 +32,7 @@ task :release, ['version'] do |_, args|
   replace('CHANGELOG.md', '### Unreleased', md_header)
   replace('src/bcdiceCore.rb', /VERSION = ".+"/, "VERSION = \"#{version}\"")
   replace('src/configBcDice.rb', /\$bcDiceVersion = ".+"/, "$bcDiceVersion = \"#{version}\"")
-  sh "git diff --no-pager"
+  sh "git --no-pager diff"
 
   # Test and lint
   Rake::Task[:test].invoke
