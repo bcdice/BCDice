@@ -159,6 +159,7 @@ class AddDice
         if filter
           # ダイスロール後のフィルタリングあり
           n_filtering = expect_number()
+          @contain_dice_roll = true
           return Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
         end
 
