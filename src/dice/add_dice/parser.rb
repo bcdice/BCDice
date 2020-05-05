@@ -17,6 +17,8 @@ class AddDice
       @idx = 0
       # 構文解析エラーが発生したかどうか
       @error = false
+      # 式にダイスロールが含まれるか
+      @contain_dice_roll = false
     end
 
     # 構文解析を実行する
@@ -32,7 +34,7 @@ class AddDice
       @tokens = tokenize(lhs)
       lhs = expr()
 
-      if @idx != @tokens.size
+      if @idx != @tokens.size || !@contain_dice_roll
         @error = true
       end
 
@@ -150,18 +152,20 @@ class AddDice
     def term
       num = expect_number()
       if consume("D")
+        times = num
         sides = expect_number()
 
         filter = dice_roll_filter()
         if filter
           # ダイスロール後のフィルタリングあり
           n_filtering = expect_number()
-          return Node::DiceRollWithFilter.new(num, sides, n_filtering, filter)
+          return Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
         end
 
         # 通常のダイスロール
         critical = consume("@") ? expect_number() : nil
-        return Node::DiceRoll.new(num, sides, critical)
+        @contain_dice_roll = true
+        return Node::DiceRoll.new(times, sides, critical)
       end
 
       return num
