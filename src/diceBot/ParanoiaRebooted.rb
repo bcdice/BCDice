@@ -62,7 +62,8 @@ INFO_MESSAGE_TEXT
     success_rate = 0
     computer_roll_result = ''
     dices = dice_text.split(/,/)
-    results = dices.map.with_index do |d, index|
+    index = 0
+    results = dices.map do |d|
       result = d.to_i
       if result >= 5
         success_rate += 1
@@ -71,9 +72,10 @@ INFO_MESSAGE_TEXT
       end
 
       if index == dices.length - 1 && result == 6
-        result = 'C'
+        result = "C"
         computer_roll_result = '(Computer)'
       end
+      index += 1
 
       next result
     end
@@ -82,7 +84,7 @@ INFO_MESSAGE_TEXT
 
     debug("rollDiceCommand result")
 
-    return "(#{command}) ＞ #{results} ＞ 成功度#{success_rate}#{computer_roll_result}"
+    return "(#{command}) ＞ [#{results.join(', ')}] ＞ 成功度#{success_rate}#{computer_roll_result}"
   end
 
   def get_mutant_power_role(command)
@@ -102,7 +104,8 @@ INFO_MESSAGE_TEXT
     computer_roll_result = ''
     dices = dice_text.split(/,/)
     failure_rate = 0
-    results = dices.map.with_index do |d, index|
+    index = 0
+    results = dices.map do |d|
       result = d.to_i
       if result == 1
         failure_rate -= 1
@@ -113,6 +116,7 @@ INFO_MESSAGE_TEXT
         computer_roll_result = '(Computer)'
       end
 
+      index += 1
       next result
     end
 
@@ -122,6 +126,6 @@ INFO_MESSAGE_TEXT
 
     debug("rollDiceCommand result")
 
-    return "(#{command}) ＞ #{results} ＞ #{message}#{computer_roll_result}"
+    return "(#{command}) ＞ [#{results.join(', ')}] ＞ #{message}#{computer_roll_result}"
   end
 end
