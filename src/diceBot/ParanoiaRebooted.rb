@@ -45,24 +45,6 @@ INFO_MESSAGE_TEXT
 
   private
 
-  def roll_1d8_table(table_name, table)
-    total_n, = roll(1, 8)
-    index = total_n - 1
-
-    text = table[index]
-
-    return "#{table_name}(#{total_n}) ＞ #{text}"
-  end
-
-  def roll_1d100_table(table_name, table)
-    total_n, = roll(1, 100)
-    index = total_n - 1
-
-    text = table[index]
-
-    return "#{table_name}(#{total_n}) ＞ #{text}"
-  end
-
   def get_node_dice_role(command)
     debug("rollDiceCommand Begin")
 
