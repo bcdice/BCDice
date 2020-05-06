@@ -25,7 +25,7 @@ class ParanoiaRebooted < DiceBot
 例）MP2
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['ND.*', 'MP.*', 'REQP', 'DINF', 'PDEQP'])
+  setPrefixes(['ND.*', 'MP.*'])
 
   def initialize
     # $isDebug = true
