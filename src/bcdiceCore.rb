@@ -107,7 +107,6 @@ class BCDice
 
     @nick_e = ""
     @tnick = ""
-    @isMessagePrinted = false
     @rands = nil
     @isKeepSecretDice = true
     @isIrcMode = true
@@ -626,10 +625,6 @@ class BCDice
 
     # カード処理
     executeCard
-
-    unless @isMessagePrinted # ダイスロール以外の発言では捨てダイス処理を
-      # rand 100 if($isRollVoidDiceAtAnyRecive)
-    end
 
     debug("\non_public end")
   end
@@ -1306,8 +1301,6 @@ class BCDice
 
     # 次にダイスの出力結果を保存
     saveSecretDiceResult(diceResult, channel, mode)
-
-    @isMessagePrinted = true
   end
 
   def addToSecretRollMembersHolder(channel, mode)
@@ -1467,19 +1460,16 @@ class BCDice
   def sendMessage(to, message)
     debug("sendMessage to, message", to, message)
     @ircClient.sendMessage(to, message)
-    @isMessagePrinted = true
   end
 
   def sendMessageToOnlySender(message)
     debug("sendMessageToOnlySender message", message)
     debug("@nick_e", @nick_e)
     @ircClient.sendMessageToOnlySender(@nick_e, message)
-    @isMessagePrinted = true
   end
 
   def sendMessageToChannels(message)
     @ircClient.sendMessageToChannels(message)
-    @isMessagePrinted = true
   end
 
   ####################         テキスト前処理        ########################
