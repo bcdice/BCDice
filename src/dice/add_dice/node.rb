@@ -342,6 +342,9 @@ class AddDice
     # ダイスロール後、条件に従って出目を選択し、和を求める。
     class DiceRollWithFilter
       # フィルタの構造体
+      #
+      # 各フィルタには、あらかじめソートされた出目の配列が渡される。
+      #
       # @!attribute abbr
       #   @return [Symbol] フィルタの略称
       # @!attribute apply
@@ -351,25 +354,25 @@ class AddDice
       # 大きな出目から複数個取る
       KEEP_HIGHEST = Filter.new(
         :KH,
-        lambda { |values, n| values.sort.reverse.take(n) }
+        lambda { |sorted_values, n| sorted_values.reverse.take(n) }
       ).freeze
 
       # 小さな出目から複数個取る
       KEEP_LOWEST = Filter.new(
         :KL,
-        lambda { |values, n| values.sort.take(n) }
+        lambda { |sorted_values, n| sorted_values.take(n) }
       ).freeze
 
       # 大きな出目から複数個除く
       DROP_HIGHEST = Filter.new(
         :DH,
-        lambda { |values, n| values.sort.reverse.drop(n) }
+        lambda { |sorted_values, n| sorted_values.reverse.drop(n) }
       ).freeze
 
       # 小さな出目から複数個除く
       DROP_LOWEST = Filter.new(
         :DL,
-        lambda { |values, n| values.sort.drop(n) }
+        lambda { |sorted_values, n| sorted_values.drop(n) }
       ).freeze
 
       # ノードを初期化する
@@ -395,12 +398,12 @@ class AddDice
       # @param [Randomizer] randomizer ランダマイザ
       # @return [Integer] 評価結果（出目の合計値）
       def eval(randomizer)
-        values = randomizer.roll_once(@times, @sides)
+        sorted_values = randomizer.roll_once(@times, @sides).sort
         total = @filter.
-                apply[values, @n_filtering].
+                apply[sorted_values, @n_filtering].
                 reduce(0, &:+)
 
-        @text = "#{total}[#{values.join(',')}]"
+        @text = "#{total}[#{sorted_values.join(',')}]"
 
         return total
       end
