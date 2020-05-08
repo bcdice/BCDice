@@ -337,6 +337,96 @@ class AddDice
       end
     end
 
+    # フィルタ処理付きダイスロールのノード。
+    #
+    # ダイスロール後、条件に従って出目を選択し、和を求める。
+    class DiceRollWithFilter
+      # フィルタの構造体
+      #
+      # 各フィルタには、あらかじめソートされた出目の配列が渡される。
+      #
+      # @!attribute abbr
+      #   @return [Symbol] フィルタの略称
+      # @!attribute apply
+      #   @return [Proc] フィルタ処理の内容
+      Filter = Struct.new(:abbr, :apply)
+
+      # 大きな出目から複数個取る
+      KEEP_HIGHEST = Filter.new(
+        :KH,
+        lambda { |sorted_values, n| sorted_values.reverse.take(n) }
+      ).freeze
+
+      # 小さな出目から複数個取る
+      KEEP_LOWEST = Filter.new(
+        :KL,
+        lambda { |sorted_values, n| sorted_values.take(n) }
+      ).freeze
+
+      # 大きな出目から複数個除く
+      DROP_HIGHEST = Filter.new(
+        :DH,
+        lambda { |sorted_values, n| sorted_values.reverse.drop(n) }
+      ).freeze
+
+      # 小さな出目から複数個除く
+      DROP_LOWEST = Filter.new(
+        :DL,
+        lambda { |sorted_values, n| sorted_values.drop(n) }
+      ).freeze
+
+      # ノードを初期化する
+      # @param [Number] times ダイスを振る回数のノード
+      # @param [Number] sides ダイスの面数のノード
+      # @param [Number] n_filtering ダイスを残す/減らす個数のノード
+      # @param [Filter] filter フィルタ
+      def initialize(times, sides, n_filtering, filter)
+        @times = times.literal
+        @sides = sides.literal
+        @n_filtering = n_filtering.literal
+        @filter = filter
+
+        # ダイスを振った結果の出力
+        @text = nil
+      end
+
+      # ノードを評価する（ダイスを振り、出目を選択して和を求める）
+      #
+      # 評価結果は出目の合計値になる。
+      # 出目はランダマイザに記録される。
+      #
+      # @param [Randomizer] randomizer ランダマイザ
+      # @return [Integer] 評価結果（出目の合計値）
+      def eval(randomizer)
+        sorted_values = randomizer.roll_once(@times, @sides).sort
+        total = @filter.
+                apply[sorted_values, @n_filtering].
+                reduce(0, &:+)
+
+        @text = "#{total}[#{sorted_values.join(',')}]"
+
+        return total
+      end
+
+      # 文字列に変換する
+      # @return [String]
+      def to_s
+        "#{@times}D#{@sides}#{@filter.abbr}#{@n_filtering}"
+      end
+
+      # メッセージへの出力を返す
+      # @return [String]
+      def output
+        @text
+      end
+
+      # ノードのS式を返す
+      # @return [String]
+      def s_exp
+        "(DiceRollWithFilter #{@times} #{@sides} #{@filter.abbr.inspect} #{@n_filtering})"
+      end
+    end
+
     # 数値のノード
     class Number
       # 値
