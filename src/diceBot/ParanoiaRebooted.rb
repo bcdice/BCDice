@@ -27,11 +27,6 @@ INFO_MESSAGE_TEXT
 
   setPrefixes(['ND.*', 'MP.*'])
 
-  def initialize
-    # $isDebug = true
-    super
-  end
-
   def rollDiceCommand(command)
     case command
     when /^ND/i
