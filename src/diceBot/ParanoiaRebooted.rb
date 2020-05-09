@@ -56,7 +56,7 @@ INFO_MESSAGE_TEXT
     total, dice_text, = roll(dice_count, 6)
     success_rate = 0
     computer_roll_result = ''
-    dices = dice_text.split(/,/)
+    dices = dice_text.split(',')
     index = 0
     results = dices.map do |d|
       result = d.to_i
@@ -97,7 +97,7 @@ INFO_MESSAGE_TEXT
 
     total, dice_text, = roll(dice_count, 6)
     computer_roll_result = ''
-    dices = dice_text.split(/,/)
+    dices = dice_text.split(',')
     failure_rate = 0
     index = 0
     results = dices.map do |d|
