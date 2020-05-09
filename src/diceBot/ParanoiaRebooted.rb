@@ -9,7 +9,7 @@ class ParanoiaRebooted < DiceBot
   NAME = 'パラノイア リブーテッド'
 
   # ゲームシステム名の読みがな
-  SORT_KEY = 'ぱらのいありぶーてっど'
+  SORT_KEY = 'はらのいありふうてつと'
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
