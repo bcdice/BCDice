@@ -16,12 +16,12 @@ class ParanoiaRebooted < DiceBot
 ※コマンドは入力内容の前方一致で検出しています。
 ・通常の判定　NDx
 　x：ノードダイスの数.マイナスも可.
-　ノードダイスの絶対値+1個(コンピュータダイス)のダイスがロールされる.
+　ノードダイスの絶対値 + 1個(コンピュータダイス)のダイスがロールされる.
 例）ND2　ND-3
 
 ・ミュータントパワー判定　MPx
   x：ノードダイスの数.
-　ノードダイスの値+1個(コンピュータダイス)のダイスがロールされる.
+　ノードダイスの値 + 1個(コンピュータダイス)のダイスがロールされる.
 例）MP2
 INFO_MESSAGE_TEXT
 
@@ -30,9 +30,9 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     case command
     when /^ND/i
-      return get_node_dice_role(command)
+      return get_node_dice_roll(command)
     when /^MP/i
-      return get_mutant_power_role(command)
+      return get_mutant_power_roll(command)
     else
       return nil
     end
@@ -40,7 +40,18 @@ INFO_MESSAGE_TEXT
 
   private
 
-  def get_node_dice_role(command)
+  def generate_roll_results(dices)
+    computer_dice_message = ''
+    results = dices.dup
+    if results[-1].to_i == 6
+      results[-1] = 'C'
+      computer_dice_message = '(Computer)'
+    end
+
+    return results, computer_dice_message
+  end
+
+  def get_node_dice_roll(command)
     debug("rollDiceCommand Begin")
 
     m = /^ND((-)?\d+)/i.match(command)
@@ -54,35 +65,20 @@ INFO_MESSAGE_TEXT
     dice_count = parameter_num.abs + 1
 
     total, dice_text, = roll(dice_count, 6)
-    success_rate = 0
-    computer_roll_result = ''
+
     dices = dice_text.split(',')
-    index = 0
-    results = dices.map do |d|
-      result = d.to_i
-      if result >= 5
-        success_rate += 1
-      elsif parameter_num < 0
-        success_rate -= 1
-      end
-
-      if index == dices.length - 1 && result == 6
-        result = "C"
-        computer_roll_result = '(Computer)'
-      end
-      index += 1
-
-      next result
-    end
-
+    success_rate = dices.count { |dice| dice.to_i >= 5 }
+    success_rate -= dices.count { |dice| dice.to_i < 5 } if parameter_num < 0
     debug(dices)
+
+    results, computer_dice_message = generate_roll_results(dices)
 
     debug("rollDiceCommand result")
 
-    return "(#{command}) ＞ [#{results.join(', ')}] ＞ 成功度#{success_rate}#{computer_roll_result}"
+    return "(#{command}) ＞ [#{results.join(', ')}] ＞ 成功度#{success_rate}#{computer_dice_message}"
   end
 
-  def get_mutant_power_role(command)
+  def get_mutant_power_roll(command)
     debug("rollDiceCommand Begin")
 
     m = /^MP(\d+)/i.match(command)
@@ -96,31 +92,16 @@ INFO_MESSAGE_TEXT
     dice_count = parameter_num.abs + 1
 
     total, dice_text, = roll(dice_count, 6)
-    computer_roll_result = ''
     dices = dice_text.split(',')
-    failure_rate = 0
-    index = 0
-    results = dices.map do |d|
-      result = d.to_i
-      if result == 1
-        failure_rate -= 1
-      end
+    failure_rate = dices.count { |dice| dice.to_i == 1 }
+    message = failure_rate == 0 ? '成功' : "失敗(#{failure_rate})"
 
-      if index == dices.length - 1 && result == 6
-        result = 'C'
-        computer_roll_result = '(Computer)'
-      end
-
-      index += 1
-      next result
-    end
-
-    message = failure_rate >= 0 ? '成功' : "失敗(#{failure_rate.abs})"
+    results, computer_dice_message = generate_roll_results(dices)
 
     debug(dices)
 
     debug("rollDiceCommand result")
 
-    return "(#{command}) ＞ [#{results.join(', ')}] ＞ #{message}#{computer_roll_result}"
+    return "(#{command}) ＞ [#{results.join(', ')}] ＞ #{message}#{computer_dice_message}"
   end
 end
