@@ -66,7 +66,7 @@ INFO_MESSAGE_TEXT
 
   def makeWhiteBlackDiceRoll(type, m)
     if type == WB_DICEROLL_COMMAND_TAG
-      whiteTotal, whiteDiceText, blackTotal, blackDiceText = makeDiceRoll(m[BW_FIRST_DICE_INDEX], m[BW_SECOND_DICE_INDEX])
+      whiteTotal, whiteDiceText, blackTotal, blackDiceText = makeWhiteBlackDiceRoll_s(m[BW_FIRST_DICE_INDEX], m[BW_SECOND_DICE_INDEX])
       result = "白ダイス[#{whiteDiceText}]"
       if blackDiceText
         if m[BW_SECOND_DICE_TAG_INDEX][0] == BW_SECOND_DICE_WHITE_TAG
@@ -76,7 +76,7 @@ INFO_MESSAGE_TEXT
         result += " 黒ダイス[#{blackDiceText}]"
       end
     elsif type == BW_DICEROLL_COMMAND_TAG
-      blackTotal, blackDiceText, whiteTotal, whiteDiceText = makeDiceRoll(m[BW_FIRST_DICE_INDEX], m[BW_SECOND_DICE_INDEX])
+      blackTotal, blackDiceText, whiteTotal, whiteDiceText = makeWhiteBlackDiceRoll_s(m[BW_FIRST_DICE_INDEX], m[BW_SECOND_DICE_INDEX])
       result = "黒ダイス[#{blackDiceText}]"
       if whiteDiceText
         if m[BW_SECOND_DICE_TAG_INDEX][0] == BW_SECOND_DICE_BLACK_TAG
@@ -99,7 +99,7 @@ INFO_MESSAGE_TEXT
     return "#{result} ＞ 0"
   end
 
-  def makeDiceRoll(firstDice, secondDice)
+  def makeWhiteBlackDiceRoll_s(firstDice, secondDice)
     secondTotal = 0
 
     firstTotal, firstDiceText, = roll(firstDice, 6)
