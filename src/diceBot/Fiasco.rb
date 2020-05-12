@@ -69,7 +69,7 @@ INFO_MESSAGE_TEXT
       whiteTotal, whiteDiceText, blackTotal, blackDiceText = makeArgsDiceRoll(m[BW_FIRST_DICE_INDEX], m[BW_SECOND_DICE_INDEX])
       result = "白ダイス[#{whiteDiceText}]"
       if blackDiceText
-        if m[BW_SECOND_DICE_TAG_INDEX][0] == BW_SECOND_DICE_WHITE_TAG
+        if m[BW_SECOND_DICE_TAG_INDEX].start_with?(BW_SECOND_DICE_WHITE_TAG)
           return "#{m}：白ダイス指定(#{BW_SECOND_DICE_WHITE_TAG})は重複できません。"
         end
 
@@ -79,7 +79,7 @@ INFO_MESSAGE_TEXT
       blackTotal, blackDiceText, whiteTotal, whiteDiceText = makeArgsDiceRoll(m[BW_FIRST_DICE_INDEX], m[BW_SECOND_DICE_INDEX])
       result = "黒ダイス[#{blackDiceText}]"
       if whiteDiceText
-        if m[BW_SECOND_DICE_TAG_INDEX][0] == BW_SECOND_DICE_BLACK_TAG
+        if m[BW_SECOND_DICE_TAG_INDEX].start_with?(BW_SECOND_DICE_BLACK_TAG)
           return "#{m}：黒ダイス指定(#{BW_SECOND_DICE_BLACK_TAG})は重複できません。"
         end
 
