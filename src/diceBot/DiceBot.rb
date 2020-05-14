@@ -434,11 +434,6 @@ class DiceBot
     return '', 0
   end
 
-  # SW専用
-  def setRatingTable(_nick_e, _tnick, _channel_to_list)
-    '1'
-  end
-
   # ガンドッグのnD9専用
   def isD9
     false
