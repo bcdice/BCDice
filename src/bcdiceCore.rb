@@ -266,10 +266,6 @@ class BCDice
       # 個数振り足しロール回数制限設定 0=無限
       setRerollLimit()
 
-    when /\Ar(?:ating\s*)?t(?:able)?\z/
-      # レーティング表設定
-      setRatingTable()
-
     when 'sort'
       # ソートモード設定
       setSortMode()
@@ -373,15 +369,6 @@ class BCDice
     else
       sendMessageToChannels("個数振り足しロールの回数を無限に設定しました")
     end
-  end
-
-  def setRatingTable()
-    return unless isMaster()
-
-    output = @diceBot.setRatingTable(@tnick)
-    return if output == '1'
-
-    sendMessageToChannels(output)
   end
 
   def setSortMode()
