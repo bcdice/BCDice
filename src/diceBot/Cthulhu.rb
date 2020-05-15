@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
+require 'utils/ArithmeticEvaluator'
+
 class Cthulhu < DiceBot
   # ゲームシステムの識別子
   ID = 'Cthulhu'
@@ -96,12 +98,9 @@ INFO_MESSAGE_TEXT
     broken_num = 0
     diff = 0
 
-    if (m = /CC(B)?(\d+)<=(\d+)/i.match(command))
-      # /\(\d+\)/の()はpattern-killerにカイシャクされる
-      broken_num = m[2].to_i
-      diff = m[3].to_i
-    elsif (m = /CC(B)?<=(\d+)/i.match(command))
-      diff = m[2].to_i
+    if (m = %r{CCB?(\d+)?<=([+-/*\d]+)}i.match(command))
+      broken_num = m[1].to_i
+      diff = ArithmeticEvaluator.new.eval(m[2])
     end
 
     output = ""
