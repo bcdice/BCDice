@@ -142,8 +142,9 @@ INFO_MESSAGE_TEXT
   end
 
   # SW2.0 の超成功用
+  # @param (see DiceBot#check2dCritical)
   def check2dCritical(critical, dice_new, dice_arry, loop_count)
-    return if critical <= 2
+    return if critical.nil? || critical <= 2
 
     if loop_count == 0
       return if  dice_new == 12

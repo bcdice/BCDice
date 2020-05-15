@@ -36,7 +36,7 @@ class AddDice
         dice_groups.push(dice_list)
 
         enqueue_reroll(dice_list, queue, times)
-        @dicebot.check2dCritical(critical, sum, queue, loop_count) if critical
+        @dicebot.check2dCritical(critical, sum, queue, loop_count)
         loop_count += 1
       end
 
