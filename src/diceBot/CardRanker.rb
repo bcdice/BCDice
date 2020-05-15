@@ -20,7 +20,7 @@ class CardRanker < DiceBot
 場所表 (ST)
 街中場所表 (CST)
 郊外場所表 (OST)
-学園場所表 (SST)
+学園場所表 (GST)
 運命表 (DT)
 大会運命表 (TDT)
 学園運命表 (GDT)
@@ -199,7 +199,7 @@ TABLE_TEXT_END
 TABLE_TEXT_END
       },
 
-      'SST' => {
+      'GST' => {
         :name => "学園場所表",
         :type => '1D6',
         :table => <<'TABLE_TEXT_END'
