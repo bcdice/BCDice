@@ -444,7 +444,13 @@ class DiceBot
     ''
   end
 
+  # クリティカルしたか判定して、追加のダイスロールの個数を決める
   # SW2.0 の超成功用
+  #
+  # @param critical [Integer, nil] クリティカル値
+  # @param dice_new [Integer] ダイスの出目
+  # @param dice_arry [Array<Integer>] ダイスロールのキュー。クリティカルの効果等で追加のダイスが発生した時に、追加で降るダイスの数をこの配列にpushする
+  # @param loop_count [Integer] 現在の振り足しの回数。0スタート
   def check2dCritical(critical, dice_new, dice_arry, loop_count); end
 
   def is2dCritical
