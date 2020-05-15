@@ -15,7 +15,7 @@ class AddDice
     # ダイスを振る
     # @param [Integer] times ダイス数
     # @param [Integer] sides 面数
-    # @param [Integer] critical クリティカルヒットの閾値
+    # @param [Integer, nil] critical クリティカルヒットの閾値
     # @return [Array<Array<Integer>>] 出目のグループの配列
     def roll(times, sides, critical)
       # 振り足し分も含めた出目グループの配列
@@ -36,7 +36,7 @@ class AddDice
         dice_groups.push(dice_list)
 
         enqueue_reroll(dice_list, queue, times)
-        @dicebot.check2dCritical(critical, sum, queue, loop_count)
+        @dicebot.check2dCritical(critical, sum, queue, loop_count) if critical
         loop_count += 1
       end
 
