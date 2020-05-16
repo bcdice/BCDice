@@ -67,7 +67,7 @@ class SwordWorld2_5 < SwordWorld2_0
 　絡み効果表を出すことができます。
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['K\d+.*', 'Gr(\d+)?', 'FT', 'TT'])
+  setPrefixes(['H?K\d+.*', 'Gr(\d+)?', 'FT', 'TT'])
 
   def changeText(string)
     return string unless /(^|\s)[sS]?(K[\d]+)/i =~ string
