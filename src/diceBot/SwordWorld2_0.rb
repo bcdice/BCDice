@@ -62,7 +62,7 @@ class SwordWorld2_0 < SwordWorld
 　絡み効果表を出すことができます。
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['K\d+.*', 'Gr(\d+)?', 'FT', 'TT'])
+  setPrefixes(['H?K\d+.*', 'Gr(\d+)?', 'FT', 'TT'])
 
   def initialize
     rating_table = 2
