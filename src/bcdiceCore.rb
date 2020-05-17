@@ -88,7 +88,7 @@ class BCDice
   # 設定コマンドのパターン
   SET_COMMAND_PATTERN = /\Aset\s+(.+)/i.freeze
 
-  VERSION = "2.06.00".freeze
+  VERSION = "2.06.01".freeze
 
   attr_reader :cardTrader
   attr_reader :rand_results, :detailed_rand_results
