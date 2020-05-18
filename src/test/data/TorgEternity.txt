@@ -179,25 +179,19 @@ TorgEternity : 成功レベル表[-1] ＞ Failure.
 rand:
 ============================
 input:
-Result-5
-output:
-TorgEternity : 成功レベル表[-5] ＞ Failure.
-rand:
-============================
-input:
 RT9-2+4
 output:
 TorgEternity : 成功レベル表[11] ＞ Success - Outstanding!!
 rand:
 ============================
 input:
-DT-6
+DT2-8
 output:
 TorgEternity : ダメージ結果表[-6] ＞ ノーダメージ
 rand:
 ============================
 input:
-Damage-5
+Damage3-8
 output:
 TorgEternity : ダメージ結果表[-5] ＞ 1ショック
 rand:
