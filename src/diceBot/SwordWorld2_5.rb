@@ -67,27 +67,19 @@ class SwordWorld2_5 < SwordWorld2_0
 　絡み効果表を出すことができます。
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['K\d+.*', 'Gr(\d+)?', 'FT', 'TT'])
+  setPrefixes(['H?K\d+.*', 'Gr(\d+)?', 'FT', 'TT'])
 
+  # コマンド実行前にメッセージを置換する
+  # @param [String] string 受信したメッセージ
+  # @return [String]
   def changeText(string)
-    return string unless /(^|\s)[sS]?(K[\d]+)/i =~ string
+    # TODO: Ruby 2.4以降では Regexp#match? を使うこと
+    return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match(string)
 
-    string = super(string)
-
-    debug('parren_killer_add before string', string)
-
-    string = string.gsub(/#([\+\-]?[\d]+)/i) do
-      value = Regexp.last_match(1).to_i
-      if value >= 0
-        "a[+#{value}]"
-      else
-        "a[#{value}]"
-      end
+    super(string).gsub(/#([-+]?\d+)/) do
+      modifier = Regexp.last_match(1).to_i
+      "a[#{format_modifier(modifier)}]"
     end
-
-    debug('parren_killer_add after string', string)
-
-    return string
   end
 
   def getRatingCommandStrings

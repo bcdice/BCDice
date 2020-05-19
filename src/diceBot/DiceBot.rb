@@ -210,10 +210,6 @@ class DiceBot
     @@bcdice.getD66Value(*args)
   end
 
-  def rollDiceAddingUp(*arg)
-    @@bcdice.rollDiceAddingUp(*arg)
-  end
-
   def parren_killer(string)
     @@bcdice.parren_killer(string)
   end
@@ -438,16 +434,6 @@ class DiceBot
     return '', 0
   end
 
-  # ダイス目文字列からダイス値を変更する場合の処理（現状クトゥルフ・テック専用）
-  def changeDiceValueByDiceText(dice_now, _dice_str, _isCheckSuccess, _dice_max)
-    dice_now
-  end
-
-  # SW専用
-  def setRatingTable(_nick_e, _tnick, _channel_to_list)
-    '1'
-  end
-
   # ガンドッグのnD9専用
   def isD9
     false
@@ -458,7 +444,13 @@ class DiceBot
     ''
   end
 
+  # クリティカルしたか判定して、追加のダイスロールの個数を決める
   # SW2.0 の超成功用
+  #
+  # @param critical [Integer, nil] クリティカル値
+  # @param dice_new [Integer] ダイスの出目
+  # @param dice_arry [Array<Integer>] ダイスロールのキュー。クリティカルの効果等で追加のダイスが発生した時に、追加で降るダイスの数をこの配列にpushする
+  # @param loop_count [Integer] 現在の振り足しの回数。0スタート
   def check2dCritical(critical, dice_new, dice_arry, loop_count); end
 
   def is2dCritical

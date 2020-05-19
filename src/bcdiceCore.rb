@@ -88,7 +88,7 @@ class BCDice
   # 設定コマンドのパターン
   SET_COMMAND_PATTERN = /\Aset\s+(.+)/i.freeze
 
-  VERSION = "2.04.00".freeze
+  VERSION = "2.06.01".freeze
 
   attr_reader :cardTrader
   attr_reader :rand_results, :detailed_rand_results
@@ -107,7 +107,6 @@ class BCDice
 
     @nick_e = ""
     @tnick = ""
-    @isMessagePrinted = false
     @rands = nil
     @isKeepSecretDice = true
     @isIrcMode = true
@@ -267,10 +266,6 @@ class BCDice
       # 個数振り足しロール回数制限設定 0=無限
       setRerollLimit()
 
-    when /\Ar(?:ating\s*)?t(?:able)?\z/
-      # レーティング表設定
-      setRatingTable()
-
     when 'sort'
       # ソートモード設定
       setSortMode()
@@ -374,15 +369,6 @@ class BCDice
     else
       sendMessageToChannels("個数振り足しロールの回数を無限に設定しました")
     end
-  end
-
-  def setRatingTable()
-    return unless isMaster()
-
-    output = @diceBot.setRatingTable(@tnick)
-    return if output == '1'
-
-    sendMessageToChannels(output)
   end
 
   def setSortMode()
@@ -626,10 +612,6 @@ class BCDice
 
     # カード処理
     executeCard
-
-    unless @isMessagePrinted # ダイスロール以外の発言では捨てダイス処理を
-      # rand 100 if($isRollVoidDiceAtAnyRecive)
-    end
 
     debug("\non_public end")
   end
@@ -1306,8 +1288,6 @@ class BCDice
 
     # 次にダイスの出力結果を保存
     saveSecretDiceResult(diceResult, channel, mode)
-
-    @isMessagePrinted = true
   end
 
   def addToSecretRollMembersHolder(channel, mode)
@@ -1467,33 +1447,29 @@ class BCDice
   def sendMessage(to, message)
     debug("sendMessage to, message", to, message)
     @ircClient.sendMessage(to, message)
-    @isMessagePrinted = true
   end
 
   def sendMessageToOnlySender(message)
     debug("sendMessageToOnlySender message", message)
     debug("@nick_e", @nick_e)
     @ircClient.sendMessageToOnlySender(@nick_e, message)
-    @isMessagePrinted = true
   end
 
   def sendMessageToChannels(message)
     @ircClient.sendMessageToChannels(message)
-    @isMessagePrinted = true
   end
 
   ####################         テキスト前処理        ########################
   def parren_killer(string)
     debug("parren_killer input", string)
 
-    while /^(.*?)\[(\d+[Dd]\d+)\](.*)/ =~ string
-      str_before = ""
-      str_after = ""
-      dice_cmd = Regexp.last_match(2)
-      str_before = Regexp.last_match(1) if Regexp.last_match(1)
-      str_after = Regexp.last_match(3) if Regexp.last_match(3)
-      rolled, = rollDiceAddingUp(dice_cmd)
-      string = "#{str_before}#{rolled}#{str_after}"
+    string = string.gsub(/\[\d+D\d+\]/i) do |matched|
+      # Remove '[' and ']'
+      command = matched[1..-2].upcase
+      times, sides = command.split("D").map(&:to_i)
+      rolled, = roll(times, sides)
+
+      rolled
     end
 
     string = changeRangeTextToNumberText(string)
@@ -1512,11 +1488,6 @@ class BCDice
     debug("parren_killer output", string)
 
     return string
-  end
-
-  def rollDiceAddingUp(*arg)
-    dice = AddDice.new(self, @diceBot)
-    dice.rollDiceAddingUp(*arg)
   end
 
   # [1...4]D[2...7] -> 2D7 のように[n...m]をランダムな数値へ変換

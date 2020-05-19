@@ -5,6 +5,7 @@ require "utils/modifier_formatter"
 
 class SwordWorld < DiceBot
   include ModifierFormatter
+
   # ゲームシステムの識別子
   ID = 'SwordWorld'
 
@@ -25,17 +26,23 @@ class SwordWorld < DiceBot
     @rating_table = rating_table
   end
 
+  # changeTextで使うレーティング表コマンドの正規表現
+  #
+  # SW 2.5のダイスボットでも必要なため、共通化のために定数として定義する
+  RATING_TABLE_RE_FOR_CHANGE_TEXT = /\AS?H?K\d+/i.freeze
+
+  # コマンド実行前にメッセージを置換する
+  # @param [String] string 受信したメッセージ
+  # @return [String]
   def changeText(string)
-    return string unless /^S?(H?K[\d]+)/i =~ string
+    # TODO: Ruby 2.4以降では Regexp#match? を使うこと
+    return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match(string)
 
-    debug('parren_killer_add before string', string)
-    string = string.gsub(/\[(\d+)\]/i) { "c[#{Regexp.last_match(1)}]" }
-    string = string.gsub(/\@(\d+)/i) { "c[#{Regexp.last_match(1)}]" }
-    string = string.gsub(/\$([\+\-]?[\d]+)/i) { "m[#{Regexp.last_match(1)}]" }
-    string = string.gsub(/r([\+\-]?[\d]+)/i) { "r[#{Regexp.last_match(1)}]" }
-    debug('parren_killer_add after string', string)
-
-    return string
+    string.
+      gsub(/\[(\d+)\]/) { "c[#{Regexp.last_match(1)}]" }.
+      gsub(/@(\d+)/) { "c[#{Regexp.last_match(1)}]" }.
+      gsub(/\$([-+]?\d+)/) { "m[#{Regexp.last_match(1)}]" }.
+      gsub(/r([-+]?\d+)/i) { "r[#{Regexp.last_match(1)}]" }
   end
 
   def getRatingCommandStrings
