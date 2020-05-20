@@ -159,6 +159,7 @@ $allGameTypes = %w{
   Ryutama
   SMTKakuseihen
   SRS
+  SamsaraBallad
   Satasupe
   SevenFortressMobius
   ScreamHighSchool
