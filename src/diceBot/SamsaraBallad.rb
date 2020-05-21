@@ -28,39 +28,35 @@ SBS#3@7<=80 習熟を得た技能で、F値3、C値7で成功率80%の判定
 MESSAGETEXT
 
   # ダイスボットで使用するコマンドを配列で列挙する
-  setPrefixes(['SBS?(#\d@\d)?.*'])
+  setPrefixes(['SBS?(#\d@\d)?(<=[+-/*\d]+)?'])
 
   def rollDiceCommand(command)
     debug("rollDiceCommand Begin")
 
-    case command
-    when /SBS#(\d)@(\d)/i
-      debug("Swap roll with F and C")
-      f_value = Regexp.last_match(1).to_i
-      c_value = Regexp.last_match(2).to_i
-      return getCheckResult(command, true, f_value, c_value)
-    when /SB#(\d)@(\d)/i
-      debug("Normal roll with F and C")
-      f_value = Regexp.last_match(1).to_i
-      c_value = Regexp.last_match(2).to_i
-      return getCheckResult(command, false, f_value, c_value)
-    when /SBS/i
-      debug("Swap roll")
-      return getCheckResult(command, true)
-    when /SB/i
-      debug("Normal roll")
-      return getCheckResult(command)
-    end
-    return nil
-  end
-
-  def getCheckResult(command, is_swap=false, f_value=-1, c_value=10)
+    is_swap = false
+    f_value = -1
+    c_value = 10
     diff = 0
 
-    if (m = %r{SBS?(#\d@\d)?<=([+-/*\d]+)}i.match(command))
-      diff = ArithmeticEvaluator.new.eval(m[2])
+    if (m = %r{SB(S?)(#(\d)@(\d))?(<=([+-/*\d]+))?}i.match(command))
+      is_swap = true if m[1] != ""
+      unless m[2].nil?
+        f_value = m[3].to_i
+        c_value = m[4].to_i
+      end
+      unless m[5].nil?
+        diff = ArithmeticEvaluator.new.eval(m[6])
+      end
+    else
+      debug("command parse failed")
+      return nil
     end
 
+    debug("SamsaraBallad Roll Param:", is_swap, f_value, c_value, diff)
+    return getCheckResult(is_swap, f_value, c_value, diff)
+  end
+
+  def getCheckResult(is_swap, f_value, c_value, diff)
     if is_swap
       d100_n1, = roll(1, 10)
       d100_n2, = roll(1, 10)
