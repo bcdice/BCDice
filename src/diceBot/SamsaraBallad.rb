@@ -30,53 +30,38 @@ MESSAGETEXT
   # ダイスボットで使用するコマンドを配列で列挙する
   setPrefixes(['SBS?(#\d@\d)?.*'])
 
-  def initialize
-    @swap = false
-    @f_value = -1
-    @c_value = 10
-    super
-  end
-
   def rollDiceCommand(command)
     debug("rollDiceCommand Begin")
 
     case command
     when /SBS#(\d)@(\d)/i
       debug("Swap roll with F and C")
-      @swap = true
-      @f_value = Regexp.last_match(1).to_i
-      @c_value = Regexp.last_match(2).to_i
-      return getCheckResult(command)
+      f_value = Regexp.last_match(1).to_i
+      c_value = Regexp.last_match(2).to_i
+      return getCheckResult(command, true, f_value, c_value)
     when /SB#(\d)@(\d)/i
       debug("Normal roll with F and C")
-      @swap = false
-      @f_value = Regexp.last_match(1).to_i
-      @c_value = Regexp.last_match(2).to_i
-      return getCheckResult(command)
+      f_value = Regexp.last_match(1).to_i
+      c_value = Regexp.last_match(2).to_i
+      return getCheckResult(command, false, f_value, c_value)
     when /SBS/i
       debug("Swap roll")
-      @swap = true
-      @f_value = -1
-      @c_value = 10
-      return getCheckResult(command)
+      return getCheckResult(command, true)
     when /SB/i
       debug("Normal roll")
-      @swap = false
-      @f_value = -1
-      @c_value = 10
       return getCheckResult(command)
     end
     return nil
   end
 
-  def getCheckResult(command)
+  def getCheckResult(command, is_swap=false, f_value=-1, c_value=10)
     diff = 0
 
     if (m = %r{SBS?(#\d@\d)?<=([+-/*\d]+)}i.match(command))
       diff = ArithmeticEvaluator.new.eval(m[2])
     end
 
-    if @swap
+    if is_swap
       d100_n1, = roll(1, 10)
       d100_n2, = roll(1, 10)
       d100_dice = [d100_n1, d100_n2]
@@ -96,8 +81,8 @@ MESSAGETEXT
       dice_label = total_n.to_s
     end
 
-    is_fumble = @f_value >= 0 && total_n % 10 <= @f_value
-    is_critical = !is_fumble && @c_value < 10 && total_n % 10 >= @c_value
+    is_fumble = f_value >= 0 && total_n % 10 <= f_value
+    is_critical = !is_fumble && c_value < 10 && total_n % 10 >= c_value
 
     if diff > 0
       output = "(D100<=#{diff})"
