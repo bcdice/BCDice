@@ -16,10 +16,10 @@ class SamsaraBallad < DiceBot
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
-SB	 通常の1d100ロールを行う
-SBS	 スワップロールで1d100ロールを行う
-SB#x@y	 F値をx、C値をyとして通常の1d100ロールを行う
-SBS#x@y	 F値をx、C値をyとしてスワップロールで1d100ロールを行う
+SB	 通常のD100ロールを行う
+SBS	 スワップロールでD100ロールを行う
+SB#x@y	 F値をx、C値をyとして通常のD100ロールを行う
+SBS#x@y	 F値をx、C値をyとしてスワップロールでD100ロールを行う
 
 例：
 SB<=85 通常の技能で成功率85%の判定
