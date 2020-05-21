@@ -28,12 +28,12 @@ SBS(3,7)<=80 習熟を得た技能で、F値3、C値7で成功率80%の判定
 MESSAGETEXT
 
   # ダイスボットで使用するコマンドを配列で列挙する
-  setPrefixes(['SBS?(\(\d,\d\))?.*'])
+  setPrefixes(['SBS?(@\d#\d)?.*'])
 
   def initialize
     @swap = false
-    @f_value = -1
     @c_value = 10
+    @f_value = -1
     super
   end
 
@@ -41,29 +41,29 @@ MESSAGETEXT
     debug("rollDiceCommand Begin")
 
     case command
-    when /SBS\((\d),(\d)\)/i
+    when /SBS@(\d)#(\d)/i
       debug("Swap roll with F and C")
       @swap = true
-      @f_value = Regexp.last_match(1).to_i
-      @c_value = Regexp.last_match(2).to_i
+      @c_value = Regexp.last_match(1).to_i
+      @f_value = Regexp.last_match(2).to_i
       return getCheckResult(command)
-    when /SB\((\d),(\d)\)/i
+    when /SB@(\d)#(\d)/i
       debug("Normal roll with F and C")
       @swap = false
-      @f_value = Regexp.last_match(1).to_i
-      @c_value = Regexp.last_match(2).to_i
+      @c_value = Regexp.last_match(1).to_i
+      @f_value = Regexp.last_match(2).to_i
       return getCheckResult(command)
     when /SBS/i
       debug("Swap roll")
       @swap = true
-      @f_value = -1
       @c_value = 10
+      @f_value = -1
       return getCheckResult(command)
     when /SB/i
       debug("Normal roll")
       @swap = false
-      @f_value = -1
       @c_value = 10
+      @f_value = -1
       return getCheckResult(command)
     end
     return nil
@@ -72,7 +72,7 @@ MESSAGETEXT
   def getCheckResult(command)
     diff = 0
 
-    if (m = %r{SBS?(\(\d,\d\))?<=([+-/*\d]+)}i.match(command))
+    if (m = %r{SBS?(@\d#\d)?<=([+-/*\d]+)}i.match(command))
       diff = ArithmeticEvaluator.new.eval(m[2])
     end
 
