@@ -88,7 +88,7 @@ MESSAGETEXT
       end
     end
 
-    is_fumble = @f_value > 0 && total_n % 10 <= @f_value
+    is_fumble = @f_value >= 0 && total_n % 10 <= @f_value
     is_critical = !is_fumble && @c_value < 10 && total_n % 10 >= @c_value
 
     if diff > 0

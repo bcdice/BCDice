@@ -95,6 +95,12 @@ SamsaraBallad : (1D100<=90) ＞ 52 ＞ ファンブル
 rand:52/100
 ============================
 input:
+SB@8#0<=90 roll 90
+output:
+SamsaraBallad : (1D100<=90) ＞ 80 ＞ ファンブル
+rand:80/100
+============================
+input:
 SB@8#2<=90 roll 90
 output:
 SamsaraBallad : (1D100<=90) ＞ 51 ＞ ファンブル
