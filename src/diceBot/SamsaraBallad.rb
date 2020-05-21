@@ -12,7 +12,7 @@ class SamsaraBallad < DiceBot
   #
   # 「ゲームシステム名の読みがなの設定方法」（docs/dicebot_sort_key.md）を参考にして
   # 設定してください
-  SORT_KEY = 'さんさーらばらっど'
+  SORT_KEY = 'さんさあらはらつと'
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
