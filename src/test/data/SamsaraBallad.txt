@@ -5,6 +5,36 @@ SamsaraBallad : (1D100<=90) ＞ 99 ＞ 失敗
 rand:99/100
 ============================
 input:
+SB roll
+output:
+SamsaraBallad : 1D100 ＞ 75
+rand:75/100
+============================
+input:
+SB@8#2 roll
+output:
+SamsaraBallad : 1D100 ＞ 80 ＞ ファンブル
+rand:80/100
+============================
+input:
+SB@8#2 roll
+output:
+SamsaraBallad : 1D100 ＞ 83
+rand:83/100
+============================
+input:
+SB@8#2 roll
+output:
+SamsaraBallad : 1D100 ＞ 89 ＞ クリティカル
+rand:89/100
+============================
+input:
+SBS roll
+output:
+SamsaraBallad : 1D100 ＞ 75 -> 57
+rand:75/100
+============================
+input:
 SB<=90 roll 90
 output:
 SamsaraBallad : (1D100<=90) ＞ 75 ＞ 成功

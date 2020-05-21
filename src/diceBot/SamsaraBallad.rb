@@ -106,7 +106,7 @@ MESSAGETEXT
         output += " ＞ 失敗"
       end
     else
-      output += " ＞ #{dice_label}"
+      output = "1D100 ＞ #{dice_label}"
       if is_fumble
         output += " ＞ ファンブル"
       elsif is_critical
