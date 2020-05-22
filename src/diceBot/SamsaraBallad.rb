@@ -28,7 +28,7 @@ SBS#3@7<=80 習熟を得た技能で、F値3、C値7で成功率80%の判定
 MESSAGETEXT
 
   # ダイスボットで使用するコマンドを配列で列挙する
-  setPrefixes(['SBS?(#\d@\d)?(<=[+-/*\d]+)?'])
+  setPrefixes(['SBS?(#\d@\d)?(<=?[+-/*\d]+)?'])
 
   def rollDiceCommand(command)
     debug("rollDiceCommand Begin")
@@ -37,26 +37,28 @@ MESSAGETEXT
     f_value = -1
     c_value = 10
     diff = 0
+    is_diff_eq_allowable = true
 
-    if (m = %r{SB(S?)(#(\d)@(\d))?(<=([+-/*\d]+))?}i.match(command))
+    if (m = %r{SB(S?)(#(\d)@(\d))?(<(=?)([+-/*\d]+))?}i.match(command))
       is_swap = true if m[1] != ""
       unless m[2].nil?
         f_value = m[3].to_i
         c_value = m[4].to_i
       end
       unless m[5].nil?
-        diff = ArithmeticEvaluator.new.eval(m[6])
+        diff = ArithmeticEvaluator.new.eval(m[7])
+        is_diff_eq_allowable = false if m[6] == ""
       end
     else
       debug("command parse failed")
       return nil
     end
 
-    debug("SamsaraBallad Roll Param:", is_swap, f_value, c_value, diff)
-    return getCheckResult(is_swap, f_value, c_value, diff)
+    debug("SamsaraBallad Roll Param:", is_swap, f_value, c_value, diff, is_diff_eq_allowable)
+    return getCheckResult(is_swap, f_value, c_value, diff, is_diff_eq_allowable)
   end
 
-  def getCheckResult(is_swap, f_value, c_value, diff)
+  def getCheckResult(is_swap, f_value, c_value, diff, is_diff_eq_allowable)
     if is_swap
       d100_n1, = roll(1, 10)
       d100_n2, = roll(1, 10)
@@ -81,9 +83,15 @@ MESSAGETEXT
     is_critical = !is_fumble && c_value < 10 && total_n % 10 >= c_value
 
     if diff > 0
-      output = "(D100<=#{diff})"
+      if is_diff_eq_allowable
+        output = "(D100<=#{diff})"
+        cmp = (total_n <= diff) && (total_n < 100)
+      else
+        output = "(D100<#{diff})"
+        cmp = (total_n < diff) && (total_n < 100)
+      end
       output += " ＞ #{dice_label}"
-      if (total_n <= diff) && (total_n < 100)
+      if cmp
         if is_fumble
           output += " ＞ ファンブル"
         elsif is_critical
