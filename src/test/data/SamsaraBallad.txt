@@ -143,6 +143,12 @@ SamsaraBallad : (D100<=90) ＞ 58 ＞ クリティカル
 rand:58/100
 ============================
 input:
+SB#5@8<=45 roll 45
+output:
+SamsaraBallad : (D100<=45) ＞ 55 ＞ 失敗
+rand:55/100
+============================
+input:
 SB#2@8<90 roll 90
 output:
 SamsaraBallad : (D100<90) ＞ 58 ＞ クリティカル
