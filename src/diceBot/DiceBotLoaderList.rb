@@ -147,6 +147,7 @@ class DiceBotLoaderList
     DiceBotLoader.new('DarkSouls'),
     DiceBotLoader.new('SterileLife'),
     DiceBotLoader.new('Paradiso'),
+    DiceBotLoader.new('SamsaraBallad'),
     DiceBotLoader.new('None', :filenames => [], :class => :DiceBot)
   ]
 end
