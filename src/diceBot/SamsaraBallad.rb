@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
+require "utils/command_parser"
+
 class SamsaraBallad < DiceBot
   # ゲームシステムの識別子
   ID = 'SamsaraBallad'
@@ -30,89 +32,77 @@ SBS<70 習熟を得た技能で、能動側の達成値が70の受動判定
 MESSAGETEXT
 
   # ダイスボットで使用するコマンドを配列で列挙する
-  setPrefixes(['SBS?(#\d@\d)?(<=?[+-/*\d]+)?'])
+  setPrefixes(['SBS?.*'])
 
   def rollDiceCommand(command)
     debug("rollDiceCommand Begin")
 
-    is_swap = false
-    f_value = -1
-    c_value = 10
-    diff = 0
-    is_diff_eq_allowable = true
+    parser = CommandParser.new('SB', 'SBS')
+    cmd = parser.parse(command)
 
-    if (m = %r{SB(S?)(#(\d)@(\d))?(<(=?)([+-/*\d]+))?}i.match(command))
-      is_swap = true if m[1] != ""
-      unless m[2].nil?
-        f_value = m[3].to_i
-        c_value = m[4].to_i
-      end
-      unless m[5].nil?
-        diff = ArithmeticEvaluator.new.eval(m[7])
-        is_diff_eq_allowable = false if m[6] == ""
-      end
-    else
-      debug("command parse failed")
+    unless cmd
       return nil
     end
 
-    debug("SamsaraBallad Roll Param:", is_swap, f_value, c_value, diff, is_diff_eq_allowable)
-    return getCheckResult(is_swap, f_value, c_value, diff, is_diff_eq_allowable)
+    if cmd.command == 'SB'
+      places_text = nil
+      total, = roll(1, 100)
+    else
+      a, = roll(1, 10)
+      b, = roll(1, 10)
+      places_text = "#{a},#{b}"
+      places = [a, b].map { |n| n == 10 ? 0 : n }.sort
+
+      total = places[0] * 10 + places[1]
+      total = 100 if total == 0
+    end
+
+    cmp_result = compare(total, cmd)
+
+    sequence = [
+      "(D100#{cmd.cmp_op}#{cmd.target_number})",
+      places_text,
+      total.to_s,
+      cmp_result,
+    ].compact
+
+    return sequence.join(" ＞ ")
   end
 
-  def getCheckResult(is_swap, f_value, c_value, diff, is_diff_eq_allowable)
-    if is_swap
-      d100_n1, = roll(1, 10)
-      d100_n2, = roll(1, 10)
-      d100_dice = [d100_n1, d100_n2]
-      min_n = d100_dice.min
-      max_n = d100_dice.max
-      debug(min_n, max_n)
-      if min_n == 10
-        total_n = 100
-      elsif max_n == 10
-        total_n = min_n
+  private
+
+  # @return [String]
+  # @return [nil]
+  def compare(total, cmd)
+    if [:<=, :<].include?(cmd.cmp_op)
+      if !total.send(cmd.cmp_op, cmd.target_number)
+        "失敗"
+      elsif fumble?(total, cmd.fumble)
+        "ファンブル"
+      elsif critical?(total, cmd.critical)
+        "クリティカル"
       else
-        total_n = 10 * min_n + max_n
+        "成功"
       end
-      dice_label = "#{d100_n1},#{d100_n2} ＞ #{total_n}"
-    else
-      total_n, = roll(1, 100)
-      dice_label = total_n.to_s
+    elsif fumble?(total, cmd.fumble)
+      # ファンブル優先
+      "ファンブル"
+    elsif critical?(total, cmd.critical)
+      "クリティカル"
     end
+  end
 
-    is_fumble = f_value >= 0 && total_n % 10 <= f_value
-    is_critical = !is_fumble && c_value < 10 && total_n % 10 >= c_value
+  # @param total [Integer]
+  # @param fumble [Integer, nil]
+  # @return [Boolean]
+  def fumble?(total, fumble)
+    fumble && (total % 10 <= fumble)
+  end
 
-    if diff > 0
-      if is_diff_eq_allowable
-        output = "(D100<=#{diff})"
-        cmp = (total_n <= diff) && (total_n < 100)
-      else
-        output = "(D100<#{diff})"
-        cmp = (total_n < diff) && (total_n < 100)
-      end
-      output += " ＞ #{dice_label}"
-      if cmp
-        if is_fumble
-          output += " ＞ ファンブル"
-        elsif is_critical
-          output += " ＞ クリティカル"
-        else
-          output += " ＞ 成功"
-        end
-      else
-        output += " ＞ 失敗"
-      end
-    else
-      output = "D100 ＞ #{dice_label}"
-      if is_fumble
-        output += " ＞ ファンブル"
-      elsif is_critical
-        output += " ＞ クリティカル"
-      end
-    end
-
-    return output
+  # @param total [Integer]
+  # @param critical [Integer, nil]
+  # @return [Boolean]
+  def critical?(total, critical)
+    critical && (total % 10 >= critical)
   end
 end
