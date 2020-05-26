@@ -90,9 +90,14 @@ class TestCommandParser < Test::Unit::TestCase
     assert_equal(23, parsed.fumble)
   end
 
-  data("LL@2@5", "LL#2#5")
-  def test_duplicate_suffix(data)
-    parsed = @parser.parse(data)
+  def test_duplicate_critical
+    parsed = @parser.parse("LL@2@5")
+
+    assert_equal(nil, parsed)
+  end
+
+  def test_duplicate_fumble
+    parsed = @parser.parse("LL#2#5")
 
     assert_equal(nil, parsed)
   end
