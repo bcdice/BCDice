@@ -435,7 +435,6 @@ class BCDiceDialog < Wx::Dialog
   def startIrcBot
     @ircBot = getInitializedIrcBot()
 
-    @ircBot.setQuitFuction(proc { destroy })
     @ircBot.setPrintFuction(proc { |message| printText(message) })
 
     startIrcBotOnThread
