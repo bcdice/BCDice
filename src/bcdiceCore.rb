@@ -7,31 +7,6 @@ require 'CountHolder.rb'
 require 'kconv'
 require 'utils/ArithmeticEvaluator.rb'
 
-#============================== 起動法 ==============================
-# 上記設定をしてダブルクリック、
-# もしくはコマンドラインで
-#
-# ruby bcdice.rb
-#
-# とタイプして起動します。
-#
-# このとき起動オプションを指定することで、ソースを書き換えずに設定を変更出来ます。
-#
-# -s サーバ設定      「-s(サーバ):(ポート番号)」     (ex. -sirc.trpg.net:6667)
-# -c チャンネル設定  「-c(チャンネル名)」            (ex. -c#CoCtest)
-# -n Nick設定        「-n(Nick)」                    (ex. -nDicebot)
-# -g ゲーム設定      「-g(ゲーム指定文字列)」        (ex. -gCthulhu)
-# -m メッセージ設定  「-m(Notice_flgの番号)」        (ex. -m0)
-# -e エクストラカード「-e(カードセットのファイル名)」(ex. -eTORG_SET.txt)
-# -i IRC文字コード   「-i(文字コード名称)」          (ex. -iISO-2022-JP)
-#
-# ex. ruby bcdice.rb -sirc.trpg.net:6667 -c#CoCtest -gCthulhu
-#
-# プレイ環境ごとにバッチファイルを作っておくと便利です。
-#
-# 終了時はボットにTalkで「お疲れ様」と発言します。($quitCommandで変更出来ます。)
-#====================================================================
-
 def decode(code, str)
   return str.kconv(code)
 end
@@ -69,11 +44,9 @@ class BCDiceMaker
     @tableFileData = TableFileData.new
 
     @master = ""
-    @quitFunction = nil
   end
 
   attr_accessor :master
-  attr_accessor :quitFunction
   attr_accessor :diceBot
   attr_accessor :diceBotPath
 
@@ -210,9 +183,6 @@ class BCDice
 
     # ボット終了命令
     case @message
-    when $quitCommand
-      quit
-
     when /^mode$/i
       # モード確認
       checkMode()
@@ -225,21 +195,6 @@ class BCDice
       @cardTrader.printCardHelp()
 
     end
-  end
-
-  def quit
-    @ircClient.quit
-
-    if @parent.quitFunction.nil?
-      sleepForIrc(3)
-      exit(0)
-    else
-      @parent.quitFunction.call()
-    end
-  end
-
-  def setQuitFuction(func)
-    @parent.quitFunction = func
   end
 
   def setCommand(arg)
