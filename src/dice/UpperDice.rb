@@ -15,22 +15,20 @@ class UpperDice
 
     output = '1'
 
-    string = string.gsub(/-[sS]?[\d]+[uU][\d]+/, '') # 上方無限の引き算しようとしてる部分をカット
+    string = string.gsub(/-\d+U\d+/i, '') # 上方無限の引き算しようとしてる部分をカット
 
-    unless (m = /(^|\s)[sS]?(\d+[uU][\d\+\-uU]+)(\[(\d+)\])?([\+\-\d]*)(([<>=]+)(\d+))?(\@(\d+))?($|\s)/.match(string))
+    unless (m = /^S?(\d+U\d+(?:\+\d+U\d+)*)(?:\[(\d+)\])?([\+\-\d]*)(?:([<>=]+)(\d+))?(?:@(\d+))?/i.match(string))
       return output
     end
 
-    command = m[2]
-    signOfInequalityText = m[7]
-    diff = m[8].to_i
-    upperTarget1 = m[4]
-    upperTarget2 = m[10]
+    command = m[1]
+    signOfInequalityText = m[4]
+    diff = m[5].to_i
+    upperTarget1 = m[2]
+    upperTarget2 = m[6]
 
-    modifier = m[5] || ''
+    modifier = m[3] || ''
     debug('modifier', modifier)
-
-    debug('p $...', [m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8], m[9], m[10]])
 
     string = command
 
