@@ -226,7 +226,6 @@ Style/GlobalVars:
     - src/test/others/testCard.rb
     - src/irc/ircBot.rb
     - src/dice/AddDice.rb
-    - src/dice/UpperDice.rb
     - src/dice/RerollDice.rb
     - src/diceBot/RecordOfSteam.rb
     - src/diceBot/TokumeiTenkousei.rb

@@ -1,155 +1,146 @@
 # -*- coding: utf-8 -*-
 
 require 'utils/ArithmeticEvaluator'
+require 'utils/normalize'
+require 'utils/format'
+require 'utils/modifier_formatter'
 
+# 上方無限ロール
 class UpperDice
+  include ModifierFormatter
+
   def initialize(bcdice, diceBot)
     @bcdice = bcdice
     @diceBot = diceBot
     @nick_e = @bcdice.nick_e
   end
 
-  # 上方無限型ダイスロール
+  # 上方無限ロールを実行する
+  #
+  # @param string [String]
+  # @return [String]
   def rollDice(string)
-    debug('udice begin string', string)
-
-    output = '1'
-
     string = string.gsub(/-\d+U\d+/i, '') # 上方無限の引き算しようとしてる部分をカット
 
     unless (m = /^S?(\d+U\d+(?:\+\d+U\d+)*)(?:\[(\d+)\])?([\+\-\d]*)(?:([<>=]+)(\d+))?(?:@(\d+))?/i.match(string))
-      return output
+      return '1'
     end
 
-    command = m[1]
-    signOfInequalityText = m[4]
-    diff = m[5].to_i
-    upperTarget1 = m[2]
-    upperTarget2 = m[6]
+    @command = m[1]
+    @cmp_op = Normalize.comparison_operator(m[4])
+    @target_number = @cmp_op ? m[5].to_i : nil
+    @reroll_threshold = reroll_threshold(m[2] || m[6])
 
-    modifier = m[3] || ''
-    debug('modifier', modifier)
+    @modify_number = m[3] ? ArithmeticEvaluator.new.eval(m[3], @diceBot.fractionType.to_sym) : 0
 
-    string = command
-
-    @signOfInequality = @bcdice.getMarshaledSignOfInequality(signOfInequalityText)
-    @upper = getAddRollUpperTarget(upperTarget1, upperTarget2)
-
-    if @upper <= 1
-      output = "#{@nick_e}: (#{string}\[#{@upper}\]#{modifier}) ＞ 無限ロールの条件がまちがっています"
-      return output
+    if @reroll_threshold <= 1
+      return "#{@nick_e}: (#{expr()}) ＞ 無限ロールの条件がまちがっています"
     end
 
-    diceCommands = string.split('+')
-
-    bonusValue = getBonusValue(modifier)
-    debug('bonusValue', bonusValue)
-
-    diceDiff = diff - bonusValue
-
-    totalDiceString, totalSuccessCount, totalDiceCount, maxDiceValue, totalValue = getUpperDiceCommandResult(diceCommands, diceDiff)
-
-    output = "#{totalDiceString}#{formatBonus(bonusValue)}"
-
-    maxValue = maxDiceValue + bonusValue
-    totalValue += bonusValue
-
-    string += "[#{@upper}]" + modifier
-
-    if @diceBot.isPrintMaxDice && (totalDiceCount > 1)
-      output = "#{output} ＞ #{totalValue}"
+    roll_list = []
+    @command.split('+').each do |u|
+      times, sides = u.split("U", 2).map(&:to_i)
+      roll_list.concat(roll(times, sides))
     end
 
-    if @signOfInequality != ""
-      output = "#{output} ＞ 成功数#{totalSuccessCount}"
-      string += "#{@signOfInequality}#{diff}"
-    else
-      output += getMaxAndTotalValueResultStirng(maxValue, totalValue, totalDiceCount)
-    end
-
-    output = "#{@nick_e}: (#{string}) ＞ #{output}"
-
-    if output.length > $SEND_STR_MAX
-      output = "#{@nick_e}: (#{string}) ＞ ... ＞ #{totalValue}"
-      if @signOfInequality == ""
-        output += getMaxAndTotalValueResultStirng(maxValue, totalValue, totalDiceCount)
+    result =
+      if @cmp_op
+        success_count = roll_list.count do |e|
+          x = e[:sum] + @modify_number
+          if @cmp_op == :!=
+            # Ruby 1.8のケア
+            x != @target_number
+          else
+            x.send(@cmp_op, @target_number)
+          end
+        end
+        "成功数#{success_count}"
+      else
+        sum_list = roll_list.map { |e| e[:sum] }
+        total = sum_list.inject(0, :+) + @modify_number
+        max = sum_list.map { |i| i + @modify_number }.max
+        "#{max}/#{total}(最大/合計)"
       end
-    end
 
-    return output
+    sequence = [
+      "#{@nick_e}: (#{expr()})",
+      dice_text(roll_list) + format_modifier(@modify_number),
+      result
+    ]
+
+    return sequence.join(" ＞ ")
   end
 
-  def getMaxAndTotalValueResultStirng(maxValue, totalValue, _totalDiceCount)
-    return " ＞ #{maxValue}/#{totalValue}(最大/合計)"
-  end
+  private
 
-  def getAddRollUpperTarget(target1, target2)
-    if  target1
-      return target1.to_i
-    end
-
-    if  target2
-      return target2.to_i
-    end
-
+  # ダイスロールし、ダイスボットのソート設定に応じてソートする
+  #
+  # @param times [Integer] ダイスの個数
+  # @param sides [Integer] ダイスの面数
+  # @return [Array<Hash>]
+  def roll(times, sides)
     if @diceBot.upplerRollThreshold == "Max"
-      return 2
-    else
-      return @diceBot.upplerRollThreshold
-    end
-  end
-
-  # 入力の修正値の部分からボーナスの数値に変換する
-  # @param [String] modifier 入力の修正値部分
-  # @return [Integer] ボーナスの数値
-  def getBonusValue(modifier)
-    if modifier.empty?
-      0
-    else
-      ArithmeticEvaluator.new.eval(modifier, @diceBot.fractionType.to_sym)
-    end
-  end
-
-  def getUpperDiceCommandResult(diceCommands, diceDiff)
-    diceStringList = []
-    totalSuccessCount = 0
-    totalDiceCount = 0
-    maxDiceValue = 0
-    totalValue = 0
-
-    diceCommands.each do |diceCommand|
-      diceCount, diceMax = diceCommand.split(/[uU]/).collect { |s| s.to_i }
-
-      if @diceBot.upplerRollThreshold == "Max"
-        @upper = diceMax
-      end
-
-      total, diceString, cnt1, cnt_max, maxDiceResult, successCount, cnt_re =
-        @bcdice.roll(diceCount, diceMax, (@diceBot.sortType & 2), @upper, @signOfInequality, diceDiff)
-
-      diceStringList << diceString
-
-      totalSuccessCount += successCount
-      maxDiceValue = maxDiceResult if maxDiceResult > maxDiceValue
-      totalDiceCount += diceCount
-      totalValue += total
+      @reroll_threshold = sides
     end
 
-    totalDiceString = diceStringList.join(",")
+    ret = Array.new(times) { roll_ones(sides) }
+    ret.map! { |e| {:sum => e.inject(0, :+), :list => e} }
+    if @diceBot.sortType & 2 != 0
+      ret.sort_by! { |e| e[:sum] }
+    end
 
-    return totalDiceString, totalSuccessCount, totalDiceCount, maxDiceValue, totalValue
+    return ret
   end
 
-  # 出力用にボーナス値を整形する
-  # @param [Integer] bonusValue ボーナス値
+  # 一つだけダイスロールする
+  #
+  # @param sides [Integer] ダイスの面数
+  # @return [Array<Integer>]
+  def roll_ones(sides)
+    dice_list = []
+
+    loop do
+      value, = @bcdice.roll(1, sides)
+      dice_list.push(value)
+      break if value < @reroll_threshold
+    end
+
+    return dice_list
+  end
+
+  # ダイスロールの結果を文字列に変換する
+  # 振り足しがなければその数値、振り足しがあれば合計と各ダイスの出目を出力する
+  #
+  # @param roll_list [Array<Hash>]
   # @return [String]
-  def formatBonus(bonusValue)
-    if bonusValue == 0
-      ''
-    elsif bonusValue > 0
-      "+#{bonusValue}"
+  def dice_text(roll_list)
+    roll_list.map do |e|
+      if e[:list].size == 1
+        e[:sum]
+      else
+        "#{e[:sum]}[#{e[:list].join(',')}]"
+      end
+    end.join(",")
+  end
+
+  # 振り足しの閾値を得る
+  #
+  # @param target [String]
+  # @return [Integer]
+  def reroll_threshold(target)
+    if target
+      target.to_i
+    elsif @diceBot.upplerRollThreshold == "Max"
+      2
     else
-      bonusValue.to_s
+      @diceBot.upplerRollThreshold
     end
+  end
+
+  # パース済みのコマンドを文字列で表示する
+  #
+  # @return [String]
+  def expr
+    "#{@command}[#{@reroll_threshold}]#{format_modifier(@modify_number)}#{Format.comparison_operator(@cmp_op)}#{@target_number}"
   end
 end
