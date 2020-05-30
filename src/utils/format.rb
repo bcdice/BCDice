@@ -9,7 +9,7 @@ module Format
     case op
     when :==
       '='
-    when :!=
+    when :'!='
       '<>'
     when Symbol
       op.to_s
