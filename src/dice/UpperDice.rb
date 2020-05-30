@@ -72,12 +72,8 @@ class UpperDice
       if @cmp_op
         success_count = roll_list.count do |e|
           x = e[:sum] + @modify_number
-          if @cmp_op == :!=
-            # Ruby 1.8のケア
-            x != @target_number
-          else
-            x.send(@cmp_op, @target_number)
-          end
+          # Ruby 1.8のケア
+          @cmp_op == :'!=' ? x != @target_number : x.send(@cmp_op, @target_number)
         end
         "成功数#{success_count}"
       else
