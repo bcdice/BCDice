@@ -107,7 +107,7 @@ class UpperDice
     ret = Array.new(times) { roll_ones(sides) }
     ret.map! { |e| {:sum => e.inject(0, :+), :list => e} }
     if @diceBot.sortType & 2 != 0
-      ret.sort_by! { |e| e[:sum] }
+      ret = ret.sort_by { |e| e[:sum] }
     end
 
     return ret
