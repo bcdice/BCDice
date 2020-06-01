@@ -283,7 +283,6 @@ class CardTrader
     when /c-spell(\[(#{$ircNickRegExp}[^\]]+?)\])?($|\s)/
       spellText = Regexp.last_match(2)
       printCardRestorationSpellResult(spellText)
-      # c_spell_caller(arg)
 
     # 山札からめくって捨てる
     when /(c-mil(stone)?(\[[\d]+\])?)($|\s)/
