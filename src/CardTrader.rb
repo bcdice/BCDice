@@ -111,66 +111,6 @@ class CardTrader
     @tnick = t
   end
 
-  # カード機能ヘルプ
-  def printCardHelp
-    send_to_sender = lambda { |message| sendMessageToOnlySender message }
-
-    [
-      [
-        "・カードを引く　　　　　　　(c-draw[n]) (nは枚数)",
-        "・オープンでカードを引く　　(c-odraw[n])",
-        "・カードを選んで引く　　　　(c-pick[c[,c]]) (cはカード。カンマで複数指定可)",
-        "・捨てたカードを手札に戻す　(c-back[c[,c]])",
-        "・置いたカードを手札に戻す　(c-back1[c[,c]])"
-      ],
-
-      [
-        "・手札と場札を見る　　　　　(c-hand) (Talk可)",
-        "・カードを出す　　　　　　　(c-play[c[,c]]",
-        "・カードを場に出す　　　　　(c-play1[c[,c]]",
-        "・カードを捨てる　　　　　　(c-discard[c[,c]]) (Talk可)",
-        "・場のカードを選んで捨てる　(c-discard1[c[,c]])",
-        "・山札からめくって捨てる　  (c-milstone[n])"
-      ],
-
-      [
-        "・カードを相手に一枚渡す　　(c-pass[c]相手) (カード指定が無いときはランダム)",
-        "・場のカードを相手に渡す　　(c-pass1[c]相手) (カード指定が無いときはランダム)",
-        "・カードを相手の場に出す　　(c-place[c[,c]]相手)",
-        "・場のカードを相手の場に出す(c-place1[c[,c]]相手)"
-      ],
-
-      [
-        "・場のカードをタップする　　(c-tap1[c[,c]]相手)",
-        "・場のカードをアンタップする(c-untap1[c[,c]]相手)",
-        "  ---"
-      ]
-    ].each do |messages|
-      messages.each(&send_to_sender)
-      sleep 1
-    end
-
-    sleep 1
-
-    [
-      "・カードを配る　　　　　　　(c-deal[n]相手)",
-      "・カードを見てから配る　　　(c-vdeal[n]相手)",
-      "・カードのシャッフル　　　　(c-shuffle)",
-      "・捨てカードを山に戻す　　　(c-rshuffle)",
-      "・全員の場のカードを捨てる　(c-clean)"
-    ].each(&send_to_sender)
-
-    sleep 1
-
-    [
-      "・相手の手札と場札を見る　　(c-vhand) (Talk不可)",
-      "・枚数配置を見る　　　　　　(c-check)",
-      "・復活の呪文　　　　　　　　(c-spell[呪文]) (c-spellで呪文の表示)"
-    ].each(&send_to_sender)
-
-    sendMessageToOnlySender "  -- END ---"
-  end
-
   def setCardMode()
     return unless /(\d+)/ =~ @tnick
 
@@ -237,6 +177,9 @@ class CardTrader
     end
   end
 
+  # カード機能のコマンドを実行する
+  # @param [String] arg コマンド
+  # @param [String] channel IRCチャンネル
   def executeCard(arg, channel)
     @channel = channel
 
@@ -246,81 +189,103 @@ class CardTrader
     count = 0
 
     case arg
+
+    # カードのシャッフル
     when /(c-shuffle|c-sh)($|\s)/
       output_msg = shuffleCards
       sendMessage(@channel, output_msg)
 
+    # カードを引く
     when /c-draw(\[[\d]+\])?($|\s)/
       drawCardByCommandText(arg)
 
+    # オープンでカードを引く
     when /(c-odraw|c-opend)(\[[\d]+\])?($|\s)/
       value = Regexp.last_match(2)
       drawCardOpen(value)
 
+    # 手札と場札を見る
     when /c-hand($|\s)/
       sendMessageToOnlySender(getHandAndPlaceCardInfoText(arg, @nick_e))
 
+    # 相手の手札と場札を見る
     when /c-vhand\s*(#{$ircNickRegExp})($|\s)/
       name = Regexp.last_match(1)
       debug("c-vhand name", name)
       messageText = ("#{name} の手札は" + getHandAndPlaceCardInfoText("c-hand", name) + "です")
       sendMessageToOnlySender(messageText)
 
+    # カードを出す / カードを場に出す
     when /c-play(\d*)\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
       playCardByCommandText(arg)
 
+    # 捨てカードを山に戻す
     when /(c-rshuffle|c-rsh)($|\s)/
       output_msg = returnCards
       sendMessage(@channel, output_msg)
 
+    # 全員の場のカードを捨てる
     when /c-clean($|\s)/
       output_msg = clearAllPlaceAllPlayerCards
       sendMessage(@channel, output_msg)
 
+    # @todo 説明文に記載されていないコマンド
     when /c-review($|\s)/
       output_msg = reviewCards
       sendMessageToOnlySender(output_msg)
 
+    # 枚数配置を見る
     when /c-check($|\s)/
       out_msg, place_msg = getAllCardLocation
       sendMessage(@channel, out_msg)
       sendMessage(@channel, place_msg)
 
+    # カードを相手に一枚渡す / 場のカードを相手に渡す
     when /c-pass(\d)*(\[#{@cardRegExp}(,#{@cardRegExp})*\])?\s*(#{$ircNickRegExp})($|\s)/
       sendTo = Regexp.last_match(4)
       transferCardsByCommandText(arg, sendTo)
 
+    # カードを選んで引く
     when /c-pick\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
       pickupCardCommandText(arg)
+
+    # 捨てたカードを手札に戻す / 置いたカードを手札に戻す
     # FIXME
     when /c-back(\d)*\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
       backCardCommandText(arg)
 
+    # カードを配る
     when /c-deal(\[[\d]+\]|\s)\s*(#{$ircNickRegExp})($|\s)/
       count = Regexp.last_match(1)
       targetNick = Regexp.last_match(2)
       dealCard(count, targetNick)
 
+    # カードを見てから配る
     when /c-vdeal(\[[\d]+\]|\s)\s*(#{$ircNickRegExp})($|\s)/
       count = Regexp.last_match(1)
       targetNick = Regexp.last_match(2)
       lookAndDealCard(count, targetNick)
 
+    # カードを捨てる / 場のカードを選んで捨てる
     when /c-(dis|discard)(\d)*\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
       discardCardCommandText(arg)
 
+    # カードを相手の場に出す / 場のカードを相手の場に出す
     when /c-place(\d)*(\[#{@cardRegExp}(,#{@cardRegExp})*\])?\s*(#{$ircNickRegExp})($|\s)/
       targetNick = Regexp.last_match(4)
       sendCardToTargetNickPlaceCommandText(arg, targetNick)
 
+    # 場のカードをタップする / 場のカードをアンタップする
     when /c-(un)?tap(\d+)\[#{@cardRegExp}(,#{@cardRegExp})*\]($|\s)/
       tapCardCommandText(arg)
 
+    # 復活の呪文を表示する / 復活の呪文を唱える
     when /c-spell(\[(#{$ircNickRegExp}[^\]]+?)\])?($|\s)/
       spellText = Regexp.last_match(2)
       printCardRestorationSpellResult(spellText)
       # c_spell_caller(arg)
 
+    # 山札からめくって捨てる
     when /(c-mil(stone)?(\[[\d]+\])?)($|\s)/
       commandText = Regexp.last_match(1)
       printMilStoneResult(commandText)
