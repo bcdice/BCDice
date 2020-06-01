@@ -46,8 +46,15 @@ class BCDiceMaker
     @master = ""
   end
 
+  # @todo IRCボット以外は使わないので削除する
+  # @return [String] マスターのニックネーム
   attr_accessor :master
+
+  # @todo 未使用のため削除する
+  # @return [DiceBot] ダイスボット
   attr_accessor :diceBot
+
+  # @todo 未使用のため削除する
   attr_accessor :diceBotPath
 
   def newBcDice
@@ -61,12 +68,22 @@ class BCDice
   # 設定コマンドのパターン
   SET_COMMAND_PATTERN = /\Aset\s+(.+)/i.freeze
 
+  # BCDiceのバージョン番号
   VERSION = "2.06.01".freeze
 
+  # @return [CardTrader] カード機能
   attr_reader :cardTrader
-  attr_reader :rand_results, :detailed_rand_results
+
+  # @return [Array<(Integer, Integer)>] 出目の配列
+  attr_reader :rand_results
 
   alias getRandResults rand_results
+
+  # @return [Array<DetailedRandResult>] 出目の詳細の配列
+  attr_reader :detailed_rand_results
+
+  # @return [String] メッセージ送信者のニックネーム
+  attr_reader :nick_e
 
   def initialize(parent, cardTrader, diceBot, counterInfos, tableFileData)
     @parent = parent
@@ -108,8 +125,6 @@ class BCDice
     @diceBot.bcdice = self
     @parent.diceBot = @diceBot
   end
-
-  attr_reader :nick_e
 
   def readExtraCard(cardFileName)
     @cardTrader.readExtraCard(cardFileName)
