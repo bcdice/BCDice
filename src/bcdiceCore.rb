@@ -51,10 +51,6 @@ class BCDiceMaker
   attr_accessor :master
 
   # @todo 未使用のため削除する
-  # @return [DiceBot] ダイスボット
-  attr_accessor :diceBot
-
-  # @todo 未使用のため削除する
   attr_accessor :diceBotPath
 
   def newBcDice
@@ -70,6 +66,9 @@ class BCDice
 
   # BCDiceのバージョン番号
   VERSION = "2.06.01".freeze
+
+  # @return [DiceBot] 使用するダイスボット
+  attr_reader :diceBot
 
   # @return [CardTrader] カード機能
   attr_reader :cardTrader
@@ -114,6 +113,7 @@ class BCDice
     @isKeepSecretDice = b
   end
 
+  # @deprecated {#diceBot} からゲームシステムIDを得るようにする。
   def getGameType
     @diceBot.id
   end
@@ -123,7 +123,6 @@ class BCDice
 
     @diceBot = diceBot
     @diceBot.bcdice = self
-    @parent.diceBot = @diceBot
   end
 
   def readExtraCard(cardFileName)
