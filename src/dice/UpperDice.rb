@@ -98,7 +98,7 @@ class UpperDice
   # @param sides [Integer] ダイスの面数
   # @return [Array<Hash>]
   def roll(times, sides)
-    if @diceBot.upplerRollThreshold == "Max"
+    if @diceBot.upperRollThreshold == "Max"
       @reroll_threshold = sides
     end
 
@@ -152,10 +152,10 @@ class UpperDice
   def reroll_threshold(target)
     if target
       target.to_i
-    elsif @diceBot.upplerRollThreshold == "Max"
+    elsif @diceBot.upperRollThreshold == "Max"
       2
     else
-      @diceBot.upplerRollThreshold
+      @diceBot.upperRollThreshold
     end
   end
 
