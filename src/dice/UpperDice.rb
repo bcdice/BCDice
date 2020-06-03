@@ -45,8 +45,6 @@ class UpperDice
   # @param string [String]
   # @return [String]
   def rollDice(string)
-    string = string.gsub(/-\d+U\d+/i, '') # 上方無限の引き算しようとしてる部分をカット
-
     unless (m = /^S?(\d+U\d+(?:\+\d+U\d+)*)(?:\[(\d+)\])?([\+\-\d]*)(?:([<>=]+)(\d+))?(?:@(\d+))?/i.match(string))
       return '1'
     end
