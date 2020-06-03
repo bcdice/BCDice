@@ -46,8 +46,11 @@ class BCDiceMaker
     @master = ""
   end
 
+  # @todo IRCボット以外は使わないので削除する
+  # @return [String] マスターのニックネーム
   attr_accessor :master
-  attr_accessor :diceBot
+
+  # @todo 未使用のため削除する
   attr_accessor :diceBotPath
 
   def newBcDice
@@ -61,12 +64,25 @@ class BCDice
   # 設定コマンドのパターン
   SET_COMMAND_PATTERN = /\Aset\s+(.+)/i.freeze
 
+  # BCDiceのバージョン番号
   VERSION = "2.06.01".freeze
 
+  # @return [DiceBot] 使用するダイスボット
+  attr_reader :diceBot
+
+  # @return [CardTrader] カード機能
   attr_reader :cardTrader
-  attr_reader :rand_results, :detailed_rand_results
+
+  # @return [Array<(Integer, Integer)>] 出目の配列
+  attr_reader :rand_results
 
   alias getRandResults rand_results
+
+  # @return [Array<DetailedRandResult>] 出目の詳細の配列
+  attr_reader :detailed_rand_results
+
+  # @return [String] メッセージ送信者のニックネーム
+  attr_reader :nick_e
 
   def initialize(parent, cardTrader, diceBot, counterInfos, tableFileData)
     @parent = parent
@@ -97,6 +113,7 @@ class BCDice
     @isKeepSecretDice = b
   end
 
+  # @deprecated {#diceBot} からゲームシステムIDを得るようにする。
   def getGameType
     @diceBot.id
   end
@@ -106,10 +123,7 @@ class BCDice
 
     @diceBot = diceBot
     @diceBot.bcdice = self
-    @parent.diceBot = @diceBot
   end
-
-  attr_reader :nick_e
 
   def readExtraCard(cardFileName)
     @cardTrader.readExtraCard(cardFileName)
@@ -186,14 +200,6 @@ class BCDice
     when /^mode$/i
       # モード確認
       checkMode()
-
-    when /^help$/i
-      # 簡易オンラインヘルプ
-      printHelp()
-
-    when /^c-help$/i
-      @cardTrader.printCardHelp()
-
     end
   end
 
@@ -456,63 +462,6 @@ class BCDice
 
     output = "GameType = " + @diceBot.id + ", ViewMode = " + @diceBot.sendMode + ", Sort = " + @diceBot.sortType
     sendMessageToOnlySender(output)
-  end
-
-  # 簡易オンラインヘルプを表示する
-  def printHelp
-    send_to_sender = lambda { |message| sendMessageToOnlySender message }
-
-    [
-      "・加算ロール　　　　　　　　(xDn) (n面体ダイスをx個)",
-      "・バラバラロール　　　　　　(xBn)",
-      "・個数振り足しロール　　　　(xRn[振り足し値])",
-      "・上方無限ロール　　　　　　(xUn[境界値])",
-      "・シークレットロール　　　　(Sダイスコマンド)",
-      "・シークレットをオープンする(#{$OPEN_DICE})",
-      "・四則計算(端数切捨て)　　　(C(式))"
-    ].each(&send_to_sender)
-
-    sleepForIrc 2
-
-    @diceBot.help_message.lines.each_slice(5) do |lines|
-      lines.each(&send_to_sender)
-      sleepForIrc 1
-    end
-
-    sendMessageToOnlySender "  ---"
-
-    sleepForIrc 1
-
-    [
-      "・プロット表示　　　　　　　　(#{$OPEN_PLOT})",
-      "・プロット記録　　　　　　　　(Talkで #{$ADD_PLOT}:プロット)",
-      "  ---"
-    ].each(&send_to_sender)
-
-    sleepForIrc 2
-
-    [
-      "・ポイントカウンタ値登録　　　(#[名前:]タグn[/m]) (識別名、最大値省略可,Talk可)",
-      "・カウンタ値操作　　　　　　　(#[名前:]タグ+n) (もちろん-nもOK,Talk可)",
-      "・識別名変更　　　　　　　　　(#RENAME!名前1->名前2) (Talk可)"
-    ].each(&send_to_sender)
-
-    sleepForIrc 1
-
-    [
-      "・同一タグのカウンタ値一覧　　(#OPEN!タグ)",
-      "・自キャラのカウンタ値一覧　　(Talkで#OPEN![タグ]) (全カウンタ表示時、タグ省略)",
-      "・自キャラのカウンタ削除　　　(#[名前:]DIED!) (デフォルト時、識別名省略)",
-      "・全自キャラのカウンタ削除　　(#ALL!:DIED!)",
-      "・カウンタ表示チャンネル登録　(#{$READY_CMD})",
-      "  ---"
-    ].each(&send_to_sender)
-
-    sleepForIrc 2
-
-    sendMessageToOnlySender "・カード機能ヘルプ　　　　　　(c-help)"
-
-    sendMessageToOnlySender "  -- END ---"
   end
 
   def setChannel(channel)
