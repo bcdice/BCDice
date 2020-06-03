@@ -72,8 +72,8 @@ class DiceBot
     @sameDiceRerollType = 0 # ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
     @d66Type = 1 # d66の差し替え(0=D66無し, 1=順番そのまま([5,3]->53), 2=昇順入れ替え([5,3]->35)
     @isPrintMaxDice = false # 最大値表示
-    @upplerRollThreshold = 0      # 上方無限
-    @unlimitedRollDiceType = 0    # 無限ロールのダイス
+    @upperRollThreshold = 0 # 上方無限
+    @unlimitedRollDiceType = 0 # 無限ロールのダイス
     @rerollNumber = 0 # 振り足しする条件
     @defaultSuccessTarget = "" # 目標値が空欄の時の目標値
     @rerollLimitCount = 10000 # 振り足し回数上限
@@ -90,7 +90,7 @@ class DiceBot
   attr_accessor :rerollLimitCount
 
   attr_reader :sendMode, :sameDiceRerollCount, :sameDiceRerollType, :d66Type
-  attr_reader :isPrintMaxDice, :upplerRollThreshold
+  attr_reader :isPrintMaxDice, :upperRollThreshold
   attr_reader :defaultSuccessTarget, :rerollNumber, :fractionType
 
   # ダイスボット設定後に行う処理
@@ -174,7 +174,7 @@ class DiceBot
     @sendMode = m
   end
 
-  attr_writer :upplerRollThreshold
+  attr_writer :upperRollThreshold
 
   def bcdice=(b)
     @@bcdice = b
