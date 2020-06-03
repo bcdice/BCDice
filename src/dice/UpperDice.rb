@@ -104,8 +104,9 @@ class UpperDice
 
     ret = Array.new(times) do
       list = roll_ones(sides)
-      { :sum => list.inject(0, :+), :list => list }
+      {:sum => list.inject(0, :+), :list => list}
     end
+
     if @diceBot.sortType & 2 != 0
       ret = ret.sort_by { |e| e[:sum] }
     end
