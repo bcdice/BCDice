@@ -211,10 +211,6 @@ class BCDice
       # マスター登録
       setMaster()
 
-    when 'game'
-      # ゲーム設定
-      setGame()
-
     when /\Av(?:iew\s*)?mode\z/
       # 表示モード設定
       setDisplayMode()
@@ -282,11 +278,6 @@ class BCDice
       @parent.master = @nick_e
     end
     sendMessageToChannels("#{@parent.master}さんをMasterに設定しました")
-  end
-
-  def setGame()
-    messages = setGameByTitle(@tnick)
-    sendMessageToChannels(messages)
   end
 
   def isMaster()
