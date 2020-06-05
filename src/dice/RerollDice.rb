@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+require "utils/normalize"
+require "utils/format"
+
+# 個数振り足しダイス
 class RerollDice
   def initialize(bcdice, diceBot)
     @bcdice = bcdice
@@ -7,15 +11,8 @@ class RerollDice
     @nick_e = @bcdice.nick_e
   end
 
-  ####################        個数振り足しダイス     ########################
   def rollDice(string)
-    output = ''
-
-    begin
-      output = rollDiceCatched(string)
-    rescue StandardError => e
-      output = "#{string} ＞ " + e.to_s
-    end
+    output = rollDiceCatched(string)
 
     return "#{@nick_e}: #{output}"
   end
@@ -30,114 +27,140 @@ class RerollDice
       return '1'
     end
 
-    string, braceThreshold, operator, conditionValue, atmarkThreshold = m.captures
-
-    signOfInequality, diff = getCondition(operator, conditionValue)
-    rerollNumber = getRerollNumber(braceThreshold, atmarkThreshold, diff)
-    debug('rerollNumber', rerollNumber)
-
-    debug("diff", diff)
-
-    diceQueue = []
-    string.split("+").each do |xRn|
-      x, n = xRn.split("R").map { |s| s.to_i }
-      checkReRollRule(n, signOfInequality, diff)
-
-      diceQueue.push([x, n, 0])
+    notation = m[1]
+    cmp_op = Normalize.comparison_operator(m[3])
+    target_number = cmp_op ? m[4].to_i : nil
+    unless cmp_op
+      cmp_op, target_number = target_from_default()
     end
 
-    successCount = 0
-    diceStrList = []
+    reroll_cmp_op = cmp_op || :>=
+    reroll_threshold = decide_reroll_threthold(m[2] || m[5], target_number)
+
+    unless reroll_threshold
+      return "#{string} ＞ #{msg_invalid_reroll_number}"
+    end
+
+    dice_queue = []
+    notation.split("+").each do |xRn|
+      x, n = xRn.split("R").map(&:to_i)
+      unless valid_reroll_rule?(n, cmp_op, target_number)
+        return "#{string} ＞ #{msg_invalid_reroll_number}"
+      end
+
+      dice_queue.push([x, n, 0])
+    end
+
+    success_count = 0
+    dice_str_list = []
     dice_cnt_total = 0
-    numberSpot1Total = 0
-    loopCount = 0
+    one_count = 0
+    loop_count = 0
 
-    while !diceQueue.empty? && @diceBot.should_reroll?(loopCount)
+    dice_total_count = 0
+
+    while !dice_queue.empty? && @diceBot.should_reroll?(loop_count)
       # xRn
-      x, n, depth = diceQueue.shift
-      loopCount += 1
+      x, n, depth = dice_queue.shift
+      loop_count += 1
+      dice_total_count += x
 
-      total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount =
-        @bcdice.roll(x, n, (@diceBot.sortType & 2), 0, signOfInequality, diff, rerollNumber)
-      debug('bcdice.roll : total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount',
-            total, dice_str, numberSpot1, cnt_max, n_max, success, rerollCount)
+      dice_list = roll_(x, n)
+      success_count += dice_list.count() { |val| val.send(cmp_op, target_number) } if cmp_op
+      reroll_count = dice_list.count() { |val| val.send(reroll_cmp_op, reroll_threshold) }
 
-      successCount += success
-      diceStrList.push(dice_str)
-      dice_cnt_total += x
+      dice_str_list.push(dice_list.join(","))
 
       if depth.zero?
-        numberSpot1Total += numberSpot1
+        one_count += dice_list.count(1)
       end
 
-      if rerollCount > 0
-        diceQueue.push([rerollCount, n, depth + 1])
+      if reroll_count > 0
+        dice_queue.push([reroll_count, n, depth + 1])
       end
     end
 
-    output = "#{diceStrList.join(' + ')} ＞ 成功数#{successCount}"
-    string += "[#{rerollNumber}]#{signOfInequality}#{diff}"
+    cmp_op_text = Format.comparison_operator(cmp_op)
+    grich_text = @diceBot.getGrichText(one_count, dice_total_count, success_count)
 
-    debug("string", string)
-    output += @diceBot.getGrichText(numberSpot1Total, dice_cnt_total, successCount)
+    sequence = [
+      "(#{notation}[#{reroll_threshold}]#{cmp_op_text}#{target_number})",
+      dice_str_list.join(" + "),
+      "成功数#{success_count}",
+      trim_prefix(" ＞ ", grich_text),
+    ].compact
 
-    output = "(#{string}) ＞ #{output}"
-
-    if output.length > $SEND_STR_MAX # 長すぎたときの救済
-      output = "(#{string}) ＞ ... ＞ 回転数#{round} ＞ 成功数#{successCount}"
-    end
-
-    return output
+    return sequence.join(" ＞ ")
   end
 
-  def getCondition(operator, conditionValue)
-    if operator && conditionValue
-      operator = @bcdice.marshalSignOfInequality(operator)
-      conditionValue = conditionValue.to_i
-    elsif (m = /([<>=]+)(\d+)/.match(@diceBot.defaultSuccessTarget))
-      operator = @bcdice.marshalSignOfInequality(m[1])
-      conditionValue = m[2].to_i
+  private
+
+  # @return [Array<(Symbol, Integer)>]
+  # @return [Array<(nil, nil)>]
+  def target_from_default
+    m = /^([<>=]+)(\d+)$/.match(@diceBot.defaultSuccessTarget)
+    unless m
+      return nil, nil
     end
 
-    return operator, conditionValue
+    cmp_op = Normalize.comparison_operator(m[1])
+    target_number = cmp_op ? m[2].to_i : nil
+    return cmp_op, target_number
   end
 
-  def getRerollNumber(braceThreshold, atmarkThreshold, conditionValue)
-    if braceThreshold
-      braceThreshold.to_i
-    elsif atmarkThreshold
-      atmarkThreshold.to_i
+  # @param captured_threthold [String, nil]
+  # @param target_number [Integer, nil]
+  # @return [Integer]
+  # @return [nil]
+  def decide_reroll_threthold(captured_threthold, target_number)
+    if captured_threthold
+      captured_threthold.to_i
     elsif @diceBot.rerollNumber != 0
       @diceBot.rerollNumber
-    elsif conditionValue
-      conditionValue.to_i
     else
-      raiseErroForJudgeRule()
+      target_number
     end
   end
 
-  def raiseErroForJudgeRule()
-    raise "条件が間違っています。2R6>=5 あるいは 2R6[5] のように振り足し目標値を指定してください。"
+  def msg_invalid_reroll_number()
+    "条件が間違っています。2R6>=5 あるいは 2R6[5] のように振り足し目標値を指定してください。"
   end
 
-  def checkReRollRule(dice_max, signOfInequality, diff) # 振り足しロールの条件確認
-    valid = true
+  # @param sides [Integer]
+  # @param cmp_op [Symbol]
+  # @param reroll_threshold [Integer]
+  # @return [Boolean]
+  def valid_reroll_rule?(sides, cmp_op, reroll_threshold) # 振り足しロールの条件確認
+    case cmp_op
+    when :<=
+      reroll_threshold < sides
+    when :<
+      reroll_threshold <= sides
+    when :>=
+      reroll_threshold > 1
+    when :>
+      reroll_threshold >= 1
+    when :'!='
+      (1..sides).include?(reroll_threshold)
+    else
+      true
+    end
+  end
 
-    case signOfInequality
-    when '<='
-      valid = false if diff >= dice_max
-    when '>='
-      valid = false if diff <= 1
-    when '<>'
-      valid = false if (diff > dice_max) || (diff < 1)
-    when '<'
-      valid = false if diff > dice_max
-    when '>'
-      valid = false if diff < 1
+  def roll_(times, sides)
+    _, dice_list, = @bcdice.roll(times, sides, (@diceBot.sortType & 2))
+    dice_list.split(",").map(&:to_i)
+  end
+
+  def trim_prefix(prefix, string)
+    if string.start_with?(prefix)
+      string = string[prefix.size..-1]
     end
 
-    unless valid
-      raiseErroForJudgeRule()
+    if string.size.zero?
+      nil
+    else
+      string
     end
   end
 end
