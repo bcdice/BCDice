@@ -627,3 +627,15 @@ input:
 output:
 NeverCloud : (1D6+2>=5) ＞ 6[6]+2 ＞ 8 ＞ 成功
 rand:6/6
+============================
+input:
+S2D6>=5
+output:
+NeverCloud : (2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功###secret dice###
+rand:3/6,4/6
+============================
+input:
+S2NC+2+1>=5
+output:
+NeverCloud : (2D6+2+1>=5) ＞ 12[6,6]+2+1 ＞ 15 ＞ クリティカル###secret dice###
+rand:6/6,6/6
