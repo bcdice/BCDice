@@ -19,13 +19,13 @@ class NeverCloud < DiceBot
 ・判定(xNC±y>=z)
 　xD6の判定を行います。ファンブル、クリティカルの場合、その旨を出力します。
 　x：振るダイスの数。
-　±y：固定値・修正値。計算式に対応。省略可能。
+　±y：固定値・修正値。省略可能。
 　z：目標値。省略可能。
 　例）　2NC+2>=5　1NC
 MESSAGETEXT
 
   # ダイスボットで使用するコマンドを配列で列挙する
-  setPrefixes(['\d+NC.*', '\d+D\d*([\+\-]\d+)?>=\d+'])
+  setPrefixes(['\d+NC.*', '\d+D6?([\+\-\d]*)>=\d+'])
 
   def initialize
     super
@@ -43,18 +43,18 @@ MESSAGETEXT
     op = ''
 
     case command
-    when /^\d+NC([\+\-]\d+)?(>=)?(\d+)?$/i
+    when /^\d+NC([\+\-\d]*)(>=)?(\d+)?$/i
       adjust_str = Regexp.last_match(1) if Regexp.last_match(1)
-      adjust = adjust_str.to_i if adjust_str != ''
+      adjust = parren_killer("(0#{adjust_str})").to_i if adjust_str != ''
       op = Regexp.last_match(2) if Regexp.last_match(2)
       target_str = Regexp.last_match(3) if Regexp.last_match(3)
       target = target_str.to_i if target_str != ''
       dice = command[0] + 'D6' + adjust_str + op + target_str
-    when /^\d+D6?([\+\-]\d+)?(>=)?(\d+)?$/i
-      adjust_str = Regexp.last_match(1)
-      adjust = adjust_str.to_i if adjust_str
-      target_str = Regexp.last_match(3)
-      target = target_str.to_i if target_str
+    when /^\d+D6?([\+\-\d]*)(>=)?(\d+)?$/i
+      adjust_str = Regexp.last_match(1) if Regexp.last_match(1)
+      adjust = parren_killer("(0#{adjust_str})").to_i if adjust_str != ''
+      target_str = Regexp.last_match(3) if Regexp.last_match(3)
+      target = target_str.to_i if target_str != ''
       dice = command
     else
       return ''
