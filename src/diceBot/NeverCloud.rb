@@ -49,7 +49,7 @@ MESSAGETEXT
       op = Regexp.last_match(2) if Regexp.last_match(2)
       target_str = Regexp.last_match(3) if Regexp.last_match(3)
       target = target_str.to_i if target_str != ''
-      dice = command[0] + 'D6' + adjust_str + op + target_str
+      dice = command.to_i.to_s + 'D6' + adjust_str + op + target_str
     when /^\d+D6?([\+\-\d]*)(>=)?(\d+)?$/i
       adjust_str = Regexp.last_match(1) if Regexp.last_match(1)
       adjust = parren_killer("(0#{adjust_str})").to_i if adjust_str != ''
