@@ -59,7 +59,7 @@ MESSAGETEXT
     else
       return ''
     end
-    total, dice_str, result_val, result = checkRoll(command[0].to_i, adjust, target)
+    total, dice_str, result_val, result = checkRoll(command.to_i, adjust, target)
     if result != ""
       return "(#{dice}) ＞ #{total}[#{dice_str}]#{adjust_str if adjust != 0} ＞ #{result_val} ＞ #{result}"
     else
