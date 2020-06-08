@@ -86,7 +86,7 @@ MESSAGETEXT
       result_clutch(dice_list.last)
     ]
 
-    return sequence.join(" > ")
+    return sequence.join(' ＞ ')
   end
 
   def expr_clutch()
@@ -159,7 +159,7 @@ MESSAGETEXT
       result_r(dice_total, total)
     ]
 
-    return sequence.join(' > ')
+    return sequence.join(' ＞ ')
   end
 
   def expr_r()
@@ -247,7 +247,7 @@ MESSAGETEXT
       total_n
     ]
 
-    return sequence.join(' > ')
+    return sequence.join(' ＞ ')
   end
 
   def expr_damage()
