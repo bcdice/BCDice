@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
+require 'utils/command_parser'
+require 'utils/format'
+require 'utils/modifier_formatter'
+
 class OracleEngine < DiceBot
+  include ModifierFormatter
+
   # ゲームシステムの識別子
   ID = 'OracleEngine'
 
@@ -9,9 +15,6 @@ class OracleEngine < DiceBot
   NAME = 'オラクルエンジン'
 
   # ゲームシステム名の読みがな
-  #
-  # 「ゲームシステム名の読みがなの設定方法」（docs/dicebot_sort_key.md）を参考にして
-  # 設定してください
   SORT_KEY = 'おらくるえんしん'
 
   # ダイスボットの使い方
@@ -44,280 +47,224 @@ MESSAGETEXT
   def rollDiceCommand(command)
     case command
     when /\d+CL.*/i
-      ClutchRoll(command)
+      clutch_roll(command)
     when /\d+D6.*\$[\+\-]?\d.*/
-      DamageRoll(command)
+      damage_roll(command)
+    when /\d+R6/
+      r_roll(command)
+    end
+  end
+
+  # クラッチロール
+  def clutch_roll(string)
+    debug("clutch_roll begin", string)
+
+    parser = CommandParser.new(/\d+CL[67]?/i)
+    @cmd = parser.parse(string)
+
+    unless @cmd
+      return nil
+    end
+
+    unless [:>=, nil].include?(@cmd.cmp_op)
+      return nil
+    end
+
+    @times, @max_shift = @cmd.command.split("CL").map(&:to_i)
+    @max_shift ||= 6
+    @cmd.target_number = clamp(@cmd.target_number, 1, @max_shift) if @cmd.cmp_op
+
+    if @times == 0
+      return nil
+    end
+
+    dice_list = roll_(@times, 6).map { |x| clamp(x + @cmd.modify_number, 1, @max_shift) }.sort
+
+    sequence = [
+      expr_clutch(),
+      "[#{dice_list.join(', ')}]", # Ruby 1.8はArray#to_sの挙動が違う
+      result_clutch(dice_list.last)
+    ]
+
+    return sequence.join(" > ")
+  end
+
+  def expr_clutch()
+    max_shift = @max_shift == 7 ? 7 : nil
+    cmp_op = Format.comparison_operator(@cmd.cmp_op)
+    modify_numnber = format_modifier(@cmd.modify_number)
+
+    "(#{@times}CL#{max_shift}#{modify_numnber}#{cmp_op}#{@cmd.target_number})"
+  end
+
+  def result_clutch(after_shift)
+    if @cmd.cmp_op != :>=
+      "シフト#{after_shift}"
+    elsif after_shift >= @cmd.target_number
+      "成功 シフト#{@cmd.target_number}"
     else
-      super(command)
+      after_shift -= 1
+      after_shift = 1 if after_shift < 1
+      "失敗 シフト#{after_shift}"
     end
   end
 
-  def dice_command_xRn(string, nick_e)
-    return OracleEngine_roll(string, nick_e)
-  end
-
-  def getDiceList(string)
-    array = string.split(",").map { |i| i.to_i }
-    return array
-  end
-
-  def addBonusTextToString(string, bonus)
-    string ||= ""
-    bonus ||= 0
-    string += "+#{bonus}" unless (bonus == 0) || /^\d+/.match(bonus.to_s).nil?
-    string += bonus.to_s unless (bonus == 0) || /^[\+\-]\d+/.match(bonus.to_s).nil?
-
-    return string
-  end
-
-  # ##############クラッチロール###############
-
-  def ClutchRoll(string)
-    debug("ClutchRoll begin", string)
-
-    m = /(^|\s)S?((\d+)CL(6|7)?(([\+\-]\d+)*)(([>=]+)(\d+))?)(\s|$)/i.match(string)
-    return '1' if m.nil?
-
-    _, _, diceCount, maxShift, modifyText, _, _, signOfInequality, target, = m.captures
-    diceCount = diceCount.to_i
-    minShift = 1
-    maxShift ||= 6
-    maxShift = maxShift.to_i
-    signOfInequality ||= ""
-    target ||= 0
-    target = Min_Max_Shift(target.to_i, minShift, maxShift)
-
-    debug("m", m)
-    debug("diceCount", diceCount)
-    debug("maxShift", maxShift)
-    debug("modifyText", modifyText)
-    debug("signOfInequality", signOfInequality)
-    debug("target", target)
-
-    return '1' if diceCount == 0
-
-    bonus = 0
-    if modifyText
-      bonus = parren_killer("(0#{modifyText})").to_i
-    end
-    debug("bonus", bonus)
-
-    dummy, diceText = roll(diceCount, 6)
-    diceArray = getDiceList(diceText)
-    diceArray = diceArray.map { |i| Min_Max_Shift(i + bonus, minShift, maxShift) }.sort
-    debug("diceArray", diceArray)
-
-    output = "(#{diceCount}CL"
-    output += "7" if maxShift == 7
-    output = addBonusTextToString(output, bonus)
-    output += ">=#{target}" unless /(>=|=>)/.match(signOfInequality).nil? || (target == 0)
-    output += ") > #{diceArray} > "
-    afterShift = diceArray.last
-
-    debug("output", output)
-    if /(>=|=>)/.match(signOfInequality).nil?
-      debug("no check")
-      output += "シフト#{afterShift}"
+  def clamp(i, min, max)
+    if i < min
+      min
+    elsif i > max
+      max
     else
-      debug("check sucsess")
-      if afterShift >= target
-        output += "成功 シフト#{target}"
-      else
-        afterShift -= 1
-        afterShift = 1 if afterShift < 1
-        output += "失敗 シフト#{afterShift}"
-      end
+      i
     end
-
-    return output
   end
 
-  def Min_Max_Shift(target, min_n, max_n)
-    debug("Min_Max_Shift start", target, min_n, max_n)
-    target = [target, min_n].max
-    target = [target, max_n].min
-    return target
+  def roll_(times, sides)
+    _, dice_list = roll(times, sides)
+    return dice_list.split(',').map(&:to_i)
   end
 
-  # ##############nR6ロール###############
-
-  def OracleEngine_roll(string, nick_e)
-    debug("OE_roll start", string)
-
-    output = '1'
-
-    m = /(^|\s)[sS]?((\d+)[Rr]6(([\+\-]\d+|[\@\#\$][\+\-]?\d+)*)(([>=]+)(\d+))?)($|\s)/.match(string)
-    return output if m.nil?
-
-    _, _, diceCount, modifyText, _, _, signOfInequality, target, = m.captures
-    diceCount = diceCount.to_i
-    target = target.to_i
-
-    debug("diceCount", diceCount)
-    debug("modifyText", modifyText)
-    debug("signOfInequality", signOfInequality)
-    debug("target", target)
-
-    return '1' if diceCount == 0
-
-    crit, modifyText = extract_critical_number(modifyText)
-    fumb, modifyText = extract_fumble_number(modifyText)
-    brak, modifyText = extract_brake_number(modifyText)
-
-    debug("crit", crit)
-    debug("fumb", fumb)
-    debug("brak", brak)
-
-    bonus = 0
-    if modifyText
-      bonus = parren_killer("(0#{modifyText})").to_i
+  # 判定
+  def r_roll(string)
+    parser = CommandParser.new(/\d+R6/i)
+    @cmd = parser.parse(string)
+    unless @cmd
+      return nil
     end
-    debug("bonus", bonus)
 
-    dummy, diceText = roll(diceCount, 6)
-    diceArray = getDiceList(diceText)
-    diceArray = diceArray.map { |i| i.to_i }.sort
-    debug("diceArray", diceArray)
-
-    dice_braked = []
-    unless brak == 0
-      if diceCount < brak
-        diceCount.times { dice_braked.unshift(diceArray.pop) }
-      else
-        brak.times { dice_braked.unshift(diceArray.pop) }
-      end
+    unless [:>=, nil].include?(@cmd.cmp_op)
+      return nil
     end
-    debug("diceArray after brake", diceArray)
 
-    dice_now = 0
-    dice_now += diceArray[-1] if diceArray.length >= 1
-    dice_now += diceArray[-2] if diceArray.length >= 2
+    @times = @cmd.command.to_i
 
-    total_n = dice_now + bonus
-    debug("dice_now, total_n", dice_now, total_n)
+    if @times == 0
+      return nil
+    end
 
-    output = "#{nick_e}: (#{diceCount}R6"
-    output = addBonusTextToString(output, bonus)
-    output += "c[#{crit}]" unless crit == 12
-    output += "f[#{fumb}]" unless fumb == 2
-    output += "b[#{brak}]" unless brak == 0
-    output += ">=#{target}" unless /(>=|=>)/.match(signOfInequality).nil? || target.nil?
-    output += ") > #{dice_now}#{diceArray}"
-    output += "×#{dice_braked}" unless dice_braked.empty?
-    output = addBonusTextToString(output, bonus)
-    output += " > "
+    @critical = normalize_critical(@cmd.critical || 12, string)
+    @fumble = normalize_fumble(@cmd.fumble || 2, string)
+    @break = (@cmd.dollar || 0).abs
 
-    debug("check sucsess")
+    dice_list = roll_(@times, 6).sort
+    dice_braked = dice_list.pop(@break)
 
-    if dice_now <= fumb
-      output += "ファンブル!"
-    elsif dice_now >= crit
-      output += "クリティカル!"
+    # ブレイク後のダイスから最大値２つの合計がダイスの値
+    dice_total = dice_list.dup.pop(2).inject(0, :+)
+    total = dice_total + @cmd.modify_number
+
+    sequence = [
+      expr_r(),
+      dice_result_r(dice_total, dice_list, dice_braked),
+      result_r(dice_total, total)
+    ]
+
+    return sequence.join(' > ')
+  end
+
+  def expr_r()
+    modify_numnber = format_modifier(@cmd.modify_number)
+    critical = @critical == 12 ? "" : "c[#{@critical}]"
+    fumble = @fumble == 2 ? "" : "f[#{@fumble}]"
+    brak = @break == 0 ? "" : "b[#{@break}]"
+    cmp_op = Format.comparison_operator(@cmd.cmp_op)
+
+    "(#{@times}R6#{modify_numnber}#{critical}#{fumble}#{brak}#{cmp_op}#{@cmd.target_number})"
+  end
+
+  def dice_result_r(dice_total, dice_list, breaked_list)
+    modify_number_text = format_modifier(@cmd.modify_number)
+
+    # Ruby 1.8はArray#to_sの挙動が違う
+    if breaked_list.empty?
+      "#{dice_total}[#{dice_list.join(', ')}]#{modify_number_text}"
     else
-      output += total_n.to_s
-      unless /(>=|=>)/.match(signOfInequality).nil?
-        if total_n >= target
-          output += " 成功"
-        else
-          output += " 失敗"
-        end
-      end
+      "#{dice_total}[#{dice_list.join(', ')}]×[#{breaked_list.join(', ')}]#{modify_number_text}"
     end
-
-    return output
   end
 
-  def extract_critical_number(string)
-    crit = 12
-    m = /\@[\+\-]?(\d+)/.match(string)
-    unless m.nil?
-      crit = m[1].to_i
-      crit = 12 - crit unless /\@\-(\d+)/.match(string).nil?
-      crit = 12 + crit unless /\@\+(\d+)/.match(string).nil?
-      string = string.gsub(m.regexp, '')
-    end
-
-    critDwLim = 2
-    crit = critDwLim if crit < critDwLim
-
-    return crit, string
-  end
-
-  def extract_fumble_number(string)
-    fumb = 2
-    m = /\#[\+\-]?(\d+)/.match(string)
-    unless m.nil?
-      fumb = m[1].to_i
-      fumb = 2 - fumb unless /\#\-(\d+)/.match(string).nil?
-      fumb = 2 + fumb unless /\#\+(\d+)/.match(string).nil?
-      string = string.gsub(m.regexp, '')
-    end
-
-    fumbUpLim = 12
-    fumbDwLim = 0
-    fumb = Min_Max_Shift(fumb, fumbDwLim, fumbUpLim)
-
-    return fumb, string
-  end
-
-  def extract_brake_number(string)
-    brak = 0
-    m = /\$[\+\-]?(\d+)/.match(string)
-    unless m.nil?
-      brak = m[1].to_i
-      string = string.gsub(m.regexp, '')
-    end
-
-    return brak, string
-  end
-
-  # ##############ダメージロール###############
-
-  def DamageRoll(string)
-    debug("DamageRoll start")
-    output = '1'
-
-    m = /(^|\s)S?((\d+)D6(([\+\-]\d+|\$[\+\-]?\d+)*))($|\s)/i.match(string)
-    return output if m.nil?
-
-    _, _, diceCount, modifyText, = m.captures
-    diceCount = diceCount.to_i
-    brak, modifyText = extract_brake_number(modifyText)
-    bonus = 0
-    if modifyText
-      bonus = parren_killer("(0#{modifyText})").to_i
-    end
-    debug("diceCount", diceCount, "brak", brak, "bonus", bonus)
-
-    return '1' if diceCount == 0
-
-    dummy, diceText, = roll(diceCount, 6)
-    diceArray = getDiceList(diceText)
-    diceArray = diceArray.map { |i| i.to_i }.sort
-    debug("diceArray", diceArray.to_s)
-
-    dice_braked = []
-    unless brak == 0
-      if diceCount < brak
-        diceCount.times { dice_braked.unshift(diceArray.pop) }
+  def result_r(dice_total, total)
+    if dice_total <= @fumble
+      "ファンブル!"
+    elsif dice_total >= @critical
+      "クリティカル!"
+    elsif @cmd.cmp_op == :>=
+      if total >= @cmd.target_number
+        "#{total} 成功"
       else
-        brak.times { dice_braked.unshift(diceArray.pop) }
+        "#{total} 失敗"
       end
+    else
+      total.to_s
     end
-    debug("diceArray after brake", diceArray, "dice_braked", dice_braked)
+  end
 
-    dice_now = diceArray.sum(0)
-    total_n = dice_now + bonus
+  def normalize_critical(critical, string)
+    if /@[+-]/.match(string)
+      critical = 12 + critical
+    end
+
+    if critical < 2
+      critical = 2
+    end
+
+    return critical
+  end
+
+  def normalize_fumble(fumble, string)
+    if /#[+-]/.match(string)
+      fumble = 2 + fumble
+    end
+
+    return clamp(fumble, 0, 12)
+  end
+
+  # ダメージロール
+  def damage_roll(string)
+    parser = CommandParser.new(/\d+D6/i)
+    @cmd = parser.parse(string)
+
+    if @cmd.nil? || !@cmd.cmp_op.nil?
+      return nil
+    end
+
+    @times = @cmd.command.to_i
+    @break = (@cmd.dollar || 0).abs
+
+    if @times == 0
+      return nil
+    end
+
+    dice_list = roll_(@times, 6).sort
+    dice_breaked = dice_list.pop(@break)
+
+    total_n = dice_list.inject(0, :+) + @cmd.modify_number
     total_n = 0 if total_n < 0
 
-    output = "(#{diceCount}D6"
-    output = addBonusTextToString(output, bonus)
-    output += "b[#{brak}]" unless brak == 0
-    output += ") > #{dice_now}#{diceArray}"
-    output += "×#{dice_braked}" unless dice_braked.empty?
-    output = addBonusTextToString(output, bonus)
-    output += " > #{total_n}"
+    sequence = [
+      expr_damage(),
+      result_damage(dice_list, dice_breaked),
+      total_n
+    ]
 
-    return output
+    return sequence.join(' > ')
+  end
+
+  def expr_damage()
+    modify_numnber = format_modifier(@cmd.modify_number)
+    brak = @break == 0 ? "" : "b[#{@break}]"
+
+    "(#{@times}D6#{modify_numnber}#{brak})"
+  end
+
+  def result_damage(dice_list, breaked_list)
+    dice_total = dice_list.inject(0, :+)
+    modify_number_text = format_modifier(@cmd.modify_number)
+
+    if breaked_list.empty?
+      "#{dice_total}[#{dice_list.join(', ')}]#{modify_number_text}"
+    else
+      "#{dice_total}[#{dice_list.join(', ')}]×[#{breaked_list.join(', ')}]#{modify_number_text}"
+    end
   end
 end
