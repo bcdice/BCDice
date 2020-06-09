@@ -92,9 +92,9 @@ MESSAGETEXT
   def expr_clutch()
     max_shift = @max_shift == 7 ? 7 : nil
     cmp_op = Format.comparison_operator(@cmd.cmp_op)
-    modify_numnber = format_modifier(@cmd.modify_number)
+    modify_number = format_modifier(@cmd.modify_number)
 
-    "(#{@times}CL#{max_shift}#{modify_numnber}#{cmp_op}#{@cmd.target_number})"
+    "(#{@times}CL#{max_shift}#{modify_number}#{cmp_op}#{@cmd.target_number})"
   end
 
   def result_clutch(after_shift)
@@ -147,7 +147,7 @@ MESSAGETEXT
     @break = (@cmd.dollar || 0).abs
 
     dice_list = roll_(@times, 6).sort
-    dice_braked = dice_list.pop(@break)
+    dice_broken = dice_list.pop(@break)
 
     # ブレイク後のダイスから最大値２つの合計がダイスの値
     dice_total = dice_list.dup.pop(2).inject(0, :+)
@@ -155,7 +155,7 @@ MESSAGETEXT
 
     sequence = [
       expr_r(),
-      dice_result_r(dice_total, dice_list, dice_braked),
+      dice_result_r(dice_total, dice_list, dice_broken),
       result_r(dice_total, total)
     ]
 
@@ -163,23 +163,23 @@ MESSAGETEXT
   end
 
   def expr_r()
-    modify_numnber = format_modifier(@cmd.modify_number)
+    modify_number = format_modifier(@cmd.modify_number)
     critical = @critical == 12 ? "" : "c[#{@critical}]"
     fumble = @fumble == 2 ? "" : "f[#{@fumble}]"
     brak = @break == 0 ? "" : "b[#{@break}]"
     cmp_op = Format.comparison_operator(@cmd.cmp_op)
 
-    "(#{@times}R6#{modify_numnber}#{critical}#{fumble}#{brak}#{cmp_op}#{@cmd.target_number})"
+    "(#{@times}R6#{modify_number}#{critical}#{fumble}#{brak}#{cmp_op}#{@cmd.target_number})"
   end
 
-  def dice_result_r(dice_total, dice_list, breaked_list)
+  def dice_result_r(dice_total, dice_list, break_list)
     modify_number_text = format_modifier(@cmd.modify_number)
 
     # Ruby 1.8はArray#to_sの挙動が違う
-    if breaked_list.empty?
+    if break_list.empty?
       "#{dice_total}[#{dice_list.join(', ')}]#{modify_number_text}"
     else
-      "#{dice_total}[#{dice_list.join(', ')}]×[#{breaked_list.join(', ')}]#{modify_number_text}"
+      "#{dice_total}[#{dice_list.join(', ')}]×[#{break_list.join(', ')}]#{modify_number_text}"
     end
   end
 
@@ -236,14 +236,14 @@ MESSAGETEXT
     end
 
     dice_list = roll_(@times, 6).sort
-    dice_breaked = dice_list.pop(@break)
+    dice_broken = dice_list.pop(@break)
 
     total_n = dice_list.inject(0, :+) + @cmd.modify_number
     total_n = 0 if total_n < 0
 
     sequence = [
       expr_damage(),
-      result_damage(dice_list, dice_breaked),
+      result_damage(dice_list, dice_broken),
       total_n
     ]
 
@@ -251,20 +251,20 @@ MESSAGETEXT
   end
 
   def expr_damage()
-    modify_numnber = format_modifier(@cmd.modify_number)
+    modify_number = format_modifier(@cmd.modify_number)
     brak = @break == 0 ? "" : "b[#{@break}]"
 
-    "(#{@times}D6#{modify_numnber}#{brak})"
+    "(#{@times}D6#{modify_number}#{brak})"
   end
 
-  def result_damage(dice_list, breaked_list)
+  def result_damage(dice_list, break_list)
     dice_total = dice_list.inject(0, :+)
     modify_number_text = format_modifier(@cmd.modify_number)
 
-    if breaked_list.empty?
+    if break_list.empty?
       "#{dice_total}[#{dice_list.join(', ')}]#{modify_number_text}"
     else
-      "#{dice_total}[#{dice_list.join(', ')}]×[#{breaked_list.join(', ')}]#{modify_number_text}"
+      "#{dice_total}[#{dice_list.join(', ')}]×[#{break_list.join(', ')}]#{modify_number_text}"
     end
   end
 end
