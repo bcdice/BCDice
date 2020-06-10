@@ -230,12 +230,7 @@ class IrcClient < Net::IRC::Client
 
     return unless isMaster()
 
-    post(QUIT, encode($ircCode, $quitMessage))
-  end
-
-  def setQuitFuction(func)
-    bcdice = newBcDice()
-    bcdice.setQuitFuction(func)
+    post(QUIT, encode($ircCode, 'さようなら'))
   end
 
   def addChannel(add_ch)
