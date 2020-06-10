@@ -111,18 +111,6 @@ class CardTrader
     @tnick = t
   end
 
-  def setCardMode()
-    return unless /(\d+)/ =~ @tnick
-
-    @card_place = Regexp.last_match(1).to_i
-
-    if @card_place > 0
-      sendMessageToChannels("カード置き場ありに変更しました")
-    else
-      sendMessageToChannels("カード置き場無しに変更しました")
-    end
-  end
-
   def readCardSet()
     readExtraCard(@tnick)
     sendMessageToOnlySender("カードセットの読み込み成功しました")
