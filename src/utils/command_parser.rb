@@ -1,5 +1,6 @@
 require "utils/ArithmeticEvaluator"
 require "utils/normalize"
+require "utils/modifier_formatter"
 
 class CommandParser < ArithmeticEvaluator
   def initialize(*literals)
@@ -7,6 +8,52 @@ class CommandParser < ArithmeticEvaluator
     @round_type = :omit
   end
 
+  # @!attribute [rw] command
+  #   @return [String]
+  # @!attribute [rw] critical
+  #   @return [Integer, nil]
+  # @!attribute [rw] fumble
+  #   @return [Integer, nil]
+  # @!attribute [rw] dollar
+  #   @return [Integer, nil]
+  # @!attribute [rw] modify_number
+  #   @return [Integer]
+  # @!attribute [rw] cmp_op
+  #   @return [Symbol, nil]
+  # @!attribute [rw] target_number
+  #   @return [Integer, nil]
+  class Parsed
+    attr_accessor :command, :critical, :fumble, :dollar, :modify_number, :cmp_op, :target_number
+
+    include ModifierFormatter
+
+    def initialize
+      @critical = nil
+      @fumble = nil
+      @dollar = nil
+    end
+
+    def to_s(suffix_position = :after_command)
+      c = @critical ? "@#{@critical}" : nil
+      f = @fumble ? "##{@fumble}" : nil
+      d = @dollar ? "$#{@dollar}" : nil
+      m = format_modifier(@modify_number)
+
+      case suffix_position
+      when :after_command
+        [@command, c, f, d, m, @cmp_op, @target_number].join()
+      when :after_modify_number
+        [@command, m, c, f, d, @cmp_op, @target_number].join()
+      when :after_target_number
+        [@command, m, @cmp_op, @target_number, c, f, d].join()
+      end
+    end
+  end
+
+  # @param expr [String]
+  # @param rount_type [Symbol]
+  # @return [CommandParser::Parsed]
+  # @return [nil]
   def parse(expr, round_type = :omit)
     @tokens = tokenize(expr)
     @idx = 0
@@ -30,10 +77,9 @@ class CommandParser < ArithmeticEvaluator
     return @parsed
   end
 
-  Parsed = Struct.new(:command, :critical, :fumble, :dollar, :modify_number, :cmp_op, :target_number)
-
   private
 
+  # @return [Array<String>]
   def tokenize(expr)
     expr.gsub(%r{[\(\)\+\-*/@#\$]|[<>!=]+}) { |e| " #{e} " }.split(' ')
   end
