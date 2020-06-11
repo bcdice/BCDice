@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
+require 'utils/command_parser'
+
 class ChaosFlare < DiceBot
   # ゲームシステムの識別子
   ID = 'Chaos Flare'
@@ -12,17 +14,30 @@ class ChaosFlare < DiceBot
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-[ダイスの数]CF[修正値][@クリティカル値][#ファンブル値][修正値][>=目標値]
-　　(例1) CF (2d6で普通に判定)
-　　(例2) CF+10@10 (+10の修正値で、クリティカル値10で判定)
-　　(例3) CF+10#3 (+10の修正値で、ファンブル値3で判定)
-　　(例4) CF+10>=10 (+10の修正値で、目標値を指定。差分値が出ます)
-　　(例5) 3CF (ダイス3つで判定)
-　　(例6) 3CF+10@10#3>=10 (ダイス3つ、修正値10、クリティカル値10、ファンブル値3、目標値10で判定)
-　　(例7) CF+5-3#3+3>=10 (修正値は計算できます。修正値は、ファンブル値の後、目標値の前の場所にも書けます)
+判定
+CF
+  書式: [ダイスの数]CF[修正値][@クリティカル値][#ファンブル値][>=目標値]
+    CF以外は全て省略可能
+  例:
+  - CF 2D6,クリティカル値12,ファンブル値2で判定
+  - CF+10@10 修正値+10,クリティカル値10で判定
+  - CF+10#3 修正値+10,ファンブル値3で判定
+  - CF+10>=10 目標値を指定した場合、差分値も出力する
+  - 3CF+10@10#3>=10 3D6での判定
+  - CF@9#3+8>=10
+
+2D6
+  ファンブル値2で判定する。クリティカルの判定は行われない。
+  目標値が設定された場合、差分値を出力する。
+  - 2D6+4>=10
 
 各種表
-　　FT：因縁表
+  FT: 因縁表
+  FTx: 数値を指定すると因果表の値を出力する
+  - FT -> 11から66の間でランダム決定
+  - FT23 -> 23の項目を出力
+  - FT0
+  - FT7
 INFO_MESSAGE_TEXT
 
   setPrefixes(['\d*CF.*', 'FT\d*'])
@@ -64,123 +79,100 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  # コマンドを分岐する場所。
   def rollDiceCommand(command)
-    case command
-      when /FT\d*/i
-        return getFate(command)
-    end
-
-    return getRollResult(command)
-  end
-
-  # 因縁表を振る場所。
-  def getFate(command)
-    debug("getFate", "begin")
-    matched = /FT(\d*)/i.match(command)
-    debug("matched", matched)
-
-    if matched[1] == ""
-      #ランダムに振る処理。
-      first_die = roll(1,6)[0]
-      first_index = first_die
-      second_die = roll(1,6)[0]
-      second_index = ((second_die) / 2).ceil - 1
-      return "(#{first_die},#{second_die}) → #{FATE_TABLE[first_index][second_index]}"
+    if command.start_with? "FT"
+      roll_fate_table(command)
     else
-      #出目を指定して因縁表を振る処理の場所です。気力のある方お願いします。腐れ縁と任意はすでにtableに入っています。
-      return ""
+      cf_roll(command)
     end
   end
 
-  #カオスフレア用の判定を処理する場所。べた書きです。
-  def getRollResult(command)
-    #まずはコマンドが合っているか。
-    roll_regex =  /(?:(\d+))?CF((?:[+-]\d+)*)(?:@(\d+))?(?:#(\d+))?((?:[+-]\d+)*)(?:>=(\d+))?/i
-    matched = roll_regex.match(command)
-    debug("match", matched)
-    unless matched
+  private
+
+  # 因縁表
+  def roll_fate_table(command)
+    m = /^FT(\d+)?/.match(command)
+    if m[1]
+      num = m[1].to_i
+      if [0, 7].include?(num)
+        return "因果表(#{num}) ＞ #{FATE_TABLE[num][0]}"
+      end
+
+      dice1 = num / 10
+      dice2 = num % 10
+      if !(1..6).include?(dice1) || !(1..6).include?(dice2)
+        return nil
+      end
+    else
+      dice1, = roll(1, 6)
+      dice2, = roll(1, 6)
+    end
+
+    index1 = dice1
+    index2 = (dice2 / 2) - 1
+    return "因果表(#{dice1}#{dice2}) ＞ #{FATE_TABLE[index1][index2]}"
+  end
+
+  # カオスフレア専用コマンド
+  # @param command [String]
+  # @return [String, nil]
+  def cf_roll(command)
+    parser = CommandParser.new(/\d*CF/)
+
+    @cmd = parser.parse(command)
+    unless @cmd
       return nil
     end
 
-    #指定された各種数字を取得。
-    dice_num = 2
-    if matched[1] != nil
-      dice_num = matched[1].to_i
+    times = @cmd.command == "CF" ? 2 : @cmd.command.to_i
+    critical = @cmd.critical || 12
+    fumble = @cmd.fumble || 2
+    @cmd.dollar = nil
+
+    if times < 0 || ![:>=, nil].include?(@cmd.cmp_op)
+      return nil
     end
 
-    critical = 12
-    if matched[3] != nil
-      critical = matched[3].to_i
-    end
+    dice_total, dice_list_text = roll(times, 6)
 
-    fumble = 2
-    if matched[4] != nil
-      fumble = matched[4].to_i
-    end
-    debug("fumble", fumble)
+    is_critical = dice_total >= critical
+    is_fumble = dice_total <= fumble
 
-    #素のダイスで振る。
-    dice_result = roll(dice_num, 6)
-    debug("result", dice_result)
-
-    dice_sum = dice_result[0]
-    debug("sum", dice_sum)
-
-    #クリティカルなら30に、ファンブルなら-20に。
-    critical_flag = false
-    fumble_flag = false
-    if dice_sum >= critical
-      dice_sum = 30
-      critical_flag = true
-    elsif dice_sum <= fumble
-      dice_sum = -20
-      fumble_flag = true
-    end
-
-    #修正値を計算して出目に加える。evalで手抜きです。
-    adjust = 0
-    if matched[2] != ""
-      adjust += eval(matched[2])
-    end
-    if matched[5] != ""
-      adjust += eval(matched[5])
-    end
-
-    dice_sum = dice_sum + adjust
-    debug("sum", dice_sum)
-
-    #必要なら差分値を出す。
-    diff = 0
-    if matched[6] != nil
-      diff = dice_sum
-      if dice_sum < 0
-        diff = 0
+    total =
+      if is_critical
+        30
+      elsif is_fumble
+        -20
+      else
+        dice_total
       end
-      diff -= matched[6].to_i
-    end
 
-    #結果の文字列を作る。
-    result_string = "(#{dice_result[1]}) → #{dice_sum}"
-    if dice_sum < 0
-      result_string += "(0)"
-    end
-    if critical_flag
-      result_string += " (クリティカル)"
-    end
-    if fumble_flag
-      result_string += " (ファンブル)"
-    end
-    if matched[6] != nil
-      result_string += " [差分値：#{diff}]"
-    end
+    total += @cmd.modify_number
 
-    #お疲れ様でした。
-    return result_string
+    sequence = [
+      "(#{@cmd.to_s(:after_modify_number)})",
+      "#{dice_total}[#{dice_list_text}]",
+      total.to_s,
+      ("0" if total < 0),
+      ("クリティカル" if is_critical),
+      ("ファンブル" if is_fumble),
+      ("差分値 #{difference(total)}" if @cmd.target_number),
+    ].compact
+
+    return sequence.join(" ＞ ")
   end
 
+  # @param total [Integer] 合計値
+  # @return [Integer] 差分値
+  def difference(total)
+    if total < 0
+      -@cmd.target_number
+    else
+      total - @cmd.target_number
+    end
+  end
 
-  #表を振るのに使う定数的なやつ。
+  # 表を振るのに使う定数的なやつ。
   FATE_TABLE = [
     ["腐れ縁"],
     ["純愛", "親近感", "庇護"],
@@ -191,5 +183,4 @@ INFO_MESSAGE_TEXT
     ["恐怖", "執着", "利用"],
     ["任意"]
   ].freeze
-
 end
