@@ -42,13 +42,7 @@ class BCDiceMaker
 
     @counterInfos = {}
     @tableFileData = TableFileData.new
-
-    @master = ""
   end
-
-  # @todo IRCボット以外は使わないので削除する
-  # @return [String] マスターのニックネーム
-  attr_accessor :master
 
   # @todo 未使用のため削除する
   attr_accessor :diceBotPath
@@ -61,9 +55,6 @@ class BCDiceMaker
 end
 
 class BCDice
-  # 設定コマンドのパターン
-  SET_COMMAND_PATTERN = /\Aset\s+(.+)/i.freeze
-
   # BCDiceのバージョン番号
   VERSION = "2.06.01".freeze
 
@@ -139,7 +130,7 @@ class BCDice
 
     messageToSet =
       case message
-      when openPattern, SET_COMMAND_PATTERN
+      when openPattern
         message
       else
         # 空白が含まれる場合、最初の部分だけを取り出す
@@ -182,209 +173,11 @@ class BCDice
 
     debug("@nick_e, @tnick", @nick_e, @tnick)
 
-    # ===== 設定関係 ========
-    setMatches = @message.match(SET_COMMAND_PATTERN)
-    if setMatches
-      setCommand(setMatches[1])
-      return
-    end
-
     # ポイントカウンター関係
     executePointCounter
 
     # プロット入力処理
     addPlot(@messageOriginal.clone)
-
-    # ボット終了命令
-    case @message
-    when /^mode$/i
-      # モード確認
-      checkMode()
-    end
-  end
-
-  def setCommand(arg)
-    debug('setCommand arg', arg)
-
-    case arg.downcase
-    when 'master'
-      # マスター登録
-      setMaster()
-
-    when 'game'
-      # ゲーム設定
-      setGame()
-
-    when /\Av(?:iew\s*)?mode\z/
-      # 表示モード設定
-      setDisplayMode()
-
-    when 'upper'
-      # 上方無限ロール閾値設定 0=Clear
-      setUpperRollThreshold()
-
-    when 'reroll'
-      # 個数振り足しロール回数制限設定 0=無限
-      setRerollLimit()
-
-    when 'sort'
-      # ソートモード設定
-      setSortMode()
-
-    when 'cardplace', 'cp'
-      # カードモード設定
-      setCardMode()
-
-    when 'shortspell', 'ss'
-      # 呪文モード設定
-      setSpellMode()
-
-    when 'tap'
-      # タップモード設定
-      setTapMode()
-
-    when 'cardset', 'cs'
-      # カード読み込み
-      readCardSet()
-    end
-  end
-
-  def setMaster()
-    if @parent.master != ""
-      setMasterWhenMasterAlreadySet()
-    else
-      setMasterWhenMasterYetSet()
-    end
-  end
-
-  def setMasterWhenMasterAlreadySet()
-    if @nick_e == @parent.master
-      setMasterByCurrentMasterOwnself()
-    else
-      sendMessageToOnlySender("Masterは#{@parent.master}さんになっています")
-    end
-  end
-
-  def setMasterByCurrentMasterOwnself()
-    if @tnick != ""
-      @parent.master = @tnick
-      sendMessageToChannels("#{@parent.master}さんをMasterに設定しました")
-    else
-      @parent.master = ""
-      sendMessageToChannels("Master設定を解除しました")
-    end
-  end
-
-  def setMasterWhenMasterYetSet()
-    if @tnick != ""
-      @parent.master = @tnick
-    else
-      @parent.master = @nick_e
-    end
-    sendMessageToChannels("#{@parent.master}さんをMasterに設定しました")
-  end
-
-  def setGame()
-    messages = setGameByTitle(@tnick)
-    sendMessageToChannels(messages)
-  end
-
-  def isMaster()
-    return ((@nick_e == @parent.master) || (@parent.master == ""))
-  end
-
-  def setDisplayMode()
-    return unless  isMaster()
-
-    return unless  /(\d+)/ =~ @tnick
-
-    mode = Regexp.last_match(1).to_i
-    @diceBot.setSendMode(mode)
-
-    sendMessageToChannels("ViewMode#{@diceBot.sendMode}に変更しました")
-  end
-
-  def setUpperRollThreshold()
-    return unless  isMaster()
-
-    return unless  /(\d+)/ =~ @tnick
-
-    @diceBot.upperRollThreshold = Regexp.last_match(1).to_i
-
-    if @diceBot.upperRollThreshold > 0
-      sendMessageToChannels("上方無限ロールを#{@diceBot.upperRollThreshold}以上に設定しました")
-    else
-      sendMessageToChannels("上方無限ロールの閾値設定を解除しました")
-    end
-  end
-
-  def setRerollLimit()
-    return unless  isMaster()
-
-    return unless  /(\d+)/ =~ @tnick
-
-    @diceBot.rerollLimitCount = Regexp.last_match(1).to_i
-
-    if @diceBot.rerollLimitCount > 0
-      sendMessageToChannels("個数振り足しロール回数を#{@diceBot.rerollLimitCount}以下に設定しました")
-    else
-      sendMessageToChannels("個数振り足しロールの回数を無限に設定しました")
-    end
-  end
-
-  def setSortMode()
-    return unless  isMaster()
-
-    return unless  /(\d+)/ =~ @tnick
-
-    sortType = Regexp.last_match(1).to_i
-    @diceBot.setSortType(sortType)
-
-    if @diceBot.sortType != 0
-      sendMessageToChannels("ソート有りに変更しました")
-    else
-      sendMessageToChannels("ソート無しに変更しました")
-    end
-  end
-
-  def setCardMode()
-    return unless isMaster()
-
-    @cardTrader.setCardMode()
-  end
-
-  def setSpellMode()
-    return unless  isMaster()
-
-    return unless  /(\d+)/ =~ @tnick
-
-    @isShortSpell = (Regexp.last_match(1).to_i != 0)
-
-    if @isShortSpell
-      sendMessageToChannels("短い呪文モードに変更しました")
-    else
-      sendMessageToChannels("通常呪文モードに変更しました")
-    end
-  end
-
-  def setTapMode()
-    return unless  isMaster()
-
-    return unless  /(\d+)/ =~ @tnick
-
-    @canTapCard = (Regexp.last_match(1).to_i != 0)
-
-    if @canTapCard
-      sendMessageToChannels("タップ可能モードに変更しました")
-    else
-      sendMessageToChannels("タップ不可モードに変更しました")
-    end
-  end
-
-  def readCardSet()
-    return unless isMaster()
-
-    @cardTrader.readCardSet()
   end
 
   def executePointCounter
@@ -455,13 +248,6 @@ class BCDice
   def getPrintPlotChannel(nick)
     nick = getNick(nick)
     return $plotPrintChannels[nick]
-  end
-
-  def checkMode()
-    return unless isMaster()
-
-    output = "GameType = " + @diceBot.id + ", ViewMode = " + @diceBot.sendMode + ", Sort = " + @diceBot.sortType
-    sendMessageToOnlySender(output)
   end
 
   def setChannel(channel)
