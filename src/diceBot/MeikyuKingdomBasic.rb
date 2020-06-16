@@ -193,31 +193,31 @@ INFO_MESSAGE_TEXT
 
       when /^KET/i
         type = '王国環境'
-        total_n, dummy = roll(1, 6)
+        total_n, = roll(1, 6)
         output = mk_kingdom_environment_table(total_n)
       when /^TET/i
         type = '技術決定'
-        total_n = rand(6) + 1
+        total_n, = roll(1, 6)
         output = mk_technic_decide_table(total_n)
       when /^NST/i
         type = '国風決定'
-        total_n = rand(6) + 1
+        total_n, = roll(1, 6)
         output = mk_national_style_decide_table(total_n)
       when /^RET/i
         type = '資源決定'
-        total_n = rand(6) + 1
+        total_n, = roll(1, 6)
         output = mk_resource_decide_table(total_n)
       when /^FAT/i
         type = '施設決定'
-        total_n = rand(6) + 1
+        total_n, = roll(1, 6)
         output = mk_facility_decide_table(total_n)
       when /^HRT/i
         type = '人材決定'
-        total_n = rand(6) + 1
+        total_n, = roll(1, 6)
         output = mk_human_resources_decide_table(total_n)
       when /^BLT/i
         type = '血族決定'
-        total_n = rand(6) + 1
+        total_n, = roll(1, 6)
         output = mk_blood_decide_table(total_n)
       when /^ABUS/i
         type = '上級肉弾スキル'
@@ -996,8 +996,8 @@ INFO_MESSAGE_TEXT
     nick_table = '1'
     name_table = '1'
     # 新名前表
-    nick_n = rand(6) + 1
-    name_n = rand(6) + 1
+    nick_n, = roll(1, 6)
+    name_n, = roll(1, 6)
     d1 = d66(2)
     d2 = d66(2)
 
@@ -1549,7 +1549,8 @@ INFO_MESSAGE_TEXT
   # デヴァイス・ファクトリー
   # @override
   def mk_device_factory_table(num)
-    output = 'ベースアイテム：' + mk_item_random_table(rand(6) + 1) + ' （もしくは任意のアイテム）'
+    dice, = roll(1, 6)
+    output = 'ベースアイテム：' + mk_item_random_table(dice) + ' （もしくは任意のアイテム）'
 
     if num <= 0
       num = 1
@@ -1569,8 +1570,8 @@ INFO_MESSAGE_TEXT
       [ 2, lambda { mk_life_item_table(d66(2)) } ],
       [ 3, lambda { mk_rest_item_table(d66(2)) } ],
       [ 4, lambda { mk_search_item_table(d66(2)) } ],
-      [ 5, lambda { mk_rare_usual_item_random_table(rand(6) + 1) } ],
-      [ 6, lambda { mk_rare_weapon_item_random_table(rand(6) + 1) } ],
+      [ 5, lambda { mk_rare_usual_item_random_table(roll(1, 6)) } ],
+      [ 6, lambda { mk_rare_weapon_item_random_table(roll(1, 6)) } ],
     ]
     return get_table_by_number(num, functionTable)
   end
@@ -1582,7 +1583,8 @@ INFO_MESSAGE_TEXT
     dice, = roll(2, 6)
 
     if num <= 2
-      output = 'そのアイテムは「' + mk_item_power_table(rand(6) + 1) + '」の神力を宿す。'
+      d1, = roll(1, 6)
+      output = 'そのアイテムは「' + mk_item_power_table(d1) + '」の神力を宿す。'
     elsif num <= 3
       output = 'そのアイテムは寿命を持つ。寿命の値を決定する。' + "\n"
       output += 'さらに、' + mk_item_features_table(dice)
@@ -1591,22 +1593,26 @@ INFO_MESSAGE_TEXT
     elsif num <= 5
       output = 'そのアイテムは銘を持つ。銘を決定する。'
     elsif num <= 6
-      output = 'そのアイテムは合成具である。もう1つの機能は「' + mk_item_random_table(rand(6) + 1) + '」である。'
+      d1, = roll(1, 6)
+      output = 'そのアイテムは合成具である。もう1つの機能は「' + mk_item_random_table(d1) + '」である。'
     elsif num <= 7
       output = 'そのアイテムにレベルがあれば、レベルを1点上昇する。' + "\n"
       output += 'レベルが設定されていなければ、' + mk_item_features_table(dice)
     elsif num <= 8
       output = 'そのアイテムは「' + mk_item_jyumon_table(dice) + '」の呪紋を持つ。'
     elsif num <= 9
-      output = 'そのアイテムは「' + mk_item_jyuka_table(rand(6) + 1) + '」の呪禍を持つ。' + "\n"
+      d1, = roll(1, 6)
+      output = 'そのアイテムは「' + mk_item_jyuka_table(d1) + '」の呪禍を持つ。' + "\n"
       output += 'さらに、' + mk_item_features_table(dice)
     elsif num <= 10
       output = 'そのアイテムは高価だ。価格を設定する。'
     elsif num <= 11
-      output = 'そのアイテムは「条件：' + mk_item_aptitude_table(rand(6) + 1) + '」の適正を持つ。' + "\n"
+      d1, = roll(1, 6)
+      output = 'そのアイテムは「条件：' + mk_item_aptitude_table(d1) + '」の適正を持つ。' + "\n"
       output += 'さらに、' + mk_item_features_table(dice)
     else
-      output = 'そのアイテムは「' + mk_item_attribute_table(rand(6) + 1) + '」の属性を持つ。'
+      d1, = roll(1, 6)
+      output = 'そのアイテムは「' + mk_item_attribute_table(d1) + '」の属性を持つ。'
     end
 
     return '特性[' + num.to_s + ']：' + output
@@ -1835,7 +1841,7 @@ INFO_MESSAGE_TEXT
 
   # 王国環境表(1D6)
   def mk_kingdom_environment_table(num)
-    d1 = rand(6) + 1
+    d1, = roll(1, 6)
     functionTable = [
       [ 1, lambda { mk_technic_decide_table(d1) } ],
       [ 2, lambda { mk_national_style_decide_table(d1) } ],
