@@ -30,41 +30,41 @@ INFO_MESSAGE_TEXT
       return ''
     end
 
-    successDice = 0
-    matchText = m[ABILITY_INDEX]
-    abilityDiceText, successDice = makeDiceRoll(matchText, successDice)
+    success_dice = 0
+    match_text = m[ABILITY_INDEX]
+    ability_dice_text, success_dice = make_dice_roll(match_text, success_dice)
 
-    diceCountText = "(#{matchText}D6)"
-    diceText = abilityDiceText
+    dice_count_text = "(#{match_text}D6)"
+    dice_text = ability_dice_text
 
-    matchText = m[SKILL_INDEX]
-    if matchText
-      skillDiceText, successDice = makeDiceRoll(matchText, successDice)
+    match_text = m[SKILL_INDEX]
+    if match_text
+      skill_dice_text, success_dice = make_dice_roll(match_text, success_dice)
 
-      diceCountText += "+(#{matchText}D6)"
-      diceText += "+#{skillDiceText}"
+      dice_count_text += "+(#{match_text}D6)"
+      dice_text += "+#{skill_dice_text}"
     end
 
-    matchText = m[MODIFIED_INDEX]
-    if matchText
-      modifiedDiceText, successDice = makeDiceRoll(matchText, successDice)
+    match_text = m[MODIFIED_INDEX]
+    if match_text
+      modified_dice_text, success_dice = make_dice_roll(match_text, success_dice)
 
-      diceCountText += "+(#{matchText}D6)"
-      diceText += "+#{modifiedDiceText}"
+      dice_count_text += "+(#{match_text}D6)"
+      dice_text += "+#{modified_dice_text}"
     end
 
-    return "#{diceCountText} ＞ #{diceText} 成功数:#{successDice}"
+    return "#{dice_count_text} ＞ #{dice_text} 成功数:#{success_dice}"
   end
 
-  def makeDiceRoll(matchText, successDice)
-    dice = matchText.to_i
-    _, diceText, = roll(dice, 6)
+  def make_dice_roll(match_text, success_dice)
+    dice = match_text.to_i
+    _, dice_text, = roll(dice, 6)
 
-    diceText.split(',').each do |takeDice|
-      if takeDice == "6"
-        successDice += 1
+    dice_text.split(',').each do |take_dice|
+      if take_dice == "6"
+        success_dice += 1
       end
     end
-    return "[#{diceText}]", successDice
+    return "[#{dice_text}]", success_dice
   end
 end
