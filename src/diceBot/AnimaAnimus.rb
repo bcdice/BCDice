@@ -21,7 +21,7 @@ class AnimaAnimus < DiceBot
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
 ・行為判定(m±nAN<=x±y)
-　十面ダイスをx個振って判定します。達成値が算出されます。
+　十面ダイスをx個振って判定します。達成値が算出されます(クリティカル発生時は2増加)。
 　m：振るダイスの数。魂魄値や攻撃値。
 　n：ダイスの数に対する補正。省略可能。
 　x：成功値。
@@ -30,7 +30,6 @@ class AnimaAnimus < DiceBot
 ・各種表
 　情報収集表　IGT/喪失表　LT
 MESSAGETEXT
-
 
   def initialize
     super
@@ -47,8 +46,9 @@ MESSAGETEXT
   end
 
   def check_action(match_data)
-    dice_cnt = eval(match_data.values_at(1)[0])
-    target = eval(match_data.values_at(3)[0])
+    a = ArithmeticEvaluator.new()
+    dice_cnt = a.eval(match_data.values_at(1)[0])
+    target = a.eval(match_data.values_at(3)[0])
     debug("dice_cnt", dice_cnt)
     debug("target", target)
 
@@ -61,15 +61,15 @@ MESSAGETEXT
     while i < dice_arr.length
       if dice_arr[i].to_i <= target
         suc_cnt += 1
-        if dice_arr[i].to_i == 1
-          has_critical = true
-        end
+      end
+      if dice_arr[i].to_i == 1
+        has_critical = true
       end
       i += 1
     end
     result = has_critical ? suc_cnt + 2 : suc_cnt
 
-    return "(#{dice_cnt}B10<=#{target}) ＞ #{dice_str} ＞ #{result > 0 ? "成功" : "失敗"}(達成値:#{result.to_s})#{has_critical ? " (クリティカル発生)" : ""}"
+    return "(#{dice_cnt}B10<=#{target}) ＞ #{dice_str} ＞ #{result > 0 ? '成功' : '失敗'}(達成値:#{result})#{has_critical ? ' (クリティカル発生)' : ''}"
   end
 
   TABLES = {
@@ -101,7 +101,7 @@ MESSAGETEXT
       ]
     ),
   }.freeze
-  
+
   # ダイスボットで使用するコマンドを配列で列挙する
   setPrefixes(['\d+([\+\-]\d+)*AN<=\d([\+\-]\d+)*'] + TABLES.keys)
 end
