@@ -65,7 +65,7 @@ class SwordWorld2_0 < SwordWorld
 　絡み効果表を出すことができます。
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['H?K\d+.*', 'Gr(\d+)?', '2D6?@10.*', 'FT', 'TT'])
+  setPrefixes(['H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT'])
 
   # 超越判定のノード
   class TranscendentTest
@@ -76,10 +76,12 @@ INFO_MESSAGE_TEXT
     # クリティカルの場合の出目のグループ
     CRITICAL_VALUE_GROUP = [6, 6].freeze
 
+    # @param [Integer] critical_value クリティカル値
     # @param [Integer] modifier 修正値
     # @param [String, nil] cmp_op 比較演算子（> または >=）
     # @param [Integer, nil] target 目標値
-    def initialize(modifier, cmp_op, target)
+    def initialize(critical_value, modifier, cmp_op, target)
+      @critical_value = critical_value
       @modifier = modifier
       @cmp_op = cmp_op
       @target = target
@@ -92,6 +94,10 @@ INFO_MESSAGE_TEXT
     # @param [SwordWorld2_0] bot ダイスボット
     # @return [String]
     def execute(bot)
+      if @critical_value < 3
+        return "(#{@expression}) ＞ クリティカル値が小さすぎます。3以上を指定してください。"
+      end
+
       first_value_group = roll_2d6(bot)
       value_groups = [first_value_group]
 
@@ -99,7 +105,7 @@ INFO_MESSAGE_TEXT
       critical = first_value_group == CRITICAL_VALUE_GROUP
 
       if !fumble && !critical
-        while sum_of_dice(value_groups.last) >= 10
+        while sum_of_dice(value_groups.last) >= @critical_value
           value_groups.push(roll_2d6(bot))
         end
       end
@@ -122,7 +128,7 @@ INFO_MESSAGE_TEXT
     # 数式表記を返す
     # @return [String]
     def node_expression
-      lhs = "2D6@10#{@modifier_str}"
+      lhs = "2D6@#{@critical_value}#{@modifier_str}"
 
       return @target ? "#{lhs}#{@cmp_op}#{@target}" : lhs
     end
@@ -181,7 +187,7 @@ INFO_MESSAGE_TEXT
   end
 
   # 超越判定のパターン
-  TRANSCENDENT_TEST_RE = /\A2D6?@10([-+\d]+)?(?:(>=?)(\d+))?/.freeze
+  TRANSCENDENT_TEST_RE = /\A2D6?@(\d+)([-+\d]+)?(?:(>=?)(\d+))?/.freeze
 
   def rollDiceCommand(command)
     case command
@@ -194,11 +200,12 @@ INFO_MESSAGE_TEXT
     when TRANSCENDENT_TEST_RE
       m = Regexp.last_match
 
-      modifier = m[1] ? ArithmeticEvaluator.new.eval(m[1]) : 0
-      cmp_op = m[2]
-      target = m[3] && m[3].to_i
+      critical_value = m[1].to_i
+      modifier = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
+      cmp_op = m[3]
+      target = m[3] && m[4].to_i
 
-      node = TranscendentTest.new(modifier, cmp_op, target)
+      node = TranscendentTest.new(critical_value, modifier, cmp_op, target)
       node.execute(self)
     when 'FT'
       get_fumble_table
