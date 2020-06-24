@@ -20,13 +20,12 @@ class AnimaAnimus < DiceBot
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
-・行為判定(m±nAN<=x±y)
+・行為判定(xAN<=y±z)
 　十面ダイスをx個振って判定します。達成値が算出されます(クリティカル発生時は2増加)。
-　m：振るダイスの数。魂魄値や攻撃値。
-　n：ダイスの数に対する補正。省略可能。
-　x：成功値。
-　y：成功値への補正。省略可能。
-　(例) 2AN<=3+1 5+1AN<=7
+　x：振るダイスの数。魂魄値や攻撃値。
+　y：成功値。
+　z：成功値への補正。省略可能。
+　(例) 2AN<=3+1 5AN<=7
 ・各種表
 　情報収集表　IGT/喪失表　LT
 MESSAGETEXT
@@ -38,7 +37,7 @@ MESSAGETEXT
 
   def rollDiceCommand(command)
     case command
-    when /(\d+([\+\-]\d+)*)AN<=(\d+([\+\-]\d+)*)/i
+    when /(\d+)AN<=(\d+([\+\-]\d+)*)/i
       return check_action(Regexp.last_match)
     else
       return roll_tables(command, TABLES)
@@ -48,7 +47,7 @@ MESSAGETEXT
   def check_action(match_data)
     a = ArithmeticEvaluator.new()
     dice_cnt = a.eval(match_data.values_at(1)[0])
-    target = a.eval(match_data.values_at(3)[0])
+    target = a.eval(match_data.values_at(2)[0])
     debug("dice_cnt", dice_cnt)
     debug("target", target)
 
@@ -103,5 +102,5 @@ MESSAGETEXT
   }.freeze
 
   # ダイスボットで使用するコマンドを配列で列挙する
-  setPrefixes(['\d+([\+\-]\d+)*AN<=\d([\+\-]\d+)*'] + TABLES.keys)
+  setPrefixes(['\d+AN<=\d([\+\-]\d+)*'] + TABLES.keys)
 end
