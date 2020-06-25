@@ -71,11 +71,6 @@ INFO_MESSAGE_TEXT
   class TranscendentTest
     include ModifierFormatter
 
-    # ファンブルの場合の出目のグループ
-    FUMBLE_VALUE_GROUP = [1, 1].freeze
-    # クリティカルの場合の出目のグループ
-    CRITICAL_VALUE_GROUP = [6, 6].freeze
-
     # @param [Integer] critical_value クリティカル値
     # @param [Integer] modifier 修正値
     # @param [String, nil] cmp_op 比較演算子（> または >=）
@@ -101,8 +96,8 @@ INFO_MESSAGE_TEXT
       first_value_group = roll_2d6(bot)
       value_groups = [first_value_group]
 
-      fumble = first_value_group == FUMBLE_VALUE_GROUP
-      critical = first_value_group == CRITICAL_VALUE_GROUP
+      fumble = first_value_group == [1, 1]
+      critical = first_value_group == [6, 6]
 
       if !fumble && !critical
         while sum_of_dice(value_groups.last) >= @critical_value
