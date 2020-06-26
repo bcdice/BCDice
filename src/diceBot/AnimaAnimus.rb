@@ -46,8 +46,8 @@ MESSAGETEXT
 
   def check_action(match_data)
     a = ArithmeticEvaluator.new()
-    dice_cnt = a.eval(match_data.values_at(1)[0])
-    target = a.eval(match_data.values_at(2)[0])
+    dice_cnt = a.eval(match_data[1])
+    target = a.eval(match_data[2])
     debug("dice_cnt", dice_cnt)
     debug("target", target)
 
