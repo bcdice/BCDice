@@ -35,7 +35,7 @@ $allGameTypes = %w{
   Airgetlamh
   Alsetto
   Alshard
-  Alter_raise
+  AlterRaise
   Amadeus
   Amadeus:Korean
   Arianrhod
@@ -81,7 +81,7 @@ $allGameTypes = %w{
   EarthDawn3
   EarthDawn4
   EclipsePhase
-  Elric!
+  Elric
   Elysion
   EmbryoMachine
   EndBreaker
@@ -128,7 +128,7 @@ $allGameTypes = %w{
   MeikyuKingdom
   MetalHead
   MetalHeadExtream
-  MetallicGuadian
+  MetallicGuardian
   MonotoneMuseum
   MonotoneMuseum:Korean
   NJSLYRBATTLE
