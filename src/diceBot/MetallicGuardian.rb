@@ -4,7 +4,7 @@
 require 'diceBot/SRS'
 
 # メタリックガーディアンのダイスボット
-class MetallicGuadian < SRS
+class MetallicGuardian < SRS
   # 固有のコマンドの接頭辞を設定する
   setPrefixes(['2D6.*', 'MG.*'])
 
@@ -22,5 +22,5 @@ class MetallicGuadian < SRS
   # ゲームシステム識別子を返す
   # @return [String]
   # ゲームシステムの識別子
-  ID = 'MetallicGuadian'
+  ID = 'MetallicGuardian'
 end

@@ -5,7 +5,7 @@ require 'utils/command_parser'
 
 class ChaosFlare < DiceBot
   # ゲームシステムの識別子
-  ID = 'Chaos Flare'
+  ID = 'ChaosFlare'
   # ゲームシステム名
   NAME = 'カオスフレア'
 
