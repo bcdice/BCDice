@@ -10,7 +10,7 @@ class SwordWorld < DiceBot
   ID = 'SwordWorld'
 
   # ゲームシステム名
-  NAME = 'ソードワールド'
+  NAME = 'ソードワールドRPG'
 
   # ゲームシステム名の読みがな
   SORT_KEY = 'そおとわあると'

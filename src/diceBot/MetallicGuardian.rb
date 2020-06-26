@@ -14,10 +14,10 @@ class MetallicGuardian < SRS
   # ゲームシステム名を返す
   # @return [String]
   # ゲームシステム名
-  NAME = 'メタリックガーディアン'
+  NAME = 'メタリックガーディアンRPG'
 
   # ゲームシステム名の読みがな
-  SORT_KEY = 'めたりつくかあていあん'
+  SORT_KEY = 'めたりつくかあていあんRPG'
 
   # ゲームシステム識別子を返す
   # @return [String]
