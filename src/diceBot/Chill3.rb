@@ -6,7 +6,7 @@ class Chill3 < DiceBot
   ID = 'Chill3'
 
   # ゲームシステム名
-  NAME = 'Chill 3'
+  NAME = 'Chill 3rd Edition'
 
   # ゲームシステム名の読みがな
   SORT_KEY = 'ちる3'

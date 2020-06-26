@@ -6,7 +6,7 @@ class ShinMegamiTenseiKakuseihen < DiceBot
   ID = 'SMTKakuseihen'
 
   # ゲームシステム名
-  NAME = '真・女神転生TRPG　覚醒篇'
+  NAME = '真・女神転生TRPG 覚醒篇'
 
   # ゲームシステム名の読みがな
   SORT_KEY = 'しんめかみてんせいTRPGかくせいへん'
