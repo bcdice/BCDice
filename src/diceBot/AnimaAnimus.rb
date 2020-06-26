@@ -52,20 +52,9 @@ MESSAGETEXT
     debug("target", target)
 
     _, dice_str, = roll(dice_cnt, 10)
-    dice_arr = dice_str.split(',')
-    suc_cnt = 0
-    has_critical = false
-
-    i = 0
-    while i < dice_arr.length
-      if dice_arr[i].to_i <= target
-        suc_cnt += 1
-      end
-      if dice_arr[i].to_i == 1
-        has_critical = true
-      end
-      i += 1
-    end
+    dice_arr = dice_str.split(',').map(&:to_i)
+    suc_cnt = dice_arr.count { |x| x <= target }
+    has_critical = dice_arr.include?(1)
     result = has_critical ? suc_cnt + 2 : suc_cnt
 
     return "(#{dice_cnt}B10<=#{target}) ＞ #{dice_str} ＞ #{result > 0 ? '成功' : '失敗'}(達成値:#{result})#{has_critical ? ' (クリティカル発生)' : ''}"
