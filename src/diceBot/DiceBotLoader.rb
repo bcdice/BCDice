@@ -150,9 +150,9 @@ class DiceBotLoader
   #
   # 例：
   #
-  #   DiceBotLoader.new(%w(Elric! EL), :filenames => %w(Elric))
+  #   DiceBotLoader.new(%w(Elric EL), :filenames => %w(Elric))
   #
-  # * マッチするタイトルは 'Elric!', 'EL'（大文字小文字区別なし）
+  # * マッチするタイトルは 'Elric', 'EL'（大文字小文字区別なし）
   # * 読み込むダイスボットファイルは diceBot/Elric.rb（大文字小文字区別あり）
   # * ダイスボットのクラス名は :filenames で最初に指定した Elric（大文字小文字区別あり）
   #

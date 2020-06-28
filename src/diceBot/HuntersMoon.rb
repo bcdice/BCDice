@@ -6,7 +6,7 @@ class HuntersMoon < DiceBot
   ID = 'HuntersMoon'
 
   # ゲームシステム名
-  NAME = 'ハンターズムーン'
+  NAME = 'ハンターズ・ムーン'
 
   # ゲームシステム名の読みがな
   SORT_KEY = 'はんたあすむうん'

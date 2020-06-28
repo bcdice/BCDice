@@ -6,10 +6,10 @@ class EmbryoMachine < DiceBot
   ID = 'EmbryoMachine'
 
   # ゲームシステム名
-  NAME = 'エムブリオマシン'
+  NAME = 'エムブリオマシンRPG'
 
   # ゲームシステム名の読みがな
-  SORT_KEY = 'えむふりおましん'
+  SORT_KEY = 'えむふりおましんRPG'
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT

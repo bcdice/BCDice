@@ -24,7 +24,7 @@ class DiceBotLoaderList
   @loaders = [
     DiceBotLoader.new(%w(Cthulhu COC)),
     DiceBotLoader.new(%w(Hieizan COCH)),
-    DiceBotLoader.new(%w(Elric! EL), :filenames => %w(Elric)),
+    DiceBotLoader.new(%w(Elric EL), :filenames => %w(Elric)),
     DiceBotLoader.new(%w(RuneQuest RQ)),
     DiceBotLoader.new(%w(Chill CH)),
     DiceBotLoader.new(%w(RoleMaster RM)),
