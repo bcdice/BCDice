@@ -3,7 +3,7 @@
 
 class Elric < DiceBot
   # ゲームシステムの識別子
-  ID = 'Elric!'
+  ID = 'Elric'
 
   # ゲームシステム名
   NAME = 'エルリック！'

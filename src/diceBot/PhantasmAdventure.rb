@@ -6,7 +6,7 @@ class PhantasmAdventure < DiceBot
   ID = 'PhantasmAdventure'
 
   # ゲームシステム名
-  NAME = 'ファンタズムアドベンチャー'
+  NAME = 'ファンタズム・アドベンチャー'
 
   # ゲームシステム名の読みがな
   SORT_KEY = 'ふあんたすむあとへんちやあ'
