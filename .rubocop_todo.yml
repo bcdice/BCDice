@@ -40,7 +40,6 @@ Lint/LiteralInInterpolation:
 # Offense count: 3
 Lint/RescueException:
   Exclude:
-    - 'src/bcdiceGui.rb'
     - 'src/irc/ircLib.rb'
 
 # Offense count: 177
@@ -142,7 +141,6 @@ Style/BlockDelimiters:
 # Offense count: 137
 Style/CaseEquality:
   Exclude:
-    - src/bcdiceGui.rb
     - src/bcdiceCore.rb
     - src/cgiDiceBot.rb
     - src/bcdice.rb
@@ -207,7 +205,6 @@ Style/ClassVars:
 Style/GlobalVars:
   Exclude:
     - src/CardTrader.rb
-    - src/bcdiceGui.rb
     - src/ArgsAnalizer.rb
     - src/CountHolder.rb
     - src/bcdiceCore.rb
@@ -221,7 +218,6 @@ Style/GlobalVars:
     - src/test/DiceBotTest.rb
     - src/test/others/testPointer.rb
     - src/test/others/testSecretDice.rb
-    - src/test/others/testIniFile.rb
     - src/test/others/testArgs.rb
     - src/test/others/testCard.rb
     - src/irc/ircBot.rb
