@@ -106,7 +106,7 @@ class RerollDice
     end
 
     @reroll_cmp_op = decide_reroll_cmp_op(m)
-    @reroll_threshold = decide_reroll_threthold(m[3] || m[7], @target_number)
+    @reroll_threshold = decide_reroll_threshold(m[3] || m[7], @target_number)
 
     return true
   end
@@ -139,13 +139,13 @@ class RerollDice
     Normalize.comparison_operator(op) || :>=
   end
 
-  # @param captured_threthold [String, nil]
+  # @param captured_threshold [String, nil]
   # @param target_number [Integer, nil]
   # @return [Integer]
   # @return [nil]
-  def decide_reroll_threthold(captured_threthold, target_number)
-    if captured_threthold
-      captured_threthold.to_i
+  def decide_reroll_threshold(captured_threshold, target_number)
+    if captured_threshold
+      captured_threshold.to_i
     elsif @diceBot.rerollNumber != 0
       @diceBot.rerollNumber
     else
