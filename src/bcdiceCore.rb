@@ -110,6 +110,7 @@ class BCDice
     @cardTrader.readExtraCard(cardFileName)
   end
 
+  # @todo ircClient経由でなく直接メッセージを返すようにする
   def setIrcClient(client)
     @ircClient = client
   end
