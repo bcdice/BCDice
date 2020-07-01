@@ -11,7 +11,6 @@ $isDebug = false
 class TestSecretDice < Test::Unit::TestCase
   def setup
     $isDebug = false
-    # $isRollVoidDiceAtAnyRecive = false
 
     @nick = "test_nick"
     @channel = "test_channel"
