@@ -127,13 +127,19 @@ class RerollDice
   # @param m [MatchData]
   # @return [Symbol]
   def decide_reroll_cmp_op(m)
+    bracket_op = m[2]
+    bracket_number = m[3]
+    at_op = m[6]
+    at_number = m[7]
+    cmp_op = m[4]
+
     op =
-      if m[2] && m[3]
-        m[2]
-      elsif m[6] && m[7]
-        m[6]
+      if bracket_op && bracket_number
+        bracket_op
+      elsif at_op && at_number
+        at_op
       else
-        m[4]
+        cmp_op
       end
 
     Normalize.comparison_operator(op) || :>=
