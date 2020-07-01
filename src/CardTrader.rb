@@ -6,6 +6,9 @@ require 'configBcDice.rb'
 $ircNickRegExp = '[A-Za-z\d\-\[\]\\\'^{}_]+'
 
 class CardTrader
+  OK_RESULT = '_OK_'.freeze
+  NG_RESULT = '_NG_'.freeze
+
   # カード置き場数。0なら無し。
   # @return [Integer]
   attr_accessor :card_place
@@ -401,7 +404,7 @@ class CardTrader
 
     cards.each do |card|
       string = pickupOneCard(card)
-      if string == $okResult
+      if string == OK_RESULT
         okCount += 1
       else
         ngCardList << string
@@ -424,7 +427,7 @@ class CardTrader
     if isDelete
       @deal_cards[destination] ||= []
       @deal_cards[destination] << targetCard
-      return $okResult
+      return OK_RESULT
     else
       return targetCard; # 無かったカードを返す
     end
@@ -467,7 +470,7 @@ class CardTrader
 
       cards.each do |card|
         string = backOneCard(card, destination, place)
-        if string == $okResult
+        if string == OK_RESULT
           okCount += 1
         else
           ngCards << string
@@ -487,7 +490,7 @@ class CardTrader
 
     if @card_place > 0 # 場があるときのみ処理
       string = transferOneCard(targetCard, "#{place}#{destination}", destination); # 場から手札への移動
-      return $okResult if string == $okResult
+      return OK_RESULT if string == OK_RESULT
     end
 
     @deal_cards['card_played'] ||= []
@@ -496,7 +499,7 @@ class CardTrader
 
     if isDelete
       @deal_cards[destination] << targetCard
-      return $okResult
+      return OK_RESULT
     end
 
     return "${targetCard}"; # 戻せるカードが無かったらNGのカードを返す
@@ -628,7 +631,7 @@ class CardTrader
     result = playOneCard(card, place)
     debug("playOneCard result", result)
 
-    if result == $okResult
+    if result == OK_RESULT
       okList << card
     else
       ngList << result
@@ -651,7 +654,7 @@ class CardTrader
       result = discardOneCard(card, place, destination); # 場を使わないときは捨て札扱い
     end
 
-    if result == $okResult
+    if result == OK_RESULT
       return result
     else
       return card
@@ -699,7 +702,7 @@ class CardTrader
     cards.each do |card|
       result = discardOneCard(card, place, destination)
 
-      if result == $okResult
+      if result == OK_RESULT
         okList << card
       else
         ngList << result
@@ -737,7 +740,7 @@ class CardTrader
       @deal_cards['card_played'] += this_cards
       debug("@deal_cards", @deal_cards)
 
-      return $okResult
+      return OK_RESULT
     else
       return card; # 指定のカードが無いので、無いカードを返す
     end
@@ -847,9 +850,9 @@ class CardTrader
       debug('transferOneCard result', result)
 
       case result
-      when $ngResult
+      when NG_RESULT
         return -1, ['渡す相手が登録されていません']
-      when $okResult
+      when OK_RESULT
         okCount += 1
       else
         ngCardList << result
@@ -903,13 +906,13 @@ class CardTrader
       # debug('相手は未登録済み')
       isSuccess = transferTargetCardToNewMember(toSend, thisCard)
       debug('isSuccess', isSuccess)
-      return $ngResult unless isSuccess
+      return NG_RESULT unless isSuccess
     end
 
     @deal_cards[from] = restCards
     debug("transferOneCard @deal_cards", @deal_cards)
 
-    return $okResult
+    return OK_RESULT
   end
 
   def ejectOneCardRandomFromCards(cards)
@@ -1043,9 +1046,9 @@ class CardTrader
       result = transferOneCard(card, destination, toSend)
 
       case result
-      when $ngResult
+      when NG_RESULT
         return -1, '渡す相手が登録されていません'
-      when $okResult
+      when OK_RESULT
         okCardList << card
       else
         ngCardList << result
@@ -1145,7 +1148,7 @@ class CardTrader
 
     @nick_e = nick_e_original
 
-    if result == $okResult
+    if result == OK_RESULT
       return card, nil
     else
       return nil, card
