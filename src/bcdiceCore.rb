@@ -89,7 +89,6 @@ class BCDice
     @tnick = ""
     @rands = nil
     @isKeepSecretDice = true
-    @isIrcMode = true
 
     @collect_rand_results = false
     @rand_results = []
@@ -318,7 +317,6 @@ class BCDice
       else
         debug("message", message)
         sendMessage(@channel, message)
-        sleepForIrc 1
       end
     end
   end
@@ -345,7 +343,6 @@ class BCDice
       next if diceResult.empty?
 
       sendMessage(@channel, diceResult)
-      sleepForIrc 1
     end
   end
 
@@ -1232,15 +1229,5 @@ class BCDice
     debug('setGameByTitle message', message)
 
     return message
-  end
-
-  def setIrcMode(mode)
-    @isIrcMode = mode
-  end
-
-  def sleepForIrc(second)
-    if @isIrcMode
-      sleep(second)
-    end
   end
 end
