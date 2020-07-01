@@ -4,16 +4,7 @@
 require 'log'
 require 'configBcDice.rb'
 require 'CountHolder.rb'
-require 'kconv'
 require 'utils/ArithmeticEvaluator.rb'
-
-def decode(code, str)
-  return str.kconv(code)
-end
-
-def encode(code, str)
-  return Kconv.kconv(str, code)
-end
 
 # WindowsでかつRuby 1.9未満の環境であるかどうかを示す
 # 端末にShift_JISで出力する必要性の判定に用いる
@@ -1125,7 +1116,7 @@ class BCDice
     end
 
     if  nick == @nick_e
-      sendMessageToOnlySender(output) # encode($ircCode, output))
+      sendMessageToOnlySender(output)
     else
       sendMessage(nick, output)
     end
