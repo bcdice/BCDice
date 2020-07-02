@@ -64,7 +64,6 @@ namespace :test do
     t.libs = [
       'src/test',
       'src/',
-      'src/irc'
     ]
 
     unless RUBY_VERSION < '1.9'

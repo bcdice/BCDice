@@ -1,13 +1,5 @@
 source 'https://rubygems.org'
 
-unless ENV['CI'] == 'true'
-  gem 'net-irc'
-  if RUBY_VERSION < '2.0'
-    gem 'wxruby-ruby19', '2.0.0'
-  end
-  gem 'ocra'
-end
-
 group :development, :test do
   if RUBY_VERSION < '1.9'
     gem 'rake', '~> 10.5'
