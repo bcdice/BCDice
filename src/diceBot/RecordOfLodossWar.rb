@@ -5,7 +5,7 @@ require 'utils/command_parser'
 class RecordOfLodossWar < DiceBot
   ID = 'RecordOfLodossWar'.freeze
   NAME = 'ロードス島戦記RPG'.freeze
-  SORT_KEY = 'ろおとすせんきRPG'.freeze
+  SORT_KEY = 'ろおとすとうせんきRPG'.freeze
 
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT.freeze
 ●判定
