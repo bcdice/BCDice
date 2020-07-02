@@ -14,21 +14,9 @@ Bundler/DuplicatedGem:
     - 'Gemfile'
 
 # Offense count: 1
-# Configuration parameters: AllowSafeAssignment.
-Lint/AssignmentInCondition:
-  Exclude:
-    - 'src/irc/ircLib.rb'
-
-# Offense count: 1
 Lint/EmptyWhen:
   Exclude:
     - 'src/test.rb'
-
-# Offense count: 1
-# Configuration parameters: AllowComments.
-Lint/HandleExceptions:
-  Exclude:
-    - 'src/irc/ircLib.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -36,11 +24,6 @@ Lint/HandleExceptions:
 Lint/LiteralInInterpolation:
   Exclude:
     - 'src/diceBot/GurpsFW.rb'
-
-# Offense count: 3
-Lint/RescueException:
-  Exclude:
-    - 'src/irc/ircLib.rb'
 
 # Offense count: 177
 Lint/UselessAssignment:
@@ -130,7 +113,6 @@ Naming/UncommunicativeMethodParamName:
 # SupportedStyles: inline, group
 Style/AccessModifierDeclarations:
   Exclude:
-    - 'src/irc/encode.rb'
     - 'src/test/DiceBotTest.rb'
 
 Style/BlockDelimiters:
@@ -146,8 +128,6 @@ Style/CaseEquality:
     - src/bcdice.rb
     - src/TableFileData.rb
     - src/test/DiceBotTest.rb
-    - src/irc/ircLib.rb
-    - src/irc/encode.rb
     - src/diceBot/Kamigakari_Korean.rb
     - src/diceBot/HouraiGakuen.rb
     - src/diceBot/FilledWith.rb
@@ -220,7 +200,6 @@ Style/GlobalVars:
     - src/test/others/testSecretDice.rb
     - src/test/others/testArgs.rb
     - src/test/others/testCard.rb
-    - src/irc/ircBot.rb
     - src/dice/AddDice.rb
     - src/dice/RerollDice.rb
     - src/diceBot/RecordOfSteam.rb
