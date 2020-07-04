@@ -448,7 +448,7 @@ class BCDice
   def checkAddRoll(arg)
     debug("check add roll")
 
-    secret = arg[0] == 'S'
+    secret = arg.start_with?('S')
     command = secret ? arg[1..-1] : arg
 
     dice = AddDice.new(self, @diceBot)
