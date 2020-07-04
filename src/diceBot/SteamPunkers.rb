@@ -74,7 +74,7 @@ MESSAGETEXT
         raise UnexpectedTableSize.new(name, items.size)
       end
 
-      items_with_range = RANGE.map.with_index { |range, idx| [range, items[idx]] }
+      items_with_range = RANGE.zip(items)
 
       super(name, items_with_range)
     end
