@@ -86,6 +86,7 @@ namespace :test do
       'src/test/test_detailed_rand_results.rb',
       'src/test/range_table_test.rb',
       'src/test/add_dice_parser_test.rb',
+      'src/test/test_data_encoding.rb'
     ]
   end
 end
