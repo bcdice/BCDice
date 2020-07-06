@@ -13,7 +13,7 @@ class VampireTheMasquerade5th < DiceBot
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<MESSAGETEXT
-・判定コマンド(nVTFx+x)
+・判定コマンド(nVMFx+x)
   注意：難易度は必要成功数を表す
 
   難易度指定：判定成功と失敗、Critical判定、
