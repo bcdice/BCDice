@@ -13,9 +13,13 @@ class YearZeroEngine < DiceBot
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定コマンド(YZEx+x+x)
-  (難易度)YZE(能力ダイス数)+(技能ダイス数)+(修正ダイス数)  # YearZeroEngine(TALES FROM THE LOOP等)の判定(6を数える)
-  ※ 難易度と技能、修正ダイス数は省略可能
+・判定コマンド(nYZEx+x+x)
+  (難易度)YZE(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (6のみを数える)
+
+・判定コマンド(nMYZx+x+x)
+  (難易度)MYZ(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (1と6を数え、プッシュ可能数を表示)
+
+  ※ 難易度と技能、アイテムダイス数は省略可能
 INFO_MESSAGE_TEXT
 
   DIFFICULTY_INDEX   = 1 # 難易度のインデックス
@@ -24,44 +28,74 @@ INFO_MESSAGE_TEXT
   SKILL_INDEX        = 5 # 技能値ダイスのインデックス
   MODIFIED_INDEX     = 7 # 修正ダイスのインデックス
 
-  setPrefixes(['(\d+)?YZE.*'])
+  setPrefixes(['(\d+)?(YZE|MYZ).*'])
 
   def rollDiceCommand(command)
-    m = /\A(\d+)?(YZE)(\d+)(\+(\d+))?(\+(\d+))?/.match(command)
+    m = /\A(\d+)?(YZE|MYZ)(\d+)(\+(\d+))?(\+(\d+))?/.match(command)
     unless m
       return ''
     end
 
-    difficulty = m[DIFFICULTY_INDEX].to_i
+    dice_result_info = {:total_success_dice => 0, :total_botch_dice => 0, :base_botch_dice => 0, :skill_botch_dice => 0, :gear_botch_dice => 0, :push_dice => 0, :difficulty => 0}
+
+    dice_result_info[:difficulty] = m[DIFFICULTY_INDEX].to_i
 
     command_type = m[COMMAND_TYPE_INDEX]
 
     total_success_dice = 0
 
-    match_text = m[ABILITY_INDEX]
-    ability_dice_text, success_dice = make_dice_roll(match_text)
-    total_success_dice += success_dice
+    dice_pool = m[ABILITY_INDEX].to_i
+    ability_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
 
-    dice_count_text = "(#{match_text}D6)"
+    dice_result_info[:total_success_dice] += success_dice
+    dice_result_info[:total_botch_dice] += botch_dice
+    dice_result_info[:base_botch_dice] += botch_dice # 能力ダメージ
+    dice_result_info[:push_dice] += (dice_pool - (success_dice + botch_dice))
+
+    dice_count_text = "(#{dice_pool}D6)"
     dice_text = ability_dice_text
 
-    match_text = m[SKILL_INDEX]
-    if match_text
-      skill_dice_text, success_dice = make_dice_roll(match_text)
-      total_success_dice += success_dice
+    if m[SKILL_INDEX]
+      dice_pool = m[SKILL_INDEX].to_i
+      skill_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
 
-      dice_count_text += "+(#{match_text}D6)"
+      dice_result_info[:total_success_dice] += success_dice
+      dice_result_info[:total_botch_dice] += botch_dice
+      dice_result_info[:skill_botch_dice] += botch_dice # 技能ダイスの1はpushで振り直し可能
+      dice_result_info[:push_dice] += (dice_pool - success_dice) # 技能ダイスのみ1を含む
+
+      dice_count_text += "+(#{dice_pool}D6)"
       dice_text += "+#{skill_dice_text}"
     end
 
-    match_text = m[MODIFIED_INDEX]
-    if match_text
-      modified_dice_text, success_dice = make_dice_roll(match_text)
-      total_success_dice += success_dice
+    if m[MODIFIED_INDEX]
+      dice_pool = m[MODIFIED_INDEX].to_i
+      modified_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
 
-      dice_count_text += "+(#{match_text}D6)"
+      dice_result_info[:total_success_dice] += success_dice
+      dice_result_info[:total_botch_dice] += botch_dice
+      dice_result_info[:gear_botch_dice] += botch_dice # ギアダメージ
+      dice_result_info[:push_dice] += (dice_pool - (success_dice + botch_dice))
+
+      dice_count_text += "+(#{dice_pool}D6)"
       dice_text += "+#{modified_dice_text}"
     end
+    return make_result_text(command_type, dice_count_text, dice_text, **dice_result_info)
+  end
+
+  def make_result_text(command_type, dice_count_text, dice_text, dice_result_info)
+    if command_type == 'YZE'
+      return make_result_with_yze(dice_count_text, dice_text, **dice_result_info)
+    elsif command_type == 'MYZ'
+      return make_result_with_myz(dice_count_text, dice_text, **dice_result_info)
+    end
+
+    return 'Error' # 到達しないはず
+  end
+
+  def make_result_with_yze(dice_count_text, dice_text, dice_result_info)
+    total_success_dice = dice_result_info[:total_success_dice]
+    difficulty = dice_result_info[:difficulty]
 
     result_text = "#{dice_count_text} ＞ #{dice_text} 成功数:#{total_success_dice}"
     if difficulty > 0
@@ -71,16 +105,25 @@ INFO_MESSAGE_TEXT
         result_text = "#{result_text} 難易度=#{difficulty}:判定失敗！"
       end
     end
-
     return result_text
   end
 
-  def make_dice_roll(match_text)
+  def make_result_with_myz(dice_count_text, dice_text, dice_result_info)
+    base_botch_dice = dice_result_info[:base_botch_dice]
+    skill_botch_dice = dice_result_info[:skill_botch_dice]
+    gear_botch_dice = dice_result_info[:gear_botch_dice]
+    push_dice = dice_result_info[:push_dice]
+
+    result_text = make_result_with_yze(dice_count_text, dice_text, **dice_result_info)
+
+    return "#{result_text}\n出目1：[能力：#{base_botch_dice},技能：#{skill_botch_dice},アイテム：#{gear_botch_dice}) プッシュ可能=#{push_dice}ダイス"
+  end
+
+  def make_dice_roll(dice_pool)
     botch_dice = 0
     success_dice = 0
 
-    dice = match_text.to_i
-    _, dice_text, = roll(dice, 6)
+    _, dice_text, = roll(dice_pool, 6)
 
     dice_text.split(',').each do |take_dice|
       if take_dice == "6"
