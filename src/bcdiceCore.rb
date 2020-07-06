@@ -448,11 +448,12 @@ class BCDice
   def checkAddRoll(arg)
     debug("check add roll")
 
-    dice = AddDice.new(self, @diceBot)
-    output = dice.rollDice(arg)
-    return nil if output == '1'
+    secret = arg.start_with?('S')
+    command = secret ? arg[1..-1] : arg
 
-    secret = (/S[-\d]+D[\d+-]+/ === arg)
+    dice = AddDice.new(self, @diceBot)
+    output = dice.rollDice(command)
+    return nil if output == '1'
 
     return output, secret
   end
