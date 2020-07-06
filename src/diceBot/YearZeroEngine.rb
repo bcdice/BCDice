@@ -80,14 +80,14 @@ INFO_MESSAGE_TEXT
       dice_count_text += "+(#{dice_pool}D6)"
       dice_text += "+#{modified_dice_text}"
     end
-    return make_result_text(command_type, dice_count_text, dice_text, **dice_result_info)
+    return make_result_text(command_type, dice_count_text, dice_text, dice_result_info)
   end
 
   def make_result_text(command_type, dice_count_text, dice_text, dice_result_info)
     if command_type == 'YZE'
-      return make_result_with_yze(dice_count_text, dice_text, **dice_result_info)
+      return make_result_with_yze(dice_count_text, dice_text, dice_result_info)
     elsif command_type == 'MYZ'
-      return make_result_with_myz(dice_count_text, dice_text, **dice_result_info)
+      return make_result_with_myz(dice_count_text, dice_text, dice_result_info)
     end
 
     return 'Error' # 到達しないはず
@@ -114,7 +114,7 @@ INFO_MESSAGE_TEXT
     gear_botch_dice = dice_result_info[:gear_botch_dice]
     push_dice = dice_result_info[:push_dice]
 
-    result_text = make_result_with_yze(dice_count_text, dice_text, **dice_result_info)
+    result_text = make_result_with_yze(dice_count_text, dice_text, dice_result_info)
 
     return "#{result_text}\n出目1：[能力：#{base_botch_dice},技能：#{skill_botch_dice},アイテム：#{gear_botch_dice}) プッシュ可能=#{push_dice}ダイス"
   end
