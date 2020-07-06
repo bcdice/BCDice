@@ -256,6 +256,12 @@ DiceBot : (2D6) ＞ 5[4,1] ＞ 5###secret dice###
 rand:4/6,1/6
 ============================
 input:
+S1+2D6
+output:
+DiceBot : (1+2D6) ＞ 1+5[4,1] ＞ 6###secret dice###
+rand:4/6,1/6
+============================
+input:
 2D6=7
 output:
 DiceBot : (2D6=7) ＞ 7[3,4] ＞ 7 ＞ 成功
