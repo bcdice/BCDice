@@ -17,8 +17,8 @@ class Cthulhu7th < DiceBot
 ・判定　CC(x)<=（目標値）
 　x：ボーナス・ペナルティダイス (2～－2)。省略可。
 　目標値が無くても1D100は表示される。
-　ファンブル／失敗／
-　成功／ハード成功／イクストリーム成功／クリティカル を自動判定。
+　ファンブル／失敗／　レギュラーの成功／ハードの成功／
+　イクストリームの成功／クリティカルの成功 を自動判定。
 例）CC<=30　CC(2)<=50　CC(-1)<=75 CC-1<=50 CC1<=65 CC
 
 ・組み合わせ判定　(CBR(x,y))
@@ -162,11 +162,11 @@ INFO_MESSAGE_TEXT
 
   def getCheckResultText(total, diff, fumbleable = false)
     if total <= diff
-      return "クリティカル" if total == 1
-      return "イクストリーム成功" if total <= (diff / 5)
-      return "ハード成功" if total <= (diff / 2)
+      return "クリティカルの成功" if total == 1
+      return "イクストリームの成功" if total <= (diff / 5)
+      return "ハードの成功" if total <= (diff / 2)
 
-      return "成功"
+      return "レギュラーの成功"
     end
 
     fumble_text = "ファンブル"
@@ -195,7 +195,7 @@ INFO_MESSAGE_TEXT
     result_1 = getCheckResultText(total, diff_1)
     result_2 = getCheckResultText(total, diff_2)
 
-    successList = ["クリティカル", "イクストリーム成功", "ハード成功", "成功"]
+    successList = ["クリティカルの成功", "イクストリームの成功", "ハードの成功", "レギュラーの成功"]
 
     succesCount = 0
     succesCount += 1 if successList.include?(result_1)
@@ -391,16 +391,16 @@ INFO_MESSAGE_TEXT
 
     case more_difficulty
     when 0
-      successList = ["ハード成功", "成功"]
-      impaleBulletList = ["クリティカル", "イクストリーム成功"]
+      successList = ["ハードの成功", "レギュラーの成功"]
+      impaleBulletList = ["クリティカルの成功", "イクストリームの成功"]
     when 1
-      successList = ["ハード成功"]
-      impaleBulletList = ["クリティカル", "イクストリーム成功"]
+      successList = ["ハードの成功"]
+      impaleBulletList = ["クリティカルの成功", "イクストリームの成功"]
     when 2
       successList = []
-      impaleBulletList = ["クリティカル", "イクストリーム成功"]
+      impaleBulletList = ["クリティカルの成功", "イクストリームの成功"]
     when 3
-      successList = ["クリティカル"]
+      successList = ["クリティカルの成功"]
       impaleBulletList = []
     end
 
