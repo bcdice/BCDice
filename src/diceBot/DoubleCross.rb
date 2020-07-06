@@ -84,7 +84,7 @@ INFO_MESSAGE_TEXT
         loop_count += 1
       end
 
-      return result_str(value_groups, loop_count)
+      return result_str(value_groups)
     end
 
     private
@@ -99,9 +99,8 @@ INFO_MESSAGE_TEXT
 
     # 判定結果の文字列を返す
     # @param [Array<ValueGroup>] value_groups 出目のグループの配列
-    # @param [Integer] loop_count 回転数
     # @return [String]
-    def result_str(value_groups, loop_count)
+    def result_str(value_groups)
       fumble = value_groups[0].values.all? { |value| value == 1 }
       # TODO: Ruby 2.4以降では Array#sum が使える
       sum = value_groups.map(&:max).reduce(0, &:+)
