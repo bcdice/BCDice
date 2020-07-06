@@ -107,41 +107,9 @@ INFO_MESSAGE_TEXT
       sum = value_groups.map(&:max).reduce(0, &:+)
       achieved_value = fumble ? 0 : (sum + @modifier)
 
-      long_str = result_str_long(value_groups, achieved_value, fumble)
-
-      if long_str.length > $SEND_STR_MAX
-        return result_str_short(loop_count, achieved_value, fumble)
-      end
-
-      return long_str
-    end
-
-    # ダイスロール結果の長い文字列表記を返す
-    # @param [Array<ValueGroup>] value_groups 出目のグループの配列
-    # @param [Integer] achieved_value 達成値
-    # @param [Boolean] fumble ファンブルしたか
-    # @return [String]
-    def result_str_long(value_groups, achieved_value, fumble)
       parts = [
         "(#{@expression})",
         "#{value_groups.join('+')}#{@modifier_str}",
-        achieved_value_with_if_fumble(achieved_value, fumble),
-        compare_result(achieved_value, fumble)
-      ]
-
-      return parts.compact.join(' ＞ ')
-    end
-
-    # ダイスロール結果の短い文字列表記を返す
-    # @param [Integer] loop_count 回転数
-    # @param [Integer] achieved_value 達成値
-    # @param [Boolean] fumble ファンブルしたか
-    # @return [String]
-    def result_str_short(loop_count, achieved_value, fumble)
-      parts = [
-        "(#{@expression})",
-        '...',
-        "回転数#{loop_count}",
         achieved_value_with_if_fumble(achieved_value, fumble),
         compare_result(achieved_value, fumble)
       ]
