@@ -6,10 +6,10 @@ class Cthulhu7th < DiceBot
   ID = 'Cthulhu7th'
 
   # ゲームシステム名
-  NAME = '新クトゥルフ'
+  NAME = '新クトゥルフ神話TRPG'
 
   # ゲームシステム名の読みがな
-  SORT_KEY = 'しんくとうるふ'
+  SORT_KEY = 'しんくとうるふしんわTRPG'
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
@@ -17,8 +17,8 @@ class Cthulhu7th < DiceBot
 ・判定　CC(x)<=（目標値）
 　x：ボーナス・ペナルティダイス (2～－2)。省略可。
 　目標値が無くても1D100は表示される。
-　ファンブル／失敗／
-　成功／ハード成功／イクストリーム成功／クリティカル を自動判定。
+　ファンブル／失敗／　レギュラー成功／ハード成功／
+　イクストリーム成功／クリティカル を自動判定。
 例）CC<=30　CC(2)<=50　CC(-1)<=75 CC-1<=50 CC1<=65 CC
 
 ・組み合わせ判定　(CBR(x,y))
@@ -166,7 +166,7 @@ INFO_MESSAGE_TEXT
       return "イクストリーム成功" if total <= (diff / 5)
       return "ハード成功" if total <= (diff / 2)
 
-      return "成功"
+      return "レギュラー成功"
     end
 
     fumble_text = "ファンブル"
@@ -195,7 +195,7 @@ INFO_MESSAGE_TEXT
     result_1 = getCheckResultText(total, diff_1)
     result_2 = getCheckResultText(total, diff_2)
 
-    successList = ["クリティカル", "イクストリーム成功", "ハード成功", "成功"]
+    successList = ["クリティカル", "イクストリーム成功", "ハード成功", "レギュラー成功"]
 
     succesCount = 0
     succesCount += 1 if successList.include?(result_1)
@@ -391,7 +391,7 @@ INFO_MESSAGE_TEXT
 
     case more_difficulty
     when 0
-      successList = ["ハード成功", "成功"]
+      successList = ["ハード成功", "レギュラー成功"]
       impaleBulletList = ["クリティカル", "イクストリーム成功"]
     when 1
       successList = ["ハード成功"]

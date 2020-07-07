@@ -18,7 +18,7 @@
 
 BCDiceの問題を発見したり、機能の要望がある時に起こすアクションの一例は以下のようなものがあります。
 
-1. Discordの [BCDice Offcial Chat][invite discord] にある各種チャンネルへ投稿する
+1. Discordの [BCDice Offcial Chat][invite discord] にある各種チャンネルへ投稿する (迷ったらここ!)
 2. Twitterで [@ysakasin](https://twitter.com/ysakasin) にメンションを送る
 3. [問い合わせフォーム](https://forms.gle/yquupEAKbBTHzYF8A)から問い合わせる
 4. GitHubの issue や Pull Request を作成する （GitとGitHubがわかる人向け）

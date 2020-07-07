@@ -205,7 +205,7 @@ INFO_MESSAGE_TEXT
   # 成功レベル表コマンド
   def getSuccessLevelDiceCommandResult(command)
     debug("TorgEternity Success Level Table Command ? ", command)
-    m = /(RT|Result)(\d+([\+\-]\d+)*)/i.match(command)
+    m = /(RT|Result)(\-*\d+([\+\-]\d+)*)/i.match(command)
     debug(Regexp.last_match(2))
     unless m
       debug("None")
@@ -227,7 +227,7 @@ INFO_MESSAGE_TEXT
   # ダメージ結果表コマンド
   def getDamageResultDiceCommandResult(command)
     debug("TorgEternity Damage Result Table Command ? ", command)
-    m = /(DT|Damage)(\d+([\+\-]\d+)*)/i.match(command)
+    m = /(DT|Damage)(\-*\d+([\+\-]\d+)*)/i.match(command)
     debug(Regexp.last_match(2))
     unless m
       debug("None")
