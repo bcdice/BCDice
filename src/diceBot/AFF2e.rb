@@ -55,8 +55,6 @@ MESSAGETEXT
       'ファンブル！'
     when 12
       '強打！'
-    else
-      nil
     end
   end
 
