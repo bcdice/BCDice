@@ -28,7 +28,7 @@ class MeikyuKingdomBasic < MeikyuKingdom
   　・道中表 TT／交渉表 NT／相場表 MPT／王国災厄表 KDT／王国変動表 KCT
   　・感情表 ET／好意表 FET／敵意表 HET
   　・お宝表１／２／３／４／５ T1T／T2T／T3T／T4T／T5T
-  　・特殊遭遇表 ENC
+  　・特殊遭遇表 SE
   　　　上級：人工 ARN／水域 WEN／自然 NEN／洞窟 CEN／天空 SEN／異界 OEN
   ・潜在能力：スキル決定表 SDT
   　　基本：肉弾 BUS／射撃 SHS／星術 ASS／召喚 SUS／科学 SCS
@@ -70,7 +70,7 @@ INFO_MESSAGE_TEXT
     'KET', 'TET', 'NST', 'RET', 'FAT', 'HRT', 'BLT',
     'BUS', 'SHS', 'ASS', 'SUS', 'SCS', 'LAS', 'NES', 'COS', 'ENS', 'TOS',
     'ABUS', 'ASHS', 'AASS', 'ASUS', 'ASCS', 'ALAS', 'ANES', 'ACOS', 'AENS', 'ATOS',
-    'ENC', 'ARN', 'WEN', 'NEN', 'CEN', 'SEN', 'OEN',
+    'SE', 'ARN', 'WEN', 'NEN', 'CEN', 'SEN', 'OEN',
     'DFT\d+',
   ])
 
@@ -2039,7 +2039,7 @@ INFO_MESSAGE_TEXT
         "民たちはワクワクするような冒険譚を求めている！ このセッションのシナリオの目的を達成していたら、終了フェイズの円卓会議の開始時に、（1D6）MGが手に入る。",
       ]
     ),
-    'ENC' => Table.new(
+    'SE' => Table.new(
       '特殊遭遇表',
       '1D6',
       [
