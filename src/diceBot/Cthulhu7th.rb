@@ -288,8 +288,7 @@ INFO_MESSAGE_TEXT
 
         loopCount += 1
         hit_result, total, total_list = getHitResultInfos(dice_num, diff, more_difficulty)
-        hit_result_text = hit_result + "　" * (10 - hit_result.split(//).size)
-        output += "\n#{loopCount}回目: ＞ #{total_list.join(', ').ljust(13)} ＞ #{hit_result_text}"
+        output += "\n#{loopCount}回目: ＞ #{total_list.join(', ')} ＞ #{hit_result}"
 
         if total >= broken_number
           output += "　ジャム"
@@ -299,7 +298,7 @@ INFO_MESSAGE_TEXT
         hit_type = getHitType(more_difficulty, hit_result)
         hit_bullet, impale_bullet, lost_bullet = getBulletResults(counts[:bullet], hit_type, diff, bullet_set_count_cap)
 
-        output += "（#{hit_bullet}発が命中、#{impale_bullet}発が貫通）"
+        output += "　（#{hit_bullet}発が命中、#{impale_bullet}発が貫通）"
 
         counts[:hit_bullet] += hit_bullet
         counts[:impale_bullet] += impale_bullet
