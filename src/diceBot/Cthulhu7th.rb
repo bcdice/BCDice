@@ -288,10 +288,11 @@ INFO_MESSAGE_TEXT
 
         loopCount += 1
         hit_result, total, total_list = getHitResultInfos(dice_num, diff, more_difficulty)
-        output += "\n#{loopCount}回目: ＞ #{total_list.join(', ').ljust(13)} \t＞ #{hit_result.ljust(9, '　')}"
+        hit_result_text = hit_result + "　" * (10 - hit_result.split(//).size)
+        output += "\n#{loopCount}回目: ＞ #{total_list.join(', ').ljust(13)} \t＞ #{hit_result_text}"
 
         if total >= broken_number
-          output += "　\t　ジャム"
+          output += "\t　ジャム"
           return getHitResultText(output, counts)
         end
 
