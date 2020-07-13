@@ -64,7 +64,7 @@ INFO_MESSAGE_TEXT
   end
 
   def torg_check(string, nick_e)
-    m = /(^|\s)S?(1R20([+-]\d+)*)(\s|$)/i.match(string)
+    m = /(^|\s)S?(1R20(([+-]\d+)*))(\s|$)/i.match(string)
     unless m
       return nil
     end
