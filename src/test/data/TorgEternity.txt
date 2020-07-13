@@ -133,7 +133,13 @@ rand:20/20,10/20,11/20
 input:
 TG12+5
 output:
-TorgEternity : (1R20+12+5) ＞ -4[5]+5 ＞ 1
+TorgEternity : (1R20+12+5) ＞ -4[5]+17 ＞ 13
+rand:5/20
+============================
+input:
+TG+12+5
+output:
+TorgEternity : (1R20+12+5) ＞ -4[5]+17 ＞ 13
 rand:5/20
 ============================
 input:
