@@ -28,7 +28,7 @@ MESSAGETEXT
   setPrefixes(['\d+NC.*', '\d+D6?([\+\-\d]*)>=\d+'])
 
   def rollDiceCommand(command)
-    m = /^(\d+)NC((?:[\+\-]\d+)*)(>=(\d+))?$/i.match(command) || /^(\d+)D6?((?:[\+\-]\d+)*)(>=(\d+))?$/i.match(command)
+    m = /^(\d+)(?:NC|D6?)((?:[-+]\d+)*)(>=(\d+))?$/i.match(command)
     unless m
       return nil
     end
