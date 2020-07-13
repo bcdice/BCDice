@@ -27,60 +27,44 @@ MESSAGETEXT
   # ダイスボットで使用するコマンドを配列で列挙する
   setPrefixes(['\d+NC.*', '\d+D6?([\+\-\d]*)>=\d+'])
 
-  def initialize
-    super
-  end
-
-  def changeText(string)
-    string
-  end
-
   def rollDiceCommand(command)
-    adjust = 0
-    adjust_str = ''
-    target = -1
-    target_str = ''
-    op = ''
+    m = /^(\d+)NC((?:[\+\-]\d+)*)(>=(\d+))?$/i.match(command) || /^(\d+)D6?((?:[\+\-]\d+)*)(>=(\d+))?$/i.match(command)
+    unless m
+      return nil
+    end
 
-    case command
-    when /^\d+NC([\+\-\d]*)(>=)?(\d+)?$/i
-      adjust_str = Regexp.last_match(1) if Regexp.last_match(1)
-      adjust = parren_killer("(0#{adjust_str})").to_i if adjust_str != ''
-      op = Regexp.last_match(2) if Regexp.last_match(2)
-      target_str = Regexp.last_match(3) if Regexp.last_match(3)
-      target = target_str.to_i if target_str != ''
-      dice = command.to_i.to_s + 'D6' + adjust_str + op + target_str
-    when /^\d+D6?([\+\-\d]*)(>=)?(\d+)?$/i
-      adjust_str = Regexp.last_match(1) if Regexp.last_match(1)
-      adjust = parren_killer("(0#{adjust_str})").to_i if adjust_str != ''
-      target_str = Regexp.last_match(3) if Regexp.last_match(3)
-      target = target_str.to_i if target_str != ''
-      dice = command
-    else
-      return ''
-    end
-    total, dice_str, result_val, result = checkRoll(command.to_i, adjust, target)
-    if result != ""
-      return "(#{dice}) ＞ #{total}[#{dice_str}]#{adjust_str if adjust != 0} ＞ #{result_val} ＞ #{result}"
-    else
-      return "(#{dice}) ＞ #{total}[#{dice_str}]#{adjust_str if adjust != 0} ＞ #{result_val}"
-    end
-  end
+    dice_count = m[1].to_i
+    modify_str = m[2]
+    modify_number = ArithmeticEvaluator.new.eval(modify_str)
+    cmp_str = m[3]
+    target = m[4] && m[4].to_i
 
-  def checkRoll(dice_count, adjust, target)
-    result = ""
-    total, dice_str, number_spot_1, cnt_max, = roll(dice_count, 6)
-    result_val = total + adjust
-    if dice_count == number_spot_1
-      result = "ファンブル"
-      result_val = 0
-    elsif cnt_max >= 2
-      result = "クリティカル"
-    elsif total + adjust >= target && target != -1
-      result = "成功"
-    elsif total + adjust < target && target != -1
-      result = "失敗"
+    if modify_number == 0
+      modify_str = ''
     end
-    return total, dice_str, result_val, result
+
+    dice_value, dice_str, = roll(dice_count, 6)
+    dice_list = dice_str.split(',').map(&:to_i)
+
+    total = dice_value + modify_number
+
+    result =
+      if dice_list.count(1) == dice_count
+        total = 0
+        "ファンブル"
+      elsif dice_list.count(6) >= 2
+        "クリティカル"
+      elsif target
+        total >= target ? "成功" : "失敗"
+      end
+
+    sequence = [
+      "(#{dice_count}D6#{modify_str}#{cmp_str})",
+      "#{dice_value}[#{dice_str}]#{modify_str}",
+      total,
+      result
+    ].compact
+
+    return sequence.join(" ＞ ")
   end
 end
