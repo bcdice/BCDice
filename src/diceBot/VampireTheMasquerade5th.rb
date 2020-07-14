@@ -6,7 +6,7 @@ class VampireTheMasquerade5th < DiceBot
   ID = 'VampireTheMasquerade5th'
 
   # ゲームシステム名
-  NAME = 'Vampire: The Masquerade: 5th Edition'
+  NAME = 'Vampire: The Masquerade 5th Edition'
 
   # ゲームシステム名の読みがな
   SORT_KEY = 'うあんはいあさますかれえと5'
