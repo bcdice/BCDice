@@ -81,6 +81,8 @@ INFO_MESSAGE_TEXT
   end
 
   def check_nD6(total, dice_total, dice_list, cmp_op, target)
+    return '' if target == '?'
+
     result = get2D6Result(total, dice_total, cmp_op, target)
     result += getKiryokuResult(total, dice_list, target)
 
