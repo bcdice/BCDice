@@ -20,6 +20,7 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(1d100)
   def check_1D100(total, dice_total, cmp_op, target)
+    return '' if target == '?'
     return '' unless cmp_op == :<=
 
     dice1, dice2 = split_tens(dice_total)
