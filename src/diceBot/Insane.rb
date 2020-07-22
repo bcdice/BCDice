@@ -58,13 +58,14 @@ INFO_MESSAGE_TEXT
 
   # ゲーム別成功度判定(2D6)
   def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-    return '' if target == '?'
     return '' unless cmp_op == :>=
 
     if dice_total <= 2
       " ＞ ファンブル(判定失敗。山札から【狂気】を1枚獲得)"
     elsif dice_total >= 12
       " ＞ スペシャル(判定成功。【生命力】1点か【正気度】1点回復)"
+    elsif target == "?"
+      ""
     elsif total >= target
       " ＞ 成功"
     else
