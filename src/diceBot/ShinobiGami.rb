@@ -41,13 +41,14 @@ INFO_MESSAGE_TEXT
   end
 
   def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-    return '' if target == '?'
     return '' unless cmp_op == :>=
 
     if dice_total <= 2
       " ＞ ファンブル"
     elsif dice_total >= 12
       " ＞ スペシャル(【生命力】1点か変調一つを回復)"
+    elsif target == "?"
+      ""
     elsif total >= target
       " ＞ 成功"
     else
