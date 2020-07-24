@@ -6,6 +6,12 @@
 
 様々なTRPGシステムの判定に対応したIRC用ダイスボット兼オンセツール用ダイスエンジン
 
+## :warning: 注意 :warning:
+
+リポジトリサイズ削減のため、2020/09/01にmasterブランチのコミットログを改変します。
+
+詳細は [bcdice/BCDice#204](https://github.com/bcdice/BCDice/issues/204) をご覧ください。
+
 ## Documents
 
 - [ロードマップ](ROADMAP.md)
