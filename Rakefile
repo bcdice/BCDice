@@ -100,7 +100,7 @@ task :test => [
 if RUBY_VERSION >= '2.3'
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new
-  task :test => [:rubocop]
+  task :test => [:rubocop] if ENV['CI'] != 'true'
 
   require 'yard'
   require 'yard/rake/yardoc_task'
