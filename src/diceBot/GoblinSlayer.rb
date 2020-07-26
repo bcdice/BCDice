@@ -17,28 +17,27 @@ class GoblinSlayer < DiceBot
 　2d6の判定を行い、達成値を出力します。
 　xは基準値、yは目標値です。いずれも省略可能です。
 　yが設定されている場合、大成功/成功/失敗/大失敗を自動判定します。
-　例）GS>=12　GS>11　GS(10)>14　GS10>=15　GS(10)　GS10　GS
+　例）GS>=12　GS>10　GS(10)>14　GS+10>=15　GS10>=15　GS(10)　GS+10　GS10　GS
 
-・因果点の設定　SV(n)
-　因果点をn点に設定します。
-　因果点の設定を行わない場合、因果点は3点に設定されています。
-　例）SV(3)　SV8
-
-・因果点の上昇　AV(n)
-　因果点をn点上昇させます。nは省略可能です。
-　nを省略した場合、因果点を3点上昇させます。
-　例）AV　AV(1)　AV1
-
-・因果点の確認　GV
-　因果点の現在値を確認します。
-　例）GV
-
-・祈念　MCPI(n)
+・祈念　MCPI(n)$m
 　祈念を行います。
 　nは【幸運】などによるボーナスです。この値は省略可能です。
+　mは因果点の現在値です。
 　因果点の現在値を使用して祈念を行い、成功/失敗を自動判定します。
-　その後、因果点の現在値を1点上昇させます。
-　例）MCPI　MCPI(1)　MCPI2
+　例）MCPI$3　MCPI(1)$4　MCPI+2$5　MCPI2$6
+
+・因果点の表示　SV$n
+　入力された因果点の現在値を表示します。
+　nは因果点の現在値です。
+　祈念のコマンドを実行した場合と同じ形式での出力を行います。
+　例）SV$3　SV$8
+
+・因果点の上昇　AV(n)$m
+　因果点を上昇させた結果を表示します。
+　nは上昇させる値です。この値は省略可能です。
+　mは因果点の現在値です。
+　nを省略した場合、因果点を3点上昇させた値を表示します。
+　例）AV$3　AV(1)$6　AV1$7
 
 ・命中判定の効力値によるボーナス　DB(n)
 　ダメージ効力表による威力へのボーナスを自動で求めます。
@@ -50,16 +49,15 @@ class GoblinSlayer < DiceBot
 　例）入力：GS(8+3/2)　実行結果：(GS10) ＞ 10 + 3[1,2] ＞ 13
 　　　入力：2d6/2    　実行結果：(2D6/2) ＞ 3[1,2]/2 ＞ 1
 
-※因果点が関係するコマンド(SV, AV, GV, MCPI)では、シークレットダイスを使用できません。
+※因果点が関係するコマンド(MCPI, SV, AV)では、シークレットダイスを使用できません。
 MESSAGETEXT
 
   # 因果点は共有リソースなので因果点関係のコマンドはシークレットダイスを無効化
-  setPrefixes(['GS\(\d+\)', 'GS.*', '^SV\d+', '^AV.*', '^GV', '^MCPI.*', 'DB\d+'])
+  setPrefixes(['GS\(\d+\)', 'GS.*', '^SV\$\d+$', '^AV.*\$\d+$', '^MCPI.*\$\d+$', 'DB\d+'])
 
   def initialize
     super
     @fractionType = "roundUp"
-    @volition = 3 # 因果点
   end
 
   def rollDiceCommand(command)
@@ -70,8 +68,6 @@ MESSAGETEXT
       return setVolition(command)
     when /^AV/i
       return addVolition(command)
-    when /^GV/i
-      return getVolition(command)
     when /^MCPI/i
       return murmurChantPrayInvoke(command)
     when /^DB/i
@@ -82,7 +78,7 @@ MESSAGETEXT
   end
 
   def getCheckResult(command)
-    m = /^GS([-\d]+)?((>=?)(\d+))?/i.match(command)
+    m = /^GS([-+]?[\d]+)?((>=?)(\d+))?$/i.match(command)
     unless m
       return nil
     end
@@ -108,57 +104,45 @@ MESSAGETEXT
   end
 
   def setVolition(command)
-    m = /SV([\d]+)/i.match(command)
+    m = /SV\$([\d]+)/i.match(command)
     unless m
       return nil
     end
 
-    num = m[1].to_i
-    @volition = num
-    return "因果点を設定 ＞ 因果点：#{@volition}点"
+    volition = m[1].to_i
+    return "因果点：#{volition}点"
   end
 
   def addVolition(command)
-    m = /AV([\d]+)?/i.match(command)
+    m = /AV\+?([\d]+)?\$([\d]+)$/i.match(command)
     unless m
       return nil
     end
 
     num = m[1].nil? ? 3 : m[1].to_i
-    before = @volition
-    @volition += num
-    return "因果点を上昇 ＞ 因果点：#{before}点 → #{@volition}点"
-  end
-
-  def getVolition(command)
-    m = /GV/i.match(command)
-    unless m
-      return nil
-    end
-
-    return "因果点を確認 ＞ 因果点：#{@volition}点"
+    volition = m[2].to_i
+    return "因果点：#{volition}点 → #{volition + num}点"
   end
 
   def murmurChantPrayInvoke(command)
-    if @volition >= 12
-      return "因果点が12点以上の場合、因果点は使用できません。"
-    end
-
-    m = /MCPI([\d]+)?/i.match(command)
+    m = /MCPI\+?([\d]+)?\$([\d]+)$/i.match(command)
     unless m
       return nil
     end
 
     luck = m[1].to_i # 幸運
-    total, diceText, = roll(2, 6)
+    volition = m[2].to_i # 因果点
+    if volition >= 12
+      return "因果点が12点以上の場合、因果点は使用できません。"
+    end
+
+    total, diceText = roll(2, 6)
     achievement = total + luck
 
-    result = " ＞ #{resultStr(achievement, @volition, '>=', false, false)}"
+    result = " ＞ #{resultStr(achievement, volition, '>=', false, false)}"
     luck_str = luck == 0 ? "" : "+#{luck}"
 
-    before = @volition
-    @volition += 1
-    return "祈念(2d6#{luck_str}) ＞ #{total}[#{diceText}]#{luck_str} ＞ #{achievement}#{result}, 因果点：#{before}点 → #{@volition}点"
+    return "祈念(2d6#{luck_str}) ＞ #{total}[#{diceText}]#{luck_str} ＞ #{achievement}#{result}, 因果点：#{volition}点 → #{volition + 1}点"
   end
 
   def damageBonus(command)
