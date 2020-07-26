@@ -36,7 +36,7 @@ class GoblinSlayer < DiceBot
 　例）入力：GS(8+3/2)　実行結果：(GS10) ＞ 10 + 3[1,2] ＞ 13
 　　　入力：2d6/2    　実行結果：(2D6/2) ＞ 3[1,2]/2 ＞ 1
 
-※因果点が関係するコマンド(MCPI, SV, AV)では、シークレットダイスを使用できません。
+※MCPIでは、シークレットダイスを使用できません。
 MESSAGETEXT
 
   # 因果点は共有リソースなのでMCPIはシークレットダイスを無効化
@@ -51,10 +51,6 @@ MESSAGETEXT
     case command
     when /^GS/i
       return getCheckResult(command)
-    when /^SV/i
-      return setVolition(command)
-    when /^AV/i
-      return addVolition(command)
     when /^MCPI/i
       return murmurChantPrayInvoke(command)
     when /^DB/i
