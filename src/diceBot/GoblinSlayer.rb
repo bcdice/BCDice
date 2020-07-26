@@ -61,7 +61,7 @@ MESSAGETEXT
   end
 
   def getCheckResult(command)
-    m = /^GS([-+]?[\d]+)?((>=?)(\d+))?$/i.match(command)
+    m = /^GS([-+]?\d+)?((>=?)(\d+))?$/i.match(command)
     unless m
       return nil
     end
@@ -87,7 +87,7 @@ MESSAGETEXT
   end
 
   def murmurChantPrayInvoke(command)
-    m = /MCPI\+?([\d]+)?\$([\d]+)$/i.match(command)
+    m = /^MCPI(\+?\d+)?\$(\d+)$/i.match(command)
     unless m
       return nil
     end
@@ -108,7 +108,7 @@ MESSAGETEXT
   end
 
   def damageBonus(command)
-    m = /DB([\d]+)/i.match(command)
+    m = /^DB(\d+)$/i.match(command)
     unless m
       return nil
     end
