@@ -148,6 +148,7 @@ class DiceBotLoaderList
     DiceBotLoader.new('SterileLife'),
     DiceBotLoader.new('Paradiso'),
     DiceBotLoader.new('SamsaraBallad'),
+    DiceBotLoader.new('GoblinSlayer'),
     DiceBotLoader.new('None', :filenames => [], :class => :DiceBot)
   ]
 end
