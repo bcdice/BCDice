@@ -26,19 +26,6 @@ class GoblinSlayer < DiceBot
 　因果点の現在値を使用して祈念を行い、成功/失敗を自動判定します。
 　例）MCPI$3　MCPI(1)$4　MCPI+2$5　MCPI2$6
 
-・因果点の表示　SV$n
-　入力された因果点の現在値を表示します。
-　nは因果点の現在値です。
-　祈念のコマンドを実行した場合と同じ形式での出力を行います。
-　例）SV$3　SV$8
-
-・因果点の上昇　AV(n)$m
-　因果点を上昇させた結果を表示します。
-　nは上昇させる値です。この値は省略可能です。
-　mは因果点の現在値です。
-　nを省略した場合、因果点を3点上昇させた値を表示します。
-　例）AV$3　AV(1)$6　AV1$7
-
 ・命中判定の効力値によるボーナス　DB(n)
 　ダメージ効力表による威力へのボーナスを自動で求めます。
 　nは命中判定の効力値です。
@@ -52,8 +39,8 @@ class GoblinSlayer < DiceBot
 ※因果点が関係するコマンド(MCPI, SV, AV)では、シークレットダイスを使用できません。
 MESSAGETEXT
 
-  # 因果点は共有リソースなので因果点関係のコマンドはシークレットダイスを無効化
-  setPrefixes(['GS\(\d+\)', 'GS.*', '^SV\$\d+$', '^AV.*\$\d+$', '^MCPI.*\$\d+$', 'DB\d+'])
+  # 因果点は共有リソースなのでMCPIはシークレットダイスを無効化
+  setPrefixes(['GS\(\d+\)', 'GS.*', '^MCPI.*\$\d+$', 'DB\d+'])
 
   def initialize
     super
@@ -101,27 +88,6 @@ MESSAGETEXT
     basis_str = basis == 0 ? "" : "#{basis} + "
 
     return "(#{command}) ＞ #{basis_str}#{total}[#{diceText}] ＞ #{achievement}#{result}"
-  end
-
-  def setVolition(command)
-    m = /SV\$([\d]+)/i.match(command)
-    unless m
-      return nil
-    end
-
-    volition = m[1].to_i
-    return "因果点：#{volition}点"
-  end
-
-  def addVolition(command)
-    m = /AV\+?([\d]+)?\$([\d]+)$/i.match(command)
-    unless m
-      return nil
-    end
-
-    num = m[1].nil? ? 3 : m[1].to_i
-    volition = m[2].to_i
-    return "因果点：#{volition}点 → #{volition + num}点"
   end
 
   def murmurChantPrayInvoke(command)
