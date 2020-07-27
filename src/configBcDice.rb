@@ -2,7 +2,7 @@
 
 $isDebug = false
 
-$bcDiceVersion = "2.07.02"
+$bcDiceVersion = "2.07.03"
 
 $DICE_MAXCNT = 200;              # ダイスが振れる最大個数
 $DICE_MAXNUM = 1000;             # ダイスの最大面数
