@@ -2,6 +2,8 @@
 # frozen_string_literal: true
 
 require "utils/normalize"
+require "utils/format"
+require "utils/command_parser"
 
 class NightWizard < DiceBot
   # ゲームシステムの識別子
@@ -22,94 +24,105 @@ class NightWizard < DiceBot
 　例）12NW-5@7#2　　1NW　　50nw+5@7,10#2,5　50nw-5+10@7,10#2,5+15+25
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['\d+NW'])
+  setPrefixes(['([-+]?\d+)?NW.*', '2R6.*'])
 
   def initialize
     super
     @sendMode = 2
   end
 
-  def changeText(string)
-    return string unless string =~ /NW/i
-
-    string = string.gsub(/([\-\d]+)NW([\+\-\d]*)@([,\d]+)#([,\d]+)([\+\-\d]*)/i) do
-      modify = Regexp.last_match(5).empty? ? "" : ",#{Regexp.last_match(5)}"
-      "2R6m[#{Regexp.last_match(1)}#{Regexp.last_match(2)}#{modify}]c[#{Regexp.last_match(3)}]f[#{Regexp.last_match(4)}]"
+  def rollDiceCommand(string)
+    cmd = parse_nw(string) || parse_2r6(string)
+    unless cmd
+      return nil
     end
 
-    string = string.gsub(/([\-\d]+)NW([\+\-\d]*)/i) { "2R6m[#{Regexp.last_match(1)}#{Regexp.last_match(2)}]" }
-    string = string.gsub(/NW([\+\-\d]*)/i) { "2R6m[0#{Regexp.last_match(1)}]" }
+    total, out_str = nw_dice(cmd.active_modify_number, cmd.passive_modify_number, cmd.critical_numbers, cmd.fumble_numbers)
+    result =
+      if cmd.cmp_op
+        total.send(cmd.cmp_op, cmd.target_number) ? "成功" : "失敗"
+      end
+
+    sequence = [
+      "(#{cmd})",
+      out_str,
+      result,
+    ].compact
+    return sequence.join(" ＞ ")
   end
 
-  def dice_command_xRn(string, nick_e)
-    return checkRoll(string, nick_e)
+  private
+
+  class Parsed
+    attr_accessor :critical_numbers, :fumble_numbers, :prana, :passive_modify_number, :cmp_op, :target_number
   end
 
-  def checkRoll(string, nick_e)
-    debug('checkRoll string', string)
+  class ParsedNW < Parsed
+    attr_accessor :base, :modify_number
 
-    output = '1'
-
-    num = '[,\d\+\-]+'
-    return output unless /(^|\s)S?(2R6m\[(#{num})\](c\[(#{num})\])?(f\[(#{num})\])?(([>=]+)(\d+))?)(\s|$)/i =~ string
-
-    debug('is valid string')
-
-    string = Regexp.last_match(2)
-    base_and_modify = Regexp.last_match(3)
-    criticalText = Regexp.last_match(4)
-    criticalValue = Regexp.last_match(5)
-    fumbleText = Regexp.last_match(6)
-    fumbleValue = Regexp.last_match(7)
-    judgeText = Regexp.last_match(8)
-    judgeOperator = Regexp.last_match(9)
-    judgeValue = Regexp.last_match(10).to_i
-
-    crit = "0"
-    fumble = "0"
-    cmp_op = nil
-    diff = 0
-
-    if criticalText
-      crit = criticalValue
+    def active_modify_number
+      @base + @modify_number
     end
 
-    if fumbleText
-      fumble = fumbleValue
+    def to_s
+      base = @base.zero? ? nil : @base
+      modify_number = Format.modify_number(@modify_number)
+      passive_modify_number = Format.modify_number(@passive_modify_number)
+
+      return "#{base}NW#{modify_number}@#{@critical_numbers.join(',')}##{@fumble_numbers.join(',')}#{passive_modify_number}#{@cmp_op}#{@target_number}"
     end
-    if judgeText
-      diff = judgeValue
-      debug('judgeOperator', judgeOperator)
-      cmp_op = Normalize.comparison_operator(judgeOperator)
-    end
-
-    base, modify = base_and_modify.split(/,/)
-    base = parren_killer("(0#{base})").to_i
-    modify = parren_killer("(0#{modify})").to_i
-    debug("base_and_modify, base, modify", base_and_modify, base, modify)
-
-    total, out_str = nw_dice(base, modify, crit, fumble)
-
-    output = "#{nick_e}: (#{string}) ＞ #{out_str}"
-    if cmp_op
-      output += check_nDx(total, cmp_op, diff)
-    end
-
-    return output
   end
 
-  def getValueText(text)
-    value = text.to_i
-    return value.to_s if value < 0
+  class Parsed2R6 < Parsed
+    attr_accessor :active_modify_number
 
-    return "+#{value}"
+    def to_s
+      "2R6M[#{@active_modify_number},#{@passive_modify_number}]C[#{@critical_numbers.join(',')}]F[#{@fumble_numbers.join(',')}]#{@cmp_op}#{@target_number}"
+    end
   end
 
-  def nw_dice(base, modify, criticalText, fumbleText)
-    debug("nw_dice : base, modify, criticalText, fumbleText", base, modify, criticalText, fumbleText)
+  def parse_nw(string)
+    m = /^([-+]?\d+)?NW((?:[-+]\d+)+)?(?:@(\d+(?:,\d+)*))?(?:#(\d+(?:,\d+)*))?((?:[-+]\d+)+)?(?:([>=]+)(\d+))?$/.match(string)
+    unless m
+      return nil
+    end
 
-    @criticalValues = getValuesFromText(criticalText, [10])
-    @fumbleValues = getValuesFromText(fumbleText, [5])
+    ae = ArithmeticEvaluator.new
+
+    command = ParsedNW.new
+    command.base = m[1].to_i
+    command.modify_number = m[2] ? ae.eval(m[2]) : 0
+    command.critical_numbers = m[3] ? m[3].split(',').map(&:to_i) : [10]
+    command.fumble_numbers = m[4] ? m[4].split(',').map(&:to_i) : [5]
+    command.passive_modify_number = m[5] ? ae.eval(m[5]) : 0
+    command.cmp_op = Normalize.comparison_operator(m[6])
+    command.target_number = m[7] && m[7].to_i
+
+    return command
+  end
+
+  def parse_2r6(string)
+    m = /^2R6m\[([-+]?\d+(?:[-+]\d+)*)(?:,([-+]?\d+(?:[-+]\d+)*))?\](?:c\[(\d+(?:,\d+)*)\])?(?:f\[(\d+(?:,\d+)*)\])?(?:([>=]+)(\d+))?/i.match(string)
+    unless m
+      return nil
+    end
+
+    ae = ArithmeticEvaluator.new
+
+    command = Parsed2R6.new
+    command.active_modify_number = ae.eval(m[1])
+    command.passive_modify_number = m[2] ? ae.eval(m[2]) : 0
+    command.critical_numbers = m[3] ? m[3].split(',').map(&:to_i) : [10]
+    command.fumble_numbers = m[4] ? m[4].split(',').map(&:to_i) : [5]
+    command.cmp_op = Normalize.comparison_operator(m[5])
+    command.target_number = m[6] && m[6].to_i
+
+    return command
+  end
+
+  def nw_dice(base, modify, critical_numbers, fumble_numbers)
+    @criticalValues = critical_numbers
+    @fumbleValues = fumble_numbers
     total = 0
     output = ""
 
@@ -136,18 +149,6 @@ INFO_MESSAGE_TEXT
     total += -10
     text = "#{base}-10[#{dice_str}]"
     return text, total
-  end
-
-  def setCriticalValues(text)
-    @criticalValues = getValuesFromText(text, [10])
-  end
-
-  def getValuesFromText(text, default)
-    if  text == "0"
-      return default
-    end
-
-    return text.split(/,/).collect { |i| i.to_i }
   end
 
   def checkCritical(total, dice_str, dice_n)
