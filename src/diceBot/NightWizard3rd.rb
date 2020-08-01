@@ -13,6 +13,8 @@ class NightWizard3rd < NightWizard
   # ゲームシステムの識別子
   ID = 'NightWizard3rd'
 
+  setPrefixes(['([-+]?\d+)?NW.*', '2R6.*'])
+
   def getFumbleTextAndTotal(base, modify, dice_str)
     total = base + modify
     total += -10
