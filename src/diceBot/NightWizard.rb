@@ -29,6 +29,7 @@ INFO_MESSAGE_TEXT
   def initialize
     super
     @sendMode = 2
+    @nw_command = "NW"
   end
 
   def rollDiceCommand(string)
@@ -60,6 +61,10 @@ INFO_MESSAGE_TEXT
   class ParsedNW < Parsed
     attr_accessor :base, :modify_number
 
+    def initialize(command)
+      @command = command
+    end
+
     def active_modify_number
       @base + @modify_number
     end
@@ -69,7 +74,7 @@ INFO_MESSAGE_TEXT
       modify_number = Format.modify_number(@modify_number)
       passive_modify_number = Format.modify_number(@passive_modify_number)
 
-      return "#{base}NW#{modify_number}@#{@critical_numbers.join(',')}##{@fumble_numbers.join(',')}#{passive_modify_number}#{@cmp_op}#{@target_number}"
+      return "#{base}#{@command}#{modify_number}@#{@critical_numbers.join(',')}##{@fumble_numbers.join(',')}#{passive_modify_number}#{@cmp_op}#{@target_number}"
     end
   end
 
@@ -82,14 +87,14 @@ INFO_MESSAGE_TEXT
   end
 
   def parse_nw(string)
-    m = /^([-+]?\d+)?NW((?:[-+]\d+)+)?(?:@(\d+(?:,\d+)*))?(?:#(\d+(?:,\d+)*))?((?:[-+]\d+)+)?(?:([>=]+)(\d+))?$/.match(string)
+    m = /^([-+]?\d+)?#{@nw_command}((?:[-+]\d+)+)?(?:@(\d+(?:,\d+)*))?(?:#(\d+(?:,\d+)*))?((?:[-+]\d+)+)?(?:([>=]+)(\d+))?$/.match(string)
     unless m
       return nil
     end
 
     ae = ArithmeticEvaluator.new
 
-    command = ParsedNW.new
+    command = ParsedNW.new(@nw_command)
     command.base = m[1].to_i
     command.modify_number = m[2] ? ae.eval(m[2]) : 0
     command.critical_numbers = m[3] ? m[3].split(',').map(&:to_i) : [10]
