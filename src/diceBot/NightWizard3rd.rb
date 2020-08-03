@@ -15,10 +15,7 @@ class NightWizard3rd < NightWizard
 
   setPrefixes(['([-+]?\d+)?NW.*', '2R6.*'])
 
-  def getFumbleTextAndTotal(base, modify, dice_str)
-    total = base + modify
-    total += -10
-    text = "#{base + modify}-10[#{dice_str}]"
-    return text, total
+  def fumble_base_number(parsed)
+    parsed.passive_modify_number + parsed.active_modify_number
   end
 end

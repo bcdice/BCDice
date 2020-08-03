@@ -38,7 +38,7 @@ INFO_MESSAGE_TEXT
       return nil
     end
 
-    total, out_str = nw_dice(cmd.active_modify_number, cmd.passive_modify_number, cmd.critical_numbers, cmd.fumble_numbers)
+    total, interim_expr, status = roll_nw(cmd)
     result =
       if cmd.cmp_op
         total.send(cmd.cmp_op, cmd.target_number) ? "成功" : "失敗"
@@ -46,7 +46,9 @@ INFO_MESSAGE_TEXT
 
     sequence = [
       "(#{cmd})",
-      out_str,
+      interim_expr,
+      status,
+      total.to_s,
       result,
     ].compact
     return sequence.join(" ＞ ")
@@ -125,62 +127,57 @@ INFO_MESSAGE_TEXT
     return command
   end
 
-  def nw_dice(base, modify, critical_numbers, fumble_numbers)
-    @criticalValues = critical_numbers
-    @fumbleValues = fumble_numbers
-    total = 0
-    output = ""
+  def roll_nw(parsed)
+    @critical_numbers = parsed.critical_numbers
+    @fumble_numbers = parsed.fumble_numbers
 
-    debug('@criticalValues', @criticalValues)
-    debug('@fumbleValues', @fumbleValues)
+    @total = 0
+    @interim_expr = ""
+    @status = nil
 
-    dice_n, dice_str, = roll(2, 6, 0)
+    status = roll_once_first()
+    while status == :critical
+      status = roll_once()
+    end
 
-    total = 0
+    base =
+      if status == :fumble
+        fumble_base_number(parsed)
+      else
+        parsed.passive_modify_number + parsed.active_modify_number
+      end
 
-    if @fumbleValues.include?(dice_n)
-      fumble_text, total = getFumbleTextAndTotal(base, modify, dice_str)
-      output = "#{fumble_text} ＞ ファンブル ＞ #{total}"
+    @total += base
+    @interim_expr = base.to_s + @interim_expr
+
+    return @total, @interim_expr, @status
+  end
+
+  def roll_once(fumbleable = false)
+    dice_value, dice_str = roll(2, 6)
+
+    if fumbleable && @fumble_numbers.include?(dice_value)
+      @total -= 10
+      @interim_expr += "-10[#{dice_str}]"
+      @status = "ファンブル"
+      return :fumble
+    elsif @critical_numbers.include?(dice_value)
+      @total += 10
+      @interim_expr += "+10[#{dice_str}]"
+      @status = "クリティカル"
+      return :critical
     else
-      total = base + modify
-      total, output = checkCritical(total, dice_str, dice_n)
+      @total += dice_value
+      @interim_expr += "+#{dice_value}[#{dice_str}]"
+      return nil
     end
-
-    return total, output
   end
 
-  def getFumbleTextAndTotal(base, _modify, dice_str)
-    total = base
-    total += -10
-    text = "#{base}-10[#{dice_str}]"
-    return text, total
+  def roll_once_first
+    roll_once(true)
   end
 
-  def checkCritical(total, dice_str, dice_n)
-    debug("addRollWhenCritical begin total, dice_str", total, dice_str)
-    output = total.to_s
-
-    criticalText = ""
-    criticalValue = getCriticalValue(dice_n)
-
-    while criticalValue
-      total += 10
-      output += "+10[#{dice_str}]"
-
-      criticalText = "＞ クリティカル "
-      dice_n, dice_str, = roll(2, 6, 0)
-
-      criticalValue = getCriticalValue(dice_n)
-      debug("criticalValue", criticalValue)
-    end
-
-    total += dice_n
-    output += "+#{dice_n}[#{dice_str}] #{criticalText}＞ #{total}"
-
-    return total, output
-  end
-
-  def getCriticalValue(dice_n)
-    return @criticalValues.include?(dice_n)
+  def fumble_base_number(parsed)
+    parsed.active_modify_number
   end
 end
