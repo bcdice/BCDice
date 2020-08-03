@@ -57,34 +57,55 @@ INFO_MESSAGE_TEXT
   private
 
   class Parsed
-    attr_accessor :critical_numbers, :fumble_numbers, :prana, :passive_modify_number, :cmp_op, :target_number
+    # @!attribute critical_numbers
+    #   @return [Array<Integer>] クリティカルになる出目の一覧
+    # @!attribute fumble_numbers
+    #   @return [Array<Integer>] ファンブルになる出目の一覧
+    # @!attribute active_modify_number
+    #   @return [Integer] ファンブルでない時に適用される修正値
+    # @!attribute cmp_op
+    #   @return [Symbol, nil] 比較演算子
+    # @!attribute target_number
+    #   @return [Integer, nil] 目標値
+    attr_accessor :critical_numbers, :fumble_numbers, :active_modify_number, :cmp_op, :target_number
   end
 
   class ParsedNW < Parsed
+    # @!attribute base
+    #   @return [Integer] 判定の基礎値
+    # @!attribute modify_number
+    #   @return [Integer] 修正値
     attr_accessor :base, :modify_number
 
     def initialize(command)
       @command = command
     end
 
-    def active_modify_number
+    # 常に適用される修正値を返す
+    #
+    # @return [Integer]
+    def passive_modify_number
       @base + @modify_number
     end
 
+    # @return [String]
     def to_s
       base = @base.zero? ? nil : @base
       modify_number = Format.modify_number(@modify_number)
-      passive_modify_number = Format.modify_number(@passive_modify_number)
+      active_modify_number = Format.modify_number(@active_modify_number)
 
-      return "#{base}#{@command}#{modify_number}@#{@critical_numbers.join(',')}##{@fumble_numbers.join(',')}#{passive_modify_number}#{@cmp_op}#{@target_number}"
+      return "#{base}#{@command}#{modify_number}@#{@critical_numbers.join(',')}##{@fumble_numbers.join(',')}#{active_modify_number}#{@cmp_op}#{@target_number}"
     end
   end
 
   class Parsed2R6 < Parsed
-    attr_accessor :active_modify_number
+    # @!attribute passive_modify_number
+    #   @return [Integer] 常に適用される修正値
+    attr_accessor :passive_modify_number
 
+    # @return [String]
     def to_s
-      "2R6M[#{@active_modify_number},#{@passive_modify_number}]C[#{@critical_numbers.join(',')}]F[#{@fumble_numbers.join(',')}]#{@cmp_op}#{@target_number}"
+      "2R6M[#{@passive_modify_number},#{@active_modify_number}]C[#{@critical_numbers.join(',')}]F[#{@fumble_numbers.join(',')}]#{@cmp_op}#{@target_number}"
     end
   end
 
@@ -101,7 +122,7 @@ INFO_MESSAGE_TEXT
     command.modify_number = m[2] ? ae.eval(m[2]) : 0
     command.critical_numbers = m[3] ? m[3].split(',').map(&:to_i) : [10]
     command.fumble_numbers = m[4] ? m[4].split(',').map(&:to_i) : [5]
-    command.passive_modify_number = m[5] ? ae.eval(m[5]) : 0
+    command.active_modify_number = m[5] ? ae.eval(m[5]) : 0
     command.cmp_op = Normalize.comparison_operator(m[6])
     command.target_number = m[7] && m[7].to_i
 
@@ -117,8 +138,8 @@ INFO_MESSAGE_TEXT
     ae = ArithmeticEvaluator.new
 
     command = Parsed2R6.new
-    command.active_modify_number = ae.eval(m[1])
-    command.passive_modify_number = m[2] ? ae.eval(m[2]) : 0
+    command.passive_modify_number = ae.eval(m[1])
+    command.active_modify_number = m[2] ? ae.eval(m[2]) : 0
     command.critical_numbers = m[3] ? m[3].split(',').map(&:to_i) : [10]
     command.fumble_numbers = m[4] ? m[4].split(',').map(&:to_i) : [5]
     command.cmp_op = Normalize.comparison_operator(m[5])
@@ -178,6 +199,6 @@ INFO_MESSAGE_TEXT
   end
 
   def fumble_base_number(parsed)
-    parsed.active_modify_number
+    parsed.passive_modify_number
   end
 end
