@@ -20,7 +20,7 @@ module Format
   #
   # @param number [Integer]
   # @return [String]
-  def modify_number(number)
+  def modifier(number)
     if number == 0
       ''
     elsif number > 0

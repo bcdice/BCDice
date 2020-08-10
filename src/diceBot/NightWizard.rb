@@ -95,8 +95,8 @@ INFO_MESSAGE_TEXT
     # @return [String]
     def to_s
       base = @base.zero? ? nil : @base
-      modify_number = Format.modify_number(@modify_number)
-      active_modify_number = Format.modify_number(@active_modify_number)
+      modify_number = Format.modifier(@modify_number)
+      active_modify_number = Format.modifier(@active_modify_number)
 
       return "#{base}#{@command}#{modify_number}@#{@critical_numbers.join(',')}##{@fumble_numbers.join(',')}#{active_modify_number}#{@cmp_op}#{@target_number}"
     end
