@@ -57,25 +57,28 @@ INFO_MESSAGE_TEXT
   private
 
   class Parsed
-    # @!attribute critical_numbers
-    #   @return [Array<Integer>] クリティカルになる出目の一覧
-    # @!attribute fumble_numbers
-    #   @return [Array<Integer>] ファンブルになる出目の一覧
-    # @!attribute active_modify_number
-    #   @return [Integer] ファンブルでない時に適用される修正値
-    # @!attribute cmp_op
-    #   @return [Symbol, nil] 比較演算子
-    # @!attribute target_number
-    #   @return [Integer, nil] 目標値
-    attr_accessor :critical_numbers, :fumble_numbers, :active_modify_number, :cmp_op, :target_number
+    # @return [Array<Integer>] クリティカルになる出目の一覧
+    attr_accessor :critical_numbers
+
+    # @return [Array<Integer>] ファンブルになる出目の一覧
+    attr_accessor :fumble_numbers
+
+    # @return [Integer] ファンブルでない時に適用される修正値
+    attr_accessor :active_modify_number
+
+    # @return [Symbol, nil] 比較演算子
+    attr_accessor :cmp_op
+
+    # @return [Integer, nil] 目標値
+    attr_accessor :target_number
   end
 
   class ParsedNW < Parsed
-    # @!attribute base
-    #   @return [Integer] 判定の基礎値
-    # @!attribute modify_number
-    #   @return [Integer] 修正値
-    attr_accessor :base, :modify_number
+    # @return [Integer] 判定の基礎値
+    attr_accessor :base
+
+    # @return [Integer] 修正値
+    attr_accessor :modify_number
 
     def initialize(command)
       @command = command
@@ -99,8 +102,7 @@ INFO_MESSAGE_TEXT
   end
 
   class Parsed2R6 < Parsed
-    # @!attribute passive_modify_number
-    #   @return [Integer] 常に適用される修正値
+    # @return [Integer] 常に適用される修正値
     attr_accessor :passive_modify_number
 
     # @return [String]
