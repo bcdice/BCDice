@@ -5,7 +5,7 @@ group :development, :test do
     gem 'rake', '~> 10.5'
     gem 'test-unit', '1.2.3'
   else
-    gem 'codecov', :github => 'ysakasin/codecov-ruby', :branch => "add-support-github-actions", :require => false
+    gem 'codecov', '~> 0.2.5'
     gem 'rake'
     gem 'test-unit'
   end
