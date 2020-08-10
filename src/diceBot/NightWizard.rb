@@ -32,6 +32,7 @@ INFO_MESSAGE_TEXT
     @nw_command = "NW"
   end
 
+  # @return [String, nil]
   def rollDiceCommand(string)
     cmd = parse_nw(string) || parse_2r6(string)
     unless cmd
@@ -111,6 +112,7 @@ INFO_MESSAGE_TEXT
     end
   end
 
+  # @return [ParsedNW, nil]
   def parse_nw(string)
     m = /^([-+]?\d+)?#{@nw_command}((?:[-+]\d+)+)?(?:@(\d+(?:,\d+)*))?(?:#(\d+(?:,\d+)*))?((?:[-+]\d+)+)?(?:([>=]+)(\d+))?$/.match(string)
     unless m
@@ -131,6 +133,7 @@ INFO_MESSAGE_TEXT
     return command
   end
 
+  # @return [Parsed2R6, nil]
   def parse_2r6(string)
     m = /^2R6m\[([-+]?\d+(?:[-+]\d+)*)(?:,([-+]?\d+(?:[-+]\d+)*))?\](?:c\[(\d+(?:,\d+)*)\])?(?:f\[(\d+(?:,\d+)*)\])?(?:([>=]+)(\d+))?/i.match(string)
     unless m
@@ -176,6 +179,7 @@ INFO_MESSAGE_TEXT
     return @total, @interim_expr, @status
   end
 
+  # @return [Symbol, nil]
   def roll_once(fumbleable = false)
     dice_value, dice_str = roll(2, 6)
 
@@ -196,10 +200,12 @@ INFO_MESSAGE_TEXT
     end
   end
 
+  # @return [Symbol, nil]
   def roll_once_first
     roll_once(true)
   end
 
+  # @return [Integer]
   def fumble_base_number(parsed)
     parsed.passive_modify_number
   end
