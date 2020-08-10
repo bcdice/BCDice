@@ -19,7 +19,7 @@ class Cthulhu7th < DiceBot
 　目標値が無くても1D100は表示される。
 　ファンブル／失敗／　レギュラー成功／ハード成功／
 　イクストリーム成功／クリティカル を自動判定。
-例）CC<=30　CC(2)<=50　CC(-1)<=75 CC-1<=50 CC1<=65 CC
+例）CC<=30　CC(2)<=50 CC(+2)<=50 CC(-1)<=75 CC-1<=50 CC1<=65 CC+1<=65 CC
 
 ・組み合わせ判定　(CBR(x,y))
 　目標値 x と y で％ロールを行い、成否を判定。
@@ -99,7 +99,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getCheckResult(command)
-    m = /^CC([-\d]+)?(<=(\d+))?/i.match(command)
+    m = /^CC([-+]?\d+)?(<=(\d+))?/i.match(command)
     unless m
       return nil
     end
