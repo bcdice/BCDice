@@ -17,11 +17,15 @@ class NightWizard < DiceBot
 
   # ダイスボットの使い方
   HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定用コマンド　(nNW+m@x#y)
-　"(基本値)NW(常時および常時に準じる特技等及び状態異常（省略可）)@(クリティカル値)#(ファンブル値)（常時以外の特技等及び味方の支援効果等の影響（省略可））"でロールします。
-　Rコマンド(2R6m[n,m]c[x]f[y]>=t tは目標値)に読替されます。
+・判定用コマンド　(aNW+b@x#y$z+c)
+　　a : 基本値
+　　b : 常時に準じる特技による補正
+　　c : 常時以外の特技、および支援効果による補正（ファンブル時には適用されない）
+　　x : クリティカル値のカンマ区切り（省略時 10）
+　　y : ファンブル値のカンマ区切り（省略時 5）
+　　z : プラーナによる達成値補正のプラーナ消費数（ファンブル時には適用されない）
 　クリティカル値、ファンブル値が無い場合は1や13などのあり得ない数値を入れてください。
-　例）12NW-5@7#2　　1NW　　50nw+5@7,10#2,5　50nw-5+10@7,10#2,5+15+25
+　例）12NW-5@7#2$3 1NW 50nw+5@7,10#2,5 50nw-5+10@7,10#2,5+15+25
 INFO_MESSAGE_TEXT
 
   setPrefixes(['([-+]?\d+)?NW.*', '2R6.*'])
@@ -64,6 +68,9 @@ INFO_MESSAGE_TEXT
     # @return [Array<Integer>] ファンブルになる出目の一覧
     attr_accessor :fumble_numbers
 
+    # @return [Integer, nil] プラーナによる補正
+    attr_accessor :prana
+
     # @return [Integer] ファンブルでない時に適用される修正値
     attr_accessor :active_modify_number
 
@@ -97,8 +104,9 @@ INFO_MESSAGE_TEXT
       base = @base.zero? ? nil : @base
       modify_number = Format.modifier(@modify_number)
       active_modify_number = Format.modifier(@active_modify_number)
+      dollar = @prana && "$#{@prana}"
 
-      return "#{base}#{@command}#{modify_number}@#{@critical_numbers.join(',')}##{@fumble_numbers.join(',')}#{active_modify_number}#{@cmp_op}#{@target_number}"
+      return "#{base}#{@command}#{modify_number}@#{@critical_numbers.join(',')}##{@fumble_numbers.join(',')}#{dollar}#{active_modify_number}#{@cmp_op}#{@target_number}"
     end
   end
 
@@ -114,7 +122,7 @@ INFO_MESSAGE_TEXT
 
   # @return [ParsedNW, nil]
   def parse_nw(string)
-    m = /^([-+]?\d+)?#{@nw_command}((?:[-+]\d+)+)?(?:@(\d+(?:,\d+)*))?(?:#(\d+(?:,\d+)*))?((?:[-+]\d+)+)?(?:([>=]+)(\d+))?$/.match(string)
+    m = /^([-+]?\d+)?#{@nw_command}((?:[-+]\d+)+)?(?:@(\d+(?:,\d+)*))?(?:#(\d+(?:,\d+)*))?(?:\$(\d+(?:,\d+)*))?((?:[-+]\d+)+)?(?:([>=]+)(\d+))?$/.match(string)
     unless m
       return nil
     end
@@ -126,9 +134,10 @@ INFO_MESSAGE_TEXT
     command.modify_number = m[2] ? ae.eval(m[2]) : 0
     command.critical_numbers = m[3] ? m[3].split(',').map(&:to_i) : [10]
     command.fumble_numbers = m[4] ? m[4].split(',').map(&:to_i) : [5]
-    command.active_modify_number = m[5] ? ae.eval(m[5]) : 0
-    command.cmp_op = Normalize.comparison_operator(m[6])
-    command.target_number = m[7] && m[7].to_i
+    command.prana = m[5] && m[5].to_i
+    command.active_modify_number = m[6] ? ae.eval(m[6]) : 0
+    command.cmp_op = Normalize.comparison_operator(m[7])
+    command.target_number = m[8] && m[8].to_i
 
     return command
   end
@@ -164,6 +173,12 @@ INFO_MESSAGE_TEXT
     status = roll_once_first()
     while status == :critical
       status = roll_once()
+    end
+
+    if status != :fumble && parsed.prana
+      prana_bonus, prana_list = roll(parsed.prana, 6)
+      @total += prana_bonus
+      @interim_expr += "+#{prana_bonus}[#{prana_list}]"
     end
 
     base =
