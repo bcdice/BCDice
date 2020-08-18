@@ -4,6 +4,7 @@
 require 'utils/table'
 require 'utils/d66_range_table'
 require 'utils/d66_grid_table'
+require 'utils/format'
 
 class TwilightGunsmoke < DiceBot
   # ゲームシステムの識別子
@@ -47,48 +48,48 @@ INFO_MESSAGE_TEXT
   end
 
   def rollDiceCommand(command)
-    result = checkRoll(command)
-    return result unless result.empty?
+    if (ret = check_roll(command))
+      return ret
+    end
 
     return roll_tables(command, TABLES)
   end
 
   private
 
-  def checkRoll(string)
-    output = ''
-
-    crit = 12
-    fumble = 2
-
-    return output unless /^2D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i =~ string
-
-    modText = Regexp.last_match(1)
-    target = Regexp.last_match(2).to_i
-    crit = Regexp.last_match(4).to_i if Regexp.last_match(4)
-    fumble = Regexp.last_match(6).to_i if Regexp.last_match(6)
-
-    mod = 0
-    mod = parren_killer("(0#{modText})") unless modText.nil?
-
-    total, dice_str, = roll(2, 6, @sortType && 1)
-    total_n = total + mod.to_i
-
-    output = "#{total}[#{dice_str}]＋#{mod} → #{total_n}"
-
-    if total >= crit
-      output += " ＞ 自動成功"
-    elsif total <= fumble
-      output += " ＞ 自動失敗"
-    elsif total_n >= target
-      output += " ＞ 成功"
-    else
-      output += " ＞ 失敗"
+  def check_roll(command)
+    m = /^2D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i.match(command)
+    unless m
+      return nil
     end
 
-    output = "(#{string}) ＞ #{output}"
+    modify_number = m[1] ? ArithmeticEvaluator.new.eval(m[1]) : 0
+    target = m[2].to_i
+    critical = (m[4] || 12).to_i
+    fumble = (m[6] || 2).to_i
 
-    return output
+    dice_value, dice_str, = roll(2, 6, @sortType && 1)
+    total = dice_value + modify_number
+
+    result =
+      if dice_value >= critical
+        "自動成功"
+      elsif dice_value <= fumble
+        "自動失敗"
+      elsif total >= target
+        "成功"
+      else
+        "失敗"
+      end
+
+    sequence = [
+      "(#{command})",
+      "#{dice_value}[#{dice_str}]#{Format.modifier(modify_number)}",
+      total.to_s,
+      result,
+    ]
+
+    return sequence.join(" ＞ ")
   end
 
   # オプニング, エンディング, 情報収集チャート用のテーブル
