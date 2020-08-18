@@ -45,49 +45,70 @@ MESSAGETEXT
       return ret
     end
 
-    # 表示テキスト
-    show_checkrule = "①枠主が判定内容を宣言、判定参加者が行動宣言\n②サイコロは竜の巫女なら６個、技能レベルか指定魅力の値個、奇跡の演目を１つ以上クリアで＋６個、スパの消費数個\n③振ったサイコロの「１の目」の数が目標値以上なら華麗に成功、目標値未満ならちょっと残念な結果"
-    show_mpluckywind = "奇跡　以降ゲーム終了まで、サイコロ＋１\n①健気に頑張る姿を見せる。\n②報われることはなく、さらに最悪の展開に。\n③それでも健気なところを見せる。"
-    show_mptroubledtime = "奇跡　そのプレイヤーの判定サイコロを１回振り直しできる\n①けちな様子を見せる。\n②困っている人に施しをする姿を見られる。\n③窮地に陥る。"
-    show_mpbadfeeling = "奇跡　１判定だけ、サイコロ＋３\n①犠牲者が悪い噂を耳にする。\n②犠牲者が悪い冗談を言う。\n③犠牲者が悪い予感に心さざめき、誰かに悪い予感を話す。"
-    show_mpexpedient = "奇跡　ついた（ささやかな）嘘が本当になる　枠主判断でいつか発動する。\n①嘘を言う。\n②嘘によって窮地に立つ。\n③嘘を嘘にしないためにあがく。"
-    show_mpstarseer = "奇跡　指定したキャラクターの次の行動がわかる\n①少し先のことを言い当てる。\n②気味が悪いと噂になる。\n③言い当てる力を人間観察に用いる。"
-    show_mpwiththedragon = "奇跡　起こりうる不幸を阻止する\n①心清いひとに助けられる。\n②自分の性根悪さを悲しむ。\n③自分なりのやり方で心清い行いをする。"
-    show_mphumanbond = "奇跡　感化された周りの人が手伝うようになる\n①人々の不幸を見て、親切にしてしまう。\n②けなげに頑張る姿を見られる。\n③見ていた人々が集まってくる。"
-
-    # 表示
-    type = ""
-    result = '0'
-    total_n = "\n"
-
-    case command.upcase # 大文字にしてチェックする
-    when 'RTB'
-      type = '判定ルール表示'
-      result = show_checkrule
-    when 'MPW'
-      type = '幸運の風が吹いている'
-      result = show_mpluckywind
-    when 'MPT'
-      type = '困った時はお互い様'
-      result = show_mptroubledtime
-    when 'MPF'
-      type = '悪い予感は的中する'
-      result = show_mpbadfeeling
-    when 'MPL'
-      type = 'ついていい嘘もある'
-      result = show_mpexpedient
-    when 'MPS'
-      type = '私には星が見えている'
-      result = show_mpstarseer
-    when 'MPD'
-      type = '心は竜と共にあり'
-      result = show_mpwiththedragon
-    when 'MPH'
-      type = '人は石垣、人は城'
-      result = show_mphumanbond
+    if (text = TEXTS[command])
+      return text.chomp
     end
-    return "#{type} #{total_n} ＞ #{result}"
+
+    return nil
   end
+
+  TEXTS = {
+    'RTB' => <<TEXT,
+判定ルール表示
+①枠主が判定内容を宣言、判定参加者が行動宣言
+②サイコロは竜の巫女なら６個、技能レベルか指定魅力の値個、奇跡の演目を１つ以上クリアで＋６個、スパの消費数個
+③振ったサイコロの「１の目」の数が目標値以上なら華麗に成功、目標値未満ならちょっと残念な結果
+TEXT
+    'MPW' => <<TEXT,
+幸運の風が吹いている
+奇跡　以降ゲーム終了まで、サイコロ＋１
+①健気に頑張る姿を見せる。
+②報われることはなく、さらに最悪の展開に。
+③それでも健気なところを見せる。
+TEXT
+    'MPT' => <<TEXT,
+困った時はお互い様
+奇跡　そのプレイヤーの判定サイコロを１回振り直しできる
+①けちな様子を見せる。
+②困っている人に施しをする姿を見られる。
+③窮地に陥る。
+TEXT
+    'MPF' => <<TEXT,
+悪い予感は的中する
+奇跡　１判定だけ、サイコロ＋３
+①犠牲者が悪い噂を耳にする。
+②犠牲者が悪い冗談を言う。
+③犠牲者が悪い予感に心さざめき、誰かに悪い予感を話す。
+TEXT
+    'MPL' => <<TEXT,
+ついていい嘘もある
+奇跡　ついた（ささやかな）嘘が本当になる　枠主判断でいつか発動する。
+①嘘を言う。
+②嘘によって窮地に立つ。
+③嘘を嘘にしないためにあがく。
+TEXT
+    'MPS' => <<TEXT,
+私には星が見えている
+奇跡　指定したキャラクターの次の行動がわかる
+①少し先のことを言い当てる。
+②気味が悪いと噂になる。
+③言い当てる力を人間観察に用いる。
+TEXT
+    'MPD' => <<TEXT,
+心は竜と共にあり
+奇跡　起こりうる不幸を阻止する
+①心清いひとに助けられる。
+②自分の性根悪さを悲しむ。
+③自分なりのやり方で心清い行いをする。
+TEXT
+    'MPH' => <<TEXT,
+人は石垣、人は城
+奇跡　感化された周りの人が手伝うようになる
+①人々の不幸を見て、親切にしてしまう。
+②けなげに頑張る姿を見られる。
+③見ていた人々が集まってくる。
+TEXT
+  }.freeze
 
   TABLES = {
     "JT" => Table.new(
@@ -239,5 +260,5 @@ MESSAGETEXT
     )
   }.freeze
 
-  setPrefixes(['RTB', 'MPW', 'MPT', 'MPF', 'MPL', 'MPS', 'MPD', 'MPH'] + TABLES.keys)
+  setPrefixes(TEXTS.keys + TABLES.keys)
 end
