@@ -10,7 +10,7 @@ class RyuTuber < DiceBot
   NAME = 'リューチューバーとちいさな奇跡'.freeze
 
   # ゲームシステム名の読みがな
-  SORT_KEY = 'りゆうちゆうばあとちいさなきせき'.freeze
+  SORT_KEY = 'りゆうちゆうはあとちいさなきせき'.freeze
 
   HELP_MESSAGE = <<MESSAGETEXT.freeze
 ◆判定
