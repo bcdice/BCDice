@@ -2,15 +2,15 @@
 
 class RyuTuber < DiceBot
   # ゲームシステムの識別子
-  ID = 'RyuTuber'
+  ID = 'RyuTuber'.freeze
 
   # ゲームシステム名
-  NAME = 'リューチューバーとちいさな奇跡'
+  NAME = 'リューチューバーとちいさな奇跡'.freeze
 
   # ゲームシステム名の読みがな
-  SORT_KEY = 'りゆうちゆうばあとちいさなきせき'
+  SORT_KEY = 'りゆうちゆうばあとちいさなきせき'.freeze
 
-  HELP_MESSAGE = <<MESSAGETEXT
+  HELP_MESSAGE = <<MESSAGETEXT.freeze
 ◆判定
 　・判定　nB6<=1
 　　※　n:サイコロの数　例）12B6<=1　サイコロの数12個の場合
@@ -38,26 +38,25 @@ class RyuTuber < DiceBot
 　・人は石垣、人は城 MPH
 MESSAGETEXT
 
-  setPrefixes(['RTB','JT','JST','JTPT','JOST','JET','HT','HGT','HIAT','HIBT','HOAT','HOBT','MPW','MPT','MPF','MPL','MPS','MPD','MPH'])
+  setPrefixes(['RTB', 'JT', 'JST', 'JTPT', 'JOST', 'JET', 'HT', 'HGT', 'HIAT', 'HIBT', 'HOAT', 'HOBT', 'MPW', 'MPT', 'MPF', 'MPL', 'MPS', 'MPD', 'MPH'])
 
   def rollDiceCommand(command) # ダイスロールコマンド
+    # 表示テキスト
+    show_checkrule = "①枠主が判定内容を宣言、判定参加者が行動宣言\n②サイコロは竜の巫女なら６個、技能レベルか指定魅力の値個、奇跡の演目を１つ以上クリアで＋６個、スパの消費数個\n③振ったサイコロの「１の目」の数が目標値以上なら華麗に成功、目標値未満ならちょっと残念な結果"
+    show_mpluckywind = "奇跡　以降ゲーム終了まで、サイコロ＋１\n①健気に頑張る姿を見せる。\n②報われることはなく、さらに最悪の展開に。\n③それでも健気なところを見せる。"
+    show_mptroubledtime = "奇跡　そのプレイヤーの判定サイコロを１回振り直しできる\n①けちな様子を見せる。\n②困っている人に施しをする姿を見られる。\n③窮地に陥る。"
+    show_mpbadfeeling = "奇跡　１判定だけ、サイコロ＋３\n①犠牲者が悪い噂を耳にする。\n②犠牲者が悪い冗談を言う。\n③犠牲者が悪い予感に心さざめき、誰かに悪い予感を話す。"
+    show_mpexpedient = "奇跡　ついた（ささやかな）嘘が本当になる　枠主判断でいつか発動する。\n①嘘を言う。\n②嘘によって窮地に立つ。\n③嘘を嘘にしないためにあがく。"
+    show_mpstarseer = "奇跡　指定したキャラクターの次の行動がわかる\n①少し先のことを言い当てる。\n②気味が悪いと噂になる。\n③言い当てる力を人間観察に用いる。"
+    show_mpwiththedragon = "奇跡　起こりうる不幸を阻止する\n①心清いひとに助けられる。\n②自分の性根悪さを悲しむ。\n③自分なりのやり方で心清い行いをする。"
+    show_mphumanbond = "奇跡　感化された周りの人が手伝うようになる\n①人々の不幸を見て、親切にしてしまう。\n②けなげに頑張る姿を見られる。\n③見ていた人々が集まってくる。"
 
-  # 表示テキスト
-  show_checkrule = "①枠主が判定内容を宣言、判定参加者が行動宣言\n②サイコロは竜の巫女なら６個、技能レベルか指定魅力の値個、奇跡の演目を１つ以上クリアで＋６個、スパの消費数個\n③振ったサイコロの「１の目」の数が目標値以上なら華麗に成功、目標値未満ならちょっと残念な結果"
-  show_mpluckywind = "奇跡　以降ゲーム終了まで、サイコロ＋１\n①健気に頑張る姿を見せる。\n②報われることはなく、さらに最悪の展開に。\n③それでも健気なところを見せる。"
-  show_mptroubledtime = "奇跡　そのプレイヤーの判定サイコロを１回振り直しできる\n①けちな様子を見せる。\n②困っている人に施しをする姿を見られる。\n③窮地に陥る。"
-  show_mpbadfeeling = "奇跡　１判定だけ、サイコロ＋３\n①犠牲者が悪い噂を耳にする。\n②犠牲者が悪い冗談を言う。\n③犠牲者が悪い予感に心さざめき、誰かに悪い予感を話す。"
-  show_mpexpedient = "奇跡　ついた（ささやかな）嘘が本当になる　枠主判断でいつか発動する。\n①嘘を言う。\n②嘘によって窮地に立つ。\n③嘘を嘘にしないためにあがく。"
-  show_mpstarseer = "奇跡　指定したキャラクターの次の行動がわかる\n①少し先のことを言い当てる。\n②気味が悪いと噂になる。\n③言い当てる力を人間観察に用いる。"
-  show_mpwiththedragon = "奇跡　起こりうる不幸を阻止する\n①心清いひとに助けられる。\n②自分の性根悪さを悲しむ。\n③自分なりのやり方で心清い行いをする。"
-  show_mphumanbond = "奇跡　感化された周りの人が手伝うようになる\n①人々の不幸を見て、親切にしてしまう。\n②けなげに頑張る姿を見られる。\n③見ていた人々が集まってくる。"
- 
     # 表示
     type = ""
     result = '0'
     total_n = "\n"
-    
-    case command.upcase #大文字にしてチェックする
+
+    case command.upcase # 大文字にしてチェックする
     when 'RTB'
       type = '判定ルール表示'
       result = show_checkrule
@@ -117,7 +116,7 @@ MESSAGETEXT
       result, total_n = get_hobbyoutdoorb_table
     end
     return "#{type} #{total_n} ＞ #{result}"
- end
+  end
 
   # 職業表
   def get_job_table
@@ -276,5 +275,4 @@ MESSAGETEXT
     ]
     return get_table_by_1d6(table)
   end
-
 end
