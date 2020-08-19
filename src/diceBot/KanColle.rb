@@ -55,9 +55,9 @@ INFO_MESSAGE_TEXT
     return '' unless cmp_op == :>=
 
     if dice_total <= 2
-      " ＞ ファンブル（判定失敗。アクシデント表を自分のＰＣに適用）"
+      " ＞ ファンブル（判定失敗。アクシデント表を自分のPCに適用）"
     elsif dice_total >= 12
-      " ＞ スペシャル（判定成功。【行動力】が１Ｄ６点回復）"
+      " ＞ スペシャル（判定成功。【行動力】が1D6点回復）"
     elsif total >= target
       " ＞ 成功"
     else
