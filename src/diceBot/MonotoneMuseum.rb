@@ -57,17 +57,18 @@ INFO_MESSAGE_TEXT
   private
 
   def check_roll(command)
-    m = /^2D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i.match(command)
+    m = /^(\d+)D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i.match(command)
     unless m
       return nil
     end
 
-    modify_number = m[1] ? ArithmeticEvaluator.new.eval(m[1]) : 0
-    target = m[2].to_i
-    critical = (m[4] || 12).to_i
-    fumble = (m[6] || 2).to_i
+    dice_count = m[1].to_i
+    modify_number = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
+    target = m[3].to_i
+    critical = (m[5] || 12).to_i
+    fumble = (m[7] || 2).to_i
 
-    dice_value, dice_str, = roll(2, 6, @sortType && 1)
+    dice_value, dice_str, = roll(dice_count, 6, @sortType && 1)
     total = dice_value + modify_number
 
     result =
@@ -302,5 +303,5 @@ INFO_MESSAGE_TEXT
     ),
   }.freeze
 
-  setPrefixes(['2D6.*'] + TABLES.keys)
+  setPrefixes(['\d+D6.*'] + TABLES.keys)
 end
