@@ -21,5 +21,5 @@ group :development, :test do
 end
 
 if RUBY_VERSION > '1.8.x'
-  gem 'simplecov', :require => false
+  gem 'simplecov', '0.17.1', :require => false
 end
