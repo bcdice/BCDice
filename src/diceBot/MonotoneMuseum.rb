@@ -72,10 +72,10 @@ INFO_MESSAGE_TEXT
     total = dice_value + modify_number
 
     result =
-      if dice_value >= critical
-        "自動成功"
-      elsif dice_value <= fumble
+      if dice_value <= fumble
         "自動失敗"
+      elsif dice_value >= critical
+        "自動成功"
       elsif total >= target
         "成功"
       else
