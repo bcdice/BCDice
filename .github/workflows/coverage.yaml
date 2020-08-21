@@ -20,5 +20,6 @@ jobs:
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:
+        coverageCommand: echo 'skip'
         coverageLocations: |
           ${{github.workspace}}/coverage/.resultset.json:simplecov
