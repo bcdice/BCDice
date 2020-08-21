@@ -12,14 +12,10 @@ jobs:
         ruby-version: 2.7
         bundler-cache: true
     - run: bundle install
-    - run: bundle exec rake test
-    - uses: codecov/codecov-action@v1
-      with:
-        file: ${{github.workspace}}/coverage/.resultset.json
     - uses: paambaati/codeclimate-action@v2.6.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:
-        coverageCommand: echo 'skip'
+        coverageCommand: bundle exec rake test
         coverageLocations: |
           ${{github.workspace}}/coverage/.resultset.json:simplecov

@@ -13,5 +13,8 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
+    - name: "Set CHECK_COVERAGE=true on Ruby 2.7"
+      run: echo '::set-env name=CHECK_COVERAGE::true'
+      if: matrix.ruby == '2.7'
     - run: bundle install
     - run: bundle exec rake test
