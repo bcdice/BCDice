@@ -145,8 +145,8 @@ INFO_MESSAGE_TEXT
   # @param bonus [Integer] ボーナス・ペナルティダイスの数。負の数ならペナルティダイス。
   # @return [Array<(Integer, Array<Integer>)>]
   def roll_with_bonus(bonus)
-    ones = roll_ones_d10()
     tens_list = Array.new(bonus.abs + 1) { bcdice.roll_tens_d10 }
+    ones = roll_ones_d10()
 
     dice_list = tens_list.map { |tens| tens + ones }
     dice_list.map! { |dice| dice == 0 ? 100 : dice }
