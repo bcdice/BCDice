@@ -117,9 +117,7 @@ INFO_MESSAGE_TEXT
       return "エラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
     end
 
-    units_digit = rollPercentD10
-    total_list = getTotalLists(bonus_dice_count, units_digit)
-    total = getTotal(total_list, bonus_dice_count)
+    total, total_list = roll_with_bonus(bonus_dice_count)
 
     if without_compare
       output = "(1D100) ボーナス・ペナルティダイス[#{bonus_dice_count}]"
@@ -133,32 +131,34 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  def rollPercentD10
+  # 1D100の一の位用のダイスロール
+  # 0から9までの値を返す
+  #
+  # @return [Integer]
+  def roll_ones_d10
     dice, = roll(1, 10)
-    dice = 0 if dice == 10
+    return 0 if dice == 10
 
     return dice
   end
 
-  def getTotalLists(bonus_dice_count, units_digit)
-    total_list = []
+  # @param bonus [Integer] ボーナス・ペナルティダイスの数。負の数ならペナルティダイス。
+  # @return [Array<(Integer, Array<Integer>)>]
+  def roll_with_bonus(bonus)
+    ones = roll_ones_d10()
+    tens_list = Array.new(bonus.abs + 1) { bcdice.roll_tens_d10 }
 
-    tens_digit_count = 1 + bonus_dice_count.abs
-    tens_digit_count.times do
-      bonus = bcdice.roll_tens_d10()
-      total = bonus + units_digit
-      total = 100 if total == 0
+    dice_list = tens_list.map { |tens| tens + ones }
+    dice_list.map! { |dice| dice == 0 ? 100 : dice }
 
-      total_list.push(total)
-    end
+    dice =
+      if bonus >= 0
+        dice_list.min
+      else
+        dice_list.max
+      end
 
-    return total_list
-  end
-
-  def getTotal(total_list, bonus_dice_count)
-    return total_list.min if bonus_dice_count >= 0
-
-    return total_list.max
+    return dice, dice_list
   end
 
   def getCheckResultText(total, diff, fumbleable = false)
@@ -230,7 +230,7 @@ INFO_MESSAGE_TEXT
     # 最大で（8回*（PC技能値最大値/10））＝72発しか撃てないはずなので上限
     bullet_count_limit = 100
     if bullet_count > bullet_count_limit
-      output += "\n弾薬が多すぎます。装填された弾薬を#{bullet_count_limit}発に変更します。\n"
+      output += "弾薬が多すぎます。装填された弾薬を#{bullet_count_limit}発に変更します。\n"
       bullet_count = bullet_count_limit
     end
 
@@ -255,12 +255,12 @@ INFO_MESSAGE_TEXT
     return "目標値は正の数です。" if diff <= 0
 
     if broken_number < 0
-      output += "\n故障ナンバーは正の数です。マイナス記号を外します。\n"
+      output += "故障ナンバーは正の数です。マイナス記号を外します。\n"
       broken_number = broken_number.abs
     end
 
     unless @bonus_dice_range.include?(bonus_dice_count)
-      return "\nエラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
+      return "エラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
     end
 
     output += "ボーナス・ペナルティダイス[#{bonus_dice_count}]"
@@ -344,9 +344,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getHitResultInfos(dice_num, diff, more_difficulty)
-    units_digit = rollPercentD10
-    total_list = getTotalLists(dice_num, units_digit)
-    total = getTotal(total_list, dice_num)
+    total, total_list = roll_with_bonus(dice_num)
 
     fumbleable = getFumbleable(more_difficulty)
     hit_result = getCheckResultText(total, diff, fumbleable)
