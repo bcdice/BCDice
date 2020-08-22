@@ -38,10 +38,8 @@ INFO_MESSAGE_TEXT
 
   def rollDiceCommand(command)
     case command
-    when /^DLH(\d+([\+\-]\d+)*)/i
-      expressions = Regexp.last_match(1)
-      return resolute_action(expressions)
-
+    when /^DLH/i
+      return resolute_action(command)
     when /^DC(L||S|C)(\d+)/i
       type = Regexp.last_match(1)
       minusScore = Regexp.last_match(2).to_i
@@ -78,31 +76,52 @@ INFO_MESSAGE_TEXT
     return nil
   end
 
-  SUCCESS_STR = " ＞ 成功"
-  FAILURE_STR = " ＞ 失敗"
+  private
+
+  def resolute_action(command)
+    m = /^DLH(\d+([\+\-]\d+)*)$/.match(command)
+    unless m
+      return nil
+    end
+
+    success_rate = ArithmeticEvaluator.new().eval(m[1])
+
+    roll_result, dice10, dice01 = roll_d100
+    roll_result_text = format('%02d', roll_result)
+
+    result = action_result(roll_result, dice10, dice01, success_rate)
+
+    sequence = [
+      "行為判定(成功率:#{success_rate}％)",
+      "1D100[#{dice10},#{dice01}]=#{roll_result_text}",
+      roll_result_text.to_s,
+      result
+    ]
+
+    return sequence.join(" ＞ ")
+  end
+
+  SUCCESS_STR = "成功"
+  FAILURE_STR = "失敗"
   CRITICAL_STR = (SUCCESS_STR + " ＞ クリティカル！ パワーの代償１／２").freeze
   FUMBLE_STR = (FAILURE_STR + " ＞ ファンブル！ パワーの代償２倍＆振り直し不可").freeze
 
-  def resolute_action(expressions)
-    success_rate = parren_killer("(" + expressions + ")").to_i
-
-    roll_result, dice10, dice01 = roll_d100
-
-    text = "行為判定(成功率:#{success_rate}％)"
-    text += " ＞ 1D100[#{dice10},#{dice01}]=#{format('%02d', roll_result)}"
-    text += " ＞ #{format('%02d', roll_result)}"
-
-    if roll_result == 100 || success_rate <= 0
-      text += FUMBLE_STR
-    elsif roll_result <= success_rate - 100
-      text += CRITICAL_STR
-    elsif roll_result <= success_rate
-      text += dice10 == dice01 ? CRITICAL_STR : SUCCESS_STR
+  def action_result(total, tens, ones, success_rate)
+    if total == 100 || success_rate <= 0
+      FUMBLE_STR
+    elsif total <= success_rate - 100
+      CRITICAL_STR
+    elsif tens == ones
+      if total <= success_rate
+        CRITICAL_STR
+      else
+        FUMBLE_STR
+      end
+    elsif total <= success_rate
+      SUCCESS_STR
     else
-      text += dice10 == dice01 ? FUMBLE_STR : FAILURE_STR
+      FAILURE_STR
     end
-
-    return text
   end
 
   def roll_d100
