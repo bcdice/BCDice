@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
+require 'utils/table'
+require 'utils/d66_grid_table'
+
 # ビーストバインド トリニティのダイスボット
 #
 # = 前ver(1.43.07)からの変更・修正
@@ -46,13 +49,12 @@ class BeastBindTrinity < DiceBot
 
 ・D66ダイスあり
 ・邂逅表：EMO
-・暴露表：EXPO_A　　・魔獣化暴露表：EXPO_B
+・暴露表：EXPO_A
+・魔獣化暴露表：EXPO_B
 ・アイドル専用暴露表：EXPO_I
 ・アイドル専用魔獣化暴露表：EXPO_J
-・正体判明チャートA～C：FACE_A、FACE_B、FACE_C
+・正体判明チャートA～C：FACE_A, FACE_B, FACE_C
 INFO_MESSAGE_TEXT
-
-  setPrefixes(['\d+BB', 'EMO', 'EXPO_.', 'FACE_.'])
 
   def initialize
     super
@@ -64,8 +66,6 @@ INFO_MESSAGE_TEXT
   def changeText(string)
     string = string.gsub(/(\d+)BB6/i) { "#{Regexp.last_match(1)}R6" }
     string = string.gsub(/(\d+)BB/i)  { "#{Regexp.last_match(1)}R6" }
-    string = string.gsub(/(\d+)BF6/i) { "#{Regexp.last_match(1)}Q6" }
-    string = string.gsub(/(\d+)BF/i)  { "#{Regexp.last_match(1)}Q6" }
     string = string.gsub(/\%([\-\d]+)/i) { "[H:#{Regexp.last_match(1)}]" }
     string = string.gsub(/\@([\+\-\d]+)/i) { "[C#{Regexp.last_match(1)}]" }
     string = string.gsub(/\#([A]?[\+\-\d]+)/i) { "[F#{Regexp.last_match(1)}]" }
@@ -280,81 +280,26 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  ####################           ビーストバインド トリニティ          ########################
   def rollDiceCommand(command)
-    output = '1'
-    type = ""
-    total_n = 0
-
-    case command
-
-    # 邂逅表(d66)
-    when /^EMO/i
-      type = '邂逅表'
-      output, total_n = bbt_emotion_table
-
-    # 暴露表
-    when /^EXPO_([ABIJ])/
-      case Regexp.last_match(1)
-      when /A/
-        type = '暴露表'
-        tabletype = 1
-      when /B/
-        type = '魔獣化暴露表'
-        tabletype = 2
-      when /I/
-        type = 'アイドル専用暴露表'
-        tabletype = 3
-      when /J/
-        type = 'アイドル専用魔獣化暴露表'
-        tabletype = 4
-      end
-      output, total_n = bbt_exposure_table(tabletype)
-
-    # 正体判明チャート
-    when /^FACE_([ABC])/
-      case Regexp.last_match(1)
-      when /A/
-        type = '正体判明チャートA'
-        tabletype = 1
-      when /B/
-        type = '正体判明チャートB'
-        tabletype = 2
-      when /C/
-        type = '正体判明チャートC'
-        tabletype = 3
-      end
-      output, total_n = bbt_face_table(tabletype)
-
-    end
-
-    if output != '1'
-      output = "#{type}(#{total_n}) ＞ #{output}"
-    end
-
-    return output
+    roll_tables(command, TABLES)
   end
 
-  # **邂逅表(d66)
-  def bbt_emotion_table
-    table = [
-      '家族',      '家族',      '信頼',      '信頼',      '忘却',      '忘却',
-      '慈愛',      '慈愛',      '憧憬',      '憧憬',      '感銘',      '感銘',
-      '同志',      '同志',      '幼子',      '幼子',      '興味',      '興味',
-      'ビジネス', 'ビジネス', '師事', '師事', '好敵手', '好敵手',
-      '友情',      '友情',      '忠誠',      '忠誠',      '恐怖',      '恐怖',
-      '執着',      '執着',      '軽蔑',      '軽蔑',      '憎悪',      '憎悪',
-    ]
-
-    return get_table_by_d66(table)
-  end
-
-  # **暴露表（暴露表、魔獣化暴露表、アイドル専用暴露表、アイドル専用魔獣化暴露表）
-  def bbt_exposure_table(type)
-    case type
-      # 暴露表
-    when 1
-      table = [
+  TABLES = {
+    'EMO' => D66GridTable.new(
+      '邂逅表',
+      [
+        ['家族', '家族', '信頼', '信頼', '忘却', '忘却'],
+        ['慈愛', '慈愛', '憧憬', '憧憬', '感銘', '感銘'],
+        ['同志', '同志', '幼子', '幼子', '興味', '興味'],
+        ['ビジネス', 'ビジネス', '師事', '師事', '好敵手', '好敵手'],
+        ['友情', '友情', '忠誠', '忠誠', '恐怖', '恐怖'],
+        ['執着', '執着', '軽蔑', '軽蔑', '憎悪', '憎悪'],
+      ]
+    ),
+    'EXPO_A' => Table.new(
+      '暴露表',
+      '1D6',
+      [
         '噂になるがすぐ忘れられる',
         '都市伝説として処理される',
         'ワイドショーをにぎわす',
@@ -362,9 +307,11 @@ INFO_MESSAGE_TEXT
         '絆の対象ひとりに正体が知られる',
         '魔獣化暴露表へ'
       ]
-      # 魔獣化暴露表
-    when 2
-      table = [
+    ),
+    'EXPO_B' => Table.new(
+      '魔獣化暴露表',
+      '1D6',
+      [
         'トンデモ業界の伝説になる',
         'シナリオ中［迫害状態］になる',
         'シナリオ中［迫害状態］になる',
@@ -372,9 +319,11 @@ INFO_MESSAGE_TEXT
         '絆の対象ひとりに正体が知られる',
         '自衛隊退魔部隊×2D6体の襲撃'
       ]
-      # アイドル専用暴露表
-    when 3
-      table = [
+    ),
+    'EXPO_I' => Table.new(
+      'アイドル専用暴露表',
+      '1D6',
+      [
         '愉快な伝説として人気になる',
         'ワイドショーをにぎわす',
         '炎上。シナリオ中［迫害状態］',
@@ -382,9 +331,11 @@ INFO_MESSAGE_TEXT
         '絆の対象ひとりに正体が知られる',
         'アイドル専用魔獣化暴露表へ'
       ]
-      # アイドル専用魔獣化暴露表
-    when 4
-      table = [
+    ),
+    'EXPO_J' => Table.new(
+      'アイドル専用魔獣化暴露表',
+      '1D6',
+      [
         'シナリオ中［迫害状態］になる',
         'シナリオ中［迫害状態］になる',
         '絆の対象ひとりに正体が知られる',
@@ -392,16 +343,11 @@ INFO_MESSAGE_TEXT
         '絆の対象ひとりに正体が知られる',
         '1D6本のレギュラー番組を失う'
       ]
-    end
-    return get_table_by_1d6(table)
-  end
-
-  # **正体判明チャート（正体判明チャートA～C）
-  def bbt_face_table(type)
-    case type
-      # 正体判明チャートA
-    when 1
-      table = [
+    ),
+    'FACE_A' => Table.new(
+      '正体判明チャートA',
+      '1D6',
+      [
         'あなたを受け入れてくれる',
         'あなたを受け入れてくれる',
         '絆が（拒絶）に書き換わる',
@@ -409,9 +355,11 @@ INFO_MESSAGE_TEXT
         '気絶しその事実を忘れる',
         '精神崩壊する'
       ]
-      # 正体判明チャートB
-    when 2
-      table = [
+    ),
+    'FACE_B' => Table.new(
+      '正体判明チャートB',
+      '1D6',
+      [
         'あなたを受け入れてくれる',
         '狂乱し攻撃してくる',
         '退場。その場から逃亡。暴露表へ',
@@ -419,9 +367,11 @@ INFO_MESSAGE_TEXT
         '精神崩壊する',
         '精神崩壊する'
       ]
-      # 正体判明チャートC
-    when 3
-      table = [
+    ),
+    'FACE_C' => Table.new(
+      '正体判明チャートC',
+      '1D6',
+      [
         'あなたを受け入れてくれる',
         '退場。その場から逃亡。暴露表へ',
         '退場。その場から逃亡。暴露表へ',
@@ -429,7 +379,8 @@ INFO_MESSAGE_TEXT
         '精神崩壊する',
         '精神崩壊する'
       ]
-    end
-    return get_table_by_1d6(table)
-  end
+    ),
+  }.freeze
+
+  setPrefixes(['\d+BB'] + TABLES.keys)
 end
