@@ -148,8 +148,10 @@ INFO_MESSAGE_TEXT
     tens_list = Array.new(bonus.abs + 1) { bcdice.roll_tens_d10 }
     ones = roll_ones_d10()
 
-    dice_list = tens_list.map { |tens| tens + ones }
-    dice_list.map! { |dice| dice == 0 ? 100 : dice }
+    dice_list = tens_list.map do |tens|
+      dice = tens + ones
+      dice == 0 ? 100 : dice
+    end
 
     dice =
       if bonus >= 0
