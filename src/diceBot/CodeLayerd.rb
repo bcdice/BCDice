@@ -21,14 +21,16 @@ class CodeLayerd < DiceBot
 
   @m,[c],+xは省略可能。(@6[1]として処理)
   n個のD10でmを判定値、cをクリティカル値とした行為判定を行う。
+  nが0以下のときはクリティカルしない1CL判定を行う。(1CL[0]と同一)
   例）
   7CL>=5 ：サイコロ7個で判定値6のロールを行い、目標値5に対して判定
   4CL@7  ：サイコロ4個で判定値7のロールを行い達成値を出す
   4CL+2@7 または 4CL@7+2  ：サイコロ4個で判定値7のロールを行い達成値を出し、修正値2を足す。
   4CL[2] ：サイコロ4個でクリティカル値2のロールを行う。
+  0CL : 1CL[0]と同じ判定
 MESSAGETEXT
 
-  setPrefixes(['\d*CL([+-]\d+)?[@\d]*.*'])
+  setPrefixes(['[+-]?\d*CL([+-]\d+)?[@\d]*.*'])
 
   def isGetOriginalMessage
     true
@@ -40,7 +42,7 @@ MESSAGETEXT
     result = ''
 
     case command
-    when /(\d+)?CL([+-]\d+)?(\@(\d))?(\[(\d+)\])?([+-]\d+)?(>=(\d+))?/i
+    when /([+-]?\d+)?CL([+-]\d+)?(\@(\d))?(\[(\d+)\])?([+-]\d+)?(>=(\d+))?/i
       m = Regexp.last_match
       base = (m[1] || 1).to_i
       modifier1 = m[2].to_i
@@ -62,8 +64,10 @@ MESSAGETEXT
     base = getValue(base)
     target = getValue(target)
     criticalTarget = getValue(criticalTarget)
-
-    return result if base < 1
+    if base <= 0
+      criticalTarget = 0
+      base = 1
+    end
 
     target = 10 if target > 10
 
