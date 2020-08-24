@@ -88,6 +88,13 @@ MESSAGETEXT
     result += "判定値[#{target}] " unless target == 6
     result += "クリティカル値[#{criticalTarget}] " unless criticalTarget == 1
     result += "達成値[#{successCount}]"
+
+    # 出目がすべて判定値より大きければ固定値に関わらずファンブル
+    if successCount <= 0
+      result += " ＞ ファンブル！"
+      return result
+    end
+
     result += "+クリティカル[#{criticalCount}]" if criticalCount > 0
     result += format_modifier(modifier)
     result += "=[#{successTotal}]" if criticalCount > 0 || modifier != 0
@@ -99,7 +106,6 @@ MESSAGETEXT
   end
 
   def getSuccessResultText(successTotal, diff)
-    return "ファンブル！" if successTotal <= 0
     return successTotal.to_s if diff == 0
     return "成功" if successTotal >= diff
 
