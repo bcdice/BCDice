@@ -85,7 +85,7 @@ MESSAGETEXT
     successTotal = successCount + criticalCount + modifier
     result = ""
 
-    result += "判定値[#{target}] "
+    result += "判定値[#{target}] " unless target == 6
     result += "クリティカル値[#{criticalTarget}] " unless criticalTarget == 1
     result += "達成値[#{successCount}]"
     result += "+クリティカル[#{criticalCount}]" if criticalCount > 0
