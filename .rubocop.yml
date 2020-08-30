@@ -31,11 +31,11 @@ Style/SpecialGlobalVars:
 Layout/EndOfLine:
   EnforcedStyle: lf
 
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
 # Due to old Ruby
-Layout/IndentHeredoc:
+Layout/HeredocIndentation:
   Enabled: false
 
 Layout/SpaceInsideArrayLiteralBrackets:
@@ -54,10 +54,6 @@ Naming/VariableNumber:
   Enabled: false
 
 Style/AsciiComments:
-  Enabled: false
-
-# Due to old Ruby 1.9.x
-Style/BracesAroundHashParameters:
   Enabled: false
 
 Style/CommentedKeyword:
