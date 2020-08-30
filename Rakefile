@@ -58,12 +58,12 @@ namespace :test do
     t.description = 'ダイスボット'
 
     t.test_files = [
-      'src/test/setup',
-      'src/test/testDiceBots.rb',
+      'test/setup',
+      'test/testDiceBots.rb',
     ]
     t.libs = [
-      'src/test',
-      'src/',
+      'test/',
+      'lib/',
     ]
 
     unless RUBY_VERSION < '1.9'
@@ -76,17 +76,17 @@ namespace :test do
   Rake::TestTask.new(:unit) do |t|
     t.description = 'ユニットテスト'
     t.test_files = [
-      'src/test/setup',
-      'src/test/test_dicebot_info_is_defined.rb',
-      'src/test/testDiceBotLoaders.rb',
-      'src/test/testDiceBotPrefixesCompatibility.rb',
-      'src/test/test_command_parser.rb',
-      'src/test/test_d66_table.rb',
-      'src/test/test_srs_help_messages.rb',
-      'src/test/test_detailed_rand_results.rb',
-      'src/test/range_table_test.rb',
-      'src/test/add_dice_parser_test.rb',
-      ('src/test/test_data_encoding.rb' if RUBY_VERSION >= '1.9')
+      'test/setup',
+      'test/test_dicebot_info_is_defined.rb',
+      'test/testDiceBotLoaders.rb',
+      'test/testDiceBotPrefixesCompatibility.rb',
+      'test/test_command_parser.rb',
+      'test/test_d66_table.rb',
+      'test/test_srs_help_messages.rb',
+      'test/test_detailed_rand_results.rb',
+      'test/range_table_test.rb',
+      'test/add_dice_parser_test.rb',
+      'test/test_data_encoding.rb'
     ].compact
   end
 end
