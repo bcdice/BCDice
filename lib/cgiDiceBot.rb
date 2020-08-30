@@ -96,7 +96,7 @@ class CgiDiceBot
     @rands = rands
   end
 
-  def executeDiceBot(message, gameType, dir = nil, prefix = '', isNeedResult = false)
+  def executeDiceBot(message, gameType, _dir = nil, _prefix = '', isNeedResult = false)
     bcdice = newBcDice
 
     bcdice.setIrcClient(self)
@@ -104,7 +104,6 @@ class CgiDiceBot
     bcdice.isKeepSecretDice(@isTest)
     bcdice.setTest(@isTest)
     bcdice.setCollectRandResult(isNeedResult)
-    bcdice.setDir(dir, prefix)
 
     if bcdice.getGameType != gameType
       bcdice.setGameByTitle(gameType)
@@ -133,15 +132,6 @@ class CgiDiceBot
     end
 
     return @bcdice
-  end
-
-  def getGameCommandInfos(dir, prefix)
-    require 'TableFileData'
-
-    tableFileData = TableFileData.new
-    tableFileData.setDir(dir, prefix)
-    infos = tableFileData.getGameCommandInfos
-    return infos
   end
 
   def sendMessage(_to, message)

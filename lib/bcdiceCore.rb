@@ -10,7 +10,6 @@ $secretDiceResultHolder = {}
 $plotPrintChannels = {}
 $point_counter = {}
 
-require 'TableFileData'
 require 'bcdice/game_system/DiceBot'
 require 'bcdice/game_system/DiceBotLoader'
 require 'bcdice/game_system/DiceBotLoaderList'
@@ -21,16 +20,13 @@ require 'dice/RerollDice'
 class BCDiceMaker
   def initialize
     @diceBot = DiceBot.new
-
-    @counterInfos = {}
-    @tableFileData = TableFileData.new
   end
 
   # @todo 未使用のため削除する
   attr_accessor :diceBotPath
 
   def newBcDice
-    bcdice = BCDice.new(@diceBot, @counterInfos, @tableFileData)
+    bcdice = BCDice.new(@diceBot)
 
     return bcdice
   end
@@ -54,11 +50,8 @@ class BCDice
   # @return [String] メッセージ送信者のニックネーム
   attr_reader :nick_e
 
-  def initialize(diceBot, counterInfos, tableFileData)
+  def initialize(diceBot)
     setDiceBot(diceBot)
-
-    @counterInfos = counterInfos
-    @tableFileData = tableFileData
 
     @nick_e = ""
     @tnick = ""
@@ -68,10 +61,6 @@ class BCDice
     @collect_rand_results = false
     @rand_results = []
     @detailed_rand_results = []
-  end
-
-  def setDir(dir, prefix)
-    @tableFileData.setDir(dir, prefix)
   end
 
   def isKeepSecretDice(b)
@@ -328,9 +317,6 @@ class BCDice
     output, secret = checkChoiceCommand(arg)
     return output, secret unless output.nil?
 
-    output, secret = getTableDataResult(arg)
-    return output, secret unless output.nil?
-
     output = '1'
     secret = false
     return output, secret
@@ -403,32 +389,6 @@ class BCDice
 
     secret = !Regexp.last_match(3).nil?
     output = choice_random(Regexp.last_match(1))
-
-    return output, secret
-  end
-
-  def getTableDataResult(arg)
-    debug("getTableDataResult Begin")
-
-    dice, title, table, secret = @tableFileData.getTableData(arg, @diceBot.id)
-    debug("dice", dice)
-
-    if table.nil?
-      debug("table is null")
-      return nil
-    end
-
-    value, diceText = getTableIndexDiceValueAndDiceText(dice)
-    return nil if value.nil?
-
-    debug("value", value)
-
-    key, message = table.find { |i| i.first === value }
-    return nil if message.nil?
-
-    message = rollTableMessageDiceText(message)
-
-    output = "#{nick_e}:#{title}(#{value}[#{diceText}]) ＞ #{message}"
 
     return output, secret
   end
