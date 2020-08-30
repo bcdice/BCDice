@@ -76,7 +76,6 @@ class BCDice
     return if  diceBot.nil?
 
     @diceBot = diceBot
-    @diceBot.bcdice = self
   end
 
   # @todo ircClient経由でなく直接メッセージを返すようにする
@@ -302,6 +301,9 @@ class BCDice
     output, secret = rollD66(arg)
     return output, secret unless output.nil?
 
+    output, secret = checkCalc(arg)
+    return output, secret unless output.nil?
+
     output, secret = checkAddRoll(arg)
     return output, secret unless output.nil?
 
@@ -320,6 +322,17 @@ class BCDice
     output = '1'
     secret = false
     return output, secret
+  end
+
+  def checkCalc(command)
+    m = /^(S)?C(-?\d+)$/.match(command)
+    unless m
+      return nil
+    end
+
+    secret = !m[1].nil?
+    value = m[2]
+    return ": 計算結果 ＞ #{value}", secret
   end
 
   def checkAddRoll(arg)

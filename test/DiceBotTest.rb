@@ -2,7 +2,6 @@
 
 require 'bcdiceCore'
 require 'bcdice/game_system/DiceBotLoader'
-require 'cgiDiceBot'
 require 'DiceBotTestData'
 
 class DiceBotTest
@@ -14,8 +13,6 @@ class DiceBotTest
 
     @dataDir = "#{testBaseDir}/data"
     @tableDir = "#{testBaseDir}/../../extratables"
-
-    @bot = CgiDiceBot.new
 
     @testDataSet = []
     @errorLog = []
@@ -109,7 +106,7 @@ class DiceBotTest
         print('E')
 
         # テスト失敗、次へ
-        next
+        break
       end
 
       # テスト成功
@@ -122,12 +119,13 @@ class DiceBotTest
   # ダイスコマンドを実行する
   def executeCommand(testData)
     rands = testData.rands
-    @bot.setRandomValues(rands)
-    @bot.setTest
+    @bot = load_dicebot(testData.gameType)
+    @bot.bcdice.setRandomValues(rands)
+    @bot.bcdice.setTest(true)
 
     result = ''
     testData.input.each do |message|
-      result += @bot.roll(message, testData.gameType, @tableDir).first
+      result += @bot.eval(message)
     end
 
     unless rands.empty?
@@ -136,6 +134,16 @@ class DiceBotTest
     end
 
     result
+  end
+
+  def load_dicebot(game_system)
+    loader = DiceBotLoaderList.find(game_system)
+
+    if loader
+      loader.loadDiceBot
+    else
+      DiceBotLoader.loadUnknownGame(game_system) || DiceBot.new
+    end
   end
 
   # 期待された出力と異なる場合のログ文字列を返す

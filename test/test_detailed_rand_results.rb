@@ -71,11 +71,9 @@ class TestDetailedRandResults < Test::Unit::TestCase
 
   def test_coc7th
     dicebot = DiceBotLoader.loadUnknownGame("Cthulhu7th")
-    @bcdice.setDiceBot(dicebot)
+    @bcdice = dicebot.bcdice
     @bcdice.setRandomValues([[5, 10], [6, 10], [7, 10], [4, 10]])
-
-    @bcdice.setMessage("CC(2)")
-    @bcdice.dice_command
+    dicebot.eval("CC(2)")
 
     details = @bcdice.detailed_rand_results
     assert_equal(4, details.size)

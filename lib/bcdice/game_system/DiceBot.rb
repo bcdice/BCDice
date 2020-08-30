@@ -61,8 +61,6 @@ class DiceBot
 
   clearPrefixes
 
-  @@bcdice = nil
-
   def initialize
     @sortType = 0 # ソート設定(1 = 足し算ダイスでソート有, 2 = バラバラロール（Bコマンド）でソート有, 3 = １と２両方ソート有）
     @sameDiceRerollCount = 0 # ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
@@ -75,12 +73,31 @@ class DiceBot
     @defaultSuccessTarget = "" # 目標値が空欄の時の目標値
     @rerollLimitCount = 10000 # 振り足し回数上限
     @fractionType = "omit" # 端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
+    @bcdice = BCDice.new(self)
 
     if !prefixs.empty? && self.class.prefixes.empty?
       # 従来の方法（#prefixs）で接頭辞を設定していた場合でも
       # クラス側に接頭辞が設定されるようにする
       warn("#{id}: #prefixs is deprecated. Please use .setPrefixes.")
       self.class.setPrefixes(prefixs)
+    end
+  end
+
+  def eval(command)
+    @bcdice.setMessage(command)
+    @bcdice.setCollectRandResult(true)
+
+    result, secret = @bcdice.dice_command
+    if secret
+      result += "###secret dice###"
+    end
+
+    display_id = id.sub(/:.+$/, '') # 多言語対応用
+
+    if result == "1"
+      return ""
+    else
+      return [display_id, result].join(" ")
     end
   end
 
@@ -169,28 +186,22 @@ class DiceBot
 
   attr_writer :upperRollThreshold
 
-  def bcdice=(b)
-    @@bcdice = b
-  end
-
-  def bcdice
-    @@bcdice
-  end
+  attr_reader :bcdice
 
   def rand(max)
-    @@bcdice.rand(max)
+    @bcdice.rand(max)
   end
 
   def roll(*args)
-    @@bcdice.roll(*args)
+    @bcdice.roll(*args)
   end
 
   def marshalSignOfInequality(*args)
-    @@bcdice.marshalSignOfInequality(*args)
+    @bcdice.marshalSignOfInequality(*args)
   end
 
   def unlimitedRollDiceType
-    @@bcdice.unlimitedRollDiceType
+    @bcdice.unlimitedRollDiceType
   end
 
   attr_reader :sortType
@@ -200,11 +211,11 @@ class DiceBot
   end
 
   def d66(*args)
-    @@bcdice.getD66Value(*args)
+    @bcdice.getD66Value(*args)
   end
 
   def parren_killer(string)
-    @@bcdice.parren_killer(string)
+    @bcdice.parren_killer(string)
   end
 
   def changeText(string)
@@ -213,7 +224,7 @@ class DiceBot
   end
 
   def dice_command(string, nick_e)
-    string = @@bcdice.getOriginalMessage if isGetOriginalMessage
+    string = @bcdice.getOriginalMessage if isGetOriginalMessage
 
     debug('dice_command Begin string', string)
     secret_flg = false
@@ -523,7 +534,7 @@ class DiceBot
       end
 
     text = text.gsub("\\n", "\n")
-    text = @@bcdice.rollTableMessageDiceText(text)
+    text = @bcdice.rollTableMessageDiceText(text)
 
     return nil if text.nil?
 
