@@ -25,23 +25,19 @@ INFO_MESSAGE_TEXT
   end
 
   # シャドウラン4版用グリッチ判定
-  def getGrichText(numberSpot1, dice_cnt_total, successCount)
-    debug("getGrichText numberSpot1", numberSpot1)
-    debug("dice_cnt_total", dice_cnt_total)
-    debug("successCount", successCount)
-
+  def grich_text(numberSpot1, dice_cnt_total, successCount)
     dice_cnt_total_half = (1.0 * dice_cnt_total / 2)
     debug("dice_cnt_total_half", dice_cnt_total_half)
 
     unless numberSpot1 >= dice_cnt_total_half
-      return ''
+      return nil
     end
 
     # グリッチ！
     if successCount == 0
-      return ' ＞ クリティカルグリッチ'
+      'クリティカルグリッチ'
+    else
+      'グリッチ'
     end
-
-    return ' ＞ グリッチ'
   end
 end

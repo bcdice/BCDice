@@ -76,13 +76,11 @@ class RerollDice
       end
     end
 
-    grich_text = @diceBot.getGrichText(one_count, dice_total_count, success_count)
-
     sequence = [
       expr(),
       dice_str_list.join(" + "),
       "成功数#{success_count}",
-      trim_prefix(" ＞ ", grich_text),
+      @diceBot.grich_text(one_count, dice_total_count, success_count),
     ].compact
 
     return "#{@nick_e}: #{sequence.join(' ＞ ')}"

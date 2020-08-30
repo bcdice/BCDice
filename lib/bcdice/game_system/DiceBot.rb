@@ -444,9 +444,7 @@ class DiceBot
   end
 
   # シャドウラン4版用グリッチ判定
-  def getGrichText(_numberSpot1, _dice_cnt_total, _suc)
-    ''
-  end
+  def grich_text(_numberSpot1, _dice_cnt_total, _suc); end
 
   # 振り足しを行うべきかを返す
   # @param [Integer] loop_count ループ数

@@ -106,7 +106,7 @@ class DiceBotTest
         print('E')
 
         # テスト失敗、次へ
-        break
+        next
       end
 
       # テスト成功
