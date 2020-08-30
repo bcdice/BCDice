@@ -139,8 +139,6 @@ Style/FormatStringToken:
 # Configuration parameters: AllowedVariables.
 Style/GlobalVars:
   Exclude:
-    - 'lib/CardTrader.rb'
-    - 'lib/CountHolder.rb'
     - 'lib/bcdiceCore.rb'
     - 'lib/configBcDice.rb'
     - 'lib/log.rb'
@@ -154,7 +152,6 @@ Style/GlobalVars:
 # Configuration parameters: AllowIfModifier.
 Style/IfInsideElse:
   Exclude:
-    - 'lib/CountHolder.rb'
     - 'lib/bcdice/game_system/Alsetto.rb'
     - 'lib/bcdice/game_system/Cthulhu.rb'
     - 'lib/bcdice/game_system/Cthulhu7th.rb'

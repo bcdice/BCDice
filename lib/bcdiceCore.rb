@@ -3,7 +3,6 @@
 
 require 'log'
 require 'configBcDice.rb'
-require 'CountHolder.rb'
 require 'utils/ArithmeticEvaluator.rb'
 
 $secretRollMembersHolder = {}
@@ -145,53 +144,8 @@ class BCDice
 
     debug("@nick_e, @tnick", @nick_e, @tnick)
 
-    # ポイントカウンター関係
-    executePointCounter
-
     # プロット入力処理
     addPlot(@messageOriginal.clone)
-  end
-
-  def executePointCounter
-    arg = @messages
-    debug("executePointCounter arg", arg)
-
-    unless arg =~ /^#/
-      debug("executePointCounter is NOT matched")
-      return
-    end
-
-    channel = getPrintPlotChannel(@nick_e)
-    debug("getPrintPlotChannel get channel", channel)
-
-    if channel == "1"
-      sendMessageToOnlySender("表示チャンネルが登録されていません")
-      return
-    end
-
-    arg += "->#{@tnick}" unless @tnick.empty?
-
-    pointerMode = :sameNick
-    output, pointerMode = countHolder.executeCommand(arg, @nick_e, channel, pointerMode)
-    debug("point_counter_command called, line", __LINE__)
-    debug("output", output)
-    debug("pointerMode", pointerMode)
-
-    if output == "1"
-      debug("executePointCounter point_counter_command output is \"1\"")
-      return
-    end
-
-    case pointerMode
-    when :sameNick
-      debug("executePointCounter:Talkで返事")
-      sendMessageToOnlySender(output)
-    when :sameChannel
-      debug("executePointCounter:publicで返事")
-      sendMessage(channel, output)
-    end
-
-    debug("executePointCounter end")
   end
 
   def addPlot(arg)
@@ -255,9 +209,6 @@ class BCDice
       printSecretRoll()
     end
 
-    # ポイントカウンター関係
-    executePointCounterPublic
-
     # ダイスロールの処理
     executeDiceRoll
 
@@ -313,34 +264,6 @@ class BCDice
       next if diceResult.empty?
 
       sendMessage(@channel, diceResult)
-    end
-  end
-
-  def executePointCounterPublic
-    debug("executePointCounterPublic begin")
-
-    if /^#{$READY_CMD}(\s+|$)/i =~ @message
-      setPrintPlotChannel
-      sendMessageToOnlySender("表示チャンネルを設定しました")
-      return
-    end
-
-    unless /^#/ =~ @message
-      debug("executePointCounterPublic NOT match")
-      return
-    end
-
-    pointerMode = :sameChannel
-    countHolder = CountHolder.new(self, @counterInfos)
-    output, secret = countHolder.executeCommand(@message, @nick_e, @channel, pointerMode)
-    debug("executePointCounterPublic output, secret", output, secret)
-
-    if secret
-      debug("is secret")
-      sendMessageToOnlySender(output) if output != "1"
-    else
-      debug("is NOT secret")
-      sendMessage(@channel, output) if output != "1"
     end
   end
 
