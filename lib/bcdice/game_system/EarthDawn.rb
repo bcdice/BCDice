@@ -23,7 +23,7 @@ INFO_MESSAGE_TEXT
 
   def initialize
     super
-    @sendMode = 2
+
     @sortType = 1
   end
 

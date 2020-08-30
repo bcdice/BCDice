@@ -37,7 +37,7 @@ INFO_MESSAGE_TEXT
     super
 
     # 式、出目ともに送信する
-    @sendMode = 2
+
     # D66ダイスあり（出目をソートしない）
     @d66Type = 1
     # バラバラロール（Bコマンド）でソートする

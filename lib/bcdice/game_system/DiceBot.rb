@@ -63,10 +63,7 @@ class DiceBot
 
   @@bcdice = nil
 
-  DEFAULT_SEND_MODE = 2 # デフォルトの送信形式(0=結果のみ,1=0+式,2=1+ダイス個別)
-
   def initialize
-    @sendMode = DEFAULT_SEND_MODE # (0=結果のみ,1=0+式,2=1+ダイス個別)
     @sortType = 0 # ソート設定(1 = 足し算ダイスでソート有, 2 = バラバラロール（Bコマンド）でソート有, 3 = １と２両方ソート有）
     @sameDiceRerollCount = 0 # ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
     @sameDiceRerollType = 0 # ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
@@ -89,7 +86,7 @@ class DiceBot
 
   attr_accessor :rerollLimitCount
 
-  attr_reader :sendMode, :sameDiceRerollCount, :sameDiceRerollType, :d66Type
+  attr_reader :sameDiceRerollCount, :sameDiceRerollType, :d66Type
   attr_reader :isPrintMaxDice, :upperRollThreshold
   attr_reader :defaultSuccessTarget, :rerollNumber, :fractionType
 
@@ -169,10 +166,6 @@ class DiceBot
 
   # @deprecated 代わりに {#prefixes} を使ってください
   alias prefixs prefixes
-
-  def setSendMode(m)
-    @sendMode = m
-  end
 
   attr_writer :upperRollThreshold
 

@@ -180,7 +180,7 @@ HELP_MESSAGE
     super
 
     # 式、出目ともに送信する
-    @sendMode = 2
+
     # バラバラロール（Bコマンド）でソートする
     @sortType = 1
     # D66ダイスあり（出目をソートしない）

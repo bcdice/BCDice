@@ -29,7 +29,7 @@ INFO_MESSAGE_TEXT
 
   def initialize
     super
-    @sendMode = 2
+
     @fractionType = "roundUp" # 端数切り上げに設定
   end
 

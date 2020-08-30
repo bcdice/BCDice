@@ -30,7 +30,7 @@ INFO_MESSAGE_TEXT
 
   def initialize
     super
-    @sendMode = 2
+
     @sortType = 3
     @defaultSuccessTarget = "6" # 目標値が空欄の時の目標値
   end

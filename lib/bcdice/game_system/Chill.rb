@@ -85,13 +85,7 @@ INFO_MESSAGE_TEXT
       wounds += wounds_wk
     end
 
-    if sendMode > 1
-      output = "#{dice_str} ＞ #{dice_add} ＞ スタミナ損失#{sta_loss}, 負傷#{wounds}"
-    elsif sendMode > 0
-      output = "#{dice_add} ＞ スタミナ損失#{sta_loss}, 負傷#{wounds}"
-    else
-      output = 'スタミナ損失' + sta_loss + ', 負傷' + wounds
-    end
+    output = "#{dice_str} ＞ #{dice_add} ＞ スタミナ損失#{sta_loss}, 負傷#{wounds}"
 
     string += ':' + dice
 

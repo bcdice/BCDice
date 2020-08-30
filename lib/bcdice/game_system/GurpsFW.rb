@@ -73,7 +73,7 @@ INFO_MESSAGE_TEXT
 
   def initialize
     super
-    @sendMode = 2
+
     @d66Type = 1
   end
 

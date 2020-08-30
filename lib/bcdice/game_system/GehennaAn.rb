@@ -26,7 +26,6 @@ INFO_MESSAGE_TEXT
 
   def initialize
     super
-    @sendMode = 3
     @sortType = 3
   end
 

@@ -33,7 +33,7 @@ INFO_MESSAGE_TEXT
 
   def initialize
     super
-    @sendMode = 2
+
     @sortType = 1
     @sameDiceRerollCount = 1
   end
@@ -239,12 +239,8 @@ INFO_MESSAGE_TEXT
       output += bonus.to_s
     end
 
-    if sendMode > 0
-      if output =~ /[^\d\[\]]+/
-        output = "#{nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}"
-      else
-        output = "#{nick_e}: (#{string}) ＞ #{total_n}"
-      end
+    if output =~ /[^\d\[\]]+/
+      output = "#{nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}"
     else
       output = "#{nick_e}: (#{string}) ＞ #{total_n}"
     end

@@ -29,7 +29,6 @@ INFO_MESSAGE_TEXT
 
   def initialize
     super
-    @sendMode = 2
   end
 
   def changeText(string)

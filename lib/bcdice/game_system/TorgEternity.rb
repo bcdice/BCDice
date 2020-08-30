@@ -43,7 +43,6 @@ INFO_MESSAGE_TEXT
   setPrefixes(['(TE.*|UP.*|POS.*|\d+BD.*|TG.*|RT.*|Result.*|DT.*|damage.*|BT.*|bonus.*|total.*)'])
   def initialize
     super
-    @sendMode = 2
   end
 
   def rollDiceCommand(command)

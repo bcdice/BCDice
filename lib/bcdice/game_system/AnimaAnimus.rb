@@ -32,7 +32,6 @@ MESSAGETEXT
 
   def initialize
     super
-    @sendMode = 2
   end
 
   def rollDiceCommand(command)

@@ -38,7 +38,7 @@ MESSAGETEXT
 
   def initialize
     super
-    @sendMode = 2
+
     @sortType = 1
     @d66Type = 1
     @fractionType = "omit"

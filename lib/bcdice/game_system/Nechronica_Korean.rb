@@ -25,7 +25,7 @@ INFO_MESSAGE_TEXT
 
   def initialize
     super
-    @sendMode = 2
+
     @sortType = 3
     @defaultSuccessTarget = "6" # 목표치가 딱히 없을때의 난이도
   end
