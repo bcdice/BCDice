@@ -30,7 +30,7 @@ class BCDiceMaker
   attr_accessor :diceBotPath
 
   def newBcDice
-    bcdice = BCDice.new(self, @diceBot, @counterInfos, @tableFileData)
+    bcdice = BCDice.new(@diceBot, @counterInfos, @tableFileData)
 
     return bcdice
   end
@@ -54,9 +54,7 @@ class BCDice
   # @return [String] メッセージ送信者のニックネーム
   attr_reader :nick_e
 
-  def initialize(parent, diceBot, counterInfos, tableFileData)
-    @parent = parent
-
+  def initialize(diceBot, counterInfos, tableFileData)
     setDiceBot(diceBot)
 
     @counterInfos = counterInfos
