@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require "diceBot/MeikyuKingdom"
+require "bcdice/game_system/MeikyuKingdom"
 require "utils/table"
 
 class MeikyuKingdomBasic < MeikyuKingdom

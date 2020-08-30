@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/Torg'
+require 'bcdice/game_system/Torg'
 
 class Torg1_5 < Torg
   # ゲームシステムの識別子

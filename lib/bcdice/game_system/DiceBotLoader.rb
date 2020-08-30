@@ -129,7 +129,7 @@ class DiceBotLoader
   #   DiceBotLoader.new('Elysion')
   #
   # * マッチするタイトルは 'Elysion'（大文字小文字区別なし）
-  # * 読み込むダイスボットファイルは diceBot/Elysion.rb（大文字小文字区別あり）
+  # * 読み込むダイスボットファイルは bcdice/game_system/Elysion.rb（大文字小文字区別あり）
   # * ダイスボットのクラス名は Elysion（大文字小文字区別あり）
   #
   # == gameTitlePatternが文字列の配列の場合
@@ -139,7 +139,7 @@ class DiceBotLoader
   #   DiceBotLoader.new(%w(Cthulhu COC))
   #
   # * マッチするタイトルは 'Cthulhu', 'COC'（大文字小文字区別なし）
-  # * 読み込むダイスボットファイルは、最初に指定した diceBot/Cthulhu.rb（大文字小文字区別あり）
+  # * 読み込むダイスボットファイルは、最初に指定した bcdice/game_system/Cthulhu.rb（大文字小文字区別あり）
   #   * 最初が正式名称、以下が別名というイメージ
   # * ダイスボットのクラス名は Cthulhu（大文字小文字区別あり）
   #
@@ -153,7 +153,7 @@ class DiceBotLoader
   #   DiceBotLoader.new(%w(Elric EL), :filenames => %w(Elric))
   #
   # * マッチするタイトルは 'Elric', 'EL'（大文字小文字区別なし）
-  # * 読み込むダイスボットファイルは diceBot/Elric.rb（大文字小文字区別あり）
+  # * 読み込むダイスボットファイルは bcdice/game_system/Elric.rb（大文字小文字区別あり）
   # * ダイスボットのクラス名は :filenames で最初に指定した Elric（大文字小文字区別あり）
   #
   # = オプション引数として :filenames と :class を渡す場合
@@ -170,8 +170,8 @@ class DiceBotLoader
   #
   # * 正規表現 /\A(?:Parasite\s*Blood|PB)\z/i と指定されたタイトルをマッチさせる
   # * 読み込むダイスボットファイルは、大文字小文字区別ありで
-  #   * diceBot/DemonParasite.rb
-  #   * diceBot/ParasiteBlood.rb
+  #   * bcdice/game_system/DemonParasite.rb
+  #   * bcdice/game_system/ParasiteBlood.rb
   # * ダイスボットのクラス名は ParasiteBlood（大文字小文字区別あり）
   def initialize(gameTitlePattern, options = {})
     case gameTitlePattern

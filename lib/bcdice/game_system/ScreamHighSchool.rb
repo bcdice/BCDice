@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/GardenOrder'
+require 'bcdice/game_system/GardenOrder'
 
 class ScreamHighSchool < GardenOrder
   # ゲームシステムの識別子

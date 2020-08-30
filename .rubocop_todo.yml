@@ -12,17 +12,17 @@
 # SupportedStylesForExponentOperator: space, no_space
 Layout/SpaceAroundOperators:
   Exclude:
-    - 'lib/diceBot/EarthDawn.rb'
-    - 'lib/diceBot/FilledWith.rb'
-    - 'lib/diceBot/Gurps.rb'
-    - 'lib/diceBot/GurpsFW.rb'
-    - 'lib/diceBot/SharedFantasia.rb'
+    - 'lib/bcdice/game_system/EarthDawn.rb'
+    - 'lib/bcdice/game_system/FilledWith.rb'
+    - 'lib/bcdice/game_system/Gurps.rb'
+    - 'lib/bcdice/game_system/GurpsFW.rb'
+    - 'lib/bcdice/game_system/SharedFantasia.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 Lint/LiteralInInterpolation:
   Exclude:
-    - 'lib/diceBot/GurpsFW.rb'
+    - 'lib/bcdice/game_system/GurpsFW.rb'
 
 # Offense count: 75
 Lint/UselessAssignment:
@@ -111,7 +111,7 @@ Naming/MethodParameterName:
 # IgnoredMethods: lambda, proc, it
 Style/BlockDelimiters:
   Exclude:
-    - 'lib/diceBot/SRS.rb'
+    - 'lib/bcdice/game_system/SRS.rb'
 
 # Offense count: 120
 # Cop supports --auto-correct.
@@ -122,18 +122,18 @@ Style/CaseEquality:
 # Offense count: 2
 Style/ClassVars:
   Exclude:
-    - 'lib/diceBot/DiceBot.rb'
+    - 'lib/bcdice/game_system/DiceBot.rb'
 
 # Offense count: 11
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: annotated, template, unannotated
 Style/FormatStringToken:
   Exclude:
-    - 'lib/diceBot/AFF2e.rb'
-    - 'lib/diceBot/DeadlineHeroes.rb'
-    - 'lib/diceBot/ShinMegamiTenseiKakuseihen.rb'
-    - 'lib/diceBot/TorgEternity.rb'
-    - 'lib/diceBot/TunnelsAndTrolls.rb'
+    - 'lib/bcdice/game_system/AFF2e.rb'
+    - 'lib/bcdice/game_system/DeadlineHeroes.rb'
+    - 'lib/bcdice/game_system/ShinMegamiTenseiKakuseihen.rb'
+    - 'lib/bcdice/game_system/TorgEternity.rb'
+    - 'lib/bcdice/game_system/TunnelsAndTrolls.rb'
 
 # Offense count: 86
 # Configuration parameters: AllowedVariables.
@@ -155,23 +155,23 @@ Style/GlobalVars:
 Style/IfInsideElse:
   Exclude:
     - 'lib/CountHolder.rb'
-    - 'lib/diceBot/Alsetto.rb'
-    - 'lib/diceBot/Cthulhu.rb'
-    - 'lib/diceBot/Cthulhu7th.rb'
-    - 'lib/diceBot/Cthulhu7th_ChineseTraditional.rb'
-    - 'lib/diceBot/Cthulhu7th_Korean.rb'
-    - 'lib/diceBot/Cthulhu_ChineseTraditional.rb'
-    - 'lib/diceBot/Cthulhu_Korean.rb'
-    - 'lib/diceBot/GurpsFW.rb'
-    - 'lib/diceBot/SharedFantasia.rb'
+    - 'lib/bcdice/game_system/Alsetto.rb'
+    - 'lib/bcdice/game_system/Cthulhu.rb'
+    - 'lib/bcdice/game_system/Cthulhu7th.rb'
+    - 'lib/bcdice/game_system/Cthulhu7th_ChineseTraditional.rb'
+    - 'lib/bcdice/game_system/Cthulhu7th_Korean.rb'
+    - 'lib/bcdice/game_system/Cthulhu_ChineseTraditional.rb'
+    - 'lib/bcdice/game_system/Cthulhu_Korean.rb'
+    - 'lib/bcdice/game_system/GurpsFW.rb'
+    - 'lib/bcdice/game_system/SharedFantasia.rb'
 
 # Offense count: 12
 # Cop supports --auto-correct.
 Style/RandomWithOffset:
   Exclude:
     - 'lib/bcdiceCore.rb'
-    - 'lib/diceBot/ArsMagica.rb'
-    - 'lib/diceBot/MeikyuKingdom.rb'
+    - 'lib/bcdice/game_system/ArsMagica.rb'
+    - 'lib/bcdice/game_system/MeikyuKingdom.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

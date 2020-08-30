@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/ShadowRun4'
+require 'bcdice/game_system/ShadowRun4'
 
 class ShadowRun5 < ShadowRun4
   # ゲームシステムの識別子

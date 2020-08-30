@@ -7,8 +7,8 @@ end
 
 require 'test/unit'
 require 'bcdiceCore'
-require 'diceBot/DiceBotLoader'
-require 'diceBot/DiceBotLoaderList'
+require 'bcdice/game_system/DiceBotLoader'
+require 'bcdice/game_system/DiceBotLoaderList'
 
 # ダイスボット読み込みのテスト
 #
@@ -18,7 +18,7 @@ require 'diceBot/DiceBotLoaderList'
 # 4. ダイスボットファイルを置いただけで読み込めることを確認するテストケース
 class TestDiceBotLoaders < Test::Unit::TestCase
   # ダイスボットのディレクトリ
-  DICE_BOT_DIR = File.expand_path('../lib/diceBot', File.dirname(__FILE__))
+  DICE_BOT_DIR = File.expand_path('../lib/bcdice/game_system', File.dirname(__FILE__))
 
   def setup
     $isDebug = false

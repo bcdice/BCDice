@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/DiceBot'
+require 'bcdice/game_system/DiceBot'
 require 'utils/modifier_formatter'
 require 'utils/ArithmeticEvaluator'
 

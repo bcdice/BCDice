@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require "diceBot/Cthulhu7th"
+require "bcdice/game_system/Cthulhu7th"
 
 class PulpCthulhu < Cthulhu7th
   # ゲームシステムの識別子

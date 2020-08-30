@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/EarthDawn'
+require 'bcdice/game_system/EarthDawn'
 
 class EarthDawn3 < EarthDawn
   # ゲームシステムの識別子

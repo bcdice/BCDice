@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/Gundog'
+require 'bcdice/game_system/Gundog'
 
 class GundogRevised < DiceBot
   # ゲームシステムの識別子

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/SwordWorld2_0'
+require 'bcdice/game_system/SwordWorld2_0'
 
 class SwordWorld2_5 < SwordWorld2_0
   # ゲームシステムの識別子

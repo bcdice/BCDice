@@ -13,9 +13,9 @@ $point_counter = {}
 
 require 'CardTrader'
 require 'TableFileData'
-require 'diceBot/DiceBot'
-require 'diceBot/DiceBotLoader'
-require 'diceBot/DiceBotLoaderList'
+require 'bcdice/game_system/DiceBot'
+require 'bcdice/game_system/DiceBotLoader'
+require 'bcdice/game_system/DiceBotLoaderList'
 require 'dice/AddDice'
 require 'dice/UpperDice'
 require 'dice/RerollDice'

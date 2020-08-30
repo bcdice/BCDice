@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/SRS'
+require 'bcdice/game_system/SRS'
 
 # 世界樹の迷宮SRSのダイスボット
 class EtrianOdysseySRS < SRS

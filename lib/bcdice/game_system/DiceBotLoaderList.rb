@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/DiceBotLoader'
+require 'bcdice/game_system/DiceBotLoader'
 
 # setGameByTitleで使用する読み込み処理のリスト
 class DiceBotLoaderList

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/DemonParasite'
+require 'bcdice/game_system/DemonParasite'
 
 class ParasiteBlood < DemonParasite
   # ゲームシステムの識別子

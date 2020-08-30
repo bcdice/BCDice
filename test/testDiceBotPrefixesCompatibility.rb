@@ -6,7 +6,7 @@ unless $:.include?(dodontof_root)
 end
 
 require 'test/unit'
-require 'diceBot/DiceBot'
+require 'bcdice/game_system/DiceBot'
 
 class TestDiceBotPrefixesCompatibility < Test::Unit::TestCase
   def test_prefixesCompatibility

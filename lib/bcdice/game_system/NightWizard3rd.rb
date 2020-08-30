@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/NightWizard'
+require 'bcdice/game_system/NightWizard'
 
 class NightWizard3rd < NightWizard
   # ゲームシステム名

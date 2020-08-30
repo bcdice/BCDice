@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'diceBot/DungeonsAndDragons'
+require 'bcdice/game_system/DungeonsAndDragons'
 
 class Pathfinder < DungeonsAndDragons
   # ゲームシステムの識別子

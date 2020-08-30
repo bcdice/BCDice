@@ -4,7 +4,7 @@
 require 'utils/ArithmeticEvaluator'
 require 'utils/modifier_formatter'
 
-require 'diceBot/SwordWorld'
+require 'bcdice/game_system/SwordWorld'
 
 class SwordWorld2_0 < SwordWorld
   # ゲームシステムの識別子
