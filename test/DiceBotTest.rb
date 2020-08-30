@@ -42,10 +42,8 @@ class DiceBotTest
 
       true
     else
-      errorLog = $RUBY18_WIN ? @errorLog.map(&:tosjis) : @errorLog
-
       puts('[Failures]')
-      puts(errorLog.join("\n===========================\n"))
+      puts(@errorLog.join("\n===========================\n"))
 
       false
     end
@@ -66,12 +64,7 @@ class DiceBotTest
     targetFiles.each do |filename|
       next if /^_/ === File.basename(filename)
 
-      source =
-        if RUBY_VERSION < '1.9'
-          File.read(filename)
-        else
-          File.read(filename, :encoding => 'UTF-8')
-        end
+      source = File.read(filename, :encoding => 'UTF-8')
 
       dataSetSources = source.
                        gsub("\r\n", "\n").
@@ -83,14 +76,8 @@ class DiceBotTest
       gameType = File.basename(filename, '.txt')
 
       dataSet =
-        if RUBY_VERSION < '1.9'
-          dataSetSources.each_with_index.map do |dataSetSource, i|
-            DiceBotTestData.parse(dataSetSource, gameType, i + 1)
-          end
-        else
-          dataSetSources.map.with_index(1) do |dataSetSource, i|
-            DiceBotTestData.parse(dataSetSource, gameType, i)
-          end
+        dataSetSources.map.with_index(1) do |dataSetSource, i|
+          DiceBotTestData.parse(dataSetSource, gameType, i)
         end
 
       @testDataSet +=

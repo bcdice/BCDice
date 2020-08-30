@@ -6,11 +6,9 @@ task :default => :test
 
 desc 'Clean coverage resuts'
 task :clean_coverage do
-  if RUBY_VERSION > '1.8.x'
-    require 'simplecov'
-    resultset_path = SimpleCov::ResultMerger.resultset_path
-    FileUtils.rm resultset_path if File.exist? resultset_path
-  end
+  require 'simplecov'
+  resultset_path = SimpleCov::ResultMerger.resultset_path
+  FileUtils.rm resultset_path if File.exist? resultset_path
 end
 
 desc 'Release BCDice'
@@ -65,12 +63,9 @@ namespace :test do
       'test/',
       'lib/',
     ]
-
-    unless RUBY_VERSION < '1.9'
-      t.ruby_opts = [
-        '--enable-frozen-string-literal'
-      ]
-    end
+    t.ruby_opts = [
+      '--enable-frozen-string-literal'
+    ]
   end
 
   Rake::TestTask.new(:unit) do |t|
@@ -97,18 +92,16 @@ task :test => [
   'test:unit',
 ]
 
-if RUBY_VERSION >= '2.3'
-  require 'rubocop/rake_task'
-  RuboCop::RakeTask.new
-  task :test => [:rubocop] if ENV['CI'] != 'true'
+require 'rubocop/rake_task'
+RuboCop::RakeTask.new
+task :test => [:rubocop] if ENV['CI'] != 'true'
 
-  require 'yard'
-  require 'yard/rake/yardoc_task'
+require 'yard'
+require 'yard/rake/yardoc_task'
 
-  YARD::Rake::YardocTask.new do |t|
-    t.files = [
-      'src/**/*.rb'
-    ]
-    t.options = []
-  end
+YARD::Rake::YardocTask.new do |t|
+  t.files = [
+    'src/**/*.rb'
+  ]
+  t.options = []
 end
