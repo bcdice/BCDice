@@ -5,11 +5,6 @@ require 'log'
 require 'configBcDice.rb'
 require 'utils/ArithmeticEvaluator.rb'
 
-$secretRollMembersHolder = {}
-$secretDiceResultHolder = {}
-$plotPrintChannels = {}
-$point_counter = {}
-
 require 'bcdice/game_system/DiceBot'
 require 'bcdice/game_system/DiceBotLoader'
 require 'bcdice/game_system/DiceBotLoaderList'
@@ -63,10 +58,6 @@ class BCDice
     @detailed_rand_results = []
   end
 
-  def isKeepSecretDice(b)
-    @isKeepSecretDice = b
-  end
-
   # @deprecated {#diceBot} からゲームシステムIDを得るようにする。
   def getGameType
     @diceBot.id
@@ -76,11 +67,6 @@ class BCDice
     return if  diceBot.nil?
 
     @diceBot = diceBot
-  end
-
-  # @todo ircClient経由でなく直接メッセージを返すようにする
-  def setIrcClient(client)
-    @ircClient = client
   end
 
   def setMessage(message)
@@ -109,174 +95,6 @@ class BCDice
   # 直接TALKでは大文字小文字を考慮したいのでここでオリジナルの文字列に変更
   def changeMessageOriginal
     @message = @messageOriginal
-  end
-
-  def recieveMessage(nick_e, tnick)
-    recieveMessageCatched(nick_e, tnick)
-  rescue StandardError => e
-    printErrorMessage(e)
-  end
-
-  def printErrorMessage(e)
-    sendMessageToOnlySender("error " + e.to_s + e.backtrace.join("\n"))
-  end
-
-  def recieveMessageCatched(nick_e, tnick)
-    debug('recieveMessage nick_e, tnick', nick_e, tnick)
-
-    @nick_e = nick_e
-
-    @tnick = tnick
-
-    debug("@nick_e, @tnick", @nick_e, @tnick)
-
-    # プロット入力処理
-    addPlot(@messageOriginal.clone)
-  end
-
-  def addPlot(arg)
-    debug("addPlot begin arg", arg)
-
-    unless /#{$ADD_PLOT}[:：](.+)/i =~ arg
-      debug("addPlot exit")
-      return
-    end
-    plot = Regexp.last_match(1)
-
-    channel = getPrintPlotChannel(@nick_e)
-
-    debug('addPlot channel', channel)
-
-    if channel.nil?
-      debug('channel.nil?')
-      sendMessageToOnlySender("プロット出力先が登録されていません")
-    else
-      debug('addToSecretDiceResult calling...')
-      addToSecretDiceResult(plot, channel, 1)
-      sendMessage(channel, "#{@nick_e} さんがプロットしました")
-    end
-  end
-
-  def getPrintPlotChannel(nick)
-    nick = getNick(nick)
-    return $plotPrintChannels[nick]
-  end
-
-  def setChannel(channel)
-    debug("setChannel called channel", channel)
-    @channel = channel
-  end
-
-  def recievePublicMessage(nick_e)
-    recievePublicMessageCatched(nick_e)
-  rescue StandardError => e
-    printErrorMessage(e)
-  end
-
-  def recievePublicMessageCatched(nick_e)
-    debug("recievePublicMessageCatched begin nick_e", nick_e)
-    debug("recievePublicMessageCatched @channel", @channel)
-    debug("recievePublicMessageCatched @message", @message)
-
-    @nick_e = nick_e
-
-    # プロットやシークレットダイス用に今のチャンネル名を記憶
-    setChannelForPlotOrSecretDice
-
-    # プロットの表示
-    if /(^|\s+)#{$OPEN_PLOT}(\s+|$)/i =~ @message
-      debug('print plot', @message)
-      printPlot()
-    end
-
-    # シークレットロールの表示
-    if /(^|\s+)#{$OPEN_DICE}(\s+|$)/i =~ @message
-      debug('print secret roll', @message)
-      printSecretRoll()
-    end
-
-    # ダイスロールの処理
-    executeDiceRoll
-
-    # 四則計算代行
-    if /(^|\s)C([-\d]+)\s*$/i =~ @message
-      output = Regexp.last_match(2)
-      if output != ""
-        sendMessage(@channel, "#{@nick_e}: 計算結果 ＞ #{output}")
-      end
-    end
-
-    # ここから大文字・小文字を考慮するようにメッセージを変更
-    changeMessageOriginal
-
-    debug("\non_public end")
-  end
-
-  def printPlot
-    debug("printPlot begin")
-    messageList = openSecretRoll(@channel, 1)
-    debug("messageList", messageList)
-
-    messageList.each do |message|
-      if message.empty?
-        debug("message is empty")
-        setPrintPlotChannel
-      else
-        debug("message", message)
-        sendMessage(@channel, message)
-      end
-    end
-  end
-
-  def setChannelForPlotOrSecretDice
-    debug("setChannelForPlotOrSecretDice Begin")
-
-    return if isTalkChannel
-
-    channel = getPrintPlotChannel(@nick_e)
-    if channel.nil?
-      setPrintPlotChannel
-    end
-  end
-
-  def isTalkChannel
-    !(/^#/ === @channel)
-  end
-
-  def printSecretRoll
-    outputs = openSecretRoll(@channel, 0)
-
-    outputs.each do |diceResult|
-      next if diceResult.empty?
-
-      sendMessage(@channel, diceResult)
-    end
-  end
-
-  def executeDiceRoll
-    debug("executeDiceRoll begin")
-    debug("channel", @channel)
-
-    output, secret = dice_command
-
-    unless  secret
-      debug("executeDiceRoll @channel", @channel)
-      sendMessage(@channel,  output) if output != "1"
-      return
-    end
-
-    # 隠しロール
-    return if output == "1"
-
-    if @isTest
-      output += "###secret dice###"
-    end
-
-    broadmsg(output, @nick_e)
-
-    if @isKeepSecretDice
-      addToSecretDiceResult(output, @channel, 0)
-    end
   end
 
   def setTest(isTest)
@@ -772,44 +590,6 @@ class BCDice
     return output
   end
 
-  ####################        その他ダイス関係      ########################
-  def openSecretRoll(channel, mode)
-    debug("openSecretRoll begin")
-    channel = channel.upcase
-
-    messages = []
-
-    memberKey = getSecretRollMembersHolderKey(channel, mode)
-    members = $secretRollMembersHolder[memberKey]
-
-    if members.nil?
-      debug("openSecretRoll members is nil. messages", messages)
-      return messages
-    end
-
-    members.each do |member|
-      diceResultKey = getSecretDiceResultHolderKey(channel, mode, member)
-      debug("openSecretRoll diceResulyKey", diceResultKey)
-
-      diceResult = $secretDiceResultHolder[diceResultKey]
-      debug("openSecretRoll diceResult", diceResult)
-
-      if diceResult
-        messages.push(diceResult)
-        $secretDiceResultHolder.delete(diceResultKey)
-      end
-    end
-
-    if mode <= 0 # 記録しておいたデータを削除
-      debug("delete recorde data")
-      $secretRollMembersHolder.delete(channel)
-    end
-
-    debug("openSecretRoll result messages", messages)
-
-    return messages
-  end
-
   def getNick(nick = nil)
     nick ||= @nick_e
     nick = nick.upcase
@@ -819,57 +599,6 @@ class BCDice
     end
 
     return nick
-  end
-
-  def addToSecretDiceResult(diceResult, channel, mode)
-    channel = channel.upcase
-
-    # まずはチャンネルごとの管理リストに追加
-    addToSecretRollMembersHolder(channel, mode)
-
-    # 次にダイスの出力結果を保存
-    saveSecretDiceResult(diceResult, channel, mode)
-  end
-
-  def addToSecretRollMembersHolder(channel, mode)
-    key = getSecretRollMembersHolderKey(channel, mode)
-
-    $secretRollMembersHolder[key] ||= []
-    members = $secretRollMembersHolder[key]
-
-    nick = getNick()
-
-    unless members.include?(nick)
-      members.push(nick)
-    end
-  end
-
-  def getSecretRollMembersHolderKey(channel, mode)
-    "#{mode},#{channel}"
-  end
-
-  def saveSecretDiceResult(diceResult, channel, mode)
-    nick = getNick()
-
-    if mode != 0
-      diceResult = "#{nick}: #{diceResult}" # プロットにNickを追加
-    end
-
-    key = getSecretDiceResultHolderKey(channel, mode, nick)
-    $secretDiceResultHolder[key] = diceResult # 複数チャンネルも一応想定
-
-    debug("key", key)
-    debug("secretDiceResultHolder", $secretDiceResultHolder)
-  end
-
-  def getSecretDiceResultHolderKey(channel, mode, nick)
-    key = "#{mode},#{channel},#{nick}"
-    return key
-  end
-
-  def setPrintPlotChannel
-    nick = getNick()
-    $plotPrintChannels[nick] = @channel
   end
 
   #==========================================================================
@@ -964,40 +693,6 @@ class BCDice
     end
 
     return suc
-  end
-
-  ###########################################################################
-  # **                              出力関連
-  ###########################################################################
-
-  def broadmsg(output, nick)
-    debug("broadmsg output, nick", output, nick)
-    debug("@nick_e", @nick_e)
-
-    if output == "1"
-      return
-    end
-
-    if  nick == @nick_e
-      sendMessageToOnlySender(output)
-    else
-      sendMessage(nick, output)
-    end
-  end
-
-  def sendMessage(to, message)
-    debug("sendMessage to, message", to, message)
-    @ircClient.sendMessage(to, message)
-  end
-
-  def sendMessageToOnlySender(message)
-    debug("sendMessageToOnlySender message", message)
-    debug("@nick_e", @nick_e)
-    @ircClient.sendMessageToOnlySender(@nick_e, message)
-  end
-
-  def sendMessageToChannels(message)
-    @ircClient.sendMessageToChannels(message)
   end
 
   ####################         テキスト前処理        ########################
