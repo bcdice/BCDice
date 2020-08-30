@@ -11,7 +11,6 @@ $secretDiceResultHolder = {}
 $plotPrintChannels = {}
 $point_counter = {}
 
-require 'CardTrader'
 require 'TableFileData'
 require 'bcdice/game_system/DiceBot'
 require 'bcdice/game_system/DiceBotLoader'
@@ -23,8 +22,6 @@ require 'dice/RerollDice'
 class BCDiceMaker
   def initialize
     @diceBot = DiceBot.new
-    @cardTrader = CardTrader.new
-    @cardTrader.initValues
 
     @counterInfos = {}
     @tableFileData = TableFileData.new
@@ -34,7 +31,7 @@ class BCDiceMaker
   attr_accessor :diceBotPath
 
   def newBcDice
-    bcdice = BCDice.new(self, @cardTrader, @diceBot, @counterInfos, @tableFileData)
+    bcdice = BCDice.new(self, @diceBot, @counterInfos, @tableFileData)
 
     return bcdice
   end
@@ -47,9 +44,6 @@ class BCDice
   # @return [DiceBot] 使用するダイスボット
   attr_reader :diceBot
 
-  # @return [CardTrader] カード機能
-  attr_reader :cardTrader
-
   # @return [Array<(Integer, Integer)>] 出目の配列
   attr_reader :rand_results
 
@@ -61,13 +55,11 @@ class BCDice
   # @return [String] メッセージ送信者のニックネーム
   attr_reader :nick_e
 
-  def initialize(parent, cardTrader, diceBot, counterInfos, tableFileData)
+  def initialize(parent, diceBot, counterInfos, tableFileData)
     @parent = parent
 
     setDiceBot(diceBot)
 
-    @cardTrader = cardTrader
-    @cardTrader.setBcDice(self)
     @counterInfos = counterInfos
     @tableFileData = tableFileData
 
@@ -99,10 +91,6 @@ class BCDice
 
     @diceBot = diceBot
     @diceBot.bcdice = self
-  end
-
-  def readExtraCard(cardFileName)
-    @cardTrader.readExtraCard(cardFileName)
   end
 
   # @todo ircClient経由でなく直接メッセージを返すようにする
@@ -152,10 +140,8 @@ class BCDice
     debug('recieveMessage nick_e, tnick', nick_e, tnick)
 
     @nick_e = nick_e
-    @cardTrader.setTnick(@nick_e)
 
     @tnick = tnick
-    @cardTrader.setTnick(@tnick)
 
     debug("@nick_e, @tnick", @nick_e, @tnick)
 
@@ -286,9 +272,6 @@ class BCDice
     # ここから大文字・小文字を考慮するようにメッセージを変更
     changeMessageOriginal
 
-    # カード処理
-    executeCard
-
     debug("\non_public end")
   end
 
@@ -389,14 +372,6 @@ class BCDice
 
   def setTest(isTest)
     @isTest = isTest
-  end
-
-  def executeCard
-    debug('executeCard begin')
-    @cardTrader.setNick(@nick_e)
-    @cardTrader.setTnick(@tnick)
-    @cardTrader.executeCard(@message, @channel)
-    debug('executeCard end')
   end
 
   ###########################################################################
@@ -1196,8 +1171,6 @@ class BCDice
   # @return [String] ゲームを設定したことを示すメッセージ
   def setGameByTitle(gameTitle)
     debug('setGameByTitle gameTitle', gameTitle)
-
-    @cardTrader.initValues
 
     loader = DiceBotLoaderList.find(gameTitle)
     diceBot =

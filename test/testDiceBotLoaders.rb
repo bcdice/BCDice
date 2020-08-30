@@ -230,12 +230,6 @@ class TestDiceBotLoaders < Test::Unit::TestCase
 
   def test_ChaosFlare_cards
     assertDiceBotWithLoader('ChaosFlare', 'ChaosFlare')
-
-    cardTrader = @bcDice.cardTrader
-    assert_equal(2, cardTrader.numOfDecks)
-    assert_equal(2, cardTrader.numOfJokers)
-    assert_equal(0, cardTrader.card_place)
-    assert_equal(false, cardTrader.canTapCard)
   end
 
   def test_CthulhuTech
@@ -372,12 +366,6 @@ class TestDiceBotLoaders < Test::Unit::TestCase
 
   def test_BarnaKronika_cards
     assertDiceBotWithLoader('BarnaKronika', 'Barna Kronika')
-
-    cardTrader = @bcDice.cardTrader
-    assert_equal(1, cardTrader.numOfDecks)
-    assert_equal(2, cardTrader.numOfJokers)
-    assert_equal(0, cardTrader.card_place)
-    assert_equal(false, cardTrader.canTapCard)
   end
 
   def test_RokumonSekai2

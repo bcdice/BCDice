@@ -42,18 +42,6 @@ INFO_MESSAGE_TEXT
 
   setPrefixes(['\d*CF.*', 'FT\d*'])
 
-  # ダイスボット設定後に行う処理
-  # @return [void]
-  def postSet
-    if bcdice
-      bcdice.cardTrader.set2Decks2Jokers
-      # 手札の他のカード置き場
-      bcdice.cardTrader.card_place = 0
-      # 場札のタップ処理の必要があるか？
-      bcdice.cardTrader.canTapCard = false
-    end
-  end
-
   # ゲーム別成功度判定(2D6)。以前の処理をそのまま残しています。
   def check_2D6(total, dice_total, _dice_list, cmp_op, target)
     return '' if target == '?'
