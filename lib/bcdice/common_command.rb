@@ -1,9 +1,10 @@
 require 'bcdice/common_command/barabara_dice'
+require 'bcdice/common_command/calc'
 require 'bcdice/common_command/choice'
 
 class BCDice
   module CommonCommand
-    COMMANDS = [BarabaraDice, Choice].freeze
+    COMMANDS = [BarabaraDice, Calc, Choice].freeze
 
     def self.eval(command, randomizer, game_system)
       COMMANDS.each do |klass|
