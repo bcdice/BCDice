@@ -22,28 +22,30 @@ class GehennaAn < DiceBot
 　幸運の助けを自動処理します。(連撃増加値、闘技チットを表示抑制します)
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['(\d+G\d+|\d+GA\d+)'])
+  setPrefixes(['\d+G\d+.*', '\d+GA\d+.*', '\d+R6.*'])
 
   def initialize
     super
     @sortType = 3
   end
 
-  def changeText(string)
+  private
+
+  def replace_text(string)
     string = string.gsub(/(\d+)GA(\d+)([\+\-][\+\-\d]+)/) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(3)}>=#{Regexp.last_match(2)}[1]" }
     string = string.gsub(/(\d+)GA(\d+)/) { "#{Regexp.last_match(1)}R6>=#{Regexp.last_match(2)}[1]" }
     string = string.gsub(/(\d+)G(\d+)([\+\-][\+\-\d]+)/) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(3)}>=#{Regexp.last_match(2)}[0]" }
     string = string.gsub(/(\d+)G(\d+)/) { "#{Regexp.last_match(1)}R6>=#{Regexp.last_match(2)}[0]" }
   end
 
-  def dice_command_xRn(string, nick_e)
-    return checkGehenaAn(string, nick_e)
-  end
+  public
 
-  def checkGehenaAn(string, nick_e)
-    output = '1'
+  def rollDiceCommand(string)
+    string = replace_text(string)
 
-    return output unless /(^|\s)S?((\d+)[rR]6([\+\-\d]+)?([>=]+(\d+))(\[(\d)\]))(\s|$)/i =~ string
+    unless /(^|\s)S?((\d+)[rR]6([\+\-\d]+)?([>=]+(\d+))(\[(\d)\]))(\s|$)/i =~ string
+      return nil
+    end
 
     string = Regexp.last_match(2)
     diceCount = Regexp.last_match(3).to_i
@@ -90,9 +92,9 @@ INFO_MESSAGE_TEXT
     end
 
     if /[^\d\[\]]+/ =~ output
-      output = "#{nick_e}: (#{string}) ＞ #{output} ＞ 成功#{success}、失敗#{failed}"
+      output = "(#{string}) ＞ #{output} ＞ 成功#{success}、失敗#{failed}"
     else
-      output = "#{nick_e}: (#{string}) ＞ #{output}"
+      output = "(#{string}) ＞ #{output}"
     end
 
     # 連撃増加値と闘技チット
@@ -100,6 +102,8 @@ INFO_MESSAGE_TEXT
 
     return output
   end
+
+  private
 
   def getAnastasisBonusText(mode, success)
     return '' if mode == 0

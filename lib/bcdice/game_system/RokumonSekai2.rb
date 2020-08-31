@@ -21,7 +21,7 @@ Rコマンド(3R6m<=t[a])に読み替えます。
 　例) 3RS+1<=9　3R6+1<=9[3]
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['\d+RS'])
+  setPrefixes(['\d+RS.*', '3R6.*'])
 
   def initialize
     super
@@ -29,7 +29,7 @@ INFO_MESSAGE_TEXT
     @sortType = 1
   end
 
-  def changeText(string)
+  def replace_text(string)
     debug('parren_killer_add begin stirng', string)
 
     string = string.gsub(/(\d+)RS([\+\-][\+\-\d]+)<=(\d+)/i) { "3R6#{Regexp.last_match(2)}<=#{Regexp.last_match(3)}[#{Regexp.last_match(1)}]" }
@@ -40,15 +40,10 @@ INFO_MESSAGE_TEXT
     return string
   end
 
-  def dice_command_xRn(string, nick_e)
-    checkRoll(string, nick_e)
-  end
-
-  def checkRoll(string, nick_e)
-    output = '1'
-
+  def rollDiceCommand(string)
+    string = replace_text(string)
     unless /3R6([\+\-\d]*)<=(\d+)\[(\d+)\]/i =~ string
-      return output
+      return nil
     end
 
     modText = Regexp.last_match(1)
@@ -67,7 +62,7 @@ INFO_MESSAGE_TEXT
       output += "(+#{suc}d6)"
     end
 
-    output = "#{nick_e}: (#{string}) ＞ #{output}"
+    output = "(#{string}) ＞ #{output}"
 
     return output
   end

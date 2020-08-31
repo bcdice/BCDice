@@ -21,7 +21,7 @@ class Nechronica_Korean < DiceBot
 　명중부위와 주사위 수가 2개 이상일 때에 파츠파손 수도 표시합니다.
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['(\d+NC|\d+NA)'])
+  setPrefixes(['\d+NC.*', '\d+NA.*', '\d+R10.*'])
 
   def initialize
     super
@@ -30,18 +30,13 @@ INFO_MESSAGE_TEXT
     @defaultSuccessTarget = "6" # 목표치가 딱히 없을때의 난이도
   end
 
-  def changeText(string)
+  def replace_text(string)
     string = string.gsub(/(\d+)NC(10)?([\+\-][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(3)}[0]" }
     string = string.gsub(/(\d+)NC(10)?/i) { "#{Regexp.last_match(1)}R10[0]" }
     string = string.gsub(/(\d+)NA(10)?([\+\-][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(3)}[1]" }
     string = string.gsub(/(\d+)NA(10)?/i) { "#{Regexp.last_match(1)}R10[1]" }
 
     return string
-  end
-
-  def dice_command_xRn(string, nick_e)
-    @nick_e = nick_e
-    return nechronica_check(string)
   end
 
   def check_nD10(total, _dice_total, dice_list, cmp_op, target)
@@ -61,14 +56,14 @@ INFO_MESSAGE_TEXT
     end
   end
 
-  def nechronica_check(string)
-    output = '1'
+  def rollDiceCommand(string)
+    string = replace_text(string)
 
     debug("nechronica_check string", string)
 
     unless /(^|\s)S?((\d+)[rR]10([\+\-\d]+)?(\[(\d+)\])?)(\s|$)/i =~ string
       debug("nechronica_check unmuched")
-      return output
+      return nil
     end
 
     string = Regexp.last_match(2)
@@ -93,7 +88,7 @@ INFO_MESSAGE_TEXT
 
     total_n = n_max + mod
 
-    output = "#{@nick_e}: (#{string}) ＞ [#{dice_str}]"
+    output = "(#{string}) ＞ [#{dice_str}]"
     if mod < 0
       output += mod.to_s
     elsif mod > 0

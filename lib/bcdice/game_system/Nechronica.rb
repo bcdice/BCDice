@@ -35,7 +35,9 @@ INFO_MESSAGE_TEXT
     @defaultSuccessTarget = "6" # 目標値が空欄の時の目標値
   end
 
-  def changeText(string)
+  private
+
+  def replace_text(string)
     string = string.gsub(/(\d+)NC(10)?([\+\-][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(3)}[0]" }
     string = string.gsub(/(\d+)NC(10)?/i) { "#{Regexp.last_match(1)}R10[0]" }
     string = string.gsub(/(\d+)NA(10)?([\+\-][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(3)}[1]" }
@@ -44,14 +46,13 @@ INFO_MESSAGE_TEXT
     return string
   end
 
+  public
+
   def rollDiceCommand(command)
-    return roll_tables(command, TABLES)
+    return roll_tables(command, TABLES) || nechronica_check(command)
   end
 
-  def dice_command_xRn(string, nick_e)
-    @nick_e = nick_e
-    return nechronica_check(string)
-  end
+  private
 
   def check_nD10(total, _dice_total, dice_list, cmp_op, target) # ゲーム別成功度判定(nD10)
     return '' if target == '?'
@@ -71,13 +72,11 @@ INFO_MESSAGE_TEXT
   end
 
   def nechronica_check(string)
-    output = '1'
-
+    string = replace_text(string)
     debug("nechronica_check string", string)
 
     unless /(^|\s)S?((\d+)[rR]10([\+\-\d]+)?(\[(\d+)\])?)(\s|$)/i =~ string
-      debug("nechronica_check unmuched")
-      return output
+      return nil
     end
 
     string = Regexp.last_match(2)
@@ -102,7 +101,7 @@ INFO_MESSAGE_TEXT
 
     total_n = n_max + mod
 
-    output = "#{@nick_e}: (#{string}) ＞ [#{dice_str}]"
+    output = "(#{string}) ＞ [#{dice_str}]"
     if mod < 0
       output += mod.to_s
     elsif mod > 0
@@ -206,5 +205,5 @@ INFO_MESSAGE_TEXT
     )
   }.freeze
 
-  setPrefixes(['\d+NC', '\d+NA'] + TABLES.keys)
+  setPrefixes(['\d+NC.*', '\d+NA.*', '\d+R10.*'] + TABLES.keys)
 end

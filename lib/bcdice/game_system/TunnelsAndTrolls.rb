@@ -29,7 +29,7 @@ SAVEの難易度を「レベル」で表記することが出来ます。
 　下から２番目の出目をずらした分だけ合計にマイナス修正を追加して表示します。
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['(\d+H?BS)'])
+  setPrefixes(['\d+H?BS.*', '\d+R6.*', '\d+D\d+.+'])
 
   def initialize
     super
@@ -38,7 +38,9 @@ INFO_MESSAGE_TEXT
     @sameDiceRerollCount = 1
   end
 
-  def changeText(string)
+  private
+
+  def replace_text(string)
     debug('TunnelsAndTrolls parren_killer begin string', string)
 
     if /(\d+)LV/i =~ string
@@ -54,10 +56,6 @@ INFO_MESSAGE_TEXT
     end
 
     return string
-  end
-
-  def dice_command_xRn(string, nick_e)
-    return tandt_berserk(string, nick_e)
   end
 
   def check_2D6(total, dice_total, _dice_list, cmp_op, target)
@@ -91,6 +89,8 @@ INFO_MESSAGE_TEXT
     return " ＞ #{sucLv}Lv成功 ＞ 経験値#{dice_n}"
   end
 
+  public
+
   def getDiceRolledAdditionalText(n1, n_max, dice_max)
     debug("getDiceRolledAdditionalText n1, n_max, dice_max", n1, n_max, dice_max)
     if (n_max > 0) && (dice_max == 6)
@@ -99,6 +99,8 @@ INFO_MESSAGE_TEXT
 
     return ''
   end
+
+  private
 
   def getExperiencePoint(diff, dice_n)
     debug("diff", diff)
@@ -121,8 +123,15 @@ INFO_MESSAGE_TEXT
     return (v == v.to_i)
   end
 
-  ####################   Tunnels and Trolls Berserk  ########################
-  def tandt_berserk(string, nick_e)
+  public
+
+  def rollDiceCommand(string)
+    if /^\d+D\d+.*\d+Lv$/i.match?(string)
+      string = string.sub(/\d+LV$/i) { |s| s.to_i * 5 + 15 }
+      return BCDice::CommonCommand::AddDice.new(string, @bcdice, self).eval()&.delete_prefix(": ")
+    end
+
+    string = replace_text(string)
     debug('tandt_berserk string', string)
 
     output = "1"
@@ -240,9 +249,9 @@ INFO_MESSAGE_TEXT
     end
 
     if output =~ /[^\d\[\]]+/
-      output = "#{nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}"
+      output = "(#{string}) ＞ #{output} ＞ #{total_n}"
     else
-      output = "#{nick_e}: (#{string}) ＞ #{total_n}"
+      output = "(#{string}) ＞ #{total_n}"
     end
 
     output += " ＞ 悪意#{n_max}" if n_max > 0

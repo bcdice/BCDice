@@ -40,7 +40,7 @@ class TorgEternity < DiceBot
 　・ダメージ結果表「DTx or DAMAGEx」
 　・ロールボーナス表「BTx+y or BONUSx+y or TOTALx+y」 xは数値, yは技能基本値
 INFO_MESSAGE_TEXT
-  setPrefixes(['(TE.*|UP.*|POS.*|\d+BD.*|TG.*|RT.*|Result.*|DT.*|damage.*|BT.*|bonus.*|total.*)'])
+  setPrefixes(['TE.*', 'UP.*', 'POS.*', '\d+BD.*', 'TG.*', 'RT.*', 'Result.*', 'DT.*', 'damage.*', 'BT.*', 'bonus.*', 'total.*', '1R20.*'])
   def initialize
     super
   end
@@ -48,21 +48,19 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(command)
     # get～DiceCommandResultという名前のメソッドを集めて実行、
     # 結果がnil以外の場合それを返して終了。
-    return analyzeDiceCommandResultMethod(command)
+    return torg_check(command) || analyzeDiceCommandResultMethod(command)
   end
 
   ####################            TORG 1.x            ########################
-  def changeText(string)
+  def replace_text(string)
     string = string.gsub(/TG(\d+)/i) { "1R20+#{Regexp.last_match(1)}" }
     string = string.gsub(/TG/i, '1R20')
     return string
   end
 
-  def dice_command_xRn(string, nick_e)
-    return torg_check(string, nick_e)
-  end
+  def torg_check(string)
+    string = replace_text(string)
 
-  def torg_check(string, nick_e)
     m = /(^|\s)S?(1R20(([+-]\d+)*))(\s|$)/i.match(string)
     unless m
       return nil
@@ -90,7 +88,7 @@ INFO_MESSAGE_TEXT
     if skilled != unskilled
       output += "(技能無" + (get_torg_eternity_bonus(unskilled) + mod).to_s + ")"
     end
-    output = "#{nick_e}: (#{string}) ＞ #{output}"
+    output = "(#{string}) ＞ #{output}"
     return output
   end
 

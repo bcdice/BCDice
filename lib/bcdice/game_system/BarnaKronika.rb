@@ -25,7 +25,7 @@ class BarnaKronika < DiceBot
 　セット数が1以上の時はセット数も表示し、攻撃判定の場合は命中部位も表示します。
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['\d+BK', '\d+BA', '\d+BKC\d+', '\d+BAC\d+'])
+  setPrefixes(['\d+BK.*', '\d+BA.*', '\d+BKC\d+.*', '\d+BAC\d+.*', '\d+R6.*'])
 
   def initialize
     super
@@ -33,7 +33,7 @@ INFO_MESSAGE_TEXT
     @sortType = 3
   end
 
-  def changeText(string)
+  def replace_text(string)
     debug('parren_killer_add begin string', string)
 
     string = string.gsub(/(\d+)BKC(\d)/) { "#{Regexp.last_match(1)}R6[0,#{Regexp.last_match(2)}]" }
@@ -45,15 +45,10 @@ INFO_MESSAGE_TEXT
     return string
   end
 
-  def dice_command_xRn(string, nick_e)
-    @nick_e = nick_e
-    return check_barna_kronika(string)
-  end
+  def rollDiceCommand(string)
+    string = replace_text(string)
 
-  def check_barna_kronika(string)
-    output = '1'
-
-    return output unless /(^|\s)S?((\d+)[rR]6(\[([,\d]+)\])?)(\s|$)/i =~ string
+    return nil unless /(^|\s)S?((\d+)[rR]6(\[([,\d]+)\])?)(\s|$)/i =~ string
 
     string = Regexp.last_match(2)
     option = Regexp.last_match(5)
@@ -72,7 +67,7 @@ INFO_MESSAGE_TEXT
 
     dice_str, suc, set, at_str = roll_barna_kronika(dice_n, criticalCallDice)
 
-    output = "#{@nick_e}: (#{string}) ＞ [#{dice_str}] ＞ "
+    output = "(#{string}) ＞ [#{dice_str}] ＞ "
 
     if @isBattleMode
       output += at_str

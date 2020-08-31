@@ -27,13 +27,9 @@ class Torg < DiceBot
 　・ボーナス表「BTx+y or BONUSx+y or TOTALx+y」 xは数値, yは技能基本値
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['(TG.*|RT.*|Result.*|IT.*|Initimidate.*|TT.*|Taunt.*|Trick.*|CT.*|MT.*|Maneuver.*|ODT.*|ords.*|odamage.*|DT.*|damage.*|BT.*|bonus.*|total.*)'])
+  setPrefixes(['TG.*', '1R20.*', 'RT.*', 'Result.*', 'IT.*', 'Initimidate.*', 'TT.*', 'Taunt.*', 'Trick.*', 'CT.*', 'MT.*', 'Maneuver.*', 'ODT.*', 'ords.*', 'odamage.*', 'DT.*', 'damage.*', 'BT.*', 'bonus.*', 'total.*'])
 
-  def initialize
-    super
-  end
-
-  def changeText(string)
+  def replace_text(string)
     string = string.gsub(/Result/i, 'RT')
     string = string.gsub(/(Intimidate|Test)/i, 'IT')
     string = string.gsub(/(Taunt|Trick|CT)/i, 'TT')
@@ -47,16 +43,10 @@ INFO_MESSAGE_TEXT
     return string
   end
 
-  def dice_command_xRn(string, nick_e)
-    return torg_check(string, nick_e)
-  end
-
   ####################              TORG             ########################
-  def torg_check(string, nick_e)
-    output = '1'
-
+  def torg_check(string)
     unless /(^|\s)S?(1R20([+-]\d+)*)(\s|$)/i =~ string
-      return '1'
+      return nil
     end
 
     string = Regexp.last_match(2)
@@ -86,7 +76,7 @@ INFO_MESSAGE_TEXT
       output += "(技能無" + (get_torg_bonus(unskilled) + mod).to_s + ")"
     end
 
-    output = "#{nick_e}: (#{string}) ＞ #{output}"
+    output = "(#{string}) ＞ #{output}"
 
     return output
   end
@@ -120,12 +110,17 @@ INFO_MESSAGE_TEXT
 
   def rollDiceCommand(command)
     string = command.upcase
+    string = replace_text(string)
+
+    if (result = torg_check(string))
+      return result
+    end
 
     output = '1'
     ttype = ""
     value = 0
 
-    return '1' unless /([RITMDB]T)(\d+([\+\-]\d+)*)/i =~ string
+    return nil unless /([RITMDB]T)(\d+([\+\-]\d+)*)/i =~ string
 
     type = Regexp.last_match(1)
     num = Regexp.last_match(2)

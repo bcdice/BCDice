@@ -30,7 +30,7 @@ class MeikyuDays < DiceBot
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['\d+MD', 'DRT', 'DNT', 'DBT', 'DHT', 'KST', 'CAT', 'CFT', 'FWT', 'T1T', 'T2T', 'T3T', 'T4T', 'MPT', 'APT', 'DCT', 'MCT', 'PCT', 'LCT'])
+  setPrefixes(['\d+MD6?.*', '\d+R6.*', 'DRT', 'DNT', 'DBT', 'DHT', 'KST', 'CAT', 'CFT', 'FWT', 'T1T', 'T2T', 'T3T', 'T4T', 'MPT', 'APT', 'DCT', 'MCT', 'PCT', 'LCT'])
 
   def initialize
     super
@@ -39,15 +39,10 @@ INFO_MESSAGE_TEXT
     @d66Type = 2
   end
 
-  def changeText(string)
+  def replace_text(string)
     string = string.gsub(/(\d+)MD6/i) { "#{Regexp.last_match(1)}R6" }
     string = string.gsub(/(\d+)MD/i) { "#{Regexp.last_match(1)}R6" }
     return string
-  end
-
-  def dice_command_xRn(string, nick_e)
-    @nick_e = nick_e
-    return checkRoll(string)
   end
 
   def check_2D6(total, dice_total, _dice_list, cmp_op, target)
@@ -66,12 +61,12 @@ INFO_MESSAGE_TEXT
   end
 
   def checkRoll(string)
-    output = "1"
+    string = replace_text(string)
 
     debug("checkRoll string", string)
     unless (m = /(^|\s)S?((\d+)[rR]6([\+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i.match(string))
       debug("not mutch")
-      return output
+      return nil
     end
 
     string = m[2]
@@ -106,9 +101,9 @@ INFO_MESSAGE_TEXT
     end
 
     if /[^\d\[\]]+/ =~ output
-      output = "#{@nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}"
+      output = "(#{string}) ＞ #{output} ＞ #{total_n}"
     else
-      output = "#{@nick_e}: (#{string}) ＞ #{total_n}"
+      output = "(#{string}) ＞ #{total_n}"
     end
 
     if signOfInequality != "" # 成功度判定処理
@@ -121,6 +116,10 @@ INFO_MESSAGE_TEXT
 
   ####################           迷宮デイズ          ########################
   def rollDiceCommand(command)
+    if (result = checkRoll(command))
+      return result
+    end
+
     output = '1'
     type = ""
     total_n = 0

@@ -279,10 +279,6 @@ class DiceBot
     nil
   end
 
-  def dice_command_xRn(_string, _nick_e)
-    ''
-  end
-
   # @param total [Integer] コマンド合計値
   # @param dice_total [Integer] ダイス目の合計値
   # @param dice_list [Array<Integer>] ダイスの一覧

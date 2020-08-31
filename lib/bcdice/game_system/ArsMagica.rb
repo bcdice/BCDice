@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require "utils/normalize"
+require "utils/format"
 
 class ArsMagica < DiceBot
   # ゲームシステムの識別子
@@ -24,48 +25,22 @@ class ArsMagica < DiceBot
 　　最初の0が判断基準で、その右側5つがボッチダイスです。1*2,8*2,0*1なので1botchという訳です。
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['ArS'])
+  setPrefixes(['ArS.*', '1R10.*'])
 
-  def initialize
-    super
-  end
-
-  def changeText(string)
-    return string unless /ArS/i =~ string
-
-    string = string.gsub(/ArS(\d+)([^\d\s][\+\-\d]+)/i) { "1R10#{Regexp.last_match(2)}[#{Regexp.last_match(1)}]" }
-    string = string.gsub(/ArS([^\d\s][\+\-\d]+)/i) { "1R10#{Regexp.last_match(1)}" }
-    string = string.gsub(/ArS(\d+)/i) { "1R10[#{Regexp.last_match(1)}]" }
-    string = string.gsub(/ArS/i) { "1R10" }
-
-    return string
-  end
-
-  def dice_command_xRn(string, nick_e)
-    arsmagica_stress(string, nick_e)
-  end
-
-  def arsmagica_stress(string, _nick_e)
-    return "1" unless (m = /(^|\s)S?(1[rR]10([\+\-\d]*)(\[(\d+)\])?(([>=]+)(\d+))?)(\s|$)/i.match(string))
-
-    diff = 0
-    botch = 1
-    bonus = 0
-    crit_mul = 1
-    total = 0
-    cmp_op = nil
-    bonusText = m[3]
-    botch = m[5].to_i if m[4]
-
-    if m[6]
-      cmp_op = Normalize.comparison_operator(m[7])
-      diff = m[8].to_i
+  def rollDiceCommand(string)
+    unless parse_ars(string) || parse_1r10(string)
+      return nil
     end
 
-    bonus = parren_killer("(0#{bonusText})").to_i unless bonusText.empty?
+    diff = @target_numner || 0
+    botch = @botch
+    bonus = @modify_number
+    crit_mul = 1
+    total = 0
+    cmp_op = @cmp_op
 
     die = rand(10)
-    output = "(#{m[2]}) ＞ "
+    output = "(#{expr()}) ＞ "
 
     if die == 0 # botch?
       count0 = 0
@@ -134,6 +109,42 @@ INFO_MESSAGE_TEXT
       output += (total >= diff ? " ＞ 成功" : " ＞ 失敗")
     end
 
-    return ": #{output}"
+    return output.to_s
+  end
+
+  private
+
+  def parse_ars(command)
+    m = /^ArS(\d+)?((?:[+-]-?\d+)+)?(?:([>=]+)(\d+))?$/i.match(command)
+    unless m
+      return false
+    end
+
+    @botch = m[1]&.to_i || 1
+    @modify_number = ArithmeticEvaluator.new.eval(m[2] || "")
+    @cmp_op = Normalize.comparison_operator(m[3])
+    @target_numner = m[4]&.to_i
+
+    return true
+  end
+
+  def parse_1r10(command)
+    m = /^1R10((?:[+-]-?\d+)+)?(?:\[(\d+)\])?(?:([>=]+)(\d+))?$/i.match(command)
+    unless m
+      return false
+    end
+
+    @modify_number = ArithmeticEvaluator.new.eval(m[1] || "")
+    @botch = m[2]&.to_i || 1
+    @cmp_op = Normalize.comparison_operator(m[3])
+    @target_numner = m[4]&.to_i
+
+    return true
+  end
+
+  def expr()
+    modifier = Format.modifier(@modify_number)
+
+    "1R10#{modifier}[#{@botch}]#{@cmp_op}#{@target_numner}"
   end
 end

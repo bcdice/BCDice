@@ -28,13 +28,9 @@ class DarkBlaze < DiceBot
 　例）BT1　　　BT2　　　BT[1...3]
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['DB.*', 'BT.*'])
+  setPrefixes(['DB.*', 'BT.*', '3R6.*'])
 
-  def initialize
-    super
-  end
-
-  def changeText(string)
+  def replace_text(string)
     return string unless string =~ /DB/i
 
     string = string.gsub(/DB(\d),(\d)/) { "DB#{Regexp.last_match(1)}#{Regexp.last_match(2)}" }
@@ -44,10 +40,6 @@ INFO_MESSAGE_TEXT
     string = string.gsub(/DB(\d)(\d)/) { "3R6[#{Regexp.last_match(1)},#{Regexp.last_match(2)}]" }
 
     return string
-  end
-
-  def dice_command_xRn(string, nick_e)
-    return check_roll(string, nick_e)
   end
 
   # ゲーム別成功度判定(nD6)
@@ -61,10 +53,9 @@ INFO_MESSAGE_TEXT
     end
   end
 
-  def check_roll(string, nick_e)
-    output = "1"
-
-    return '1' unless (m = /(^|\s)S?(3[rR]6([\+\-\d]+)?(\[(\d+),(\d+)\])(([>=]+)(\d+))?)(\s|$)/i.match(string))
+  def check_roll(string)
+    string = replace_text(string)
+    return nil unless (m = /(^|\s)S?(3[rR]6([\+\-\d]+)?(\[(\d+),(\d+)\])(([>=]+)(\d+))?)(\s|$)/i.match(string))
 
     string = m[2]
     mod = 0
@@ -87,7 +78,7 @@ INFO_MESSAGE_TEXT
     end
 
     total, out_str, dice_list = get_dice(mod, abl, skl)
-    output = "#{nick_e}: (#{string}) ＞ #{out_str}"
+    output = "(#{string}) ＞ #{out_str}"
 
     if signOfInequality != "" # 成功度判定処理
       dice_total = dice_list.inject(&:+)
@@ -149,7 +140,7 @@ INFO_MESSAGE_TEXT
       return get_horidasibukuro_table(dice)
     end
 
-    return nil
+    return check_roll(command)
   end
 
   # ** 掘り出し袋表

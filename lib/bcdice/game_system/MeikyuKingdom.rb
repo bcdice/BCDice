@@ -41,7 +41,7 @@ class MeikyuKingdom < DiceBot
 INFO_MESSAGE_TEXT
 
   setPrefixes([
-    '\d+MK',
+    '\d+MK.*', '\d+R6.*',
     'LRT', 'ORT', 'CRT', 'ART', 'FRT',
     'TBT', 'CBT', 'SBT', 'VBT', 'FBT', 'ABT', 'WBT', 'LBT',
     'THT', 'CHT', 'SHT', 'VHT',
@@ -65,7 +65,9 @@ INFO_MESSAGE_TEXT
     @d66Type = 2
   end
 
-  def changeText(string)
+  private
+
+  def replace_text(string)
     debug("changeText before string", string)
 
     string = string.gsub(/(\d+)MK6/i) { "#{Regexp.last_match(1)}R6" }
@@ -74,10 +76,6 @@ INFO_MESSAGE_TEXT
     debug("changeText after string", string)
 
     return string
-  end
-
-  def dice_command_xRn(string, nick_e)
-    return mayokin_check(string, nick_e)
   end
 
   def check_nD6(total, dice_total, dice_list, cmp_op, target)
@@ -139,17 +137,14 @@ INFO_MESSAGE_TEXT
     return " (もしくは) #{none6Total_n}#{none6DiceReuslt} ＆ 《気力》1点獲得"
   end
 
-  ####################         迷宮キングダム        ########################
-  def mayokin_check(string, nick_e)
+  def mayokin_check(string)
     debug("mayokin_check string", string)
 
-    output = "1"
-
-    # return output unless /(^|\s)S?((\d+)[rR]6([\+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i =~ string
+    string = replace_text(string)
 
     m = /^S?((\d+)R6([\+\-\d]*)(([>=]+)(\d+))?)/i.match(string)
     unless m
-      return "1"
+      return nil
     end
 
     string = m[1]
@@ -183,9 +178,9 @@ INFO_MESSAGE_TEXT
     end
 
     if output =~ /[^\d\[\]]+/
-      output = "#{nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}"
+      output = "(#{string}) ＞ #{output} ＞ #{total_n}"
     else
-      output = "#{nick_e}: (#{string}) ＞ #{total_n}"
+      output = "(#{string}) ＞ #{total_n}"
     end
 
     if signOfInequality != "" # 成功度判定処理
@@ -196,12 +191,16 @@ INFO_MESSAGE_TEXT
     return output
   end
 
-  ####################         迷宮キングダム        ########################
+  public
 
   def rollDiceCommand(command)
     output = ""
     type = ""
     total_n = ""
+
+    if (result = mayokin_check(command))
+      return result
+    end
 
     case command
 
@@ -450,6 +449,8 @@ INFO_MESSAGE_TEXT
       output = "#{type}表(#{total_n}) ＞ #{output}"
     end
   end
+
+  private
 
   def getCount(countText)
     if countText.empty?

@@ -10,7 +10,6 @@ require 'bcdice/game_system/DiceBotLoader'
 require 'bcdice/game_system/DiceBotLoaderList'
 require 'bcdice/common_command'
 require 'dice/UpperDice'
-require 'dice/RerollDice'
 
 class BCDiceMaker
   def initialize
@@ -119,36 +118,11 @@ class BCDice
     output, secret = CommonCommand.eval(arg, self, @diceBot)
     return output, secret unless output.nil?
 
-    output, secret = checkRnDice(arg)
-    return output, secret unless output.nil?
-
     output, secret = checkUpperRoll(arg)
     return output, secret unless output.nil?
 
     output = '1'
     secret = false
-    return output, secret
-  end
-
-  def checkRnDice(arg)
-    debug('check xRn roll arg', arg)
-
-    return nil unless /(S)?[\d]+R[\d]+/i === arg
-
-    secret = !Regexp.last_match(1).nil?
-
-    output = @diceBot.dice_command_xRn(arg, @nick_e)
-    return nil if  output.nil? || (output == '1')
-
-    if output.empty?
-      dice = RerollDice.new(self, @diceBot)
-      output = dice.rollDice(arg)
-    end
-
-    return nil if output.nil? || (output == '1')
-
-    debug('xRn output', output)
-
     return output, secret
   end
 

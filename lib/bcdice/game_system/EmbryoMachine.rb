@@ -23,7 +23,7 @@ class EmbryoMachine < DiceBot
 　・射撃攻撃ファンブル表　SFT
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['(EM\t+|HLT|MFT|SFT)'])
+  setPrefixes(['EM\d+.*', 'HLT', 'MFT', 'SFT', '2R10.*'])
 
   def initialize
     super
@@ -31,7 +31,7 @@ INFO_MESSAGE_TEXT
     @sortType = 1
   end
 
-  def changeText(string)
+  def replace_text(string)
     string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))(\#(\d+))/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[#{Regexp.last_match(4)},#{Regexp.last_match(6)}]" }
     string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(\#(\d+))/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[20,#{Regexp.last_match(4)}]" }
     string = string.gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[#{Regexp.last_match(4)},2]" }
@@ -40,10 +40,6 @@ INFO_MESSAGE_TEXT
     string = string.gsub(/EM(\d+)(\#(\d+))/i) { "2R10>=#{Regexp.last_match(1)}[20,#{Regexp.last_match(3)}]" }
     string = string.gsub(/EM(\d+)(@(\d+))/i) { "2R10>=#{Regexp.last_match(1)}[#{Regexp.last_match(3)},2]" }
     string = string.gsub(/EM(\d+)/i) { "2R10>=#{Regexp.last_match(1)}[20,2]" }
-  end
-
-  def dice_command_xRn(string, nick_e)
-    return checkRoll(string, nick_e)
   end
 
   # ゲーム別成功度判定(nD10)
@@ -62,10 +58,10 @@ INFO_MESSAGE_TEXT
     end
   end
 
-  def checkRoll(string, nick_e)
-    output = '1'
+  def checkRoll(string)
+    string = replace_text(string)
 
-    return output unless /(^|\s)S?(2[rR]10([\+\-\d]+)?([>=]+(\d+))(\[(\d+),(\d+)\]))(\s|$)/i =~ string
+    return nil unless /(^|\s)S?(2[rR]10([\+\-\d]+)?([>=]+(\d+))(\[(\d+),(\d+)\]))(\s|$)/i =~ string
 
     string = Regexp.last_match(2)
     diff = 0
@@ -92,9 +88,9 @@ INFO_MESSAGE_TEXT
       output += mod.to_s
     end
     if output =~ /[^\d\[\]]+/
-      output = "#{nick_e}: (#{string}) ＞ #{output} ＞ #{total_n}"
+      output = "(#{string}) ＞ #{output} ＞ #{total_n}"
     else
-      output = "#{nick_e}: (#{string}) ＞ #{output}"
+      output = "(#{string}) ＞ #{output}"
     end
     # 成功度判定
     if dice_now <= fumble
@@ -112,6 +108,10 @@ INFO_MESSAGE_TEXT
 
   def rollDiceCommand(command)
     debug("rollDiceCommand command", command)
+
+    if (result = checkRoll(command))
+      return result
+    end
 
     output = '1'
     type = ""
