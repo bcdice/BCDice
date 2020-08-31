@@ -83,6 +83,19 @@ class DiceBot
     end
   end
 
+  def disable_d66?
+    @d66Type == 0
+  end
+
+  def d66_sort_type
+    case @d66Type
+    when 2
+      :asc
+    else
+      :no_sort
+    end
+  end
+
   def eval(command)
     @bcdice.setMessage(command)
     @bcdice.setCollectRandResult(true)
