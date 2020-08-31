@@ -118,10 +118,14 @@ INFO_MESSAGE_TEXT
     return "ファンブル！" if  dice_n == 1
     return "スペシャル！" if  dice_n >= special_n
 
-    success = bcdice.check_hit(total_n, signOfInequality, diff)
-    return "成功" if success >= 1
+    cmp_op = Normalize.comparison_operator(signOfInequality)
+    target_num = diff.to_i
 
-    return "失敗"
+    if total_n.send(cmp_op, target_num)
+      "成功"
+    else
+      "失敗"
+    end
   end
 
   CHECK_DICE_COUNT = {"S" => 4, "A" => 3, "B" => 2, "C" => 1, "D" => 2}.freeze
