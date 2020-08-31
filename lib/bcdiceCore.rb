@@ -8,7 +8,7 @@ require 'utils/ArithmeticEvaluator.rb'
 require 'bcdice/game_system/DiceBot'
 require 'bcdice/game_system/DiceBotLoader'
 require 'bcdice/game_system/DiceBotLoaderList'
-require 'bcdice/common_command/barabara_dice'
+require 'bcdice/common_command'
 require 'dice/AddDice'
 require 'dice/UpperDice'
 require 'dice/RerollDice'
@@ -117,6 +117,9 @@ class BCDice
     output, secret = @diceBot.dice_command(@message, @nick_e)
     return output, secret if output != '1'
 
+    output, secret = CommonCommand.eval(arg, self, @diceBot)
+    return output, secret unless output.nil?
+
     output, secret = rollD66(arg)
     return output, secret unless output.nil?
 
@@ -126,16 +129,10 @@ class BCDice
     output, secret = checkAddRoll(arg)
     return output, secret unless output.nil?
 
-    output, secret = checkBDice(arg)
-    return output, secret unless output.nil?
-
     output, secret = checkRnDice(arg)
     return output, secret unless output.nil?
 
     output, secret = checkUpperRoll(arg)
-    return output, secret unless output.nil?
-
-    output, secret = checkChoiceCommand(arg)
     return output, secret unless output.nil?
 
     output = '1'
@@ -165,11 +162,6 @@ class BCDice
     return nil if output == '1'
 
     return output, secret
-  end
-
-  def checkBDice(command)
-    dice = BCDice::CommonCommand::BarabaraDice.new(command, self, @diceBot)
-    return dice.eval(), dice.secret?
   end
 
   def checkRnDice(arg)
@@ -204,17 +196,6 @@ class BCDice
     dice = UpperDice.new(self, @diceBot)
     output = dice.rollDice(arg)
     return nil if output == '1'
-
-    return output, secret
-  end
-
-  def checkChoiceCommand(arg)
-    debug("check choice command")
-
-    return nil unless /((^|\s)(S)?choice\[[^,]+(,[^,]+)+\]($|\s))/i === arg
-
-    secret = !Regexp.last_match(3).nil?
-    output = choice_random(Regexp.last_match(1))
 
     return output, secret
   end
@@ -404,7 +385,8 @@ class BCDice
 
   ####################         バラバラダイス       ########################
   def bdice(command)
-    checkBDice(command)[0]
+    dice = BCDice::CommonCommand::BarabaraDice.new(command, self, @diceBot)
+    return dice.eval()
   end
 
   ####################             D66ダイス        ########################
@@ -506,57 +488,8 @@ class BCDice
   end
 
   #==========================================================================
-  # **                            その他の機能
-  #==========================================================================
-  def choice_random(string)
-    output = "1"
-
-    unless /(^|\s)((S)?choice\[([^,]+(,[^,]+)+)\])($|\s)/i =~ string
-      return output
-    end
-
-    string = Regexp.last_match(2)
-    targetList = Regexp.last_match(4)
-
-    unless targetList
-      return output
-    end
-
-    targets = targetList.split(/,/)
-    index = rand(targets.length)
-    target = targets[index]
-    output = "#{@nick_e}: (#{string}) ＞ #{target}"
-
-    return output
-  end
-
-  #==========================================================================
   # **                            結果判定関連
   #==========================================================================
-  def getMarshaledSignOfInequality(text)
-    return "" if text.nil?
-
-    return marshalSignOfInequality(text)
-  end
-
-  def marshalSignOfInequality(signOfInequality) # 不等号の整列
-    case signOfInequality
-    when /(<=|=<)/
-      return "<="
-    when /(>=|=>)/
-      return ">="
-    when /(<>)/
-      return "<>"
-    when /[<]+/
-      return "<"
-    when /[>]+/
-      return ">"
-    when /[=]+/
-      return "="
-    end
-
-    return signOfInequality
-  end
 
   def check_hit(dice_now, signOfInequality, diff) # 成功数判定用
     suc = 0

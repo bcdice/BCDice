@@ -910,13 +910,13 @@ rand:5/6,2/6,4/6
 input:
 choice[abc,def]
 output:
-DiceBot : (CHOICE[ABC,DEF]) ＞ ABC
+DiceBot : (choice[ABC,DEF]) ＞ ABC
 rand:1/2
 ============================
 input:
 Schoice[abc2,def3]
 output:
-DiceBot : (SCHOICE[ABC2,DEF3]) ＞ DEF3###secret dice###
+DiceBot : (choice[ABC2,DEF3]) ＞ DEF3###secret dice###
 rand:2/2
 ============================
 input:

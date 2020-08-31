@@ -196,10 +196,6 @@ class DiceBot
     @bcdice.roll(*args)
   end
 
-  def marshalSignOfInequality(*args)
-    @bcdice.marshalSignOfInequality(*args)
-  end
-
   def unlimitedRollDiceType
     @bcdice.unlimitedRollDiceType
   end

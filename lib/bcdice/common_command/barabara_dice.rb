@@ -17,7 +17,7 @@ class BCDice
 
       # @return [String, nil]
       def eval()
-        m = /^(S)?(\d+B\d+(?:\+\d+B\d+)*)(?:([<>=]+)(\d+))?$/.match(@command)
+        m = /^(S)?(\d+B\d+(?:\+\d+B\d+)*)(?:([<>=]+)(\d+))?$/i.match(@command)
         unless m
           return nil
         end

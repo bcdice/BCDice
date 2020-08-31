@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
+require 'utils/normalize'
+require 'utils/format'
+
 class DarkBlaze < DiceBot
   # ゲームシステムの識別子
   ID = 'DarkBlaze'
@@ -78,7 +81,8 @@ INFO_MESSAGE_TEXT
     end
 
     if m[7]
-      signOfInequality = marshalSignOfInequality(m[8])
+      cmp_op = Normalize.comparison_operator(m[8])
+      signOfInequality = Format.comparison_operator(cmp_op)
       diff = m[9].to_i
     end
 
