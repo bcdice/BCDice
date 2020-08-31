@@ -48,6 +48,10 @@ class BCDice
             return Array.new(times) { @bcdice.getD66Value() }
           end
 
+          if sides == 9 && @dicebot.isD9
+            return Array.new(times) { @bcdice.roll_d9() }
+          end
+
           _, dice_str, = @bcdice.roll(times, sides, @dicebot.sortType & 1)
 
           # 現在は出目が文字列で返ってきてしまうので、整数の配列に変換する

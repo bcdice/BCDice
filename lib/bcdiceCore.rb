@@ -169,21 +169,11 @@ class BCDice
     d9_on = false
     rerollCount = 0
 
-    if (@diceBot.d66Type != 0) && (dice_max == 66)
-      dice_sort = 0
-      dice_cnt = 2
-      dice_max = 6
-    end
-
-    if @diceBot.isD9 && (dice_max == 9)
-      d9_on = true
-    end
-
     unless (dice_cnt <= $DICE_MAXCNT) && (dice_max <= $DICE_MAXNUM)
       return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, rerollCount
     end
 
-    dice_list = Array.new(dice_cnt) { d9_on ? roll_d9() : rand(dice_max) + 1 }
+    dice_list = Array.new(dice_cnt) { rand(dice_max) + 1 }
     if dice_sort != 0
       dice_list.sort!
     end
