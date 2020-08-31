@@ -253,11 +253,9 @@ class BCDice
   # **                           ランダマイザ
   #=========================================================================
   # ダイスロール
-  def roll(dice_cnt, dice_max, dice_sort = 0, dice_add = 0, dice_ul = '', dice_diff = 0)
-    dice_re = nil
+  def roll(dice_cnt, dice_max, dice_sort = 0)
     dice_cnt = dice_cnt.to_i
     dice_max = dice_max.to_i
-    dice_re = dice_re.to_i
 
     total = 0
     dice_str = ""
@@ -267,9 +265,6 @@ class BCDice
     cnt_suc = 0
     d9_on = false
     rerollCount = 0
-    dice_result = []
-
-    # dice_add = 0 if( ! dice_add )
 
     if (@diceBot.d66Type != 0) && (dice_max == 66)
       dice_sort = 0
@@ -279,65 +274,24 @@ class BCDice
 
     if @diceBot.isD9 && (dice_max == 9)
       d9_on = true
-      dice_max += 1
     end
 
     unless (dice_cnt <= $DICE_MAXCNT) && (dice_max <= $DICE_MAXNUM)
       return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, rerollCount
     end
 
-    dice_cnt.times do |i|
-      i += 1
-      dice_now = 0
-      dice_n = 0
-      dice_st_n = ""
-      round = 0
-
-      loop do
-        if d9_on
-          dice_n = roll_d9()
-        else
-          dice_n = rand(dice_max).to_i + 1
-        end
-
-        dice_now += dice_n
-
-        dice_st_n += "," unless dice_st_n.empty?
-        dice_st_n += dice_n.to_s
-        round += 1
-
-        break unless (dice_add > 1) && (dice_n >= dice_add)
-      end
-
-      total += dice_now
-
-      if dice_ul != ''
-        suc = check_hit(dice_now, dice_ul, dice_diff)
-        cnt_suc += suc
-      end
-
-      if dice_re
-        rerollCount += 1 if dice_now >= dice_re
-      end
-
-      if round >= 2
-        dice_result.push("#{dice_now}[#{dice_st_n}]")
-      else
-        dice_result.push(dice_now)
-      end
-
-      numberSpot1 += 1 if dice_now == 1
-      cnt_max += 1 if  dice_now == dice_max
-      n_max = dice_now if dice_now > n_max
-    end
-
+    dice_list = Array.new(dice_cnt) { d9_on ? roll_d9() : rand(dice_max) + 1 }
     if dice_sort != 0
-      dice_str = dice_result.sort_by { |a| dice_num(a) }.join(",")
-    else
-      dice_str = dice_result.join(",")
+      dice_list.sort!
     end
 
-    return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, rerollCount
+    total = dice_list.sum()
+    dice_str = dice_list.join(",")
+    numberSpot1 = dice_list.count(1)
+    cnt_max = dice_list.count(dice_max)
+    n_max = dice_list.max()
+
+    return total, dice_str, numberSpot1, cnt_max, n_max, 0, 0
   end
 
   def setRandomValues(rands)
