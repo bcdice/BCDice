@@ -64,7 +64,7 @@ INFO_MESSAGE_TEXT
     signOfInequality = ""
     diff = 0
 
-    mod = parren_killer("(0#{m[3]})").to_i if m[3]
+    mod = ArithmeticEvaluator.new.eval(m[3]) if m[3]
 
     if m[4]
       abl = m[5].to_i

@@ -87,7 +87,7 @@ INFO_MESSAGE_TEXT
     battleMode = Regexp.last_match(6).to_i
 
     modText = Regexp.last_match(4)
-    mod = parren_killer("(0#{modText})").to_i
+    mod = ArithmeticEvaluator.new.eval(modText)
 
     # 0=判定モード, 1=戦闘モード
     isBattleMode = (battleMode == 1)

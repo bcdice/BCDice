@@ -53,7 +53,7 @@ INFO_MESSAGE_TEXT
     mod = Regexp.last_match(3)
 
     debug(mod)
-    mod = parren_killer("(0#{mod})").to_i if mod
+    mod = ArithmeticEvaluator.new.eval(mod) if mod
     debug(mod)
     mod = mod.to_i
 
@@ -127,23 +127,23 @@ INFO_MESSAGE_TEXT
 
     case type
     when 'RT'
-      value = parren_killer("(0#{num})").to_i
+      value = ArithmeticEvaluator.new.eval(num)
       output = get_torg_success_level(value)
       ttype = '一般結果'
     when 'IT'
-      value = parren_killer("(0#{num})").to_i
+      value = ArithmeticEvaluator.new.eval(num)
       output = get_torg_interaction_result_intimidate_test(value)
       ttype = '威圧/威嚇'
     when 'TT'
-      value = parren_killer("(0#{num})").to_i
+      value = ArithmeticEvaluator.new.eval(num)
       output = get_torg_interaction_result_taunt_trick(value)
       ttype = '挑発/トリック'
     when 'MT'
-      value = parren_killer("(0#{num})").to_i
+      value = ArithmeticEvaluator.new.eval(num)
       output = get_torg_interaction_result_maneuver(value)
       ttype = '間合い'
     when 'DT'
-      value = parren_killer("(0#{num})").to_i
+      value = ArithmeticEvaluator.new.eval(num)
       if string =~ /ODT/i
         output = get_torg_damage_ords(value)
         ttype = 'オーズダメージ'
@@ -305,7 +305,7 @@ INFO_MESSAGE_TEXT
     val_arr = num.split(/\+/)
     value = val_arr.shift.to_i
 
-    mod = parren_killer("(0#{val_arr.join('+')})").to_i
+    mod = ArithmeticEvaluator.new.eval(val_arr.join('+'))
     resultValue = get_torg_bonus(value)
 
     debug('TORG BT resultValue', resultValue)

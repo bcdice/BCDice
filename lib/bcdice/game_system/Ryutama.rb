@@ -47,7 +47,7 @@ INFO_MESSAGE_TEXT
     end
 
     modifyString ||= ''
-    modify = parren_killer("(" + modifyString + ")").to_i
+    modify = ArithmeticEvaluator.new.eval(modifyString)
     difficulty = getDiffculty(difficulty)
 
     value1 = getRollValue(dice1)

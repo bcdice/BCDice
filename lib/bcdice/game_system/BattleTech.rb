@@ -133,7 +133,7 @@ MESSAGETEXT
     base = 0
     return base if baseString.nil?
 
-    base = parren_killer("(" + baseString + ")").to_i
+    base = ArithmeticEvaluator.new.eval(baseString)
     return base
   end
 

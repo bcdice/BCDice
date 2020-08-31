@@ -30,12 +30,8 @@ INFO_MESSAGE_TEXT
   end
 
   def replace_text(string)
-    debug('parren_killer_add begin stirng', string)
-
     string = string.gsub(/(\d+)RS([\+\-][\+\-\d]+)<=(\d+)/i) { "3R6#{Regexp.last_match(2)}<=#{Regexp.last_match(3)}[#{Regexp.last_match(1)}]" }
     string = string.gsub(/(\d+)RS<=(\d+)/i) { "3R6<=#{Regexp.last_match(2)}[#{Regexp.last_match(1)}]" }
-
-    debug('parren_killer_add end stirng', string)
 
     return string
   end
@@ -52,7 +48,7 @@ INFO_MESSAGE_TEXT
 
     mod = 0
     if modText
-      mod = parren_killer("(0#{modText})").to_i
+      mod = ArithmeticEvaluator.new.eval(modText)
     end
 
     dstr, suc, sum = rokumon2_roll(mod, target, abl)

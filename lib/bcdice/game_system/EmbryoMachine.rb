@@ -74,7 +74,7 @@ INFO_MESSAGE_TEXT
     diff = Regexp.last_match(5).to_i if Regexp.last_match(5)
     crit = Regexp.last_match(7).to_i if Regexp.last_match(7)
     fumble = Regexp.last_match(8).to_i if Regexp.last_match(8)
-    mod = parren_killer("(0#{modText})").to_i if modText
+    mod = ArithmeticEvaluator.new.eval(modText) if modText
 
     dice_now, dice_str, = roll(2, 10, (sortType & 1))
     dice_loc, = roll(2, 10)

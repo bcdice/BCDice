@@ -91,7 +91,7 @@ MESSAGETEXT
   def getValue(text, defaultValue)
     return defaultValue if text.nil? || text.empty?
 
-    parren_killer("(0" + text + ")").to_i
+    ArithmeticEvaluator.new.eval(text)
   end
 
   def isCritical(total)
@@ -130,12 +130,16 @@ MESSAGETEXT
   def getYear(yearText)
     text = yearText.gsub(/(\d+)D(6+)/) { getD6xResult(Regexp.last_match(1).to_i, Regexp.last_match(2).length) }
 
-    calculateText = "(#{text})"
-    year = parren_killer(calculateText.gsub(/×/, "*"))
-    return nil if year == calculateText
-    return nil if year == text
+    unless text.match?(%r{^[\+\-\*/\d]+$})
+      return nil
+    end
 
-    return year, calculateText
+    if text.match?(/^\d+$/)
+      return nil
+    end
+
+    year = ArithmeticEvaluator.new.eval(text)
+    return year, "(#{text})"
   end
 
   def getD6xResult(count, dice6Count)

@@ -87,8 +87,8 @@ INFO_MESSAGE_TEXT
     end
 
     diceCount = CHECK_DICE_COUNT[skillRank]
-    modify = parren_killer("(" + modifyText + ")").to_i
-    target = parren_killer("(" + targetText + ")").to_i
+    modify = ArithmeticEvaluator.new.eval(modifyText)
+    target = ArithmeticEvaluator.new.eval(targetText)
 
     _, diceText, = roll(diceCount, 6)
     diceList = diceText.split(/,/).collect { |i| i.to_i }

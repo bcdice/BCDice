@@ -62,7 +62,7 @@ MESSAGETEXT
     end
 
     # 修正込みの目標値を計算
-    target_total = parren_killer("(#{m[1]})").to_i
+    target_total = ArithmeticEvaluator.new.eval(m[1])
     debug('target_total', target_total)
 
     # 行為判定の成功度は [目標値の10の位の数+1]

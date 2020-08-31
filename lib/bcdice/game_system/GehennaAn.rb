@@ -53,7 +53,7 @@ INFO_MESSAGE_TEXT
     diff = Regexp.last_match(6).to_i
     mode = Regexp.last_match(8).to_i
 
-    mod = parren_killer("(0#{modText})").to_i
+    mod = ArithmeticEvaluator.new.eval(modText)
 
     diceValue, diceText, = roll(diceCount, 6, (sortType & 1))
 

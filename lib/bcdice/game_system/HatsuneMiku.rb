@@ -78,8 +78,8 @@ INFO_MESSAGE_TEXT
     diceCount = rankDiceList[skillRank]
     diceCount = skillRank.to_i if /^\d+$/ === skillRank
 
-    modify = parren_killer("(" + modifyText + ")").to_i
-    target = parren_killer("(" + targetText + ")").to_i
+    modify = ArithmeticEvaluator.new.eval(modifyText)
+    target = ArithmeticEvaluator.new.eval(targetText)
 
     isSort = 1
     _, diceText, = roll(diceCount, 6, isSort)

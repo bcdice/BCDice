@@ -83,7 +83,7 @@ INFO_MESSAGE_TEXT
   end
 
   def getModInfo(modText)
-    value = parren_killer("(0#{modText})").to_i
+    value = ArithmeticEvaluator.new.eval(modText)
 
     text = ""
     if value < 0

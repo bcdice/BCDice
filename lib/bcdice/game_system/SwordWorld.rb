@@ -236,7 +236,7 @@ class SwordWorld < DiceBot
     if /K(\d+)([\d\+\-]*)/i =~ string # ボーナスの抽出
       key = Regexp.last_match(1)
       if Regexp.last_match(2)
-        addValue = parren_killer("(" + Regexp.last_match(2) + ")").to_i
+        addValue = ArithmeticEvaluator.new.eval(Regexp.last_match(2))
       end
     else
       key = string

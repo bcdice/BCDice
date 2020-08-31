@@ -430,6 +430,6 @@ MESSAGETEXT
 
   def get_value(text)
     text ||= ""
-    return parren_killer("(0#{text})").to_i
+    return ArithmeticEvaluator.new.eval(text)
   end
 end

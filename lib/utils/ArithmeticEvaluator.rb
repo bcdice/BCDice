@@ -7,6 +7,10 @@ class ArithmeticEvaluator
   # @param [Symbol] round_type 端数処理の設定 :omit 切り捨て, :roundUp 切り上げ, :roundOff 四捨五入
   # @return [Integer]
   def eval(expr, round_type = :omit)
+    unless expr
+      return 0
+    end
+
     @tokens = tokenize(expr)
     @idx = 0
     @error = false

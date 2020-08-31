@@ -59,7 +59,7 @@ INFO_MESSAGE_TEXT
     fumble = Regexp.last_match(6).to_i if Regexp.last_match(6)
 
     mod = 0
-    mod = parren_killer("(0#{modText})") unless modText.nil?
+    mod = ArithmeticEvaluator.new.eval(modText) unless modText.nil?
 
     total, dice_str, = roll(2, 6, @sortType && 1)
     total_n = total + mod.to_i

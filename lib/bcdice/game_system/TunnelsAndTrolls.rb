@@ -41,8 +41,6 @@ INFO_MESSAGE_TEXT
   private
 
   def replace_text(string)
-    debug('TunnelsAndTrolls parren_killer begin string', string)
-
     if /(\d+)LV/i =~ string
       level_diff = Regexp.last_match(1).to_i * 5 + 15
       string = string.sub(/(\d+)LV/i) { level_diff.to_s }
@@ -143,7 +141,7 @@ INFO_MESSAGE_TEXT
     string = m[2]
     dice_c = m[3].to_i
     bonus = 0
-    bonus = parren_killer("(0#{m[4]})").to_i if m[4]
+    bonus = ArithmeticEvaluator.new.eval(m[4]) if m[4]
     isHyperBerserk = false
     isHyperBerserk = true if m[5] && (m[6] =~ /[Hh]/)
     dice_arr = []

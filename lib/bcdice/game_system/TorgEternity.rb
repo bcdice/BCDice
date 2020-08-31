@@ -70,7 +70,7 @@ INFO_MESSAGE_TEXT
     mod = m[3]
 
     debug(mod)
-    mod = parren_killer("(0#{mod})").to_i if mod
+    mod = ArithmeticEvaluator.new.eval(mod) if mod
     debug(mod)
     mod = mod.to_i
     skilled, unskilled, dice_str, = torg_eternity_dice(false, false)
@@ -155,7 +155,7 @@ INFO_MESSAGE_TEXT
     end
 
     secret = !m[2].nil?
-    output_modifier = parren_killer("(0#{m[4]})").to_i
+    output_modifier = ArithmeticEvaluator.new.eval(m[4])
     skilled, unskilled, dice_str, = torg_eternity_dice(true, false)
     subtotal_skilled = skilled + output_modifier
     subtotal_unskilled = unskilled + output_modifier
@@ -198,7 +198,7 @@ INFO_MESSAGE_TEXT
       return nil
     end
 
-    value = parren_killer("(0#{m[2]})").to_i
+    value = ArithmeticEvaluator.new.eval(m[2])
     debug(value)
     if value < 0
       output = "Failure."
@@ -218,7 +218,7 @@ INFO_MESSAGE_TEXT
       return nil
     end
 
-    value = parren_killer("(0#{m[2]})").to_i
+    value = ArithmeticEvaluator.new.eval(m[2])
     debug(value)
     output = get_torg_eternity_damage_result(value)
     output = "ダメージ結果表[#{value}] ＞ #{output}"
@@ -271,7 +271,7 @@ INFO_MESSAGE_TEXT
       value_modifier = 0
       output_modifier = ""
     else
-      value_modifier = parren_killer("(0#{string_modifier})").to_i
+      value_modifier = ArithmeticEvaluator.new.eval(string_modifier)
       output_modifier = format("%+d", value_modifier)
     end
     debug(value_modifier)

@@ -76,7 +76,7 @@ INFO_MESSAGE_TEXT
     diff = 0
 
     bonusText = m[4]
-    bonus = parren_killer("(0" + bonusText + ")").to_i unless bonusText.nil?
+    bonus = ArithmeticEvaluator.new.eval(bonusText) unless bonusText.nil?
 
     signOfInequality = m[6] if m[6]
     diff = m[7].to_i if m[7]

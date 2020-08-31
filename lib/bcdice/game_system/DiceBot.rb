@@ -223,12 +223,7 @@ class DiceBot
     @bcdice.getD66Value(*args)
   end
 
-  def parren_killer(string)
-    @bcdice.parren_killer(string)
-  end
-
   def changeText(string)
-    debug("DiceBot.parren_killer_add called")
     string
   end
 

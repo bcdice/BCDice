@@ -34,14 +34,10 @@ INFO_MESSAGE_TEXT
   end
 
   def replace_text(string)
-    debug('parren_killer_add begin string', string)
-
     string = string.gsub(/(\d+)BKC(\d)/) { "#{Regexp.last_match(1)}R6[0,#{Regexp.last_match(2)}]" }
     string = string.gsub(/(\d+)BAC(\d)/) { "#{Regexp.last_match(1)}R6[1,#{Regexp.last_match(2)}]" }
     string = string.gsub(/(\d+)BK/) { "#{Regexp.last_match(1)}R6[0,0]" }
     string = string.gsub(/(\d+)BA/) { "#{Regexp.last_match(1)}R6[1,0]" }
-
-    debug('parren_killer_add end string', string)
     return string
   end
 

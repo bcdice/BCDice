@@ -121,7 +121,7 @@ MESSAGETEXT
   def getValue(text, defaultValue)
     return defaultValue if text.nil? || text.empty?
 
-    parren_killer("(0" + text + ")").to_i
+    ArithmeticEvaluator.new.eval(text)
   end
 
   def isCritical(diceList)
