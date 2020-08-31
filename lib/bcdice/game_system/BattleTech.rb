@@ -73,10 +73,14 @@ MESSAGETEXT
     end
 
     return nil
+  rescue UnknownXRMError => e
+    return nil
   end
 
+  class UnknownXRMError < StandardError; end
+
   def getXrmDamage(type)
-    raise "unknown XRM type:#{type}" unless XRM_DAMAGE_TABLES.key?(type)
+    raise UnknownXRMError, "unknown XRM: #{type}" unless XRM_DAMAGE_TABLES.key?(type)
 
     table = XRM_DAMAGE_TABLES[type]
     roll_result = table.roll(bcdice)

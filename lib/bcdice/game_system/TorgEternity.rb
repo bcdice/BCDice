@@ -98,7 +98,7 @@ INFO_MESSAGE_TEXT
   # ロールコマンド (通常ロール)
   def getRolld20DiceCommandResult(command)
     debug("Torg Eternity Dice Roll Command ? ", command)
-    m = /(^|\s)(S)?(TE)/i.match(command)
+    m = /(^|\s)(S)?(TE)$/i.match(command)
     unless m
       return nil
     end
@@ -123,7 +123,7 @@ INFO_MESSAGE_TEXT
   # ロールコマンド (高揚ロール)
   def getUpRollDiceCommandResult(command)
     debug("Torg Eternity Dice Roll ( UP ) Command ? ", command)
-    m = /(^|\s)(S)?(UP)/i.match(command)
+    m = /(^|\s)(S)?(UP)$/i.match(command)
     unless m
       return nil
     end

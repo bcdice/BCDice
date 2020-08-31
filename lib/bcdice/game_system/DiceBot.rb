@@ -242,7 +242,7 @@ class DiceBot
 
     debug('match')
 
-    output_msg, secret_flg = rollDiceCommandCatched(command)
+    output_msg, secret_flg = rollDiceCommand(command)
     output_msg = '1' if output_msg.nil? || output_msg.empty?
     secret_flg ||= false
 
@@ -264,20 +264,6 @@ class DiceBot
   def removeDiceCommandMessage(command)
     # "2d6 Attack" のAttackのようなメッセージ部分をここで除去
     command.sub(/[\s　].+/, '')
-  end
-
-  def rollDiceCommandCatched(command)
-    result = nil
-    begin
-      debug('call rollDiceCommand command', command)
-      result, secret_flg = rollDiceCommand(command)
-    rescue StandardError => e
-      debug("executeCommand exception", e.to_s, e.backtrace.join("\n"))
-    end
-
-    debug('rollDiceCommand result', result)
-
-    return result, secret_flg
   end
 
   def rollDiceCommand(_command)

@@ -64,6 +64,8 @@ MESSAGETEXT
     end
 
     return result
+  rescue StandardError => e
+    return e.message
   end
 
   def getCheckShockResult(damage, toughness)
