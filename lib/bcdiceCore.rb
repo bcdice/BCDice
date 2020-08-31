@@ -1,8 +1,9 @@
 #!/bin/ruby -Ku
 # -*- coding: utf-8 -*-
 
+$isDebug = false
+
 require 'log'
-require 'configBcDice.rb'
 require 'utils/ArithmeticEvaluator.rb'
 
 require 'bcdice/game_system/DiceBot'
@@ -68,17 +69,8 @@ class BCDice
   end
 
   def setMessage(message)
-    # 設定で変化し得るためopen系はここで正規表現を作る
-    openPattern = /\A\s*(?:#{$OPEN_DICE}|#{$OPEN_PLOT})\s*\z/i
-
-    messageToSet =
-      case message
-      when openPattern
-        message
-      else
-        # 空白が含まれる場合、最初の部分だけを取り出す
-        message.split(/\s/, 2).first
-      end
+    # 空白が含まれる場合、最初の部分だけを取り出す
+    messageToSet = message.split(/\s/, 2).first
     debug("setMessage messageToSet", messageToSet)
 
     @messageOriginal = parren_killer(messageToSet)
@@ -152,6 +144,9 @@ class BCDice
     return message
   end
 
+  DICE_MAXCNT = 200
+  DICE_MAXNUM = 1000
+
   #=========================================================================
   # **                           ランダマイザ
   #=========================================================================
@@ -169,7 +164,7 @@ class BCDice
     d9_on = false
     rerollCount = 0
 
-    unless (dice_cnt <= $DICE_MAXCNT) && (dice_max <= $DICE_MAXNUM)
+    unless (dice_cnt <= DICE_MAXCNT) && (dice_max <= DICE_MAXNUM)
       return total, dice_str, numberSpot1, cnt_max, n_max, cnt_suc, rerollCount
     end
 
@@ -286,11 +281,6 @@ class BCDice
     return (value - 1)
   end
 
-  def dice_num(dice_str)
-    dice_str = dice_str.to_s
-    return dice_str.sub(/\[[\d,]+\]/, '').to_i
-  end
-
   #==========================================================================
   # **                            ダイスコマンド処理
   #==========================================================================
@@ -328,17 +318,6 @@ class BCDice
     debug("output", output)
 
     return output
-  end
-
-  def getNick(nick = nil)
-    nick ||= @nick_e
-    nick = nick.upcase
-
-    if /[_\d]*(.+)[_\d]*/ =~ nick
-      nick = Regexp.last_match(1) # Nick端の数字はカウンター変わりに使われることが多いので除去
-    end
-
-    return nick
   end
 
   #==========================================================================

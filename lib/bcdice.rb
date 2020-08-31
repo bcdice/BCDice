@@ -3,8 +3,6 @@
 
 $:.push(File.dirname(__FILE__)) # require_relative対策
 
-require 'configBcDice.rb'
-
 class Cli
   def sendMessage(_to, message)
     print message

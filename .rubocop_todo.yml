@@ -140,7 +140,6 @@ Style/FormatStringToken:
 Style/GlobalVars:
   Exclude:
     - 'lib/bcdiceCore.rb'
-    - 'lib/configBcDice.rb'
     - 'lib/log.rb'
     - 'test/DiceBotTest.rb'
     - 'test/others/testCard.rb'
