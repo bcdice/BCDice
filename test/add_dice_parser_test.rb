@@ -6,7 +6,7 @@ $:.unshift(bcdice_root) unless $:.include?(bcdice_root)
 
 require 'test/unit'
 require 'bcdiceCore'
-require 'dice/add_dice/parser'
+require 'bcdice/common_command/add_dice/parser'
 
 class AddDiceParserTest < Test::Unit::TestCase
   def setup
@@ -175,7 +175,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   # @param [String] expected_s_exp 期待されるS式
   # @return [void]
   def test_parse(command, expected_s_exp)
-    parser = AddDice::Parser.new(command)
+    parser = BCDice::CommonCommand::AddDice::Parser.new(command)
     node = parser.parse
 
     assert(!parser.error?, '構文解析に成功する')

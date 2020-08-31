@@ -9,7 +9,6 @@ require 'bcdice/game_system/DiceBot'
 require 'bcdice/game_system/DiceBotLoader'
 require 'bcdice/game_system/DiceBotLoaderList'
 require 'bcdice/common_command'
-require 'dice/AddDice'
 require 'dice/UpperDice'
 require 'dice/RerollDice'
 
@@ -123,9 +122,6 @@ class BCDice
     output, secret = rollD66(arg)
     return output, secret unless output.nil?
 
-    output, secret = checkAddRoll(arg)
-    return output, secret unless output.nil?
-
     output, secret = checkRnDice(arg)
     return output, secret unless output.nil?
 
@@ -134,19 +130,6 @@ class BCDice
 
     output = '1'
     secret = false
-    return output, secret
-  end
-
-  def checkAddRoll(arg)
-    debug("check add roll")
-
-    secret = arg.start_with?('S')
-    command = secret ? arg[1..-1] : arg
-
-    dice = AddDice.new(self, @diceBot)
-    output = dice.rollDice(command)
-    return nil if output == '1'
-
     return output, secret
   end
 
