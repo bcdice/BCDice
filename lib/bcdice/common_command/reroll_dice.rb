@@ -3,7 +3,7 @@
 require "utils/normalize"
 require "utils/format"
 
-class BCDice
+module BCDice
   module CommonCommand
     # 個数振り足しダイス
     #

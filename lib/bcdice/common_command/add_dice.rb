@@ -4,7 +4,7 @@ require "utils/normalize"
 require "bcdice/common_command/add_dice/parser"
 require "bcdice/common_command/add_dice/randomizer"
 
-class BCDice
+module BCDice
   module CommonCommand
     class AddDice
       def initialize(command, randomizer, game_system)

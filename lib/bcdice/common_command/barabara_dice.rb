@@ -1,6 +1,6 @@
 require "utils/format"
 
-class BCDice
+module BCDice
   module CommonCommand
     class BarabaraDice
       def initialize(command, randomizer, game_system)

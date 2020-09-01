@@ -1,4 +1,4 @@
-class BCDice
+module BCDice
   class Preprocessor
     def self.process(text, randomizer, game_system)
       Preprocessor.new(text, randomizer, game_system).process()

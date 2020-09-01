@@ -1,4 +1,4 @@
-class BCDice
+module BCDice
   module CommonCommand
     class Choice
       def initialize(command, randomizer, game_system)

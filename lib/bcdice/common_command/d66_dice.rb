@@ -1,4 +1,4 @@
-class BCDice
+module BCDice
   module CommonCommand
     class D66Dice
       def initialize(command, randomizer, game_system)

@@ -5,7 +5,7 @@ require 'utils/normalize'
 require 'utils/format'
 require 'utils/modifier_formatter'
 
-class BCDice
+module BCDice
   module CommonCommand
     # 上方無限ロール
     #

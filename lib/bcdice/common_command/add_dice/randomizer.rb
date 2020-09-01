@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-class BCDice
+module BCDice
   module CommonCommand
     class AddDice
       class Randomizer

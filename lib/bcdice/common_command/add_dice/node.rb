@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-class BCDice
+module BCDice
   module CommonCommand
     class AddDice
       # 加算ロールの構文解析木のノードを格納するモジュール

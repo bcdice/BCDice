@@ -5,7 +5,7 @@ require "utils/ArithmeticEvaluator"
 require "utils/normalize"
 require "bcdice/common_command/add_dice/node"
 
-class BCDice
+module BCDice
   module CommonCommand
     class AddDice
       # 加算ロールの構文解析器のクラス

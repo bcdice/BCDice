@@ -1,4 +1,4 @@
-class BCDice
+module BCDice
   class Randomizer
     DICE_MAXCNT = 200
     DICE_MAXNUM = 1000

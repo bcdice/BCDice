@@ -1,4 +1,4 @@
-class BCDice
+module BCDice
   module CommonCommand
     class Calc
       def initialize(command, _randomizer, _game_system)
