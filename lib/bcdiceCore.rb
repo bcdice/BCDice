@@ -79,59 +79,9 @@ class BCDice
     debug("@message", @message)
   end
 
-  def getOriginalMessage
-    @messageOriginal
-  end
-
-  # 直接TALKでは大文字小文字を考慮したいのでここでオリジナルの文字列に変更
-  def changeMessageOriginal
-    @message = @messageOriginal
-  end
-
   def setTest(isTest)
     @isTest = isTest
   end
-
-  ###########################################################################
-  # **                         各種コマンド処理
-  ###########################################################################
-
-  #=========================================================================
-  # **                           コマンド分岐
-  #=========================================================================
-  def dice_command # ダイスコマンドの分岐処理
-    arg = @message.upcase
-
-    debug('dice_command arg', arg)
-
-    output, secret = @diceBot.dice_command(@message, @nick_e)
-    return output, secret if output != '1'
-
-    output, secret = CommonCommand.eval(arg, self, @diceBot)
-    return output, secret unless output.nil?
-
-    output = '1'
-    secret = false
-    return output, secret
-  end
-
-  # def getTableIndexDiceValueAndDiceText(dice)
-  #   if /(\d+)D(\d+)/i === dice
-  #     diceCount = Regexp.last_match(1)
-  #     diceType = Regexp.last_match(2)
-  #     value, diceText = roll(diceCount, diceType)
-  #     return value, diceText
-  #   end
-
-  #   string, _secret, _count, swapMarker = getD66Infos(dice)
-  #   unless  string.nil?
-  #     value = getD66ValueByMarker(swapMarker)
-  #     diceText = (value / 10).to_s + "," + (value % 10).to_s
-  #     return value, diceText
-  #   end
-
-  #   return nil
-  # end
 
   def rollTableMessageDiceText(text)
     message = text.gsub(/(\d+)D(\d+)/) do

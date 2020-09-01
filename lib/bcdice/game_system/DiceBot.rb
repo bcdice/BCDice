@@ -97,10 +97,18 @@ class DiceBot
   end
 
   def eval(command)
-    @bcdice.setMessage(command)
+    command = BCDice::Preprocessor.process(command, @bcdice, self)
+    upcased_command = command.upcase
+
     @bcdice.setCollectRandResult(true)
 
-    result, secret = @bcdice.dice_command
+    result, secret = dice_command(command, "")
+    result, secret = BCDice::CommonCommand.eval(upcased_command, @bcdice, self) if result == "1" || result.nil?
+
+    if result.nil?
+      return ""
+    end
+
     if secret
       result += "###secret dice###"
     end
@@ -228,7 +236,7 @@ class DiceBot
   end
 
   def dice_command(string, nick_e)
-    string = @bcdice.getOriginalMessage if isGetOriginalMessage
+    string = string.upcase unless isGetOriginalMessage
 
     debug('dice_command Begin string', string)
     secret_flg = false

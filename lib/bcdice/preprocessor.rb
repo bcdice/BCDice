@@ -11,6 +11,7 @@ class BCDice
     end
 
     def process
+      trim_after_whitespace()
       replace_preroll()
       replace_range()
       replace_parentheses()
@@ -23,6 +24,10 @@ class BCDice
     end
 
     private
+
+    def trim_after_whitespace()
+      @text = @text.strip.split(/\s/, 2).first
+    end
 
     def replace_preroll()
       @text = @text.gsub(/\[\d+D\d+\]/i) do |matched|
