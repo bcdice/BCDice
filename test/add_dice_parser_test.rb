@@ -9,10 +9,6 @@ require 'bcdiceCore'
 require 'bcdice/common_command/add_dice/parser'
 
 class AddDiceParserTest < Test::Unit::TestCase
-  def setup
-    @bcdice = BCDiceMaker.new.newBcDice
-  end
-
   # ダイスロールのみ
   def test_parse_dice_roll
     test_parse('2D6', '(Command (DiceRoll 2 6))')

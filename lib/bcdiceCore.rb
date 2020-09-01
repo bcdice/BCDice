@@ -12,21 +12,6 @@ require 'bcdice/game_system/DiceBotLoaderList'
 require 'bcdice/common_command'
 require 'bcdice/preprocessor'
 
-class BCDiceMaker
-  def initialize
-    @diceBot = DiceBot.new
-  end
-
-  # @todo 未使用のため削除する
-  attr_accessor :diceBotPath
-
-  def newBcDice
-    bcdice = BCDice.new(@diceBot)
-
-    return bcdice
-  end
-end
-
 class BCDice
   # BCDiceのバージョン番号
   VERSION = "3.0.0-alpha".freeze
