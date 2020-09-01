@@ -5,7 +5,7 @@ bcdice_root = File.expand_path('..', File.dirname(__FILE__))
 $:.unshift(bcdice_root) unless $:.include?(bcdice_root)
 
 require 'test/unit'
-require 'bcdiceCore'
+require 'bcdice'
 require 'bcdice/game_system/DiceBot'
 require 'bcdice/game_system/DiceBotLoader'
 

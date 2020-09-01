@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 require 'test/unit'
-require 'bcdiceCore'
 require 'utils/command_parser'
 
 class TestCommandParser < Test::Unit::TestCase

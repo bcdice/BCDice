@@ -139,7 +139,6 @@ Style/FormatStringToken:
 # Configuration parameters: AllowedVariables.
 Style/GlobalVars:
   Exclude:
-    - 'lib/bcdiceCore.rb'
     - 'lib/log.rb'
     - 'test/DiceBotTest.rb'
     - 'test/others/testCard.rb'
@@ -165,17 +164,8 @@ Style/IfInsideElse:
 # Cop supports --auto-correct.
 Style/RandomWithOffset:
   Exclude:
-    - 'lib/bcdiceCore.rb'
     - 'lib/bcdice/game_system/ArsMagica.rb'
     - 'lib/bcdice/game_system/MeikyuKingdom.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: ExactNameMatch, AllowPredicates, AllowDSLWriters, IgnoreClassMethods, AllowedMethods.
-# AllowedMethods: to_ary, to_a, to_c, to_enum, to_h, to_hash, to_i, to_int, to_io, to_open, to_path, to_proc, to_r, to_regexp, to_str, to_s, to_sym
-Style/TrivialAccessors:
-  Exclude:
-    - 'lib/bcdiceCore.rb'
 
 # Offense count: 1289
 # Cop supports --auto-correct.

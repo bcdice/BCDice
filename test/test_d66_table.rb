@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 require 'test/unit'
-require 'bcdiceCore'
+require 'bcdice'
 require 'utils/d66_table'
 
 class TestD66Table < Test::Unit::TestCase

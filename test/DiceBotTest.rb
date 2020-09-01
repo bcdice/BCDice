@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-require 'bcdiceCore'
+require 'bcdice'
 require 'bcdice/game_system/DiceBotLoader'
 require 'DiceBotTestData'
 

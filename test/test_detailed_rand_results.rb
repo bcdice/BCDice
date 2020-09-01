@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 require 'test/unit'
-require 'bcdiceCore'
+require 'bcdice'
 require 'bcdice/randomizer'
 
 # ダイスロール結果詳細のテストケース

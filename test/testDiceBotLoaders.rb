@@ -6,7 +6,7 @@ unless $:.include?(dodontof_root)
 end
 
 require 'test/unit'
-require 'bcdiceCore'
+require 'bcdice'
 require 'bcdice/game_system/DiceBotLoader'
 require 'bcdice/game_system/DiceBotLoaderList'
 

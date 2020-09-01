@@ -74,7 +74,6 @@ class DiceBot
     @defaultSuccessTarget = "" # 目標値が空欄の時の目標値
     @rerollLimitCount = 10000 # 振り足し回数上限
     @fractionType = "omit" # 端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
-    @bcdice = BCDice.new(self)
     @randomizer = BCDice::Randomizer.new
 
     if !prefixs.empty? && self.class.prefixes.empty?
