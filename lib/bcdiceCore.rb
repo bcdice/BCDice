@@ -10,6 +10,7 @@ require 'bcdice/game_system/DiceBot'
 require 'bcdice/game_system/DiceBotLoader'
 require 'bcdice/game_system/DiceBotLoaderList'
 require 'bcdice/common_command'
+require 'bcdice/preprocessor'
 
 class BCDiceMaker
   def initialize
@@ -73,7 +74,7 @@ class BCDice
     messageToSet = message.split(/\s/, 2).first
     debug("setMessage messageToSet", messageToSet)
 
-    @messageOriginal = parren_killer(messageToSet)
+    @messageOriginal = Preprocessor.process(messageToSet, self, @diceBot)
     @message = @messageOriginal.upcase
     debug("@message", @message)
   end
@@ -114,23 +115,23 @@ class BCDice
     return output, secret
   end
 
-  def getTableIndexDiceValueAndDiceText(dice)
-    if /(\d+)D(\d+)/i === dice
-      diceCount = Regexp.last_match(1)
-      diceType = Regexp.last_match(2)
-      value, diceText = roll(diceCount, diceType)
-      return value, diceText
-    end
+  # def getTableIndexDiceValueAndDiceText(dice)
+  #   if /(\d+)D(\d+)/i === dice
+  #     diceCount = Regexp.last_match(1)
+  #     diceType = Regexp.last_match(2)
+  #     value, diceText = roll(diceCount, diceType)
+  #     return value, diceText
+  #   end
 
-    string, _secret, _count, swapMarker = getD66Infos(dice)
-    unless  string.nil?
-      value = getD66ValueByMarker(swapMarker)
-      diceText = (value / 10).to_s + "," + (value % 10).to_s
-      return value, diceText
-    end
+  #   string, _secret, _count, swapMarker = getD66Infos(dice)
+  #   unless  string.nil?
+  #     value = getD66ValueByMarker(swapMarker)
+  #     diceText = (value / 10).to_s + "," + (value % 10).to_s
+  #     return value, diceText
+  #   end
 
-    return nil
-  end
+  #   return nil
+  # end
 
   def rollTableMessageDiceText(text)
     message = text.gsub(/(\d+)D(\d+)/) do
@@ -318,66 +319,6 @@ class BCDice
     debug("output", output)
 
     return output
-  end
-
-  ####################         テキスト前処理        ########################
-  def parren_killer(string)
-    debug("parren_killer input", string)
-
-    string = string.gsub(/\[\d+D\d+\]/i) do |matched|
-      # Remove '[' and ']'
-      command = matched[1..-2].upcase
-      times, sides = command.split("D").map(&:to_i)
-      rolled, = roll(times, sides)
-
-      rolled
-    end
-
-    string = changeRangeTextToNumberText(string)
-
-    round_type = @diceBot.fractionType.to_sym
-    string = string.gsub(%r{\([\d/\+\*\-\(\)]+\)}) do |expr|
-      ArithmeticEvaluator.new.eval(expr, round_type)
-    end
-
-    debug("diceBot.changeText(string) begin", string)
-    string = @diceBot.changeText(string)
-    debug("diceBot.changeText(string) end", string)
-
-    string = string.gsub(/([\d]+[dD])([^\w]|$)/) { "#{Regexp.last_match(1)}6#{Regexp.last_match(2)}" }
-
-    debug("parren_killer output", string)
-
-    return string
-  end
-
-  # [1...4]D[2...7] -> 2D7 のように[n...m]をランダムな数値へ変換
-  def changeRangeTextToNumberText(string)
-    debug('[st...ed] before string', string)
-
-    while /^(.*?)\[(\d+)[.]{3}(\d+)\](.*)/ =~ string
-      beforeText = Regexp.last_match(1)
-      beforeText ||= ""
-
-      rangeBegin = Regexp.last_match(2).to_i
-      rangeEnd = Regexp.last_match(3).to_i
-
-      afterText = Regexp.last_match(4)
-      afterText ||= ""
-
-      next unless rangeBegin < rangeEnd
-
-      range = (rangeEnd - rangeBegin + 1)
-      debug('range', range)
-
-      rolledNumber, = roll(1, range)
-      resultNumber = rangeBegin - 1 + rolledNumber
-      string = "#{beforeText}#{resultNumber}#{afterText}"
-    end
-
-    debug('[st...ed] after string', string)
-
-    return string
   end
 
   # 指定したタイトルのゲームを設定する
