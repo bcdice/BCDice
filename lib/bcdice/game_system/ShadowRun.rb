@@ -18,6 +18,5 @@ class ShadowRun < DiceBot
     super
     @sortType = 3
     @upperRollThreshold = 6
-    @unlimitedRollDiceType = 6
   end
 end

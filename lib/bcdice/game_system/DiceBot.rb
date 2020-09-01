@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
+require "bcdice/randomizer"
+
 class DiceBot
   # 空の接頭辞（反応するコマンド）
   EMPTY_PREFIXES_PATTERN = /(^|\s)(S)?()(\s|$)/i.freeze
@@ -68,12 +70,12 @@ class DiceBot
     @d66Type = 1 # d66の差し替え(0=D66無し, 1=順番そのまま([5,3]->53), 2=昇順入れ替え([5,3]->35)
     @isPrintMaxDice = false # 最大値表示
     @upperRollThreshold = 0 # 上方無限
-    @unlimitedRollDiceType = 0 # 無限ロールのダイス
     @rerollNumber = 0 # 振り足しする条件
     @defaultSuccessTarget = "" # 目標値が空欄の時の目標値
     @rerollLimitCount = 10000 # 振り足し回数上限
     @fractionType = "omit" # 端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
     @bcdice = BCDice.new(self)
+    @randomizer = BCDice::Randomizer.new
 
     if !prefixs.empty? && self.class.prefixes.empty?
       # 従来の方法（#prefixs）で接頭辞を設定していた場合でも
@@ -82,6 +84,8 @@ class DiceBot
       self.class.setPrefixes(prefixs)
     end
   end
+
+  attr_reader :randomizer
 
   def disable_d66?
     @d66Type == 0
@@ -97,13 +101,11 @@ class DiceBot
   end
 
   def eval(command)
-    command = BCDice::Preprocessor.process(command, @bcdice, self)
+    command = BCDice::Preprocessor.process(command, @randomizer, self)
     upcased_command = command.upcase
 
-    @bcdice.setCollectRandResult(true)
-
     result, secret = dice_command(command, "")
-    result, secret = BCDice::CommonCommand.eval(upcased_command, @bcdice, self) if result == "1" || result.nil?
+    result, secret = BCDice::CommonCommand.eval(upcased_command, @randomizer, self) if result == "1" || result.nil?
 
     if result.nil?
       return ""
@@ -210,15 +212,11 @@ class DiceBot
   attr_reader :bcdice
 
   def rand(max)
-    @bcdice.rand(max)
+    @randomizer.rand(max)
   end
 
   def roll(*args)
-    @bcdice.roll(*args)
-  end
-
-  def unlimitedRollDiceType
-    @bcdice.unlimitedRollDiceType
+    @randomizer.roll(*args)
   end
 
   attr_reader :sortType
@@ -228,7 +226,7 @@ class DiceBot
   end
 
   def d66(*args)
-    @bcdice.getD66Value(*args)
+    @randomizer.getD66Value(*args)
   end
 
   def changeText(string)
@@ -396,13 +394,13 @@ class DiceBot
   end
 
   def getD66(isSwap)
-    return bcdice.getD66(isSwap)
+    @randomizer.getD66(isSwap)
   end
 
   # D66 ロール用（スワップ、たとえば出目が【６，４】なら「６４」ではなく「４６」とする
   def get_table_by_d66_swap(table)
     isSwap = true
-    number = bcdice.getD66(isSwap)
+    number = @randomizer.getD66(isSwap)
     return get_table_by_number(number, table), number
   end
 
@@ -526,13 +524,25 @@ class DiceBot
       end
 
     text = text.gsub("\\n", "\n")
-    text = @bcdice.rollTableMessageDiceText(text)
+    text = rollTableMessageDiceText(text)
 
     return nil if text.nil?
 
     return "#{name}(#{number}[#{diceText}]) ＞ #{text}" if isPrintDiceText && !diceText.nil?
 
     return "#{name}(#{number}) ＞ #{text}"
+  end
+
+  def rollTableMessageDiceText(text)
+    message = text.gsub(/(\d+)D(\d+)/) do
+      m = $~
+      diceCount = m[1]
+      diceMax = m[2]
+      value, = roll(diceCount, diceMax)
+      "#{diceCount}D#{diceMax}(=>#{value})"
+    end
+
+    return message
   end
 
   def getTableInfoFromExtraTableText(text, count = nil)
@@ -563,6 +573,6 @@ class DiceBot
       return nil
     end
 
-    return table.roll(bcdice).to_s
+    return table.roll(@randomizer).to_s
   end
 end

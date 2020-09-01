@@ -73,7 +73,7 @@ MESSAGETEXT
     command = command.upcase
 
     if (table = TABLES[command])
-      table.roll(bcdice)
+      table.roll(@randomizer)
     elsif (m = /(\d+)SK(\d)?((,\d>\d)+)?/.match(command))
       resolute_action(m[1].to_i, m[2] && m[2].to_i, m[3], command)
     elsif command == 'STB2'
@@ -137,11 +137,11 @@ MESSAGETEXT
   end
 
   def roll_all_situation_b2_tables
-    (1..6).map { |num| TABLES["STB2#{num}"].roll(bcdice) }.join("\n")
+    (1..6).map { |num| TABLES["STB2#{num}"].roll(@randomizer) }.join("\n")
   end
 
   def roll_all_situation_tables
-    %w(STA STB STC).map { |command| TABLES[command].roll(bcdice) }.join("\n")
+    %w(STA STB STC).map { |command| TABLES[command].roll(@randomizer) }.join("\n")
   end
 
   def roll_personality_table

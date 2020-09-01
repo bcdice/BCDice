@@ -117,7 +117,7 @@ INFO_MESSAGE_TEXT
       when 'D66N'
         table = getD66Table(table)
         isSwap = false
-        number = bcdice.getD66(isSwap)
+        number = @randomizer.getD66(isSwap)
         result = get_table_by_number(number, table)
         [result, number]
       end

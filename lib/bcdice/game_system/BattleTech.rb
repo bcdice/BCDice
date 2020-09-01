@@ -83,7 +83,7 @@ MESSAGETEXT
     raise UnknownXRMError, "unknown XRM: #{type}" unless XRM_DAMAGE_TABLES.key?(type)
 
     table = XRM_DAMAGE_TABLES[type]
-    roll_result = table.roll(bcdice)
+    roll_result = table.roll(@randomizer)
 
     lrm = type.start_with?('L')
     damage = roll_result.content
@@ -243,7 +243,7 @@ MESSAGETEXT
   # @param [String] damage_text ダメージを表す文字列
   # @param [RangeTable] hit_part_table 命中部位表
   def getHitResultOne(damage_text, hit_part_table)
-    hit_part_roll_result = hit_part_table.roll(bcdice)
+    hit_part_roll_result = hit_part_table.roll(@randomizer)
     hit_part = hit_part_roll_result.content
 
     critical_hit_may_occur_str =
@@ -260,7 +260,7 @@ MESSAGETEXT
     critical_hit_occurred = false
     criticalText = ''
     if hit_part.critical_hit_may_occur
-      ct_roll_result = TABLES['CT'].roll(bcdice)
+      ct_roll_result = TABLES['CT'].roll(@randomizer)
 
       # 致命的命中が発生したか
       critical_hit_occurred = ct_roll_result.sum > NO_CRITICAL_HIT_LIMIT

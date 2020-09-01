@@ -6,7 +6,7 @@ require 'utils/d66_table'
 
 class TestD66Table < Test::Unit::TestCase
   def setup
-    @bcdice = BCDiceMaker.new.newBcDice
+    @randomizer = BCDice::Randomizer.new
 
     @asc_items = {
       11 => "あ",
@@ -64,8 +64,8 @@ class TestD66Table < Test::Unit::TestCase
       @asc_items
     )
 
-    @bcdice.setRandomValues([[1, 6], [6, 6]])
-    assert_equal("テスト(16) ＞ か", table.roll(@bcdice))
+    @randomizer.setRandomValues([[1, 6], [6, 6]])
+    assert_equal("テスト(16) ＞ か", table.roll(@randomizer))
   end
 
   def test_asc_swap
@@ -75,8 +75,8 @@ class TestD66Table < Test::Unit::TestCase
       @asc_items
     )
 
-    @bcdice.setRandomValues([[6, 6], [1, 6]])
-    assert_equal("テスト(16) ＞ か", table.roll(@bcdice))
+    @randomizer.setRandomValues([[6, 6], [1, 6]])
+    assert_equal("テスト(16) ＞ か", table.roll(@randomizer))
   end
 
   def test_asc_11
@@ -86,8 +86,8 @@ class TestD66Table < Test::Unit::TestCase
       @asc_items
     )
 
-    @bcdice.setRandomValues([[1, 6], [1, 6]])
-    assert_equal("テスト(11) ＞ あ", table.roll(@bcdice))
+    @randomizer.setRandomValues([[1, 6], [1, 6]])
+    assert_equal("テスト(11) ＞ あ", table.roll(@randomizer))
   end
 
   def test_asc_66
@@ -97,8 +97,8 @@ class TestD66Table < Test::Unit::TestCase
       @asc_items
     )
 
-    @bcdice.setRandomValues([[6, 6], [6, 6]])
-    assert_equal("テスト(66) ＞ な", table.roll(@bcdice))
+    @randomizer.setRandomValues([[6, 6], [6, 6]])
+    assert_equal("テスト(66) ＞ な", table.roll(@randomizer))
   end
 
   def test_desc
@@ -108,8 +108,8 @@ class TestD66Table < Test::Unit::TestCase
       @desc_items
     )
 
-    @bcdice.setRandomValues([[6, 6], [1, 6]])
-    assert_equal("テスト(61) ＞ ゆ", table.roll(@bcdice))
+    @randomizer.setRandomValues([[6, 6], [1, 6]])
+    assert_equal("テスト(61) ＞ ゆ", table.roll(@randomizer))
   end
 
   def test_desc_swap
@@ -119,8 +119,8 @@ class TestD66Table < Test::Unit::TestCase
       @desc_items
     )
 
-    @bcdice.setRandomValues([[1, 6], [6, 6]])
-    assert_equal("テスト(61) ＞ ゆ", table.roll(@bcdice))
+    @randomizer.setRandomValues([[1, 6], [6, 6]])
+    assert_equal("テスト(61) ＞ ゆ", table.roll(@randomizer))
   end
 
   def test_desc_11
@@ -130,8 +130,8 @@ class TestD66Table < Test::Unit::TestCase
       @desc_items
     )
 
-    @bcdice.setRandomValues([[1, 6], [1, 6]])
-    assert_equal("テスト(11) ＞ に", table.roll(@bcdice))
+    @randomizer.setRandomValues([[1, 6], [1, 6]])
+    assert_equal("テスト(11) ＞ に", table.roll(@randomizer))
   end
 
   def test_desc_66
@@ -141,7 +141,7 @@ class TestD66Table < Test::Unit::TestCase
       @desc_items
     )
 
-    @bcdice.setRandomValues([[6, 6], [6, 6]])
-    assert_equal("テスト(66) ＞ れ", table.roll(@bcdice))
+    @randomizer.setRandomValues([[6, 6], [6, 6]])
+    assert_equal("テスト(66) ＞ れ", table.roll(@randomizer))
   end
 end

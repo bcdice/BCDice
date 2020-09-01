@@ -45,7 +45,7 @@ class BCDice
           @sides = sides if @sides < sides
 
           if sides == 66
-            return Array.new(times) { @bcdice.getD66Value() }
+            return Array.new(times) { @bcdice.getD66Value(@dicebot.d66Type) }
           end
 
           if sides == 9 && @dicebot.isD9

@@ -99,7 +99,7 @@ MESSAGETEXT
     debug('rollDiceCommand begin string', command)
 
     if (table = TABLES[command])
-      return table.roll(bcdice)
+      return table.roll(randomizer)
     end
 
     case node = parse(command)
@@ -169,7 +169,7 @@ MESSAGETEXT
   def executeEV(ev)
     command = bRollCommand(ev.num, ev.difficulty)
 
-    rollResult = bcdice.bdice(command).sub(B_ROLL_RESULT_HEAD_RE, '')
+    rollResult = BCDice::CommonCommand::BarabaraDice.new(command, @randomizer, self).eval().sub(B_ROLL_RESULT_HEAD_RE, '')
     return rollResult unless ev.targetValue
 
     m = /成功数(\d+)/.match(rollResult)
@@ -188,7 +188,7 @@ MESSAGETEXT
   # @return [String] 近接攻撃結果
   def executeAT(at)
     command = bRollCommand(at.num, at.difficulty)
-    rollResult = bcdice.bdice(command).sub(B_ROLL_RESULT_HEAD_RE, '')
+    rollResult = BCDice::CommonCommand::BarabaraDice.new(command, @randomizer, self).eval().sub(B_ROLL_RESULT_HEAD_RE, '')
 
     # バラバラロールの出目を取得する
     # TODO: バラバラロールの結果として、出目を配列で取得できるようにする
@@ -205,7 +205,7 @@ MESSAGETEXT
   # @return [String] 電子戦結果
   def executeEL(el)
     command = bRollCommand(el.num, el.difficulty)
-    rollResult = bcdice.bdice(command).sub(B_ROLL_RESULT_HEAD_RE, '')
+    rollResult = BCDice::CommonCommand::BarabaraDice.new(command, @randomizer, self).eval().sub(B_ROLL_RESULT_HEAD_RE, '')
 
     # バラバラロールの出目を取得する
     # TODO: バラバラロールの結果として、出目を配列で取得できるようにする

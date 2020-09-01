@@ -289,8 +289,8 @@ INFO_MESSAGE_TEXT
   #
   # @return [String]
   def roll_emotion_table
-    pos_result = POSITIVE_EMOTION_TABLE.roll(bcdice)
-    neg_result = NEGATIVE_EMOTION_TABLE.roll(bcdice)
+    pos_result = POSITIVE_EMOTION_TABLE.roll(@randomizer)
+    neg_result = NEGATIVE_EMOTION_TABLE.roll(@randomizer)
 
     positive = roll(1, 2)[0] == 1
     pos_neg_text =

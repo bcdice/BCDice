@@ -126,7 +126,7 @@ INFO_MESSAGE_TEXT
   def rollDiceCommand(string)
     if /^\d+D\d+.*\d+Lv$/i.match?(string)
       string = string.sub(/\d+LV$/i) { |s| s.to_i * 5 + 15 }
-      return BCDice::CommonCommand::AddDice.new(string, @bcdice, self).eval()&.delete_prefix(": ")
+      return BCDice::CommonCommand::AddDice.new(string, @randomizer, self).eval()&.delete_prefix(": ")
     end
 
     string = replace_text(string)

@@ -119,9 +119,10 @@ class DiceBotTest
   # ダイスコマンドを実行する
   def executeCommand(testData)
     rands = testData.rands
-    @bot = load_dicebot(testData.gameType)
-    @bot.bcdice.setRandomValues(rands)
-    @bot.bcdice.setTest(true)
+    bot_class = load_dicebot(testData.gameType).class
+    @bot = bot_class.new()
+    @bot.randomizer.setRandomValues(rands)
+    # @bot.bcdice.setTest(true)
 
     result = ''
     testData.input.each do |message|

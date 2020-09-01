@@ -32,7 +32,6 @@ MESSAGETEXT
     # @d66Type = 0;        #d66の差し替え
     # @isPrintMaxDice = false;      #最大値表示
     # @upperRollThreshold = 0;      #上方無限
-    # @unlimitedRollDiceType = 0;    #無限ロールのダイス
     # @rerollNumber = 0;      #振り足しする条件
     # @defaultSuccessTarget = "";      #目標値が空欄の時の目標値
     # @rerollLimitCount = 0;    #振り足し回数上限

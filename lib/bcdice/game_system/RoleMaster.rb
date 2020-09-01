@@ -17,6 +17,5 @@ class RoleMaster < DiceBot
   def initialize
     super
     @upperRollThreshold = 96
-    @unlimitedRollDiceType = 100
   end
 end

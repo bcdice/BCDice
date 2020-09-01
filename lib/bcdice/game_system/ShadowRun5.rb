@@ -36,7 +36,7 @@ INFO_MESSAGE_TEXT
     m = /(\d+B6)@(\d+)/.match(command)
     b_dice = m[1]
     limit = m[2].to_i
-    output_before_limited = bcdice.bdice(b_dice)
+    output_before_limited = BCDice::CommonCommand::BarabaraDice.new(b_dice, @randomizer, self).eval()
 
     m = /成功数(\d+)/.match(output_before_limited)
     output_after_limited = output_before_limited

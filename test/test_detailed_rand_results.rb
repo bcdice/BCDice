@@ -2,80 +2,79 @@
 
 require 'test/unit'
 require 'bcdiceCore'
+require 'bcdice/randomizer'
 
 # ダイスロール結果詳細のテストケース
 # 10の位用にダイスロールした場合などの確認
 class TestDetailedRandResults < Test::Unit::TestCase
   def setup
-    @bcdice = BCDiceMaker.new.newBcDice
-    @bcdice.setCollectRandResult(true)
+    @randomier = BCDice::Randomizer.new
   end
 
   def test_rand
-    @bcdice.setRandomValues([[49, 100]])
+    @randomier.setRandomValues([[49, 100]])
 
-    value = @bcdice.rand(100)
+    value = @randomier.rand(100)
 
     assert_equal(49 - 1, value)
 
-    assert_equal(1, @bcdice.detailed_rand_results.size)
-    assert_equal(:normal, @bcdice.detailed_rand_results[0].kind)
-    assert_equal(100, @bcdice.detailed_rand_results[0].sides)
-    assert_equal(49, @bcdice.detailed_rand_results[0].value)
+    assert_equal(1, @randomier.detailed_rand_results.size)
+    assert_equal(:normal, @randomier.detailed_rand_results[0].kind)
+    assert_equal(100, @randomier.detailed_rand_results[0].sides)
+    assert_equal(49, @randomier.detailed_rand_results[0].value)
 
-    assert_equal(1, @bcdice.getRandResults.size)
-    assert_equal(100, @bcdice.getRandResults[0][1])
-    assert_equal(49, @bcdice.getRandResults[0][0])
+    assert_equal(1, @randomier.rand_results.size)
+    assert_equal(100, @randomier.rand_results[0][1])
+    assert_equal(49, @randomier.rand_results[0][0])
   end
 
   def test_tens_d10
-    @bcdice.setRandomValues([[3, 10]])
-    value = @bcdice.roll_tens_d10()
+    @randomier.setRandomValues([[3, 10]])
+    value = @randomier.roll_tens_d10()
 
     assert_equal(30, value)
 
-    assert_equal(1, @bcdice.detailed_rand_results.size)
-    assert_equal(:tens_d10, @bcdice.detailed_rand_results[0].kind)
-    assert_equal(10, @bcdice.detailed_rand_results[0].sides)
-    assert_equal(30, @bcdice.detailed_rand_results[0].value)
+    assert_equal(1, @randomier.detailed_rand_results.size)
+    assert_equal(:tens_d10, @randomier.detailed_rand_results[0].kind)
+    assert_equal(10, @randomier.detailed_rand_results[0].sides)
+    assert_equal(30, @randomier.detailed_rand_results[0].value)
 
-    assert_equal(1, @bcdice.getRandResults.size)
-    assert_equal(10, @bcdice.getRandResults[0][1])
-    assert_equal(3, @bcdice.getRandResults[0][0])
+    assert_equal(1, @randomier.rand_results.size)
+    assert_equal(10, @randomier.rand_results[0][1])
+    assert_equal(3, @randomier.rand_results[0][0])
   end
 
   def test_tens_d10_zero
-    @bcdice.setRandomValues([[10, 10]])
-    value = @bcdice.roll_tens_d10()
+    @randomier.setRandomValues([[10, 10]])
+    value = @randomier.roll_tens_d10()
 
     assert_equal(0, value)
-    assert_equal(0, @bcdice.detailed_rand_results[0].value)
-    assert_equal(10, @bcdice.getRandResults[0][0])
+    assert_equal(0, @randomier.detailed_rand_results[0].value)
+    assert_equal(10, @randomier.rand_results[0][0])
   end
 
   def test_d9
-    @bcdice.setRandomValues([[3, 10]])
-    value = @bcdice.roll_d9()
+    @randomier.setRandomValues([[3, 10]])
+    value = @randomier.roll_d9()
 
     assert_equal(2, value)
 
-    assert_equal(1, @bcdice.detailed_rand_results.size)
-    assert_equal(:d9, @bcdice.detailed_rand_results[0].kind)
-    assert_equal(10, @bcdice.detailed_rand_results[0].sides)
-    assert_equal(2, @bcdice.detailed_rand_results[0].value)
+    assert_equal(1, @randomier.detailed_rand_results.size)
+    assert_equal(:d9, @randomier.detailed_rand_results[0].kind)
+    assert_equal(10, @randomier.detailed_rand_results[0].sides)
+    assert_equal(2, @randomier.detailed_rand_results[0].value)
 
-    assert_equal(1, @bcdice.getRandResults.size)
-    assert_equal(10, @bcdice.getRandResults[0][1])
-    assert_equal(3, @bcdice.getRandResults[0][0])
+    assert_equal(1, @randomier.rand_results.size)
+    assert_equal(10, @randomier.rand_results[0][1])
+    assert_equal(3, @randomier.rand_results[0][0])
   end
 
   def test_coc7th
     dicebot = DiceBotLoader.loadUnknownGame("Cthulhu7th")
-    @bcdice = dicebot.bcdice
-    @bcdice.setRandomValues([[5, 10], [6, 10], [7, 10], [4, 10]])
+    dicebot.randomizer.setRandomValues([[5, 10], [6, 10], [7, 10], [4, 10]])
     dicebot.eval("CC(2)")
 
-    details = @bcdice.detailed_rand_results
+    details = dicebot.randomizer.detailed_rand_results
     assert_equal(4, details.size)
 
     assert_equal(:tens_d10, details[0].kind)

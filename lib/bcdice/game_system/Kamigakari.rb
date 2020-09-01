@@ -167,7 +167,7 @@ INFO_MESSAGE_TEXT
     ]
 
     isSwap = false
-    number = bcdice.getD66(isSwap)
+    number = @randomizer.getD66(isSwap)
 
     result = get_table_by_number(number, table)
     debug("getMaterialEffectNomal result", result)
@@ -227,7 +227,7 @@ INFO_MESSAGE_TEXT
     ]
 
     isSwap = false
-    number = bcdice.getD66(isSwap)
+    number = @randomizer.getD66(isSwap)
 
     result = get_table_by_number(number, table)
 
