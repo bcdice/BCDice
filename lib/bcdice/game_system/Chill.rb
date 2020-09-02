@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Chill < DiceBot
+    class Chill < Base
       # ゲームシステムの識別子
       ID = 'Chill'
 

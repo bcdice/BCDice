@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class MonotoneMuseum_Korean < DiceBot
+    class MonotoneMuseum_Korean < Base
       # ゲームシステムの識別子
       ID = 'MonotoneMuseum:Korean'
 

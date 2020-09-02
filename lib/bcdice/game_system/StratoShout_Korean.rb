@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class StratoShout_Korean < DiceBot
+    class StratoShout_Korean < Base
       # ゲームシステムの識別子
       ID = 'StratoShout:Korean'
 

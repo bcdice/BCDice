@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class TherapieSein < DiceBot
+    class TherapieSein < Base
       # ゲームシステムの識別子
       ID = 'TherapieSein'
 

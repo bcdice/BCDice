@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class RokumonSekai2 < DiceBot
+    class RokumonSekai2 < Base
       # ゲームシステムの識別子
       ID = 'RokumonSekai2'
 

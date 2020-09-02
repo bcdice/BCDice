@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Oukahoushin3rd < DiceBot
+    class Oukahoushin3rd < Base
       # ゲームシステムの識別子
       ID = 'Oukahoushin3rd'
 

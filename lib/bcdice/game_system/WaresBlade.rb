@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class WaresBlade < DiceBot
+    class WaresBlade < Base
       # ゲームシステムの識別子
       ID = 'WaresBlade'
 

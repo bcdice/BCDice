@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Peekaboo < DiceBot
+    class Peekaboo < Base
       # ゲームシステムの識別子
       ID = 'Peekaboo'
 

@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class MeikyuKingdom < DiceBot
+    class MeikyuKingdom < Base
       # ゲームシステムの識別子
       ID = 'MeikyuKingdom'
 

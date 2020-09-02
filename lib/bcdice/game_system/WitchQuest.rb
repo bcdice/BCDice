@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class WitchQuest < DiceBot
+    class WitchQuest < Base
       # ゲームシステムの識別子
       ID = 'WitchQuest'
 

@@ -6,7 +6,7 @@ require "bcdice/dice_table/d66_table"
 
 module BCDice
   module GameSystem
-    class YankeeYogSothoth < DiceBot
+    class YankeeYogSothoth < Base
       # ゲームシステムの識別子
       ID = 'YankeeYogSothoth'
 

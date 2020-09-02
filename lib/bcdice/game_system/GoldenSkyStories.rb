@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class GoldenSkyStories < DiceBot
+    class GoldenSkyStories < Base
       # ゲームシステムの識別子
       ID = 'GoldenSkyStories'
 

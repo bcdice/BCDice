@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Nechronica_Korean < DiceBot
+    class Nechronica_Korean < Base
       # ゲームシステムの識別子
       ID = 'Nechronica:Korean'
 

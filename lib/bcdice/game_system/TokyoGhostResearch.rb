@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class TokyoGhostResearch < DiceBot
+    class TokyoGhostResearch < Base
       # ゲームシステムの識別子
       ID = 'TokyoGhostResearch'
 

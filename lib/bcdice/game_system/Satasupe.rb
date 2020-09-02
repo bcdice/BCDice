@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Satasupe < DiceBot
+    class Satasupe < Base
       # ゲームシステムの識別子
       ID = 'Satasupe'
 

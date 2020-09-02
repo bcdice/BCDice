@@ -7,7 +7,7 @@ require 'bcdice/arithmetic_evaluator'
 
 module BCDice
   module GameSystem
-    class AnimaAnimus < DiceBot
+    class AnimaAnimus < Base
       # ゲームシステムの識別子
       ID = 'AnimaAnimus'
 

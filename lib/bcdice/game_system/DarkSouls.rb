@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class DarkSouls < DiceBot
+    class DarkSouls < Base
       # ゲームシステムの識別子
       ID = 'DarkSouls'
 

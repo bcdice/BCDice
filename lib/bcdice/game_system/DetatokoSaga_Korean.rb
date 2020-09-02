@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class DetatokoSaga_Korean < DiceBot
+    class DetatokoSaga_Korean < Base
       # ゲームシステムの識別子
       ID = 'DetatokoSaga:Korean'
 

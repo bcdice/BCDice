@@ -5,7 +5,7 @@ require 'bcdice/dice_table/range_table'
 
 module BCDice
   module GameSystem
-    class DeadlineHeroes < DiceBot
+    class DeadlineHeroes < Base
       # ゲームシステムの識別子
       ID = 'DeadlineHeroes'
 

@@ -5,7 +5,7 @@ require 'bcdice/game_system/Gundog'
 
 module BCDice
   module GameSystem
-    class GundogRevised < DiceBot
+    class GundogRevised < Base
       # ゲームシステムの識別子
       ID = 'GundogRevised'
 

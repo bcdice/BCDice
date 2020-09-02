@@ -18,7 +18,7 @@ require 'bcdice/dice_table/d66_grid_table'
 # * どどんとふ以外のボーンズ＆カーズを用いたオンラインセッション用ツールにあわせ、ヘルプメッセージ部分からイニシアティブ表についての言及を削除。
 module BCDice
   module GameSystem
-    class BeastBindTrinity < DiceBot
+    class BeastBindTrinity < Base
       # ゲームシステムの識別子
       ID = 'BeastBindTrinity'
 

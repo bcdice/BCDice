@@ -4,7 +4,7 @@ require 'bcdice/command_parser'
 
 module BCDice
   module GameSystem
-    class RecordOfLodossWar < DiceBot
+    class RecordOfLodossWar < Base
       ID = 'RecordOfLodossWar'.freeze
       NAME = 'ロードス島戦記RPG'.freeze
       SORT_KEY = 'ろおとすとうせんきRPG'.freeze

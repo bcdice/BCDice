@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Torg < DiceBot
+    class Torg < Base
       # ゲームシステムの識別子
       ID = 'TORG'
 

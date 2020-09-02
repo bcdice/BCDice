@@ -5,7 +5,7 @@ require 'bcdice/dice_table/table'
 
 module BCDice
   module GameSystem
-    class Nechronica < DiceBot
+    class Nechronica < Base
       # ゲームシステムの識別子
       ID = 'Nechronica'
 

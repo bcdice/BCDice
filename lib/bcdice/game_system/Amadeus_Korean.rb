@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Amadeus_Korean < DiceBot
+    class Amadeus_Korean < Base
       # ゲームシステムの識別子
       ID = 'Amadeus:Korean'
 

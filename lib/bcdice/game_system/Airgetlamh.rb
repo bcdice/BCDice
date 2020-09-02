@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Airgetlamh < DiceBot
+    class Airgetlamh < Base
       # ゲームシステムの識別子
       ID = 'Airgetlamh'
 

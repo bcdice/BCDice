@@ -5,7 +5,7 @@ require "bcdice/command_parser"
 
 module BCDice
   module GameSystem
-    class SamsaraBallad < DiceBot
+    class SamsaraBallad < Base
       # ゲームシステムの識別子
       ID = 'SamsaraBallad'
 

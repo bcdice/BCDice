@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class GardenOrder < DiceBot
+    class GardenOrder < Base
       # ゲームシステムのの識別子
       ID = 'GardenOrder'
 

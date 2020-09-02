@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Paranoia < DiceBot
+    class Paranoia < Base
       # ゲームシステムの識別子
       ID = 'Paranoia'
 

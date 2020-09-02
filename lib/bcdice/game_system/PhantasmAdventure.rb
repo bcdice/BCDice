@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class PhantasmAdventure < DiceBot
+    class PhantasmAdventure < Base
       # ゲームシステムの識別子
       ID = 'PhantasmAdventure'
 

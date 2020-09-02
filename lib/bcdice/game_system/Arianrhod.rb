@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Arianrhod < DiceBot
+    class Arianrhod < Base
       # ゲームシステムの識別子
       ID = 'Arianrhod'
 

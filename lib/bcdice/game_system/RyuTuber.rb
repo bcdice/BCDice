@@ -4,7 +4,7 @@ require "bcdice/dice_table/table"
 
 module BCDice
   module GameSystem
-    class RyuTuber < DiceBot
+    class RyuTuber < Base
       # ゲームシステムの識別子
       ID = 'RyuTuber'.freeze
 

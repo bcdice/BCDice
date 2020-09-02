@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'bcdice/game_system/DiceBot'
 require 'bcdice/arithmetic_evaluator'
 require 'bcdice/modifier_formatter'
 require 'bcdice/dice_table/range_table'
 
 module BCDice
   module GameSystem
-    class DoubleCross_Korean < DiceBot
+    class DoubleCross_Korean < Base
       # ゲームシステムの識別子
       ID = 'DoubleCross:Korean'
 

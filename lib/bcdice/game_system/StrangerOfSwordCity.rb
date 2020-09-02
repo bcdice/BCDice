@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class StrangerOfSwordCity < DiceBot
+    class StrangerOfSwordCity < Base
       # ゲームシステムの識別子
       ID = 'StrangerOfSwordCity'
 

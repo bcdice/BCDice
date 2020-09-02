@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Amadeus < DiceBot
+    class Amadeus < Base
       # ゲームシステムの識別子
       ID = 'Amadeus'
 

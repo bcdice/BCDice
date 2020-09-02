@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Raisondetre < DiceBot
+    class Raisondetre < Base
       # ゲームシステムの識別子
       ID = 'Raisondetre'
 

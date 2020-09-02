@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class CardRanker < DiceBot
+    class CardRanker < Base
       # ゲームシステムの識別子
       ID = 'CardRanker'
 

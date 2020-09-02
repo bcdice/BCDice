@@ -6,7 +6,7 @@ require 'bcdice/format'
 
 module BCDice
   module GameSystem
-    class DarkBlaze < DiceBot
+    class DarkBlaze < Base
       # ゲームシステムの識別子
       ID = 'DarkBlaze'
 

@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class ZettaiReido < DiceBot
+    class ZettaiReido < Base
       # ゲームシステムの識別子
       ID = 'ZettaiReido'
 

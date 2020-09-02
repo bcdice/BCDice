@@ -6,7 +6,7 @@ require "bcdice/format"
 
 module BCDice
   module GameSystem
-    class ArsMagica < DiceBot
+    class ArsMagica < Base
       # ゲームシステムの識別子
       ID = 'ArsMagica'
 

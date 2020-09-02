@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Template < DiceBot
+    class Template < Base
       # ゲームシステムの識別子
       ID = 'SystemID'
 

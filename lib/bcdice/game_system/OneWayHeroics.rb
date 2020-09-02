@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class OneWayHeroics < DiceBot
+    class OneWayHeroics < Base
       # ゲームシステムの識別子
       ID = 'OneWayHeroics'
 

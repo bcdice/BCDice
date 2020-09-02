@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class YearZeroEngine < DiceBot
+    class YearZeroEngine < Base
       # ゲームシステムの識別子
       ID = 'YearZeroEngine'
 

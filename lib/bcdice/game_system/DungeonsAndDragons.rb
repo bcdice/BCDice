@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class DungeonsAndDragons < DiceBot
+    class DungeonsAndDragons < Base
       # ゲームシステムの識別子
       ID = 'DungeonsAndDragons'
 

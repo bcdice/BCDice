@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class HarnMaster < DiceBot
+    class HarnMaster < Base
       # ゲームシステムの識別子
       ID = 'HarnMaster'
 

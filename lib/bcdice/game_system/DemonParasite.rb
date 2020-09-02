@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class DemonParasite < DiceBot
+    class DemonParasite < Base
       # ゲームシステムの識別子
       ID = 'DemonParasite'
 

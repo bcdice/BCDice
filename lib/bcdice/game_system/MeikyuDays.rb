@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class MeikyuDays < DiceBot
+    class MeikyuDays < Base
       # ゲームシステムの識別子
       ID = 'MeikyuDays'
 

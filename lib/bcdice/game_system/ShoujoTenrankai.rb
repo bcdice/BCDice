@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class ShoujoTenrankai < DiceBot
+    class ShoujoTenrankai < Base
       # ゲームシステムの識別子
       ID = 'ShoujoTenrankai'
 

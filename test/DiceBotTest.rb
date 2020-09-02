@@ -143,7 +143,7 @@ class DiceBotTest
     if loader
       loader.loadDiceBot
     else
-      DiceBotLoader.loadUnknownGame(game_system) || DiceBot.new
+      DiceBotLoader.loadUnknownGame(game_system) || BCDice::GameSystem::DiceBot.new
     end
   end
 

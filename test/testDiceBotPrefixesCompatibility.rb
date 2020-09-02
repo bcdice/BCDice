@@ -6,11 +6,11 @@ unless $:.include?(dodontof_root)
 end
 
 require 'test/unit'
-require 'bcdice/game_system/DiceBot'
+require 'bcdice/base'
 
 class TestDiceBotPrefixesCompatibility < Test::Unit::TestCase
   def test_prefixesCompatibility
-    kariDiceClass = Class.new(DiceBot) do |_|
+    kariDiceClass = Class.new(BCDice::Base) do |_|
       def id
         'KariDice'
       end
@@ -31,7 +31,7 @@ class TestDiceBotPrefixesCompatibility < Test::Unit::TestCase
 
     assert_equal(['KD\d+>=\d+'], kariDiceClass.prefixes,
                  'クラス側に接頭辞が設定されている')
-    assert_not_equal(DiceBot::EMPTY_PREFIXES_PATTERN,
+    assert_not_equal(BCDice::Base::EMPTY_PREFIXES_PATTERN,
                      kariDiceClass.prefixesPattern,
                      'クラス側に接頭辞の正規表現が設定されている')
   end

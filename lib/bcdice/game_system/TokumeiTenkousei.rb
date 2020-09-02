@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class TokumeiTenkousei < DiceBot
+    class TokumeiTenkousei < Base
       # ゲームシステムの識別子
       ID = 'TokumeiTenkousei'
 

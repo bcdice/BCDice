@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class BloodCrusade < DiceBot
+    class BloodCrusade < Base
       # ゲームシステムの識別子
       ID = 'BloodCrusade'
 

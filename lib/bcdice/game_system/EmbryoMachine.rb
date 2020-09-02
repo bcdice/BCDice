@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class EmbryoMachine < DiceBot
+    class EmbryoMachine < Base
       # ゲームシステムの識別子
       ID = 'EmbryoMachine'
 

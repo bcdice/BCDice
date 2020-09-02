@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Avandner < DiceBot
+    class Avandner < Base
       # ゲームシステムの識別子
       ID = 'Avandner'
 

@@ -5,7 +5,7 @@ require 'bcdice/dice_table/table'
 
 module BCDice
   module GameSystem
-    class ShinobiGami < DiceBot
+    class ShinobiGami < Base
       # ゲームシステムの識別子
       ID = 'ShinobiGami'
 

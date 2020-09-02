@@ -5,7 +5,7 @@ require "bcdice/modifier_formatter"
 
 module BCDice
   module GameSystem
-    class SwordWorld < DiceBot
+    class SwordWorld < Base
       include ModifierFormatter
 
       # ゲームシステムの識別子

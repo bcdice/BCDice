@@ -5,7 +5,7 @@ require 'bcdice/arithmetic_evaluator'
 
 module BCDice
   module GameSystem
-    class Cthulhu < DiceBot
+    class Cthulhu < Base
       # ゲームシステムの識別子
       ID = 'Cthulhu'
 

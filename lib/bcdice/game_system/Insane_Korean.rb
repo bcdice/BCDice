@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Insane_Korean < DiceBot
+    class Insane_Korean < Base
       # ゲームシステムの識別子
       ID = 'Insane:Korean'
 

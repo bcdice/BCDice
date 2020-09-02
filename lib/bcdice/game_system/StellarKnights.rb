@@ -6,7 +6,7 @@ require "bcdice/dice_table/d66_grid_table"
 
 module BCDice
   module GameSystem
-    class StellarKnights < DiceBot
+    class StellarKnights < Base
       # ゲームシステムの識別子
       ID = 'StellarKnights'
 

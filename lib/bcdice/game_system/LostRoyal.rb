@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class LostRoyal < DiceBot
+    class LostRoyal < Base
       # ゲームシステムの識別子
       ID = 'LostRoyal'
 

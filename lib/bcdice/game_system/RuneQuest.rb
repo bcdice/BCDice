@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class RuneQuest < DiceBot
+    class RuneQuest < Base
       # ゲームシステムの識別子
       ID = 'RuneQuest'
 

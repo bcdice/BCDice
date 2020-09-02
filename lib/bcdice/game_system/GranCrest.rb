@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class GranCrest < DiceBot
+    class GranCrest < Base
       # ゲームシステムの識別子
       ID = 'GranCrest'
 

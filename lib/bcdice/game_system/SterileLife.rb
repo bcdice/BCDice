@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class SterileLife < DiceBot
+    class SterileLife < Base
       # ゲームシステムの識別子
       ID = 'SterileLife'
 

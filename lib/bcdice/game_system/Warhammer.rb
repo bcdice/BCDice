@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Warhammer < DiceBot
+    class Warhammer < Base
       # ゲームシステムの識別子
       ID = 'Warhammer'
 

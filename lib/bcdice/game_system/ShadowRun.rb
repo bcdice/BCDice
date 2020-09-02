@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class ShadowRun < DiceBot
+    class ShadowRun < Base
       # ゲームシステムの識別子
       ID = 'ShadowRun'
 

@@ -4,7 +4,7 @@ require 'bcdice/dice_table/d66_range_table'
 
 module BCDice
   module GameSystem
-    class SteamPunkers < DiceBot
+    class SteamPunkers < Base
       ID = 'SteamPunkers'.freeze
       NAME = 'スチームパンカーズ'.freeze
       SORT_KEY = 'すちいむはんかあす'.freeze

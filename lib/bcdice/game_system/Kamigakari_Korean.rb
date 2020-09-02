@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Kamigakari_Korean < DiceBot
+    class Kamigakari_Korean < Base
       # ゲームシステムの識別子
       ID = 'Kamigakari:Korean'
 

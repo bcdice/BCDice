@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'bcdice/game_system/DiceBot'
 require 'bcdice/modifier_formatter'
 require 'bcdice/arithmetic_evaluator'
 
 # クトゥルフテックのダイスボット
 module BCDice
   module GameSystem
-    class CthulhuTech < DiceBot
+    class CthulhuTech < Base
       setPrefixes(['\d+D10.*'])
 
       # ゲームシステムの識別子

@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class KillDeathBusiness_Korean < DiceBot
+    class KillDeathBusiness_Korean < Base
       # ゲームシステムの識別子
       ID = 'KillDeathBusiness:Korean'
 

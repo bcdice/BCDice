@@ -7,7 +7,7 @@ require "bcdice/command_parser"
 
 module BCDice
   module GameSystem
-    class NightWizard < DiceBot
+    class NightWizard < Base
       # ゲームシステムの識別子
       ID = 'NightWizard'
 

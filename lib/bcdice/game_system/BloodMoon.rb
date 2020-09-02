@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class BloodMoon < DiceBot
+    class BloodMoon < Base
       # ゲームシステムの識別子
       ID = 'BloodMoon'
 

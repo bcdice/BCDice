@@ -5,7 +5,7 @@ require 'bcdice/dice_table/table'
 
 module BCDice
   module GameSystem
-    class KanColle < DiceBot
+    class KanColle < Base
       # ゲームシステムの識別子
       ID = 'KanColle'
 

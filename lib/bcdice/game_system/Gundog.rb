@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Gundog < DiceBot
+    class Gundog < Base
       # ゲームシステムの識別子
       ID = 'Gundog'
 

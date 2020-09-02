@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Pendragon < DiceBot
+    class Pendragon < Base
       # ゲームシステムの識別子
       ID = 'Pendragon'
 

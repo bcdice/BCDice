@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Insane < DiceBot
+    class Insane < Base
       # ゲームシステムの識別子
       ID = 'Insane'
 

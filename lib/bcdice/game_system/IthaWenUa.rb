@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class IthaWenUa < DiceBot
+    class IthaWenUa < Base
       # ゲームシステムの識別子
       ID = 'IthaWenUa'
 

@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class NjslyrBattle < DiceBot
+    class NjslyrBattle < Base
       # ゲームシステムの識別子
       ID = 'NJSLYRBATTLE'
 

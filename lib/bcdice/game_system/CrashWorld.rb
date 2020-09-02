@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class CrashWorld < DiceBot
+    class CrashWorld < Base
       # ゲームシステムの識別子
       ID = 'CrashWorld'
 

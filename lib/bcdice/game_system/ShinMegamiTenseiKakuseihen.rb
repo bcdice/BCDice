@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class ShinMegamiTenseiKakuseihen < DiceBot
+    class ShinMegamiTenseiKakuseihen < Base
       # ゲームシステムの識別子
       ID = 'SMTKakuseihen'
 

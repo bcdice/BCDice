@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class GoblinSlayer < DiceBot
+    class GoblinSlayer < Base
       # ゲームシステムの識別子
       ID = 'GoblinSlayer'
 

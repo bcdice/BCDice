@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Alsetto < DiceBot
+    class Alsetto < Base
       # ゲームシステムの識別子
       ID = 'Alsetto'
 

@@ -6,7 +6,7 @@ require 'bcdice/dice_table/range_table'
 
 module BCDice
   module GameSystem
-    class MetalHead < DiceBot
+    class MetalHead < Base
       # ゲームシステムの識別子
       ID = 'MetalHead'
 

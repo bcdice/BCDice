@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class AFF2e < DiceBot
+    class AFF2e < Base
       # ゲームシステムの識別子
       ID = 'AFF2e'
 

@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Villaciel < DiceBot
+    class Villaciel < Base
       # ゲームシステムの識別子
       ID = 'Villaciel'
 

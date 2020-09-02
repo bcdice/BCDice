@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class TorgEternity < DiceBot
+    class TorgEternity < Base
       # ゲームシステムの識別子
       ID = 'TorgEternity'
       # ゲームシステム名

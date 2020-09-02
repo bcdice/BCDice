@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class RecordOfSteam < DiceBot
+    class RecordOfSteam < Base
       # ゲームシステムの識別子
       ID = 'RecordOfSteam'
 

@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class TunnelsAndTrolls < DiceBot
+    class TunnelsAndTrolls < Base
       # ゲームシステムの識別子
       ID = 'TunnelsAndTrolls'
 

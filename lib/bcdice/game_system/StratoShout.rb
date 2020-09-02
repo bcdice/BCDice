@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class StratoShout < DiceBot
+    class StratoShout < Base
       # ゲームシステムの識別子
       ID = 'StratoShout'
 

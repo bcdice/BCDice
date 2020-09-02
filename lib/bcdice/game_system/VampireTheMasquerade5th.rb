@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class VampireTheMasquerade5th < DiceBot
+    class VampireTheMasquerade5th < Base
       # ゲームシステムの識別子
       ID = 'VampireTheMasquerade5th'
 

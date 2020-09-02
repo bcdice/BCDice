@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class DetatokoSaga < DiceBot
+    class DetatokoSaga < Base
       # ゲームシステムの識別子
       ID = 'DetatokoSaga'
 

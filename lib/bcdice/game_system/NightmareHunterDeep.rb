@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class NightmareHunterDeep < DiceBot
+    class NightmareHunterDeep < Base
       # ゲームシステムの識別子
       ID = 'NightmareHunterDeep'
 

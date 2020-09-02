@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class GehennaAn < DiceBot
+    class GehennaAn < Base
       # ゲームシステムの識別子
       ID = 'GehennaAn'
 

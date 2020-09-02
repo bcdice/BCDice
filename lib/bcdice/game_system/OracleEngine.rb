@@ -7,7 +7,7 @@ require 'bcdice/modifier_formatter'
 
 module BCDice
   module GameSystem
-    class OracleEngine < DiceBot
+    class OracleEngine < Base
       include ModifierFormatter
 
       # ゲームシステムの識別子

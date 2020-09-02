@@ -6,7 +6,7 @@
 
 module BCDice
   module GameSystem
-    class GurpsFW < DiceBot
+    class GurpsFW < Base
       # ゲームシステムの識別子
       ID = 'GurpsFW'
 

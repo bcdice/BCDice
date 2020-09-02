@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Nuekagami < DiceBot
+    class Nuekagami < Base
       # ゲームシステムの識別子
       ID = 'Nuekagami'
 

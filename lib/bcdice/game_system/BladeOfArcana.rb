@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class BladeOfArcana < DiceBot
+    class BladeOfArcana < Base
       # ゲームシステムの識別子
       ID = 'BladeOfArcana'
 

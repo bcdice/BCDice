@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Fiasco_Korean < DiceBot
+    class Fiasco_Korean < Base
       # ゲームシステムの識別子
       ID = 'Fiasco:Korean'
 

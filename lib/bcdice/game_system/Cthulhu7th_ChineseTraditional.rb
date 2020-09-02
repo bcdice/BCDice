@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Cthulhu7th_ChineseTraditional < DiceBot
+    class Cthulhu7th_ChineseTraditional < Base
       # ゲームシステムの識別子
       ID = 'Cthulhu7th:ChineseTraditional'
 

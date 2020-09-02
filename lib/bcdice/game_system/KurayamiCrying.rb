@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class KurayamiCrying < DiceBot
+    class KurayamiCrying < Base
       # ゲームシステムの識別子
       ID = 'KurayamiCrying'
 

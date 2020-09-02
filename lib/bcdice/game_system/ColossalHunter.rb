@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class ColossalHunter < DiceBot
+    class ColossalHunter < Base
       # ゲームシステムの識別子
       ID = 'ColossalHunter'
 

@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class TokyoNova < DiceBot
+    class TokyoNova < Base
       # ゲームシステムの識別子
       ID = 'TokyoNova'
 

@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class InfiniteFantasia < DiceBot
+    class InfiniteFantasia < Base
       # ゲームシステムの識別子
       ID = 'InfiniteFantasia'
 

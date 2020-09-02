@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class WARPS < DiceBot
+    class WARPS < Base
       # ゲームシステムの識別子
       ID = 'WARPS'
 

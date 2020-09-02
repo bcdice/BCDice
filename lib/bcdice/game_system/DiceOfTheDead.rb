@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class DiceOfTheDead < DiceBot
+    class DiceOfTheDead < Base
       # ゲームシステムの識別子
       ID = 'DiceOfTheDead'
 

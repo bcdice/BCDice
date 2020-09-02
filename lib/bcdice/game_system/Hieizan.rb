@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Hieizan < DiceBot
+    class Hieizan < Base
       # ゲームシステムの識別子
       ID = 'Hieizan'
 

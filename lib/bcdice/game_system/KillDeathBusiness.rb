@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class KillDeathBusiness < DiceBot
+    class KillDeathBusiness < Base
       # ゲームシステムの識別子
       ID = 'KillDeathBusiness'
 

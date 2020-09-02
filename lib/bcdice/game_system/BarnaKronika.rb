@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class BarnaKronika < DiceBot
+    class BarnaKronika < Base
       # ゲームシステムの識別子
       ID = 'BarnaKronika'
 

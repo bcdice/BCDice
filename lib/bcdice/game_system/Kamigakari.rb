@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Kamigakari < DiceBot
+    class Kamigakari < Base
       # ゲームシステムの識別子
       ID = 'Kamigakari'
 

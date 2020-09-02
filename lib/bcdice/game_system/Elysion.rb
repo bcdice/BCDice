@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Elysion < DiceBot
+    class Elysion < Base
       # ゲームシステムの識別子
       ID = 'Elysion'
 

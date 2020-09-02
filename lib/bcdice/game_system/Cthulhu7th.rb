@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Cthulhu7th < DiceBot
+    class Cthulhu7th < Base
       # ゲームシステムの識別子
       ID = 'Cthulhu7th'
 

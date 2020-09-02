@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Elric < DiceBot
+    class Elric < Base
       # ゲームシステムの識別子
       ID = 'Elric'
 

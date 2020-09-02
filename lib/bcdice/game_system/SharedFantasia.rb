@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class SharedFantasia < DiceBot
+    class SharedFantasia < Base
       # ゲームシステムの識別子
       ID = 'SharedFantasia'
 

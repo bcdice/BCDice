@@ -5,7 +5,7 @@ require 'bcdice/command_parser'
 
 module BCDice
   module GameSystem
-    class ChaosFlare < DiceBot
+    class ChaosFlare < Base
       # ゲームシステムの識別子
       ID = 'ChaosFlare'
       # ゲームシステム名

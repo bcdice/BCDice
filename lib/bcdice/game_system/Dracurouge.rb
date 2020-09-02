@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Dracurouge < DiceBot
+    class Dracurouge < Base
       # ゲームシステムの識別子
       ID = 'Dracurouge'
 

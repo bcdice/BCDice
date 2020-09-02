@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class FutariSousa_Korean < DiceBot
+    class FutariSousa_Korean < Base
       # ゲームシステムの識別子
       ID = 'FutariSousa:Korean'
 

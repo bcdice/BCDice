@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class FilledWith < DiceBot
+    class FilledWith < Base
       # ゲームシステムの識別子
       ID = 'FilledWith'
 

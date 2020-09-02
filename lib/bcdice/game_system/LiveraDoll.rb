@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class LiveraDoll < DiceBot
+    class LiveraDoll < Base
       # ゲームシステムの識別子
       ID = 'LiveraDoll'
 

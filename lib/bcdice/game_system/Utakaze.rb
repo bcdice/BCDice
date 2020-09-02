@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Utakaze < DiceBot
+    class Utakaze < Base
       # ゲームシステムの識別子
       ID = 'Utakaze'
 

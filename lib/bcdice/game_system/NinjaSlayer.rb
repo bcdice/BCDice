@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'bcdice/game_system/DiceBot'
 require 'bcdice/dice_table/table'
 
 module BCDice
   module GameSystem
-    class NinjaSlayer < DiceBot
+    class NinjaSlayer < Base
       # ゲームシステムの識別子
       ID = 'NinjaSlayer'
 

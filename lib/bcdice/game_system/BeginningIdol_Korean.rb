@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class BeginningIdol_Korean < DiceBot
+    class BeginningIdol_Korean < Base
       # ゲームシステムの識別子
       ID = 'BeginningIdol:Korean'
 

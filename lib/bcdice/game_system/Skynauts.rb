@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Skynauts < DiceBot
+    class Skynauts < Base
       # ゲームシステムの識別子
       ID = 'Skynauts'
 

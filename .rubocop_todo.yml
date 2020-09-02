@@ -119,11 +119,6 @@ Style/BlockDelimiters:
 Style/CaseEquality:
   Enabled: false
 
-# Offense count: 2
-Style/ClassVars:
-  Exclude:
-    - 'lib/bcdice/game_system/DiceBot.rb'
-
 # Offense count: 11
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: annotated, template, unannotated

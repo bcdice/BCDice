@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class HatsuneMiku < DiceBot
+    class HatsuneMiku < Base
       # ゲームシステムの識別子
       ID = 'HatsuneMiku'
 

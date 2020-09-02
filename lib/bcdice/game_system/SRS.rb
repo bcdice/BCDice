@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'bcdice/game_system/DiceBot'
 require 'bcdice/arithmetic_evaluator'
 require 'bcdice/modifier_formatter'
 
@@ -12,7 +11,7 @@ require 'bcdice/modifier_formatter'
 # 登録するクラスメソッド set_aliases_for_srs_roll を持つ。
 module BCDice
   module GameSystem
-    class SRS < DiceBot
+    class SRS < Base
       # ゲームシステムの識別子
       ID = 'SRS'
 

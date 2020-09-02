@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class MagicaLogia < DiceBot
+    class MagicaLogia < Base
       # ゲームシステムの識別子
       ID = 'MagicaLogia'
 

@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class EclipsePhase < DiceBot
+    class EclipsePhase < Base
       # ゲームシステムの識別子
       ID = 'EclipsePhase'
 

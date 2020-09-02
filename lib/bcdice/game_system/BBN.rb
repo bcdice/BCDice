@@ -2,7 +2,7 @@
 
 module BCDice
   module GameSystem
-    class BBN < DiceBot
+    class BBN < Base
       # ダイスボットで使用するコマンドを配列で列挙する
       setPrefixes(['\d+BN.*'])
 

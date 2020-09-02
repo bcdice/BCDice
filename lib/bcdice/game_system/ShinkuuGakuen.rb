@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class ShinkuuGakuen < DiceBot
+    class ShinkuuGakuen < Base
       # ゲームシステムの識別子
       ID = 'ShinkuuGakuen'
 

@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Cthulhu_Korean < DiceBot
+    class Cthulhu_Korean < Base
       # ゲームシステムの識別子
       ID = 'Cthulhu:Korean'
 

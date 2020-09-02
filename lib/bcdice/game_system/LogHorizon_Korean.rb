@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class LogHorizon_Korean < DiceBot
+    class LogHorizon_Korean < Base
       # ゲームシステムの識別子
       ID = 'LogHorizon:Korean'
 

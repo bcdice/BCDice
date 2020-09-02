@@ -7,7 +7,7 @@ require 'bcdice/format'
 
 module BCDice
   module GameSystem
-    class Garako < DiceBot
+    class Garako < Base
       # ゲームシステムの識別子
       ID = 'Garako'
 

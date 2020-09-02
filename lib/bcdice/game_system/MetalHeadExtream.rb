@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class MetalHeadExtream < DiceBot
+    class MetalHeadExtream < Base
       # ゲームシステムの識別子
       ID = 'MetalHeadExtream'
 

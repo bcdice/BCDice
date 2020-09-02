@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class BadLife < DiceBot
+    class BadLife < Base
       # ゲームシステムの識別子
       ID = 'BadLife'
 

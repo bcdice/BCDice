@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class HouraiGakuen < DiceBot
+    class HouraiGakuen < Base
       # ゲームシステムの識別子
       ID = 'HouraiGakuen'
 

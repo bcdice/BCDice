@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Strave < DiceBot
+    class Strave < Base
       # ゲームシステムの識別子
       ID = 'Strave'
 

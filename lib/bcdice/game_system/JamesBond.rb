@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class JamesBond < DiceBot
+    class JamesBond < Base
       # ゲームシステムの識別子
       ID = 'JamesBond'
 

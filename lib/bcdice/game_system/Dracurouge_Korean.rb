@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Dracurouge_Korean < DiceBot
+    class Dracurouge_Korean < Base
       # ゲームシステムの識別子
       ID = 'Dracurouge:Korean'
 

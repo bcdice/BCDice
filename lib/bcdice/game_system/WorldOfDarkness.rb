@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class WorldOfDarkness < DiceBot
+    class WorldOfDarkness < Base
       # ゲームシステムの識別子
       ID = 'WorldOfDarkness'
 

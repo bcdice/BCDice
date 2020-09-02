@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class NeverCloud < DiceBot
+    class NeverCloud < Base
       # ゲームシステムの識別子
       ID = 'NeverCloud'
 

@@ -5,7 +5,7 @@ require 'bcdice/modifier_formatter'
 
 module BCDice
   module GameSystem
-    class CodeLayerd < DiceBot
+    class CodeLayerd < Base
       include ModifierFormatter
       # ゲームシステムの識別子
       ID = 'CodeLayerd'

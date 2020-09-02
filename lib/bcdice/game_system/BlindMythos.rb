@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class BlindMythos < DiceBot
+    class BlindMythos < Base
       # ゲームシステムの識別子
       ID = 'BlindMythos'
 

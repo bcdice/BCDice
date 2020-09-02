@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class EarthDawn < DiceBot
+    class EarthDawn < Base
       # ゲームシステムの識別子
       ID = 'EarthDawn'
 

@@ -8,7 +8,7 @@ require 'bcdice/format'
 
 module BCDice
   module GameSystem
-    class TwilightGunsmoke < DiceBot
+    class TwilightGunsmoke < Base
       # ゲームシステムの識別子
       ID = 'TwilightGunsmoke'
 

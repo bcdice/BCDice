@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class TrinitySeven < DiceBot
+    class TrinitySeven < Base
       # ゲームシステムの識別子
       ID = 'TrinitySeven'
 

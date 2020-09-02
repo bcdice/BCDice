@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Fiasco < DiceBot
+    class Fiasco < Base
       # ゲームシステムの識別子
       ID = 'Fiasco'
 

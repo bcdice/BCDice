@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Gorilla < DiceBot
+    class Gorilla < Base
       # ゲームシステムの識別子
       ID = 'Gorilla'
 

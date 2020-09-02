@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class RoleMaster < DiceBot
+    class RoleMaster < Base
       # ゲームシステムの識別子
       ID = 'RoleMaster'
 

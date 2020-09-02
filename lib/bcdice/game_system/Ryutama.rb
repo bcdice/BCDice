@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Ryutama < DiceBot
+    class Ryutama < Base
       # ゲームシステムの識別子
       ID = 'Ryutama'
 

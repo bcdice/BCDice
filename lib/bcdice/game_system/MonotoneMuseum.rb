@@ -8,7 +8,7 @@ require 'bcdice/format'
 
 module BCDice
   module GameSystem
-    class MonotoneMuseum < DiceBot
+    class MonotoneMuseum < Base
       # ゲームシステムの識別子
       ID = 'MonotoneMuseum'
 

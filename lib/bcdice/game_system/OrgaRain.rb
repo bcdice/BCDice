@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class OrgaRain < DiceBot
+    class OrgaRain < Base
       # ゲームシステムの識別子
       ID = 'OrgaRain'
 

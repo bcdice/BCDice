@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class GeishaGirlwithKatana < DiceBot
+    class GeishaGirlwithKatana < Base
       # ゲームシステムの識別子
       ID = 'GeishaGirlwithKatana'
 

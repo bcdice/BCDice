@@ -3,7 +3,7 @@
 
 module BCDice
   module GameSystem
-    class Postman < DiceBot
+    class Postman < Base
       # ゲームシステムの識別子
       ID = 'Postman'
 
