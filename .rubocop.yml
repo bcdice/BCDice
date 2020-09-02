@@ -1,10 +1,6 @@
 inherit_from: .rubocop_todo.yml
 
 # Dut to old Ruby 1.8.x
-Style/EachWithObject:
-  Enabled: false
-
-# Dut to old Ruby 1.8.x
 Style/EmptyBlockParameter:
   Enabled: false
 

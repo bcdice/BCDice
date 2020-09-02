@@ -133,15 +133,12 @@ MESSAGETEXT
         return true, maxnum, successDiceList.size
       end
 
-      def getDiceCountHash(diceList, crit)
-        diceCountHash = diceList.inject(Hash.new(0)) do |hash, dice|
-          if isNomalDice(crit) || (dice == crit)
-            hash[dice] += 1
-          end
-          hash
-        end
-
-        return diceCountHash
+      # 各ダイスの個数を数えてHashにする
+      def getDiceCountHash(dice_list, critical)
+        dice_list
+          .filter { |dice| isNomalDice(critical) || dice == critical }
+          .group_by(&:itself)
+          .transform_values { |array| array.size }
       end
 
       def isNomalDice(crit)
