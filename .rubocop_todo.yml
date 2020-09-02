@@ -139,7 +139,6 @@ Style/GlobalVars:
     - 'test/others/testCard.rb'
     - 'test/others/testPointer.rb'
     - 'test/others/testSecretDice.rb'
-    - 'test/testDiceBotLoaders.rb'
 
 # Offense count: 10
 # Configuration parameters: AllowIfModifier.

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 require 'bcdice'
-require 'bcdice/game_system/DiceBotLoader'
 require 'DiceBotTestData'
 
 class DiceBotTest
@@ -138,13 +137,9 @@ class DiceBotTest
   end
 
   def load_dicebot(game_system)
-    loader = DiceBotLoaderList.find(game_system)
+    klass = BCDice.dynamic_load(game_system) || BCDice::GameSystem::DiceBot
 
-    if loader
-      loader.loadDiceBot
-    else
-      DiceBotLoader.loadUnknownGame(game_system) || BCDice::GameSystem::DiceBot.new
-    end
+    return klass.new
   end
 
   # 期待された出力と異なる場合のログ文字列を返す

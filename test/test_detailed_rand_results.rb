@@ -70,7 +70,7 @@ class TestDetailedRandResults < Test::Unit::TestCase
   end
 
   def test_coc7th
-    dicebot = DiceBotLoader.loadUnknownGame("Cthulhu7th")
+    dicebot = BCDice.dynamic_load("Cthulhu7th").new
     dicebot.randomizer.setRandomValues([[5, 10], [6, 10], [7, 10], [4, 10]])
     dicebot.eval("CC(2)")
 
