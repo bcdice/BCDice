@@ -6,12 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Lint/LiteralInInterpolation:
-  Exclude:
-    - 'lib/bcdice/game_system/GurpsFW.rb'
-
 # Offense count: 75
 Lint/UselessAssignment:
   Enabled: false
