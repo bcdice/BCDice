@@ -139,7 +139,7 @@ MESSAGETEXT
       def parseEV(m)
         num = m[1].to_i
         difficulty = integerValueOfDifficulty(m[2] || m[3])
-        targetValue = m[4] && m[4].to_i
+        targetValue = m[4]&.to_i
 
         return EV.new(num, difficulty, targetValue)
       end

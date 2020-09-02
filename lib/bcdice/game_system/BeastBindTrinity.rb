@@ -129,7 +129,7 @@ INFO_MESSAGE_TEXT
           @dice_value_lower_limit = m[8].to_i
 
           @cmp_op = Normalize.comparison_operator(m[9])
-          @target_number = m[10] && m[10].to_i
+          @target_number = m[10]&.to_i
 
           @parse_error = false
         end

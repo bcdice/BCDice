@@ -4,10 +4,6 @@ inherit_from: .rubocop_todo.yml
 Style/Lambda:
   EnforcedStyle: lambda
 
-# Due to old Ruby 2.2.x
-Style/SafeNavigation:
-  Enabled: false
-
 # Due to old Ruby 1.8.x
 Style/SpecialGlobalVars:
   EnforcedStyle: use_perl_names

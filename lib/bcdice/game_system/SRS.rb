@@ -287,8 +287,8 @@ HELP_MESSAGE
       def parse_srs_roll_with_target_value(m)
         modifier = eval_modifier(m[1])
         target_value = m[2].to_i
-        critical_value = (m[3] && m[3].to_i) || DEFAULT_CRITICAL_VALUE
-        fumble_value = (m[4] && m[4].to_i) || DEFAULT_FUMBLE_VALUE
+        critical_value = m[3]&.to_i || DEFAULT_CRITICAL_VALUE
+        fumble_value = m[4]&.to_i || DEFAULT_FUMBLE_VALUE
 
         return SRSRollNode.new(modifier, critical_value, fumble_value, target_value)
       end
@@ -298,8 +298,8 @@ HELP_MESSAGE
       # @return [SRSRollNode]
       def parse_srs_roll_without_target_value(m)
         modifier = eval_modifier(m[1])
-        critical_value = (m[2] && m[2].to_i) || DEFAULT_CRITICAL_VALUE
-        fumble_value = (m[3] && m[3].to_i) || DEFAULT_FUMBLE_VALUE
+        critical_value = m[2]&.to_i || DEFAULT_CRITICAL_VALUE
+        fumble_value = m[3]&.to_i || DEFAULT_FUMBLE_VALUE
 
         return SRSRollNode.new(modifier, critical_value, fumble_value, nil)
       end

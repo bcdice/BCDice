@@ -39,7 +39,7 @@ MESSAGETEXT
         modify_str = m[2]
         modify_number = ArithmeticEvaluator.new.eval(modify_str)
         cmp_str = m[3]
-        target = m[4] && m[4].to_i
+        target = m[4]&.to_i
 
         if modify_number == 0
           modify_str = ''

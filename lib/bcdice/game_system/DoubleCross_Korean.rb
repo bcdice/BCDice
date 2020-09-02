@@ -266,7 +266,7 @@ INFO_MESSAGE_TEXT
         modifier = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
         critical_value = m[3] ? m[3].to_i : 10
 
-        target_value = m[4] && m[4].to_i
+        target_value = m[4]&.to_i
 
         return DX.new(num, critical_value, modifier, target_value)
       end
@@ -279,7 +279,7 @@ INFO_MESSAGE_TEXT
         critical_value = m[2] ? m[2].to_i : 10
         modifier = m[3] ? ArithmeticEvaluator.new.eval(m[3]) : 0
 
-        target_value = m[4] && m[4].to_i
+        target_value = m[4]&.to_i
 
         return DX.new(num, critical_value, modifier, target_value)
       end

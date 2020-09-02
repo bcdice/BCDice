@@ -42,7 +42,7 @@ MESSAGETEXT
         end
 
         dice_count = m[1].to_i
-        target_number = m[2] && m[2].to_i
+        target_number = m[2]&.to_i
 
         _, dice_list_text, = roll(dice_count, 6)
         dice_list = dice_list_text.split(',').map(&:to_i)
