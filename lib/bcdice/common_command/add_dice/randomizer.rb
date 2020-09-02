@@ -65,7 +65,6 @@ module BCDice
             if @dicebot.sameDiceRerollType <= 0 # 判定のみ振り足し
               return true if @cmp_op
             elsif  @dicebot.sameDiceRerollType <= 1 # ダメージのみ振り足し
-              debug('ダメージのみ振り足し')
               return true unless @cmp_op
             else # 両方振り足し
               return true

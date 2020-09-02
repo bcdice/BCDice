@@ -1,5 +1,4 @@
 require "bcdice/version"
-require 'log'
 require 'bcdice/arithmetic_evaluator.rb'
 
 require 'bcdice/base'

@@ -44,13 +44,9 @@ class DiceBotLoader
   # @return [DiceBot] ダイスボットが存在した場合
   # @return [nil] 読み込み時にエラーが発生した場合
   def self.loadUnknownGame(gameType)
-    debug('DiceBotLoader.loadUnknownGame gameType', gameType)
-
     unless validGameType?(gameType)
       # クラス名として正しくない名前が指定された場合、後の
       # Object.const_getで必ず失敗するため、読み込みを中止する
-      debug('DiceBotLoader.loadUnknownGame: 無効なゲームタイプ',
-            gameType)
       return nil
     end
 
@@ -62,8 +58,6 @@ class DiceBotLoader
     unless File.exist?(fileName)
       # ファイルが存在しない場合、後のrequireで必ずLoadErrorが発生するため、
       # 読み込みを中止する
-      debug('DiceBotLoader.loadUnknownGame: ダイスボットファイルが存在しません',
-            gameType)
       return nil
     end
 
@@ -71,8 +65,6 @@ class DiceBotLoader
       require(fileName)
       BCDice::GameSystem.const_get(gameType).new
     rescue LoadError, StandardError => e
-      debug('DiceBotLoader.loadUnknownGame: ダイスボットの読み込みに失敗しました',
-            e.to_s)
       nil
     end
   end
@@ -112,7 +104,7 @@ class DiceBotLoader
   # = gameTitlePatternの型
   # gameTitlePatternには原則として文字列、文字列の配列、正規表現を渡すことができる。
   #
-  # 従来と同様の挙動になるように、指定されたタイトルにマッチさせるときの
+  # 従来と同様の挙動になるように、指定されたタイトルにマッチさせるPときの
   # 大文字小文字の扱いを以下のように定める。
   #
   # * 文字列、文字列の配列の場合は、大文字小文字を区別しない。

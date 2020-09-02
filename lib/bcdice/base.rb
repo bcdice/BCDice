@@ -52,7 +52,7 @@ module BCDice
 
     clearPrefixes
 
-    def initialize
+    def initialize(debug: false)
       @sortType = 0 # ソート設定(1 = 足し算ダイスでソート有, 2 = バラバラロール（Bコマンド）でソート有, 3 = １と２両方ソート有）
       @sameDiceRerollCount = 0 # ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
       @sameDiceRerollType = 0 # ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
@@ -64,6 +64,7 @@ module BCDice
       @rerollLimitCount = 10000 # 振り足し回数上限
       @fractionType = "omit" # 端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
       @randomizer = BCDice::Randomizer.new
+      @debug = debug
 
       if !prefixs.empty? && self.class.prefixes.empty?
         # 従来の方法（#prefixs）で接頭辞を設定していた場合でも
@@ -562,6 +563,25 @@ module BCDice
       end
 
       return table.roll(@randomizer).to_s
+    end
+
+    # デバッグ出力を行う
+    # @param [Object] target 対象項目
+    # @param [Object] values 値
+    def debug(target, *values)
+      return unless @debug
+
+      targetStr = target.is_a?(String) ? target : target.inspect
+
+      if values.empty?
+        warn targetStr
+      else
+        valueStrs = values.map do |value|
+          value.is_a?(String) ? %("#{value}") : value.inspect
+        end
+
+        warn "#{targetStr}: #{valueStrs.join(', ')}"
+      end
     end
   end
 end

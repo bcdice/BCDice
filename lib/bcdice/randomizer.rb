@@ -45,8 +45,6 @@ module BCDice
     # @params [Integer] max
     # @return [Integer] 0以上max未満の整数
     def rand_inner(max)
-      debug('rand called @rands', @rands)
-
       value = 0
       if @rands.nil?
         value = randNomal(max)
@@ -140,8 +138,6 @@ module BCDice
 
       dice_a = rand_inner(6) + 1
       dice_b = rand_inner(6) + 1
-      debug("dice_a", dice_a)
-      debug("dice_b", dice_b)
 
       if isSwap && (dice_a > dice_b)
         # 大小でスワップするタイプ
@@ -150,8 +146,6 @@ module BCDice
         # 出目そのまま
         output = dice_a * 10 + dice_b
       end
-
-      debug("output", output)
 
       return output
     end
