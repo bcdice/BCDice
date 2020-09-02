@@ -1,18 +1,20 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-class Dracurouge_Korean < DiceBot
-  # ゲームシステムの識別子
-  ID = 'Dracurouge:Korean'
+module BCDice
+  module GameSystem
+    class Dracurouge_Korean < DiceBot
+      # ゲームシステムの識別子
+      ID = 'Dracurouge:Korean'
 
-  # ゲームシステム名
-  NAME = '드라크루주'
+      # ゲームシステム名
+      NAME = '드라크루주'
 
-  # ゲームシステム名の読みがな
-  SORT_KEY = '国際化:Korean:드라크루주'
+      # ゲームシステム名の読みがな
+      SORT_KEY = '国際化:Korean:드라크루주'
 
-  # ダイスボットの使い方
-  HELP_MESSAGE = <<MESSAGETEXT
+      # ダイスボットの使い方
+      HELP_MESSAGE = <<MESSAGETEXT
 ・행동판정（DRx+y）
 　x：굴리는 주사위의 수（생략시４）, y：갈증수정（생략시０）
 　예） DR　DR6　DR+1　DR5+2
@@ -30,158 +32,158 @@ class Dracurouge_Korean < DiceBot
 ・D66 다이스 있음
 MESSAGETEXT
 
-  def initialize
-    super
-    @d66Type = 1
-  end
-
-  def rollDiceCommand(command)
-    debug('rollDiceCommand')
-
-    result = getConductResult(command)
-    return result unless result.nil?
-
-    result = getResistResult(command)
-    return result unless result.nil?
-
-    result = getReactionResult(command)
-    return result unless result.nil?
-
-    result = getCorruptionResult(command)
-    return result unless result.nil?
-
-    result = getTableResult(command)
-    return result unless result.nil?
-
-    return nil
-  end
-
-  def getConductResult(command)
-    return nil unless /^DR(\d*)(\+(\d+))?$/ === command
-
-    diceCount = Regexp.last_match(1).to_i
-    diceCount = 4 if diceCount == 0
-    thirstyPoint = Regexp.last_match(3).to_i
-
-    diceList = rollDiceList(diceCount)
-
-    gloryDiceCount = getGloryDiceCount(diceList)
-    gloryDiceCount.times { diceList << 10 }
-
-    diceList, calculationProcess = getThirstyAddedResult(diceList, thirstyPoint)
-    thirstyPointMarker = (thirstyPoint == 0 ? "" : "+#{thirstyPoint}")
-
-    result = "(#{command}) ＞ #{diceCount}D6#{thirstyPointMarker} ＞ "
-    result += "[ #{calculationProcess} ] ＞ " unless calculationProcess.empty?
-    result += "[ #{diceList.join(', ')} ]"
-    return result
-  end
-
-  def rollDiceList(diceCount)
-    _dice, str = roll(diceCount, 6)
-    diceList = str.split(/,/).collect { |i| i.to_i }.sort
-
-    return diceList
-  end
-
-  def getGloryDiceCount(diceList)
-    oneCount = countTargetDice(diceList, 1)
-    sixCount = countTargetDice(diceList, 6)
-
-    gloryDiceCount = (oneCount / 2) + (sixCount / 2)
-    return gloryDiceCount
-  end
-
-  def countTargetDice(diceList, target)
-    diceList.select { |i| i == target }.count
-  end
-
-  def getThirstyAddedResult(diceList, thirstyPoint)
-    return diceList, '' if thirstyPoint == 0
-
-    targetIndex = diceList.rindex { |i| i <= 6 }
-    return diceList, '' if targetIndex.nil?
-
-    textList = []
-
-    diceList.each_with_index do |item, index|
-      if targetIndex == index
-        textList << "#{item}+#{thirstyPoint}"
-      else
-        textList << item.to_s
+      def initialize
+        super
+        @d66Type = 1
       end
-    end
 
-    diceList[targetIndex] += thirstyPoint
+      def rollDiceCommand(command)
+        debug('rollDiceCommand')
 
-    return diceList, textList.join(', ')
-  end
+        result = getConductResult(command)
+        return result unless result.nil?
 
-  def getResistResult(command)
-    return nil unless /^DRR(\d+)$/ === command
+        result = getResistResult(command)
+        return result unless result.nil?
 
-    diceCount = Regexp.last_match(1).to_i
-    diceCount = 4 if diceCount == 0
+        result = getReactionResult(command)
+        return result unless result.nil?
 
-    diceList = rollDiceList(diceCount)
+        result = getCorruptionResult(command)
+        return result unless result.nil?
 
-    return "(#{command}) ＞ #{diceCount}D6 ＞ [ #{diceList.join(', ')} ]"
-  end
+        result = getTableResult(command)
+        return result unless result.nil?
 
-  def getReactionResult(command)
-    return nil unless /^RT((\w)(\w))?/ === command.upcase
+        return nil
+      end
 
-    typeText1 = Regexp.last_match(2)
-    typeText2 = Regexp.last_match(3)
+      def getConductResult(command)
+        return nil unless /^DR(\d*)(\+(\d+))?$/ === command
 
-    name = "반응표"
-    table = getReactionTable
-    tableText, number = get_table_by_d66(table)
+        diceCount = Regexp.last_match(1).to_i
+        diceCount = 4 if diceCount == 0
+        thirstyPoint = Regexp.last_match(3).to_i
 
-    type1 = %w{드라크	로젠부르크	헬스가르드	더스트하임	아발롬	노스페라스}
-    type1_indexTexts = %w{D R H M A N}
-    type2 = %w{영주	근위	방랑	현자	사냥꾼	야수}
-    type2_indexTexts = %w{F G R W J N}
+        diceList = rollDiceList(diceCount)
 
-    tensValue = number.to_i / 10
-    isBefore = (tensValue < 4)
-    type = (isBefore ? type1 : type2)
-    indexTexts = (isBefore ? type1_indexTexts : type2_indexTexts)
-    typeText = (isBefore ? typeText1 : typeText2)
+        gloryDiceCount = getGloryDiceCount(diceList)
+        gloryDiceCount.times { diceList << 10 }
 
-    resultText = ''
-    if typeText.nil?
-      resultText = getReactionTextFull(type, tableText)
-    else
-      index = indexTexts.index(typeText)
-      return nil if index.nil?
+        diceList, calculationProcess = getThirstyAddedResult(diceList, thirstyPoint)
+        thirstyPointMarker = (thirstyPoint == 0 ? "" : "+#{thirstyPoint}")
 
-      resultText = getReactionTex(index, type, tableText)
-    end
+        result = "(#{command}) ＞ #{diceCount}D6#{thirstyPointMarker} ＞ "
+        result += "[ #{calculationProcess} ] ＞ " unless calculationProcess.empty?
+        result += "[ #{diceList.join(', ')} ]"
+        return result
+      end
 
-    return "#{name}(#{number}) ＞ #{resultText}"
-  end
+      def rollDiceList(diceCount)
+        _dice, str = roll(diceCount, 6)
+        diceList = str.split(/,/).collect { |i| i.to_i }.sort
 
-  def getReactionTextFull(type, tableText)
-    resultTexts = []
+        return diceList
+      end
 
-    type.count.times do |index|
-      resultTexts << getReactionTex(index, type, tableText)
-    end
+      def getGloryDiceCount(diceList)
+        oneCount = countTargetDice(diceList, 1)
+        sixCount = countTargetDice(diceList, 6)
 
-    return resultTexts.join('／')
-  end
+        gloryDiceCount = (oneCount / 2) + (sixCount / 2)
+        return gloryDiceCount
+      end
 
-  def getReactionTex(index, type, tableText)
-    typeName = type[index]
-    texts = tableText.split(/\t/)
-    string = texts[index]
+      def countTargetDice(diceList, target)
+        diceList.select { |i| i == target }.count
+      end
 
-    return "#{typeName}：#{string}"
-  end
+      def getThirstyAddedResult(diceList, thirstyPoint)
+        return diceList, '' if thirstyPoint == 0
 
-  def getReactionTable
-    text = <<TEXT_BLOCK
+        targetIndex = diceList.rindex { |i| i <= 6 }
+        return diceList, '' if targetIndex.nil?
+
+        textList = []
+
+        diceList.each_with_index do |item, index|
+          if targetIndex == index
+            textList << "#{item}+#{thirstyPoint}"
+          else
+            textList << item.to_s
+          end
+        end
+
+        diceList[targetIndex] += thirstyPoint
+
+        return diceList, textList.join(', ')
+      end
+
+      def getResistResult(command)
+        return nil unless /^DRR(\d+)$/ === command
+
+        diceCount = Regexp.last_match(1).to_i
+        diceCount = 4 if diceCount == 0
+
+        diceList = rollDiceList(diceCount)
+
+        return "(#{command}) ＞ #{diceCount}D6 ＞ [ #{diceList.join(', ')} ]"
+      end
+
+      def getReactionResult(command)
+        return nil unless /^RT((\w)(\w))?/ === command.upcase
+
+        typeText1 = Regexp.last_match(2)
+        typeText2 = Regexp.last_match(3)
+
+        name = "반응표"
+        table = getReactionTable
+        tableText, number = get_table_by_d66(table)
+
+        type1 = %w{드라크	로젠부르크	헬스가르드	더스트하임	아발롬	노스페라스}
+        type1_indexTexts = %w{D R H M A N}
+        type2 = %w{영주	근위	방랑	현자	사냥꾼	야수}
+        type2_indexTexts = %w{F G R W J N}
+
+        tensValue = number.to_i / 10
+        isBefore = (tensValue < 4)
+        type = (isBefore ? type1 : type2)
+        indexTexts = (isBefore ? type1_indexTexts : type2_indexTexts)
+        typeText = (isBefore ? typeText1 : typeText2)
+
+        resultText = ''
+        if typeText.nil?
+          resultText = getReactionTextFull(type, tableText)
+        else
+          index = indexTexts.index(typeText)
+          return nil if index.nil?
+
+          resultText = getReactionTex(index, type, tableText)
+        end
+
+        return "#{name}(#{number}) ＞ #{resultText}"
+      end
+
+      def getReactionTextFull(type, tableText)
+        resultTexts = []
+
+        type.count.times do |index|
+          resultTexts << getReactionTex(index, type, tableText)
+        end
+
+        return resultTexts.join('／')
+      end
+
+      def getReactionTex(index, type, tableText)
+        typeName = type[index]
+        texts = tableText.split(/\t/)
+        string = texts[index]
+
+        return "#{typeName}：#{string}"
+      end
+
+      def getReactionTable
+        text = <<TEXT_BLOCK
 하늘에 빛나는 붉은 달을 올려본다	콧방귀를 뀐다	헛기침을 한다	미간을 찌푸리고 생각에 잠긴다	하품을 참는다	명왕령의 방향을 노려본다
 작게 한숨을 쉰다	앞머리를 쓸어 올린다	눈썹을 찌푸린다	주변을 평가하는 눈으로 본다	머리를 긁적인다	혀를 찬다
 상대를 내려다보듯이 본다	자신의 머리를 만진다	투덜거린다	손에 책을 구현화시켜 적어넣는다	손에 생긴 과일을 먹는다	고개숙여 바닥이나 지면을 노려본다
@@ -220,91 +222,93 @@ MESSAGETEXT
 입가를 가리며 기품있게 웃는다	주군에 대한 주변의 태도를 비난한다	아랫사람에게 미소짓는다	다른 기사의 감정에 충고한다	아랫사람을 내려다보는 눈으로 본다	자학적인 말을 한다
 TEXT_BLOCK
 
-    return text.split(/\n/)
-  end
-
-  def getCorruptionResult(command)
-    return nil unless /^CT(\d+)$/ === command.upcase
-
-    modify = Regexp.last_match(1).to_i
-
-    name = "타락표"
-    table =
-      [
-        [ 0, "당신은 완전히 타락했다. 이 시점에서 당신은 [월 플라워]가 되어 늑대인간, 검은 산양, 야수 중 하나가 된다. 그 [막]의 종료 후에 세션에서 퇴장한다. 247페이지의 「소멸・완전한 타락」을 참조한다."],
-        [ 1, "당신의 육체는 정신에 걸맞는 변화를 일으킨다……. 「타락의 전조표」를 2번 굴리고 특징을 얻는다. 이 세션 종료 후, 【길】을 「야수」로 변경한다.(이미「야수」라면 【길】은 변하지 않는다)"],
-        [ 3, "당신의 육체는 정신에 걸맞는 변화를 일으킨다……. 「타락의 전조표」를 1번 굴리고 특징을 얻는다. 이 세션 종료 후, 【길】을 「야수」로 변경한다.(이미「야수」라면 【길】은 변하지 않는다)"],
-        [ 5, "고귀한 마음도 언젠가는 타락한다. 당신이 지금 가장 많은 루주를 얻은 대상에 대한 루주를 전부 잃고, 같은 수 만큼의 누아르를 얻는다. 누아르를 얻은 결과, 【갈증】이 3점 이상이 된 경우 다시 타락표를 굴린다."],
-        [ 6, "내면에 잠든 짐승의 숨결……당신이 지금 【갈증】을 얻은 누아르의 대상에게 임의의 누아르 2점을 획득한다."],
-        [ 7, "내면에 잠든 짐승의 숨결……당신이 지금 【갈증】을 얻은 누아르의 대상에게 임의의 누아르 1점을 획득한다."],
-        [ 8, "날뛰는 마음을 가라앉힌다……다행히 아무 일도 없었다."],
-        [99, "당신은 미쳐 날뛰는 감정을 억누르고 이성을 되찾았다! 【갈증】이 1 감소한다!"],
-      ]
-
-    number, number_text = roll(2, 6)
-    index = (number - modify)
-    debug('index', index)
-    text = get_table_by_number(index, table)
-
-    return "2D6[#{number_text}]-#{modify} ＞  #{name}(#{index}) ＞ #{text}"
-  end
-
-  def getTableResult(command)
-    info = TABLES[command.upcase]
-    return nil if info.nil?
-
-    name = info[:name]
-    type = info[:type]
-    table = info[:table]
-
-    text, number =
-      case type
-      when '2D6'
-        get_table_by_2d6(table)
-      when '1D6'
-        get_table_by_1d6(table)
+        return text.split(/\n/)
       end
 
-    return nil if text.nil?
+      def getCorruptionResult(command)
+        return nil unless /^CT(\d+)$/ === command.upcase
 
-    return "#{name}(#{number}) ＞ #{text}"
+        modify = Regexp.last_match(1).to_i
+
+        name = "타락표"
+        table =
+          [
+            [ 0, "당신은 완전히 타락했다. 이 시점에서 당신은 [월 플라워]가 되어 늑대인간, 검은 산양, 야수 중 하나가 된다. 그 [막]의 종료 후에 세션에서 퇴장한다. 247페이지의 「소멸・완전한 타락」을 참조한다."],
+            [ 1, "당신의 육체는 정신에 걸맞는 변화를 일으킨다……. 「타락의 전조표」를 2번 굴리고 특징을 얻는다. 이 세션 종료 후, 【길】을 「야수」로 변경한다.(이미「야수」라면 【길】은 변하지 않는다)"],
+            [ 3, "당신의 육체는 정신에 걸맞는 변화를 일으킨다……. 「타락의 전조표」를 1번 굴리고 특징을 얻는다. 이 세션 종료 후, 【길】을 「야수」로 변경한다.(이미「야수」라면 【길】은 변하지 않는다)"],
+            [ 5, "고귀한 마음도 언젠가는 타락한다. 당신이 지금 가장 많은 루주를 얻은 대상에 대한 루주를 전부 잃고, 같은 수 만큼의 누아르를 얻는다. 누아르를 얻은 결과, 【갈증】이 3점 이상이 된 경우 다시 타락표를 굴린다."],
+            [ 6, "내면에 잠든 짐승의 숨결……당신이 지금 【갈증】을 얻은 누아르의 대상에게 임의의 누아르 2점을 획득한다."],
+            [ 7, "내면에 잠든 짐승의 숨결……당신이 지금 【갈증】을 얻은 누아르의 대상에게 임의의 누아르 1점을 획득한다."],
+            [ 8, "날뛰는 마음을 가라앉힌다……다행히 아무 일도 없었다."],
+            [99, "당신은 미쳐 날뛰는 감정을 억누르고 이성을 되찾았다! 【갈증】이 1 감소한다!"],
+          ]
+
+        number, number_text = roll(2, 6)
+        index = (number - modify)
+        debug('index', index)
+        text = get_table_by_number(index, table)
+
+        return "2D6[#{number_text}]-#{modify} ＞  #{name}(#{index}) ＞ #{text}"
+      end
+
+      def getTableResult(command)
+        info = TABLES[command.upcase]
+        return nil if info.nil?
+
+        name = info[:name]
+        type = info[:type]
+        table = info[:table]
+
+        text, number =
+          case type
+          when '2D6'
+            get_table_by_2d6(table)
+          when '1D6'
+            get_table_by_1d6(table)
+          end
+
+        return nil if text.nil?
+
+        return "#{name}(#{number}) ＞ #{text}"
+      end
+
+      def getCorruptionTable; end
+
+      TABLES =
+        {
+          'CS' => {
+            :name => "타락의 전조표",
+            :type => '2D6',
+            :table => [
+              "당신은 완전히 타락했다. 이 시점에서 당신은 [월 플라워]가 되어 늑대인간, 검은 산양, 야수 중 하나가 된다. 그 [막]의 종료 후에 세션에서 퇴장한다. 247페이지의 「소멸・완전한 타락」을 참조한다.",
+              "짐승 그 자체의 머리(늑대, 산양, 박쥐 중 하나)",
+              "밤새의 날개",
+              "박쥐의 날개",
+              "갈퀴발톱이 있는 이형의 팔",
+              "뒤틀린 두 개의 뿔",
+              "늑대의 귀와 꼬리",
+              "창백해진 피부",
+              "이상한 빛을 발하는 눈",
+              "튀어나온 송곳니",
+              "눈에 보이는 변화는 없다……",
+            ],
+          },
+
+          'BT' => {
+            :name => "인연 내용 결정표：루주／누아르",
+            :type => '1D6',
+            :table => [
+              "연민(Pity)　상대를 불쌍히 여기고 동정한다. ／모멸(Contempt)　상대를 깔보고 경멸한다.",
+              "친구(Friend)　상대에게 우정을 갖는다. ／질투(Jealousy)　상대를 부러워하고 질투한다. ",
+              "신뢰(Trust)　상대를 신뢰한다. ／욕망(Desire)　상대를 원하고 나의 것으로 만들고 싶어한다.",
+              "사랑(Love)　상대를 좋아하고 사랑한다. ／분노(Anger)　상대에게 분노를 느낀다. ",
+              "존경(Respect)　상대의 실력이나 정신을 존경한다. ／살의(Kill)　상대에게 살의를 느끼고 없애고자 한다.",
+              "복종(Obey)　상대를 주군으로서 받들고 충의를 맹세한다. ／복수(Vendetta)　상대를 원망하고 원수로 여긴다.",
+            ],
+          },
+        }.freeze
+
+      setPrefixes(['DR.*', 'RT.*', 'CT\d+'] + TABLES.keys)
+    end
   end
-
-  def getCorruptionTable; end
-
-  TABLES =
-    {
-      'CS' => {
-        :name => "타락의 전조표",
-        :type => '2D6',
-        :table => [
-          "당신은 완전히 타락했다. 이 시점에서 당신은 [월 플라워]가 되어 늑대인간, 검은 산양, 야수 중 하나가 된다. 그 [막]의 종료 후에 세션에서 퇴장한다. 247페이지의 「소멸・완전한 타락」을 참조한다.",
-          "짐승 그 자체의 머리(늑대, 산양, 박쥐 중 하나)",
-          "밤새의 날개",
-          "박쥐의 날개",
-          "갈퀴발톱이 있는 이형의 팔",
-          "뒤틀린 두 개의 뿔",
-          "늑대의 귀와 꼬리",
-          "창백해진 피부",
-          "이상한 빛을 발하는 눈",
-          "튀어나온 송곳니",
-          "눈에 보이는 변화는 없다……",
-        ],
-      },
-
-      'BT' => {
-        :name => "인연 내용 결정표：루주／누아르",
-        :type => '1D6',
-        :table => [
-          "연민(Pity)　상대를 불쌍히 여기고 동정한다. ／모멸(Contempt)　상대를 깔보고 경멸한다.",
-          "친구(Friend)　상대에게 우정을 갖는다. ／질투(Jealousy)　상대를 부러워하고 질투한다. ",
-          "신뢰(Trust)　상대를 신뢰한다. ／욕망(Desire)　상대를 원하고 나의 것으로 만들고 싶어한다.",
-          "사랑(Love)　상대를 좋아하고 사랑한다. ／분노(Anger)　상대에게 분노를 느낀다. ",
-          "존경(Respect)　상대의 실력이나 정신을 존경한다. ／살의(Kill)　상대에게 살의를 느끼고 없애고자 한다.",
-          "복종(Obey)　상대를 주군으로서 받들고 충의를 맹세한다. ／복수(Vendetta)　상대를 원망하고 원수로 여긴다.",
-        ],
-      },
-    }.freeze
-
-  setPrefixes(['DR.*', 'RT.*', 'CT\d+'] + TABLES.keys)
 end

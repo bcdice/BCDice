@@ -4,19 +4,23 @@
 require 'bcdice/game_system/SRS'
 
 # アルシャードのダイスボット
-class Alshard < SRS
-  # ゲームシステム名
-  NAME = 'アルシャード'
+module BCDice
+  module GameSystem
+    class Alshard < SRS
+      # ゲームシステム名
+      NAME = 'アルシャード'
 
-  # ゲームシステム名の読みがな
-  SORT_KEY = 'あるしやあと'
+      # ゲームシステム名の読みがな
+      SORT_KEY = 'あるしやあと'
 
-  # ゲームシステムの識別子
-  ID = 'Alshard'
+      # ゲームシステムの識別子
+      ID = 'Alshard'
 
-  # 固有のコマンドの接頭辞を設定する
-  setPrefixes(['2D6.*', 'AL.*'])
+      # 固有のコマンドの接頭辞を設定する
+      setPrefixes(['2D6.*', 'AL.*'])
 
-  # 成功判定のエイリアスコマンドを設定する
-  set_aliases_for_srs_roll('AL')
+      # 成功判定のエイリアスコマンドを設定する
+      set_aliases_for_srs_roll('AL')
+    end
+  end
 end

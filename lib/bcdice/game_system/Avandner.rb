@@ -1,18 +1,20 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-class Avandner < DiceBot
-  # ゲームシステムの識別子
-  ID = 'Avandner'
+module BCDice
+  module GameSystem
+    class Avandner < DiceBot
+      # ゲームシステムの識別子
+      ID = 'Avandner'
 
-  # ゲームシステム名
-  NAME = '黒絢のアヴァンドナー'
+      # ゲームシステム名
+      NAME = '黒絢のアヴァンドナー'
 
-  # ゲームシステム名の読みがな
-  SORT_KEY = 'こつけんのあうあんとなあ'
+      # ゲームシステム名の読みがな
+      SORT_KEY = 'こつけんのあうあんとなあ'
 
-  # ダイスボットの使い方
-  HELP_MESSAGE = <<MESSAGETEXT
+      # ダイスボットの使い方
+      HELP_MESSAGE = <<MESSAGETEXT
 ・調査判定：nAVm[Cx]
 ・命中判定：nAVm*p[+t][Cx]
 []内は省略可能。
@@ -33,66 +35,68 @@ class Avandner < DiceBot
 ・8av4*7+10 → 8d10で目標値4、攻撃力7、クリティカルトリガー10の命中判定。
 MESSAGETEXT
 
-  setPrefixes(['\d+AV\d+((x|\*)\d+(\+\d+)?)?(c\d+)?'])
+      setPrefixes(['\d+AV\d+((x|\*)\d+(\+\d+)?)?(c\d+)?'])
 
-  def initialize
-    super
-    @sortType = 1 # ダイスのソート有
-  end
+      def initialize
+        super
+        @sortType = 1 # ダイスのソート有
+      end
 
-  def rollDiceCommand(command)
-    # AVコマンド：調査判定, 成功判定
-    if /(\d+)AV(\d+)((x|\*)(\d+))?(\+(\d+))?(C(\d+))?$/i === command
-      diceCount = Regexp.last_match(1).to_i
-      target = Regexp.last_match(2).to_i
-      damage = (Regexp.last_match(5) || 0).to_i
-      criticalTrigger = (Regexp.last_match(7) || 0).to_i
-      criticalNumber = (Regexp.last_match(9) || 1).to_i
-      criticalNumber = 2 if criticalNumber > 3
-      return checkRoll(diceCount, target, damage, criticalTrigger, criticalNumber)
+      def rollDiceCommand(command)
+        # AVコマンド：調査判定, 成功判定
+        if /(\d+)AV(\d+)((x|\*)(\d+))?(\+(\d+))?(C(\d+))?$/i === command
+          diceCount = Regexp.last_match(1).to_i
+          target = Regexp.last_match(2).to_i
+          damage = (Regexp.last_match(5) || 0).to_i
+          criticalTrigger = (Regexp.last_match(7) || 0).to_i
+          criticalNumber = (Regexp.last_match(9) || 1).to_i
+          criticalNumber = 2 if criticalNumber > 3
+          return checkRoll(diceCount, target, damage, criticalTrigger, criticalNumber)
+        end
+
+        return nil
+      end
+
+      def checkRoll(diceCount, target, damage, criticalTrigger, criticalNumber)
+        totalSuccessCount = 0
+        totalCriticalCount = 0
+        text = ""
+
+        rollCount = diceCount
+
+        while rollCount > 0
+          _dice, diceText = roll(rollCount, 10, @sortType)
+          diceArray = diceText.split(/,/).collect { |i| i.to_i }
+
+          successCount = diceArray.count { |i| i <= target }
+          criticalCount = diceArray.count { |i| i <= criticalNumber }
+
+          totalSuccessCount += successCount
+          totalCriticalCount += criticalCount
+
+          text += "+" unless text.empty?
+          text += "#{successCount}[#{diceText}]"
+
+          rollCount = criticalCount
+        end
+
+        result = ""
+        isDamage = (damage != 0)
+
+        if isDamage
+          totalDamage = totalSuccessCount * damage + totalCriticalCount * criticalTrigger
+
+          result += "(#{diceCount}D10\<\=#{target}) ＞ #{text} ＞ Hits：#{totalSuccessCount}*#{damage}"
+          result += " + Trigger：#{totalCriticalCount}*#{criticalTrigger}" if  criticalTrigger > 0
+          result += " ＞ #{totalDamage}ダメージ"
+        else
+          result += "(#{diceCount}D10\<\=#{target}) ＞ #{text} ＞ 成功数：#{totalSuccessCount}"
+        end
+
+        result += " / #{totalCriticalCount}クリティカル" if totalCriticalCount > 0
+
+        return result
+      end
     end
-
-    return nil
-  end
-
-  def checkRoll(diceCount, target, damage, criticalTrigger, criticalNumber)
-    totalSuccessCount = 0
-    totalCriticalCount = 0
-    text = ""
-
-    rollCount = diceCount
-
-    while rollCount > 0
-      _dice, diceText = roll(rollCount, 10, @sortType)
-      diceArray = diceText.split(/,/).collect { |i| i.to_i }
-
-      successCount = diceArray.count { |i| i <= target }
-      criticalCount = diceArray.count { |i| i <= criticalNumber }
-
-      totalSuccessCount += successCount
-      totalCriticalCount += criticalCount
-
-      text += "+" unless text.empty?
-      text += "#{successCount}[#{diceText}]"
-
-      rollCount = criticalCount
-    end
-
-    result = ""
-    isDamage = (damage != 0)
-
-    if isDamage
-      totalDamage = totalSuccessCount * damage + totalCriticalCount * criticalTrigger
-
-      result += "(#{diceCount}D10\<\=#{target}) ＞ #{text} ＞ Hits：#{totalSuccessCount}*#{damage}"
-      result += " + Trigger：#{totalCriticalCount}*#{criticalTrigger}" if  criticalTrigger > 0
-      result += " ＞ #{totalDamage}ダメージ"
-    else
-      result += "(#{diceCount}D10\<\=#{target}) ＞ #{text} ＞ 成功数：#{totalSuccessCount}"
-    end
-
-    result += " / #{totalCriticalCount}クリティカル" if totalCriticalCount > 0
-
-    return result
   end
 end

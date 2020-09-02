@@ -1,18 +1,20 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-class StrangerOfSwordCity < DiceBot
-  # ゲームシステムの識別子
-  ID = 'StrangerOfSwordCity'
+module BCDice
+  module GameSystem
+    class StrangerOfSwordCity < DiceBot
+      # ゲームシステムの識別子
+      ID = 'StrangerOfSwordCity'
 
-  # ゲームシステム名
-  NAME = '剣の街の異邦人TRPG'
+      # ゲームシステム名
+      NAME = '剣の街の異邦人TRPG'
 
-  # ゲームシステム名の読みがな
-  SORT_KEY = 'けんのまちのいほうしんTRPG'
+      # ゲームシステム名の読みがな
+      SORT_KEY = 'けんのまちのいほうしんTRPG'
 
-  # ダイスボットの使い方
-  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
+      # ダイスボットの使い方
+      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・判定　xSR or xSRy or xSR+y or xSR-y or xSR+y>=z
 　x=ダイス数、y=修正値(省略可、±省略時は＋として扱う)、z=難易度(省略可)
 　判定時はクリティカル、ファンブルの自動判定を行います。
@@ -20,82 +22,84 @@ class StrangerOfSwordCity < DiceBot
 ・D66ダイスあり
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['\d+SR.*'])
+      setPrefixes(['\d+SR.*'])
 
-  def initialize
-    super
+      def initialize
+        super
 
-    @sortType = 1
-    @d66Type = 1
-    @fractionType = "omit"
-  end
+        @sortType = 1
+        @d66Type = 1
+        @fractionType = "omit"
+      end
 
-  def rollDiceCommand(command)
-    debug('rollDiceCommand command', command)
+      def rollDiceCommand(command)
+        debug('rollDiceCommand command', command)
 
-    command = command.upcase
+        command = command.upcase
 
-    result = ''
+        result = ''
 
-    result = checkRoll(command)
-    return result unless result.empty?
+        result = checkRoll(command)
+        return result unless result.empty?
 
-    return result
-  end
+        return result
+      end
 
-  def checkRoll(command)
-    debug("checkRoll begin command", command)
+      def checkRoll(command)
+        debug("checkRoll begin command", command)
 
-    result = ''
-    return result unless /^(\d+)SR([\+\-]?\d+)?(>=(\d+))?$/i === command
+        result = ''
+        return result unless /^(\d+)SR([\+\-]?\d+)?(>=(\d+))?$/i === command
 
-    diceCount = Regexp.last_match(1).to_i
-    modify = Regexp.last_match(2).to_i
-    difficulty = Regexp.last_match(4).to_i if Regexp.last_match(4)
+        diceCount = Regexp.last_match(1).to_i
+        modify = Regexp.last_match(2).to_i
+        difficulty = Regexp.last_match(4).to_i if Regexp.last_match(4)
 
-    dice, diceText = roll(diceCount, 6)
-    diceList = diceText.split(/,/).collect { |i| i.to_i }.sort
+        dice, diceText = roll(diceCount, 6)
+        diceList = diceText.split(/,/).collect { |i| i.to_i }.sort
 
-    totalValue = (dice + modify)
-    modifyText = getModifyText(modify)
-    result += "(#{command}) ＞ #{dice}[#{diceList.join(',')}]#{modifyText} ＞ #{totalValue}"
+        totalValue = (dice + modify)
+        modifyText = getModifyText(modify)
+        result += "(#{command}) ＞ #{dice}[#{diceList.join(',')}]#{modifyText} ＞ #{totalValue}"
 
-    criticalResult = getCriticalResult(diceList)
-    unless criticalResult.nil?
-      result += " ＞ クリティカル(+#{criticalResult}D6)"
-      return result
+        criticalResult = getCriticalResult(diceList)
+        unless criticalResult.nil?
+          result += " ＞ クリティカル(+#{criticalResult}D6)"
+          return result
+        end
+
+        if isFumble(diceList, diceCount)
+          result += ' ＞ ファンブル'
+          return result
+        end
+
+        unless difficulty.nil?
+          result += totalValue >= difficulty ? ' ＞ 成功' : ' ＞ 失敗'
+        end
+
+        return result
+      end
+
+      def getModifyText(modify)
+        return "" if modify == 0
+        return modify.to_s if modify < 0
+
+        return "+#{modify}"
+      end
+
+      def getCriticalResult(diceList)
+        dice6Count = diceList.select { |i| i == 6 }.size
+
+        if dice6Count >= 2
+          return dice6Count.to_s
+        end
+
+        return nil
+      end
+
+      def isFumble(diceList, diceCount)
+        (diceList.select { |i| i == 1 }.size >= diceCount)
+      end
     end
-
-    if isFumble(diceList, diceCount)
-      result += ' ＞ ファンブル'
-      return result
-    end
-
-    unless difficulty.nil?
-      result += totalValue >= difficulty ? ' ＞ 成功' : ' ＞ 失敗'
-    end
-
-    return result
-  end
-
-  def getModifyText(modify)
-    return "" if modify == 0
-    return modify.to_s if modify < 0
-
-    return "+#{modify}"
-  end
-
-  def getCriticalResult(diceList)
-    dice6Count = diceList.select { |i| i == 6 }.size
-
-    if dice6Count >= 2
-      return dice6Count.to_s
-    end
-
-    return nil
-  end
-
-  def isFumble(diceList, diceCount)
-    (diceList.select { |i| i == 1 }.size >= diceCount)
   end
 end

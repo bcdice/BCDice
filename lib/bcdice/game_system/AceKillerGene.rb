@@ -3,18 +3,20 @@
 
 require 'bcdice/game_system/GardenOrder'
 
-class AceKillerGene < GardenOrder
-  # ゲームシステムの識別子
-  ID = 'AceKillerGene'
+module BCDice
+  module GameSystem
+    class AceKillerGene < GardenOrder
+      # ゲームシステムの識別子
+      ID = 'AceKillerGene'
 
-  # ゲームシステム名
-  NAME = 'エースキラージーン'
+      # ゲームシステム名
+      NAME = 'エースキラージーン'
 
-  # ゲームシステム名の読みがな
-  SORT_KEY = 'ええすきらあしいん'
+      # ゲームシステム名の読みがな
+      SORT_KEY = 'ええすきらあしいん'
 
-  # ダイスボットの使い方
-  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
+      # ダイスボットの使い方
+      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 ・基本判定
 　AKx/y@z　x：成功率、y：連続攻撃回数（省略可）、z：クリティカル値（省略可）
 　（連続攻撃では1回の判定のみが実施されます）
@@ -26,27 +28,29 @@ class AceKillerGene < GardenOrder
 　例）DCSL7　DCEL22
 INFO_MESSAGE_TEXT
 
-  setPrefixes([
-    '(AK|AKG)(\-?\d+)(\/\d+)?(@\d+)?',
-    'DC(SL|BL|IM|BR|RF|EL).+'
-  ])
+      setPrefixes([
+        '(AK|AKG)(\-?\d+)(\/\d+)?(@\d+)?',
+        'DC(SL|BL|IM|BR|RF|EL).+'
+      ])
 
-  def rollDiceCommand(command)
-    case command
-    when %r{(AK|AKG)(\-?\d+)(/(\d+))?(@(\d+))?}i
-      success_rate = Regexp.last_match(2).to_i
-      repeat_count = (Regexp.last_match(4) || 1).to_i
-      critical_border_text = Regexp.last_match(6)
-      critical_border = get_critical_border(critical_border_text, success_rate)
+      def rollDiceCommand(command)
+        case command
+        when %r{(AK|AKG)(\-?\d+)(/(\d+))?(@(\d+))?}i
+          success_rate = Regexp.last_match(2).to_i
+          repeat_count = (Regexp.last_match(4) || 1).to_i
+          critical_border_text = Regexp.last_match(6)
+          critical_border = get_critical_border(critical_border_text, success_rate)
 
-      return check_roll_repeat_attack(success_rate, repeat_count, critical_border)
+          return check_roll_repeat_attack(success_rate, repeat_count, critical_border)
 
-    when /^DC(SL|BL|IM|BR|RF|EL)(\d+)/i
-      type = Regexp.last_match(1)
-      damage_value = Regexp.last_match(2).to_i
-      return look_up_damage_chart(type, damage_value)
+        when /^DC(SL|BL|IM|BR|RF|EL)(\d+)/i
+          type = Regexp.last_match(1)
+          damage_value = Regexp.last_match(2).to_i
+          return look_up_damage_chart(type, damage_value)
+        end
+
+        return nil
+      end
     end
-
-    return nil
   end
 end

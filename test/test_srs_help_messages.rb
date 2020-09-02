@@ -16,7 +16,7 @@ require 'bcdice/game_system/EtrianOdysseySRS'
 class TestSRSHelpMessages < Test::Unit::TestCase
   # Standard RPG Systemの説明文をテストする
   def test_SRS_help_message
-    dice_bot = SRS.new
+    dice_bot = BCDice::GameSystem::SRS.new
 
     expected = <<HELP_MESSAGE
 ・判定
@@ -51,7 +51,7 @@ HELP_MESSAGE
   # 世界樹の迷宮SRSのダイスボットには、複数のエイリアスコマンドが存在する。
   # すべてのエイリアスコマンドについての説明が含まれているか、確認する。
   def test_EtrianOdysseySRS_help_message
-    dice_bot = EtrianOdysseySRS.new
+    dice_bot = BCDice::GameSystem::EtrianOdysseySRS.new
 
     expected = <<HELP_MESSAGE
 ・判定

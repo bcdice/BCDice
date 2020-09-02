@@ -1,43 +1,45 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-class KurayamiCrying < DiceBot
-  # ゲームシステムの識別子
-  ID = 'KurayamiCrying'
+module BCDice
+  module GameSystem
+    class KurayamiCrying < DiceBot
+      # ゲームシステムの識別子
+      ID = 'KurayamiCrying'
 
-  # ゲームシステム名
-  NAME = 'クラヤミクライン'
+      # ゲームシステム名
+      NAME = 'クラヤミクライン'
 
-  # ゲームシステム名の読みがな
-  SORT_KEY = 'くらやみくらいん'
+      # ゲームシステム名の読みがな
+      SORT_KEY = 'くらやみくらいん'
 
-  # ダイスボットの使い方
-  HELP_MESSAGE = "・アクシデント表（ACT）\n"
+      # ダイスボットの使い方
+      HELP_MESSAGE = "・アクシデント表（ACT）\n"
 
-  def rollDiceCommand(command)
-    case command
-    when /^ACT(\d+)$/i
-      number = Regexp.last_match(1).to_i
-      info = TABLES["ACT"]
-      name = info[:name]
-      table = getTableInfoFromExtraTableText(info[:table])
+      def rollDiceCommand(command)
+        case command
+        when /^ACT(\d+)$/i
+          number = Regexp.last_match(1).to_i
+          info = TABLES["ACT"]
+          name = info[:name]
+          table = getTableInfoFromExtraTableText(info[:table])
 
-      text = table[number]
+          text = table[number]
 
-      result = "#{name}(#{number}) ＞ #{text}"
-      return text
-    end
-    result = getTableCommandResult(command, TABLES)
-    return result unless result.nil?
-  end
+          result = "#{name}(#{number}) ＞ #{text}"
+          return text
+        end
+        result = getTableCommandResult(command, TABLES)
+        return result unless result.nil?
+      end
 
-  TABLES =
-    {
+      TABLES =
+        {
 
-      'ACT' => {
-        :name => "アクシデント表",
-        :type => '1D10',
-        :table => <<'TABLE_TEXT_END'
+          'ACT' => {
+            :name => "アクシデント表",
+            :type => '1D10',
+            :table => <<'TABLE_TEXT_END'
 頭の中が黒く染まってゆく、怖い、苦しい。気持ち悪い！でも…なんだか少しだけ、すがすがしい。あなたは「発狂」する。すでに「発狂」している場合、「理性」を2点失う。
 待って、今のはナシ！調子が愚かったっていうか、ちょっと違うことしちゃったからさ…もう1回やらせてよ、ね？失敗した「判定」を再度やり直す。ただし、前回と同じ「能力値」を使うことはできす、進行役と「交渉」を行った扱いとなる（代替判定により「浸食」が2点増加する）。
 こっちは必死にやってるってのに、まったく、アイツめ……！ あなたが「ツナガリ」を結んでいる主人公を任意に1人選び、「感情」を変更する。この際、必す「負の惑情」を選ばなければならない。「ツナガリ」を結んでいる主人公がいない場合、ダイスを振り直し、再度「アクシデント表」に当てはめる。
@@ -49,9 +51,11 @@ class KurayamiCrying < DiceBot
 あぁ……見つからない。アレがないとダメなのに。一体どうしたら──！「アイテム」をランダムに1つ失う（「継続品」である場合、センョン終了後に再度獲得する）。「アイテム」を1つも所持していない場合、「アイテム」を所持する主人公をランダムに1人選び、2点のダメージを与え、「アイテム」を1つ奪い取る。主人公が誰も「アイテム」を所持していない場合、「理性」を2点失う。
 まるで自分を支える何かが失われたように、あなたはその場に立ち尽くす。諦めと絶望が心を支配する。ああ、そうか。これが、「心が折れる」ということか……。あなたは「理性」を4点失う。
 TABLE_TEXT_END
-      },
+          },
 
-    }.freeze
+        }.freeze
 
-  setPrefixes(["ACT.*"] + TABLES.keys)
+      setPrefixes(["ACT.*"] + TABLES.keys)
+    end
+  end
 end

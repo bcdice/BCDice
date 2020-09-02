@@ -69,7 +69,7 @@ class DiceBotLoader
 
     begin
       require(fileName)
-      Object.const_get(gameType).new
+      BCDice::GameSystem.const_get(gameType).new
     rescue LoadError, StandardError => e
       debug('DiceBotLoader.loadUnknownGame: ダイスボットの読み込みに失敗しました',
             e.to_s)
@@ -95,7 +95,7 @@ class DiceBotLoader
 
     bots = validBotNames.map do |botName|
       require("#{diceBotDir}/#{botName}")
-      Object.const_get(botName).new
+      BCDice::GameSystem.const_get(botName).new
     end
 
     return bots.sort_by(&:sort_key)
@@ -236,6 +236,6 @@ class DiceBotLoader
       require(require_path)
     end
 
-    Object.const_get(@diceBotClass).new
+    BCDice::GameSystem.const_get(@diceBotClass).new
   end
 end

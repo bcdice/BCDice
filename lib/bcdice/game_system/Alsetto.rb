@@ -1,18 +1,20 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-class Alsetto < DiceBot
-  # ゲームシステムの識別子
-  ID = 'Alsetto'
+module BCDice
+  module GameSystem
+    class Alsetto < DiceBot
+      # ゲームシステムの識別子
+      ID = 'Alsetto'
 
-  # ゲームシステム名
-  NAME = '詩片のアルセット'
+      # ゲームシステム名
+      NAME = '詩片のアルセット'
 
-  # ゲームシステム名の読みがな
-  SORT_KEY = 'うたかたのあるせつと'
+      # ゲームシステム名の読みがな
+      SORT_KEY = 'うたかたのあるせつと'
 
-  # ダイスボットの使い方
-  HELP_MESSAGE = <<MESSAGETEXT
+      # ダイスボットの使い方
+      HELP_MESSAGE = <<MESSAGETEXT
 ・成功判定：nAL[m]　　　　・トライアンフ無し：nALC[m]
 ・命中判定：nAL[m]*p　　　・トライアンフ無し：nALC[m]*p
 ・命中判定（ガンスリンガーの根源詩）：nALG[m]*p
@@ -36,86 +38,88 @@ ALGコマンドは「2以下」でトライアンフ処理を行います。
 ・8ALC4x5 → 8d6で目標値4、攻撃力5、トライアンフ無しの命中判定。
 MESSAGETEXT
 
-  setPrefixes(['\d+AL(C|G)?(\d+)?(x|\*)\d+', '\d+ALC?(\d+)?'])
+      setPrefixes(['\d+AL(C|G)?(\d+)?(x|\*)\d+', '\d+ALC?(\d+)?'])
 
-  def initialize
-    super
-    @sortType = 1 # ダイスのソート有
-  end
+      def initialize
+        super
+        @sortType = 1 # ダイスのソート有
+      end
 
-  def rollDiceCommand(command)
-    # ALCコマンド：命中判定
-    # ALCコマンド：成功判定
-    if /(\d+)AL(C|G)?(\d+)?((x|\*)(\d+))?$/i === command
-      rapid = Regexp.last_match(1).to_i
-      isCritical = Regexp.last_match(2).nil?
-      if  isCritical
-        criticalNumber = 1
-      else
-        if Regexp.last_match(2) == "G"
-          isCritical = true
-          criticalNumber = 2
+      def rollDiceCommand(command)
+        # ALCコマンド：命中判定
+        # ALCコマンド：成功判定
+        if /(\d+)AL(C|G)?(\d+)?((x|\*)(\d+))?$/i === command
+          rapid = Regexp.last_match(1).to_i
+          isCritical = Regexp.last_match(2).nil?
+          if  isCritical
+            criticalNumber = 1
+          else
+            if Regexp.last_match(2) == "G"
+              isCritical = true
+              criticalNumber = 2
+            else
+              criticalNumber = 0
+            end
+          end
+          target = (Regexp.last_match(3) || 3).to_i
+          damage = (Regexp.last_match(6) || 0).to_i
+          return checkRoll(rapid, target, damage, isCritical, criticalNumber)
+        end
+
+        return nil
+      end
+
+      def checkRoll(rapid, target, damage, isCritical, criticalNumber)
+        totalSuccessCount = 0
+        totalCriticalCount = 0
+        text = ""
+
+        rollCount = rapid
+
+        while rollCount > 0
+          _dice, diceText = roll(rollCount, 6, @sortType)
+          diceArray = diceText.split(/,/).collect { |i| i.to_i }
+
+          successCount = 0
+          criticalCount = 0
+
+          diceArray.each do |i|
+            if i <= target
+              successCount += 1
+            end
+
+            if i <= criticalNumber
+              criticalCount += 1
+            end
+          end
+
+          totalSuccessCount += successCount
+          totalCriticalCount += 1 unless criticalCount == 0
+
+          text += "+" unless text.empty?
+          text += "#{successCount}[#{diceText}]"
+
+          break unless  isCritical
+
+          rollCount = criticalCount
+        end
+
+        isDamage = (damage != 0)
+
+        if isDamage
+          totalDamage = totalSuccessCount * damage
+
+          result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ Hits：#{totalSuccessCount}*#{damage} ＞ #{totalDamage}ダメージ"
         else
-          criticalNumber = 0
+          result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ 成功数：#{totalSuccessCount}"
         end
+
+        if isCritical
+          result += " / #{totalCriticalCount}トライアンフ"
+        end
+
+        return result
       end
-      target = (Regexp.last_match(3) || 3).to_i
-      damage = (Regexp.last_match(6) || 0).to_i
-      return checkRoll(rapid, target, damage, isCritical, criticalNumber)
     end
-
-    return nil
-  end
-
-  def checkRoll(rapid, target, damage, isCritical, criticalNumber)
-    totalSuccessCount = 0
-    totalCriticalCount = 0
-    text = ""
-
-    rollCount = rapid
-
-    while rollCount > 0
-      _dice, diceText = roll(rollCount, 6, @sortType)
-      diceArray = diceText.split(/,/).collect { |i| i.to_i }
-
-      successCount = 0
-      criticalCount = 0
-
-      diceArray.each do |i|
-        if i <= target
-          successCount += 1
-        end
-
-        if i <= criticalNumber
-          criticalCount += 1
-        end
-      end
-
-      totalSuccessCount += successCount
-      totalCriticalCount += 1 unless criticalCount == 0
-
-      text += "+" unless text.empty?
-      text += "#{successCount}[#{diceText}]"
-
-      break unless  isCritical
-
-      rollCount = criticalCount
-    end
-
-    isDamage = (damage != 0)
-
-    if isDamage
-      totalDamage = totalSuccessCount * damage
-
-      result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ Hits：#{totalSuccessCount}*#{damage} ＞ #{totalDamage}ダメージ"
-    else
-      result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ 成功数：#{totalSuccessCount}"
-    end
-
-    if isCritical
-      result += " / #{totalCriticalCount}トライアンフ"
-    end
-
-    return result
   end
 end

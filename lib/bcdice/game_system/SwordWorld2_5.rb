@@ -3,18 +3,20 @@
 
 require 'bcdice/game_system/SwordWorld2_0'
 
-class SwordWorld2_5 < SwordWorld2_0
-  # ゲームシステムの識別子
-  ID = 'SwordWorld2.5'
+module BCDice
+  module GameSystem
+    class SwordWorld2_5 < SwordWorld2_0
+      # ゲームシステムの識別子
+      ID = 'SwordWorld2.5'
 
-  # ゲームシステム名
-  NAME = 'ソードワールド2.5'
+      # ゲームシステム名
+      NAME = 'ソードワールド2.5'
 
-  # ゲームシステム名の読みがな
-  SORT_KEY = 'そおとわあると2.5'
+      # ゲームシステム名の読みがな
+      SORT_KEY = 'そおとわあると2.5'
 
-  # ダイスボットの使い方
-  HELP_MESSAGE = <<INFO_MESSAGE_TEXT
+      # ダイスボットの使い方
+      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
 自動的成功、成功、失敗、自動的失敗の自動判定を行います。
 
 ・レーティング表　(Kx)
@@ -67,52 +69,54 @@ class SwordWorld2_5 < SwordWorld2_0
 　絡み効果表を出すことができます。
 INFO_MESSAGE_TEXT
 
-  setPrefixes(['H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT'])
+      setPrefixes(['H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT'])
 
-  # コマンド実行前にメッセージを置換する
-  # @param [String] string 受信したメッセージ
-  # @return [String]
-  def changeText(string)
-    # TODO: Ruby 2.4以降では Regexp#match? を使うこと
-    return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match(string)
+      # コマンド実行前にメッセージを置換する
+      # @param [String] string 受信したメッセージ
+      # @return [String]
+      def changeText(string)
+        # TODO: Ruby 2.4以降では Regexp#match? を使うこと
+        return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match(string)
 
-    super(string).gsub(/#([-+]?\d+)/) do
-      modifier = Regexp.last_match(1).to_i
-      "a[#{format_modifier(modifier)}]"
+        super(string).gsub(/#([-+]?\d+)/) do
+          modifier = Regexp.last_match(1).to_i
+          "a[#{format_modifier(modifier)}]"
+        end
+      end
+
+      def getRatingCommandStrings
+        super + "aA"
+      end
+
+      def getAdditionalString(string, output)
+        output, values = super(string, output)
+
+        keptDiceChangeModify, string = getKeptDiceChangesFromString(string)
+
+        values['keptDiceChangeModify'] = keptDiceChangeModify
+        output += "a[#{keptDiceChangeModify}]" if keptDiceChangeModify != 0
+
+        return output, values
+      end
+
+      def getAdditionalDiceValue(dice, values)
+        keptDiceChangeModify = values['keptDiceChangeModify'].to_i
+
+        value = 0
+        value += keptDiceChangeModify.to_i if (keptDiceChangeModify != 0) && (dice != 2)
+
+        return value
+      end
+
+      def getKeptDiceChangesFromString(string)
+        keptDiceChangeModify = 0
+        regexp = /a\[([\+\-]\d+)\]/i
+        if regexp =~ string
+          keptDiceChangeModify = Regexp.last_match(1)
+          string = string.gsub(regexp, '')
+        end
+        return keptDiceChangeModify, string
+      end
     end
-  end
-
-  def getRatingCommandStrings
-    super + "aA"
-  end
-
-  def getAdditionalString(string, output)
-    output, values = super(string, output)
-
-    keptDiceChangeModify, string = getKeptDiceChangesFromString(string)
-
-    values['keptDiceChangeModify'] = keptDiceChangeModify
-    output += "a[#{keptDiceChangeModify}]" if keptDiceChangeModify != 0
-
-    return output, values
-  end
-
-  def getAdditionalDiceValue(dice, values)
-    keptDiceChangeModify = values['keptDiceChangeModify'].to_i
-
-    value = 0
-    value += keptDiceChangeModify.to_i if (keptDiceChangeModify != 0) && (dice != 2)
-
-    return value
-  end
-
-  def getKeptDiceChangesFromString(string)
-    keptDiceChangeModify = 0
-    regexp = /a\[([\+\-]\d+)\]/i
-    if regexp =~ string
-      keptDiceChangeModify = Regexp.last_match(1)
-      string = string.gsub(regexp, '')
-    end
-    return keptDiceChangeModify, string
   end
 end
