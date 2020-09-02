@@ -41,7 +41,7 @@ INFO_MESSAGE_TEXT
         total = 0
         cmp_op = @cmp_op
 
-        die = rand(10)
+        die = @randomizer.roll_once(10) - 1
         output = "(#{expr()}) ＞ "
 
         if die == 0 # botch?
@@ -49,7 +49,7 @@ INFO_MESSAGE_TEXT
           dice_n = []
 
           botch.times do |_i|
-            botch_die = rand(10)
+            botch_die = @randomizer.roll_once(10) - 1
             count0 += 1 if botch_die == 0
             dice_n.push(botch_die)
           end
@@ -83,7 +83,7 @@ INFO_MESSAGE_TEXT
           crit_dice = ""
           while die == 1
             crit_mul *= 2
-            die = rand(10) + 1
+            die = @randomizer.roll_once(10)
             crit_dice += "#{die},"
           end
           total = die * crit_mul

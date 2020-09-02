@@ -42,6 +42,14 @@ module BCDice
       return total, dice_str, numberSpot1, cnt_max, n_max, 0, 0
     end
 
+    # 1回だけダイスロールを行う
+    #
+    # @params sides [Integer] ダイスの面数
+    # @return [Integer] 1以上 *sides* 以下の値のいずれか
+    def roll_once(sides)
+      rand_inner(sides) + 1
+    end
+
     # @params [Integer] max
     # @return [Integer] 0以上max未満の整数
     def rand_inner(max)

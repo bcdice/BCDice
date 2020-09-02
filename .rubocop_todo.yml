@@ -136,13 +136,6 @@ Style/IfInsideElse:
     - 'lib/bcdice/game_system/GurpsFW.rb'
     - 'lib/bcdice/game_system/SharedFantasia.rb'
 
-# Offense count: 12
-# Cop supports --auto-correct.
-Style/RandomWithOffset:
-  Exclude:
-    - 'lib/bcdice/game_system/ArsMagica.rb'
-    - 'lib/bcdice/game_system/MeikyuKingdom.rb'
-
 # Offense count: 1289
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
