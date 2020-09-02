@@ -56,7 +56,7 @@ class DiceBotTest
     targetFiles.each do |filename|
       next if File.basename(filename) =~ /^_/
 
-      source = File.read(filename, :encoding => 'UTF-8')
+      source = File.read(filename, encoding: 'UTF-8')
 
       dataSetSources = source
                        .gsub("\r\n", "\n")

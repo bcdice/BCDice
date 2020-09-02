@@ -48,10 +48,6 @@ Style/DefWithParentheses:
 Style/Documentation:
   Enabled: false
 
-# Due to old Ruby
-Style/HashSyntax:
-  EnforcedStyle: hash_rockets
-
 Style/NegatedWhile:
   Enabled: false
 

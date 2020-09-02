@@ -277,9 +277,9 @@ INFO_MESSAGE_TEXT
         loopCount = 0
 
         counts = {
-          :hit_bullet => 0,
-          :impale_bullet => 0,
-          :bullet => bullet_count,
+          hit_bullet: 0,
+          impale_bullet: 0,
+          bullet: bullet_count,
         }
 
         # 難易度変更用ループ

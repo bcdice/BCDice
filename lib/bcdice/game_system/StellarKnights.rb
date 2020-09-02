@@ -129,8 +129,8 @@ MESSAGETEXT
         rules = text.split(',').map do |rule|
           v = rule.split('>').map(&:to_i)
           {
-            :from => v[0],
-            :to => v[1],
+            from: v[0],
+            to: v[1],
           }
         end
 

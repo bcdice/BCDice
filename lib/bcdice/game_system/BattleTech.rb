@@ -178,8 +178,8 @@ MESSAGETEXT
 
           if damages[part].nil?
             damages[part] = {
-              :partDamages => [],
-              :criticals => [],
+              partDamages: [],
+              criticals: [],
             }
           end
 

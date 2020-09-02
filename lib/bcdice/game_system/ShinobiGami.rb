@@ -636,9 +636,9 @@ INFO_MESSAGE_TEXT
       # 妖魔忍法表A, B, C
       DEMON_SKILL_TABLES = [
         {
-          :name => '妖魔忍法表A',
-          :page => '(怪p.252)',
-          :table => [
+          name: '妖魔忍法表A',
+          page: '(怪p.252)',
+          table: [
             '【震々】',
             '【神隠】',
             '【夜雀】',
@@ -648,9 +648,9 @@ INFO_MESSAGE_TEXT
           ]
         },
         {
-          :name => '妖魔忍法表B',
-          :page => '(怪p.253)',
-          :table => [
+          name: '妖魔忍法表B',
+          page: '(怪p.253)',
+          table: [
             '【野衾】',
             '【付喪神】',
             '【見越】',
@@ -660,9 +660,9 @@ INFO_MESSAGE_TEXT
           ]
         },
         {
-          :name => '妖魔忍法表C',
-          :page => '(怪p.254)',
-          :table => [
+          name: '妖魔忍法表C',
+          page: '(怪p.254)',
+          table: [
             '【百眼】',
             '【呑口】',
             '【荒吐】',

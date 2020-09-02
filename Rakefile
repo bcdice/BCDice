@@ -1,6 +1,6 @@
 require "rake/testtask"
 
-task :default => :test
+task default: :test
 
 desc 'Clean coverage resuts'
 task :clean_coverage do
@@ -83,7 +83,7 @@ namespace :test do
   end
 end
 
-task :test => [
+task test: [
   :clean_coverage,
   'test:dicebots',
   'test:unit',
@@ -91,7 +91,7 @@ task :test => [
 
 require 'rubocop/rake_task'
 RuboCop::RakeTask.new
-task :test => [:rubocop] if ENV['CI'] != 'true'
+task test: [:rubocop] if ENV['CI'] != 'true'
 
 require 'yard'
 require 'yard/rake/yardoc_task'
