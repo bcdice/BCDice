@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'utils/range_table'
+require 'bcdice/dice_table/range_table'
 
 module BCDice
   module GameSystem

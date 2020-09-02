@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'utils/table.rb'
-require 'utils/range_table'
+require 'bcdice/dice_table/table'
+require 'bcdice/dice_table/range_table'
 require 'bcdice/arithmetic_evaluator'
 
 module BCDice

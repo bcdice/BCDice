@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require 'bcdice/arithmetic_evaluator'
-require 'utils/range_table'
+require 'bcdice/dice_table/range_table'
 
 module BCDice
   module GameSystem

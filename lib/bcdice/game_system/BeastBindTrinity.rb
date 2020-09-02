@@ -4,8 +4,8 @@
 require 'bcdice/arithmetic_evaluator'
 require 'bcdice/format'
 require 'bcdice/normalize'
-require 'utils/table'
-require 'utils/d66_grid_table'
+require 'bcdice/dice_table/table'
+require 'bcdice/dice_table/d66_grid_table'
 
 # ビーストバインド トリニティのダイスボット
 #

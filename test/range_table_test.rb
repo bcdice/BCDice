@@ -5,7 +5,7 @@ bcdice_root = File.expand_path('..', File.dirname(__FILE__))
 $:.unshift(bcdice_root) unless $:.include?(bcdice_root)
 
 require 'test/unit'
-require 'utils/range_table'
+require 'bcdice/dice_table/range_table'
 
 class TestRangeTable < Test::Unit::TestCase
   # ダイスロール方法の書式が正しい場合、受理される

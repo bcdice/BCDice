@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require 'bcdice/game_system/DiceBot'
-require 'utils/table'
+require 'bcdice/dice_table/table'
 
 module BCDice
   module GameSystem

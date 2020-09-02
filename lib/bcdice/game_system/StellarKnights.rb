@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require "utils/table"
-require "utils/d66_grid_table"
+require "bcdice/dice_table/table"
+require "bcdice/dice_table/d66_grid_table"
 
 module BCDice
   module GameSystem

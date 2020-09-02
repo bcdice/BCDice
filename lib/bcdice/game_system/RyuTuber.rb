@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-require "utils/table"
+require "bcdice/dice_table/table"
 
 module BCDice
   module GameSystem

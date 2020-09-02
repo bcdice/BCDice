@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-require 'utils/d66_range_table'
+require 'bcdice/dice_table/d66_range_table'
 
 module BCDice
   module GameSystem
