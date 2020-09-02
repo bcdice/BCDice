@@ -96,7 +96,7 @@ INFO_MESSAGE_TEXT
       # オプニング, エンディング, 情報収集チャート用のテーブル
       # D66を振って決定する
       # 1項目あたり出目3つに対応する
-      class TGTable < D66RangeTable
+      class TGTable < DiceTable::D66RangeTable
         # @param name [String]
         # @param items [Array<String>]
         def initialize(name, items)
@@ -114,7 +114,7 @@ INFO_MESSAGE_TEXT
       end
 
       TABLES = {
-        "CT" => D66GridTable.new(
+        "CT" => DiceTable::D66GridTable.new(
           "邂逅表",
           [
             ["【関係：恩人】", "【関係：恩人】", "【関係：秘密】", "【関係：秘密】", "【関係：保護者】", "【関係：保護者】"],
@@ -261,7 +261,7 @@ INFO_MESSAGE_TEXT
             "テロリストの襲撃だ！　「種別：人間」のエネミー1D体がおまえを襲撃する。登場難易度14のシーンで戦闘を行なうこと。距離は4マス。",
           ]
         ),
-        "DCP" => Table.new(
+        "DCP" => DiceTable::Table.new(
           "ドロップチャート：コーポレイト",
           "2D6",
           [
@@ -278,7 +278,7 @@ INFO_MESSAGE_TEXT
             "スティムパック",
           ]
         ),
-        "DBD" => Table.new(
+        "DBD" => DiceTable::Table.new(
           "ドロップチャート：バンデッド",
           "2D6",
           [
@@ -295,7 +295,7 @@ INFO_MESSAGE_TEXT
             "アッパードラッグ",
           ]
         ),
-        "DCR" => Table.new(
+        "DCR" => DiceTable::Table.new(
           "ドロップチャート：クリミナル",
           "2D6",
           [
@@ -312,7 +312,7 @@ INFO_MESSAGE_TEXT
             "派手なスーツ（$700）",
           ]
         ),
-        "DNJ" => Table.new(
+        "DNJ" => DiceTable::Table.new(
           "ドロップチャート：ニンジャ",
           "2D6",
           [
@@ -329,7 +329,7 @@ INFO_MESSAGE_TEXT
             "カタナ",
           ]
         ),
-        "DRB" => Table.new(
+        "DRB" => DiceTable::Table.new(
           "ドロップチャート：ロボ",
           "2D6",
           [
@@ -346,7 +346,7 @@ INFO_MESSAGE_TEXT
             "ヴォルトコーラ",
           ]
         ),
-        "DBS" => Table.new(
+        "DBS" => DiceTable::Table.new(
           "ドロップチャート：武装車輛",
           "2D6",
           [
@@ -363,7 +363,7 @@ INFO_MESSAGE_TEXT
             "5.56㎜アサルトライフル",
           ]
         ),
-        "DTR" => Table.new(
+        "DTR" => DiceTable::Table.new(
           "ドロップチャート：ターレット",
           "2D6",
           [
@@ -380,7 +380,7 @@ INFO_MESSAGE_TEXT
             "7.62㎜マシンガン",
           ]
         ),
-        "DMK" => Table.new(
+        "DMK" => DiceTable::Table.new(
           "ドロップチャート：メルカバ",
           "2D6",
           [
@@ -397,7 +397,7 @@ INFO_MESSAGE_TEXT
             "アッパードラッグ",
           ]
         ),
-        "DHL" => Table.new(
+        "DHL" => DiceTable::Table.new(
           "ドロップチャート：ヘリ",
           "2D6",
           [
@@ -414,7 +414,7 @@ INFO_MESSAGE_TEXT
             "アッパードラッグ×2",
           ]
         ),
-        "DML" => Table.new(
+        "DML" => DiceTable::Table.new(
           "ドロップチャート：マシンライフ",
           "2D6",
           [
@@ -431,7 +431,7 @@ INFO_MESSAGE_TEXT
             "マシンライフコア（$10,000）",
           ]
         ),
-        "DZB" => Table.new(
+        "DZB" => DiceTable::Table.new(
           "ドロップチャート：ゾンビ",
           "2D6",
           [
@@ -448,7 +448,7 @@ INFO_MESSAGE_TEXT
             "装飾品（$500）",
           ]
         ),
-        "DMT" => Table.new(
+        "DMT" => DiceTable::Table.new(
           "ドロップチャート：ミュータント",
           "2D6",
           [
@@ -465,7 +465,7 @@ INFO_MESSAGE_TEXT
             "戦前の酒（$1,500）",
           ]
         ),
-        "DHR" => Table.new(
+        "DHR" => DiceTable::Table.new(
           "ドロップチャート：BM／飛竜科",
           "2D6",
           [
@@ -482,7 +482,7 @@ INFO_MESSAGE_TEXT
             "飛竜の角（$10,000）",
           ]
         ),
-        "DKS" => Table.new(
+        "DKS" => DiceTable::Table.new(
           "ドロップチャート：BM／巨爪科",
           "2D6",
           [
@@ -499,7 +499,7 @@ INFO_MESSAGE_TEXT
             "巨大な爪（$7,000）",
           ]
         ),
-        "DFD" => Table.new(
+        "DFD" => DiceTable::Table.new(
           "ドロップチャート：フィーンド",
           "2D6",
           [

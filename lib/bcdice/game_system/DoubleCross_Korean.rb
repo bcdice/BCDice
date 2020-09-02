@@ -311,7 +311,7 @@ INFO_MESSAGE_TEXT
       end
 
       # 感情表（ポジティブ）
-      POSITIVE_EMOTION_TABLE = RangeTable.new(
+      POSITIVE_EMOTION_TABLE = DiceTable::RangeTable.new(
         '감정표（포지티브）',
         '1D100',
         [
@@ -342,7 +342,7 @@ INFO_MESSAGE_TEXT
       ).freeze
 
       # 感情表（ネガティブ）
-      NEGATIVE_EMOTION_TABLE = RangeTable.new(
+      NEGATIVE_EMOTION_TABLE = DiceTable::RangeTable.new(
         '감정표(네거티브)',
         '1D100',
         [

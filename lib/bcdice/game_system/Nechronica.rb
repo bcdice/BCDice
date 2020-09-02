@@ -157,7 +157,7 @@ INFO_MESSAGE_TEXT
       end
 
       TABLES = {
-        'NM' => Table.new(
+        'NM' => DiceTable::Table.new(
           '姉妹への未練表',
           '1D10',
           [
@@ -173,7 +173,7 @@ INFO_MESSAGE_TEXT
             '【信頼】[発狂:疑心暗鬼]あなた以外の全ての姉妹の最大行動値が減少する(-1)',
           ]
         ),
-        'NMN' => Table.new(
+        'NMN' => DiceTable::Table.new(
           '中立者への未練表',
           '1D10',
           [
@@ -189,7 +189,7 @@ INFO_MESSAGE_TEXT
             '【信頼】[発狂:疑心暗鬼]あなた以外の全ての姉妹の最大行動値が減少する(-1)',
           ]
         ),
-        'NME' => Table.new(
+        'NME' => DiceTable::Table.new(
           '敵への未練表',
           '1D10',
           [

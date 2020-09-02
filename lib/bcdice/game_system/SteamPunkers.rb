@@ -68,7 +68,7 @@ MESSAGETEXT
       end
 
       # スチームパンカーズ用のテーブル
-      class SPTable < D66RangeTable
+      class SPTable < DiceTable::D66RangeTable
         # @param name [String]
         # @param items [Array<String>]
         def initialize(name, items)

@@ -246,7 +246,7 @@ INFO_MESSAGE_TEXT
       end
 
       TABLES = {
-        'EMO' => D66GridTable.new(
+        'EMO' => DiceTable::D66GridTable.new(
           '邂逅表',
           [
             ['家族', '家族', '信頼', '信頼', '忘却', '忘却'],
@@ -257,7 +257,7 @@ INFO_MESSAGE_TEXT
             ['執着', '執着', '軽蔑', '軽蔑', '憎悪', '憎悪'],
           ]
         ),
-        'EXPO_A' => Table.new(
+        'EXPO_A' => DiceTable::Table.new(
           '暴露表',
           '1D6',
           [
@@ -269,7 +269,7 @@ INFO_MESSAGE_TEXT
             '魔獣化暴露表へ'
           ]
         ),
-        'EXPO_B' => Table.new(
+        'EXPO_B' => DiceTable::Table.new(
           '魔獣化暴露表',
           '1D6',
           [
@@ -281,7 +281,7 @@ INFO_MESSAGE_TEXT
             '自衛隊退魔部隊×2D6体の襲撃'
           ]
         ),
-        'EXPO_I' => Table.new(
+        'EXPO_I' => DiceTable::Table.new(
           'アイドル専用暴露表',
           '1D6',
           [
@@ -293,7 +293,7 @@ INFO_MESSAGE_TEXT
             'アイドル専用魔獣化暴露表へ'
           ]
         ),
-        'EXPO_J' => Table.new(
+        'EXPO_J' => DiceTable::Table.new(
           'アイドル専用魔獣化暴露表',
           '1D6',
           [
@@ -305,7 +305,7 @@ INFO_MESSAGE_TEXT
             '1D6本のレギュラー番組を失う'
           ]
         ),
-        'FACE_A' => Table.new(
+        'FACE_A' => DiceTable::Table.new(
           '正体判明チャートA',
           '1D6',
           [
@@ -317,7 +317,7 @@ INFO_MESSAGE_TEXT
             '精神崩壊する'
           ]
         ),
-        'FACE_B' => Table.new(
+        'FACE_B' => DiceTable::Table.new(
           '正体判明チャートB',
           '1D6',
           [
@@ -329,7 +329,7 @@ INFO_MESSAGE_TEXT
             '精神崩壊する'
           ]
         ),
-        'FACE_C' => Table.new(
+        'FACE_C' => DiceTable::Table.new(
           '正体判明チャートC',
           '1D6',
           [

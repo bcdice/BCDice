@@ -58,7 +58,7 @@ class TestD66Table < Test::Unit::TestCase
   end
 
   def test_asc
-    table = D66Table.new(
+    table = BCDice::DiceTable::D66Table.new(
       "テスト",
       :asc,
       @asc_items
@@ -69,7 +69,7 @@ class TestD66Table < Test::Unit::TestCase
   end
 
   def test_asc_swap
-    table = D66Table.new(
+    table = BCDice::DiceTable::D66Table.new(
       "テスト",
       :asc,
       @asc_items
@@ -80,7 +80,7 @@ class TestD66Table < Test::Unit::TestCase
   end
 
   def test_asc_11
-    table = D66Table.new(
+    table = BCDice::DiceTable::D66Table.new(
       "テスト",
       :asc,
       @asc_items
@@ -91,7 +91,7 @@ class TestD66Table < Test::Unit::TestCase
   end
 
   def test_asc_66
-    table = D66Table.new(
+    table = BCDice::DiceTable::D66Table.new(
       "テスト",
       :asc,
       @asc_items
@@ -102,7 +102,7 @@ class TestD66Table < Test::Unit::TestCase
   end
 
   def test_desc
-    table = D66Table.new(
+    table = BCDice::DiceTable::D66Table.new(
       "テスト",
       :desc,
       @desc_items
@@ -113,7 +113,7 @@ class TestD66Table < Test::Unit::TestCase
   end
 
   def test_desc_swap
-    table = D66Table.new(
+    table = BCDice::DiceTable::D66Table.new(
       "テスト",
       :desc,
       @desc_items
@@ -124,7 +124,7 @@ class TestD66Table < Test::Unit::TestCase
   end
 
   def test_desc_11
-    table = D66Table.new(
+    table = BCDice::DiceTable::D66Table.new(
       "テスト",
       :desc,
       @desc_items
@@ -135,7 +135,7 @@ class TestD66Table < Test::Unit::TestCase
   end
 
   def test_desc_66
-    table = D66Table.new(
+    table = BCDice::DiceTable::D66Table.new(
       "テスト",
       :desc,
       @desc_items

@@ -198,7 +198,7 @@ MESSAGETEXT
       }.freeze
 
       TABLES = {
-        "PNM" => Table.new(
+        "PNM" => DiceTable::Table.new(
           "名前表：ピグマー族（男）",
           "1D10",
           [
@@ -214,7 +214,7 @@ MESSAGETEXT
             "サマルトリア",
           ]
         ),
-        "PNF" => Table.new(
+        "PNF" => DiceTable::Table.new(
           "名前表：ピグマー族（女）",
           "1D10",
           [
@@ -230,7 +230,7 @@ MESSAGETEXT
             "オーサカ",
           ]
         ),
-        "ENM" => Table.new(
+        "ENM" => DiceTable::Table.new(
           "名前表：エレメント族（男）",
           "1D10",
           [
@@ -246,7 +246,7 @@ MESSAGETEXT
             "マイトレーヤ",
           ]
         ),
-        "ENF" => Table.new(
+        "ENF" => DiceTable::Table.new(
           "名前表：エレメント族（女）",
           "1D10",
           [
@@ -262,7 +262,7 @@ MESSAGETEXT
             "アテナ",
           ]
         ),
-        "NNM" => Table.new(
+        "NNM" => DiceTable::Table.new(
           "名前表：ノーマッド族（男）",
           "1D10",
           [
@@ -278,7 +278,7 @@ MESSAGETEXT
             "ユメコウネン",
           ]
         ),
-        "NNF" => Table.new(
+        "NNF" => DiceTable::Table.new(
           "名前表：ノーマッド族（女）",
           "1D10",
           [
@@ -294,7 +294,7 @@ MESSAGETEXT
             "ドナドナ",
           ]
         ),
-        "RNM" => Table.new(
+        "RNM" => DiceTable::Table.new(
           "名前表：ラット族（男）",
           "1D10",
           [
@@ -310,7 +310,7 @@ MESSAGETEXT
             "オンソクマル",
           ]
         ),
-        "RNF" => Table.new(
+        "RNF" => DiceTable::Table.new(
           "名前表：ラット族（女）",
           "1D10",
           [
@@ -326,7 +326,7 @@ MESSAGETEXT
             "ク・メル",
           ]
         ),
-        "BN1" => Table.new(
+        "BN1" => DiceTable::Table.new(
           "名前表：ブレイン族（その１）",
           "1D10",
           [
@@ -342,7 +342,7 @@ MESSAGETEXT
             "クラレ",
           ]
         ),
-        "BN2" => Table.new(
+        "BN2" => DiceTable::Table.new(
           "名前表：ブレイン族（その２）",
           "1D10",
           [
@@ -358,7 +358,7 @@ MESSAGETEXT
             "マティーニ",
           ]
         ),
-        "TN1" => Table.new(
+        "TN1" => DiceTable::Table.new(
           "名前表：テンタクル族（その１）",
           "1D10",
           [
@@ -374,7 +374,7 @@ MESSAGETEXT
             "タバスコ",
           ]
         ),
-        "TN2" => Table.new(
+        "TN2" => DiceTable::Table.new(
           "名前表：テンタクル族（その２）",
           "1D10",
           [
@@ -390,7 +390,7 @@ MESSAGETEXT
             "ワタアメ",
           ]
         ),
-        "MTV" => Table.new(
+        "MTV" => DiceTable::Table.new(
           "動機決定表",
           "1D10",
           [
@@ -406,7 +406,7 @@ MESSAGETEXT
             "特に動機らしい動機はない。",
           ]
         ),
-        "HIT" => Table.new(
+        "HIT" => DiceTable::Table.new(
           "部位決定チャート",
           "1D10",
           [
@@ -422,7 +422,7 @@ MESSAGETEXT
             "レフトレッグ",
           ]
         ),
-        "GCC" => Table.new(
+        "GCC" => DiceTable::Table.new(
           "ガラコ改造チャート表",
           "1D10",
           [
@@ -438,7 +438,7 @@ MESSAGETEXT
             "【弱体無効】価格+500。このパーツへの部位ダメージによる[弱体]の効果を無視する。",
           ]
         ),
-        "WCC" => Table.new(
+        "WCC" => DiceTable::Table.new(
           "武器改造チャート表",
           "1D10",
           [
@@ -454,7 +454,7 @@ MESSAGETEXT
             "【回数無限】価格+500。武器の使用回数制限がなくなる。",
           ]
         ),
-        "EVC" => Table.new(
+        "EVC" => DiceTable::Table.new(
           "イベントチャート表",
           "1D10",
           [
@@ -470,7 +470,7 @@ MESSAGETEXT
             "【最悪の敵】ズルワーン(『GTD』p29)が1体現れる。戦闘開始。",
           ]
         ),
-        "BSD" => Table.new(
+        "BSD" => DiceTable::Table.new(
           "戦闘開始距離",
           "1D10",
           [
@@ -486,7 +486,7 @@ MESSAGETEXT
             "15マス",
           ]
         ),
-        'IDI' => RangeTable.new(
+        'IDI' => DiceTable::RangeTable.new(
           "個性表",
           "1D100",
           [

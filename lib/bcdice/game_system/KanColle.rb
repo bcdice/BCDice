@@ -355,7 +355,7 @@ INFO_MESSAGE_TEXT
       end
 
       TABLES = {
-        "ET" => Table.new(
+        "ET" => DiceTable::Table.new(
           "感情表",
           "1D6",
           [
@@ -367,7 +367,7 @@ INFO_MESSAGE_TEXT
             "だいすき（プラス）／だいっきらい（マイナス）",
           ]
         ),
-        "ACT" => Table.new(
+        "ACT" => DiceTable::Table.new(
           "アクシデント表",
           "1D6",
           [
@@ -379,7 +379,7 @@ INFO_MESSAGE_TEXT
             "ううう。やりすぎちゃった！自分の【行動力】が１Ｄ６点減少する。",
           ]
         ),
-        "EVNT" => Table.new(
+        "EVNT" => DiceTable::Table.new(
           "日常イベント表",
           "2D6",
           [
@@ -396,7 +396,7 @@ INFO_MESSAGE_TEXT
             "マイブーム：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《口ぐせ／背景６》で判定。（着任p220）",
           ]
         ),
-        "EVKT" => Table.new(
+        "EVKT" => DiceTable::Table.new(
           "交流イベント表",
           "2D6",
           [
@@ -413,7 +413,7 @@ INFO_MESSAGE_TEXT
             "昔語り：自分以外の好きなＰＣ１人を選んで、提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《暗い過去／背景４》で判定。（着任p221）",
           ]
         ),
-        "EVAT" => Table.new(
+        "EVAT" => DiceTable::Table.new(
           "遊びイベント表",
           "2D6",
           [
@@ -430,7 +430,7 @@ INFO_MESSAGE_TEXT
             "ちゃんと面倒みるから！：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《生き物／趣味４》で判定。（着任p222）",
           ]
         ),
-        "EVET" => Table.new(
+        "EVET" => DiceTable::Table.new(
           "演習イベント表",
           "2D6",
           [
@@ -447,7 +447,7 @@ INFO_MESSAGE_TEXT
             "防空射撃演習：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《対空戦闘／戦闘５》で判定。（着任p223）",
           ]
         ),
-        "EVENT" => Table.new(
+        "EVENT" => DiceTable::Table.new(
           "遠征イベント表",
           "2D6",
           [
@@ -464,7 +464,7 @@ INFO_MESSAGE_TEXT
             "大規模遠征作戦、発令！：提督の選んだ（キーワード）に対応した指定能力値で判定。思いつかな場合は《指揮／航海１０》で判定。（着任p224）",
           ]
         ),
-        "EVST" => Table.new(
+        "EVST" => DiceTable::Table.new(
           "作戦イベント表",
           "2D6",
           [
@@ -481,7 +481,7 @@ INFO_MESSAGE_TEXT
             "知彼知己者、百戦不殆：《読書／趣味５》で判定。（着任p225）",
           ]
         ),
-        "ETHT" => Table.new(
+        "ETHT" => DiceTable::Table.new(
           "ほのぼのイベント表",
           "2D6",
           [
@@ -498,7 +498,7 @@ INFO_MESSAGE_TEXT
             "思い立ったが吉日：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《恋愛／趣味１２》で判定。（建造弐p134）",
           ]
         ),
-        "ETVT" => Table.new(
+        "ETVT" => DiceTable::Table.new(
           "航海イベント表",
           "2D6",
           [
@@ -515,7 +515,7 @@ INFO_MESSAGE_TEXT
             "味の探求：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《読書／趣味５》で判定。（建造弐p135）",
           ]
         ),
-        "ETGT" => Table.new(
+        "ETGT" => DiceTable::Table.new(
           "外出イベント表",
           "2D6",
           [
@@ -532,7 +532,7 @@ INFO_MESSAGE_TEXT
             "映画撮影：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《芸能／趣味９》で判定。（建造弐p136）",
           ]
         ),
-        "ETBT" => Table.new(
+        "ETBT" => DiceTable::Table.new(
           "激戦イベント表",
           "2D6",
           [
@@ -549,7 +549,7 @@ INFO_MESSAGE_TEXT
             "極限の集中：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《ばか／魅力８》で判定。（建造弐p137）",
           ]
         ),
-        "ETMT" => Table.new(
+        "ETMT" => DiceTable::Table.new(
           "任務イベント表",
           "2D6",
           [
@@ -566,7 +566,7 @@ INFO_MESSAGE_TEXT
             "ストライキ：《おおらか／性格３》で判定。（建造弐p138）",
           ]
         ),
-        "ETFT" => Table.new(
+        "ETFT" => DiceTable::Table.new(
           "恐怖イベント表",
           "2D6",
           [
@@ -583,7 +583,7 @@ INFO_MESSAGE_TEXT
             "死者の声：提督が選んだ（キーワード）に対応した指定個性で判定。思いつかない場合は《けなげ／魅力６》で判定。（建造弐p139）",
           ]
         ),
-        "BT10" => Table.new(
+        "BT10" => DiceTable::Table.new(
           "指定個性⑩",
           "1D6",
           [
@@ -595,7 +595,7 @@ INFO_MESSAGE_TEXT
             "6-10　《魚雷》",
           ]
         ),
-        "BT11" => Table.new(
+        "BT11" => DiceTable::Table.new(
           "指定個性⑪",
           "1D6",
           [
@@ -607,7 +607,7 @@ INFO_MESSAGE_TEXT
             "6-11　《対潜戦闘》",
           ]
         ),
-        "BT12" => Table.new(
+        "BT12" => DiceTable::Table.new(
           "指定個性⑫",
           "1D6",
           [
@@ -619,7 +619,7 @@ INFO_MESSAGE_TEXT
             "6-12　《夜戦》",
           ]
         ),
-        "BT2" => Table.new(
+        "BT2" => DiceTable::Table.new(
           "指定個性②",
           "1D6",
           [
@@ -631,7 +631,7 @@ INFO_MESSAGE_TEXT
             "6-2　《電子戦》",
           ]
         ),
-        "BT3" => Table.new(
+        "BT3" => DiceTable::Table.new(
           "指定個性③",
           "1D6",
           [
@@ -643,7 +643,7 @@ INFO_MESSAGE_TEXT
             "6-3　《航空打撃戦》",
           ]
         ),
-        "BT4" => Table.new(
+        "BT4" => DiceTable::Table.new(
           "指定個性④",
           "1D6",
           [
@@ -655,7 +655,7 @@ INFO_MESSAGE_TEXT
             "6-4　《航空戦》",
           ]
         ),
-        "BT5" => Table.new(
+        "BT5" => DiceTable::Table.new(
           "指定個性⑤",
           "1D6",
           [
@@ -667,7 +667,7 @@ INFO_MESSAGE_TEXT
             "6-5　《対空戦闘》",
           ]
         ),
-        "BT6" => Table.new(
+        "BT6" => DiceTable::Table.new(
           "指定個性⑥",
           "1D6",
           [
@@ -679,7 +679,7 @@ INFO_MESSAGE_TEXT
             "6-6　《突撃》",
           ]
         ),
-        "BT7" => Table.new(
+        "BT7" => DiceTable::Table.new(
           "指定個性⑦",
           "1D6",
           [
@@ -691,7 +691,7 @@ INFO_MESSAGE_TEXT
             "6-7　《砲撃》",
           ]
         ),
-        "BT8" => Table.new(
+        "BT8" => DiceTable::Table.new(
           "指定個性⑧",
           "1D6",
           [
@@ -703,7 +703,7 @@ INFO_MESSAGE_TEXT
             "6-8　《退却》",
           ]
         ),
-        "BT9" => Table.new(
+        "BT9" => DiceTable::Table.new(
           "指定個性⑨",
           "1D6",
           [
@@ -715,7 +715,7 @@ INFO_MESSAGE_TEXT
             "6-9　《支援》",
           ]
         ),
-        "ETIT" => Table.new(
+        "ETIT" => DiceTable::Table.new(
           "侵攻効果表",
           "2D6",
           [
@@ -732,7 +732,7 @@ INFO_MESSAGE_TEXT
             "基地建設\n深海棲艦は自分たちの基地を建造した。そのセッションの決戦フェイズで、深海棲艦の旗艦は、開幕雷撃戦と雷撃戦でダメージを受けなくなる。",
           ]
         ),
-        "LFDT" => Table.new(
+        "LFDT" => DiceTable::Table.new(
           "艦隊敗北表",
           "1D6",
           [
@@ -744,7 +744,7 @@ INFO_MESSAGE_TEXT
             "盟友艦轟沈。盟友艦は失われ「暴走表」を一回振り、暴走する。",
           ]
         ),
-        "LFVT" => Table.new(
+        "LFVT" => DiceTable::Table.new(
           "艦隊勝利表",
           "1D6",
           [
@@ -756,7 +756,7 @@ INFO_MESSAGE_TEXT
             "絆が深まる。その盟友艦からのPCへの【感情値】が１点上昇する。",
           ]
         ),
-        "LSFT" => Table.new(
+        "LSFT" => DiceTable::Table.new(
           "大規模部隊表",
           "1D6",
           [
@@ -768,7 +768,7 @@ INFO_MESSAGE_TEXT
             "主力部隊       「脅威力：12」",
           ]
         ),
-        "WPCN" => Table.new(
+        "WPCN" => DiceTable::Table.new(
           "砲開発表(燃料3/弾薬6/鋼材6/ボーキ3)",
           "4D6",
           [
@@ -795,7 +795,7 @@ INFO_MESSAGE_TEXT
             "九一式徹甲弾(建造壱p169)",
           ]
         ),
-        "WPFA" => Table.new(
+        "WPFA" => DiceTable::Table.new(
           "艦載機開発表(燃料3/弾薬6/鋼材3/ボーキ6)",
           "4D6",
           [
@@ -822,7 +822,7 @@ INFO_MESSAGE_TEXT
             "零式水上観測機(建造壱p168)",
           ]
         ),
-        "WPMC" => Table.new(
+        "WPMC" => DiceTable::Table.new(
           "特殊開発表(燃料6/弾薬3/鋼材6/ボーキ3)",
           "2D6",
           [
@@ -839,7 +839,7 @@ INFO_MESSAGE_TEXT
             "増設バルジ(中型艦)(建造壱p169)",
           ]
         ),
-        "WPMCN" => Table.new(
+        "WPMCN" => DiceTable::Table.new(
           "新特殊開発表(燃料6/弾薬3/鋼材6/ボーキ3)",
           "2D6",
           [
@@ -856,7 +856,7 @@ INFO_MESSAGE_TEXT
             "増設バルジ(中型艦)(建造壱p169)",
           ]
         ),
-        "ITT" => Table.new(
+        "ITT" => DiceTable::Table.new(
           "アイテム表",
           "1D6",
           [
@@ -868,7 +868,7 @@ INFO_MESSAGE_TEXT
             "思い出の品（P241）",
           ]
         ),
-        "MHT" => Table.new(
+        "MHT" => DiceTable::Table.new(
           "目標表",
           "1D6",
           [
@@ -880,7 +880,7 @@ INFO_MESSAGE_TEXT
             "敵艦の中から完全にランダムに決定",
           ]
         ),
-        "SNT" => Table.new(
+        "SNT" => DiceTable::Table.new(
           "戦果表",
           "1D6",
           [
@@ -892,7 +892,7 @@ INFO_MESSAGE_TEXT
             "感情値／各自好きなキャラクターへの【感情値】＋１",
           ]
         ),
-        "SPSNT" => Table.new(
+        "SPSNT" => DiceTable::Table.new(
           "特殊戦果表",
           "1D6",
           [
@@ -904,7 +904,7 @@ INFO_MESSAGE_TEXT
             "新特殊開発表を使用する(資材は消費しない)",
           ]
         ),
-        "SNZ" => Table.new(
+        "SNZ" => DiceTable::Table.new(
           "戦場表",
           "1D6",
           [
@@ -916,7 +916,7 @@ INFO_MESSAGE_TEXT
             "悪海象（あくかいしょう）（P231）",
           ]
         ),
-        "RNT" => Table.new(
+        "RNT" => DiceTable::Table.new(
           "暴走表",
           "1D6",
           [

@@ -226,7 +226,7 @@ INFO_MESSAGE_TEXT
       end
 
       TABLES = {
-        "FT" => Table.new(
+        "FT" => DiceTable::Table.new(
           "ファンブル表",
           "1D6",
           %w{
@@ -238,7 +238,7 @@ INFO_MESSAGE_TEXT
             逆境に燃える。テンションが1段階上昇する。
           }
         ),
-        "WT" => Table.new(
+        "WT" => DiceTable::Table.new(
           "変調表",
           "1D6",
           %w{
@@ -250,7 +250,7 @@ INFO_MESSAGE_TEXT
             目つぶし：判定の達成値が2点減少する。
           }
         ),
-        "KKT" => Table.new(
+        "KKT" => DiceTable::Table.new(
           "関係表",
           "1D6",
           %w{
@@ -262,7 +262,7 @@ INFO_MESSAGE_TEXT
             「利用できる／ヘタレ」
           }
         ),
-        "DBRT" => D66Table.new(
+        "DBRT" => DiceTable::D66Table.new(
           "他愛のない会話表",
           :asc,
           {
@@ -289,7 +289,7 @@ INFO_MESSAGE_TEXT
             66 => "「ダブりの話」",
           }
         ),
-        "TKT" => D66Table.new(
+        "TKT" => DiceTable::D66Table.new(
           "戦う理由表",
           :asc,
           {
@@ -316,7 +316,7 @@ INFO_MESSAGE_TEXT
             66 => "「ただ暴れたかった」",
           }
         ),
-        "BUDT" => D66Table.new(
+        "BUDT" => DiceTable::D66Table.new(
           "武勇伝表",
           :asc,
           {
@@ -343,7 +343,7 @@ INFO_MESSAGE_TEXT
             66 => "隣のプレイヤーのPCと一緒に、大きな悪の組織を潰した。／右隣のプレイヤーのPCに対する【友情度】が1点上昇",
           }
         ),
-        "GUDT" => D66Table.new(
+        "GUDT" => DiceTable::D66Table.new(
           "ガイヤンキー武勇伝表",
           :asc,
           {
@@ -370,7 +370,7 @@ INFO_MESSAGE_TEXT
             66 => "次に会うヤンキーのために、うまいものを用意した。／右隣のプレイヤーのPCに対する【友情度】が1点上昇",
           }
         ),
-        "DAIT" => Table.new(
+        "DAIT" => DiceTable::Table.new(
           "第一印象表",
           "1D6",
           %w{
@@ -382,7 +382,7 @@ INFO_MESSAGE_TEXT
             「アウトオブ眼中」
           }
         ),
-        "TKKT" => Table.new(
+        "TKKT" => DiceTable::Table.new(
           "ツレ関係表",
           "1D6",
           %w{
@@ -394,7 +394,7 @@ INFO_MESSAGE_TEXT
             「利用できる」
           }
         ),
-        "GSST" => D66Table.new(
+        "GSST" => DiceTable::D66Table.new(
           "現実世界生活表",
           :asc,
           {
@@ -421,7 +421,7 @@ INFO_MESSAGE_TEXT
             66 => "汚い大人の罠にはめられたが、なんとかした",
           }
         ),
-        "GYST" => D66Table.new(
+        "GYST" => DiceTable::D66Table.new(
           "ガイヤンキー生活表",
           :asc,
           {
@@ -448,7 +448,7 @@ INFO_MESSAGE_TEXT
             66 => "農作業をした",
           }
         ),
-        "HPST" => D66Table.new(
+        "HPST" => DiceTable::D66Table.new(
           "病院生活表",
           :asc,
           {

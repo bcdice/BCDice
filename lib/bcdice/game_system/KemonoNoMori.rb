@@ -113,7 +113,7 @@ MESSAGETEXT
       end
 
       TABLES = {
-        'FT' => RangeTable.new(
+        'FT' => DiceTable::RangeTable.new(
           '大失敗表',
           '1D12',
           [
@@ -126,7 +126,7 @@ MESSAGETEXT
             [12,   '準備している武器が破壊される'],
           ]
         ),
-        'RST' => RangeTable.new(
+        'RST' => DiceTable::RangeTable.new(
           '能力値ランダム決定表',
           '1D12',
           [
@@ -138,7 +138,7 @@ MESSAGETEXT
             [11..12, '【自制】'],
           ]
         ),
-        'RTT' => RangeTable.new(
+        'RTT' => DiceTable::RangeTable.new(
           'ランダム所要時間表',
           '1D12',
           [
@@ -148,7 +148,7 @@ MESSAGETEXT
             [10..12, '5'],
           ]
         ),
-        'RET' => RangeTable.new(
+        'RET' => DiceTable::RangeTable.new(
           'ランダム消耗表',
           '1D12',
           [
@@ -158,7 +158,7 @@ MESSAGETEXT
             [10..12, '4'],
           ]
         ),
-        'RWT' => RangeTable.new(
+        'RWT' => DiceTable::RangeTable.new(
           'ランダム天気表',
           '1D12',
           [
@@ -170,7 +170,7 @@ MESSAGETEXT
             [11..12, '極寒'],
           ]
         ),
-        'RWDT' => RangeTable.new(
+        'RWDT' => DiceTable::RangeTable.new(
           'ランダム天気持続表',
           '1D12',
           [
@@ -182,7 +182,7 @@ MESSAGETEXT
             [11..12, '156ターン'],
           ]
         ),
-        'ROMT' => RangeTable.new(
+        'ROMT' => DiceTable::RangeTable.new(
           'ランダム遮蔽物表(屋外)',
           '1D12',
           [
@@ -193,7 +193,7 @@ MESSAGETEXT
             [11..12, '【岩壁】耐久度8,軽減値4,特殊効果:コンタクト内のキャラクターに対する射撃攻撃判定に-2の修正を付加/コンタクト内で行われる格闘攻撃のダメージ+2'],
           ]
         ),
-        'RIMT' => RangeTable.new(
+        'RIMT' => DiceTable::RangeTable.new(
           'ランダム遮蔽物表(屋内)',
           '1D12',
           [
@@ -202,7 +202,7 @@ MESSAGETEXT
             [9..12, '【木製家具】耐久度3,軽減値2,特殊効果:コンタクト内で行われる格闘攻撃のダメージ+1'],
           ]
         ),
-        'EET' => RangeTable.new(
+        'EET' => DiceTable::RangeTable.new(
           '逃走体験表',
           '1D12',
           [
@@ -212,7 +212,7 @@ MESSAGETEXT
             [10..12, '全ての武器と防具と小道具と荷物を失う（逃走したエリアに配置され、調査で発見可能）'],
           ]
         ),
-        'GFT' => RangeTable.new(
+        'GFT' => DiceTable::RangeTable.new(
           '食材採集表',
           '1D12',
           [
@@ -224,7 +224,7 @@ MESSAGETEXT
             [12,    '気持ち悪い虫（栄養価:1）'],
           ]
         ),
-        'GWT' => RangeTable.new(
+        'GWT' => DiceTable::RangeTable.new(
           '水採集表',
           '1D12',
           [
@@ -233,7 +233,7 @@ MESSAGETEXT
             [12,    '毒水'],
           ]
         ),
-        'WST' => Table.new(
+        'WST' => DiceTable::Table.new(
           '白の魔石効果表',
           '1D12',
           [

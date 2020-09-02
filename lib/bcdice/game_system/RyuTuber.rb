@@ -113,7 +113,7 @@ TEXT
       }.freeze
 
       TABLES = {
-        "JT" => Table.new(
+        "JT" => DiceTable::Table.new(
           "職業表",
           "1D6",
           [
@@ -125,7 +125,7 @@ TEXT
             'エンタメ職表へ'
           ]
         ),
-        "JST" => Table.new(
+        "JST" => DiceTable::Table.new(
           "学生表",
           "1D6",
           [
@@ -137,7 +137,7 @@ TEXT
             '大学生（理系）　（すごい技術　科学の知識）'
           ]
         ),
-        "JTPT" => Table.new(
+        "JTPT" => DiceTable::Table.new(
           "技術・専門職表",
           "2D6",
           [
@@ -154,7 +154,7 @@ TEXT
             '研究者　（教える　すごい技術）'
           ]
         ),
-        "JOST" => Table.new(
+        "JOST" => DiceTable::Table.new(
           "事務・サービス職表",
           "2D6",
           [
@@ -171,7 +171,7 @@ TEXT
             '経営者　（社会の仕組み　仲良くする）'
           ]
         ),
-        "JET" => Table.new(
+        "JET" => DiceTable::Table.new(
           "エンタメ職表",
           "2D6",
           [
@@ -188,7 +188,7 @@ TEXT
             'プロスポーツ選手　（運動する　精神力）'
           ]
         ),
-        "HT" => Table.new(
+        "HT" => DiceTable::Table.new(
           "趣味表",
           "1D6",
           [
@@ -200,7 +200,7 @@ TEXT
             '一人でできるアウトドア趣味表Bへ'
           ]
         ),
-        "HGT" => Table.new(
+        "HGT" => DiceTable::Table.new(
           "多人数でできる趣味表",
           "1D6",
           [
@@ -212,7 +212,7 @@ TEXT
             'バンド　（音楽　見た目を整える）'
           ]
         ),
-        "HIAT" => Table.new(
+        "HIAT" => DiceTable::Table.new(
           "一人でできるインドア趣味表A",
           "1D6",
           [
@@ -224,7 +224,7 @@ TEXT
             '読書　（外国語　社会の仕組み）'
           ]
         ),
-        "HIBT" => Table.new(
+        "HIBT" => DiceTable::Table.new(
           "一人でできるインドア趣味表B",
           "1D6",
           [
@@ -236,7 +236,7 @@ TEXT
             'コンピューターゲーム　（ゲーム　プログラム）'
           ]
         ),
-        "HOAT" => Table.new(
+        "HOAT" => DiceTable::Table.new(
           "一人でできるアウトドア趣味表A",
           "1D6",
           [
@@ -248,7 +248,7 @@ TEXT
             'マラソン　（運動する　忍耐力）'
           ]
         ),
-        "HOBT" => Table.new(
+        "HOBT" => DiceTable::Table.new(
           "一人でできるアウトドア趣味表B",
           "1D6",
           [

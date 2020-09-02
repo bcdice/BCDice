@@ -795,119 +795,119 @@ MESSAGETEXT
       ].freeze
 
       TABLES = {
-        "TT" => D66GridTable.new(
+        "TT" => DiceTable::D66GridTable.new(
           "お題表",
           THEME_TABLE
         ),
-        "STA" => Table.new(
+        "STA" => DiceTable::Table.new(
           "シチュエーション表A：時間",
           "1D6",
           SITUATION_TABLE_A
         ),
-        "STB" => D66GridTable.new(
+        "STB" => DiceTable::D66GridTable.new(
           "シチュエーション表B：場所",
           SITUATION_TABLE_B
         ),
-        "STB21" => Table.new(
+        "STB21" => DiceTable::Table.new(
           "シチュエーション表Bその2：学園編　アーセルトレイ公立大学",
           "1D6",
           SITUATION_TABLE_B2_1
         ),
-        "STB22" => Table.new(
+        "STB22" => DiceTable::Table.new(
           "シチュエーション表Bその2：学園編　イデアグロリア芸術総合大学",
           "1D6",
           SITUATION_TABLE_B2_2
         ),
-        "STB23" => Table.new(
+        "STB23" => DiceTable::Table.new(
           "シチュエーション表Bその2：学園編　シトラ女学院",
           "1D6",
           SITUATION_TABLE_B2_3
         ),
-        "STB24" => Table.new(
+        "STB24" => DiceTable::Table.new(
           "シチュエーション表Bその2：学園編　フィロソフィア大学",
           "1D6",
           SITUATION_TABLE_B2_4
         ),
-        "STB25" => Table.new(
+        "STB25" => DiceTable::Table.new(
           "シチュエーション表Bその2：学園編　聖アージェティア学園",
           "1D6",
           SITUATION_TABLE_B2_5
         ),
-        "STB26" => Table.new(
+        "STB26" => DiceTable::Table.new(
           "シチュエーション表Bその2：学園編　スポーン・オブ・アーセルトレイ",
           "1D6",
           SITUATION_TABLE_B2_6
         ),
-        "STC" => D66GridTable.new(
+        "STC" => DiceTable::D66GridTable.new(
           "シチュエーション表C：話題",
           SITUATION_TABLE_C
         ),
-        "GAT" => Table.new(
+        "GAT" => DiceTable::Table.new(
           "所属組織決定",
           "1D6",
           GAKUEN_TABLE
         ),
-        "HOT" => D66GridTable.new(
+        "HOT" => DiceTable::D66GridTable.new(
           "希望表",
           HOPE_TABLE
         ),
-        "DET" => D66GridTable.new(
+        "DET" => DiceTable::D66GridTable.new(
           "絶望表",
           DESPAIR_TABLE
         ),
-        "WIT" => D66GridTable.new(
+        "WIT" => DiceTable::D66GridTable.new(
           "願い事表",
           WISH_TABLE
         ),
-        "YST" => D66GridTable.new(
+        "YST" => DiceTable::D66GridTable.new(
           "あなたの物語表",
           YOUR_STORY_TABLE
         ),
-        "YSTA" => D66GridTable.new(
+        "YSTA" => DiceTable::D66GridTable.new(
           "あなたの物語表：異世界",
           YOUR_STORY_TABLE_ANOTHER_WORLD
         ),
-        "YSTM" => D66GridTable.new(
+        "YSTM" => DiceTable::D66GridTable.new(
           "あなたの物語表：マルジナリア世界",
           YOUR_STORY_TABLE_MARGINALIA
         ),
-        "STM" => D66GridTable.new(
+        "STM" => DiceTable::D66GridTable.new(
           "シチュエーション表：マルジナリア世界",
           SITUATION_TABLE_MARGINALIA
         ),
-        "YSTL" => D66GridTable.new(
+        "YSTL" => DiceTable::D66GridTable.new(
           "あなたの物語表：手紙世界",
           YOUR_STORY_TABLE_LETTER
         ),
-        "YSTR" => D66GridTable.new(
+        "YSTR" => DiceTable::D66GridTable.new(
           "あなたの物語表：リコレクト・ドール",
           YOUR_STORY_TABLE_RECOLLECT_DOLL
         ),
-        "STBR" => D66GridTable.new(
+        "STBR" => DiceTable::D66GridTable.new(
           "シチュエーション表B：場所（リコレクト・ドール）",
           SITUATION_TABLE_B_RECOLLECT_DOLL
         ),
-        "STCR" => D66GridTable.new(
+        "STCR" => DiceTable::D66GridTable.new(
           "シチュエーション表C：リコレクト",
           SITUATION_TABLE_C_RECOLLECT_DOLL
         ),
-        "STBS" => D66GridTable.new(
+        "STBS" => DiceTable::D66GridTable.new(
           "シチュエーション表B：シトラセッティング",
           SITUATION_TABLE_B_RECOLLECT_SUT_TU_REAL
         ),
-        "STE" => D66GridTable.new(
+        "STE" => DiceTable::D66GridTable.new(
           "シチュエーション表：エクリプス専用",
           SITUATION_TABLE_ECLIPSE
         ),
-        "YSTB" => D66GridTable.new(
+        "YSTB" => DiceTable::D66GridTable.new(
           "あなたの物語表：ブリンガー",
           YOUR_STORY_TABLE_BRINGER
         ),
-        "YSTF" => D66GridTable.new(
+        "YSTF" => DiceTable::D66GridTable.new(
           "あなたの物語表：フォージ",
           YOUR_STORY_TABLE_FORGE
         ),
-        "STAL" => D66GridTable.new(
+        "STAL" => DiceTable::D66GridTable.new(
           "シチュエーション表：オルトリヴート",
           SITUATION_TABLE_ALT_LEVOOT
         ),

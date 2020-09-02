@@ -98,7 +98,7 @@ INFO_MESSAGE_TEXT
       # モノトーンミュージアム用のテーブル
       # D66を振って決定する
       # 1項目あたり出目2つに対応する
-      class MMTable < D66RangeTable
+      class MMTable < DiceTable::D66RangeTable
         # @param name [String]
         # @param items [Array<String>]
         def initialize(name, items)
@@ -116,7 +116,7 @@ INFO_MESSAGE_TEXT
       end
 
       TABLES = {
-        "ET" => D66GridTable.new(
+        "ET" => DiceTable::D66GridTable.new(
           "感情表",
           [
             ["【信頼（しんらい）】", "【有為（ゆうい）】", "【友情（ゆうじょう）】", "【純愛（じゅんあい）】", "【慈愛（じあい）】", "【憧れ（あこがれ）】"],
@@ -127,7 +127,7 @@ INFO_MESSAGE_TEXT
             ["【偏愛（へんあい）】", "【執着（しゅうちゃく）】", "【悔悟（かいご）】", "【警戒心（けいかいしん）】", "【敵愾心（てきがいしん）】", "【忘却（ぼうきゃく）】"],
           ]
         ),
-        "ET2" => D66GridTable.new(
+        "ET2" => DiceTable::D66GridTable.new(
           "感情表2.0",
           [
             ["【プレイヤーの任意】", "【同一視（どういつし）】", "【連帯感（れんたいかん）】", "【幸福感（こうふくかん）】", "【親近感（しんきんかん）】", "【誠意（せいい）】"],
@@ -138,7 +138,7 @@ INFO_MESSAGE_TEXT
             ["【敗北感（はいぼくかん）】", "【徒労感（とろうかん）】", "【黒い泥（くろいどろ）】", "【憤懣（ふんまん）】", "【無関心（むかんしん）】", "【プレイヤーの任意】"],
           ]
         ),
-        "OT" => Table.new(
+        "OT" => DiceTable::Table.new(
           "兆候表",
           "2D6",
           [
@@ -155,7 +155,7 @@ INFO_MESSAGE_TEXT
             "【存在の喪失】\nあなたの存在は一瞬、この世界から消失する。",
           ]
         ),
-        "DT" => Table.new(
+        "DT" => DiceTable::Table.new(
           "歪み表",
           "2D6",
           [
@@ -195,7 +195,7 @@ INFO_MESSAGE_TEXT
             "【地域消滅】\n演目の舞台となっている地域そのものが消えてなくなる。影響下にあるすべてのキャラクター（伽藍を含む）は【縫製】難易度10の判定に成功すれば脱出できる。失敗した場合即座に死亡する。エキストラは無条件で死亡する。",
           ]
         ),
-        "WDT" => Table.new(
+        "WDT" => DiceTable::Table.new(
           "世界歪曲表",
           "2D6",
           [
@@ -304,7 +304,7 @@ INFO_MESSAGE_TEXT
             "【海の終焉】\n海を維持している生命の力そのものが消える。水は鎖、魚はしに、波は薙ぐ。あらゆる生命は死ぬ。",
           ]
         ),
-        "EDT" => Table.new(
+        "EDT" => DiceTable::Table.new(
           "永劫消失表",
           "2D6",
           [

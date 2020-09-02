@@ -2024,7 +2024,7 @@ INFO_MESSAGE_TEXT
       end
 
       TABLES = {
-        'RT' => Table.new(
+        'RT' => DiceTable::Table.new(
           '視察表',
           '2D6',
           [
@@ -2041,7 +2041,7 @@ INFO_MESSAGE_TEXT
             "民たちはワクワクするような冒険譚を求めている！ このセッションのシナリオの目的を達成していたら、終了フェイズの円卓会議の開始時に、（1D6）MGが手に入る。",
           ]
         ),
-        'SE' => Table.new(
+        'SE' => DiceTable::Table.new(
           '特殊遭遇表',
           '1D6',
           [
@@ -2053,7 +2053,7 @@ INFO_MESSAGE_TEXT
             "災厄教の巡礼者の一団に出会う。彼らは、迷宮災厄こそおごり高ぶった人類への罰であり、悔い改めよとその教えを説いた。《配下》を1人以上連れているキャラクターは、[魅力/自分の《配下》の数+5]の判定を行う。失敗したPC1人につき、《民の声》-1。",
           ]
         ),
-        'IG' => Table.new(
+        'IG' => DiceTable::Table.new(
           '情報収集表',
           '2D6',
           [
@@ -2070,7 +2070,7 @@ INFO_MESSAGE_TEXT
             "調査隊の素晴らしい活躍！ 迷宮マップの中から好きな部屋を1つ目標に選ぶ。目標の脅威情報と通路情報をGMに教えてもらう。さらに、「情報収集表」をもう1回使用できる。",
           ]
         ),
-        'BDT' => Table.new(
+        'BDT' => DiceTable::Table.new(
           '生まれ決定表',
           '1D6',
           [
@@ -2082,7 +2082,7 @@ INFO_MESSAGE_TEXT
             "好きな生まれ表で決定",
           ]
         ),
-        'TBO' => Table.new(
+        'TBO' => DiceTable::Table.new(
           '才覚系生まれ表',
           '1D6',
           [
@@ -2094,7 +2094,7 @@ INFO_MESSAGE_TEXT
             "地図師",
           ]
         ),
-        'CBO' => Table.new(
+        'CBO' => DiceTable::Table.new(
           '魅力系生まれ表',
           '1D6',
           [
@@ -2106,7 +2106,7 @@ INFO_MESSAGE_TEXT
             "語り部",
           ]
         ),
-        'SBO' => Table.new(
+        'SBO' => DiceTable::Table.new(
           '探索系生まれ表',
           '1D6',
           [
@@ -2118,7 +2118,7 @@ INFO_MESSAGE_TEXT
             "鉱工",
           ]
         ),
-        'VBO' => Table.new(
+        'VBO' => DiceTable::Table.new(
           '武勇系生まれ表',
           '1D6',
           [
@@ -2130,7 +2130,7 @@ INFO_MESSAGE_TEXT
             "番人",
           ]
         ),
-        'FET' => Table.new(
+        'FET' => DiceTable::Table.new(
           '好意表',
           '1D6',
           [
@@ -2142,7 +2142,7 @@ INFO_MESSAGE_TEXT
             "愛情",
           ]
         ),
-        'HET' => Table.new(
+        'HET' => DiceTable::Table.new(
           '敵意表',
           '1D6',
           [
@@ -2154,7 +2154,7 @@ INFO_MESSAGE_TEXT
             "侮蔑",
           ]
         ),
-        'IEQ' => Table.new(
+        'IEQ' => DiceTable::Table.new(
           '初期装備表',
           '2D6',
           [
@@ -2171,7 +2171,7 @@ INFO_MESSAGE_TEXT
             "魔導書",
           ]
         ),
-        'SDT' => Table.new(
+        'SDT' => DiceTable::Table.new(
           'スキル決定表',
           '1D6',
           [
@@ -2183,7 +2183,7 @@ INFO_MESSAGE_TEXT
             "上級スキル表で決定",
           ]
         ),
-        'BUS' => Table.new(
+        'BUS' => DiceTable::Table.new(
           '基本肉弾スキル表',
           '1D6',
           [
@@ -2195,7 +2195,7 @@ INFO_MESSAGE_TEXT
             "二刀流",
           ]
         ),
-        'SHS' => Table.new(
+        'SHS' => DiceTable::Table.new(
           '基本射撃スキル表',
           '1D6',
           [
@@ -2207,7 +2207,7 @@ INFO_MESSAGE_TEXT
             "零距離射撃",
           ]
         ),
-        'ASS' => Table.new(
+        'ASS' => DiceTable::Table.new(
           '基本星術スキル表',
           '1D6',
           [
@@ -2219,7 +2219,7 @@ INFO_MESSAGE_TEXT
             "星戦",
           ]
         ),
-        'SUS' => Table.new(
+        'SUS' => DiceTable::Table.new(
           '基本召喚スキル表',
           '1D6',
           [
@@ -2231,7 +2231,7 @@ INFO_MESSAGE_TEXT
             "憑依",
           ]
         ),
-        'SCS' => Table.new(
+        'SCS' => DiceTable::Table.new(
           '基本科学スキル表',
           '1D6',
           [
@@ -2243,7 +2243,7 @@ INFO_MESSAGE_TEXT
             "理力の一撃",
           ]
         ),
-        'LAS' => Table.new(
+        'LAS' => DiceTable::Table.new(
           '基本迷宮スキル表',
           '1D6',
           [
@@ -2255,7 +2255,7 @@ INFO_MESSAGE_TEXT
             "隠形",
           ]
         ),
-        'NES' => Table.new(
+        'NES' => DiceTable::Table.new(
           '基本交渉スキル表',
           '1D6',
           [
@@ -2267,7 +2267,7 @@ INFO_MESSAGE_TEXT
             "仲間割れ",
           ]
         ),
-        'COS' => Table.new(
+        'COS' => DiceTable::Table.new(
           '基本便利スキル表',
           '1D6',
           [
@@ -2279,7 +2279,7 @@ INFO_MESSAGE_TEXT
             "連携攻撃",
           ]
         ),
-        'ENS' => Table.new(
+        'ENS' => DiceTable::Table.new(
           '基本芸能スキル表',
           '1D6',
           [
@@ -2291,7 +2291,7 @@ INFO_MESSAGE_TEXT
             "ナルシスト",
           ]
         ),
-        'TOS' => Table.new(
+        'TOS' => DiceTable::Table.new(
           '基本道具スキル表',
           '1D6',
           [
@@ -2303,7 +2303,7 @@ INFO_MESSAGE_TEXT
             "渾身の力",
           ]
         ),
-        'EBT' => Table.new(
+        'EBT' => DiceTable::Table.new(
           '空振り休憩表',
           '2D6',
           [
@@ -2320,7 +2320,7 @@ INFO_MESSAGE_TEXT
             "「へぇ、こんなヤツだったのか」仲間の意外な一面を見つける。宮廷の中から好きなキャラクター1人を選ぶ。自分のそのキャラクターに対する《感情値》を反転させ、属性を好きなものに変更できる。",
           ]
         ),
-        'ARN' => Table.new(
+        'ARN' => DiceTable::Table.new(
           '人工部屋特殊遭遇表',
           '1D6',
           [
@@ -2332,7 +2332,7 @@ INFO_MESSAGE_TEXT
             "【ウマトカゲ】に乗ったメトロ汗国の斥候たちに出会う。彼らは奴隷を集めに来たようだ。宮廷全員は[武勇/宮廷の人数+5]の判定を行う。失敗した者は《配下》-（1D6）。",
           ]
         ),
-        'WEN' => Table.new(
+        'WEN' => DiceTable::Table.new(
           '水域部屋特殊遭遇表',
           '1D6',
           [
@@ -2344,7 +2344,7 @@ INFO_MESSAGE_TEXT
             "水の中から突如触手が現れた！ 宮廷の1人にからみつくと、水の中に引きずり込んでしまう。宮廷の中からランダムに1人を選ぶ。選ばれたPCは[探索/9+装備・収納している、素材欄に「鉄」が含まれるアイテムの数]の判定を行う。失敗すると、《HP》を（[判定の難易度-判定の達成値]D6）点減少する。また、そのPCが装備・収納している、素材欄に「火薬」が含まれるアイテムを破壊する。",
           ]
         ),
-        'NEN' => Table.new(
+        'NEN' => DiceTable::Table.new(
           '自然部屋特殊遭遇表',
           '1D6',
           [
@@ -2356,7 +2356,7 @@ INFO_MESSAGE_TEXT
             "その部屋の奥には、茸の森が広がっていた。その中心にたたずむ巨大な【オバケ茸】を【茸人】たちが囲んで、何か祈りを捧げている。……ここなら、もしかすると【百年茸】があるかも。【百年茸】を探すなら、宮廷の中から望む者は[探索/9+この判定に挑戦した回数(初回は1回と数える)]の判定を行う。成功した者は、レア一般アイテムの 【百年茸】を1個獲得する。誰か1人でも失敗すると、【茸人】に見つかり、PC全員は「毒2」の変調を受ける。【百年茸】を探さないなら、安全にその場を離れ、何も起こらない。",
           ]
         ),
-        'CEN' => Table.new(
+        'CEN' => DiceTable::Table.new(
           '洞窟部屋特殊遭遇表',
           '1D6',
           [
@@ -2368,7 +2368,7 @@ INFO_MESSAGE_TEXT
             "空気がじめじめとしてくる。【黴姫】の領域が近いようだ。下手をすると食事を駄目にしてしまうかもしれない。PC全員は[才覚/宮廷の人数+5]の判定を行う。失敗した者は自分の装備・収納している食事アイテムをすべて破壊する。",
           ]
         ),
-        'SEN' => Table.new(
+        'SEN' => DiceTable::Table.new(
           '天空部屋特殊遭遇表',
           '1D6',
           [
@@ -2380,7 +2380,7 @@ INFO_MESSAGE_TEXT
             "何か雪のようなものが降ってきたと思ったら、気分が悪くなってきた。上空を見あげると、【蝶の王】が羽ばたいている。狂気の鱗粉だ！ PC全員は[魅力/9]の判定を行う。失敗した者は、「毒6」と「散漫1」と「憤怒」の変調を受ける。",
           ]
         ),
-        'OEN' => Table.new(
+        'OEN' => DiceTable::Table.new(
           '異界部屋特殊遭遇表',
           '1D6',
           [

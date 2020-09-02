@@ -212,7 +212,7 @@ INFO_MESSAGE_TEXT
         )
       }.freeze
 
-      class RealNameChart < RangeTable
+      class RealNameChart < DiceTable::RangeTable
         def initialize(name, columns, chart)
           items = chart.map { |l| mix_column(columns, l) }
           super(name, "1D100", items)

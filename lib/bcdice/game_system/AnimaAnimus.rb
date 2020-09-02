@@ -62,7 +62,7 @@ MESSAGETEXT
       end
 
       TABLES = {
-        'IGT' => Table.new(
+        'IGT' => DiceTable::Table.new(
           '情報収集表',
           '1d10',
           [
@@ -78,7 +78,7 @@ MESSAGETEXT
             '聞き込み/<自我>/街ゆく人びとに聞き込みを行なう。地道な活動こそが目標にたどり着くための最短の方法だ。',
           ]
         ),
-        'LT' => RangeTable.new(
+        'LT' => DiceTable::RangeTable.new(
           '喪失表',
           '1d10',
           [

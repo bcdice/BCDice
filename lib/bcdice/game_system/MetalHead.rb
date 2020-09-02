@@ -208,7 +208,7 @@ MESSAGETEXT
 
       # 表の集合
       TABLES = {
-        'CC' => RangeTable.new(
+        'CC' => DiceTable::RangeTable.new(
           'クリティカルチャート',
           '1D10',
           [
@@ -222,7 +222,7 @@ MESSAGETEXT
           ],
           &TABLE_ROLL_RESULT_FORMATTER
         ),
-        'ACL' => RangeTable.new(
+        'ACL' => DiceTable::RangeTable.new(
           'アクシデントチャート（射撃・投擲）',
           '1D10',
           [
@@ -233,7 +233,7 @@ MESSAGETEXT
           ],
           &TABLE_ROLL_RESULT_FORMATTER
         ),
-        'ACS' => RangeTable.new(
+        'ACS' => DiceTable::RangeTable.new(
           'アクシデントチャート（格闘）',
           '1D10',
           [

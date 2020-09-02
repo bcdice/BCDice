@@ -256,7 +256,7 @@ MESSAGETEXT
 
       # 表の定義
       TABLES = {
-        'SB' => Table.new(
+        'SB' => DiceTable::Table.new(
           'サツバツ表',
           '1D6',
           SATSUBATSU_TABLE

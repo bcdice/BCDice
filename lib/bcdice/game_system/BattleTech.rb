@@ -301,7 +301,7 @@ MESSAGETEXT
 
       # 表の集合
       TABLES = {
-        'CT' => RangeTable.new(
+        'CT' => DiceTable::RangeTable.new(
           '致命的命中表',
           '2D6',
           [
@@ -311,7 +311,7 @@ MESSAGETEXT
             [12,                       'その部位が吹き飛ぶ（腕、脚、頭）または3箇所の致命的命中（胴）'],
           ]
         ),
-        'DW' => Table.new(
+        'DW' => DiceTable::Table.new(
           '転倒後の向き表',
           '1D6',
           [
@@ -347,7 +347,7 @@ MESSAGETEXT
 
         # 命中部位表
         TABLES = {
-          'L' => RangeTable.new(
+          'L' => DiceTable::RangeTable.new(
             '命中部位表（左）',
             '2D6',
             [
@@ -363,7 +363,7 @@ MESSAGETEXT
               [12,   new(HEAD, false)],
             ]
           ),
-          'C' => RangeTable.new(
+          'C' => DiceTable::RangeTable.new(
             '命中部位表（正面）',
             '2D6',
             [
@@ -378,7 +378,7 @@ MESSAGETEXT
               [12,     new(HEAD, false)],
             ]
           ),
-          'R' => RangeTable.new(
+          'R' => DiceTable::RangeTable.new(
             '命中部位表（右）',
             '2D6',
             [
@@ -395,7 +395,7 @@ MESSAGETEXT
             ]
           ),
 
-          'LU' => RangeTable.new(
+          'LU' => DiceTable::RangeTable.new(
             '命中部位表（左上半身）',
             '1D6',
             [
@@ -406,7 +406,7 @@ MESSAGETEXT
             ]
           ),
           # TODO: 普通のTableで書く
-          'CU' => RangeTable.new(
+          'CU' => DiceTable::RangeTable.new(
             '命中部位表（正面上半身）',
             '1D6',
             [
@@ -418,7 +418,7 @@ MESSAGETEXT
               [6, new(HEAD, false)],
             ]
           ),
-          'RU' => RangeTable.new(
+          'RU' => DiceTable::RangeTable.new(
             '命中部位表（右上半身）',
             '1D6',
             [
@@ -429,14 +429,14 @@ MESSAGETEXT
             ]
           ),
 
-          'LL' => RangeTable.new(
+          'LL' => DiceTable::RangeTable.new(
             '命中部位表（左下半身）',
             '1D6',
             [
               [1..6, new(LEFT_LEG, false)],
             ]
           ),
-          'CL' => RangeTable.new(
+          'CL' => DiceTable::RangeTable.new(
             '命中部位表（右下半身）',
             '1D6',
             [
@@ -444,7 +444,7 @@ MESSAGETEXT
               [4..6, new(LEFT_LEG, false)],
             ]
           ),
-          'RL' => RangeTable.new(
+          'RL' => DiceTable::RangeTable.new(
             '命中部位表（右下半身）',
             '1D6',
             [
@@ -456,7 +456,7 @@ MESSAGETEXT
 
       # ミサイルダメージ表
       XRM_DAMAGE_TABLES = {
-        'SRM2' => RangeTable.new(
+        'SRM2' => DiceTable::RangeTable.new(
           'SRM2ダメージ表',
           '2D6',
           [
@@ -464,7 +464,7 @@ MESSAGETEXT
             [8..12, 2],
           ]
         ),
-        'SRM4' => RangeTable.new(
+        'SRM4' => DiceTable::RangeTable.new(
           'SRM4ダメージ表',
           '2D6',
           [
@@ -474,7 +474,7 @@ MESSAGETEXT
             [11..12, 4],
           ]
         ),
-        'SRM6' => RangeTable.new(
+        'SRM6' => DiceTable::RangeTable.new(
           'SRM6ダメージ表',
           '2D6',
           [
@@ -485,7 +485,7 @@ MESSAGETEXT
             [11..12, 6],
           ]
         ),
-        'LRM5' => RangeTable.new(
+        'LRM5' => DiceTable::RangeTable.new(
           'LRM5ダメージ表',
           '2D6',
           [
@@ -496,7 +496,7 @@ MESSAGETEXT
             [11..12, 5],
           ]
         ),
-        'LRM10' => RangeTable.new(
+        'LRM10' => DiceTable::RangeTable.new(
           'LRM10ダメージ表',
           '2D6',
           [
@@ -507,7 +507,7 @@ MESSAGETEXT
             [11..12, 10],
           ]
         ),
-        'LRM15' => RangeTable.new(
+        'LRM15' => DiceTable::RangeTable.new(
           'LRM15ダメージ表',
           '2D6',
           [
@@ -518,7 +518,7 @@ MESSAGETEXT
             [11..12, 15],
           ]
         ),
-        'LRM20' => RangeTable.new(
+        'LRM20' => DiceTable::RangeTable.new(
           'LRM20ダメージ表',
           '2D6',
           [
