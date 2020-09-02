@@ -248,7 +248,7 @@ MESSAGETEXT
       def getAddRollProc(command)
         # 引数なしのlambda
         # Ruby 1.8と1.9以降で引数の個数の解釈が異なるため || が必要
-        lambda { || getAddRoll(command) }
+        lambda { getAddRoll(command) }
       end
 
       def getAddRoll(command)

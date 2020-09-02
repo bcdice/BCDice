@@ -178,7 +178,7 @@ MESSAGETEXT
       def getAddRollProc(command)
         # 引数なしのlambda
         # Ruby 1.8と1.9以降で引数の個数の解釈が異なるため || が必要
-        lambda { || getAddRoll(command) }
+        lambda { getAddRoll(command) }
       end
 
       def getRandomEventAddText(day, command1, command2)
@@ -199,7 +199,7 @@ MESSAGETEXT
       def getRandomEventAddTextProc(day, command1, command2)
         # 引数なしのlambda
         # Ruby 1.8と1.9以降で引数の個数の解釈が異なるため || が必要
-        lambda { || getRandomEventAddText(day, command1, command2) }
+        lambda { getRandomEventAddText(day, command1, command2) }
       end
 
       def getRandomEventDiceCommandResult(command)
