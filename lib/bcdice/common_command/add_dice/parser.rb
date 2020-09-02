@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require "utils/ArithmeticEvaluator"
+require "bcdice/arithmetic_evaluator"
 require "utils/normalize"
 require "bcdice/common_command/add_dice/node"
 

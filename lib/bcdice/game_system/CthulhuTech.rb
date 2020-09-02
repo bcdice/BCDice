@@ -3,7 +3,7 @@
 
 require 'bcdice/game_system/DiceBot'
 require 'utils/modifier_formatter'
-require 'utils/ArithmeticEvaluator'
+require 'bcdice/arithmetic_evaluator'
 
 # クトゥルフテックのダイスボット
 module BCDice

@@ -3,7 +3,7 @@
 
 require 'utils/table.rb'
 require 'utils/range_table'
-require 'utils/ArithmeticEvaluator'
+require 'bcdice/arithmetic_evaluator'
 
 module BCDice
   module GameSystem

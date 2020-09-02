@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require 'bcdice/game_system/DiceBot'
-require 'utils/ArithmeticEvaluator'
+require 'bcdice/arithmetic_evaluator'
 require 'utils/modifier_formatter'
 
 # スタンダードRPGシステムのダイスボット

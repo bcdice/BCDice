@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-require 'utils/ArithmeticEvaluator'
+require 'bcdice/arithmetic_evaluator'
 require 'utils/normalize'
 require 'utils/format'
 require 'utils/modifier_formatter'

@@ -1,6 +1,6 @@
 require "bcdice/version"
 require 'log'
-require 'utils/ArithmeticEvaluator.rb'
+require 'bcdice/arithmetic_evaluator.rb'
 
 require 'bcdice/game_system/DiceBot'
 require 'bcdice/game_system/DiceBotLoader'

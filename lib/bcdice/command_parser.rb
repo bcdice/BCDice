@@ -1,4 +1,4 @@
-require "utils/ArithmeticEvaluator"
+require "bcdice/arithmetic_evaluator"
 require "utils/normalize"
 require "utils/modifier_formatter"
 
