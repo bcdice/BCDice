@@ -3,7 +3,7 @@
 
 require "utils/normalize"
 require "utils/format"
-require "utils/command_parser"
+require "bcdice/command_parser"
 
 module BCDice
   module GameSystem

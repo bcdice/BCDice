@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-require 'utils/command_parser'
+require 'bcdice/command_parser'
 
 module BCDice
   module GameSystem

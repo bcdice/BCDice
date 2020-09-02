@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require "utils/command_parser"
+require "bcdice/command_parser"
 
 module BCDice
   module GameSystem
