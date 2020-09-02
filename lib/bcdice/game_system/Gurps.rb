@@ -47,8 +47,8 @@ INFO_MESSAGE_TEXT
         return '' unless dice_list.size == 3 && cmp_op == :<=
 
         success = target - total # 成功度
-        crt_string  = " ＞ クリティカル(成功度：#{success})"
-        fmb_string  = " ＞ ファンブル(失敗度：#{success})"
+        crt_string = " ＞ クリティカル(成功度：#{success})"
+        fmb_string = " ＞ ファンブル(失敗度：#{success})"
         fail_string = " ＞ 自動失敗(失敗度：#{success})"
 
         # クリティカル

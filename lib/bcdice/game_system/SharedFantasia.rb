@@ -44,7 +44,7 @@ MESSAGETEXT
         if dice_total == 12
           critical = true
         elsif dice_total == 2
-          fumble   = true
+          fumble = true
         end
 
         totalValueBonus = 0

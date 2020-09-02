@@ -71,12 +71,12 @@ INFO_MESSAGE_TEXT
         stable = getStepTable()
 
         nmod = stable[0][step - 1]
-        d20step  = stable[1][step - 1]
-        d12step  = stable[2][step - 1]
-        d10step  = stable[3][step - 1]
-        d8step   = stable[4][step - 1]
-        d6step   = stable[5][step - 1]
-        d4step   = stable[6][step - 1]
+        d20step = stable[1][step - 1]
+        d12step = stable[2][step - 1]
+        d10step = stable[3][step - 1]
+        d8step = stable[4][step - 1]
+        d6step = stable[5][step - 1]
+        d4step = stable[6][step - 1]
 
         if hasKarmaDice
           case karmaDiceType

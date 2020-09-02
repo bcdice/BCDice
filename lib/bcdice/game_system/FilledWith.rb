@@ -693,12 +693,12 @@ MESSAGETEXT
       def getRandomEventResult(command)
         if /RAND(E|N|H|L)([1-6])?/ === command
           dif = Regexp.last_match(1)
-          area  = Regexp.last_match(2).to_i
+          area = Regexp.last_match(2).to_i
           area, = roll(1, 6) if Regexp.last_match(2).nil?
           type, = roll(1, 6)
         elsif /RENC(E|N|H|L)([1-6])?/ === command
           dif = Regexp.last_match(1)
-          area  = Regexp.last_match(2).to_i
+          area = Regexp.last_match(2).to_i
           area, = roll(1, 6) if Regexp.last_match(2).nil?
           type  = 4
         else
@@ -1200,13 +1200,13 @@ MESSAGETEXT
       def getRandomEnemyDataResult(command)
         if /RED(E|N|H|L)(256|265|465|665|666)/ === command
           dif = Regexp.last_match(1)
-          area   = 0
-          event  = Regexp.last_match(2).to_i
+          area = 0
+          event = Regexp.last_match(2).to_i
           number = event
         elsif /RED(E|N|H|L)([1-6])4([1-6])/ === command
           dif = Regexp.last_match(1)
-          area   = Regexp.last_match(2).to_i
-          event  = Regexp.last_match(3).to_i
+          area = Regexp.last_match(2).to_i
+          event = Regexp.last_match(3).to_i
           number = "#{area}4#{event}"
         else
           return nil
