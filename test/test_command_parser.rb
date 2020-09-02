@@ -5,7 +5,7 @@ require 'bcdice/command_parser'
 
 class TestCommandParser < Test::Unit::TestCase
   def setup
-    @parser = CommandParser.new("LL", "SA")
+    @parser = BCDice::CommandParser.new("LL", "SA")
   end
 
   def test_parse_full
