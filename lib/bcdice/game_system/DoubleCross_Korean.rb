@@ -3,7 +3,7 @@
 
 require 'bcdice/game_system/DiceBot'
 require 'bcdice/arithmetic_evaluator'
-require 'utils/modifier_formatter'
+require 'bcdice/modifier_formatter'
 require 'utils/range_table'
 
 module BCDice

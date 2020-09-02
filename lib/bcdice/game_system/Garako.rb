@@ -3,7 +3,7 @@
 
 require 'utils/table'
 require 'utils/range_table'
-require 'utils/format'
+require 'bcdice/format'
 
 module BCDice
   module GameSystem

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require "utils/normalize"
-require "utils/format"
+require "bcdice/normalize"
+require "bcdice/format"
 require "bcdice/command_parser"
 
 module BCDice

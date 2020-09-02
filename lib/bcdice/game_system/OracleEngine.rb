@@ -2,8 +2,8 @@
 # frozen_string_literal: true
 
 require 'bcdice/command_parser'
-require 'utils/format'
-require 'utils/modifier_formatter'
+require 'bcdice/format'
+require 'bcdice/modifier_formatter'
 
 module BCDice
   module GameSystem

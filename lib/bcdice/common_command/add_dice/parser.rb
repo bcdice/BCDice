@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require "bcdice/arithmetic_evaluator"
-require "utils/normalize"
+require "bcdice/normalize"
 require "bcdice/common_command/add_dice/node"
 
 module BCDice

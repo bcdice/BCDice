@@ -2,8 +2,8 @@
 # frozen_string_literal: true
 
 require 'bcdice/arithmetic_evaluator'
-require 'utils/format'
-require 'utils/normalize'
+require 'bcdice/format'
+require 'bcdice/normalize'
 require 'utils/table'
 require 'utils/d66_grid_table'
 

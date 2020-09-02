@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-require "utils/normalize"
-require "utils/format"
+require "bcdice/normalize"
+require "bcdice/format"
 
 module BCDice
   module CommonCommand

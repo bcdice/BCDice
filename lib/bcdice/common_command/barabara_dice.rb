@@ -1,4 +1,4 @@
-require "utils/format"
+require "bcdice/format"
 
 module BCDice
   module CommonCommand

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require 'utils/modifier_formatter'
+require 'bcdice/modifier_formatter'
 
 module BCDice
   module GameSystem

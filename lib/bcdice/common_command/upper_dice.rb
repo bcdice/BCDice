@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 require 'bcdice/arithmetic_evaluator'
-require 'utils/normalize'
-require 'utils/format'
-require 'utils/modifier_formatter'
+require 'bcdice/normalize'
+require 'bcdice/format'
+require 'bcdice/modifier_formatter'
 
 module BCDice
   module CommonCommand

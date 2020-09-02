@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require 'bcdice/arithmetic_evaluator'
-require 'utils/modifier_formatter'
+require 'bcdice/modifier_formatter'
 
 require 'bcdice/game_system/SwordWorld'
 

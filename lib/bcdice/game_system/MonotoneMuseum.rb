@@ -4,7 +4,7 @@
 require 'utils/table'
 require 'utils/d66_range_table'
 require 'utils/d66_grid_table'
-require 'utils/format'
+require 'bcdice/format'
 
 module BCDice
   module GameSystem
