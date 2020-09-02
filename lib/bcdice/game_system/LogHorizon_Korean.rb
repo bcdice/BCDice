@@ -72,7 +72,7 @@ MESSAGETEXT
       end
 
       def getCheckRollDiceCommandResult(command)
-        return nil unless /(\d+)LH([\+\-\d]*)(>=([\+\-\d]*))?/i === command
+        return nil unless command =~ /(\d+)LH([\+\-\d]*)(>=([\+\-\d]*))?/i
 
         diceCount = Regexp.last_match(1).to_i
         modifyText = (Regexp.last_match(2) || '')
@@ -136,7 +136,7 @@ MESSAGETEXT
 
       # 消耗表
       def getConsumptionDiceCommandResult(command)
-        return nil unless /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/ === command
+        return nil unless command =~ /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/
 
         type = Regexp.last_match(1)
         is_special = (Regexp.last_match(1) && Regexp.last_match(1).length > 1)
@@ -742,7 +742,7 @@ MESSAGETEXT
 
       # パーソナリティタグ表
       def getPersonalityTagDiceCommandResult(command)
-        return nil unless "PTAG" === command
+        return nil unless command == "PTAG"
 
         tableName = "퍼스널리티 태그"
         table = [
@@ -797,7 +797,7 @@ MESSAGETEXT
 
       # 交友表
       def getFriendlyChartDiceCommandResult(command)
-        return nil unless "KOYU" === command
+        return nil unless command == "KOYU"
 
         tableName = "교우표"
         table = [
@@ -852,7 +852,7 @@ MESSAGETEXT
 
       # プレフィックスドマジックアイテム表
       def getPrefixedMagickItemDiceCommandResult(command)
-        return nil unless /MGR([1-3])/ === command
+        return nil unless command =~ /MGR([1-3])/
 
         rank = Regexp.last_match(1).to_i
 
@@ -1011,7 +1011,7 @@ MESSAGETEXT
 
       # 공격 명중 장소 랜덤결정표
       def getHitLocationDiceCommandResult(command)
-        return nil unless "HLOC" === command
+        return nil unless command == "HLOC"
 
         tableName = "공격명중장소"
         table = [
@@ -1063,7 +1063,7 @@ MESSAGETEXT
 
       # PC명 랜덤 결정표
       def getPCNameDiceCommandResult(command)
-        return nil unless "PCNM" === command
+        return nil unless command == "PCNM"
 
         tableName = "PC名"
         table = [
@@ -1117,7 +1117,7 @@ MESSAGETEXT
 
       # ロデ研の新発明ランダム決定表
       def getInventionAttributeTextDiceCommandResult(command)
-        return nil unless /IAT([ABMDLT]*)/ === command
+        return nil unless command =~ /IAT([ABMDLT]*)/
 
         tableName = "로데릭 연구소의 새로운 발명"
 
@@ -1175,7 +1175,7 @@ MESSAGETEXT
 
       # 아키바 거리에서 발생하는 문제 랜덤결정 표
       def getTroubleInAkibaStreetDiceCommandResult(command)
-        return nil unless command === "TIAS"
+        return nil unless command == "TIAS"
 
         tableName = "아키바 거리에서 발생하는 문제"
 
@@ -1226,7 +1226,7 @@ MESSAGETEXT
 
       # 버림받은 아이 랜덤결정표
       def getAbandonedChildDiceCommandResult(command)
-        return nil unless command === "ABDC"
+        return nil unless command == "ABDC"
 
         tableName = "버림받은 아이"
 
@@ -1293,7 +1293,7 @@ MESSAGETEXT
 
       # 楽器種別表
       def getMusicalInstrumentTypeDiceCommandResult(command)
-        return nil unless /MII(\d?)/ === command
+        return nil unless command =~ /MII(\d?)/
 
         type, is_roll = if Regexp.last_match(1) && Regexp.last_match(1) != ''
                           [Regexp.last_match(1).to_i, false]

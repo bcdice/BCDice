@@ -32,7 +32,7 @@ INFO_MESSAGE_TEXT
       def rollDiceCommand(command)
         debug('rollDiceCommand begin')
 
-        unless /^R(\d+)(,(\d+))?([\+\-\d]+)?(>=(\d+))?/ === command
+        unless command =~ /^R(\d+)(,(\d+))?([\+\-\d]+)?(>=(\d+))?/
           debug('unmatched!')
           return ''
         end

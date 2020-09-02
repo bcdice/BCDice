@@ -458,7 +458,7 @@ module BCDice
       # get～DiceCommandResultという名前のメソッドを集めて実行、
       # 結果がnil以外の場合それを返して終了。
       methodList = public_methods(false).select do |method|
-        /^get.+DiceCommandResult$/ === method.to_s
+        method.to_s =~ /^get.+DiceCommandResult$/
       end
 
       methodList.each do |method|
@@ -540,7 +540,7 @@ module BCDice
       end
 
       newTable = text.map do |item|
-        if item.is_a?(String) && (/^(\d+):(.*)/ === item)
+        if item.is_a?(String) && (item =~ /^(\d+):(.*)/)
           [Regexp.last_match(1).to_i, Regexp.last_match(2)]
         else
           item

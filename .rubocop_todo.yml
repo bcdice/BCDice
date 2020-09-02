@@ -80,12 +80,6 @@ Naming/MethodName:
 Naming/MethodParameterName:
   Enabled: false
 
-# Offense count: 120
-# Cop supports --auto-correct.
-# Configuration parameters: AllowOnConstant.
-Style/CaseEquality:
-  Enabled: false
-
 # Offense count: 11
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: annotated, template, unannotated

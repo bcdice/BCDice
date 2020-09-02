@@ -49,7 +49,7 @@ MESSAGETEXT
         return result if result
 
         count = 1
-        if /^(\d+)(.+)/ === command
+        if command =~ /^(\d+)(.+)/
           count = Regexp.last_match(1).to_i
           command = Regexp.last_match(2)
         end

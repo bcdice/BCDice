@@ -102,7 +102,7 @@ INFO_MESSAGE_TEXT
       end
 
       def getRollDiceResult(command)
-        return nil unless /([\d\+\-]+)\-3[dD]6?([\d\+\-]*)/ === command
+        return nil unless command =~ /([\d\+\-]+)\-3[dD]6?([\d\+\-]*)/
 
         diffStr = Regexp.last_match(1)
         modStr  = (Regexp.last_match(2) || '')
@@ -119,7 +119,7 @@ INFO_MESSAGE_TEXT
       end
 
       def getCFTableResult(command)
-        return nil unless /\w*(FMB|CRT)/ === command
+        return nil unless command =~ /\w*(FMB|CRT)/
 
         case command
         when "CRT"
@@ -279,7 +279,7 @@ INFO_MESSAGE_TEXT
       end
 
       def getFearResult(command)
-        return nil unless /FEAR((\+)?\d+)?/ === command
+        return nil unless command =~ /FEAR((\+)?\d+)?/
 
         modify = Regexp.last_match(1).to_i
 
@@ -337,7 +337,7 @@ INFO_MESSAGE_TEXT
       end
 
       def getReactResult(command)
-        return nil unless /REACT((\+|\-)?\d*)/ === command
+        return nil unless command =~ /REACT((\+|\-)?\d*)/
 
         modify = Regexp.last_match(1).to_i
 
@@ -367,7 +367,7 @@ INFO_MESSAGE_TEXT
       end
 
       def getHitResult(command)
-        return nil unless "HIT" === command
+        return nil unless command == "HIT"
 
         tableName = "命中部位表"
         table = [

@@ -96,11 +96,11 @@ INFO_MESSAGE_TEXT
       end
 
       def isFamble(diceList)
-        return diceList === [6, 6, 6]
+        return diceList == [6, 6, 6]
       end
 
       def isCritical(diceList)
-        return diceList === [1, 2, 3]
+        return diceList == [1, 2, 3]
       end
 
       # 対人ロール

@@ -126,7 +126,7 @@ INFO_MESSAGE_TEXT
       JUDGE_DICE_REG = /(^|\s)JD(\d+)([\+\-]\d+)?(,(\d+))?($|\s)/i.freeze
 
       def judgeDice(command)
-        unless JUDGE_DICE_REG === command
+        unless command.match(JUDGE_DICE_REG)
           return '1'
         end
 

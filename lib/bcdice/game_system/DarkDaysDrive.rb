@@ -131,7 +131,7 @@ INFO_MESSAGE_TEXT
 
       def getD66Table(table)
         table.map do |item|
-          if item.is_a?(String) && (/^(\d+):(.*)/ === item)
+          if item.is_a?(String) && (item =~ /^(\d+):(.*)/)
             [Regexp.last_match(1).to_i, Regexp.last_match(2)]
           else
             item

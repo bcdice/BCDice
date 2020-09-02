@@ -110,12 +110,12 @@ MESSAGETEXT
         crt = 4
         fmb = 17
 
-        if /(\d[\+\-\d]*)-(\d+)FW(\@(\d+))?(\#(\d+))?/i === command
+        if command =~ /(\d[\+\-\d]*)-(\d+)FW(\@(\d+))?(\#(\d+))?/i
           difficultyText = Regexp.last_match(1)
           diceCount = Regexp.last_match(2).to_i
           crt = Regexp.last_match(4).to_i unless Regexp.last_match(3).nil?
           fmb = Regexp.last_match(6).to_i unless Regexp.last_match(5).nil?
-        elsif /(\d+)FW(\@(\d+))?(\#(\d+))?(<=([\+\-\d]*))?/i === command
+        elsif command =~ /(\d+)FW(\@(\d+))?(\#(\d+))?(<=([\+\-\d]*))?/i
           diceCount = Regexp.last_match(1).to_i
           crt = Regexp.last_match(3).to_i unless Regexp.last_match(2).nil?
           fmb = Regexp.last_match(5).to_i unless Regexp.last_match(4).nil?
@@ -425,7 +425,7 @@ MESSAGETEXT
 
       # 夢幻の迷宮財宝表
       def getTresureResult(command)
-        return nil unless /TRS(\d+)([\+\-]\d)?/ === command
+        return nil unless command =~ /TRS(\d+)([\+\-]\d)?/
 
         rank   = Regexp.last_match(1).to_i
         modify = Regexp.last_match(2).to_i
@@ -558,7 +558,7 @@ MESSAGETEXT
 
       # 夢幻の迷宮トラップ表
       def getTrapResult(command)
-        return nil unless /TRAP(E|N|H|L)/ === command
+        return nil unless command =~ /TRAP(E|N|H|L)/
 
         dif = Regexp.last_match(1)
         tableName = "トラップ表"
@@ -610,7 +610,7 @@ MESSAGETEXT
 
       # 夢幻の迷宮追加オプション表
       def getRandomOptionResult(command)
-        return nil unless /ROP(E|N|H|L)/ === command
+        return nil unless command =~ /ROP(E|N|H|L)/
 
         dif = Regexp.last_match(1)
         tableName = "迷宮追加オプション表"
@@ -688,12 +688,12 @@ MESSAGETEXT
 
       # 夢幻の迷宮ランダムイベント表
       def getRandomEventResult(command)
-        if /RAND(E|N|H|L)([1-6])?/ === command
+        if command =~ /RAND(E|N|H|L)([1-6])?/
           dif = Regexp.last_match(1)
           area = Regexp.last_match(2).to_i
           area, = roll(1, 6) if Regexp.last_match(2).nil?
           type, = roll(1, 6)
-        elsif /RENC(E|N|H|L)([1-6])?/ === command
+        elsif command =~ /RENC(E|N|H|L)([1-6])?/
           dif = Regexp.last_match(1)
           area = Regexp.last_match(2).to_i
           area, = roll(1, 6) if Regexp.last_match(2).nil?
@@ -1195,12 +1195,12 @@ MESSAGETEXT
 
       # 夢幻の迷宮エネミーデータ表
       def getRandomEnemyDataResult(command)
-        if /RED(E|N|H|L)(256|265|465|665|666)/ === command
+        if command =~ /RED(E|N|H|L)(256|265|465|665|666)/
           dif = Regexp.last_match(1)
           area = 0
           event = Regexp.last_match(2).to_i
           number = event
-        elsif /RED(E|N|H|L)([1-6])4([1-6])/ === command
+        elsif command =~ /RED(E|N|H|L)([1-6])4([1-6])/
           dif = Regexp.last_match(1)
           area = Regexp.last_match(2).to_i
           event = Regexp.last_match(3).to_i

@@ -38,7 +38,7 @@ MESSAGETEXT
       ])
 
       def rollDiceCommand(command)
-        if /(\d+)?IL([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?(P)?$/i === command
+        if command =~ /(\d+)?IL([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?(P)?$/i
           diceCount = (Regexp.last_match(1) || 1).to_i
           blockNo = [(Regexp.last_match(2) || 0).to_i, (Regexp.last_match(3) || 0).to_i, (Regexp.last_match(4) || 0).to_i, (Regexp.last_match(5) || 0).to_i, (Regexp.last_match(6) || 0).to_i, (Regexp.last_match(7) || 0).to_i]
           blockNo.delete(0)

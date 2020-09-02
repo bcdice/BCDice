@@ -254,7 +254,7 @@ MESSAGETEXT
       end
 
       def getRulingPlanetDiceCommandResult(command)
-        return nil unless /^RP(\d+)/i === command
+        return nil unless command =~ /^RP(\d+)/i
 
         targetNumbers = Regexp.last_match(1).split(//).collect { |i| i.to_i }
         diceList = getRulingPlanetDice

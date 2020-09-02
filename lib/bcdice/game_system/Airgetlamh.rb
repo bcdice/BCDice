@@ -53,7 +53,7 @@ MESSAGETEXT
 
       def rollDiceCommand(command)
         # AA/ALコマンド：調査判定, 成功判定
-        if /(\d+)?A(A|L)(\d+)?((x|\*)(\d+)(\+(\d+))?)?(C(\d+))?$/i === command
+        if command =~ /(\d+)?A(A|L)(\d+)?((x|\*)(\d+)(\+(\d+))?)?(C(\d+))?$/i
           diceCount = (Regexp.last_match(1) || 2).to_i
           target = (Regexp.last_match(3) || 6).to_i
           damage = (Regexp.last_match(6) || 0).to_i

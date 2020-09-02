@@ -342,7 +342,7 @@ INFO_MESSAGE_TEXT
         result = get_table_by_number(number, table)
         debug("getMaterialEffectNomal result", result)
 
-        if /\+n/ === result
+        if result =~ /\+n/
           power, number2 = getMaterialEffectPower(rank)
 
           result = result.sub(/\+n/, "+#{power}")
@@ -375,7 +375,7 @@ INFO_MESSAGE_TEXT
         result = get_table_by_number(number, table)
         debug('getMaterialEffectRare result', result)
 
-        if /\*\*/ === result
+        if result =~ /\*\*/
           attribute, number2 = getAttribute()
           result = result.sub(/\*\*/, attribute.to_s)
           number = "#{number},#{number2}"

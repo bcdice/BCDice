@@ -30,7 +30,7 @@ MESSAGETEXT
       end
 
       def rollDiceCommand(command)
-        if /(\d+)EB/i === command
+        if command =~ /(\d+)EB/i
           diceCount = Regexp.last_match(1).to_i
           return checkRoll(diceCount)
         end

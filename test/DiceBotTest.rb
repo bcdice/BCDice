@@ -56,7 +56,7 @@ class DiceBotTest
     end
 
     targetFiles.each do |filename|
-      next if /^_/ === File.basename(filename)
+      next if File.basename(filename) =~ /^_/
 
       source = File.read(filename, :encoding => 'UTF-8')
 

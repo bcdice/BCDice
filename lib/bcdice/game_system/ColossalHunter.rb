@@ -45,7 +45,7 @@ MESSAGETEXT
       def getCheckRollDiceCommandResult(command)
         debug("getCheckRollDiceCommandResult command", command)
 
-        return nil unless /(\d+)?CH([\+\-\d]*)(>=([\+\-\d]*))?$/i === command
+        return nil unless command =~ /(\d+)?CH([\+\-\d]*)(>=([\+\-\d]*))?$/i
 
         diceCount = (Regexp.last_match(1) || 3).to_i
         modifyText = (Regexp.last_match(2) || '')
@@ -105,7 +105,7 @@ MESSAGETEXT
       end
 
       def getSourceSceneDiceCommandResult(command)
-        return nil unless /^B6T$/ === command
+        return nil unless command =~ /^B6T$/
 
         name = "BIG-6表"
         table = getBig6Table
@@ -206,7 +206,7 @@ MESSAGETEXT
       end
 
       def getCreateNpcDiceCommandResult(command)
-        return nil unless /^CNP$/ === command
+        return nil unless command =~ /^CNP$/
 
         name = "NPC作成表"
         table = [

@@ -217,9 +217,8 @@ INFO_MESSAGE_TEXT
         rateUp = 0
 
         regexp = /r\[(\d+)\]/i
-
-        if regexp === string
-          rateUp = Regexp.last_match(1).to_i
+        if (m = regexp.match(string))
+          rateUp = m[1].to_i
           string = string.gsub(regexp, '')
         end
 
@@ -254,8 +253,7 @@ INFO_MESSAGE_TEXT
         isGratestFortune = false
 
         regexp = /gf/i
-
-        if regexp === string
+        if regexp.match?(string)
           isGratestFortune = true
           string = string.gsub(regexp, '')
         end

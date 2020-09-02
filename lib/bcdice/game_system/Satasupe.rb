@@ -238,7 +238,7 @@ INFO_MESSAGE_TEXT
         command = command.upcase
         result = []
 
-        return result unless /([A-Za-z]+)(\d+)?(([+]|[-]|[=])(\d+))?/ === command
+        return result unless command =~ /([A-Za-z]+)(\d+)?(([+]|[-]|[=])(\d+))?/
 
         command = Regexp.last_match(1)
         counts = 1

@@ -24,7 +24,7 @@ INFO_MESSAGE_TEXT
       setPrefixes(['\d+\-2DR.*'])
 
       def rollDiceCommand(command)
-        return nil unless /^(\d+)-2DR([\+\-\d]*)(>=(\d+))?$/i === command
+        return nil unless command =~ /^(\d+)-2DR([\+\-\d]*)(>=(\d+))?$/i
 
         baseAvility = Regexp.last_match(1).to_i
         modText = Regexp.last_match(2)
