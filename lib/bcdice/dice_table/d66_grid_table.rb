@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 module BCDice
   module DiceTable
     # D66を振って6x6マスの表を参照する

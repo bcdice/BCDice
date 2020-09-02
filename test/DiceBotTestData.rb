@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # ダイスボットのテストデータを表すクラス
 class DiceBotTestData
   # ゲームシステム

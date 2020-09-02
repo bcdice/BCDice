@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 require 'bcdice/command_parser'
 
 module BCDice

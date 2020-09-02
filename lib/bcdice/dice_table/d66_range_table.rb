@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 module BCDice
   module DiceTable
     # 項目をRangeを用いて参照するD66表

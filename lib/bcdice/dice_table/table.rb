@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 module BCDice
   module DiceTable
     # 表を表すクラス

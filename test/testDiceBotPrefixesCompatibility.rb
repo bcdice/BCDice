@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 dodontof_root = File.expand_path('..', File.dirname(__FILE__))
 unless $:.include?(dodontof_root)
   $:.unshift(dodontof_root)

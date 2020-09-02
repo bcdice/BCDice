@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 require "rake/testtask"
 
 task :default => :test

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 require "bcdice/normalize"
 require "bcdice/common_command/add_dice/parser"
 require "bcdice/common_command/add_dice/randomizer"

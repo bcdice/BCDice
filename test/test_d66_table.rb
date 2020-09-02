@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 require 'test/unit'
 require 'bcdice'
 require 'bcdice/dice_table/d66_table'

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 bcdice_root = File.expand_path('..', File.dirname(__FILE__))

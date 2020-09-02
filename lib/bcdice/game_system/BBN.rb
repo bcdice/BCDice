@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 module BCDice
   module GameSystem
     class BBN < Base
