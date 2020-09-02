@@ -9,7 +9,7 @@
 #       「.txt」で終わっていればテストデータのパスと見なす。
 # [2個] 最初の引数でテストデータを指定し、2番目の引数で番号を指定する
 
-rootDir = File.expand_path(File.dirname(__FILE__))
+rootDir = __dir__
 libPaths = [
   "#{rootDir}/test",
   rootDir,

@@ -5,7 +5,7 @@ require 'DiceBotTestData'
 
 class DiceBotTest
   def initialize(testDataPath = nil, dataIndex = nil)
-    testBaseDir = File.expand_path(File.dirname(__FILE__))
+    testBaseDir = __dir__
 
     @testDataPath = testDataPath
     @dataIndex = dataIndex
