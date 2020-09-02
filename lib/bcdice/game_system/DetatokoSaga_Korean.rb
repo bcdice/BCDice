@@ -45,8 +45,6 @@ INFO_MESSAGE_TEXT
       def rollDiceCommand(command)
         debug("rollDiceCommand begin string", command)
 
-        result = ''
-
         result = checkRoll(command)
         return result unless result.empty?
 
@@ -202,7 +200,6 @@ INFO_MESSAGE_TEXT
 
       def rollTableCommand(command)
         command = command.upcase
-        result = []
 
         debug("rollDiceCommand command", command)
 

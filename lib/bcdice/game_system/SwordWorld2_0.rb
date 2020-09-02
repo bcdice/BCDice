@@ -229,7 +229,7 @@ INFO_MESSAGE_TEXT
       def getAdditionalString(string, output)
         output, values = super(string, output)
 
-        isGratestFortune, string = getGratestFortuneFromString(string)
+        isGratestFortune, = getGratestFortuneFromString(string)
 
         values['isGratestFortune'] = isGratestFortune
         output += "gf" if isGratestFortune

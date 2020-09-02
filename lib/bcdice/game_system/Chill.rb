@@ -51,7 +51,6 @@ INFO_MESSAGE_TEXT
       def roll_strike_rank_result(string)
         debug('strike_rank begin string', string)
 
-        output = ''
         wounds = 0
         sta_loss = 0
         dice = ''
@@ -64,9 +63,6 @@ INFO_MESSAGE_TEXT
         end
 
         strikeRank = Regexp.last_match(3).to_i
-        dice_w = ''
-        dice_ws = ''
-        dice_wa = ''
 
         if strikeRank < 14
           sta_loss, dice, dice_add, dice_str = check_strike_rank(strikeRank)
@@ -75,8 +71,7 @@ INFO_MESSAGE_TEXT
           dice_add += ', ' + dice_wa
           dice_str = dice_str + ', ' + dice_ws
         else
-          wounds_wk = 0
-          sta_loss, dice, dice_add, dice_str = check_strike_rank(13)
+          sta_loss, _dice, dice_add, dice_str = check_strike_rank(13)
           wounds, dice_ws = roll(4, 10)
           dice = '5d10*3, 4d10+' + ((strikeRank - 13) * 2).to_s + 'd10'
           dice_add += ', ' + wounds.to_s

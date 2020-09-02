@@ -59,8 +59,6 @@ INFO_MESSAGE_TEXT
           output += "0[#{die},#{dice_n.join(',')}]"
 
           if count0 != 0
-            bonus = 0
-
             if count0 > 1
               output += " ＞ #{count0}Botch!"
             else

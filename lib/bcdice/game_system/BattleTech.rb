@@ -75,7 +75,7 @@ MESSAGETEXT
         end
 
         return nil
-      rescue UnknownXRMError => e
+      rescue UnknownXRMError
         return nil
       end
 
@@ -259,14 +259,12 @@ MESSAGETEXT
           ].join(' ')
         ]
 
-        critical_hit_occurred = false
         criticalText = ''
         if hit_part.critical_hit_may_occur
           ct_roll_result = TABLES['CT'].roll(@randomizer)
 
           # 致命的命中が発生したか
-          critical_hit_occurred = ct_roll_result.sum > NO_CRITICAL_HIT_LIMIT
-          if critical_hit_occurred
+          if ct_roll_result.sum > NO_CRITICAL_HIT_LIMIT
             criticalText = ct_roll_result.content
           end
 

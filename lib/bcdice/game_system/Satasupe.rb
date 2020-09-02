@@ -60,8 +60,6 @@ INFO_MESSAGE_TEXT
       def rollDiceCommand(command)
         debug("rollDiceCommand begin string", command)
 
-        result = ''
-
         result = checkRoll(command)
         return result unless result.empty?
 

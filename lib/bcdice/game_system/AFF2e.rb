@@ -123,7 +123,7 @@ MESSAGETEXT
           corr = eval_term(term)
 
           dice_command = "1D6#{explicit_sign corr}"
-          total, dice_str = roll(1, 6)
+          total, = roll(1, 6)
           expr = "#{total}#{explicit_sign corr}"
           slot_number = clamp(total + corr, 1, 7)
           damage = damage_slots[slot_number - 1]

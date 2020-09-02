@@ -43,8 +43,6 @@ INFO_MESSAGE_TEXT
         m = /成功数(\d+)/.match(output_before_limited)
         output_after_limited = output_before_limited
         before_suc_cnt = m[1].to_i
-        after_suc_cnt = m[1].to_i
-        over_suc_cnt = 0
         if before_suc_cnt > limit
           after_suc_cnt = limit
           over_suc_cnt = before_suc_cnt - limit

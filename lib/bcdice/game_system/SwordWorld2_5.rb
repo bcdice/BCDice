@@ -91,7 +91,7 @@ INFO_MESSAGE_TEXT
       def getAdditionalString(string, output)
         output, values = super(string, output)
 
-        keptDiceChangeModify, string = getKeptDiceChangesFromString(string)
+        keptDiceChangeModify, = getKeptDiceChangesFromString(string)
 
         values['keptDiceChangeModify'] = keptDiceChangeModify
         output += "a[#{keptDiceChangeModify}]" if keptDiceChangeModify != 0

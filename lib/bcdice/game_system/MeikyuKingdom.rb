@@ -157,10 +157,6 @@ INFO_MESSAGE_TEXT
 
         bonus = modifyText ? ArithmeticEvaluator.new.eval(modifyText) : 0
 
-        dice_now = 0
-        dice_str = ""
-        total_n = 0
-
         _, dice_str, = roll(diceCount, 6, (sortType & 1))
         dice_list = dice_str.split(',').map(&:to_i)
 
@@ -448,7 +444,9 @@ INFO_MESSAGE_TEXT
         end
 
         if output != '1'
-          output = "#{type}表(#{total_n}) ＞ #{output}"
+          return "#{type}表(#{total_n}) ＞ #{output}"
+        else
+          return nil
         end
       end
 

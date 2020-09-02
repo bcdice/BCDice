@@ -66,7 +66,7 @@ MESSAGETEXT
         weaponTable = weaponInfo[:table]
 
         diceList = getJudgeDiceList
-        total = diceList.inject() { |value, i| value += i }
+        total = diceList.sum()
         allTotal = total + base
 
         diffText = diff.nil? ? "" : ">=#{diff}"

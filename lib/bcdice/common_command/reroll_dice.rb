@@ -57,7 +57,6 @@ module BCDice
 
         success_count = 0
         dice_str_list = []
-        dice_cnt_total = 0
         one_count = 0
         loop_count = 0
 

@@ -21,12 +21,9 @@ module BCDice
         when /^ACT(\d+)$/i
           number = Regexp.last_match(1).to_i
           info = TABLES["ACT"]
-          name = info[:name]
           table = getTableInfoFromExtraTableText(info[:table])
 
           text = table[number]
-
-          result = "#{name}(#{number}) ＞ #{text}"
           return text
         end
         result = getTableCommandResult(command, TABLES)

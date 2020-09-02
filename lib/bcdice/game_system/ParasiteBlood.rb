@@ -30,8 +30,6 @@ INFO_MESSAGE_TEXT
       setPrefixes(['(N|A|M|U|C|)?URGE\d+'])
 
       def get_urge(string) # パラサイトブラッドの衝動表
-        urge = []
-
         unless /(\w*)URGE\s*(\d+)/i =~ string
           return '1'
         end

@@ -57,27 +57,23 @@ MESSAGETEXT
       end
 
       def rollDiceCommand(command)
-        output =
-          case command.upcase
+        case command.upcase
+        when /^(\d+)?ATK([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?$/i
+          diceCount = (Regexp.last_match(1) || 1).to_i
+          blockNo = [(Regexp.last_match(2) || 0).to_i, (Regexp.last_match(3) || 0).to_i, (Regexp.last_match(4) || 0).to_i, (Regexp.last_match(5) || 0).to_i, (Regexp.last_match(6) || 0).to_i, (Regexp.last_match(7) || 0).to_i]
+          blockNo.delete(0)
+          blockNo = blockNo.sort
+          blockNo = blockNo.uniq
 
-          when /^(\d+)?ATK([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?$/i
-            diceCount = (Regexp.last_match(1) || 1).to_i
-            blockNo = [(Regexp.last_match(2) || 0).to_i, (Regexp.last_match(3) || 0).to_i, (Regexp.last_match(4) || 0).to_i, (Regexp.last_match(5) || 0).to_i, (Regexp.last_match(6) || 0).to_i, (Regexp.last_match(7) || 0).to_i]
-            blockNo.delete(0)
-            blockNo = blockNo.sort
-            blockNo = blockNo.uniq
-
-            output = checkRoll(diceCount, blockNo)
-
-          when /^(C|K|W|R|B|G|E)(L|D|O)(\d+)$/i
-            color = Regexp.last_match(1).upcase
-            cardtype = Regexp.last_match(2).upcase
-            cardindex = Regexp.last_match(3).to_i
-            get_card_text(color, cardtype, cardindex)
-
-          end
-
-        return output
+          return checkRoll(diceCount, blockNo)
+        when /^(C|K|W|R|B|G|E)(L|D|O)(\d+)$/i
+          color = Regexp.last_match(1).upcase
+          cardtype = Regexp.last_match(2).upcase
+          cardindex = Regexp.last_match(3).to_i
+          return get_card_text(color, cardtype, cardindex)
+        else
+          return nil
+        end
       end
 
       def checkRoll(diceCount, blockNo)

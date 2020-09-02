@@ -443,7 +443,6 @@ INFO_MESSAGE_TEXT
         when /DROP(N)?((\+)?(\d))?/
           tableName = "ドロップ判定"
           mode = "S"
-          text = ""
           modify = 0
 
           unless Regexp.last_match(1).nil?

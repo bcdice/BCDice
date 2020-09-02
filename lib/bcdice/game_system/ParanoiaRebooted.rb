@@ -66,7 +66,7 @@ INFO_MESSAGE_TEXT
         parameter_num = m[1].to_i
         dice_count = parameter_num.abs + 1
 
-        total, dice_text, = roll(dice_count, 6)
+        _total, dice_text, = roll(dice_count, 6)
 
         dices = dice_text.split(',')
         success_rate = dices.count { |dice| dice.to_i >= 5 }
@@ -93,7 +93,7 @@ INFO_MESSAGE_TEXT
         parameter_num = m[1].to_i
         dice_count = parameter_num.abs + 1
 
-        total, dice_text, = roll(dice_count, 6)
+        _total, dice_text, = roll(dice_count, 6)
         dices = dice_text.split(',')
         failure_rate = dices.count { |dice| dice.to_i == 1 }
         message = failure_rate == 0 ? '成功' : "失敗(#{failure_rate})"

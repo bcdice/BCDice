@@ -59,7 +59,6 @@ MESSAGETEXT
         return result unless result.nil?
 
         tableName = ""
-        text = ""
         number = 0
 
         # 各種コマンド
@@ -104,9 +103,7 @@ MESSAGETEXT
           return nil
         end
 
-        text = "#{tableName}(#{number}):#{result}"
-
-        return text
+        return "#{tableName}(#{number}):#{result}"
       end
 
       def checkRoll(command)

@@ -84,7 +84,6 @@ INFO_MESSAGE_TEXT
         debug("isBattleMode", isBattleMode)
 
         diff = 6
-        total_n = 0
 
         _, dice_str, n1, cnt_max, n_max = roll(dice_n, 10, 1)
 
@@ -136,7 +135,6 @@ INFO_MESSAGE_TEXT
         debug("getHitLocation dice", dice)
         return output if dice <= 5
 
-        output = ''
         table = [
           '방어측 임의',
           '다리（없으면 공격측 임의）',

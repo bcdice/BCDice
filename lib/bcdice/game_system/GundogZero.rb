@@ -35,7 +35,6 @@ INFO_MESSAGE_TEXT
         table = []
         ttype = ""
         type = ""
-        dice = 0
         mod = 0
 
         # ダメージペナルティ表

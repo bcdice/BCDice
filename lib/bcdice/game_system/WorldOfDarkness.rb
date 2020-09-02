@@ -34,7 +34,6 @@ INFO_MESSAGE_TEXT
       end
 
       def rollDiceCommand(command)
-        dice_pool = 1
         diff = 6
         auto_success = 0
 

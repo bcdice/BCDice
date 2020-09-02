@@ -140,8 +140,6 @@ INFO_MESSAGE_TEXT
           1, 2, 4, 5, 6, 6, 7, 7, 8, 8,  # 91-00
         ]
 
-        output = "1"
-
         unless /WH([HABTLW])(\d+)/ =~ string
           return '1'
         end

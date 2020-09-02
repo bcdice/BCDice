@@ -6,10 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 75
-Lint/UselessAssignment:
-  Enabled: false
-
 # Offense count: 359
 # Configuration parameters: IgnoredMethods.
 Metrics/AbcSize:

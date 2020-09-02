@@ -122,15 +122,15 @@ INFO_MESSAGE_TEXT
             output = mk_advanced_rare_item_table(total_n)
           when /^CIR/i
             type = 'コモンアイテムランダム決定'
-            total_n, dummy = roll(1, 4)
+            total_n, = roll(1, 4)
             output = mk_common_item_random_table(total_n)
           when /^RWIR/i
             type = 'レア武具アイテムランダム決定'
-            total_n, dummy = roll(1, 6)
+            total_n, = roll(1, 6)
             output = mk_rare_weapon_item_random_table(total_n)
           when /^RUIR/i
             type = 'レア一般アイテムランダム決定'
-            total_n, dummy = roll(1, 6)
+            total_n, = roll(1, 6)
             output = mk_rare_usual_item_random_table(total_n)
 
           when /^DFT(\d*)/i
@@ -994,7 +994,6 @@ INFO_MESSAGE_TEXT
 
       # 新名前決定表
       def mk_new_name_table
-        output = '1'
         nick_table = '1'
         name_table = '1'
         # 新名前表

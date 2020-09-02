@@ -82,9 +82,6 @@ INFO_MESSAGE_TEXT
 
         signOfInequality = m[6] if m[6]
         diff = m[7].to_i if m[7]
-        dice_now = 0
-        dice_str = ""
-        total_n = 0
 
         _, dice_str, = roll(dice_c, 6, (sortType & 1))
         dice_num = dice_str.split(',').map(&:to_i)

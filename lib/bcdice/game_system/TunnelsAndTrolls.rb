@@ -151,7 +151,6 @@ INFO_MESSAGE_TEXT
         dice_str = ""
         isFirstLoop = true
         n_max = 0
-        total_n = 0
         bonus2 = 0
 
         debug('isHyperBerserk', isHyperBerserk)

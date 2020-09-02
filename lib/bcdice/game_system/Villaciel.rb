@@ -119,6 +119,8 @@ MESSAGETEXT
 
         difficulty = match_data[3].to_i
         output += achievement >= difficulty ? SUCCESS_STR : FAILURE_STR
+
+        return output
       end
 
       SKILL_CHART = %w(左に3マス、上に3マス動かす
@@ -132,15 +134,20 @@ MESSAGETEXT
         num_dices = command.match(/(\d+)VF/)[1].to_i
         achievement, output = derive_achievement(num_dices, command)
 
-        output += ' ＞ '
-        output += case achievement
-                  when 0 then SKILL_CHART[0]
-                  when 1 then SKILL_CHART[1]
-                  when 2 then SKILL_CHART[2]
-                  when 3, 4 then SKILL_CHART[3]
-                  when 5..8 then SKILL_CHART[4]
-                  else SKILL_CHART[5]
-                  end
+        chart_index =
+          case achievement
+          when 0..2
+            achievement
+          when 3, 4
+            3
+          when 5..8
+            4
+          else
+            5
+          end
+
+        skill = SKILL_CHART[chart_index]
+        return "#{output} ＞ #{skill}"
       end
 
       def resolute_difficult_action(num_dices, least_success_roll, command)
@@ -169,7 +176,7 @@ MESSAGETEXT
         return output unless is_successful
 
         roll_result, = roll(1, D6)
-        output += " ＞ (1D6) ＞ [#{roll_result}] ＞ アイテムを#{roll_result}個獲得"
+        "#{output} ＞ (1D6) ＞ [#{roll_result}] ＞ アイテムを#{roll_result}個獲得"
       end
 
       def resolute_cutting_gem_action(command)
@@ -493,11 +500,11 @@ MESSAGETEXT
                                ['ミソレグア', 'トロアベリア', 'サイングア', 'アロアベリー', 'トロアベリア', 'トロアベリア'].freeze].freeze].freeze
 
       def use_villaciel_edible_plant_chart(chart_id, output)
-        output += use_6x6_chart(EDIBLE_PLANT_CHARTS[chart_id - 1], "可食植物表#{chart_id}（ヴィラシエル）")
+        output + use_6x6_chart(EDIBLE_PLANT_CHARTS[chart_id - 1], "可食植物表#{chart_id}（ヴィラシエル）")
       end
 
       def use_armesear_edible_plant_chart(chart_id, output)
-        output += use_6x6_chart(EDIBLE_PLANT2_CHARTS[chart_id - 1], "可食植物表#{chart_id}（アルメサール）")
+        output + use_6x6_chart(EDIBLE_PLANT2_CHARTS[chart_id - 1], "可食植物表#{chart_id}（アルメサール）")
       end
 
       def use_edible_plant_chart(command)

@@ -215,11 +215,9 @@ INFO_MESSAGE_TEXT
       end
 
       def get_kosei_table
-        output1 = ''
+        output1, total_n1 = get_bunya_table
         output2 = ''
         total_n2 = ""
-
-        output1, total_n1 = get_bunya_table
 
         case total_n1
         when 1

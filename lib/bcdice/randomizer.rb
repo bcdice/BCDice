@@ -21,7 +21,6 @@ module BCDice
       cnt_max = 0
       n_max = 0
       cnt_suc = 0
-      d9_on = false
       rerollCount = 0
 
       unless (dice_cnt <= DICE_MAXCNT) && (dice_max <= DICE_MAXNUM)

@@ -52,8 +52,6 @@ MESSAGETEXT
           return rollHit(command, critical, target, modify)
         end
 
-        critical = 0
-
         if /([\d]*)DM([\d]*)([\+\-\d]*)/ =~ command
           diceCount = Regexp.last_match(1).to_i
           critical = Regexp.last_match(2).to_i

@@ -97,7 +97,6 @@ INFO_MESSAGE_TEXT
         debug("isBattleMode", isBattleMode)
 
         diff = 6
-        total_n = 0
 
         _, dice_str, _n1, _cnt_max, n_max = roll(dice_n, 10, 1)
 
@@ -134,7 +133,6 @@ INFO_MESSAGE_TEXT
         debug("getHitLocation dice", dice)
         return output if dice <= 5
 
-        output = ''
         table = [
           '防御側任意',
           '脚（なければ攻撃側任意）',

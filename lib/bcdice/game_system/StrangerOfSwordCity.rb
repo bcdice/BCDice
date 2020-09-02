@@ -37,8 +37,6 @@ INFO_MESSAGE_TEXT
 
         command = command.upcase
 
-        result = ''
-
         result = checkRoll(command)
         return result unless result.empty?
 
