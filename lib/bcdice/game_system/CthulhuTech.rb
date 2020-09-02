@@ -145,8 +145,8 @@ INFO_MESSAGE_TEXT
             # TODO: Ruby 2.2以降では group_by(&:itself) が使える
             group_by { |i| i }.
             # TODO: Ruby 2.4以降では value_group.sum が使える
-            map { |_, value_group| value_group.reduce(0, &:+) }.
-            max
+            map { |_, value_group| value_group.reduce(0, &:+) }
+                     .max
         end
 
         # ストレートの和の最大値を求める

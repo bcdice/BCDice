@@ -77,9 +77,9 @@ HELP_MESSAGE
         # 実行時にそれが2D6に置換されるようになる。
         def set_aliases_for_srs_roll(*aliases)
           aliases_upcase = aliases.map(&:upcase)
-          aliases_part = aliases_upcase.
-                         map { |a| Regexp.escape(a) }.
-                         join('|')
+          aliases_part = aliases_upcase
+                         .map { |a| Regexp.escape(a) }
+                         .join('|')
 
           @aliases_re_for_srs_roll_with_target_value = Regexp.new(
             '\A' \
@@ -119,17 +119,17 @@ HELP_MESSAGE
         #   必要。
         def prepare_help_msg_for_aliases_for_srs_roll(aliases)
           @help_msg_for_aliases_for_srs_roll_with_target_value =
-            aliases.
-            map { |a| "　　例) #{a}+2>=10　　　　 2d6+2>=10と同じ（#{a}が2D6のショートカットコマンド）\n" }.
-            join()
+            aliases
+            .map { |a| "　　例) #{a}+2>=10　　　　 2d6+2>=10と同じ（#{a}が2D6のショートカットコマンド）\n" }
+            .join()
 
           @help_msg_for_aliases_for_srs_roll_without_target_value =
-            aliases.
-            map do |a|
+            aliases
+            .map do |a|
               "　　例) #{a}　　　　　 2d6[]と同じ（#{a}が2D6のショートカットコマンド）\n" \
               "　　例) #{a}+2[12,4]　 2d6+2[12,4]と同じ（#{a}が2D6のショートカットコマンド）\n"
-            end.
-            join()
+            end
+            .join()
 
           return self
         end
@@ -149,9 +149,9 @@ HELP_MESSAGE
         # クラスが継承されたときに行う処理
         # @return [void]
         def inherited(subclass)
-          subclass.
-            extend(ClassMethods).
-            clear_aliases_for_srs_roll
+          subclass
+            .extend(ClassMethods)
+            .clear_aliases_for_srs_roll
         end
 
         # ダイスボットの説明文を返す

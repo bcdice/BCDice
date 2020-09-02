@@ -178,9 +178,9 @@ module BCDice
         assert_max_sum_is_covered(sorted_items)
         assert_no_gap_or_overlap_in_ranges(sorted_items)
 
-        @items = sorted_items.
-                 map { |range, content| Item.new(range, content.freeze).freeze }.
-                 freeze
+        @items = sorted_items
+                 .map { |range, content| Item.new(range, content.freeze).freeze }
+                 .freeze
 
         self
       end

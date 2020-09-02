@@ -40,11 +40,11 @@ module BCDice
         # TODO: Ruby 2.4以降では Regexp#match? を使うこと
         return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match(string)
 
-        string.
-          gsub(/\[(\d+)\]/) { "c[#{Regexp.last_match(1)}]" }.
-          gsub(/@(\d+)/) { "c[#{Regexp.last_match(1)}]" }.
-          gsub(/\$([-+]?\d+)/) { "m[#{Regexp.last_match(1)}]" }.
-          gsub(/r([-+]?\d+)/i) { "r[#{Regexp.last_match(1)}]" }
+        string
+          .gsub(/\[(\d+)\]/) { "c[#{Regexp.last_match(1)}]" }
+          .gsub(/@(\d+)/) { "c[#{Regexp.last_match(1)}]" }
+          .gsub(/\$([-+]?\d+)/) { "m[#{Regexp.last_match(1)}]" }
+          .gsub(/r([-+]?\d+)/i) { "r[#{Regexp.last_match(1)}]" }
       end
 
       def getRatingCommandStrings

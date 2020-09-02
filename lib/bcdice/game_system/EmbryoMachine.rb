@@ -34,15 +34,15 @@ INFO_MESSAGE_TEXT
       end
 
       def replace_text(string)
-        string.
-          gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))(\#(\d+))/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[#{Regexp.last_match(4)},#{Regexp.last_match(6)}]" }.
-          gsub(/EM(\d+)([\+\-][\+\-\d]+)(\#(\d+))/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[20,#{Regexp.last_match(4)}]" }.
-          gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[#{Regexp.last_match(4)},2]" }.
-          gsub(/EM(\d+)([\+\-][\+\-\d]+)/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[20,2]" }.
-          gsub(/EM(\d+)(@(\d+))(\#(\d+))/i) { "2R10>=#{Regexp.last_match(1)}[#{Regexp.last_match(3)},#{Regexp.last_match(5)}]" }.
-          gsub(/EM(\d+)(\#(\d+))/i) { "2R10>=#{Regexp.last_match(1)}[20,#{Regexp.last_match(3)}]" }.
-          gsub(/EM(\d+)(@(\d+))/i) { "2R10>=#{Regexp.last_match(1)}[#{Regexp.last_match(3)},2]" }.
-          gsub(/EM(\d+)/i) { "2R10>=#{Regexp.last_match(1)}[20,2]" }
+        string
+          .gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))(\#(\d+))/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[#{Regexp.last_match(4)},#{Regexp.last_match(6)}]" }
+          .gsub(/EM(\d+)([\+\-][\+\-\d]+)(\#(\d+))/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[20,#{Regexp.last_match(4)}]" }
+          .gsub(/EM(\d+)([\+\-][\+\-\d]+)(@(\d+))/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[#{Regexp.last_match(4)},2]" }
+          .gsub(/EM(\d+)([\+\-][\+\-\d]+)/i) { "2R10#{Regexp.last_match(2)}>=#{Regexp.last_match(1)}[20,2]" }
+          .gsub(/EM(\d+)(@(\d+))(\#(\d+))/i) { "2R10>=#{Regexp.last_match(1)}[#{Regexp.last_match(3)},#{Regexp.last_match(5)}]" }
+          .gsub(/EM(\d+)(\#(\d+))/i) { "2R10>=#{Regexp.last_match(1)}[20,#{Regexp.last_match(3)}]" }
+          .gsub(/EM(\d+)(@(\d+))/i) { "2R10>=#{Regexp.last_match(1)}[#{Regexp.last_match(3)},2]" }
+          .gsub(/EM(\d+)/i) { "2R10>=#{Regexp.last_match(1)}[20,2]" }
       end
 
       # ゲーム別成功度判定(nD10)

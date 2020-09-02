@@ -145,9 +145,9 @@ INFO_MESSAGE_TEXT
         # @return [String]
         def dice_str(value_groups, sum)
           value_groups_str =
-            value_groups.
-            map { |values| "[#{values.join(',')}]" }.
-            join
+            value_groups
+            .map { |values| "[#{values.join(',')}]" }
+            .join
 
           return "#{sum}#{value_groups_str}"
         end

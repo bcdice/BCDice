@@ -304,9 +304,9 @@ module BCDice
             # TODO: Ruby 2.4以降では Array#sum が使える
             total = dice_groups.flatten.reduce(0, &:+)
 
-            dice_str = dice_groups.
-                       map { |dice_list| "[#{dice_list.join(',')}]" }.
-                       join
+            dice_str = dice_groups
+                       .map { |dice_list| "[#{dice_list.join(',')}]" }
+                       .join
             @text = "#{total}#{dice_str}"
 
             return total
@@ -393,9 +393,9 @@ module BCDice
           # @return [Integer] 評価結果（出目の合計値）
           def eval(randomizer)
             sorted_values = randomizer.roll_once(@times, @sides).sort
-            total = @filter.
-                    apply[sorted_values, @n_filtering].
-                    reduce(0, &:+)
+            total = @filter
+                    .apply[sorted_values, @n_filtering]
+                    .reduce(0, &:+)
 
             @text = "#{total}[#{sorted_values.join(',')}]"
 

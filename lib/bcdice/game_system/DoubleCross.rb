@@ -177,9 +177,9 @@ INFO_MESSAGE_TEXT
         # クリティカルの発生数を返す
         # @return [Integer]
         def num_of_critical_occurrences
-          @values.
-            select { |value| critical?(value) }.
-            length
+          @values
+            .select { |value| critical?(value) }
+            .length
         end
 
         private
