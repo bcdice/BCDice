@@ -13,9 +13,9 @@ module BCDice
       SORT_KEY = 'ふあんたすむあとへんちやあ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-成功、失敗、決定的成功、決定的失敗の表示とクリティカル・ファンブル値計算の実装。
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        成功、失敗、決定的成功、決定的失敗の表示とクリティカル・ファンブル値計算の実装。
+      INFO_MESSAGE_TEXT
 
       def initialize
         super

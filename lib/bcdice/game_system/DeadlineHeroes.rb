@@ -15,22 +15,22 @@ module BCDice
       SORT_KEY = 'てつとらいんひいろおすRPG'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・行為判定（DLHx）
-　x：成功率
-　例）DLH80
-　クリティカル、ファンブルの自動的判定を行います。
-　「DLH50+20-30」のように加減算記述も可能。
-　成功率は上限100％、下限０％
-・デスチャート(DCxY)
-　x：チャートの種類。肉体：DCL、精神：DCS、環境：DCC
-　Y=マイナス値
-　例）DCL5：ライフが -5 の判定
-　　　DCS3：サニティーが -3 の判定
-　　　DCC0：クレジット 0 の判定
-・ヒーローネームチャート（HNC）
-・リアルネームチャート　日本（RNCJ）、海外（RNCO）
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・行為判定（DLHx）
+        　x：成功率
+        　例）DLH80
+        　クリティカル、ファンブルの自動的判定を行います。
+        　「DLH50+20-30」のように加減算記述も可能。
+        　成功率は上限100％、下限０％
+        ・デスチャート(DCxY)
+        　x：チャートの種類。肉体：DCL、精神：DCS、環境：DCC
+        　Y=マイナス値
+        　例）DCL5：ライフが -5 の判定
+        　　　DCS3：サニティーが -3 の判定
+        　　　DCC0：クレジット 0 の判定
+        ・ヒーローネームチャート（HNC）
+        ・リアルネームチャート　日本（RNCJ）、海外（RNCO）
+      INFO_MESSAGE_TEXT
 
       setPrefixes([
         'DLH\\d+([\\+\\-]\\d+)*',

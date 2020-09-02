@@ -13,10 +13,10 @@ module BCDice
       SORT_KEY = 'ろすとれこおと'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-※このダイスボットは部屋のシステム名表示用となります。
-D66を振った時、小さい目が十の位になります。
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ※このダイスボットは部屋のシステム名表示用となります。
+        D66を振った時、小さい目が十の位になります。
+      MESSAGETEXT
 
       def initialize
         super()

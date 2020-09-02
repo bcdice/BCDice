@@ -13,36 +13,36 @@ module BCDice
       SORT_KEY = 'たあくていすとらいふ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定
-スペシャル／ファンブル／成功／失敗を判定
-・各種表
-RTT	ランダム特技決定表
-ABRT アビリティ決定表
-DT ダメージ表
-FT 失敗表
-GJT 大成功表
-ITT 移動トラブル表
-NTT 任務トラブル表
-STT 襲撃トラブル表
-HTT 変身トラブル表
-DET ドライブイベント表
-BET ブレイクイベント表
-CT キャンプ表
-KZT 関係属性表
-IA イケメンアクション決定表
- IAA 遠距離
- IAB 移動
- IAC 近距離
- IAD 善人
- IAE 悪人
- IAF 幼い
- IAG バカ
- IAH 渋い
- IAI 賢い
- IAJ 超自然
-・D66ダイスあり
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定
+        スペシャル／ファンブル／成功／失敗を判定
+        ・各種表
+        RTT	ランダム特技決定表
+        ABRT アビリティ決定表
+        DT ダメージ表
+        FT 失敗表
+        GJT 大成功表
+        ITT 移動トラブル表
+        NTT 任務トラブル表
+        STT 襲撃トラブル表
+        HTT 変身トラブル表
+        DET ドライブイベント表
+        BET ブレイクイベント表
+        CT キャンプ表
+        KZT 関係属性表
+        IA イケメンアクション決定表
+         IAA 遠距離
+         IAB 移動
+         IAC 近距離
+         IAD 善人
+         IAE 悪人
+         IAF 幼い
+         IAG バカ
+         IAH 渋い
+         IAI 賢い
+         IAJ 超自然
+        ・D66ダイスあり
+      INFO_MESSAGE_TEXT
 
       def initialize
         super

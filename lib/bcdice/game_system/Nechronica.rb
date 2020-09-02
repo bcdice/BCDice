@@ -15,19 +15,19 @@ module BCDice
       SORT_KEY = 'ねくろにか'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定　(nNC+m)
-　ダイス数n、修正値mで判定ロールを行います。
-　ダイス数が2以上の時のパーツ破損数も表示します。
-・攻撃判定　(nNA+m)
-　ダイス数n、修正値mで攻撃判定ロールを行います。
-　命中部位とダイス数が2以上の時のパーツ破損数も表示します。
-
-表
-・姉妹への未練表 nm
-・中立者への未練表 nmn
-・敵への未練表 nme
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定　(nNC+m)
+        　ダイス数n、修正値mで判定ロールを行います。
+        　ダイス数が2以上の時のパーツ破損数も表示します。
+        ・攻撃判定　(nNA+m)
+        　ダイス数n、修正値mで攻撃判定ロールを行います。
+        　命中部位とダイス数が2以上の時のパーツ破損数も表示します。
+        
+        表
+        ・姉妹への未練表 nm
+        ・中立者への未練表 nmn
+        ・敵への未練表 nme
+      INFO_MESSAGE_TEXT
 
       def initialize
         super

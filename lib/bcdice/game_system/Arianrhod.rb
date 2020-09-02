@@ -13,10 +13,10 @@ module BCDice
       SORT_KEY = 'ありあんろつとRPG'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・クリティカル、ファンブルの自動判定を行います。(クリティカル時の追加ダメージも表示されます)
-・D66ダイスあり
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・クリティカル、ファンブルの自動判定を行います。(クリティカル時の追加ダメージも表示されます)
+        ・D66ダイスあり
+      INFO_MESSAGE_TEXT
 
       def initialize
         super

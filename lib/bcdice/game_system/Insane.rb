@@ -13,37 +13,37 @@ module BCDice
       SORT_KEY = 'いんせいん'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定
-スペシャル／ファンブル／成功／失敗を判定
-・各種表
-シーン表　　　ST
-　本当は怖い現代日本シーン表 HJST／狂騒の二〇年代シーン表 MTST
-　暗黒のヴィクトリアシーン表 DVST
-形容表　　　　DT
-　本体表 BT／部位表 PT
-感情表　　　　　　FT
-職業表　　　　　　JT
-バッドエンド表　　BET
-ランダム特技決定表　RTT
-指定特技(暴力)表　　(TVT)
-指定特技(情動)表　　(TET)
-指定特技(知覚)表　　(TPT)
-指定特技(技術)表　　(TST)
-指定特技(知識)表　　(TKT)
-指定特技(怪異)表　　(TMT)
-会話ホラースケープ表(CHT)
-街中ホラースケープ表(VHT)
-不意訪問ホラースケープ表(IHT)
-廃墟遭遇ホラースケープ表(RHT)
-野外遭遇ホラースケープ表(MHT)
-情報潜在ホラースケープ表(LHT)
-遭遇表　都市　(ECT)　山林　(EMT)　海辺　(EAT)/反応表　RET
-残業ホラースケープ表　OHT/残業電話表　OPT/残業シーン表　OWT
-社名決定表1　CNT1/社名決定表2　CNT2/社名決定表3　CNT3
-暫定整理番号作成表　IRN
-・D66ダイスあり
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定
+        スペシャル／ファンブル／成功／失敗を判定
+        ・各種表
+        シーン表　　　ST
+        　本当は怖い現代日本シーン表 HJST／狂騒の二〇年代シーン表 MTST
+        　暗黒のヴィクトリアシーン表 DVST
+        形容表　　　　DT
+        　本体表 BT／部位表 PT
+        感情表　　　　　　FT
+        職業表　　　　　　JT
+        バッドエンド表　　BET
+        ランダム特技決定表　RTT
+        指定特技(暴力)表　　(TVT)
+        指定特技(情動)表　　(TET)
+        指定特技(知覚)表　　(TPT)
+        指定特技(技術)表　　(TST)
+        指定特技(知識)表　　(TKT)
+        指定特技(怪異)表　　(TMT)
+        会話ホラースケープ表(CHT)
+        街中ホラースケープ表(VHT)
+        不意訪問ホラースケープ表(IHT)
+        廃墟遭遇ホラースケープ表(RHT)
+        野外遭遇ホラースケープ表(MHT)
+        情報潜在ホラースケープ表(LHT)
+        遭遇表　都市　(ECT)　山林　(EMT)　海辺　(EAT)/反応表　RET
+        残業ホラースケープ表　OHT/残業電話表　OPT/残業シーン表　OWT
+        社名決定表1　CNT1/社名決定表2　CNT2/社名決定表3　CNT3
+        暫定整理番号作成表　IRN
+        ・D66ダイスあり
+      INFO_MESSAGE_TEXT
 
       setPrefixes([
         'ST', 'HJST', 'MTST', 'DVST', 'DT', 'BT', 'PT', 'FT', 'JT', 'BET', 'RTT', 'TVT', 'TET', 'TPT', 'TST', 'TKT', 'TMT',

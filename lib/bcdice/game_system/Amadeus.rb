@@ -13,29 +13,29 @@ module BCDice
       SORT_KEY = 'あまてうす'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定(Rx±y@z>=t)
-　能力値のダイスごとに成功・失敗の判定を行います。
-　x：能力ランク(S,A～D)　y：修正値（省略可）
-　z：スペシャル最低値（省略：6）　t：目標値（省略：4）
-　　例） RA　RB-1　RC>=5　RD+2　RS-1@5>=6
-　出力書式は
-　　(達成値)_(判定結果)[(出目)(対応するインガ)]
-　C,Dランクでは対応するインガは出力されません。
-　　出力例)　2_ファンブル！[1黒] / 3_失敗[3青]
-・各種表
-　境遇表 ECT／関係表 RT／親心表 PRT／戦場表 BST／休憩表 BT／
-　ファンブル表 FT／致命傷表 FWT／戦果表 BRT／ランダムアイテム表 RIT／
-　損傷表 WT／悪夢表 NMT／目標表 TGT／制約表 CST／
-　ランダムギフト表 RGT／決戦戦果表 FBT／
-　店内雰囲気表 SAT／特殊メニュー表 SMT
-・試練表（～VT）
-　ギリシャ神群 GCVT／ヤマト神群 YCVT／エジプト神群 ECVT／
-　クトゥルフ神群 CCVT／北欧神群 NCVT／中華神群 CHVT／
-  ラストクロニクル神群 LCVT／ケルト神群 KCVT／ダンジョン DGVT／日常 DAVT
-・挑戦テーマ表（～CT）
-　武勇 PRCT／技術 TCCT／頭脳 INCT／霊力 PSCT／愛 LVCT／日常 DACT
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定(Rx±y@z>=t)
+        　能力値のダイスごとに成功・失敗の判定を行います。
+        　x：能力ランク(S,A～D)　y：修正値（省略可）
+        　z：スペシャル最低値（省略：6）　t：目標値（省略：4）
+        　　例） RA　RB-1　RC>=5　RD+2　RS-1@5>=6
+        　出力書式は
+        　　(達成値)_(判定結果)[(出目)(対応するインガ)]
+        　C,Dランクでは対応するインガは出力されません。
+        　　出力例)　2_ファンブル！[1黒] / 3_失敗[3青]
+        ・各種表
+        　境遇表 ECT／関係表 RT／親心表 PRT／戦場表 BST／休憩表 BT／
+        　ファンブル表 FT／致命傷表 FWT／戦果表 BRT／ランダムアイテム表 RIT／
+        　損傷表 WT／悪夢表 NMT／目標表 TGT／制約表 CST／
+        　ランダムギフト表 RGT／決戦戦果表 FBT／
+        　店内雰囲気表 SAT／特殊メニュー表 SMT
+        ・試練表（～VT）
+        　ギリシャ神群 GCVT／ヤマト神群 YCVT／エジプト神群 ECVT／
+        　クトゥルフ神群 CCVT／北欧神群 NCVT／中華神群 CHVT／
+          ラストクロニクル神群 LCVT／ケルト神群 KCVT／ダンジョン DGVT／日常 DAVT
+        ・挑戦テーマ表（～CT）
+        　武勇 PRCT／技術 TCCT／頭脳 INCT／霊力 PSCT／愛 LVCT／日常 DACT
+      INFO_MESSAGE_TEXT
 
       def initialize
         super

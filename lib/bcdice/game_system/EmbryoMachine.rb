@@ -13,16 +13,16 @@ module BCDice
       SORT_KEY = 'えむふりおましんRPG'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定ロール(EMt+m@c#f)
-　目標値t、修正値m、クリティカル値c(省略時は20)、ファンブル値f(省略時は2)で攻撃判定を行います。
-　命中した場合は命中レベルと命中部位も自動出力します。
-　Rコマンドに読み替えされます。
-・各種表
-　・命中部位表　HLT
-　・白兵攻撃ファンブル表　MFT
-　・射撃攻撃ファンブル表　SFT
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定ロール(EMt+m@c#f)
+        　目標値t、修正値m、クリティカル値c(省略時は20)、ファンブル値f(省略時は2)で攻撃判定を行います。
+        　命中した場合は命中レベルと命中部位も自動出力します。
+        　Rコマンドに読み替えされます。
+        ・各種表
+        　・命中部位表　HLT
+        　・白兵攻撃ファンブル表　MFT
+        　・射撃攻撃ファンブル表　SFT
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['EM\d+.*', 'HLT', 'MFT', 'SFT', '2R10.*'])
 

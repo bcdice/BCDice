@@ -13,13 +13,13 @@ module BCDice
       SORT_KEY = 'りゆうたま'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定
-　Rx,y>=t（x,y：使用する能力値、t：目標値）
-　1ゾロ、クリティカルも含めて判定結果を表示します
-　能力値１つでの判定は Rx>=t で行えます
-例）R8,6>=13
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定
+        　Rx,y>=t（x,y：使用する能力値、t：目標値）
+        　1ゾロ、クリティカルも含めて判定結果を表示します
+        　能力値１つでの判定は Rx>=t で行えます
+        例）R8,6>=13
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['R\d+.*'])
 

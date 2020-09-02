@@ -13,13 +13,13 @@ module BCDice
       SORT_KEY = 'はあんますたあ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-・判定
-　1D100<=XX の判定時に致命的失敗・決定的成功を判定
-・ショック判定（SHKx）
-　例）SHK13,3
-・人型用　中段命中部位表 (SLH)／上段命中部位 (SLHU)／上段命中部位 (SLHD)
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ・判定
+        　1D100<=XX の判定時に致命的失敗・決定的成功を判定
+        ・ショック判定（SHKx）
+        　例）SHK13,3
+        ・人型用　中段命中部位表 (SLH)／上段命中部位 (SLHU)／上段命中部位 (SLHD)
+      MESSAGETEXT
 
       setPrefixes(['SHK\d+.*', 'SLH', 'SLHU', 'SLHD'])
 

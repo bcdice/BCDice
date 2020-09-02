@@ -13,10 +13,10 @@ module BCDice
       SORT_KEY = 'ないとめあはんたあていいふ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-加算ロール時に６の個数をカウントして、その４倍を自動的に加算します。
-(出目はそのまま表示で合計値が6-10の読み替えになります)
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        加算ロール時に６の個数をカウントして、その４倍を自動的に加算します。
+        (出目はそのまま表示で合計値が6-10の読み替えになります)
+      INFO_MESSAGE_TEXT
 
       def initialize
         super

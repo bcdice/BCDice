@@ -13,9 +13,9 @@ module BCDice
       SORT_KEY = 'るうんくえすと'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-クリティカル、エフェクティブ(効果的成功)、ファンブルの自動判定を行います。
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        クリティカル、エフェクティブ(効果的成功)、ファンブルの自動判定を行います。
+      INFO_MESSAGE_TEXT
 
       # ゲーム別成功度判定(1d100)
       def check_1D100(total, _dice_total, cmp_op, target)

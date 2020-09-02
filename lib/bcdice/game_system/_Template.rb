@@ -16,10 +16,10 @@ module BCDice
       SORT_KEY = 'けえむしすてむめい'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-ヘルプメッセージ
-ダイスボットの使い方をここに記述します。
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ヘルプメッセージ
+        ダイスボットの使い方をここに記述します。
+      MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
       setPrefixes([])

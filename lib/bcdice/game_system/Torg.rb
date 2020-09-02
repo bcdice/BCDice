@@ -13,20 +13,20 @@ module BCDice
       SORT_KEY = 'とおく'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定　(TGm)
-　TORG専用の判定コマンドです。
-　"TG(技能基本値)"でロールします。Rコマンドに読替されます。
-　振り足しを自動で行い、20の出目が出たときには技能無し値も並記します。
-・各種表　"(表コマンド)(数値)"で振ります。
-　・一般結果表 成功度出力「RTx or RESULTx」
-　・威圧/威嚇 対人行為結果表「ITx or INTIMIDATEx or TESTx」
-　・挑発/トリック 対人行為結果表「TTx or TAUNTx or TRICKx or CTx」
-　・間合い 対人行為結果表「MTx or MANEUVERx」
-　・オーズ（一般人）ダメージ　「ODTx or ORDSx or ODAMAGEx」
-　・ポシビリティー能力者ダメージ「DTx or DAMAGEx」
-　・ボーナス表「BTx+y or BONUSx+y or TOTALx+y」 xは数値, yは技能基本値
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定　(TGm)
+        　TORG専用の判定コマンドです。
+        　"TG(技能基本値)"でロールします。Rコマンドに読替されます。
+        　振り足しを自動で行い、20の出目が出たときには技能無し値も並記します。
+        ・各種表　"(表コマンド)(数値)"で振ります。
+        　・一般結果表 成功度出力「RTx or RESULTx」
+        　・威圧/威嚇 対人行為結果表「ITx or INTIMIDATEx or TESTx」
+        　・挑発/トリック 対人行為結果表「TTx or TAUNTx or TRICKx or CTx」
+        　・間合い 対人行為結果表「MTx or MANEUVERx」
+        　・オーズ（一般人）ダメージ　「ODTx or ORDSx or ODAMAGEx」
+        　・ポシビリティー能力者ダメージ「DTx or DAMAGEx」
+        　・ボーナス表「BTx+y or BONUSx+y or TOTALx+y」 xは数値, yは技能基本値
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['TG.*', '1R20.*', 'RT.*', 'Result.*', 'IT.*', 'Initimidate.*', 'TT.*', 'Taunt.*', 'Trick.*', 'CT.*', 'MT.*', 'Maneuver.*', 'ODT.*', 'ords.*', 'odamage.*', 'DT.*', 'damage.*', 'BT.*', 'bonus.*', 'total.*'])
 

@@ -13,17 +13,17 @@ module BCDice
       SORT_KEY = 'かあてんおおたあ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・基本判定
-　GOx/y@z　x：成功率、y：連続攻撃回数（省略可）、z：クリティカル値（省略可）
-　（連続攻撃では1回の判定のみが実施されます）
-　例）GO55　GO100/2　GO70@10　GO155/3@44
-・負傷表
-　DCxxy
-　xx：属性（切断：SL，銃弾：BL，衝撃：IM，灼熱：BR，冷却：RF，電撃：EL）
-　y：ダメージ
-　例）DCSL7　DCEL22
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・基本判定
+        　GOx/y@z　x：成功率、y：連続攻撃回数（省略可）、z：クリティカル値（省略可）
+        　（連続攻撃では1回の判定のみが実施されます）
+        　例）GO55　GO100/2　GO70@10　GO155/3@44
+        ・負傷表
+        　DCxxy
+        　xx：属性（切断：SL，銃弾：BL，衝撃：IM，灼熱：BR，冷却：RF，電撃：EL）
+        　y：ダメージ
+        　例）DCSL7　DCEL22
+      INFO_MESSAGE_TEXT
 
       setPrefixes([
         'GO(\-?\d+)(\/\d+)?(@\d+)?',

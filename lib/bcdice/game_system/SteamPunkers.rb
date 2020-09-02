@@ -7,24 +7,24 @@ module BCDice
       NAME = 'スチームパンカーズ'.freeze
       SORT_KEY = 'すちいむはんかあす'.freeze
 
-      HELP_MESSAGE = <<MESSAGETEXT.freeze
-・判定コマンド (SPn)
-  SP(判定ダイス数)>=(目標値)
-  SP4>=3のように入力し、5が出たらヒット数1，6が出たらヒット数2として成功数を数えます。
-  ≪スチームパンク！≫による振り直しのため、出力には失敗ダイス数を表示します。
-  目標値は省略可能です。
-  例：(SP4>=3) ＞ [3,4,1,6] ＞ 成功数:2, 失敗数:3 ＞ 失敗
-  例：(SP4) ＞ [3,4,1,6] ＞ 成功数:2, 失敗数:3
-・表
-  ・プロフ(Profile)：年齢表 PAT, 性別表 PST, 国籍表 PCT
-  ・名前表(Name)：イギリス NIT, アメリカ NAT, フランス NFT, ドイツ NGT, ソビエト NST, 日本表 NJT
-  ・過去表(Past)：トゥルース PTT, ガーディアン PGT, ノーブル PNT, デヴォート PDT, エセティック PET, チャレンジ PCT
-  ・経緯表(Background)：ギガントアームズ BGT, アーマードリム BAT, エッジモービル BET, クロノウェポン BCT, スパイテック BST, スチームウェア BWT
-  ・特徴表(Feature)：特徴表S FST, 特徴表P FPT
-  ・関係性表(Relationship)：関係性表S RST, 関係性表P RPT
-  ・感情表(Emotion)：感情表S EST, 感情表P EPT
-  ・その他(Other)；災厄表 ODT, 場面表 OST, 交流表 OIT, 激憤表 OFT
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT.freeze
+        ・判定コマンド (SPn)
+          SP(判定ダイス数)>=(目標値)
+          SP4>=3のように入力し、5が出たらヒット数1，6が出たらヒット数2として成功数を数えます。
+          ≪スチームパンク！≫による振り直しのため、出力には失敗ダイス数を表示します。
+          目標値は省略可能です。
+          例：(SP4>=3) ＞ [3,4,1,6] ＞ 成功数:2, 失敗数:3 ＞ 失敗
+          例：(SP4) ＞ [3,4,1,6] ＞ 成功数:2, 失敗数:3
+        ・表
+          ・プロフ(Profile)：年齢表 PAT, 性別表 PST, 国籍表 PCT
+          ・名前表(Name)：イギリス NIT, アメリカ NAT, フランス NFT, ドイツ NGT, ソビエト NST, 日本表 NJT
+          ・過去表(Past)：トゥルース PTT, ガーディアン PGT, ノーブル PNT, デヴォート PDT, エセティック PET, チャレンジ PCT
+          ・経緯表(Background)：ギガントアームズ BGT, アーマードリム BAT, エッジモービル BET, クロノウェポン BCT, スパイテック BST, スチームウェア BWT
+          ・特徴表(Feature)：特徴表S FST, 特徴表P FPT
+          ・関係性表(Relationship)：関係性表S RST, 関係性表P RPT
+          ・感情表(Emotion)：感情表S EST, 感情表P EPT
+          ・その他(Other)；災厄表 ODT, 場面表 OST, 交流表 OIT, 激憤表 OFT
+      MESSAGETEXT
 
       def rollDiceCommand(command)
         result = roll_tables(command, TABLES)

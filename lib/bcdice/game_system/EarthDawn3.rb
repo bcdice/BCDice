@@ -15,14 +15,14 @@ module BCDice
       SORT_KEY = 'ああすとおん3'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-ステップダイス　(xEn+k)
-ステップx、目標値n(省略可能）、カルマダイスk(D2～D20)でステップダイスをロールします。
-振り足しも自動。
-例）ステップ10：10E
-　　ステップ10、目標値8：10E8
-　　ステップ12、目標値8、カルマダイスD12：10E8+1D6
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ステップダイス　(xEn+k)
+        ステップx、目標値n(省略可能）、カルマダイスk(D2～D20)でステップダイスをロールします。
+        振り足しも自動。
+        例）ステップ10：10E
+        　　ステップ10、目標値8：10E8
+        　　ステップ12、目標値8、カルマダイスD12：10E8+1D6
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['\d+e.*'])
 

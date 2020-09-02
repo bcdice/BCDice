@@ -13,25 +13,25 @@ module BCDice
       SORT_KEY = 'しようしよてんらんかいTRPG'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-出来事表：
-・季節
-　SPRING  春／SUMMER  夏／AUTUMN  秋／WINTER  冬
-・時刻
-　MORNING  朝／NOON  昼／AFTERNOON  昼下がり／
-　TWILIGHT  黄昏／NIGHT  夜中／MIDNIGHT  夜更け
-・棲み処
-　NORBLE  貴族趣味／MARCHEN  メルヒェン／COLONIAL  コロニアル／
-　SHELF  本棚のある場所／LITTLE  小さな妹の部屋／
-　ELDER  素敵なお姉さまの部屋／ATERIEL  アトリエ／OPEN  集まれる場所／
-　HAUNTED  SIMPLE  侘び住まい
-・いろいろな場所
-　LARGE  広い場所／CORRIDOR  廊下／STAIRS  階段／
-　COSY  居心地のいい場所／TERRACE  テラス・ベランダ／
-　GARRET  屋根裏／KITCHEN  台所／BATH  浴室／REST  化粧室／
-　CELLER  地下倉庫／LUMBER  物置／GARDEN  庭園／WASTED  廃園／
-　RUIN  廃屋／SHORE  水のほとり
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        出来事表：
+        ・季節
+        　SPRING  春／SUMMER  夏／AUTUMN  秋／WINTER  冬
+        ・時刻
+        　MORNING  朝／NOON  昼／AFTERNOON  昼下がり／
+        　TWILIGHT  黄昏／NIGHT  夜中／MIDNIGHT  夜更け
+        ・棲み処
+        　NORBLE  貴族趣味／MARCHEN  メルヒェン／COLONIAL  コロニアル／
+        　SHELF  本棚のある場所／LITTLE  小さな妹の部屋／
+        　ELDER  素敵なお姉さまの部屋／ATERIEL  アトリエ／OPEN  集まれる場所／
+        　HAUNTED  SIMPLE  侘び住まい
+        ・いろいろな場所
+        　LARGE  広い場所／CORRIDOR  廊下／STAIRS  階段／
+        　COSY  居心地のいい場所／TERRACE  テラス・ベランダ／
+        　GARRET  屋根裏／KITCHEN  台所／BATH  浴室／REST  化粧室／
+        　CELLER  地下倉庫／LUMBER  物置／GARDEN  庭園／WASTED  廃園／
+        　RUIN  廃屋／SHORE  水のほとり
+      MESSAGETEXT
 
       setPrefixes(["SPRING", "SUMMER", "AUTUMN", "WINTER", "MORNING", "NOON", "AFTERNOON", "TWILIGHT", "NIGHT", "MIDNIGHT", "NORBLE", "MARCHEN", "COLONIAL", "SHELF", "LITTLE", "ELDER", "ATERIEL", "OPEN", "HAUNTED", "SIMPLE", "LARGE", "CORRIDOR", "STAIRS", "COSY", "TERRACE", "GARRET", "KITCHEN", "BATH", "REST", "CELLER", "LUMBER", "GARDEN", "WASTED", "RUIN", "SHORE"])
 

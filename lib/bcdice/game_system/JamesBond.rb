@@ -13,11 +13,11 @@ module BCDice
       SORT_KEY = 'しええむすほんと007'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・1D100の目標値判定で、効果レーティングを1～4で自動判定。
-　例）1D100<=50
-　　　JamesBond : (1D100<=50) → 20 → 効果3（良）
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・1D100の目標値判定で、効果レーティングを1～4で自動判定。
+        　例）1D100<=50
+        　　　JamesBond : (1D100<=50) → 20 → 効果3（良）
+      INFO_MESSAGE_TEXT
 
       def check_1D100(total, _dice_total, cmp_op, target) # ゲーム別成功度判定(1d100)
         return '' if target == '?'

@@ -13,13 +13,13 @@ module BCDice
       SORT_KEY = 'けんのまちのいほうしんTRPG'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定　xSR or xSRy or xSR+y or xSR-y or xSR+y>=z
-　x=ダイス数、y=修正値(省略可、±省略時は＋として扱う)、z=難易度(省略可)
-　判定時はクリティカル、ファンブルの自動判定を行います。
-・通常のnD6ではクリティカル、ファンブルの自動判定は行いません。
-・D66ダイスあり
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定　xSR or xSRy or xSR+y or xSR-y or xSR+y>=z
+        　x=ダイス数、y=修正値(省略可、±省略時は＋として扱う)、z=難易度(省略可)
+        　判定時はクリティカル、ファンブルの自動判定を行います。
+        ・通常のnD6ではクリティカル、ファンブルの自動判定は行いません。
+        ・D66ダイスあり
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['\d+SR.*'])
 

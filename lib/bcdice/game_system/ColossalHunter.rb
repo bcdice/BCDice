@@ -13,22 +13,22 @@ module BCDice
       SORT_KEY = 'ころつさるはんたあ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-・判定（CH±x>=y)
-　3D6の判定。クリティカル、ファンブルの自動判定を行います。
-　x：修正値。省略可能。y：目標値。省略可能。
-　例） CH　CH+1　CH+2>=10
-・BIG-6表(B6T)
-・覚醒表(AWT)
-・現状表(CST)
-・ハンターマーク表(HMT)
-・特徴表(SPT)
-・プレシャス表(PRT)
-・専門能力表(EXT)
-・コロッサル行動表(CAT)
-・NPC作成表(CNP)
-・D66ダイスあり
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ・判定（CH±x>=y)
+        　3D6の判定。クリティカル、ファンブルの自動判定を行います。
+        　x：修正値。省略可能。y：目標値。省略可能。
+        　例） CH　CH+1　CH+2>=10
+        ・BIG-6表(B6T)
+        ・覚醒表(AWT)
+        ・現状表(CST)
+        ・ハンターマーク表(HMT)
+        ・特徴表(SPT)
+        ・プレシャス表(PRT)
+        ・専門能力表(EXT)
+        ・コロッサル行動表(CAT)
+        ・NPC作成表(CNP)
+        ・D66ダイスあり
+      MESSAGETEXT
 
       def initialize
         super

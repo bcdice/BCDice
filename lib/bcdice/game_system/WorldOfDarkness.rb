@@ -13,15 +13,15 @@ module BCDice
       SORT_KEY = 'わあるとおふたあくねす'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定コマンド(xSTn+y or xSTSn+y or xSTAn+y)
-　(ダイス個数)ST(難易度)+(自動成功)
-　(ダイス個数)STS(難易度)+(自動成功) ※出目10で振り足し
-　(ダイス個数)STA(難易度)+(自動成功) ※出目10は2成功 [20thルール]
-
-　難易度=省略時6
-　自動成功=省略時0
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定コマンド(xSTn+y or xSTSn+y or xSTAn+y)
+        　(ダイス個数)ST(難易度)+(自動成功)
+        　(ダイス個数)STS(難易度)+(自動成功) ※出目10で振り足し
+        　(ダイス個数)STA(難易度)+(自動成功) ※出目10は2成功 [20thルール]
+        
+        　難易度=省略時6
+        　自動成功=省略時0
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['\d+ST.*'])
 

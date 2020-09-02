@@ -16,31 +16,31 @@ module BCDice
       SORT_KEY = 'やんきいあんとよくそとおす'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定
-スペシャル／ファンブル／成功／失敗を判定
-・各種表
-※うろつき～決闘フェイズ
-FT	ファンブル表
-WT	変調表
-RTT	ランダム特技決定表
-KKT	関係表
-DBRT	他愛のない会話表
-TKT	戦う理由表
-
-※武勇伝フェイズ
-BUDT	武勇伝表
-GUDT	ガイヤンキー武勇伝表
-FTNT	二つ名決定表
-DAIT	第一印象表
-TKKT	ツレ関係表
-
-※帰還フェイズ
-GSST	現実世界生活表
-GYST	ガイヤンキー生活表
-HPST	病院生活表
-・D66ダイスあり
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定
+        スペシャル／ファンブル／成功／失敗を判定
+        ・各種表
+        ※うろつき～決闘フェイズ
+        FT	ファンブル表
+        WT	変調表
+        RTT	ランダム特技決定表
+        KKT	関係表
+        DBRT	他愛のない会話表
+        TKT	戦う理由表
+        
+        ※武勇伝フェイズ
+        BUDT	武勇伝表
+        GUDT	ガイヤンキー武勇伝表
+        FTNT	二つ名決定表
+        DAIT	第一印象表
+        TKKT	ツレ関係表
+        
+        ※帰還フェイズ
+        GSST	現実世界生活表
+        GYST	ガイヤンキー生活表
+        HPST	病院生活表
+        ・D66ダイスあり
+      INFO_MESSAGE_TEXT
 
       def initialize
         super

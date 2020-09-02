@@ -20,16 +20,16 @@ module BCDice
       SORT_KEY = 'あにまあにむす'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-・行為判定(xAN<=y±z)
-　十面ダイスをx個振って判定します。達成値が算出されます(クリティカル発生時は2増加)。
-　x：振るダイスの数。魂魄値や攻撃値。
-　y：成功値。
-　z：成功値への補正。省略可能。
-　(例) 2AN<=3+1 5AN<=7
-・各種表
-　情報収集表　IGT/喪失表　LT
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ・行為判定(xAN<=y±z)
+        　十面ダイスをx個振って判定します。達成値が算出されます(クリティカル発生時は2増加)。
+        　x：振るダイスの数。魂魄値や攻撃値。
+        　y：成功値。
+        　z：成功値への補正。省略可能。
+        　(例) 2AN<=3+1 5AN<=7
+        ・各種表
+        　情報収集表　IGT/喪失表　LT
+      MESSAGETEXT
 
       def initialize
         super

@@ -13,11 +13,11 @@ module BCDice
       SORT_KEY = 'ついらくせかい'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定 CWn
-初期目標値n (必須)
-例・CW8
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定 CWn
+        初期目標値n (必須)
+        例・CW8
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['CW\d+'])
 

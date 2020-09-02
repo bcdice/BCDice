@@ -13,27 +13,27 @@ module BCDice
       SORT_KEY = '国際化:Chinese Traditional:克蘇魯神話'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定　CC(x)<=（目標値）
-　x：獎勵骰/懲罰骰：Bonus/Penalty Dice (2～－2)。沒有的話可以省略。
-　致命的失敗：Fumble／失敗：Failure／通常成功：Regular success／
-　困難成功：Hard success／極限成功：Extreme success／
-　決定性的成功：Critical success　自動判定。
-例）CC<=30　CC(2)<=50　CC(-1)<=75
-
-・組合判定　(CBR(x,y))
-　進行目標値 x 和 y 的判定。
-　例）CBR(50,20)
-
-・連射（Full Auto）判定　FAR(w,x,y,z)
-　w：彈數(1～100）、x：技能値（1～100）、y：故障率
-　z：獎勵、懲罰骰(-2～2)。可省略。
-　只計算命中數、貫穿數及剩餘彈藥，不計算傷害。
-例）FAR(25,70,98)　FAR(50,80,98,-1)
-
-・瘋狂表
-・實時型　Short／總結型　Longer
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定　CC(x)<=（目標値）
+        　x：獎勵骰/懲罰骰：Bonus/Penalty Dice (2～－2)。沒有的話可以省略。
+        　致命的失敗：Fumble／失敗：Failure／通常成功：Regular success／
+        　困難成功：Hard success／極限成功：Extreme success／
+        　決定性的成功：Critical success　自動判定。
+        例）CC<=30　CC(2)<=50　CC(-1)<=75
+        
+        ・組合判定　(CBR(x,y))
+        　進行目標値 x 和 y 的判定。
+        　例）CBR(50,20)
+        
+        ・連射（Full Auto）判定　FAR(w,x,y,z)
+        　w：彈數(1～100）、x：技能値（1～100）、y：故障率
+        　z：獎勵、懲罰骰(-2～2)。可省略。
+        　只計算命中數、貫穿數及剩餘彈藥，不計算傷害。
+        例）FAR(25,70,98)　FAR(50,80,98,-1)
+        
+        ・瘋狂表
+        ・實時型　Short／總結型　Longer
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*'])
 

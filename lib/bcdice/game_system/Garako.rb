@@ -17,24 +17,24 @@ module BCDice
       SORT_KEY = 'からことはかいのとう'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-・判定
-GR+n>=X：「+n」で判定値を指定、「X」で目標値を指定。
-・部位決定チャート：HIT
-・ダメージチャート：xDCy（CDC/EDC/FDC/ADC/LDC)
-　xは C：コックピット、E：エンジン、F：フレーム、A：アーム、L：レッグ
-　yはダメージ値
-各種表
-・個性表：IDI／動機決定表：MTV
-・名前表
-ピグマー族　　男：PNM　女：PNF　　エレメント族　男：ENM　女：ENF
-ノーマッド族　男：NNM　女：NNF　　ラット族　　　男：RNM　女：RNF
-ブレイン族　　１：BN1　２：BN2　　テンタクル族　１：TN1　２：TN2
-・ガラコ改造チャート表：GCC
-・武器改造チャート表：WCC
-・イベントチャート表：EVC
-・戦闘開始距離：BSD
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ・判定
+        GR+n>=X：「+n」で判定値を指定、「X」で目標値を指定。
+        ・部位決定チャート：HIT
+        ・ダメージチャート：xDCy（CDC/EDC/FDC/ADC/LDC)
+        　xは C：コックピット、E：エンジン、F：フレーム、A：アーム、L：レッグ
+        　yはダメージ値
+        各種表
+        ・個性表：IDI／動機決定表：MTV
+        ・名前表
+        ピグマー族　　男：PNM　女：PNF　　エレメント族　男：ENM　女：ENF
+        ノーマッド族　男：NNM　女：NNF　　ラット族　　　男：RNM　女：RNF
+        ブレイン族　　１：BN1　２：BN2　　テンタクル族　１：TN1　２：TN2
+        ・ガラコ改造チャート表：GCC
+        ・武器改造チャート表：WCC
+        ・イベントチャート表：EVC
+        ・戦闘開始距離：BSD
+      MESSAGETEXT
 
       # @param command [String]
       # @return [String, nil]

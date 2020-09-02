@@ -13,16 +13,16 @@ module BCDice
       SORT_KEY = 'すとらとしやうと'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-
-VOT, GUT, BAT, KEYT, DRT: (ボーカル、ギター、ベース、キーボード、ドラム)トラブル表
-EMO: 感情表
-AT[1-6]: 特技表(空: ランダム 1: 主義 2: 身体 3: モチーフ 4: エモーション 5: 行動 6: 逆境)
-SCENE, MACHI, GAKKO, BAND: (汎用、街角、学校、バンド)シーン表 接近シーンで使用
-TENKAI: シーン展開表 奔走シーン 練習シーンで使用
-
-[]内は省略可　D66入れ替えあり
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        
+        VOT, GUT, BAT, KEYT, DRT: (ボーカル、ギター、ベース、キーボード、ドラム)トラブル表
+        EMO: 感情表
+        AT[1-6]: 特技表(空: ランダム 1: 主義 2: 身体 3: モチーフ 4: エモーション 5: 行動 6: 逆境)
+        SCENE, MACHI, GAKKO, BAND: (汎用、街角、学校、バンド)シーン表 接近シーンで使用
+        TENKAI: シーン展開表 奔走シーン 練習シーンで使用
+        
+        []内は省略可　D66入れ替えあり
+      INFO_MESSAGE_TEXT
 
       setPrefixes([
         'VOT',

@@ -13,16 +13,16 @@ module BCDice
       SORT_KEY = 'くらんくれすとRPG'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-・2D6の目標値判定でクリティカル処理
-　例）3d6>=19 3d6+5>=24
-・邂逅表（MT）
-・感情表（-FT）
-　ポジティブ感情表（PFT）、ネガティブ感情表（NFT）
-・国特徴表（-CT）
-　カテゴリー表（CT）、地形表（TCT）、産業表（ICT）、人物表（PCT）
-　組織表（OCT）、拠点表（BCT）、文化表（CCT）
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ・2D6の目標値判定でクリティカル処理
+        　例）3d6>=19 3d6+5>=24
+        ・邂逅表（MT）
+        ・感情表（-FT）
+        　ポジティブ感情表（PFT）、ネガティブ感情表（NFT）
+        ・国特徴表（-CT）
+        　カテゴリー表（CT）、地形表（TCT）、産業表（ICT）、人物表（PCT）
+        　組織表（OCT）、拠点表（BCT）、文化表（CCT）
+      MESSAGETEXT
 
       setPrefixes([
         'MT',

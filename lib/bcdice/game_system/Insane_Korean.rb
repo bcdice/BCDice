@@ -13,36 +13,36 @@ module BCDice
       SORT_KEY = '国際化:Korean:인세인'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・판정
-스페셜／펌블／성공／실패를 판정
-・각종표
-씬표　　　ST
-　사실은 무서운 현대 일본 씬표 HJST／광조의 20년대 씬표 MTST
-　암흑의 빅토리아 씬표 DVST
-수식표　　　　DT
-　본체표 BT／부위표 PT
-감정표　　　　　　FT
-직업표　　　　　　JT
-배드엔딩표　　BET
-랜덤 특기 결정표　RTT
-지정특기(폭력)표　　(TVT)
-지정특기(감정)표　　(TET)
-지정특기(지각)표　　(TPT)
-지정특기(기술)표　　(TST)
-지정특기(지식)표　　(TKT)
-지정특기(괴이)표　　(TMT)
-회화 중에 발생하는 공포표(CHT)
-거리에서 조우하는 공포표(VHT)
-갑자기 찾아오는 공포표(IHT)
-폐허에서 조우하는 공포표(RHT)
-야외에서 조우하는 공포표(MHT)
-정보 속에 숨어 있는 공포표(LHT)
-조우표　도시　(ECT)　산림　(EMT)　해변　(EAT)/반응표　RET
-야근 시 조우하는 공포표　OHT/야근 시 전화표　OPT/야근 씬표　OWT
-회사명 결정표1　CNT1/회사명 결정표2　CNT2/회사명 결정표3　CNT3
-・D66 다이스 있음.
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・판정
+        스페셜／펌블／성공／실패를 판정
+        ・각종표
+        씬표　　　ST
+        　사실은 무서운 현대 일본 씬표 HJST／광조의 20년대 씬표 MTST
+        　암흑의 빅토리아 씬표 DVST
+        수식표　　　　DT
+        　본체표 BT／부위표 PT
+        감정표　　　　　　FT
+        직업표　　　　　　JT
+        배드엔딩표　　BET
+        랜덤 특기 결정표　RTT
+        지정특기(폭력)표　　(TVT)
+        지정특기(감정)표　　(TET)
+        지정특기(지각)표　　(TPT)
+        지정특기(기술)표　　(TST)
+        지정특기(지식)표　　(TKT)
+        지정특기(괴이)표　　(TMT)
+        회화 중에 발생하는 공포표(CHT)
+        거리에서 조우하는 공포표(VHT)
+        갑자기 찾아오는 공포표(IHT)
+        폐허에서 조우하는 공포표(RHT)
+        야외에서 조우하는 공포표(MHT)
+        정보 속에 숨어 있는 공포표(LHT)
+        조우표　도시　(ECT)　산림　(EMT)　해변　(EAT)/반응표　RET
+        야근 시 조우하는 공포표　OHT/야근 시 전화표　OPT/야근 씬표　OWT
+        회사명 결정표1　CNT1/회사명 결정표2　CNT2/회사명 결정표3　CNT3
+        ・D66 다이스 있음.
+      INFO_MESSAGE_TEXT
 
       setPrefixes([
         'ST', 'HJST', 'MTST', 'DVST', 'DT', 'BT', 'PT', 'FT', 'JT', 'BET', 'RTT', 'TVT', 'TET', 'TPT', 'TST', 'TKT', 'TMT',

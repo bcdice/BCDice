@@ -13,19 +13,19 @@ module BCDice
       SORT_KEY = '国際化:Korean:모노톤 뮤지엄'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・판정
-　・통상판정　　　　　　2D6+m>=t[c,f]
-　　수정치m,목표치t,크리티컬치c,펌블치f로 판정 굴림을 행합니다.
-　　크리티컬, 펌블치는 생략가능합니다. ([]자체를 생략가능)
-　　자동성공, 자동실패, 성공, 실패를 자동표기합니다.
-・각종표
-　・감정표　ET／감정표 2.0　ET2
-　・징조표　　OT
-　・일그러짐표　DT／일그러짐표ver2.0　DT2
-　・세계왜곡표　　WDT
-・D66다이스 있음
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・판정
+        　・통상판정　　　　　　2D6+m>=t[c,f]
+        　　수정치m,목표치t,크리티컬치c,펌블치f로 판정 굴림을 행합니다.
+        　　크리티컬, 펌블치는 생략가능합니다. ([]자체를 생략가능)
+        　　자동성공, 자동실패, 성공, 실패를 자동표기합니다.
+        ・각종표
+        　・감정표　ET／감정표 2.0　ET2
+        　・징조표　　OT
+        　・일그러짐표　DT／일그러짐표ver2.0　DT2
+        　・세계왜곡표　　WDT
+        ・D66다이스 있음
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['2D6.*', 'ET', 'ET2', 'OT', 'DT', 'DT2', 'WDT'])
 

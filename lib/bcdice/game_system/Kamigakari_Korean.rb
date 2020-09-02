@@ -13,16 +13,16 @@ module BCDice
       SORT_KEY = '国際化:Korean:카미가카리'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・각종표
- ・감정표(ET)
- ・영문소비의 댓가표(RT)
- ・전기 성씨・이름 결정표(NT)
- ・마경임계표(KT)
- ・획득 소재 차트(MTx x는［법칙장해］의［강도］.생략할 때는１)
-　　예） MT　MT3　MT9
-・D66주사위 가능
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・각종표
+         ・감정표(ET)
+         ・영문소비의 댓가표(RT)
+         ・전기 성씨・이름 결정표(NT)
+         ・마경임계표(KT)
+         ・획득 소재 차트(MTx x는［법칙장해］의［강도］.생략할 때는１)
+        　　예） MT　MT3　MT9
+        ・D66주사위 가능
+      INFO_MESSAGE_TEXT
 
       setPrefixes([
         'RT',

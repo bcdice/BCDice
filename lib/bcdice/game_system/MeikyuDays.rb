@@ -13,23 +13,23 @@ module BCDice
       SORT_KEY = 'めいきゆうていす'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定　(nMD+m)
-　n個のD6を振って大きい物二つだけみて達成値を算出します。修正mも可能です。
-　絶対成功と絶対失敗も自動判定します。
-・各種表
-　・散策表　　　　　　DRT
-　・交渉表　　　　　　DNT
-　・休憩表　　　　　　DBT
-　・ハプニング表　　　DHT
-　・カーネル停止表　　KST
-　・痛打表　CAT／戦闘ファンブル表　CFT／致命傷表　FWT
-　・おたから表１／２／３／４　T1T/T2T/T3T/T4T
-　・相場表　　　　　　MPT
-　・登場表　　　　　　APT
-　・因縁表　DCT／怪物因縁表　MCT／PC因縁表　PCT／ラブ因縁表　LCT
-・D66ダイスあり
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定　(nMD+m)
+        　n個のD6を振って大きい物二つだけみて達成値を算出します。修正mも可能です。
+        　絶対成功と絶対失敗も自動判定します。
+        ・各種表
+        　・散策表　　　　　　DRT
+        　・交渉表　　　　　　DNT
+        　・休憩表　　　　　　DBT
+        　・ハプニング表　　　DHT
+        　・カーネル停止表　　KST
+        　・痛打表　CAT／戦闘ファンブル表　CFT／致命傷表　FWT
+        　・おたから表１／２／３／４　T1T/T2T/T3T/T4T
+        　・相場表　　　　　　MPT
+        　・登場表　　　　　　APT
+        　・因縁表　DCT／怪物因縁表　MCT／PC因縁表　PCT／ラブ因縁表　LCT
+        ・D66ダイスあり
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['\d+MD6?.*', '\d+R6.*', 'DRT', 'DNT', 'DBT', 'DHT', 'KST', 'CAT', 'CFT', 'FWT', 'T1T', 'T2T', 'T3T', 'T4T', 'MPT', 'APT', 'DCT', 'MCT', 'PCT', 'LCT'])
 

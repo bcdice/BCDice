@@ -13,14 +13,14 @@ module BCDice
       SORT_KEY = 'ちる'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・ストライク・ランク　(SRx)
-　"SRストライク・ランク"の形で記入します。
-　ストライク・ランク・チャートに従って自動でダイスロールを行い、
-　負傷とスタミナロスを計算します。
-　ダイスロールと同様に、他のプレイヤーに隠れてロールすることも可能です。
-　例）SR7　　　sr13　　　SR(7+4)　　　Ssr10
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・ストライク・ランク　(SRx)
+        　"SRストライク・ランク"の形で記入します。
+        　ストライク・ランク・チャートに従って自動でダイスロールを行い、
+        　負傷とスタミナロスを計算します。
+        　ダイスロールと同様に、他のプレイヤーに隠れてロールすることも可能です。
+        　例）SR7　　　sr13　　　SR(7+4)　　　Ssr10
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['SR\d+.*'])
 

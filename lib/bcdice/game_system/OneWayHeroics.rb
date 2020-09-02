@@ -13,31 +13,31 @@ module BCDice
       SORT_KEY = 'かたみちゆうしやTRPG'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-・判定　aJDx+y,z
-　a:ダイス数（省略時2個)、x:能力値、
-　y:修正値（省略可。「＋」のみなら＋１）、z:目標値（省略可）
-　例１）JD2+1,8 or JD2+,8　：能力値２、修正＋１、目標値８
-　例２）JD3,10 能力値３、修正なし、目標値10
-　例３）3JD4+ ダイス3個から2個選択、能力値４、修正なし、目標値なし
-・ファンブル表 FT／魔王追撃表   DC／進行ルート表 PR／会話テーマ表 TT
-逃走判定表   EC／ランダムNPC特徴表 RNPC／偵察表 SCT
-施設表　FCLT／施設表プラス　FCLTP／希少動物表 RANI／王特徴表プラス KNGFTP
-野外遭遇表 OUTENC／野外遭遇表プラス OUTENCP
-モンスター特徴表 MONFT／モンスター特徴表プラス MONFTP
-ドロップアイテム表 DROP／ドロップアイテム表プラス DROPP
-武器ドロップ表 DROPWP／武器ドロップ表2 DROPWP2
-防具ドロップ表 DROPAR／防具ドロップ表2 DROPAR2
-聖武具ドロップ表 DROPHW／聖武具ドロップ表プラス DROPHWP
-食品ドロップ表 DROPFD／食品ドロップ表2 DROPFD2
-巻物ドロップ表 DROPSC／巻物ドロップ表2 DROPSC2
-その他ドロップ表 DROPOT／その他 ドロップ表2 DROPOT2
-薬品ドロップ表プラス DROPDRP／珍しい箱ドロップ表2 DROPRAREBOX2
-・ランダムイベント表 RETx（x：現在の日数）、ランダムイベント表プラス RETPx
-　例）RET3、RETP4
-・ダンジョン表 DNGNx（x：現在の日数）、ダンジョン表プラス DNGNPx
-　例）DNGN3、DNGNP4
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ・判定　aJDx+y,z
+        　a:ダイス数（省略時2個)、x:能力値、
+        　y:修正値（省略可。「＋」のみなら＋１）、z:目標値（省略可）
+        　例１）JD2+1,8 or JD2+,8　：能力値２、修正＋１、目標値８
+        　例２）JD3,10 能力値３、修正なし、目標値10
+        　例３）3JD4+ ダイス3個から2個選択、能力値４、修正なし、目標値なし
+        ・ファンブル表 FT／魔王追撃表   DC／進行ルート表 PR／会話テーマ表 TT
+        逃走判定表   EC／ランダムNPC特徴表 RNPC／偵察表 SCT
+        施設表　FCLT／施設表プラス　FCLTP／希少動物表 RANI／王特徴表プラス KNGFTP
+        野外遭遇表 OUTENC／野外遭遇表プラス OUTENCP
+        モンスター特徴表 MONFT／モンスター特徴表プラス MONFTP
+        ドロップアイテム表 DROP／ドロップアイテム表プラス DROPP
+        武器ドロップ表 DROPWP／武器ドロップ表2 DROPWP2
+        防具ドロップ表 DROPAR／防具ドロップ表2 DROPAR2
+        聖武具ドロップ表 DROPHW／聖武具ドロップ表プラス DROPHWP
+        食品ドロップ表 DROPFD／食品ドロップ表2 DROPFD2
+        巻物ドロップ表 DROPSC／巻物ドロップ表2 DROPSC2
+        その他ドロップ表 DROPOT／その他 ドロップ表2 DROPOT2
+        薬品ドロップ表プラス DROPDRP／珍しい箱ドロップ表2 DROPRAREBOX2
+        ・ランダムイベント表 RETx（x：現在の日数）、ランダムイベント表プラス RETPx
+        　例）RET3、RETP4
+        ・ダンジョン表 DNGNx（x：現在の日数）、ダンジョン表プラス DNGNPx
+        　例）DNGN3、DNGNP4
+      MESSAGETEXT
 
       def initialize
         super

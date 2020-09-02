@@ -13,10 +13,10 @@ module BCDice
       SORT_KEY = 'かんとつく'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-失敗、成功、クリティカル、ファンブルとロールの達成値の自動判定を行います。
-nD9ロールも対応。
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        失敗、成功、クリティカル、ファンブルとロールの達成値の自動判定を行います。
+        nD9ロールも対応。
+      INFO_MESSAGE_TEXT
 
       # ゲーム別成功度判定(1d100)
       def check_1D100(total, _dice_total, cmp_op, target)

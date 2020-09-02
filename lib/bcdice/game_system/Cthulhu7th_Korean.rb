@@ -13,24 +13,24 @@ module BCDice
       SORT_KEY = '国際化:Korean:크툴루'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・판정　CC(x)<=（목표치）
-　x：보너스, 패널티 주사위：Bonus/Penalty Dice (2~-2). 생략 가능.
-　대실패：Fumble／실패：Failure／보통 성공：Regular success／
-　어려운 성공：Hard success／대단한 성공：Extreme success／
-　대성공：Critical success　을 자동판정.
-예）CC<=30　CC(2)<=50　CC(-1)<=75
-
-・조합 판정　(CBR(x,y))
-　목표치 x 와 y 로 동시에 ％판정을 한다.
-　예）CBR(50,20)
-
-・연사(Full Auto)판정　FAR(w,x,y,z)
-　w：탄수(1~100), x：기능 수치(1~100), y：고장 넘버
-　z：보너스, 패널티 주사위(-2~2). 생략 가능.
-　명중수와 관통수, 잔탄수만을 계산. 데미지는 계산하지 않습니다.
-예）FAR(25,70,98)　FAR(50,80,98,-1)
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・판정　CC(x)<=（목표치）
+        　x：보너스, 패널티 주사위：Bonus/Penalty Dice (2~-2). 생략 가능.
+        　대실패：Fumble／실패：Failure／보통 성공：Regular success／
+        　어려운 성공：Hard success／대단한 성공：Extreme success／
+        　대성공：Critical success　을 자동판정.
+        예）CC<=30　CC(2)<=50　CC(-1)<=75
+        
+        ・조합 판정　(CBR(x,y))
+        　목표치 x 와 y 로 동시에 ％판정을 한다.
+        　예）CBR(50,20)
+        
+        ・연사(Full Auto)판정　FAR(w,x,y,z)
+        　w：탄수(1~100), x：기능 수치(1~100), y：고장 넘버
+        　z：보너스, 패널티 주사위(-2~2). 생략 가능.
+        　명중수와 관통수, 잔탄수만을 계산. 데미지는 계산하지 않습니다.
+        예）FAR(25,70,98)　FAR(50,80,98,-1)
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*'])
 

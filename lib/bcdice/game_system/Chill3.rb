@@ -13,11 +13,11 @@ module BCDice
       SORT_KEY = 'ちる3'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・1D100で判定時に成否、Botchを判定
-　例）1D100<=50
-　　　Chill3 : (1D100<=50) ＞ 55 ＞ Botch
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・1D100で判定時に成否、Botchを判定
+        　例）1D100<=50
+        　　　Chill3 : (1D100<=50) ＞ 55 ＞ Botch
+      INFO_MESSAGE_TEXT
 
       def check_1D100(total, dice_total, cmp_op, target)
         return '' if target == '?'

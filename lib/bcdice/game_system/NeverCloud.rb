@@ -16,14 +16,14 @@ module BCDice
       SORT_KEY = 'ねはあくらうとTRPG'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-・判定(xNC±y>=z)
-　xD6の判定を行います。ファンブル、クリティカルの場合、その旨を出力します。
-　x：振るダイスの数。
-　±y：固定値・修正値。省略可能。
-　z：目標値。省略可能。
-　例）　2NC+2>=5　1NC
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ・判定(xNC±y>=z)
+        　xD6の判定を行います。ファンブル、クリティカルの場合、その旨を出力します。
+        　x：振るダイスの数。
+        　±y：固定値・修正値。省略可能。
+        　z：目標値。省略可能。
+        　例）　2NC+2>=5　1NC
+      MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
       setPrefixes(['\d+NC.*', '\d+D6?([\+\-\d]*)>=\d+'])

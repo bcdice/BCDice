@@ -16,52 +16,52 @@ module BCDice
       SORT_KEY = 'きんけんのすてらないつ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-・判定　nSK[d][,k>l,...]
-[]内は省略可能。
-n: ダイス数、d: アタック判定における対象の防御力、k, l: ダイスの出目がkならばlに変更（アマランサスのスキル「始まりの部屋」用）
-d省略時はダイスを振った結果のみ表示。（nSKはnB6と同じ）
-
-4SK: ダイスを4個振って、その結果を表示
-5SK3: 【アタック判定：5ダイス】、対象の防御力を3として成功数を表示
-3SK,1>6: ダイスを3個振り、出目が1のダイスを全て6に変更し、その結果を表示
-6SK4,1>6,2>6: 【アタック判定：6ダイス】、出目が1と2のダイスを全て6に変更、対象の防御力を4として成功数を表示
-
-・基本
-TT：お題表
-STA    ：シチュエーション表A：時間 (Situation Table A)
-STB    ：シチュエーション表B：場所 (ST B)
-STB2[n]：シチュエーション表B その2：学園編 (ST B 2)
-　n: 1(アーセルトレイ), 2(イデアグロリア), 3(シトラ), 4(フィロソフィア), 5(聖アージェティア), 6(SoA)
-STC    ：シチュエーション表C：話題 (ST C)
-ALLS   ：シチュエーション表全てを一括で（学園編除く）
-GAT：所属組織決定 (Gakuen Table)
-HOT：希望表 (Hope Table)
-DET：絶望表 (Despair Table)
-WIT：願い事表 (Wish Table)
-YST：あなたの物語表 (Your Story Table)
-YSTA：あなたの物語表：異世界 (YST Another World)
-PET：性格表 (Personality Table)
-    性格表を2回振り、性格を決定する
-
-・霧と桜のマルジナリア
-YSTM：あなたの物語表：マルジナリア世界 (YST Marginalia)
-STM：シチュエーション表：マルジナリア世界 (ST Marginalia)
-YSTL：あなたの物語表：手紙世界 (YST Letter)
-YSTR：あなたの物語表：リコレクト・ドール (YST Recollect-doll)
-STBR：シチュエーション表B：場所（リコレクト・ドール） (ST B Recollect-doll)
-STCR：シチュエーション表C：リコレクト (ST C Recollect)
-STBS：シチュエーション表B：シトラセッティング (ST B Sut Tu Real)
-STE：シチュエーション表：エクリプス専用 (ST Eclipse)
-
-・紫弾のオルトリヴート
-FT：フラグメント表 (Fragment Table)
-    フラグメント表を５回振る
-FTx：フラグメント表をx回振る
-YSTB：あなたの物語表：ブリンガー (YST Bringer)
-YSTF：あなたの物語表：フォージ (YST Forge)
-STAL：シチュエーション表：オルトリヴート (ST Alt-Levoot)
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ・判定　nSK[d][,k>l,...]
+        []内は省略可能。
+        n: ダイス数、d: アタック判定における対象の防御力、k, l: ダイスの出目がkならばlに変更（アマランサスのスキル「始まりの部屋」用）
+        d省略時はダイスを振った結果のみ表示。（nSKはnB6と同じ）
+        
+        4SK: ダイスを4個振って、その結果を表示
+        5SK3: 【アタック判定：5ダイス】、対象の防御力を3として成功数を表示
+        3SK,1>6: ダイスを3個振り、出目が1のダイスを全て6に変更し、その結果を表示
+        6SK4,1>6,2>6: 【アタック判定：6ダイス】、出目が1と2のダイスを全て6に変更、対象の防御力を4として成功数を表示
+        
+        ・基本
+        TT：お題表
+        STA    ：シチュエーション表A：時間 (Situation Table A)
+        STB    ：シチュエーション表B：場所 (ST B)
+        STB2[n]：シチュエーション表B その2：学園編 (ST B 2)
+        　n: 1(アーセルトレイ), 2(イデアグロリア), 3(シトラ), 4(フィロソフィア), 5(聖アージェティア), 6(SoA)
+        STC    ：シチュエーション表C：話題 (ST C)
+        ALLS   ：シチュエーション表全てを一括で（学園編除く）
+        GAT：所属組織決定 (Gakuen Table)
+        HOT：希望表 (Hope Table)
+        DET：絶望表 (Despair Table)
+        WIT：願い事表 (Wish Table)
+        YST：あなたの物語表 (Your Story Table)
+        YSTA：あなたの物語表：異世界 (YST Another World)
+        PET：性格表 (Personality Table)
+            性格表を2回振り、性格を決定する
+        
+        ・霧と桜のマルジナリア
+        YSTM：あなたの物語表：マルジナリア世界 (YST Marginalia)
+        STM：シチュエーション表：マルジナリア世界 (ST Marginalia)
+        YSTL：あなたの物語表：手紙世界 (YST Letter)
+        YSTR：あなたの物語表：リコレクト・ドール (YST Recollect-doll)
+        STBR：シチュエーション表B：場所（リコレクト・ドール） (ST B Recollect-doll)
+        STCR：シチュエーション表C：リコレクト (ST C Recollect)
+        STBS：シチュエーション表B：シトラセッティング (ST B Sut Tu Real)
+        STE：シチュエーション表：エクリプス専用 (ST Eclipse)
+        
+        ・紫弾のオルトリヴート
+        FT：フラグメント表 (Fragment Table)
+            フラグメント表を５回振る
+        FTx：フラグメント表をx回振る
+        YSTB：あなたの物語表：ブリンガー (YST Bringer)
+        YSTF：あなたの物語表：フォージ (YST Forge)
+        STAL：シチュエーション表：オルトリヴート (ST Alt-Levoot)
+      MESSAGETEXT
 
       def initialize
         super

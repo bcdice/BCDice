@@ -13,15 +13,15 @@ module BCDice
       SORT_KEY = 'いやあせろえんしん'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定コマンド(nYZEx+x+x)
-  (難易度)YZE(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (6のみを数える)
-
-・判定コマンド(nMYZx+x+x)
-  (難易度)MYZ(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (1と6を数え、プッシュ可能数を表示)
-
-  ※ 難易度と技能、アイテムダイス数は省略可能
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定コマンド(nYZEx+x+x)
+          (難易度)YZE(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (6のみを数える)
+        
+        ・判定コマンド(nMYZx+x+x)
+          (難易度)MYZ(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (1と6を数え、プッシュ可能数を表示)
+        
+          ※ 難易度と技能、アイテムダイス数は省略可能
+      INFO_MESSAGE_TEXT
 
       DIFFICULTY_INDEX   = 1 # 難易度のインデックス
       COMMAND_TYPE_INDEX = 2 # コマンドタイプのインデックス

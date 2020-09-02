@@ -13,11 +13,11 @@ module BCDice
       SORT_KEY = 'しんめかみてんせいTRPGかくせいへん'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定
-1D100<=(目標値) でスワップ・通常・逆スワップ判定を判定。
-威力ダイスは nU6[6] (nはダイス個数)でロール可能です。
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定
+        1D100<=(目標値) でスワップ・通常・逆スワップ判定を判定。
+        威力ダイスは nU6[6] (nはダイス個数)でロール可能です。
+      INFO_MESSAGE_TEXT
 
       # ゲーム別成功度判定(1d100)
       def check_1D100(total, dice_total, cmp_op, target)

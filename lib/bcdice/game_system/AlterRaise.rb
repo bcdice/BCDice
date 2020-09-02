@@ -13,26 +13,26 @@ module BCDice
       SORT_KEY = 'あるとれいす'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-◆解放判定：EMA[x]
-
-[x]で達成値を指定してください。省略時はダイスロールします。
-
-
-【各種表】
-◆性格傾向表：PER[n]　　　　　　 ◆場所表：LOC[ab]
-◆平穏・経験表：QUI[ab]　　　　　◆喜び・経験表：DEL[ab]
-◆心の傷・経験表：TRA[ab]　　　　◆シーン演出表：SCE[n]
-◆スタンス表：STA[n]　　　　　　 ◆感情表：EMO[ab]
-
-[]内のコマンドを省略でダイスロール、指定でROC結果を表示します。
-[n]は「1D6」、[ab]は「D66」の出目を指定してください。
-
-【書式例】
-PER3：性格傾向表の「3」をROC
-LOC52：場所表の「52」をROC
-QUI：平穏・経験表をダイスロール
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ◆解放判定：EMA[x]
+        
+        [x]で達成値を指定してください。省略時はダイスロールします。
+        
+        
+        【各種表】
+        ◆性格傾向表：PER[n]　　　　　　 ◆場所表：LOC[ab]
+        ◆平穏・経験表：QUI[ab]　　　　　◆喜び・経験表：DEL[ab]
+        ◆心の傷・経験表：TRA[ab]　　　　◆シーン演出表：SCE[n]
+        ◆スタンス表：STA[n]　　　　　　 ◆感情表：EMO[ab]
+        
+        []内のコマンドを省略でダイスロール、指定でROC結果を表示します。
+        [n]は「1D6」、[ab]は「D66」の出目を指定してください。
+        
+        【書式例】
+        PER3：性格傾向表の「3」をROC
+        LOC52：場所表の「52」をROC
+        QUI：平穏・経験表をダイスロール
+      MESSAGETEXT
 
       setPrefixes([
         'EMA(\d+)?', 'PER(\d+)?', 'LOC(\d+)?', 'QUI(\d+)?', 'DEL(\d+)?',

@@ -13,36 +13,36 @@ module BCDice
       SORT_KEY = 'まきかろきあ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定
-スペシャル／ファンブル／成功／失敗を判定
-・各種表
-経歴表　BGT/初期アンカー表　DAT/運命属性表　FAT
-願い表　WIT/プライズ表　PT
-時の流れ表　TPT/大判時の流れ表　TPTB
-事件表　AT
-ファンブル表　FT／変調表　WT
-運命変転表　FCT
-　典型的災厄 TCT／物理的災厄 PCT／精神的災厄 MCT／狂気的災厄 ICT
-　社会的災厄 SCT／超常的災厄 XCT／不思議系災厄 WCT／コミカル系災厄 CCT
-　魔法使いの災厄 MGCT
-シーン表　ST／大判シーン表　STB
-　極限環境 XEST／内面世界 IWST／魔法都市 MCST
-　死後世界 WDST／迷宮世界 LWST
-　魔法書架 MBST／魔法学院 MAST／クレドの塔 TCST
-　並行世界 PWST／終末　　 PAST／異世界酒場 GBST
-　ほしかげ SLST／旧図書館 OLST
-世界法則追加表 WLAT/さまよう怪物表 WMT
-ランダム特技表　RTT
-　指定特技（星）　RTS/指定特技（獣）　RTB/指定特技（力）　RTF
-　指定特技（歌）　RTP/指定特技（夢）　RTD/指定特技（闇）　RTN
-ブランク秘密表　BST/
-　宿敵表　MIT/謀略表　MOT/因縁表　MAT
-　奇人表　MUT/力場表　MFT/同盟表　MLT
-落花表　FFT
-その後表 FLT
-・D66ダイスあり
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定
+        スペシャル／ファンブル／成功／失敗を判定
+        ・各種表
+        経歴表　BGT/初期アンカー表　DAT/運命属性表　FAT
+        願い表　WIT/プライズ表　PT
+        時の流れ表　TPT/大判時の流れ表　TPTB
+        事件表　AT
+        ファンブル表　FT／変調表　WT
+        運命変転表　FCT
+        　典型的災厄 TCT／物理的災厄 PCT／精神的災厄 MCT／狂気的災厄 ICT
+        　社会的災厄 SCT／超常的災厄 XCT／不思議系災厄 WCT／コミカル系災厄 CCT
+        　魔法使いの災厄 MGCT
+        シーン表　ST／大判シーン表　STB
+        　極限環境 XEST／内面世界 IWST／魔法都市 MCST
+        　死後世界 WDST／迷宮世界 LWST
+        　魔法書架 MBST／魔法学院 MAST／クレドの塔 TCST
+        　並行世界 PWST／終末　　 PAST／異世界酒場 GBST
+        　ほしかげ SLST／旧図書館 OLST
+        世界法則追加表 WLAT/さまよう怪物表 WMT
+        ランダム特技表　RTT
+        　指定特技（星）　RTS/指定特技（獣）　RTB/指定特技（力）　RTF
+        　指定特技（歌）　RTP/指定特技（夢）　RTD/指定特技（闇）　RTN
+        ブランク秘密表　BST/
+        　宿敵表　MIT/謀略表　MOT/因縁表　MAT
+        　奇人表　MUT/力場表　MFT/同盟表　MLT
+        落花表　FFT
+        その後表 FLT
+        ・D66ダイスあり
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['WT', 'FCT', 'ST', 'FT', 'AT', 'BGT', 'DAT', 'FAT', 'WIT', 'RTT', 'TPT', 'TCT', 'PCT', 'MCT', 'ICT', 'SCT', 'XCT', 'WCT', 'CCT', 'BST', 'PT', 'XEST', 'IWST', 'MCST', 'WDST', 'LWST', 'MIT', 'MOT', 'MAT', 'MUT', 'MFT', 'MLT', 'STB', 'RTS', 'RTB', 'RTF', 'RTP', 'RTD', 'RTN', 'MGCT', 'MBST', 'MAST', 'TCST', 'PWST', 'PAST', 'GBST', 'SLST', 'WLAT', 'WMT', 'FFT', 'OLST', 'TPTB', 'FLT'])
 

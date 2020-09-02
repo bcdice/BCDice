@@ -13,29 +13,29 @@ module BCDice
       SORT_KEY = 'すてらあらいふTRPG'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-◆判定　nDAc[s,d,t]　n:ダイス数　c:各種修正　s:1成功（省略不可）　d:2成功（省略不可）　t:3成功（ダイス目一致時のみ　省略時:無し）
-　例）2DA-3[7,10]
-◆船名ランダム表
-　・船名接頭辞表　VPFT
-　・船名前半表　VNFT
-　・船名後半表　VNRT
-　・アバターアルファベット表①　AAFT
-　・アバターアルファベット表②　AAST
-◆ヴォヤージュ各種表
-　・ランダムNPC艦表　RNST
-　・ランダムイベント表　RET
-　・お宝特徴表　TRST
-　・お宝形容表　TRAT
-　・お宝外見表　TRMT
-　・お宝物品表　TROT
-◆ステラーライフお題表
-　・超未来の技術　TET
-　・超未来のエンタメ　ENT
-　・超未来の文化　CUT
-　・超未来の自然　NAT
-　・超未来の宇宙船内　INT
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ◆判定　nDAc[s,d,t]　n:ダイス数　c:各種修正　s:1成功（省略不可）　d:2成功（省略不可）　t:3成功（ダイス目一致時のみ　省略時:無し）
+        　例）2DA-3[7,10]
+        ◆船名ランダム表
+        　・船名接頭辞表　VPFT
+        　・船名前半表　VNFT
+        　・船名後半表　VNRT
+        　・アバターアルファベット表①　AAFT
+        　・アバターアルファベット表②　AAST
+        ◆ヴォヤージュ各種表
+        　・ランダムNPC艦表　RNST
+        　・ランダムイベント表　RET
+        　・お宝特徴表　TRST
+        　・お宝形容表　TRAT
+        　・お宝外見表　TRMT
+        　・お宝物品表　TROT
+        ◆ステラーライフお題表
+        　・超未来の技術　TET
+        　・超未来のエンタメ　ENT
+        　・超未来の文化　CUT
+        　・超未来の自然　NAT
+        　・超未来の宇宙船内　INT
+      MESSAGETEXT
 
       setPrefixes(['(\d+)*DA.*\[(\d+),(\d+)(,(\d+))?\]', 'VPFT', 'VNFT', 'VNRT', 'AAFT', 'AST', 'RNST', 'RET', 'TRST', 'TRAT', 'TRMT', 'TROT', 'TET', 'ENT', 'CUT', 'NAT', 'INT']) # '(\d+)*DA.*\[.*\]'
 

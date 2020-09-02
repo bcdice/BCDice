@@ -15,29 +15,29 @@ module BCDice
       SORT_KEY = 'にんしやすれいやあRPG'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-・通常判定　NJ
-　NJx[y] or NJx@y or NJx
-　x=判定ダイス y=難易度 省略時はNORMAL(4)
-　例:NJ4@H 難易度HARD、判定ダイス4で判定
-・回避判定　EV
-　EVx[y]/z or EVx@y/z or EVx/z or EVx[y] or EVx@y or EVx
-　x=判定ダイス y=難易度 z=攻撃側の成功数(省略可) 難易度を省略時はNORMAL(4)
-　攻撃側の成功数を指定した場合、カウンターカラテ発生時には表示
-　例:EV5/3 難易度NORMAL(省略時)、判定ダイス5、攻撃側の成功数3で判定
-・近接攻撃　AT
-　ATx[y] or ATx@y or ATx
-　x=判定ダイス y=難易度 省略時はNORMAL(4) サツバツ！発生時には表示
-　例:AT6[H] 難易度HARD,判定ダイス5で近接攻撃の判定
-・サツバツ判定　SB
-・電子戦　EL
-　ELx[y] or ELx@y or ELx
-　x=判定ダイス y=難易度 省略時はNORMAL(4)
-　例:EL6[H] 難易度HARD,判定ダイス5で電子戦の判定
-
-・難易度
-　KIDS=K,EASY=E,NORMAL=N,HARD=H,ULTRA HARD=UH 数字にも対応
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ・通常判定　NJ
+        　NJx[y] or NJx@y or NJx
+        　x=判定ダイス y=難易度 省略時はNORMAL(4)
+        　例:NJ4@H 難易度HARD、判定ダイス4で判定
+        ・回避判定　EV
+        　EVx[y]/z or EVx@y/z or EVx/z or EVx[y] or EVx@y or EVx
+        　x=判定ダイス y=難易度 z=攻撃側の成功数(省略可) 難易度を省略時はNORMAL(4)
+        　攻撃側の成功数を指定した場合、カウンターカラテ発生時には表示
+        　例:EV5/3 難易度NORMAL(省略時)、判定ダイス5、攻撃側の成功数3で判定
+        ・近接攻撃　AT
+        　ATx[y] or ATx@y or ATx
+        　x=判定ダイス y=難易度 省略時はNORMAL(4) サツバツ！発生時には表示
+        　例:AT6[H] 難易度HARD,判定ダイス5で近接攻撃の判定
+        ・サツバツ判定　SB
+        ・電子戦　EL
+        　ELx[y] or ELx@y or ELx
+        　x=判定ダイス y=難易度 省略時はNORMAL(4)
+        　例:EL6[H] 難易度HARD,判定ダイス5で電子戦の判定
+        
+        ・難易度
+        　KIDS=K,EASY=E,NORMAL=N,HARD=H,ULTRA HARD=UH 数字にも対応
+      MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
       setPrefixes([

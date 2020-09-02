@@ -13,12 +13,12 @@ module BCDice
       SORT_KEY = 'せつたいれいと'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定
-m-2DR+n>=x
-m(基本能力),n(修正値),x(目標値)
-DPの取得の有無も表示されます。
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定
+        m-2DR+n>=x
+        m(基本能力),n(修正値),x(目標値)
+        DPの取得の有無も表示されます。
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['\d+\-2DR.*'])
 

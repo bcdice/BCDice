@@ -13,12 +13,12 @@ module BCDice
       SORT_KEY = 'えんとふれいかあ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-・判定 (nEB)
-  n個のD6を振る判定。ダブルトリガー発動で自動振り足し。
-・各種表
-  ・生死不明表 (LDUT)
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ・判定 (nEB)
+          n個のD6を振る判定。ダブルトリガー発動で自動振り足し。
+        ・各種表
+          ・生死不明表 (LDUT)
+      MESSAGETEXT
 
       setPrefixes(['\d+EB', 'LDUT'])
 

@@ -15,11 +15,11 @@ module BCDice
       SORT_KEY = 'しやとうらん5'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-個数振り足しロール(xRn)の境界値を6にセット、バラバラロール(xBn)の目標値を5以上にセットします。
-バラバラロール(xBn)のみ、リミットをセットできます。リミットの指定は(xBn@l)のように指定します。(省略可)
-BコマンドとRコマンド時に、グリッチの表示を行います。
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        個数振り足しロール(xRn)の境界値を6にセット、バラバラロール(xBn)の目標値を5以上にセットします。
+        バラバラロール(xBn)のみ、リミットをセットできます。リミットの指定は(xBn@l)のように指定します。(省略可)
+        BコマンドとRコマンド時に、グリッチの表示を行います。
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['(\d+)B6@(\d+)'])
 

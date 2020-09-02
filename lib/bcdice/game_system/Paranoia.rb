@@ -13,10 +13,10 @@ module BCDice
       SORT_KEY = 'はらのいあ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-※「パラノイア」は完璧なゲームであるため特殊なダイスコマンドを必要としません。
-※このダイスボットは部屋のシステム名表示用となります。
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ※「パラノイア」は完璧なゲームであるため特殊なダイスコマンドを必要としません。
+        ※このダイスボットは部屋のシステム名表示用となります。
+      MESSAGETEXT
 
       setPrefixes(['geta'])
 

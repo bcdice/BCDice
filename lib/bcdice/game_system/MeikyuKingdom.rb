@@ -13,33 +13,33 @@ module BCDice
       SORT_KEY = 'めいきゆうきんくたむ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定　(nMK+m)
-　n個のD6を振って大きい物二つだけみて達成値を算出します。修正mも可能です。
-　絶対成功と絶対失敗も自動判定します。
-・各種表
-　・散策表(〜RT)：生活散策表 LRT／治安散策表 ORT／文化散策表 CRT／軍事散策表 ART／お祭り表 FRT
-　・休憩表(〜BT)：才覚休憩表 TBT／魅力休憩表 CBT／探索休憩表 SBT／武勇休憩表 VBT／お祭り休憩表 FBT／捜索後休憩表 ABT／全体休憩表 WBT／カップル休憩表 LBT
-　・ハプニング表(〜HT)：才覚ハプニング表 THT／魅力ハプニング表 CHT／探索ハプニング表 SHT
-　　／武勇ハプニング表 VHT
-　・王国災厄表 KDT／王国変動表 KCT／王国変動失敗表 KMT
-　・王国名決定表１／２／３／４／５ KNT1／KNT2／KNT3／KNT4
-　・痛打表 CAT／致命傷表 FWT／戦闘ファンブル表 CFT
-　・道中表 TT／交渉表 NT／感情表 ET／相場表 MPT
-　・お宝表１／２／３／４／５ T1T／T2T／T3T／T4T／T5T
-　・名前表 NAMEx (xは個数)
-　・名前表A NAMEA／名前表B NAMEB／エキゾチック名前表 NAMEEX／ファンタジック名前表 NAMEFA
-　・アイテム関連（猟奇戦役不使用の場合をカッコ書きで出力）
-　　・デバイスファクトリー　　DFT
-　　・アイテムカテゴリ決定表　IDT
-　　・アイテム表（〜IT)：武具 WIT／生活 LIT／回復 RIT／探索 SIT／レア武具 RWIT／レア一般 RUIT
-　　・アイテム特性決定表　　　IFT
-　・ランダムエンカウント表　nRET (nはレベル,1〜6)
-　・地名決定表　　　　PNTx (xは個数)
-　・迷宮風景表　　　　MLTx (xは個数)
-　・単語表１／２／３／４　WORD1／WORD2／WORD3／WORD4
-・D66ダイスあり
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定　(nMK+m)
+        　n個のD6を振って大きい物二つだけみて達成値を算出します。修正mも可能です。
+        　絶対成功と絶対失敗も自動判定します。
+        ・各種表
+        　・散策表(〜RT)：生活散策表 LRT／治安散策表 ORT／文化散策表 CRT／軍事散策表 ART／お祭り表 FRT
+        　・休憩表(〜BT)：才覚休憩表 TBT／魅力休憩表 CBT／探索休憩表 SBT／武勇休憩表 VBT／お祭り休憩表 FBT／捜索後休憩表 ABT／全体休憩表 WBT／カップル休憩表 LBT
+        　・ハプニング表(〜HT)：才覚ハプニング表 THT／魅力ハプニング表 CHT／探索ハプニング表 SHT
+        　　／武勇ハプニング表 VHT
+        　・王国災厄表 KDT／王国変動表 KCT／王国変動失敗表 KMT
+        　・王国名決定表１／２／３／４／５ KNT1／KNT2／KNT3／KNT4
+        　・痛打表 CAT／致命傷表 FWT／戦闘ファンブル表 CFT
+        　・道中表 TT／交渉表 NT／感情表 ET／相場表 MPT
+        　・お宝表１／２／３／４／５ T1T／T2T／T3T／T4T／T5T
+        　・名前表 NAMEx (xは個数)
+        　・名前表A NAMEA／名前表B NAMEB／エキゾチック名前表 NAMEEX／ファンタジック名前表 NAMEFA
+        　・アイテム関連（猟奇戦役不使用の場合をカッコ書きで出力）
+        　　・デバイスファクトリー　　DFT
+        　　・アイテムカテゴリ決定表　IDT
+        　　・アイテム表（〜IT)：武具 WIT／生活 LIT／回復 RIT／探索 SIT／レア武具 RWIT／レア一般 RUIT
+        　　・アイテム特性決定表　　　IFT
+        　・ランダムエンカウント表　nRET (nはレベル,1〜6)
+        　・地名決定表　　　　PNTx (xは個数)
+        　・迷宮風景表　　　　MLTx (xは個数)
+        　・単語表１／２／３／４　WORD1／WORD2／WORD3／WORD4
+        ・D66ダイスあり
+      INFO_MESSAGE_TEXT
 
       setPrefixes([
         '\d+MK.*', '\d+R6.*',

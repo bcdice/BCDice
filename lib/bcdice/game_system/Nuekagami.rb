@@ -13,13 +13,13 @@ module BCDice
       SORT_KEY = 'ぬえかかみ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-・喪失表（xL）
-　BL：血脈、LL：生様、SL：魂魄、FL：因縁
-・LR：喪失取戻表
-・門通過描写表（xG）
-　HG：地獄門、RG：羅生門、VG：朱雀門、OG：応天門
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ・喪失表（xL）
+        　BL：血脈、LL：生様、SL：魂魄、FL：因縁
+        ・LR：喪失取戻表
+        ・門通過描写表（xG）
+        　HG：地獄門、RG：羅生門、VG：朱雀門、OG：応天門
+      MESSAGETEXT
 
       def rollDiceCommand(command)
         info = TABLES[command.upcase]

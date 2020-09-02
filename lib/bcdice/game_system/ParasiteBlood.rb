@@ -15,16 +15,16 @@ module BCDice
       SORT_KEY = 'はらさいとふらつとRPG'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・衝動表　(URGEx)
-　"URGE衝動レベル"の形で指定します。
-　衝動表に従って自動でダイスロールを行い、結果を表示します。
-　ダイスロールと同様に、他のプレイヤーに隠れてロールすることも可能です。
-　頭に識別文字を追加して、デフォルト以外の衝動表もロールできます。
-　・AURGEx　頭に「A」を付けると「誤作動表」。
-例）URGE1　　　urge5　　　Aurge2
-・D66ダイスあり
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・衝動表　(URGEx)
+        　"URGE衝動レベル"の形で指定します。
+        　衝動表に従って自動でダイスロールを行い、結果を表示します。
+        　ダイスロールと同様に、他のプレイヤーに隠れてロールすることも可能です。
+        　頭に識別文字を追加して、デフォルト以外の衝動表もロールできます。
+        　・AURGEx　頭に「A」を付けると「誤作動表」。
+        例）URGE1　　　urge5　　　Aurge2
+        ・D66ダイスあり
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['(N|A|M|U|C|)?URGE\d+'])
 

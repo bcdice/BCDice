@@ -13,13 +13,13 @@ module BCDice
       SORT_KEY = 'ゆうやけこやけ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-※「ゆうやけこやけ」はダイスロールを使用しないシステムです。
-※このダイスボットは部屋のシステム名表示用となります。
-
-・下駄占い (GETA)
-  あーしたてんきになーれ
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        ※「ゆうやけこやけ」はダイスロールを使用しないシステムです。
+        ※このダイスボットは部屋のシステム名表示用となります。
+        
+        ・下駄占い (GETA)
+          あーしたてんきになーれ
+      MESSAGETEXT
 
       setPrefixes(['geta'])
 

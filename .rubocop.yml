@@ -14,10 +14,6 @@ Layout/EndOfLine:
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
-# Due to old Ruby
-Layout/HeredocIndentation:
-  Enabled: false
-
 Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: false
 

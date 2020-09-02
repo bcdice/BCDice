@@ -13,14 +13,14 @@ module BCDice
       SORT_KEY = 'ろくもんせかいRPG2'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定
-aRSm<=t
-能力値a,修正値m,目標値tで判定ロールを行います。
-Rコマンド(3R6m<=t[a])に読み替えます。
-成功度、評価、ボーナスダイスを自動表示します。
-　例) 3RS+1<=9　3R6+1<=9[3]
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定
+        aRSm<=t
+        能力値a,修正値m,目標値tで判定ロールを行います。
+        Rコマンド(3R6m<=t[a])に読み替えます。
+        成功度、評価、ボーナスダイスを自動表示します。
+        　例) 3RS+1<=9　3R6+1<=9[3]
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['\d+RS.*', '3R6.*'])
 

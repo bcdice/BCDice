@@ -13,39 +13,39 @@ module BCDice
       SORT_KEY = 'さたすへ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・判定コマンド　(nR>=x[y,z,c] or nR>=x or nR>=[,,c] etc)
-　nが最大ロール回数、xが難易度、yが目標成功度、zがファンブル値、cが必殺値。
-　y と z と c は省略可能です。(省略時、y＝無制限、z＝1、c=13(なし))
-　c の後ろにSを記述すると必殺が出た時点で判定を終了します。
-　例）5R>=5[10,2,7S]
-・性業値コマンド(SRx or SRx+y or SRx-y x=性業値 y=修正値)
-・各種表 ： コマンド末尾に数字を入れると複数回の一括実行が可能　例）TAGT3
-　・タグ決定表(TAGT)
-　・命中判定ファンブル表(FumbleT)、致命傷表(FatalT)、
-　　　乗物致命傷表(FatalVT)
-　・ロマンスファンブル表(RomanceFT)
-　・アクシデント表(AccidentT)、汎用アクシデント表(GeneralAT)
-　・その後表　(AfterT)、臭い飯表(KusaiMT)、登場表(EnterT)、
-　　　落とし前表(PayT)、時間切れ表(TimeUT)、バッドトリップ表(BudTT)
-　・報酬表(Get〜) ： ガラクタ(GetgT)、実用品(GetzT)、値打ち物(GetnT)、
-　　　奇天烈(GetkT)
-　・NPCの年齢と好みを一括出力(NPCT)
-　・「サタスペ」のベースとアクセサリを出力(GETSSTx　xはアクセサリ数、省略時１)
-・以下のコマンドは +,- でダイス目修正、=でダイス目指定が可能
-　例）CrimeIET+1　CrimeIET-1　CrimeIET=7
-　・情報イベント表(〜IET) ： 犯罪表(CrimeIET)、生活表(LifeIET)、
-　　　恋愛表(LoveIET)、教養表(CultureIET)、戦闘表(CombatIET)
-　・情報ハプニング表(〜IHT) ： 犯罪表(CrimeIHT)、生活表(LifeIHT)、
-　　　恋愛表(LoveIHT)、教養表(CultureIHT)、戦闘表(CombatIHT)
-　・遭遇表(～RET)：ミナミ遭遇表(MinamiRET)、中華街遭遇表(ChinatownRET)、
-　　　軍艦島遭遇表(WarshipLandRET)、官庁街遭遇表(CivicCenterRET)、
-　　　十三遭遇表(DowntownRET)、沙京遭遇表(ShaokinRET)、
-　　　らぶらぶ遭遇表(LoveLoveRET)、アジト遭遇表(AjitoRET)、
-　　　地獄湯遭遇表(JigokuSpaRET)、JAIL HOUSE遭遇表(JailHouseRET)
-　・イベント表(～IT)：治療イベント表(TreatmentIT)、大学イベント表(CollegeIT)
-・D66ダイスあり
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・判定コマンド　(nR>=x[y,z,c] or nR>=x or nR>=[,,c] etc)
+        　nが最大ロール回数、xが難易度、yが目標成功度、zがファンブル値、cが必殺値。
+        　y と z と c は省略可能です。(省略時、y＝無制限、z＝1、c=13(なし))
+        　c の後ろにSを記述すると必殺が出た時点で判定を終了します。
+        　例）5R>=5[10,2,7S]
+        ・性業値コマンド(SRx or SRx+y or SRx-y x=性業値 y=修正値)
+        ・各種表 ： コマンド末尾に数字を入れると複数回の一括実行が可能　例）TAGT3
+        　・タグ決定表(TAGT)
+        　・命中判定ファンブル表(FumbleT)、致命傷表(FatalT)、
+        　　　乗物致命傷表(FatalVT)
+        　・ロマンスファンブル表(RomanceFT)
+        　・アクシデント表(AccidentT)、汎用アクシデント表(GeneralAT)
+        　・その後表　(AfterT)、臭い飯表(KusaiMT)、登場表(EnterT)、
+        　　　落とし前表(PayT)、時間切れ表(TimeUT)、バッドトリップ表(BudTT)
+        　・報酬表(Get〜) ： ガラクタ(GetgT)、実用品(GetzT)、値打ち物(GetnT)、
+        　　　奇天烈(GetkT)
+        　・NPCの年齢と好みを一括出力(NPCT)
+        　・「サタスペ」のベースとアクセサリを出力(GETSSTx　xはアクセサリ数、省略時１)
+        ・以下のコマンドは +,- でダイス目修正、=でダイス目指定が可能
+        　例）CrimeIET+1　CrimeIET-1　CrimeIET=7
+        　・情報イベント表(〜IET) ： 犯罪表(CrimeIET)、生活表(LifeIET)、
+        　　　恋愛表(LoveIET)、教養表(CultureIET)、戦闘表(CombatIET)
+        　・情報ハプニング表(〜IHT) ： 犯罪表(CrimeIHT)、生活表(LifeIHT)、
+        　　　恋愛表(LoveIHT)、教養表(CultureIHT)、戦闘表(CombatIHT)
+        　・遭遇表(～RET)：ミナミ遭遇表(MinamiRET)、中華街遭遇表(ChinatownRET)、
+        　　　軍艦島遭遇表(WarshipLandRET)、官庁街遭遇表(CivicCenterRET)、
+        　　　十三遭遇表(DowntownRET)、沙京遭遇表(ShaokinRET)、
+        　　　らぶらぶ遭遇表(LoveLoveRET)、アジト遭遇表(AjitoRET)、
+        　　　地獄湯遭遇表(JigokuSpaRET)、JAIL HOUSE遭遇表(JailHouseRET)
+        　・イベント表(～IT)：治療イベント表(TreatmentIT)、大学イベント表(CollegeIT)
+        ・D66ダイスあり
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['(\d+R|SR\d+|TAGT|\w+IET|\w+IHT|F\w*T|F\w*T|A\w*T|G\w*A\w*T|A\w*T|R\w*FT|NPCT|KusaiMT|EnterT|BudTT|GetgT|GetzT|GetnT|GetkT|GETSST|PayT|TimeUT|\w+IT|ShaokinRET|MinamiRET|ChinatownRET|CivicCenterRET|DowntownRET|WarshipLandRET|LoveLoveRET|AjitoRET|JigokuSpaRET|JailHouseRET).*'])
 

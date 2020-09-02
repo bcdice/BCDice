@@ -13,15 +13,15 @@ module BCDice
       SORT_KEY = 'とうきようこおすとりさあち'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<MESSAGETEXT
-判定
-・タスク処理は目標値以上の値で成功となります。
-  1d10>={目標値}
-  例：目標値「5」の場合、5～0で成功
-各種表
-  ・導入表  OP
-  ・一般トラブル表  TB
-MESSAGETEXT
+      HELP_MESSAGE = <<~MESSAGETEXT
+        判定
+        ・タスク処理は目標値以上の値で成功となります。
+          1d10>={目標値}
+          例：目標値「5」の場合、5～0で成功
+        各種表
+          ・導入表  OP
+          ・一般トラブル表  TB
+      MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
       setPrefixes([

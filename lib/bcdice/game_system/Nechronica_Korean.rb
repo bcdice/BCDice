@@ -13,14 +13,14 @@ module BCDice
       SORT_KEY = '国際化:Korean:네크로니카'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-・판정　(nNC+m)
-　주사위 수n、수정치m으로 판정굴림을 행합니다.
-　주사위 수가 2개 이상일 때에 파츠파손 수도 표시합니다.
-・공격판정　(nNA+m)
-　주사위 수n、수정치m으로 공격판정굴림을 행합니다.
-　명중부위와 주사위 수가 2개 이상일 때에 파츠파손 수도 표시합니다.
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・판정　(nNC+m)
+        　주사위 수n、수정치m으로 판정굴림을 행합니다.
+        　주사위 수가 2개 이상일 때에 파츠파손 수도 표시합니다.
+        ・공격판정　(nNA+m)
+        　주사위 수n、수정치m으로 공격판정굴림을 행합니다.
+        　명중부위와 주사위 수가 2개 이상일 때에 파츠파손 수도 표시합니다.
+      INFO_MESSAGE_TEXT
 
       setPrefixes(['\d+NC.*', '\d+NA.*', '\d+R10.*'])
 

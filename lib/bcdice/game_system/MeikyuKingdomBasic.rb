@@ -16,45 +16,45 @@ module BCDice
       SORT_KEY = 'めいきゆうきんくたむ きほんるうるふつく'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = <<INFO_MESSAGE_TEXT
-  ・判定　(nMK+m)
-  　n個のD6を振って大きい物二つだけみて達成値を算出します。修正mも可能です。
-  　絶対成功と絶対失敗も自動判定します。
-  ・各種表
-  　・休憩表：才覚 TBT／魅力 CBT／探索 SBT／武勇 VBT
-             お祭り FBT／空振り EBT／全体 WBT／カップル LBT
-  　・ハプニング表：才覚 THT／魅力 CHT／探索 SHT／武勇 VHT
-  　・視察表 RT／情報収集表 IGT／ランダムマップ選択表 RMS
-  　・痛打表 CAT／致命傷表 FWT／戦闘ファンブル表 CFT
-  　・道中表 TT／交渉表 NT／相場表 MPT／王国災厄表 KDT／王国変動表 KCT
-  　・感情表 ET／好意表 FET／敵意表 HET
-  　・お宝表１／２／３／４／５ T1T／T2T／T3T／T4T／T5T
-  　・特殊遭遇表 SE
-  　　　上級：人工 ARN／水域 WEN／自然 NEN／洞窟 CEN／天空 SEN／異界 OEN
-  ・潜在能力：スキル決定表 SDT
-  　　基本：肉弾 BUS／射撃 SHS／星術 ASS／召喚 SUS／科学 SCS
-  　　　　　迷宮 LAS／交渉 NES／便利 COS／芸能 ENS／道具 TOS
-  　　上級：肉弾 ABUS／射撃 ASHS／星術 AASS／召喚 ASUS／科学 ASCS
-  　　　　　迷宮 ALAS／交渉 ANES／便利 ACOS／芸能 AENS／道具 ATOS
-  ・アイテム関連（上級不使用の場合、カッコ書きのものを使用して下さい）
-  　・コモンアイテムランダム決定表　CIR
-  　　　コモンアイテム表：武具 WIT／生活 LIT／回復 RIT／探索 SIT
-  　・レア武具アイテムランダム決定表　RWIR／レア一般アイテムランダム決定表　RUIR（上級込）
-  　　　レアアイテム表：基本武具 NRWT／基本一般 NRUT／上級武具 ARWT／上級一般 ARUT
-  　・デヴァイスファクトリー DFTx (xは特性の個数)
-  ・王国人物作成関連
-  　・王国名決定表１／２／３ KNT1／KNT2／KNT3
-  　・王国環境表 KET：技術 TET／国風 NST／資源 RET／人材 HRT／施設 FAT／血族 BLT
-  　・名前表 NAMEx (xは個数)
-  　　　名前A NAMEA／名前B NAMEB／エキゾチック NAMEEX／ファンタジック NAMEFA
-  　・新名前表 NNAMEx (xは個数)
-  　　　芸術 NMAR／食べ物 NMFO／日用品 NMDN／地名 NMPL／機械 NMMA／神様 NMGO
-  　・単語表１／２／３／４　WORD1／WORD2／WORD3／WORD4
-  　・生まれ決定表 BDT／生まれ表：才覚 TBO／魅力 CBO／探索 SBO／武勇 TBO
-  　・初期装備表 IEQ
-　・地名決定表　PNTx (xは個数)／迷宮風景表 MLTx (xは個数)
- ・D66ダイスあり
-INFO_MESSAGE_TEXT
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+          ・判定　(nMK+m)
+          　n個のD6を振って大きい物二つだけみて達成値を算出します。修正mも可能です。
+          　絶対成功と絶対失敗も自動判定します。
+          ・各種表
+          　・休憩表：才覚 TBT／魅力 CBT／探索 SBT／武勇 VBT
+                     お祭り FBT／空振り EBT／全体 WBT／カップル LBT
+          　・ハプニング表：才覚 THT／魅力 CHT／探索 SHT／武勇 VHT
+          　・視察表 RT／情報収集表 IGT／ランダムマップ選択表 RMS
+          　・痛打表 CAT／致命傷表 FWT／戦闘ファンブル表 CFT
+          　・道中表 TT／交渉表 NT／相場表 MPT／王国災厄表 KDT／王国変動表 KCT
+          　・感情表 ET／好意表 FET／敵意表 HET
+          　・お宝表１／２／３／４／５ T1T／T2T／T3T／T4T／T5T
+          　・特殊遭遇表 SE
+          　　　上級：人工 ARN／水域 WEN／自然 NEN／洞窟 CEN／天空 SEN／異界 OEN
+          ・潜在能力：スキル決定表 SDT
+          　　基本：肉弾 BUS／射撃 SHS／星術 ASS／召喚 SUS／科学 SCS
+          　　　　　迷宮 LAS／交渉 NES／便利 COS／芸能 ENS／道具 TOS
+          　　上級：肉弾 ABUS／射撃 ASHS／星術 AASS／召喚 ASUS／科学 ASCS
+          　　　　　迷宮 ALAS／交渉 ANES／便利 ACOS／芸能 AENS／道具 ATOS
+          ・アイテム関連（上級不使用の場合、カッコ書きのものを使用して下さい）
+          　・コモンアイテムランダム決定表　CIR
+          　　　コモンアイテム表：武具 WIT／生活 LIT／回復 RIT／探索 SIT
+          　・レア武具アイテムランダム決定表　RWIR／レア一般アイテムランダム決定表　RUIR（上級込）
+          　　　レアアイテム表：基本武具 NRWT／基本一般 NRUT／上級武具 ARWT／上級一般 ARUT
+          　・デヴァイスファクトリー DFTx (xは特性の個数)
+          ・王国人物作成関連
+          　・王国名決定表１／２／３ KNT1／KNT2／KNT3
+          　・王国環境表 KET：技術 TET／国風 NST／資源 RET／人材 HRT／施設 FAT／血族 BLT
+          　・名前表 NAMEx (xは個数)
+          　　　名前A NAMEA／名前B NAMEB／エキゾチック NAMEEX／ファンタジック NAMEFA
+          　・新名前表 NNAMEx (xは個数)
+          　　　芸術 NMAR／食べ物 NMFO／日用品 NMDN／地名 NMPL／機械 NMMA／神様 NMGO
+          　・単語表１／２／３／４　WORD1／WORD2／WORD3／WORD4
+          　・生まれ決定表 BDT／生まれ表：才覚 TBO／魅力 CBO／探索 SBO／武勇 TBO
+          　・初期装備表 IEQ
+        　・地名決定表　PNTx (xは個数)／迷宮風景表 MLTx (xは個数)
+         ・D66ダイスあり
+      INFO_MESSAGE_TEXT
 
       setPrefixes([ # ダイスボットで使用するコマンドを配列で列挙すること。
         '\d+MK.*', '\d+R6.*',
