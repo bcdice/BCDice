@@ -112,16 +112,6 @@ Style/FormatStringToken:
     - 'lib/bcdice/game_system/TorgEternity.rb'
     - 'lib/bcdice/game_system/TunnelsAndTrolls.rb'
 
-# Offense count: 86
-# Configuration parameters: AllowedVariables.
-Style/GlobalVars:
-  Exclude:
-    - 'lib/log.rb'
-    - 'test/DiceBotTest.rb'
-    - 'test/others/testCard.rb'
-    - 'test/others/testPointer.rb'
-    - 'test/others/testSecretDice.rb'
-
 # Offense count: 10
 # Configuration parameters: AllowIfModifier.
 Style/IfInsideElse:

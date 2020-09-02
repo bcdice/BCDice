@@ -15,8 +15,6 @@ class DiceBotTest
 
     @testDataSet = []
     @errorLog = []
-
-    $isDebug = !@dataIndex.nil?
   end
 
   # テストを実行する
