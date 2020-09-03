@@ -59,6 +59,12 @@ TokumeiTenkousei : (1D6>=3) ＞ 5 ＞ 成功
 rand:5/6
 ============================
 input:
+2D6>=3 ゾロ目で振り足し
+output:
+TokumeiTenkousei : (2D6>=3) ＞ 21[5,5][5,6] ＞ 21 ＞ 成功
+rand:5/6,5/6,5/6,6/6
+============================
+input:
 10D6>=35
 output:
 TokumeiTenkousei : (10D6>=35) ＞ 27[1,1,1,2,2,2,3,4,5,6] ＞ 27 ＞ 失敗 ＞ 15EPP獲得
@@ -181,5 +187,5 @@ rand:6/6,1/6,5/6,2/6,5/6
 input:
 3D6>=? 目標値?でバグらない
 output:
-TokumeiTenkousei : (3D6>=?) ＞ 6[1,2,3] ＞ 6 ＞ 失敗 ＞ 5EPP獲得
+TokumeiTenkousei : (3D6>=?) ＞ 6[1,2,3] ＞ 6 ＞ 失敗
 rand:1/6,2/6,3/6

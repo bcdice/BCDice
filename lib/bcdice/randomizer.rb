@@ -39,6 +39,14 @@ module BCDice
       return total, dice_str, numberSpot1, cnt_max, n_max, 0, 0
     end
 
+    # @param times [Integer] 振るダイスの個数
+    # @param sides [Integer] ダイスの面数
+    # @return [Array<Integer>] ダイスの出目一覧
+    def roll_barabara(times, sides)
+      _, dice_list = roll(times, sides)
+      return dice_list.split(",").map(&:to_i)
+    end
+
     # 1回だけダイスロールを行う
     #
     # @params sides [Integer] ダイスの面数

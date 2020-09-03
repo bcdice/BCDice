@@ -13,38 +13,83 @@ module BCDice
       SORT_KEY = 'とくめいてんこうせい'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = "「1の出目でEPP獲得」、判定時の「成功」「失敗」「ゾロ目で自動振り足し」を判定。\n"
+      HELP_MESSAGE = <<~HELP
+        ・判定 (xD6+y>=n)
+        　ゾロ目での自動振り足し
+        　1の出目に応じてEPPの獲得量を表示
+        　目標値 "?" には未対応
+      HELP
 
       def initialize
         super
 
         @sort_add_dice = true
-        @sameDiceRerollCount = 1 # ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
-        @sameDiceRerollType = 2 # ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
       end
 
-      def check_nD6(total, _dice_total, _dice_list, cmp_op, target)
-        if cmp_op != :>= || target == "?"
-          return ''
+      setPrefixes(['\d+D6.*'])
+
+      def rollDiceCommand(command)
+        parser = CommandParser.new(/^\d+D6$/)
+        cmd = parser.parse(command)
+        unless cmd
+          return nil
         end
 
-        if total >= target
-          return " ＞ 成功"
-        else
-          return " ＞ 失敗"
+        times = cmd.command.to_i
+
+        dice_list = @randomizer.roll_barabara(times, 6).sort
+        @dice_list = [dice_list]
+        while same_all_dice?(dice_list)
+          dice_list = @randomizer.roll_barabara(times, 6).sort
+          @dice_list.push(dice_list)
         end
+
+        dice_list_flatten = @dice_list.flatten
+        dice_total = dice_list_flatten.sum()
+        count_one = dice_list_flatten.count(1)
+
+        total = dice_total + cmd.modify_number
+
+        result =
+          if cmd.cmp_op
+            total.send(cmd.cmp_op, cmd.target_number) ? "成功" : "失敗"
+          end
+
+        sequence = [
+          "(#{cmd})",
+          interim_expr(cmd, dice_total),
+          total.to_s,
+          result,
+          epp(count_one)
+        ].compact
+
+        return sequence.join(" ＞ ")
       end
 
-      # 特命転校生用エキストラパワーポイント獲得
-      def getDiceRolledAdditionalText(n1, _n_max, dice_max)
-        debug('getExtraPowerPointTextForTokumeiTenkousei n1, dice_max', n1, dice_max)
+      # 出目が全て同じか
+      def same_all_dice?(dice_list)
+        dice_list.size > 1 && dice_list.uniq.size == 1
+      end
 
-        if (n1 != 0) && (dice_max == 6)
-          point = n1 * 5
-          return " ＞ #{point}EPP獲得"
+      def interim_expr(cmd, dice_total)
+        if @dice_list.flatten.size == 1 && cmd.modify_number == 0
+          return nil
         end
 
-        return ''
+        dice_list = @dice_list.map { |ds| "[#{ds.join(',')}]" }.join("")
+        modifier = Format.modifier(cmd.modify_number)
+
+        return [dice_total.to_s, dice_list, modifier].join("")
+      end
+
+      # エキストラパワーポイント獲得
+      #
+      # @return count_one [Integer]
+      # @return [String, nil]
+      def epp(count_one)
+        if count_one > 0
+          "#{count_one * 5}EPP獲得"
+        end
       end
     end
   end
