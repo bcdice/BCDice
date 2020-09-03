@@ -42,7 +42,8 @@ MESSAGETEXT
 
       def initialize
         super
-        @sortType = 3
+        @sort_add_dice = true
+        @sort_barabara_dice = true
       end
 
       def rollDiceCommand(command)

@@ -52,7 +52,6 @@ module BCDice
       def initialize
         super
 
-        @sortType = 0 # 足し算ダイス、バラバラロール、どちらもソートしない
         @d66Type = 1 # D66あり。ただし、現行ルールにある6x6の表については別のコマンドを用意
         @fractionType = 'roundUp' # 端数は切り上げ
       end

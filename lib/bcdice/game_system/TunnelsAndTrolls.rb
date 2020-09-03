@@ -35,7 +35,7 @@ module BCDice
       def initialize
         super
 
-        @sortType = 1
+        @sort_add_dice = true
         @sameDiceRerollCount = 1
       end
 
@@ -162,7 +162,7 @@ module BCDice
           dice_wk = dice_arr.shift
 
           debug('roll dice_wk d6', dice_wk)
-          rollTotal, rollDiceResultText, roll_cnt1, rollDiceMaxCount, roll_n_max, roll_cnt_suc, roll_cnt_re = roll(dice_wk, 6, (sortType & 1))
+          rollTotal, rollDiceResultText, roll_cnt1, rollDiceMaxCount, roll_n_max, roll_cnt_suc, roll_cnt_re = roll(dice_wk, 6, @sort_add_dice)
 
           debug('rollTotal, rollDiceResultText, roll_cnt1, rollDiceMaxCount, roll_n_max, roll_cnt_suc, roll_cnt_re',
                 rollTotal, rollDiceResultText, roll_cnt1, rollDiceMaxCount, roll_n_max, roll_cnt_suc, roll_cnt_re)

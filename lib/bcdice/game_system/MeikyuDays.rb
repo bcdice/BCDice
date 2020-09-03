@@ -36,7 +36,7 @@ module BCDice
       def initialize
         super
 
-        @sortType = 1
+        @sort_add_dice = true
         @d66Type = 2
       end
 
@@ -82,7 +82,7 @@ module BCDice
         signOfInequality = m[6] if m[6]
         diff = m[7].to_i if m[7]
 
-        _, dice_str, = roll(dice_c, 6, (sortType & 1))
+        _, dice_str, = roll(dice_c, 6, @sort_add_dice)
         dice_num = dice_str.split(',').map(&:to_i)
 
         dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1]

@@ -27,7 +27,8 @@ module BCDice
 
       def initialize
         super
-        @sortType = 3
+        @sort_add_dice = true
+        @sort_barabara_dice = true
       end
 
       private
@@ -57,7 +58,7 @@ module BCDice
 
         mod = ArithmeticEvaluator.new.eval(modText)
 
-        diceValue, diceText, = roll(diceCount, 6, (sortType & 1))
+        diceValue, diceText, = roll(diceCount, 6, @sort_add_dice)
 
         diceArray = diceText.split(/,/).map(&:to_i)
 

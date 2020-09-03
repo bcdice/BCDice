@@ -20,7 +20,7 @@ module BCDice
         　注）[m]、[Cx]、[Fy]は省略可能。
         　　例）3A12C4F15→3個振り12以下で成功。C値4、F値は15。
         　　例）3A12→3個振り12以下で成功。C値1、F値は20。
-        
+
         ■各種表　(+：出目2～21に変更　-：出目0～19に変更)
         ●リインカーネイション
         　因縁表　CTR[+/-]　　前世邂逅表　DJV[-]
@@ -43,7 +43,7 @@ module BCDice
       def initialize
         super
 
-        @sortType = 1
+        @sort_add_dice = true
       end
 
       def rollDiceCommand(command)

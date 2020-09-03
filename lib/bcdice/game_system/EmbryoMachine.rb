@@ -29,7 +29,7 @@ module BCDice
       def initialize
         super
 
-        @sortType = 1
+        @sort_add_dice = true
       end
 
       def replace_text(string)
@@ -77,7 +77,7 @@ module BCDice
         fumble = Regexp.last_match(8).to_i if Regexp.last_match(8)
         mod = ArithmeticEvaluator.new.eval(modText) if modText
 
-        dice_now, dice_str, = roll(2, 10, (sortType & 1))
+        dice_now, dice_str, = roll(2, 10, @sort_add_dice)
         dice_loc, = roll(2, 10)
         dice_arr = dice_str.split(/,/).map(&:to_i)
         big_dice = dice_arr[1]

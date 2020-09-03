@@ -25,7 +25,7 @@ module BCDice
       def initialize
         super
 
-        @sortType = 1
+        @sort_add_dice = true
       end
 
       def rollDiceCommand(command)

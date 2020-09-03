@@ -33,7 +33,7 @@ module BCDice
         super
 
         @d66Type = 1
-        @sortType = 1
+        @sort_add_dice = true
       end
 
       def rollDiceCommand(command)
@@ -62,7 +62,7 @@ module BCDice
         mod = 0
         mod = ArithmeticEvaluator.new.eval(modText) unless modText.nil?
 
-        total, dice_str, = roll(2, 6, @sortType && 1)
+        total, dice_str, = roll(2, 6, @sort_add_dice)
         total_n = total + mod.to_i
 
         output = "#{total}[#{dice_str}]＋#{mod} → #{total_n}"

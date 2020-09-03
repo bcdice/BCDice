@@ -20,7 +20,8 @@ module BCDice
 
       def initialize
         super
-        @sortType = 3
+        @sort_add_dice = true
+        @sort_barabara_dice = true
         @rerollNumber = 6 # 振り足しする出目
         @defaultSuccessTarget = ">=5" # 目標値が空欄の時の目標値
       end

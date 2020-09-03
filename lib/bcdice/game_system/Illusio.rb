@@ -29,7 +29,7 @@ module BCDice
 
       def initialize
         super
-        @sortType = 1 # ダイスのソート有
+        @sort_add_dice = true # ダイスのソート有
       end
 
       setPrefixes([
@@ -52,7 +52,7 @@ module BCDice
       end
 
       def checkRoll(diceCount, blockNo, isParry)
-        _dice, diceText = roll(diceCount, 6, @sortType)
+        _dice, diceText = roll(diceCount, 6, @sort_add_dice)
         diceArray = diceText.split(/,/).map(&:to_i)
 
         resultArray = []

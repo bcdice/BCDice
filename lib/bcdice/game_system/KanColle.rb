@@ -19,10 +19,10 @@ module BCDice
         例) 2D6 ： 単純に2D6した値を出します。
         例) 2D6>=7 ： 行為判定。2D6して目標値7以上出れば成功。
         例) 2D6+2>=7 ： 行為判定。2D6に修正+2をした上で目標値7以上になれば成功。
-        
+
         2D6での行為判定時は1ゾロでファンブル、6ゾロでスペシャル扱いになります。
         天龍ちゃんスペシャルは手動で判定してください。
-        
+
         ・各種表
         　・感情表　ET／アクシデント表　ACT
         　・日常イベント表　EVNT／交流イベント表　EVKT／遊びイベント表　EVAT
@@ -47,7 +47,8 @@ module BCDice
       def initialize
         super
 
-        @sortType = 3
+        @sort_add_dice = true
+        @sort_barabara_dice = true
         @d66Type = 2
       end
 

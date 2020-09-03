@@ -42,7 +42,7 @@ module BCDice
         # D66ダイスあり（出目をソートしない）
         @d66Type = 1
         # バラバラロール（Bコマンド）でソートする
-        @sortType = 1
+        @sort_add_dice = true
       end
 
       # 固有のダイスロールコマンドを実行する
@@ -70,7 +70,7 @@ module BCDice
         critical = (m[5] || 12).to_i
         fumble = (m[7] || 2).to_i
 
-        dice_value, dice_str, = roll(dice_count, 6, @sortType && 1)
+        dice_value, dice_str, = roll(dice_count, 6, @sort_add_dice)
         total = dice_value + modify_number
 
         result =

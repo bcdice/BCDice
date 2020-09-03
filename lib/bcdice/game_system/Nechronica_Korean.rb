@@ -27,7 +27,8 @@ module BCDice
       def initialize
         super
 
-        @sortType = 3
+        @sort_add_dice = true
+        @sort_barabara_dice = true
         @defaultSuccessTarget = "6" # 목표치가 딱히 없을때의 난이도
       end
 

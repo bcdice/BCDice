@@ -114,7 +114,7 @@ module BCDice
           {sum: list.inject(0, :+), list: list}
         end
 
-        if @diceBot.sortType & 2 != 0
+        if @diceBot.sort_barabara_dice?
           ret = ret.sort_by { |e| e[:sum] }
         end
 

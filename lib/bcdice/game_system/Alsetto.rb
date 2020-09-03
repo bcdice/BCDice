@@ -41,7 +41,7 @@ module BCDice
 
       def initialize
         super
-        @sortType = 1 # ダイスのソート有
+        @sort_add_dice = true # ダイスのソート有
       end
 
       def rollDiceCommand(command)
@@ -76,7 +76,7 @@ module BCDice
         rollCount = rapid
 
         while rollCount > 0
-          _dice, diceText = roll(rollCount, 6, @sortType)
+          _dice, diceText = roll(rollCount, 6, @sort_add_dice)
           diceArray = diceText.split(/,/).map(&:to_i)
 
           successCount = 0

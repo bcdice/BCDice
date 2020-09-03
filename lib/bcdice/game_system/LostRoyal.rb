@@ -15,21 +15,21 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         ・D66ダイスあり
-        
+
         行為判定
         　LR[x,x,x,x,x,x]
         　　x の並びには【判定表】の数値を順番に入力する。
         　　（例： LR[1,3,0,1,2] ）
-        
+
         ファンブル表
         　FC
-        
+
         風力決定表
         　WPC
-        
+
         感情決定表
         　EC
-        
+
         希望点の決定
         　HRx
         　　x にはダイスの数（ 1 - 2 ）を指定
@@ -40,7 +40,7 @@ module BCDice
       def initialize
         super
 
-        @sortType = 1
+        @sort_add_dice = true
         @d66Type = 1
       end
 

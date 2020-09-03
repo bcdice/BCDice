@@ -11,7 +11,7 @@ module BCDice
 
     attr_reader :rand_results, :detailed_rand_results
 
-    def roll(dice_cnt, dice_max, dice_sort = 0)
+    def roll(dice_cnt, dice_max, dice_sort = false)
       dice_cnt = dice_cnt.to_i
       dice_max = dice_max.to_i
 
@@ -28,9 +28,7 @@ module BCDice
       end
 
       dice_list = Array.new(dice_cnt) { rand(dice_max) + 1 }
-      if dice_sort != 0
-        dice_list.sort!
-      end
+      dice_list.sort! if dice_sort
 
       total = dice_list.sum()
       dice_str = dice_list.join(",")

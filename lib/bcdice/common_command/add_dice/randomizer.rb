@@ -50,7 +50,7 @@ module BCDice
             return Array.new(times) { @bcdice.roll_d9() }
           end
 
-          _, dice_str, = @bcdice.roll(times, sides, @dicebot.sortType & 1)
+          _, dice_str, = @bcdice.roll(times, sides, @dicebot.sort_add_dice?)
 
           # 現在は出目が文字列で返ってきてしまうので、整数の配列に変換する
           return dice_str.split(",").map(&:to_i)

@@ -27,7 +27,7 @@ module BCDice
 
       def initialize
         super
-        @sortType = 1 # ダイスのソート有
+        @sort_add_dice = true # ダイスのソート有
       end
 
       setPrefixes([
@@ -48,7 +48,7 @@ module BCDice
       end
 
       def checkRoll(diceCount, countNo)
-        _dice, diceText = roll(diceCount, 10, @sortType)
+        _dice, diceText = roll(diceCount, 10, @sort_add_dice)
         diceText2 = diceText.gsub('10', '0')
         diceArray = diceText2.split(/,/).map(&:to_i)
 

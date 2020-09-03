@@ -22,7 +22,7 @@ module BCDice
         ・攻撃判定　(nNA+m)
         　ダイス数n、修正値mで攻撃判定ロールを行います。
         　命中部位とダイス数が2以上の時のパーツ破損数も表示します。
-        
+
         表
         ・姉妹への未練表 nm
         ・中立者への未練表 nmn
@@ -32,7 +32,8 @@ module BCDice
       def initialize
         super
 
-        @sortType = 3
+        @sort_add_dice = true
+        @sort_barabara_dice = true
         @defaultSuccessTarget = "6" # 目標値が空欄の時の目標値
       end
 

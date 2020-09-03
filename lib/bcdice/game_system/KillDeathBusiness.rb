@@ -44,7 +44,7 @@ module BCDice
       def initialize
         super
 
-        @sortType = 1
+        @sort_add_dice = true
         @d66Type = 2
       end
 

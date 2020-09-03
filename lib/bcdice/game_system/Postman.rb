@@ -45,7 +45,7 @@ module BCDice
 
       def initialize
         super
-        @sortType = 1 # ダイスのソート有
+        @sort_add_dice = true # ダイスのソート有
       end
 
       def rollDiceCommand(command)
@@ -86,7 +86,7 @@ module BCDice
       end
 
       def checkRoll(diceCount, modify, type, target)
-        dice, diceText = roll(diceCount, 6, @sortType)
+        dice, diceText = roll(diceCount, 6, @sort_add_dice)
 
         diceArray = diceText.split(/,/).map(&:to_i)
         dice2 = diceArray[-2] + diceArray[-1]

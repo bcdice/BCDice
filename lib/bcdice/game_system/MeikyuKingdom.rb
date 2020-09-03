@@ -62,7 +62,7 @@ module BCDice
       def initialize
         super
 
-        @sortType = 1
+        @sort_add_dice = true
         @d66Type = 2
       end
 
@@ -156,7 +156,7 @@ module BCDice
 
         bonus = modifyText ? ArithmeticEvaluator.new.eval(modifyText) : 0
 
-        _, dice_str, = roll(diceCount, 6, (sortType & 1))
+        _, dice_str, = roll(diceCount, 6, @sort_add_dice)
         dice_list = dice_str.split(',').map(&:to_i)
 
         dice1 = diceCount >= 2 ? dice_list[diceCount - 2] : 0

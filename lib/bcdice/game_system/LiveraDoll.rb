@@ -52,7 +52,8 @@ module BCDice
       def initialize
         super
 
-        @sortType = 3
+        @sort_add_dice = true
+        @sort_barabara_dice = true
       end
 
       def rollDiceCommand(command)
@@ -76,7 +77,7 @@ module BCDice
       end
 
       def checkRoll(diceCount, blockNo)
-        _dice, diceText = roll(diceCount, 6, @sortType)
+        _dice, diceText = roll(diceCount, 6, @sort_add_dice)
         diceArray = diceText.split(/,/).map(&:to_i)
 
         resultArray = []

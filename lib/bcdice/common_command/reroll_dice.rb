@@ -202,7 +202,7 @@ module BCDice
       # @param sides [Integer]
       # @return [Array<Integer>]
       def roll_(times, sides)
-        _, dice_list, = @bcdice.roll(times, sides, (@diceBot.sortType & 2))
+        _, dice_list, = @bcdice.roll(times, sides, @diceBot.sort_barabara_dice?)
         dice_list.split(",").map(&:to_i)
       end
 

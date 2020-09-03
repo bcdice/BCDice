@@ -44,7 +44,7 @@ module BCDice
         super
 
         @d66Type = 1
-        @sortType = 1
+        @sort_add_dice = true
       end
 
       def rollDiceCommand(command)
@@ -68,7 +68,7 @@ module BCDice
         critical = (m[4] || 12).to_i
         fumble = (m[6] || 2).to_i
 
-        dice_value, dice_str, = roll(2, 6, @sortType && 1)
+        dice_value, dice_str, = roll(2, 6, @sort_add_dice)
         total = dice_value + modify_number
 
         result =

@@ -31,7 +31,7 @@ module BCDice
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         ・判定　(nBB+m%w@x#y$z&v)
         　n個のD6を振り、出目の大きい2個から達成値を算出。修正mも可能。
-        
+
         　%w、@x、#y、$z、&vはすべて省略可能。
         ＞%w：現在の人間性が w であるとして、クリティカル値(C値)を計算。
         ・省略した場合、C値=12として達成値を算出する。
@@ -50,7 +50,7 @@ module BCDice
         　例）2BB$16→ダイスを2個振る判定で、ダイスの出目を1と6で固定
         ＞&v：出目がv未満のダイスがあれば、出目がvだったものとして達成値を計算する。
         　例）2BB&3 →出目3未満（→出目1、2）を出目3だったものとして計算。
-        
+
         ・D66ダイスあり
         ・邂逅表：EMO
         ・暴露表：EXPO_A
@@ -63,7 +63,6 @@ module BCDice
       def initialize
         super
 
-        @sortType = 0
         @d66Type = 2
       end
 

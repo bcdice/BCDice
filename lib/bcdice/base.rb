@@ -52,7 +52,9 @@ module BCDice
     clearPrefixes
 
     def initialize(debug: false)
-      @sortType = 0 # ソート設定(1 = 足し算ダイスでソート有, 2 = バラバラロール（Bコマンド）でソート有, 3 = １と２両方ソート有）
+      @sort_add_dice = false # 加算ダイスでダイス目をソートするかどうか
+      @sort_barabara_dice = false # バラバラダイスでダイス目をソートするかどうか
+
       @sameDiceRerollCount = 0 # ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
       @sameDiceRerollType = 0 # ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
       @d66Type = 1 # d66の差し替え(0=D66無し, 1=順番そのまま([5,3]->53), 2=昇順入れ替え([5,3]->35)
@@ -74,6 +76,20 @@ module BCDice
     end
 
     attr_reader :randomizer
+
+    # 加算ダイスでダイス目をソートするかどうか
+    #
+    # @return [Boolean]
+    def sort_add_dice?
+      @sort_add_dice
+    end
+
+    # バラバラダイスでダイス目をソートするかどうか
+    #
+    # @return [Boolean]
+    def sort_barabara_dice?
+      @sort_barabara_dice
+    end
 
     def disable_d66?
       @d66Type == 0
@@ -205,12 +221,6 @@ module BCDice
 
     def roll(*args)
       @randomizer.roll(*args)
-    end
-
-    attr_reader :sortType
-
-    def setSortType(s)
-      @sortType = s
     end
 
     def d66(*args)
