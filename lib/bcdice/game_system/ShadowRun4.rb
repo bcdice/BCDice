@@ -22,7 +22,7 @@ module BCDice
         super
         @sort_add_dice = true
         @sort_barabara_dice = true
-        @default_reroll_threshold = 6 # RerollDiceで振り足しをする出目の閾値
+        @reroll_dice_reroll_threshold = 6 # RerollDiceで振り足しをする出目の閾値
 
         @default_cmp_op = :>=
         @default_target_number = 5

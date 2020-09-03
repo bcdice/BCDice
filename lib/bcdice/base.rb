@@ -65,7 +65,7 @@ module BCDice
       @sameDiceRerollType = 0 # ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
 
       @upper_dice_reroll_threshold = nil # UpperDiceで振り足しをする出目の閾値 nilの場合デフォルト設定なし
-      @default_reroll_threshold = nil # RerollDiceで振り足しをする出目の閾値 nilの場合デフォルト設定なし
+      @reroll_dice_reroll_threshold = nil # RerollDiceで振り足しをする出目の閾値 nilの場合デフォルト設定なし
 
       @default_cmp_op = nil # 目標値が空欄の場合の比較演算子をシンボルで指定する (:>, :>= :<, :<=, :==, :!=)
       @default_target_number = nil # 目標値が空欄の場合の目標値 こちらだけnilにするのは想定していないので注意
@@ -101,7 +101,7 @@ module BCDice
     # RerollDiceで振り足しをする出目の閾値
     #
     # @return [Integer, nil]
-    attr_reader :default_reroll_threshold
+    attr_reader :reroll_dice_reroll_threshold
 
     # デフォルトの比較演算子
     #
