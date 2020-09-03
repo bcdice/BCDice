@@ -153,7 +153,7 @@ module BCDice
           },
         }.freeze
 
-      setPrefixes([ ] + TABLES.keys)
+      setPrefixes([] + TABLES.keys)
     end
   end
 end

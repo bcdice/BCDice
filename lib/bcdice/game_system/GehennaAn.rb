@@ -121,7 +121,7 @@ module BCDice
 
       def getTougiBonus(success)
         table = [
-          [ 6, '1'],
+          [6, '1'],
           [13, '2'],
           [18, '3'],
           [22, '4'],

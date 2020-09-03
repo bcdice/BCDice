@@ -85,7 +85,7 @@ module BCDice
           total, dice_str = roll(2, 6)
           expr = "#{total}[#{dice_str}]"
           succ = successful_or_failed(total, diff)
-          sequence = [ parentheses(dice_command), expr, succ ]
+          sequence = [parentheses(dice_command), expr, succ]
         when /\AFR/
           # 対抗ロール
           # 値を出力する
@@ -100,7 +100,7 @@ module BCDice
           total, dice_str = roll(2, 6)
           expr = "#{total}[#{dice_str}]#{explicit_sign corr}"
           crit = critical(total)
-          sequence = [ parentheses(dice_command), expr, crit, total + corr ].compact
+          sequence = [parentheses(dice_command), expr, crit, total + corr].compact
         when /\AFD/
           # 武器防具ロール
           # ダメージを出力する
@@ -126,7 +126,7 @@ module BCDice
           expr = "#{total}#{explicit_sign corr}"
           slot_number = clamp(total + corr, 1, 7)
           damage = damage_slots[slot_number - 1]
-          sequence = [ parentheses(dice_command), expr, total + corr, "#{damage}ダメージ" ]
+          sequence = [parentheses(dice_command), expr, total + corr, "#{damage}ダメージ"]
         end
 
         result = sequence.join(' ＞ ')

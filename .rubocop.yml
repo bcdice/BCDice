@@ -14,9 +14,6 @@ Layout/EndOfLine:
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
-Layout/SpaceInsideArrayLiteralBrackets:
-  Enabled: false
-
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 

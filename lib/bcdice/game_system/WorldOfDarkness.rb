@@ -124,7 +124,7 @@ module BCDice
 
         if enable_botch
           # 成功と大失敗を相殺する
-          c = [ success, botch ].min
+          c = [success, botch].min
           success -= c
           botch -= c
         end

@@ -131,7 +131,7 @@ module BCDice
       end
 
       CHECK_DICE_COUNT = {"S" => 4, "A" => 3, "B" => 2, "C" => 1, "D" => 2}.freeze
-      INGA_TABLE = [ nil, "흑", "적", "청", "녹", "백", "임의" ].freeze
+      INGA_TABLE = [nil, "흑", "적", "청", "녹", "백", "임의"].freeze
 
       TABLES =
         {

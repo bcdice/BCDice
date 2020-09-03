@@ -172,12 +172,12 @@ module BCDice
       # 命中部位表
       def getAttackHitLocation(num)
         table = [
-          [1, '頭部' ],
-          [2, '右腕' ],
-          [3, '左腕' ],
-          [4, '右脚' ],
-          [5, '左脚' ],
-          [6, '胴体' ],
+          [1, '頭部'],
+          [2, '右腕'],
+          [3, '左腕'],
+          [4, '右脚'],
+          [5, '左脚'],
+          [6, '胴体'],
         ]
 
         return get_table_by_number(num, table)

@@ -23,7 +23,7 @@ module BCDice
           [1, "ふつう"],
           [3, "まあよい"],
           [7, "かなりよい"],
-          [12, "すごい" ]
+          [12, "すごい"]
         ]
 
         return get_torg_table_result(value, success_table)
@@ -37,7 +37,7 @@ module BCDice
           [5, "技能なし"],
           [10, "逆転負け"],
           [15, "モラル崩壊"],
-          [17, "プレイヤーズコール" ]
+          [17, "プレイヤーズコール"]
         ]
 
         return get_torg_table_result(value, interaction_results_table)
@@ -50,7 +50,7 @@ module BCDice
           [5, "技能なし"],
           [10, "逆転負け"],
           [15, "高揚／逆転負け"],
-          [17, "プレイヤーズコール" ]
+          [17, "プレイヤーズコール"]
         ]
 
         return get_torg_table_result(value, interaction_results_table)
@@ -63,7 +63,7 @@ module BCDice
           [5, "萎縮"],
           [10, "技能なし"],
           [15, "逆転負け／疲労"],
-          [17, "プレイヤーズコール" ]
+          [17, "プレイヤーズコール"]
         ]
 
         return get_torg_table_result(value, interaction_results_table)
