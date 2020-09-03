@@ -59,7 +59,7 @@ module BCDice
 
         diceValue, diceText, = roll(diceCount, 6, (sortType & 1))
 
-        diceArray = diceText.split(/,/).collect { |i| i.to_i }
+        diceArray = diceText.split(/,/).map(&:to_i)
 
         dice_1st = ""
         isLuck = true

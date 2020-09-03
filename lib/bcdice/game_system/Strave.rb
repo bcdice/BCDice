@@ -16,19 +16,19 @@ module BCDice
       HELP_MESSAGE = <<~MESSAGETEXT
         ・モラトリアムフェイズ用判定：MPm
         ・命中判定：nSTm*p
-        
+
         「n」でダイス数を指定。
         「m」で目標値を指定。省略は出来ません。
         「p」で攻撃力を指定。「*」は「x」でも可。
-        
+
         【書式例】
         ・MP6 → 目標値6のモラトリアムフェイズ用判定。
         ・5ST6*10 → 5d10で目標値6、攻撃力10の命中判定。
-        
+
         【各種表】
         ・所属表：AFF　　VN版：AFV
         ・アイデンティティ表：IDT　　VN版：IDV
-        
+
         ※アイデンティティ表はエラッタ適用済です。
       MESSAGETEXT
 
@@ -79,7 +79,7 @@ module BCDice
         target = 10 if target > 10
 
         _dice, diceText = roll(diceCount, 10, @sortType)
-        diceArray = diceText.split(/,/).collect { |i| i.to_i }
+        diceArray = diceText.split(/,/).map(&:to_i)
 
         successCount = diceArray.find_all { |i| (i <= target) }.size
 

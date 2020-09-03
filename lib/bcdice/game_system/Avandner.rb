@@ -17,7 +17,7 @@ module BCDice
         ・調査判定：nAVm[Cx]
         ・命中判定：nAVm*p[+t][Cx]
         []内は省略可能。
-        
+
         クリティカルヒットの分だけ、自動で振り足し処理を行います。0
         「n」でダイス数を指定。
         「m」で目標値を指定。省略は出来ません。
@@ -25,7 +25,7 @@ module BCDice
         「p」で攻撃力を指定。「*」は「x」でも可。
         「+t」でクリティカルトリガーを指定。省略可能です。
         攻撃力指定で命中判定となり、成功数ではなく、ダメージを結果表示します。
-        
+
         【書式例】
         ・5AV3 → 5d10で目標値3。
         ・6AV2C0 → 6d10で目標値2。クリティカル無し。
@@ -65,7 +65,7 @@ module BCDice
 
         while rollCount > 0
           _dice, diceText = roll(rollCount, 10, @sortType)
-          diceArray = diceText.split(/,/).collect { |i| i.to_i }
+          diceArray = diceText.split(/,/).map(&:to_i)
 
           successCount = diceArray.count { |i| i <= target }
           criticalCount = diceArray.count { |i| i <= criticalNumber }

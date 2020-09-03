@@ -15,25 +15,25 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
         ◆判定：[n]PO[+-a][> or >= or @X]　　[]内省略可。
-        
+
         達成値と判定の成否、クリティカル、ファンブルを結果表示します。
         「n」でダイス数を指定。省略時は2D。
         「+-a」で達成値への修正を指定。「+2+1-4」のような複数回指定可。
         「>X」「>=X」「@X」で難易度を指定可。
         「>X」は達成値>難易度、「>=X」「@X」は達成値>=難易度で判定します。
-        
+
         【書式例】
         3PO+2-1 → 3Dで達成値修正+1の判定。達成値のみ表示。
         PO@5+2 → 2Dで目標値7の判定。判定の成否と達成値を表示。
         4PO-2+1>7+2 → 4Dで達成値修正-1、目標値9（同値は失敗）の判定。
-        
-        
+
+
         ◆天候チェック：WEA[n]　　[]内省略可。
-        
+
         天候チェック表を参照します。
         「n」を指定すると、指定した結果を表示します。（【幸運点】使用時用）
-        
-        
+
+
         ◆自由行動シチュエーション表：FRE
       MESSAGETEXT
 
@@ -88,7 +88,7 @@ module BCDice
       def checkRoll(diceCount, modify, type, target)
         dice, diceText = roll(diceCount, 6, @sortType)
 
-        diceArray = diceText.split(/,/).collect { |i| i.to_i }
+        diceArray = diceText.split(/,/).map(&:to_i)
         dice2 = diceArray[-2] + diceArray[-1]
         diceText2 = "#{diceArray[-2]},#{diceArray[-1]}"
         criticalCount = diceArray.count { |i| i == 6 }

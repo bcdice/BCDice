@@ -16,16 +16,16 @@ module BCDice
       HELP_MESSAGE = <<~MESSAGETEXT
         判定：[判定値]RD[技能][@目標値]
         ダメージロール：[ダイス数]DD[装甲]
-        
+
         []内のコマンドは省略可能。
         「判定値」で判定に使用するダイス数を指定。省略時は「1」。0以下も指定可。
         「技能」で有効なダイス数を指定。省略時は「1」。
         達成値はクリティカルを含めて、「最も高くなる」ように計算します。
         「@目標値」指定で、判定の成否を追加表示します。
-        
+
         ダメージロールは[装甲]指定で、有効なダイス数と0の出目の数を表示します。
         [装甲]省略時は、ダイス結果のみ表示します。（複数の対象への攻撃時用）
-        
+
         【書式例】
         ・RD → 1Dで達成値を表示。
         ・2RD1@8 → 2D（1個選択）で目標値8の判定。
@@ -80,7 +80,7 @@ module BCDice
 
         _dice, diceText = roll(rollCount, 10, @sortType)
         diceText2 = diceText.gsub('10', '0')
-        diceArray = diceText2.split(/,/).collect { |i| i.to_i }
+        diceArray = diceText2.split(/,/).map(&:to_i)
         diceArray.map! { |i| i - correction }
         diceText2 = diceArray.sort.join(',')
 
@@ -134,7 +134,7 @@ module BCDice
 
         _dice, diceText = roll(rollCount, 10, @sortType)
         diceText2 = diceText.gsub('10', '0')
-        diceArray = (diceText2.split(/,/).collect { |i| i.to_i }).sort
+        diceArray = diceText2.split(/,/).map(&:to_i).sort
         criticalCount = diceArray.count(0)
         diceArray.map! { |i| i - correction }
         diceText2 = diceArray.join(',')

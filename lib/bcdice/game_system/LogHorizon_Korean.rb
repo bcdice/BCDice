@@ -52,7 +52,7 @@ module BCDice
         ☆표시는 셀덴시아・가제트「D 되기는 할까? 66」Vol.1에서、
         ※표시는「실록・칠면체공방 좌담회(여름의 장)」에서 참조했습니다. 이용법은 항목을 참조해주세요.
         ・D66다이스도 있습니다.
-        
+
         ・역자의 말 : 「실록・칠면체공방 좌담회(여름의 장)」은 한국에서 발매하지 않습니다. 참고해주세요.
         ・이니티움님, 광황님, CoC방 여러분 감사합니다. by호흡도의식하면귀찮아
       MESSAGETEXT
@@ -85,7 +85,7 @@ module BCDice
 
         # ダイスロール
         dice, dice_str = roll(diceCount, 6)
-        diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
+        diceList = dice_str.split(/,/).map(&:to_i).sort
 
         total = dice + modify
 
@@ -401,7 +401,7 @@ module BCDice
       end
 
       def getHiroineTresureResultString(table, number)
-        table_max_number = table.map { |e| e.first }.max
+        table_max_number = table.map(&:first).max
 
         result =
           if number <= table_max_number

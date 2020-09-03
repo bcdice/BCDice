@@ -53,7 +53,7 @@ module BCDice
         difficulty = Regexp.last_match(4).to_i if Regexp.last_match(4)
 
         dice, diceText = roll(diceCount, 6)
-        diceList = diceText.split(/,/).collect { |i| i.to_i }.sort
+        diceList = diceText.split(/,/).map(&:to_i).sort
 
         totalValue = (dice + modify)
         modifyText = getModifyText(modify)

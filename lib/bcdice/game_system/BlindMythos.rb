@@ -21,13 +21,13 @@ module BCDice
         　BMコマンドはダイスの振り足しを常に行い、
         　BMSは振り足しを自動では行いません。
          例）BM>=1　BM@3>=1　BMS2>=1
-        
+
         ・判定振り足し：ReRollx,x,x...@y>=1
           　x:振るダイスの個数
         　　y:目標難易度（省略可。デフォルト4）
         　　z:必要成功度
         　振り足しを自動で行わない場合（BMSコマンド）に使用します。
-        
+
         ・LE：失う感情表
         ・感情後遺症表 ESx
         　ESH：喜、ESA：怒、ESS：哀、ESP：楽、ESL：愛、ESE：感
@@ -90,7 +90,7 @@ module BCDice
         judgeNumber = (Regexp.last_match(3) || 4).to_i
         targetNumber = Regexp.last_match(4).to_i
 
-        rerollCounts = rerollCountsText.split(/,/).collect { |i| i.to_i }
+        rerollCounts = rerollCountsText.split(/,/).map(&:to_i)
 
         commandText = ""
         rerollCounts.each do |diceCount|
@@ -137,7 +137,7 @@ module BCDice
           isSort = 1
           _, diceText, = roll(diceCount, 6, isSort)
 
-          diceList = diceText.split(/,/).collect { |i| i.to_i }
+          diceList = diceText.split(/,/).map(&:to_i)
 
           message += " ＞ " if isReRoll
           message += "(#{commandText}) ＞ #{diceCount}D6[#{diceText}] ＞ "
@@ -157,7 +157,7 @@ module BCDice
             rerollText += list.join('')
           end
 
-          rerollTargetList << sameDiceList.collect { |i| i.count }.join(",")
+          rerollTargetList << sameDiceList.map(&:count).join(",")
 
           message += "、リロール[#{rerollText}]"
         end
@@ -255,7 +255,7 @@ module BCDice
       def getRulingPlanetDiceCommandResult(command)
         return nil unless command =~ /^RP(\d+)/i
 
-        targetNumbers = Regexp.last_match(1).split(//).collect { |i| i.to_i }
+        targetNumbers = Regexp.last_match(1).split(//).map(&:to_i)
         diceList = getRulingPlanetDice
 
         matchResult = "失敗"

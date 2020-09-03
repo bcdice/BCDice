@@ -79,7 +79,7 @@ module BCDice
 
         dice_now, dice_str, = roll(2, 10, (sortType & 1))
         dice_loc, = roll(2, 10)
-        dice_arr = dice_str.split(/,/).collect { |i| i.to_i }
+        dice_arr = dice_str.split(/,/).map(&:to_i)
         big_dice = dice_arr[1]
         output = "#{dice_now}[#{dice_str}]"
         total_n = dice_now + mod

@@ -80,7 +80,7 @@ module BCDice
 
       def rollDiceList(diceCount)
         _dice, str = roll(diceCount, 6)
-        diceList = str.split(/,/).collect { |i| i.to_i }.sort
+        diceList = str.split(/,/).map(&:to_i).sort
 
         return diceList
       end

@@ -19,7 +19,7 @@ module BCDice
       HELP_MESSAGE = <<~MESSAGETEXT
         ・行為判定（nCL@m[c]+x または nCL+x@m[c]） クリティカル・ファンブル判定あり
           (ダイス数)CL+(修正値)@(判定値)[(クリティカル値)]+(修正値2)
-        
+
           @m,[c],+xは省略可能。(@6[1]として処理)
           n個のD10でmを判定値、cをクリティカル値とした行為判定を行う。
           nが0以下のときはクリティカルしない1CL判定を行う。(1CL[0]と同一)
@@ -76,7 +76,7 @@ module BCDice
 
         _, diceText = roll(base, 10)
 
-        diceList = diceText.split(/,/).collect { |i| i.to_i }.sort
+        diceList = diceText.split(/,/).map(&:to_i).sort
 
         result += " ＞ [#{diceList.join(',')}]#{format_modifier(modifier)} ＞ "
         result += getRollResultString(diceList, target, criticalTarget, diff, modifier)

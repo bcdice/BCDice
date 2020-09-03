@@ -16,7 +16,7 @@ module BCDice
       HELP_MESSAGE = <<~MESSAGETEXT
         2S2@1
         RecordOfSteam : (2S2@1) ＞ 1,2,3,4 ＞ 1回転 ＞ 成功数2
-        
+
         4S3@2
         RecordOfSteam : (4S3@2) ＞ 2,1,2,4,4,4,2,3,4,5,6,6 ＞ 4回転 ＞ 成功数5
       MESSAGETEXT
@@ -78,7 +78,7 @@ module BCDice
           rollResult += "," if rollResult != ""
           rollResult += diceListText
 
-          diceList = diceListText.split(/,/).collect { |i| i.to_i }
+          diceList = diceListText.split(/,/).map(&:to_i)
           if diceList.uniq.length == 1 && roundCount == 0
             if diceList.uniq.first <= specialValue
               specialFlag = true

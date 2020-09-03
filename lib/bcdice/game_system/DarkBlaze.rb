@@ -23,7 +23,7 @@ module BCDice
         　クリティカルとファンブルも自動で処理されます。
         　DB@x@y#m と DBx,y#m にも対応しました。
         　例）DB33　　　DB32#-1　　　DB@3@1#1　　　DB3,2　　　DB23#1>=4　　　3R6+1[3,3]>=4
-        
+
         ・掘り出し袋表　(BTx)
         　"BT(ダイス数)"で掘り出し袋表を自動で振り、結果を表示します。
         　例）BT1　　　BT2　　　BT[1...3]
@@ -101,7 +101,7 @@ module BCDice
         dummy.shift
         dice_str = dummy.shift
 
-        dice_arr = dice_str.split(/,/).collect { |i| i.to_i }
+        dice_arr = dice_str.split(/,/).map(&:to_i)
 
         3.times do |i|
           ch = dice_arr[i]

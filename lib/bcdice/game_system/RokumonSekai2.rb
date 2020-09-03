@@ -69,7 +69,7 @@ module BCDice
 
         _, dicestr, = roll(3 + mod.abs, 6, 1)
 
-        dice = dicestr.split(/,/).collect { |i| i.to_i }
+        dice = dicestr.split(/,/).map(&:to_i)
 
         mod.abs.times do |_i|
           if mod < 0

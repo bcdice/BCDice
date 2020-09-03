@@ -23,7 +23,7 @@ module BCDice
         例）2D6+1>=1Lv
         　 (2D6+1>=20) ＞ 7[2,5]+1 ＞ 8 ＞ 失敗
         　判定時にはゾロ目を自動で振り足します。
-        
+
         ・バーサークとハイパーバーサーク　(nBS+x or nHBS+x)
         　"(ダイス数)BS(修正値)"でバーサーク、"(ダイス数)HBS(修正値)"でハイパーバーサークでロールできます。
         　最初のダイスの読替は、個別の出目はそのままで表示。
@@ -169,7 +169,7 @@ module BCDice
 
           if dice_wk >= 2 # ダイスが二個以上
 
-            dice_num = rollDiceResultText.split(/,/).collect { |i| i.to_i }
+            dice_num = rollDiceResultText.split(/,/).map(&:to_i)
             debug('dice_num', dice_num)
 
             diceType = 6

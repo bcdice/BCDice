@@ -16,7 +16,7 @@ module BCDice
       HELP_MESSAGE = <<~MESSAGETEXT
         ※「ゆうやけこやけ」はダイスロールを使用しないシステムです。
         ※このダイスボットは部屋のシステム名表示用となります。
-        
+
         ・下駄占い (GETA)
           あーしたてんきになーれ
       MESSAGETEXT
@@ -47,7 +47,7 @@ module BCDice
 
         _, diceText = roll(1, 7)
 
-        diceList = diceText.split(/,/).collect { |i| i.to_i }
+        diceList = diceText.split(/,/).map(&:to_i)
 
         # result << " あーしたてんきになーれっ ＞ [#{diceList.join(',')}] ＞ "
         result += "下駄占い ＞ "

@@ -46,7 +46,7 @@ module BCDice
         end
 
         _, dice_str = roll(3, 6)
-        diceList = dice_str.split(/,/).collect { |i| i.to_i }
+        diceList = dice_str.split(/,/).map(&:to_i)
         diceList.sort!
 
         yakuResult = getYaku(diceList)

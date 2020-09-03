@@ -86,7 +86,7 @@ module BCDice
 
         # ダイスロール
         dice, dice_str = roll(diceCount, 6)
-        diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
+        diceList = dice_str.split(/,/).map(&:to_i).sort
 
         total = dice + modify
 
@@ -566,7 +566,7 @@ module BCDice
       end
 
       def getHiroineTresureResultString(table, number)
-        table_max_number = table.map { |e| e.first }.max
+        table_max_number = table.map(&:first).max
 
         result =
           if number <= table_max_number

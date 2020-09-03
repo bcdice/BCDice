@@ -15,11 +15,11 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
         判定：[n]OR(count)
-        
+
         []内のコマンドは省略可能。
         「n」でダイス数を指定。省略時は「1」。
         (count)で命数を指定。「3111」のように記述。最大6つ。順不同可。
-        
+
         【書式例】
         ・5OR6042 → 5dで命数「0,2,4,6」の判定
         ・6OR33333 → 6dで命数「3,3,3,3,3」の判定。
@@ -50,7 +50,7 @@ module BCDice
       def checkRoll(diceCount, countNo)
         _dice, diceText = roll(diceCount, 10, @sortType)
         diceText2 = diceText.gsub('10', '0')
-        diceArray = diceText2.split(/,/).collect { |i| i.to_i }
+        diceArray = diceText2.split(/,/).map(&:to_i)
 
         resultArray = []
         success = 0

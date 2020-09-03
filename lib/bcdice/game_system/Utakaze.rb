@@ -68,7 +68,7 @@ module BCDice
 
         _, diceText = roll(base, 6)
 
-        diceList = diceText.split(/,/).collect { |i| i.to_i }.sort
+        diceList = diceText.split(/,/).map(&:to_i).sort
 
         result += " ＞ [#{diceList.join(',')}] ＞ "
         result += getRollResultString(diceList, crit, diff)
@@ -137,7 +137,7 @@ module BCDice
         dice_list
           .select { |dice| isNomalDice(critical) || dice == critical }
           .group_by(&:itself)
-          .transform_values { |array| array.size }
+          .transform_values(&:size)
       end
 
       def isNomalDice(crit)

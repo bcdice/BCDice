@@ -61,7 +61,7 @@ module BCDice
 
         while rollCount != 0
           _, dice_str = roll(rollCount, 6)
-          diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
+          diceList = dice_str.split(/,/).map(&:to_i).sort
           diceFullList.concat(diceList)
 
           # 1の出目ごとにダブルトリガーで2個ダイス追加

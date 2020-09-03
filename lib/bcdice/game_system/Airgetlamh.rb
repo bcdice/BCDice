@@ -22,17 +22,17 @@ module BCDice
         ・命中判定（ダメージ表示）：[n]AL[m]*p
         ----------------------------------------
         []内のコマンドは省略可能。
-        
+
         「n」でダイス数（攻撃回数）を指定。省略時は「2」。
         「m」で目標値を指定。省略時は「6」。
         「p」で威力を指定。「*」は「x」で代用可。
         「+t」でクリティカルトリガーを指定。省略可。
         「Cx」でクリティカル値を指定。省略時は「1」、最大値は「3」、「0」でクリティカル無し。
-        
+
         攻撃力指定で命中判定となり、成功数ではなく、ダメージを結果表示します。
         クリティカルヒットの分だけ、自動で振り足し処理を行います。
         （ALコマンドではクリティカル処理を行いません）
-        
+
         【書式例】
         ・AL → 2d10で目標値6の調査判定。
         ・5AA7*12 → 5d10で目標値7、威力12の命中判定。
@@ -81,7 +81,7 @@ module BCDice
 
         while rollCount > 0
           _dice, diceText = roll(rollCount, 10, @sortType)
-          diceArray = diceText.split(/,/).collect { |i| i.to_i }
+          diceArray = diceText.split(/,/).map(&:to_i)
 
           successCount = diceArray.count { |i| i <= target }
           criticalCount = diceArray.count { |i| i <= criticalNumber }

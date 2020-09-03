@@ -56,7 +56,7 @@ module BCDice
         criticalCallDice = 0 # 0=通常, 1〜6=クリティカルコール
 
         if option
-          battleModeText, criticalCallDice = option.split(",").collect { |i| i.to_i }
+          battleModeText, criticalCallDice = option.split(",").map(&:to_i)
           @isBattleMode = (battleModeText == 1)
         end
 

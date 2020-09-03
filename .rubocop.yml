@@ -85,9 +85,6 @@ Style/SymbolArray:
   Enabled: true
   EnforcedStyle: brackets
 
-Style/SymbolProc:
-  Enabled: false
-
 Style/TrailingCommaInArrayLiteral:
   Enabled: false
 

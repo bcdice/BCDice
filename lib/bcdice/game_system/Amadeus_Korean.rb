@@ -92,7 +92,7 @@ module BCDice
         target = ArithmeticEvaluator.new.eval(targetText)
 
         _, diceText, = roll(diceCount, 6)
-        diceList = diceText.split(/,/).collect { |i| i.to_i }
+        diceList = diceText.split(/,/).map(&:to_i)
         specialText = (specialNum == 6 ? "" : "@#{specialNum}")
 
         message = "(#{commandText}#{specialText}#{signOfInequality}#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "

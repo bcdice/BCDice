@@ -56,7 +56,7 @@ module BCDice
 
       def roll2DarkDice()
         _, dice_str = roll(2, 6)
-        dice1, dice2 = dice_str.split(',').collect { |i| i.to_i }
+        dice1, dice2 = dice_str.split(',').map(&:to_i)
 
         darkDice1, darkPoint1 = changeDiceToDarkDice(dice1)
         darkDice2, darkPoint2 = changeDiceToDarkDice(dice2)
