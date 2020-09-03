@@ -22,12 +22,12 @@ module BCDice
         　"(個数)DX(修正)@(クリティカル値)" もしくは "(個数)DX(クリティカル値)(修正)" で指定します。
         　修正値も付けられます。
         　例）10dx　　10dx+5@8（OD tool式)　　5DX7+7-3（疾風怒濤式）
-        
+
         ・各種表
         　・感情表（ET）
         　　ポジティブとネガティブの両方を振って、表になっている側に○を付けて表示します。
         　　もちろん任意で選ぶ部分は変更して構いません。
-        
+
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -71,7 +71,7 @@ module BCDice
           # 回転数
           loop_count = 0
 
-          while num_of_dice > 0 && bot.should_reroll?(loop_count)
+          while num_of_dice > 0 && loop_count < CommonCommand::RerollDice::REROLL_LIMIT
             values = Array.new(num_of_dice) { bot.roll(1, 10)[0] }
 
             value_group = ValueGroup.new(values, @critical_value)

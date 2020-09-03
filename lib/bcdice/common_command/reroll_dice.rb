@@ -23,6 +23,8 @@ module BCDice
     # 成功条件が書かれていない場合、成功数0として扱う。
     # 振り足し条件が数値のみ指定されている場合、比較演算子は >= が指定されたとして振舞う。
     class RerollDice
+      REROLL_LIMIT = 10000
+
       def initialize(command, bcdice, diceBot)
         @command = command
         @bcdice = bcdice
@@ -60,7 +62,7 @@ module BCDice
 
         dice_total_count = 0
 
-        while !dice_queue.empty? && @diceBot.should_reroll?(loop_count)
+        while !dice_queue.empty? && loop_count < REROLL_LIMIT
           # xRn
           x, n, depth = dice_queue.shift
           loop_count += 1

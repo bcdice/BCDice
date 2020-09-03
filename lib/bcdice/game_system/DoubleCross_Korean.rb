@@ -69,7 +69,7 @@ module BCDice
           # 回転数
           loop_count = 0
 
-          while num_of_dice > 0 && bot.should_reroll?(loop_count)
+          while num_of_dice > 0 && loop_count < CommonCommand::RerollDice::REROLL_LIMIT
             values = Array.new(num_of_dice) { bot.roll(1, 10)[0] }
 
             value_group = ValueGroup.new(values, @critical_value)
