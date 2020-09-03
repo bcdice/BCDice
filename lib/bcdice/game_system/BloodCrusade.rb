@@ -42,7 +42,7 @@ module BCDice
         @sort_add_dice = true
         @enable_d66 = true
         @d66_sort_type = D66SortType::ASC
-        @fractionType = "roundUp" # 端数切り上げに設定
+        @round_type = RoundType::CEIL # 端数切り上げに設定
       end
 
       def check_2D6(total, dice_total, _dice_list, cmp_op, target)

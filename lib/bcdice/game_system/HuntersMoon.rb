@@ -48,7 +48,7 @@ module BCDice
         @sort_add_dice = true
         @enable_d66 = true
         @d66_sort_type = D66SortType::ASC
-        @fractionType = "roundUp"; # 端数切り上げに設定
+        @round_type = RoundType::CEIL; # 端数切り上げに設定
       end
 
       # ゲーム別成功度判定(2D6)

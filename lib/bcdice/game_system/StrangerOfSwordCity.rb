@@ -29,7 +29,7 @@ module BCDice
         @sort_add_dice = true
         @enable_d66 = true
         @d66_sort_type = D66SortType::NO_SORT
-        @fractionType = "omit"
+        @round_type = RoundType::FLOOR
       end
 
       def rollDiceCommand(command)

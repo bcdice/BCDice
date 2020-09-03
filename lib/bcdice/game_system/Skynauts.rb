@@ -36,7 +36,7 @@ module BCDice
 
       def initialize
         super
-        @fractionType = "omit"; # 端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
+        @round_type = RoundType::FLOOR # 端数切り捨て
       end
 
       def rollDiceCommand(command)

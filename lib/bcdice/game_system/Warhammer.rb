@@ -31,7 +31,7 @@ module BCDice
       def initialize
         super
 
-        @fractionType = "roundUp" # 端数切り上げに設定
+        @round_type = RoundType::CEIL # 端数切り上げに設定
       end
 
       def rollDiceCommand(command)

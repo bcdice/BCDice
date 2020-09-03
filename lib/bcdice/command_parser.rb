@@ -6,7 +6,7 @@ module BCDice
   class CommandParser < ArithmeticEvaluator
     def initialize(*literals)
       @literals = literals
-      @round_type = :omit
+      @round_type = RoundType::FLOOR
     end
 
     # @!attribute [rw] command
@@ -55,7 +55,7 @@ module BCDice
     # @param rount_type [Symbol]
     # @return [CommandParser::Parsed]
     # @return [nil]
-    def parse(expr, round_type = :omit)
+    def parse(expr, round_type = RoundType::FLOOR)
       @tokens = tokenize(expr)
       @idx = 0
       @error = false

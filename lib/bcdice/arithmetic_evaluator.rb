@@ -5,9 +5,9 @@ module BCDice
   class ArithmeticEvaluator
     # 四則演算を評価する
     # @param [String] expr 評価する式
-    # @param [Symbol] round_type 端数処理の設定 :omit 切り捨て, :roundUp 切り上げ, :roundOff 四捨五入
+    # @param [Symbol] round_type 端数処理の設定 :floor 切り捨て, :ceil 切り上げ, :round 四捨五入
     # @return [Integer]
-    def eval(expr, round_type = :omit)
+    def eval(expr, round_type = RoundType::FLOOR)
       unless expr
         return 0
       end
@@ -71,12 +71,14 @@ module BCDice
       end
 
       case @round_type
-      when :roundUp
+      when RoundType::CEIL
         return (left.to_f / right).ceil
-      when :roundOff
+      when RoundType::ROUND
         return (left.to_f / right).round
-      else
+      when RoundType::FLOOR
         return left / right
+      else
+        raise ArgumentError, "unknown round type: #{@round_type.inspect}"
       end
     end
 

@@ -20,17 +20,17 @@ module BCDice
         ・アビリティロール  AR>=目標値
         ・スキルロール      SR<=目標値(%)
         ・命中判定ロール    HR<=目標値(%)
-        
+
           例）AR>=5
           例）SR<=(40+25)
           例）HR<=(50-10)
-        
+
           これらのロールで成否、絶対成功/絶対失敗、クリティカル/アクシデントを自動判定します。
-        
+
         ・クリティカルチャート  CC
         ・アクシデントチャート  射撃・投擲用:ACL  格闘用:ACS
         ・戦闘結果チャート      CRCsn   s=耐久レベル(SUV) n=数値
-        
+
           例）CRCA61 SUV=Aを対象とした数値61(62に変換される)の戦闘結果を参照する。
           例）CRCM98 対物で数値98の戦闘結果を参照する。
       MESSAGETEXT
@@ -48,7 +48,7 @@ module BCDice
           return mh_crc_table(suv, num)
         when /\AHR<=(.+)/
           target = ArithmeticEvaluator.new.eval(
-            Regexp.last_match(1), @fractionType.to_sym
+            Regexp.last_match(1), @round_type
           )
           return rollHit(target)
         end

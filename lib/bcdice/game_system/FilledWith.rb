@@ -50,7 +50,6 @@ module BCDice
         super
         @enable_d66 = true
         @d66_sort_type = D66SortType::NO_SORT; # d66の差し替え
-        # @fractionType = "omit";     #端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
       end
 
       def rollDiceCommand(command)

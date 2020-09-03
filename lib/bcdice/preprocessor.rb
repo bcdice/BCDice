@@ -57,10 +57,8 @@ module BCDice
     end
 
     def replace_parentheses
-      round_type = @game_system.fractionType.to_sym
-
       @text = @text.gsub(%r{\([\d/\+\*\-\(\)]+\)}) do |expr|
-        ArithmeticEvaluator.new.eval(expr, round_type)
+        ArithmeticEvaluator.new.eval(expr, @game_system.round_type)
       end
     end
 

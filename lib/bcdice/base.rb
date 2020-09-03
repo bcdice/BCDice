@@ -59,6 +59,8 @@ module BCDice
       @enable_d66 = true # D66ダイスを利用するかどうか
       @d66_sort_type = D66SortType::NO_SORT # 入れ替えの種類 詳しくはBCDice::D66SortTypeを参照すること
 
+      @round_type = RoundType::FLOOR # 割り算をした時の端数の扱い (FLOOR: 切り捨て, CEIL: 切り上げ, ROUND: 四捨五入)
+
       @sameDiceRerollCount = 0 # ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
       @sameDiceRerollType = 0 # ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
       @isPrintMaxDice = false # 最大値表示
@@ -66,7 +68,6 @@ module BCDice
       @rerollNumber = 0 # 振り足しする条件
       @defaultSuccessTarget = "" # 目標値が空欄の時の目標値
       @rerollLimitCount = 10000 # 振り足し回数上限
-      @fractionType = "omit" # 端数の処理 ("omit"=切り捨て, "roundUp"=切り上げ, "roundOff"=四捨五入)
       @randomizer = BCDice::Randomizer.new
       @debug = debug
 
@@ -84,6 +85,11 @@ module BCDice
     #
     # @return [Symbol]
     attr_reader :d66_sort_type
+
+    # 端数処理の種類
+    #
+    # @return [Symbol]
+    attr_reader :round_type
 
     # 加算ダイスでダイス目をソートするかどうか
     #
@@ -134,7 +140,7 @@ module BCDice
 
     attr_reader :sameDiceRerollCount, :sameDiceRerollType, :d66Type
     attr_reader :isPrintMaxDice, :upperRollThreshold
-    attr_reader :defaultSuccessTarget, :rerollNumber, :fractionType
+    attr_reader :defaultSuccessTarget, :rerollNumber
 
     # ダイスボット設定後に行う処理
     # @return [void]
