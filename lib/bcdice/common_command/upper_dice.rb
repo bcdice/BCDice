@@ -105,10 +105,6 @@ module BCDice
       # @param sides [Integer] ダイスの面数
       # @return [Array<Hash>]
       def roll(times, sides)
-        if @diceBot.upperRollThreshold == "Max"
-          @reroll_threshold = sides
-        end
-
         ret = Array.new(times) do
           list = roll_ones(sides)
           {sum: list.inject(0, :+), list: list}
@@ -157,13 +153,7 @@ module BCDice
       # @param target [String]
       # @return [Integer]
       def reroll_threshold(target)
-        if target
-          target.to_i
-        elsif @diceBot.upperRollThreshold == "Max"
-          2
-        else
-          @diceBot.upperRollThreshold
-        end
+        target&.to_i || @diceBot.upper_dice_reroll_threshold.to_i
       end
 
       # パース済みのコマンドを文字列で表示する

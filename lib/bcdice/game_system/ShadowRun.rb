@@ -19,7 +19,7 @@ module BCDice
         super
         @sort_add_dice = true
         @sort_barabara_dice = true
-        @upperRollThreshold = 6
+        @upper_dice_reroll_threshold = 6
       end
     end
   end

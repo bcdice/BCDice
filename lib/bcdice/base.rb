@@ -63,8 +63,8 @@ module BCDice
 
       @sameDiceRerollCount = 0 # ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
       @sameDiceRerollType = 0 # ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
-      @upperRollThreshold = 0 # 上方無限
 
+      @upper_dice_reroll_threshold = nil # UpperDiceで振り足しをする出目の閾値 nilの場合デフォルト設定なし
       @default_reroll_threshold = nil # RerollDiceで振り足しをする出目の閾値 nilの場合デフォルト設定なし
 
       @default_cmp_op = nil # 目標値が空欄の場合の比較演算子をシンボルで指定する (:>, :>= :<, :<=, :==, :!=)
@@ -92,6 +92,11 @@ module BCDice
     #
     # @return [Symbol]
     attr_reader :round_type
+
+    # UpperDiceで振り足しをする出目の閾値
+    #
+    # @return [Integer, nil]
+    attr_reader :upper_dice_reroll_threshold
 
     # RerollDiceで振り足しをする出目の閾値
     #
@@ -154,7 +159,6 @@ module BCDice
     end
 
     attr_reader :sameDiceRerollCount, :sameDiceRerollType, :d66Type
-    attr_reader :upperRollThreshold
 
     # ダイスボットについての情報を返す
     # @return [Hash]
@@ -224,8 +228,6 @@ module BCDice
 
     # @deprecated 代わりに {#prefixes} を使ってください
     alias prefixs prefixes
-
-    attr_writer :upperRollThreshold
 
     def rand(max)
       @randomizer.rand(max)

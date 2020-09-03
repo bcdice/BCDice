@@ -17,7 +17,7 @@ module BCDice
 
       def initialize
         super
-        @upperRollThreshold = 96
+        @upper_dice_reroll_threshold = 96
       end
     end
   end
