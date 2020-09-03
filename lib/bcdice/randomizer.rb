@@ -133,26 +133,19 @@ module BCDice
       return (value - 1)
     end
 
-    def getD66Value(mode)
-      isSwap = (mode > 1)
-      getD66(isSwap)
-    end
+    # @param sort_type [Symbol] BCDice::D66SortType
+    # @return [Integer]
+    def roll_d66(sort_type)
+      dice_list = Array.new(2) { roll_once(6) }
 
-    def getD66(isSwap)
-      output = 0
-
-      dice_a = rand_inner(6) + 1
-      dice_b = rand_inner(6) + 1
-
-      if isSwap && (dice_a > dice_b)
-        # 大小でスワップするタイプ
-        output = dice_a + dice_b * 10
-      else
-        # 出目そのまま
-        output = dice_a * 10 + dice_b
+      case sort_type
+      when D66SortType::ASC
+        dice_list.sort!
+      when D66SortType::DESC
+        dice_list.sort!.reverse!
       end
 
-      return output
+      return dice_list[0] * 10 + dice_list[1]
     end
   end
 end

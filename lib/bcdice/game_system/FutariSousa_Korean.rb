@@ -40,7 +40,8 @@ module BCDice
       def initialize
         super
 
-        @d66Type = 2
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::ASC
 
         @success_threshold = 4 # 成功の目標値（固定）
         @special_dice = 6 # スペシャルとなる出目（ダイスの種別によらず固定）

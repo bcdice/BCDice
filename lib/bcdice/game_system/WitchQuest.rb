@@ -265,8 +265,7 @@ module BCDice
       end
 
       def getPersonTable(table)
-        isSwap = true
-        number = @randomizer.getD66(isSwap)
+        number = @randomizer.roll_d66(D66SortType::ASC)
         debug("getPersonTable number", number)
 
         " ＞ #{number}:" + get_table_by_number(number, table)

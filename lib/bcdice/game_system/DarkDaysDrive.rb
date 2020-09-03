@@ -46,7 +46,8 @@ module BCDice
 
       def initialize
         super
-        @d66Type = 2
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::ASC
       end
 
       # ゲーム別成功度判定(2D6)
@@ -117,8 +118,7 @@ module BCDice
             get_table_by_d66_swap(table)
           when 'D66N'
             table = getD66Table(table)
-            isSwap = false
-            number = @randomizer.getD66(isSwap)
+            number = @randomizer.roll_d66(D66SortType::NO_SORT)
             result = get_table_by_number(number, table)
             [result, number]
           end

@@ -42,8 +42,8 @@ module BCDice
         def roll_once(times, sides)
           @sides = sides if @sides < sides
 
-          if sides == 66
-            return Array.new(times) { @bcdice.getD66Value(@dicebot.d66Type) }
+          if sides == 66 && @dicebot.enable_d66?
+            return Array.new(times) { @bcdice.roll_d66(@dicebot.d66_sort_type) }
           end
 
           if sides == 9 && @dicebot.isD9

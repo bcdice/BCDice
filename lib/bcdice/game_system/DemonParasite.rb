@@ -34,7 +34,8 @@ module BCDice
         super
 
         @sort_add_dice = true
-        @d66Type = 1
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::NO_SORT
       end
 
       # ゲーム別成功度判定(nD6)

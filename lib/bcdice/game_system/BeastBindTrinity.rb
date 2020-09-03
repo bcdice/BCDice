@@ -63,7 +63,8 @@ module BCDice
       def initialize
         super
 
-        @d66Type = 2
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::ASC
       end
 
       class BBCommand

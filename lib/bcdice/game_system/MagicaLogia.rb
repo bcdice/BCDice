@@ -51,7 +51,8 @@ module BCDice
 
         @sort_add_dice = true
         @sort_barabara_dice = true
-        @d66Type = 2
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::ASC
       end
 
       # ゲーム別成功度判定(2D6)

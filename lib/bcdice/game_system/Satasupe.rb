@@ -53,7 +53,8 @@ module BCDice
         super
 
         @sort_add_dice = true
-        @d66Type = 2
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::ASC
       end
 
       def rollDiceCommand(command)
@@ -429,7 +430,7 @@ module BCDice
         baseParts += "  アクセサリ部品："
 
         counts.times do |_i|
-          number2 = d66(2)
+          number2 = roll_d66(D66SortType::ASC)
           baseParts += get_table_by_number(number2, armsTable)
           partsEffect += get_table_by_number(number2, armsEffectTable)
 

@@ -27,14 +27,14 @@ module BCDice
         KKT	関係表
         DBRT	他愛のない会話表
         TKT	戦う理由表
-        
+
         ※武勇伝フェイズ
         BUDT	武勇伝表
         GUDT	ガイヤンキー武勇伝表
         FTNT	二つ名決定表
         DAIT	第一印象表
         TKKT	ツレ関係表
-        
+
         ※帰還フェイズ
         GSST	現実世界生活表
         GYST	ガイヤンキー生活表
@@ -44,7 +44,8 @@ module BCDice
 
       def initialize
         super
-        @d66Type = 2
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::ASC
       end
 
       # ゲーム別成功度判定(2D6)

@@ -148,7 +148,8 @@ module BCDice
         super
 
         @sort_add_dice = true
-        @d66Type = 2
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::ASC
       end
 
       def check_nD6(total, dice_total, _dice_list, cmp_op, target)
@@ -872,8 +873,7 @@ module BCDice
             ]
           end
 
-          isSwap = false
-          dice = getD66(isSwap)
+          dice = @randomizer.roll_d66(D66SortType::NO_SORT)
           outcome, text, page = table.assoc(dice)
           return "#{title} ＞ (1D6) ＞ #{number}\n#{name} ＞ [#{outcome}] ＞ #{text}（『ビギニングロード』#{page}ページ）"
 
@@ -2246,8 +2246,7 @@ module BCDice
       end
 
       def textFromD66Table(title, table, chance = '')
-        isSwap = true
-        dice = getD66(isSwap)
+        dice = @randomizer.roll_d66(D66SortType::ASC)
         number, text, skill = table.assoc(dice)
 
         text, skill = checkChance(text, skill, chance)
@@ -2375,8 +2374,7 @@ module BCDice
         index = name.index(src)
         return if index.nil?
 
-        isSwap = true
-        dice = getD66(isSwap)
+        dice = @randomizer.roll_d66(D66SortType::ASC)
         number, text, = table.assoc(dice)
         array.push([index, src, text, number])
       end

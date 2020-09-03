@@ -28,7 +28,8 @@ module BCDice
         super
 
         @sort_add_dice = true
-        @d66Type = 1
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::NO_SORT
       end
 
       def rollDiceCommand(command)
@@ -167,8 +168,7 @@ module BCDice
           [66, '※PCの任意'],
         ]
 
-        isSwap = false
-        number = @randomizer.getD66(isSwap)
+        number = @randomizer.roll_d66(D66SortType::NO_SORT)
 
         result = get_table_by_number(number, table)
         debug("getMaterialEffectNomal result", result)
@@ -227,8 +227,7 @@ module BCDice
           [66, '［閃光］'],
         ]
 
-        isSwap = false
-        number = @randomizer.getD66(isSwap)
+        number = @randomizer.roll_d66(D66SortType::NO_SORT)
 
         result = get_table_by_number(number, table)
 

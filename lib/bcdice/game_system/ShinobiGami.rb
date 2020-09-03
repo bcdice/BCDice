@@ -38,7 +38,8 @@ module BCDice
         super
 
         @sort_add_dice = true
-        @d66Type = 2
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::ASC
       end
 
       def check_2D6(total, dice_total, _dice_list, cmp_op, target)

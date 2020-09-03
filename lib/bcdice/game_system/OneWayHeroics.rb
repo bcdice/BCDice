@@ -41,7 +41,8 @@ module BCDice
 
       def initialize
         super
-        @d66Type = 2 # d66の差し替え(0=D66無し, 1=順番そのまま([5,3]->53), 2=昇順入れ替え([5,3]->35)
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::ASC
       end
 
       def rollDiceCommand(command)
@@ -72,8 +73,7 @@ module BCDice
             dice, = roll(count, 6)
             getTableResult(table, dice, hasGap)
           when 'D66'
-            isSwap = (@d66Type == 2)
-            dice = getD66(isSwap)
+            dice = @randomizer.roll_d66(D66SortType::ASC)
             getTableResult(table, dice, hasGap)
           end
 

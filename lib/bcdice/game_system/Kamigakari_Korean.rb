@@ -36,7 +36,8 @@ module BCDice
         super
 
         @sort_add_dice = true
-        @d66Type = 1
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::NO_SORT
       end
 
       def rollDiceCommand(command)
@@ -136,8 +137,7 @@ module BCDice
           [66, '＊PC의 임의/플레이어, 또는 GM이 설정한 임의의 감정을 품고 있다.'],
         ]
 
-        isSwap = false
-        number = @randomizer.getD66(isSwap)
+        number = @randomizer.roll_d66(D66SortType::NO_SORT)
 
         result = get_table_by_number(number, table)
 
@@ -186,8 +186,7 @@ module BCDice
           [66, '쿠사카베(草壁)　다이고/아야'],
         ]
 
-        isSwap = false
-        number = @randomizer.getD66(isSwap)
+        number = @randomizer.roll_d66(D66SortType::NO_SORT)
 
         result = get_table_by_number(number, table)
 
@@ -236,8 +235,7 @@ module BCDice
           [66, "임계중복\n[마경임계]가 2번 발생한다. GM은 이 표를 2번 굴려, 효과를 각각 적용할 수 있다. 다시 「임계중복」이 발생한 경우, [GM의 임의] 1번으로 취급한다."],
         ]
 
-        isSwap = false
-        number = @randomizer.getD66(isSwap)
+        number = @randomizer.roll_d66(D66SortType::NO_SORT)
 
         result = get_table_by_number(number, table)
 
@@ -335,8 +333,7 @@ module BCDice
           [66, '※PC의 임의'],
         ]
 
-        isSwap = false
-        number = @randomizer.getD66(isSwap)
+        number = @randomizer.roll_d66(D66SortType::NO_SORT)
 
         result = get_table_by_number(number, table)
         debug("getMaterialEffectNomal result", result)
@@ -395,8 +392,7 @@ module BCDice
           [66, '［섬광］'],
         ]
 
-        isSwap = false
-        number = @randomizer.getD66(isSwap)
+        number = @randomizer.roll_d66(D66SortType::NO_SORT)
 
         result = get_table_by_number(number, table)
 

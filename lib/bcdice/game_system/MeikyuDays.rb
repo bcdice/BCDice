@@ -37,7 +37,8 @@ module BCDice
         super
 
         @sort_add_dice = true
-        @d66Type = 2
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::ASC
       end
 
       def replace_text(string)

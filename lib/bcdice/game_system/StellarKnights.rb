@@ -67,7 +67,8 @@ module BCDice
         super
 
         @sort_barabara_dice = true # バラバラロール（Bコマンド）でソート有
-        @d66Type = 1
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::NO_SORT
       end
 
       def rollDiceCommand(command)

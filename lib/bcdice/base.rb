@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "bcdice/randomizer"
+require "bcdice/enum"
 
 module BCDice
   class Base
@@ -55,9 +56,11 @@ module BCDice
       @sort_add_dice = false # 加算ダイスでダイス目をソートするかどうか
       @sort_barabara_dice = false # バラバラダイスでダイス目をソートするかどうか
 
+      @enable_d66 = true # D66ダイスを利用するかどうか
+      @d66_sort_type = D66SortType::NO_SORT # 入れ替えの種類 詳しくはBCDice::D66SortTypeを参照すること
+
       @sameDiceRerollCount = 0 # ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
       @sameDiceRerollType = 0 # ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
-      @d66Type = 1 # d66の差し替え(0=D66無し, 1=順番そのまま([5,3]->53), 2=昇順入れ替え([5,3]->35)
       @isPrintMaxDice = false # 最大値表示
       @upperRollThreshold = 0 # 上方無限
       @rerollNumber = 0 # 振り足しする条件
@@ -77,6 +80,11 @@ module BCDice
 
     attr_reader :randomizer
 
+    # D66のダイス入れ替えの種類
+    #
+    # @return [Symbol]
+    attr_reader :d66_sort_type
+
     # 加算ダイスでダイス目をソートするかどうか
     #
     # @return [Boolean]
@@ -91,17 +99,11 @@ module BCDice
       @sort_barabara_dice
     end
 
-    def disable_d66?
-      @d66Type == 0
-    end
-
-    def d66_sort_type
-      case @d66Type
-      when 2
-        :asc
-      else
-        :no_sort
-      end
+    # D66ダイスが有効か
+    #
+    # @return [Boolean]
+    def enable_d66?
+      @enable_d66
     end
 
     def eval(command)
@@ -223,8 +225,8 @@ module BCDice
       @randomizer.roll(*args)
     end
 
-    def d66(*args)
-      @randomizer.getD66Value(*args)
+    def roll_d66(sort_type)
+      @randomizer.roll_d66(sort_type)
     end
 
     def changeText(string)
@@ -391,14 +393,9 @@ module BCDice
       return text, num
     end
 
-    def getD66(isSwap)
-      @randomizer.getD66(isSwap)
-    end
-
     # D66 ロール用（スワップ、たとえば出目が【６，４】なら「６４」ではなく「４６」とする
     def get_table_by_d66_swap(table)
-      isSwap = true
-      number = @randomizer.getD66(isSwap)
+      number = @randomizer.roll_d66(D66SortType::ASC)
       return get_table_by_number(number, table), number
     end
 
@@ -492,7 +489,7 @@ module BCDice
       type = info[:type].upcase
       table = info[:table]
 
-      if (type == "D66") && (@d66Type == 2)
+      if (type == "D66") && (@d66_sort_type == D66SortType::ASC)
         type = "D66S"
       end
 
@@ -558,7 +555,7 @@ module BCDice
 
       unless count.nil?
         if newTable.size != count
-          raise "invalid table size:#{newTable.size}\n#{newTable.inspect}"
+          raise "invalid table size (actual #{newTable.size}, expected #{count})\n#{newTable.inspect}"
         end
       end
 

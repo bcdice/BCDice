@@ -22,7 +22,8 @@ module BCDice
         super
 
         @sort_add_dice = true
-        @d66Type = 1
+        @enable_d66 = true
+        @d66_sort_type = D66SortType::NO_SORT
       end
 
       def check_nD6(total, _dice_total, dice_list, cmp_op, target)
