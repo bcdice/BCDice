@@ -51,7 +51,8 @@ Style/NumericLiterals:
   MinDigits: 6
 
 Style/WordArray:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: brackets
 
 Style/FrozenStringLiteralComment:
   Enabled: false

@@ -47,7 +47,7 @@ module BCDice
         ・改良種表　　　　　　IS
       MESSAGETEXT
 
-      setPrefixes(%w(\d+VBS(>=\d+)? \d+VF \d+VM \d+VG PJ[VA]? PQ[VA]? AC MM([IAD]|V[VA]?) F[LRWGBCS] IP[VA]? EP[VA]?\d? MP IS))
+      setPrefixes(['\\d+VBS(>=\\d+)?', '\\d+VF', '\\d+VM', '\\d+VG', 'PJ[VA]?', 'PQ[VA]?', 'AC', 'MM([IAD]|V[VA]?)', 'F[LRWGBCS]', 'IP[VA]?', 'EP[VA]?\\d?', 'MP', 'IS'])
 
       def initialize
         super
@@ -122,12 +122,7 @@ module BCDice
         return output
       end
 
-      SKILL_CHART = %w(左に3マス、上に3マス動かす
-                       左に2マス、上に2マス動かす
-                       右か下に1マス動かしてもよい
-                       右に1マス、下に1マス動かす
-                       好きな方向に最大で3マス動かしてもよい（1マスでも良い）
-                       好きな方向に最大で5マス動かしてもよい（1〜3マスでもよい）).freeze
+      SKILL_CHART = ['左に3マス、上に3マス動かす', '左に2マス、上に2マス動かす', '右か下に1マス動かしてもよい', '右に1マス、下に1マス動かす', '好きな方向に最大で3マス動かしてもよい（1マスでも良い）', '好きな方向に最大で5マス動かしてもよい（1〜3マスでもよい）'].freeze
 
       def resolute_frontier_action(command)
         num_dices = command.match(/(\d+)VF/)[1].to_i
