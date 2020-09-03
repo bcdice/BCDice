@@ -81,9 +81,9 @@ Style/StringLiterals:
   Exclude:
     - 'lib/bcdice/game_system/*.rb'
 
-# Due to old Ruby 1.8.x
 Style/SymbolArray:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: brackets
 
 Style/SymbolProc:
   Enabled: false
