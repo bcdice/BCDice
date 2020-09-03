@@ -158,8 +158,8 @@ module BCDice
       def decide_reroll_threshold(captured_threshold, target_number)
         if captured_threshold
           captured_threshold.to_i
-        elsif @diceBot.rerollNumber != 0
-          @diceBot.rerollNumber
+        elsif @diceBot.default_reroll_threshold
+          @diceBot.default_reroll_threshold
         else
           target_number
         end

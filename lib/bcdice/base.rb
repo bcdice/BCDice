@@ -64,7 +64,9 @@ module BCDice
       @sameDiceRerollCount = 0 # ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
       @sameDiceRerollType = 0 # ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
       @upperRollThreshold = 0 # 上方無限
-      @rerollNumber = 0 # 振り足しする条件
+
+      @default_reroll_threshold = nil # RerollDiceで振り足しをする出目の閾値 nilの場合デフォルト設定なし
+
       @defaultSuccessTarget = "" # 目標値が空欄の時の目標値
       @randomizer = BCDice::Randomizer.new
       @debug = debug
@@ -88,6 +90,11 @@ module BCDice
     #
     # @return [Symbol]
     attr_reader :round_type
+
+    # RerollDiceで振り足しをする出目の閾値
+    #
+    # @return [Integer, nil]
+    attr_reader :default_reroll_threshold
 
     # 加算ダイスでダイス目をソートするかどうか
     #
@@ -136,7 +143,7 @@ module BCDice
 
     attr_reader :sameDiceRerollCount, :sameDiceRerollType, :d66Type
     attr_reader :upperRollThreshold
-    attr_reader :defaultSuccessTarget, :rerollNumber
+    attr_reader :defaultSuccessTarget
 
     # ダイスボットについての情報を返す
     # @return [Hash]
