@@ -1,5 +1,5 @@
-require 'bcdice'
-require 'DiceBotTestData'
+require "bcdice"
+require "DiceBotTestData"
 
 class DiceBotTest
   def initialize(testDataPath = nil, dataIndex = nil)
@@ -22,7 +22,7 @@ class DiceBotTest
     readTestDataSet
 
     if @testDataSet.empty?
-      warn('No matched test data!')
+      warn("No matched test data!")
       return false
     end
 
@@ -30,11 +30,11 @@ class DiceBotTest
 
     if @errorLog.empty?
       # テスト成功
-      puts('OK.')
+      puts("OK.")
 
       true
     else
-      puts('[Failures]')
+      puts("[Failures]")
       puts(@errorLog.join("\n===========================\n"))
 
       false
@@ -56,7 +56,7 @@ class DiceBotTest
     targetFiles.each do |filename|
       next if File.basename(filename) =~ /^_/
 
-      source = File.read(filename, encoding: 'UTF-8')
+      source = File.read(filename, encoding: "UTF-8")
 
       dataSetSources = source
                        .gsub("\r\n", "\n")
@@ -65,7 +65,7 @@ class DiceBotTest
                        .map(&:chomp)
 
       # ゲームシステムをファイル名から判断する
-      gameType = File.basename(filename, '.txt')
+      gameType = File.basename(filename, ".txt")
 
       dataSet =
         dataSetSources.map.with_index(1) do |dataSetSource, i|
@@ -91,21 +91,21 @@ class DiceBotTest
 
         unless result == testData.output
           @errorLog << logTextForUnexpected(result, testData)
-          print('X')
+          print("X")
 
           # テスト失敗、次へ
           next
         end
       rescue StandardError => e
         @errorLog << logTextForException(e, testData)
-        print('E')
+        print("E")
 
         # テスト失敗、次へ
         next
       end
 
       # テスト成功
-      print('.')
+      print(".")
     end
 
     puts
@@ -119,14 +119,14 @@ class DiceBotTest
     @bot.randomizer.setRandomValues(rands)
     # @bot.bcdice.setTest(true)
 
-    result = ''
+    result = ""
     testData.input.each do |message|
       result += @bot.eval(message)
     end
 
     unless rands.empty?
       result += "\nダイス残り："
-      result += rands.map { |r| r.join('/') }.join(', ')
+      result += rands.map { |r| r.join("/") }.join(", ")
     end
 
     result

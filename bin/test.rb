@@ -16,12 +16,12 @@ libPaths.each do |libPath|
   $:.push(libPath)
 end
 
-require 'test/setup'
-require 'DiceBotTest'
+require "test/setup"
+require "DiceBotTest"
 
 # 引数を解析してテストデータファイルのパスを返す
 getTestDataPath = lambda do |arg|
-  arg.end_with?('.txt') ? arg : "#{rootDir}/test/data/#{arg}.txt"
+  arg.end_with?(".txt") ? arg : "#{rootDir}/test/data/#{arg}.txt"
 end
 
 # テストデータファイルのパス
@@ -31,7 +31,7 @@ dataIndex = nil
 
 HELP_MESSAGE = "Usage: #{File.basename($0)} [TEST_DATA_PATH] [DATA_INDEX]".freeze
 
-if ARGV.include?('-h') || ARGV.include?('--help')
+if ARGV.include?("-h") || ARGV.include?("--help")
   $stdout.puts(HELP_MESSAGE)
   exit
 end

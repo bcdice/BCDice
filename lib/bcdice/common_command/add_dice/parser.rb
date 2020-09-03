@@ -59,7 +59,7 @@ module BCDice
         # 構文解析対象の文字列をトークンの配列に変換する
         # @return [Array<String>]
         def tokenize(expr)
-          expr.gsub(%r{[\+\-\*/DURSKHL@]}) { |e| " #{e} " }.split(' ')
+          expr.gsub(%r{[\+\-\*/DURSKHL@]}) { |e| " #{e} " }.split(" ")
         end
 
         # 式
@@ -123,10 +123,10 @@ module BCDice
         # 端数処理方法を示す記号を読み込み、対応する除算ノードのクラスを返す
         # @return [Class] 除算ノードのクラス
         def divide_node_class
-          if consume('U')
+          if consume("U")
             # 切り上げ
             Node::DivideWithRoundingUp
-          elsif consume('R')
+          elsif consume("R")
             # 四捨五入
             Node::DivideWithRoundingOff
           else
@@ -180,16 +180,16 @@ module BCDice
 
         # ダイスロール：フィルタ処理
         def dice_roll_filter
-          if consume('K', 'H')
+          if consume("K", "H")
             # 大きな出目から複数個取る
             Node::DiceRollWithFilter::KEEP_HIGHEST
-          elsif consume('K', 'L')
+          elsif consume("K", "L")
             # 小さな出目から複数個取る
             Node::DiceRollWithFilter::KEEP_LOWEST
-          elsif consume('D', 'H')
+          elsif consume("D", "H")
             # 大きな出目から複数個除く
             Node::DiceRollWithFilter::DROP_HIGHEST
-          elsif consume('D', 'L')
+          elsif consume("D", "L")
             # 小さな出目から複数個除く
             Node::DiceRollWithFilter::DROP_LOWEST
           end

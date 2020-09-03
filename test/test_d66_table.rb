@@ -1,6 +1,6 @@
-require 'test/unit'
-require 'bcdice'
-require 'bcdice/dice_table/d66_table'
+require "test/unit"
+require "bcdice"
+require "bcdice/dice_table/d66_table"
 
 class TestD66Table < Test::Unit::TestCase
   def setup

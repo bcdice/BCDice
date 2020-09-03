@@ -75,7 +75,10 @@ Style/RedundantReturn:
   Enabled: false
 
 Style/StringLiterals:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: double_quotes
+  Exclude:
+    - 'lib/bcdice/game_system/*.rb'
 
 # Due to old Ruby 1.8.x
 Style/SymbolArray:

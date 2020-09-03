@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-bcdice_root = File.expand_path('..', File.dirname(__FILE__))
+bcdice_root = File.expand_path("..", File.dirname(__FILE__))
 $:.unshift(bcdice_root) unless $:.include?(bcdice_root)
 
-require 'test/unit'
-require 'bcdice/dice_table/range_table'
+require "test/unit"
+require "bcdice/dice_table/range_table"
 
 class TestRangeTable < Test::Unit::TestCase
   # ダイスロール方法の書式が正しい場合、受理される
   def test_valid_dice_roll_method_should_be_accepted_1
     assert_nothing_raised do
       BCDice::DiceTable::RangeTable.new(
-        'Table',
-        '2D6',
+        "Table",
+        "2D6",
         [
-          [2..7,  'A'],
-          [8..12, 'B'],
+          [2..7,  "A"],
+          [8..12, "B"],
         ]
       )
     end
@@ -25,13 +25,13 @@ class TestRangeTable < Test::Unit::TestCase
   def test_valid_dice_roll_method_should_be_accepted_2
     assert_nothing_raised do
       BCDice::DiceTable::RangeTable.new(
-        'Table',
-        '1D100',
+        "Table",
+        "1D100",
         [
-          [1..25,   'A'],
-          [26..50,  'B'],
-          [51..75,  'C'],
-          [76..100, 'D'],
+          [1..25,   "A"],
+          [26..50,  "B"],
+          [51..75,  "C"],
+          [76..100, "D"],
         ]
       )
     end
@@ -41,13 +41,13 @@ class TestRangeTable < Test::Unit::TestCase
   def test_valid_dice_roll_method_should_be_accepted_3
     assert_nothing_raised do
       BCDice::DiceTable::RangeTable.new(
-        'Table',
-        '2D6',
+        "Table",
+        "2D6",
         [
-          [2..6,  'A'],
-          [7,     'B'],
-          [8..11, 'C'],
-          [12,    'D'],
+          [2..6,  "A"],
+          [7,     "B"],
+          [8..11, "C"],
+          [12,    "D"],
         ]
       )
     end
@@ -57,11 +57,11 @@ class TestRangeTable < Test::Unit::TestCase
   def test_valid_dice_roll_method_should_be_accepted_4
     assert_nothing_raised do
       BCDice::DiceTable::RangeTable.new(
-        'Table',
-        '2D6',
+        "Table",
+        "2D6",
         [
-          [2...8,  'A'],
-          [8...13, 'B'],
+          [2...8,  "A"],
+          [8...13, "B"],
         ]
       )
     end
@@ -71,11 +71,11 @@ class TestRangeTable < Test::Unit::TestCase
   def test_invalid_dice_roll_method_should_be_denied_1
     assert_raise(ArgumentError) do
       BCDice::DiceTable::RangeTable.new(
-        'Table',
-        'D6',
+        "Table",
+        "D6",
         [
-          [1..3, 'A'],
-          [4..6, 'B'],
+          [1..3, "A"],
+          [4..6, "B"],
         ]
       )
     end
@@ -85,11 +85,11 @@ class TestRangeTable < Test::Unit::TestCase
   def test_invalid_dice_roll_method_should_be_denied_2
     assert_raise(ArgumentError) do
       BCDice::DiceTable::RangeTable.new(
-        'Table',
-        '2B6',
+        "Table",
+        "2B6",
         [
-          [2..7,  'A'],
-          [8..12, 'B'],
+          [2..7,  "A"],
+          [8..12, "B"],
         ]
       )
     end
@@ -99,13 +99,13 @@ class TestRangeTable < Test::Unit::TestCase
   def test_invalid_typed_range_should_be_denied
     assert_raise(TypeError) do
       BCDice::DiceTable::RangeTable.new(
-        'Table',
-        '2D6',
+        "Table",
+        "2D6",
         [
-          [2.0..3, 'A'],
-          [4..6.0, 'B'],
-          [7.0,    'C'],
-          [8..12,  'D'],
+          [2.0..3, "A"],
+          [4..6.0, "B"],
+          [7.0,    "C"],
+          [8..12,  "D"],
         ]
       )
     end
@@ -115,11 +115,11 @@ class TestRangeTable < Test::Unit::TestCase
   def test_range_gap_should_be_denied_1
     assert_raise(RangeError) do
       BCDice::DiceTable::RangeTable.new(
-        'Table',
-        '2D6',
+        "Table",
+        "2D6",
         [
-          [2..7,  'A'],
-          [9..12, 'B'],
+          [2..7,  "A"],
+          [9..12, "B"],
         ]
       )
     end
@@ -129,11 +129,11 @@ class TestRangeTable < Test::Unit::TestCase
   def test_range_gap_should_be_denied_2
     assert_raise(RangeError) do
       BCDice::DiceTable::RangeTable.new(
-        'Table',
-        '2D6',
+        "Table",
+        "2D6",
         [
-          [2...7, 'A'],
-          [8..12, 'B'],
+          [2...7, "A"],
+          [8..12, "B"],
         ]
       )
     end
@@ -143,11 +143,11 @@ class TestRangeTable < Test::Unit::TestCase
   def test_range_overlap_should_be_denied
     assert_raise(RangeError) do
       BCDice::DiceTable::RangeTable.new(
-        'Table',
-        '2D6',
+        "Table",
+        "2D6",
         [
-          [2..7,  'A'],
-          [7..12, 'B'],
+          [2..7,  "A"],
+          [7..12, "B"],
         ]
       )
     end

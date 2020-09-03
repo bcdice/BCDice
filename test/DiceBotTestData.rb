@@ -16,7 +16,7 @@ class DiceBotTestData
     input = matches[1].lines.map(&:chomp)
     output = matches[2].lstrip
 
-    rands = matches[3].split(',').map do |randStr|
+    rands = matches[3].split(",").map do |randStr|
       m = randStr.match(%r{(\d+)/(\d+)})
       raise "invalid rands: #{matches[3]}" unless m
 
@@ -43,6 +43,6 @@ class DiceBotTestData
 
   # 乱数値を文字列に変換して返す
   def randsText
-    @rands.map { |r| "#{r[0]}/#{r[1]}" }.join(', ')
+    @rands.map { |r| "#{r[0]}/#{r[1]}" }.join(", ")
   end
 end

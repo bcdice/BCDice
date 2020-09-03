@@ -53,9 +53,9 @@ module BCDice
           def cmp_op_text
             case @cmp_op
             when :'!='
-              '<>'
+              "<>"
             when :==
-              '='
+              "="
             else
               @cmp_op.to_s
             end
@@ -191,7 +191,7 @@ module BCDice
         # 除算（切り上げ）のノード
         class DivideWithRoundingUp < DivideBase
           # 端数処理方法を示す記号
-          ROUNDING_METHOD = 'U'
+          ROUNDING_METHOD = "U"
 
           private
 
@@ -207,7 +207,7 @@ module BCDice
         # 除算（四捨五入）のノード
         class DivideWithRoundingOff < DivideBase
           # 端数処理方法を示す記号
-          ROUNDING_METHOD = 'R'
+          ROUNDING_METHOD = "R"
 
           private
 
@@ -223,7 +223,7 @@ module BCDice
         # 除算（切り捨て）のノード
         class DivideWithRoundingDown < DivideBase
           # 端数処理方法を示す記号
-          ROUNDING_METHOD = ''
+          ROUNDING_METHOD = ""
 
           private
 

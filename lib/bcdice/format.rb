@@ -9,9 +9,9 @@ module BCDice
     def comparison_operator(op)
       case op
       when :==
-        '='
+        "="
       when :'!='
-        '<>'
+        "<>"
       when Symbol
         op.to_s
       end
@@ -23,7 +23,7 @@ module BCDice
     # @return [String]
     def modifier(number)
       if number == 0
-        ''
+        ""
       elsif number > 0
         "+#{number}"
       else

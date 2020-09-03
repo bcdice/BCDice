@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-bcdice_root = File.expand_path('..', File.dirname(__FILE__))
+bcdice_root = File.expand_path("..", File.dirname(__FILE__))
 $:.unshift(bcdice_root) unless $:.include?(bcdice_root)
 
-require 'test/unit'
-require 'bcdice/game_system/SRS'
-require 'bcdice/game_system/EtrianOdysseySRS'
+require "test/unit"
+require "bcdice/game_system/SRS"
+require "bcdice/game_system/EtrianOdysseySRS"
 
 # Standard RPG System（SRS）系のダイスボットの説明文のテスト
 #

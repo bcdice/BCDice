@@ -151,7 +151,7 @@ module BCDice
         sum, values_str, = bcdice.roll(@num_of_dice, @num_of_sides)
 
         # TODO: BCDice#roll から直接、整数の配列として出目を受け取りたい
-        values = values_str.split(',').map(&:to_i)
+        values = values_str.split(",").map(&:to_i)
 
         result = RollResult.new(sum, values, fetch(sum).content)
         result.formatted = @formatter[self, result]

@@ -1,5 +1,5 @@
-require 'test/unit'
-require 'bcdice/command_parser'
+require "test/unit"
+require "bcdice/command_parser"
 
 class TestCommandParser < Test::Unit::TestCase
   def setup

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-bcdice_root = File.expand_path('..', File.dirname(__FILE__))
+bcdice_root = File.expand_path("..", File.dirname(__FILE__))
 $:.unshift(bcdice_root) unless $:.include?(bcdice_root)
 
-require 'test/unit'
-require 'bcdice'
-require 'bcdice/game_system'
+require "test/unit"
+require "bcdice"
+require "bcdice/game_system"
 
 class TestDiceBotInfoIsDefined < Test::Unit::TestCase
   # 一般的なダイスボット

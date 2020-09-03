@@ -1,6 +1,6 @@
-require 'test/unit'
-require 'bcdice'
-require 'bcdice/randomizer'
+require "test/unit"
+require "bcdice"
+require "bcdice/randomizer"
 
 # ダイスロール結果詳細のテストケース
 # 10の位用にダイスロールした場合などの確認

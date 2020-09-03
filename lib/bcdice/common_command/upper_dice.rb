@@ -1,7 +1,7 @@
-require 'bcdice/arithmetic_evaluator'
-require 'bcdice/normalize'
-require 'bcdice/format'
-require 'bcdice/modifier_formatter'
+require "bcdice/arithmetic_evaluator"
+require "bcdice/normalize"
+require "bcdice/format"
+require "bcdice/modifier_formatter"
 
 module BCDice
   module CommonCommand
@@ -68,7 +68,7 @@ module BCDice
         end
 
         roll_list = []
-        @command.split('+').each do |u|
+        @command.split("+").each do |u|
           times, sides = u.split("U", 2).map(&:to_i)
           roll_list.concat(roll(times, sides))
         end

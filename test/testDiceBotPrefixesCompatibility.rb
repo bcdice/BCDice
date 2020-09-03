@@ -1,20 +1,20 @@
-dodontof_root = File.expand_path('..', File.dirname(__FILE__))
+dodontof_root = File.expand_path("..", File.dirname(__FILE__))
 unless $:.include?(dodontof_root)
   $:.unshift(dodontof_root)
 end
 
-require 'test/unit'
-require 'bcdice/base'
+require "test/unit"
+require "bcdice/base"
 
 class TestDiceBotPrefixesCompatibility < Test::Unit::TestCase
   def test_prefixesCompatibility
     kariDiceClass = Class.new(BCDice::Base) do |_|
       def id
-        'KariDice'
+        "KariDice"
       end
 
       def name
-        '仮ダイス'
+        "仮ダイス"
       end
 
       # 従来の方法で接頭辞を設定する
@@ -28,9 +28,9 @@ class TestDiceBotPrefixesCompatibility < Test::Unit::TestCase
     _ = kariDiceClass.new
 
     assert_equal(['KD\d+>=\d+'], kariDiceClass.prefixes,
-                 'クラス側に接頭辞が設定されている')
+                 "クラス側に接頭辞が設定されている")
     assert_not_equal(BCDice::Base::EMPTY_PREFIXES_PATTERN,
                      kariDiceClass.prefixesPattern,
-                     'クラス側に接頭辞の正規表現が設定されている')
+                     "クラス側に接頭辞の正規表現が設定されている")
   end
 end

@@ -1,10 +1,10 @@
-require 'test/unit'
-require 'nkf'
+require "test/unit"
+require "nkf"
 
 class TestDataEncoding < Test::Unit::TestCase
   data do
     data_set = {}
-    pattern = File.join(File.dirname(__FILE__), 'data/*.txt')
+    pattern = File.join(File.dirname(__FILE__), "data/*.txt")
     files = Dir.glob(pattern)
 
     files.each do |f|

@@ -28,7 +28,7 @@ module BCDice
     # @param val [String]
     # @return [Integer, String] 整数か'?'
     def target_number(val)
-      if val == '?'
+      if val == "?"
         val
       else
         val.to_i

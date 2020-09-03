@@ -103,7 +103,7 @@ module BCDice
         result += "###secret dice###"
       end
 
-      display_id = id.sub(/:.+$/, '') # 多言語対応用
+      display_id = id.sub(/:.+$/, "") # 多言語対応用
 
       if result == "1"
         return ""
@@ -130,11 +130,11 @@ module BCDice
     # @return [Hash]
     def info
       {
-        'gameType' => id,
-        'name' => name,
-        'sortKey' => sort_key,
-        'prefixs' => self.class.prefixes,
-        'info' => help_message,
+        "gameType" => id,
+        "name" => name,
+        "sortKey" => sort_key,
+        "prefixs" => self.class.prefixes,
+        "info" => help_message,
       }
     end
 
@@ -224,12 +224,12 @@ module BCDice
     def dice_command(string, nick_e)
       string = string.upcase unless isGetOriginalMessage
 
-      debug('dice_command Begin string', string)
+      debug("dice_command Begin string", string)
       secret_flg = false
 
       unless self.class.prefixesPattern =~ string
-        debug('not match in prefixes')
-        return '1', secret_flg
+        debug("not match in prefixes")
+        return "1", secret_flg
       end
 
       secretMarker = Regexp.last_match(2)
@@ -238,16 +238,16 @@ module BCDice
       command = removeDiceCommandMessage(command)
       debug("dicebot after command", command)
 
-      debug('match')
+      debug("match")
 
       output_msg, secret_flg = rollDiceCommand(command)
-      output_msg = '1' if output_msg.nil? || output_msg.empty?
+      output_msg = "1" if output_msg.nil? || output_msg.empty?
       secret_flg ||= false
 
-      output_msg = "#{nick_e}: #{output_msg}" if output_msg != '1'
+      output_msg = "#{nick_e}: #{output_msg}" if output_msg != "1"
 
       if secretMarker # 隠しロール
-        secret_flg = true if output_msg != '1'
+        secret_flg = true if output_msg != "1"
       end
 
       return output_msg, secret_flg
@@ -261,7 +261,7 @@ module BCDice
 
     def removeDiceCommandMessage(command)
       # "2d6 Attack" のAttackのようなメッセージ部分をここで除去
-      command.sub(/[\s　].+/, '')
+      command.sub(/[\s　].+/, "")
     end
 
     def rollDiceCommand(_command)
@@ -359,7 +359,7 @@ module BCDice
 
       text = getTableValue(table[num - count])
 
-      return '1', 0 if text.nil?
+      return "1", 0 if text.nil?
 
       return text, num
     end
@@ -376,7 +376,7 @@ module BCDice
 
       text = table[index]
 
-      return '1', 0 if text.nil?
+      return "1", 0 if text.nil?
 
       return text, num
     end
@@ -403,19 +403,19 @@ module BCDice
 
       indexText = "#{dice1}#{dice2}"
 
-      return '1', indexText if text.nil?
+      return "1", indexText if text.nil?
 
       return text, indexText
     end
 
     # ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
     def getDiceRolledAdditionalText(_n1, _n_max, _dice_max)
-      ''
+      ""
     end
 
     # ダイス目による補正処理（現状ナイトメアハンターディープ専用）
     def getDiceRevision(_n_max, _dice_max, _total_n)
-      return '', 0
+      return "", 0
     end
 
     # ガンドッグのnD9専用
@@ -434,7 +434,7 @@ module BCDice
     end
 
     # ** 汎用表サブルーチン
-    def get_table_by_number(index, table, default = '1')
+    def get_table_by_number(index, table, default = "1")
       table.each do |item|
         number = item[0]
         if number >= index
@@ -482,8 +482,8 @@ module BCDice
       type = info[:type].upcase
       table = info[:table]
 
-      if (type == 'D66') && (@d66Type == 2)
-        type = 'D66S'
+      if (type == "D66") && (@d66Type == 2)
+        type = "D66S"
       end
 
       text, number, diceText =
@@ -494,14 +494,14 @@ module BCDice
           limit = diceType * count - (count - 1)
           table = getTableInfoFromExtraTableText(table, limit)
           get_table_by_nDx_extratable(table, count, diceType)
-        when 'D66', 'D66N'
+        when "D66", "D66N"
           table = getTableInfoFromExtraTableText(table, 36)
           item, value = get_table_by_d66(table)
           value = value.to_i
           output = item[1]
           diceText = (value / 10).to_s + "," + (value % 10).to_s
           [output, value, diceText]
-        when 'D66S'
+        when "D66S"
           table = getTableInfoFromExtraTableText(table, 21)
           output, value = get_table_by_d66_swap(table)
           value = value.to_i

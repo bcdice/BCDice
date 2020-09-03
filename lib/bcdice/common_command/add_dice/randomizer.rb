@@ -53,7 +53,7 @@ module BCDice
           _, dice_str, = @bcdice.roll(times, sides, @dicebot.sortType & 1)
 
           # 現在は出目が文字列で返ってきてしまうので、整数の配列に変換する
-          return dice_str.split(',').map(&:to_i)
+          return dice_str.split(",").map(&:to_i)
         end
 
         private

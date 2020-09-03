@@ -14,7 +14,7 @@ module BCDice
     # * modifierが負の場合：数値をそのまま文字列化して返す（例：-1 -> "-1"）
     def format_modifier(modifier)
       if modifier == 0
-        ''
+        ""
       elsif modifier > 0
         "+#{modifier}"
       else

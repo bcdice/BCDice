@@ -1,7 +1,7 @@
-require 'simplecov'
+require "simplecov"
 
-if ENV['CI'] == 'true' && ENV['CHECK_COVERAGE'] == 'true'
-  require 'codecov'
+if ENV["CI"] == "true" && ENV["CHECK_COVERAGE"] == "true"
+  require "codecov"
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 else
   SimpleCov.formatter = SimpleCov::Formatter::SimpleFormatter
