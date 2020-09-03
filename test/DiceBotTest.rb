@@ -140,7 +140,7 @@ class DiceBotTest
 
   # 期待された出力と異なる場合のログ文字列を返す
   def logTextForUnexpected(result, data)
-    logText = <<~EOS
+    logText = <<~LOG_TEXT
       Game type: #{data.gameType}
       Index: #{data.index}
       Input:
@@ -150,7 +150,7 @@ class DiceBotTest
       Result:
       #{indent(result)}
       Rands: #{data.randsText}
-    EOS
+    LOG_TEXT
 
     logText.chomp
   end
@@ -158,7 +158,7 @@ class DiceBotTest
 
   # 例外が発生した場合のログ文字列を返す
   def logTextForException(e, data)
-    logText = <<~EOS
+    logText = <<~LOG_TEXT
       Game type: #{data.gameType}
       Index: #{data.index}
       Exception: #{e.message}
@@ -169,7 +169,7 @@ class DiceBotTest
       Expected:
       #{indent(data.output)}
       Rands: #{data.randsText}
-    EOS
+    LOG_TEXT
 
     logText.chomp
   end
