@@ -105,29 +105,13 @@ module BCDice
 
         @is_secret = command.start_with?("S")
         @notation = m[1]
-        @cmp_op = Normalize.comparison_operator(m[4])
-        @target_number = @cmp_op ? m[5].to_i : nil
-        unless @cmp_op
-          @cmp_op, @target_number = target_from_default()
-        end
+        @cmp_op = Normalize.comparison_operator(m[4]) || @diceBot.default_cmp_op
+        @target_number = m[5]&.to_i || @diceBot.default_target_number
 
         @reroll_cmp_op = decide_reroll_cmp_op(m)
         @reroll_threshold = decide_reroll_threshold(m[3] || m[7], @target_number)
 
         return true
-      end
-
-      # @return [Array<(Symbol, Integer)>]
-      # @return [Array<(nil, nil)>]
-      def target_from_default
-        m = /^([<>=]+)(\d+)$/.match(@diceBot.defaultSuccessTarget)
-        unless m
-          return nil, nil
-        end
-
-        cmp_op = Normalize.comparison_operator(m[1])
-        target_number = cmp_op ? m[2].to_i : nil
-        return cmp_op, target_number
       end
 
       # @param m [MatchData]

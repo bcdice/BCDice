@@ -34,7 +34,7 @@ module BCDice
         　ELx[y] or ELx@y or ELx
         　x=判定ダイス y=難易度 省略時はNORMAL(4)
         　例:EL6[H] 難易度HARD,判定ダイス5で電子戦の判定
-        
+
         ・難易度
         　KIDS=K,EASY=E,NORMAL=N,HARD=H,ULTRA HARD=UH 数字にも対応
       MESSAGETEXT
@@ -51,7 +51,8 @@ module BCDice
       def initialize
         super
 
-        @defaultSuccessTarget = ">=4"
+        @default_cmp_op = :>=
+        @default_target_number = 4
       end
 
       # 難易度の値の正規表現

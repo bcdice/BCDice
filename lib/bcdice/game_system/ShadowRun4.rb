@@ -23,7 +23,9 @@ module BCDice
         @sort_add_dice = true
         @sort_barabara_dice = true
         @default_reroll_threshold = 6 # RerollDiceで振り足しをする出目の閾値
-        @defaultSuccessTarget = ">=5" # 目標値が空欄の時の目標値
+
+        @default_cmp_op = :>=
+        @default_target_number = 5
       end
 
       # シャドウラン4版用グリッチ判定

@@ -26,16 +26,8 @@ module BCDice
         lhs = m[2]
         b_list = lhs.split("+")
 
-        if m[3]
-          cmp_op = Normalize.comparison_operator(m[3])
-          target_number = m[4].to_i
-        elsif (n = /^([<>=]+)(\d+)$/.match(@game_system.defaultSuccessTarget))
-          cmp_op = Normalize.comparison_operator(n[1])
-          target_number = n[2].to_i
-        else
-          cmp_op = nil
-          target_number = nil
-        end
+        cmp_op = Normalize.comparison_operator(m[3]) || @game_system.default_cmp_op
+        target_number = m[4]&.to_i || @game_system.default_target_number
 
         dice_list = []
         b_list.each do |literal|

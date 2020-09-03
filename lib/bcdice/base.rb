@@ -67,7 +67,9 @@ module BCDice
 
       @default_reroll_threshold = nil # RerollDiceで振り足しをする出目の閾値 nilの場合デフォルト設定なし
 
-      @defaultSuccessTarget = "" # 目標値が空欄の時の目標値
+      @default_cmp_op = nil # 目標値が空欄の場合の比較演算子をシンボルで指定する (:>, :>= :<, :<=, :==, :!=)
+      @default_target_number = nil # 目標値が空欄の場合の目標値 こちらだけnilにするのは想定していないので注意
+
       @randomizer = BCDice::Randomizer.new
       @debug = debug
 
@@ -95,6 +97,16 @@ module BCDice
     #
     # @return [Integer, nil]
     attr_reader :default_reroll_threshold
+
+    # デフォルトの比較演算子
+    #
+    # @return [Symbol, nil]
+    attr_reader :default_cmp_op
+
+    # デフォルトの目標値
+    #
+    # @return [Integer, nil]
+    attr_reader :default_target_number
 
     # 加算ダイスでダイス目をソートするかどうか
     #
@@ -143,7 +155,6 @@ module BCDice
 
     attr_reader :sameDiceRerollCount, :sameDiceRerollType, :d66Type
     attr_reader :upperRollThreshold
-    attr_reader :defaultSuccessTarget
 
     # ダイスボットについての情報を返す
     # @return [Hash]

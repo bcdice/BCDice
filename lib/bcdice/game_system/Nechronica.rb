@@ -34,7 +34,7 @@ module BCDice
 
         @sort_add_dice = true
         @sort_barabara_dice = true
-        @defaultSuccessTarget = "6" # 目標値が空欄の時の目標値
+        @default_target_number = 6 # 目標値が空欄の時の目標値
       end
 
       private
