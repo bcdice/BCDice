@@ -224,9 +224,9 @@ module BCDice
     # @deprecated 代わりに {#prefixes} を使ってください
     alias prefixs prefixes
 
-    def rand(max)
-      @randomizer.rand(max)
-    end
+    # def rand(max)
+    #   @randomizer.rand(max)
+    # end
 
     def roll(*args)
       @randomizer.roll(*args)

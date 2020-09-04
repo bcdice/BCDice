@@ -125,9 +125,9 @@ module BCDice
       end
 
       def getRollValue(dice)
-        return 0 if  dice == 0
+        return 0 if dice == 0
 
-        value = rand(dice) + 1
+        value = @randomizer.roll_once(dice)
         return value
       end
 

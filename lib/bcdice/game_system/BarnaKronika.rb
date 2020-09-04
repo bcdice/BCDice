@@ -94,7 +94,7 @@ module BCDice
         diceCountList = [0, 0, 0, 0, 0, 0]
 
         dice_n.times do |_i|
-          index = rand(6)
+          index = @randomizer.rand(6)
           diceCountList[index] += 1
           if diceCountList[index] > suc
             suc = diceCountList[index]

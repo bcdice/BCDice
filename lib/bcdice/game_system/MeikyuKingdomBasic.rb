@@ -1673,7 +1673,7 @@ module BCDice
         table = [
           [1, 'ランダムなクラス1種であること'],
           [2, '生まれ表でランダムに選んだジョブであること'],
-          [3, lambda { mk_gender_table((rand 6) + 1) }],
+          [3, lambda { mk_gender_table(@randomizer.roll_once(6)) }],
           [4, '上級ジョブであること'],
           [5, 'モンスタースキルを修得していること'],
           [6, '童貞、もしくは処女であること'],

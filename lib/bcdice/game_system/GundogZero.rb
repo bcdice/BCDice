@@ -56,7 +56,7 @@ module BCDice
 
         return '1' if type.empty?
 
-        dice = rand(10) + rand(10) + mod
+        dice = @randomizer.rand(10) + @randomizer.rand(10) + mod
         diceOriginalText = dice
         dice = 0 if dice < 0
         dice = 18 if dice > 18

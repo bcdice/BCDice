@@ -1448,7 +1448,7 @@ module BCDice
         table = [
           [1, 'ランダムなクラス1種'],
           [2, lambda { mk_family_business_table(roll_d66(D66SortType::ASC)) }],
-          [3, lambda { mk_gender_table((rand 6) + 1) + '性' }],
+          [3, lambda { mk_gender_table(@randomizer.roll_once(6)) + '性' }],
           [4, '上級ジョブ'],
           [5, 'モンスタースキルを修得'],
           [6, '童貞、もしくは処女'],
