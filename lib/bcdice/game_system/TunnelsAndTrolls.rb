@@ -30,23 +30,17 @@ module BCDice
         　下から２番目の出目をずらした分だけ合計にマイナス修正を追加して表示します。
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['\d+H?BS.*', '\d+R6.*', '\d+D\d+.+'])
+      setPrefixes(['\d+H?BS.*', '\d+R6.*', '\d+D\d+.+', '\dD6.*'])
 
       def initialize
         super
 
         @sort_add_dice = true
-        @sameDiceRerollCount = 1
       end
 
       private
 
       def replace_text(string)
-        if /(\d+)LV/i =~ string
-          level_diff = Regexp.last_match(1).to_i * 5 + 15
-          string = string.sub(/(\d+)LV/i) { level_diff.to_s }
-        end
-
         if /BS/i =~ string
           string = string.gsub(/(\d+)HBS([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(2)}[H]" }
           string = string.gsub(/(\d+)HBS/i) { "#{Regexp.last_match(1)}R6[H]" }
@@ -55,37 +49,6 @@ module BCDice
         end
 
         return string
-      end
-
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' unless cmp_op == :>=
-
-        if dice_total == 3
-          return " ＞ 自動失敗"
-        elsif target == "?"
-          return getMaxSuccessLevel(total, dice_total)
-        elsif total >= target
-          experiencePoint = getExperiencePoint(target, dice_total)
-          return " ＞ 成功 ＞ 経験値#{experiencePoint}"
-        else
-          return " ＞ 失敗"
-        end
-      end
-
-      def getMaxSuccessLevel(total_n, dice_n)
-        sucLv = 1
-
-        while total_n >= (sucLv * 5 + 15)
-          sucLv += 1
-        end
-
-        sucLv -= 1
-
-        if sucLv <= 0
-          return " ＞ 失敗 ＞ 経験値#{dice_n}"
-        end
-
-        return " ＞ #{sucLv}Lv成功 ＞ 経験値#{dice_n}"
       end
 
       public
@@ -101,33 +64,9 @@ module BCDice
 
       private
 
-      def getExperiencePoint(diff, dice_n)
-        debug("diff", diff)
-        debug("dice_n", dice_n)
-
-        experiencePoint = (1.0 * (diff - 15) / 5 * dice_n)
-
-        if int?(experiencePoint)
-          experiencePoint = experiencePoint.to_i
-        else
-          experiencePoint = format("%.1f", experiencePoint)
-        end
-
-        debug("experiencePoint", experiencePoint)
-
-        return experiencePoint
-      end
-
-      def int?(v)
-        return (v == v.to_i)
-      end
-
-      public
-
       def rollDiceCommand(string)
-        if /^\d+D\d+.*\d+Lv$/i.match?(string)
-          string = string.sub(/\d+LV$/i) { |s| s.to_i * 5 + 15 }
-          return BCDice::CommonCommand::AddDice.new(string, @randomizer, self).eval()&.delete_prefix(": ")
+        if /^\d+D\d+/i.match?(string)
+          return roll_action(string)
         end
 
         string = replace_text(string)
@@ -255,6 +194,107 @@ module BCDice
         output += " ＞ 悪意#{n_max}" if n_max > 0
 
         return output
+      end
+
+      def roll_action(command)
+        question_target = command.end_with?("?")
+        command = command
+                  .sub(/\d+LV$/i) { |level| level.to_i * 5 + 15 }
+                  .sub(/\?$/) { "0" }
+
+        parser = CommandParser.new(/^\d+D6$/)
+        cmd = parser.parse(command)
+        if cmd.nil? || cmd.cmp_op != :>=
+          return nil
+        end
+
+        cmd.target_number = "?" if question_target
+
+        times = cmd.command.to_i
+        roll_action_dice(times)
+        total = @dice_total + cmd.modify_number
+
+        sequence = [
+          "(#{cmd})",
+          interim_expr(cmd, @dice_total),
+          total.to_s,
+          action_result(total, @dice_total, cmd.target_number),
+          additional_result(@count_6)
+        ].compact
+
+        return sequence.join(" ＞ ")
+      end
+
+      def roll_action_dice(times)
+        dice_list = @randomizer.roll_barabara(times, 6).sort
+        @dice_list = [dice_list]
+        while same_all_dice?(dice_list)
+          dice_list = @randomizer.roll_barabara(times, 6).sort
+          @dice_list.push(dice_list)
+        end
+
+        dice_list_flatten = @dice_list.flatten
+        @dice_total = dice_list_flatten.sum()
+        @count_6 = dice_list_flatten.count(6)
+      end
+
+      # 出目が全て同じか
+      def same_all_dice?(dice_list)
+        dice_list.size > 1 && dice_list.uniq.size == 1
+      end
+
+      def interim_expr(cmd, dice_total)
+        if @dice_list.flatten.size == 1 && cmd.modify_number == 0
+          return nil
+        end
+
+        dice_list = @dice_list.map { |ds| "[#{ds.join(',')}]" }.join("")
+        modifier = Format.modifier(cmd.modify_number)
+
+        return [dice_total.to_s, dice_list, modifier].join("")
+      end
+
+      def action_result(total, dice_total, target_number)
+        if dice_total == 3
+          "自動失敗"
+        elsif target_number == "?"
+          success_level(total, dice_total)
+        elsif total >= target_number
+          "成功 ＞ 経験値#{experience_point(target_number, dice_total)}"
+        else
+          "失敗"
+        end
+      end
+
+      def success_level(total, dice_total)
+        level = (total - 15) / 5
+        if level <= 0
+          "失敗 ＞ 経験値#{dice_total}"
+        else
+          "#{level}Lv成功 ＞ 経験値#{dice_total}"
+        end
+      end
+
+      def experience_point(target_number, dice_total)
+        ep = 1.0 * (target_number - 15) / 5 * dice_total
+
+        if ep <= 0
+          "0"
+        elsif int?(ep)
+          ep.to_i.to_s
+        else
+          format("%.1f", ep)
+        end
+      end
+
+      def int?(v)
+        v == v.to_i
+      end
+
+      def additional_result(count_6)
+        if count_6 > 0
+          "悪意#{count_6}"
+        end
       end
     end
   end
