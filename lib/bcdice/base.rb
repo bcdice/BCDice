@@ -61,9 +61,6 @@ module BCDice
 
       @round_type = RoundType::FLOOR # 割り算をした時の端数の扱い (FLOOR: 切り捨て, CEIL: 切り上げ, ROUND: 四捨五入)
 
-      @sameDiceRerollCount = 0 # ゾロ目で振り足し(0=無し, 1=全部同じ目, 2=ダイスのうち2個以上同じ目)
-      @sameDiceRerollType = 0 # ゾロ目で振り足しのロール種別(0=判定のみ, 1=ダメージのみ, 2=両方)
-
       @upper_dice_reroll_threshold = nil # UpperDiceで振り足しをする出目の閾値 nilの場合デフォルト設定なし
       @reroll_dice_reroll_threshold = nil # RerollDiceで振り足しをする出目の閾値 nilの場合デフォルト設定なし
 
@@ -157,8 +154,6 @@ module BCDice
         return [display_id, result].join(" ")
       end
     end
-
-    attr_reader :sameDiceRerollCount, :sameDiceRerollType, :d66Type
 
     # ダイスボットについての情報を返す
     # @return [Hash]
