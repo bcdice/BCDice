@@ -17,35 +17,35 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         c=クリティカル値 ／ f=ファンブル値 ／ s=スペシャル
-        
+
         1d100<=n    c・f・sすべてオフ（単純な数値比較判定のみ行います）
-        
+
         ・cfs判定付き判定コマンド
-        
+
         CC	 1d100ロールを行う c=1、f=100
         CCB  同上、c=5、f=96
-        
+
         例：CC<=80  （技能値80で行為判定。1%ルールでcf適用）
         例：CCB<=55 （技能値55で行為判定。5%ルールでcf適用）
-        
+
         ・組み合わせロールについて
-        
+
         CBR(x,y)	c=1、f=100
         CBRB(x,y)	c=5、f=96
-        
+
         ・抵抗表ロールについて
         RES(x-y)	c=1、f=100
         RESB(x-y)	c=5、f=96
-        
+
         ※故障ナンバー判定
-        
+
         ・CC(x) c=1、f=100
         x=故障ナンバー。出目x以上が出た上で、ファンブルが同時に発生した場合、共に出力する（テキスト「ファンブル＆故障」）
         ファンブルでない場合、成功・失敗に関わらずテキスト「故障」のみを出力する（成功・失敗を出力せず、上書きしたものを出力する形）
-        
+
         ・CCB(x) c=5、f=96
         同上
-        
+
       INFO_MESSAGE_TEXT
 
       setPrefixes(['CC(B)?\(\d+\)', 'CC(B)?.*', 'RES(B)?.*', 'CBR(B)?\(\d+,\d+\)'])
@@ -113,12 +113,12 @@ module BCDice
             output += " 故障ナンバー[#{broken_num}]"
           end
 
-          total_n, = roll(1, 100)
+          total_n = @randomizer.roll_once(100)
 
           output += " ＞ #{total_n}"
           output += " ＞ #{getCheckResultText(total_n, diff, broken_num)}"
         else
-          total_n, = roll(1, 100)
+          total_n = @randomizer.roll_once(100)
           output = "(1D100) ＞ #{total_n}"
         end
 
@@ -196,7 +196,7 @@ module BCDice
         end
 
         # 通常判定
-        total_n, = roll(1, 100)
+        total_n = @randomizer.roll_once(100)
         result = getCheckResultText(total_n, target)
 
         return "(1d100<=#{target}) ＞ #{total_n} ＞ #{result}"
@@ -211,7 +211,7 @@ module BCDice
         diff_1 = m[2].to_i
         diff_2 = m[3].to_i
 
-        total, = roll(1, 100)
+        total = @randomizer.roll_once(100)
 
         result_1 = getCheckResultText(total, diff_1)
         result_2 = getCheckResultText(total, diff_2)

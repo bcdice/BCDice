@@ -124,7 +124,7 @@ module BCDice
           return "6"
         end
 
-        dice, = roll(1, 6)
+        dice = @randomizer.roll_once(6)
         return "1D6->#{dice}"
       end
 

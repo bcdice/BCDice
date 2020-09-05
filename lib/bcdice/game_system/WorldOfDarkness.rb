@@ -18,7 +18,7 @@ module BCDice
         　(ダイス個数)ST(難易度)+(自動成功)
         　(ダイス個数)STS(難易度)+(自動成功) ※出目10で振り足し
         　(ダイス個数)STA(難易度)+(自動成功) ※出目10は2成功 [20thルール]
-        
+
         　難易度=省略時6
         　自動成功=省略時0
       INFO_MESSAGE_TEXT
@@ -98,7 +98,7 @@ module BCDice
       def roll_wod(dice_pool, diff, enable_botch = true, auto_success_value = 1)
         # FIXME: まとめて振る
         dice = Array.new(dice_pool) do
-          dice_now, = roll(1, 10)
+          dice_now = @randomizer.roll_once(10)
           dice_now
         end
 

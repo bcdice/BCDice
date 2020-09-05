@@ -101,7 +101,7 @@ module BCDice
 
       # 二つ名決定表
       def get_nickname_table(_command)
-        result1, = roll(1, 6)
+        result1 = @randomizer.roll_once(6)
 
         case result1
         when 1, 2

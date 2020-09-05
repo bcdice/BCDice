@@ -274,7 +274,7 @@ module BCDice
           [9, '「異常な癖・奇想天外表」の表を使用する。'],
           [10, '好きな「異常な癖」の表を使用する。'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -292,7 +292,7 @@ module BCDice
           [9, '「だいたいわかりました」'],
           [10, '「黙っていろ」'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -310,7 +310,7 @@ module BCDice
           [9, '証拠品を勝手に持ち歩いている'],
           [10, '勝手に鑑識を始める'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -328,7 +328,7 @@ module BCDice
           [9, '落し物をしたと主張して現場や証拠品を漁る'],
           [10, '関係者に誘導尋問を仕掛ける'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -346,7 +346,7 @@ module BCDice
           [9, '事件現場に踏み込んで調べ物をする'],
           [10, '食事中でも、かまわずに事件の話をする'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -364,7 +364,7 @@ module BCDice
           [9, 'パートナーに対して懇切丁寧に事件を説明する'],
           [10, 'パートナーの耳元でいきなり喋り始める'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -382,7 +382,7 @@ module BCDice
           [9, 'ずっと眠っていたが急に起きる'],
           [10, 'しばらく何もしていない'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -400,7 +400,7 @@ module BCDice
           [9, '時計を見て、急に動き出した'],
           [10, '事件とは関係なさそうな新聞の記事を読んでいる'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -418,7 +418,7 @@ module BCDice
           [9, '資料を確認している最中にひらめく'],
           [10, '関係者と会話をしている最中にひらめく'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -436,7 +436,7 @@ module BCDice
           [9, '淡々と物事を進める'],
           [10, 'ロボットのように決められたことだけをやる'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -572,7 +572,7 @@ module BCDice
           [10, '探偵は直感によって、真犯人を突き止めた。だが、真犯人を捕まえるための証拠がない。犯人を告発することができず、歯噛みをした。'],
         ]
 
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -591,7 +591,7 @@ module BCDice
           [9, '『隠された血筋』どういう訳か、自分のルーツは抹消されている。自分が何者なのかすら、わからない。ただ、自分には事件を解決できる力があって、それがルーツに関係していると直感できる。'],
           [10, '『クローン』自分は有名な名探偵のDNAから生まれた存在だ。そのためか、名探偵の力は生まれながらに備わっていた。'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
 
         return output, diceText
@@ -610,7 +610,7 @@ module BCDice
           [9, '『孤立した名探偵』自分は天才的な能力を持って数多の事件を解決した名探偵である。それ故に疎まれ、恐れられ、世間や組織の中で孤立をしてしまっている。'],
           [10, '『人工名探偵』自分は何者かによって軟禁されて探偵知識を詰め込まれた、「人口名探偵」だ。名探偵になるべくして育てられた自分は、その能力を期待通りに発揮することができる。'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
 
         return output, diceText
@@ -629,7 +629,7 @@ module BCDice
           [9, '『暴走する知識欲』自分は一つのことのマニアであるが、それから派生した物の知識もよく知っている。自分の知識欲は、それからさらに派生したものまで及ぶ。'],
           [10, '『正義のマニア』自分が信奉している何か（書物や科学など）が、事件に関わっているとなると、居ても立っても居られない。マニアとして、その謎を解明しなければならない。'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
 
         return output, diceText
@@ -699,7 +699,7 @@ module BCDice
           [9, 'いつもパートナーと会う交差点'],
           [10, '二人だけが知っている秘密の場所'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -804,7 +804,7 @@ module BCDice
           [10, '学生'],
         ]
 
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -852,7 +852,7 @@ module BCDice
           [10, 'ファッションにこだわりがない'],
         ]
 
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -901,7 +901,7 @@ module BCDice
           [10, '知らないこと'],
         ]
 
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -949,7 +949,7 @@ module BCDice
           [9, '自分への態度'],
           [10, '自分との関係'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -998,7 +998,7 @@ module BCDice
           [10, 'あだ名'],
         ]
 
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
 
         return output, diceText

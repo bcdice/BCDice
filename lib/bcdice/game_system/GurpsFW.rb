@@ -372,9 +372,9 @@ module BCDice
           if !Regexp.last_match(2).nil?
             dice1 = Regexp.last_match(2).to_i
           else
-            dice1, = roll(1, 6)
+            dice1 = @randomizer.roll_once(6)
           end
-          dice2, = roll(1, 6)
+          dice2 = @randomizer.roll_once(6)
           area, dif, table = getRandomEvent(dice1, dice2, diff)
           result, dice3 = get_table_by_1d6(table)
           number = "#{dice1}#{dice2}#{dice3}"
@@ -386,7 +386,7 @@ module BCDice
           if !Regexp.last_match(2).nil?
             dice1 = Regexp.last_match(2).to_i
           else
-            dice1, = roll(1, 6)
+            dice1 = @randomizer.roll_once(6)
           end
           dice2 = 4
           area, dif, table = getRandomEvent(dice1, dice2, diff)

@@ -15,38 +15,38 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         c=爆擊率 ／ f=大失敗值 ／ s=特殊
-        
+
         1d100<=n    c・f・s全關閉（只進行單純數值比較判定）
-        
+
         ・cfs付註判定指令
-        
+
         CC	 1d100擲骰 c=1、f=100
         CCB  同上、c=5、f=96
-        
+
         例：CC<=80  （以技能值80來判定。cf適用於1%規則）
         例：CCB<=55 （以技能值55來判定。cf適用於5%規則）
-        
+
         ・關於組合骰組
-        
+
         CBR(x,y)	c=1、f=100
         CBRB(x,y)	c=5、f=96
-        
+
         ・關於對抗骰
         RES(x-y)	c=1、f=100
         RESB(x-y)	c=5、f=96
-        
+
         ※故障率判定
-        
+
         ・CC(x) c=1、f=100
         x=故障率。擲出骰值x以上時、需在大失敗發生同時輸出（參照「大失敗＆故障」）
         沒有大失敗時，無論成功或失敗只需參考[故障]來輸出(並非成功或失敗來輸出，而是覆蓋上去並對其輸出)
-        
+
         ・CCB(x) c=5、f=96
         同上
-        
+
         ・瘋狂表
         ・短期瘋期　Short／長期瘋狂　Longer
-        
+
       INFO_MESSAGE_TEXT
 
       setPrefixes(['CC(B)?\(\d+\)', 'CC(B)?.*', 'RES(B)?.*', 'CBR(B)?\(\d+,\d+\)'])
@@ -117,12 +117,12 @@ module BCDice
             output += " 故障率[#{broken_num}]"
           end
 
-          total_n, = roll(1, 100)
+          total_n = @randomizer.roll_once(100)
 
           output += " ＞ #{total_n}"
           output += " ＞ #{getCheckResultText(total_n, diff, broken_num)}"
         else
-          total_n, = roll(1, 100)
+          total_n = @randomizer.roll_once(100)
           output = "(1D100) ＞ #{total_n}"
         end
 
@@ -200,7 +200,7 @@ module BCDice
         end
 
         # 通常判定
-        total_n, = roll(1, 100)
+        total_n = @randomizer.roll_once(100)
         result = getCheckResultText(total_n, target)
 
         return "(1d100<=#{target}) ＞ #{total_n} ＞ #{result}"
@@ -215,7 +215,7 @@ module BCDice
         diff_1 = m[2].to_i
         diff_2 = m[3].to_i
 
-        total, = roll(1, 100)
+        total = @randomizer.roll_once(100)
 
         result_1 = getCheckResultText(total, diff_1)
         result_2 = getCheckResultText(total, diff_2)

@@ -26,12 +26,12 @@ module BCDice
           - CF+10>=10 目標値を指定した場合、差分値も出力する
           - 3CF+10@10#3>=10 3D6での判定
           - CF@9#3+8>=10
-        
+
         2D6
           ファンブル値2で判定する。クリティカルの判定は行われない。
           目標値が設定された場合、差分値を出力する。
           - 2D6+4>=10
-        
+
         各種表
           FT: 因縁表
           FTx: 数値を指定すると因果表の値を出力する
@@ -95,8 +95,8 @@ module BCDice
             return nil
           end
         else
-          dice1, = roll(1, 6)
-          dice2, = roll(1, 6)
+          dice1 = @randomizer.roll_once(6)
+          dice2 = @randomizer.roll_once(6)
         end
 
         index1 = dice1

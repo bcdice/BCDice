@@ -18,7 +18,7 @@ module BCDice
         RLx：技能ベースｘで技能チェックのダイスロール
         RLx>=y：この書式なら目標値 ｙ で判定結果出力
         　例）RL10　　RL22>=50
-        
+
         ・武器攻撃
         （武器記号）（技能ベース値）
         　例）SW10　BX30
@@ -27,7 +27,7 @@ module BCDice
         　SW：剣、LS：大剣、SS：小剣、SP：槍、
         　AX：斧、CL：棍棒、BW：弓、MA：体術、
         　BX：ボクシング、PR：プロレス、ST：幽波紋
-        
+
         ・カウンター攻撃
         カウンター技は武器記号の頭に「C」をつけるとロール可能。
         　例）CSW10　CBX76
@@ -84,7 +84,7 @@ module BCDice
       def getJudgeDiceList
         diceList = []
         loop do
-          value, = roll(1, 100)
+          value = @randomizer.roll_once(100)
           diceList << value
 
           rank01 = value % 10
@@ -388,7 +388,7 @@ module BCDice
       end
 
       def getRandMartialArtCounter
-        value, = roll(1, 10)
+        value = @randomizer.roll_once(10)
         dice = value * 10 + value
         dice = 100 if  value == 110
 

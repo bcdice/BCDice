@@ -59,8 +59,8 @@ module BCDice
       end
 
       def getEventTableResult(table)
-        number1, = roll(1, 6)
-        number2, = roll(1, 6)
+        number1 = @randomizer.roll_once(6)
+        number2 = @randomizer.roll_once(6)
 
         isOdd = number1.even?
 

@@ -248,7 +248,7 @@ module BCDice
           table = table1
 
           if isType2
-            number, = roll(1, 6)
+            number = @randomizer.roll_once(6)
             index = (number.odd? ? 0 : 1)
 
             table = [table1, table2][index]

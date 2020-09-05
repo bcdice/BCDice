@@ -169,7 +169,7 @@ module BCDice
           whppp = whw
         end
 
-        dice_now, = roll(1, 100)
+        dice_now = @randomizer.roll_once(100)
 
         crit_no = ((dice_now - 1) / 10).to_i * 10
         crit_num = criticalTable[crit_no + criticalValue - 1]
@@ -319,7 +319,7 @@ module BCDice
 
         diff = Regexp.last_match(1).to_i
 
-        total_n, = roll(1, 100)
+        total_n = @randomizer.roll_once(100)
 
         output = "(#{string}) ＞ #{total_n}"
         output += check_1D100(total_n, total_n, :<=, diff)

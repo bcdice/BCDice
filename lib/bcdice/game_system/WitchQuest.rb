@@ -42,8 +42,8 @@ module BCDice
         results = []
 
         number.times do
-          value1, = roll(1, 6)
-          value2, = roll(1, 6)
+          value1 = @randomizer.roll_once(6)
+          value2 = @randomizer.roll_once(6)
 
           if value1 == value2
             success += 1

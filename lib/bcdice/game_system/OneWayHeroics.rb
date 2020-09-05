@@ -181,7 +181,7 @@ module BCDice
       end
 
       def getRandomEventAddText(day, command1, command2)
-        dice, = roll(1, 6)
+        dice = @randomizer.roll_once(6)
         text = " ＞ \n 1D6[#{dice}]"
 
         if dice <= day
@@ -216,7 +216,7 @@ module BCDice
           [6, "「ダンジョン表」（１５２ページ）へ移動。", getAddRollProc("DNGN#{day}")]
         ]
 
-        dice, = roll(1, 6)
+        dice = @randomizer.roll_once(6)
         number, text = getTableResult(table, dice)
 
         return nil if  text.nil?
@@ -243,7 +243,7 @@ module BCDice
           [6, "ダンジョン表プラスへ移動（０２５ページ）", getAddRollProc("DNGNP#{day}")]
         ]
 
-        dice, = roll(1, 6)
+        dice = @randomizer.roll_once(6)
         number, text = getTableResult(table, dice)
 
         return nil if  text.nil?
@@ -268,7 +268,7 @@ module BCDice
             [7, "牢獄遭遇表へ移動（１５４ページ）。牢獄つきダンジョン。"],
           ]
 
-        dice, = roll(1, 6)
+        dice = @randomizer.roll_once(6)
         dice += 1 if day >= 4
 
         hasGap = true

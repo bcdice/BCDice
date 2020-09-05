@@ -408,8 +408,8 @@ module BCDice
 
     # D66 ロール用
     def get_table_by_d66(table)
-      dice1, = roll(1, 6)
-      dice2, = roll(1, 6)
+      dice1 = @randomizer.roll_once(6)
+      dice2 = @randomizer.roll_once(6)
 
       num = (dice1 - 1) * 6 + (dice2 - 1)
 

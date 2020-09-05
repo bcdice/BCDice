@@ -12,10 +12,10 @@ module BCDice
         　LW<=(目標値)で判定。
         　達成値が目標値の1/10(端数切り上げ)以下であれば大成功。1～10であれば自動成功。
         　91～100であれば自動失敗となります。
-        
+
         ●回避判定
         　LWD<=(目標値)で回避判定。この時出目が51以上で自動失敗となります。
-        
+
         　判定と回避判定は、どちらもコマンドだけの場合、出目の表示と自動成功と自動失敗の判定のみを行います。
       INFO_MESSAGE_TEXT
 
@@ -32,7 +32,7 @@ module BCDice
         auto_failure = cmd.command == "LWD" ? 51 : 91
         critical = (cmd.target_number.to_f / 10).ceil
 
-        dice_value, = roll(1, 100)
+        dice_value = @randomizer.roll_once(100)
 
         result =
           if dice_value >= auto_failure

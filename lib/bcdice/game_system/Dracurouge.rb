@@ -155,8 +155,8 @@ module BCDice
         return nil unless checkTypeText(typeText1, infos1)
         return nil unless checkTypeText(typeText2, infos2)
 
-        ten_value, = roll(1, 6)
-        one_value, = roll(1, 6)
+        ten_value = @randomizer.roll_once(6)
+        one_value = @randomizer.roll_once(6)
         number = "#{ten_value}#{one_value}"
 
         isBefore = (ten_value < 4)
@@ -1412,7 +1412,7 @@ module BCDice
 
           dice6Count.times do |_i|
             number *= 10
-            dice, = roll(1, 6)
+            dice = @randomizer.roll_once(6)
             number += dice
           end
 

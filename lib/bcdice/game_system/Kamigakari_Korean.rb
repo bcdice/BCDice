@@ -298,7 +298,7 @@ module BCDice
       end
 
       def getMaterialEffect(rank)
-        number, = roll(1, 6)
+        number = @randomizer.roll_once(6)
 
         result = ""
         type = ""
@@ -367,7 +367,7 @@ module BCDice
                  [5, '**반감'],
                  [6, '※GM의 임의'],]
 
-        number, = roll(1, 6)
+        number = @randomizer.roll_once(6)
         result = get_table_by_number(number, table)
         debug('getMaterialEffectRare result', result)
 

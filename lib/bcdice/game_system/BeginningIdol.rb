@@ -790,7 +790,7 @@ module BCDice
         when 'RE'
           title = 'ランダムイベント'
 
-          number, = roll(1, 6)
+          number = @randomizer.roll_once(6)
           if number.even?
             name = 'オンイベント表'
             table = [
@@ -1174,7 +1174,7 @@ module BCDice
             ["暗い道を往くとき、ふとしたきっかけで、「身体的特徴」に触れてしまう。", 'シーンプレイヤーが修得している身長分野の特技'],
             ["「ファッション特徴」の話に夢中になっていたら、いつの間にか二人になっていたことに気づく。", 'シーンプレイヤーが修得している属性分野の特技'],
           ]
-          number, = roll(1, 6)
+          number = @randomizer.roll_once(6)
           return "#{title} ＞ [#{number}] ＞ " + table[number - 1][0] + getSkillText(table[number - 1][1])
 
         when 'CG'

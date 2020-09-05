@@ -171,7 +171,7 @@ module BCDice
         debug('num2', num2)
 
         if num1 <= 4
-          num2, = roll(1, 6)
+          num2 = @randomizer.roll_once(6)
           magic_stone_result = (magic_stone[(num2 / 2).to_i - 1])
           output = "《#{magic_stone_result}》を#{dice}個獲得"
         elsif num1 == 7

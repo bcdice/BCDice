@@ -95,7 +95,7 @@ module BCDice
           raise "unknow atak type #{type}"
         end
 
-        number, = roll(1, 100)
+        number = @randomizer.roll_once(100)
         part = get_table_by_number(number, table)
         part = getLocationSide(part, number)
         part = getFaceLocation(part)
@@ -137,7 +137,7 @@ module BCDice
           [100, "口"],
         ]
 
-        number, = roll(1, 100)
+        number = @randomizer.roll_once(100)
         faceLocation = get_table_by_number(number, table)
         debug("faceLocation", faceLocation)
         debug("number", number)

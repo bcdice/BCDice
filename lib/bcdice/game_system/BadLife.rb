@@ -413,14 +413,14 @@ module BCDice
           [99, '慎重'],
           [100, 'この表を2回振る']
         ]
-        dice, = roll(1, 100)
+        dice = @randomizer.roll_once(100)
         result = get_table_by_number(dice, table)
 
         return get_badlife_table_result(name, dice, result)
       end
 
       def get_badlife_1d20_table_result(name, table)
-        dice, = roll(1, 20)
+        dice = @randomizer.roll_once(20)
         output = get_table_by_number(dice, table)
         return get_badlife_table_result(name, dice, output)
       end

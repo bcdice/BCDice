@@ -77,7 +77,7 @@ module BCDice
       end
 
       def rollHit(target)
-        total, = roll(1, 100)
+        total = @randomizer.roll_once(100)
         resultText = getHitResult(total, total, target)
 
         text = "(1D100<=#{target}) ＞ #{total}#{resultText}"

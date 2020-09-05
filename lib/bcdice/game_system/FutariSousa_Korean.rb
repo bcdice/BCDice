@@ -274,7 +274,7 @@ module BCDice
           [9, '「이상한 버릇・희노애락표」를 사용한다.'],
           [10, '원하는「이상한 버릇표」를 사용한다.'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -292,7 +292,7 @@ module BCDice
           [9, '「대충 알겠어요.」'],
           [10, '「잠자코 있어.」'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -310,7 +310,7 @@ module BCDice
           [9, '증거품을 마음대로 들고 다닌다.'],
           [10, '마음대로 감식을 시작한다.'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -328,7 +328,7 @@ module BCDice
           [9, '물건을 잃어버렸다고 말하며 현장이나 증거품을 뒤진다.'],
           [10, '관계자에게 유도 신문을 한다.'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -346,7 +346,7 @@ module BCDice
           [9, '사건 현장을 파고들어 조사를 한다.'],
           [10, '식사중이라도, 상관 없이 사건 이야기를 한다.'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -364,7 +364,7 @@ module BCDice
           [9, '파트너에 대해서 친절하고 정중하게 사건을 설명한다.'],
           [10, '파트너의 귓가에 갑자기 말하기 시작한다.'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -382,7 +382,7 @@ module BCDice
           [9, '계속 잠들어 있다가 갑자기 일어난다.'],
           [10, '잠시 아무 것도 하지 않는다.'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -400,7 +400,7 @@ module BCDice
           [9, '시계를 보고 갑자기 움직인다.'],
           [10, '사건과는 관계 없을 것 같은 신문의 기사를 읽고 있다.'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -418,7 +418,7 @@ module BCDice
           [9, '자료를 확인하는 중에 번뜩인다.'],
           [10, '관계자와 대화를 나누는 중에 번뜩이다.'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -436,7 +436,7 @@ module BCDice
           [9, '담담하게 일을 진행한다.'],
           [10, '로봇처럼 정해진 것만 한다.'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -572,7 +572,7 @@ module BCDice
           [10, '탐정은 직감으로 진범을 밝혀냈다. 하지만 진범을 잡기 위한 증거가 없다. 범인을 고발하지 못해 이를 갈았다.'],
         ]
 
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -591,7 +591,7 @@ module BCDice
           [9, '『숨겨진 핏줄』무슨 이유에서인지, 자신의 뿌리는 말소되어 있다. 내가 누구인지조차 모른다. 단지, 자신에게는 사건을 해결할 수 있는 힘이 있고, 그것이 뿌리와 관계가 있다고 직감할 수 있다.'],
           [10, '『클론』자신은 유명한 명탐정의 DNA에서 태어난 존재다. 그래서인지 명탐정의 힘은 타고난 것이었다.'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
 
         return output, diceText
@@ -610,7 +610,7 @@ module BCDice
           [9, '『고립된 명탐정』자신은 천재적인 능력을 가지고 수많은 사건을 해결한 명탐정이다. 그 때문에 소외되고, 두려운 존재로 여겨져, 세간이나 조직 속에서 고립되었다.'],
           [10, '『인공 명탐정』자신은 누군가에게 연금되어 탐정 지식을 주입당한 「인공 명탐정」이다. 명탐정이 되도록 길러진 자신은 그 능력을 기대한 대로 발휘할 수 있다.'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
 
         return output, diceText
@@ -629,7 +629,7 @@ module BCDice
           [9, '『폭주하는 지식욕』자신은 한 가지 일에 마니아이지만, 그로부터 파생된 것의 지식도 잘 알고 있다. 자신의 지식욕은, 거기서부터 또다시 파생된 것까지 이른다.'],
           [10, '『정의의 마니아』자신이 신봉하고 있는 무언가(서적, 과학 등)가 사건에 연루되면 좌불안석이다. 마니아로서 그 수수께끼를 풀어야 한다.'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
 
         return output, diceText
@@ -699,7 +699,7 @@ module BCDice
           [9, '언제나 파트너와 만나는 교차점'],
           [10, '둘만 알고 있는 비밀장소'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -804,7 +804,7 @@ module BCDice
           [10, '학생'],
         ]
 
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -852,7 +852,7 @@ module BCDice
           [10, '패션에 구애받지 않는다'],
         ]
 
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -901,7 +901,7 @@ module BCDice
           [10, '모르는 것'],
         ]
 
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -949,7 +949,7 @@ module BCDice
           [9, '자신을 향한 태도'],
           [10, '자신과의 관계'],
         ]
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
         return output, diceText
       end
@@ -998,7 +998,7 @@ module BCDice
           [10, '별명'],
         ]
 
-        diceText, = roll(1, 10)
+        diceText = @randomizer.roll_once(10)
         output = get_table_by_number(diceText, table)
 
         return output, diceText

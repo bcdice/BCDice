@@ -169,7 +169,7 @@ module BCDice
         output, is_successful = resolute_difficult_action(num_dices, LEAST_MINING_SUCCESS_ROLL, command)
         return output unless is_successful
 
-        roll_result, = roll(1, D6)
+        roll_result = @randomizer.roll_once(D6)
         "#{output} ＞ (1D6) ＞ [#{roll_result}] ＞ アイテムを#{roll_result}個獲得"
       end
 
@@ -213,7 +213,7 @@ module BCDice
         match_data = command.match(/PJ([VA]?)/)
         chart_symbol = match_data[1] == '' ? 'V' : match_data[1]
 
-        roll_result1, = roll(1, D6)
+        roll_result1 = @randomizer.roll_once(D6)
         chart_text, roll_result2 = case chart_symbol
                                    when 'V' then get_table_by_1d6(VILLACIEL_PREVIOUS_JOB_CHART[(roll_result1 - 1) / 3])
                                    when 'A' then get_table_by_1d6(ARMESEAR_PREVIOUS_JOB_CHART[(roll_result1 - 1) / 2])
@@ -273,7 +273,7 @@ module BCDice
         match_data = command.match(/PQ([VA]?)/)
         chart_symbol = match_data[1] == '' ? 'V' : match_data[1]
 
-        roll_result1, = roll(1, D6)
+        roll_result1 = @randomizer.roll_once(D6)
         chart_text, roll_result2 = case chart_symbol
                                    when 'V'
                                      chart_index = case roll_result1
@@ -309,7 +309,7 @@ module BCDice
         # 6x6の表からランダムに参照する
         # chartは文字列の配列の配列であることを仮定
         # D66ロールによる表参照と近いが、D66の方は13, 42などの数値に対応した表なのに対し、こちらは「下3マス、右2マス」という風にセルを参照する
-        y_roll, = roll(1, D6)
+        y_roll = @randomizer.roll_once(D6)
         cell_text, x_roll = get_table_by_1d6(chart[y_roll - 1])
         "#{chart_name} ＞ [#{y_roll},#{x_roll}] ＞ 下#{y_roll}マス、右#{x_roll}マス ＞ #{cell_text}"
       end
@@ -355,7 +355,7 @@ module BCDice
 
           case chart_symbol
           when 'V'
-            y_roll, = roll(1, D6)
+            y_roll = @randomizer.roll_once(D6)
             cell_text, x_roll = get_table_by_1d6(MOHUMOHU_VILLACIEL_CHART[1 - y_roll % 2])
             "もふもふ表・ヴィラシエル種（ヴィラシエル） ＞ [#{y_roll},#{x_roll}] ＞ 下#{y_roll.even? ? '偶数' : '奇数'}、右#{x_roll}マス ＞ #{cell_text}"
           when 'A' then use_6x6_chart(MOHUMOHU_VILLACIEL2_CHART, 'もふもふ表・ヴィラシエル種（アルメサール）')
@@ -509,7 +509,7 @@ module BCDice
         when 'V'
           case match_data[2]
           when ''
-            roll_result, = roll(1, D6)
+            roll_result = @randomizer.roll_once(D6)
             return '(1D6) ＞ [6] ＞ 好きな表を選んでおっけー！' if roll_result == D6
 
             use_villaciel_edible_plant_chart(roll_result, "(1D6) ＞ [#{roll_result}] ＞ ")
@@ -522,7 +522,7 @@ module BCDice
         when 'A'
           case match_data[2]
           when ''
-            roll_result, = roll(1, D6)
+            roll_result = @randomizer.roll_once(D6)
             use_armesear_edible_plant_chart(roll_result.even? ? 1 : 2, "(1D6) ＞ [#{roll_result}] ＞ ")
           else
             chart_id = match_data[2].to_i

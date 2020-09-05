@@ -139,8 +139,8 @@ module BCDice
       end
 
       def getHitText(base, target)
-        dice1, = roll(1, 6)
-        dice2, = roll(1, 6)
+        dice1 = @randomizer.roll_once(6)
+        dice2 = @randomizer.roll_once(6)
         total = dice1 + dice2 + base
         isHit = (total >= target)
         baseString = (base > 0 ? "+#{base}" : "")
@@ -287,8 +287,8 @@ module BCDice
 
         target = get_table_by_number(damage, table, nil)
 
-        dice1, = roll(1, 6)
-        dice2, = roll(1, 6)
+        dice1 = @randomizer.roll_once(6)
+        dice2 = @randomizer.roll_once(6)
         total = dice1 + dice2
         result = total >= target ? "成功" : "失敗"
         text = "#{total}[#{dice1},#{dice2}]>=#{target} ＞ #{result}"

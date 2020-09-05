@@ -1079,7 +1079,7 @@ module BCDice
             ["暗い道を往くとき、ふとしたきっかけで、「身体的特徴」に触れてしまう。", '씬 플레이어가 보유한 신장분야의특기'],
             ["「ファッション特徴」の話に夢中になっていたら、いつの間にか二人になっていたことに気づく。", '씬 플레이어가 보유한 속성분야의특기'],
           ]
-          number, = roll(1, 6)
+          number = @randomizer.roll_once(6)
           return "#{title} ＞ [#{number}] ＞ " + table[number - 1][0] + getSkillText(table[number - 1][1])
 
         when 'CG'

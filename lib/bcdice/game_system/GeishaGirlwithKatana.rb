@@ -70,7 +70,7 @@ module BCDice
         chomba_counter ||= 5
         chomba_counter = chomba_counter.to_i
 
-        chomba, = roll(1, 100)
+        chomba = @randomizer.roll_once(100)
 
         return (chomba <= chomba_counter)
       end

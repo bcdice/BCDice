@@ -23,7 +23,7 @@ module BCDice
         SBS	 スワップロールでD100ロールを行う
         SB#x@y	 F値をx、C値をyとして通常のD100ロールを行う
         SBS#x@y	 F値をx、C値をyとしてスワップロールでD100ロールを行う
-        
+
         例：
         SB<=85 通常の技能で成功率85%の判定
         SBS<=70 習熟を得た技能で成功率70%の判定
@@ -47,10 +47,10 @@ module BCDice
 
         if cmd.command == 'SB'
           places_text = nil
-          total, = roll(1, 100)
+          total = @randomizer.roll_once(100)
         else
-          a, = roll(1, 10)
-          b, = roll(1, 10)
+          a = @randomizer.roll_once(10)
+          b = @randomizer.roll_once(10)
           places_text = "#{a},#{b}"
           places = [a, b].map { |n| n == 10 ? 0 : n }.sort
 

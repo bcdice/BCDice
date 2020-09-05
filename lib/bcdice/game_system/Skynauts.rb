@@ -98,7 +98,7 @@ module BCDice
         bonus = m[2].to_i # 〈操舵室〉の修正。GMの任意修正にも対応できるように(マイナスは無視)
         debug("移動修正", bonus)
 
-        total, = roll(1, 6)
+        total = @randomizer.roll_once(6)
         movePointBase = (total / 2) <= 0 ? 1 : (total / 2)
         movePoint = movePointBase + bonus
         debug("移動エリア数", movePoint)
@@ -168,8 +168,8 @@ module BCDice
 
           firePoint << []
 
-          yPos, = roll(1, 6)  # 縦
-          xPos, = roll(2, 6)  # 横
+          yPos = @randomizer.roll_once(6) # 縦
+          xPos, = roll(2, 6) # 横
           position = [xPos, yPos]
 
           firePoint[-1] << position

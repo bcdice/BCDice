@@ -19,11 +19,11 @@ module BCDice
         「@b」でアクシデント値、省略時は「96」。
         「Ac」で高度なロール。「2、4、8」のみ指定可能。
         「Ld」でラックポイント、「!M」でパンドラ《ミューズ》。
-        
+
         【書式例】
         AR84/2@99!M → 判定値84のAR1/2。アクシデント値99、パンドラ《ミューズ》。
         SR40*2A2L1@99 → 判定値80のSR、高度なロール2倍、ラック1点。
-        
+
         ◆命中部位表：(命中部位)HIT[n]　　以降、ROC時は[n]を指定。
         HU：人間　　BK：バイク　　WA：ワゴン　　SC：シェルキャリア　　BG：バギー
         IN：インセクター　　PT：ポケットタンク　　HT：ホバータンク　　TA：戦車
@@ -41,11 +41,11 @@ module BCDice
         G：格闘　　S：射撃、投擲　　M：心理　　E：電子
         ◆メカニック事故表：(場所)MA[n][+m]　　「+m」で修正を指定。
         A：空中　　S：水上、水中　　L：地上
-        
+
         【マスコンバット】
         ストラテジーイベントチャート：SEC
         NPC攻撃処理チャート：NAC　　敗者運命チャート：LDC
-        
+
         【各種表】
         荒野ランダムエンカウント表：WENC[n]
       MESSAGETEXT
@@ -134,7 +134,7 @@ module BCDice
       def checkRoll(rollText, target, modify, accidentValue, advancedRoll, luckPoint, isMuse)
         rollTarget = (target * modify / advancedRoll * (2**luckPoint)).to_i
 
-        dice, = roll(1, 100)
+        dice = @randomizer.roll_once(100)
         resultText, successValue = getRollResultTextAndSuccesValue(dice, advancedRoll, rollTarget, accidentValue, isMuse)
 
         resultText += " 達成値：#{successValue}"
@@ -895,7 +895,7 @@ module BCDice
         dice = diceMax if dice > diceMax
 
         if dice == 0
-          dice, = roll(1, diceMax)
+          dice = @randomizer.roll_once(diceMax)
         end
 
         return dice

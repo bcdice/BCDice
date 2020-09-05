@@ -59,7 +59,7 @@ module BCDice
         modify_number = m[1].to_i
         target_number = m[2].to_i
 
-        dice, = roll(1, 10)
+        dice = @randomizer.roll_once(10)
         total = dice + modify_number
 
         result =

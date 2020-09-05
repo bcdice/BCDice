@@ -20,11 +20,11 @@ module BCDice
         　어려운 성공：Hard success／대단한 성공：Extreme success／
         　대성공：Critical success　을 자동판정.
         예）CC<=30　CC(2)<=50　CC(-1)<=75
-        
+
         ・조합 판정　(CBR(x,y))
         　목표치 x 와 y 로 동시에 ％판정을 한다.
         　예）CBR(50,20)
-        
+
         ・연사(Full Auto)판정　FAR(w,x,y,z)
         　w：탄수(1~100), x：기능 수치(1~100), y：고장 넘버
         　z：보너스, 패널티 주사위(-2~2). 생략 가능.
@@ -81,7 +81,7 @@ module BCDice
       end
 
       def rollPercentD10
-        dice, = roll(1, 10)
+        dice = @randomizer.roll_once(10)
         dice = 0 if dice == 10
 
         return dice
@@ -138,7 +138,7 @@ module BCDice
         diff_1 = Regexp.last_match(1).to_i
         diff_2 = Regexp.last_match(2).to_i
 
-        total, = roll(1, 100)
+        total = @randomizer.roll_once(100)
 
         result_1 = getCheckResultText(total, diff_1)
         result_2 = getCheckResultText(total, diff_2)

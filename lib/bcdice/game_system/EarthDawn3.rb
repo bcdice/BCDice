@@ -246,7 +246,7 @@ module BCDice
         debug('rollStep @string', @string)
 
         diceCount.times do |i|
-          dice_now, = roll(1, diceType)
+          dice_now = @randomizer.roll_once(diceType)
 
           if dice_now != 1
             @isFailed = false
@@ -255,7 +255,7 @@ module BCDice
           dice_in = dice_now
 
           while dice_now == diceType
-            dice_now, = roll(1, diceType)
+            dice_now = @randomizer.roll_once(diceType)
 
             dice_in += dice_now
           end

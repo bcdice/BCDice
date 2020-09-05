@@ -209,7 +209,7 @@ module BCDice
       end
 
       def get_strave_1d100_table_result(name, table)
-        dice, = roll(1, 100)
+        dice = @randomizer.roll_once(100)
         dice2 = ((dice.to_i - 1) / 5).floor + 1
         result = get_table_by_number(dice2, table)
         return get_strave_table_result(name, dice, result)

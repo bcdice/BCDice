@@ -55,7 +55,7 @@ module BCDice
         if diff > 0
           output += "(1D10<=#{diff})"
 
-          total_n, = roll(1, 10)
+          total_n = @randomizer.roll_once(10)
           output += ' ＞ ' + total_n.to_s
           output += ' ＞ ' + getCheckResultText(total_n, diff)
         end
@@ -109,7 +109,7 @@ module BCDice
       end
 
       def get_1d10_table_result(name, table)
-        dice, = roll(1, 10)
+        dice = @randomizer.roll_once(10)
         output = get_table_by_number(dice, table)
         return get_table_result(name, dice, output)
       end

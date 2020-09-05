@@ -272,11 +272,11 @@ module BCDice
       end
 
       def getRulingPlanetDice
-        dice1, = roll(1, 10)
+        dice1 = @randomizer.roll_once(10)
         dice2 = dice1
 
         while dice1 == dice2
-          dice2, = roll(1, 10)
+          dice2 = @randomizer.roll_once(10)
         end
 
         dice1 = changeRulingPlanetDice(dice1)
@@ -332,7 +332,7 @@ module BCDice
 
         table = table.split("\n")
 
-        dice1, = roll(1, 6)
+        dice1 = @randomizer.roll_once(6)
         dice2, = roll(2, 6)
 
         index = (dice2 - 2) * 3 + (dice1 / 2.0).ceil - 1

@@ -24,11 +24,11 @@ module BCDice
         　ファンブル／失敗／
         　成功／ハード成功／イクストリーム成功／クリティカル を自動判定。
         例）CC<=30　CC(2)<=50　CC(-1)<=75 CC-1<=50 CC1<=65 CC
-        
+
         ・組み合わせ判定　(CBR(x,y))
         　目標値 x と y で％ロールを行い、成否を判定。
         　例）CBR(50,20)
-        
+
         ・自動火器の射撃判定　FAR(w,x,y,z,d)
         　w：弾丸の数(1～100）、x：技能値（1～100）、y：故障ナンバー、
         　z：ボーナス・ペナルティダイス(-2～2)。省略可。
@@ -36,7 +36,7 @@ module BCDice
         　命中数と貫通数、残弾数のみ算出。ダメージ算出はありません。
         例）FAR(25,70,98)　FAR(50,80,98,-1)　far(30,70,99,1,R)
         　　far(25,88,96,2,h)　FaR(40,77,100,,e)
-        
+
         ・各種表
         　【狂気関連】
         　・狂気の発作（リアルタイム）（Bouts of Madness Real Time）　BMR
@@ -77,7 +77,7 @@ module BCDice
       private
 
       def roll_1d20_table(table_name, table)
-        total_n, = roll(1, 20)
+        total_n = @randomizer.roll_once(20)
         index = total_n - 1
 
         text = table[index]
@@ -88,10 +88,10 @@ module BCDice
       # 表一式
       # 即時の恐怖症表
       def roll_bmr_table()
-        total_n, = roll(1, 10)
+        total_n = @randomizer.roll_once(10)
         text = MADNESS_REAL_TIME_TABLE[total_n - 1]
 
-        time_n, = roll(1, 10)
+        time_n = @randomizer.roll_once(10)
 
         return "狂気の発作（リアルタイム）(#{total_n}) ＞ #{text}(1D10＞#{time_n}ラウンド)"
       end
@@ -111,10 +111,10 @@ module BCDice
 
       # 略式の恐怖表
       def roll_bms_table()
-        total_n, = roll(1, 10)
+        total_n = @randomizer.roll_once(10)
         text = MADNESS_SUMMARY_TABLE[total_n - 1]
 
-        time_n, = roll(1, 10)
+        time_n = @randomizer.roll_once(10)
 
         return "狂気の発作（サマリー）(#{total_n}) ＞ #{text}(1D10＞#{time_n}時間)"
       end

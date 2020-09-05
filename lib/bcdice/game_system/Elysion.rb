@@ -154,8 +154,8 @@ module BCDice
         base = getValue(base)
         modify = getValue(modify)
 
-        dice1, = roll(1, 6)
-        dice2, = roll(1, 6)
+        dice1 = @randomizer.roll_once(6)
+        dice2 = @randomizer.roll_once(6)
 
         diceTotal = dice1 + dice2
         addTotal = base + modify
@@ -242,8 +242,8 @@ module BCDice
       end
 
       def getDateBothResult(type, pc1, pc2)
-        dice1, = roll(1, 6)
-        dice2, = roll(1, 6)
+        dice1 = @randomizer.roll_once(6)
+        dice2 = @randomizer.roll_once(6)
 
         result = "#{pc1}[#{dice1}],#{pc2}[#{dice2}] ＞ "
 
@@ -412,7 +412,7 @@ module BCDice
       end
 
       def getDateValue
-        dice1, = roll(1, 6)
+        dice1 = @randomizer.roll_once(6)
         return dice1.to_s
       end
 
@@ -661,7 +661,7 @@ module BCDice
       end
 
       def getD6Table(name, table)
-        number, = roll(1, 6)
+        number = @randomizer.roll_once(6)
         index = number - 1
 
         text = table[index]
@@ -881,7 +881,7 @@ module BCDice
       end
 
       def getEncountTableResult(name, table, level)
-        dice, = roll(1, 6)
+        dice = @randomizer.roll_once(6)
         index = dice + level
 
         text = get_table_by_number(index, table, table.last.last)

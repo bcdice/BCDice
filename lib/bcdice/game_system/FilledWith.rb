@@ -690,13 +690,13 @@ module BCDice
         if command =~ /RAND(E|N|H|L)([1-6])?/
           dif = Regexp.last_match(1)
           area = Regexp.last_match(2).to_i
-          area, = roll(1, 6) if Regexp.last_match(2).nil?
-          type, = roll(1, 6)
+          area = @randomizer.roll_once(6) if Regexp.last_match(2).nil?
+          type = @randomizer.roll_once(6)
         elsif command =~ /RENC(E|N|H|L)([1-6])?/
           dif = Regexp.last_match(1)
           area = Regexp.last_match(2).to_i
-          area, = roll(1, 6) if Regexp.last_match(2).nil?
-          type  = 4
+          area = @randomizer.roll_once(6) if Regexp.last_match(2).nil?
+          type = 4
         else
           return nil
         end

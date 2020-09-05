@@ -71,7 +71,7 @@ module BCDice
         success_rate = 0 if success_rate < 0
         fumble_border = (success_rate < 100 ? 96 : 99)
 
-        dice_value, = roll(1, 100)
+        dice_value = @randomizer.roll_once(100)
         result = get_check_result(dice_value, success_rate, critical_border, fumble_border)
         title, supplementary = get_supplementary(command_type, result)
         unless supplementary.empty?

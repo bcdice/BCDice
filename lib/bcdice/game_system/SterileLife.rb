@@ -121,7 +121,7 @@ module BCDice
         if number <= 0 then number = 1 end
 
         number.times do
-          dice, = roll(1, 10)[0] - 1
+          dice = @randomizer.roll_once(10) - 1
           if (dice + correction).to_i >= single || dice == triple then success += 1 end
           if (dice + correction).to_i >= double || dice == triple then success += 1 end
           if dice == triple then success += 1 end # unless triple == -1 3成功はダイス目一致時のみ
@@ -151,7 +151,7 @@ module BCDice
 
       # 1D10 ロール用
       def get_table_by_1d10(table)
-        dice, = roll(1, 10)
+        dice = @randomizer.roll_once(10)
 
         text = table[dice - 1]
 
@@ -164,8 +164,8 @@ module BCDice
 
       # D1010 ロール用
       def get_table_by_d1010(table)
-        dice1, = roll(1, 10)
-        dice2, = roll(1, 10)
+        dice1 = @randomizer.roll_once(10)
+        dice2 = @randomizer.roll_once(10)
 
         num = (dice1 - 1) * 10 + (dice2 - 1)
 
@@ -180,8 +180,8 @@ module BCDice
 
       # D510 ロール用
       def get_table_by_d510(table)
-        dice1, = roll(1, 10)
-        dice2, = roll(1, 10)
+        dice1 = @randomizer.roll_once(10)
+        dice2 = @randomizer.roll_once(10)
 
         num = ((dice1 - 1) / 2) * 10 + (dice2 - 1)
 

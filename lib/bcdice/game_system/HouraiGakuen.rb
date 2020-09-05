@@ -177,7 +177,7 @@ module BCDice
         evenCount = 0
 
         3.times do
-          dice, = roll(1, 6)
+          dice = @randomizer.roll_once(6)
 
           if dice.even?
             evenCount += 1 # 偶数カウント
@@ -226,7 +226,7 @@ module BCDice
       end
 
       def getOddEven
-        dice, = roll(1, 6)
+        dice = @randomizer.roll_once(6)
 
         return "偶数" if dice.even?
 

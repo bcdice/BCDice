@@ -140,7 +140,7 @@ module BCDice
         output2 = ''
         total_n2 = ""
 
-        dice, = roll(1, 6)
+        dice = @randomizer.roll_once(6)
 
         case dice
         when 1

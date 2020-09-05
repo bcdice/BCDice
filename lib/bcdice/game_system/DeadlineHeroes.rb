@@ -101,9 +101,9 @@ module BCDice
       end
 
       def roll_d100
-        dice10, = roll(1, 10)
+        dice10 = @randomizer.roll_once(10)
         dice10 = 0 if dice10 == 10
-        dice01, = roll(1, 10)
+        dice01 = @randomizer.roll_once(10)
         dice01 = 0 if dice01 == 10
 
         roll_result = dice10 * 10 + dice01
@@ -280,7 +280,7 @@ module BCDice
       }.freeze
 
       def roll_hero_name_chart()
-        dice, = roll(1, 10)
+        dice = @randomizer.roll_once(10)
         template = HERO_NAME_TEMPLATES[dice - 1]
 
         template_result = "ヒーローネームチャート(#{dice}) ＞ #{template[:text]}"

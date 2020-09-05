@@ -152,7 +152,7 @@ module BCDice
 
           dice6Count.times do |_i|
             number *= 10
-            dice, = roll(1, 6)
+            dice = @randomizer.roll_once(6)
             number += dice
           end
 

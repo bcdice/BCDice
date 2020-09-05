@@ -342,33 +342,33 @@ module BCDice
           output = mk_item_features_table(total_n)
         when /^IDT/i
           type = 'アイテムカテゴリ決定'
-          total_n, = roll(1, 6)
+          total_n = @randomizer.roll_once(6)
           output = mk_item_decide_table(total_n)
 
           # ランダムエンカウント表
         when /^1RET/i
           type = '1Lvランダムエンカウント'
-          total_n, = roll(1, 6)
+          total_n = @randomizer.roll_once(6)
           output = mk_random_encount1_table(total_n)
         when /^2RET/i
           type = '2Lvランダムエンカウント'
-          total_n, = roll(1, 6)
+          total_n = @randomizer.roll_once(6)
           output = mk_random_encount2_table(total_n)
         when /^3RET/i
           type = '3Lvランダムエンカウント'
-          total_n, = roll(1, 6)
+          total_n = @randomizer.roll_once(6)
           output = mk_random_encount3_table(total_n)
         when /^4RET/i
           type = '4Lvランダムエンカウント'
-          total_n, = roll(1, 6)
+          total_n = @randomizer.roll_once(6)
           output = mk_random_encount4_table(total_n)
         when /^5RET/i
           type = '5Lvランダムエンカウント'
-          total_n, = roll(1, 6)
+          total_n = @randomizer.roll_once(6)
           output = mk_random_encount5_table(total_n)
         when /^6RET/i
           type = '6Lvランダムエンカウント'
-          total_n, = roll(1, 6)
+          total_n = @randomizer.roll_once(6)
           output = mk_random_encount6_table(total_n)
 
           # その他表
@@ -1600,8 +1600,8 @@ module BCDice
       def mk_pn_decide_table(num)
         output = ''
 
-        d1, = roll(1, 6)
-        d2, = roll(1, 6)
+        d1 = @randomizer.roll_once(6)
+        d2 = @randomizer.roll_once(6)
         debug("d1", d1)
         debug("d2", d2)
 

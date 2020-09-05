@@ -230,7 +230,7 @@ module BCDice
       end
 
       def tableText(title, table, sign = '')
-        number, = roll(1, 20)
+        number = @randomizer.roll_once(20)
         index = number
         if sign == '+'
           index += 1

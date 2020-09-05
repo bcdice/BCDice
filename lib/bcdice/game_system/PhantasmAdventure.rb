@@ -37,7 +37,7 @@ module BCDice
         fumble = 20 + skill_mod
         fumble = 20 if fumble > 20
         critical = 1 + skill_mod
-        dice_now, = roll(1, 20)
+        dice_now = @randomizer.roll_once(20)
 
         if (total >= fumble) || (total >= 20)
           fum_num = dice_now - skill_mod

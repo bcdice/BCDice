@@ -122,15 +122,15 @@ module BCDice
             output = mk_advanced_rare_item_table(total_n)
           when /^CIR/i
             type = 'コモンアイテムランダム決定'
-            total_n, = roll(1, 4)
+            total_n = @randomizer.roll_once(4)
             output = mk_common_item_random_table(total_n)
           when /^RWIR/i
             type = 'レア武具アイテムランダム決定'
-            total_n, = roll(1, 6)
+            total_n = @randomizer.roll_once(6)
             output = mk_rare_weapon_item_random_table(total_n)
           when /^RUIR/i
             type = 'レア一般アイテムランダム決定'
-            total_n, = roll(1, 6)
+            total_n = @randomizer.roll_once(6)
             output = mk_rare_usual_item_random_table(total_n)
 
           when /^DFT(\d*)/i
@@ -195,31 +195,31 @@ module BCDice
 
           when /^KET/i
             type = '王国環境'
-            total_n, = roll(1, 6)
+            total_n = @randomizer.roll_once(6)
             output = mk_kingdom_environment_table(total_n)
           when /^TET/i
             type = '技術決定'
-            total_n, = roll(1, 6)
+            total_n = @randomizer.roll_once(6)
             output = mk_technic_decide_table(total_n)
           when /^NST/i
             type = '国風決定'
-            total_n, = roll(1, 6)
+            total_n = @randomizer.roll_once(6)
             output = mk_national_style_decide_table(total_n)
           when /^RET/i
             type = '資源決定'
-            total_n, = roll(1, 6)
+            total_n = @randomizer.roll_once(6)
             output = mk_resource_decide_table(total_n)
           when /^FAT/i
             type = '施設決定'
-            total_n, = roll(1, 6)
+            total_n = @randomizer.roll_once(6)
             output = mk_facility_decide_table(total_n)
           when /^HRT/i
             type = '人材決定'
-            total_n, = roll(1, 6)
+            total_n = @randomizer.roll_once(6)
             output = mk_human_resources_decide_table(total_n)
           when /^BLT/i
             type = '血族決定'
-            total_n, = roll(1, 6)
+            total_n = @randomizer.roll_once(6)
             output = mk_blood_decide_table(total_n)
           when /^ABUS/i
             type = '上級肉弾スキル'
@@ -997,8 +997,8 @@ module BCDice
         nick_table = '1'
         name_table = '1'
         # 新名前表
-        nick_n, = roll(1, 6)
-        name_n, = roll(1, 6)
+        nick_n = @randomizer.roll_once(6)
+        name_n = @randomizer.roll_once(6)
         d1 = @randomizer.roll_d66(D66SortType::ASC)
         d2 = @randomizer.roll_d66(D66SortType::ASC)
 
@@ -1550,7 +1550,7 @@ module BCDice
       # デヴァイス・ファクトリー
       # @override
       def mk_device_factory_table(num)
-        dice, = roll(1, 6)
+        dice = @randomizer.roll_once(6)
         output = 'ベースアイテム：' + mk_item_random_table(dice) + ' （もしくは任意のアイテム）'
 
         if num <= 0
@@ -1584,7 +1584,7 @@ module BCDice
         dice, = roll(2, 6)
 
         if num <= 2
-          d1, = roll(1, 6)
+          d1 = @randomizer.roll_once(6)
           output = 'そのアイテムは「' + mk_item_power_table(d1) + '」の神力を宿す。'
         elsif num <= 3
           output = 'そのアイテムは寿命を持つ。寿命の値を決定する。' + "\n"
@@ -1594,7 +1594,7 @@ module BCDice
         elsif num <= 5
           output = 'そのアイテムは銘を持つ。銘を決定する。'
         elsif num <= 6
-          d1, = roll(1, 6)
+          d1 = @randomizer.roll_once(6)
           output = 'そのアイテムは合成具である。もう1つの機能は「' + mk_item_random_table(d1) + '」である。'
         elsif num <= 7
           output = 'そのアイテムにレベルがあれば、レベルを1点上昇する。' + "\n"
@@ -1602,17 +1602,17 @@ module BCDice
         elsif num <= 8
           output = 'そのアイテムは「' + mk_item_jyumon_table(dice) + '」の呪紋を持つ。'
         elsif num <= 9
-          d1, = roll(1, 6)
+          d1 = @randomizer.roll_once(6)
           output = 'そのアイテムは「' + mk_item_jyuka_table(d1) + '」の呪禍を持つ。' + "\n"
           output += 'さらに、' + mk_item_features_table(dice)
         elsif num <= 10
           output = 'そのアイテムは高価だ。価格を設定する。'
         elsif num <= 11
-          d1, = roll(1, 6)
+          d1 = @randomizer.roll_once(6)
           output = 'そのアイテムは「条件：' + mk_item_aptitude_table(d1) + '」の適正を持つ。' + "\n"
           output += 'さらに、' + mk_item_features_table(dice)
         else
-          d1, = roll(1, 6)
+          d1 = @randomizer.roll_once(6)
           output = 'そのアイテムは「' + mk_item_attribute_table(d1) + '」の属性を持つ。'
         end
 
@@ -1842,7 +1842,7 @@ module BCDice
 
       # 王国環境表(1D6)
       def mk_kingdom_environment_table(num)
-        d1, = roll(1, 6)
+        d1 = @randomizer.roll_once(6)
         functionTable = [
           [1, lambda { mk_technic_decide_table(d1) }],
           [2, lambda { mk_national_style_decide_table(d1) }],

@@ -40,8 +40,8 @@ module BCDice
         successness = 0
         num = 0
 
-        while  !isEnd
-          num, = roll(1, 12)
+        while !isEnd
+          num = @randomizer.roll_once(12)
 
           # 振った数字を出力へ書き足す
           if output == "("

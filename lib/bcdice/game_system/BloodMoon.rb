@@ -315,7 +315,7 @@ module BCDice
           '環境12：休まない',
         ]
 
-        categoryNum, = roll(1, 6)
+        categoryNum = @randomizer.roll_once(6)
         detailText = nil
         detailNum = 0
         if categoryNum == 1

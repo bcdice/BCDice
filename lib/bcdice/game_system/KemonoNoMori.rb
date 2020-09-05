@@ -70,7 +70,7 @@ module BCDice
         # 継続判定の成功度は固定で+1
         success_degree = is_action_judge ? target_total / 10 + 1 : 1
 
-        dice_total, = roll(1, 12)
+        dice_total = @randomizer.roll_once(12)
         debug('dice_total, target_total, success_degree = ', dice_total, target_total, success_degree)
 
         if dice_total == 12
@@ -85,11 +85,11 @@ module BCDice
       end
 
       def getTrapResult()
-        trapCheckNumber, = roll(1, 12)
+        trapCheckNumber = @randomizer.roll_once(12)
 
         # 12が出た場合のみ罠が動作する
         if trapCheckNumber == 12
-          chaseNumber, = roll(1, 12)
+          chaseNumber = @randomizer.roll_once(12)
           chase = nil
           case chaseNumber
           when 1, 2, 3, 4
@@ -107,7 +107,7 @@ module BCDice
 
       def getEscapeExperienceTableResult(command)
         escapeExperience = roll_tables(command, TABLES)
-        escapeDuration, = roll(1, 12)
+        escapeDuration = @randomizer.roll_once(12)
         return "#{escapeExperience} (再登場: #{escapeDuration}時間後)"
       end
 

@@ -55,8 +55,8 @@ module BCDice
         result = "感染度表"
 
         roll_times.times do
-          d1, = roll(1, 6)
-          d2, = roll(1, 6)
+          d1 = @randomizer.roll_once(6)
+          d2 = @randomizer.roll_once(6)
 
           result += "　＞　出目：#{d1}、#{d2}　"
 
@@ -78,8 +78,8 @@ module BCDice
       # 各種表
 
       def rollZombie(value)
-        d1, = roll(1, 6)
-        d2, = roll(1, 6)
+        d1 = @randomizer.roll_once(6)
+        d2 = @randomizer.roll_once(6)
 
         diceTotal = d1 + d2 + value
 

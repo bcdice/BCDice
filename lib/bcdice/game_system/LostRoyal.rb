@@ -66,7 +66,7 @@ module BCDice
         keys = []
 
         (0...3).each do |_i|
-          key, = roll(1, 6)
+          key = @randomizer.roll_once(6)
           keys << key
         end
 
@@ -136,7 +136,7 @@ module BCDice
       end
 
       def roll_fumble_chart
-        key, = roll(1, 6)
+        key = @randomizer.roll_once(6)
 
         text = [
           "何かの問題で言い争い、主君に無礼を働いてしまう。あなたは主君の名誉点を１点失うか、【時間】を１点消費して和解の話し合いを持つか選べる。",
@@ -156,7 +156,7 @@ module BCDice
         text = ""
 
         loop do
-          dice, = roll(1, 6)
+          dice = @randomizer.roll_once(6)
           key += dice
 
           add, bonus, current_text, = [
@@ -191,7 +191,7 @@ module BCDice
       end
 
       def roll_emotion_chart
-        key, = roll(1, 6)
+        key = @randomizer.roll_once(6)
 
         text = [
           "愛情／殺意",
@@ -210,11 +210,11 @@ module BCDice
         text = ""
 
         loop do
-          d1, = roll(1, 6)
+          d1 = @randomizer.roll_once(6)
           d2 = 0
 
           if number_of_dice >= 2
-            d2, = roll(1, 6)
+            d2 = @randomizer.roll_once(6)
           end
 
           total += d1 + d2

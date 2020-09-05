@@ -429,7 +429,7 @@ module BCDice
       # 時の流れ表
       def magicalogia_time_passage_table
         output = ""
-        num, = roll(1, 6)
+        num = @randomizer.roll_once(6)
 
         if num == 1
           output = "標的となり追われる生活が続いた。ここ数年は苦しい戦いの日々だった。#{magicalogia_random_skill_table_text_only}の判定を行う。成功するとセッション終了時に追加の功績点1点。失敗すると「運命変転」発生。"
@@ -559,7 +559,7 @@ module BCDice
       # 宿敵表
       def magicalogia_inveterate_enemy_table
         output = ""
-        num, = roll(1, 6)
+        num = @randomizer.roll_once(6)
         if num == 1
           output = '嫉妬。その人物は、実は調査者の実力をねたむ〈大法典〉の魔法使いだった。データは〈火刑人〉を使用する。ただし、魔法の使用には魔素を必要とし、魔法使いをコレクションすることはできない。GMは調査者やそのアンカーに魔法戦を挑み、邪魔をするように操作すること。'
         elsif num == 2
@@ -631,7 +631,7 @@ module BCDice
       # 同盟表
       def magicalogia_alliance_table
         output = ""
-        num, = roll(1, 6)
+        num = @randomizer.roll_once(6)
         if num == 1
           output = "精霊。その人物は、実は姿を変え、人間界に顕現した精霊だった。象徴する特技は#{magicalogia_random_skill_table_text_only}である。調査者は、そのセッションの間だけ、その特技の【精霊召喚】を修得する。また、セッションに一度だけ、その【精霊召喚】の判定を自動的に成功にすることができる。"
         elsif num == 2
@@ -652,7 +652,7 @@ module BCDice
       def magicalogia_blank_secret_table
         outtext = ""
         outnum = ''
-        num, = roll(1, 6)
+        num = @randomizer.roll_once(6)
         if num == 1
           outtext, outnum = magicalogia_inveterate_enemy_table
           outtext = "宿敵。#{outtext}"
@@ -1133,7 +1133,7 @@ module BCDice
       end
 
       def magicalogia_fallen_after_table
-        num, = roll(1, 6)
+        num = @randomizer.roll_once(6)
         if num <= 3
           outtext, outnum = magicalogia_fallen_after_table_low
         else

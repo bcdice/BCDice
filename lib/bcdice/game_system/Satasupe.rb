@@ -170,8 +170,8 @@ module BCDice
             end
           end
 
-          d1, = roll(1, 6)
-          d2, = roll(1, 6)
+          d1 = @randomizer.roll_once(6)
+          d2 = @randomizer.roll_once(6)
 
           dice_suc = 0
           dice_suc = 1 if target <= (d1 + d2)
@@ -332,7 +332,7 @@ module BCDice
         baseParts = "#{name}：ベース部品："
         partsEffect = "部品効果："
 
-        number1, = roll(1, 6)
+        number1 = @randomizer.roll_once(6)
 
         case number1
         when 1
@@ -452,7 +452,7 @@ module BCDice
           when 24
             abilities << "「リボルバー」"
           when 25
-            kiba, = roll(1, 6)
+            kiba = @randomizer.roll_once(6)
           when 26, 35
             life += 1
           when 33, 36
@@ -528,7 +528,7 @@ module BCDice
         result = []
 
         counts.times do |_i|
-          age_type, = roll(1, 6)
+          age_type = @randomizer.roll_once(6)
           age_type -= 1
 
           agen_text = agen[age_type]
