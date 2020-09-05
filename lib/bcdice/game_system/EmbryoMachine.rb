@@ -78,7 +78,7 @@ module BCDice
         mod = ArithmeticEvaluator.new.eval(modText) if modText
 
         dice_now, dice_str, = roll(2, 10, @sort_add_dice)
-        dice_loc, = roll(2, 10)
+        dice_loc = @randomizer.roll_sum(2, 10)
         dice_arr = dice_str.split(/,/).map(&:to_i)
         big_dice = dice_arr[1]
         output = "#{dice_now}[#{dice_str}]"
@@ -121,15 +121,15 @@ module BCDice
         case command
         when /HLT/i
           type = '命中部位'
-          number, = roll(2, 10)
+          number = @randomizer.roll_sum(2, 10)
           output = get_hit_location_table(number)
         when /SFT/i
           type = '射撃ファンブル'
-          number, = roll(2, 10)
+          number = @randomizer.roll_sum(2, 10)
           output = get_shoot_fumble_table(number)
         when /MFT/i
           type = '白兵ファンブル'
-          number, = roll(2, 10)
+          number = @randomizer.roll_sum(2, 10)
           output = get_melee_fumble_table(number)
         end
 

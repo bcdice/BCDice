@@ -324,7 +324,7 @@ module BCDice
           '昏睡状態。1時間ごとに生命力判定を行い、成功すると目覚める。目覚めてから6時間はあらゆる判定に-2の修正。さらに強い恐怖症、ないし-30CPぶんの精神的特徴を植え付けられる。知力が1点永遠に低下する。あわせて精神系の技能、呪文、超能力のレベルも低下する。',
         ]
 
-        dice, = roll(3, 6)
+        dice = @randomizer.roll_sum(3, 6)
         number = dice + modify
         if number > 40
           num = 36
@@ -342,7 +342,7 @@ module BCDice
         modify = Regexp.last_match(1).to_i
 
         tableName = "反応表"
-        dice, = roll(3, 6)
+        dice = @randomizer.roll_sum(3, 6)
         number = dice + modify
 
         if number < 1

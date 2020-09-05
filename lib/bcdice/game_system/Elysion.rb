@@ -651,7 +651,7 @@ module BCDice
       end
 
       def getBreakTable(name, table)
-        number, = roll(2, 6)
+        number = @randomizer.roll_sum(2, 6)
         index = number - 2
 
         text = table[index]

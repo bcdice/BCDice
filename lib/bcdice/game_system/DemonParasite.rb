@@ -99,7 +99,7 @@ module BCDice
           return '衝動段階は1から5です'
         end
 
-        dice_now, = roll(2, 6)
+        dice_now = @randomizer.roll_sum(2, 6)
 
         resultText = urge[urgelv - 1][dice_now - 2]
 

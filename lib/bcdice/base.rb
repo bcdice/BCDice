@@ -374,7 +374,7 @@ module BCDice
     end
 
     def get_table_by_nDx(table, count, diceType)
-      num, = roll(count, diceType)
+      num = @randomizer.roll_sum(count, diceType)
 
       text = getTableValue(table[num - count])
 
@@ -387,7 +387,7 @@ module BCDice
       debug("get_table_by_1d3")
 
       count = 1
-      num, = roll(count, 6)
+      num = @randomizer.roll_sum(count, 6)
       debug("num", num)
 
       index = ((num - 1) / 2)

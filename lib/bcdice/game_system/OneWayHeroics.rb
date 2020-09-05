@@ -70,7 +70,7 @@ module BCDice
           case type
           when /^(\d+)D6$/i
             count = Regexp.last_match(1).to_i
-            dice, = roll(count, 6)
+            dice = @randomizer.roll_sum(count, 6)
             getTableResult(table, dice, hasGap)
           when 'D66'
             dice = @randomizer.roll_d66(D66SortType::ASC)
@@ -302,7 +302,7 @@ module BCDice
             [14, "砂の遺跡にたどりつき、「牢獄遭遇表」（基本１５４ページ）へ移動。モンスターが出現した場合、数が２体増加する。またイベントの【経験値】が２増加する。イベントの判定に成功すると追加で【珍しい箱】が１つ出現し、戦闘か開錠を試みられる。"],
           ]
 
-        dice, = roll(2, 6)
+        dice = @randomizer.roll_sum(2, 6)
         dice += 2 if day >= 4
 
         hasGap = true

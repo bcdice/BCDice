@@ -1557,7 +1557,7 @@ module BCDice
           num = 1
         end
         num.times do |_i|
-          dice, = roll(2, 6)
+          dice = @randomizer.roll_sum(2, 6)
           output += "\n" + mk_item_features_table(dice)
           debug("output", output)
         end
@@ -1581,7 +1581,7 @@ module BCDice
       # @override
       def mk_item_features_table(num)
         output = ""
-        dice, = roll(2, 6)
+        dice = @randomizer.roll_sum(2, 6)
 
         if num <= 2
           d1 = @randomizer.roll_once(6)

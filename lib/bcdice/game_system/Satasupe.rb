@@ -535,7 +535,7 @@ module BCDice
           age_const, age_dice = agen_text.split("+")
 
           times, sides = age_dice.split("D").map(&:to_i)
-          total, = roll(times, sides)
+          total = @randomizer.roll_sum(times, sides)
           ysold = total + age_const.to_i
 
           lmodValue = lmood[@randomizer.roll_index(6)]
@@ -579,7 +579,7 @@ module BCDice
         end
 
         if index.nil?
-          index, = roll(diceCount, diceType)
+          index = @randomizer.roll_sum(diceCount, diceType)
           index += modify
         end
 

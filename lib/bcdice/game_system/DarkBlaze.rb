@@ -163,8 +163,8 @@ module BCDice
           "氷結石",
         ]
 
-        num1, = roll(2, 6)
-        num2, = roll(dice, 6)
+        num1 = @randomizer.roll_sum(2, 6)
+        num2 = @randomizer.roll_sum(dice, 6)
 
         debug('dice', dice)
         debug('num1', num1)

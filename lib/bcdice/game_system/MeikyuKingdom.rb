@@ -338,7 +338,7 @@ module BCDice
           output = mk_search_item_table(total_n)
         when /^IFT/i
           type = 'アイテム特性'
-          total_n, = roll(2, 6)
+          total_n = @randomizer.roll_sum(2, 6)
           output = mk_item_features_table(total_n)
         when /^IDT/i
           type = 'アイテムカテゴリ決定'
@@ -1138,7 +1138,7 @@ module BCDice
       def mk_device_factory_table()
         output = mk_item_decide_table(@randomizer.roll_once(6))
 
-        dice, = roll(2, 6)
+        dice = @randomizer.roll_sum(2, 6)
         output = output + ' / ' + mk_item_features_table(dice)
         return output
       end
@@ -1363,7 +1363,7 @@ module BCDice
       # アイテムの特性決定表(2D6)
       def mk_item_features_table(num)
         output = ""
-        dice, = roll(2, 6)
+        dice = @randomizer.roll_sum(2, 6)
 
         if num <= 2
           output = '「' + mk_item_power_table(@randomizer.roll_once(6)) + '」の神力を宿す'

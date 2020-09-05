@@ -169,7 +169,7 @@ module BCDice
           firePoint << []
 
           yPos = @randomizer.roll_once(6) # 縦
-          xPos, = roll(2, 6) # 横
+          xPos = @randomizer.roll_sum(2, 6) # 横
           position = [xPos, yPos]
 
           firePoint[-1] << position

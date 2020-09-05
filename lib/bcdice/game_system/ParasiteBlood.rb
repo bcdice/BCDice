@@ -53,7 +53,7 @@ module BCDice
           return '1'
         end
 
-        dice_now, = roll(2, 6)
+        dice_now = @randomizer.roll_sum(2, 6)
         urge = get_pb_urge_table(urgelv, dice_now, urge_type)
         resultText = "#{urgelv}-#{dice_now}:#{urge}"
         if urge_type <= 1
