@@ -49,13 +49,13 @@ rand:6/6
 input:
 RTT
 output:
-YankeeYogSothoth : ランダム指定特技表(1,2) ＞ 『苦手』大人
+YankeeYogSothoth : ランダム指定特技表(1,2) ＞ 《大人／苦手2》
 rand:1/6,1/6,1/6
 ============================
 input:
 RTT
 output:
-YankeeYogSothoth : ランダム指定特技表(6,12) ＞ 『好み』静寂
+YankeeYogSothoth : ランダム指定特技表(6,12) ＞ 《静寂／好み12》
 rand:6/6,6/6,6/6
 ============================
 input:
@@ -223,73 +223,73 @@ rand:6/6,6/6,
 input:
 FTNT
 output:
-YankeeYogSothoth : 二つ名決定表(1,11) ＞ 「愛死天流（あいしてる）」
+YankeeYogSothoth : 二つ名決定表(1) ＞ 二つ名表1(11) ＞ 「愛死天流（あいしてる）」
 rand:1/6,1/6,1/6
 ============================
 input:
 FTNT
 output:
-YankeeYogSothoth : 二つ名決定表(2,16) ＞ 「威風堂々（いふうどうどう）」
+YankeeYogSothoth : 二つ名決定表(2) ＞ 二つ名表1(16) ＞ 「威風堂々（いふうどうどう）」
 rand:2/6,6/6,1/6
 ============================
 input:
 FTNT
 output:
-YankeeYogSothoth : 二つ名決定表(2,66) ＞ 「時給千円（じきゅうせんえん）」
+YankeeYogSothoth : 二つ名決定表(2) ＞ 二つ名表1(66) ＞ 「時給千円（じきゅうせんえん）」
 rand:2/6,6/6,6/6
 ============================
 input:
 FTNT
 output:
-YankeeYogSothoth : 二つ名決定表(3,11) ＞ 「みんなの」
+YankeeYogSothoth : 二つ名決定表(3) ＞ 二つ名表2(11) ＞ 「みんなの」
 rand:3/6,1/6,1/6
 ============================
 input:
 FTNT
 output:
-YankeeYogSothoth : 二つ名決定表(3,16) ＞ 「熱血番長の」
+YankeeYogSothoth : 二つ名決定表(3) ＞ 二つ名表2(16) ＞ 「熱血番長の」
 rand:3/6,1/6,6/6
 ============================
 input:
 FTNT
 output:
-YankeeYogSothoth : 二つ名決定表(4,66) ＞ 「悪そうなやつはだいたい友達」
+YankeeYogSothoth : 二つ名決定表(4) ＞ 二つ名表2(66) ＞ 「悪そうなやつはだいたい友達」
 rand:4/6,6/6,6/6
 ============================
 input:
 FTNT
 output:
-YankeeYogSothoth : 二つ名決定表(5,11) ＞ 「ファッションヤンキー」
+YankeeYogSothoth : 二つ名決定表(5) ＞ 二つ名表3(11) ＞ 「ファッションヤンキー」
 rand:5/6,1/6,1/6
 ============================
 input:
 FTNT
 output:
-YankeeYogSothoth : 二つ名決定表(5,16) ＞ 「イカれたやつ」
+YankeeYogSothoth : 二つ名決定表(5) ＞ 二つ名表3(16) ＞ 「イカれたやつ」
 rand:5/6,6/6,1/6
 ============================
 input:
 FTNT
 output:
-YankeeYogSothoth : 二つ名決定表(5,66) ＞ 「おやじ狩り狩り」
+YankeeYogSothoth : 二つ名決定表(5) ＞ 二つ名表3(66) ＞ 「おやじ狩り狩り」
 rand:5/6,6/6,6/6
 ============================
 input:
 FTNT
 output:
-YankeeYogSothoth : 二つ名決定表(6,11) ＞ 「国産」
+YankeeYogSothoth : 二つ名決定表(6) ＞ 二つ名表4(11) ＞ 「国産」
 rand:6/6,1/6,1/6
 ============================
 input:
 FTNT
 output:
-YankeeYogSothoth : 二つ名決定表(6,16) ＞ 「ミステリー」
+YankeeYogSothoth : 二つ名決定表(6) ＞ 二つ名表4(16) ＞ 「ミステリー」
 rand:6/6,1/6,6/6
 ============================
 input:
 FTNT
 output:
-YankeeYogSothoth : 二つ名決定表(6,66) ＞ 「名古屋」
+YankeeYogSothoth : 二つ名決定表(6) ＞ 二つ名表4(66) ＞ 「名古屋」
 rand:6/6,6/6,6/6
 ============================
 input:
