@@ -133,13 +133,13 @@ rand:6/6
 input:
 AST
 output:
-BloodCrusade : ランダム全特技表(1,2) ＞ 社会2：怯える
+BloodCrusade : ランダム全特技表(1) ＞ 社会(2) ＞ 怯える
 rand:1/6,1/6,1/6
 ============================
 input:
 AST
 output:
-BloodCrusade : ランダム全特技表(6,12) ＞ 環境12：休まない
+BloodCrusade : ランダム全特技表(6) ＞ 環境(12) ＞ 休まない
 rand:6/6,6/6,6/6
 ============================
 input:
