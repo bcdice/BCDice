@@ -48,8 +48,6 @@ module BCDice
         text = judgeRoll(command)
         return text unless text.nil?
 
-        string = command.upcase
-
         return roll_tables(command, TABLES)
       end
 

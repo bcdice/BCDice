@@ -25,13 +25,13 @@ rand:1/6,5/6
 input:
 RTT
 output:
-DarkDaysDrive : ランダム指定特技表(1,2) ＞ 『背景』呪い
+DarkDaysDrive : ランダム指定特技表(1,2) ＞ 背景《呪い》
 rand:1/6,1/6,1/6
 ============================
 input:
 RTT
 output:
-DarkDaysDrive : ランダム指定特技表(6,12) ＞ 『戦闘法』弓術
+DarkDaysDrive : ランダム指定特技表(6,12) ＞ 戦闘法《弓術》
 rand:6/6,6/6,6/6
 ============================
 input:
