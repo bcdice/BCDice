@@ -23,8 +23,11 @@ module BCDice
       # @return [String] 結果
       def roll(bcdice)
         value = bcdice.roll_sum(@times, @sides)
-        index = value - @times
+        return choice(value)
+      end
 
+      def choice(value)
+        index = value - @times
         return "#{@name}(#{value}) ＞ #{@items[index]}"
       end
     end

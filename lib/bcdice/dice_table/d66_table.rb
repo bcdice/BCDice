@@ -3,7 +3,7 @@ module BCDice
     # D66を振って出目を昇順/降順にして表を参照する
     class D66Table
       # @param [String] name 表の名前
-      # @param [Symbol] sort_type 出目入れ替えの方式 :asc or :desc
+      # @param [Symbol] sort_type 出目入れ替えの方式 BCDice::D66SortType
       # @param [Hash] items 表の項目 Key は数値
       def initialize(name, sort_type, items)
         @name = name
@@ -17,9 +17,11 @@ module BCDice
       def roll(randomizer)
         dice = randomizer.roll_barabara(2, 6)
 
-        dice.sort!
-        if @sort_type == :desc
-          dice.reverse!
+        case @sort_type
+        when D66SortType::ASC
+          dice.sort!
+        when D66SortType::DESC
+          dice.sort!.reverse!
         end
 
         key = dice[0] * 10 + dice[1]

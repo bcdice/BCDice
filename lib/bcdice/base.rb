@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "bcdice/randomizer"
+require "bcdice/dice_table"
 require "bcdice/enum"
 
 module BCDice
@@ -473,89 +474,6 @@ module BCDice
       end
 
       return nil
-    end
-
-    def get_table_by_nDx_extratable(table, count, diceType)
-      number, diceText = roll(count, diceType)
-      text = getTableValue(table[number - count])
-      return text, number, diceText
-    end
-
-    def getTableCommandResult(command, tables, isPrintDiceText = true)
-      info = tables[command]
-      return nil if info.nil?
-
-      name = info[:name]
-      type = info[:type].upcase
-      table = info[:table]
-
-      if (type == "D66") && (@d66_sort_type == D66SortType::ASC)
-        type = "D66S"
-      end
-
-      text, number, diceText =
-        case type
-        when /(\d+)D(\d+)/
-          count = Regexp.last_match(1).to_i
-          diceType = Regexp.last_match(2).to_i
-          limit = diceType * count - (count - 1)
-          table = getTableInfoFromExtraTableText(table, limit)
-          get_table_by_nDx_extratable(table, count, diceType)
-        when "D66", "D66N"
-          table = getTableInfoFromExtraTableText(table, 36)
-          item, value = get_table_by_d66(table)
-          value = value.to_i
-          output = item[1]
-          diceText = (value / 10).to_s + "," + (value % 10).to_s
-          [output, value, diceText]
-        when "D66S"
-          table = getTableInfoFromExtraTableText(table, 21)
-          output, value = get_table_by_d66_swap(table)
-          value = value.to_i
-          diceText = (value / 10).to_s + "," + (value % 10).to_s
-          [output, value, diceText]
-        else
-          raise "invalid dice Type #{command}"
-        end
-
-      text = text.gsub("\\n", "\n")
-      text = rollTableMessageDiceText(text)
-
-      return nil if text.nil?
-
-      return "#{name}(#{number}[#{diceText}]) ＞ #{text}" if isPrintDiceText && !diceText.nil?
-
-      return "#{name}(#{number}) ＞ #{text}"
-    end
-
-    def rollTableMessageDiceText(text)
-      text.gsub(/(\d+)D(\d+)/) do |matched|
-        times, sides = matched.split("D").map(&:to_i)
-        value = @randomizer.roll_sum(times, sides)
-        "#{matched}(=>#{value})"
-      end
-    end
-
-    def getTableInfoFromExtraTableText(text, count = nil)
-      if text.is_a?(String)
-        text = text.split(/\n/)
-      end
-
-      newTable = text.map do |item|
-        if item.is_a?(String) && (item =~ /^(\d+):(.*)/)
-          [Regexp.last_match(1).to_i, Regexp.last_match(2)]
-        else
-          item
-        end
-      end
-
-      unless count.nil?
-        if newTable.size != count
-          raise "invalid table size (actual #{newTable.size}, expected #{count})\n#{newTable.inspect}"
-        end
-      end
-
-      return newTable
     end
 
     def roll_tables(command, tables)
