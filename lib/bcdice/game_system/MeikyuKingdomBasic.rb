@@ -106,19 +106,19 @@ module BCDice
 
           when /^NRWT/i
             type = '基本レア武具アイテム'
-            total_n = roll_d66(D66SortType::NO_SORT)
+            total_n = @randomizer.roll_d66(D66SortType::NO_SORT)
             output = mk_normal_rare_weapon_item_table(total_n)
           when /^NRUT/i
             type = '基本レア一般アイテム'
-            total_n = roll_d66(D66SortType::NO_SORT)
+            total_n = @randomizer.roll_d66(D66SortType::NO_SORT)
             output = mk_normal_rare_item_table(total_n)
           when /^ARWT/i
             type = '上級レア武具アイテム'
-            total_n = roll_d66(D66SortType::NO_SORT)
+            total_n = @randomizer.roll_d66(D66SortType::NO_SORT)
             output = mk_advanced_rare_weapon_item_table(total_n)
           when /^ARUT/i
             type = '上級レア一般アイテム'
-            total_n = roll_d66(D66SortType::NO_SORT)
+            total_n = @randomizer.roll_d66(D66SortType::NO_SORT)
             output = mk_advanced_rare_item_table(total_n)
           when /^CIR/i
             type = 'コモンアイテムランダム決定'
@@ -142,27 +142,27 @@ module BCDice
           when /^NMAR/i
             debug("namea passed")
             type = '芸術系名前'
-            total_n = roll_d66(D66SortType::ASC)
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
             output = mk_name_ar_table(total_n)
           when /^NMFO/i
             type = '食べ物系名前'
-            total_n = roll_d66(D66SortType::ASC)
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
             output = mk_name_fo_table(total_n)
           when /^NMDN/i
             type = '日用品系名前'
-            total_n = roll_d66(D66SortType::ASC)
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
             output = mk_name_dn_table(total_n)
           when /^NMPL/i
             type = '地名系名前'
-            total_n = roll_d66(D66SortType::ASC)
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
             output = mk_name_pl_table(total_n)
           when /^NMMA/i
             type = '機械系名前'
-            total_n = roll_d66(D66SortType::ASC)
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
             output = mk_name_ma_table(total_n)
           when /^NMGO/i
             type = '神様系名前'
-            total_n = roll_d66(D66SortType::ASC)
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
             output = mk_name_go_table(total_n)
           when /^NNAME(\d*)/i
             type = '新名前'
@@ -176,13 +176,13 @@ module BCDice
             end
           when /^RMS/i
             type = 'ランダムマップ選択'
-            total_n = roll_d66(D66SortType::NO_SORT)
+            total_n = @randomizer.roll_d66(D66SortType::NO_SORT)
             output = mk_random_map_select_table(total_n)
 
           when /^KNT(\d+)/i
             type = '王国名決定'
             count = getCount(Regexp.last_match(1))
-            total_n = roll_d66(D66SortType::ASC)
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
 
             case count
             when 1
@@ -625,17 +625,17 @@ module BCDice
           [56, "「え？　え？　えぇぇぇぇッ！？」ふとした拍子に唇がふれあう。受け身キャラの攻め気キャラ以外に対する《好意》がすべて0点になり、その値の分だけ攻め気キャラに対する《好意》を上昇する。"],
           [66, "「…………」気がつくとお互い、目をそらせなくなってしまう。そのまま顔を寄せ合い……。「カップル休憩表」使用者のお互いに対する《好意》+2、その属性を「愛情」にする。"],
         ]
-        value = roll_d66(D66SortType::ASC)
+        value = @randomizer.roll_d66(D66SortType::ASC)
         return get_table_by_number(value, table), value
       end
 
       # コモンアイテムランダム決定表(1D4)
       def mk_common_item_random_table(num)
         functionTable = [
-          [1, lambda { mk_weapon_item_table(roll_d66(D66SortType::ASC)) }],
-          [2, lambda { mk_life_item_table(roll_d66(D66SortType::ASC)) }],
-          [3, lambda { mk_rest_item_table(roll_d66(D66SortType::ASC)) }],
-          [4, lambda { mk_search_item_table(roll_d66(D66SortType::ASC)) }],
+          [1, lambda { mk_weapon_item_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [2, lambda { mk_life_item_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [3, lambda { mk_rest_item_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [4, lambda { mk_search_item_table(@randomizer.roll_d66(D66SortType::ASC)) }],
         ]
         return get_table_by_number(num, functionTable)
       end
@@ -643,12 +643,12 @@ module BCDice
       # レア一般アイテム決定表(1D6)
       def mk_rare_usual_item_random_table(num)
         functionTable = [
-          [1, lambda { mk_normal_rare_item_table(roll_d66(D66SortType::NO_SORT)) }],
-          [2, lambda { mk_normal_rare_item_table(roll_d66(D66SortType::NO_SORT)) }],
-          [3, lambda { mk_normal_rare_item_table(roll_d66(D66SortType::NO_SORT)) }],
-          [4, lambda { mk_advanced_rare_item_table(roll_d66(D66SortType::NO_SORT)) }],
-          [5, lambda { mk_advanced_rare_item_table(roll_d66(D66SortType::NO_SORT)) }],
-          [6, lambda { mk_advanced_rare_item_table(roll_d66(D66SortType::NO_SORT)) }],
+          [1, lambda { mk_normal_rare_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
+          [2, lambda { mk_normal_rare_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
+          [3, lambda { mk_normal_rare_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
+          [4, lambda { mk_advanced_rare_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
+          [5, lambda { mk_advanced_rare_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
+          [6, lambda { mk_advanced_rare_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
         ]
         return get_table_by_number(num, functionTable)
       end
@@ -656,12 +656,12 @@ module BCDice
       # レア武具アイテム決定表(1D6)
       def mk_rare_weapon_item_random_table(num)
         functionTable = [
-          [1, lambda { mk_normal_rare_weapon_item_table(roll_d66(D66SortType::NO_SORT)) }],
-          [2, lambda { mk_normal_rare_weapon_item_table(roll_d66(D66SortType::NO_SORT)) }],
-          [3, lambda { mk_normal_rare_weapon_item_table(roll_d66(D66SortType::NO_SORT)) }],
-          [4, lambda { mk_advanced_rare_weapon_item_table(roll_d66(D66SortType::NO_SORT)) }],
-          [5, lambda { mk_advanced_rare_weapon_item_table(roll_d66(D66SortType::NO_SORT)) }],
-          [6, lambda { mk_advanced_rare_weapon_item_table(roll_d66(D66SortType::NO_SORT)) }],
+          [1, lambda { mk_normal_rare_weapon_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
+          [2, lambda { mk_normal_rare_weapon_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
+          [3, lambda { mk_normal_rare_weapon_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
+          [4, lambda { mk_advanced_rare_weapon_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
+          [5, lambda { mk_advanced_rare_weapon_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
+          [6, lambda { mk_advanced_rare_weapon_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
         ]
         return get_table_by_number(num, functionTable)
       end
@@ -999,8 +999,8 @@ module BCDice
         # 新名前表
         nick_n, = roll(1, 6)
         name_n, = roll(1, 6)
-        d1 = roll_d66(D66SortType::ASC)
-        d2 = roll_d66(D66SortType::ASC)
+        d1 = @randomizer.roll_d66(D66SortType::ASC)
+        d2 = @randomizer.roll_d66(D66SortType::ASC)
 
         # 二つ名分岐
         if nick_n <= 1
@@ -1567,10 +1567,10 @@ module BCDice
       # アイテムカテゴリ決定表 (1D6)
       def mk_item_random_table(num)
         functionTable = [
-          [1, lambda { mk_weapon_item_table(roll_d66(D66SortType::ASC)) }],
-          [2, lambda { mk_life_item_table(roll_d66(D66SortType::ASC)) }],
-          [3, lambda { mk_rest_item_table(roll_d66(D66SortType::ASC)) }],
-          [4, lambda { mk_search_item_table(roll_d66(D66SortType::ASC)) }],
+          [1, lambda { mk_weapon_item_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [2, lambda { mk_life_item_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [3, lambda { mk_rest_item_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [4, lambda { mk_search_item_table(@randomizer.roll_d66(D66SortType::ASC)) }],
           [5, lambda { mk_rare_usual_item_random_table(roll(1, 6)) }],
           [6, lambda { mk_rare_weapon_item_random_table(roll(1, 6)) }],
         ]

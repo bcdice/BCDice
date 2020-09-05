@@ -430,7 +430,7 @@ module BCDice
         baseParts += "  アクセサリ部品："
 
         counts.times do |_i|
-          number2 = roll_d66(D66SortType::ASC)
+          number2 = @randomizer.roll_d66(D66SortType::ASC)
           baseParts += get_table_by_number(number2, armsTable)
           partsEffect += get_table_by_number(number2, armsEffectTable)
 

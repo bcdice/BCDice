@@ -236,10 +236,6 @@ module BCDice
       return total, dice_list.join(","), count_one, count_max, max_value, 0, 0
     end
 
-    def roll_d66(sort_type)
-      @randomizer.roll_d66(sort_type)
-    end
-
     def changeText(string)
       string
     end

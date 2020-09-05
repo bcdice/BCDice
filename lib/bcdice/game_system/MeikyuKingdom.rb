@@ -205,19 +205,19 @@ module BCDice
         when /^NAMEA/i
           debug("namea passed")
           type = '名前Ａ'
-          total_n = roll_d66(D66SortType::ASC)
+          total_n = @randomizer.roll_d66(D66SortType::ASC)
           output = mk_name_a_table(total_n)
         when /^NAMEB/i
           type = '名前Ｂ'
-          total_n = roll_d66(D66SortType::ASC)
+          total_n = @randomizer.roll_d66(D66SortType::ASC)
           output = mk_name_b_table(total_n)
         when /^NAMEEX/i
           type = 'エキゾチック名前'
-          total_n = roll_d66(D66SortType::ASC)
+          total_n = @randomizer.roll_d66(D66SortType::ASC)
           output = mk_name_ex_table(total_n)
         when /^NAMEFA/i
           type = 'ファンタジック名前'
-          total_n = roll_d66(D66SortType::ASC)
+          total_n = @randomizer.roll_d66(D66SortType::ASC)
           output = mk_name_fa_table(total_n)
 
         when /^NAME(\d*)/i
@@ -314,27 +314,27 @@ module BCDice
           # アイテム表
         when /^RWIT/i
           type = 'レア武具アイテム'
-          total_n = roll_d66(D66SortType::NO_SORT)
+          total_n = @randomizer.roll_d66(D66SortType::NO_SORT)
           output = mk_rare_weapon_item_table(total_n)
         when /^RUIT/i
           type = 'レア一般アイテム'
-          total_n = roll_d66(D66SortType::NO_SORT)
+          total_n = @randomizer.roll_d66(D66SortType::NO_SORT)
           output = mk_rare_item_table(total_n)
         when /^WIT/i
           type = '武具アイテム'
-          total_n = roll_d66(D66SortType::ASC)
+          total_n = @randomizer.roll_d66(D66SortType::ASC)
           output = mk_weapon_item_table(total_n)
         when /^LIT/i
           type = '生活アイテム'
-          total_n = roll_d66(D66SortType::ASC)
+          total_n = @randomizer.roll_d66(D66SortType::ASC)
           output = mk_life_item_table(total_n)
         when /^RIT/i
           type = '回復アイテム'
-          total_n = roll_d66(D66SortType::ASC)
+          total_n = @randomizer.roll_d66(D66SortType::ASC)
           output = mk_rest_item_table(total_n)
         when /^SIT/i
           type = '探索アイテム'
-          total_n = roll_d66(D66SortType::ASC)
+          total_n = @randomizer.roll_d66(D66SortType::ASC)
           output = mk_search_item_table(total_n)
         when /^IFT/i
           type = 'アイテム特性'
@@ -403,7 +403,7 @@ module BCDice
         when /^KNT(\d+)/i
           type = '王国名'
           count = getCount(Regexp.last_match(1))
-          total_n = roll_d66(D66SortType::ASC)
+          total_n = @randomizer.roll_d66(D66SortType::ASC)
 
           case count
           when 1
@@ -417,7 +417,7 @@ module BCDice
         when /^WORD(\d+)/i
           type = '単語'
           count = getCount(Regexp.last_match(1))
-          total_n = roll_d66(D66SortType::ASC)
+          total_n = @randomizer.roll_d66(D66SortType::ASC)
 
           case count
           when 1
@@ -928,8 +928,8 @@ module BCDice
         name_n = @randomizer.roll_once(6)
         debug("name_n", name_n)
 
-        d1 = roll_d66(D66SortType::ASC)
-        d2 = roll_d66(D66SortType::ASC)
+        d1 = @randomizer.roll_d66(D66SortType::ASC)
+        d2 = @randomizer.roll_d66(D66SortType::ASC)
         debug("d1, d2", d1, d2)
 
         debug("name_n", name_n)
@@ -1146,12 +1146,12 @@ module BCDice
       # アイテムカテゴリ決定表(1D6)
       def mk_item_decide_table(num)
         functionTable = [
-          [1, lambda { mk_weapon_item_table(roll_d66(D66SortType::ASC)) }],
-          [2, lambda { mk_life_item_table(roll_d66(D66SortType::ASC)) }],
-          [3, lambda { mk_rest_item_table(roll_d66(D66SortType::ASC)) }],
-          [4, lambda { mk_search_item_table(roll_d66(D66SortType::ASC)) }],
-          [5, lambda { mk_rare_weapon_item_table(roll_d66(D66SortType::NO_SORT)) }],
-          [6, lambda { mk_rare_item_table(roll_d66(D66SortType::NO_SORT)) }],
+          [1, lambda { mk_weapon_item_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [2, lambda { mk_life_item_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [3, lambda { mk_rest_item_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [4, lambda { mk_search_item_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [5, lambda { mk_rare_weapon_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
+          [6, lambda { mk_rare_item_table(@randomizer.roll_d66(D66SortType::NO_SORT)) }],
         ]
         return get_table_by_number(num, functionTable)
       end
@@ -1447,7 +1447,7 @@ module BCDice
       def mk_item_aptitude_table(num)
         table = [
           [1, 'ランダムなクラス1種'],
-          [2, lambda { mk_family_business_table(roll_d66(D66SortType::ASC)) }],
+          [2, lambda { mk_family_business_table(@randomizer.roll_d66(D66SortType::ASC)) }],
           [3, lambda { mk_gender_table(@randomizer.roll_once(6)) + '性' }],
           [4, '上級ジョブ'],
           [5, 'モンスタースキルを修得'],
@@ -1620,9 +1620,9 @@ module BCDice
         debug("mk_decoration_table num", num)
 
         table = [
-          [1, lambda { mk_basic_decoration_table(roll_d66(D66SortType::ASC)) }],
-          [2, lambda { mk_spooky_decoration_table(roll_d66(D66SortType::ASC)) }],
-          [3, lambda { mk_katakana_decoration_table(roll_d66(D66SortType::ASC)) }],
+          [1, lambda { mk_basic_decoration_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [2, lambda { mk_spooky_decoration_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [3, lambda { mk_katakana_decoration_table(@randomizer.roll_d66(D66SortType::ASC)) }],
         ]
         return get_table_by_number(num, table)
       end
@@ -1630,9 +1630,9 @@ module BCDice
       # 地名決定表(1D6)
       def mk_placename_table(num)
         table = [
-          [1, lambda { mk_passage_placename_table(roll_d66(D66SortType::ASC)) }],
-          [2, lambda { mk_natural_placename_table(roll_d66(D66SortType::ASC)) }],
-          [3, lambda { mk_artifact_placename_table(roll_d66(D66SortType::ASC)) }],
+          [1, lambda { mk_passage_placename_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [2, lambda { mk_natural_placename_table(@randomizer.roll_d66(D66SortType::ASC)) }],
+          [3, lambda { mk_artifact_placename_table(@randomizer.roll_d66(D66SortType::ASC)) }],
         ]
         return get_table_by_number(num, table)
       end
@@ -1816,7 +1816,7 @@ module BCDice
 
       # 迷宮風景表(1D6)
       def mk_landscape_table(num)
-        dice = roll_d66(D66SortType::ASC)
+        dice = @randomizer.roll_d66(D66SortType::ASC)
         table = [
           [1, lambda { mk_artifact_landscape_table(dice) }],
           [2, lambda { mk_cave_landscape_table(dice) }],
@@ -2251,7 +2251,7 @@ module BCDice
           [66, '「…………」気がつくとお互い、目をそらせなくなってしまう。そのまま顔を寄せ合い……。この表の使用者のお互いに対する《好意》が2点上昇し、その属性を「愛情」にする。'],
         ]
 
-        value = roll_d66(D66SortType::ASC)
+        value = @randomizer.roll_d66(D66SortType::ASC)
         return get_table_by_number(value, table), value
       end
     end
