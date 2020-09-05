@@ -12,9 +12,9 @@ class TestDetailedRandResults < Test::Unit::TestCase
   def test_rand
     @randomier.setRandomValues([[49, 100]])
 
-    value = @randomier.rand(100)
+    value = @randomier.roll_once(100)
 
-    assert_equal(49 - 1, value)
+    assert_equal(49, value)
 
     assert_equal(1, @randomier.detailed_rand_results.size)
     assert_equal(:normal, @randomier.detailed_rand_results[0].kind)

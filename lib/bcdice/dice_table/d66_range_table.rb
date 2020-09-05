@@ -10,11 +10,11 @@ module BCDice
       end
 
       # 表を振る
-      # @param bcdice [BCDice] ランダマイザ
+      # @param randomizer [#roll_once] ランダマイザ
       # @return [String] 結果
-      def roll(bcdice)
-        dice1, = bcdice.roll(1, 6)
-        dice2, = bcdice.roll(1, 6)
+      def roll(randomizer)
+        dice1 = randomizer.roll_once(6)
+        dice2 = randomizer.roll_once(6)
 
         key = dice1 * 10 + dice2
 

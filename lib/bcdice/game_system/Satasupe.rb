@@ -538,8 +538,8 @@ module BCDice
           total, = roll(times, sides)
           ysold = total + age_const.to_i
 
-          lmodValue = lmood[@randomizer.rand(6)]
-          lageValue = lage[@randomizer.rand(3)]
+          lmodValue = lmood[@randomizer.roll_index(6)]
+          lageValue = lage[@randomizer.roll_index(3)]
 
           text = "#{name}#{age[age_type]}(#{ysold}歳):#{lmodValue}#{lageValue}"
           result.push(text)

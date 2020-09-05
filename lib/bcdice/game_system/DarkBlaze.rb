@@ -134,10 +134,8 @@ module BCDice
       end
 
       def rollDiceCommand(command)
-        case command
-        when /BT(\d+)?/i
-          dice = Regexp.last_match(1)
-          dice ||= 1
+        if (m = /^BT(\d)?$/i.match(command))
+          dice = m[1]&.to_i || 1
           return get_horidasibukuro_table(dice)
         end
 

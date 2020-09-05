@@ -224,12 +224,16 @@ module BCDice
     # @deprecated 代わりに {#prefixes} を使ってください
     alias prefixs prefixes
 
-    # def rand(max)
-    #   @randomizer.rand(max)
-    # end
+    def roll(times, sides, sort = false)
+      dice_list = @randomizer.roll_barabara(times, sides)
+      dice_list.sort! if sort
 
-    def roll(*args)
-      @randomizer.roll(*args)
+      total = dice_list.sum()
+      count_one = dice_list.count(1)
+      count_max = dice_list.count(sides)
+      max_value = dice_list.max()
+
+      return total, dice_list.join(","), count_one, count_max, max_value, 0, 0
     end
 
     def roll_d66(sort_type)
@@ -529,15 +533,11 @@ module BCDice
     end
 
     def rollTableMessageDiceText(text)
-      message = text.gsub(/(\d+)D(\d+)/) do
-        m = $~
-        diceCount = m[1]
-        diceMax = m[2]
-        value, = roll(diceCount, diceMax)
-        "#{diceCount}D#{diceMax}(=>#{value})"
+      text.gsub(/(\d+)D(\d+)/) do |matched|
+        times, sides = matched.split("D").map(&:to_i)
+        value = @randomizer.roll_sum(times, sides)
+        "#{matched}(=>#{value})"
       end
-
-      return message
     end
 
     def getTableInfoFromExtraTableText(text, count = nil)

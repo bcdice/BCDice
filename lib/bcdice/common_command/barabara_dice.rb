@@ -32,7 +32,7 @@ module BCDice
         dice_list = []
         b_list.each do |literal|
           times, sides = literal.split("B", 2).map(&:to_i)
-          list = @randomizer.roll(times, sides)[1].split(",").map(&:to_i)
+          list = @randomizer.roll_barabara(times, sides)
           list.sort! if @game_system.sort_barabara_dice?
           dice_list.concat(list)
         end

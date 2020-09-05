@@ -12,13 +12,10 @@ module BCDice
       end
 
       # 表を振る
-      # @param [BCDice] bcdice ランダマイザ
+      # @param randomizer [#roll_barabara] ランダマイザ
       # @return [String] 結果
-      def roll(bcdice)
-        dice = Array.new(2) do
-          val, = bcdice.roll(1, 6)
-          val
-        end
+      def roll(randomizer)
+        dice = randomizer.roll_barabara(2, 6)
 
         dice.sort!
         if @sort_type == :desc

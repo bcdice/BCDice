@@ -34,7 +34,7 @@ module BCDice
       private
 
       def roll()
-        dice_list = Array.new(2) { @randomizer.roll(1, 6)[0] }
+        dice_list = Array.new(2) { @randomizer.roll_once(6) }
 
         case @sort_type
         when :asc

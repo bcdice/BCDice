@@ -145,13 +145,11 @@ module BCDice
       end
 
       # 表を振る
-      # @param [BCDice] bcdice BCDice本体
+      # @param randomizer [#roll_barabara] ランダマイザ
       # @return [RollResult] 表を振った結果
-      def roll(bcdice)
-        sum, values_str, = bcdice.roll(@num_of_dice, @num_of_sides)
-
-        # TODO: BCDice#roll から直接、整数の配列として出目を受け取りたい
-        values = values_str.split(",").map(&:to_i)
+      def roll(randomizer)
+        values = randomizer.roll_barabara(@num_of_dice, @num_of_sides)
+        sum = values.sum()
 
         result = RollResult.new(sum, values, fetch(sum).content)
         result.formatted = @formatter[self, result]

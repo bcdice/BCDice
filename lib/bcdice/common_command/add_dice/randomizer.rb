@@ -37,10 +37,10 @@ module BCDice
             return Array.new(times) { @bcdice.roll_d9() }
           end
 
-          _, dice_str, = @bcdice.roll(times, sides, @dicebot.sort_add_dice?)
+          dice_list = @bcdice.roll_barabara(times, sides)
+          dice_list.sort! if @dicebot.sort_add_dice?
 
-          # 現在は出目が文字列で返ってきてしまうので、整数の配列に変換する
-          return dice_str.split(",").map(&:to_i)
+          return dice_list
         end
       end
     end

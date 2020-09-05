@@ -16,21 +16,21 @@ module BCDice
       HELP_MESSAGE = <<~MESSAGETEXT
         ・判定コマンド(nVMFx+x)
           注意：難易度は必要成功数を表す
-        
+
           難易度指定：判定成功と失敗、Critical判定、
                      （Hungerダイスがある場合）Messy CriticalとBestial Failureチェックを行う
           例) (難易度)VMF(ダイスプール)+(Hungerダイス)
               (難易度)VMF(ダイスプール)
-        
+
           難易度省略：判定失敗、Critical、（Hungerダイスがある場合）Bestial Failureチェックを行う
                       判定成功、Messy Criticalのチェックを行わない
           例) VMF(ダイスプール)+(Hungerダイス)
               VMF(ダイスプール)
-        
+
           難易度0指定：全てのチェックを行わない
           例) 0VMF(ダイスプール)+(Hungerダイス)
               0VMF(ダイスプール)
-        
+
       MESSAGETEXT
 
       DIFFICULTY_INDEX   = 1
@@ -49,11 +49,11 @@ module BCDice
           return ''
         end
 
-        dice_pool = m[DICE_POOL_INDEX]
+        dice_pool = m[DICE_POOL_INDEX].to_i
         dice_text, success_dice, ten_dice, = make_dice_roll(dice_pool)
         result_text = "(#{dice_pool}D10"
 
-        hunger_dice_pool = m[HUNGER_DICE_INDEX]
+        hunger_dice_pool = m[HUNGER_DICE_INDEX]&.to_i
         if hunger_dice_pool
           hunger_dice_text, hunger_success_dice, hunger_ten_dice, hunger_botch_dice = make_dice_roll(hunger_dice_pool)
 

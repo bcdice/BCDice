@@ -68,7 +68,8 @@ module BCDice
           loop_count += 1
           dice_total_count += x
 
-          dice_list = roll_(x, n)
+          dice_list = @bcdice.roll_barabara(x, n)
+          dice_list.sort! if @diceBot.sort_barabara_dice?
           success_count += dice_list.count() { |val| compare(val, @cmp_op, @target_number) } if @cmp_op
           reroll_count = dice_list.count() { |val| compare(val, @reroll_cmp_op, @reroll_threshold) }
 
@@ -182,14 +183,6 @@ module BCDice
         else
           true
         end
-      end
-
-      # @param times [Integer]
-      # @param sides [Integer]
-      # @return [Array<Integer>]
-      def roll_(times, sides)
-        _, dice_list, = @bcdice.roll(times, sides, @diceBot.sort_barabara_dice?)
-        dice_list.split(",").map(&:to_i)
       end
 
       # @param prefix [String]

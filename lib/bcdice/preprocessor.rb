@@ -34,9 +34,8 @@ module BCDice
         # Remove '[' and ']'
         command = matched[1..-2].upcase
         times, sides = command.split("D").map(&:to_i)
-        rolled, = @randomizer.roll(times, sides)
 
-        rolled
+        @randomizer.roll_sum(times, sides)
       end
     end
 
@@ -49,7 +48,7 @@ module BCDice
           matched
         else
           steps = last - first + 1
-          dice, = @randomizer.roll(1, steps)
+          dice = @randomizer.roll_once(steps)
 
           first + dice - 1
         end

@@ -125,7 +125,7 @@ module BCDice
         dice_list = []
 
         loop do
-          value, = @bcdice.roll(1, sides)
+          value = @bcdice.roll_once(sides)
           dice_list.push(value)
           break if value < @reroll_threshold
         end

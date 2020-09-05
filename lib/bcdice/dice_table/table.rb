@@ -22,7 +22,7 @@ module BCDice
       # @param [BCDice] bcdice ランダマイザ
       # @return [String] 結果
       def roll(bcdice)
-        value, = bcdice.roll(@times, @sides)
+        value = bcdice.roll_sum(@times, @sides)
         index = value - @times
 
         return "#{@name}(#{value}) ＞ #{@items[index]}"

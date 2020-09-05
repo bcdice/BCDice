@@ -22,7 +22,7 @@ module BCDice
         @is_secret = !m[1].nil?
         items = m[2].split(",").map(&:strip)
 
-        index = @randomizer.roll(1, items.size)[0] - 1
+        index = @randomizer.roll_index(items.size)
         chosen = items[index]
 
         expr = "choice[#{items.join(',')}]"

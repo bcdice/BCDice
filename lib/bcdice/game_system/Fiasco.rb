@@ -50,7 +50,7 @@ INFO_MESSAGE_TEXT
       end
 
       def makeStartDiceRoll(m)
-        dice = m[START_DICE_INDEX]
+        dice = m[START_DICE_INDEX].to_i
         _, diceText, = roll(dice, 6)
 
         diceList = [0, 0, 0, 0, 0, 0]
@@ -97,12 +97,15 @@ INFO_MESSAGE_TEXT
       end
 
       def makeArgsDiceRoll(firstDice, secondDice)
+        firstDice = firstDice.to_i
+        secondDice = secondDice&.to_i
+
         secondTotal = 0
 
         firstTotal, firstDiceText, = roll(firstDice, 6)
 
         if secondDice
-          if secondDice.to_i > 0
+          if secondDice > 0
             secondTotal, secondDiceText, = roll(secondDice, 6)
           else
             secondDiceText = "0"
