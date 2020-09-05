@@ -50,11 +50,6 @@ module BCDice
 
         string = command.upcase
 
-        case string
-        when 'RTT' # ランダム特技決定表
-          return getRandomSkillTableResult(command)
-        end
-
         return roll_tables(command, TABLES)
       end
 
