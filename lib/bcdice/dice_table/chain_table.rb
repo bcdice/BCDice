@@ -3,7 +3,7 @@ module BCDice
     class ChainTable
       # @param [String] name 表の名前
       # @param [String] type 項目を選ぶときのダイスロールの方法 '1D6'など
-      # @param [Array<String>] items 表の項目の配列
+      # @param [Array<String, #roll>] items 表の項目の配列
       def initialize(name, type, items)
         @name = name
         @items = items.freeze
@@ -23,7 +23,8 @@ module BCDice
       def roll(randomizer)
         value = randomizer.roll_sum(@times, @sides)
         index = value - @times
-        chosen = @items[index].roll(randomizer)
+        chosen = @items[index]
+        chosen = chosen.roll(randomizer) if chosen.respond_to?(:roll)
 
         return "#{@name}(#{value}) ＞ #{chosen}"
       end

@@ -25,7 +25,9 @@ module BCDice
         end
 
         key = dice[0] * 10 + dice[1]
-        return "#{@name}(#{key}) ＞ #{@items[key]}"
+        chosen = @items[key]
+        chosen = chosen.roll(randomizer) if chosen.respond_to?(:roll)
+        return "#{@name}(#{key}) ＞ #{chosen}"
       end
     end
   end
