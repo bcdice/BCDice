@@ -1,54 +1,32 @@
 # ダイスボットのテストを起動するプログラム
-#
-# 引数の数によって処理が変わる
-#
-# [0個] すべてのテストデータを使用してテストを行う
-# [1個] 指定したテストデータを使用してテストを行う。
-#       「.txt」で終わっていればテストデータのパスと見なす。
-# [2個] 最初の引数でテストデータを指定し、2番目の引数で番号を指定する
 
-rootDir = __dir__
-libPaths = [
-  "#{rootDir}/test",
-  rootDir,
-]
-libPaths.each do |libPath|
-  $:.push(libPath)
-end
+$:.unshift(File.join(__dir__, "../lib"))
+$:.unshift(File.join(__dir__, "../test"))
 
-require "test/setup"
 require "DiceBotTest"
 
-# 引数を解析してテストデータファイルのパスを返す
-getTestDataPath = lambda do |arg|
-  arg.end_with?(".txt") ? arg : "#{rootDir}/test/data/#{arg}.txt"
-end
+HELP_MESSAGE = <<~HELP.freeze
+  Usage: #{File.basename($0)} test_file [index]
+    特定のゲームシステムのテストを実行する
 
-# テストデータファイルのパス
-testDataPath = nil
-# テストデータ番号
-dataIndex = nil
+    test_file  テストファイルのパス
+    index      実行したいテストケースの番号
+HELP
 
-HELP_MESSAGE = "Usage: #{File.basename($0)} [TEST_DATA_PATH] [DATA_INDEX]".freeze
-
-if ARGV.include?("-h") || ARGV.include?("--help")
-  $stdout.puts(HELP_MESSAGE)
+if ARGV.include?("-h") || ARGV.include?("--help") || ARGV.length.empty?
+  puts HELP_MESSAGE
   exit
 end
 
-case ARGV.length
-when 0
-when 1
-  # テストデータを指定する
-  testDataPath = getTestDataPath[ARGV[0]]
-when 2
-  # テストデータおよびテストデータ番号を指定する
-  testDataPath = getTestDataPath[ARGV[0]]
-  dataIndex = ARGV[1].to_i
-else
-  warn(HELP_MESSAGE)
-  abort
+if ARGV.length > 2
+  warn HELP_MESSAGE
+  exit 1
 end
 
-success = DiceBotTest.new(testDataPath, dataIndex).execute
-abort unless success
+test_data_path = ARGV[0].end_with?(".txt") ? ARGV[0] : File.join(__dir__, "../test/data/#{ARGV[0]}.txt")
+data_index = ARGV[1]&.to_i
+
+success = DiceBotTest.new(test_data_path, data_index).execute
+unless success
+  exit 1
+end
