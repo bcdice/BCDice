@@ -906,7 +906,7 @@ module BCDice
             "暗闇の中に幾つかの星が輝く。あれは【星座獣】だ！ PC全員は[魅力/9]の判定を行う。失敗した者は[そのPCが装備・収納している【星の欠片】の合計数+1]D6点のダメージを受ける。",
           ]
         ),
-      }.freeze
+      }.merge(ITEM_TABLES).freeze
     end
   end
 end

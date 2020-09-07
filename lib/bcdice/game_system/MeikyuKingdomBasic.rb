@@ -103,6 +103,9 @@ module BCDice
         else
 
           case command
+          when /^DFT(\d*)$/i
+            feature_count = Regexp.last_match(1).to_i
+            return roll_device_factory_table(feature_count)
 
           when /^NRWT/i
             type = '基本レア武具アイテム'
@@ -132,13 +135,6 @@ module BCDice
             type = 'レア一般アイテムランダム決定'
             total_n = @randomizer.roll_once(6)
             output = mk_rare_usual_item_random_table(total_n)
-
-          when /^DFT(\d*)/i
-            type = 'デヴァイス・ファクトリー'
-            count = getCount(Regexp.last_match(1))
-            output = mk_device_factory_table(count)
-            total_n = count
-
           when /^NMAR/i
             debug("namea passed")
             type = '芸術系名前'
@@ -174,6 +170,7 @@ module BCDice
               output = names
               total_n = count
             end
+            output = output.strip
           when /^RMS/i
             type = 'ランダムマップ選択'
             total_n = @randomizer.roll_d66(D66SortType::NO_SORT)
@@ -265,8 +262,8 @@ module BCDice
   end
 end
 
-require "bcdice/game_system/meikyu_kingdom_basic/table"
 require "bcdice/game_system/meikyu_kingdom_basic/item_table"
 require "bcdice/game_system/meikyu_kingdom_basic/kingdom_table"
 require "bcdice/game_system/meikyu_kingdom_basic/name_table"
 require "bcdice/game_system/meikyu_kingdom_basic/word_table"
+require "bcdice/game_system/meikyu_kingdom_basic/table"

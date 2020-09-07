@@ -224,7 +224,7 @@ module BCDice
             name, dice = mk_name_table
             names += "[#{dice}]#{name} "
           end
-          output = names
+          output = names.strip
           total_n = count
 
         when /^PNT(\d*)/i
