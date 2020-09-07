@@ -13,7 +13,7 @@ HELP_MESSAGE = <<~HELP.freeze
     index      実行したいテストケースの番号
 HELP
 
-if ARGV.include?("-h") || ARGV.include?("--help") || ARGV.length.empty?
+if ARGV.include?("-h") || ARGV.include?("--help") || ARGV.empty?
   puts HELP_MESSAGE
   exit
 end
