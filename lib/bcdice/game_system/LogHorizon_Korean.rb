@@ -66,9 +66,19 @@ module BCDice
       end
 
       def rollDiceCommand(command)
-        # get～DiceCommandResultという名前のメソッドを集めて実行、
-        # 結果がnil以外の場合それを返して終了。
-        return analyzeDiceCommandResultMethod(command)
+        getCheckRollDiceCommandResult(command) ||
+          getConsumptionDiceCommandResult(command) ||
+          getTresureDiceCommandResult(command) ||
+          getPersonalityTagDiceCommandResult(command) ||
+          getFriendlyChartDiceCommandResult(command) ||
+          getPrefixedMagickItemDiceCommandResult(command) ||
+          getHitLocationDiceCommandResult(command) ||
+          getPCNameDiceCommandResult(command) ||
+          getInventionAttributeTextDiceCommandResult(command) ||
+          getTroubleInAkibaStreetDiceCommandResult(command) ||
+          getAbandonedChildDiceCommandResult(command) ||
+          getMusicalInstrumentTypeDiceCommandResult(command) ||
+          getEastalDiceCommandResult(command)
       end
 
       def getCheckRollDiceCommandResult(command)

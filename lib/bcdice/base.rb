@@ -461,21 +461,6 @@ module BCDice
       return data
     end
 
-    def analyzeDiceCommandResultMethod(command)
-      # get～DiceCommandResultという名前のメソッドを集めて実行、
-      # 結果がnil以外の場合それを返して終了。
-      methodList = public_methods(false).select do |method|
-        method.to_s =~ /^get.+DiceCommandResult$/
-      end
-
-      methodList.each do |method|
-        result = send(method, command)
-        return result unless result.nil?
-      end
-
-      return nil
-    end
-
     def roll_tables(command, tables)
       table = tables[command]
       unless table

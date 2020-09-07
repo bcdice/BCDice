@@ -49,11 +49,20 @@ module BCDice
       end
 
       def rollDiceCommand(command)
-        debug('rollDiceCommand')
-
-        # get～DiceCommandResultという名前のメソッドを集めて実行、
-        # 結果がnil以外の場合それを返して終了。
-        return analyzeDiceCommandResultMethod(command)
+        getConductDiceCommandResult(command) ||
+          getResistDiceCommandResult(command) ||
+          getReactionDiceCommandResult(command) ||
+          getHeresyReactionDiceCommandResult(command) ||
+          getCorruptionDiceCommandResult(command) ||
+          getTableDiceCommandResult(command) ||
+          getSourceSceneDiceCommandResult(command) ||
+          getPassionDiceCommandResult(command) ||
+          getConfermentDiceCommandResult(command) ||
+          getConfermentAfterDiceCommandResult(command) ||
+          getElderPastDiceCommandResult(command) ||
+          getOriginalSinDiceCommandResult(command) ||
+          getRecentStateDiceCommandResult(command) ||
+          getPeacefulPastDiceCommandResult(command)
       end
 
       def getConductDiceCommandResult(command)

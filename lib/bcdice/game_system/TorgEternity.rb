@@ -47,9 +47,14 @@ module BCDice
       end
 
       def rollDiceCommand(command)
-        # get～DiceCommandResultという名前のメソッドを集めて実行、
-        # 結果がnil以外の場合それを返して終了。
-        return torg_check(command) || analyzeDiceCommandResultMethod(command)
+        torg_check(command) ||
+          getRolld20DiceCommandResult(command) ||
+          getUpRollDiceCommandResult(command) ||
+          getPossibilityRollDiceCommandResult(command) ||
+          getBonusDamageDiceCommandResult(command) ||
+          getSuccessLevelDiceCommandResult(command) ||
+          getDamageResultDiceCommandResult(command) ||
+          getRollBonusDiceCommandResult(command)
       end
 
       ####################            TORG 1.x            ########################

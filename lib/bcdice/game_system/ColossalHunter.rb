@@ -37,9 +37,10 @@ module BCDice
       end
 
       def rollDiceCommand(command)
-        # get～DiceCommandResultという名前のメソッドを集めて実行、
-        # 結果がnil以外の場合それを返して終了。
-        return analyzeDiceCommandResultMethod(command)
+        getCheckRollDiceCommandResult(command) ||
+          getSourceSceneDiceCommandResult(command) ||
+          getCreateNpcDiceCommandResult(command) ||
+          getTableDiceCommandResult(command)
       end
 
       def getCheckRollDiceCommandResult(command)
