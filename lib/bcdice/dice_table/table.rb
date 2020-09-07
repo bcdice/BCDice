@@ -28,7 +28,7 @@ module BCDice
 
       def choice(value)
         index = value - @times
-        return "#{@name}(#{value}) ＞ #{@items[index]}"
+        return RollResult.new(@name, value, @items[index])
       end
     end
   end

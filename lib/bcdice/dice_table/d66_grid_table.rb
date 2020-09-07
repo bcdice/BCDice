@@ -15,10 +15,11 @@ module BCDice
       def roll(randomizer)
         dice1 = randomizer.roll_once(6)
         dice2 = randomizer.roll_once(6)
+        value = dice1 * 10 + dice2
 
         index1 = dice1 - 1
         index2 = dice2 - 1
-        return "#{@name}(#{dice1}#{dice2}) ＞ #{@items[index1][index2]}"
+        return RollResult.new(@name, value, @items[index1][index2])
       end
     end
   end

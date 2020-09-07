@@ -63,7 +63,7 @@ class TestD66Table < Test::Unit::TestCase
     )
 
     @randomizer.setRandomValues([[1, 6], [6, 6]])
-    assert_equal("テスト(16) ＞ か", table.roll(@randomizer))
+    assert_equal("テスト(16) ＞ か", table.roll(@randomizer).to_s)
   end
 
   def test_asc_swap
@@ -74,7 +74,7 @@ class TestD66Table < Test::Unit::TestCase
     )
 
     @randomizer.setRandomValues([[6, 6], [1, 6]])
-    assert_equal("テスト(16) ＞ か", table.roll(@randomizer))
+    assert_equal("テスト(16) ＞ か", table.roll(@randomizer).to_s)
   end
 
   def test_asc_11
@@ -85,7 +85,7 @@ class TestD66Table < Test::Unit::TestCase
     )
 
     @randomizer.setRandomValues([[1, 6], [1, 6]])
-    assert_equal("テスト(11) ＞ あ", table.roll(@randomizer))
+    assert_equal("テスト(11) ＞ あ", table.roll(@randomizer).to_s)
   end
 
   def test_asc_66
@@ -96,7 +96,7 @@ class TestD66Table < Test::Unit::TestCase
     )
 
     @randomizer.setRandomValues([[6, 6], [6, 6]])
-    assert_equal("テスト(66) ＞ な", table.roll(@randomizer))
+    assert_equal("テスト(66) ＞ な", table.roll(@randomizer).to_s)
   end
 
   def test_desc
@@ -107,7 +107,7 @@ class TestD66Table < Test::Unit::TestCase
     )
 
     @randomizer.setRandomValues([[6, 6], [1, 6]])
-    assert_equal("テスト(61) ＞ ゆ", table.roll(@randomizer))
+    assert_equal("テスト(61) ＞ ゆ", table.roll(@randomizer).to_s)
   end
 
   def test_desc_swap
@@ -118,7 +118,7 @@ class TestD66Table < Test::Unit::TestCase
     )
 
     @randomizer.setRandomValues([[1, 6], [6, 6]])
-    assert_equal("テスト(61) ＞ ゆ", table.roll(@randomizer))
+    assert_equal("テスト(61) ＞ ゆ", table.roll(@randomizer).to_s)
   end
 
   def test_desc_11
@@ -129,7 +129,7 @@ class TestD66Table < Test::Unit::TestCase
     )
 
     @randomizer.setRandomValues([[1, 6], [1, 6]])
-    assert_equal("テスト(11) ＞ に", table.roll(@randomizer))
+    assert_equal("テスト(11) ＞ に", table.roll(@randomizer).to_s)
   end
 
   def test_desc_66
@@ -140,6 +140,6 @@ class TestD66Table < Test::Unit::TestCase
     )
 
     @randomizer.setRandomValues([[6, 6], [6, 6]])
-    assert_equal("テスト(66) ＞ れ", table.roll(@randomizer))
+    assert_equal("テスト(66) ＞ れ", table.roll(@randomizer).to_s)
   end
 end

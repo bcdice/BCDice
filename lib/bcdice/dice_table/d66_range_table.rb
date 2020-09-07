@@ -19,7 +19,7 @@ module BCDice
         key = dice1 * 10 + dice2
 
         chosen = @items.find { |row| row[0].include?(key) }
-        return "#{@name}(#{key}) ＞ #{chosen[1]}"
+        return RollResult.new(@name, key, chosen[1])
       end
     end
   end

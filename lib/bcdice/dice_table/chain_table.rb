@@ -26,7 +26,7 @@ module BCDice
         chosen = @items[index]
         chosen = chosen.roll(randomizer) if chosen.respond_to?(:roll)
 
-        return "#{@name}(#{value}) ＞ #{chosen}"
+        return RollResult.new(@name, value, chosen)
       end
     end
   end
