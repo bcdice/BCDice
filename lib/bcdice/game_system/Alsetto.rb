@@ -37,7 +37,7 @@ module BCDice
         ・8ALC4x5 → 8d6で目標値4、攻撃力5、トライアンフ無しの命中判定。
       MESSAGETEXT
 
-      setPrefixes(['\d+AL(C|G)?(\d+)?(x|\*)\d+', '\d+ALC?(\d+)?'])
+      register_prefix(['\d+AL(C|G)?(\d+)?(x|\*)\d+', '\d+ALC?(\d+)?'])
 
       def initialize
         super

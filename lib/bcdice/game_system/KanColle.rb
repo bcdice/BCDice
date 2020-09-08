@@ -929,7 +929,7 @@ module BCDice
         ),
       }.freeze
 
-      setPrefixes([
+      register_prefix([
         'DVT', 'DVTM', 'WP1T', 'WP2T', 'WP3T', 'WP4T',
         'KTM', 'BT', 'KHT', 'KMT', 'KST', 'KSYT', 'KKT', 'KSNT',
       ] + TABLES.keys)

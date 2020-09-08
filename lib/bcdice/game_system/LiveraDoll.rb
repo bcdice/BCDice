@@ -44,7 +44,7 @@ module BCDice
         例：WO3（白のオーナーズネイルの3番目『罪なき純白』）
       MESSAGETEXT
 
-      setPrefixes([
+      register_prefix([
         '(C|K|W|R|B|G|E)(L|D|O)\d+',
         '(\d+)?ATK([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?'
       ])

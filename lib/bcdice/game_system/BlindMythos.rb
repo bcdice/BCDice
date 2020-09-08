@@ -456,7 +456,7 @@ module BCDice
         ),
       }.freeze
 
-      setPrefixes(['BM.*', 'ReRoll\d+.*', 'RP\d+', 'DT'] + TABLES.keys)
+      register_prefix(['BM.*', 'ReRoll\d+.*', 'RP\d+', 'DT'] + TABLES.keys)
     end
   end
 end

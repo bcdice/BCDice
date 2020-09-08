@@ -19,7 +19,7 @@ module BCDice
         　判定と回避判定は、どちらもコマンドだけの場合、出目の表示と自動成功と自動失敗の判定のみを行います。
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['LW.*'])
+      register_prefix(['LW.*'])
 
       def rollDiceCommand(command)
         parser = CommandParser.new("LW", "LWD")

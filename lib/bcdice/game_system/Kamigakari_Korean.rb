@@ -24,7 +24,7 @@ module BCDice
         ・D66주사위 가능
       INFO_MESSAGE_TEXT
 
-      setPrefixes([
+      register_prefix([
         'RT',
         'MT(\d*)',
         'ET',

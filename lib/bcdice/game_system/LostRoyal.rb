@@ -35,7 +35,7 @@ module BCDice
         　　x にはダイスの数（ 1 - 2 ）を指定
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['LR\[[0-5],[0-5],[0-5],[0-5],[0-5],[0-5]\]', 'FC', 'WPC', 'EC', 'HR[1-2]'])
+      register_prefix(['LR\[[0-5],[0-5],[0-5],[0-5],[0-5],[0-5]\]', 'FC', 'WPC', 'EC', 'HR[1-2]'])
 
       def initialize
         super

@@ -41,7 +41,7 @@ module BCDice
         ・スキル表：SKL
       MESSAGETEXT
 
-      setPrefixes(['\d?(BAD|BL|GL).*', '[TDGKSB]RN', 'SKL'])
+      register_prefix(['\d?(BAD|BL|GL).*', '[TDGKSB]RN', 'SKL'])
 
       def rollDiceCommand(command)
         command = command.upcase

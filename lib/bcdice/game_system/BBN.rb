@@ -2,7 +2,7 @@ module BCDice
   module GameSystem
     class BBN < Base
       # ダイスボットで使用するコマンドを配列で列挙する
-      setPrefixes(['\d+BN.*'])
+      register_prefix(['\d+BN.*'])
 
       ID = 'BBN'.freeze
 

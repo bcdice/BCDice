@@ -26,7 +26,7 @@ module BCDice
         　セット数が1以上の時はセット数も表示し、攻撃判定の場合は命中部位も表示します。
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['\d+BK.*', '\d+BA.*', '\d+BKC\d+.*', '\d+BAC\d+.*', '\d+R6.*'])
+      register_prefix(['\d+BK.*', '\d+BA.*', '\d+BKC\d+.*', '\d+BAC\d+.*', '\d+R6.*'])
 
       def initialize
         super

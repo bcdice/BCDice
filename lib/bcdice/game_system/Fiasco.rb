@@ -33,7 +33,7 @@ INFO_MESSAGE_TEXT
       W_DICEROLL_COMMAND_TAG = "W"
       B_DICEROLL_COMMAND_TAG = "B"
 
-      setPrefixes(['(FS|[WB])(\d+).*'])
+      register_prefix(['(FS|[WB])(\d+).*'])
 
       def rollDiceCommand(command)
         m = /\A(FS|[WB])(\d+)(([WB])(\d+))?/.match(command)

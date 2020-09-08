@@ -37,7 +37,7 @@ module BCDice
         ◆自由行動シチュエーション表：FRE
       MESSAGETEXT
 
-      setPrefixes([
+      register_prefix([
         'WEA\d*',
         '(\d+)?PO.*',
         'FRE'

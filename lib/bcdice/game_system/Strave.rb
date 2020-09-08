@@ -32,7 +32,7 @@ module BCDice
         ※アイデンティティ表はエラッタ適用済です。
       MESSAGETEXT
 
-      setPrefixes([
+      register_prefix([
         'MP\d+', '\d+ST\d+(x|\*)\d+',
         'AFF', 'IDT', 'AFV', 'IDV'
       ])

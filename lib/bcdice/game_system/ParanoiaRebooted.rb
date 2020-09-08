@@ -19,14 +19,14 @@ module BCDice
         　x：ノードダイスの数.マイナスも可.
         　ノードダイスの絶対値 + 1個(コンピュータダイス)のダイスがロールされる.
         例）ND2　ND-3
-        
+
         ・ミュータントパワー判定　MPx
           x：ノードダイスの数.
         　ノードダイスの値 + 1個(コンピュータダイス)のダイスがロールされる.
         例）MP2
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['ND.*', 'MP.*'])
+      register_prefix(['ND.*', 'MP.*'])
 
       def rollDiceCommand(command)
         case command

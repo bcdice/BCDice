@@ -6,52 +6,36 @@ require "bcdice/enum"
 
 module BCDice
   class Base
-    # 空の接頭辞（反応するコマンド）
-    EMPTY_PREFIXES_PATTERN = /(^|\s)(S)?()(\s|$)/i.freeze
-
     class << self
       # 接頭辞（反応するコマンド）の配列を返す
       # @return [Array<String>]
       attr_reader :prefixes
 
-      # 接頭辞（反応するコマンド）の正規表現を返す
+      # 応答するコマンドのprefixを登録する
+      # @param prefixes [Array<String>]
+      def register_prefix(*prefixes)
+        @prefixes ||= []
+        @prefixes.concat(prefixes.flatten)
+      end
+
+      # 応答するコマンドにマッチする正規表現を返す
+      # 正規表現を一度生成したら、以後コマンドの登録はできないようにする
+      #
       # @return [Regexp]
-      attr_reader :prefixesPattern
+      def prefixes_pattern
+        @prefixes_pattern ||= nil
+        return @prefixes_pattern if @prefixes_pattern
 
-      # 接頭辞（反応するコマンド）を設定する
-      # @param [Array<String>] prefixes 接頭辞のパターンの配列
-      # @return [self]
-      def setPrefixes(prefixes)
-        @prefixes = prefixes.
-                    # 最適化が効くように内容の文字列を変更不可にする
-                    map(&:freeze).
-                    # 配列全体を変更不可にする
-                    freeze
-        @prefixesPattern = /(^|\s)(S)?(#{prefixes.join('|')})(\s|$)/i.freeze
-
-        self
-      end
-
-      # 接頭辞（反応するコマンド）をクリアする
-      # @return [self]
-      def clearPrefixes
-        @prefixes = [].freeze
-        @prefixesPattern = EMPTY_PREFIXES_PATTERN
-
-        self
-      end
-
-      private
-
-      # 継承された際にダイスボットの接頭辞リストをクリアする
-      # @param [DiceBot] subclass DiceBotを継承したクラス
-      # @return [void]
-      def inherited(subclass)
-        subclass.clearPrefixes
+        @prefixes ||= []
+        @prefixes.freeze
+        @prefixes_pattern =
+          if @prefixes.empty?
+            /(?!)/ # 何にもマッチしない正規表現
+          else
+            /(^|\s)(S)?(#{@prefixes.join('|')})(\s|$)/i
+          end.freeze
       end
     end
-
-    clearPrefixes
 
     def initialize(debug: false)
       @sort_add_dice = false # 加算ダイスでダイス目をソートするかどうか
@@ -70,13 +54,6 @@ module BCDice
 
       @randomizer = BCDice::Randomizer.new
       @debug = debug
-
-      if !prefixs.empty? && self.class.prefixes.empty?
-        # 従来の方法（#prefixs）で接頭辞を設定していた場合でも
-        # クラス側に接頭辞が設定されるようにする
-        warn("#{id}: #prefixs is deprecated. Please use .setPrefixes.")
-        self.class.setPrefixes(prefixs)
-      end
     end
 
     attr_reader :randomizer
@@ -247,7 +224,7 @@ module BCDice
       debug("dice_command Begin string", string)
       secret_flg = false
 
-      unless self.class.prefixesPattern =~ string
+      unless self.class.prefixes_pattern =~ string
         debug("not match in prefixes")
         return "1", secret_flg
       end

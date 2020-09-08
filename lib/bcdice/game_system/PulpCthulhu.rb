@@ -47,7 +47,7 @@ module BCDice
         　・プッシュ時のキャスティング・ロールの失敗（Failed Casting Effects）表　FCE
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCE', 'PH', 'MA', 'IT'])
+      register_prefix(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCE', 'PH', 'MA', 'IT'])
 
       def rollDiceCommand(command)
         case command

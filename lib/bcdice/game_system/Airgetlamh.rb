@@ -41,7 +41,7 @@ module BCDice
         ・15AAx4c0 → 15d10で目標値6、威力4、クリティカル無しの命中判定。
       MESSAGETEXT
 
-      setPrefixes([
+      register_prefix([
         ['(\d+)?A(A|L)(\d+)?((x|\*)(\d+)(\+(\d+))?)?(C(\d+))?']
       ])
 

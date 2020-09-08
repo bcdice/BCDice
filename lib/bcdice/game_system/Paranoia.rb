@@ -18,7 +18,7 @@ module BCDice
         ※このダイスボットは部屋のシステム名表示用となります。
       MESSAGETEXT
 
-      setPrefixes(['geta'])
+      register_prefix(['geta'])
 
       def isGetOriginalMessage
         true

@@ -33,7 +33,7 @@ module BCDice
 
       MESSAGETEXT
 
-      setPrefixes(['(\d+)DM\d+(\+|\-)?\d*', '(\d+)DM(\+|\-)?\d*', 'TR(\d+)<=(\d+)(\+|\-)?\d*', 'TR<=(\d+)(\+|\-)?\d*', 'TR(\+|\-)?(\d+)<=(\d+)(\+|\-)?\d*', 'TRNAME'])
+      register_prefix(['(\d+)DM\d+(\+|\-)?\d*', '(\d+)DM(\+|\-)?\d*', 'TR(\d+)<=(\d+)(\+|\-)?\d*', 'TR<=(\d+)(\+|\-)?\d*', 'TR(\+|\-)?(\d+)<=(\d+)(\+|\-)?\d*', 'TRNAME'])
 
       def rollDiceCommand(command) # スパゲッティなコードだけど許して！！！ → 絶対に許さない。全力でリファクタリングした。
         debug("rollDiceCommand command", command)

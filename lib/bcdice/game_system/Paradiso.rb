@@ -25,7 +25,7 @@ module BCDice
         　例）DC4:【攻撃力】4でダメージチェック　DC5[20]:【攻撃力】5でダメージチェック、うち1つは20mm機銃　DC5[20,30]:【攻撃力】5でダメージチェック、うち1つは20mm機銃、うち1つは30mmガンポッド
       MESSAGETEXT
 
-      setPrefixes(['(\d+)*D20<=.*', '(\d+)*CP.*', 'RMT', 'TOT', 'EXT', 'SUT', 'DC(\d+).*'])
+      register_prefix(['(\d+)*D20<=.*', '(\d+)*CP.*', 'RMT', 'TOT', 'EXT', 'SUT', 'DC(\d+).*'])
 
       def rollDiceCommand(command) # ダイスロールコマンド
         # 通常判定部分をgetJudgeResultコマンドに切り分け

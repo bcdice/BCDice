@@ -26,7 +26,7 @@ module BCDice
         　例）GL
       MESSAGETEXT
 
-      setPrefixes(['GK(#\d+)?', 'GL'])
+      register_prefix(['GK(#\d+)?', 'GL'])
 
       def rollDiceCommand(command)
         output = nil

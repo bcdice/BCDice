@@ -26,7 +26,7 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      setPrefixes(['\d+NC.*', '\d+D6?([\+\-\d]*)>=\d+'])
+      register_prefix(['\d+NC.*', '\d+D6?([\+\-\d]*)>=\d+'])
 
       def rollDiceCommand(command)
         m = /^(\d+)(?:NC|D6?)((?:[-+]\d+)*)(>=(\d+))?$/i.match(command)

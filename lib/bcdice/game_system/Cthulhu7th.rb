@@ -45,7 +45,7 @@ module BCDice
         　　強力でない呪文の場合　FCL／強力な呪文の場合　FCM
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA'])
+      register_prefix(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA'])
 
       def initialize
         # $isDebug = true

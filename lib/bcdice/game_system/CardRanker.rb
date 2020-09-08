@@ -243,7 +243,7 @@ module BCDice
           ]
         ),
       }.freeze
-      setPrefixes(['RM', 'CM.*'] + TABLES.keys)
+      register_prefix(['RM', 'CM.*'] + TABLES.keys)
     end
   end
 end

@@ -23,7 +23,7 @@ module BCDice
         　幸運の助けを自動処理します。(連撃増加値、闘技チットを表示抑制します)
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['\d+G\d+.*', '\d+GA\d+.*', '\d+R6.*'])
+      register_prefix(['\d+G\d+.*', '\d+GA\d+.*', '\d+R6.*'])
 
       def initialize
         super

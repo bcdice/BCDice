@@ -37,7 +37,7 @@ module BCDice
         　・超未来の宇宙船内　INT
       MESSAGETEXT
 
-      setPrefixes(['(\d+)*DA.*\[(\d+),(\d+)(,(\d+))?\]', 'VPFT', 'VNFT', 'VNRT', 'AAFT', 'AST', 'RNST', 'RET', 'TRST', 'TRAT', 'TRMT', 'TROT', 'TET', 'ENT', 'CUT', 'NAT', 'INT']) # '(\d+)*DA.*\[.*\]'
+      register_prefix(['(\d+)*DA.*\[(\d+),(\d+)(,(\d+))?\]', 'VPFT', 'VNFT', 'VNRT', 'AAFT', 'AST', 'RNST', 'RET', 'TRST', 'TRAT', 'TRMT', 'TROT', 'TET', 'ENT', 'CUT', 'NAT', 'INT']) # '(\d+)*DA.*\[.*\]'
 
       def rollDiceCommand(command) # ダイスロールコマンド
         # 通常判定部分をgetJudgeResultコマンドに切り分け

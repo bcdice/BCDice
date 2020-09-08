@@ -308,7 +308,7 @@ module BCDice
           },
         }.freeze
 
-      setPrefixes(['DR.*', 'RT.*', 'CT\d+'] + TABLES.keys)
+      register_prefix(['DR.*', 'RT.*', 'CT\d+'] + TABLES.keys)
     end
   end
 end

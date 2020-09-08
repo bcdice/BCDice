@@ -24,7 +24,7 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      setPrefixes([
+      register_prefix([
         'OP', 'TB', 'TK?\(\d+\)'
       ])
 

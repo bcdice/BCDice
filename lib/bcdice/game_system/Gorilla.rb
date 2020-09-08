@@ -15,13 +15,13 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
         2D6ロール時のゴリティカル自動判定を行います。
-        
+
         G = 2D6のショートカット
-        
+
         例) G>=7 : 2D6して7以上なら成功
       MESSAGETEXT
 
-      setPrefixes(['G.*'])
+      register_prefix(['G.*'])
 
       def changeText(string)
         string = string.gsub(/^(S)?G/i) { "#{Regexp.last_match(1)}2D6" }

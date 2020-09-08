@@ -14,7 +14,7 @@ module BCDice
       # ゲームシステム名の読みがな
       SORT_KEY = 'とおく1.5'
 
-      setPrefixes(Torg.prefixes)
+      register_prefix(Torg.prefixes)
 
       # 一般結果表 成功度
       def get_torg_success_level(value)

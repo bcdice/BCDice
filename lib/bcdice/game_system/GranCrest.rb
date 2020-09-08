@@ -24,7 +24,7 @@ module BCDice
         　組織表（OCT）、拠点表（BCT）、文化表（CCT）
       MESSAGETEXT
 
-      setPrefixes([
+      register_prefix([
         'MT',
         'PFT',
         'NFT',

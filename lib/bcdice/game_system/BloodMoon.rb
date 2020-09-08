@@ -207,7 +207,7 @@ module BCDice
         ),
       }.merge(BloodCrusade::TABLES_WITH_BLOOD_MOON).freeze
 
-      setPrefixes(TABLES.keys)
+      register_prefix(TABLES.keys)
     end
   end
 end

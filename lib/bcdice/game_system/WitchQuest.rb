@@ -22,7 +22,7 @@ module BCDice
         　例）SET1　SET48
       MESSAGETEXT
 
-      setPrefixes(['WQ\d+', 'SET\d+'])
+      register_prefix(['WQ\d+', 'SET\d+'])
 
       def rollDiceCommand(command)
         case command

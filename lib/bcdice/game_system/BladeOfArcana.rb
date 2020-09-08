@@ -32,7 +32,7 @@ module BCDice
         　　例）CTR+→因縁表（R版）を出目2～21でロールする。
       INFO_MESSAGE_TEXT
 
-      setPrefixes([
+      register_prefix([
         '\d+A\d*[CF]?\d*[CF]?\d*',
         'CT3[\+\-]?',
         'CTR[\+\-]?',

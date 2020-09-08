@@ -34,7 +34,7 @@ module BCDice
         ・CDx：メック戦士意識維持表。ダメージ値xで判定　例）CD3
       MESSAGETEXT
 
-      setPrefixes(['\d*SRM\d+.+', '\d*LRM\d+.+', '\d*BT.+', 'CT', 'DW', 'CD\d+'])
+      register_prefix(['\d*SRM\d+.+', '\d*LRM\d+.+', '\d*BT.+', 'CT', 'DW', 'CD\d+'])
 
       # 致命的命中が発生しない上限値
       NO_CRITICAL_HIT_LIMIT = 7

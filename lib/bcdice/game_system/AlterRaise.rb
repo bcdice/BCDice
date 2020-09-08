@@ -34,7 +34,7 @@ module BCDice
         QUI：平穏・経験表をダイスロール
       MESSAGETEXT
 
-      setPrefixes([
+      register_prefix([
         'EMA(\d+)?', 'PER(\d+)?', 'LOC(\d+)?', 'QUI(\d+)?', 'DEL(\d+)?',
         'TRA(\d+)?', 'SCE(\d+)?', 'STA(\d+)?', 'EMO(\d+)?'
       ])

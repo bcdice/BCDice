@@ -29,7 +29,7 @@ module BCDice
         ・D66다이스 있음
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['\d+DX.*', 'ET'])
+      register_prefix(['\d+DX.*', 'ET'])
 
       # 成功判定コマンドのノード
       class DX

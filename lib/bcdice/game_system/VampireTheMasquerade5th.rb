@@ -41,7 +41,7 @@ module BCDice
       NOT_CHECK_SUCCESS = -1 # 判定成功にかかわるチェックを行わない(判定失敗に関わるチェックは行う)
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      setPrefixes(['\d*VMF.*'])
+      register_prefix(['\d*VMF.*'])
 
       def rollDiceCommand(command)
         m = /\A(\d+)?(VMF)(\d+)(\+(\d+))?/.match(command)

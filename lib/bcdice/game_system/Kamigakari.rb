@@ -388,7 +388,7 @@ module BCDice
         ),
       }.freeze
 
-      setPrefixes(['RT', 'MT(\d*)'] + TABLES.keys)
+      register_prefix(['RT', 'MT(\d*)'] + TABLES.keys)
     end
   end
 end

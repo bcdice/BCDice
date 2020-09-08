@@ -26,7 +26,7 @@ module BCDice
         ・기력 배드엔딩표　WBET (WillBadEndTable)
       INFO_MESSAGE_TEXT
 
-      setPrefixes([
+      register_prefix([
         '\d+DS.*', '\d+JD.*',
         'SST', 'StrengthStigmaTable',
         'WST', 'WillStigmaTable',

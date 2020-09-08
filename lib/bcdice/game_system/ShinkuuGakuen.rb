@@ -33,7 +33,7 @@ module BCDice
         　例）CSW10　CBX76
       MESSAGETEXT
 
-      setPrefixes([
+      register_prefix([
         'CRL.*', 'CSW.*', 'CLS.*', 'CSS.*', 'CSP.*', 'CAX.*', 'CCL.*', 'CMA.*', 'CBX.*', 'CPR.*', 'CST.*',
         'RL.*', 'SW.*', 'LS.*', 'SS.*', 'SP.*', 'AX.*', 'CL.*', 'BW.*', 'MA.*', 'BX.*', 'PR.*', 'ST.*'
       ])

@@ -21,7 +21,7 @@ module BCDice
           あーしたてんきになーれ
       MESSAGETEXT
 
-      setPrefixes(['geta'])
+      register_prefix(['geta'])
 
       def isGetOriginalMessage
         true

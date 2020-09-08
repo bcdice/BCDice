@@ -26,7 +26,7 @@ module BCDice
         　修正を後ろに書くことも出来ます。
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['(.DPT|.FT)\d*'])
+      register_prefix(['(.DPT|.FT)\d*'])
 
       def rollDiceCommand(command)
         string = command.upcase

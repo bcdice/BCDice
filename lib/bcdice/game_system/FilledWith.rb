@@ -44,7 +44,7 @@ module BCDice
         ・迷宮追加オプション表(ROPd)
       MESSAGETEXT
 
-      setPrefixes(['3FW.*', '[\+\-\d]*-3FW.*', 'LOT[NP]', 'HST', 'COOK[1-8]', 'RAND.*', 'RENC.*', 'RED.*', 'TRS.*', 'TRAP[ENHL]', 'ROP[ENHL]'])
+      register_prefix(['3FW.*', '[\+\-\d]*-3FW.*', 'LOT[NP]', 'HST', 'COOK[1-8]', 'RAND.*', 'RENC.*', 'RED.*', 'TRS.*', 'TRAP[ENHL]', 'ROP[ENHL]'])
 
       def initialize
         super

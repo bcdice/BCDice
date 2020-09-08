@@ -1371,7 +1371,7 @@ module BCDice
         ),
       }.freeze
 
-      setPrefixes([
+      register_prefix([
         'HST',
         'ST[1-2]?',
         'DWT', 'DeathWT',

@@ -24,7 +24,7 @@ module BCDice
         []内は省略可　D66入れ替えあり
       INFO_MESSAGE_TEXT
 
-      setPrefixes([
+      register_prefix([
         'VOT',
         'GUT',
         'BAT',

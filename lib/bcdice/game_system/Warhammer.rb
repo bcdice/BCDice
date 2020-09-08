@@ -26,7 +26,7 @@ module BCDice
         　例）wh60　　wh43@4W　　WH65@
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['WH.*'])
+      register_prefix(['WH.*'])
 
       def initialize
         super

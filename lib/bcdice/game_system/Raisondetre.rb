@@ -38,7 +38,7 @@ module BCDice
         @sort_add_dice = true # ダイスのソート有
       end
 
-      setPrefixes([
+      register_prefix([
         '(-)?(\d+)?RD(\d+)?(@(\d+))?',
         '(-)?(\d+)?DD([1-9])?([\+\-]\d+)?'
       ])

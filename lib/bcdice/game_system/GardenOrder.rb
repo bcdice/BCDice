@@ -25,7 +25,7 @@ module BCDice
         　例）DCSL7　DCEL22
       INFO_MESSAGE_TEXT
 
-      setPrefixes([
+      register_prefix([
         'GO(\-?\d+)(\/\d+)?(@\d+)?',
         'DC(SL|BL|IM|BR|RF|EL).+'
       ])

@@ -419,7 +419,7 @@ module BCDice
         ),
       }.freeze
 
-      setPrefixes(['RTT'] + TABLES.keys)
+      register_prefix(['RTT'] + TABLES.keys)
     end
   end
 end

@@ -52,7 +52,7 @@ module BCDice
         []内は省略可　D66 다이스가 존재
       INFO_MESSAGE_TEXT
 
-      setPrefixes([
+      register_prefix([
         '[1-7]*PD\d+(?:[\+\-]\d+)?',
         'HW',
         'BWT',

@@ -16,7 +16,7 @@ module BCDice
       SORT_KEY = 'せかいしゆのめいきゆうSRS'
 
       # 固有のコマンドの接頭辞を設定する
-      setPrefixes(['2D6.*', 'EO.*', 'SQ.*'])
+      register_prefix(['2D6.*', 'EO.*', 'SQ.*'])
 
       # 成功判定のエイリアスコマンドを設定する
       set_aliases_for_srs_roll('EO', 'SQ')

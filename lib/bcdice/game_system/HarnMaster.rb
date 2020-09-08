@@ -21,7 +21,7 @@ module BCDice
         ・人型用　中段命中部位表 (SLH)／上段命中部位 (SLHU)／上段命中部位 (SLHD)
       MESSAGETEXT
 
-      setPrefixes(['SHK\d+.*', 'SLH', 'SLHU', 'SLHD'])
+      register_prefix(['SHK\d+.*', 'SLH', 'SLHU', 'SLHD'])
 
       def check_1D100(total, _dice_total, cmp_op, target)
         return '' if target == '?'

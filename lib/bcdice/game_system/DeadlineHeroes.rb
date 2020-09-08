@@ -32,7 +32,7 @@ module BCDice
         ・リアルネームチャート　日本（RNCJ）、海外（RNCO）
       INFO_MESSAGE_TEXT
 
-      setPrefixes([
+      register_prefix([
         'DLH\\d+([\\+\\-]\\d+)*',
         'DC(L|S|C)\d+',
         'RNC[JO]',

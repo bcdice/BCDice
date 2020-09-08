@@ -41,7 +41,7 @@ module BCDice
         ・D66 다이스 지원
       INFO_MESSAGE_TEXT
 
-      setPrefixes([
+      register_prefix([
         'HST',
         'ST[1-2]?',
         'DWT', 'DeathWT',

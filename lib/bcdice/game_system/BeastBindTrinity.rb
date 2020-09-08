@@ -342,7 +342,7 @@ module BCDice
         ),
       }.freeze
 
-      setPrefixes(['\d+BB.*', '\d+R6.*'] + TABLES.keys)
+      register_prefix(['\d+BB.*', '\d+R6.*'] + TABLES.keys)
     end
   end
 end

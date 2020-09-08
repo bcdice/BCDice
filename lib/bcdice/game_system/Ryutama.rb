@@ -21,7 +21,7 @@ module BCDice
         例）R8,6>=13
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['R\d+.*'])
+      register_prefix(['R\d+.*'])
 
       def initialize
         super

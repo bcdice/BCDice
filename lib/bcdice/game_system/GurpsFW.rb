@@ -52,7 +52,7 @@ module BCDice
         ・迷宮追加オプション表(RANDOP)
       INFO_MESSAGE_TEXT
 
-      setPrefixes([
+      register_prefix([
         'CRT',
         'HCRT',
         'FMB',

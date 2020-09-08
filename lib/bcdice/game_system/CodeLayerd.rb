@@ -31,7 +31,7 @@ module BCDice
           0CL : 1CL[0]と同じ判定
       MESSAGETEXT
 
-      setPrefixes(['[+-]?\d*CL([+-]\d+)?[@\d]*.*'])
+      register_prefix(['[+-]?\d*CL([+-]\d+)?[@\d]*.*'])
 
       def isGetOriginalMessage
         true

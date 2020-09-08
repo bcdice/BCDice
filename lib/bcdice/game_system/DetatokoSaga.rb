@@ -26,7 +26,7 @@ module BCDice
         ・気力バッドエンド表　WBET (WillBadEndTable)
       INFO_MESSAGE_TEXT
 
-      setPrefixes([
+      register_prefix([
         '\d+DS.*', '\d+JD.*',
         'SST', 'StrengthStigmaTable',
         'WST', 'WillStigmaTable',

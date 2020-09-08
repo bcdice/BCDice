@@ -22,7 +22,7 @@ module BCDice
         　例) 3RS+1<=9　3R6+1<=9[3]
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['\d+RS.*', '3R6.*'])
+      register_prefix(['\d+RS.*', '3R6.*'])
 
       def initialize
         super

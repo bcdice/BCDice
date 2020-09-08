@@ -19,7 +19,7 @@ module BCDice
         例・CW8
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['CW\d+'])
+      register_prefix(['CW\d+'])
 
       def rollDiceCommand(command)
         result = nil

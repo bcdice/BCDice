@@ -71,7 +71,6 @@ namespace :test do
     t.test_files = [
       "test/setup",
       "test/test_dicebot_info_is_defined.rb",
-      "test/testDiceBotPrefixesCompatibility.rb",
       "test/test_command_parser.rb",
       "test/test_d66_table.rb",
       "test/test_srs_help_messages.rb",

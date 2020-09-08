@@ -127,7 +127,7 @@ module BCDice
         return "失敗"
       end
 
-      setPrefixes(['\d*JD.*', 'RETP?\d+', 'DNGNP?\d+'] + TABLES.keys)
+      register_prefix(['\d*JD.*', 'RETP?\d+', 'DNGNP?\d+'] + TABLES.keys)
     end
   end
 end

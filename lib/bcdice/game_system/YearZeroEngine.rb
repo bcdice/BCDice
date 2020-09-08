@@ -16,10 +16,10 @@ module BCDice
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         ・判定コマンド(nYZEx+x+x)
           (難易度)YZE(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (6のみを数える)
-        
+
         ・判定コマンド(nMYZx+x+x)
           (難易度)MYZ(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (1と6を数え、プッシュ可能数を表示)
-        
+
           ※ 難易度と技能、アイテムダイス数は省略可能
       INFO_MESSAGE_TEXT
 
@@ -29,7 +29,7 @@ module BCDice
       SKILL_INDEX        = 5 # 技能値ダイスのインデックス
       MODIFIED_INDEX     = 7 # 修正ダイスのインデックス
 
-      setPrefixes(['(\d+)?(YZE|MYZ).*'])
+      register_prefix(['(\d+)?(YZE|MYZ).*'])
 
       def dice_info_init()
         @total_success_dice = 0

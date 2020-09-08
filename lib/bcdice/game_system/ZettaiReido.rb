@@ -20,7 +20,7 @@ module BCDice
         DPの取得の有無も表示されます。
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['\d+\-2DR.*'])
+      register_prefix(['\d+\-2DR.*'])
 
       def rollDiceCommand(command)
         return nil unless command =~ /^(\d+)-2DR([\+\-\d]*)(>=(\d+))?$/i

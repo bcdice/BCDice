@@ -33,7 +33,7 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      setPrefixes(['SBS?.*'])
+      register_prefix(['SBS?.*'])
 
       def rollDiceCommand(command)
         debug("rollDiceCommand Begin")

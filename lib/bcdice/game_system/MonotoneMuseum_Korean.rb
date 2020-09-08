@@ -27,7 +27,7 @@ module BCDice
         ・D66다이스 있음
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['2D6.*', 'ET', 'ET2', 'OT', 'DT', 'DT2', 'WDT'])
+      register_prefix(['2D6.*', 'ET', 'ET2', 'OT', 'DT', 'DT2', 'WDT'])
 
       def initialize
         super

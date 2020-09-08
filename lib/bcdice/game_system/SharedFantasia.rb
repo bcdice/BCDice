@@ -15,13 +15,13 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
         2D6の成功判定に 自動成功、自動失敗、致命的失敗、劇的成功 の判定があります。
-        
+
         SF/ST = 2D6のショートカット
-        
+
         例) SF+4>=9 : 2D6して4を足した値が9以上なら成功
       MESSAGETEXT
 
-      setPrefixes(['SF.*', 'ST.*'])
+      register_prefix(['SF.*', 'ST.*'])
 
       def changeText(string)
         @throwString = ''

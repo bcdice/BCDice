@@ -23,7 +23,7 @@ module BCDice
         　自動成功=省略時0
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['\d+ST.*'])
+      register_prefix(['\d+ST.*'])
 
       def initialize
         super

@@ -260,7 +260,7 @@ module BCDice
         )
       }.freeze
 
-      setPrefixes(TEXTS.keys + TABLES.keys)
+      register_prefix(TEXTS.keys + TABLES.keys)
     end
   end
 end

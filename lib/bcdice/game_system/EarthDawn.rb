@@ -20,7 +20,7 @@ module BCDice
         例）9E　10E8　10E+D12
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['\d+e.*'])
+      register_prefix(['\d+e.*'])
 
       def initialize
         super

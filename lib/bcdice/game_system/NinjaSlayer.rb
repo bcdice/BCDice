@@ -40,7 +40,7 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      setPrefixes([
+      register_prefix([
         'NJ\d+.*',
         'EV\d+.*',
         'AT\d+.*',
@@ -263,7 +263,7 @@ module BCDice
       }.freeze
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      setPrefixes([
+      register_prefix([
         'NJ\d+.*',
         'EV\d+.*',
         'AT\d+.*',

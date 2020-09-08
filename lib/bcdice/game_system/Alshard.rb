@@ -16,7 +16,7 @@ module BCDice
       ID = 'Alshard'
 
       # 固有のコマンドの接頭辞を設定する
-      setPrefixes(['2D6.*', 'AL.*'])
+      register_prefix(['2D6.*', 'AL.*'])
 
       # 成功判定のエイリアスコマンドを設定する
       set_aliases_for_srs_roll('AL')

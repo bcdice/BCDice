@@ -29,7 +29,7 @@ module BCDice
         　例）BT1　　　BT2　　　BT[1...3]
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['DB.*', 'BT.*', '3R6.*'])
+      register_prefix(['DB.*', 'BT.*', '3R6.*'])
 
       def replace_text(string)
         return string unless string =~ /DB/i

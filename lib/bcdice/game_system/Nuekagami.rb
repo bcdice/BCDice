@@ -287,7 +287,7 @@ module BCDice
 
         }.freeze
 
-      setPrefixes(TABLES.keys)
+      register_prefix(TABLES.keys)
     end
   end
 end

@@ -45,7 +45,7 @@ module BCDice
         위와 동일
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['CC(B)?\(\d+\)', 'CC(B)?.*', 'RES(B)?.*', 'CBR(B)?\(\d+,\d+\)'])
+      register_prefix(['CC(B)?\(\d+\)', 'CC(B)?.*', 'RES(B)?.*', 'CBR(B)?\(\d+,\d+\)'])
 
       def initialize
         # $isDebug = true

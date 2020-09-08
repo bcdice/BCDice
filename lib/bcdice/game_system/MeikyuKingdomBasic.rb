@@ -56,7 +56,7 @@ module BCDice
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      setPrefixes([ # ダイスボットで使用するコマンドを配列で列挙すること。
+      register_prefix([ # ダイスボットで使用するコマンドを配列で列挙すること。
         '\d+MK.*', '\d+R6.*',
         'IG', 'TT', 'NT', 'RMS',
         'CFT', 'FWT', 'CAT', 'KDT', 'KCT',

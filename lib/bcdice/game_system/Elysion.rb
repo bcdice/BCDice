@@ -1202,7 +1202,7 @@ module BCDice
         ),
       }.freeze
 
-      setPrefixes([
+      register_prefix([
         'EL.*',
         'DATE.*', 'FDATE.*', 'ODATE.*', 'MDATE.*',
         'RBT', 'SBT', 'BBT', 'CBT', 'DBT', 'IBT', 'FBT', 'LBT', 'PBT', 'NBT', 'ABT', 'VBT', 'GBT', 'HBT',

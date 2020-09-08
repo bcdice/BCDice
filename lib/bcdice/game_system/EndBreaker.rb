@@ -20,7 +20,7 @@ module BCDice
           ・生死不明表 (LDUT)
       MESSAGETEXT
 
-      setPrefixes(['\d+EB', 'LDUT'])
+      register_prefix(['\d+EB', 'LDUT'])
 
       def initialize
         super

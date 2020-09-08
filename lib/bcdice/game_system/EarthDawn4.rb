@@ -24,7 +24,7 @@ module BCDice
         　　ステップ10、目標値8、カルマダイス：10E8K
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['\d+e.*'])
+      register_prefix(['\d+e.*'])
 
       def initialize
         super

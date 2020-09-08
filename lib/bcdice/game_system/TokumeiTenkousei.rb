@@ -26,7 +26,7 @@ module BCDice
         @sort_add_dice = true
       end
 
-      setPrefixes(['\d+D6.*'])
+      register_prefix(['\d+D6.*'])
 
       def rollDiceCommand(command)
         parser = CommandParser.new(/^\d+D6$/)

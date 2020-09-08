@@ -26,7 +26,7 @@ module BCDice
         　修正を後ろに書くことも出来ます。
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['(.DPT|.FT)(\+|\-)?\d*'])
+      register_prefix(['(.DPT|.FT)(\+|\-)?\d*'])
 
       # ---- 以降、Gundog.rbよりほぼコピペ（絶対成功→ベアリーに用語変更対応の為、継承だと不都合）
       # ゲーム別成功度判定(1d100)

@@ -173,7 +173,7 @@ module BCDice
       end
 
       # 固有のコマンドの接頭辞を設定する
-      setPrefixes(['2D6.*'])
+      register_prefix(['2D6.*'])
 
       # ダイスボットを初期化する
       def initialize

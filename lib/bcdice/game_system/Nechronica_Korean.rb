@@ -22,7 +22,7 @@ module BCDice
         　명중부위와 주사위 수가 2개 이상일 때에 파츠파손 수도 표시합니다.
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['\d+NC.*', '\d+NA.*', '\d+R10.*'])
+      register_prefix(['\d+NC.*', '\d+NA.*', '\d+R10.*'])
 
       def initialize
         super

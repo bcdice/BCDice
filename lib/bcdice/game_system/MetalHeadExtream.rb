@@ -50,7 +50,7 @@ module BCDice
         荒野ランダムエンカウント表：WENC[n]
       MESSAGETEXT
 
-      setPrefixes([
+      register_prefix([
         '[AS]R\d+.*',
         '(HU|BK|WA|SC|BG|IN|PT|HT|TA|AC|HE|TR|VT|BO|CS|TH|AM|GD|HC|BI|BT|AI)HIT\d*',
         'SUV[A-Z]\d+', '[HTALMEBPD]DMG[LMHO]',

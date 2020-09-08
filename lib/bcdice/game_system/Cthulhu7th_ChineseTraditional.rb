@@ -35,7 +35,7 @@ module BCDice
         ・實時型　Short／總結型　Longer
       INFO_MESSAGE_TEXT
 
-      setPrefixes(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*'])
+      register_prefix(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*'])
 
       def initialize
         # $isDebug = true

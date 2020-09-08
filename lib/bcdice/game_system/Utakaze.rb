@@ -25,7 +25,7 @@ module BCDice
           例）3UK@5 ：龍のダイス「月」でクリティカルコール宣言したサイコロ3個の行為判定
       MESSAGETEXT
 
-      setPrefixes(['\d*UK[@\d]*.*'])
+      register_prefix(['\d*UK[@\d]*.*'])
 
       def initialize
         super

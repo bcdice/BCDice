@@ -495,7 +495,7 @@ module BCDice
 
         }.freeze
 
-      setPrefixes(['R[A-DS].*'] + TABLES.keys)
+      register_prefix(['R[A-DS].*'] + TABLES.keys)
     end
   end
 end

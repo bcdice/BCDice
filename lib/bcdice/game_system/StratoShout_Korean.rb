@@ -22,7 +22,7 @@ module BCDice
         []내는 생략가능　D66는 변동있음
       INFO_MESSAGE_TEXT
 
-      setPrefixes([
+      register_prefix([
         'VOT',
         'GUT',
         'BAT',
