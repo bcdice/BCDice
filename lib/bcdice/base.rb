@@ -32,7 +32,7 @@ module BCDice
           if @prefixes.empty?
             /(?!)/ # 何にもマッチしない正規表現
           else
-            /(^|\s)(S)?(#{@prefixes.join('|')})(\s|$)/i
+            /^(S)?(#{@prefixes.join('|')})/i
           end.freeze
       end
     end
@@ -113,7 +113,7 @@ module BCDice
       command = BCDice::Preprocessor.process(command, @randomizer, self)
       upcased_command = command.upcase
 
-      result, secret = dice_command(command, "")
+      result, secret = dice_command(command)
       result, secret = BCDice::CommonCommand.eval(upcased_command, @randomizer, self) if result == "1" || result.nil?
 
       if result.nil?
@@ -218,47 +218,30 @@ module BCDice
       string
     end
 
-    def dice_command(string, nick_e)
-      string = string.upcase unless isGetOriginalMessage
+    def dice_command(command)
+      command = command.upcase unless isGetOriginalMessage
 
-      debug("dice_command Begin string", string)
-      secret_flg = false
-
-      unless self.class.prefixes_pattern =~ string
-        debug("not match in prefixes")
-        return "1", secret_flg
+      m = self.class.prefixes_pattern.match(command)
+      unless m
+        return nil
       end
 
-      secretMarker = Regexp.last_match(2)
-      command = Regexp.last_match(3)
-
-      command = removeDiceCommandMessage(command)
-      debug("dicebot after command", command)
-
-      debug("match")
+      secret = !m[1].nil?
+      command = command[1..-1] if secret # 先頭の 'S' をとる
 
       output_msg, secret_flg = rollDiceCommand(command)
       output_msg = "1" if output_msg.nil? || output_msg.empty?
-      secret_flg ||= false
+      secret ||= secret_flg
 
-      output_msg = "#{nick_e}: #{output_msg}" if output_msg != "1"
+      output_msg = ": #{output_msg}" if output_msg != "1"
 
-      if secretMarker # 隠しロール
-        secret_flg = true if output_msg != "1"
-      end
-
-      return output_msg, secret_flg
+      return output_msg, secret
     end
 
     # 通常ダイスボットのコマンド文字列は全て大文字に強制されるが、
     # これを嫌う場合にはこのメソッドを true を返すようにオーバーライドすること。
     def isGetOriginalMessage
       false
-    end
-
-    def removeDiceCommandMessage(command)
-      # "2d6 Attack" のAttackのようなメッセージ部分をここで除去
-      command.sub(/[\s　].+/, "")
     end
 
     def rollDiceCommand(_command)
