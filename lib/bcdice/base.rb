@@ -123,7 +123,7 @@ module BCDice
       upcased_command = command.upcase
 
       result = dice_command(command)
-      result, @is_secret = BCDice::CommonCommand.eval(upcased_command, @randomizer, self) unless result
+      result ||= eval_common_command(upcased_command)
 
       if result.nil?
         return ""
@@ -135,6 +135,18 @@ module BCDice
 
       display_id = id.sub(/:.+$/, "") # 多言語対応用
       return [display_id, result].join(" ")
+    end
+
+    def eval_common_command(command)
+      CommonCommand::COMMANDS.each do |klass|
+        cmd = klass.new(command, @randomizer, self)
+        out = cmd.eval()
+
+        @is_secret = cmd.secret?
+        return out if out
+      end
+
+      return nil
     end
 
     # ダイスボットについての情報を返す
