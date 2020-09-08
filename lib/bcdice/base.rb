@@ -37,7 +37,7 @@ module BCDice
       end
     end
 
-    def initialize(debug: false)
+    def initialize()
       @sort_add_dice = false # 加算ダイスでダイス目をソートするかどうか
       @sort_barabara_dice = false # バラバラダイスでダイス目をソートするかどうか
 
@@ -59,7 +59,7 @@ module BCDice
       @is_secret = false
 
       @randomizer = BCDice::Randomizer.new
-      @debug = debug
+      @debug = false
     end
 
     attr_reader :randomizer
@@ -127,6 +127,11 @@ module BCDice
     # @return [Boolean]
     def secret?
       @is_secret
+    end
+
+    # デバッグを有用にする
+    def enable_debug
+      @debug = true
     end
 
     def eval(command)
