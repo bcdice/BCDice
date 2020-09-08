@@ -171,26 +171,10 @@ module BCDice
       self.class::ID
     end
 
-    # ゲームシステムの識別子を返す
-    # @return [String]
-    # @deprecated 代わりに {#id} を使ってください
-    def gameType
-      warn("#{id}: #gameType is deprecated. Please use #id.")
-      return id
-    end
-
     # ゲームシステム名を返す
     # @return [String]
     def name
       self.class::NAME
-    end
-
-    # ゲームシステム名を返す
-    # @return [String]
-    # @deprecated 代わりに {#name} を使ってください
-    def gameName
-      warn("#{id}: #gameName is deprecated. Please use #name.")
-      return name
     end
 
     # ゲームシステム名の読みがなを返す
@@ -203,14 +187,6 @@ module BCDice
     # @return [String]
     def help_message
       self.class::HELP_MESSAGE
-    end
-
-    # ダイスボットの使い方を返す
-    # @return [String]
-    # @deprecated 代わりに {#help_message} を使ってください
-    def getHelpMessage
-      warn("#{id}: #getHelpMessage is deprecated. Please use #help_message.")
-      return help_message
     end
 
     # 接頭辞（反応するコマンド）の配列を返す
