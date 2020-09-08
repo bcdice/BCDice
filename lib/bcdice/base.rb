@@ -52,6 +52,8 @@ module BCDice
       @default_cmp_op = nil # 目標値が空欄の場合の比較演算子をシンボルで指定する (:>, :>= :<, :<=, :==, :!=)
       @default_target_number = nil # 目標値が空欄の場合の目標値 こちらだけnilにするのは想定していないので注意
 
+      @enable_upcase_input = true # 入力を String#upcase するかどうか
+
       @is_secret = false
 
       @randomizer = BCDice::Randomizer.new
@@ -235,7 +237,7 @@ module BCDice
     end
 
     def dice_command(command)
-      command = command.upcase unless isGetOriginalMessage
+      command = command.upcase if @enable_upcase_input
 
       m = self.class.prefixes_pattern.match(command)
       unless m
@@ -252,12 +254,6 @@ module BCDice
       else
         return ": #{output}"
       end
-    end
-
-    # 通常ダイスボットのコマンド文字列は全て大文字に強制されるが、
-    # これを嫌う場合にはこのメソッドを true を返すようにオーバーライドすること。
-    def isGetOriginalMessage
-      false
     end
 
     # @param command [String]

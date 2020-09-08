@@ -33,10 +33,6 @@ module BCDice
 
       register_prefix(['[+-]?\d*CL([+-]\d+)?[@\d]*.*'])
 
-      def isGetOriginalMessage
-        true
-      end
-
       def rollDiceCommand(command)
         debug('rollDiceCommand command', command)
 

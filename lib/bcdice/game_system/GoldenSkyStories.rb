@@ -23,8 +23,9 @@ module BCDice
 
       register_prefix(['geta'])
 
-      def isGetOriginalMessage
-        true
+      def initialize
+        super()
+        @enable_upcase_input = false
       end
 
       def rollDiceCommand(command)
