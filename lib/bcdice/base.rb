@@ -149,7 +149,7 @@ module BCDice
         result += "###secret dice###"
       end
 
-      display_id = id.sub(/:.+$/, "") # 多言語対応用
+      display_id = self.class::ID.sub(/:.+$/, "") # 多言語対応用
       return [display_id, result].join(" ")
     end
 
@@ -164,39 +164,6 @@ module BCDice
 
       return nil
     end
-
-    # ゲームシステムの識別子を返す
-    # @return [String]
-    def id
-      self.class::ID
-    end
-
-    # ゲームシステム名を返す
-    # @return [String]
-    def name
-      self.class::NAME
-    end
-
-    # ゲームシステム名の読みがなを返す
-    # @return [String]
-    def sort_key
-      self.class::SORT_KEY
-    end
-
-    # ダイスボットの使い方を返す
-    # @return [String]
-    def help_message
-      self.class::HELP_MESSAGE
-    end
-
-    # 接頭辞（反応するコマンド）の配列を返す
-    # @return [Array<String>]
-    def prefixes
-      self.class.prefixes
-    end
-
-    # @deprecated 代わりに {#prefixes} を使ってください
-    alias prefixs prefixes
 
     def roll(times, sides, sort = false)
       dice_list = @randomizer.roll_barabara(times, sides)

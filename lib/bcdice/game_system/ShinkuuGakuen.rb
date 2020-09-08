@@ -39,17 +39,14 @@ module BCDice
       ])
 
       def rollDiceCommand(command)
-        prefixesRegText = prefixes.collect { |i| i.sub(/\.\*/, '') }.join('|')
-        unless command =~ /(^|\s)(S)?(#{prefixesRegText})([\d\+\-]*)(>=(\d+))?/i
-          debug("NOT match")
+        m = /^([A-Z]+)([\+\-]?\d+)?(?:>=(\d+))?$/i.match(command)
+        unless m
           return nil
         end
 
-        debug("matched.")
-
-        weaponCommand = Regexp.last_match(3)
-        base = Regexp.last_match(4).to_i
-        diff = Regexp.last_match(6)
+        weaponCommand = m[1]
+        base = m[2].to_i
+        diff = m[3]
 
         weaponInfo = getWeaponTable(weaponCommand)
         output_msg = rollJudge(base, diff, weaponInfo)
