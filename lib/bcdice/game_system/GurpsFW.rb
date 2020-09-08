@@ -79,23 +79,6 @@ module BCDice
         @d66_sort_type = D66SortType::NO_SORT
       end
 
-      def dice_command(string, name)
-        secret_flg = false
-
-        return '1', secret_flg unless self.class.prefixesPattern =~ string
-
-        secretMarker = Regexp.last_match(2)
-        command = Regexp.last_match(3).upcase
-
-        output_msg = getCommandResult(command, name)
-
-        if secretMarker # 隠しロール
-          secret_flg = true if output_msg != '1'
-        end
-
-        return output_msg, secret_flg
-      end
-
       def check_nD6(total, dice_total, dice_list, cmp_op, target)
         return '' if target == '?'
         return "" unless dice_list.size == 3 && cmp_op == :<=
@@ -132,7 +115,7 @@ module BCDice
         end
       end
 
-      def getCommandResult(string, nick_e)
+      def rollDiceCommand(string)
         tableName = ""
         result = ""
         number = 0
@@ -631,13 +614,13 @@ PCは全員「好色」「平和愛好/専守防衛」の特徴を得る。「�
             tableName = "ナンバーワンノーマルくじ"
           end
           result = getLotResult(type)
-          return "#{nick_e}: #{tableName}：#{result}"
+          return "#{tableName}：#{result}"
 
         else
-          return ""
+          return nil
         end
 
-        text = "#{nick_e}: #{tableName}(#{number})：#{result}"
+        text = "#{tableName}(#{number})：#{result}"
 
         return text
       end
