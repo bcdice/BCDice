@@ -109,13 +109,13 @@ module BCDice
           term = md.post_match
           md = /\A\[(.+)\]/.match(term)
           unless md
-            return 'ダメージスロットは必須です。', false
+            return 'ダメージスロットは必須です。'
           end
 
           term = md.post_match
           damage_slots = md[1].split(',').map { |t| eval_term(t) }
           if damage_slots.size != 7
-            return 'ダメージスロットの長さに誤りがあります。', false
+            return 'ダメージスロットの長さに誤りがあります。'
           end
 
           # 補正値
@@ -130,8 +130,7 @@ module BCDice
         end
 
         result = sequence.join(' ＞ ')
-        secret = false
-        return result, secret
+        return result
       end
     end
   end

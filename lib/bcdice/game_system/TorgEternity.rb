@@ -107,7 +107,6 @@ module BCDice
           return nil
         end
 
-        secret = !m[2].nil?
         skilled, unskilled, dice_str, mishap = torg_eternity_dice(false, true)
         if mishap == 1
           output = "d20ロール（通常） ＞ 1d20[#{dice_str}] ＞ Mishap!　絶対失敗！"
@@ -120,8 +119,8 @@ module BCDice
             output = "d20ロール（通常） ＞ 1d20[#{dice_str}] ＞ #{value_skilled}[#{skilled}]"
           end
         end
-        debug(output, secret)
-        return output, secret
+
+        return output
       end
 
       # ロールコマンド (高揚ロール)
@@ -132,7 +131,6 @@ module BCDice
           return nil
         end
 
-        secret = !m[2].nil?
         skilled1, unskilled1, dice_str1, mishap = torg_eternity_dice(false, true)
         if mishap == 1
           output = "d20ロール（高揚） ＞ 1d20[#{dice_str1}] ＞ Mishap!　絶対失敗！"
@@ -148,8 +146,8 @@ module BCDice
             output = "d20ロール（高揚） ＞ 1d20[#{dice_str1}] + 1d20[#{dice_str2}] ＞ #{value_skilled}[#{subtotal_skilled}]"
           end
         end
-        debug(output, secret)
-        return output, secret
+
+        return output
       end
 
       # ロールコマンド (ポシビリティロール)
@@ -160,7 +158,6 @@ module BCDice
           return nil
         end
 
-        secret = !m[2].nil?
         output_modifier = ArithmeticEvaluator.new.eval(m[4])
         skilled, unskilled, dice_str, = torg_eternity_dice(true, false)
         subtotal_skilled = skilled + output_modifier
@@ -172,8 +169,8 @@ module BCDice
         else
           output = "d20ロール（ポシビリティ） ＞ #{output_modifier}+1d20[#{dice_str}] ＞ #{value_skilled}[#{subtotal_skilled}]"
         end
-        debug(output, secret)
-        return output, secret
+
+        return output
       end
 
       # ダメージボーナスコマンド

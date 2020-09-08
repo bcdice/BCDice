@@ -32,23 +32,18 @@ module BCDice
       end
 
       def rollDiceCommand(command)
-        command = command.upcase
-
-        result = ''
-        secret_flg = false
-
         case command
-        when /^BIO(\d+)?$/i
+        when /^BIO(\d+)?$/
           roll_times = (Regexp.last_match(1) || 1).to_i
-          result = checkInfection(roll_times)
-          secret_flg = true
-        when /^ZMB(\+(\d+))?$/i
-          value = Regexp.last_match(2).to_i
-          result = rollZombie(value)
-          secret_flg = true
-        end
+          @is_secret = true
 
-        return result, secret_flg
+          return checkInfection(roll_times)
+        when /^ZMB(\+(\d+))?$/
+          value = Regexp.last_match(2).to_i
+          @is_secret = true
+
+          return rollZombie(value)
+        end
       end
 
       def checkInfection(roll_times)

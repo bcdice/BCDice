@@ -88,8 +88,7 @@ module BCDice
         end
 
         output = sequence.join(' ＞ ')
-        secret = false
-        return output, secret
+        return output
       end
 
       # Revised Edition

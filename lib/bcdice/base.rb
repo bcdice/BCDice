@@ -52,6 +52,8 @@ module BCDice
       @default_cmp_op = nil # 目標値が空欄の場合の比較演算子をシンボルで指定する (:>, :>= :<, :<=, :==, :!=)
       @default_target_number = nil # 目標値が空欄の場合の目標値 こちらだけnilにするのは想定していないので注意
 
+      @is_secret = false
+
       @randomizer = BCDice::Randomizer.new
       @debug = debug
     end
@@ -109,18 +111,25 @@ module BCDice
       @enable_d66
     end
 
+    # シークレットコマンドか
+    #
+    # @return [Boolean]
+    def secret?
+      @is_secret
+    end
+
     def eval(command)
       command = BCDice::Preprocessor.process(command, @randomizer, self)
       upcased_command = command.upcase
 
-      result, secret = dice_command(command)
-      result, secret = BCDice::CommonCommand.eval(upcased_command, @randomizer, self) unless result
+      result = dice_command(command)
+      result, @is_secret = BCDice::CommonCommand.eval(upcased_command, @randomizer, self) unless result
 
       if result.nil?
         return ""
       end
 
-      if secret
+      if @is_secret
         result += "###secret dice###"
       end
 
@@ -224,11 +233,12 @@ module BCDice
       secret = !m[1].nil?
       command = command[1..-1] if secret # 先頭の 'S' をとる
 
-      output, secret_flg = rollDiceCommand(command)
+      output = rollDiceCommand(command)
+      @is_secret ||= secret
       if output.nil? || output.empty? || output == "1"
         return nil
       else
-        return ": #{output}", secret_flg || secret
+        return ": #{output}"
       end
     end
 
@@ -238,6 +248,8 @@ module BCDice
       false
     end
 
+    # @param command [String]
+    # @return [String, nil]
     def rollDiceCommand(command); end
 
     # @param total [Integer] コマンド合計値
