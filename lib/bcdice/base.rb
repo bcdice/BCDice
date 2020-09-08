@@ -165,18 +165,6 @@ module BCDice
       return nil
     end
 
-    # ダイスボットについての情報を返す
-    # @return [Hash]
-    def info
-      {
-        "gameType" => id,
-        "name" => name,
-        "sortKey" => sort_key,
-        "prefixs" => self.class.prefixes,
-        "info" => help_message,
-      }
-    end
-
     # ゲームシステムの識別子を返す
     # @return [String]
     def id
