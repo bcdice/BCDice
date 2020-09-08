@@ -114,7 +114,7 @@ module BCDice
       upcased_command = command.upcase
 
       result, secret = dice_command(command)
-      result, secret = BCDice::CommonCommand.eval(upcased_command, @randomizer, self) if result == "1" || result.nil?
+      result, secret = BCDice::CommonCommand.eval(upcased_command, @randomizer, self) unless result
 
       if result.nil?
         return ""
@@ -125,12 +125,7 @@ module BCDice
       end
 
       display_id = id.sub(/:.+$/, "") # 多言語対応用
-
-      if result == "1"
-        return ""
-      else
-        return [display_id, result].join(" ")
-      end
+      return [display_id, result].join(" ")
     end
 
     # ダイスボットについての情報を返す
@@ -229,13 +224,12 @@ module BCDice
       secret = !m[1].nil?
       command = command[1..-1] if secret # 先頭の 'S' をとる
 
-      output_msg, secret_flg = rollDiceCommand(command)
-      output_msg = "1" if output_msg.nil? || output_msg.empty?
-      secret ||= secret_flg
-
-      output_msg = ": #{output_msg}" if output_msg != "1"
-
-      return output_msg, secret
+      output, secret_flg = rollDiceCommand(command)
+      if output.nil? || output.empty? || output == "1"
+        return nil
+      else
+        return ": #{output}", secret_flg || secret
+      end
     end
 
     # 通常ダイスボットのコマンド文字列は全て大文字に強制されるが、
@@ -244,9 +238,7 @@ module BCDice
       false
     end
 
-    def rollDiceCommand(_command)
-      nil
-    end
+    def rollDiceCommand(command); end
 
     # @param total [Integer] コマンド合計値
     # @param dice_total [Integer] ダイス目の合計値
