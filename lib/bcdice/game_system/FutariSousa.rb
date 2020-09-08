@@ -40,7 +40,7 @@ module BCDice
       def initialize
         super
 
-        @enable_d66 = true
+        @enabled_d66 = true
         @d66_sort_type = D66SortType::ASC
 
         @success_threshold = 4 # 成功の目標値（固定）

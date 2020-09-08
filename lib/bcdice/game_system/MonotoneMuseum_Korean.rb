@@ -32,7 +32,7 @@ module BCDice
       def initialize
         super
 
-        @enable_d66 = true
+        @enabled_d66 = true
         @d66_sort_type = D66SortType::NO_SORT
         @sort_add_dice = true
       end

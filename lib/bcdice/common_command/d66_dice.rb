@@ -14,7 +14,7 @@ module BCDice
       end
 
       def eval
-        unless @game_system.enable_d66?
+        unless @game_system.enabled_d66?
           return nil
         end
 

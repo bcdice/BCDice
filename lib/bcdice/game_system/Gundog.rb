@@ -20,7 +20,7 @@ module BCDice
 
       def initialize
         super()
-        @enable_d9 = true
+        @enabled_d9 = true
       end
 
       # ゲーム別成功度判定(1d100)

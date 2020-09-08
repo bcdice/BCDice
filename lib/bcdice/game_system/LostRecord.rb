@@ -22,7 +22,7 @@ module BCDice
         super()
 
         # D66は昇順に
-        @enable_d66 = true
+        @enabled_d66 = true
         @d66_sort_type = D66SortType::ASC
       end
     end

@@ -29,11 +29,11 @@ module BCDice
         def roll_once(times, sides)
           @sides = sides if @sides < sides
 
-          if sides == 66 && @dicebot.enable_d66?
+          if sides == 66 && @dicebot.enabled_d66?
             return Array.new(times) { @bcdice.roll_d66(@dicebot.d66_sort_type) }
           end
 
-          if sides == 9 && @dicebot.enable_d9?
+          if sides == 9 && @dicebot.enabled_d9?
             return Array.new(times) { @bcdice.roll_d9() }
           end
 

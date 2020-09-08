@@ -52,7 +52,7 @@ module BCDice
       def initialize
         super
 
-        @enable_d66 = true
+        @enabled_d66 = true
         @d66_sort_type = D66SortType::NO_SORT # D66あり。ただし、現行ルールにある6x6の表については別のコマンドを用意
         @round_type = RoundType::CEIL # 端数は切り上げ
       end

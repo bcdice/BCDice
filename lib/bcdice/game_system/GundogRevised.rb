@@ -30,7 +30,7 @@ module BCDice
 
       def initialize
         super()
-        @enable_d9 = true
+        @enabled_d9 = true
       end
 
       # ---- 以降、Gundog.rbよりほぼコピペ（絶対成功→ベアリーに用語変更対応の為、継承だと不都合）

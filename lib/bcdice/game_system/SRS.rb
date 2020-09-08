@@ -184,7 +184,7 @@ module BCDice
         # バラバラロール（Bコマンド）でソートする
         @sort_add_dice = true
         # D66ダイスあり（出目をソートしない）
-        @enable_d66 = true
+        @enabled_d66 = true
         @d66_sort_type = D66SortType::NO_SORT
       end
 

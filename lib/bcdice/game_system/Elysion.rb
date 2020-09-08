@@ -50,10 +50,10 @@ module BCDice
 
       def initialize
         super
-        @enable_d66 = true
+        @enabled_d66 = true
         @d66_sort_type = D66SortType::ASC
 
-        @enable_upcase_input = false
+        @enabled_upcase_input = false
       end
 
       def rollDiceCommand(command)

@@ -41,10 +41,10 @@ module BCDice
       @sort_add_dice = false # 加算ダイスでダイス目をソートするかどうか
       @sort_barabara_dice = false # バラバラダイスでダイス目をソートするかどうか
 
-      @enable_d66 = true # D66ダイスを利用するかどうか
+      @enabled_d66 = true # D66ダイスを利用するかどうか
       @d66_sort_type = D66SortType::NO_SORT # 入れ替えの種類 詳しくはBCDice::D66SortTypeを参照すること
 
-      @enable_d9 = false # D9ダイスを有効にするか（ガンドッグ）で使用
+      @enabled_d9 = false # D9ダイスを有効にするか（ガンドッグ）で使用
 
       @round_type = RoundType::FLOOR # 割り算をした時の端数の扱い (FLOOR: 切り捨て, CEIL: 切り上げ, ROUND: 四捨五入)
 
@@ -54,7 +54,7 @@ module BCDice
       @default_cmp_op = nil # 目標値が空欄の場合の比較演算子をシンボルで指定する (:>, :>= :<, :<=, :==, :!=)
       @default_target_number = nil # 目標値が空欄の場合の目標値 こちらだけnilにするのは想定していないので注意
 
-      @enable_upcase_input = true # 入力を String#upcase するかどうか
+      @enabled_upcase_input = true # 入力を String#upcase するかどうか
 
       @is_secret = false
 
@@ -111,15 +111,15 @@ module BCDice
     # D66ダイスが有効か
     #
     # @return [Boolean]
-    def enable_d66?
-      @enable_d66
+    def enabled_d66?
+      @enabled_d66
     end
 
     # D9ダイスが有効か
     #
     # @return [Boolean]
-    def enable_d9?
-      @enable_d9
+    def enabled_d9?
+      @enabled_d9
     end
 
     # シークレットコマンドか
@@ -246,7 +246,7 @@ module BCDice
     end
 
     def dice_command(command)
-      command = command.upcase if @enable_upcase_input
+      command = command.upcase if @enabled_upcase_input
 
       m = self.class.prefixes_pattern.match(command)
       unless m

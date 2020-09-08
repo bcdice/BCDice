@@ -30,7 +30,7 @@ module BCDice
       def initialize
         super
         @arrayDragonDiceName = ['', '風', '雨', '雲', '影', '月', '歌']
-        @enable_upcase_input = false
+        @enabled_upcase_input = false
       end
 
       def rollDiceCommand(command)

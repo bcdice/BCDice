@@ -25,7 +25,7 @@ module BCDice
 
       def initialize
         super()
-        @enable_upcase_input = false
+        @enabled_upcase_input = false
       end
 
       def rollDiceCommand(command)

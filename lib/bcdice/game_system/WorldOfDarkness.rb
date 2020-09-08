@@ -36,17 +36,17 @@ module BCDice
         diff = 6
         auto_success = 0
 
-        enable_reroll = false
-        enable_20th = false
+        enabled_reroll = false
+        enabled_20th = false
 
         md = command.match(/\A(\d+)(ST[SA]?)(\d+)?([+-]\d+)?/)
 
         dice_pool = md[1].to_i
         case md[2]
         when 'STS'
-          enable_reroll = true
+          enabled_reroll = true
         when 'STA'
-          enable_20th = true
+          enabled_20th = true
         end
         diff = md[3].to_i if md[3]
         auto_success = md[4].to_i if md[4]
@@ -62,12 +62,12 @@ module BCDice
         total_success = auto_success
         total_botch = 0
 
-        dice, success, botch, auto_success = roll_wod(dice_pool, diff, true, enable_20th ? 2 : 1)
+        dice, success, botch, auto_success = roll_wod(dice_pool, diff, true, enabled_20th ? 2 : 1)
         sequence.push dice.join(',')
         total_success += success
         total_botch += botch
 
-        if enable_reroll
+        if enabled_reroll
           # 振り足し
           while auto_success > 0
             dice_pool = auto_success
@@ -94,7 +94,7 @@ module BCDice
       # Revised Edition
       # 出目10は1自動成功 振り足し
       # 出目1は大失敗: 成功を1つ相殺
-      def roll_wod(dice_pool, diff, enable_botch = true, auto_success_value = 1)
+      def roll_wod(dice_pool, diff, enabled_botch = true, auto_success_value = 1)
         # FIXME: まとめて振る
         dice = Array.new(dice_pool) do
           dice_now = @randomizer.roll_once(10)
@@ -114,14 +114,14 @@ module BCDice
           when diff..10
             success += 1
           when 1
-            botch += 1 if enable_botch
+            botch += 1 if enabled_botch
           end
         end
 
         # 自動成功を成功に加算する
         success += auto_success
 
-        if enable_botch
+        if enabled_botch
           # 成功と大失敗を相殺する
           c = [success, botch].min
           success -= c

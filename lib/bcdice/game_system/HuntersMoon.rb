@@ -46,7 +46,7 @@ module BCDice
         super
 
         @sort_add_dice = true
-        @enable_d66 = true
+        @enabled_d66 = true
         @d66_sort_type = D66SortType::ASC
         @round_type = RoundType::CEIL # 端数切り上げに設定
       end
