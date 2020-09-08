@@ -340,10 +340,8 @@ module BCDice
       return text, indexText
     end
 
-    # ダイスロールによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命、特命転校生エクストラパワーポイントなど）
-    def getDiceRolledAdditionalText(_n1, _n_max, _dice_max)
-      ""
-    end
+    # 加算ダイスによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命）
+    def add_dice_additional_text(dice_list, sides); end
 
     # ダイス目による補正処理（現状ナイトメアハンターディープ専用）
     def getDiceRevision(_n_max, _dice_max, _total_n)

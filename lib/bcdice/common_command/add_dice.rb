@@ -37,7 +37,6 @@ module BCDice
           end
 
         dice_list = randomizer.dice_list
-        num_one = dice_list.count(1)
         num_max = dice_list.count(randomizer.sides)
 
         suffix, revision = @diceBot.getDiceRevision(num_max, randomizer.sides, total)
@@ -49,7 +48,7 @@ module BCDice
           output += @diceBot.check_result(total, dice_total, dice_list, randomizer.sides, command.cmp_op, command.rhs)
         end
 
-        output += @diceBot.getDiceRolledAdditionalText(num_one, num_max, randomizer.sides)
+        output += @diceBot.add_dice_additional_text(randomizer.dice_list, randomizer.sides) || ""
         @is_secret = parser.secret?
 
         return output

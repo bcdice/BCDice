@@ -53,13 +53,13 @@ module BCDice
 
       public
 
-      def getDiceRolledAdditionalText(n1, n_max, dice_max)
-        debug("getDiceRolledAdditionalText n1, n_max, dice_max", n1, n_max, dice_max)
-        if (n_max > 0) && (dice_max == 6)
-          return " ＞ 悪意#{n_max}"
+      def add_dice_additional_text(dice_list, sides)
+        count6 = dice_list.count(6)
+        if (count6 > 0) && (sides == 6)
+          return " ＞ 悪意#{count6}"
         end
 
-        return ''
+        return nil
       end
 
       private

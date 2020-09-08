@@ -64,14 +64,13 @@ module BCDice
       end
 
       # ナイトメアハンターディープ用宿命表示
-      def getDiceRolledAdditionalText(n1, n_max, dice_max)
-        debug('getDiceRolledAdditionalText begin: n1, n_max, dice_max', n1, n_max, dice_max)
-
-        if (n1 != 0) && (dice_max == 6)
+      def add_dice_additional_text(dice_list, sides)
+        count1 = dice_list.count(1)
+        if (count1 != 0) && (sides == 6)
           return " ＞ 宿命獲得"
         end
 
-        return ''
+        return nil
       end
 
       # ダイス目による補正処理（現状ナイトメアハンターディープ専用）
