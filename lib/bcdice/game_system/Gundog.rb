@@ -18,6 +18,11 @@ module BCDice
         nD9ロールも対応。
       INFO_MESSAGE_TEXT
 
+      def initialize
+        super()
+        @enable_d9 = true
+      end
+
       # ゲーム別成功度判定(1d100)
       def check_1D100(total, _dice_total, cmp_op, target)
         return '' if target == '?'
@@ -41,10 +46,6 @@ module BCDice
         else
           " ＞ 失敗"
         end
-      end
-
-      def isD9
-        true
       end
     end
   end

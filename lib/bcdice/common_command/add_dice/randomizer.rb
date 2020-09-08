@@ -33,7 +33,7 @@ module BCDice
             return Array.new(times) { @bcdice.roll_d66(@dicebot.d66_sort_type) }
           end
 
-          if sides == 9 && @dicebot.isD9
+          if sides == 9 && @dicebot.enable_d9?
             return Array.new(times) { @bcdice.roll_d9() }
           end
 

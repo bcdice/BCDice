@@ -44,6 +44,8 @@ module BCDice
       @enable_d66 = true # D66ダイスを利用するかどうか
       @d66_sort_type = D66SortType::NO_SORT # 入れ替えの種類 詳しくはBCDice::D66SortTypeを参照すること
 
+      @enable_d9 = false # D9ダイスを有効にするか（ガンドッグ）で使用
+
       @round_type = RoundType::FLOOR # 割り算をした時の端数の扱い (FLOOR: 切り捨て, CEIL: 切り上げ, ROUND: 四捨五入)
 
       @upper_dice_reroll_threshold = nil # UpperDiceで振り足しをする出目の閾値 nilの場合デフォルト設定なし
@@ -111,6 +113,13 @@ module BCDice
     # @return [Boolean]
     def enable_d66?
       @enable_d66
+    end
+
+    # D9ダイスが有効か
+    #
+    # @return [Boolean]
+    def enable_d9?
+      @enable_d9
     end
 
     # シークレットコマンドか
@@ -403,11 +412,6 @@ module BCDice
     # ダイス目による補正処理（現状ナイトメアハンターディープ専用）
     def getDiceRevision(_n_max, _dice_max, _total_n)
       return "", 0
-    end
-
-    # ガンドッグのnD9専用
-    def isD9
-      false
     end
 
     # シャドウラン4版用グリッチ判定

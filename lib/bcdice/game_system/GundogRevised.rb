@@ -28,6 +28,11 @@ module BCDice
 
       register_prefix(['(.DPT|.FT)(\+|\-)?\d*'])
 
+      def initialize
+        super()
+        @enable_d9 = true
+      end
+
       # ---- 以降、Gundog.rbよりほぼコピペ（絶対成功→ベアリーに用語変更対応の為、継承だと不都合）
       # ゲーム別成功度判定(1d100)
       def check_1D100(total, _dice_total, cmp_op, target)
@@ -53,11 +58,6 @@ module BCDice
           " ＞ 失敗"
         end
       end
-
-      def isD9
-        true
-      end
-      # ---- コピペ分、ここまで
 
       def rollDiceCommand(command)
         string = command.upcase
