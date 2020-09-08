@@ -24,14 +24,7 @@ module BCDice
       register_prefix(['SF.*', 'ST.*'])
 
       def changeText(string)
-        @throwString = ''
-        if string =~ /SF/i
-          string = string.gsub(/SF/i) { "2D6" }
-        end
-        if string =~ /ST/i
-          string = string.gsub(/ST/i) { "2D6" }
-        end
-        return string
+        string.gsub(/SF/i, "2D6").gsub(/ST/i, "2D6")
       end
 
       def check_2D6(total, dice_total, _dice_list, cmp_op, target)

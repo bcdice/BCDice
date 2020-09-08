@@ -73,7 +73,7 @@ module BCDice
       # コマンド実行前にメッセージを置換する
       # @param [String] string 受信したメッセージ
       # @return [String]
-      def changeText(string)
+      def replace_text(string)
         # TODO: Ruby 2.4以降では Regexp#match? を使うこと
         return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match(string)
 
