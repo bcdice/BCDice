@@ -51,19 +51,6 @@ module BCDice
         return string
       end
 
-      public
-
-      def add_dice_additional_text(dice_list, sides)
-        count6 = dice_list.count(6)
-        if (count6 > 0) && (sides == 6)
-          return " ＞ 悪意#{count6}"
-        end
-
-        return nil
-      end
-
-      private
-
       def rollDiceCommand(string)
         if /^\d+D\d+/i.match?(string)
           return roll_action(string)
@@ -197,28 +184,28 @@ module BCDice
       end
 
       def roll_action(command)
-        question_target = command.end_with?("?")
         command = command
                   .sub(/\d+LV$/i) { |level| level.to_i * 5 + 15 }
-                  .sub(/\?$/) { "0" }
 
         parser = CommandParser.new(/^\d+D6$/)
+                              .allow_cmp_op(nil, :>=)
+                              .enable_question_target()
         cmd = parser.parse(command)
-        if cmd.nil? || cmd.cmp_op != :>=
+        unless cmd
           return nil
         end
-
-        cmd.target_number = "?" if question_target
 
         times = cmd.command.to_i
         roll_action_dice(times)
         total = @dice_total + cmd.modify_number
 
+        target = cmd.question_target? ? "?" : cmd.target_number
+
         sequence = [
           "(#{cmd})",
           interim_expr(cmd, @dice_total),
           total.to_s,
-          action_result(total, @dice_total, cmd.target_number),
+          action_result(total, @dice_total, target),
           additional_result(@count_6)
         ].compact
 
@@ -257,6 +244,8 @@ module BCDice
       def action_result(total, dice_total, target_number)
         if dice_total == 3
           "自動失敗"
+        elsif target_number.nil?
+          nil
         elsif target_number == "?"
           success_level(total, dice_total)
         elsif total >= target_number

@@ -43,7 +43,6 @@ module BCDice
           output += @diceBot.check_result(total, dice_total, dice_list, randomizer.sides, command.cmp_op, command.rhs)
         end
 
-        output += @diceBot.add_dice_additional_text(randomizer.dice_list, randomizer.sides) || ""
         @is_secret = parser.secret?
 
         return output
