@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require "bcdice/command_parser"
+require "bcdice/format"
+
 module BCDice
   module GameSystem
     class NightmareHunterDeep < Base
@@ -14,9 +17,20 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        加算ロール時に６の個数をカウントして、その４倍を自動的に加算します。
-        (出目はそのまま表示で合計値が6-10の読み替えになります)
+        判定（xD6+y>=a, xD6+y, xD6)
+          出目6の個数をカウントして、その4倍を合計値に加算します。
+          また、宿命を獲得したか表示します。
+
+          Lv目標値 (xD6+y>=LVn, xD6+y>=NLn)
+            レベルで目標値を指定することができます。
+            LVn -> n*5+1, NLn -> n*5+5 に変換されます。
+          目標値'?' (xD6+y>=?)
+            目標値を '?' にすると何Lv成功か、何NL成功かを表示します。
+
+        ※判定コマンドは xD6 から始まる必要があります。また xD6 が複数あると反応しません。
       INFO_MESSAGE_TEXT
+
+      register_prefix('\d+D6')
 
       def initialize
         super
@@ -24,66 +38,79 @@ module BCDice
         @sort_add_dice = true
       end
 
-      def changeText(string)
-        string = string.sub(/^(.+?)Lv(\d+)(.*)/i) { "#{Regexp.last_match(1)}#{(Regexp.last_match(2).to_i * 5 - 1)}#{Regexp.last_match(3)}" }
-        string = string.sub(/^(.+?)NL(\d+)(.*)/i) { "#{Regexp.last_match(1)}#{(Regexp.last_match(2).to_i * 5 + 5)}#{Regexp.last_match(3)}" }
+      def rollDiceCommand(command)
+        command = command
+                  .sub(/Lv(\d+)/i) { (Regexp.last_match(1).to_i * 5 - 1).to_s }
+                  .sub(/NL(\d+)/i) { (Regexp.last_match(1).to_i * 5 + 5).to_s }
 
-        return string
+        parser = CommandParser.new(/^\d+D6$/)
+                              .allow_cmp_op(nil, :>=)
+                              .enable_question_target()
+        cmd = parser.parse(command)
+        unless cmd
+          return nil
+        end
+
+        times = cmd.command.to_i
+
+        dice_list = @randomizer.roll_barabara(times, 6).sort
+        dice_total = dice_list.sum()
+        total = dice_total + cmd.modify_number
+
+        suffix, revision = dice_revision(dice_list)
+        total += revision
+
+        target = cmd.question_target? ? "?" : cmd.target_number
+        result = result_text(total, cmd.cmp_op, target)
+
+        sequence = [
+          "(#{cmd})",
+          interim_expr(cmd, dice_total, dice_list),
+          expr_with_revision(dice_total + cmd.modify_number, suffix),
+          total,
+          result,
+          fate(dice_list),
+        ].compact
+
+        return sequence.join(" ＞ ")
       end
 
-      def check_nD6(total, _dice_total, _dice_list, cmp_op, target)
-        return '' unless cmp_op == :>=
+      def result_text(total, cmp_op, target)
+        return nil unless cmp_op == :>=
 
         if target != "?"
-          if total >= target
-            return " ＞ 成功"
-          else
-            return " ＞ 失敗"
-          end
+          return total >= target ? "成功" : "失敗"
         end
 
-        sucLv = 1
-        sucNL = 0
+        success_lv = (total + 1) / 5
+        success_nl = (total - 5) / 5
 
-        while total >= sucLv * 5 - 1
-          sucLv += 1
-        end
-
-        while total >= (sucNL * 5 + 5)
-          sucNL += 1
-        end
-
-        sucLv -= 1
-        sucNL -= 1
-
-        if sucLv <= 0
-          " ＞ 失敗"
-        else
-          " ＞ Lv#{sucLv}/NL#{sucNL}成功"
-        end
+        return success_lv > 0 ? "Lv#{success_lv}/NL#{success_nl}成功" : "失敗"
       end
 
       # ナイトメアハンターディープ用宿命表示
-      def add_dice_additional_text(dice_list, sides)
-        count1 = dice_list.count(1)
-        if (count1 != 0) && (sides == 6)
-          return " ＞ 宿命獲得"
-        end
-
-        return nil
+      def fate(dice_list)
+        dice_list.count(1) > 0 ? "宿命獲得" : nil
       end
 
-      # ダイス目による補正処理（現状ナイトメアハンターディープ専用）
-      def getDiceRevision(n_max, dice_max, total_n)
-        addText = ''
-        revision = 0
-
-        if (n_max > 0) && (dice_max == 6)
-          revision = (n_max * 4)
-          addText = "+#{n_max}*4 ＞ #{total_n + revision}"
+      def interim_expr(cmd, dice_total, dice_list)
+        if dice_list.size > 1 || cmd.modify_number != 0
+          modifier = Format.modifier(cmd.modify_number)
+          "#{dice_total}[#{dice_list.join(',')}]#{modifier}"
         end
+      end
 
-        return addText, revision
+      def expr_with_revision(total, suffix)
+        suffix ? "#{total}#{suffix}" : nil
+      end
+
+      def dice_revision(dice_list)
+        count6 = dice_list.count(6)
+        if count6 > 0
+          return "+#{count6}*4", count6 * 4
+        else
+          return nil, 0
+        end
       end
     end
   end

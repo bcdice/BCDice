@@ -343,11 +343,6 @@ module BCDice
     # 加算ダイスによるポイント等の取得処理用（T&T悪意、ナイトメアハンター・ディープ宿命）
     def add_dice_additional_text(dice_list, sides); end
 
-    # ダイス目による補正処理（現状ナイトメアハンターディープ専用）
-    def getDiceRevision(_n_max, _dice_max, _total_n)
-      return "", 0
-    end
-
     # シャドウラン4版用グリッチ判定
     def grich_text(_numberSpot1, _dice_cnt_total, _suc); end
 

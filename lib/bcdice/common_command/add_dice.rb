@@ -37,11 +37,6 @@ module BCDice
           end
 
         dice_list = randomizer.dice_list
-        num_max = dice_list.count(randomizer.sides)
-
-        suffix, revision = @diceBot.getDiceRevision(num_max, randomizer.sides, total)
-        output += suffix
-        total += revision
 
         if command.cmp_op
           dice_total = dice_list.inject(&:+)
