@@ -10,3 +10,4 @@ Gemfile.lock
 coverage/
 doc/
 .yardoc/
+bin/repl_history

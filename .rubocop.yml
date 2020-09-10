@@ -75,6 +75,10 @@ Style/StringLiterals:
   Exclude:
     - 'lib/bcdice/game_system/*.rb'
 
+Style/SymbolProc:
+  Exclude:
+    - 'lib/bcdice/repl.rb' # DSLを実装しているため
+
 Style/SymbolArray:
   Enabled: true
   EnforcedStyle: brackets
