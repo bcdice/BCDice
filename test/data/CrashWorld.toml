@@ -1,0 +1,129 @@
+[[ test ]]
+game_system = "CrashWorld"
+input = "CW0"
+output = "CrashWorld : (1)  成功度 : 0"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "CrashWorld"
+input = "CW8"
+output = "CrashWorld : (8, 8, 8, 8, 9)  成功度 : 4"
+rands = [
+  { sides = 12, value = 8 },
+  { sides = 12, value = 8 },
+  { sides = 12, value = 8 },
+  { sides = 12, value = 8 },
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "CrashWorld"
+input = "CW0"
+output = "CrashWorld : (2)  成功度 : 0"
+rands = [
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "CrashWorld"
+input = "CW0"
+output = "CrashWorld : (7)  成功度 : 0"
+rands = [
+  { sides = 12, value = 7 },
+]
+
+[[ test ]]
+game_system = "CrashWorld"
+input = "CW0"
+output = "CrashWorld : (8)  成功度 : 0"
+rands = [
+  { sides = 12, value = 8 },
+]
+
+[[ test ]]
+game_system = "CrashWorld"
+input = "CW0"
+output = "CrashWorld : (11, 1, 7)  成功度 : 2"
+rands = [
+  { sides = 12, value = 11 },
+  { sides = 12, value = 1 },
+  { sides = 12, value = 7 },
+]
+
+[[ test ]]
+game_system = "CrashWorld"
+input = "CW0"
+output = "CrashWorld : (11, 11, 11, 11, 11, 11, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 12)  成功度 : 0 ファンブル"
+rands = [
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 10 },
+  { sides = 12, value = 9 },
+  { sides = 12, value = 8 },
+  { sides = 12, value = 7 },
+  { sides = 12, value = 6 },
+  { sides = 12, value = 5 },
+  { sides = 12, value = 4 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 1 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "CrashWorld"
+input = "CW0"
+output = "CrashWorld : (11, 11, 11, 11, 11, 11, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 2)  成功度 : 17"
+rands = [
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 10 },
+  { sides = 12, value = 9 },
+  { sides = 12, value = 8 },
+  { sides = 12, value = 7 },
+  { sides = 12, value = 6 },
+  { sides = 12, value = 5 },
+  { sides = 12, value = 4 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 1 },
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "CrashWorld"
+input = "CW0"
+output = "CrashWorld : (10)  成功度 : 0"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "CrashWorld"
+input = "CW0"
+output = "CrashWorld : (11, 2, 3)  成功度 : 2"
+rands = [
+  { sides = 12, value = 11 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 3 },
+]
+
+[[ test ]]
+game_system = "CrashWorld"
+input = "CW0"
+output = "CrashWorld : (12)  成功度 : 0 ファンブル"
+rands = [
+  { sides = 12, value = 12 },
+]

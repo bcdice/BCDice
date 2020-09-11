@@ -1,0 +1,86 @@
+[[ test ]]
+game_system = "EndBreaker"
+input = "2EB"
+output = "EndBreaker : [26] ＞ [2:1個] [6:1個]"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "EndBreaker"
+input = "2EB"
+output = "EndBreaker : [11] ダブルトリガー! [1336] ダブルトリガー! [25] ＞ [2:1個] [3:2個] [5:1個] [6:1個]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "EndBreaker"
+input = "2EB"
+output = "EndBreaker : [15] ダブルトリガー! [22] ＞ [2:2個] [5:1個]"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "EndBreaker"
+input = "2EB"
+output = "EndBreaker : [15] ダブルトリガー! [12] ダブルトリガー! [24] ＞ [2:2個] [4:1個] [5:1個]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "EndBreaker"
+input = "3EB"
+output = "EndBreaker : [146] ダブルトリガー! [36] ＞ [3:1個] [4:1個] [6:2個]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "EndBreaker"
+input = "LDUT"
+output = "EndBreaker : 生死不明表(33):12日強力なマスカレイドにとらわれ、実験台にされた。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "EndBreaker"
+input = "LDUT"
+output = "EndBreaker : 生死不明表(31): 1日：生還！"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "EndBreaker"
+input = "LDUT"
+output = "EndBreaker : 生死不明表(66): - ：「五分五分」の一般判定。失敗すると死亡。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]

@@ -1,0 +1,425 @@
+[[ test ]]
+game_system = "BlindMythos"
+input = "BM>=1"
+output = "BlindMythos : (BM0>=1) ＞ 2D6[1,1] ＞ 成功数:0 ＞ 失敗。汚染ポイント+2"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BM>=1"
+output = "BlindMythos : (BM0>=1) ＞ 2D6[1,2] ＞ 成功数:0 ＞ 失敗。汚染ポイント+1"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BM>=1"
+output = "BlindMythos : (BM0>=1) ＞ 2D6[2,3] ＞ 成功数:0 ＞ 失敗"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BM>=1"
+output = "BlindMythos : (BM0>=1) ＞ 2D6[4,6] ＞ 成功数:2 ＞ 成功、禁書ビット発生[4,6]"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BM>=1"
+output = "BlindMythos : (BM0>=1) ＞ 2D6[6,6] ＞ 成功数:2、リロール[66]\n ＞ (ReRoll2>=1) ＞ 2D6[1,2] ＞ 成功数:0\n ＞ 最終成功数:2 ＞ 成功、禁書ビット発生[6,6]"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BM2>=1"
+output = "BlindMythos : (BM2>=1) ＞ 4D6[4,4,5,5] ＞ 成功数:4、リロール[44,55]\n ＞ (ReRoll2>=1) ＞ 2D6[3,4] ＞ 成功数:1\n ＞ (ReRoll2>=1) ＞ 2D6[2,5] ＞ 成功数:1\n ＞ 最終成功数:6 ＞ 成功、禁書ビット発生[4,4,5,5]"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BM2>=1"
+output = "BlindMythos : (BM2>=1) ＞ 4D6[2,2,2,4] ＞ 成功数:1、リロール[222]\n ＞ (ReRoll3>=1) ＞ 3D6[1,2,3] ＞ 成功数:0\n ＞ 最終成功数:1 ＞ 成功、禁書ビット発生[4]"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BM5>=1"
+output = "BlindMythos : (BM5>=1) ＞ 7D6[1,4,4,5,5,5,5] ＞ 成功数:6、リロール[44,5555]\n ＞ (ReRoll2>=1) ＞ 2D6[1,4] ＞ 成功数:1\n ＞ (ReRoll4>=1) ＞ 4D6[1,2,3,4] ＞ 成功数:1\n ＞ 最終成功数:8 ＞ 成功、禁書ビット発生[4,4,5,5,5,5]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "ReRoll2,4>=1"
+output = "BlindMythos : (ReRoll2>=1,ReRoll4>=1)\n ＞ (ReRoll2>=1) ＞ 2D6[2,4] ＞ 成功数:1\n ＞ (ReRoll4>=1) ＞ 4D6[1,4,4,5] ＞ 成功数:3、リロール[44]\n ＞ コマンド：ReRoll2>=1"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "ReRoll5,2>=1"
+output = "BlindMythos : (ReRoll5>=1,ReRoll2>=1)\n ＞ (ReRoll5>=1) ＞ 5D6[1,2,5,5,5] ＞ 成功数:3、リロール[555]\n ＞ (ReRoll2>=1) ＞ 2D6[4,4] ＞ 成功数:2、リロール[44]\n ＞ コマンド：ReRoll3,2>=1"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "ReRoll3,2>=1"
+output = "BlindMythos : (ReRoll3>=1,ReRoll2>=1)\n ＞ (ReRoll3>=1) ＞ 3D6[1,1,4] ＞ 成功数:1\n ＞ (ReRoll2>=1) ＞ 2D6[6,6] ＞ 成功数:2、リロール[66]\n ＞ コマンド：ReRoll2>=1"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BM@3>=1"
+output = "BlindMythos : (BM0@3>=1) ＞ 2D6[2,3] ＞ 成功数:1 ＞ 成功"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BM3@3>=1"
+output = "BlindMythos : (BM3@3>=1) ＞ 5D6[1,3,3,3,4] ＞ 成功数:4、リロール[333]\n ＞ (ReRoll3@3>=1) ＞ 3D6[1,3,3] ＞ 成功数:2、リロール[33]\n ＞ (ReRoll2@3>=1) ＞ 2D6[1,3] ＞ 成功数:1\n ＞ 最終成功数:7 ＞ 成功、禁書ビット発生[4]"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BMS>=1"
+output = "BlindMythos : (BMS0>=1) ＞ 2D6[6,6] ＞ 成功数:2、リロール[66]\n ＞ コマンド：ReRoll2>=1\n ＞ 現状で成功。コマンド実行で追加リロールも可能"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BMS2>=1"
+output = "BlindMythos : (BMS2>=1) ＞ 4D6[4,4,5,5] ＞ 成功数:4、リロール[44,55]\n ＞ コマンド：ReRoll2,2>=1\n ＞ 現状で成功。コマンド実行で追加リロールも可能"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BMS2>=1"
+output = "BlindMythos : (BMS2>=1) ＞ 4D6[2,2,2,4] ＞ 成功数:1、リロール[222]\n ＞ コマンド：ReRoll3>=1\n ＞ 現状で成功。コマンド実行で追加リロールも可能"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BMS5>=1"
+output = "BlindMythos : (BMS5>=1) ＞ 7D6[1,4,4,5,5,5,5] ＞ 成功数:6、リロール[44,5555]\n ＞ コマンド：ReRoll2,4>=1\n ＞ 現状で成功。コマンド実行で追加リロールも可能"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BMS>=1"
+output = "BlindMythos : (BMS0>=1) ＞ 2D6[6,6] ＞ 成功数:2、リロール[66]\n ＞ コマンド：ReRoll2>=1\n ＞ 現状で成功。コマンド実行で追加リロールも可能"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BMS2>=1"
+output = "BlindMythos : (BMS2>=1) ＞ 4D6[4,4,5,5] ＞ 成功数:4、リロール[44,55]\n ＞ コマンド：ReRoll2,2>=1\n ＞ 現状で成功。コマンド実行で追加リロールも可能"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BMS2>=1"
+output = "BlindMythos : (BMS2>=1) ＞ 4D6[2,2,2,4] ＞ 成功数:1、リロール[222]\n ＞ コマンド：ReRoll3>=1\n ＞ 現状で成功。コマンド実行で追加リロールも可能"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BMS5>=1"
+output = "BlindMythos : (BMS5>=1) ＞ 7D6[1,4,4,5,5,5,5] ＞ 成功数:6、リロール[44,5555]\n ＞ コマンド：ReRoll2,4>=1\n ＞ 現状で成功。コマンド実行で追加リロールも可能"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "BMS5>=1"
+output = "BlindMythos : (BMS5>=1) ＞ 7D6[1,1,1,3,3,3,3] ＞ 成功数:0、リロール[3333]\n ＞ コマンド：ReRoll4>=1\n ＞ 現状のままでは失敗。汚染ポイント+3"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "LE"
+output = "BlindMythos : 失う感情表(6) ＞ 感：なにを見ても、感動はない。心は凍てついている。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "RP123"
+output = "BlindMythos : 守護星表チェック(1,2,3) ＞ 2D10[1,0] ＞ 発動"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "RP258"
+output = "BlindMythos : 守護星表チェック(2,5,8) ＞ 2D10[1,4] ＞ 失敗"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "RP890"
+output = "BlindMythos : 守護星表チェック(8,9,0) ＞ 2D10[3,0] ＞ 発動"
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "DT"
+output = "BlindMythos : 汚染チャート(1,2) ＞ 汚染チャートを２回振り、その効果を適用する（1・2-2,5・6-12 なら振り直す）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "DT"
+output = "BlindMythos : 汚染チャート(2,3) ＞ ＰＣ全員の「トラウマ」すべてに２ダメージ。その後さらに汚染が２増える"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "DT"
+output = "BlindMythos : 汚染チャート(5,3) ＞ ＰＣ全員の「喪失」１つに４ダメージ。このときアクロバットダイス獲得不可"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "DT"
+output = "BlindMythos : 汚染チャート(5,11) ＞ ＰＣ全員の「喪失」すべてに２ダメージ。その後さらに汚染が２増える"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "DT"
+output = "BlindMythos : 汚染チャート(4,12) ＞ ＰＣ全員の「トラウマ」「喪失」すべてに２ダメージ"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "DT"
+output = "BlindMythos : 汚染チャート(5,12) ＞ 汚染チャートを２回振り、その効果を適用する（1・2-2,5・6-12 なら振り直す）"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "DT"
+output = "BlindMythos : 汚染チャート(6,12) ＞ 汚染チャートを２回振り、その効果を適用する（1・2-2,5・6-12 なら振り直す）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "ESH"
+output = "BlindMythos : 「喜」の感情後遺症表(12) ＞ 「喜」の後遺症をひとつ消してもよい。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "ESA"
+output = "BlindMythos : 「怒」の感情後遺症表(12) ＞ 「怒」の後遺症をひとつ消してもよい。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "ESS"
+output = "BlindMythos : 「哀」の感情後遺症表(12) ＞ 「哀」の後遺症をひとつ消してもよい。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "ESP"
+output = "BlindMythos : 「楽」の感情後遺症表(12) ＞ 「楽」の後遺症をひとつ消してもよい。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "ESL"
+output = "BlindMythos : 「愛」の感情後遺症表(12) ＞ 「愛」の後遺症をひとつ消してもよい。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlindMythos"
+input = "ESE"
+output = "BlindMythos : 「感」の感情後遺症表(12) ＞ 「感」の後遺症をひとつ消してもよい。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]

@@ -1,0 +1,571 @@
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗!"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [2,6,10]  成功数=2 難易度=3：判定失敗!"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [7,9,6]  成功数=3 難易度=3：判定成功!"
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [2,10,10]  成功数=4 難易度=3：判定成功! [Critical Win]"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF5"
+output = "VampireTheMasquerade5th : (5D10) ＞ [10,10,10,10,10]  成功数=9 難易度=3：判定成功! [Critical Win]"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,5,9]+[2,6]  成功数=2 難易度=3：判定失敗!"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,5,9]+[1,2]  成功数=1 難易度=3：判定失敗! [Bestial Failure]"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [8,2,6]+[1,7]  成功数=3 難易度=3：判定成功!"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [10,10,10]+[4,7]  成功数=6 難易度=3：判定成功! [Critical Win]"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [10,10,6]+[1,10]  成功数=6 難易度=3：判定成功! [Messy Critical]"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [2,5,1]  成功数=0：判定失敗!"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [2,6,1]  成功数=1"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [10,10,4]  成功数=4"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗!"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,5,1]+[4,1]  成功数=0：判定失敗! [Bestial Failure]"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,5,8]+[1,6]  成功数=2"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,10,10]+[1,6]  成功数=5"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,10,10]+[10,1]  成功数=5"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "0VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [5,4,3]  成功数=0"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "0VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [6,4,8]  成功数=2"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "0VMF3+3"
+output = "VampireTheMasquerade5th : (3D10+3D10) ＞ [1,4,2]+[5,1,3]  成功数=0"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "0VMF3+3"
+output = "VampireTheMasquerade5th : (3D10+3D10) ＞ [1,8,2]+[5,1,6]  成功数=2"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "0VMF3+3"
+output = "VampireTheMasquerade5th : (3D10+3D10) ＞ [1,10,10]+[2,1,7]  成功数=5"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "0VMF3+3"
+output = "VampireTheMasquerade5th : (3D10+3D10) ＞ [4,10,10]+[10,3,10]  成功数=8"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S3VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗!"
+secret = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S3VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [2,6,10]  成功数=2 難易度=3：判定失敗!"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S3VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [7,9,6]  成功数=3 難易度=3：判定成功!"
+secret = true
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S3VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [2,10,10]  成功数=4 難易度=3：判定成功! [Critical Win]"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S3VMF5"
+output = "VampireTheMasquerade5th : (5D10) ＞ [10,10,10,10,10]  成功数=9 難易度=3：判定成功! [Critical Win]"
+secret = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S3VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,5,9]+[2,6]  成功数=2 難易度=3：判定失敗!"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S3VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,5,9]+[1,2]  成功数=1 難易度=3：判定失敗! [Bestial Failure]"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S3VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [8,2,6]+[1,7]  成功数=3 難易度=3：判定成功!"
+secret = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S3VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [10,10,10]+[4,7]  成功数=6 難易度=3：判定成功! [Critical Win]"
+secret = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S3VMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [10,10,6]+[1,10]  成功数=6 難易度=3：判定成功! [Messy Critical]"
+secret = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "SVMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [2,5,1]  成功数=0：判定失敗!"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "SVMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [2,6,1]  成功数=1"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "SVMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [10,10,4]  成功数=4"
+secret = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "SVMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗!"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "SVMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,5,1]+[4,1]  成功数=0：判定失敗! [Bestial Failure]"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "SVMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,5,8]+[1,6]  成功数=2"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "SVMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,10,10]+[1,6]  成功数=5"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "SVMF3+2"
+output = "VampireTheMasquerade5th : (3D10+2D10) ＞ [2,10,10]+[10,1]  成功数=5"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S0VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [5,4,3]  成功数=0"
+secret = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S0VMF3"
+output = "VampireTheMasquerade5th : (3D10) ＞ [6,4,8]  成功数=2"
+secret = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S0VMF3+3"
+output = "VampireTheMasquerade5th : (3D10+3D10) ＞ [1,4,2]+[5,1,3]  成功数=0"
+secret = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S0VMF3+3"
+output = "VampireTheMasquerade5th : (3D10+3D10) ＞ [1,8,2]+[5,1,6]  成功数=2"
+secret = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S0VMF3+3"
+output = "VampireTheMasquerade5th : (3D10+3D10) ＞ [1,10,10]+[2,1,7]  成功数=5"
+secret = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S0VMF3+3"
+output = "VampireTheMasquerade5th : (3D10+3D10) ＞ [4,10,10]+[10,3,10]  成功数=8"
+secret = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+]

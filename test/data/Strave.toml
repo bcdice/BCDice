@@ -1,0 +1,113 @@
+[[ test ]]
+game_system = "Strave"
+input = "MP6"
+output = "Strave : (2D10<=6) ＞ 1,1 ＞ 【成功】"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Strave"
+input = "MP6"
+output = "Strave : (2D10<=6) ＞ 1,10 ＞ 【成功】"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Strave"
+input = "MP6"
+output = "Strave : (2D10<=6) ＞ 10,10 ＞ 【失敗】"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Strave"
+input = "MP0"
+output = "Strave : (2D10<=1) ＞ 1,10 ＞ 【成功】"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Strave"
+input = "MP11"
+output = "Strave : (2D10<=10) ＞ 1,10 ＞ 【成功】"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Strave"
+input = "5ST6*10"
+output = "Strave : (5D10<=6) ＞ 1,1,1,1,1 ＞ Hits：5*10 ＞ 50ダメージ"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Strave"
+input = "5ST6*10"
+output = "Strave : (5D10<=6) ＞ 7,8,9,10,10 ＞ Hits：0*10 ＞ 0ダメージ"
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Strave"
+input = "6ST5x15"
+output = "Strave : (6D10<=5) ＞ 1,2,3,4,5,6 ＞ Hits：5*15 ＞ 75ダメージ"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Strave"
+input = "AFF"
+output = "Strave : 所属表：基本(1) ＞ アリウス管理委員会：あなたはアリウス管理委員会に所属している。"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Strave"
+input = "AFV"
+output = "Strave : 所属表：ヴァリアンスネイヴァー(11) ＞ ヴェルクシュタット：あなたはヴェルクシュタットに所属している。"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "Strave"
+input = "IDT"
+output = "Strave : アイデンティティ表：基本(50) ＞ スフィアブレイク：あなたはスフィアブレイクを熱烈に目指している。"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "Strave"
+input = "IDV"
+output = "Strave : アイデンティティ表：ヴァリアンスネイヴァー(100) ＞ 任意：あなたの任意のアイデンティティを設定せよ。"
+rands = [
+  { sides = 100, value = 100 },
+]

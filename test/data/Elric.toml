@@ -1,0 +1,247 @@
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=10"
+output = "Elric : (1D100<=10) ＞ 70 ＞ 失敗"
+rands = [
+  { sides = 100, value = 70 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=10"
+output = "Elric : (1D100<=10) ＞ 34 ＞ 失敗"
+rands = [
+  { sides = 100, value = 34 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=10"
+output = "Elric : (1D100<=10) ＞ 90 ＞ 失敗"
+rands = [
+  { sides = 100, value = 90 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=10"
+output = "Elric : (1D100<=10) ＞ 82 ＞ 失敗"
+rands = [
+  { sides = 100, value = 82 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=10"
+output = "Elric : (1D100<=10) ＞ 78 ＞ 失敗"
+rands = [
+  { sides = 100, value = 78 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=10"
+output = "Elric : (1D100<=10) ＞ 65 ＞ 失敗"
+rands = [
+  { sides = 100, value = 65 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=10"
+output = "Elric : (1D100<=10) ＞ 51 ＞ 失敗"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=10"
+output = "Elric : (1D100<=10) ＞ 100 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=10"
+output = "Elric : (1D100<=10) ＞ 34 ＞ 失敗"
+rands = [
+  { sides = 100, value = 34 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=10"
+output = "Elric : (1D100<=10) ＞ 22 ＞ 失敗"
+rands = [
+  { sides = 100, value = 22 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=100"
+output = "Elric : (1D100<=100) ＞ 30 ＞ 成功"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=100"
+output = "Elric : (1D100<=100) ＞ 25 ＞ 成功"
+rands = [
+  { sides = 100, value = 25 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=100"
+output = "Elric : (1D100<=100) ＞ 26 ＞ 成功"
+rands = [
+  { sides = 100, value = 26 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=100"
+output = "Elric : (1D100<=100) ＞ 84 ＞ 成功"
+rands = [
+  { sides = 100, value = 84 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=100"
+output = "Elric : (1D100<=100) ＞ 29 ＞ 成功"
+rands = [
+  { sides = 100, value = 29 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=100"
+output = "Elric : (1D100<=100) ＞ 94 ＞ 成功"
+rands = [
+  { sides = 100, value = 94 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=100"
+output = "Elric : (1D100<=100) ＞ 68 ＞ 成功"
+rands = [
+  { sides = 100, value = 68 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=100"
+output = "Elric : (1D100<=100) ＞ 76 ＞ 成功"
+rands = [
+  { sides = 100, value = 76 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=100"
+output = "Elric : (1D100<=100) ＞ 100 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=100"
+output = "Elric : (1D100<=100) ＞ 8 ＞ 決定的成功"
+rands = [
+  { sides = 100, value = 8 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=50"
+output = "Elric : (1D100<=50) ＞ 32 ＞ 成功"
+rands = [
+  { sides = 100, value = 32 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=50"
+output = "Elric : (1D100<=50) ＞ 10 ＞ 決定的成功"
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=50"
+output = "Elric : (1D100<=50) ＞ 97 ＞ 失敗"
+rands = [
+  { sides = 100, value = 97 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=50"
+output = "Elric : (1D100<=50) ＞ 92 ＞ 失敗"
+rands = [
+  { sides = 100, value = 92 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=50"
+output = "Elric : (1D100<=50) ＞ 32 ＞ 成功"
+rands = [
+  { sides = 100, value = 32 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=50"
+output = "Elric : (1D100<=50) ＞ 20 ＞ 成功"
+rands = [
+  { sides = 100, value = 20 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=50"
+output = "Elric : (1D100<=50) ＞ 27 ＞ 成功"
+rands = [
+  { sides = 100, value = 27 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=50"
+output = "Elric : (1D100<=50) ＞ 52 ＞ 失敗"
+rands = [
+  { sides = 100, value = 52 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=50"
+output = "Elric : (1D100<=50) ＞ 18 ＞ 成功"
+rands = [
+  { sides = 100, value = 18 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100<=50"
+output = "Elric : (1D100<=50) ＞ 13 ＞ 成功"
+rands = [
+  { sides = 100, value = 13 },
+]
+
+[[ test ]]
+game_system = "Elric"
+input = "1D100>=? 目標値?でバグらない"
+output = "Elric : (1D100>=?) ＞ 42 ＞ 失敗"
+rands = [
+  { sides = 100, value = 42 },
+]

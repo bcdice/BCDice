@@ -1,0 +1,66 @@
+[[ test ]]
+game_system = "DungeonsAndDragons"
+input = "1D4>=3"
+output = "DungeonsAndDragons : (1D4>=3) ＞ 3 ＞ 成功"
+rands = [
+  { sides = 4, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons"
+input = "1D6>=5"
+output = "DungeonsAndDragons : (1D6>=5) ＞ 5 ＞ 成功"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons"
+input = "1D8>=7"
+output = "DungeonsAndDragons : (1D8>=7) ＞ 7 ＞ 成功"
+rands = [
+  { sides = 8, value = 7 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons"
+input = "1D10>=9"
+output = "DungeonsAndDragons : (1D10>=9) ＞ 9 ＞ 成功"
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons"
+input = "1D12>=11"
+output = "DungeonsAndDragons : (1D12>=11) ＞ 11 ＞ 成功"
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons"
+input = "1D20>=19"
+output = "DungeonsAndDragons : (1D20>=19) ＞ 19 ＞ 成功"
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons"
+input = "(1+2)D10+3>=12"
+output = "DungeonsAndDragons : (3D10+3>=12) ＞ 12[3,4,5]+3 ＞ 15 ＞ 成功"
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons"
+input = "S1D10>=10"
+output = "DungeonsAndDragons : (1D10>=10) ＞ 9 ＞ 失敗"
+secret = true
+rands = [
+  { sides = 10, value = 9 },
+]

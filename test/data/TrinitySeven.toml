@@ -1,0 +1,411 @@
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1DM1+1"
+output = "TrinitySeven : (1DM1+1) [1]→[7]+1 ＞ 8"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1DM1-1"
+output = "TrinitySeven : (1DM1-1) [1]→[7]-1 ＞ 6"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1DM1"
+output = "TrinitySeven : (1DM1) [1]→[7] ＞ 7"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1DM"
+output = "TrinitySeven : (1DM) [1] ＞ 1"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1DM<+1"
+output =
+rands = []
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1DM-1"
+output = "TrinitySeven : (1DM-1) [1]-1 ＞ 0"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "2DM1+1"
+output = "TrinitySeven : (2DM1+1) [1,6]→[6,7]+1 ＞ 43"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "2DM1"
+output = "TrinitySeven : (2DM1) [1,6]→[6,7] ＞ 42"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "2DM2"
+output = "TrinitySeven : (2DM2) [1,6]→[7,7] ＞ 49"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "2DM1-1"
+output = "TrinitySeven : (2DM1-1) [1,6]→[6,7]-1 ＞ 41"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "2DM1+1"
+output = "TrinitySeven : (2DM1+1) [1,6]→[6,7]+1 ＞ 43"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "2DM"
+output = "TrinitySeven : (2DM) [1,6] ＞ 7"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "2DM+1"
+output = "TrinitySeven : (2DM+1) [1,6]+1 ＞ 8"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "2DM-1"
+output = "TrinitySeven : (2DM-1) [1,6]-1 ＞ 6"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "3DM1-1"
+output = "TrinitySeven : (3DM1-1) [1,6,3]→[3,6,7]-1 ＞ 44"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "3DM1+1"
+output = "TrinitySeven : (3DM1+1) [1,6,3]→[3,6,7]+1 ＞ 46"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "3DM1"
+output = "TrinitySeven : (3DM1) [1,6,3]→[3,6,7] ＞ 45"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "3DM2"
+output = "TrinitySeven : (3DM2) [1,6,3]→[6,7,7] ＞ 294"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "3DM3"
+output = "TrinitySeven : (3DM3) [1,6,3]→[7,7,7] ＞ 343"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "4DM2"
+output = "TrinitySeven : (4DM2) [1,2,3,4]→[3,4,7,7] ＞ 199"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "4DM4"
+output = "TrinitySeven : (4DM4) [1,2,3,4]→[7,7,7,7] ＞ 2401"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "3DM1-1"
+output = "TrinitySeven : (3DM1-1) [1,6,3]→[3,6,7]-1 ＞ 44"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "3DM1+1"
+output = "TrinitySeven : (3DM1+1) [1,6,3]→[3,6,7]+1 ＞ 46"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "3DM"
+output = "TrinitySeven : (3DM) [1,6,3] ＞ 10"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "3DM+1"
+output = "TrinitySeven : (3DM+1) [1,6,3]+1 ＞ 11"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "3DM-1"
+output = "TrinitySeven : (3DM-1) [1,6,3]-1 ＞ 9"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR-1<=50+20"
+output = "TrinitySeven : (TR-1<=50+20) ＞ 1[1] ＞ クリティカル"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR-1<=50+20"
+output = "TrinitySeven : (TR-1<=50+20) ＞ 100[100] ＞ ファンブル"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR+1<=50-20"
+output = "TrinitySeven : (TR+1<=50-20) ＞ 1[1] ＞ クリティカル"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR+1<=50-20"
+output = "TrinitySeven : (TR+1<=50-20) ＞ 100[100] ＞ ファンブル"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR+1<=50"
+output = "TrinitySeven : (TR+1<=50) ＞ 1[1] ＞ クリティカル"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR-1<=50"
+output = "TrinitySeven : (TR-1<=50) ＞ 100[100] ＞ ファンブル"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR<=50+20"
+output = "TrinitySeven : (TR<=50+20) ＞ 1[1] ＞ クリティカル"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR<=50+20"
+output = "TrinitySeven : (TR<=50+20) ＞ 100[100] ＞ ファンブル"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR<=50"
+output = "TrinitySeven : (TR<=50) ＞ 1[1] ＞ クリティカル"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR<=50"
+output = "TrinitySeven : (TR<=50) ＞ 100[100] ＞ ファンブル"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TRNAME"
+output = "TrinitySeven : 春日 , アラタ/聖"
+rands = [
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TRNAME"
+output = "TrinitySeven : 魔王 , 目についた物の名前（シャーペン、メガネなど）"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TRNAME"
+output = "TrinitySeven : サンクチュアリ , ミフユ/サリエル"
+rands = [
+  { sides = 100, value = 70 },
+  { sides = 100, value = 70 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TRNAME"
+output = "TrinitySeven : 北千住 , スカー/綾瀬"
+rands = [
+  { sides = 100, value = 30 },
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1D100<=50"
+output = "TrinitySeven : (1D100<=50) ＞ 1 ＞ クリティカル"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1D100<=50"
+output = "TrinitySeven : (1D100<=50) ＞ 99 ＞ ファンブル"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1D100<=50"
+output = "TrinitySeven : (1D100<=50) ＞ 100 ＞ ファンブル"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1D100<=50"
+output = "TrinitySeven : (1D100<=50) ＞ 49 ＞ 成功"
+rands = [
+  { sides = 100, value = 49 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1D100<=50"
+output = "TrinitySeven : (1D100<=50) ＞ 50 ＞ 成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1D100<=50"
+output = "TrinitySeven : (1D100<=50) ＞ 51 ＞ 失敗"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "1D100>=? 目標値?でバグらない"
+output = "TrinitySeven : (1D100>=?) ＞ 42 ＞ 失敗"
+rands = [
+  { sides = 100, value = 42 },
+]

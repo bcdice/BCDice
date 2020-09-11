@@ -1,0 +1,135 @@
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=50"
+output = "Chill3 : (1D100<=50) ＞ 51 ＞ 失敗"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=50"
+output = "Chill3 : (1D100<=50) ＞ 50 ＞ Ｌ成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=50"
+output = "Chill3 : (1D100<=50) ＞ 26 ＞ Ｌ成功"
+rands = [
+  { sides = 100, value = 26 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=50"
+output = "Chill3 : (1D100<=50) ＞ 25 ＞ Ｈ成功"
+rands = [
+  { sides = 100, value = 25 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=50"
+output = "Chill3 : (1D100<=50) ＞ 100 ＞ Botch"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=100"
+output = "Chill3 : (1D100<=100) ＞ 100 ＞ Botch"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=101"
+output = "Chill3 : (1D100<=101) ＞ 100 ＞ 失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=50"
+output = "Chill3 : (1D100<=50) ＞ 99 ＞ Botch"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=50"
+output = "Chill3 : (1D100<=50) ＞ 98 ＞ 失敗"
+rands = [
+  { sides = 100, value = 98 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=50"
+output = "Chill3 : (1D100<=50) ＞ 55 ＞ Botch"
+rands = [
+  { sides = 100, value = 55 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=50"
+output = "Chill3 : (1D100<=50) ＞ 54 ＞ 失敗"
+rands = [
+  { sides = 100, value = 54 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=50"
+output = "Chill3 : (1D100<=50) ＞ 45 ＞ Ｌ成功"
+rands = [
+  { sides = 100, value = 45 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=50"
+output = "Chill3 : (1D100<=50) ＞ 44 ＞ Ｃ成功"
+rands = [
+  { sides = 100, value = 44 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=0"
+output = "Chill3 : (1D100<=0) ＞ 1 ＞ Ｌ成功"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=1"
+output = "Chill3 : (1D100<=1) ＞ 1 ＞ Ｌ成功"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100<=2"
+output = "Chill3 : (1D100<=2) ＞ 1 ＞ Ｈ成功"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Chill3"
+input = "1D100>=? 目標値?でバグらない"
+output = "Chill3 : (1D100>=?) ＞ 42 ＞ 失敗"
+rands = [
+  { sides = 100, value = 42 },
+]

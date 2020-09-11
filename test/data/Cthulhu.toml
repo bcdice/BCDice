@@ -1,0 +1,1565 @@
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=10 #############################"
+output = "Cthulhu : (1D100<=10) ＞ 98 ＞ 失敗"
+rands = [
+  { sides = 100, value = 98 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=10 (99)"
+output = "Cthulhu : (1D100<=10) ＞ 99 ＞ 失敗"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=10 (100)"
+output = "Cthulhu : (1D100<=10) ＞ 100 ＞ 失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=10"
+output = "Cthulhu : (1D100<=10) ＞ 45 ＞ 失敗"
+rands = [
+  { sides = 100, value = 45 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=10"
+output = "Cthulhu : (1D100<=10) ＞ 56 ＞ 失敗"
+rands = [
+  { sides = 100, value = 56 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=10"
+output = "Cthulhu : (1D100<=10) ＞ 62 ＞ 失敗"
+rands = [
+  { sides = 100, value = 62 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=10"
+output = "Cthulhu : (1D100<=10) ＞ 70 ＞ 失敗"
+rands = [
+  { sides = 100, value = 70 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=10"
+output = "Cthulhu : (1D100<=10) ＞ 78 ＞ 失敗"
+rands = [
+  { sides = 100, value = 78 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=10"
+output = "Cthulhu : (1D100<=10) ＞ 84 ＞ 失敗"
+rands = [
+  { sides = 100, value = 84 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=10"
+output = "Cthulhu : (1D100<=10) ＞ 51 ＞ 失敗"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=10"
+output = "Cthulhu : (1D100<=10) ＞ 20 ＞ 失敗"
+rands = [
+  { sides = 100, value = 20 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=10"
+output = "Cthulhu : (1D100<=10) ＞ 76 ＞ 失敗"
+rands = [
+  { sides = 100, value = 76 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=90"
+output = "Cthulhu : (1D100<=90) ＞ 43 ＞ 成功"
+rands = [
+  { sides = 100, value = 43 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=90"
+output = "Cthulhu : (1D100<=90) ＞ 24 ＞ 成功"
+rands = [
+  { sides = 100, value = 24 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=90"
+output = "Cthulhu : (1D100<=90) ＞ 25 ＞ 成功"
+rands = [
+  { sides = 100, value = 25 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=90"
+output = "Cthulhu : (1D100<=90) ＞ 75 ＞ 成功"
+rands = [
+  { sides = 100, value = 75 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=90"
+output = "Cthulhu : (1D100<=90) ＞ 71 ＞ 成功"
+rands = [
+  { sides = 100, value = 71 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=90"
+output = "Cthulhu : (1D100<=90) ＞ 78 ＞ 成功"
+rands = [
+  { sides = 100, value = 78 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=90"
+output = "Cthulhu : (1D100<=90) ＞ 14 ＞ 成功"
+rands = [
+  { sides = 100, value = 14 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=90"
+output = "Cthulhu : (1D100<=90) ＞ 61 ＞ 成功"
+rands = [
+  { sides = 100, value = 61 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=90"
+output = "Cthulhu : (1D100<=90) ＞ 27 ＞ 成功"
+rands = [
+  { sides = 100, value = 27 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=90"
+output = "Cthulhu : (1D100<=90) ＞ 37 ＞ 成功"
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=50"
+output = "Cthulhu : (1D100<=50) ＞ 65 ＞ 失敗"
+rands = [
+  { sides = 100, value = 65 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=50"
+output = "Cthulhu : (1D100<=50) ＞ 6 ＞ 成功"
+rands = [
+  { sides = 100, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=50"
+output = "Cthulhu : (1D100<=50) ＞ 42 ＞ 成功"
+rands = [
+  { sides = 100, value = 42 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=50"
+output = "Cthulhu : (1D100<=50) ＞ 7 ＞ 成功"
+rands = [
+  { sides = 100, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=50"
+output = "Cthulhu : (1D100<=50) ＞ 2 ＞ 成功"
+rands = [
+  { sides = 100, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=50"
+output = "Cthulhu : (1D100<=50) ＞ 1 ＞ 成功"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=50"
+output = "Cthulhu : (1D100<=50) ＞ 73 ＞ 失敗"
+rands = [
+  { sides = 100, value = 73 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=50"
+output = "Cthulhu : (1D100<=50) ＞ 72 ＞ 失敗"
+rands = [
+  { sides = 100, value = 72 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=50"
+output = "Cthulhu : (1D100<=50) ＞ 46 ＞ 成功"
+rands = [
+  { sides = 100, value = 46 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=50"
+output = "Cthulhu : (1D100<=50) ＞ 37 ＞ 成功"
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100<=50"
+output = "Cthulhu : (1D100<=50) ＞ 6 ＞ 成功"
+rands = [
+  { sides = 100, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-10) 1%"
+output = "Cthulhu : (1d100<=60) ＞ 83 ＞ 失敗"
+rands = [
+  { sides = 100, value = 83 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-10) 1%"
+output = "Cthulhu : (1d100<=60) ＞ 1 ＞ 決定的成功/スペシャル"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-10) 1%"
+output = "Cthulhu : (1d100<=60) ＞ 29 ＞ 成功"
+rands = [
+  { sides = 100, value = 29 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-10) 1%"
+output = "Cthulhu : (1d100<=60) ＞ 72 ＞ 失敗"
+rands = [
+  { sides = 100, value = 72 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-10) 1%"
+output = "Cthulhu : (1d100<=60) ＞ 98 ＞ 失敗"
+rands = [
+  { sides = 100, value = 98 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-10) 1%"
+output = "Cthulhu : (1d100<=60) ＞ 97 ＞ 失敗"
+rands = [
+  { sides = 100, value = 97 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-10) 1%"
+output = "Cthulhu : (1d100<=60) ＞ 87 ＞ 失敗"
+rands = [
+  { sides = 100, value = 87 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-10) 1%"
+output = "Cthulhu : (1d100<=60) ＞ 63 ＞ 失敗"
+rands = [
+  { sides = 100, value = 63 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-10) 1%"
+output = "Cthulhu : (1d100<=60) ＞ 39 ＞ 成功"
+rands = [
+  { sides = 100, value = 39 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-10) 1%"
+output = "Cthulhu : (1d100<=60) ＞ 11 ＞ スペシャル"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(10-15) 1%"
+output = "Cthulhu : (1d100<=25) ＞ 90 ＞ 失敗"
+rands = [
+  { sides = 100, value = 90 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(10-15) 1%"
+output = "Cthulhu : (1d100<=25) ＞ 38 ＞ 失敗"
+rands = [
+  { sides = 100, value = 38 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(10-15) 1%"
+output = "Cthulhu : (1d100<=25) ＞ 78 ＞ 失敗"
+rands = [
+  { sides = 100, value = 78 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(10-15) 1%"
+output = "Cthulhu : (1d100<=25) ＞ 39 ＞ 失敗"
+rands = [
+  { sides = 100, value = 39 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(10-15) 1%"
+output = "Cthulhu : (1d100<=25) ＞ 71 ＞ 失敗"
+rands = [
+  { sides = 100, value = 71 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(10-15) 1%"
+output = "Cthulhu : (1d100<=25) ＞ 4 ＞ スペシャル"
+rands = [
+  { sides = 100, value = 4 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(10-15) 1%"
+output = "Cthulhu : (1d100<=25) ＞ 45 ＞ 失敗"
+rands = [
+  { sides = 100, value = 45 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(10-15) 1% 80"
+output = "Cthulhu : (1d100<=25) ＞ 80 ＞ 失敗"
+rands = [
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(10-15) 1% 13"
+output = "Cthulhu : (1d100<=25) ＞ 13 ＞ 成功"
+rands = [
+  { sides = 100, value = 13 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(10-15) 1% 16"
+output = "Cthulhu : (1d100<=25) ＞ 16 ＞ 成功"
+rands = [
+  { sides = 100, value = 16 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(70,30) 1% 30"
+output = "Cthulhu : (1d100<=70,30) ＞ 30[成功,成功] ＞ 成功"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(70,30) 1% 50"
+output = "Cthulhu : (1d100<=70,30) ＞ 50[成功,失敗] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(10,90) 1% 30"
+output = "Cthulhu : (1d100<=10,90) ＞ 30[失敗,成功] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(70,30) 1% 71"
+output = "Cthulhu : (1d100<=70,30) ＞ 71[失敗,失敗] ＞ 失敗"
+rands = [
+  { sides = 100, value = 71 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(70,30) 1%"
+output = "Cthulhu : (1d100<=70,30) ＞ 5[スペシャル,スペシャル] ＞ 成功"
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(25,20) 1%"
+output = "Cthulhu : (1d100<=25,20) ＞ 5[スペシャル,成功] ＞ 成功"
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(70,30) 1%"
+output = "Cthulhu : (1d100<=70,30) ＞ 1[決定的成功/スペシャル,決定的成功/スペシャル] ＞ 成功"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(25,20) 1%"
+output = "Cthulhu : (1d100<=25,20) ＞ 1[決定的成功/スペシャル,決定的成功/スペシャル] ＞ 成功"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(25,1) 1%"
+output = "Cthulhu : (1d100<=25,1) ＞ 5[スペシャル,失敗] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(90,99) 1%"
+output = "Cthulhu : (1d100<=90,99) ＞ 96[失敗,成功] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(90,95) 1%"
+output = "Cthulhu : (1d100<=90,95) ＞ 96[失敗,失敗] ＞ 失敗"
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(90,99) 1%"
+output = "Cthulhu : (1d100<=90,99) ＞ 100[致命的失敗,致命的失敗] ＞ 失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(90,95) 1%"
+output = "Cthulhu : (1d100<=90,95) ＞ 100[致命的失敗,致命的失敗] ＞ 失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "1D100>=(68+12)"
+output = "Cthulhu : (1D100>=80) ＞ 11 ＞ 失敗"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=10 (1%) ##################"
+output = "Cthulhu : (1D100<=10) ＞ 98 ＞ 失敗"
+rands = [
+  { sides = 100, value = 98 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=10 (99) (1%)"
+output = "Cthulhu : (1D100<=10) ＞ 99 ＞ 失敗"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=10 (100) (1%)"
+output = "Cthulhu : (1D100<=10) ＞ 100 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=10 (1%)"
+output = "Cthulhu : (1D100<=10) ＞ 45 ＞ 失敗"
+rands = [
+  { sides = 100, value = 45 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=10 (1%)"
+output = "Cthulhu : (1D100<=10) ＞ 56 ＞ 失敗"
+rands = [
+  { sides = 100, value = 56 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=10 (1%)"
+output = "Cthulhu : (1D100<=10) ＞ 62 ＞ 失敗"
+rands = [
+  { sides = 100, value = 62 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=10 (1%)"
+output = "Cthulhu : (1D100<=10) ＞ 70 ＞ 失敗"
+rands = [
+  { sides = 100, value = 70 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=10 (1%)"
+output = "Cthulhu : (1D100<=10) ＞ 78 ＞ 失敗"
+rands = [
+  { sides = 100, value = 78 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=10 (1%)"
+output = "Cthulhu : (1D100<=10) ＞ 84 ＞ 失敗"
+rands = [
+  { sides = 100, value = 84 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=10 (1%)"
+output = "Cthulhu : (1D100<=10) ＞ 51 ＞ 失敗"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=10 (1%)"
+output = "Cthulhu : (1D100<=10) ＞ 20 ＞ 失敗"
+rands = [
+  { sides = 100, value = 20 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=10 (1%)"
+output = "Cthulhu : (1D100<=10) ＞ 76 ＞ 失敗"
+rands = [
+  { sides = 100, value = 76 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=90 (1%)"
+output = "Cthulhu : (1D100<=90) ＞ 43 ＞ 成功"
+rands = [
+  { sides = 100, value = 43 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=90 (1%)"
+output = "Cthulhu : (1D100<=90) ＞ 24 ＞ 成功"
+rands = [
+  { sides = 100, value = 24 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=90 (1%)"
+output = "Cthulhu : (1D100<=90) ＞ 25 ＞ 成功"
+rands = [
+  { sides = 100, value = 25 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=90 (1%)"
+output = "Cthulhu : (1D100<=90) ＞ 75 ＞ 成功"
+rands = [
+  { sides = 100, value = 75 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=90 (1%)"
+output = "Cthulhu : (1D100<=90) ＞ 71 ＞ 成功"
+rands = [
+  { sides = 100, value = 71 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=90 (1%)"
+output = "Cthulhu : (1D100<=90) ＞ 78 ＞ 成功"
+rands = [
+  { sides = 100, value = 78 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=90 (1%)"
+output = "Cthulhu : (1D100<=90) ＞ 14 ＞ スペシャル"
+rands = [
+  { sides = 100, value = 14 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=90 (1%)"
+output = "Cthulhu : (1D100<=90) ＞ 61 ＞ 成功"
+rands = [
+  { sides = 100, value = 61 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=90 (1%)"
+output = "Cthulhu : (1D100<=90) ＞ 27 ＞ 成功"
+rands = [
+  { sides = 100, value = 27 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=90 (1%)"
+output = "Cthulhu : (1D100<=90) ＞ 37 ＞ 成功"
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=50 (1%)"
+output = "Cthulhu : (1D100<=50) ＞ 65 ＞ 失敗"
+rands = [
+  { sides = 100, value = 65 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=50 (1%)"
+output = "Cthulhu : (1D100<=50) ＞ 6 ＞ スペシャル"
+rands = [
+  { sides = 100, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=50 (1%)"
+output = "Cthulhu : (1D100<=50) ＞ 42 ＞ 成功"
+rands = [
+  { sides = 100, value = 42 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=50 (1%)"
+output = "Cthulhu : (1D100<=50) ＞ 7 ＞ スペシャル"
+rands = [
+  { sides = 100, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=50 (1%)"
+output = "Cthulhu : (1D100<=50) ＞ 2 ＞ スペシャル"
+rands = [
+  { sides = 100, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=50 (1%)"
+output = "Cthulhu : (1D100<=50) ＞ 1 ＞ 決定的成功/スペシャル"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=50 (1%)"
+output = "Cthulhu : (1D100<=50) ＞ 73 ＞ 失敗"
+rands = [
+  { sides = 100, value = 73 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=50 (1%)"
+output = "Cthulhu : (1D100<=50) ＞ 72 ＞ 失敗"
+rands = [
+  { sides = 100, value = 72 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=50 (1%)"
+output = "Cthulhu : (1D100<=50) ＞ 46 ＞ 成功"
+rands = [
+  { sides = 100, value = 46 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=50 (1%)"
+output = "Cthulhu : (1D100<=50) ＞ 37 ＞ 成功"
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=50 (1%)"
+output = "Cthulhu : (1D100<=50) ＞ 6 ＞ スペシャル"
+rands = [
+  { sides = 100, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=-10+60/2+15*2"
+output = "Cthulhu : (1D100<=50) ＞ 37 ＞ 成功"
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=10 (5%) ##################"
+output = "Cthulhu : (1D100<=10) ＞ 98 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 98 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=10 (99) (5%)"
+output = "Cthulhu : (1D100<=10) ＞ 99 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=10 (100) (5%)"
+output = "Cthulhu : (1D100<=10) ＞ 100 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=10 (5%)"
+output = "Cthulhu : (1D100<=10) ＞ 45 ＞ 失敗"
+rands = [
+  { sides = 100, value = 45 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=10 (5%)"
+output = "Cthulhu : (1D100<=10) ＞ 56 ＞ 失敗"
+rands = [
+  { sides = 100, value = 56 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=10 (5%)"
+output = "Cthulhu : (1D100<=10) ＞ 62 ＞ 失敗"
+rands = [
+  { sides = 100, value = 62 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=10 (5%)"
+output = "Cthulhu : (1D100<=10) ＞ 70 ＞ 失敗"
+rands = [
+  { sides = 100, value = 70 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=10 (5%)"
+output = "Cthulhu : (1D100<=10) ＞ 78 ＞ 失敗"
+rands = [
+  { sides = 100, value = 78 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=10 (5%)"
+output = "Cthulhu : (1D100<=10) ＞ 84 ＞ 失敗"
+rands = [
+  { sides = 100, value = 84 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=10 (5%)"
+output = "Cthulhu : (1D100<=10) ＞ 51 ＞ 失敗"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=10 (5%)"
+output = "Cthulhu : (1D100<=10) ＞ 20 ＞ 失敗"
+rands = [
+  { sides = 100, value = 20 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=10 (5%)"
+output = "Cthulhu : (1D100<=10) ＞ 76 ＞ 失敗"
+rands = [
+  { sides = 100, value = 76 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=90 (5%)"
+output = "Cthulhu : (1D100<=90) ＞ 43 ＞ 成功"
+rands = [
+  { sides = 100, value = 43 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=90 (5%)"
+output = "Cthulhu : (1D100<=90) ＞ 24 ＞ 成功"
+rands = [
+  { sides = 100, value = 24 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=90 (5%)"
+output = "Cthulhu : (1D100<=90) ＞ 25 ＞ 成功"
+rands = [
+  { sides = 100, value = 25 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=90 (5%)"
+output = "Cthulhu : (1D100<=90) ＞ 75 ＞ 成功"
+rands = [
+  { sides = 100, value = 75 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=90 (5%)"
+output = "Cthulhu : (1D100<=90) ＞ 71 ＞ 成功"
+rands = [
+  { sides = 100, value = 71 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=90 (5%)"
+output = "Cthulhu : (1D100<=90) ＞ 78 ＞ 成功"
+rands = [
+  { sides = 100, value = 78 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=90 (5%)"
+output = "Cthulhu : (1D100<=90) ＞ 14 ＞ スペシャル"
+rands = [
+  { sides = 100, value = 14 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=90 (5%)"
+output = "Cthulhu : (1D100<=90) ＞ 61 ＞ 成功"
+rands = [
+  { sides = 100, value = 61 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=90 (5%)"
+output = "Cthulhu : (1D100<=90) ＞ 27 ＞ 成功"
+rands = [
+  { sides = 100, value = 27 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=90 (5%)"
+output = "Cthulhu : (1D100<=90) ＞ 37 ＞ 成功"
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=50 (5%)"
+output = "Cthulhu : (1D100<=50) ＞ 65 ＞ 失敗"
+rands = [
+  { sides = 100, value = 65 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=50 (5%)"
+output = "Cthulhu : (1D100<=50) ＞ 6 ＞ スペシャル"
+rands = [
+  { sides = 100, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=50 (5%)"
+output = "Cthulhu : (1D100<=50) ＞ 42 ＞ 成功"
+rands = [
+  { sides = 100, value = 42 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=50 (5%)"
+output = "Cthulhu : (1D100<=50) ＞ 7 ＞ スペシャル"
+rands = [
+  { sides = 100, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=50 (5%)"
+output = "Cthulhu : (1D100<=50) ＞ 2 ＞ 決定的成功/スペシャル"
+rands = [
+  { sides = 100, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=50 (5%)"
+output = "Cthulhu : (1D100<=50) ＞ 1 ＞ 決定的成功/スペシャル"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=50 (5%)"
+output = "Cthulhu : (1D100<=50) ＞ 73 ＞ 失敗"
+rands = [
+  { sides = 100, value = 73 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=50 (5%)"
+output = "Cthulhu : (1D100<=50) ＞ 72 ＞ 失敗"
+rands = [
+  { sides = 100, value = 72 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=50 (5%)"
+output = "Cthulhu : (1D100<=50) ＞ 46 ＞ 成功"
+rands = [
+  { sides = 100, value = 46 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=50 (5%)"
+output = "Cthulhu : (1D100<=50) ＞ 37 ＞ 成功"
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=50 (5%)"
+output = "Cthulhu : (1D100<=50) ＞ 6 ＞ スペシャル"
+rands = [
+  { sides = 100, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=-10+60/2+15*2"
+output = "Cthulhu : (1D100<=50) ＞ 37 ＞ 成功"
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(12-10) (5%)"
+output = "Cthulhu : (1d100<=60) ＞ 83 ＞ 失敗"
+rands = [
+  { sides = 100, value = 83 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(12-10) (5%)"
+output = "Cthulhu : (1d100<=60) ＞ 1 ＞ 決定的成功/スペシャル"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(12-10) (5%)"
+output = "Cthulhu : (1d100<=60) ＞ 29 ＞ 成功"
+rands = [
+  { sides = 100, value = 29 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(12-10) (5%)"
+output = "Cthulhu : (1d100<=60) ＞ 72 ＞ 失敗"
+rands = [
+  { sides = 100, value = 72 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(12-10) (5%)"
+output = "Cthulhu : (1d100<=60) ＞ 98 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 98 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(12-10) (5%)"
+output = "Cthulhu : (1d100<=60) ＞ 97 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 97 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(12-10) (5%)"
+output = "Cthulhu : (1d100<=60) ＞ 87 ＞ 失敗"
+rands = [
+  { sides = 100, value = 87 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(12-10) (5%)"
+output = "Cthulhu : (1d100<=60) ＞ 63 ＞ 失敗"
+rands = [
+  { sides = 100, value = 63 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(12-10) (5%)"
+output = "Cthulhu : (1d100<=60) ＞ 39 ＞ 成功"
+rands = [
+  { sides = 100, value = 39 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(12-10) (5%)"
+output = "Cthulhu : (1d100<=60) ＞ 11 ＞ スペシャル"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(10-15) (5%)"
+output = "Cthulhu : (1d100<=25) ＞ 90 ＞ 失敗"
+rands = [
+  { sides = 100, value = 90 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(10-15) (5%)"
+output = "Cthulhu : (1d100<=25) ＞ 38 ＞ 失敗"
+rands = [
+  { sides = 100, value = 38 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(10-15) (5%)"
+output = "Cthulhu : (1d100<=25) ＞ 78 ＞ 失敗"
+rands = [
+  { sides = 100, value = 78 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(10-15) (5%)"
+output = "Cthulhu : (1d100<=25) ＞ 39 ＞ 失敗"
+rands = [
+  { sides = 100, value = 39 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(10-15) (5%)"
+output = "Cthulhu : (1d100<=25) ＞ 71 ＞ 失敗"
+rands = [
+  { sides = 100, value = 71 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(10-15) (5%)"
+output = "Cthulhu : (1d100<=25) ＞ 4 ＞ 決定的成功/スペシャル"
+rands = [
+  { sides = 100, value = 4 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(10-15) (5%)"
+output = "Cthulhu : (1d100<=25) ＞ 45 ＞ 失敗"
+rands = [
+  { sides = 100, value = 45 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(10-15) (5%)"
+output = "Cthulhu : (1d100<=25) ＞ 80 ＞ 失敗"
+rands = [
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(10-15) (5%)"
+output = "Cthulhu : (1d100<=25) ＞ 13 ＞ 成功"
+rands = [
+  { sides = 100, value = 13 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB(10-15) (5%)"
+output = "Cthulhu : (1d100<=25) ＞ 16 ＞ 成功"
+rands = [
+  { sides = 100, value = 16 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBRB(70,30) (5%)"
+output = "Cthulhu : (1d100<=70,30) ＞ 30[成功,成功] ＞ 成功"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBRB(70,30) (5%)"
+output = "Cthulhu : (1d100<=70,30) ＞ 50[成功,失敗] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBRB(10,90) (5%)"
+output = "Cthulhu : (1d100<=10,90) ＞ 30[失敗,成功] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBRB(70,30) (5%)"
+output = "Cthulhu : (1d100<=70,30) ＞ 71[失敗,失敗] ＞ 失敗"
+rands = [
+  { sides = 100, value = 71 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBRB(70,30) (5%)"
+output = "Cthulhu : (1d100<=70,30) ＞ 5[決定的成功/スペシャル,決定的成功/スペシャル] ＞ 成功"
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBRB(25,20) (5%)"
+output = "Cthulhu : (1d100<=25,20) ＞ 5[決定的成功/スペシャル,決定的成功] ＞ 成功"
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBRB(25,1) (5%)"
+output = "Cthulhu : (1d100<=25,1) ＞ 5[決定的成功/スペシャル,失敗] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBRB(90,99) (5%)"
+output = "Cthulhu : (1d100<=90,99) ＞ 96[致命的失敗,成功] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBRB(90,95) (5%)"
+output = "Cthulhu : (1d100<=90,95) ＞ 96[致命的失敗,致命的失敗] ＞ 失敗"
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC<=(68+30) (1%) 計算込み"
+output = "Cthulhu : (1D100<=98) ＞ 99 ＞ 失敗"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB<=(68+30) (5%) 計算込み"
+output = "Cthulhu : (1D100<=98) ＞ 99 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB>=(68+12) (5%) 1D100代替（不等号違いにより判定なし）"
+output = "Cthulhu : (1D100) ＞ 11"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC (1%) 1d100単純置換"
+output = "Cthulhu : (1D100) ＞ 60"
+rands = [
+  { sides = 100, value = 60 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB (5%) 1d100単純置換"
+output = "Cthulhu : (1D100) ＞ 61"
+rands = [
+  { sides = 100, value = 61 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "SCC<=25 (1%) シークレット"
+output = "Cthulhu : (1D100<=25) ＞ 5 ＞ スペシャル"
+secret = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "SCCB<=25 (5%) シークレット"
+output = "Cthulhu : (1D100<=25) ＞ 5 ＞ 決定的成功/スペシャル"
+secret = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC(94)<=98 (1%) 故障ナンバー：故障1"
+output = "Cthulhu : (1D100<=98) 故障ナンバー[94] ＞ 97 ＞ 故障"
+rands = [
+  { sides = 100, value = 97 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC(94)<=98 (1%) 故障ナンバー：故障2"
+output = "Cthulhu : (1D100<=98) 故障ナンバー[94] ＞ 99 ＞ 故障"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC(94)<=98 (1%) 故障ナンバー：致命的失敗"
+output = "Cthulhu : (1D100<=98) 故障ナンバー[94] ＞ 100 ＞ 致命的失敗/故障"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC(94)<=100-2 (1%) 故障ナンバー：致命的失敗"
+output = "Cthulhu : (1D100<=98) 故障ナンバー[94] ＞ 100 ＞ 致命的失敗/故障"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB(98)<=80 (5%) 故障ナンバー：成功"
+output = "Cthulhu : (1D100<=80) 故障ナンバー[98] ＞ 80 ＞ 成功"
+rands = [
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB(98)<=80 (5%) 故障ナンバー：故障1"
+output = "Cthulhu : (1D100<=80) 故障ナンバー[98] ＞ 96 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB(98)<=80 (5%) 故障ナンバー：故障2"
+output = "Cthulhu : (1D100<=80) 故障ナンバー[98] ＞ 99 ＞ 致命的失敗/故障"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB(98)<=80 (5%) 故障ナンバー：致命的失敗"
+output = "Cthulhu : (1D100<=80) 故障ナンバー[98] ＞ 100 ＞ 致命的失敗/故障"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB(98)<=100-20 (5%) 故障ナンバー：致命的失敗"
+output = "Cthulhu : (1D100<=80) 故障ナンバー[98] ＞ 100 ＞ 致命的失敗/故障"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(50,80) (1%)"
+output = "Cthulhu : (1d100<=50,80) ＞ 20[成功,成功] ＞ 成功"
+rands = [
+  { sides = 100, value = 20 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(10,80) (1%)"
+output = "Cthulhu : (1d100<=10,80) ＞ 10[成功,スペシャル] ＞ 成功"
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(10,80) (1%)"
+output = "Cthulhu : (1d100<=10,80) ＞ 1[決定的成功/スペシャル,決定的成功/スペシャル] ＞ 成功"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(10,80) (1%)"
+output = "Cthulhu : (1d100<=10,80) ＞ 50[失敗,成功] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(10,80) (1%)"
+output = "Cthulhu : (1d100<=10,80) ＞ 90[失敗,失敗] ＞ 失敗"
+rands = [
+  { sides = 100, value = 90 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBR(10,80) (1%)"
+output = "Cthulhu : (1d100<=10,80) ＞ 100[致命的失敗,致命的失敗] ＞ 失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBRB(10,80) (5%)"
+output = "Cthulhu : (1d100<=10,80) ＞ 5[決定的成功,決定的成功/スペシャル] ＞ 成功"
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CBRB(10,80) (5%)"
+output = "Cthulhu : (1d100<=10,80) ＞ 99[致命的失敗,致命的失敗] ＞ 失敗"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CC(94)<=(60+38) (1%) 故障ナンバー：計算込み"
+output = "Cthulhu : (1D100<=98) 故障ナンバー[94] ＞ 99 ＞ 故障"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCB(94)<=(60+38) (5%) 故障ナンバー：計算込み"
+output = "Cthulhu : (1D100<=98) 故障ナンバー[94] ＞ 99 ＞ 致命的失敗/故障"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-12) 0+50"
+output = "Cthulhu : (1d100<=50) ＞ 75 ＞ 失敗"
+rands = [
+  { sides = 100, value = 75 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-7) 25+50"
+output = "Cthulhu : (1d100<=75) ＞ 75 ＞ 成功"
+rands = [
+  { sides = 100, value = 75 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-2) 50+50 自動成功"
+output = "Cthulhu : (1d100<=100) ＞ 自動成功"
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-15) -15+50"
+output = "Cthulhu : (1d100<=35) ＞ 75 ＞ 失敗"
+rands = [
+  { sides = 100, value = 75 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-21) -45+50"
+output = "Cthulhu : (1d100<=5) ＞ 75 ＞ 失敗"
+rands = [
+  { sides = 100, value = 75 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES(12-22) -50+50 自動失敗"
+output = "Cthulhu : (1d100<=0) ＞ 自動失敗"
+rands = []

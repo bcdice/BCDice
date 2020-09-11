@@ -1,0 +1,159 @@
+[[ test ]]
+game_system = "AFF2e"
+input = "FF8 ▼"
+output = "AFF2e : (2D6<=8) ＞ 5[4,1] ＞ 成功"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FF8 ▼"
+output = "AFF2e : (2D6<=8) ＞ 10[4,6] ＞ 失敗"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FF10-2 ▼"
+output = "AFF2e : (2D6<=8) ＞ 5[4,1] ＞ 成功"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FF10-2 ▼"
+output = "AFF2e : (2D6<=8) ＞ 10[4,6] ＞ 失敗"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FF10-2"
+output = "AFF2e : (2D6<=8) ＞ 2[1,1] ＞ 大成功！"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FF10-2"
+output = "AFF2e : (2D6<=8) ＞ 12[6,6] ＞ 大失敗！"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FF1"
+output = "AFF2e : (2D6<=1) ＞ 2[1,1] ＞ 成功（大成功ではない）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FF12"
+output = "AFF2e : (2D6<=12) ＞ 12[6,6] ＞ 失敗（大失敗ではない）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FR8 ▼"
+output = "AFF2e : (2D6+8) ＞ 5[4,1]+8 ＞ 13"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FR10-2 ▼"
+output = "AFF2e : (2D6+8) ＞ 5[4,1]+8 ＞ 13"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FR8 ▼"
+output = "AFF2e : (2D6+8) ＞ 12[6,6]+8 ＞ 強打！ ＞ 20"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FR8 ▼"
+output = "AFF2e : (2D6+8) ＞ 2[1,1]+8 ＞ ファンブル！ ＞ 10"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FD8 ▼"
+output = "AFF2e : ダメージスロットは必須です。"
+rands = []
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FD[0] ▼"
+output = "AFF2e : ダメージスロットの長さに誤りがあります。"
+rands = []
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FD[0,0,0,0,1,1,2] ▼"
+output = "AFF2e : (1D6+0) ＞ 6+0 ＞ 6 ＞ 1ダメージ"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FD[0,0,0,0,1,1,2]+0 ▼"
+output = "AFF2e : (1D6+0) ＞ 6+0 ＞ 6 ＞ 1ダメージ"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FD[0,0,0,0,1,1,2]+2 ▼"
+output = "AFF2e : (1D6+2) ＞ 6+2 ＞ 8 ＞ 2ダメージ"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FD[0,0,0,0,1+1,1+1,2+2]+0 ▼"
+output = "AFF2e : (1D6+0) ＞ 6+0 ＞ 6 ＞ 2ダメージ"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AFF2e"
+input = "FD[0,0,0,0,1+1,1+1,2+2]+2 ▼"
+output = "AFF2e : (1D6+2) ＞ 6+2 ＞ 8 ＞ 4ダメージ"
+rands = [
+  { sides = 6, value = 6 },
+]

@@ -1,0 +1,127 @@
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "ND2"
+output = "ParanoiaRebooted : (ND2) ＞ [1, 1, 1] ＞ 成功度0"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "ND-2"
+output = "ParanoiaRebooted : (ND-2) ＞ [1, 1, 1] ＞ 成功度-3"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "nd3"
+output = "ParanoiaRebooted : (ND3) ＞ [6, 2, 4, 5] ＞ 成功度2"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "nd3"
+output = "ParanoiaRebooted : (ND3) ＞ [6, 5, 5, C] ＞ 成功度4(Computer)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "ND-3"
+output = "ParanoiaRebooted : (ND-3) ＞ [6, 2, 5, C] ＞ 成功度2(Computer)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "ND-3"
+output = "ParanoiaRebooted : (ND-3) ＞ [6, 6, 5, C] ＞ 成功度4(Computer)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "ND0"
+output = "ParanoiaRebooted : (ND0) ＞ [C] ＞ 成功度1(Computer)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "ND0"
+output = "ParanoiaRebooted : (ND0) ＞ [5] ＞ 成功度1"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "ND0"
+output = "ParanoiaRebooted : (ND0) ＞ [4] ＞ 成功度0"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "MP2"
+output = "ParanoiaRebooted : (MP2) ＞ [1, 1, 1] ＞ 失敗(3)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "MP2"
+output = "ParanoiaRebooted : (MP2) ＞ [2, 6, 4] ＞ 成功"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "MP2"
+output = "ParanoiaRebooted : (MP2) ＞ [2, 1, C] ＞ 失敗(1)(Computer)"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ParanoiaRebooted"
+input = "MP2"
+output = "ParanoiaRebooted : (MP2) ＞ [2, 6, C] ＞ 成功(Computer)"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]

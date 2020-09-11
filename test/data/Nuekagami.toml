@@ -1,0 +1,79 @@
+[[ test ]]
+game_system = "Nuekagami"
+input = "LR"
+output = "Nuekagami : 喪失取戻表(1) ＞ 鬼化。妄執かくして鬼と結実す。欠けたるところすでになし。あやかし、己の欠けたるを足せり。すなわちその身、人ならず。"
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Nuekagami"
+input = "LR"
+output = "Nuekagami : 喪失取戻表(20) ＞ 望月。欠けたる月が満ちるが如く。欠けたるは突然に戻れり。いかなる誠、いかなる印か、知るものはあらず。"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami"
+input = "BL"
+output = "Nuekagami : 血脈の喪失表(20) ＞ 己の体。今は他人の体を借りている。"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami"
+input = "LL"
+output = "Nuekagami : 生様の喪失表(20) ＞ 自由。脅され縛られ、誰かの命令を聞くしかできない。"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami"
+input = "SL"
+output = "Nuekagami : 魂魄の喪失表(20) ＞ 己の意志。あなたは誰かの人形。道具に過ぎない。"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami"
+input = "FL"
+output = "Nuekagami : 因縁表(20) ＞ 主君。心の主君。身命を賭して守り仕える。"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami"
+input = "HG"
+output = "Nuekagami : 地獄門通過描写表(20) ＞ 心中にて、かそけき希望の糸見へり。慎重にたぐりて登らむとす。"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami"
+input = "RG"
+output = "Nuekagami : 羅生門通過描写表(20) ＞ 神仏の似姿、幻視す。されば、いかな身にも信心のいくばくか起これり。"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami"
+input = "VG"
+output = "Nuekagami : 朱雀門通過描写表(20) ＞ 頭上より何者かの楽の音、饗けり。その身、祝はるる心地せり。"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami"
+input = "OG"
+output = "Nuekagami : 応天門通過描写表(20) ＞ 都の暗雲、晴れたる日も稀にあり。なんぞ魂魄晴るる日なしや。"
+rands = [
+  { sides = 20, value = 20 },
+]

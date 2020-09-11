@@ -1,0 +1,138 @@
+[[ test ]]
+game_system = "RyuTuber"
+input = "RTB"
+output = "RyuTuber : 判定ルール表示\n①枠主が判定内容を宣言、判定参加者が行動宣言\n②サイコロは竜の巫女なら6個、技能レベルか指定魅力の値個、奇跡の演目を1つ以上クリアで+6個、スパの消費数個\n③振ったサイコロの「1の目」の数が目標値以上なら華麗に成功、目標値未満ならちょっと残念な結果"
+rands = []
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "JT"
+output = "RyuTuber : 職業表(4) ＞ 事務・サービス職表へ"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "JST"
+output = "RyuTuber : 学生表(1) ＞ 中学生　（ゲーム　運動する）"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "JTPT"
+output = "RyuTuber : 技術・専門職表(10) ＞ プログラマー　（プログラム　設計する）"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "JOST"
+output = "RyuTuber : 事務・サービス職表(5) ＞ 運転手、配達員　（運転する　地元知識）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "JET"
+output = "RyuTuber : エンタメ職表(6) ＞ イラストレーター　（絵を描く　見た目を整える）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "HT"
+output = "RyuTuber : 趣味表(3) ＞ 一人でできるインドア趣味表Aへ"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "HGT"
+output = "RyuTuber : 多人数でできる趣味表(6) ＞ バンド　（音楽　見た目を整える）"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "HIAT"
+output = "RyuTuber : 一人でできるインドア趣味表A(4) ＞ プラモ　（ものづくり　見た目を整える）"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "HIBT"
+output = "RyuTuber : 一人でできるインドア趣味表B(4) ＞ 料理　（料理する　設計する）"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "HOAT"
+output = "RyuTuber : 一人でできるアウトドア趣味表A(3) ＞ 旅行／鉄道　（移動する　外国語）"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "HOBT"
+output = "RyuTuber : 一人でできるアウトドア趣味表B(1) ＞ スキー・スノーボード　（運動する　自然の知識）"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "MPW"
+output = "RyuTuber : 幸運の風が吹いている\n奇跡　以降ゲーム終了まで、サイコロ+1\n①健気に頑張る姿を見せる。\n②報われることはなく、さらに最悪の展開に。\n③それでも健気なところを見せる。"
+rands = []
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "MPT"
+output = "RyuTuber : 困った時はお互い様\n奇跡　そのプレイヤーの判定サイコロを1回振り直しできる\n①けちな様子を見せる。\n②困っている人に施しをする姿を見られる。\n③窮地に陥る。"
+rands = []
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "MPF"
+output = "RyuTuber : 悪い予感は的中する\n奇跡　1判定だけ、サイコロ+3\n①犠牲者が悪い噂を耳にする。\n②犠牲者が悪い冗談を言う。\n③犠牲者が悪い予感に心さざめき、誰かに悪い予感を話す。"
+rands = []
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "MPL"
+output = "RyuTuber : ついていい嘘もある\n奇跡　ついた（ささやかな）嘘が本当になる　枠主判断でいつか発動する。\n①嘘を言う。\n②嘘によって窮地に立つ。\n③嘘を嘘にしないためにあがく。"
+rands = []
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "MPS"
+output = "RyuTuber : 私には星が見えている\n奇跡　指定したキャラクターの次の行動がわかる\n①少し先のことを言い当てる。\n②気味が悪いと噂になる。\n③言い当てる力を人間観察に用いる。"
+rands = []
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "MPD"
+output = "RyuTuber : 心は竜と共にあり\n奇跡　起こりうる不幸を阻止する\n①心清いひとに助けられる。\n②自分の性根悪さを悲しむ。\n③自分なりのやり方で心清い行いをする。"
+rands = []
+
+[[ test ]]
+game_system = "RyuTuber"
+input = "MPH"
+output = "RyuTuber : 人は石垣、人は城\n奇跡　感化された周りの人が手伝うようになる\n①人々の不幸を見て、親切にしてしまう。\n②けなげに頑張る姿を見られる。\n③見ていた人々が集まってくる。"
+rands = []

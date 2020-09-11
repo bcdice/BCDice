@@ -1,0 +1,108 @@
+[[ test ]]
+game_system = "WitchQuest"
+input = "WQ"
+output =
+rands = []
+
+[[ test ]]
+game_system = "WitchQuest"
+input = "WQ1"
+output = "WitchQuest : (1,2) ＞ 失敗"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "WitchQuest"
+input = "WQ2"
+output = "WitchQuest : (1,1 / 2,1) ＞ １レベル成功(成功)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "WitchQuest"
+input = "WQ5"
+output = "WitchQuest : (1,1 / 2,2 / 2,2 / 2,2 / 2,2) ＞ ５レベル成功(伝説的大成功)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "WitchQuest"
+input = "WQ6"
+output = "WitchQuest : (1,1 / 2,2 / 2,2 / 2,2 / 2,2 / 2,2) ＞ ６レベル成功(神話的大成功)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "WitchQuest"
+input = "WQ7"
+output = "WitchQuest : (1,1 / 2,2 / 2,2 / 2,2 / 2,2 / 2,2 / 2,2) ＞ ６レベル成功(神話的大成功)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "WitchQuest"
+input = "SET1"
+output = "WitchQuest : SET1 ＞ 1:船から降りてきた ＞ 11:おじさん"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "WitchQuest"
+input = "SET48"
+output = "WitchQuest : SET48 ＞ 6:墓守をしている ＞ 56:表２へ ＞ 56:表３へ ＞ 66:表４へ ＞ 66:宇宙人"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]

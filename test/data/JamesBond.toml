@@ -1,0 +1,135 @@
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=50"
+output = "JamesBond : (1D100<=50) ＞ 51 ＞ 失敗"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=50"
+output = "JamesBond : (1D100<=50) ＞ 50 ＞ 効果4（まあまあ）"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=50"
+output = "JamesBond : (1D100<=50) ＞ 26 ＞ 効果4（まあまあ）"
+rands = [
+  { sides = 100, value = 26 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=50"
+output = "JamesBond : (1D100<=50) ＞ 25 ＞ 効果3（良）"
+rands = [
+  { sides = 100, value = 25 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=50"
+output = "JamesBond : (1D100<=50) ＞ 11 ＞ 効果3（良）"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=50"
+output = "JamesBond : (1D100<=50) ＞ 10 ＞ 効果2（かなり良い）"
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=50"
+output = "JamesBond : (1D100<=50) ＞ 6 ＞ 効果2（かなり良い）"
+rands = [
+  { sides = 100, value = 6 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=50"
+output = "JamesBond : (1D100<=50) ＞ 5 ＞ 効果1（完璧）"
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=50"
+output = "JamesBond : (1D100<=50) ＞ 1 ＞ 効果1（完璧）"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=101"
+output = "JamesBond : (1D100<=101) ＞ 99 ＞ 効果4（まあまあ）"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=101"
+output = "JamesBond : (1D100<=101) ＞ 100 ＞ 失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=30"
+output = "JamesBond : (1D100<=30) ＞ 3 ＞ 効果1（完璧）"
+rands = [
+  { sides = 100, value = 3 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=30"
+output = "JamesBond : (1D100<=30) ＞ 4 ＞ 効果2（かなり良い）"
+rands = [
+  { sides = 100, value = 4 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=31"
+output = "JamesBond : (1D100<=31) ＞ 3 ＞ 効果1（完璧）"
+rands = [
+  { sides = 100, value = 3 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=31"
+output = "JamesBond : (1D100<=31) ＞ 4 ＞ 効果1（完璧）"
+rands = [
+  { sides = 100, value = 4 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100<=31"
+output = "JamesBond : (1D100<=31) ＞ 5 ＞ 効果2（かなり良い）"
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "JamesBond"
+input = "1D100>=? 目標値?でバグらない"
+output = "JamesBond : (1D100>=?) ＞ 42 ＞ 失敗"
+rands = [
+  { sides = 100, value = 42 },
+]

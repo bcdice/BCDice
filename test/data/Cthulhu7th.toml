@@ -1,0 +1,1494 @@
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CBR(70,30)"
+output = "Cthulhu7th : (1d100<=70,30) ＞ 30[ハード成功,レギュラー成功] ＞ 成功"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CBR(70,30)"
+output = "Cthulhu7th : (1d100<=70,30) ＞ 50[レギュラー成功,失敗] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CBR(30,70)"
+output = "Cthulhu7th : (1d100<=30,70) ＞ 60[失敗,レギュラー成功] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 60 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CBR(70,69)"
+output = "Cthulhu7th : (1d100<=70,69) ＞ 14[イクストリーム成功,ハード成功] ＞ 成功"
+rands = [
+  { sides = 100, value = 14 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CBR(70,30)"
+output = "Cthulhu7th : (1d100<=70,30) ＞ 100[ファンブル,ファンブル] ＞ 失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CBR(70,30)"
+output = "Cthulhu7th : (1d100<=70,30) ＞ 1[クリティカル,クリティカル] ＞ 成功"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CBR(25,20)"
+output = "Cthulhu7th : (1d100<=25,20) ＞ 1[クリティカル,クリティカル] ＞ 成功"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CBR(25,1)"
+output = "Cthulhu7th : (1d100<=25,1) ＞ 5[イクストリーム成功,失敗] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CBR(90,40)"
+output = "Cthulhu7th : (1d100<=90,40) ＞ 97[失敗,ファンブル] ＞ 失敗"
+rands = [
+  { sides = 100, value = 97 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CBR(10,90)"
+output = "Cthulhu7th : (1d100<=10,90) ＞ 30[失敗,ハード成功] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CBR(xxx,xxx) 失敗パターン"
+output =
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(-1)<=93"
+output = "Cthulhu7th : (1D100<=93) ボーナス・ペナルティダイス[-1] ＞ 92, 72 ＞ 92 ＞ レギュラー成功"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(1)<=53"
+output = "Cthulhu7th : (1D100<=53) ボーナス・ペナルティダイス[1] ＞ 92, 52 ＞ 52 ＞ レギュラー成功"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(+1)<=53"
+output = "Cthulhu7th : (1D100<=53) ボーナス・ペナルティダイス[1] ＞ 92, 52 ＞ 52 ＞ レギュラー成功"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(1)<=46"
+output = "Cthulhu7th : (1D100<=46) ボーナス・ペナルティダイス[1] ＞ 47, 37 ＞ 37 ＞ レギュラー成功"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(-1)<=46"
+output = "Cthulhu7th : (1D100<=46) ボーナス・ペナルティダイス[-1] ＞ 47, 37 ＞ 47 ＞ 失敗"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(1)<=63"
+output = "Cthulhu7th : (1D100<=63) ボーナス・ペナルティダイス[1] ＞ 100, 100 ＞ 100 ＞ ファンブル"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(-1)<=63"
+output = "Cthulhu7th : (1D100<=63) ボーナス・ペナルティダイス[-1] ＞ 100, 100 ＞ 100 ＞ ファンブル"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(1)<=63"
+output = "Cthulhu7th : (1D100<=63) ボーナス・ペナルティダイス[1] ＞ 1, 1 ＞ 1 ＞ クリティカル"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(-1)<=63"
+output = "Cthulhu7th : (1D100<=63) ボーナス・ペナルティダイス[-1] ＞ 1, 1 ＞ 1 ＞ クリティカル"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(0)<=53"
+output = "Cthulhu7th : (1D100<=53) ボーナス・ペナルティダイス[0] ＞ 52 ＞ 52 ＞ レギュラー成功"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC<=53"
+output = "Cthulhu7th : (1D100<=53) ボーナス・ペナルティダイス[0] ＞ 52 ＞ 52 ＞ レギュラー成功"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC<=5"
+output = "Cthulhu7th : (1D100<=5) ボーナス・ペナルティダイス[0] ＞ 2 ＞ 2 ＞ ハード成功"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(2)<=73"
+output = "Cthulhu7th : (1D100<=73) ボーナス・ペナルティダイス[2] ＞ 24, 14, 54 ＞ 14 ＞ イクストリーム成功"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(2)<=73"
+output = "Cthulhu7th : (1D100<=73) ボーナス・ペナルティダイス[2] ＞ 20, 100, 50 ＞ 20 ＞ ハード成功"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(-2)<=43"
+output = "Cthulhu7th : (1D100<=43) ボーナス・ペナルティダイス[-2] ＞ 97, 67, 37 ＞ 97 ＞ ファンブル"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(-2)<=80"
+output = "Cthulhu7th : (1D100<=80) ボーナス・ペナルティダイス[-2] ＞ 100, 60, 50 ＞ 100 ＞ ファンブル"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(-1)<=53"
+output = "Cthulhu7th : (1D100<=53) ボーナス・ペナルティダイス[-1] ＞ 97, 67 ＞ 97 ＞ 失敗"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC<=49"
+output = "Cthulhu7th : (1D100<=49) ボーナス・ペナルティダイス[0] ＞ 95 ＞ 95 ＞ 失敗"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC<=49"
+output = "Cthulhu7th : (1D100<=49) ボーナス・ペナルティダイス[0] ＞ 96 ＞ 96 ＞ ファンブル"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC<=50"
+output = "Cthulhu7th : (1D100<=50) ボーナス・ペナルティダイス[0] ＞ 99 ＞ 99 ＞ 失敗"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC<=50"
+output = "Cthulhu7th : (1D100<=50) ボーナス・ペナルティダイス[0] ＞ 100 ＞ 100 ＞ ファンブル"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(-3)<=80"
+output = "Cthulhu7th : エラー。ボーナス・ペナルティダイスの値は-2～2です。"
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(3)<=80"
+output = "Cthulhu7th : エラー。ボーナス・ペナルティダイスの値は-2～2です。"
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC<=0"
+output = "Cthulhu7th : 1D100 ＞ 33"
+rands = [
+  { sides = 100, value = 33 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(2)"
+output = "Cthulhu7th : (1D100) ボーナス・ペナルティダイス[2] ＞ 20, 100, 50 ＞ 20"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(2)<=0"
+output = "Cthulhu7th : (1D100) ボーナス・ペナルティダイス[2] ＞ 20, 100, 50 ＞ 20"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(-2)"
+output = "Cthulhu7th : (1D100) ボーナス・ペナルティダイス[-2] ＞ 97, 67, 37 ＞ 97"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC-1<=93 ペナルティダイス指定カッコなし"
+output = "Cthulhu7th : (1D100<=93) ボーナス・ペナルティダイス[-1] ＞ 92, 72 ＞ 92 ＞ レギュラー成功"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC1<=53 ボーナスダイス指定カッコなし"
+output = "Cthulhu7th : (1D100<=53) ボーナス・ペナルティダイス[1] ＞ 92, 52 ＞ 52 ＞ レギュラー成功"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC+1<=53 ボーナスダイス指定カッコなし"
+output = "Cthulhu7th : (1D100<=53) ボーナス・ペナルティダイス[1] ＞ 92, 52 ＞ 52 ＞ レギュラー成功"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(30,62,98)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 52 ＞ レギュラー成功　（3発が命中、0発が貫通）\n2回目: ＞ 11, 81 ＞ 失敗　（0発が命中、0発が貫通）\n3回目: ＞ 2, 2, 2 ＞ イクストリーム成功　（3発が命中、3発が貫通）\n【難易度がハードに変更】\n4回目: ＞ 98, 88, 78 ＞ ファンブル　ジャム\n＞ 6発が通常命中、3発が貫通、残弾12発"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(30,62,98,)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 52 ＞ レギュラー成功　（3発が命中、0発が貫通）\n2回目: ＞ 11, 81 ＞ 失敗　（0発が命中、0発が貫通）\n3回目: ＞ 2, 2, 2 ＞ イクストリーム成功　（3発が命中、3発が貫通）\n【難易度がハードに変更】\n4回目: ＞ 98, 88, 78 ＞ ファンブル　ジャム\n＞ 6発が通常命中、3発が貫通、残弾12発"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(30,62,98,,)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 52 ＞ レギュラー成功　（3発が命中、0発が貫通）\n2回目: ＞ 11, 81 ＞ 失敗　（0発が命中、0発が貫通）\n3回目: ＞ 2, 2, 2 ＞ イクストリーム成功　（3発が命中、3発が貫通）\n【難易度がハードに変更】\n4回目: ＞ 98, 88, 78 ＞ ファンブル　ジャム\n＞ 6発が通常命中、3発が貫通、残弾12発"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(30,62,98,-1)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-1]\n1回目: ＞ 11, 81 ＞ 失敗　（0発が命中、0発が貫通）\n2回目: ＞ 2, 2, 2 ＞ イクストリーム成功　（3発が命中、3発が貫通）\n【難易度がハードに変更】\n3回目: ＞ 98, 88, 78 ＞ ファンブル　ジャム\n＞ 3発が通常命中、3発が貫通、残弾18発"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(30,62,98,-1,)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-1]\n1回目: ＞ 11, 81 ＞ 失敗　（0発が命中、0発が貫通）\n2回目: ＞ 2, 2, 2 ＞ イクストリーム成功　（3発が命中、3発が貫通）\n【難易度がハードに変更】\n3回目: ＞ 98, 88, 78 ＞ ファンブル　ジャム\n＞ 3発が通常命中、3発が貫通、残弾18発"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(30,62,98,-2)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-2]\n1回目: ＞ 2, 2, 2 ＞ イクストリーム成功　（3発が命中、3発が貫通）\n【難易度がハードに変更】\n2回目: ＞ 98, 88, 78 ＞ ファンブル　ジャム\n＞ 3発が通常命中、3発が貫通、残弾24発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(30,1,98)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 1 ＞ クリティカル　（2発が命中、1発が貫通）\n2回目: ＞ 98, 88 ＞ ファンブル　ジャム\n＞ 2発が通常命中、1発が貫通、残弾27発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(30,14,98)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 2 ＞ イクストリーム成功　（2発が命中、1発が貫通）\n2回目: ＞ 98, 88 ＞ ファンブル　ジャム\n＞ 2発が通常命中、1発が貫通、残弾27発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(30,8,98)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 2 ＞ ハード成功　（1発が命中、0発が貫通）\n2回目: ＞ 98, 88 ＞ ファンブル　ジャム\n＞ 1発が通常命中、0発が貫通、残弾27発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(7,80,98) 貫通する弾丸の数＝そのロールで判定する弾丸の数/2（※ボレー/2ではない）"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 10 ＞ イクストリーム成功　（4発が命中、3発が貫通）\n＞ 4発が通常命中、3発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(7,80,98)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 50 ＞ レギュラー成功　（3発が命中、0発が貫通）\n＞ 3発が通常命中、0発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(7,99,98)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 98 ＞ レギュラー成功　ジャム\n＞ 0発が通常命中、0発が貫通、残弾7発"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(1,80,98)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 50 ＞ レギュラー成功　（1発が命中、0発が貫通）\n＞ 1発が通常命中、0発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(1,80,98)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 5 ＞ イクストリーム成功　（0発が命中、1発が貫通）\n＞ 0発が通常命中、1発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(1,99,98)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 97 ＞ レギュラー成功　（1発が命中、0発が貫通）\n＞ 1発が通常命中、0発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(1,99,98)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 98 ＞ レギュラー成功　ジャム\n＞ 0発が通常命中、0発が貫通、残弾1発"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(30,42,98,-2)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-2]\n1回目: ＞ 98, 88, 78 ＞ ファンブル　ジャム\n＞ 0発が通常命中、0発が貫通、残弾30発"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(30,42,98,-1)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-1]\n1回目: ＞ 98, 88 ＞ ファンブル　ジャム\n＞ 0発が通常命中、0発が貫通、残弾30発"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(40,82,97,1)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[1]\n1回目: ＞ 52, 22 ＞ ハード成功　（4発が命中、0発が貫通）\n2回目: ＞ 1 ＞ クリティカル　（4発が命中、4発が貫通）\n3回目: ＞ 15, 85 ＞ 失敗　（0発が命中、0発が貫通）\n4回目: ＞ 3, 13, 3 ＞ イクストリーム成功　（4発が命中、4発が貫通）\n【難易度がハードに変更】\n5回目: ＞ 98, 88, 78 ＞ ファンブル　ジャム\n＞ 12発が通常命中、8発が貫通、残弾8発"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(40,82,97,2)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[2]\n1回目: ＞ 61, 71, 21 ＞ ハード成功　（4発が命中、0発が貫通）\n2回目: ＞ 80, 70 ＞ レギュラー成功　（4発が命中、0発が貫通）\n3回目: ＞ 65 ＞ レギュラー成功　（4発が命中、0発が貫通）\n4回目: ＞ 15, 85 ＞ 失敗　（0発が命中、0発が貫通）\n5回目: ＞ 44, 14, 74 ＞ レギュラー成功　（4発が命中、0発が貫通）\n＞ 16発が通常命中、0発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(38,82,97,2)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[2]\n1回目: ＞ 61, 71, 21 ＞ ハード成功　（4発が命中、0発が貫通）\n2回目: ＞ 80, 70 ＞ レギュラー成功　（4発が命中、0発が貫通）\n3回目: ＞ 65 ＞ レギュラー成功　（4発が命中、0発が貫通）\n4回目: ＞ 15, 85 ＞ 失敗　（0発が命中、0発が貫通）\n5回目: ＞ 44, 14, 74 ＞ レギュラー成功　（3発が命中、0発が貫通）\n＞ 15発が通常命中、0発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(72,82,97,2)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[2]\n1回目: ＞ 61, 71, 21 ＞ ハード成功　（4発が命中、0発が貫通）\n2回目: ＞ 80, 70 ＞ レギュラー成功　（4発が命中、0発が貫通）\n3回目: ＞ 65 ＞ レギュラー成功　（4発が命中、0発が貫通）\n4回目: ＞ 15, 85 ＞ 失敗　（0発が命中、0発が貫通）\n5回目: ＞ 44, 14, 74 ＞ レギュラー成功　（4発が命中、0発が貫通）\n【難易度がハードに変更】\n6回目: ＞ 28, 88, 78 ＞ 失敗　（0発が命中、0発が貫通）\n【難易度がイクストリームに変更】\n7回目: ＞ 83, 33, 33 ＞ 失敗　（0発が命中、0発が貫通）\n【難易度がクリティカルに変更】\n8回目: ＞ 68, 48, 68 ＞ レギュラー成功　（0発が命中、0発が貫通）\n＞ 16発が通常命中、0発が貫通、残弾8発"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(72,82,97,2)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[2]\n1回目: ＞ 61, 71, 21 ＞ ハード成功　（4発が命中、0発が貫通）\n2回目: ＞ 90, 70 ＞ レギュラー成功　（4発が命中、0発が貫通）\n3回目: ＞ 65 ＞ レギュラー成功　（4発が命中、0発が貫通）\n4回目: ＞ 15, 95 ＞ 失敗　（0発が命中、0発が貫通）\n5回目: ＞ 44, 14, 74 ＞ レギュラー成功　（4発が命中、0発が貫通）\n【難易度がハードに変更】\n6回目: ＞ 58, 68, 78 ＞ レギュラー成功　（0発が命中、0発が貫通）\n【難易度がイクストリームに変更】\n7回目: ＞ 23, 33, 23 ＞ ハード成功　（0発が命中、0発が貫通）\n【難易度がクリティカルに変更】\n8回目: ＞ 16, 6, 16 ＞ イクストリーム成功　（0発が命中、0発が貫通）\n＞ 16発が通常命中、0発が貫通、残弾8発"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(72,82,97,2)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[2]\n1回目: ＞ 61, 71, 21 ＞ ハード成功　（4発が命中、0発が貫通）\n2回目: ＞ 90, 70 ＞ レギュラー成功　（4発が命中、0発が貫通）\n3回目: ＞ 65 ＞ レギュラー成功　（4発が命中、0発が貫通）\n4回目: ＞ 15, 95 ＞ 失敗　（0発が命中、0発が貫通）\n5回目: ＞ 44, 14, 74 ＞ レギュラー成功　（4発が命中、0発が貫通）\n【難易度がハードに変更】\n6回目: ＞ 28, 38, 18 ＞ ハード成功　（4発が命中、0発が貫通）\n【難易度がイクストリームに変更】\n7回目: ＞ 13, 3, 13 ＞ イクストリーム成功　（4発が命中、4発が貫通）\n【難易度がクリティカルに変更】\n8回目: ＞ 1, 1, 1 ＞ クリティカル　（4発が命中、0発が貫通）\n＞ 28発が通常命中、4発が貫通、残弾8発"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(120,82,97,-2)"
+output = "Cthulhu7th : 弾薬が多すぎます。装填された弾薬を100発に変更します。\nボーナス・ペナルティダイス[-2]\n1回目: ＞ 60, 100, 20 ＞ ファンブル　ジャム\n＞ 0発が通常命中、0発が貫通、残弾100発"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(120,82,97,3)"
+output = "Cthulhu7th : エラー。ボーナス・ペナルティダイスの値は-2～2です。"
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(38,99,97,-1)"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-1]\n1回目: ＞ 78, 98 ＞ レギュラー成功　ジャム\n＞ 0発が通常命中、0発が貫通、残弾38発"
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(0,0,98)"
+output = "Cthulhu7th : 弾薬は正の数です。"
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(1,98,5)    故障ナンバーが極端に低いありえない場合の処理"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 8 ＞ イクストリーム成功　ジャム\n＞ 0発が通常命中、0発が貫通、残弾1発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(3,98,5)    故障ナンバーが極端に低いありえない場合の処理"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 8 ＞ イクストリーム成功　ジャム\n＞ 0発が通常命中、0発が貫通、残弾3発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(1,98,5)    故障ナンバーが極端に低いありえない場合の処理"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 58 ＞ レギュラー成功　ジャム\n＞ 0発が通常命中、0発が貫通、残弾1発"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(3,98,5)    故障ナンバーが極端に低いありえない場合の処理"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 58 ＞ レギュラー成功　ジャム\n＞ 0発が通常命中、0発が貫通、残弾3発"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(3,18,5)    故障ナンバーが極端に低いありえない場合の処理"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 18 ＞ レギュラー成功　ジャム\n＞ 0発が通常命中、0発が貫通、残弾3発"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(3,8,5)    故障ナンバーが極端に低いありえない場合の処理"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 8 ＞ レギュラー成功　ジャム\n＞ 0発が通常命中、0発が貫通、残弾3発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(1,99,-98)    故障ナンバーにマイナスがついている場合、絶対値を付ける処理の確認"
+output = "Cthulhu7th : 故障ナンバーは正の数です。マイナス記号を外します。\nボーナス・ペナルティダイス[0]\n1回目: ＞ 8 ＞ イクストリーム成功　（0発が命中、1発が貫通）\n＞ 0発が通常命中、1発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(-1,99,98)    弾数がマイナスの異常パターン。"
+output = "Cthulhu7th : 弾薬は正の数です。"
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(1,-99,-98)    目標値がマイナスの異常パターン。"
+output = "Cthulhu7th : 目標値は正の数です。"
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(1,99,98,3)    ボーナスダイス異常パターン"
+output = "Cthulhu7th : エラー。ボーナス・ペナルティダイスの値は-2～2です。"
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(60,50,99,1,r)    通常難易度のみで連射を終える。ボーナスダイス1。"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[1]\n1回目: ＞ 94, 74 ＞ 失敗　（0発が命中、0発が貫通）\n2回目: ＞ 19 ＞ ハード成功　（2発が命中、0発が貫通）\n3回目: ＞ 84, 44 ＞ 失敗　（0発が命中、0発が貫通）\n4回目: ＞ 47, 97, 37 ＞ 失敗　（0発が命中、0発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 2発が通常命中、0発が貫通、残弾40発"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(60,50,99,,r)    通常難易度のみで連射を終える。ボーナスダイス0。"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 19 ＞ ハード成功　（2発が命中、0発が貫通）\n2回目: ＞ 84, 44 ＞ 失敗　（0発が命中、0発が貫通）\n3回目: ＞ 47, 97, 37 ＞ 失敗　（0発が命中、0発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 2発が通常命中、0発が貫通、残弾45発"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(45,70,98,,h)    困難難易度のみで連射を終える。ボーナスダイス0。ジャムで終了。"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 40 ＞ レギュラー成功　（3発が命中、0発が貫通）\n2回目: ＞ 48, 78 ＞ 失敗　（0発が命中、0発が貫通）\n3回目: ＞ 39, 99, 79 ＞ 失敗　ジャム\n＞ 3発が通常命中、0発が貫通、残弾31発"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(45,70,98,,h)    困難難易度のみで連射を終える。ボーナスダイス0。"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 28 ＞ ハード成功　（3発が命中、0発が貫通）\n2回目: ＞ 25, 65 ＞ レギュラー成功　（3発が命中、0発が貫通）\n3回目: ＞ 33, 63, 73 ＞ 失敗　（0発が命中、0発が貫通）\n【難易度がハードに変更】\n4回目: ＞ 18, 58, 38 ＞ レギュラー成功　（0発が命中、0発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 6発が通常命中、0発が貫通、残弾17発"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(45,70,98,-2,e)    極限難易度のみで連射を終える。ボーナスダイス-2。"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-2]\n1回目: ＞ 55, 95, 5 ＞ 失敗　（0発が命中、0発が貫通）\n【難易度がハードに変更】\n2回目: ＞ 76, 86, 46 ＞ 失敗　（0発が命中、0発が貫通）\n【難易度がイクストリームに変更】\n3回目: ＞ 43, 53, 33 ＞ レギュラー成功　（0発が命中、0発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 0発が通常命中、0発が貫通、残弾24発"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(45,70,100,-2,e)    極限難易度のみで連射を終える。ボーナスダイス-2。ファンブル。"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-2]\n1回目: ＞ 20, 100, 40 ＞ ファンブル　ジャム\n＞ 0発が通常命中、0発が貫通、残弾45発"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(45,70,96,-2,e)    極限難易度のみで連射を終える。ボーナスダイス-2。ファンブル ジャム。"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-2]\n1回目: ＞ 12, 72, 22 ＞ 失敗　（0発が命中、0発が貫通）\n【難易度がハードに変更】\n2回目: ＞ 60, 30, 30 ＞ レギュラー成功　（0発が命中、0発が貫通）\n【難易度がイクストリームに変更】\n3回目: ＞ 18, 98, 28 ＞ ファンブル　ジャム\n＞ 0発が通常命中、0発が貫通、残弾31発"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "BMS"
+output = "Cthulhu7th : 狂気の発作（サマリー）(7) ＞ 収容：探索者は精神療養施設あるいは警察の留置所で意識を取り戻す。探索者は徐々にそこにいたった出来事を思い出すかもしれない。(1D10＞7時間)"
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "BMR"
+output = "Cthulhu7th : 狂気の発作（リアルタイム）(5) ＞ 重要な人々：探索者のバックストーリーの重要な人々を見直す。探索者はその場にいた人物を、自分にとっての重要な人々だと思い込む。人間関係の性質を考慮した上で、探索者はそれに従って行動する。1D10ラウンド続く。(1D10＞3ラウンド)"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "PH"
+output = "Cthulhu7th : 恐怖症表(1) ＞ 入浴恐怖症：体、手、顔を洗うのが怖い。"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "PH"
+output = "Cthulhu7th : 恐怖症表(36) ＞ ピン恐怖症：針やピンが怖い。"
+rands = [
+  { sides = 100, value = 36 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "PH"
+output = "Cthulhu7th : 恐怖症表(100) ＞ 動物恐怖症：動物が怖い。"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "MA"
+output = "Cthulhu7th : マニア表(1) ＞ 洗浄マニア：自分の体を洗わずにはいられない。"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "MA"
+output = "Cthulhu7th : マニア表(30) ＞ ピエロマニア：ピエロへの執着。"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "MA"
+output = "Cthulhu7th : マニア表(100) ＞ 動物マニア：動物への正気でない溺愛。"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FCL"
+output = "Cthulhu7th : キャスティング・ロール失敗(小)表(1) ＞ 視界がぼんやりするか、あるいは一時的な失明。"
+rands = [
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FCL"
+output = "Cthulhu7th : キャスティング・ロール失敗(小)表(5) ＞ 奇妙な幻視と幻覚。"
+rands = [
+  { sides = 8, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FCL"
+output = "Cthulhu7th : キャスティング・ロール失敗(小)表(8) ＞ クトゥルフ神話の怪物が偶然召喚される。"
+rands = [
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FCM"
+output = "Cthulhu7th : キャスティング・ロール失敗(大)表(1) ＞ 大地が震え、壁に亀裂が入って崩れる。"
+rands = [
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FCM"
+output = "Cthulhu7th : キャスティング・ロール失敗(大)表(3) ＞ 血が空から降る。"
+rands = [
+  { sides = 8, value = 3 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FCM"
+output = "Cthulhu7th : キャスティング・ロール失敗(大)表(8) ＞ クトゥルフ神話の神格が偶然招来される。"
+rands = [
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "cc    ccのみで可能に"
+output = "Cthulhu7th : 1D100 ＞ 19"
+rands = [
+  { sides = 100, value = 19 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(60,50,99,1,r)    貫通時の処理のテストデータ抜けがあったので追加。"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[1]\n1回目: ＞ 94, 4 ＞ イクストリーム成功　（3発が命中、2発が貫通）\n2回目: ＞ 19 ＞ ハード成功　（2発が命中、0発が貫通）\n3回目: ＞ 84, 44 ＞ 失敗　（0発が命中、0発が貫通）\n4回目: ＞ 47, 97, 37 ＞ 失敗　（0発が命中、0発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 5発が通常命中、2発が貫通、残弾40発"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(60,20,99,1,r)    最低のボレー数が3との記述を見逃してたので追加。"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[1]\n1回目: ＞ 94, 4 ＞ イクストリーム成功　（2発が命中、1発が貫通）\n2回目: ＞ 19 ＞ レギュラー成功　（1発が命中、0発が貫通）\n3回目: ＞ 84, 44 ＞ 失敗　（0発が命中、0発が貫通）\n4回目: ＞ 47, 97, 37 ＞ ファンブル　（0発が命中、0発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 3発が通常命中、1発が貫通、残弾48発"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(7,80,98) 通常命中する弾丸の数＝そのロールで判定する弾丸の数/2（※ボレー/2ではない）"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 19 ＞ ハード成功　（3発が命中、0発が貫通）\n＞ 3発が通常命中、0発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(21,90,99,1,r)    2020/04/02修正内容の総合テスト1"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[1]\n1回目: ＞ 94, 4 ＞ イクストリーム成功　（5発が命中、4発が貫通）\n2回目: ＞ 19 ＞ ハード成功　（4発が命中、0発が貫通）\n3回目: ＞ 84, 44 ＞ レギュラー成功　（1発が命中、0発が貫通）\n＞ 10発が通常命中、4発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(7,10,99,1,r)    2020/04/02修正内容の総合テスト2"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[1]\n1回目: ＞ 92, 2 ＞ イクストリーム成功　（2発が命中、1発が貫通）\n2回目: ＞ 5 ＞ ハード成功　（1発が命中、0発が貫通）\n3回目: ＞ 1, 1 ＞ クリティカル　（0発が命中、1発が貫通）\n＞ 3発が通常命中、2発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(8,10,99,1,r)    2020/04/02修正内容の総合テスト3"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[1]\n1回目: ＞ 92, 2 ＞ イクストリーム成功　（2発が命中、1発が貫通）\n2回目: ＞ 5 ＞ ハード成功　（1発が命中、0発が貫通）\n3回目: ＞ 1, 1 ＞ クリティカル　（1発が命中、1発が貫通）\n＞ 4発が通常命中、2発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(8,10,99,-2,r)    2020/07/11追加機能テスト1"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-2]\n1回目: ＞ 100, 100, 100 ＞ ファンブル　ジャム\n＞ 0発が通常命中、0発が貫通、残弾8発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(8,10,99,-2,r,)    2020/07/11追加機能テスト2"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-2]\n1回目: ＞ 100, 100, 100 ＞ ファンブル　ジャム\n＞ 0発が通常命中、0発が貫通、残弾8発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(20,50,99,-2,r,5)    2020/07/11追加機能テスト3"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-2]\n1回目: ＞ 67, 87, 87 ＞ 失敗　（0発が命中、0発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 0発が通常命中、0発が貫通、残弾15発"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(20,50,99,-2,r,6)    2020/07/11追加機能テスト4"
+output = "Cthulhu7th : ボレーの弾丸の数の上限は[技能値÷10（切り捨て）]発なので、それより高い数を指定できません。ボレーの弾丸の数を5発に変更します。\nボーナス・ペナルティダイス[-2]\n1回目: ＞ 67, 87, 87 ＞ 失敗　（0発が命中、0発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 0発が通常命中、0発が貫通、残弾15発"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(20,50,99,-2,r,4)    2020/07/11追加機能テスト5"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-2]\n1回目: ＞ 67, 87, 87 ＞ 失敗　（0発が命中、0発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 0発が通常命中、0発が貫通、残弾16発"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(20,50,99,-2,r,5)    2020/07/11追加機能テスト6"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-2]\n1回目: ＞ 7, 7, 7 ＞ イクストリーム成功　（3発が命中、2発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 3発が通常命中、2発が貫通、残弾15発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(20,50,99,-2,r,4)    2020/07/11追加機能テスト7"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-2]\n1回目: ＞ 7, 7, 7 ＞ イクストリーム成功　（2発が命中、2発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 2発が通常命中、2発が貫通、残弾16発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(20,50,99,-2,r,3)    2020/07/11追加機能テスト8"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[-2]\n1回目: ＞ 7, 7, 7 ＞ イクストリーム成功　（2発が命中、1発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 2発が通常命中、1発が貫通、残弾17発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(20,50,99,-2,r,2)    2020/07/11追加機能テスト9"
+output = "Cthulhu7th : ボレーの弾丸の数の下限は3発です。ボレーの弾丸の数を3発に変更します。\nボーナス・ペナルティダイス[-2]\n1回目: ＞ 7, 7, 7 ＞ イクストリーム成功　（2発が命中、1発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 2発が通常命中、1発が貫通、残弾17発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(20,50,99,-2,r,1)    2020/07/11追加機能テスト10"
+output = "Cthulhu7th : ボレーの弾丸の数の下限は3発です。ボレーの弾丸の数を3発に変更します。\nボーナス・ペナルティダイス[-2]\n1回目: ＞ 7, 7, 7 ＞ イクストリーム成功　（2発が命中、1発が貫通）\n【指定の難易度となったので、処理を終了します。】\n＞ 2発が通常命中、1発が貫通、残弾17発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(20,50,99,-2,r,0)    2020/07/11追加機能テスト11"
+output = "Cthulhu7th : ボレーの弾丸の数は正の数です。"
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(20,50,99,-2,r,-1)    2020/07/11追加機能テスト12"
+output = "Cthulhu7th : ボレーの弾丸の数は正の数です。"
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(6,50,99,,,1)    2020/07/11追加機能テスト13"
+output = "Cthulhu7th : ボレーの弾丸の数の下限は3発です。ボレーの弾丸の数を3発に変更します。\nボーナス・ペナルティダイス[0]\n1回目: ＞ 7 ＞ イクストリーム成功　（2発が命中、1発が貫通）\n2回目: ＞ 11, 1 ＞ ハード成功　（1発が命中、0発が貫通）\n＞ 3発が通常命中、1発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(6,12,99,,,4)    2020/07/11追加機能テスト14"
+output = "Cthulhu7th : 技能値が39以下ではボレーの弾丸の数の上限および下限は3発です。ボレーの弾丸の数を3発に変更します。\nボーナス・ペナルティダイス[0]\n1回目: ＞ 1 ＞ クリティカル　（2発が命中、1発が貫通）\n2回目: ＞ 11, 1 ＞ レギュラー成功　（1発が命中、0発が貫通）\n＞ 3発が通常命中、1発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(6,12,99,,,3)    2020/07/11追加機能テスト15"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 1 ＞ クリティカル　（2発が命中、1発が貫通）\n2回目: ＞ 11, 1 ＞ レギュラー成功　（1発が命中、0発が貫通）\n＞ 3発が通常命中、1発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(6,12,99,,,2)    2020/07/11追加機能テスト16"
+output = "Cthulhu7th : ボレーの弾丸の数の下限は3発です。ボレーの弾丸の数を3発に変更します。\nボーナス・ペナルティダイス[0]\n1回目: ＞ 1 ＞ クリティカル　（2発が命中、1発が貫通）\n2回目: ＞ 11, 1 ＞ レギュラー成功　（1発が命中、0発が貫通）\n＞ 3発が通常命中、1発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(6,12,99,,,)    2020/07/11追加機能テスト17"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 1 ＞ クリティカル　（2発が命中、1発が貫通）\n2回目: ＞ 11, 1 ＞ レギュラー成功　（1発が命中、0発が貫通）\n＞ 3発が通常命中、1発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(6,39,99,,,1)    2020/07/11追加機能テスト18"
+output = "Cthulhu7th : ボレーの弾丸の数の下限は3発です。ボレーの弾丸の数を3発に変更します。\nボーナス・ペナルティダイス[0]\n1回目: ＞ 7 ＞ イクストリーム成功　（2発が命中、1発が貫通）\n2回目: ＞ 11, 1 ＞ ハード成功　（1発が命中、0発が貫通）\n＞ 3発が通常命中、1発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(6,39,99,,,3)    2020/07/11追加機能テスト19"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 7 ＞ イクストリーム成功　（2発が命中、1発が貫通）\n2回目: ＞ 11, 1 ＞ ハード成功　（1発が命中、0発が貫通）\n＞ 3発が通常命中、1発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(6,39,99,,,4)    2020/07/11追加機能テスト20"
+output = "Cthulhu7th : 技能値が39以下ではボレーの弾丸の数の上限および下限は3発です。ボレーの弾丸の数を3発に変更します。\nボーナス・ペナルティダイス[0]\n1回目: ＞ 7 ＞ イクストリーム成功　（2発が命中、1発が貫通）\n2回目: ＞ 11, 1 ＞ ハード成功　（1発が命中、0発が貫通）\n＞ 3発が通常命中、1発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(6,40,99,,,4)    2020/07/11追加機能テスト21"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 7 ＞ イクストリーム成功　（2発が命中、2発が貫通）\n2回目: ＞ 11, 1 ＞ ハード成功　（1発が命中、0発が貫通）\n＞ 3発が通常命中、2発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(6,40,99,,,5)    2020/07/11追加機能テスト22"
+output = "Cthulhu7th : ボレーの弾丸の数の上限は[技能値÷10（切り捨て）]発なので、それより高い数を指定できません。ボレーの弾丸の数を4発に変更します。\nボーナス・ペナルティダイス[0]\n1回目: ＞ 7 ＞ イクストリーム成功　（2発が命中、2発が貫通）\n2回目: ＞ 11, 1 ＞ ハード成功　（1発が命中、0発が貫通）\n＞ 3発が通常命中、2発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(6,40,99,,,3)    2020/07/11追加機能テスト23"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 7 ＞ イクストリーム成功　（2発が命中、1発が貫通）\n2回目: ＞ 11, 1 ＞ ハード成功　（1発が命中、0発が貫通）\n＞ 3発が通常命中、1発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "FAR(6,40,99)    2020/07/11追加機能テスト24"
+output = "Cthulhu7th : ボーナス・ペナルティダイス[0]\n1回目: ＞ 7 ＞ イクストリーム成功　（2発が命中、2発が貫通）\n2回目: ＞ 11, 1 ＞ ハード成功　（1発が命中、0発が貫通）\n＞ 3発が通常命中、2発が貫通、残弾0発"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]

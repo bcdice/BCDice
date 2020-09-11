@@ -1,0 +1,56 @@
+[[ test ]]
+game_system = "IthaWenUa"
+input = "1D100<=50 成功"
+output = "IthaWenUa : (1D100<=50) ＞ 50 ＞ 成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "IthaWenUa"
+input = "1D100<=50 失敗"
+output = "IthaWenUa : (1D100<=50) ＞ 51 ＞ 失敗"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "IthaWenUa"
+input = "1D100<=99 成功"
+output = "IthaWenUa : (1D100<=99) ＞ 99 ＞ 成功"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "IthaWenUa"
+input = "1D100<=1 クリティカル"
+output = "IthaWenUa : (1D100<=1) ＞ 1 ＞ 01 ＞ クリティカル"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "IthaWenUa"
+input = "1D100<=100 ファンブル"
+output = "IthaWenUa : (1D100<=100) ＞ 100 ＞ 00 ＞ ファンブル"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "IthaWenUa"
+input = "S1D100<=70"
+output = "IthaWenUa : (1D100<=70) ＞ 1 ＞ 01 ＞ クリティカル"
+secret = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "IthaWenUa"
+input = "1D100>=? 目標値?でバグらない"
+output = "IthaWenUa : (1D100>=?) ＞ 42 ＞ 失敗"
+rands = [
+  { sides = 100, value = 42 },
+]

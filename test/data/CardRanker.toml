@@ -1,0 +1,344 @@
+[[ test ]]
+game_system = "CardRanker"
+input = "RM"
+output = "CardRanker : ランダムモンスター選択(1,12) ＞ 白の12：軍神"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "RM"
+output = "CardRanker : ランダムモンスター選択(2,12) ＞ 青の12：水精霊"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "RM"
+output = "CardRanker : ランダムモンスター選択(3,12) ＞ 緑の12：森精霊"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "RM"
+output = "CardRanker : ランダムモンスター選択(4,12) ＞ 金の12：土精霊"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "RM"
+output = "CardRanker : ランダムモンスター選択(5,12) ＞ 赤の12：火精霊"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "RM"
+output = "CardRanker : ランダムモンスター選択(6,12) ＞ 黒の12：邪神"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "RM"
+output = "CardRanker : ランダムモンスター選択(1,2) ＞ 白の2：白竜"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "RM"
+output = "CardRanker : ランダムモンスター選択(5,8) ＞ 赤の8：大鬼"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "CMW12"
+output = "CardRanker : モンスター選択 ＞ 白の12：軍神"
+rands = []
+
+[[ test ]]
+game_system = "CardRanker"
+input = "cMb2"
+output = "CardRanker : モンスター選択 ＞ 黒の2：黒竜"
+rands = []
+
+[[ test ]]
+game_system = "CardRanker"
+input = "CmU7"
+output = "CardRanker : モンスター選択 ＞ 青の7：探偵"
+rands = []
+
+[[ test ]]
+game_system = "CardRanker"
+input = "CmV3"
+output = "CardRanker : モンスター選択 ＞ 緑の3：ワーム"
+rands = []
+
+[[ test ]]
+game_system = "CardRanker"
+input = "CmG10"
+output = "CardRanker : モンスター選択 ＞ 金の10：運命"
+rands = []
+
+[[ test ]]
+game_system = "CardRanker"
+input = "CmR11"
+output = "CardRanker : モンスター選択 ＞ 赤の11：炎"
+rands = []
+
+[[ test ]]
+game_system = "CardRanker"
+input = "CMX1"
+output =
+rands = []
+
+[[ test ]]
+game_system = "CardRanker"
+input = "CMW1"
+output =
+rands = []
+
+[[ test ]]
+game_system = "CardRanker"
+input = "CMW99"
+output =
+rands = []
+
+[[ test ]]
+game_system = "CardRanker"
+input = "2d6>=7"
+output = "CardRanker : (2D6>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "2d6>=7"
+output = "CardRanker : (2D6>=7) ＞ 5[2,3] ＞ 5 ＞ 失敗"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "2d6>=7"
+output = "CardRanker : (2D6>=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "2d6>=7"
+output = "CardRanker : (2D6>=7) ＞ 12[6,6] ＞ 12 ＞ スペシャル ＞ ランダムモンスター選択(2,7) ＞ 青の7：探偵"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "BFT"
+output = "CardRanker : バトルフィールド表(6) ＞ デスルール/戦闘フェイズでも死亡判定が発声する。また、戦闘不能になったキャラクターは即座に死亡判定を行う。ただし、攻撃を行った側がデスルールを使用しないことを選択すれば、死亡判定は発生しない。//モンスターによって実際のダメージを与える、死の危険性があるルール。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "CDT"
+output = "CardRanker : 崩壊運命表(6) ＞ 崩壊していく大地。泣き叫ぶ人々の声。あなたはこの状況を作ったのが、あなたの身内であると知る。ダークカードの手から身内を救うためにも、あなたはカードを手にとった。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "CST"
+output = "CardRanker : 街中場所表(6) ＞ プール/都会にあるプール。都会の生活に疲れた人々が集まる場所。時おり、ソウルカードの戦いも見られる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "DT"
+output = "CardRanker : 運命表(6) ＞ ダークランカーとあなたは偶然にも出会ってしまった。ダークランカーは危険な存在だ。見てしまった以上、放っておくわけにはいかない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "GDT"
+output = "CardRanker : 学園運命表(6) ＞ ダークランカーの影響を受け、授業や部活動はまともにできなくなってしまった。あなたは元の学校生活を再開させるためにも、調査を始めた。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "OST"
+output = "CardRanker : 郊外場所表(6) ＞ 海川/海や川。山と同じくカードの精霊たちが住んでいる場所だ。安らげる場所でもあり、休憩している人がソウルカードをしている。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "GST"
+output = "CardRanker : 学園場所表(6) ＞ 部活棟/部活をやる者のために用意された場所。しかし、サボってソウルカードをやっているところも。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "ST"
+output = "CardRanker : 場所表(6) ＞ 水辺/プールや海岸など、水が近くに存在する場所。ひとまず、ここでひと息つけそうだ。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "TDT"
+output = "CardRanker : 大会運命表(6) ＞ あなたは大会に出場し、優勝候補と言われているカードランカーだ。だが、そんなキミをダークランカーは襲った。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "WT"
+output = "CardRanker : 変調表(6) ＞ 暗闇/「タイプ：支援」のモンスターカードを使用できない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "SRM"
+output = "CardRanker : ランダムモンスター選択(1,12) ＞ 白の12：軍神"
+secret = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "SST"
+output = "CardRanker : 場所表(6) ＞ 水辺/プールや海岸など、水が近くに存在する場所。ひとまず、ここでひと息つけそうだ。"
+secret = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "SCST"
+output = "CardRanker : 街中場所表(6) ＞ プール/都会にあるプール。都会の生活に疲れた人々が集まる場所。時おり、ソウルカードの戦いも見られる。"
+secret = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "SOST"
+output = "CardRanker : 郊外場所表(6) ＞ 海川/海や川。山と同じくカードの精霊たちが住んでいる場所だ。安らげる場所でもあり、休憩している人がソウルカードをしている。"
+secret = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "SGST"
+output = "CardRanker : 学園場所表(6) ＞ 部活棟/部活をやる者のために用意された場所。しかし、サボってソウルカードをやっているところも。"
+secret = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "SDT"
+output = "CardRanker : 運命表(6) ＞ ダークランカーとあなたは偶然にも出会ってしまった。ダークランカーは危険な存在だ。見てしまった以上、放っておくわけにはいかない。"
+secret = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "STDT"
+output = "CardRanker : 大会運命表(6) ＞ あなたは大会に出場し、優勝候補と言われているカードランカーだ。だが、そんなキミをダークランカーは襲った。"
+secret = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "SGDT"
+output = "CardRanker : 学園運命表(6) ＞ ダークランカーの影響を受け、授業や部活動はまともにできなくなってしまった。あなたは元の学校生活を再開させるためにも、調査を始めた。"
+secret = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "SCDT"
+output = "CardRanker : 崩壊運命表(6) ＞ 崩壊していく大地。泣き叫ぶ人々の声。あなたはこの状況を作ったのが、あなたの身内であると知る。ダークカードの手から身内を救うためにも、あなたはカードを手にとった。"
+secret = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "2D6>=? 目標値?でバグらない"
+output = "CardRanker : (2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]

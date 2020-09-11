@@ -55,7 +55,7 @@ namespace :test do
 
     t.test_files = [
       "test/setup",
-      "test/testDiceBots.rb",
+      "test/test_game_system_commands.rb",
     ]
     t.libs = [
       "test/",

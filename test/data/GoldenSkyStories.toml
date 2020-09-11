@@ -1,0 +1,48 @@
+[[ test ]]
+game_system = "GoldenSkyStories"
+input = "1d6"
+output = "GoldenSkyStories : (1D6) ＞ 2"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "GoldenSkyStories"
+input = "2d6"
+output = "GoldenSkyStories : (2D6) ＞ 2[1,1] ＞ 2"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GoldenSkyStories"
+input = "geta\t[1]"
+output = "GoldenSkyStories : geta ＞ 下駄占い ＞ 裏：あめ"
+rands = [
+  { sides = 7, value = 1 },
+]
+
+[[ test ]]
+game_system = "GoldenSkyStories"
+input = "geta\t[3]"
+output = "GoldenSkyStories : geta ＞ 下駄占い ＞ 裏：あめ"
+rands = [
+  { sides = 7, value = 3 },
+]
+
+[[ test ]]
+game_system = "GoldenSkyStories"
+input = "geta\t[6]"
+output = "GoldenSkyStories : geta ＞ 下駄占い ＞ 表：はれ"
+rands = [
+  { sides = 7, value = 6 },
+]
+
+[[ test ]]
+game_system = "GoldenSkyStories"
+input = "geta\t[7]"
+output = "GoldenSkyStories : geta ＞ 下駄占い ＞ 横：くもり"
+rands = [
+  { sides = 7, value = 7 },
+]

@@ -1,0 +1,73 @@
+[[ test ]]
+game_system = "Paranoia"
+input = "1d20"
+output = "Paranoia : (1D20) ＞ 1"
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Paranoia"
+input = "2d20"
+output = "Paranoia : (2D20) ＞ 2[1,1] ＞ 2"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Paranoia"
+input = "1d20<=15"
+output = "Paranoia : (1D20<=15) ＞ 14 ＞ 成功"
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "Paranoia"
+input = "1d20<15"
+output = "Paranoia : (1D20<15) ＞ 15 ＞ 失敗"
+rands = [
+  { sides = 20, value = 15 },
+]
+
+[[ test ]]
+game_system = "Paranoia"
+input = "1d20<=15"
+output = "Paranoia : (1D20<=15) ＞ 16 ＞ 失敗"
+rands = [
+  { sides = 20, value = 16 },
+]
+
+[[ test ]]
+game_system = "Paranoia"
+input = "S1d20<=15"
+output = "Paranoia : (1D20<=15) ＞ 16 ＞ 失敗"
+secret = true
+rands = [
+  { sides = 20, value = 16 },
+]
+
+[[ test ]]
+game_system = "Paranoia"
+input = "1d20<=15"
+output = "Paranoia : (1D20<=15) ＞ 20 ＞ 失敗"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Paranoia"
+input = "geta\t[1]"
+output = "Paranoia : geta ＞ 幸福ですか？ ＞ 幸福です"
+rands = [
+  { sides = 2, value = 1 },
+]
+
+[[ test ]]
+game_system = "Paranoia"
+input = "geta\t[2]"
+output = "Paranoia : geta ＞ 幸福ですか？ ＞ 幸福ではありません"
+rands = [
+  { sides = 2, value = 2 },
+]

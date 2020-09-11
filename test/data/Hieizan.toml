@@ -1,0 +1,247 @@
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=10"
+output = "Hieizan : (1D100<=10) ＞ 55 ＞ 失敗"
+rands = [
+  { sides = 100, value = 55 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=10"
+output = "Hieizan : (1D100<=10) ＞ 76 ＞ 失敗"
+rands = [
+  { sides = 100, value = 76 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=10"
+output = "Hieizan : (1D100<=10) ＞ 29 ＞ 失敗"
+rands = [
+  { sides = 100, value = 29 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=10"
+output = "Hieizan : (1D100<=10) ＞ 7 ＞ 成功"
+rands = [
+  { sides = 100, value = 7 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=10"
+output = "Hieizan : (1D100<=10) ＞ 63 ＞ 失敗"
+rands = [
+  { sides = 100, value = 63 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=10"
+output = "Hieizan : (1D100<=10) ＞ 67 ＞ 失敗"
+rands = [
+  { sides = 100, value = 67 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=10"
+output = "Hieizan : (1D100<=10) ＞ 59 ＞ 失敗"
+rands = [
+  { sides = 100, value = 59 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=10"
+output = "Hieizan : (1D100<=10) ＞ 60 ＞ 失敗"
+rands = [
+  { sides = 100, value = 60 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=10"
+output = "Hieizan : (1D100<=10) ＞ 17 ＞ 失敗"
+rands = [
+  { sides = 100, value = 17 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=10"
+output = "Hieizan : (1D100<=10) ＞ 54 ＞ 失敗"
+rands = [
+  { sides = 100, value = 54 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=100"
+output = "Hieizan : (1D100<=100) ＞ 91 ＞ 成功"
+rands = [
+  { sides = 100, value = 91 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=100"
+output = "Hieizan : (1D100<=100) ＞ 65 ＞ 成功"
+rands = [
+  { sides = 100, value = 65 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=100"
+output = "Hieizan : (1D100<=100) ＞ 49 ＞ 成功"
+rands = [
+  { sides = 100, value = 49 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=100"
+output = "Hieizan : (1D100<=100) ＞ 60 ＞ 成功"
+rands = [
+  { sides = 100, value = 60 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=100"
+output = "Hieizan : (1D100<=100) ＞ 50 ＞ 成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=100"
+output = "Hieizan : (1D100<=100) ＞ 22 ＞ 成功"
+rands = [
+  { sides = 100, value = 22 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=100"
+output = "Hieizan : (1D100<=100) ＞ 1 ＞ 大成功"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=100"
+output = "Hieizan : (1D100<=100) ＞ 81 ＞ 成功"
+rands = [
+  { sides = 100, value = 81 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=100"
+output = "Hieizan : (1D100<=100) ＞ 28 ＞ 成功"
+rands = [
+  { sides = 100, value = 28 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=100"
+output = "Hieizan : (1D100<=100) ＞ 54 ＞ 成功"
+rands = [
+  { sides = 100, value = 54 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=50"
+output = "Hieizan : (1D100<=50) ＞ 39 ＞ 成功"
+rands = [
+  { sides = 100, value = 39 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=50"
+output = "Hieizan : (1D100<=50) ＞ 58 ＞ 失敗"
+rands = [
+  { sides = 100, value = 58 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=50"
+output = "Hieizan : (1D100<=50) ＞ 35 ＞ 成功"
+rands = [
+  { sides = 100, value = 35 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=50"
+output = "Hieizan : (1D100<=50) ＞ 85 ＞ 失敗"
+rands = [
+  { sides = 100, value = 85 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=50"
+output = "Hieizan : (1D100<=50) ＞ 87 ＞ 失敗"
+rands = [
+  { sides = 100, value = 87 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=50"
+output = "Hieizan : (1D100<=50) ＞ 85 ＞ 失敗"
+rands = [
+  { sides = 100, value = 85 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=50"
+output = "Hieizan : (1D100<=50) ＞ 34 ＞ 成功"
+rands = [
+  { sides = 100, value = 34 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=50"
+output = "Hieizan : (1D100<=50) ＞ 39 ＞ 成功"
+rands = [
+  { sides = 100, value = 39 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=50"
+output = "Hieizan : (1D100<=50) ＞ 89 ＞ 失敗"
+rands = [
+  { sides = 100, value = 89 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=50"
+output = "Hieizan : (1D100<=50) ＞ 46 ＞ 成功"
+rands = [
+  { sides = 100, value = 46 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100>=? 目標値?でバグらない"
+output = "Hieizan : (1D100>=?) ＞ 42 ＞ 失敗"
+rands = [
+  { sides = 100, value = 42 },
+]

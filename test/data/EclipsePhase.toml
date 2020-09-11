@@ -1,0 +1,111 @@
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=50"
+output = "EclipsePhase : (1D100<=50) ＞ 50 ＞ エクセレント"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=50"
+output = "EclipsePhase : (1D100<=50) ＞ 30 ＞ エクセレント"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=50"
+output = "EclipsePhase : (1D100<=50) ＞ 29 ＞ 成功"
+rands = [
+  { sides = 100, value = 29 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=50"
+output = "EclipsePhase : (1D100<=50) ＞ 51 ＞ 失敗"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=50"
+output = "EclipsePhase : (1D100<=50) ＞ 79 ＞ 失敗"
+rands = [
+  { sides = 100, value = 79 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=50"
+output = "EclipsePhase : (1D100<=50) ＞ 80 ＞ シビア"
+rands = [
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=50"
+output = "EclipsePhase : (1D100<=50) ＞ 100 ＞ 00 ＞ 決定的成功"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=50"
+output = "EclipsePhase : (1D100<=50) ＞ 44 ＞ 決定的成功"
+rands = [
+  { sides = 100, value = 44 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=50"
+output = "EclipsePhase : (1D100<=50) ＞ 49 ＞ エクセレント"
+rands = [
+  { sides = 100, value = 49 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=50"
+output = "EclipsePhase : (1D100<=50) ＞ 55 ＞ 決定的失敗"
+rands = [
+  { sides = 100, value = 55 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=50"
+output = "EclipsePhase : (1D100<=50) ＞ 99 ＞ 決定的失敗"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=0"
+output = "EclipsePhase : (1D100<=0) ＞ 100 ＞ 00 ＞ 決定的成功"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100<=120"
+output = "EclipsePhase : (1D100<=120) ＞ 99 ＞ 決定的失敗"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "EclipsePhase"
+input = "1D100>=? 目標値?でバグらない"
+output = "EclipsePhase : (1D100>=?) ＞ 42 ＞ 失敗"
+rands = [
+  { sides = 100, value = 42 },
+]

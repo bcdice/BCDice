@@ -142,11 +142,7 @@ module BCDice
       result ||= eval_common_command(upcased_command)
 
       if result.nil?
-        return ""
-      end
-
-      if @is_secret
-        result += "###secret dice###"
+        return nil
       end
 
       display_id = self.class::ID.sub(/:.+$/, "") # 多言語対応用

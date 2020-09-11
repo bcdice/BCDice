@@ -1,0 +1,343 @@
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=10"
+output = "RuneQuest : (1D100<=10) ＞ 82 ＞ 失敗"
+rands = [
+  { sides = 100, value = 82 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=10"
+output = "RuneQuest : (1D100<=10) ＞ 28 ＞ 失敗"
+rands = [
+  { sides = 100, value = 28 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=10"
+output = "RuneQuest : (1D100<=10) ＞ 31 ＞ 失敗"
+rands = [
+  { sides = 100, value = 31 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=10"
+output = "RuneQuest : (1D100<=10) ＞ 47 ＞ 失敗"
+rands = [
+  { sides = 100, value = 47 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=10"
+output = "RuneQuest : (1D100<=10) ＞ 34 ＞ 失敗"
+rands = [
+  { sides = 100, value = 34 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=10"
+output = "RuneQuest : (1D100<=10) ＞ 87 ＞ 失敗"
+rands = [
+  { sides = 100, value = 87 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=10"
+output = "RuneQuest : (1D100<=10) ＞ 91 ＞ 失敗"
+rands = [
+  { sides = 100, value = 91 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=10"
+output = "RuneQuest : (1D100<=10) ＞ 36 ＞ 失敗"
+rands = [
+  { sides = 100, value = 36 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=10"
+output = "RuneQuest : (1D100<=10) ＞ 39 ＞ 失敗"
+rands = [
+  { sides = 100, value = 39 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=10"
+output = "RuneQuest : (1D100<=10) ＞ 24 ＞ 失敗"
+rands = [
+  { sides = 100, value = 24 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=90"
+output = "RuneQuest : (1D100<=90) ＞ 8 ＞ 効果的成功"
+rands = [
+  { sides = 100, value = 8 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=90"
+output = "RuneQuest : (1D100<=90) ＞ 22 ＞ 成功"
+rands = [
+  { sides = 100, value = 22 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=90"
+output = "RuneQuest : (1D100<=90) ＞ 90 ＞ 成功"
+rands = [
+  { sides = 100, value = 90 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=90"
+output = "RuneQuest : (1D100<=90) ＞ 94 ＞ 失敗"
+rands = [
+  { sides = 100, value = 94 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=90"
+output = "RuneQuest : (1D100<=90) ＞ 90 ＞ 成功"
+rands = [
+  { sides = 100, value = 90 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=90"
+output = "RuneQuest : (1D100<=90) ＞ 37 ＞ 成功"
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=90"
+output = "RuneQuest : (1D100<=90) ＞ 69 ＞ 成功"
+rands = [
+  { sides = 100, value = 69 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=90"
+output = "RuneQuest : (1D100<=90) ＞ 61 ＞ 成功"
+rands = [
+  { sides = 100, value = 61 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=90"
+output = "RuneQuest : (1D100<=90) ＞ 45 ＞ 成功"
+rands = [
+  { sides = 100, value = 45 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=90"
+output = "RuneQuest : (1D100<=90) ＞ 82 ＞ 成功"
+rands = [
+  { sides = 100, value = 82 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 53 ＞ 失敗"
+rands = [
+  { sides = 100, value = 53 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 10 ＞ 効果的成功"
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 42 ＞ 成功"
+rands = [
+  { sides = 100, value = 42 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 54 ＞ 失敗"
+rands = [
+  { sides = 100, value = 54 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 94 ＞ 失敗"
+rands = [
+  { sides = 100, value = 94 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 100 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 83 ＞ 失敗"
+rands = [
+  { sides = 100, value = 83 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 34 ＞ 成功"
+rands = [
+  { sides = 100, value = 34 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 15 ＞ 成功"
+rands = [
+  { sides = 100, value = 15 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 11 ＞ 成功"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1d100>=68+12"
+output = "RuneQuest : (1D100>=80) ＞ 11 ＞ 失敗"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1d100>=(68+12)"
+output = "RuneQuest : (1D100>=80) ＞ 11 ＞ 失敗"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 1 ＞ 決定的成功"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 3 ＞ 決定的成功"
+rands = [
+  { sides = 100, value = 3 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 4 ＞ 効果的成功"
+rands = [
+  { sides = 100, value = 4 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 10 ＞ 効果的成功"
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 11 ＞ 成功"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 50 ＞ 成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 51 ＞ 失敗"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 97 ＞ 失敗"
+rands = [
+  { sides = 100, value = 97 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 98 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 98 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100<=50"
+output = "RuneQuest : (1D100<=50) ＞ 100 ＞ 致命的失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "RuneQuest"
+input = "1D100>=? 目標値?でバグらない"
+output = "RuneQuest : (1D100>=?) ＞ 42 ＞ 失敗"
+rands = [
+  { sides = 100, value = 42 },
+]

@@ -1,0 +1,287 @@
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "1A"
+output = "BladeOfArcana : (1A1C1F20) ＞ 2 ＞ 失敗"
+rands = [
+  { sides = 20, value = 2 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "1A12"
+output = "BladeOfArcana : (1A12C1F20) ＞ 8 ＞ 成功"
+rands = [
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "2A8C11"
+output = "BladeOfArcana : (2A8C8F20) ＞ 9,10 ＞ 9 ＞ 失敗"
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "3A12C2F18"
+output = "BladeOfArcana : (3A12C2F18) ＞ 3,7,18 ＞ 3 ＞ 成功"
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 7 },
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "3A12C4F18"
+output = "BladeOfArcana : (3A12C4F18) ＞ 4,8,19 ＞ 4 ＞ クリティカル"
+rands = [
+  { sides = 20, value = 4 },
+  { sides = 20, value = 19 },
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "4A13F18"
+output = "BladeOfArcana : (4A13C1F18) ＞ 18,18,19,19 ＞ 18 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 19 },
+  { sides = 20, value = 19 },
+  { sides = 20, value = 18 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "0A12F16C11"
+output = "BladeOfArcana : (1A12C11F11) ＞ 11 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 11 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "3AC4"
+output = "BladeOfArcana : (3A4C4F20) ＞ 5,8,19 ＞ 5 ＞ 失敗"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 19 },
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "4AF18"
+output = "BladeOfArcana : (4A1C1F18) ＞ 2,18,18,19 ＞ 2 ＞ 失敗"
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 19 },
+  { sides = 20, value = 2 },
+  { sides = 20, value = 18 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "1a12"
+output = "BladeOfArcana : (1A12C1F20) ＞ 8 ＞ 成功"
+rands = [
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "2A8c11"
+output = "BladeOfArcana : (2A8C8F20) ＞ 9,10 ＞ 9 ＞ 失敗"
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "3A12C2f18"
+output = "BladeOfArcana : (3A12C2F18) ＞ 3,7,18 ＞ 3 ＞ 成功"
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 7 },
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "CT3"
+output = "BladeOfArcana : 因縁表(The 3rd)　『BoA3』P292 ＞ 17 ＞ 【取引】"
+rands = [
+  { sides = 20, value = 17 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "CT3+"
+output = "BladeOfArcana : 因縁表(The 3rd)　『BoA3』P292 ＞ 20[19+1] ＞ 【不審】"
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "CT3-"
+output = "BladeOfArcana : 因縁表(The 3rd)　『BoA3』P292 ＞ 12[13-1] ＞ 【仇敵】"
+rands = [
+  { sides = 20, value = 13 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "CTR"
+output = "BladeOfArcana : 因縁表(リインカーネイション)　『BAR』P51、299 ＞ 14 ＞ 【借り】"
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "CTR+"
+output = "BladeOfArcana : 因縁表(リインカーネイション)　『BAR』P51、299 ＞ 21[20+1] ＞ 【自身】"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "CTR-"
+output = "BladeOfArcana : 因縁表(リインカーネイション)　『BAR』P51、299 ＞ 0[1-1] ＞ 【他生】"
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "DJV"
+output = "BladeOfArcana : 前世邂逅表（デジャブ）　『BAR』P235 ＞ 13 ＞ 【光る刃】\n鋭く光る刃のような、鋭いまなざし。"
+rands = [
+  { sides = 20, value = 13 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "DJV-"
+output = "BladeOfArcana : 前世邂逅表（デジャブ）　『BAR』P235 ＞ 5[6-1] ＞ 【鋭いナイフ】\n鋭いナイフのような視線を感じる。これは……。"
+rands = [
+  { sides = 20, value = 6 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "AKST"
+output = "BladeOfArcana : 悪徳シーン表　『GoV』P16、164 ＞ 1 ＞ ▼エフェクトス／原初の力\n【行動】殺戮者の配下が無法を働く。店先で金品を要求したり、暴力を振るったりしている。"
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "AKST+"
+output = "BladeOfArcana : 悪徳シーン表　『GoV』P16、164 ＞ 8[7+1] ＞ ▼アルドール／終わりなき戦い\n【行動】ならず者の集団が人々を襲っている。力を示さなければ切り捨てられるのは彼らなのだ。"
+rands = [
+  { sides = 20, value = 7 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "AKST-"
+output = "BladeOfArcana : 悪徳シーン表　『GoV』P16、164 ＞ 14[15-1] ＞ ▼アングルス／純白の恐怖\n【行動】遊びとして人間狩りが行なわれている。人々は逃げ惑い、殺戮者は愉悦に笑う。"
+rands = [
+  { sides = 20, value = 15 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "A"
+output =
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "A12"
+output =
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "1As"
+output =
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "d1A"
+output =
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "1A12C"
+output =
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "1A12F"
+output =
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "1A12C2F"
+output =
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "1A12F19C"
+output =
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "1A12CF"
+output =
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "1A12C1C2"
+output =
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "BladeOfArcana"
+input = "1A12F19F16"
+output =
+rands = [
+  { sides = 20, value = 1 },
+]

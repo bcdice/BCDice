@@ -1,0 +1,345 @@
+[[ test ]]
+game_system = "BloodCrusade"
+input = "2d6>=4"
+output = "BloodCrusade : (2D6>=4) ＞ 9[3,6] ＞ 9 ＞ 成功"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "2d6>=10"
+output = "BloodCrusade : (2D6>=10) ＞ 9[3,6] ＞ 9 ＞ 失敗"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "2d6>=4"
+output = "BloodCrusade : (2D6>=4) ＞ 2[1,1] ＞ 2 ＞ ファンブル(【モラル】-3。追跡フェイズなら吸血シーンを追加。戦闘フェイズなら吸血鬼は追加行動を一回得る)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "2d6>=4"
+output = "BloodCrusade : (2D6>=4) ＞ 12[6,6] ＞ 12 ＞ スペシャル(【モラル】+3。追跡フェイズならあなたに関係を持つPCの【モラル】+2。攻撃判定ならダメージ+1D6）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "RT"
+output = "BloodCrusade : 関係属性表(1) ＞ 共感/不信"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "RT"
+output = "BloodCrusade : 関係属性表(6) ＞ 保護欲/殺意"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "ST"
+output = "BloodCrusade : シーン表(2) ＞ どこまでも広がる荒野。風が吹き抜けていく。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "ST"
+output = "BloodCrusade : シーン表(12) ＞ 高い塔の上。都市を一望できる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "IST"
+output = "BloodCrusade : 先制判定指定特技表(1) ＞ 《自信/社会5》"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "IST"
+output = "BloodCrusade : 先制判定指定特技表(6) ＞ 《心臓/胴部7》"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "BRT"
+output = "BloodCrusade : 身体部位決定表(2) ＞ 《脳》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "BRT"
+output = "BloodCrusade : 身体部位決定表(12) ＞ 《心臓》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "CHT"
+output = "BloodCrusade : 自信幸福表(1) ＞ 【戦闘能力】あなたは吸血鬼狩人としての自分の戦闘能力に自信を持っています。たとえ負けようとも、それは運か相手か仲間が悪かったので、あなたの戦闘能力が低いわけではありません。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "CHT"
+output = "BloodCrusade : 自信幸福表(6) ＞ 【長生き】あなたは吸血鬼狩人としてかなりの年月を過ごしてきたが、まだ死んでいません。これは誇るべきことです。そこらの若造には、まだまだ負けていません。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "SHT"
+output = "BloodCrusade : 地位幸福表(1) ＞ 【役職】あなたは職場、あるいは吸血鬼狩人の組織のなかで高い階級についています。そのため、下にいるものには命令でき、相応の敬意を払われます。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "SHT"
+output = "BloodCrusade : 地位幸福表(6) ＞ 【リーダー】あなたは所属している何らかの組織を率いる立場にあります。会社の社長や、部活動の部長などです。あなたは求められてその地位にあります"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "DHT"
+output = "BloodCrusade : 日常幸福表(1) ＞ 【家】あなたの家はとても快適な空間です。コストと時間をかけて作り上げられた、あなたが居住するための空間。それはあなたの幸せの源なのです。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "DHT"
+output = "BloodCrusade : 日常幸福表(6) ＞ 【思い出】あなたは昔の思い出を心の支えにしています。何らかの幸せな記憶……それがあれば、この先にどんなつらいことが待っていても大丈夫でしょう。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "LHT"
+output = "BloodCrusade : 人脈幸福表(1) ＞ 【理解ある家族】あなたの家族は、あなたが吸血鬼狩人であることを知ったうえで協力してくれます。これがどれほど稀なことかは、仲間に聞けば分かるでしょう。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "LHT"
+output = "BloodCrusade : 人脈幸福表(6) ＞ 【可愛い子供】あなたには子供がいます。聡明で魅力的、しかも健康な……将来を嘱望される子供です。子供が掴む幸せな未来を思う時、あなたの顔には笑みが広がります。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "EHT"
+output = "BloodCrusade : 退路幸福表(1) ＞ 【故郷の町】あなたは生まれ育った街を離れて吸血鬼狩人として活動しています。いつの日かあの町へ帰る……その思いがあなたを戦いのなかで支えています。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "EHT"
+output = "BloodCrusade : 退路幸福表(6) ＞ 【空想の王国】あなたには辛いことがあると白昼夢にふける、あるいは物語に没入する癖があり、そのときには非常に幸せな気分になることができます。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "AST"
+output = "BloodCrusade : ランダム全特技表(1) ＞ 社会(2) ＞ 怯える"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "AST"
+output = "BloodCrusade : ランダム全特技表(6) ＞ 環境(12) ＞ 休まない"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "MIT"
+output = "BloodCrusade : 軽度狂気表(1) ＞ 【誇大妄想】（判定に失敗するたびに【感情】が１増加する。）"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "MIT"
+output = "BloodCrusade : 軽度狂気表(6) ＞ 【血の飢え】（戦闘中に最低１体でも死亡させないと、戦闘終了時に【感情】１０増加。【激情】は獲得できない。）"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "SIT"
+output = "BloodCrusade : 重度狂気表(1) ＞ 【幸福依存】（【幸福】を一つ選択し、その【幸福】が結果フェイズに失われたとき、死亡する。）"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "SIT"
+output = "BloodCrusade : 重度狂気表(6) ＞ 【猜疑心】（自分が「連携攻撃」を行うとき、関係の【深度】をダメージに加えられない。）"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "TD1T"
+output = "BloodCrusade : 時間経過表十代(6) ＞ ちょっと見ないうちに協力者が成長する。\n協力者を獲得している場合、その中から一人を選ぶ。\nその協力者のレベルが１上昇する。\n協力者を獲得していない場合、効果はない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "TD2T"
+output = "BloodCrusade : 時間経過表二十代(6) ＞ 協力者を獲得している場合、そのうち一人に絡んだイベントが発生していた。\n「転職」「結婚」「挫折」「失恋」「出産」「その他」などから一つを任意に選び、その協力者のレベルを1上げる。\n協力者を獲得していない場合、狩人のイベントとなり効果はない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "TD3T"
+output = "BloodCrusade : 時間経過表三十代(6) ＞ 協力者を獲得している場合、そのうち一人に絡んだイベントが発生していた。\n「転職」「結婚」「挫折」「失恋」「出産」「その他」などから一つを任意に選び、その協力者のレベルを1上げる。\n協力者を獲得していない場合、狩人のイベントとなり効果はない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "TD4T"
+output = "BloodCrusade : 時間経過表四十代(6) ＞ 協力者を獲得している場合、そのうち一人に絡んだイベントが発生していた。\n「転職」「結婚」「挫折」「失恋」「出産」「その他」などから一つを任意に選び、その協力者のレベルを1上げる。\n協力者を獲得していない場合、狩人のイベントとなり効果はない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "TD5T"
+output = "BloodCrusade : 時間経過表五十代(6) ＞ 協力者を獲得している場合、そのうち一人に絡んだイベントが発生していた。\n「転職」「結婚」「挫折」「失恋」「出産」「その他」などから一つを任意に選び、その協力者のレベルを1上げる。\n協力者を獲得していない場合、狩人のイベントとなり効果はない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "TD6T"
+output = "BloodCrusade : 時間経過表六十代(6) ＞ 協力者を獲得している場合、その指導に一年をかける。\n協力者のなかから一人を選び、その協力者のレベルを２上げる。\n協力者を獲得していない場合、のんびりした一年だった。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "TDHT"
+output = "BloodCrusade : 時間経過表半吸血鬼(6) ＞ 新しい友達が出来る。\n任意の年齢の協力者を、狩人のプレイヤーが作成する。\nレベルは１とすること。\nこの協力者はセッションに登場し、獲得すれば使用できる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "BDST"
+output = "BloodCrusade : 戦場シーン表(12) ＞ 司令室。壁の巨大スクリーンでは、何かのカウントダウンが進行中。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "CYST"
+output = "BloodCrusade : 田舎シーン表(12) ＞ 駅。ホームには屋根がなく、周りには山と森が広がっている。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "DMST"
+output = "BloodCrusade : 夢シーン表(12) ＞ みんな死んでしまった。墓の前で座っていると、近づいてくる人影がある。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "MNST"
+output = "BloodCrusade : 館シーン表(12) ＞ 領主の部屋。重厚なデスクと背後の本棚が威圧的だ。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "SLST"
+output = "BloodCrusade : 学校シーン表(12) ＞ 開かずの教室。ここは真っ暗だ……出口も入り口もない。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "2D6>=? 目標値?でバグらない"
+output = "BloodCrusade : (2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]

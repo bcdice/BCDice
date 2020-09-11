@@ -1,0 +1,176 @@
+[[ test ]]
+game_system = "DarkSouls"
+input = "DS"
+output = "DarkSouls : (2D6) ＞ 2(1,1) ＞ 2"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "DS"
+output = "DarkSouls : (2D6) ＞ 12(6,6) ＞ 12"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "ADS"
+output = "DarkSouls : (2D6) ＞ 2(1,1) ＞ 2（FP■■消費）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "ADS"
+output = "DarkSouls : (2D6) ＞ 12(6,6) ＞ 12"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "1DS"
+output = "DarkSouls : (1D6) ＞ 1(1) ＞ 1"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "1DS"
+output = "DarkSouls : (1D6) ＞ 6(6) ＞ 6"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "1ADS"
+output = "DarkSouls : (1D6) ＞ 1(1) ＞ 1（FP■消費）"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "1ADS"
+output = "DarkSouls : (1D6) ＞ 6(6) ＞ 6"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "3ADS"
+output = "DarkSouls : (3D6) ＞ 6(1,2,3) ＞ 6（FP■消費）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "DS2"
+output = "DarkSouls : (2D6+2) ＞ 7(3,4)+2 ＞ 9"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "DS+2"
+output = "DarkSouls : (2D6+2) ＞ 7(3,4)+2 ＞ 9"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "DS-2"
+output = "DarkSouls : (2D6-2) ＞ 7(3,4)-2 ＞ 5"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "DS1+1-1"
+output = "DarkSouls : (2D6+1) ＞ 7(3,4)+1 ＞ 8"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "DS@7"
+output = "DarkSouls : (2D6>=7) ＞ 2(1,1) ＞ 2>=7 ＞ 【失敗】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "DS@7"
+output = "DarkSouls : (2D6>=7) ＞ 12(6,6) ＞ 12>=7 ＞ 【成功】"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "ADS@7"
+output = "DarkSouls : (2D6>=7) ＞ 2(1,1) ＞ 2>=7 ＞ 【失敗】（FP■■消費）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "ADS@7"
+output = "DarkSouls : (2D6>=7) ＞ 7(1,6) ＞ 7>=7 ＞ 【成功】（FP■消費）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "ADS@7"
+output = "DarkSouls : (2D6>=7) ＞ 7(3,4) ＞ 7>=7 ＞ 【成功】"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "ADS@7"
+output = "DarkSouls : (2D6>=7) ＞ 12(6,6) ＞ 12>=7 ＞ 【成功】"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DarkSouls"
+input = "DS1+1-1@7"
+output = "DarkSouls : (2D6+1>=7) ＞ 7(3,4)+1 ＞ 8>=7 ＞ 【成功】"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]

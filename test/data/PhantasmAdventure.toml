@@ -1,0 +1,277 @@
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=2"
+output = "PhantasmAdventure : (1D20<=2) ＞ 13 ＞ 失敗"
+rands = [
+  { sides = 20, value = 13 },
+  { sides = 20, value = 5 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=2"
+output = "PhantasmAdventure : (1D20<=2) ＞ 3 ＞ 失敗"
+rands = [
+  { sides = 20, value = 3 },
+  { sides = 20, value = 18 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=2"
+output = "PhantasmAdventure : (1D20<=2) ＞ 17 ＞ 失敗"
+rands = [
+  { sides = 20, value = 17 },
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=2"
+output = "PhantasmAdventure : (1D20<=2) ＞ 11 ＞ 失敗"
+rands = [
+  { sides = 20, value = 11 },
+  { sides = 20, value = 11 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=2"
+output = "PhantasmAdventure : (1D20<=2) ＞ 19 ＞ 失敗"
+rands = [
+  { sides = 20, value = 19 },
+  { sides = 20, value = 5 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=2"
+output = "PhantasmAdventure : (1D20<=2) ＞ 15 ＞ 失敗"
+rands = [
+  { sides = 20, value = 15 },
+  { sides = 20, value = 13 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=2"
+output = "PhantasmAdventure : (1D20<=2) ＞ 20 ＞ 致命的失敗(19-0=19)"
+rands = [
+  { sides = 20, value = 20 },
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=2"
+output = "PhantasmAdventure : (1D20<=2) ＞ 19 ＞ 失敗"
+rands = [
+  { sides = 20, value = 19 },
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=2"
+output = "PhantasmAdventure : (1D20<=2) ＞ 2 ＞ 成功"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=2"
+output = "PhantasmAdventure : (1D20<=2) ＞ 3 ＞ 失敗"
+rands = [
+  { sides = 20, value = 3 },
+  { sides = 20, value = 10 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=19"
+output = "PhantasmAdventure : (1D20<=19) ＞ 3 ＞ 成功"
+rands = [
+  { sides = 20, value = 3 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=19"
+output = "PhantasmAdventure : (1D20<=19) ＞ 13 ＞ 成功"
+rands = [
+  { sides = 20, value = 13 },
+  { sides = 20, value = 2 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=19"
+output = "PhantasmAdventure : (1D20<=19) ＞ 8 ＞ 成功"
+rands = [
+  { sides = 20, value = 8 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=19"
+output = "PhantasmAdventure : (1D20<=19) ＞ 16 ＞ 成功"
+rands = [
+  { sides = 20, value = 16 },
+  { sides = 20, value = 5 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=19"
+output = "PhantasmAdventure : (1D20<=19) ＞ 10 ＞ 成功"
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 10 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=19"
+output = "PhantasmAdventure : (1D20<=19) ＞ 18 ＞ 成功"
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 11 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=19"
+output = "PhantasmAdventure : (1D20<=19) ＞ 12 ＞ 成功"
+rands = [
+  { sides = 20, value = 12 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=19"
+output = "PhantasmAdventure : (1D20<=19) ＞ 17 ＞ 成功"
+rands = [
+  { sides = 20, value = 17 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=19"
+output = "PhantasmAdventure : (1D20<=19) ＞ 13 ＞ 成功"
+rands = [
+  { sides = 20, value = 13 },
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=19"
+output = "PhantasmAdventure : (1D20<=19) ＞ 11 ＞ 成功"
+rands = [
+  { sides = 20, value = 11 },
+  { sides = 20, value = 6 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=10"
+output = "PhantasmAdventure : (1D20<=10) ＞ 13 ＞ 失敗"
+rands = [
+  { sides = 20, value = 13 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=10"
+output = "PhantasmAdventure : (1D20<=10) ＞ 10 ＞ 成功"
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 12 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=10"
+output = "PhantasmAdventure : (1D20<=10) ＞ 2 ＞ 成功"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 2 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=10"
+output = "PhantasmAdventure : (1D20<=10) ＞ 14 ＞ 失敗"
+rands = [
+  { sides = 20, value = 14 },
+  { sides = 20, value = 4 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=10"
+output = "PhantasmAdventure : (1D20<=10) ＞ 9 ＞ 成功"
+rands = [
+  { sides = 20, value = 9 },
+  { sides = 20, value = 15 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=10"
+output = "PhantasmAdventure : (1D20<=10) ＞ 14 ＞ 失敗"
+rands = [
+  { sides = 20, value = 14 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=10"
+output = "PhantasmAdventure : (1D20<=10) ＞ 15 ＞ 失敗"
+rands = [
+  { sides = 20, value = 15 },
+  { sides = 20, value = 16 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=10"
+output = "PhantasmAdventure : (1D20<=10) ＞ 17 ＞ 失敗"
+rands = [
+  { sides = 20, value = 17 },
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=10"
+output = "PhantasmAdventure : (1D20<=10) ＞ 16 ＞ 失敗"
+rands = [
+  { sides = 20, value = 16 },
+  { sides = 20, value = 2 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20<=10"
+output = "PhantasmAdventure : (1D20<=10) ＞ 14 ＞ 失敗"
+rands = [
+  { sides = 20, value = 14 },
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "PhantasmAdventure"
+input = "1D20>=? 目標値?でバグらない"
+output = "PhantasmAdventure : (1D20>=?) ＞ 10 ＞ 失敗"
+rands = [
+  { sides = 20, value = 10 },
+]

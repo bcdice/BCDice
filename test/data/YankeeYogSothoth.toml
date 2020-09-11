@@ -1,0 +1,453 @@
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "2D6>=7"
+output = "YankeeYogSothoth : (2D6>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル(判定失敗。ファンブル表（FT）を振ること)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "2D6>=7"
+output = "YankeeYogSothoth : (2D6>=7) ＞ 12[6,6] ＞ 12 ＞ スペシャル(判定成功。【テンション】が１段階上昇)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "2D6>=7"
+output = "YankeeYogSothoth : (2D6>=7) ＞ 7[1,6] ＞ 7 ＞ 成功"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "2D6>=7"
+output = "YankeeYogSothoth : (2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FT"
+output = "YankeeYogSothoth : ファンブル表(1) ＞ やっちまった……。テンションが1段階減少する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FT"
+output = "YankeeYogSothoth : ファンブル表(6) ＞ 逆境に燃える。テンションが1段階上昇する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "WT"
+output = "YankeeYogSothoth : 変調表(1) ＞ 毒：サイクル終了時もしくはラウンド終了時に、2D6点のダメージを受ける。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "WT"
+output = "YankeeYogSothoth : 変調表(6) ＞ 目つぶし：判定の達成値が2点減少する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "RTT"
+output = "YankeeYogSothoth : ランダム指定特技表(1,2) ＞ 《大人／苦手2》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "RTT"
+output = "YankeeYogSothoth : ランダム指定特技表(6,12) ＞ 《静寂／好み12》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "KKT"
+output = "YankeeYogSothoth : 関係表(1) ＞ 「家族／気に食わない」"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "KKT"
+output = "YankeeYogSothoth : 関係表(6) ＞ 「利用できる／ヘタレ」"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "DBRT"
+output = "YankeeYogSothoth : 他愛のない会話表(11) ＞ 「政治の話」"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "DBRT"
+output = "YankeeYogSothoth : 他愛のない会話表(16) ＞ 「嫌いなものの話」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "DBRT"
+output = "YankeeYogSothoth : 他愛のない会話表(66) ＞ 「ダブりの話」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "TKT"
+output = "YankeeYogSothoth : 戦う理由表(11) ＞ 「なんとなく」"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "TKT"
+output = "YankeeYogSothoth : 戦う理由表(16) ＞ 「妖精たちのいたずらがほほえましかった」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "TKT"
+output = "YankeeYogSothoth : 戦う理由表(66) ＞ 「ただ暴れたかった」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "BUDT"
+output = "YankeeYogSothoth : 武勇伝表(11) ＞ バッドヤンキーのチームに自分が所属する学校を破壊されたが、最後まで戦った。／テンションが1段階上昇"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "BUDT"
+output = "YankeeYogSothoth : 武勇伝表(16) ＞ バッドヤンキーに支配されていた店を救った。／【攻撃力】＋１"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "BUDT"
+output = "YankeeYogSothoth : 武勇伝表(66) ＞ 隣のプレイヤーのPCと一緒に、大きな悪の組織を潰した。／右隣のプレイヤーのPCに対する【友情度】が1点上昇"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "GUDT"
+output = "YankeeYogSothoth : ガイヤンキー武勇伝表(11) ＞ アザトースが突然接触してきたので、殴って追い返した。／テンションが1段階上昇"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "GUDT"
+output = "YankeeYogSothoth : ガイヤンキー武勇伝表(16) ＞ 一晩飲み明かした相手がナイアーラトテップだった。／【攻撃力】＋１"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "GUDT"
+output = "YankeeYogSothoth : ガイヤンキー武勇伝表(66) ＞ 次に会うヤンキーのために、うまいものを用意した。／右隣のプレイヤーのPCに対する【友情度】が1点上昇"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "DAIT"
+output = "YankeeYogSothoth : 第一印象表(1) ＞ 「ヤベエ」"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "DAIT"
+output = "YankeeYogSothoth : 第一印象表(6) ＞ 「アウトオブ眼中」"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "TKKT"
+output = "YankeeYogSothoth : ツレ関係表(1) ＞ 「すごそう」"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "TKKT"
+output = "YankeeYogSothoth : ツレ関係表(6) ＞ 「利用できる」"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "GSST"
+output = "YankeeYogSothoth : 現実世界生活表(11) ＞ 喧嘩に明け暮れた"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "GSST"
+output = "YankeeYogSothoth : 現実世界生活表(16) ＞ バイトに専念した"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "GSST"
+output = "YankeeYogSothoth : 現実世界生活表(66) ＞ 汚い大人の罠にはめられたが、なんとかした"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "GYST"
+output = "YankeeYogSothoth : ガイヤンキー生活表(11) ＞ ツレと生活をした"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "GYST"
+output = "YankeeYogSothoth : ガイヤンキー生活表(16) ＞ この世界の遺跡を回った"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "GYST"
+output = "YankeeYogSothoth : ガイヤンキー生活表(66) ＞ 農作業をした"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "HPST"
+output = "YankeeYogSothoth : 病院生活表(11) ＞ 治療に専念した"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "HPST"
+output = "YankeeYogSothoth : 病院生活表(16) ＞ 看護師と仲良くなった"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "HPST"
+output = "YankeeYogSothoth : 病院生活表(66) ＞ 売店で売っているお菓子をコンプリートした"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FTNT"
+output = "YankeeYogSothoth : 二つ名決定表(1) ＞ 二つ名表1(11) ＞ 「愛死天流（あいしてる）」"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FTNT"
+output = "YankeeYogSothoth : 二つ名決定表(2) ＞ 二つ名表1(16) ＞ 「威風堂々（いふうどうどう）」"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FTNT"
+output = "YankeeYogSothoth : 二つ名決定表(2) ＞ 二つ名表1(66) ＞ 「時給千円（じきゅうせんえん）」"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FTNT"
+output = "YankeeYogSothoth : 二つ名決定表(3) ＞ 二つ名表2(11) ＞ 「みんなの」"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FTNT"
+output = "YankeeYogSothoth : 二つ名決定表(3) ＞ 二つ名表2(16) ＞ 「熱血番長の」"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FTNT"
+output = "YankeeYogSothoth : 二つ名決定表(4) ＞ 二つ名表2(66) ＞ 「悪そうなやつはだいたい友達」"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FTNT"
+output = "YankeeYogSothoth : 二つ名決定表(5) ＞ 二つ名表3(11) ＞ 「ファッションヤンキー」"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FTNT"
+output = "YankeeYogSothoth : 二つ名決定表(5) ＞ 二つ名表3(16) ＞ 「イカれたやつ」"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FTNT"
+output = "YankeeYogSothoth : 二つ名決定表(5) ＞ 二つ名表3(66) ＞ 「おやじ狩り狩り」"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FTNT"
+output = "YankeeYogSothoth : 二つ名決定表(6) ＞ 二つ名表4(11) ＞ 「国産」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FTNT"
+output = "YankeeYogSothoth : 二つ名決定表(6) ＞ 二つ名表4(16) ＞ 「ミステリー」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "FTNT"
+output = "YankeeYogSothoth : 二つ名決定表(6) ＞ 二つ名表4(66) ＞ 「名古屋」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "2D6>=? 目標値?でバグらない"
+output = "YankeeYogSothoth : (2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]

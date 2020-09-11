@@ -1,0 +1,465 @@
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "1D100<=90 roll 90"
+output = "SamsaraBallad : (1D100<=90) ＞ 99 ＞ 失敗"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB roll"
+output = "SamsaraBallad : (D100) ＞ 75"
+rands = [
+  { sides = 100, value = 75 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#2@8 roll"
+output = "SamsaraBallad : (D100) ＞ 80 ＞ ファンブル"
+rands = [
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#2@8 roll"
+output = "SamsaraBallad : (D100) ＞ 83"
+rands = [
+  { sides = 100, value = 83 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#2@8 roll"
+output = "SamsaraBallad : (D100) ＞ 89 ＞ クリティカル"
+rands = [
+  { sides = 100, value = 89 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS roll"
+output = "SamsaraBallad : (D100) ＞ 7,5 ＞ 57"
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS roll"
+output = "SamsaraBallad : (D100) ＞ 7,10 ＞ 7"
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS roll"
+output = "SamsaraBallad : (D100) ＞ 10,10 ＞ 100"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB<=90 roll 90"
+output = "SamsaraBallad : (D100<=90) ＞ 75 ＞ 成功"
+rands = [
+  { sides = 100, value = 75 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB<90 roll 90"
+output = "SamsaraBallad : (D100<90) ＞ 75 ＞ 成功"
+rands = [
+  { sides = 100, value = 75 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB<=80 roll 80"
+output = "SamsaraBallad : (D100<=80) ＞ 80 ＞ 成功"
+rands = [
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB<80 roll 80"
+output = "SamsaraBallad : (D100<80) ＞ 80 ＞ 失敗"
+rands = [
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB<=80 roll 79"
+output = "SamsaraBallad : (D100<=80) ＞ 79 ＞ 成功"
+rands = [
+  { sides = 100, value = 79 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB<80 roll 79"
+output = "SamsaraBallad : (D100<80) ＞ 79 ＞ 成功"
+rands = [
+  { sides = 100, value = 79 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB<=80 roll 80"
+output = "SamsaraBallad : (D100<=80) ＞ 81 ＞ 失敗"
+rands = [
+  { sides = 100, value = 81 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB<=90 roll 90"
+output = "SamsaraBallad : (D100<=90) ＞ 100 ＞ 失敗"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS<=80 roll 80 swap"
+output = "SamsaraBallad : (D100<=80) ＞ 8,9 ＞ 89 ＞ 失敗"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS<=80 roll 80 swap"
+output = "SamsaraBallad : (D100<=80) ＞ 8,1 ＞ 18 ＞ 成功"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS<=80 roll 80 swap"
+output = "SamsaraBallad : (D100<=80) ＞ 7,9 ＞ 79 ＞ 成功"
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS<35 roll 35 swap"
+output = "SamsaraBallad : (D100<35) ＞ 5,3 ＞ 35 ＞ 失敗"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS<=35 roll 35 swap"
+output = "SamsaraBallad : (D100<=35) ＞ 5,3 ＞ 35 ＞ 成功"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS<=90 roll 90 swap"
+output = "SamsaraBallad : (D100<=90) ＞ 10,10 ＞ 100 ＞ 失敗"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#2@8<=90 roll 90"
+output = "SamsaraBallad : (D100<=90) ＞ 54 ＞ 成功"
+rands = [
+  { sides = 100, value = 54 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#2@8<=90 roll 90"
+output = "SamsaraBallad : (D100<=90) ＞ 58 ＞ クリティカル"
+rands = [
+  { sides = 100, value = 58 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#5@8<=45 roll 45"
+output = "SamsaraBallad : (D100<=45) ＞ 55 ＞ 失敗"
+rands = [
+  { sides = 100, value = 55 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#2@8<90 roll 90"
+output = "SamsaraBallad : (D100<90) ＞ 58 ＞ クリティカル"
+rands = [
+  { sides = 100, value = 58 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#2@8<=90 roll 90"
+output = "SamsaraBallad : (D100<=90) ＞ 59 ＞ クリティカル"
+rands = [
+  { sides = 100, value = 59 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#2@8<=90 roll 90"
+output = "SamsaraBallad : (D100<=90) ＞ 57 ＞ 成功"
+rands = [
+  { sides = 100, value = 57 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#2@8<90 roll 90"
+output = "SamsaraBallad : (D100<90) ＞ 57 ＞ 成功"
+rands = [
+  { sides = 100, value = 57 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#0@9<=80 roll 80"
+output = "SamsaraBallad : (D100<=80) ＞ 81 ＞ 失敗"
+rands = [
+  { sides = 100, value = 81 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#0@9<81 roll 81"
+output = "SamsaraBallad : (D100<81) ＞ 81 ＞ 失敗"
+rands = [
+  { sides = 100, value = 81 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#2@8<=90 roll 90"
+output = "SamsaraBallad : (D100<=90) ＞ 52 ＞ ファンブル"
+rands = [
+  { sides = 100, value = 52 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#0@8<=90 roll 90"
+output = "SamsaraBallad : (D100<=90) ＞ 80 ＞ ファンブル"
+rands = [
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#0@8<80 roll 80"
+output = "SamsaraBallad : (D100<80) ＞ 80 ＞ 失敗"
+rands = [
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#2@8<=90 roll 90"
+output = "SamsaraBallad : (D100<=90) ＞ 51 ＞ ファンブル"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#0@5<=35 roll 35"
+output = "SamsaraBallad : (D100<=35) ＞ 35 ＞ クリティカル"
+rands = [
+  { sides = 100, value = 35 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#0@5<35 roll 35"
+output = "SamsaraBallad : (D100<35) ＞ 35 ＞ 失敗"
+rands = [
+  { sides = 100, value = 35 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<=80 roll 80"
+output = "SamsaraBallad : (D100<=80) ＞ 8,1 ＞ 18 ＞ クリティカル"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<=80 roll 80"
+output = "SamsaraBallad : (D100<=80) ＞ 9,7 ＞ 79 ＞ クリティカル"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<=80 roll 80"
+output = "SamsaraBallad : (D100<=80) ＞ 7,5 ＞ 57 ＞ 成功"
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<=80 roll 80"
+output = "SamsaraBallad : (D100<=80) ＞ 5,7 ＞ 57 ＞ 成功"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<80 roll 80"
+output = "SamsaraBallad : (D100<80) ＞ 7,5 ＞ 57 ＞ 成功"
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<=80 roll 80"
+output = "SamsaraBallad : (D100<=80) ＞ 8,9 ＞ 89 ＞ 失敗"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<80 roll 80"
+output = "SamsaraBallad : (D100<80) ＞ 8,9 ＞ 89 ＞ 失敗"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<=15 roll 15"
+output = "SamsaraBallad : (D100<=15) ＞ 1,5 ＞ 15 ＞ 成功"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<15 roll 15"
+output = "SamsaraBallad : (D100<15) ＞ 1,5 ＞ 15 ＞ 失敗"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<=80 roll 80"
+output = "SamsaraBallad : (D100<=80) ＞ 2,1 ＞ 12 ＞ ファンブル"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<80 roll 80"
+output = "SamsaraBallad : (D100<80) ＞ 2,1 ＞ 12 ＞ ファンブル"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<=90 roll 90"
+output = "SamsaraBallad : (D100<=90) ＞ 1,3 ＞ 13 ＞ 成功"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#2@8<=90 roll 90"
+output = "SamsaraBallad : (D100<=90) ＞ 1,1 ＞ 11 ＞ ファンブル"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SB#5@3<=90 roll 90"
+output = "SamsaraBallad : (D100<=90) ＞ 24 ＞ ファンブル"
+rands = [
+  { sides = 100, value = 24 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#0@5<=35 roll 35"
+output = "SamsaraBallad : (D100<=35) ＞ 5,3 ＞ 35 ＞ クリティカル"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#0@5<35 roll 35"
+output = "SamsaraBallad : (D100<35) ＞ 5,3 ＞ 35 ＞ 失敗"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#3@8<=23 roll 23"
+output = "SamsaraBallad : (D100<=23) ＞ 2,3 ＞ 23 ＞ ファンブル"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "SamsaraBallad"
+input = "SBS#3@8<23 roll 23"
+output = "SamsaraBallad : (D100<23) ＞ 2,3 ＞ 23 ＞ 失敗"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+]

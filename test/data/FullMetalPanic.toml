@@ -1,0 +1,238 @@
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MG>=7"
+output = "FullMetalPanic : (2D6>=7[12,2]) ＞ 7[2,5] ＞ 7 ＞ 成功"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MG-3>=8"
+output = "FullMetalPanic : (2D6-3>=8[12,2]) ＞ 11[5,6]-3 ＞ 8 ＞ 成功"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "SMG+1>=5[11,3]"
+output = "FullMetalPanic : (2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+secret = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MG1>=7"
+output =
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MGA>=7"
+output =
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FP>=7"
+output = "FullMetalPanic : (2D6>=7[12,2]) ＞ 7[2,5] ＞ 7 ＞ 成功"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FP-3>=8"
+output = "FullMetalPanic : (2D6-3>=8[12,2]) ＞ 11[5,6]-3 ＞ 8 ＞ 成功"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "SFP+1>=5[11,3]"
+output = "FullMetalPanic : (2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+secret = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FP1>=7"
+output =
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FPA>=7"
+output =
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "D66"
+output = "FullMetalPanic : (D66) ＞ 65"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MG"
+output = "FullMetalPanic : (2D6[12,2]) ＞ 12[6,6] ＞ 12 ＞ 自動成功"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MG"
+output = "FullMetalPanic : (2D6[12,2]) ＞ 2[1,1] ＞ 2 ＞ 自動失敗"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MG1"
+output =
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MGA"
+output =
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FP"
+output = "FullMetalPanic : (2D6[12,2]) ＞ 12[6,6] ＞ 12 ＞ 自動成功"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FP"
+output = "FullMetalPanic : (2D6[12,2]) ＞ 2[1,1] ＞ 2 ＞ 自動失敗"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FP1"
+output =
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FPA"
+output =
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MG+1"
+output = "FullMetalPanic : (2D6+1[12,2]) ＞ 11[5,6]+1 ＞ 12"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MG-1"
+output = "FullMetalPanic : (2D6-1[12,2]) ＞ 3[1,2]-1 ＞ 2"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MG+1[11,3]"
+output = "FullMetalPanic : (2D6+1[11,3]) ＞ 6[2,4]+1 ＞ 7"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MG+1[11,3]"
+output = "FullMetalPanic : (2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "MG+1[11,3]"
+output = "FullMetalPanic : (2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FP+1"
+output = "FullMetalPanic : (2D6+1[12,2]) ＞ 11[5,6]+1 ＞ 12"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FP-1"
+output = "FullMetalPanic : (2D6-1[12,2]) ＞ 3[1,2]-1 ＞ 2"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FP+1[11,3]"
+output = "FullMetalPanic : (2D6+1[11,3]) ＞ 6[2,4]+1 ＞ 7"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FP+1[11,3]"
+output = "FullMetalPanic : (2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic"
+input = "FP+1[11,3]"
+output = "FullMetalPanic : (2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]

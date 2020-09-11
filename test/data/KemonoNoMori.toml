@@ -1,0 +1,519 @@
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "KA9"
+output = "KemonoNoMori : (1D12<=9) ＞ 1 ＞ 成功（成功度+1）"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "KA8+1"
+output = "KemonoNoMori : (1D12<=9) ＞ 9 ＞ 成功（成功度+1）"
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "ka10"
+output = "KemonoNoMori : (1D12<=10) ＞ 9 ＞ 成功（成功度+2）"
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "KA18+2-1"
+output = "KemonoNoMori : (1D12<=19) ＞ 9 ＞ 成功（成功度+2）"
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "KA20"
+output = "KemonoNoMori : (1D12<=20) ＞ 9 ＞ 成功（成功度+3）"
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "KA9"
+output = "KemonoNoMori : (1D12<=9) ＞ 10 ＞ 失敗"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "kA9"
+output = "KemonoNoMori : (1D12<=9) ＞ 11 ＞ 大成功（成功度+1, 次の継続判定の目標値を10に変更）"
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "ka10"
+output = "KemonoNoMori : (1D12<=10) ＞ 11 ＞ 大成功（成功度+2, 次の継続判定の目標値を10に変更）"
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "KA19"
+output = "KemonoNoMori : (1D12<=19) ＞ 11 ＞ 大成功（成功度+2, 次の継続判定の目標値を10に変更）"
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SKa20"
+output = "KemonoNoMori : (1D12<=20) ＞ 11 ＞ 大成功（成功度+3, 次の継続判定の目標値を10に変更）"
+secret = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "KA12"
+output = "KemonoNoMori : (1D12<=12) ＞ 12 ＞ 大失敗"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "KC9"
+output = "KemonoNoMori : (1D12<=9) ＞ 1 ＞ 成功（成功度+1）"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SKC8+1"
+output = "KemonoNoMori : (1D12<=9) ＞ 9 ＞ 成功（成功度+1）"
+secret = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "kc10"
+output = "KemonoNoMori : (1D12<=10) ＞ 9 ＞ 成功（成功度+1）"
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "KC18-1+2"
+output = "KemonoNoMori : (1D12<=19) ＞ 9 ＞ 成功（成功度+1）"
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "skc17+1+1+1"
+output = "KemonoNoMori : (1D12<=20) ＞ 9 ＞ 成功（成功度+1）"
+secret = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "kC9"
+output = "KemonoNoMori : (1D12<=9) ＞ 10 ＞ 失敗"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "KC10"
+output = "KemonoNoMori : (1D12<=10) ＞ 11 ＞ 大成功（成功度+1, 次の継続判定の目標値を10に変更）"
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "Kc20"
+output = "KemonoNoMori : (1D12<=20) ＞ 11 ＞ 大成功（成功度+1, 次の継続判定の目標値を10に変更）"
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "Skc12"
+output = "KemonoNoMori : (1D12<=12) ＞ 12 ＞ 大失敗"
+secret = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "CTR"
+output = "KemonoNoMori : 罠動作チェック(1D12) ＞ 1 ＞ 罠は動作していなかった"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "ctr"
+output = "KemonoNoMori : 罠動作チェック(1D12) ＞ 11 ＞ 罠は動作していなかった"
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SCTR"
+output = "KemonoNoMori : 罠動作チェック(1D12) ＞ 5 ＞ 罠は動作していなかった"
+secret = true
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "CTR"
+output = "KemonoNoMori : 罠動作チェック(1D12) ＞ 12 ＞ 罠が動作していた！ ＞ 獲物表(1) ＞ 小型動物が罠にかかっていた"
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "ctr"
+output = "KemonoNoMori : 罠動作チェック(1D12) ＞ 12 ＞ 罠が動作していた！ ＞ 獲物表(12) ＞ 人間の放浪者が罠にかかっていた"
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "sctr"
+output = "KemonoNoMori : 罠動作チェック(1D12) ＞ 12 ＞ 罠が動作していた！ ＞ 獲物表(5) ＞ 大型動物が罠にかかっていた"
+secret = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "FT"
+output = "KemonoNoMori : 大失敗表(9) ＞ ランダム天気表を使用し、結果をターンの終了まで適用する"
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "ft"
+output = "KemonoNoMori : 大失敗表(12) ＞ 準備している武器が破壊される"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "sFT"
+output = "KemonoNoMori : 大失敗表(6) ＞ ランダムな荷物1個が破壊される"
+secret = true
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "RST"
+output = "KemonoNoMori : 能力値ランダム決定表(1) ＞ 【移動】"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "rst"
+output = "KemonoNoMori : 能力値ランダム決定表(10) ＞ 【察知】"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SRST"
+output = "KemonoNoMori : 能力値ランダム決定表(12) ＞ 【自制】"
+secret = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "RTT"
+output = "KemonoNoMori : ランダム所要時間表(1) ＞ 2"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "rtt"
+output = "KemonoNoMori : ランダム所要時間表(12) ＞ 5"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SrTt"
+output = "KemonoNoMori : ランダム所要時間表(4) ＞ 3"
+secret = true
+rands = [
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "RET"
+output = "KemonoNoMori : ランダム消耗表(1) ＞ 0"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "ret"
+output = "KemonoNoMori : ランダム消耗表(12) ＞ 4"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SRET"
+output = "KemonoNoMori : ランダム消耗表(9) ＞ 2"
+secret = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "RWT"
+output = "KemonoNoMori : ランダム天気表(1) ＞ 濃霧"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "rwt"
+output = "KemonoNoMori : ランダム天気表(12) ＞ 極寒"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "srwt"
+output = "KemonoNoMori : ランダム天気表(3) ＞ 大雨"
+secret = true
+rands = [
+  { sides = 12, value = 3 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "RWDT"
+output = "KemonoNoMori : ランダム天気持続表(1) ＞ 1ターン"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "rwdt"
+output = "KemonoNoMori : ランダム天気持続表(12) ＞ 156ターン"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SRWDT"
+output = "KemonoNoMori : ランダム天気持続表(5) ＞ 6ターン"
+secret = true
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "ROMT"
+output = "KemonoNoMori : ランダム遮蔽物表(屋外)(5) ＞ 【木】耐久度5,軽減値2,特殊効果:コンタクト内のキャラクターに対する射撃攻撃判定に-1の修正を付加"
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "romt"
+output = "KemonoNoMori : ランダム遮蔽物表(屋外)(12) ＞ 【岩壁】耐久度8,軽減値4,特殊効果:コンタクト内のキャラクターに対する射撃攻撃判定に-2の修正を付加/コンタクト内で行われる格闘攻撃のダメージ+2"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "sromt"
+output = "KemonoNoMori : ランダム遮蔽物表(屋外)(8) ＞ 【大木】耐久度7,軽減値3,特殊効果:コンタクト内のキャラクターに対する射撃攻撃判定に-2の修正を付加"
+secret = true
+rands = [
+  { sides = 12, value = 8 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "RIMT"
+output = "KemonoNoMori : ランダム遮蔽物表(屋内)(1) ＞ 【木材の壁】耐久度4,軽減値2,特殊効果:コンタクト内のキャラクターに対する射撃攻撃判定に-1の修正を付加"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "rimt"
+output = "KemonoNoMori : ランダム遮蔽物表(屋内)(12) ＞ 【木製家具】耐久度3,軽減値2,特殊効果:コンタクト内で行われる格闘攻撃のダメージ+1"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SRIMT"
+output = "KemonoNoMori : ランダム遮蔽物表(屋内)(5) ＞ 【木材の扉】耐久度4,軽減値2,特殊効果:コンタクト内のキャラクターに対する射撃攻撃判定に-1、接触判定と突撃判定に-2の修正を付加"
+secret = true
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "EET"
+output = "KemonoNoMori : 逃走体験表(5) ＞ 任意の【絆】を合計2点減少する (再登場: 12時間後)"
+rands = [
+  { sides = 12, value = 5 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "eet"
+output = "KemonoNoMori : 逃走体験表(12) ＞ 全ての武器と防具と小道具と荷物を失う（逃走したエリアに配置され、調査で発見可能） (再登場: 1時間後)"
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "sEET"
+output = "KemonoNoMori : 逃走体験表(2) ＞ 【余裕】が0になる (再登場: 11時間後)"
+secret = true
+rands = [
+  { sides = 12, value = 2 },
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "GFT"
+output = "KemonoNoMori : 食材採集表(1) ＞ 食べられる根（栄養価:2）"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "gft"
+output = "KemonoNoMori : 食材採集表(12) ＞ 気持ち悪い虫（栄養価:1）"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "sgft"
+output = "KemonoNoMori : 食材採集表(3) ＞ 食べられる草（栄養価:3）"
+secret = true
+rands = [
+  { sides = 12, value = 3 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "GWT"
+output = "KemonoNoMori : 水採集表(1) ＞ 汚水"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "gwt"
+output = "KemonoNoMori : 水採集表(12) ＞ 毒水"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SGWT"
+output = "KemonoNoMori : 水採集表(7) ＞ 飲料水"
+secret = true
+rands = [
+  { sides = 12, value = 7 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "WST"
+output = "KemonoNoMori : 白の魔石効果表(1) ＞ 役に立たないものの色を変える"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "wst"
+output = "KemonoNoMori : 白の魔石効果表(12) ＞ 大型動物を召喚する"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SwsT"
+output = "KemonoNoMori : 白の魔石効果表(5) ＞ 役に立たないものを復元する"
+secret = true
+rands = [
+  { sides = 12, value = 5 },
+]

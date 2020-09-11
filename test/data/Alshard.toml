@@ -1,0 +1,123 @@
+[[ test ]]
+game_system = "Alshard"
+input = "AL>=7"
+output = "Alshard : (2D6>=7[12,2]) ＞ 7[2,5] ＞ 7 ＞ 成功"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Alshard"
+input = "AL-2>=10"
+output = "Alshard : (2D6-2>=10[12,2]) ＞ 11[5,6]-2 ＞ 9 ＞ 失敗"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Alshard"
+input = "SAL+1>=5[11,3]"
+output = "Alshard : (2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+secret = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Alshard"
+input = "AL1>=7"
+output =
+rands = []
+
+[[ test ]]
+game_system = "Alshard"
+input = "ALA>=7"
+output =
+rands = []
+
+[[ test ]]
+game_system = "Alshard"
+input = "D66"
+output = "Alshard : (D66) ＞ 64"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Alshard"
+input = "AL"
+output = "Alshard : (2D6[12,2]) ＞ 12[6,6] ＞ 12 ＞ 自動成功"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Alshard"
+input = "AL"
+output = "Alshard : (2D6[12,2]) ＞ 2[1,1] ＞ 2 ＞ 自動失敗"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Alshard"
+input = "AL1"
+output =
+rands = []
+
+[[ test ]]
+game_system = "Alshard"
+input = "ALA"
+output =
+rands = []
+
+[[ test ]]
+game_system = "Alshard"
+input = "AL+1"
+output = "Alshard : (2D6+1[12,2]) ＞ 11[5,6]+1 ＞ 12"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Alshard"
+input = "AL-1"
+output = "Alshard : (2D6-1[12,2]) ＞ 3[1,2]-1 ＞ 2"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Alshard"
+input = "AL+1[11,3]"
+output = "Alshard : (2D6+1[11,3]) ＞ 6[2,4]+1 ＞ 7"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Alshard"
+input = "AL+1[11,3]"
+output = "Alshard : (2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Alshard"
+input = "AL+1[11,3]"
+output = "Alshard : (2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
