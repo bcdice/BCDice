@@ -1809,31 +1809,30 @@ module BCDice
           return nil if counts <= 0
 
           sure = !Regexp.last_match(2).empty?
-          remove = Regexp.last_match(3).split("").map(&:to_i)
-          adjust = Regexp.last_match(4)
-          adjust ||= ''
+          remove = Regexp.last_match(3).each_char.map(&:to_i)
+          adjust = Regexp.last_match(4)&.to_i
+          adjust_str = Format.modifier(adjust)
 
           dice = @randomizer.roll_barabara(counts, 6).sort
           dice_str = dice.join(",")
 
           dice -= remove
 
-          text = "#{title} ＞ [#{dice_str}]#{adjust} ＞ "
+          text = "#{title} ＞ [#{dice_str}]#{adjust_str} ＞ "
 
           unless (dice.count == counts) || dice.empty?
-            text += "[#{dice.join(',')}]#{adjust} ＞ "
+            text += "[#{dice.join(',')}]#{adjust_str} ＞ "
           end
 
           if sure || (dice.count == dice.uniq.count)
             total = adjust.to_i
-            total += dice.map(&:to_i).inject(:+) unless dice.empty?
+            total += dice.sum()
             total = 0 if total < 0
             text += "#{total}ダメージ"
           else
             text += '失敗'
           end
           return text
-
         when 'SIP'
           title = 'かんたんパーソン表'
           table = [

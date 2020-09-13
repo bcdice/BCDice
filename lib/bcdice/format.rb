@@ -19,10 +19,12 @@ module BCDice
 
     # 修正値を文字列表記にする
     #
-    # @param number [Integer]
+    # @param number [Integer, nil]
     # @return [String]
     def modifier(number)
-      if number == 0
+      if number.nil?
+        nil
+      elsif number == 0
         ""
       elsif number > 0
         "+#{number}"
