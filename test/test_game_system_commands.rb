@@ -7,9 +7,32 @@ require "bcdice"
 require "bcdice/game_system"
 
 class TestGameSystemCommands < Test::Unit::TestCase
+  class << self
+    def target_files
+      target = ENV["target"]
+      unless target
+        return Dir.glob("test/data/*.toml")
+      end
+
+      if File.exist?(target)
+        return [target]
+      end
+
+      target += ".toml" if !target.end_with?(".toml")
+      target = File.join("test/data", target)
+
+      unless File.exist?(target)
+        warn "unknown target: #{target}"
+        exit(1)
+      end
+
+      return [target]
+    end
+  end
+
   data do
     data_set = {}
-    files = Dir.glob("test/data/*.toml")
+    files = target_files()
 
     files.each do |filename|
       filename_base = File.basename(filename, ".toml")
