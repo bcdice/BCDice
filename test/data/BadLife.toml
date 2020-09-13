@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "BadLife"
 input = "BAD"
-output = "BadLife : 1D20(C:20,F:1) ＞ 10[10] ＞ 達成値：10"
+output = "1D20(C:20,F:1) ＞ 10[10] ＞ 達成値：10"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD"
-output = "BadLife : 1D20(C:20,F:1) ＞ 1[1] ＞ 達成値：0 ファンブル"
+output = "1D20(C:20,F:1) ＞ 1[1] ＞ 達成値：0 ファンブル"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD"
-output = "BadLife : 1D20(C:20,F:1) ＞ 20[20] ＞ 達成値：20 クリティカル"
+output = "1D20(C:20,F:1) ＞ 20[20] ＞ 達成値：20 クリティカル"
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD10"
-output = "BadLife : 1D20(C:20,F:1) ＞ 10[10]+10 ＞ 達成値：20"
+output = "1D20(C:20,F:1) ＞ 10[10]+10 ＞ 達成値：20"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD10"
-output = "BadLife : 1D20(C:20,F:1) ＞ 1[1]+10 ＞ 達成値：0 ファンブル"
+output = "1D20(C:20,F:1) ＞ 1[1]+10 ＞ 達成値：0 ファンブル"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD10"
-output = "BadLife : 1D20(C:20,F:1) ＞ 20[20]+10 ＞ 達成値：30 クリティカル"
+output = "1D20(C:20,F:1) ＞ 20[20]+10 ＞ 達成値：30 クリティカル"
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD10+1"
-output = "BadLife : 1D20(C:20,F:1) ＞ 10[10]+11 ＞ 達成値：21"
+output = "1D20(C:20,F:1) ＞ 10[10]+11 ＞ 達成値：21"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD10+1-2"
-output = "BadLife : 1D20(C:20,F:1) ＞ 10[10]+9 ＞ 達成値：19"
+output = "1D20(C:20,F:1) ＞ 10[10]+9 ＞ 達成値：19"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD+1-2+3-4"
-output = "BadLife : 1D20(C:20,F:1) ＞ 10[10]-2 ＞ 達成値：8"
+output = "1D20(C:20,F:1) ＞ 10[10]-2 ＞ 達成値：8"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "2BAD"
-output = "BadLife : 2D20(C:20,F:1) ＞ 10[10,10] ＞ 達成値：10"
+output = "2D20(C:20,F:1) ＞ 10[10,10] ＞ 達成値：10"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 10 },
@@ -82,7 +82,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "2BAD"
-output = "BadLife : 2D20(C:20,F:1) ＞ 11[9,11] ＞ 達成値：11"
+output = "2D20(C:20,F:1) ＞ 11[9,11] ＞ 達成値：11"
 rands = [
   { sides = 20, value = 9 },
   { sides = 20, value = 11 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "2BAD"
-output = "BadLife : 2D20(C:20,F:1) ＞ 1[1,1] ＞ 達成値：0 ファンブル"
+output = "2D20(C:20,F:1) ＞ 1[1,1] ＞ 達成値：0 ファンブル"
 rands = [
   { sides = 20, value = 1 },
   { sides = 20, value = 1 },
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "2BAD"
-output = "BadLife : 2D20(C:20,F:1) ＞ 10[1,10] ＞ 達成値：10"
+output = "2D20(C:20,F:1) ＞ 10[1,10] ＞ 達成値：10"
 rands = [
   { sides = 20, value = 1 },
   { sides = 20, value = 10 },
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "2BAD"
-output = "BadLife : 2D20(C:20,F:1) ＞ 20[10,20] ＞ 達成値：20 クリティカル"
+output = "2D20(C:20,F:1) ＞ 20[10,20] ＞ 達成値：20 クリティカル"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 20 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "2BAD"
-output = "BadLife : 2D20(C:20,F:1) ＞ 20[20,1] ＞ 達成値：20 クリティカル"
+output = "2D20(C:20,F:1) ＞ 20[20,1] ＞ 達成値：20 クリティカル"
 rands = [
   { sides = 20, value = 20 },
   { sides = 20, value = 1 },
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "3BAD10"
-output = "BadLife : 3D20(C:20,F:1) ＞ 15[5,10,15]+10 ＞ 達成値：25"
+output = "3D20(C:20,F:1) ＞ 15[5,10,15]+10 ＞ 達成値：25"
 rands = [
   { sides = 20, value = 5 },
   { sides = 20, value = 10 },
@@ -137,7 +137,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BADC-1"
-output = "BadLife : 1D20(C:19,F:1) ＞ 18[18] ＞ 達成値：18"
+output = "1D20(C:19,F:1) ＞ 18[18] ＞ 達成値：18"
 rands = [
   { sides = 20, value = 18 },
 ]
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BADC-1"
-output = "BadLife : 1D20(C:19,F:1) ＞ 20[19] ＞ 達成値：20 クリティカル"
+output = "1D20(C:19,F:1) ＞ 20[19] ＞ 達成値：20 クリティカル"
 rands = [
   { sides = 20, value = 19 },
 ]
@@ -153,7 +153,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BADC-1"
-output = "BadLife : 1D20(C:19,F:1) ＞ 20[20] ＞ 達成値：20 クリティカル"
+output = "1D20(C:19,F:1) ＞ 20[20] ＞ 達成値：20 クリティカル"
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -161,7 +161,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BADC1"
-output = "BadLife : 1D20(C:21,F:1) ＞ 20[20] ＞ 達成値：20"
+output = "1D20(C:21,F:1) ＞ 20[20] ＞ 達成値：20"
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -169,7 +169,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BADC+1"
-output = "BadLife : 1D20(C:21,F:1) ＞ 20[20] ＞ 達成値：20"
+output = "1D20(C:21,F:1) ＞ 20[20] ＞ 達成値：20"
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -177,7 +177,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BADC1-1-1"
-output = "BadLife : 1D20(C:19,F:1) ＞ 20[20] ＞ 達成値：20 クリティカル"
+output = "1D20(C:19,F:1) ＞ 20[20] ＞ 達成値：20 クリティカル"
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -185,7 +185,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BADF1"
-output = "BadLife : 1D20(C:20,F:2) ＞ 1[1] ＞ 達成値：0 ファンブル"
+output = "1D20(C:20,F:2) ＞ 1[1] ＞ 達成値：0 ファンブル"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BADF1"
-output = "BadLife : 1D20(C:20,F:2) ＞ 2[2] ＞ 達成値：0 ファンブル"
+output = "1D20(C:20,F:2) ＞ 2[2] ＞ 達成値：0 ファンブル"
 rands = [
   { sides = 20, value = 2 },
 ]
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BADF1"
-output = "BadLife : 1D20(C:20,F:2) ＞ 3[3] ＞ 達成値：3"
+output = "1D20(C:20,F:2) ＞ 3[3] ＞ 達成値：3"
 rands = [
   { sides = 20, value = 3 },
 ]
@@ -209,7 +209,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BADF+1"
-output = "BadLife : 1D20(C:20,F:2) ＞ 1[1] ＞ 達成値：0 ファンブル"
+output = "1D20(C:20,F:2) ＞ 1[1] ＞ 達成値：0 ファンブル"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BADF-1"
-output = "BadLife : 1D20(C:20,F:0) ＞ 1[1] ＞ 達成値：1"
+output = "1D20(C:20,F:0) ＞ 1[1] ＞ 達成値：1"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -225,7 +225,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "2BAD8C-1F1"
-output = "BadLife : 2D20(C:19,F:2) ＞ 2[1,2]+8 ＞ 達成値：0 ファンブル"
+output = "2D20(C:19,F:2) ＞ 2[1,2]+8 ＞ 達成値：0 ファンブル"
 rands = [
   { sides = 20, value = 1 },
   { sides = 20, value = 2 },
@@ -234,7 +234,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "2BAD8C-1F1"
-output = "BadLife : 2D20(C:19,F:2) ＞ 3[3,1]+8 ＞ 達成値：11"
+output = "2D20(C:19,F:2) ＞ 3[3,1]+8 ＞ 達成値：11"
 rands = [
   { sides = 20, value = 3 },
   { sides = 20, value = 1 },
@@ -243,7 +243,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "2BAD8C-1F1"
-output = "BadLife : 2D20(C:19,F:2) ＞ 15[5,15]+8 ＞ 達成値：23"
+output = "2D20(C:19,F:2) ＞ 15[5,15]+8 ＞ 達成値：23"
 rands = [
   { sides = 20, value = 5 },
   { sides = 20, value = 15 },
@@ -252,7 +252,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "2BAD8C-1F1"
-output = "BadLife : 2D20(C:19,F:2) ＞ 20[10,19]+8 ＞ 達成値：28 クリティカル"
+output = "2D20(C:19,F:2) ＞ 20[10,19]+8 ＞ 達成値：28 クリティカル"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 19 },
@@ -261,7 +261,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "2BAD8C-1F1"
-output = "BadLife : 2D20(C:19,F:2) ＞ 20[2,19]+8 ＞ 達成値：28 クリティカル"
+output = "2D20(C:19,F:2) ＞ 20[2,19]+8 ＞ 達成値：28 クリティカル"
 rands = [
   { sides = 20, value = 2 },
   { sides = 20, value = 19 },
@@ -270,7 +270,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD6@15"
-output = "BadLife : 1D20(C:20,F:1) ＞ 10[10]+6 ＞ 達成値：16>=15 成功度：1 ＞ 成功"
+output = "1D20(C:20,F:1) ＞ 10[10]+6 ＞ 達成値：16>=15 成功度：1 ＞ 成功"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -278,7 +278,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD6@20"
-output = "BadLife : 1D20(C:20,F:1) ＞ 10[10]+6 ＞ 達成値：16>=20 成功度：-4 ＞ 失敗"
+output = "1D20(C:20,F:1) ＞ 10[10]+6 ＞ 達成値：16>=20 成功度：-4 ＞ 失敗"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -286,7 +286,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD6@15"
-output = "BadLife : 1D20(C:20,F:1) ＞ 1[1]+6 ＞ 達成値：0>=15 成功度：-15 ＞ 失敗（ファンブル）"
+output = "1D20(C:20,F:1) ＞ 1[1]+6 ＞ 達成値：0>=15 成功度：-15 ＞ 失敗（ファンブル）"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -294,7 +294,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD6@15"
-output = "BadLife : 1D20(C:20,F:1) ＞ 20[20]+6 ＞ 達成値：26>=15 成功度：11 ＞ 成功（クリティカル）"
+output = "1D20(C:20,F:1) ＞ 20[20]+6 ＞ 達成値：26>=15 成功度：11 ＞ 成功（クリティカル）"
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -302,7 +302,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD6@30"
-output = "BadLife : 1D20(C:20,F:1) ＞ 20[20]+6 ＞ 達成値：26>=30 成功度：-4 ＞ 成功（クリティカル）"
+output = "1D20(C:20,F:1) ＞ 20[20]+6 ＞ 達成値：26>=30 成功度：-4 ＞ 成功（クリティカル）"
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -310,7 +310,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "3BAD6+2C-2F+2@15+5"
-output = "BadLife : 3D20(C:18,F:3) ＞ 15[5,10,15]+8 ＞ 達成値：23>=20 成功度：3 ＞ 成功"
+output = "3D20(C:18,F:3) ＞ 15[5,10,15]+8 ＞ 達成値：23>=20 成功度：3 ＞ 成功"
 rands = [
   { sides = 20, value = 5 },
   { sides = 20, value = 10 },
@@ -320,7 +320,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD!A"
-output = "BadLife : 1D20(C:20,F:1) ＞ 10[10] ＞ 達成値：10 〈先見の明〉"
+output = "1D20(C:20,F:1) ＞ 10[10] ＞ 達成値：10 〈先見の明〉"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -328,7 +328,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD!A"
-output = "BadLife : 1D20(C:20,F:1) ＞ 7[7]+5 ＞ 達成値：12 〈先見の明〉"
+output = "1D20(C:20,F:1) ＞ 7[7]+5 ＞ 達成値：12 〈先見の明〉"
 rands = [
   { sides = 20, value = 7 },
 ]
@@ -336,7 +336,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD5!A"
-output = "BadLife : 1D20(C:20,F:1) ＞ 7[7]+5+5 ＞ 達成値：17 〈先見の明〉"
+output = "1D20(C:20,F:1) ＞ 7[7]+5+5 ＞ 達成値：17 〈先見の明〉"
 rands = [
   { sides = 20, value = 7 },
 ]
@@ -344,7 +344,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD5!A"
-output = "BadLife : 1D20(C:20,F:1) ＞ 1[1]+5+5 ＞ 達成値：0 ファンブル 〈先見の明〉"
+output = "1D20(C:20,F:1) ＞ 1[1]+5+5 ＞ 達成値：0 ファンブル 〈先見の明〉"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -352,7 +352,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD!H"
-output = "BadLife : 1D20(C:20,F:1) ＞ 10[10] ＞ 達成値：10 ［重撃］"
+output = "1D20(C:20,F:1) ＞ 10[10] ＞ 達成値：10 ［重撃］"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -360,7 +360,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD!H"
-output = "BadLife : 1D20(C:20,F:1) ＞ 5[3] ＞ 達成値：5 ［重撃］"
+output = "1D20(C:20,F:1) ＞ 5[3] ＞ 達成値：5 ［重撃］"
 rands = [
   { sides = 20, value = 3 },
 ]
@@ -368,7 +368,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD!H"
-output = "BadLife : 1D20(C:20,F:1) ＞ 5[1] ＞ 達成値：5 ［重撃］"
+output = "1D20(C:20,F:1) ＞ 5[1] ＞ 達成値：5 ［重撃］"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -376,7 +376,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD10!AH"
-output = "BadLife : 1D20(C:20,F:1) ＞ 7[7]+10+5 ＞ 達成値：22 〈先見の明〉［重撃］"
+output = "1D20(C:20,F:1) ＞ 7[7]+10+5 ＞ 達成値：22 〈先見の明〉［重撃］"
 rands = [
   { sides = 20, value = 7 },
 ]
@@ -384,7 +384,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD10!AH"
-output = "BadLife : 1D20(C:20,F:1) ＞ 5[3]+10+5 ＞ 達成値：20 〈先見の明〉［重撃］"
+output = "1D20(C:20,F:1) ＞ 5[3]+10+5 ＞ 達成値：20 〈先見の明〉［重撃］"
 rands = [
   { sides = 20, value = 3 },
 ]
@@ -392,7 +392,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD10!AH"
-output = "BadLife : 1D20(C:20,F:1) ＞ 5[1]+10+5 ＞ 達成値：20 〈先見の明〉［重撃］"
+output = "1D20(C:20,F:1) ＞ 5[1]+10+5 ＞ 達成値：20 〈先見の明〉［重撃］"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -400,7 +400,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD10@15!A"
-output = "BadLife : 1D20(C:20,F:1) ＞ 10[10]+10 ＞ 達成値：20>=15 成功度：5 ＞ 成功 〈先見の明〉"
+output = "1D20(C:20,F:1) ＞ 10[10]+10 ＞ 達成値：20>=15 成功度：5 ＞ 成功 〈先見の明〉"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -408,7 +408,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD10@15!A"
-output = "BadLife : 1D20(C:20,F:1) ＞ 7[7]+10+5 ＞ 達成値：22>=15 成功度：7 ＞ 成功 〈先見の明〉"
+output = "1D20(C:20,F:1) ＞ 7[7]+10+5 ＞ 達成値：22>=15 成功度：7 ＞ 成功 〈先見の明〉"
 rands = [
   { sides = 20, value = 7 },
 ]
@@ -416,7 +416,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BAD10@25!A"
-output = "BadLife : 1D20(C:20,F:1) ＞ 7[7]+10+5 ＞ 達成値：22>=25 成功度：-3 ＞ 失敗 〈先見の明〉"
+output = "1D20(C:20,F:1) ＞ 7[7]+10+5 ＞ 達成値：22>=25 成功度：-3 ＞ 失敗 〈先見の明〉"
 rands = [
   { sides = 20, value = 7 },
 ]
@@ -424,7 +424,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BL"
-output = "BadLife : 1D20(C:20,F:1) ＞ 10[10] ＞ 達成値：10"
+output = "1D20(C:20,F:1) ＞ 10[10] ＞ 達成値：10"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -432,7 +432,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BL"
-output = "BadLife : 1D20(C:20,F:1) ＞ 1[1] ＞ 達成値：0 ファンブル"
+output = "1D20(C:20,F:1) ＞ 1[1] ＞ 達成値：0 ファンブル"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -440,7 +440,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BL"
-output = "BadLife : 1D20(C:20,F:1) ＞ 20[20] ＞ 達成値：20 クリティカル"
+output = "1D20(C:20,F:1) ＞ 20[20] ＞ 達成値：20 クリティカル"
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -448,7 +448,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "3BL10F-1C1@20!H"
-output = "BadLife : 3D20(C:21,F:0) ＞ 20[1,10,20]+10 ＞ 達成値：30>=20 成功度：10 ＞ 成功 ［重撃］"
+output = "3D20(C:21,F:0) ＞ 20[1,10,20]+10 ＞ 達成値：30>=20 成功度：10 ＞ 成功 ［重撃］"
 rands = [
   { sides = 20, value = 1 },
   { sides = 20, value = 10 },
@@ -458,7 +458,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "3BL10F-1C1@20!H"
-output = "BadLife : 3D20(C:21,F:0) ＞ 5[2,3,4]+10 ＞ 達成値：15>=20 成功度：-5 ＞ 失敗 ［重撃］"
+output = "3D20(C:21,F:0) ＞ 5[2,3,4]+10 ＞ 達成値：15>=20 成功度：-5 ＞ 失敗 ［重撃］"
 rands = [
   { sides = 20, value = 2 },
   { sides = 20, value = 3 },
@@ -468,7 +468,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "GL8"
-output = "BadLife : 1D20(C:17,F:2) ＞ 10[10]+8 ＞ 達成値：18 〈波乱万丈〉"
+output = "1D20(C:17,F:2) ＞ 10[10]+8 ＞ 達成値：18 〈波乱万丈〉"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -476,7 +476,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "GL8"
-output = "BadLife : 1D20(C:17,F:2) ＞ 20[17]+8 ＞ 達成値：28 クリティカル 〈波乱万丈〉"
+output = "1D20(C:17,F:2) ＞ 20[17]+8 ＞ 達成値：28 クリティカル 〈波乱万丈〉"
 rands = [
   { sides = 20, value = 17 },
 ]
@@ -484,7 +484,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "GL8"
-output = "BadLife : 1D20(C:17,F:2) ＞ 2[2]+8 ＞ 達成値：0 ファンブル 〈波乱万丈〉"
+output = "1D20(C:17,F:2) ＞ 2[2]+8 ＞ 達成値：0 ファンブル 〈波乱万丈〉"
 rands = [
   { sides = 20, value = 2 },
 ]
@@ -492,7 +492,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "GL8C-1F+1"
-output = "BadLife : 1D20(C:16,F:3) ＞ 10[10]+8 ＞ 達成値：18 〈波乱万丈〉"
+output = "1D20(C:16,F:3) ＞ 10[10]+8 ＞ 達成値：18 〈波乱万丈〉"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -500,7 +500,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "GL8C-1F+1"
-output = "BadLife : 1D20(C:16,F:3) ＞ 20[16]+8 ＞ 達成値：28 クリティカル 〈波乱万丈〉"
+output = "1D20(C:16,F:3) ＞ 20[16]+8 ＞ 達成値：28 クリティカル 〈波乱万丈〉"
 rands = [
   { sides = 20, value = 16 },
 ]
@@ -508,7 +508,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "GL8C-1F+1"
-output = "BadLife : 1D20(C:16,F:3) ＞ 3[3]+8 ＞ 達成値：0 ファンブル 〈波乱万丈〉"
+output = "1D20(C:16,F:3) ＞ 3[3]+8 ＞ 達成値：0 ファンブル 〈波乱万丈〉"
 rands = [
   { sides = 20, value = 3 },
 ]
@@ -516,7 +516,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "GL8C-1F+1!HA"
-output = "BadLife : 1D20(C:16,F:3) ＞ 10[10]+8 ＞ 達成値：18 〈波乱万丈〉〈先見の明〉［重撃］"
+output = "1D20(C:16,F:3) ＞ 10[10]+8 ＞ 達成値：18 〈波乱万丈〉〈先見の明〉［重撃］"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -524,7 +524,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "TRN"
-output = "BadLife : 怪盗コードネーム表(1) ＞ フォックス"
+output = "怪盗コードネーム表(1) ＞ フォックス"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -532,7 +532,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "TRN"
-output = "BadLife : 怪盗コードネーム表(20) ＞ ジャガー"
+output = "怪盗コードネーム表(20) ＞ ジャガー"
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -540,7 +540,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "DRN"
-output = "BadLife : 闇医者コードネーム表(3) ＞ ヘッドエイク"
+output = "闇医者コードネーム表(3) ＞ ヘッドエイク"
 rands = [
   { sides = 20, value = 3 },
 ]
@@ -548,7 +548,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "DRN"
-output = "BadLife : 闇医者コードネーム表(18) ＞ デス"
+output = "闇医者コードネーム表(18) ＞ デス"
 rands = [
   { sides = 20, value = 18 },
 ]
@@ -556,7 +556,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "GRN"
-output = "BadLife : 博徒コードネーム表(5) ＞ プレジデント"
+output = "博徒コードネーム表(5) ＞ プレジデント"
 rands = [
   { sides = 20, value = 5 },
 ]
@@ -564,7 +564,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "GRN"
-output = "BadLife : 博徒コードネーム表(16) ＞ ミラクル"
+output = "博徒コードネーム表(16) ＞ ミラクル"
 rands = [
   { sides = 20, value = 16 },
 ]
@@ -572,7 +572,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "KRN"
-output = "BadLife : 殺シ屋コードネーム表(7) ＞ キャノン"
+output = "殺シ屋コードネーム表(7) ＞ キャノン"
 rands = [
   { sides = 20, value = 7 },
 ]
@@ -580,7 +580,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "KRN"
-output = "BadLife : 殺シ屋コードネーム表(14) ＞ ガロット"
+output = "殺シ屋コードネーム表(14) ＞ ガロット"
 rands = [
   { sides = 20, value = 14 },
 ]
@@ -588,7 +588,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "SRN"
-output = "BadLife : 業師コードネーム表(9) ＞ フリージア"
+output = "業師コードネーム表(9) ＞ フリージア"
 rands = [
   { sides = 20, value = 9 },
 ]
@@ -596,7 +596,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "SRN"
-output = "BadLife : 業師コードネーム表(12) ＞ カクタス"
+output = "業師コードネーム表(12) ＞ カクタス"
 rands = [
   { sides = 20, value = 12 },
 ]
@@ -604,7 +604,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BRN"
-output = "BadLife : 遊ビ人コードネーム表(11) ＞ トランプ"
+output = "遊ビ人コードネーム表(11) ＞ トランプ"
 rands = [
   { sides = 20, value = 11 },
 ]
@@ -612,7 +612,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "BRN"
-output = "BadLife : 遊ビ人コードネーム表(19) ＞ キャベツカンテイ"
+output = "遊ビ人コードネーム表(19) ＞ キャベツカンテイ"
 rands = [
   { sides = 20, value = 19 },
 ]
@@ -620,7 +620,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "SKL"
-output = "BadLife : スキル表(1) ＞ 一撃離脱"
+output = "スキル表(1) ＞ 一撃離脱"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -628,7 +628,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "SKL"
-output = "BadLife : スキル表(50) ＞ 破釜沈船"
+output = "スキル表(50) ＞ 破釜沈船"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -636,7 +636,7 @@ rands = [
 [[ test ]]
 game_system = "BadLife"
 input = "SKL"
-output = "BadLife : スキル表(100) ＞ この表を2回振る"
+output = "スキル表(100) ＞ この表を2回振る"
 rands = [
   { sides = 100, value = 100 },
 ]

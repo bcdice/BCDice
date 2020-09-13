@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "1D6"
-output = "ParasiteBlood : (1D6) ＞ 5"
+output = "(1D6) ＞ 5"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "1D6"
-output = "ParasiteBlood : (1D6) ＞ 5"
+output = "(1D6) ＞ 5"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "1D6"
-output = "ParasiteBlood : (1D6) ＞ 3"
+output = "(1D6) ＞ 3"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "1D6"
-output = "ParasiteBlood : (1D6) ＞ 6"
+output = "(1D6) ＞ 6"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "1D6"
-output = "ParasiteBlood : (1D6) ＞ 4"
+output = "(1D6) ＞ 4"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "1D6"
-output = "ParasiteBlood : (1D6) ＞ 1"
+output = "(1D6) ＞ 1"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "1D6"
-output = "ParasiteBlood : (1D6) ＞ 1"
+output = "(1D6) ＞ 1"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "1D6"
-output = "ParasiteBlood : (1D6) ＞ 5"
+output = "(1D6) ＞ 5"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "1D6"
-output = "ParasiteBlood : (1D6) ＞ 6"
+output = "(1D6) ＞ 6"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "1D6"
-output = "ParasiteBlood : (1D6) ＞ 1"
+output = "(1D6) ＞ 1"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "2D6"
-output = "ParasiteBlood : (2D6) ＞ 7[1,6] ＞ 7"
+output = "(2D6) ＞ 7[1,6] ＞ 7"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -90,7 +90,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "2D6"
-output = "ParasiteBlood : (2D6) ＞ 10[5,5] ＞ 10"
+output = "(2D6) ＞ 10[5,5] ＞ 10"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -99,7 +99,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "2D6"
-output = "ParasiteBlood : (2D6) ＞ 7[2,5] ＞ 7"
+output = "(2D6) ＞ 7[2,5] ＞ 7"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -108,7 +108,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "2D6"
-output = "ParasiteBlood : (2D6) ＞ 10[4,6] ＞ 10"
+output = "(2D6) ＞ 10[4,6] ＞ 10"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -117,7 +117,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "2D6"
-output = "ParasiteBlood : (2D6) ＞ 8[3,5] ＞ 8"
+output = "(2D6) ＞ 8[3,5] ＞ 8"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -126,7 +126,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "2D6"
-output = "ParasiteBlood : (2D6) ＞ 7[1,6] ＞ 7"
+output = "(2D6) ＞ 7[1,6] ＞ 7"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -135,7 +135,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "2D6"
-output = "ParasiteBlood : (2D6) ＞ 10[5,5] ＞ 10"
+output = "(2D6) ＞ 10[5,5] ＞ 10"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -144,7 +144,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "2D6"
-output = "ParasiteBlood : (2D6) ＞ 11[5,6] ＞ 11"
+output = "(2D6) ＞ 11[5,6] ＞ 11"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -153,7 +153,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "2D6"
-output = "ParasiteBlood : (2D6) ＞ 5[1,4] ＞ 5"
+output = "(2D6) ＞ 5[1,4] ＞ 5"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -162,7 +162,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "2D6"
-output = "ParasiteBlood : (2D6) ＞ 4[1,3] ＞ 4"
+output = "(2D6) ＞ 4[1,3] ＞ 4"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -171,7 +171,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "3D6"
-output = "ParasiteBlood : (3D6) ＞ 11[1,4,6] ＞ 11"
+output = "(3D6) ＞ 11[1,4,6] ＞ 11"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -181,7 +181,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "3D6"
-output = "ParasiteBlood : (3D6) ＞ 11[1,5,5] ＞ 11"
+output = "(3D6) ＞ 11[1,5,5] ＞ 11"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -191,7 +191,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "3D6"
-output = "ParasiteBlood : (3D6) ＞ 8[1,2,5] ＞ 8"
+output = "(3D6) ＞ 8[1,2,5] ＞ 8"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "3D6"
-output = "ParasiteBlood : (3D6) ＞ 9[2,2,5] ＞ 9"
+output = "(3D6) ＞ 9[2,2,5] ＞ 9"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -211,7 +211,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "3D6"
-output = "ParasiteBlood : (3D6) ＞ 10[2,3,5] ＞ 10"
+output = "(3D6) ＞ 10[2,3,5] ＞ 10"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -221,7 +221,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "3D6"
-output = "ParasiteBlood : (3D6) ＞ 10[1,3,6] ＞ 10"
+output = "(3D6) ＞ 10[1,3,6] ＞ 10"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -231,7 +231,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "3D6"
-output = "ParasiteBlood : (3D6) ＞ 11[2,4,5] ＞ 11"
+output = "(3D6) ＞ 11[2,4,5] ＞ 11"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "3D6"
-output = "ParasiteBlood : (3D6) ＞ 10[1,3,6] ＞ 10"
+output = "(3D6) ＞ 10[1,3,6] ＞ 10"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -251,7 +251,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "3D6"
-output = "ParasiteBlood : (3D6) ＞ 11[1,4,6] ＞ 11"
+output = "(3D6) ＞ 11[1,4,6] ＞ 11"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -261,7 +261,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "3D6"
-output = "ParasiteBlood : (3D6) ＞ 11[1,5,5] ＞ 11"
+output = "(3D6) ＞ 11[1,5,5] ＞ 11"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -271,7 +271,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "5D6"
-output = "ParasiteBlood : (5D6) ＞ 19[2,4,4,4,5] ＞ 19"
+output = "(5D6) ＞ 19[2,4,4,4,5] ＞ 19"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -283,7 +283,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "5D6"
-output = "ParasiteBlood : (5D6) ＞ 12[1,2,2,2,5] ＞ 12"
+output = "(5D6) ＞ 12[1,2,2,2,5] ＞ 12"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -295,7 +295,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "5D6"
-output = "ParasiteBlood : (5D6) ＞ 9[1,1,1,2,4] ＞ 9"
+output = "(5D6) ＞ 9[1,1,1,2,4] ＞ 9"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -307,7 +307,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "5D6"
-output = "ParasiteBlood : (5D6) ＞ 12[1,1,1,3,6] ＞ 12"
+output = "(5D6) ＞ 12[1,1,1,3,6] ＞ 12"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -319,7 +319,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "5D6"
-output = "ParasiteBlood : (5D6) ＞ 14[1,1,3,4,5] ＞ 14"
+output = "(5D6) ＞ 14[1,1,3,4,5] ＞ 14"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -331,7 +331,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "5D6"
-output = "ParasiteBlood : (5D6) ＞ 24[3,4,5,6,6] ＞ 24"
+output = "(5D6) ＞ 24[3,4,5,6,6] ＞ 24"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -343,7 +343,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "5D6"
-output = "ParasiteBlood : (5D6) ＞ 16[1,2,2,5,6] ＞ 16"
+output = "(5D6) ＞ 16[1,2,2,5,6] ＞ 16"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -355,7 +355,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "5D6"
-output = "ParasiteBlood : (5D6) ＞ 11[1,1,1,2,6] ＞ 11"
+output = "(5D6) ＞ 11[1,1,1,2,6] ＞ 11"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -367,7 +367,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "5D6"
-output = "ParasiteBlood : (5D6) ＞ 17[2,3,3,4,5] ＞ 17"
+output = "(5D6) ＞ 17[2,3,3,4,5] ＞ 17"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -379,7 +379,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "5D6"
-output = "ParasiteBlood : (5D6) ＞ 14[2,2,2,3,5] ＞ 14"
+output = "(5D6) ＞ 14[2,2,2,3,5] ＞ 14"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -391,7 +391,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "10D6"
-output = "ParasiteBlood : (10D6) ＞ 29[1,1,1,2,2,3,4,4,5,6] ＞ 29"
+output = "(10D6) ＞ 29[1,1,1,2,2,3,4,4,5,6] ＞ 29"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -408,7 +408,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "10D6"
-output = "ParasiteBlood : (10D6) ＞ 37[2,2,3,3,3,4,4,5,5,6] ＞ 37"
+output = "(10D6) ＞ 37[2,2,3,3,3,4,4,5,5,6] ＞ 37"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -425,7 +425,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "10D6"
-output = "ParasiteBlood : (10D6) ＞ 35[2,2,2,2,3,4,4,4,6,6] ＞ 35"
+output = "(10D6) ＞ 35[2,2,2,2,3,4,4,4,6,6] ＞ 35"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -442,7 +442,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "10D6"
-output = "ParasiteBlood : (10D6) ＞ 35[1,1,2,3,4,4,4,4,6,6] ＞ 35"
+output = "(10D6) ＞ 35[1,1,2,3,4,4,4,4,6,6] ＞ 35"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -459,7 +459,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "10D6"
-output = "ParasiteBlood : (10D6) ＞ 36[1,2,2,2,4,4,5,5,5,6] ＞ 36"
+output = "(10D6) ＞ 36[1,2,2,2,4,4,5,5,5,6] ＞ 36"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -476,7 +476,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "10D6"
-output = "ParasiteBlood : (10D6) ＞ 44[2,2,3,4,5,5,5,6,6,6] ＞ 44"
+output = "(10D6) ＞ 44[2,2,3,4,5,5,5,6,6,6] ＞ 44"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -493,7 +493,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "10D6"
-output = "ParasiteBlood : (10D6) ＞ 36[1,2,3,3,3,3,4,5,6,6] ＞ 36"
+output = "(10D6) ＞ 36[1,2,3,3,3,3,4,5,6,6] ＞ 36"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -510,7 +510,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "10D6"
-output = "ParasiteBlood : (10D6) ＞ 38[1,2,3,3,4,4,4,5,6,6] ＞ 38"
+output = "(10D6) ＞ 38[1,2,3,3,4,4,4,5,6,6] ＞ 38"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -527,7 +527,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "10D6"
-output = "ParasiteBlood : (10D6) ＞ 25[1,1,1,1,2,3,3,3,5,5] ＞ 25"
+output = "(10D6) ＞ 25[1,1,1,1,2,3,3,3,5,5] ＞ 25"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -544,7 +544,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "10D6"
-output = "ParasiteBlood : (10D6) ＞ 32[1,1,1,2,2,4,5,5,5,6] ＞ 32"
+output = "(10D6) ＞ 32[1,1,1,2,2,4,5,5,5,6] ＞ 32"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -561,7 +561,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-9:『前兆/10』悪魔的特徴が1ターン(10秒)目立つ。〈悪魔化〉時は影響なし。"
+output = "衝動表1-9:『前兆/10』悪魔的特徴が1ターン(10秒)目立つ。〈悪魔化〉時は影響なし。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -570,7 +570,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-6:『鈍感/ 0』衝動に気が付かない。影響なし。"
+output = "衝動表1-6:『鈍感/ 0』衝動に気が付かない。影響なし。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -579,7 +579,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-11:『拒絶/10』〈悪魔化〉が解除される。通常時は影響なし。"
+output = "衝動表1-11:『拒絶/10』〈悪魔化〉が解除される。通常時は影響なし。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -588,7 +588,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-9:『前兆/10』悪魔的特徴が1ターン(10秒)目立つ。〈悪魔化〉時は影響なし。"
+output = "衝動表1-9:『前兆/10』悪魔的特徴が1ターン(10秒)目立つ。〈悪魔化〉時は影響なし。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -597,7 +597,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
+output = "衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -606,7 +606,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-5:『微笑/10』可笑しくてしょうがない。笑いが止まらず、そのターンの終了まで[行動不能]となる。"
+output = "衝動表1-5:『微笑/10』可笑しくてしょうがない。笑いが止まらず、そのターンの終了まで[行動不能]となる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -615,7 +615,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-12:『定着/20』通常時であれば、即座に〈悪魔化〉する。肉体が〈悪魔化〉に馴染み、24時間通常時に戻れない。"
+output = "衝動表1-12:『定着/20』通常時であれば、即座に〈悪魔化〉する。肉体が〈悪魔化〉に馴染み、24時間通常時に戻れない。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -624,7 +624,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-10:『変化/10』利き腕や前脚のみ、2ターン(20秒)かけて〈悪魔化〉する。〈悪魔化〉時は影響なし。"
+output = "衝動表1-10:『変化/10』利き腕や前脚のみ、2ターン(20秒)かけて〈悪魔化〉する。〈悪魔化〉時は影響なし。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -633,7 +633,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
+output = "衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -642,7 +642,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-3:『暗闇/20』視神経に悪影響が出て、24時間[暗闇]になる。"
+output = "衝動表1-3:『暗闇/20』視神経に悪影響が出て、24時間[暗闇]になる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -651,7 +651,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "urge5"
-output = "ParasiteBlood : 衝動表5-5:『顕現/20』利き腕や前脚がさらに外骨格化し、肉体に強い負荷がかかる。【衝動】を3蓄積"
+output = "衝動表5-5:『顕現/20』利き腕や前脚がさらに外骨格化し、肉体に強い負荷がかかる。【衝動】を3蓄積"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -660,7 +660,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "urge5"
-output = "ParasiteBlood : 衝動表5-6:『好機/20』チャンスに本能が素早く反応。即座に[タイミング:攻撃]の行動を1回だけ行える。"
+output = "衝動表5-6:『好機/20』チャンスに本能が素早く反応。即座に[タイミング:攻撃]の行動を1回だけ行える。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -669,7 +669,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "urge5"
-output = "ParasiteBlood : 衝動表5-6:『好機/20』チャンスに本能が素早く反応。即座に[タイミング:攻撃]の行動を1回だけ行える。"
+output = "衝動表5-6:『好機/20』チャンスに本能が素早く反応。即座に[タイミング:攻撃]の行動を1回だけ行える。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -678,7 +678,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "urge5"
-output = "ParasiteBlood : 衝動表5-12:『絶望/30』全身が絶望に満たされ、全てを破壊したくなる。次のターンの終了まで、ダメージに+15。"
+output = "衝動表5-12:『絶望/30』全身が絶望に満たされ、全てを破壊したくなる。次のターンの終了まで、ダメージに+15。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -687,7 +687,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "urge5"
-output = "ParasiteBlood : 衝動表5-5:『顕現/20』利き腕や前脚がさらに外骨格化し、肉体に強い負荷がかかる。【衝動】を3蓄積"
+output = "衝動表5-5:『顕現/20』利き腕や前脚がさらに外骨格化し、肉体に強い負荷がかかる。【衝動】を3蓄積"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -696,7 +696,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "urge5"
-output = "ParasiteBlood : 衝動表5-9:『暴君/20』自分が最強に思えてしょうがない。60ターン(10分)の間、【行動値】とダメージに+5。"
+output = "衝動表5-9:『暴君/20』自分が最強に思えてしょうがない。60ターン(10分)の間、【行動値】とダメージに+5。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -705,7 +705,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "urge5"
-output = "ParasiteBlood : 衝動表5-5:『顕現/20』利き腕や前脚がさらに外骨格化し、肉体に強い負荷がかかる。【衝動】を3蓄積"
+output = "衝動表5-5:『顕現/20』利き腕や前脚がさらに外骨格化し、肉体に強い負荷がかかる。【衝動】を3蓄積"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -714,7 +714,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "urge5"
-output = "ParasiteBlood : 衝動表5-9:『暴君/20』自分が最強に思えてしょうがない。60ターン(10分)の間、【行動値】とダメージに+5。"
+output = "衝動表5-9:『暴君/20』自分が最強に思えてしょうがない。60ターン(10分)の間、【行動値】とダメージに+5。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -723,7 +723,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "urge5"
-output = "ParasiteBlood : 衝動表5-5:『顕現/20』利き腕や前脚がさらに外骨格化し、肉体に強い負荷がかかる。【衝動】を3蓄積"
+output = "衝動表5-5:『顕現/20』利き腕や前脚がさらに外骨格化し、肉体に強い負荷がかかる。【衝動】を3蓄積"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -732,7 +732,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "urge5"
-output = "ParasiteBlood : 衝動表5-12:『絶望/30』全身が絶望に満たされ、全てを破壊したくなる。次のターンの終了まで、ダメージに+15。"
+output = "衝動表5-12:『絶望/30』全身が絶望に満たされ、全てを破壊したくなる。次のターンの終了まで、ダメージに+15。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -741,7 +741,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "Surge2"
-output = "ParasiteBlood : 衝動表2-6:『限界/10』溢れる力が限界を超え、全身の血管が破裂。【エナジー】を5消費。"
+output = "衝動表2-6:『限界/10』溢れる力が限界を超え、全身の血管が破裂。【エナジー】を5消費。"
 secret = true
 rands = [
   { sides = 6, value = 4 },
@@ -751,7 +751,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "Surge2"
-output = "ParasiteBlood : 衝動表2-10:『我慢/ 0』衝動を我慢した。影響なし。"
+output = "衝動表2-10:『我慢/ 0』衝動を我慢した。影響なし。"
 secret = true
 rands = [
   { sides = 6, value = 5 },
@@ -761,7 +761,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "Surge2"
-output = "ParasiteBlood : 衝動表2-5:『落涙/10』過去の悲しい想い出が去来し、涙が溢れる。そのターンの終了まで[タイミング:準備]を行えない。"
+output = "衝動表2-5:『落涙/10』過去の悲しい想い出が去来し、涙が溢れる。そのターンの終了まで[タイミング:準備]を行えない。"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -771,7 +771,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "Surge2"
-output = "ParasiteBlood : 衝動表2-7:『辛抱/10』突如全身が〈悪魔化〉しようとしたが、意思の力で抑制。【エナジー】を5消費。〈悪魔化〉時は影響なし。"
+output = "衝動表2-7:『辛抱/10』突如全身が〈悪魔化〉しようとしたが、意思の力で抑制。【エナジー】を5消費。〈悪魔化〉時は影響なし。"
 secret = true
 rands = [
   { sides = 6, value = 6 },
@@ -781,7 +781,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "Surge2"
-output = "ParasiteBlood : 衝動表2-11:『嫉妬/10』最も近くの対象に猛烈な嫉妬を感じ、[距離:移動10m/対象:1体]に通常肉弾攻撃を行う。"
+output = "衝動表2-11:『嫉妬/10』最も近くの対象に猛烈な嫉妬を感じ、[距離:移動10m/対象:1体]に通常肉弾攻撃を行う。"
 secret = true
 rands = [
   { sides = 6, value = 6 },
@@ -791,7 +791,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "Surge2"
-output = "ParasiteBlood : 衝動表2-6:『限界/10』溢れる力が限界を超え、全身の血管が破裂。【エナジー】を5消費。"
+output = "衝動表2-6:『限界/10』溢れる力が限界を超え、全身の血管が破裂。【エナジー】を5消費。"
 secret = true
 rands = [
   { sides = 6, value = 3 },
@@ -801,7 +801,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "Surge2"
-output = "ParasiteBlood : 衝動表2-8:『忍耐/ 0』衝動に耐えた。影響なし。"
+output = "衝動表2-8:『忍耐/ 0』衝動に耐えた。影響なし。"
 secret = true
 rands = [
   { sides = 6, value = 6 },
@@ -811,7 +811,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "Surge2"
-output = "ParasiteBlood : 衝動表2-8:『忍耐/ 0』衝動に耐えた。影響なし。"
+output = "衝動表2-8:『忍耐/ 0』衝動に耐えた。影響なし。"
 secret = true
 rands = [
   { sides = 6, value = 5 },
@@ -821,7 +821,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "Surge2"
-output = "ParasiteBlood : 衝動表2-4:『苦痛/20』\"悪魔寄生体\"が体内で暴れる。苦痛を感じ、【エナジー】を10消費。"
+output = "衝動表2-4:『苦痛/20』\"悪魔寄生体\"が体内で暴れる。苦痛を感じ、【エナジー】を10消費。"
 secret = true
 rands = [
   { sides = 6, value = 1 },
@@ -831,7 +831,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "Surge2"
-output = "ParasiteBlood : 衝動表2-10:『我慢/ 0』衝動を我慢した。影響なし。"
+output = "衝動表2-10:『我慢/ 0』衝動を我慢した。影響なし。"
 secret = true
 rands = [
   { sides = 6, value = 4 },
@@ -841,7 +841,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-10:『変化/10』利き腕や前脚のみ、2ターン(20秒)かけて〈悪魔化〉する。〈悪魔化〉時は影響なし。"
+output = "衝動表1-10:『変化/10』利き腕や前脚のみ、2ターン(20秒)かけて〈悪魔化〉する。〈悪魔化〉時は影響なし。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -850,7 +850,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
+output = "衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -859,7 +859,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-9:『前兆/10』悪魔的特徴が1ターン(10秒)目立つ。〈悪魔化〉時は影響なし。"
+output = "衝動表1-9:『前兆/10』悪魔的特徴が1ターン(10秒)目立つ。〈悪魔化〉時は影響なし。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -868,7 +868,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-10:『変化/10』利き腕や前脚のみ、2ターン(20秒)かけて〈悪魔化〉する。〈悪魔化〉時は影響なし。"
+output = "衝動表1-10:『変化/10』利き腕や前脚のみ、2ターン(20秒)かけて〈悪魔化〉する。〈悪魔化〉時は影響なし。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -877,7 +877,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-5:『微笑/10』可笑しくてしょうがない。笑いが止まらず、そのターンの終了まで[行動不能]となる。"
+output = "衝動表1-5:『微笑/10』可笑しくてしょうがない。笑いが止まらず、そのターンの終了まで[行動不能]となる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -886,7 +886,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-10:『変化/10』利き腕や前脚のみ、2ターン(20秒)かけて〈悪魔化〉する。〈悪魔化〉時は影響なし。"
+output = "衝動表1-10:『変化/10』利き腕や前脚のみ、2ターン(20秒)かけて〈悪魔化〉する。〈悪魔化〉時は影響なし。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -895,7 +895,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-5:『微笑/10』可笑しくてしょうがない。笑いが止まらず、そのターンの終了まで[行動不能]となる。"
+output = "衝動表1-5:『微笑/10』可笑しくてしょうがない。笑いが止まらず、そのターンの終了まで[行動不能]となる。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -904,7 +904,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-9:『前兆/10』悪魔的特徴が1ターン(10秒)目立つ。〈悪魔化〉時は影響なし。"
+output = "衝動表1-9:『前兆/10』悪魔的特徴が1ターン(10秒)目立つ。〈悪魔化〉時は影響なし。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -913,7 +913,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
+output = "衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -922,7 +922,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "URGE1"
-output = "ParasiteBlood : 衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
+output = "衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -931,7 +931,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "NURGE1"
-output = "ParasiteBlood : 衝動表1-4:『悲哀/10』突然の悲みに動きが止まる。そのターンの終了まで[行動不能]となる。"
+output = "衝動表1-4:『悲哀/10』突然の悲みに動きが止まる。そのターンの終了まで[行動不能]となる。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -940,7 +940,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "NURGE1"
-output = "ParasiteBlood : 衝動表1-3:『暗闇/20』視神経に悪影響が出て、24時間[暗闇]になる。"
+output = "衝動表1-3:『暗闇/20』視神経に悪影響が出て、24時間[暗闇]になる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -949,7 +949,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "NURGE1"
-output = "ParasiteBlood : 衝動表1-5:『微笑/10』可笑しくてしょうがない。笑いが止まらず、そのターンの終了まで[行動不能]となる。"
+output = "衝動表1-5:『微笑/10』可笑しくてしょうがない。笑いが止まらず、そのターンの終了まで[行動不能]となる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -958,7 +958,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "NURGE1"
-output = "ParasiteBlood : 衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
+output = "衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -967,7 +967,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "NURGE1"
-output = "ParasiteBlood : 衝動表1-9:『前兆/10』悪魔的特徴が1ターン(10秒)目立つ。〈悪魔化〉時は影響なし。"
+output = "衝動表1-9:『前兆/10』悪魔的特徴が1ターン(10秒)目立つ。〈悪魔化〉時は影響なし。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -976,7 +976,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "NURGE1"
-output = "ParasiteBlood : 衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
+output = "衝動表1-7:『抑制/ 0』衝動を抑制した。影響なし。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -985,7 +985,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "NURGE1"
-output = "ParasiteBlood : 衝動表1-5:『微笑/10』可笑しくてしょうがない。笑いが止まらず、そのターンの終了まで[行動不能]となる。"
+output = "衝動表1-5:『微笑/10』可笑しくてしょうがない。笑いが止まらず、そのターンの終了まで[行動不能]となる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -994,7 +994,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "NURGE1"
-output = "ParasiteBlood : 衝動表1-4:『悲哀/10』突然の悲みに動きが止まる。そのターンの終了まで[行動不能]となる。"
+output = "衝動表1-4:『悲哀/10』突然の悲みに動きが止まる。そのターンの終了まで[行動不能]となる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -1003,7 +1003,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "NURGE1"
-output = "ParasiteBlood : 衝動表1-8:『我慢/ 0』衝動を我慢した。影響なし。"
+output = "衝動表1-8:『我慢/ 0』衝動を我慢した。影響なし。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -1012,7 +1012,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "NURGE1"
-output = "ParasiteBlood : 衝動表1-6:『鈍感/ 0』衝動に気が付かない。影響なし。"
+output = "衝動表1-6:『鈍感/ 0』衝動に気が付かない。影響なし。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -1021,7 +1021,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE1"
-output = "ParasiteBlood : 誤作動表1-3:『動作不調/10』駆動系に異常発生。このターンのターン終了まで［行動不能］となる。"
+output = "誤作動表1-3:『動作不調/10』駆動系に異常発生。このターンのターン終了まで［行動不能］となる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -1030,7 +1030,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE1"
-output = "ParasiteBlood : 誤作動表1-7:『機能安定/0』機能がむしろ安定した。影響なし。"
+output = "誤作動表1-7:『機能安定/0』機能がむしろ安定した。影響なし。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -1039,7 +1039,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE1"
-output = "ParasiteBlood : 誤作動表1-3:『動作不調/10』駆動系に異常発生。このターンのターン終了まで［行動不能］となる。"
+output = "誤作動表1-3:『動作不調/10』駆動系に異常発生。このターンのターン終了まで［行動不能］となる。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -1048,7 +1048,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE1"
-output = "ParasiteBlood : 誤作動表1-10:『離脱機能/10』異常発生。即座に［戦闘移動］を行い、最も近い敵から遠ざかるように移動する。"
+output = "誤作動表1-10:『離脱機能/10』異常発生。即座に［戦闘移動］を行い、最も近い敵から遠ざかるように移動する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -1057,7 +1057,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE1"
-output = "ParasiteBlood : 誤作動表1-7:『機能安定/0』機能がむしろ安定した。影響なし。"
+output = "誤作動表1-7:『機能安定/0』機能がむしろ安定した。影響なし。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -1066,7 +1066,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE1"
-output = "ParasiteBlood : 誤作動表1-2:『緊急停止/20』機能異常の警報と共に、機能が緊急停止。次のターンのターン終了時まで［行動不能］となる。"
+output = "誤作動表1-2:『緊急停止/20』機能異常の警報と共に、機能が緊急停止。次のターンのターン終了時まで［行動不能］となる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1075,7 +1075,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE1"
-output = "ParasiteBlood : 誤作動表1-9:『機能暴発/10』兵装の調子が悪化。次のターンのターン終了まで、［タイミング：準備］の《兵装》が使用できない。"
+output = "誤作動表1-9:『機能暴発/10』兵装の調子が悪化。次のターンのターン終了まで、［タイミング：準備］の《兵装》が使用できない。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -1084,7 +1084,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE1"
-output = "ParasiteBlood : 誤作動表1-8:『不良調整/0』機能に違和感を覚えるが誤差の範囲内。影響なし。"
+output = "誤作動表1-8:『不良調整/0』機能に違和感を覚えるが誤差の範囲内。影響なし。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -1093,7 +1093,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE1"
-output = "ParasiteBlood : 誤作動表1-9:『機能暴発/10』兵装の調子が悪化。次のターンのターン終了まで、［タイミング：準備］の《兵装》が使用できない。"
+output = "誤作動表1-9:『機能暴発/10』兵装の調子が悪化。次のターンのターン終了まで、［タイミング：準備］の《兵装》が使用できない。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -1102,7 +1102,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE1"
-output = "ParasiteBlood : 誤作動表1-9:『機能暴発/10』兵装の調子が悪化。次のターンのターン終了まで、［タイミング：準備］の《兵装》が使用できない。"
+output = "誤作動表1-9:『機能暴発/10』兵装の調子が悪化。次のターンのターン終了まで、［タイミング：準備］の《兵装》が使用できない。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -1111,7 +1111,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE2"
-output = "ParasiteBlood : 誤作動表2-6:『視界不良/10』視覚機能に異常発生。60ターン（10分）の間、【幸運】判定の達成値に-2。"
+output = "誤作動表2-6:『視界不良/10』視覚機能に異常発生。60ターン（10分）の間、【幸運】判定の達成値に-2。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -1120,7 +1120,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE2"
-output = "ParasiteBlood : 誤作動表2-5:『感覚異常/10』感覚機能に異常発生。60ターン（10分）の間、【感覚】判定の達成値に-2。"
+output = "誤作動表2-5:『感覚異常/10』感覚機能に異常発生。60ターン（10分）の間、【感覚】判定の達成値に-2。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -1129,7 +1129,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE2"
-output = "ParasiteBlood : 誤作動表2-9:『援護不通/10』援護ソフトが誤作動。60ターン（10分）の間、【知力】判定の達成値に-2。"
+output = "誤作動表2-9:『援護不通/10』援護ソフトが誤作動。60ターン（10分）の間、【知力】判定の達成値に-2。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -1138,7 +1138,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE2"
-output = "ParasiteBlood : 誤作動表2-2:『安全機能/20』セーフティが誤動作。このターンのターン終了まで判定の達成値に-5。"
+output = "誤作動表2-2:『安全機能/20』セーフティが誤動作。このターンのターン終了まで判定の達成値に-5。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1147,7 +1147,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE2"
-output = "ParasiteBlood : 誤作動表2-5:『感覚異常/10』感覚機能に異常発生。60ターン（10分）の間、【感覚】判定の達成値に-2。"
+output = "誤作動表2-5:『感覚異常/10』感覚機能に異常発生。60ターン（10分）の間、【感覚】判定の達成値に-2。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -1156,7 +1156,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE2"
-output = "ParasiteBlood : 誤作動表2-10:『発声不調/20』通話機能に異常。60ターン（10分）の間、声を出しても雑音だらけになって意味が通じず、さらに【精神】判定の達成値に-2。"
+output = "誤作動表2-10:『発声不調/20』通話機能に異常。60ターン（10分）の間、声を出しても雑音だらけになって意味が通じず、さらに【精神】判定の達成値に-2。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -1165,7 +1165,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE2"
-output = "ParasiteBlood : 誤作動表2-6:『視界不良/10』視覚機能に異常発生。60ターン（10分）の間、【幸運】判定の達成値に-2。"
+output = "誤作動表2-6:『視界不良/10』視覚機能に異常発生。60ターン（10分）の間、【幸運】判定の達成値に-2。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1174,7 +1174,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE2"
-output = "ParasiteBlood : 誤作動表2-9:『援護不通/10』援護ソフトが誤作動。60ターン（10分）の間、【知力】判定の達成値に-2。"
+output = "誤作動表2-9:『援護不通/10』援護ソフトが誤作動。60ターン（10分）の間、【知力】判定の達成値に-2。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -1183,7 +1183,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE2"
-output = "ParasiteBlood : 誤作動表2-8:『不良調整/0』機能に違和感を覚えるが誤差の範囲内。影響なし。"
+output = "誤作動表2-8:『不良調整/0』機能に違和感を覚えるが誤差の範囲内。影響なし。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -1192,7 +1192,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE2"
-output = "ParasiteBlood : 誤作動表2-6:『視界不良/10』視覚機能に異常発生。60ターン（10分）の間、【幸運】判定の達成値に-2。"
+output = "誤作動表2-6:『視界不良/10』視覚機能に異常発生。60ターン（10分）の間、【幸運】判定の達成値に-2。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -1201,7 +1201,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE3"
-output = "ParasiteBlood : 誤作動表3-5:『出力向上/20』突然出力が上昇する。次のターンのターン終了まで、特殊ダメージに+1d。"
+output = "誤作動表3-5:『出力向上/20』突然出力が上昇する。次のターンのターン終了まで、特殊ダメージに+1d。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -1210,7 +1210,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE3"
-output = "ParasiteBlood : 誤作動表3-7:『障壁減衰/10』電力が減衰する。【電力】を5消費する。"
+output = "誤作動表3-7:『障壁減衰/10』電力が減衰する。【電力】を5消費する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -1219,7 +1219,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE3"
-output = "ParasiteBlood : 誤作動表3-6:『機能制動/10』一瞬違和感を覚えるが、以後正常に動作。影響なし。"
+output = "誤作動表3-6:『機能制動/10』一瞬違和感を覚えるが、以後正常に動作。影響なし。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1228,7 +1228,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE3"
-output = "ParasiteBlood : 誤作動表3-12:『電子賦活/20』電磁障壁が突如復帰。【電力】が10回復する。"
+output = "誤作動表3-12:『電子賦活/20』電磁障壁が突如復帰。【電力】が10回復する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1237,7 +1237,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE3"
-output = "ParasiteBlood : 誤作動表3-4:『足下転倒/20』バランサーに異常発生。［転倒］状態となる。"
+output = "誤作動表3-4:『足下転倒/20』バランサーに異常発生。［転倒］状態となる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -1246,7 +1246,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE3"
-output = "ParasiteBlood : 誤作動表3-9:『精度向上/20』火器管制機能が向上。次のターンのターン終了まで、射撃ダメージに+1d。"
+output = "誤作動表3-9:『精度向上/20』火器管制機能が向上。次のターンのターン終了まで、射撃ダメージに+1d。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -1255,7 +1255,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE3"
-output = "ParasiteBlood : 誤作動表3-10:『反射鋭化/20』反応速度が加速した。次のターンのターン終了まで、【行動値】に+5。"
+output = "誤作動表3-10:『反射鋭化/20』反応速度が加速した。次のターンのターン終了まで、【行動値】に+5。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -1264,7 +1264,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE3"
-output = "ParasiteBlood : 誤作動表3-4:『足下転倒/20』バランサーに異常発生。［転倒］状態となる。"
+output = "誤作動表3-4:『足下転倒/20』バランサーに異常発生。［転倒］状態となる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -1273,7 +1273,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE3"
-output = "ParasiteBlood : 誤作動表3-7:『障壁減衰/10』電力が減衰する。【電力】を5消費する。"
+output = "誤作動表3-7:『障壁減衰/10』電力が減衰する。【電力】を5消費する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -1282,7 +1282,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE3"
-output = "ParasiteBlood : 誤作動表3-6:『機能制動/10』一瞬違和感を覚えるが、以後正常に動作。影響なし。"
+output = "誤作動表3-6:『機能制動/10』一瞬違和感を覚えるが、以後正常に動作。影響なし。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -1291,7 +1291,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE4"
-output = "ParasiteBlood : 誤作動表4-7:『電流加速/10』突然電磁障壁が効率的に流れる。【電力】が10回復。"
+output = "誤作動表4-7:『電流加速/10』突然電磁障壁が効率的に流れる。【電力】が10回復。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -1300,7 +1300,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE4"
-output = "ParasiteBlood : 誤作動表4-7:『電流加速/10』突然電磁障壁が効率的に流れる。【電力】が10回復。"
+output = "誤作動表4-7:『電流加速/10』突然電磁障壁が効率的に流れる。【電力】が10回復。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -1309,7 +1309,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE4"
-output = "ParasiteBlood : 誤作動表4-6:『音声遮断/10』聴覚機能に異常発生。次のターンのターン終了まで一切の物音が聞こえず、回避判定の達成値に-5。"
+output = "誤作動表4-6:『音声遮断/10』聴覚機能に異常発生。次のターンのターン終了まで一切の物音が聞こえず、回避判定の達成値に-5。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -1318,7 +1318,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE4"
-output = "ParasiteBlood : 誤作動表4-8:『精密射撃/20』照準機能が向上。60ターン（10分間）の間、ダメージに+5。"
+output = "誤作動表4-8:『精密射撃/20』照準機能が向上。60ターン（10分間）の間、ダメージに+5。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1327,7 +1327,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE4"
-output = "ParasiteBlood : 誤作動表4-6:『音声遮断/10』聴覚機能に異常発生。次のターンのターン終了まで一切の物音が聞こえず、回避判定の達成値に-5。"
+output = "誤作動表4-6:『音声遮断/10』聴覚機能に異常発生。次のターンのターン終了まで一切の物音が聞こえず、回避判定の達成値に-5。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -1336,7 +1336,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE4"
-output = "ParasiteBlood : 誤作動表4-6:『音声遮断/10』聴覚機能に異常発生。次のターンのターン終了まで一切の物音が聞こえず、回避判定の達成値に-5。"
+output = "誤作動表4-6:『音声遮断/10』聴覚機能に異常発生。次のターンのターン終了まで一切の物音が聞こえず、回避判定の達成値に-5。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -1345,7 +1345,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE4"
-output = "ParasiteBlood : 誤作動表4-5:『自動援護/20』援護機能が自動的に作動する。即座に［タイミング：準備］を1回行う。"
+output = "誤作動表4-5:『自動援護/20』援護機能が自動的に作動する。即座に［タイミング：準備］を1回行う。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -1354,7 +1354,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE4"
-output = "ParasiteBlood : 誤作動表4-6:『音声遮断/10』聴覚機能に異常発生。次のターンのターン終了まで一切の物音が聞こえず、回避判定の達成値に-5。"
+output = "誤作動表4-6:『音声遮断/10』聴覚機能に異常発生。次のターンのターン終了まで一切の物音が聞こえず、回避判定の達成値に-5。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -1363,7 +1363,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE4"
-output = "ParasiteBlood : 誤作動表4-7:『電流加速/10』突然電磁障壁が効率的に流れる。【電力】が10回復。"
+output = "誤作動表4-7:『電流加速/10』突然電磁障壁が効率的に流れる。【電力】が10回復。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -1372,7 +1372,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE4"
-output = "ParasiteBlood : 誤作動表4-4:『機内窒息/20』呼吸機能に異常。次のターンのターン終了まで［窒息］状態となる。"
+output = "誤作動表4-4:『機内窒息/20』呼吸機能に異常。次のターンのターン終了まで［窒息］状態となる。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -1381,7 +1381,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE5"
-output = "ParasiteBlood : 誤作動表5-5:『急速修復/20』電磁障壁と生命維持装置が高速処理を始める。【HP】が20回復。"
+output = "誤作動表5-5:『急速修復/20』電磁障壁と生命維持装置が高速処理を始める。【HP】が20回復。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -1390,7 +1390,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE5"
-output = "ParasiteBlood : 誤作動表5-5:『急速修復/20』電磁障壁と生命維持装置が高速処理を始める。【HP】が20回復。"
+output = "誤作動表5-5:『急速修復/20』電磁障壁と生命維持装置が高速処理を始める。【HP】が20回復。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -1399,7 +1399,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE5"
-output = "ParasiteBlood : 誤作動表5-9:『排毒噴出/20』排気機構が誤作動。［対象：半径5m全て］が次のターンのターン終了まで［猛毒］状態となる。"
+output = "誤作動表5-9:『排毒噴出/20』排気機構が誤作動。［対象：半径5m全て］が次のターンのターン終了まで［猛毒］状態となる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -1408,7 +1408,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE5"
-output = "ParasiteBlood : 誤作動表5-8:『機体減速/20』運動機能が暴走。次のターンのターン終了まで【行動値】に-10（最低1）。"
+output = "誤作動表5-8:『機体減速/20』運動機能が暴走。次のターンのターン終了まで【行動値】に-10（最低1）。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -1417,7 +1417,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE5"
-output = "ParasiteBlood : 誤作動表5-6:『駆動不調/20』駆動系に動作不良。次のターンのターン終了まで、判定の達成値に-5。"
+output = "誤作動表5-6:『駆動不調/20』駆動系に動作不良。次のターンのターン終了まで、判定の達成値に-5。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -1426,7 +1426,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE5"
-output = "ParasiteBlood : 誤作動表5-9:『排毒噴出/20』排気機構が誤作動。［対象：半径5m全て］が次のターンのターン終了まで［猛毒］状態となる。"
+output = "誤作動表5-9:『排毒噴出/20』排気機構が誤作動。［対象：半径5m全て］が次のターンのターン終了まで［猛毒］状態となる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -1435,7 +1435,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE5"
-output = "ParasiteBlood : 誤作動表5-7:『機体清冽/20』機能が初期化され、異常から復帰。［気絶・死亡・戦闘不能］以外の状態変化がすべて解除される。"
+output = "誤作動表5-7:『機体清冽/20』機能が初期化され、異常から復帰。［気絶・死亡・戦闘不能］以外の状態変化がすべて解除される。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -1444,7 +1444,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE5"
-output = "ParasiteBlood : 誤作動表5-4:『電力低下/20』出力が上がらない。【電力】が20減少する。"
+output = "誤作動表5-4:『電力低下/20』出力が上がらない。【電力】が20減少する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -1453,7 +1453,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE5"
-output = "ParasiteBlood : 誤作動表5-4:『電力低下/20』出力が上がらない。【電力】が20減少する。"
+output = "誤作動表5-4:『電力低下/20』出力が上がらない。【電力】が20減少する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -1462,7 +1462,7 @@ rands = [
 [[ test ]]
 game_system = "ParasiteBlood"
 input = "AURGE5"
-output = "ParasiteBlood : 誤作動表5-7:『機体清冽/20』機能が初期化され、異常から復帰。［気絶・死亡・戦闘不能］以外の状態変化がすべて解除される。"
+output = "誤作動表5-7:『機体清冽/20』機能が初期化され、異常から復帰。［気絶・死亡・戦闘不能］以外の状態変化がすべて解除される。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },

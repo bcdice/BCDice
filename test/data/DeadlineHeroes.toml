@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "1D6"
-output = "DeadlineHeroes : (1D6) ＞ 2"
+output = "(1D6) ＞ 2"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh38"
-output = "DeadlineHeroes : 行為判定(成功率:38％) ＞ 1D100[3,9]=39 ＞ 39 ＞ 失敗"
+output = "行為判定(成功率:38％) ＞ 1D100[3,9]=39 ＞ 39 ＞ 失敗"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 9 },
@@ -18,7 +18,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh38"
-output = "DeadlineHeroes : 行為判定(成功率:38％) ＞ 1D100[4,4]=44 ＞ 44 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+output = "行為判定(成功率:38％) ＞ 1D100[4,4]=44 ＞ 44 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 4 },
@@ -27,7 +27,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh38"
-output = "DeadlineHeroes : 行為判定(成功率:38％) ＞ 1D100[3,8]=38 ＞ 38 ＞ 成功"
+output = "行為判定(成功率:38％) ＞ 1D100[3,8]=38 ＞ 38 ＞ 成功"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 8 },
@@ -36,7 +36,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh38"
-output = "DeadlineHeroes : 行為判定(成功率:38％) ＞ 1D100[3,7]=37 ＞ 37 ＞ 成功"
+output = "行為判定(成功率:38％) ＞ 1D100[3,7]=37 ＞ 37 ＞ 成功"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 7 },
@@ -45,7 +45,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh38"
-output = "DeadlineHeroes : 行為判定(成功率:38％) ＞ 1D100[3,4]=34 ＞ 34 ＞ 成功"
+output = "行為判定(成功率:38％) ＞ 1D100[3,4]=34 ＞ 34 ＞ 成功"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
@@ -54,7 +54,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh38"
-output = "DeadlineHeroes : 行為判定(成功率:38％) ＞ 1D100[3,3]=33 ＞ 33 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+output = "行為判定(成功率:38％) ＞ 1D100[3,3]=33 ＞ 33 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 3 },
@@ -63,7 +63,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh38"
-output = "DeadlineHeroes : 行為判定(成功率:38％) ＞ 1D100[3,2]=32 ＞ 32 ＞ 成功"
+output = "行為判定(成功率:38％) ＞ 1D100[3,2]=32 ＞ 32 ＞ 成功"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 2 },
@@ -72,7 +72,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh38+1"
-output = "DeadlineHeroes : 行為判定(成功率:39％) ＞ 1D100[3,9]=39 ＞ 39 ＞ 成功"
+output = "行為判定(成功率:39％) ＞ 1D100[3,9]=39 ＞ 39 ＞ 成功"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 9 },
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh38-2"
-output = "DeadlineHeroes : 行為判定(成功率:36％) ＞ 1D100[3,7]=37 ＞ 37 ＞ 失敗"
+output = "行為判定(成功率:36％) ＞ 1D100[3,7]=37 ＞ 37 ＞ 失敗"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 7 },
@@ -90,7 +90,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh40+20-13"
-output = "DeadlineHeroes : 行為判定(成功率:47％) ＞ 1D100[4,8]=48 ＞ 48 ＞ 失敗"
+output = "行為判定(成功率:47％) ＞ 1D100[4,8]=48 ＞ 48 ＞ 失敗"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 8 },
@@ -99,7 +99,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh40+20-13"
-output = "DeadlineHeroes : 行為判定(成功率:47％) ＞ 1D100[6,6]=66 ＞ 66 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+output = "行為判定(成功率:47％) ＞ 1D100[6,6]=66 ＞ 66 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
@@ -108,7 +108,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh40+20-13"
-output = "DeadlineHeroes : 行為判定(成功率:47％) ＞ 1D100[4,7]=47 ＞ 47 ＞ 成功"
+output = "行為判定(成功率:47％) ＞ 1D100[4,7]=47 ＞ 47 ＞ 成功"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 7 },
@@ -117,7 +117,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh40+20-13"
-output = "DeadlineHeroes : 行為判定(成功率:47％) ＞ 1D100[4,5]=45 ＞ 45 ＞ 成功"
+output = "行為判定(成功率:47％) ＞ 1D100[4,5]=45 ＞ 45 ＞ 成功"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 5 },
@@ -126,7 +126,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh40+20-13"
-output = "DeadlineHeroes : 行為判定(成功率:47％) ＞ 1D100[4,4]=44 ＞ 44 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+output = "行為判定(成功率:47％) ＞ 1D100[4,4]=44 ＞ 44 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 4 },
@@ -135,7 +135,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh40+20-13"
-output = "DeadlineHeroes : 行為判定(成功率:47％) ＞ 1D100[4,3]=43 ＞ 43 ＞ 成功"
+output = "行為判定(成功率:47％) ＞ 1D100[4,3]=43 ＞ 43 ＞ 成功"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 3 },
@@ -144,7 +144,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh7"
-output = "DeadlineHeroes : 行為判定(成功率:7％) ＞ 1D100[0,7]=07 ＞ 07 ＞ 成功"
+output = "行為判定(成功率:7％) ＞ 1D100[0,7]=07 ＞ 07 ＞ 成功"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 7 },
@@ -153,7 +153,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh7"
-output = "DeadlineHeroes : 行為判定(成功率:7％) ＞ 1D100[0,8]=08 ＞ 08 ＞ 失敗"
+output = "行為判定(成功率:7％) ＞ 1D100[0,8]=08 ＞ 08 ＞ 失敗"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 8 },
@@ -162,7 +162,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh1"
-output = "DeadlineHeroes : 行為判定(成功率:1％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 成功"
+output = "行為判定(成功率:1％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 成功"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
@@ -171,7 +171,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh1"
-output = "DeadlineHeroes : 行為判定(成功率:1％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+output = "行為判定(成功率:1％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -180,7 +180,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh0"
-output = "DeadlineHeroes : 行為判定(成功率:0％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+output = "行為判定(成功率:0％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
@@ -189,7 +189,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh0"
-output = "DeadlineHeroes : 行為判定(成功率:0％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+output = "行為判定(成功率:0％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -198,7 +198,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh0+5-7"
-output = "DeadlineHeroes : 行為判定(成功率:-2％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+output = "行為判定(成功率:-2％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -207,7 +207,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh99"
-output = "DeadlineHeroes : 行為判定(成功率:99％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+output = "行為判定(成功率:99％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
@@ -216,7 +216,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh99"
-output = "DeadlineHeroes : 行為判定(成功率:99％) ＞ 1D100[9,0]=90 ＞ 90 ＞ 成功"
+output = "行為判定(成功率:99％) ＞ 1D100[9,0]=90 ＞ 90 ＞ 成功"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 0 },
@@ -225,7 +225,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh99"
-output = "DeadlineHeroes : 行為判定(成功率:99％) ＞ 1D100[0,9]=09 ＞ 09 ＞ 成功"
+output = "行為判定(成功率:99％) ＞ 1D100[0,9]=09 ＞ 09 ＞ 成功"
 rands = [
   { sides = 10, value = 0 },
   { sides = 10, value = 9 },
@@ -234,7 +234,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh99"
-output = "DeadlineHeroes : 行為判定(成功率:99％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+output = "行為判定(成功率:99％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
 rands = [
   { sides = 10, value = 0 },
   { sides = 10, value = 0 },
@@ -243,7 +243,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh100"
-output = "DeadlineHeroes : 行為判定(成功率:100％) ＞ 1D100[9,8]=98 ＞ 98 ＞ 成功"
+output = "行為判定(成功率:100％) ＞ 1D100[9,8]=98 ＞ 98 ＞ 成功"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
@@ -252,7 +252,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh100"
-output = "DeadlineHeroes : 行為判定(成功率:100％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+output = "行為判定(成功率:100％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
@@ -261,7 +261,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh100"
-output = "DeadlineHeroes : 行為判定(成功率:100％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+output = "行為判定(成功率:100％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
 rands = [
   { sides = 10, value = 0 },
   { sides = 10, value = 0 },
@@ -270,7 +270,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh101"
-output = "DeadlineHeroes : 行為判定(成功率:101％) ＞ 1D100[8,9]=89 ＞ 89 ＞ 成功"
+output = "行為判定(成功率:101％) ＞ 1D100[8,9]=89 ＞ 89 ＞ 成功"
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 9 },
@@ -279,7 +279,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh101"
-output = "DeadlineHeroes : 行為判定(成功率:101％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+output = "行為判定(成功率:101％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
@@ -288,7 +288,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh101"
-output = "DeadlineHeroes : 行為判定(成功率:101％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+output = "行為判定(成功率:101％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -297,7 +297,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh101"
-output = "DeadlineHeroes : 行為判定(成功率:101％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+output = "行為判定(成功率:101％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
@@ -306,7 +306,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh100-5+10"
-output = "DeadlineHeroes : 行為判定(成功率:105％) ＞ 1D100[9,8]=98 ＞ 98 ＞ 成功"
+output = "行為判定(成功率:105％) ＞ 1D100[9,8]=98 ＞ 98 ＞ 成功"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
@@ -315,7 +315,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh100-5+10"
-output = "DeadlineHeroes : 行為判定(成功率:105％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+output = "行為判定(成功率:105％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
@@ -324,7 +324,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh100-5+10"
-output = "DeadlineHeroes : 行為判定(成功率:105％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+output = "行為判定(成功率:105％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -333,7 +333,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "dlh100-5+10"
-output = "DeadlineHeroes : 行為判定(成功率:105％) ＞ 1D100[0,5]=05 ＞ 05 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+output = "行為判定(成功率:105％) ＞ 1D100[0,5]=05 ＞ 05 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 5 },
@@ -342,7 +342,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL1"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:1 + 1D10(->1) = 2] ＞ 10以下 ： 何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。"
+output = "デスチャート（肉体）[マイナス値:1 + 1D10(->1) = 2] ＞ 10以下 ： 何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -350,7 +350,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL8"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:8 + 1D10(->1) = 9] ＞ 10以下 ： 何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->1) = 9] ＞ 10以下 ： 何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -358,7 +358,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL9"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:9 + 1D10(->1) = 10] ＞ 10 ： 何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。"
+output = "デスチャート（肉体）[マイナス値:9 + 1D10(->1) = 10] ＞ 10 ： 何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -366,7 +366,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL8"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:8 + 1D10(->2) = 10] ＞ 10 ： 何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->2) = 10] ＞ 10 ： 何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。"
 rands = [
   { sides = 10, value = 2 },
 ]
@@ -374,7 +374,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL8"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 激痛が走る。以後、イベント終了時まで、全ての判定の成功率－10％。"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 激痛が走る。以後、イベント終了時まで、全ての判定の成功率－10％。"
 rands = [
   { sides = 10, value = 3 },
 ]
@@ -382,7 +382,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL8"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:8 + 1D10(->4) = 12] ＞ 12 ： キミは［硬直］ポイント２点を得る。［硬直］ポイントを所持している間、キミは「属性：妨害」のパワーを使用することができない。各ラウンド終了時、キミは所持している［硬直］ポイントを１点減らしてもよい。"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->4) = 12] ＞ 12 ： キミは［硬直］ポイント２点を得る。［硬直］ポイントを所持している間、キミは「属性：妨害」のパワーを使用することができない。各ラウンド終了時、キミは所持している［硬直］ポイントを１点減らしてもよい。"
 rands = [
   { sides = 10, value = 4 },
 ]
@@ -390,7 +390,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL8"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:8 + 1D10(->5) = 13] ＞ 13 ： 渾身の一撃!!　キミは〈生存〉判定を行なう。失敗した場合、［死亡］する。"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->5) = 13] ＞ 13 ： 渾身の一撃!!　キミは〈生存〉判定を行なう。失敗した場合、［死亡］する。"
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -398,7 +398,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL8"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:8 + 1D10(->6) = 14] ＞ 14 ： キミは［気絶］ポイント２点を得る。［気絶］ポイントを所持している間、キミはあらゆるパワーを使用できず、自身のターンを得ることもできない。各ラウンド終了時、キミは所持している［気絶］ポイントを１点減らしてもよい。"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->6) = 14] ＞ 14 ： キミは［気絶］ポイント２点を得る。［気絶］ポイントを所持している間、キミはあらゆるパワーを使用できず、自身のターンを得ることもできない。各ラウンド終了時、キミは所持している［気絶］ポイントを１点減らしてもよい。"
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -406,7 +406,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL8"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:8 + 1D10(->7) = 15] ＞ 15 ： 以後、イベント終了時まで、全ての判定の成功率－20％。"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->7) = 15] ＞ 15 ： 以後、イベント終了時まで、全ての判定の成功率－20％。"
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -414,7 +414,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL8"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:8 + 1D10(->8) = 16] ＞ 16 ： 記録的一撃!!　キミは〈生存〉－20％の判定を行なう。失敗した場合、［死亡］する。"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->8) = 16] ＞ 16 ： 記録的一撃!!　キミは〈生存〉－20％の判定を行なう。失敗した場合、［死亡］する。"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -422,7 +422,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL8"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:8 + 1D10(->9) = 17] ＞ 17 ： キミは［瀕死］ポイント２点を得る。［瀕死］ポイントを所持している間、キミはあらゆるパワーを使用できず、自身のターンを得ることもできない。各ラウンド終了時、キミは所持している［瀕死］ポイントを１点を失う。全ての［瀕死］ポイントを失う前に戦闘が終了しなかった場合、キミは［死亡］する。"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->9) = 17] ＞ 17 ： キミは［瀕死］ポイント２点を得る。［瀕死］ポイントを所持している間、キミはあらゆるパワーを使用できず、自身のターンを得ることもできない。各ラウンド終了時、キミは所持している［瀕死］ポイントを１点を失う。全ての［瀕死］ポイントを失う前に戦闘が終了しなかった場合、キミは［死亡］する。"
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -430,7 +430,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL8"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:8 + 1D10(->10) = 18] ＞ 18 ： 叙事詩的一撃!!　キミは〈生存〉－30％の判定を行なう。失敗した場合、［死亡］する。"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->10) = 18] ＞ 18 ： 叙事詩的一撃!!　キミは〈生存〉－30％の判定を行なう。失敗した場合、［死亡］する。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -438,7 +438,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL9"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:9 + 1D10(->10) = 19] ＞ 19 ： 以後、イベント終了時まで、全ての判定の成功率－30％。"
+output = "デスチャート（肉体）[マイナス値:9 + 1D10(->10) = 19] ＞ 19 ： 以後、イベント終了時まで、全ての判定の成功率－30％。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -446,7 +446,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL10"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:10 + 1D10(->10) = 20] ＞ 20 ： 神話的一撃!!　キミは宙を舞って三回転ほどした後、地面に叩きつけられる。見るも無惨な姿。肉体は原型を留めていない（キミは［死亡］した）。"
+output = "デスチャート（肉体）[マイナス値:10 + 1D10(->10) = 20] ＞ 20 ： 神話的一撃!!　キミは宙を舞って三回転ほどした後、地面に叩きつけられる。見るも無惨な姿。肉体は原型を留めていない（キミは［死亡］した）。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -454,7 +454,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL11"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:11 + 1D10(->10) = 21] ＞ 20以上 ： 神話的一撃!!　キミは宙を舞って三回転ほどした後、地面に叩きつけられる。見るも無惨な姿。肉体は原型を留めていない（キミは［死亡］した）。"
+output = "デスチャート（肉体）[マイナス値:11 + 1D10(->10) = 21] ＞ 20以上 ： 神話的一撃!!　キミは宙を舞って三回転ほどした後、地面に叩きつけられる。見るも無惨な姿。肉体は原型を留めていない（キミは［死亡］した）。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -462,7 +462,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS8"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:8 + 1D10(->1) = 9] ＞ 10以下 ： 何も無し。キミは歯を食いしばってストレスに耐えた。"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->1) = 9] ＞ 10以下 ： 何も無し。キミは歯を食いしばってストレスに耐えた。"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -470,7 +470,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS8"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:8 + 1D10(->2) = 10] ＞ 10 ： 何も無し。キミは歯を食いしばってストレスに耐えた。"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->2) = 10] ＞ 10 ： 何も無し。キミは歯を食いしばってストレスに耐えた。"
 rands = [
   { sides = 10, value = 2 },
 ]
@@ -478,7 +478,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS8"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 以後、イベント終了時まで、全ての判定の成功率－10％。"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 以後、イベント終了時まで、全ての判定の成功率－10％。"
 rands = [
   { sides = 10, value = 3 },
 ]
@@ -486,7 +486,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS8"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:8 + 1D10(->4) = 12] ＞ 12 ： キミは［恐怖］ポイント２点を得る。［恐怖］ポイントを所持している間、キミは「属性：攻撃」のパワーを使用できない。各ラウンド終了時、キミは所持している［恐怖］ポイントを１点減らしてもよい。"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->4) = 12] ＞ 12 ： キミは［恐怖］ポイント２点を得る。［恐怖］ポイントを所持している間、キミは「属性：攻撃」のパワーを使用できない。各ラウンド終了時、キミは所持している［恐怖］ポイントを１点減らしてもよい。"
 rands = [
   { sides = 10, value = 4 },
 ]
@@ -494,7 +494,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS8"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:8 + 1D10(->5) = 13] ＞ 13 ： とても傷ついた。キミは〈意志〉判定を行なう。失敗した場合、［絶望］してＮＰＣとなる。"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->5) = 13] ＞ 13 ： とても傷ついた。キミは〈意志〉判定を行なう。失敗した場合、［絶望］してＮＰＣとなる。"
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -502,7 +502,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS8"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:8 + 1D10(->6) = 14] ＞ 14 ： キミは［気絶］ポイント２点を得る。［気絶］ポイントを所持している間、キミはあらゆるパワーを使用できず、自身のターンを得ることもできない。各ラウンド終了時、キミは所持している［気絶］ポイントを１点減らしてもよい。"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->6) = 14] ＞ 14 ： キミは［気絶］ポイント２点を得る。［気絶］ポイントを所持している間、キミはあらゆるパワーを使用できず、自身のターンを得ることもできない。各ラウンド終了時、キミは所持している［気絶］ポイントを１点減らしてもよい。"
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -510,7 +510,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS8"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:8 + 1D10(->7) = 15] ＞ 15 ： 以後、イベント終了時まで、全ての判定の成功率－20％。"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->7) = 15] ＞ 15 ： 以後、イベント終了時まで、全ての判定の成功率－20％。"
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -518,7 +518,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS8"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:8 + 1D10(->8) = 16] ＞ 16 ： 信じるものに裏切られたような痛み。キミは〈意志〉－20％の判定を行なう。失敗した場合、［絶望］してＮＰＣとなる。"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->8) = 16] ＞ 16 ： 信じるものに裏切られたような痛み。キミは〈意志〉－20％の判定を行なう。失敗した場合、［絶望］してＮＰＣとなる。"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -526,7 +526,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS8"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:8 + 1D10(->9) = 17] ＞ 17 ： キミは［混乱］ポイント２点を得る。［混乱］ポイントを所持している間、キミは本来味方であったキャラクターに対して、可能な限り最大の被害を与える様、行動し続ける。各ラウンド終了時、キミは所持している［混乱］ポイントを１点減らしてもよい。"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->9) = 17] ＞ 17 ： キミは［混乱］ポイント２点を得る。［混乱］ポイントを所持している間、キミは本来味方であったキャラクターに対して、可能な限り最大の被害を与える様、行動し続ける。各ラウンド終了時、キミは所持している［混乱］ポイントを１点減らしてもよい。"
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -534,7 +534,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS8"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:8 + 1D10(->10) = 18] ＞ 18 ： あまりに残酷な現実。キミは〈意志〉－30％の判定を行なう。失敗した場合、［絶望］してＮＰＣとなる。"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->10) = 18] ＞ 18 ： あまりに残酷な現実。キミは〈意志〉－30％の判定を行なう。失敗した場合、［絶望］してＮＰＣとなる。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -542,7 +542,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS9"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:9 + 1D10(->10) = 19] ＞ 19 ： 以後、イベント終了時まで、全ての判定の成功率－30％。"
+output = "デスチャート（精神）[マイナス値:9 + 1D10(->10) = 19] ＞ 19 ： 以後、イベント終了時まで、全ての判定の成功率－30％。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -550,7 +550,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS10"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:10 + 1D10(->10) = 20] ＞ 20 ： 宇宙開闢の理に触れるも、それは人類の認識限界を超える何かであった。キミは［絶望］し、以後ＮＰＣとなる。"
+output = "デスチャート（精神）[マイナス値:10 + 1D10(->10) = 20] ＞ 20 ： 宇宙開闢の理に触れるも、それは人類の認識限界を超える何かであった。キミは［絶望］し、以後ＮＰＣとなる。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -558,7 +558,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS11"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:11 + 1D10(->10) = 21] ＞ 20以上 ： 宇宙開闢の理に触れるも、それは人類の認識限界を超える何かであった。キミは［絶望］し、以後ＮＰＣとなる。"
+output = "デスチャート（精神）[マイナス値:11 + 1D10(->10) = 21] ＞ 20以上 ： 宇宙開闢の理に触れるも、それは人類の認識限界を超える何かであった。キミは［絶望］し、以後ＮＰＣとなる。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -566,7 +566,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC8"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:8 + 1D10(->1) = 9] ＞ 10以下 ： 何も無し。キミは黒い噂を握りつぶした。"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->1) = 9] ＞ 10以下 ： 何も無し。キミは黒い噂を握りつぶした。"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -574,7 +574,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC8"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:8 + 1D10(->2) = 10] ＞ 10 ： 何も無し。キミは黒い噂を握りつぶした。"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->2) = 10] ＞ 10 ： 何も無し。キミは黒い噂を握りつぶした。"
 rands = [
   { sides = 10, value = 2 },
 ]
@@ -582,7 +582,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC8"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 以後、イベント終了時まで、全ての判定の成功率－10％。"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 以後、イベント終了時まで、全ての判定の成功率－10％。"
 rands = [
   { sides = 10, value = 3 },
 ]
@@ -590,7 +590,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC8"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:8 + 1D10(->4) = 12] ＞ 12 ： ピンチ！　以後、イベント終了時まで、キミは《支援》を使用できない。"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->4) = 12] ＞ 12 ： ピンチ！　以後、イベント終了時まで、キミは《支援》を使用できない。"
 rands = [
   { sides = 10, value = 4 },
 ]
@@ -598,7 +598,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC8"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:8 + 1D10(->5) = 13] ＞ 13 ： 裏切り!!　キミは〈経済〉判定を行なう。失敗した場合、キミはヒーローとしての名声を失い、［汚名］を受ける。"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->5) = 13] ＞ 13 ： 裏切り!!　キミは〈経済〉判定を行なう。失敗した場合、キミはヒーローとしての名声を失い、［汚名］を受ける。"
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -606,7 +606,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC8"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:8 + 1D10(->6) = 14] ＞ 14 ： 以後、シナリオ終了時まで、代償にクレジットを消費するパワーを使用できない。"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->6) = 14] ＞ 14 ： 以後、シナリオ終了時まで、代償にクレジットを消費するパワーを使用できない。"
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -614,7 +614,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC8"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:8 + 1D10(->7) = 15] ＞ 15 ： キミの悪評は大変なもののようだ。協力者からの支援が打ち切られる。以後、シナリオ終了時まで、全ての判定の成功率－20％。"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->7) = 15] ＞ 15 ： キミの悪評は大変なもののようだ。協力者からの支援が打ち切られる。以後、シナリオ終了時まで、全ての判定の成功率－20％。"
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -622,7 +622,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC8"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:8 + 1D10(->8) = 16] ＞ 16 ： 信頼の失墜!!　キミは〈経済〉－20％の判定を行なう。失敗した場合、キミはヒーローとしての名声を失い、［汚名］を受ける。"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->8) = 16] ＞ 16 ： 信頼の失墜!!　キミは〈経済〉－20％の判定を行なう。失敗した場合、キミはヒーローとしての名声を失い、［汚名］を受ける。"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -630,7 +630,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC8"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:8 + 1D10(->9) = 17] ＞ 17 ： 以後、シナリオ終了時まで、【環境】系の技能のレベルがすべて０となる。"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->9) = 17] ＞ 17 ： 以後、シナリオ終了時まで、【環境】系の技能のレベルがすべて０となる。"
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -638,7 +638,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC8"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:8 + 1D10(->10) = 18] ＞ 18 ： 捏造報道!!　身の覚えのない犯罪への荷担が、スクープとして報道される。キミは〈経済〉－30％の判定を行なう。失敗した場合、キミはヒーローとしての名声を失い、［汚名］を受ける。"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->10) = 18] ＞ 18 ： 捏造報道!!　身の覚えのない犯罪への荷担が、スクープとして報道される。キミは〈経済〉－30％の判定を行なう。失敗した場合、キミはヒーローとしての名声を失い、［汚名］を受ける。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -646,7 +646,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC9"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:9 + 1D10(->10) = 19] ＞ 19 ： 以後、イベント終了時まで、全ての判定の成功率－30％。"
+output = "デスチャート（環境）[マイナス値:9 + 1D10(->10) = 19] ＞ 19 ： 以後、イベント終了時まで、全ての判定の成功率－30％。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -654,7 +654,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC10"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:10 + 1D10(->10) = 20] ＞ 20 ： キミの名は史上最悪の汚点として永遠に歴史に刻まれる。もはやキミを信じる仲間はなく、キミを助ける社会もない。キミは［汚名］を受けた。"
+output = "デスチャート（環境）[マイナス値:10 + 1D10(->10) = 20] ＞ 20 ： キミの名は史上最悪の汚点として永遠に歴史に刻まれる。もはやキミを信じる仲間はなく、キミを助ける社会もない。キミは［汚名］を受けた。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -662,7 +662,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC11"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:11 + 1D10(->10) = 21] ＞ 20以上 ： キミの名は史上最悪の汚点として永遠に歴史に刻まれる。もはやキミを信じる仲間はなく、キミを助ける社会もない。キミは［汚名］を受けた。"
+output = "デスチャート（環境）[マイナス値:11 + 1D10(->10) = 21] ＞ 20以上 ： キミの名は史上最悪の汚点として永遠に歴史に刻まれる。もはやキミを信じる仲間はなく、キミを助ける社会もない。キミは［汚名］を受けた。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -670,7 +670,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCL8"
-output = "DeadlineHeroes : デスチャート（肉体）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 激痛が走る。以後、イベント終了時まで、全ての判定の成功率－10％。"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 激痛が走る。以後、イベント終了時まで、全ての判定の成功率－10％。"
 rands = [
   { sides = 10, value = 3 },
 ]
@@ -678,7 +678,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCS8"
-output = "DeadlineHeroes : デスチャート（精神）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 以後、イベント終了時まで、全ての判定の成功率－10％。"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 以後、イベント終了時まで、全ての判定の成功率－10％。"
 rands = [
   { sides = 10, value = 3 },
 ]
@@ -686,7 +686,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "DCC8"
-output = "DeadlineHeroes : デスチャート（環境）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 以後、イベント終了時まで、全ての判定の成功率－10％。"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 以後、イベント終了時まで、全ての判定の成功率－10％。"
 rands = [
   { sides = 10, value = 3 },
 ]
@@ -694,7 +694,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCJ"
-output = "DeadlineHeroes : リアルネームチャート（日本）(1) ＞ \n姓: アイカワ／相川、愛川\n名（男）: アキラ／晶、章\n名（女）: アン／杏"
+output = "リアルネームチャート（日本）(1) ＞ \n姓: アイカワ／相川、愛川\n名（男）: アキラ／晶、章\n名（女）: アン／杏"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -702,7 +702,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCJ"
-output = "DeadlineHeroes : リアルネームチャート（日本）(6) ＞ \n姓: アイカワ／相川、愛川\n名（男）: アキラ／晶、章\n名（女）: アン／杏"
+output = "リアルネームチャート（日本）(6) ＞ \n姓: アイカワ／相川、愛川\n名（男）: アキラ／晶、章\n名（女）: アン／杏"
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -710,7 +710,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCJ"
-output = "DeadlineHeroes : リアルネームチャート（日本）(7) ＞ \n姓: アマミヤ／雨宮\n名（男）: エイジ／映司、英治\n名（女）: イノリ／祈鈴、祈"
+output = "リアルネームチャート（日本）(7) ＞ \n姓: アマミヤ／雨宮\n名（男）: エイジ／映司、英治\n名（女）: イノリ／祈鈴、祈"
 rands = [
   { sides = 100, value = 7 },
 ]
@@ -718,7 +718,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCJ"
-output = "DeadlineHeroes : リアルネームチャート（日本）(90) ＞ \n姓: ヤシダ／矢志田\n名（男）: レツ／烈、裂\n名（女）: ルイ／瑠衣、涙"
+output = "リアルネームチャート（日本）(90) ＞ \n姓: ヤシダ／矢志田\n名（男）: レツ／烈、裂\n名（女）: ルイ／瑠衣、涙"
 rands = [
   { sides = 100, value = 90 },
 ]
@@ -726,7 +726,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCJ"
-output = "DeadlineHeroes : リアルネームチャート（日本）(91) ＞ \n姓: ユウキ／結城\n名（男）: レン／連、錬\n名（女）: レナ／玲奈"
+output = "リアルネームチャート（日本）(91) ＞ \n姓: ユウキ／結城\n名（男）: レン／連、錬\n名（女）: レナ／玲奈"
 rands = [
   { sides = 100, value = 91 },
 ]
@@ -734,7 +734,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCJ"
-output = "DeadlineHeroes : リアルネームチャート（日本）(96) ＞ \n姓: ユウキ／結城\n名（男）: レン／連、錬\n名（女）: レナ／玲奈"
+output = "リアルネームチャート（日本）(96) ＞ \n姓: ユウキ／結城\n名（男）: レン／連、錬\n名（女）: レナ／玲奈"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -742,7 +742,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCJ"
-output = "DeadlineHeroes : リアルネームチャート（日本）(97) ＞ 名無し（何らかの理由で名前を持たない、もしくは失った）"
+output = "リアルネームチャート（日本）(97) ＞ 名無し（何らかの理由で名前を持たない、もしくは失った）"
 rands = [
   { sides = 100, value = 97 },
 ]
@@ -750,7 +750,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCJ"
-output = "DeadlineHeroes : リアルネームチャート（日本）(100) ＞ 名無し（何らかの理由で名前を持たない、もしくは失った）"
+output = "リアルネームチャート（日本）(100) ＞ 名無し（何らかの理由で名前を持たない、もしくは失った）"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -758,7 +758,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCO"
-output = "DeadlineHeroes : リアルネームチャート（海外）(1) ＞ \n名（男）: アルバス\n名（女）: アイリス\n姓: アレン"
+output = "リアルネームチャート（海外）(1) ＞ \n名（男）: アルバス\n名（女）: アイリス\n姓: アレン"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -766,7 +766,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCO"
-output = "DeadlineHeroes : リアルネームチャート（海外）(6) ＞ \n名（男）: アルバス\n名（女）: アイリス\n姓: アレン"
+output = "リアルネームチャート（海外）(6) ＞ \n名（男）: アルバス\n名（女）: アイリス\n姓: アレン"
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -774,7 +774,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCO"
-output = "DeadlineHeroes : リアルネームチャート（海外）(7) ＞ \n名（男）: クリス\n名（女）: オリーブ\n姓: ウォーケン"
+output = "リアルネームチャート（海外）(7) ＞ \n名（男）: クリス\n名（女）: オリーブ\n姓: ウォーケン"
 rands = [
   { sides = 100, value = 7 },
 ]
@@ -782,7 +782,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCO"
-output = "DeadlineHeroes : リアルネームチャート（海外）(90) ＞ \n名（男）: マーヴ\n名（女）: ロザリー\n姓: レイノルズ"
+output = "リアルネームチャート（海外）(90) ＞ \n名（男）: マーヴ\n名（女）: ロザリー\n姓: レイノルズ"
 rands = [
   { sides = 100, value = 90 },
 ]
@@ -790,7 +790,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCO"
-output = "DeadlineHeroes : リアルネームチャート（海外）(91) ＞ \n名（男）: ライアン\n名（女）: ワンダ\n姓: ワード"
+output = "リアルネームチャート（海外）(91) ＞ \n名（男）: ライアン\n名（女）: ワンダ\n姓: ワード"
 rands = [
   { sides = 100, value = 91 },
 ]
@@ -798,7 +798,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCO"
-output = "DeadlineHeroes : リアルネームチャート（海外）(96) ＞ \n名（男）: ライアン\n名（女）: ワンダ\n姓: ワード"
+output = "リアルネームチャート（海外）(96) ＞ \n名（男）: ライアン\n名（女）: ワンダ\n姓: ワード"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -806,7 +806,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCO"
-output = "DeadlineHeroes : リアルネームチャート（海外）(99) ＞ 名無し（何らかの理由で名前を持たない、もしくは失った）"
+output = "リアルネームチャート（海外）(99) ＞ 名無し（何らかの理由で名前を持たない、もしくは失った）"
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -814,7 +814,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "RNCO"
-output = "DeadlineHeroes : リアルネームチャート（海外）(100) ＞ 名無し（何らかの理由で名前を持たない、もしくは失った）"
+output = "リアルネームチャート（海外）(100) ＞ 名無し（何らかの理由で名前を持たない、もしくは失った）"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -822,7 +822,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(1) ＞ ベースＡ＋ベースＡ\nベースＡ(2) ＞ キャプテン・\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nヒーローネーム ＞ キャプテン・ドッグ"
+output = "ヒーローネームチャート(1) ＞ ベースＡ＋ベースＡ\nベースＡ(2) ＞ キャプテン・\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nヒーローネーム ＞ キャプテン・ドッグ"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -833,7 +833,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(1) ＞ ベースＡ＋ベースＡ\nベースＡ(2) ＞ キャプテン・\nベースＢ(10) ＞ 数字（1～10）・\nヒーローネーム ＞ キャプテン・数字（1～10）"
+output = "ヒーローネームチャート(1) ＞ ベースＡ＋ベースＡ\nベースＡ(2) ＞ キャプテン・\nベースＢ(10) ＞ 数字（1～10）・\nヒーローネーム ＞ キャプテン・数字（1～10）"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -843,7 +843,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(1) ＞ ベースＡ＋ベースＡ\nベースＡ(8) ＞ ［色］ ＞ 色(7) ＞ シルバー （意味：銀）\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nヒーローネーム ＞ シルバードッグ"
+output = "ヒーローネームチャート(1) ＞ ベースＡ＋ベースＡ\nベースＡ(8) ＞ ［色］ ＞ 色(7) ＞ シルバー （意味：銀）\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nヒーローネーム ＞ シルバードッグ"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
@@ -855,7 +855,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(1) ＞ ベースＡ＋ベースＡ\nベースＡ(8) ＞ ［色］ ＞ 色(7) ＞ シルバー （意味：銀）\nベースＢ(10) ＞ 数字（1～10）・\nヒーローネーム ＞ シルバー数字（1～10）"
+output = "ヒーローネームチャート(1) ＞ ベースＡ＋ベースＡ\nベースＡ(8) ＞ ［色］ ＞ 色(7) ＞ シルバー （意味：銀）\nベースＢ(10) ＞ 数字（1～10）・\nヒーローネーム ＞ シルバー数字（1～10）"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
@@ -866,7 +866,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(2) ＞ ベースＢ\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nヒーローネーム ＞ ドッグ"
+output = "ヒーローネームチャート(2) ＞ ベースＢ\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nヒーローネーム ＞ ドッグ"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 3 },
@@ -876,7 +876,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(2) ＞ ベースＢ\nベースＢ(10) ＞ 数字（1～10）・\nヒーローネーム ＞ 数字（1～10）"
+output = "ヒーローネームチャート(2) ＞ ベースＢ\nベースＢ(10) ＞ 数字（1～10）・\nヒーローネーム ＞ 数字（1～10）"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -885,7 +885,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(3) ＞ ベースＢ×2回\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nベースＢ(2) ＞ ［武器］ ＞ 武器(8) ＞ アロー （意味：矢）\nヒーローネーム ＞ ドッグアロー"
+output = "ヒーローネームチャート(3) ＞ ベースＢ×2回\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nベースＢ(2) ＞ ［武器］ ＞ 武器(8) ＞ アロー （意味：矢）\nヒーローネーム ＞ ドッグアロー"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 3 },
@@ -897,7 +897,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(4) ＞ ベースＢ＋ベースＣ\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nベースＣ(2) ＞ ボーイ／ガール\nヒーローネーム ＞ ドッグボーイ／ガール"
+output = "ヒーローネームチャート(4) ＞ ベースＢ＋ベースＣ\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nベースＣ(2) ＞ ボーイ／ガール\nヒーローネーム ＞ ドッグボーイ／ガール"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 3 },
@@ -908,7 +908,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(4) ＞ ベースＢ＋ベースＣ\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nベースＣ(8) ＞ ［色］ ＞ 色(1) ＞ ブラック （意味：黒）\nヒーローネーム ＞ ドッグブラック"
+output = "ヒーローネームチャート(4) ＞ ベースＢ＋ベースＣ\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nベースＣ(8) ＞ ［色］ ＞ 色(1) ＞ ブラック （意味：黒）\nヒーローネーム ＞ ドッグブラック"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 3 },
@@ -920,7 +920,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(5) ＞ ベースＡ＋ベースＢ＋ベースＣ\nベースＡ(7) ＞ ［強さ］ ＞ 強さ(9) ＞ グレイテスト （意味：至高の）\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nベースＣ(8) ＞ ［色］ ＞ 色(1) ＞ ブラック （意味：黒）\nヒーローネーム ＞ グレイテストドッグブラック"
+output = "ヒーローネームチャート(5) ＞ ベースＡ＋ベースＢ＋ベースＣ\nベースＡ(7) ＞ ［強さ］ ＞ 強さ(9) ＞ グレイテスト （意味：至高の）\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nベースＣ(8) ＞ ［色］ ＞ 色(1) ＞ ブラック （意味：黒）\nヒーローネーム ＞ グレイテストドッグブラック"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 7 },
@@ -934,7 +934,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(6) ＞ ベースＡ＋ベースＢ×2回\nベースＡ(7) ＞ ［強さ］ ＞ 強さ(1) ＞ スーパー／ウルトラ （意味：超）\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nベースＢ(7) ＞ ［光］ ＞ 光(10) ＞ サン （意味：太陽）\nヒーローネーム ＞ スーパー／ウルトラドッグサン"
+output = "ヒーローネームチャート(6) ＞ ベースＡ＋ベースＢ×2回\nベースＡ(7) ＞ ［強さ］ ＞ 強さ(1) ＞ スーパー／ウルトラ （意味：超）\nベースＢ(3) ＞ ［動物］ ＞ 動物(6) ＞ ドッグ （意味：犬）\nベースＢ(7) ＞ ［光］ ＞ 光(10) ＞ サン （意味：太陽）\nヒーローネーム ＞ スーパー／ウルトラドッグサン"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
@@ -948,7 +948,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(8) ＞ （ベースＢ）・オブ・（ベースＢ）\nベースＢ(2) ＞ ［武器］ ＞ 武器(3) ＞ ハンマー （意味：鎚）\nベースＢ(8) ＞ ［攻撃］ ＞ 攻撃(10) ＞ キル （意味：殺す）\nヒーローネーム ＞ ハンマー・オブ・キル"
+output = "ヒーローネームチャート(8) ＞ （ベースＢ）・オブ・（ベースＢ）\nベースＢ(2) ＞ ［武器］ ＞ 武器(3) ＞ ハンマー （意味：鎚）\nベースＢ(8) ＞ ［攻撃］ ＞ 攻撃(10) ＞ キル （意味：殺す）\nヒーローネーム ＞ ハンマー・オブ・キル"
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 2 },
@@ -960,7 +960,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(8) ＞ （ベースＢ）・オブ・（ベースＢ）\nベースＢ(10) ＞ 数字（1～10）・\nベースＢ(8) ＞ ［攻撃］ ＞ 攻撃(10) ＞ キル （意味：殺す）\nヒーローネーム ＞ 数字（1～10）・オブ・キル"
+output = "ヒーローネームチャート(8) ＞ （ベースＢ）・オブ・（ベースＢ）\nベースＢ(10) ＞ 数字（1～10）・\nベースＢ(8) ＞ ［攻撃］ ＞ 攻撃(10) ＞ キル （意味：殺す）\nヒーローネーム ＞ 数字（1～10）・オブ・キル"
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 10 },
@@ -971,7 +971,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(9) ＞ （ベースＢ）・ザ・（ベースＢ）\nベースＢ(1) ＞ ［神話／夢］ ＞ 神話／夢(4) ＞ エンジェル （意味：天使）\nベースＢ(9) ＞ ［その他］ ＞ その他(4) ＞ アイアン （意味：鉄）\nヒーローネーム ＞ エンジェル・ザ・アイアン"
+output = "ヒーローネームチャート(9) ＞ （ベースＢ）・ザ・（ベースＢ）\nベースＢ(1) ＞ ［神話／夢］ ＞ 神話／夢(4) ＞ エンジェル （意味：天使）\nベースＢ(9) ＞ ［その他］ ＞ その他(4) ＞ アイアン （意味：鉄）\nヒーローネーム ＞ エンジェル・ザ・アイアン"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 1 },
@@ -983,7 +983,7 @@ rands = [
 [[ test ]]
 game_system = "DeadlineHeroes"
 input = "HNC"
-output = "DeadlineHeroes : ヒーローネームチャート(10) ＞ 任意"
+output = "ヒーローネームチャート(10) ＞ 任意"
 rands = [
   { sides = 10, value = 10 },
 ]

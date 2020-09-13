@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "CodeLayerd"
 input = "7CL>=6\tCodeLayerd"
-output = "CodeLayerd : 7CL>=6 ＞ (7d10) ＞ [2,2,3,4,5,6,7] ＞ 達成値[6] ＞ 成功"
+output = "7CL>=6 ＞ (7d10) ＞ [2,2,3,4,5,6,7] ＞ 達成値[6] ＞ 成功"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
@@ -15,7 +15,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "7CL\tCodeLayerd"
-output = "CodeLayerd : 7CL ＞ (7d10) ＞ [2,2,3,4,5,6,7] ＞ 達成値[6] ＞ 6"
+output = "7CL ＞ (7d10) ＞ [2,2,3,4,5,6,7] ＞ 達成値[6] ＞ 6"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
@@ -29,7 +29,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "7CL@5>=6\tCodeLayerd"
-output = "CodeLayerd : 7CL@5>=6 ＞ (7d10) ＞ [2,2,3,4,5,6,7] ＞ 判定値[5] 達成値[5] ＞ 失敗"
+output = "7CL@5>=6 ＞ (7d10) ＞ [2,2,3,4,5,6,7] ＞ 判定値[5] 達成値[5] ＞ 失敗"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
@@ -43,7 +43,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "(3+4)CL>=(3+3)\tCodeLayerd"
-output = "CodeLayerd : 7CL>=6 ＞ (7d10) ＞ [2,2,3,4,5,6,7] ＞ 達成値[6] ＞ 成功"
+output = "7CL>=6 ＞ (7d10) ＞ [2,2,3,4,5,6,7] ＞ 達成値[6] ＞ 成功"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "4CL>=5 クリティカル\tCodeLayerd"
-output = "CodeLayerd : 4CL>=5 ＞ (4d10) ＞ [1,2,3,4] ＞ 達成値[4]+クリティカル[1]=[5] ＞ 成功"
+output = "4CL>=5 ＞ (4d10) ＞ [1,2,3,4] ＞ 達成値[4]+クリティカル[1]=[5] ＞ 成功"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -68,7 +68,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "4CL>=5 ファンブル\tCodeLayerd"
-output = "CodeLayerd : 4CL>=5 ＞ (4d10) ＞ [7,8,9,10] ＞ 達成値[0] ＞ ファンブル！"
+output = "4CL>=5 ＞ (4d10) ＞ [7,8,9,10] ＞ 達成値[0] ＞ ファンブル！"
 rands = [
   { sides = 10, value = 7 },
   { sides = 10, value = 8 },
@@ -79,7 +79,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "4CL>=5\tCodeLayerd"
-output = "CodeLayerd : 4CL>=5 ＞ (4d10) ＞ [7,8,9,10] ＞ 達成値[0] ＞ ファンブル！"
+output = "4CL>=5 ＞ (4d10) ＞ [7,8,9,10] ＞ 達成値[0] ＞ ファンブル！"
 rands = [
   { sides = 10, value = 7 },
   { sides = 10, value = 8 },
@@ -90,7 +90,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "7CL+5>=6\tCodeLayerd"
-output = "CodeLayerd : 7CL+5>=6 ＞ (7d10+5) ＞ [2,2,3,4,5,6,7]+5 ＞ 達成値[6]+5=[11] ＞ 成功"
+output = "7CL+5>=6 ＞ (7d10+5) ＞ [2,2,3,4,5,6,7]+5 ＞ 達成値[6]+5=[11] ＞ 成功"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
@@ -104,7 +104,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "7CL-2\tCodeLayerd"
-output = "CodeLayerd : 7CL-2 ＞ (7d10-2) ＞ [2,2,3,4,5,6,7]-2 ＞ 達成値[6]-2=[4] ＞ 4"
+output = "7CL-2 ＞ (7d10-2) ＞ [2,2,3,4,5,6,7]-2 ＞ 達成値[6]-2=[4] ＞ 4"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "7CL+(1+2*3)@5>=6\tCodeLayerd"
-output = "CodeLayerd : 7CL+7@5>=6 ＞ (7d10+7) ＞ [2,2,3,4,5,6,7]+7 ＞ 判定値[5] 達成値[5]+7=[12] ＞ 成功"
+output = "7CL+7@5>=6 ＞ (7d10+7) ＞ [2,2,3,4,5,6,7]+7 ＞ 判定値[5] 達成値[5]+7=[12] ＞ 成功"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
@@ -132,7 +132,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "7CL@5-(-1+3)\tCodeLayerd"
-output = "CodeLayerd : 7CL@5-2 ＞ (7d10-2) ＞ [2,2,3,4,5,6,7]-2 ＞ 判定値[5] 達成値[5]-2=[3] ＞ 3"
+output = "7CL@5-2 ＞ (7d10-2) ＞ [2,2,3,4,5,6,7]-2 ＞ 判定値[5] 達成値[5]-2=[3] ＞ 3"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
@@ -146,7 +146,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "7CL+1@5-(3+1)>=9\tCodeLayerd"
-output = "CodeLayerd : 7CL+1@5-4>=9 ＞ (7d10-3) ＞ [2,2,3,4,5,6,7]-3 ＞ 判定値[5] 達成値[5]-3=[2] ＞ 失敗"
+output = "7CL+1@5-4>=9 ＞ (7d10-3) ＞ [2,2,3,4,5,6,7]-3 ＞ 判定値[5] 達成値[5]-3=[2] ＞ 失敗"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
@@ -160,7 +160,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "4CL+5>=5 クリティカル\tCodeLayerd"
-output = "CodeLayerd : 4CL+5>=5 ＞ (4d10+5) ＞ [1,2,3,4]+5 ＞ 達成値[4]+クリティカル[1]+5=[10] ＞ 成功"
+output = "4CL+5>=5 ＞ (4d10+5) ＞ [1,2,3,4]+5 ＞ 達成値[4]+クリティカル[1]+5=[10] ＞ 成功"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -171,7 +171,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "4CL-5@6+5>=5\tCodeLayerd ファンブル"
-output = "CodeLayerd : 4CL-5@6+5>=5 ＞ (4d10) ＞ [7,8,9,10] ＞ 達成値[0] ＞ ファンブル！"
+output = "4CL-5@6+5>=5 ＞ (4d10) ＞ [7,8,9,10] ＞ 達成値[0] ＞ ファンブル！"
 rands = [
   { sides = 10, value = 7 },
   { sides = 10, value = 8 },
@@ -182,7 +182,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "7CL+2@6-8\tCodeLayerd 達成値が0でもファンブルではない"
-output = "CodeLayerd : 7CL+2@6-8 ＞ (7d10-6) ＞ [2,2,3,4,5,6,7]-6 ＞ 達成値[6]-6=[0] ＞ 0"
+output = "7CL+2@6-8 ＞ (7d10-6) ＞ [2,2,3,4,5,6,7]-6 ＞ 達成値[6]-6=[0] ＞ 0"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
@@ -196,7 +196,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "7CL-(6+1)\tCodeLayerd 達成値がマイナスでもファンブルではない"
-output = "CodeLayerd : 7CL-7 ＞ (7d10-7) ＞ [2,2,3,4,5,6,7]-7 ＞ 達成値[6]-7=[-1] ＞ -1"
+output = "7CL-7 ＞ (7d10-7) ＞ [2,2,3,4,5,6,7]-7 ＞ 達成値[6]-7=[-1] ＞ -1"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
@@ -210,7 +210,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "4CL+10\tCodeLayerd 固定値があっても成功ダイスが無いならファンブル"
-output = "CodeLayerd : 4CL+10 ＞ (4d10+10) ＞ [7,8,9,10]+10 ＞ 達成値[0] ＞ ファンブル！"
+output = "4CL+10 ＞ (4d10+10) ＞ [7,8,9,10]+10 ＞ 達成値[0] ＞ ファンブル！"
 rands = [
   { sides = 10, value = 7 },
   { sides = 10, value = 8 },
@@ -221,7 +221,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "4CL[3]>=5 クリティカル\tCodeLayerd"
-output = "CodeLayerd : 4CL[3]>=5 ＞ (4d10) ＞ [1,2,3,4] ＞ クリティカル値[3] 達成値[4]+クリティカル[3]=[7] ＞ 成功"
+output = "4CL[3]>=5 ＞ (4d10) ＞ [1,2,3,4] ＞ クリティカル値[3] 達成値[4]+クリティカル[3]=[7] ＞ 成功"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -232,7 +232,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "7CL+2@6[2]-8\tCodeLayerd"
-output = "CodeLayerd : 7CL+2@6[2]-8 ＞ (7d10-6) ＞ [1,2,3,4,5,6,7]-6 ＞ クリティカル値[2] 達成値[6]+クリティカル[2]-6=[2] ＞ 2"
+output = "7CL+2@6[2]-8 ＞ (7d10-6) ＞ [1,2,3,4,5,6,7]-6 ＞ クリティカル値[2] 達成値[6]+クリティカル[2]-6=[2] ＞ 2"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -246,7 +246,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "0CL ダイス数が0以下になると1CL[0]相当"
-output = "CodeLayerd : 0CL ＞ (1d10) ＞ [1] ＞ クリティカル値[0] 達成値[1] ＞ 1"
+output = "0CL ＞ (1d10) ＞ [1] ＞ クリティカル値[0] 達成値[1] ＞ 1"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -254,7 +254,7 @@ rands = [
 [[ test ]]
 game_system = "CodeLayerd"
 input = "(10-15)CL+5 ダイス数が0以下になると1CL[0]相当"
-output = "CodeLayerd : -5CL+5 ＞ (1d10+5) ＞ [8]+5 ＞ クリティカル値[0] 達成値[0] ＞ ファンブル！"
+output = "-5CL+5 ＞ (1d10+5) ＞ [8]+5 ＞ クリティカル値[0] 達成値[0] ＞ ファンブル！"
 rands = [
   { sides = 10, value = 8 },
 ]

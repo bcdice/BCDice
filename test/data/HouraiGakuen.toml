@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "ROL(1+1)"
-output = "HouraiGakuen : (3d6<=2) ＞ 出目1,2,3＝合計6 ＞ 大成功"
+output = "(3d6<=2) ＞ 出目1,2,3＝合計6 ＞ 大成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -11,7 +11,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "ROL(1+1)"
-output = "HouraiGakuen : (3d6<=2) ＞ 出目1,3,2＝合計6 ＞ 大成功"
+output = "(3d6<=2) ＞ 出目1,3,2＝合計6 ＞ 大成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -21,7 +21,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "ROL(1+1)"
-output = "HouraiGakuen : (3d6<=2) ＞ 出目2,1,3＝合計6 ＞ 大成功"
+output = "(3d6<=2) ＞ 出目2,1,3＝合計6 ＞ 大成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -31,7 +31,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "ROL(1+1)"
-output = "HouraiGakuen : (3d6<=2) ＞ 出目2,3,1＝合計6 ＞ 大成功"
+output = "(3d6<=2) ＞ 出目2,3,1＝合計6 ＞ 大成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "ROL(1+1)"
-output = "HouraiGakuen : (3d6<=2) ＞ 出目3,1,2＝合計6 ＞ 大成功"
+output = "(3d6<=2) ＞ 出目3,1,2＝合計6 ＞ 大成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -51,7 +51,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "ROL(1+1)"
-output = "HouraiGakuen : (3d6<=2) ＞ 出目3,2,1＝合計6 ＞ 大成功"
+output = "(3d6<=2) ＞ 出目3,2,1＝合計6 ＞ 大成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -61,7 +61,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "ROL(1+1)"
-output = "HouraiGakuen : (3d6<=2) ＞ 出目6,6,6＝合計18 ＞ 大失敗"
+output = "(3d6<=2) ＞ 出目6,6,6＝合計18 ＞ 大失敗"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -71,7 +71,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "ROL(2+8)"
-output = "HouraiGakuen : (3d6<=10) ＞ 出目3,3,4＝合計10 ＞ 成功"
+output = "(3d6<=10) ＞ 出目3,3,4＝合計10 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "ROL(4+3)"
-output = "HouraiGakuen : (3d6<=7) ＞ 出目5,3,6＝合計14 ＞ 失敗"
+output = "(3d6<=7) ＞ 出目5,3,6＝合計14 ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "MED(1,1)"
-output = "HouraiGakuen : (あなたの値1、相手の値1、3d6<=10) ＞ 出目1,2,3＝合計6 ＞ 大成功"
+output = "(あなたの値1、相手の値1、3d6<=10) ＞ 出目1,2,3＝合計6 ＞ 大成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -101,7 +101,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "MED(1,1)"
-output = "HouraiGakuen : (あなたの値1、相手の値1、3d6<=10) ＞ 出目1,3,2＝合計6 ＞ 大成功"
+output = "(あなたの値1、相手の値1、3d6<=10) ＞ 出目1,3,2＝合計6 ＞ 大成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -111,7 +111,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "MED(1,1)"
-output = "HouraiGakuen : (あなたの値1、相手の値1、3d6<=10) ＞ 出目2,1,3＝合計6 ＞ 大成功"
+output = "(あなたの値1、相手の値1、3d6<=10) ＞ 出目2,1,3＝合計6 ＞ 大成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -121,7 +121,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "MED(1,1)"
-output = "HouraiGakuen : (あなたの値1、相手の値1、3d6<=10) ＞ 出目2,3,1＝合計6 ＞ 大成功"
+output = "(あなたの値1、相手の値1、3d6<=10) ＞ 出目2,3,1＝合計6 ＞ 大成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -131,7 +131,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "MED(1,1)"
-output = "HouraiGakuen : (あなたの値1、相手の値1、3d6<=10) ＞ 出目3,1,2＝合計6 ＞ 大成功"
+output = "(あなたの値1、相手の値1、3d6<=10) ＞ 出目3,1,2＝合計6 ＞ 大成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -141,7 +141,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "MED(1,1)"
-output = "HouraiGakuen : (あなたの値1、相手の値1、3d6<=10) ＞ 出目3,2,1＝合計6 ＞ 大成功"
+output = "(あなたの値1、相手の値1、3d6<=10) ＞ 出目3,2,1＝合計6 ＞ 大成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -151,7 +151,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "MED(1,1)"
-output = "HouraiGakuen : (あなたの値1、相手の値1、3d6<=10) ＞ 出目6,6,6＝合計18 ＞ 大失敗"
+output = "(あなたの値1、相手の値1、3d6<=10) ＞ 出目6,6,6＝合計18 ＞ 大失敗"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -161,7 +161,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "MED(3,3)"
-output = "HouraiGakuen : (あなたの値3、相手の値3、3d6<=10) ＞ 出目3,2,5＝合計10 ＞ 成功"
+output = "(あなたの値3、相手の値3、3d6<=10) ＞ 出目3,2,5＝合計10 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -171,7 +171,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "MED(2,8)"
-output = "HouraiGakuen : (あなたの値2、相手の値8、3d6<=4) ＞ 出目1,3,3＝合計7 ＞ 失敗"
+output = "(あなたの値2、相手の値8、3d6<=4) ＞ 出目1,3,3＝合計7 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -181,7 +181,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "RES(1,1)"
-output = "HouraiGakuen : あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 1,2,3=6 ＞ 大成功\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞あなたが勝利"
+output = "あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 1,2,3=6 ＞ 大成功\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞あなたが勝利"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -194,7 +194,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "RES(1,1)"
-output = "HouraiGakuen : あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 1,3,2=6 ＞ 大成功\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞あなたが勝利"
+output = "あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 1,3,2=6 ＞ 大成功\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞あなたが勝利"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -207,7 +207,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "RES(1,1)"
-output = "HouraiGakuen : あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 2,1,3=6 ＞ 大成功\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞あなたが勝利"
+output = "あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 2,1,3=6 ＞ 大成功\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞あなたが勝利"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -220,7 +220,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "RES(1,1)"
-output = "HouraiGakuen : あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 2,3,1=6 ＞ 大成功\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞あなたが勝利"
+output = "あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 2,3,1=6 ＞ 大成功\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞あなたが勝利"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -233,7 +233,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "RES(1,1)"
-output = "HouraiGakuen : あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 3,1,2=6 ＞ 大成功\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞あなたが勝利"
+output = "あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 3,1,2=6 ＞ 大成功\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞あなたが勝利"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -246,7 +246,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "RES(1,1)"
-output = "HouraiGakuen : あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 3,2,1=6 ＞ 大成功\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞あなたが勝利"
+output = "あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 3,2,1=6 ＞ 大成功\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞あなたが勝利"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -259,7 +259,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "RES(1,1)"
-output = "HouraiGakuen : あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 6,6,6=18 ＞ 大失敗\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞相手が勝利"
+output = "あなたの値1、相手の値1\n(あなたのロール 3d6<=10) ＞ 6,6,6=18 ＞ 大失敗\n(相手のロール 3d6<=10) ＞ 2,3,4=9 ＞ 成功\n＞相手が勝利"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -272,7 +272,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "RES(4,2)"
-output = "HouraiGakuen : あなたの値4、相手の値2\n(あなたのロール 3d6<=12) ＞ 6,3,1=10 ＞ 成功\n(相手のロール 3d6<=8) ＞ 2,5,2=9 ＞ 失敗\n＞あなたが勝利"
+output = "あなたの値4、相手の値2\n(あなたのロール 3d6<=12) ＞ 6,3,1=10 ＞ 成功\n(相手のロール 3d6<=8) ＞ 2,5,2=9 ＞ 失敗\n＞あなたが勝利"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -285,7 +285,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "RES(3,9)"
-output = "HouraiGakuen : あなたの値3、相手の値9\n(あなたのロール 3d6<=4) ＞ 3,5,3=11 ＞ 失敗\n(相手のロール 3d6<=16) ＞ 5,5,5=15 ＞ 成功\n＞相手が勝利"
+output = "あなたの値3、相手の値9\n(あなたのロール 3d6<=4) ＞ 3,5,3=11 ＞ 失敗\n(相手のロール 3d6<=16) ＞ 5,5,5=15 ＞ 成功\n＞相手が勝利"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -298,7 +298,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "RES(7,5)"
-output = "HouraiGakuen : あなたの値7、相手の値5\n(あなたのロール 3d6<=12) ＞ 2,5,1=8 ＞ 成功\n(相手のロール 3d6<=8) ＞ 3,2,3=8 ＞ 成功\n＞引き分け"
+output = "あなたの値7、相手の値5\n(あなたのロール 3d6<=12) ＞ 2,5,1=8 ＞ 成功\n(相手のロール 3d6<=8) ＞ 3,2,3=8 ＞ 成功\n＞引き分け"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -311,7 +311,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "RES(9,9)"
-output = "HouraiGakuen : あなたの値9、相手の値9\n(あなたのロール 3d6<=10) ＞ 5,1,5=11 ＞ 失敗\n(相手のロール 3d6<=10) ＞ 1,5,5=11 ＞ 失敗\n＞引き分け"
+output = "あなたの値9、相手の値9\n(あなたのロール 3d6<=10) ＞ 5,1,5=11 ＞ 失敗\n(相手のロール 3d6<=10) ＞ 1,5,5=11 ＞ 失敗\n＞引き分け"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -324,7 +324,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "INY"
-output = "HouraiGakuen : 陽（奇数の方が多い）"
+output = "陽（奇数の方が多い）"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -334,7 +334,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "INY"
-output = "HouraiGakuen : 陽（奇数の方が多い）"
+output = "陽（奇数の方が多い）"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -344,7 +344,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "INY"
-output = "HouraiGakuen : 陰（偶数の方が多い）"
+output = "陰（偶数の方が多い）"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -354,7 +354,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "INY"
-output = "HouraiGakuen : 陰（偶数の方が多い）"
+output = "陰（偶数の方が多い）"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -364,7 +364,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "HTK"
-output = "HouraiGakuen : 仁義八徳は、【仁】(奇数、奇数、奇数)"
+output = "仁義八徳は、【仁】(奇数、奇数、奇数)"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -374,7 +374,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "HTK"
-output = "HouraiGakuen : 仁義八徳は、【義】(奇数、奇数、偶数)"
+output = "仁義八徳は、【義】(奇数、奇数、偶数)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -384,7 +384,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "HTK"
-output = "HouraiGakuen : 仁義八徳は、【礼】(奇数、偶数、奇数)"
+output = "仁義八徳は、【礼】(奇数、偶数、奇数)"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -394,7 +394,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "HTK"
-output = "HouraiGakuen : 仁義八徳は、【智】(奇数、偶数、偶数)"
+output = "仁義八徳は、【智】(奇数、偶数、偶数)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -404,7 +404,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "HTK"
-output = "HouraiGakuen : 仁義八徳は、【忠】(偶数、奇数、奇数)"
+output = "仁義八徳は、【忠】(偶数、奇数、奇数)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -414,7 +414,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "HTK"
-output = "HouraiGakuen : 仁義八徳は、【信】(偶数、奇数、偶数)"
+output = "仁義八徳は、【信】(偶数、奇数、偶数)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -424,7 +424,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "HTK"
-output = "HouraiGakuen : 仁義八徳は、【孝】(偶数、偶数、奇数)"
+output = "仁義八徳は、【孝】(偶数、偶数、奇数)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -434,7 +434,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "HTK"
-output = "HouraiGakuen : 仁義八徳は、【悌】(偶数、偶数、偶数)"
+output = "仁義八徳は、【悌】(偶数、偶数、偶数)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -444,7 +444,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "GOG"
-output = "HouraiGakuen : 五行表(1) ＞ 五行【木】"
+output = "五行表(1) ＞ 五行【木】"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -452,7 +452,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "GOG"
-output = "HouraiGakuen : 五行表(2) ＞ 五行【火】"
+output = "五行表(2) ＞ 五行【火】"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -460,7 +460,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "GOG"
-output = "HouraiGakuen : 五行表(3) ＞ 五行【土】"
+output = "五行表(3) ＞ 五行【土】"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -468,7 +468,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "GOG"
-output = "HouraiGakuen : 五行表(4) ＞ 五行【金】"
+output = "五行表(4) ＞ 五行【金】"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -476,7 +476,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "GOG"
-output = "HouraiGakuen : 五行表(5) ＞ 五行【水】"
+output = "五行表(5) ＞ 五行【水】"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -484,7 +484,7 @@ rands = [
 [[ test ]]
 game_system = "HouraiGakuen"
 input = "GOG"
-output = "HouraiGakuen : 五行表(6) ＞ 五行は【任意選択】"
+output = "五行表(6) ＞ 五行は【任意選択】"
 rands = [
   { sides = 6, value = 6 },
 ]

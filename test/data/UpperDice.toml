@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6[6]"
-output = "DiceBot : (4U6[6]) ＞ 5,2,11[6,5],23[6,6,6,5] ＞ 23/41(最大/合計)"
+output = "(4U6[6]) ＞ 5,2,11[6,5],23[6,6,6,5] ＞ 23/41(最大/合計)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -16,7 +16,7 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6[6]>=10"
-output = "DiceBot : (4U6[6]>=10) ＞ 5,2,11[6,5],23[6,6,6,5] ＞ 成功数2"
+output = "(4U6[6]>=10) ＞ 5,2,11[6,5],23[6,6,6,5] ＞ 成功数2"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -31,7 +31,7 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6>=10@6 末尾の@でも指定できる"
-output = "DiceBot : (4U6[6]>=10) ＞ 5,2,11[6,5],23[6,6,6,5] ＞ 成功数2"
+output = "(4U6[6]>=10) ＞ 5,2,11[6,5],23[6,6,6,5] ＞ 成功数2"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6[6]+11"
-output = "DiceBot : (4U6[6]+11) ＞ 5,2,11[6,5],23[6,6,6,5]+11 ＞ 34/52(最大/合計)"
+output = "(4U6[6]+11) ＞ 5,2,11[6,5],23[6,6,6,5]+11 ＞ 34/52(最大/合計)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -61,7 +61,7 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6[6]+11>=21"
-output = "DiceBot : (4U6[6]+11>=21) ＞ 5,2,11[6,5],23[6,6,6,5]+11 ＞ 成功数2"
+output = "(4U6[6]+11>=21) ＞ 5,2,11[6,5],23[6,6,6,5]+11 ＞ 成功数2"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -76,7 +76,7 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6+11>=21@6"
-output = "DiceBot : (4U6[6]+11>=21) ＞ 5,2,11[6,5],23[6,6,6,5]+11 ＞ 成功数2"
+output = "(4U6[6]+11>=21) ＞ 5,2,11[6,5],23[6,6,6,5]+11 ＞ 成功数2"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6[6]+11>=21@4 角カッコが優先"
-output = "DiceBot : (4U6[6]+11>=21) ＞ 5,2,11[6,5],23[6,6,6,5]+11 ＞ 成功数2"
+output = "(4U6[6]+11>=21) ＞ 5,2,11[6,5],23[6,6,6,5]+11 ＞ 成功数2"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -106,7 +106,7 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6[6]+1+2+10"
-output = "DiceBot : (4U6[6]+13) ＞ 5,2,11[6,5],23[6,6,6,5]+13 ＞ 36/54(最大/合計)"
+output = "(4U6[6]+13) ＞ 5,2,11[6,5],23[6,6,6,5]+13 ＞ 36/54(最大/合計)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -121,7 +121,7 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "2U6+2U4[4]+6 複数種類"
-output = "DiceBot : (2U6+2U4[4]+6) ＞ 1,13[5,5,3],2,15[4,4,4,3]+6 ＞ 21/37(最大/合計)"
+output = "(2U6+2U4[4]+6) ＞ 1,13[5,5,3],2,15[4,4,4,3]+6 ＞ 21/37(最大/合計)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -137,7 +137,7 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "2U6+2U4[4]+6>=8 複数種類"
-output = "DiceBot : (2U6+2U4[4]+6>=8) ＞ 1,13[5,5,3],2,15[4,4,4,3]+6 ＞ 成功数3"
+output = "(2U6+2U4[4]+6>=8) ＞ 1,13[5,5,3],2,15[4,4,4,3]+6 ＞ 成功数3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -153,37 +153,37 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6+2U4+11>=21 条件未指定"
-output = "DiceBot : (4U6+2U4[0]+11>=21) ＞ 無限ロールの条件がまちがっています"
+output = "(4U6+2U4[0]+11>=21) ＞ 無限ロールの条件がまちがっています"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6+2U4[1]+14-3>=21 条件指定ミス"
-output = "DiceBot : (4U6+2U4[1]+11>=21) ＞ 無限ロールの条件がまちがっています"
+output = "(4U6+2U4[1]+11>=21) ＞ 無限ロールの条件がまちがっています"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6+2U4+11>=21@1 条件指定ミス"
-output = "DiceBot : (4U6+2U4[1]+11>=21) ＞ 無限ロールの条件がまちがっています"
+output = "(4U6+2U4[1]+11>=21) ＞ 無限ロールの条件がまちがっています"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6==21 比較演算子の確認"
-output = "DiceBot : (4U6[0]=21) ＞ 無限ロールの条件がまちがっています"
+output = "(4U6[0]=21) ＞ 無限ロールの条件がまちがっています"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "4U6<>21 比較演算子の確認"
-output = "DiceBot : (4U6[0]<>21) ＞ 無限ロールの条件がまちがっています"
+output = "(4U6[0]<>21) ＞ 無限ロールの条件がまちがっています"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "2U6+2U4[4]<>13 否定"
-output = "DiceBot : (2U6+2U4[4]<>13) ＞ 1,13[5,5,3],2,15[4,4,4,3] ＞ 成功数3"
+output = "(2U6+2U4[4]<>13) ＞ 1,13[5,5,3],2,15[4,4,4,3] ＞ 成功数3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -199,7 +199,7 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "S1U6[3]"
-output = "DiceBot : (1U6[3]) ＞ 5[3,2] ＞ 5/5(最大/合計)"
+output = "(1U6[3]) ＞ 5[3,2] ＞ 5/5(最大/合計)"
 secret = true
 rands = [
   { sides = 6, value = 3 },

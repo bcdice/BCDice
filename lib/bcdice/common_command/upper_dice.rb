@@ -61,7 +61,7 @@ module BCDice
         @modify_number = ArithmeticEvaluator.eval(m[3], round_type: @diceBot.round_type)
 
         if @reroll_threshold <= 1
-          return ": (#{expr()}) ＞ 無限ロールの条件がまちがっています"
+          return "(#{expr()}) ＞ 無限ロールの条件がまちがっています"
         end
 
         roll_list = []
@@ -86,7 +86,7 @@ module BCDice
           end
 
         sequence = [
-          ": (#{expr()})",
+          "(#{expr()})",
           dice_text(roll_list) + Format.modifier(@modify_number),
           result
         ]

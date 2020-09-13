@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "LostRecord"
 input = "D66"
-output = "LostRecord : (D66) ＞ 35"
+output = "(D66) ＞ 35"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "LostRecord"
 input = "D66"
-output = "LostRecord : (D66) ＞ 35"
+output = "(D66) ＞ 35"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },

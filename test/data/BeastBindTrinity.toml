@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5"
-output = "BeastBindTrinity : (2BB+5@12#2) ＞ 11[5,6]+5 ＞ 16"
+output = "(2BB+5@12#2) ＞ 11[5,6]+5 ＞ 16"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5>=16"
-output = "BeastBindTrinity : (2BB+5@12#2>=16) ＞ 11[5,6]+5 ＞ 16 ＞ 成功"
+output = "(2BB+5@12#2>=16) ＞ 11[5,6]+5 ＞ 16 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5>=17"
-output = "BeastBindTrinity : (2BB+5@12#2>=17) ＞ 11[5,6]+5 ＞ 16 ＞ 失敗"
+output = "(2BB+5@12#2>=17) ＞ 11[5,6]+5 ＞ 16 ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5@11#5"
-output = "BeastBindTrinity : (2BB+5@11#5) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
+output = "(2BB+5@11#5) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5@11#5>=36"
-output = "BeastBindTrinity : (2BB+5@11#5>=36) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36 ＞ 成功"
+output = "(2BB+5@11#5>=36) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5@11#5>=37"
-output = "BeastBindTrinity : (2BB+5@11#5>=37) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36 ＞ 失敗"
+output = "(2BB+5@11#5>=37) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36 ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5@11#6"
-output = "BeastBindTrinity : (2BB+5@11#6) ＞ 6[1,5]+5 ＞ ファンブル ＞ 0"
+output = "(2BB+5@11#6) ＞ 6[1,5]+5 ＞ ファンブル ＞ 0"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -64,7 +64,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5@11#6>=1"
-output = "BeastBindTrinity : (2BB+5@11#6>=1) ＞ 6[1,5]+5 ＞ ファンブル ＞ 0 ＞ 失敗"
+output = "(2BB+5@11#6>=1) ＞ 6[1,5]+5 ＞ ファンブル ＞ 0 ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%41"
-output = "BeastBindTrinity : (2BB+5@12#2) ＞ 6[1,5]+5 ＞ 11"
+output = "(2BB+5@12#2) ＞ 6[1,5]+5 ＞ 11"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -82,7 +82,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%41>=30"
-output = "BeastBindTrinity : (2BB+5@12#2>=30) ＞ 11[5,6]+5 ＞ 16 ＞ 失敗"
+output = "(2BB+5@12#2>=30) ＞ 11[5,6]+5 ＞ 16 ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%41>=30"
-output = "BeastBindTrinity : (2BB+5@12#2>=30) ＞ 12[6,6]+5+20 ＞ クリティカル ＞ 37 ＞ 成功"
+output = "(2BB+5@12#2>=30) ＞ 12[6,6]+5+20 ＞ クリティカル ＞ 37 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%21>=30"
-output = "BeastBindTrinity : (2BB+5@11#2>=30) ＞ 12[6,6]+5+20 ＞ クリティカル ＞ 37 ＞ 成功"
+output = "(2BB+5@11#2>=30) ＞ 12[6,6]+5+20 ＞ クリティカル ＞ 37 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%21>=30"
-output = "BeastBindTrinity : (2BB+5@11#2>=30) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36 ＞ 成功"
+output = "(2BB+5@11#2>=30) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%21>=30"
-output = "BeastBindTrinity : (2BB+5@11#2>=30) ＞ 10[4,6]+5 ＞ 15 ＞ 失敗"
+output = "(2BB+5@11#2>=30) ＞ 10[4,6]+5 ＞ 15 ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%1>=30"
-output = "BeastBindTrinity : (2BB+5@10#2>=30) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36 ＞ 成功"
+output = "(2BB+5@10#2>=30) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -136,7 +136,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%1>=30"
-output = "BeastBindTrinity : (2BB+5@10#2>=30) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35 ＞ 成功"
+output = "(2BB+5@10#2>=30) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%1>=30"
-output = "BeastBindTrinity : (2BB+5@10#2>=30) ＞ 9[4,5]+5 ＞ 14 ＞ 失敗"
+output = "(2BB+5@10#2>=30) ＞ 9[4,5]+5 ＞ 14 ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -154,7 +154,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%-1>=30"
-output = "BeastBindTrinity : (2BB+5@9#2>=30) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35 ＞ 成功"
+output = "(2BB+5@9#2>=30) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -163,7 +163,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%-1>=30"
-output = "BeastBindTrinity : (2BB+5@9#2>=30) ＞ 9[4,5]+5+20 ＞ クリティカル ＞ 34 ＞ 成功"
+output = "(2BB+5@9#2>=30) ＞ 9[4,5]+5+20 ＞ クリティカル ＞ 34 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -172,7 +172,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%1@9>=30"
-output = "BeastBindTrinity : (2BB+5@9#2>=30) ＞ 9[4,5]+5+20 ＞ クリティカル ＞ 34 ＞ 成功"
+output = "(2BB+5@9#2>=30) ＞ 9[4,5]+5+20 ＞ クリティカル ＞ 34 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -181,13 +181,13 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%12$56"
-output = "BeastBindTrinity : (2BB+5@10#2) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
+output = "(2BB+5@10#2) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
 rands = []
 
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5$2"
-output = "BeastBindTrinity : (2BB+5@12#2) ＞ 7[2,5]+5 ＞ 12"
+output = "(2BB+5@12#2) ＞ 7[2,5]+5 ＞ 12"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -195,7 +195,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "EMO"
-output = "BeastBindTrinity : 邂逅表(11) ＞ 家族"
+output = "邂逅表(11) ＞ 家族"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -204,7 +204,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5@-1"
-output = "BeastBindTrinity : (2BB+5@11#2) ＞ 10[4,6]+5 ＞ 15"
+output = "(2BB+5@11#2) ＞ 10[4,6]+5 ＞ 15"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -213,7 +213,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%20@-1"
-output = "BeastBindTrinity : (2BB+5@9#2) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35"
+output = "(2BB+5@9#2) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -222,7 +222,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%20@-1>=30"
-output = "BeastBindTrinity : (2BB+5@9#2>=30) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35 ＞ 成功"
+output = "(2BB+5@9#2>=30) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -231,7 +231,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5@-1-2"
-output = "BeastBindTrinity : (2BB+5@9#2) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35"
+output = "(2BB+5@9#2) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -240,7 +240,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%-5@+2#+2"
-output = "BeastBindTrinity : (2BB+5@11#4) ＞ 10[4,6]+5 ＞ 15"
+output = "(2BB+5@11#4) ＞ 10[4,6]+5 ＞ 15"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -249,7 +249,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5#A6"
-output = "BeastBindTrinity : (2BB+5@12#6) ＞ 6[1,5]+5 ＞ ファンブル ＞ 11"
+output = "(2BB+5@12#6) ＞ 6[1,5]+5 ＞ ファンブル ＞ 11"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -258,7 +258,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5#A+6"
-output = "BeastBindTrinity : (2BB+5@12#8) ＞ 6[1,5]+5 ＞ ファンブル ＞ 11"
+output = "(2BB+5@12#8) ＞ 6[1,5]+5 ＞ ファンブル ＞ 11"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -267,7 +267,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5&3"
-output = "BeastBindTrinity : (2BB+5@12#2) ＞ [1,1] ＞ 6[3,3]+5 ＞ 11"
+output = "(2BB+5@12#2) ＞ [1,1] ＞ 6[3,3]+5 ＞ 11"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -276,7 +276,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "1BB"
-output = "BeastBindTrinity : (1BB@12#2) ＞ 3[3] ＞ 3"
+output = "(1BB@12#2) ＞ 3[3] ＞ 3"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -284,7 +284,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "1BB+3"
-output = "BeastBindTrinity : (1BB+3@12#2) ＞ 3[3]+3 ＞ 6"
+output = "(1BB+3@12#2) ＞ 3[3]+3 ＞ 6"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -292,7 +292,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "1BB&3"
-output = "BeastBindTrinity : (1BB@12#2) ＞ [1] ＞ 3[3] ＞ 3"
+output = "(1BB@12#2) ＞ [1] ＞ 3[3] ＞ 3"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -300,7 +300,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%20@+3"
-output = "BeastBindTrinity : (2BB+5@12#2) ＞ 11[5,6]+5 ＞ 16"
+output = "(2BB+5@12#2) ＞ 11[5,6]+5 ＞ 16"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -309,7 +309,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB+5%20@13"
-output = "BeastBindTrinity : (2BB+5@13#2) ＞ 12[6,6]+5 ＞ 17"
+output = "(2BB+5@13#2) ＞ 12[6,6]+5 ＞ 17"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -318,7 +318,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2BB6+5@11#5"
-output = "BeastBindTrinity : (2BB+5@11#5) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
+output = "(2BB+5@11#5) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -327,7 +327,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "2R6+5@11#5"
-output = "BeastBindTrinity : (2BB+5@11#5) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
+output = "(2BB+5@11#5) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -336,7 +336,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "EXPO_A"
-output = "BeastBindTrinity : 暴露表(1) ＞ 噂になるがすぐ忘れられる"
+output = "暴露表(1) ＞ 噂になるがすぐ忘れられる"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -344,7 +344,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "EXPO_B"
-output = "BeastBindTrinity : 魔獣化暴露表(2) ＞ シナリオ中［迫害状態］になる"
+output = "魔獣化暴露表(2) ＞ シナリオ中［迫害状態］になる"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -352,7 +352,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "EXPO_I"
-output = "BeastBindTrinity : アイドル専用暴露表(4) ＞ 所属事務所に2D6時間説教される"
+output = "アイドル専用暴露表(4) ＞ 所属事務所に2D6時間説教される"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -360,7 +360,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "EXPO_J"
-output = "BeastBindTrinity : アイドル専用魔獣化暴露表(6) ＞ 1D6本のレギュラー番組を失う"
+output = "アイドル専用魔獣化暴露表(6) ＞ 1D6本のレギュラー番組を失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -368,7 +368,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "FACE_A"
-output = "BeastBindTrinity : 正体判明チャートA(1) ＞ あなたを受け入れてくれる"
+output = "正体判明チャートA(1) ＞ あなたを受け入れてくれる"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -376,7 +376,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "FACE_B"
-output = "BeastBindTrinity : 正体判明チャートB(2) ＞ 狂乱し攻撃してくる"
+output = "正体判明チャートB(2) ＞ 狂乱し攻撃してくる"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -384,7 +384,7 @@ rands = [
 [[ test ]]
 game_system = "BeastBindTrinity"
 input = "FACE_C"
-output = "BeastBindTrinity : 正体判明チャートC(4) ＞ 絆がエゴに書き換わる"
+output = "正体判明チャートC(4) ＞ 絆がエゴに書き換わる"
 rands = [
   { sides = 6, value = 4 },
 ]

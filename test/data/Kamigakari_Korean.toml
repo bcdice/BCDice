@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "RT"
-output = "Kamigakari : 영문소비의 댓가표(1)：사신화：물리법칙을 너무 초월한 대가로, 영혼이 왜곡되어, PC는 즉시 아라미타마로 변모한다. 아라미타마화한 PC는, 어딘가로 떠나간다."
+output = "영문소비의 댓가표(1)：사신화：물리법칙을 너무 초월한 대가로, 영혼이 왜곡되어, PC는 즉시 아라미타마로 변모한다. 아라미타마화한 PC는, 어딘가로 떠나간다."
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "RT"
-output = "Kamigakari : 영문소비의 댓가표(6)：영향없음：기적적으로, 영혼의 마모에 의한 악영향을 완전히 피하고, 또한 영문의 회복도 빠를 것으로 보인다. 육체나 정신 모두, 딱히 영향은 없다."
+output = "영문소비의 댓가표(6)：영향없음：기적적으로, 영혼의 마모에 의한 악영향을 완전히 피하고, 또한 영문의 회복도 빠를 것으로 보인다. 육체나 정신 모두, 딱히 영향은 없다."
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT"
-output = "Kamigakari : 획득 소재 차트(11,1,11,1)：진홍의 단편.자주 발견되는 소재：체력+1：500G(효과치:1)"
+output = "획득 소재 차트(11,1,11,1)：진홍의 단편.자주 발견되는 소재：체력+1：500G(효과치:1)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -30,7 +30,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT"
-output = "Kamigakari : 획득 소재 차트(66,6,6)：깃털형태의 단편.드문 소재：※GM의 임의"
+output = "획득 소재 차트(66,6,6)：깃털형태의 단편.드문 소재：※GM의 임의"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT"
-output = "Kamigakari : 획득 소재 차트(53,2,12,1)：흙의 단편.자주 발견되는 소재：체력+1：500G(효과치:1)"
+output = "획득 소재 차트(53,2,12,1)：흙의 단편.자주 발견되는 소재：체력+1：500G(효과치:1)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -54,7 +54,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT"
-output = "Kamigakari : 획득 소재 차트(56,3,35,5)：봉인의 단편.자주 발견되는 소재：물D+2：1000G(효과치:2)"
+output = "획득 소재 차트(56,3,35,5)：봉인의 단편.자주 발견되는 소재：물D+2：1000G(효과치:2)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -67,7 +67,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT"
-output = "Kamigakari : 획득 소재 차트(63,5,64)：돌형태의 단편.자주 발견되는 소재：※PC의 임의"
+output = "획득 소재 차트(63,5,64)：돌형태의 단편.자주 발견되는 소재：※PC의 임의"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -79,7 +79,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT"
-output = "Kamigakari : 획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+2：1000G(효과치:2)"
+output = "획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+2：1000G(효과치:2)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -92,7 +92,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT1"
-output = "Kamigakari : 획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+2：1000G(효과치:2)"
+output = "획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+2：1000G(효과치:2)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -105,7 +105,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT4"
-output = "Kamigakari : 획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+2：1000G(효과치:2)"
+output = "획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+2：1000G(효과치:2)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT5"
-output = "Kamigakari : 획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+3：1500G(효과치:3)"
+output = "획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+3：1500G(효과치:3)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -131,7 +131,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT8"
-output = "Kamigakari : 획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+3：1500G(효과치:3)"
+output = "획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+3：1500G(효과치:3)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -144,7 +144,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT9"
-output = "Kamigakari : 획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+4：2000G(효과치:4)"
+output = "획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+4：2000G(효과치:4)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -157,7 +157,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT100"
-output = "Kamigakari : 획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+4：2000G(효과치:4)"
+output = "획득 소재 차트(63,1,13,5)：돌형태의 단편.자주 발견되는 소재：체력+4：2000G(효과치:4)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -170,7 +170,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT"
-output = "Kamigakari : 획득 소재 차트(63,6,1,16)：돌형태의 단편.드문 소재：［화염］부여：1500G(효과치:3)"
+output = "획득 소재 차트(63,6,1,16)：돌형태의 단편.드문 소재：［화염］부여：1500G(효과치:3)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -183,7 +183,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT"
-output = "Kamigakari : 획득 소재 차트(63,6,3,21)：돌형태의 단편.드문 소재：［화염］부여：1500G(효과치:3)"
+output = "획득 소재 차트(63,6,3,21)：돌형태의 단편.드문 소재：［화염］부여：1500G(효과치:3)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -196,7 +196,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT"
-output = "Kamigakari : 획득 소재 차트(63,6,4,22)：돌형태의 단편.드문 소재：［냉기］반감：2000G(효과치:4)"
+output = "획득 소재 차트(63,6,4,22)：돌형태의 단편.드문 소재：［냉기］반감：2000G(효과치:4)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -209,7 +209,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT9"
-output = "Kamigakari : 획득 소재 차트(63,6,4,22)：돌형태의 단편.드문 소재：［냉기］반감：2000G(효과치:4)"
+output = "획득 소재 차트(63,6,4,22)：돌형태의 단편.드문 소재：［냉기］반감：2000G(효과치:4)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -222,7 +222,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "MT1000"
-output = "Kamigakari : 획득 소재 차트(14,2,16,4)：예리한 단편.자주 발견되는 소재：민첩+3：1500G(효과치:3)"
+output = "획득 소재 차트(14,2,16,4)：예리한 단편.자주 발견되는 소재：민첩+3：1500G(효과치:3)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -235,7 +235,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "KT"
-output = "Kamigakari : 마경임계표(14)：강적등장\n갑자기, 〈재앙신〉화한 [모노노케]가 출현한다. GM은 PC의 [세계간섭LV]의 평균+3의 [LV]을 가진 임의의 [모노노케]를 1체 골라, 임의의 [탐색 에리어]에 배치. 거기서는 [우회]불가로 [전투]가 발생한다."
+output = "마경임계표(14)：강적등장\n갑자기, 〈재앙신〉화한 [모노노케]가 출현한다. GM은 PC의 [세계간섭LV]의 평균+3의 [LV]을 가진 임의의 [모노노케]를 1체 골라, 임의의 [탐색 에리어]에 배치. 거기서는 [우회]불가로 [전투]가 발생한다."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -244,7 +244,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "NT"
-output = "Kamigakari : 전기 성씨・이름 결정표(14)：타케노우치(竹内)　마코토/하루카"
+output = "전기 성씨・이름 결정표(14)：타케노우치(竹内)　마코토/하루카"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -253,7 +253,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "ET"
-output = "Kamigakari : 감정표(14)：가족/그 캐릭터에게, 가족같은 친근감을 품고 있다."
+output = "감정표(14)：가족/그 캐릭터에게, 가족같은 친근감을 품고 있다."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -262,7 +262,7 @@ rands = [
 [[ test ]]
 game_system = "Kamigakari_Korean"
 input = "ET"
-output = "Kamigakari : 감정표(66)：＊PC의 임의/플레이어, 또는 GM이 설정한 임의의 감정을 품고 있다."
+output = "감정표(66)：＊PC의 임의/플레이어, 또는 GM이 설정한 임의의 감정을 품고 있다."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },

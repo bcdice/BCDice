@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6"
-output = "NeverCloud : (2D6) ＞ 3[1,2] ＞ 3"
+output = "(2D6) ＞ 3[1,2] ＞ 3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6"
-output = "NeverCloud : (2D6) ＞ 2[1,1] ＞ 2"
+output = "(2D6) ＞ 2[1,1] ＞ 2"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6"
-output = "NeverCloud : (2D6) ＞ 7[3,4] ＞ 7"
+output = "(2D6) ＞ 7[3,4] ＞ 7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6"
-output = "NeverCloud : (2D6) ＞ 12[6,6] ＞ 12"
+output = "(2D6) ＞ 12[6,6] ＞ 12"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2"
-output = "NeverCloud : (2D6+2) ＞ 3[1,2]+2 ＞ 5"
+output = "(2D6+2) ＞ 3[1,2]+2 ＞ 5"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2"
-output = "NeverCloud : (2D6+2) ＞ 2[1,1]+2 ＞ 4"
+output = "(2D6+2) ＞ 2[1,1]+2 ＞ 4"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2"
-output = "NeverCloud : (2D6+2) ＞ 7[3,4]+2 ＞ 9"
+output = "(2D6+2) ＞ 7[3,4]+2 ＞ 9"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -64,7 +64,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2"
-output = "NeverCloud : (2D6+2) ＞ 12[6,6]+2 ＞ 14"
+output = "(2D6+2) ＞ 12[6,6]+2 ＞ 14"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6>=5"
-output = "NeverCloud : (2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -82,7 +82,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6>=5"
-output = "NeverCloud : (2D6>=5) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
+output = "(2D6>=5) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6>=5"
-output = "NeverCloud : (2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
+output = "(2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6>=5"
-output = "NeverCloud : (2D6>=5) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
+output = "(2D6>=5) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
+output = "(2D6>=5) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
+output = "(2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -136,7 +136,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
+output = "(2D6>=5) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 3[1,2]+2 ＞ 5 ＞ 成功"
+output = "(2D6+2>=5) ＞ 3[1,2]+2 ＞ 5 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -154,7 +154,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 2[1,1]+2 ＞ 0 ＞ ファンブル"
+output = "(2D6+2>=5) ＞ 2[1,1]+2 ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -163,7 +163,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 7[3,4]+2 ＞ 9 ＞ 成功"
+output = "(2D6+2>=5) ＞ 7[3,4]+2 ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -172,7 +172,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 10[6,4]+2 ＞ 12 ＞ 成功"
+output = "(2D6+2>=5) ＞ 10[6,4]+2 ＞ 12 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -181,7 +181,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 12[6,6]+2 ＞ 14 ＞ クリティカル"
+output = "(2D6+2>=5) ＞ 12[6,6]+2 ＞ 14 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -190,7 +190,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 3[1,2]+2+1 ＞ 6 ＞ 成功"
+output = "(2D6+2+1>=5) ＞ 3[1,2]+2+1 ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -199,7 +199,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 2[1,1]+2+1 ＞ 0 ＞ ファンブル"
+output = "(2D6+2+1>=5) ＞ 2[1,1]+2+1 ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -208,7 +208,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 7[3,4]+2+1 ＞ 10 ＞ 成功"
+output = "(2D6+2+1>=5) ＞ 7[3,4]+2+1 ＞ 10 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 10[6,4]+2+1 ＞ 13 ＞ 成功"
+output = "(2D6+2+1>=5) ＞ 10[6,4]+2+1 ＞ 13 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -226,7 +226,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 12[6,6]+2+1 ＞ 15 ＞ クリティカル"
+output = "(2D6+2+1>=5) ＞ 12[6,6]+2+1 ＞ 15 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -235,7 +235,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 3[1,2]-2 ＞ 1 ＞ 失敗"
+output = "(2D6-2>=5) ＞ 3[1,2]-2 ＞ 1 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -244,7 +244,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 6[2,4]-2 ＞ 4 ＞ 失敗"
+output = "(2D6-2>=5) ＞ 6[2,4]-2 ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -253,7 +253,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 2[1,1]-2 ＞ 0 ＞ ファンブル"
+output = "(2D6-2>=5) ＞ 2[1,1]-2 ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -262,7 +262,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 7[3,4]-2 ＞ 5 ＞ 成功"
+output = "(2D6-2>=5) ＞ 7[3,4]-2 ＞ 5 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -271,7 +271,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D6-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 12[6,6]-2 ＞ 10 ＞ クリティカル"
+output = "(2D6-2>=5) ＞ 12[6,6]-2 ＞ 10 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -280,7 +280,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D>=5"
-output = "NeverCloud : (2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -289,7 +289,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D>=5"
-output = "NeverCloud : (2D6>=5) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
+output = "(2D6>=5) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -298,7 +298,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D>=5"
-output = "NeverCloud : (2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
+output = "(2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -307,7 +307,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D>=5"
-output = "NeverCloud : (2D6>=5) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
+output = "(2D6>=5) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -316,7 +316,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D"
-output = "NeverCloud : (2D6) ＞ 3[1,2] ＞ 3"
+output = "(2D6) ＞ 3[1,2] ＞ 3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -325,7 +325,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D"
-output = "NeverCloud : (2D6) ＞ 2[1,1] ＞ 2"
+output = "(2D6) ＞ 2[1,1] ＞ 2"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -334,7 +334,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D"
-output = "NeverCloud : (2D6) ＞ 7[3,4] ＞ 7"
+output = "(2D6) ＞ 7[3,4] ＞ 7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -343,7 +343,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D"
-output = "NeverCloud : (2D6) ＞ 12[6,6] ＞ 12"
+output = "(2D6) ＞ 12[6,6] ＞ 12"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -352,7 +352,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2"
-output = "NeverCloud : (2D6+2) ＞ 3[1,2]+2 ＞ 5"
+output = "(2D6+2) ＞ 3[1,2]+2 ＞ 5"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -361,7 +361,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2"
-output = "NeverCloud : (2D6+2) ＞ 2[1,1]+2 ＞ 4"
+output = "(2D6+2) ＞ 2[1,1]+2 ＞ 4"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -370,7 +370,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2"
-output = "NeverCloud : (2D6+2) ＞ 7[3,4]+2 ＞ 9"
+output = "(2D6+2) ＞ 7[3,4]+2 ＞ 9"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -379,7 +379,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2"
-output = "NeverCloud : (2D6+2) ＞ 12[6,6]+2 ＞ 14"
+output = "(2D6+2) ＞ 12[6,6]+2 ＞ 14"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -388,7 +388,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -397,7 +397,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
+output = "(2D6>=5) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -406,7 +406,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
+output = "(2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -415,7 +415,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
+output = "(2D6>=5) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -424,7 +424,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 3[1,2]+2 ＞ 5 ＞ 成功"
+output = "(2D6+2>=5) ＞ 3[1,2]+2 ＞ 5 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -433,7 +433,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 2[1,1]+2 ＞ 0 ＞ ファンブル"
+output = "(2D6+2>=5) ＞ 2[1,1]+2 ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -442,7 +442,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 7[3,4]+2 ＞ 9 ＞ 成功"
+output = "(2D6+2>=5) ＞ 7[3,4]+2 ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -451,7 +451,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 10[6,4]+2 ＞ 12 ＞ 成功"
+output = "(2D6+2>=5) ＞ 10[6,4]+2 ＞ 12 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -460,7 +460,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 12[6,6]+2 ＞ 14 ＞ クリティカル"
+output = "(2D6+2>=5) ＞ 12[6,6]+2 ＞ 14 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -469,7 +469,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 3[1,2]+2+1 ＞ 6 ＞ 成功"
+output = "(2D6+2+1>=5) ＞ 3[1,2]+2+1 ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -478,7 +478,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 2[1,1]+2+1 ＞ 0 ＞ ファンブル"
+output = "(2D6+2+1>=5) ＞ 2[1,1]+2+1 ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -487,7 +487,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 7[3,4]+2+1 ＞ 10 ＞ 成功"
+output = "(2D6+2+1>=5) ＞ 7[3,4]+2+1 ＞ 10 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -496,7 +496,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 10[6,4]+2+1 ＞ 13 ＞ 成功"
+output = "(2D6+2+1>=5) ＞ 10[6,4]+2+1 ＞ 13 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -505,7 +505,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 12[6,6]+2+1 ＞ 15 ＞ クリティカル"
+output = "(2D6+2+1>=5) ＞ 12[6,6]+2+1 ＞ 15 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -514,7 +514,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 3[1,2]-2 ＞ 1 ＞ 失敗"
+output = "(2D6-2>=5) ＞ 3[1,2]-2 ＞ 1 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -523,7 +523,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 6[2,4]-2 ＞ 4 ＞ 失敗"
+output = "(2D6-2>=5) ＞ 6[2,4]-2 ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -532,7 +532,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 2[1,1]-2 ＞ 0 ＞ ファンブル"
+output = "(2D6-2>=5) ＞ 2[1,1]-2 ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -541,7 +541,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 7[3,4]-2 ＞ 5 ＞ 成功"
+output = "(2D6-2>=5) ＞ 7[3,4]-2 ＞ 5 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -550,7 +550,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2D-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 12[6,6]-2 ＞ 10 ＞ クリティカル"
+output = "(2D6-2>=5) ＞ 12[6,6]-2 ＞ 10 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -559,7 +559,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC"
-output = "NeverCloud : (2D6) ＞ 3[1,2] ＞ 3"
+output = "(2D6) ＞ 3[1,2] ＞ 3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -568,7 +568,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC"
-output = "NeverCloud : (2D6) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
+output = "(2D6) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -577,7 +577,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC"
-output = "NeverCloud : (2D6) ＞ 7[3,4] ＞ 7"
+output = "(2D6) ＞ 7[3,4] ＞ 7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -586,7 +586,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC"
-output = "NeverCloud : (2D6) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
+output = "(2D6) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -595,7 +595,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2"
-output = "NeverCloud : (2D6+2) ＞ 3[1,2]+2 ＞ 5"
+output = "(2D6+2) ＞ 3[1,2]+2 ＞ 5"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -604,7 +604,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2"
-output = "NeverCloud : (2D6+2) ＞ 2[1,1]+2 ＞ 0 ＞ ファンブル"
+output = "(2D6+2) ＞ 2[1,1]+2 ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -613,7 +613,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2"
-output = "NeverCloud : (2D6+2) ＞ 7[3,4]+2 ＞ 9"
+output = "(2D6+2) ＞ 7[3,4]+2 ＞ 9"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -622,7 +622,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2"
-output = "NeverCloud : (2D6+2) ＞ 12[6,6]+2 ＞ 14 ＞ クリティカル"
+output = "(2D6+2) ＞ 12[6,6]+2 ＞ 14 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -631,7 +631,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2+1"
-output = "NeverCloud : (2D6+2+1) ＞ 3[1,2]+2+1 ＞ 6"
+output = "(2D6+2+1) ＞ 3[1,2]+2+1 ＞ 6"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -640,7 +640,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2+1"
-output = "NeverCloud : (2D6+2+1) ＞ 2[1,1]+2+1 ＞ 0 ＞ ファンブル"
+output = "(2D6+2+1) ＞ 2[1,1]+2+1 ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -649,7 +649,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2+1"
-output = "NeverCloud : (2D6+2+1) ＞ 7[3,4]+2+1 ＞ 10"
+output = "(2D6+2+1) ＞ 7[3,4]+2+1 ＞ 10"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -658,7 +658,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2+1"
-output = "NeverCloud : (2D6+2+1) ＞ 12[6,6]+2+1 ＞ 15 ＞ クリティカル"
+output = "(2D6+2+1) ＞ 12[6,6]+2+1 ＞ 15 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -667,7 +667,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC>=5"
-output = "NeverCloud : (2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -676,7 +676,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC>=5"
-output = "NeverCloud : (2D6>=5) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
+output = "(2D6>=5) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -685,7 +685,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC>=5"
-output = "NeverCloud : (2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
+output = "(2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -694,7 +694,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC>=5"
-output = "NeverCloud : (2D6>=5) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
+output = "(2D6>=5) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -703,7 +703,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -712,7 +712,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
+output = "(2D6>=5) ＞ 2[1,1] ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -721,7 +721,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
+output = "(2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -730,7 +730,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
+output = "(2D6>=5) ＞ 12[6,6] ＞ 12 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -739,7 +739,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 3[1,2]+2 ＞ 5 ＞ 成功"
+output = "(2D6+2>=5) ＞ 3[1,2]+2 ＞ 5 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -748,7 +748,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 2[1,1]+2 ＞ 0 ＞ ファンブル"
+output = "(2D6+2>=5) ＞ 2[1,1]+2 ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -757,7 +757,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 7[3,4]+2 ＞ 9 ＞ 成功"
+output = "(2D6+2>=5) ＞ 7[3,4]+2 ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -766,7 +766,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 10[6,4]+2 ＞ 12 ＞ 成功"
+output = "(2D6+2>=5) ＞ 10[6,4]+2 ＞ 12 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -775,7 +775,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2>=5"
-output = "NeverCloud : (2D6+2>=5) ＞ 12[6,6]+2 ＞ 14 ＞ クリティカル"
+output = "(2D6+2>=5) ＞ 12[6,6]+2 ＞ 14 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -784,7 +784,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 3[1,2]+2+1 ＞ 6 ＞ 成功"
+output = "(2D6+2+1>=5) ＞ 3[1,2]+2+1 ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -793,7 +793,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 2[1,1]+2+1 ＞ 0 ＞ ファンブル"
+output = "(2D6+2+1>=5) ＞ 2[1,1]+2+1 ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -802,7 +802,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 7[3,4]+2+1 ＞ 10 ＞ 成功"
+output = "(2D6+2+1>=5) ＞ 7[3,4]+2+1 ＞ 10 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -811,7 +811,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 10[6,4]+2+1 ＞ 13 ＞ 成功"
+output = "(2D6+2+1>=5) ＞ 10[6,4]+2+1 ＞ 13 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -820,7 +820,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 12[6,6]+2+1 ＞ 15 ＞ クリティカル"
+output = "(2D6+2+1>=5) ＞ 12[6,6]+2+1 ＞ 15 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -829,7 +829,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 3[1,2]-2 ＞ 1 ＞ 失敗"
+output = "(2D6-2>=5) ＞ 3[1,2]-2 ＞ 1 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -838,7 +838,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 6[2,4]-2 ＞ 4 ＞ 失敗"
+output = "(2D6-2>=5) ＞ 6[2,4]-2 ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -847,7 +847,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 2[1,1]-2 ＞ 0 ＞ ファンブル"
+output = "(2D6-2>=5) ＞ 2[1,1]-2 ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -856,7 +856,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 7[3,4]-2 ＞ 5 ＞ 成功"
+output = "(2D6-2>=5) ＞ 7[3,4]-2 ＞ 5 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -865,7 +865,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2NC-2>=5"
-output = "NeverCloud : (2D6-2>=5) ＞ 12[6,6]-2 ＞ 10 ＞ クリティカル"
+output = "(2D6-2>=5) ＞ 12[6,6]-2 ＞ 10 ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -874,7 +874,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "1NC>=5"
-output = "NeverCloud : (1D6>=5) ＞ 2[2] ＞ 2 ＞ 失敗"
+output = "(1D6>=5) ＞ 2[2] ＞ 2 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -882,7 +882,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "1NC>=5"
-output = "NeverCloud : (1D6>=5) ＞ 1[1] ＞ 0 ＞ ファンブル"
+output = "(1D6>=5) ＞ 1[1] ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -890,7 +890,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "1NC>=5"
-output = "NeverCloud : (1D6>=5) ＞ 5[5] ＞ 5 ＞ 成功"
+output = "(1D6>=5) ＞ 5[5] ＞ 5 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -898,7 +898,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "1NC>=5"
-output = "NeverCloud : (1D6>=5) ＞ 6[6] ＞ 6 ＞ 成功"
+output = "(1D6>=5) ＞ 6[6] ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -906,7 +906,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "1NC+2>=5"
-output = "NeverCloud : (1D6+2>=5) ＞ 2[2]+2 ＞ 4 ＞ 失敗"
+output = "(1D6+2>=5) ＞ 2[2]+2 ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -914,7 +914,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "1NC+2>=5"
-output = "NeverCloud : (1D6+2>=5) ＞ 1[1]+2 ＞ 0 ＞ ファンブル"
+output = "(1D6+2>=5) ＞ 1[1]+2 ＞ 0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -922,7 +922,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "1NC+2>=5"
-output = "NeverCloud : (1D6+2>=5) ＞ 5[5]+2 ＞ 7 ＞ 成功"
+output = "(1D6+2>=5) ＞ 5[5]+2 ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -930,7 +930,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "1NC+2>=5"
-output = "NeverCloud : (1D6+2>=5) ＞ 6[6]+2 ＞ 8 ＞ 成功"
+output = "(1D6+2>=5) ＞ 6[6]+2 ＞ 8 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -938,7 +938,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "S2D6>=5"
-output = "NeverCloud : (2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
+output = "(2D6>=5) ＞ 7[3,4] ＞ 7 ＞ 成功"
 secret = true
 rands = [
   { sides = 6, value = 3 },
@@ -948,7 +948,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "S2NC+2+1>=5"
-output = "NeverCloud : (2D6+2+1>=5) ＞ 12[6,6]+2+1 ＞ 15 ＞ クリティカル"
+output = "(2D6+2+1>=5) ＞ 12[6,6]+2+1 ＞ 15 ＞ クリティカル"
 secret = true
 rands = [
   { sides = 6, value = 6 },
@@ -958,7 +958,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2nc+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=5) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -967,7 +967,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2Nc+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 4[2,2] ＞ 4 ＞ 失敗"
+output = "(2D6>=5) ＞ 4[2,2] ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -976,7 +976,7 @@ rands = [
 [[ test ]]
 game_system = "NeverCloud"
 input = "2nC+0>=5"
-output = "NeverCloud : (2D6>=5) ＞ 5[3,2] ＞ 5 ＞ 成功"
+output = "(2D6>=5) ＞ 5[3,2] ＞ 5 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },

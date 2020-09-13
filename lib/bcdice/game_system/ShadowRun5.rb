@@ -53,7 +53,6 @@ module BCDice
         end
 
         output = output_after_limited
-        output = output.slice(2..-1)
         output = output.gsub('B', 'B6')
         output = output.gsub('6>=5', "[6]Limit[#{limit}]>=5")
         debug(output)

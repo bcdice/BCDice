@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ -10[1]+14 ＞ 4"
+output = "(1R20+14) ＞ -10[1]+14 ＞ 4"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ -8[2]+14 ＞ 6"
+output = "(1R20+14) ＞ -8[2]+14 ＞ 6"
 rands = [
   { sides = 20, value = 2 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ -6[3]+14 ＞ 8"
+output = "(1R20+14) ＞ -6[3]+14 ＞ 8"
 rands = [
   { sides = 20, value = 3 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ -6[4]+14 ＞ 8"
+output = "(1R20+14) ＞ -6[4]+14 ＞ 8"
 rands = [
   { sides = 20, value = 4 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ -4[5]+14 ＞ 10"
+output = "(1R20+14) ＞ -4[5]+14 ＞ 10"
 rands = [
   { sides = 20, value = 5 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ -4[6]+14 ＞ 10"
+output = "(1R20+14) ＞ -4[6]+14 ＞ 10"
 rands = [
   { sides = 20, value = 6 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ -2[7]+14 ＞ 12"
+output = "(1R20+14) ＞ -2[7]+14 ＞ 12"
 rands = [
   { sides = 20, value = 7 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ -2[8]+14 ＞ 12"
+output = "(1R20+14) ＞ -2[8]+14 ＞ 12"
 rands = [
   { sides = 20, value = 8 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ -1[9]+14 ＞ 13"
+output = "(1R20+14) ＞ -1[9]+14 ＞ 13"
 rands = [
   { sides = 20, value = 9 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 0[11]+14 ＞ 14"
+output = "(1R20+14) ＞ 0[11]+14 ＞ 14"
 rands = [
   { sides = 20, value = 11 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 0[12]+14 ＞ 14"
+output = "(1R20+14) ＞ 0[12]+14 ＞ 14"
 rands = [
   { sides = 20, value = 12 },
 ]
@@ -89,7 +89,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 1[13]+14 ＞ 15"
+output = "(1R20+14) ＞ 1[13]+14 ＞ 15"
 rands = [
   { sides = 20, value = 13 },
 ]
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 1[14]+14 ＞ 15"
+output = "(1R20+14) ＞ 1[14]+14 ＞ 15"
 rands = [
   { sides = 20, value = 14 },
 ]
@@ -105,7 +105,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 2[15]+14 ＞ 16"
+output = "(1R20+14) ＞ 2[15]+14 ＞ 16"
 rands = [
   { sides = 20, value = 15 },
 ]
@@ -113,7 +113,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 3[16]+14 ＞ 17"
+output = "(1R20+14) ＞ 3[16]+14 ＞ 17"
 rands = [
   { sides = 20, value = 16 },
 ]
@@ -121,7 +121,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 4[17]+14 ＞ 18"
+output = "(1R20+14) ＞ 4[17]+14 ＞ 18"
 rands = [
   { sides = 20, value = 17 },
 ]
@@ -129,7 +129,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 5[18]+14 ＞ 19"
+output = "(1R20+14) ＞ 5[18]+14 ＞ 19"
 rands = [
   { sides = 20, value = 18 },
 ]
@@ -137,7 +137,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 6[19]+14 ＞ 20"
+output = "(1R20+14) ＞ 6[19]+14 ＞ 20"
 rands = [
   { sides = 20, value = 19 },
 ]
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 0[10,2]+14 ＞ 14"
+output = "(1R20+14) ＞ 0[10,2]+14 ＞ 14"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 2 },
@@ -154,7 +154,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 10[10,10,15]+14 ＞ 24"
+output = "(1R20+14) ＞ 10[10,10,15]+14 ＞ 24"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 10 },
@@ -164,7 +164,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 11[10,20,6]+14 ＞ 25(技能無23)"
+output = "(1R20+14) ＞ 11[10,20,6]+14 ＞ 25(技能無23)"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 20 },
@@ -174,7 +174,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG14"
-output = "TorgEternity : (1R20+14) ＞ 12[20,10,11]+14 ＞ 26(技能無21)"
+output = "(1R20+14) ＞ 12[20,10,11]+14 ＞ 26(技能無21)"
 rands = [
   { sides = 20, value = 20 },
   { sides = 20, value = 10 },
@@ -184,7 +184,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG12+5"
-output = "TorgEternity : (1R20+12+5) ＞ -4[5]+17 ＞ 13"
+output = "(1R20+12+5) ＞ -4[5]+17 ＞ 13"
 rands = [
   { sides = 20, value = 5 },
 ]
@@ -192,7 +192,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG+12+5"
-output = "TorgEternity : (1R20+12+5) ＞ -4[5]+17 ＞ 13"
+output = "(1R20+12+5) ＞ -4[5]+17 ＞ 13"
 rands = [
   { sides = 20, value = 5 },
 ]
@@ -200,7 +200,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TG"
-output = "TorgEternity : (1R20) ＞ 15[20,20,10,9]0 ＞ 15(技能無7)"
+output = "(1R20) ＞ 15[20,20,10,9]0 ＞ 15(技能無7)"
 rands = [
   { sides = 20, value = 20 },
   { sides = 20, value = 20 },
@@ -211,223 +211,223 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "RT0"
-output = "TorgEternity : 成功レベル表[0] ＞ Success - Standard."
+output = "成功レベル表[0] ＞ Success - Standard."
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Result4"
-output = "TorgEternity : 成功レベル表[4] ＞ Success - Standard."
+output = "成功レベル表[4] ＞ Success - Standard."
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Result5"
-output = "TorgEternity : 成功レベル表[5] ＞ Success - Good!"
+output = "成功レベル表[5] ＞ Success - Good!"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "RT9"
-output = "TorgEternity : 成功レベル表[9] ＞ Success - Good!"
+output = "成功レベル表[9] ＞ Success - Good!"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "RT10"
-output = "TorgEternity : 成功レベル表[10] ＞ Success - Outstanding!!"
+output = "成功レベル表[10] ＞ Success - Outstanding!!"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Result1-2"
-output = "TorgEternity : 成功レベル表[-1] ＞ Failure."
+output = "成功レベル表[-1] ＞ Failure."
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Result-5"
-output = "TorgEternity : 成功レベル表[-5] ＞ Failure."
+output = "成功レベル表[-5] ＞ Failure."
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "RT9-2+4"
-output = "TorgEternity : 成功レベル表[11] ＞ Success - Outstanding!!"
+output = "成功レベル表[11] ＞ Success - Outstanding!!"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "DT2-8"
-output = "TorgEternity : ダメージ結果表[-6] ＞ ノーダメージ"
+output = "ダメージ結果表[-6] ＞ ノーダメージ"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage-5"
-output = "TorgEternity : ダメージ結果表[-5] ＞ 1ショック"
+output = "ダメージ結果表[-5] ＞ 1ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage7-8"
-output = "TorgEternity : ダメージ結果表[-1] ＞ 1ショック"
+output = "ダメージ結果表[-1] ＞ 1ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "DT8-8"
-output = "TorgEternity : ダメージ結果表[0] ＞ 2ショック"
+output = "ダメージ結果表[0] ＞ 2ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage4"
-output = "TorgEternity : ダメージ結果表[4] ＞ 2ショック"
+output = "ダメージ結果表[4] ＞ 2ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage5"
-output = "TorgEternity : ダメージ結果表[5] ＞ 1レベル負傷 + 2ショック"
+output = "ダメージ結果表[5] ＞ 1レベル負傷 + 2ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage9"
-output = "TorgEternity : ダメージ結果表[9] ＞ 1レベル負傷 + 2ショック"
+output = "ダメージ結果表[9] ＞ 1レベル負傷 + 2ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "DT10"
-output = "TorgEternity : ダメージ結果表[10] ＞ 2レベル負傷 + 4ショック"
+output = "ダメージ結果表[10] ＞ 2レベル負傷 + 4ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "DT14"
-output = "TorgEternity : ダメージ結果表[14] ＞ 2レベル負傷 + 4ショック"
+output = "ダメージ結果表[14] ＞ 2レベル負傷 + 4ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage15"
-output = "TorgEternity : ダメージ結果表[15] ＞ 3レベル負傷 + 6ショック"
+output = "ダメージ結果表[15] ＞ 3レベル負傷 + 6ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage19"
-output = "TorgEternity : ダメージ結果表[19] ＞ 3レベル負傷 + 6ショック"
+output = "ダメージ結果表[19] ＞ 3レベル負傷 + 6ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "DT20"
-output = "TorgEternity : ダメージ結果表[20] ＞ 4レベル負傷 + 8ショック"
+output = "ダメージ結果表[20] ＞ 4レベル負傷 + 8ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "DT24"
-output = "TorgEternity : ダメージ結果表[24] ＞ 4レベル負傷 + 8ショック"
+output = "ダメージ結果表[24] ＞ 4レベル負傷 + 8ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage25"
-output = "TorgEternity : ダメージ結果表[25] ＞ 5レベル負傷 + 10ショック"
+output = "ダメージ結果表[25] ＞ 5レベル負傷 + 10ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage29"
-output = "TorgEternity : ダメージ結果表[29] ＞ 5レベル負傷 + 10ショック"
+output = "ダメージ結果表[29] ＞ 5レベル負傷 + 10ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "DT30"
-output = "TorgEternity : ダメージ結果表[30] ＞ 6レベル負傷 + 12ショック"
+output = "ダメージ結果表[30] ＞ 6レベル負傷 + 12ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "DT34"
-output = "TorgEternity : ダメージ結果表[34] ＞ 6レベル負傷 + 12ショック"
+output = "ダメージ結果表[34] ＞ 6レベル負傷 + 12ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage35"
-output = "TorgEternity : ダメージ結果表[35] ＞ 7レベル負傷 + 14ショック"
+output = "ダメージ結果表[35] ＞ 7レベル負傷 + 14ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage39"
-output = "TorgEternity : ダメージ結果表[39] ＞ 7レベル負傷 + 14ショック"
+output = "ダメージ結果表[39] ＞ 7レベル負傷 + 14ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "DT40"
-output = "TorgEternity : ダメージ結果表[40] ＞ 8レベル負傷 + 16ショック"
+output = "ダメージ結果表[40] ＞ 8レベル負傷 + 16ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "DT44"
-output = "TorgEternity : ダメージ結果表[44] ＞ 8レベル負傷 + 16ショック"
+output = "ダメージ結果表[44] ＞ 8レベル負傷 + 16ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage45"
-output = "TorgEternity : ダメージ結果表[45] ＞ 9レベル負傷 + 18ショック"
+output = "ダメージ結果表[45] ＞ 9レベル負傷 + 18ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Damage49"
-output = "TorgEternity : ダメージ結果表[49] ＞ 9レベル負傷 + 18ショック"
+output = "ダメージ結果表[49] ＞ 9レベル負傷 + 18ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "DT50"
-output = "TorgEternity : ダメージ結果表[50] ＞ 10レベル負傷 + 20ショック"
+output = "ダメージ結果表[50] ＞ 10レベル負傷 + 20ショック"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "BT1"
-output = "TorgEternity : ロールボーナス表[1] ＞ Mishap!!"
+output = "ロールボーナス表[1] ＞ Mishap!!"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Bonus62"
-output = "TorgEternity : ロールボーナス表[62] ＞ 16"
+output = "ロールボーナス表[62] ＞ 16"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "Bonus1+2-4"
-output = "TorgEternity : ロールボーナス表[1] ＞ Mishap!!"
+output = "ロールボーナス表[1] ＞ Mishap!!"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "BT21+2-4"
-output = "TorgEternity : ロールボーナス表[21]-2 ＞ 8[21]-2 ＞ 6"
+output = "ロールボーナス表[21]-2 ＞ 8[21]-2 ＞ 6"
 rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
 input = "3BD+10"
-output = "TorgEternity : ボーナスダメージロール(3BD+10) ＞ 19[5,1,5∞,5∞,3]+10 ＞ 29ダメージ"
+output = "ボーナスダメージロール(3BD+10) ＞ 19[5,1,5∞,5∞,3]+10 ＞ 29ダメージ"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -439,7 +439,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "3BD+2-4"
-output = "TorgEternity : ボーナスダメージロール(3BD-2) ＞ 9[2,3,4]-2 ＞ 7ダメージ"
+output = "ボーナスダメージロール(3BD-2) ＞ 9[2,3,4]-2 ＞ 7ダメージ"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -449,7 +449,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "3BD"
-output = "TorgEternity : ボーナスダメージロール(3BD) ＞ 19[5,1,5∞,5∞,3] ＞ 19ダメージ"
+output = "ボーナスダメージロール(3BD) ＞ 19[5,1,5∞,5∞,3] ＞ 19ダメージ"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -461,7 +461,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "3BD"
-output = "TorgEternity : ボーナスダメージロール(3BD) ＞ 9[2,3,4] ＞ 9ダメージ"
+output = "ボーナスダメージロール(3BD) ＞ 9[2,3,4] ＞ 9ダメージ"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -471,7 +471,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "0BD"
-output = "TorgEternity : エラーです。xBD (x≧1) として下さい"
+output = "エラーです。xBD (x≧1) として下さい"
 rands = []
 
 [[ test ]]
@@ -483,7 +483,7 @@ rands = []
 [[ test ]]
 game_system = "TorgEternity"
 input = "TE"
-output = "TorgEternity : d20ロール（通常） ＞ 1d20[1] ＞ Mishap!　絶対失敗！"
+output = "d20ロール（通常） ＞ 1d20[1] ＞ Mishap!　絶対失敗！"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -491,7 +491,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TE"
-output = "TorgEternity : d20ロール（通常） ＞ 1d20[15] ＞ +2[15]"
+output = "d20ロール（通常） ＞ 1d20[15] ＞ +2[15]"
 rands = [
   { sides = 20, value = 15 },
 ]
@@ -499,7 +499,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TE"
-output = "TorgEternity : d20ロール（通常） ＞ 1d20[10,20,11] ＞ +12[41]（技能有） / +9[30]（技能無）"
+output = "d20ロール（通常） ＞ 1d20[10,20,11] ＞ +12[41]（技能有） / +9[30]（技能無）"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 20 },
@@ -509,7 +509,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TE"
-output = "TorgEternity : d20ロール（通常） ＞ 1d20[10,1] ＞ +0[11]"
+output = "d20ロール（通常） ＞ 1d20[10,1] ＞ +0[11]"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 1 },
@@ -518,7 +518,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TE"
-output = "TorgEternity : d20ロール（通常） ＞ 1d20[10,8] ＞ +5[18]"
+output = "d20ロール（通常） ＞ 1d20[10,8] ＞ +5[18]"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 8 },
@@ -527,7 +527,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TE"
-output = "TorgEternity : d20ロール（通常） ＞ 1d20[10,10,1] ＞ +8[21]"
+output = "d20ロール（通常） ＞ 1d20[10,10,1] ＞ +8[21]"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 10 },
@@ -537,7 +537,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TE"
-output = "TorgEternity : d20ロール（通常） ＞ 1d20[10,20,5] ＞ +10[35]（技能有） / +9[30]（技能無）"
+output = "d20ロール（通常） ＞ 1d20[10,20,5] ＞ +10[35]（技能有） / +9[30]（技能無）"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 20 },
@@ -547,7 +547,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TE"
-output = "TorgEternity : d20ロール（通常） ＞ 1d20[20,1] ＞ +8[21]（技能有） / +7[20]（技能無）"
+output = "d20ロール（通常） ＞ 1d20[20,1] ＞ +8[21]（技能有） / +7[20]（技能無）"
 rands = [
   { sides = 20, value = 20 },
   { sides = 20, value = 1 },
@@ -556,7 +556,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TE"
-output = "TorgEternity : d20ロール（通常） ＞ 1d20[20,11] ＞ +10[31]（技能有） / +7[20]（技能無）"
+output = "d20ロール（通常） ＞ 1d20[20,11] ＞ +10[31]（技能有） / +7[20]（技能無）"
 rands = [
   { sides = 20, value = 20 },
   { sides = 20, value = 11 },
@@ -565,7 +565,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TE"
-output = "TorgEternity : d20ロール（通常） ＞ 1d20[20,10,1] ＞ +10[31]（技能有） / +7[20]（技能無）"
+output = "d20ロール（通常） ＞ 1d20[20,10,1] ＞ +10[31]（技能有） / +7[20]（技能無）"
 rands = [
   { sides = 20, value = 20 },
   { sides = 20, value = 10 },
@@ -575,7 +575,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TE"
-output = "TorgEternity : d20ロール（通常） ＞ 1d20[20,20,20,1] ＞ +16[61]（技能有） / +7[20]（技能無）"
+output = "d20ロール（通常） ＞ 1d20[20,20,20,1] ＞ +16[61]（技能有） / +7[20]（技能無）"
 rands = [
   { sides = 20, value = 20 },
   { sides = 20, value = 20 },
@@ -592,7 +592,7 @@ rands = []
 [[ test ]]
 game_system = "TorgEternity"
 input = "UP"
-output = "TorgEternity : d20ロール（高揚） ＞ 1d20[1] ＞ Mishap!　絶対失敗！"
+output = "d20ロール（高揚） ＞ 1d20[1] ＞ Mishap!　絶対失敗！"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -600,7 +600,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "UP"
-output = "TorgEternity : d20ロール（高揚） ＞ 1d20[5] + 1d20[10,20,11] ＞ +13[46]（技能有） / +10[35]（技能無）"
+output = "d20ロール（高揚） ＞ 1d20[5] + 1d20[10,20,11] ＞ +13[46]（技能有） / +10[35]（技能無）"
 rands = [
   { sides = 20, value = 5 },
   { sides = 20, value = 10 },
@@ -611,7 +611,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "UP"
-output = "TorgEternity : d20ロール（高揚） ＞ 1d20[5] + 1d20[20,1] ＞ +9[26]（技能有） / +8[25]（技能無）"
+output = "d20ロール（高揚） ＞ 1d20[5] + 1d20[20,1] ＞ +9[26]（技能有） / +8[25]（技能無）"
 rands = [
   { sides = 20, value = 5 },
   { sides = 20, value = 20 },
@@ -621,7 +621,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "UP"
-output = "TorgEternity : d20ロール（高揚） ＞ 1d20[17] + 1d20[1] ＞ +5[18]"
+output = "d20ロール（高揚） ＞ 1d20[17] + 1d20[1] ＞ +5[18]"
 rands = [
   { sides = 20, value = 17 },
   { sides = 20, value = 1 },
@@ -636,7 +636,7 @@ rands = []
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS0"
-output = "TorgEternity : d20ロール（ポシビリティ） ＞ 0+1d20[1→10] ＞ -1[10]"
+output = "d20ロール（ポシビリティ） ＞ 0+1d20[1→10] ＞ -1[10]"
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -644,7 +644,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS8"
-output = "TorgEternity : d20ロール（ポシビリティ） ＞ 8+1d20[5→10] ＞ +5[18]"
+output = "d20ロール（ポシビリティ） ＞ 8+1d20[5→10] ＞ +5[18]"
 rands = [
   { sides = 20, value = 5 },
 ]
@@ -652,7 +652,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS12"
-output = "TorgEternity : d20ロール（ポシビリティ） ＞ 12+1d20[15] ＞ +9[27]"
+output = "d20ロール（ポシビリティ） ＞ 12+1d20[15] ＞ +9[27]"
 rands = [
   { sides = 20, value = 15 },
 ]
@@ -660,7 +660,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS11"
-output = "TorgEternity : d20ロール（ポシビリティ） ＞ 11+1d20[10,1] ＞ +8[22]"
+output = "d20ロール（ポシビリティ） ＞ 11+1d20[10,1] ＞ +8[22]"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 1 },
@@ -669,7 +669,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS6"
-output = "TorgEternity : d20ロール（ポシビリティ） ＞ 6+1d20[10,15] ＞ +10[31]"
+output = "d20ロール（ポシビリティ） ＞ 6+1d20[10,15] ＞ +10[31]"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 15 },
@@ -678,7 +678,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS13"
-output = "TorgEternity : d20ロール（ポシビリティ） ＞ 13+1d20[10,10,13] ＞ +13[46]"
+output = "d20ロール（ポシビリティ） ＞ 13+1d20[10,10,13] ＞ +13[46]"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 10 },
@@ -688,7 +688,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS3"
-output = "TorgEternity : d20ロール（ポシビリティ） ＞ 3+1d20[10,20,3] ＞ +11[36]（技能有） / +10[33]（技能無）"
+output = "d20ロール（ポシビリティ） ＞ 3+1d20[10,20,3] ＞ +11[36]（技能有） / +10[33]（技能無）"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 20 },
@@ -698,7 +698,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS5"
-output = "TorgEternity : d20ロール（ポシビリティ） ＞ 5+1d20[20,1] ＞ +9[26]（技能有） / +8[25]（技能無）"
+output = "d20ロール（ポシビリティ） ＞ 5+1d20[20,1] ＞ +9[26]（技能有） / +8[25]（技能無）"
 rands = [
   { sides = 20, value = 20 },
   { sides = 20, value = 1 },
@@ -707,7 +707,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS4"
-output = "TorgEternity : d20ロール（ポシビリティ） ＞ 4+1d20[20,18] ＞ +12[42]（技能有） / +8[24]（技能無）"
+output = "d20ロール（ポシビリティ） ＞ 4+1d20[20,18] ＞ +12[42]（技能有） / +8[24]（技能無）"
 rands = [
   { sides = 20, value = 20 },
   { sides = 20, value = 18 },
@@ -716,7 +716,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS15"
-output = "TorgEternity : d20ロール（ポシビリティ） ＞ 15+1d20[20,10,1] ＞ +13[46]（技能有） / +10[35]（技能無）"
+output = "d20ロール（ポシビリティ） ＞ 15+1d20[20,10,1] ＞ +13[46]（技能有） / +10[35]（技能無）"
 rands = [
   { sides = 20, value = 20 },
   { sides = 20, value = 10 },
@@ -726,7 +726,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS2"
-output = "TorgEternity : d20ロール（ポシビリティ） ＞ 2+1d20[20,20,10,11] ＞ +16[63]（技能有） / +8[22]（技能無）"
+output = "d20ロール（ポシビリティ） ＞ 2+1d20[20,20,10,11] ＞ +16[63]（技能有） / +8[22]（技能無）"
 rands = [
   { sides = 20, value = 20 },
   { sides = 20, value = 20 },
@@ -737,7 +737,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS6+12"
-output = "TorgEternity : d20ロール（ポシビリティ） ＞ 18+1d20[5→10] ＞ +9[28]"
+output = "d20ロール（ポシビリティ） ＞ 18+1d20[5→10] ＞ +9[28]"
 rands = [
   { sides = 20, value = 5 },
 ]

@@ -31,9 +31,9 @@ module BCDice
 
         output =
           if randomizer.dice_list.size <= 1 && command.lhs.is_a?(Node::DiceRoll)
-            ": (#{command}) ＞ #{total}"
+            "(#{command}) ＞ #{total}"
           else
-            ": (#{command}) ＞ #{command.lhs.output} ＞ #{total}"
+            "(#{command}) ＞ #{command.lhs.output} ＞ #{total}"
           end
 
         dice_list = randomizer.dice_list

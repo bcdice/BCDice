@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "OrgaRain"
 input = "OR1234"
-output = "OrgaRain : 1D10(命数：1,2,3,4) ＞ 1 ＞ 1(x1) ＞ 成功数：1"
+output = "1D10(命数：1,2,3,4) ＞ 1 ＞ 1(x1) ＞ 成功数：1"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "OrgaRain"
 input = "OR1234"
-output = "OrgaRain : 1D10(命数：1,2,3,4) ＞ 5 ＞ × ＞ 成功数：0"
+output = "1D10(命数：1,2,3,4) ＞ 5 ＞ × ＞ 成功数：0"
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "OrgaRain"
 input = "OR09876"
-output = "OrgaRain : 1D10(命数：0,6,7,8,9) ＞ 10 ＞ 0(x1) ＞ 成功数：1"
+output = "1D10(命数：0,6,7,8,9) ＞ 10 ＞ 0(x1) ＞ 成功数：1"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "OrgaRain"
 input = "5OR11122"
-output = "OrgaRain : 5D10(命数：1,1,1,2,2) ＞ 1,2,3,4,5 ＞ 1(x3),2(x2),×,×,× ＞ 成功数：5"
+output = "5D10(命数：1,1,1,2,2) ＞ 1,2,3,4,5 ＞ 1(x3),2(x2),×,×,× ＞ 成功数：5"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "OrgaRain"
 input = "5OR11122"
-output = "OrgaRain : 5D10(命数：1,1,1,2,2) ＞ 1,1,1,1,1 ＞ 1(x3),1(x3),1(x3),1(x3),1(x3) ＞ 成功数：15"
+output = "5D10(命数：1,1,1,2,2) ＞ 1,1,1,1,1 ＞ 1(x3),1(x3),1(x3),1(x3),1(x3) ＞ 成功数：15"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "OrgaRain"
 input = "5OR11122"
-output = "OrgaRain : 5D10(命数：1,1,1,2,2) ＞ 5,6,7,8,9 ＞ ×,×,×,×,× ＞ 成功数：0"
+output = "5D10(命数：1,1,1,2,2) ＞ 5,6,7,8,9 ＞ ×,×,×,×,× ＞ 成功数：0"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 6 },
@@ -61,7 +61,7 @@ rands = [
 [[ test ]]
 game_system = "OrgaRain"
 input = "9or012012"
-output = "OrgaRain : 9D10(命数：0,0,1,1,2,2) ＞ 1,2,3,4,5,6,7,8,9 ＞ 1(x2),2(x2),×,×,×,×,×,×,× ＞ 成功数：4"
+output = "9D10(命数：0,0,1,1,2,2) ＞ 1,2,3,4,5,6,7,8,9 ＞ 1(x2),2(x2),×,×,×,×,×,×,× ＞ 成功数：4"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },

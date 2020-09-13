@@ -134,6 +134,8 @@ module BCDice
       @debug = true
     end
 
+    # @param command [String]
+    # @return [String, nil] コマンド実行結果。コマンドが実行できなかった場合はnilを返す
     def eval(command)
       command = BCDice::Preprocessor.process(command, @randomizer, self)
       upcased_command = command.upcase
@@ -141,12 +143,7 @@ module BCDice
       result = dice_command(command)
       result ||= eval_common_command(upcased_command)
 
-      if result.nil?
-        return nil
-      end
-
-      display_id = self.class::ID.sub(/:.+$/, "") # 多言語対応用
-      return [display_id, result].join(" ")
+      return result
     end
 
     def eval_common_command(command)
@@ -181,7 +178,7 @@ module BCDice
       if output.nil? || output.empty? || output == "1"
         return nil
       else
-        return ": #{output}"
+        return output.to_s
       end
     end
 

@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "FutariSousa"
 input = "DT"
-output = "FutariSousa : DT(4,3) ＞ 成功"
+output = "DT(4,3) ＞ 成功"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 3 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "DT"
-output = "FutariSousa : DT(2,3) ＞ 失敗"
+output = "DT(2,3) ＞ 失敗"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 3 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "DT"
-output = "FutariSousa : DT(2,6) ＞ スペシャル（助手の余裕を1点獲得）"
+output = "DT(2,6) ＞ スペシャル（助手の余裕を1点獲得）"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 6 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "DT"
-output = "FutariSousa : DT(6,6) ＞ スペシャル（助手の余裕を1点獲得）"
+output = "DT(6,6) ＞ スペシャル（助手の余裕を1点獲得）"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "1DT"
-output = "FutariSousa : 1DT(3) ＞ 失敗"
+output = "1DT(3) ＞ 失敗"
 rands = [
   { sides = 10, value = 3 },
 ]
@@ -45,7 +45,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "1DT"
-output = "FutariSousa : 1DT(4) ＞ 成功"
+output = "1DT(4) ＞ 成功"
 rands = [
   { sides = 10, value = 4 },
 ]
@@ -53,7 +53,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "1DT"
-output = "FutariSousa : 1DT(6) ＞ スペシャル（助手の余裕を1点獲得）"
+output = "1DT(6) ＞ スペシャル（助手の余裕を1点獲得）"
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -61,7 +61,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "1DT"
-output = "FutariSousa : 1DT(7) ＞ 成功"
+output = "1DT(7) ＞ 成功"
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -69,7 +69,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "1DT"
-output = "FutariSousa : 1DT(10) ＞ 成功"
+output = "1DT(10) ＞ 成功"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -77,7 +77,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "3DT"
-output = "FutariSousa : 3DT(3,4,1) ＞ 成功"
+output = "3DT(3,4,1) ＞ 成功"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
@@ -87,7 +87,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "3DT"
-output = "FutariSousa : 3DT(3,2,1) ＞ 失敗"
+output = "3DT(3,2,1) ＞ 失敗"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 2 },
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "AS"
-output = "FutariSousa : AS(4,3) ＞ 成功（余裕1点と、探偵から助手への感情を獲得）"
+output = "AS(4,3) ＞ 成功（余裕1点と、探偵から助手への感情を獲得）"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -106,7 +106,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "AS"
-output = "FutariSousa : AS(2,3) ＞ 失敗"
+output = "AS(2,3) ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -115,7 +115,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "AS"
-output = "FutariSousa : AS(2,6) ＞ スペシャル（余裕2点と、探偵から助手への感情を獲得）"
+output = "AS(2,6) ＞ スペシャル（余裕2点と、探偵から助手への感情を獲得）"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -124,7 +124,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "AS"
-output = "FutariSousa : AS(6,6) ＞ スペシャル（余裕2点と、探偵から助手への感情を獲得）"
+output = "AS(6,6) ＞ スペシャル（余裕2点と、探偵から助手への感情を獲得）"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -133,7 +133,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "1AS"
-output = "FutariSousa : 1AS(3) ＞ 失敗"
+output = "1AS(3) ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -141,7 +141,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "1AS"
-output = "FutariSousa : 1AS(4) ＞ 成功（余裕1点と、探偵から助手への感情を獲得）"
+output = "1AS(4) ＞ 成功（余裕1点と、探偵から助手への感情を獲得）"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -149,7 +149,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "1AS"
-output = "FutariSousa : 1AS(6) ＞ スペシャル（余裕2点と、探偵から助手への感情を獲得）"
+output = "1AS(6) ＞ スペシャル（余裕2点と、探偵から助手への感情を獲得）"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -157,7 +157,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "3AS"
-output = "FutariSousa : 3AS(3,4,1) ＞ 成功（余裕1点と、探偵から助手への感情を獲得）"
+output = "3AS(3,4,1) ＞ 成功（余裕1点と、探偵から助手への感情を獲得）"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -167,7 +167,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "3AS"
-output = "FutariSousa : 3AS(3,2,1) ＞ 失敗"
+output = "3AS(3,2,1) ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -177,7 +177,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHRD"
-output = "FutariSousa : 異常な癖決定表(10) ＞ 好きな「異常な癖」の表を使用する。"
+output = "異常な癖決定表(10) ＞ 好きな「異常な癖」の表を使用する。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -185,7 +185,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHFM"
-output = "FutariSousa : 異常な癖・口から出る表(10) ＞ 「黙っていろ」"
+output = "異常な癖・口から出る表(10) ＞ 「黙っていろ」"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHBT"
-output = "FutariSousa : 異常な癖・強引な捜査表(10) ＞ 勝手に鑑識を始める"
+output = "異常な癖・強引な捜査表(10) ＞ 勝手に鑑識を始める"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHPI"
-output = "FutariSousa : 異常な癖・すっとぼけ表(10) ＞ 関係者に誘導尋問を仕掛ける"
+output = "異常な癖・すっとぼけ表(10) ＞ 関係者に誘導尋問を仕掛ける"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -209,7 +209,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHEG"
-output = "FutariSousa : 異常な癖・事件に夢中表(10) ＞ 食事中でも、かまわずに事件の話をする"
+output = "異常な癖・事件に夢中表(10) ＞ 食事中でも、かまわずに事件の話をする"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHWP"
-output = "FutariSousa : 異常な癖・パートナーと……表(10) ＞ パートナーの耳元でいきなり喋り始める"
+output = "異常な癖・パートナーと……表(10) ＞ パートナーの耳元でいきなり喋り始める"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -225,7 +225,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHDS"
-output = "FutariSousa : 異常な癖・何かしている表(10) ＞ しばらく何もしていない"
+output = "異常な癖・何かしている表(10) ＞ しばらく何もしていない"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -233,7 +233,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHFT"
-output = "FutariSousa : 異常な癖・奇想天外表(10) ＞ 事件とは関係なさそうな新聞の記事を読んでいる"
+output = "異常な癖・奇想天外表(10) ＞ 事件とは関係なさそうな新聞の記事を読んでいる"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHIN"
-output = "FutariSousa : 異常な癖・急なひらめき表(10) ＞ 関係者と会話をしている最中にひらめく"
+output = "異常な癖・急なひらめき表(10) ＞ 関係者と会話をしている最中にひらめく"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -249,7 +249,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHEM"
-output = "FutariSousa : 異常な癖・喜怒哀楽表(10) ＞ ロボットのように決められたことだけをやる"
+output = "異常な癖・喜怒哀楽表(10) ＞ ロボットのように決められたことだけをやる"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -257,7 +257,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVS"
-output = "FutariSousa : 現場にて／イベント表(6) ＞ 逃げた人物（P.170）\n　脱兎のごとく、誰かが現場から逃げている。\n　その人物の走り方、焦り方は普通ではなかった。\n　これは、何かを知っている。あるいは、何かを持ち去った可能性がある。\n　PCたちは、追いかけ始めた。"
+output = "現場にて／イベント表(6) ＞ 逃げた人物（P.170）\n　脱兎のごとく、誰かが現場から逃げている。\n　その人物の走り方、焦り方は普通ではなかった。\n　これは、何かを知っている。あるいは、何かを持ち去った可能性がある。\n　PCたちは、追いかけ始めた。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -265,7 +265,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVW"
-output = "FutariSousa : なぜ？／イベント表(6) ＞ 被害者の視点（P.176）\n　被害者の身に何が起こったのか。\n　被害者は何を見たのか。\n　そのヒントは、被害者自身が知っているはずだ。"
+output = "なぜ？／イベント表(6) ＞ 被害者の視点（P.176）\n　被害者の身に何が起こったのか。\n　被害者は何を見たのか。\n　そのヒントは、被害者自身が知っているはずだ。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -273,7 +273,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVN"
-output = "FutariSousa : 協力者と共に／イベント表(6) ＞ 素人推理（P.182）\n　事件関係者の前で、ゲストNPCが推理を披露している。\n　だけど、その推理は穴だらけで……。"
+output = "協力者と共に／イベント表(6) ＞ 素人推理（P.182）\n　事件関係者の前で、ゲストNPCが推理を披露している。\n　だけど、その推理は穴だらけで……。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -281,7 +281,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVC"
-output = "FutariSousa : 向こうから／イベント表(6) ＞ 探偵たちのピンチ（P.188）\n　捜査は突然ストップした。\n　その原因はわかっている。\n　原因を取り除かなければ、事件の調査どころではない。"
+output = "向こうから／イベント表(6) ＞ 探偵たちのピンチ（P.188）\n　捜査は突然ストップした。\n　その原因はわかっている。\n　原因を取り除かなければ、事件の調査どころではない。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -289,7 +289,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVV"
-output = "FutariSousa : VS容疑者／イベント表(6) ＞ 鬼の居ぬ間に（P.194）\n　その容疑者の元を訪ねたとき、偶然にも席をはずしていた。\n　これはチャンス。\n　そう思ってしまうのが、探偵の悲しい性だ。"
+output = "VS容疑者／イベント表(6) ＞ 鬼の居ぬ間に（P.194）\n　その容疑者の元を訪ねたとき、偶然にも席をはずしていた。\n　これはチャンス。\n　そう思ってしまうのが、探偵の悲しい性だ。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -297,7 +297,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "OBT"
-output = "FutariSousa : 調査の障害表(66) ＞ 偶然が積み重なってうまくいかない"
+output = "調査の障害表(66) ＞ 偶然が積み重なってうまくいかない"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -306,7 +306,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "ACT"
-output = "FutariSousa : 変調表(6) ＞ 注目の的"
+output = "変調表(6) ＞ 注目の的"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -314,7 +314,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EWT"
-output = "FutariSousa : 目撃者表(6) ＞ 反社会主義者。判定技能：≪突破≫"
+output = "目撃者表(6) ＞ 反社会主義者。判定技能：≪突破≫"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -322,7 +322,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "WMT"
-output = "FutariSousa : 迷宮入り表(10) ＞ 探偵は直感によって、真犯人を突き止めた。だが、真犯人を捕まえるための証拠がない。犯人を告発することができず、歯噛みをした。"
+output = "迷宮入り表(10) ＞ 探偵は直感によって、真犯人を突き止めた。だが、真犯人を捕まえるための証拠がない。犯人を告発することができず、歯噛みをした。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -330,7 +330,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "BGDD"
-output = "FutariSousa : 探偵・運命の血統 背景表(10) ＞ 『クローン』自分は有名な名探偵のDNAから生まれた存在だ。そのためか、名探偵の力は生まれながらに備わっていた。"
+output = "探偵・運命の血統 背景表(10) ＞ 『クローン』自分は有名な名探偵のDNAから生まれた存在だ。そのためか、名探偵の力は生まれながらに備わっていた。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -338,7 +338,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "BGDG"
-output = "FutariSousa : 探偵・天性の才能 背景表(10) ＞ 『人工名探偵』自分は何者かによって軟禁されて探偵知識を詰め込まれた、「人口名探偵」だ。名探偵になるべくして育てられた自分は、その能力を期待通りに発揮することができる。"
+output = "探偵・天性の才能 背景表(10) ＞ 『人工名探偵』自分は何者かによって軟禁されて探偵知識を詰め込まれた、「人口名探偵」だ。名探偵になるべくして育てられた自分は、その能力を期待通りに発揮することができる。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -346,7 +346,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "BGDM"
-output = "FutariSousa : 探偵・マニア 背景表(10) ＞ 『正義のマニア』自分が信奉している何か（書物や科学など）が、事件に関わっているとなると、居ても立っても居られない。マニアとして、その謎を解明しなければならない。"
+output = "探偵・マニア 背景表(10) ＞ 『正義のマニア』自分が信奉している何か（書物や科学など）が、事件に関わっているとなると、居ても立っても居られない。マニアとして、その謎を解明しなければならない。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -354,7 +354,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "BGAJ"
-output = "FutariSousa : 助手・正義の人 背景表(6) ＞ 『正義の同志』パートナーも、一緒に正義のために事件解決をしてくれている。自分はそう感じている。思い込んでいるだけかもしれないが、その思い込みは止められない。ひょっとしたら自分の方がパートナーを振り回しているのかも。"
+output = "助手・正義の人 背景表(6) ＞ 『正義の同志』パートナーも、一緒に正義のために事件解決をしてくれている。自分はそう感じている。思い込んでいるだけかもしれないが、その思い込みは止められない。ひょっとしたら自分の方がパートナーを振り回しているのかも。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -362,7 +362,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "BGAP"
-output = "FutariSousa : 助手・情熱の人 背景表(6) ＞ 『放っておけない』パートナーのことを放っておくと何をしでかすかわからない。だから、自分が見張っていないといけない。そう感じた。"
+output = "助手・情熱の人 背景表(6) ＞ 『放っておけない』パートナーのことを放っておくと何をしでかすかわからない。だから、自分が見張っていないといけない。そう感じた。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -370,7 +370,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "BGAI"
-output = "FutariSousa : 助手・巻き込まれの人 背景表(6) ＞ 『偶然の積み重ね』パートナーが事件に直面するたびに居合わせる。それが繰り返されるうちに、いつの間にか親しくなっていた。今では、一緒にいることも多い。"
+output = "助手・巻き込まれの人 背景表(6) ＞ 『偶然の積み重ね』パートナーが事件に直面するたびに居合わせる。それが繰り返されるうちに、いつの間にか親しくなっていた。今では、一緒にいることも多い。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -378,7 +378,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "HT"
-output = "FutariSousa : 身長表(6) ＞ パートナーより少し高い／少し低い"
+output = "身長表(6) ＞ パートナーより少し高い／少し低い"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -386,7 +386,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "BT"
-output = "FutariSousa : たまり場表(10) ＞ 二人だけが知っている秘密の場所"
+output = "たまり場表(10) ＞ 二人だけが知っている秘密の場所"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -394,7 +394,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "GRT"
-output = "FutariSousa : 関係表(66) ＞ 一方的に知られている"
+output = "関係表(66) ＞ 一方的に知られている"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -403,7 +403,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "MIT"
-output = "FutariSousa : 思い出の品決定表(66) ＞ 二人だけの秘密の交換日記"
+output = "思い出の品決定表(66) ＞ 二人だけの秘密の交換日記"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -412,7 +412,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "JBT66"
-output = "FutariSousa : 職業表A(66) ＞ パートナーと同じ"
+output = "職業表A(66) ＞ パートナーと同じ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -421,7 +421,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "JBT10"
-output = "FutariSousa : 職業表B(10) ＞ 学生"
+output = "職業表B(10) ＞ 学生"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -429,7 +429,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "FST66"
-output = "FutariSousa : ファッション特徴表A(66) ＞ ファッションにこだわりがない"
+output = "ファッション特徴表A(66) ＞ ファッションにこだわりがない"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -438,7 +438,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "FST10"
-output = "FutariSousa : ファッション特徴表B(10) ＞ ファッションにこだわりがない"
+output = "ファッション特徴表B(10) ＞ ファッションにこだわりがない"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -446,7 +446,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "FLT66"
-output = "FutariSousa : 感情表A(66) ＞ 生活習慣"
+output = "感情表A(66) ＞ 生活習慣"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -455,7 +455,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "FLT10"
-output = "FutariSousa : 感情表B(10) ＞ 自分との関係"
+output = "感情表B(10) ＞ 自分との関係"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -463,7 +463,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "LDT66"
-output = "FutariSousa : 好きなもの／嫌いなもの表A(66) ＞ 銃"
+output = "好きなもの／嫌いなもの表A(66) ＞ 銃"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -472,7 +472,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "LDT10"
-output = "FutariSousa : 好きなもの／嫌いなもの表B(10) ＞ 知らないこと"
+output = "好きなもの／嫌いなもの表B(10) ＞ 知らないこと"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -480,7 +480,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "NCT66"
-output = "FutariSousa : 呼び名表A(66) ＞ 毎回呼び方が変わる"
+output = "呼び名表A(66) ＞ 毎回呼び方が変わる"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -489,7 +489,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "NCT10"
-output = "FutariSousa : 呼び名表B(10) ＞ あだ名"
+output = "呼び名表B(10) ＞ あだ名"
 rands = [
   { sides = 10, value = 10 },
 ]

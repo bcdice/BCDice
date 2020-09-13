@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=10"
-output = "RoleMaster : (1D100>=10) ＞ 65 ＞ 成功"
+output = "(1D100>=10) ＞ 65 ＞ 成功"
 rands = [
   { sides = 100, value = 65 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=10"
-output = "RoleMaster : (1D100>=10) ＞ 56 ＞ 成功"
+output = "(1D100>=10) ＞ 56 ＞ 成功"
 rands = [
   { sides = 100, value = 56 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=10"
-output = "RoleMaster : (1D100>=10) ＞ 45 ＞ 成功"
+output = "(1D100>=10) ＞ 45 ＞ 成功"
 rands = [
   { sides = 100, value = 45 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=10"
-output = "RoleMaster : (1D100>=10) ＞ 18 ＞ 成功"
+output = "(1D100>=10) ＞ 18 ＞ 成功"
 rands = [
   { sides = 100, value = 18 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=10"
-output = "RoleMaster : (1D100>=10) ＞ 45 ＞ 成功"
+output = "(1D100>=10) ＞ 45 ＞ 成功"
 rands = [
   { sides = 100, value = 45 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=10"
-output = "RoleMaster : (1D100>=10) ＞ 78 ＞ 成功"
+output = "(1D100>=10) ＞ 78 ＞ 成功"
 rands = [
   { sides = 100, value = 78 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=10"
-output = "RoleMaster : (1D100>=10) ＞ 37 ＞ 成功"
+output = "(1D100>=10) ＞ 37 ＞ 成功"
 rands = [
   { sides = 100, value = 37 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=10"
-output = "RoleMaster : (1D100>=10) ＞ 48 ＞ 成功"
+output = "(1D100>=10) ＞ 48 ＞ 成功"
 rands = [
   { sides = 100, value = 48 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=10"
-output = "RoleMaster : (1D100>=10) ＞ 25 ＞ 成功"
+output = "(1D100>=10) ＞ 25 ＞ 成功"
 rands = [
   { sides = 100, value = 25 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=10"
-output = "RoleMaster : (1D100>=10) ＞ 90 ＞ 成功"
+output = "(1D100>=10) ＞ 90 ＞ 成功"
 rands = [
   { sides = 100, value = 90 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=50"
-output = "RoleMaster : (1D100>=50) ＞ 80 ＞ 成功"
+output = "(1D100>=50) ＞ 80 ＞ 成功"
 rands = [
   { sides = 100, value = 80 },
 ]
@@ -89,7 +89,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=50"
-output = "RoleMaster : (1D100>=50) ＞ 86 ＞ 成功"
+output = "(1D100>=50) ＞ 86 ＞ 成功"
 rands = [
   { sides = 100, value = 86 },
 ]
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=50"
-output = "RoleMaster : (1D100>=50) ＞ 6 ＞ 失敗"
+output = "(1D100>=50) ＞ 6 ＞ 失敗"
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -105,7 +105,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=50"
-output = "RoleMaster : (1D100>=50) ＞ 68 ＞ 成功"
+output = "(1D100>=50) ＞ 68 ＞ 成功"
 rands = [
   { sides = 100, value = 68 },
 ]
@@ -113,7 +113,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=50"
-output = "RoleMaster : (1D100>=50) ＞ 55 ＞ 成功"
+output = "(1D100>=50) ＞ 55 ＞ 成功"
 rands = [
   { sides = 100, value = 55 },
 ]
@@ -121,7 +121,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=50"
-output = "RoleMaster : (1D100>=50) ＞ 7 ＞ 失敗"
+output = "(1D100>=50) ＞ 7 ＞ 失敗"
 rands = [
   { sides = 100, value = 7 },
 ]
@@ -129,7 +129,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=50"
-output = "RoleMaster : (1D100>=50) ＞ 64 ＞ 成功"
+output = "(1D100>=50) ＞ 64 ＞ 成功"
 rands = [
   { sides = 100, value = 64 },
 ]
@@ -137,7 +137,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=50"
-output = "RoleMaster : (1D100>=50) ＞ 44 ＞ 失敗"
+output = "(1D100>=50) ＞ 44 ＞ 失敗"
 rands = [
   { sides = 100, value = 44 },
 ]
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=50"
-output = "RoleMaster : (1D100>=50) ＞ 46 ＞ 失敗"
+output = "(1D100>=50) ＞ 46 ＞ 失敗"
 rands = [
   { sides = 100, value = 46 },
 ]
@@ -153,7 +153,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=50"
-output = "RoleMaster : (1D100>=50) ＞ 91 ＞ 成功"
+output = "(1D100>=50) ＞ 91 ＞ 成功"
 rands = [
   { sides = 100, value = 91 },
 ]
@@ -161,7 +161,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 25 ＞ 失敗"
+output = "(1D100>=101) ＞ 25 ＞ 失敗"
 rands = [
   { sides = 100, value = 25 },
 ]
@@ -169,7 +169,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 87 ＞ 失敗"
+output = "(1D100>=101) ＞ 87 ＞ 失敗"
 rands = [
   { sides = 100, value = 87 },
 ]
@@ -177,7 +177,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 40 ＞ 失敗"
+output = "(1D100>=101) ＞ 40 ＞ 失敗"
 rands = [
   { sides = 100, value = 40 },
 ]
@@ -185,7 +185,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 23 ＞ 失敗"
+output = "(1D100>=101) ＞ 23 ＞ 失敗"
 rands = [
   { sides = 100, value = 23 },
 ]
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 32 ＞ 失敗"
+output = "(1D100>=101) ＞ 32 ＞ 失敗"
 rands = [
   { sides = 100, value = 32 },
 ]
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 24 ＞ 失敗"
+output = "(1D100>=101) ＞ 24 ＞ 失敗"
 rands = [
   { sides = 100, value = 24 },
 ]
@@ -209,7 +209,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 46 ＞ 失敗"
+output = "(1D100>=101) ＞ 46 ＞ 失敗"
 rands = [
   { sides = 100, value = 46 },
 ]
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 62 ＞ 失敗"
+output = "(1D100>=101) ＞ 62 ＞ 失敗"
 rands = [
   { sides = 100, value = 62 },
 ]
@@ -225,7 +225,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 3 ＞ 失敗"
+output = "(1D100>=101) ＞ 3 ＞ 失敗"
 rands = [
   { sides = 100, value = 3 },
 ]
@@ -233,7 +233,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 75 ＞ 失敗"
+output = "(1D100>=101) ＞ 75 ＞ 失敗"
 rands = [
   { sides = 100, value = 75 },
 ]
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 48 ＞ 失敗"
+output = "(1D100>=101) ＞ 48 ＞ 失敗"
 rands = [
   { sides = 100, value = 48 },
 ]
@@ -249,7 +249,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 92 ＞ 失敗"
+output = "(1D100>=101) ＞ 92 ＞ 失敗"
 rands = [
   { sides = 100, value = 92 },
 ]
@@ -257,7 +257,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 33 ＞ 失敗"
+output = "(1D100>=101) ＞ 33 ＞ 失敗"
 rands = [
   { sides = 100, value = 33 },
 ]
@@ -265,7 +265,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 46 ＞ 失敗"
+output = "(1D100>=101) ＞ 46 ＞ 失敗"
 rands = [
   { sides = 100, value = 46 },
 ]
@@ -273,7 +273,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 72 ＞ 失敗"
+output = "(1D100>=101) ＞ 72 ＞ 失敗"
 rands = [
   { sides = 100, value = 72 },
 ]
@@ -281,7 +281,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 26 ＞ 失敗"
+output = "(1D100>=101) ＞ 26 ＞ 失敗"
 rands = [
   { sides = 100, value = 26 },
 ]
@@ -289,7 +289,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 55 ＞ 失敗"
+output = "(1D100>=101) ＞ 55 ＞ 失敗"
 rands = [
   { sides = 100, value = 55 },
 ]
@@ -297,7 +297,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 86 ＞ 失敗"
+output = "(1D100>=101) ＞ 86 ＞ 失敗"
 rands = [
   { sides = 100, value = 86 },
 ]
@@ -305,7 +305,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 3 ＞ 失敗"
+output = "(1D100>=101) ＞ 3 ＞ 失敗"
 rands = [
   { sides = 100, value = 3 },
 ]
@@ -313,7 +313,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 74 ＞ 失敗"
+output = "(1D100>=101) ＞ 74 ＞ 失敗"
 rands = [
   { sides = 100, value = 74 },
 ]
@@ -321,7 +321,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 90 ＞ 失敗"
+output = "(1D100>=101) ＞ 90 ＞ 失敗"
 rands = [
   { sides = 100, value = 90 },
 ]
@@ -329,7 +329,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 23 ＞ 失敗"
+output = "(1D100>=101) ＞ 23 ＞ 失敗"
 rands = [
   { sides = 100, value = 23 },
 ]
@@ -337,7 +337,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 23 ＞ 失敗"
+output = "(1D100>=101) ＞ 23 ＞ 失敗"
 rands = [
   { sides = 100, value = 23 },
 ]
@@ -345,7 +345,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 43 ＞ 失敗"
+output = "(1D100>=101) ＞ 43 ＞ 失敗"
 rands = [
   { sides = 100, value = 43 },
 ]
@@ -353,7 +353,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 14 ＞ 失敗"
+output = "(1D100>=101) ＞ 14 ＞ 失敗"
 rands = [
   { sides = 100, value = 14 },
 ]
@@ -361,7 +361,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 91 ＞ 失敗"
+output = "(1D100>=101) ＞ 91 ＞ 失敗"
 rands = [
   { sides = 100, value = 91 },
 ]
@@ -369,7 +369,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 99 ＞ 失敗"
+output = "(1D100>=101) ＞ 99 ＞ 失敗"
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -377,7 +377,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 84 ＞ 失敗"
+output = "(1D100>=101) ＞ 84 ＞ 失敗"
 rands = [
   { sides = 100, value = 84 },
 ]
@@ -385,7 +385,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 78 ＞ 失敗"
+output = "(1D100>=101) ＞ 78 ＞ 失敗"
 rands = [
   { sides = 100, value = 78 },
 ]
@@ -393,7 +393,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 77 ＞ 失敗"
+output = "(1D100>=101) ＞ 77 ＞ 失敗"
 rands = [
   { sides = 100, value = 77 },
 ]
@@ -401,7 +401,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 97 ＞ 失敗"
+output = "(1D100>=101) ＞ 97 ＞ 失敗"
 rands = [
   { sides = 100, value = 97 },
 ]
@@ -409,7 +409,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 51 ＞ 失敗"
+output = "(1D100>=101) ＞ 51 ＞ 失敗"
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -417,7 +417,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 91 ＞ 失敗"
+output = "(1D100>=101) ＞ 91 ＞ 失敗"
 rands = [
   { sides = 100, value = 91 },
 ]
@@ -425,7 +425,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 85 ＞ 失敗"
+output = "(1D100>=101) ＞ 85 ＞ 失敗"
 rands = [
   { sides = 100, value = 85 },
 ]
@@ -433,7 +433,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 64 ＞ 失敗"
+output = "(1D100>=101) ＞ 64 ＞ 失敗"
 rands = [
   { sides = 100, value = 64 },
 ]
@@ -441,7 +441,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 91 ＞ 失敗"
+output = "(1D100>=101) ＞ 91 ＞ 失敗"
 rands = [
   { sides = 100, value = 91 },
 ]
@@ -449,7 +449,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 19 ＞ 失敗"
+output = "(1D100>=101) ＞ 19 ＞ 失敗"
 rands = [
   { sides = 100, value = 19 },
 ]
@@ -457,7 +457,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 52 ＞ 失敗"
+output = "(1D100>=101) ＞ 52 ＞ 失敗"
 rands = [
   { sides = 100, value = 52 },
 ]
@@ -465,7 +465,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 32 ＞ 失敗"
+output = "(1D100>=101) ＞ 32 ＞ 失敗"
 rands = [
   { sides = 100, value = 32 },
 ]
@@ -473,7 +473,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 23 ＞ 失敗"
+output = "(1D100>=101) ＞ 23 ＞ 失敗"
 rands = [
   { sides = 100, value = 23 },
 ]
@@ -481,7 +481,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 1 ＞ 失敗"
+output = "(1D100>=101) ＞ 1 ＞ 失敗"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -489,7 +489,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 12 ＞ 失敗"
+output = "(1D100>=101) ＞ 12 ＞ 失敗"
 rands = [
   { sides = 100, value = 12 },
 ]
@@ -497,7 +497,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 93 ＞ 失敗"
+output = "(1D100>=101) ＞ 93 ＞ 失敗"
 rands = [
   { sides = 100, value = 93 },
 ]
@@ -505,7 +505,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 34 ＞ 失敗"
+output = "(1D100>=101) ＞ 34 ＞ 失敗"
 rands = [
   { sides = 100, value = 34 },
 ]
@@ -513,7 +513,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 38 ＞ 失敗"
+output = "(1D100>=101) ＞ 38 ＞ 失敗"
 rands = [
   { sides = 100, value = 38 },
 ]
@@ -521,7 +521,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 45 ＞ 失敗"
+output = "(1D100>=101) ＞ 45 ＞ 失敗"
 rands = [
   { sides = 100, value = 45 },
 ]
@@ -529,7 +529,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 16 ＞ 失敗"
+output = "(1D100>=101) ＞ 16 ＞ 失敗"
 rands = [
   { sides = 100, value = 16 },
 ]
@@ -537,7 +537,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 41 ＞ 失敗"
+output = "(1D100>=101) ＞ 41 ＞ 失敗"
 rands = [
   { sides = 100, value = 41 },
 ]
@@ -545,7 +545,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 53 ＞ 失敗"
+output = "(1D100>=101) ＞ 53 ＞ 失敗"
 rands = [
   { sides = 100, value = 53 },
 ]
@@ -553,7 +553,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 2 ＞ 失敗"
+output = "(1D100>=101) ＞ 2 ＞ 失敗"
 rands = [
   { sides = 100, value = 2 },
 ]
@@ -561,7 +561,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 33 ＞ 失敗"
+output = "(1D100>=101) ＞ 33 ＞ 失敗"
 rands = [
   { sides = 100, value = 33 },
 ]
@@ -569,7 +569,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 50 ＞ 失敗"
+output = "(1D100>=101) ＞ 50 ＞ 失敗"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -577,7 +577,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 82 ＞ 失敗"
+output = "(1D100>=101) ＞ 82 ＞ 失敗"
 rands = [
   { sides = 100, value = 82 },
 ]
@@ -585,7 +585,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 50 ＞ 失敗"
+output = "(1D100>=101) ＞ 50 ＞ 失敗"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -593,7 +593,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 66 ＞ 失敗"
+output = "(1D100>=101) ＞ 66 ＞ 失敗"
 rands = [
   { sides = 100, value = 66 },
 ]
@@ -601,7 +601,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 73 ＞ 失敗"
+output = "(1D100>=101) ＞ 73 ＞ 失敗"
 rands = [
   { sides = 100, value = 73 },
 ]
@@ -609,7 +609,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 96 ＞ 失敗"
+output = "(1D100>=101) ＞ 96 ＞ 失敗"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -617,7 +617,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 20 ＞ 失敗"
+output = "(1D100>=101) ＞ 20 ＞ 失敗"
 rands = [
   { sides = 100, value = 20 },
 ]
@@ -625,7 +625,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 42 ＞ 失敗"
+output = "(1D100>=101) ＞ 42 ＞ 失敗"
 rands = [
   { sides = 100, value = 42 },
 ]
@@ -633,7 +633,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 10 ＞ 失敗"
+output = "(1D100>=101) ＞ 10 ＞ 失敗"
 rands = [
   { sides = 100, value = 10 },
 ]
@@ -641,7 +641,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 1 ＞ 失敗"
+output = "(1D100>=101) ＞ 1 ＞ 失敗"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -649,7 +649,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 12 ＞ 失敗"
+output = "(1D100>=101) ＞ 12 ＞ 失敗"
 rands = [
   { sides = 100, value = 12 },
 ]
@@ -657,7 +657,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 53 ＞ 失敗"
+output = "(1D100>=101) ＞ 53 ＞ 失敗"
 rands = [
   { sides = 100, value = 53 },
 ]
@@ -665,7 +665,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 76 ＞ 失敗"
+output = "(1D100>=101) ＞ 76 ＞ 失敗"
 rands = [
   { sides = 100, value = 76 },
 ]
@@ -673,7 +673,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 36 ＞ 失敗"
+output = "(1D100>=101) ＞ 36 ＞ 失敗"
 rands = [
   { sides = 100, value = 36 },
 ]
@@ -681,7 +681,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 28 ＞ 失敗"
+output = "(1D100>=101) ＞ 28 ＞ 失敗"
 rands = [
   { sides = 100, value = 28 },
 ]
@@ -689,7 +689,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 1 ＞ 失敗"
+output = "(1D100>=101) ＞ 1 ＞ 失敗"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -697,7 +697,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 75 ＞ 失敗"
+output = "(1D100>=101) ＞ 75 ＞ 失敗"
 rands = [
   { sides = 100, value = 75 },
 ]
@@ -705,7 +705,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 95 ＞ 失敗"
+output = "(1D100>=101) ＞ 95 ＞ 失敗"
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -713,7 +713,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 95 ＞ 失敗"
+output = "(1D100>=101) ＞ 95 ＞ 失敗"
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -721,7 +721,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 7 ＞ 失敗"
+output = "(1D100>=101) ＞ 7 ＞ 失敗"
 rands = [
   { sides = 100, value = 7 },
 ]
@@ -729,7 +729,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 99 ＞ 失敗"
+output = "(1D100>=101) ＞ 99 ＞ 失敗"
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -737,7 +737,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 11 ＞ 失敗"
+output = "(1D100>=101) ＞ 11 ＞ 失敗"
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -745,7 +745,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 55 ＞ 失敗"
+output = "(1D100>=101) ＞ 55 ＞ 失敗"
 rands = [
   { sides = 100, value = 55 },
 ]
@@ -753,7 +753,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 97 ＞ 失敗"
+output = "(1D100>=101) ＞ 97 ＞ 失敗"
 rands = [
   { sides = 100, value = 97 },
 ]
@@ -761,7 +761,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 58 ＞ 失敗"
+output = "(1D100>=101) ＞ 58 ＞ 失敗"
 rands = [
   { sides = 100, value = 58 },
 ]
@@ -769,7 +769,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 17 ＞ 失敗"
+output = "(1D100>=101) ＞ 17 ＞ 失敗"
 rands = [
   { sides = 100, value = 17 },
 ]
@@ -777,7 +777,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 63 ＞ 失敗"
+output = "(1D100>=101) ＞ 63 ＞ 失敗"
 rands = [
   { sides = 100, value = 63 },
 ]
@@ -785,7 +785,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 73 ＞ 失敗"
+output = "(1D100>=101) ＞ 73 ＞ 失敗"
 rands = [
   { sides = 100, value = 73 },
 ]
@@ -793,7 +793,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 8 ＞ 失敗"
+output = "(1D100>=101) ＞ 8 ＞ 失敗"
 rands = [
   { sides = 100, value = 8 },
 ]
@@ -801,7 +801,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 25 ＞ 失敗"
+output = "(1D100>=101) ＞ 25 ＞ 失敗"
 rands = [
   { sides = 100, value = 25 },
 ]
@@ -809,7 +809,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 89 ＞ 失敗"
+output = "(1D100>=101) ＞ 89 ＞ 失敗"
 rands = [
   { sides = 100, value = 89 },
 ]
@@ -817,7 +817,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 59 ＞ 失敗"
+output = "(1D100>=101) ＞ 59 ＞ 失敗"
 rands = [
   { sides = 100, value = 59 },
 ]
@@ -825,7 +825,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 2 ＞ 失敗"
+output = "(1D100>=101) ＞ 2 ＞ 失敗"
 rands = [
   { sides = 100, value = 2 },
 ]
@@ -833,7 +833,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 43 ＞ 失敗"
+output = "(1D100>=101) ＞ 43 ＞ 失敗"
 rands = [
   { sides = 100, value = 43 },
 ]
@@ -841,7 +841,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 67 ＞ 失敗"
+output = "(1D100>=101) ＞ 67 ＞ 失敗"
 rands = [
   { sides = 100, value = 67 },
 ]
@@ -849,7 +849,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 35 ＞ 失敗"
+output = "(1D100>=101) ＞ 35 ＞ 失敗"
 rands = [
   { sides = 100, value = 35 },
 ]
@@ -857,7 +857,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 15 ＞ 失敗"
+output = "(1D100>=101) ＞ 15 ＞ 失敗"
 rands = [
   { sides = 100, value = 15 },
 ]
@@ -865,7 +865,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 54 ＞ 失敗"
+output = "(1D100>=101) ＞ 54 ＞ 失敗"
 rands = [
   { sides = 100, value = 54 },
 ]
@@ -873,7 +873,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 70 ＞ 失敗"
+output = "(1D100>=101) ＞ 70 ＞ 失敗"
 rands = [
   { sides = 100, value = 70 },
 ]
@@ -881,7 +881,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 64 ＞ 失敗"
+output = "(1D100>=101) ＞ 64 ＞ 失敗"
 rands = [
   { sides = 100, value = 64 },
 ]
@@ -889,7 +889,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 69 ＞ 失敗"
+output = "(1D100>=101) ＞ 69 ＞ 失敗"
 rands = [
   { sides = 100, value = 69 },
 ]
@@ -897,7 +897,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 6 ＞ 失敗"
+output = "(1D100>=101) ＞ 6 ＞ 失敗"
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -905,7 +905,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 61 ＞ 失敗"
+output = "(1D100>=101) ＞ 61 ＞ 失敗"
 rands = [
   { sides = 100, value = 61 },
 ]
@@ -913,7 +913,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 100 ＞ 失敗"
+output = "(1D100>=101) ＞ 100 ＞ 失敗"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -921,7 +921,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 24 ＞ 失敗"
+output = "(1D100>=101) ＞ 24 ＞ 失敗"
 rands = [
   { sides = 100, value = 24 },
 ]
@@ -929,7 +929,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 5 ＞ 失敗"
+output = "(1D100>=101) ＞ 5 ＞ 失敗"
 rands = [
   { sides = 100, value = 5 },
 ]
@@ -937,7 +937,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 7 ＞ 失敗"
+output = "(1D100>=101) ＞ 7 ＞ 失敗"
 rands = [
   { sides = 100, value = 7 },
 ]
@@ -945,7 +945,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 4 ＞ 失敗"
+output = "(1D100>=101) ＞ 4 ＞ 失敗"
 rands = [
   { sides = 100, value = 4 },
 ]
@@ -953,7 +953,7 @@ rands = [
 [[ test ]]
 game_system = "RoleMaster"
 input = "1d100>=101"
-output = "RoleMaster : (1D100>=101) ＞ 41 ＞ 失敗"
+output = "(1D100>=101) ＞ 41 ＞ 失敗"
 rands = [
   { sides = 100, value = 41 },
 ]

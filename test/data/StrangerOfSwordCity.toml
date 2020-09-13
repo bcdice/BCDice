@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "1SR>=3"
-output = "StrangerOfSwordCity : (1SR>=3) ＞ 2[2] ＞ 2 ＞ 失敗"
+output = "(1SR>=3) ＞ 2[2] ＞ 2 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "1SR>=3"
-output = "StrangerOfSwordCity : (1SR>=3) ＞ 5[5] ＞ 5 ＞ 成功"
+output = "(1SR>=3) ＞ 5[5] ＞ 5 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "1SR>=3"
-output = "StrangerOfSwordCity : (1SR>=3) ＞ 1[1] ＞ 1 ＞ ファンブル"
+output = "(1SR>=3) ＞ 1[1] ＞ 1 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "1SR>=3"
-output = "StrangerOfSwordCity : (1SR>=3) ＞ 6[6] ＞ 6 ＞ 成功"
+output = "(1SR>=3) ＞ 6[6] ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "2SR>=7"
-output = "StrangerOfSwordCity : (2SR>=7) ＞ 5[2,3] ＞ 5 ＞ 失敗"
+output = "(2SR>=7) ＞ 5[2,3] ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -42,7 +42,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "2SR>=7"
-output = "StrangerOfSwordCity : (2SR>=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+output = "(2SR>=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -51,7 +51,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "2SR>=7"
-output = "StrangerOfSwordCity : (2SR>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+output = "(2SR>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -60,7 +60,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "2SR>=7"
-output = "StrangerOfSwordCity : (2SR>=7) ＞ 12[6,6] ＞ 12 ＞ クリティカル(+2D6)"
+output = "(2SR>=7) ＞ 12[6,6] ＞ 12 ＞ クリティカル(+2D6)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -69,7 +69,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "3SR>=10"
-output = "StrangerOfSwordCity : (3SR>=10) ＞ 4[1,1,2] ＞ 4 ＞ 失敗"
+output = "(3SR>=10) ＞ 4[1,1,2] ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -79,7 +79,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "3SR>=10"
-output = "StrangerOfSwordCity : (3SR>=10) ＞ 12[3,3,6] ＞ 12 ＞ 成功"
+output = "(3SR>=10) ＞ 12[3,3,6] ＞ 12 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -89,7 +89,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "3SR>=10"
-output = "StrangerOfSwordCity : (3SR>=10) ＞ 3[1,1,1] ＞ 3 ＞ ファンブル"
+output = "(3SR>=10) ＞ 3[1,1,1] ＞ 3 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -99,7 +99,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "3SR>=10"
-output = "StrangerOfSwordCity : (3SR>=10) ＞ 15[3,6,6] ＞ 15 ＞ クリティカル(+2D6)"
+output = "(3SR>=10) ＞ 15[3,6,6] ＞ 15 ＞ クリティカル(+2D6)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "3SR>=10"
-output = "StrangerOfSwordCity : (3SR>=10) ＞ 18[6,6,6] ＞ 18 ＞ クリティカル(+3D6)"
+output = "(3SR>=10) ＞ 18[6,6,6] ＞ 18 ＞ クリティカル(+3D6)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -119,27 +119,10 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "10SR>=35"
-output = "StrangerOfSwordCity : (10SR>=35) ＞ 44[2,2,3,5,5,5,5,5,6,6] ＞ 44 ＞ クリティカル(+2D6)"
+output = "(10SR>=35) ＞ 44[2,2,3,5,5,5,5,5,6,6] ＞ 44 ＞ クリティカル(+2D6)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "StrangerOfSwordCity"
-input = "10SR>=35"
-output = "StrangerOfSwordCity : (10SR>=35) ＞ 46[2,2,3,5,5,5,6,6,6,6] ＞ 46 ＞ クリティカル(+4D6)"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -153,7 +136,24 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "10SR>=35"
-output = "StrangerOfSwordCity : (10SR>=35) ＞ 10[1,1,1,1,1,1,1,1,1,1] ＞ 10 ＞ ファンブル"
+output = "(10SR>=35) ＞ 46[2,2,3,5,5,5,6,6,6,6] ＞ 46 ＞ クリティカル(+4D6)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StrangerOfSwordCity"
+input = "10SR>=35"
+output = "(10SR>=35) ＞ 10[1,1,1,1,1,1,1,1,1,1] ＞ 10 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -170,7 +170,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "10SR>=35"
-output = "StrangerOfSwordCity : (10SR>=35) ＞ 11[1,1,1,1,1,1,1,1,1,2] ＞ 11 ＞ 失敗"
+output = "(10SR>=35) ＞ 11[1,1,1,1,1,1,1,1,1,2] ＞ 11 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -187,7 +187,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "2SR"
-output = "StrangerOfSwordCity : (2SR) ＞ 12[6,6] ＞ 12 ＞ クリティカル(+2D6)"
+output = "(2SR) ＞ 12[6,6] ＞ 12 ＞ クリティカル(+2D6)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -196,7 +196,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "2SR"
-output = "StrangerOfSwordCity : (2SR) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+output = "(2SR) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -205,7 +205,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "2SR3"
-output = "StrangerOfSwordCity : (2SR3) ＞ 7[3,4]+3 ＞ 10"
+output = "(2SR3) ＞ 7[3,4]+3 ＞ 10"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -214,7 +214,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "3SR+5"
-output = "StrangerOfSwordCity : (3SR+5) ＞ 9[2,2,5]+5 ＞ 14"
+output = "(3SR+5) ＞ 9[2,2,5]+5 ＞ 14"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -224,7 +224,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "3SR3>=9"
-output = "StrangerOfSwordCity : (3SR3>=9) ＞ 9[2,3,4]+3 ＞ 12 ＞ 成功"
+output = "(3SR3>=9) ＞ 9[2,3,4]+3 ＞ 12 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -234,7 +234,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "2SR-2>=10"
-output = "StrangerOfSwordCity : (2SR-2>=10) ＞ 8[4,4]-2 ＞ 6 ＞ 失敗"
+output = "(2SR-2>=10) ＞ 8[4,4]-2 ＞ 6 ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -243,7 +243,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "4SR-3"
-output = "StrangerOfSwordCity : (4SR-3) ＞ 18[2,4,6,6]-3 ＞ 15 ＞ クリティカル(+2D6)"
+output = "(4SR-3) ＞ 18[2,4,6,6]-3 ＞ 15 ＞ クリティカル(+2D6)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -254,7 +254,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "D66"
-output = "StrangerOfSwordCity : (D66) ＞ 35"
+output = "(D66) ＞ 35"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -263,7 +263,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "d66"
-output = "StrangerOfSwordCity : (D66) ＞ 51"
+output = "(D66) ＞ 51"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -272,7 +272,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "D66"
-output = "StrangerOfSwordCity : (D66) ＞ 15"
+output = "(D66) ＞ 15"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -281,7 +281,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "D66"
-output = "StrangerOfSwordCity : (D66) ＞ 53"
+output = "(D66) ＞ 53"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -290,7 +290,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "D66"
-output = "StrangerOfSwordCity : (D66) ＞ 53"
+output = "(D66) ＞ 53"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -299,7 +299,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "D66"
-output = "StrangerOfSwordCity : (D66) ＞ 31"
+output = "(D66) ＞ 31"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -308,7 +308,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "D66"
-output = "StrangerOfSwordCity : (D66) ＞ 63"
+output = "(D66) ＞ 63"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -317,7 +317,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "D66"
-output = "StrangerOfSwordCity : (D66) ＞ 42"
+output = "(D66) ＞ 42"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -326,7 +326,7 @@ rands = [
 [[ test ]]
 game_system = "StrangerOfSwordCity"
 input = "D66"
-output = "StrangerOfSwordCity : (D66) ＞ 55"
+output = "(D66) ＞ 55"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },

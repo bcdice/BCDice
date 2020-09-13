@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "DiceOfTheDead"
 input = "ZMB"
-output = "DiceOfTheDead : ゾンビ化表　＞　出目：1＋5　感染度：0　合計値：6　＞　６：任意の部位を１点回復"
+output = "ゾンビ化表　＞　出目：1＋5　感染度：0　合計値：6　＞　６：任意の部位を１点回復"
 secret = true
 rands = [
   { sides = 6, value = 1 },
@@ -11,7 +11,7 @@ rands = [
 [[ test ]]
 game_system = "DiceOfTheDead"
 input = "ZMB"
-output = "DiceOfTheDead : ゾンビ化表　＞　出目：1＋1　感染度：0　合計値：2　＞　５以下：影響なし"
+output = "ゾンビ化表　＞　出目：1＋1　感染度：0　合計値：2　＞　５以下：影響なし"
 secret = true
 rands = [
   { sides = 6, value = 1 },
@@ -21,7 +21,7 @@ rands = [
 [[ test ]]
 game_system = "DiceOfTheDead"
 input = "ZMB"
-output = "DiceOfTheDead : ゾンビ化表　＞　出目：1＋4　感染度：0　合計値：5　＞　５以下：影響なし"
+output = "ゾンビ化表　＞　出目：1＋4　感染度：0　合計値：5　＞　５以下：影響なし"
 secret = true
 rands = [
   { sides = 6, value = 1 },
@@ -31,7 +31,7 @@ rands = [
 [[ test ]]
 game_system = "DiceOfTheDead"
 input = "ZMB+1"
-output = "DiceOfTheDead : ゾンビ化表　＞　出目：4＋1　感染度：1　合計値：6　＞　６：任意の部位を１点回復"
+output = "ゾンビ化表　＞　出目：4＋1　感染度：1　合計値：6　＞　６：任意の部位を１点回復"
 secret = true
 rands = [
   { sides = 6, value = 4 },
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "DiceOfTheDead"
 input = "ZMB"
-output = "DiceOfTheDead : ゾンビ化表　＞　出目：6＋6　感染度：0　合計値：12　＞　１２：頭の傷が広がる。「部位：【頭】」１点ダメージ"
+output = "ゾンビ化表　＞　出目：6＋6　感染度：0　合計値：12　＞　１２：頭の傷が広がる。「部位：【頭】」１点ダメージ"
 secret = true
 rands = [
   { sides = 6, value = 6 },
@@ -51,7 +51,7 @@ rands = [
 [[ test ]]
 game_system = "DiceOfTheDead"
 input = "ZMB+6"
-output = "DiceOfTheDead : ゾンビ化表　＞　出目：1＋1　感染度：6　合計値：8　＞　８：〈アイテム〉便利道具１つをその場に落とす"
+output = "ゾンビ化表　＞　出目：1＋1　感染度：6　合計値：8　＞　８：〈アイテム〉便利道具１つをその場に落とす"
 secret = true
 rands = [
   { sides = 6, value = 1 },
@@ -61,7 +61,7 @@ rands = [
 [[ test ]]
 game_system = "DiceOfTheDead"
 input = "ZMB+5"
-output = "DiceOfTheDead : ゾンビ化表　＞　出目：6＋6　感染度：5　合計値：17　＞　１７：次のターンのみ、すべての【能力値】を２倍にする"
+output = "ゾンビ化表　＞　出目：6＋6　感染度：5　合計値：17　＞　１７：次のターンのみ、すべての【能力値】を２倍にする"
 secret = true
 rands = [
   { sides = 6, value = 6 },
@@ -71,7 +71,7 @@ rands = [
 [[ test ]]
 game_system = "DiceOfTheDead"
 input = "ZMB+6"
-output = "DiceOfTheDead : ゾンビ化表　＞　出目：6＋6　感染度：6　合計値：18　＞　１８以上：自分以外の味方１人にできる限り全力で攻撃を行う。〈アイテム〉も可能な限り使用する"
+output = "ゾンビ化表　＞　出目：6＋6　感染度：6　合計値：18　＞　１８以上：自分以外の味方１人にできる限り全力で攻撃を行う。〈アイテム〉も可能な限り使用する"
 secret = true
 rands = [
   { sides = 6, value = 6 },
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "DiceOfTheDead"
 input = "ZMB+7"
-output = "DiceOfTheDead : ゾンビ化表　＞　出目：6＋6　感染度：7　合計値：19　＞　１８以上：自分以外の味方１人にできる限り全力で攻撃を行う。〈アイテム〉も可能な限り使用する"
+output = "ゾンビ化表　＞　出目：6＋6　感染度：7　合計値：19　＞　１８以上：自分以外の味方１人にできる限り全力で攻撃を行う。〈アイテム〉も可能な限り使用する"
 secret = true
 rands = [
   { sides = 6, value = 6 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "DiceOfTheDead"
 input = "BIO"
-output = "DiceOfTheDead : 感染度表　＞　出目：1、1　「右下（【足】＋１）」"
+output = "感染度表　＞　出目：1、1　「右下（【足】＋１）」"
 secret = true
 rands = [
   { sides = 6, value = 1 },
@@ -101,7 +101,7 @@ rands = [
 [[ test ]]
 game_system = "DiceOfTheDead"
 input = "BIO8"
-output = "DiceOfTheDead : 感染度表　＞　出目：2、3　「右中（【足】＋１）」　＞　出目：1、5　「右上（【足】＋１）」　＞　出目：3、1　「中下（【腕】＋１）」　＞　出目：4、4　「真中（【腕】＋１）」　＞　出目：3、6　「中上（【腕】＋１）」　＞　出目：5、2　「左下（【頭】＋１）」　＞　出目：6、3　「左中（【頭】＋１）」　＞　出目：5、5　「左上（【頭】＋１）」"
+output = "感染度表　＞　出目：2、3　「右中（【足】＋１）」　＞　出目：1、5　「右上（【足】＋１）」　＞　出目：3、1　「中下（【腕】＋１）」　＞　出目：4、4　「真中（【腕】＋１）」　＞　出目：3、6　「中上（【腕】＋１）」　＞　出目：5、2　「左下（【頭】＋１）」　＞　出目：6、3　「左中（【頭】＋１）」　＞　出目：5、5　「左上（【頭】＋１）」"
 secret = true
 rands = [
   { sides = 6, value = 2 },

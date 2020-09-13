@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Fiasco"
 input = "FS12"
-output = "Fiasco : １ => 3個 ２ => 2個 ３ => 1個 ４ => 3個 ５ => 1個 ６ => 2個"
+output = "１ => 3個 ２ => 2個 ３ => 1個 ４ => 3個 ５ => 1個 ６ => 2個"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -20,7 +20,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "W3B3"
-output = "Fiasco : 白6[1,2,3] 黒15[4,5,6] ＞ 黒9"
+output = "白6[1,2,3] 黒15[4,5,6] ＞ 黒9"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "W3B3"
-output = "Fiasco : 白12[4,5,3] 黒8[1,5,2] ＞ 白4"
+output = "白12[4,5,3] 黒8[1,5,2] ＞ 白4"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "W6"
-output = "Fiasco : 白20[4,5,3,1,5,2] ＞ 白20"
+output = "白20[4,5,3,1,5,2] ＞ 白20"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -59,7 +59,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "B6"
-output = "Fiasco : 黒20[4,5,3,1,5,2] ＞ 黒20"
+output = "黒20[4,5,3,1,5,2] ＞ 黒20"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -72,7 +72,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "W6B0"
-output = "Fiasco : 白20[4,5,3,1,5,2] 黒0[0] ＞ 白20"
+output = "白20[4,5,3,1,5,2] 黒0[0] ＞ 白20"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -85,7 +85,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "B6W0"
-output = "Fiasco : 黒20[4,5,3,1,5,2] 白0[0] ＞ 黒20"
+output = "黒20[4,5,3,1,5,2] 白0[0] ＞ 黒20"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -98,7 +98,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "B3W3"
-output = "Fiasco : 黒8[1,5,2] 白8[1,5,2] ＞ 0"
+output = "黒8[1,5,2] 白8[1,5,2] ＞ 0"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -111,7 +111,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "W3W3"
-output = "Fiasco : W3W3：白指定(W)は重複できません。"
+output = "W3W3：白指定(W)は重複できません。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -124,7 +124,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "B3B3"
-output = "Fiasco : B3B3：黒指定(B)は重複できません。"
+output = "B3B3：黒指定(B)は重複できません。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -137,7 +137,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "SFS12"
-output = "Fiasco : １ => 3個 ２ => 2個 ３ => 1個 ４ => 3個 ５ => 1個 ６ => 2個"
+output = "１ => 3個 ２ => 2個 ３ => 1個 ４ => 3個 ５ => 1個 ６ => 2個"
 secret = true
 rands = [
   { sides = 6, value = 1 },
@@ -157,7 +157,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "SW3B3"
-output = "Fiasco : 白6[1,2,3] 黒15[4,5,6] ＞ 黒9"
+output = "白6[1,2,3] 黒15[4,5,6] ＞ 黒9"
 secret = true
 rands = [
   { sides = 6, value = 1 },
@@ -171,7 +171,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "SW3B3"
-output = "Fiasco : 白12[4,5,3] 黒8[1,5,2] ＞ 白4"
+output = "白12[4,5,3] 黒8[1,5,2] ＞ 白4"
 secret = true
 rands = [
   { sides = 6, value = 4 },
@@ -185,7 +185,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "SW6"
-output = "Fiasco : 白20[4,5,3,1,5,2] ＞ 白20"
+output = "白20[4,5,3,1,5,2] ＞ 白20"
 secret = true
 rands = [
   { sides = 6, value = 4 },
@@ -199,7 +199,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "SB6"
-output = "Fiasco : 黒20[4,5,3,1,5,2] ＞ 黒20"
+output = "黒20[4,5,3,1,5,2] ＞ 黒20"
 secret = true
 rands = [
   { sides = 6, value = 4 },
@@ -213,7 +213,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "SW6B0"
-output = "Fiasco : 白20[4,5,3,1,5,2] 黒0[0] ＞ 白20"
+output = "白20[4,5,3,1,5,2] 黒0[0] ＞ 白20"
 secret = true
 rands = [
   { sides = 6, value = 4 },
@@ -227,7 +227,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "SB6W0"
-output = "Fiasco : 黒20[4,5,3,1,5,2] 白0[0] ＞ 黒20"
+output = "黒20[4,5,3,1,5,2] 白0[0] ＞ 黒20"
 secret = true
 rands = [
   { sides = 6, value = 4 },
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "SB3W3"
-output = "Fiasco : 黒8[1,5,2] 白8[1,5,2] ＞ 0"
+output = "黒8[1,5,2] 白8[1,5,2] ＞ 0"
 secret = true
 rands = [
   { sides = 6, value = 1 },
@@ -255,7 +255,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "SW3W3"
-output = "Fiasco : W3W3：白指定(W)は重複できません。"
+output = "W3W3：白指定(W)は重複できません。"
 secret = true
 rands = [
   { sides = 6, value = 1 },
@@ -269,7 +269,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco"
 input = "SB3B3"
-output = "Fiasco : B3B3：黒指定(B)は重複できません。"
+output = "B3B3：黒指定(B)は重複できません。"
 secret = true
 rands = [
   { sides = 6, value = 4 },

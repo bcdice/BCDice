@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "ShinMegamiTenseiKakuseihen"
 input = "1D100<=50"
-output = "SMTKakuseihen : (1D100<=50) ＞ 12 ＞ スワップ(12)成功／通常(12)成功／逆スワップ(21)成功"
+output = "(1D100<=50) ＞ 12 ＞ スワップ(12)成功／通常(12)成功／逆スワップ(21)成功"
 rands = [
   { sides = 100, value = 12 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "ShinMegamiTenseiKakuseihen"
 input = "1D100<=50"
-output = "SMTKakuseihen : (1D100<=50) ＞ 43 ＞ スワップ(34)成功／通常(43)成功／逆スワップ(43)成功"
+output = "(1D100<=50) ＞ 43 ＞ スワップ(34)成功／通常(43)成功／逆スワップ(43)成功"
 rands = [
   { sides = 100, value = 43 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "ShinMegamiTenseiKakuseihen"
 input = "1D100<=50"
-output = "SMTKakuseihen : (1D100<=50) ＞ 19 ＞ スワップ(19)成功／通常(19)成功／逆スワップ(91)失敗"
+output = "(1D100<=50) ＞ 19 ＞ スワップ(19)成功／通常(19)成功／逆スワップ(91)失敗"
 rands = [
   { sides = 100, value = 19 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "ShinMegamiTenseiKakuseihen"
 input = "1D100<=50"
-output = "SMTKakuseihen : (1D100<=50) ＞ 63 ＞ スワップ(36)成功／通常(63)失敗／逆スワップ(63)失敗"
+output = "(1D100<=50) ＞ 63 ＞ スワップ(36)成功／通常(63)失敗／逆スワップ(63)失敗"
 rands = [
   { sides = 100, value = 63 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "ShinMegamiTenseiKakuseihen"
 input = "1D100<=50"
-output = "SMTKakuseihen : (1D100<=50) ＞ 76 ＞ スワップ(67)失敗／通常(76)失敗／逆スワップ(76)失敗"
+output = "(1D100<=50) ＞ 76 ＞ スワップ(67)失敗／通常(76)失敗／逆スワップ(76)失敗"
 rands = [
   { sides = 100, value = 76 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "ShinMegamiTenseiKakuseihen"
 input = "1D100<=50"
-output = "SMTKakuseihen : (1D100<=50) ＞ 44 ＞ スワップ(44)絶対成功／通常(44)絶対成功／逆スワップ(44)絶対成功"
+output = "(1D100<=50) ＞ 44 ＞ スワップ(44)絶対成功／通常(44)絶対成功／逆スワップ(44)絶対成功"
 rands = [
   { sides = 100, value = 44 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "ShinMegamiTenseiKakuseihen"
 input = "1D100<=50"
-output = "SMTKakuseihen : (1D100<=50) ＞ 66 ＞ スワップ(66)絶対失敗／通常(66)絶対失敗／逆スワップ(66)絶対失敗"
+output = "(1D100<=50) ＞ 66 ＞ スワップ(66)絶対失敗／通常(66)絶対失敗／逆スワップ(66)絶対失敗"
 rands = [
   { sides = 100, value = 66 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "ShinMegamiTenseiKakuseihen"
 input = "1D100<=50"
-output = "SMTKakuseihen : (1D100<=50) ＞ 99 ＞ スワップ(99)絶対失敗／通常(99)絶対失敗／逆スワップ(99)絶対失敗"
+output = "(1D100<=50) ＞ 99 ＞ スワップ(99)絶対失敗／通常(99)絶対失敗／逆スワップ(99)絶対失敗"
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "ShinMegamiTenseiKakuseihen"
 input = "1D100<=50"
-output = "SMTKakuseihen : (1D100<=50) ＞ 100 ＞ スワップ(00)絶対成功／通常(00)絶対成功／逆スワップ(00)絶対成功"
+output = "(1D100<=50) ＞ 100 ＞ スワップ(00)絶対成功／通常(00)絶対成功／逆スワップ(00)絶対成功"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "ShinMegamiTenseiKakuseihen"
 input = "1D100<=50"
-output = "SMTKakuseihen : (1D100<=50) ＞ 1 ＞ スワップ(01)成功／通常(01)成功／逆スワップ(10)成功"
+output = "(1D100<=50) ＞ 1 ＞ スワップ(01)成功／通常(01)成功／逆スワップ(10)成功"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "ShinMegamiTenseiKakuseihen"
 input = "1D100<=50"
-output = "SMTKakuseihen : (1D100<=50) ＞ 9 ＞ スワップ(09)成功／通常(09)成功／逆スワップ(90)失敗"
+output = "(1D100<=50) ＞ 9 ＞ スワップ(09)成功／通常(09)成功／逆スワップ(90)失敗"
 rands = [
   { sides = 100, value = 9 },
 ]
@@ -89,7 +89,7 @@ rands = [
 [[ test ]]
 game_system = "ShinMegamiTenseiKakuseihen"
 input = "1D100>=? 目標値?でバグらない"
-output = "SMTKakuseihen : (1D100>=?) ＞ 42 ＞ 失敗"
+output = "(1D100>=?) ＞ 42 ＞ 失敗"
 rands = [
   { sides = 100, value = 42 },
 ]

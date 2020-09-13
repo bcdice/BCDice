@@ -7,7 +7,7 @@ rands = []
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS"
-output = "GoblinSlayer : (GS) ＞ 4[1,3] ＞ 4"
+output = "(GS) ＞ 4[1,3] ＞ 4"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -16,7 +16,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS"
-output = "GoblinSlayer : (GS) ＞ 12[6,6] ＞ 12 ＞ 大成功"
+output = "(GS) ＞ 12[6,6] ＞ 12 ＞ 大成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS"
-output = "GoblinSlayer : (GS) ＞ 2[1,1] ＞ 2 ＞ 大失敗"
+output = "(GS) ＞ 2[1,1] ＞ 2 ＞ 大失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -34,7 +34,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS10"
-output = "GoblinSlayer : (GS10) ＞ 10 + 4[1,3] ＞ 14"
+output = "(GS10) ＞ 10 + 4[1,3] ＞ 14"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -43,7 +43,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS10"
-output = "GoblinSlayer : (GS10) ＞ 10 + 12[6,6] ＞ 22 ＞ 大成功"
+output = "(GS10) ＞ 10 + 12[6,6] ＞ 22 ＞ 大成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -52,7 +52,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS10"
-output = "GoblinSlayer : (GS10) ＞ 10 + 2[1,1] ＞ 12 ＞ 大失敗"
+output = "(GS10) ＞ 10 + 2[1,1] ＞ 12 ＞ 大失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -61,7 +61,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS>=5"
-output = "GoblinSlayer : (GS>=5) ＞ 5[2,3] ＞ 5 ＞ 成功"
+output = "(GS>=5) ＞ 5[2,3] ＞ 5 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -70,7 +70,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS>=5"
-output = "GoblinSlayer : (GS>=5) ＞ 4[1,3] ＞ 4 ＞ 失敗"
+output = "(GS>=5) ＞ 4[1,3] ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -79,7 +79,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS>=5"
-output = "GoblinSlayer : (GS>=5) ＞ 12[6,6] ＞ 12 ＞ 大成功"
+output = "(GS>=5) ＞ 12[6,6] ＞ 12 ＞ 大成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -88,7 +88,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS>=5"
-output = "GoblinSlayer : (GS>=5) ＞ 2[1,1] ＞ 2 ＞ 大失敗"
+output = "(GS>=5) ＞ 2[1,1] ＞ 2 ＞ 大失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS10>=15"
-output = "GoblinSlayer : (GS10>=15) ＞ 10 + 5[2,3] ＞ 15 ＞ 成功"
+output = "(GS10>=15) ＞ 10 + 5[2,3] ＞ 15 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -106,7 +106,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS10>=15"
-output = "GoblinSlayer : (GS10>=15) ＞ 10 + 4[1,3] ＞ 14 ＞ 失敗"
+output = "(GS10>=15) ＞ 10 + 4[1,3] ＞ 14 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -115,7 +115,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS10>=15"
-output = "GoblinSlayer : (GS10>=15) ＞ 10 + 12[6,6] ＞ 22 ＞ 大成功"
+output = "(GS10>=15) ＞ 10 + 12[6,6] ＞ 22 ＞ 大成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -124,7 +124,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS10>=15"
-output = "GoblinSlayer : (GS10>=15) ＞ 10 + 2[1,1] ＞ 12 ＞ 大失敗"
+output = "(GS10>=15) ＞ 10 + 2[1,1] ＞ 12 ＞ 大失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -133,7 +133,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS>5"
-output = "GoblinSlayer : (GS>5) ＞ 5[2,3] ＞ 5 ＞ 失敗"
+output = "(GS>5) ＞ 5[2,3] ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -142,7 +142,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS>5"
-output = "GoblinSlayer : (GS>5) ＞ 6[3,3] ＞ 6 ＞ 成功"
+output = "(GS>5) ＞ 6[3,3] ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -151,7 +151,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS10>15"
-output = "GoblinSlayer : (GS10>15) ＞ 10 + 5[2,3] ＞ 15 ＞ 失敗"
+output = "(GS10>15) ＞ 10 + 5[2,3] ＞ 15 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -160,7 +160,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS10>15"
-output = "GoblinSlayer : (GS10>15) ＞ 10 + 6[3,3] ＞ 16 ＞ 成功"
+output = "(GS10>15) ＞ 10 + 6[3,3] ＞ 16 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -169,7 +169,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS+2>5"
-output = "GoblinSlayer : (GS+2>5) ＞ 2 + 5[2,3] ＞ 7 ＞ 成功"
+output = "(GS+2>5) ＞ 2 + 5[2,3] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -178,7 +178,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS+2>5"
-output = "GoblinSlayer : (GS+2>5) ＞ 2 + 6[3,3] ＞ 8 ＞ 成功"
+output = "(GS+2>5) ＞ 2 + 6[3,3] ＞ 8 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -199,7 +199,7 @@ rands = []
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI$3"
-output = "GoblinSlayer : 祈念(2d6) ＞ 2[1,1] ＞ 2 ＞ 失敗, 因果点：3点 → 4点"
+output = "祈念(2d6) ＞ 2[1,1] ＞ 2 ＞ 失敗, 因果点：3点 → 4点"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -208,7 +208,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI$4"
-output = "GoblinSlayer : 祈念(2d6) ＞ 3[1,2] ＞ 3 ＞ 失敗, 因果点：4点 → 5点"
+output = "祈念(2d6) ＞ 3[1,2] ＞ 3 ＞ 失敗, 因果点：4点 → 5点"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI$5"
-output = "GoblinSlayer : 祈念(2d6) ＞ 5[2,3] ＞ 5 ＞ 成功, 因果点：5点 → 6点"
+output = "祈念(2d6) ＞ 5[2,3] ＞ 5 ＞ 成功, 因果点：5点 → 6点"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -226,7 +226,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI$6"
-output = "GoblinSlayer : 祈念(2d6) ＞ 12[6,6] ＞ 12 ＞ 成功, 因果点：6点 → 7点"
+output = "祈念(2d6) ＞ 12[6,6] ＞ 12 ＞ 成功, 因果点：6点 → 7点"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -235,7 +235,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI1$7"
-output = "GoblinSlayer : 祈念(2d6+1) ＞ 6[3,3]+1 ＞ 7 ＞ 成功, 因果点：7点 → 8点"
+output = "祈念(2d6+1) ＞ 6[3,3]+1 ＞ 7 ＞ 成功, 因果点：7点 → 8点"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -244,7 +244,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI+1$7"
-output = "GoblinSlayer : 祈念(2d6+1) ＞ 6[3,3]+1 ＞ 7 ＞ 成功, 因果点：7点 → 8点"
+output = "祈念(2d6+1) ＞ 6[3,3]+1 ＞ 7 ＞ 成功, 因果点：7点 → 8点"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -253,7 +253,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI(1)$8"
-output = "GoblinSlayer : 祈念(2d6+1) ＞ 2[1,1]+1 ＞ 3 ＞ 失敗, 因果点：8点 → 9点"
+output = "祈念(2d6+1) ＞ 2[1,1]+1 ＞ 3 ＞ 失敗, 因果点：8点 → 9点"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -262,7 +262,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI(2)$9"
-output = "GoblinSlayer : 祈念(2d6+2) ＞ 4[2,2]+2 ＞ 6 ＞ 失敗, 因果点：9点 → 10点"
+output = "祈念(2d6+2) ＞ 4[2,2]+2 ＞ 6 ＞ 失敗, 因果点：9点 → 10点"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -271,7 +271,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI(2)$10"
-output = "GoblinSlayer : 祈念(2d6+2) ＞ 8[4,4]+2 ＞ 10 ＞ 成功, 因果点：10点 → 11点"
+output = "祈念(2d6+2) ＞ 8[4,4]+2 ＞ 10 ＞ 成功, 因果点：10点 → 11点"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -280,7 +280,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI(3)$11"
-output = "GoblinSlayer : 祈念(2d6+3) ＞ 12[6,6]+3 ＞ 15 ＞ 成功, 因果点：11点 → 12点"
+output = "祈念(2d6+3) ＞ 12[6,6]+3 ＞ 15 ＞ 成功, 因果点：11点 → 12点"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -289,31 +289,31 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI$12"
-output = "GoblinSlayer : 因果点が12点以上の場合、因果点は使用できません。"
+output = "因果点が12点以上の場合、因果点は使用できません。"
 rands = []
 
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI2$12"
-output = "GoblinSlayer : 因果点が12点以上の場合、因果点は使用できません。"
+output = "因果点が12点以上の場合、因果点は使用できません。"
 rands = []
 
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI+2$12"
-output = "GoblinSlayer : 因果点が12点以上の場合、因果点は使用できません。"
+output = "因果点が12点以上の場合、因果点は使用できません。"
 rands = []
 
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "DB14"
-output = "GoblinSlayer : 命中判定の効力値によるボーナス ＞ なし"
+output = "命中判定の効力値によるボーナス ＞ なし"
 rands = []
 
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "DB15"
-output = "GoblinSlayer : 命中判定の効力値によるボーナス ＞ 1[1] ＞ 1"
+output = "命中判定の効力値によるボーナス ＞ 1[1] ＞ 1"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -321,7 +321,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "DB19"
-output = "GoblinSlayer : 命中判定の効力値によるボーナス ＞ 1[1] ＞ 1"
+output = "命中判定の効力値によるボーナス ＞ 1[1] ＞ 1"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -329,7 +329,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "DB20"
-output = "GoblinSlayer : 命中判定の効力値によるボーナス ＞ 2[1,1] ＞ 2"
+output = "命中判定の効力値によるボーナス ＞ 2[1,1] ＞ 2"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -338,7 +338,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "DB24"
-output = "GoblinSlayer : 命中判定の効力値によるボーナス ＞ 2[1,1] ＞ 2"
+output = "命中判定の効力値によるボーナス ＞ 2[1,1] ＞ 2"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -347,7 +347,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "DB25"
-output = "GoblinSlayer : 命中判定の効力値によるボーナス ＞ 3[1,1,1] ＞ 3"
+output = "命中判定の効力値によるボーナス ＞ 3[1,1,1] ＞ 3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -357,7 +357,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "DB29"
-output = "GoblinSlayer : 命中判定の効力値によるボーナス ＞ 3[1,1,1] ＞ 3"
+output = "命中判定の効力値によるボーナス ＞ 3[1,1,1] ＞ 3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -367,7 +367,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "DB30"
-output = "GoblinSlayer : 命中判定の効力値によるボーナス ＞ 4[1,1,1,1] ＞ 4"
+output = "命中判定の効力値によるボーナス ＞ 4[1,1,1,1] ＞ 4"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -378,7 +378,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "DB39"
-output = "GoblinSlayer : 命中判定の効力値によるボーナス ＞ 4[1,1,1,1] ＞ 4"
+output = "命中判定の効力値によるボーナス ＞ 4[1,1,1,1] ＞ 4"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -389,7 +389,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "DB40"
-output = "GoblinSlayer : 命中判定の効力値によるボーナス ＞ 5[1,1,1,1,1] ＞ 5"
+output = "命中判定の効力値によるボーナス ＞ 5[1,1,1,1,1] ＞ 5"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -401,7 +401,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "SGS"
-output = "GoblinSlayer : (GS) ＞ 12[6,6] ＞ 12 ＞ 大成功"
+output = "(GS) ＞ 12[6,6] ＞ 12 ＞ 大成功"
 secret = true
 rands = [
   { sides = 6, value = 6 },
@@ -417,7 +417,7 @@ rands = []
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "SDB40"
-output = "GoblinSlayer : 命中判定の効力値によるボーナス ＞ 5[1,1,1,1,1] ＞ 5"
+output = "命中判定の効力値によるボーナス ＞ 5[1,1,1,1,1] ＞ 5"
 secret = true
 rands = [
   { sides = 6, value = 1 },

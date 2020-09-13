@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK50"
-output = "AceKillerGene : D100<=50@10 ＞ 50 ＞ 成功"
+output = "D100<=50@10 ＞ 50 ＞ 成功"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK50"
-output = "AceKillerGene : D100<=50@10 ＞ 51 ＞ 失敗"
+output = "D100<=50@10 ＞ 51 ＞ 失敗"
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK50"
-output = "AceKillerGene : D100<=50@10 ＞ 95 ＞ 失敗"
+output = "D100<=50@10 ＞ 95 ＞ 失敗"
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK50"
-output = "AceKillerGene : D100<=50@10 ＞ 96 ＞ ファンブル"
+output = "D100<=50@10 ＞ 96 ＞ ファンブル"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK96"
-output = "AceKillerGene : D100<=96@19 ＞ 96 ＞ ファンブル"
+output = "D100<=96@19 ＞ 96 ＞ ファンブル"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK99"
-output = "AceKillerGene : D100<=99@19 ＞ 96 ＞ ファンブル"
+output = "D100<=99@19 ＞ 96 ＞ ファンブル"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK100"
-output = "AceKillerGene : D100<=100@20 ＞ 96 ＞ 成功"
+output = "D100<=100@20 ＞ 96 ＞ 成功"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK100"
-output = "AceKillerGene : D100<=100@20 ＞ 98 ＞ 成功"
+output = "D100<=100@20 ＞ 98 ＞ 成功"
 rands = [
   { sides = 100, value = 98 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK100"
-output = "AceKillerGene : D100<=100@20 ＞ 99 ＞ ファンブル"
+output = "D100<=100@20 ＞ 99 ＞ ファンブル"
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK50"
-output = "AceKillerGene : D100<=50@10 ＞ 11 ＞ 成功"
+output = "D100<=50@10 ＞ 11 ＞ 成功"
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK50"
-output = "AceKillerGene : D100<=50@10 ＞ 10 ＞ クリティカル"
+output = "D100<=50@10 ＞ 10 ＞ クリティカル"
 rands = [
   { sides = 100, value = 10 },
 ]
@@ -89,7 +89,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK500"
-output = "AceKillerGene : D100<=500@100 ＞ 100 ＞ クリティカル"
+output = "D100<=500@100 ＞ 100 ＞ クリティカル"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK0"
-output = "AceKillerGene : D100<=0@1 ＞ 2 ＞ 失敗"
+output = "D100<=0@1 ＞ 2 ＞ 失敗"
 rands = [
   { sides = 100, value = 2 },
 ]
@@ -105,7 +105,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK0"
-output = "AceKillerGene : D100<=0@1 ＞ 1 ＞ クリティカル"
+output = "D100<=0@1 ＞ 1 ＞ クリティカル"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -113,7 +113,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK50"
-output = "AceKillerGene : D100<=50@10 ＞ 11 ＞ 成功"
+output = "D100<=50@10 ＞ 11 ＞ 成功"
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -121,7 +121,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK50@11"
-output = "AceKillerGene : D100<=50@11 ＞ 11 ＞ クリティカル"
+output = "D100<=50@11 ＞ 11 ＞ クリティカル"
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -129,7 +129,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK50@11"
-output = "AceKillerGene : D100<=50@11 ＞ 12 ＞ 成功"
+output = "D100<=50@11 ＞ 12 ＞ 成功"
 rands = [
   { sides = 100, value = 12 },
 ]
@@ -137,7 +137,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK100/2"
-output = "AceKillerGene : D100<=50@20 ＞ 50 ＞ 成功"
+output = "D100<=50@20 ＞ 50 ＞ 成功"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK100/2"
-output = "AceKillerGene : D100<=50@20 ＞ 51 ＞ 失敗"
+output = "D100<=50@20 ＞ 51 ＞ 失敗"
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -153,7 +153,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK100/2"
-output = "AceKillerGene : D100<=50@20 ＞ 96 ＞ ファンブル"
+output = "D100<=50@20 ＞ 96 ＞ ファンブル"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -161,7 +161,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK100/2"
-output = "AceKillerGene : D100<=50@20 ＞ 21 ＞ 成功"
+output = "D100<=50@20 ＞ 21 ＞ 成功"
 rands = [
   { sides = 100, value = 21 },
 ]
@@ -169,7 +169,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK100/2"
-output = "AceKillerGene : D100<=50@20 ＞ 20 ＞ クリティカル"
+output = "D100<=50@20 ＞ 20 ＞ クリティカル"
 rands = [
   { sides = 100, value = 20 },
 ]
@@ -177,7 +177,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK150/2"
-output = "AceKillerGene : D100<=75@30 ＞ 51 ＞ 成功"
+output = "D100<=75@30 ＞ 51 ＞ 成功"
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -185,7 +185,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK150/2"
-output = "AceKillerGene : D100<=75@30 ＞ 30 ＞ クリティカル"
+output = "D100<=75@30 ＞ 30 ＞ クリティカル"
 rands = [
   { sides = 100, value = 30 },
 ]
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK150/3"
-output = "AceKillerGene : D100<=50@30 ＞ 51 ＞ 失敗"
+output = "D100<=50@30 ＞ 51 ＞ 失敗"
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -201,61 +201,61 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "dcSL1"
-output = "AceKillerGene : 負傷表：切断[1] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
+output = "負傷表：切断[1] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
 rands = []
 
 [[ test ]]
 game_system = "AceKillerGene"
 input = "dcSL2"
-output = "AceKillerGene : 負傷表：切断[2] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
+output = "負傷表：切断[2] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
 rands = []
 
 [[ test ]]
 game_system = "AceKillerGene"
 input = "dcSL5"
-output = "AceKillerGene : 負傷表：切断[5] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
+output = "負傷表：切断[5] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
 rands = []
 
 [[ test ]]
 game_system = "AceKillerGene"
 input = "dcSL6"
-output = "AceKillerGene : 負傷表：切断[6] ＞ 軽傷２／マヒ ｜ 脚部負傷 … 足が切り裂かれ、思わずひざまずく。"
+output = "負傷表：切断[6] ＞ 軽傷２／マヒ ｜ 脚部負傷 … 足が切り裂かれ、思わずひざまずく。"
 rands = []
 
 [[ test ]]
 game_system = "AceKillerGene"
 input = "dcBL1"
-output = "AceKillerGene : 負傷表：銃弾[1] ＞ 軽傷２ ｜ 腕部損傷 … 銃弾が腕をかすめた。"
+output = "負傷表：銃弾[1] ＞ 軽傷２ ｜ 腕部損傷 … 銃弾が腕をかすめた。"
 rands = []
 
 [[ test ]]
 game_system = "AceKillerGene"
 input = "dcIM1"
-output = "AceKillerGene : 負傷表：衝撃[1] ＞ 軽傷1 ｜ 打撲 … 攻撃を受けた箇所がどす黒く腫れ上がる。"
+output = "負傷表：衝撃[1] ＞ 軽傷1 ｜ 打撲 … 攻撃を受けた箇所がどす黒く腫れ上がる。"
 rands = []
 
 [[ test ]]
 game_system = "AceKillerGene"
 input = "dcBR1"
-output = "AceKillerGene : 負傷表：灼熱[1] ＞ 軽傷1 ｜ 火傷 … 皮膚に小さな火傷を負う。"
+output = "負傷表：灼熱[1] ＞ 軽傷1 ｜ 火傷 … 皮膚に小さな火傷を負う。"
 rands = []
 
 [[ test ]]
 game_system = "AceKillerGene"
 input = "dcRF1"
-output = "AceKillerGene : 負傷表：冷却[1] ＞ 軽傷1 ｜ 冷気 … 軽い凍傷を受ける。"
+output = "負傷表：冷却[1] ＞ 軽傷1 ｜ 冷気 … 軽い凍傷を受ける。"
 rands = []
 
 [[ test ]]
 game_system = "AceKillerGene"
 input = "dcEL1"
-output = "AceKillerGene : 負傷表：電撃[1] ＞ 疲労３ ｜ 静電気 … 全身の毛が逆立つ。"
+output = "負傷表：電撃[1] ＞ 疲労３ ｜ 静電気 … 全身の毛が逆立つ。"
 rands = []
 
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK(20-20)"
-output = "AceKillerGene : D100<=0@1 ＞ 1 ＞ クリティカル"
+output = "D100<=0@1 ＞ 1 ＞ クリティカル"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -263,7 +263,7 @@ rands = [
 [[ test ]]
 game_system = "AceKillerGene"
 input = "AK(20-50)"
-output = "AceKillerGene : D100<=0@1 ＞ 1 ＞ クリティカル"
+output = "D100<=0@1 ＞ 1 ＞ クリティカル"
 rands = [
   { sides = 100, value = 1 },
 ]

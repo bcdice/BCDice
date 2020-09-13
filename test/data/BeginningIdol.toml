@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "BeginningIdol"
 input = "2d6>=4"
-output = "BeginningIdol : (2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
+output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "2d6>=9"
-output = "BeginningIdol : (2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "2d6>=9"
-output = "BeginningIdol : (2D6>=9) ＞ 2[1,1] ＞ 2 ＞ ファンブル(変調がランダムに1つ発生し、PCは【思い出】を1つ獲得する)"
+output = "(2D6>=9) ＞ 2[1,1] ＞ 2 ＞ ファンブル(変調がランダムに1つ発生し、PCは【思い出】を1つ獲得する)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "2d6>=9"
-output = "BeginningIdol : (2D6>=9) ＞ 12[6,6] ＞ 12 ＞ スペシャル！(PCは【思い出】を1つ獲得する)"
+output = "(2D6>=9) ＞ 12[6,6] ＞ 12 ＞ スペシャル！(PCは【思い出】を1つ獲得する)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "WT"
-output = "BeginningIdol : 仕事表 ＞ [15] ＞ パートナープレイヤーの「ファッション特徴」を活かす仕事がやって来た。\n特技 : パートナープレイヤーが修得している属性分野の特技"
+output = "仕事表 ＞ [15] ＞ パートナープレイヤーの「ファッション特徴」を活かす仕事がやって来た。\n特技 : パートナープレイヤーが修得している属性分野の特技"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "WT"
-output = "BeginningIdol : 仕事表 ＞ [44] ＞ オフ"
+output = "仕事表 ＞ [44] ＞ オフ"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "WT"
-output = "BeginningIdol : 仕事表 ＞ [26] ＞ 趣味の番組に出演。こんな世界があるのか……。\n特技 : 趣味分野からランダム"
+output = "仕事表 ＞ [26] ＞ 趣味の番組に出演。こんな世界があるのか……。\n特技 : 趣味分野からランダム"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -64,7 +64,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BWT"
-output = "BeginningIdol : 大手芸能プロダクション仕事表 ＞ [12] ＞ 先輩アイドルが司会を務めるバラエティ番組に出演！　どんなコーナーを任されるんだろう？\n特技 : 趣味分野からランダム"
+output = "大手芸能プロダクション仕事表 ＞ [12] ＞ 先輩アイドルが司会を務めるバラエティ番組に出演！　どんなコーナーを任されるんだろう？\n特技 : 趣味分野からランダム"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BWT"
-output = "BeginningIdol : 大手芸能プロダクション仕事表 ＞ [66] ＞ プロダクション内で総選挙が開始！　今回のテーマは……？\n特技 : ランダム"
+output = "大手芸能プロダクション仕事表 ＞ [66] ＞ プロダクション内で総選挙が開始！　今回のテーマは……？\n特技 : ランダム"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -82,7 +82,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LWT"
-output = "BeginningIdol : 弱小芸能プロダクション仕事表 ＞ [36] ＞ コーラスに欠員が出たアイドルライブの穴埋めとして選ばれる。主役のキャラに合わせないと。\n特技 : 属性分野からランダム"
+output = "弱小芸能プロダクション仕事表 ＞ [36] ＞ コーラスに欠員が出たアイドルライブの穴埋めとして選ばれる。主役のキャラに合わせないと。\n特技 : 属性分野からランダム"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LWT"
-output = "BeginningIdol : 弱小芸能プロダクション仕事表 ＞ [45] ＞ PCたちの事務所にレポートのカメラが入る。小さいけどがんばってます！\n特技 : ランダム"
+output = "弱小芸能プロダクション仕事表 ＞ [45] ＞ PCたちの事務所にレポートのカメラが入る。小さいけどがんばってます！\n特技 : ランダム"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "TWT"
-output = "BeginningIdol : ライブシアター仕事表 ＞ [56] ＞ シアターの外で行う仕事をこなす。\n特技 : ランダム"
+output = "ライブシアター仕事表 ＞ [56] ＞ シアターの外で行う仕事をこなす。\n特技 : ランダム"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "TWT"
-output = "BeginningIdol : ライブシアター仕事表 ＞ [23] ＞ 今回の劇、シーンプレイヤーの【背景】を元にしたノンフィクションドラマ！\n特技 : 趣味分野からランダム"
+output = "ライブシアター仕事表 ＞ [23] ＞ 今回の劇、シーンプレイヤーの【背景】を元にしたノンフィクションドラマ！\n特技 : 趣味分野からランダム"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CWT"
-output = "BeginningIdol : アイドル部仕事表 ＞ [24] ＞ メイド喫茶をすることになった。パートナープレイヤーの「好きなもの」が主なメニューだ。\n特技 : パートナープレイヤーが修得している趣味分野の特技"
+output = "アイドル部仕事表 ＞ [24] ＞ メイド喫茶をすることになった。パートナープレイヤーの「好きなもの」が主なメニューだ。\n特技 : パートナープレイヤーが修得している趣味分野の特技"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CWT"
-output = "BeginningIdol : アイドル部仕事表 ＞ [13] ＞ 校内イベントの司会進行をすることになった。うまく盛り上げられるかな？\n特技 : 《ポップ／属性9》"
+output = "アイドル部仕事表 ＞ [13] ＞ 校内イベントの司会進行をすることになった。うまく盛り上げられるかな？\n特技 : 《ポップ／属性9》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -136,7 +136,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD2"
-output = "BeginningIdol : パフォーマンス ＞ [1,4] ＞ 5"
+output = "パフォーマンス ＞ [1,4] ＞ 5"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD2"
-output = "BeginningIdol : パフォーマンス ＞ [3,3] ＞ 【ミラクル】10"
+output = "パフォーマンス ＞ [3,3] ＞ 【ミラクル】10"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -154,7 +154,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD3"
-output = "BeginningIdol : パフォーマンス ＞ [3,3,4] ＞ [4] ＞ 4"
+output = "パフォーマンス ＞ [3,3,4] ＞ [4] ＞ 4"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -164,7 +164,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD4"
-output = "BeginningIdol : パフォーマンス ＞ [2,4,5,5] ＞ [2,4] ＞ 6"
+output = "パフォーマンス ＞ [2,4,5,5] ＞ [2,4] ＞ 6"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -175,7 +175,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD4"
-output = "BeginningIdol : パフォーマンス ＞ [2,2,2,5] ＞ [5] ＞ 5"
+output = "パフォーマンス ＞ [2,2,2,5] ＞ [5] ＞ 5"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -186,7 +186,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD6"
-output = "BeginningIdol : パフォーマンス ＞ [1,1,3,3,5,6] ＞ [5,6] ＞ 11"
+output = "パフォーマンス ＞ [1,1,3,3,5,6] ＞ [5,6] ＞ 11"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -199,7 +199,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD6"
-output = "BeginningIdol : パフォーマンス ＞ [1,2,3,4,5,6] ＞ 【パーフェクトミラクル】30"
+output = "パフォーマンス ＞ [1,2,3,4,5,6] ＞ 【パーフェクトミラクル】30"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -212,7 +212,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "AT"
-output = "BeginningIdol : 特技リスト ＞ [2,7] ＞ 《プレーン／属性7》"
+output = "特技リスト ＞ [2,7] ＞ 《プレーン／属性7》"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -222,7 +222,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "AT"
-output = "BeginningIdol : 特技リスト ＞ [6,11] ＞ 《北海道／出身11》"
+output = "特技リスト ＞ [6,11] ＞ 《北海道／出身11》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -232,7 +232,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "AT5"
-output = "BeginningIdol : 特技リスト(趣味分野) ＞ [8] ＞ 《ショッピング／趣味8》"
+output = "特技リスト(趣味分野) ＞ [8] ＞ 《ショッピング／趣味8》"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "DT"
-output = "BeginningIdol : 衣装(チャレンジガールズ) ＞ [34] ＞ Travel Bag\n幕間に自分の【理解度】チェック1つを外すことができる。"
+output = "衣装(チャレンジガールズ) ＞ [34] ＞ Travel Bag\n幕間に自分の【理解度】チェック1つを外すことができる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -250,7 +250,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "DT"
-output = "BeginningIdol : 衣装(チャレンジガールズ) ＞ [13] ＞ しずく\nライブフェイズ開始時に、【メンタル】が5点上昇する。"
+output = "衣装(チャレンジガールズ) ＞ [13] ＞ しずく\nライブフェイズ開始時に、【メンタル】が5点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -259,7 +259,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BT"
-output = "BeginningIdol : 変調 ＞ [2] ＞ 「微妙な距離感」　【理解度】が上昇しなくなる"
+output = "変調 ＞ [2] ＞ 「微妙な距離感」　【理解度】が上昇しなくなる"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -267,7 +267,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SGT"
-output = "BeginningIdol : アイドルスキル修得表(チャレンジガールズ) ＞ [4] ＞ ランダムに決定した特技が指定特技のアイドルスキル(身長分野、属性分野、出身分野が出たら振り直し)\n特技リスト ＞ [1,2] ＞ 《～125／身長2》 ＞ 振り直し\n特技リスト ＞ [2,2] ＞ 《エスニック／属性2》 ＞ 振り直し\n特技リスト ＞ [6,2] ＞ 《沖縄／出身2》 ＞ 振り直し\n特技リスト ＞ [4,2] ＞ 《中二病／キャラ2》"
+output = "アイドルスキル修得表(チャレンジガールズ) ＞ [4] ＞ ランダムに決定した特技が指定特技のアイドルスキル(身長分野、属性分野、出身分野が出たら振り直し)\n特技リスト ＞ [1,2] ＞ 《～125／身長2》 ＞ 振り直し\n特技リスト ＞ [2,2] ＞ 《エスニック／属性2》 ＞ 振り直し\n特技リスト ＞ [6,2] ＞ 《沖縄／出身2》 ＞ 振り直し\n特技リスト ＞ [4,2] ＞ 《中二病／キャラ2》"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -287,7 +287,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BST"
-output = "BeginningIdol : 大手芸能プロダクション場所表 ＞ [3] ＞ 社内プール"
+output = "大手芸能プロダクション場所表 ＞ [3] ＞ 社内プール"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -295,7 +295,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LVT"
-output = "BeginningIdol : 弱小芸能プロダクション会場表 ＞ [1] ＞ 地方のお祭り"
+output = "弱小芸能プロダクション会場表 ＞ [1] ＞ 地方のお祭り"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -303,7 +303,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "TPT"
-output = "BeginningIdol : ライブシアタープレッシャー種別決定表 ＞ [2] ＞ ライブシアターで働くスタッフ"
+output = "ライブシアタープレッシャー種別決定表 ＞ [2] ＞ ライブシアターで働くスタッフ"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -311,7 +311,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CIT"
-output = "BeginningIdol : アイドル部道具表 ＞ [4] ＞ ハンディカメラ"
+output = "アイドル部道具表 ＞ [4] ＞ ハンディカメラ"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -319,7 +319,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CBT"
-output = "BeginningIdol : キャラ空白表(チャレンジガールズ) ＞ [15] ＞ お調子者"
+output = "キャラ空白表(チャレンジガールズ) ＞ [15] ＞ お調子者"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -328,7 +328,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "HBT"
-output = "BeginningIdol : 趣味空白表(チャレンジガールズ) ＞ [24] ＞ メール"
+output = "趣味空白表(チャレンジガールズ) ＞ [24] ＞ メール"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -337,7 +337,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "3d6>=4"
-output = "BeginningIdol : (3D6>=4) ＞ 11[1,4,6] ＞ 11 ＞ 成功"
+output = "(3D6>=4) ＞ 11[1,4,6] ＞ 11 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -347,7 +347,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "3d6>=9"
-output = "BeginningIdol : (3D6>=9) ＞ 5[1,2,2] ＞ 5 ＞ 失敗"
+output = "(3D6>=9) ＞ 5[1,2,2] ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -357,7 +357,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "3d6>=9"
-output = "BeginningIdol : (3D6>=9) ＞ 12[3,4,5] ＞ 12 ＞ スペシャル！(PCは【思い出】を1つ獲得する)"
+output = "(3D6>=9) ＞ 12[3,4,5] ＞ 12 ＞ スペシャル！(PCは【思い出】を1つ獲得する)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -367,7 +367,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "3d6>=9"
-output = "BeginningIdol : (3D6>=9) ＞ 13[4,4,5] ＞ 13 ＞ スペシャル！(PCは【思い出】を1つ獲得する)"
+output = "(3D6>=9) ＞ 13[4,4,5] ＞ 13 ＞ スペシャル！(PCは【思い出】を1つ獲得する)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -377,7 +377,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD3+2"
-output = "BeginningIdol : パフォーマンス ＞ [5,5,5]+2 ＞ 【ミラクル】12"
+output = "パフォーマンス ＞ [5,5,5]+2 ＞ 【ミラクル】12"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -387,7 +387,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD3+0"
-output = "BeginningIdol : パフォーマンス ＞ [3,3,4] ＞ [4] ＞ 4"
+output = "パフォーマンス ＞ [3,3,4] ＞ [4] ＞ 4"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -397,7 +397,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD4-6"
-output = "BeginningIdol : パフォーマンス ＞ [2,2,2,5]-6 ＞ [5]-6 ＞ -1"
+output = "パフォーマンス ＞ [2,2,2,5]-6 ＞ [5]-6 ＞ -1"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -408,7 +408,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD6+3"
-output = "BeginningIdol : パフォーマンス ＞ [1,2,3,4,5,6]+3 ＞ 【パーフェクトミラクル】33"
+output = "パフォーマンス ＞ [1,2,3,4,5,6]+3 ＞ 【パーフェクトミラクル】33"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -421,7 +421,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "246PD2"
-output = "BeginningIdol : シンフォニー ＞ [1,5],[2,4,6] ＞ [1,2,4,5,6] ＞ 18"
+output = "シンフォニー ＞ [1,5],[2,4,6] ＞ [1,2,4,5,6] ＞ 18"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -430,7 +430,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "15PD3"
-output = "BeginningIdol : シンフォニー ＞ [1,5,5],[1,5] ＞ 【ミラクルシンクロ】15＋シンフォニーを行った人数"
+output = "シンフォニー ＞ [1,5,5],[1,5] ＞ 【ミラクルシンクロ】15＋シンフォニーを行った人数"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -440,7 +440,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "145PD3-4"
-output = "BeginningIdol : シンフォニー ＞ [1,4,5],[1,4,5]-4 ＞ 【ミラクルシンクロ】11＋シンフォニーを行った人数"
+output = "シンフォニー ＞ [1,4,5],[1,4,5]-4 ＞ 【ミラクルシンクロ】11＋シンフォニーを行った人数"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -450,7 +450,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "67PD6"
-output = "BeginningIdol : シンフォニー ＞ [2,2,3,4,4,5],[6,7] ＞ [3,5,6,7] ＞ 21"
+output = "シンフォニー ＞ [2,2,3,4,4,5],[6,7] ＞ [3,5,6,7] ＞ 21"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -463,7 +463,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "75127PD3"
-output = "BeginningIdol : シンフォニー ＞ [3,4,6],[1,2,5,7,7] ＞ [1,2,3,4,5,6] ＞ 【パーフェクトミラクル】30"
+output = "シンフォニー ＞ [3,4,6],[1,2,5,7,7] ＞ [1,2,3,4,5,6] ＞ 【パーフェクトミラクル】30"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -473,7 +473,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "5213PD2+1"
-output = "BeginningIdol : シンフォニー ＞ [4,6],[1,2,3,5]+1 ＞ [1,2,3,4,5,6]+1 ＞ 【パーフェクトミラクル】31"
+output = "シンフォニー ＞ [4,6],[1,2,3,5]+1 ＞ [1,2,3,4,5,6]+1 ＞ 【パーフェクトミラクル】31"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -482,7 +482,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "75127PD3-0"
-output = "BeginningIdol : シンフォニー ＞ [3,4,6],[1,2,5,7,7] ＞ [1,2,3,4,5,6] ＞ 【パーフェクトミラクル】30"
+output = "シンフォニー ＞ [3,4,6],[1,2,5,7,7] ＞ [1,2,3,4,5,6] ＞ 【パーフェクトミラクル】30"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -492,7 +492,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "HW"
-output = "BeginningIdol : 向かい風シーン表 ＞ [1] ＞ 誰もいない屋内。静寂が世界を包んでいる。嵐の前の静けさだ。"
+output = "向かい風シーン表 ＞ [1] ＞ 誰もいない屋内。静寂が世界を包んでいる。嵐の前の静けさだ。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -500,7 +500,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LO"
-output = "BeginningIdol : 地方アイドル仕事表 ＞ [13] ＞ 握手会をすることになった。遠方から自分たち目当てにやって来るお客さんも多数見える。チャンスが5以下ならオフ。\n特技 : 《アイドル／趣味12》"
+output = "地方アイドル仕事表 ＞ [13] ＞ 握手会をすることになった。遠方から自分たち目当てにやって来るお客さんも多数見える。チャンスが5以下ならオフ。\n特技 : 《アイドル／趣味12》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -509,7 +509,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LO3"
-output = "BeginningIdol : 地方アイドル仕事表 ＞ [15] ＞ オフ"
+output = "地方アイドル仕事表 ＞ [15] ＞ オフ"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -518,7 +518,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LO5"
-output = "BeginningIdol : 地方アイドル仕事表 ＞ [14] ＞ ミニコンサートが全国放送で小さく紹介される。ちょっとだけ、外見が注目されたみたいだ。\n特技 : 《スタイル／才能3》"
+output = "地方アイドル仕事表 ＞ [14] ＞ ミニコンサートが全国放送で小さく紹介される。ちょっとだけ、外見が注目されたみたいだ。\n特技 : 《スタイル／才能3》"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -527,7 +527,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SU"
-output = "BeginningIdol : 情熱の夏仕事表 ＞ [46] ＞ 夏の旅行番組。夏ならではの、地元の強みを伝えることに。\n特技 : シーンプレイヤーが修得している出身分野の特技"
+output = "情熱の夏仕事表 ＞ [46] ＞ 夏の旅行番組。夏ならではの、地元の強みを伝えることに。\n特技 : シーンプレイヤーが修得している出身分野の特技"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -536,7 +536,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SU"
-output = "BeginningIdol : 情熱の夏仕事表 ＞ [33] ＞ オフ"
+output = "情熱の夏仕事表 ＞ [33] ＞ オフ"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -545,7 +545,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "WI"
-output = "BeginningIdol : ぬくもりの冬仕事表 ＞ [45] ＞ 冬のグルメ特集。鍋の作り方を教えます。\n特技 : 《料理／趣味6》"
+output = "ぬくもりの冬仕事表 ＞ [45] ＞ 冬のグルメ特集。鍋の作り方を教えます。\n特技 : 《料理／趣味6》"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -554,7 +554,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "WI"
-output = "BeginningIdol : ぬくもりの冬仕事表 ＞ [14] ＞ 苦い失恋をテーマにしたコマーシャルムービーを撮ることになった。クールに決めよう。\n特技 : 《クール／属性11》"
+output = "ぬくもりの冬仕事表 ＞ [14] ＞ 苦い失恋をテーマにしたコマーシャルムービーを撮ることになった。クールに決めよう。\n特技 : 《クール／属性11》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -563,7 +563,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "NA"
-output = "BeginningIdol : 大自然仕事表 ＞ [24] ＞ 森で鬼ごっこをすることになった。相手の動きを読めば勝てる！\n特技 : パートナープレイヤーが修得している身長分野の特技"
+output = "大自然仕事表 ＞ [24] ＞ 森で鬼ごっこをすることになった。相手の動きを読めば勝てる！\n特技 : パートナープレイヤーが修得している身長分野の特技"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -572,7 +572,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "NA"
-output = "BeginningIdol : 大自然仕事表 ＞ [56] ＞ ドラム缶風呂を用意することに。……熱いんだけど！\n特技 : 《バーニング／属性10》"
+output = "大自然仕事表 ＞ [56] ＞ ドラム缶風呂を用意することに。……熱いんだけど！\n特技 : 《バーニング／属性10》"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -581,7 +581,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "VA"
-output = "BeginningIdol : バラエティ仕事表 ＞ [24] ＞ 釣り番組に出ることになったが、大物を釣るまで帰れないという。さて、動きの少ない釣りでどうやって目立つか……。\n特技 : 《キャラ分野の空白／キャラ7》"
+output = "バラエティ仕事表 ＞ [24] ＞ 釣り番組に出ることになったが、大物を釣るまで帰れないという。さて、動きの少ない釣りでどうやって目立つか……。\n特技 : 《キャラ分野の空白／キャラ7》"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -590,7 +590,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "VA"
-output = "BeginningIdol : バラエティ仕事表 ＞ [46] ＞ シチュエーションコントに出演。大げさな演技が求められる。\n特技 : 《演技力／才能12》"
+output = "バラエティ仕事表 ＞ [46] ＞ シチュエーションコントに出演。大げさな演技が求められる。\n特技 : 《演技力／才能12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -599,7 +599,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "MU"
-output = "BeginningIdol : 音楽関係仕事表 ＞ [11] ＞ オフ"
+output = "音楽関係仕事表 ＞ [11] ＞ オフ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -608,7 +608,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "MU"
-output = "BeginningIdol : 音楽関係仕事表 ＞ [34] ＞ 子供向けの歌を作ることになった。視線を子供に近づけないと。\n特技 : 《～125／身長2》"
+output = "音楽関係仕事表 ＞ [34] ＞ 子供向けの歌を作ることになった。視線を子供に近づけないと。\n特技 : 《～125／身長2》"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -617,7 +617,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "DR"
-output = "BeginningIdol : ドラマ関係仕事表 ＞ [24] ＞ 学園ドラマに悩める生徒役で出演。青春らしさをどこまで見せようか。\n特技 : 《中二病／キャラ2》"
+output = "ドラマ関係仕事表 ＞ [24] ＞ 学園ドラマに悩める生徒役で出演。青春らしさをどこまで見せようか。\n特技 : 《中二病／キャラ2》"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -626,7 +626,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "DR"
-output = "BeginningIdol : ドラマ関係仕事表 ＞ [36] ＞ パートナープレイヤーの【背景】を再現したミニドラマを撮るようだ。彼の過去をどう表現したものか。\n特技 : パートナープレイヤーの修得している属性分野の特技"
+output = "ドラマ関係仕事表 ＞ [36] ＞ パートナープレイヤーの【背景】を再現したミニドラマを撮るようだ。彼の過去をどう表現したものか。\n特技 : パートナープレイヤーの修得している属性分野の特技"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -635,7 +635,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "VI"
-output = "BeginningIdol : ビジュアル関係仕事表 ＞ [56] ＞ パートナープレイヤーを宣材用の撮影向けにコーディネートすることになった。さて、どうしてやろうか。\n特技 : パートナープレイヤーが修得している身長分野の特技"
+output = "ビジュアル関係仕事表 ＞ [56] ＞ パートナープレイヤーを宣材用の撮影向けにコーディネートすることになった。さて、どうしてやろうか。\n特技 : パートナープレイヤーが修得している身長分野の特技"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -644,7 +644,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "VI"
-output = "BeginningIdol : ビジュアル関係仕事表 ＞ [14] ＞ 地方ごとのファッションを取り入れるファッションショーが開幕。出演することに。\n特技 : 出身分野からランダム"
+output = "ビジュアル関係仕事表 ＞ [14] ＞ 地方ごとのファッションを取り入れるファッションショーが開幕。出演することに。\n特技 : 出身分野からランダム"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -653,7 +653,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SP"
-output = "BeginningIdol : スポーツ仕事表 ＞ [16] ＞ オフ"
+output = "スポーツ仕事表 ＞ [16] ＞ オフ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -662,7 +662,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SP"
-output = "BeginningIdol : スポーツ仕事表 ＞ [55] ＞ 近々開催される大会の応援団長を任された。出場する選手たちにエールを送ろう！\n特技 : 《元気／キャラ8》"
+output = "スポーツ仕事表 ＞ [55] ＞ 近々開催される大会の応援団長を任された。出場する選手たちにエールを送ろう！\n特技 : 《元気／キャラ8》"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -671,7 +671,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CHR"
-output = "BeginningIdol : クリスマス仕事表 ＞ [34] ＞ トークバラエティのクリスマス特番に呼ばれて収録を始める。本日のテーマは、「恋」について。\n特技 : 《軟派／キャラ5》"
+output = "クリスマス仕事表 ＞ [34] ＞ トークバラエティのクリスマス特番に呼ばれて収録を始める。本日のテーマは、「恋」について。\n特技 : 《軟派／キャラ5》"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -680,7 +680,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CHR"
-output = "BeginningIdol : クリスマス仕事表 ＞ [46] ＞ サンタクロースの格好をして、街でイベントをすることに。異国っぽさをうまく出せるかな？\n特技 : 《海外／出身12》"
+output = "クリスマス仕事表 ＞ [46] ＞ サンタクロースの格好をして、街でイベントをすることに。異国っぽさをうまく出せるかな？\n特技 : 《海外／出身12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -689,7 +689,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PAR"
-output = "BeginningIdol : パートナー関係仕事表 ＞ [33] ＞ パートナープレイヤーの個性特技に関する仕事がやって来る。合わせてみよう。\n特技 : パートナープレイヤーの個性特技"
+output = "パートナー関係仕事表 ＞ [33] ＞ パートナープレイヤーの個性特技に関する仕事がやって来る。合わせてみよう。\n特技 : パートナープレイヤーの個性特技"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -698,7 +698,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PAR"
-output = "BeginningIdol : パートナー関係仕事表 ＞ [45] ＞ パートナープレイヤーが修得している趣味分野の特技に関する仕事がやって来る。\n特技 : パートナープレイヤーが修得している趣味分野の特技"
+output = "パートナー関係仕事表 ＞ [45] ＞ パートナープレイヤーが修得している趣味分野の特技に関する仕事がやって来る。\n特技 : パートナープレイヤーが修得している趣味分野の特技"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -707,7 +707,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LUR"
-output = "BeginningIdol : 地方アイドル無茶ぶり表 ＞ [2,4] ＞ マスコットキャラクターと水着で宣伝"
+output = "地方アイドル無茶ぶり表 ＞ [2,4] ＞ マスコットキャラクターと水着で宣伝"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -716,7 +716,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LUR"
-output = "BeginningIdol : 地方アイドル無茶ぶり表 ＞ [1,1] ＞ 地元の商店街で愛について叫ぶ"
+output = "地方アイドル無茶ぶり表 ＞ [1,1] ＞ 地元の商店街で愛について叫ぶ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -725,7 +725,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SUR"
-output = "BeginningIdol : 情熱の夏無茶ぶり表 ＞ [3,2] ＞ あの有名アイドルの前でナンパ"
+output = "情熱の夏無茶ぶり表 ＞ [3,2] ＞ あの有名アイドルの前でナンパ"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -734,7 +734,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SUR"
-output = "BeginningIdol : 情熱の夏無茶ぶり表 ＞ [6,1] ＞ 一般客の前でかき氷いっき食い"
+output = "情熱の夏無茶ぶり表 ＞ [6,1] ＞ 一般客の前でかき氷いっき食い"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -743,7 +743,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "WUR"
-output = "BeginningIdol : ぬくもりの冬無茶ぶり表 ＞ [2,5] ＞ 子供たちの前でサンタのコスプレ"
+output = "ぬくもりの冬無茶ぶり表 ＞ [2,5] ＞ 子供たちの前でサンタのコスプレ"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -752,7 +752,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "WUR"
-output = "BeginningIdol : ぬくもりの冬無茶ぶり表 ＞ [4,1] ＞ 雪が降り始めた街で雪かき"
+output = "ぬくもりの冬無茶ぶり表 ＞ [4,1] ＞ 雪が降り始めた街で雪かき"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -761,7 +761,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "NUR"
-output = "BeginningIdol : 大自然無茶ぶり表 ＞ [2,4] ＞ クワを持って大物を釣る"
+output = "大自然無茶ぶり表 ＞ [2,4] ＞ クワを持って大物を釣る"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -770,7 +770,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "NUR"
-output = "BeginningIdol : 大自然無茶ぶり表 ＞ [6,6] ＞ 命綱をつけて崖を登る"
+output = "大自然無茶ぶり表 ＞ [6,6] ＞ 命綱をつけて崖を登る"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -779,7 +779,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BT3"
-output = "BeginningIdol : 変調 ＞ [3,3,3] ＞ 「ガラスの心」　PCのファンブル値が1点上昇する"
+output = "変調 ＞ [3,3,3] ＞ 「ガラスの心」　PCのファンブル値が1点上昇する"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -789,7 +789,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BT5"
-output = "BeginningIdol : 変調 ＞ [1,1,4,4,5] ＞ 以下の3つが発生する。\n「不穏な空気」　PCの【メンタル】が減少するとき、減少する数値が1点上昇する\n「怪我」　幕間のとき、プロデューサーは「回想」しか行えない\n「信じきれない」　PC全員の【理解度】を1点低いものとして扱う"
+output = "変調 ＞ [1,1,4,4,5] ＞ 以下の3つが発生する。\n「不穏な空気」　PCの【メンタル】が減少するとき、減少する数値が1点上昇する\n「怪我」　幕間のとき、プロデューサーは「回想」しか行えない\n「信じきれない」　PC全員の【理解度】を1点低いものとして扱う"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -801,7 +801,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SGT"
-output = "BeginningIdol : アイドルスキル修得表(チャレンジガールズ) ＞ [1] ＞ シーンプレイヤーが修得している才能分野の特技が指定特技のアイドルスキル"
+output = "アイドルスキル修得表(チャレンジガールズ) ＞ [1] ＞ シーンプレイヤーが修得している才能分野の特技が指定特技のアイドルスキル"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -809,7 +809,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "RS"
-output = "BeginningIdol : アイドルスキル修得表(ロードトゥプリンス) ＞ [5] ＞ 《メンタルディフェンス》《判定アップ》《個性アップ》のうちいずれか1つ"
+output = "アイドルスキル修得表(ロードトゥプリンス) ＞ [5] ＞ 《メンタルディフェンス》《判定アップ》《個性アップ》のうちいずれか1つ"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -817,7 +817,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "RS"
-output = "BeginningIdol : アイドルスキル修得表(ロードトゥプリンス) ＞ [4] ＞ ランダムに決定した特技が指定特技のアイドルスキル(身長分野、才能分野、出身分野が出たら振り直し)\n特技リスト ＞ [6,2] ＞ 《沖縄／出身2》 ＞ 振り直し\n特技リスト ＞ [3,2] ＞ 《異国文化／才能2》 ＞ 振り直し\n特技リスト ＞ [1,2] ＞ 《～125／身長2》 ＞ 振り直し\n特技リスト ＞ [2,2] ＞ 《エスニック／属性2》"
+output = "アイドルスキル修得表(ロードトゥプリンス) ＞ [4] ＞ ランダムに決定した特技が指定特技のアイドルスキル(身長分野、才能分野、出身分野が出たら振り直し)\n特技リスト ＞ [6,2] ＞ 《沖縄／出身2》 ＞ 振り直し\n特技リスト ＞ [3,2] ＞ 《異国文化／才能2》 ＞ 振り直し\n特技リスト ＞ [1,2] ＞ 《～125／身長2》 ＞ 振り直し\n特技リスト ＞ [2,2] ＞ 《エスニック／属性2》"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -837,7 +837,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SH"
-output = "BeginningIdol : ショッピングモール散策表 ＞ [55] ＞ CDコーナーを探しているうちに、迷ってしまった。さて、ここはどこだろう？\n変調 ＞ [6] ＞ 「すれ違い」　PCはアイテムの使用と、リザルトフェイズに「おねがい」をすることができなくなる"
+output = "ショッピングモール散策表 ＞ [55] ＞ CDコーナーを探しているうちに、迷ってしまった。さて、ここはどこだろう？\n変調 ＞ [6] ＞ 「すれ違い」　PCはアイテムの使用と、リザルトフェイズに「おねがい」をすることができなくなる"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -847,7 +847,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SH"
-output = "BeginningIdol : ショッピングモール散策表 ＞ [22] ＞ 特売品を買い漁る。さて、使えるものかな？\nシーンプレイヤーとパートナープレイヤーは、アイテムをランダムに二つ獲得する。"
+output = "ショッピングモール散策表 ＞ [22] ＞ 特売品を買い漁る。さて、使えるものかな？\nシーンプレイヤーとパートナープレイヤーは、アイテムをランダムに二つ獲得する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -856,7 +856,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "MO"
-output = "BeginningIdol : 山散策表 ＞ [26] ＞ 山奥にある神社まで登って、お祈りをする。無事にライブが成功しますように。\nシーンプレイヤーとパートナープレイヤーの【合宿ポイント】が5点上昇する。"
+output = "山散策表 ＞ [26] ＞ 山奥にある神社まで登って、お祈りをする。無事にライブが成功しますように。\nシーンプレイヤーとパートナープレイヤーの【合宿ポイント】が5点上昇する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -865,7 +865,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "MO"
-output = "BeginningIdol : 山散策表 ＞ [22] ＞ 山で迷った。\n変調 ＞ [2,2] ＞ 「微妙な距離感」　【理解度】が上昇しなくなる"
+output = "山散策表 ＞ [22] ＞ 山で迷った。\n変調 ＞ [2,2] ＞ 「微妙な距離感」　【理解度】が上昇しなくなる"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -876,7 +876,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SEA"
-output = "BeginningIdol : 海散策表 ＞ [46] ＞ 水族館のイルカショーから、新しい技のヒントをもらう。\nシーンプレイヤーとパートナープレイヤーは、アイドルスキル修得表を使ってアイドルスキルを一つ修得する。"
+output = "海散策表 ＞ [46] ＞ 水族館のイルカショーから、新しい技のヒントをもらう。\nシーンプレイヤーとパートナープレイヤーは、アイドルスキル修得表を使ってアイドルスキルを一つ修得する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -885,7 +885,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SEA"
-output = "BeginningIdol : 海散策表 ＞ [55] ＞ 海で遊んでいたら、溺れかける。\n変調 ＞ [1,3,4] ＞ 以下の3つが発生する。\n「不穏な空気」　PCの【メンタル】が減少するとき、減少する数値が1点上昇する\n「ガラスの心」　PCのファンブル値が1点上昇する\n「怪我」　幕間のとき、プロデューサーは「回想」しか行えない"
+output = "海散策表 ＞ [55] ＞ 海で遊んでいたら、溺れかける。\n変調 ＞ [1,3,4] ＞ 以下の3つが発生する。\n「不穏な空気」　PCの【メンタル】が減少するとき、減少する数値が1点上昇する\n「ガラスの心」　PCのファンブル値が1点上昇する\n「怪我」　幕間のとき、プロデューサーは「回想」しか行えない"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -897,7 +897,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SPA"
-output = "BeginningIdol : 温泉街散策表 ＞ [36] ＞ お風呂の後の牛乳もうまい！\nシーンプレイヤーとパートナープレイヤーは、アイテム「スナミナドリンク」を一つ獲得する。"
+output = "温泉街散策表 ＞ [36] ＞ お風呂の後の牛乳もうまい！\nシーンプレイヤーとパートナープレイヤーは、アイテム「スナミナドリンク」を一つ獲得する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -906,7 +906,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SPA"
-output = "BeginningIdol : 温泉街散策表 ＞ [13] ＞ お土産屋さんで、色々なものを買い込む。しかし、これは役に立つのだろうか。\nシーンプレイヤーとパートナープレイヤーは、アイテムをランダムに一つ獲得する。"
+output = "温泉街散策表 ＞ [13] ＞ お土産屋さんで、色々なものを買い込む。しかし、これは役に立つのだろうか。\nシーンプレイヤーとパートナープレイヤーは、アイテムをランダムに一つ獲得する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -915,7 +915,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "TN"
-output = "BeginningIdol : 夜語りシチュエーション表 ＞ [4] ＞ 「嫌いなもの」から逃げてきて、二人きりになってしまった。\n特技リスト ＞ [6,8] ＞ 《関東地方／出身8》"
+output = "夜語りシチュエーション表 ＞ [4] ＞ 「嫌いなもの」から逃げてきて、二人きりになってしまった。\n特技リスト ＞ [6,8] ＞ 《関東地方／出身8》"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -926,7 +926,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "TN"
-output = "BeginningIdol : 夜語りシチュエーション表 ＞ [1] ＞ みんなが寝静まった寝室。二人だけのお話。\n特技 : 好きな特技"
+output = "夜語りシチュエーション表 ＞ [1] ＞ みんなが寝静まった寝室。二人だけのお話。\n特技 : 好きな特技"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -934,7 +934,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CG"
-output = "BeginningIdol : コモン成長表 ＞ [6] ＞ 【獲得ファン人数】が3点上昇する。"
+output = "コモン成長表 ＞ [6] ＞ 【獲得ファン人数】が3点上昇する。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -942,7 +942,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CG"
-output = "BeginningIdol : コモン成長表 ＞ [5] ＞ アイテムをランダムに一つ獲得する。\nアイテム ＞ [3] ＞ ドリーミングシューズ"
+output = "コモン成長表 ＞ [5] ＞ アイテムをランダムに一つ獲得する。\nアイテム ＞ [3] ＞ ドリーミングシューズ"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -951,7 +951,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "GG"
-output = "BeginningIdol : ゴールド成長表 ＞ [25] ＞ レアアイドルスキル修得表を使ってアイドルスキルを一つ修得する。\nレアアイドルスキル修得表 ＞ [4] ＞ 【最強の負けず嫌い】を修得する。"
+output = "ゴールド成長表 ＞ [25] ＞ レアアイドルスキル修得表を使ってアイドルスキルを一つ修得する。\nレアアイドルスキル修得表 ＞ [4] ＞ 【最強の負けず嫌い】を修得する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -961,7 +961,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "GG"
-output = "BeginningIdol : ゴールド成長表 ＞ [56] ＞ アイテムをランダムに一つ獲得する。\nアイテム ＞ [4] ＞ キャラアイテム"
+output = "ゴールド成長表 ＞ [56] ＞ アイテムをランダムに一つ獲得する。\nアイテム ＞ [4] ＞ キャラアイテム"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -971,7 +971,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "FL"
-output = "BeginningIdol : 駆け出しシーン表 ＞ [2] ＞ いつものたまり場。なのに、今日に限って、騒がしさがどこかに行ってしまったようだ。"
+output = "駆け出しシーン表 ＞ [2] ＞ いつものたまり場。なのに、今日に限って、騒がしさがどこかに行ってしまったようだ。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -979,7 +979,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LN"
-output = "BeginningIdol : 孤独表 ＞ [2] ＞ 事件がきっかけで、事務所の空気が悪くなった。嫌な雰囲気。\n変調 ＞ [4,4,6] ＞ 以下の2つが発生する。\n「怪我」　幕間のとき、プロデューサーは「回想」しか行えない\n「すれ違い」　PCはアイテムの使用と、リザルトフェイズに「おねがい」をすることができなくなる"
+output = "孤独表 ＞ [2] ＞ 事件がきっかけで、事務所の空気が悪くなった。嫌な雰囲気。\n変調 ＞ [4,4,6] ＞ 以下の2つが発生する。\n「怪我」　幕間のとき、プロデューサーは「回想」しか行えない\n「すれ違い」　PCはアイテムの使用と、リザルトフェイズに「おねがい」をすることができなくなる"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -990,7 +990,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LN"
-output = "BeginningIdol : 孤独表 ＞ [5] ＞ 誰も、話をしない。気まずさと静寂が場を包んだ。このままでは、会場の空気も悪くなる。\n【目標動員数】が二倍になる。"
+output = "孤独表 ＞ [5] ＞ 誰も、話をしない。気まずさと静寂が場を包んだ。このままでは、会場の空気も悪くなる。\n【目標動員数】が二倍になる。"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -998,7 +998,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "MS"
-output = "BeginningIdol : マイスキル名決定表 ＞ [1,形容表25,情景表36,マテリアル表55] ＞ ドキドキ＋ヒート＋キャンディ"
+output = "マイスキル名決定表 ＞ [1,形容表25,情景表36,マテリアル表55] ＞ ドキドキ＋ヒート＋キャンディ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -1012,7 +1012,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "MS"
-output = "BeginningIdol : マイスキル名決定表 ＞ [5,形容表23,情景表45,称号表1] ＞ 1000%もしくはぴかぴか＋アイドル＋PCの名前"
+output = "マイスキル名決定表 ＞ [5,形容表23,情景表45,称号表1] ＞ 1000%もしくはぴかぴか＋アイドル＋PCの名前"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -1025,7 +1025,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "MSE"
-output = "BeginningIdol : マイスキル効果表 ＞ [6] ＞ パフォーマンスのサイコロを振った後に使用する。サイコロ1つの出目を6にすることができる。この効果は、1回のセッションに1度まで使用できる。"
+output = "マイスキル効果表 ＞ [6] ＞ パフォーマンスのサイコロを振った後に使用する。サイコロ1つの出目を6にすることができる。この効果は、1回のセッションに1度まで使用できる。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1033,7 +1033,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "ST"
-output = "BeginningIdol : 演出表 ＞ [1] ＞ 見事なパフォーマンスに、人々が感動する。"
+output = "演出表 ＞ [1] ＞ 見事なパフォーマンスに、人々が感動する。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1041,7 +1041,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "FST"
-output = "BeginningIdol : ファンタジー演出表 ＞ [3] ＞ 炎の旋風が観客を燃え上がらせる。"
+output = "ファンタジー演出表 ＞ [3] ＞ 炎の旋風が観客を燃え上がらせる。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1049,7 +1049,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CHO"
-output = "BeginningIdol : サビ表 ＞ [23] ＞ マジで好き／MAX\nPC全員の【メンタル】が1D6点上昇。"
+output = "サビ表 ＞ [23] ＞ マジで好き／MAX\nPC全員の【メンタル】が1D6点上昇。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -1058,7 +1058,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CHO"
-output = "BeginningIdol : サビ表 ＞ [45] ＞ パーティだ／お金でも\nPC全員は、アイテムを1つランダムに獲得する。"
+output = "サビ表 ＞ [45] ＞ パーティだ／お金でも\nPC全員は、アイテムを1つランダムに獲得する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -1067,7 +1067,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SCH"
-output = "BeginningIdol : 情熱の夏サビ表 ＞ [2] ＞ 熱いぜ！\nこの演目の間、PC全員のスペシャル値が1点減少。"
+output = "情熱の夏サビ表 ＞ [2] ＞ 熱いぜ！\nこの演目の間、PC全員のスペシャル値が1点減少。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1075,7 +1075,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "WCH"
-output = "BeginningIdol : ぬくもりの冬サビ表 ＞ [5] ＞ 吹雪が\nこの演目の間、ミラクルの【パフォーマンス値】が10点上昇。"
+output = "ぬくもりの冬サビ表 ＞ [5] ＞ 吹雪が\nこの演目の間、ミラクルの【パフォーマンス値】が10点上昇。"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1083,7 +1083,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "NCH"
-output = "BeginningIdol : 大自然サビ表 ＞ [1] ＞ 野生の\nPC全員の【メンタル】が1D6点上昇。"
+output = "大自然サビ表 ＞ [1] ＞ 野生の\nPC全員の【メンタル】が1D6点上昇。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1091,7 +1091,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "IT"
-output = "BeginningIdol : アイテム ＞ [5] ＞ お菓子"
+output = "アイテム ＞ [5] ＞ お菓子"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1099,7 +1099,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "IT3"
-output = "BeginningIdol : アイテム ＞ [1,1,1] ＞ スタミナドリンク3つ"
+output = "アイテム ＞ [1,1,1] ＞ スタミナドリンク3つ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1109,7 +1109,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "IT3"
-output = "BeginningIdol : アイテム ＞ [2,3,5] ＞ 「トレーニングウェア」と「ドリーミングシューズ」と「お菓子」"
+output = "アイテム ＞ [2,3,5] ＞ 「トレーニングウェア」と「ドリーミングシューズ」と「お菓子」"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -1119,7 +1119,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "IT7"
-output = "BeginningIdol : アイテム ＞ [1,3,3,4,5,5,6] ＞ 「スタミナドリンク」1つと「ドリーミングシューズ」2つと「キャラアイテム」1つと「お菓子」2つと「差し入れ」1つ"
+output = "アイテム ＞ [1,3,3,4,5,5,6] ＞ 「スタミナドリンク」1つと「ドリーミングシューズ」2つと「キャラアイテム」1つと「お菓子」2つと「差し入れ」1つ"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -1133,7 +1133,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "RC"
-output = "BeginningIdol : 衣装(ロードトゥプリンス) ＞ [23] ＞ Chime\nミラクル、ミラクルシンクロ、パーフェクトミラクルが発生したとき、そのキャラクターはランダムにアイテムを1つ獲得する。"
+output = "衣装(ロードトゥプリンス) ＞ [23] ＞ Chime\nミラクル、ミラクルシンクロ、パーフェクトミラクルが発生したとき、そのキャラクターはランダムにアイテムを1つ獲得する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -1142,7 +1142,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "RC"
-output = "BeginningIdol : 衣装(ロードトゥプリンス) ＞ [55] ＞ Halloween Magic\n後半PPによって【メンタル】が減少するとき、その値を4点減少する（最低0）。"
+output = "衣装(ロードトゥプリンス) ＞ [55] ＞ Halloween Magic\n後半PPによって【メンタル】が減少するとき、その値を4点減少する（最低0）。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -1151,7 +1151,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "RCB"
-output = "BeginningIdol : キャラ空白表(ロードトゥプリンス) ＞ [12] ＞ 俺様"
+output = "キャラ空白表(ロードトゥプリンス) ＞ [12] ＞ 俺様"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -1160,7 +1160,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "RHB"
-output = "BeginningIdol : 趣味空白表(ロードトゥプリンス) ＞ [55] ＞ 昆虫採集"
+output = "趣味空白表(ロードトゥプリンス) ＞ [55] ＞ 昆虫採集"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -1169,7 +1169,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "RU"
-output = "BeginningIdol : マスコット暴走表 ＞ [3] ＞ マスコットキャラクターが行方不明！　プロデューサーが代わりに着ぐるみを着たけれども、負担が大きかった。\n変調「怪我」が発生する。"
+output = "マスコット暴走表 ＞ [3] ＞ マスコットキャラクターが行方不明！　プロデューサーが代わりに着ぐるみを着たけれども、負担が大きかった。\n変調「怪我」が発生する。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1177,7 +1177,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "55C"
-output = "BeginningIdol : バーストタイム ＞ 55+[1,3,3,5,5,6] ＞ 78 ＞ 大成功\n【獲得ファン人数】が2D6点上昇する。\nPC全員が挑戦者ではない場合、自分以外のPCを一人指名する。指名されたPCは、新たな挑戦者として、【メンタル】を減少させずに「バーストタイム」を行う。"
+output = "バーストタイム ＞ 55+[1,3,3,5,5,6] ＞ 78 ＞ 大成功\n【獲得ファン人数】が2D6点上昇する。\nPC全員が挑戦者ではない場合、自分以外のPCを一人指名する。指名されたPCは、新たな挑戦者として、【メンタル】を減少させずに「バーストタイム」を行う。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1190,7 +1190,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "54C"
-output = "BeginningIdol : バーストタイム ＞ 54+[4,4,6,6,6] ＞ 80 ＞ Burst!\n「バースト表」を使用する。"
+output = "バーストタイム ＞ 54+[4,4,6,6,6] ＞ 80 ＞ Burst!\n「バースト表」を使用する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -1202,7 +1202,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "48C"
-output = "BeginningIdol : バーストタイム ＞ 48+[5,6,6] ＞ 65 ＞ 成功\n【獲得ファン人数】が2D6点上昇する。"
+output = "バーストタイム ＞ 48+[5,6,6] ＞ 65 ＞ 成功\n【獲得ファン人数】が2D6点上昇する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1212,7 +1212,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "50C"
-output = "BeginningIdol : バーストタイム ＞ 50+[1,4,4,5] ＞ 64 ＞ 失敗"
+output = "バーストタイム ＞ 50+[1,4,4,5] ＞ 64 ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -1223,7 +1223,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BU"
-output = "BeginningIdol : バースト表 ＞ [2] ＞ 慌てて浴槽から出ようとしたが、足を滑らせて浴槽に落ちる。ウケたはいいが、とても熱い。\n【メンタル】が1D6点減少し、【獲得ファン人数】が3D6点上昇する。"
+output = "バースト表 ＞ [2] ＞ 慌てて浴槽から出ようとしたが、足を滑らせて浴槽に落ちる。ウケたはいいが、とても熱い。\n【メンタル】が1D6点減少し、【獲得ファン人数】が3D6点上昇する。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1231,7 +1231,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BVT"
-output = "BeginningIdol : 大手芸能プロダクション会場表 ＞ [5] ＞ ショッピングセンター"
+output = "大手芸能プロダクション会場表 ＞ [5] ＞ ショッピングセンター"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1239,7 +1239,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "TVT"
-output = "BeginningIdol : ライブシアター会場表 ＞ [4] ＞ ライブシアター"
+output = "ライブシアター会場表 ＞ [4] ＞ ライブシアター"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1247,7 +1247,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CVT"
-output = "BeginningIdol : アイドル部会場表 ＞ [6] ＞ 学園アイドル大会"
+output = "アイドル部会場表 ＞ [6] ＞ 学園アイドル大会"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1255,7 +1255,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LST"
-output = "BeginningIdol : 弱小芸能プロダクション場所表 ＞ [1] ＞ 給湯室"
+output = "弱小芸能プロダクション場所表 ＞ [1] ＞ 給湯室"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1263,7 +1263,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "TST"
-output = "BeginningIdol : ライブシアター場所表 ＞ [3] ＞ 売店"
+output = "ライブシアター場所表 ＞ [3] ＞ 売店"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1271,7 +1271,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CST"
-output = "BeginningIdol : アイドル部場所表 ＞ [2] ＞ 音楽室"
+output = "アイドル部場所表 ＞ [2] ＞ 音楽室"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1279,7 +1279,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BPT"
-output = "BeginningIdol : 大手芸能プロダクションプレッシャー種別決定表 ＞ [1] ＞ 先輩アイドルたちの期待"
+output = "大手芸能プロダクションプレッシャー種別決定表 ＞ [1] ＞ 先輩アイドルたちの期待"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1287,7 +1287,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LPT"
-output = "BeginningIdol : 弱小芸能プロダクションプレッシャー種別決定表 ＞ [5] ＞ 新曲を提供したミュージシャン"
+output = "弱小芸能プロダクションプレッシャー種別決定表 ＞ [5] ＞ 新曲を提供したミュージシャン"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1295,7 +1295,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "CPT"
-output = "BeginningIdol : アイドル部プレッシャー種別決定表 ＞ [4] ＞ PCの親"
+output = "アイドル部プレッシャー種別決定表 ＞ [4] ＞ PCの親"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1303,7 +1303,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BIT"
-output = "BeginningIdol : 大手芸能プロダクション道具表 ＞ [6] ＞ 台本"
+output = "大手芸能プロダクション道具表 ＞ [6] ＞ 台本"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1311,7 +1311,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LIT"
-output = "BeginningIdol : 弱小芸能プロダクション道具表 ＞ [2] ＞ 冷蔵庫"
+output = "弱小芸能プロダクション道具表 ＞ [2] ＞ 冷蔵庫"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1319,7 +1319,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "TIT"
-output = "BeginningIdol : ライブシアター道具表 ＞ [1] ＞ 舞台の照明"
+output = "ライブシアター道具表 ＞ [1] ＞ 舞台の照明"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1327,7 +1327,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BWt"
-output = "BeginningIdol : 大手芸能プロダクション仕事表 ＞ [26] ＞ プロダクションの超大御所が出演する番組に呼ばれる。\n特技 : 《胆力／才能5》"
+output = "大手芸能プロダクション仕事表 ＞ [26] ＞ プロダクションの超大御所が出演する番組に呼ばれる。\n特技 : 《胆力／才能5》"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1336,7 +1336,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "lO"
-output = "BeginningIdol : 地方アイドル仕事表 ＞ [13] ＞ 握手会をすることになった。遠方から自分たち目当てにやって来るお客さんも多数見える。チャンスが5以下ならオフ。\n特技 : 《アイドル／趣味12》"
+output = "地方アイドル仕事表 ＞ [13] ＞ 握手会をすることになった。遠方から自分たち目当てにやって来るお客さんも多数見える。チャンスが5以下ならオフ。\n特技 : 《アイドル／趣味12》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -1345,7 +1345,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "dr"
-output = "BeginningIdol : ドラマ関係仕事表 ＞ [24] ＞ 学園ドラマに悩める生徒役で出演。青春らしさをどこまで見せようか。\n特技 : 《中二病／キャラ2》"
+output = "ドラマ関係仕事表 ＞ [24] ＞ 学園ドラマに悩める生徒役で出演。青春らしさをどこまで見せようか。\n特技 : 《中二病／キャラ2》"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -1883,7 +1883,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "GA"
-output = "BeginningIdol : 聖デトワール女学園仕事表 ＞ [66] ＞ 裏山を使った簡単なPV撮影！　山での撮影は体力が要求される。\n特技 : 《体力／才能6》"
+output = "聖デトワール女学園仕事表 ＞ [66] ＞ 裏山を使った簡単なPV撮影！　山での撮影は体力が要求される。\n特技 : 《体力／才能6》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1892,7 +1892,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BA"
-output = "BeginningIdol : アカデミー仕事表 ＞ [24] ＞ アカデミーが製作しているドラマに出演。脇役だけど、しっかりと存在感を出していこう。\n特技 : 《演技力／才能12》"
+output = "アカデミー仕事表 ＞ [24] ＞ アカデミーが製作しているドラマに出演。脇役だけど、しっかりと存在感を出していこう。\n特技 : 《演技力／才能12》"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -1901,7 +1901,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SW"
-output = "BeginningIdol : お菓子仕事表 ＞ [45] ＞ 料理番組で、市販のお菓子を使った新しいおやつの開発を任される。\n特技 : 《料理／趣味6》"
+output = "お菓子仕事表 ＞ [45] ＞ 料理番組で、市販のお菓子を使った新しいおやつの開発を任される。\n特技 : 《料理／趣味6》"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -1910,7 +1910,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "AN"
-output = "BeginningIdol : 動物仕事表 ＞ [15] ＞ オフ"
+output = "動物仕事表 ＞ [15] ＞ オフ"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -1919,7 +1919,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "MOV"
-output = "BeginningIdol : 映画仕事表 ＞ [23] ＞ 時代劇映画にサムライ役で出演。厚い忠義を見せよう。\n特技 : 《硬派／キャラ9》"
+output = "映画仕事表 ＞ [23] ＞ 時代劇映画にサムライ役で出演。厚い忠義を見せよう。\n特技 : 《硬派／キャラ9》"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -1928,7 +1928,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "FA"
-output = "BeginningIdol : ファンタジー仕事表 ＞ [12] ＞ オフ"
+output = "ファンタジー仕事表 ＞ [12] ＞ オフ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -1937,7 +1937,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "HA"
-output = "BeginningIdol : ハプニング表 ＞ [22] ＞ パートナープレイヤーに、地方からオファーが来た。その土地独特の文化を学んで、パートナープレイヤーに伝えよう。\n特技リスト(出身分野) ＞ [10] ＞ 《東北地方／出身10》"
+output = "ハプニング表 ＞ [22] ＞ パートナープレイヤーに、地方からオファーが来た。その土地独特の文化を学んで、パートナープレイヤーに伝えよう。\n特技リスト(出身分野) ＞ [10] ＞ 《東北地方／出身10》"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -1948,7 +1948,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "ACT"
-output = "BeginningIdol : アクセサリー種別決定表 ＞ [1] ＞ 頭アクセサリー表を使用する。\n頭アクセサリー表 ＞ [34] ＞ イヤリング"
+output = "アクセサリー種別決定表 ＞ [1] ＞ 頭アクセサリー表を使用する。\n頭アクセサリー表 ＞ [34] ＞ イヤリング"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -1958,7 +1958,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "ACT"
-output = "BeginningIdol : アクセサリー種別決定表 ＞ [2] ＞ 帽子アクセサリー表を使用する。\n帽子アクセサリー表 ＞ [36] ＞ キャップ"
+output = "アクセサリー種別決定表 ＞ [2] ＞ 帽子アクセサリー表を使用する。\n帽子アクセサリー表 ＞ [36] ＞ キャップ"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1968,7 +1968,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "ACT"
-output = "BeginningIdol : アクセサリー種別決定表 ＞ [3] ＞ 胴アクセサリー表を使用する。\n胴アクセサリー表 ＞ [12] ＞ カウベル"
+output = "アクセサリー種別決定表 ＞ [3] ＞ 胴アクセサリー表を使用する。\n胴アクセサリー表 ＞ [12] ＞ カウベル"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -1978,7 +1978,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "ACT"
-output = "BeginningIdol : アクセサリー種別決定表 ＞ [4] ＞ 腕アクセサリー表を使用する。\n腕アクセサリー表 ＞ [46] ＞ ゴールドアクセサリー"
+output = "アクセサリー種別決定表 ＞ [4] ＞ 腕アクセサリー表を使用する。\n腕アクセサリー表 ＞ [46] ＞ ゴールドアクセサリー"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -1988,7 +1988,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "ACT"
-output = "BeginningIdol : アクセサリー種別決定表 ＞ [5] ＞ 足アクセサリー表を使用する。\n足アクセサリー表 ＞ [15] ＞ アンクル"
+output = "アクセサリー種別決定表 ＞ [5] ＞ 足アクセサリー表を使用する。\n足アクセサリー表 ＞ [15] ＞ アンクル"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -1998,37 +1998,37 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "ACT"
-output = "BeginningIdol : アクセサリー種別決定表 ＞ [6] ＞ その他アクセサリー表を使用する。\nその他アクセサリー表 ＞ [35] ＞ 大きなリボン"
+output = "アクセサリー種別決定表 ＞ [6] ＞ その他アクセサリー表を使用する。\nその他アクセサリー表 ＞ [35] ＞ 大きなリボン"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "BeginningIdol"
-input = "ACB"
-output = "BeginningIdol : アクセサリーブランド決定表 ＞ [2] ＞ 『チャレンジガールズ』の衣装ブランドからランダムに決定する。\n衣装(チャレンジガールズ) ＞ [36] ＞ Sweet Girl"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "BeginningIdol"
-input = "ACB"
-output = "BeginningIdol : アクセサリーブランド決定表 ＞ [4] ＞ 『ロードトゥプリンス』の衣装ブランドからランダムに決定する。\n衣装(ロードトゥプリンス) ＞ [15] ＞ Starlight TourS"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
   { sides = 6, value = 5 },
 ]
 
 [[ test ]]
 game_system = "BeginningIdol"
 input = "ACB"
-output = "BeginningIdol : アクセサリーブランド決定表 ＞ [5] ＞ 『フォーチュンスターズ』の衣装ブランドからランダムに決定する。\n衣装(フォーチュンスターズ) ＞ [34] ＞ ネイキッドチャレンジ"
+output = "アクセサリーブランド決定表 ＞ [2] ＞ 『チャレンジガールズ』の衣装ブランドからランダムに決定する。\n衣装(チャレンジガールズ) ＞ [36] ＞ Sweet Girl"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "BeginningIdol"
+input = "ACB"
+output = "アクセサリーブランド決定表 ＞ [4] ＞ 『ロードトゥプリンス』の衣装ブランドからランダムに決定する。\n衣装(ロードトゥプリンス) ＞ [15] ＞ Starlight TourS"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "BeginningIdol"
+input = "ACB"
+output = "アクセサリーブランド決定表 ＞ [5] ＞ 『フォーチュンスターズ』の衣装ブランドからランダムに決定する。\n衣装(フォーチュンスターズ) ＞ [34] ＞ ネイキッドチャレンジ"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -2038,7 +2038,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "ACE"
-output = "BeginningIdol : アクセサリー効果表 ＞ [15] ＞ このアクセサリーを装備したとき、【メンタル】が5点上昇する。この効果は、1回のセッションに1度まで使用できる。"
+output = "アクセサリー効果表 ＞ [15] ＞ このアクセサリーを装備したとき、【メンタル】が5点上昇する。この効果は、1回のセッションに1度まで使用できる。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -2047,7 +2047,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "FC"
-output = "BeginningIdol : 衣装(フォーチュンスターズ) ＞ [44] ＞ Rescue Power\n演目の判定でファンブルが発生した場合、好きな能力値でパフォーマンスを行うことができる。"
+output = "衣装(フォーチュンスターズ) ＞ [44] ＞ Rescue Power\n演目の判定でファンブルが発生した場合、好きな能力値でパフォーマンスを行うことができる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -2056,7 +2056,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "GUR"
-output = "BeginningIdol : 聖デトワール女学園無茶ぶり表 ＞ [2,3] ＞ 食堂でテニス"
+output = "聖デトワール女学園無茶ぶり表 ＞ [2,3] ＞ 食堂でテニス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -2065,7 +2065,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BUR"
-output = "BeginningIdol : アカデミー無茶ぶり表 ＞ [6,2] ＞ 初等部でゲリラライブ"
+output = "アカデミー無茶ぶり表 ＞ [6,2] ＞ 初等部でゲリラライブ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -2074,7 +2074,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "1A+2"
-output = "BeginningIdol : 攻撃 ＞ [3]+2 ＞ 5ダメージ"
+output = "攻撃 ＞ [3]+2 ＞ 5ダメージ"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -2082,7 +2082,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "2SA"
-output = "BeginningIdol : 攻撃 ＞ [1,1] ＞ 2ダメージ"
+output = "攻撃 ＞ [1,1] ＞ 2ダメージ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2091,7 +2091,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "2A1-3"
-output = "BeginningIdol : 攻撃 ＞ [1,1]-3 ＞ 0ダメージ"
+output = "攻撃 ＞ [1,1]-3 ＞ 0ダメージ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2100,7 +2100,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "3A2"
-output = "BeginningIdol : 攻撃 ＞ [2,2,2] ＞ 0ダメージ"
+output = "攻撃 ＞ [2,2,2] ＞ 0ダメージ"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -2110,7 +2110,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "4A34"
-output = "BeginningIdol : 攻撃 ＞ [2,2,3,4] ＞ [2,2] ＞ 失敗"
+output = "攻撃 ＞ [2,2,3,4] ＞ [2,2] ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -2121,7 +2121,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "4A61"
-output = "BeginningIdol : 攻撃 ＞ [1,2,3,6] ＞ [2,3] ＞ 5ダメージ"
+output = "攻撃 ＞ [1,2,3,6] ＞ [2,3] ＞ 5ダメージ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -2132,7 +2132,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "5A5"
-output = "BeginningIdol : 攻撃 ＞ [1,2,3,4,6] ＞ 16ダメージ"
+output = "攻撃 ＞ [1,2,3,4,6] ＞ 16ダメージ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -2144,7 +2144,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "8A"
-output = "BeginningIdol : 攻撃 ＞ [1,2,3,3,3,4,5,6] ＞ 失敗"
+output = "攻撃 ＞ [1,2,3,3,3,4,5,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -2159,7 +2159,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SIP"
-output = "BeginningIdol : かんたんパーソン表 ＞ [1] ＞ テレビ番組に出て、ライブの宣伝をする。"
+output = "かんたんパーソン表 ＞ [1] ＞ テレビ番組に出て、ライブの宣伝をする。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -2167,7 +2167,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "RE"
-output = "BeginningIdol : ランダムイベント ＞ (1D6) ＞ 6\nオンイベント表 ＞ [42] ＞ ソロライブ！（『ビギニングロード』116ページ）"
+output = "ランダムイベント ＞ (1D6) ＞ 6\nオンイベント表 ＞ [42] ＞ ソロライブ！（『ビギニングロード』116ページ）"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -2177,7 +2177,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "RE"
-output = "BeginningIdol : ランダムイベント ＞ (1D6) ＞ 5\nオフイベント表 ＞ [61] ＞ 郊外ショッピング施設（『ビギニングロード』179ページ）"
+output = "ランダムイベント ＞ (1D6) ＞ 5\nオフイベント表 ＞ [61] ＞ 郊外ショッピング施設（『ビギニングロード』179ページ）"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -2187,7 +2187,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "GCH"
-output = "BeginningIdol : 女性向けサビ表 ＞ [16] ＞ ファッションで／おしゃれして\n衣装の効果が1点上昇する。"
+output = "女性向けサビ表 ＞ [16] ＞ ファッションで／おしゃれして\n衣装の効果が1点上昇する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -2196,7 +2196,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PCH"
-output = "BeginningIdol : 力強いサビ表 ＞ [46] ＞ Let's／try\nこの演目の間、判定の達成値が1点上昇する。"
+output = "力強いサビ表 ＞ [46] ＞ Let's／try\nこの演目の間、判定の達成値が1点上昇する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -2205,7 +2205,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "3D6>=? 目標値?でバグらない"
-output = "BeginningIdol : (3D6>=?) ＞ 9[3,3,3] ＞ 9 ＞ 失敗"
+output = "(3D6>=?) ＞ 9[3,3,3] ＞ 9 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },

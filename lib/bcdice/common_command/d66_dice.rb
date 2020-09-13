@@ -28,7 +28,7 @@ module BCDice
 
         value = roll()
 
-        return ": (D66#{m[2]}) ＞ #{value}"
+        return "(D66#{m[2]}) ＞ #{value}"
       end
 
       private

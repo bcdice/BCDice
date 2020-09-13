@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "RecordOfLodossWar"
 input = "LW<=68"
-output = "RecordOfLodossWar : (1D100<=68) ＞ 100 ＞ 自動失敗(91)"
+output = "(1D100<=68) ＞ 100 ＞ 自動失敗(91)"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfLodossWar"
 input = "LW<=68"
-output = "RecordOfLodossWar : (1D100<=68) ＞ 1 ＞ 大成功(7)"
+output = "(1D100<=68) ＞ 1 ＞ 大成功(7)"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfLodossWar"
 input = "LW"
-output = "RecordOfLodossWar : (1D100) ＞ 10 ＞ 自動成功"
+output = "(1D100) ＞ 10 ＞ 自動成功"
 rands = [
   { sides = 100, value = 10 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfLodossWar"
 input = "LW"
-output = "RecordOfLodossWar : (1D100) ＞ 90"
+output = "(1D100) ＞ 90"
 rands = [
   { sides = 100, value = 90 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfLodossWar"
 input = "LW"
-output = "RecordOfLodossWar : (1D100) ＞ 91 ＞ 自動失敗(91)"
+output = "(1D100) ＞ 91 ＞ 自動失敗(91)"
 rands = [
   { sides = 100, value = 91 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfLodossWar"
 input = "LWD"
-output = "RecordOfLodossWar : (1D100) ＞ 50"
+output = "(1D100) ＞ 50"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfLodossWar"
 input = "LWD"
-output = "RecordOfLodossWar : (1D100) ＞ 51 ＞ 自動失敗(51)"
+output = "(1D100) ＞ 51 ＞ 自動失敗(51)"
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfLodossWar"
 input = "LW<=51 MurMurChantPrayInvoke!!"
-output = "RecordOfLodossWar : (1D100<=51) ＞ 25 ＞ 成功"
+output = "(1D100<=51) ＞ 25 ＞ 成功"
 rands = [
   { sides = 100, value = 25 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfLodossWar"
 input = "LW<=75 ささやきえいしょういのいねんじよ！"
-output = "RecordOfLodossWar : (1D100<=75) ＞ 81 ＞ 失敗"
+output = "(1D100<=75) ＞ 81 ＞ 失敗"
 rands = [
   { sides = 100, value = 81 },
 ]

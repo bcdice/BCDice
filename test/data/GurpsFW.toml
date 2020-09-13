@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=11"
-output = "GurpsFW : (3D6<=11) ＞ 3[1,1,1] ＞ 3 ＞ クリティカル(成功度：8)"
+output = "(3D6<=11) ＞ 3[1,1,1] ＞ 3 ＞ クリティカル(成功度：8)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -11,7 +11,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=11"
-output = "GurpsFW : (3D6<=11) ＞ 4[2,1,1] ＞ 4 ＞ クリティカル(成功度：7)"
+output = "(3D6<=11) ＞ 4[2,1,1] ＞ 4 ＞ クリティカル(成功度：7)"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -21,7 +21,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=11"
-output = "GurpsFW : (3D6<=11) ＞ 5[2,1,2] ＞ 5 ＞ 成功(成功度：6)"
+output = "(3D6<=11) ＞ 5[2,1,2] ＞ 5 ＞ 成功(成功度：6)"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -31,7 +31,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=15"
-output = "GurpsFW : (3D6<=15) ＞ 5[2,1,2] ＞ 5 ＞ クリティカル(成功度：10)"
+output = "(3D6<=15) ＞ 5[2,1,2] ＞ 5 ＞ クリティカル(成功度：10)"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=15"
-output = "GurpsFW : (3D6<=15) ＞ 6[4,1,1] ＞ 6 ＞ 成功(成功度：9)"
+output = "(3D6<=15) ＞ 6[4,1,1] ＞ 6 ＞ 成功(成功度：9)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -51,7 +51,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=16"
-output = "GurpsFW : (3D6<=16) ＞ 6[4,1,1] ＞ 6 ＞ クリティカル(成功度：10)"
+output = "(3D6<=16) ＞ 6[4,1,1] ＞ 6 ＞ クリティカル(成功度：10)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -61,7 +61,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=17"
-output = "GurpsFW : (3D6<=17) ＞ 7[4,2,1] ＞ 7 ＞ 成功(成功度：10)"
+output = "(3D6<=17) ＞ 7[4,2,1] ＞ 7 ＞ 成功(成功度：10)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -71,7 +71,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=17"
-output = "GurpsFW : (3D6<=17) ＞ 17[6,6,5] ＞ 17 ＞ 自動失敗(失敗度：0)"
+output = "(3D6<=17) ＞ 17[6,6,5] ＞ 17 ＞ 自動失敗(失敗度：0)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=11"
-output = "GurpsFW : (3D6<=11) ＞ 18[6,6,6] ＞ 18 ＞ ファンブル(失敗度：-7)"
+output = "(3D6<=11) ＞ 18[6,6,6] ＞ 18 ＞ ファンブル(失敗度：-7)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=11"
-output = "GurpsFW : (3D6<=11) ＞ 17[6,6,5] ＞ 17 ＞ ファンブル(失敗度：-6)"
+output = "(3D6<=11) ＞ 17[6,6,5] ＞ 17 ＞ ファンブル(失敗度：-6)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -101,7 +101,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=15"
-output = "GurpsFW : (3D6<=15) ＞ 16[5,6,5] ＞ 16 ＞ 失敗(失敗度：-1)"
+output = "(3D6<=15) ＞ 16[5,6,5] ＞ 16 ＞ 失敗(失敗度：-1)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -111,7 +111,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=16"
-output = "GurpsFW : (3D6<=16) ＞ 17[6,6,5] ＞ 17 ＞ 自動失敗(失敗度：-1)"
+output = "(3D6<=16) ＞ 17[6,6,5] ＞ 17 ＞ 自動失敗(失敗度：-1)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -121,7 +121,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=11"
-output = "GurpsFW : (3D6<=11) ＞ 12[3,3,6] ＞ 12 ＞ 失敗(失敗度：-1)"
+output = "(3D6<=11) ＞ 12[3,3,6] ＞ 12 ＞ 失敗(失敗度：-1)"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -131,7 +131,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=5"
-output = "GurpsFW : (3D6<=5) ＞ 15[6,6,3] ＞ 15 ＞ ファンブル(失敗度：-10)"
+output = "(3D6<=5) ＞ 15[6,6,3] ＞ 15 ＞ ファンブル(失敗度：-10)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -141,7 +141,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3d6<=5"
-output = "GurpsFW : (3D6<=5) ＞ 14[6,6,2] ＞ 14 ＞ 失敗(失敗度：-9)"
+output = "(3D6<=5) ＞ 14[6,6,2] ＞ 14 ＞ 失敗(失敗度：-9)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -151,7 +151,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "CRT"
-output = "GurpsFW : クリティカル表(18)：体を狙っていたら、相手は気絶(回復は30分後に生命力判定)。他はダメージ3倍。"
+output = "クリティカル表(18)：体を狙っていたら、相手は気絶(回復は30分後に生命力判定)。他はダメージ3倍。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -161,7 +161,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "FMB"
-output = "GurpsFW : ファンブル表(18)：武器が壊れる。ただし、金属バットなど固い\"叩き\"武器は壊れない(ふりなおし)。"
+output = "ファンブル表(18)：武器が壊れる。ただし、金属バットなど固い\"叩き\"武器は壊れない(ふりなおし)。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -171,7 +171,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "MFMB"
-output = "GurpsFW : 呪文ファンブル表(18)：呪文が完全に失敗する。GMから見て、術者や呪文が純粋で善良なものでなければ、悪魔(第3版文庫版P.384参照)があらわれ、術者を攻撃する。"
+output = "呪文ファンブル表(18)：呪文が完全に失敗する。GMから見て、術者や呪文が純粋で善良なものでなければ、悪魔(第3版文庫版P.384参照)があらわれ、術者を攻撃する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -181,7 +181,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "FEAR"
-output = "GurpsFW : 恐怖表(18)：生命力判定を行い、失敗すると1点の負傷を受ける。さらに1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。"
+output = "恐怖表(18)：生命力判定を行い、失敗すると1点の負傷を受ける。さらに1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -191,7 +191,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "FEAR+1"
-output = "GurpsFW : 恐怖表(19)：1点負傷。2D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。"
+output = "恐怖表(19)：1点負傷。2D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "REACT"
-output = "GurpsFW : 反応表(18)：とても良い"
+output = "反応表(18)：とても良い"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -211,7 +211,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "REACT+1"
-output = "GurpsFW : 反応表(19)：最高"
+output = "反応表(19)：最高"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -221,7 +221,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "REACT-1"
-output = "GurpsFW : 反応表(17)：とても良い"
+output = "反応表(17)：とても良い"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -231,7 +231,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "RANDE"
-output = "GurpsFW : ランダムイベント表(312)：断崖(初級)：休憩に丁度いい広場を見つけた。FPが2D回復するが、「意志」判定を行うこと。PCの半数以上が失敗すると居心地が良すぎて離れづらくなり次の深度判定と地形変化が起きなくなる。その場合次もこのイベントを行うこと。"
+output = "ランダムイベント表(312)：断崖(初級)：休憩に丁度いい広場を見つけた。FPが2D回復するが、「意志」判定を行うこと。PCの半数以上が失敗すると居心地が良すぎて離れづらくなり次の深度判定と地形変化が起きなくなる。その場合次もこのイベントを行うこと。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "TRAPE"
-output = "GurpsFW : トラップリスト(7)：初級：スロット：スロットが揃うまで開かない宝箱。スロットを1回まわすには100GPが必要。行動を消費して「視覚-5」判定に成功すればスロットはそろう。「反射神経」があれば「視覚」そのままで判定可能。"
+output = "トラップリスト(7)：初級：スロット：スロットが揃うまで開かない宝箱。スロットを1回まわすには100GPが必要。行動を消費して「視覚-5」判定に成功すればスロットはそろう。「反射神経」があれば「視覚」そのままで判定可能。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -251,7 +251,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "TRSN28"
-output = "GurpsFW : 財宝テーブル(2)：最高級能力増加ポーション(消耗品)"
+output = "財宝テーブル(2)：最高級能力増加ポーション(消耗品)"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -259,7 +259,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "RENCH"
-output = "GurpsFW : ランダムエンカウント表(144)：洞窟(上級)：デビルホイール(CL26)とエンカウント、防護点+4、HP+24。トロッコに乗って逃げつつの戦闘になり、2ラウンド以内に倒せなければ轢かれてPC全員が8Dの防護点無視ダメージを受ける。また、1ラウンドに1人誰かが体力判定を行ってトロッコを運転する必要があり、これに失敗すると即座に轢かれてしまう。轢かれると戦闘は終了する。パーテイー内にケイヴウォーカーがいればこの判定は不要。"
+output = "ランダムエンカウント表(144)：洞窟(上級)：デビルホイール(CL26)とエンカウント、防護点+4、HP+24。トロッコに乗って逃げつつの戦闘になり、2ラウンド以内に倒せなければ轢かれてPC全員が8Dの防護点無視ダメージを受ける。また、1ラウンドに1人誰かが体力判定を行ってトロッコを運転する必要があり、これに失敗すると即座に轢かれてしまう。轢かれると戦闘は終了する。パーテイー内にケイヴウォーカーがいればこの判定は不要。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -268,7 +268,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "AREA"
-output = "GurpsFW : 地形決定表(6)：墓地\n「客人とは珍しい・・・『死者の王』に出会わぬよう、ゆめゆめご注意を・・・」\n死者どもの彷徨う、暗く冷たい墓地。\nローブをかぶった得体の知れない墓守を<追跡>して脱出せよ。\n☆深度判定：<追跡>\n☆屋外\n☆薄暗い(ストームコーザー「鳥目」を適用)"
+output = "地形決定表(6)：墓地\n「客人とは珍しい・・・『死者の王』に出会わぬよう、ゆめゆめご注意を・・・」\n死者どもの彷徨う、暗く冷たい墓地。\nローブをかぶった得体の知れない墓守を<追跡>して脱出せよ。\n☆深度判定：<追跡>\n☆屋外\n☆薄暗い(ストームコーザー「鳥目」を適用)"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -276,7 +276,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "DROP"
-output = "GurpsFW : ドロップ判定(12)：CL×10GP"
+output = "ドロップ判定(12)：CL×10GP"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -286,7 +286,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "DROPN"
-output = "GurpsFW : ドロップ判定(3)：レアアイテム1"
+output = "ドロップ判定(3)：レアアイテム1"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -296,7 +296,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "HST"
-output = "GurpsFW : 必殺技表(1)：命中判定に[1,1,1]でクリティカル(クリティカル表も参照)。"
+output = "必殺技表(1)：命中判定に[1,1,1]でクリティカル(クリティカル表も参照)。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -304,7 +304,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "KHST"
-output = "GurpsFW : 驚異的必殺技表(14)：1点でもダメージを与えた場合、-6のペナルティで気絶判定。"
+output = "驚異的必殺技表(14)：1点でもダメージを与えた場合、-6のペナルティで気絶判定。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -314,7 +314,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "RANDOP"
-output = "GurpsFW : 迷宮追加オプション表(31)：「暗闇の迷宮」　初期深度+5\n「暗視」がなければ視覚判定に-5のペナルティを受ける。\nストームコーザーはペナルティが2倍。"
+output = "迷宮追加オプション表(31)：「暗闇の迷宮」　初期深度+5\n「暗視」がなければ視覚判定に-5のペナルティを受ける。\nストームコーザーはペナルティが2倍。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -323,7 +323,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "LOTN"
-output = "GurpsFW : ナンバーワンノーマルくじ：ヤコ仮面or梟の文鎮(選択可)"
+output = "ナンバーワンノーマルくじ：ヤコ仮面or梟の文鎮(選択可)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -332,7 +332,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "LOTP"
-output = "GurpsFW : ナンバーワンプレミアムくじ：天使の望遠鏡orデスの目覚まし時計(選択可)"
+output = "ナンバーワンプレミアムくじ：天使の望遠鏡orデスの目覚まし時計(選択可)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -344,7 +344,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "3D6>=? 目標値?でバグらない"
-output = "GurpsFW : (3D6>=?) ＞ 9[3,3,3] ＞ 9 ＞ 失敗"
+output = "(3D6>=?) ＞ 9[3,3,3] ＞ 9 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },

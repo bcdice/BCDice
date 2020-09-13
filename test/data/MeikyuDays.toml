@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=4"
-output = "MeikyuDays : (2D6>=4) ＞ 7[2,5] ＞ 7 ＞ 成功"
+output = "(2D6>=4) ＞ 7[2,5] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=4"
-output = "MeikyuDays : (2D6>=4) ＞ 2[1,1] ＞ 2 ＞ 絶対失敗"
+output = "(2D6>=4) ＞ 2[1,1] ＞ 2 ＞ 絶対失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=4"
-output = "MeikyuDays : (2D6>=4) ＞ 9[3,6] ＞ 9 ＞ 成功"
+output = "(2D6>=4) ＞ 9[3,6] ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=4"
-output = "MeikyuDays : (2D6>=4) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=4) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=4"
-output = "MeikyuDays : (2D6>=4) ＞ 6[1,5] ＞ 6 ＞ 成功"
+output = "(2D6>=4) ＞ 6[1,5] ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=4"
-output = "MeikyuDays : (2D6>=4) ＞ 7[2,5] ＞ 7 ＞ 成功"
+output = "(2D6>=4) ＞ 7[2,5] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=4"
-output = "MeikyuDays : (2D6>=4) ＞ 12[6,6] ＞ 12 ＞ 絶対成功"
+output = "(2D6>=4) ＞ 12[6,6] ＞ 12 ＞ 絶対成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -64,7 +64,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=4"
-output = "MeikyuDays : (2D6>=4) ＞ 4[1,3] ＞ 4 ＞ 成功"
+output = "(2D6>=4) ＞ 4[1,3] ＞ 4 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=4"
-output = "MeikyuDays : (2D6>=4) ＞ 9[4,5] ＞ 9 ＞ 成功"
+output = "(2D6>=4) ＞ 9[4,5] ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -82,7 +82,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=4"
-output = "MeikyuDays : (2D6>=4) ＞ 5[1,4] ＞ 5 ＞ 成功"
+output = "(2D6>=4) ＞ 5[1,4] ＞ 5 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=9"
-output = "MeikyuDays : (2D6>=9) ＞ 9[4,5] ＞ 9 ＞ 成功"
+output = "(2D6>=9) ＞ 9[4,5] ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=9"
-output = "MeikyuDays : (2D6>=9) ＞ 8[3,5] ＞ 8 ＞ 失敗"
+output = "(2D6>=9) ＞ 8[3,5] ＞ 8 ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=9"
-output = "MeikyuDays : (2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=9"
-output = "MeikyuDays : (2D6>=9) ＞ 5[2,3] ＞ 5 ＞ 失敗"
+output = "(2D6>=9) ＞ 5[2,3] ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=9"
-output = "MeikyuDays : (2D6>=9) ＞ 8[3,5] ＞ 8 ＞ 失敗"
+output = "(2D6>=9) ＞ 8[3,5] ＞ 8 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -136,7 +136,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=9"
-output = "MeikyuDays : (2D6>=9) ＞ 6[3,3] ＞ 6 ＞ 失敗"
+output = "(2D6>=9) ＞ 6[3,3] ＞ 6 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=9"
-output = "MeikyuDays : (2D6>=9) ＞ 4[1,3] ＞ 4 ＞ 失敗"
+output = "(2D6>=9) ＞ 4[1,3] ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -154,7 +154,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=9"
-output = "MeikyuDays : (2D6>=9) ＞ 8[2,6] ＞ 8 ＞ 失敗"
+output = "(2D6>=9) ＞ 8[2,6] ＞ 8 ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -163,7 +163,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=9"
-output = "MeikyuDays : (2D6>=9) ＞ 9[4,5] ＞ 9 ＞ 成功"
+output = "(2D6>=9) ＞ 9[4,5] ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -172,7 +172,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=9"
-output = "MeikyuDays : (2D6>=9) ＞ 8[2,6] ＞ 8 ＞ 失敗"
+output = "(2D6>=9) ＞ 8[2,6] ＞ 8 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -181,7 +181,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=7"
-output = "MeikyuDays : (2D6>=7) ＞ 12[6,6] ＞ 12 ＞ 絶対成功"
+output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ 絶対成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -190,7 +190,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=7"
-output = "MeikyuDays : (2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
+output = "(2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -199,7 +199,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=7"
-output = "MeikyuDays : (2D6>=7) ＞ 8[3,5] ＞ 8 ＞ 成功"
+output = "(2D6>=7) ＞ 8[3,5] ＞ 8 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -208,7 +208,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=7"
-output = "MeikyuDays : (2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
+output = "(2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=7"
-output = "MeikyuDays : (2D6>=7) ＞ 7[1,6] ＞ 7 ＞ 成功"
+output = "(2D6>=7) ＞ 7[1,6] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -226,7 +226,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=7"
-output = "MeikyuDays : (2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
+output = "(2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -235,7 +235,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=7"
-output = "MeikyuDays : (2D6>=7) ＞ 2[1,1] ＞ 2 ＞ 絶対失敗"
+output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ 絶対失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -244,7 +244,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=7"
-output = "MeikyuDays : (2D6>=7) ＞ 5[2,3] ＞ 5 ＞ 失敗"
+output = "(2D6>=7) ＞ 5[2,3] ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -253,7 +253,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=7"
-output = "MeikyuDays : (2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
+output = "(2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -262,7 +262,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2d6>=7"
-output = "MeikyuDays : (2D6>=7) ＞ 4[1,3] ＞ 4 ＞ 失敗"
+output = "(2D6>=7) ＞ 4[1,3] ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -271,7 +271,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD"
-output = "MeikyuDays : (1R6) ＞ 6"
+output = "(1R6) ＞ 6"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -279,7 +279,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD"
-output = "MeikyuDays : (1R6) ＞ 10"
+output = "(1R6) ＞ 10"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -287,7 +287,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD"
-output = "MeikyuDays : (1R6) ＞ 6"
+output = "(1R6) ＞ 6"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -295,7 +295,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD"
-output = "MeikyuDays : (1R6) ＞ 12"
+output = "(1R6) ＞ 12"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -303,7 +303,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD"
-output = "MeikyuDays : (1R6) ＞ 10"
+output = "(1R6) ＞ 10"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -311,7 +311,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD"
-output = "MeikyuDays : (1R6) ＞ 10"
+output = "(1R6) ＞ 10"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -319,7 +319,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD"
-output = "MeikyuDays : (1R6) ＞ 10"
+output = "(1R6) ＞ 10"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -327,7 +327,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD"
-output = "MeikyuDays : (1R6) ＞ 12"
+output = "(1R6) ＞ 12"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -335,7 +335,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD"
-output = "MeikyuDays : (1R6) ＞ 4"
+output = "(1R6) ＞ 4"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -343,7 +343,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD"
-output = "MeikyuDays : (1R6) ＞ 8"
+output = "(1R6) ＞ 8"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -351,7 +351,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD+1"
-output = "MeikyuDays : (1R6+1) ＞ 6[3]+1 ＞ 7"
+output = "(1R6+1) ＞ 6[3]+1 ＞ 7"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -359,7 +359,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD+1"
-output = "MeikyuDays : (1R6+1) ＞ 10[5]+1 ＞ 11"
+output = "(1R6+1) ＞ 10[5]+1 ＞ 11"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -367,7 +367,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD+1"
-output = "MeikyuDays : (1R6+1) ＞ 4[2]+1 ＞ 5"
+output = "(1R6+1) ＞ 4[2]+1 ＞ 5"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -375,7 +375,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD+1"
-output = "MeikyuDays : (1R6+1) ＞ 4[2]+1 ＞ 5"
+output = "(1R6+1) ＞ 4[2]+1 ＞ 5"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -383,7 +383,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD+1"
-output = "MeikyuDays : (1R6+1) ＞ 12[6]+1 ＞ 13"
+output = "(1R6+1) ＞ 12[6]+1 ＞ 13"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -391,7 +391,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD+1"
-output = "MeikyuDays : (1R6+1) ＞ 2[1]+1 ＞ 3"
+output = "(1R6+1) ＞ 2[1]+1 ＞ 3"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -399,7 +399,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD+1"
-output = "MeikyuDays : (1R6+1) ＞ 4[2]+1 ＞ 5"
+output = "(1R6+1) ＞ 4[2]+1 ＞ 5"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -407,7 +407,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD+1"
-output = "MeikyuDays : (1R6+1) ＞ 10[5]+1 ＞ 11"
+output = "(1R6+1) ＞ 10[5]+1 ＞ 11"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -415,7 +415,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD+1"
-output = "MeikyuDays : (1R6+1) ＞ 4[2]+1 ＞ 5"
+output = "(1R6+1) ＞ 4[2]+1 ＞ 5"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -423,7 +423,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "1MD+1"
-output = "MeikyuDays : (1R6+1) ＞ 12[6]+1 ＞ 13"
+output = "(1R6+1) ＞ 12[6]+1 ＞ 13"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -431,7 +431,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1"
-output = "MeikyuDays : (4R6+1) ＞ 8[3,4,4,4]+1 ＞ 9"
+output = "(4R6+1) ＞ 8[3,4,4,4]+1 ＞ 9"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -442,7 +442,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1"
-output = "MeikyuDays : (4R6+1) ＞ 6[1,2,2,4]+1 ＞ 7"
+output = "(4R6+1) ＞ 6[1,2,2,4]+1 ＞ 7"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -453,7 +453,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1"
-output = "MeikyuDays : (4R6+1) ＞ 11[2,4,5,6]+1 ＞ 12"
+output = "(4R6+1) ＞ 11[2,4,5,6]+1 ＞ 12"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -464,7 +464,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1"
-output = "MeikyuDays : (4R6+1) ＞ 10[2,3,4,6]+1 ＞ 11"
+output = "(4R6+1) ＞ 10[2,3,4,6]+1 ＞ 11"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -475,7 +475,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1"
-output = "MeikyuDays : (4R6+1) ＞ 6[1,1,2,4]+1 ＞ 7"
+output = "(4R6+1) ＞ 6[1,1,2,4]+1 ＞ 7"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -486,7 +486,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1"
-output = "MeikyuDays : (4R6+1) ＞ 11[1,2,5,6]+1 ＞ 12"
+output = "(4R6+1) ＞ 11[1,2,5,6]+1 ＞ 12"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -497,7 +497,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1"
-output = "MeikyuDays : (4R6+1) ＞ 9[1,4,4,5]+1 ＞ 10"
+output = "(4R6+1) ＞ 9[1,4,4,5]+1 ＞ 10"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -508,7 +508,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1"
-output = "MeikyuDays : (4R6+1) ＞ 9[1,2,4,5]+1 ＞ 10"
+output = "(4R6+1) ＞ 9[1,2,4,5]+1 ＞ 10"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -519,7 +519,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1"
-output = "MeikyuDays : (4R6+1) ＞ 5[1,1,2,3]+1 ＞ 6"
+output = "(4R6+1) ＞ 5[1,1,2,3]+1 ＞ 6"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -530,7 +530,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1"
-output = "MeikyuDays : (4R6+1) ＞ 12[3,4,6,6]+1 ＞ 13"
+output = "(4R6+1) ＞ 12[3,4,6,6]+1 ＞ 13"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -541,7 +541,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1>=8"
-output = "MeikyuDays : (4R6+1>=8) ＞ 11[1,1,5,6]+1 ＞ 12 ＞ 成功"
+output = "(4R6+1>=8) ＞ 11[1,1,5,6]+1 ＞ 12 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -552,7 +552,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1>=8"
-output = "MeikyuDays : (4R6+1>=8) ＞ 11[4,5,5,6]+1 ＞ 12 ＞ 成功"
+output = "(4R6+1>=8) ＞ 11[4,5,5,6]+1 ＞ 12 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -563,7 +563,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1>=8"
-output = "MeikyuDays : (4R6+1>=8) ＞ 7[1,1,2,5]+1 ＞ 8 ＞ 成功"
+output = "(4R6+1>=8) ＞ 7[1,1,2,5]+1 ＞ 8 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -574,7 +574,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1>=8"
-output = "MeikyuDays : (4R6+1>=8) ＞ 10[1,2,5,5]+1 ＞ 11 ＞ 成功"
+output = "(4R6+1>=8) ＞ 10[1,2,5,5]+1 ＞ 11 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -585,7 +585,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1>=8"
-output = "MeikyuDays : (4R6+1>=8) ＞ 11[2,3,5,6]+1 ＞ 12 ＞ 成功"
+output = "(4R6+1>=8) ＞ 11[2,3,5,6]+1 ＞ 12 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -596,7 +596,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1>=8"
-output = "MeikyuDays : (4R6+1>=8) ＞ 8[1,2,3,5]+1 ＞ 9 ＞ 成功"
+output = "(4R6+1>=8) ＞ 8[1,2,3,5]+1 ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -607,7 +607,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1>=8"
-output = "MeikyuDays : (4R6+1>=8) ＞ 9[1,2,3,6]+1 ＞ 10 ＞ 成功"
+output = "(4R6+1>=8) ＞ 9[1,2,3,6]+1 ＞ 10 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -618,7 +618,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1>=8"
-output = "MeikyuDays : (4R6+1>=8) ＞ 10[4,5,5,5]+1 ＞ 11 ＞ 成功"
+output = "(4R6+1>=8) ＞ 10[4,5,5,5]+1 ＞ 11 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -629,7 +629,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1>=8"
-output = "MeikyuDays : (4R6+1>=8) ＞ 9[1,2,4,5]+1 ＞ 10 ＞ 成功"
+output = "(4R6+1>=8) ＞ 9[1,2,4,5]+1 ＞ 10 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -640,7 +640,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "4MD+1>=8"
-output = "MeikyuDays : (4R6+1>=8) ＞ 10[2,3,4,6]+1 ＞ 11 ＞ 成功"
+output = "(4R6+1>=8) ＞ 10[2,3,4,6]+1 ＞ 11 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -651,7 +651,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DRT"
-output = "MeikyuDays : 散策表(7) ＞ 近所からおすそ分けをもらう。【回復薬】を6個手に入れる。"
+output = "散策表(7) ＞ 近所からおすそ分けをもらう。【回復薬】を6個手に入れる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -660,7 +660,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DRT"
-output = "MeikyuDays : 散策表(6) ＞ メディアの取材を受ける。《民の声》を2点得る。"
+output = "散策表(6) ＞ メディアの取材を受ける。《民の声》を2点得る。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -669,7 +669,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DRT"
-output = "MeikyuDays : 散策表(7) ＞ 近所からおすそ分けをもらう。【回復薬】を6個手に入れる。"
+output = "散策表(7) ＞ 近所からおすそ分けをもらう。【回復薬】を6個手に入れる。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -678,7 +678,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DRT"
-output = "MeikyuDays : 散策表(11) ＞ 他の迷宮屋と喧嘩になる。パーティの中からランダムに1人を選び、お互いの《敵意》を1点上昇させる。"
+output = "散策表(11) ＞ 他の迷宮屋と喧嘩になる。パーティの中からランダムに1人を選び、お互いの《敵意》を1点上昇させる。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -687,7 +687,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DRT"
-output = "MeikyuDays : 散策表(7) ＞ 近所からおすそ分けをもらう。【回復薬】を6個手に入れる。"
+output = "散策表(7) ＞ 近所からおすそ分けをもらう。【回復薬】を6個手に入れる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -696,7 +696,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DRT"
-output = "MeikyuDays : 散策表(6) ＞ メディアの取材を受ける。《民の声》を2点得る。"
+output = "散策表(6) ＞ メディアの取材を受ける。《民の声》を2点得る。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -705,7 +705,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DRT"
-output = "MeikyuDays : 散策表(4) ＞ 他の迷宮屋の評判を耳にする。パーティから好きなキャラクター1人を選び、そのキャラクターに対する《好意》が1点上昇する。"
+output = "散策表(4) ＞ 他の迷宮屋の評判を耳にする。パーティから好きなキャラクター1人を選び、そのキャラクターに対する《好意》が1点上昇する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -714,7 +714,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DRT"
-output = "MeikyuDays : 散策表(11) ＞ 他の迷宮屋と喧嘩になる。パーティの中からランダムに1人を選び、お互いの《敵意》を1点上昇させる。"
+output = "散策表(11) ＞ 他の迷宮屋と喧嘩になる。パーティの中からランダムに1人を選び、お互いの《敵意》を1点上昇させる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -723,7 +723,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DRT"
-output = "MeikyuDays : 散策表(9) ＞ 似たような迷宮に挑んだことがある迷宮屋から話を聞いた。迷宮フェイズでの情報収集の難易度が2下がる。"
+output = "散策表(9) ＞ 似たような迷宮に挑んだことがある迷宮屋から話を聞いた。迷宮フェイズでの情報収集の難易度が2下がる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -732,7 +732,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DRT"
-output = "MeikyuDays : 散策表(10) ＞ 武具の安売りを見つける。ランダムな武具アイテム1つを半分の値段で購入することができる。"
+output = "散策表(10) ＞ 武具の安売りを見つける。ランダムな武具アイテム1つを半分の値段で購入することができる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -741,7 +741,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DNT"
-output = "MeikyuDays : 交渉表(12) ＞ 運命の出会い。一目見た瞬間に打ち解けあい、友好的になる。"
+output = "交渉表(12) ＞ 運命の出会い。一目見た瞬間に打ち解けあい、友好的になる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -750,7 +750,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DNT"
-output = "MeikyuDays : 交渉表(9) ＞ 「何かいいもんよこせ」モンスターの中で最もレベルの高いもののレベル以上の価格のアイテムを消費すれば友好的になる。そうでない場合、戦闘を開始すること。"
+output = "交渉表(9) ＞ 「何かいいもんよこせ」モンスターの中で最もレベルの高いもののレベル以上の価格のアイテムを消費すれば友好的になる。そうでない場合、戦闘を開始すること。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -759,7 +759,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DNT"
-output = "MeikyuDays : 交渉表(9) ＞ 「何かいいもんよこせ」モンスターの中で最もレベルの高いもののレベル以上の価格のアイテムを消費すれば友好的になる。そうでない場合、戦闘を開始すること。"
+output = "交渉表(9) ＞ 「何かいいもんよこせ」モンスターの中で最もレベルの高いもののレベル以上の価格のアイテムを消費すれば友好的になる。そうでない場合、戦闘を開始すること。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -768,7 +768,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DNT"
-output = "MeikyuDays : 交渉表(10) ＞ 「面白い話を聞かせろよ」プレイヤーたちは面白い話をすること。GMは面白いと思えばモンスターは友好的になる。面白くなかった場合は戦闘を開始する。"
+output = "交渉表(10) ＞ 「面白い話を聞かせろよ」プレイヤーたちは面白い話をすること。GMは面白いと思えばモンスターは友好的になる。面白くなかった場合は戦闘を開始する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -777,7 +777,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DNT"
-output = "MeikyuDays : 交渉表(8) ＞ 怪物たちは値踏みするようにこちらを見ている。現金で1d6MC支払えば友好的になる。そうでない場合、戦闘を開始すること。"
+output = "交渉表(8) ＞ 怪物たちは値踏みするようにこちらを見ている。現金で1d6MC支払えば友好的になる。そうでない場合、戦闘を開始すること。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -786,7 +786,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DNT"
-output = "MeikyuDays : 交渉表(9) ＞ 「何かいいもんよこせ」モンスターの中で最もレベルの高いもののレベル以上の価格のアイテムを消費すれば友好的になる。そうでない場合、戦闘を開始すること。"
+output = "交渉表(9) ＞ 「何かいいもんよこせ」モンスターの中で最もレベルの高いもののレベル以上の価格のアイテムを消費すれば友好的になる。そうでない場合、戦闘を開始すること。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -795,7 +795,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DNT"
-output = "MeikyuDays : 交渉表(4) ＞ 交渉は決裂！　戦闘を行うこと。"
+output = "交渉表(4) ＞ 交渉は決裂！　戦闘を行うこと。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -804,7 +804,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DNT"
-output = "MeikyuDays : 交渉表(7) ＞ 怪物たちは物欲しそうにこちらを見ている。「肉」の素材をモンスターの数だけ消費するか、【お弁当】【フルコース】1個を消費すれば友好的になる。消費しなければ、戦闘を開始すること。"
+output = "交渉表(7) ＞ 怪物たちは物欲しそうにこちらを見ている。「肉」の素材をモンスターの数だけ消費するか、【お弁当】【フルコース】1個を消費すれば友好的になる。消費しなければ、戦闘を開始すること。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -813,7 +813,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DNT"
-output = "MeikyuDays : 交渉表(3) ＞ 交渉は決裂！　戦闘を行うこと。"
+output = "交渉表(3) ＞ 交渉は決裂！　戦闘を行うこと。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -822,7 +822,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DNT"
-output = "MeikyuDays : 交渉表(10) ＞ 「面白い話を聞かせろよ」プレイヤーたちは面白い話をすること。GMは面白いと思えばモンスターは友好的になる。面白くなかった場合は戦闘を開始する。"
+output = "交渉表(10) ＞ 「面白い話を聞かせろよ」プレイヤーたちは面白い話をすること。GMは面白いと思えばモンスターは友好的になる。面白くなかった場合は戦闘を開始する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -831,7 +831,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DBT"
-output = "MeikyuDays : 休憩表(9) ＞ チームワークの確認。各プレイヤーは打ち合わせをせずに、一斉にじゃんけんを行う。いちばん出した人が多かった手を出したプレイヤーのPCは、《気力》を2点得る。"
+output = "休憩表(9) ＞ チームワークの確認。各プレイヤーは打ち合わせをせずに、一斉にじゃんけんを行う。いちばん出した人が多かった手を出したプレイヤーのPCは、《気力》を2点得る。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -840,7 +840,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DBT"
-output = "MeikyuDays : 休憩表(6) ＞ 窓の外から報道のヘリコプターがこちらを撮影しているのが見える。格好よく見せるために、各キャラクターは〔魅力〕で難易度13の判定を行う。誰かが成功するたびに《民の声》が1点増加する。"
+output = "休憩表(6) ＞ 窓の外から報道のヘリコプターがこちらを撮影しているのが見える。格好よく見せるために、各キャラクターは〔魅力〕で難易度13の判定を行う。誰かが成功するたびに《民の声》が1点増加する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -849,7 +849,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DBT"
-output = "MeikyuDays : 休憩表(8) ＞ 通路の片隅で素材が山を作っているのを見つけた。各キャラクターは〔探索〕で難易度11の判定を行う。誰かが成功するたびに、好きな素材を1種類選び、それを1d6個手に入れる。"
+output = "休憩表(8) ＞ 通路の片隅で素材が山を作っているのを見つけた。各キャラクターは〔探索〕で難易度11の判定を行う。誰かが成功するたびに、好きな素材を1種類選び、それを1d6個手に入れる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -858,7 +858,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DBT"
-output = "MeikyuDays : 休憩表(4) ＞ 好きな単語表からランダムに単語を1つ選ぶ。その部屋にはそれに関係したものがたくさん置いてあるため、出た単語が「好きなもの」に入っているキャラクターは、《気力》を2点得る。"
+output = "休憩表(4) ＞ 好きな単語表からランダムに単語を1つ選ぶ。その部屋にはそれに関係したものがたくさん置いてあるため、出た単語が「好きなもの」に入っているキャラクターは、《気力》を2点得る。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -867,7 +867,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DBT"
-output = "MeikyuDays : 休憩表(7) ＞ 雑談や休息など、思い思いに時間を過ごす。各キャラクターは、好きなキャラクター1体への《好意》を1点上昇させる。"
+output = "休憩表(7) ＞ 雑談や休息など、思い思いに時間を過ごす。各キャラクターは、好きなキャラクター1体への《好意》を1点上昇させる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -876,7 +876,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DBT"
-output = "MeikyuDays : 休憩表(7) ＞ 雑談や休息など、思い思いに時間を過ごす。各キャラクターは、好きなキャラクター1体への《好意》を1点上昇させる。"
+output = "休憩表(7) ＞ 雑談や休息など、思い思いに時間を過ごす。各キャラクターは、好きなキャラクター1体への《好意》を1点上昇させる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -885,7 +885,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DBT"
-output = "MeikyuDays : 休憩表(12) ＞ 各キャラクターは1d6を振る。出た目の上位2名が唐突に恋に落ちる。同じ目が出て2名をうまく割り出せない場合は、GMの左隣に近い方を優先する。恋に落ちた2人、相手以外に対する《好意》を合計し、その値に対する《好意》に加える。その後、相手以外に対する《好意》をすべて0にする。"
+output = "休憩表(12) ＞ 各キャラクターは1d6を振る。出た目の上位2名が唐突に恋に落ちる。同じ目が出て2名をうまく割り出せない場合は、GMの左隣に近い方を優先する。恋に落ちた2人、相手以外に対する《好意》を合計し、その値に対する《好意》に加える。その後、相手以外に対する《好意》をすべて0にする。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -894,7 +894,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DBT"
-output = "MeikyuDays : 休憩表(8) ＞ 通路の片隅で素材が山を作っているのを見つけた。各キャラクターは〔探索〕で難易度11の判定を行う。誰かが成功するたびに、好きな素材を1種類選び、それを1d6個手に入れる。"
+output = "休憩表(8) ＞ 通路の片隅で素材が山を作っているのを見つけた。各キャラクターは〔探索〕で難易度11の判定を行う。誰かが成功するたびに、好きな素材を1種類選び、それを1d6個手に入れる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -903,7 +903,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DBT"
-output = "MeikyuDays : 休憩表(8) ＞ 通路の片隅で素材が山を作っているのを見つけた。各キャラクターは〔探索〕で難易度11の判定を行う。誰かが成功するたびに、好きな素材を1種類選び、それを1d6個手に入れる。"
+output = "休憩表(8) ＞ 通路の片隅で素材が山を作っているのを見つけた。各キャラクターは〔探索〕で難易度11の判定を行う。誰かが成功するたびに、好きな素材を1種類選び、それを1d6個手に入れる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -912,7 +912,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DBT"
-output = "MeikyuDays : 休憩表(9) ＞ チームワークの確認。各プレイヤーは打ち合わせをせずに、一斉にじゃんけんを行う。いちばん出した人が多かった手を出したプレイヤーのPCは、《気力》を2点得る。"
+output = "休憩表(9) ＞ チームワークの確認。各プレイヤーは打ち合わせをせずに、一斉にじゃんけんを行う。いちばん出した人が多かった手を出したプレイヤーのPCは、《気力》を2点得る。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -921,7 +921,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DHT"
-output = "MeikyuDays : ハプニング表(7) ＞ 事故だか故意だかで、仲間を殴ってしまう。ランダムに選んだパーティメンバー1名の《HP》を自分の〔武勇〕と同じ値だけ減少させる。"
+output = "ハプニング表(7) ＞ 事故だか故意だかで、仲間を殴ってしまう。ランダムに選んだパーティメンバー1名の《HP》を自分の〔武勇〕と同じ値だけ減少させる。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -930,7 +930,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DHT"
-output = "MeikyuDays : ハプニング表(7) ＞ 事故だか故意だかで、仲間を殴ってしまう。ランダムに選んだパーティメンバー1名の《HP》を自分の〔武勇〕と同じ値だけ減少させる。"
+output = "ハプニング表(7) ＞ 事故だか故意だかで、仲間を殴ってしまう。ランダムに選んだパーティメンバー1名の《HP》を自分の〔武勇〕と同じ値だけ減少させる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -939,7 +939,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DHT"
-output = "MeikyuDays : ハプニング表(5) ＞ 無残な失敗に愛想を尽かした配下が2d6人ほど去って行ってしまう。"
+output = "ハプニング表(5) ＞ 無残な失敗に愛想を尽かした配下が2d6人ほど去って行ってしまう。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -948,7 +948,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DHT"
-output = "MeikyuDays : ハプニング表(8) ＞ 期待が大きければ失望も大きい。あなたに対して《好意》を持っているキャラクター全員は、あなたに対する《好意》を1点減らす。"
+output = "ハプニング表(8) ＞ 期待が大きければ失望も大きい。あなたに対して《好意》を持っているキャラクター全員は、あなたに対する《好意》を1点減らす。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -957,7 +957,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DHT"
-output = "MeikyuDays : ハプニング表(4) ＞ 気がついたら太っていた。「肥満」のバッドステータスを受ける。"
+output = "ハプニング表(4) ＞ 気がついたら太っていた。「肥満」のバッドステータスを受ける。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -966,7 +966,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DHT"
-output = "MeikyuDays : ハプニング表(8) ＞ 期待が大きければ失望も大きい。あなたに対して《好意》を持っているキャラクター全員は、あなたに対する《好意》を1点減らす。"
+output = "ハプニング表(8) ＞ 期待が大きければ失望も大きい。あなたに対して《好意》を持っているキャラクター全員は、あなたに対する《好意》を1点減らす。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -975,7 +975,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DHT"
-output = "MeikyuDays : ハプニング表(12) ＞ 自分の失敗が許せない。このゲームの間、《器》が1点減少したものとして扱う。"
+output = "ハプニング表(12) ＞ 自分の失敗が許せない。このゲームの間、《器》が1点減少したものとして扱う。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -984,7 +984,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DHT"
-output = "MeikyuDays : ハプニング表(5) ＞ 無残な失敗に愛想を尽かした配下が2d6人ほど去って行ってしまう。"
+output = "ハプニング表(5) ＞ 無残な失敗に愛想を尽かした配下が2d6人ほど去って行ってしまう。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -993,7 +993,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DHT"
-output = "MeikyuDays : ハプニング表(8) ＞ 期待が大きければ失望も大きい。あなたに対して《好意》を持っているキャラクター全員は、あなたに対する《好意》を1点減らす。"
+output = "ハプニング表(8) ＞ 期待が大きければ失望も大きい。あなたに対して《好意》を持っているキャラクター全員は、あなたに対する《好意》を1点減らす。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -1002,7 +1002,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DHT"
-output = "MeikyuDays : ハプニング表(5) ＞ 無残な失敗に愛想を尽かした配下が2d6人ほど去って行ってしまう。"
+output = "ハプニング表(5) ＞ 無残な失敗に愛想を尽かした配下が2d6人ほど去って行ってしまう。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -1011,7 +1011,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "KST"
-output = "MeikyuDays : カーネル停止表(7) ＞ 激しい迷宮化に曝され、1d6点のダメージを受ける。〔探索〕で難易度11の判定を行う。成功すれば、怪我を負いながらもカーネルを停止させることに成功する。"
+output = "カーネル停止表(7) ＞ 激しい迷宮化に曝され、1d6点のダメージを受ける。〔探索〕で難易度11の判定を行う。成功すれば、怪我を負いながらもカーネルを停止させることに成功する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -1020,7 +1020,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "KST"
-output = "MeikyuDays : カーネル停止表(6) ＞ 心象が迷宮化していく。〔魅力〕で難易度9の判定を行う。失敗すると人間関係が迷宮化を起こし、持っている感情値がすべて1点減少する。カーネルは停止しない。"
+output = "カーネル停止表(6) ＞ 心象が迷宮化していく。〔魅力〕で難易度9の判定を行う。失敗すると人間関係が迷宮化を起こし、持っている感情値がすべて1点減少する。カーネルは停止しない。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -1029,7 +1029,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "KST"
-output = "MeikyuDays : カーネル停止表(4) ＞ 迷宮化エネルギーが装備を直撃。素早く避けるため〔武勇〕で難易度9の判定を行う。失敗した場合、持っているアイテムからランダムに1つを選ぶ。そのアイテムは激しい迷宮化を起こし破壊される。カーネルは停止しない。"
+output = "カーネル停止表(4) ＞ 迷宮化エネルギーが装備を直撃。素早く避けるため〔武勇〕で難易度9の判定を行う。失敗した場合、持っているアイテムからランダムに1つを選ぶ。そのアイテムは激しい迷宮化を起こし破壊される。カーネルは停止しない。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -1038,7 +1038,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "KST"
-output = "MeikyuDays : カーネル停止表(4) ＞ 迷宮化エネルギーが装備を直撃。素早く避けるため〔武勇〕で難易度9の判定を行う。失敗した場合、持っているアイテムからランダムに1つを選ぶ。そのアイテムは激しい迷宮化を起こし破壊される。カーネルは停止しない。"
+output = "カーネル停止表(4) ＞ 迷宮化エネルギーが装備を直撃。素早く避けるため〔武勇〕で難易度9の判定を行う。失敗した場合、持っているアイテムからランダムに1つを選ぶ。そのアイテムは激しい迷宮化を起こし破壊される。カーネルは停止しない。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -1047,7 +1047,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "KST"
-output = "MeikyuDays : カーネル停止表(11) ＞ カーネルは停止した。そして持っているアイテムの中からランダムに1つを選ぶ。そのアイテムにレベルがあれば、いつのまにかレベルが1上昇している。"
+output = "カーネル停止表(11) ＞ カーネルは停止した。そして持っているアイテムの中からランダムに1つを選ぶ。そのアイテムにレベルがあれば、いつのまにかレベルが1上昇している。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1056,7 +1056,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "KST"
-output = "MeikyuDays : カーネル停止表(7) ＞ 激しい迷宮化に曝され、1d6点のダメージを受ける。〔探索〕で難易度11の判定を行う。成功すれば、怪我を負いながらもカーネルを停止させることに成功する。"
+output = "カーネル停止表(7) ＞ 激しい迷宮化に曝され、1d6点のダメージを受ける。〔探索〕で難易度11の判定を行う。成功すれば、怪我を負いながらもカーネルを停止させることに成功する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -1065,7 +1065,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "KST"
-output = "MeikyuDays : カーネル停止表(6) ＞ 心象が迷宮化していく。〔魅力〕で難易度9の判定を行う。失敗すると人間関係が迷宮化を起こし、持っている感情値がすべて1点減少する。カーネルは停止しない。"
+output = "カーネル停止表(6) ＞ 心象が迷宮化していく。〔魅力〕で難易度9の判定を行う。失敗すると人間関係が迷宮化を起こし、持っている感情値がすべて1点減少する。カーネルは停止しない。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -1074,7 +1074,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "KST"
-output = "MeikyuDays : カーネル停止表(6) ＞ 心象が迷宮化していく。〔魅力〕で難易度9の判定を行う。失敗すると人間関係が迷宮化を起こし、持っている感情値がすべて1点減少する。カーネルは停止しない。"
+output = "カーネル停止表(6) ＞ 心象が迷宮化していく。〔魅力〕で難易度9の判定を行う。失敗すると人間関係が迷宮化を起こし、持っている感情値がすべて1点減少する。カーネルは停止しない。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -1083,7 +1083,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "KST"
-output = "MeikyuDays : カーネル停止表(6) ＞ 心象が迷宮化していく。〔魅力〕で難易度9の判定を行う。失敗すると人間関係が迷宮化を起こし、持っている感情値がすべて1点減少する。カーネルは停止しない。"
+output = "カーネル停止表(6) ＞ 心象が迷宮化していく。〔魅力〕で難易度9の判定を行う。失敗すると人間関係が迷宮化を起こし、持っている感情値がすべて1点減少する。カーネルは停止しない。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -1092,7 +1092,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "KST"
-output = "MeikyuDays : カーネル停止表(3) ＞ 〔才覚〕で難易度9の判定を行う。失敗すると記憶が迷宮化を起こし、銀行口座の暗証番号を忘れてしまう。口座に入っているMCはすべて失われる。カーネルは停止しない。"
+output = "カーネル停止表(3) ＞ 〔才覚〕で難易度9の判定を行う。失敗すると記憶が迷宮化を起こし、銀行口座の暗証番号を忘れてしまう。口座に入っているMCはすべて失われる。カーネルは停止しない。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -1101,7 +1101,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CAT"
-output = "MeikyuDays : 痛打表(8) ＞ 敵の動きを封じた。攻撃目標の《回避値》を戦闘終了まで2下げる。この効果は累積する。"
+output = "痛打表(8) ＞ 敵の動きを封じた。攻撃目標の《回避値》を戦闘終了まで2下げる。この効果は累積する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -1110,7 +1110,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CAT"
-output = "MeikyuDays : 痛打表(4) ＞ 攻撃が終わった後、攻撃の勢いを利用して、自分を好きなエリアに移動させることができる。"
+output = "痛打表(4) ＞ 攻撃が終わった後、攻撃の勢いを利用して、自分を好きなエリアに移動させることができる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -1119,7 +1119,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CAT"
-output = "MeikyuDays : 痛打表(3) ＞ 偶然ながら敵の弱点をつく。敵の《HP》を現在の半分の値にする。"
+output = "痛打表(3) ＞ 偶然ながら敵の弱点をつく。敵の《HP》を現在の半分の値にする。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -1128,7 +1128,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CAT"
-output = "MeikyuDays : 痛打表(8) ＞ 敵の動きを封じた。攻撃目標の《回避値》を戦闘終了まで2下げる。この効果は累積する。"
+output = "痛打表(8) ＞ 敵の動きを封じた。攻撃目標の《回避値》を戦闘終了まで2下げる。この効果は累積する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -1137,7 +1137,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CAT"
-output = "MeikyuDays : 痛打表(7) ＞ クリーンヒット。攻撃の威力が2d6点上昇する。"
+output = "痛打表(7) ＞ クリーンヒット。攻撃の威力が2d6点上昇する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -1146,7 +1146,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CAT"
-output = "MeikyuDays : 痛打表(8) ＞ 敵の動きを封じた。攻撃目標の《回避値》を戦闘終了まで2下げる。この効果は累積する。"
+output = "痛打表(8) ＞ 敵の動きを封じた。攻撃目標の《回避値》を戦闘終了まで2下げる。この効果は累積する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -1155,7 +1155,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CAT"
-output = "MeikyuDays : 痛打表(8) ＞ 敵の動きを封じた。攻撃目標の《回避値》を戦闘終了まで2下げる。この効果は累積する。"
+output = "痛打表(8) ＞ 敵の動きを封じた。攻撃目標の《回避値》を戦闘終了まで2下げる。この効果は累積する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -1164,7 +1164,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CAT"
-output = "MeikyuDays : 痛打表(7) ＞ クリーンヒット。攻撃の威力が2d6点上昇する。"
+output = "痛打表(7) ＞ クリーンヒット。攻撃の威力が2d6点上昇する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -1173,7 +1173,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CAT"
-output = "MeikyuDays : 痛打表(11) ＞ 敵の急所をとらえ致命傷を与える。攻撃目標の《HP》を0にする。"
+output = "痛打表(11) ＞ 敵の急所をとらえ致命傷を与える。攻撃目標の《HP》を0にする。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -1182,7 +1182,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CAT"
-output = "MeikyuDays : 痛打表(7) ＞ クリーンヒット。攻撃の威力が2d6点上昇する。"
+output = "痛打表(7) ＞ クリーンヒット。攻撃の威力が2d6点上昇する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -1191,7 +1191,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CFT"
-output = "MeikyuDays : 戦闘ファンブル表(8) ＞ 仲間に攻撃が命中！　使用した武器の射程内の味方から、ランダムに1人を選ぶ。そのキャラクターに武器のダメージを与える。"
+output = "戦闘ファンブル表(8) ＞ 仲間に攻撃が命中！　使用した武器の射程内の味方から、ランダムに1人を選ぶ。そのキャラクターに武器のダメージを与える。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -1200,7 +1200,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CFT"
-output = "MeikyuDays : 戦闘ファンブル表(7) ＞ なんというか、やる気をなくす。《気力》を1点失う。モンスターの場合、1d6ダメージを受ける。"
+output = "戦闘ファンブル表(7) ＞ なんというか、やる気をなくす。《気力》を1点失う。モンスターの場合、1d6ダメージを受ける。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -1209,7 +1209,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CFT"
-output = "MeikyuDays : 戦闘ファンブル表(12) ＞ ピンチがチャンスに！　《HP》が現在値の半分になり、《気力》が最大値まで貯まる。"
+output = "戦闘ファンブル表(12) ＞ ピンチがチャンスに！　《HP》が現在値の半分になり、《気力》が最大値まで貯まる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1218,7 +1218,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CFT"
-output = "MeikyuDays : 戦闘ファンブル表(11) ＞ 位置取りに失敗してとんでもない場所に。敵陣営プレイヤーまたはGMが、ファンブルしたキャラクターを好きな位置に移す。"
+output = "戦闘ファンブル表(11) ＞ 位置取りに失敗してとんでもない場所に。敵陣営プレイヤーまたはGMが、ファンブルしたキャラクターを好きな位置に移す。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1227,7 +1227,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CFT"
-output = "MeikyuDays : 戦闘ファンブル表(12) ＞ ピンチがチャンスに！　《HP》が現在値の半分になり、《気力》が最大値まで貯まる。"
+output = "戦闘ファンブル表(12) ＞ ピンチがチャンスに！　《HP》が現在値の半分になり、《気力》が最大値まで貯まる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1236,7 +1236,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CFT"
-output = "MeikyuDays : 戦闘ファンブル表(6) ＞ 自分に攻撃が命中！　使用した武器のダメージを自分に与える。"
+output = "戦闘ファンブル表(6) ＞ 自分に攻撃が命中！　使用した武器のダメージを自分に与える。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -1245,7 +1245,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CFT"
-output = "MeikyuDays : 戦闘ファンブル表(4) ＞ アイテムが壊れた！　自分が持っているアイテムの中からランダムに1つを選び、そのアイテムが失われる。モンスターの場合、1d6ダメージを受ける。"
+output = "戦闘ファンブル表(4) ＞ アイテムが壊れた！　自分が持っているアイテムの中からランダムに1つを選び、そのアイテムが失われる。モンスターの場合、1d6ダメージを受ける。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -1254,7 +1254,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CFT"
-output = "MeikyuDays : 戦闘ファンブル表(9) ＞ 仲間の邪魔をしてしまう。未行動の自軍キャラクター1体を選び、行動済みにする。"
+output = "戦闘ファンブル表(9) ＞ 仲間の邪魔をしてしまう。未行動の自軍キャラクター1体を選び、行動済みにする。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -1263,7 +1263,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CFT"
-output = "MeikyuDays : 戦闘ファンブル表(9) ＞ 仲間の邪魔をしてしまう。未行動の自軍キャラクター1体を選び、行動済みにする。"
+output = "戦闘ファンブル表(9) ＞ 仲間の邪魔をしてしまう。未行動の自軍キャラクター1体を選び、行動済みにする。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -1272,7 +1272,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "CFT"
-output = "MeikyuDays : 戦闘ファンブル表(10) ＞ スキルを忘れてしまった！　習得しているスキルからランダムに1種類を選ぶ。そのスキルは戦闘が終了するまで使用できない。"
+output = "戦闘ファンブル表(10) ＞ スキルを忘れてしまった！　習得しているスキルからランダムに1種類を選ぶ。そのスキルは戦闘が終了するまで使用できない。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -1281,7 +1281,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "FWT"
-output = "MeikyuDays : 致命傷表(9) ＞ 最後の一撃を見切ることができるかもしれない。〔才覚〕で難易度[9-現在の《HP》]の判定を行う。成功すると《HP》が1になる。失敗すると行動不能になる。"
+output = "致命傷表(9) ＞ 最後の一撃を見切ることができるかもしれない。〔才覚〕で難易度[9-現在の《HP》]の判定を行う。成功すると《HP》が1になる。失敗すると行動不能になる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -1290,7 +1290,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "FWT"
-output = "MeikyuDays : 致命傷表(10) ＞ まだここで死ぬ運命ではないのかもしれない。〔魅力〕で難易度[9-現在の《HP》]の判定を行う。成功すると《HP》が1になる。失敗すると行動不能になる。"
+output = "致命傷表(10) ＞ まだここで死ぬ運命ではないのかもしれない。〔魅力〕で難易度[9-現在の《HP》]の判定を行う。成功すると《HP》が1になる。失敗すると行動不能になる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -1299,7 +1299,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "FWT"
-output = "MeikyuDays : 致命傷表(7) ＞ 攻撃で負った傷により意識を失う。行動不能になる。"
+output = "致命傷表(7) ＞ 攻撃で負った傷により意識を失う。行動不能になる。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -1308,7 +1308,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "FWT"
-output = "MeikyuDays : 致命傷表(8) ＞ 緊急回避！　〔探索〕で難易度[7-現在の《HP》]の判定を行う。成功すると、ランダムなバッドステータス1つを受けたうえで攻撃が無効になる。失敗すると、ランダムなバッドステータス1つを受けたうえで行動不能になる。"
+output = "致命傷表(8) ＞ 緊急回避！　〔探索〕で難易度[7-現在の《HP》]の判定を行う。成功すると、ランダムなバッドステータス1つを受けたうえで攻撃が無効になる。失敗すると、ランダムなバッドステータス1つを受けたうえで行動不能になる。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1317,7 +1317,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "FWT"
-output = "MeikyuDays : 致命傷表(10) ＞ まだここで死ぬ運命ではないのかもしれない。〔魅力〕で難易度[9-現在の《HP》]の判定を行う。成功すると《HP》が1になる。失敗すると行動不能になる。"
+output = "致命傷表(10) ＞ まだここで死ぬ運命ではないのかもしれない。〔魅力〕で難易度[9-現在の《HP》]の判定を行う。成功すると《HP》が1になる。失敗すると行動不能になる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -1326,7 +1326,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "FWT"
-output = "MeikyuDays : 致命傷表(3) ＞ 傍目にも分かる致命傷。キャラクターは次の自分の行動処理が終わった時点で死亡する。《HP》の回復でこの死亡を防ぐことはできない。"
+output = "致命傷表(3) ＞ 傍目にも分かる致命傷。キャラクターは次の自分の行動処理が終わった時点で死亡する。《HP》の回復でこの死亡を防ぐことはできない。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -1335,7 +1335,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "FWT"
-output = "MeikyuDays : 致命傷表(4) ＞ 全身に強い衝撃をうける。〔武勇〕で難易度[5+受けたダメージ]の判定に成功すると、行動不能になる。判定に失敗すると死亡する。"
+output = "致命傷表(4) ＞ 全身に強い衝撃をうける。〔武勇〕で難易度[5+受けたダメージ]の判定に成功すると、行動不能になる。判定に失敗すると死亡する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -1344,7 +1344,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "FWT"
-output = "MeikyuDays : 致命傷表(4) ＞ 全身に強い衝撃をうける。〔武勇〕で難易度[5+受けたダメージ]の判定に成功すると、行動不能になる。判定に失敗すると死亡する。"
+output = "致命傷表(4) ＞ 全身に強い衝撃をうける。〔武勇〕で難易度[5+受けたダメージ]の判定に成功すると、行動不能になる。判定に失敗すると死亡する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -1353,7 +1353,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "FWT"
-output = "MeikyuDays : 致命傷表(5) ＞ 出血多量で意識不明。行動不能になる。この戦闘が終了するまでに《HP》を1以上にしないと、キャラクターは死亡する。"
+output = "致命傷表(5) ＞ 出血多量で意識不明。行動不能になる。この戦闘が終了するまでに《HP》を1以上にしないと、キャラクターは死亡する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -1362,7 +1362,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "FWT"
-output = "MeikyuDays : 致命傷表(9) ＞ 最後の一撃を見切ることができるかもしれない。〔才覚〕で難易度[9-現在の《HP》]の判定を行う。成功すると《HP》が1になる。失敗すると行動不能になる。"
+output = "致命傷表(9) ＞ 最後の一撃を見切ることができるかもしれない。〔才覚〕で難易度[9-現在の《HP》]の判定を行う。成功すると《HP》が1になる。失敗すると行動不能になる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -1371,7 +1371,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T1T"
-output = "MeikyuDays : お宝１表(5) ＞ そのモンスターの素材欄の中から、好きな素材を3個。"
+output = "お宝１表(5) ＞ そのモンスターの素材欄の中から、好きな素材を3個。"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1379,7 +1379,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T1T"
-output = "MeikyuDays : お宝１表(4) ＞ そのモンスターの素材欄の中から、好きな素材を2個。"
+output = "お宝１表(4) ＞ そのモンスターの素材欄の中から、好きな素材を2個。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1387,7 +1387,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T1T"
-output = "MeikyuDays : お宝１表(6) ＞ 【お弁当】1個。"
+output = "お宝１表(6) ＞ 【お弁当】1個。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1395,7 +1395,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T1T"
-output = "MeikyuDays : お宝１表(4) ＞ そのモンスターの素材欄の中から、好きな素材を2個。"
+output = "お宝１表(4) ＞ そのモンスターの素材欄の中から、好きな素材を2個。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1403,7 +1403,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T1T"
-output = "MeikyuDays : お宝１表(6) ＞ 【お弁当】1個。"
+output = "お宝１表(6) ＞ 【お弁当】1個。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1411,7 +1411,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T1T"
-output = "MeikyuDays : お宝１表(4) ＞ そのモンスターの素材欄の中から、好きな素材を2個。"
+output = "お宝１表(4) ＞ そのモンスターの素材欄の中から、好きな素材を2個。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1419,7 +1419,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T1T"
-output = "MeikyuDays : お宝１表(3) ＞ そのモンスターの素材欄の中から、好きな素材を1個。"
+output = "お宝１表(3) ＞ そのモンスターの素材欄の中から、好きな素材を1個。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1427,7 +1427,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T1T"
-output = "MeikyuDays : お宝１表(3) ＞ そのモンスターの素材欄の中から、好きな素材を1個。"
+output = "お宝１表(3) ＞ そのモンスターの素材欄の中から、好きな素材を1個。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1435,7 +1435,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T1T"
-output = "MeikyuDays : お宝１表(4) ＞ そのモンスターの素材欄の中から、好きな素材を2個。"
+output = "お宝１表(4) ＞ そのモンスターの素材欄の中から、好きな素材を2個。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1443,7 +1443,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T1T"
-output = "MeikyuDays : お宝１表(6) ＞ 【お弁当】1個。"
+output = "お宝１表(6) ＞ 【お弁当】1個。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1451,7 +1451,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T2T"
-output = "MeikyuDays : お宝２表(6) ＞ ランダムなレアアイテム1個。"
+output = "お宝２表(6) ＞ ランダムなレアアイテム1個。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1459,7 +1459,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T2T"
-output = "MeikyuDays : お宝２表(2) ＞ そのモンスターの素材欄の中から、好きな素材を4個。"
+output = "お宝２表(2) ＞ そのモンスターの素材欄の中から、好きな素材を4個。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1467,7 +1467,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T2T"
-output = "MeikyuDays : お宝２表(3) ＞ そのモンスターの素材欄の中から、好きな素材を5個。"
+output = "お宝２表(3) ＞ そのモンスターの素材欄の中から、好きな素材を5個。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1475,7 +1475,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T2T"
-output = "MeikyuDays : お宝２表(4) ＞ ランダムな回復アイテム1個。"
+output = "お宝２表(4) ＞ ランダムな回復アイテム1個。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1483,7 +1483,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T2T"
-output = "MeikyuDays : お宝２表(2) ＞ そのモンスターの素材欄の中から、好きな素材を4個。"
+output = "お宝２表(2) ＞ そのモンスターの素材欄の中から、好きな素材を4個。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1491,7 +1491,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T2T"
-output = "MeikyuDays : お宝２表(6) ＞ ランダムなレアアイテム1個。"
+output = "お宝２表(6) ＞ ランダムなレアアイテム1個。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1499,7 +1499,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T2T"
-output = "MeikyuDays : お宝２表(2) ＞ そのモンスターの素材欄の中から、好きな素材を4個。"
+output = "お宝２表(2) ＞ そのモンスターの素材欄の中から、好きな素材を4個。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1507,7 +1507,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T2T"
-output = "MeikyuDays : お宝２表(1) ＞ そのモンスターの素材欄の中から、好きな素材を3個。"
+output = "お宝２表(1) ＞ そのモンスターの素材欄の中から、好きな素材を3個。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1515,7 +1515,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T2T"
-output = "MeikyuDays : お宝２表(4) ＞ ランダムな回復アイテム1個。"
+output = "お宝２表(4) ＞ ランダムな回復アイテム1個。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1523,7 +1523,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T2T"
-output = "MeikyuDays : お宝２表(4) ＞ ランダムな回復アイテム1個。"
+output = "お宝２表(4) ＞ ランダムな回復アイテム1個。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1531,7 +1531,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T3T"
-output = "MeikyuDays : お宝３表(3) ＞ そのモンスターの素材欄の中から、好きな素材を10個。"
+output = "お宝３表(3) ＞ そのモンスターの素材欄の中から、好きな素材を10個。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1539,7 +1539,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T3T"
-output = "MeikyuDays : お宝３表(2) ＞ そのモンスターの素材欄の中から、好きな素材を7個。"
+output = "お宝３表(2) ＞ そのモンスターの素材欄の中から、好きな素材を7個。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1547,7 +1547,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T3T"
-output = "MeikyuDays : お宝３表(5) ＞ ランダムなレアアイテム1個"
+output = "お宝３表(5) ＞ ランダムなレアアイテム1個"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1555,7 +1555,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T3T"
-output = "MeikyuDays : お宝３表(1) ＞ そのモンスターの素材欄の中から、好きな素材を5個。"
+output = "お宝３表(1) ＞ そのモンスターの素材欄の中から、好きな素材を5個。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1563,7 +1563,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T3T"
-output = "MeikyuDays : お宝３表(3) ＞ そのモンスターの素材欄の中から、好きな素材を10個。"
+output = "お宝３表(3) ＞ そのモンスターの素材欄の中から、好きな素材を10個。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1571,7 +1571,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T3T"
-output = "MeikyuDays : お宝３表(3) ＞ そのモンスターの素材欄の中から、好きな素材を10個。"
+output = "お宝３表(3) ＞ そのモンスターの素材欄の中から、好きな素材を10個。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1579,7 +1579,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T3T"
-output = "MeikyuDays : お宝３表(6) ＞ ランダムなレアアイテム1個。そのアイテムにレベルがあれば、レベル1のアイテムとなる。"
+output = "お宝３表(6) ＞ ランダムなレアアイテム1個。そのアイテムにレベルがあれば、レベル1のアイテムとなる。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1587,7 +1587,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T3T"
-output = "MeikyuDays : お宝３表(5) ＞ ランダムなレアアイテム1個"
+output = "お宝３表(5) ＞ ランダムなレアアイテム1個"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1595,7 +1595,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T3T"
-output = "MeikyuDays : お宝３表(2) ＞ そのモンスターの素材欄の中から、好きな素材を7個。"
+output = "お宝３表(2) ＞ そのモンスターの素材欄の中から、好きな素材を7個。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1603,7 +1603,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T3T"
-output = "MeikyuDays : お宝３表(3) ＞ そのモンスターの素材欄の中から、好きな素材を10個。"
+output = "お宝３表(3) ＞ そのモンスターの素材欄の中から、好きな素材を10個。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1611,7 +1611,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T4T"
-output = "MeikyuDays : お宝４表(2) ＞ そのモンスターの素材欄の中から、好きな素材を10個。"
+output = "お宝４表(2) ＞ そのモンスターの素材欄の中から、好きな素材を10個。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1619,7 +1619,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T4T"
-output = "MeikyuDays : お宝４表(6) ＞ ランダムなレアアイテム1個。そのアイテムにレベルがあれば、レベル2のアイテムとなる。"
+output = "お宝４表(6) ＞ ランダムなレアアイテム1個。そのアイテムにレベルがあれば、レベル2のアイテムとなる。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1627,7 +1627,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T4T"
-output = "MeikyuDays : お宝４表(4) ＞ 好きなコモンアイテムのカテゴリ1種を選ぶ。そのカテゴリの中からランダムなアイテム1個。そのアイテムにレベルがあれば、レベル3のアイテムとなる。"
+output = "お宝４表(4) ＞ 好きなコモンアイテムのカテゴリ1種を選ぶ。そのカテゴリの中からランダムなアイテム1個。そのアイテムにレベルがあれば、レベル3のアイテムとなる。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1635,7 +1635,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T4T"
-output = "MeikyuDays : お宝４表(1) ＞ そのモンスターの素材欄の中から、好きな素材を5個。"
+output = "お宝４表(1) ＞ そのモンスターの素材欄の中から、好きな素材を5個。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1643,7 +1643,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T4T"
-output = "MeikyuDays : お宝４表(2) ＞ そのモンスターの素材欄の中から、好きな素材を10個。"
+output = "お宝４表(2) ＞ そのモンスターの素材欄の中から、好きな素材を10個。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1651,7 +1651,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T4T"
-output = "MeikyuDays : お宝４表(3) ＞ 好きなコモンアイテムのカテゴリ1種を選ぶ。そのカテゴリの中からランダムなアイテム1個。そのアイテムにレベルがあれば、レベル2のアイテムとなる。"
+output = "お宝４表(3) ＞ 好きなコモンアイテムのカテゴリ1種を選ぶ。そのカテゴリの中からランダムなアイテム1個。そのアイテムにレベルがあれば、レベル2のアイテムとなる。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1659,7 +1659,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T4T"
-output = "MeikyuDays : お宝４表(4) ＞ 好きなコモンアイテムのカテゴリ1種を選ぶ。そのカテゴリの中からランダムなアイテム1個。そのアイテムにレベルがあれば、レベル3のアイテムとなる。"
+output = "お宝４表(4) ＞ 好きなコモンアイテムのカテゴリ1種を選ぶ。そのカテゴリの中からランダムなアイテム1個。そのアイテムにレベルがあれば、レベル3のアイテムとなる。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1667,7 +1667,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T4T"
-output = "MeikyuDays : お宝４表(6) ＞ ランダムなレアアイテム1個。そのアイテムにレベルがあれば、レベル2のアイテムとなる。"
+output = "お宝４表(6) ＞ ランダムなレアアイテム1個。そのアイテムにレベルがあれば、レベル2のアイテムとなる。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1675,7 +1675,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T4T"
-output = "MeikyuDays : お宝４表(4) ＞ 好きなコモンアイテムのカテゴリ1種を選ぶ。そのカテゴリの中からランダムなアイテム1個。そのアイテムにレベルがあれば、レベル3のアイテムとなる。"
+output = "お宝４表(4) ＞ 好きなコモンアイテムのカテゴリ1種を選ぶ。そのカテゴリの中からランダムなアイテム1個。そのアイテムにレベルがあれば、レベル3のアイテムとなる。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1683,7 +1683,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "T4T"
-output = "MeikyuDays : お宝４表(6) ＞ ランダムなレアアイテム1個。そのアイテムにレベルがあれば、レベル2のアイテムとなる。"
+output = "お宝４表(6) ＞ ランダムなレアアイテム1個。そのアイテムにレベルがあれば、レベル2のアイテムとなる。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1691,79 +1691,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "MPT"
-output = "MeikyuDays : 相場表(9) ＞ 木"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MeikyuDays"
-input = "MPT"
-output = "MeikyuDays : 相場表(5) ＞ 鉄"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MeikyuDays"
-input = "MPT"
-output = "MeikyuDays : 相場表(11) ＞ 情報"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MeikyuDays"
-input = "MPT"
-output = "MeikyuDays : 相場表(2) ＞ なし"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MeikyuDays"
-input = "MPT"
-output = "MeikyuDays : 相場表(8) ＞ 衣料"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MeikyuDays"
-input = "MPT"
-output = "MeikyuDays : 相場表(6) ＞ 魔素"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MeikyuDays"
-input = "MPT"
-output = "MeikyuDays : 相場表(7) ＞ 機械"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MeikyuDays"
-input = "MPT"
-output = "MeikyuDays : 相場表(6) ＞ 魔素"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MeikyuDays"
-input = "MPT"
-output = "MeikyuDays : 相場表(9) ＞ 木"
+output = "相場表(9) ＞ 木"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -1772,7 +1700,79 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "MPT"
-output = "MeikyuDays : 相場表(10) ＞ 火薬"
+output = "相場表(5) ＞ 鉄"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MeikyuDays"
+input = "MPT"
+output = "相場表(11) ＞ 情報"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MeikyuDays"
+input = "MPT"
+output = "相場表(2) ＞ なし"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuDays"
+input = "MPT"
+output = "相場表(8) ＞ 衣料"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MeikyuDays"
+input = "MPT"
+output = "相場表(6) ＞ 魔素"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuDays"
+input = "MPT"
+output = "相場表(7) ＞ 機械"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuDays"
+input = "MPT"
+output = "相場表(6) ＞ 魔素"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuDays"
+input = "MPT"
+output = "相場表(9) ＞ 木"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MeikyuDays"
+input = "MPT"
+output = "相場表(10) ＞ 火薬"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -1781,7 +1781,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "APT"
-output = "MeikyuDays : 登場表(4) ＞ おっと鉢合わせ！　バトルフィールドの敵軍の本陣に、そのキャラクターを配置すること。"
+output = "登場表(4) ＞ おっと鉢合わせ！　バトルフィールドの敵軍の本陣に、そのキャラクターを配置すること。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -1790,7 +1790,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "APT"
-output = "MeikyuDays : 登場表(6) ＞ あいつらはこの先に行ったはず！　GMはそのキャラクターをバトルフィールドの好きなエリアに配置する。"
+output = "登場表(6) ＞ あいつらはこの先に行ったはず！　GMはそのキャラクターをバトルフィールドの好きなエリアに配置する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1799,7 +1799,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "APT"
-output = "MeikyuDays : 登場表(4) ＞ おっと鉢合わせ！　バトルフィールドの敵軍の本陣に、そのキャラクターを配置すること。"
+output = "登場表(4) ＞ おっと鉢合わせ！　バトルフィールドの敵軍の本陣に、そのキャラクターを配置すること。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -1808,7 +1808,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "APT"
-output = "MeikyuDays : 登場表(7) ＞ あの聞き覚えのある音は……！　そのキャラクターが【乗騎】を装備していれば、GMはそのキャラクターをバトルフィールドの好きなエリアに配置する。"
+output = "登場表(7) ＞ あの聞き覚えのある音は……！　そのキャラクターが【乗騎】を装備していれば、GMはそのキャラクターをバトルフィールドの好きなエリアに配置する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -1817,7 +1817,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "APT"
-output = "MeikyuDays : 登場表(12) ＞ ……いや、しかしそれどころではない！　そのキャラクターは、この戦闘に登場することはできない。"
+output = "登場表(12) ＞ ……いや、しかしそれどころではない！　そのキャラクターは、この戦闘に登場することはできない。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1826,7 +1826,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "APT"
-output = "MeikyuDays : 登場表(7) ＞ あの聞き覚えのある音は……！　そのキャラクターが【乗騎】を装備していれば、GMはそのキャラクターをバトルフィールドの好きなエリアに配置する。"
+output = "登場表(7) ＞ あの聞き覚えのある音は……！　そのキャラクターが【乗騎】を装備していれば、GMはそのキャラクターをバトルフィールドの好きなエリアに配置する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -1835,7 +1835,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "APT"
-output = "MeikyuDays : 登場表(8) ＞ ……間に合ったみたいだな。バトルフィールドの中に、そのキャラクターに対する《好意》が1点以上あるキャラクターがいれば、同じエリアにそのキャラクターを配置することができる。"
+output = "登場表(8) ＞ ……間に合ったみたいだな。バトルフィールドの中に、そのキャラクターに対する《好意》が1点以上あるキャラクターがいれば、同じエリアにそのキャラクターを配置することができる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -1844,7 +1844,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "APT"
-output = "MeikyuDays : 登場表(2) ＞ 「ここから先に行かせるわけにはいかん」急ぐ途中に敵が立ちふさがる。〔武勇〕で難易度11の判定を行う。成功すればバトルフィールドの好きなエリアにそのキャラクターを配置することができる。失敗した場合、《HP》を1にした状態でバトルフィールドの好きなエリアにそのキャラクターを配置することができる。"
+output = "登場表(2) ＞ 「ここから先に行かせるわけにはいかん」急ぐ途中に敵が立ちふさがる。〔武勇〕で難易度11の判定を行う。成功すればバトルフィールドの好きなエリアにそのキャラクターを配置することができる。失敗した場合、《HP》を1にした状態でバトルフィールドの好きなエリアにそのキャラクターを配置することができる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1853,7 +1853,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "APT"
-output = "MeikyuDays : 登場表(4) ＞ おっと鉢合わせ！　バトルフィールドの敵軍の本陣に、そのキャラクターを配置すること。"
+output = "登場表(4) ＞ おっと鉢合わせ！　バトルフィールドの敵軍の本陣に、そのキャラクターを配置すること。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -1862,7 +1862,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "APT"
-output = "MeikyuDays : 登場表(3) ＞ 「待たせたな！」バトルフィールドの好きなエリアにそのキャラクターを配置することができる。"
+output = "登場表(3) ＞ 「待たせたな！」バトルフィールドの好きなエリアにそのキャラクターを配置することができる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -1871,7 +1871,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DCT"
-output = "MeikyuDays : 因縁表(4) ＞ 対象は、過去にあなたと戦い、あなたの体に古傷を残している。今でもときどき傷は代償を求めて疼く。対象への《敵意》が1点上昇する。"
+output = "因縁表(4) ＞ 対象は、過去にあなたと戦い、あなたの体に古傷を残している。今でもときどき傷は代償を求めて疼く。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -1880,7 +1880,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DCT"
-output = "MeikyuDays : 因縁表(5) ＞ あなたは対象に憧れているが、全く相手にされていない。たとえ敵としてでも対象に認めてもらうことがあなたの願いだ。彼または彼女への《敵意》が1点上昇し、「ライバル」の人間関係を結ぶことが出来れば経験点を10得られるようになる。"
+output = "因縁表(5) ＞ あなたは対象に憧れているが、全く相手にされていない。たとえ敵としてでも対象に認めてもらうことがあなたの願いだ。彼または彼女への《敵意》が1点上昇し、「ライバル」の人間関係を結ぶことが出来れば経験点を10得られるようになる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -1889,7 +1889,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DCT"
-output = "MeikyuDays : 因縁表(4) ＞ 対象は、過去にあなたと戦い、あなたの体に古傷を残している。今でもときどき傷は代償を求めて疼く。対象への《敵意》が1点上昇する。"
+output = "因縁表(4) ＞ 対象は、過去にあなたと戦い、あなたの体に古傷を残している。今でもときどき傷は代償を求めて疼く。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -1898,7 +1898,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DCT"
-output = "MeikyuDays : 因縁表(10) ＞ 対象とあなたは、前世があなたの妻/夫であった。幸せな生涯の記憶が蘇る。対象への《好意》が1点上昇する。"
+output = "因縁表(10) ＞ 対象とあなたは、前世があなたの妻/夫であった。幸せな生涯の記憶が蘇る。対象への《好意》が1点上昇する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -1907,7 +1907,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DCT"
-output = "MeikyuDays : 因縁表(5) ＞ あなたは対象に憧れているが、全く相手にされていない。たとえ敵としてでも対象に認めてもらうことがあなたの願いだ。彼または彼女への《敵意》が1点上昇し、「ライバル」の人間関係を結ぶことが出来れば経験点を10得られるようになる。"
+output = "因縁表(5) ＞ あなたは対象に憧れているが、全く相手にされていない。たとえ敵としてでも対象に認めてもらうことがあなたの願いだ。彼または彼女への《敵意》が1点上昇し、「ライバル」の人間関係を結ぶことが出来れば経験点を10得られるようになる。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -1916,7 +1916,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DCT"
-output = "MeikyuDays : 因縁表(8) ＞ 対象はあなたの親族を殺した。あなたはいつか訪れる復讐の日を信じて、鍛錬を続けてきた。対象への《敵意》が1点上昇する。"
+output = "因縁表(8) ＞ 対象はあなたの親族を殺した。あなたはいつか訪れる復讐の日を信じて、鍛錬を続けてきた。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1925,7 +1925,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DCT"
-output = "MeikyuDays : 因縁表(5) ＞ あなたは対象に憧れているが、全く相手にされていない。たとえ敵としてでも対象に認めてもらうことがあなたの願いだ。彼または彼女への《敵意》が1点上昇し、「ライバル」の人間関係を結ぶことが出来れば経験点を10得られるようになる。"
+output = "因縁表(5) ＞ あなたは対象に憧れているが、全く相手にされていない。たとえ敵としてでも対象に認めてもらうことがあなたの願いだ。彼または彼女への《敵意》が1点上昇し、「ライバル」の人間関係を結ぶことが出来れば経験点を10得られるようになる。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -1934,7 +1934,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DCT"
-output = "MeikyuDays : 因縁表(7) ＞ あなたは対象に手酷く敗北したことがある。あなたは屈辱を晴らすためにできる限りのことをする気でいる。対象への《敵意》が1点上昇する。"
+output = "因縁表(7) ＞ あなたは対象に手酷く敗北したことがある。あなたは屈辱を晴らすためにできる限りのことをする気でいる。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -1943,7 +1943,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DCT"
-output = "MeikyuDays : 因縁表(8) ＞ 対象はあなたの親族を殺した。あなたはいつか訪れる復讐の日を信じて、鍛錬を続けてきた。対象への《敵意》が1点上昇する。"
+output = "因縁表(8) ＞ 対象はあなたの親族を殺した。あなたはいつか訪れる復讐の日を信じて、鍛錬を続けてきた。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1952,7 +1952,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "DCT"
-output = "MeikyuDays : 因縁表(4) ＞ 対象は、過去にあなたと戦い、あなたの体に古傷を残している。今でもときどき傷は代償を求めて疼く。対象への《敵意》が1点上昇する。"
+output = "因縁表(4) ＞ 対象は、過去にあなたと戦い、あなたの体に古傷を残している。今でもときどき傷は代償を求めて疼く。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -1961,7 +1961,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "MCT"
-output = "MeikyuDays : 怪物因縁表(11) ＞ 対象はあなたが昔飼っていた生き物や持っていたものが変化したものである。対象への《好意》と《敵意》が1点ずつ上昇する。交渉によって対象との戦闘を終わらせた場合、経験点10点を得る。"
+output = "怪物因縁表(11) ＞ 対象はあなたが昔飼っていた生き物や持っていたものが変化したものである。対象への《好意》と《敵意》が1点ずつ上昇する。交渉によって対象との戦闘を終わらせた場合、経験点10点を得る。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -1970,7 +1970,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "MCT"
-output = "MeikyuDays : 怪物因縁表(7) ＞ 対象はなんとなくあなたが嫌いな特徴をそなえている。嫌いなものに関連した特徴を設定すること。対象への《敵意》が1点上昇する。"
+output = "怪物因縁表(7) ＞ 対象はなんとなくあなたが嫌いな特徴をそなえている。嫌いなものに関連した特徴を設定すること。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -1979,7 +1979,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "MCT"
-output = "MeikyuDays : 怪物因縁表(11) ＞ 対象はあなたが昔飼っていた生き物や持っていたものが変化したものである。対象への《好意》と《敵意》が1点ずつ上昇する。交渉によって対象との戦闘を終わらせた場合、経験点10点を得る。"
+output = "怪物因縁表(11) ＞ 対象はあなたが昔飼っていた生き物や持っていたものが変化したものである。対象への《好意》と《敵意》が1点ずつ上昇する。交渉によって対象との戦闘を終わらせた場合、経験点10点を得る。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1988,7 +1988,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "MCT"
-output = "MeikyuDays : 怪物因縁表(8) ＞ あなたは過去に対象と戦い、完敗を喫している。対象への《敵意》が1点上昇する。対象との戦闘に勝利した場合、経験点10点を得る。"
+output = "怪物因縁表(8) ＞ あなたは過去に対象と戦い、完敗を喫している。対象への《敵意》が1点上昇する。対象との戦闘に勝利した場合、経験点10点を得る。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1997,7 +1997,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "MCT"
-output = "MeikyuDays : 怪物因縁表(9) ＞ 対象はあなたの好きなものを穢したり貶めたことがある。好きなものにちなんだ出来事を設定すること。対象への《敵意》が1点上昇する。"
+output = "怪物因縁表(9) ＞ 対象はあなたの好きなものを穢したり貶めたことがある。好きなものにちなんだ出来事を設定すること。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -2006,7 +2006,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "MCT"
-output = "MeikyuDays : 怪物因縁表(8) ＞ あなたは過去に対象と戦い、完敗を喫している。対象への《敵意》が1点上昇する。対象との戦闘に勝利した場合、経験点10点を得る。"
+output = "怪物因縁表(8) ＞ あなたは過去に対象と戦い、完敗を喫している。対象への《敵意》が1点上昇する。対象との戦闘に勝利した場合、経験点10点を得る。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -2015,7 +2015,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "MCT"
-output = "MeikyuDays : 怪物因縁表(9) ＞ 対象はあなたの好きなものを穢したり貶めたことがある。好きなものにちなんだ出来事を設定すること。対象への《敵意》が1点上昇する。"
+output = "怪物因縁表(9) ＞ 対象はあなたの好きなものを穢したり貶めたことがある。好きなものにちなんだ出来事を設定すること。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -2024,7 +2024,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "MCT"
-output = "MeikyuDays : 怪物因縁表(6) ＞ 何年も前に死んだ、あなたの親しい人は、ちょうど対象の攻撃手段と同じ方法で殺されている。対象への《敵意》が1点上昇する。"
+output = "怪物因縁表(6) ＞ 何年も前に死んだ、あなたの親しい人は、ちょうど対象の攻撃手段と同じ方法で殺されている。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -2033,7 +2033,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "MCT"
-output = "MeikyuDays : 怪物因縁表(4) ＞ あなたはかつて対象の同族を絶滅させた。しかし、奴らは死んではいなかったのだ。対象への《敵意》が1点上昇する。"
+output = "怪物因縁表(4) ＞ あなたはかつて対象の同族を絶滅させた。しかし、奴らは死んではいなかったのだ。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -2042,7 +2042,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "MCT"
-output = "MeikyuDays : 怪物因縁表(9) ＞ 対象はあなたの好きなものを穢したり貶めたことがある。好きなものにちなんだ出来事を設定すること。対象への《敵意》が1点上昇する。"
+output = "怪物因縁表(9) ＞ 対象はあなたの好きなものを穢したり貶めたことがある。好きなものにちなんだ出来事を設定すること。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -2051,7 +2051,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "PCT"
-output = "MeikyuDays : PC因縁表(6) ＞ あなたは何らかの種類の迷宮屋ランキングで対象に負けている。対象への《敵意》が1点上昇する。終了フェイズで対象に（何でもいいので）負けを認めさせれば、経験点を1点獲得する。"
+output = "PC因縁表(6) ＞ あなたは何らかの種類の迷宮屋ランキングで対象に負けている。対象への《敵意》が1点上昇する。終了フェイズで対象に（何でもいいので）負けを認めさせれば、経験点を1点獲得する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -2060,7 +2060,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "PCT"
-output = "MeikyuDays : PC因縁表(10) ＞ 対象は実は幼馴染だったことが明らかになる。容姿の変化などで気付かなかったのだ。対象への《好意》が1点上昇する。"
+output = "PC因縁表(10) ＞ 対象は実は幼馴染だったことが明らかになる。容姿の変化などで気付かなかったのだ。対象への《好意》が1点上昇する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -2069,7 +2069,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "PCT"
-output = "MeikyuDays : PC因縁表(4) ＞ 対象と共通の知人がいることが発覚する。好きなものにちなんだ知人を設定すること。対象への《好意》が1点上昇する。"
+output = "PC因縁表(4) ＞ 対象と共通の知人がいることが発覚する。好きなものにちなんだ知人を設定すること。対象への《好意》が1点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -2078,7 +2078,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "PCT"
-output = "MeikyuDays : PC因縁表(8) ＞ 対象は何らかの媒体で、あなたに対して好意的でないコメントを出したことがあるような気がする。コメントの詳細はあなたが決定すること。対象への《敵意》が１点上昇する。"
+output = "PC因縁表(8) ＞ 対象は何らかの媒体で、あなたに対して好意的でないコメントを出したことがあるような気がする。コメントの詳細はあなたが決定すること。対象への《敵意》が１点上昇する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -2087,7 +2087,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "PCT"
-output = "MeikyuDays : PC因縁表(6) ＞ あなたは何らかの種類の迷宮屋ランキングで対象に負けている。対象への《敵意》が1点上昇する。終了フェイズで対象に（何でもいいので）負けを認めさせれば、経験点を1点獲得する。"
+output = "PC因縁表(6) ＞ あなたは何らかの種類の迷宮屋ランキングで対象に負けている。対象への《敵意》が1点上昇する。終了フェイズで対象に（何でもいいので）負けを認めさせれば、経験点を1点獲得する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -2096,7 +2096,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "PCT"
-output = "MeikyuDays : PC因縁表(7) ＞ 対象は、なんとなくあなたの好きな特徴を備えているような気がする。好きなものにちなんだ特徴を1つ設定し、対象のプレイヤーの了解をとること。チャンスは１回だ。ＯＫなら対象への《好意》が1点上昇する。"
+output = "PC因縁表(7) ＞ 対象は、なんとなくあなたの好きな特徴を備えているような気がする。好きなものにちなんだ特徴を1つ設定し、対象のプレイヤーの了解をとること。チャンスは１回だ。ＯＫなら対象への《好意》が1点上昇する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -2105,7 +2105,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "PCT"
-output = "MeikyuDays : PC因縁表(8) ＞ 対象は何らかの媒体で、あなたに対して好意的でないコメントを出したことがあるような気がする。コメントの詳細はあなたが決定すること。対象への《敵意》が１点上昇する。"
+output = "PC因縁表(8) ＞ 対象は何らかの媒体で、あなたに対して好意的でないコメントを出したことがあるような気がする。コメントの詳細はあなたが決定すること。対象への《敵意》が１点上昇する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -2114,7 +2114,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "PCT"
-output = "MeikyuDays : PC因縁表(8) ＞ 対象は何らかの媒体で、あなたに対して好意的でないコメントを出したことがあるような気がする。コメントの詳細はあなたが決定すること。対象への《敵意》が１点上昇する。"
+output = "PC因縁表(8) ＞ 対象は何らかの媒体で、あなたに対して好意的でないコメントを出したことがあるような気がする。コメントの詳細はあなたが決定すること。対象への《敵意》が１点上昇する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -2123,7 +2123,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "PCT"
-output = "MeikyuDays : PC因縁表(6) ＞ あなたは何らかの種類の迷宮屋ランキングで対象に負けている。対象への《敵意》が1点上昇する。終了フェイズで対象に（何でもいいので）負けを認めさせれば、経験点を1点獲得する。"
+output = "PC因縁表(6) ＞ あなたは何らかの種類の迷宮屋ランキングで対象に負けている。対象への《敵意》が1点上昇する。終了フェイズで対象に（何でもいいので）負けを認めさせれば、経験点を1点獲得する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -2132,7 +2132,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "PCT"
-output = "MeikyuDays : PC因縁表(5) ＞ 対象と同じ場所に住んでいたり、通っていたことが分かる。対象への《好意》が1点上昇する。"
+output = "PC因縁表(5) ＞ 対象と同じ場所に住んでいたり、通っていたことが分かる。対象への《好意》が1点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -2141,7 +2141,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "LCT"
-output = "MeikyuDays : ラブ因縁表(7) ＞ あなたは対象と過去につきあっていたことがある。現在はどうだか分からないが、あのころは本気だった。対象への《好意》が1点上昇する。"
+output = "ラブ因縁表(7) ＞ あなたは対象と過去につきあっていたことがある。現在はどうだか分からないが、あのころは本気だった。対象への《好意》が1点上昇する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -2150,7 +2150,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "LCT"
-output = "MeikyuDays : ラブ因縁表(5) ＞ 対象は、あなたの好きなものによく似ている。好きなものから１つを選んで、どう似ているか説明できたら、対象への《好意》が1点上昇する。"
+output = "ラブ因縁表(5) ＞ 対象は、あなたの好きなものによく似ている。好きなものから１つを選んで、どう似ているか説明できたら、対象への《好意》が1点上昇する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -2159,7 +2159,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "LCT"
-output = "MeikyuDays : ラブ因縁表(8) ＞ 対象は、むかしあなたが好きだった人と印象がよく似ている。対象への《好意》が1点上昇する。"
+output = "ラブ因縁表(8) ＞ 対象は、むかしあなたが好きだった人と印象がよく似ている。対象への《好意》が1点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -2168,7 +2168,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "LCT"
-output = "MeikyuDays : ラブ因縁表(6) ＞ 対象をよく見たらけっこう可愛いような気がしてきた。対象への《好意》が1点上昇し、対象への《好意》をすべて愛情に変換する。"
+output = "ラブ因縁表(6) ＞ 対象をよく見たらけっこう可愛いような気がしてきた。対象への《好意》が1点上昇し、対象への《好意》をすべて愛情に変換する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -2177,7 +2177,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "LCT"
-output = "MeikyuDays : ラブ因縁表(11) ＞ あなたは昔から、対象を独占したいと思っていた。対象があなた以外と関わるたびに怒りを募らせていたのだ。対象への《好意》と《敵意》が2点ずつ上昇する。"
+output = "ラブ因縁表(11) ＞ あなたは昔から、対象を独占したいと思っていた。対象があなた以外と関わるたびに怒りを募らせていたのだ。対象への《好意》と《敵意》が2点ずつ上昇する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -2186,7 +2186,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "LCT"
-output = "MeikyuDays : ラブ因縁表(7) ＞ あなたは対象と過去につきあっていたことがある。現在はどうだか分からないが、あのころは本気だった。対象への《好意》が1点上昇する。"
+output = "ラブ因縁表(7) ＞ あなたは対象と過去につきあっていたことがある。現在はどうだか分からないが、あのころは本気だった。対象への《好意》が1点上昇する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -2195,7 +2195,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "LCT"
-output = "MeikyuDays : ラブ因縁表(4) ＞ あなたはかつて親友であった対象に恋人を奪われたことがある。対象への《敵意》が1点上昇する。"
+output = "ラブ因縁表(4) ＞ あなたはかつて親友であった対象に恋人を奪われたことがある。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -2204,7 +2204,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "LCT"
-output = "MeikyuDays : ラブ因縁表(4) ＞ あなたはかつて親友であった対象に恋人を奪われたことがある。対象への《敵意》が1点上昇する。"
+output = "ラブ因縁表(4) ＞ あなたはかつて親友であった対象に恋人を奪われたことがある。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -2213,7 +2213,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "LCT"
-output = "MeikyuDays : ラブ因縁表(4) ＞ あなたはかつて親友であった対象に恋人を奪われたことがある。対象への《敵意》が1点上昇する。"
+output = "ラブ因縁表(4) ＞ あなたはかつて親友であった対象に恋人を奪われたことがある。対象への《敵意》が1点上昇する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -2222,7 +2222,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "LCT"
-output = "MeikyuDays : ラブ因縁表(9) ＞ あなたは対象に助けられたり、命を救われたことがある。１分以内に設定を作り上げられれば、対象への《好意》が1点上昇する。"
+output = "ラブ因縁表(9) ＞ あなたは対象に助けられたり、命を救われたことがある。１分以内に設定を作り上げられれば、対象への《好意》が1点上昇する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -2231,7 +2231,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuDays"
 input = "2D6>=? 目標値?でバグらない"
-output = "MeikyuDays : (2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },

@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "MetalHead"
 input = "2D6>=7 成功"
-output = "MetalHead : (2D6>=7) ＞ 7[4,3] ＞ 7 ＞ 成功"
+output = "(2D6>=7) ＞ 7[4,3] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "2D6>=7 失敗"
-output = "MetalHead : (2D6>=7) ＞ 6[2,4] ＞ 6 ＞ 失敗"
+output = "(2D6>=7) ＞ 6[2,4] ＞ 6 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "1D100<=50 成功"
-output = "MetalHead : (1D100<=50) ＞ 50 ＞ 成功"
+output = "(1D100<=50) ＞ 50 ＞ 成功"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -27,7 +27,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "1D100<=94 失敗"
-output = "MetalHead : (1D100<=94) ＞ 95 ＞ 失敗"
+output = "(1D100<=94) ＞ 95 ＞ 失敗"
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -35,7 +35,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "1D100<=6 成功"
-output = "MetalHead : (1D100<=6) ＞ 6 ＞ 成功"
+output = "(1D100<=6) ＞ 6 ＞ 成功"
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -43,7 +43,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "1D100<=1 絶対成功(SR)"
-output = "MetalHead : (1D100<=1) ＞ 5 ＞ 絶対成功"
+output = "(1D100<=1) ＞ 5 ＞ 絶対成功"
 rands = [
   { sides = 100, value = 5 },
 ]
@@ -51,7 +51,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "1D100<=100 絶対失敗(SR)"
-output = "MetalHead : (1D100<=100) ＞ 96 ＞ 絶対失敗"
+output = "(1D100<=100) ＞ 96 ＞ 絶対失敗"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -59,7 +59,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "S1D100<=70"
-output = "MetalHead : (1D100<=70) ＞ 1 ＞ 絶対成功"
+output = "(1D100<=70) ＞ 1 ＞ 絶対成功"
 secret = true
 rands = [
   { sides = 100, value = 1 },
@@ -68,7 +68,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "AR>=18 絶対成功"
-output = "MetalHead : (2D6>=18) ＞ 12[6,6] ＞ 12 ＞ 絶対成功"
+output = "(2D6>=18) ＞ 12[6,6] ＞ 12 ＞ 絶対成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -77,7 +77,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "AR>=2 絶対失敗"
-output = "MetalHead : (2D6>=2) ＞ 2[1,1] ＞ 2 ＞ 絶対失敗"
+output = "(2D6>=2) ＞ 2[1,1] ＞ 2 ＞ 絶対失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -86,7 +86,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "SR<=1 絶対成功"
-output = "MetalHead : (1D100<=1) ＞ 5 ＞ 絶対成功"
+output = "(1D100<=1) ＞ 5 ＞ 絶対成功"
 rands = [
   { sides = 100, value = 5 },
 ]
@@ -94,7 +94,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "SR<=99 絶対失敗"
-output = "MetalHead : (1D100<=99) ＞ 96 ＞ 絶対失敗"
+output = "(1D100<=99) ＞ 96 ＞ 絶対失敗"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -102,7 +102,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "HR<=50 成功"
-output = "MetalHead : (1D100<=50) ＞ 49 ＞ 成功"
+output = "(1D100<=50) ＞ 49 ＞ 成功"
 rands = [
   { sides = 100, value = 49 },
 ]
@@ -110,7 +110,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "HR<=(59-10) 成功"
-output = "MetalHead : (1D100<=49) ＞ 49 ＞ 成功"
+output = "(1D100<=49) ＞ 49 ＞ 成功"
 rands = [
   { sides = 100, value = 49 },
 ]
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "HR<=50 失敗"
-output = "MetalHead : (1D100<=50) ＞ 51 ＞ 失敗"
+output = "(1D100<=50) ＞ 51 ＞ 失敗"
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -126,7 +126,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "HR<=(59-10) 失敗"
-output = "MetalHead : (1D100<=49) ＞ 50 ＞ 失敗"
+output = "(1D100<=49) ＞ 50 ＞ 失敗"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -134,7 +134,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "HR<=50 成功＋クリティカル"
-output = "MetalHead : (1D100<=50) ＞ 41 ＞ 成功（クリティカル）"
+output = "(1D100<=50) ＞ 41 ＞ 成功（クリティカル）"
 rands = [
   { sides = 100, value = 41 },
 ]
@@ -142,7 +142,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "HR<=50 アクシデント"
-output = "MetalHead : (1D100<=50) ＞ 50 ＞ 失敗（アクシデント）"
+output = "(1D100<=50) ＞ 50 ＞ 失敗（アクシデント）"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -150,7 +150,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "HR<=50"
-output = "MetalHead : (1D100<=50) ＞ 1 ＞ 成功（クリティカル）"
+output = "(1D100<=50) ＞ 1 ＞ 成功（クリティカル）"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -158,7 +158,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "HR<=50"
-output = "MetalHead : (1D100<=50) ＞ 100 ＞ 失敗"
+output = "(1D100<=50) ＞ 100 ＞ 失敗"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -166,7 +166,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "SHR<=50"
-output = "MetalHead : (1D100<=50) ＞ 48 ＞ 成功"
+output = "(1D100<=50) ＞ 48 ＞ 成功"
 secret = true
 rands = [
   { sides = 100, value = 48 },
@@ -175,7 +175,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "CC クリティカルチャート(1)"
-output = "MetalHead : クリティカルチャート ＞ 1 ＞ 相手は知覚系に多大なダメージを受けた。PERを1にして頭部にHWのダメージ、および心理チェック。"
+output = "クリティカルチャート ＞ 1 ＞ 相手は知覚系に多大なダメージを受けた。PERを1にして頭部にHWのダメージ、および心理チェック。"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -183,7 +183,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "CC クリティカルチャート(5)"
-output = "MetalHead : クリティカルチャート ＞ 5 ＞ 相手の急所に命中。激痛のため気絶した上、胴にHWダメージ。"
+output = "クリティカルチャート ＞ 5 ＞ 相手の急所に命中。激痛のため気絶した上、胴にHWダメージ。"
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -191,7 +191,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "CC クリティカルチャート(8)"
-output = "MetalHead : クリティカルチャート ＞ 8 ＞ 君の一撃は相手の中枢を完全に破壊した。即死である。"
+output = "クリティカルチャート ＞ 8 ＞ 君の一撃は相手の中枢を完全に破壊した。即死である。"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -199,7 +199,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "ACL アクシデントチャート射撃(2)"
-output = "MetalHead : アクシデントチャート（射撃・投擲） ＞ 2 ＞ ささいなミス。特にペナルティーはない。"
+output = "アクシデントチャート（射撃・投擲） ＞ 2 ＞ ささいなミス。特にペナルティーはない。"
 rands = [
   { sides = 10, value = 2 },
 ]
@@ -207,7 +207,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "ACL アクシデントチャート射撃(7)"
-output = "MetalHead : アクシデントチャート（射撃・投擲） ＞ 7 ＞ ささいなミス。特にペナルティーはない。"
+output = "アクシデントチャート（射撃・投擲） ＞ 7 ＞ ささいなミス。特にペナルティーはない。"
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -215,7 +215,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "ACL アクシデントチャート射撃(9)"
-output = "MetalHead : アクシデントチャート（射撃・投擲） ＞ 9 ＞ ささいな故障。可能なら次のターンから個別武器のスキルロールで修理を行える。"
+output = "アクシデントチャート（射撃・投擲） ＞ 9 ＞ ささいな故障。可能なら次のターンから個別武器のスキルロールで修理を行える。"
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -223,7 +223,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "ACS アクシデントチャート格闘(3)"
-output = "MetalHead : アクシデントチャート（格闘） ＞ 3 ＞ 足を滑らせて転倒し、起き上がるまで相手に+20の命中修正を与える。"
+output = "アクシデントチャート（格闘） ＞ 3 ＞ 足を滑らせて転倒し、起き上がるまで相手に+20の命中修正を与える。"
 rands = [
   { sides = 10, value = 3 },
 ]
@@ -231,7 +231,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "ACS アクシデントチャート格闘(4)"
-output = "MetalHead : アクシデントチャート（格闘） ＞ 4 ＞ 手を滑らせて、武器を落とす。素手の時は関係ない。"
+output = "アクシデントチャート（格闘） ＞ 4 ＞ 手を滑らせて、武器を落とす。素手の時は関係ない。"
 rands = [
   { sides = 10, value = 4 },
 ]
@@ -239,7 +239,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "ACS アクシデントチャート格闘(10)"
-output = "MetalHead : アクシデントチャート（格闘） ＞ 10 ＞ 手を滑らせ、不幸にも武器は飛んでいき、5m以内に人がいれば誰かに刺さるか、または打撃を与えるかもしれない。ランダムに決定し、普通どおり判定を続ける。素手のときは関係ない。"
+output = "アクシデントチャート（格闘） ＞ 10 ＞ 手を滑らせ、不幸にも武器は飛んでいき、5m以内に人がいれば誰かに刺さるか、または打撃を与えるかもしれない。ランダムに決定し、普通どおり判定を続ける。素手のときは関係ない。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -247,55 +247,55 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "CRCS110 戦闘結果チャート(SUV=S)"
-output = "MetalHead : 戦闘結果チャート ＞ 110 ＞ 109 ＞ 耐久レベル(SUV)[S] ＞ 部位[頭部] ： 損傷種別[MO]"
+output = "戦闘結果チャート ＞ 110 ＞ 109 ＞ 耐久レベル(SUV)[S] ＞ 部位[頭部] ： 損傷種別[MO]"
 rands = []
 
 [[ test ]]
 game_system = "MetalHead"
 input = "CRCA80 戦闘結果チャート(SUV=A)"
-output = "MetalHead : 戦闘結果チャート ＞ 80 ＞ 79 ＞ 耐久レベル(SUV)[A] ＞ 部位[頭部] ： 損傷種別[HW]"
+output = "戦闘結果チャート ＞ 80 ＞ 79 ＞ 耐久レベル(SUV)[A] ＞ 部位[頭部] ： 損傷種別[HW]"
 rands = []
 
 [[ test ]]
 game_system = "MetalHead"
 input = "CRCC51 戦闘結果チャート(SUV=C)"
-output = "MetalHead : 戦闘結果チャート ＞ 51 ＞ 52 ＞ 耐久レベル(SUV)[C] ＞ 部位[腕部] ： 損傷種別[MW]"
+output = "戦闘結果チャート ＞ 51 ＞ 52 ＞ 耐久レベル(SUV)[C] ＞ 部位[腕部] ： 損傷種別[MW]"
 rands = []
 
 [[ test ]]
 game_system = "MetalHead"
 input = "CRCE8 戦闘結果チャート(SUV=E)"
-output = "MetalHead : 戦闘結果チャート ＞ 8 ＞ 耐久レベル(SUV)[E] ＞ 部位[胴部] ： 損傷種別[LW]"
+output = "戦闘結果チャート ＞ 8 ＞ 耐久レベル(SUV)[E] ＞ 部位[胴部] ： 損傷種別[LW]"
 rands = []
 
 [[ test ]]
 game_system = "MetalHead"
 input = "CRCG5 戦闘結果チャート(SUV=G)"
-output = "MetalHead : 戦闘結果チャート ＞ 5 ＞ 耐久レベル(SUV)[G] ＞ 部位[脚部] ： 損傷種別[LW]"
+output = "戦闘結果チャート ＞ 5 ＞ 耐久レベル(SUV)[G] ＞ 部位[脚部] ： 損傷種別[LW]"
 rands = []
 
 [[ test ]]
 game_system = "MetalHead"
 input = "CRCM99 戦闘結果チャート(対物)"
-output = "MetalHead : 戦闘結果チャート ＞ 99 ＞ 耐物 ＞ HP[5]"
+output = "戦闘結果チャート ＞ 99 ＞ 耐物 ＞ HP[5]"
 rands = []
 
 [[ test ]]
 game_system = "MetalHead"
 input = "CRCQ10 戦闘結果チャート(無効1)"
-output = "MetalHead : 戦闘結果チャート ＞ 10 ＞ 耐久レベル(SUV)[Q] ＞ 耐久レベル(SUV)の値が不正です"
+output = "戦闘結果チャート ＞ 10 ＞ 耐久レベル(SUV)[Q] ＞ 耐久レベル(SUV)の値が不正です"
 rands = []
 
 [[ test ]]
 game_system = "MetalHead"
 input = "CRCA0 戦闘結果チャート(無効2)"
-output = "MetalHead : 戦闘結果チャート ＞ 0 ＞ 数値が不正です"
+output = "戦闘結果チャート ＞ 0 ＞ 数値が不正です"
 rands = []
 
 [[ test ]]
 game_system = "MetalHead"
 input = "2D6>=? 目標値?でバグらない"
-output = "MetalHead : (2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -304,7 +304,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "1D100>=? 目標値?でバグらない"
-output = "MetalHead : (1D100>=?) ＞ 42 ＞ 失敗"
+output = "(1D100>=?) ＞ 42 ＞ 失敗"
 rands = [
   { sides = 100, value = 42 },
 ]

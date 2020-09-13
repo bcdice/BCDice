@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "GundogRevised"
 input = "1D100<=10"
-output = "GundogRevised : (1D100<=10) ＞ 9 ＞ 成功(達成値9+SL)"
+output = "(1D100<=10) ＞ 9 ＞ 成功(達成値9+SL)"
 rands = [
   { sides = 100, value = 9 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "1D100<=10"
-output = "GundogRevised : (1D100<=10) ＞ 1 ＞ ベアリー(達成値1+SL)"
+output = "(1D100<=10) ＞ 1 ＞ ベアリー(達成値1+SL)"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "1D100<=10"
-output = "GundogRevised : (1D100<=10) ＞ 10 ＞ クリティカル(達成値20+SL)"
+output = "(1D100<=10) ＞ 10 ＞ クリティカル(達成値20+SL)"
 rands = [
   { sides = 100, value = 10 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "1D100<=10"
-output = "GundogRevised : (1D100<=10) ＞ 11 ＞ 失敗"
+output = "(1D100<=10) ＞ 11 ＞ 失敗"
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "1D100<=10"
-output = "GundogRevised : (1D100<=10) ＞ 100 ＞ ファンブル"
+output = "(1D100<=10) ＞ 100 ＞ ファンブル"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "1D100<=19"
-output = "GundogRevised : (1D100<=19) ＞ 19 ＞ 成功(達成値10+SL)"
+output = "(1D100<=19) ＞ 19 ＞ 成功(達成値10+SL)"
 rands = [
   { sides = 100, value = 19 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "1D100<=19"
-output = "GundogRevised : (1D100<=19) ＞ 20 ＞ 失敗"
+output = "(1D100<=19) ＞ 20 ＞ 失敗"
 rands = [
   { sides = 100, value = 20 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "SDPT"
-output = "GundogRevised : 射撃ダメージペナルティー表[0] ＞ 対象は[死亡]"
+output = "射撃ダメージペナルティー表[0] ＞ 対象は[死亡]"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -66,7 +66,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "SDPT"
-output = "GundogRevised : 射撃ダメージペナルティー表[11] ＞ [追加D]2D6/[軽傷]-20％"
+output = "射撃ダメージペナルティー表[11] ＞ [追加D]2D6/[軽傷]-20％"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 9 },
@@ -75,7 +75,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "SDPT+3"
-output = "GundogRevised : 射撃ダメージペナルティー表[14] ＞ [ショック]-20％"
+output = "射撃ダメージペナルティー表[14] ＞ [ショック]-20％"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 9 },
@@ -84,7 +84,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "SDPT+3"
-output = "GundogRevised : 射撃ダメージペナルティー表[21] ＞ ペナルティー無し"
+output = "射撃ダメージペナルティー表[21] ＞ ペナルティー無し"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
@@ -93,7 +93,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "SDPT-3"
-output = "GundogRevised : 射撃ダメージペナルティー表[8] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]8"
+output = "射撃ダメージペナルティー表[8] ＞ [追加D]2D6/[軽傷]-20％/[朦朧判定]8"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 9 },
@@ -102,7 +102,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "SDPT-3"
-output = "GundogRevised : 射撃ダメージペナルティー表[-1] ＞ 対象は[死亡]"
+output = "射撃ダメージペナルティー表[-1] ＞ 対象は[死亡]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -111,7 +111,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "MDPT"
-output = "GundogRevised : 格闘ダメージペナルティー表[0] ＞ 対象は[死亡]"
+output = "格闘ダメージペナルティー表[0] ＞ 対象は[死亡]"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -120,7 +120,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "MDPT"
-output = "GundogRevised : 格闘ダメージペナルティー表[11] ＞ [追加D]1D6/[軽傷]-10％/[朦朧判定]6"
+output = "格闘ダメージペナルティー表[11] ＞ [追加D]1D6/[軽傷]-10％/[朦朧判定]6"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 9 },
@@ -129,7 +129,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "MDPT"
-output = "GundogRevised : 格闘ダメージペナルティー表[18] ＞ ペナルティー無し"
+output = "格闘ダメージペナルティー表[18] ＞ ペナルティー無し"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
@@ -138,7 +138,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "VDPT"
-output = "GundogRevised : 車両ダメージペナルティー表[1] ＞ [車両D]4D6/[乗員D]3D6/[操作性]-40%/[スピン判定]"
+output = "車両ダメージペナルティー表[1] ＞ [車両D]4D6/[乗員D]3D6/[操作性]-40%/[スピン判定]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 10 },
@@ -147,7 +147,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "VDPT"
-output = "GundogRevised : 車両ダメージペナルティー表[10] ＞ [乗員D]2D6/[操縦判定]-20%/[スピン判定]"
+output = "車両ダメージペナルティー表[10] ＞ [乗員D]2D6/[操縦判定]-20%/[スピン判定]"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 5 },
@@ -156,7 +156,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "VDPT"
-output = "GundogRevised : 車両ダメージペナルティー表[17] ＞ 車両が蛇行。乗員全員は〈運動〉判定。失敗で[不安定]"
+output = "車両ダメージペナルティー表[17] ＞ 車両が蛇行。乗員全員は〈運動〉判定。失敗で[不安定]"
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 9 },
@@ -165,7 +165,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "GDPT"
-output = "GundogRevised : 汎用ダメージペナルティー表[2] ＞ [追加D]3D6/[出血]2D6/[重傷]-30％/[朦朧判定]14"
+output = "汎用ダメージペナルティー表[2] ＞ [追加D]3D6/[出血]2D6/[重傷]-30％/[朦朧判定]14"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -174,7 +174,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "GDPT"
-output = "GundogRevised : 汎用ダメージペナルティー表[12] ＞ [軽傷]-20％/[不安定]"
+output = "汎用ダメージペナルティー表[12] ＞ [軽傷]-20％/[不安定]"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 8 },
@@ -183,7 +183,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "GDPT"
-output = "GundogRevised : 汎用ダメージペナルティー表[14] ＞ [軽傷]-10％"
+output = "汎用ダメージペナルティー表[14] ＞ [軽傷]-10％"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 5 },
@@ -192,7 +192,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "SFT"
-output = "GundogRevised : 射撃ファンブル表[11] ＞ 無理な射撃姿勢で腕を痛める。[軽傷]-20％"
+output = "射撃ファンブル表[11] ＞ 無理な射撃姿勢で腕を痛める。[軽傷]-20％"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 6 },
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "SFT+3"
-output = "GundogRevised : 射撃ファンブル表[14] ＞ 武装を落とす。スリング（肩ひも）があれば落とさない"
+output = "射撃ファンブル表[14] ＞ 武装を落とす。スリング（肩ひも）があれば落とさない"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 6 },
@@ -210,7 +210,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "SFT-3"
-output = "GundogRevised : 射撃ファンブル表[8] ＞ 作動不良。[アイテム使用]を2回行って修理するまで射撃不可"
+output = "射撃ファンブル表[8] ＞ 作動不良。[アイテム使用]を2回行って修理するまで射撃不可"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 6 },
@@ -219,7 +219,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "MFT"
-output = "GundogRevised : 格闘ファンブル表[2] ＞ 最も近い味方（射程内にいなければ自分）に[貫通D]"
+output = "格闘ファンブル表[2] ＞ 最も近い味方（射程内にいなければ自分）に[貫通D]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -228,7 +228,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "MFT+5"
-output = "GundogRevised : 格闘ファンブル表[7] ＞ 武装が損傷。30分かけて〈手先〉判定に成功するまで使用不可。[格闘タイプ]なら[重傷]-10％"
+output = "格闘ファンブル表[7] ＞ 武装が損傷。30分かけて〈手先〉判定に成功するまで使用不可。[格闘タイプ]なら[重傷]-10％"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -237,7 +237,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "MFT-5"
-output = "GundogRevised : 格闘ファンブル表[-3] ＞ 自分に命中。[貫通D]"
+output = "格闘ファンブル表[-3] ＞ 自分に命中。[貫通D]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -246,7 +246,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "TFT"
-output = "GundogRevised : 投擲ファンブル表[12] ＞ 足がつる。2[ラウンド]の間、移動距離1/2"
+output = "投擲ファンブル表[12] ＞ 足がつる。2[ラウンド]の間、移動距離1/2"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
@@ -255,7 +255,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "TFT+7"
-output = "GundogRevised : 投擲ファンブル表[19] ＞ ペナルティー無し"
+output = "投擲ファンブル表[19] ＞ ペナルティー無し"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
@@ -264,7 +264,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "TFT-7"
-output = "GundogRevised : 投擲ファンブル表[5] ＞ 頭を強く打ちつける。[朦朧]"
+output = "投擲ファンブル表[5] ＞ 頭を強く打ちつける。[朦朧]"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
@@ -273,7 +273,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "1D100>=? 目標値?でバグらない"
-output = "GundogRevised : (1D100>=?) ＞ 42 ＞ 失敗"
+output = "(1D100>=?) ＞ 42 ＞ 失敗"
 rands = [
   { sides = 100, value = 42 },
 ]
@@ -281,7 +281,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "1D9 D9で0から9の値をとる"
-output = "GundogRevised : (1D9) ＞ 0"
+output = "(1D9) ＞ 0"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -289,7 +289,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "1D9 D9で0から9の値をとる"
-output = "GundogRevised : (1D9) ＞ 9"
+output = "(1D9) ＞ 9"
 rands = [
   { sides = 10, value = 10 },
 ]

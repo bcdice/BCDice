@@ -18,7 +18,7 @@ module BCDice
       def rollDiceCommand(command)
         if (m = /^ACT(\d+)$/i.match(command))
           number = m[1].to_i
-          return TABLES["ACT"].choice(number)
+          return TABLES["ACT"].choice(number).to_s
         else
           roll_tables(command, TABLES)
         end

@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=7"
-output = "Satasupe : 【難易度7、ファンブル率1、必殺なし】 ＞ 0[2,1]+1[1,6]+1[6,6]+0[1,3]+0[4,1]+0[2,2]+1[1,6]+1[5,2]+0[3,3]+0[1,4] ＞ 成功度4"
+output = "【難易度7、ファンブル率1、必殺なし】 ＞ 0[2,1]+1[1,6]+1[6,6]+0[1,3]+0[4,1]+0[2,2]+1[1,6]+1[5,2]+0[3,3]+0[1,4] ＞ 成功度4"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=7"
-output = "Satasupe : 【難易度7、ファンブル率1、必殺なし】 ＞ 1[4,4]+1[4,4]+0[4,2]+1[5,3]+0[2,4]+1[5,3]+1[6,4]+1[1,6]+0[1,1] ＞ 成功度6 ＞ ファンブル"
+output = "【難易度7、ファンブル率1、必殺なし】 ＞ 1[4,4]+1[4,4]+0[4,2]+1[5,3]+0[2,4]+1[5,3]+1[6,4]+1[1,6]+0[1,1] ＞ 成功度6 ＞ ファンブル"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -53,7 +53,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=7"
-output = "Satasupe : 【難易度7、ファンブル率1、必殺なし】 ＞ 1[5,5]+1[3,4]+1[5,4]+0[1,4]+0[2,3]+1[4,6]+0[1,2]+1[5,6]+1[6,3]+0[2,1] ＞ 成功度6"
+output = "【難易度7、ファンブル率1、必殺なし】 ＞ 1[5,5]+1[3,4]+1[5,4]+0[1,4]+0[2,3]+1[4,6]+0[1,2]+1[5,6]+1[6,3]+0[2,1] ＞ 成功度6"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -80,7 +80,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=7"
-output = "Satasupe : 【難易度7、ファンブル率1、必殺なし】 ＞ 1[5,6]+0[3,3]+0[3,2]+0[3,3]+1[6,3]+0[5,1]+1[4,4]+1[6,2]+0[1,5]+1[5,2] ＞ 成功度5"
+output = "【難易度7、ファンブル率1、必殺なし】 ＞ 1[5,6]+0[3,3]+0[3,2]+0[3,3]+1[6,3]+0[5,1]+1[4,4]+1[6,2]+0[1,5]+1[5,2] ＞ 成功度5"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -107,7 +107,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=7"
-output = "Satasupe : 【難易度7、ファンブル率1、必殺なし】 ＞ 1[1,6]+1[5,4]+0[2,4]+1[4,3]+1[2,5]+0[3,2]+1[4,6]+1[3,4]+1[4,5]+1[3,5] ＞ 成功度8"
+output = "【難易度7、ファンブル率1、必殺なし】 ＞ 1[1,6]+1[5,4]+0[2,4]+1[4,3]+1[2,5]+0[3,2]+1[4,6]+1[3,4]+1[4,5]+1[3,5] ＞ 成功度8"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -134,7 +134,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=7"
-output = "Satasupe : 【難易度7、ファンブル率1、必殺なし】 ＞ 1[1,6]+1[4,3]+1[3,6]+1[6,3]+1[4,3]+1[6,6]+0[3,2]+0[2,1]+0[1,1] ＞ 成功度6 ＞ ファンブル"
+output = "【難易度7、ファンブル率1、必殺なし】 ＞ 1[1,6]+1[4,3]+1[3,6]+1[6,3]+1[4,3]+1[6,6]+0[3,2]+0[2,1]+0[1,1] ＞ 成功度6 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -159,7 +159,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=7"
-output = "Satasupe : 【難易度7、ファンブル率1、必殺なし】 ＞ 1[3,5]+1[2,5]+0[3,2]+1[5,3]+1[2,6]+1[3,6]+0[1,2]+1[5,2]+1[2,6]+0[3,2] ＞ 成功度7"
+output = "【難易度7、ファンブル率1、必殺なし】 ＞ 1[3,5]+1[2,5]+0[3,2]+1[5,3]+1[2,6]+1[3,6]+0[1,2]+1[5,2]+1[2,6]+0[3,2] ＞ 成功度7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -186,7 +186,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=7"
-output = "Satasupe : 【難易度7、ファンブル率1、必殺なし】 ＞ 1[4,4]+0[2,3]+1[4,5]+0[1,4]+1[4,5]+1[4,5]+0[4,2]+1[5,5]+0[4,2]+1[6,6] ＞ 成功度6"
+output = "【難易度7、ファンブル率1、必殺なし】 ＞ 1[4,4]+0[2,3]+1[4,5]+0[1,4]+1[4,5]+1[4,5]+0[4,2]+1[5,5]+0[4,2]+1[6,6] ＞ 成功度6"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -213,7 +213,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=7"
-output = "Satasupe : 【難易度7、ファンブル率1、必殺なし】 ＞ 1[5,3]+0[2,1]+1[4,3]+0[3,3]+1[5,3]+0[2,2]+1[6,6]+0[2,4]+0[4,2]+1[6,6] ＞ 成功度5"
+output = "【難易度7、ファンブル率1、必殺なし】 ＞ 1[5,3]+0[2,1]+1[4,3]+0[3,3]+1[5,3]+0[2,2]+1[6,6]+0[2,4]+0[4,2]+1[6,6] ＞ 成功度5"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -240,7 +240,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=7"
-output = "Satasupe : 【難易度7、ファンブル率1、必殺なし】 ＞ 0[5,1]+0[2,1]+1[4,4]+0[3,3]+1[4,6]+0[4,2]+0[2,2]+1[6,1]+1[3,5]+1[5,6] ＞ 成功度5"
+output = "【難易度7、ファンブル率1、必殺なし】 ＞ 0[5,1]+0[2,1]+1[4,4]+0[3,3]+1[4,6]+0[4,2]+0[2,2]+1[6,1]+1[3,5]+1[5,6] ＞ 成功度5"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -267,7 +267,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 1[1,6]+1[6,6]+0[3,1]+1[4,4] ＞ 成功度3"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[1,6]+1[6,6]+0[3,1]+1[4,4] ＞ 成功度3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -282,7 +282,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 0[2,4]+0[5,1]+1[6,6]+1[5,2]+0[1,3]+0[2,3]+1[6,3] ＞ 成功度3"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[2,4]+0[5,1]+1[6,6]+1[5,2]+0[1,3]+0[2,3]+1[6,3] ＞ 成功度3"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -303,7 +303,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 0[2,2] ＞ 成功度0 ＞ ファンブル"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[2,2] ＞ 成功度0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -312,7 +312,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 1[6,4]+0[3,3] ＞ 成功度1 ＞ ファンブル"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[6,4]+0[3,3] ＞ 成功度1 ＞ ファンブル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -323,7 +323,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 1[4,6]+1[3,4]+1[3,5] ＞ 成功度3"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[4,6]+1[3,4]+1[3,5] ＞ 成功度3"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -336,7 +336,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 1[5,2]+1[3,4]+1[6,5] ＞ 成功度3"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[5,2]+1[3,4]+1[6,5] ＞ 成功度3"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -349,7 +349,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 1[6,2]+0[1,4]+1[4,4]+1[5,2] ＞ 成功度3"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[6,2]+0[1,4]+1[4,4]+1[5,2] ＞ 成功度3"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -364,7 +364,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 1[5,2]+1[2,6]+1[4,4] ＞ 成功度3"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[5,2]+1[2,6]+1[4,4] ＞ 成功度3"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -377,7 +377,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 0[2,1]+0[2,2] ＞ 成功度0 ＞ ファンブル"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[2,1]+0[2,2] ＞ 成功度0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -388,7 +388,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 1[4,5]+0[1,2]+0[4,1]+0[2,3]+0[4,2]+1[6,5]+0[2,1]+0[2,4] ＞ 成功度2"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[4,5]+0[1,2]+0[4,1]+0[2,3]+0[4,2]+1[6,5]+0[2,1]+0[2,4] ＞ 成功度2"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -411,7 +411,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=5[5]"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[4,5]+1[6,6]+0[2,2]+1[3,5]+0[1,2]+1[3,3]+1[5,3] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[4,5]+1[6,6]+0[2,2]+1[3,5]+0[1,2]+1[3,3]+1[5,3] ＞ 成功度5"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -432,7 +432,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=5[5]"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,6]+1[2,3]+1[4,5]+1[5,5]+0[1,3]+1[5,2] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,6]+1[2,3]+1[4,5]+1[5,5]+0[1,3]+1[5,2] ＞ 成功度5"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -451,7 +451,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=5[5]"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 0[3,1]+1[1,6]+1[6,1]+1[5,6]+1[5,3]+1[5,4] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 0[3,1]+1[1,6]+1[6,1]+1[5,6]+1[5,3]+1[5,4] ＞ 成功度5"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -470,7 +470,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=5[5]"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[4,5]+1[3,4]+1[5,1]+1[6,2]+1[4,2] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[4,5]+1[3,4]+1[5,1]+1[6,2]+1[4,2] ＞ 成功度5"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -487,7 +487,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=5[5]"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[5,1]+1[1,6]+0[1,2]+1[3,6]+1[6,5]+0[1,1] ＞ 成功度4 ＞ ファンブル"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[5,1]+1[1,6]+0[1,2]+1[3,6]+1[6,5]+0[1,1] ＞ 成功度4 ＞ ファンブル"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -506,7 +506,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=5[5]"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,4]+1[4,1]+1[5,5]+1[4,5]+1[4,6] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,4]+1[4,1]+1[5,5]+1[4,5]+1[4,6] ＞ 成功度5"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -523,7 +523,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=5[5]"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,5]+1[6,2]+1[5,4]+1[5,3]+1[1,5] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,5]+1[6,2]+1[5,4]+1[5,3]+1[1,5] ＞ 成功度5"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -540,7 +540,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=5[5]"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,6]+1[4,2]+1[6,2]+1[2,6]+1[6,5] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,6]+1[4,2]+1[6,2]+1[2,6]+1[6,5] ＞ 成功度5"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -557,7 +557,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=5[5]"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,4]+1[6,5]+0[2,1]+1[1,6]+1[5,4]+1[4,1] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,4]+1[6,5]+0[2,1]+1[1,6]+1[5,4]+1[4,1] ＞ 成功度5"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -576,7 +576,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "10r>=5[5]"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[5,5]+1[6,6]+1[1,6]+1[2,3]+1[5,4] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[5,5]+1[6,6]+1[1,6]+1[2,3]+1[5,4] ＞ 成功度5"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -593,7 +593,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 0[4,2]+1[3,6]+1[1,6]+0[4,2]+0[2,2] ＞ 成功度2 ＞ ファンブル"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[4,2]+1[3,6]+1[1,6]+0[4,2]+0[2,2] ＞ 成功度2 ＞ ファンブル"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -610,7 +610,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 0[3,1]+1[6,4]+1[3,6]+0[4,1]+1[6,6]+1[5,4]+1[5,2]+1[2,6] ＞ 成功度6"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[3,1]+1[6,4]+1[3,6]+0[4,1]+1[6,6]+1[5,4]+1[5,2]+1[2,6] ＞ 成功度6"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -633,7 +633,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 0[1,2]+1[2,6]+1[5,2]+1[4,3]+1[6,2]+1[4,4]+0[4,1]+0[1,5] ＞ 成功度5"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[1,2]+1[2,6]+1[5,2]+1[4,3]+1[6,2]+1[4,4]+0[4,1]+0[1,5] ＞ 成功度5"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -656,7 +656,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 1[6,1]+0[2,3]+1[6,4]+1[6,4]+1[4,3]+0[2,4]+0[1,3]+1[4,3] ＞ 成功度5"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[6,1]+0[2,3]+1[6,4]+1[6,4]+1[4,3]+0[2,4]+0[1,3]+1[4,3] ＞ 成功度5"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -679,7 +679,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 1[5,6]+1[4,5]+1[3,5]+1[3,6]+1[6,2]+1[3,6]+1[3,4]+1[2,6] ＞ 成功度8"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[5,6]+1[4,5]+1[3,5]+1[3,6]+1[6,2]+1[3,6]+1[3,4]+1[2,6] ＞ 成功度8"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -702,7 +702,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 0[1,3]+1[2,5]+1[5,2]+0[3,1]+0[1,5]+0[5,1]+1[4,4]+0[5,1] ＞ 成功度3"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[1,3]+1[2,5]+1[5,2]+0[3,1]+0[1,5]+0[5,1]+1[4,4]+0[5,1] ＞ 成功度3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -725,7 +725,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 1[6,5]+1[6,3]+1[2,5]+0[2,2] ＞ 成功度3 ＞ ファンブル"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[6,5]+1[6,3]+1[2,5]+0[2,2] ＞ 成功度3 ＞ ファンブル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -740,7 +740,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 1[5,6]+1[2,5]+1[5,4]+1[5,6]+1[3,5]+1[6,4]+0[1,1] ＞ 成功度6 ＞ ファンブル"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[5,6]+1[2,5]+1[5,4]+1[5,6]+1[3,5]+1[6,4]+0[1,1] ＞ 成功度6 ＞ ファンブル"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -761,7 +761,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 1[3,4]+0[1,5]+0[1,1] ＞ 成功度1 ＞ ファンブル"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[3,4]+0[1,5]+0[1,1] ＞ 成功度1 ＞ ファンブル"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -774,7 +774,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 0[2,2] ＞ 成功度0 ＞ ファンブル"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[2,2] ＞ 成功度0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -783,7 +783,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
-output = "Satasupe : 【難易度7、ファンブル率3、必殺なし】 ＞ 0[3,3] ＞ 成功度0 ＞ ファンブル"
+output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[3,3] ＞ 成功度0 ＞ ファンブル"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -792,7 +792,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=3"
-output = "Satasupe : 【5R>=3】 ＞ あらゆる難易度は5未満にはならないため、難易度は5になる！\n【難易度5、ファンブル率1、必殺なし】 ＞ 1[3,4]+1[5,3]+1[5,2]+1[6,3]+0[1,2] ＞ 成功度4"
+output = "【5R>=3】 ＞ あらゆる難易度は5未満にはならないため、難易度は5になる！\n【難易度5、ファンブル率1、必殺なし】 ＞ 1[3,4]+1[5,3]+1[5,2]+1[6,3]+0[1,2] ＞ 成功度4"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -809,7 +809,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=13"
-output = "Satasupe : 【5R>=13】 ＞ 難易度が12を超えたため、超過分、ファンブル率が上昇！\n【難易度12、ファンブル率2、必殺なし】 ＞ 0[3,4]+0[5,3]+0[5,2]+0[6,3]+0[1,2] ＞ 成功度0"
+output = "【5R>=13】 ＞ 難易度が12を超えたため、超過分、ファンブル率が上昇！\n【難易度12、ファンブル率2、必殺なし】 ＞ 0[3,4]+0[5,3]+0[5,2]+0[6,3]+0[1,2] ＞ 成功度0"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -826,7 +826,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=12"
-output = "Satasupe : 【難易度12、ファンブル率1、必殺なし】 ＞ 0[3,4]+0[5,3]+0[5,2]+0[6,3]+0[1,2] ＞ 成功度0"
+output = "【難易度12、ファンブル率1、必殺なし】 ＞ 0[3,4]+0[5,3]+0[5,2]+0[6,3]+0[1,2] ＞ 成功度0"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -843,7 +843,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[3,4]+1[5,3]+1[5,2]+1[6,3]+0[1,2] ＞ 成功度4"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[3,4]+1[5,3]+1[5,2]+1[6,3]+0[1,2] ＞ 成功度4"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -860,7 +860,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[5,5]+1[5,3]+1[6,4]+1[3,5]+1[2,6] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[5,5]+1[5,3]+1[6,4]+1[3,5]+1[2,6] ＞ 成功度5"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -877,7 +877,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[3,6]+1[6,1]+1[3,5]+1[1,4]+1[5,6] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[3,6]+1[6,1]+1[3,5]+1[1,4]+1[5,6] ＞ 成功度5"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -894,7 +894,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,5]+1[6,3]+1[3,6]+1[5,1]+1[4,2] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,5]+1[6,3]+1[3,6]+1[5,1]+1[4,2] ＞ 成功度5"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -911,7 +911,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[1,4]+1[3,6]+1[4,2]+1[6,3]+1[5,2] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[1,4]+1[3,6]+1[4,2]+1[6,3]+1[5,2] ＞ 成功度5"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -928,7 +928,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,3]+1[5,2]+1[1,4]+1[4,6]+1[1,6] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,3]+1[5,2]+1[1,4]+1[4,6]+1[1,6] ＞ 成功度5"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -945,7 +945,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 0[2,2]+1[1,4]+1[6,5]+1[3,3]+1[6,1] ＞ 成功度4"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 0[2,2]+1[1,4]+1[6,5]+1[3,3]+1[6,1] ＞ 成功度4"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -962,7 +962,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,5]+1[6,3]+0[3,1]+0[2,2]+1[5,4] ＞ 成功度3"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,5]+1[6,3]+0[3,1]+0[2,2]+1[5,4] ＞ 成功度3"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -979,7 +979,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,1]+0[1,3]+1[4,2]+1[6,5]+1[6,2] ＞ 成功度4"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,1]+0[1,3]+1[4,2]+1[6,5]+1[6,2] ＞ 成功度4"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -996,7 +996,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,5]+1[2,6]+0[1,1] ＞ 成功度2 ＞ ファンブル"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,5]+1[2,6]+0[1,1] ＞ 成功度2 ＞ ファンブル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1009,7 +1009,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺なし】 ＞ 1[4,3]+1[2,4]+1[6,3]+0[2,2] ＞ 成功度3 ＞ ファンブル"
+output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[4,3]+1[2,4]+1[6,3]+0[2,2] ＞ 成功度3 ＞ ファンブル"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -1024,7 +1024,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺なし】 ＞ 1[5,5]+1[5,3]+0[1,2]+0[2,1]+1[6,3] ＞ 成功度3"
+output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[5,5]+1[5,3]+0[1,2]+0[2,1]+1[6,3] ＞ 成功度3"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -1041,7 +1041,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺なし】 ＞ 1[5,3]+1[4,6]+1[3,5]+1[4,5]+0[1,1] ＞ 成功度4 ＞ ファンブル"
+output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[5,3]+1[4,6]+1[3,5]+1[4,5]+0[1,1] ＞ 成功度4 ＞ ファンブル"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -1058,7 +1058,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺なし】 ＞ 1[5,3]+1[6,5]+1[3,3]+1[4,4]+1[6,5] ＞ 成功度5"
+output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[5,3]+1[6,5]+1[3,3]+1[4,4]+1[6,5] ＞ 成功度5"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -1075,7 +1075,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺なし】 ＞ 1[6,2]+1[6,3]+1[1,5]+1[2,5]+1[6,3] ＞ 成功度5"
+output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[6,2]+1[6,3]+1[1,5]+1[2,5]+1[6,3] ＞ 成功度5"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -1092,7 +1092,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺なし】 ＞ 1[4,5]+1[6,3]+1[5,5]+1[1,6]+1[3,6] ＞ 成功度5"
+output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[4,5]+1[6,3]+1[5,5]+1[1,6]+1[3,6] ＞ 成功度5"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -1109,7 +1109,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺なし】 ＞ 1[4,5]+1[3,5]+1[3,3]+0[1,2]+1[3,4] ＞ 成功度4"
+output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[4,5]+1[3,5]+1[3,3]+0[1,2]+1[3,4] ＞ 成功度4"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -1126,7 +1126,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺なし】 ＞ 1[5,2]+1[3,4]+1[4,1]+0[1,2]+1[2,3] ＞ 成功度4"
+output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[5,2]+1[3,4]+1[4,1]+0[1,2]+1[2,3] ＞ 成功度4"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -1143,7 +1143,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺なし】 ＞ 1[6,5]+1[6,4]+1[3,3]+0[3,1]+1[3,4] ＞ 成功度4"
+output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[6,5]+1[6,4]+1[3,3]+0[3,1]+1[3,4] ＞ 成功度4"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1160,7 +1160,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺なし】 ＞ 1[1,4]+1[2,6]+0[2,1]+1[5,2]+0[1,1] ＞ 成功度3 ＞ ファンブル"
+output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[1,4]+1[2,6]+0[2,1]+1[5,2]+0[1,1] ＞ 成功度3 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -1177,7 +1177,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2,7]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺7】 ＞ 1[6,5]『必殺！』+1[6,4]『必殺！』+1[3,3]+0[3,1]+1[3,4]『必殺！』 ＞ 成功度4 ＞ 必殺発動可能！"
+output = "【難易度5、ファンブル率2、必殺7】 ＞ 1[6,5]『必殺！』+1[6,4]『必殺！』+1[3,3]+0[3,1]+1[3,4]『必殺！』 ＞ 成功度4 ＞ 必殺発動可能！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1194,7 +1194,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2,7]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺7】 ＞ 1[1,4]+1[2,6]『必殺！』+0[2,1]+1[5,2]『必殺！』+0[1,1] ＞ 成功度3 ＞ ファンブル"
+output = "【難易度5、ファンブル率2、必殺7】 ＞ 1[1,4]+1[2,6]『必殺！』+0[2,1]+1[5,2]『必殺！』+0[1,1] ＞ 成功度3 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -1211,19 +1211,19 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,6,7]"
-output = "Satasupe : 【難易度5、ファンブル率6、必殺7】 ＞ ファンブル率が6を超えたため自動失敗！"
+output = "【難易度5、ファンブル率6、必殺7】 ＞ ファンブル率が6を超えたため自動失敗！"
 rands = []
 
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,6]"
-output = "Satasupe : 【難易度5、ファンブル率6、必殺なし】 ＞ ファンブル率が6を超えたため自動失敗！"
+output = "【難易度5、ファンブル率6、必殺なし】 ＞ ファンブル率が6を超えたため自動失敗！"
 rands = []
 
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2,7S]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺7】 ＞ 1[6,5]『必殺！』 ＞ 成功度1 ＞ 必殺発動可能！"
+output = "【難易度5、ファンブル率2、必殺7】 ＞ 1[6,5]『必殺！』 ＞ 成功度1 ＞ 必殺発動可能！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1232,7 +1232,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2,7s]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺7】 ＞ 1[6,5]『必殺！』 ＞ 成功度1 ＞ 必殺発動可能！"
+output = "【難易度5、ファンブル率2、必殺7】 ＞ 1[6,5]『必殺！』 ＞ 成功度1 ＞ 必殺発動可能！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1241,7 +1241,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2,7S]"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺7】 ＞ 1[1,4]+1[2,6]『必殺！』 ＞ 成功度2 ＞ 必殺発動可能！"
+output = "【難易度5、ファンブル率2、必殺7】 ＞ 1[1,4]+1[2,6]『必殺！』 ＞ 成功度2 ＞ 必殺発動可能！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -1252,13 +1252,13 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,6,7S]"
-output = "Satasupe : 【難易度5、ファンブル率6、必殺7】 ＞ ファンブル率が6を超えたため自動失敗！"
+output = "【難易度5、ファンブル率6、必殺7】 ＞ ファンブル率が6を超えたため自動失敗！"
 rands = []
 
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5[10,2,7S] mokeke"
-output = "Satasupe : 【難易度5、ファンブル率2、必殺7】 ＞ 1[1,4]+1[2,6]『必殺！』 ＞ 成功度2 ＞ 必殺発動可能！"
+output = "【難易度5、ファンブル率2、必殺7】 ＞ 1[1,4]+1[2,6]『必殺！』 ＞ 成功度2 ＞ 必殺発動可能！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -1269,7 +1269,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "5R>=5 MOKEKE"
-output = "Satasupe : 【難易度5、ファンブル率1、必殺なし】 ＞ 1[3,6]+1[6,1]+1[3,5]+1[1,4]+1[5,6] ＞ 成功度5"
+output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[3,6]+1[6,1]+1[3,5]+1[1,4]+1[5,6] ＞ 成功度5"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -1286,7 +1286,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TAGT"
-output = "Satasupe : タグ決定表:53:ヒマツブシ(イ)"
+output = "タグ決定表:53:ヒマツブシ(イ)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -1295,7 +1295,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TAGT"
-output = "Satasupe : タグ決定表:53:ヒマツブシ(イ)"
+output = "タグ決定表:53:ヒマツブシ(イ)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -1304,7 +1304,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TAGT"
-output = "Satasupe : タグ決定表:46:旅行(休)"
+output = "タグ決定表:46:旅行(休)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -1313,7 +1313,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TAGT"
-output = "Satasupe : タグ決定表:66:情報ハプニング"
+output = "タグ決定表:66:情報ハプニング"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1322,7 +1322,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TAGT"
-output = "Satasupe : タグ決定表:63:ギャンブル(風)"
+output = "タグ決定表:63:ギャンブル(風)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -1331,7 +1331,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TAGT"
-output = "Satasupe : タグ決定表:61:アダルト(風)"
+output = "タグ決定表:61:アダルト(風)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -1340,7 +1340,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TAGT"
-output = "Satasupe : タグ決定表:25:パフォーマンス(ア)"
+output = "タグ決定表:25:パフォーマンス(ア)"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -1349,7 +1349,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TAGT"
-output = "Satasupe : タグ決定表:15:マニア(サ)"
+output = "タグ決定表:15:マニア(サ)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -1358,7 +1358,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TAGT"
-output = "Satasupe : タグ決定表:35:ガリ勉(マ)"
+output = "タグ決定表:35:ガリ勉(マ)"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -1367,7 +1367,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TAGT"
-output = "Satasupe : タグ決定表:26:美術(ア)"
+output = "タグ決定表:26:美術(ア)"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1376,7 +1376,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET"
-output = "Satasupe : 情報イベント表／〔犯罪〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
+output = "情報イベント表／〔犯罪〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1385,7 +1385,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET"
-output = "Satasupe : 情報イベント表／〔犯罪〕:12:「三下（p.125）」が1D6人現れる。血戦を行え。倒した数だけ、好きなタグの上位リンクを手に入れる"
+output = "情報イベント表／〔犯罪〕:12:「三下（p.125）」が1D6人現れる。血戦を行え。倒した数だけ、好きなタグの上位リンクを手に入れる"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1394,7 +1394,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET"
-output = "Satasupe : 情報イベント表／〔犯罪〕:4:謎のメモを発見……このターゲットについて調べている間、このトピックのタグをチーム全員が所有しているものとして扱う"
+output = "情報イベント表／〔犯罪〕:4:謎のメモを発見……このターゲットについて調べている間、このトピックのタグをチーム全員が所有しているものとして扱う"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -1403,7 +1403,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET"
-output = "Satasupe : 情報イベント表／〔犯罪〕:9:捜査は足だね。〔肉体点〕を好きなだけ消費する。その値と同じ数の好きなタグの上位リンクを得る"
+output = "情報イベント表／〔犯罪〕:9:捜査は足だね。〔肉体点〕を好きなだけ消費する。その値と同じ数の好きなタグの上位リンクを得る"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -1412,7 +1412,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET"
-output = "Satasupe : 情報イベント表／〔犯罪〕:8:その道の権威を紹介される。現在と同じタグの上位リンクを２つ得る"
+output = "情報イベント表／〔犯罪〕:8:その道の権威を紹介される。現在と同じタグの上位リンクを２つ得る"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -1421,7 +1421,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET"
-output = "Satasupe : 情報イベント表／〔犯罪〕:7:あまりに適切な諜報活動。コストを消費せず、上位リンクを３つ得る"
+output = "情報イベント表／〔犯罪〕:7:あまりに適切な諜報活動。コストを消費せず、上位リンクを３つ得る"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -1430,7 +1430,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET"
-output = "Satasupe : 情報イベント表／〔犯罪〕:6:偶然、他の亜侠の仕事現場に出くわす。口止め料の代わりに好きなタグの上位リンクを１つ得る"
+output = "情報イベント表／〔犯罪〕:6:偶然、他の亜侠の仕事現場に出くわす。口止め料の代わりに好きなタグの上位リンクを１つ得る"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -1439,7 +1439,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET"
-output = "Satasupe : 情報イベント表／〔犯罪〕:10:近所のコンビニで立ち読み。思わぬ情報が手に入る。上位リンクを３つ得る"
+output = "情報イベント表／〔犯罪〕:10:近所のコンビニで立ち読み。思わぬ情報が手に入る。上位リンクを３つ得る"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -1448,7 +1448,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET"
-output = "Satasupe : 情報イベント表／〔犯罪〕:9:捜査は足だね。〔肉体点〕を好きなだけ消費する。その値と同じ数の好きなタグの上位リンクを得る"
+output = "情報イベント表／〔犯罪〕:9:捜査は足だね。〔肉体点〕を好きなだけ消費する。その値と同じ数の好きなタグの上位リンクを得る"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -1457,7 +1457,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET"
-output = "Satasupe : 情報イベント表／〔犯罪〕:8:その道の権威を紹介される。現在と同じタグの上位リンクを２つ得る"
+output = "情報イベント表／〔犯罪〕:8:その道の権威を紹介される。現在と同じタグの上位リンクを２つ得る"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -1466,7 +1466,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET"
-output = "Satasupe : 情報イベント表／〔犯罪〕:4:謎のメモを発見……このターゲットについて調べている間、このトピックのタグをチーム全員が所有しているものとして扱う"
+output = "情報イベント表／〔犯罪〕:4:謎のメモを発見……このターゲットについて調べている間、このトピックのタグをチーム全員が所有しているものとして扱う"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -1475,7 +1475,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIET"
-output = "Satasupe : 情報イベント表／〔生活〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
+output = "情報イベント表／〔生活〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1484,7 +1484,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIET"
-output = "Satasupe : 情報イベント表／〔生活〕:12:ターゲットとは関係ないが、ドデかい情報を掘り当てる。その情報を売って〔サイフ〕が全快する"
+output = "情報イベント表／〔生活〕:12:ターゲットとは関係ないが、ドデかい情報を掘り当てる。その情報を売って〔サイフ〕が全快する"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1493,7 +1493,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIET"
-output = "Satasupe : 情報イベント表／〔生活〕:6:器用に手に入れた情報を転売する。《札巻》を１個手に入れ、上位リンクを３つ得る"
+output = "情報イベント表／〔生活〕:6:器用に手に入れた情報を転売する。《札巻》を１個手に入れ、上位リンクを３つ得る"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1502,7 +1502,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIET"
-output = "Satasupe : 情報イベント表／〔生活〕:8:街の有力者からの突然の電話。そのエリアの盟約の幹部NPCの誰かと【コネ】を結ぶことができる"
+output = "情報イベント表／〔生活〕:8:街の有力者からの突然の電話。そのエリアの盟約の幹部NPCの誰かと【コネ】を結ぶことができる"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -1511,7 +1511,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIET"
-output = "Satasupe : 情報イベント表／〔生活〕:10:〔表の顔〕の同僚が思いがけないアドバイスをくれる。上位リンクを1D6つ得る"
+output = "情報イベント表／〔生活〕:10:〔表の顔〕の同僚が思いがけないアドバイスをくれる。上位リンクを1D6つ得る"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -1520,7 +1520,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIET"
-output = "Satasupe : 情報イベント表／〔生活〕:8:街の有力者からの突然の電話。そのエリアの盟約の幹部NPCの誰かと【コネ】を結ぶことができる"
+output = "情報イベント表／〔生活〕:8:街の有力者からの突然の電話。そのエリアの盟約の幹部NPCの誰かと【コネ】を結ぶことができる"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1529,7 +1529,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIET"
-output = "Satasupe : 情報イベント表／〔生活〕:5:息抜きにテレビを見ていたら、たまたまその情報が。好きなタグの上位リンクを１つ得る"
+output = "情報イベント表／〔生活〕:5:息抜きにテレビを見ていたら、たまたまその情報が。好きなタグの上位リンクを１つ得る"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -1538,7 +1538,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIET"
-output = "Satasupe : 情報イベント表／〔生活〕:8:街の有力者からの突然の電話。そのエリアの盟約の幹部NPCの誰かと【コネ】を結ぶことができる"
+output = "情報イベント表／〔生活〕:8:街の有力者からの突然の電話。そのエリアの盟約の幹部NPCの誰かと【コネ】を結ぶことができる"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -1547,7 +1547,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIET"
-output = "Satasupe : 情報イベント表／〔生活〕:3:隣の奥さんと世間話。上位リンクを４つ得る"
+output = "情報イベント表／〔生活〕:3:隣の奥さんと世間話。上位リンクを４つ得る"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -1556,7 +1556,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIET"
-output = "Satasupe : 情報イベント表／〔生活〕:12:ターゲットとは関係ないが、ドデかい情報を掘り当てる。その情報を売って〔サイフ〕が全快する"
+output = "情報イベント表／〔生活〕:12:ターゲットとは関係ないが、ドデかい情報を掘り当てる。その情報を売って〔サイフ〕が全快する"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1565,7 +1565,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIET"
-output = "Satasupe : 情報イベント表／〔生活〕:7:情報を得るついでに軽い営業。〔サイフ〕を１回復させ、上位リンクを３つ得る"
+output = "情報イベント表／〔生活〕:7:情報を得るついでに軽い営業。〔サイフ〕を１回復させ、上位リンクを３つ得る"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -1574,7 +1574,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIET"
-output = "Satasupe : 情報イベント表／〔恋愛〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
+output = "情報イベント表／〔恋愛〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1583,7 +1583,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIET"
-output = "Satasupe : 情報イベント表／〔恋愛〕:12:愛する人の死。自分に恋人がいれば、１人選んで、そのキャラクターを死亡させる。その代わり情報ゲット！"
+output = "情報イベント表／〔恋愛〕:12:愛する人の死。自分に恋人がいれば、１人選んで、そのキャラクターを死亡させる。その代わり情報ゲット！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1592,7 +1592,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIET"
-output = "Satasupe : 情報イベント表／〔恋愛〕:9:持つべきものは愛の奴隷。自分のトリコの数だけ好きなタグの上位リンクを得る"
+output = "情報イベント表／〔恋愛〕:9:持つべきものは愛の奴隷。自分のトリコの数だけ好きなタグの上位リンクを得る"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -1601,7 +1601,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIET"
-output = "Satasupe : 情報イベント表／〔恋愛〕:6:昔の恋人がそれに詳しかったはず。その日の深夜・早朝に行動しなければ、好きなタグの上位リンク（SL+2）を１つ得る"
+output = "情報イベント表／〔恋愛〕:6:昔の恋人がそれに詳しかったはず。その日の深夜・早朝に行動しなければ、好きなタグの上位リンク（SL+2）を１つ得る"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1610,7 +1610,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIET"
-output = "Satasupe : 情報イベント表／〔恋愛〕:11:有力者からの突然のご指名。チームの仲間を１人、ランダムに決定する。差し出すなら、そのキャラクターは次の１ターン行動できない代わり、その後にそのキャラクターの〔恋愛〕と同じ数の上位リンクを得る"
+output = "情報イベント表／〔恋愛〕:11:有力者からの突然のご指名。チームの仲間を１人、ランダムに決定する。差し出すなら、そのキャラクターは次の１ターン行動できない代わり、その後にそのキャラクターの〔恋愛〕と同じ数の上位リンクを得る"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -1619,7 +1619,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIET"
-output = "Satasupe : 情報イベント表／〔恋愛〕:5:敵対する亜侠と第一種接近遭遇。キスのあとの濡れた唇から、上位リンクを３つ得る"
+output = "情報イベント表／〔恋愛〕:5:敵対する亜侠と第一種接近遭遇。キスのあとの濡れた唇から、上位リンクを３つ得る"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -1628,7 +1628,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIET"
-output = "Satasupe : 情報イベント表／〔恋愛〕:8:関係者とすてきな時間を過ごす。好きなタグの上位リンクを１つ得る。ただし、次の１ターンは行動できない"
+output = "情報イベント表／〔恋愛〕:8:関係者とすてきな時間を過ごす。好きなタグの上位リンクを１つ得る。ただし、次の１ターンは行動できない"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -1637,7 +1637,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIET"
-output = "Satasupe : 情報イベント表／〔恋愛〕:9:持つべきものは愛の奴隷。自分のトリコの数だけ好きなタグの上位リンクを得る"
+output = "情報イベント表／〔恋愛〕:9:持つべきものは愛の奴隷。自分のトリコの数だけ好きなタグの上位リンクを得る"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -1646,7 +1646,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIET"
-output = "Satasupe : 情報イベント表／〔恋愛〕:6:昔の恋人がそれに詳しかったはず。その日の深夜・早朝に行動しなければ、好きなタグの上位リンク（SL+2）を１つ得る"
+output = "情報イベント表／〔恋愛〕:6:昔の恋人がそれに詳しかったはず。その日の深夜・早朝に行動しなければ、好きなタグの上位リンク（SL+2）を１つ得る"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -1655,7 +1655,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIET"
-output = "Satasupe : 情報イベント表／〔恋愛〕:4:とびきり美形の情報提供者と遭遇。〔性業値〕判定で律になると、好きなタグの上位リンクを１つ得る"
+output = "情報イベント表／〔恋愛〕:4:とびきり美形の情報提供者と遭遇。〔性業値〕判定で律になると、好きなタグの上位リンクを１つ得る"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -1664,7 +1664,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIET"
-output = "Satasupe : 情報イベント表／〔恋愛〕:10:自分よりも１０歳年上のイヤなやつに身体を売る。現在と同じタグの上位リンクを１つ得る"
+output = "情報イベント表／〔恋愛〕:10:自分よりも１０歳年上のイヤなやつに身体を売る。現在と同じタグの上位リンクを１つ得る"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -1673,7 +1673,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIET"
-output = "Satasupe : 情報イベント表／〔恋愛〕:7:情報はともかくトリコをゲット。データは「女子高生（p.122）」を使用する"
+output = "情報イベント表／〔恋愛〕:7:情報はともかくトリコをゲット。データは「女子高生（p.122）」を使用する"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -1682,7 +1682,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIET"
-output = "Satasupe : 情報イベント表／〔教養〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
+output = "情報イベント表／〔教養〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1691,7 +1691,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIET"
-output = "Satasupe : 情報イベント表／〔教養〕:12:アジトに謎の手紙が届く。自分のアジトに戻れば、情報ゲット！"
+output = "情報イベント表／〔教養〕:12:アジトに謎の手紙が届く。自分のアジトに戻れば、情報ゲット！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1700,7 +1700,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIET"
-output = "Satasupe : 情報イベント表／〔教養〕:9:クールな推理がさえ渡る。〔精神点〕を好きなだけ消費する。その値と同じ数だけ好きなタグの上位リンクを得る"
+output = "情報イベント表／〔教養〕:9:クールな推理がさえ渡る。〔精神点〕を好きなだけ消費する。その値と同じ数だけ好きなタグの上位リンクを得る"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -1709,7 +1709,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIET"
-output = "Satasupe : 情報イベント表／〔教養〕:7:検索エンジンにかけたらすぐヒット。コストを消費せず、上位リンクを４つ得る"
+output = "情報イベント表／〔教養〕:7:検索エンジンにかけたらすぐヒット。コストを消費せず、上位リンクを４つ得る"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -1718,7 +1718,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIET"
-output = "Satasupe : 情報イベント表／〔教養〕:9:クールな推理がさえ渡る。〔精神点〕を好きなだけ消費する。その値と同じ数だけ好きなタグの上位リンクを得る"
+output = "情報イベント表／〔教養〕:9:クールな推理がさえ渡る。〔精神点〕を好きなだけ消費する。その値と同じ数だけ好きなタグの上位リンクを得る"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -1727,7 +1727,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIET"
-output = "Satasupe : 情報イベント表／〔教養〕:8:警察無線を傍受。興味深い。好きなタグの上位リンクを２つ得る"
+output = "情報イベント表／〔教養〕:8:警察無線を傍受。興味深い。好きなタグの上位リンクを２つ得る"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -1736,7 +1736,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIET"
-output = "Satasupe : 情報イベント表／〔教養〕:3:ネットで幻のリンクサイトを発見。すべての種類のタグに上位リンクがはられる"
+output = "情報イベント表／〔教養〕:3:ネットで幻のリンクサイトを発見。すべての種類のタグに上位リンクがはられる"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -1745,7 +1745,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIET"
-output = "Satasupe : 情報イベント表／〔教養〕:11:図書館で幻の書物を発見。上位リンクを８つ得る。キャラクターシートのメモ欄に<クトゥルフ神話知識>、SANと記入し、それぞれ後ろに＋５、－５の数値を書き加える"
+output = "情報イベント表／〔教養〕:11:図書館で幻の書物を発見。上位リンクを８つ得る。キャラクターシートのメモ欄に<クトゥルフ神話知識>、SANと記入し、それぞれ後ろに＋５、－５の数値を書き加える"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -1754,7 +1754,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIET"
-output = "Satasupe : 情報イベント表／〔教養〕:10:図書館ロールが貫通。好きなタグの上位リンク（SL+3)を１つ得る"
+output = "情報イベント表／〔教養〕:10:図書館ロールが貫通。好きなタグの上位リンク（SL+3)を１つ得る"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -1763,7 +1763,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIET"
-output = "Satasupe : 情報イベント表／〔教養〕:8:警察無線を傍受。興味深い。好きなタグの上位リンクを２つ得る"
+output = "情報イベント表／〔教養〕:8:警察無線を傍受。興味深い。好きなタグの上位リンクを２つ得る"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1772,7 +1772,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIET"
-output = "Satasupe : 情報イベント表／〔戦闘〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
+output = "情報イベント表／〔戦闘〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1781,7 +1781,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIET"
-output = "Satasupe : 情報イベント表／〔戦闘〕:12:お前の宿敵（データはブラックアドレス）が1D6体現れる。血戦によって相手を倒せば、情報ゲット。"
+output = "情報イベント表／〔戦闘〕:12:お前の宿敵（データはブラックアドレス）が1D6体現れる。血戦によって相手を倒せば、情報ゲット。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1790,7 +1790,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIET"
-output = "Satasupe : 情報イベント表／〔戦闘〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
+output = "情報イベント表／〔戦闘〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1799,7 +1799,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIET"
-output = "Satasupe : 情報イベント表／〔戦闘〕:6:クスリ漬けの流氓を拳で『説得』。流氓はゲロと一緒に情報を吐き出した。２点のダメージ（セーブ不可）を受け、好きなタグの上位リンクを１つ得る。"
+output = "情報イベント表／〔戦闘〕:6:クスリ漬けの流氓を拳で『説得』。流氓はゲロと一緒に情報を吐き出した。２点のダメージ（セーブ不可）を受け、好きなタグの上位リンクを１つ得る。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -1808,7 +1808,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIET"
-output = "Satasupe : 情報イベント表／〔戦闘〕:6:クスリ漬けの流氓を拳で『説得』。流氓はゲロと一緒に情報を吐き出した。２点のダメージ（セーブ不可）を受け、好きなタグの上位リンクを１つ得る。"
+output = "情報イベント表／〔戦闘〕:6:クスリ漬けの流氓を拳で『説得』。流氓はゲロと一緒に情報を吐き出した。２点のダメージ（セーブ不可）を受け、好きなタグの上位リンクを１つ得る。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -1817,7 +1817,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIET"
-output = "Satasupe : 情報イベント表／〔戦闘〕:8:自称『善良な一市民』からの情報リークを受ける。オマエの持っている異能の数だけ上位リンクを得る。……罠か！？"
+output = "情報イベント表／〔戦闘〕:8:自称『善良な一市民』からの情報リークを受ける。オマエの持っている異能の数だけ上位リンクを得る。……罠か！？"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -1826,7 +1826,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIET"
-output = "Satasupe : 情報イベント表／〔戦闘〕:11:お前達を狙う刺客が冥土の土産に教えてくれる。お前自身かチームの仲間、お前の恋人のいずれかの〔肉体点〕を０点にすれば、情報をゲットできる。"
+output = "情報イベント表／〔戦闘〕:11:お前達を狙う刺客が冥土の土産に教えてくれる。お前自身かチームの仲間、お前の恋人のいずれかの〔肉体点〕を０点にすれば、情報をゲットできる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1835,7 +1835,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIET"
-output = "Satasupe : 情報イベント表／〔戦闘〕:9:サウナ風呂でくつろぐヤクザから情報収集。ヤクザは歯の折れた口から、弱々しい呻きと共に情報を吐き出した。好きなだけダメージを受ける（セーブ不可）。好きなタグの受けたダメージと同じ値のSLへリンクを１つ得る。"
+output = "情報イベント表／〔戦闘〕:9:サウナ風呂でくつろぐヤクザから情報収集。ヤクザは歯の折れた口から、弱々しい呻きと共に情報を吐き出した。好きなだけダメージを受ける（セーブ不可）。好きなタグの受けたダメージと同じ値のSLへリンクを１つ得る。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -1844,7 +1844,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIET"
-output = "Satasupe : 情報イベント表／〔戦闘〕:8:自称『善良な一市民』からの情報リークを受ける。オマエの持っている異能の数だけ上位リンクを得る。……罠か！？"
+output = "情報イベント表／〔戦闘〕:8:自称『善良な一市民』からの情報リークを受ける。オマエの持っている異能の数だけ上位リンクを得る。……罠か！？"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -1853,7 +1853,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIET"
-output = "Satasupe : 情報イベント表／〔戦闘〕:8:自称『善良な一市民』からの情報リークを受ける。オマエの持っている異能の数だけ上位リンクを得る。……罠か！？"
+output = "情報イベント表／〔戦闘〕:8:自称『善良な一市民』からの情報リークを受ける。オマエの持っている異能の数だけ上位リンクを得る。……罠か！？"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -1862,7 +1862,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIHT"
-output = "Satasupe : 情報ハプニング表／〔犯罪〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
+output = "情報ハプニング表／〔犯罪〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1871,7 +1871,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIHT"
-output = "Satasupe : 情報ハプニング表／〔犯罪〕:12:頼れる協力者のもとへ行くと、彼（彼女）の無惨な姿が……自分の持っている現在のセッションに参加していないキャラクター１体を選び、〔肉体点〕を０にする。そして、致命傷表(p.61）を振ること"
+output = "情報ハプニング表／〔犯罪〕:12:頼れる協力者のもとへ行くと、彼（彼女）の無惨な姿が……自分の持っている現在のセッションに参加していないキャラクター１体を選び、〔肉体点〕を０にする。そして、致命傷表(p.61）を振ること"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1880,7 +1880,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIHT"
-output = "Satasupe : 情報ハプニング表／〔犯罪〕:3:警官からの職務質問。一晩拘留される。臭い飯表（p.70）を１回振ること"
+output = "情報ハプニング表／〔犯罪〕:3:警官からの職務質問。一晩拘留される。臭い飯表（p.70）を１回振ること"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -1889,7 +1889,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIHT"
-output = "Satasupe : 情報ハプニング表／〔犯罪〕:9:敵対する盟約のいざこざに巻き込まれる。〔肉体点〕に1D6点のセーブ不可なダメージを受ける"
+output = "情報ハプニング表／〔犯罪〕:9:敵対する盟約のいざこざに巻き込まれる。〔肉体点〕に1D6点のセーブ不可なダメージを受ける"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -1898,7 +1898,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIHT"
-output = "Satasupe : 情報ハプニング表／〔犯罪〕:7:そのトピックを取りしきる盟約に目をつけられる。このトピックと同じタグのトピックからはリンクをはれなくなる"
+output = "情報ハプニング表／〔犯罪〕:7:そのトピックを取りしきる盟約に目をつけられる。このトピックと同じタグのトピックからはリンクをはれなくなる"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -1907,7 +1907,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIHT"
-output = "Satasupe : 情報ハプニング表／〔犯罪〕:9:敵対する盟約のいざこざに巻き込まれる。〔肉体点〕に1D6点のセーブ不可なダメージを受ける"
+output = "情報ハプニング表／〔犯罪〕:9:敵対する盟約のいざこざに巻き込まれる。〔肉体点〕に1D6点のセーブ不可なダメージを受ける"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -1916,7 +1916,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIHT"
-output = "Satasupe : 情報ハプニング表／〔犯罪〕:6:超えてはならない一線を越える。トラウマを１点受ける"
+output = "情報ハプニング表／〔犯罪〕:6:超えてはならない一線を越える。トラウマを１点受ける"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -1925,7 +1925,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIHT"
-output = "Satasupe : 情報ハプニング表／〔犯罪〕:8:過去の亡霊がきみを襲う。自分の修得している異能の中から好きな１つを選ぶ。このセッションでは、その異能が使用不可になる"
+output = "情報ハプニング表／〔犯罪〕:8:過去の亡霊がきみを襲う。自分の修得している異能の中から好きな１つを選ぶ。このセッションでは、その異能が使用不可になる"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -1934,7 +1934,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIHT"
-output = "Satasupe : 情報ハプニング表／〔犯罪〕:4:だますつもりがだまされる。〔サイフ〕を１点消費"
+output = "情報ハプニング表／〔犯罪〕:4:だますつもりがだまされる。〔サイフ〕を１点消費"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -1943,7 +1943,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIHT"
-output = "Satasupe : 情報ハプニング表／〔犯罪〕:3:警官からの職務質問。一晩拘留される。臭い飯表（p.70）を１回振ること"
+output = "情報ハプニング表／〔犯罪〕:3:警官からの職務質問。一晩拘留される。臭い飯表（p.70）を１回振ること"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -1952,7 +1952,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIHT"
-output = "Satasupe : 情報ハプニング表／〔生活〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
+output = "情報ハプニング表／〔生活〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1961,7 +1961,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIHT"
-output = "Satasupe : 情報ハプニング表／〔生活〕:12:覚えのない借金の返済を迫られる。〔サイフ〕を1D6点減らす。〔サイフ〕が足りない場合、そのセッション終了時までに不足分を支払わないと【借金大王】(p.119）の代償を得る"
+output = "情報ハプニング表／〔生活〕:12:覚えのない借金の返済を迫られる。〔サイフ〕を1D6点減らす。〔サイフ〕が足りない場合、そのセッション終了時までに不足分を支払わないと【借金大王】(p.119）の代償を得る"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1970,7 +1970,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIHT"
-output = "Satasupe : 情報ハプニング表／〔生活〕:10:留守の間にアジトが火事に！　〔アジト装備〕がすべて無くなる。明日からどうしよう？"
+output = "情報ハプニング表／〔生活〕:10:留守の間にアジトが火事に！　〔アジト装備〕がすべて無くなる。明日からどうしよう？"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -1979,7 +1979,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIHT"
-output = "Satasupe : 情報ハプニング表／〔生活〕:7:「押し売り(p.124）」が【追跡】を開始"
+output = "情報ハプニング表／〔生活〕:7:「押し売り(p.124）」が【追跡】を開始"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -1988,7 +1988,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIHT"
-output = "Satasupe : 情報ハプニング表／〔生活〕:6:留守の間に空き巣が！　〔アジト装備〕からランダムにアイテムが１個無くなる"
+output = "情報ハプニング表／〔生活〕:6:留守の間に空き巣が！　〔アジト装備〕からランダムにアイテムが１個無くなる"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -1997,7 +1997,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIHT"
-output = "Satasupe : 情報ハプニング表／〔生活〕:9:貧乏ひまなし。［1D6－自分の〔生活〕］ターンの間、行動できなくなる"
+output = "情報ハプニング表／〔生活〕:9:貧乏ひまなし。［1D6－自分の〔生活〕］ターンの間、行動できなくなる"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -2006,7 +2006,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIHT"
-output = "Satasupe : 情報ハプニング表／〔生活〕:7:「押し売り(p.124）」が【追跡】を開始"
+output = "情報ハプニング表／〔生活〕:7:「押し売り(p.124）」が【追跡】を開始"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -2015,7 +2015,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIHT"
-output = "Satasupe : 情報ハプニング表／〔生活〕:4:壮大なる無駄使い。〔サイフ〕を１点消費"
+output = "情報ハプニング表／〔生活〕:4:壮大なる無駄使い。〔サイフ〕を１点消費"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -2024,7 +2024,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIHT"
-output = "Satasupe : 情報ハプニング表／〔生活〕:4:壮大なる無駄使い。〔サイフ〕を１点消費"
+output = "情報ハプニング表／〔生活〕:4:壮大なる無駄使い。〔サイフ〕を１点消費"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -2033,7 +2033,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LifeIHT"
-output = "Satasupe : 情報ハプニング表／〔生活〕:7:「押し売り(p.124）」が【追跡】を開始"
+output = "情報ハプニング表／〔生活〕:7:「押し売り(p.124）」が【追跡】を開始"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -2042,7 +2042,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIHT"
-output = "Satasupe : 情報ハプニング表／〔恋愛〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
+output = "情報ハプニング表／〔恋愛〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2051,7 +2051,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIHT"
-output = "Satasupe : 情報ハプニング表／〔恋愛〕:12:生命の誕生。子供ができる"
+output = "情報ハプニング表／〔恋愛〕:12:生命の誕生。子供ができる"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -2060,7 +2060,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIHT"
-output = "Satasupe : 情報ハプニング表／〔恋愛〕:10:乱れた性生活に疲れる。〔肉体点〕と〔精神点〕がともに２点減少する"
+output = "情報ハプニング表／〔恋愛〕:10:乱れた性生活に疲れる。〔肉体点〕と〔精神点〕がともに２点減少する"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -2069,7 +2069,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIHT"
-output = "Satasupe : 情報ハプニング表／〔恋愛〕:5:一晩を楽しむが相手は年齢を10偽っていた。ロマンス判定のファンブル表を振ること"
+output = "情報ハプニング表／〔恋愛〕:5:一晩を楽しむが相手は年齢を10偽っていた。ロマンス判定のファンブル表を振ること"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -2078,7 +2078,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIHT"
-output = "Satasupe : 情報ハプニング表／〔恋愛〕:7:「痴漢・痴女(p.124）」が【追跡】を開始"
+output = "情報ハプニング表／〔恋愛〕:7:「痴漢・痴女(p.124）」が【追跡】を開始"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -2087,7 +2087,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIHT"
-output = "Satasupe : 情報ハプニング表／〔恋愛〕:5:一晩を楽しむが相手は年齢を10偽っていた。ロマンス判定のファンブル表を振ること"
+output = "情報ハプニング表／〔恋愛〕:5:一晩を楽しむが相手は年齢を10偽っていた。ロマンス判定のファンブル表を振ること"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -2096,7 +2096,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIHT"
-output = "Satasupe : 情報ハプニング表／〔恋愛〕:7:「痴漢・痴女(p.124）」が【追跡】を開始"
+output = "情報ハプニング表／〔恋愛〕:7:「痴漢・痴女(p.124）」が【追跡】を開始"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -2105,7 +2105,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIHT"
-output = "Satasupe : 情報ハプニング表／〔恋愛〕:11:性病が伝染る。１日以内に病院に行き、治療（価格４）を行わないと、鼻がもげる。鼻がもげると〔恋愛〕が１点減少する"
+output = "情報ハプニング表／〔恋愛〕:11:性病が伝染る。１日以内に病院に行き、治療（価格４）を行わないと、鼻がもげる。鼻がもげると〔恋愛〕が１点減少する"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -2114,7 +2114,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIHT"
-output = "Satasupe : 情報ハプニング表／〔恋愛〕:7:「痴漢・痴女(p.124）」が【追跡】を開始"
+output = "情報ハプニング表／〔恋愛〕:7:「痴漢・痴女(p.124）」が【追跡】を開始"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -2123,7 +2123,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveIHT"
-output = "Satasupe : 情報ハプニング表／〔恋愛〕:9:突然の別れ。トリコ欄からランダムに１体を選び、その名前を消す"
+output = "情報ハプニング表／〔恋愛〕:9:突然の別れ。トリコ欄からランダムに１体を選び、その名前を消す"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -2132,7 +2132,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIHT"
-output = "Satasupe : 情報ハプニング表／〔教養〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
+output = "情報ハプニング表／〔教養〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2141,7 +2141,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIHT"
-output = "Satasupe : 情報ハプニング表／〔教養〕:12:ネットサーフィンにハマってしまい、ついつい時間が過ぎる。毎ターンのはじめに〔性業値〕判定を行い、律にならないとそのターンは行動できない。この効果は１日続く"
+output = "情報ハプニング表／〔教養〕:12:ネットサーフィンにハマってしまい、ついつい時間が過ぎる。毎ターンのはじめに〔性業値〕判定を行い、律にならないとそのターンは行動できない。この効果は１日続く"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -2150,7 +2150,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIHT"
-output = "Satasupe : 情報ハプニング表／〔教養〕:5:唐突に睡魔が。次から２ターンの間、睡眠しなくてはならない"
+output = "情報ハプニング表／〔教養〕:5:唐突に睡魔が。次から２ターンの間、睡眠しなくてはならない"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -2159,7 +2159,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIHT"
-output = "Satasupe : 情報ハプニング表／〔教養〕:10:ボケる。〔教養〕が１点減少する"
+output = "情報ハプニング表／〔教養〕:10:ボケる。〔教養〕が１点減少する"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -2168,7 +2168,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIHT"
-output = "Satasupe : 情報ハプニング表／〔教養〕:5:唐突に睡魔が。次から２ターンの間、睡眠しなくてはならない"
+output = "情報ハプニング表／〔教養〕:5:唐突に睡魔が。次から２ターンの間、睡眠しなくてはならない"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -2177,7 +2177,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIHT"
-output = "Satasupe : 情報ハプニング表／〔教養〕:12:ネットサーフィンにハマってしまい、ついつい時間が過ぎる。毎ターンのはじめに〔性業値〕判定を行い、律にならないとそのターンは行動できない。この効果は１日続く"
+output = "情報ハプニング表／〔教養〕:12:ネットサーフィンにハマってしまい、ついつい時間が過ぎる。毎ターンのはじめに〔性業値〕判定を行い、律にならないとそのターンは行動できない。この効果は１日続く"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -2186,7 +2186,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIHT"
-output = "Satasupe : 情報ハプニング表／〔教養〕:7:「勧誘員(p.124）」が【追跡】を開始"
+output = "情報ハプニング表／〔教養〕:7:「勧誘員(p.124）」が【追跡】を開始"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -2195,7 +2195,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIHT"
-output = "Satasupe : 情報ハプニング表／〔教養〕:11:クラッキングに遭う。いままで調べていたトピックとリンクをすべて失う"
+output = "情報ハプニング表／〔教養〕:11:クラッキングに遭う。いままで調べていたトピックとリンクをすべて失う"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -2204,7 +2204,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIHT"
-output = "Satasupe : 情報ハプニング表／〔教養〕:7:「勧誘員(p.124）」が【追跡】を開始"
+output = "情報ハプニング表／〔教養〕:7:「勧誘員(p.124）」が【追跡】を開始"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -2213,7 +2213,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CultureIHT"
-output = "Satasupe : 情報ハプニング表／〔教養〕:5:唐突に睡魔が。次から２ターンの間、睡眠しなくてはならない"
+output = "情報ハプニング表／〔教養〕:5:唐突に睡魔が。次から２ターンの間、睡眠しなくてはならない"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -2222,7 +2222,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIHT"
-output = "Satasupe : 情報ハプニング表／〔戦闘〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
+output = "情報ハプニング表／〔戦闘〕:2:謎の情報屋チュンさん登場。ターゲットとなる情報を渡し、いずこかへ去る。情報ゲット！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2231,7 +2231,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIHT"
-output = "Satasupe : 情報ハプニング表／〔戦闘〕:12:流氓の男の卑劣な罠にかかり、肥え喰らいの巣に落ちる！！　「掃き溜めの悪魔」1D6体と血戦を行う。戦いに勝たない限り、生きて帰ることはできないだろう……。もちろん血戦に勝ったところで情報は得られない。"
+output = "情報ハプニング表／〔戦闘〕:12:流氓の男の卑劣な罠にかかり、肥え喰らいの巣に落ちる！！　「掃き溜めの悪魔」1D6体と血戦を行う。戦いに勝たない限り、生きて帰ることはできないだろう……。もちろん血戦に勝ったところで情報は得られない。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -2240,7 +2240,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIHT"
-output = "Satasupe : 情報ハプニング表／〔戦闘〕:5:「俺にはもっと別の人生があったんじゃないだろうか……！？」突如、空しさがこみ上げて来る……その日は各ターンの始めに〔性業値〕判定を行う。失敗すると、酒に溺れ、そのターンは行動済みになる。"
+output = "情報ハプニング表／〔戦闘〕:5:「俺にはもっと別の人生があったんじゃないだろうか……！？」突如、空しさがこみ上げて来る……その日は各ターンの始めに〔性業値〕判定を行う。失敗すると、酒に溺れ、そのターンは行動済みになる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -2249,7 +2249,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIHT"
-output = "Satasupe : 情報ハプニング表／〔戦闘〕:11:宿敵によって深い疵を受ける。自分の修得している異能の中から、１つ選ぶこと。このセッションのあいだ、その異能を使用することができなくなる。"
+output = "情報ハプニング表／〔戦闘〕:11:宿敵によって深い疵を受ける。自分の修得している異能の中から、１つ選ぶこと。このセッションのあいだ、その異能を使用することができなくなる。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -2258,7 +2258,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIHT"
-output = "Satasupe : 情報ハプニング表／〔戦闘〕:6:クライムファイター仲間からスパイの容疑を受ける……１点のトラウマを追う。"
+output = "情報ハプニング表／〔戦闘〕:6:クライムファイター仲間からスパイの容疑を受ける……１点のトラウマを追う。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -2267,7 +2267,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIHT"
-output = "Satasupe : 情報ハプニング表／〔戦闘〕:10:「お前はやり過ぎた」の書きおきと共に、友人の死体が発見される〔戦闘〕で難易度９の判定を行う。失敗すると、ランダムに選んだチームの仲間１人が死亡する。"
+output = "情報ハプニング表／〔戦闘〕:10:「お前はやり過ぎた」の書きおきと共に、友人の死体が発見される〔戦闘〕で難易度９の判定を行う。失敗すると、ランダムに選んだチームの仲間１人が死亡する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -2276,7 +2276,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIHT"
-output = "Satasupe : 情報ハプニング表／〔戦闘〕:4:自宅に帰ると、無惨に破壊された君のおたからが転がっていた。「この件から手を引け」という書き置きと共に……。この情報フェイズでは、リンク判定を行ったトピックのタグの〔趣味〕を修得していた場合、それを未修得にする。また、おたからを持っていたなら、このセッション中、そのおたからは利用できなくなる。"
+output = "情報ハプニング表／〔戦闘〕:4:自宅に帰ると、無惨に破壊された君のおたからが転がっていた。「この件から手を引け」という書き置きと共に……。この情報フェイズでは、リンク判定を行ったトピックのタグの〔趣味〕を修得していた場合、それを未修得にする。また、おたからを持っていたなら、このセッション中、そのおたからは利用できなくなる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -2285,7 +2285,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIHT"
-output = "Satasupe : 情報ハプニング表／〔戦闘〕:7:自宅の扉にメモが……！！　「今ならまだ間に合う」奴等はどこまで知っているんだ！？　このトピックからは、これ以上リンクを伸ばせなくなる。"
+output = "情報ハプニング表／〔戦闘〕:7:自宅の扉にメモが……！！　「今ならまだ間に合う」奴等はどこまで知っているんだ！？　このトピックからは、これ以上リンクを伸ばせなくなる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -2294,7 +2294,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIHT"
-output = "Satasupe : 情報ハプニング表／〔戦闘〕:7:自宅の扉にメモが……！！　「今ならまだ間に合う」奴等はどこまで知っているんだ！？　このトピックからは、これ以上リンクを伸ばせなくなる。"
+output = "情報ハプニング表／〔戦闘〕:7:自宅の扉にメモが……！！　「今ならまだ間に合う」奴等はどこまで知っているんだ！？　このトピックからは、これ以上リンクを伸ばせなくなる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -2303,7 +2303,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CombatIHT"
-output = "Satasupe : 情報ハプニング表／〔戦闘〕:7:自宅の扉にメモが……！！　「今ならまだ間に合う」奴等はどこまで知っているんだ！？　このトピックからは、これ以上リンクを伸ばせなくなる。"
+output = "情報ハプニング表／〔戦闘〕:7:自宅の扉にメモが……！！　「今ならまだ間に合う」奴等はどこまで知っているんだ！？　このトピックからは、これ以上リンクを伸ばせなくなる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -2312,7 +2312,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FumbleT"
-output = "Satasupe : 命中判定ファンブル表:2:自分の持ち物がすっぽぬけ、偶然敵を直撃！　持っているアイテムを１つ消し、ジオラマ上にいるキャラクター１人をランダムに選ぶ。そのキャラクターの〔肉体点〕を1D6ラウンドの間０点にし、行動不能にさせる（致命傷表は使用しない）。1D6ラウンドが経過し、行動不能から回復すると、そのキャラクターの〔肉体点〕は、行動不能になる直前の値にまで回復する"
+output = "命中判定ファンブル表:2:自分の持ち物がすっぽぬけ、偶然敵を直撃！　持っているアイテムを１つ消し、ジオラマ上にいるキャラクター１人をランダムに選ぶ。そのキャラクターの〔肉体点〕を1D6ラウンドの間０点にし、行動不能にさせる（致命傷表は使用しない）。1D6ラウンドが経過し、行動不能から回復すると、そのキャラクターの〔肉体点〕は、行動不能になる直前の値にまで回復する"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2321,7 +2321,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FumbleT"
-output = "Satasupe : 命中判定ファンブル表:12:最悪の事態。〔肉体点〕を０にして、そのキャラクターは行動不能に（致命傷表は使用しない）"
+output = "命中判定ファンブル表:12:最悪の事態。〔肉体点〕を０にして、そのキャラクターは行動不能に（致命傷表は使用しない）"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -2330,7 +2330,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FumbleT"
-output = "Satasupe : 命中判定ファンブル表:7:急に命が惜しくなる。性業値判定をすること。「激」なら戦闘を続行。「律」なら次のラウンドから全力移動を行い、ジオラマから逃走を試みる。「迷」なら次のラウンドは移動・攻撃フェイズに行動できない"
+output = "命中判定ファンブル表:7:急に命が惜しくなる。性業値判定をすること。「激」なら戦闘を続行。「律」なら次のラウンドから全力移動を行い、ジオラマから逃走を試みる。「迷」なら次のラウンドは移動・攻撃フェイズに行動できない"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -2339,7 +2339,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FumbleT"
-output = "Satasupe : 命中判定ファンブル表:8:誤って別の目標を攻撃。目標以外であなたに一番近いキャラクターに４ダメージ（セーブ不可）！"
+output = "命中判定ファンブル表:8:誤って別の目標を攻撃。目標以外であなたに一番近いキャラクターに４ダメージ（セーブ不可）！"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -2348,7 +2348,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FumbleT"
-output = "Satasupe : 命中判定ファンブル表:10:今使っている武器が壊れる。アイテム欄から使用中の武器を消すこと。銃器を使っていた場合、暴発して自分に６ダメージ！　武器なしの場合、体を傷つけ３ダメージ（共にセーブ不可）！"
+output = "命中判定ファンブル表:10:今使っている武器が壊れる。アイテム欄から使用中の武器を消すこと。銃器を使っていた場合、暴発して自分に６ダメージ！　武器なしの場合、体を傷つけ３ダメージ（共にセーブ不可）！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -2357,7 +2357,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FumbleT"
-output = "Satasupe : 命中判定ファンブル表:9:誤って自分を攻撃。３ダメージ（セーブ不可）！"
+output = "命中判定ファンブル表:9:誤って自分を攻撃。３ダメージ（セーブ不可）！"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -2366,7 +2366,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FumbleT"
-output = "Satasupe : 命中判定ファンブル表:2:自分の持ち物がすっぽぬけ、偶然敵を直撃！　持っているアイテムを１つ消し、ジオラマ上にいるキャラクター１人をランダムに選ぶ。そのキャラクターの〔肉体点〕を1D6ラウンドの間０点にし、行動不能にさせる（致命傷表は使用しない）。1D6ラウンドが経過し、行動不能から回復すると、そのキャラクターの〔肉体点〕は、行動不能になる直前の値にまで回復する"
+output = "命中判定ファンブル表:2:自分の持ち物がすっぽぬけ、偶然敵を直撃！　持っているアイテムを１つ消し、ジオラマ上にいるキャラクター１人をランダムに選ぶ。そのキャラクターの〔肉体点〕を1D6ラウンドの間０点にし、行動不能にさせる（致命傷表は使用しない）。1D6ラウンドが経過し、行動不能から回復すると、そのキャラクターの〔肉体点〕は、行動不能になる直前の値にまで回復する"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2375,7 +2375,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FumbleT"
-output = "Satasupe : 命中判定ファンブル表:10:今使っている武器が壊れる。アイテム欄から使用中の武器を消すこと。銃器を使っていた場合、暴発して自分に６ダメージ！　武器なしの場合、体を傷つけ３ダメージ（共にセーブ不可）！"
+output = "命中判定ファンブル表:10:今使っている武器が壊れる。アイテム欄から使用中の武器を消すこと。銃器を使っていた場合、暴発して自分に６ダメージ！　武器なしの場合、体を傷つけ３ダメージ（共にセーブ不可）！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -2384,7 +2384,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FumbleT"
-output = "Satasupe : 命中判定ファンブル表:7:急に命が惜しくなる。性業値判定をすること。「激」なら戦闘を続行。「律」なら次のラウンドから全力移動を行い、ジオラマから逃走を試みる。「迷」なら次のラウンドは移動・攻撃フェイズに行動できない"
+output = "命中判定ファンブル表:7:急に命が惜しくなる。性業値判定をすること。「激」なら戦闘を続行。「律」なら次のラウンドから全力移動を行い、ジオラマから逃走を試みる。「迷」なら次のラウンドは移動・攻撃フェイズに行動できない"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -2393,7 +2393,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FumbleT"
-output = "Satasupe : 命中判定ファンブル表:7:急に命が惜しくなる。性業値判定をすること。「激」なら戦闘を続行。「律」なら次のラウンドから全力移動を行い、ジオラマから逃走を試みる。「迷」なら次のラウンドは移動・攻撃フェイズに行動できない"
+output = "命中判定ファンブル表:7:急に命が惜しくなる。性業値判定をすること。「激」なら戦闘を続行。「律」なら次のラウンドから全力移動を行い、ジオラマから逃走を試みる。「迷」なら次のラウンドは移動・攻撃フェイズに行動できない"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -2402,7 +2402,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalT"
-output = "Satasupe : 致命傷表:2:死亡。"
+output = "致命傷表:2:死亡。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2411,7 +2411,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalT"
-output = "Satasupe : 致命傷表:12:奇跡的に無傷。さきほどのダメージを無効に。"
+output = "致命傷表:12:奇跡的に無傷。さきほどのダメージを無効に。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -2420,7 +2420,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalT"
-output = "Satasupe : 致命傷表:5:昏睡して行動不能。1D6ターン以内に治療し、〔肉体点〕を１以上にしないと死亡。"
+output = "致命傷表:5:昏睡して行動不能。1D6ターン以内に治療し、〔肉体点〕を１以上にしないと死亡。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -2429,7 +2429,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalT"
-output = "Satasupe : 致命傷表:6:大怪我で行動不能。体の部位のどこかを欠損してしまう。任意の〔能力値〕１つが１点減少。"
+output = "致命傷表:6:大怪我で行動不能。体の部位のどこかを欠損してしまう。任意の〔能力値〕１つが１点減少。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -2438,7 +2438,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalT"
-output = "Satasupe : 致命傷表:6:大怪我で行動不能。体の部位のどこかを欠損してしまう。任意の〔能力値〕１つが１点減少。"
+output = "致命傷表:6:大怪我で行動不能。体の部位のどこかを欠損してしまう。任意の〔能力値〕１つが１点減少。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -2447,7 +2447,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalT"
-output = "Satasupe : 致命傷表:9:気絶して行動不能。１ターン後、〔肉体点〕が１になる。"
+output = "致命傷表:9:気絶して行動不能。１ターン後、〔肉体点〕が１になる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -2456,7 +2456,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalT"
-output = "Satasupe : 致命傷表:4:昏睡して行動不能。1D6ラウンド以内に治療し、〔肉体点〕を１以上にしないと死亡。"
+output = "致命傷表:4:昏睡して行動不能。1D6ラウンド以内に治療し、〔肉体点〕を１以上にしないと死亡。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -2465,7 +2465,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalT"
-output = "Satasupe : 致命傷表:5:昏睡して行動不能。1D6ターン以内に治療し、〔肉体点〕を１以上にしないと死亡。"
+output = "致命傷表:5:昏睡して行動不能。1D6ターン以内に治療し、〔肉体点〕を１以上にしないと死亡。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -2474,7 +2474,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalT"
-output = "Satasupe : 致命傷表:10:気絶して行動不能。1D6ラウンド後、〔肉体点〕が１になる。"
+output = "致命傷表:10:気絶して行動不能。1D6ラウンド後、〔肉体点〕が１になる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -2483,7 +2483,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalT"
-output = "Satasupe : 致命傷表:2:死亡。"
+output = "致命傷表:2:死亡。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2492,7 +2492,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AccidentT"
-output = "Satasupe : アクシデント表:2:ゴミか何かが降ってきて、視界を塞ぐ。以降のケチャップに関する判定に修正が＋１つく。あなたが追う側なら逃げる側のコマを２マス進める（逃げる側なら自分を２マス戻す）"
+output = "アクシデント表:2:ゴミか何かが降ってきて、視界を塞ぐ。以降のケチャップに関する判定に修正が＋１つく。あなたが追う側なら逃げる側のコマを２マス進める（逃げる側なら自分を２マス戻す）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2501,7 +2501,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AccidentT"
-output = "Satasupe : アクシデント表:12:信号を無視しちまったら後ろで事故が起きた。警察のサイレンが鳴り響いてくる。DDはケチャップの最後尾に警察の乗物を加えろ。データは「制服警官（p.129）」のものを使用"
+output = "アクシデント表:12:信号を無視しちまったら後ろで事故が起きた。警察のサイレンが鳴り響いてくる。DDはケチャップの最後尾に警察の乗物を加えろ。データは「制服警官（p.129）」のものを使用"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -2510,7 +2510,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AccidentT"
-output = "Satasupe : アクシデント表:10:うっかり落し物。〔通常装備〕欄からアイテムを１個選んで消す"
+output = "アクシデント表:10:うっかり落し物。〔通常装備〕欄からアイテムを１個選んで消す"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -2519,7 +2519,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AccidentT"
-output = "Satasupe : アクシデント表:9:軽い故障が起きちまった。以降のケチャップに関する行為判定に修正が＋１つく"
+output = "アクシデント表:9:軽い故障が起きちまった。以降のケチャップに関する行為判定に修正が＋１つく"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -2528,7 +2528,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AccidentT"
-output = "Satasupe : アクシデント表:7:何かの障害物に衝突する。運転手は難易度７の〔精神〕の判定を行うこと。失敗したら、乗物と乗組員全員は2D6ダメージを受けた上に、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
+output = "アクシデント表:7:何かの障害物に衝突する。運転手は難易度７の〔精神〕の判定を行うこと。失敗したら、乗物と乗組員全員は2D6ダメージを受けた上に、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -2537,7 +2537,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AccidentT"
-output = "Satasupe : アクシデント表:11:あやうく人にぶつかりそうになる。運転手は難易度９の〔精神〕の判定を行う。失敗したら、その一般人を殺してしまう。あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
+output = "アクシデント表:11:あやうく人にぶつかりそうになる。運転手は難易度９の〔精神〕の判定を行う。失敗したら、その一般人を殺してしまう。あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -2546,7 +2546,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AccidentT"
-output = "Satasupe : アクシデント表:7:何かの障害物に衝突する。運転手は難易度７の〔精神〕の判定を行うこと。失敗したら、乗物と乗組員全員は2D6ダメージを受けた上に、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
+output = "アクシデント表:7:何かの障害物に衝突する。運転手は難易度７の〔精神〕の判定を行うこと。失敗したら、乗物と乗組員全員は2D6ダメージを受けた上に、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -2555,7 +2555,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AccidentT"
-output = "Satasupe : アクシデント表:9:軽い故障が起きちまった。以降のケチャップに関する行為判定に修正が＋１つく"
+output = "アクシデント表:9:軽い故障が起きちまった。以降のケチャップに関する行為判定に修正が＋１つく"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -2564,7 +2564,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AccidentT"
-output = "Satasupe : アクシデント表:7:何かの障害物に衝突する。運転手は難易度７の〔精神〕の判定を行うこと。失敗したら、乗物と乗組員全員は2D6ダメージを受けた上に、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
+output = "アクシデント表:7:何かの障害物に衝突する。運転手は難易度７の〔精神〕の判定を行うこと。失敗したら、乗物と乗組員全員は2D6ダメージを受けた上に、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -2573,7 +2573,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AccidentT"
-output = "Satasupe : アクシデント表:8:走ってる途中に〔趣味〕に関する何かが目に映る。性業値判定を行うこと。「激」になると思わず見とれてしまう。あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
+output = "アクシデント表:8:走ってる途中に〔趣味〕に関する何かが目に映る。性業値判定を行うこと。「激」になると思わず見とれてしまう。あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -2582,7 +2582,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GeneralAT"
-output = "Satasupe : 汎用アクシデント表:2:痛恨のミス。激しく状況が悪化する。以降のケチャップに関する行為判定の難易度に＋１の修正がつき、あなたが追う側なら逃げる側のコマを２マス進める（逃げる側なら自分を２マス戻す）"
+output = "汎用アクシデント表:2:痛恨のミス。激しく状況が悪化する。以降のケチャップに関する行為判定の難易度に＋１の修正がつき、あなたが追う側なら逃げる側のコマを２マス進める（逃げる側なら自分を２マス戻す）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2591,7 +2591,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GeneralAT"
-output = "Satasupe : 汎用アクシデント表:12:頭の中が真っ白になる。〔精神点〕を1D6減少する。"
+output = "汎用アクシデント表:12:頭の中が真っ白になる。〔精神点〕を1D6減少する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -2600,7 +2600,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GeneralAT"
-output = "Satasupe : 汎用アクシデント表:10:うっかり持ち物を見失う。〔通常装備〕欄からアイテムを１個選んで消す"
+output = "汎用アクシデント表:10:うっかり持ち物を見失う。〔通常装備〕欄からアイテムを１個選んで消す"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -2609,7 +2609,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GeneralAT"
-output = "Satasupe : 汎用アクシデント表:7:スランプ！　思わず足踏みしてしまう。ムーブ判定を行った者は、ムーブ判定に使用した能力値を使って難易度７の判定を行うこと。失敗したら、ムーブ判定を行ったキャラクターは、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
+output = "汎用アクシデント表:7:スランプ！　思わず足踏みしてしまう。ムーブ判定を行った者は、ムーブ判定に使用した能力値を使って難易度７の判定を行うこと。失敗したら、ムーブ判定を行ったキャラクターは、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -2618,7 +2618,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GeneralAT"
-output = "Satasupe : 汎用アクシデント表:7:スランプ！　思わず足踏みしてしまう。ムーブ判定を行った者は、ムーブ判定に使用した能力値を使って難易度７の判定を行うこと。失敗したら、ムーブ判定を行ったキャラクターは、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
+output = "汎用アクシデント表:7:スランプ！　思わず足踏みしてしまう。ムーブ判定を行った者は、ムーブ判定に使用した能力値を使って難易度７の判定を行うこと。失敗したら、ムーブ判定を行ったキャラクターは、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -2627,7 +2627,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GeneralAT"
-output = "Satasupe : 汎用アクシデント表:4:もうダメだ……。絶望感が襲いかかってくる。後３ラウンド以内にケリをつけないと、あなたが追う側なら自動的に逃げる側が勝利する（逃げる側なら追う側が勝利する）"
+output = "汎用アクシデント表:4:もうダメだ……。絶望感が襲いかかってくる。後３ラウンド以内にケリをつけないと、あなたが追う側なら自動的に逃げる側が勝利する（逃げる側なら追う側が勝利する）"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -2636,7 +2636,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GeneralAT"
-output = "Satasupe : 汎用アクシデント表:10:うっかり持ち物を見失う。〔通常装備〕欄からアイテムを１個選んで消す"
+output = "汎用アクシデント表:10:うっかり持ち物を見失う。〔通常装備〕欄からアイテムを１個選んで消す"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -2645,7 +2645,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GeneralAT"
-output = "Satasupe : 汎用アクシデント表:7:スランプ！　思わず足踏みしてしまう。ムーブ判定を行った者は、ムーブ判定に使用した能力値を使って難易度７の判定を行うこと。失敗したら、ムーブ判定を行ったキャラクターは、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
+output = "汎用アクシデント表:7:スランプ！　思わず足踏みしてしまう。ムーブ判定を行った者は、ムーブ判定に使用した能力値を使って難易度７の判定を行うこと。失敗したら、ムーブ判定を行ったキャラクターは、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -2654,7 +2654,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GeneralAT"
-output = "Satasupe : 汎用アクシデント表:7:スランプ！　思わず足踏みしてしまう。ムーブ判定を行った者は、ムーブ判定に使用した能力値を使って難易度７の判定を行うこと。失敗したら、ムーブ判定を行ったキャラクターは、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
+output = "汎用アクシデント表:7:スランプ！　思わず足踏みしてしまう。ムーブ判定を行った者は、ムーブ判定に使用した能力値を使って難易度７の判定を行うこと。失敗したら、ムーブ判定を行ったキャラクターは、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -2663,7 +2663,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GeneralAT"
-output = "Satasupe : 汎用アクシデント表:7:スランプ！　思わず足踏みしてしまう。ムーブ判定を行った者は、ムーブ判定に使用した能力値を使って難易度７の判定を行うこと。失敗したら、ムーブ判定を行ったキャラクターは、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
+output = "汎用アクシデント表:7:スランプ！　思わず足踏みしてしまう。ムーブ判定を行った者は、ムーブ判定に使用した能力値を使って難易度７の判定を行うこと。失敗したら、ムーブ判定を行ったキャラクターは、ケチャップから脱落。成功しても、あなたが追う側なら逃げる側のコマを１マス進める（逃げる側なら自分を１マス戻す）"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -2672,7 +2672,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AfterT"
-output = "Satasupe : その後表:2:ここらが潮時かもしれない。2D6を振り、その目が自分の修得している代償未満であれば、そのキャラクターは引退し、二度と使用できない"
+output = "その後表:2:ここらが潮時かもしれない。2D6を振り、その目が自分の修得している代償未満であれば、そのキャラクターは引退し、二度と使用できない"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2681,7 +2681,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AfterT"
-output = "Satasupe : その後表:12:〔性業値〕が１以下、もしくは１３以上だった場合、そのキャラクターは大阪の闇に消える。そのキャラクターは引退し、二度と使用できない"
+output = "その後表:12:〔性業値〕が１以下、もしくは１３以上だった場合、そのキャラクターは大阪の闇に消える。そのキャラクターは引退し、二度と使用できない"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -2690,7 +2690,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AfterT"
-output = "Satasupe : その後表:6:思わず意気投合。今回登場したNPC１人を選び、そのキャラクターとの【コネ】（p.95）を修得する"
+output = "その後表:6:思わず意気投合。今回登場したNPC１人を選び、そのキャラクターとの【コネ】（p.95）を修得する"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -2699,7 +2699,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AfterT"
-output = "Satasupe : その後表:7:今回の事件で様々な教訓を得る。自分の修得しているアドバンスドカルマの中から、汎用以外のものを好きなだけ選ぶ。そのカルマの異能と代償を、別な異能と代償に変更することができる"
+output = "その後表:7:今回の事件で様々な教訓を得る。自分の修得しているアドバンスドカルマの中から、汎用以外のものを好きなだけ選ぶ。そのカルマの異能と代償を、別な異能と代償に変更することができる"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -2708,7 +2708,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AfterT"
-output = "Satasupe : その後表:9:色々な運命を感じる。今回のセッションでトリコができていた場合、経験点の消費なしにそのトリコを常備化することができる。また、自分が誰かのトリコになっていた場合、その人物への【トリコ】(p.95）の代償を得る"
+output = "その後表:9:色々な運命を感じる。今回のセッションでトリコができていた場合、経験点の消費なしにそのトリコを常備化することができる。また、自分が誰かのトリコになっていた場合、その人物への【トリコ】(p.95）の代償を得る"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -2717,7 +2717,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AfterT"
-output = "Satasupe : その後表:11:くそっ！　ここから出せ！！　今回のセッションで逮捕されていたら、【前科】(p.95）の代償を得る"
+output = "その後表:11:くそっ！　ここから出せ！！　今回のセッションで逮捕されていたら、【前科】(p.95）の代償を得る"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -2726,7 +2726,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AfterT"
-output = "Satasupe : その後表:7:今回の事件で様々な教訓を得る。自分の修得しているアドバンスドカルマの中から、汎用以外のものを好きなだけ選ぶ。そのカルマの異能と代償を、別な異能と代償に変更することができる"
+output = "その後表:7:今回の事件で様々な教訓を得る。自分の修得しているアドバンスドカルマの中から、汎用以外のものを好きなだけ選ぶ。そのカルマの異能と代償を、別な異能と代償に変更することができる"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -2735,7 +2735,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AfterT"
-output = "Satasupe : その後表:10:やっぱり亜侠も楽じゃないかも。今回のセッションで何かツラい目にあっていた場合、【日常】（p.95）を取得する"
+output = "その後表:10:やっぱり亜侠も楽じゃないかも。今回のセッションで何かツラい目にあっていた場合、【日常】（p.95）を取得する"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -2744,7 +2744,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AfterT"
-output = "Satasupe : その後表:6:思わず意気投合。今回登場したNPC１人を選び、そのキャラクターとの【コネ】（p.95）を修得する"
+output = "その後表:6:思わず意気投合。今回登場したNPC１人を選び、そのキャラクターとの【コネ】（p.95）を修得する"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -2753,7 +2753,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AfterT"
-output = "Satasupe : その後表:7:今回の事件で様々な教訓を得る。自分の修得しているアドバンスドカルマの中から、汎用以外のものを好きなだけ選ぶ。そのカルマの異能と代償を、別な異能と代償に変更することができる"
+output = "その後表:7:今回の事件で様々な教訓を得る。自分の修得しているアドバンスドカルマの中から、汎用以外のものを好きなだけ選ぶ。そのカルマの異能と代償を、別な異能と代償に変更することができる"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -2762,7 +2762,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "RomanceFT"
-output = "Satasupe : ロマンスファンブル表:2:みんなあいそをつかす。自分のトリコ欄のキャラクターの名前をすべて消すこと"
+output = "ロマンスファンブル表:2:みんなあいそをつかす。自分のトリコ欄のキャラクターの名前をすべて消すこと"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2771,7 +2771,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "RomanceFT"
-output = "Satasupe : ロマンスファンブル表:12:トリコからの監視！　このセッションの間、ロマンス判定のファンブル率が自分のトリコの所持数と同じだけ上昇する"
+output = "ロマンスファンブル表:12:トリコからの監視！　このセッションの間、ロマンス判定のファンブル率が自分のトリコの所持数と同じだけ上昇する"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -2780,7 +2780,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "RomanceFT"
-output = "Satasupe : ロマンスファンブル表:8:平手うち！　自分の〔肉体点〕が1D6点減少する"
+output = "ロマンスファンブル表:8:平手うち！　自分の〔肉体点〕が1D6点減少する"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -2789,7 +2789,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "RomanceFT"
-output = "Satasupe : ロマンスファンブル表:10:無礼な失言をしてしまう。対象はあなたに対し「憎悪（p.120参照）」の反応を抱き、あなたはその対象の名前を書き込んだ【仇敵】の代償を得る"
+output = "ロマンスファンブル表:10:無礼な失言をしてしまう。対象はあなたに対し「憎悪（p.120参照）」の反応を抱き、あなたはその対象の名前を書き込んだ【仇敵】の代償を得る"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -2798,7 +2798,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "RomanceFT"
-output = "Satasupe : ロマンスファンブル表:9:浮気がばれる。恋人関係にあるトリコがいれば、そのキャラクターの名前をあなたのトリコ欄から消す"
+output = "ロマンスファンブル表:9:浮気がばれる。恋人関係にあるトリコがいれば、そのキャラクターの名前をあなたのトリコ欄から消す"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -2807,7 +2807,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "RomanceFT"
-output = "Satasupe : ロマンスファンブル表:5:修羅場！　対象とは別にトリコを所有していれば、そのキャラクターが現れ、あなたと対象に血戦をしかけてくる"
+output = "ロマンスファンブル表:5:修羅場！　対象とは別にトリコを所有していれば、そのキャラクターが現れ、あなたと対象に血戦をしかけてくる"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -2816,7 +2816,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "RomanceFT"
-output = "Satasupe : ロマンスファンブル表:8:平手うち！　自分の〔肉体点〕が1D6点減少する"
+output = "ロマンスファンブル表:8:平手うち！　自分の〔肉体点〕が1D6点減少する"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -2825,7 +2825,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "RomanceFT"
-output = "Satasupe : ロマンスファンブル表:8:平手うち！　自分の〔肉体点〕が1D6点減少する"
+output = "ロマンスファンブル表:8:平手うち！　自分の〔肉体点〕が1D6点減少する"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -2834,7 +2834,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "RomanceFT"
-output = "Satasupe : ロマンスファンブル表:8:平手うち！　自分の〔肉体点〕が1D6点減少する"
+output = "ロマンスファンブル表:8:平手うち！　自分の〔肉体点〕が1D6点減少する"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -2843,7 +2843,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "RomanceFT"
-output = "Satasupe : ロマンスファンブル表:11:ショックな一言。トラウマを１点受ける"
+output = "ロマンスファンブル表:11:ショックな一言。トラウマを１点受ける"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -2852,7 +2852,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "NPCT"
-output = "Satasupe : NPC表:青年(26歳):ワイルドな同い年が好き。"
+output = "NPC表:青年(26歳):ワイルドな同い年が好き。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -2865,7 +2865,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "NPCT"
-output = "Satasupe : NPC表:中年(39歳):お金持ちな年下が好き。"
+output = "NPC表:中年(39歳):お金持ちな年下が好き。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -2879,7 +2879,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "NPCT"
-output = "Satasupe : NPC表:中年(34歳):知的な年下が好き。"
+output = "NPC表:中年(34歳):知的な年下が好き。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -2893,7 +2893,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "NPCT"
-output = "Satasupe : NPC表:中年(46歳):知的な同い年が好き。"
+output = "NPC表:中年(46歳):知的な同い年が好き。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -2907,7 +2907,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "NPCT"
-output = "Satasupe : NPC表:幼年(16歳):ワイルドな同い年が好き。"
+output = "NPC表:幼年(16歳):ワイルドな同い年が好き。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -2919,7 +2919,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "NPCT"
-output = "Satasupe : NPC表:幼年(12歳):お金持ちな年下が好き。"
+output = "NPC表:幼年(12歳):お金持ちな年下が好き。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -2931,7 +2931,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "NPCT"
-output = "Satasupe : NPC表:壮年(65歳):ダークな年下が好き。"
+output = "NPC表:壮年(65歳):ダークな年下が好き。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -2946,7 +2946,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "NPCT"
-output = "Satasupe : NPC表:青年(24歳):お金持ちな同い年が好き。"
+output = "NPC表:青年(24歳):お金持ちな同い年が好き。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -2959,7 +2959,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "NPCT"
-output = "Satasupe : NPC表:少年(12歳):バランスがとれてる年下が好き。"
+output = "NPC表:少年(12歳):バランスがとれてる年下が好き。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -2971,7 +2971,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "NPCT"
-output = "Satasupe : NPC表:少年(16歳):知的な同い年が好き。"
+output = "NPC表:少年(16歳):知的な同い年が好き。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -2983,7 +2983,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "KusaiMT"
-output = "Satasupe : 臭い飯表:2:やあ署長、ご苦労さん。いつでも好きなときに留置所を出ることができる。"
+output = "臭い飯表:2:やあ署長、ご苦労さん。いつでも好きなときに留置所を出ることができる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -2992,7 +2992,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "KusaiMT"
-output = "Satasupe : 臭い飯表:12:起訴されて有罪に。海上刑務所行き。終身刑。そのキャラクターは引退する。"
+output = "臭い飯表:12:起訴されて有罪に。海上刑務所行き。終身刑。そのキャラクターは引退する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3001,7 +3001,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "EnterT"
-output = "Satasupe : 登場表:2:「こっから先にはいかせないぜ」　【仇敵】がいれば現われ、血戦が始まる。現在の血戦、もしくはケチャップが終了したら、処理を行うこと。"
+output = "登場表:2:「こっから先にはいかせないぜ」　【仇敵】がいれば現われ、血戦が始まる。現在の血戦、もしくはケチャップが終了したら、処理を行うこと。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3010,7 +3010,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "EnterT"
-output = "Satasupe : 登場表:12:くあー。完全に道に迷っちまった。この実行フェイズには登場できない。"
+output = "登場表:12:くあー。完全に道に迷っちまった。この実行フェイズには登場できない。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3019,7 +3019,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "BudTT"
-output = "Satasupe : バッドトリップ表:2:自分の身の周りにいる人たちが異様な何か(悪魔、宇宙人、ゾンビ、お前と同じ顔をした誰か…)に変貌し襲い掛かってくる。お前はNPCとなって、同じ場所にいる誰かに血戦をしかける。血戦が終了すれば（そして生きていれば）、視界は元に戻っている。"
+output = "バッドトリップ表:2:自分の身の周りにいる人たちが異様な何か(悪魔、宇宙人、ゾンビ、お前と同じ顔をした誰か…)に変貌し襲い掛かってくる。お前はNPCとなって、同じ場所にいる誰かに血戦をしかける。血戦が終了すれば（そして生きていれば）、視界は元に戻っている。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3028,7 +3028,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "BudTT"
-output = "Satasupe : バッドトリップ表:12:神々しい声が聞こえてくる。1D6ターンの間、自分の好きな能力値を１点上昇することができる。"
+output = "バッドトリップ表:12:神々しい声が聞こえてくる。1D6ターンの間、自分の好きな能力値を１点上昇することができる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3037,7 +3037,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "BudTT"
-output = "Satasupe : バッドトリップ表:5:誰かが自分を殺そうと企んでいるような錯覚を覚える。1D6ターンの間、ペテン師の代償【疑心暗鬼】を修得する。"
+output = "バッドトリップ表:5:誰かが自分を殺そうと企んでいるような錯覚を覚える。1D6ターンの間、ペテン師の代償【疑心暗鬼】を修得する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -3046,7 +3046,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "BudTT"
-output = "Satasupe : バッドトリップ表:7:目の前にいる人物が非常にいとおしく思えてくる。同じ場所にいるキャラクターの中からランダムに１人選ぶ。1D6ターンの間、そのキャラクターのトリコになる。"
+output = "バッドトリップ表:7:目の前にいる人物が非常にいとおしく思えてくる。同じ場所にいるキャラクターの中からランダムに１人選ぶ。1D6ターンの間、そのキャラクターのトリコになる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -3055,7 +3055,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "BudTT"
-output = "Satasupe : バッドトリップ表:8:魅力的な裸の異性が、あなたの目の前で誘惑する幻覚を見る。〔性業値〕判定を行う。「激」になると服を脱ぎだす。もしも外にいればそのエリアの〔治安〕の難易度の〔犯罪〕判定を行う。失敗すると「臭い飯」表を振る。"
+output = "バッドトリップ表:8:魅力的な裸の異性が、あなたの目の前で誘惑する幻覚を見る。〔性業値〕判定を行う。「激」になると服を脱ぎだす。もしも外にいればそのエリアの〔治安〕の難易度の〔犯罪〕判定を行う。失敗すると「臭い飯」表を振る。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -3064,7 +3064,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "BudTT"
-output = "Satasupe : バッドトリップ表:9:お前は痛みを感じなくなる。1D6ターンの間、〔肉体点〕の重症のペナルティが無効化される。"
+output = "バッドトリップ表:9:お前は痛みを感じなくなる。1D6ターンの間、〔肉体点〕の重症のペナルティが無効化される。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -3073,7 +3073,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetgT"
-output = "Satasupe : 報酬・ガラクタ表:2:持ち主の〔生活〕と等しい個数の《食事》（基本80p、小道具・日用品）"
+output = "報酬・ガラクタ表:2:持ち主の〔生活〕と等しい個数の《食事》（基本80p、小道具・日用品）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3082,7 +3082,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetgT"
-output = "Satasupe : 報酬・ガラクタ表:12:持ち主の〔趣味〕からランダムに１種類選ぶ。その趣味おたからを１個ランダムに選ぶ。"
+output = "報酬・ガラクタ表:12:持ち主の〔趣味〕からランダムに１種類選ぶ。その趣味おたからを１個ランダムに選ぶ。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3091,7 +3091,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetzT"
-output = "Satasupe : 報酬・実用品表:2:持ち主と同じタイプの汎用おたから（基本82p、汎用おたから）"
+output = "報酬・実用品表:2:持ち主と同じタイプの汎用おたから（基本82p、汎用おたから）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3100,7 +3100,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetzT"
-output = "Satasupe : 報酬・実用品表:12:《札束》（基本78p、小道具・お金）"
+output = "報酬・実用品表:12:《札束》（基本78p、小道具・お金）"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3109,7 +3109,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetnT"
-output = "Satasupe : 報酬・値打ち物表:2:社会的身分。【日常】の異能を手に入れる。"
+output = "報酬・値打ち物表:2:社会的身分。【日常】の異能を手に入れる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3118,7 +3118,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetnT"
-output = "Satasupe : 報酬・値打ち物表:12:《宝箱》（基本78p、小道具・お金）"
+output = "報酬・値打ち物表:12:《宝箱》（基本78p、小道具・お金）"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3127,7 +3127,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetkT"
-output = "Satasupe : 報酬・奇天烈表:2:好きな盟約おたから１個（プレイヤー全員で相談して決定）"
+output = "報酬・奇天烈表:2:好きな盟約おたから１個（プレイヤー全員で相談して決定）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3136,7 +3136,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetkT+1"
-output = "Satasupe : 報酬・奇天烈表:3:《気球》（基本76p、乗物）"
+output = "報酬・奇天烈表:3:《気球》（基本76p、乗物）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3145,13 +3145,13 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetkT=2"
-output = "Satasupe : 報酬・奇天烈表:2:好きな盟約おたから１個（プレイヤー全員で相談して決定）"
+output = "報酬・奇天烈表:2:好きな盟約おたから１個（プレイヤー全員で相談して決定）"
 rands = []
 
 [[ test ]]
 game_system = "Satasupe"
 input = "GetkT-1"
-output = "Satasupe : 報酬・奇天烈表:2:好きな盟約おたから１個（プレイヤー全員で相談して決定）"
+output = "報酬・奇天烈表:2:好きな盟約おたから１個（プレイヤー全員で相談して決定）"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -3160,7 +3160,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetkT-1"
-output = "Satasupe : 報酬・奇天烈表:2:好きな盟約おたから１個（プレイヤー全員で相談して決定）"
+output = "報酬・奇天烈表:2:好きな盟約おたから１個（プレイヤー全員で相談して決定）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3169,7 +3169,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetkT2"
-output = "Satasupe : 報酬・奇天烈表:12:「先にイッてるぜ」そのキャラクター１体を倒した者に経験点が１点与えられる。\n報酬・奇天烈表:7:何もなかった（涙）。残念でした。"
+output = "報酬・奇天烈表:12:「先にイッてるぜ」そのキャラクター１体を倒した者に経験点が１点与えられる。\n報酬・奇天烈表:7:何もなかった（涙）。残念でした。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3180,7 +3180,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetkT2+1"
-output = "Satasupe : 報酬・奇天烈表:3:《気球》（基本76p、乗物）\n報酬・奇天烈表:7:何もなかった（涙）。残念でした。"
+output = "報酬・奇天烈表:3:《気球》（基本76p、乗物）\n報酬・奇天烈表:7:何もなかった（涙）。残念でした。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3191,7 +3191,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GetkT2-1"
-output = "Satasupe : 報酬・奇天烈表:2:好きな盟約おたから１個（プレイヤー全員で相談して決定）\n報酬・奇天烈表:7:何もなかった（涙）。残念でした。"
+output = "報酬・奇天烈表:2:好きな盟約おたから１個（プレイヤー全員で相談して決定）\n報酬・奇天烈表:7:何もなかった（涙）。残念でした。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -3202,7 +3202,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "SR6"
-output = "Satasupe : 〔性業値〕6、「修正値」0 ＞ ダイス結果：（5） ＞ 5＋（0）＝5 ＞ 「律」"
+output = "〔性業値〕6、「修正値」0 ＞ ダイス結果：（5） ＞ 5＋（0）＝5 ＞ 「律」"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -3211,7 +3211,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "SR6"
-output = "Satasupe : 〔性業値〕6、「修正値」0 ＞ ダイス結果：（7） ＞ 7＋（0）＝7 ＞ 「激」"
+output = "〔性業値〕6、「修正値」0 ＞ ダイス結果：（7） ＞ 7＋（0）＝7 ＞ 「激」"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -3220,7 +3220,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "SR6-1"
-output = "Satasupe : 〔性業値〕6、「修正値」-1 ＞ ダイス結果：（6） ＞ 6＋（-1）＝5 ＞ 「律」"
+output = "〔性業値〕6、「修正値」-1 ＞ ダイス結果：（6） ＞ 6＋（-1）＝5 ＞ 「律」"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3229,7 +3229,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "SR6-1"
-output = "Satasupe : 〔性業値〕6、「修正値」-1 ＞ ダイス結果：（6） ＞ 6＋（-1）＝5 ＞ 「律」"
+output = "〔性業値〕6、「修正値」-1 ＞ ダイス結果：（6） ＞ 6＋（-1）＝5 ＞ 「律」"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -3238,7 +3238,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "SR6+1"
-output = "Satasupe : 〔性業値〕6、「修正値」1 ＞ ダイス結果：（4） ＞ 4＋（1）＝5 ＞ 「律」"
+output = "〔性業値〕6、「修正値」1 ＞ ダイス結果：（4） ＞ 4＋（1）＝5 ＞ 「律」"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -3247,7 +3247,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "SR6+1"
-output = "Satasupe : 〔性業値〕6、「修正値」1 ＞ ダイス結果：（5） ＞ 5＋（1）＝6 ＞ 「迷」"
+output = "〔性業値〕6、「修正値」1 ＞ ダイス結果：（5） ＞ 5＋（1）＝6 ＞ 「迷」"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -3256,7 +3256,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "SR7"
-output = "Satasupe : 〔性業値〕7、「修正値」0 ＞ ダイス結果：（7） ＞ 7＋（0）＝7 ＞ 「迷」"
+output = "〔性業値〕7、「修正値」0 ＞ ダイス結果：（7） ＞ 7＋（0）＝7 ＞ 「迷」"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -3265,7 +3265,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "SR7"
-output = "Satasupe : 〔性業値〕7、「修正値」0 ＞ ダイス結果：（2） ＞ 2＋（0）＝2 ＞ 「律」 ＞ 1ゾロのため〔性業値〕が1点上昇！"
+output = "〔性業値〕7、「修正値」0 ＞ ダイス結果：（2） ＞ 2＋（0）＝2 ＞ 「律」 ＞ 1ゾロのため〔性業値〕が1点上昇！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3274,7 +3274,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "SR7"
-output = "Satasupe : 〔性業値〕7、「修正値」0 ＞ ダイス結果：（12） ＞ 12＋（0）＝12 ＞ 「激」 ＞ 6ゾロのため〔性業値〕が1点減少！"
+output = "〔性業値〕7、「修正値」0 ＞ ダイス結果：（12） ＞ 12＋（0）＝12 ＞ 「激」 ＞ 6ゾロのため〔性業値〕が1点減少！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3283,7 +3283,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GETSST"
-output = "Satasupe : サタスペ作成：ベース部品：「大型の金属製の筒」  アクセサリ部品：「ガスボンベや殺虫剤」\n部品効果：「命中：8、ダメージ：5、耐久度3、両手」「爆発3」\n完成品：サタスペ  （ダメージ＋5・命中8・射撃、「両手」「爆発3」「サタスペ1」「耐久度3」）"
+output = "サタスペ作成：ベース部品：「大型の金属製の筒」  アクセサリ部品：「ガスボンベや殺虫剤」\n部品効果：「命中：8、ダメージ：5、耐久度3、両手」「爆発3」\n完成品：サタスペ  （ダメージ＋5・命中8・射撃、「両手」「爆発3」「サタスペ1」「耐久度3」）"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3293,7 +3293,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GETSST"
-output = "Satasupe : サタスペ作成：ベース部品：「紙製の筒」  アクセサリ部品：「パチンコ玉」\n部品効果：「命中：10、ダメージ：3、耐久度1」「武器破壊」\n完成品：サタスペ  （ダメージ＋3・命中10・射撃、「武器破壊」「サタスペ1」「耐久度1」）"
+output = "サタスペ作成：ベース部品：「紙製の筒」  アクセサリ部品：「パチンコ玉」\n部品効果：「命中：10、ダメージ：3、耐久度1」「武器破壊」\n完成品：サタスペ  （ダメージ＋3・命中10・射撃、「武器破壊」「サタスペ1」「耐久度1」）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3303,7 +3303,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GETSST"
-output = "Satasupe : サタスペ作成：ベース部品：「紙製の筒」  アクセサリ部品：「歯や牙、骨」\n部品効果：「命中：10、ダメージ：3、耐久度1」「（判定前宣言）1D6回、ダメージ＋２」\n完成品：サタスペ  （ダメージ＋3・命中10・射撃、「（判定前宣言）6回だけ、ダメージ＋２」「サタスペ1」「耐久度1」）"
+output = "サタスペ作成：ベース部品：「紙製の筒」  アクセサリ部品：「歯や牙、骨」\n部品効果：「命中：10、ダメージ：3、耐久度1」「（判定前宣言）1D6回、ダメージ＋２」\n完成品：サタスペ  （ダメージ＋3・命中10・射撃、「（判定前宣言）6回だけ、ダメージ＋２」「サタスペ1」「耐久度1」）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -3314,7 +3314,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GETSST2"
-output = "Satasupe : サタスペ作成：ベース部品：「紙製の筒」  アクセサリ部品：「パチンコ玉」「パチンコ玉」\n部品効果：「命中：10、ダメージ：3、耐久度1」「武器破壊」「武器破壊」\n完成品：サタスペ  （ダメージ＋3・命中10・射撃、「武器破壊」「サタスペ2」「耐久度1」）"
+output = "サタスペ作成：ベース部品：「紙製の筒」  アクセサリ部品：「パチンコ玉」「パチンコ玉」\n部品効果：「命中：10、ダメージ：3、耐久度1」「武器破壊」「武器破壊」\n完成品：サタスペ  （ダメージ＋3・命中10・射撃、「武器破壊」「サタスペ2」「耐久度1」）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3326,7 +3326,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GETSST2"
-output = "Satasupe : サタスペ作成：ベース部品：「紙製の筒」  アクセサリ部品：「パチンコ玉」「ガスボンベや殺虫剤」\n部品効果：「命中：10、ダメージ：3、耐久度1」「武器破壊」「爆発3」\n完成品：サタスペ  （ダメージ＋3・命中10・射撃、「武器破壊」「爆発3」「サタスペ2」「耐久度1」）"
+output = "サタスペ作成：ベース部品：「紙製の筒」  アクセサリ部品：「パチンコ玉」「ガスボンベや殺虫剤」\n部品効果：「命中：10、ダメージ：3、耐久度1」「武器破壊」「爆発3」\n完成品：サタスペ  （ダメージ＋3・命中10・射撃、「武器破壊」「爆発3」「サタスペ2」「耐久度1」）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3338,7 +3338,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "GETSST2"
-output = "Satasupe : サタスペ作成：ベース部品：「紙製の筒」  アクセサリ部品：「パチンコ玉」「ガスボンベや殺虫剤」\n部品効果：「命中：10、ダメージ：3、耐久度1」「武器破壊」「爆発3」\n完成品：サタスペ  （ダメージ＋3・命中10・射撃、「武器破壊」「爆発3」「サタスペ2」「耐久度1」）"
+output = "サタスペ作成：ベース部品：「紙製の筒」  アクセサリ部品：「パチンコ玉」「ガスボンベや殺虫剤」\n部品効果：「命中：10、ダメージ：3、耐久度1」「武器破壊」「爆発3」\n完成品：サタスペ  （ダメージ＋3・命中10・射撃、「武器破壊」「爆発3」「サタスペ2」「耐久度1」）"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3350,7 +3350,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET+1　"
-output = "Satasupe : 情報イベント表／〔犯罪〕:8:その道の権威を紹介される。現在と同じタグの上位リンクを２つ得る"
+output = "情報イベント表／〔犯罪〕:8:その道の権威を紹介される。現在と同じタグの上位リンクを２つ得る"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -3359,7 +3359,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET-1"
-output = "Satasupe : 情報イベント表／〔犯罪〕:6:偶然、他の亜侠の仕事現場に出くわす。口止め料の代わりに好きなタグの上位リンクを１つ得る"
+output = "情報イベント表／〔犯罪〕:6:偶然、他の亜侠の仕事現場に出くわす。口止め料の代わりに好きなタグの上位リンクを１つ得る"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -3368,13 +3368,13 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CrimeIET=7"
-output = "Satasupe : 情報イベント表／〔犯罪〕:7:あまりに適切な諜報活動。コストを消費せず、上位リンクを３つ得る"
+output = "情報イベント表／〔犯罪〕:7:あまりに適切な諜報活動。コストを消費せず、上位リンクを３つ得る"
 rands = []
 
 [[ test ]]
 game_system = "Satasupe"
 input = "2d6"
-output = "Satasupe : (2D6) ＞ 2[1,1] ＞ 2"
+output = "(2D6) ＞ 2[1,1] ＞ 2"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3383,7 +3383,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "MinamiRET"
-output = "Satasupe : ミナミ遭遇表:2:（場所）大変だ、阪神が勝った。4000人のトラキチが、一緒に道頓堀に飛び込もうと迫る。飛び込むなら水中には「下水ワニ」（基本132p）が待っている。拒否するならトラキチたちは「ベンガル虎」（基本133p）を亜侠にけしかける。"
+output = "ミナミ遭遇表:2:（場所）大変だ、阪神が勝った。4000人のトラキチが、一緒に道頓堀に飛び込もうと迫る。飛び込むなら水中には「下水ワニ」（基本132p）が待っている。拒否するならトラキチたちは「ベンガル虎」（基本133p）を亜侠にけしかける。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3392,7 +3392,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "MinamiRET"
-output = "Satasupe : ミナミ遭遇表:12:（一人）「円盤」（基本138p）に襲われ、さらわれる。1ターン経って戻ってくると、頭からアンテナが生えている。キャラクターイラストにアンテナを書き加えろ。それが嫌なら戦うこと。"
+output = "ミナミ遭遇表:12:（一人）「円盤」（基本138p）に襲われ、さらわれる。1ターン経って戻ってくると、頭からアンテナが生えている。キャラクターイラストにアンテナを書き加えろ。それが嫌なら戦うこと。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3401,7 +3401,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "MinamiRET"
-output = "Satasupe : ミナミ遭遇表:6:（一人）うっかり入った店が暴力喫茶だった！　「押し売り」（基本124p）相当。"
+output = "ミナミ遭遇表:6:（一人）うっかり入った店が暴力喫茶だった！　「押し売り」（基本124p）相当。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3410,7 +3410,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "ChinatownRET"
-output = "Satasupe : 中華街遭遇表:2:（一人）好みの恋愛対象に襲われて目くるめく一時を過ごす。だが1ターン経って目が覚めると、房中術で性転換させられている。"
+output = "中華街遭遇表:2:（一人）好みの恋愛対象に襲われて目くるめく一時を過ごす。だが1ターン経って目が覚めると、房中術で性転換させられている。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3419,7 +3419,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "ChinatownRET"
-output = "Satasupe : 中華街遭遇表:12:（場所）「狂人」とその一党が現れた！　キャラクターシートの「好きな映画」が空欄だった亜侠は、頭に火をつけられる。キャラクターのイラストから髪を取り除け。シートに顔を描いていなかった場合、キャラクターシートを燃やすか、自分の頭を燃やすか、〔肉体点〕を1減らすこと。「狂人」を倒すことはできない。彼は永遠だ。"
+output = "中華街遭遇表:12:（場所）「狂人」とその一党が現れた！　キャラクターシートの「好きな映画」が空欄だった亜侠は、頭に火をつけられる。キャラクターのイラストから髪を取り除け。シートに顔を描いていなかった場合、キャラクターシートを燃やすか、自分の頭を燃やすか、〔肉体点〕を1減らすこと。「狂人」を倒すことはできない。彼は永遠だ。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3428,7 +3428,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "ChinatownRET"
-output = "Satasupe : 中華街遭遇表:6:（場所）化石を売りつけようとする「押し売り」（基本124p）に遭遇。品物は1D6を振って決める。1：ゴモラの全身骨格、2：マチカネワニの涙、3：明石原人の糞石、4：生きた北京原人、5：豊臣秀吉15歳のしゃれこうべ、6：三葉虫ボトルキャップ"
+output = "中華街遭遇表:6:（場所）化石を売りつけようとする「押し売り」（基本124p）に遭遇。品物は1D6を振って決める。1：ゴモラの全身骨格、2：マチカネワニの涙、3：明石原人の糞石、4：生きた北京原人、5：豊臣秀吉15歳のしゃれこうべ、6：三葉虫ボトルキャップ"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3437,7 +3437,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "WarshipLandRET"
-output = "Satasupe : 軍艦島遭遇表:2:（場所）蟹の押し売りに遭う。しかもただの押し売りではない、食い詰めた「超人兵士」（基本134p）だ！　蟹（価格3の「食事」（基本79p））を買うか、そうでなければ戦うこと。"
+output = "軍艦島遭遇表:2:（場所）蟹の押し売りに遭う。しかもただの押し売りではない、食い詰めた「超人兵士」（基本134p）だ！　蟹（価格3の「食事」（基本79p））を買うか、そうでなければ戦うこと。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3446,7 +3446,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "WarshipLandRET"
-output = "Satasupe : 軍艦島遭遇表:12:（一人）「タイラー・ダーデン」に遭遇し、啓蒙される。これがお前の人生だ。お前はいつか必ず死ぬ。それを認識しない限り、お前は糞のままだ。〔肉体点〕と〔精神点〕に1ダメージ。〔性業値〕が2下がる。更にこのセッション中は「迷」が出ても「激」として扱う。"
+output = "軍艦島遭遇表:12:（一人）「タイラー・ダーデン」に遭遇し、啓蒙される。これがお前の人生だ。お前はいつか必ず死ぬ。それを認識しない限り、お前は糞のままだ。〔肉体点〕と〔精神点〕に1ダメージ。〔性業値〕が2下がる。更にこのセッション中は「迷」が出ても「激」として扱う。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3455,7 +3455,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "WarshipLandRET"
-output = "Satasupe : 軍艦島遭遇表:6:（場所）季節はずれの雪が降っている。青く光ってなんだかとても美しい。とりあえず〔肉体点〕と〔精神点〕に1ダメージ。"
+output = "軍艦島遭遇表:6:（場所）季節はずれの雪が降っている。青く光ってなんだかとても美しい。とりあえず〔肉体点〕と〔精神点〕に1ダメージ。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3464,7 +3464,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CivicCenterRET"
-output = "Satasupe : 官庁街遭遇表:2:（場所）大規模なデモにぶつかって身動きが取れなくなった。まずいと思う間もなく、列強の鎮圧部隊が容赦なく群集に向かって発砲する。阿鼻叫喚の中で全員〔肉体点〕に1D6のダメージ。"
+output = "官庁街遭遇表:2:（場所）大規模なデモにぶつかって身動きが取れなくなった。まずいと思う間もなく、列強の鎮圧部隊が容赦なく群集に向かって発砲する。阿鼻叫喚の中で全員〔肉体点〕に1D6のダメージ。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3473,7 +3473,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CivicCenterRET"
-output = "Satasupe : 官庁街遭遇表:12:（一人）閉鎖されているはずの地下鉄の入り口が開いている……。性業値判定で「激」が出るとふらふらと入ってしまい、1ターン経った後戻る。奇天烈の宝物表（基本140p）を1回振れる。トラウマを1点受け、中で起こったことは何も憶えていない。入り口は固く閉ざされ、もう開かない。……今のところは。"
+output = "官庁街遭遇表:12:（一人）閉鎖されているはずの地下鉄の入り口が開いている……。性業値判定で「激」が出るとふらふらと入ってしまい、1ターン経った後戻る。奇天烈の宝物表（基本140p）を1回振れる。トラウマを1点受け、中で起こったことは何も憶えていない。入り口は固く閉ざされ、もう開かない。……今のところは。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3482,7 +3482,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CivicCenterRET"
-output = "Satasupe : 官庁街遭遇表:6:（場所）観光客に写真を撮られる。このセッション中、亜侠に対する逮捕判定の難易度は-1される。"
+output = "官庁街遭遇表:6:（場所）観光客に写真を撮られる。このセッション中、亜侠に対する逮捕判定の難易度は-1される。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3491,7 +3491,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "DowntownRET"
-output = "Satasupe : 十三遭遇表:2:（場所）地震だ！　亜侠自身には被害はないが、家が大変なことに。帰宅すると、アジト装備がランダムに1個壊れている。アジト装備がなかった場合、家が壊れている。"
+output = "十三遭遇表:2:（場所）地震だ！　亜侠自身には被害はないが、家が大変なことに。帰宅すると、アジト装備がランダムに1個壊れている。アジト装備がなかった場合、家が壊れている。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3500,7 +3500,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "DowntownRET"
-output = "Satasupe : 十三遭遇表:12:（一人）好みの恋愛対象に誘われて夢のような時間を過ごし、気が付くと肥溜めに肩まで漬かっていることに気付く。おばけに化かされた！1ターン消費する。風呂に入って着替えるまで、あらゆる交渉は自動的に成功度が-1される。この効果は一緒に行動する仲間の判定にも影響する。"
+output = "十三遭遇表:12:（一人）好みの恋愛対象に誘われて夢のような時間を過ごし、気が付くと肥溜めに肩まで漬かっていることに気付く。おばけに化かされた！1ターン消費する。風呂に入って着替えるまで、あらゆる交渉は自動的に成功度が-1される。この効果は一緒に行動する仲間の判定にも影響する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3509,7 +3509,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "DowntownRET"
-output = "Satasupe : 十三遭遇表:6:（一人）地獄湯の「勝負師」（基本126p）に賭けを挑まれ、ざわざわする。"
+output = "十三遭遇表:6:（一人）地獄湯の「勝負師」（基本126p）に賭けを挑まれ、ざわざわする。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3518,7 +3518,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "ShaokinRET"
-output = "Satasupe : 沙京遭遇表:2:（一人）いつのまにか、少女/少年が1人ついてきている。奴隷のようだが、亜侠を主人だと思っているらしく離れようとしない。何に相当するか1D6を振れ。1：【守るべき者】（基本103p）、2：愛人（基本80p）、3：使用人（基本80p）、4：居候（基本80p）、5：落とし穴（基本78p）、6：食事（基本79p）。性別はプレイヤーが決めてよい。"
+output = "沙京遭遇表:2:（一人）いつのまにか、少女/少年が1人ついてきている。奴隷のようだが、亜侠を主人だと思っているらしく離れようとしない。何に相当するか1D6を振れ。1：【守るべき者】（基本103p）、2：愛人（基本80p）、3：使用人（基本80p）、4：居候（基本80p）、5：落とし穴（基本78p）、6：食事（基本79p）。性別はプレイヤーが決めてよい。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3527,7 +3527,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "ShaokinRET"
-output = "Satasupe : 沙京遭遇表:12:（場所）祝祭だ！　巨大なジャガーノート（山車）が通りを突き進んでくる。これに轢かれると幸せな来世が保証されるのだ。性業値判定を3回振れ。全部「激」を出した亜侠は、思わず車輪の下に飛び込んで〔肉体点〕に10のダメージを受ける。この亜侠が死んだら、次に作るキャラクターに異能と代償を一つずつ受け継がせること。これがカルマだ。"
+output = "沙京遭遇表:12:（場所）祝祭だ！　巨大なジャガーノート（山車）が通りを突き進んでくる。これに轢かれると幸せな来世が保証されるのだ。性業値判定を3回振れ。全部「激」を出した亜侠は、思わず車輪の下に飛び込んで〔肉体点〕に10のダメージを受ける。この亜侠が死んだら、次に作るキャラクターに異能と代償を一つずつ受け継がせること。これがカルマだ。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3536,7 +3536,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "ShaokinRET"
-output = "Satasupe : 沙京遭遇表:6:（場所）インド人が死んでいる……。死体を漁るなら1D6。1：カレー味の《視肉》（基本85p）、2：サファイア（札束（基本78p）相当）、3：《あわてるなタオル》（基本93p）、4：RPG-7（基本74p）、5：死体じゃなくて「ゾンビ」（137p）だった、6：「はきだめの悪魔」だった"
+output = "沙京遭遇表:6:（場所）インド人が死んでいる……。死体を漁るなら1D6。1：カレー味の《視肉》（基本85p）、2：サファイア（札束（基本78p）相当）、3：《あわてるなタオル》（基本93p）、4：RPG-7（基本74p）、5：死体じゃなくて「ゾンビ」（137p）だった、6：「はきだめの悪魔」だった"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3545,7 +3545,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveLoveRET"
-output = "Satasupe : らぶらぶ遭遇表:2:（場所）お互いに運命を感じる。この後のロマンス判定で成功して、トリコを獲得した場合、セッション終了時にそのトリコを経験点消費なしに常備化できる。ただし、このトリコと別れたり、このトリコが死亡したりすると、経験点が1点減少する。"
+output = "らぶらぶ遭遇表:2:（場所）お互いに運命を感じる。この後のロマンス判定で成功して、トリコを獲得した場合、セッション終了時にそのトリコを経験点消費なしに常備化できる。ただし、このトリコと別れたり、このトリコが死亡したりすると、経験点が1点減少する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3554,7 +3554,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveLoveRET"
-output = "Satasupe : らぶらぶ遭遇表:12:（場所）「んー付き合っちゃおうか」デートに参加したキャラクターは、この後のロマンス判定が自動的に成功する。"
+output = "らぶらぶ遭遇表:12:（場所）「んー付き合っちゃおうか」デートに参加したキャラクターは、この後のロマンス判定が自動的に成功する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3563,7 +3563,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "LoveLoveRET"
-output = "Satasupe : らぶらぶ遭遇表:6:（一人）「…………」互いに遠慮して気まずい感じ。〔恋愛〕で難易度9の判定を行う。成功すると、この後のロマンス判定の難易度が1点減少する。失敗すると、この後のロマンス判定の難易度が2点上昇する。"
+output = "らぶらぶ遭遇表:6:（一人）「…………」互いに遠慮して気まずい感じ。〔恋愛〕で難易度9の判定を行う。成功すると、この後のロマンス判定の難易度が1点減少する。失敗すると、この後のロマンス判定の難易度が2点上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3572,7 +3572,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AjitoRET"
-output = "Satasupe : アジト遭遇表:2:（一人）「強盗殺人の容疑で逮捕する！　お前には黙秘権があり、供述は、法廷で不利な証拠として……」どやどやと踏み込んでくる警官たち。「制服警官」がお前を対象にして【逮捕】の異能を使ってくる。「制服警官」の判定が失敗すると、それ以降、このセッション中では、「臭い飯」表を振るとき、その2D6の目からマイナス3することができる。"
+output = "アジト遭遇表:2:（一人）「強盗殺人の容疑で逮捕する！　お前には黙秘権があり、供述は、法廷で不利な証拠として……」どやどやと踏み込んでくる警官たち。「制服警官」がお前を対象にして【逮捕】の異能を使ってくる。「制服警官」の判定が失敗すると、それ以降、このセッション中では、「臭い飯」表を振るとき、その2D6の目からマイナス3することができる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3581,7 +3581,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AjitoRET"
-output = "Satasupe : アジト遭遇表:12:（一人）謎の贈り物が届く……。趣味おたからの中からランダムに1つを選び、それを獲得する。その後、1D6を振る。その目が、このイベントで趣味おたからを獲得した回数以下だった場合、贈り主の呪いによって2D6点のダメージを受ける（セーブ不可）。"
+output = "アジト遭遇表:12:（一人）謎の贈り物が届く……。趣味おたからの中からランダムに1つを選び、それを獲得する。その後、1D6を振る。その目が、このイベントで趣味おたからを獲得した回数以下だった場合、贈り主の呪いによって2D6点のダメージを受ける（セーブ不可）。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3590,7 +3590,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "AjitoRET"
-output = "Satasupe : アジト遭遇表:6:（一人）「よう、元気にしてるか？」家族や友人からの突然の連絡。懐かしい気持ちに高揚しつつも、優しい気持ちになる。〔性業値〕を1点上昇、もしくは1点減少することができる。"
+output = "アジト遭遇表:6:（一人）「よう、元気にしてるか？」家族や友人からの突然の連絡。懐かしい気持ちに高揚しつつも、優しい気持ちになる。〔性業値〕を1点上昇、もしくは1点減少することができる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3599,7 +3599,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "JigokuSpaRET"
-output = "Satasupe : 地獄湯遭遇表:2:（一人）なぜかあなたはローマ時代にタイムスリップする！　今後、このシナリオのあらゆる判定の難易度が1減少する（累積不可）。"
+output = "地獄湯遭遇表:2:（一人）なぜかあなたはローマ時代にタイムスリップする！　今後、このシナリオのあらゆる判定の難易度が1減少する（累積不可）。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3608,7 +3608,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "JigokuSpaRET"
-output = "Satasupe : 地獄湯遭遇表:12:（一人）価格3の買い物を行うと、マッサージをしてもらえる。〔肉体点〕を1点、〔精神点〕を1D6点回復できる。"
+output = "地獄湯遭遇表:12:（一人）価格3の買い物を行うと、マッサージをしてもらえる。〔肉体点〕を1点、〔精神点〕を1D6点回復できる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3617,7 +3617,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "JigokuSpaRET"
-output = "Satasupe : 地獄湯遭遇表:6:（一人）あああ、なんか面白そうだなぁ。性業値判定を行う。「激」ならついついギャンブルゾーンに行ってしまう。「迷」なら行動済みになってしまう。「ギャンブル」の〔趣味〕の持ち主は、サイコロの目に2を加えること。"
+output = "地獄湯遭遇表:6:（一人）あああ、なんか面白そうだなぁ。性業値判定を行う。「激」ならついついギャンブルゾーンに行ってしまう。「迷」なら行動済みになってしまう。「ギャンブル」の〔趣味〕の持ち主は、サイコロの目に2を加えること。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3626,7 +3626,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "JailHouseRET"
-output = "Satasupe : JAILHOUSE遭遇表:2:「あちらのお客様からです」と渡されたグラス。その中には爆発寸前の《手榴弾》が入っていた。手榴弾はそのPCに命中したものとして扱う。"
+output = "JAILHOUSE遭遇表:2:「あちらのお客様からです」と渡されたグラス。その中には爆発寸前の《手榴弾》が入っていた。手榴弾はそのPCに命中したものとして扱う。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3635,7 +3635,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "JailHouseRET"
-output = "Satasupe : JAILHOUSE遭遇表:12:「エルヴィス」があらわれ、店で奇跡的なまでに楽しいパーティーが行われる。チーム全員が気付くと1日が経過していた。"
+output = "JAILHOUSE遭遇表:12:「エルヴィス」があらわれ、店で奇跡的なまでに楽しいパーティーが行われる。チーム全員が気付くと1日が経過していた。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3644,7 +3644,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "JailHouseRET"
-output = "Satasupe : JAILHOUSE遭遇表:6:誰かと荷物を間違えてしまう！　自分の装備からランダムに1個のアイテムを失う。その後、自分の〔生活〕と等しい報酬表を振ってアイテムを1つ手に入れる。"
+output = "JAILHOUSE遭遇表:6:誰かと荷物を間違えてしまう！　自分の装備からランダムに1個のアイテムを失う。その後、自分の〔生活〕と等しい報酬表を振ってアイテムを1つ手に入れる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3653,7 +3653,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TreatmentIT"
-output = "Satasupe : 治療イベント表:2:不治の病だったことが分かる。1D6セッション後に死亡するが、今回以降のセッションで得られる経験値はすべて2倍になる。"
+output = "治療イベント表:2:不治の病だったことが分かる。1D6セッション後に死亡するが、今回以降のセッションで得られる経験値はすべて2倍になる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3662,7 +3662,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TreatmentIT"
-output = "Satasupe : 治療イベント表:12:奇跡的な治療のワザ！　治療判定の結果に関わらず〔肉体点〕が全快する。"
+output = "治療イベント表:12:奇跡的な治療のワザ！　治療判定の結果に関わらず〔肉体点〕が全快する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3671,7 +3671,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TreatmentIT"
-output = "Satasupe : 治療イベント表:6:急患が大量に運ばれてくる。これ以降、このセッション終了時まで、乃木クリニックの治療の価格が、すべて1上昇する。"
+output = "治療イベント表:6:急患が大量に運ばれてくる。これ以降、このセッション終了時まで、乃木クリニックの治療の価格が、すべて1上昇する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3680,7 +3680,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CollegeIT"
-output = "Satasupe : 大学イベント表:2:運動家に勧誘される。〔精神点〕を2点減少する。"
+output = "大学イベント表:2:運動家に勧誘される。〔精神点〕を2点減少する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3689,7 +3689,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CollegeIT"
-output = "Satasupe : 大学イベント表:12:恋愛フラグが起動。チームの異性のキャラクターをランダムに1人選び、その人のトリコになる。また、選ばれた異性のキャラクターもランダムに異性キャラクターを1人選び、その人のトリコになる。"
+output = "大学イベント表:12:恋愛フラグが起動。チームの異性のキャラクターをランダムに1人選び、その人のトリコになる。また、選ばれた異性のキャラクターもランダムに異性キャラクターを1人選び、その人のトリコになる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3698,7 +3698,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "CollegeIT"
-output = "Satasupe : 大学イベント表:6:授業にもぐりこむ。すやすやと心地よい時間が過ぎ、〔精神点〕を6点回復する。"
+output = "大学イベント表:6:授業にもぐりこむ。すやすやと心地よい時間が過ぎ、〔精神点〕を6点回復する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3707,7 +3707,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalVT"
-output = "Satasupe : 乗物致命傷表:2:乗物は破壊。乗物に乗車していたキャラクターは、性業値判定を行う。「激」か「迷」だった者は、大破に巻き込まれ、2D6点のダメージを受ける（セーブ不可）。"
+output = "乗物致命傷表:2:乗物は破壊。乗物に乗車していたキャラクターは、性業値判定を行う。「激」か「迷」だった者は、大破に巻き込まれ、2D6点のダメージを受ける（セーブ不可）。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3716,7 +3716,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalVT"
-output = "Satasupe : 乗物致命傷表:12:「まだ走れるよ！」奇跡のような走り！　さきほどのダメージを無効に。"
+output = "乗物致命傷表:12:「まだ走れるよ！」奇跡のような走り！　さきほどのダメージを無効に。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3725,7 +3725,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "FatalVT"
-output = "Satasupe : 乗物致命傷表:6:コロコロコロコロ……車輪が転がる。ダメだ。もう一歩も動かない。乗物が破壊される。"
+output = "乗物致命傷表:6:コロコロコロコロ……車輪が転がる。ダメだ。もう一歩も動かない。乗物が破壊される。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3734,7 +3734,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TimeUT"
-output = "Satasupe : 時間切れ表:2:は！　夢か。今までのことは夢だった。すべて世はこともなし。"
+output = "時間切れ表:2:は！　夢か。今までのことは夢だった。すべて世はこともなし。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3743,7 +3743,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TimeUT"
-output = "Satasupe : 時間切れ表:12:たらら、たらら、たらららら、たらららら♪　大阪湾に怪獣王が現れる。大阪市は大混乱に！　全員、爆発4の効果を適用される。"
+output = "時間切れ表:12:たらら、たらら、たらららら、たらららら♪　大阪湾に怪獣王が現れる。大阪市は大混乱に！　全員、爆発4の効果を適用される。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3752,7 +3752,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "TimeUT"
-output = "Satasupe : 時間切れ表:6:突如、みんなが歌い踊り出す。全員、〔教養〕で難易度9の判定を行う。失敗したキャラクターは、リズムを外して、トラウマを1点受ける。"
+output = "時間切れ表:6:突如、みんなが歌い踊り出す。全員、〔教養〕で難易度9の判定を行う。失敗したキャラクターは、リズムを外して、トラウマを1点受ける。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -3761,7 +3761,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "PayT"
-output = "Satasupe : 落とし前表:2:闇のゲーム。ロシアンルーレットや地下闘技場への出場といった、致死率の高い理不尽な労働に従事させられる。この落とし前を1回受けるたびに、1D6を振る。1の出目が出ると、そのキャラクターは死亡する。"
+output = "落とし前表:2:闇のゲーム。ロシアンルーレットや地下闘技場への出場といった、致死率の高い理不尽な労働に従事させられる。この落とし前を1回受けるたびに、1D6を振る。1の出目が出ると、そのキャラクターは死亡する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -3770,7 +3770,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "PayT"
-output = "Satasupe : 落とし前表:12:去勢。性的な機能を破壊される。この落とし前を受けると、「無言で押し倒す」ことができなくなる。この落とし前を二回以上受けると、そのキャラクターは死亡する。"
+output = "落とし前表:12:去勢。性的な機能を破壊される。この落とし前を受けると、「無言で押し倒す」ことができなくなる。この落とし前を二回以上受けると、そのキャラクターは死亡する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -3779,7 +3779,7 @@ rands = [
 [[ test ]]
 game_system = "Satasupe"
 input = "PayT"
-output = "Satasupe : 落とし前表:6:部位破壊。指や手首を切り落とされたり、臓器を摘出されたりする。この落とし前を1回受けるたびに、「致命傷表」の6番の効果を受ける。"
+output = "落とし前表:6:部位破壊。指や手首を切り落とされたり、臓器を摘出されたりする。この落とし前を1回受けるたびに、「致命傷表」の6番の効果を受ける。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },

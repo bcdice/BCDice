@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Skynauts"
 input = "2d6\tSkynauts"
-output = "Skynauts : (2D6) ＞ 2[1,1] ＞ 2"
+output = "(2D6) ＞ 2[1,1] ＞ 2"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "2d6\tSkynauts"
-output = "Skynauts : (2D6) ＞ 10[5,5] ＞ 10"
+output = "(2D6) ＞ 10[5,5] ＞ 10"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "2d6\tSkynauts"
-output = "Skynauts : (2D6) ＞ 12[6,6] ＞ 12"
+output = "(2D6) ＞ 12[6,6] ＞ 12"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "2d6<=7 判定：成功\tSkynauts"
-output = "Skynauts : (2D6<=7) ＞ 6[2,4] ＞ 6 ＞ 成功"
+output = "(2D6<=7) ＞ 6[2,4] ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "2D6<=(6+2-1) 判定：成功\tSkynauts"
-output = "Skynauts : (2D6<=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+output = "(2D6<=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "2d6<=7 判定：失敗\tSkynauts"
-output = "Skynauts : (2D6<=7) ＞ 8[3,5] ＞ 8 ＞ 失敗"
+output = "(2D6<=7) ＞ 8[3,5] ＞ 8 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "2d6<=7 判定：ファンブル\tSkynauts"
-output = "Skynauts : (2D6<=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+output = "(2D6<=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -64,7 +64,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "2d6<=2 判定：ファンブル2\tSkynauts"
-output = "Skynauts : (2D6<=2) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+output = "(2D6<=2) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "SN 判定：成功\tSkynauts"
-output = "Skynauts : (2D6<=7) ＞ 6[2,4] ＞ 6 ＞ 成功"
+output = "(2D6<=7) ＞ 6[2,4] ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -82,7 +82,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "SN7 判定：成功\tSkynauts"
-output = "Skynauts : (2D6<=7) ＞ 6[2,4] ＞ 6 ＞ 成功"
+output = "(2D6<=7) ＞ 6[2,4] ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "SN(6+2-1) 判定：成功\tSkynauts"
-output = "Skynauts : (2D6<=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+output = "(2D6<=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "SN 判定：失敗\tSkynauts"
-output = "Skynauts : (2D6<=7) ＞ 8[3,5] ＞ 8 ＞ 失敗"
+output = "(2D6<=7) ＞ 8[3,5] ＞ 8 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "SN5 判定：失敗\tSkynauts"
-output = "Skynauts : (2D6<=5) ＞ 8[3,5] ＞ 8 ＞ 失敗"
+output = "(2D6<=5) ＞ 8[3,5] ＞ 8 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "SN 判定：ファンブル\tSkynauts"
-output = "Skynauts : (2D6<=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+output = "(2D6<=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "SN2 判定：ファンブル2\tSkynauts"
-output = "Skynauts : (2D6<=2) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+output = "(2D6<=2) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -136,7 +136,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "SN(3+2) 判定：足し\tSkynauts"
-output = "Skynauts : (2D6<=5) ＞ 5[3,2] ＞ 5 ＞ 成功"
+output = "(2D6<=5) ＞ 5[3,2] ＞ 5 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "NV 航行チェック\tSkynauts"
-output = "Skynauts : 航行チェック(最低1)　(1D6/2+0) ＞ 1 /2+0 ＞ 1+0 ＞ 1エリア進む"
+output = "航行チェック(最低1)　(1D6/2+0) ＞ 1 /2+0 ＞ 1+0 ＞ 1エリア進む"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -153,7 +153,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "NV 航行チェック\tSkynauts"
-output = "Skynauts : 航行チェック(最低1)　(1D6/2+0) ＞ 4 /2+0 ＞ 2+0 ＞ 2エリア進む"
+output = "航行チェック(最低1)　(1D6/2+0) ＞ 4 /2+0 ＞ 2+0 ＞ 2エリア進む"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -161,7 +161,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "NV+1 航行チェック\tSkynauts"
-output = "Skynauts : 航行チェック(最低1)　(1D6/2+1) ＞ 1 /2+1 ＞ 1+1 ＞ 2エリア進む"
+output = "航行チェック(最低1)　(1D6/2+1) ＞ 1 /2+1 ＞ 1+1 ＞ 2エリア進む"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -169,7 +169,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "NV+1 航行チェック\tSkynauts"
-output = "Skynauts : 航行チェック(最低1)　(1D6/2+1) ＞ 5 /2+1 ＞ 2+1 ＞ 3エリア進む"
+output = "航行チェック(最低1)　(1D6/2+1) ＞ 5 /2+1 ＞ 2+1 ＞ 3エリア進む"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -177,7 +177,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D19/2 ダメージチェック\tSkynauts"
-output = "Skynauts : D19/2 ＞ [縦3,横7][縦4,横6][縦2,横8],[縦1,横6][縦2,横5]([縦0,横7])"
+output = "D19/2 ＞ [縦3,横7][縦4,横6][縦2,横8],[縦1,横6][縦2,横5]([縦0,横7])"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -190,7 +190,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D/4 ダメージチェック\tSkynauts"
-output = "Skynauts : D/4 ＞ [縦1,横2],[縦2,横4],[縦3,横6],[縦4,横8]"
+output = "D/4 ＞ [縦1,横2],[縦2,横4],[縦3,横6],[縦4,横8]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -209,7 +209,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D[火災]/2 ダメージチェック火災\tSkynauts"
-output = "Skynauts : D[火災]/2 ＞ [縦1,横2],[縦2,横4]"
+output = "D[火災]/2 ＞ [縦1,横2],[縦2,横4]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -222,7 +222,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D[大揺れ]/2 ダメージチェック大揺れ\tSkynauts"
-output = "Skynauts : D[大揺れ]/2 ＞ [縦1,横2],[縦2,横4]"
+output = "D[大揺れ]/2 ＞ [縦1,横2],[縦2,横4]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -235,7 +235,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D[大揺れ][火災]/2 ダメージチェック大揺れ・火災\tSkynauts"
-output = "Skynauts : D[大揺れ][火災]/2 ＞ [縦1,横2],[縦2,横4]"
+output = "D[大揺れ][火災]/2 ＞ [縦1,横2],[縦2,横4]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -248,7 +248,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D[火災][大揺れ]/2 ダメージチェック火災・大揺れ\tSkynauts"
-output = "Skynauts : D[火災][大揺れ]/2 ＞ [縦1,横2],[縦2,横4]"
+output = "D[火災][大揺れ]/2 ＞ [縦1,横2],[縦2,横4]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -261,7 +261,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D28[火災]/1 ダメージチェック火災\tSkynauts"
-output = "Skynauts : D28[火災]/1 ＞ [縦1,横2][縦2,横2]([縦0,横2])"
+output = "D28[火災]/1 ＞ [縦1,横2][縦2,横2]([縦0,横2])"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -271,7 +271,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D28[大揺れ]/1 ダメージチェック大揺れ\tSkynauts"
-output = "Skynauts : D28[大揺れ]/1 ＞ [縦1,横2][縦2,横2]([縦0,横2])"
+output = "D28[大揺れ]/1 ＞ [縦1,横2][縦2,横2]([縦0,横2])"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -281,7 +281,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D28[大揺れ]/1@8 ダメージチェック大揺れ\tSkynauts"
-output = "Skynauts : D28[大揺れ]/1@8 ＞ [縦1,横2][縦2,横2]([縦0,横2]) ＞ 《弾道学》:上\n ＞ ([縦0,横2])[縦1,横2]([縦-1,横2])"
+output = "D28[大揺れ]/1@8 ＞ [縦1,横2][縦2,横2]([縦0,横2]) ＞ 《弾道学》:上\n ＞ ([縦0,横2])[縦1,横2]([縦-1,横2])"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -291,7 +291,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D/2@4 ダメージチェック\tSkynauts"
-output = "Skynauts : D/2@4 ＞ [縦1,横2],[縦2,横4] ＞ 《弾道学》:左\n ＞ ([縦1,横1]),[縦2,横3]"
+output = "D/2@4 ＞ [縦1,横2],[縦2,横4] ＞ 《弾道学》:左\n ＞ ([縦1,横1]),[縦2,横3]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -304,7 +304,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D4/2@6 ダメージチェック\tSkynauts"
-output = "Skynauts : D4/2@6 ＞ [縦1,横2]([縦1,横1]),[縦2,横4][縦2,横3] ＞ 《弾道学》:右\n ＞ [縦1,横3][縦1,横2],[縦2,横5][縦2,横4]"
+output = "D4/2@6 ＞ [縦1,横2]([縦1,横1]),[縦2,横4][縦2,横3] ＞ 《弾道学》:右\n ＞ [縦1,横3][縦1,横2],[縦2,横5][縦2,横4]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -317,7 +317,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D/4@8 ダメージチェック\tSkynauts"
-output = "Skynauts : D/4@8 ＞ [縦1,横2],[縦2,横4],[縦3,横6],[縦4,横8] ＞ 《弾道学》:上\n ＞ ([縦0,横2]),[縦1,横4],[縦2,横6],[縦3,横8]"
+output = "D/4@8 ＞ [縦1,横2],[縦2,横4],[縦3,横6],[縦4,横8] ＞ 《弾道学》:上\n ＞ ([縦0,横2]),[縦1,横4],[縦2,横6],[縦3,横8]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -336,7 +336,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D19/2@2 ダメージチェック\tSkynauts"
-output = "Skynauts : D19/2@2 ＞ [縦3,横7][縦4,横6][縦2,横8],[縦1,横6][縦2,横5]([縦0,横7]) ＞ 《弾道学》:下\n ＞ [縦4,横7][縦5,横6][縦3,横8],[縦2,横6][縦3,横5][縦1,横7]"
+output = "D19/2@2 ＞ [縦3,横7][縦4,横6][縦2,横8],[縦1,横6][縦2,横5]([縦0,横7]) ＞ 《弾道学》:下\n ＞ [縦4,横7][縦5,横6][縦3,横8],[縦2,横6][縦3,横5][縦1,横7]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -349,7 +349,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "D12346789/2 ダメージチェック\tSkynauts"
-output = "Skynauts : D12346789/2 ＞ [縦3,横7][縦4,横6][縦4,横7][縦4,横8][縦3,横6][縦3,横8][縦2,横6][縦2,横7][縦2,横8],[縦1,横6][縦2,横5][縦2,横6][縦2,横7][縦1,横5][縦1,横7]([縦0,横5])([縦0,横6])([縦0,横7])"
+output = "D12346789/2 ＞ [縦3,横7][縦4,横6][縦4,横7][縦4,横8][縦3,横6][縦3,横8][縦2,横6][縦2,横7][縦2,横8],[縦1,横6][縦2,横5][縦2,横6][縦2,横7][縦1,横5][縦1,横7]([縦0,横5])([縦0,横6])([縦0,横7])"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -362,7 +362,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "BOM9/D19/2 砲撃+ダメージチェック\tSkynauts"
-output = "Skynauts : BOM9/D19/2 ＞ (2D6<=9) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ D19/2 ＞ [縦3,横7][縦4,横6][縦2,横8],[縦1,横6][縦2,横5]([縦0,横7])"
+output = "BOM9/D19/2 ＞ (2D6<=9) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ D19/2 ＞ [縦3,横7][縦4,横6][縦2,横8],[縦1,横6][縦2,横5]([縦0,横7])"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -377,7 +377,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "BOM/D[大揺れ]/1 砲撃+ダメージチェック大揺れ\tSkynauts"
-output = "Skynauts : BOM/D[大揺れ]/1 ＞ (2D6<=7) ＞ 6[1,5] ＞ 6 ＞ 成功\n ＞ D[大揺れ]/1 ＞ [縦3,横5]"
+output = "BOM/D[大揺れ]/1 ＞ (2D6<=7) ＞ 6[1,5] ＞ 6 ＞ 成功\n ＞ D[大揺れ]/1 ＞ [縦3,横5]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -389,7 +389,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "BOM/D/4 砲撃+ダメージチェック\tSkynauts"
-output = "Skynauts : BOM/D/4 ＞ (2D6<=7) ＞ 12[6,6] ＞ 12 ＞ 失敗"
+output = "BOM/D/4 ＞ (2D6<=7) ＞ 12[6,6] ＞ 12 ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -398,7 +398,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "BOM10/D/4 砲撃+ダメージチェック\tSkynauts"
-output = "Skynauts : BOM10/D/4 ＞ (2D6<=10) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+output = "BOM10/D/4 ＞ (2D6<=10) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -407,7 +407,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "BOM/D/2@4 砲撃+ダメージチェック\tSkynauts"
-output = "Skynauts : BOM/D/2@4 ＞ (2D6<=7) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ D/2@4 ＞ [縦1,横2],[縦2,横4] ＞ 《弾道学》:左\n ＞ ([縦1,横1]),[縦2,横3]"
+output = "BOM/D/2@4 ＞ (2D6<=7) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ D/2@4 ＞ [縦1,横2],[縦2,横4] ＞ 《弾道学》:左\n ＞ ([縦1,横1]),[縦2,横3]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -422,7 +422,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "BOM10/D4/2@6 砲撃+ダメージチェック\tSkynauts"
-output = "Skynauts : BOM10/D4/2@6 ＞ (2D6<=10) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ D4/2@6 ＞ [縦1,横2]([縦1,横1]),[縦2,横4][縦2,横3] ＞ 《弾道学》:右\n ＞ [縦1,横3][縦1,横2],[縦2,横5][縦2,横4]"
+output = "BOM10/D4/2@6 ＞ (2D6<=10) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ D4/2@6 ＞ [縦1,横2]([縦1,横1]),[縦2,横4][縦2,横3] ＞ 《弾道学》:右\n ＞ [縦1,横3][縦1,横2],[縦2,横5][縦2,横4]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -437,7 +437,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "AVO@8[縦1,横4],[縦2,横6],[縦3,横8] 回避運動\tSkynauts"
-output = "Skynauts : AVO@8 ＞ 《回避運動》(2D6<=7) ＞ 3[1,2] ＞ 3 ＞ 成功\n ＞ [縦1,横4],[縦2,横6],[縦3,横8] ＞ 《回避運動》:上\n ＞ ([縦0,横4]),[縦1,横6],[縦2,横8]"
+output = "AVO@8 ＞ 《回避運動》(2D6<=7) ＞ 3[1,2] ＞ 3 ＞ 成功\n ＞ [縦1,横4],[縦2,横6],[縦3,横8] ＞ 《回避運動》:上\n ＞ ([縦0,横4]),[縦1,横6],[縦2,横8]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -446,7 +446,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "AVO9@6[縦1,横4],([縦2,横1]),[縦3,横8],([縦0,横7]) 回避運動\tSkynauts"
-output = "Skynauts : AVO9@6 ＞ 《回避運動》(2D6<=9) ＞ 3[1,2] ＞ 3 ＞ 成功\n ＞ [縦1,横4],([縦2,横1]),[縦3,横8],([縦0,横7]) ＞ 《回避運動》:右\n ＞ [縦1,横5],[縦2,横2],[縦3,横9],([縦0,横8])"
+output = "AVO9@6 ＞ 《回避運動》(2D6<=9) ＞ 3[1,2] ＞ 3 ＞ 成功\n ＞ [縦1,横4],([縦2,横1]),[縦3,横8],([縦0,横7]) ＞ 《回避運動》:右\n ＞ [縦1,横5],[縦2,横2],[縦3,横9],([縦0,横8])"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -455,7 +455,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "AVO9@2[縦3,横7][縦4,横6][縦2,横8],[縦1,横6][縦2,横5]([縦0,横7]) 回避運動\tSkynauts"
-output = "Skynauts : AVO9@2 ＞ 《回避運動》(2D6<=9) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ [縦3,横7][縦4,横6][縦2,横8],[縦1,横6][縦2,横5]([縦0,横7]) ＞ 《回避運動》:下\n ＞ [縦4,横7][縦5,横6][縦3,横8],[縦2,横6][縦3,横5][縦1,横7]"
+output = "AVO9@2 ＞ 《回避運動》(2D6<=9) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ [縦3,横7][縦4,横6][縦2,横8],[縦1,横6][縦2,横5]([縦0,横7]) ＞ 《回避運動》:下\n ＞ [縦4,横7][縦5,横6][縦3,横8],[縦2,横6][縦3,横5][縦1,横7]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -464,7 +464,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "AVO9@4[縦3,横7][縦4,横6][縦4,横7][縦4,横8][縦3,横6][縦3,横8][縦2,横6][縦2,横7][縦2,横8],[縦1,横6][縦2,横5][縦2,横6][縦2,横7][縦1,横5][縦1,横7]([縦0,横5])([縦0,横6])([縦0,横7]) 回避運動\tSkynauts"
-output = "Skynauts : AVO9@4 ＞ 《回避運動》(2D6<=9) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ [縦3,横7][縦4,横6][縦4,横7][縦4,横8][縦3,横6][縦3,横8][縦2,横6][縦2,横7][縦2,横8],[縦1,横6][縦2,横5][縦2,横6][縦2,横7][縦1,横5][縦1,横7]([縦0,横5])([縦0,横6])([縦0,横7]) ＞ 《回避運動》:左\n ＞ [縦3,横6][縦4,横5][縦4,横6][縦4,横7][縦3,横5][縦3,横7][縦2,横5][縦2,横6][縦2,横7],[縦1,横5][縦2,横4][縦2,横5][縦2,横6][縦1,横4][縦1,横6]([縦0,横4])([縦0,横5])([縦0,横6])"
+output = "AVO9@4 ＞ 《回避運動》(2D6<=9) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ [縦3,横7][縦4,横6][縦4,横7][縦4,横8][縦3,横6][縦3,横8][縦2,横6][縦2,横7][縦2,横8],[縦1,横6][縦2,横5][縦2,横6][縦2,横7][縦1,横5][縦1,横7]([縦0,横5])([縦0,横6])([縦0,横7]) ＞ 《回避運動》:左\n ＞ [縦3,横6][縦4,横5][縦4,横6][縦4,横7][縦3,横5][縦3,横7][縦2,横5][縦2,横6][縦2,横7],[縦1,横5][縦2,横4][縦2,横5][縦2,横6][縦1,横4][縦1,横6]([縦0,横4])([縦0,横5])([縦0,横6])"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -473,7 +473,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "AVO(4+2)@6[縦4,横7],[縦2,横4],[縦6,横8],[縦6,横12],[縦3,横11] 回避運動\tSkynauts"
-output = "Skynauts : AVO6@6 ＞ 《回避運動》(2D6<=6) ＞ 3[1,2] ＞ 3 ＞ 成功\n ＞ [縦4,横7],[縦2,横4],[縦6,横8],[縦6,横12],[縦3,横11] ＞ 《回避運動》:右\n ＞ [縦4,横8],[縦2,横5],[縦6,横9],([縦6,横13]),[縦3,横12]"
+output = "AVO6@6 ＞ 《回避運動》(2D6<=6) ＞ 3[1,2] ＞ 3 ＞ 成功\n ＞ [縦4,横7],[縦2,横4],[縦6,横8],[縦6,横12],[縦3,横11] ＞ 《回避運動》:右\n ＞ [縦4,横8],[縦2,横5],[縦6,横9],([縦6,横13]),[縦3,横12]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -482,7 +482,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "AVO@8[縦1,横4],[縦2,横6],[縦3,横8] 回避運動\tSkynauts"
-output = "Skynauts : AVO@8 ＞ 《回避運動》(2D6<=7) ＞ 12[6,6] ＞ 12 ＞ 失敗"
+output = "AVO@8 ＞ 《回避運動》(2D6<=7) ＞ 12[6,6] ＞ 12 ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -491,7 +491,7 @@ rands = [
 [[ test ]]
 game_system = "Skynauts"
 input = "AVO@8[縦1,横4],[縦2,横6],[縦3,横8] 回避運動\tSkynauts"
-output = "Skynauts : AVO@8 ＞ 《回避運動》(2D6<=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+output = "AVO@8 ＞ 《回避運動》(2D6<=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },

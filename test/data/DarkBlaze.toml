@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB33"
-output = "DarkBlaze : (3R6[3,3]) ＞ 4[3,3,4]"
+output = "(3R6[3,3]) ＞ 4[3,3,4]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -11,7 +11,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB33"
-output = "DarkBlaze : (3R6[3,3]) ＞ 6[2,2,3]"
+output = "(3R6[3,3]) ＞ 6[2,2,3]"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -21,7 +21,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB33"
-output = "DarkBlaze : (3R6[3,3]) ＞ 0[6,6,6] ＞ ファンブル"
+output = "(3R6[3,3]) ＞ 0[6,6,6] ＞ ファンブル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -31,7 +31,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB33"
-output = "DarkBlaze : (3R6[3,3]) ＞ 0[4,6,6]"
+output = "(3R6[3,3]) ＞ 0[4,6,6]"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB33"
-output = "DarkBlaze : (3R6[3,3]) ＞ 4[2,2,6]"
+output = "(3R6[3,3]) ＞ 4[2,2,6]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -51,7 +51,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB33"
-output = "DarkBlaze : (3R6[3,3]) ＞ 2[1,4,6]"
+output = "(3R6[3,3]) ＞ 2[1,4,6]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -61,7 +61,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB33"
-output = "DarkBlaze : (3R6[3,3]) ＞ 0[4,4,6]"
+output = "(3R6[3,3]) ＞ 0[4,4,6]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -71,7 +71,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB33"
-output = "DarkBlaze : (3R6[3,3]) ＞ 6[1,1,3]"
+output = "(3R6[3,3]) ＞ 6[1,1,3]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB33"
-output = "DarkBlaze : (3R6[3,3]) ＞ 4[2,3,6]"
+output = "(3R6[3,3]) ＞ 4[2,3,6]"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB33"
-output = "DarkBlaze : (3R6[3,3]) ＞ 2[2,4,5]"
+output = "(3R6[3,3]) ＞ 2[2,4,5]"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -101,7 +101,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB32#-1"
-output = "DarkBlaze : (3R6-1[3,2]) ＞ 0[4,4,6,6]"
+output = "(3R6-1[3,2]) ＞ 0[4,4,6,6]"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -112,7 +112,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB32#-1"
-output = "DarkBlaze : (3R6-1[3,2]) ＞ 1[2,3,5,5]"
+output = "(3R6-1[3,2]) ＞ 1[2,3,5,5]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -123,7 +123,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB32#-1"
-output = "DarkBlaze : (3R6-1[3,2]) ＞ 0[1,4,5,5]"
+output = "(3R6-1[3,2]) ＞ 0[1,4,5,5]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -134,7 +134,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB32#-1"
-output = "DarkBlaze : (3R6-1[3,2]) ＞ 0[2,4,5,6]"
+output = "(3R6-1[3,2]) ＞ 0[2,4,5,6]"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB32#-1"
-output = "DarkBlaze : (3R6-1[3,2]) ＞ 0[4,4,4,6]"
+output = "(3R6-1[3,2]) ＞ 0[4,4,4,6]"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -156,7 +156,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB32#-1"
-output = "DarkBlaze : (3R6-1[3,2]) ＞ 0[2,4,5,6]"
+output = "(3R6-1[3,2]) ＞ 0[2,4,5,6]"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -167,7 +167,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB32#-1"
-output = "DarkBlaze : (3R6-1[3,2]) ＞ 2[1,2,5,6]"
+output = "(3R6-1[3,2]) ＞ 2[1,2,5,6]"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -178,7 +178,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB32#-1"
-output = "DarkBlaze : (3R6-1[3,2]) ＞ 3[2,3,3,3]"
+output = "(3R6-1[3,2]) ＞ 3[2,3,3,3]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -189,7 +189,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB32#-1"
-output = "DarkBlaze : (3R6-1[3,2]) ＞ 4[1,1,2,5]"
+output = "(3R6-1[3,2]) ＞ 4[1,1,2,5]"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -200,7 +200,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB32#-1"
-output = "DarkBlaze : (3R6-1[3,2]) ＞ 2[2,3,3,5]"
+output = "(3R6-1[3,2]) ＞ 2[2,3,3,5]"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -211,7 +211,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB@3@1#1"
-output = "DarkBlaze : (3R6+1[3,1]) ＞ 4[1,3,3,6]"
+output = "(3R6+1[3,1]) ＞ 4[1,3,3,6]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -222,7 +222,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB@3@1#1"
-output = "DarkBlaze : (3R6+1[3,1]) ＞ 7[1,2,2,3] ＞ クリティカル"
+output = "(3R6+1[3,1]) ＞ 7[1,2,2,3] ＞ クリティカル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -233,7 +233,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB@3@1#1"
-output = "DarkBlaze : (3R6+1[3,1]) ＞ 2[2,3,4,4]"
+output = "(3R6+1[3,1]) ＞ 2[2,3,4,4]"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -244,7 +244,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB@3@1#1"
-output = "DarkBlaze : (3R6+1[3,1]) ＞ 1[3,4,5,6]"
+output = "(3R6+1[3,1]) ＞ 1[3,4,5,6]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -255,7 +255,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB@3@1#1"
-output = "DarkBlaze : (3R6+1[3,1]) ＞ 3[1,2,6,6]"
+output = "(3R6+1[3,1]) ＞ 3[1,2,6,6]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -266,7 +266,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB@3@1#1"
-output = "DarkBlaze : (3R6+1[3,1]) ＞ 2[2,3,4,5]"
+output = "(3R6+1[3,1]) ＞ 2[2,3,4,5]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -277,7 +277,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB@3@1#1"
-output = "DarkBlaze : (3R6+1[3,1]) ＞ 3[1,3,5,6]"
+output = "(3R6+1[3,1]) ＞ 3[1,3,5,6]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -288,7 +288,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB@3@1#1"
-output = "DarkBlaze : (3R6+1[3,1]) ＞ 1[3,4,4,6]"
+output = "(3R6+1[3,1]) ＞ 1[3,4,4,6]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -299,7 +299,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB@3@1#1"
-output = "DarkBlaze : (3R6+1[3,1]) ＞ 3[1,2,4,5]"
+output = "(3R6+1[3,1]) ＞ 3[1,2,4,5]"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -310,7 +310,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB@3@1#1"
-output = "DarkBlaze : (3R6+1[3,1]) ＞ 5[1,1,3,5]"
+output = "(3R6+1[3,1]) ＞ 5[1,1,3,5]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -321,7 +321,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB3,2"
-output = "DarkBlaze : (3R6[3,2]) ＞ 3[1,3,4]"
+output = "(3R6[3,2]) ＞ 3[1,3,4]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -331,7 +331,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB3,2"
-output = "DarkBlaze : (3R6[3,2]) ＞ 4[1,2,6]"
+output = "(3R6[3,2]) ＞ 4[1,2,6]"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -341,7 +341,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB3,2"
-output = "DarkBlaze : (3R6[3,2]) ＞ 2[2,6,6]"
+output = "(3R6[3,2]) ＞ 2[2,6,6]"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -351,7 +351,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB3,2"
-output = "DarkBlaze : (3R6[3,2]) ＞ 2[1,5,6]"
+output = "(3R6[3,2]) ＞ 2[1,5,6]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -361,7 +361,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB3,2"
-output = "DarkBlaze : (3R6[3,2]) ＞ 3[2,3,6]"
+output = "(3R6[3,2]) ＞ 3[2,3,6]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -371,7 +371,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB3,2"
-output = "DarkBlaze : (3R6[3,2]) ＞ 1[3,5,6]"
+output = "(3R6[3,2]) ＞ 1[3,5,6]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -381,7 +381,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB3,2"
-output = "DarkBlaze : (3R6[3,2]) ＞ 1[3,6,6]"
+output = "(3R6[3,2]) ＞ 1[3,6,6]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -391,7 +391,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB3,2"
-output = "DarkBlaze : (3R6[3,2]) ＞ 2[2,4,6]"
+output = "(3R6[3,2]) ＞ 2[2,4,6]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -401,7 +401,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB3,2"
-output = "DarkBlaze : (3R6[3,2]) ＞ 4[2,2,6]"
+output = "(3R6[3,2]) ＞ 4[2,2,6]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -411,7 +411,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB3,2"
-output = "DarkBlaze : (3R6[3,2]) ＞ 0[4,5,5]"
+output = "(3R6[3,2]) ＞ 0[4,5,5]"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -421,7 +421,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB23#1>=4"
-output = "DarkBlaze : (3R6+1[2,3]>=4) ＞ 9[1,2,2,5] ＞ クリティカル ＞ 成功"
+output = "(3R6+1[2,3]>=4) ＞ 9[1,2,2,5] ＞ クリティカル ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -432,7 +432,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB23#1>=4"
-output = "DarkBlaze : (3R6+1[2,3]>=4) ＞ 3[1,3,4,5] ＞ 失敗"
+output = "(3R6+1[2,3]>=4) ＞ 3[1,3,4,5] ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -443,7 +443,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB23#1>=4"
-output = "DarkBlaze : (3R6+1[2,3]>=4) ＞ 4[2,3,3,4] ＞ 成功"
+output = "(3R6+1[2,3]>=4) ＞ 4[2,3,3,4] ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -454,7 +454,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB23#1>=4"
-output = "DarkBlaze : (3R6+1[2,3]>=4) ＞ 3[2,3,4,5] ＞ 失敗"
+output = "(3R6+1[2,3]>=4) ＞ 3[2,3,4,5] ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -465,7 +465,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB23#1>=4"
-output = "DarkBlaze : (3R6+1[2,3]>=4) ＞ 2[2,4,5,6] ＞ 失敗"
+output = "(3R6+1[2,3]>=4) ＞ 2[2,4,5,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -476,7 +476,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB23#1>=4"
-output = "DarkBlaze : (3R6+1[2,3]>=4) ＞ 4[1,2,5,5] ＞ 成功"
+output = "(3R6+1[2,3]>=4) ＞ 4[1,2,5,5] ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -487,7 +487,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB23#1>=4"
-output = "DarkBlaze : (3R6+1[2,3]>=4) ＞ 3[2,3,5,6] ＞ 失敗"
+output = "(3R6+1[2,3]>=4) ＞ 3[2,3,5,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -498,7 +498,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB23#1>=4"
-output = "DarkBlaze : (3R6+1[2,3]>=4) ＞ 1[3,4,6,6] ＞ 失敗"
+output = "(3R6+1[2,3]>=4) ＞ 1[3,4,6,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -509,7 +509,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB23#1>=4"
-output = "DarkBlaze : (3R6+1[2,3]>=4) ＞ 1[3,5,5,6] ＞ 失敗"
+output = "(3R6+1[2,3]>=4) ＞ 1[3,5,5,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -520,7 +520,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB23#1>=4"
-output = "DarkBlaze : (3R6+1[2,3]>=4) ＞ 4[2,2,5,6] ＞ 成功"
+output = "(3R6+1[2,3]>=4) ＞ 4[2,2,5,6] ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -531,7 +531,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "3R6+1[3,3]>=4"
-output = "DarkBlaze : (3R6+1[3,3]>=4) ＞ 4[2,3,5,5] ＞ 成功"
+output = "(3R6+1[3,3]>=4) ＞ 4[2,3,5,5] ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -542,7 +542,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "3R6+1[3,3]>=4"
-output = "DarkBlaze : (3R6+1[3,3]>=4) ＞ 6[1,2,3,5] ＞ 成功"
+output = "(3R6+1[3,3]>=4) ＞ 6[1,2,3,5] ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -553,7 +553,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "3R6+1[3,3]>=4"
-output = "DarkBlaze : (3R6+1[3,3]>=4) ＞ 4[2,3,4,5] ＞ 成功"
+output = "(3R6+1[3,3]>=4) ＞ 4[2,3,4,5] ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -564,7 +564,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "3R6+1[3,3]>=4"
-output = "DarkBlaze : (3R6+1[3,3]>=4) ＞ 6[1,2,3,4] ＞ 成功"
+output = "(3R6+1[3,3]>=4) ＞ 6[1,2,3,4] ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -575,7 +575,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "3R6+1[3,3]>=4"
-output = "DarkBlaze : (3R6+1[3,3]>=4) ＞ 6[1,3,3,4] ＞ 成功"
+output = "(3R6+1[3,3]>=4) ＞ 6[1,3,3,4] ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -586,7 +586,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "3R6+1[3,3]>=4"
-output = "DarkBlaze : (3R6+1[3,3]>=4) ＞ 6[2,2,3,4] ＞ 成功"
+output = "(3R6+1[3,3]>=4) ＞ 6[2,2,3,4] ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -597,7 +597,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "3R6+1[3,3]>=4"
-output = "DarkBlaze : (3R6+1[3,3]>=4) ＞ 6[1,2,3,4] ＞ 成功"
+output = "(3R6+1[3,3]>=4) ＞ 6[1,2,3,4] ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -608,7 +608,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "3R6+1[3,3]>=4"
-output = "DarkBlaze : (3R6+1[3,3]>=4) ＞ 6[2,3,3,5] ＞ 成功"
+output = "(3R6+1[3,3]>=4) ＞ 6[2,3,3,5] ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -619,7 +619,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "3R6+1[3,3]>=4"
-output = "DarkBlaze : (3R6+1[3,3]>=4) ＞ 4[2,3,4,5] ＞ 成功"
+output = "(3R6+1[3,3]>=4) ＞ 4[2,3,4,5] ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -630,7 +630,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "3R6+1[3,3]>=4"
-output = "DarkBlaze : (3R6+1[3,3]>=4) ＞ 2[2,5,6,6] ＞ 失敗"
+output = "(3R6+1[3,3]>=4) ＞ 2[2,5,6,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -641,7 +641,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB53#2"
-output = "DarkBlaze : (3R6+2[5,3]) ＞ 4[3,4,5,5,6]"
+output = "(3R6+2[5,3]) ＞ 4[3,4,5,5,6]"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -653,7 +653,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB53#2"
-output = "DarkBlaze : (3R6+2[5,3]) ＞ 6[2,2,3,4,5]"
+output = "(3R6+2[5,3]) ＞ 6[2,2,3,4,5]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -665,7 +665,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB53#2"
-output = "DarkBlaze : (3R6+2[5,3]) ＞ 4[3,4,4,5,5]"
+output = "(3R6+2[5,3]) ＞ 4[3,4,4,5,5]"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -677,7 +677,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB53#2"
-output = "DarkBlaze : (3R6+2[5,3]) ＞ 9[1,1,1,6,6] ＞ クリティカル"
+output = "(3R6+2[5,3]) ＞ 9[1,1,1,6,6] ＞ クリティカル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -689,7 +689,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB53#2"
-output = "DarkBlaze : (3R6+2[5,3]) ＞ 5[2,3,4,5,5]"
+output = "(3R6+2[5,3]) ＞ 5[2,3,4,5,5]"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -701,7 +701,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB53#2"
-output = "DarkBlaze : (3R6+2[5,3]) ＞ 9[1,1,2,2,4] ＞ クリティカル"
+output = "(3R6+2[5,3]) ＞ 9[1,1,2,2,4] ＞ クリティカル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -713,7 +713,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB53#2"
-output = "DarkBlaze : (3R6+2[5,3]) ＞ 5[1,1,4,6,6]"
+output = "(3R6+2[5,3]) ＞ 5[1,1,4,6,6]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -725,7 +725,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB53#2"
-output = "DarkBlaze : (3R6+2[5,3]) ＞ 3[2,5,6,6,6]"
+output = "(3R6+2[5,3]) ＞ 3[2,5,6,6,6]"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -737,7 +737,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB53#2"
-output = "DarkBlaze : (3R6+2[5,3]) ＞ 4[2,4,4,5,6]"
+output = "(3R6+2[5,3]) ＞ 4[2,4,4,5,6]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -749,7 +749,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "DB53#2"
-output = "DarkBlaze : (3R6+2[5,3]) ＞ 9[1,1,2,3,6] ＞ クリティカル"
+output = "(3R6+2[5,3]) ＞ 9[1,1,2,3,6] ＞ クリティカル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -761,7 +761,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT1"
-output = "DarkBlaze : 掘り出し袋表[10,4] ＞ 《竜鱗 I》を2個獲得"
+output = "掘り出し袋表[10,4] ＞ 《竜鱗 I》を2個獲得"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -771,7 +771,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT1"
-output = "DarkBlaze : 掘り出し袋表[8,6] ＞ 《植物 I》を3個獲得"
+output = "掘り出し袋表[8,6] ＞ 《植物 I》を3個獲得"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -781,7 +781,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT1"
-output = "DarkBlaze : 掘り出し袋表[7,6] ＞ 《金貨》を6枚獲得"
+output = "掘り出し袋表[7,6] ＞ 《金貨》を6枚獲得"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -791,7 +791,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT1"
-output = "DarkBlaze : 掘り出し袋表[5,6] ＞ 《蟲甲 I》を3個獲得"
+output = "掘り出し袋表[5,6] ＞ 《蟲甲 I》を3個獲得"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -801,7 +801,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT1"
-output = "DarkBlaze : 掘り出し袋表[4,4] ＞ 《雷撃石》を1個獲得"
+output = "掘り出し袋表[4,4] ＞ 《雷撃石》を1個獲得"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -812,7 +812,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT1"
-output = "DarkBlaze : 掘り出し袋表[4,3] ＞ 《火炎石》を1個獲得"
+output = "掘り出し袋表[4,3] ＞ 《火炎石》を1個獲得"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -823,7 +823,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT1"
-output = "DarkBlaze : 掘り出し袋表[7,2] ＞ 《金貨》を2枚獲得"
+output = "掘り出し袋表[7,2] ＞ 《金貨》を2枚獲得"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -833,7 +833,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT1"
-output = "DarkBlaze : 掘り出し袋表[5,1] ＞ 《蟲甲 I》を1個獲得"
+output = "掘り出し袋表[5,1] ＞ 《蟲甲 I》を1個獲得"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -843,7 +843,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT1"
-output = "DarkBlaze : 掘り出し袋表[6,2] ＞ 《金属 I》を1個獲得"
+output = "掘り出し袋表[6,2] ＞ 《金属 I》を1個獲得"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -853,7 +853,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT1"
-output = "DarkBlaze : 掘り出し袋表[9,3] ＞ 《獣皮 I》を1個獲得"
+output = "掘り出し袋表[9,3] ＞ 《獣皮 I》を1個獲得"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -863,7 +863,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT2"
-output = "DarkBlaze : 掘り出し袋表[11,8] ＞ 《レアモノ II》を1個獲得"
+output = "掘り出し袋表[11,8] ＞ 《レアモノ II》を1個獲得"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -874,7 +874,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT2"
-output = "DarkBlaze : 掘り出し袋表[10,7] ＞ 《竜鱗 I》を3個獲得"
+output = "掘り出し袋表[10,7] ＞ 《竜鱗 I》を3個獲得"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -885,7 +885,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT2"
-output = "DarkBlaze : 掘り出し袋表[6,7] ＞ 《金属 I》を3個獲得"
+output = "掘り出し袋表[6,7] ＞ 《金属 I》を3個獲得"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -896,7 +896,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT2"
-output = "DarkBlaze : 掘り出し袋表[2,2] ＞ 《火炎石》を2個獲得"
+output = "掘り出し袋表[2,2] ＞ 《火炎石》を2個獲得"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -908,7 +908,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT2"
-output = "DarkBlaze : 掘り出し袋表[10,3] ＞ 《竜鱗 I》を1個獲得"
+output = "掘り出し袋表[10,3] ＞ 《竜鱗 I》を1個獲得"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -919,7 +919,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT2"
-output = "DarkBlaze : 掘り出し袋表[8,5] ＞ 《植物 I》を2個獲得"
+output = "掘り出し袋表[8,5] ＞ 《植物 I》を2個獲得"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -930,7 +930,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT2"
-output = "DarkBlaze : 掘り出し袋表[7,10] ＞ 《金貨》を10枚獲得"
+output = "掘り出し袋表[7,10] ＞ 《金貨》を10枚獲得"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -941,7 +941,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT2"
-output = "DarkBlaze : 掘り出し袋表[7,5] ＞ 《金貨》を5枚獲得"
+output = "掘り出し袋表[7,5] ＞ 《金貨》を5枚獲得"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -952,7 +952,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT2"
-output = "DarkBlaze : 掘り出し袋表[10,5] ＞ 《竜鱗 I》を2個獲得"
+output = "掘り出し袋表[10,5] ＞ 《竜鱗 I》を2個獲得"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -963,7 +963,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT2"
-output = "DarkBlaze : 掘り出し袋表[9,7] ＞ 《獣皮 I》を3個獲得"
+output = "掘り出し袋表[9,7] ＞ 《獣皮 I》を3個獲得"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -974,7 +974,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT[1...3]"
-output = "DarkBlaze : 掘り出し袋表[4,4] ＞ 《雷撃石》を3個獲得"
+output = "掘り出し袋表[4,4] ＞ 《雷撃石》を3個獲得"
 rands = [
   { sides = 3, value = 3 },
   { sides = 6, value = 3 },
@@ -988,7 +988,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT[1...3]"
-output = "DarkBlaze : 掘り出し袋表[7,5] ＞ 《金貨》を5枚獲得"
+output = "掘り出し袋表[7,5] ＞ 《金貨》を5枚獲得"
 rands = [
   { sides = 3, value = 2 },
   { sides = 6, value = 3 },
@@ -1000,7 +1000,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT[1...3]"
-output = "DarkBlaze : 掘り出し袋表[9,1] ＞ 《獣皮 I》を1個獲得"
+output = "掘り出し袋表[9,1] ＞ 《獣皮 I》を1個獲得"
 rands = [
   { sides = 3, value = 1 },
   { sides = 6, value = 3 },
@@ -1011,7 +1011,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT[1...3]"
-output = "DarkBlaze : 掘り出し袋表[10,6] ＞ 《竜鱗 I》を3個獲得"
+output = "掘り出し袋表[10,6] ＞ 《竜鱗 I》を3個獲得"
 rands = [
   { sides = 3, value = 1 },
   { sides = 6, value = 5 },
@@ -1022,7 +1022,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT[1...3]"
-output = "DarkBlaze : 掘り出し袋表[12,8] ＞ 《レアモノ II》を1個獲得"
+output = "掘り出し袋表[12,8] ＞ 《レアモノ II》を1個獲得"
 rands = [
   { sides = 3, value = 2 },
   { sides = 6, value = 6 },
@@ -1034,7 +1034,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT[1...3]"
-output = "DarkBlaze : 掘り出し袋表[6,7] ＞ 《金属 I》を3個獲得"
+output = "掘り出し袋表[6,7] ＞ 《金属 I》を3個獲得"
 rands = [
   { sides = 3, value = 2 },
   { sides = 6, value = 2 },
@@ -1046,7 +1046,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT[1...3]"
-output = "DarkBlaze : 掘り出し袋表[9,5] ＞ 《獣皮 I》を2個獲得"
+output = "掘り出し袋表[9,5] ＞ 《獣皮 I》を2個獲得"
 rands = [
   { sides = 3, value = 1 },
   { sides = 6, value = 6 },
@@ -1057,7 +1057,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT[1...3]"
-output = "DarkBlaze : 掘り出し袋表[2,6] ＞ 《氷結石》を3個獲得"
+output = "掘り出し袋表[2,6] ＞ 《氷結石》を3個獲得"
 rands = [
   { sides = 3, value = 3 },
   { sides = 6, value = 1 },
@@ -1071,7 +1071,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT[1...3]"
-output = "DarkBlaze : 掘り出し袋表[7,7] ＞ 《金貨》を7枚獲得"
+output = "掘り出し袋表[7,7] ＞ 《金貨》を7枚獲得"
 rands = [
   { sides = 3, value = 2 },
   { sides = 6, value = 3 },
@@ -1083,7 +1083,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "BT[1...3]"
-output = "DarkBlaze : 掘り出し袋表[10,2] ＞ 《竜鱗 I》を1個獲得"
+output = "掘り出し袋表[10,2] ＞ 《竜鱗 I》を1個獲得"
 rands = [
   { sides = 3, value = 1 },
   { sides = 6, value = 5 },
@@ -1094,7 +1094,7 @@ rands = [
 [[ test ]]
 game_system = "DarkBlaze"
 input = "3D6>=? 目標値?でバグらない"
-output = "DarkBlaze : (3D6>=?) ＞ 9[3,3,3] ＞ 9 ＞ 失敗"
+output = "(3D6>=?) ＞ 9[3,3,3] ＞ 9 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },

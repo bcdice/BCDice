@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=10"
-output = "Hieizan : (1D100<=10) ＞ 55 ＞ 失敗"
+output = "(1D100<=10) ＞ 55 ＞ 失敗"
 rands = [
   { sides = 100, value = 55 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=10"
-output = "Hieizan : (1D100<=10) ＞ 76 ＞ 失敗"
+output = "(1D100<=10) ＞ 76 ＞ 失敗"
 rands = [
   { sides = 100, value = 76 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=10"
-output = "Hieizan : (1D100<=10) ＞ 29 ＞ 失敗"
+output = "(1D100<=10) ＞ 29 ＞ 失敗"
 rands = [
   { sides = 100, value = 29 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=10"
-output = "Hieizan : (1D100<=10) ＞ 7 ＞ 成功"
+output = "(1D100<=10) ＞ 7 ＞ 成功"
 rands = [
   { sides = 100, value = 7 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=10"
-output = "Hieizan : (1D100<=10) ＞ 63 ＞ 失敗"
+output = "(1D100<=10) ＞ 63 ＞ 失敗"
 rands = [
   { sides = 100, value = 63 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=10"
-output = "Hieizan : (1D100<=10) ＞ 67 ＞ 失敗"
+output = "(1D100<=10) ＞ 67 ＞ 失敗"
 rands = [
   { sides = 100, value = 67 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=10"
-output = "Hieizan : (1D100<=10) ＞ 59 ＞ 失敗"
+output = "(1D100<=10) ＞ 59 ＞ 失敗"
 rands = [
   { sides = 100, value = 59 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=10"
-output = "Hieizan : (1D100<=10) ＞ 60 ＞ 失敗"
+output = "(1D100<=10) ＞ 60 ＞ 失敗"
 rands = [
   { sides = 100, value = 60 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=10"
-output = "Hieizan : (1D100<=10) ＞ 17 ＞ 失敗"
+output = "(1D100<=10) ＞ 17 ＞ 失敗"
 rands = [
   { sides = 100, value = 17 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=10"
-output = "Hieizan : (1D100<=10) ＞ 54 ＞ 失敗"
+output = "(1D100<=10) ＞ 54 ＞ 失敗"
 rands = [
   { sides = 100, value = 54 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "Hieizan : (1D100<=100) ＞ 91 ＞ 成功"
+output = "(1D100<=100) ＞ 91 ＞ 成功"
 rands = [
   { sides = 100, value = 91 },
 ]
@@ -89,7 +89,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "Hieizan : (1D100<=100) ＞ 65 ＞ 成功"
+output = "(1D100<=100) ＞ 65 ＞ 成功"
 rands = [
   { sides = 100, value = 65 },
 ]
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "Hieizan : (1D100<=100) ＞ 49 ＞ 成功"
+output = "(1D100<=100) ＞ 49 ＞ 成功"
 rands = [
   { sides = 100, value = 49 },
 ]
@@ -105,7 +105,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "Hieizan : (1D100<=100) ＞ 60 ＞ 成功"
+output = "(1D100<=100) ＞ 60 ＞ 成功"
 rands = [
   { sides = 100, value = 60 },
 ]
@@ -113,7 +113,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "Hieizan : (1D100<=100) ＞ 50 ＞ 成功"
+output = "(1D100<=100) ＞ 50 ＞ 成功"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -121,7 +121,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "Hieizan : (1D100<=100) ＞ 22 ＞ 成功"
+output = "(1D100<=100) ＞ 22 ＞ 成功"
 rands = [
   { sides = 100, value = 22 },
 ]
@@ -129,7 +129,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "Hieizan : (1D100<=100) ＞ 1 ＞ 大成功"
+output = "(1D100<=100) ＞ 1 ＞ 大成功"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -137,7 +137,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "Hieizan : (1D100<=100) ＞ 81 ＞ 成功"
+output = "(1D100<=100) ＞ 81 ＞ 成功"
 rands = [
   { sides = 100, value = 81 },
 ]
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "Hieizan : (1D100<=100) ＞ 28 ＞ 成功"
+output = "(1D100<=100) ＞ 28 ＞ 成功"
 rands = [
   { sides = 100, value = 28 },
 ]
@@ -153,7 +153,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "Hieizan : (1D100<=100) ＞ 54 ＞ 成功"
+output = "(1D100<=100) ＞ 54 ＞ 成功"
 rands = [
   { sides = 100, value = 54 },
 ]
@@ -161,7 +161,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=50"
-output = "Hieizan : (1D100<=50) ＞ 39 ＞ 成功"
+output = "(1D100<=50) ＞ 39 ＞ 成功"
 rands = [
   { sides = 100, value = 39 },
 ]
@@ -169,7 +169,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=50"
-output = "Hieizan : (1D100<=50) ＞ 58 ＞ 失敗"
+output = "(1D100<=50) ＞ 58 ＞ 失敗"
 rands = [
   { sides = 100, value = 58 },
 ]
@@ -177,7 +177,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=50"
-output = "Hieizan : (1D100<=50) ＞ 35 ＞ 成功"
+output = "(1D100<=50) ＞ 35 ＞ 成功"
 rands = [
   { sides = 100, value = 35 },
 ]
@@ -185,7 +185,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=50"
-output = "Hieizan : (1D100<=50) ＞ 85 ＞ 失敗"
+output = "(1D100<=50) ＞ 85 ＞ 失敗"
 rands = [
   { sides = 100, value = 85 },
 ]
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=50"
-output = "Hieizan : (1D100<=50) ＞ 87 ＞ 失敗"
+output = "(1D100<=50) ＞ 87 ＞ 失敗"
 rands = [
   { sides = 100, value = 87 },
 ]
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=50"
-output = "Hieizan : (1D100<=50) ＞ 85 ＞ 失敗"
+output = "(1D100<=50) ＞ 85 ＞ 失敗"
 rands = [
   { sides = 100, value = 85 },
 ]
@@ -209,7 +209,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=50"
-output = "Hieizan : (1D100<=50) ＞ 34 ＞ 成功"
+output = "(1D100<=50) ＞ 34 ＞ 成功"
 rands = [
   { sides = 100, value = 34 },
 ]
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=50"
-output = "Hieizan : (1D100<=50) ＞ 39 ＞ 成功"
+output = "(1D100<=50) ＞ 39 ＞ 成功"
 rands = [
   { sides = 100, value = 39 },
 ]
@@ -225,7 +225,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=50"
-output = "Hieizan : (1D100<=50) ＞ 89 ＞ 失敗"
+output = "(1D100<=50) ＞ 89 ＞ 失敗"
 rands = [
   { sides = 100, value = 89 },
 ]
@@ -233,7 +233,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=50"
-output = "Hieizan : (1D100<=50) ＞ 46 ＞ 成功"
+output = "(1D100<=50) ＞ 46 ＞ 成功"
 rands = [
   { sides = 100, value = 46 },
 ]
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100>=? 目標値?でバグらない"
-output = "Hieizan : (1D100>=?) ＞ 42 ＞ 失敗"
+output = "(1D100>=?) ＞ 42 ＞ 失敗"
 rands = [
   { sides = 100, value = 42 },
 ]

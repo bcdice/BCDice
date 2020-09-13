@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "RecordOfSteam"
 input = "2S2@1"
-output = "RecordOfSteam : (2S2@1) ＞ 1,2,3,4 ＞ 1回転 ＞ 成功数2"
+output = "(2S2@1) ＞ 1,2,3,4 ＞ 1回転 ＞ 成功数2"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -12,7 +12,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfSteam"
 input = "4S3@2"
-output = "RecordOfSteam : (4S3@2) ＞ 2,1,2,4,4,4,2,3,4,5,6,6 ＞ 4回転 ＞ 成功数5"
+output = "(4S3@2) ＞ 2,1,2,4,4,4,2,3,4,5,6,6 ＞ 4回転 ＞ 成功数5"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -31,7 +31,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfSteam"
 input = "4S3@2"
-output = "RecordOfSteam : (4S3@2) ＞ 6,6,6,6 ＞ 失敗 ＞ ファンブル"
+output = "(4S3@2) ＞ 6,6,6,6 ＞ 失敗 ＞ ファンブル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -42,7 +42,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfSteam"
 input = "1S3@2"
-output = "RecordOfSteam : (1S3@2) ＞ 6 ＞ 失敗 ＞ ファンブル"
+output = "(1S3@2) ＞ 6 ＞ 失敗 ＞ ファンブル"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -50,7 +50,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfSteam"
 input = "3S2@1"
-output = "RecordOfSteam : (3S2@1) ＞ 5,3,2 ＞ 成功数1"
+output = "(3S2@1) ＞ 5,3,2 ＞ 成功数1"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -60,7 +60,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfSteam"
 input = "3S2@1"
-output = "RecordOfSteam : (3S2@1) ＞ 4,1,1,1,5,3,2,4,2 ＞ 3回転 ＞ 成功数5"
+output = "(3S2@1) ＞ 4,1,1,1,5,3,2,4,2 ＞ 3回転 ＞ 成功数5"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -76,7 +76,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfSteam"
 input = "3S2@1"
-output = "RecordOfSteam : (3S2@1) ＞ 1,1,1 ＞ スペシャル ＞ 成功数9"
+output = "(3S2@1) ＞ 1,1,1 ＞ スペシャル ＞ 成功数9"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -86,7 +86,7 @@ rands = [
 [[ test ]]
 game_system = "RecordOfSteam"
 input = "3S2@1"
-output = "RecordOfSteam : (3S2@1) ＞ 6,6,6 ＞ 失敗 ＞ ファンブル"
+output = "(3S2@1) ＞ 6,6,6 ＞ 失敗 ＞ ファンブル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },

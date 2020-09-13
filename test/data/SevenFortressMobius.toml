@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "SevenFortressMobius"
 input = "SFM"
-output = "SevenFortressMobius : (SFM@10#5) ＞ 0+11[6,5] ＞ 11"
+output = "(SFM@10#5) ＞ 0+11[6,5] ＞ 11"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "SevenFortressMobius"
 input = "0SFM+5@8#6+3"
-output = "SevenFortressMobius : (SFM+5@8#6+3) ＞ 5-10[5,1] ＞ ファンブル ＞ -5"
+output = "(SFM+5@8#6+3) ＞ 5-10[5,1] ＞ ファンブル ＞ -5"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "SevenFortressMobius"
 input = "0SFM+5@8#6+3"
-output = "SevenFortressMobius : (SFM+5@8#6+3) ＞ 8+7[5,2] ＞ 15"
+output = "(SFM+5@8#6+3) ＞ 8+7[5,2] ＞ 15"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "SevenFortressMobius"
 input = "0SFM+5@8#6+3"
-output = "SevenFortressMobius : (SFM+5@8#6+3) ＞ 8+10[5,3]+7[5,2] ＞ クリティカル ＞ 25"
+output = "(SFM+5@8#6+3) ＞ 8+10[5,3]+7[5,2] ＞ クリティカル ＞ 25"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },

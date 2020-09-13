@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=9"
-output = "MeikyuKingdomBasic : (2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=4"
-output = "MeikyuKingdomBasic : (2D6>=4) ＞ 8[2,6] ＞ 8 ＞ 成功 ＆ 《気力》1点獲得"
+output = "(2D6>=4) ＞ 8[2,6] ＞ 8 ＞ 成功 ＆ 《気力》1点獲得"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=9"
-output = "MeikyuKingdomBasic : (2D6>=9) ＞ 7[1,6] ＞ 7 ＞ 失敗 ＆ 《気力》1点獲得"
+output = "(2D6>=9) ＞ 7[1,6] ＞ 7 ＞ 失敗 ＆ 《気力》1点獲得"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=9"
-output = "MeikyuKingdomBasic : (2D6>=9) ＞ 12[6,6] ＞ 12 ＞ 絶対成功 ＆ 《気力》2点獲得"
+output = "(2D6>=9) ＞ 12[6,6] ＞ 12 ＞ 絶対成功 ＆ 《気力》2点獲得"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=9"
-output = "MeikyuKingdomBasic : (2D6>=9) ＞ 12[6,6] ＞ 12 ＞ 絶対成功 ＆ 《気力》2点獲得"
+output = "(2D6>=9) ＞ 12[6,6] ＞ 12 ＞ 絶対成功 ＆ 《気力》2点獲得"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=7"
-output = "MeikyuKingdomBasic : (2D6>=7) ＞ 5[2,3] ＞ 5 ＞ 失敗"
+output = "(2D6>=7) ＞ 5[2,3] ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=7"
-output = "MeikyuKingdomBasic : (2D6>=7) ＞ 8[4,4] ＞ 8 ＞ 成功"
+output = "(2D6>=7) ＞ 8[4,4] ＞ 8 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -64,16 +64,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=7"
-output = "MeikyuKingdomBasic : (2D6>=7) ＞ 9[4,5] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MeikyuKingdomBasic"
-input = "2d6>=7"
-output = "MeikyuKingdomBasic : (2D6>=7) ＞ 9[4,5] ＞ 9 ＞ 成功"
+output = "(2D6>=7) ＞ 9[4,5] ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -82,7 +73,16 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=7"
-output = "MeikyuKingdomBasic : (2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
+output = "(2D6>=7) ＞ 9[4,5] ＞ 9 ＞ 成功"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "2d6>=7"
+output = "(2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=7"
-output = "MeikyuKingdomBasic : (2D6>=7) ＞ 8[2,6] ＞ 8 ＞ 成功 ＆ 《気力》1点獲得"
+output = "(2D6>=7) ＞ 8[2,6] ＞ 8 ＞ 成功 ＆ 《気力》1点獲得"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "1MK"
-output = "MeikyuKingdomBasic : (1R6) ＞ 1"
+output = "(1R6) ＞ 1"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -108,7 +108,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "1MK"
-output = "MeikyuKingdomBasic : (1R6) ＞ 6"
+output = "(1R6) ＞ 6"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -116,7 +116,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "2MK"
-output = "MeikyuKingdomBasic : (2R6) ＞ 8[2,6] ＞ 8"
+output = "(2R6) ＞ 8[2,6] ＞ 8"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -125,7 +125,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "2MK+3"
-output = "MeikyuKingdomBasic : (2R6+3) ＞ 9[4,5]+3 ＞ 12"
+output = "(2R6+3) ＞ 9[4,5]+3 ＞ 12"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -134,7 +134,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "10MK"
-output = "MeikyuKingdomBasic : (10R6) ＞ 11[2,2,2,2,3,4,4,5,5,6] ＞ 11"
+output = "(10R6) ＞ 11[2,2,2,2,3,4,4,5,5,6] ＞ 11"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -151,7 +151,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "10MK+10"
-output = "MeikyuKingdomBasic : (10R6+10) ＞ 9[1,1,2,2,2,3,3,4,4,5]+10 ＞ 19"
+output = "(10R6+10) ＞ 9[1,1,2,2,2,3,3,4,4,5]+10 ＞ 19"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -168,7 +168,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "10MK+10"
-output = "MeikyuKingdomBasic : (10R6+10) ＞ 12[1,1,2,2,2,3,4,5,6,6]+10 ＞ 22"
+output = "(10R6+10) ＞ 12[1,1,2,2,2,3,4,5,6,6]+10 ＞ 22"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -185,7 +185,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "1MK>=2"
-output = "MeikyuKingdomBasic : (1R6>=2) ＞ 6 ＞ 成功 ＆ 《気力》1点獲得"
+output = "(1R6>=2) ＞ 6 ＞ 成功 ＆ 《気力》1点獲得"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "1MK+2>=2"
-output = "MeikyuKingdomBasic : (1R6+2>=2) ＞ 6[6]+2 ＞ 8 ＞ 成功 ＆ 《気力》1点獲得"
+output = "(1R6+2>=2) ＞ 6[6]+2 ＞ 8 ＞ 成功 ＆ 《気力》1点獲得"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "3MK+4>=10"
-output = "MeikyuKingdomBasic : (3R6+4>=10) ＞ 9[1,3,6]+4 ＞ 13 ＞ 成功 ＆ 《気力》1点獲得"
+output = "(3R6+4>=10) ＞ 9[1,3,6]+4 ＞ 13 ＞ 成功 ＆ 《気力》1点獲得"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -211,7 +211,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "4MK+1>=8"
-output = "MeikyuKingdomBasic : (4R6+1>=8) ＞ 12[6,6,6,6]+1 ＞ 13 ＞ 絶対成功 ＆ 《気力》4点獲得"
+output = "(4R6+1>=8) ＞ 12[6,6,6,6]+1 ＞ 13 ＞ 絶対成功 ＆ 《気力》4点獲得"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -222,7 +222,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "4MK+1>=8"
-output = "MeikyuKingdomBasic : (4R6+1>=8) ＞ 12[1,6,6,6]+1 ＞ 13 ＞ 絶対成功 ＆ 《気力》3点獲得"
+output = "(4R6+1>=8) ＞ 12[1,6,6,6]+1 ＞ 13 ＞ 絶対成功 ＆ 《気力》3点獲得"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -233,7 +233,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "4MK+1>=8"
-output = "MeikyuKingdomBasic : (4R6+1>=8) ＞ 12[1,1,6,6]+1 ＞ 13 ＞ 絶対成功 ＆ 《気力》2点獲得"
+output = "(4R6+1>=8) ＞ 12[1,1,6,6]+1 ＞ 13 ＞ 絶対成功 ＆ 《気力》2点獲得"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -244,7 +244,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "RT"
-output = "MeikyuKingdomBasic : 視察表(2) ＞ 神託が下る。苦難がPCを襲うが、それは救いのための試練である。このセッションの間、PCが10点以上のダメージをモンスターから受けるたび《民の声》+1。"
+output = "視察表(2) ＞ 神託が下る。苦難がPCを襲うが、それは救いのための試練である。このセッションの間、PCが10点以上のダメージをモンスターから受けるたび《民の声》+1。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -253,7 +253,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "RT"
-output = "MeikyuKingdomBasic : 視察表(8) ＞ 民たちは新しい施設の建設を望んでいる。このセッションの間、自国に「木」を5個輸送するたび《民の声》+1。"
+output = "視察表(8) ＞ 民たちは新しい施設の建設を望んでいる。このセッションの間、自国に「木」を5個輸送するたび《民の声》+1。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -262,7 +262,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "RT"
-output = "MeikyuKingdomBasic : 視察表(12) ＞ 民たちはワクワクするような冒険譚を求めている！ このセッションのシナリオの目的を達成していたら、終了フェイズの円卓会議の開始時に、（1D6）MGが手に入る。"
+output = "視察表(12) ＞ 民たちはワクワクするような冒険譚を求めている！ このセッションのシナリオの目的を達成していたら、終了フェイズの円卓会議の開始時に、（1D6）MGが手に入る。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -271,7 +271,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "TBT"
-output = "MeikyuKingdomBasic : 才覚休憩表(2) ＞ 寝付けないので、民と噂話に花を咲かせる。すると、経費削減のアイデアが……。[才覚/9]の判定を行う。成功すると、このセッションの《維持費》を（1D6）MG減少できる。"
+output = "才覚休憩表(2) ＞ 寝付けないので、民と噂話に花を咲かせる。すると、経費削減のアイデアが……。[才覚/9]の判定を行う。成功すると、このセッションの《維持費》を（1D6）MG減少できる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -280,7 +280,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "TBT"
-output = "MeikyuKingdomBasic : 才覚休憩表(8) ＞ 地図を前にして、今後の冒険について口角泡を飛ばす。意見の対立はあったが、あなたの意見が通った。我々に必要なのは英雄的死亡ではなく、卑劣な生存なのだ。 宮廷の好きなキャラクター1体を選ぶ。そのキャラクターの自分に対する《敵意》を好きなだけ上昇させ、上昇した値だけ《民の声》を回復する。"
+output = "才覚休憩表(8) ＞ 地図を前にして、今後の冒険について口角泡を飛ばす。意見の対立はあったが、あなたの意見が通った。我々に必要なのは英雄的死亡ではなく、卑劣な生存なのだ。 宮廷の好きなキャラクター1体を選ぶ。そのキャラクターの自分に対する《敵意》を好きなだけ上昇させ、上昇した値だけ《民の声》を回復する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -289,7 +289,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "TBT"
-output = "MeikyuKingdomBasic : 才覚休憩表(12) ＞ 「やはりな……」迷宮は予想通り、一筋縄ではいかないようだ。こんなときこそ、準備しておいたアレが役に立つ。自分の修得しているスキル1種を選ぶ。そのスキルを喪失して、そのスキルと同じスキルグループのスキル1種を修得してもよい。この効果は永続する。"
+output = "才覚休憩表(12) ＞ 「やはりな……」迷宮は予想通り、一筋縄ではいかないようだ。こんなときこそ、準備しておいたアレが役に立つ。自分の修得しているスキル1種を選ぶ。そのスキルを喪失して、そのスキルと同じスキルグループのスキル1種を修得してもよい。この効果は永続する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -298,7 +298,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CBT"
-output = "MeikyuKingdomBasic : 魅力休憩表(2) ＞ 妖精のワイン蔵を発見、酒盛りが始まる。宮廷全員の《気力》+1。[魅カ/9]の判定に失敗すると、酔っ払ったあなたは服を脱ぎはじめる。（1D6）を振る。自分を除く宮廷全員のあなたに対する《感情値》+1、奇数ならその属性が《好意》、偶数なら《敵意》になる。"
+output = "魅力休憩表(2) ＞ 妖精のワイン蔵を発見、酒盛りが始まる。宮廷全員の《気力》+1。[魅カ/9]の判定に失敗すると、酔っ払ったあなたは服を脱ぎはじめる。（1D6）を振る。自分を除く宮廷全員のあなたに対する《感情値》+1、奇数ならその属性が《好意》、偶数なら《敵意》になる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -307,7 +307,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CBT"
-output = "MeikyuKingdomBasic : 魅力休憩表(8) ＞ 見張りの途中にうたた寝。目を覚ますと、誰かが毛布をかけてくれていた。ランダムにキャラクターを選ぶ。自分のそのキャラクターに対する《好意》+1。"
+output = "魅力休憩表(8) ＞ 見張りの途中にうたた寝。目を覚ますと、誰かが毛布をかけてくれていた。ランダムにキャラクターを選ぶ。自分のそのキャラクターに対する《好意》+1。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -316,7 +316,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CBT"
-output = "MeikyuKingdomBasic : 魅力休憩表(12) ＞ ふとした拍子に唇が触れあう★ 好きなキャラクター1体を選ぶ。そのキャラクターの自分以外に対する《好意》を合計し、その値を自分に対する《好意》に加える。その後、そのキャラクターの自分以外に対する《好意》をすべて0にする。"
+output = "魅力休憩表(12) ＞ ふとした拍子に唇が触れあう★ 好きなキャラクター1体を選ぶ。そのキャラクターの自分以外に対する《好意》を合計し、その値を自分に対する《好意》に加える。その後、そのキャラクターの自分以外に対する《好意》をすべて0にする。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -325,7 +325,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SBT"
-output = "MeikyuKingdomBasic : 探索休憩表(2) ＞ 一休みする前に道具の手入れ。使い慣れた道具ほど手になじむ。ランダムに自分の装備しているアイテム1つを選ぶ。そのアイテムのレベルが1上昇する。"
+output = "探索休憩表(2) ＞ 一休みする前に道具の手入れ。使い慣れた道具ほど手になじむ。ランダムに自分の装備しているアイテム1つを選ぶ。そのアイテムのレベルが1上昇する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -334,7 +334,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SBT"
-output = "MeikyuKingdomBasic : 探索休憩表(8) ＞ 壁に描かれた奇妙な壁画が、あなたを見つめているような気がする……。[探索/9]の判定を行う。成功すると、【エレベータ】を発見する。"
+output = "探索休憩表(8) ＞ 壁に描かれた奇妙な壁画が、あなたを見つめているような気がする……。[探索/9]の判定を行う。成功すると、【エレベータ】を発見する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -343,7 +343,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SBT"
-output = "MeikyuKingdomBasic : 探索休憩表(12) ＞ こ、これは秘密の扉！？ [探索/11]の判定を行う。成功すると、この部屋に隣接する好きな部屋に通路を伸ばすことができる。"
+output = "探索休憩表(12) ＞ こ、これは秘密の扉！？ [探索/11]の判定を行う。成功すると、この部屋に隣接する好きな部屋に通路を伸ばすことができる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -352,7 +352,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "VBT"
-output = "MeikyuKingdomBasic : 武勇休憩表(2) ＞ 時が満ちるにつれ、闘志が高まる。現在の経過ターン数と等しい値だけ、《気力》が回復する。"
+output = "武勇休憩表(2) ＞ 時が満ちるにつれ、闘志が高まる。現在の経過ターン数と等しい値だけ、《気力》が回復する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -361,7 +361,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "VBT"
-output = "MeikyuKingdomBasic : 武勇休憩表(8) ＞ ちょっとした行き違いから、軽い口論になってしまう。宮廷の中からランダムにキャラクターを1体選ぶ。そのキャラクターとあなたの互いに対する《敵意》+1。"
+output = "武勇休憩表(8) ＞ ちょっとした行き違いから、軽い口論になってしまう。宮廷の中からランダムにキャラクターを1体選ぶ。そのキャラクターとあなたの互いに対する《敵意》+1。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -370,7 +370,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "VBT"
-output = "MeikyuKingdomBasic : 武勇休憩表(12) ＞ ……殺気！ あなたは、毛布をはねのけ、戦闘態勢を整えるよう指示した。「特殊遭遇表」を1回使用し、その後、好きな素材を（1D6）個獲得する。さらに、ランダムにレアアイテム1種を選び、それを手に入れる。"
+output = "武勇休憩表(12) ＞ ……殺気！ あなたは、毛布をはねのけ、戦闘態勢を整えるよう指示した。「特殊遭遇表」を1回使用し、その後、好きな素材を（1D6）個獲得する。さらに、ランダムにレアアイテム1種を選び、それを手に入れる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -379,7 +379,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "THT"
-output = "MeikyuKingdomBasic : 才覚ハプニング表(2) ＞ 自分に王国を導くことなど可能なのだろうか……。【お酒】を1個消費することができなければ、このセッションの間、[才覚]-1。"
+output = "才覚ハプニング表(2) ＞ 自分に王国を導くことなど可能なのだろうか……。【お酒】を1個消費することができなければ、このセッションの間、[才覚]-1。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -388,7 +388,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "THT"
-output = "MeikyuKingdomBasic : 才覚ハプニング表(8) ＞ あなたの失策が近隣で噂になる。近隣の国からランダムに国を1つ選ぶ。その国との関係が1段階悪化する。"
+output = "才覚ハプニング表(8) ＞ あなたの失策が近隣で噂になる。近隣の国からランダムに国を1つ選ぶ。その国との関係が1段階悪化する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -397,7 +397,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "THT"
-output = "MeikyuKingdomBasic : 才覚ハプニング表(12) ＞ 今の自分に自信が持てなくなる。生まれ表からランダムにジョブを1つ選び、現在のジョブをそのジョブに変更する。"
+output = "才覚ハプニング表(12) ＞ 今の自分に自信が持てなくなる。生まれ表からランダムにジョブを1つ選び、現在のジョブをそのジョブに変更する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -406,7 +406,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CHT"
-output = "MeikyuKingdomBasic : 魅力ハプニング表(2) ＞ 民同士のいさかいに心を痛め、頭髪にダメージが！ 【お酒】を1個消費することができなければ、このセッションの間、[魅力]-1。"
+output = "魅力ハプニング表(2) ＞ 民同士のいさかいに心を痛め、頭髪にダメージが！ 【お酒】を1個消費することができなければ、このセッションの間、[魅力]-1。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -415,7 +415,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CHT"
-output = "MeikyuKingdomBasic : 魅力ハプニング表(8) ＞ 宮廷に嫉妬の嵐が巻き起こる。宮廷の中で、あなたに対して《好意》を持つキャラクターの数を数える。このセッションの間、行為判定を行うとき、サイコロの目の合計がこの数以下だった場合、絶対失敗となる(2未満にはならない)。"
+output = "魅力ハプニング表(8) ＞ 宮廷に嫉妬の嵐が巻き起こる。宮廷の中で、あなたに対して《好意》を持つキャラクターの数を数える。このセッションの間、行為判定を行うとき、サイコロの目の合計がこの数以下だった場合、絶対失敗となる(2未満にはならない)。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -424,7 +424,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CHT"
-output = "MeikyuKingdomBasic : 魅力ハプニング表(12) ＞ 他人が信用できなくなる。このセッションの間、協調行動を行えなくなる。"
+output = "魅力ハプニング表(12) ＞ 他人が信用できなくなる。このセッションの間、協調行動を行えなくなる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -433,7 +433,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SHT"
-output = "MeikyuKingdomBasic : 探索ハプニング表(2) ＞ 指の震えが止まらない……。【お酒】を1個消費することができなければ、このセッション中、[探索]-1。"
+output = "探索ハプニング表(2) ＞ 指の震えが止まらない……。【お酒】を1個消費することができなければ、このセッション中、[探索]-1。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -442,7 +442,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SHT"
-output = "MeikyuKingdomBasic : 探索ハプニング表(8) ＞ 友情にヒビが！ 宮廷全員のあなたに対する《敵意》+1。"
+output = "探索ハプニング表(8) ＞ 友情にヒビが！ 宮廷全員のあなたに対する《敵意》+1。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -451,7 +451,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SHT"
-output = "MeikyuKingdomBasic : 探索ハプニング表(12) ＞ あなたを憎む迷宮支配者が、あなたの首に賞金をかけた。このセッションの間、モンスターの攻撃やトラップの目標をランダムに決める場合、その目標は必ずあなたになる(この効果を2人以上が受けた場合、この効果を受けた者の中でランダムに決定する)。"
+output = "探索ハプニング表(12) ＞ あなたを憎む迷宮支配者が、あなたの首に賞金をかけた。このセッションの間、モンスターの攻撃やトラップの目標をランダムに決める場合、その目標は必ずあなたになる(この効果を2人以上が受けた場合、この効果を受けた者の中でランダムに決定する)。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -460,7 +460,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "VHT"
-output = "MeikyuKingdomBasic : 武勇ハプニング表(2) ＞ つい幼児退行を起こしそうになる。【お酒】を1個消費することができなければ、このセッション中、[武勇]-1。"
+output = "武勇ハプニング表(2) ＞ つい幼児退行を起こしそうになる。【お酒】を1個消費することができなければ、このセッション中、[武勇]-1。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -469,7 +469,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "VHT"
-output = "MeikyuKingdomBasic : 武勇ハプニング表(8) ＞ 豚どもめ……。宮廷全員に対する《敵意》+1。"
+output = "武勇ハプニング表(8) ＞ 豚どもめ……。宮廷全員に対する《敵意》+1。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -478,7 +478,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "VHT"
-output = "MeikyuKingdomBasic : 武勇ハプニング表(12) ＞ 自分の失敗が許せない。このセッションの間、《器》が1点減少したものとして扱う。"
+output = "武勇ハプニング表(12) ＞ 自分の失敗が許せない。このセッションの間、《器》が1点減少したものとして扱う。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -487,7 +487,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KDT"
-output = "MeikyuKingdomBasic : 王国災厄表(2) ＞ 王国の悪い噂が蔓延する。既知の土地にある他国との関係が、すべて1段階悪化する。"
+output = "王国災厄表(2) ＞ 王国の悪い噂が蔓延する。既知の土地にある他国との関係が、すべて1段階悪化する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -496,7 +496,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KDT"
-output = "MeikyuKingdomBasic : 王国災厄表(8) ＞ 敵国が陰謀を仕掛けてくる。[文化レベル/9]の判定を行う。失敗すると、ランダムに選んだ逸材1人を失う。"
+output = "王国災厄表(8) ＞ 敵国が陰謀を仕掛けてくる。[文化レベル/9]の判定を行う。失敗すると、ランダムに選んだ逸材1人を失う。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -505,7 +505,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KDT"
-output = "MeikyuKingdomBasic : 王国災厄表(12) ＞ 敵国の勢力が強大化する。GMは、関係が敵対の国すべてについて、その国の領土に接する好きな土地1つを選ぶ。その土地をその国の領土にする。"
+output = "王国災厄表(12) ＞ 敵国の勢力が強大化する。GMは、関係が敵対の国すべてについて、その国の領土に接する好きな土地1つを選ぶ。その土地をその国の領土にする。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -514,7 +514,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KCT"
-output = "MeikyuKingdomBasic : 王国変動表(9) ＞ 街の機能に異変が！？ [治安レベル/9]の判定に成功すると、自国の好きな施設1軒を選び、その施設のレベルを1点上昇する。失敗したら、自国のタイプ：部屋の施設をランダムに1軒選び、破壊する。"
+output = "王国変動表(9) ＞ 街の機能に異変が！？ [治安レベル/9]の判定に成功すると、自国の好きな施設1軒を選び、その施設のレベルを1点上昇する。失敗したら、自国のタイプ：部屋の施設をランダムに1軒選び、破壊する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -523,7 +523,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KCT"
-output = "MeikyuKingdomBasic : 王国変動表(9) ＞ 街の機能に異変が！？ [治安レベル/9]の判定に成功すると、自国の好きな施設1軒を選び、その施設のレベルを1点上昇する。失敗したら、自国のタイプ：部屋の施設をランダムに1軒選び、破壊する。"
+output = "王国変動表(9) ＞ 街の機能に異変が！？ [治安レベル/9]の判定に成功すると、自国の好きな施設1軒を選び、その施設のレベルを1点上昇する。失敗したら、自国のタイプ：部屋の施設をランダムに1軒選び、破壊する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -532,7 +532,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KCT"
-output = "MeikyuKingdomBasic : 王国変動表(5) ＞ 民の労働の結果が明らかに。[生活レベル/9]の判定に成功すると《予算》が自国の領土のマップ数と同じだけ増える。失敗したら《予算》が同じだけ減る。"
+output = "王国変動表(5) ＞ 民の労働の結果が明らかに。[生活レベル/9]の判定に成功すると《予算》が自国の領土のマップ数と同じだけ増える。失敗したら《予算》が同じだけ減る。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -541,7 +541,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KCT"
-output = "MeikyuKingdomBasic : 王国変動表(5) ＞ 民の労働の結果が明らかに。[生活レベル/9]の判定に成功すると《予算》が自国の領土のマップ数と同じだけ増える。失敗したら《予算》が同じだけ減る。"
+output = "王国変動表(5) ＞ 民の労働の結果が明らかに。[生活レベル/9]の判定に成功すると《予算》が自国の領土のマップ数と同じだけ増える。失敗したら《予算》が同じだけ減る。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -550,7 +550,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KCT"
-output = "MeikyuKingdomBasic : 王国変動表(3) ＞ 冒険の成功を祝う民たちが出迎えてくれる。《民の声》+2。この結果を出したプレイヤー以外の全員は、今回の冒険を振り返り当プレイヤーのPCが《好意》を得るとしたら誰が一番ふさわしいかを協議する。決定したキャラへのPCの《好意》+1"
+output = "王国変動表(3) ＞ 冒険の成功を祝う民たちが出迎えてくれる。《民の声》+2。この結果を出したプレイヤー以外の全員は、今回の冒険を振り返り当プレイヤーのPCが《好意》を得るとしたら誰が一番ふさわしいかを協議する。決定したキャラへのPCの《好意》+1"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -559,7 +559,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KCT"
-output = "MeikyuKingdomBasic : 王国変動表(8) ＞ 民は領土を渇望していた。5MGを支払えば、隣接する未知の土地1つを領土にできる。（1D6）を振り、その数だけ通路を引くことができる。通路でつながっていない部屋は自国の領土として扱わない。"
+output = "王国変動表(8) ＞ 民は領土を渇望していた。5MGを支払えば、隣接する未知の土地1つを領土にできる。（1D6）を振り、その数だけ通路を引くことができる。通路でつながっていない部屋は自国の領土として扱わない。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -568,7 +568,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KCT"
-output = "MeikyuKingdomBasic : 王国変動表(6) ＞ あなたの活躍を耳にした者たちがやってくる。シナリオの目的を満たしている場合、関係が良好・同盟の国の数だけ（1D6）を振り、[合計値+治安レベル]人だけ《民》が増える。"
+output = "王国変動表(6) ＞ あなたの活躍を耳にした者たちがやってくる。シナリオの目的を満たしている場合、関係が良好・同盟の国の数だけ（1D6）を振り、[合計値+治安レベル]人だけ《民》が増える。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -577,7 +577,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KCT"
-output = "MeikyuKingdomBasic : 王国変動表(5) ＞ 民の労働の結果が明らかに。[生活レベル/9]の判定に成功すると《予算》が自国の領土のマップ数と同じだけ増える。失敗したら《予算》が同じだけ減る。"
+output = "王国変動表(5) ＞ 民の労働の結果が明らかに。[生活レベル/9]の判定に成功すると《予算》が自国の領土のマップ数と同じだけ増える。失敗したら《予算》が同じだけ減る。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -586,7 +586,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KCT"
-output = "MeikyuKingdomBasic : 王国変動表(8) ＞ 民は領土を渇望していた。5MGを支払えば、隣接する未知の土地1つを領土にできる。（1D6）を振り、その数だけ通路を引くことができる。通路でつながっていない部屋は自国の領土として扱わない。"
+output = "王国変動表(8) ＞ 民は領土を渇望していた。5MGを支払えば、隣接する未知の土地1つを領土にできる。（1D6）を振り、その数だけ通路を引くことができる。通路でつながっていない部屋は自国の領土として扱わない。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -595,7 +595,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KCT"
-output = "MeikyuKingdomBasic : 王国変動表(2) ＞ 列強のプロパガンダが現れる。（1D6）を振り、その目が現在の《民の声》以下で、現在列強の属国になっていたら属国から抜けることができる。上回っていたら、ランダムに列強を1つ選びその属国になる。"
+output = "王国変動表(2) ＞ 列強のプロパガンダが現れる。（1D6）を振り、その目が現在の《民の声》以下で、現在列強の属国になっていたら属国から抜けることができる。上回っていたら、ランダムに列強を1つ選びその属国になる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -604,7 +604,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CAT"
-output = "MeikyuKingdomBasic : 痛打表(2) ＞ あなたの攻撃の手応えが、武器に刻まれる。その攻撃に使用した武具アイテムのレベルが1点上昇する。"
+output = "痛打表(2) ＞ あなたの攻撃の手応えが、武器に刻まれる。その攻撃に使用した武具アイテムのレベルが1点上昇する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -613,7 +613,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CAT"
-output = "MeikyuKingdomBasic : 痛打表(8) ＞ 敵の勢いを利用し、大ダメージ！ ダメージが攻撃目標のレベルと同じ値だけ上昇する。"
+output = "痛打表(8) ＞ 敵の勢いを利用し、大ダメージ！ ダメージが攻撃目標のレベルと同じ値だけ上昇する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -622,7 +622,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CAT"
-output = "MeikyuKingdomBasic : 痛打表(12) ＞ 敵の急所をとらえ、一撃のもとに斬り伏せる。攻撃目標の《HP》を0点にする。"
+output = "痛打表(12) ＞ 敵の急所をとらえ、一撃のもとに斬り伏せる。攻撃目標の《HP》を0点にする。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -631,7 +631,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "FWT"
-output = "MeikyuKingdomBasic : 致命傷表(2) ＞ 圧倒的な攻撃が、急所を貫く。死亡する。"
+output = "致命傷表(2) ＞ 圧倒的な攻撃が、急所を貫く。死亡する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -640,7 +640,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "FWT"
-output = "MeikyuKingdomBasic : 致命傷表(8) ＞ 偶然、アイテムが衝撃からキミを護る。装備しているアイテムから、ランダムに1つを選ぶ。そのアイテムを破壊し、ダメージを無効にする。もし、破壊できるアイテムを1つも装備していないと行動不能になる。"
+output = "致命傷表(8) ＞ 偶然、アイテムが衝撃からキミを護る。装備しているアイテムから、ランダムに1つを選ぶ。そのアイテムを破壊し、ダメージを無効にする。もし、破壊できるアイテムを1つも装備していないと行動不能になる。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -649,7 +649,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "FWT"
-output = "MeikyuKingdomBasic : 致命傷表(12) ＞ 幸運なことに、ダメージは避けられる。しかし、ランダムに変調1つを選び、それを受ける。数値がある場合、3になる。"
+output = "致命傷表(12) ＞ 幸運なことに、ダメージは避けられる。しかし、ランダムに変調1つを選び、それを受ける。数値がある場合、3になる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -658,7 +658,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CFT"
-output = "MeikyuKingdomBasic : 戦闘ファンブル表(2) ＞ 敵に援軍が現れる！ 敵軍の中でもっともレベルの低いモンスターが（1D6）体増える。モンスターがこの結果になった場合、好きなPCの《配下》が（1D6）体上昇する。"
+output = "戦闘ファンブル表(2) ＞ 敵に援軍が現れる！ 敵軍の中でもっともレベルの低いモンスターが（1D6）体増える。モンスターがこの結果になった場合、好きなPCの《配下》が（1D6）体上昇する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -667,7 +667,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CFT"
-output = "MeikyuKingdomBasic : 戦闘ファンブル表(8) ＞ 自分の攻撃の勢いを利用され、相手の反撃を受ける。自分の《HP》を現在の値の半分にする。"
+output = "戦闘ファンブル表(8) ＞ 自分の攻撃の勢いを利用され、相手の反撃を受ける。自分の《HP》を現在の値の半分にする。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -676,7 +676,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CFT"
-output = "MeikyuKingdomBasic : 戦闘ファンブル表(12) ＞ あっ！ 武器がすっぽぬけた。攻撃に使用していたアイテムが破壊される。モンスターの場合、自分に（1D6）点ダメージ。さらに、戦場シートにいるキャラクターの中からランダムにキャラクター1体を選ぶ。そのキャラクターの《HP》が1点になる。"
+output = "戦闘ファンブル表(12) ＞ あっ！ 武器がすっぽぬけた。攻撃に使用していたアイテムが破壊される。モンスターの場合、自分に（1D6）点ダメージ。さらに、戦場シートにいるキャラクターの中からランダムにキャラクター1体を選ぶ。そのキャラクターの《HP》が1点になる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -685,7 +685,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "TT"
-output = "MeikyuKingdomBasic : 道中表(2) ＞ 道中の時間が、人間関係に変化をもたらす。全員、好きなキャラクター1人を選ぶ。そのキャラクターに対する《感情値》が1点上昇する。"
+output = "道中表(2) ＞ 道中の時間が、人間関係に変化をもたらす。全員、好きなキャラクター1人を選ぶ。そのキャラクターに対する《感情値》が1点上昇する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -694,7 +694,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "TT"
-output = "MeikyuKingdomBasic : 道中表(8) ＞ モンスターの襲撃を受ける。全員、[武勇/9]の判定を行う。失敗したPCは、《HP》を（1D6）点減少する。"
+output = "道中表(8) ＞ モンスターの襲撃を受ける。全員、[武勇/9]の判定を行う。失敗したPCは、《HP》を（1D6）点減少する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -703,7 +703,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "TT"
-output = "MeikyuKingdomBasic : 道中表(12) ＞ ラッキー♪ 1MGを拾った。"
+output = "道中表(12) ＞ ラッキー♪ 1MGを拾った。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -712,7 +712,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NT"
-output = "MeikyuKingdomBasic : 交渉表(2) ＞ 中立的な態度は偽装だった。彼らは油断をついて不意打ちを行う。奇襲扱いで戦闘を行うこと。"
+output = "交渉表(2) ＞ 中立的な態度は偽装だった。彼らは油断をついて不意打ちを行う。奇襲扱いで戦闘を行うこと。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -721,7 +721,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NT"
-output = "MeikyuKingdomBasic : 交渉表(8) ＞ 怪物たちは、値踏みするようにこちらを見ている。維持費を（1D6）MG上昇させれば、モンスターたちは友好的になる。上昇させなければ、戦闘を行うこと。"
+output = "交渉表(8) ＞ 怪物たちは、値踏みするようにこちらを見ている。維持費を（1D6）MG上昇させれば、モンスターたちは友好的になる。上昇させなければ、戦闘を行うこと。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -730,7 +730,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NT"
-output = "MeikyuKingdomBasic : 交渉表(12) ＞ 運命の出会い。一目見た瞬間、うち解け合った。モンスターたちの宮廷の代表に対する《好意》+1、さらにモンスターたちは友好的になる。"
+output = "交渉表(12) ＞ 運命の出会い。一目見た瞬間、うち解け合った。モンスターたちの宮廷の代表に対する《好意》+1、さらにモンスターたちは友好的になる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -739,7 +739,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SE"
-output = "MeikyuKingdomBasic : 特殊遭遇表(1) ＞ 宙を舞う【グレムリン】が、宮廷の方を物欲しそうに眺めている。宮廷の中で、素材欄に「機械」が含まれているアイテムを持っているPC全員は、[才覚/7+装備している素材欄に「機械」が含まれるアイテムの数]の判定を行う。失敗したPCは、そのアイテムをすべて破壊し、[装備している素材欄に「機械」が含まれるアイテムの数]D6点のダメージを受ける。"
+output = "特殊遭遇表(1) ＞ 宙を舞う【グレムリン】が、宮廷の方を物欲しそうに眺めている。宮廷の中で、素材欄に「機械」が含まれているアイテムを持っているPC全員は、[才覚/7+装備している素材欄に「機械」が含まれるアイテムの数]の判定を行う。失敗したPCは、そのアイテムをすべて破壊し、[装備している素材欄に「機械」が含まれるアイテムの数]D6点のダメージを受ける。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -747,7 +747,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SE"
-output = "MeikyuKingdomBasic : 特殊遭遇表(6) ＞ 災厄教の巡礼者の一団に出会う。彼らは、迷宮災厄こそおごり高ぶった人類への罰であり、悔い改めよとその教えを説いた。《配下》を1人以上連れているキャラクターは、[魅力/自分の《配下》の数+5]の判定を行う。失敗したPC1人につき、《民の声》-1。"
+output = "特殊遭遇表(6) ＞ 災厄教の巡礼者の一団に出会う。彼らは、迷宮災厄こそおごり高ぶった人類への罰であり、悔い改めよとその教えを説いた。《配下》を1人以上連れているキャラクターは、[魅力/自分の《配下》の数+5]の判定を行う。失敗したPC1人につき、《民の声》-1。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -755,7 +755,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "IG"
-output = "MeikyuKingdomBasic : 情報収集表(2) ＞ 調査隊は、伝説の財宝の噂を聞きつける。《配下》を（1D6）人消費すると、迷宮マップの中からランダムに部屋を1つ目標に選ぶことができる。冒険フェイズに目標の捜索に成功すると、ランダムに選んだレアアイテム1個を獲得する。"
+output = "情報収集表(2) ＞ 調査隊は、伝説の財宝の噂を聞きつける。《配下》を（1D6）人消費すると、迷宮マップの中からランダムに部屋を1つ目標に選ぶことができる。冒険フェイズに目標の捜索に成功すると、ランダムに選んだレアアイテム1個を獲得する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -764,7 +764,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "IG"
-output = "MeikyuKingdomBasic : 情報収集表(8) ＞ 調査隊は不慮の事故に巻き込まれる。《配下》を1人消費すると、迷宮マップの中から好きな部屋を1つ目標に選ぶことができる。目標の脅威情報と通路情報をGMに教えてもらう。"
+output = "情報収集表(8) ＞ 調査隊は不慮の事故に巻き込まれる。《配下》を1人消費すると、迷宮マップの中から好きな部屋を1つ目標に選ぶことができる。目標の脅威情報と通路情報をGMに教えてもらう。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -773,7 +773,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "IG"
-output = "MeikyuKingdomBasic : 情報収集表(12) ＞ 調査隊の素晴らしい活躍！ 迷宮マップの中から好きな部屋を1つ目標に選ぶ。目標の脅威情報と通路情報をGMに教えてもらう。さらに、「情報収集表」をもう1回使用できる。"
+output = "情報収集表(12) ＞ 調査隊の素晴らしい活躍！ 迷宮マップの中から好きな部屋を1つ目標に選ぶ。目標の脅威情報と通路情報をGMに教えてもらう。さらに、「情報収集表」をもう1回使用できる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -782,7 +782,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "BDT"
-output = "MeikyuKingdomBasic : 生まれ決定表(4) ＞ 武勇系生まれ表で決定"
+output = "生まれ決定表(4) ＞ 武勇系生まれ表で決定"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -790,7 +790,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "TBO"
-output = "MeikyuKingdomBasic : 才覚系生まれ表(1) ＞ 魔導師"
+output = "才覚系生まれ表(1) ＞ 魔導師"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -798,7 +798,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CBO"
-output = "MeikyuKingdomBasic : 魅力系生まれ表(6) ＞ 語り部"
+output = "魅力系生まれ表(6) ＞ 語り部"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -806,7 +806,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SBO"
-output = "MeikyuKingdomBasic : 探索系生まれ表(1) ＞ 迷宮職人"
+output = "探索系生まれ表(1) ＞ 迷宮職人"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -814,7 +814,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "VBO"
-output = "MeikyuKingdomBasic : 武勇系生まれ表(4) ＞ 冒険者"
+output = "武勇系生まれ表(4) ＞ 冒険者"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -822,7 +822,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ET"
-output = "MeikyuKingdomBasic : 感情表(4) ＞ 怒り"
+output = "感情表(4) ＞ 怒り"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -830,7 +830,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ET"
-output = "MeikyuKingdomBasic : 感情表(1) ＞ 忠誠"
+output = "感情表(1) ＞ 忠誠"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -838,7 +838,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "FET"
-output = "MeikyuKingdomBasic : 好意表(5) ＞ 愛情"
+output = "好意表(5) ＞ 愛情"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -846,7 +846,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "HET"
-output = "MeikyuKingdomBasic : 敵意表(6) ＞ 侮蔑"
+output = "敵意表(6) ＞ 侮蔑"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -854,7 +854,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "MPT"
-output = "MeikyuKingdomBasic : 相場表(9) ＞ 木"
+output = "相場表(9) ＞ 木"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -863,7 +863,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "WORD1"
-output = "MeikyuKingdomBasic : 単語表(12) ＞ おめかし"
+output = "単語表(12) ＞ おめかし"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -872,7 +872,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "WORD2"
-output = "MeikyuKingdomBasic : 単語表(16) ＞ 仕事"
+output = "単語表(16) ＞ 仕事"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -881,7 +881,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "WORD3"
-output = "MeikyuKingdomBasic : 単語表(23) ＞ 酒盛り"
+output = "単語表(23) ＞ 酒盛り"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -890,7 +890,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "WORD4"
-output = "MeikyuKingdomBasic : 単語表(56) ＞ 星"
+output = "単語表(56) ＞ 星"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -899,7 +899,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NAMEA"
-output = "MeikyuKingdomBasic : 名前Ａ表(26) ＞ アヴァランチ／エクレール"
+output = "名前Ａ表(26) ＞ アヴァランチ／エクレール"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -908,7 +908,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NAMEB"
-output = "MeikyuKingdomBasic : 名前Ｂ表(23) ＞ シュバルツ／モエギ"
+output = "名前Ｂ表(23) ＞ シュバルツ／モエギ"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -917,7 +917,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NAMEEX"
-output = "MeikyuKingdomBasic : エキゾチック名前表(45) ＞ 好きな動物の名前(イタチ,パグ)"
+output = "エキゾチック名前表(45) ＞ 好きな動物の名前(イタチ,パグ)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -926,7 +926,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NAMEFA"
-output = "MeikyuKingdomBasic : ファンタジック名前表(33) ＞ ワタリガラス／ディードリット"
+output = "ファンタジック名前表(33) ＞ ワタリガラス／ディードリット"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -935,7 +935,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "RT"
-output = "MeikyuKingdomBasic : 視察表(8) ＞ 民たちは新しい施設の建設を望んでいる。このセッションの間、自国に「木」を5個輸送するたび《民の声》+1。"
+output = "視察表(8) ＞ 民たちは新しい施設の建設を望んでいる。このセッションの間、自国に「木」を5個輸送するたび《民の声》+1。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -944,7 +944,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "T1T"
-output = "MeikyuKingdomBasic : お宝１表(4) ＞ そのモンスターの素材欄の中から、好きな素材２個"
+output = "お宝１表(4) ＞ そのモンスターの素材欄の中から、好きな素材２個"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -952,7 +952,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "T2T"
-output = "MeikyuKingdomBasic : お宝２表(5) ＞ ランダムに武具アイテム１個を選ぶ。そのアイテムにレベルがあれば、１レベルのものが手に入る"
+output = "お宝２表(5) ＞ ランダムに武具アイテム１個を選ぶ。そのアイテムにレベルがあれば、１レベルのものが手に入る"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -960,7 +960,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "T3T"
-output = "MeikyuKingdomBasic : お宝３表(4) ＞ 好きなコモンアイテムのカテゴリ１種を選び、そのカテゴリからランダムにアイテム１個を選ぶ。そのアイテムにレベルがあれば、アイテムなら１レベルのものが手に入る"
+output = "お宝３表(4) ＞ 好きなコモンアイテムのカテゴリ１種を選び、そのカテゴリからランダムにアイテム１個を選ぶ。そのアイテムにレベルがあれば、アイテムなら１レベルのものが手に入る"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -968,7 +968,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "T4T"
-output = "MeikyuKingdomBasic : お宝４表(3) ＞ 好きなコモンアイテムのカテゴリ１種を選び、そのカテゴリからランダムにアイテム１個を選ぶ。そのアイテムにレベルがあれば、２レベルのものが手に入る"
+output = "お宝４表(3) ＞ 好きなコモンアイテムのカテゴリ１種を選び、そのカテゴリからランダムにアイテム１個を選ぶ。そのアイテムにレベルがあれば、２レベルのものが手に入る"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -976,7 +976,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "T5T"
-output = "MeikyuKingdomBasic : お宝５表(3) ＞ 好きなコモンアイテムのカテゴリ１種を選び、そのカテゴリからランダムにアイテム１個を選ぶ。そのアイテムにレベルがあれば、４レベルのものが手に入る"
+output = "お宝５表(3) ＞ 好きなコモンアイテムのカテゴリ１種を選び、そのカテゴリからランダムにアイテム１個を選ぶ。そのアイテムにレベルがあれば、４レベルのものが手に入る"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -984,7 +984,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CIR"
-output = "MeikyuKingdomBasic : コモンアイテムランダム決定表(1) ＞ 武具アイテム表(22) ＞ 棘（だんびら）"
+output = "コモンアイテムランダム決定表(1) ＞ 武具アイテム表(22) ＞ 棘（だんびら）"
 rands = [
   { sides = 4, value = 1 },
   { sides = 6, value = 2 },
@@ -994,7 +994,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CIR"
-output = "MeikyuKingdomBasic : コモンアイテムランダム決定表(2) ＞ 生活アイテム表(36) ＞ 山吹色のお菓子"
+output = "コモンアイテムランダム決定表(2) ＞ 生活アイテム表(36) ＞ 山吹色のお菓子"
 rands = [
   { sides = 4, value = 2 },
   { sides = 6, value = 6 },
@@ -1004,7 +1004,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CIR"
-output = "MeikyuKingdomBasic : コモンアイテムランダム決定表(3) ＞ 回復アイテム表(11) ＞ チョコレート（お弁当）"
+output = "コモンアイテムランダム決定表(3) ＞ 回復アイテム表(11) ＞ チョコレート（お弁当）"
 rands = [
   { sides = 4, value = 3 },
   { sides = 6, value = 1 },
@@ -1014,7 +1014,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CIR"
-output = "MeikyuKingdomBasic : コモンアイテムランダム決定表(4) ＞ 探索アイテム表(33) ＞ 迷宮迷彩（星の欠片）"
+output = "コモンアイテムランダム決定表(4) ＞ 探索アイテム表(33) ＞ 迷宮迷彩（星の欠片）"
 rands = [
   { sides = 4, value = 4 },
   { sides = 6, value = 3 },
@@ -1024,7 +1024,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "RUIR"
-output = "MeikyuKingdomBasic : レア一般アイテムランダム決定表(2) ＞ 基本レア一般アイテム表(22) ＞ 転ばぬ先の杖"
+output = "レア一般アイテムランダム決定表(2) ＞ 基本レア一般アイテム表(22) ＞ 転ばぬ先の杖"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -1034,7 +1034,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "RUIR"
-output = "MeikyuKingdomBasic : レア一般アイテムランダム決定表(6) ＞ 上級レア一般アイテム表(35) ＞ 不死鳥の羽飾り"
+output = "レア一般アイテムランダム決定表(6) ＞ 上級レア一般アイテム表(35) ＞ 不死鳥の羽飾り"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -1044,7 +1044,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "RWIR"
-output = "MeikyuKingdomBasic : レア武具アイテムランダム決定表(1) ＞ 基本レア武具アイテム表(25) ＞ バカには見えない鎧"
+output = "レア武具アイテムランダム決定表(1) ＞ 基本レア武具アイテム表(25) ＞ バカには見えない鎧"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -1054,7 +1054,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "RWIR"
-output = "MeikyuKingdomBasic : レア武具アイテムランダム決定表(5) ＞ 上級レア武具アイテム表(63) ＞ 黄金の鶴嘴"
+output = "レア武具アイテムランダム決定表(5) ＞ 上級レア武具アイテム表(63) ＞ 黄金の鶴嘴"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -1064,7 +1064,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "WIT"
-output = "MeikyuKingdomBasic : 武具アイテム表(44) ＞ 大弓（だんびら）"
+output = "武具アイテム表(44) ＞ 大弓（だんびら）"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -1073,7 +1073,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "LIT"
-output = "MeikyuKingdomBasic : 生活アイテム表(46) ＞ クレジットカード"
+output = "生活アイテム表(46) ＞ クレジットカード"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -1082,7 +1082,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "RIT"
-output = "MeikyuKingdomBasic : 回復アイテム表(33) ＞ 魔素水（お弁当）"
+output = "回復アイテム表(33) ＞ 魔素水（お弁当）"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1091,7 +1091,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SIT"
-output = "MeikyuKingdomBasic : 探索アイテム表(12) ＞ ロープ（星の欠片）"
+output = "探索アイテム表(12) ＞ ロープ（星の欠片）"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -1100,7 +1100,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NRUT"
-output = "MeikyuKingdomBasic : 基本レア一般アイテム表(13) ＞ 煙玉"
+output = "基本レア一般アイテム表(13) ＞ 煙玉"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -1109,7 +1109,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NRWT"
-output = "MeikyuKingdomBasic : 基本レア武具アイテム表(51) ＞ チェインソード"
+output = "基本レア武具アイテム表(51) ＞ チェインソード"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -1118,7 +1118,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ARUT"
-output = "MeikyuKingdomBasic : 上級レア一般アイテム表(64) ＞ 召魔鏡"
+output = "上級レア一般アイテム表(64) ＞ 召魔鏡"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -1127,7 +1127,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ARWT"
-output = "MeikyuKingdomBasic : 上級レア武具アイテム表(64) ＞ ムラサマ"
+output = "上級レア武具アイテム表(64) ＞ ムラサマ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -1136,7 +1136,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "RMS"
-output = "MeikyuKingdomBasic : ランダムマップ選択表(43) ＞ B-2"
+output = "ランダムマップ選択表(43) ＞ B-2"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -1145,7 +1145,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KNT1"
-output = "MeikyuKingdomBasic : 王国名決定表(14) ＞ 共和制、立憲、公立、私立"
+output = "王国名決定表(14) ＞ 共和制、立憲、公立、私立"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -1154,7 +1154,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KNT2"
-output = "MeikyuKingdomBasic : 王国名決定表(46) ＞ ローマ、中華、エジプト、アステカ"
+output = "王国名決定表(46) ＞ ローマ、中華、エジプト、アステカ"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -1163,7 +1163,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KNT3"
-output = "MeikyuKingdomBasic : 王国名決定表(36) ＞ 首長国、土侯国"
+output = "王国名決定表(36) ＞ 首長国、土侯国"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -1172,7 +1172,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KET"
-output = "MeikyuKingdomBasic : 王国環境表(4) ＞ あなたの国は、歓楽国家として知られ、他国からの客もよく出入りしている。娯楽系施設の中からランダムに1種を選ぶ。自国にその施設を1件建設する。"
+output = "王国環境表(4) ＞ あなたの国は、歓楽国家として知られ、他国からの客もよく出入りしている。娯楽系施設の中からランダムに1種を選ぶ。自国にその施設を1件建設する。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -1181,7 +1181,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "KET"
-output = "MeikyuKingdomBasic : 王国環境表(6) ＞ あなたの国は、偉大なる古龍が迷宮と化した場所であり、その尊い血を引いているといわれる。その国のキャラクターは新たにスキルを修得するとき、魔獣カテゴリの自分のレベル以下のモンスターが修得しているモンスタースキルの中から、修得するスキルを選ぶことができるようになる。"
+output = "王国環境表(6) ＞ あなたの国は、偉大なる古龍が迷宮と化した場所であり、その尊い血を引いているといわれる。その国のキャラクターは新たにスキルを修得するとき、魔獣カテゴリの自分のレベル以下のモンスターが修得しているモンスタースキルの中から、修得するスキルを選ぶことができるようになる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -1190,7 +1190,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "TET"
-output = "MeikyuKingdomBasic : 技術決定表(1) ＞ あなたの国は、魔法の研究、開発に力をそそぐ魔道国家である。その国のキャラクターは、星術、召喚、科学スキルの判定を行うとき、その達成値が1点上昇する（最大3点まで上昇する。4回目以降は振り直すこと）。"
+output = "技術決定表(1) ＞ あなたの国は、魔法の研究、開発に力をそそぐ魔道国家である。その国のキャラクターは、星術、召喚、科学スキルの判定を行うとき、その達成値が1点上昇する（最大3点まで上昇する。4回目以降は振り直すこと）。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1198,7 +1198,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NST"
-output = "MeikyuKingdomBasic : 国風決定表(2) ＞ あなたの国は、広い国土と高い天井に恵まれている。居住系施設を建設するための価格が1MG軽減される（最大2MGまで軽減される。3回目以降は振り直すこと）。"
+output = "国風決定表(2) ＞ あなたの国は、広い国土と高い天井に恵まれている。居住系施設を建設するための価格が1MG軽減される（最大2MGまで軽減される。3回目以降は振り直すこと）。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1206,7 +1206,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "RET"
-output = "MeikyuKingdomBasic : 資源決定表(6) ＞ あなたの国には、隠し扉があった。「自国の地理」を決定したあと、追加で通路を2本引くことができる。通路でつながっている部屋は領土として扱う。"
+output = "資源決定表(6) ＞ あなたの国には、隠し扉があった。「自国の地理」を決定したあと、追加で通路を2本引くことができる。通路でつながっている部屋は領土として扱う。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1214,7 +1214,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "HRT"
-output = "MeikyuKingdomBasic : 人材決定表(1) ＞ あなたの国には、高い見識を持つ知識人がいる。「才覚系生まれ表」でランダムにジョブ1種を選ぶ。そのジョブの逸材を1人獲得する。逸材の名前を決定すること。"
+output = "人材決定表(1) ＞ あなたの国には、高い見識を持つ知識人がいる。「才覚系生まれ表」でランダムにジョブ1種を選ぶ。そのジョブの逸材を1人獲得する。逸材の名前を決定すること。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1222,7 +1222,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "FAT"
-output = "MeikyuKingdomBasic : 施設決定表(3) ＞ あなたの国は、職人気質のものが多く、物作りがさかんだ。生産系施設の中からランダムに1種を選ぶ。自国にその施設を1件建設する。"
+output = "施設決定表(3) ＞ あなたの国は、職人気質のものが多く、物作りがさかんだ。生産系施設の中からランダムに1種を選ぶ。自国にその施設を1件建設する。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1230,7 +1230,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "BLT"
-output = "MeikyuKingdomBasic : 血族決定表(2) ＞ あなたの国は、古代に迷宮から姿を消した妖精女王の末裔といわれている。その国のキャラクターは新たにスキルを修得するとき、妖精カテゴリの自分のレベル以下のモンスターが修得しているモンスタースキルの中から、修得するスキルを選ぶことができるようになる。"
+output = "血族決定表(2) ＞ あなたの国は、古代に迷宮から姿を消した妖精女王の末裔といわれている。その国のキャラクターは新たにスキルを修得するとき、妖精カテゴリの自分のレベル以下のモンスターが修得しているモンスタースキルの中から、修得するスキルを選ぶことができるようになる。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1238,7 +1238,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NMAR"
-output = "MeikyuKingdomBasic : 芸術系名前表(26) ＞ トルバドール／リリカ"
+output = "芸術系名前表(26) ＞ トルバドール／リリカ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -1247,7 +1247,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NMFO"
-output = "MeikyuKingdomBasic : 食べ物系名前表(13) ＞ グラス／テキーラ"
+output = "食べ物系名前表(13) ＞ グラス／テキーラ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -1256,7 +1256,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NMDN"
-output = "MeikyuKingdomBasic : 日用品系名前表(56) ＞ カウチ／クリップ"
+output = "日用品系名前表(56) ＞ カウチ／クリップ"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -1265,7 +1265,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NMPL"
-output = "MeikyuKingdomBasic : 地名系名前表(15) ＞ アラド／モルダヴィア"
+output = "地名系名前表(15) ＞ アラド／モルダヴィア"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -1274,7 +1274,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NMMA"
-output = "MeikyuKingdomBasic : 機械系名前表(44) ＞ ナルキ／プランタ"
+output = "機械系名前表(44) ＞ ナルキ／プランタ"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -1283,7 +1283,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NMGO"
-output = "MeikyuKingdomBasic : 神様系名前表(46) ＞ エンキ／イナンナ"
+output = "神様系名前表(46) ＞ エンキ／イナンナ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -1292,7 +1292,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SDT"
-output = "MeikyuKingdomBasic : スキル決定表(3) ＞ 基本スキル表で決定"
+output = "スキル決定表(3) ＞ 基本スキル表で決定"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1300,7 +1300,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "BUS"
-output = "MeikyuKingdomBasic : 基本肉弾スキル表(1) ＞ 投げる"
+output = "基本肉弾スキル表(1) ＞ 投げる"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1308,7 +1308,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SHS"
-output = "MeikyuKingdomBasic : 基本射撃スキル表(4) ＞ 援護射撃"
+output = "基本射撃スキル表(4) ＞ 援護射撃"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1316,7 +1316,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ASS"
-output = "MeikyuKingdomBasic : 基本星術スキル表(3) ＞ 星占い"
+output = "基本星術スキル表(3) ＞ 星占い"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1324,7 +1324,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SUS"
-output = "MeikyuKingdomBasic : 基本召喚スキル表(3) ＞ 送還"
+output = "基本召喚スキル表(3) ＞ 送還"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1332,7 +1332,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SCS"
-output = "MeikyuKingdomBasic : 基本科学スキル表(6) ＞ 理力の一撃"
+output = "基本科学スキル表(6) ＞ 理力の一撃"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1340,7 +1340,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "LAS"
-output = "MeikyuKingdomBasic : 基本迷宮スキル表(3) ＞ 足止め"
+output = "基本迷宮スキル表(3) ＞ 足止め"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1348,7 +1348,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NES"
-output = "MeikyuKingdomBasic : 基本交渉スキル表(5) ＞ 右腕"
+output = "基本交渉スキル表(5) ＞ 右腕"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1356,7 +1356,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "COS"
-output = "MeikyuKingdomBasic : 基本便利スキル表(5) ＞ デート"
+output = "基本便利スキル表(5) ＞ デート"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1364,7 +1364,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ENS"
-output = "MeikyuKingdomBasic : 基本芸能スキル表(3) ＞ 武楽"
+output = "基本芸能スキル表(3) ＞ 武楽"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1372,7 +1372,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "TOS"
-output = "MeikyuKingdomBasic : 基本道具スキル表(1) ＞ 大かばん"
+output = "基本道具スキル表(1) ＞ 大かばん"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1380,7 +1380,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SDT"
-output = "MeikyuKingdomBasic : スキル決定表(5) ＞ 上級スキル表で決定"
+output = "スキル決定表(5) ＞ 上級スキル表で決定"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1388,7 +1388,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ABUS"
-output = "MeikyuKingdomBasic : 上級肉弾スキル表(6) ＞ 即席武器"
+output = "上級肉弾スキル表(6) ＞ 即席武器"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1396,7 +1396,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ASHS"
-output = "MeikyuKingdomBasic : 上級射撃スキル表(6) ＞ ブルズアイ"
+output = "上級射撃スキル表(6) ＞ ブルズアイ"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1404,7 +1404,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "AASS"
-output = "MeikyuKingdomBasic : 上級星術スキル表(1) ＞ 星に願いを"
+output = "上級星術スキル表(1) ＞ 星に願いを"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1412,7 +1412,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ASUS"
-output = "MeikyuKingdomBasic : 上級召喚スキル表(1) ＞ 式神"
+output = "上級召喚スキル表(1) ＞ 式神"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1420,7 +1420,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ASCS"
-output = "MeikyuKingdomBasic : 上級科学スキル表(4) ＞ 強化術式"
+output = "上級科学スキル表(4) ＞ 強化術式"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1428,7 +1428,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ALAS"
-output = "MeikyuKingdomBasic : 上級迷宮スキル表(3) ＞ 迷核解析"
+output = "上級迷宮スキル表(3) ＞ 迷核解析"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1436,7 +1436,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ANES"
-output = "MeikyuKingdomBasic : 上級交渉スキル表(1) ＞ 色気"
+output = "上級交渉スキル表(1) ＞ 色気"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1444,7 +1444,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ACOS"
-output = "MeikyuKingdomBasic : 上級便利スキル表(2) ＞ 心眼"
+output = "上級便利スキル表(2) ＞ 心眼"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1452,7 +1452,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "AENS"
-output = "MeikyuKingdomBasic : 上級芸能スキル表(4) ＞ 国歌"
+output = "上級芸能スキル表(4) ＞ 国歌"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1460,7 +1460,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ATOS"
-output = "MeikyuKingdomBasic : 上級道具スキル表(5) ＞ 相棒"
+output = "上級道具スキル表(5) ＞ 相棒"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1468,7 +1468,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "IEQ"
-output = "MeikyuKingdomBasic : 初期装備表(12) ＞ 魔導書"
+output = "初期装備表(12) ＞ 魔導書"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1477,7 +1477,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "FBT"
-output = "MeikyuKingdomBasic : お祭り休憩表(10) ＞ せっかくお祭りなんだし、肩肘はってないでノリノリでGO！！　このゲーム中は食事をするたびに、《民の声》+1。この効果は累積しない。"
+output = "お祭り休憩表(10) ＞ せっかくお祭りなんだし、肩肘はってないでノリノリでGO！！　このゲーム中は食事をするたびに、《民の声》+1。この効果は累積しない。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -1486,7 +1486,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "FRT"
-output = "MeikyuKingdomBasic : お祭り表(5) ＞ 星祭。季節のお祭り。冬至や夏至などの祭りや、七夕、お花見、雪祭りなどが含まれる。季節感の少ない迷宮では、殊更にその風情を楽しもうとやたら盛り上がる。宮廷全員、好きなキャラクター1人を選び、そのキャラクターに対する《好意》+1。"
+output = "お祭り表(5) ＞ 星祭。季節のお祭り。冬至や夏至などの祭りや、七夕、お花見、雪祭りなどが含まれる。季節感の少ない迷宮では、殊更にその風情を楽しもうとやたら盛り上がる。宮廷全員、好きなキャラクター1人を選び、そのキャラクターに対する《好意》+1。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -1495,7 +1495,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "EBT"
-output = "MeikyuKingdomBasic : 空振り休憩表(4) ＞ 大量大量！　色々な素材が見つかる。肉、牙、鉄、魔素、機械の素材（キャラクターシートの上の段の素材）を1個ずつ獲得する。"
+output = "空振り休憩表(4) ＞ 大量大量！　色々な素材が見つかる。肉、牙、鉄、魔素、機械の素材（キャラクターシートの上の段の素材）を1個ずつ獲得する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -1504,7 +1504,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "WBT"
-output = "MeikyuKingdomBasic : 全体休憩表(9) ＞ 配下たちに見張りを任せ、体を休める。宮廷全員の《HP》を最大値まで回復する。"
+output = "全体休憩表(9) ＞ 配下たちに見張りを任せ、体を休める。宮廷全員の《HP》を最大値まで回復する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -1513,7 +1513,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "LBT"
-output = "MeikyuKingdomBasic : カップル休憩表(11) ＞ 「あーもう、最悪！」仲良く休憩するつもりが、ひどい喧嘩になってしまう。「カップル休憩表」使用者のお互いに対する《敵意》+2。"
+output = "カップル休憩表(11) ＞ 「あーもう、最悪！」仲良く休憩するつもりが、ひどい喧嘩になってしまう。「カップル休憩表」使用者のお互いに対する《敵意》+2。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1522,7 +1522,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ARN"
-output = "MeikyuKingdomBasic : 人工部屋特殊遭遇表(3) ＞ ラストエグザイルという修行の旅をしている【ラストサムライ】の一団に出会う。PC1人が素材欄に「鉄」を含むアイテム1個を消費すると、彼らは喜んで旅の噂話を教えてくれる。1クォーターが経過し、宮廷の代表は「情報」の素材を（1D6）個獲得する。各PCは、望むなら食事アイテムを1個ずつ使用できる。アイテムを消費しない場合、彼らは襲いかかってくる。宮廷全員は[武勇/宮廷の人数+5]の判定を行う。失敗した者は、ランダムにアイテムスロット1つを選び、そのスロットに装備・収納されているアイテムをすべて破壊し、（1D6）+1点のダメージを受ける。"
+output = "人工部屋特殊遭遇表(3) ＞ ラストエグザイルという修行の旅をしている【ラストサムライ】の一団に出会う。PC1人が素材欄に「鉄」を含むアイテム1個を消費すると、彼らは喜んで旅の噂話を教えてくれる。1クォーターが経過し、宮廷の代表は「情報」の素材を（1D6）個獲得する。各PCは、望むなら食事アイテムを1個ずつ使用できる。アイテムを消費しない場合、彼らは襲いかかってくる。宮廷全員は[武勇/宮廷の人数+5]の判定を行う。失敗した者は、ランダムにアイテムスロット1つを選び、そのスロットに装備・収納されているアイテムをすべて破壊し、（1D6）+1点のダメージを受ける。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1530,7 +1530,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "WEN"
-output = "MeikyuKingdomBasic : 水域部屋特殊遭遇表(5) ＞ 「ヨーホー！ 金目のものをよこしやがれ！」【階賊】の集団に襲われる！ 宮廷全員は[武勇/13-宮廷の人数]の判定を行う。失敗した者は、ランダムに自分のアイテムスロット1つを選び、そのスロットに装備・収納されたものをすべて消費し、（1D6）点のダメージを受ける。"
+output = "水域部屋特殊遭遇表(5) ＞ 「ヨーホー！ 金目のものをよこしやがれ！」【階賊】の集団に襲われる！ 宮廷全員は[武勇/13-宮廷の人数]の判定を行う。失敗した者は、ランダムに自分のアイテムスロット1つを選び、そのスロットに装備・収納されたものをすべて消費し、（1D6）点のダメージを受ける。"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1538,7 +1538,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NEN"
-output = "MeikyuKingdomBasic : 自然部屋特殊遭遇表(6) ＞ その部屋の奥には、茸の森が広がっていた。その中心にたたずむ巨大な【オバケ茸】を【茸人】たちが囲んで、何か祈りを捧げている。……ここなら、もしかすると【百年茸】があるかも。【百年茸】を探すなら、宮廷の中から望む者は[探索/9+この判定に挑戦した回数(初回は1回と数える)]の判定を行う。成功した者は、レア一般アイテムの 【百年茸】を1個獲得する。誰か1人でも失敗すると、【茸人】に見つかり、PC全員は「毒2」の変調を受ける。【百年茸】を探さないなら、安全にその場を離れ、何も起こらない。"
+output = "自然部屋特殊遭遇表(6) ＞ その部屋の奥には、茸の森が広がっていた。その中心にたたずむ巨大な【オバケ茸】を【茸人】たちが囲んで、何か祈りを捧げている。……ここなら、もしかすると【百年茸】があるかも。【百年茸】を探すなら、宮廷の中から望む者は[探索/9+この判定に挑戦した回数(初回は1回と数える)]の判定を行う。成功した者は、レア一般アイテムの 【百年茸】を1個獲得する。誰か1人でも失敗すると、【茸人】に見つかり、PC全員は「毒2」の変調を受ける。【百年茸】を探さないなら、安全にその場を離れ、何も起こらない。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1546,7 +1546,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "CEN"
-output = "MeikyuKingdomBasic : 洞窟部屋特殊遭遇表(5) ＞ 【ドラゴン】が現れた！ 流暢な「ひとつの言葉」を使って、その巨大な生き物は「うるさくて眠れない」と苦情を言ってきた。宮廷の代表は[魅力/宮廷の人数+7]の判定を行う。成功すると丁重にお帰りいただくことができる。失敗すると、宮廷全員は15点のダメージを受ける。"
+output = "洞窟部屋特殊遭遇表(5) ＞ 【ドラゴン】が現れた！ 流暢な「ひとつの言葉」を使って、その巨大な生き物は「うるさくて眠れない」と苦情を言ってきた。宮廷の代表は[魅力/宮廷の人数+7]の判定を行う。成功すると丁重にお帰りいただくことができる。失敗すると、宮廷全員は15点のダメージを受ける。"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1554,7 +1554,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "SEN"
-output = "MeikyuKingdomBasic : 天空部屋特殊遭遇表(2) ＞ 【羽根兜の乙女】が立ち塞がり、「勇者よ！ きさまの魂をもらい受ける！」と決闘を挑んでくる。決闘を受けるなら、宮廷の代表は[武勇/14]の判定を行う。成功すると、【羽根兜の乙女】は、「次は絶対勝つ！」と、泣きながら逃げていく。判定に成功したPCが装備可能なら【愛】を1個獲得する。失敗した者は（1D6）+8点のダメージを受け、【羽根兜の乙女】から「腰抜けが。とんだ見込み違いだ」と罵倒される。決闘を拒否するなら、【羽根兜の乙女】の怒りを買い、PC全員は（2D6）点のダメージを受ける。"
+output = "天空部屋特殊遭遇表(2) ＞ 【羽根兜の乙女】が立ち塞がり、「勇者よ！ きさまの魂をもらい受ける！」と決闘を挑んでくる。決闘を受けるなら、宮廷の代表は[武勇/14]の判定を行う。成功すると、【羽根兜の乙女】は、「次は絶対勝つ！」と、泣きながら逃げていく。判定に成功したPCが装備可能なら【愛】を1個獲得する。失敗した者は（1D6）+8点のダメージを受け、【羽根兜の乙女】から「腰抜けが。とんだ見込み違いだ」と罵倒される。決闘を拒否するなら、【羽根兜の乙女】の怒りを買い、PC全員は（2D6）点のダメージを受ける。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1562,7 +1562,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "OEN"
-output = "MeikyuKingdomBasic : 異界部屋特殊遭遇表(5) ＞ 遠くの方から何かが転がってくる。ゴロゴロと音が大きくなり、気がつくと【悪意の骰子】が眼前に迫っていた！ 宮廷全員は[探索/9]の判定を行う。失敗した者は「呪い4」の変調を受け、奇妙な姿に変えられる。"
+output = "異界部屋特殊遭遇表(5) ＞ 遠くの方から何かが転がってくる。ゴロゴロと音が大きくなり、気がつくと【悪意の骰子】が眼前に迫っていた！ 宮廷全員は[探索/9]の判定を行う。失敗した者は「呪い4」の変調を受け、奇妙な姿に変えられる。"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1570,7 +1570,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "DFT1"
-output = "MeikyuKingdomBasic : デヴァイス・ファクトリー表 (特性1個) ＞ ベースアイテム：聴診器（星の欠片）（もしくは任意のアイテム）\n特性[8]：そのアイテムは「[8]召喚スキルから好きなスキル1種」の呪紋を持つ。"
+output = "デヴァイス・ファクトリー表 (特性1個) ＞ ベースアイテム：聴診器（星の欠片）（もしくは任意のアイテム）\n特性[8]：そのアイテムは「[8]召喚スキルから好きなスキル1種」の呪紋を持つ。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -1584,7 +1584,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "DFT2"
-output = "MeikyuKingdomBasic : デヴァイス・ファクトリー表 (特性2個) ＞ ベースアイテム：迷宮保険（もしくは任意のアイテム）\n特性[5]：そのアイテムは銘を持つ。銘を決定する。\n特性[7]：そのアイテムにレベルがあれば、レベルを1点上昇する。\nレベルが設定されていなければ、特性[7]：そのアイテムにレベルがあれば、レベルを1点上昇する。\nレベルが設定されていなければ、特性[9]：そのアイテムは「[4]このアイテムを装備している限り「毒2」の変調を受ける」の呪禍を持つ。\nさらに、特性[7]：そのアイテムにレベルがあれば、レベルを1点上昇する。\nレベルが設定されていなければ、特性[8]：そのアイテムは「[9]科学スキルから好きなスキル1種」の呪紋を持つ。"
+output = "デヴァイス・ファクトリー表 (特性2個) ＞ ベースアイテム：迷宮保険（もしくは任意のアイテム）\n特性[5]：そのアイテムは銘を持つ。銘を決定する。\n特性[7]：そのアイテムにレベルがあれば、レベルを1点上昇する。\nレベルが設定されていなければ、特性[7]：そのアイテムにレベルがあれば、レベルを1点上昇する。\nレベルが設定されていなければ、特性[9]：そのアイテムは「[4]このアイテムを装備している限り「毒2」の変調を受ける」の呪禍を持つ。\nさらに、特性[7]：そのアイテムにレベルがあれば、レベルを1点上昇する。\nレベルが設定されていなければ、特性[8]：そのアイテムは「[9]科学スキルから好きなスキル1種」の呪紋を持つ。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1609,7 +1609,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "DFT1"
-output = "MeikyuKingdomBasic : デヴァイス・ファクトリー表 (特性1個) ＞ ベースアイテム：大剣（もしくは任意のアイテム）\n特性[11]：そのアイテムは「条件：[3][1]性別が男であること」の適正を持つ。\nさらに、特性[11]：そのアイテムは「条件：[3][2]性別が女であること」の適正を持つ。\nさらに、特性[3]：そのアイテムは寿命を持つ。寿命の値を決定する。\nさらに、特性[11]：そのアイテムは「条件：[4]上級ジョブであること」の適正を持つ。\nさらに、特性[5]：そのアイテムは銘を持つ。銘を決定する。"
+output = "デヴァイス・ファクトリー表 (特性1個) ＞ ベースアイテム：大剣（もしくは任意のアイテム）\n特性[11]：そのアイテムは「条件：[3][1]性別が男であること」の適正を持つ。\nさらに、特性[11]：そのアイテムは「条件：[3][2]性別が女であること」の適正を持つ。\nさらに、特性[3]：そのアイテムは寿命を持つ。寿命の値を決定する。\nさらに、特性[11]：そのアイテムは「条件：[4]上級ジョブであること」の適正を持つ。\nさらに、特性[5]：そのアイテムは銘を持つ。銘を決定する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -1634,7 +1634,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "DFT1"
-output = "MeikyuKingdomBasic : デヴァイス・ファクトリー表 (特性1個) ＞ ベースアイテム：山吹色のお菓子（もしくは任意のアイテム）\n特性[11]：そのアイテムは「条件：[3][5]性別が男であること」の適正を持つ。\nさらに、特性[11]：そのアイテムは「条件：[2]生まれ表でランダムに選んだジョブであること」の適正を持つ。\nさらに、特性[4]：そのアイテムは境界障壁を持つ。《HP》の値を決定する。"
+output = "デヴァイス・ファクトリー表 (特性1個) ＞ ベースアイテム：山吹色のお菓子（もしくは任意のアイテム）\n特性[11]：そのアイテムは「条件：[3][5]性別が男であること」の適正を持つ。\nさらに、特性[11]：そのアイテムは「条件：[2]生まれ表でランダムに選んだジョブであること」の適正を持つ。\nさらに、特性[4]：そのアイテムは境界障壁を持つ。《HP》の値を決定する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -1653,7 +1653,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NAME"
-output = "MeikyuKingdomBasic : 名前表(1) ＞ [2,36,14]“虎の尾を踏む”ジッポ／ショコラ"
+output = "名前表(1) ＞ [2,36,14]“虎の尾を踏む”ジッポ／ショコラ"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1665,7 +1665,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NNAME"
-output = "MeikyuKingdomBasic : 新名前表(1) ＞ [4,5,36,24]“やめられない止まらない”ドライラート／コーチェ"
+output = "新名前表(1) ＞ [4,5,36,24]“やめられない止まらない”ドライラート／コーチェ"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -1678,7 +1678,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "NNAME2"
-output = "MeikyuKingdomBasic : 新名前表(2) ＞ [1,2,15,56]“三階に家なき”ココ／プラム [2,4,25,45]“（王国名）２Ｄ６（兄弟／姉妹）”トリノ／シチリア"
+output = "新名前表(2) ＞ [1,2,15,56]“三階に家なき”ココ／プラム [2,4,25,45]“（王国名）２Ｄ６（兄弟／姉妹）”トリノ／シチリア"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },

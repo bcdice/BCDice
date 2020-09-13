@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=50"
-output = "EclipsePhase : (1D100<=50) ＞ 50 ＞ エクセレント"
+output = "(1D100<=50) ＞ 50 ＞ エクセレント"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=50"
-output = "EclipsePhase : (1D100<=50) ＞ 30 ＞ エクセレント"
+output = "(1D100<=50) ＞ 30 ＞ エクセレント"
 rands = [
   { sides = 100, value = 30 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=50"
-output = "EclipsePhase : (1D100<=50) ＞ 29 ＞ 成功"
+output = "(1D100<=50) ＞ 29 ＞ 成功"
 rands = [
   { sides = 100, value = 29 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=50"
-output = "EclipsePhase : (1D100<=50) ＞ 51 ＞ 失敗"
+output = "(1D100<=50) ＞ 51 ＞ 失敗"
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=50"
-output = "EclipsePhase : (1D100<=50) ＞ 79 ＞ 失敗"
+output = "(1D100<=50) ＞ 79 ＞ 失敗"
 rands = [
   { sides = 100, value = 79 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=50"
-output = "EclipsePhase : (1D100<=50) ＞ 80 ＞ シビア"
+output = "(1D100<=50) ＞ 80 ＞ シビア"
 rands = [
   { sides = 100, value = 80 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=50"
-output = "EclipsePhase : (1D100<=50) ＞ 100 ＞ 00 ＞ 決定的成功"
+output = "(1D100<=50) ＞ 100 ＞ 00 ＞ 決定的成功"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=50"
-output = "EclipsePhase : (1D100<=50) ＞ 44 ＞ 決定的成功"
+output = "(1D100<=50) ＞ 44 ＞ 決定的成功"
 rands = [
   { sides = 100, value = 44 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=50"
-output = "EclipsePhase : (1D100<=50) ＞ 49 ＞ エクセレント"
+output = "(1D100<=50) ＞ 49 ＞ エクセレント"
 rands = [
   { sides = 100, value = 49 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=50"
-output = "EclipsePhase : (1D100<=50) ＞ 55 ＞ 決定的失敗"
+output = "(1D100<=50) ＞ 55 ＞ 決定的失敗"
 rands = [
   { sides = 100, value = 55 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=50"
-output = "EclipsePhase : (1D100<=50) ＞ 99 ＞ 決定的失敗"
+output = "(1D100<=50) ＞ 99 ＞ 決定的失敗"
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -89,7 +89,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=0"
-output = "EclipsePhase : (1D100<=0) ＞ 100 ＞ 00 ＞ 決定的成功"
+output = "(1D100<=0) ＞ 100 ＞ 00 ＞ 決定的成功"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100<=120"
-output = "EclipsePhase : (1D100<=120) ＞ 99 ＞ 決定的失敗"
+output = "(1D100<=120) ＞ 99 ＞ 決定的失敗"
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -105,7 +105,7 @@ rands = [
 [[ test ]]
 game_system = "EclipsePhase"
 input = "1D100>=? 目標値?でバグらない"
-output = "EclipsePhase : (1D100>=?) ＞ 42 ＞ 失敗"
+output = "(1D100>=?) ＞ 42 ＞ 失敗"
 rands = [
   { sides = 100, value = 42 },
 ]

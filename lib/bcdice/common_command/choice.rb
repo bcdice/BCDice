@@ -26,7 +26,7 @@ module BCDice
         chosen = items[index]
 
         expr = "choice[#{items.join(',')}]"
-        return ": (#{expr}) ＞ #{chosen}"
+        return "(#{expr}) ＞ #{chosen}"
       end
     end
   end

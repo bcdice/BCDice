@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "NightWizard3rd"
 input = "0nw+5@8#6+3"
-output = "NightWizard3rd : (NW+5@8#6+3) ＞ 8-10[5,1] ＞ ファンブル ＞ -2"
+output = "(NW+5@8#6+3) ＞ 8-10[5,1] ＞ ファンブル ＞ -2"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard3rd"
 input = "0nw+5@8#6+3"
-output = "NightWizard3rd : (NW+5@8#6+3) ＞ 8+7[5,2] ＞ 15"
+output = "(NW+5@8#6+3) ＞ 8+7[5,2] ＞ 15"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard3rd"
 input = "0nw+5@8#6+3"
-output = "NightWizard3rd : (NW+5@8#6+3) ＞ 8+10[5,3]+7[5,2] ＞ クリティカル ＞ 25"
+output = "(NW+5@8#6+3) ＞ 8+10[5,3]+7[5,2] ＞ クリティカル ＞ 25"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },

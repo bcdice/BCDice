@@ -42,7 +42,7 @@ module BCDice
         success_num_text = "成功数#{success_num}" if cmp_op
 
         sequence = [
-          ": (#{lhs}#{Format.comparison_operator(cmp_op)}#{target_number})",
+          "(#{lhs}#{Format.comparison_operator(cmp_op)}#{target_number})",
           dice_list.join(","),
           success_num_text,
           @game_system.grich_text(count_of_1, dice_list.size, success_num)

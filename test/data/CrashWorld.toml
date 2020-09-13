@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "CrashWorld"
 input = "CW0"
-output = "CrashWorld : (1)  成功度 : 0"
+output = "(1)  成功度 : 0"
 rands = [
   { sides = 12, value = 1 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "CrashWorld"
 input = "CW8"
-output = "CrashWorld : (8, 8, 8, 8, 9)  成功度 : 4"
+output = "(8, 8, 8, 8, 9)  成功度 : 4"
 rands = [
   { sides = 12, value = 8 },
   { sides = 12, value = 8 },
@@ -21,7 +21,7 @@ rands = [
 [[ test ]]
 game_system = "CrashWorld"
 input = "CW0"
-output = "CrashWorld : (2)  成功度 : 0"
+output = "(2)  成功度 : 0"
 rands = [
   { sides = 12, value = 2 },
 ]
@@ -29,7 +29,7 @@ rands = [
 [[ test ]]
 game_system = "CrashWorld"
 input = "CW0"
-output = "CrashWorld : (7)  成功度 : 0"
+output = "(7)  成功度 : 0"
 rands = [
   { sides = 12, value = 7 },
 ]
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "CrashWorld"
 input = "CW0"
-output = "CrashWorld : (8)  成功度 : 0"
+output = "(8)  成功度 : 0"
 rands = [
   { sides = 12, value = 8 },
 ]
@@ -45,7 +45,7 @@ rands = [
 [[ test ]]
 game_system = "CrashWorld"
 input = "CW0"
-output = "CrashWorld : (11, 1, 7)  成功度 : 2"
+output = "(11, 1, 7)  成功度 : 2"
 rands = [
   { sides = 12, value = 11 },
   { sides = 12, value = 1 },
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "CrashWorld"
 input = "CW0"
-output = "CrashWorld : (11, 11, 11, 11, 11, 11, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 12)  成功度 : 0 ファンブル"
+output = "(11, 11, 11, 11, 11, 11, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 12)  成功度 : 0 ファンブル"
 rands = [
   { sides = 12, value = 11 },
   { sides = 12, value = 11 },
@@ -80,7 +80,7 @@ rands = [
 [[ test ]]
 game_system = "CrashWorld"
 input = "CW0"
-output = "CrashWorld : (11, 11, 11, 11, 11, 11, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 2)  成功度 : 17"
+output = "(11, 11, 11, 11, 11, 11, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 2)  成功度 : 17"
 rands = [
   { sides = 12, value = 11 },
   { sides = 12, value = 11 },
@@ -105,7 +105,7 @@ rands = [
 [[ test ]]
 game_system = "CrashWorld"
 input = "CW0"
-output = "CrashWorld : (10)  成功度 : 0"
+output = "(10)  成功度 : 0"
 rands = [
   { sides = 12, value = 10 },
 ]
@@ -113,7 +113,7 @@ rands = [
 [[ test ]]
 game_system = "CrashWorld"
 input = "CW0"
-output = "CrashWorld : (11, 2, 3)  成功度 : 2"
+output = "(11, 2, 3)  成功度 : 2"
 rands = [
   { sides = 12, value = 11 },
   { sides = 12, value = 2 },
@@ -123,7 +123,7 @@ rands = [
 [[ test ]]
 game_system = "CrashWorld"
 input = "CW0"
-output = "CrashWorld : (12)  成功度 : 0 ファンブル"
+output = "(12)  成功度 : 0 ファンブル"
 rands = [
   { sides = 12, value = 12 },
 ]

@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "SteamPunkers"
 input = "SP4"
-output = "SteamPunkers : (SP4) ＞ [1,1,1,1] ＞ 成功数:0, 失敗数:4 ＞ ファンブル"
+output = "(SP4) ＞ [1,1,1,1] ＞ 成功数:0, 失敗数:4 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -12,7 +12,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "SP4>=0"
-output = "SteamPunkers : (SP4>=0) ＞ [1,1,1,1] ＞ 成功数:0, 失敗数:4 ＞ ファンブル"
+output = "(SP4>=0) ＞ [1,1,1,1] ＞ 成功数:0, 失敗数:4 ＞ ファンブル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -23,7 +23,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "sp13"
-output = "SteamPunkers : (SP13) ＞ [1,2,3,4,5,6,5,4,3,2,1,2,3] ＞ 成功数:4, 失敗数:10"
+output = "(SP13) ＞ [1,2,3,4,5,6,5,4,3,2,1,2,3] ＞ 成功数:4, 失敗数:10"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -43,7 +43,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "sp5>=2"
-output = "SteamPunkers : (SP5>=2) ＞ [6,6,6,6,6] ＞ 成功数:10, 失敗数:0 ＞ 成功"
+output = "(SP5>=2) ＞ [6,6,6,6,6] ＞ 成功数:10, 失敗数:0 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "sp4>=3"
-output = "SteamPunkers : (SP4>=3) ＞ [3,4,1,6] ＞ 成功数:2, 失敗数:3 ＞ 失敗"
+output = "(SP4>=3) ＞ [3,4,1,6] ＞ 成功数:2, 失敗数:3 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -66,7 +66,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "SSP4>=3"
-output = "SteamPunkers : (SP4>=3) ＞ [3,4,1,6] ＞ 成功数:2, 失敗数:3 ＞ 失敗"
+output = "(SP4>=3) ＞ [3,4,1,6] ＞ 成功数:2, 失敗数:3 ＞ 失敗"
 secret = true
 rands = [
   { sides = 6, value = 3 },
@@ -78,7 +78,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "sp3>=3 MurMurChantPrayInvoke!!"
-output = "SteamPunkers : (SP3>=3) ＞ [1,5,4] ＞ 成功数:1, 失敗数:2 ＞ 失敗"
+output = "(SP3>=3) ＞ [1,5,4] ＞ 成功数:1, 失敗数:2 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -88,7 +88,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "sp8 ささやきえいしょういのいねんじよ！"
-output = "SteamPunkers : (SP8) ＞ [2,4,3,1,6,6,3,5] ＞ 成功数:5, 失敗数:5"
+output = "(SP8) ＞ [2,4,3,1,6,6,3,5] ＞ 成功数:5, 失敗数:5"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -103,7 +103,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PAT"
-output = "SteamPunkers : 年齢表(11) ＞ 【14~15歳】 まだまだ、子ども扱い。また、過去の内容は父か母のことを指している。"
+output = "年齢表(11) ＞ 【14~15歳】 まだまだ、子ども扱い。また、過去の内容は父か母のことを指している。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -112,7 +112,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PAT"
-output = "SteamPunkers : 年齢表(66) ＞ 【28~30歳】 蒸気大戦末期をよく知っている。また、過去の内容はあなた自身のことだ。"
+output = "年齢表(66) ＞ 【28~30歳】 蒸気大戦末期をよく知っている。また、過去の内容はあなた自身のことだ。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -121,7 +121,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PST"
-output = "SteamPunkers : 性別表(11) ＞ 【男性】 背が高く、がっしりしている。"
+output = "性別表(11) ＞ 【男性】 背が高く、がっしりしている。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -130,7 +130,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PST"
-output = "SteamPunkers : 性別表(66) ＞ 【女性】 スリムな体形をしている。"
+output = "性別表(66) ＞ 【女性】 スリムな体形をしている。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -139,7 +139,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PCT"
-output = "SteamPunkers : 国籍表(11) ＞ 【日本皇国】 あなたは日本人である。"
+output = "国籍表(11) ＞ 【日本皇国】 あなたは日本人である。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -148,7 +148,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PCT"
-output = "SteamPunkers : 国籍表(66) ＞ 【ソビエト連邦】 あなたはソビエト人である。"
+output = "国籍表(66) ＞ 【ソビエト連邦】 あなたはソビエト人である。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -157,7 +157,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "NIT"
-output = "SteamPunkers : 名前表・イギリス(男性名/女性名/名字)(11) ＞ アーロン/アビゲイル/アダム"
+output = "名前表・イギリス(男性名/女性名/名字)(11) ＞ アーロン/アビゲイル/アダム"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -166,7 +166,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "NIT"
-output = "SteamPunkers : 名前表・イギリス(男性名/女性名/名字)(66) ＞ ウィリアム/ローレンシア/ハックワース"
+output = "名前表・イギリス(男性名/女性名/名字)(66) ＞ ウィリアム/ローレンシア/ハックワース"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -175,7 +175,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "NAT"
-output = "SteamPunkers : 名前表・アメリカ(男性名/女性名/名字)(11) ＞ ジェラルド/デイジー/キャンベル"
+output = "名前表・アメリカ(男性名/女性名/名字)(11) ＞ ジェラルド/デイジー/キャンベル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -184,7 +184,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "NAT"
-output = "SteamPunkers : 名前表・アメリカ(男性名/女性名/名字)(66) ＞ ランバート/イヴ/デビットソン"
+output = "名前表・アメリカ(男性名/女性名/名字)(66) ＞ ランバート/イヴ/デビットソン"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "NFT"
-output = "SteamPunkers : 名前表・フランス(男性名/女性名/名字)(11) ＞ ベルナール/ベアトリス/バシュラール"
+output = "名前表・フランス(男性名/女性名/名字)(11) ＞ ベルナール/ベアトリス/バシュラール"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -202,7 +202,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "NFT"
-output = "SteamPunkers : 名前表・フランス(男性名/女性名/名字)(66) ＞ ルイ/リリアーヌ/ドラクランジュ"
+output = "名前表・フランス(男性名/女性名/名字)(66) ＞ ルイ/リリアーヌ/ドラクランジュ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -211,7 +211,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "NGT"
-output = "SteamPunkers : 名前表・ドイツ(男性名/女性名/名字)(11) ＞ アルベルト/アデーレ/アッカーマン"
+output = "名前表・ドイツ(男性名/女性名/名字)(11) ＞ アルベルト/アデーレ/アッカーマン"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -220,7 +220,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "NGT"
-output = "SteamPunkers : 名前表・ドイツ(男性名/女性名/名字)(66) ＞ ブルクハルト/クロジンデ/ビンデバルト"
+output = "名前表・ドイツ(男性名/女性名/名字)(66) ＞ ブルクハルト/クロジンデ/ビンデバルト"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -229,7 +229,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "NST"
-output = "SteamPunkers : 名前表・ソビエト(男性名/女性名/名字)(11) ＞ イリイチ/バルバラ/バビチェフ"
+output = "名前表・ソビエト(男性名/女性名/名字)(11) ＞ イリイチ/バルバラ/バビチェフ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -238,7 +238,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "NST"
-output = "SteamPunkers : 名前表・ソビエト(男性名/女性名/名字)(66) ＞ アレクセイ/マルタ/ダンチェンコ"
+output = "名前表・ソビエト(男性名/女性名/名字)(66) ＞ アレクセイ/マルタ/ダンチェンコ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -247,7 +247,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "NJT"
-output = "SteamPunkers : 名前表・日本(男性名/女性名/名字)(11) ＞ タキジ/タキ/トウドウ"
+output = "名前表・日本(男性名/女性名/名字)(11) ＞ タキジ/タキ/トウドウ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -256,7 +256,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "NJT"
-output = "SteamPunkers : 名前表・日本(男性名/女性名/名字)(66) ＞ ショウジ/アヤメ/シンドウ"
+output = "名前表・日本(男性名/女性名/名字)(66) ＞ ショウジ/アヤメ/シンドウ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -265,7 +265,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PTT"
-output = "SteamPunkers : 過去表『トゥルース』(11) ＞ 【決着】 あなたは怨敵である蒸気事件の犯人を追っている。いつの日か、そいつとは決着をつけるつもりだ。"
+output = "過去表『トゥルース』(11) ＞ 【決着】 あなたは怨敵である蒸気事件の犯人を追っている。いつの日か、そいつとは決着をつけるつもりだ。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -274,7 +274,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PTT"
-output = "SteamPunkers : 過去表『トゥルース』(66) ＞ 【喪失】 とある蒸気事件の際、あなたの家族は何者かの手により惨殺された。犯人は今も見つかっていない。"
+output = "過去表『トゥルース』(66) ＞ 【喪失】 とある蒸気事件の際、あなたの家族は何者かの手により惨殺された。犯人は今も見つかっていない。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -283,7 +283,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PGT"
-output = "SteamPunkers : 過去表『ガーディアン』(11) ＞ 【後悔】 ある蒸気事件を解決できなかった。結果、あなたは大切な人を失ってしまった。"
+output = "過去表『ガーディアン』(11) ＞ 【後悔】 ある蒸気事件を解決できなかった。結果、あなたは大切な人を失ってしまった。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -292,7 +292,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PGT"
-output = "SteamPunkers : 過去表『ガーディアン』(66) ＞ 【庇護】 現在、あなたには護るべき人、護るべき場所がある。それらの日常を護るべく、あなたは戦ったいる。"
+output = "過去表『ガーディアン』(66) ＞ 【庇護】 現在、あなたには護るべき人、護るべき場所がある。それらの日常を護るべく、あなたは戦ったいる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -301,7 +301,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PNT"
-output = "SteamPunkers : 過去表『ノーブル』(11) ＞ 【復讐】 あなたの家族は蒸気事件の犠牲となった。ゆえに、あなたは家族の仇を討つべく犯人を捜している。"
+output = "過去表『ノーブル』(11) ＞ 【復讐】 あなたの家族は蒸気事件の犠牲となった。ゆえに、あなたは家族の仇を討つべく犯人を捜している。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -310,7 +310,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PNT"
-output = "SteamPunkers : 過去表『ノーブル』(66) ＞ 【慈愛】 あなたは、真の貴族であった両親から他者を慈しむことは当然だと教育された。"
+output = "過去表『ノーブル』(66) ＞ 【慈愛】 あなたは、真の貴族であった両親から他者を慈しむことは当然だと教育された。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -319,7 +319,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PDT"
-output = "SteamPunkers : 過去表『デヴォート』(11) ＞ 【忠義】 あなたは、忠義の大切さを教えられて育ってきた。それゆえ、あなたは主に忠誠をささげるのだ。"
+output = "過去表『デヴォート』(11) ＞ 【忠義】 あなたは、忠義の大切さを教えられて育ってきた。それゆえ、あなたは主に忠誠をささげるのだ。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -328,7 +328,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PDT"
-output = "SteamPunkers : 過去表『デヴォート』(66) ＞ 【犠牲】 あなたには尊敬に値する主がいた。だが、その主はあなたを庇って、邪悪な陰謀の犠牲となった。"
+output = "過去表『デヴォート』(66) ＞ 【犠牲】 あなたには尊敬に値する主がいた。だが、その主はあなたを庇って、邪悪な陰謀の犠牲となった。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -337,7 +337,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PET"
-output = "SteamPunkers : 過去表『エセティック』(11) ＞ 【研究】 あなたは蒸気犯罪で用いられるスチームギアを撲滅するために、常に研究を続けている。"
+output = "過去表『エセティック』(11) ＞ 【研究】 あなたは蒸気犯罪で用いられるスチームギアを撲滅するために、常に研究を続けている。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -346,7 +346,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "PET"
-output = "SteamPunkers : 過去表『エセティック』(66) ＞ 【報復】 あなたの恩師は過去に蒸気事件で犠牲となっている。あなたはいつか、その犯人に報復するつもりだ。"
+output = "過去表『エセティック』(66) ＞ 【報復】 あなたの恩師は過去に蒸気事件で犠牲となっている。あなたはいつか、その犯人に報復するつもりだ。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -355,7 +355,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "BGT"
-output = "SteamPunkers : 経緯表『ギガントアームズ』(11) ＞ 【元近衛兵】 あなたは上層部の警護を任されていた元近衛兵で、スチームギアは大戦時に入手したものである。"
+output = "経緯表『ギガントアームズ』(11) ＞ 【元近衛兵】 あなたは上層部の警護を任されていた元近衛兵で、スチームギアは大戦時に入手したものである。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -364,7 +364,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "BGT"
-output = "SteamPunkers : 経緯表『ギガントアームズ』(66) ＞ 【戦場帰り】 あなたは蒸気大戦に従軍した経験を持つ戦場帰りで、大戦時にスチームギアを入手した。"
+output = "経緯表『ギガントアームズ』(66) ＞ 【戦場帰り】 あなたは蒸気大戦に従軍した経験を持つ戦場帰りで、大戦時にスチームギアを入手した。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -373,7 +373,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "BAT"
-output = "SteamPunkers : 経緯表『アーマードリム』(11) ＞ 【試験操縦士】 あなたは軍や企業で試験操縦士を務めており、その折に、スチームギアを密かに入手した。"
+output = "経緯表『アーマードリム』(11) ＞ 【試験操縦士】 あなたは軍や企業で試験操縦士を務めており、その折に、スチームギアを密かに入手した。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -382,7 +382,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "BAT"
-output = "SteamPunkers : 経緯表『アーマードリム』(66) ＞ 【簒奪者】 あなたは蒸気事件に巻き込まれた際、偶然と幸運が重なり、相手のスチームギアを奪取できた。"
+output = "経緯表『アーマードリム』(66) ＞ 【簒奪者】 あなたは蒸気事件に巻き込まれた際、偶然と幸運が重なり、相手のスチームギアを奪取できた。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -391,7 +391,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "BET"
-output = "SteamPunkers : 経緯表『エッジモービル』(11) ＞ 【車泥棒】 あなたは元車泥棒だ。このスチームギアは出所不明のものをちょろまかしたものだ。"
+output = "経緯表『エッジモービル』(11) ＞ 【車泥棒】 あなたは元車泥棒だ。このスチームギアは出所不明のものをちょろまかしたものだ。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -400,7 +400,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "BET"
-output = "SteamPunkers : 経緯表『エッジモービル』(66) ＞ 【逃亡兵】 あなたは、戦場から逃げ出した逃亡兵だ。スチームギアは戦場に赴く際に支給された試作機である。"
+output = "経緯表『エッジモービル』(66) ＞ 【逃亡兵】 あなたは、戦場から逃げ出した逃亡兵だ。スチームギアは戦場に赴く際に支給された試作機である。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -409,7 +409,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "BCT"
-output = "SteamPunkers : 経緯表『クロノウェポン』(11) ＞ 【元武器商人】 あなたは蒸気大戦時にスチームギアを販売していた元武器商人、あるいはその護衛だ。"
+output = "経緯表『クロノウェポン』(11) ＞ 【元武器商人】 あなたは蒸気大戦時にスチームギアを販売していた元武器商人、あるいはその護衛だ。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -418,7 +418,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "BCT"
-output = "SteamPunkers : 経緯表『クロノウェポン』(66) ＞ 【元英雄】 あなたは蒸気大戦の英雄だ。あなたは戦線に赴く際、上層部から新世代スチームギアを支給されたのだ。"
+output = "経緯表『クロノウェポン』(66) ＞ 【元英雄】 あなたは蒸気大戦の英雄だ。あなたは戦線に赴く際、上層部から新世代スチームギアを支給されたのだ。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -427,7 +427,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "BST"
-output = "SteamPunkers : 経緯表『スパイテック』(11) ＞ 【元刑事】 あなたは、蒸気事件ばかりを追っていた元刑事だ。スチームギアは犯罪者から奪い取ったものである。"
+output = "経緯表『スパイテック』(11) ＞ 【元刑事】 あなたは、蒸気事件ばかりを追っていた元刑事だ。スチームギアは犯罪者から奪い取ったものである。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -436,7 +436,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "BST"
-output = "SteamPunkers : 経緯表『スパイテック』(66) ＞ 【元盗人】 あなたは盗品として流れてきたスチームギアを偶然発見して、入手した。"
+output = "経緯表『スパイテック』(66) ＞ 【元盗人】 あなたは盗品として流れてきたスチームギアを偶然発見して、入手した。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -445,7 +445,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "BWT"
-output = "SteamPunkers : 経緯表『スチームウェア』(11) ＞ 【独自ルート】 あなたは人間の限界を超えるために、独自のルートを使って、自らの意志で肉体を機械化した。"
+output = "経緯表『スチームウェア』(11) ＞ 【独自ルート】 あなたは人間の限界を超えるために、独自のルートを使って、自らの意志で肉体を機械化した。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -454,7 +454,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "BWT"
-output = "SteamPunkers : 経緯表『スチームウェア』(66) ＞ 【元英雄】 あなたは蒸気大戦の英雄だ。あなたは戦線に赴く際、上層部から新世代スチームギアを支給されたのだ。"
+output = "経緯表『スチームウェア』(66) ＞ 【元英雄】 あなたは蒸気大戦の英雄だ。あなたは戦線に赴く際、上層部から新世代スチームギアを支給されたのだ。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -463,7 +463,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "FST"
-output = "SteamPunkers : 特徴表S(11) ＞ 【蒸気帽】 あなたは、なんらかの蒸気機械を仕込んだ帽子を愛用している。"
+output = "特徴表S(11) ＞ 【蒸気帽】 あなたは、なんらかの蒸気機械を仕込んだ帽子を愛用している。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -472,7 +472,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "FST"
-output = "SteamPunkers : 特徴表S(66) ＞ 【偽造カード】 あなたは、偽造した戸籍情報を点刻したパンチカードを隠し持っている。"
+output = "特徴表S(66) ＞ 【偽造カード】 あなたは、偽造した戸籍情報を点刻したパンチカードを隠し持っている。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -481,7 +481,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "FPT"
-output = "SteamPunkers : 特徴表P(11) ＞ 【傷】 顔、あるいは体のどこかに傷がある。"
+output = "特徴表P(11) ＞ 【傷】 顔、あるいは体のどこかに傷がある。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -490,7 +490,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "FPT"
-output = "SteamPunkers : 特徴表P(66) ＞ 【瞳】 不思議な瞳の色、あるいは特徴的な眼差しをしている。"
+output = "特徴表P(66) ＞ 【瞳】 不思議な瞳の色、あるいは特徴的な眼差しをしている。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -499,7 +499,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "RST"
-output = "SteamPunkers : 関係性表S(11) ＞ 【元敵同士】 相手とは、元敵同士の間柄だ。どのように敵対していたかは、プレイヤーと相談して決定せよ。"
+output = "関係性表S(11) ＞ 【元敵同士】 相手とは、元敵同士の間柄だ。どのように敵対していたかは、プレイヤーと相談して決定せよ。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -508,7 +508,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "RST"
-output = "SteamPunkers : 関係性表S(66) ＞ 【裏切り】 相手とは、裏切りあった間柄だ。どちらが裏切ったかについてはプレイヤーと相談して決定せよ。"
+output = "関係性表S(66) ＞ 【裏切り】 相手とは、裏切りあった間柄だ。どちらが裏切ったかについてはプレイヤーと相談して決定せよ。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -517,7 +517,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "RPT"
-output = "SteamPunkers : 関係性表P(11) ＞ 【血縁】 相手とは、血縁がある。どの程度の間柄であるかについてはプレイヤーと相談して決定せよ。"
+output = "関係性表P(11) ＞ 【血縁】 相手とは、血縁がある。どの程度の間柄であるかについてはプレイヤーと相談して決定せよ。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -526,7 +526,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "RPT"
-output = "SteamPunkers : 関係性表P(66) ＞ 【師弟】 相手は師、あるいは弟子だ。どちらが師で、どちらが弟子かはプレイヤーと相談して決定せよ。"
+output = "関係性表P(66) ＞ 【師弟】 相手は師、あるいは弟子だ。どちらが師で、どちらが弟子かはプレイヤーと相談して決定せよ。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -535,7 +535,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "EST"
-output = "SteamPunkers : 感情表S(11) ＞ 【殺意】 相手に殺意を覚えている。どういった経緯で殺意を抱いているかについては自身で決定せよ。"
+output = "感情表S(11) ＞ 【殺意】 相手に殺意を覚えている。どういった経緯で殺意を抱いているかについては自身で決定せよ。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -544,7 +544,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "EST"
-output = "SteamPunkers : 感情表S(66) ＞ 【嫌悪】 相手のことを嫌悪している。どの程度の嫌悪であるかについては自身で決定せよ。"
+output = "感情表S(66) ＞ 【嫌悪】 相手のことを嫌悪している。どの程度の嫌悪であるかについては自身で決定せよ。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -553,7 +553,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "EPT"
-output = "SteamPunkers : 感情表P(11) ＞ 【誠意】 相手に対して誠意を感じる。どういった経緯で誠意を感じたかについては自身で決定せよ。"
+output = "感情表P(11) ＞ 【誠意】 相手に対して誠意を感じる。どういった経緯で誠意を感じたかについては自身で決定せよ。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -562,7 +562,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "EPT"
-output = "SteamPunkers : 感情表P(66) ＞ 【愛情】 相手に愛情や友愛を抱いている。どういった経緯で愛情を抱くに至ったかについては自身で決定せよ。"
+output = "感情表P(66) ＞ 【愛情】 相手に愛情や友愛を抱いている。どういった経緯で愛情を抱くに至ったかについては自身で決定せよ。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -571,7 +571,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "ODT"
-output = "SteamPunkers : 災厄表(11) ＞ 【蒸気の不調】 スチームギアが不調になった！おそらくマグナイトが尽きかけてるのだ。ペナルティーを受けたPCは、そのフェイズの終了まで、スチームの抑圧を解放できない。"
+output = "災厄表(11) ＞ 【蒸気の不調】 スチームギアが不調になった！おそらくマグナイトが尽きかけてるのだ。ペナルティーを受けたPCは、そのフェイズの終了まで、スチームの抑圧を解放できない。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -580,7 +580,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "ODT"
-output = "SteamPunkers : 災厄表(66) ＞ 【絶望感】 突如として心の傷が痛み、信念が揺らいでしまう。ペナルティーを受けたPCは、そのフェイズの終了まで、パンクの抑圧を解放できない。"
+output = "災厄表(66) ＞ 【絶望感】 突如として心の傷が痛み、信念が揺らいでしまう。ペナルティーを受けたPCは、そのフェイズの終了まで、パンクの抑圧を解放できない。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -589,7 +589,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "OST"
-output = "SteamPunkers : 場面表(11) ＞ 【地下鉄】 途中まで、地下鉄を利用することにする。駅のホームは蒸気列車が放出する蒸気のせいで、湿り気と熱気を帯びていた。"
+output = "場面表(11) ＞ 【地下鉄】 途中まで、地下鉄を利用することにする。駅のホームは蒸気列車が放出する蒸気のせいで、湿り気と熱気を帯びていた。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -598,7 +598,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "OST"
-output = "SteamPunkers : 場面表(66) ＞ 【移動パブ】 途中、移動パブを見かけた。蒸気自動車に機関式サーバーを搭載したもので、周りには若いロンドン子たちが口に泡をつけながら騒いでいる。"
+output = "場面表(66) ＞ 【移動パブ】 途中、移動パブを見かけた。蒸気自動車に機関式サーバーを搭載したもので、周りには若いロンドン子たちが口に泡をつけながら騒いでいる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -607,7 +607,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "OIT"
-output = "SteamPunkers : 交流表(11) ＞ 【過去】 そういえば、相手の過去を知らない気がする…聞けば教えてくれるだろうか？"
+output = "交流表(11) ＞ 【過去】 そういえば、相手の過去を知らない気がする…聞けば教えてくれるだろうか？"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -616,7 +616,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "OIT"
-output = "SteamPunkers : 交流表(66) ＞ 【経緯】 相手はどうやってスチームギアを得たのだろう？その経緯の一部でも聞いてみようか？"
+output = "交流表(66) ＞ 【経緯】 相手はどうやってスチームギアを得たのだろう？その経緯の一部でも聞いてみようか？"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -625,7 +625,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "OFT"
-output = "SteamPunkers : 激憤表(11) ＞ 【憤怒】 これほど残虐な蒸気事件が起こったというのに、世界は一向に変わろうとしない。もはや世界への怒りは頂点へと達してしまった。PCはレヴォルトを失い、黒幕となる。"
+output = "激憤表(11) ＞ 【憤怒】 これほど残虐な蒸気事件が起こったというのに、世界は一向に変わろうとしない。もはや世界への怒りは頂点へと達してしまった。PCはレヴォルトを失い、黒幕となる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -634,7 +634,7 @@ rands = [
 [[ test ]]
 game_system = "SteamPunkers"
 input = "OFT"
-output = "SteamPunkers : 激憤表(66) ＞ 【悪堕ち】 信念に従い、反逆を続けてきた。だが、蒸気事件が尽きる気配はない。反逆など無意味なのか。なら、この手で……PCはレヴォルトを失い、黒幕となる。"
+output = "激憤表(66) ＞ 【悪堕ち】 信念に従い、反逆を続けてきた。だが、蒸気事件が尽きる気配はない。反逆など無意味なのか。なら、この手で……PCはレヴォルトを失い、黒幕となる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },

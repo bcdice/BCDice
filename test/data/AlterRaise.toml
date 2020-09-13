@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "AlterRaise"
 input = "EMA"
-output = "AlterRaise : 解放判定表 ＞ 2(1,1)：激闘。今回の端末は想定をはるかに上回る脅威だった。幾本もの太刀筋と永遠のような時間の果てに、君たちは勝利した。深手を負ったが、ギリギリ致命傷ではない。"
+output = "解放判定表 ＞ 2(1,1)：激闘。今回の端末は想定をはるかに上回る脅威だった。幾本もの太刀筋と永遠のような時間の果てに、君たちは勝利した。深手を負ったが、ギリギリ致命傷ではない。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "ema1"
-output = "AlterRaise : 解放判定表 ＞ 12(6,6)：刹那。端末をその切っ先に捉えた刹那、君たちの前で粒子の光が舞う。それ以上何も起こることはなく、世界は色を取り戻した。\n【達成値7以上】GM：攻撃ルーチン1つを開示（番号はペアPLが指定）　PL：戦闘開始時のアクセルレベル+1"
+output = "解放判定表 ＞ 12(6,6)：刹那。端末をその切っ先に捉えた刹那、君たちの前で粒子の光が舞う。それ以上何も起こることはなく、世界は色を取り戻した。\n【達成値7以上】GM：攻撃ルーチン1つを開示（番号はペアPLが指定）　PL：戦闘開始時のアクセルレベル+1"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -19,25 +19,25 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "EMA6"
-output = "AlterRaise : 解放判定表 ＞ 6：勝利。今回の端末は、おおむね想定される程度の個体であった。多少の傷は負ったが、君たちは問題なく勝利できた。"
+output = "解放判定表 ＞ 6：勝利。今回の端末は、おおむね想定される程度の個体であった。多少の傷は負ったが、君たちは問題なく勝利できた。"
 rands = []
 
 [[ test ]]
 game_system = "AlterRaise"
 input = "EMA7"
-output = "AlterRaise : 解放判定表 ＞ 7：快勝。今回の端末には、危うげも無く勝利できた。君とペアのコンビネーションの賜物だろう。かすり傷を負ったが、勲章のようなものだ。\n【達成値7以上】GM：攻撃ルーチン1つを開示（番号はペアPLが指定）　PL：戦闘開始時のアクセルレベル+1"
+output = "解放判定表 ＞ 7：快勝。今回の端末には、危うげも無く勝利できた。君とペアのコンビネーションの賜物だろう。かすり傷を負ったが、勲章のようなものだ。\n【達成値7以上】GM：攻撃ルーチン1つを開示（番号はペアPLが指定）　PL：戦闘開始時のアクセルレベル+1"
 rands = []
 
 [[ test ]]
 game_system = "AlterRaise"
 input = "ema13"
-output = "AlterRaise : 解放判定表 ＞ 12：刹那。端末をその切っ先に捉えた刹那、君たちの前で粒子の光が舞う。それ以上何も起こることはなく、世界は色を取り戻した。\n【達成値7以上】GM：攻撃ルーチン1つを開示（番号はペアPLが指定）　PL：戦闘開始時のアクセルレベル+1"
+output = "解放判定表 ＞ 12：刹那。端末をその切っ先に捉えた刹那、君たちの前で粒子の光が舞う。それ以上何も起こることはなく、世界は色を取り戻した。\n【達成値7以上】GM：攻撃ルーチン1つを開示（番号はペアPLが指定）　PL：戦闘開始時のアクセルレベル+1"
 rands = []
 
 [[ test ]]
 game_system = "AlterRaise"
 input = "PER"
-output = "AlterRaise : 性格傾向表 ＞ 1：挑戦"
+output = "性格傾向表 ＞ 1：挑戦"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -45,13 +45,13 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "PER1"
-output = "AlterRaise : 性格傾向表 ＞ 1：挑戦"
+output = "性格傾向表 ＞ 1：挑戦"
 rands = []
 
 [[ test ]]
 game_system = "AlterRaise"
 input = "sce"
-output = "AlterRaise : シーン演出表 ＞ 2：遊び。君は相手と遊びたかった。"
+output = "シーン演出表 ＞ 2：遊び。君は相手と遊びたかった。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -59,13 +59,13 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "sce7"
-output = "AlterRaise : シーン演出表 ＞ 6：扉を開く前に。アクセルダイブ・ゲートをくぐる前に、君は相手に話したいことがあった。（＊ダイブした後のシーンも演出すること）"
+output = "シーン演出表 ＞ 6：扉を開く前に。アクセルダイブ・ゲートをくぐる前に、君は相手に話したいことがあった。（＊ダイブした後のシーンも演出すること）"
 rands = []
 
 [[ test ]]
 game_system = "AlterRaise"
 input = "STA"
-output = "AlterRaise : スタンス表 ＞ 3：師事"
+output = "スタンス表 ＞ 3：師事"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "STA0"
-output = "AlterRaise : スタンス表 ＞ 4：ライバル"
+output = "スタンス表 ＞ 4：ライバル"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "LOC"
-output = "AlterRaise : 場所表 ＞ 1,1：教室"
+output = "場所表 ＞ 1,1：教室"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -90,7 +90,7 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "loc"
-output = "AlterRaise : 場所表 ＞ 1,3：教室"
+output = "場所表 ＞ 1,3：教室"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -99,13 +99,13 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "LOC14"
-output = "AlterRaise : 場所表 ＞ 1,4：部室"
+output = "場所表 ＞ 1,4：部室"
 rands = []
 
 [[ test ]]
 game_system = "AlterRaise"
 input = "loc1"
-output = "AlterRaise : 場所表 ＞ 1,6：部室"
+output = "場所表 ＞ 1,6：部室"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -113,7 +113,7 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "QUI"
-output = "AlterRaise : 平穏・経験表 ＞ 2,1：両親"
+output = "平穏・経験表 ＞ 2,1：両親"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -122,7 +122,7 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "qui0"
-output = "AlterRaise : 平穏・経験表 ＞ 2,6：兄弟"
+output = "平穏・経験表 ＞ 2,6：兄弟"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -131,7 +131,7 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "DEL"
-output = "AlterRaise : 喜び・経験表 ＞ 3,1：幸運"
+output = "喜び・経験表 ＞ 3,1：幸運"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -140,13 +140,13 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "del707"
-output = "AlterRaise : 喜び・経験表 ＞ 6,1：証明"
+output = "喜び・経験表 ＞ 6,1：証明"
 rands = []
 
 [[ test ]]
 game_system = "AlterRaise"
 input = "TRA"
-output = "AlterRaise : 心の傷・経験表 ＞ 4,1：別離"
+output = "心の傷・経験表 ＞ 4,1：別離"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -155,7 +155,7 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "tra0004"
-output = "AlterRaise : 心の傷・経験表 ＞ 4,4：死別"
+output = "心の傷・経験表 ＞ 4,4：死別"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -163,7 +163,7 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "EMO"
-output = "AlterRaise : 感情表 ＞ 6,1：信頼"
+output = "感情表 ＞ 6,1：信頼"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -172,5 +172,5 @@ rands = [
 [[ test ]]
 game_system = "AlterRaise"
 input = "emo67"
-output = "AlterRaise : 感情表 ＞ 6,6：好意"
+output = "感情表 ＞ 6,6：好意"
 rands = []

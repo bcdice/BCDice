@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "BKT"
-output = "Oukahoushin3rd : 武器攻撃裏成功表(2) ＞ 1ポイント清徳値が低下。連続攻撃が行える。この場合の連続攻撃においては、命中判定のサイコロは常にひっくり返して用いるが、2撃目以降はこの表は使わない。"
+output = "武器攻撃裏成功表(2) ＞ 1ポイント清徳値が低下。連続攻撃が行える。この場合の連続攻撃においては、命中判定のサイコロは常にひっくり返して用いるが、2撃目以降はこの表は使わない。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "BKT"
-output = "Oukahoushin3rd : 武器攻撃裏成功表(12) ＞ 1ポイント清徳値が低下。体力または機敏（攻撃を行った者が選択する）が1ポイント上昇。"
+output = "武器攻撃裏成功表(12) ＞ 1ポイント清徳値が低下。体力または機敏（攻撃を行った者が選択する）が1ポイント上昇。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "KKT"
-output = "Oukahoushin3rd : 狂気表(2) ＞ 心神喪失、生ける屍。"
+output = "狂気表(2) ＞ 心神喪失、生ける屍。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "KKT"
-output = "Oukahoushin3rd : 狂気表(12) ＞ 錯乱。行動はゲームマスターが「なるべくでたらめになるように」決定する。"
+output = "狂気表(12) ＞ 錯乱。行動はゲームマスターが「なるべくでたらめになるように」決定する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "NHT"
-output = "Oukahoushin3rd : 能力値判定裏成功表(2) ＞ 1ポイント清徳値が低下。変な癖が身についてしまう。"
+output = "能力値判定裏成功表(2) ＞ 1ポイント清徳値が低下。変な癖が身についてしまう。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "NHT"
-output = "Oukahoushin3rd : 能力値判定裏成功表(12) ＞ 1ポイント清徳値が低下。使用した能力値が1ポイント上昇。"
+output = "能力値判定裏成功表(12) ＞ 1ポイント清徳値が低下。使用した能力値が1ポイント上昇。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "NHT"
-output = "Oukahoushin3rd : 能力値判定裏成功表(7) ＞ ふつうの成功。"
+output = "能力値判定裏成功表(7) ＞ ふつうの成功。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -64,7 +64,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "SDT"
-output = "Oukahoushin3rd : 精神値ダメージ悪影響表(1) ＞ 一瞬の放心。直後の判定は自動的に失敗。精神値を1D6(=>1)×最大値の10％回復。"
+output = "精神値ダメージ悪影響表(1) ＞ 一瞬の放心。直後の判定は自動的に失敗。精神値を1D6(=>1)×最大値の10％回復。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "SDT"
-output = "Oukahoushin3rd : 精神値ダメージ悪影響表(6) ＞ 精神異常（具体的内容は狂気表（KKT）で決定）。期間は1D6(=>1)を振って決定（1～3：1日、4～5：99日間、6：永遠）。精神値を最大値まで回復。"
+output = "精神値ダメージ悪影響表(6) ＞ 精神異常（具体的内容は狂気表（KKT）で決定）。期間は1D6(=>1)を振って決定（1～3：1日、4～5：99日間、6：永遠）。精神値を最大値まで回復。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -82,7 +82,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "SKT"
-output = "Oukahoushin3rd : 仙術行使裏成功表(2) ＞ 1ポイント清徳値が低下。1ポイント仙骨が上昇。"
+output = "仙術行使裏成功表(2) ＞ 1ポイント清徳値が低下。1ポイント仙骨が上昇。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "SKT"
-output = "Oukahoushin3rd : 仙術行使裏成功表(12) ＞ 1D6(=>6)ポイント清徳値が低下。仙骨以外のいずれかの能力値（術者選択）が1ポイント上昇。"
+output = "仙術行使裏成功表(12) ＞ 1D6(=>6)ポイント清徳値が低下。仙骨以外のいずれかの能力値（術者選択）が1ポイント上昇。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -101,7 +101,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "STT"
-output = "Oukahoushin3rd : 仙術抵抗裏成功表(2) ＞ 1ポイント清徳値が低下。"
+output = "仙術抵抗裏成功表(2) ＞ 1ポイント清徳値が低下。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -110,7 +110,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "STT"
-output = "Oukahoushin3rd : 仙術抵抗裏成功表(12) ＞ 1ポイント清徳値が低下。仙骨または知覚（仙術に抵抗した者が選択する）が1ポイント上昇。"
+output = "仙術抵抗裏成功表(12) ＞ 1ポイント清徳値が低下。仙骨または知覚（仙術に抵抗した者が選択する）が1ポイント上昇。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -119,7 +119,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "UKT"
-output = "Oukahoushin3rd : 受け・回避裏成功表(2) ＞ 1ポイント清徳値が低下。"
+output = "受け・回避裏成功表(2) ＞ 1ポイント清徳値が低下。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -128,7 +128,7 @@ rands = [
 [[ test ]]
 game_system = "Oukahoushin3rd"
 input = "UKT"
-output = "Oukahoushin3rd : 受け・回避裏成功表(12) ＞ 1ポイント清徳値が低下。機敏または知覚（攻撃を防御した者が選択する）が1ポイント上昇。"
+output = "受け・回避裏成功表(12) ＞ 1ポイント清徳値が低下。機敏または知覚（攻撃を防御した者が選択する）が1ポイント上昇。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },

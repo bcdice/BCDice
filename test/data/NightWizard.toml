@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "NightWizard"
 input = "12NW-5@7#2"
-output = "NightWizard : (12NW-5@7#2) ＞ 7-10[1,1] ＞ ファンブル ＞ -3"
+output = "(12NW-5@7#2) ＞ 7-10[1,1] ＞ ファンブル ＞ -3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "12NW-5@7#2"
-output = "NightWizard : (12NW-5@7#2) ＞ 7+6[5,1] ＞ 13"
+output = "(12NW-5@7#2) ＞ 7+6[5,1] ＞ 13"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "12NW-5@7#2"
-output = "NightWizard : (12NW-5@7#2) ＞ 7+8[2,6] ＞ 15"
+output = "(12NW-5@7#2) ＞ 7+8[2,6] ＞ 15"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "12NW-5@7#2"
-output = "NightWizard : (12NW-5@7#2) ＞ 7+10[5,2]+10[5,5] ＞ クリティカル ＞ 27"
+output = "(12NW-5@7#2) ＞ 7+10[5,2]+10[5,5] ＞ クリティカル ＞ 27"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -39,7 +39,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "12NW-5@7#2"
-output = "NightWizard : (12NW-5@7#2) ＞ 7+3[1,2] ＞ 10"
+output = "(12NW-5@7#2) ＞ 7+3[1,2] ＞ 10"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -48,7 +48,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "12NW-5@7#2"
-output = "NightWizard : (12NW-5@7#2) ＞ 7+5[3,2] ＞ 12"
+output = "(12NW-5@7#2) ＞ 7+5[3,2] ＞ 12"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "12NW-5@7#2"
-output = "NightWizard : (12NW-5@7#2) ＞ 7+10[4,6] ＞ 17"
+output = "(12NW-5@7#2) ＞ 7+10[4,6] ＞ 17"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -66,7 +66,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "12NW-5@7#2"
-output = "NightWizard : (12NW-5@7#2) ＞ 7+8[6,2] ＞ 15"
+output = "(12NW-5@7#2) ＞ 7+8[6,2] ＞ 15"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -75,7 +75,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "1NW"
-output = "NightWizard : (1NW@10#5) ＞ 1+8[2,6] ＞ 9"
+output = "(1NW@10#5) ＞ 1+8[2,6] ＞ 9"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -84,7 +84,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "1NW"
-output = "NightWizard : (1NW@10#5) ＞ 1+10[5,5]+3[1,2] ＞ クリティカル ＞ 14"
+output = "(1NW@10#5) ＞ 1+10[5,5]+3[1,2] ＞ クリティカル ＞ 14"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -95,7 +95,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "1NW"
-output = "NightWizard : (1NW@10#5) ＞ 1+9[4,5] ＞ 10"
+output = "(1NW@10#5) ＞ 1+9[4,5] ＞ 10"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -104,7 +104,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "1NW"
-output = "NightWizard : (1NW@10#5) ＞ 1+8[6,2] ＞ 9"
+output = "(1NW@10#5) ＞ 1+8[6,2] ＞ 9"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -113,7 +113,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "1NW"
-output = "NightWizard : (1NW@10#5) ＞ 1+10[5,5]+3[2,1] ＞ クリティカル ＞ 14"
+output = "(1NW@10#5) ＞ 1+10[5,5]+3[2,1] ＞ クリティカル ＞ 14"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -124,7 +124,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "1NW"
-output = "NightWizard : (1NW@10#5) ＞ 1+8[3,5] ＞ 9"
+output = "(1NW@10#5) ＞ 1+8[3,5] ＞ 9"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -133,7 +133,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "1NW"
-output = "NightWizard : (1NW@10#5) ＞ 1+3[2,1] ＞ 4"
+output = "(1NW@10#5) ＞ 1+3[2,1] ＞ 4"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -142,7 +142,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "1NW"
-output = "NightWizard : (1NW@10#5) ＞ 1+11[5,6] ＞ 12"
+output = "(1NW@10#5) ＞ 1+11[5,6] ＞ 12"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -151,7 +151,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "1NW"
-output = "NightWizard : (1NW@10#5) ＞ 1+7[6,1] ＞ 8"
+output = "(1NW@10#5) ＞ 1+7[6,1] ＞ 8"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -160,7 +160,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@7,10#2,5"
-output = "NightWizard : (50NW+5@7,10#2,5) ＞ 55-10[3,2] ＞ ファンブル ＞ 45"
+output = "(50NW+5@7,10#2,5) ＞ 55-10[3,2] ＞ ファンブル ＞ 45"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -169,7 +169,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@7,10#2,5"
-output = "NightWizard : (50NW+5@7,10#2,5) ＞ 55+11[5,6] ＞ 66"
+output = "(50NW+5@7,10#2,5) ＞ 55+11[5,6] ＞ 66"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -178,7 +178,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@7,10#2,5"
-output = "NightWizard : (50NW+5@7,10#2,5) ＞ 55+6[1,5] ＞ 61"
+output = "(50NW+5@7,10#2,5) ＞ 55+6[1,5] ＞ 61"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -187,7 +187,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@7,10#2,5"
-output = "NightWizard : (50NW+5@7,10#2,5) ＞ 55+9[5,4] ＞ 64"
+output = "(50NW+5@7,10#2,5) ＞ 55+9[5,4] ＞ 64"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -196,7 +196,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@7,10#2,5"
-output = "NightWizard : (50NW+5@7,10#2,5) ＞ 55+9[6,3] ＞ 64"
+output = "(50NW+5@7,10#2,5) ＞ 55+9[6,3] ＞ 64"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -205,7 +205,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@7,10#2,5"
-output = "NightWizard : (50NW+5@7,10#2,5) ＞ 55-10[1,1] ＞ ファンブル ＞ 45"
+output = "(50NW+5@7,10#2,5) ＞ 55-10[1,1] ＞ ファンブル ＞ 45"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -214,7 +214,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@7,10#2,5"
-output = "NightWizard : (50NW+5@7,10#2,5) ＞ 55-10[1,4] ＞ ファンブル ＞ 45"
+output = "(50NW+5@7,10#2,5) ＞ 55-10[1,4] ＞ ファンブル ＞ 45"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -223,7 +223,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@7,10#2,5"
-output = "NightWizard : (50NW+5@7,10#2,5) ＞ 55+12[6,6] ＞ 67"
+output = "(50NW+5@7,10#2,5) ＞ 55+12[6,6] ＞ 67"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -232,7 +232,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@7,10#2,5"
-output = "NightWizard : (50NW+5@7,10#2,5) ＞ 55+6[4,2] ＞ 61"
+output = "(50NW+5@7,10#2,5) ＞ 55+6[4,2] ＞ 61"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@7,10#2,5"
-output = "NightWizard : (50NW+5@7,10#2,5) ＞ 55+8[5,3] ＞ 63"
+output = "(50NW+5@7,10#2,5) ＞ 55+8[5,3] ＞ 63"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -250,7 +250,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "10NW+1@7#10"
-output = "NightWizard : (10NW+1@7#10) ＞ 11+8[6,2] ＞ 19"
+output = "(10NW+1@7#10) ＞ 11+8[6,2] ＞ 19"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -259,7 +259,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "10NW+1@7#10"
-output = "NightWizard : (10NW+1@7#10) ＞ 11+3[1,2] ＞ 14"
+output = "(10NW+1@7#10) ＞ 11+3[1,2] ＞ 14"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -268,7 +268,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "10NW+1@7#10"
-output = "NightWizard : (10NW+1@7#10) ＞ 11+9[5,4] ＞ 20"
+output = "(10NW+1@7#10) ＞ 11+9[5,4] ＞ 20"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -277,7 +277,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "10NW+1@7#10"
-output = "NightWizard : (10NW+1@7#10) ＞ 11+10[1,6]+6[4,2] ＞ クリティカル ＞ 27"
+output = "(10NW+1@7#10) ＞ 11+10[1,6]+6[4,2] ＞ クリティカル ＞ 27"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -288,7 +288,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "10NW+1@7#10"
-output = "NightWizard : (10NW+1@7#10) ＞ 11+5[4,1] ＞ 16"
+output = "(10NW+1@7#10) ＞ 11+5[4,1] ＞ 16"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -297,7 +297,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "10NW+1@7#10"
-output = "NightWizard : (10NW+1@7#10) ＞ 11+6[5,1] ＞ 17"
+output = "(10NW+1@7#10) ＞ 11+6[5,1] ＞ 17"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -306,7 +306,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "10NW+1@7#10"
-output = "NightWizard : (10NW+1@7#10) ＞ 11+12[6,6] ＞ 23"
+output = "(10NW+1@7#10) ＞ 11+12[6,6] ＞ 23"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -315,7 +315,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "10NW+1@7#10"
-output = "NightWizard : (10NW+1@7#10) ＞ 11+10[3,4]+6[3,3] ＞ クリティカル ＞ 27"
+output = "(10NW+1@7#10) ＞ 11+10[3,4]+6[3,3] ＞ クリティカル ＞ 27"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -326,7 +326,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "10NW+1@7#10"
-output = "NightWizard : (10NW+1@7#10) ＞ 11+11[6,5] ＞ 22"
+output = "(10NW+1@7#10) ＞ 11+11[6,5] ＞ 22"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -335,7 +335,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "10NW+1@7#10"
-output = "NightWizard : (10NW+1@7#10) ＞ 11+4[2,2] ＞ 15"
+output = "(10NW+1@7#10) ＞ 11+4[2,2] ＞ 15"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -344,7 +344,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "-3NW+1@7#10"
-output = "NightWizard : (-3NW+1@7#10) ＞ -2+4[2,2] ＞ 2"
+output = "(-3NW+1@7#10) ＞ -2+4[2,2] ＞ 2"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -353,7 +353,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@10,11,12#5"
-output = "NightWizard : (50NW+5@10,11,12#5) ＞ 55+8[5,3] ＞ 63"
+output = "(50NW+5@10,11,12#5) ＞ 55+8[5,3] ＞ 63"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -362,7 +362,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@10,11,12#5"
-output = "NightWizard : (50NW+5@10,11,12#5) ＞ 55+10[5,5]+10[5,6]+10[6,6]+6[3,3] ＞ クリティカル ＞ 91"
+output = "(50NW+5@10,11,12#5) ＞ 55+10[5,5]+10[5,6]+10[6,6]+6[3,3] ＞ クリティカル ＞ 91"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -377,7 +377,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "-3NW+1@7#10+10+12"
-output = "NightWizard : (-3NW+1@7#10+22) ＞ 20+4[2,2] ＞ 24"
+output = "(-3NW+1@7#10+22) ＞ 20+4[2,2] ＞ 24"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -386,7 +386,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "-3NW+1+10+12"
-output = "NightWizard : (-3NW+23@10#5) ＞ 20+4[2,2] ＞ 24"
+output = "(-3NW+23@10#5) ＞ 20+4[2,2] ＞ 24"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -395,7 +395,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "10NW@7#10+10"
-output = "NightWizard : (10NW@7#10+10) ＞ 20+11[6,5] ＞ 31"
+output = "(10NW@7#10+10) ＞ 20+11[6,5] ＞ 31"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -404,7 +404,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "10NW+10+12@7#10-10"
-output = "NightWizard : (10NW+22@7#10-10) ＞ 22+11[6,5] ＞ 33"
+output = "(10NW+22@7#10-10) ＞ 22+11[6,5] ＞ 33"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -413,7 +413,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "NW"
-output = "NightWizard : (NW@10#5) ＞ 0+11[6,5] ＞ 11"
+output = "(NW@10#5) ＞ 0+11[6,5] ＞ 11"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -422,7 +422,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "0nw+5@8#6+3"
-output = "NightWizard : (NW+5@8#6+3) ＞ 5-10[5,1] ＞ ファンブル ＞ -5"
+output = "(NW+5@8#6+3) ＞ 5-10[5,1] ＞ ファンブル ＞ -5"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -431,7 +431,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "0nw+5@8#6+3"
-output = "NightWizard : (NW+5@8#6+3) ＞ 8+7[5,2] ＞ 15"
+output = "(NW+5@8#6+3) ＞ 8+7[5,2] ＞ 15"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -440,7 +440,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "0nw+5@8#6+3"
-output = "NightWizard : (NW+5@8#6+3) ＞ 8+10[5,3]+7[5,2] ＞ クリティカル ＞ 25"
+output = "(NW+5@8#6+3) ＞ 8+10[5,3]+7[5,2] ＞ クリティカル ＞ 25"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -451,7 +451,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@7,10#2,5>=66"
-output = "NightWizard : (50NW+5@7,10#2,5>=66) ＞ 55-10[3,2] ＞ ファンブル ＞ 45 ＞ 失敗"
+output = "(50NW+5@7,10#2,5>=66) ＞ 55-10[3,2] ＞ ファンブル ＞ 45 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -460,7 +460,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "50nw+5@7,10#2,5>=66"
-output = "NightWizard : (50NW+5@7,10#2,5>=66) ＞ 55+11[5,6] ＞ 66 ＞ 成功"
+output = "(50NW+5@7,10#2,5>=66) ＞ 55+11[5,6] ＞ 66 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -469,7 +469,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "12NW-5@7#2$3 プラーナ補正 通常時"
-output = "NightWizard : (12NW-5@7#2$3) ＞ 7+6[5,1]+6[1,2,3] ＞ 19"
+output = "(12NW-5@7#2$3) ＞ 7+6[5,1]+6[1,2,3] ＞ 19"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -481,7 +481,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "12NW-5@7#2$3 プラーナ補正 ファンブル時"
-output = "NightWizard : (12NW-5@7#2$3) ＞ 7-10[1,1] ＞ ファンブル ＞ -3"
+output = "(12NW-5@7#2$3) ＞ 7-10[1,1] ＞ ファンブル ＞ -3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -490,7 +490,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "12NW-5@7#2$3 プラーナ補正 クリティカル時"
-output = "NightWizard : (12NW-5@7#2$3) ＞ 7+10[5,2]+10[5,5]+6[1,2,3] ＞ クリティカル ＞ 33"
+output = "(12NW-5@7#2$3) ＞ 7+10[5,2]+10[5,5]+6[1,2,3] ＞ クリティカル ＞ 33"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -504,7 +504,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[12-5]C[7]F[2]"
-output = "NightWizard : (2R6M[7,0]C[7]F[2]) ＞ 7-10[1,1] ＞ ファンブル ＞ -3"
+output = "(2R6M[7,0]C[7]F[2]) ＞ 7-10[1,1] ＞ ファンブル ＞ -3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -513,7 +513,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[12-5]C[7]F[2]"
-output = "NightWizard : (2R6M[7,0]C[7]F[2]) ＞ 7+6[5,1] ＞ 13"
+output = "(2R6M[7,0]C[7]F[2]) ＞ 7+6[5,1] ＞ 13"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -522,7 +522,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[12-5]C[7]F[2]"
-output = "NightWizard : (2R6M[7,0]C[7]F[2]) ＞ 7+8[2,6] ＞ 15"
+output = "(2R6M[7,0]C[7]F[2]) ＞ 7+8[2,6] ＞ 15"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -531,7 +531,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[12-5]C[7]F[2]"
-output = "NightWizard : (2R6M[7,0]C[7]F[2]) ＞ 7+10[5,2]+10[5,5] ＞ クリティカル ＞ 27"
+output = "(2R6M[7,0]C[7]F[2]) ＞ 7+10[5,2]+10[5,5] ＞ クリティカル ＞ 27"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -542,7 +542,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[12-5]C[7]F[2]"
-output = "NightWizard : (2R6M[7,0]C[7]F[2]) ＞ 7+3[1,2] ＞ 10"
+output = "(2R6M[7,0]C[7]F[2]) ＞ 7+3[1,2] ＞ 10"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -551,7 +551,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[12-5]C[7]F[2]"
-output = "NightWizard : (2R6M[7,0]C[7]F[2]) ＞ 7+5[3,2] ＞ 12"
+output = "(2R6M[7,0]C[7]F[2]) ＞ 7+5[3,2] ＞ 12"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -560,7 +560,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[12-5]C[7]F[2]"
-output = "NightWizard : (2R6M[7,0]C[7]F[2]) ＞ 7+10[4,6] ＞ 17"
+output = "(2R6M[7,0]C[7]F[2]) ＞ 7+10[4,6] ＞ 17"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -569,7 +569,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[12-5]C[7]F[2]"
-output = "NightWizard : (2R6M[7,0]C[7]F[2]) ＞ 7+8[6,2] ＞ 15"
+output = "(2R6M[7,0]C[7]F[2]) ＞ 7+8[6,2] ＞ 15"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -578,7 +578,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[1]"
-output = "NightWizard : (2R6M[1,0]C[10]F[5]) ＞ 1+8[2,6] ＞ 9"
+output = "(2R6M[1,0]C[10]F[5]) ＞ 1+8[2,6] ＞ 9"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -587,7 +587,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[1]"
-output = "NightWizard : (2R6M[1,0]C[10]F[5]) ＞ 1+10[5,5]+3[1,2] ＞ クリティカル ＞ 14"
+output = "(2R6M[1,0]C[10]F[5]) ＞ 1+10[5,5]+3[1,2] ＞ クリティカル ＞ 14"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -598,7 +598,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[1]"
-output = "NightWizard : (2R6M[1,0]C[10]F[5]) ＞ 1+9[4,5] ＞ 10"
+output = "(2R6M[1,0]C[10]F[5]) ＞ 1+9[4,5] ＞ 10"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -607,7 +607,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[1]"
-output = "NightWizard : (2R6M[1,0]C[10]F[5]) ＞ 1+8[6,2] ＞ 9"
+output = "(2R6M[1,0]C[10]F[5]) ＞ 1+8[6,2] ＞ 9"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -616,7 +616,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[1]"
-output = "NightWizard : (2R6M[1,0]C[10]F[5]) ＞ 1+10[5,5]+3[2,1] ＞ クリティカル ＞ 14"
+output = "(2R6M[1,0]C[10]F[5]) ＞ 1+10[5,5]+3[2,1] ＞ クリティカル ＞ 14"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -627,7 +627,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[1]"
-output = "NightWizard : (2R6M[1,0]C[10]F[5]) ＞ 1+8[3,5] ＞ 9"
+output = "(2R6M[1,0]C[10]F[5]) ＞ 1+8[3,5] ＞ 9"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -636,7 +636,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[1]"
-output = "NightWizard : (2R6M[1,0]C[10]F[5]) ＞ 1+3[2,1] ＞ 4"
+output = "(2R6M[1,0]C[10]F[5]) ＞ 1+3[2,1] ＞ 4"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -645,7 +645,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[1]"
-output = "NightWizard : (2R6M[1,0]C[10]F[5]) ＞ 1+11[5,6] ＞ 12"
+output = "(2R6M[1,0]C[10]F[5]) ＞ 1+11[5,6] ＞ 12"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -654,7 +654,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[1]"
-output = "NightWizard : (2R6M[1,0]C[10]F[5]) ＞ 1+7[6,1] ＞ 8"
+output = "(2R6M[1,0]C[10]F[5]) ＞ 1+7[6,1] ＞ 8"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -663,7 +663,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[7,10]F[2,5]"
-output = "NightWizard : (2R6M[55,0]C[7,10]F[2,5]) ＞ 55-10[3,2] ＞ ファンブル ＞ 45"
+output = "(2R6M[55,0]C[7,10]F[2,5]) ＞ 55-10[3,2] ＞ ファンブル ＞ 45"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -672,7 +672,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[7,10]F[2,5]"
-output = "NightWizard : (2R6M[55,0]C[7,10]F[2,5]) ＞ 55+11[5,6] ＞ 66"
+output = "(2R6M[55,0]C[7,10]F[2,5]) ＞ 55+11[5,6] ＞ 66"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -681,7 +681,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[7,10]F[2,5]"
-output = "NightWizard : (2R6M[55,0]C[7,10]F[2,5]) ＞ 55+6[1,5] ＞ 61"
+output = "(2R6M[55,0]C[7,10]F[2,5]) ＞ 55+6[1,5] ＞ 61"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -690,7 +690,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[7,10]F[2,5]"
-output = "NightWizard : (2R6M[55,0]C[7,10]F[2,5]) ＞ 55+9[5,4] ＞ 64"
+output = "(2R6M[55,0]C[7,10]F[2,5]) ＞ 55+9[5,4] ＞ 64"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -699,7 +699,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[7,10]F[2,5]"
-output = "NightWizard : (2R6M[55,0]C[7,10]F[2,5]) ＞ 55+9[6,3] ＞ 64"
+output = "(2R6M[55,0]C[7,10]F[2,5]) ＞ 55+9[6,3] ＞ 64"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -708,7 +708,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[7,10]F[2,5]"
-output = "NightWizard : (2R6M[55,0]C[7,10]F[2,5]) ＞ 55-10[1,1] ＞ ファンブル ＞ 45"
+output = "(2R6M[55,0]C[7,10]F[2,5]) ＞ 55-10[1,1] ＞ ファンブル ＞ 45"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -717,7 +717,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[7,10]F[2,5]"
-output = "NightWizard : (2R6M[55,0]C[7,10]F[2,5]) ＞ 55-10[1,4] ＞ ファンブル ＞ 45"
+output = "(2R6M[55,0]C[7,10]F[2,5]) ＞ 55-10[1,4] ＞ ファンブル ＞ 45"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -726,7 +726,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[7,10]F[2,5]"
-output = "NightWizard : (2R6M[55,0]C[7,10]F[2,5]) ＞ 55+12[6,6] ＞ 67"
+output = "(2R6M[55,0]C[7,10]F[2,5]) ＞ 55+12[6,6] ＞ 67"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -735,7 +735,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[7,10]F[2,5]"
-output = "NightWizard : (2R6M[55,0]C[7,10]F[2,5]) ＞ 55+6[4,2] ＞ 61"
+output = "(2R6M[55,0]C[7,10]F[2,5]) ＞ 55+6[4,2] ＞ 61"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -744,7 +744,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[7,10]F[2,5]"
-output = "NightWizard : (2R6M[55,0]C[7,10]F[2,5]) ＞ 55+8[5,3] ＞ 63"
+output = "(2R6M[55,0]C[7,10]F[2,5]) ＞ 55+8[5,3] ＞ 63"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -753,7 +753,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[10+1]C[7]F[10]"
-output = "NightWizard : (2R6M[11,0]C[7]F[10]) ＞ 11+8[6,2] ＞ 19"
+output = "(2R6M[11,0]C[7]F[10]) ＞ 11+8[6,2] ＞ 19"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -762,7 +762,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[10+1]C[7]F[10]"
-output = "NightWizard : (2R6M[11,0]C[7]F[10]) ＞ 11+3[1,2] ＞ 14"
+output = "(2R6M[11,0]C[7]F[10]) ＞ 11+3[1,2] ＞ 14"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -771,7 +771,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[10+1]C[7]F[10]"
-output = "NightWizard : (2R6M[11,0]C[7]F[10]) ＞ 11+9[5,4] ＞ 20"
+output = "(2R6M[11,0]C[7]F[10]) ＞ 11+9[5,4] ＞ 20"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -780,7 +780,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[10+1]C[7]F[10]"
-output = "NightWizard : (2R6M[11,0]C[7]F[10]) ＞ 11+10[1,6]+6[4,2] ＞ クリティカル ＞ 27"
+output = "(2R6M[11,0]C[7]F[10]) ＞ 11+10[1,6]+6[4,2] ＞ クリティカル ＞ 27"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -791,7 +791,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[10+1]C[7]F[10]"
-output = "NightWizard : (2R6M[11,0]C[7]F[10]) ＞ 11+5[4,1] ＞ 16"
+output = "(2R6M[11,0]C[7]F[10]) ＞ 11+5[4,1] ＞ 16"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -800,7 +800,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[10+1]C[7]F[10]"
-output = "NightWizard : (2R6M[11,0]C[7]F[10]) ＞ 11+6[5,1] ＞ 17"
+output = "(2R6M[11,0]C[7]F[10]) ＞ 11+6[5,1] ＞ 17"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -809,7 +809,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[10+1]C[7]F[10]"
-output = "NightWizard : (2R6M[11,0]C[7]F[10]) ＞ 11+12[6,6] ＞ 23"
+output = "(2R6M[11,0]C[7]F[10]) ＞ 11+12[6,6] ＞ 23"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -818,7 +818,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[10+1]C[7]F[10]"
-output = "NightWizard : (2R6M[11,0]C[7]F[10]) ＞ 11+10[3,4]+6[3,3] ＞ クリティカル ＞ 27"
+output = "(2R6M[11,0]C[7]F[10]) ＞ 11+10[3,4]+6[3,3] ＞ クリティカル ＞ 27"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -829,7 +829,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[10+1]C[7]F[10]"
-output = "NightWizard : (2R6M[11,0]C[7]F[10]) ＞ 11+11[6,5] ＞ 22"
+output = "(2R6M[11,0]C[7]F[10]) ＞ 11+11[6,5] ＞ 22"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -838,7 +838,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[10+1]C[7]F[10]"
-output = "NightWizard : (2R6M[11,0]C[7]F[10]) ＞ 11+4[2,2] ＞ 15"
+output = "(2R6M[11,0]C[7]F[10]) ＞ 11+4[2,2] ＞ 15"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -847,7 +847,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[-3+1]C[7]F[10]"
-output = "NightWizard : (2R6M[-2,0]C[7]F[10]) ＞ -2+4[2,2] ＞ 2"
+output = "(2R6M[-2,0]C[7]F[10]) ＞ -2+4[2,2] ＞ 2"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -856,7 +856,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[10,11,12]F[5]"
-output = "NightWizard : (2R6M[55,0]C[10,11,12]F[5]) ＞ 55+8[5,3] ＞ 63"
+output = "(2R6M[55,0]C[10,11,12]F[5]) ＞ 55+8[5,3] ＞ 63"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -865,7 +865,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[10,11,12]F[5]"
-output = "NightWizard : (2R6M[55,0]C[10,11,12]F[5]) ＞ 55+10[5,5]+10[5,6]+10[6,6]+6[3,3] ＞ クリティカル ＞ 91"
+output = "(2R6M[55,0]C[10,11,12]F[5]) ＞ 55+10[5,5]+10[5,6]+10[6,6]+6[3,3] ＞ クリティカル ＞ 91"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -880,7 +880,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[-3+1,+10+12]C[7]F[10]"
-output = "NightWizard : (2R6M[-2,22]C[7]F[10]) ＞ 20+4[2,2] ＞ 24"
+output = "(2R6M[-2,22]C[7]F[10]) ＞ 20+4[2,2] ＞ 24"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -889,7 +889,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[-3+1+10+12]"
-output = "NightWizard : (2R6M[20,0]C[10]F[5]) ＞ 20+4[2,2] ＞ 24"
+output = "(2R6M[20,0]C[10]F[5]) ＞ 20+4[2,2] ＞ 24"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -898,7 +898,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[10,+10]C[7]F[10]"
-output = "NightWizard : (2R6M[10,10]C[7]F[10]) ＞ 20+11[6,5] ＞ 31"
+output = "(2R6M[10,10]C[7]F[10]) ＞ 20+11[6,5] ＞ 31"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -907,7 +907,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[10+10+12,-10]C[7]F[10]"
-output = "NightWizard : (2R6M[32,-10]C[7]F[10]) ＞ 22+11[6,5] ＞ 33"
+output = "(2R6M[32,-10]C[7]F[10]) ＞ 22+11[6,5] ＞ 33"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -916,7 +916,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[0+5,+3]C[8]F[6]"
-output = "NightWizard : (2R6M[5,3]C[8]F[6]) ＞ 5-10[5,1] ＞ ファンブル ＞ -5"
+output = "(2R6M[5,3]C[8]F[6]) ＞ 5-10[5,1] ＞ ファンブル ＞ -5"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -925,7 +925,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[0+5,+3]C[8]F[6]"
-output = "NightWizard : (2R6M[5,3]C[8]F[6]) ＞ 8+7[5,2] ＞ 15"
+output = "(2R6M[5,3]C[8]F[6]) ＞ 8+7[5,2] ＞ 15"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -934,7 +934,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[0+5,+3]C[8]F[6]"
-output = "NightWizard : (2R6M[5,3]C[8]F[6]) ＞ 8+10[5,3]+7[5,2] ＞ クリティカル ＞ 25"
+output = "(2R6M[5,3]C[8]F[6]) ＞ 8+10[5,3]+7[5,2] ＞ クリティカル ＞ 25"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -945,7 +945,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[7,10]F[2,5]>=66"
-output = "NightWizard : (2R6M[55,0]C[7,10]F[2,5]>=66) ＞ 55-10[3,2] ＞ ファンブル ＞ 45 ＞ 失敗"
+output = "(2R6M[55,0]C[7,10]F[2,5]>=66) ＞ 55-10[3,2] ＞ ファンブル ＞ 45 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -954,7 +954,7 @@ rands = [
 [[ test ]]
 game_system = "NightWizard"
 input = "2R6M[50+5]C[7,10]F[2,5]>=66"
-output = "NightWizard : (2R6M[55,0]C[7,10]F[2,5]>=66) ＞ 55+11[5,6] ＞ 66 ＞ 成功"
+output = "(2R6M[55,0]C[7,10]F[2,5]>=66) ＞ 55+11[5,6] ＞ 66 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },

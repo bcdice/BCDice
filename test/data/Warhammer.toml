@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=10"
-output = "Warhammer : (1D100<=10) ＞ 74 ＞ 失敗(失敗度6)"
+output = "(1D100<=10) ＞ 74 ＞ 失敗(失敗度6)"
 rands = [
   { sides = 100, value = 74 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=10"
-output = "Warhammer : (1D100<=10) ＞ 59 ＞ 失敗(失敗度4)"
+output = "(1D100<=10) ＞ 59 ＞ 失敗(失敗度4)"
 rands = [
   { sides = 100, value = 59 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=10"
-output = "Warhammer : (1D100<=10) ＞ 22 ＞ 失敗(失敗度1)"
+output = "(1D100<=10) ＞ 22 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 22 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=10"
-output = "Warhammer : (1D100<=10) ＞ 13 ＞ 失敗(失敗度0)"
+output = "(1D100<=10) ＞ 13 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 13 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=10"
-output = "Warhammer : (1D100<=10) ＞ 56 ＞ 失敗(失敗度4)"
+output = "(1D100<=10) ＞ 56 ＞ 失敗(失敗度4)"
 rands = [
   { sides = 100, value = 56 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=10"
-output = "Warhammer : (1D100<=10) ＞ 68 ＞ 失敗(失敗度5)"
+output = "(1D100<=10) ＞ 68 ＞ 失敗(失敗度5)"
 rands = [
   { sides = 100, value = 68 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=10"
-output = "Warhammer : (1D100<=10) ＞ 89 ＞ 失敗(失敗度7)"
+output = "(1D100<=10) ＞ 89 ＞ 失敗(失敗度7)"
 rands = [
   { sides = 100, value = 89 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=10"
-output = "Warhammer : (1D100<=10) ＞ 67 ＞ 失敗(失敗度5)"
+output = "(1D100<=10) ＞ 67 ＞ 失敗(失敗度5)"
 rands = [
   { sides = 100, value = 67 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=10"
-output = "Warhammer : (1D100<=10) ＞ 36 ＞ 失敗(失敗度2)"
+output = "(1D100<=10) ＞ 36 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 36 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=10"
-output = "Warhammer : (1D100<=10) ＞ 76 ＞ 失敗(失敗度6)"
+output = "(1D100<=10) ＞ 76 ＞ 失敗(失敗度6)"
 rands = [
   { sides = 100, value = 76 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=90"
-output = "Warhammer : (1D100<=90) ＞ 97 ＞ 失敗(失敗度0)"
+output = "(1D100<=90) ＞ 97 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 97 },
 ]
@@ -89,7 +89,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=90"
-output = "Warhammer : (1D100<=90) ＞ 31 ＞ 成功(成功度5)"
+output = "(1D100<=90) ＞ 31 ＞ 成功(成功度5)"
 rands = [
   { sides = 100, value = 31 },
 ]
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=90"
-output = "Warhammer : (1D100<=90) ＞ 28 ＞ 成功(成功度6)"
+output = "(1D100<=90) ＞ 28 ＞ 成功(成功度6)"
 rands = [
   { sides = 100, value = 28 },
 ]
@@ -105,7 +105,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=90"
-output = "Warhammer : (1D100<=90) ＞ 99 ＞ 失敗(失敗度0)"
+output = "(1D100<=90) ＞ 99 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -113,7 +113,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=90"
-output = "Warhammer : (1D100<=90) ＞ 66 ＞ 成功(成功度2)"
+output = "(1D100<=90) ＞ 66 ＞ 成功(成功度2)"
 rands = [
   { sides = 100, value = 66 },
 ]
@@ -121,7 +121,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=90"
-output = "Warhammer : (1D100<=90) ＞ 98 ＞ 失敗(失敗度0)"
+output = "(1D100<=90) ＞ 98 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 98 },
 ]
@@ -129,7 +129,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=90"
-output = "Warhammer : (1D100<=90) ＞ 47 ＞ 成功(成功度4)"
+output = "(1D100<=90) ＞ 47 ＞ 成功(成功度4)"
 rands = [
   { sides = 100, value = 47 },
 ]
@@ -137,7 +137,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=90"
-output = "Warhammer : (1D100<=90) ＞ 67 ＞ 成功(成功度2)"
+output = "(1D100<=90) ＞ 67 ＞ 成功(成功度2)"
 rands = [
   { sides = 100, value = 67 },
 ]
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=90"
-output = "Warhammer : (1D100<=90) ＞ 40 ＞ 成功(成功度5)"
+output = "(1D100<=90) ＞ 40 ＞ 成功(成功度5)"
 rands = [
   { sides = 100, value = 40 },
 ]
@@ -153,7 +153,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=90"
-output = "Warhammer : (1D100<=90) ＞ 77 ＞ 成功(成功度1)"
+output = "(1D100<=90) ＞ 77 ＞ 成功(成功度1)"
 rands = [
   { sides = 100, value = 77 },
 ]
@@ -161,7 +161,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=50"
-output = "Warhammer : (1D100<=50) ＞ 83 ＞ 失敗(失敗度3)"
+output = "(1D100<=50) ＞ 83 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 83 },
 ]
@@ -169,7 +169,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=50"
-output = "Warhammer : (1D100<=50) ＞ 4 ＞ 成功(成功度4)"
+output = "(1D100<=50) ＞ 4 ＞ 成功(成功度4)"
 rands = [
   { sides = 100, value = 4 },
 ]
@@ -177,7 +177,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=50"
-output = "Warhammer : (1D100<=50) ＞ 17 ＞ 成功(成功度3)"
+output = "(1D100<=50) ＞ 17 ＞ 成功(成功度3)"
 rands = [
   { sides = 100, value = 17 },
 ]
@@ -185,7 +185,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=50"
-output = "Warhammer : (1D100<=50) ＞ 27 ＞ 成功(成功度2)"
+output = "(1D100<=50) ＞ 27 ＞ 成功(成功度2)"
 rands = [
   { sides = 100, value = 27 },
 ]
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=50"
-output = "Warhammer : (1D100<=50) ＞ 65 ＞ 失敗(失敗度1)"
+output = "(1D100<=50) ＞ 65 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 65 },
 ]
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=50"
-output = "Warhammer : (1D100<=50) ＞ 50 ＞ 成功(成功度0)"
+output = "(1D100<=50) ＞ 50 ＞ 成功(成功度0)"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -209,7 +209,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=50"
-output = "Warhammer : (1D100<=50) ＞ 37 ＞ 成功(成功度1)"
+output = "(1D100<=50) ＞ 37 ＞ 成功(成功度1)"
 rands = [
   { sides = 100, value = 37 },
 ]
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=50"
-output = "Warhammer : (1D100<=50) ＞ 85 ＞ 失敗(失敗度3)"
+output = "(1D100<=50) ＞ 85 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 85 },
 ]
@@ -225,7 +225,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=50"
-output = "Warhammer : (1D100<=50) ＞ 39 ＞ 成功(成功度1)"
+output = "(1D100<=50) ＞ 39 ＞ 成功(成功度1)"
 rands = [
   { sides = 100, value = 39 },
 ]
@@ -233,7 +233,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100<=50"
-output = "Warhammer : (1D100<=50) ＞ 43 ＞ 成功(成功度0)"
+output = "(1D100<=50) ＞ 43 ＞ 成功(成功度0)"
 rands = [
   { sides = 100, value = 43 },
 ]
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whH10"
-output = "Warhammer : 頭部CT表(7+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
+output = "頭部CT表(7+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
 rands = [
   { sides = 100, value = 7 },
 ]
@@ -249,7 +249,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whH10"
-output = "Warhammer : 頭部CT表(32+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
+output = "頭部CT表(32+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
 rands = [
   { sides = 100, value = 32 },
 ]
@@ -257,7 +257,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whH10"
-output = "Warhammer : 頭部CT表(38+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
+output = "頭部CT表(38+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
 rands = [
   { sides = 100, value = 38 },
 ]
@@ -265,7 +265,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whH10"
-output = "Warhammer : 頭部CT表(27+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
+output = "頭部CT表(27+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
 rands = [
   { sides = 100, value = 27 },
 ]
@@ -273,7 +273,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whH10"
-output = "Warhammer : 頭部CT表(31+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
+output = "頭部CT表(31+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
 rands = [
   { sides = 100, value = 31 },
 ]
@@ -281,7 +281,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whH10"
-output = "Warhammer : 頭部CT表(81+10) ＞ 09:凄まじい打撃により頭蓋骨が粉砕される。死は瞬時に訪れる。サドンデス×"
+output = "頭部CT表(81+10) ＞ 09:凄まじい打撃により頭蓋骨が粉砕される。死は瞬時に訪れる。サドンデス×"
 rands = [
   { sides = 100, value = 81 },
 ]
@@ -289,7 +289,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whH10"
-output = "Warhammer : 頭部CT表(64+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
+output = "頭部CT表(64+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
 rands = [
   { sides = 100, value = 64 },
 ]
@@ -297,7 +297,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whH10"
-output = "Warhammer : 頭部CT表(100+10) ＞ 08:顔がずたずたになって倒れ、以後無防備状態。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると片方の視力を失う。サドンデス×"
+output = "頭部CT表(100+10) ＞ 08:顔がずたずたになって倒れ、以後無防備状態。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると片方の視力を失う。サドンデス×"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -305,7 +305,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whH10"
-output = "Warhammer : 頭部CT表(38+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
+output = "頭部CT表(38+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
 rands = [
   { sides = 100, value = 38 },
 ]
@@ -313,7 +313,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whH10"
-output = "Warhammer : 頭部CT表(40+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
+output = "頭部CT表(40+10) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
 rands = [
   { sides = 100, value = 40 },
 ]
@@ -321,7 +321,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whA5"
-output = "Warhammer : 腕部CT表(81+5) ＞ 06:腕が砕かれる。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
+output = "腕部CT表(81+5) ＞ 06:腕が砕かれる。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
 rands = [
   { sides = 100, value = 81 },
 ]
@@ -329,7 +329,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whA5"
-output = "Warhammer : 腕部CT表(68+5) ＞ 07:手首から先が血まみれの残骸と化す。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑健】テストに失敗すると手の機能を失う。サドンデス×"
+output = "腕部CT表(68+5) ＞ 07:手首から先が血まみれの残骸と化す。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑健】テストに失敗すると手の機能を失う。サドンデス×"
 rands = [
   { sides = 100, value = 68 },
 ]
@@ -337,7 +337,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whA5"
-output = "Warhammer : 腕部CT表(73+5) ＞ 07:手首から先が血まみれの残骸と化す。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑健】テストに失敗すると手の機能を失う。サドンデス×"
+output = "腕部CT表(73+5) ＞ 07:手首から先が血まみれの残骸と化す。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑健】テストに失敗すると手の機能を失う。サドンデス×"
 rands = [
   { sides = 100, value = 73 },
 ]
@@ -345,7 +345,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whA5"
-output = "Warhammer : 腕部CT表(26+5) ＞ 09:大動脈に傷が及んだ。コンマ数秒の内に損傷した肩から血を噴出して倒れる。ショックと失血により、ほぼ即死する。サドンデス×"
+output = "腕部CT表(26+5) ＞ 09:大動脈に傷が及んだ。コンマ数秒の内に損傷した肩から血を噴出して倒れる。ショックと失血により、ほぼ即死する。サドンデス×"
 rands = [
   { sides = 100, value = 26 },
 ]
@@ -353,7 +353,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whA5"
-output = "Warhammer : 腕部CT表(23+5) ＞ 09:大動脈に傷が及んだ。コンマ数秒の内に損傷した肩から血を噴出して倒れる。ショックと失血により、ほぼ即死する。サドンデス×"
+output = "腕部CT表(23+5) ＞ 09:大動脈に傷が及んだ。コンマ数秒の内に損傷した肩から血を噴出して倒れる。ショックと失血により、ほぼ即死する。サドンデス×"
 rands = [
   { sides = 100, value = 23 },
 ]
@@ -361,7 +361,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whA5"
-output = "Warhammer : 腕部CT表(23+5) ＞ 09:大動脈に傷が及んだ。コンマ数秒の内に損傷した肩から血を噴出して倒れる。ショックと失血により、ほぼ即死する。サドンデス×"
+output = "腕部CT表(23+5) ＞ 09:大動脈に傷が及んだ。コンマ数秒の内に損傷した肩から血を噴出して倒れる。ショックと失血により、ほぼ即死する。サドンデス×"
 rands = [
   { sides = 100, value = 23 },
 ]
@@ -369,7 +369,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whA5"
-output = "Warhammer : 腕部CT表(33+5) ＞ 09:大動脈に傷が及んだ。コンマ数秒の内に損傷した肩から血を噴出して倒れる。ショックと失血により、ほぼ即死する。サドンデス×"
+output = "腕部CT表(33+5) ＞ 09:大動脈に傷が及んだ。コンマ数秒の内に損傷した肩から血を噴出して倒れる。ショックと失血により、ほぼ即死する。サドンデス×"
 rands = [
   { sides = 100, value = 33 },
 ]
@@ -377,7 +377,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whA5"
-output = "Warhammer : 腕部CT表(83+5) ＞ 06:腕が砕かれる。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
+output = "腕部CT表(83+5) ＞ 06:腕が砕かれる。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
 rands = [
   { sides = 100, value = 83 },
 ]
@@ -385,7 +385,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whA5"
-output = "Warhammer : 腕部CT表(9+5) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
+output = "腕部CT表(9+5) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
 rands = [
   { sides = 100, value = 9 },
 ]
@@ -393,7 +393,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "whA5"
-output = "Warhammer : 腕部CT表(6+5) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
+output = "腕部CT表(6+5) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -401,7 +401,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(36+4) ＞ 08:脚は血まみれの肉塊がぶらさがっている状態。以後無防備状態。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると膝から下を失う。サドンデス×"
+output = "脚部CT表(36+4) ＞ 08:脚は血まみれの肉塊がぶらさがっている状態。以後無防備状態。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると膝から下を失う。サドンデス×"
 rands = [
   { sides = 100, value = 36 },
 ]
@@ -409,7 +409,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(82+4) ＞ 06:脚が砕かれ、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
+output = "脚部CT表(82+4) ＞ 06:脚が砕かれ、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
 rands = [
   { sides = 100, value = 82 },
 ]
@@ -417,7 +417,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(95+4) ＞ 05:転んで倒れ、頭がくらくらする。1Rに渡ってあらゆるテストに-30の修正、立ち上がるには起立アクションが必要。サドンデス×"
+output = "脚部CT表(95+4) ＞ 05:転んで倒れ、頭がくらくらする。1Rに渡ってあらゆるテストに-30の修正、立ち上がるには起立アクションが必要。サドンデス×"
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -425,7 +425,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(77+4) ＞ 06:脚が砕かれ、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
+output = "脚部CT表(77+4) ＞ 06:脚が砕かれ、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
 rands = [
   { sides = 100, value = 77 },
 ]
@@ -433,7 +433,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(77+4) ＞ 06:脚が砕かれ、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
+output = "脚部CT表(77+4) ＞ 06:脚が砕かれ、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
 rands = [
   { sides = 100, value = 77 },
 ]
@@ -441,7 +441,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(63+4) ＞ 07:脚は血まみれの残骸と化し、無防備状態になる。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると足首から先を失う。サドンデス×"
+output = "脚部CT表(63+4) ＞ 07:脚は血まみれの残骸と化し、無防備状態になる。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると足首から先を失う。サドンデス×"
 rands = [
   { sides = 100, value = 63 },
 ]
@@ -449,7 +449,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(31+4) ＞ 08:脚は血まみれの肉塊がぶらさがっている状態。以後無防備状態。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると膝から下を失う。サドンデス×"
+output = "脚部CT表(31+4) ＞ 08:脚は血まみれの肉塊がぶらさがっている状態。以後無防備状態。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると膝から下を失う。サドンデス×"
 rands = [
   { sides = 100, value = 31 },
 ]
@@ -457,7 +457,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(48+4) ＞ 08:脚は血まみれの肉塊がぶらさがっている状態。以後無防備状態。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると膝から下を失う。サドンデス×"
+output = "脚部CT表(48+4) ＞ 08:脚は血まみれの肉塊がぶらさがっている状態。以後無防備状態。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると膝から下を失う。サドンデス×"
 rands = [
   { sides = 100, value = 48 },
 ]
@@ -465,7 +465,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(87+4) ＞ 06:脚が砕かれ、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
+output = "脚部CT表(87+4) ＞ 06:脚が砕かれ、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
 rands = [
   { sides = 100, value = 87 },
 ]
@@ -473,7 +473,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(83+4) ＞ 06:脚が砕かれ、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
+output = "脚部CT表(83+4) ＞ 06:脚が砕かれ、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
 rands = [
   { sides = 100, value = 83 },
 ]
@@ -481,7 +481,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh60"
-output = "Warhammer : (WH60) ＞ 56 ＞ 成功(成功度0) 二足:胴体"
+output = "(WH60) ＞ 56 ＞ 成功(成功度0) 二足:胴体"
 rands = [
   { sides = 100, value = 56 },
 ]
@@ -489,7 +489,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh60"
-output = "Warhammer : (WH60) ＞ 8 ＞ 成功(成功度5) 二足:胴体"
+output = "(WH60) ＞ 8 ＞ 成功(成功度5) 二足:胴体"
 rands = [
   { sides = 100, value = 8 },
 ]
@@ -497,7 +497,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh60"
-output = "Warhammer : (WH60) ＞ 26 ＞ 成功(成功度3) 二足:胴体"
+output = "(WH60) ＞ 26 ＞ 成功(成功度3) 二足:胴体"
 rands = [
   { sides = 100, value = 26 },
 ]
@@ -505,7 +505,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh60"
-output = "Warhammer : (WH60) ＞ 37 ＞ 成功(成功度2) 二足:胴体"
+output = "(WH60) ＞ 37 ＞ 成功(成功度2) 二足:胴体"
 rands = [
   { sides = 100, value = 37 },
 ]
@@ -513,7 +513,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh60"
-output = "Warhammer : (WH60) ＞ 15 ＞ 成功(成功度4) 二足:左腕"
+output = "(WH60) ＞ 15 ＞ 成功(成功度4) 二足:左腕"
 rands = [
   { sides = 100, value = 15 },
 ]
@@ -521,7 +521,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh60"
-output = "Warhammer : (WH60) ＞ 92 ＞ 失敗(失敗度3)"
+output = "(WH60) ＞ 92 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 92 },
 ]
@@ -529,7 +529,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh60"
-output = "Warhammer : (WH60) ＞ 32 ＞ 成功(成功度2) 二足:右腕"
+output = "(WH60) ＞ 32 ＞ 成功(成功度2) 二足:右腕"
 rands = [
   { sides = 100, value = 32 },
 ]
@@ -537,7 +537,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh60"
-output = "Warhammer : (WH60) ＞ 22 ＞ 成功(成功度3) 二足:右腕"
+output = "(WH60) ＞ 22 ＞ 成功(成功度3) 二足:右腕"
 rands = [
   { sides = 100, value = 22 },
 ]
@@ -545,7 +545,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh60"
-output = "Warhammer : (WH60) ＞ 15 ＞ 成功(成功度4) 二足:左腕"
+output = "(WH60) ＞ 15 ＞ 成功(成功度4) 二足:左腕"
 rands = [
   { sides = 100, value = 15 },
 ]
@@ -553,7 +553,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh60"
-output = "Warhammer : (WH60) ＞ 20 ＞ 成功(成功度4) 二足:頭部"
+output = "(WH60) ＞ 20 ＞ 成功(成功度4) 二足:頭部"
 rands = [
   { sides = 100, value = 20 },
 ]
@@ -561,7 +561,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh43@4W"
-output = "Warhammer : (WH43) ＞ 74 ＞ 失敗(失敗度3)"
+output = "(WH43) ＞ 74 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 74 },
 ]
@@ -569,7 +569,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh43@4W"
-output = "Warhammer : (WH43) ＞ 3 ＞ 成功(成功度4) 有翼四足:左翼"
+output = "(WH43) ＞ 3 ＞ 成功(成功度4) 有翼四足:左翼"
 rands = [
   { sides = 100, value = 3 },
 ]
@@ -577,7 +577,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh43@4W"
-output = "Warhammer : (WH43) ＞ 8 ＞ 成功(成功度3) 有翼四足:左前脚"
+output = "(WH43) ＞ 8 ＞ 成功(成功度3) 有翼四足:左前脚"
 rands = [
   { sides = 100, value = 8 },
 ]
@@ -585,7 +585,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh43@4W"
-output = "Warhammer : (WH43) ＞ 63 ＞ 失敗(失敗度2)"
+output = "(WH43) ＞ 63 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 63 },
 ]
@@ -593,7 +593,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh43@4W"
-output = "Warhammer : (WH43) ＞ 7 ＞ 成功(成功度3) 有翼四足:右前脚"
+output = "(WH43) ＞ 7 ＞ 成功(成功度3) 有翼四足:右前脚"
 rands = [
   { sides = 100, value = 7 },
 ]
@@ -601,7 +601,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh43@4W"
-output = "Warhammer : (WH43) ＞ 51 ＞ 失敗(失敗度0)"
+output = "(WH43) ＞ 51 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -609,7 +609,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh43@4W"
-output = "Warhammer : (WH43) ＞ 20 ＞ 成功(成功度2) 有翼四足:頭部"
+output = "(WH43) ＞ 20 ＞ 成功(成功度2) 有翼四足:頭部"
 rands = [
   { sides = 100, value = 20 },
 ]
@@ -617,7 +617,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh43@4W"
-output = "Warhammer : (WH43) ＞ 62 ＞ 失敗(失敗度1)"
+output = "(WH43) ＞ 62 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 62 },
 ]
@@ -625,7 +625,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh43@4W"
-output = "Warhammer : (WH43) ＞ 88 ＞ 失敗(失敗度4)"
+output = "(WH43) ＞ 88 ＞ 失敗(失敗度4)"
 rands = [
   { sides = 100, value = 88 },
 ]
@@ -633,7 +633,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "wh43@4W"
-output = "Warhammer : (WH43) ＞ 12 ＞ 成功(成功度3) 有翼四足:左翼"
+output = "(WH43) ＞ 12 ＞ 成功(成功度3) 有翼四足:左翼"
 rands = [
   { sides = 100, value = 12 },
 ]
@@ -641,7 +641,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH65@"
-output = "Warhammer : (WH65) ＞ 18 ＞ 成功(成功度4) 二足:右脚 有翼二足:右脚 四足:右後脚 半人四足:右後脚 有翼四足:右後脚 鳥:右脚"
+output = "(WH65) ＞ 18 ＞ 成功(成功度4) 二足:右脚 有翼二足:右脚 四足:右後脚 半人四足:右後脚 有翼四足:右後脚 鳥:右脚"
 rands = [
   { sides = 100, value = 18 },
 ]
@@ -649,7 +649,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH65@"
-output = "Warhammer : (WH65) ＞ 55 ＞ 成功(成功度1) 二足:左腕 有翼二足:左翼 四足:胴体 半人四足:胴体 有翼四足:胴体 鳥:左翼"
+output = "(WH65) ＞ 55 ＞ 成功(成功度1) 二足:左腕 有翼二足:左翼 四足:胴体 半人四足:胴体 有翼四足:胴体 鳥:左翼"
 rands = [
   { sides = 100, value = 55 },
 ]
@@ -657,7 +657,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH65@"
-output = "Warhammer : (WH65) ＞ 50 ＞ 成功(成功度1) 二足:頭部 有翼二足:頭部 四足:頭部 半人四足:頭部 有翼四足:頭部 鳥:頭部"
+output = "(WH65) ＞ 50 ＞ 成功(成功度1) 二足:頭部 有翼二足:頭部 四足:頭部 半人四足:頭部 有翼四足:頭部 鳥:頭部"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -665,7 +665,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH65@"
-output = "Warhammer : (WH65) ＞ 90 ＞ 失敗(失敗度2)"
+output = "(WH65) ＞ 90 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 90 },
 ]
@@ -673,7 +673,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH65@"
-output = "Warhammer : (WH65) ＞ 23 ＞ 成功(成功度4) 二足:右腕 有翼二足:左腕 四足:胴体 半人四足:胴体 有翼四足:胴体 鳥:右翼"
+output = "(WH65) ＞ 23 ＞ 成功(成功度4) 二足:右腕 有翼二足:左腕 四足:胴体 半人四足:胴体 有翼四足:胴体 鳥:右翼"
 rands = [
   { sides = 100, value = 23 },
 ]
@@ -681,7 +681,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH65@"
-output = "Warhammer : (WH65) ＞ 34 ＞ 成功(成功度3) 二足:左腕 有翼二足:右翼 四足:胴体 半人四足:胴体 有翼四足:胴体 鳥:左翼"
+output = "(WH65) ＞ 34 ＞ 成功(成功度3) 二足:左腕 有翼二足:右翼 四足:胴体 半人四足:胴体 有翼四足:胴体 鳥:左翼"
 rands = [
   { sides = 100, value = 34 },
 ]
@@ -689,7 +689,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH65@"
-output = "Warhammer : (WH65) ＞ 98 ＞ 失敗(失敗度3)"
+output = "(WH65) ＞ 98 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 98 },
 ]
@@ -697,7 +697,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH65@"
-output = "Warhammer : (WH65) ＞ 80 ＞ 失敗(失敗度1)"
+output = "(WH65) ＞ 80 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 80 },
 ]
@@ -705,7 +705,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH65@"
-output = "Warhammer : (WH65) ＞ 67 ＞ 失敗(失敗度0)"
+output = "(WH65) ＞ 67 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 67 },
 ]
@@ -713,7 +713,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH65@"
-output = "Warhammer : (WH65) ＞ 96 ＞ 失敗(失敗度3)"
+output = "(WH65) ＞ 96 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -721,7 +721,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHH1"
-output = "Warhammer : 頭部CT表(18+1) ＞ 05:転んで倒れ、頭がくらくらする。1Rに渡ってあらゆるテストに-30で、立ち上がるには起立アクションが必要。サドンデス×"
+output = "頭部CT表(18+1) ＞ 05:転んで倒れ、頭がくらくらする。1Rに渡ってあらゆるテストに-30で、立ち上がるには起立アクションが必要。サドンデス×"
 rands = [
   { sides = 100, value = 18 },
 ]
@@ -729,7 +729,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHH1"
-output = "Warhammer : 頭部CT表(54+1) ＞ 03:打撃が頭皮を酷く傷つけた。【武器技術度】に-10%。治療を受けるまで継続。サドンデス○"
+output = "頭部CT表(54+1) ＞ 03:打撃が頭皮を酷く傷つけた。【武器技術度】に-10%。治療を受けるまで継続。サドンデス○"
 rands = [
   { sides = 100, value = 54 },
 ]
@@ -737,7 +737,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHH1"
-output = "Warhammer : 頭部CT表(9+1) ＞ 05:転んで倒れ、頭がくらくらする。1Rに渡ってあらゆるテストに-30で、立ち上がるには起立アクションが必要。サドンデス×"
+output = "頭部CT表(9+1) ＞ 05:転んで倒れ、頭がくらくらする。1Rに渡ってあらゆるテストに-30で、立ち上がるには起立アクションが必要。サドンデス×"
 rands = [
   { sides = 100, value = 9 },
 ]
@@ -745,7 +745,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHH1"
-output = "Warhammer : 頭部CT表(1+1) ＞ 05:転んで倒れ、頭がくらくらする。1Rに渡ってあらゆるテストに-30で、立ち上がるには起立アクションが必要。サドンデス×"
+output = "頭部CT表(1+1) ＞ 05:転んで倒れ、頭がくらくらする。1Rに渡ってあらゆるテストに-30で、立ち上がるには起立アクションが必要。サドンデス×"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -753,7 +753,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHH1"
-output = "Warhammer : 頭部CT表(57+1) ＞ 03:打撃が頭皮を酷く傷つけた。【武器技術度】に-10%。治療を受けるまで継続。サドンデス○"
+output = "頭部CT表(57+1) ＞ 03:打撃が頭皮を酷く傷つけた。【武器技術度】に-10%。治療を受けるまで継続。サドンデス○"
 rands = [
   { sides = 100, value = 57 },
 ]
@@ -761,7 +761,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHH1"
-output = "Warhammer : 頭部CT表(22+1) ＞ 04:鎧が損傷し当該部位のAP-1。修理するには(職能:鎧鍛冶)テスト。鎧を着けていないなら1Rの間アクションを行なえない。サドンデス○"
+output = "頭部CT表(22+1) ＞ 04:鎧が損傷し当該部位のAP-1。修理するには(職能:鎧鍛冶)テスト。鎧を着けていないなら1Rの間アクションを行なえない。サドンデス○"
 rands = [
   { sides = 100, value = 22 },
 ]
@@ -769,7 +769,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHH1"
-output = "Warhammer : 頭部CT表(96+1) ＞ 01:打撃で状況が把握出来なくなる。次ターンは1回の半アクションしか行なえない。サドンデス○"
+output = "頭部CT表(96+1) ＞ 01:打撃で状況が把握出来なくなる。次ターンは1回の半アクションしか行なえない。サドンデス○"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -777,7 +777,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHH1"
-output = "Warhammer : 頭部CT表(11+1) ＞ 05:転んで倒れ、頭がくらくらする。1Rに渡ってあらゆるテストに-30で、立ち上がるには起立アクションが必要。サドンデス×"
+output = "頭部CT表(11+1) ＞ 05:転んで倒れ、頭がくらくらする。1Rに渡ってあらゆるテストに-30で、立ち上がるには起立アクションが必要。サドンデス×"
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -785,7 +785,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHH1"
-output = "Warhammer : 頭部CT表(82+1) ＞ 01:打撃で状況が把握出来なくなる。次ターンは1回の半アクションしか行なえない。サドンデス○"
+output = "頭部CT表(82+1) ＞ 01:打撃で状況が把握出来なくなる。次ターンは1回の半アクションしか行なえない。サドンデス○"
 rands = [
   { sides = 100, value = 82 },
 ]
@@ -793,7 +793,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHH1"
-output = "Warhammer : 頭部CT表(85+1) ＞ 01:打撃で状況が把握出来なくなる。次ターンは1回の半アクションしか行なえない。サドンデス○"
+output = "頭部CT表(85+1) ＞ 01:打撃で状況が把握出来なくなる。次ターンは1回の半アクションしか行なえない。サドンデス○"
 rands = [
   { sides = 100, value = 85 },
 ]
@@ -801,7 +801,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHA2"
-output = "Warhammer : 腕部CT表(88+2) ＞ 03:手の機能が失われ、治療を受けるまで回復できない。手で握っていたもの(盾を除く)は落ちる。サドンデス○"
+output = "腕部CT表(88+2) ＞ 03:手の機能が失われ、治療を受けるまで回復できない。手で握っていたもの(盾を除く)は落ちる。サドンデス○"
 rands = [
   { sides = 100, value = 88 },
 ]
@@ -809,7 +809,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHA2"
-output = "Warhammer : 腕部CT表(15+2) ＞ 06:腕が砕かれる。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
+output = "腕部CT表(15+2) ＞ 06:腕が砕かれる。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
 rands = [
   { sides = 100, value = 15 },
 ]
@@ -817,7 +817,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHA2"
-output = "Warhammer : 腕部CT表(60+2) ＞ 04:鎧が損傷する。当該部位のAP-1。修理するには(職能:鎧鍛冶)テスト。鎧を着けていないなら腕が痺れ、1Rの間使えなくなる。サドンデス○"
+output = "腕部CT表(60+2) ＞ 04:鎧が損傷する。当該部位のAP-1。修理するには(職能:鎧鍛冶)テスト。鎧を着けていないなら腕が痺れ、1Rの間使えなくなる。サドンデス○"
 rands = [
   { sides = 100, value = 60 },
 ]
@@ -825,7 +825,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHA2"
-output = "Warhammer : 腕部CT表(90+2) ＞ 03:手の機能が失われ、治療を受けるまで回復できない。手で握っていたもの(盾を除く)は落ちる。サドンデス○"
+output = "腕部CT表(90+2) ＞ 03:手の機能が失われ、治療を受けるまで回復できない。手で握っていたもの(盾を除く)は落ちる。サドンデス○"
 rands = [
   { sides = 100, value = 90 },
 ]
@@ -833,7 +833,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHA2"
-output = "Warhammer : 腕部CT表(40+2) ＞ 05:腕の機能が失われ、治療を受けるまで回復できない。手で握っていたもの(盾を除く)は落ちる。サドンデス×"
+output = "腕部CT表(40+2) ＞ 05:腕の機能が失われ、治療を受けるまで回復できない。手で握っていたもの(盾を除く)は落ちる。サドンデス×"
 rands = [
   { sides = 100, value = 40 },
 ]
@@ -841,7 +841,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHA2"
-output = "Warhammer : 腕部CT表(10+2) ＞ 07:手首から先が血まみれの残骸と化す。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑健】テストに失敗すると手の機能を失う。サドンデス×"
+output = "腕部CT表(10+2) ＞ 07:手首から先が血まみれの残骸と化す。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑健】テストに失敗すると手の機能を失う。サドンデス×"
 rands = [
   { sides = 100, value = 10 },
 ]
@@ -849,7 +849,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHA2"
-output = "Warhammer : 腕部CT表(74+2) ＞ 03:手の機能が失われ、治療を受けるまで回復できない。手で握っていたもの(盾を除く)は落ちる。サドンデス○"
+output = "腕部CT表(74+2) ＞ 03:手の機能が失われ、治療を受けるまで回復できない。手で握っていたもの(盾を除く)は落ちる。サドンデス○"
 rands = [
   { sides = 100, value = 74 },
 ]
@@ -857,7 +857,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHA2"
-output = "Warhammer : 腕部CT表(5+2) ＞ 07:手首から先が血まみれの残骸と化す。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑健】テストに失敗すると手の機能を失う。サドンデス×"
+output = "腕部CT表(5+2) ＞ 07:手首から先が血まみれの残骸と化す。手で握っていたもの(盾を除く)は落ちる。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑健】テストに失敗すると手の機能を失う。サドンデス×"
 rands = [
   { sides = 100, value = 5 },
 ]
@@ -865,7 +865,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHA2"
-output = "Warhammer : 腕部CT表(47+2) ＞ 05:腕の機能が失われ、治療を受けるまで回復できない。手で握っていたもの(盾を除く)は落ちる。サドンデス×"
+output = "腕部CT表(47+2) ＞ 05:腕の機能が失われ、治療を受けるまで回復できない。手で握っていたもの(盾を除く)は落ちる。サドンデス×"
 rands = [
   { sides = 100, value = 47 },
 ]
@@ -873,7 +873,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHA2"
-output = "Warhammer : 腕部CT表(60+2) ＞ 04:鎧が損傷する。当該部位のAP-1。修理するには(職能:鎧鍛冶)テスト。鎧を着けていないなら腕が痺れ、1Rの間使えなくなる。サドンデス○"
+output = "腕部CT表(60+2) ＞ 04:鎧が損傷する。当該部位のAP-1。修理するには(職能:鎧鍛冶)テスト。鎧を着けていないなら腕が痺れ、1Rの間使えなくなる。サドンデス○"
 rands = [
   { sides = 100, value = 60 },
 ]
@@ -881,7 +881,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHB3"
-output = "Warhammer : 胴体CT表(22+3) ＞ 08:脊髄が粉砕されて倒れ、以後治療を受けるまで無防備状態。以後CTはサドンデスを適用。【頑強】テストに失敗すると腰から下が不随になる。サドンデス×"
+output = "胴体CT表(22+3) ＞ 08:脊髄が粉砕されて倒れ、以後治療を受けるまで無防備状態。以後CTはサドンデスを適用。【頑強】テストに失敗すると腰から下が不随になる。サドンデス×"
 rands = [
   { sides = 100, value = 22 },
 ]
@@ -889,7 +889,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHB3"
-output = "Warhammer : 胴体CT表(34+3) ＞ 07:ひどい内出血が起こり、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。サドンデス×"
+output = "胴体CT表(34+3) ＞ 07:ひどい内出血が起こり、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。サドンデス×"
 rands = [
   { sides = 100, value = 34 },
 ]
@@ -897,7 +897,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHB3"
-output = "Warhammer : 胴体CT表(59+3) ＞ 06:1d10R気絶。サドンデス×"
+output = "胴体CT表(59+3) ＞ 06:1d10R気絶。サドンデス×"
 rands = [
   { sides = 100, value = 59 },
 ]
@@ -905,7 +905,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHB3"
-output = "Warhammer : 胴体CT表(83+3) ＞ 05:転んで倒れ、息が詰まって悶絶する。1Rに渡ってあらゆるテストに-30の修正、立ち上がるには起立アクションが必要。サドンデス×"
+output = "胴体CT表(83+3) ＞ 05:転んで倒れ、息が詰まって悶絶する。1Rに渡ってあらゆるテストに-30の修正、立ち上がるには起立アクションが必要。サドンデス×"
 rands = [
   { sides = 100, value = 83 },
 ]
@@ -913,7 +913,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHB3"
-output = "Warhammer : 胴体CT表(99+3) ＞ 04:鎧が損傷する。当該部位のAP-1。修理するには(職能:鎧鍛冶)テスト。鎧を着けていないなら股間への一撃、1Rに渡って一切のアクションを行なえない。サドンデス○"
+output = "胴体CT表(99+3) ＞ 04:鎧が損傷する。当該部位のAP-1。修理するには(職能:鎧鍛冶)テスト。鎧を着けていないなら股間への一撃、1Rに渡って一切のアクションを行なえない。サドンデス○"
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -921,7 +921,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHB3"
-output = "Warhammer : 胴体CT表(76+3) ＞ 05:転んで倒れ、息が詰まって悶絶する。1Rに渡ってあらゆるテストに-30の修正、立ち上がるには起立アクションが必要。サドンデス×"
+output = "胴体CT表(76+3) ＞ 05:転んで倒れ、息が詰まって悶絶する。1Rに渡ってあらゆるテストに-30の修正、立ち上がるには起立アクションが必要。サドンデス×"
 rands = [
   { sides = 100, value = 76 },
 ]
@@ -929,7 +929,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHB3"
-output = "Warhammer : 胴体CT表(65+3) ＞ 06:1d10R気絶。サドンデス×"
+output = "胴体CT表(65+3) ＞ 06:1d10R気絶。サドンデス×"
 rands = [
   { sides = 100, value = 65 },
 ]
@@ -937,7 +937,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHB3"
-output = "Warhammer : 胴体CT表(2+3) ＞ 09:凄まじい打撃により複数の臓器が破裂し、死は数秒のうちに訪れる。サドンデス×"
+output = "胴体CT表(2+3) ＞ 09:凄まじい打撃により複数の臓器が破裂し、死は数秒のうちに訪れる。サドンデス×"
 rands = [
   { sides = 100, value = 2 },
 ]
@@ -945,7 +945,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHB3"
-output = "Warhammer : 胴体CT表(25+3) ＞ 08:脊髄が粉砕されて倒れ、以後治療を受けるまで無防備状態。以後CTはサドンデスを適用。【頑強】テストに失敗すると腰から下が不随になる。サドンデス×"
+output = "胴体CT表(25+3) ＞ 08:脊髄が粉砕されて倒れ、以後治療を受けるまで無防備状態。以後CTはサドンデスを適用。【頑強】テストに失敗すると腰から下が不随になる。サドンデス×"
 rands = [
   { sides = 100, value = 25 },
 ]
@@ -953,7 +953,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHB3"
-output = "Warhammer : 胴体CT表(64+3) ＞ 06:1d10R気絶。サドンデス×"
+output = "胴体CT表(64+3) ＞ 06:1d10R気絶。サドンデス×"
 rands = [
   { sides = 100, value = 64 },
 ]
@@ -961,7 +961,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(43+4) ＞ 08:脚は血まみれの肉塊がぶらさがっている状態。以後無防備状態。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると膝から下を失う。サドンデス×"
+output = "脚部CT表(43+4) ＞ 08:脚は血まみれの肉塊がぶらさがっている状態。以後無防備状態。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると膝から下を失う。サドンデス×"
 rands = [
   { sides = 100, value = 43 },
 ]
@@ -969,7 +969,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(7+4) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
+output = "脚部CT表(7+4) ＞ 10:死亡する。いかに盛大に出血し、どのような死に様を見せたのかを説明してもよい。サドンデス×"
 rands = [
   { sides = 100, value = 7 },
 ]
@@ -977,7 +977,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(12+4) ＞ 09:大動脈に傷が及ぶ。コンマ数秒の内に脚の残骸から血を噴出して倒れ、ショックと出血で死は瞬時に訪れる。サドンデス×"
+output = "脚部CT表(12+4) ＞ 09:大動脈に傷が及ぶ。コンマ数秒の内に脚の残骸から血を噴出して倒れ、ショックと出血で死は瞬時に訪れる。サドンデス×"
 rands = [
   { sides = 100, value = 12 },
 ]
@@ -985,7 +985,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(73+4) ＞ 06:脚が砕かれ、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
+output = "脚部CT表(73+4) ＞ 06:脚が砕かれ、無防備状態。出血がひどく、治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。サドンデス×"
 rands = [
   { sides = 100, value = 73 },
 ]
@@ -993,7 +993,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(96+4) ＞ 05:転んで倒れ、頭がくらくらする。1Rに渡ってあらゆるテストに-30の修正、立ち上がるには起立アクションが必要。サドンデス×"
+output = "脚部CT表(96+4) ＞ 05:転んで倒れ、頭がくらくらする。1Rに渡ってあらゆるテストに-30の修正、立ち上がるには起立アクションが必要。サドンデス×"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -1001,7 +1001,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(54+4) ＞ 07:脚は血まみれの残骸と化し、無防備状態になる。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると足首から先を失う。サドンデス×"
+output = "脚部CT表(54+4) ＞ 07:脚は血まみれの残骸と化し、無防備状態になる。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると足首から先を失う。サドンデス×"
 rands = [
   { sides = 100, value = 54 },
 ]
@@ -1009,7 +1009,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(27+4) ＞ 09:大動脈に傷が及ぶ。コンマ数秒の内に脚の残骸から血を噴出して倒れ、ショックと出血で死は瞬時に訪れる。サドンデス×"
+output = "脚部CT表(27+4) ＞ 09:大動脈に傷が及ぶ。コンマ数秒の内に脚の残骸から血を噴出して倒れ、ショックと出血で死は瞬時に訪れる。サドンデス×"
 rands = [
   { sides = 100, value = 27 },
 ]
@@ -1017,7 +1017,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(36+4) ＞ 08:脚は血まみれの肉塊がぶらさがっている状態。以後無防備状態。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると膝から下を失う。サドンデス×"
+output = "脚部CT表(36+4) ＞ 08:脚は血まみれの肉塊がぶらさがっている状態。以後無防備状態。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると膝から下を失う。サドンデス×"
 rands = [
   { sides = 100, value = 36 },
 ]
@@ -1025,7 +1025,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(61+4) ＞ 07:脚は血まみれの残骸と化し、無防備状態になる。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると足首から先を失う。サドンデス×"
+output = "脚部CT表(61+4) ＞ 07:脚は血まみれの残骸と化し、無防備状態になる。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると足首から先を失う。サドンデス×"
 rands = [
   { sides = 100, value = 61 },
 ]
@@ -1033,7 +1033,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WHL4"
-output = "Warhammer : 脚部CT表(66+4) ＞ 07:脚は血まみれの残骸と化し、無防備状態になる。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると足首から先を失う。サドンデス×"
+output = "脚部CT表(66+4) ＞ 07:脚は血まみれの残骸と化し、無防備状態になる。治療を受けるまで毎Rの被害者のターン開始時に20%で死亡。以後CTはサドンデスを適用。【頑強】テストに失敗すると足首から先を失う。サドンデス×"
 rands = [
   { sides = 100, value = 66 },
 ]
@@ -1041,7 +1041,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH1@"
-output = "Warhammer : (WH1) ＞ 57 ＞ 失敗(失敗度5)"
+output = "(WH1) ＞ 57 ＞ 失敗(失敗度5)"
 rands = [
   { sides = 100, value = 57 },
 ]
@@ -1049,7 +1049,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH1@"
-output = "Warhammer : (WH1) ＞ 70 ＞ 失敗(失敗度6)"
+output = "(WH1) ＞ 70 ＞ 失敗(失敗度6)"
 rands = [
   { sides = 100, value = 70 },
 ]
@@ -1057,7 +1057,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH1@"
-output = "Warhammer : (WH1) ＞ 4 ＞ 失敗(失敗度0)"
+output = "(WH1) ＞ 4 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 4 },
 ]
@@ -1065,7 +1065,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH1@"
-output = "Warhammer : (WH1) ＞ 50 ＞ 失敗(失敗度4)"
+output = "(WH1) ＞ 50 ＞ 失敗(失敗度4)"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -1073,7 +1073,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH1@"
-output = "Warhammer : (WH1) ＞ 26 ＞ 失敗(失敗度2)"
+output = "(WH1) ＞ 26 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 26 },
 ]
@@ -1081,7 +1081,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH1@"
-output = "Warhammer : (WH1) ＞ 37 ＞ 失敗(失敗度3)"
+output = "(WH1) ＞ 37 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 37 },
 ]
@@ -1089,7 +1089,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH1@"
-output = "Warhammer : (WH1) ＞ 93 ＞ 失敗(失敗度9)"
+output = "(WH1) ＞ 93 ＞ 失敗(失敗度9)"
 rands = [
   { sides = 100, value = 93 },
 ]
@@ -1097,7 +1097,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH1@"
-output = "Warhammer : (WH1) ＞ 89 ＞ 失敗(失敗度8)"
+output = "(WH1) ＞ 89 ＞ 失敗(失敗度8)"
 rands = [
   { sides = 100, value = 89 },
 ]
@@ -1105,7 +1105,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH1@"
-output = "Warhammer : (WH1) ＞ 64 ＞ 失敗(失敗度6)"
+output = "(WH1) ＞ 64 ＞ 失敗(失敗度6)"
 rands = [
   { sides = 100, value = 64 },
 ]
@@ -1113,7 +1113,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH1@"
-output = "Warhammer : (WH1) ＞ 41 ＞ 失敗(失敗度4)"
+output = "(WH1) ＞ 41 ＞ 失敗(失敗度4)"
 rands = [
   { sides = 100, value = 41 },
 ]
@@ -1121,7 +1121,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50"
-output = "Warhammer : (WH50) ＞ 71 ＞ 失敗(失敗度2)"
+output = "(WH50) ＞ 71 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 71 },
 ]
@@ -1129,7 +1129,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50"
-output = "Warhammer : (WH50) ＞ 39 ＞ 成功(成功度1) 二足:左脚"
+output = "(WH50) ＞ 39 ＞ 成功(成功度1) 二足:左脚"
 rands = [
   { sides = 100, value = 39 },
 ]
@@ -1137,7 +1137,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50"
-output = "Warhammer : (WH50) ＞ 94 ＞ 失敗(失敗度4)"
+output = "(WH50) ＞ 94 ＞ 失敗(失敗度4)"
 rands = [
   { sides = 100, value = 94 },
 ]
@@ -1145,7 +1145,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50"
-output = "Warhammer : (WH50) ＞ 97 ＞ 失敗(失敗度4)"
+output = "(WH50) ＞ 97 ＞ 失敗(失敗度4)"
 rands = [
   { sides = 100, value = 97 },
 ]
@@ -1153,7 +1153,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50"
-output = "Warhammer : (WH50) ＞ 9 ＞ 成功(成功度4) 二足:右脚"
+output = "(WH50) ＞ 9 ＞ 成功(成功度4) 二足:右脚"
 rands = [
   { sides = 100, value = 9 },
 ]
@@ -1161,7 +1161,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50"
-output = "Warhammer : (WH50) ＞ 88 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 88 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 88 },
 ]
@@ -1169,7 +1169,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50"
-output = "Warhammer : (WH50) ＞ 16 ＞ 成功(成功度3) 二足:胴体"
+output = "(WH50) ＞ 16 ＞ 成功(成功度3) 二足:胴体"
 rands = [
   { sides = 100, value = 16 },
 ]
@@ -1177,7 +1177,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50"
-output = "Warhammer : (WH50) ＞ 68 ＞ 失敗(失敗度1)"
+output = "(WH50) ＞ 68 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 68 },
 ]
@@ -1185,7 +1185,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50"
-output = "Warhammer : (WH50) ＞ 62 ＞ 失敗(失敗度1)"
+output = "(WH50) ＞ 62 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 62 },
 ]
@@ -1193,7 +1193,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50"
-output = "Warhammer : (WH50) ＞ 84 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 84 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 84 },
 ]
@@ -1201,7 +1201,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@"
-output = "Warhammer : (WH50) ＞ 72 ＞ 失敗(失敗度2)"
+output = "(WH50) ＞ 72 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 72 },
 ]
@@ -1209,7 +1209,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@"
-output = "Warhammer : (WH50) ＞ 3 ＞ 成功(成功度4) 二足:右腕 有翼二足:左腕 四足:胴体 半人四足:左腕 有翼四足:左翼 鳥:右翼"
+output = "(WH50) ＞ 3 ＞ 成功(成功度4) 二足:右腕 有翼二足:左腕 四足:胴体 半人四足:左腕 有翼四足:左翼 鳥:右翼"
 rands = [
   { sides = 100, value = 3 },
 ]
@@ -1217,7 +1217,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@"
-output = "Warhammer : (WH50) ＞ 19 ＞ 成功(成功度3) 二足:左脚 有翼二足:左脚 四足:左後脚 半人四足:左後脚 有翼四足:左後脚 鳥:左脚"
+output = "(WH50) ＞ 19 ＞ 成功(成功度3) 二足:左脚 有翼二足:左脚 四足:左後脚 半人四足:左後脚 有翼四足:左後脚 鳥:左脚"
 rands = [
   { sides = 100, value = 19 },
 ]
@@ -1225,7 +1225,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@"
-output = "Warhammer : (WH50) ＞ 23 ＞ 成功(成功度2) 二足:右腕 有翼二足:左腕 四足:胴体 半人四足:胴体 有翼四足:胴体 鳥:右翼"
+output = "(WH50) ＞ 23 ＞ 成功(成功度2) 二足:右腕 有翼二足:左腕 四足:胴体 半人四足:胴体 有翼四足:胴体 鳥:右翼"
 rands = [
   { sides = 100, value = 23 },
 ]
@@ -1233,7 +1233,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@"
-output = "Warhammer : (WH50) ＞ 69 ＞ 失敗(失敗度1)"
+output = "(WH50) ＞ 69 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 69 },
 ]
@@ -1241,7 +1241,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@"
-output = "Warhammer : (WH50) ＞ 70 ＞ 失敗(失敗度2)"
+output = "(WH50) ＞ 70 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 70 },
 ]
@@ -1249,7 +1249,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@"
-output = "Warhammer : (WH50) ＞ 53 ＞ 失敗(失敗度0)"
+output = "(WH50) ＞ 53 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 53 },
 ]
@@ -1257,7 +1257,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@"
-output = "Warhammer : (WH50) ＞ 78 ＞ 失敗(失敗度2)"
+output = "(WH50) ＞ 78 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 78 },
 ]
@@ -1265,7 +1265,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@"
-output = "Warhammer : (WH50) ＞ 26 ＞ 成功(成功度2) 二足:胴体 有翼二足:胴体 四足:右前脚 半人四足:右前脚 有翼四足:右前脚 鳥:胴体"
+output = "(WH50) ＞ 26 ＞ 成功(成功度2) 二足:胴体 有翼二足:胴体 四足:右前脚 半人四足:右前脚 有翼四足:右前脚 鳥:胴体"
 rands = [
   { sides = 100, value = 26 },
 ]
@@ -1273,7 +1273,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@"
-output = "Warhammer : (WH50) ＞ 30 ＞ 成功(成功度2) 二足:頭部 有翼二足:頭部 四足:頭部 半人四足:頭部 有翼四足:頭部 鳥:頭部"
+output = "(WH50) ＞ 30 ＞ 成功(成功度2) 二足:頭部 有翼二足:頭部 四足:頭部 半人四足:頭部 有翼四足:頭部 鳥:頭部"
 rands = [
   { sides = 100, value = 30 },
 ]
@@ -1281,7 +1281,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 80 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 80 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 80 },
 ]
@@ -1289,7 +1289,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 70 ＞ 失敗(失敗度2)"
+output = "(WH50) ＞ 70 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 70 },
 ]
@@ -1297,7 +1297,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 46 ＞ 成功(成功度0) 鳥:胴体"
+output = "(WH50) ＞ 46 ＞ 成功(成功度0) 鳥:胴体"
 rands = [
   { sides = 100, value = 46 },
 ]
@@ -1305,7 +1305,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 33 ＞ 成功(成功度1) 鳥:右翼"
+output = "(WH50) ＞ 33 ＞ 成功(成功度1) 鳥:右翼"
 rands = [
   { sides = 100, value = 33 },
 ]
@@ -1313,7 +1313,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 22 ＞ 成功(成功度2) 鳥:右翼"
+output = "(WH50) ＞ 22 ＞ 成功(成功度2) 鳥:右翼"
 rands = [
   { sides = 100, value = 22 },
 ]
@@ -1321,7 +1321,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 68 ＞ 失敗(失敗度1)"
+output = "(WH50) ＞ 68 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 68 },
 ]
@@ -1329,7 +1329,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 66 ＞ 失敗(失敗度1)"
+output = "(WH50) ＞ 66 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 66 },
 ]
@@ -1337,7 +1337,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 84 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 84 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 84 },
 ]
@@ -1345,7 +1345,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 74 ＞ 失敗(失敗度2)"
+output = "(WH50) ＞ 74 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 74 },
 ]
@@ -1353,7 +1353,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 4 ＞ 成功(成功度4) 鳥:左翼"
+output = "(WH50) ＞ 4 ＞ 成功(成功度4) 鳥:左翼"
 rands = [
   { sides = 100, value = 4 },
 ]
@@ -1361,7 +1361,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@H"
-output = "Warhammer : (WH50) ＞ 85 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 85 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 85 },
 ]
@@ -1369,7 +1369,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@H"
-output = "Warhammer : (WH50) ＞ 64 ＞ 失敗(失敗度1)"
+output = "(WH50) ＞ 64 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 64 },
 ]
@@ -1377,7 +1377,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@H"
-output = "Warhammer : (WH50) ＞ 1 ＞ 成功(成功度4) 二足:頭部 有翼二足:頭部 四足:頭部 半人四足:頭部 有翼四足:頭部 鳥:頭部"
+output = "(WH50) ＞ 1 ＞ 成功(成功度4) 二足:頭部 有翼二足:頭部 四足:頭部 半人四足:頭部 有翼四足:頭部 鳥:頭部"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -1385,7 +1385,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@H"
-output = "Warhammer : (WH50) ＞ 100 ＞ 失敗(失敗度5)"
+output = "(WH50) ＞ 100 ＞ 失敗(失敗度5)"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -1393,7 +1393,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@H"
-output = "Warhammer : (WH50) ＞ 28 ＞ 成功(成功度2) 二足:右脚 有翼二足:右脚 四足:右後脚 半人四足:右後脚 有翼四足:右後脚 鳥:右脚"
+output = "(WH50) ＞ 28 ＞ 成功(成功度2) 二足:右脚 有翼二足:右脚 四足:右後脚 半人四足:右後脚 有翼四足:右後脚 鳥:右脚"
 rands = [
   { sides = 100, value = 28 },
 ]
@@ -1401,7 +1401,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@H"
-output = "Warhammer : (WH50) ＞ 55 ＞ 失敗(失敗度0)"
+output = "(WH50) ＞ 55 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 55 },
 ]
@@ -1409,7 +1409,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@H"
-output = "Warhammer : (WH50) ＞ 33 ＞ 成功(成功度1) 二足:右腕 有翼二足:左腕 四足:胴体 半人四足:胴体 有翼四足:胴体 鳥:右翼"
+output = "(WH50) ＞ 33 ＞ 成功(成功度1) 二足:右腕 有翼二足:左腕 四足:胴体 半人四足:胴体 有翼四足:胴体 鳥:右翼"
 rands = [
   { sides = 100, value = 33 },
 ]
@@ -1417,7 +1417,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@H"
-output = "Warhammer : (WH50) ＞ 94 ＞ 失敗(失敗度4)"
+output = "(WH50) ＞ 94 ＞ 失敗(失敗度4)"
 rands = [
   { sides = 100, value = 94 },
 ]
@@ -1425,7 +1425,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@H"
-output = "Warhammer : (WH50) ＞ 48 ＞ 成功(成功度0) 二足:右脚 有翼二足:右脚 四足:右後脚 半人四足:右後脚 有翼四足:右後脚 鳥:右脚"
+output = "(WH50) ＞ 48 ＞ 成功(成功度0) 二足:右脚 有翼二足:右脚 四足:右後脚 半人四足:右後脚 有翼四足:右後脚 鳥:右脚"
 rands = [
   { sides = 100, value = 48 },
 ]
@@ -1433,7 +1433,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@H"
-output = "Warhammer : (WH50) ＞ 48 ＞ 成功(成功度0) 二足:右脚 有翼二足:右脚 四足:右後脚 半人四足:右後脚 有翼四足:右後脚 鳥:右脚"
+output = "(WH50) ＞ 48 ＞ 成功(成功度0) 二足:右脚 有翼二足:右脚 四足:右後脚 半人四足:右後脚 有翼四足:右後脚 鳥:右脚"
 rands = [
   { sides = 100, value = 48 },
 ]
@@ -1441,7 +1441,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2H"
-output = "Warhammer : (WH50) ＞ 95 ＞ 失敗(失敗度4)"
+output = "(WH50) ＞ 95 ＞ 失敗(失敗度4)"
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -1449,7 +1449,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2H"
-output = "Warhammer : (WH50) ＞ 63 ＞ 失敗(失敗度1)"
+output = "(WH50) ＞ 63 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 63 },
 ]
@@ -1457,7 +1457,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2H"
-output = "Warhammer : (WH50) ＞ 15 ＞ 成功(成功度3) 二足:左腕"
+output = "(WH50) ＞ 15 ＞ 成功(成功度3) 二足:左腕"
 rands = [
   { sides = 100, value = 15 },
 ]
@@ -1465,7 +1465,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2H"
-output = "Warhammer : (WH50) ＞ 87 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 87 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 87 },
 ]
@@ -1473,7 +1473,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2H"
-output = "Warhammer : (WH50) ＞ 47 ＞ 成功(成功度0) 二足:胴体"
+output = "(WH50) ＞ 47 ＞ 成功(成功度0) 二足:胴体"
 rands = [
   { sides = 100, value = 47 },
 ]
@@ -1481,7 +1481,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2H"
-output = "Warhammer : (WH50) ＞ 15 ＞ 成功(成功度3) 二足:左腕"
+output = "(WH50) ＞ 15 ＞ 成功(成功度3) 二足:左腕"
 rands = [
   { sides = 100, value = 15 },
 ]
@@ -1489,7 +1489,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2H"
-output = "Warhammer : (WH50) ＞ 2 ＞ 成功(成功度4) 二足:右腕"
+output = "(WH50) ＞ 2 ＞ 成功(成功度4) 二足:右腕"
 rands = [
   { sides = 100, value = 2 },
 ]
@@ -1497,7 +1497,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2H"
-output = "Warhammer : (WH50) ＞ 27 ＞ 成功(成功度2) 二足:胴体"
+output = "(WH50) ＞ 27 ＞ 成功(成功度2) 二足:胴体"
 rands = [
   { sides = 100, value = 27 },
 ]
@@ -1505,7 +1505,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2H"
-output = "Warhammer : (WH50) ＞ 61 ＞ 失敗(失敗度1)"
+output = "(WH50) ＞ 61 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 61 },
 ]
@@ -1513,7 +1513,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2H"
-output = "Warhammer : (WH50) ＞ 63 ＞ 失敗(失敗度1)"
+output = "(WH50) ＞ 63 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 63 },
 ]
@@ -1521,7 +1521,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2W"
-output = "Warhammer : (WH50) ＞ 11 ＞ 成功(成功度3) 有翼二足:頭部"
+output = "(WH50) ＞ 11 ＞ 成功(成功度3) 有翼二足:頭部"
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -1529,7 +1529,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2W"
-output = "Warhammer : (WH50) ＞ 59 ＞ 失敗(失敗度0)"
+output = "(WH50) ＞ 59 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 59 },
 ]
@@ -1537,7 +1537,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2W"
-output = "Warhammer : (WH50) ＞ 17 ＞ 成功(成功度3) 有翼二足:胴体"
+output = "(WH50) ＞ 17 ＞ 成功(成功度3) 有翼二足:胴体"
 rands = [
   { sides = 100, value = 17 },
 ]
@@ -1545,7 +1545,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2W"
-output = "Warhammer : (WH50) ＞ 62 ＞ 失敗(失敗度1)"
+output = "(WH50) ＞ 62 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 62 },
 ]
@@ -1553,7 +1553,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2W"
-output = "Warhammer : (WH50) ＞ 56 ＞ 失敗(失敗度0)"
+output = "(WH50) ＞ 56 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 56 },
 ]
@@ -1561,7 +1561,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2W"
-output = "Warhammer : (WH50) ＞ 82 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 82 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 82 },
 ]
@@ -1569,7 +1569,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2W"
-output = "Warhammer : (WH50) ＞ 44 ＞ 成功(成功度0) 有翼二足:右翼"
+output = "(WH50) ＞ 44 ＞ 成功(成功度0) 有翼二足:右翼"
 rands = [
   { sides = 100, value = 44 },
 ]
@@ -1577,7 +1577,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2W"
-output = "Warhammer : (WH50) ＞ 92 ＞ 失敗(失敗度4)"
+output = "(WH50) ＞ 92 ＞ 失敗(失敗度4)"
 rands = [
   { sides = 100, value = 92 },
 ]
@@ -1585,7 +1585,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2W"
-output = "Warhammer : (WH50) ＞ 42 ＞ 成功(成功度0) 有翼二足:右腕"
+output = "(WH50) ＞ 42 ＞ 成功(成功度0) 有翼二足:右腕"
 rands = [
   { sides = 100, value = 42 },
 ]
@@ -1593,7 +1593,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@2W"
-output = "Warhammer : (WH50) ＞ 73 ＞ 失敗(失敗度2)"
+output = "(WH50) ＞ 73 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 73 },
 ]
@@ -1601,7 +1601,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4"
-output = "Warhammer : (WH50) ＞ 79 ＞ 失敗(失敗度2)"
+output = "(WH50) ＞ 79 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 79 },
 ]
@@ -1609,7 +1609,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4"
-output = "Warhammer : (WH50) ＞ 90 ＞ 失敗(失敗度4)"
+output = "(WH50) ＞ 90 ＞ 失敗(失敗度4)"
 rands = [
   { sides = 100, value = 90 },
 ]
@@ -1617,7 +1617,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4"
-output = "Warhammer : (WH50) ＞ 57 ＞ 失敗(失敗度0)"
+output = "(WH50) ＞ 57 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 57 },
 ]
@@ -1625,7 +1625,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4"
-output = "Warhammer : (WH50) ＞ 33 ＞ 成功(成功度1) 四足:胴体"
+output = "(WH50) ＞ 33 ＞ 成功(成功度1) 四足:胴体"
 rands = [
   { sides = 100, value = 33 },
 ]
@@ -1633,7 +1633,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4"
-output = "Warhammer : (WH50) ＞ 85 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 85 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 85 },
 ]
@@ -1641,7 +1641,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4"
-output = "Warhammer : (WH50) ＞ 20 ＞ 成功(成功度3) 四足:頭部"
+output = "(WH50) ＞ 20 ＞ 成功(成功度3) 四足:頭部"
 rands = [
   { sides = 100, value = 20 },
 ]
@@ -1649,7 +1649,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4"
-output = "Warhammer : (WH50) ＞ 13 ＞ 成功(成功度3) 四足:胴体"
+output = "(WH50) ＞ 13 ＞ 成功(成功度3) 四足:胴体"
 rands = [
   { sides = 100, value = 13 },
 ]
@@ -1657,7 +1657,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4"
-output = "Warhammer : (WH50) ＞ 63 ＞ 失敗(失敗度1)"
+output = "(WH50) ＞ 63 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 63 },
 ]
@@ -1665,7 +1665,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4"
-output = "Warhammer : (WH50) ＞ 89 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 89 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 89 },
 ]
@@ -1673,7 +1673,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4"
-output = "Warhammer : (WH50) ＞ 57 ＞ 失敗(失敗度0)"
+output = "(WH50) ＞ 57 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 57 },
 ]
@@ -1681,7 +1681,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4H"
-output = "Warhammer : (WH50) ＞ 59 ＞ 失敗(失敗度0)"
+output = "(WH50) ＞ 59 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 59 },
 ]
@@ -1689,7 +1689,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4H"
-output = "Warhammer : (WH50) ＞ 50 ＞ 成功(成功度0) 半人四足:頭部"
+output = "(WH50) ＞ 50 ＞ 成功(成功度0) 半人四足:頭部"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -1697,7 +1697,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4H"
-output = "Warhammer : (WH50) ＞ 85 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 85 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 85 },
 ]
@@ -1705,7 +1705,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4H"
-output = "Warhammer : (WH50) ＞ 100 ＞ 失敗(失敗度5)"
+output = "(WH50) ＞ 100 ＞ 失敗(失敗度5)"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -1713,7 +1713,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4H"
-output = "Warhammer : (WH50) ＞ 100 ＞ 失敗(失敗度5)"
+output = "(WH50) ＞ 100 ＞ 失敗(失敗度5)"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -1721,7 +1721,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4H"
-output = "Warhammer : (WH50) ＞ 12 ＞ 成功(成功度3) 半人四足:左腕"
+output = "(WH50) ＞ 12 ＞ 成功(成功度3) 半人四足:左腕"
 rands = [
   { sides = 100, value = 12 },
 ]
@@ -1729,7 +1729,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4H"
-output = "Warhammer : (WH50) ＞ 70 ＞ 失敗(失敗度2)"
+output = "(WH50) ＞ 70 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 70 },
 ]
@@ -1737,7 +1737,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4H"
-output = "Warhammer : (WH50) ＞ 80 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 80 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 80 },
 ]
@@ -1745,7 +1745,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4H"
-output = "Warhammer : (WH50) ＞ 42 ＞ 成功(成功度0) 半人四足:左腕"
+output = "(WH50) ＞ 42 ＞ 成功(成功度0) 半人四足:左腕"
 rands = [
   { sides = 100, value = 42 },
 ]
@@ -1753,7 +1753,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4H"
-output = "Warhammer : (WH50) ＞ 80 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 80 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 80 },
 ]
@@ -1761,7 +1761,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4W"
-output = "Warhammer : (WH50) ＞ 37 ＞ 成功(成功度1) 有翼四足:左前脚"
+output = "(WH50) ＞ 37 ＞ 成功(成功度1) 有翼四足:左前脚"
 rands = [
   { sides = 100, value = 37 },
 ]
@@ -1769,7 +1769,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4W"
-output = "Warhammer : (WH50) ＞ 77 ＞ 失敗(失敗度2)"
+output = "(WH50) ＞ 77 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 77 },
 ]
@@ -1777,7 +1777,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4W"
-output = "Warhammer : (WH50) ＞ 5 ＞ 成功(成功度4) 有翼四足:胴体"
+output = "(WH50) ＞ 5 ＞ 成功(成功度4) 有翼四足:胴体"
 rands = [
   { sides = 100, value = 5 },
 ]
@@ -1785,7 +1785,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4W"
-output = "Warhammer : (WH50) ＞ 80 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 80 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 80 },
 ]
@@ -1793,7 +1793,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4W"
-output = "Warhammer : (WH50) ＞ 23 ＞ 成功(成功度2) 有翼四足:胴体"
+output = "(WH50) ＞ 23 ＞ 成功(成功度2) 有翼四足:胴体"
 rands = [
   { sides = 100, value = 23 },
 ]
@@ -1801,7 +1801,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4W"
-output = "Warhammer : (WH50) ＞ 10 ＞ 成功(成功度4) 有翼四足:頭部"
+output = "(WH50) ＞ 10 ＞ 成功(成功度4) 有翼四足:頭部"
 rands = [
   { sides = 100, value = 10 },
 ]
@@ -1809,7 +1809,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4W"
-output = "Warhammer : (WH50) ＞ 7 ＞ 成功(成功度4) 有翼四足:右前脚"
+output = "(WH50) ＞ 7 ＞ 成功(成功度4) 有翼四足:右前脚"
 rands = [
   { sides = 100, value = 7 },
 ]
@@ -1817,7 +1817,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4W"
-output = "Warhammer : (WH50) ＞ 78 ＞ 失敗(失敗度2)"
+output = "(WH50) ＞ 78 ＞ 失敗(失敗度2)"
 rands = [
   { sides = 100, value = 78 },
 ]
@@ -1825,7 +1825,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4W"
-output = "Warhammer : (WH50) ＞ 11 ＞ 成功(成功度3) 有翼四足:右翼"
+output = "(WH50) ＞ 11 ＞ 成功(成功度3) 有翼四足:右翼"
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -1833,7 +1833,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@4W"
-output = "Warhammer : (WH50) ＞ 20 ＞ 成功(成功度3) 有翼四足:頭部"
+output = "(WH50) ＞ 20 ＞ 成功(成功度3) 有翼四足:頭部"
 rands = [
   { sides = 100, value = 20 },
 ]
@@ -1841,7 +1841,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 81 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 81 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 81 },
 ]
@@ -1849,7 +1849,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 50 ＞ 成功(成功度0) 鳥:頭部"
+output = "(WH50) ＞ 50 ＞ 成功(成功度0) 鳥:頭部"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -1857,7 +1857,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 96 ＞ 失敗(失敗度4)"
+output = "(WH50) ＞ 96 ＞ 失敗(失敗度4)"
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -1865,7 +1865,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 10 ＞ 成功(成功度4) 鳥:頭部"
+output = "(WH50) ＞ 10 ＞ 成功(成功度4) 鳥:頭部"
 rands = [
   { sides = 100, value = 10 },
 ]
@@ -1873,7 +1873,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 20 ＞ 成功(成功度3) 鳥:頭部"
+output = "(WH50) ＞ 20 ＞ 成功(成功度3) 鳥:頭部"
 rands = [
   { sides = 100, value = 20 },
 ]
@@ -1881,7 +1881,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 60 ＞ 失敗(失敗度1)"
+output = "(WH50) ＞ 60 ＞ 失敗(失敗度1)"
 rands = [
   { sides = 100, value = 60 },
 ]
@@ -1889,7 +1889,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 12 ＞ 成功(成功度3) 鳥:右翼"
+output = "(WH50) ＞ 12 ＞ 成功(成功度3) 鳥:右翼"
 rands = [
   { sides = 100, value = 12 },
 ]
@@ -1897,7 +1897,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 57 ＞ 失敗(失敗度0)"
+output = "(WH50) ＞ 57 ＞ 失敗(失敗度0)"
 rands = [
   { sides = 100, value = 57 },
 ]
@@ -1905,7 +1905,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 6 ＞ 成功(成功度4) 鳥:胴体"
+output = "(WH50) ＞ 6 ＞ 成功(成功度4) 鳥:胴体"
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -1913,7 +1913,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "WH50@W"
-output = "Warhammer : (WH50) ＞ 80 ＞ 失敗(失敗度3)"
+output = "(WH50) ＞ 80 ＞ 失敗(失敗度3)"
 rands = [
   { sides = 100, value = 80 },
 ]
@@ -1921,7 +1921,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer"
 input = "1D100>=? 目標値?でバグらない"
-output = "Warhammer : (1D100>=?) ＞ 42 ＞ 失敗"
+output = "(1D100>=?) ＞ 42 ＞ 失敗"
 rands = [
   { sides = 100, value = 42 },
 ]

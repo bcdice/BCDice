@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars3+1"
-output = "ArsMagica : (1R10+1[3]) ＞ 9+1 ＞ 10"
+output = "(1R10+1[3]) ＞ 9+1 ＞ 10"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars+1"
-output = "ArsMagica : (1R10+1[1]) ＞ 9+1 ＞ 10"
+output = "(1R10+1[1]) ＞ 9+1 ＞ 10"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars1"
-output = "ArsMagica : (1R10[1]) ＞ 9"
+output = "(1R10[1]) ＞ 9"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars1"
-output = "ArsMagica : (1R10[1]) ＞ 8"
+output = "(1R10[1]) ＞ 8"
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars1"
-output = "ArsMagica : (1R10[1]) ＞ 6"
+output = "(1R10[1]) ＞ 6"
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars1"
-output = "ArsMagica : (1R10[1]) ＞ 7"
+output = "(1R10[1]) ＞ 7"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars1"
-output = "ArsMagica : (1R10[1]) ＞ 5"
+output = "(1R10[1]) ＞ 5"
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars1"
-output = "ArsMagica : (1R10[1]) ＞ 3"
+output = "(1R10[1]) ＞ 3"
 rands = [
   { sides = 10, value = 4 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars1"
-output = "ArsMagica : (1R10[1]) ＞ 0[0,7] ＞ 0"
+output = "(1R10[1]) ＞ 0[0,7] ＞ 0"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
@@ -74,7 +74,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars3"
-output = "ArsMagica : (1R10[3]) ＞ 4"
+output = "(1R10[3]) ＞ 4"
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -82,7 +82,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars3"
-output = "ArsMagica : (1R10[3]) ＞ 3"
+output = "(1R10[3]) ＞ 3"
 rands = [
   { sides = 10, value = 4 },
 ]
@@ -90,7 +90,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars3"
-output = "ArsMagica : (1R10[3]) ＞ 9"
+output = "(1R10[3]) ＞ 9"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -98,7 +98,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars3"
-output = "ArsMagica : (1R10[3]) ＞ 7"
+output = "(1R10[3]) ＞ 7"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -106,7 +106,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars3"
-output = "ArsMagica : (1R10[3]) ＞ 6"
+output = "(1R10[3]) ＞ 6"
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -114,7 +114,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars5"
-output = "ArsMagica : (1R10[5]) ＞ 0[0,1,3,5,4,5] ＞ 0"
+output = "(1R10[5]) ＞ 0[0,1,3,5,4,5] ＞ 0"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars5"
-output = "ArsMagica : (1R10[5]) ＞ 8"
+output = "(1R10[5]) ＞ 8"
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -135,7 +135,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars5"
-output = "ArsMagica : (1R10[5]) ＞ 6"
+output = "(1R10[5]) ＞ 6"
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -143,7 +143,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars5"
-output = "ArsMagica : (1R10[5]) ＞ 7"
+output = "(1R10[5]) ＞ 7"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -151,7 +151,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars5"
-output = "ArsMagica : (1R10[5]) ＞ 3"
+output = "(1R10[5]) ＞ 3"
 rands = [
   { sides = 10, value = 4 },
 ]
@@ -159,7 +159,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars5"
-output = "ArsMagica : (1R10[5]) ＞ 4"
+output = "(1R10[5]) ＞ 4"
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -167,7 +167,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars5"
-output = "ArsMagica : (1R10[5]) ＞ 5"
+output = "(1R10[5]) ＞ 5"
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -175,7 +175,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars7"
-output = "ArsMagica : (1R10[7]) ＞ 9"
+output = "(1R10[7]) ＞ 9"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -183,7 +183,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars7"
-output = "ArsMagica : (1R10[7]) ＞ 3"
+output = "(1R10[7]) ＞ 3"
 rands = [
   { sides = 10, value = 4 },
 ]
@@ -191,7 +191,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars7"
-output = "ArsMagica : (1R10[7]) ＞ 4"
+output = "(1R10[7]) ＞ 4"
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -199,7 +199,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars7"
-output = "ArsMagica : (1R10[7]) ＞ 0[0,9,5,9,5,7,1,5] ＞ 0"
+output = "(1R10[7]) ＞ 0[0,9,5,9,5,7,1,5] ＞ 0"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 10 },
@@ -214,7 +214,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars7"
-output = "ArsMagica : (1R10[7]) ＞ 10[1,5]"
+output = "(1R10[7]) ＞ 10[1,5]"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -223,7 +223,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars7"
-output = "ArsMagica : (1R10[7]) ＞ 5"
+output = "(1R10[7]) ＞ 5"
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -231,7 +231,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars7"
-output = "ArsMagica : (1R10[7]) ＞ 7"
+output = "(1R10[7]) ＞ 7"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -239,7 +239,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars9"
-output = "ArsMagica : (1R10[9]) ＞ 20[1,1,5]"
+output = "(1R10[9]) ＞ 20[1,1,5]"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 1 },
@@ -249,7 +249,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars9"
-output = "ArsMagica : (1R10[9]) ＞ 8[1,4]"
+output = "(1R10[9]) ＞ 8[1,4]"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 4 },
@@ -258,7 +258,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars10"
-output = "ArsMagica : (1R10[10]) ＞ 14[1,7]"
+output = "(1R10[10]) ＞ 14[1,7]"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 7 },
@@ -267,7 +267,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars10"
-output = "ArsMagica : (1R10[10]) ＞ 0[0,2,4,7,9,4,5,5,7,4,2] ＞ 0"
+output = "(1R10[10]) ＞ 0[0,2,4,7,9,4,5,5,7,4,2] ＞ 0"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 3 },
@@ -285,7 +285,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars-3"
-output = "ArsMagica : (1R10-3[1]) ＞ 8-3 ＞ 5"
+output = "(1R10-3[1]) ＞ 8-3 ＞ 5"
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -293,7 +293,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars+3"
-output = "ArsMagica : (1R10+3[1]) ＞ 8+3 ＞ 11"
+output = "(1R10+3[1]) ＞ 8+3 ＞ 11"
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -301,7 +301,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars10>=7"
-output = "ArsMagica : (1R10[10]>=7) ＞ 2 ＞ 失敗"
+output = "(1R10[10]>=7) ＞ 2 ＞ 失敗"
 rands = [
   { sides = 10, value = 3 },
 ]
@@ -309,7 +309,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars10>=7"
-output = "ArsMagica : (1R10[10]>=7) ＞ 9 ＞ 成功"
+output = "(1R10[10]>=7) ＞ 9 ＞ 成功"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -317,7 +317,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars10>=7"
-output = "ArsMagica : (1R10[10]>=7) ＞ 7 ＞ 成功"
+output = "(1R10[10]>=7) ＞ 7 ＞ 成功"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -325,7 +325,7 @@ rands = [
 [[ test ]]
 game_system = "ArsMagica"
 input = "Ars2>=7 Botchの時には目標値を使った判定はされない"
-output = "ArsMagica : (1R10[2]>=7) ＞ 0[0,0,0] ＞ 2Botch!"
+output = "(1R10[2]>=7) ＞ 0[0,0,0] ＞ 2Botch!"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },

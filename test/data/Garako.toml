@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Garako"
 input = "PNM"
-output = "Garako : 名前表：ピグマー族（男）(1) ＞ バビロン"
+output = "名前表：ピグマー族（男）(1) ＞ バビロン"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "PNM"
-output = "Garako : 名前表：ピグマー族（男）(10) ＞ サマルトリア"
+output = "名前表：ピグマー族（男）(10) ＞ サマルトリア"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "ENM"
-output = "Garako : 名前表：エレメント族（男）(1) ＞ アポロン"
+output = "名前表：エレメント族（男）(1) ＞ アポロン"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "ENF"
-output = "Garako : 名前表：エレメント族（女）(1) ＞ クシナダ"
+output = "名前表：エレメント族（女）(1) ＞ クシナダ"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "NNM"
-output = "Garako : 名前表：ノーマッド族（男）(1) ＞ ドラム"
+output = "名前表：ノーマッド族（男）(1) ＞ ドラム"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "NNM"
-output = "Garako : 名前表：ノーマッド族（男）(1) ＞ ドラム"
+output = "名前表：ノーマッド族（男）(1) ＞ ドラム"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "RNM"
-output = "Garako : 名前表：ラット族（男）(1) ＞ ポチ"
+output = "名前表：ラット族（男）(1) ＞ ポチ"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "RNF"
-output = "Garako : 名前表：ラット族（女）(1) ＞ タマ"
+output = "名前表：ラット族（女）(1) ＞ タマ"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "BN1"
-output = "Garako : 名前表：ブレイン族（その１）(1) ＞ マリファナ"
+output = "名前表：ブレイン族（その１）(1) ＞ マリファナ"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "BN2"
-output = "Garako : 名前表：ブレイン族（その２）(1) ＞ ニトロ"
+output = "名前表：ブレイン族（その２）(1) ＞ ニトロ"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "TN1"
-output = "Garako : 名前表：テンタクル族（その１）(1) ＞ アップル"
+output = "名前表：テンタクル族（その１）(1) ＞ アップル"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -89,7 +89,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "TN2"
-output = "Garako : 名前表：テンタクル族（その２）(1) ＞ キノコ"
+output = "名前表：テンタクル族（その２）(1) ＞ キノコ"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "GR+1>=10"
-output = "Garako : (1D10+1>=10) ＞ 10[10]+1 ＞ 11 ＞ クリティカル"
+output = "(1D10+1>=10) ＞ 10[10]+1 ＞ 11 ＞ クリティカル"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -105,7 +105,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "GR+1>=10"
-output = "Garako : (1D10+1>=10) ＞ 9[9]+1 ＞ 10 ＞ 成功"
+output = "(1D10+1>=10) ＞ 9[9]+1 ＞ 10 ＞ 成功"
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -113,7 +113,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "GR+1>=10"
-output = "Garako : (1D10+1>=10) ＞ 8[8]+1 ＞ 9 ＞ 失敗"
+output = "(1D10+1>=10) ＞ 8[8]+1 ＞ 9 ＞ 失敗"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -121,7 +121,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "GR+1>=10"
-output = "Garako : (1D10+1>=10) ＞ 1[1]+1 ＞ 2 ＞ ファンブル"
+output = "(1D10+1>=10) ＞ 1[1]+1 ＞ 2 ＞ ファンブル"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -129,7 +129,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "GR+(1+2)>=10"
-output = "Garako : (1D10+3>=10) ＞ 8[8]+3 ＞ 11 ＞ 成功"
+output = "(1D10+3>=10) ＞ 8[8]+3 ＞ 11 ＞ 成功"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -137,7 +137,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "GR+(1-1)>=10"
-output = "Garako : (1D10>=10) ＞ 8[8] ＞ 8 ＞ 失敗"
+output = "(1D10>=10) ＞ 8[8] ＞ 8 ＞ 失敗"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "IDI"
-output = "Garako : 個性表(1) ＞ 〈近接武器熟練〉 近接攻撃の火力+1。"
+output = "個性表(1) ＞ 〈近接武器熟練〉 近接攻撃の火力+1。"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -153,7 +153,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "IDI"
-output = "Garako : 個性表(100) ＞ 〈リザレクション〉 死んだ目標を生き返らせる。生き返った目標のHPは10になる。このシーンの間に死亡したキャラクターのみ目標にできる。（超能力）"
+output = "個性表(100) ＞ 〈リザレクション〉 死んだ目標を生き返らせる。生き返った目標のHPは10になる。このシーンの間に死亡したキャラクターのみ目標にできる。（超能力）"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -161,7 +161,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "MTV"
-output = "Garako : 動機決定表(10) ＞ 特に動機らしい動機はない。"
+output = "動機決定表(10) ＞ 特に動機らしい動機はない。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -169,7 +169,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "HIT"
-output = "Garako : 部位決定チャート(1) ＞ コックピット"
+output = "部位決定チャート(1) ＞ コックピット"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -177,7 +177,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "HIT"
-output = "Garako : 部位決定チャート(10) ＞ レフトレッグ"
+output = "部位決定チャート(10) ＞ レフトレッグ"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -185,25 +185,25 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "CDC0"
-output = "Garako : 部位ダメージチャート：コックピット(1) ＞ 小破（アーマー損傷）：以後、この部位の【部位装甲】-1。"
+output = "部位ダメージチャート：コックピット(1) ＞ 小破（アーマー損傷）：以後、この部位の【部位装甲】-1。"
 rands = []
 
 [[ test ]]
 game_system = "Garako"
 input = "CDC1"
-output = "Garako : 部位ダメージチャート：コックピット(1) ＞ 小破（アーマー損傷）：以後、この部位の【部位装甲】-1。"
+output = "部位ダメージチャート：コックピット(1) ＞ 小破（アーマー損傷）：以後、この部位の【部位装甲】-1。"
 rands = []
 
 [[ test ]]
 game_system = "Garako"
 input = "CDC10"
-output = "Garako : 部位ダメージチャート：コックピット(10) ＞ 修復不能（破壊）：コックピットが［修復不能］となる。キミは2d10-【身体】点のHPダメージを受ける。ガラコはすべての機能を停止する。コックピットのハッチが自動的に開く。"
+output = "部位ダメージチャート：コックピット(10) ＞ 修復不能（破壊）：コックピットが［修復不能］となる。キミは2d10-【身体】点のHPダメージを受ける。ガラコはすべての機能を停止する。コックピットのハッチが自動的に開く。"
 rands = []
 
 [[ test ]]
 game_system = "Garako"
 input = "CDC11"
-output = "Garako : 部位ダメージチャート：コックピット(10) ＞ 修復不能（破壊）：コックピットが［修復不能］となる。キミは2d10-【身体】点のHPダメージを受ける。ガラコはすべての機能を停止する。コックピットのハッチが自動的に開く。"
+output = "部位ダメージチャート：コックピット(10) ＞ 修復不能（破壊）：コックピットが［修復不能］となる。キミは2d10-【身体】点のHPダメージを受ける。ガラコはすべての機能を停止する。コックピットのハッチが自動的に開く。"
 rands = []
 
 [[ test ]]
@@ -215,37 +215,37 @@ rands = []
 [[ test ]]
 game_system = "Garako"
 input = "EDC10"
-output = "Garako : 部位ダメージチャート：エンジン(10) ＞ 修復不能（エンジン停止）：エンジンが停止する。ガラコはすべての機能を停止する。コックピットのハッチが自動的に開く。【操作性】10の判定を行うこと。失敗するとエンジンが爆発する。その場合、すべての部位が［修復不能］となり、キミは2d10-【身体】点のダメージを受ける。"
+output = "部位ダメージチャート：エンジン(10) ＞ 修復不能（エンジン停止）：エンジンが停止する。ガラコはすべての機能を停止する。コックピットのハッチが自動的に開く。【操作性】10の判定を行うこと。失敗するとエンジンが爆発する。その場合、すべての部位が［修復不能］となり、キミは2d10-【身体】点のダメージを受ける。"
 rands = []
 
 [[ test ]]
 game_system = "Garako"
 input = "FDC9"
-output = "Garako : 部位ダメージチャート：フレーム(9) ＞ 大破（アーマー損傷）：フレームに甚大なダメージを受ける。以後、この部位の【部位装甲】に-3。［弱体1］を受ける。"
+output = "部位ダメージチャート：フレーム(9) ＞ 大破（アーマー損傷）：フレームに甚大なダメージを受ける。以後、この部位の【部位装甲】に-3。［弱体1］を受ける。"
 rands = []
 
 [[ test ]]
 game_system = "Garako"
 input = "FDC10"
-output = "Garako : 部位ダメージチャート：フレーム(10) ＞ 修復不能（フレーム崩壊）：フレームが［修復不能］となる。フレームの大部分が剥がれ落ち、ガラコの内部が晒される。以後、キミに対して部位狙いが行われる場合、その命中判定に対する修正（p21）は発生しなくなる。［弱体2］を受ける。"
+output = "部位ダメージチャート：フレーム(10) ＞ 修復不能（フレーム崩壊）：フレームが［修復不能］となる。フレームの大部分が剥がれ落ち、ガラコの内部が晒される。以後、キミに対して部位狙いが行われる場合、その命中判定に対する修正（p21）は発生しなくなる。［弱体2］を受ける。"
 rands = []
 
 [[ test ]]
 game_system = "Garako"
 input = "ADC10"
-output = "Garako : 部位ダメージチャート：アーム(10) ＞ 修復不能（破壊）：ダメージを受けた側のアームが［修復不能］となる。［弱体2］を受ける。"
+output = "部位ダメージチャート：アーム(10) ＞ 修復不能（破壊）：ダメージを受けた側のアームが［修復不能］となる。［弱体2］を受ける。"
 rands = []
 
 [[ test ]]
 game_system = "Garako"
 input = "LDC10"
-output = "Garako : 部位ダメージチャート：レッグ(10) ＞ 修復不能（破壊）：ダメージを受けた側のレッグが［修復不能］となる。【移動力】-2。［弱体2］を受ける。"
+output = "部位ダメージチャート：レッグ(10) ＞ 修復不能（破壊）：ダメージを受けた側のレッグが［修復不能］となる。【移動力】-2。［弱体2］を受ける。"
 rands = []
 
 [[ test ]]
 game_system = "Garako"
 input = "GCC"
-output = "Garako : ガラコ改造チャート表(10) ＞ 【弱体無効】価格+500。このパーツへの部位ダメージによる[弱体]の効果を無視する。"
+output = "ガラコ改造チャート表(10) ＞ 【弱体無効】価格+500。このパーツへの部位ダメージによる[弱体]の効果を無視する。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -253,7 +253,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "WCC"
-output = "Garako : 武器改造チャート表(10) ＞ 【回数無限】価格+500。武器の使用回数制限がなくなる。"
+output = "武器改造チャート表(10) ＞ 【回数無限】価格+500。武器の使用回数制限がなくなる。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -261,7 +261,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "EVC"
-output = "Garako : イベントチャート表(10) ＞ 【最悪の敵】ズルワーン(『GTD』p29)が1体現れる。戦闘開始。"
+output = "イベントチャート表(10) ＞ 【最悪の敵】ズルワーン(『GTD』p29)が1体現れる。戦闘開始。"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -269,7 +269,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "BSD"
-output = "Garako : 戦闘開始距離(10) ＞ 15マス"
+output = "戦闘開始距離(10) ＞ 15マス"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -277,7 +277,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "bsd"
-output = "Garako : 戦闘開始距離(1) ＞ 3マス"
+output = "戦闘開始距離(1) ＞ 3マス"
 rands = [
   { sides = 10, value = 1 },
 ]

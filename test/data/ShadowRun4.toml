@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "ShadowRun4"
 input = "1B6>=5"
-output = "ShadowRun4 : (1B6>=5) ＞ 1 ＞ 成功数0 ＞ クリティカルグリッチ"
+output = "(1B6>=5) ＞ 1 ＞ 成功数0 ＞ クリティカルグリッチ"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "1B6>=5"
-output = "ShadowRun4 : (1B6>=5) ＞ 2 ＞ 成功数0"
+output = "(1B6>=5) ＞ 2 ＞ 成功数0"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "1B6>=5"
-output = "ShadowRun4 : (1B6>=5) ＞ 3 ＞ 成功数0"
+output = "(1B6>=5) ＞ 3 ＞ 成功数0"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "1B6>=5"
-output = "ShadowRun4 : (1B6>=5) ＞ 4 ＞ 成功数0"
+output = "(1B6>=5) ＞ 4 ＞ 成功数0"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "1B6>=5"
-output = "ShadowRun4 : (1B6>=5) ＞ 5 ＞ 成功数1"
+output = "(1B6>=5) ＞ 5 ＞ 成功数1"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "1B6>=5"
-output = "ShadowRun4 : (1B6>=5) ＞ 6 ＞ 成功数1"
+output = "(1B6>=5) ＞ 6 ＞ 成功数1"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2B6"
-output = "ShadowRun4 : (2B6>=5) ＞ 2,6 ＞ 成功数1"
+output = "(2B6>=5) ＞ 2,6 ＞ 成功数1"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -58,7 +58,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2B6"
-output = "ShadowRun4 : (2B6>=5) ＞ 3,4 ＞ 成功数0"
+output = "(2B6>=5) ＞ 3,4 ＞ 成功数0"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -67,7 +67,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2B6"
-output = "ShadowRun4 : (2B6>=5) ＞ 1,2 ＞ 成功数0 ＞ クリティカルグリッチ"
+output = "(2B6>=5) ＞ 1,2 ＞ 成功数0 ＞ クリティカルグリッチ"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -76,7 +76,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2B6"
-output = "ShadowRun4 : (2B6>=5) ＞ 1,5 ＞ 成功数1 ＞ グリッチ"
+output = "(2B6>=5) ＞ 1,5 ＞ 成功数1 ＞ グリッチ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -85,7 +85,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "1R6"
-output = "ShadowRun4 : (1R6[6]>=5) ＞ 1 ＞ 成功数0 ＞ クリティカルグリッチ"
+output = "(1R6[6]>=5) ＞ 1 ＞ 成功数0 ＞ クリティカルグリッチ"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -93,7 +93,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "1R6"
-output = "ShadowRun4 : (1R6[6]>=5) ＞ 2 ＞ 成功数0"
+output = "(1R6[6]>=5) ＞ 2 ＞ 成功数0"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -101,7 +101,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "1R6"
-output = "ShadowRun4 : (1R6[6]>=5) ＞ 3 ＞ 成功数0"
+output = "(1R6[6]>=5) ＞ 3 ＞ 成功数0"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "1R6"
-output = "ShadowRun4 : (1R6[6]>=5) ＞ 4 ＞ 成功数0"
+output = "(1R6[6]>=5) ＞ 4 ＞ 成功数0"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -117,7 +117,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "1R6"
-output = "ShadowRun4 : (1R6[6]>=5) ＞ 5 ＞ 成功数1"
+output = "(1R6[6]>=5) ＞ 5 ＞ 成功数1"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -125,7 +125,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "1R6"
-output = "ShadowRun4 : (1R6[6]>=5) ＞ 6 + 1 ＞ 成功数1"
+output = "(1R6[6]>=5) ＞ 6 + 1 ＞ 成功数1"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -134,7 +134,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2R6"
-output = "ShadowRun4 : (2R6[6]>=5) ＞ 3,6 + 5 ＞ 成功数2"
+output = "(2R6[6]>=5) ＞ 3,6 + 5 ＞ 成功数2"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -144,7 +144,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2R6"
-output = "ShadowRun4 : (2R6[6]>=5) ＞ 2,6 + 3 ＞ 成功数1"
+output = "(2R6[6]>=5) ＞ 2,6 + 3 ＞ 成功数1"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -154,7 +154,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2R6"
-output = "ShadowRun4 : (2R6[6]>=5) ＞ 5,6 + 6 + 4 ＞ 成功数3"
+output = "(2R6[6]>=5) ＞ 5,6 + 6 + 4 ＞ 成功数3"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -165,7 +165,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2R6"
-output = "ShadowRun4 : (2R6[6]>=5) ＞ 2,3 ＞ 成功数0"
+output = "(2R6[6]>=5) ＞ 2,3 ＞ 成功数0"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -174,7 +174,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2R6"
-output = "ShadowRun4 : (2R6[6]>=5) ＞ 1,5 ＞ 成功数1 ＞ グリッチ"
+output = "(2R6[6]>=5) ＞ 1,5 ＞ 成功数1 ＞ グリッチ"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -183,7 +183,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2R6"
-output = "ShadowRun4 : (2R6[6]>=5) ＞ 3,6 + 4 ＞ 成功数1"
+output = "(2R6[6]>=5) ＞ 3,6 + 4 ＞ 成功数1"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2R6"
-output = "ShadowRun4 : (2R6[6]>=5) ＞ 3,4 ＞ 成功数0"
+output = "(2R6[6]>=5) ＞ 3,4 ＞ 成功数0"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -202,7 +202,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2R6"
-output = "ShadowRun4 : (2R6[6]>=5) ＞ 5,6 + 2 ＞ 成功数2"
+output = "(2R6[6]>=5) ＞ 5,6 + 2 ＞ 成功数2"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -212,7 +212,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2R6"
-output = "ShadowRun4 : (2R6[6]>=5) ＞ 1,1 ＞ 成功数0 ＞ クリティカルグリッチ"
+output = "(2R6[6]>=5) ＞ 1,1 ＞ 成功数0 ＞ クリティカルグリッチ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -221,7 +221,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "2R6"
-output = "ShadowRun4 : (2R6[6]>=5) ＞ 2,4 ＞ 成功数0"
+output = "(2R6[6]>=5) ＞ 2,4 ＞ 成功数0"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -230,7 +230,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "12R6"
-output = "ShadowRun4 : (12R6[6]>=5) ＞ 2,2,4,4,4,4,5,5,6,6,6,6 + 1,2,3,4 ＞ 成功数6"
+output = "(12R6[6]>=5) ＞ 2,2,4,4,4,4,5,5,6,6,6,6 + 1,2,3,4 ＞ 成功数6"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -253,7 +253,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "12R6"
-output = "ShadowRun4 : (12R6[6]>=5) ＞ 1,1,1,1,2,2,4,5,6,6,6,6 + 1,4,5,6 + 6 + 3 ＞ 成功数8"
+output = "(12R6[6]>=5) ＞ 1,1,1,1,2,2,4,5,6,6,6,6 + 1,4,5,6 + 6 + 3 ＞ 成功数8"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -278,7 +278,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "12R6"
-output = "ShadowRun4 : (12R6[6]>=5) ＞ 1,1,1,1,1,2,2,3,3,3,6,6 + 2,3 ＞ 成功数2"
+output = "(12R6[6]>=5) ＞ 1,1,1,1,1,2,2,3,3,3,6,6 + 2,3 ＞ 成功数2"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -299,7 +299,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "12R6"
-output = "ShadowRun4 : (12R6[6]>=5) ＞ 1,1,1,2,2,3,4,4,4,4,5,5 ＞ 成功数2"
+output = "(12R6[6]>=5) ＞ 1,1,1,2,2,3,4,4,4,4,5,5 ＞ 成功数2"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -318,7 +318,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "12R6"
-output = "ShadowRun4 : (12R6[6]>=5) ＞ 1,2,2,2,2,3,4,5,5,5,6,6 + 1,3 ＞ 成功数5"
+output = "(12R6[6]>=5) ＞ 1,2,2,2,2,3,4,5,5,5,6,6 + 1,3 ＞ 成功数5"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -339,7 +339,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "12R6"
-output = "ShadowRun4 : (12R6[6]>=5) ＞ 1,1,2,2,3,3,3,3,5,5,6,6 + 2,5 ＞ 成功数5"
+output = "(12R6[6]>=5) ＞ 1,1,2,2,3,3,3,3,5,5,6,6 + 2,5 ＞ 成功数5"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -360,7 +360,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "12R6"
-output = "ShadowRun4 : (12R6[6]>=5) ＞ 1,2,3,3,3,3,4,4,4,4,4,5 ＞ 成功数1"
+output = "(12R6[6]>=5) ＞ 1,2,3,3,3,3,4,4,4,4,4,5 ＞ 成功数1"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -379,7 +379,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "12R6"
-output = "ShadowRun4 : (12R6[6]>=5) ＞ 1,1,1,1,3,3,3,5,6,6,6,6 + 1,4,4,5 ＞ 成功数6"
+output = "(12R6[6]>=5) ＞ 1,1,1,1,3,3,3,5,6,6,6,6 + 1,4,4,5 ＞ 成功数6"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -402,7 +402,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "12R6"
-output = "ShadowRun4 : (12R6[6]>=5) ＞ 1,1,2,2,2,3,4,4,5,5,6,6 + 6,6 + 3,5 ＞ 成功数7"
+output = "(12R6[6]>=5) ＞ 1,1,2,2,2,3,4,4,5,5,6,6 + 6,6 + 3,5 ＞ 成功数7"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -425,7 +425,7 @@ rands = [
 [[ test ]]
 game_system = "ShadowRun4"
 input = "12R6"
-output = "ShadowRun4 : (12R6[6]>=5) ＞ 1,1,2,2,3,4,5,5,5,5,6,6 + 1,1 ＞ 成功数6"
+output = "(12R6[6]>=5) ＞ 1,1,2,2,3,4,5,5,5,5,6,6 + 1,1 ＞ 成功数6"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },

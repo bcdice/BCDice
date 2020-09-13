@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "2D6>=7"
-output = "DarkDaysDrive : (2D6>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル(判定失敗。失敗表(FT)を追加で１回振る)"
+output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル(判定失敗。失敗表(FT)を追加で１回振る)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "2D6>=7"
-output = "DarkDaysDrive : (2D6>=7) ＞ 12[6,6] ＞ 12 ＞ スペシャル(判定成功。大成功表(GJT)を１回使用可能)"
+output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ スペシャル(判定成功。大成功表(GJT)を１回使用可能)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "2D6>=7"
-output = "DarkDaysDrive : (2D6>=7) ＞ 7[1,6] ＞ 7 ＞ 成功"
+output = "(2D6>=7) ＞ 7[1,6] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "2D6>=7"
-output = "DarkDaysDrive : (2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
+output = "(2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "RTT"
-output = "DarkDaysDrive : ランダム指定特技表(1,2) ＞ 背景《呪い》"
+output = "ランダム指定特技表(1,2) ＞ 背景《呪い》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -47,7 +47,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "RTT"
-output = "DarkDaysDrive : ランダム指定特技表(6,12) ＞ 戦闘法《弓術》"
+output = "ランダム指定特技表(6,12) ＞ 戦闘法《弓術》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "ABRT"
-output = "DarkDaysDrive : アビリティ決定表(11) ＞ インストラクター(P155)"
+output = "アビリティ決定表(11) ＞ インストラクター(P155)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -66,7 +66,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "ABRT"
-output = "DarkDaysDrive : アビリティ決定表(16) ＞ ショップ店員(P155)"
+output = "アビリティ決定表(16) ＞ ショップ店員(P155)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -75,7 +75,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "ABRT"
-output = "DarkDaysDrive : アビリティ決定表(66) ＞ 料理人(P158)"
+output = "アビリティ決定表(66) ＞ 料理人(P158)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -84,7 +84,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "DT"
-output = "DarkDaysDrive : ダメージ表(1) ＞ 疲れ"
+output = "ダメージ表(1) ＞ 疲れ"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -92,7 +92,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "DT"
-output = "DarkDaysDrive : ダメージ表(6) ＞ ケガ"
+output = "ダメージ表(6) ＞ ケガ"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "FT"
-output = "DarkDaysDrive : 失敗表(1) ＞ 任意のアイテムを一つ失う"
+output = "失敗表(1) ＞ 任意のアイテムを一つ失う"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -108,7 +108,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "FT"
-output = "DarkDaysDrive : 失敗表(6) ＞ 標的レベルが１増加する"
+output = "失敗表(6) ＞ 標的レベルが１増加する"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -116,7 +116,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "GJT"
-output = "DarkDaysDrive : 大成功表(1) ＞ 主人からお褒めの言葉をいただく"
+output = "大成功表(1) ＞ 主人からお褒めの言葉をいただく"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -124,7 +124,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "GJT"
-output = "DarkDaysDrive : 大成功表(6) ＞ 【所持金ランク】が１増加する"
+output = "大成功表(6) ＞ 【所持金ランク】が１増加する"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -132,7 +132,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "ITT"
-output = "DarkDaysDrive : 移動トラブル表(1) ＞ 検問（P220)"
+output = "移動トラブル表(1) ＞ 検問（P220)"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -140,7 +140,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "ITT"
-output = "DarkDaysDrive : 移動トラブル表(6) ＞ 空腹（P222)"
+output = "移動トラブル表(6) ＞ 空腹（P222)"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -148,7 +148,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "NTT"
-output = "DarkDaysDrive : 任務トラブル表(1) ＞ 通報（P223)"
+output = "任務トラブル表(1) ＞ 通報（P223)"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -156,7 +156,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "NTT"
-output = "DarkDaysDrive : 任務トラブル表(6) ＞ 狩人の噂（P225)"
+output = "任務トラブル表(6) ＞ 狩人の噂（P225)"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -164,7 +164,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "STT"
-output = "DarkDaysDrive : 襲撃トラブル表(1) ＞ 孤独な追跡者（P226)"
+output = "襲撃トラブル表(1) ＞ 孤独な追跡者（P226)"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -172,7 +172,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "STT"
-output = "DarkDaysDrive : 襲撃トラブル表(6) ＞ 狩人の群れ（P228)"
+output = "襲撃トラブル表(6) ＞ 狩人の群れ（P228)"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -180,7 +180,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "HTT"
-output = "DarkDaysDrive : 変身トラブル表(11) ＞ あれを食べたい(P214)"
+output = "変身トラブル表(11) ＞ あれを食べたい(P214)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -189,7 +189,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "HTT"
-output = "DarkDaysDrive : 変身トラブル表(31) ＞ あれを食べたい(P214)"
+output = "変身トラブル表(31) ＞ あれを食べたい(P214)"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -198,7 +198,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "HTT"
-output = "DarkDaysDrive : 変身トラブル表(51) ＞ あれを食べたい(P214)"
+output = "変身トラブル表(51) ＞ あれを食べたい(P214)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -207,7 +207,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "HTT"
-output = "DarkDaysDrive : 変身トラブル表(21) ＞ 強奪(P217)"
+output = "変身トラブル表(21) ＞ 強奪(P217)"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -216,7 +216,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "HTT"
-output = "DarkDaysDrive : 変身トラブル表(61) ＞ 強奪(P217)"
+output = "変身トラブル表(61) ＞ 強奪(P217)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -225,7 +225,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "HTT"
-output = "DarkDaysDrive : 変身トラブル表(66) ＞ 失踪(P219)"
+output = "変身トラブル表(66) ＞ 失踪(P219)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -234,7 +234,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "DET"
-output = "DarkDaysDrive : ドライブイベント表(1) ＞ 身の上話をする。目標が背景分野で選択している特技がドライブ判定の指定特技になる。"
+output = "ドライブイベント表(1) ＞ 身の上話をする。目標が背景分野で選択している特技がドライブ判定の指定特技になる。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -242,7 +242,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "DET"
-output = "DarkDaysDrive : ドライブイベント表(6) ＞ 物騒な話をする。目標が戦闘法分野で選択している特技がドライブ判定の指定特技になる。"
+output = "ドライブイベント表(6) ＞ 物騒な話をする。目標が戦闘法分野で選択している特技がドライブ判定の指定特技になる。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -250,7 +250,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "BET"
-output = "DarkDaysDrive : ブレイクイベント表(1) ＞ イケメンの車は風光明美な場所に到着する。197ページの「観光地」を参照。"
+output = "ブレイクイベント表(1) ＞ イケメンの車は風光明美な場所に到着する。197ページの「観光地」を参照。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -258,7 +258,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "BET"
-output = "DarkDaysDrive : ブレイクイベント表(6) ＞ イケメンの車は闇の底に隠された秘密の場所に到着する。199ページの「友愛会支部」を参照。"
+output = "ブレイクイベント表(6) ＞ イケメンの車は闇の底に隠された秘密の場所に到着する。199ページの「友愛会支部」を参照。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -266,7 +266,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "CT"
-output = "DarkDaysDrive : キャンプ表(1) ＞ 無料仮眠所・いい感じの空き地：定員無制限／居住性-2／価格0／発見率2"
+output = "キャンプ表(1) ＞ 無料仮眠所・いい感じの空き地：定員無制限／居住性-2／価格0／発見率2"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -274,7 +274,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "CT"
-output = "DarkDaysDrive : キャンプ表(6) ＞ 高級ホテル：定員4／居住性2／価格6／発見率0"
+output = "キャンプ表(6) ＞ 高級ホテル：定員4／居住性2／価格6／発見率0"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -282,7 +282,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "KZT"
-output = "DarkDaysDrive : 関係属性表(1) ＞ 軽蔑"
+output = "関係属性表(1) ＞ 軽蔑"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -290,7 +290,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "KZT"
-output = "DarkDaysDrive : 関係属性表(6) ＞ 憧れ"
+output = "関係属性表(6) ＞ 憧れ"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -298,7 +298,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IA"
-output = "DarkDaysDrive : イケメンアクション決定表(11) ＞ 遠距離"
+output = "イケメンアクション決定表(11) ＞ 遠距離"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -307,7 +307,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IA"
-output = "DarkDaysDrive : イケメンアクション決定表(25) ＞ 悪人"
+output = "イケメンアクション決定表(25) ＞ 悪人"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -316,7 +316,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IA"
-output = "DarkDaysDrive : イケメンアクション決定表(56) ＞ 超自然"
+output = "イケメンアクション決定表(56) ＞ 超自然"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -325,7 +325,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IA"
-output = "DarkDaysDrive : イケメンアクション決定表(66) ＞ 振り直しor自由選択"
+output = "イケメンアクション決定表(66) ＞ 振り直しor自由選択"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -334,7 +334,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAA"
-output = "DarkDaysDrive : イケメンアクション（遠距離）表(1) ＞ 目を合わせて微笑む（かっこよさ：4）"
+output = "イケメンアクション（遠距離）表(1) ＞ 目を合わせて微笑む（かっこよさ：4）"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -342,7 +342,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAB"
-output = "DarkDaysDrive : イケメンアクション（移動）表(1) ＞ 車道側を歩く（かっこよさ：4）"
+output = "イケメンアクション（移動）表(1) ＞ 車道側を歩く（かっこよさ：4）"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -350,7 +350,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAC"
-output = "DarkDaysDrive : イケメンアクション（近距離）表(1) ＞ 黙って見つめる（かっこよさ：3）"
+output = "イケメンアクション（近距離）表(1) ＞ 黙って見つめる（かっこよさ：3）"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -358,7 +358,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAD"
-output = "DarkDaysDrive : イケメンアクション（善人）表(6) ＞ 悪堕ち（かっこよさ：6）"
+output = "イケメンアクション（善人）表(6) ＞ 悪堕ち（かっこよさ：6）"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -366,7 +366,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAE"
-output = "DarkDaysDrive : イケメンアクション（悪人）表(5) ＞ 罠にかける（かっこよさ：6）"
+output = "イケメンアクション（悪人）表(5) ＞ 罠にかける（かっこよさ：6）"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -374,7 +374,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAF"
-output = "DarkDaysDrive : イケメンアクション（幼い）表(2) ＞ 疲れる（かっこよさ：3）"
+output = "イケメンアクション（幼い）表(2) ＞ 疲れる（かっこよさ：3）"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -382,7 +382,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAG"
-output = "DarkDaysDrive : イケメンアクション（バカ）表(3) ＞ 転ぶ（かっこよさ：4）"
+output = "イケメンアクション（バカ）表(3) ＞ 転ぶ（かっこよさ：4）"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -390,7 +390,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAH"
-output = "DarkDaysDrive : イケメンアクション（渋い）表(4) ＞ 残心（かっこよさ：5）"
+output = "イケメンアクション（渋い）表(4) ＞ 残心（かっこよさ：5）"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -398,7 +398,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAI"
-output = "DarkDaysDrive : イケメンアクション（賢い）表(6) ＞ 大丈夫だと言う（かっこよさ：7）"
+output = "イケメンアクション（賢い）表(6) ＞ 大丈夫だと言う（かっこよさ：7）"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -406,7 +406,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAJ"
-output = "DarkDaysDrive : イケメンアクション（超自然）表(5) ＞ 闇を生み出す（かっこよさ：6）"
+output = "イケメンアクション（超自然）表(5) ＞ 闇を生み出す（かっこよさ：6）"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -414,7 +414,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "2D6>=? 目標値?でバグらない"
-output = "DarkDaysDrive : (2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },

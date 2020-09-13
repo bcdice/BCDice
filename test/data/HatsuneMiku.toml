@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RC>=5"
-output = "HatsuneMiku : (RC>=5) ＞ [5] ＞ 5:成功"
+output = "(RC>=5) ＞ [5] ＞ 5:成功"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RB"
-output = "HatsuneMiku : (RB>=4) ＞ [3,5] ＞ \n　ネイロに3(青)を取得した場合 5:成功\n　ネイロに5(白)を取得した場合 3:失敗"
+output = "(RB>=4) ＞ [3,5] ＞ \n　ネイロに3(青)を取得した場合 5:成功\n　ネイロに5(白)を取得した場合 3:失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -18,7 +18,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "R1>=5"
-output = "HatsuneMiku : (R1>=5) ＞ [5] ＞ 5:成功"
+output = "(R1>=5) ＞ [5] ＞ 5:成功"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -26,7 +26,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "R6"
-output = "HatsuneMiku : (R6>=4) ＞ [2,2,3,3,5,5] ＞ \n　ネイロに2(赤)を取得した場合 5:成功\n　ネイロに3(青)を取得した場合 5:成功\n　ネイロに5(白)を取得した場合 5:成功"
+output = "(R6>=4) ＞ [2,2,3,3,5,5] ＞ \n　ネイロに2(赤)を取得した場合 5:成功\n　ネイロに3(青)を取得した場合 5:成功\n　ネイロに5(白)を取得した場合 5:成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -39,7 +39,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RD"
-output = "HatsuneMiku : (RD>=4) ＞ [3,4] ＞ 3:失敗"
+output = "(RD>=4) ＞ [3,4] ＞ 3:失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -48,7 +48,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RD"
-output = "HatsuneMiku : (RD>=4) ＞ [4,5] ＞ 4:成功"
+output = "(RD>=4) ＞ [4,5] ＞ 4:成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RC"
-output = "HatsuneMiku : (RC>=4) ＞ [3] ＞ 3:失敗"
+output = "(RC>=4) ＞ [3] ＞ 3:失敗"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RC"
-output = "HatsuneMiku : (RC>=4) ＞ [4] ＞ 4:成功"
+output = "(RC>=4) ＞ [4] ＞ 4:成功"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RC++"
-output = "HatsuneMiku : (RC+2>=4) ＞ [2]+2 ＞ 4:成功"
+output = "(RC+2>=4) ＞ [2]+2 ＞ 4:成功"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RB+,+1"
-output = "HatsuneMiku : (RB+1+1>=4) ＞ [2,5]+1+1 ＞ \n　ネイロに2(赤)を取得した場合 7:成功\n　ネイロに5(白)を取得した場合 4:成功"
+output = "(RB+1+1>=4) ＞ [2,5]+1+1 ＞ \n　ネイロに2(赤)を取得した場合 7:成功\n　ネイロに5(白)を取得した場合 4:成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -90,7 +90,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RC++,+1"
-output = "HatsuneMiku : (RC+2+1>=4) ＞ [2]+2+1 ＞ 5:成功"
+output = "(RC+2+1>=4) ＞ [2]+2+1 ＞ 5:成功"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -98,7 +98,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RC"
-output = "HatsuneMiku : (RC>=4) ＞ [5] ＞ 5:成功"
+output = "(RC>=4) ＞ [5] ＞ 5:成功"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -106,7 +106,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RC"
-output = "HatsuneMiku : (RC>=4) ＞ [2] ＞ 2:失敗"
+output = "(RC>=4) ＞ [2] ＞ 2:失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -114,7 +114,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RC+2"
-output = "HatsuneMiku : (RC+2>=4) ＞ [2]+2 ＞ 4:成功"
+output = "(RC+2>=4) ＞ [2]+2 ＞ 4:成功"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -122,7 +122,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RC-3"
-output = "HatsuneMiku : (RC-3>=4) ＞ [2]-3 ＞ -1:失敗"
+output = "(RC-3>=4) ＞ [2]-3 ＞ -1:失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -130,7 +130,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RC-3+2"
-output = "HatsuneMiku : (RC-3+2>=4) ＞ [2]-3+2 ＞ 1:失敗"
+output = "(RC-3+2>=4) ＞ [2]-3+2 ＞ 1:失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -138,7 +138,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RC>=5-1"
-output = "HatsuneMiku : (RC>=5-1) ＞ [5] ＞ 5:成功"
+output = "(RC>=5-1) ＞ [5] ＞ 5:成功"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -146,7 +146,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RC>=5-2 hogehoge"
-output = "HatsuneMiku : (RC>=5-2) ＞ [5] ＞ 5:成功"
+output = "(RC>=5-2) ＞ [5] ＞ 5:成功"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -154,7 +154,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RB+1>=5"
-output = "HatsuneMiku : (RB+1>=5) ＞ [2,4]+1 ＞ \n　ネイロに2(赤)を取得した場合 5:成功\n　ネイロに4(緑)を取得した場合 3:失敗"
+output = "(RB+1>=5) ＞ [2,4]+1 ＞ \n　ネイロに2(赤)を取得した場合 5:成功\n　ネイロに4(緑)を取得した場合 3:失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -163,7 +163,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RA-1"
-output = "HatsuneMiku : (RA-1>=4) ＞ [1,5,6]-1 ＞ \n　ネイロに1(黒)を取得した場合 5:スペシャル\n　ネイロに5(白)を取得した場合 5:スペシャル\n　ネイロに6(任意)を取得した場合 4:成功"
+output = "(RA-1>=4) ＞ [1,5,6]-1 ＞ \n　ネイロに1(黒)を取得した場合 5:スペシャル\n　ネイロに5(白)を取得した場合 5:スペシャル\n　ネイロに6(任意)を取得した場合 4:成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -173,7 +173,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RS"
-output = "HatsuneMiku : (RS>=4) ＞ [1,2,5,6] ＞ \n　ネイロに1(黒)を取得した場合 6:スペシャル\n　ネイロに2(赤)を取得した場合 6:スペシャル\n　ネイロに5(白)を取得した場合 6:スペシャル\n　ネイロに6(任意)を取得した場合 5:成功"
+output = "(RS>=4) ＞ [1,2,5,6] ＞ \n　ネイロに1(黒)を取得した場合 6:スペシャル\n　ネイロに2(赤)を取得した場合 6:スペシャル\n　ネイロに5(白)を取得した場合 6:スペシャル\n　ネイロに6(任意)を取得した場合 5:成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -184,7 +184,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RD+1>=5"
-output = "HatsuneMiku : (RD+1>=5) ＞ [2,4]+1 ＞ 3:失敗"
+output = "(RD+1>=5) ＞ [2,4]+1 ＞ 3:失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RB@5"
-output = "HatsuneMiku : (RB@5>=4) ＞ [2,5] ＞ \n　ネイロに2(赤)を取得した場合 5:スペシャル\n　ネイロに5(白)を取得した場合 2:失敗"
+output = "(RB@5>=4) ＞ [2,5] ＞ \n　ネイロに2(赤)を取得した場合 5:スペシャル\n　ネイロに5(白)を取得した場合 2:失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -202,7 +202,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RB+2@5"
-output = "HatsuneMiku : (RB+2@5>=4) ＞ [2,5]+2 ＞ \n　ネイロに2(赤)を取得した場合 7:スペシャル\n　ネイロに5(白)を取得した場合 4:成功"
+output = "(RB+2@5>=4) ＞ [2,5]+2 ＞ \n　ネイロに2(赤)を取得した場合 7:スペシャル\n　ネイロに5(白)を取得した場合 4:成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -211,7 +211,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RB+2@5>=5"
-output = "HatsuneMiku : (RB+2@5>=5) ＞ [2,5]+2 ＞ \n　ネイロに2(赤)を取得した場合 7:スペシャル\n　ネイロに5(白)を取得した場合 4:失敗"
+output = "(RB+2@5>=5) ＞ [2,5]+2 ＞ \n　ネイロに2(赤)を取得した場合 7:スペシャル\n　ネイロに5(白)を取得した場合 4:失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -220,7 +220,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RB+2>=5@5"
-output = "HatsuneMiku : (RB+2@5>=5) ＞ [2,5]+2 ＞ \n　ネイロに2(赤)を取得した場合 7:スペシャル\n　ネイロに5(白)を取得した場合 4:失敗"
+output = "(RB+2@5>=5) ＞ [2,5]+2 ＞ \n　ネイロに2(赤)を取得した場合 7:スペシャル\n　ネイロに5(白)を取得した場合 4:失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -229,7 +229,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RS"
-output = "HatsuneMiku : (RS>=4) ＞ [2,3,3,6] ＞ \n　ネイロに2(赤)を取得した場合 6:スペシャル\n　ネイロに3(青)を取得した場合 6:スペシャル\n　ネイロに6(任意)を取得した場合 3:失敗"
+output = "(RS>=4) ＞ [2,3,3,6] ＞ \n　ネイロに2(赤)を取得した場合 6:スペシャル\n　ネイロに3(青)を取得した場合 6:スペシャル\n　ネイロに6(任意)を取得した場合 3:失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -240,7 +240,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RS"
-output = "HatsuneMiku : (RS>=4) ＞ [2,3,5,5] ＞ \n　ネイロに2(赤)を取得した場合 5:成功\n　ネイロに3(青)を取得した場合 5:成功\n　ネイロに5(白)を取得した場合 5:成功"
+output = "(RS>=4) ＞ [2,3,5,5] ＞ \n　ネイロに2(赤)を取得した場合 5:成功\n　ネイロに3(青)を取得した場合 5:成功\n　ネイロに5(白)を取得した場合 5:成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -251,7 +251,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "FT"
-output = "HatsuneMiku : ファンブル表(6) ＞ ラッキー！特に何も起こらない"
+output = "ファンブル表(6) ＞ ラッキー！特に何も起こらない"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -259,7 +259,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "CWT"
-output = "HatsuneMiku : 致命傷表(6) ＞ 奇跡的に踏みとどまり、持ちこたえる。【生命力】が１点になる。"
+output = "致命傷表(6) ＞ 奇跡的に踏みとどまり、持ちこたえる。【生命力】が１点になる。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -267,7 +267,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "BT"
-output = "HatsuneMiku : 休憩表(6) ＞ ノイズストアに接続できた。各PCは、自分の【頭脳】のダイスの数と同じ個数まで、アプリを購入できる。"
+output = "休憩表(6) ＞ ノイズストアに接続できた。各PCは、自分の【頭脳】のダイスの数と同じ個数まで、アプリを購入できる。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -275,7 +275,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "TT"
-output = "HatsuneMiku : 目標表(6) ＞ 乱戦。その脅威のいるパラグラフの数値と数値が１離れたパラグラフにいるＰＣ全員を目標に選ぶ。そのパラグラフにＰＣがいなかった場合、ＧＭが自由に一人目標を選ぶ。"
+output = "目標表(6) ＞ 乱戦。その脅威のいるパラグラフの数値と数値が１離れたパラグラフにいるＰＣ全員を目標に選ぶ。そのパラグラフにＰＣがいなかった場合、ＧＭが自由に一人目標を選ぶ。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -283,7 +283,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RT"
-output = "HatsuneMiku : 関係表(6) ＞ 大切（プラス）／面倒（マイナス）"
+output = "関係表(6) ＞ 大切（プラス）／面倒（マイナス）"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -291,7 +291,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "OT"
-output = "HatsuneMiku : 障害表(6) ＞ 場にイヤな気配が満ちていく。黒のネイロが一つ増える。"
+output = "障害表(6) ＞ 場にイヤな気配が満ちていく。黒のネイロが一つ増える。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -299,7 +299,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "RQT"
-output = "HatsuneMiku : リクエスト表(12) ＞ あなたの目の前に、あなたの死体が横たわっている。「お前を殺すものは何だ？お前は誰に殺される？」"
+output = "リクエスト表(12) ＞ あなたの目の前に、あなたの死体が横たわっている。「お前を殺すものは何だ？お前は誰に殺される？」"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -308,7 +308,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "ST"
-output = "HatsuneMiku : 情景表(66) ＞ 誰もいない体育館"
+output = "情景表(66) ＞ 誰もいない体育館"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -317,7 +317,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "DKT"
-output = "HatsuneMiku : ダーク・キーワード表(66) ＞ デスゲーム"
+output = "ダーク・キーワード表(66) ＞ デスゲーム"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -326,7 +326,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "DNT"
-output = "HatsuneMiku : ダーク・名前表(66) ＞ イミ／忌、逝美　ムイミ／無意味、無為巳"
+output = "ダーク・名前表(66) ＞ イミ／忌、逝美　ムイミ／無意味、無為巳"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -335,7 +335,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "HKT"
-output = "HatsuneMiku : ホット・キーワード表(66) ＞ オーバードライブ"
+output = "ホット・キーワード表(66) ＞ オーバードライブ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -344,7 +344,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "HNT"
-output = "HatsuneMiku : ホット・名前表(66) ＞ レオ／伶央、獅王　マツリ／祭、茉莉"
+output = "ホット・名前表(66) ＞ レオ／伶央、獅王　マツリ／祭、茉莉"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -353,7 +353,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "LKT"
-output = "HatsuneMiku : ラブ・キーワード表(66) ＞ ビューティフルワールド"
+output = "ラブ・キーワード表(66) ＞ ビューティフルワールド"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -362,7 +362,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "LNT"
-output = "HatsuneMiku : ラブ・名前表(66) ＞ ロミオ／路美雄、露澪　ロマン／浪漫、絽萬"
+output = "ラブ・名前表(66) ＞ ロミオ／路美雄、露澪　ロマン／浪漫、絽萬"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -371,7 +371,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "EKT"
-output = "HatsuneMiku : エキセントリック・キーワード表(66) ＞ 秒速１ポロンクセマ"
+output = "エキセントリック・キーワード表(66) ＞ 秒速１ポロンクセマ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -380,7 +380,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "ENT"
-output = "HatsuneMiku : エキセントリック・名前表(66) ＞ ビックリ／吃驚、！　ハテナ／果菜、？"
+output = "エキセントリック・名前表(66) ＞ ビックリ／吃驚、！　ハテナ／果菜、？"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -389,7 +389,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "MKT"
-output = "HatsuneMiku : メランコリー・キーワード表(66) ＞ ナルシズム"
+output = "メランコリー・キーワード表(66) ＞ ナルシズム"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -398,7 +398,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "MNT"
-output = "HatsuneMiku : メランコリー・名前表(66) ＞ ヘヴン／戸聞、天国　ガラス／硝子、枯州"
+output = "メランコリー・名前表(66) ＞ ヘヴン／戸聞、天国　ガラス／硝子、枯州"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -407,7 +407,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "OPA"
-output = "HatsuneMiku : オトダマ性格表A(66) ＞ 好戦的"
+output = "オトダマ性格表A(66) ＞ 好戦的"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -416,7 +416,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "OPB"
-output = "HatsuneMiku : オトダマ性格表B(66) ＞ 嘘つき"
+output = "オトダマ性格表B(66) ＞ 嘘つき"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -425,7 +425,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "OHT"
-output = "HatsuneMiku : オトダマ趣味表(66) ＞ 動画配信"
+output = "オトダマ趣味表(66) ＞ 動画配信"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -434,7 +434,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "OLT"
-output = "HatsuneMiku : オトダマ外見表(66) ＞ 戦隊コス"
+output = "オトダマ外見表(66) ＞ 戦隊コス"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -443,7 +443,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "OIT"
-output = "HatsuneMiku : オトダマ一人称表(12) ＞ ミー"
+output = "オトダマ一人称表(12) ＞ ミー"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -452,7 +452,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "OYT"
-output = "HatsuneMiku : オトダマ呼び名表(12) ＞ （ＰＣの名前）殿"
+output = "オトダマ呼び名表(12) ＞ （ＰＣの名前）殿"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -461,7 +461,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "ORT"
-output = "HatsuneMiku : リアクション表(6) ＞ 攻撃を行うときのセリフ"
+output = "リアクション表(6) ＞ 攻撃を行うときのセリフ"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -469,7 +469,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku"
 input = "OMT"
-output = "HatsuneMiku : 出会い表(12) ＞ 一目惚れ。以前、あなたは様々な楽曲を発表していました。すると、その楽曲に一目惚れしたと言って、あなたの元にオトダマが押しかけてきました。以来、そのオトダマに付きまとわれる毎日です。"
+output = "出会い表(12) ＞ 一目惚れ。以前、あなたは様々な楽曲を発表していました。すると、その楽曲に一目惚れしたと言って、あなたの元にオトダマが押しかけてきました。以来、そのオトダマに付きまとわれる毎日です。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },

@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE3"
-output = "YearZeroEngine : (3D6) ＞ [2,5,3] 成功数:0"
+output = "(3D6) ＞ [2,5,3] 成功数:0"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -11,7 +11,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE3"
-output = "YearZeroEngine : (3D6) ＞ [2,6,1] 成功数:1"
+output = "(3D6) ＞ [2,6,1] 成功数:1"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -21,7 +21,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE3"
-output = "YearZeroEngine : (3D6) ＞ [6,6,6] 成功数:3"
+output = "(3D6) ＞ [6,6,6] 成功数:3"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -31,7 +31,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0"
+output = "(3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -44,7 +44,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [2,6,3]+[1,6,1] 成功数:2"
+output = "(3D6)+(3D6) ＞ [2,6,3]+[1,6,1] 成功数:2"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [6,6,6]+[6,6,6] 成功数:6"
+output = "(3D6)+(3D6) ＞ [6,6,6]+[6,6,6] 成功数:6"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -70,26 +70,26 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [2,5,3]+[1,4,1]+[3,1,4] 成功数:0"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "YearZeroEngine"
-input = "YZE3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [2,5,6]+[1,4,6]+[3,1,6] 成功数:3"
+output = "(3D6)+(3D6)+(3D6) ＞ [2,5,3]+[1,4,1]+[3,1,4] 成功数:0"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZE3+3+3"
+output = "(3D6)+(3D6)+(3D6) ＞ [2,5,6]+[1,4,6]+[3,1,6] 成功数:3"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -102,7 +102,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [6,6,6]+[6,6,6]+[6,6,6] 成功数:9"
+output = "(3D6)+(3D6)+(3D6) ＞ [6,6,6]+[6,6,6]+[6,6,6] 成功数:9"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE3+2+1"
-output = "YearZeroEngine : (3D6)+(2D6)+(1D6) ＞ [2,5,3]+[1,4]+[3] 成功数:0"
+output = "(3D6)+(2D6)+(1D6) ＞ [2,5,3]+[1,4]+[3] 成功数:0"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -131,7 +131,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE3+2+1"
-output = "YearZeroEngine : (3D6)+(2D6)+(1D6) ＞ [2,5,6]+[4,6]+[6] 成功数:3"
+output = "(3D6)+(2D6)+(1D6) ＞ [2,5,6]+[4,6]+[6] 成功数:3"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -144,7 +144,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE3+2+1"
-output = "YearZeroEngine : (3D6)+(2D6)+(1D6) ＞ [6,6,6]+[6,6]+[6] 成功数:6"
+output = "(3D6)+(2D6)+(1D6) ＞ [6,6,6]+[6,6]+[6] 成功数:6"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -157,7 +157,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE1+2+3"
-output = "YearZeroEngine : (1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2"
+output = "(1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -170,7 +170,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "SYZE3"
-output = "YearZeroEngine : (3D6) ＞ [2,5,3] 成功数:0"
+output = "(3D6) ＞ [2,5,3] 成功数:0"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -181,7 +181,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "SYZE3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0"
+output = "(3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -195,7 +195,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "SYZE1+2+3"
-output = "YearZeroEngine : (1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2"
+output = "(1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -209,7 +209,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2YZE3"
-output = "YearZeroEngine : (3D6) ＞ [2,5,3] 成功数:0 難易度=2:判定失敗！"
+output = "(3D6) ＞ [2,5,3] 成功数:0 難易度=2:判定失敗！"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -219,7 +219,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2YZE3"
-output = "YearZeroEngine : (3D6) ＞ [2,6,1] 成功数:1 難易度=2:判定失敗！"
+output = "(3D6) ＞ [2,6,1] 成功数:1 難易度=2:判定失敗！"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -229,7 +229,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2YZE3"
-output = "YearZeroEngine : (3D6) ＞ [6,6,6] 成功数:3 難易度=2:判定成功！"
+output = "(3D6) ＞ [6,6,6] 成功数:3 難易度=2:判定成功！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -239,7 +239,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2YZE3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0 難易度=2:判定失敗！"
+output = "(3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0 難易度=2:判定失敗！"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -252,7 +252,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2YZE3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [2,6,3]+[1,6,1] 成功数:2 難易度=2:判定成功！"
+output = "(3D6)+(3D6) ＞ [2,6,3]+[1,6,1] 成功数:2 難易度=2:判定成功！"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -265,7 +265,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2YZE3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [6,6,6]+[6,6,6] 成功数:6 難易度=2:判定成功！"
+output = "(3D6)+(3D6) ＞ [6,6,6]+[6,6,6] 成功数:6 難易度=2:判定成功！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -278,26 +278,26 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2YZE3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [2,5,3]+[1,4,1]+[3,1,4] 成功数:0 難易度=2:判定失敗！"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "YearZeroEngine"
-input = "2YZE3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [2,5,6]+[1,4,6]+[3,1,6] 成功数:3 難易度=2:判定成功！"
+output = "(3D6)+(3D6)+(3D6) ＞ [2,5,3]+[1,4,1]+[3,1,4] 成功数:0 難易度=2:判定失敗！"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "2YZE3+3+3"
+output = "(3D6)+(3D6)+(3D6) ＞ [2,5,6]+[1,4,6]+[3,1,6] 成功数:3 難易度=2:判定成功！"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -310,7 +310,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2YZE3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [6,6,6]+[6,6,6]+[6,6,6] 成功数:9 難易度=2:判定成功！"
+output = "(3D6)+(3D6)+(3D6) ＞ [6,6,6]+[6,6,6]+[6,6,6] 成功数:9 難易度=2:判定成功！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -326,7 +326,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2YZE3+2+1"
-output = "YearZeroEngine : (3D6)+(2D6)+(1D6) ＞ [2,5,3]+[1,4]+[3] 成功数:0 難易度=2:判定失敗！"
+output = "(3D6)+(2D6)+(1D6) ＞ [2,5,3]+[1,4]+[3] 成功数:0 難易度=2:判定失敗！"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -339,7 +339,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2YZE3+2+1"
-output = "YearZeroEngine : (3D6)+(2D6)+(1D6) ＞ [2,5,6]+[4,6]+[6] 成功数:3 難易度=2:判定成功！"
+output = "(3D6)+(2D6)+(1D6) ＞ [2,5,6]+[4,6]+[6] 成功数:3 難易度=2:判定成功！"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -352,7 +352,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2YZE3+2+1"
-output = "YearZeroEngine : (3D6)+(2D6)+(1D6) ＞ [6,6,6]+[6,6]+[6] 成功数:6 難易度=2:判定成功！"
+output = "(3D6)+(2D6)+(1D6) ＞ [6,6,6]+[6,6]+[6] 成功数:6 難易度=2:判定成功！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -365,7 +365,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2YZE1+2+3"
-output = "YearZeroEngine : (1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2 難易度=2:判定成功！"
+output = "(1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2 難易度=2:判定成功！"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -378,7 +378,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "S2YZE3"
-output = "YearZeroEngine : (3D6) ＞ [2,5,3] 成功数:0 難易度=2:判定失敗！"
+output = "(3D6) ＞ [2,5,3] 成功数:0 難易度=2:判定失敗！"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -389,7 +389,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "S2YZE3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0 難易度=2:判定失敗！"
+output = "(3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0 難易度=2:判定失敗！"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -403,7 +403,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "S2YZE1+2+3"
-output = "YearZeroEngine : (1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2 難易度=2:判定成功！"
+output = "(1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2 難易度=2:判定成功！"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -417,7 +417,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "MYZ3"
-output = "YearZeroEngine : (3D6) ＞ [2,5,3] 成功数:0\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=3ダイス"
+output = "(3D6) ＞ [2,5,3] 成功数:0\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=3ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -427,7 +427,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "MYZ3"
-output = "YearZeroEngine : (3D6) ＞ [2,6,1] 成功数:1\n出目1：[能力：1,技能：0,アイテム：0) プッシュ可能=1ダイス"
+output = "(3D6) ＞ [2,6,1] 成功数:1\n出目1：[能力：1,技能：0,アイテム：0) プッシュ可能=1ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -437,7 +437,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "MYZ3"
-output = "YearZeroEngine : (3D6) ＞ [6,6,6] 成功数:3\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
+output = "(3D6) ＞ [6,6,6] 成功数:3\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -447,7 +447,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "MYZ3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0\n出目1：[能力：0,技能：2,アイテム：0) プッシュ可能=6ダイス"
+output = "(3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0\n出目1：[能力：0,技能：2,アイテム：0) プッシュ可能=6ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -460,7 +460,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "MYZ3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [2,6,3]+[1,6,1] 成功数:2\n出目1：[能力：0,技能：2,アイテム：0) プッシュ可能=4ダイス"
+output = "(3D6)+(3D6) ＞ [2,6,3]+[1,6,1] 成功数:2\n出目1：[能力：0,技能：2,アイテム：0) プッシュ可能=4ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -473,7 +473,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "MYZ3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [6,6,6]+[6,6,6] 成功数:6\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
+output = "(3D6)+(3D6) ＞ [6,6,6]+[6,6,6] 成功数:6\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -486,26 +486,26 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "MYZ3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [2,5,3]+[1,4,1]+[3,1,4] 成功数:0\n出目1：[能力：0,技能：2,アイテム：1) プッシュ可能=8ダイス"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "YearZeroEngine"
-input = "MYZ3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [2,5,6]+[1,4,6]+[3,1,6] 成功数:3\n出目1：[能力：0,技能：1,アイテム：1) プッシュ可能=5ダイス"
+output = "(3D6)+(3D6)+(3D6) ＞ [2,5,3]+[1,4,1]+[3,1,4] 成功数:0\n出目1：[能力：0,技能：2,アイテム：1) プッシュ可能=8ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "MYZ3+3+3"
+output = "(3D6)+(3D6)+(3D6) ＞ [2,5,6]+[1,4,6]+[3,1,6] 成功数:3\n出目1：[能力：0,技能：1,アイテム：1) プッシュ可能=5ダイス"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -518,7 +518,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "MYZ3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [6,6,6]+[6,6,6]+[6,6,6] 成功数:9\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
+output = "(3D6)+(3D6)+(3D6) ＞ [6,6,6]+[6,6,6]+[6,6,6] 成功数:9\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -534,7 +534,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "MYZ3+2+1"
-output = "YearZeroEngine : (3D6)+(2D6)+(1D6) ＞ [2,5,3]+[1,4]+[3] 成功数:0\n出目1：[能力：0,技能：1,アイテム：0) プッシュ可能=6ダイス"
+output = "(3D6)+(2D6)+(1D6) ＞ [2,5,3]+[1,4]+[3] 成功数:0\n出目1：[能力：0,技能：1,アイテム：0) プッシュ可能=6ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -547,7 +547,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "MYZ3+2+1"
-output = "YearZeroEngine : (3D6)+(2D6)+(1D6) ＞ [2,5,6]+[4,6]+[6] 成功数:3\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=3ダイス"
+output = "(3D6)+(2D6)+(1D6) ＞ [2,5,6]+[4,6]+[6] 成功数:3\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=3ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -560,7 +560,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "MYZ3+2+1"
-output = "YearZeroEngine : (3D6)+(2D6)+(1D6) ＞ [6,6,6]+[6,6]+[6] 成功数:6\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
+output = "(3D6)+(2D6)+(1D6) ＞ [6,6,6]+[6,6]+[6] 成功数:6\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -573,7 +573,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "MYZ1+2+3"
-output = "YearZeroEngine : (1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2\n出目1：[能力：0,技能：0,アイテム：1) プッシュ可能=3ダイス"
+output = "(1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2\n出目1：[能力：0,技能：0,アイテム：1) プッシュ可能=3ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -586,7 +586,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "SMYZ3"
-output = "YearZeroEngine : (3D6) ＞ [2,5,3] 成功数:0\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=3ダイス"
+output = "(3D6) ＞ [2,5,3] 成功数:0\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=3ダイス"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -597,7 +597,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "SMYZ3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0\n出目1：[能力：0,技能：2,アイテム：0) プッシュ可能=6ダイス"
+output = "(3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0\n出目1：[能力：0,技能：2,アイテム：0) プッシュ可能=6ダイス"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -611,7 +611,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "SMYZ1+2+3"
-output = "YearZeroEngine : (1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2\n出目1：[能力：0,技能：0,アイテム：1) プッシュ可能=3ダイス"
+output = "(1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2\n出目1：[能力：0,技能：0,アイテム：1) プッシュ可能=3ダイス"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -625,7 +625,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ3"
-output = "YearZeroEngine : (3D6) ＞ [2,5,3] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=3ダイス"
+output = "(3D6) ＞ [2,5,3] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=3ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -635,7 +635,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ3"
-output = "YearZeroEngine : (3D6) ＞ [2,6,1] 成功数:1 難易度=2:判定失敗！\n出目1：[能力：1,技能：0,アイテム：0) プッシュ可能=1ダイス"
+output = "(3D6) ＞ [2,6,1] 成功数:1 難易度=2:判定失敗！\n出目1：[能力：1,技能：0,アイテム：0) プッシュ可能=1ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -645,7 +645,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ3"
-output = "YearZeroEngine : (3D6) ＞ [6,6,6] 成功数:3 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
+output = "(3D6) ＞ [6,6,6] 成功数:3 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -655,7 +655,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：0,技能：2,アイテム：0) プッシュ可能=6ダイス"
+output = "(3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：0,技能：2,アイテム：0) プッシュ可能=6ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -668,7 +668,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [2,6,3]+[1,6,1] 成功数:2 難易度=2:判定成功！\n出目1：[能力：0,技能：2,アイテム：0) プッシュ可能=4ダイス"
+output = "(3D6)+(3D6) ＞ [2,6,3]+[1,6,1] 成功数:2 難易度=2:判定成功！\n出目1：[能力：0,技能：2,アイテム：0) プッシュ可能=4ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -681,7 +681,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [6,6,6]+[6,6,6] 成功数:6 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
+output = "(3D6)+(3D6) ＞ [6,6,6]+[6,6,6] 成功数:6 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -694,26 +694,26 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [2,5,3]+[1,4,1]+[3,1,4] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：0,技能：2,アイテム：1) プッシュ可能=8ダイス"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "YearZeroEngine"
-input = "2MYZ3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [2,5,6]+[1,4,6]+[3,1,6] 成功数:3 難易度=2:判定成功！\n出目1：[能力：0,技能：1,アイテム：1) プッシュ可能=5ダイス"
+output = "(3D6)+(3D6)+(3D6) ＞ [2,5,3]+[1,4,1]+[3,1,4] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：0,技能：2,アイテム：1) プッシュ可能=8ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "2MYZ3+3+3"
+output = "(3D6)+(3D6)+(3D6) ＞ [2,5,6]+[1,4,6]+[3,1,6] 成功数:3 難易度=2:判定成功！\n出目1：[能力：0,技能：1,アイテム：1) プッシュ可能=5ダイス"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -726,7 +726,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [6,6,6]+[6,6,6]+[6,6,6] 成功数:9 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
+output = "(3D6)+(3D6)+(3D6) ＞ [6,6,6]+[6,6,6]+[6,6,6] 成功数:9 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -742,7 +742,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ3+2+1"
-output = "YearZeroEngine : (3D6)+(2D6)+(1D6) ＞ [2,5,3]+[1,4]+[3] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：0,技能：1,アイテム：0) プッシュ可能=6ダイス"
+output = "(3D6)+(2D6)+(1D6) ＞ [2,5,3]+[1,4]+[3] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：0,技能：1,アイテム：0) プッシュ可能=6ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -755,7 +755,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ3+2+1"
-output = "YearZeroEngine : (3D6)+(2D6)+(1D6) ＞ [2,5,6]+[4,6]+[6] 成功数:3 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=3ダイス"
+output = "(3D6)+(2D6)+(1D6) ＞ [2,5,6]+[4,6]+[6] 成功数:3 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=3ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -768,7 +768,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ3+2+1"
-output = "YearZeroEngine : (3D6)+(2D6)+(1D6) ＞ [6,6,6]+[6,6]+[6] 成功数:6 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
+output = "(3D6)+(2D6)+(1D6) ＞ [6,6,6]+[6,6]+[6] 成功数:6 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -781,7 +781,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ1+2+3"
-output = "YearZeroEngine : (1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：1) プッシュ可能=3ダイス"
+output = "(1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：1) プッシュ可能=3ダイス"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -794,7 +794,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "S2MYZ3"
-output = "YearZeroEngine : (3D6) ＞ [2,5,3] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=3ダイス"
+output = "(3D6) ＞ [2,5,3] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=3ダイス"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -805,7 +805,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "S2MYZ3+3"
-output = "YearZeroEngine : (3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：0,技能：2,アイテム：0) プッシュ可能=6ダイス"
+output = "(3D6)+(3D6) ＞ [2,5,3]+[1,4,1] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：0,技能：2,アイテム：0) プッシュ可能=6ダイス"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -819,7 +819,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "S2MYZ1+2+3"
-output = "YearZeroEngine : (1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：1) プッシュ可能=3ダイス"
+output = "(1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：1) プッシュ可能=3ダイス"
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -833,7 +833,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "2MYZ3+3+3"
-output = "YearZeroEngine : (3D6)+(3D6)+(3D6) ＞ [1,6,3]+[1,4,1]+[3,1,4] 成功数:1 難易度=2:判定失敗！\n出目1：[能力：1,技能：2,アイテム：1) プッシュ可能=6ダイス"
+output = "(3D6)+(3D6)+(3D6) ＞ [1,6,3]+[1,4,1]+[3,1,4] 成功数:1 難易度=2:判定失敗！\n出目1：[能力：1,技能：2,アイテム：1) プッシュ可能=6ダイス"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },

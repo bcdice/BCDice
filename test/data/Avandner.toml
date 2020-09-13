@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Avandner"
 input = "6AV3"
-output = "Avandner : (6D10<=3) ＞ 0[10,10,10,10,10,10] ＞ 成功数：0"
+output = "(6D10<=3) ＞ 0[10,10,10,10,10,10] ＞ 成功数：0"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -14,7 +14,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "6AV3"
-output = "Avandner : (6D10<=3) ＞ 2[2,3,4,5,6,6] ＞ 成功数：2"
+output = "(6D10<=3) ＞ 2[2,3,4,5,6,6] ＞ 成功数：2"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 3 },
@@ -27,7 +27,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "6AV3"
-output = "Avandner : (6D10<=3) ＞ 3[1,2,3,4,5,6]+0[6] ＞ 成功数：3 / 1クリティカル"
+output = "(6D10<=3) ＞ 3[1,2,3,4,5,6]+0[6] ＞ 成功数：3 / 1クリティカル"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "6AV3"
-output = "Avandner : (6D10<=3) ＞ 3[1,1,3,4,5,6]+1[3,6] ＞ 成功数：4 / 2クリティカル"
+output = "(6D10<=3) ＞ 3[1,1,3,4,5,6]+1[3,6] ＞ 成功数：4 / 2クリティカル"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -56,7 +56,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "6AV3"
-output = "Avandner : (6D10<=3) ＞ 3[1,1,3,4,5,6]+1[1,6]+1[3] ＞ 成功数：5 / 3クリティカル"
+output = "(6D10<=3) ＞ 3[1,1,3,4,5,6]+1[1,6]+1[3] ＞ 成功数：5 / 3クリティカル"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -72,7 +72,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "6AV4C0"
-output = "Avandner : (6D10<=4) ＞ 4[1,2,3,4,5,6] ＞ 成功数：4"
+output = "(6D10<=4) ＞ 4[1,2,3,4,5,6] ＞ 成功数：4"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -85,7 +85,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "6AV4c2"
-output = "Avandner : (6D10<=4) ＞ 4[1,2,3,4,5,6]+1[3,6] ＞ 成功数：5 / 2クリティカル"
+output = "(6D10<=4) ＞ 4[1,2,3,4,5,6]+1[3,6] ＞ 成功数：5 / 2クリティカル"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "4AV3*5"
-output = "Avandner : (4D10<=3) ＞ 0[6,6,6,6] ＞ Hits：0*5 ＞ 0ダメージ"
+output = "(4D10<=3) ＞ 0[6,6,6,6] ＞ Hits：0*5 ＞ 0ダメージ"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
@@ -111,7 +111,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "4AV3x5"
-output = "Avandner : (4D10<=3) ＞ 0[6,6,6,6] ＞ Hits：0*5 ＞ 0ダメージ"
+output = "(4D10<=3) ＞ 0[6,6,6,6] ＞ Hits：0*5 ＞ 0ダメージ"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
@@ -122,7 +122,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "4AV3X5"
-output = "Avandner : (4D10<=3) ＞ 0[6,6,6,6] ＞ Hits：0*5 ＞ 0ダメージ"
+output = "(4D10<=3) ＞ 0[6,6,6,6] ＞ Hits：0*5 ＞ 0ダメージ"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
@@ -133,7 +133,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "4av3*5"
-output = "Avandner : (4D10<=3) ＞ 2[2,3,4,5] ＞ Hits：2*5 ＞ 10ダメージ"
+output = "(4D10<=3) ＞ 2[2,3,4,5] ＞ Hits：2*5 ＞ 10ダメージ"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 3 },
@@ -144,7 +144,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "4Av3*5"
-output = "Avandner : (4D10<=3) ＞ 2[1,1,6,6]+1[3,6] ＞ Hits：3*5 ＞ 15ダメージ / 2クリティカル"
+output = "(4D10<=3) ＞ 2[1,1,6,6]+1[3,6] ＞ Hits：3*5 ＞ 15ダメージ / 2クリティカル"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -157,7 +157,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "5aV4*10"
-output = "Avandner : (5D10<=4) ＞ 0[6,6,6,6,6] ＞ Hits：0*10 ＞ 0ダメージ"
+output = "(5D10<=4) ＞ 0[6,6,6,6,6] ＞ Hits：0*10 ＞ 0ダメージ"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
@@ -169,7 +169,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "5AV4x10"
-output = "Avandner : (5D10<=4) ＞ 3[2,3,4,5,6] ＞ Hits：3*10 ＞ 30ダメージ"
+output = "(5D10<=4) ＞ 3[2,3,4,5,6] ＞ Hits：3*10 ＞ 30ダメージ"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 3 },
@@ -181,7 +181,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "5AV4X10"
-output = "Avandner : (5D10<=4) ＞ 4[1,2,3,4,5]+0[6] ＞ Hits：4*10 ＞ 40ダメージ / 1クリティカル"
+output = "(5D10<=4) ＞ 4[1,2,3,4,5]+0[6] ＞ Hits：4*10 ＞ 40ダメージ / 1クリティカル"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -194,7 +194,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "5AV4*10"
-output = "Avandner : (5D10<=4) ＞ 3[1,1,1,6,6]+2[1,1,6]+1[4,6] ＞ Hits：6*10 ＞ 60ダメージ / 5クリティカル"
+output = "(5D10<=4) ＞ 3[1,1,1,6,6]+2[1,1,6]+1[4,6] ＞ Hits：6*10 ＞ 60ダメージ / 5クリティカル"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -211,7 +211,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "5av3*5+10"
-output = "Avandner : (5D10<=3) ＞ 0[6,6,6,6,6] ＞ Hits：0*5 + Trigger：0*10 ＞ 0ダメージ"
+output = "(5D10<=3) ＞ 0[6,6,6,6,6] ＞ Hits：0*5 + Trigger：0*10 ＞ 0ダメージ"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
@@ -223,7 +223,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "5av3*5+10"
-output = "Avandner : (5D10<=3) ＞ 2[2,3,4,5,6] ＞ Hits：2*5 + Trigger：0*10 ＞ 10ダメージ"
+output = "(5D10<=3) ＞ 2[2,3,4,5,6] ＞ Hits：2*5 + Trigger：0*10 ＞ 10ダメージ"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 3 },
@@ -235,7 +235,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "5av3*5+10"
-output = "Avandner : (5D10<=3) ＞ 3[1,2,3,4,5]+1[3] ＞ Hits：4*5 + Trigger：1*10 ＞ 30ダメージ / 1クリティカル"
+output = "(5D10<=3) ＞ 3[1,2,3,4,5]+1[3] ＞ Hits：4*5 + Trigger：1*10 ＞ 30ダメージ / 1クリティカル"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -248,7 +248,7 @@ rands = [
 [[ test ]]
 game_system = "Avandner"
 input = "5av3*5+10c0"
-output = "Avandner : (5D10<=3) ＞ 3[1,2,3,4,5] ＞ Hits：3*5 + Trigger：0*10 ＞ 15ダメージ"
+output = "(5D10<=3) ＞ 3[1,2,3,4,5] ＞ Hits：3*5 + Trigger：0*10 ＞ 15ダメージ"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },

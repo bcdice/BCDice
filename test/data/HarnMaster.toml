@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "HarnMaster"
 input = "1D100<=50"
-output = "HarnMaster : (1D100<=50) ＞ 49＞ 成功"
+output = "(1D100<=50) ＞ 49＞ 成功"
 rands = [
   { sides = 100, value = 49 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "1D100<=50"
-output = "HarnMaster : (1D100<=50) ＞ 51＞ 失敗"
+output = "(1D100<=50) ＞ 51＞ 失敗"
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "1D100<=50"
-output = "HarnMaster : (1D100<=50) ＞ 50＞ 決定的成功"
+output = "(1D100<=50) ＞ 50＞ 決定的成功"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "1D100<=50"
-output = "HarnMaster : (1D100<=50) ＞ 55＞ 致命的失敗"
+output = "(1D100<=50) ＞ 55＞ 致命的失敗"
 rands = [
   { sides = 100, value = 55 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SLH"
-output = "HarnMaster : 命中部位(人型 中段) ＞ (1)頭部"
+output = "命中部位(人型 中段) ＞ (1)頭部"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SLH"
-output = "HarnMaster : 命中部位(人型 中段) ＞ (5)頭部"
+output = "命中部位(人型 中段) ＞ (5)頭部"
 rands = [
   { sides = 100, value = 5 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SLH"
-output = "HarnMaster : 命中部位(人型 中段) ＞ (6)顔 ＞ (81)左耳"
+output = "命中部位(人型 中段) ＞ (6)顔 ＞ (81)左耳"
 rands = [
   { sides = 100, value = 6 },
   { sides = 100, value = 81 },
@@ -58,7 +58,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SLH"
-output = "HarnMaster : 命中部位(人型 中段) ＞ (6)顔 ＞ (82)右耳"
+output = "命中部位(人型 中段) ＞ (6)顔 ＞ (82)右耳"
 rands = [
   { sides = 100, value = 6 },
   { sides = 100, value = 82 },
@@ -67,7 +67,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SLH"
-output = "HarnMaster : 命中部位(人型 中段) ＞ (7)顔 ＞ (82)右耳"
+output = "命中部位(人型 中段) ＞ (7)顔 ＞ (82)右耳"
 rands = [
   { sides = 100, value = 7 },
   { sides = 100, value = 82 },
@@ -76,7 +76,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SLH"
-output = "HarnMaster : 命中部位(人型 中段) ＞ (100)右足"
+output = "命中部位(人型 中段) ＞ (100)右足"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -84,7 +84,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SLHU"
-output = "HarnMaster : 命中部位(人型 上段) ＞ (15)頭部"
+output = "命中部位(人型 上段) ＞ (15)頭部"
 rands = [
   { sides = 100, value = 15 },
 ]
@@ -92,7 +92,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SLHU"
-output = "HarnMaster : 命中部位(人型 上段) ＞ (16)顔 ＞ (65)鼻"
+output = "命中部位(人型 上段) ＞ (16)顔 ＞ (65)鼻"
 rands = [
   { sides = 100, value = 16 },
   { sides = 100, value = 65 },
@@ -101,7 +101,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SLHD"
-output = "HarnMaster : 命中部位(人型 下段) ＞ (30)股間"
+output = "命中部位(人型 下段) ＞ (30)股間"
 rands = [
   { sides = 100, value = 30 },
 ]
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SLHD"
-output = "HarnMaster : 命中部位(人型 下段) ＞ (36)右臀部"
+output = "命中部位(人型 下段) ＞ (36)右臀部"
 rands = [
   { sides = 100, value = 36 },
 ]
@@ -117,7 +117,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SHK12,3"
-output = "HarnMaster : ショック判定(ダメージ:3, 耐久力:12) ＞ (11[3,4,4]) ＞ 成功"
+output = "ショック判定(ダメージ:3, 耐久力:12) ＞ (11[3,4,4]) ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SHK12,3"
-output = "HarnMaster : ショック判定(ダメージ:3, 耐久力:12) ＞ (12[4,4,4]) ＞ 成功"
+output = "ショック判定(ダメージ:3, 耐久力:12) ＞ (12[4,4,4]) ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -137,7 +137,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "SHK12,3"
-output = "HarnMaster : ショック判定(ダメージ:3, 耐久力:12) ＞ (13[5,4,4]) ＞ 失敗"
+output = "ショック判定(ダメージ:3, 耐久力:12) ＞ (13[5,4,4]) ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -147,7 +147,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "1D100>=? 目標値?でバグらない"
-output = "HarnMaster : (1D100>=?) ＞ 42 ＞ 失敗"
+output = "(1D100>=?) ＞ 42 ＞ 失敗"
 rands = [
   { sides = 100, value = 42 },
 ]

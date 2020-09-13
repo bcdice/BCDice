@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BK"
-output = "BarnaKronika : (1R6[0,0]) ＞ [5] ＞ 失敗"
+output = "(1R6[0,0]) ＞ [5] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BK"
-output = "BarnaKronika : (1R6[0,0]) ＞ [6] ＞ 失敗"
+output = "(1R6[0,0]) ＞ [6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BK"
-output = "BarnaKronika : (1R6[0,0]) ＞ [3] ＞ 失敗"
+output = "(1R6[0,0]) ＞ [3] ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BK"
-output = "BarnaKronika : (1R6[0,0]) ＞ [3] ＞ 失敗"
+output = "(1R6[0,0]) ＞ [3] ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BK"
-output = "BarnaKronika : (1R6[0,0]) ＞ [1] ＞ 失敗"
+output = "(1R6[0,0]) ＞ [1] ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BK"
-output = "BarnaKronika : (1R6[0,0]) ＞ [5] ＞ 失敗"
+output = "(1R6[0,0]) ＞ [5] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BK"
-output = "BarnaKronika : (1R6[0,0]) ＞ [5] ＞ 失敗"
+output = "(1R6[0,0]) ＞ [5] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BK"
-output = "BarnaKronika : (1R6[0,0]) ＞ [4] ＞ 失敗"
+output = "(1R6[0,0]) ＞ [4] ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BK"
-output = "BarnaKronika : (1R6[0,0]) ＞ [6] ＞ 失敗"
+output = "(1R6[0,0]) ＞ [6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BK"
-output = "BarnaKronika : (1R6[0,0]) ＞ [5] ＞ 失敗"
+output = "(1R6[0,0]) ＞ [5] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BK"
-output = "BarnaKronika : (5R6[0,0]) ＞ [1,5,6,6,6] ＞ 成功数3,セット1"
+output = "(5R6[0,0]) ＞ [1,5,6,6,6] ＞ 成功数3,セット1"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -93,7 +93,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BK"
-output = "BarnaKronika : (5R6[0,0]) ＞ [3,3,4,5,6] ＞ 成功数2,セット1"
+output = "(5R6[0,0]) ＞ [3,3,4,5,6] ＞ 成功数2,セット1"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -105,7 +105,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BK"
-output = "BarnaKronika : (5R6[0,0]) ＞ [3,3,5,5,6] ＞ 成功数2,セット2"
+output = "(5R6[0,0]) ＞ [3,3,5,5,6] ＞ 成功数2,セット2"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -117,7 +117,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BK"
-output = "BarnaKronika : (5R6[0,0]) ＞ [2,3,4,5,6] ＞ 失敗"
+output = "(5R6[0,0]) ＞ [2,3,4,5,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -129,7 +129,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BK"
-output = "BarnaKronika : (5R6[0,0]) ＞ [1,2,4,4,4] ＞ 成功数3,セット1"
+output = "(5R6[0,0]) ＞ [1,2,4,4,4] ＞ 成功数3,セット1"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -141,7 +141,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BK"
-output = "BarnaKronika : (5R6[0,0]) ＞ [1,2,2,3,4] ＞ 成功数2,セット1"
+output = "(5R6[0,0]) ＞ [1,2,2,3,4] ＞ 成功数2,セット1"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -153,7 +153,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BK"
-output = "BarnaKronika : (5R6[0,0]) ＞ [2,3,5,5,6] ＞ 成功数2,セット1"
+output = "(5R6[0,0]) ＞ [2,3,5,5,6] ＞ 成功数2,セット1"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -165,7 +165,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BK"
-output = "BarnaKronika : (5R6[0,0]) ＞ [4,4,4,6,6] ＞ 成功数3,セット2"
+output = "(5R6[0,0]) ＞ [4,4,4,6,6] ＞ 成功数3,セット2"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -177,7 +177,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BK"
-output = "BarnaKronika : (5R6[0,0]) ＞ [2,3,6,6,6] ＞ 成功数3,セット1"
+output = "(5R6[0,0]) ＞ [2,3,6,6,6] ＞ 成功数3,セット1"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -189,7 +189,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BK"
-output = "BarnaKronika : (5R6[0,0]) ＞ [1,2,3,4,5] ＞ 失敗"
+output = "(5R6[0,0]) ＞ [1,2,3,4,5] ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BK"
-output = "BarnaKronika : (3R6[0,0]) ＞ [4,5,6] ＞ 失敗"
+output = "(3R6[0,0]) ＞ [4,5,6] ＞ 失敗"
 rands = [
   { sides = 10, value = 3 },
   { sides = 6, value = 5 },
@@ -212,7 +212,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BK"
-output = "BarnaKronika : (7R6[0,0]) ＞ [1,1,1,2,3,4,5] ＞ 成功数3,セット1"
+output = "(7R6[0,0]) ＞ [1,1,1,2,3,4,5] ＞ 成功数3,セット1"
 rands = [
   { sides = 10, value = 7 },
   { sides = 6, value = 3 },
@@ -227,7 +227,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BK"
-output = "BarnaKronika : (1R6[0,0]) ＞ [3] ＞ 失敗"
+output = "(1R6[0,0]) ＞ [3] ＞ 失敗"
 rands = [
   { sides = 10, value = 1 },
   { sides = 6, value = 3 },
@@ -236,7 +236,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BK"
-output = "BarnaKronika : (6R6[0,0]) ＞ [1,2,5,5,5,6] ＞ 成功数3,セット1"
+output = "(6R6[0,0]) ＞ [1,2,5,5,5,6] ＞ 成功数3,セット1"
 rands = [
   { sides = 10, value = 6 },
   { sides = 6, value = 5 },
@@ -250,7 +250,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BK"
-output = "BarnaKronika : (8R6[0,0]) ＞ [1,1,1,2,4,5,5,6] ＞ 成功数3,セット2"
+output = "(8R6[0,0]) ＞ [1,1,1,2,4,5,5,6] ＞ 成功数3,セット2"
 rands = [
   { sides = 10, value = 8 },
   { sides = 6, value = 5 },
@@ -266,7 +266,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BK"
-output = "BarnaKronika : (5R6[0,0]) ＞ [1,1,3,3,6] ＞ 成功数2,セット2"
+output = "(5R6[0,0]) ＞ [1,1,3,3,6] ＞ 成功数2,セット2"
 rands = [
   { sides = 10, value = 5 },
   { sides = 6, value = 1 },
@@ -279,7 +279,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BK"
-output = "BarnaKronika : (6R6[0,0]) ＞ [2,3,3,4,4,6] ＞ 成功数2,セット2"
+output = "(6R6[0,0]) ＞ [2,3,3,4,4,6] ＞ 成功数2,セット2"
 rands = [
   { sides = 10, value = 6 },
   { sides = 6, value = 6 },
@@ -293,7 +293,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BK"
-output = "BarnaKronika : (2R6[0,0]) ＞ [3,6] ＞ 失敗"
+output = "(2R6[0,0]) ＞ [3,6] ＞ 失敗"
 rands = [
   { sides = 10, value = 2 },
   { sides = 6, value = 3 },
@@ -303,7 +303,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BK"
-output = "BarnaKronika : (2R6[0,0]) ＞ [5,6] ＞ 失敗"
+output = "(2R6[0,0]) ＞ [5,6] ＞ 失敗"
 rands = [
   { sides = 10, value = 2 },
   { sides = 6, value = 6 },
@@ -313,7 +313,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BK"
-output = "BarnaKronika : (7R6[0,0]) ＞ [1,1,2,2,4,6,6] ＞ 成功数2,セット3"
+output = "(7R6[0,0]) ＞ [1,1,2,2,4,6,6] ＞ 成功数2,セット3"
 rands = [
   { sides = 10, value = 7 },
   { sides = 6, value = 6 },
@@ -328,7 +328,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BA"
-output = "BarnaKronika : (1R6[1,0]) ＞ [5] ＞ 失敗"
+output = "(1R6[1,0]) ＞ [5] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -336,7 +336,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BA"
-output = "BarnaKronika : (1R6[1,0]) ＞ [3] ＞ 失敗"
+output = "(1R6[1,0]) ＞ [3] ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -344,7 +344,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BA"
-output = "BarnaKronika : (1R6[1,0]) ＞ [6] ＞ 失敗"
+output = "(1R6[1,0]) ＞ [6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -352,7 +352,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BA"
-output = "BarnaKronika : (1R6[1,0]) ＞ [5] ＞ 失敗"
+output = "(1R6[1,0]) ＞ [5] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -360,7 +360,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BA"
-output = "BarnaKronika : (1R6[1,0]) ＞ [2] ＞ 失敗"
+output = "(1R6[1,0]) ＞ [2] ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -368,7 +368,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BA"
-output = "BarnaKronika : (1R6[1,0]) ＞ [1] ＞ 失敗"
+output = "(1R6[1,0]) ＞ [1] ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -376,7 +376,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BA"
-output = "BarnaKronika : (1R6[1,0]) ＞ [2] ＞ 失敗"
+output = "(1R6[1,0]) ＞ [2] ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -384,7 +384,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BA"
-output = "BarnaKronika : (1R6[1,0]) ＞ [6] ＞ 失敗"
+output = "(1R6[1,0]) ＞ [6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -392,7 +392,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BA"
-output = "BarnaKronika : (1R6[1,0]) ＞ [5] ＞ 失敗"
+output = "(1R6[1,0]) ＞ [5] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -400,7 +400,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BA"
-output = "BarnaKronika : (1R6[1,0]) ＞ [2] ＞ 失敗"
+output = "(1R6[1,0]) ＞ [2] ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -408,7 +408,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BA"
-output = "BarnaKronika : (5R6[1,0]) ＞ [1,1,3,3,6] ＞ 頭部:攻撃値2,左腕:攻撃値2"
+output = "(5R6[1,0]) ＞ [1,1,3,3,6] ＞ 頭部:攻撃値2,左腕:攻撃値2"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -420,7 +420,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BA"
-output = "BarnaKronika : (5R6[1,0]) ＞ [3,4,4,4,6] ＞ 右脚:攻撃値3"
+output = "(5R6[1,0]) ＞ [3,4,4,4,6] ＞ 右脚:攻撃値3"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -432,7 +432,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BA"
-output = "BarnaKronika : (5R6[1,0]) ＞ [1,2,2,5,6] ＞ 右腕:攻撃値2"
+output = "(5R6[1,0]) ＞ [1,2,2,5,6] ＞ 右腕:攻撃値2"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -444,7 +444,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BA"
-output = "BarnaKronika : (5R6[1,0]) ＞ [3,4,5,5,6] ＞ 左脚:攻撃値2"
+output = "(5R6[1,0]) ＞ [3,4,5,5,6] ＞ 左脚:攻撃値2"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -456,7 +456,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BA"
-output = "BarnaKronika : (5R6[1,0]) ＞ [3,6,6,6,6] ＞ 胴体:攻撃値4"
+output = "(5R6[1,0]) ＞ [3,6,6,6,6] ＞ 胴体:攻撃値4"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -468,7 +468,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BA"
-output = "BarnaKronika : (5R6[1,0]) ＞ [1,1,2,4,4] ＞ 頭部:攻撃値2,右脚:攻撃値2"
+output = "(5R6[1,0]) ＞ [1,1,2,4,4] ＞ 頭部:攻撃値2,右脚:攻撃値2"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -480,7 +480,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BA"
-output = "BarnaKronika : (5R6[1,0]) ＞ [1,2,3,5,6] ＞ 失敗"
+output = "(5R6[1,0]) ＞ [1,2,3,5,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -492,7 +492,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BA"
-output = "BarnaKronika : (5R6[1,0]) ＞ [1,2,3,3,3] ＞ 左腕:攻撃値3"
+output = "(5R6[1,0]) ＞ [1,2,3,3,3] ＞ 左腕:攻撃値3"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -504,7 +504,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BA"
-output = "BarnaKronika : (5R6[1,0]) ＞ [2,2,4,4,6] ＞ 右腕:攻撃値2,右脚:攻撃値2"
+output = "(5R6[1,0]) ＞ [2,2,4,4,6] ＞ 右腕:攻撃値2,右脚:攻撃値2"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -516,7 +516,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BA"
-output = "BarnaKronika : (5R6[1,0]) ＞ [1,1,1,5,6] ＞ 頭部:攻撃値3"
+output = "(5R6[1,0]) ＞ [1,1,1,5,6] ＞ 頭部:攻撃値3"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -528,7 +528,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BA"
-output = "BarnaKronika : (4R6[1,0]) ＞ [2,4,5,6] ＞ 失敗"
+output = "(4R6[1,0]) ＞ [2,4,5,6] ＞ 失敗"
 rands = [
   { sides = 10, value = 4 },
   { sides = 6, value = 6 },
@@ -540,7 +540,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BA"
-output = "BarnaKronika : (5R6[1,0]) ＞ [2,2,6,6,6] ＞ 右腕:攻撃値2,胴体:攻撃値3"
+output = "(5R6[1,0]) ＞ [2,2,6,6,6] ＞ 右腕:攻撃値2,胴体:攻撃値3"
 rands = [
   { sides = 10, value = 5 },
   { sides = 6, value = 2 },
@@ -553,7 +553,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BA"
-output = "BarnaKronika : (7R6[1,0]) ＞ [1,2,3,4,6,6,6] ＞ 胴体:攻撃値3"
+output = "(7R6[1,0]) ＞ [1,2,3,4,6,6,6] ＞ 胴体:攻撃値3"
 rands = [
   { sides = 10, value = 7 },
   { sides = 6, value = 2 },
@@ -568,7 +568,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BA"
-output = "BarnaKronika : (7R6[1,0]) ＞ [2,3,3,4,5,6,6] ＞ 左腕:攻撃値2,胴体:攻撃値2"
+output = "(7R6[1,0]) ＞ [2,3,3,4,5,6,6] ＞ 左腕:攻撃値2,胴体:攻撃値2"
 rands = [
   { sides = 10, value = 7 },
   { sides = 6, value = 6 },
@@ -583,7 +583,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BA"
-output = "BarnaKronika : (1R6[1,0]) ＞ [4] ＞ 失敗"
+output = "(1R6[1,0]) ＞ [4] ＞ 失敗"
 rands = [
   { sides = 10, value = 1 },
   { sides = 6, value = 4 },
@@ -592,7 +592,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BA"
-output = "BarnaKronika : (9R6[1,0]) ＞ [2,2,2,3,3,3,4,4,5] ＞ 右腕:攻撃値3,左腕:攻撃値3,右脚:攻撃値2"
+output = "(9R6[1,0]) ＞ [2,2,2,3,3,3,4,4,5] ＞ 右腕:攻撃値3,左腕:攻撃値3,右脚:攻撃値2"
 rands = [
   { sides = 10, value = 9 },
   { sides = 6, value = 2 },
@@ -609,7 +609,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BA"
-output = "BarnaKronika : (3R6[1,0]) ＞ [1,5,6] ＞ 失敗"
+output = "(3R6[1,0]) ＞ [1,5,6] ＞ 失敗"
 rands = [
   { sides = 10, value = 3 },
   { sides = 6, value = 1 },
@@ -620,7 +620,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BA"
-output = "BarnaKronika : (2R6[1,0]) ＞ [2,3] ＞ 失敗"
+output = "(2R6[1,0]) ＞ [2,3] ＞ 失敗"
 rands = [
   { sides = 10, value = 2 },
   { sides = 6, value = 2 },
@@ -630,7 +630,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BA"
-output = "BarnaKronika : (7R6[1,0]) ＞ [1,2,4,4,5,5,6] ＞ 右脚:攻撃値2,左脚:攻撃値2"
+output = "(7R6[1,0]) ＞ [1,2,4,4,5,5,6] ＞ 右脚:攻撃値2,左脚:攻撃値2"
 rands = [
   { sides = 10, value = 7 },
   { sides = 6, value = 6 },
@@ -645,7 +645,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BA"
-output = "BarnaKronika : (5R6[1,0]) ＞ [1,1,2,5,5] ＞ 頭部:攻撃値2,左脚:攻撃値2"
+output = "(5R6[1,0]) ＞ [1,1,2,5,5] ＞ 頭部:攻撃値2,左脚:攻撃値2"
 rands = [
   { sides = 10, value = 5 },
   { sides = 6, value = 1 },
@@ -658,7 +658,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BKC1"
-output = "BarnaKronika : (1R6[0,1]) ＞ [2] ＞ 失敗"
+output = "(1R6[0,1]) ＞ [2] ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -666,7 +666,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BKC1"
-output = "BarnaKronika : (1R6[0,1]) ＞ [2] ＞ 失敗"
+output = "(1R6[0,1]) ＞ [2] ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -674,7 +674,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BKC1"
-output = "BarnaKronika : (1R6[0,1]) ＞ [1] ＞ 成功数2,セット1"
+output = "(1R6[0,1]) ＞ [1] ＞ 成功数2,セット1"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -682,7 +682,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BKC1"
-output = "BarnaKronika : (1R6[0,1]) ＞ [6] ＞ 失敗"
+output = "(1R6[0,1]) ＞ [6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -690,7 +690,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BKC1"
-output = "BarnaKronika : (1R6[0,1]) ＞ [6] ＞ 失敗"
+output = "(1R6[0,1]) ＞ [6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -698,7 +698,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BKC1"
-output = "BarnaKronika : (1R6[0,1]) ＞ [1] ＞ 成功数2,セット1"
+output = "(1R6[0,1]) ＞ [1] ＞ 成功数2,セット1"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -706,7 +706,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BKC1"
-output = "BarnaKronika : (1R6[0,1]) ＞ [2] ＞ 失敗"
+output = "(1R6[0,1]) ＞ [2] ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -714,7 +714,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BKC1"
-output = "BarnaKronika : (1R6[0,1]) ＞ [2] ＞ 失敗"
+output = "(1R6[0,1]) ＞ [2] ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -722,7 +722,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BKC1"
-output = "BarnaKronika : (1R6[0,1]) ＞ [6] ＞ 失敗"
+output = "(1R6[0,1]) ＞ [6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -730,7 +730,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BKC1"
-output = "BarnaKronika : (1R6[0,1]) ＞ [1] ＞ 成功数2,セット1"
+output = "(1R6[0,1]) ＞ [1] ＞ 成功数2,セット1"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -738,7 +738,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BKC2"
-output = "BarnaKronika : (5R6[0,2]) ＞ [3,3,5,5,6] ＞ 失敗"
+output = "(5R6[0,2]) ＞ [3,3,5,5,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -750,7 +750,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BKC2"
-output = "BarnaKronika : (5R6[0,2]) ＞ [1,2,3,4,4] ＞ 成功数2,セット1"
+output = "(5R6[0,2]) ＞ [1,2,3,4,4] ＞ 成功数2,セット1"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -762,7 +762,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BKC2"
-output = "BarnaKronika : (5R6[0,2]) ＞ [2,3,3,4,6] ＞ 成功数2,セット1"
+output = "(5R6[0,2]) ＞ [2,3,3,4,6] ＞ 成功数2,セット1"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -774,7 +774,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BKC2"
-output = "BarnaKronika : (5R6[0,2]) ＞ [1,5,6,6,6] ＞ 失敗"
+output = "(5R6[0,2]) ＞ [1,5,6,6,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -786,7 +786,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BKC2"
-output = "BarnaKronika : (5R6[0,2]) ＞ [2,4,4,6,6] ＞ 成功数2,セット1"
+output = "(5R6[0,2]) ＞ [2,4,4,6,6] ＞ 成功数2,セット1"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -798,7 +798,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BKC2"
-output = "BarnaKronika : (5R6[0,2]) ＞ [2,3,3,6,6] ＞ 成功数2,セット1"
+output = "(5R6[0,2]) ＞ [2,3,3,6,6] ＞ 成功数2,セット1"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -810,7 +810,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BKC2"
-output = "BarnaKronika : (5R6[0,2]) ＞ [1,2,2,3,4] ＞ 成功数4,セット1"
+output = "(5R6[0,2]) ＞ [1,2,2,3,4] ＞ 成功数4,セット1"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -822,7 +822,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BKC2"
-output = "BarnaKronika : (5R6[0,2]) ＞ [1,3,4,4,5] ＞ 失敗"
+output = "(5R6[0,2]) ＞ [1,3,4,4,5] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -834,7 +834,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BKC2"
-output = "BarnaKronika : (5R6[0,2]) ＞ [2,4,5,6,6] ＞ 成功数2,セット1"
+output = "(5R6[0,2]) ＞ [2,4,5,6,6] ＞ 成功数2,セット1"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -846,7 +846,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BKC2"
-output = "BarnaKronika : (5R6[0,2]) ＞ [1,1,3,5,6] ＞ 失敗"
+output = "(5R6[0,2]) ＞ [1,1,3,5,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -858,7 +858,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BKC[1...5]"
-output = "BarnaKronika : (9R6[0,4]) ＞ [2,4,4,4,4,5,5,6,6] ＞ 成功数8,セット1"
+output = "(9R6[0,4]) ＞ [2,4,4,4,4,5,5,6,6] ＞ 成功数8,セット1"
 rands = [
   { sides = 10, value = 9 },
   { sides = 5, value = 4 },
@@ -876,7 +876,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BKC[1...5]"
-output = "BarnaKronika : (9R6[0,1]) ＞ [1,1,2,2,2,3,3,4,6] ＞ 成功数4,セット1"
+output = "(9R6[0,1]) ＞ [1,1,2,2,2,3,3,4,6] ＞ 成功数4,セット1"
 rands = [
   { sides = 10, value = 9 },
   { sides = 5, value = 1 },
@@ -894,7 +894,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BKC[1...5]"
-output = "BarnaKronika : (8R6[0,4]) ＞ [1,2,3,3,4,5,5,6] ＞ 成功数2,セット1"
+output = "(8R6[0,4]) ＞ [1,2,3,3,4,5,5,6] ＞ 成功数2,セット1"
 rands = [
   { sides = 10, value = 8 },
   { sides = 5, value = 4 },
@@ -911,7 +911,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BKC[1...5]"
-output = "BarnaKronika : (4R6[0,2]) ＞ [2,3,5,6] ＞ 成功数2,セット1"
+output = "(4R6[0,2]) ＞ [2,3,5,6] ＞ 成功数2,セット1"
 rands = [
   { sides = 10, value = 4 },
   { sides = 5, value = 2 },
@@ -924,7 +924,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BKC[1...5]"
-output = "BarnaKronika : (4R6[0,4]) ＞ [1,4,4,6] ＞ 成功数4,セット1"
+output = "(4R6[0,4]) ＞ [1,4,4,6] ＞ 成功数4,セット1"
 rands = [
   { sides = 10, value = 4 },
   { sides = 5, value = 4 },
@@ -937,7 +937,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BKC[1...5]"
-output = "BarnaKronika : (3R6[0,2]) ＞ [3,5,6] ＞ 失敗"
+output = "(3R6[0,2]) ＞ [3,5,6] ＞ 失敗"
 rands = [
   { sides = 10, value = 3 },
   { sides = 5, value = 2 },
@@ -949,7 +949,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BKC[1...5]"
-output = "BarnaKronika : (10R6[0,2]) ＞ [1,2,3,3,4,4,5,5,6,6] ＞ 成功数2,セット1"
+output = "(10R6[0,2]) ＞ [1,2,3,3,4,4,5,5,6,6] ＞ 成功数2,セット1"
 rands = [
   { sides = 10, value = 10 },
   { sides = 5, value = 2 },
@@ -968,7 +968,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BKC[1...5]"
-output = "BarnaKronika : (2R6[0,2]) ＞ [1,5] ＞ 失敗"
+output = "(2R6[0,2]) ＞ [1,5] ＞ 失敗"
 rands = [
   { sides = 10, value = 2 },
   { sides = 5, value = 2 },
@@ -979,7 +979,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BKC[1...5]"
-output = "BarnaKronika : (10R6[0,1]) ＞ [1,2,3,3,4,4,4,5,6,6] ＞ 成功数2,セット1"
+output = "(10R6[0,1]) ＞ [1,2,3,3,4,4,4,5,6,6] ＞ 成功数2,セット1"
 rands = [
   { sides = 10, value = 10 },
   { sides = 5, value = 1 },
@@ -998,7 +998,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BKC[1...5]"
-output = "BarnaKronika : (10R6[0,5]) ＞ [1,1,2,2,3,3,4,5,6,6] ＞ 成功数2,セット1"
+output = "(10R6[0,5]) ＞ [1,1,2,2,3,3,4,5,6,6] ＞ 成功数2,セット1"
 rands = [
   { sides = 10, value = 10 },
   { sides = 5, value = 5 },
@@ -1017,7 +1017,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BAC1"
-output = "BarnaKronika : (1R6[1,1]) ＞ [1] ＞ 頭部:攻撃値2"
+output = "(1R6[1,1]) ＞ [1] ＞ 頭部:攻撃値2"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1025,7 +1025,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BAC1"
-output = "BarnaKronika : (1R6[1,1]) ＞ [4] ＞ 失敗"
+output = "(1R6[1,1]) ＞ [4] ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1033,7 +1033,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BAC1"
-output = "BarnaKronika : (1R6[1,1]) ＞ [1] ＞ 頭部:攻撃値2"
+output = "(1R6[1,1]) ＞ [1] ＞ 頭部:攻撃値2"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1041,7 +1041,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BAC1"
-output = "BarnaKronika : (1R6[1,1]) ＞ [1] ＞ 頭部:攻撃値2"
+output = "(1R6[1,1]) ＞ [1] ＞ 頭部:攻撃値2"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1049,7 +1049,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BAC1"
-output = "BarnaKronika : (1R6[1,1]) ＞ [2] ＞ 失敗"
+output = "(1R6[1,1]) ＞ [2] ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1057,7 +1057,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BAC1"
-output = "BarnaKronika : (1R6[1,1]) ＞ [5] ＞ 失敗"
+output = "(1R6[1,1]) ＞ [5] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1065,7 +1065,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BAC1"
-output = "BarnaKronika : (1R6[1,1]) ＞ [4] ＞ 失敗"
+output = "(1R6[1,1]) ＞ [4] ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1073,7 +1073,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BAC1"
-output = "BarnaKronika : (1R6[1,1]) ＞ [1] ＞ 頭部:攻撃値2"
+output = "(1R6[1,1]) ＞ [1] ＞ 頭部:攻撃値2"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1081,7 +1081,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BAC1"
-output = "BarnaKronika : (1R6[1,1]) ＞ [3] ＞ 失敗"
+output = "(1R6[1,1]) ＞ [3] ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1089,7 +1089,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "1BAC1"
-output = "BarnaKronika : (1R6[1,1]) ＞ [2] ＞ 失敗"
+output = "(1R6[1,1]) ＞ [2] ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1097,7 +1097,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BAC2"
-output = "BarnaKronika : (5R6[1,2]) ＞ [1,3,4,4,6] ＞ 失敗"
+output = "(5R6[1,2]) ＞ [1,3,4,4,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -1109,7 +1109,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BAC2"
-output = "BarnaKronika : (5R6[1,2]) ＞ [1,2,3,3,6] ＞ 右腕:攻撃値2"
+output = "(5R6[1,2]) ＞ [1,2,3,3,6] ＞ 右腕:攻撃値2"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -1121,7 +1121,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BAC2"
-output = "BarnaKronika : (5R6[1,2]) ＞ [1,3,3,4,5] ＞ 失敗"
+output = "(5R6[1,2]) ＞ [1,3,3,4,5] ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -1133,7 +1133,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BAC2"
-output = "BarnaKronika : (5R6[1,2]) ＞ [1,1,2,5,5] ＞ 右腕:攻撃値2"
+output = "(5R6[1,2]) ＞ [1,1,2,5,5] ＞ 右腕:攻撃値2"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1145,7 +1145,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BAC2"
-output = "BarnaKronika : (5R6[1,2]) ＞ [3,4,5,6,6] ＞ 失敗"
+output = "(5R6[1,2]) ＞ [3,4,5,6,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1157,7 +1157,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BAC2"
-output = "BarnaKronika : (5R6[1,2]) ＞ [4,4,4,5,5] ＞ 失敗"
+output = "(5R6[1,2]) ＞ [4,4,4,5,5] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -1169,7 +1169,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BAC2"
-output = "BarnaKronika : (5R6[1,2]) ＞ [5,5,6,6,6] ＞ 失敗"
+output = "(5R6[1,2]) ＞ [5,5,6,6,6] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -1181,7 +1181,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BAC2"
-output = "BarnaKronika : (5R6[1,2]) ＞ [1,4,5,5,5] ＞ 失敗"
+output = "(5R6[1,2]) ＞ [1,4,5,5,5] ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -1193,7 +1193,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BAC2"
-output = "BarnaKronika : (5R6[1,2]) ＞ [1,2,4,6,6] ＞ 右腕:攻撃値2"
+output = "(5R6[1,2]) ＞ [1,2,4,6,6] ＞ 右腕:攻撃値2"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -1205,7 +1205,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "5BAC2"
-output = "BarnaKronika : (5R6[1,2]) ＞ [2,3,4,5,6] ＞ 右腕:攻撃値2"
+output = "(5R6[1,2]) ＞ [2,3,4,5,6] ＞ 右腕:攻撃値2"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -1217,7 +1217,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BAC[1...5]"
-output = "BarnaKronika : (2R6[1,2]) ＞ [1,4] ＞ 失敗"
+output = "(2R6[1,2]) ＞ [1,4] ＞ 失敗"
 rands = [
   { sides = 10, value = 2 },
   { sides = 5, value = 2 },
@@ -1228,7 +1228,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BAC[1...5]"
-output = "BarnaKronika : (1R6[1,2]) ＞ [1] ＞ 失敗"
+output = "(1R6[1,2]) ＞ [1] ＞ 失敗"
 rands = [
   { sides = 10, value = 1 },
   { sides = 5, value = 2 },
@@ -1238,7 +1238,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BAC[1...5]"
-output = "BarnaKronika : (10R6[1,3]) ＞ [1,2,3,3,4,4,5,5,6,6] ＞ 左腕:攻撃値4"
+output = "(10R6[1,3]) ＞ [1,2,3,3,4,4,5,5,6,6] ＞ 左腕:攻撃値4"
 rands = [
   { sides = 10, value = 10 },
   { sides = 5, value = 3 },
@@ -1257,7 +1257,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BAC[1...5]"
-output = "BarnaKronika : (4R6[1,2]) ＞ [2,2,6,6] ＞ 右腕:攻撃値4"
+output = "(4R6[1,2]) ＞ [2,2,6,6] ＞ 右腕:攻撃値4"
 rands = [
   { sides = 10, value = 4 },
   { sides = 5, value = 2 },
@@ -1270,7 +1270,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BAC[1...5]"
-output = "BarnaKronika : (5R6[1,2]) ＞ [1,1,1,2,4] ＞ 右腕:攻撃値2"
+output = "(5R6[1,2]) ＞ [1,1,1,2,4] ＞ 右腕:攻撃値2"
 rands = [
   { sides = 10, value = 5 },
   { sides = 5, value = 2 },
@@ -1284,7 +1284,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BAC[1...5]"
-output = "BarnaKronika : (2R6[1,2]) ＞ [4,6] ＞ 失敗"
+output = "(2R6[1,2]) ＞ [4,6] ＞ 失敗"
 rands = [
   { sides = 10, value = 2 },
   { sides = 5, value = 2 },
@@ -1295,7 +1295,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BAC[1...5]"
-output = "BarnaKronika : (4R6[1,5]) ＞ [3,3,4,6] ＞ 失敗"
+output = "(4R6[1,5]) ＞ [3,3,4,6] ＞ 失敗"
 rands = [
   { sides = 10, value = 4 },
   { sides = 5, value = 5 },
@@ -1308,7 +1308,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BAC[1...5]"
-output = "BarnaKronika : (8R6[1,5]) ＞ [1,3,3,3,3,4,5,6] ＞ 左脚:攻撃値2"
+output = "(8R6[1,5]) ＞ [1,3,3,3,3,4,5,6] ＞ 左脚:攻撃値2"
 rands = [
   { sides = 10, value = 8 },
   { sides = 5, value = 5 },
@@ -1325,7 +1325,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BAC[1...5]"
-output = "BarnaKronika : (7R6[1,2]) ＞ [1,3,4,5,5,5,6] ＞ 失敗"
+output = "(7R6[1,2]) ＞ [1,3,4,5,5,5,6] ＞ 失敗"
 rands = [
   { sides = 10, value = 7 },
   { sides = 5, value = 2 },
@@ -1341,7 +1341,7 @@ rands = [
 [[ test ]]
 game_system = "BarnaKronika"
 input = "[1...10]BAC[1...5]"
-output = "BarnaKronika : (1R6[1,5]) ＞ [4] ＞ 失敗"
+output = "(1R6[1,5]) ＞ [4] ＞ 失敗"
 rands = [
   { sides = 10, value = 1 },
   { sides = 5, value = 5 },

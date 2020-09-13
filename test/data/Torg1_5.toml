@@ -1,95 +1,95 @@
 [[ test ]]
 game_system = "Torg1_5"
 input = "ODT15"
-output = "TORG1.5 : オーズダメージ表[15] ＞ 4レベル負傷  KO8"
+output = "オーズダメージ表[15] ＞ 4レベル負傷  KO8"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "ODT16"
-output = "TORG1.5 : オーズダメージ表[16] ＞ 4レベル負傷  KO8"
+output = "オーズダメージ表[16] ＞ 4レベル負傷  KO8"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "ODT17"
-output = "TORG1.5 : オーズダメージ表[17] ＞ 5レベル負傷  KO9"
+output = "オーズダメージ表[17] ＞ 5レベル負傷  KO9"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "ODT18"
-output = "TORG1.5 : オーズダメージ表[18] ＞ 5レベル負傷  KO9"
+output = "オーズダメージ表[18] ＞ 5レベル負傷  KO9"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "ODT19"
-output = "TORG1.5 : オーズダメージ表[19] ＞ 6レベル負傷  KO10"
+output = "オーズダメージ表[19] ＞ 6レベル負傷  KO10"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "DT15"
-output = "TORG1.5 : ポシビリティ能力者ダメージ表[15] ＞ 3レベル負傷  KO5"
+output = "ポシビリティ能力者ダメージ表[15] ＞ 3レベル負傷  KO5"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "DT16"
-output = "TORG1.5 : ポシビリティ能力者ダメージ表[16] ＞ 3レベル負傷  KO5"
+output = "ポシビリティ能力者ダメージ表[16] ＞ 3レベル負傷  KO5"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "DT17"
-output = "TORG1.5 : ポシビリティ能力者ダメージ表[17] ＞ 4レベル負傷  KO6"
+output = "ポシビリティ能力者ダメージ表[17] ＞ 4レベル負傷  KO6"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "DT18"
-output = "TORG1.5 : ポシビリティ能力者ダメージ表[18] ＞ 4レベル負傷  KO6"
+output = "ポシビリティ能力者ダメージ表[18] ＞ 4レベル負傷  KO6"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "MT0"
-output = "TORG1.5 : 間合い表[0] ＞ 疲労"
+output = "間合い表[0] ＞ 疲労"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "MT4"
-output = "TORG1.5 : 間合い表[4] ＞ 疲労"
+output = "間合い表[4] ＞ 疲労"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "MT5"
-output = "TORG1.5 : 間合い表[5] ＞ 萎縮"
+output = "間合い表[5] ＞ 萎縮"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "IT4"
-output = "TORG1.5 : 威圧/威嚇表[4] ＞ 萎縮"
+output = "威圧/威嚇表[4] ＞ 萎縮"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "IT5"
-output = "TORG1.5 : 威圧/威嚇表[5] ＞ 技能なし"
+output = "威圧/威嚇表[5] ＞ 技能なし"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "TT4"
-output = "TORG1.5 : 挑発/トリック表[4] ＞ 萎縮"
+output = "挑発/トリック表[4] ＞ 萎縮"
 rands = []
 
 [[ test ]]
 game_system = "Torg1_5"
 input = "TT5"
-output = "TORG1.5 : 挑発/トリック表[5] ＞ 技能なし"
+output = "挑発/トリック表[5] ＞ 技能なし"
 rands = []

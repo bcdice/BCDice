@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=2"
-output = "InfiniteFantasia : (1D20<=2) ＞ 20 ＞ 失敗"
+output = "(1D20<=2) ＞ 20 ＞ 失敗"
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=2"
-output = "InfiniteFantasia : (1D20<=2) ＞ 17 ＞ 失敗"
+output = "(1D20<=2) ＞ 17 ＞ 失敗"
 rands = [
   { sides = 20, value = 17 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=2"
-output = "InfiniteFantasia : (1D20<=2) ＞ 8 ＞ 失敗"
+output = "(1D20<=2) ＞ 8 ＞ 失敗"
 rands = [
   { sides = 20, value = 8 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=2"
-output = "InfiniteFantasia : (1D20<=2) ＞ 3 ＞ 失敗"
+output = "(1D20<=2) ＞ 3 ＞ 失敗"
 rands = [
   { sides = 20, value = 3 },
 ]
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=2"
-output = "InfiniteFantasia : (1D20<=2) ＞ 13 ＞ 失敗"
+output = "(1D20<=2) ＞ 13 ＞ 失敗"
 rands = [
   { sides = 20, value = 13 },
 ]
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=2"
-output = "InfiniteFantasia : (1D20<=2) ＞ 14 ＞ 失敗"
+output = "(1D20<=2) ＞ 14 ＞ 失敗"
 rands = [
   { sides = 20, value = 14 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=2"
-output = "InfiniteFantasia : (1D20<=2) ＞ 2 ＞ 1レベル成功"
+output = "(1D20<=2) ＞ 2 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 2 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=2"
-output = "InfiniteFantasia : (1D20<=2) ＞ 4 ＞ 失敗"
+output = "(1D20<=2) ＞ 4 ＞ 失敗"
 rands = [
   { sides = 20, value = 4 },
 ]
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=2"
-output = "InfiniteFantasia : (1D20<=2) ＞ 4 ＞ 失敗"
+output = "(1D20<=2) ＞ 4 ＞ 失敗"
 rands = [
   { sides = 20, value = 4 },
 ]
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=2"
-output = "InfiniteFantasia : (1D20<=2) ＞ 5 ＞ 失敗"
+output = "(1D20<=2) ＞ 5 ＞ 失敗"
 rands = [
   { sides = 20, value = 5 },
 ]
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=19"
-output = "InfiniteFantasia : (1D20<=19) ＞ 17 ＞ 1レベル成功"
+output = "(1D20<=19) ＞ 17 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 17 },
 ]
@@ -89,7 +89,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=19"
-output = "InfiniteFantasia : (1D20<=19) ＞ 18 ＞ 1レベル成功"
+output = "(1D20<=19) ＞ 18 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 18 },
 ]
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=19"
-output = "InfiniteFantasia : (1D20<=19) ＞ 13 ＞ 1レベル成功"
+output = "(1D20<=19) ＞ 13 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 13 },
 ]
@@ -105,7 +105,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=19"
-output = "InfiniteFantasia : (1D20<=19) ＞ 17 ＞ 1レベル成功"
+output = "(1D20<=19) ＞ 17 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 17 },
 ]
@@ -113,7 +113,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=19"
-output = "InfiniteFantasia : (1D20<=19) ＞ 14 ＞ 1レベル成功"
+output = "(1D20<=19) ＞ 14 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 14 },
 ]
@@ -121,7 +121,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=19"
-output = "InfiniteFantasia : (1D20<=19) ＞ 6 ＞ 2レベル成功"
+output = "(1D20<=19) ＞ 6 ＞ 2レベル成功"
 rands = [
   { sides = 20, value = 6 },
 ]
@@ -129,7 +129,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=19"
-output = "InfiniteFantasia : (1D20<=19) ＞ 15 ＞ 1レベル成功"
+output = "(1D20<=19) ＞ 15 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 15 },
 ]
@@ -137,7 +137,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=19"
-output = "InfiniteFantasia : (1D20<=19) ＞ 13 ＞ 1レベル成功"
+output = "(1D20<=19) ＞ 13 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 13 },
 ]
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=19"
-output = "InfiniteFantasia : (1D20<=19) ＞ 11 ＞ 1レベル成功"
+output = "(1D20<=19) ＞ 11 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 11 },
 ]
@@ -153,7 +153,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=19"
-output = "InfiniteFantasia : (1D20<=19) ＞ 14 ＞ 1レベル成功"
+output = "(1D20<=19) ＞ 14 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 14 },
 ]
@@ -161,7 +161,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=10"
-output = "InfiniteFantasia : (1D20<=10) ＞ 16 ＞ 失敗"
+output = "(1D20<=10) ＞ 16 ＞ 失敗"
 rands = [
   { sides = 20, value = 16 },
 ]
@@ -169,7 +169,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=10"
-output = "InfiniteFantasia : (1D20<=10) ＞ 20 ＞ 失敗"
+output = "(1D20<=10) ＞ 20 ＞ 失敗"
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -177,7 +177,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=10"
-output = "InfiniteFantasia : (1D20<=10) ＞ 17 ＞ 失敗"
+output = "(1D20<=10) ＞ 17 ＞ 失敗"
 rands = [
   { sides = 20, value = 17 },
 ]
@@ -185,7 +185,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=10"
-output = "InfiniteFantasia : (1D20<=10) ＞ 17 ＞ 失敗"
+output = "(1D20<=10) ＞ 17 ＞ 失敗"
 rands = [
   { sides = 20, value = 17 },
 ]
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=10"
-output = "InfiniteFantasia : (1D20<=10) ＞ 10 ＞ 1レベル成功"
+output = "(1D20<=10) ＞ 10 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=10"
-output = "InfiniteFantasia : (1D20<=10) ＞ 9 ＞ 1レベル成功"
+output = "(1D20<=10) ＞ 9 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 9 },
 ]
@@ -209,7 +209,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=10"
-output = "InfiniteFantasia : (1D20<=10) ＞ 18 ＞ 失敗"
+output = "(1D20<=10) ＞ 18 ＞ 失敗"
 rands = [
   { sides = 20, value = 18 },
 ]
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=10"
-output = "InfiniteFantasia : (1D20<=10) ＞ 8 ＞ 1レベル成功"
+output = "(1D20<=10) ＞ 8 ＞ 1レベル成功"
 rands = [
   { sides = 20, value = 8 },
 ]
@@ -225,7 +225,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=10"
-output = "InfiniteFantasia : (1D20<=10) ＞ 17 ＞ 失敗"
+output = "(1D20<=10) ＞ 17 ＞ 失敗"
 rands = [
   { sides = 20, value = 17 },
 ]
@@ -233,7 +233,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20<=10"
-output = "InfiniteFantasia : (1D20<=10) ＞ 11 ＞ 失敗"
+output = "(1D20<=10) ＞ 11 ＞ 失敗"
 rands = [
   { sides = 20, value = 11 },
 ]
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20>=? 目標値?でバグらない"
-output = "InfiniteFantasia : (1D20>=?) ＞ 10 ＞ 失敗"
+output = "(1D20>=?) ＞ 10 ＞ 失敗"
 rands = [
   { sides = 20, value = 10 },
 ]

@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "EarthDawn3"
 input = "4E"
-output = "EarthDawn3 : ステップ4 ＞ 1d6[8] ＞ 8"
+output = "ステップ4 ＞ 1d6[8] ＞ 8"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "4E2"
-output = "EarthDawn3 : ステップ4>=2 ＞ 1d6[5] ＞ 5 ＞ Good(上出来)"
+output = "ステップ4>=2 ＞ 1d6[5] ＞ 5 ＞ Good(上出来)"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -18,7 +18,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "6E2"
-output = "EarthDawn3 : ステップ6>=2 ＞ 1d10[5] ＞ 5 ＞ Good(上出来)"
+output = "ステップ6>=2 ＞ 1d10[5] ＞ 5 ＞ Good(上出来)"
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -26,7 +26,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "7E2"
-output = "EarthDawn3 : ステップ7>=2 ＞ 1d12[5] ＞ 5 ＞ Good(上出来)"
+output = "ステップ7>=2 ＞ 1d12[5] ＞ 5 ＞ Good(上出来)"
 rands = [
   { sides = 12, value = 5 },
 ]
@@ -34,7 +34,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "8E2"
-output = "EarthDawn3 : ステップ8>=2 ＞ 2d6[5,5] ＞ 10 ＞ Extraordinary(極上)"
+output = "ステップ8>=2 ＞ 2d6[5,5] ＞ 10 ＞ Extraordinary(極上)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -43,7 +43,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "9E2"
-output = "EarthDawn3 : ステップ9>=2 ＞ 1d8[5]+1d6[5] ＞ 10 ＞ Extraordinary(極上)"
+output = "ステップ9>=2 ＞ 1d8[5]+1d6[5] ＞ 10 ＞ Extraordinary(極上)"
 rands = [
   { sides = 8, value = 5 },
   { sides = 6, value = 5 },
@@ -52,7 +52,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "10E2"
-output = "EarthDawn3 : ステップ10>=2 ＞ 2d8[5,5] ＞ 10 ＞ Extraordinary(極上)"
+output = "ステップ10>=2 ＞ 2d8[5,5] ＞ 10 ＞ Extraordinary(極上)"
 rands = [
   { sides = 8, value = 5 },
   { sides = 8, value = 5 },
@@ -61,7 +61,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "11E2"
-output = "EarthDawn3 : ステップ11>=2 ＞ 1d10[5]+1d8[5] ＞ 10 ＞ Extraordinary(極上)"
+output = "ステップ11>=2 ＞ 1d10[5]+1d8[5] ＞ 10 ＞ Extraordinary(極上)"
 rands = [
   { sides = 10, value = 5 },
   { sides = 8, value = 5 },
@@ -70,7 +70,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "12E2"
-output = "EarthDawn3 : ステップ12>=2 ＞ 2d10[5,5] ＞ 10 ＞ Extraordinary(極上)"
+output = "ステップ12>=2 ＞ 2d10[5,5] ＞ 10 ＞ Extraordinary(極上)"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 5 },
@@ -79,7 +79,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "13E2"
-output = "EarthDawn3 : ステップ13>=2 ＞ 1d12[5]+1d10[5] ＞ 10 ＞ Extraordinary(極上)"
+output = "ステップ13>=2 ＞ 1d12[5]+1d10[5] ＞ 10 ＞ Extraordinary(極上)"
 rands = [
   { sides = 12, value = 5 },
   { sides = 10, value = 5 },
@@ -88,7 +88,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E2"
-output = "EarthDawn3 : ステップ14>=2 ＞ 2d12[5,5] ＞ 10 ＞ Extraordinary(極上)"
+output = "ステップ14>=2 ＞ 2d12[5,5] ＞ 10 ＞ Extraordinary(極上)"
 rands = [
   { sides = 12, value = 5 },
   { sides = 12, value = 5 },
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "15E2"
-output = "EarthDawn3 : ステップ15>=2 ＞ 1d12[5]+2d6[5,5] ＞ 15 ＞ Extraordinary(極上)"
+output = "ステップ15>=2 ＞ 1d12[5]+2d6[5,5] ＞ 15 ＞ Extraordinary(極上)"
 rands = [
   { sides = 12, value = 5 },
   { sides = 6, value = 5 },
@@ -107,7 +107,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "40E2"
-output = "EarthDawn3 : ステップ40>=2 ＞ 4d12[5,5,5,5]+2d10[5,5] ＞ 30 ＞ Extraordinary(極上)"
+output = "ステップ40>=2 ＞ 4d12[5,5,5,5]+2d10[5,5] ＞ 30 ＞ Extraordinary(極上)"
 rands = [
   { sides = 12, value = 5 },
   { sides = 12, value = 5 },
@@ -120,7 +120,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "40E2"
-output = "EarthDawn3 : ステップ40>=2 ＞ 4d12[1,1,1,1]+2d10[1,1] ＞ 6 ＞ 自動失敗"
+output = "ステップ40>=2 ＞ 4d12[1,1,1,1]+2d10[1,1] ＞ 6 ＞ 自動失敗"
 rands = [
   { sides = 12, value = 1 },
   { sides = 12, value = 1 },
@@ -133,7 +133,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "40E2"
-output = "EarthDawn3 : ステップ40>=2 ＞ 4d12[2,1,1,1]+2d10[1,1] ＞ 7 ＞ Excelent(最高)"
+output = "ステップ40>=2 ＞ 4d12[2,1,1,1]+2d10[1,1] ＞ 7 ＞ Excelent(最高)"
 rands = [
   { sides = 12, value = 2 },
   { sides = 12, value = 1 },
@@ -146,7 +146,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[1,1] ＞ 2 ＞ 自動失敗"
+output = "ステップ14>=10 ＞ 2d12[1,1] ＞ 2 ＞ 自動失敗"
 rands = [
   { sides = 12, value = 1 },
   { sides = 12, value = 1 },
@@ -155,7 +155,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[1,1] ＞ 2 ＞ 自動失敗"
+output = "ステップ14>=10 ＞ 2d12[1,1] ＞ 2 ＞ 自動失敗"
 rands = [
   { sides = 12, value = 1 },
   { sides = 12, value = 1 },
@@ -164,7 +164,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[1,2] ＞ 3 ＞ Pathetic(惨め)"
+output = "ステップ14>=10 ＞ 2d12[1,2] ＞ 3 ＞ Pathetic(惨め)"
 rands = [
   { sides = 12, value = 1 },
   { sides = 12, value = 2 },
@@ -173,7 +173,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[1,4] ＞ 5 ＞ Pathetic(惨め)"
+output = "ステップ14>=10 ＞ 2d12[1,4] ＞ 5 ＞ Pathetic(惨め)"
 rands = [
   { sides = 12, value = 1 },
   { sides = 12, value = 4 },
@@ -182,7 +182,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[1,5] ＞ 6 ＞ Poor(お粗末)"
+output = "ステップ14>=10 ＞ 2d12[1,5] ＞ 6 ＞ Poor(お粗末)"
 rands = [
   { sides = 12, value = 1 },
   { sides = 12, value = 5 },
@@ -191,7 +191,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[1,8] ＞ 9 ＞ Poor(お粗末)"
+output = "ステップ14>=10 ＞ 2d12[1,8] ＞ 9 ＞ Poor(お粗末)"
 rands = [
   { sides = 12, value = 1 },
   { sides = 12, value = 8 },
@@ -200,7 +200,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[1,9] ＞ 10 ＞ Average(そこそこ)"
+output = "ステップ14>=10 ＞ 2d12[1,9] ＞ 10 ＞ Average(そこそこ)"
 rands = [
   { sides = 12, value = 1 },
   { sides = 12, value = 9 },
@@ -209,7 +209,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[8,7] ＞ 15 ＞ Average(そこそこ)"
+output = "ステップ14>=10 ＞ 2d12[8,7] ＞ 15 ＞ Average(そこそこ)"
 rands = [
   { sides = 12, value = 8 },
   { sides = 12, value = 7 },
@@ -218,7 +218,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[9,7] ＞ 16 ＞ Good(上出来)"
+output = "ステップ14>=10 ＞ 2d12[9,7] ＞ 16 ＞ Good(上出来)"
 rands = [
   { sides = 12, value = 9 },
   { sides = 12, value = 7 },
@@ -227,7 +227,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[9,10] ＞ 19 ＞ Good(上出来)"
+output = "ステップ14>=10 ＞ 2d12[9,10] ＞ 19 ＞ Good(上出来)"
 rands = [
   { sides = 12, value = 9 },
   { sides = 12, value = 10 },
@@ -236,7 +236,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[10,10] ＞ 20 ＞ Excelent(最高)"
+output = "ステップ14>=10 ＞ 2d12[10,10] ＞ 20 ＞ Excelent(最高)"
 rands = [
   { sides = 12, value = 10 },
   { sides = 12, value = 10 },
@@ -245,7 +245,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[11,11] ＞ 22 ＞ Excelent(最高)"
+output = "ステップ14>=10 ＞ 2d12[11,11] ＞ 22 ＞ Excelent(最高)"
 rands = [
   { sides = 12, value = 11 },
   { sides = 12, value = 11 },
@@ -254,7 +254,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "14E10"
-output = "EarthDawn3 : ステップ14>=10 ＞ 2d12[10,14] ＞ 24 ＞ Extraordinary(極上)"
+output = "ステップ14>=10 ＞ 2d12[10,14] ＞ 24 ＞ Extraordinary(極上)"
 rands = [
   { sides = 12, value = 10 },
   { sides = 12, value = 12 },
@@ -264,7 +264,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "10E"
-output = "EarthDawn3 : ステップ10 ＞ 2d8[2,2] ＞ 4"
+output = "ステップ10 ＞ 2d8[2,2] ＞ 4"
 rands = [
   { sides = 8, value = 2 },
   { sides = 8, value = 2 },
@@ -273,7 +273,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "10E8"
-output = "EarthDawn3 : ステップ10>=8 ＞ 2d8[2,2] ＞ 4 ＞ Poor(お粗末)"
+output = "ステップ10>=8 ＞ 2d8[2,2] ＞ 4 ＞ Poor(お粗末)"
 rands = [
   { sides = 8, value = 2 },
   { sides = 8, value = 2 },
@@ -282,7 +282,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "10E8+1D6"
-output = "EarthDawn3 : ステップ10>=8 ＞ 2d8[2,2]+1d6[1] ＞ 5 ＞ Poor(お粗末)"
+output = "ステップ10>=8 ＞ 2d8[2,2]+1d6[1] ＞ 5 ＞ Poor(お粗末)"
 rands = [
   { sides = 8, value = 2 },
   { sides = 8, value = 2 },
@@ -292,7 +292,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "10E8+D6"
-output = "EarthDawn3 : ステップ10>=8 ＞ 2d8[2,2]+1d6[1] ＞ 5 ＞ Poor(お粗末)"
+output = "ステップ10>=8 ＞ 2d8[2,2]+1d6[1] ＞ 5 ＞ Poor(お粗末)"
 rands = [
   { sides = 8, value = 2 },
   { sides = 8, value = 2 },
@@ -302,7 +302,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "10E8+1"
-output = "EarthDawn3 : ステップ10>=8 ＞ 2d8[2,2]+1 ＞ 5 ＞ Poor(お粗末)"
+output = "ステップ10>=8 ＞ 2d8[2,2]+1 ＞ 5 ＞ Poor(お粗末)"
 rands = [
   { sides = 8, value = 2 },
   { sides = 8, value = 2 },
@@ -311,7 +311,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "10E8+D4+1"
-output = "EarthDawn3 : ステップ10>=8 ＞ 2d8[2,2]+1d4[2]+1 ＞ 7 ＞ Poor(お粗末)"
+output = "ステップ10>=8 ＞ 2d8[2,2]+1d4[2]+1 ＞ 7 ＞ Poor(お粗末)"
 rands = [
   { sides = 8, value = 2 },
   { sides = 8, value = 2 },
@@ -321,7 +321,7 @@ rands = [
 [[ test ]]
 game_system = "EarthDawn3"
 input = "10E8+1D12"
-output = "EarthDawn3 : ステップ10>=8 ＞ 2d8[2,2]+1d12[2] ＞ 6 ＞ Poor(お粗末)"
+output = "ステップ10>=8 ＞ 2d8[2,2]+1d12[2] ＞ 6 ＞ Poor(お粗末)"
 rands = [
   { sides = 8, value = 2 },
   { sides = 8, value = 2 },

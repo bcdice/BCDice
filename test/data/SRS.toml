@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "SRS"
 input = "2D6>=7"
-output = "SRS : (2D6>=7[12,2]) ＞ 7[2,5] ＞ 7 ＞ 成功"
+output = "(2D6>=7[12,2]) ＞ 7[2,5] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6>=7"
-output = "SRS : (2D6>=7[12,2]) ＞ 11[5,6] ＞ 11 ＞ 成功"
+output = "(2D6>=7[12,2]) ＞ 11[5,6] ＞ 11 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6>=7"
-output = "SRS : (2D6>=7[12,2]) ＞ 6[2,4] ＞ 6 ＞ 失敗"
+output = "(2D6>=7[12,2]) ＞ 6[2,4] ＞ 6 ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6>=7"
-output = "SRS : (2D6>=7[12,2]) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=7[12,2]) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6>=13"
-output = "SRS : (2D6>=13[12,2]) ＞ 12[6,6] ＞ 12 ＞ 自動成功"
+output = "(2D6>=13[12,2]) ＞ 12[6,6] ＞ 12 ＞ 自動成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6>=2"
-output = "SRS : (2D6>=2[12,2]) ＞ 2[1,1] ＞ 2 ＞ 自動失敗"
+output = "(2D6>=2[12,2]) ＞ 2[1,1] ＞ 2 ＞ 自動失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1>=8"
-output = "SRS : (2D6+1>=8[12,2]) ＞ 7[2,5]+1 ＞ 8 ＞ 成功"
+output = "(2D6+1>=8[12,2]) ＞ 7[2,5]+1 ＞ 8 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -64,7 +64,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1>=8"
-output = "SRS : (2D6+1>=8[12,2]) ＞ 11[5,6]+1 ＞ 12 ＞ 成功"
+output = "(2D6+1>=8[12,2]) ＞ 11[5,6]+1 ＞ 12 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1>=8"
-output = "SRS : (2D6+1>=8[12,2]) ＞ 6[2,4]+1 ＞ 7 ＞ 失敗"
+output = "(2D6+1>=8[12,2]) ＞ 6[2,4]+1 ＞ 7 ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -82,7 +82,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1>=8"
-output = "SRS : (2D6+1>=8[12,2]) ＞ 3[1,2]+1 ＞ 4 ＞ 失敗"
+output = "(2D6+1>=8[12,2]) ＞ 3[1,2]+1 ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6-1>=12"
-output = "SRS : (2D6-1>=12[12,2]) ＞ 12[6,6]-1 ＞ 11 ＞ 自動成功"
+output = "(2D6-1>=12[12,2]) ＞ 12[6,6]-1 ＞ 11 ＞ 自動成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1>=3"
-output = "SRS : (2D6+1>=3[12,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 自動失敗"
+output = "(2D6+1>=3[12,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 自動失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1-2+3-4>=8"
-output = "SRS : (2D6-2>=8[12,2]) ＞ 7[2,5]-2 ＞ 5 ＞ 失敗"
+output = "(2D6-2>=8[12,2]) ＞ 7[2,5]-2 ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1>=8[11,3]"
-output = "SRS : (2D6+1>=8[11,3]) ＞ 10[4,6]+1 ＞ 11 ＞ 成功"
+output = "(2D6+1>=8[11,3]) ＞ 10[4,6]+1 ＞ 11 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1>=8[11,3]"
-output = "SRS : (2D6+1>=8[11,3]) ＞ 4[1,3]+1 ＞ 5 ＞ 失敗"
+output = "(2D6+1>=8[11,3]) ＞ 4[1,3]+1 ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -136,7 +136,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6-1>=12[11,3]"
-output = "SRS : (2D6-1>=12[11,3]) ＞ 11[5,6]-1 ＞ 10 ＞ 自動成功"
+output = "(2D6-1>=12[11,3]) ＞ 11[5,6]-1 ＞ 10 ＞ 自動成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1>=3[11,3]"
-output = "SRS : (2D6+1>=3[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+output = "(2D6+1>=3[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -154,7 +154,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1>=8[11]"
-output = "SRS : (2D6+1>=8[11,2]) ＞ 10[4,6]+1 ＞ 11 ＞ 成功"
+output = "(2D6+1>=8[11,2]) ＞ 10[4,6]+1 ＞ 11 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -163,7 +163,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1>=8[11]"
-output = "SRS : (2D6+1>=8[11,2]) ＞ 3[1,2]+1 ＞ 4 ＞ 失敗"
+output = "(2D6+1>=8[11,2]) ＞ 3[1,2]+1 ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -172,7 +172,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6-1>=12[11]"
-output = "SRS : (2D6-1>=12[11,2]) ＞ 11[5,6]-1 ＞ 10 ＞ 自動成功"
+output = "(2D6-1>=12[11,2]) ＞ 11[5,6]-1 ＞ 10 ＞ 自動成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -181,7 +181,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1>=3[11]"
-output = "SRS : (2D6+1>=3[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 自動失敗"
+output = "(2D6+1>=3[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 自動失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -190,7 +190,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6[]"
-output = "SRS : (2D6[12,2]) ＞ 11[5,6] ＞ 11"
+output = "(2D6[12,2]) ＞ 11[5,6] ＞ 11"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -199,7 +199,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6[]"
-output = "SRS : (2D6[12,2]) ＞ 3[1,2] ＞ 3"
+output = "(2D6[12,2]) ＞ 3[1,2] ＞ 3"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -208,7 +208,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6[]"
-output = "SRS : (2D6[12,2]) ＞ 12[6,6] ＞ 12 ＞ 自動成功"
+output = "(2D6[12,2]) ＞ 12[6,6] ＞ 12 ＞ 自動成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6[]"
-output = "SRS : (2D6[12,2]) ＞ 2[1,1] ＞ 2 ＞ 自動失敗"
+output = "(2D6[12,2]) ＞ 2[1,1] ＞ 2 ＞ 自動失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -226,7 +226,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6[11,3]"
-output = "SRS : (2D6[11,3]) ＞ 10[4,6] ＞ 10"
+output = "(2D6[11,3]) ＞ 10[4,6] ＞ 10"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -235,7 +235,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6[11,3]"
-output = "SRS : (2D6[11,3]) ＞ 4[1,3] ＞ 4"
+output = "(2D6[11,3]) ＞ 4[1,3] ＞ 4"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -244,7 +244,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6[11,3]"
-output = "SRS : (2D6[11,3]) ＞ 11[5,6] ＞ 11 ＞ 自動成功"
+output = "(2D6[11,3]) ＞ 11[5,6] ＞ 11 ＞ 自動成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -253,7 +253,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6[11,3]"
-output = "SRS : (2D6[11,3]) ＞ 3[1,2] ＞ 3 ＞ 自動失敗"
+output = "(2D6[11,3]) ＞ 3[1,2] ＞ 3 ＞ 自動失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -262,7 +262,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6[11,3]"
-output = "SRS : (2D6[11,3]) ＞ 10[4,6] ＞ 10"
+output = "(2D6[11,3]) ＞ 10[4,6] ＞ 10"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -271,7 +271,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1[11,3]"
-output = "SRS : (2D6+1[11,3]) ＞ 4[1,3]+1 ＞ 5"
+output = "(2D6+1[11,3]) ＞ 4[1,3]+1 ＞ 5"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -280,7 +280,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1[11,3]"
-output = "SRS : (2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -289,7 +289,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1[11,3]"
-output = "SRS : (2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -298,7 +298,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1-1[11,3]"
-output = "SRS : (2D6[11,3]) ＞ 6[2,4] ＞ 6"
+output = "(2D6[11,3]) ＞ 6[2,4] ＞ 6"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -307,7 +307,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6[11]"
-output = "SRS : (2D6[11,2]) ＞ 10[4,6] ＞ 10"
+output = "(2D6[11,2]) ＞ 10[4,6] ＞ 10"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -316,7 +316,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6[11]"
-output = "SRS : (2D6[11,2]) ＞ 3[1,2] ＞ 3"
+output = "(2D6[11,2]) ＞ 3[1,2] ＞ 3"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -325,7 +325,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6[11]"
-output = "SRS : (2D6[11,2]) ＞ 11[5,6] ＞ 11 ＞ 自動成功"
+output = "(2D6[11,2]) ＞ 11[5,6] ＞ 11 ＞ 自動成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -334,7 +334,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1[11]"
-output = "SRS : (2D6+1[11,2]) ＞ 10[4,6]+1 ＞ 11"
+output = "(2D6+1[11,2]) ＞ 10[4,6]+1 ＞ 11"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -343,7 +343,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1[11]"
-output = "SRS : (2D6+1[11,2]) ＞ 3[1,2]+1 ＞ 4"
+output = "(2D6+1[11,2]) ＞ 3[1,2]+1 ＞ 4"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -352,7 +352,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1[11]"
-output = "SRS : (2D6+1[11,2]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+output = "(2D6+1[11,2]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -361,7 +361,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6+1[11]"
-output = "SRS : (2D6+1[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 自動失敗"
+output = "(2D6+1[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 自動失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -370,7 +370,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6"
-output = "SRS : (2D6) ＞ 12[6,6] ＞ 12"
+output = "(2D6) ＞ 12[6,6] ＞ 12"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -379,7 +379,7 @@ rands = [
 [[ test ]]
 game_system = "SRS"
 input = "2D6"
-output = "SRS : (2D6) ＞ 2[1,1] ＞ 2"
+output = "(2D6) ＞ 2[1,1] ＞ 2"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },

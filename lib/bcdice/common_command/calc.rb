@@ -30,7 +30,7 @@ module BCDice
           return nil
         end
 
-        return ": 計算結果 ＞ #{value}"
+        return "計算結果 ＞ #{value}"
       end
     end
   end

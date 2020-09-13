@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "GranCrest"
 input = "2d6>=10"
-output = "GranCrest : (2D6>=10) ＞ 9[3,6] ＞ 9 ＞ 失敗"
+output = "(2D6>=10) ＞ 9[3,6] ＞ 9 ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "2d6>=10"
-output = "GranCrest : (2D6>=10) ＞ 12[6,6] ＞ 12（クリティカル） ＞ 22 ＞ 成功"
+output = "(2D6>=10) ＞ 12[6,6] ＞ 12（クリティカル） ＞ 22 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "2d6>=10"
-output = "GranCrest : (2D6>=10) ＞ 2[1,1] ＞ 2 ＞ 失敗"
+output = "(2D6>=10) ＞ 2[1,1] ＞ 2 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "3d6>=19"
-output = "GranCrest : (3D6>=19) ＞ 15[3,6,6] ＞ 15（クリティカル） ＞ 25 ＞ 成功"
+output = "(3D6>=19) ＞ 15[3,6,6] ＞ 15（クリティカル） ＞ 25 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -38,7 +38,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "3d6+5>=24"
-output = "GranCrest : (3D6+5>=24) ＞ 18[6,6,6]+5 ＞ 23（クリティカル） ＞ 33 ＞ 成功"
+output = "(3D6+5>=24) ＞ 18[6,6,6]+5 ＞ 23（クリティカル） ＞ 33 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -48,7 +48,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "3d6>=?"
-output = "GranCrest : (3D6>=?) ＞ 14[2,6,6] ＞ 14（クリティカル） ＞ 24"
+output = "(3D6>=?) ＞ 14[2,6,6] ＞ 14（クリティカル） ＞ 24"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -58,7 +58,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "3d6+7>=?"
-output = "GranCrest : (3D6+7>=?) ＞ 13[1,6,6]+7 ＞ 20（クリティカル） ＞ 30"
+output = "(3D6+7>=?) ＞ 13[1,6,6]+7 ＞ 20（クリティカル） ＞ 30"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -68,7 +68,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "MT"
-output = "GranCrest : 邂逅表(16) ＞ 興味\nあなたは彼（彼女）に興味がある。善悪の問題ではない。どこかで、彼（彼女）を面白いと感じるのだ。"
+output = "邂逅表(16) ＞ 興味\nあなたは彼（彼女）に興味がある。善悪の問題ではない。どこかで、彼（彼女）を面白いと感じるのだ。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -77,7 +77,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "MT"
-output = "GranCrest : 邂逅表(12) ＞ 保護者\nあなたは彼（彼女）を兄や姉、あるいは父親のように慕っている。もちろん本当に血縁関係があってもよい。"
+output = "邂逅表(12) ＞ 保護者\nあなたは彼（彼女）を兄や姉、あるいは父親のように慕っている。もちろん本当に血縁関係があってもよい。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -86,7 +86,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "PFT"
-output = "GranCrest : ポジティブ感情表(22) ＞ 憧憬\nあなたは彼（彼女）にあこがれを感じた。彼（彼女）のようになりたいと思った。その思いは今でも続いている。"
+output = "ポジティブ感情表(22) ＞ 憧憬\nあなたは彼（彼女）にあこがれを感じた。彼（彼女）のようになりたいと思った。その思いは今でも続いている。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -95,7 +95,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "PFT"
-output = "GranCrest : ポジティブ感情表(11) ＞ 好奇心\nあなたは彼（彼女）に好奇心を感じた。彼（彼女）はとても面白い。もっと知ってみたいと感じた。"
+output = "ポジティブ感情表(11) ＞ 好奇心\nあなたは彼（彼女）に好奇心を感じた。彼（彼女）はとても面白い。もっと知ってみたいと感じた。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -104,7 +104,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "NFT"
-output = "GranCrest : ネガティブ感情表(32) ＞ 嫌悪\nあなたは彼（彼女）のことを嫌っている。考え方なのか、癖なのか、どうしても拒否感を覚えずにはいられない。"
+output = "ネガティブ感情表(32) ＞ 嫌悪\nあなたは彼（彼女）のことを嫌っている。考え方なのか、癖なのか、どうしても拒否感を覚えずにはいられない。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -113,7 +113,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "NFT"
-output = "GranCrest : ネガティブ感情表(12) ＞ 悲哀\nあなたは彼（彼女）に悲哀を感じている。その過去か、それとも別のものか、あなたは彼（彼女）をかわいそうだと感じている。"
+output = "ネガティブ感情表(12) ＞ 悲哀\nあなたは彼（彼女）に悲哀を感じている。その過去か、それとも別のものか、あなたは彼（彼女）をかわいそうだと感じている。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -122,7 +122,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "CT"
-output = "GranCrest : 国特徴・カテゴリー表(2) ＞ 産業（ICT）\n農耕が盛ん、鍛冶技術に優れるなど、その国の産業を表す。"
+output = "国特徴・カテゴリー表(2) ＞ 産業（ICT）\n農耕が盛ん、鍛冶技術に優れるなど、その国の産業を表す。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -130,7 +130,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "CT"
-output = "GranCrest : 国特徴・カテゴリー表(4) ＞ 組織（OCT）\n狩人の組合がある、キャラバンがいるなど、その国にある組織を表す。"
+output = "国特徴・カテゴリー表(4) ＞ 組織（OCT）\n狩人の組合がある、キャラバンがいるなど、その国にある組織を表す。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -138,7 +138,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "TCT"
-output = "GranCrest : 国特徴・地形表(66) ＞ 秘境\nあなたの国は、混沌の影響によってこの世ならぬ光景を持っている。空を飛ぶ島や形を取った虹などだ。商才はＧＭと相談せよ。\n国資源ひとつを＋３"
+output = "国特徴・地形表(66) ＞ 秘境\nあなたの国は、混沌の影響によってこの世ならぬ光景を持っている。空を飛ぶ島や形を取った虹などだ。商才はＧＭと相談せよ。\n国資源ひとつを＋３"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -147,7 +147,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "TCT"
-output = "GranCrest : 国特徴・地形表(32) ＞ 森林\nあなたの国には大きな森がいくつもある。ただ風光明媚なだけでなく、木材資源にも恵まれている。\n森林＋３"
+output = "国特徴・地形表(32) ＞ 森林\nあなたの国には大きな森がいくつもある。ただ風光明媚なだけでなく、木材資源にも恵まれている。\n森林＋３"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -156,7 +156,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "ICT"
-output = "GranCrest : 国特徴・産業表(12) ＞ 手工業\nあなたの国は織物や細工物といった人間の手作業から生み出される道具作りに秀でている。\n技術＋３"
+output = "国特徴・産業表(12) ＞ 手工業\nあなたの国は織物や細工物といった人間の手作業から生み出される道具作りに秀でている。\n技術＋３"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -165,7 +165,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "ICT"
-output = "GranCrest : 国特徴・産業表(46) ＞ サービス業\nあなたの国は演劇や酒場、レストランといった文化的な産業で名を馳せている。\n技術＋１、資金＋２"
+output = "国特徴・産業表(46) ＞ サービス業\nあなたの国は演劇や酒場、レストランといった文化的な産業で名を馳せている。\n技術＋１、資金＋２"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -174,7 +174,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "PCT"
-output = "GranCrest : 国特徴・人物表(35) ＞ 大商人\nあなたの国に居を構えている大商人の富は、一国にも匹敵する。その税収はばかにならない。\n資金＋３"
+output = "国特徴・人物表(35) ＞ 大商人\nあなたの国に居を構えている大商人の富は、一国にも匹敵する。その税収はばかにならない。\n資金＋３"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -183,7 +183,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "PCT"
-output = "GranCrest : 国特徴・人物表(51) ＞ 森林官\nあなたの国には森林資源を管理する森林官がおり、その技術を弟子たちに分け与えている。\n森林＋３"
+output = "国特徴・人物表(51) ＞ 森林官\nあなたの国には森林資源を管理する森林官がおり、その技術を弟子たちに分け与えている。\n森林＋３"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -192,7 +192,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "OCT"
-output = "GranCrest : 国特徴・組織表(36) ＞ 飛脚\nあなたの国は飛脚や早馬といった高速通信網が発達している。\n馬＋３"
+output = "国特徴・組織表(36) ＞ 飛脚\nあなたの国は飛脚や早馬といった高速通信網が発達している。\n馬＋３"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "OCT"
-output = "GranCrest : 国特徴・組織表(32) ＞ 職人学校\nあなたの国は技術を伝授し発展させる学校を有している。\n技術＋３"
+output = "国特徴・組織表(32) ＞ 職人学校\nあなたの国は技術を伝授し発展させる学校を有している。\n技術＋３"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -210,7 +210,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "BCT"
-output = "GranCrest : 国特徴・拠点表(11) ＞ 城塞\nあなたの首都はその難攻不落の防壁で知られている。\n技術＋３"
+output = "国特徴・拠点表(11) ＞ 城塞\nあなたの首都はその難攻不落の防壁で知られている。\n技術＋３"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -219,7 +219,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "BCT"
-output = "GranCrest : 国特徴・拠点表(46) ＞ 歓楽街\nあなたの国は楽しく過ごせる酒場や劇場といったもので評判だ。人々の笑顔がさらなる富をもたらすのだ。\n食料＋１、資金＋２"
+output = "国特徴・拠点表(46) ＞ 歓楽街\nあなたの国は楽しく過ごせる酒場や劇場といったもので評判だ。人々の笑顔がさらなる富をもたらすのだ。\n食料＋１、資金＋２"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -228,7 +228,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "CCT"
-output = "GranCrest : 国特徴・文化表(13) ＞ 禁欲的\nあなたの国民は、道徳を重んじ、常に自分の欲望を制限することが理想的だと考えている。\n食料＋４、資金－１"
+output = "国特徴・文化表(13) ＞ 禁欲的\nあなたの国民は、道徳を重んじ、常に自分の欲望を制限することが理想的だと考えている。\n食料＋４、資金－１"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -237,7 +237,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "CCT"
-output = "GranCrest : 国特徴・文化表(53) ＞ 拝金主義\nあなたの国民にとって、もっとも重要なのは金である。金がなくてどうして生きて行けよう。\n森林－１、資金＋４"
+output = "国特徴・文化表(53) ＞ 拝金主義\nあなたの国民にとって、もっとも重要なのは金である。金がなくてどうして生きて行けよう。\n森林－１、資金＋４"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -246,7 +246,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "3D6>=? 目標値?でバグらない"
-output = "GranCrest : (3D6>=?) ＞ 9[3,3,3] ＞ 9 ＞ 失敗"
+output = "(3D6>=?) ＞ 9[3,3,3] ＞ 9 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },

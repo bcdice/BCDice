@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=4"
-output = "Peekaboo : (2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
+output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=4"
-output = "Peekaboo : (2D6>=4) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=4) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=4"
-output = "Peekaboo : (2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
+output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=4"
-output = "Peekaboo : (2D6>=4) ＞ 6[3,3] ＞ 6 ＞ 成功"
+output = "(2D6>=4) ＞ 6[3,3] ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=4"
-output = "Peekaboo : (2D6>=4) ＞ 7[2,5] ＞ 7 ＞ 成功"
+output = "(2D6>=4) ＞ 7[2,5] ＞ 7 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=4"
-output = "Peekaboo : (2D6>=4) ＞ 11[5,6] ＞ 11 ＞ 成功"
+output = "(2D6>=4) ＞ 11[5,6] ＞ 11 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=4"
-output = "Peekaboo : (2D6>=4) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=4) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -64,7 +64,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=4"
-output = "Peekaboo : (2D6>=4) ＞ 8[2,6] ＞ 8 ＞ 成功"
+output = "(2D6>=4) ＞ 8[2,6] ＞ 8 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=4"
-output = "Peekaboo : (2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
+output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -82,7 +82,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=4"
-output = "Peekaboo : (2D6>=4) ＞ 8[3,5] ＞ 8 ＞ 成功"
+output = "(2D6>=4) ＞ 8[3,5] ＞ 8 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=9"
-output = "Peekaboo : (2D6>=9) ＞ 10[4,6] ＞ 10 ＞ 成功"
+output = "(2D6>=9) ＞ 10[4,6] ＞ 10 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=9"
-output = "Peekaboo : (2D6>=9) ＞ 5[1,4] ＞ 5 ＞ 失敗"
+output = "(2D6>=9) ＞ 5[1,4] ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=9"
-output = "Peekaboo : (2D6>=9) ＞ 4[1,3] ＞ 4 ＞ 失敗"
+output = "(2D6>=9) ＞ 4[1,3] ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=9"
-output = "Peekaboo : (2D6>=9) ＞ 7[2,5] ＞ 7 ＞ 失敗"
+output = "(2D6>=9) ＞ 7[2,5] ＞ 7 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=9"
-output = "Peekaboo : (2D6>=9) ＞ 6[2,4] ＞ 6 ＞ 失敗"
+output = "(2D6>=9) ＞ 6[2,4] ＞ 6 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -136,7 +136,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=9"
-output = "Peekaboo : (2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=9"
-output = "Peekaboo : (2D6>=9) ＞ 11[5,6] ＞ 11 ＞ 成功"
+output = "(2D6>=9) ＞ 11[5,6] ＞ 11 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -154,7 +154,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=9"
-output = "Peekaboo : (2D6>=9) ＞ 6[1,5] ＞ 6 ＞ 失敗"
+output = "(2D6>=9) ＞ 6[1,5] ＞ 6 ＞ 失敗"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -163,7 +163,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=9"
-output = "Peekaboo : (2D6>=9) ＞ 5[2,3] ＞ 5 ＞ 失敗"
+output = "(2D6>=9) ＞ 5[2,3] ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -172,7 +172,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=9"
-output = "Peekaboo : (2D6>=9) ＞ 10[4,6] ＞ 10 ＞ 成功"
+output = "(2D6>=9) ＞ 10[4,6] ＞ 10 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -181,7 +181,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=7"
-output = "Peekaboo : (2D6>=7) ＞ 10[5,5] ＞ 10 ＞ 成功"
+output = "(2D6>=7) ＞ 10[5,5] ＞ 10 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -190,7 +190,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=7"
-output = "Peekaboo : (2D6>=7) ＞ 8[2,6] ＞ 8 ＞ 成功"
+output = "(2D6>=7) ＞ 8[2,6] ＞ 8 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -199,7 +199,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=7"
-output = "Peekaboo : (2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
+output = "(2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -208,7 +208,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=7"
-output = "Peekaboo : (2D6>=7) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=7) ＞ 3[1,2] ＞ 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=7"
-output = "Peekaboo : (2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
+output = "(2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -226,7 +226,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=7"
-output = "Peekaboo : (2D6>=7) ＞ 5[2,3] ＞ 5 ＞ 失敗"
+output = "(2D6>=7) ＞ 5[2,3] ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -235,7 +235,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=7"
-output = "Peekaboo : (2D6>=7) ＞ 6[2,4] ＞ 6 ＞ 失敗"
+output = "(2D6>=7) ＞ 6[2,4] ＞ 6 ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -244,7 +244,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=7"
-output = "Peekaboo : (2D6>=7) ＞ 5[1,4] ＞ 5 ＞ 失敗"
+output = "(2D6>=7) ＞ 5[1,4] ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -253,7 +253,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=7"
-output = "Peekaboo : (2D6>=7) ＞ 4[2,2] ＞ 4 ＞ 失敗"
+output = "(2D6>=7) ＞ 4[2,2] ＞ 4 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -262,7 +262,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2d6>=7"
-output = "Peekaboo : (2D6>=7) ＞ 5[1,4] ＞ 5 ＞ 失敗"
+output = "(2D6>=7) ＞ 5[1,4] ＞ 5 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -271,7 +271,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SET"
-output = "Peekaboo : 学校イベント表(11) ＞ 体操服や水着、宿題に提出物などなど、今日は学校に持ってこないといけないものがあったはず！《計画性/大人7》で判定を行う。失敗すると、先生に怒られてしょんぼり。【眠気】が1d6点増える。"
+output = "学校イベント表(11) ＞ 体操服や水着、宿題に提出物などなど、今日は学校に持ってこないといけないものがあったはず！《計画性/大人7》で判定を行う。失敗すると、先生に怒られてしょんぼり。【眠気】が1d6点増える。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -280,7 +280,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SET"
-output = "Peekaboo : 学校イベント表(5) ＞ 明日までの宿題を出される。イノセント全員は、明日までに宿題を終わらせないといけない。宿題を終わらせるためには、各サイクルの終わりに、《宿題／勉強7》の判定を行い、それに成功しなければいけない。宿題を次の日の学校フェイズまでに終わらせることができなかった場合は、居残り勉強させられる。その日の放課後フェイズの最初のサイクルは、1回休み。"
+output = "学校イベント表(5) ＞ 明日までの宿題を出される。イノセント全員は、明日までに宿題を終わらせないといけない。宿題を終わらせるためには、各サイクルの終わりに、《宿題／勉強7》の判定を行い、それに成功しなければいけない。宿題を次の日の学校フェイズまでに終わらせることができなかった場合は、居残り勉強させられる。その日の放課後フェイズの最初のサイクルは、1回休み。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -289,7 +289,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SET"
-output = "Peekaboo : 学校イベント表(7) ＞ 特に変わったこともなく、おだやかな一日だった。イノセント全員は、【眠気】が1点増える。"
+output = "学校イベント表(7) ＞ 特に変わったこともなく、おだやかな一日だった。イノセント全員は、【眠気】が1点増える。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -298,7 +298,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SET"
-output = "Peekaboo : 学校イベント表(8) ＞ 今日の体育の時間はハードだった！　GMは、「運動」の分野の中からランダムに特技1つを選ぶ。イノセント全員は、その判定を行う。失敗したキャラクターは、【眠気】が1d6点増える。"
+output = "学校イベント表(8) ＞ 今日の体育の時間はハードだった！　GMは、「運動」の分野の中からランダムに特技1つを選ぶ。イノセント全員は、その判定を行う。失敗したキャラクターは、【眠気】が1d6点増える。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -307,7 +307,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SET"
-output = "Peekaboo : 学校イベント表(6) ＞ 今日も今日とて楽しい授業。GMは、「勉強」の分野の中からランダムに特技1つを選ぶ。イノセント全員は、その判定を行う。失敗したキャラクターは【眠気】が1d6点増える。"
+output = "学校イベント表(6) ＞ 今日も今日とて楽しい授業。GMは、「勉強」の分野の中からランダムに特技1つを選ぶ。イノセント全員は、その判定を行う。失敗したキャラクターは【眠気】が1d6点増える。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -316,7 +316,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SET"
-output = "Peekaboo : 学校イベント表(6) ＞ 今日も今日とて楽しい授業。GMは、「勉強」の分野の中からランダムに特技1つを選ぶ。イノセント全員は、その判定を行う。失敗したキャラクターは【眠気】が1d6点増える。"
+output = "学校イベント表(6) ＞ 今日も今日とて楽しい授業。GMは、「勉強」の分野の中からランダムに特技1つを選ぶ。イノセント全員は、その判定を行う。失敗したキャラクターは【眠気】が1d6点増える。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -325,7 +325,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SET"
-output = "Peekaboo : 学校イベント表(6) ＞ 今日も今日とて楽しい授業。GMは、「勉強」の分野の中からランダムに特技1つを選ぶ。イノセント全員は、その判定を行う。失敗したキャラクターは【眠気】が1d6点増える。"
+output = "学校イベント表(6) ＞ 今日も今日とて楽しい授業。GMは、「勉強」の分野の中からランダムに特技1つを選ぶ。イノセント全員は、その判定を行う。失敗したキャラクターは【眠気】が1d6点増える。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -334,7 +334,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SET"
-output = "Peekaboo : 学校イベント表(4) ＞ とても退屈な授業が始まった。イノセント全員は、《いねむり/不良3》の判定を行う。失敗したキャラクターは、【眠気】が1d6+1点増える。"
+output = "学校イベント表(4) ＞ とても退屈な授業が始まった。イノセント全員は、《いねむり/不良3》の判定を行う。失敗したキャラクターは、【眠気】が1d6+1点増える。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -343,7 +343,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SET"
-output = "Peekaboo : 学校イベント表(11) ＞ 体操服や水着、宿題に提出物などなど、今日は学校に持ってこないといけないものがあったはず！《計画性/大人7》で判定を行う。失敗すると、先生に怒られてしょんぼり。【眠気】が1d6点増える。"
+output = "学校イベント表(11) ＞ 体操服や水着、宿題に提出物などなど、今日は学校に持ってこないといけないものがあったはず！《計画性/大人7》で判定を行う。失敗すると、先生に怒られてしょんぼり。【眠気】が1d6点増える。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -352,7 +352,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SET"
-output = "Peekaboo : 学校イベント表(3) ＞ クラスで流行っている遊びに誘われる。GMは、「遊び」の分野の中からランダムに特技一つを選ぶ。イノセント全員は、その判定を行う。失敗したキャラクターは、【眠気】が1d6点増える。"
+output = "学校イベント表(3) ＞ クラスで流行っている遊びに誘われる。GMは、「遊び」の分野の中からランダムに特技一つを選ぶ。イノセント全員は、その判定を行う。失敗したキャラクターは、【眠気】が1d6点増える。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -361,7 +361,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SET"
-output = "Peekaboo : 学校イベント表(6) ＞ 今日も今日とて楽しい授業。GMは、「勉強」の分野の中からランダムに特技1つを選ぶ。イノセント全員は、その判定を行う。失敗したキャラクターは【眠気】が1d6点増える。"
+output = "学校イベント表(6) ＞ 今日も今日とて楽しい授業。GMは、「勉強」の分野の中からランダムに特技1つを選ぶ。イノセント全員は、その判定を行う。失敗したキャラクターは【眠気】が1d6点増える。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -370,7 +370,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "PSET"
-output = "Peekaboo : 個別学校イベント表(6) ＞ 今日はクラブ活動があった。次のサイクルは行動できなくなる。その代わり、好きな特技1つを選ぶ。このセッションの間、その特技の判定を行うとき+1の修正がつく。"
+output = "個別学校イベント表(6) ＞ 今日はクラブ活動があった。次のサイクルは行動できなくなる。その代わり、好きな特技1つを選ぶ。このセッションの間、その特技の判定を行うとき+1の修正がつく。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -379,7 +379,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "PSET"
-output = "Peekaboo : 個別学校イベント表(6) ＞ 今日はクラブ活動があった。次のサイクルは行動できなくなる。その代わり、好きな特技1つを選ぶ。このセッションの間、その特技の判定を行うとき+1の修正がつく。"
+output = "個別学校イベント表(6) ＞ 今日はクラブ活動があった。次のサイクルは行動できなくなる。その代わり、好きな特技1つを選ぶ。このセッションの間、その特技の判定を行うとき+1の修正がつく。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -388,7 +388,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "PSET"
-output = "Peekaboo : 個別学校イベント表(7) ＞ 授業中、先生がとても難しい問題を出してくる。GMは、「勉強」の分野からランダムに特技を1つ選ぶ。その判定を行うこと。成功すると、経験値を1点獲得する。"
+output = "個別学校イベント表(7) ＞ 授業中、先生がとても難しい問題を出してくる。GMは、「勉強」の分野からランダムに特技を1つ選ぶ。その判定を行うこと。成功すると、経験値を1点獲得する。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -397,7 +397,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "PSET"
-output = "Peekaboo : 個別学校イベント表(5) ＞ 友達から遊ぼうと誘われる。その日の放課後フェイズに、クラスメイト1d6人と「みんなで遊ぶ」ことができる。これを断る場合は、《優しさ/友達4》で判定を行うこと。失敗するとこれ以降、「みんなで遊ぶ」を行うとき、友達を誘うことが出来なくなる。"
+output = "個別学校イベント表(5) ＞ 友達から遊ぼうと誘われる。その日の放課後フェイズに、クラスメイト1d6人と「みんなで遊ぶ」ことができる。これを断る場合は、《優しさ/友達4》で判定を行うこと。失敗するとこれ以降、「みんなで遊ぶ」を行うとき、友達を誘うことが出来なくなる。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -406,7 +406,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "PSET"
-output = "Peekaboo : 個別学校イベント表(7) ＞ 授業中、先生がとても難しい問題を出してくる。GMは、「勉強」の分野からランダムに特技を1つ選ぶ。その判定を行うこと。成功すると、経験値を1点獲得する。"
+output = "個別学校イベント表(7) ＞ 授業中、先生がとても難しい問題を出してくる。GMは、「勉強」の分野からランダムに特技を1つ選ぶ。その判定を行うこと。成功すると、経験値を1点獲得する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -415,7 +415,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "PSET"
-output = "Peekaboo : 個別学校イベント表(9) ＞ 校庭や体育館など、自分達の遊び場が他のグループに占拠されている。《けんか/不良12》で判定を行うこと。成功すると、それ以降「友達」の分野の判定に+1の修正を受ける。失敗すると遊び場を失ってしまう。1ダメージを受け、それ以降、「友達と遊ぶ」ことができなくなってしまう。"
+output = "個別学校イベント表(9) ＞ 校庭や体育館など、自分達の遊び場が他のグループに占拠されている。《けんか/不良12》で判定を行うこと。成功すると、それ以降「友達」の分野の判定に+1の修正を受ける。失敗すると遊び場を失ってしまう。1ダメージを受け、それ以降、「友達と遊ぶ」ことができなくなってしまう。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -424,7 +424,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "PSET"
-output = "Peekaboo : 個別学校イベント表(10) ＞ いじめの現場に出くわす！　《勇気/友達10》の判定に成功すると、いじめっこを撃退することができる。いじめられていた子が、お礼にお菓子を1個くれる。失敗すると1点のダメージを受ける。"
+output = "個別学校イベント表(10) ＞ いじめの現場に出くわす！　《勇気/友達10》の判定に成功すると、いじめっこを撃退することができる。いじめられていた子が、お礼にお菓子を1個くれる。失敗すると1点のダメージを受ける。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -433,7 +433,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "PSET"
-output = "Peekaboo : 個別学校イベント表(6) ＞ 今日はクラブ活動があった。次のサイクルは行動できなくなる。その代わり、好きな特技1つを選ぶ。このセッションの間、その特技の判定を行うとき+1の修正がつく。"
+output = "個別学校イベント表(6) ＞ 今日はクラブ活動があった。次のサイクルは行動できなくなる。その代わり、好きな特技1つを選ぶ。このセッションの間、その特技の判定を行うとき+1の修正がつく。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -442,7 +442,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "PSET"
-output = "Peekaboo : 個別学校イベント表(4) ＞ 今日の給食には、どうしても苦手な食べ物が出てきた。《勇気/友達9》で判定を行うこと。成功すると、苦手な食べ物を克服し、気分爽快！【眠気】を1d6点回復するか、【元気】を1点回復することができる。"
+output = "個別学校イベント表(4) ＞ 今日の給食には、どうしても苦手な食べ物が出てきた。《勇気/友達9》で判定を行うこと。成功すると、苦手な食べ物を克服し、気分爽快！【眠気】を1d6点回復するか、【元気】を1点回復することができる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -451,7 +451,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "PSET"
-output = "Peekaboo : 個別学校イベント表(7) ＞ 授業中、先生がとても難しい問題を出してくる。GMは、「勉強」の分野からランダムに特技を1つ選ぶ。その判定を行うこと。成功すると、経験値を1点獲得する。"
+output = "個別学校イベント表(7) ＞ 授業中、先生がとても難しい問題を出してくる。GMは、「勉強」の分野からランダムに特技を1つ選ぶ。その判定を行うこと。成功すると、経験値を1点獲得する。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -460,7 +460,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "OET"
-output = "Peekaboo : お化け屋敷イベント表(8) ＞ 通路が途中で途切れて崖のようになっている。誰かが飛ぶことが出来れば、向こう岸にあるはしごを断崖にかけられそうだけど……。未行動のキャラクターは、《とぶ/運動6》の判定を行うことができる。判定したキャラクターは行動済みになる。誰かが成功すれば、イベントはクリアできる。"
+output = "お化け屋敷イベント表(8) ＞ 通路が途中で途切れて崖のようになっている。誰かが飛ぶことが出来れば、向こう岸にあるはしごを断崖にかけられそうだけど……。未行動のキャラクターは、《とぶ/運動6》の判定を行うことができる。判定したキャラクターは行動済みになる。誰かが成功すれば、イベントはクリアできる。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -469,7 +469,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "OET"
-output = "Peekaboo : お化け屋敷イベント表(5) ＞ 行き止まりだ。先に進む方法が分からない。未行動のキャラクターは、《推理/大人6》の判定を行うことができる。判定したキャラクターは行動済みになる。誰かが成功したら、イベントはクリアできる。"
+output = "お化け屋敷イベント表(5) ＞ 行き止まりだ。先に進む方法が分からない。未行動のキャラクターは、《推理/大人6》の判定を行うことができる。判定したキャラクターは行動済みになる。誰かが成功したら、イベントはクリアできる。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -478,7 +478,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "OET"
-output = "Peekaboo : お化け屋敷イベント表(7) ＞ ジメジメした通路だ。特に何もしなくても、イベントはクリアだ。誰かがのぞむなら、自由行動を1回行うことができるぞ。"
+output = "お化け屋敷イベント表(7) ＞ ジメジメした通路だ。特に何もしなくても、イベントはクリアだ。誰かがのぞむなら、自由行動を1回行うことができるぞ。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -487,7 +487,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "OET"
-output = "Peekaboo : お化け屋敷イベント表(11) ＞ シャドウが見回りをしている。未行動のキャラクターのうち1人が、《隠れる/不良9》の判定を行う。成功すれば、イベントはクリアできる。失敗すると、プレイヤーと同じ人数のシャドウと戦闘を行うこと。勝利すればイベントはクリアできる。"
+output = "お化け屋敷イベント表(11) ＞ シャドウが見回りをしている。未行動のキャラクターのうち1人が、《隠れる/不良9》の判定を行う。成功すれば、イベントはクリアできる。失敗すると、プレイヤーと同じ人数のシャドウと戦闘を行うこと。勝利すればイベントはクリアできる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -496,7 +496,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "OET"
-output = "Peekaboo : お化け屋敷イベント表(3) ＞ 天井から血の雨が降ってくる！　この雨に触れると火傷しちゃうみたいだ！【防御力】が0のスプーキーとイノセントは、《かけっこ/運動7》の判定を行う。失敗すると、イノセントは1ダメージ、スプーキーは1d6ダメージを受ける。成功・失敗にかかわらず、イベントはクリアできる。"
+output = "お化け屋敷イベント表(3) ＞ 天井から血の雨が降ってくる！　この雨に触れると火傷しちゃうみたいだ！【防御力】が0のスプーキーとイノセントは、《かけっこ/運動7》の判定を行う。失敗すると、イノセントは1ダメージ、スプーキーは1d6ダメージを受ける。成功・失敗にかかわらず、イベントはクリアできる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -505,7 +505,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "OET"
-output = "Peekaboo : お化け屋敷イベント表(6) ＞ まっくらで、何も見えない部屋だ。一行は不安におちいる。未行動のキャラクターは、《仕切る/友達11》の判定を行うことができる。判定したキャラクターは行動済みになる。誰かが成功すれば、イベントはクリアできる。"
+output = "お化け屋敷イベント表(6) ＞ まっくらで、何も見えない部屋だ。一行は不安におちいる。未行動のキャラクターは、《仕切る/友達11》の判定を行うことができる。判定したキャラクターは行動済みになる。誰かが成功すれば、イベントはクリアできる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -514,7 +514,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "OET"
-output = "Peekaboo : お化け屋敷イベント表(9) ＞ まぼろしの部屋だ。各キャラクターの大好物のまぼろしがつぎつぎ現れる。未行動のキャラクターは、《がまん/友達5》の判定を行うことができる。判定したキャラクターは行動済みになる。誰かが成功したら、イベントはクリアできる。"
+output = "お化け屋敷イベント表(9) ＞ まぼろしの部屋だ。各キャラクターの大好物のまぼろしがつぎつぎ現れる。未行動のキャラクターは、《がまん/友達5》の判定を行うことができる。判定したキャラクターは行動済みになる。誰かが成功したら、イベントはクリアできる。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -523,7 +523,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "OET"
-output = "Peekaboo : お化け屋敷イベント表(7) ＞ ジメジメした通路だ。特に何もしなくても、イベントはクリアだ。誰かがのぞむなら、自由行動を1回行うことができるぞ。"
+output = "お化け屋敷イベント表(7) ＞ ジメジメした通路だ。特に何もしなくても、イベントはクリアだ。誰かがのぞむなら、自由行動を1回行うことができるぞ。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -532,7 +532,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "OET"
-output = "Peekaboo : お化け屋敷イベント表(7) ＞ ジメジメした通路だ。特に何もしなくても、イベントはクリアだ。誰かがのぞむなら、自由行動を1回行うことができるぞ。"
+output = "お化け屋敷イベント表(7) ＞ ジメジメした通路だ。特に何もしなくても、イベントはクリアだ。誰かがのぞむなら、自由行動を1回行うことができるぞ。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -541,7 +541,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "IBT"
-output = "Peekaboo : イノセント用バタンキュー！表(1) ＞ 悲しい別れ。病院につれていくことができれば、1d6日入院したあとに目覚めます。その間は、行動不能です。目覚めたときに【眠気】も【元気】もすべて回復しますが、スプーキーを見ることができなくなっています。そのキャラクターはスプーキーと一緒に冒険を続けることはできません……。"
+output = "イノセント用バタンキュー！表(1) ＞ 悲しい別れ。病院につれていくことができれば、1d6日入院したあとに目覚めます。その間は、行動不能です。目覚めたときに【眠気】も【元気】もすべて回復しますが、スプーキーを見ることができなくなっています。そのキャラクターはスプーキーと一緒に冒険を続けることはできません……。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -549,7 +549,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "IBT"
-output = "Peekaboo : イノセント用バタンキュー！表(4) ＞ 体が動かない！　何かを見たり、話したりといった簡単な行動ならできますが、自由行動や戦闘行動といった通常の行動は行えません。1d6サイクル後に【元気】が1点回復し、通常通り行動できるようになります。"
+output = "イノセント用バタンキュー！表(4) ＞ 体が動かない！　何かを見たり、話したりといった簡単な行動ならできますが、自由行動や戦闘行動といった通常の行動は行えません。1d6サイクル後に【元気】が1点回復し、通常通り行動できるようになります。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -557,7 +557,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "IBT"
-output = "Peekaboo : イノセント用バタンキュー！表(3) ＞ 気絶しちゃった！　1d6サイクル後に目覚めます。気絶している間は、行動不能です。目覚めたときに【眠気】が1d6点、【元気】が1点回復します。"
+output = "イノセント用バタンキュー！表(3) ＞ 気絶しちゃった！　1d6サイクル後に目覚めます。気絶している間は、行動不能です。目覚めたときに【眠気】が1d6点、【元気】が1点回復します。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -565,7 +565,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "IBT"
-output = "Peekaboo : イノセント用バタンキュー！表(3) ＞ 気絶しちゃった！　1d6サイクル後に目覚めます。気絶している間は、行動不能です。目覚めたときに【眠気】が1d6点、【元気】が1点回復します。"
+output = "イノセント用バタンキュー！表(3) ＞ 気絶しちゃった！　1d6サイクル後に目覚めます。気絶している間は、行動不能です。目覚めたときに【眠気】が1d6点、【元気】が1点回復します。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -573,7 +573,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "IBT"
-output = "Peekaboo : イノセント用バタンキュー！表(4) ＞ 体が動かない！　何かを見たり、話したりといった簡単な行動ならできますが、自由行動や戦闘行動といった通常の行動は行えません。1d6サイクル後に【元気】が1点回復し、通常通り行動できるようになります。"
+output = "イノセント用バタンキュー！表(4) ＞ 体が動かない！　何かを見たり、話したりといった簡単な行動ならできますが、自由行動や戦闘行動といった通常の行動は行えません。1d6サイクル後に【元気】が1点回復し、通常通り行動できるようになります。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -581,7 +581,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "IBT"
-output = "Peekaboo : イノセント用バタンキュー！表(2) ＞ 大けがをして昏睡状態。病院につれていくことができれば、1d6日入院したあとに目覚めます。その間は、行動不能です。目覚めたときに【眠気】はすべて回復し、【元気】が3点回復します。"
+output = "イノセント用バタンキュー！表(2) ＞ 大けがをして昏睡状態。病院につれていくことができれば、1d6日入院したあとに目覚めます。その間は、行動不能です。目覚めたときに【眠気】はすべて回復し、【元気】が3点回復します。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -589,7 +589,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "IBT"
-output = "Peekaboo : イノセント用バタンキュー！表(4) ＞ 体が動かない！　何かを見たり、話したりといった簡単な行動ならできますが、自由行動や戦闘行動といった通常の行動は行えません。1d6サイクル後に【元気】が1点回復し、通常通り行動できるようになります。"
+output = "イノセント用バタンキュー！表(4) ＞ 体が動かない！　何かを見たり、話したりといった簡単な行動ならできますが、自由行動や戦闘行動といった通常の行動は行えません。1d6サイクル後に【元気】が1点回復し、通常通り行動できるようになります。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -597,7 +597,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "IBT"
-output = "Peekaboo : イノセント用バタンキュー！表(3) ＞ 気絶しちゃった！　1d6サイクル後に目覚めます。気絶している間は、行動不能です。目覚めたときに【眠気】が1d6点、【元気】が1点回復します。"
+output = "イノセント用バタンキュー！表(3) ＞ 気絶しちゃった！　1d6サイクル後に目覚めます。気絶している間は、行動不能です。目覚めたときに【眠気】が1d6点、【元気】が1点回復します。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -605,7 +605,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "IBT"
-output = "Peekaboo : イノセント用バタンキュー！表(4) ＞ 体が動かない！　何かを見たり、話したりといった簡単な行動ならできますが、自由行動や戦闘行動といった通常の行動は行えません。1d6サイクル後に【元気】が1点回復し、通常通り行動できるようになります。"
+output = "イノセント用バタンキュー！表(4) ＞ 体が動かない！　何かを見たり、話したりといった簡単な行動ならできますが、自由行動や戦闘行動といった通常の行動は行えません。1d6サイクル後に【元気】が1点回復し、通常通り行動できるようになります。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -613,7 +613,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SBT"
-output = "Peekaboo : スプーキー用バタンキュー！表(3) ＞ コバケ状態！　体は小さく縮んてしまい、重戦闘も戦闘行動も行うことはできません。【魔力】が1点以上になると、通常通り行動できるようになります。"
+output = "スプーキー用バタンキュー！表(3) ＞ コバケ状態！　体は小さく縮んてしまい、重戦闘も戦闘行動も行うことはできません。【魔力】が1点以上になると、通常通り行動できるようになります。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -621,7 +621,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SBT"
-output = "Peekaboo : スプーキー用バタンキュー！表(2) ＞ 休眠状態！　オバケは休眠状態になります。1d6日が経過すると目覚めます。その間は、行動不能です。目覚めたときに【魔力】はすべて回復しています。"
+output = "スプーキー用バタンキュー！表(2) ＞ 休眠状態！　オバケは休眠状態になります。1d6日が経過すると目覚めます。その間は、行動不能です。目覚めたときに【魔力】はすべて回復しています。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -629,7 +629,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SBT"
-output = "Peekaboo : スプーキー用バタンキュー！表(1) ＞ 封印状態！　オバケは封印されてしまいます。1d6*1年後になれば、そのオバケは復活します。それまでは、イノセントと一緒に冒険することはできません。できたとしても、そのときイノセントはあなたを見ることができなくなっているかもしれませんが……。"
+output = "スプーキー用バタンキュー！表(1) ＞ 封印状態！　オバケは封印されてしまいます。1d6*1年後になれば、そのオバケは復活します。それまでは、イノセントと一緒に冒険することはできません。できたとしても、そのときイノセントはあなたを見ることができなくなっているかもしれませんが……。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -637,7 +637,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SBT"
-output = "Peekaboo : スプーキー用バタンキュー！表(2) ＞ 休眠状態！　オバケは休眠状態になります。1d6日が経過すると目覚めます。その間は、行動不能です。目覚めたときに【魔力】はすべて回復しています。"
+output = "スプーキー用バタンキュー！表(2) ＞ 休眠状態！　オバケは休眠状態になります。1d6日が経過すると目覚めます。その間は、行動不能です。目覚めたときに【魔力】はすべて回復しています。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -645,7 +645,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SBT"
-output = "Peekaboo : スプーキー用バタンキュー！表(6) ＞ 魔法暴発！　自分の持っている魔法をランダムに1つ選んで、その効果が発動します。魔法の対象が選べる場合は、スプーキーのプレイヤーが選んで構いません。そして、1d6サイクルの間、行動不能になります。その後、【魔力】が1d6点回復して通常通り行動できるようになります。"
+output = "スプーキー用バタンキュー！表(6) ＞ 魔法暴発！　自分の持っている魔法をランダムに1つ選んで、その効果が発動します。魔法の対象が選べる場合は、スプーキーのプレイヤーが選んで構いません。そして、1d6サイクルの間、行動不能になります。その後、【魔力】が1d6点回復して通常通り行動できるようになります。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -653,7 +653,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SBT"
-output = "Peekaboo : スプーキー用バタンキュー！表(4) ＞ 混沌変化！　自分のリングのからだリストを使って、ランダムにからだを1つ選びます。自分のからだが、それに変化します。1d6サイクルの間、行動不能になります。その後、【魔力】が1d6点回復して通常通り行動できるようになります。"
+output = "スプーキー用バタンキュー！表(4) ＞ 混沌変化！　自分のリングのからだリストを使って、ランダムにからだを1つ選びます。自分のからだが、それに変化します。1d6サイクルの間、行動不能になります。その後、【魔力】が1d6点回復して通常通り行動できるようになります。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -661,7 +661,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SBT"
-output = "Peekaboo : スプーキー用バタンキュー！表(2) ＞ 休眠状態！　オバケは休眠状態になります。1d6日が経過すると目覚めます。その間は、行動不能です。目覚めたときに【魔力】はすべて回復しています。"
+output = "スプーキー用バタンキュー！表(2) ＞ 休眠状態！　オバケは休眠状態になります。1d6日が経過すると目覚めます。その間は、行動不能です。目覚めたときに【魔力】はすべて回復しています。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -669,7 +669,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SBT"
-output = "Peekaboo : スプーキー用バタンキュー！表(1) ＞ 封印状態！　オバケは封印されてしまいます。1d6*1年後になれば、そのオバケは復活します。それまでは、イノセントと一緒に冒険することはできません。できたとしても、そのときイノセントはあなたを見ることができなくなっているかもしれませんが……。"
+output = "スプーキー用バタンキュー！表(1) ＞ 封印状態！　オバケは封印されてしまいます。1d6*1年後になれば、そのオバケは復活します。それまでは、イノセントと一緒に冒険することはできません。できたとしても、そのときイノセントはあなたを見ることができなくなっているかもしれませんが……。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -677,7 +677,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "NET"
-output = "Peekaboo : 日中ブラブラ表(2) ＞ 相棒のスプーキーと喧嘩する。1d6サイクルの間、自分の相棒のスプーキーは、自分に対して【お助け力】を使用することができなくなる。"
+output = "日中ブラブラ表(2) ＞ 相棒のスプーキーと喧嘩する。1d6サイクルの間、自分の相棒のスプーキーは、自分に対して【お助け力】を使用することができなくなる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -686,7 +686,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "NET"
-output = "Peekaboo : 日中ブラブラ表(12) ＞ 相棒のスプーキーと、素敵な時間を過ごす。そのセッションの間だけ、「武装契約」「守護契約」「強化契約」「同調契約」のいずれか一つを結ぶことができる。"
+output = "日中ブラブラ表(12) ＞ 相棒のスプーキーと、素敵な時間を過ごす。そのセッションの間だけ、「武装契約」「守護契約」「強化契約」「同調契約」のいずれか一つを結ぶことができる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -695,7 +695,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SAT"
-output = "Peekaboo : オバケ行動表(2) ＞ 「えー。お前なんか嫌いだ!」スプーキーは、イノセントとけんかしてしまいます。そのサイクルは行動せず、【魔力】も回復しません。"
+output = "オバケ行動表(2) ＞ 「えー。お前なんか嫌いだ!」スプーキーは、イノセントとけんかしてしまいます。そのサイクルは行動せず、【魔力】も回復しません。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -704,7 +704,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SAT"
-output = "Peekaboo : オバケ行動表(5) ＞ 「やっぱ定番はこうでしょう」スプーキーは、戦闘フェイズなら「攻撃」を行います。それ以外なら「調査」を行います。"
+output = "オバケ行動表(5) ＞ 「やっぱ定番はこうでしょう」スプーキーは、戦闘フェイズなら「攻撃」を行います。それ以外なら「調査」を行います。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -713,7 +713,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "SAT"
-output = "Peekaboo : オバケ行動表(12) ＞ 「こうなりゃ本気モードだ!」スプーキーは自分の契約しているイノセントのいうことをききます。また、そのサイクルの間、そのスプーキーは魔力の消費なしで、魔法を使用することができます。"
+output = "オバケ行動表(12) ＞ 「こうなりゃ本気モードだ!」スプーキーは自分の契約しているイノセントのいうことをききます。また、そのサイクルの間、そのスプーキーは魔力の消費なしで、魔法を使用することができます。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -722,7 +722,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "STT"
-output = "Peekaboo : オバケぶらり旅表(2) ＞ オバケ狩りに遭遇してしまいますオバケ判定を行ってください。失敗すると2d6点のダメージを受けます。"
+output = "オバケぶらり旅表(2) ＞ オバケ狩りに遭遇してしまいますオバケ判定を行ってください。失敗すると2d6点のダメージを受けます。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -731,7 +731,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "STT"
-output = "Peekaboo : オバケぶらり旅表(8) ＞ 人間について学習します。オバケ判定を行って下さい。成功すると、ランダムに好きな特技を1つ選びます。そのゲームの間、その特技を習得しているものとして、行為判定を行うことができるようになります。"
+output = "オバケぶらり旅表(8) ＞ 人間について学習します。オバケ判定を行って下さい。成功すると、ランダムに好きな特技を1つ選びます。そのゲームの間、その特技を習得しているものとして、行為判定を行うことができるようになります。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -740,7 +740,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "STT"
-output = "Peekaboo : オバケぶらり旅表(12) ＞ オバケ狩りから身を隠すために変装します。自分の衣装1つを未取得にします。そして、共用か自分のリングの衣装から、ランダムに衣装を1つ選び、新たに修得します。"
+output = "オバケぶらり旅表(12) ＞ オバケ狩りから身を隠すために変装します。自分の衣装1つを未取得にします。そして、共用か自分のリングの衣装から、ランダムに衣装を1つ選び、新たに修得します。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -749,7 +749,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "NST"
-output = "Peekaboo : 仲間効果表(1) ＞ 用心棒。この仲間の効果は、誰かがダメージを受けた時に使用できる。そのダメージを無効化する。"
+output = "仲間効果表(1) ＞ 用心棒。この仲間の効果は、誰かがダメージを受けた時に使用できる。そのダメージを無効化する。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -757,7 +757,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "NST"
-output = "Peekaboo : 仲間効果表(4) ＞ 師匠。この仲間の効果は、好きな時に使用できる。そのNPCが人間の場合、ランダムに選んだ才能を一つ獲得する。この効果は、その日の終りまで持続する。そのNPCがオバケの場合、そのオバケが修得している好きな魔法を一つ使用する。"
+output = "仲間効果表(4) ＞ 師匠。この仲間の効果は、好きな時に使用できる。そのNPCが人間の場合、ランダムに選んだ才能を一つ獲得する。この効果は、その日の終りまで持続する。そのNPCがオバケの場合、そのオバケが修得している好きな魔法を一つ使用する。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -765,7 +765,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "NST"
-output = "Peekaboo : 仲間効果表(6) ＞ 乱入行動。自分が攻撃に成功した時に使用できる。そのダメージを1d6点上昇してくれる。"
+output = "仲間効果表(6) ＞ 乱入行動。自分が攻撃に成功した時に使用できる。そのダメージを1d6点上昇してくれる。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -773,7 +773,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "RTT"
-output = "Peekaboo : ランダム指定特技表(1,2) ＞ 《夜更かし／不良2》"
+output = "ランダム指定特技表(1,2) ＞ 《夜更かし／不良2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -783,7 +783,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "RTT"
-output = "Peekaboo : ランダム指定特技表(5,6) ＞ 《計算／勉強6》"
+output = "ランダム指定特技表(5,6) ＞ 《計算／勉強6》"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -793,7 +793,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "RTT"
-output = "Peekaboo : ランダム指定特技表(6,9) ＞ 《お買い物／大人9》"
+output = "ランダム指定特技表(6,9) ＞ 《お買い物／大人9》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -803,7 +803,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "RTT"
-output = "Peekaboo : ランダム指定特技表(6,12) ＞ 《道楽／大人12》"
+output = "ランダム指定特技表(6,12) ＞ 《道楽／大人12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -813,7 +813,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "TNT"
-output = "Peekaboo : 指定特技(不良)表(2) ＞ 《夜更かし／不良2》"
+output = "指定特技(不良)表(2) ＞ 《夜更かし／不良2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -822,7 +822,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "TNT"
-output = "Peekaboo : 指定特技(不良)表(12) ＞ 《けんか／不良12》"
+output = "指定特技(不良)表(12) ＞ 《けんか／不良12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -831,7 +831,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "TET"
-output = "Peekaboo : 指定特技(運動)表(2) ＞ 《泳ぐ／運動2》"
+output = "指定特技(運動)表(2) ＞ 《泳ぐ／運動2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -840,7 +840,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "TET"
-output = "Peekaboo : 指定特技(運動)表(12) ＞ 《力持ち／運動12》"
+output = "指定特技(運動)表(12) ＞ 《力持ち／運動12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -849,7 +849,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "TFT"
-output = "Peekaboo : 指定特技(友達)表(2) ＞ 《ネット／友達2》"
+output = "指定特技(友達)表(2) ＞ 《ネット／友達2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -858,7 +858,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "TFT"
-output = "Peekaboo : 指定特技(友達)表(12) ＞ 《秘密基地／友達12》"
+output = "指定特技(友達)表(12) ＞ 《秘密基地／友達12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -867,7 +867,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "TPT"
-output = "Peekaboo : 指定特技(遊び)表(2) ＞ 《パソコン／遊び2》"
+output = "指定特技(遊び)表(2) ＞ 《パソコン／遊び2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -876,7 +876,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "TPT"
-output = "Peekaboo : 指定特技(遊び)表(12) ＞ 《占い／遊び12》"
+output = "指定特技(遊び)表(12) ＞ 《占い／遊び12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -885,7 +885,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "TST"
-output = "Peekaboo : 指定特技(勉強)表(2) ＞ 《実験／勉強2》"
+output = "指定特技(勉強)表(2) ＞ 《実験／勉強2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -894,7 +894,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "TST"
-output = "Peekaboo : 指定特技(勉強)表(12) ＞ 《外国語／勉強12》"
+output = "指定特技(勉強)表(12) ＞ 《外国語／勉強12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -903,7 +903,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "TAT"
-output = "Peekaboo : 指定特技(大人)表(2) ＞ 《法律／大人2》"
+output = "指定特技(大人)表(2) ＞ 《法律／大人2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -912,7 +912,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "TAT"
-output = "Peekaboo : 指定特技(大人)表(12) ＞ 《道楽／大人12》"
+output = "指定特技(大人)表(12) ＞ 《道楽／大人12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -921,7 +921,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "2D6>=? 目標値?でバグらない"
-output = "Peekaboo : (2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },

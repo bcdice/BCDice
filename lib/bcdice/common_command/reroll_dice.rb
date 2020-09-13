@@ -91,7 +91,7 @@ module BCDice
           @diceBot.grich_text(one_count, dice_total_count, success_count),
         ].compact
 
-        return ": #{sequence.join(' ＞ ')}"
+        return sequence.join(" ＞ ")
       end
 
       private
@@ -161,7 +161,7 @@ module BCDice
       # @param command [String]
       # @return [String]
       def msg_invalid_reroll_number(command)
-        ": #{command} ＞ 条件が間違っています。2R6>=5 あるいは 2R6[5] のように振り足し目標値を指定してください。"
+        "#{command} ＞ 条件が間違っています。2R6>=5 あるいは 2R6[5] のように振り足し目標値を指定してください。"
       end
 
       # @param sides [Integer]
