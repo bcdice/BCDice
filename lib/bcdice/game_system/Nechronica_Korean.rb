@@ -76,7 +76,7 @@ module BCDice
         battleMode = Regexp.last_match(6).to_i
 
         modText = Regexp.last_match(4)
-        mod = ArithmeticEvaluator.new.eval(modText)
+        mod = ArithmeticEvaluator.eval(modText)
 
         # 0=판정모드, 1=전투모드
         isBattleMode = (battleMode == 1)

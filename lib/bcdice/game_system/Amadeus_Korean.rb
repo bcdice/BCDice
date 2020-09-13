@@ -89,8 +89,8 @@ module BCDice
         end
 
         diceCount = CHECK_DICE_COUNT[skillRank]
-        modify = ArithmeticEvaluator.new.eval(modifyText)
-        target = ArithmeticEvaluator.new.eval(targetText)
+        modify = ArithmeticEvaluator.eval(modifyText)
+        target = ArithmeticEvaluator.eval(targetText)
 
         diceList = @randomizer.roll_barabara(diceCount, 6)
         diceText = diceList.join(",")

@@ -60,7 +60,7 @@ module BCDice
           return nil
         end
 
-        success_rate = ArithmeticEvaluator.new().eval(m[1])
+        success_rate = ArithmeticEvaluator.eval(m[1])
 
         roll_result, dice10, dice01 = roll_d100
         roll_result_text = format('%02d', roll_result)

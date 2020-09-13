@@ -128,17 +128,15 @@ module BCDice
           return nil
         end
 
-        ae = ArithmeticEvaluator.new
-
         command = ParsedNW.new(@nw_command)
         command.base = m[1].to_i
-        command.modify_number = m[2] ? ae.eval(m[2]) : 0
+        command.modify_number = ArithmeticEvaluator.eval(m[2])
         command.critical_numbers = m[3] ? m[3].split(',').map(&:to_i) : [10]
         command.fumble_numbers = m[4] ? m[4].split(',').map(&:to_i) : [5]
-        command.prana = m[5] && m[5].to_i
-        command.active_modify_number = m[6] ? ae.eval(m[6]) : 0
+        command.prana = m[5]&.to_i
+        command.active_modify_number = ArithmeticEvaluator.eval(m[6])
         command.cmp_op = Normalize.comparison_operator(m[7])
-        command.target_number = m[8] && m[8].to_i
+        command.target_number = m[8]&.to_i
 
         return command
       end
@@ -150,15 +148,13 @@ module BCDice
           return nil
         end
 
-        ae = ArithmeticEvaluator.new
-
         command = Parsed2R6.new
-        command.passive_modify_number = ae.eval(m[1])
-        command.active_modify_number = m[2] ? ae.eval(m[2]) : 0
+        command.passive_modify_number = ArithmeticEvaluator.eval(m[1])
+        command.active_modify_number = ArithmeticEvaluator.eval(m[2])
         command.critical_numbers = m[3] ? m[3].split(',').map(&:to_i) : [10]
         command.fumble_numbers = m[4] ? m[4].split(',').map(&:to_i) : [5]
         command.cmp_op = Normalize.comparison_operator(m[5])
-        command.target_number = m[6] && m[6].to_i
+        command.target_number = m[6]&.to_i
 
         return command
       end

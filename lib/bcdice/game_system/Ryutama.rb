@@ -48,7 +48,7 @@ module BCDice
         end
 
         modifyString ||= ''
-        modify = ArithmeticEvaluator.new.eval(modifyString)
+        modify = ArithmeticEvaluator.eval(modifyString)
         difficulty = getDiffculty(difficulty)
 
         value1 = getRollValue(dice1)

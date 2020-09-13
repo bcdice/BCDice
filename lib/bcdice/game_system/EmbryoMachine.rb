@@ -75,7 +75,7 @@ module BCDice
         diff = Regexp.last_match(5).to_i if Regexp.last_match(5)
         crit = Regexp.last_match(7).to_i if Regexp.last_match(7)
         fumble = Regexp.last_match(8).to_i if Regexp.last_match(8)
-        mod = ArithmeticEvaluator.new.eval(modText) if modText
+        mod = ArithmeticEvaluator.eval(modText) if modText
 
         dice_arr = @randomizer.roll_barabara(2, 10).sort
         dice_now = dice_arr.sum()

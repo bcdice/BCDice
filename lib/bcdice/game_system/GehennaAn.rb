@@ -56,7 +56,7 @@ module BCDice
         diff = Regexp.last_match(6).to_i
         mode = Regexp.last_match(8).to_i
 
-        mod = ArithmeticEvaluator.new.eval(modText)
+        mod = ArithmeticEvaluator.eval(modText)
 
         diceArray = @randomizer.roll_barabara(diceCount, 6).sort
         diceValue = diceArray.sum()

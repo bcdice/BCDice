@@ -68,7 +68,7 @@ module BCDice
         string = m[2]
         dice_c = m[3].to_i
         bonus = 0
-        bonus = ArithmeticEvaluator.new.eval(m[4]) if m[4]
+        bonus = ArithmeticEvaluator.eval(m[4]) if m[4]
         isHyperBerserk = false
         isHyperBerserk = true if m[5] && (m[6] =~ /[Hh]/)
         dice_arr = []

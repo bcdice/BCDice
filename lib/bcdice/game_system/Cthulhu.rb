@@ -101,7 +101,7 @@ module BCDice
 
         if (m = %r{CCB?(\d+)?<=([+-/*\d]+)}i.match(command))
           broken_num = m[1].to_i
-          diff = ArithmeticEvaluator.new.eval(m[2])
+          diff = ArithmeticEvaluator.eval(m[2])
         end
 
         output = ""

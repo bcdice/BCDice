@@ -54,7 +54,7 @@ module BCDice
         mod = Regexp.last_match(3)
 
         debug(mod)
-        mod = ArithmeticEvaluator.new.eval(mod) if mod
+        mod = ArithmeticEvaluator.eval(mod) if mod
         debug(mod)
         mod = mod.to_i
 
@@ -127,23 +127,23 @@ module BCDice
 
         case type
         when 'RT'
-          value = ArithmeticEvaluator.new.eval(num)
+          value = ArithmeticEvaluator.eval(num)
           output = get_torg_success_level(value)
           ttype = '一般結果'
         when 'IT'
-          value = ArithmeticEvaluator.new.eval(num)
+          value = ArithmeticEvaluator.eval(num)
           output = get_torg_interaction_result_intimidate_test(value)
           ttype = '威圧/威嚇'
         when 'TT'
-          value = ArithmeticEvaluator.new.eval(num)
+          value = ArithmeticEvaluator.eval(num)
           output = get_torg_interaction_result_taunt_trick(value)
           ttype = '挑発/トリック'
         when 'MT'
-          value = ArithmeticEvaluator.new.eval(num)
+          value = ArithmeticEvaluator.eval(num)
           output = get_torg_interaction_result_maneuver(value)
           ttype = '間合い'
         when 'DT'
-          value = ArithmeticEvaluator.new.eval(num)
+          value = ArithmeticEvaluator.eval(num)
           if string =~ /ODT/i
             output = get_torg_damage_ords(value)
             ttype = 'オーズダメージ'
@@ -305,7 +305,7 @@ module BCDice
         val_arr = num.split(/\+/)
         value = val_arr.shift.to_i
 
-        mod = ArithmeticEvaluator.new.eval(val_arr.join('+'))
+        mod = ArithmeticEvaluator.eval(val_arr.join('+'))
         resultValue = get_torg_bonus(value)
 
         debug('TORG BT resultValue', resultValue)

@@ -49,7 +49,7 @@ module BCDice
 
         mod = 0
         if modText
-          mod = ArithmeticEvaluator.new.eval(modText)
+          mod = ArithmeticEvaluator.eval(modText)
         end
 
         dstr, suc, sum = rokumon2_roll(mod, target, abl)

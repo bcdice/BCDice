@@ -58,7 +58,7 @@ module BCDice
         @target_number = @cmp_op ? m[5].to_i : nil
         @reroll_threshold = reroll_threshold(m[2] || m[6])
 
-        @modify_number = m[3] ? ArithmeticEvaluator.new.eval(m[3], @diceBot.round_type) : 0
+        @modify_number = ArithmeticEvaluator.eval(m[3], round_type: @diceBot.round_type)
 
         if @reroll_threshold <= 1
           return ": (#{expr()}) ＞ 無限ロールの条件がまちがっています"

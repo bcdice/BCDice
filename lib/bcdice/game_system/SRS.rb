@@ -273,7 +273,7 @@ module BCDice
       def eval_modifier(modifier_str)
         return 0 unless modifier_str
 
-        return ArithmeticEvaluator.new.eval(modifier_str, @round_type)
+        return ArithmeticEvaluator.eval(modifier_str, round_type: @round_type)
       end
 
       # 目標値あり成功判定の正規表現マッチ情報からノードを作る

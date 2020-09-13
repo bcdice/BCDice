@@ -1405,7 +1405,7 @@ module BCDice
         text = yearText.gsub(/(\d+)D(6+)/) { getD6xResult(Regexp.last_match(1).to_i, Regexp.last_match(2).length) }
         text = "(#{text})"
 
-        year = ArithmeticEvaluator.new.eval(text.gsub(/×/, "*"))
+        year = ArithmeticEvaluator.eval(text.gsub(/×/, "*"))
         return year, text
       end
 

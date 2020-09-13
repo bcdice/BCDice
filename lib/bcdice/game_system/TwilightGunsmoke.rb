@@ -64,7 +64,7 @@ module BCDice
           return nil
         end
 
-        modify_number = m[1] ? ArithmeticEvaluator.new.eval(m[1]) : 0
+        modify_number = m[1] ? ArithmeticEvaluator.eval(m[1]) : 0
         target = m[2].to_i
         critical = (m[4] || 12).to_i
         fumble = (m[6] || 2).to_i

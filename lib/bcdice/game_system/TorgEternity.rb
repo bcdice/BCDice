@@ -76,7 +76,7 @@ module BCDice
         mod = m[3]
 
         debug(mod)
-        mod = ArithmeticEvaluator.new.eval(mod) if mod
+        mod = ArithmeticEvaluator.eval(mod) if mod
         debug(mod)
         mod = mod.to_i
         skilled, unskilled, dice_str, = torg_eternity_dice(false, false)
@@ -158,7 +158,7 @@ module BCDice
           return nil
         end
 
-        output_modifier = ArithmeticEvaluator.new.eval(m[4])
+        output_modifier = ArithmeticEvaluator.eval(m[4])
         skilled, unskilled, dice_str, = torg_eternity_dice(true, false)
         subtotal_skilled = skilled + output_modifier
         subtotal_unskilled = unskilled + output_modifier
@@ -201,7 +201,7 @@ module BCDice
           return nil
         end
 
-        value = ArithmeticEvaluator.new.eval(m[2])
+        value = ArithmeticEvaluator.eval(m[2])
         debug(value)
         if value < 0
           output = "Failure."
@@ -221,7 +221,7 @@ module BCDice
           return nil
         end
 
-        value = ArithmeticEvaluator.new.eval(m[2])
+        value = ArithmeticEvaluator.eval(m[2])
         debug(value)
         output = get_torg_eternity_damage_result(value)
         output = "ダメージ結果表[#{value}] ＞ #{output}"
@@ -274,7 +274,7 @@ module BCDice
           value_modifier = 0
           output_modifier = ""
         else
-          value_modifier = ArithmeticEvaluator.new.eval(string_modifier)
+          value_modifier = ArithmeticEvaluator.eval(string_modifier)
           output_modifier = format("%+d", value_modifier)
         end
         debug(value_modifier)

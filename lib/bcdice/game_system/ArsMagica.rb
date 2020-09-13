@@ -118,7 +118,7 @@ module BCDice
         end
 
         @botch = m[1]&.to_i || 1
-        @modify_number = ArithmeticEvaluator.new.eval(m[2] || "")
+        @modify_number = ArithmeticEvaluator.eval(m[2] || "")
         @cmp_op = Normalize.comparison_operator(m[3])
         @target_numner = m[4]&.to_i
 
@@ -131,7 +131,7 @@ module BCDice
           return false
         end
 
-        @modify_number = ArithmeticEvaluator.new.eval(m[1] || "")
+        @modify_number = ArithmeticEvaluator.eval(m[1] || "")
         @botch = m[2]&.to_i || 1
         @cmp_op = Normalize.comparison_operator(m[3])
         @target_numner = m[4]&.to_i

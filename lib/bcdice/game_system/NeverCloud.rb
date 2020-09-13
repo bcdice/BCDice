@@ -36,7 +36,7 @@ module BCDice
 
         dice_count = m[1].to_i
         modify_str = m[2]
-        modify_number = ArithmeticEvaluator.new.eval(modify_str)
+        modify_number = ArithmeticEvaluator.eval(modify_str)
         cmp_str = m[3]
         target = m[4]&.to_i
 

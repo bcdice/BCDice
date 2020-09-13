@@ -252,7 +252,7 @@ module BCDice
         return nil unless m
 
         num = m[1].to_i
-        modifier = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
+        modifier = m[2] ? ArithmeticEvaluator.eval(m[2]) : 0
         node_class = m[3] == '>' ? Contest : Test
         difficulty = m[4].to_i
 

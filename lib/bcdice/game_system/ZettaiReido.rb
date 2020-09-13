@@ -84,7 +84,7 @@ module BCDice
       end
 
       def getModInfo(modText)
-        value = ArithmeticEvaluator.new.eval(modText)
+        value = ArithmeticEvaluator.eval(modText)
 
         text = ""
         if value < 0

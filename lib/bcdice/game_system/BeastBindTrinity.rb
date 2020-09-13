@@ -114,7 +114,7 @@ module BCDice
           end
 
           @dice_num = m[1].to_i
-          @modify_number = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
+          @modify_number = m[2] ? ArithmeticEvaluator.eval(m[2]) : 0
 
           @critical = parse_critical(m[3], m[4])
 
@@ -138,7 +138,7 @@ module BCDice
         # @return [Integer]
         def parse_critical(humanity, atmark)
           humanity = humanity ? humanity.to_i : 99
-          atmark_value = atmark ? ArithmeticEvaluator.new.eval(atmark) : 0
+          atmark_value = atmark ? ArithmeticEvaluator.eval(atmark) : 0
 
           critical =
             if /^[+-]/.match(atmark)
@@ -167,7 +167,7 @@ module BCDice
         # @param sharp [String, nil]
         # @return [Integer]
         def parse_fumble(sharp)
-          sharp_value = sharp ? ArithmeticEvaluator.new.eval(sharp) : 0
+          sharp_value = sharp ? ArithmeticEvaluator.eval(sharp) : 0
 
           if /^[+-]/.match(sharp)
             2 + sharp_value

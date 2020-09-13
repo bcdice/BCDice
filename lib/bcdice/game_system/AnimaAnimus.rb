@@ -45,9 +45,8 @@ module BCDice
       end
 
       def check_action(match_data)
-        a = ArithmeticEvaluator.new()
-        dice_cnt = a.eval(match_data[1])
-        target = a.eval(match_data[2])
+        dice_cnt = ArithmeticEvaluator.eval(match_data[1])
+        target = ArithmeticEvaluator.eval(match_data[2])
         debug("dice_cnt", dice_cnt)
         debug("target", target)
 

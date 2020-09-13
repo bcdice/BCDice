@@ -77,7 +77,7 @@ module BCDice
 
       def getValue(text)
         text ||= ""
-        return ArithmeticEvaluator.new.eval(text)
+        return ArithmeticEvaluator.eval(text)
       end
 
       def getValueText(value)

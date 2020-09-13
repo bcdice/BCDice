@@ -153,7 +153,7 @@ module BCDice
         signOfInequality = m[5] || ""
         diff = m[6].to_i
 
-        bonus = modifyText ? ArithmeticEvaluator.new.eval(modifyText) : 0
+        bonus = modifyText ? ArithmeticEvaluator.eval(modifyText) : 0
 
         dice_list = @randomizer.roll_barabara(diceCount, 6).sort
         dice_str = dice_list.join(",")

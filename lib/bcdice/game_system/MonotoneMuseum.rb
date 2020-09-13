@@ -66,7 +66,7 @@ module BCDice
         end
 
         dice_count = m[1].to_i
-        modify_number = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
+        modify_number = m[2] ? ArithmeticEvaluator.eval(m[2]) : 0
         target = m[3].to_i
         critical = (m[5] || 12).to_i
         fumble = (m[7] || 2).to_i

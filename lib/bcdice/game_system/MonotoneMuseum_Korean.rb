@@ -61,7 +61,7 @@ module BCDice
         fumble = Regexp.last_match(6).to_i if Regexp.last_match(6)
 
         mod = 0
-        mod = ArithmeticEvaluator.new.eval(modText) unless modText.nil?
+        mod = ArithmeticEvaluator.eval(modText) unless modText.nil?
 
         dice_list = @randomizer.roll_barabara(2, 6).sort
         total = dice_list.sum()

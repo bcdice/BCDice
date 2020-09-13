@@ -3,13 +3,27 @@ module BCDice
   # 四則演算を評価するクラス
   #
   class ArithmeticEvaluator
+    class << self
+      # 四則演算を評価する
+      # @param expr [String] 評価する式
+      # @param round_type [Symbol] 端数処理の種類
+      # @return [Integer] 評価結果を返す。不正な式の場合には0を返す。
+      def eval(expr, round_type: RoundType::FLOOR)
+        ArithmeticEvaluator.new.eval(expr, round_type)
+      end
+    end
+
     # 四則演算を評価する
-    # @param [String] expr 評価する式
+    # @param [String, nil] expr 評価する式
     # @param [Symbol] round_type 端数処理の設定 :floor 切り捨て, :ceil 切り上げ, :round 四捨五入
-    # @return [Integer]
+    # @return [Integer] 評価結果を返す。不正な式の場合には0を返す。
     def eval(expr, round_type = RoundType::FLOOR)
       unless expr
         return 0
+      end
+
+      unless expr.is_a?(String)
+        raise TypeError, "expr must be String, not #{expr.class}"
       end
 
       @tokens = tokenize(expr)

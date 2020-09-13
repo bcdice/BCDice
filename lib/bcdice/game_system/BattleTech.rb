@@ -132,7 +132,7 @@ module BCDice
         base = 0
         return base if baseString.nil?
 
-        base = ArithmeticEvaluator.new.eval(baseString)
+        base = ArithmeticEvaluator.eval(baseString)
         return base
       end
 

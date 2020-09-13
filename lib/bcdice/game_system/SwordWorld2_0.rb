@@ -188,7 +188,7 @@ module BCDice
           m = Regexp.last_match
 
           critical_value = m[1].to_i
-          modifier = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
+          modifier = m[2] ? ArithmeticEvaluator.eval(m[2]) : 0
           cmp_op = m[3]
           target = m[3] && m[4].to_i
 

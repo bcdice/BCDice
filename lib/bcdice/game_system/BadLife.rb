@@ -428,7 +428,7 @@ module BCDice
 
       def get_value(text)
         text ||= ""
-        return ArithmeticEvaluator.new.eval(text)
+        return ArithmeticEvaluator.eval(text)
       end
     end
   end

@@ -65,7 +65,7 @@ module BCDice
         signOfInequality = ""
         diff = 0
 
-        mod = ArithmeticEvaluator.new.eval(m[3]) if m[3]
+        mod = ArithmeticEvaluator.eval(m[3]) if m[3]
 
         if m[4]
           abl = m[5].to_i

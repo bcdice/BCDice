@@ -47,8 +47,8 @@ module BCDice
           num = Regexp.last_match(2)
           return mh_crc_table(suv, num)
         when /\AHR<=(.+)/
-          target = ArithmeticEvaluator.new.eval(
-            Regexp.last_match(1), @round_type
+          target = ArithmeticEvaluator.eval(
+            Regexp.last_match(1), round_type: @round_type
           )
           return rollHit(target)
         end

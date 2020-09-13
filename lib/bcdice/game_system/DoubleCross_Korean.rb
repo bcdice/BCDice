@@ -259,7 +259,7 @@ module BCDice
       # @return [DX]
       def parse_dx_od(m)
         num = m[1].to_i
-        modifier = m[2] ? ArithmeticEvaluator.new.eval(m[2]) : 0
+        modifier = m[2] ? ArithmeticEvaluator.eval(m[2]) : 0
         critical_value = m[3] ? m[3].to_i : 10
 
         target_value = m[4]&.to_i
@@ -273,7 +273,7 @@ module BCDice
       def parse_dx_shippu_doto(m)
         num = m[1].to_i
         critical_value = m[2] ? m[2].to_i : 10
-        modifier = m[3] ? ArithmeticEvaluator.new.eval(m[3]) : 0
+        modifier = m[3] ? ArithmeticEvaluator.eval(m[3]) : 0
 
         target_value = m[4]&.to_i
 

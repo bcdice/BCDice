@@ -163,7 +163,7 @@ module BCDice
       def getValue(text, defaultValue)
         return defaultValue if text.nil? || text.empty?
 
-        ArithmeticEvaluator.new.eval(text)
+        ArithmeticEvaluator.eval(text)
       end
 
       def getAdjustNumber(number, table)
