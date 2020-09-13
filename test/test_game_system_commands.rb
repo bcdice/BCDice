@@ -18,7 +18,7 @@ class TestGameSystemCommands < Test::Unit::TestCase
         return [target]
       end
 
-      target += ".toml" if !target.end_with?(".toml")
+      target += ".toml" unless target.end_with?(".toml")
       target = File.join("test/data", target)
 
       unless File.exist?(target)
