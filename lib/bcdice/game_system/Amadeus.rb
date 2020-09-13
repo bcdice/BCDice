@@ -91,8 +91,8 @@ module BCDice
         modify = ArithmeticEvaluator.new.eval(modifyText)
         target = ArithmeticEvaluator.new.eval(targetText)
 
-        _, diceText, = roll(diceCount, 6)
-        diceList = diceText.split(/,/).map(&:to_i)
+        diceList = @randomizer.roll_barabara(diceCount, 6)
+        diceText = diceList.join(",")
         specialText = (specialNum == 6 ? "" : "@#{specialNum}")
 
         message = "(#{commandText}#{specialText}#{signOfInequality}#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "

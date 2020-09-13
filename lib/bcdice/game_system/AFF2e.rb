@@ -82,7 +82,9 @@ module BCDice
           diff = eval_term(term)
 
           dice_command = "2D6<=#{diff}"
-          total, dice_str = roll(2, 6)
+          dice_list = @randomizer.roll_barabara(2, 6)
+          total = dice_list.sum()
+          dice_str = dice_list.join(",")
           expr = "#{total}[#{dice_str}]"
           succ = successful_or_failed(total, diff)
           sequence = [parentheses(dice_command), expr, succ]
@@ -97,7 +99,9 @@ module BCDice
           corr = eval_term(term)
 
           dice_command = "2D6#{explicit_sign corr}"
-          total, dice_str = roll(2, 6)
+          dice_list = @randomizer.roll_barabara(2, 6)
+          total = dice_list.sum()
+          dice_str = dice_list.join(",")
           expr = "#{total}[#{dice_str}]#{explicit_sign corr}"
           crit = critical(total)
           sequence = [parentheses(dice_command), expr, crit, total + corr].compact

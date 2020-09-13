@@ -161,18 +161,6 @@ module BCDice
       return nil
     end
 
-    def roll(times, sides, sort = false)
-      dice_list = @randomizer.roll_barabara(times, sides)
-      dice_list.sort! if sort
-
-      total = dice_list.sum()
-      count_one = dice_list.count(1)
-      count_max = dice_list.count(sides)
-      max_value = dice_list.max()
-
-      return total, dice_list.join(","), count_one, count_max, max_value, 0, 0
-    end
-
     def changeText(string)
       string
     end

@@ -189,11 +189,7 @@ module BCDice
 
       # DT
       def get_dt(count)
-        diceList = []
-        count.times do
-          dice, =  roll(1, 10)
-          diceList << dice
-        end
+        diceList = @randomizer.roll_barabara(count, 10)
 
         output = get_dt_result(diceList)
         diceText = diceList.join(",")
@@ -213,11 +209,7 @@ module BCDice
 
       # AS
       def get_as(count)
-        diceList = []
-        count.times do
-          dice, =  roll(1, 6)
-          diceList << dice
-        end
+        diceList = @randomizer.roll_barabara(count, 6)
 
         output = get_as_result(diceList)
         diceText = diceList.join(",")

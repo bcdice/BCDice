@@ -86,12 +86,13 @@ module BCDice
       end
 
       def checkRoll(diceCount, modify, type, target)
-        dice, diceText = roll(diceCount, 6, @sort_add_dice)
+        diceArray = @randomizer.roll_barabara(diceCount, 6).sort
+        dice = diceArray.sum()
+        diceText = diceArray.join(",")
 
-        diceArray = diceText.split(/,/).map(&:to_i)
         dice2 = diceArray[-2] + diceArray[-1]
         diceText2 = "#{diceArray[-2]},#{diceArray[-1]}"
-        criticalCount = diceArray.count { |i| i == 6 }
+        criticalCount = diceArray.count(6)
 
         if modify != 0
           modifyText = ''
@@ -142,7 +143,9 @@ module BCDice
         ]
 
         if roc == 0
-          dice, diceText = roll(2, 6)
+          dice_list = @randomizer.roll_barabara(2, 6)
+          dice = dice_list.sum()
+          diceText = dice_list.join(",")
         else
           roc = 2 if roc < 2
           roc = 12 if roc > 12
@@ -170,7 +173,9 @@ module BCDice
           [11, '保存食にありつこうとしたその時、君は気づいた。一匹のネズミが、彼/彼女の荷物の中に潜り込もうとしている。彼/彼女は気づいていないが、このままでは食料が危ない！'],
           [12, 'テントを設営し、落ち着いた頃にふと気づく。　……身体が熱い。少し、だるさもあるような気もする。大したことはないと思うが、彼/彼女に相談しておいた方がいいだろうか。']
         ]
-        dice, diceText = roll(2, 6)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        dice = dice_list.sum()
+        diceText = dice_list.join(",")
         tableText = get_table_by_number(dice, table)
         text = "#{name}(#{diceText}) ＞ #{dice}：#{tableText}"
         return text

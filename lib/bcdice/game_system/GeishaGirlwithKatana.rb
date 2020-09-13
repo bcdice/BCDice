@@ -45,9 +45,7 @@ module BCDice
           return getChombaResultText()
         end
 
-        _, dice_str = roll(3, 6)
-        diceList = dice_str.split(/,/).map(&:to_i)
-        diceList.sort!
+        diceList = @randomizer.roll_barabara(3, 6).sort
 
         yakuResult = getYaku(diceList)
         unless yakuResult.nil?

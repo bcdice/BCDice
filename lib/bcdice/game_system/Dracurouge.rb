@@ -72,7 +72,7 @@ module BCDice
         diceCount = 4 if diceCount == 0
         thirstyPoint = Regexp.last_match(3).to_i
 
-        diceList = rollDiceList(diceCount)
+        diceList = @randomizer.roll_barabara(diceCount, 6).sort
 
         gloryDiceCount = getGloryDiceCount(diceList)
         gloryDiceCount.times { diceList << 10 }
@@ -84,13 +84,6 @@ module BCDice
         result += "[ #{calculationProcess} ] ＞ " unless calculationProcess.empty?
         result += "[ #{diceList.join(', ')} ]"
         return result
-      end
-
-      def rollDiceList(diceCount)
-        _, str = roll(diceCount, 6)
-        diceList = str.split(/,/).map(&:to_i).sort
-
-        return diceList
       end
 
       def getGloryDiceCount(diceList)
@@ -132,7 +125,7 @@ module BCDice
         diceCount = Regexp.last_match(1).to_i
         diceCount = 4 if diceCount == 0
 
-        diceList = rollDiceList(diceCount)
+        diceList = @randomizer.roll_barabara(diceCount, 6).sort
 
         result = "(#{command}) ＞ #{diceCount}D6 ＞ [ #{diceList.join(', ')} ]"
         return result
@@ -1278,7 +1271,10 @@ module BCDice
             [99, "あなたは荒れ狂う感情を抑え、己を律した！　【渇き】が1減少する！"],
           ]
 
-        number, number_text = roll(2, 6)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        number = dice_list.sum()
+        number_text = dice_list.join(",")
+
         index = (number - modify)
         debug('index', index)
         text = get_table_by_number(index, table)

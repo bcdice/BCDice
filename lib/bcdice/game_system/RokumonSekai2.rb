@@ -67,9 +67,8 @@ module BCDice
       def rokumon2_roll(mod, target, abl)
         suc = 0
 
-        _, dicestr, = roll(3 + mod.abs, 6, 1)
-
-        dice = dicestr.split(/,/).map(&:to_i)
+        dice = @randomizer.roll_barabara(3 + mod.abs, 6).sort
+        dicestr = dice.join(",")
 
         mod.abs.times do |_i|
           if mod < 0

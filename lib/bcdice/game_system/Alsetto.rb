@@ -76,8 +76,8 @@ module BCDice
         rollCount = rapid
 
         while rollCount > 0
-          _dice, diceText = roll(rollCount, 6, @sort_add_dice)
-          diceArray = diceText.split(/,/).map(&:to_i)
+          diceArray = @randomizer.roll_barabara(rollCount, 6).sort
+          diceText = diceArray.join(",")
 
           successCount = 0
           criticalCount = 0

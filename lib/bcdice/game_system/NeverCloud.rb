@@ -44,8 +44,9 @@ module BCDice
           modify_str = ''
         end
 
-        dice_value, dice_str, = roll(dice_count, 6)
-        dice_list = dice_str.split(',').map(&:to_i)
+        dice_list = @randomizer.roll_barabara(dice_count, 6)
+        dice_value = dice_list.sum()
+        dice_str = dice_list.join(",")
 
         total = dice_value + modify_number
 

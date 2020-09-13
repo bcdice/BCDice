@@ -65,11 +65,10 @@ module BCDice
         parameter_num = m[1].to_i
         dice_count = parameter_num.abs + 1
 
-        _total, dice_text, = roll(dice_count, 6)
+        dices = @randomizer.roll_barabara(dice_count, 6)
 
-        dices = dice_text.split(',')
-        success_rate = dices.count { |dice| dice.to_i >= 5 }
-        success_rate -= dices.count { |dice| dice.to_i < 5 } if parameter_num < 0
+        success_rate = dices.count { |dice| dice >= 5 }
+        success_rate -= dices.count { |dice| dice < 5 } if parameter_num < 0
         debug(dices)
 
         results, computer_dice_message = generate_roll_results(dices)
@@ -92,9 +91,9 @@ module BCDice
         parameter_num = m[1].to_i
         dice_count = parameter_num.abs + 1
 
-        _total, dice_text, = roll(dice_count, 6)
-        dices = dice_text.split(',')
-        failure_rate = dices.count { |dice| dice.to_i == 1 }
+        dices = @randomizer.roll_barabara(dice_count, 6)
+
+        failure_rate = dices.count(1)
         message = failure_rate == 0 ? '成功' : "失敗(#{failure_rate})"
 
         results, computer_dice_message = generate_roll_results(dices)

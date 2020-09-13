@@ -76,9 +76,9 @@ module BCDice
         modify = ArithmeticEvaluator.new.eval(modifyText)
         target = ArithmeticEvaluator.new.eval(targetText)
 
-        isSort = 1
-        _, diceText, = roll(diceCount, 6, isSort)
-        diceList = diceText.split(/,/).map(&:to_i)
+        diceList = @randomizer.roll_barabara(diceCount, 6).sort
+        diceText = diceList.join(",")
+
         diceList = [diceList.min] if skillRank == "D"
 
         message = "(#{commandText}#{specialText}#{signOfInequality}#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "

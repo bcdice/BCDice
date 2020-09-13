@@ -292,8 +292,7 @@ module BCDice
         dice_str = ""
         while isSkilledCritical
           dice_str += "," unless dice_str.empty?
-          dummy = roll(1, 20, 0)
-          dice_n = dummy.shift
+          dice_n = @randomizer.roll_once(20)
           if check_pos
             if dice_n < 10
               dice_str_now = "#{dice_n}→10"
@@ -333,7 +332,10 @@ module BCDice
           output_roll = ""
           while number > 0
             output_roll = "#{output_roll}," unless output_roll.empty?
-            dice_value, dice_text = roll(1, 6)
+
+            dice_value = @randomizer.roll_once(6)
+            dice_text = dice_value.to_s
+
             if dice_value == 6
               dice_value = 5
               dice_text = "5∞"

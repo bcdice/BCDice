@@ -48,9 +48,10 @@ module BCDice
       end
 
       def checkRoll(diceCount, countNo)
-        _dice, diceText = roll(diceCount, 10, @sort_add_dice)
-        diceText2 = diceText.gsub('10', '0')
-        diceArray = diceText2.split(/,/).map(&:to_i)
+        diceArray = @randomizer.roll_barabara(diceCount, 10).sort
+        diceText = diceArray.join(',')
+
+        diceArray.map! { |x| x == 10 ? 0 : x }
 
         resultArray = []
         success = 0

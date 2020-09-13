@@ -88,15 +88,12 @@ module BCDice
           dice_wk = dice_arr.shift
 
           debug('roll dice_wk d6', dice_wk)
-          rollTotal, rollDiceResultText, roll_cnt1, rollDiceMaxCount, roll_n_max, roll_cnt_suc, roll_cnt_re = roll(dice_wk, 6, @sort_add_dice)
-
-          debug('rollTotal, rollDiceResultText, roll_cnt1, rollDiceMaxCount, roll_n_max, roll_cnt_suc, roll_cnt_re',
-                rollTotal, rollDiceResultText, roll_cnt1, rollDiceMaxCount, roll_n_max, roll_cnt_suc, roll_cnt_re)
+          dice_list = @randomizer.roll_barabara(dice_wk, 6).sort
+          rollTotal = dice_list.sum()
+          rollDiceMaxCount = dice_list.count(6)
 
           if dice_wk >= 2 # ダイスが二個以上
-
-            dice_num = rollDiceResultText.split(/,/).map(&:to_i)
-            debug('dice_num', dice_num)
+            dice_num = dice_list
 
             diceType = 6
 
@@ -143,7 +140,7 @@ module BCDice
 
           dice_now += rollTotal
           dice_str += "][" if dice_str != ""
-          dice_str += rollDiceResultText
+          dice_str += dice_list.join(",")
           n_max += rollDiceMaxCount
           isFirstLoop = false
 

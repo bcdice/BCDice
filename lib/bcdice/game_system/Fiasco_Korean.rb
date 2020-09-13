@@ -50,12 +50,12 @@ INFO_MESSAGE_TEXT
 
       def makeStartDiceRoll(m)
         dice = m[START_DICE_INDEX].to_i
-        _, diceText, = roll(dice, 6)
+
+        dice_list = @randomizer.roll_barabara(dice, 6)
 
         diceList = [0, 0, 0, 0, 0, 0]
-
-        diceText.split(',').each do |takeDice|
-          diceList[takeDice.to_i - 1] += 1
+        dice_list.each do |takeDice|
+          diceList[takeDice - 1] += 1
         end
 
         return "１ => #{diceList[0]}개 ２ => #{diceList[1]}개 ３ => #{diceList[2]}개 ４ => #{diceList[3]}개 ５ => #{diceList[4]}개 ６ => #{diceList[5]}개"
@@ -101,11 +101,15 @@ INFO_MESSAGE_TEXT
 
         secondTotal = 0
 
-        firstTotal, firstDiceText, = roll(firstDice, 6)
+        dice_list = @randomizer.roll_barabara(firstDice, 6)
+        firstTotal = dice_list.sum()
+        firstDiceText = dice_list.join(",")
 
         if secondDice
-          if secondDice.to_i > 0
-            secondTotal, secondDiceText, = roll(secondDice, 6)
+          if secondDice > 0
+            dice_list = @randomizer.roll_barabara(secondDice, 6)
+            secondTotal = dice_list.sum()
+            secondDiceText = dice_list.join(",")
           else
             secondDiceText = "0"
           end

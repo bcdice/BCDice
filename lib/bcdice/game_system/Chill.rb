@@ -71,11 +71,19 @@ module BCDice
           dice_str = dice_str + ', ' + dice_ws
         else
           sta_loss, _dice, dice_add, dice_str = check_strike_rank(13)
-          wounds, dice_ws = roll(4, 10)
+
+          dice_list = @randomizer.roll_barabara(4, 10)
+          wounds = dice_list.sum()
+          dice_ws = dice_list.join(",")
+
           dice = '5d10*3, 4d10+' + ((strikeRank - 13) * 2).to_s + 'd10'
           dice_add += ', ' + wounds.to_s
           dice_str = "#{dice_str}, #{dice_ws}"
-          wounds_wk, dice_ws = roll((strikeRank - 13) * 2, 10)
+
+          dice_list = @randomizer.roll_barabara((strikeRank - 13) * 2, 10)
+          wounds_wk = dice_list.sum()
+          dice_ws = dice_list.join(",")
+
           dice_str += "+#{dice_ws}"
           dice_add += "+#{wounds_wk}"
           wounds += wounds_wk
@@ -111,37 +119,41 @@ module BCDice
 
         elsif strikeRank < 2
           dice = '0or1'
-          damage, dice_str = roll(1, 2)
+          damage = @randomizer.roll_once(2)
+          dice_str = damage.to_s
+
           damage -= 1
           dice_add = damage.to_s
-
         elsif strikeRank < 3
           dice = '1or2'
-          damage, dice_str = roll(1, 2)
+          damage = @randomizer.roll_once(2)
+          dice_str = damage.to_s
           dice_add = damage.to_s
-
         elsif strikeRank < 4
           dice = '1d5'
-          damage, dice_str = roll(1, 5)
+          damage = @randomizer.roll_once(5)
+          dice_str = damage.to_s
           dice_add = damage.to_s
-
         elsif strikeRank < 10
           dice = (strikeRank - 3).to_s + 'd10'
-          damage, dice_str = roll(strikeRank - 3, 10)
+          dice_list = @randomizer.roll_barabara(strikeRank - 3, 10)
+          damage = dice_list.sum()
           dice_add = damage.to_s
-
+          dice_str = dice_list.join(",")
         elsif strikeRank < 13
           dice = (strikeRank - 6).to_s + 'd10*2'
-          damage, dice_str = roll(strikeRank - 6, 10)
-          dice_add = damage.to_s + '*2'
-          damage *= 2
-          dice_str = "(#{dice_str})*2"
+          dice_list = @randomizer.roll_barabara(strikeRank - 6, 10)
+          total = dice_list.sum()
+          dice_add = "#{total}*2"
+          damage = total * 2
+          dice_str = "(#{dice_list.join(',')})*2"
         else
           dice = '5d10*3'
-          damage, dice_str = roll(5, 10)
-          dice_add = damage.to_s + '*3'
-          damage *= 3
-          dice_str = "(#{dice_str})*3"
+          dice_list = @randomizer.roll_barabara(5, 10)
+          total = dice_list.sum()
+          dice_add = "#{total}*3"
+          damage = total * 3
+          dice_str = "(#{dice_list.join(',')})*3"
         end
 
         return damage, dice, dice_add, dice_str

@@ -107,10 +107,10 @@ module BCDice
         diffStr = Regexp.last_match(1)
         modStr  = (Regexp.last_match(2) || '')
 
-        dice_cnt = 3
-        dice_max = 6
-        dice_n, dice_str = roll(dice_cnt, dice_max)
-        diceList = dice_str.split(',').map(&:to_i).sort
+        diceList = @randomizer.roll_barabara(3, 6)
+        dice_n = diceList.sum()
+        dice_str = diceList.join(",")
+
         diff = getValue(diffStr, 0)
         total_n = dice_n + getValue(modStr, 0)
 

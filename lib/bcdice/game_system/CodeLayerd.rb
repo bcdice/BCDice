@@ -70,9 +70,7 @@ module BCDice
 
         result += "(#{base}d10#{format_modifier(modifier)})"
 
-        _, diceText = roll(base, 10)
-
-        diceList = diceText.split(/,/).map(&:to_i).sort
+        diceList = @randomizer.roll_barabara(base, 10).sort
 
         result += " ＞ [#{diceList.join(',')}]#{format_modifier(modifier)} ＞ "
         result += getRollResultString(diceList, target, criticalTarget, diff, modifier)

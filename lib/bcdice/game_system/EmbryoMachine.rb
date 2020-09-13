@@ -77,9 +77,11 @@ module BCDice
         fumble = Regexp.last_match(8).to_i if Regexp.last_match(8)
         mod = ArithmeticEvaluator.new.eval(modText) if modText
 
-        dice_now, dice_str, = roll(2, 10, @sort_add_dice)
+        dice_arr = @randomizer.roll_barabara(2, 10).sort
+        dice_now = dice_arr.sum()
+        dice_str = dice_arr.join(",")
+
         dice_loc = @randomizer.roll_sum(2, 10)
-        dice_arr = dice_str.split(/,/).map(&:to_i)
         big_dice = dice_arr[1]
         output = "#{dice_now}[#{dice_str}]"
         total_n = dice_now + mod

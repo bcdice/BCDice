@@ -42,8 +42,8 @@ module BCDice
         dice_count = m[1].to_i
         target_number = m[2]&.to_i
 
-        _, dice_list_text, = roll(dice_count, 6)
-        dice_list = dice_list_text.split(',').map(&:to_i)
+        dice_list = @randomizer.roll_barabara(dice_count, 6)
+        dice_list_text = dice_list.join(',')
 
         successes = dice_list.count(6) * 2 + dice_list.count(5)
         failures = dice_list.count { |x| x <= 4 }

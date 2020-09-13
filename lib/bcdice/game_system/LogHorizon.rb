@@ -96,8 +96,9 @@ module BCDice
         difficulty = getValue(difficultyText, nil)
 
         # ダイスロール
-        dice, dice_str = roll(diceCount, 6)
-        diceList = dice_str.split(/,/).map(&:to_i).sort
+        diceList = @randomizer.roll_barabara(diceCount, 6)
+        dice = diceList.sum()
+        dice_str = diceList.join(",")
 
         total = dice + modify
 
@@ -182,7 +183,8 @@ module BCDice
 
         table = getTableByRank(rank, tables)
 
-        number, dice_str = is_choice ? [dice_value.to_i, dice_value] : roll(1, 6)
+        number = is_choice ? dice_value.to_i : @randomizer.roll_once(6)
+        dice_str = number.to_s
         number += modify
 
         adjustedNumber = getAdjustNumber(number, table)
@@ -555,7 +557,8 @@ module BCDice
           if is_choice
             [dice_value.to_i, dice_value]
           else
-            roll(2, 6)
+            dice_list = @randomizer.roll_barabara(2, 6)
+            [dice_list.sum, dice_list.join(",")]
           end
 
         number += (rank * (is_rank_enable ? 5 : 0)) + modify
@@ -1783,8 +1786,8 @@ module BCDice
         number = []
 
         table_indicate_string.split(//).each do |char|
-          dice_result, dice_str = roll(1, 6)
-          number << dice_str
+          dice_result = @randomizer.roll_once(6)
+          number << dice_result.to_s
           result << case char
                     when 'A', 'M'
                       [
@@ -1871,8 +1874,8 @@ module BCDice
             '落し物'
           ]
         ].each do |table|
-          dice_result, dice_str = roll(1, 6)
-          number << dice_str
+          dice_result = @randomizer.roll_once(6)
+          number << dice_result.to_s
           result << table[dice_result - 1]
         end
 
@@ -1938,8 +1941,8 @@ module BCDice
             'ミー'
           ].map { |e| '一人称：' + e }
         ].each do |table|
-          dice_result, dice_str = roll(1, 6)
-          number << dice_str
+          dice_result = @randomizer.roll_once(6)
+          number << dice_result.to_s
           result << table[dice_result - 1]
         end
 
@@ -1950,11 +1953,9 @@ module BCDice
       def getMusicalInstrumentTypeDiceCommandResult(command)
         return nil unless command =~ /MII(\d?)/
 
-        type, is_roll = if Regexp.last_match(1) && Regexp.last_match(1) != ''
-                          [Regexp.last_match(1).to_i, false]
-                        else
-                          roll(1, 6)
-                        end
+        is_roll = !(Regexp.last_match(1) && Regexp.last_match(1) != '')
+        type = is_roll ? @randomizer.roll_once(6) : Regexp.last_match(1).to_i
+
         return nil if type < 1 || 6 < type
 
         tableName = "楽器種別表"
@@ -1993,7 +1994,8 @@ module BCDice
           if is_choice
             [dice_value.to_i, dice_value]
           else
-            roll(2, 6)
+            dice_list = @randomizer.roll_barabara(2, 6)
+            [dice_list.sum, dice_list.join(",")]
           end
 
         number += (rank * (is_rank_enable ? 5 : 0)) + modify

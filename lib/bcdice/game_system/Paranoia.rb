@@ -43,14 +43,12 @@ module BCDice
       def getaRoll()
         result = ""
 
-        _, diceText = roll(1, 2)
-
-        diceList = diceText.split(/,/).map(&:to_i)
+        dice = @randomizer.roll_once(2)
 
         result += "幸福ですか？ ＞ "
 
         getaString = ''
-        case (diceList[0])
+        case dice
         when 1
           getaString = '幸福です'
         when 2

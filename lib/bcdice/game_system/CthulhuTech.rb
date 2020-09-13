@@ -51,10 +51,10 @@ module BCDice
         end
 
         # 判定を行う
-        # @param [DiceBot] bot ダイスボット
+        # @param randomizer [Randoizer]
         # @return [String] 判定結果
-        def execute(bot)
-          dice_values = Array.new(@num) { bot.roll(1, 10)[0] }
+        def execute(randomizer)
+          dice_values = randomizer.roll_barabara(@num, 10)
 
           # ファンブル：出目の半分（小数点以下切り上げ）以上が1の場合
           fumble = dice_values.count(1) >= (dice_values.length + 1) / 2
@@ -238,7 +238,7 @@ module BCDice
         node = parse(command)
         return nil unless node
 
-        return node.execute(self)
+        return node.execute(@randomizer)
       end
 
       private

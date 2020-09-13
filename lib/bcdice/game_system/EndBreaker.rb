@@ -61,8 +61,7 @@ module BCDice
         diceFullList = []
 
         while rollCount != 0
-          _, dice_str = roll(rollCount, 6)
-          diceList = dice_str.split(/,/).map(&:to_i).sort
+          diceList = @randomizer.roll_barabara(rollCount, 6).sort
           diceFullList.concat(diceList)
 
           # 1の出目ごとにダブルトリガーで2個ダイス追加

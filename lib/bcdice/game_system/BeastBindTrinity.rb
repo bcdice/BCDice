@@ -73,12 +73,12 @@ module BCDice
           parse()
         end
 
-        def roll(bot)
+        def roll(randomizer)
           if @parse_error
             return nil
           end
 
-          @bot = bot
+          @randomizer = randomizer
 
           dice_list_org = roll_with_dice_pool()
           if dice_list_org.empty?
@@ -180,7 +180,7 @@ module BCDice
 
         def roll_with_dice_pool
           dice_times = @dice_num - @dice_pool.size
-          dice_list = Array.new(dice_times) { @bot.roll(1, 6)[0] } + @dice_pool
+          dice_list = @randomizer.roll_barabara(dice_times, 6) + @dice_pool
 
           return dice_list.sort
         end
@@ -241,7 +241,7 @@ module BCDice
         end
 
         bb = BBCommand.new(command)
-        return bb.roll(self)
+        return bb.roll(@randomizer)
       end
 
       TABLES = {

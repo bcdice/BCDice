@@ -41,7 +41,10 @@ module BCDice
       end
 
       def checkRoll(diceCount, isActive, modify, target)
-        dice, diceText = roll(diceCount, 6)
+        dice_list = @randomizer.roll_barabara(diceCount, 6)
+        dice = dice_list.sum()
+        diceText = dice_list.join(",")
+
         successValue = dice + modify
         modifyText = getValueText(modify)
         targetText = (target == 0 ? '' : ">=#{target}")

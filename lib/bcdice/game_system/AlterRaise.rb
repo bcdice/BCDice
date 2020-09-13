@@ -100,8 +100,9 @@ module BCDice
           dice = 12 if dice > 12
           diceText = ''
         else
-          dice, diceText = roll(2, 6)
-          diceText = "(#{diceText})"
+          dice_list = @randomizer.roll_barabara(2, 6)
+          dice = dice_list.sum()
+          diceText = "(#{dice_list.join(',')})"
         end
 
         tableText = get_table_by_number(dice, table)

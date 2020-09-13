@@ -124,7 +124,9 @@ module BCDice
           return nil
         end
 
-        dice_total, dice_list_text = roll(times, 6)
+        dice_list = @randomizer.roll_barabara(times, 6)
+        dice_total = dice_list.sum()
+        dice_list_text = dice_list.join(",")
 
         is_critical = dice_total >= critical
         is_fumble = dice_total <= fumble

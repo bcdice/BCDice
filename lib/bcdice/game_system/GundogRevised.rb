@@ -65,7 +65,6 @@ module BCDice
         table = []
         ttype = ""
         type = ""
-        dice = 0
         mod = 0
 
         # ダメージペナルティ表
@@ -86,15 +85,11 @@ module BCDice
           type, table = getFumbleTypeAndTable(head)
         end
 
-        return '1' if  type.empty?
+        return '1' if type.empty?
 
-        dice, diceText = roll(2, 10)
+        diceArray = @randomizer.roll_barabara(2, 10)
+        dice = mod + diceArray.select { |x| x < 10 }.sum()
 
-        dice = mod
-        diceArray = diceText.split(/,/).map(&:to_i)
-        diceArray.each do |i|
-          dice += i if  i < 10
-        end
         diceOriginalText = dice
         dice = 0 if dice < 0
         dice = 18 if dice > 18

@@ -81,8 +81,8 @@ module BCDice
         signOfInequality = m[6] if m[6]
         diff = m[7].to_i if m[7]
 
-        _, dice_str, = roll(dice_c, 6, @sort_add_dice)
-        dice_num = dice_str.split(',').map(&:to_i)
+        dice_num = @randomizer.roll_barabara(dice_c, 6).sort
+        dice_str = dice_num.join(",")
 
         dice_now = dice_num[dice_c - 2] + dice_num[dice_c - 1]
         total_n = dice_now + bonus

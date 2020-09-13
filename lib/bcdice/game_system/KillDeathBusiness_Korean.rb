@@ -153,7 +153,9 @@ module BCDice
           fumble = 11
         end
 
-        number, diceText, = roll(2, 6)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        number = dice_list.sum()
+        diceText = dice_list.join(",")
 
         result += "【난이도#{target}、보정#{modify}、펌블치#{fumble}】 ＞ 주사위 눈(#{diceText}) ＞ "
 

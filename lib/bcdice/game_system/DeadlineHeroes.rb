@@ -122,11 +122,11 @@ module BCDice
           end
         end
 
-        # @params bot [#roll]
+        # @params randomizer [Randomizer]
         # @params minus_score [Integer]
         # @return [String]
-        def roll(bot, minus_score)
-          dice, = bot.roll(1, 10)
+        def roll(randomizer, minus_score)
+          dice = randomizer.roll_once(10)
           key_number = dice + minus_score
 
           key_text, chosen = at(key_number)
@@ -157,7 +157,7 @@ module BCDice
         chart = DEATH_CHARTS[m[1]]
         minus_score = m[2].to_i
 
-        return chart.roll(self, minus_score)
+        return chart.roll(@randomizer, minus_score)
       end
 
       DEATH_CHARTS = {
@@ -297,7 +297,7 @@ module BCDice
             next
           end
 
-          result, element = base_chart.roll(self)
+          result, element = base_chart.roll(@randomizer)
           results.push(result)
           elements.push(element)
         end
@@ -327,10 +327,10 @@ module BCDice
           @items = items
         end
 
-        # @param bot [#roll]
+        # @param randomizer [Randomizer]
         # @return [Array<(String, String)>]
-        def roll(bot)
-          dice, = bot.roll(1, 10)
+        def roll(randomizer)
+          dice = randomizer.roll_once(10)
           chosen = @items[dice - 1]
 
           result = "#{@name}(#{dice}) ＞ #{chosen}"
@@ -338,7 +338,7 @@ module BCDice
             element_type = m[1]
             element_chart = HERO_NAME_ELEMENT_CHARTS[element_type]
 
-            element_result, chosen = element_chart.roll(bot)
+            element_result, chosen = element_chart.roll(randomizer)
             result = [result, element_result].join(" ＞ ")
           end
 
@@ -352,10 +352,10 @@ module BCDice
           @items = items
         end
 
-        # @param bot [#roll]
+        # @param randomizer [Randomizer]
         # @return [Array<(String, String)>]
-        def roll(bot)
-          dice, = bot.roll(1, 10)
+        def roll(randomizer)
+          dice = randomizer.roll_once(10)
           chosen = @items[dice - 1]
 
           result = "#{@name}(#{dice}) ＞ #{chosen[:element]} （意味：#{chosen[:mean]}）"

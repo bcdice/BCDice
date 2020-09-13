@@ -75,7 +75,7 @@ module BCDice
         succ_flg = false
 
         number.times do
-          dice = roll(1, 20)[0]
+          dice = @randomizer.roll_once(20)
 
           if dicetext == ""
             dicetext = dice.to_s
@@ -139,7 +139,7 @@ module BCDice
         end
 
         attack.times do
-          dice = roll(1, 20)[0]
+          dice = @randomizer.roll_once(20)
 
           if dicetext == ""
             dicetext = dice.to_s
@@ -169,7 +169,7 @@ module BCDice
 
       # ラジオマリエッタ表
       def get_radiomarietta_table
-        dice = roll(1, 20)[0]
+        dice = @randomizer.roll_once(20)
         case dice
         when 1
           text = "「なんてこった！　ここで事故のお知らせだ！」\n通行止め……。ランダムなマス1つを決定する。この一日中、そのマスに移動する事はできない。"
@@ -198,7 +198,7 @@ module BCDice
 
       # 移動表
       def get_takeoff_table
-        dice = roll(1, 20)[0]
+        dice = @randomizer.roll_once(20)
         case dice
         when 1
           text = "エンジンがぶっ壊れた！ただちに【機体コンディション】が「20」となり、このターン中は2つ目のアクションも含め「●移動」することができない。"
@@ -243,7 +243,7 @@ module BCDice
 
       # 探索表
       def get_exploration_table
-        dice = roll(1, 20)[0]
+        dice = @randomizer.roll_once(20)
         case dice
         when 1
           text = "クソっ！このマスに付与されていた\[手がかり\]を失う。"
@@ -280,7 +280,7 @@ module BCDice
 
       # 補給表
       def get_flightsupply_table
-        dice = roll(1, 20)[0]
+        dice = @randomizer.roll_once(20)
         case dice
         when 1
           text = "……えっ？！　キミの【物資点】は0点となる。"

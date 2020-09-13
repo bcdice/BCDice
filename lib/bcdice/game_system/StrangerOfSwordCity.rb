@@ -53,8 +53,8 @@ module BCDice
         modify = Regexp.last_match(2).to_i
         difficulty = Regexp.last_match(4).to_i if Regexp.last_match(4)
 
-        dice, diceText = roll(diceCount, 6)
-        diceList = diceText.split(/,/).map(&:to_i).sort
+        diceList = @randomizer.roll_barabara(diceCount, 6).sort
+        dice = diceList.sum()
 
         totalValue = (dice + modify)
         modifyText = getModifyText(modify)

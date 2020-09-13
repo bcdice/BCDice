@@ -209,7 +209,10 @@ module BCDice
           fumble = 20
         end
 
-        value, string = roll(counts, 20, 1)
+        dice_list = @randomizer.roll_barabara(counts, 20).sort
+        value = dice_list.sum()
+        string = dice_list.join(",")
+
         text = "(#{counts}A#{judgment}C#{critical}F#{fumble}) ＞ #{string} ＞ "
 
         unless counts == 1

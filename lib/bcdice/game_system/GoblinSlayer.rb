@@ -72,7 +72,10 @@ module BCDice
         without_compare = m[2].nil? || target <= 0
         cmp_op = m[3]
 
-        total, diceText, = roll(2, 6)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        total = dice_list.sum()
+        diceText = dice_list.join(",")
+
         achievement = basis + total # 達成値
 
         fumble = diceText == "1,1"
@@ -99,7 +102,10 @@ module BCDice
           return "因果点が12点以上の場合、因果点は使用できません。"
         end
 
-        total, diceText = roll(2, 6)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        total = dice_list.sum()
+        diceText = dice_list.join(",")
+
         achievement = total + luck
 
         result = " ＞ #{resultStr(achievement, volition, '>=', false, false)}"
@@ -116,19 +122,26 @@ module BCDice
 
         num = m[1].to_i
         fmt = "命中判定の効力値によるボーナス ＞ "
-        if num >= 40
-          total, diceText, = roll(5, 6)
-        elsif num >= 30
-          total, diceText, = roll(4, 6)
-        elsif num >= 25
-          total, diceText, = roll(3, 6)
-        elsif num >= 20
-          total, diceText, = roll(2, 6)
-        elsif num >= 15
-          total, diceText, = roll(1, 6)
-        else
-          return fmt + "なし"
-        end
+
+        times =
+          if num >= 40
+            5
+          elsif num >= 30
+            4
+          elsif num >= 25
+            3
+          elsif num >= 20
+            2
+          elsif num >= 15
+            1
+          else
+            return fmt + "なし"
+          end
+
+        dice_list = @randomizer.roll_barabara(times, 6)
+        total = dice_list.sum()
+        diceText = dice_list.join(",")
+
         return fmt + "#{total}[#{diceText}] ＞ #{total}"
       end
 

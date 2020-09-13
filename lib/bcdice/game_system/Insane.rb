@@ -800,7 +800,8 @@ module BCDice
           [66, '-'],
         ]
 
-        number, total_n = roll(1, 6)
+        number = @randomizer.roll_once(6)
+        total_n = number.to_s
         counts = 3
         if number <= 4
           counts = number + 5

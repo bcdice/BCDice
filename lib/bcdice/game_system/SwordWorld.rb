@@ -404,8 +404,10 @@ module BCDice
       end
 
       def rollDice(_values)
-        dice, diceText = roll(2, 6)
-        return dice, diceText
+        dice_list = @randomizer.roll_barabara(2, 6)
+        total = dice_list.sum()
+        dice_str = dice_list.join(",")
+        return total, dice_str
       end
 
       # @param rating_total [Integer]

@@ -308,7 +308,12 @@ module BCDice
       # @param [SRSRollNode] srs_roll 成功判定ノード
       # @return [String] 成功判定結果
       def execute_srs_roll(srs_roll)
-        sum, dice_str, = roll(2, 6, @sort_add_dice)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        dice_list.sort! if @sort_add_dice
+
+        sum = dice_list.sum()
+        dice_str = dice_list.join(",")
+
         modified_sum = sum + srs_roll.modifier
 
         parts = [

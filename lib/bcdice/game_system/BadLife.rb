@@ -106,12 +106,9 @@ module BCDice
         isAnticipation = optionalText.include?('A')    # 先見の明
         isHeavyAttack = optionalText.include?('H')     # 重撃
 
-        _dice, diceText = roll(diceCount, 20)
-        diceMax = 0
-        diceArray = diceText.split(/,/).map(&:to_i)
-        diceArray.each do |i| # さくら鯖で.maxを使うと、何故か.minになる……
-          diceMax = i if  i > diceMax
-        end
+        dice_list = @randomizer.roll_barabara(diceCount, 20)
+        diceText = dice_list.join(",")
+        diceMax = dice_list.max
 
         diceMax = 5 if isHeavyAttack && diceMax <= 5   # 重撃
 

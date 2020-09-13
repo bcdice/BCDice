@@ -84,11 +84,7 @@ module BCDice
         diceCount = skill + 1
         diceCount = 3 if  skill == 0
 
-        dice = []
-        diceCount.times do |i|
-          dice[i], = roll(1, 6)
-        end
-
+        dice = @randomizer.roll_barabara(diceCount, 6)
         diceText = dice.join(',')
 
         dice = dice.sort

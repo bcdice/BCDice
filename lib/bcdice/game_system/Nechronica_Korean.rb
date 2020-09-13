@@ -85,11 +85,12 @@ module BCDice
 
         diff = 6
 
-        _, dice_str, n1, cnt_max, n_max = roll(dice_n, 10, 1)
+        dice = @randomizer.roll_barabara(dice_n, 10).sort
+        n_max = dice.max
 
         total_n = n_max + mod
 
-        output = "(#{string}) ＞ [#{dice_str}]"
+        output = "(#{string}) ＞ [#{dice.join(',')}]"
         if mod < 0
           output += mod.to_s
         elsif mod > 0
@@ -99,7 +100,6 @@ module BCDice
         n1 = 0
         cnt_max = 0
 
-        dice = dice_str.split(',').map(&:to_i)
         dice.length.times do |i|
           dice[i] += mod
           n1 += 1 if dice[i] <= 1

@@ -1772,7 +1772,9 @@ module BCDice
             counts = 5
           end
 
-          total, dice = roll(counts, 6, 1)
+          dice_list = @randomizer.roll_barabara(counts, 6).sort
+          total = dice_list.sum()
+          dice = dice_list.join(",")
           total += degrees
 
           text = "#{title} ＞ #{degrees}+[#{dice}] ＞ #{total} ＞ "
@@ -1807,17 +1809,19 @@ module BCDice
           return nil if counts <= 0
 
           sure = !Regexp.last_match(2).empty?
-          remove = Regexp.last_match(3)
+          remove = Regexp.last_match(3).split("").map(&:to_i)
           adjust = Regexp.last_match(4)
           adjust ||= ''
 
-          result = roll(counts, 6, 1)
-          dice = result[1].split(",") - remove.split("")
+          dice = @randomizer.roll_barabara(counts, 6).sort
+          dice_str = dice.join(",")
 
-          text = "#{title} ＞ [" + result[1] + "]#{adjust} ＞ "
+          dice -= remove
+
+          text = "#{title} ＞ [#{dice_str}]#{adjust} ＞ "
 
           unless (dice.count == counts) || dice.empty?
-            text += '[' + dice.join(",") + "]#{adjust} ＞ "
+            text += "[#{dice.join(',')}]#{adjust} ＞ "
           end
 
           if sure || (dice.count == dice.uniq.count)
@@ -2045,8 +2049,9 @@ module BCDice
         string += '+' if adjust > 0
         string += adjust.to_s unless adjust == 0
 
-        result = roll(counts, 6, 1)
-        diceAll = result[1].delete(",") + residual
+        dice_list = @randomizer.roll_barabara(counts, 6).sort
+        dice_str = dice_list.join(",")
+        diceAll = dice_list.join("") + residual
 
         total = 0
         diceUse = []
@@ -2057,7 +2062,7 @@ module BCDice
           end
         end
 
-        text = " ＞ [" + result[1] + ']'
+        text = " ＞ [#{dice_str}]"
 
         if residual.empty?
           text = "#{title}#{text}"
@@ -2191,10 +2196,11 @@ module BCDice
 
         return '' if counts <= 0
 
-        result = roll(counts, 6, 1)
-        numbers = result[1].split(",").uniq
+        dice_list = @randomizer.roll_barabara(counts, 6).sort
+        dice_str = dice_list.join(",")
+        numbers = dice_list.uniq
 
-        text = "#{title} ＞ [" + result[1] + '] ＞ '
+        text = "#{title} ＞ [#{dice_str}] ＞ "
         occurrences = numbers.count
 
         if occurrences > 1
@@ -2202,7 +2208,7 @@ module BCDice
         end
 
         occurrences.times do |i|
-          text += table[numbers[i].to_i - 1] + "\n"
+          text += table[numbers[i] - 1] + "\n"
         end
 
         return text[0, text.length - 1]
@@ -2243,11 +2249,10 @@ module BCDice
 
         return '' if counts <= 0
 
-        result = roll(counts, 6, 1)
-        numbers = result[1].split(",")
+        numbers = @randomizer.roll_barabara(counts, 6).sort
         unique = numbers.uniq
 
-        text = "#{title} ＞ [" + result[1] + '] ＞ '
+        text = "#{title} ＞ [#{numbers.join(',')}] ＞ "
         acquisitions = numbers.count
         kinds = unique.count
 

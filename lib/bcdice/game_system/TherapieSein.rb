@@ -53,7 +53,9 @@ module BCDice
       end
 
       def checkRoll(hasCritical, modify, target)
-        dice, diceText = roll(2, 6)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        dice = dice_list.sum()
+        diceText = dice_list.join(",")
         successValue = dice + modify
 
         modifyText = getValueText(modify)

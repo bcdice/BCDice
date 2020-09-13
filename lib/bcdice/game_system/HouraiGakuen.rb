@@ -69,15 +69,17 @@ module BCDice
         # 目標値セット
         target = Regexp.last_match(1).to_i
 
-        total, diceText = roll(3, 6)
+        dice_list = @randomizer.roll_barabara(3, 6)
+        total = dice_list.sum()
+        diceText = dice_list.join(",")
 
-        result = getCheckResult(diceText, total, target)
+        result = getCheckResult(dice_list, total, target)
 
         return "(3d6<=#{target}) ＞ 出目#{diceText}＝合計#{total} ＞ #{result}"
       end
 
-      def getCheckResult(diceText, total, target)
-        diceList = diceText.split(',').map(&:to_i).sort
+      def getCheckResult(diceList, total, target)
+        diceList = diceList.sort
 
         if isFamble(diceList)
           return FUMBLE
@@ -110,8 +112,11 @@ module BCDice
         enemyValue = Regexp.last_match(2).to_i # 相手の値
         target = getTargetFromValue(yourValue, enemyValue) # 値から目標値を作出
 
-        total, diceText = roll(3, 6)
-        result = getCheckResult(diceText, total, target)
+        dice_list = @randomizer.roll_barabara(3, 6)
+        total = dice_list.sum()
+        diceText = dice_list.join(",")
+
+        result = getCheckResult(dice_list, total, target)
 
         return "(あなたの値#{yourValue}、相手の値#{enemyValue}、3d6<=#{target}) ＞ 出目#{diceText}＝合計#{total} ＞ #{result}"
       end
@@ -131,11 +136,16 @@ module BCDice
         yourTarget = getTargetFromValue(yourValue, enemyValue)
         enemyTarget = getTargetFromValue(enemyValue, yourValue)
 
-        yourTotal, yourDiceText = roll(3, 6)
-        enemyTotal, enemyDiceText = roll(3, 6)
+        your_dice_list = @randomizer.roll_barabara(3, 6)
+        yourTotal = your_dice_list.sum()
+        yourDiceText = your_dice_list.join(",")
 
-        yourResult = getCheckResult(yourDiceText, yourTotal, yourTarget)
-        enemyResult = getCheckResult(enemyDiceText, enemyTotal, enemyTarget)
+        enemy_dice_list = @randomizer.roll_barabara(3, 6)
+        enemyTotal = enemy_dice_list.sum()
+        enemyDiceText = enemy_dice_list.join(",")
+
+        yourResult = getCheckResult(your_dice_list, yourTotal, yourTarget)
+        enemyResult = getCheckResult(enemy_dice_list, enemyTotal, enemyTarget)
 
         result = getResistCheckResult(yourResult, enemyResult)
 

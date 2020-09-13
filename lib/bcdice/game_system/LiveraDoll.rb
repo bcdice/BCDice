@@ -77,8 +77,8 @@ module BCDice
       end
 
       def checkRoll(diceCount, blockNo)
-        _dice, diceText = roll(diceCount, 6, @sort_add_dice)
-        diceArray = diceText.split(/,/).map(&:to_i)
+        diceArray = @randomizer.roll_barabara(diceCount, 6).sort
+        diceText = diceArray.join(",")
 
         resultArray = []
         success = 0

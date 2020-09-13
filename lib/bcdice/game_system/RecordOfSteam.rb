@@ -72,13 +72,12 @@ module BCDice
         fumbleFlag = false
 
         while diceCount > 0
-          _, diceListText, = roll(diceCount, 6)
-          debug("diceListText", diceListText)
+          diceList = @randomizer.roll_barabara(diceCount, 6)
+          diceListText = diceList.join(",")
 
           rollResult += "," if rollResult != ""
           rollResult += diceListText
 
-          diceList = diceListText.split(/,/).map(&:to_i)
           if diceList.uniq.length == 1 && roundCount == 0
             if diceList.uniq.first <= specialValue
               specialFlag = true

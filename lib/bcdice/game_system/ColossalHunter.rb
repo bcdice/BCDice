@@ -59,7 +59,9 @@ module BCDice
         difficulty = getValue(difficultyText, nil)
 
         # ダイスロール
-        dice, dice_str = roll(diceCount, 6)
+        dice_list = @randomizer.roll_barabara(diceCount, 6)
+        dice = dice_list.sum()
+        dice_str = dice_list.join(",")
 
         total = dice + modify
 

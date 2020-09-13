@@ -110,7 +110,9 @@ module BCDice
           fumble = 11
         end
 
-        number, diceText, = roll(2, 6)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        number = dice_list.sum()
+        diceText = dice_list.join(",")
 
         result += "【難易度#{target}、補正#{modify}、ファンブル率#{fumble}】 ＞ 出目(#{diceText}) ＞ "
 

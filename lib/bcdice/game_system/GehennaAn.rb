@@ -58,9 +58,9 @@ module BCDice
 
         mod = ArithmeticEvaluator.new.eval(modText)
 
-        diceValue, diceText, = roll(diceCount, 6, @sort_add_dice)
-
-        diceArray = diceText.split(/,/).map(&:to_i)
+        diceArray = @randomizer.roll_barabara(diceCount, 6).sort
+        diceValue = diceArray.sum()
+        diceText = diceArray.join(",")
 
         dice_1st = ""
         isLuck = true

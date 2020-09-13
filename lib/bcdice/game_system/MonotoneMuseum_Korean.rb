@@ -63,7 +63,9 @@ module BCDice
         mod = 0
         mod = ArithmeticEvaluator.new.eval(modText) unless modText.nil?
 
-        total, dice_str, = roll(2, 6, @sort_add_dice)
+        dice_list = @randomizer.roll_barabara(2, 6).sort
+        total = dice_list.sum()
+        dice_str = dice_list.join(",")
         total_n = total + mod.to_i
 
         output = "#{total}[#{dice_str}]＋#{mod} → #{total_n}"

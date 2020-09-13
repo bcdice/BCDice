@@ -80,7 +80,7 @@ MESSAGETEXT
           return nil
         end
 
-        dice_list = roll_(@times, 6).map { |x| clamp(x + @cmd.modify_number, 1, @max_shift) }.sort
+        dice_list = @randomizer.roll_barabara(@times, 6).map { |x| clamp(x + @cmd.modify_number, 1, @max_shift) }.sort
 
         sequence = [
           expr_clutch(),
@@ -121,11 +121,6 @@ MESSAGETEXT
         end
       end
 
-      def roll_(times, sides)
-        _, dice_list = roll(times, sides)
-        return dice_list.split(',').map(&:to_i)
-      end
-
       # 判定
       def r_roll(string)
         parser = CommandParser.new(/\d+R6/i)
@@ -148,7 +143,7 @@ MESSAGETEXT
         @fumble = normalize_fumble(@cmd.fumble || 2, string)
         @break = (@cmd.dollar || 0).abs
 
-        dice_list = roll_(@times, 6).sort
+        dice_list = @randomizer.roll_barabara(@times, 6).sort
         dice_broken = dice_list.pop(@break)
 
         # ブレイク後のダイスから最大値２つの合計がダイスの値
@@ -237,7 +232,7 @@ MESSAGETEXT
           return nil
         end
 
-        dice_list = roll_(@times, 6).sort
+        dice_list = @randomizer.roll_barabara(@times, 6).sort
         dice_broken = dice_list.pop(@break)
 
         total_n = dice_list.inject(0, :+) + @cmd.modify_number

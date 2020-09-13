@@ -78,9 +78,10 @@ module BCDice
           rollCount = diceCount
         end
 
-        _dice, diceText = roll(rollCount, 10, @sort_add_dice)
-        diceText2 = diceText.gsub('10', '0')
-        diceArray = diceText2.split(/,/).map(&:to_i)
+        diceArray = @randomizer.roll_barabara(rollCount, 10).sort
+        diceText = diceArray.join(',')
+
+        diceArray.map! { |x| x == 10 ? 0 : x }
         diceArray.map! { |i| i - correction }
         diceText2 = diceArray.sort.join(',')
 
@@ -132,12 +133,13 @@ module BCDice
           rollCount = diceCount
         end
 
-        _dice, diceText = roll(rollCount, 10, @sort_add_dice)
-        diceText2 = diceText.gsub('10', '0')
-        diceArray = diceText2.split(/,/).map(&:to_i).sort
+        dice_list = @randomizer.roll_barabara(rollCount, 10).sort
+        diceText = dice_list.join(",")
+
+        diceArray = dice_list.map { |x| x == 10 ? 0 : x }.sort
         criticalCount = diceArray.count(0)
         diceArray.map! { |i| i - correction }
-        diceText2 = diceArray.join(',')
+        diceText2 = diceArray.join(",")
 
         result = "#{rollCount}D10"
         result += "-#{correction}" if correction > 0

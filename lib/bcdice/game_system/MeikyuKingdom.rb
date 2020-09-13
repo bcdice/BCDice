@@ -155,8 +155,8 @@ module BCDice
 
         bonus = modifyText ? ArithmeticEvaluator.new.eval(modifyText) : 0
 
-        _, dice_str, = roll(diceCount, 6, @sort_add_dice)
-        dice_list = dice_str.split(',').map(&:to_i)
+        dice_list = @randomizer.roll_barabara(diceCount, 6).sort
+        dice_str = dice_list.join(",")
 
         dice1 = diceCount >= 2 ? dice_list[diceCount - 2] : 0
         dice2 = diceCount >= 1 ? dice_list[diceCount - 1] : 0

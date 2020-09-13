@@ -133,10 +133,8 @@ module BCDice
           end
           commandText = "#{commandName}#{judgeNumberText}>=#{targetNumber}"
 
-          isSort = 1
-          _, diceText, = roll(diceCount, 6, isSort)
-
-          diceList = diceText.split(/,/).map(&:to_i)
+          diceList = @randomizer.roll_barabara(diceCount, 6).sort
+          diceText = diceList.join(",")
 
           message += " ＞ " if isReRoll
           message += "(#{commandText}) ＞ #{diceCount}D6[#{diceText}] ＞ "

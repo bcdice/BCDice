@@ -78,8 +78,8 @@ module BCDice
         target = 1 if target < 1
         target = 10 if target > 10
 
-        _dice, diceText = roll(diceCount, 10, @sort_add_dice)
-        diceArray = diceText.split(/,/).map(&:to_i)
+        diceArray = @randomizer.roll_barabara(diceCount, 10).sort
+        diceText = diceArray.join(",")
 
         successCount = diceArray.find_all { |i| (i <= target) }.size
 

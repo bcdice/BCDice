@@ -123,19 +123,11 @@ module BCDice
       end
 
       def make_dice_roll(dice_pool)
-        botch_dice = 0
-        success_dice = 0
+        dice_list = @randomizer.roll_barabara(dice_pool, 6)
+        success_dice = dice_list.count(6)
+        botch_dice = dice_list.count(1)
 
-        _, dice_text, = roll(dice_pool, 6)
-
-        dice_text.split(',').each do |take_dice|
-          if take_dice == "6"
-            success_dice += 1
-          elsif take_dice == "1"
-            botch_dice += 1
-          end
-        end
-        return "[#{dice_text}]", success_dice, botch_dice
+        return "[#{dice_list.join(',')}]", success_dice, botch_dice
       end
     end
   end

@@ -64,8 +64,8 @@ module BCDice
         rollCount = diceCount
 
         while rollCount > 0
-          _dice, diceText = roll(rollCount, 10, @sort_add_dice)
-          diceArray = diceText.split(/,/).map(&:to_i)
+          diceArray = @randomizer.roll_barabara(rollCount, 10).sort
+          diceText = diceArray.join(",")
 
           successCount = diceArray.count { |i| i <= target }
           criticalCount = diceArray.count { |i| i <= criticalNumber }

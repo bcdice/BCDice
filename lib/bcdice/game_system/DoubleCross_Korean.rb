@@ -51,9 +51,9 @@ module BCDice
         end
 
         # 成功判定を行う
-        # @param [DiceBot] bot ダイスボット
+        # @param randomizer [Randomizer]
         # @return [String] 判定結果
-        def execute(bot)
+        def execute(randomizer)
           if @critical_value < 2
             return "(#{@expression}) ＞ 크리티컬치가 너무 낮습니다. 2 이상을 지정해주세요."
           end
@@ -70,7 +70,7 @@ module BCDice
           loop_count = 0
 
           while num_of_dice > 0 && loop_count < CommonCommand::RerollDice::REROLL_LIMIT
-            values = Array.new(num_of_dice) { bot.roll(1, 10)[0] }
+            values = randomizer.roll_barabara(num_of_dice, 10)
 
             value_group = ValueGroup.new(values, @critical_value)
             value_groups.push(value_group)
@@ -211,7 +211,7 @@ module BCDice
       # @return [nil] 無効なコマンドだった場合
       def rollDiceCommand(command)
         if (dx = parse_dx(command))
-          return dx.execute(self)
+          return dx.execute(@randomizer)
         end
 
         if command == 'ET'
@@ -292,7 +292,7 @@ module BCDice
         pos_result = POSITIVE_EMOTION_TABLE.roll(@randomizer)
         neg_result = NEGATIVE_EMOTION_TABLE.roll(@randomizer)
 
-        positive = roll(1, 2)[0] == 1
+        positive = @randomizer.roll_once(2) == 1
         pos_neg_text =
           if positive
             ["○#{pos_result.content}", neg_result.content]

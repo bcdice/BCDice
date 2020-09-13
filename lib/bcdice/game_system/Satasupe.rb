@@ -207,7 +207,7 @@ module BCDice
         operator = Regexp.last_match(3)
         value = Regexp.last_match(4).to_i
 
-        dice,  = roll(2, 6)
+        dice = @randomizer.roll_sum(2, 6)
         modify = 0
 
         unless operator.nil?

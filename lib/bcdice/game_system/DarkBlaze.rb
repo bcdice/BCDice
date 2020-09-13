@@ -96,12 +96,8 @@ module BCDice
         fumble = 0
         dice_c = 3 + mod.abs
 
-        dummy = roll(dice_c, 6, 1)
-
-        dummy.shift
-        dice_str = dummy.shift
-
-        dice_arr = dice_str.split(/,/).map(&:to_i)
+        dice_arr = @randomizer.roll_barabara(dice_c, 6).sort
+        dice_str = dice_arr.join(",")
 
         3.times do |i|
           ch = dice_arr[i]

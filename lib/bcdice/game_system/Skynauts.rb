@@ -75,7 +75,9 @@ module BCDice
         target = m[1].empty? ? 7 : m[1].to_i # 目標値。省略時は7
         debug("目標値", target)
 
-        total, diceText, = roll(2, 6)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        total = dice_list.sum()
+        diceText = dice_list.join(",")
 
         if total <= 2
           result = "ファンブル"

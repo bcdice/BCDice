@@ -71,7 +71,9 @@ module BCDice
         critical = (m[5] || 12).to_i
         fumble = (m[7] || 2).to_i
 
-        dice_value, dice_str, = roll(dice_count, 6, @sort_add_dice)
+        dice_list = @randomizer.roll_barabara(dice_count, 6).sort
+        dice_value = dice_list.sum()
+        dice_str = dice_list.join(",")
         total = dice_value + modify_number
 
         result =

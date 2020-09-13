@@ -100,13 +100,14 @@ module BCDice
       end
 
       def rollJudgeDice(diceCount)
-        dice, diceText, = roll(diceCount, 6)
+        diceList = @randomizer.roll_barabara(diceCount, 6)
+        dice = diceList.sum()
+        diceText = diceList.join(",")
 
         if diceCount == 2
           return dice, diceText
         end
 
-        diceList = diceText.split(",").map(&:to_i)
         diceList.sort!
         diceList.reverse!
 

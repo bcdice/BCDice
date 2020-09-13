@@ -63,9 +63,7 @@ module BCDice
 
         result += "(#{base}d6)"
 
-        _, diceText = roll(base, 6)
-
-        diceList = diceText.split(/,/).map(&:to_i).sort
+        diceList = @randomizer.roll_barabara(base, 6).sort
 
         result += " ＞ [#{diceList.join(',')}] ＞ "
         result += getRollResultString(diceList, crit, diff)

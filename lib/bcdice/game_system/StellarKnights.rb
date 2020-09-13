@@ -98,10 +98,10 @@ module BCDice
       # @param [String] command
       # @return [String]
       def resolute_action(num_dices, defence, dice_change_text, command)
-        _, dice_text, = roll(num_dices, 6, @sort_barabara_dice)
-        output = "(#{command}) ＞ #{dice_text}"
+        dices = @randomizer.roll_barabara(num_dices, 6).sort
+        dice_text = dices.join(",")
 
-        dices = dice_text.split(',').map(&:to_i)
+        output = "(#{command}) ＞ #{dice_text}"
 
         # FAQによると、ダイスの置き換えは宣言された順番に適用されていく
         dice_change_rules = parse_dice_change_rules(dice_change_text)

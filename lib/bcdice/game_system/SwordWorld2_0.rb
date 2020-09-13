@@ -87,14 +87,14 @@ module BCDice
         end
 
         # 超越判定を行う
-        # @param [SwordWorld2_0] bot ダイスボット
+        # @param randomizer [Randomizer]
         # @return [String]
-        def execute(bot)
+        def execute(randomizer)
           if @critical_value < 3
             return "(#{@expression}) ＞ クリティカル値が小さすぎます。3以上を指定してください。"
           end
 
-          first_value_group = roll_2d6(bot)
+          first_value_group = randomizer.roll_barabara(2, 6)
           value_groups = [first_value_group]
 
           fumble = first_value_group == [1, 1]
@@ -102,7 +102,7 @@ module BCDice
 
           if !fumble && !critical
             while sum_of_dice(value_groups.last) >= @critical_value
-              value_groups.push(roll_2d6(bot))
+              value_groups.push(randomizer.roll_barabara(2, 6))
             end
           end
 
@@ -168,12 +168,6 @@ module BCDice
             '失敗'
           end
         end
-
-        # 2D6を振る
-        # @return [(Integer, Integer)] 出目のグループ
-        def roll_2d6(bot)
-          Array.new(2) { bot.roll(1, 6)[0] }
-        end
       end
 
       def initialize
@@ -202,7 +196,7 @@ module BCDice
           target = m[3] && m[4].to_i
 
           node = TranscendentTest.new(critical_value, modifier, cmp_op, target)
-          node.execute(self)
+          node.execute(@randomizer)
         when 'FT'
           get_fumble_table
         when 'TT'
@@ -240,12 +234,9 @@ module BCDice
           return super(values)
         end
 
-        dice, diceText = roll(1, 6)
+        dice = @randomizer.roll_once(6)
 
-        dice *= 2
-        diceText = "#{diceText},#{diceText}"
-
-        return dice, diceText
+        return dice * 2, "#{dice},#{dice}"
       end
 
       def getGratestFortuneFromString(string)

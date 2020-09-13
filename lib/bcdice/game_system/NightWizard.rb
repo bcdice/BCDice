@@ -177,7 +177,10 @@ module BCDice
         end
 
         if status != :fumble && parsed.prana
-          prana_bonus, prana_list = roll(parsed.prana, 6)
+          dice_list = @randomizer.roll_barabara(parsed.prana, 6)
+          prana_bonus = dice_list.sum()
+          prana_list = dice_list.join(",")
+
           @total += prana_bonus
           @interim_expr += "+#{prana_bonus}[#{prana_list}]"
         end
@@ -197,7 +200,9 @@ module BCDice
 
       # @return [Symbol, nil]
       def roll_once(fumbleable = false)
-        dice_value, dice_str = roll(2, 6)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        dice_value = dice_list.sum()
+        dice_str = dice_list.join(",")
 
         if fumbleable && @fumble_numbers.include?(dice_value)
           @total -= 10

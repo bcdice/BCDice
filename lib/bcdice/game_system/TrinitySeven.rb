@@ -64,10 +64,10 @@ module BCDice
       def rollHit(command, critical, target, modify)
         target += modify
 
-        total, diceText, = roll(1, 100)
+        total = @randomizer.roll_once(100)
         result = getHitRollResult(total, target, critical)
 
-        text = "(#{command}) ＞ #{total}[#{diceText}] ＞ #{result}"
+        text = "(#{command}) ＞ #{total}[#{total}] ＞ #{result}"
         debug("rollDiceCommand result text", text)
 
         return text
@@ -85,7 +85,9 @@ module BCDice
       def rollDamage(command, diceCount, critical, modify)
         return "" if diceCount < critical
 
-        total, diceText, = roll(diceCount, 6)
+        dice_list = @randomizer.roll_barabara(diceCount, 6)
+        total = dice_list.sum()
+        diceText = dice_list.join(",")
 
         additionalListText = ""
         total, additionalList = getRollDamageCritialText(diceCount, critical, total, diceText, modify)

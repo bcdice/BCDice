@@ -90,8 +90,7 @@ module BCDice
         dice_str = ""
 
         while isSkilledCritical
-          dummy = roll(1, 20, 0)
-          dice_n = dummy.shift
+          dice_n = @randomizer.roll_once(20)
           skilled += dice_n
           unskilled += dice_n if isCritical
 

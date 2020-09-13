@@ -98,21 +98,12 @@ module BCDice
       end
 
       def make_dice_roll(dice_pool)
-        _, dice_text, = roll(dice_pool, 10)
-        success_dice = 0
-        ten_dice = 0
-        botch_dice = 0
+        dice_list = @randomizer.roll_barabara(dice_pool, 10)
 
-        dice_text.split(',').each do |take_dice|
-          if take_dice.to_i >= 6
-            success_dice += 1
-            if take_dice == "10"
-              ten_dice += 1
-            end
-          elsif take_dice == "1"
-            botch_dice += 1
-          end
-        end
+        dice_text = dice_list.join(',')
+        success_dice = dice_list.count { |x| x >= 6 }
+        ten_dice = dice_list.count(10)
+        botch_dice = dice_list.count(1)
 
         return dice_text, success_dice, ten_dice, botch_dice
       end

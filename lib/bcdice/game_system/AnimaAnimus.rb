@@ -51,8 +51,8 @@ module BCDice
         debug("dice_cnt", dice_cnt)
         debug("target", target)
 
-        _, dice_str, = roll(dice_cnt, 10)
-        dice_arr = dice_str.split(',').map(&:to_i)
+        dice_arr = @randomizer.roll_barabara(dice_cnt, 10)
+        dice_str = dice_arr.join(",")
         suc_cnt = dice_arr.count { |x| x <= target }
         has_critical = dice_arr.include?(1)
         result = has_critical ? suc_cnt + 2 : suc_cnt

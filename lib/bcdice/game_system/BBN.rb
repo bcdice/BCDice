@@ -30,8 +30,9 @@ module BCDice
         end
 
         # ダイスロール
-        dice, dice_str = roll(@roll_times, 6)
-        dice_list = dice_str.split(',').map(&:to_i).sort
+        dice_list = @randomizer.roll_barabara(@roll_times, 6)
+        dice = dice_list.sum()
+        dice_str = dice_list.join(",")
 
         total = dice + @modify
 
@@ -115,8 +116,10 @@ module BCDice
         while additional_dice > 0 && reroll_count < 10
           reroll_count += 1
 
-          dice_total, dice_str = roll(additional_dice, 6)
-          additional_dice = dice_str.split(',').map(&:to_i).count(6)
+          dice_list = @randomizer.roll_barabara(additional_dice, 6)
+          dice_total = dice_list.sum()
+          dice_str = dice_list.join(",")
+          additional_dice = dice_list.count(6)
 
           sequence.push("#{total}+#{dice_total}[#{dice_str}]")
           sequence.push("追加クリティカル！") if additional_dice > 0
