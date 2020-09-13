@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-require "bcdice/modifier_formatter"
-
 module BCDice
   module GameSystem
     class SwordWorld < Base
-      include ModifierFormatter
-
       # ゲームシステムの識別子
       ID = 'SwordWorld'
 
@@ -432,7 +428,7 @@ module BCDice
 
         # rate回数が1回で、修正値がない時には途中式と最終結果が一致するので、途中式を省略する
         if rateResults.size > 1 || modifier != 0
-          text = rateResults.join(',') + format_modifier(modifier)
+          text = rateResults.join(',') + Format.modifier(modifier)
           if half
             text = "(#{text})/2"
           end

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'bcdice/modifier_formatter'
 require 'bcdice/arithmetic_evaluator'
 
 # クトゥルフテックのダイスボット
@@ -33,8 +32,6 @@ module BCDice
 
       # 行為判定のノード
       class Test
-        include ModifierFormatter
-
         # 判定で用いる比較演算子
         #
         # 対抗判定で変えられるように定数で定義する。
@@ -86,7 +83,7 @@ module BCDice
         # 数式表現を返す
         # @return [String]
         def expression
-          modifier_str = format_modifier(@modifier)
+          modifier_str = Format.modifier(@modifier)
           return "#{@num}D10#{modifier_str}#{self.class::COMPARE_OP}#{@difficulty}"
         end
 
@@ -96,7 +93,7 @@ module BCDice
         # @return [String]
         def test_value_expression(dice_values, roll_result)
           dice_str = dice_values.join(',')
-          modifier_str = format_modifier(@modifier)
+          modifier_str = Format.modifier(@modifier)
 
           return "#{roll_result}[#{dice_str}]#{modifier_str}"
         end

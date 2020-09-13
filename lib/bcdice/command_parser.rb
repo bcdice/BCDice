@@ -1,6 +1,6 @@
 require "bcdice/arithmetic_evaluator"
 require "bcdice/normalize"
-require "bcdice/modifier_formatter"
+require "bcdice/format"
 
 module BCDice
   class CommandParser < ArithmeticEvaluator
@@ -31,8 +31,6 @@ module BCDice
 
       attr_writer :question_target
 
-      include ModifierFormatter
-
       def initialize
         @critical = nil
         @fumble = nil
@@ -50,7 +48,7 @@ module BCDice
         c = @critical ? "@#{@critical}" : nil
         f = @fumble ? "##{@fumble}" : nil
         d = @dollar ? "$#{@dollar}" : nil
-        m = format_modifier(@modify_number)
+        m = Format.modifier(@modify_number)
         target = @question_target ? "?" : @target_number
 
         case suffix_position

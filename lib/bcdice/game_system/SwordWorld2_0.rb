@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'bcdice/arithmetic_evaluator'
-require 'bcdice/modifier_formatter'
 
 require 'bcdice/game_system/SwordWorld'
 
@@ -70,8 +69,6 @@ module BCDice
 
       # 超越判定のノード
       class TranscendentTest
-        include ModifierFormatter
-
         # @param [Integer] critical_value クリティカル値
         # @param [Integer] modifier 修正値
         # @param [String, nil] cmp_op 比較演算子（> または >=）
@@ -82,7 +79,7 @@ module BCDice
           @cmp_op = cmp_op
           @target = target
 
-          @modifier_str = format_modifier(@modifier)
+          @modifier_str = Format.modifier(@modifier)
           @expression = node_expression()
         end
 

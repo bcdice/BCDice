@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'bcdice/arithmetic_evaluator'
-require 'bcdice/modifier_formatter'
 
 # スタンダードRPGシステムのダイスボット
 #
@@ -19,8 +18,6 @@ module BCDice
 
       # ゲームシステム名の読みがな
       SORT_KEY = 'すたんたあとRPGしすてむ'
-
-      include ModifierFormatter
 
       HELP_MESSAGE_1 = <<~HELP_MESSAGE
         ・判定
@@ -214,12 +211,10 @@ module BCDice
       SRSRollNode = Struct.new(
         :modifier, :critical_value, :fumble_value, :target_value
       ) do
-        include ModifierFormatter
-
         # 成功判定の文字列表記を返す
         # @return [String]
         def to_s
-          lhs = "2D6#{format_modifier(modifier)}"
+          lhs = "2D6#{Format.modifier(modifier)}"
           expression = target_value ? "#{lhs}>=#{target_value}" : lhs
 
           return "#{expression}[#{critical_value},#{fumble_value}]"
@@ -318,7 +313,7 @@ module BCDice
 
         parts = [
           "(#{srs_roll})",
-          "#{sum}[#{dice_str}]#{format_modifier(srs_roll.modifier)}",
+          "#{sum}[#{dice_str}]#{Format.modifier(srs_roll.modifier)}",
           modified_sum,
           compare_result(srs_roll, sum, modified_sum)
         ]

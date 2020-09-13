@@ -1,7 +1,6 @@
 require "bcdice/arithmetic_evaluator"
 require "bcdice/normalize"
 require "bcdice/format"
-require "bcdice/modifier_formatter"
 
 module BCDice
   module CommonCommand
@@ -32,8 +31,6 @@ module BCDice
     #   最大値：20
     #   合計値：23 = 3[3]+10[4,4,2]+10
     class UpperDice
-      include ModifierFormatter
-
       def initialize(command, bcdice, diceBot)
         @string = command
         @bcdice = bcdice
@@ -90,7 +87,7 @@ module BCDice
 
         sequence = [
           ": (#{expr()})",
-          dice_text(roll_list) + format_modifier(@modify_number),
+          dice_text(roll_list) + Format.modifier(@modify_number),
           result
         ]
 
@@ -160,7 +157,7 @@ module BCDice
       #
       # @return [String]
       def expr
-        "#{@command}[#{@reroll_threshold}]#{format_modifier(@modify_number)}#{Format.comparison_operator(@cmp_op)}#{@target_number}"
+        "#{@command}[#{@reroll_threshold}]#{Format.modifier(@modify_number)}#{Format.comparison_operator(@cmp_op)}#{@target_number}"
       end
     end
   end

@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
-require 'bcdice/modifier_formatter'
-
 module BCDice
   module GameSystem
     class CodeLayerd < Base
-      include ModifierFormatter
       # ゲームシステムの識別子
       ID = 'CodeLayerd'
 
@@ -68,11 +65,11 @@ module BCDice
 
         target = 10 if target > 10
 
-        result += "(#{base}d10#{format_modifier(modifier)})"
+        result += "(#{base}d10#{Format.modifier(modifier)})"
 
         diceList = @randomizer.roll_barabara(base, 10).sort
 
-        result += " ＞ [#{diceList.join(',')}]#{format_modifier(modifier)} ＞ "
+        result += " ＞ [#{diceList.join(',')}]#{Format.modifier(modifier)} ＞ "
         result += getRollResultString(diceList, target, criticalTarget, diff, modifier)
 
         return result
@@ -95,7 +92,7 @@ module BCDice
         end
 
         result += "+クリティカル[#{criticalCount}]" if criticalCount > 0
-        result += format_modifier(modifier)
+        result += Format.modifier(modifier)
         result += "=[#{successTotal}]" if criticalCount > 0 || modifier != 0
 
         successText = getSuccessResultText(successTotal, diff)

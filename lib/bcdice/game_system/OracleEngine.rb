@@ -2,13 +2,10 @@
 
 require 'bcdice/command_parser'
 require 'bcdice/format'
-require 'bcdice/modifier_formatter'
 
 module BCDice
   module GameSystem
     class OracleEngine < Base
-      include ModifierFormatter
-
       # ゲームシステムの識別子
       ID = 'OracleEngine'
 
@@ -94,7 +91,7 @@ MESSAGETEXT
       def expr_clutch()
         max_shift = @max_shift == 7 ? 7 : nil
         cmp_op = Format.comparison_operator(@cmd.cmp_op)
-        modify_number = format_modifier(@cmd.modify_number)
+        modify_number = Format.modifier(@cmd.modify_number)
 
         "(#{@times}CL#{max_shift}#{modify_number}#{cmp_op}#{@cmd.target_number})"
       end
@@ -160,7 +157,7 @@ MESSAGETEXT
       end
 
       def expr_r()
-        modify_number = format_modifier(@cmd.modify_number)
+        modify_number = Format.modifier(@cmd.modify_number)
         critical = @critical == 12 ? "" : "c[#{@critical}]"
         fumble = @fumble == 2 ? "" : "f[#{@fumble}]"
         brak = @break == 0 ? "" : "b[#{@break}]"
@@ -170,7 +167,7 @@ MESSAGETEXT
       end
 
       def dice_result_r(dice_total, dice_list, break_list)
-        modify_number_text = format_modifier(@cmd.modify_number)
+        modify_number_text = Format.modifier(@cmd.modify_number)
 
         # Ruby 1.8はArray#to_sの挙動が違う
         if break_list.empty?
@@ -248,7 +245,7 @@ MESSAGETEXT
       end
 
       def expr_damage()
-        modify_number = format_modifier(@cmd.modify_number)
+        modify_number = Format.modifier(@cmd.modify_number)
         brak = @break == 0 ? "" : "b[#{@break}]"
 
         "(#{@times}D6#{modify_number}#{brak})"
@@ -256,7 +253,7 @@ MESSAGETEXT
 
       def result_damage(dice_list, break_list)
         dice_total = dice_list.inject(0, :+)
-        modify_number_text = format_modifier(@cmd.modify_number)
+        modify_number_text = Format.modifier(@cmd.modify_number)
 
         if break_list.empty?
           "#{dice_total}[#{dice_list.join(', ')}]#{modify_number_text}"

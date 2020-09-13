@@ -79,7 +79,7 @@ module BCDice
 
         super(string).gsub(/#([-+]?\d+)/) do
           modifier = Regexp.last_match(1).to_i
-          "a[#{format_modifier(modifier)}]"
+          "a[#{Format.modifier(modifier)}]"
         end
       end
 

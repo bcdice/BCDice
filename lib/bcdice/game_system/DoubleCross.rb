@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'bcdice/arithmetic_evaluator'
-require 'bcdice/modifier_formatter'
 require 'bcdice/dice_table/range_table'
 
 module BCDice
@@ -35,8 +34,6 @@ module BCDice
 
       # 成功判定コマンドのノード
       class DX
-        include ModifierFormatter
-
         # ノードを初期化する
         # @param [Integer] num ダイス数
         # @param [Integer] critical_value クリティカル値
@@ -48,7 +45,7 @@ module BCDice
           @modifier = modifier
           @target_value = target_value
 
-          @modifier_str = format_modifier(@modifier)
+          @modifier_str = Format.modifier(@modifier)
           @expression = node_expression()
         end
 
