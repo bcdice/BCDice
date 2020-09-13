@@ -77,7 +77,8 @@ namespace :test do
       "test/test_detailed_rand_results.rb",
       "test/range_table_test.rb",
       "test/add_dice_parser_test.rb",
-      "test/test_data_encoding.rb"
+      "test/test_data_encoding.rb",
+      "test/test_version_command.rb"
     ].compact
   end
 end
