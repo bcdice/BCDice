@@ -320,7 +320,7 @@ rands = [
 [[ test ]]
 game_system = "Ryutama"
 input = "R801"
-output =
+output = ""
 rands = []
 
 [[ test ]]

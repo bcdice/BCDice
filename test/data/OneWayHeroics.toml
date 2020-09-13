@@ -133,7 +133,7 @@ rands = [
 [[ test ]]
 game_system = "OneWayHeroics"
 input = "1JD0"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -398,7 +398,7 @@ rands = [
 [[ test ]]
 game_system = "OneWayHeroics"
 input = "RET"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -412,7 +412,7 @@ rands = [
 [[ test ]]
 game_system = "OneWayHeroics"
 input = "DNGN"
-output =
+output = ""
 rands = []
 
 [[ test ]]

@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "BladeOfArcana"
 input = "A"
-output =
+output = ""
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -209,7 +209,7 @@ rands = [
 [[ test ]]
 game_system = "BladeOfArcana"
 input = "A12"
-output =
+output = ""
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "BladeOfArcana"
 input = "1As"
-output =
+output = ""
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -225,7 +225,7 @@ rands = [
 [[ test ]]
 game_system = "BladeOfArcana"
 input = "d1A"
-output =
+output = ""
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -233,7 +233,7 @@ rands = [
 [[ test ]]
 game_system = "BladeOfArcana"
 input = "1A12C"
-output =
+output = ""
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "BladeOfArcana"
 input = "1A12F"
-output =
+output = ""
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -249,7 +249,7 @@ rands = [
 [[ test ]]
 game_system = "BladeOfArcana"
 input = "1A12C2F"
-output =
+output = ""
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -257,7 +257,7 @@ rands = [
 [[ test ]]
 game_system = "BladeOfArcana"
 input = "1A12F19C"
-output =
+output = ""
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -265,7 +265,7 @@ rands = [
 [[ test ]]
 game_system = "BladeOfArcana"
 input = "1A12CF"
-output =
+output = ""
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -273,7 +273,7 @@ rands = [
 [[ test ]]
 game_system = "BladeOfArcana"
 input = "1A12C1C2"
-output =
+output = ""
 rands = [
   { sides = 20, value = 1 },
 ]
@@ -281,7 +281,7 @@ rands = [
 [[ test ]]
 game_system = "BladeOfArcana"
 input = "1A12F19F16"
-output =
+output = ""
 rands = [
   { sides = 20, value = 1 },
 ]

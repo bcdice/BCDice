@@ -125,5 +125,5 @@ rands = [
 [[ test ]]
 game_system = "DiceOfTheDead"
 input = "BIOX"
-output =
+output = ""
 rands = []

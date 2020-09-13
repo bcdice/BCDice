@@ -404,7 +404,7 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "1D6/3x"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -1435,13 +1435,13 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "134 数値だけには反応しない"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "1+2*3/4 数式だけには反応しない"
-output =
+output = ""
 rands = []
 
 [[ test ]]

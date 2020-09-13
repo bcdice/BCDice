@@ -29,13 +29,13 @@ rands = [
 [[ test ]]
 game_system = "MetallicGuardian"
 input = "MG1>=7"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "MetallicGuardian"
 input = "MGA>=7"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -68,13 +68,13 @@ rands = [
 [[ test ]]
 game_system = "MetallicGuardian"
 input = "MG1"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "MetallicGuardian"
 input = "MGA"
-output =
+output = ""
 rands = []
 
 [[ test ]]

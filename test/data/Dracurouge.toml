@@ -539,7 +539,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge"
 input = "RTZZ"
-output =
+output = ""
 rands = []
 
 [[ test ]]

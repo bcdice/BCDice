@@ -29,25 +29,25 @@ rands = [
 [[ test ]]
 game_system = "EtrianOdysseySRS"
 input = "SQ1>=7"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "EtrianOdysseySRS"
 input = "SQA>=7"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "EtrianOdysseySRS"
 input = "EO1>=7"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "EtrianOdysseySRS"
 input = "EOA>=7"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -80,13 +80,13 @@ rands = [
 [[ test ]]
 game_system = "EtrianOdysseySRS"
 input = "SQ1"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "EtrianOdysseySRS"
 input = "SQA"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -155,13 +155,13 @@ rands = [
 [[ test ]]
 game_system = "EtrianOdysseySRS"
 input = "EO1"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "EtrianOdysseySRS"
 input = "EOA"
-output =
+output = ""
 rands = []
 
 [[ test ]]

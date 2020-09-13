@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "WitchQuest"
 input = "WQ"
-output =
+output = ""
 rands = []
 
 [[ test ]]

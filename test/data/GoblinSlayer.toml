@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS+-1"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -187,13 +187,13 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "GS+2>5+5"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "MCPI"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -411,7 +411,7 @@ rands = [
 [[ test ]]
 game_system = "GoblinSlayer"
 input = "SMCPI$3"
-output =
+output = ""
 rands = []
 
 [[ test ]]

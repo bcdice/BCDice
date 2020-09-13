@@ -1354,7 +1354,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1377,7 +1377,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD0"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1400,7 +1400,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "1PD"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1423,7 +1423,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD3+"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1446,7 +1446,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD4-"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1469,7 +1469,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "1PD1+"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1492,7 +1492,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "12PD2-"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1515,7 +1515,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "8PD6"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1538,7 +1538,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "8PD6+1"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1561,7 +1561,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "8PD6-1"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1584,7 +1584,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "PD6+-"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1607,7 +1607,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "34PD5+-"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1630,7 +1630,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "LO100"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1653,7 +1653,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "AT0"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1676,7 +1676,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "AT7"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1699,7 +1699,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "BT0"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1722,7 +1722,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "IT0"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1745,7 +1745,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "44C"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1768,7 +1768,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "56C"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1791,7 +1791,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "SPA1"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1814,7 +1814,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "9GG"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1837,7 +1837,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "WURR"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1860,7 +1860,7 @@ rands = [
 [[ test ]]
 game_system = "BeginningIdol"
 input = "TRS"
-output =
+output = ""
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },

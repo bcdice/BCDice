@@ -40,6 +40,9 @@ class TestGameSystemCommands < Test::Unit::TestCase
 
       data[:test].each.with_index(1) do |test_case, index|
         test_case[:filename] = filename
+        test_case[:output] = nil if test_case[:output].empty? # TOMLではnilを表現できないので空文字で代用
+        test_case[:secret] ||= false
+
         key = [filename_base, index, test_case[:input]].join(":")
 
         data_set[key] = test_case
@@ -58,6 +61,6 @@ class TestGameSystemCommands < Test::Unit::TestCase
     msg = JSON.pretty_generate(data)
 
     assert_equal(data[:output], game_system.eval(data[:input]), msg)
-    assert_equal(data[:secret] || false, game_system.secret?, msg)
+    assert_equal(data[:secret], game_system.secret?, msg)
   end
 end

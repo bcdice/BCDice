@@ -117,19 +117,19 @@ rands = []
 [[ test ]]
 game_system = "CardRanker"
 input = "CMX1"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "CardRanker"
 input = "CMW1"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "CardRanker"
 input = "CMW99"
-output =
+output = ""
 rands = []
 
 [[ test ]]

@@ -441,25 +441,25 @@ rands = [
 [[ test ]]
 game_system = "Villaciel"
 input = "EP0"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "Villaciel"
 input = "EPV6"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "Villaciel"
 input = "EPA0"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "Villaciel"
 input = "EPA3"
-output =
+output = ""
 rands = []
 
 [[ test ]]

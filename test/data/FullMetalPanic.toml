@@ -29,13 +29,13 @@ rands = [
 [[ test ]]
 game_system = "FullMetalPanic"
 input = "MG1>=7"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "FullMetalPanic"
 input = "MGA>=7"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -69,13 +69,13 @@ rands = [
 [[ test ]]
 game_system = "FullMetalPanic"
 input = "FP1>=7"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "FullMetalPanic"
 input = "FPA>=7"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -108,13 +108,13 @@ rands = [
 [[ test ]]
 game_system = "FullMetalPanic"
 input = "MG1"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "FullMetalPanic"
 input = "MGA"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -138,13 +138,13 @@ rands = [
 [[ test ]]
 game_system = "FullMetalPanic"
 input = "FP1"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "FullMetalPanic"
 input = "FPA"
-output =
+output = ""
 rands = []
 
 [[ test ]]

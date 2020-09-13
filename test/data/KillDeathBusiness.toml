@@ -339,7 +339,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "XWT"
-output =
+output = ""
 rands = []
 
 [[ test ]]

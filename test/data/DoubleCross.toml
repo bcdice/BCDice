@@ -2022,7 +2022,7 @@ rands = [
 [[ test ]]
 game_system = "DoubleCross"
 input = "10DX@1XXX"
-output =
+output = ""
 rands = []
 
 [[ test ]]

@@ -477,7 +477,7 @@ rands = []
 [[ test ]]
 game_system = "TorgEternity"
 input = "-5BD"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -586,7 +586,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "TE1+2+3"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -630,7 +630,7 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "UP1+2+3"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -745,5 +745,5 @@ rands = [
 [[ test ]]
 game_system = "TorgEternity"
 input = "POS"
-output =
+output = ""
 rands = []

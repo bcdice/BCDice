@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "1DM<+1"
-output =
+output = ""
 rands = []
 
 [[ test ]]

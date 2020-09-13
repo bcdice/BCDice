@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "DiceBot"
 input = "2d6もけけ"
-output =
+output = ""
 rands = []
 
 [[ test ]]

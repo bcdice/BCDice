@@ -29,13 +29,13 @@ rands = [
 [[ test ]]
 game_system = "Alshard"
 input = "AL1>=7"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "Alshard"
 input = "ALA>=7"
-output =
+output = ""
 rands = []
 
 [[ test ]]
@@ -68,13 +68,13 @@ rands = [
 [[ test ]]
 game_system = "Alshard"
 input = "AL1"
-output =
+output = ""
 rands = []
 
 [[ test ]]
 game_system = "Alshard"
 input = "ALA"
-output =
+output = ""
 rands = []
 
 [[ test ]]

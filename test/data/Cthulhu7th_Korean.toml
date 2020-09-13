@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th_Korean"
 input = "CBR(xxx,xxx) 失敗パターン"
-output =
+output = ""
 rands = []
 
 [[ test ]]

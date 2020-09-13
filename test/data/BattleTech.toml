@@ -216,7 +216,7 @@ rands = [
 [[ test ]]
 game_system = "BattleTech"
 input = "LRM6>=11"
-output =
+output = ""
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
