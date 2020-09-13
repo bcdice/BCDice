@@ -123,6 +123,10 @@ module BCDice
         num = m[1].to_i
         fmt = "命中判定の効力値によるボーナス ＞ "
 
+        if num < 15
+          return fmt + "なし"
+        end
+
         times =
           if num >= 40
             5
@@ -132,10 +136,8 @@ module BCDice
             3
           elsif num >= 20
             2
-          elsif num >= 15
-            1
           else
-            return fmt + "なし"
+            1
           end
 
         dice_list = @randomizer.roll_barabara(times, 6)
