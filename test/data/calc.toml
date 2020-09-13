@@ -1,0 +1,18 @@
+[[ test ]]
+game_system = "DiceBot"
+input = "c1+4*3/2"
+output = "DiceBot : 計算結果 ＞ 7"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "c1+4* 不正な式は評価しない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "sc1+4*3/2"
+output = "DiceBot : 計算結果 ＞ 7"
+secret = true
+rands = []
