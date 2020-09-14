@@ -6,6 +6,8 @@ require "json"
 require "bcdice"
 require "bcdice/game_system"
 
+require_relative "randomizer_mock"
+
 class TestGameSystemCommands < Test::Unit::TestCase
   class << self
     def target_files
@@ -56,7 +58,7 @@ class TestGameSystemCommands < Test::Unit::TestCase
     game_system = klass.new
 
     rands = data[:rands].map { |r| [r[:value], r[:sides]] }
-    game_system.randomizer.setRandomValues(rands)
+    game_system.randomizer = RandomizerMock.new(rands)
 
     msg = JSON.pretty_generate(data)
 

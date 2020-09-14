@@ -62,7 +62,7 @@ module BCDice
       @debug = false
     end
 
-    attr_reader :randomizer
+    attr_accessor :randomizer
 
     # D66のダイス入れ替えの種類
     #

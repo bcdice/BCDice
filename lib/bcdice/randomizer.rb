@@ -4,7 +4,6 @@ module BCDice
     UPPER_LIMIT_DICE_SIDES = 1000
 
     def initialize
-      @rands = nil
       @rand_results = []
       @detailed_rand_results = []
     end
@@ -48,6 +47,7 @@ module BCDice
       return dice
     end
 
+    # ダイス表などでindexを参照する用のダイスロール
     # @params sides [Integer]
     # @return [Integer] 0以上 *sides* 未満の整数
     def roll_index(sides)
@@ -78,10 +78,7 @@ module BCDice
       return dice
     end
 
-    def setRandomValues(rands)
-      @rands = rands
-    end
-
+    # D66のダイスロールを行う
     # @param sort_type [Symbol] BCDice::D66SortType
     # @return [Integer]
     def roll_d66(sort_type)
@@ -102,30 +99,17 @@ module BCDice
     # @params sides [Integer]
     # @return [Integer] 1以上sides以下の整数
     def rand_inner(sides)
-      dice =
-        if @rands.nil?
-          Kernel.rand(sides) + 1
-        else
-          rand_from_pool(sides)
-        end
+      dice = random(sides)
 
       @rand_results << [dice, sides]
-
       return dice
     end
 
+    # モックで上書きする用
     # @params sides [Integer]
-    # @return [Integer]
-    def rand_from_pool(sides)
-      dice, expected_sides = @rands.shift
-
-      if dice.nil?
-        raise "@rands is empty!"
-      elsif sides != expected_sides
-        raise "unexpected sides at [#{dice}/#{expected_sides}], side (given #{sides}, expected #{expected_sides})"
-      end
-
-      return dice
+    # @return [Integer] 1以上sides以下の整数
+    def random(sides)
+      Kernel.rand(sides) + 1
     end
 
     DetailedRandResult = Struct.new(:kind, :sides, :value)

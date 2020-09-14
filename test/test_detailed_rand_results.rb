@@ -2,6 +2,8 @@ require "test/unit"
 require "bcdice"
 require "bcdice/randomizer"
 
+require_relative "randomizer_mock"
+
 # ダイスロール結果詳細のテストケース
 # 10の位用にダイスロールした場合などの確認
 class TestDetailedRandResults < Test::Unit::TestCase
@@ -10,7 +12,7 @@ class TestDetailedRandResults < Test::Unit::TestCase
   end
 
   def test_rand
-    @randomier.setRandomValues([[49, 100]])
+    @randomier = RandomizerMock.new([[49, 100]])
 
     value = @randomier.roll_once(100)
 
@@ -27,7 +29,7 @@ class TestDetailedRandResults < Test::Unit::TestCase
   end
 
   def test_tens_d10
-    @randomier.setRandomValues([[3, 10]])
+    @randomier = RandomizerMock.new([[3, 10]])
     value = @randomier.roll_tens_d10()
 
     assert_equal(30, value)
@@ -43,7 +45,7 @@ class TestDetailedRandResults < Test::Unit::TestCase
   end
 
   def test_tens_d10_zero
-    @randomier.setRandomValues([[10, 10]])
+    @randomier = RandomizerMock.new([[10, 10]])
     value = @randomier.roll_tens_d10()
 
     assert_equal(0, value)
@@ -52,7 +54,7 @@ class TestDetailedRandResults < Test::Unit::TestCase
   end
 
   def test_d9
-    @randomier.setRandomValues([[3, 10]])
+    @randomier = RandomizerMock.new([[3, 10]])
     value = @randomier.roll_d9()
 
     assert_equal(2, value)
@@ -69,7 +71,7 @@ class TestDetailedRandResults < Test::Unit::TestCase
 
   def test_coc7th
     dicebot = BCDice.dynamic_load("Cthulhu7th").new
-    dicebot.randomizer.setRandomValues([[5, 10], [6, 10], [7, 10], [4, 10]])
+    dicebot.randomizer = RandomizerMock.new([[5, 10], [6, 10], [7, 10], [4, 10]])
     dicebot.eval("CC(2)")
 
     details = dicebot.randomizer.detailed_rand_results
