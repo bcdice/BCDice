@@ -52,15 +52,17 @@ module BCDice
         return false
       end
 
-      index_list = @rows.map(&:to_i).unique.sort
+      index_list = @rows.map(&:to_i).uniq.sort
 
       case @type
       when /^\d+D\d+$/
         valid_d?(index_list)
       when "D66", "D66N"
         valid_d66?(index_list)
-      when "D66A", "D66S", "D66D"
-        valid_d66_sort?(index_list)
+      when "D66A", "D66S"
+        valid_d66_asc_sort?(index_list)
+      when "D66D"
+        valid_d66_desc_sort?(index_list)
       else
         false
       end
@@ -106,7 +108,7 @@ module BCDice
       return index_list.first == times && index_list.last == times * sides
     end
 
-    def valid_d66?
+    def valid_d66?(index_list)
       if index_list.size != 36
         return false
       end
@@ -118,7 +120,7 @@ module BCDice
       return index_list == expected_index
     end
 
-    def valid_d66_sort?
+    def valid_d66_asc_sort?(index_list)
       if index_list.size != 21
         return false
       end
@@ -126,6 +128,18 @@ module BCDice
       expected_index = (1..6).map do |tens|
         (tens..6).map { |ones| tens * 10 + ones }
       end.flatten
+
+      return index_list == expected_index
+    end
+
+    def valid_d66_desc_sort?(index_list)
+      if index_list.size != 21
+        return false
+      end
+
+      expected_index = (1..6).map do |ones|
+        (ones..6).map { |tens| tens * 10 + ones }
+      end.flatten.sort
 
       return index_list == expected_index
     end

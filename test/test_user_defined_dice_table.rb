@@ -134,17 +134,125 @@ class TestUserDefinedDiceTable < Test::Unit::TestCase
     assert_nil(table.roll())
   end
 
-  def valid_check_1d6
+  def test_verify_1d6
     table = BCDice::UserDefinedDiceTable.new(@text_1d6)
     assert(table.valid?)
   end
 
-  def valid_check_3d4_miss_raws
+  def test_verify_d66
+    text = <<~TEXT
+      フォーマット確認(D66)
+      D66
+      11:a
+      12:a
+      13:a
+      14:a
+      15:a
+      16:a
+      21:a
+      22:a
+      23:a
+      24:a
+      25:a
+      26:a
+      31:a
+      32:a
+      33:a
+      34:a
+      35:a
+      36:a
+      41:a
+      42:a
+      43:a
+      44:a
+      45:a
+      46:a
+      51:a
+      52:a
+      53:a
+      54:a
+      55:a
+      56:a
+      61:a
+      62:a
+      63:a
+      64:a
+      65:a
+      66:a
+    TEXT
+
+    table = BCDice::UserDefinedDiceTable.new(text)
+    assert(table.valid?)
+  end
+
+  def test_verify_d66a
+    text = <<~TEXT
+      フォーマット確認(D66a)
+      D66a
+      11:a
+      12:a
+      13:a
+      14:a
+      15:a
+      16:a
+      22:a
+      23:a
+      24:a
+      25:a
+      26:a
+      33:a
+      34:a
+      35:a
+      36:a
+      44:a
+      45:a
+      46:a
+      55:a
+      56:a
+      66:a
+    TEXT
+
+    table = BCDice::UserDefinedDiceTable.new(text)
+    assert(table.valid?)
+  end
+
+  def test_verify_d66d
+    text = <<~TEXT
+      フォーマット確認(D66d)
+      D66d
+      11:a
+      21:a
+      22:a
+      31:a
+      32:a
+      33:a
+      41:a
+      42:a
+      43:a
+      44:a
+      51:a
+      52:a
+      53:a
+      54:a
+      55:a
+      61:a
+      62:a
+      63:a
+      64:a
+      65:a
+      66:a
+    TEXT
+
+    table = BCDice::UserDefinedDiceTable.new(text)
+    assert(table.valid?)
+  end
+
+  def test_verify_3d4_miss_rows
     table = BCDice::UserDefinedDiceTable.new(@text_3d4)
     assert_false(table.valid?)
   end
 
-  def valid_check_invalid_dice_type
+  def test_verify_invalid_dice_type
     text = <<~TEXT
       不正な表
       D100
@@ -155,7 +263,7 @@ class TestUserDefinedDiceTable < Test::Unit::TestCase
     assert_false(table.valid?)
   end
 
-  def valid_check_dup_raws
+  def test_verify_dup_rows
     text = <<~TEXT
       重複あり表
       2D4
@@ -172,7 +280,7 @@ class TestUserDefinedDiceTable < Test::Unit::TestCase
     assert_false(table.valid?)
   end
 
-  def valid_check_outrange_raw
+  def test_verify_outrange_row
     text = <<~TEXT
       範囲外表
       1D4
