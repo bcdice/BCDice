@@ -13,13 +13,15 @@ module BCDice
   #     6:選ばれし者の知的飲料
   #   TEXT
   #   table = BCDice::UserDefinedDiceTable.new(text)
-  #   table.valid()? #=> true
+  #   table.valid?() #=> true
   #   table.roll()   #=> "飲み物表(6) ＞ 選ばれし者の知的飲料"
   #
   class UserDefinedDiceTable
+    # @param text [String] ダイス表のテキストデータ
     def initialize(text)
       @text = text
       @randomizer = Randomizer.new
+      @rows = nil
     end
 
     attr_accessor :randomizer
@@ -89,6 +91,8 @@ module BCDice
     end
 
     def parse
+      return if @rows
+
       lines = @text.split(/\R/).map(&:rstrip).reject(&:empty?)
       @name = lines.shift
       @type = lines.shift.upcase
