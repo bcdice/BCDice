@@ -293,4 +293,100 @@ class TestUserDefinedDiceTable < Test::Unit::TestCase
     table = BCDice::UserDefinedDiceTable.new(text)
     assert_false(table.valid?)
   end
+
+  def test_invalid_d66
+    # 表の中身がD66aの物になっている
+    text = <<~TEXT
+      フォーマット確認(D66)
+      D66
+      11:a
+      12:a
+      13:a
+      14:a
+      15:a
+      16:a
+      22:a
+      23:a
+      24:a
+      25:a
+      26:a
+      33:a
+      34:a
+      35:a
+      36:a
+      44:a
+      45:a
+      46:a
+      55:a
+      56:a
+      66:a
+    TEXT
+
+    table = BCDice::UserDefinedDiceTable.new(text)
+    assert_false(table.valid?)
+  end
+
+  def test_invalid_d66a
+    # 表の中身がD66dの物になっている
+    text = <<~TEXT
+      フォーマット確認(D66d)
+      D66a
+      11:a
+      21:a
+      22:a
+      31:a
+      32:a
+      33:a
+      41:a
+      42:a
+      43:a
+      44:a
+      51:a
+      52:a
+      53:a
+      54:a
+      55:a
+      61:a
+      62:a
+      63:a
+      64:a
+      65:a
+      66:a
+    TEXT
+
+    table = BCDice::UserDefinedDiceTable.new(text)
+    assert_false(table.valid?)
+  end
+
+  def test_invalid_d66d
+    # 表の中身がD66aの物になっている
+    text = <<~TEXT
+      フォーマット確認(D66d)
+      D66d
+      11:a
+      12:a
+      13:a
+      14:a
+      15:a
+      16:a
+      22:a
+      23:a
+      24:a
+      25:a
+      26:a
+      33:a
+      34:a
+      35:a
+      36:a
+      44:a
+      45:a
+      46:a
+      55:a
+      56:a
+      66:a
+    TEXT
+
+    table = BCDice::UserDefinedDiceTable.new(text)
+    assert_false(table.valid?)
+  end
 end
