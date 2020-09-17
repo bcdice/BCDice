@@ -32,11 +32,11 @@ module BCDice
         @d66_sort_type = D66SortType::NO_SORT
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         tableName = ""
         result = ""
 
-        debug("rollDiceCommand command", command)
+        debug("eval_game_system_specific_command command", command)
 
         case command.upcase
 

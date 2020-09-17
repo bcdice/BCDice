@@ -112,7 +112,7 @@ module BCDice
       end
 
       ####################           迷宮デイズ          ########################
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         if (result = roll_tables(command, TABLES))
           result
         else

@@ -27,7 +27,7 @@ module BCDice
 
       register_prefix(['(\d+)?(A)?DS([-+\d]*)(@\d+)?'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         return nil unless (m = /(\d+)?(A)?DS([-+\d]*)(@(\d+))?$/i.match(command.upcase))
 
         diceCount = (m[1] || 2).to_i

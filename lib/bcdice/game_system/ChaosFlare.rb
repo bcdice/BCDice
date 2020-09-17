@@ -70,7 +70,7 @@ module BCDice
         return output
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         if command.start_with? "FT"
           roll_fate_table(command)
         else

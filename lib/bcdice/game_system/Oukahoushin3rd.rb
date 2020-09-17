@@ -24,7 +24,7 @@ module BCDice
         　・狂気表（KKT）
       INFO_MESSAGE_TEXT
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         chosen = roll_tables(command, TABLES)
         return replace_dice_notation(chosen)
       end

@@ -21,7 +21,7 @@ module BCDice
 
       register_prefix(['CW\d+'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         result = nil
 
         case command

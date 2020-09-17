@@ -173,7 +173,7 @@ module BCDice
       secret = !m[1].nil?
       command = command[1..-1] if secret # 先頭の 'S' をとる
 
-      output = rollDiceCommand(command)
+      output = eval_game_system_specific_command(command)
       @is_secret ||= secret
       if output.nil? || output.empty? || output == "1"
         return nil
@@ -184,7 +184,7 @@ module BCDice
 
     # @param command [String]
     # @return [String, nil]
-    def rollDiceCommand(command); end
+    def eval_game_system_specific_command(command); end
 
     # @param total [Integer] コマンド合計値
     # @param dice_total [Integer] ダイス目の合計値

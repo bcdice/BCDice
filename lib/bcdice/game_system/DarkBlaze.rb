@@ -129,7 +129,7 @@ module BCDice
         return total, output, dice_arr
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         if (m = /^BT(\d)?$/i.match(command))
           dice = m[1]&.to_i || 1
           return get_horidasibukuro_table(dice)

@@ -58,7 +58,7 @@ module BCDice
         'SEC', 'NAC', 'LDC', '[W]ENC\d*'
       ])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         text =
           case command.upcase
 

@@ -38,7 +38,7 @@ module BCDice
       # 判定用前置文字
       # 説明文
       # コマンド分岐
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /^ROL/i
           return getRollResult(command)

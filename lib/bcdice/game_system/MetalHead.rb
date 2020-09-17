@@ -37,7 +37,7 @@ module BCDice
 
       register_prefix(['AR', 'SR', 'HR<=.+', 'CC', 'ACT', 'ACL', 'ACS', 'CRC[A-Z]\d+'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         result = roll_tables(command, TABLES)
         return result if result
 

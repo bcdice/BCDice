@@ -27,7 +27,7 @@ module BCDice
 
       register_prefix(['(\d+)*D20<=.*', '(\d+)*CP.*', 'RMT', 'TOT', 'EXT', 'SUT', 'DC(\d+).*'])
 
-      def rollDiceCommand(command) # ダイスロールコマンド
+      def eval_game_system_specific_command(command) # ダイスロールコマンド
         # 通常判定部分をgetJudgeResultコマンドに切り分け
         result = getJudgeResult(command)
         return result unless result.nil?

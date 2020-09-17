@@ -15,7 +15,7 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = "・アクシデント表（ACT）\n"
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         if (m = /^ACT(\d+)$/i.match(command))
           number = m[1].to_i
           return TABLES["ACT"].choice(number).to_s

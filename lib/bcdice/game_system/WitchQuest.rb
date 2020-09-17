@@ -24,7 +24,7 @@ module BCDice
 
       register_prefix(['WQ\d+', 'SET\d+'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /WQ(\d+)/
           number = Regexp.last_match(1).to_i

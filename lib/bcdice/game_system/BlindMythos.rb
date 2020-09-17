@@ -37,8 +37,8 @@ module BCDice
          例）RP123　RP258
       MESSAGETEXT
 
-      def rollDiceCommand(command)
-        debug("rollDiceCommand Begin")
+      def eval_game_system_specific_command(command)
+        debug("eval_game_system_specific_command Begin")
 
         text = judgeRoll(command)
         return text unless text.nil?

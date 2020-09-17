@@ -58,7 +58,7 @@ module BCDice
         end
       end
 
-      def rollDiceCommand(string)
+      def eval_game_system_specific_command(string)
         string = replace_text(string)
 
         debug("nechronica_check string", string)

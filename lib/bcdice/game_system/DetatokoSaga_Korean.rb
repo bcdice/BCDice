@@ -42,8 +42,8 @@ module BCDice
         @d66_sort_type = D66SortType::ASC
       end
 
-      def rollDiceCommand(command)
-        debug("rollDiceCommand begin string", command)
+      def eval_game_system_specific_command(command)
+        debug("eval_game_system_specific_command begin string", command)
 
         result = checkRoll(command)
         return result unless result.empty?
@@ -197,7 +197,7 @@ module BCDice
       def rollTableCommand(command)
         command = command.upcase
 
-        debug("rollDiceCommand command", command)
+        debug("eval_game_system_specific_command command", command)
 
         name = ''
         text = ''

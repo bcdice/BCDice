@@ -40,7 +40,7 @@ module BCDice
         　・人は石垣、人は城 MPH
       MESSAGETEXT
 
-      def rollDiceCommand(command) # ダイスロールコマンド
+      def eval_game_system_specific_command(command) # ダイスロールコマンド
         if (ret = roll_tables(command, TABLES))
           return ret
         end

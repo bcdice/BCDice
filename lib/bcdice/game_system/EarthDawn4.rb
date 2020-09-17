@@ -33,7 +33,7 @@ module BCDice
         @calcText = ''
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         return ed_step(command)
       end
 

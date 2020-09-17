@@ -34,7 +34,7 @@ module BCDice
       end
 
       # シャドウラン5版　リミット時のテスト
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         debug('chatch limit prefix')
 
         m = /(\d+B6)@(\d+)/.match(command)

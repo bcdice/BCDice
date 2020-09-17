@@ -164,7 +164,7 @@ module BCDice
 
       alias check_2D6 check_nD6
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command.upcase
         when /^([1-7]*)PD(\d+)([\+\-]\d+)?$/
           counts = Regexp.last_match(2).to_i

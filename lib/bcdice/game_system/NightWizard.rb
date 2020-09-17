@@ -38,7 +38,7 @@ module BCDice
       end
 
       # @return [String, nil]
-      def rollDiceCommand(string)
+      def eval_game_system_specific_command(string)
         cmd = parse_nw(string) || parse_2r6(string)
         unless cmd
           return nil

@@ -77,7 +77,7 @@ module BCDice
       end
 
       # 表振り分け
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         output = '1'
         type = ""
         total_n = ""

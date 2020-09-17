@@ -78,7 +78,7 @@ module BCDice
         end
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         result = getRollDiceResult(command)
         return result unless result.nil?
 

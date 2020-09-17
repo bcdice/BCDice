@@ -28,7 +28,7 @@ module BCDice
 
       register_prefix(['(.DPT|.FT)\d*'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         string = command.upcase
 
         table = []

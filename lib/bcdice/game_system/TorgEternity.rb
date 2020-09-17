@@ -46,7 +46,7 @@ module BCDice
         super
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         torg_check(command) ||
           getRolld20DiceCommandResult(command) ||
           getUpRollDiceCommandResult(command) ||

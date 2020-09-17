@@ -108,7 +108,7 @@ module BCDice
         return skilled, unskilled, dice_str
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         string = command.upcase
         string = replace_text(string)
 

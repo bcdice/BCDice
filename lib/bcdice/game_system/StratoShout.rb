@@ -62,7 +62,7 @@ module BCDice
         end
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command.upcase
         when 'VOT'
           title = 'ボーカルトラブル表(P167)'

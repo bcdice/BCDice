@@ -45,7 +45,7 @@ module BCDice
         @d66_sort_type = D66SortType::NO_SORT
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /LR\[([0-5]),([0-5]),([0-5]),([0-5]),([0-5]),([0-5])\]/i
           return check_lostroyal([Regexp.last_match(1).to_i, Regexp.last_match(2).to_i, Regexp.last_match(3).to_i, Regexp.last_match(4).to_i, Regexp.last_match(5).to_i, Regexp.last_match(6).to_i,])

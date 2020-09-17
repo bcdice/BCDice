@@ -39,7 +39,7 @@ module BCDice
         'HNC'
       ])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /^DLH/i
           resolute_action(command)

@@ -49,7 +49,7 @@ module BCDice
 
       register_prefix(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCE', 'PH', 'MA', 'IT'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /^CC/i
           return getCheckResult(command)

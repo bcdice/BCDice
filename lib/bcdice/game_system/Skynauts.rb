@@ -39,9 +39,9 @@ module BCDice
         @round_type = RoundType::FLOOR # 端数切り捨て
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         debug("\n=======================================\n")
-        debug("rollDiceCommand command", command)
+        debug("eval_game_system_specific_command command", command)
 
         # 通常判定
         result = getJudgeResult(command)

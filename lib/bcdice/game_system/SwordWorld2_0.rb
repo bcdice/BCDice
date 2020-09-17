@@ -176,7 +176,7 @@ module BCDice
       # 超越判定のパターン
       TRANSCENDENT_TEST_RE = /\A2D6?@(\d+)([-+\d]+)?(?:(>=?)(\d+))?/.freeze
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /^Gr(\d+)?/i
           if command =~ /^Gr(\d+)/i

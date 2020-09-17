@@ -40,7 +40,7 @@ module BCDice
           ・白の魔石効果表: WST
       MESSAGETEXT
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /KA\d[-+\d]*/
           return check_1D12(command, true)

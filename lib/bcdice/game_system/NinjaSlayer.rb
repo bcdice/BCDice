@@ -96,8 +96,8 @@ module BCDice
         return "#{m[1]}#{b_roll}"
       end
 
-      def rollDiceCommand(command)
-        debug('rollDiceCommand begin string', command)
+      def eval_game_system_specific_command(command)
+        debug('eval_game_system_specific_command begin string', command)
 
         if (table = TABLES[command])
           return table.roll(randomizer)

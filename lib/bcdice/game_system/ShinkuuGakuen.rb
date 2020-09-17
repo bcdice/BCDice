@@ -38,7 +38,7 @@ module BCDice
         'RL.*', 'SW.*', 'LS.*', 'SS.*', 'SP.*', 'AX.*', 'CL.*', 'BW.*', 'MA.*', 'BX.*', 'PR.*', 'ST.*'
       ])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         m = /^([A-Z]+)([\+\-]?\d+)?(?:>=(\d+))?$/i.match(command)
         unless m
           return nil

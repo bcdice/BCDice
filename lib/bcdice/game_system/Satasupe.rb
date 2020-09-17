@@ -57,8 +57,8 @@ module BCDice
         @d66_sort_type = D66SortType::ASC
       end
 
-      def rollDiceCommand(command)
-        debug("rollDiceCommand begin string", command)
+      def eval_game_system_specific_command(command)
+        debug("eval_game_system_specific_command begin string", command)
 
         result = checkRoll(command)
         return result unless result.empty?
@@ -246,7 +246,7 @@ module BCDice
         operator = Regexp.last_match(4)
         value = Regexp.last_match(5).to_i
 
-        debug("rollDiceCommand command", command)
+        debug("eval_game_system_specific_command command", command)
 
         case command
         when "TAGT"

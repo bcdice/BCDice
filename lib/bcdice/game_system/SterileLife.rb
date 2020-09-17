@@ -39,7 +39,7 @@ module BCDice
 
       register_prefix(['(\d+)*DA.*\[(\d+),(\d+)(,(\d+))?\]', 'VPFT', 'VNFT', 'VNRT', 'AAFT', 'AST', 'RNST', 'RET', 'TRST', 'TRAT', 'TRMT', 'TROT', 'TET', 'ENT', 'CUT', 'NAT', 'INT']) # '(\d+)*DA.*\[.*\]'
 
-      def rollDiceCommand(command) # ダイスロールコマンド
+      def eval_game_system_specific_command(command) # ダイスロールコマンド
         # 通常判定部分をgetJudgeResultコマンドに切り分け
         output = getJudgeResult(command)
         return output unless output.nil?

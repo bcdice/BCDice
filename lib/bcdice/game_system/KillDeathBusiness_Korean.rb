@@ -108,8 +108,8 @@ module BCDice
         end
       end
 
-      def rollDiceCommand(command)
-        debug("rollDiceCommand command", command)
+      def eval_game_system_specific_command(command)
+        debug("eval_game_system_specific_command command", command)
 
         # 판정체크는 먼저 처리
         case command
@@ -267,7 +267,7 @@ module BCDice
           tableName, result, number = getpbTableResult()
 
         else
-          debug("rollDiceCommand commandNOT matched -> command:", command)
+          debug("eval_game_system_specific_command commandNOT matched -> command:", command)
           return ""
         end
 

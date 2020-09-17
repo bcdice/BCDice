@@ -30,7 +30,7 @@ module BCDice
         'DC(SL|BL|IM|BR|RF|EL).+'
       ])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when %r{GO(\-?\d+)(/(\d+))?(@(\d+))?}i
           success_rate = Regexp.last_match(1).to_i

@@ -28,7 +28,7 @@ module BCDice
 
       register_prefix(['ArS.*', '1R10.*'])
 
-      def rollDiceCommand(string)
+      def eval_game_system_specific_command(string)
         unless parse_ars(string) || parse_1r10(string)
           return nil
         end

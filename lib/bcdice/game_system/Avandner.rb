@@ -41,7 +41,7 @@ module BCDice
         @sort_add_dice = true # ダイスのソート有
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         # AVコマンド：調査判定, 成功判定
         if command =~ /(\d+)AV(\d+)((x|\*)(\d+))?(\+(\d+))?(C(\d+))?$/i
           diceCount = Regexp.last_match(1).to_i

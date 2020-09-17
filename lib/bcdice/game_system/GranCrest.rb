@@ -70,8 +70,8 @@ module BCDice
 
       alias check_2D6 check_nD6
 
-      def rollDiceCommand(command)
-        debug("rollDiceCommand command", command)
+      def eval_game_system_specific_command(command)
+        debug("eval_game_system_specific_command command", command)
 
         tableName = ""
         result = ""
@@ -90,7 +90,7 @@ module BCDice
           tableName, result, number = getCountryTableResult(command)
 
         else
-          debug("rollDiceCommand commandNOT matched -> command:", command)
+          debug("eval_game_system_specific_command commandNOT matched -> command:", command)
           return ""
         end
 

@@ -35,7 +35,7 @@ module BCDice
         super
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /(\d+)AN<=(\d+([\+\-]\d+)*)/i
           return check_action(Regexp.last_match)

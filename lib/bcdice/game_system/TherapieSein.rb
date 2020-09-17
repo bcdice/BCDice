@@ -32,7 +32,7 @@ module BCDice
 
       register_prefix(['(TS|OP)(\d+)?([\+\-]\d)*(\@\d+)?'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         output =
           case command.upcase
 

@@ -56,7 +56,7 @@ module BCDice
         @sort_barabara_dice = true
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command.upcase
         when /^(\d+)?ATK([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?$/i
           diceCount = (Regexp.last_match(1) || 1).to_i

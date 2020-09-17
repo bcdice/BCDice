@@ -51,7 +51,7 @@ module BCDice
         return string
       end
 
-      def rollDiceCommand(string)
+      def eval_game_system_specific_command(string)
         if /^\d+D\d+/i.match?(string)
           return roll_action(string)
         end

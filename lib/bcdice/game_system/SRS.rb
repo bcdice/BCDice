@@ -224,7 +224,7 @@ module BCDice
       # 固有のダイスロールコマンドを実行する
       # @param [String] command 入力されたコマンド
       # @return [String, nil] ダイスロールコマンドの実行結果
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         alias_replaced_with_2d6 = replace_alias_for_srs_roll_with_2d6(command)
 
         if (node = parse(alias_replaced_with_2d6))

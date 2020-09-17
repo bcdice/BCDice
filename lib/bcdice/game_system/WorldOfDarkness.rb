@@ -32,7 +32,7 @@ module BCDice
         @rerollDice = 0
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         diff = 6
         auto_success = 0
 

@@ -49,7 +49,7 @@ module BCDice
         @d66_sort_type = D66SortType::ASC
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /^RET(\d+)$/
           day = Regexp.last_match(1).to_i

@@ -24,7 +24,7 @@ module BCDice
         　例） 3BN+4　3BN>=8　3BN+1>=10[-1] 3BN+1>=10[,1] 3BN+1>=10[1,1]
       MESSAGETEXT
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         unless parse(command)
           return nil
         end

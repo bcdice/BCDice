@@ -67,7 +67,7 @@ module BCDice
         end
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /^SA/i
           roll_strange_ability_table(command)

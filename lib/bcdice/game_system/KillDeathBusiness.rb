@@ -65,8 +65,8 @@ module BCDice
         end
       end
 
-      def rollDiceCommand(command)
-        debug("rollDiceCommand command", command)
+      def eval_game_system_specific_command(command)
+        debug("eval_game_system_specific_command command", command)
 
         # 判定チェックは先に処理
         case command

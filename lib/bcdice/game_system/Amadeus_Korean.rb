@@ -46,7 +46,7 @@ module BCDice
         @d66_sort_type = D66SortType::ASC
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         text = amadeusDice(command)
         return text unless text.nil?
 

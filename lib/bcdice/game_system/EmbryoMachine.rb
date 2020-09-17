@@ -109,8 +109,8 @@ module BCDice
         return output
       end
 
-      def rollDiceCommand(command)
-        debug("rollDiceCommand command", command)
+      def eval_game_system_specific_command(command)
+        debug("eval_game_system_specific_command command", command)
 
         if (result = checkRoll(command))
           return result

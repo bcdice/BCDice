@@ -26,7 +26,7 @@ module BCDice
           ・その他(Other)；災厄表 ODT, 場面表 OST, 交流表 OIT, 激憤表 OFT
       MESSAGETEXT
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         result = roll_tables(command, TABLES)
         return result if result
 

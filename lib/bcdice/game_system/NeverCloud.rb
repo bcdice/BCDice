@@ -28,7 +28,7 @@ module BCDice
       # ダイスボットで使用するコマンドを配列で列挙する
       register_prefix(['\d+NC.*', '\d+D6?([\+\-\d]*)>=\d+'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         m = /^(\d+)(?:NC|D6?)((?:[-+]\d+)*)(>=(\d+))?$/i.match(command)
         unless m
           return nil

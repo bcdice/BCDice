@@ -54,7 +54,7 @@ module BCDice
         @bonus_dice_range = (-2..2)
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /^CC/i
           return getCheckResult(command)

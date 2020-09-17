@@ -37,8 +37,8 @@ module BCDice
         @d66_sort_type = D66SortType::NO_SORT
       end
 
-      def rollDiceCommand(command)
-        debug('rollDiceCommand')
+      def eval_game_system_specific_command(command)
+        debug('eval_game_system_specific_command')
 
         result = getConductResult(command)
         return result unless result.nil?

@@ -43,7 +43,7 @@ module BCDice
 
       register_prefix(['\d?(BAD|BL|GL).*', '[TDGKSB]RN', 'SKL'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         command = command.upcase
 
         result = judgeDice(command)

@@ -28,8 +28,8 @@ module BCDice
         @validDiceTypes = [20, 12, 10, 8, 6, 4, 2]
       end
 
-      def rollDiceCommand(command)
-        debug('rollDiceCommand begin')
+      def eval_game_system_specific_command(command)
+        debug('eval_game_system_specific_command begin')
 
         unless command =~ /^R(\d+)(,(\d+))?([\+\-\d]+)?(>=(\d+))?/
           debug('unmatched!')

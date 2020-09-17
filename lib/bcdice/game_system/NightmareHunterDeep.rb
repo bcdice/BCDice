@@ -38,7 +38,7 @@ module BCDice
         @sort_add_dice = true
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         command = command
                   .sub(/Lv(\d+)/i) { (Regexp.last_match(1).to_i * 5 - 1).to_s }
                   .sub(/NL(\d+)/i) { (Regexp.last_match(1).to_i * 5 + 5).to_s }

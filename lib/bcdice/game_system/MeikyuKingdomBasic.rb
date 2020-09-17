@@ -93,7 +93,7 @@ module BCDice
         end
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         output = ""
         type = ""
         total_n = ""

@@ -32,8 +32,8 @@ module BCDice
         @round_type = RoundType::FLOOR
       end
 
-      def rollDiceCommand(command)
-        debug('rollDiceCommand command', command)
+      def eval_game_system_specific_command(command)
+        debug('eval_game_system_specific_command command', command)
 
         command = command.upcase
 

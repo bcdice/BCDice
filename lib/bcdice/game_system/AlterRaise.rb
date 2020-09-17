@@ -39,7 +39,7 @@ module BCDice
         'TRA(\d+)?', 'SCE(\d+)?', 'STA(\d+)?', 'EMO(\d+)?'
       ])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         output =
           case command.upcase
 

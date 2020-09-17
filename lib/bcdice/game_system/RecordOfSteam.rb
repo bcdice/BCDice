@@ -25,7 +25,7 @@ module BCDice
 
       # サンプルのダイスコマンドは「nSt@c」で n=ダイス個数, t=目標値, c=クリティカル値。@cのみ省略可
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         unless /(\d+)[sS](\d+)(@(\d+))?/i =~ command
           return "1"
         end

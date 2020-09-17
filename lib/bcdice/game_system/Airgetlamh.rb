@@ -50,7 +50,7 @@ module BCDice
         @sort_add_dice = true # ダイスのソート有
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         # AA/ALコマンド：調査判定, 成功判定
         if command =~ /(\d+)?A(A|L)(\d+)?((x|\*)(\d+)(\+(\d+))?)?(C(\d+))?$/i
           diceCount = (Regexp.last_match(1) || 2).to_i

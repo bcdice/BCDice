@@ -42,7 +42,7 @@ module BCDice
         'DC(SL|BL|IM|BR|RF|EL).+'
       ])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /(EM|TR|FE)(\-?\d+)(@(\d+))?/i
           command_type = Regexp.last_match(1).upcase

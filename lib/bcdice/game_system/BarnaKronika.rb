@@ -43,7 +43,7 @@ module BCDice
         return string
       end
 
-      def rollDiceCommand(string)
+      def eval_game_system_specific_command(string)
         string = replace_text(string)
 
         return nil unless /(^|\s)S?((\d+)[rR]6(\[([,\d]+)\])?)(\s|$)/i =~ string

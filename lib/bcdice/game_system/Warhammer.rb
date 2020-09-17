@@ -34,7 +34,7 @@ module BCDice
         @round_type = RoundType::CEIL # 端数切り上げに設定
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         output_msg = nil
 
         case command.upcase

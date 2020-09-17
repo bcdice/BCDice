@@ -48,7 +48,7 @@ module BCDice
         @round_type = RoundType::CEIL
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /^GS/i
           return getCheckResult(command)

@@ -43,7 +43,7 @@ module BCDice
         '(-)?(\d+)?DD([1-9])?([\+\-]\d+)?'
       ])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         if command =~ /(-)?(\d+)?RD(\d+)?(@(\d+))?$/i
           diceCount = (Regexp.last_match(2) || 1).to_i
           diceCount *= -1 unless Regexp.last_match(1).nil?

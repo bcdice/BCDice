@@ -37,7 +37,7 @@ module BCDice
         return string
       end
 
-      def rollDiceCommand(string)
+      def eval_game_system_specific_command(string)
         string = replace_text(string)
         unless /3R6([\+\-\d]*)<=(\d+)\[(\d+)\]/i =~ string
           return nil

@@ -28,7 +28,7 @@ module BCDice
 
       register_prefix(['GK(#\d+)?', 'GL'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         output = nil
 
         if /^GL$/i =~ command

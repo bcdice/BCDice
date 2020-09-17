@@ -46,7 +46,7 @@ module BCDice
         @sort_add_dice = true
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command.upcase
         when /^(\d+)A(\d*)([CF]?)(\d*)([CF]?)(\d*)$/
           counts = Regexp.last_match(1).to_i

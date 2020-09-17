@@ -34,7 +34,7 @@ INFO_MESSAGE_TEXT
 
       register_prefix(['(FS|[WB])(\d+).*'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         m = /\A(FS|[WB])(\d+)(([WB])(\d+))?/.match(command)
         unless m
           return ''

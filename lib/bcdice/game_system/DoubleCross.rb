@@ -208,7 +208,7 @@ module BCDice
       # @param [String] command コマンド
       # @return [String] ダイスボット固有コマンドの結果
       # @return [nil] 無効なコマンドだった場合
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         if (dx = parse_dx(command))
           return dx.execute(@randomizer)
         end

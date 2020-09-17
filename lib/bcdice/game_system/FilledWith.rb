@@ -52,7 +52,7 @@ module BCDice
         @d66_sort_type = D66SortType::NO_SORT; # d66の差し替え
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         # ダイスロールコマンド
         result = checkRoll(command)
         return result unless result.nil?

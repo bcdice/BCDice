@@ -51,7 +51,7 @@ module BCDice
         ['(\d+)?DT', '(\d+)?AS', 'SHRD', 'SHFM', 'SHBT', 'SHPI', 'SHEG', 'SHWP', 'SHDS', 'SHFT', 'SHIN', 'SHEM', 'EVS', 'EVW', 'EVN', 'EVC', 'EVV', 'OBT', 'ACT', 'EWT', 'WMT', 'BGDD', 'BGDG', 'BGDM', 'BGAJ', 'BGAP', 'BGAI', 'HT', 'BT', 'GRT', 'MIT', 'JBT66', 'JBT10', 'FST66', 'FST10', 'FLT66', 'FLT10', 'LDT66', 'LDT10', 'NCT66', 'NCT10',]
       )
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         output = '1'
         type = ""
         diceText = ""
@@ -246,7 +246,7 @@ module BCDice
       def getAddRoll(command)
         return command if command =~ /^\s/
 
-        text = rollDiceCommand(command)
+        text = eval_game_system_specific_command(command)
         return " ＞ #{command} is NOT found." if text.nil?
 
         return " ＞ \n #{command} ＞ #{text}"

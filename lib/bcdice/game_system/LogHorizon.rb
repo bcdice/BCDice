@@ -66,7 +66,7 @@ module BCDice
         @d66_sort_type = D66SortType::NO_SORT
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         getCheckRollDiceCommandResult(command) ||
           getConsumptionDiceCommandResult(command) ||
           getTresureDiceCommandResult(command) ||

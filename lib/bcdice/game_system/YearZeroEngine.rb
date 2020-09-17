@@ -41,7 +41,7 @@ module BCDice
         @difficulty = 0
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         m = /\A(\d+)?(YZE|MYZ)(\d+)(\+(\d+))?(\+(\d+))?/.match(command)
         unless m
           return ''

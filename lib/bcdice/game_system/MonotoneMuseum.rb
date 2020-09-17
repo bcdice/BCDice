@@ -49,7 +49,7 @@ module BCDice
       # 固有のダイスロールコマンドを実行する
       # @param [String] command 入力されたコマンド
       # @return [String, nil] ダイスロールコマンドの実行結果
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         if (ret = check_roll(command))
           return ret
         end

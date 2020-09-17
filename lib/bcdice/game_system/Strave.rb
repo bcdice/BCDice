@@ -42,7 +42,7 @@ module BCDice
         @sort_add_dice = true # ダイスのソート有
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         output =
           case command.upcase
 

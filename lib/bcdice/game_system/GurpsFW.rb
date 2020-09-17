@@ -115,7 +115,7 @@ module BCDice
         end
       end
 
-      def rollDiceCommand(string)
+      def eval_game_system_specific_command(string)
         tableName = ""
         result = ""
         number = 0

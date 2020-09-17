@@ -39,7 +39,7 @@ module BCDice
       # 致命的命中が発生しない上限値
       NO_CRITICAL_HIT_LIMIT = 7
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         result = roll_tables(command, TABLES)
         return result if result
 

@@ -44,7 +44,7 @@ module BCDice
         @sort_add_dice = true # ダイスのソート有
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         # ALCコマンド：命中判定
         # ALCコマンド：成功判定
         if command =~ /(\d+)AL(C|G)?(\d+)?((x|\*)(\d+))?$/i

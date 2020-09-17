@@ -38,7 +38,7 @@ module BCDice
 
       # @param command [String]
       # @return [String, nil]
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         roll_tables(command, TABLES) ||
           roll_gr(command) ||
           roll_damage_chart(command)

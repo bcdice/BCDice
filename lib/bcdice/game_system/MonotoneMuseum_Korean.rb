@@ -37,7 +37,7 @@ module BCDice
         @sort_add_dice = true
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         result = checkRoll(command)
         return result unless result.empty?
 

@@ -21,7 +21,7 @@ module BCDice
 
       register_prefix(['LW.*'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         parser = CommandParser.new("LW", "LWD")
         cmd = parser.parse(command)
 

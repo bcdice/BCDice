@@ -57,7 +57,7 @@ module BCDice
         @round_type = RoundType::CEIL # 端数は切り上げ
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /\d+VBS/
           resolute_action(command)

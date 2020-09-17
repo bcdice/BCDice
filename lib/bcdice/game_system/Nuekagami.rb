@@ -21,7 +21,7 @@ module BCDice
         　HG：地獄門、RG：羅生門、VG：朱雀門、OG：応天門
       MESSAGETEXT
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         info = TABLES[command.upcase]
         return nil if info.nil?
 

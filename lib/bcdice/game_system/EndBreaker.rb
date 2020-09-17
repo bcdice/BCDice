@@ -29,7 +29,7 @@ module BCDice
         @d66_sort_type = D66SortType::NO_SORT
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         if command =~ /(\d+)EB/i
           diceCount = Regexp.last_match(1).to_i
           return checkRoll(diceCount)

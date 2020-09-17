@@ -49,7 +49,7 @@ module BCDice
         return "成功"
       end
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         result = nil
 
         case command

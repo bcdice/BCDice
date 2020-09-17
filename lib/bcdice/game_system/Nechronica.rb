@@ -50,7 +50,7 @@ module BCDice
 
       public
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         return roll_tables(command, TABLES) || nechronica_check(command)
       end
 

@@ -35,8 +35,8 @@ module BCDice
       # ダイスボットで使用するコマンドを配列で列挙する
       register_prefix(['SBS?.*'])
 
-      def rollDiceCommand(command)
-        debug("rollDiceCommand Begin")
+      def eval_game_system_specific_command(command)
+        debug("eval_game_system_specific_command Begin")
 
         parser = CommandParser.new('SB', 'SBS')
         cmd = parser.parse(command)

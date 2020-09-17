@@ -28,7 +28,7 @@ module BCDice
 
       register_prefix(['ND.*', 'MP.*'])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         case command
         when /^ND/i
           return get_node_dice_roll(command)
@@ -53,7 +53,7 @@ module BCDice
       end
 
       def get_node_dice_roll(command)
-        debug("rollDiceCommand Begin")
+        debug("eval_game_system_specific_command Begin")
 
         m = /^ND((-)?\d+)/i.match(command)
         unless m
@@ -73,13 +73,13 @@ module BCDice
 
         results, computer_dice_message = generate_roll_results(dices)
 
-        debug("rollDiceCommand result")
+        debug("eval_game_system_specific_command result")
 
         return "(#{command}) ＞ [#{results.join(', ')}] ＞ 成功度#{success_rate}#{computer_dice_message}"
       end
 
       def get_mutant_power_roll(command)
-        debug("rollDiceCommand Begin")
+        debug("eval_game_system_specific_command Begin")
 
         m = /^MP(\d+)/i.match(command)
         unless m
@@ -100,7 +100,7 @@ module BCDice
 
         debug(dices)
 
-        debug("rollDiceCommand result")
+        debug("eval_game_system_specific_command result")
 
         return "(#{command}) ＞ [#{results.join(', ')}] ＞ #{message}#{computer_dice_message}"
       end

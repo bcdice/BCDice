@@ -34,7 +34,7 @@ module BCDice
         '(\d+)?OR([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?'
       ])
 
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         if command =~ /(\d+)?OR([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?$/i
           diceCount = (Regexp.last_match(1) || 1).to_i
           countNo = [(Regexp.last_match(2) || -1).to_i, (Regexp.last_match(3) || -1).to_i, (Regexp.last_match(4) || -1).to_i, (Regexp.last_match(5) || -1).to_i, (Regexp.last_match(6) || -1).to_i, (Regexp.last_match(7) || -1).to_i]

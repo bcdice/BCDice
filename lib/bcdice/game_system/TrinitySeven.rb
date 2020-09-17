@@ -35,8 +35,8 @@ module BCDice
 
       register_prefix(['(\d+)DM\d+(\+|\-)?\d*', '(\d+)DM(\+|\-)?\d*', 'TR(\d+)<=(\d+)(\+|\-)?\d*', 'TR<=(\d+)(\+|\-)?\d*', 'TR(\+|\-)?(\d+)<=(\d+)(\+|\-)?\d*', 'TRNAME'])
 
-      def rollDiceCommand(command) # スパゲッティなコードだけど許して！！！ → 絶対に許さない。全力でリファクタリングした。
-        debug("rollDiceCommand command", command)
+      def eval_game_system_specific_command(command) # スパゲッティなコードだけど許して！！！ → 絶対に許さない。全力でリファクタリングした。
+        debug("eval_game_system_specific_command command", command)
 
         if /TRNAME/ =~ command
           firstName, = get_NAME_table
@@ -68,7 +68,7 @@ module BCDice
         result = getHitRollResult(total, target, critical)
 
         text = "(#{command}) ＞ #{total}[#{total}] ＞ #{result}"
-        debug("rollDiceCommand result text", text)
+        debug("eval_game_system_specific_command result text", text)
 
         return text
       end
