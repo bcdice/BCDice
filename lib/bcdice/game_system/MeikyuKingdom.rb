@@ -68,12 +68,12 @@ module BCDice
       end
 
       def replace_text(string)
-        debug("changeText before string", string)
+        debug("change_text before string", string)
 
         string = string.gsub(/(\d+)MK6/i) { "#{Regexp.last_match(1)}R6" }
         string = string.gsub(/(\d+)MK/i) { "#{Regexp.last_match(1)}R6" }
 
-        debug("changeText after string", string)
+        debug("change_text after string", string)
 
         return string
       end

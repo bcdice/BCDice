@@ -16,7 +16,7 @@ module BCDice
       replace_range()
       replace_parentheses()
 
-      @text = @game_system.changeText(@text)
+      @text = @game_system.change_text(@text)
 
       replace_implicit_d6()
 

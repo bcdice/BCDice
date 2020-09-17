@@ -23,7 +23,7 @@ module BCDice
 
       register_prefix(['G.*'])
 
-      def changeText(string)
+      def change_text(string)
         string = string.gsub(/^(S)?G/i) { "#{Regexp.last_match(1)}2D6" }
         return string
       end

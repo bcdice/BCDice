@@ -23,7 +23,7 @@ module BCDice
 
       register_prefix(['SF.*', 'ST.*'])
 
-      def changeText(string)
+      def change_text(string)
         string.gsub(/SF/i, "2D6").gsub(/ST/i, "2D6")
       end
 

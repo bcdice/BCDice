@@ -158,7 +158,7 @@ module BCDice
       return nil
     end
 
-    def changeText(string)
+    def change_text(string)
       string
     end
 

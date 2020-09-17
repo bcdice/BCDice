@@ -88,7 +88,7 @@ module BCDice
         'UH' => 6
       }.freeze
 
-      def changeText(str)
+      def change_text(str)
         m = NJ_RE.match(str)
         return str unless m
 

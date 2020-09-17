@@ -56,7 +56,7 @@ module BCDice
         return nil
       end
 
-      def changeText(string)
+      def change_text(string)
         string = string.gsub(/^(S)?AR/i) { "#{Regexp.last_match(1)}2D6" }
         string = string.gsub(/^(S)?SR/i) { "#{Regexp.last_match(1)}1D100" }
         return string

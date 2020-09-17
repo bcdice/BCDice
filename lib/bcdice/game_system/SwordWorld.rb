@@ -23,7 +23,7 @@ module BCDice
         @rating_table = rating_table
       end
 
-      # changeTextで使うレーティング表コマンドの正規表現
+      # change_textで使うレーティング表コマンドの正規表現
       #
       # SW 2.5のダイスボットでも必要なため、共通化のために定数として定義する
       RATING_TABLE_RE_FOR_CHANGE_TEXT = /\AS?H?K\d+/i.freeze
