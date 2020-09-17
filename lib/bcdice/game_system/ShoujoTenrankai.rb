@@ -67,7 +67,7 @@ module BCDice
         index = number2 - 1
         index += 6 if isOdd
 
-        text = getTableValue(table[index])
+        text = table[index]
 
         return nil if text.nil?
 

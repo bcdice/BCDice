@@ -275,7 +275,7 @@ module BCDice
     def get_table_by_nDx(table, count, diceType)
       num = @randomizer.roll_sum(count, diceType)
 
-      text = getTableValue(table[num - count])
+      text = get_table_value(table[num - count])
 
       return "1", 0 if text.nil?
 
@@ -329,14 +329,14 @@ module BCDice
       table.each do |item|
         number = item[0]
         if number >= index
-          return getTableValue(item[1])
+          return get_table_value(item[1])
         end
       end
 
-      return getTableValue(default)
+      return get_table_value(default)
     end
 
-    def getTableValue(data)
+    def get_table_value(data)
       if data.is_a?(Proc)
         return data.call()
       end
