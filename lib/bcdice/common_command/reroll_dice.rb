@@ -70,8 +70,8 @@ module BCDice
 
           dice_list = @bcdice.roll_barabara(x, n)
           dice_list.sort! if @diceBot.sort_barabara_dice?
-          success_count += dice_list.count() { |val| compare(val, @cmp_op, @target_number) } if @cmp_op
-          reroll_count = dice_list.count() { |val| compare(val, @reroll_cmp_op, @reroll_threshold) }
+          success_count += dice_list.count() { |val| val.send(@cmp_op, @target_number) } if @cmp_op
+          reroll_count = dice_list.count() { |val| val.send(@reroll_cmp_op, @reroll_threshold) }
 
           dice_str_list.push(dice_list.join(","))
 
@@ -182,36 +182,6 @@ module BCDice
           (1..sides).include?(reroll_threshold)
         else
           true
-        end
-      end
-
-      # @param prefix [String]
-      # @param string [String]
-      # @param [String, nil]
-      def trim_prefix(prefix, string)
-        if string.start_with?(prefix)
-          string = string[prefix.size..-1]
-        end
-
-        if string.empty?
-          nil
-        else
-          string
-        end
-      end
-
-      # 整数を比較する
-      # Ruby 1.8のケア用
-      #
-      # @param lhs [Integer]
-      # @param op [Symbol]
-      # @param rhs [Integer]
-      # @return [Boolean]
-      def compare(lhs, op, rhs)
-        if op == :'!='
-          lhs != rhs
-        else
-          lhs.send(op, rhs)
         end
       end
     end

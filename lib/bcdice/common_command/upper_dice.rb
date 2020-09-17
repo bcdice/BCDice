@@ -74,8 +74,7 @@ module BCDice
           if @cmp_op
             success_count = roll_list.count do |e|
               x = e[:sum] + @modify_number
-              # Ruby 1.8のケア
-              @cmp_op == :'!=' ? x != @target_number : x.send(@cmp_op, @target_number)
+              x.send(@cmp_op, @target_number)
             end
             "成功数#{success_count}"
           else

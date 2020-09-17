@@ -226,9 +226,7 @@ module BCDice
     def check_nDx(total, cmp_op, target)
       return " ＞ 失敗" if target.is_a?(String)
 
-      # Due to Ruby 1.8
-      success = cmp_op == :"!=" ? total != target : total.send(cmp_op, target)
-      if success
+      if total.send(cmp_op, target)
         " ＞ 成功"
       else
         " ＞ 失敗"

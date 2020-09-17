@@ -81,7 +81,7 @@ MESSAGETEXT
 
         sequence = [
           expr_clutch(),
-          "[#{dice_list.join(', ')}]", # Ruby 1.8はArray#to_sの挙動が違う
+          "[#{dice_list.join(', ')}]",
           result_clutch(dice_list.last)
         ]
 
@@ -169,7 +169,6 @@ MESSAGETEXT
       def dice_result_r(dice_total, dice_list, break_list)
         modify_number_text = Format.modifier(@cmd.modify_number)
 
-        # Ruby 1.8はArray#to_sの挙動が違う
         if break_list.empty?
           "#{dice_total}[#{dice_list.join(', ')}]#{modify_number_text}"
         else

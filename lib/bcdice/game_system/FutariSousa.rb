@@ -237,12 +237,6 @@ module BCDice
         return number, text
       end
 
-      def getAddRollProc(command)
-        # 引数なしのlambda
-        # Ruby 1.8と1.9以降で引数の個数の解釈が異なるため || が必要
-        lambda { getAddRoll(command) }
-      end
-
       def getAddRoll(command)
         return command if command =~ /^\s/
 
