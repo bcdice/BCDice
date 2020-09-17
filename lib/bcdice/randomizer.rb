@@ -16,8 +16,8 @@ module BCDice
     # @param sides [Integer] ダイスの面数
     # @return [Array<Integer>] ダイスの出目一覧
     def roll_barabara(times, sides)
-      if times > UPPER_LIMIT_DICE_TIMES || sides > UPPER_LIMIT_DICE_SIDES
-        return [0]
+      if times <= 0 || times > UPPER_LIMIT_DICE_TIMES
+        return []
       end
 
       Array.new(times) { roll_once(sides) }
@@ -37,7 +37,7 @@ module BCDice
     # @params sides [Integer] ダイスの面数
     # @return [Integer] 1以上 *sides* 以下の値のいずれか
     def roll_once(sides)
-      if sides > UPPER_LIMIT_DICE_SIDES
+      if sides <= 0 || sides > UPPER_LIMIT_DICE_SIDES
         return 0
       end
 
