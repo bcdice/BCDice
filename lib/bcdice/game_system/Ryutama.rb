@@ -23,8 +23,8 @@ module BCDice
 
       register_prefix(['R\d+.*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @validDiceTypes = [20, 12, 10, 8, 6, 4, 2]
       end
 

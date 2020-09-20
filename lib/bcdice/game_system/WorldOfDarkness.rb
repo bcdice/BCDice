@@ -25,8 +25,8 @@ module BCDice
 
       register_prefix(['\d+ST.*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @successDice = 0
         @botchDice = 0
         @rerollDice = 0

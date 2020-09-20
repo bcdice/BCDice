@@ -22,8 +22,8 @@ module BCDice
 
       register_prefix(['\d+EB', 'LDUT'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @enabled_d66 = true
         @d66_sort_type = D66SortType::NO_SORT

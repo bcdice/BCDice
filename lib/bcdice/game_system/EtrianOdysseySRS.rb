@@ -20,6 +20,8 @@ module BCDice
 
       # 成功判定のエイリアスコマンドを設定する
       set_aliases_for_srs_roll('EO', 'SQ')
+
+      HELP_MESSAGE = help_message()
     end
   end
 end

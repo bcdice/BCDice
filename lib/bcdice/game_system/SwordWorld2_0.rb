@@ -167,10 +167,9 @@ module BCDice
         end
       end
 
-      def initialize
-        rating_table = 2
-        super()
-        @rating_table = rating_table
+      def initialize(command)
+        super(command)
+        @rating_table = 2
       end
 
       # 超越判定のパターン

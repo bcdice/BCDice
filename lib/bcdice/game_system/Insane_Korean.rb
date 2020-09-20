@@ -49,8 +49,8 @@ module BCDice
         'CHT', 'VHT', 'IHT', 'RHT', 'MHT', 'LHT', 'ECT', 'EMT', 'EAT', 'OPT', 'OHT', 'OWT', 'CNT1', 'CNT2', 'CNT3', 'RET'
       ])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @sort_add_dice = true
         @sort_barabara_dice = true

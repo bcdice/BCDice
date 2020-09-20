@@ -43,8 +43,8 @@ module BCDice
         　例）DNGN3、DNGNP4
       MESSAGETEXT
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @enabled_d66 = true
         @d66_sort_type = D66SortType::ASC
       end

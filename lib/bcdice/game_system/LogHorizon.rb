@@ -60,8 +60,8 @@ module BCDice
 
       register_prefix(['\d+LH.*', 'PC.*', 'EC.*', 'GC.*', 'CC.*', 'CTR.*', 'MTR.*', 'ITR.*', 'OTR.*', 'HTR.*', 'GTR.*', 'PTAG', 'KOYU', 'MGR.', 'HLOC', 'PCNM', 'IAT.*', 'TIAS', 'ABDC', 'MII.*', 'ESCT.*', 'CSCT.*', 'ESTL.*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @enabled_d66 = true
         @d66_sort_type = D66SortType::NO_SORT
       end

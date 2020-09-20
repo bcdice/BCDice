@@ -43,8 +43,8 @@ module BCDice
       # 因果点は共有リソースなのでMCPIはシークレットダイスを無効化
       register_prefix(['GS\(\d+\)', 'GS.*', '^MCPI.*\$\d+$', 'DB\d+'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @round_type = RoundType::CEIL
       end
 

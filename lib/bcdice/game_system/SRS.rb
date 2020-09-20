@@ -51,6 +51,8 @@ module BCDice
       # 既定のダイスボット説明文
       DEFAULT_HELP_MESSAGE = "#{HELP_MESSAGE_1}\n#{HELP_MESSAGE_2}\n#{HELP_MESSAGE_3}"
 
+      HELP_MESSAGE = DEFAULT_HELP_MESSAGE
+
       # 成功判定のエイリアスコマンド定義用のクラスメソッドを提供するモジュール
       module ClassMethods
         # ダイスボットの説明文を返す
@@ -173,8 +175,8 @@ module BCDice
       register_prefix(['2D6.*'])
 
       # ダイスボットを初期化する
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         # 式、出目ともに送信する
 

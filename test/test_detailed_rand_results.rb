@@ -70,9 +70,11 @@ class TestDetailedRandResults < Test::Unit::TestCase
   end
 
   def test_coc7th
-    dicebot = BCDice.dynamic_load("Cthulhu7th").new
+    dicebot = BCDice.dynamic_load("Cthulhu7th").new("CC(2)")
     dicebot.randomizer = RandomizerMock.new([[5, 10], [6, 10], [7, 10], [4, 10]])
-    dicebot.eval("CC(2)")
+    out = dicebot.eval()
+
+    assert_not_nil(out)
 
     details = dicebot.randomizer.detailed_rand_results
     assert_equal(4, details.size)

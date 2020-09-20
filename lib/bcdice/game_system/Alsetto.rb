@@ -39,8 +39,8 @@ module BCDice
 
       register_prefix(['\d+AL(C|G)?(\d+)?(x|\*)\d+', '\d+ALC?(\d+)?'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @sort_add_dice = true # ダイスのソート有
       end
 

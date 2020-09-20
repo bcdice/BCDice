@@ -44,8 +44,8 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @enabled_d66 = true
         @d66_sort_type = D66SortType::ASC
       end

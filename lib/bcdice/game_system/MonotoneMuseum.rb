@@ -34,8 +34,8 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       # ダイスボットを初期化する
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         # 式、出目ともに送信する
 

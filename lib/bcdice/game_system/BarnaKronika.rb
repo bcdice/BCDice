@@ -28,8 +28,8 @@ module BCDice
 
       register_prefix(['\d+BK.*', '\d+BA.*', '\d+BKC\d+.*', '\d+BAC\d+.*', '\d+R6.*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @sort_add_dice = true
         @sort_barabara_dice = true

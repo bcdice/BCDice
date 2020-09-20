@@ -15,8 +15,8 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = "上方無限ロール(xUn)の境界値を96にセットします。\n"
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @upper_dice_reroll_threshold = 96
       end
     end

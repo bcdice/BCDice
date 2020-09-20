@@ -37,8 +37,8 @@ MESSAGETEXT
       # ダイスボットで使用するコマンドを配列で列挙する
       register_prefix(['\d+CL.*', '\d+R6.*', '\d+D6.*\$[\+\-]?\d+.*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @sort_add_dice = true
         @sort_barabara_dice = true
       end

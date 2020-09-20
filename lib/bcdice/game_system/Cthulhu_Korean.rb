@@ -47,9 +47,8 @@ module BCDice
 
       register_prefix(['CC(B)?\(\d+\)', 'CC(B)?.*', 'RES(B)?.*', 'CBR(B)?\(\d+,\d+\)'])
 
-      def initialize
-        # $isDebug = true
-        super
+      def initialize(command)
+        super(command)
         @special_percentage  = 20
         @critical_percentage = 1
         @fumble_percentage   = 1

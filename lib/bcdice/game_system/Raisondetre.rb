@@ -33,8 +33,8 @@ module BCDice
         ・4DD2 → 4Dで装甲2のダメージロール。
       MESSAGETEXT
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @sort_add_dice = true # ダイスのソート有
       end
 

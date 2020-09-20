@@ -24,8 +24,8 @@ module BCDice
 
       register_prefix(['\d+RS.*', '3R6.*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @sort_add_dice = true
       end

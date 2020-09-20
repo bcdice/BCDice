@@ -63,8 +63,8 @@ module BCDice
         STAL：シチュエーション表：オルトリヴート (ST Alt-Levoot)
       MESSAGETEXT
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @sort_barabara_dice = true # バラバラロール（Bコマンド）でソート有
         @enabled_d66 = true

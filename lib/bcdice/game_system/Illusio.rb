@@ -27,8 +27,8 @@ module BCDice
         ・2IL1P → 2dでパリィナンバー「1」の判定。
       MESSAGETEXT
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @sort_add_dice = true # ダイスのソート有
       end
 

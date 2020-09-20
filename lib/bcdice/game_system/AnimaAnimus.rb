@@ -31,8 +31,8 @@ module BCDice
         　情報収集表　IGT/喪失表　LT
       MESSAGETEXT
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
       end
 
       def eval_game_system_specific_command(command)

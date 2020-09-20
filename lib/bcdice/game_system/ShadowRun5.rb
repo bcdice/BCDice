@@ -23,8 +23,8 @@ module BCDice
 
       register_prefix(['(\d+)B6@(\d+)'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @sort_add_dice = true
         @sort_barabara_dice = true
         @reroll_dice_reroll_threshold = 6 # RerollDiceで振り足しをする出目の閾値

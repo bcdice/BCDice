@@ -27,8 +27,8 @@ module BCDice
 
       register_prefix(['\d*UK[@\d]*.*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @arrayDragonDiceName = ['', '風', '雨', '雲', '影', '月', '歌']
         @enabled_upcase_input = false
       end

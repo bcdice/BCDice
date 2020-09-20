@@ -17,10 +17,9 @@ module BCDice
 
       register_prefix(['H?K\d+.*'])
 
-      def initialize
-        rating_table = 0
-        super()
-        @rating_table = rating_table
+      def initialize(command)
+        super(command)
+        @rating_table = 0
       end
 
       # change_textで使うレーティング表コマンドの正規表現

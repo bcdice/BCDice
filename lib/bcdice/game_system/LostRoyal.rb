@@ -37,8 +37,8 @@ module BCDice
 
       register_prefix(['LR\[[0-5],[0-5],[0-5],[0-5],[0-5],[0-5]\]', 'FC', 'WPC', 'EC', 'HR[1-2]'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @sort_add_dice = true
         @enabled_d66 = true

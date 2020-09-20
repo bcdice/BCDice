@@ -37,9 +37,8 @@ module BCDice
 
       register_prefix(['CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR.*'])
 
-      def initialize
-        # $isDebug = true
-        super
+      def initialize(command)
+        super(command)
 
         @bonus_dice_range = (-2..2)
       end

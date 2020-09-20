@@ -40,8 +40,8 @@ module BCDice
         'AKST[\+\-]?'
       ])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @sort_add_dice = true
       end

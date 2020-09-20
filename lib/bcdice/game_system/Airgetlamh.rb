@@ -45,8 +45,8 @@ module BCDice
         ['(\d+)?A(A|L)(\d+)?((x|\*)(\d+)(\+(\d+))?)?(C(\d+))?']
       ])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @sort_add_dice = true # ダイスのソート有
       end
 

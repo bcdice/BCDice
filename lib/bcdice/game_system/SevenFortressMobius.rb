@@ -25,8 +25,8 @@ module BCDice
 
       register_prefix(['([-+]?\d+)?SFM.*', '2R6.*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @nw_command = "SFM"
       end
     end

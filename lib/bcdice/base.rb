@@ -52,7 +52,9 @@ module BCDice
       end
     end
 
-    def initialize()
+    def initialize(command)
+      @raw_input = command
+
       @sort_add_dice = false # 加算ダイスでダイス目をソートするかどうか
       @sort_barabara_dice = false # バラバラダイスでダイス目をソートするかどうか
 
@@ -152,8 +154,8 @@ module BCDice
     # コマンドを評価する
     # @param command [String]
     # @return [String, nil] コマンド実行結果。コマンドが実行できなかった場合はnilを返す
-    def eval(command)
-      command = BCDice::Preprocessor.process(command, @randomizer, self)
+    def eval
+      command = BCDice::Preprocessor.process(@raw_input, @randomizer, self)
       upcased_command = command.upcase
 
       result = dice_command(command)

@@ -8,9 +8,6 @@ require "bcdice"
 require "bcdice/game_system"
 
 class TestDiceBotInfoIsDefined < Test::Unit::TestCase
-  # 一般的なダイスボット
-  DEFAULT_DICEBOT = BCDice::GameSystem::DiceBot.new
-
   # ダイスボットの配列
   dicebots = BCDice.all_game_systems
 

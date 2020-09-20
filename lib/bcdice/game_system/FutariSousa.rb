@@ -37,8 +37,8 @@ module BCDice
         呼び名表A・B　NCT66・NCT10
       MESSAGETEXT
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @enabled_d66 = true
         @d66_sort_type = D66SortType::ASC

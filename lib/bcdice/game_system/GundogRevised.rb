@@ -28,8 +28,8 @@ module BCDice
 
       register_prefix(['(.DPT|.FT)(\+|\-)?\d*'])
 
-      def initialize
-        super()
+      def initialize(command)
+        super(command)
         @enabled_d9 = true
       end
 

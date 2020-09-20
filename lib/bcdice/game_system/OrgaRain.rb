@@ -25,8 +25,8 @@ module BCDice
         ・6OR33333 → 6dで命数「3,3,3,3,3」の判定。
       MESSAGETEXT
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @sort_add_dice = true # ダイスのソート有
       end
 

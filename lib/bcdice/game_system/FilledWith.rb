@@ -46,8 +46,8 @@ module BCDice
 
       register_prefix(['3FW.*', '[\+\-\d]*-3FW.*', 'LOT[NP]', 'HST', 'COOK[1-8]', 'RAND.*', 'RENC.*', 'RED.*', 'TRS.*', 'TRAP[ENHL]', 'ROP[ENHL]'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @enabled_d66 = true
         @d66_sort_type = D66SortType::NO_SORT; # d66の差し替え
       end

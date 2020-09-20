@@ -49,8 +49,8 @@ module BCDice
 
       register_prefix(['(\d+R|SR\d+|TAGT|\w+IET|\w+IHT|F\w*T|F\w*T|A\w*T|G\w*A\w*T|A\w*T|R\w*FT|NPCT|KusaiMT|EnterT|BudTT|GetgT|GetzT|GetnT|GetkT|GETSST|PayT|TimeUT|\w+IT|ShaokinRET|MinamiRET|ChinatownRET|CivicCenterRET|DowntownRET|WarshipLandRET|LoveLoveRET|AjitoRET|JigokuSpaRET|JailHouseRET).*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @sort_add_dice = true
         @enabled_d66 = true

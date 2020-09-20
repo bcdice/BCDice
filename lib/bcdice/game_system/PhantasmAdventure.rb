@@ -17,8 +17,8 @@ module BCDice
         成功、失敗、決定的成功、決定的失敗の表示とクリティカル・ファンブル値計算の実装。
       INFO_MESSAGE_TEXT
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
       end
 
       # ゲーム別成功度判定(1d20)

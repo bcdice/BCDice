@@ -124,9 +124,9 @@ module BCDice
     end
 
     def eval_game_system(command)
-      gs = @game_system.new
+      gs = @game_system.new(command)
       gs.enable_debug if @debug
-      puts gs.eval(command)
+      puts gs.eval()
     rescue StandardError => e
       puts e
       puts e.backtrace

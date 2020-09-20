@@ -29,8 +29,8 @@ module BCDice
         ・敵への未練表 nme
       INFO_MESSAGE_TEXT
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @sort_add_dice = true
         @sort_barabara_dice = true

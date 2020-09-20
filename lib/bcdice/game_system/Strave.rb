@@ -37,8 +37,8 @@ module BCDice
         'AFF', 'IDT', 'AFV', 'IDV'
       ])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @sort_add_dice = true # ダイスのソート有
       end
 

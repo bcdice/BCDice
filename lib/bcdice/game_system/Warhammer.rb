@@ -28,8 +28,8 @@ module BCDice
 
       register_prefix(['WH.*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @round_type = RoundType::CEIL # 端数切り上げに設定
       end

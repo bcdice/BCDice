@@ -23,8 +23,8 @@ module BCDice
 
       register_prefix(['geta'])
 
-      def initialize
-        super()
+      def initialize(command)
+        super(command)
         @enabled_upcase_input = false
       end
 

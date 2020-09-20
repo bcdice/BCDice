@@ -220,8 +220,8 @@ module BCDice
       end
 
       # ダイスボットを初期化する
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         # 加算ロールで出目をソートする
         @sort_add_dice = true

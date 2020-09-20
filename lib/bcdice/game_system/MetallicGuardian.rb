@@ -24,6 +24,8 @@ module BCDice
       # @return [String]
       # ゲームシステムの識別子
       ID = 'MetallicGuardian'
+
+      HELP_MESSAGE = help_message()
     end
   end
 end

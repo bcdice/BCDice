@@ -55,14 +55,14 @@ class TestGameSystemCommands < Test::Unit::TestCase
   end
   def test_diceroll(data)
     klass = BCDice.game_system_class(data[:game_system])
-    game_system = klass.new
+    game_system = klass.new(data[:input])
 
     rands = data[:rands].map { |r| [r[:value], r[:sides]] }
     game_system.randomizer = RandomizerMock.new(rands)
 
     msg = JSON.pretty_generate(data)
 
-    assert_equal(data[:output], game_system.eval(data[:input]), msg)
+    assert_equal(data[:output], game_system.eval(), msg)
     assert_equal(data[:secret], game_system.secret?, msg)
   end
 end

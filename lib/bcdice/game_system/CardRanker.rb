@@ -28,8 +28,8 @@ module BCDice
         崩壊運命表 (CDT)
       INFO_MESSAGE_TEXT
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @sort_add_dice = true
         @enabled_d66 = true

@@ -29,8 +29,8 @@ module BCDice
 
       register_prefix(['2D6.*', 'ET', 'ET2', 'OT', 'DT', 'DT2', 'WDT'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @enabled_d66 = true
         @d66_sort_type = D66SortType::NO_SORT

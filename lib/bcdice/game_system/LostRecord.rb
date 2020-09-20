@@ -18,8 +18,8 @@ module BCDice
         D66を振った時、小さい目が十の位になります。
       MESSAGETEXT
 
-      def initialize
-        super()
+      def initialize(command)
+        super(command)
 
         # D66は昇順に
         @enabled_d66 = true

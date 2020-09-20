@@ -48,8 +48,8 @@ module BCDice
         'SB'
       ])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @default_cmp_op = :>=
         @default_target_number = 4

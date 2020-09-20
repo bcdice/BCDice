@@ -31,8 +31,8 @@ module BCDice
 
       register_prefix(['([-+]?\d+)?NW.*', '2R6.*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @nw_command = "NW"
       end

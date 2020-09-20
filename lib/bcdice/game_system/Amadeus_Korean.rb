@@ -38,8 +38,8 @@ module BCDice
         　武勇 PRCT／技術 TCCT／頭脳 INCT／霊力 PSCT／愛 LVCT／日常 DACT
       INFO_MESSAGE_TEXT
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @sort_add_dice = true
         @enabled_d66 = true

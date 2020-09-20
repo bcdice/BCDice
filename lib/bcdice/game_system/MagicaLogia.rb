@@ -46,8 +46,8 @@ module BCDice
 
       register_prefix(['WT', 'FCT', 'ST', 'FT', 'AT', 'BGT', 'DAT', 'FAT', 'WIT', 'RTT', 'TPT', 'TCT', 'PCT', 'MCT', 'ICT', 'SCT', 'XCT', 'WCT', 'CCT', 'BST', 'PT', 'XEST', 'IWST', 'MCST', 'WDST', 'LWST', 'MIT', 'MOT', 'MAT', 'MUT', 'MFT', 'MLT', 'STB', 'RTS', 'RTB', 'RTF', 'RTP', 'RTD', 'RTN', 'MGCT', 'MBST', 'MAST', 'TCST', 'PWST', 'PAST', 'GBST', 'SLST', 'WLAT', 'WMT', 'FFT', 'OLST', 'TPTB', 'FLT'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
 
         @sort_add_dice = true
         @sort_barabara_dice = true

@@ -34,8 +34,8 @@ module BCDice
 
       register_prefix(['D.*', '2[Dd]6<=.*', 'SN.*', 'NV.*', 'AVO.*', 'BOM.*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @round_type = RoundType::FLOOR # 端数切り捨て
       end
 

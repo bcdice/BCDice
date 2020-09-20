@@ -18,8 +18,8 @@ module BCDice
         nD9ロールも対応。
       INFO_MESSAGE_TEXT
 
-      def initialize
-        super()
+      def initialize(command)
+        super(command)
         @enabled_d9 = true
       end
 
