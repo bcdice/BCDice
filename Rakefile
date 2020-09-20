@@ -99,9 +99,4 @@ task test: [:rubocop] if ENV["CI"] != "true"
 require "yard"
 require "yard/rake/yardoc_task"
 
-YARD::Rake::YardocTask.new do |t|
-  t.files = [
-    "src/**/*.rb"
-  ]
-  t.options = []
-end
+YARD::Rake::YardocTask.new

@@ -24,8 +24,10 @@ module BCDice
       @rows = nil
     end
 
+    # @return [Randomizer]
     attr_accessor :randomizer
 
+    # ダイス表をロールする
     # @return [String, nil]
     def roll
       parse()

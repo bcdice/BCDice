@@ -2,21 +2,22 @@ require "bcdice"
 require "readline"
 
 module BCDice
+  # Read-Eval-Print Loopクラス
   class REPL
-    class << self
-      def run(history_path)
-        REPL.new(history_path).run()
-      end
-    end
-
     def initialize()
       @game_system = GameSystem::DiceBot
       @hisoty_file = nil
       @debug = false
     end
 
+    # @param value [Boolean]
+    # @return [Boolean]
     attr_writer :debug
 
+    # コマンド履歴を保存するファイルのパスを指定する
+    #
+    # @param path [String]
+    # @return [void]
     def history_file=(path)
       @hisoty_file = path
 
@@ -28,6 +29,8 @@ module BCDice
       end
     end
 
+    # コマンドの履歴ファイルを保存してREPLを終了する
+    # @return [void]
     def quit
       if @hisoty_file
         last_100_comamnds = Readline::HISTORY.to_a.reverse[0, 100].reverse
@@ -37,6 +40,8 @@ module BCDice
       exit
     end
 
+    # REPLを開始する
+    # @return [void]
     def run
       puts "BCDice REPL"
       puts '>> "help" shows help messages.'
@@ -44,6 +49,8 @@ module BCDice
         run_once()
       end
     end
+
+    private
 
     def run_once
       input = Readline.readline(header())&.strip

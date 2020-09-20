@@ -1,4 +1,5 @@
 module BCDice
+  # 乱数生成器
   class Randomizer
     UPPER_LIMIT_DICE_TIMES = 200
     UPPER_LIMIT_DICE_SIDES = 1000
@@ -8,7 +9,20 @@ module BCDice
       @detailed_rand_results = []
     end
 
-    attr_reader :rand_results, :detailed_rand_results
+    # @return [Array<Array<(Integer, Integer)>>] ダイスの出目一覧
+    attr_reader :rand_results
+
+    # @return [Array<DetailedRandResult>]
+    attr_reader :detailed_rand_results
+
+    # 実行したダイスロールの詳細
+    # @!attribute [rw] kind
+    #   @return [Symbol]
+    # @!attribute [rw] sides
+    #   @return [Integer] ダイスロールしたダイスの面数
+    # @!attribute [rw] value
+    #   @return [Integer] 値
+    DetailedRandResult = Struct.new(:kind, :sides, :value)
 
     # 複数個のダイスを振る
     #
@@ -111,8 +125,6 @@ module BCDice
     def random(sides)
       Kernel.rand(sides) + 1
     end
-
-    DetailedRandResult = Struct.new(:kind, :sides, :value)
 
     # @param [Symbol] kind
     # @param [Integer] sides
