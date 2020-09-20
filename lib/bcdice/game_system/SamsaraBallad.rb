@@ -78,17 +78,17 @@ module BCDice
         if [:<=, :<].include?(cmd.cmp_op)
           if !total.send(cmd.cmp_op, cmd.target_number)
             "失敗"
-          elsif fumble?(total, cmd.fumble)
+          elsif fumble_?(total, cmd.fumble)
             "ファンブル"
-          elsif critical?(total, cmd.critical)
+          elsif critical_?(total, cmd.critical)
             "クリティカル"
           else
             "成功"
           end
-        elsif fumble?(total, cmd.fumble)
+        elsif fumble_?(total, cmd.fumble)
           # ファンブル優先
           "ファンブル"
-        elsif critical?(total, cmd.critical)
+        elsif critical_?(total, cmd.critical)
           "クリティカル"
         end
       end
@@ -96,14 +96,14 @@ module BCDice
       # @param total [Integer]
       # @param fumble [Integer, nil]
       # @return [Boolean]
-      def fumble?(total, fumble)
+      def fumble_?(total, fumble)
         fumble && (total % 10 <= fumble)
       end
 
       # @param total [Integer]
       # @param critical [Integer, nil]
       # @return [Boolean]
-      def critical?(total, critical)
+      def critical_?(total, critical)
         critical && (total % 10 >= critical)
       end
     end

@@ -78,14 +78,14 @@ module BCDice
         text = "3D6 => [#{keys.join(',')}] => (#{scores.join('+')}) => #{total_score}"
 
         unless chained_sequence.nil? || chained_sequence.empty?
-          bonus = fumble?(keys, chained_sequence) ? 3 : chained_sequence.size
+          bonus = fumble_?(keys, chained_sequence) ? 3 : chained_sequence.size
           text += " | #{chained_sequence.size} chain! (#{chained_sequence.join(',')}) => #{total_score + bonus}"
 
           if chained_sequence.size >= 3
             text += " [スペシャル]"
           end
 
-          if fumble?(keys, chained_sequence)
+          if fumble_?(keys, chained_sequence)
             text += " [ファンブル]"
           end
         end
@@ -125,7 +125,7 @@ module BCDice
         return chained_keys
       end
 
-      def fumble?(keys, chained_sequence)
+      def fumble_?(keys, chained_sequence)
         chained_sequence.each do |k|
           if keys.count(k) >= 2
             return true

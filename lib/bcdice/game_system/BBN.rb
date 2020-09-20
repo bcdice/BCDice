@@ -44,9 +44,9 @@ module BCDice
         ]
 
         # クリティカルとファンブルが同時に発生した時にはクリティカルが優先
-        if critical?(dice_list)
+        if critical_?(dice_list)
           sequence.push("クリティカル！", *additional_roll(dice_list.count(6), total))
-        elsif fumble?(dice_list)
+        elsif fumble_?(dice_list)
           sequence.push("ファンブル！")
         elsif @difficulty
           sequence.push(total >= @difficulty ? "成功" : "失敗")
@@ -93,12 +93,12 @@ module BCDice
       end
 
       # @return [Boolean] クリティカルか
-      def critical?(dice_list)
+      def critical_?(dice_list)
         dice_list.count(6) >= @critical
       end
 
       # @return [Boolean] ファンブルか
-      def fumble?(dice_list)
+      def fumble_?(dice_list)
         dice_list.count(1) >= @fumble
       end
 

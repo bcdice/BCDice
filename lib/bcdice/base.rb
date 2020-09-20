@@ -74,6 +74,10 @@ module BCDice
       @enabled_upcase_input = true # 入力を String#upcase するかどうか
 
       @is_secret = false
+      @is_success = false
+      @is_failure = false
+      @is_critical = false
+      @is_fumble = false
 
       @randomizer = BCDice::Randomizer.new
       @debug = false
@@ -144,6 +148,30 @@ module BCDice
     # @return [Boolean]
     def secret?
       @is_secret
+    end
+
+    # 結果が成功か
+    # @return [Boolean]
+    def success?
+      @is_success
+    end
+
+    # 結果が失敗か
+    # @return [Boolean]
+    def failure?
+      @is_failure
+    end
+
+    # 結果がクリティカルか
+    # @return [Boolean]
+    def critical?
+      @is_critical
+    end
+
+    # 結果がファンブルか
+    # @return [Boolean]
+    def fumble?
+      @is_fumble
     end
 
     # デバッグを有用にする

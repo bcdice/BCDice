@@ -44,6 +44,10 @@ class TestGameSystemCommands < Test::Unit::TestCase
         test_case[:filename] = filename
         test_case[:output] = nil if test_case[:output].empty? # TOMLではnilを表現できないので空文字で代用
         test_case[:secret] ||= false
+        test_case[:success] ||= false
+        test_case[:failure] ||= false
+        test_case[:critical] ||= false
+        test_case[:fumble] ||= false
 
         key = [filename_base, index, test_case[:input]].join(":")
 
@@ -64,5 +68,9 @@ class TestGameSystemCommands < Test::Unit::TestCase
 
     assert_equal(data[:output], game_system.eval(), msg)
     assert_equal(data[:secret], game_system.secret?, msg)
+    assert_equal(data[:success], game_system.success?, msg)
+    assert_equal(data[:failure], game_system.failure?, msg)
+    assert_equal(data[:critical], game_system.critical?, msg)
+    assert_equal(data[:fumble], game_system.fumble?, msg)
   end
 end
