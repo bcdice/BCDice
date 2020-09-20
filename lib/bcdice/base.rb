@@ -149,6 +149,7 @@ module BCDice
       @debug = true
     end
 
+    # コマンドを評価する
     # @param command [String]
     # @return [String, nil] コマンド実行結果。コマンドが実行できなかった場合はnilを返す
     def eval(command)
@@ -161,45 +162,13 @@ module BCDice
       return result
     end
 
-    def eval_common_command(command)
-      CommonCommand::COMMANDS.each do |klass|
-        cmd = klass.new(command, @randomizer, self)
-        out = cmd.eval()
-
-        @is_secret = cmd.secret?
-        return out if out
-      end
-
-      return nil
-    end
-
+    # ゲームシステムごとの入力コマンドの前処理
+    # @deprecated これを使わずに +eval_common_command+ 内でパースすることを推奨する
+    # @param string [String]
+    # @return [String]
     def change_text(string)
       string
     end
-
-    def dice_command(command)
-      command = command.upcase if @enabled_upcase_input
-
-      m = self.class.prefixes_pattern.match(command)
-      unless m
-        return nil
-      end
-
-      secret = !m[1].nil?
-      command = command[1..-1] if secret # 先頭の 'S' をとる
-
-      output = eval_game_system_specific_command(command)
-      @is_secret ||= secret
-      if output.nil? || output.empty? || output == "1"
-        return nil
-      else
-        return output.to_s
-      end
-    end
-
-    # @param command [String]
-    # @return [String, nil]
-    def eval_game_system_specific_command(command); end
 
     # @param total [Integer] コマンド合計値
     # @param dice_total [Integer] ダイス目の合計値
@@ -233,6 +202,51 @@ module BCDice
 
       check_nDx(total, cmp_op, target)
     end
+
+    # シャドウラン用グリッチ判定
+    # @param count_one [Integer] 出目1の数
+    # @param dice_total_count [Integer] ダイスロールしたダイスの数
+    # @param count_success [Integer] 成功数
+    # @return [String, nil]
+    def grich_text(count_one, dice_total_count, count_success); end
+
+    private
+
+    def eval_common_command(command)
+      CommonCommand::COMMANDS.each do |klass|
+        cmd = klass.new(command, @randomizer, self)
+        out = cmd.eval()
+
+        @is_secret = cmd.secret?
+        return out if out
+      end
+
+      return nil
+    end
+
+    def dice_command(command)
+      command = command.upcase if @enabled_upcase_input
+
+      m = self.class.prefixes_pattern.match(command)
+      unless m
+        return nil
+      end
+
+      secret = !m[1].nil?
+      command = command[1..-1] if secret # 先頭の 'S' をとる
+
+      output = eval_game_system_specific_command(command)
+      @is_secret ||= secret
+      if output.nil? || output.empty? || output == "1"
+        return nil
+      else
+        return output.to_s
+      end
+    end
+
+    # @param command [String]
+    # @return [String, nil]
+    def eval_game_system_specific_command(command); end
 
     # 成功か失敗かを文字列で返す
     #
@@ -333,9 +347,6 @@ module BCDice
 
       return text, indexText
     end
-
-    # シャドウラン4版用グリッチ判定
-    def grich_text(_numberSpot1, _dice_cnt_total, _suc); end
 
     # ** 汎用表サブルーチン
     def get_table_by_number(index, table, default = "1")
