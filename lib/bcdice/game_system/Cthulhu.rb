@@ -138,10 +138,12 @@ module BCDice
         end
 
         if (total_n <= diff) && (total_n < 100)
+          @is_success = true
           result = "成功"
 
           if diff_special > 0
             if total_n <= @critical_percentage
+              @is_critical = true
               if total_n <= diff_special
                 result = "決定的成功/スペシャル"
               else
@@ -154,10 +156,12 @@ module BCDice
             end
           end
         else
+          @is_failure = true
           result = "失敗"
 
           if diff_special > 0
             if (total_n >= (101 - @fumble_percentage)) && (diff < 100)
+              @is_fumble = true
               result = "致命的失敗"
               fumble = true
             end
@@ -166,6 +170,8 @@ module BCDice
 
         if broken_num > 0
           if total_n >= broken_num
+            @is_success = false
+            @is_failure = true
             if fumble
               result += "/故障"
             else
@@ -187,10 +193,12 @@ module BCDice
         target = value * 5 + 50
 
         if target < 5
+          @is_failure = true
           return "(1d100<=#{target}) ＞ 自動失敗"
         end
 
         if target > 95
+          @is_success = true
           return "(1d100<=#{target}) ＞ 自動成功"
         end
 
@@ -222,12 +230,18 @@ module BCDice
         succesCount += 1 if successList.include?(result_2)
         debug("succesCount", succesCount)
 
+        @is_failure = false
+        @is_success = false
+
         rank =
           if succesCount >= 2
+            @is_success = true
             "成功"
           elsif succesCount == 1
+            @is_success = true
             "部分的成功"
           else
+            @is_failure = true
             "失敗"
           end
 

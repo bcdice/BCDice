@@ -1,37 +1,5 @@
 [[ test ]]
 game_system = "Cthulhu"
-input = "1D100<=70 失敗"
-output = "(1D100<=70) ＞ 85 ＞ 失敗"
-rands = [
-  { sides = 100, value = 85 },
-]
-
-[[ test ]]
-game_system = "Cthulhu"
-input = "1D100<=70 失敗 1足りない"
-output = "(1D100<=70) ＞ 71 ＞ 失敗"
-rands = [
-  { sides = 100, value = 71 },
-]
-
-[[ test ]]
-game_system = "Cthulhu"
-input = "1D100<=70 成功 1足りた"
-output = "(1D100<=70) ＞ 70 ＞ 成功"
-rands = [
-  { sides = 100, value = 70 },
-]
-
-[[ test ]]
-game_system = "Cthulhu"
-input = "1D100<=70 成功"
-output = "(1D100<=70) ＞ 38 ＞ 成功"
-rands = [
-  { sides = 100, value = 38 },
-]
-
-[[ test ]]
-game_system = "Cthulhu"
 input = "1D100<=70 ファンブルなし"
 output = "(1D100<=70) ＞ 100 ＞ 失敗"
 rands = [
@@ -46,38 +14,6 @@ rands = [
   { sides = 100, value = 1 },
 ]
 
-[[ test ]]
-game_system = "Cthulhu"
-input = "1D100<=25 成功 1足りた"
-output = "(1D100<=25) ＞ 25 ＞ 成功"
-rands = [
-  { sides = 100, value = 25 },
-]
-
-[[ test ]]
-game_system = "Cthulhu"
-input = "1D100<=25 失敗 1足りない"
-output = "(1D100<=25) ＞ 26 ＞ 失敗"
-rands = [
-  { sides = 100, value = 26 },
-]
-
-[[ test ]]
-game_system = "Cthulhu"
-input = "1D100>=(68+12)"
-output = "(1D100>=80) ＞ 11 ＞ 失敗"
-rands = [
-  { sides = 100, value = 11 },
-]
-
-[[ test ]]
-game_system = "Cthulhu"
-input = "1D100>=68+12"
-output = "(1D100>=80) ＞ 11 ＞ 失敗"
-rands = [
-  { sides = 100, value = 11 },
-]
-
 
 ##### 対抗判定 RES #####
 
@@ -85,6 +21,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(12-10) 失敗"
 output = "(1d100<=60) ＞ 83 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 83 },
 ]
@@ -93,6 +30,8 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(12-10) ファンブル"
 output = "(1d100<=60) ＞ 100 ＞ 致命的失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -101,6 +40,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(12-10) ファンブルは100のみ"
 output = "(1d100<=60) ＞ 99 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -109,6 +49,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(12-10) 失敗"
 output = "(1d100<=60) ＞ 88 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 88 },
 ]
@@ -117,6 +58,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(12-10) 失敗 1足りない"
 output = "(1d100<=60) ＞ 61 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 61 },
 ]
@@ -125,6 +67,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(12-10) 成功 1足りた"
 output = "(1d100<=60) ＞ 60 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 60 },
 ]
@@ -133,6 +76,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(12-10) 成功"
 output = "(1d100<=60) ＞ 42 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 42 },
 ]
@@ -141,6 +85,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(12-10) スペシャルに1足りない"
 output = "(1d100<=60) ＞ 13 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 13 },
 ]
@@ -149,6 +94,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(12-10) スペシャル"
 output = "(1d100<=60) ＞ 12 ＞ スペシャル"
+success = true
 rands = [
   { sides = 100, value = 12 },
 ]
@@ -157,6 +103,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(12-10) クリティカルは1のみ"
 output = "(1d100<=60) ＞ 2 ＞ スペシャル"
+success = true
 rands = [
   { sides = 100, value = 2 },
 ]
@@ -165,6 +112,8 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(12-10) クリティカル"
 output = "(1d100<=60) ＞ 1 ＞ 決定的成功/スペシャル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -173,6 +122,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(10-15) 引数が負数の場合には絶対値をとる"
 output = "(1d100<=25) ＞ 26 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 26 },
 ]
@@ -181,6 +131,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(10-15) 引数が負数の場合には絶対値をとる"
 output = "(1d100<=25) ＞ 25 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 25 },
 ]
@@ -189,12 +140,14 @@ rands = [
 game_system = "Cthulhu"
 input = "RES(11-30) 自動失敗"
 output = "(1d100<=-45) ＞ 自動失敗"
+failure = true
 rands = []
 
 [[ test ]]
 game_system = "Cthulhu"
 input = "RES(30-11) 自動成功"
 output = "(1d100<=145) ＞ 自動成功"
+success = true
 rands = []
 
 [[ test ]]
@@ -202,6 +155,7 @@ game_system = "Cthulhu"
 input = "SRES(18-11) シークレット"
 output = "(1d100<=85) ＞ 47 ＞ 成功"
 secret = true
+success = true
 rands = [
   { sides = 100, value = 47 },
 ]
@@ -213,6 +167,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CBR(70,30) ファンブル"
 output = "(1d100<=70,30) ＞ 100[致命的失敗,致命的失敗] ＞ 失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -221,6 +177,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBR(70,30) ファンブルは100のみ"
 output = "(1d100<=70,30) ＞ 99[失敗,失敗] ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -229,6 +186,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBR(70,30) 失敗"
 output = "(1d100<=70,30) ＞ 71[失敗,失敗] ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 71 },
 ]
@@ -237,6 +195,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBR(70,30) 部分的成功"
 output = "(1d100<=70,30) ＞ 70[成功,失敗] ＞ 部分的成功"
+success = true
 rands = [
   { sides = 100, value = 70 },
 ]
@@ -245,6 +204,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBR(70,30) 部分的成功"
 output = "(1d100<=70,30) ＞ 31[成功,失敗] ＞ 部分的成功"
+success = true
 rands = [
   { sides = 100, value = 31 },
 ]
@@ -253,6 +213,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBR(70,30) 成功"
 output = "(1d100<=70,30) ＞ 30[成功,成功] ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 30 },
 ]
@@ -261,6 +222,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBR(70,30) 一方のみスペシャル"
 output = "(1d100<=70,30) ＞ 7[スペシャル,成功] ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 7 },
 ]
@@ -269,6 +231,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBR(70,30) 両方スペシャル"
 output = "(1d100<=70,30) ＞ 6[スペシャル,スペシャル] ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -277,6 +240,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CBR(70,30) クリティカル"
 output = "(1d100<=70,30) ＞ 1[決定的成功/スペシャル,決定的成功/スペシャル] ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -285,6 +250,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBR(25,1) スペシャルと失敗"
 output = "(1d100<=25,1) ＞ 5[スペシャル,失敗] ＞ 部分的成功"
+success = true
 rands = [
   { sides = 100, value = 5 },
 ]
@@ -293,6 +259,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBR(90,99)"
 output = "(1d100<=90,99) ＞ 96[失敗,成功] ＞ 部分的成功"
+success = true
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -301,6 +268,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBR(90,95)"
 output = "(1d100<=90,95) ＞ 96[失敗,失敗] ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -310,6 +278,7 @@ game_system = "Cthulhu"
 input = "SCBR(25,75) シークレット"
 output = "(1d100<=25,75) ＞ 30[失敗,成功] ＞ 部分的成功"
 secret = true
+success = true
 rands = [
   { sides = 100, value = 30 },
 ]
@@ -337,6 +306,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=60 ファンブル"
 output = "(1D100<=60) ＞ 100 ＞ 致命的失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -345,6 +316,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=60 ファンブルは100のみ"
 output = "(1D100<=60) ＞ 99 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -353,6 +325,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=60 失敗"
 output = "(1D100<=60) ＞ 78 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 78 },
 ]
@@ -361,6 +334,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=60 失敗 1足りない"
 output = "(1D100<=60) ＞ 61 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 61 },
 ]
@@ -369,6 +343,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=60 成功 1足りた"
 output = "(1D100<=60) ＞ 60 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 60 },
 ]
@@ -377,6 +352,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=60 成功"
 output = "(1D100<=60) ＞ 49 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 49 },
 ]
@@ -385,6 +361,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=60 スペシャルに1足りない"
 output = "(1D100<=60) ＞ 13 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 13 },
 ]
@@ -393,6 +370,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=60 スペシャル"
 output = "(1D100<=60) ＞ 12 ＞ スペシャル"
+success = true
 rands = [
   { sides = 100, value = 12 },
 ]
@@ -401,6 +379,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=60 クリティカルは1のみ"
 output = "(1D100<=60) ＞ 2 ＞ スペシャル"
+success = true
 rands = [
   { sides = 100, value = 2 },
 ]
@@ -409,6 +388,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=60 クリティカル"
 output = "(1D100<=60) ＞ 1 ＞ 決定的成功/スペシャル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -417,6 +398,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=59 スペシャルは端数切り捨て"
 output = "(1D100<=59) ＞ 12 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 12 },
 ]
@@ -425,6 +407,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=59 スペシャルは端数切り捨て"
 output = "(1D100<=59) ＞ 11 ＞ スペシャル"
+success = true
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -433,6 +416,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC<=+60/2+15*2-10"
 output = "(1D100<=50) ＞ 37 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 37 },
 ]
@@ -441,6 +425,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC(94)<=98 故障 成功"
 output = "(1D100<=98) 故障ナンバー[94] ＞ 97 ＞ 故障"
+failure = true
 rands = [
   { sides = 100, value = 97 },
 ]
@@ -449,6 +434,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CC(94)<=98 故障 失敗"
 output = "(1D100<=98) 故障ナンバー[94] ＞ 99 ＞ 故障"
+failure = true
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -457,6 +443,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CC(94)<=98 故障 致命的失敗"
 output = "(1D100<=98) 故障ナンバー[94] ＞ 100 ＞ 致命的失敗/故障"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -465,6 +453,7 @@ rands = [
 game_system = "Cthulhu"
 input = "SCC<=60 シークレット"
 output = "(1D100<=60) ＞ 77 ＞ 失敗"
+failure = true
 secret = true
 rands = [
   { sides = 100, value = 77 },
@@ -477,6 +466,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=+60/2+15*2-10"
 output = "(1D100<=50) ＞ 37 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 37 },
 ]
@@ -485,6 +475,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=(12*5)-20"
 output = "(1D100<=40) ＞ 37 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 37 },
 ]
@@ -493,6 +484,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=50 ファンブル"
 output = "(1D100<=50) ＞ 100 ＞ 致命的失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -501,6 +494,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=50 ファンブル"
 output = "(1D100<=50) ＞ 96 ＞ 致命的失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -509,6 +504,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=50 ファンブルは96~100"
 output = "(1D100<=50) ＞ 95 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -517,6 +513,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=50 失敗"
 output = "(1D100<=50) ＞ 61 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 61 },
 ]
@@ -525,6 +522,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=50 失敗 1足りない"
 output = "(1D100<=50) ＞ 51 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -533,6 +531,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=50 成功 1足りた"
 output = "(1D100<=50) ＞ 50 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -541,6 +540,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=50 スペシャルに1足りない"
 output = "(1D100<=50) ＞ 11 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -549,6 +549,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=50 スペシャル"
 output = "(1D100<=50) ＞ 10 ＞ スペシャル"
+success = true
 rands = [
   { sides = 100, value = 10 },
 ]
@@ -557,6 +558,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=50 クリティカルは1~5"
 output = "(1D100<=50) ＞ 6 ＞ スペシャル"
+success = true
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -565,6 +567,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=50 クリティカル"
 output = "(1D100<=50) ＞ 5 ＞ 決定的成功/スペシャル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 5 },
 ]
@@ -573,6 +577,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=50 クリティカル"
 output = "(1D100<=50) ＞ 1 ＞ 決定的成功/スペシャル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -581,6 +587,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=98 出目が悪いがファンブルでない"
 output = "(1D100<=98) ＞ 98 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 98 },
 ]
@@ -589,6 +596,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=3 出目が良いがクリティカルでない"
 output = "(1D100<=3) ＞ 4 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 4 },
 ]
@@ -597,6 +605,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB<=-10+40/2+20*2 右辺が式"
 output = "(1D100<=50) ＞ 37 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 37 },
 ]
@@ -605,6 +614,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB(98)<=80 故障ナンバー：成功"
 output = "(1D100<=80) 故障ナンバー[98] ＞ 80 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 80 },
 ]
@@ -613,6 +623,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB(98)<=99 故障ナンバー：故障 成功"
 output = "(1D100<=99) 故障ナンバー[98] ＞ 99 ＞ 故障"
+failure = true
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -621,6 +632,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB(98)<=80 故障ナンバー：致命的失敗"
 output = "(1D100<=80) 故障ナンバー[98] ＞ 96 ＞ 致命的失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -629,6 +642,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB(98)<=80 (5%) 故障ナンバー：故障 致命的失敗"
 output = "(1D100<=80) 故障ナンバー[98] ＞ 99 ＞ 致命的失敗/故障"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -637,6 +652,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CCB(98)<=80 (5%) 故障ナンバー：致命的失敗"
 output = "(1D100<=80) 故障ナンバー[98] ＞ 100 ＞ 致命的失敗/故障"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -646,6 +663,7 @@ game_system = "Cthulhu"
 input = "SCCB<=50 シークレット"
 output = "(1D100<=50) ＞ 30 ＞ 成功"
 secret = true
+success = true
 rands = [
   { sides = 100, value = 30 },
 ]
@@ -657,6 +675,8 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(13-10) ファンブル"
 output = "(1d100<=65) ＞ 100 ＞ 致命的失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -665,6 +685,8 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(13-10) ファンブル"
 output = "(1d100<=65) ＞ 96 ＞ 致命的失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -673,6 +695,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(13-10) ファンブルは96~100"
 output = "(1d100<=65) ＞ 95 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -681,6 +704,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(13-10) 失敗 1足りない"
 output = "(1d100<=65) ＞ 66 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 66 },
 ]
@@ -689,6 +713,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(13-10) 成功 1足りた"
 output = "(1d100<=65) ＞ 65 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 65 },
 ]
@@ -697,6 +722,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(13-10) スペシャルに1足りない"
 output = "(1d100<=65) ＞ 14 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 14 },
 ]
@@ -705,6 +731,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(13-10) スペシャル"
 output = "(1d100<=65) ＞ 13 ＞ スペシャル"
+success = true
 rands = [
   { sides = 100, value = 13 },
 ]
@@ -713,6 +740,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(13-10) クリティカルは1~5"
 output = "(1d100<=65) ＞ 6 ＞ スペシャル"
+success = true
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -721,6 +749,8 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(13-10) クリティカル"
 output = "(1d100<=65) ＞ 5 ＞ 決定的成功/スペシャル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 5 },
 ]
@@ -729,6 +759,8 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(13-10) クリティカル"
 output = "(1d100<=65) ＞ 1 ＞ 決定的成功/スペシャル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -737,6 +769,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(10-15) 絶対値をとる"
 output = "(1d100<=25) ＞ 90 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 90 },
 ]
@@ -745,6 +778,7 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(10-15) 絶対値をとる"
 output = "(1d100<=25) ＞ 25 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 25 },
 ]
@@ -753,12 +787,14 @@ rands = [
 game_system = "Cthulhu"
 input = "RESB(25-10) 自動成功"
 output = "(1d100<=125) ＞ 自動成功"
+success = true
 rands = []
 
 [[ test ]]
 game_system = "Cthulhu"
 input = "RESB(10-25) 自動失敗"
 output = "(1d100<=-25) ＞ 自動失敗"
+failure = true
 rands = []
 
 [[ test ]]
@@ -766,6 +802,7 @@ game_system = "Cthulhu"
 input = "SRESB(16-12) シークレット"
 output = "(1d100<=70) ＞ 44 ＞ 成功"
 secret = true
+success = true
 rands = [
   { sides = 100, value = 44 },
 ]
@@ -777,6 +814,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CBRB(70,30) ファンブル"
 output = "(1d100<=70,30) ＞ 100[致命的失敗,致命的失敗] ＞ 失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -785,6 +824,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CBRB(70,30) ファンブル"
 output = "(1d100<=70,30) ＞ 96[致命的失敗,致命的失敗] ＞ 失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -793,6 +834,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBRB(70,30) ファンブルは96~100"
 output = "(1d100<=70,30) ＞ 95[失敗,失敗] ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -801,6 +843,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBRB(70,30) ファンブルは96~100"
 output = "(1d100<=70,30) ＞ 95[失敗,失敗] ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -809,6 +852,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBRB(70,30) 部分的成功"
 output = "(1d100<=70,30) ＞ 70[成功,失敗] ＞ 部分的成功"
+success = true
 rands = [
   { sides = 100, value = 70 },
 ]
@@ -817,6 +861,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBRB(70,30) 部分的成功"
 output = "(1d100<=70,30) ＞ 31[成功,失敗] ＞ 部分的成功"
+success = true
 rands = [
   { sides = 100, value = 31 },
 ]
@@ -825,6 +870,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBRB(70,30) 一方のみスペシャル"
 output = "(1d100<=70,30) ＞ 7[スペシャル,成功] ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 7 },
 ]
@@ -833,6 +879,7 @@ rands = [
 game_system = "Cthulhu"
 input = "CBRB(70,30) クリティカルは1~5"
 output = "(1d100<=70,30) ＞ 6[スペシャル,スペシャル] ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -841,6 +888,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CBRB(70,30) クリティカル"
 output = "(1d100<=70,30) ＞ 5[決定的成功/スペシャル,決定的成功/スペシャル] ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 5 },
 ]
@@ -849,6 +898,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CBRB(70,30) クリティカル"
 output = "(1d100<=70,30) ＞ 1[決定的成功/スペシャル,決定的成功/スペシャル] ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -857,6 +908,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CBRB(98,50) 成功とファンブル"
 output = "(1d100<=98,50) ＞ 96[成功,致命的失敗] ＞ 部分的成功"
+success = true
+fumble = true
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -865,6 +918,8 @@ rands = [
 game_system = "Cthulhu"
 input = "CBRB(70,2) クリティカルと失敗"
 output = "(1d100<=70,2) ＞ 3[決定的成功/スペシャル,失敗] ＞ 部分的成功"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 3 },
 ]
@@ -874,6 +929,7 @@ game_system = "Cthulhu"
 input = "SCBRB(70,30) シークレット"
 output = "(1d100<=70,30) ＞ 48[成功,失敗] ＞ 部分的成功"
 secret = true
+success = true
 rands = [
   { sides = 100, value = 48 },
 ]
