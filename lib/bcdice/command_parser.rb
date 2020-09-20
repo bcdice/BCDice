@@ -3,7 +3,26 @@ require "bcdice/normalize"
 require "bcdice/format"
 
 module BCDice
+  # よくある形式のコマンドのパースを補助するクラス
+  #
+  # @example Literal by String
+  #   parser = CommandParser.new("MC")
+  #   parsed = parser.parse("MC+2*3@30<=10/2-3") #=> <CommandParser::Parsed>
+  #
+  #   parsed.command #=> "MC"
+  #   parsed.modify_number #=> 6
+  #   parsed.critical #=> 30
+  #   parsed.cmp_op #=> #>=
+  #   parsed.target_number #=> 2
+  #
+  # @example Literal by Regexp
+  #   parser = CommandParser.new(/^RE\d+$/)
+  #   parsed = parser.parse("RE44+20") #=> <CommandParser::Parsed>
+  #
+  #   parsed.command #=> "RE44"
+  #   parsed.modify_number #=> 20
   class CommandParser < ArithmeticEvaluator
+    # @param literals [Array<String, Regexp>]
     def initialize(*literals)
       @literals = literals
       @round_type = RoundType::FLOOR
@@ -12,23 +31,31 @@ module BCDice
       @enabled_question_target = false
     end
 
-    # @!attribute [rw] command
-    #   @return [String]
-    # @!attribute [rw] critical
-    #   @return [Integer, nil]
-    # @!attribute [rw] fumble
-    #   @return [Integer, nil]
-    # @!attribute [rw] dollar
-    #   @return [Integer, nil]
-    # @!attribute [rw] modify_number
-    #   @return [Integer]
-    # @!attribute [rw] cmp_op
-    #   @return [Symbol, nil]
-    # @!attribute [rw] target_number
-    #   @return [Integer, nil]
+    # パース結果
     class Parsed
-      attr_accessor :command, :critical, :fumble, :dollar, :modify_number, :cmp_op, :target_number
+      # @return [String]
+      attr_accessor :command
 
+      # @return [Integer, nil]
+      attr_accessor :critical
+
+      # @return [Integer, nil]
+      attr_accessor :fumble
+
+      # @return [Integer, nil]
+      attr_accessor :dollar
+
+      # @return [Integer]
+      attr_accessor :modify_number
+
+      # @return [Symbol, nil]
+      attr_accessor :cmp_op
+
+      # @return [Integer, nil]
+      attr_accessor :target_number
+
+      # @param value [Boolean]
+      # @return [Boolean]
       attr_writer :question_target
 
       def initialize
@@ -40,10 +67,13 @@ module BCDice
         @question_target = false
       end
 
+      # @return [Boolean]
       def question_target?
         @question_target
       end
 
+      # @param suffix_position [Symbol] クリティカルなどの表示位置
+      # @return [String]
       def to_s(suffix_position = :after_command)
         c = @critical ? "@#{@critical}" : nil
         f = @fumble ? "##{@fumble}" : nil
@@ -72,15 +102,19 @@ module BCDice
       self
     end
 
+    # 目標値 "?" を許容する
+    #
+    # @return [self]
     def enable_question_target
       @enabled_question_target = true
       self
     end
 
+    # 式をパースする
+    #
     # @param expr [String]
-    # @param rount_type [Symbol]
-    # @return [CommandParser::Parsed]
-    # @return [nil]
+    # @param round_type [Symbol]
+    # @return [CommandParser::Parsed, nil]
     def parse(expr, round_type = RoundType::FLOOR)
       @tokens = tokenize(expr)
       @idx = 0
