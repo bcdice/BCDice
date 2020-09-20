@@ -180,7 +180,6 @@ module BCDice
     end
 
     # コマンドを評価する
-    # @param command [String]
     # @return [String, nil] コマンド実行結果。コマンドが実行できなかった場合はnilを返す
     def eval
       command = BCDice::Preprocessor.process(@raw_input, @randomizer, self)
@@ -292,27 +291,22 @@ module BCDice
       end
     end
 
-    # @abstruct
     # @param (see #check_result)
     # @return [nil]
     def check_1D100(total, dice_total, cmp_op, target); end
 
-    # @abstruct
     # @param (see #check_result)
     # @return [nil]
     def check_1D20(total, dice_total, cmp_op, target); end
 
-    # @abstruct
     # @param (see #check_result)
     # @return [nil]
     def check_nD10(total, dice_total, dice_list, cmp_op, target); end
 
-    # @abstruct
     # @param (see #check_result)
     # @return [nil]
     def check_2D6(total, dice_total, dice_list, cmp_op, target); end
 
-    # @abstruct
     # @param (see #check_result)
     # @return [nil]
     def check_nD6(total, dice_total, dice_list, cmp_op, target); end

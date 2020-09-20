@@ -2,7 +2,7 @@ module BCDice
   module GameSystem
     class MeikyuKingdomBasic
       # エキゾチック名前表(D66)
-      # @override
+      # override
       def mk_name_ex_table(num)
         table = [
           [11, "モアイ／スイショウドクロ"],

@@ -84,7 +84,7 @@ module BCDice
 
       # エキストラパワーポイント獲得
       #
-      # @return count_one [Integer]
+      # @param count_one [Integer]
       # @return [String, nil]
       def epp(count_one)
         if count_one > 0

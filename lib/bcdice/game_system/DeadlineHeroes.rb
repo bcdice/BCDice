@@ -122,8 +122,8 @@ module BCDice
           end
         end
 
-        # @params randomizer [Randomizer]
-        # @params minus_score [Integer]
+        # @param randomizer [Randomizer]
+        # @param minus_score [Integer]
         # @return [String]
         def roll(randomizer, minus_score)
           dice = randomizer.roll_once(10)

@@ -2,7 +2,7 @@ module BCDice
   module GameSystem
     class MeikyuKingdomBasic
       # 王国名決定表１(D66)
-      # @override
+      # override
       def mk_kingdom_name_1_table(num)
         table = [
           [11, "暗黒、クラヤミ、星灯り、カガヤキ、シャイニング、黄昏、暁"],
@@ -31,7 +31,7 @@ module BCDice
       end
 
       # 王国名決定表２(D66)
-      # @override
+      # override
       def mk_kingdom_name_2_table(num)
         table = [
           [11, "凸凹、仄仄、子ども、大人"],
@@ -60,7 +60,7 @@ module BCDice
       end
 
       # 王国名決定表３(D66)
-      # @override
+      # override
       def mk_kingdom_name_3_table(num)
         table = [
           [11, "王国、キングダム、王朝"],

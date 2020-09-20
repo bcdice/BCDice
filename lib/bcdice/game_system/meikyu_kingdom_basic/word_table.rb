@@ -2,7 +2,7 @@ module BCDice
   module GameSystem
     class MeikyuKingdomBasic
       # 単語表１(D66)
-      # @override
+      # override
       def mk_word_1_table(num)
         table = [
           [11, "魔法"],
@@ -31,7 +31,7 @@ module BCDice
       end
 
       # 単語表２(D66)
-      # @override
+      # override
       def mk_word_2_table(num)
         table = [
           [11, "科学"],
@@ -60,7 +60,7 @@ module BCDice
       end
 
       # 単語表３(D66)
-      # @override
+      # override
       def mk_word_3_table(num)
         table = [
           [11, "子供"],
@@ -89,7 +89,7 @@ module BCDice
       end
 
       # 単語表４(D66)
-      # @override
+      # override
       def mk_word_4_table(num)
         table = [
           [11, "年寄り"],

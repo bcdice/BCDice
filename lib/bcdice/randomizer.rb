@@ -34,7 +34,7 @@ module BCDice
 
     # 1回だけダイスロールを行う
     #
-    # @params sides [Integer] ダイスの面数
+    # @param sides [Integer] ダイスの面数
     # @return [Integer] 1以上 *sides* 以下の値のいずれか
     def roll_once(sides)
       if sides <= 0 || sides > UPPER_LIMIT_DICE_SIDES
@@ -48,7 +48,7 @@ module BCDice
     end
 
     # ダイス表などでindexを参照する用のダイスロール
-    # @params sides [Integer]
+    # @param sides [Integer]
     # @return [Integer] 0以上 *sides* 未満の整数
     def roll_index(sides)
       roll_once(sides) - 1
@@ -96,7 +96,7 @@ module BCDice
 
     private
 
-    # @params sides [Integer]
+    # @param sides [Integer]
     # @return [Integer] 1以上sides以下の整数
     def rand_inner(sides)
       dice = random(sides)
@@ -106,7 +106,7 @@ module BCDice
     end
 
     # モックで上書きする用
-    # @params sides [Integer]
+    # @param sides [Integer]
     # @return [Integer] 1以上sides以下の整数
     def random(sides)
       Kernel.rand(sides) + 1
@@ -114,9 +114,9 @@ module BCDice
 
     DetailedRandResult = Struct.new(:kind, :sides, :value)
 
-    # @params [Symbol] kind
-    # @params [Integer] sides
-    # @params [Integer] value
+    # @param [Symbol] kind
+    # @param [Integer] sides
+    # @param [Integer] value
     def push_to_detail(kind, sides, value)
       detail = DetailedRandResult.new(kind, sides, value)
       @detailed_rand_results.push(detail)
