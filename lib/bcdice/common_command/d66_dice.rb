@@ -1,6 +1,8 @@
 module BCDice
   module CommonCommand
     class D66Dice
+      PREFIX_PATTERN = /D66/.freeze
+
       def initialize(command, randomizer, game_system)
         @command = command
         @randomizer = randomizer

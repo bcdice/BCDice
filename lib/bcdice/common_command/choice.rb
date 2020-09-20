@@ -1,6 +1,8 @@
 module BCDice
   module CommonCommand
     class Choice
+      PREFIX_PATTERN = /choice/.freeze
+
       def initialize(command, randomizer, game_system)
         @command = command
         @randomizer = randomizer

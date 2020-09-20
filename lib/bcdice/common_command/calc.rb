@@ -1,6 +1,8 @@
 module BCDice
   module CommonCommand
     class Calc
+      PREFIX_PATTERN = /C/.freeze
+
       # @param command [String]
       # @param _randomizer [Randomizer]
       # @param game_system [Base]

@@ -3,6 +3,8 @@ require "bcdice/format"
 module BCDice
   module CommonCommand
     class BarabaraDice
+      PREFIX_PATTERN = /\d+B\d+/.freeze
+
       def initialize(command, randomizer, game_system)
         @command = command
         @randomizer = randomizer

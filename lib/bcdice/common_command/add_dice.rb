@@ -5,6 +5,8 @@ require "bcdice/common_command/add_dice/randomizer"
 module BCDice
   module CommonCommand
     class AddDice
+      PREFIX_PATTERN = /[\+\-\dD\(\[]+/.freeze
+
       def initialize(command, randomizer, game_system)
         @command = command
         @bcdice = randomizer

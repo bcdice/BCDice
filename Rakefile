@@ -70,6 +70,7 @@ namespace :test do
     t.description = "ユニットテスト"
     t.test_files = [
       "test/setup",
+      "test/test_base.rb",
       "test/test_dicebot_info_is_defined.rb",
       "test/test_command_parser.rb",
       "test/test_d66_table.rb",

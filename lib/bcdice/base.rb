@@ -18,7 +18,7 @@ module BCDice
         @prefixes.concat(prefixes.flatten)
       end
 
-      # 応答するコマンドにマッチする正規表現を返す
+      # ゲームシステム固有のコマンドにマッチする正規表現を返す
       # 正規表現を一度生成したら、以後コマンドの登録はできないようにする
       #
       # @return [Regexp]
@@ -34,6 +34,21 @@ module BCDice
           else
             /^(S)?(#{@prefixes.join('|')})/i
           end.freeze
+      end
+
+      # 応答するコマンド全てにマッチする正規表現を返す
+      # 正規表現を一度生成したら、以後コマンドの登録はできないようにする
+      #
+      # @return [Regexp]
+      def command_pattern
+        @command_pattern ||= nil
+        return @command_pattern if @command_pattern
+
+        @prefixes ||= []
+        @prefixes.freeze
+        pattarns = CommonCommand::COMMANDS.map { |c| c::PREFIX_PATTERN.source } + @prefixes
+
+        @command_pattern = /^S?(#{pattarns.join("|")})/i.freeze
       end
     end
 

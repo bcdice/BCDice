@@ -23,6 +23,7 @@ module BCDice
     # 成功条件が書かれていない場合、成功数0として扱う。
     # 振り足し条件が数値のみ指定されている場合、比較演算子は >= が指定されたとして振舞う。
     class RerollDice
+      PREFIX_PATTERN = /\d+R\d+/.freeze
       REROLL_LIMIT = 10000
 
       def initialize(command, bcdice, diceBot)

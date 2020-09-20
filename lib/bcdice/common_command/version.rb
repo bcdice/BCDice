@@ -1,6 +1,8 @@
 module BCDice
   module CommonCommand
     class Version
+      PREFIX_PATTERN = /BCDiceVersion/.freeze
+
       # @param command [String]
       # @param _randomizer [Randomizer]
       # @param _game_system [Base]

@@ -31,6 +31,8 @@ module BCDice
     #   最大値：20
     #   合計値：23 = 3[3]+10[4,4,2]+10
     class UpperDice
+      PREFIX_PATTERN = /\d+U\d+/.freeze
+
       def initialize(command, bcdice, diceBot)
         @string = command
         @bcdice = bcdice
