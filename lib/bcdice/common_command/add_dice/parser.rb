@@ -59,7 +59,7 @@ module BCDice
         # 構文解析対象の文字列をトークンの配列に変換する
         # @return [Array<String>]
         def tokenize(expr)
-          expr.gsub(%r{[\+\-\*/DURSKHL@]}) { |e| " #{e} " }.split(" ")
+          expr.gsub(%r{[\+\-\*/DURSKHL@()]}) { |e| " #{e} " }.split(" ")
         end
 
         # 式
@@ -155,8 +155,20 @@ module BCDice
           end
         end
 
-        # 項：ダイスロール、数値
+        # カッコ、ダイスロール
         def term
+          if consume("(")
+            node = AddDice::Node::Parenthesis.new(add())
+            expect(")")
+
+            return node
+          else
+            dice_notation()
+          end
+        end
+
+        # ダイスロール、数値
+        def dice_notation
           num = expect_number()
           if consume("D")
             times = num

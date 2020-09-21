@@ -1,0 +1,19 @@
+[[ test ]]
+game_system = "DiceBot"
+input = "(2D6+1D4)*2 カッコ有り"
+output = "((2D6+1D4)*2) ＞ (8[5,3]+4[4])*2 ＞ 24"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 4, value = 4 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "(2D6+(1D4+3)*3)*2 カッコがネストしている"
+output = "((2D6+(1D4+3)*3)*2) ＞ (8[5,3]+(4[4]+3)*3)*2 ＞ 58"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 4, value = 4 },
+]

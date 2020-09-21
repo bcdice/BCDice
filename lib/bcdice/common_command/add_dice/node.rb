@@ -420,6 +420,35 @@ module BCDice
           end
         end
 
+        # カッコで式をまとめるノード
+        class Parenthesis
+          # @param expr [Object] カッコ内のノード
+          def initialize(expr)
+            @expr = expr
+          end
+
+          # @param randomizer [Randomizer]
+          # @return [integer]
+          def eval(randomizer)
+            @expr.eval(randomizer)
+          end
+
+          # @return [String]
+          def to_s
+            "(#{@expr})"
+          end
+
+          # @return [String]
+          def output
+            "(#{@expr.output})"
+          end
+
+          # @return [String] S式
+          def s_exp
+            "(Parenthesis #{@expr.s_exp})"
+          end
+        end
+
         # 数値のノード
         class Number
           # 値

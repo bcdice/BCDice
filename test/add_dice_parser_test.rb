@@ -66,6 +66,11 @@ class AddDiceParserTest < Test::Unit::TestCase
     test_parse("2D6---1", "(Command (- (DiceRoll 2 6) 1))")
   end
 
+  # カッコ
+  def test_parse_parenthesis
+    test_parse("(1D6+2D4)*2", "(Command (* (Parenthesis (+ (DiceRoll 1 6) (DiceRoll 2 4))) 2))")
+  end
+
   # 目標値あり（=）
   def test_parse_target_value_eq_1
     test_parse("2D6=7", "(Command (== (DiceRoll 2 6) 7))")
