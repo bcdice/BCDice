@@ -17,3 +17,15 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 4, value = 4 },
 ]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "2D6>?a 不正な目標値"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "2D6>12?a 不正な目標値"
+output = ""
+rands = []

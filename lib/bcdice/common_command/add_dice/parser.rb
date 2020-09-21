@@ -35,7 +35,10 @@ module BCDice
 
           cmp_op = Normalize.comparison_operator(cmp_op)
           if !rhs.empty? && rhs != "?"
-            rhs = ArithmeticEvaluator.eval(rhs)
+            ae = ArithmeticEvaluator.new(rhs)
+            rhs = ae.eval()
+
+            @error = ae.error?
           end
 
           @tokens = tokenize(lhs)

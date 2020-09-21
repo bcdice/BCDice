@@ -96,6 +96,18 @@ class AddDiceParserTest < Test::Unit::TestCase
     test_parse("2D6=>7", "(Command (>= (DiceRoll 2 6) 7))")
   end
 
+  def test_parse_question_target
+    test_parse("2D6<=?", "(Command (<= (DiceRoll 2 6) ?))")
+  end
+
+  def test_parse_invalid_question_target
+    assert_not_parse("2D6<=?a")
+  end
+
+  def test_parse_invalid_target
+    assert_not_parse("2D6<=12ab")
+  end
+
   # 目標値あり、目標値の定数畳み込み
   def test_parse_target_value_constant_fonding
     test_parse(
@@ -180,5 +192,16 @@ class AddDiceParserTest < Test::Unit::TestCase
 
     assert(!parser.error?, "構文解析に成功する")
     assert_equal(expected_s_exp, node.s_exp, "結果の抽象構文木が正しい")
+  end
+
+  # @param command [String]
+  def assert_not_parse(command)
+    message = build_message(nil, "<?> are parsed", command)
+    assert_block(message) do
+      parser = BCDice::CommonCommand::AddDice::Parser.new(command)
+      parser.parse
+
+      parser.error?
+    end
   end
 end
