@@ -20,6 +20,12 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
+input = "2D6> 目標値が空"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
 input = "2D6>?a 不正な目標値"
 output = ""
 rands = []

@@ -100,6 +100,10 @@ class AddDiceParserTest < Test::Unit::TestCase
     test_parse("2D6<=?", "(Command (<= (DiceRoll 2 6) ?))")
   end
 
+  def test_parse_empty_target
+    assert_not_parse("2D6<", "目標値無しはパースエラーになる")
+  end
+
   def test_parse_invalid_question_target
     assert_not_parse("2D6<=?a")
   end
@@ -195,8 +199,8 @@ class AddDiceParserTest < Test::Unit::TestCase
   end
 
   # @param command [String]
-  def assert_not_parse(command)
-    message = build_message(nil, "<?> are parsed", command)
+  def assert_not_parse(command, message = nil)
+    message = build_message(message, "? are parsed", command)
     assert_block(message) do
       parser = BCDice::CommonCommand::AddDice::Parser.new(command)
       parser.parse

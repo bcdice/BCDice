@@ -29,11 +29,16 @@ module BCDice
         end
 
         # 構文解析を実行する
-        # @return [Node::Command] 加算ロールコマンド
+        # @return [Node::Command, nil] 加算ロールコマンド
         def parse()
           lhs, cmp_op, rhs = @expr.partition(/[<>=]+/)
 
           cmp_op = Normalize.comparison_operator(cmp_op)
+          if cmp_op && rhs.empty?
+            @error = true
+            return nil
+          end
+
           if !rhs.empty? && rhs != "?"
             ae = ArithmeticEvaluator.new(rhs)
             rhs = ae.eval()
