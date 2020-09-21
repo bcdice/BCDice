@@ -29,6 +29,19 @@ module BCDice
       end
     end
 
+    # ゲームシステムを切り替える
+    # @param game_system [Game]
+    def load_game_system(game_system)
+      klass = BCDice.dynamic_load(game_system)
+      if klass
+        @game_system = klass
+      else
+        puts "#{game_system.inspect} not found"
+      end
+    end
+
+    alias game_system= load_game_system
+
     # コマンドの履歴ファイルを保存してREPLを終了する
     # @return [void]
     def quit
@@ -84,7 +97,7 @@ module BCDice
 
       block = REPL.commands[command]
       if block
-        block.call(self, *args)
+        instance_exec(*args, &block)
       else
         eval_game_system(command)
       end
@@ -101,12 +114,12 @@ module BCDice
       end
     end
 
-    command "use", "set" do |repl, game_system|
-      repl.load_game_system(game_system)
+    command "use", "set" do |game_system|
+      load_game_system(game_system)
     end
 
-    command "debug" do |repl, mode|
-      repl.debug = !["off", "false"].include?(mode&.downcase)
+    command "debug" do |mode|
+      self.debug = !["off", "false"].include?(mode&.downcase)
     end
 
     command "history" do
@@ -126,8 +139,8 @@ module BCDice
       HELP
     end
 
-    command "exit", "quit", "q" do |repl|
-      repl.quit()
+    command "exit", "quit", "q" do
+      quit()
     end
 
     def eval_game_system(command)
@@ -138,16 +151,5 @@ module BCDice
       puts e
       puts e.backtrace
     end
-
-    def load_game_system(game_system)
-      klass = BCDice.dynamic_load(game_system)
-      if klass
-        @game_system = klass
-      else
-        puts "#{game_system.inspect} not found"
-      end
-    end
-
-    alias game_system= load_game_system
   end
 end
