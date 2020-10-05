@@ -1,6 +1,22 @@
 require "rake/testtask"
+require "bundler/gem_helper"
 
 task default: :test
+
+namespace "gem" do
+  gem_helper = Bundler::GemHelper.new
+  gem_pkg = "#{gem_helper.gemspec.name}-#{gem_helper.gemspec.version}.gem"
+
+  desc "Build #{gem_pkg} into the pkg directory."
+  task "build" do
+    gem_helper.build_gem
+  end
+
+  desc "Push pkg/#{gem_pkg} to RubyGems.org."
+  task "push" do
+    sh "gem push pkg/#{gem_pkg} -V"
+  end
+end
 
 desc "Clean coverage resuts"
 task :clean_coverage do
