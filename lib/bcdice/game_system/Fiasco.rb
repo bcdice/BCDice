@@ -18,105 +18,115 @@ module BCDice
     相関図・転落要素用(FSx)：相関図や転落要素のためにx個ダイスを振り、出目ごとに分類する
     黒白差分判定用(WxBx)  ：転落、残響のために白ダイス(W指定)と黒ダイス(B指定)で差分を求める
       ※ WとBは片方指定(Bx, Wx)、入替指定(WxBx,BxWx)可能
-
 INFO_MESSAGE_TEXT
 
-      COMMAND_TYPE_INDEX = 1
-
-      START_DICE_INDEX = 2
-
-      BW_FIRST_DICE_INDEX = 2
-      BW_SECOND_DICE_INDEX = 5
-      BW_SECOND_DICE_TAG_INDEX = 4
-
-      START_COMMAND_TAG = "FS"
-      W_DICEROLL_COMMAND_TAG = "W"
-      B_DICEROLL_COMMAND_TAG = "B"
-
-      register_prefix(['(FS|[WB])(\d+).*'])
+      register_prefix('FS\d+', '[WB]\d+')
 
       def eval_game_system_specific_command(command)
-        m = /\A(FS|[WB])(\d+)(([WB])(\d+))?/.match(command)
+        roll_fs(command) || roll_white_black(command) || roll_white_black_single(command)
+      end
+
+      private
+
+      # 6面ダイスを複数ダイスロールして、各面が出た個数をカウントする
+      # @param command [String]
+      # @return [String, nil]
+      def roll_fs(command)
+        m = /^FS(\d+)$/.match(command)
         unless m
-          return ''
+          return nil
         end
 
-        type = m[COMMAND_TYPE_INDEX]
-        if type == START_COMMAND_TAG
-          return makeStartDiceRoll(m)
-        else
-          return makeWhiteBlackDiceRoll(type, m)
+        dice_count = m[1].to_i
+        dice_list = @randomizer.roll_barabara(dice_count, 6)
+
+        # 各出目の個数を数える
+        bucket = [nil, 0, 0, 0, 0, 0, 0]
+        dice_list.each do |val|
+          bucket[val] += 1
         end
+
+        return "1 => #{bucket[1]}個, 2 => #{bucket[2]}個, 3 => #{bucket[3]}個, 4 => #{bucket[4]}個, 5 => #{bucket[5]}個, 6 => #{bucket[6]}個"
       end
 
-      def makeStartDiceRoll(m)
-        dice = m[START_DICE_INDEX].to_i
-
-        dice_list = @randomizer.roll_barabara(dice, 6)
-
-        diceList = [0, 0, 0, 0, 0, 0]
-        dice_list.each do |takeDice|
-          diceList[takeDice - 1] += 1
+      # 白か黒かの片方だけダイスロールする
+      #
+      # "W4", "B6" など
+      # @param command [String]
+      # @return [String, nil]
+      def roll_white_black_single(command)
+        m = /^([WB])(\d+)$/.match(command)
+        unless m
+          return nil
         end
 
-        return "１ => #{diceList[0]}個 ２ => #{diceList[1]}個 ３ => #{diceList[2]}個 ４ => #{diceList[3]}個 ５ => #{diceList[4]}個 ６ => #{diceList[5]}個"
+        a = Side.new(m[1], m[2].to_i)
+        result = a.roll(@randomizer)
+
+        return "#{result} ＞ #{a.color}#{a.total}"
       end
 
-      def makeWhiteBlackDiceRoll(type, m)
-        if type == W_DICEROLL_COMMAND_TAG
-          whiteTotal, whiteDiceText, blackTotal, blackDiceText = makeArgsDiceRoll(m[BW_FIRST_DICE_INDEX], m[BW_SECOND_DICE_INDEX])
-          result = "白#{whiteTotal}[#{whiteDiceText}]"
-          if blackDiceText
-            if m[BW_SECOND_DICE_TAG_INDEX] == W_DICEROLL_COMMAND_TAG
-              return "#{m}：白指定(#{W_DICEROLL_COMMAND_TAG})は重複できません。"
+      # 白黒両方ダイスロールして、その差分を表示する
+      # @param command [String]
+      # @return [String, nil]
+      def roll_white_black(command)
+        m = /^([WB])(\d+)([WB])(\d+)$/.match(command)
+        unless m
+          return nil
+        end
+
+        case command
+        when /^W\d+W\d+$/
+          return "#{command}：白指定(W)は重複できません。"
+        when /^B\d+B\d+$/
+          return "#{command}：黒指定(B)は重複できません。"
+        end
+
+        a = Side.new(m[1], m[2].to_i)
+        result_a = a.roll(@randomizer)
+
+        b = Side.new(m[3], m[4].to_i)
+        result_b = b.roll(@randomizer)
+
+        return "#{result_a} #{result_b} ＞ #{a.diff(b)}"
+      end
+
+      # 片方の色のダイスロールを抽象化したクラス
+      class Side
+        def initialize(color, count)
+          @color = color == "W" ? "白" : "黒"
+          @count = count
+        end
+
+        # @param randomizer [Randomizer]
+        # @return [String]
+        def roll(randomizer)
+          @dice_list =
+            if @count == 0
+              [0]
+            else
+              randomizer.roll_barabara(@count, 6)
             end
 
-            result += " 黒#{blackTotal}[#{blackDiceText}]"
-          end
-        elsif type == B_DICEROLL_COMMAND_TAG
-          blackTotal, blackDiceText, whiteTotal, whiteDiceText = makeArgsDiceRoll(m[BW_FIRST_DICE_INDEX], m[BW_SECOND_DICE_INDEX])
-          result = "黒#{blackTotal}[#{blackDiceText}]"
-          if whiteDiceText
-            if m[BW_SECOND_DICE_TAG_INDEX] == B_DICEROLL_COMMAND_TAG
-              return "#{m}：黒指定(#{B_DICEROLL_COMMAND_TAG})は重複できません。"
-            end
+          @total = @dice_list.sum()
 
-            result += " 白#{whiteTotal}[#{whiteDiceText}]"
-          end
-        else
-          return ''
+          "#{@color}#{@total}[#{@dice_list.join(',')}]"
         end
 
-        if blackTotal > whiteTotal
-          return "#{result} ＞ 黒#{blackTotal - whiteTotal}"
-        elsif blackTotal < whiteTotal
-          return "#{result} ＞ 白#{whiteTotal - blackTotal}"
-        end
-
-        return "#{result} ＞ 0"
-      end
-
-      def makeArgsDiceRoll(firstDice, secondDice)
-        firstDice = firstDice.to_i
-        secondDice = secondDice&.to_i
-
-        secondTotal = 0
-
-        dice_list = @randomizer.roll_barabara(firstDice, 6)
-        firstTotal = dice_list.sum()
-        firstDiceText = dice_list.join(",")
-
-        if secondDice
-          if secondDice > 0
-            dice_list = @randomizer.roll_barabara(secondDice, 6)
-            secondTotal = dice_list.sum()
-            secondDiceText = dice_list.join(",")
+        # もう一方の色との差分を求める
+        # @param other [Side]
+        # @return [String]
+        def diff(other)
+          if @total == other.total
+            "0"
+          elsif @total > other.total
+            "#{@color}#{@total - other.total}"
           else
-            secondDiceText = "0"
+            "#{other.color}#{other.total - @total}"
           end
         end
 
-        return firstTotal, firstDiceText, secondTotal, secondDiceText
+        attr_reader :color, :total
       end
     end
   end
