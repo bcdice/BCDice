@@ -49,7 +49,7 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        getConductDiceCommandResult(command) ||
+        roll_conduct_dice(command) ||
           getResistDiceCommandResult(command) ||
           getReactionDiceCommandResult(command) ||
           getHeresyReactionDiceCommandResult(command) ||
@@ -57,58 +57,52 @@ module BCDice
           roll_tables(command, TABLES)
       end
 
-      def getConductDiceCommandResult(command)
-        return nil unless command =~ /^DR(\d*)(\+(\d+))?$/
+      private
 
-        diceCount = Regexp.last_match(1).to_i
-        diceCount = 4 if diceCount == 0
-        thirstyPoint = Regexp.last_match(3).to_i
-
-        diceList = @randomizer.roll_barabara(diceCount, 6).sort
-
-        gloryDiceCount = getGloryDiceCount(diceList)
-        gloryDiceCount.times { diceList << 10 }
-
-        diceList, calculationProcess = getThirstyAddedResult(diceList, thirstyPoint)
-        thirstyPointMarker = (thirstyPoint == 0 ? "" : "+#{thirstyPoint}")
-
-        result = "(#{command}) ＞ #{diceCount}D6#{thirstyPointMarker} ＞ "
-        result += "[ #{calculationProcess} ] ＞ " unless calculationProcess.empty?
-        result += "[ #{diceList.join(', ')} ]"
-        return result
-      end
-
-      def getGloryDiceCount(diceList)
-        oneCount = countTargetDice(diceList, 1)
-        sixCount = countTargetDice(diceList, 6)
-
-        gloryDiceCount = (oneCount / 2) + (sixCount / 2)
-        return gloryDiceCount
-      end
-
-      def countTargetDice(diceList, target)
-        diceList.select { |i| i == target }.count
-      end
-
-      def getThirstyAddedResult(diceList, thirstyPoint)
-        return diceList, '' if thirstyPoint == 0
-
-        targetIndex = diceList.rindex { |i| i <= 6 }
-        return diceList, '' if targetIndex.nil?
-
-        textList = []
-
-        diceList.each_with_index do |item, index|
-          if targetIndex == index
-            textList << "#{item}+#{thirstyPoint}"
-          else
-            textList << item.to_s
-          end
+      # 行い判定 (DRx+y)
+      def roll_conduct_dice(command)
+        m = /^DR(\d*[1-9])?(\+\d+)?$/.match(command)
+        unless m
+          return nil
         end
 
-        diceList[targetIndex] += thirstyPoint
+        dice_count = m[1]&.to_i || 4
+        thirsty_point = m[2].to_i
 
-        return diceList, textList.join(', ')
+        dice_list = @randomizer.roll_barabara(dice_count, 6).sort
+
+        glory_dice = count_glory_dice(dice_list)
+        dice_list += Array.new(glory_dice, 10)
+
+        calculation_process = apply_thirsty_point(dice_list, thirsty_point)
+
+        sequence = [
+          "(#{command})",
+          "#{dice_count}D6#{Format.modifier(thirsty_point)}",
+          calculation_process,
+          "[ #{dice_list.join(', ')} ]",
+        ].compact
+
+        return sequence.join(" ＞ ")
+      end
+
+      def count_glory_dice(dice_list)
+        one_count = dice_list.count(1)
+        six_count = dice_list.count(6)
+
+        return (one_count / 2) + (six_count / 2)
+      end
+
+      def apply_thirsty_point(dice_list, thirsty_point)
+        return nil if thirsty_point == 0
+
+        idx = dice_list.rindex { |i| i <= 6 }
+
+        text_list = dice_list.map(&:to_s)
+        text_list[idx] += "+#{thirsty_point}"
+        dice_list[idx] += thirsty_point
+
+        return "[ #{text_list.join(', ')} ]"
       end
 
       def getResistDiceCommandResult(command)
