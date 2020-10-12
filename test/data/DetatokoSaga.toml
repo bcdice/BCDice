@@ -304,6 +304,15 @@ rands = [
 
 [[ test ]]
 game_system = "DetatokoSaga"
+input = "StrengthStigmaTable"
+output = "体力烙印表(12) ＞ 奇跡的にあなたは【烙印】を受けなかった。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DetatokoSaga"
 input = "WST"
 output = "気力烙印表(2) ＞ あなたは【烙印】を２つ受ける。この表をさらに２回振って受ける【烙印】を決める（その結果、再びこの出目が出ても【烙印】は増えない）。"
 rands = [
@@ -314,6 +323,15 @@ rands = [
 [[ test ]]
 game_system = "DetatokoSaga"
 input = "WST"
+output = "気力烙印表(12) ＞ 奇跡的にあなたは【烙印】を受けなかった。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DetatokoSaga"
+input = "WillStigmaTable"
 output = "気力烙印表(12) ＞ 奇跡的にあなたは【烙印】を受けなかった。"
 rands = [
   { sides = 6, value = 6 },
@@ -340,6 +358,15 @@ rands = [
 
 [[ test ]]
 game_system = "DetatokoSaga"
+input = "StrengthBadEndTable"
+output = "体力バッドエンド表(12) ＞ それでもまだ立ち上がる！あなたはバッドエンドを迎えなかった。体力の【烙印】を１つ打ち消してよい。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DetatokoSaga"
 input = "WBET"
 output = "気力バッドエンド表(2) ＞ 【自害】あなたは自ら死を選んだ。次のセッションに参加するには、クラス１つを『暗黒』にクラスチェンジしなくてはいけない。"
 rands = [
@@ -350,6 +377,15 @@ rands = [
 [[ test ]]
 game_system = "DetatokoSaga"
 input = "WBET"
+output = "気力バッドエンド表(12) ＞ それでもまだ諦めない！あなたはバッドエンドを迎えなかった。あなたは気力の【烙印】を１つ打ち消してよい。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DetatokoSaga"
+input = "WillBadEndTable"
 output = "気力バッドエンド表(12) ＞ それでもまだ諦めない！あなたはバッドエンドを迎えなかった。あなたは気力の【烙印】を１つ打ち消してよい。"
 rands = [
   { sides = 6, value = 6 },
