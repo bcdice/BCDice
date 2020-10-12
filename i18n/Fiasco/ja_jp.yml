@@ -1,0 +1,10 @@
+ja_jp:
+  Fiasco:
+    white: 白
+    black: 黒
+    fs:
+      count: "%{count}個"
+    wb:
+      duplicate_error:
+        white: 白指定(W)は重複できません。
+        black: 黒指定(B)は重複できません。

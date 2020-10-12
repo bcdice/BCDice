@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Fiasco_Korean"
 input = "FS12"
-output = "１ => 3개 ２ => 2개 ３ => 1개 ４ => 3개 ５ => 1개 ６ => 2개"
+output = "1 => 3개, 2 => 2개, 3 => 1개, 4 => 3개, 5 => 1개, 6 => 2개"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -137,7 +137,7 @@ rands = [
 [[ test ]]
 game_system = "Fiasco_Korean"
 input = "SFS12"
-output = "１ => 3개 ２ => 2개 ３ => 1개 ４ => 3개 ５ => 1개 ６ => 2개"
+output = "1 => 3개, 2 => 2개, 3 => 1개, 4 => 3개, 5 => 1개, 6 => 2개"
 secret = true
 rands = [
   { sides = 6, value = 1 },

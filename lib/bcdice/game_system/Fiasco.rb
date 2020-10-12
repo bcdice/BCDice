@@ -46,7 +46,10 @@ INFO_MESSAGE_TEXT
           bucket[val] += 1
         end
 
-        return "1 => #{bucket[1]}個, 2 => #{bucket[2]}個, 3 => #{bucket[3]}個, 4 => #{bucket[4]}個, 5 => #{bucket[5]}個, 6 => #{bucket[6]}個"
+        # "n個" 表記にする
+        bucket.map! { |count| translate("Fiasco.fs.count", count: count) }
+
+        return "1 => #{bucket[1]}, 2 => #{bucket[2]}, 3 => #{bucket[3]}, 4 => #{bucket[4]}, 5 => #{bucket[5]}, 6 => #{bucket[6]}"
       end
 
       # 白か黒かの片方だけダイスロールする
@@ -60,7 +63,7 @@ INFO_MESSAGE_TEXT
           return nil
         end
 
-        a = Side.new(m[1], m[2].to_i)
+        a = Side.new(color(m[1]), m[2].to_i)
         result = a.roll(@randomizer)
 
         return "#{result} ＞ #{a.color}#{a.total}"
@@ -77,24 +80,28 @@ INFO_MESSAGE_TEXT
 
         case command
         when /^W\d+W\d+$/
-          return "#{command}：白指定(W)は重複できません。"
+          return "#{command}：#{translate('Fiasco.wb.duplicate_error.white')}"
         when /^B\d+B\d+$/
-          return "#{command}：黒指定(B)は重複できません。"
+          return "#{command}：#{translate('Fiasco.wb.duplicate_error.black')}"
         end
 
-        a = Side.new(m[1], m[2].to_i)
+        a = Side.new(color(m[1]), m[2].to_i)
         result_a = a.roll(@randomizer)
 
-        b = Side.new(m[3], m[4].to_i)
+        b = Side.new(color(m[3]), m[4].to_i)
         result_b = b.roll(@randomizer)
 
         return "#{result_a} #{result_b} ＞ #{a.diff(b)}"
       end
 
+      def color(c)
+        c == "W" ? translate("Fiasco.white") : translate("Fiasco.black")
+      end
+
       # 片方の色のダイスロールを抽象化したクラス
       class Side
         def initialize(color, count)
-          @color = color == "W" ? "白" : "黒"
+          @color = color
           @count = count
         end
 
