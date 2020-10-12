@@ -50,7 +50,7 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         roll_conduct_dice(command) ||
-          getResistDiceCommandResult(command) ||
+          roll_resist_dice(command) ||
           getReactionDiceCommandResult(command) ||
           getHeresyReactionDiceCommandResult(command) ||
           getCorruptionDiceCommandResult(command) ||
@@ -105,16 +105,19 @@ module BCDice
         return "[ #{text_list.join(', ')} ]"
       end
 
-      def getResistDiceCommandResult(command)
-        return nil unless command =~ /^DRR(\d+)$/
+      # 抗い判定 (DRRx)
+      def roll_resist_dice(command)
+        m = /^DRR(\d+)$/.match(command)
+        unless m
+          return nil
+        end
 
-        diceCount = Regexp.last_match(1).to_i
-        diceCount = 4 if diceCount == 0
+        dice_count = m[1].to_i
+        dice_count = 4 if dice_count == 0
 
-        diceList = @randomizer.roll_barabara(diceCount, 6).sort
+        dice_list = @randomizer.roll_barabara(dice_count, 6).sort
 
-        result = "(#{command}) ＞ #{diceCount}D6 ＞ [ #{diceList.join(', ')} ]"
-        return result
+        return "(#{command}) ＞ #{dice_count}D6 ＞ [ #{dice_list.join(', ')} ]"
       end
 
       def getReactionDiceCommandResult(command)
