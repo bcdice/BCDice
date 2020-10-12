@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "i18n"
 require "bcdice/randomizer"
 require "bcdice/dice_table"
 require "bcdice/enum"
@@ -16,6 +17,10 @@ module BCDice
       def register_prefix(*prefixes)
         @prefixes ||= []
         @prefixes.concat(prefixes.flatten)
+      end
+
+      def register_prefix_from_super_class
+        register_prefix(superclass.prefixes)
       end
 
       # ゲームシステム固有のコマンドにマッチする正規表現を返す
@@ -72,6 +77,8 @@ module BCDice
       @default_target_number = nil # 目標値が空欄の場合の目標値 こちらだけnilにするのは想定していないので注意
 
       @enabled_upcase_input = true # 入力を String#upcase するかどうか
+
+      @locale = :ja_jp # i18n用の言語設定
 
       @is_secret = false
       @is_success = false
@@ -238,6 +245,12 @@ module BCDice
     # @param count_success [Integer] 成功数
     # @return [String, nil]
     def grich_text(count_one, dice_total_count, count_success); end
+
+    # i18n用の翻訳メソッド
+    # @param key [String]
+    def translate(key, **options)
+      I18n.translate(key, locale: @locale, **options)
+    end
 
     private
 
@@ -421,3 +434,6 @@ module BCDice
     end
   end
 end
+
+I18n.load_path << Dir[File.join(__dir__, "../../i18n/**/*.yml")]
+I18n.default_locale = :ja_jp
