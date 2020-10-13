@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "i18n"
+require "i18n/backend/fallbacks"
 require "bcdice/randomizer"
 require "bcdice/dice_table"
 require "bcdice/enum"
@@ -435,5 +436,7 @@ module BCDice
   end
 end
 
+I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
 I18n.load_path << Dir[File.join(__dir__, "../../i18n/**/*.yml")]
 I18n.default_locale = :ja_jp
+I18n.fallbacks.defaults = [:ja_jp]

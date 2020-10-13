@@ -2,6 +2,14 @@ module BCDice
   module DiceTable
     # 表を表すクラス
     class Table
+      # @param key [String]
+      # @param locale [Symbol]
+      # @return [Table]
+      def self.from_i18n(key, locale)
+        table = I18n.t(key, locale: locale)
+        new(table[:name], table[:type], table[:items])
+      end
+
       # @param [String] name 表の名前
       # @param [String] type 項目を選ぶときのダイスロールの方法 '1D6'など
       # @param [Array<String>] items 表の項目の配列
