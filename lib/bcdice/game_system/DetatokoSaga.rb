@@ -46,7 +46,7 @@ module BCDice
         return result if result
 
         debug("各種表として処理")
-        return roll_tables(ALIAS[command] || command, TABLES)
+        return roll_tables(ALIAS[command] || command, self.class::TABLES)
       end
 
       # 通常判定　xDS or xDSy or xDS>=z or xDSy>=z
@@ -62,10 +62,10 @@ module BCDice
         flag = m[2].to_i
         target = m[3]&.to_i || 8
 
-        result = "判定！　スキルレベル：#{skill}　フラグ：#{flag}　目標値：#{target}"
+        result = translate("DetatokoSaga.DS.input_options", skill: skill, flag: flag, target: target)
 
         total, rollText = getRollResult(skill)
-        result += " ＞ #{total}[#{rollText}] ＞ 判定値：#{total}"
+        result += " ＞ #{total}[#{rollText}] ＞ " + translate("DetatokoSaga.total_value", total: total)
 
         success = getSuccess(total, target)
         result += " ＞ #{success}"
@@ -92,10 +92,10 @@ module BCDice
 
       def getSuccess(check, target)
         if check >= target
-          return "目標値以上！【成功】"
+          translate("DetatokoSaga.DS.success")
+        else
+          translate("DetatokoSaga.DS.failure")
         end
-
-        return "目標値未満…【失敗】"
       end
 
       def getCheckFlagResult(total, flag)
@@ -103,11 +103,8 @@ module BCDice
           return ""
         end
 
-        willText = getDownWill(flag)
-        result = "、フラグ以下！【気力#{willText}点減少】"
-        result += "【判定値変更不可】"
-
-        return result
+        will = getDownWill(flag)
+        return translate("DetatokoSaga.less_than_flag", will: will)
       end
 
       def getDownWill(flag)
@@ -133,10 +130,10 @@ module BCDice
         operator = m[4]
         value = m[5].to_i
 
-        result = "判定！　スキルレベル：#{skill}　フラグ：#{flag}"
+        result = translate("DetatokoSaga.JD.input_options", skill: skill, flag: flag)
 
         modifyText = getModifyText(operator, value)
-        result += "　修正値：#{modifyText}" unless modifyText.empty?
+        result += translate("DetatokoSaga.JD.modifier", modifier: modifyText) unless modifyText.empty?
 
         total, rollText = getRollResult(skill)
         result += " ＞ #{total}[#{rollText}]#{modifyText}"
@@ -170,22 +167,22 @@ module BCDice
       def getTotalResultValue(total, value, operator)
         case operator
         when "+"
-          return "#{total}+#{value} ＞ 判定値：#{total + value}"
+          return "#{total}+#{value} ＞ " + translate("DetatokoSaga.total_value", total: total + value)
         when "-"
-          return "#{total}-#{value} ＞ 判定値：#{total - value}"
+          return "#{total}-#{value} ＞ " + translate("DetatokoSaga.total_value", total: total - value)
         when "/"
           return getTotalResultValueWhenSlash(total, value)
         else
-          return "判定値：#{total}"
+          return translate("DetatokoSaga.total_value", total: total)
         end
       end
 
       def getTotalResultValueWhenSlash(total, value)
-        return "0では割れません" if value == 0
+        return translate("DetatokoSaga.division_by_zero_error") if value == 0
 
         quotient = ((1.0 * total) / value).ceil
 
-        result = "#{total}÷#{value} ＞ 判定値：#{quotient}"
+        result = "#{total}÷#{value} ＞ " + translate("DetatokoSaga.total_value", total: quotient)
         return result
       end
 
@@ -196,76 +193,16 @@ module BCDice
         "WillBadEndTable" => "WBET",
       }.transform_keys(&:upcase).freeze
 
-      TABLES = {
-        "SST" => DiceTable::Table.new(
-          "体力烙印表",
-          "2D6",
-          [
-            'あなたは【烙印】を２つ受ける。この表をさらに２回振って受ける【烙印】を決める（その結果、再びこの出目が出ても【烙印】は増えない）。',
-            '【痛手】手負い傷を負った。何とか戦えているが……。',
-            '【流血】血があふれ出し、目がかすむ……。',
-            '【衰弱】体が弱り、その心さえも萎えてしまいそうだ……。',
-            '【苦悶】痛みと苦しみ、情けなさ。目に涙がにじむ。',
-            '【衝撃】吹き飛ばされ、壁や樹木にめりこむ。早く起き上がらねば。',
-            '【疲労】あなたの顔に疲労の色が強まる……この戦いがつらくなってきた。',
-            '【怒号】うっとうしい攻撃に怒りの叫びを放つ。怒りが戦いを迷わせるか？',
-            '【負傷】手傷を負わされた……。',
-            '【軽症】あなたの肌に傷が残った。これだけなら何ということもない。',
-            '奇跡的にあなたは【烙印】を受けなかった。',
-          ]
-        ),
-        "WST" => DiceTable::Table.new(
-          "気力烙印表",
-          "2D6",
-          [
-            'あなたは【烙印】を２つ受ける。この表をさらに２回振って受ける【烙印】を決める（その結果、再びこの出目が出ても【烙印】は増えない）。',
-            '【絶望】どうしようもない状況。希望は失われ……膝を付くことしかできない。',
-            '【号泣】あまりの理不尽に、子供のように泣き叫ぶことしかできない。',
-            '【後悔】こんなはずじゃなかったのに。しかし現実は非情だった。',
-            '【恐怖】恐怖に囚われてしまった！敵が、己の手が、恐ろしくてならない！',
-            '【葛藤】本当にこれでいいのか？何度も自身への問いかけが起こる……。',
-            '【憎悪】怒りと憎しみに囚われたあなたは、本来の力を発揮できるだろうか？',
-            '【呆然】これは現実なのか？ぼんやりとしながらあなたは考える。',
-            '【迷い】迷いを抱いてしまった。それは戦う意志を鈍らせるだろうか？',
-            '【悪夢】これから時折、あなたはこの時を悪夢に見ることだろう。',
-            '奇跡的にあなたは【烙印】を受けなかった。',
-          ]
-        ),
-        "SBET" => DiceTable::Table.new(
-          "体力バッドエンド表",
-          "2D6",
-          [
-            '【死亡】あなたは死んだ。次のセッションに参加するには、クラス１つを『モンスター』か『暗黒』にクラスチェンジしなくてはいけない。',
-            '【命乞】あなたは恐怖に駆られ、命乞いをしてしまった！次のセッション開始時に、クラス１つが『ザコ』に変更される！',
-            '【忘却】あなたは記憶を失い、ぼんやりと立ち尽くす。次のセッションに参加するには、クラス１つを変更しなくてはならない。',
-            '【悲劇】あなたの攻撃は敵ではなく味方を撃った！全てが終わるまであなたは立ち尽くしていた。任意の味方の【体力】を１Ｄ６点減少させる。',
-            '【暴走】あなたは正気を失い、衝動のまま暴走する！同じシーンにいる全員の【体力】を１Ｄ６点減少させる。',
-            '【転落】あなたは断崖絶壁から転落した。',
-            '【虜囚】あなたは敵に囚われた。',
-            '【逃走】あなたは恐れをなし、仲間を見捨てて逃げ出した。',
-            '【重症】あなたはどうしようもない痛手を負い、倒れた。',
-            '【気絶】あなたは気を失った。そして目覚めれば全てが終わっていた。',
-            'それでもまだ立ち上がる！あなたはバッドエンドを迎えなかった。体力の【烙印】を１つ打ち消してよい。',
-          ]
-        ),
-        "WBET" => DiceTable::Table.new(
-          "気力バッドエンド表",
-          "2D6",
-          [
-            '【自害】あなたは自ら死を選んだ。次のセッションに参加するには、クラス１つを『暗黒』にクラスチェンジしなくてはいけない。',
-            '【堕落】あなたは心の中の闇に飲まれた。次のセッション開始時に、クラス１つが『暗黒』か『モンスター』に変更される！',
-            '【隷属】あなたは敵の言うことに逆らえない。次のセッションであなたのスタンスは『従属』になる。',
-            '【裏切】裏切りの衝動。任意の味方の【体力】を１Ｄ６点減少させ、その場から逃げ出す。',
-            '【暴走】あなたは正気を失い、衝動のまま暴走する！同じシーンにいる全員の【体力】を１Ｄ６点減少させる。',
-            '【呪い】心の闇が顕在化したのか。敵の怨嗟か。呪いに蝕まれたあなたは、のたうちまわることしかできない。',
-            '【虜囚】あなたは敵に囚われ、その場から連れ去られる。',
-            '【逃走】あなたは恐れをなし、仲間を見捨てて逃げ出した。',
-            '【放心】あなたはただぼんやりと立ち尽くすしかなかった。我に返った時、全ては終わっていた。',
-            '【気絶】あなたは気を失った。そして目覚めれば全てが終わっていた。',
-            'それでもまだ諦めない！あなたはバッドエンドを迎えなかった。あなたは気力の【烙印】を１つ打ち消してよい。',
-          ]
-        )
-      }.freeze
+      def self.translate_tables(locale)
+        {
+          "SST" => DiceTable::Table.from_i18n("DetatokoSaga.table.SST", locale),
+          "WST" => DiceTable::Table.from_i18n("DetatokoSaga.table.WST", locale),
+          "SBET" => DiceTable::Table.from_i18n("DetatokoSaga.table.SBET", locale),
+          "WBET" => DiceTable::Table.from_i18n("DetatokoSaga.table.WBET", locale),
+        }
+      end
+
+      TABLES = translate_tables(:ja_jp).freeze
 
       register_prefix(TABLES.keys, ALIAS.keys)
     end

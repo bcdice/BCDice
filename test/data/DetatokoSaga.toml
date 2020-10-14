@@ -153,6 +153,17 @@ rands = [
 
 [[ test ]]
 game_system = "DetatokoSaga"
+input = "3JD7/0 ゼロ除算"
+output = "判定！　スキルレベル：3　フラグ：7 ＞ 12[6,6,1,2] ＞ 0では割れません"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "DetatokoSaga"
 input = "3JD9"
 output = "判定！　スキルレベル：3　フラグ：9 ＞ 8[1,3,2,5] ＞ 判定値：8、フラグ以下！【気力1D6->3点減少】【判定値変更不可】"
 rands = [
