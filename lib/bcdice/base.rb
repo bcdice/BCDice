@@ -296,13 +296,16 @@ module BCDice
     # @param (see #check_result)
     # @return [String]
     def check_nDx(total, cmp_op, target)
-      return " ＞ 失敗" if target.is_a?(String)
+      result =
+        if target.is_a?(String)
+          translate("failure")
+        elsif total.send(cmp_op, target)
+          translate("success")
+        else
+          translate("failure")
+        end
 
-      if total.send(cmp_op, target)
-        " ＞ 成功"
-      else
-        " ＞ 失敗"
-      end
+      return " ＞ #{result}"
     end
 
     # @param (see #check_result)

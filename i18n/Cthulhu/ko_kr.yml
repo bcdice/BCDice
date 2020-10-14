@@ -1,0 +1,11 @@
+ko_kr:
+  Cthulhu:
+    critical: 크리티컬
+    special: 스페셜
+    critical_special: 크리티컬/스페셜
+    fumble: 펌블
+    partial_success: 부분적 성공
+    automatic_success: 자동성공
+    automatic_failure: 자동실패
+    broken: 고장
+    broken_number: 고장넘버
