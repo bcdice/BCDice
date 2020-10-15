@@ -5,6 +5,7 @@ require "i18n/backend/fallbacks"
 require "bcdice/randomizer"
 require "bcdice/dice_table"
 require "bcdice/enum"
+require "bcdice/translate"
 
 module BCDice
   class Base
@@ -57,6 +58,8 @@ module BCDice
         @command_pattern = /^S?(#{pattarns.join("|")})/i.freeze
       end
     end
+
+    include Translate
 
     def initialize(command)
       @raw_input = command
@@ -246,13 +249,6 @@ module BCDice
     # @param count_success [Integer] 成功数
     # @return [String, nil]
     def grich_text(count_one, dice_total_count, count_success); end
-
-    # i18n用の翻訳メソッド
-    # @param key [String]
-    # @return [String]
-    def translate(key, **options)
-      I18n.translate(key, locale: @locale, raise: true, **options)
-    end
 
     private
 

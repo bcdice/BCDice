@@ -1,3 +1,5 @@
 ja_jp:
   success: 成功
   failure: 失敗
+  critical: クリティカル
+  fumble: ファンブル
