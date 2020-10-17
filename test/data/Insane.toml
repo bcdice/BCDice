@@ -214,6 +214,30 @@ rands = [
 
 [[ test ]]
 game_system = "Insane"
+input = "BET ランダム特技決定を呼び出すケースその1"
+output = "バッドエンド表(3) ＞ 牢獄のような、手術室のような薄暗い部屋に監禁される。そして、毎日のようにひどい拷問を受けることになった。何とか隙を見て逃げ出すことができたが……。「知識」≪人類学≫の特技が【恐怖心】になる。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Insane"
+input = "BET ランダム特技決定を呼び出すケースその２"
+output = "バッドエンド表(11) ＞ 目を覚ますと、そこはいつもの場所だった。しかし、どこか違和感を覚える。君たち以外、誰も事件のことを知らないようだ。死んだはずのあの人物も生きている。時間を旅したのか、ここは違う世界線か……？　「情動」≪憂い≫の特技が【恐怖心】になる。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Insane"
 input = "BET"
 output = "バッドエンド表(12) ＞ 振り返ると、そこには圧倒的な「それ」が待ち構えていた。無慈悲な一撃が、あなたを襲い、あなたは死亡する。"
 rands = [
