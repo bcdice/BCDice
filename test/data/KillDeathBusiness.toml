@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "ST"
-output = "シーン表(11,11)：あなたが根城にしていたオフィス"
+output = "シーン表(11,11) ＞ あなたが根城にしていたオフィス"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "ST"
-output = "シーン表(66,66)：略奪を受けて空っぽになった野原"
+output = "シーン表(66,66) ＞ 略奪を受けて空っぽになった野原"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -39,7 +39,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "ST1"
-output = "シーン表(11)：あなたが根城にしていた"
+output = "シーン表(11) ＞ あなたが根城にしていた"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -48,7 +48,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "ST1"
-output = "シーン表(66)：略奪を受けて空っぽになった"
+output = "シーン表(66) ＞ 略奪を受けて空っぽになった"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "ST2"
-output = "シーン表(11)：オフィス"
+output = "シーン表(11) ＞ オフィス"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -66,7 +66,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "ST2"
-output = "シーン表(66)：野原"
+output = "シーン表(66) ＞ 野原"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -345,7 +345,7 @@ rands = []
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "NAME"
-output = "万能命名表(11,11,11)：アナログXアーム"
+output = "万能命名表(11,11,11) ＞ アナログXアーム"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -358,7 +358,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "NAME"
-output = "万能命名表(66,66,66)：レッドロボレッグ"
+output = "万能命名表(66,66,66) ＞ レッドロボレッグ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -371,7 +371,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "NAME1"
-output = "万能命名表(11)：アナログ"
+output = "万能命名表(11) ＞ アナログ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -380,7 +380,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "NAME1"
-output = "万能命名表(66)：レッド"
+output = "万能命名表(66) ＞ レッド"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -389,7 +389,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "NAME2"
-output = "万能命名表(11)：X"
+output = "万能命名表(11) ＞ X"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -398,7 +398,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "NAME2"
-output = "万能命名表(66)：ロボ"
+output = "万能命名表(66) ＞ ロボ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -407,7 +407,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "NAME3"
-output = "万能命名表(11)：アーム"
+output = "万能命名表(11) ＞ アーム"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -416,7 +416,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "NAME3"
-output = "万能命名表(66)：レッグ"
+output = "万能命名表(66) ＞ レッグ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -587,7 +587,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "sErviceST"
-output = "サービスシーン表(11)：脱衣系サービスシーン表「衣装の不調」を行う。"
+output = "サービスシーン表(11) ＞ 脱衣系サービスシーン表「衣装の不調」を行う。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -596,7 +596,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "SERVICEST"
-output = "サービスシーン表(66)：別ジャンルサービスシーン表「ロボ」を行う。"
+output = "サービスシーン表(66) ＞ 別ジャンルサービスシーン表「ロボ」を行う。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -605,7 +605,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "EST"
-output = "サービスシーン表(11)：脱衣系サービスシーン表「衣装の不調」を行う。"
+output = "サービスシーン表(11) ＞ 脱衣系サービスシーン表「衣装の不調」を行う。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -646,7 +646,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "HSAT"
-output = "ヘルスタイリスト罵倒表(11,11)：「まるで『 汁まみれになった アルマジロ』みたいよ！」"
+output = "ヘルスタイリスト罵倒表(11,11) ＞ 「まるで『汁まみれになった アルマジロ』みたいよ！」"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -659,7 +659,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "HSAT"
-output = "ヘルスタイリスト罵倒表(66,66)：「あなたは『 猟奇殺人を趣味にしている 野良犬』そっくりよ！」"
+output = "ヘルスタイリスト罵倒表(66,66) ＞ 「あなたは『猟奇殺人を趣味にしている 野良犬』そっくりよ！」"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -672,7 +672,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "HSAT1"
-output = "ヘルスタイリスト罵倒表(11)： 汁まみれになった"
+output = "ヘルスタイリスト罵倒表(11) ＞ 汁まみれになった"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -681,7 +681,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "HSAT1"
-output = "ヘルスタイリスト罵倒表(66)： 猟奇殺人を趣味にしている"
+output = "ヘルスタイリスト罵倒表(66) ＞ 猟奇殺人を趣味にしている"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -690,7 +690,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "HSAT2"
-output = "ヘルスタイリスト罵倒表(11)： アルマジロ"
+output = "ヘルスタイリスト罵倒表(11) ＞ アルマジロ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -699,7 +699,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "HSAT2"
-output = "ヘルスタイリスト罵倒表(66)： 野良犬"
+output = "ヘルスタイリスト罵倒表(66) ＞ 野良犬"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -708,7 +708,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "SKLT"
-output = "指定特技ランダム決定表(1,2)：「職業」《無職》"
+output = "指定特技ランダム決定表(1,2) ＞ 「職業」《無職》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -718,7 +718,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "SKLT"
-output = "指定特技ランダム決定表(6,12)：「願望」《生》"
+output = "指定特技ランダム決定表(6,12) ＞ 「願望」《生》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -728,7 +728,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "EXT"
-output = "エキストラ表(66,66,66,66)：歴史上の人物だが実は生きていた神が炎をバックに陽気に登場"
+output = "エキストラ表(66,66,66,66) ＞ 歴史上の人物だが実は生きていた神が炎をバックに陽気に登場"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -743,7 +743,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "EXT1 lamdaが入ってる項目の確認"
-output = "エキストラ表(56)：『レッドロボレッグ』の異名を持つ"
+output = "エキストラ表(56) ＞ 『レッドロボレッグ』の異名を持つ"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -794,7 +794,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "SKLJ"
-output = "指定特技分野ランダム決定表(1)：職業"
+output = "指定特技分野ランダム決定表(1) ＞ 職業"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -802,7 +802,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "SKLJ"
-output = "指定特技分野ランダム決定表(6)：願望"
+output = "指定特技分野ランダム決定表(6) ＞ 願望"
 rands = [
   { sides = 6, value = 6 },
 ]
