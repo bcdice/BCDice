@@ -2,6 +2,14 @@ module BCDice
   module DiceTable
     # D66を振って6x6マスの表を参照する
     class D66GridTable
+      # @param key [String]
+      # @param locale [Symbol]
+      # @return [D66GridTable]
+      def self.from_i18n(key, locale)
+        table = I18n.t(key, locale: locale, raise: true)
+        new(table[:name], table[:items])
+      end
+
       # @param [String] name 表の名前
       # @param [Array<Array<String>>] items 表の項目の配列
       def initialize(name, items)
