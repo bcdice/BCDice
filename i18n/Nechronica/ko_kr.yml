@@ -1,0 +1,14 @@
+ko_kr:
+  Nechronica:
+    critical: 대성공
+    fumble: 대실패
+    break_all_parts: 사용파츠 전부 손실
+    hit_location:
+      table:
+      - 방어측 임의
+      - 다리（없으면 공격측 임의）
+      - 몸통（없으면 공격측 임의）
+      - 팔（없으면 공격측 임의）
+      - 머리（없으면 공격측 임의）
+      - 공격측 임의
+      additional_damage: "(추가 데미지%{damage})"

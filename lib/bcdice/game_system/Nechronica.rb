@@ -51,7 +51,7 @@ module BCDice
       public
 
       def eval_game_system_specific_command(command)
-        return roll_tables(command, TABLES) || nechronica_check(command)
+        return roll_tables(command, self.class::TABLES) || nechronica_check(command)
       end
 
       private
@@ -60,17 +60,22 @@ module BCDice
         return '' if target == '?'
         return '' unless cmp_op == :>=
 
-        if total >= 11
-          " ＞ 大成功"
-        elsif total >= target
-          " ＞ 成功"
-        elsif dice_list.count { |i| i <= 1 } == 0
-          " ＞ 失敗"
-        elsif dice_list.size > 1
-          " ＞ 大失敗 ＞ 使用パーツ全損"
-        else
-          " ＞ 大失敗"
-        end
+        result =
+          if total >= 11
+            translate("Nechronica.critical")
+          elsif total >= target
+            translate("success")
+          elsif dice_list.count { |i| i <= 1 } == 0
+            translate("failure")
+          elsif dice_list.size > 1
+            fumble = translate("Nechronica.fumble")
+            break_all_parts = translate("Nechronica.break_all_parts")
+            "#{fumble} ＞ #{break_all_parts}"
+          else
+            translate("Nechronica.fumble")
+          end
+
+        return " ＞ #{result}"
       end
 
       def nechronica_check(string)
@@ -133,20 +138,13 @@ module BCDice
         debug("getHitLocation dice", dice)
         return output if dice <= 5
 
-        table = [
-          '防御側任意',
-          '脚（なければ攻撃側任意）',
-          '胴（なければ攻撃側任意）',
-          '腕（なければ攻撃側任意）',
-          '頭（なければ攻撃側任意）',
-          '攻撃側任意',
-        ]
+        table = translate("Nechronica.hit_location.table")
         index = dice - 6
 
         addDamage = ""
         if dice > 10
           index = 5
-          addDamage = "(追加ダメージ#{dice - 10})"
+          addDamage = translate("Nechronica.hit_location.additional_damage", damage: dice - 10)
         end
 
         output = table[index] + addDamage
@@ -154,58 +152,21 @@ module BCDice
         return output
       end
 
-      TABLES = {
-        'NM' => DiceTable::Table.new(
-          '姉妹への未練表',
-          '1D10',
-          [
-            '【嫌悪】[発狂:敵対認識]敵に命中しなかった攻撃は全て、射程内にいるなら嫌悪の対象に命中する。(防御側任意)',
-            '【独占】[発狂:独占衝動]戦闘開始時と終了時に１つずつ、対象はパーツを選んで損傷する。',
-            '【依存】[発狂:幼児退行]最大行動値が減少する(-2)',
-            '【執着】[発狂:追尾監視]戦闘開始時と終了時に1つずつ、対象はあなたへの未練に狂気点を得る。',
-            '【恋心】[発狂:自傷行動]戦闘開始時と終了時に1つずつ、あなたはパーツを選んで損傷する。',
-            '【対抗】[発狂:過剰競争]戦闘開始時と終了時に1つずつ、あなたは任意の未練に狂気点を追加で得る。',
-            '【友情】[発狂:共鳴依存]セッション終了時、対象にあなたよりも多く損傷したパーツがある際、あなたは損傷パーツ数が対象と同じになるまで、パーツを損傷させる。',
-            '【保護】[発狂:常時密着]あなたが対象と別エリアにいるなら「移動以外の効果を持つマニューバ」を宣言できない。「自身と対象」以外を移動マニューバの対象にできない。',
-            '【憧憬】[発狂:贋作妄想]あなたが対象と同エリアにいるなら「移動以外の効果を持つマニューバ」を宣言できない。「自身と対象」以外を移動マニューバの対象にできない。',
-            '【信頼】[発狂:疑心暗鬼]あなた以外の全ての姉妹の最大行動値が減少する(-1)',
-          ]
-        ),
-        'NMN' => DiceTable::Table.new(
-          '中立者への未練表',
-          '1D10',
-          [
-            '【忌避】[発狂:隔絶意識]あなたは未練の対象ないしサヴァントと同じエリアにいる間、「移動以外の効果を持つマニューバ」を宣言できない。また、「自身と未練の対象ないしサヴァント」以外を移動マニューバの対象にできない。',
-            '【嫉妬】[発狂:不協和音]全ての姉妹は行動判定に修正-1を受ける。',
-            '【依存】[発狂:幼児退行]最大行動値が減少する(-2)',
-            '【憐憫】[発狂:過情移入]あなたは「サヴァント」に対する攻撃判定の出目に修正-1を受ける。',
-            '【感謝】[発狂:病的返礼]発狂した際、あなたは任意の基本パーツ2つ（なければ最もレベルの低い強化パーツ1つ）を損傷する。',
-            '【悔恨】[発狂:自業自棄]あなたが失敗した攻撃判定は全て、あなた自身の任意の箇所にダメージを与える。',
-            '【期待】[発狂:希望転結]あなたは狂気点を追加して振り直しを行う際、出目に修正-1を受ける。（この効果は累積する）',
-            '【保護】[発狂:生前回帰]あなたは「レギオン」をマニューバの対象に選べない。',
-            '【尊敬】[発狂:神化崇拝]あなたは「他の姉妹」をマニューバの対象に選べない。',
-            '【信頼】[発狂:疑心暗鬼]あなた以外の全ての姉妹の最大行動値が減少する(-1)',
-          ]
-        ),
-        'NME' => DiceTable::Table.new(
-          '敵への未練表',
-          '1D10',
-          [
-            '【恐怖】[発狂:認識拒否]あなたは、行動判定・狂気判定の出目に修正-1を受ける。',
-            '【隷属】[発狂:造反有理]あなたが失敗した攻撃判定は全て、大失敗として扱う。',
-            '【不安】[発狂:挙動不審]最大行動値が減少する(-2)',
-            '【憐憫】[発狂:感情移入]あなたは「サヴァント」に対する攻撃判定の出目に修正-1を受ける。',
-            '【愛憎】[発狂:凶愛心中]あなたは狂気判定・攻撃判定で大成功するごとに[判定値-10]個の自身のパーツを選び、損傷させる。',
-            '【悔恨】[発狂:自業自棄]あなたが失敗した攻撃判定は全て、あなた自身の任意の箇所にダメージを与える。',
-            '【軽蔑】[発狂:眼中不在]同エリアの手駒があなたに対して行う攻撃判定の出目は修正+1を受ける。',
-            '【憤怒】[発狂:激情暴走]あなたは、攻撃判定・狂気判定の出目に修正-1を受ける。',
-            '【怨念】[発狂:不倶戴天]あなたは逃走判定ができない。あなたが「自身と未練の対象」以外を対象にしたマニューバを使用する際、行動値1点を追加で減らさなくてはいけない。',
-            '【憎悪】[発狂:痕跡破壊]この未練を発狂した際、あなた以外の姉妹から1人選ぶ。その姉妹は任意のパーツを2つ損傷する。',
-          ]
-        )
-      }.freeze
+      class << self
+        private
 
-      register_prefix(['\d+NC.*', '\d+NA.*', '\d+R10.*'] + TABLES.keys)
+        def translate_tables(locale)
+          {
+            "NM" => DiceTable::Table.from_i18n("Nechronica.table.NM", locale),
+            "NMN" => DiceTable::Table.from_i18n("Nechronica.table.NMN", locale),
+            "NME" => DiceTable::Table.from_i18n("Nechronica.table.NME", locale),
+          }
+        end
+      end
+
+      TABLES = translate_tables(:ja_jp)
+
+      register_prefix('\d+NC.*', '\d+NA.*', '\d+R10.*', TABLES.keys)
     end
   end
 end
