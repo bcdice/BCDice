@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
+require "i18n"
+require "i18n/backend/fallbacks"
 require "bcdice/randomizer"
 require "bcdice/dice_table"
 require "bcdice/enum"
+require "bcdice/translate"
 
 module BCDice
   class Base
@@ -16,6 +19,10 @@ module BCDice
       def register_prefix(*prefixes)
         @prefixes ||= []
         @prefixes.concat(prefixes.flatten)
+      end
+
+      def register_prefix_from_super_class
+        register_prefix(superclass.prefixes)
       end
 
       # ゲームシステム固有のコマンドにマッチする正規表現を返す
@@ -52,6 +59,8 @@ module BCDice
       end
     end
 
+    include Translate
+
     def initialize(command)
       @raw_input = command
 
@@ -72,6 +81,8 @@ module BCDice
       @default_target_number = nil # 目標値が空欄の場合の目標値 こちらだけnilにするのは想定していないので注意
 
       @enabled_upcase_input = true # 入力を String#upcase するかどうか
+
+      @locale = :ja_jp # i18n用の言語設定
 
       @is_secret = false
       @is_success = false
@@ -282,13 +293,16 @@ module BCDice
     # @param (see #check_result)
     # @return [String]
     def check_nDx(total, cmp_op, target)
-      return " ＞ 失敗" if target.is_a?(String)
+      result =
+        if target.is_a?(String)
+          translate("failure")
+        elsif total.send(cmp_op, target)
+          translate("success")
+        else
+          translate("failure")
+        end
 
-      if total.send(cmp_op, target)
-        " ＞ 成功"
-      else
-        " ＞ 失敗"
-      end
+      return " ＞ #{result}"
     end
 
     # @param (see #check_result)
@@ -421,3 +435,8 @@ module BCDice
     end
   end
 end
+
+I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
+I18n.load_path << Dir[File.join(__dir__, "../../i18n/**/*.yml")]
+I18n.default_locale = :ja_jp
+I18n.fallbacks.defaults = [:ja_jp]

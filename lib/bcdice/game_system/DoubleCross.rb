@@ -30,10 +30,12 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      register_prefix(['\d+DX.*', 'ET'])
+      register_prefix('\d+DX.*', 'ET')
 
       # 成功判定コマンドのノード
       class DX
+        include Translate
+
         # ノードを初期化する
         # @param [Integer] num ダイス数
         # @param [Integer] critical_value クリティカル値
@@ -47,6 +49,8 @@ module BCDice
 
           @modifier_str = Format.modifier(@modifier)
           @expression = node_expression()
+
+          @locale = :ja_jp
         end
 
         # 成功判定を行う
@@ -54,11 +58,11 @@ module BCDice
         # @return [String] 判定結果
         def execute(randomizer)
           if @critical_value < 2
-            return "(#{@expression}) ＞ クリティカル値が低すぎます。2以上を指定してください。"
+            return "(#{@expression}) ＞ #{translate('DoubleCross.DX.invalid_critical')}"
           end
 
           if @num < 1
-            return "(#{@expression}) ＞ 自動失敗"
+            return "(#{@expression}) ＞ #{translate('DoubleCross.DX.auto_failure')}"
           end
 
           # 出目のグループの配列
@@ -118,7 +122,7 @@ module BCDice
         # @param [Boolean] fumble ファンブルしたか
         # @return [String]
         def achieved_value_with_if_fumble(achieved_value, fumble)
-          fumble ? "#{achieved_value} (ファンブル)" : achieved_value.to_s
+          fumble ? "#{achieved_value} (#{translate('fumble')})" : achieved_value.to_s
         end
 
         # 達成値と目標値を比較した結果を返す
@@ -130,11 +134,11 @@ module BCDice
 
           # ファンブル時は自動失敗
           # [3rd ルールブック1 pp. 186-187]
-          return '失敗' if fumble
+          return translate("failure") if fumble
 
           # 達成値が目標値以上ならば行為判定成功
           # [3rd ルールブック1 p. 187]
-          return achieved_value >= @target_value ? '成功' : '失敗'
+          return achieved_value >= @target_value ? translate("success") : translate("failure")
         end
       end
 
@@ -195,13 +199,16 @@ module BCDice
         return '' if target == '?'
         return '' unless cmp_op == :>=
 
-        if dice_list.count(1) == dice_list.size
-          " ＞ ファンブル"
-        elsif total >= target
-          " ＞ 成功"
-        else
-          " ＞ 失敗"
-        end
+        result =
+          if dice_list.count(1) == dice_list.size
+            translate("fumble")
+          elsif total >= target
+            translate("success")
+          else
+            translate("failure")
+          end
+
+        return " ＞ #{result}"
       end
 
       # ダイスボット固有コマンドの処理を行う
@@ -266,7 +273,7 @@ module BCDice
 
         target_value = m[4]&.to_i
 
-        return DX.new(num, critical_value, modifier, target_value)
+        return self.class::DX.new(num, critical_value, modifier, target_value)
       end
 
       # 疾風怒濤式の成功判定コマンドの正規表現マッチ情報からノードを作る
@@ -279,7 +286,7 @@ module BCDice
 
         target_value = m[4]&.to_i
 
-        return DX.new(num, critical_value, modifier, target_value)
+        return self.class::DX.new(num, critical_value, modifier, target_value)
       end
 
       # 感情表を振る
@@ -288,8 +295,8 @@ module BCDice
       #
       # @return [String]
       def roll_emotion_table
-        pos_result = POSITIVE_EMOTION_TABLE.roll(@randomizer)
-        neg_result = NEGATIVE_EMOTION_TABLE.roll(@randomizer)
+        pos_result = self.class::POSITIVE_EMOTION_TABLE.roll(@randomizer)
+        neg_result = self.class::NEGATIVE_EMOTION_TABLE.roll(@randomizer)
 
         positive = @randomizer.roll_once(2) == 1
         pos_neg_text =
@@ -299,75 +306,92 @@ module BCDice
             [pos_result.content, "○#{neg_result.content}"]
           end
 
+        name = translate("DoubleCross.ET.name")
         output_parts = [
-          "感情表(#{pos_result.sum}-#{neg_result.sum})",
+          "#{name}(#{pos_result.sum}-#{neg_result.sum})",
           pos_neg_text.join(' - ')
         ]
 
         return output_parts.join(' ＞ ')
       end
 
+      class << self
+        private
+
+        # @param locale [Symbol]
+        # @return [RangeTable]
+        def positive_emotion_table(locale)
+          DiceTable::RangeTable.new(
+            I18n.translate("DoubleCross.ET.positive.name", locale: locale),
+            "1D100",
+            [
+              # [0, '傾倒(けいとう)'],
+              [1..5,    I18n.translate("DoubleCross.ET.positive.items.1_5", locale: locale)],
+              [6..10,   I18n.translate("DoubleCross.ET.positive.items.6_10", locale: locale)],
+              [11..15,  I18n.translate("DoubleCross.ET.positive.items.11_15", locale: locale)],
+              [16..20,  I18n.translate("DoubleCross.ET.positive.items.16_20", locale: locale)],
+              [21..25,  I18n.translate("DoubleCross.ET.positive.items.21_25", locale: locale)],
+              [26..30,  I18n.translate("DoubleCross.ET.positive.items.26_30", locale: locale)],
+              [31..35,  I18n.translate("DoubleCross.ET.positive.items.31_35", locale: locale)],
+              [36..40,  I18n.translate("DoubleCross.ET.positive.items.36_40", locale: locale)],
+              [41..45,  I18n.translate("DoubleCross.ET.positive.items.41_45", locale: locale)],
+              [46..50,  I18n.translate("DoubleCross.ET.positive.items.46_50", locale: locale)],
+              [51..55,  I18n.translate("DoubleCross.ET.positive.items.51_55", locale: locale)],
+              [56..60,  I18n.translate("DoubleCross.ET.positive.items.56_60", locale: locale)],
+              [61..65,  I18n.translate("DoubleCross.ET.positive.items.61_65", locale: locale)],
+              [66..70,  I18n.translate("DoubleCross.ET.positive.items.66_70", locale: locale)],
+              [71..75,  I18n.translate("DoubleCross.ET.positive.items.71_75", locale: locale)],
+              [76..80,  I18n.translate("DoubleCross.ET.positive.items.76_80", locale: locale)],
+              [81..85,  I18n.translate("DoubleCross.ET.positive.items.81_85", locale: locale)],
+              [86..90,  I18n.translate("DoubleCross.ET.positive.items.86_90", locale: locale)],
+              [91..95,  I18n.translate("DoubleCross.ET.positive.items.91_95", locale: locale)],
+              [96..100, I18n.translate("DoubleCross.ET.positive.items.96_100", locale: locale)],
+              # [101, '懐旧(かいきゅう)'],
+              # [102, '任意(にんい)'],
+            ]
+          )
+        end
+
+        # @param locale [Symbol]
+        # @return [RangeTable]
+        def negative_emotion_table(locale)
+          DiceTable::RangeTable.new(
+            I18n.translate("DoubleCross.ET.negative.name", locale: locale),
+            "1D100",
+            [
+              # [0, '侮蔑(ぶべつ)'],
+              [1..5,    I18n.translate("DoubleCross.ET.negative.items.1_5", locale: locale)],
+              [6..10,   I18n.translate("DoubleCross.ET.negative.items.6_10", locale: locale)],
+              [11..15,  I18n.translate("DoubleCross.ET.negative.items.11_15", locale: locale)],
+              [16..20,  I18n.translate("DoubleCross.ET.negative.items.16_20", locale: locale)],
+              [21..25,  I18n.translate("DoubleCross.ET.negative.items.21_25", locale: locale)],
+              [26..30,  I18n.translate("DoubleCross.ET.negative.items.26_30", locale: locale)],
+              [31..35,  I18n.translate("DoubleCross.ET.negative.items.31_35", locale: locale)],
+              [36..40,  I18n.translate("DoubleCross.ET.negative.items.36_40", locale: locale)],
+              [41..45,  I18n.translate("DoubleCross.ET.negative.items.41_45", locale: locale)],
+              [46..50,  I18n.translate("DoubleCross.ET.negative.items.46_50", locale: locale)],
+              [51..55,  I18n.translate("DoubleCross.ET.negative.items.51_55", locale: locale)],
+              [56..60,  I18n.translate("DoubleCross.ET.negative.items.56_60", locale: locale)],
+              [61..65,  I18n.translate("DoubleCross.ET.negative.items.61_65", locale: locale)],
+              [66..70,  I18n.translate("DoubleCross.ET.negative.items.66_70", locale: locale)],
+              [71..75,  I18n.translate("DoubleCross.ET.negative.items.71_75", locale: locale)],
+              [76..80,  I18n.translate("DoubleCross.ET.negative.items.76_80", locale: locale)],
+              [81..85,  I18n.translate("DoubleCross.ET.negative.items.81_85", locale: locale)],
+              [86..90,  I18n.translate("DoubleCross.ET.negative.items.86_90", locale: locale)],
+              [91..95,  I18n.translate("DoubleCross.ET.negative.items.91_95", locale: locale)],
+              [96..100, I18n.translate("DoubleCross.ET.negative.items.96_100", locale: locale)],
+              # [101, '無関心(むかんしん)'],
+              # [102, '任意(にんい)'],
+            ]
+          ).freeze
+        end
+      end
+
       # 感情表（ポジティブ）
-      POSITIVE_EMOTION_TABLE = DiceTable::RangeTable.new(
-        '感情表（ポジティブ）',
-        '1D100',
-        [
-          # [0, '傾倒(けいとう)'],
-          [1..5,    '好奇心(こうきしん)'],
-          [6..10,   '憧憬(どうけい)'],
-          [11..15,  '尊敬(そんけい)'],
-          [16..20,  '連帯感(れんたいかん)'],
-          [21..25,  '慈愛(じあい)'],
-          [26..30,  '感服(かんぷく)'],
-          [31..35,  '純愛(じゅんあい)'],
-          [36..40,  '友情(ゆうじょう)'],
-          [41..45,  '慕情(ぼじょう)'],
-          [46..50,  '同情(どうじょう)'],
-          [51..55,  '遺志(いし)'],
-          [56..60,  '庇護(ひご)'],
-          [61..65,  '幸福感(こうふくかん)'],
-          [66..70,  '信頼(しんらい)'],
-          [71..75,  '執着(しゅうちゃく)'],
-          [76..80,  '親近感(しんきんかん)'],
-          [81..85,  '誠意(せいい)'],
-          [86..90,  '好意(こうい)'],
-          [91..95,  '有為(ゆうい)'],
-          [96..100, '尽力(じんりょく)'],
-          # [101, '懐旧(かいきゅう)'],
-          # [102, '任意(にんい)'],
-        ]
-      ).freeze
+      POSITIVE_EMOTION_TABLE = positive_emotion_table(:ja_jp).freeze
 
       # 感情表（ネガティブ）
-      NEGATIVE_EMOTION_TABLE = DiceTable::RangeTable.new(
-        '感情表（ネガティブ）',
-        '1D100',
-        [
-          # [0, '侮蔑(ぶべつ)'],
-          [1..5,    '食傷(しょくしょう)'],
-          [6..10,   '脅威(きょうい)'],
-          [11..15,  '嫉妬(しっと)'],
-          [16..20,  '悔悟(かいご)'],
-          [21..25,  '恐怖(きょうふ)'],
-          [26..30,  '不安(ふあん)'],
-          [31..35,  '劣等感(れっとうかん)'],
-          [36..40,  '疎外感(そがいかん)'],
-          [41..45,  '恥辱(ちじょく)'],
-          [46..50,  '憐憫(れんびん)'],
-          [51..55,  '偏愛(へんあい)'],
-          [56..60,  '憎悪(ぞうお)'],
-          [61..65,  '隔意(かくい)'],
-          [66..70,  '嫌悪(けんお)'],
-          [71..75,  '猜疑心(さいぎしん)'],
-          [76..80,  '厭気(いやけ)'],
-          [81..85,  '不信感(ふしんかん)'],
-          [86..90,  '不快感(ふかいかん)'],
-          [91..95,  '憤懣(ふんまん)'],
-          [96..100, '敵愾心(てきがいしん)'],
-          # [101, '無関心(むかんしん)'],
-          # [102, '任意(にんい)'],
-        ]
-      ).freeze
+      NEGATIVE_EMOTION_TABLE = negative_emotion_table(:ja_jp).freeze
     end
   end
 end

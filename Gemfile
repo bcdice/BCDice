@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gemspec
+
 group :development, :test do
   gem "codecov", "~> 0.2.5"
   gem "rake"

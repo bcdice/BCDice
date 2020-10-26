@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require "bcdice/game_system/Cthulhu"
+
 module BCDice
   module GameSystem
-    class Cthulhu_ChineseTraditional < Base
+    class Cthulhu_ChineseTraditional < Cthulhu
       # ゲームシステムの識別子
       ID = 'Cthulhu:ChineseTraditional'
 
@@ -44,199 +46,14 @@ module BCDice
         ・CCB(x) c=5、f=96
         同上
 
-        ・瘋狂表
-        ・短期瘋期　Short／長期瘋狂　Longer
-
       INFO_MESSAGE_TEXT
 
-      register_prefix(['CC(B)?\(\d+\)', 'CC(B)?.*', 'RES(B)?.*', 'CBR(B)?\(\d+,\d+\)'])
+      register_prefix_from_super_class()
 
-      def initialize
-        # $isDebug = true
-        super
-        @special_percentage  = 20
-        @critical_percentage = 1
-        @fumble_percentage   = 1
-      end
+      def initialize(command)
+        super(command)
 
-      def eval_game_system_specific_command(command)
-        case command
-        when /CCB/i
-          # 5%
-          @critical_percentage = 5
-          @fumble_percentage   = 5
-          return getCheckResult(command)
-        when /CC/i
-          # 1%
-          @critical_percentage = 1
-          @fumble_percentage   = 1
-          return getCheckResult(command)
-        when /RESB/i
-          # 5%
-          @critical_percentage = 5
-          @fumble_percentage   = 5
-          return getRegistResult(command)
-        when /CBRB/i
-          # 5%
-          @critical_percentage = 5
-          @fumble_percentage   = 5
-          return getCombineRoll(command)
-        when /RES/i
-          # 1%
-          @critical_percentage = 1
-          @fumble_percentage   = 1
-          return getRegistResult(command)
-        when /CBR/i
-          # 1%
-          @critical_percentage = 1
-          @fumble_percentage   = 1
-          return getCombineRoll(command)
-        end
-
-        return nil
-      end
-
-      def getCheckResult(command)
-        broken_num = 0
-        diff = 0
-
-        if (m = /CC(B)?(\d+)<=(\d+)/i.match(command))
-          # /\(\d+\)/の()はpattern-killerにカイシャクされる
-          broken_num = m[2].to_i
-          diff = m[3].to_i
-        elsif (m = /CC(B)?<=(\d+)/i.match(command))
-          diff = m[2].to_i
-        end
-
-        output = ""
-
-        if diff > 0
-          output = "(1D100<=#{diff})"
-
-          if broken_num > 0
-            output += " 故障率[#{broken_num}]"
-          end
-
-          total_n = @randomizer.roll_once(100)
-
-          output += " ＞ #{total_n}"
-          output += " ＞ #{getCheckResultText(total_n, diff, broken_num)}"
-        else
-          total_n = @randomizer.roll_once(100)
-          output = "(1D100) ＞ #{total_n}"
-        end
-
-        return output
-      end
-
-      def getCheckResultText(total_n, diff, broken_num = 0)
-        result = ""
-        diff_special = 0
-        fumble = false
-
-        if @special_percentage > 0
-          # 需有special的數值設定才能做爆擊/大失敗的判定
-          diff_special = (diff * @special_percentage / 100).floor
-          if diff_special < 1
-            diff_special = 1
-          end
-        end
-
-        if (total_n <= diff) && (total_n < 100)
-          result = "成功"
-
-          if diff_special > 0
-            if total_n <= @critical_percentage
-              if total_n <= diff_special
-                result = "決定性的成功/特殊"
-              else
-                result = "決定性的成功"
-              end
-            else
-              if total_n <= diff_special
-                result = "特殊"
-              end
-            end
-          end
-        else
-          result = "失敗"
-
-          if diff_special > 0
-            if (total_n >= (101 - @fumble_percentage)) && (diff < 100)
-              result = "致命性失敗"
-              fumble = true
-            end
-          end
-        end
-
-        if broken_num > 0
-          if total_n >= broken_num
-            if fumble
-              result += "/故障"
-            else
-              result = "故障"
-            end
-          end
-        end
-
-        return result
-      end
-
-      def getRegistResult(command)
-        m = /RES(B)?([-\d]+)/i.match(command)
-        unless m
-          return "1"
-        end
-
-        value = m[2].to_i
-        target = value * 5 + 50
-
-        if target < 5
-          return "(1d100<=#{target}) ＞ 自動失敗"
-        end
-
-        if target > 95
-          return "(1d100<=#{target}) ＞ 自動成功"
-        end
-
-        # 通常判定
-        total_n = @randomizer.roll_once(100)
-        result = getCheckResultText(total_n, target)
-
-        return "(1d100<=#{target}) ＞ #{total_n} ＞ #{result}"
-      end
-
-      def getCombineRoll(command)
-        m = /CBR(B)?\((\d+),(\d+)\)/i.match(command)
-        unless m
-          return "1"
-        end
-
-        diff_1 = m[2].to_i
-        diff_2 = m[3].to_i
-
-        total = @randomizer.roll_once(100)
-
-        result_1 = getCheckResultText(total, diff_1)
-        result_2 = getCheckResultText(total, diff_2)
-
-        successList = ["決定性成功/特殊", "決定性成功", "特殊", "成功"]
-
-        succesCount = 0
-        succesCount += 1 if successList.include?(result_1)
-        succesCount += 1 if successList.include?(result_2)
-        debug("succesCount", succesCount)
-
-        rank =
-          if succesCount >= 2
-            "成功"
-          elsif succesCount == 1
-            "部分性成功"
-          else
-            "失敗"
-          end
-
-        return "(1d100<=#{diff_1},#{diff_2}) ＞ #{total}[#{result_1},#{result_2}] ＞ #{rank}"
+        @locale = :zh_hant
       end
     end
   end

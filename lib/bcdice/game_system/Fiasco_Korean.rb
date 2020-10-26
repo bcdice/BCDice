@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require "bcdice/game_system/Fiasco"
+
 module BCDice
   module GameSystem
-    class Fiasco_Korean < Base
+    class Fiasco_Korean < Fiasco
       # ゲームシステムの識別子
       ID = 'Fiasco:Korean'
 
@@ -20,102 +22,12 @@ module BCDice
       ※ W와B는 한 쪽만 지정(Bx, Wx), 앞뒤 바꿔 지정(WxBx,BxWx)도 가능
 INFO_MESSAGE_TEXT
 
-      COMMAND_TYPE_INDEX = 1
+      register_prefix_from_super_class()
 
-      START_DICE_INDEX = 2
+      def initialize(command)
+        super(command)
 
-      BW_FIRST_DICE_INDEX = 2
-      BW_SECOND_DICE_INDEX = 5
-      BW_SECOND_DICE_TAG_INDEX = 4
-
-      START_COMMAND_TAG = "FS"
-      W_DICEROLL_COMMAND_TAG = "W"
-      B_DICEROLL_COMMAND_TAG = "B"
-
-      register_prefix(['(FS|[WB])(\d+).*'])
-
-      def eval_game_system_specific_command(command)
-        m = /\A(FS|[WB])(\d+)(([WB])(\d+))?/.match(command)
-        unless m
-          return ''
-        end
-
-        type = m[COMMAND_TYPE_INDEX]
-        if type == START_COMMAND_TAG
-          return makeStartDiceRoll(m)
-        else
-          return makeWhiteBlackDiceRoll(type, m)
-        end
-      end
-
-      def makeStartDiceRoll(m)
-        dice = m[START_DICE_INDEX].to_i
-
-        dice_list = @randomizer.roll_barabara(dice, 6)
-
-        diceList = [0, 0, 0, 0, 0, 0]
-        dice_list.each do |takeDice|
-          diceList[takeDice - 1] += 1
-        end
-
-        return "１ => #{diceList[0]}개 ２ => #{diceList[1]}개 ３ => #{diceList[2]}개 ４ => #{diceList[3]}개 ５ => #{diceList[4]}개 ６ => #{diceList[5]}개"
-      end
-
-      def makeWhiteBlackDiceRoll(type, m)
-        if type == W_DICEROLL_COMMAND_TAG
-          whiteTotal, whiteDiceText, blackTotal, blackDiceText = makeArgsDiceRoll(m[BW_FIRST_DICE_INDEX], m[BW_SECOND_DICE_INDEX])
-          result = "흰색#{whiteTotal}[#{whiteDiceText}]"
-          if blackDiceText
-            if m[BW_SECOND_DICE_TAG_INDEX] == W_DICEROLL_COMMAND_TAG
-              return "#{m}：흰색 지정(#{W_DICEROLL_COMMAND_TAG})은 중복될 수 없습니다."
-            end
-
-            result += " 검은색#{blackTotal}[#{blackDiceText}]"
-          end
-        elsif type == B_DICEROLL_COMMAND_TAG
-          blackTotal, blackDiceText, whiteTotal, whiteDiceText = makeArgsDiceRoll(m[BW_FIRST_DICE_INDEX], m[BW_SECOND_DICE_INDEX])
-          result = "검은색#{blackTotal}[#{blackDiceText}]"
-          if whiteDiceText
-            if m[BW_SECOND_DICE_TAG_INDEX] == B_DICEROLL_COMMAND_TAG
-              return "#{m}：검은색 지정(#{B_DICEROLL_COMMAND_TAG})은 중복될 수 없습니다."
-            end
-
-            result += " 흰색#{whiteTotal}[#{whiteDiceText}]"
-          end
-        else
-          return ''
-        end
-
-        if blackTotal > whiteTotal
-          return "#{result} ＞ 검은색#{blackTotal - whiteTotal}"
-        elsif blackTotal < whiteTotal
-          return "#{result} ＞ 흰색#{whiteTotal - blackTotal}"
-        end
-
-        return "#{result} ＞ 0"
-      end
-
-      def makeArgsDiceRoll(firstDice, secondDice)
-        firstDice = firstDice.to_i
-        secondDice = secondDice&.to_i
-
-        secondTotal = 0
-
-        dice_list = @randomizer.roll_barabara(firstDice, 6)
-        firstTotal = dice_list.sum()
-        firstDiceText = dice_list.join(",")
-
-        if secondDice
-          if secondDice > 0
-            dice_list = @randomizer.roll_barabara(secondDice, 6)
-            secondTotal = dice_list.sum()
-            secondDiceText = dice_list.join(",")
-          else
-            secondDiceText = "0"
-          end
-        end
-
-        return firstTotal, firstDiceText, secondTotal, secondDiceText
+        @locale = :ko_kr
       end
     end
   end

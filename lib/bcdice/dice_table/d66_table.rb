@@ -2,6 +2,16 @@ module BCDice
   module DiceTable
     # D66を振って出目を昇順/降順にして表を参照する
     class D66Table
+      # @param key [String]
+      # @param locale [Symbol]
+      # @return [D66Table]
+      def self.from_i18n(key, locale)
+        table = I18n.t(key, locale: locale)
+        sort_type = D66SortType.const_get(table[:d66_sort_type])
+
+        new(table[:name], sort_type, table[:items])
+      end
+
       # @param [String] name 表の名前
       # @param [Symbol] sort_type 出目入れ替えの方式 BCDice::D66SortType
       # @param [Hash] items 表の項目 Key は数値

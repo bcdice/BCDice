@@ -1,0 +1,11 @@
+zh_hant:
+  Cthulhu:
+    critical: 決定性的成功
+    special: 特殊
+    critical_special: 決定性的成功/特殊
+    fumble: 致命性失敗
+    partial_success: 部分性成功
+    automatic_success: 自動成功
+    automatic_failure: 自動失敗
+    broken: 故障
+    broken_number: 故障率

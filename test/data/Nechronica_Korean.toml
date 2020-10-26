@@ -1544,9 +1544,57 @@ rands = [
 ]
 
 [[ test ]]
+game_system = "Nechronica"
+input = "nm"
+output = "姉妹への未練表(1) ＞ 【嫌悪】[発狂:敵対認識]敵に命中しなかった攻撃は全て、射程内にいるなら嫌悪の対象に命中する。(防御側任意)"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Nechronica"
+input = "nm"
+output = "姉妹への未練表(10) ＞ 【信頼】[発狂:疑心暗鬼]あなた以外の全ての姉妹の最大行動値が減少する(-1)"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Nechronica"
+input = "nmn"
+output = "中立者への未練表(1) ＞ 【忌避】[発狂:隔絶意識]あなたは未練の対象ないしサヴァントと同じエリアにいる間、「移動以外の効果を持つマニューバ」を宣言できない。また、「自身と未練の対象ないしサヴァント」以外を移動マニューバの対象にできない。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Nechronica"
+input = "nmn"
+output = "中立者への未練表(10) ＞ 【信頼】[発狂:疑心暗鬼]あなた以外の全ての姉妹の最大行動値が減少する(-1)"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Nechronica"
+input = "nme"
+output = "敵への未練表(1) ＞ 【恐怖】[発狂:認識拒否]あなたは、行動判定・狂気判定の出目に修正-1を受ける。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Nechronica"
+input = "nme"
+output = "敵への未練表(10) ＞ 【憎悪】[発狂:痕跡破壊]この未練を発狂した際、あなた以外の姉妹から1人選ぶ。その姉妹は任意のパーツを2つ損傷する。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
 game_system = "Nechronica_Korean"
 input = "2D10>=? 目標値?でバグらない"
-output = "(2D10>=?) ＞ 10[5,5] ＞ 10 ＞ 失敗"
+output = "(2D10>=?) ＞ 10[5,5] ＞ 10 ＞ 실패"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 5 },

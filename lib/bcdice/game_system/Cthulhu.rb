@@ -109,7 +109,7 @@ module BCDice
           output = "(1D100<=#{diff})"
 
           if broken_num > 0
-            output += " 故障ナンバー[#{broken_num}]"
+            output += " #{translate('Cthulhu.broken_number')}[#{broken_num}]"
           end
 
           total_n = @randomizer.roll_once(100)
@@ -139,30 +139,30 @@ module BCDice
 
         if (total_n <= diff) && (total_n < 100)
           @is_success = true
-          result = "成功"
+          result = translate("success")
 
           if diff_special > 0
             if total_n <= @critical_percentage
               @is_critical = true
               if total_n <= diff_special
-                result = "決定的成功/スペシャル"
+                result = translate("Cthulhu.critical_special")
               else
-                result = "決定的成功"
+                result = translate("Cthulhu.critical")
               end
             else
               if total_n <= diff_special
-                result = "スペシャル"
+                result = translate("Cthulhu.special")
               end
             end
           end
         else
           @is_failure = true
-          result = "失敗"
+          result = translate("failure")
 
           if diff_special > 0
             if (total_n >= (101 - @fumble_percentage)) && (diff < 100)
               @is_fumble = true
-              result = "致命的失敗"
+              result = translate("Cthulhu.fumble")
               fumble = true
             end
           end
@@ -173,9 +173,9 @@ module BCDice
             @is_success = false
             @is_failure = true
             if fumble
-              result += "/故障"
+              result += "/#{translate('Cthulhu.broken')}"
             else
-              result = "故障"
+              result = translate("Cthulhu.broken")
             end
           end
         end
@@ -194,12 +194,12 @@ module BCDice
 
         if target < 5
           @is_failure = true
-          return "(1d100<=#{target}) ＞ 自動失敗"
+          return "(1d100<=#{target}) ＞ #{translate('Cthulhu.automatic_failure')}"
         end
 
         if target > 95
           @is_success = true
-          return "(1d100<=#{target}) ＞ 自動成功"
+          return "(1d100<=#{target}) ＞ #{translate('Cthulhu.automatic_success')}"
         end
 
         # 通常判定
@@ -223,7 +223,12 @@ module BCDice
         result_1 = getCheckResultText(total, diff_1)
         result_2 = getCheckResultText(total, diff_2)
 
-        successList = ["決定的成功/スペシャル", "決定的成功", "スペシャル", "成功"]
+        successList = [
+          translate("Cthulhu.critical_special"),
+          translate("Cthulhu.critical"),
+          translate("Cthulhu.special"),
+          translate("success"),
+        ]
 
         succesCount = 0
         succesCount += 1 if successList.include?(result_1)
@@ -236,13 +241,13 @@ module BCDice
         rank =
           if succesCount >= 2
             @is_success = true
-            "成功"
+            translate("success")
           elsif succesCount == 1
             @is_success = true
-            "部分的成功"
+            translate("Cthulhu.partial_success")
           else
             @is_failure = true
-            "失敗"
+            translate("failure")
           end
 
         return "(1d100<=#{diff_1},#{diff_2}) ＞ #{total}[#{result_1},#{result_2}] ＞ #{rank}"
