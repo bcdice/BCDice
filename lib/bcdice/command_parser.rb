@@ -102,6 +102,14 @@ module BCDice
       self
     end
 
+    # 比較演算子は許容せず、エラーにする
+    #
+    # @return [self]
+    def disable_compare()
+      @allowed_cmp_op = []
+      self
+    end
+
     # 目標値 "?" を許容する
     #
     # @return [self]
