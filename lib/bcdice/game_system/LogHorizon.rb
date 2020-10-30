@@ -71,7 +71,7 @@ module BCDice
       def eval_game_system_specific_command(command)
         getCheckRollDiceCommandResult(command) ||
           getConsumptionDiceCommandResult(command) ||
-          getTresureDiceCommandResult(command) ||
+          roll_trasure_table(command) ||
           getInventionAttributeTextDiceCommandResult(command) ||
           getTroubleInAkibaStreetDiceCommandResult(command) ||
           getAbandonedChildDiceCommandResult(command) ||
@@ -207,107 +207,134 @@ module BCDice
         return [number, value].min
       end
 
-      # 財宝表
-      def getTresureDiceCommandResult(command)
-        return nil unless (m = /(C|M|I|O|H|G)TRS(\d*)([\+\-\d]*)(\$)?/.match(command))
+      ### 財宝表 ###
+      def roll_trasure_table(command)
+        m = /(C|M|I|O|H|G)TRS(\d+)*([\+\-\d]+)?(\$)?/.match(command)
+        return nil unless m
 
         type = m[1]
-        rank = m[2].to_i
-        is_choice = (m[2].empty? || !m[4].nil?)
-        modifyText = m[3]
-        modify = getValue(modifyText, 0)
-        is_prize = (m[4] == "$")
-        dice_value = nil
-        dice_value = '7' if is_prize
-        is_rank_enable = (!is_choice || is_prize)
+        table = construct_trasure_table(type)
 
-        tableName, table =
-          case type
-          when "C"
-            [translate("LogHorizon.TRS.CTRS.name"), CASH_TRESURE_RESULT_TABLE]
-          when "M"
-            [translate("LogHorizon.TRS.MTRS.name"), translate_with_hash_merge("LogHorizon.TRS.MTRS.items")]
-          when "I"
-            [translate("LogHorizon.TRS.ITRS.name"), translate_with_hash_merge("LogHorizon.TRS.ITRS.items")]
-          when "O"
-            [translate("LogHorizon.TRS.OTRS.name"), translate("LogHorizon.TRS.OTRS.items")]
-          when "H"
-            [translate("LogHorizon.TRS.HTRS.name"), translate("LogHorizon.TRS.HTRS.items")]
-          when "G"
-            [translate("LogHorizon.TRS.GTRS.name"), translate("LogHorizon.TRS.GTRS.items")]
-          end
+        character_rank = m[2].to_i
+        modifier = ArithmeticEvaluator.eval(m[3])
+        return "#{command} ＞ CRを指定してください" if character_rank == 0 && modifier == 0
 
-        return nil if table.nil?
+        table.fix_dice_value(7) if m[4]
 
-        number, dice_str, =
-          if is_choice
-            [dice_value.to_i, dice_value]
-          else
-            dice_list = @randomizer.roll_barabara(2, 6)
-            [dice_list.sum, dice_list.join(",")]
-          end
+        return table.roll(character_rank, modifier, @randomizer)
+      end
 
-        number += (rank * (is_rank_enable ? 5 : 0)) + modify
+      def construct_trasure_table(type)
+        case type
+        when "C"
+          ExpansionTresureTable.new(translate("LogHorizon.TRS.CTRS.name"), CASH_TRESURE_RESULT_TABLE)
+        when "M"
+          ExpansionTresureTable.new(translate("LogHorizon.TRS.MTRS.name"), translate_with_hash_merge("LogHorizon.TRS.MTRS.items"))
+        when "I"
+          ExpansionTresureTable.new(translate("LogHorizon.TRS.ITRS.name"), translate_with_hash_merge("LogHorizon.TRS.ITRS.items"))
+        when "O"
+          ExpansionTresureTable.new(translate("LogHorizon.TRS.OTRS.name"), translate("LogHorizon.TRS.OTRS.items"))
+        when "H"
+          HeroineTresureTable.new(translate("LogHorizon.TRS.HTRS.name"), translate("LogHorizon.TRS.HTRS.items"))
+        when "G"
+          TresureTable.new(translate("LogHorizon.TRS.GTRS.name"), translate("LogHorizon.TRS.GTRS.items"))
+        end
+      end
 
-        return command if is_choice && (number < getTableMinimum(table))
+      # 財宝表
+      class TresureTable
+        # @param name [String]
+        # @param items [Hash{Integer => String}]
+        def initialize(name, items)
+          @name = name
+          @items = items
 
-        if type == "H"
-          number = number.clamp(7, 87)
-          result = getHiroineTresureResultString(table, number)
-        elsif type == "G"
-          number = number.clamp(7, 87)
-          result = getOtherTresureResultString(table, number)
-        else
-          number = number.clamp(7, 187)
-          result = getOtherTresureResultStringEx(table, number)
+          @dice_list = nil
         end
 
-        return "#{tableName}(#{number}#{dice_str ? '[' + dice_str + ']' : ''})：#{result}"
+        # プライズ取得用にダイスの値を固定する
+        # @param dice [Integer]
+        # @return [void]
+        def fix_dice_value(dice)
+          @dice_list = [dice]
+        end
+
+        # @param cr [Integer]
+        # @param modifier [Integer]
+        # @param randomizer [Randomizer]
+        # @return [String, nil]
+        def roll(cr, modifier, randomizer)
+          return nil if cr == 0 && modifier == 0
+
+          index =
+            if cr == 0 && modifier != 0
+              modifier # modifierの値のみ設定されている場合には、その値の項目をダイスロールせずに参照する
+            else
+              @dice_list ||= randomizer.roll_barabara(2, 6)
+              @dice_list.sum() + 5 * cr + modifier
+            end
+          chosen = pick_item(index)
+
+          dice_str = "[#{@dice_list&.join(',')}]" if @dice_list
+
+          "#{@name}(#{index}#{dice_str})：#{chosen}"
+        end
+
+        private
+
+        # @param index [Integer]
+        # @return [String]
+        def pick_item(index)
+          if index <= 6
+            "6以下の出目は未定義です"
+          elsif index <= 62
+            @items[index]
+          elsif index <= 72
+            "#{@items[index - 10]}&80G"
+          elsif index <= 82
+            "#{@items[index - 20]}&160G"
+          elsif index <= 87
+            "#{@items[index - 30]}&260G"
+          else
+            "87以降の出目は未定義です"
+          end
+        end
       end
 
-      def getHiroineTresureResultString(table, number)
-        table_max_number = table.keys.max
-
-        result =
-          if number <= table_max_number
-            table[number]
+      # ヒロイン財宝表
+      class HeroineTresureTable < TresureTable
+        # @param index [Integer]
+        # @return [String]
+        def pick_item(index)
+          if index <= 6
+            "6以下の出目は未定義です"
+          elsif index <= 53
+            @items[index]
           else
-            translate("LogHorizon.TRS.range_error", value: table_max_number + 1)
+            "53以降の出目は未定義です"
           end
-
-        return result
+        end
       end
 
-      def getOtherTresureResultString(table, number)
-        result =
-          case number
-          when 63..72
-            table[number - 10] + '&80G'
-          when 73..82
-            table[number - 20] + '&160G'
-          when 83..87
-            table[number - 30] + '&260G'
+      # 拡張ルール財宝表
+      class ExpansionTresureTable < TresureTable
+        # @param index [Integer]
+        # @return [String]
+        def pick_item(index)
+          if index <= 6
+            "6以下の出目は未定義です"
+          elsif index <= 162
+            @items[index]
+          elsif index <= 172
+            "#{@items[index - 10]}&200G"
+          elsif index <= 182
+            "#{@items[index - 20]}&400G"
+          elsif index <= 187
+            "#{@items[index - 30]}&600G"
           else
-            table[number]
+            "187以降の出目は未定義です"
           end
-
-        return result
-      end
-
-      def getOtherTresureResultStringEx(table, number)
-        result =
-          case number
-          when 163..172
-            table[number - 10] + '&200G'
-          when 173..182
-            table[number - 20] + '&400G'
-          when 183..187
-            table[number - 30] + '&600G'
-          else
-            table[number]
-          end
-
-        return result
+        end
       end
 
       CASH_TRESURE_RESULT_TABLE = {
