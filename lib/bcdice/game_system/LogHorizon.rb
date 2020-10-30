@@ -70,7 +70,7 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         getCheckRollDiceCommandResult(command) ||
-          getConsumptionDiceCommandResult(command) ||
+          roll_consumption_table(command) ||
           roll_trasure_table(command) ||
           getInventionAttributeTextDiceCommandResult(command) ||
           getTroubleInAkibaStreetDiceCommandResult(command) ||
@@ -126,85 +126,68 @@ module BCDice
         ArithmeticEvaluator.eval(text)
       end
 
+      ### 消耗表 ###
+      def roll_consumption_table(command)
+        m = /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]+)?(?:\$(\d+))?/.match(command)
+        return nil unless m
+
+        table = construct_consumption_table(m[1])
+        cr = m[2].to_i
+        modifier = ArithmeticEvaluator.eval(m[3])
+        table.fix_dice_value(m[4].to_i) if m[4]
+
+        return table.roll(cr, modifier, @randomizer)
+      end
+
+      def construct_consumption_table(type)
+        table =
+          case type
+          when "P"
+            translate("LogHorizon.CT.PCT")
+          when "E"
+            translate("LogHorizon.CT.ECT")
+          when "G"
+            translate("LogHorizon.CT.GCT")
+          when "C"
+            translate("LogHorizon.CT.CCT")
+          when "ES"
+            translate("LogHorizon.CT.ESCT")
+          when "CS"
+            translate("LogHorizon.CT.CSCT")
+          end
+
+        ConsumptionTable.new(table[:name], table[:items])
+      end
+
       # 消耗表
-      def getConsumptionDiceCommandResult(command)
-        return nil unless command =~ /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]*)(\$(\d+))?/
+      class ConsumptionTable
+        # @param name [String]
+        # @param tables [Array[Hash{Integer => String}]]
+        def initialize(name, tables)
+          @name = name
+          @tables = tables
 
-        type = Regexp.last_match(1)
-        is_special = (Regexp.last_match(1) && Regexp.last_match(1).length > 1)
-        rank = Regexp.last_match(2) && Regexp.last_match(2) != '' ? Regexp.last_match(2).to_i : nil
-        return nil if !rank && !is_special
-
-        rank ||= 0
-        is_choice = !Regexp.last_match(4).nil?
-        dice_value = Regexp.last_match(5)
-        modifyText = Regexp.last_match(3)
-        modify = getValue(modifyText, 0)
-
-        tableName = ""
-        tables = nil
-
-        case type
-        when "P"
-          tableName = translate("LogHorizon.CT.PCT.name")
-          tables = translate("LogHorizon.CT.PCT.items")
-        when "E"
-          tableName = translate("LogHorizon.CT.ECT.name")
-          tables = translate("LogHorizon.CT.ECT.items")
-        when "G"
-          tableName = translate("LogHorizon.CT.GCT.name")
-          tables = translate("LogHorizon.CT.GCT.items")
-        when "C"
-          tableName = translate("LogHorizon.CT.CCT.name")
-          tables = translate("LogHorizon.CT.CCT.items")
-        when "ES"
-          tableName = translate("LogHorizon.CT.ESCT.name")
-          tables = translate("LogHorizon.CT.ESCT.items")
-        when "CS"
-          tableName = translate("LogHorizon.CT.CSCT.name")
-          tables = translate("LogHorizon.CT.CSCT.items")
-        else
-          return nil
+          @dice_value = nil
         end
 
-        table = getTableByRank(rank, tables)
+        # ダイスの値を固定する
+        # @param dice [Integer]
+        # @return [void]
+        def fix_dice_value(dice)
+          @dice_value = dice
+        end
 
-        number = is_choice ? dice_value.to_i : @randomizer.roll_once(6)
-        dice_str = number.to_s
-        number += modify
+        def roll(cr, modifier, randomier)
+          table_index = ((cr - 1) / 5).clamp(0, @tables.size - 1)
+          items = @tables[table_index]
 
-        adjustedNumber = number.clamp(0, table.size - 1)
+          @dice_value ||= randomier.roll_once(6)
+          total = @dice_value + modifier
 
-        result = table[adjustedNumber]
+          chosen = items[total.clamp(0, 7)]
 
-        text = "#{tableName}(#{number}[#{dice_str}])：#{result}"
-
-        return text
-      end
-
-      def getTableByRank(rank, tables)
-        index = (rank - 1) / 5
-
-        index = [0, index].max
-        index = [index, (tables.size - 1)].min
-
-        return tables[index]
-      end
-
-      # 最少値の調整（値が小さすぎるなら表の最小値に）
-      def getAdjustNumberMin(number, table)
-        value = getTableMinimum(table)
-        return [number, value].max
-      end
-
-      def getTableMinimum(table)
-        table.first.first
-      end
-
-      # 最大値の調整（値が大きすぎるなら表の最大値に）
-      def getAdjustNumberMax(number, table)
-        value = table.last.first
-        return [number, value].min
+          "#{@name}(#{total}[#{@dice_value}])：#{chosen}"
+        end
       end
 
       ### 財宝表 ###
