@@ -2207,7 +2207,7 @@ rands = []
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESTL"
-output = "ESTL"
+output = ""
 rands = []
 
 [[ test ]]

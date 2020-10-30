@@ -76,7 +76,7 @@ module BCDice
           getTroubleInAkibaStreetDiceCommandResult(command) ||
           getAbandonedChildDiceCommandResult(command) ||
           getMusicalInstrumentTypeDiceCommandResult(command) ||
-          getEastalDiceCommandResult(command) ||
+          roll_eastal_exploration_table(command) ||
           roll_tables(command, self.class::TABLES)
       end
 
@@ -570,37 +570,32 @@ module BCDice
       end
 
       # イースタル探索表
-      def getEastalDiceCommandResult(command)
-        return nil unless (m = /ESTL(\d*)([\+\-\d]*)(\$(\d+))?/.match(command))
+      def roll_eastal_exploration_table(command)
+        m = /ESTL(\d+)?([\+\-\d]+)?(?:\$(\d+))?/.match(command)
+        return nil unless m
+        return nil if m[1].nil? && m[2].nil? && m[3].nil?
 
-        return command if m[1].empty? && m[2].empty? && m[3].nil?
+        character_rank = m[1].to_i
+        modifier = ArithmeticEvaluator.eval(m[2])
+        fixed_dice_value = m[3]&.to_i
 
-        rank = m[1].to_i
-        is_choice = (m[1].empty? || !m[3].nil?)
-        modifyText = m[2]
-        modify = getValue(modifyText, 0)
-        is_fix_roll = !m[3].nil?
-        dice_value = m[4]
-        is_rank_enable = (!is_choice || is_fix_roll)
-
-        tableName = translate("LogHorizon.ESTL.name")
-        table = translate("LogHorizon.ESTL.items")
-
-        number, dice_str, =
-          if is_choice
-            [dice_value.to_i, dice_value]
+        dice_list =
+          if fixed_dice_value
+            [fixed_dice_value]
+          elsif character_rank == 0
+            []
           else
-            dice_list = @randomizer.roll_barabara(2, 6)
-            [dice_list.sum, dice_list.join(",")]
+            @randomizer.roll_barabara(2, 6)
           end
 
-        number += (rank * (is_rank_enable ? 5 : 0)) + modify
-        number = number.clamp(7, 162)
+        dice_str = "[#{dice_list.join(',')}]" unless dice_list.empty?
+        total = (dice_list.sum() + character_rank * 5 + modifier).clamp(7, 162)
 
-        result = table[number]
-        result = result.chomp
+        table_name = translate("LogHorizon.ESTL.name")
+        table = translate("LogHorizon.ESTL.items")
+        chosen = table[total].chomp
 
-        return "#{tableName}(#{number}#{dice_str ? '[' + dice_str + ']' : ''})\n#{result}"
+        return "#{table_name}(#{total}#{dice_str})\n#{chosen}"
       end
 
       class << self
