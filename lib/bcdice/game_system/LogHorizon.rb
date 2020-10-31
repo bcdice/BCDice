@@ -30,6 +30,11 @@ module BCDice
         　$z：＄を付けるとダイス目を z 固定。表の特定の値参照用に。省略可能。
         　例） PCT1　ECT2+1　GCT3-1　CCT3$5
 
+        ■ 消耗表ロール (CTx±y)
+        　消耗表ロールを行い、出目を決定する。
+        　x：CRを指定。指定できますが、無視されます。省略可能
+        　±y：修正値。＋と－の計算に対応。省略可能。
+
         ■ 財宝表 (tTRSx±y$)
         　CTRS 金銭／MTRS 魔法素材／ITRS 換金アイテム／OTRS そのほか／※HTRS ヒロイン／GTRS ゴブリン財宝表
         　x：CRを指定。省略時はダイス値 0 固定で修正値の表参照。《ゴールドフィンガー》使用時など。
@@ -70,11 +75,10 @@ module BCDice
         †印は☆印は「イントゥ・ザ・セルデシア さらなるビルドの羽ばたき（１）」より、
         ☆印はセルデシア・ガゼット「できるかな66」Vol.1より、
         ※印は「実録・七面体工房スタッフ座談会(夏の陣)」より。利用法などはそちら参照。
-
         ・D66ダイスあり
       MESSAGETEXT
 
-      register_prefix('\d+LH', 'PC', 'EC', 'GC', 'CC', 'CTR', 'MTR', 'ITR', 'OTR', 'HTR', 'GTR', 'IAT', 'TIAS', 'ABDC', 'MII', 'ESCT', 'CSCT', 'ESTL')
+      register_prefix('\d+LH', '\w+CT', 'CT', 'CTR', 'MTR', 'ITR', 'OTR', 'HTR', 'GTR', 'IAT', 'TIAS', 'ABDC', 'MII', 'ESTL')
 
       def initialize(command)
         super(command)
@@ -84,6 +88,7 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         getCheckRollDiceCommandResult(command) ||
+          roll_consumption(command) ||
           roll_consumption_table(command) ||
           roll_trasure_table(command) ||
           getInventionAttributeTextDiceCommandResult(command) ||
@@ -138,6 +143,26 @@ module BCDice
         return defaultValue if text.nil? || text.empty?
 
         ArithmeticEvaluator.eval(text)
+      end
+
+      # 消耗表ロール
+      def roll_consumption(command)
+        m = /^CT\d*([\+\-\d]+)?$/.match(command)
+        return nil unless m
+
+        modifier = ArithmeticEvaluator.eval(m[1])
+        formated_modifier = Format.modifier(modifier)
+        dice = @randomizer.roll_once(6)
+
+        interim_expr = dice.to_s + formated_modifier unless formated_modifier.empty?
+
+        sequence = [
+          "(1D6#{formated_modifier})",
+          interim_expr,
+          dice + modifier,
+        ].compact
+
+        return sequence.join(" ＞ ")
       end
 
       ### 消耗表 ###
@@ -548,7 +573,7 @@ module BCDice
         tables = table[:tables]
 
         dice_list = @randomizer.roll_barabara(tables.size, 6)
-        result = number.map.with_index { |n, index| tables[index][n - 1] }
+        result = dice_list.map.with_index { |n, index| tables[index][n - 1] }
 
         return "#{table[:name]}([#{dice_list.join(',')}])：#{result.join(' ')}"
       end

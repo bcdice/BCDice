@@ -50,6 +50,38 @@ rands = [
 
 [[ test ]]
 game_system = "LogHorizon"
+input = "CT"
+output = "(1D6) ＞ 6"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CT5"
+output = "(1D6) ＞ 6"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CT+4+2"
+output = "(1D6+6) ＞ 6+6 ＞ 12"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CT3+4+2"
+output = "(1D6+6) ＞ 6+6 ＞ 12"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
 input = "PCT11"
 output = "体力消耗表(1[1])：[疲労:25]を受ける"
 rands = [
