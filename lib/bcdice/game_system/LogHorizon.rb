@@ -519,36 +519,24 @@ module BCDice
       def getTroubleInAkibaStreetDiceCommandResult(command)
         return nil unless command == "TIAS"
 
-        tableName = translate("LogHorizon.TIAS.name")
-
-        number = []
-        result = []
-
-        translate("LogHorizon.TIAS.tables").each do |table|
-          dice_result = @randomizer.roll_once(6)
-          number << dice_result.to_s
-          result << table[dice_result - 1]
-        end
-
-        return "#{tableName}([#{number.join(',')}])：#{result.join(' ')}"
+        roll_random_table("LogHorizon.TIAS")
       end
 
       # 廃棄児ランダム決定表
       def getAbandonedChildDiceCommandResult(command)
         return nil unless command == "ABDC"
 
-        tableName = translate("LogHorizon.ABDC.name")
+        roll_random_table("LogHorizon.ABDC")
+      end
 
-        number = []
-        result = []
+      def roll_random_table(key)
+        table = translate(key)
+        tables = table[:tables]
 
-        translate("LogHorizon.ABDC.tables").each do |table|
-          dice_result = @randomizer.roll_once(6)
-          number << dice_result.to_s
-          result << table[dice_result - 1]
-        end
+        dice_list = @randomizer.roll_barabara(tables.size, 6)
+        result = number.map.with_index { |n, index| tables[index][n - 1] }
 
-        return "#{tableName}([#{number.join(',')}])：#{result.join('　')}"
+        return "#{table[:name]}([#{dice_list.join(',')}])：#{result.join(' ')}"
       end
 
       # 楽器種別表
