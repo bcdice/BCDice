@@ -6,6 +6,7 @@ require "bcdice/randomizer"
 require "bcdice/dice_table"
 require "bcdice/enum"
 require "bcdice/translate"
+require "bcdice/result"
 
 module BCDice
   class Base
@@ -56,6 +57,12 @@ module BCDice
         pattarns = CommonCommand::COMMANDS.map { |c| c::PREFIX_PATTERN.source } + @prefixes
 
         @command_pattern = /^S?(#{pattarns.join("|")})/i.freeze
+      end
+
+      # @param command [String]
+      # @return [Result]
+      def eval(command)
+        new(command).eval
       end
     end
 
@@ -154,50 +161,29 @@ module BCDice
       @enabled_d9
     end
 
-    # シークレットコマンドか
-    #
-    # @return [Boolean]
-    def secret?
-      @is_secret
-    end
-
-    # 結果が成功か
-    # @return [Boolean]
-    def success?
-      @is_success
-    end
-
-    # 結果が失敗か
-    # @return [Boolean]
-    def failure?
-      @is_failure
-    end
-
-    # 結果がクリティカルか
-    # @return [Boolean]
-    def critical?
-      @is_critical
-    end
-
-    # 結果がファンブルか
-    # @return [Boolean]
-    def fumble?
-      @is_fumble
-    end
-
     # デバッグを有用にする
     def enable_debug
       @debug = true
     end
 
     # コマンドを評価する
-    # @return [String, nil] コマンド実行結果。コマンドが実行できなかった場合はnilを返す
+    # @return [Result, nil] コマンド実行結果。コマンドが実行できなかった場合はnilを返す
     def eval
       command = BCDice::Preprocessor.process(@raw_input, @randomizer, self)
       upcased_command = command.upcase
 
-      result = dice_command(command)
-      result ||= eval_common_command(upcased_command)
+      result = Result.new
+
+      result.text = dice_command(command)
+      result.text ||= eval_common_command(upcased_command)
+
+      result.secret = @is_secret
+      result.success = @is_success
+      result.failure = @is_failure
+      result.critical = @is_critical
+      result.fumble = @is_fumble
+      result.rands = @randomizer.rand_results
+      result.detailed_rands = @randomizer.detailed_rand_results
 
       return result
     end
