@@ -275,9 +275,9 @@ module BCDice
         when "C"
           ExpansionTresureTable.new(translate("LogHorizon.TRS.CTRS.name"), CASH_TRESURE_RESULT_TABLE)
         when "M"
-          ExpansionTresureTable.new(translate("LogHorizon.TRS.MTRS.name"), translate_with_hash_merge("LogHorizon.TRS.MTRS.items"))
+          ExpansionTresureTable.new(translate("LogHorizon.TRS.MTRS.name"), translate("LogHorizon.TRS.MTRS.items"))
         when "I"
-          ExpansionTresureTable.new(translate("LogHorizon.TRS.ITRS.name"), translate_with_hash_merge("LogHorizon.TRS.ITRS.items"))
+          ExpansionTresureTable.new(translate("LogHorizon.TRS.ITRS.name"), translate("LogHorizon.TRS.ITRS.items"))
         when "O"
           ExpansionTresureTable.new(translate("LogHorizon.TRS.OTRS.name"), translate("LogHorizon.TRS.OTRS.items"))
         when "H"
