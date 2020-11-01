@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "bcdice/base"
+require "bcdice/command_parser"
 
 module BCDice
   module GameSystem
@@ -42,6 +43,11 @@ module BCDice
         　$：＄を付けると財宝表のダイス目を7固定（1回分のプライズ用）。省略可能。
         　例） CTRS1　MTRS2+1　ITRS3-1　ITRS+27　CTRS3$
 
+        ■ 財宝表ロール (CTx±y)
+        　財宝表ロールを行い、出目を決定する。
+        　x：CRを指定。省略時はCR 0として扱う
+        　±y：修正値。＋と－の計算に対応。省略可能。
+
         ■ イースタル探索表 (ESTLx±y$z)
         　x：CRを指定。省略時はダイス値 0 固定で修正値の表参照。
         　±y：修正値。＋と－の計算に対応。省略可能。
@@ -78,7 +84,7 @@ module BCDice
         ・D66ダイスあり
       MESSAGETEXT
 
-      register_prefix('\d+LH', '\w+CT', 'CT', 'CTR', 'MTR', 'ITR', 'OTR', 'HTR', 'GTR', 'IAT', 'TIAS', 'ABDC', 'MII', 'ESTL')
+      register_prefix('\d+LH', '\w+CT', 'CT', '\w+TRS', 'TRS', 'IAT', 'TIAS', 'ABDC', 'MII', 'ESTL')
 
       def initialize(command)
         super(command)
@@ -90,6 +96,7 @@ module BCDice
         getCheckRollDiceCommandResult(command) ||
           roll_consumption(command) ||
           roll_consumption_table(command) ||
+          roll_trasure(command) ||
           roll_trasure_table(command) ||
           getInventionAttributeTextDiceCommandResult(command) ||
           getTroubleInAkibaStreetDiceCommandResult(command) ||
@@ -216,17 +223,34 @@ module BCDice
           @dice_value = dice
         end
 
-        def roll(cr, modifier, randomier)
+        def roll(cr, modifier, randomizer)
           table_index = ((cr - 1) / 5).clamp(0, @tables.size - 1)
           items = @tables[table_index]
 
-          @dice_value ||= randomier.roll_once(6)
+          @dice_value ||= randomizer.roll_once(6)
           total = @dice_value + modifier
 
           chosen = items[total.clamp(0, 7)]
 
           "#{@name}(#{total}[#{@dice_value}])：#{chosen}"
         end
+      end
+
+      # 財宝表ロール
+      def roll_trasure(command)
+        m = /^TRS(\d+)*([\+\-\d]+)?$/.match(command)
+        return nil unless m
+
+        character_rank = m[1].to_i
+        modifier = ArithmeticEvaluator.eval(m[2])
+
+        dice_list = @randomizer.roll_barabara(2, 6)
+        dice_total = dice_list.sum
+        total = dice_total + character_rank * 5 + modifier
+
+        return "(2D6+#{character_rank}*5#{Format.modifier(modifier)}) ＞ "\
+               "#{dice_total}[#{dice_list.join(',')}]#{Format.modifier(character_rank * 5 + modifier)} ＞ "\
+               "#{total}"
       end
 
       ### 財宝表 ###

@@ -802,6 +802,42 @@ rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
+input = "TRS1+2"
+output = "(2D6+1*5+2) ＞ 2[1,1]+7 ＞ 9"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "TRS40"
+output = "(2D6+40*5) ＞ 12[6,6]+200 ＞ 212"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "TRS"
+output = "(2D6+0*5) ＞ 12[6,6] ＞ 12"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "TRS+10"
+output = "(2D6+0*5+10) ＞ 12[6,6]+10 ＞ 22"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
 input = "CTRS1"
 output = "金銭財宝表(7[1,1])：35G"
 rands = [
