@@ -37,11 +37,17 @@ module BCDice
         　±y：修正値。＋と－の計算に対応。省略可能。
 
         ■ 財宝表 (tTRSx±y$)
-        　CTRS 金銭／MTRS 魔法素材／ITRS 換金アイテム／OTRS そのほか／※HTRS ヒロイン／GTRS ゴブリン財宝表
+        　LHZB1記載の財宝表
+        　CTRS 金銭／MTRS 魔法素材／ITRS 換金アイテム／※HTRS ヒロイン／GTRS ゴブリン財宝表
         　x：CRを指定。省略時はダイス値 0 固定で修正値の表参照。《ゴールドフィンガー》使用時など。
         　±y：修正値。＋と－の計算に対応。省略可能。
         　$：＄を付けると財宝表のダイス目を7固定（1回分のプライズ用）。省略可能。
         　例） CTRS1　MTRS2+1　ITRS3-1　ITRS+27　CTRS3$
+
+        ■ 拡張ルール財宝表 (tTRSEx±y$)
+        　LHZB2記載の財宝表
+        　CTRSE 金銭／MTRSE 魔法素材／ITRSE 換金アイテム／OTRSE そのほか
+        　記法は財宝表と同様
 
         ■ 財宝表ロール (TRSx±y)
         　財宝表ロールを行い、出目を決定する。
@@ -98,6 +104,7 @@ module BCDice
           roll_consumption_table(command) ||
           roll_treasure(command) ||
           roll_treasure_table(command) ||
+          roll_treasure_table_b2(command) ||
           getInventionAttributeTextDiceCommandResult(command) ||
           getTroubleInAkibaStreetDiceCommandResult(command) ||
           getAbandonedChildDiceCommandResult(command) ||
@@ -255,7 +262,7 @@ module BCDice
 
       ### 財宝表 ###
       def roll_treasure_table(command)
-        m = /(C|M|I|O|H|G)TRS(\d+)*([\+\-\d]+)?(\$)?/.match(command)
+        m = /^([CMIHG]TRS)(\d+)*([\+\-\d]+)?(\$)?$/.match(command)
         return nil unless m
 
         type = m[1]
@@ -271,24 +278,39 @@ module BCDice
       end
 
       def construct_treasure_table(type)
-        case type
-        when "C"
-          ExpansionTreasureTable.new(translate("LogHorizon.TRS.CTRS.name"), CASH_TREASURE_RESULT_TABLE)
-        when "M"
-          ExpansionTreasureTable.new(translate("LogHorizon.TRS.MTRS.name"), translate("LogHorizon.TRS.MTRS.items"))
-        when "I"
-          ExpansionTreasureTable.new(translate("LogHorizon.TRS.ITRS.name"), translate("LogHorizon.TRS.ITRS.items"))
-        when "O"
-          ExpansionTreasureTable.new(translate("LogHorizon.TRS.OTRS.name"), translate("LogHorizon.TRS.OTRS.items"))
-        when "H"
-          HeroineTreasureTable.new(translate("LogHorizon.TRS.HTRS.name"), translate("LogHorizon.TRS.HTRS.items"))
-        when "G"
-          TreasureTable.new(translate("LogHorizon.TRS.GTRS.name"), translate("LogHorizon.TRS.GTRS.items"))
+        if type == "HTRS"
+          HeroineTreasureTable.from_i18n("LogHorizon.TRS.HTRS")
+        else
+          TreasureTable.from_i18n("LogHorizon.TRS.#{type}")
         end
+      end
+
+      # 拡張ルール財宝表
+      def roll_treasure_table_b2(command)
+        m = /^([CMIO]TRSE)(\d+)*([\+\-\d]+)?(\$)?$/.match(command)
+        return nil unless m
+
+        type = m[1]
+        table = ExpansionTreasureTable.from_i18n("LogHorizon.TRSE.#{type}")
+
+        character_rank = m[2].to_i
+        modifier = ArithmeticEvaluator.eval(m[3])
+        return "#{command} ＞ CRを指定してください" if character_rank == 0 && modifier == 0
+
+        table.fix_dice_value(7) if m[4]
+
+        return table.roll(character_rank, modifier, @randomizer)
       end
 
       # 財宝表
       class TreasureTable
+        class << self
+          def from_i18n(key)
+            table = I18n.translate(key, raise: true)
+            new(table[:name], table[:items])
+          end
+        end
+
         # @param name [String]
         # @param items [Hash{Integer => String}]
         def initialize(name, items)
@@ -382,165 +404,6 @@ module BCDice
           end
         end
       end
-
-      CASH_TREASURE_RESULT_TABLE = {
-        7 => '35G',
-        8 => '40G',
-        9 => '40G',
-        10 => '40G',
-        11 => '45G',
-        12 => '45G',
-        13 => '45G',
-        14 => '50G',
-        15 => '50G',
-        16 => '50G',
-        17 => '55G',
-        18 => '55G',
-        19 => '60G',
-        20 => '60G',
-        21 => '65G',
-        22 => '70G',
-        23 => '70G',
-        24 => '75G',
-        25 => '75G',
-        26 => '80G',
-        27 => '85G',
-        28 => '85G',
-        29 => '90G',
-        30 => '95G',
-        31 => '100G',
-        32 => '100G',
-        33 => '105G',
-        34 => '110G',
-        35 => '115G',
-        36 => '120G',
-        37 => '125G',
-        38 => '130G',
-        39 => '135G',
-        40 => '140G',
-        41 => '145G',
-        42 => '150G',
-        43 => '155G',
-        44 => '160G',
-        45 => '165G',
-        46 => '170G',
-        47 => '175G',
-        48 => '180G',
-        49 => '185G',
-        50 => '195G',
-        51 => '200G',
-        52 => '205G',
-        53 => '210G',
-        54 => '220G',
-        55 => '225G',
-        56 => '230G',
-        57 => '240G',
-        58 => '245G',
-        59 => '255G',
-        60 => '260G',
-        61 => '265G',
-        62 => '275G',
-        63 => '280G',
-        64 => '290G',
-        65 => '300G',
-        66 => '300G',
-        67 => '310G',
-        68 => '320G',
-        69 => '330G',
-        70 => '340G',
-        71 => '340G',
-        72 => '350G',
-        73 => '360G',
-        74 => '370G',
-        75 => '380G',
-        76 => '390G',
-        77 => '400G',
-        78 => '410G',
-        79 => '420G',
-        80 => '430G',
-        81 => '440G',
-        82 => '450G',
-        83 => '460G',
-        84 => '460G',
-        85 => '480G',
-        86 => '490G',
-        87 => '500G',
-        88 => '510G',
-        89 => '520G',
-        90 => '530G',
-        91 => '540G',
-        92 => '550G',
-        93 => '560G',
-        94 => '570G',
-        95 => '580G',
-        96 => '590G',
-        97 => '610G',
-        98 => '620G',
-        99 => '630G',
-        100 => '640G',
-        101 => '650G',
-        102 => '660G',
-        103 => '680G',
-        104 => '690G',
-        105 => '700G',
-        106 => '710G',
-        107 => '730G',
-        108 => '740G',
-        109 => '750G',
-        110 => '760G',
-        111 => '780G',
-        112 => '790G',
-        113 => '800G',
-        114 => '820G',
-        115 => '830G',
-        116 => '840G',
-        117 => '860G',
-        118 => '870G',
-        119 => '890G',
-        120 => '900G',
-        121 => '910G',
-        122 => '930G',
-        123 => '940G',
-        124 => '960G',
-        125 => '970G',
-        126 => '990G',
-        127 => '1000G',
-        128 => '1020G',
-        129 => '1030G',
-        130 => '1050G',
-        131 => '1060G',
-        132 => '1080G',
-        133 => '1090G',
-        134 => '1110G',
-        135 => '1130G',
-        136 => '1140G',
-        137 => '1160G',
-        138 => '1170G',
-        139 => '1190G',
-        140 => '1210G',
-        141 => '1220G',
-        142 => '1240G',
-        143 => '1260G',
-        144 => '1270G',
-        145 => '1290G',
-        146 => '1310G',
-        147 => '1330G',
-        148 => '1340G',
-        149 => '1360G',
-        150 => '1380G',
-        151 => '1400G',
-        152 => '1410G',
-        153 => '1430G',
-        154 => '1450G',
-        155 => '1470G',
-        156 => '1490G',
-        157 => '1500G',
-        158 => '1520G',
-        159 => '1540G',
-        160 => '1560G',
-        161 => '1580G',
-        162 => '1600G',
-      }.freeze
 
       # ロデ研の新発明ランダム決定表
       def getInventionAttributeTextDiceCommandResult(command)

@@ -839,7 +839,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS1"
-output = "金銭財宝表(7[1,1])：35G"
+output = "金銭財宝表(7[1,1])：39G"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -847,8 +847,35 @@ rands = [
 
 [[ test ]]
 game_system = "LogHorizon"
-input = "CTRS1"
-output = "金銭財宝表(17[6,6])：55G"
+input = "CTRS10"
+output = "金銭財宝表(62[6,6])：277G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRS10+1"
+output = "金銭財宝表(63[6,6])：214G&80G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRS12+1"
+output = "金銭財宝表(73[6,6])：214G&160G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRS15"
+output = "金銭財宝表(87[6,6])：241G&260G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -865,6 +892,15 @@ rands = [
 
 [[ test ]]
 game_system = "LogHorizon"
+input = "CTRS15+1"
+output = "金銭財宝表(88[6,6])：88以上の出目は未定義です"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
 input = "CTRS1+1"
 output = "金銭財宝表(8[1,1])：40G"
 rands = [
@@ -874,146 +910,20 @@ rands = [
 
 [[ test ]]
 game_system = "LogHorizon"
-input = "CTRS6"
-output = "金銭財宝表(32[1,1])：100G"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS6"
-output = "金銭財宝表(42[6,6])：150G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS10"
-output = "金銭財宝表(52[1,1])：205G"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS10"
-output = "金銭財宝表(62[6,6])：275G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS11"
-output = "金銭財宝表(57[1,1])：240G"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS11"
-output = "金銭財宝表(67[6,6])：310G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS16"
-output = "金銭財宝表(82[1,1])：450G"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS16"
-output = "金銭財宝表(92[6,6])：550G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS30"
-output = "金銭財宝表(162[6,6])：1600G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS30+11"
-output = "金銭財宝表(173[6,6])：1430G&400G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS30+20"
-output = "金銭財宝表(182[6,6])：1600G&400G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS30+21"
-output = "金銭財宝表(183[6,6])：1430G&600G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS30+25"
-output = "金銭財宝表(187[6,6])：1500G&600G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS30+26"
-output = "金銭財宝表(188[6,6])：188以上の出目は未定義です"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "CTRS30$"
-output = "金銭財宝表(157[7])：1500G"
+input = "CTRS8$"
+output = "金銭財宝表(47[7])：178G"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
-input = "CTRS30+1$"
-output = "金銭財宝表(158[7])：1520G"
+input = "CTRS8+1$"
+output = "金銭財宝表(48[7])：183G"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
-input = "CTRS+157"
-output = "金銭財宝表(157)：1500G"
+input = "CTRS+47"
+output = "金銭財宝表(47)：178G"
 rands = []
 
 [[ test ]]
@@ -1025,79 +935,7 @@ rands = []
 [[ test ]]
 game_system = "LogHorizon"
 input = "MTRS1"
-output = "魔法素材財宝表(7[1,1])：魔触媒2[魔触媒2](20G)&魔触媒1[魔触媒1](15G)"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS1"
-output = "魔法素材財宝表(12[3,4])：滑らかな被膜[コア素材](30G)"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS1"
-output = "魔法素材財宝表(17[6,6])：魔触媒3[魔触媒3](25G)&魔触媒2[魔触媒2](20G)"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS1-1"
-output = "魔法素材財宝表(6[1,1])：6以下の出目は未定義です"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS1+1"
-output = "魔法素材財宝表(8[1,1])：新緑の若芽[コア素材](30G)"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS6"
-output = "魔法素材財宝表(32[1,1])：雄々しい角[コア素材](80G)"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS6"
-output = "魔法素材財宝表(37[3,4])：魔触媒7[魔触媒7](60G)&魔触媒6[魔触媒6](50G)"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS6"
-output = "魔法素材財宝表(42[6,6])：動力ケーブル[コア素材](120G)"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS10"
-output = "魔法素材財宝表(52[1,1])：魔導錠[コア素材](180G)"
+output = "魔法素材財宝表(7[1,1])：魔触媒2[魔触媒2](20G)x2"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1106,16 +944,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MTRS10"
-output = "魔法素材財宝表(57[3,4])：魔触媒11[魔触媒11](120G)&魔触媒10[魔触媒10](110G)"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS10"
-output = "魔法素材財宝表(62[6,6])：呪紋水晶[コア素材](240G)"
+output = "魔法素材財宝表(62[6,6])：魔触媒10[魔触媒10](110G)&魔触媒9[魔触媒9](90G)x2"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1123,158 +952,17 @@ rands = [
 
 [[ test ]]
 game_system = "LogHorizon"
-input = "MTRS11"
-output = "魔法素材財宝表(57[1,1])：魔触媒11[魔触媒11](120G)&魔触媒10[魔触媒10](110G)"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS21"
-output = "魔法素材財宝表(107[1,1])：魔触媒20[魔触媒20](370G)&魔触媒19[魔触媒19](340G)"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS21"
-output = "魔法素材財宝表(112[3,4])：清掃用女中人形九号[コア素材](820G)"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS21"
-output = "魔法素材財宝表(117[6,6])：魔触媒22[魔触媒22](450G)&魔触媒21[魔触媒21](410G)"
+input = "MTRS15"
+output = "魔法素材財宝表(87[6,6])：魔触媒9[魔触媒9](90G)&魔触媒8[魔触媒8](70G)x2&260G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS26"
-output = "魔法素材財宝表(132[1,1])：火炎巨人の尺骨[コア素材](1160G)"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS26"
-output = "魔法素材財宝表(137[3,4])：魔触媒25[魔触媒25](580G)x2"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS30+11"
-output = "魔法素材財宝表(173[6,6])：魔触媒29[魔触媒29](770G)&茨を模したティアラ[換金](650G)&400G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS30+20"
-output = "魔法素材財宝表(182[6,6])：陽喰い鳥の嘴[コア素材](1640G)&400G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS30+21"
-output = "魔法素材財宝表(183[6,6])：魔触媒29[魔触媒29](770G)&茨を模したティアラ[換金](650G)&600G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS30+25"
-output = "魔法素材財宝表(187[6,6])：魔触媒30[魔触媒30](820G)&輝くメガネ[換金](680G)&600G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS30+26"
-output = "魔法素材財宝表(188[6,6])：188以上の出目は未定義です"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS30$"
-output = "魔法素材財宝表(157[7])：魔触媒30[魔触媒30](820G)&輝くメガネ[換金](680G)"
-rands = []
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS30+1$"
-output = "魔法素材財宝表(158[7])：翡翠甲虫の刃翅[コア素材](1640G)"
-rands = []
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS+157"
-output = "魔法素材財宝表(157)：魔触媒30[魔触媒30](820G)&輝くメガネ[換金](680G)"
-rands = []
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "MTRS"
-output = "MTRS ＞ CRを指定してください"
-rands = []
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "ITRS1"
-output = "換金アイテム財宝表(7[1,1])：破れた書籍[換金](30G)"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
 ]
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "ITRS1"
-output = "換金アイテム財宝表(12[3,4])：犬のぬいぐるみ[換金](40G)"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "ITRS1"
-output = "換金アイテム財宝表(17[6,6])：毛糸の帽子[換金](50G)"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "ITRS1-1"
-output = "換金アイテム財宝表(6[1,1])：6以下の出目は未定義です"
+output = "換金アイテム財宝表(7[1,1])：陶器の絵付きマグカップ[換金](40G)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1282,35 +970,8 @@ rands = [
 
 [[ test ]]
 game_system = "LogHorizon"
-input = "ITRS1+1"
-output = "換金アイテム財宝表(8[1,1])：古ぼけたぬいぐるみ[換金](40G)"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "ITRS6"
-output = "換金アイテム財宝表(32[1,1])：銀の食器[換金](100G)"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "ITRS6"
-output = "換金アイテム財宝表(37[3,4])：枝分かれした角[換金](120G)"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "ITRS30+21"
-output = "換金アイテム財宝表(183[6,6])：精巧な馬具[換金](1430G)&600G"
+input = "ITRS10"
+output = "換金アイテム財宝表(62[6,6])：古い歴史書[換金](280G)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1318,141 +979,13 @@ rands = [
 
 [[ test ]]
 game_system = "LogHorizon"
-input = "ITRS30+25"
-output = "換金アイテム財宝表(187[6,6])：しゃべる姿見[換金](1500G)&600G"
+input = "ITRS15"
+output = "換金アイテム財宝表(87[6,6])：上質の香水[換金](250G)&260G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
 
-[[ test ]]
-game_system = "LogHorizon"
-input = "ITRS30+26"
-output = "換金アイテム財宝表(188[6,6])：188以上の出目は未定義です"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "ITRS30$"
-output = "換金アイテム財宝表(157[7])：しゃべる姿見[換金](1500G)"
-rands = []
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "ITRS30+1$"
-output = "換金アイテム財宝表(158[7])：精巧なゲーム盤[換金](1520G)"
-rands = []
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "ITRS+157"
-output = "換金アイテム財宝表(157)：しゃべる姿見[換金](1500G)"
-rands = []
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "ITRS"
-output = "ITRS ＞ CRを指定してください"
-rands = []
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "OTRS1"
-output = "そのほか財宝表(7[1,1])：百科事典(40G)"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "OTRS1"
-output = "そのほか財宝表(12[3,4])：モンスター図鑑(初級)(40G)&お好みサンドイッチ(10G)"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "OTRS1"
-output = "そのほか財宝表(17[6,6])：マーシャルアーツドレス[破損](60G)"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "OTRS1-1"
-output = "そのほか財宝表(6[1,1])：6以下の出目は未定義です"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "OTRS30"
-output = "そのほか財宝表(162[6,6])：ウルミン(1900G)"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "OTRS30+21"
-output = "そのほか財宝表(183[6,6])：異次元バッグ(特急)(1600G)&600G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "OTRS30+25"
-output = "そのほか財宝表(187[6,6])：竜手甲[破損](1650G)&600G"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "OTRS30+26"
-output = "そのほか財宝表(188[6,6])：188以上の出目は未定義です"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "OTRS30$"
-output = "そのほか財宝表(157[7])：竜手甲[破損](1650G)"
-rands = []
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "OTRS30+1$"
-output = "そのほか財宝表(158[7])：ポロニアのワンド[破損](1700G)"
-rands = []
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "OTRS+157"
-output = "そのほか財宝表(157)：竜手甲[破損](1650G)"
-rands = []
-
-[[ test ]]
-game_system = "LogHorizon"
-input = "OTRS"
-output = "OTRS ＞ CRを指定してください"
-rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
@@ -1594,6 +1127,162 @@ game_system = "LogHorizon"
 input = "GTRS"
 output = "GTRS ＞ CRを指定してください"
 rands = []
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE1"
+output = "金銭財宝表（拡張）(7[1,1])：35G"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE30"
+output = "金銭財宝表（拡張）(162[6,6])：1600G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE30+1 +α検証"
+output = "金銭財宝表（拡張）(163[6,6])：1430G&200G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE32+1 +α検証"
+output = "金銭財宝表（拡張）(173[6,6])：1430G&400G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE35 上限"
+output = "金銭財宝表（拡張）(187[6,6])：1500G&600G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE1-1 下限範囲外"
+output = "金銭財宝表（拡張）(6[1,1])：6以下の出目は未定義です"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE35+1 上限範囲外"
+output = "金銭財宝表（拡張）(188[6,6])：188以上の出目は未定義です"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE+100 任意の出目"
+output = "金銭財宝表（拡張）(100)：640G"
+rands = []
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE1+100$ 出目を7固定"
+output = "金銭財宝表（拡張）(112[7])：790G"
+rands = []
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "MTRSE1"
+output = "魔法素材財宝表（拡張）(7[1,1])：魔触媒2[魔触媒2](20G)&魔触媒1[魔触媒1](15G)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "MTRSE30"
+output = "魔法素材財宝表（拡張）(162[6,6])：陽喰い鳥の嘴[コア素材](1640G)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "MTRSE35"
+output = "魔法素材財宝表（拡張）(187[6,6])：魔触媒30[魔触媒30](820G)&輝くメガネ[換金](680G)&600G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "ITRSE1"
+output = "換金アイテム財宝表（拡張）(7[1,1])：破れた書籍[換金](30G)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "ITRSE30"
+output = "換金アイテム財宝表（拡張）(162[6,6])：藍玉の腕輪[換金](1600G)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "ITRSE35"
+output = "換金アイテム財宝表（拡張）(187[6,6])：しゃべる姿見[換金](1500G)&600G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "OTRSE1"
+output = "そのほか財宝表（拡張）(7[1,1])：百科事典(40G)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "OTRSE30"
+output = "そのほか財宝表（拡張）(162[6,6])：ウルミン(1900G)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "OTRSE35"
+output = "そのほか財宝表（拡張）(187[6,6])：竜手甲[破損](1650G)&600G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
 
 [[ test ]]
 game_system = "LogHorizon"
