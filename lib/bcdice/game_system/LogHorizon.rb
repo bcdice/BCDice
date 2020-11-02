@@ -342,7 +342,7 @@ module BCDice
           elsif index <= 87
             "#{@items[index - 30]}&260G"
           else
-            "87以降の出目は未定義です"
+            "88以上の出目は未定義です"
           end
         end
       end
@@ -357,7 +357,7 @@ module BCDice
           elsif index <= 53
             @items[index]
           else
-            "53以降の出目は未定義です"
+            "54以上の出目は未定義です"
           end
         end
       end
@@ -378,7 +378,7 @@ module BCDice
           elsif index <= 187
             "#{@items[index - 30]}&600G"
           else
-            "187以降の出目は未定義です"
+            "188以上の出目は未定義です"
           end
         end
       end

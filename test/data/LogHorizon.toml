@@ -992,7 +992,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS30+26"
-output = "金銭財宝表(188[6,6])：187以降の出目は未定義です"
+output = "金銭財宝表(188[6,6])：188以上の出目は未定義です"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1214,7 +1214,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MTRS30+26"
-output = "魔法素材財宝表(188[6,6])：187以降の出目は未定義です"
+output = "魔法素材財宝表(188[6,6])：188以上の出目は未定義です"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1328,7 +1328,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ITRS30+26"
-output = "換金アイテム財宝表(188[6,6])：187以降の出目は未定義です"
+output = "換金アイテム財宝表(188[6,6])：188以上の出目は未定義です"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1424,7 +1424,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "OTRS30+26"
-output = "そのほか財宝表(188[6,6])：187以降の出目は未定義です"
+output = "そのほか財宝表(188[6,6])：188以上の出目は未定義です"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1484,7 +1484,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "HTRS10"
-output = "ヒロイン財宝表(57[3,4])：53以降の出目は未定義です"
+output = "ヒロイン財宝表(57[3,4])：54以上の出目は未定義です"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -1502,7 +1502,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "HTRS+57"
-output = "ヒロイン財宝表(57)：53以降の出目は未定義です"
+output = "ヒロイン財宝表(57)：54以上の出目は未定義です"
 rands = []
 
 [[ test ]]
@@ -1565,7 +1565,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GTRS10+26"
-output = "ゴブリン財宝表(88[6,6])：87以降の出目は未定義です"
+output = "ゴブリン財宝表(88[6,6])：88以上の出目は未定義です"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
