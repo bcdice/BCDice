@@ -96,8 +96,8 @@ module BCDice
         getCheckRollDiceCommandResult(command) ||
           roll_consumption(command) ||
           roll_consumption_table(command) ||
-          roll_trasure(command) ||
-          roll_trasure_table(command) ||
+          roll_treasure(command) ||
+          roll_treasure_table(command) ||
           getInventionAttributeTextDiceCommandResult(command) ||
           getTroubleInAkibaStreetDiceCommandResult(command) ||
           getAbandonedChildDiceCommandResult(command) ||
@@ -237,7 +237,7 @@ module BCDice
       end
 
       # 財宝表ロール
-      def roll_trasure(command)
+      def roll_treasure(command)
         m = /^TRS(\d+)*([\+\-\d]+)?$/.match(command)
         return nil unless m
 
@@ -254,12 +254,12 @@ module BCDice
       end
 
       ### 財宝表 ###
-      def roll_trasure_table(command)
+      def roll_treasure_table(command)
         m = /(C|M|I|O|H|G)TRS(\d+)*([\+\-\d]+)?(\$)?/.match(command)
         return nil unless m
 
         type = m[1]
-        table = construct_trasure_table(type)
+        table = construct_treasure_table(type)
 
         character_rank = m[2].to_i
         modifier = ArithmeticEvaluator.eval(m[3])
@@ -270,25 +270,25 @@ module BCDice
         return table.roll(character_rank, modifier, @randomizer)
       end
 
-      def construct_trasure_table(type)
+      def construct_treasure_table(type)
         case type
         when "C"
-          ExpansionTresureTable.new(translate("LogHorizon.TRS.CTRS.name"), CASH_TRESURE_RESULT_TABLE)
+          ExpansionTreasureTable.new(translate("LogHorizon.TRS.CTRS.name"), CASH_TREASURE_RESULT_TABLE)
         when "M"
-          ExpansionTresureTable.new(translate("LogHorizon.TRS.MTRS.name"), translate("LogHorizon.TRS.MTRS.items"))
+          ExpansionTreasureTable.new(translate("LogHorizon.TRS.MTRS.name"), translate("LogHorizon.TRS.MTRS.items"))
         when "I"
-          ExpansionTresureTable.new(translate("LogHorizon.TRS.ITRS.name"), translate("LogHorizon.TRS.ITRS.items"))
+          ExpansionTreasureTable.new(translate("LogHorizon.TRS.ITRS.name"), translate("LogHorizon.TRS.ITRS.items"))
         when "O"
-          ExpansionTresureTable.new(translate("LogHorizon.TRS.OTRS.name"), translate("LogHorizon.TRS.OTRS.items"))
+          ExpansionTreasureTable.new(translate("LogHorizon.TRS.OTRS.name"), translate("LogHorizon.TRS.OTRS.items"))
         when "H"
-          HeroineTresureTable.new(translate("LogHorizon.TRS.HTRS.name"), translate("LogHorizon.TRS.HTRS.items"))
+          HeroineTreasureTable.new(translate("LogHorizon.TRS.HTRS.name"), translate("LogHorizon.TRS.HTRS.items"))
         when "G"
-          TresureTable.new(translate("LogHorizon.TRS.GTRS.name"), translate("LogHorizon.TRS.GTRS.items"))
+          TreasureTable.new(translate("LogHorizon.TRS.GTRS.name"), translate("LogHorizon.TRS.GTRS.items"))
         end
       end
 
       # 財宝表
-      class TresureTable
+      class TreasureTable
         # @param name [String]
         # @param items [Hash{Integer => String}]
         def initialize(name, items)
@@ -348,7 +348,7 @@ module BCDice
       end
 
       # ヒロイン財宝表
-      class HeroineTresureTable < TresureTable
+      class HeroineTreasureTable < TreasureTable
         # @param index [Integer]
         # @return [String]
         def pick_item(index)
@@ -363,7 +363,7 @@ module BCDice
       end
 
       # 拡張ルール財宝表
-      class ExpansionTresureTable < TresureTable
+      class ExpansionTreasureTable < TreasureTable
         # @param index [Integer]
         # @return [String]
         def pick_item(index)
@@ -383,7 +383,7 @@ module BCDice
         end
       end
 
-      CASH_TRESURE_RESULT_TABLE = {
+      CASH_TREASURE_RESULT_TABLE = {
         7 => '35G',
         8 => '40G',
         9 => '40G',
