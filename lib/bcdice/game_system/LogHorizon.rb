@@ -270,7 +270,7 @@ module BCDice
 
         character_rank = m[2].to_i
         modifier = ArithmeticEvaluator.eval(m[3])
-        return "#{command} ＞ CRを指定してください" if character_rank == 0 && modifier == 0
+        return translate("LogHorizon.TRS.need_cr", command: command) if character_rank == 0 && modifier == 0
 
         table.fix_dice_value(7) if m[4]
 
@@ -279,9 +279,9 @@ module BCDice
 
       def construct_treasure_table(type)
         if type == "HTRS"
-          HeroineTreasureTable.from_i18n("LogHorizon.TRS.HTRS")
+          HeroineTreasureTable.from_i18n("LogHorizon.TRS.HTRS", @locale)
         else
-          TreasureTable.from_i18n("LogHorizon.TRS.#{type}")
+          TreasureTable.from_i18n("LogHorizon.TRS.#{type}", @locale)
         end
       end
 
@@ -291,11 +291,11 @@ module BCDice
         return nil unless m
 
         type = m[1]
-        table = ExpansionTreasureTable.from_i18n("LogHorizon.TRSE.#{type}")
+        table = ExpansionTreasureTable.from_i18n("LogHorizon.TRSE.#{type}", @locale)
 
         character_rank = m[2].to_i
         modifier = ArithmeticEvaluator.eval(m[3])
-        return "#{command} ＞ CRを指定してください" if character_rank == 0 && modifier == 0
+        return translate("LogHorizon.TRS.need_cr", command: command) if character_rank == 0 && modifier == 0
 
         table.fix_dice_value(7) if m[4]
 
@@ -304,18 +304,21 @@ module BCDice
 
       # 財宝表
       class TreasureTable
+        include Translate
+
         class << self
-          def from_i18n(key)
-            table = I18n.translate(key, raise: true)
-            new(table[:name], table[:items])
+          def from_i18n(key, locale)
+            table = I18n.translate(key, raise: true, locale: locale)
+            new(table[:name], table[:items], locale)
           end
         end
 
         # @param name [String]
         # @param items [Hash{Integer => String}]
-        def initialize(name, items)
+        def initialize(name, items, locale)
           @name = name
           @items = items
+          @locale = locale
 
           @dice_list = nil
         end
@@ -354,7 +357,7 @@ module BCDice
         # @return [String]
         def pick_item(index)
           if index <= 6
-            "6以下の出目は未定義です"
+            translate("LogHorizon.TRS.below_lower_limit", value: 6) # 6以下の出目は未定義です
           elsif index <= 62
             @items[index]
           elsif index <= 72
@@ -364,7 +367,7 @@ module BCDice
           elsif index <= 87
             "#{@items[index - 30]}&260G"
           else
-            "88以上の出目は未定義です"
+            translate("LogHorizon.TRS.exceed_upper_limit", value: 88) # 88以上の出目は未定義です
           end
         end
       end
@@ -375,11 +378,11 @@ module BCDice
         # @return [String]
         def pick_item(index)
           if index <= 6
-            "6以下の出目は未定義です"
+            translate("LogHorizon.TRS.below_lower_limit", value: 6)
           elsif index <= 53
             @items[index]
           else
-            "54以上の出目は未定義です"
+            translate("LogHorizon.TRS.exceed_upper_limit", value: 54)
           end
         end
       end
@@ -390,7 +393,7 @@ module BCDice
         # @return [String]
         def pick_item(index)
           if index <= 6
-            "6以下の出目は未定義です"
+            translate("LogHorizon.TRS.below_lower_limit", value: 6)
           elsif index <= 162
             @items[index]
           elsif index <= 172
@@ -400,7 +403,7 @@ module BCDice
           elsif index <= 187
             "#{@items[index - 30]}&600G"
           else
-            "188以上の出目は未定義です"
+            translate("LogHorizon.TRS.exceed_upper_limit", value: 188)
           end
         end
       end

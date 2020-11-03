@@ -233,8 +233,9 @@ ja_jp:
           - やる気が萎える呪い：あーもーまじやる気しねえ、何もやる気しねえ。【因果力】使用不可。
     # 財宝表
     TRS:
-      undefined_less_equal_than: "%{value}以下の出目は未定義です"
-      undefined_greater_equal_than: "%{value}以上の出目は未定義です"
+      below_lower_limit: "%{value}以下の出目は未定義です"
+      exceed_upper_limit: "%{value}以上の出目は未定義です"
+      need_cr: "%{command} ＞ CRを指定してください"
       CTRS:
         name: 金銭財宝表
         items:

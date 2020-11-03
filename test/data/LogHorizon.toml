@@ -1205,6 +1205,12 @@ rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
+input = "CTRSE"
+output = "CTRSE ＞ CRを指定してください"
+rands = []
+
+[[ test ]]
+game_system = "LogHorizon"
 input = "MTRSE1"
 output = "魔法素材財宝表（拡張）(7[1,1])：魔触媒2[魔触媒2](20G)&魔触媒1[魔触媒1](15G)"
 rands = [
