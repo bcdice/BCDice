@@ -83,7 +83,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT11"
-output = "体力消耗表(1[1])：[疲労:25]を受ける"
+output = "体力消耗表(1[1]) ＞ [疲労:25]を受ける"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT11-1"
-output = "体力消耗表(0[1])：消耗なし"
+output = "体力消耗表(0[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -99,7 +99,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT11-2"
-output = "体力消耗表(-1[1])：消耗なし"
+output = "体力消耗表(-1[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -107,7 +107,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT11"
-output = "体力消耗表(6[6])：[疲労:65]を受け、【因果力】を1点失う"
+output = "体力消耗表(6[6]) ＞ [疲労:65]を受け、【因果力】を1点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -115,7 +115,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT11+1"
-output = "体力消耗表(7[6])：[疲労:65]を受け、【因果力】を2点失う"
+output = "体力消耗表(7[6]) ＞ [疲労:65]を受け、【因果力】を2点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -123,7 +123,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT11+2"
-output = "体力消耗表(8[6])：[疲労:65]を受け、【因果力】を2点失う"
+output = "体力消耗表(8[6]) ＞ [疲労:65]を受け、【因果力】を2点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -131,7 +131,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT14"
-output = "体力消耗表(6[6])：[疲労:65]を受け、【因果力】を1点失う"
+output = "体力消耗表(6[6]) ＞ [疲労:65]を受け、【因果力】を1点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -139,7 +139,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT15"
-output = "体力消耗表(6[6])：[疲労:65]を受け、【因果力】を1点失う"
+output = "体力消耗表(6[6]) ＞ [疲労:65]を受け、【因果力】を1点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -147,7 +147,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT16"
-output = "体力消耗表(6[6])：[疲労:90]を受け、【因果力】を2点失う"
+output = "体力消耗表(6[6]) ＞ [疲労:90]を受け、【因果力】を2点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -155,7 +155,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT20"
-output = "体力消耗表(6[6])：[疲労:90]を受け、【因果力】を2点失う"
+output = "体力消耗表(6[6]) ＞ [疲労:90]を受け、【因果力】を2点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -163,7 +163,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT21"
-output = "体力消耗表(1[1])：[疲労:60]を受ける"
+output = "体力消耗表(1[1]) ＞ [疲労:60]を受ける"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -171,7 +171,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT21-1"
-output = "体力消耗表(0[1])：消耗なし"
+output = "体力消耗表(0[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -179,7 +179,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT21-2"
-output = "体力消耗表(-1[1])：消耗なし"
+output = "体力消耗表(-1[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -187,7 +187,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT21"
-output = "体力消耗表(6[6])：[疲労:100]を受け、【因果力】を2点失う"
+output = "体力消耗表(6[6]) ＞ [疲労:100]を受け、【因果力】を2点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -195,7 +195,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT21+1"
-output = "体力消耗表(7[6])：[疲労:100]を受け、【因果力】を3点失う"
+output = "体力消耗表(7[6]) ＞ [疲労:100]を受け、【因果力】を3点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -203,7 +203,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT21+2"
-output = "体力消耗表(8[6])：[疲労:100]を受け、【因果力】を3点失う"
+output = "体力消耗表(8[6]) ＞ [疲労:100]を受け、【因果力】を3点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -211,7 +211,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT24"
-output = "体力消耗表(6[6])：[疲労:100]を受け、【因果力】を2点失う"
+output = "体力消耗表(6[6]) ＞ [疲労:100]を受け、【因果力】を2点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -219,7 +219,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT25"
-output = "体力消耗表(6[6])：[疲労:100]を受け、【因果力】を2点失う"
+output = "体力消耗表(6[6]) ＞ [疲労:100]を受け、【因果力】を2点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -227,7 +227,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT26"
-output = "体力消耗表(6[6])：[疲労:120]を受け、【因果力】を2点失う"
+output = "体力消耗表(6[6]) ＞ [疲労:120]を受け、【因果力】を2点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -235,7 +235,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT30"
-output = "体力消耗表(6[6])：[疲労:120]を受け、【因果力】を2点失う"
+output = "体力消耗表(6[6]) ＞ [疲労:120]を受け、【因果力】を2点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -243,7 +243,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT31"
-output = "体力消耗表(6[6])：[疲労:120]を受け、【因果力】を2点失う"
+output = "体力消耗表(6[6]) ＞ [疲労:120]を受け、【因果力】を2点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -251,19 +251,19 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT30$7"
-output = "体力消耗表(7[7])：[疲労:120]を受け、【因果力】を3点失う"
+output = "体力消耗表(7[7]) ＞ [疲労:120]を受け、【因果力】を3点失う"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "PCT30+1$7"
-output = "体力消耗表(8[7])：[疲労:120]を受け、【因果力】を3点失う"
+output = "体力消耗表(8[7]) ＞ [疲労:120]を受け、【因果力】を3点失う"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT11"
-output = "気力消耗表(1[1])：【因果力】を1点失う"
+output = "気力消耗表(1[1]) ＞ 【因果力】を1点失う"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -271,7 +271,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT11-1"
-output = "気力消耗表(0[1])：消耗なし"
+output = "気力消耗表(0[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -279,7 +279,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT11-2"
-output = "気力消耗表(-1[1])：消耗なし"
+output = "気力消耗表(-1[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -287,7 +287,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT11"
-output = "気力消耗表(6[6])：【因果力】を3点失う"
+output = "気力消耗表(6[6]) ＞ 【因果力】を3点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -295,7 +295,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT11+1"
-output = "気力消耗表(7[6])：【因果力】を4点失う"
+output = "気力消耗表(7[6]) ＞ 【因果力】を4点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -303,7 +303,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT11+2"
-output = "気力消耗表(8[6])：【因果力】を4点失う"
+output = "気力消耗表(8[6]) ＞ 【因果力】を4点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -311,7 +311,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT14"
-output = "気力消耗表(6[6])：【因果力】を3点失う"
+output = "気力消耗表(6[6]) ＞ 【因果力】を3点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -319,7 +319,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT15"
-output = "気力消耗表(6[6])：【因果力】を3点失う"
+output = "気力消耗表(6[6]) ＞ 【因果力】を3点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -327,7 +327,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT16"
-output = "気力消耗表(6[6])：【因果力】を1点失い、特技喪失する"
+output = "気力消耗表(6[6]) ＞ 【因果力】を1点失い、特技喪失する"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -335,7 +335,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT20"
-output = "気力消耗表(6[6])：【因果力】を1点失い、特技喪失する"
+output = "気力消耗表(6[6]) ＞ 【因果力】を1点失い、特技喪失する"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -343,7 +343,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT21"
-output = "気力消耗表(1[1])：【因果力】を1点失う"
+output = "気力消耗表(1[1]) ＞ 【因果力】を1点失う"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -351,7 +351,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT21-1"
-output = "気力消耗表(0[1])：消耗なし"
+output = "気力消耗表(0[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -359,7 +359,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT21-2"
-output = "気力消耗表(-1[1])：消耗なし"
+output = "気力消耗表(-1[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -367,7 +367,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT21"
-output = "気力消耗表(6[6])：【因果力】を2点失い、特技喪失する"
+output = "気力消耗表(6[6]) ＞ 【因果力】を2点失い、特技喪失する"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -375,7 +375,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT21+1"
-output = "気力消耗表(7[6])：【因果力】を3点失い、特技喪失する"
+output = "気力消耗表(7[6]) ＞ 【因果力】を3点失い、特技喪失する"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -383,7 +383,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT21+2"
-output = "気力消耗表(8[6])：【因果力】を3点失い、特技喪失する"
+output = "気力消耗表(8[6]) ＞ 【因果力】を3点失い、特技喪失する"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -391,7 +391,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT24"
-output = "気力消耗表(6[6])：【因果力】を2点失い、特技喪失する"
+output = "気力消耗表(6[6]) ＞ 【因果力】を2点失い、特技喪失する"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -399,7 +399,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT25"
-output = "気力消耗表(6[6])：【因果力】を2点失い、特技喪失する"
+output = "気力消耗表(6[6]) ＞ 【因果力】を2点失い、特技喪失する"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -407,7 +407,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT26"
-output = "気力消耗表(6[6])：【因果力】を2点失い、特技喪失する"
+output = "気力消耗表(6[6]) ＞ 【因果力】を2点失い、特技喪失する"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -415,7 +415,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT30"
-output = "気力消耗表(6[6])：【因果力】を2点失い、特技喪失する"
+output = "気力消耗表(6[6]) ＞ 【因果力】を2点失い、特技喪失する"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -423,7 +423,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT31"
-output = "気力消耗表(6[6])：【因果力】を2点失い、特技喪失する"
+output = "気力消耗表(6[6]) ＞ 【因果力】を2点失い、特技喪失する"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -431,19 +431,19 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT30$7"
-output = "気力消耗表(7[7])：【因果力】を3点失い、特技喪失する"
+output = "気力消耗表(7[7]) ＞ 【因果力】を3点失い、特技喪失する"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "ECT30+1$7"
-output = "気力消耗表(8[7])：【因果力】を3点失い、特技喪失する"
+output = "気力消耗表(8[7]) ＞ 【因果力】を3点失い、特技喪失する"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT11"
-output = "物品消耗表(1[1])：[消耗品]アイテムを1個失う"
+output = "物品消耗表(1[1]) ＞ [消耗品]アイテムを1個失う"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -451,7 +451,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT11-1"
-output = "物品消耗表(0[1])：消耗なし"
+output = "物品消耗表(0[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -459,7 +459,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT11-2"
-output = "物品消耗表(-1[1])：消耗なし"
+output = "物品消耗表(-1[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -467,7 +467,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT11"
-output = "物品消耗表(6[6])：[消耗品]アイテムを3個失い、[圧迫:1]を受ける"
+output = "物品消耗表(6[6]) ＞ [消耗品]アイテムを3個失い、[圧迫:1]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -475,7 +475,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT11+1"
-output = "物品消耗表(7[6])：[消耗品]アイテムを3個失い、[圧迫:2]を受ける"
+output = "物品消耗表(7[6]) ＞ [消耗品]アイテムを3個失い、[圧迫:2]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -483,7 +483,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT11+2"
-output = "物品消耗表(8[6])：[消耗品]アイテムを3個失い、[圧迫:2]を受ける"
+output = "物品消耗表(8[6]) ＞ [消耗品]アイテムを3個失い、[圧迫:2]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -491,7 +491,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT14"
-output = "物品消耗表(6[6])：[消耗品]アイテムを3個失い、[圧迫:1]を受ける"
+output = "物品消耗表(6[6]) ＞ [消耗品]アイテムを3個失い、[圧迫:1]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -499,7 +499,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT15"
-output = "物品消耗表(6[6])：[消耗品]アイテムを3個失い、[圧迫:1]を受ける"
+output = "物品消耗表(6[6]) ＞ [消耗品]アイテムを3個失い、[圧迫:1]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -507,7 +507,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT16"
-output = "物品消耗表(6[6])：[消耗品]アイテムを4個失う"
+output = "物品消耗表(6[6]) ＞ [消耗品]アイテムを4個失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -515,7 +515,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT20"
-output = "物品消耗表(6[6])：[消耗品]アイテムを4個失う"
+output = "物品消耗表(6[6]) ＞ [消耗品]アイテムを4個失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -523,7 +523,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT21"
-output = "物品消耗表(1[1])：[消耗品]アイテムを2個失う"
+output = "物品消耗表(1[1]) ＞ [消耗品]アイテムを2個失う"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -531,7 +531,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT21-1"
-output = "物品消耗表(0[1])：消耗なし"
+output = "物品消耗表(0[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -539,7 +539,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT21-2"
-output = "物品消耗表(-1[1])：消耗なし"
+output = "物品消耗表(-1[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -547,7 +547,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT21"
-output = "物品消耗表(6[6])：[消耗品]アイテムを4個失い、[圧迫:1]を受ける"
+output = "物品消耗表(6[6]) ＞ [消耗品]アイテムを4個失い、[圧迫:1]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -555,7 +555,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT21+1"
-output = "物品消耗表(7[6])：[消耗品]アイテムを4個失い、[圧迫:2]を受ける"
+output = "物品消耗表(7[6]) ＞ [消耗品]アイテムを4個失い、[圧迫:2]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -563,7 +563,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT21+2"
-output = "物品消耗表(8[6])：[消耗品]アイテムを4個失い、[圧迫:2]を受ける"
+output = "物品消耗表(8[6]) ＞ [消耗品]アイテムを4個失い、[圧迫:2]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -571,7 +571,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT24"
-output = "物品消耗表(6[6])：[消耗品]アイテムを4個失い、[圧迫:1]を受ける"
+output = "物品消耗表(6[6]) ＞ [消耗品]アイテムを4個失い、[圧迫:1]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -579,7 +579,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT25"
-output = "物品消耗表(6[6])：[消耗品]アイテムを4個失い、[圧迫:1]を受ける"
+output = "物品消耗表(6[6]) ＞ [消耗品]アイテムを4個失い、[圧迫:1]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -587,7 +587,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT26"
-output = "物品消耗表(6[6])：[消耗品]アイテムを4個失い、[圧迫:2]を受ける"
+output = "物品消耗表(6[6]) ＞ [消耗品]アイテムを4個失い、[圧迫:2]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -595,7 +595,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT30"
-output = "物品消耗表(6[6])：[消耗品]アイテムを4個失い、[圧迫:2]を受ける"
+output = "物品消耗表(6[6]) ＞ [消耗品]アイテムを4個失い、[圧迫:2]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -603,7 +603,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT31"
-output = "物品消耗表(6[6])：[消耗品]アイテムを4個失い、[圧迫:2]を受ける"
+output = "物品消耗表(6[6]) ＞ [消耗品]アイテムを4個失い、[圧迫:2]を受ける"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -611,19 +611,19 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT30$7"
-output = "物品消耗表(7[7])：[消耗品]アイテムを4個失い、[圧迫:3]を受ける"
+output = "物品消耗表(7[7]) ＞ [消耗品]アイテムを4個失い、[圧迫:3]を受ける"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "GCT30+1$7"
-output = "物品消耗表(8[7])：[消耗品]アイテムを4個失い、[圧迫:3]を受ける"
+output = "物品消耗表(8[7]) ＞ [消耗品]アイテムを4個失い、[圧迫:3]を受ける"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT11"
-output = "金銭消耗表(1[1])：所持金を50G失う"
+output = "金銭消耗表(1[1]) ＞ 所持金を50G失う"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -631,7 +631,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT11-1"
-output = "金銭消耗表(0[1])：消耗なし"
+output = "金銭消耗表(0[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -639,7 +639,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT11-2"
-output = "金銭消耗表(-1[1])：消耗なし"
+output = "金銭消耗表(-1[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -647,7 +647,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT11"
-output = "金銭消耗表(6[6])：所持金を190G失う"
+output = "金銭消耗表(6[6]) ＞ 所持金を190G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -655,7 +655,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT11+1"
-output = "金銭消耗表(7[6])：所持金を220G失う"
+output = "金銭消耗表(7[6]) ＞ 所持金を220G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -663,7 +663,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT11+2"
-output = "金銭消耗表(8[6])：所持金を220G失う"
+output = "金銭消耗表(8[6]) ＞ 所持金を220G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -671,7 +671,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT14"
-output = "金銭消耗表(6[6])：所持金を190G失う"
+output = "金銭消耗表(6[6]) ＞ 所持金を190G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -679,7 +679,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT15"
-output = "金銭消耗表(6[6])：所持金を190G失う"
+output = "金銭消耗表(6[6]) ＞ 所持金を190G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -687,7 +687,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT16"
-output = "金銭消耗表(6[6])：所持金を350G失う"
+output = "金銭消耗表(6[6]) ＞ 所持金を350G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -695,7 +695,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT20"
-output = "金銭消耗表(6[6])：所持金を350G失う"
+output = "金銭消耗表(6[6]) ＞ 所持金を350G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -703,7 +703,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT21"
-output = "金銭消耗表(1[1])：所持金を160G失う"
+output = "金銭消耗表(1[1]) ＞ 所持金を160G失う"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -711,7 +711,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT21-1"
-output = "金銭消耗表(0[1])：消耗なし"
+output = "金銭消耗表(0[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -719,7 +719,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT21-2"
-output = "金銭消耗表(-1[1])：消耗なし"
+output = "金銭消耗表(-1[1]) ＞ 消耗なし"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -727,7 +727,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT21"
-output = "金銭消耗表(6[6])：所持金を560G失う"
+output = "金銭消耗表(6[6]) ＞ 所持金を560G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -735,7 +735,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT21+1"
-output = "金銭消耗表(7[6])：所持金を640G失う"
+output = "金銭消耗表(7[6]) ＞ 所持金を640G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -743,7 +743,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT21+2"
-output = "金銭消耗表(8[6])：所持金を640G失う"
+output = "金銭消耗表(8[6]) ＞ 所持金を640G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -751,7 +751,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT24"
-output = "金銭消耗表(6[6])：所持金を560G失う"
+output = "金銭消耗表(6[6]) ＞ 所持金を560G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -759,7 +759,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT25"
-output = "金銭消耗表(6[6])：所持金を560G失う"
+output = "金銭消耗表(6[6]) ＞ 所持金を560G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -767,7 +767,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT26"
-output = "金銭消耗表(6[6])：所持金を760G失う"
+output = "金銭消耗表(6[6]) ＞ 所持金を760G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -775,7 +775,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT30"
-output = "金銭消耗表(6[6])：所持金を760G失う"
+output = "金銭消耗表(6[6]) ＞ 所持金を760G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -783,7 +783,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT31"
-output = "金銭消耗表(6[6])：所持金を760G失う"
+output = "金銭消耗表(6[6]) ＞ 所持金を760G失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -791,13 +791,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT30$7"
-output = "金銭消耗表(7[7])：所持金を870G失う"
+output = "金銭消耗表(7[7]) ＞ 所持金を870G失う"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "CCT30+1$7"
-output = "金銭消耗表(8[7])：所持金を870G失う"
+output = "金銭消耗表(8[7]) ＞ 所持金を870G失う"
 rands = []
 
 [[ test ]]
@@ -839,7 +839,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS1"
-output = "金銭財宝表(7[1,1])：39G"
+output = "金銭財宝表(7[1,1]) ＞ 39G"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -848,7 +848,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS10"
-output = "金銭財宝表(62[6,6])：277G"
+output = "金銭財宝表(62[6,6]) ＞ 277G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -857,7 +857,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS10+1"
-output = "金銭財宝表(63[6,6])：214G&80G"
+output = "金銭財宝表(63[6,6]) ＞ 214G&80G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -866,7 +866,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS12+1"
-output = "金銭財宝表(73[6,6])：214G&160G"
+output = "金銭財宝表(73[6,6]) ＞ 214G&160G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -875,7 +875,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS15"
-output = "金銭財宝表(87[6,6])：241G&260G"
+output = "金銭財宝表(87[6,6]) ＞ 241G&260G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -884,7 +884,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS1-1"
-output = "金銭財宝表(6[1,1])：6以下の出目は未定義です"
+output = "金銭財宝表(6[1,1]) ＞ 6以下の出目は未定義です"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -893,7 +893,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS15+1"
-output = "金銭財宝表(88[6,6])：88以上の出目は未定義です"
+output = "金銭財宝表(88[6,6]) ＞ 88以上の出目は未定義です"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -902,7 +902,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS1+1"
-output = "金銭財宝表(8[1,1])：40G"
+output = "金銭財宝表(8[1,1]) ＞ 40G"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -911,19 +911,19 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS8$"
-output = "金銭財宝表(47[7])：178G"
+output = "金銭財宝表(47[7]) ＞ 178G"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS8+1$"
-output = "金銭財宝表(48[7])：183G"
+output = "金銭財宝表(48[7]) ＞ 183G"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRS+47"
-output = "金銭財宝表(47)：178G"
+output = "金銭財宝表(47) ＞ 178G"
 rands = []
 
 [[ test ]]
@@ -935,7 +935,7 @@ rands = []
 [[ test ]]
 game_system = "LogHorizon"
 input = "MTRS1"
-output = "魔法素材財宝表(7[1,1])：魔触媒2[魔触媒2](20G)x2"
+output = "魔法素材財宝表(7[1,1]) ＞ 魔触媒2[魔触媒2](20G)x2"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -944,7 +944,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MTRS10"
-output = "魔法素材財宝表(62[6,6])：魔触媒10[魔触媒10](110G)&魔触媒9[魔触媒9](90G)x2"
+output = "魔法素材財宝表(62[6,6]) ＞ 魔触媒10[魔触媒10](110G)&魔触媒9[魔触媒9](90G)x2"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -953,7 +953,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MTRS15"
-output = "魔法素材財宝表(87[6,6])：魔触媒9[魔触媒9](90G)&魔触媒8[魔触媒8](70G)x2&260G"
+output = "魔法素材財宝表(87[6,6]) ＞ 魔触媒9[魔触媒9](90G)&魔触媒8[魔触媒8](70G)x2&260G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -962,7 +962,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ITRS1"
-output = "換金アイテム財宝表(7[1,1])：陶器の絵付きマグカップ[換金](40G)"
+output = "換金アイテム財宝表(7[1,1]) ＞ 陶器の絵付きマグカップ[換金](40G)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -971,7 +971,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ITRS10"
-output = "換金アイテム財宝表(62[6,6])：古い歴史書[換金](280G)"
+output = "換金アイテム財宝表(62[6,6]) ＞ 古い歴史書[換金](280G)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -980,7 +980,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ITRS15"
-output = "換金アイテム財宝表(87[6,6])：上質の香水[換金](250G)&260G"
+output = "換金アイテム財宝表(87[6,6]) ＞ 上質の香水[換金](250G)&260G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -990,7 +990,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "HTRS1"
-output = "ヒロイン財宝表(7[1,1])：行き倒れのみすぼらしいやせっぽちの幼女"
+output = "ヒロイン財宝表(7[1,1]) ＞ 行き倒れのみすぼらしいやせっぽちの幼女"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -999,7 +999,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "HTRS4+6"
-output = "ヒロイン財宝表(33[3,4])：FXで有り金を全部とかしたうつろな先輩"
+output = "ヒロイン財宝表(33[3,4]) ＞ FXで有り金を全部とかしたうつろな先輩"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -1008,7 +1008,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "HTRS9"
-output = "ヒロイン財宝表(52[3,4])：彼女はあなたの初恋の人に似ている"
+output = "ヒロイン財宝表(52[3,4]) ＞ 彼女はあなたの初恋の人に似ている"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -1017,7 +1017,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "HTRS10"
-output = "ヒロイン財宝表(57[3,4])：54以上の出目は未定義です"
+output = "ヒロイン財宝表(57[3,4]) ＞ 54以上の出目は未定義です"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -1026,7 +1026,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "HTRS8"
-output = "ヒロイン財宝表(52[6,6])：彼女はあなたの初恋の人に似ている"
+output = "ヒロイン財宝表(52[6,6]) ＞ 彼女はあなたの初恋の人に似ている"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1035,25 +1035,25 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "HTRS+57"
-output = "ヒロイン財宝表(57)：54以上の出目は未定義です"
+output = "ヒロイン財宝表(57) ＞ 54以上の出目は未定義です"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "HTRS+52"
-output = "ヒロイン財宝表(52)：彼女はあなたの初恋の人に似ている"
+output = "ヒロイン財宝表(52) ＞ 彼女はあなたの初恋の人に似ている"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "HTRS5+8$"
-output = "ヒロイン財宝表(40[7])：戦闘の度に大食いしてしまう悩める弓術少女"
+output = "ヒロイン財宝表(40[7]) ＞ 戦闘の度に大食いしてしまう悩める弓術少女"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "HTRS7$"
-output = "ヒロイン財宝表(42[7])：一緒に帰るのが恥ずかしいピンク髪幼馴染"
+output = "ヒロイン財宝表(42[7]) ＞ 一緒に帰るのが恥ずかしいピンク髪幼馴染"
 rands = []
 
 [[ test ]]
@@ -1065,13 +1065,13 @@ rands = []
 [[ test ]]
 game_system = "LogHorizon"
 input = "HTRS+7"
-output = "ヒロイン財宝表(7)：行き倒れのみすぼらしいやせっぽちの幼女"
+output = "ヒロイン財宝表(7) ＞ 行き倒れのみすぼらしいやせっぽちの幼女"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "GTRS1"
-output = "ゴブリン財宝表(7[1,1])：ライトメイス(40G)"
+output = "ゴブリン財宝表(7[1,1]) ＞ ライトメイス(40G)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1080,7 +1080,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GTRS1"
-output = "ゴブリン財宝表(12[3,4])：46G"
+output = "ゴブリン財宝表(12[3,4]) ＞ 46G"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -1089,7 +1089,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GTRS10+25"
-output = "ゴブリン財宝表(87[6,6])：汚れた青磁の壺[換金](240G)&260G"
+output = "ゴブリン財宝表(87[6,6]) ＞ 汚れた青磁の壺[換金](240G)&260G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1098,7 +1098,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GTRS10+26"
-output = "ゴブリン財宝表(88[6,6])：88以上の出目は未定義です"
+output = "ゴブリン財宝表(88[6,6]) ＞ 88以上の出目は未定義です"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1107,19 +1107,19 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "GTRS10$"
-output = "ゴブリン財宝表(57[7])：汚れた青磁の壺[換金](240G)"
+output = "ゴブリン財宝表(57[7]) ＞ 汚れた青磁の壺[換金](240G)"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "GTRS10+1$"
-output = "ゴブリン財宝表(58[7])：とんすとんの焼き串盛り合わせ(120G)x2"
+output = "ゴブリン財宝表(58[7]) ＞ とんすとんの焼き串盛り合わせ(120G)x2"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "GTRS+57"
-output = "ゴブリン財宝表(57)：汚れた青磁の壺[換金](240G)"
+output = "ゴブリン財宝表(57) ＞ 汚れた青磁の壺[換金](240G)"
 rands = []
 
 [[ test ]]
@@ -1131,7 +1131,7 @@ rands = []
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE1"
-output = "金銭財宝表（拡張）(7[1,1])：35G"
+output = "金銭財宝表（拡張）(7[1,1]) ＞ 35G"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1140,7 +1140,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE30"
-output = "金銭財宝表（拡張）(162[6,6])：1600G"
+output = "金銭財宝表（拡張）(162[6,6]) ＞ 1600G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1149,7 +1149,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE30+1 +α検証"
-output = "金銭財宝表（拡張）(163[6,6])：1430G&200G"
+output = "金銭財宝表（拡張）(163[6,6]) ＞ 1430G&200G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1158,7 +1158,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE32+1 +α検証"
-output = "金銭財宝表（拡張）(173[6,6])：1430G&400G"
+output = "金銭財宝表（拡張）(173[6,6]) ＞ 1430G&400G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1167,7 +1167,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE35 上限"
-output = "金銭財宝表（拡張）(187[6,6])：1500G&600G"
+output = "金銭財宝表（拡張）(187[6,6]) ＞ 1500G&600G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1176,7 +1176,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE1-1 下限範囲外"
-output = "金銭財宝表（拡張）(6[1,1])：6以下の出目は未定義です"
+output = "金銭財宝表（拡張）(6[1,1]) ＞ 6以下の出目は未定義です"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1185,7 +1185,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE35+1 上限範囲外"
-output = "金銭財宝表（拡張）(188[6,6])：188以上の出目は未定義です"
+output = "金銭財宝表（拡張）(188[6,6]) ＞ 188以上の出目は未定義です"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1194,13 +1194,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE+100 任意の出目"
-output = "金銭財宝表（拡張）(100)：640G"
+output = "金銭財宝表（拡張）(100) ＞ 640G"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE1+100$ 出目を7固定"
-output = "金銭財宝表（拡張）(112[7])：790G"
+output = "金銭財宝表（拡張）(112[7]) ＞ 790G"
 rands = []
 
 [[ test ]]
@@ -1212,7 +1212,7 @@ rands = []
 [[ test ]]
 game_system = "LogHorizon"
 input = "MTRSE1"
-output = "魔法素材財宝表（拡張）(7[1,1])：魔触媒2[魔触媒2](20G)&魔触媒1[魔触媒1](15G)"
+output = "魔法素材財宝表（拡張）(7[1,1]) ＞ 魔触媒2[魔触媒2](20G)&魔触媒1[魔触媒1](15G)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1221,7 +1221,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MTRSE30"
-output = "魔法素材財宝表（拡張）(162[6,6])：陽喰い鳥の嘴[コア素材](1640G)"
+output = "魔法素材財宝表（拡張）(162[6,6]) ＞ 陽喰い鳥の嘴[コア素材](1640G)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1230,7 +1230,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MTRSE35"
-output = "魔法素材財宝表（拡張）(187[6,6])：魔触媒30[魔触媒30](820G)&輝くメガネ[換金](680G)&600G"
+output = "魔法素材財宝表（拡張）(187[6,6]) ＞ 魔触媒30[魔触媒30](820G)&輝くメガネ[換金](680G)&600G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1239,7 +1239,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ITRSE1"
-output = "換金アイテム財宝表（拡張）(7[1,1])：破れた書籍[換金](30G)"
+output = "換金アイテム財宝表（拡張）(7[1,1]) ＞ 破れた書籍[換金](30G)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1248,7 +1248,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ITRSE30"
-output = "換金アイテム財宝表（拡張）(162[6,6])：藍玉の腕輪[換金](1600G)"
+output = "換金アイテム財宝表（拡張）(162[6,6]) ＞ 藍玉の腕輪[換金](1600G)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1257,7 +1257,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ITRSE35"
-output = "換金アイテム財宝表（拡張）(187[6,6])：しゃべる姿見[換金](1500G)&600G"
+output = "換金アイテム財宝表（拡張）(187[6,6]) ＞ しゃべる姿見[換金](1500G)&600G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1266,7 +1266,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "OTRSE1"
-output = "そのほか財宝表（拡張）(7[1,1])：百科事典(40G)"
+output = "そのほか財宝表（拡張）(7[1,1]) ＞ 百科事典(40G)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1275,7 +1275,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "OTRSE30"
-output = "そのほか財宝表（拡張）(162[6,6])：ウルミン(1900G)"
+output = "そのほか財宝表（拡張）(162[6,6]) ＞ ウルミン(1900G)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1284,7 +1284,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "OTRSE35"
-output = "そのほか財宝表（拡張）(187[6,6])：竜手甲[破損](1650G)&600G"
+output = "そのほか財宝表（拡張）(187[6,6]) ＞ 竜手甲[破損](1650G)&600G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1455,7 +1455,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "IAT"
-output = "ロデ研の新発明([1,1,1,1])：光って回って音が鳴る 中毒性のある 美しい 武器"
+output = "ロデ研の新発明([1,1,1,1]) ＞ 光って回って音が鳴る 中毒性のある 美しい 武器"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1466,7 +1466,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "IATALT"
-output = "ロデ研の新発明([6,5,3])：よい手触り 名状しがたき アクセサリ"
+output = "ロデ研の新発明([6,5,3]) ＞ よい手触り 名状しがたき アクセサリ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1476,7 +1476,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "IATABBLT"
-output = "ロデ研の新発明([1,2,3,4,5])：光って回って音が鳴る 凄まじく重い ひどい臭いの 斬新な 薬品"
+output = "ロデ研の新発明([1,2,3,4,5]) ＞ 光って回って音が鳴る 凄まじく重い ひどい臭いの 斬新な 薬品"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -1488,7 +1488,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "IATA"
-output = "ロデ研の新発明([1])：特徴A(メリット)：光って回って音が鳴る"
+output = "ロデ研の新発明([1]) ＞ 特徴A(メリット)：光って回って音が鳴る"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1496,7 +1496,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "IATB"
-output = "ロデ研の新発明([6])：特徴B(デメリット)：捨てても戻ってくる"
+output = "ロデ研の新発明([6]) ＞ 特徴B(デメリット)：捨てても戻ってくる"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -1504,7 +1504,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "IATL"
-output = "ロデ研の新発明([3])：見た目：風流な"
+output = "ロデ研の新発明([3]) ＞ 見た目：風流な"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -1512,7 +1512,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "IATT"
-output = "ロデ研の新発明([2])：発明品の種類：防具"
+output = "ロデ研の新発明([2]) ＞ 発明品の種類：防具"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1520,7 +1520,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "TIAS"
-output = "アキバの街で遭遇するトラブル([1,1,1,1])：〈記録の地平線〉が ギルド会館で 理不尽な 喧嘩"
+output = "アキバの街で遭遇するトラブル([1,1,1,1]) ＞ 〈記録の地平線〉が ギルド会館で 理不尽な 喧嘩"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1531,7 +1531,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "TIAS"
-output = "アキバの街で遭遇するトラブル([2,3,4,5])：〈三日月同盟〉が 街の真ん中で 不自然な 事故"
+output = "アキバの街で遭遇するトラブル([2,3,4,5]) ＞ 〈三日月同盟〉が 街の真ん中で 不自然な 事故"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -1542,7 +1542,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "TIAS"
-output = "アキバの街で遭遇するトラブル([6,6,6,6])：〈ロデリック商会〉が 下水道で 頭の悪い 落し物"
+output = "アキバの街で遭遇するトラブル([6,6,6,6]) ＞ 〈ロデリック商会〉が 下水道で 頭の悪い 落し物"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1553,7 +1553,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ABDC"
-output = "廃棄児([1,1,1,1,1,1])：名前：花の名前 住居：廃ビル 特技：探し物 体型：痩せている 好きな食べ物：果物 一人称：ぼく/わたし"
+output = "廃棄児([1,1,1,1,1,1]) ＞ 名前：花の名前 住居：廃ビル 特技：探し物 体型：痩せている 好きな食べ物：果物 一人称：ぼく/わたし"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1566,7 +1566,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ABDC"
-output = "廃棄児([5,4,3,2,3,4])：名前：動物の名前 住居：木の上 特技：歌 体型：ちびっこ 好きな食べ物：お野菜 一人称：拙者/わらわ"
+output = "廃棄児([5,4,3,2,3,4]) ＞ 名前：動物の名前 住居：木の上 特技：歌 体型：ちびっこ 好きな食べ物：お野菜 一人称：拙者/わらわ"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -1579,7 +1579,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ABDC"
-output = "廃棄児([6,6,6,6,6,6])：名前：番号 住居：下水道 特技：あざといポーズ 体型：ガチムチ 好きな食べ物：虫 一人称：ミー"
+output = "廃棄児([6,6,6,6,6,6]) ＞ 名前：番号 住居：下水道 特技：あざといポーズ 体型：ガチムチ 好きな食べ物：虫 一人称：ミー"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1592,7 +1592,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MII"
-output = "楽器種別表(1)：打楽器１(1)：カスタネット"
+output = "楽器種別表(1) ＞ 打楽器１(1) ＞ カスタネット"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1601,7 +1601,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MII"
-output = "楽器種別表(3)：弦楽器１(2)：リュート"
+output = "楽器種別表(3) ＞ 弦楽器１(2) ＞ リュート"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -1610,7 +1610,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MII"
-output = "楽器種別表(6)：管楽器２(6)：尺八"
+output = "楽器種別表(6) ＞ 管楽器２(6) ＞ 尺八"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1619,7 +1619,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MII1"
-output = "楽器種別表：打楽器１(5)：太鼓"
+output = "楽器種別表 ＞ 打楽器１(5) ＞ 太鼓"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -1627,7 +1627,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MII3"
-output = "楽器種別表：弦楽器１(4)：バイオリン"
+output = "楽器種別表 ＞ 弦楽器１(4) ＞ バイオリン"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1635,7 +1635,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT"
-output = "特殊消耗表：ロデ研は爆発だ！(1[1])：キミの頭髪が爆発した！　見事なアフロヘアーだ：シナリオ終了まで［頭部］タグのついた装備不可。"
+output = "特殊消耗表：ロデ研は爆発だ！(1[1]) ＞ キミの頭髪が爆発した！　見事なアフロヘアーだ：シナリオ終了まで［頭部］タグのついた装備不可。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1643,7 +1643,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT+3"
-output = "特殊消耗表：ロデ研は爆発だ！(4[1])：山羊スライムが爆発的に増殖する：［所持品］スロットを全て山羊スライム（［取引不可］、価格５０）で埋める。"
+output = "特殊消耗表：ロデ研は爆発だ！(4[1]) ＞ 山羊スライムが爆発的に増殖する：［所持品］スロットを全て山羊スライム（［取引不可］、価格５０）で埋める。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1651,13 +1651,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT+2$3"
-output = "特殊消耗表：ロデ研は爆発だ！(5[3])：キミのリアルが爆発する：コネクションを１つ、シナリオ終了時まで失う。"
+output = "特殊消耗表：ロデ研は爆発だ！(5[3]) ＞ キミのリアルが爆発する：コネクションを１つ、シナリオ終了時まで失う。"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT-2"
-output = "特殊消耗表：ロデ研は爆発だ！(0[2])：……しかし特に何も起こらない！：効果なし。"
+output = "特殊消耗表：ロデ研は爆発だ！(0[2]) ＞ ……しかし特に何も起こらない！：効果なし。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1665,13 +1665,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT-2$0"
-output = "特殊消耗表：ロデ研は爆発だ！(-2[0])：……しかし特に何も起こらない！：効果なし。"
+output = "特殊消耗表：ロデ研は爆発だ！(-2[0]) ＞ ……しかし特に何も起こらない！：効果なし。"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT+3"
-output = "特殊消耗表：ロデ研は爆発だ！(7[4])：ボスエネミーが爆発する：シナリオはクライマックスを迎えることなく終了する。お疲れ様でした。"
+output = "特殊消耗表：ロデ研は爆発だ！(7[4]) ＞ ボスエネミーが爆発する：シナリオはクライマックスを迎えることなく終了する。お疲れ様でした。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1679,13 +1679,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT+4$5"
-output = "特殊消耗表：ロデ研は爆発だ！(9[5])：ボスエネミーが爆発する：シナリオはクライマックスを迎えることなく終了する。お疲れ様でした。"
+output = "特殊消耗表：ロデ研は爆発だ！(9[5]) ＞ ボスエネミーが爆発する：シナリオはクライマックスを迎えることなく終了する。お疲れ様でした。"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT3"
-output = "特殊消耗表：ロデ研は爆発だ！(1[1])：キミの頭髪が爆発した！　見事なアフロヘアーだ：シナリオ終了まで［頭部］タグのついた装備不可。"
+output = "特殊消耗表：ロデ研は爆発だ！(1[1]) ＞ キミの頭髪が爆発した！　見事なアフロヘアーだ：シナリオ終了まで［頭部］タグのついた装備不可。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1693,7 +1693,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT5+3"
-output = "特殊消耗表：ロデ研は爆発だ！(4[1])：山羊スライムが爆発的に増殖する：［所持品］スロットを全て山羊スライム（［取引不可］、価格５０）で埋める。"
+output = "特殊消耗表：ロデ研は爆発だ！(4[1]) ＞ 山羊スライムが爆発的に増殖する：［所持品］スロットを全て山羊スライム（［取引不可］、価格５０）で埋める。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1701,13 +1701,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT7+2$3"
-output = "特殊消耗表：ロデ研は爆発だ！(5[3])：キミのリアルが爆発する：コネクションを１つ、シナリオ終了時まで失う。"
+output = "特殊消耗表：ロデ研は爆発だ！(5[3]) ＞ キミのリアルが爆発する：コネクションを１つ、シナリオ終了時まで失う。"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT3-2"
-output = "特殊消耗表：ロデ研は爆発だ！(0[2])：……しかし特に何も起こらない！：効果なし。"
+output = "特殊消耗表：ロデ研は爆発だ！(0[2]) ＞ ……しかし特に何も起こらない！：効果なし。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1715,13 +1715,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT6-2$0"
-output = "特殊消耗表：ロデ研は爆発だ！(-2[0])：……しかし特に何も起こらない！：効果なし。"
+output = "特殊消耗表：ロデ研は爆発だ！(-2[0]) ＞ ……しかし特に何も起こらない！：効果なし。"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT11+3"
-output = "特殊消耗表：ロデ研は爆発だ！(7[4])：ボスエネミーが爆発する：シナリオはクライマックスを迎えることなく終了する。お疲れ様でした。"
+output = "特殊消耗表：ロデ研は爆発だ！(7[4]) ＞ ボスエネミーが爆発する：シナリオはクライマックスを迎えることなく終了する。お疲れ様でした。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1729,13 +1729,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ESCT0+4$5"
-output = "特殊消耗表：ロデ研は爆発だ！(9[5])：ボスエネミーが爆発する：シナリオはクライマックスを迎えることなく終了する。お疲れ様でした。"
+output = "特殊消耗表：ロデ研は爆発だ！(9[5]) ＞ ボスエネミーが爆発する：シナリオはクライマックスを迎えることなく終了する。お疲れ様でした。"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT"
-output = "特殊消耗表：アルヴの呪いじゃ！(1[1])：空腹の呪い：すぐさま食料アイテムひとつを食べる。空腹のせいでとてもおいしい！"
+output = "特殊消耗表：アルヴの呪いじゃ！(1[1]) ＞ 空腹の呪い：すぐさま食料アイテムひとつを食べる。空腹のせいでとてもおいしい！"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1743,7 +1743,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT+3"
-output = "特殊消耗表：アルヴの呪いじゃ！(4[1])：バリアフリーの呪い：［軽減］［障壁］状態になることができなくなる。"
+output = "特殊消耗表：アルヴの呪いじゃ！(4[1]) ＞ バリアフリーの呪い：［軽減］［障壁］状態になることができなくなる。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1751,13 +1751,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT+2$3"
-output = "特殊消耗表：アルヴの呪いじゃ！(5[3])：集中力を乱す囁きの呪い：フォームが崩れて［構え］タグを持つ特技が使用不能になる。"
+output = "特殊消耗表：アルヴの呪いじゃ！(5[3]) ＞ 集中力を乱す囁きの呪い：フォームが崩れて［構え］タグを持つ特技が使用不能になる。"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT-2"
-output = "特殊消耗表：アルヴの呪いじゃ！(0[2])：「祝ってやる！」祝われる：あなたの【因果力】＋１。"
+output = "特殊消耗表：アルヴの呪いじゃ！(0[2]) ＞ 「祝ってやる！」祝われる：あなたの【因果力】＋１。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1765,13 +1765,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT-2$0"
-output = "特殊消耗表：アルヴの呪いじゃ！(-2[0])：「祝ってやる！」祝われる：あなたの【因果力】＋１。"
+output = "特殊消耗表：アルヴの呪いじゃ！(-2[0]) ＞ 「祝ってやる！」祝われる：あなたの【因果力】＋１。"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT+3"
-output = "特殊消耗表：アルヴの呪いじゃ！(7[4])：やる気が萎える呪い：あーもーまじやる気しねえ、何もやる気しねえ。【因果力】使用不可。"
+output = "特殊消耗表：アルヴの呪いじゃ！(7[4]) ＞ やる気が萎える呪い：あーもーまじやる気しねえ、何もやる気しねえ。【因果力】使用不可。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1779,13 +1779,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT+4$5"
-output = "特殊消耗表：アルヴの呪いじゃ！(9[5])：やる気が萎える呪い：あーもーまじやる気しねえ、何もやる気しねえ。【因果力】使用不可。"
+output = "特殊消耗表：アルヴの呪いじゃ！(9[5]) ＞ やる気が萎える呪い：あーもーまじやる気しねえ、何もやる気しねえ。【因果力】使用不可。"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT3"
-output = "特殊消耗表：アルヴの呪いじゃ！(1[1])：空腹の呪い：すぐさま食料アイテムひとつを食べる。空腹のせいでとてもおいしい！"
+output = "特殊消耗表：アルヴの呪いじゃ！(1[1]) ＞ 空腹の呪い：すぐさま食料アイテムひとつを食べる。空腹のせいでとてもおいしい！"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1793,7 +1793,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT4+3"
-output = "特殊消耗表：アルヴの呪いじゃ！(4[1])：バリアフリーの呪い：［軽減］［障壁］状態になることができなくなる。"
+output = "特殊消耗表：アルヴの呪いじゃ！(4[1]) ＞ バリアフリーの呪い：［軽減］［障壁］状態になることができなくなる。"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -1801,13 +1801,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT14+2$3"
-output = "特殊消耗表：アルヴの呪いじゃ！(5[3])：集中力を乱す囁きの呪い：フォームが崩れて［構え］タグを持つ特技が使用不能になる。"
+output = "特殊消耗表：アルヴの呪いじゃ！(5[3]) ＞ 集中力を乱す囁きの呪い：フォームが崩れて［構え］タグを持つ特技が使用不能になる。"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT4-2"
-output = "特殊消耗表：アルヴの呪いじゃ！(0[2])：「祝ってやる！」祝われる：あなたの【因果力】＋１。"
+output = "特殊消耗表：アルヴの呪いじゃ！(0[2]) ＞ 「祝ってやる！」祝われる：あなたの【因果力】＋１。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -1815,13 +1815,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT1-2$0"
-output = "特殊消耗表：アルヴの呪いじゃ！(-2[0])：「祝ってやる！」祝われる：あなたの【因果力】＋１。"
+output = "特殊消耗表：アルヴの呪いじゃ！(-2[0]) ＞ 「祝ってやる！」祝われる：あなたの【因果力】＋１。"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT20+3"
-output = "特殊消耗表：アルヴの呪いじゃ！(7[4])：やる気が萎える呪い：あーもーまじやる気しねえ、何もやる気しねえ。【因果力】使用不可。"
+output = "特殊消耗表：アルヴの呪いじゃ！(7[4]) ＞ やる気が萎える呪い：あーもーまじやる気しねえ、何もやる気しねえ。【因果力】使用不可。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1829,7 +1829,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CSCT1+4$5"
-output = "特殊消耗表：アルヴの呪いじゃ！(9[5])：やる気が萎える呪い：あーもーまじやる気しねえ、何もやる気しねえ。【因果力】使用不可。"
+output = "特殊消耗表：アルヴの呪いじゃ！(9[5]) ＞ やる気が萎える呪い：あーもーまじやる気しねえ、何もやる気しねえ。【因果力】使用不可。"
 rands = []
 
 [[ test ]]

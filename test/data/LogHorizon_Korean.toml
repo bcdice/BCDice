@@ -51,7 +51,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT1"
-output = "체력 소모표(1[1])：[피로:5]를 받는다"
+output = "체력 소모표(1[1]) ＞ [피로:5]를 받는다"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -59,7 +59,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT1-1"
-output = "체력 소모표(0[1])：소모없음"
+output = "체력 소모표(0[1]) ＞ 소모없음"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -67,7 +67,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT1-2"
-output = "체력 소모표(-1[1])：소모없음"
+output = "체력 소모표(-1[1]) ＞ 소모없음"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -75,7 +75,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT1"
-output = "체력 소모표(6[6])：[피로:18]을 받는다"
+output = "체력 소모표(6[6]) ＞ [피로:18]을 받는다"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -83,7 +83,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT1+1"
-output = "체력 소모표(7[6])：[피로:20]을 받는다"
+output = "체력 소모표(7[6]) ＞ [피로:20]을 받는다"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT1+2"
-output = "체력 소모표(8[6])：[피로:20]을 받는다"
+output = "체력 소모표(8[6]) ＞ [피로:20]을 받는다"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -99,7 +99,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT4"
-output = "체력 소모표(6[6])：[피로:18]을 받는다"
+output = "체력 소모표(6[6]) ＞ [피로:18]을 받는다"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -107,7 +107,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT5"
-output = "체력 소모표(6[6])：[피로:18]을 받는다"
+output = "체력 소모표(6[6]) ＞ [피로:18]을 받는다"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -115,7 +115,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT6"
-output = "체력 소모표(6[6])：[피로:35]를 받는다"
+output = "체력 소모표(6[6]) ＞ [피로:35]를 받는다"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -123,7 +123,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT10"
-output = "체력 소모표(6[6])：[피로:35]를 받는다"
+output = "체력 소모표(6[6]) ＞ [피로:35]를 받는다"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -131,7 +131,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT11"
-output = "체력 소모표(6[6])：[疲労:65]を受け、【因果力】を1点失う"
+output = "체력 소모표(6[6]) ＞ [疲労:65]を受け、【因果力】を1点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -139,7 +139,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ECT1"
-output = "기력 소모표(1[1])：【인과력】을 1점 잃는다"
+output = "기력 소모표(1[1]) ＞ 【인과력】을 1점 잃는다"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -147,7 +147,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "GCT1"
-output = "물품 소모표(1[1])：[소모품] 아이템을 1개 잃는다."
+output = "물품 소모표(1[1]) ＞ [소모품] 아이템을 1개 잃는다."
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -155,7 +155,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CCT1"
-output = "금전 소모표(1[1])：소지금 10G 잃는다."
+output = "금전 소모표(1[1]) ＞ 소지금 10G 잃는다."
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -163,7 +163,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CCT6"
-output = "금전 소모표(1[1])：소지금 25G 잃는다."
+output = "금전 소모표(1[1]) ＞ 소지금 25G 잃는다."
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -171,25 +171,25 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT1$7"
-output = "체력 소모표(7[7])：[피로:20]을 받는다"
+output = "체력 소모표(7[7]) ＞ [피로:20]을 받는다"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT6$7"
-output = "체력 소모표(7[7])：[피로:40]을 받는다"
+output = "체력 소모표(7[7]) ＞ [피로:40]을 받는다"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT1+1$7"
-output = "체력 소모표(8[7])：[피로:20]을 받는다"
+output = "체력 소모표(8[7]) ＞ [피로:20]을 받는다"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS1"
-output = "금전 재보표(7[1,1])：39G"
+output = "금전 재보표(7[1,1]) ＞ 39G"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -198,7 +198,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS1"
-output = "금전 재보표(17[6,6])：57G"
+output = "금전 재보표(17[6,6]) ＞ 57G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -207,7 +207,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS1-1"
-output = "금전 재보표(6[1,1])：6以下の出目は未定義です"
+output = "금전 재보표(6[1,1]) ＞ 6以下の出目は未定義です"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -216,7 +216,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS1+1"
-output = "금전 재보표(8[1,1])：40G"
+output = "금전 재보표(8[1,1]) ＞ 40G"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -225,7 +225,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS10"
-output = "금전 재보표(62[6,6])：277G"
+output = "금전 재보표(62[6,6]) ＞ 277G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -234,7 +234,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS10+1"
-output = "금전 재보표(63[6,6])：214G&80G"
+output = "금전 재보표(63[6,6]) ＞ 214G&80G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -243,7 +243,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS10+10"
-output = "금전 재보표(72[6,6])：277G&80G"
+output = "금전 재보표(72[6,6]) ＞ 277G&80G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -252,7 +252,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS10+11"
-output = "금전 재보표(73[6,6])：214G&160G"
+output = "금전 재보표(73[6,6]) ＞ 214G&160G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -261,7 +261,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS10+20"
-output = "금전 재보표(82[6,6])：277G&160G"
+output = "금전 재보표(82[6,6]) ＞ 277G&160G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -270,7 +270,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS10+21"
-output = "금전 재보표(83[6,6])：214G&260G"
+output = "금전 재보표(83[6,6]) ＞ 214G&260G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -279,7 +279,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS10+25"
-output = "금전 재보표(87[6,6])：241G&260G"
+output = "금전 재보표(87[6,6]) ＞ 241G&260G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -288,7 +288,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS10+26"
-output = "금전 재보표(88[6,6])：88以上の出目は未定義です"
+output = "금전 재보표(88[6,6]) ＞ 88以上の出目は未定義です"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -297,7 +297,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MTRS10"
-output = "마법소재 재물표(62[6,6])：마촉매10[마촉매10](110G)&마촉매9[마촉매9](90G)x2"
+output = "마법소재 재물표(62[6,6]) ＞ 마촉매10[마촉매10](110G)&마촉매9[마촉매9](90G)x2"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -306,7 +306,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MTRS1"
-output = "마법소재 재물표(17[6,6])：오래된 해골[코어소재](40G)&검은 시집[환전](15G)"
+output = "마법소재 재물표(17[6,6]) ＞ 오래된 해골[코어소재](40G)&검은 시집[환전](15G)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -315,7 +315,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MTRS10"
-output = "마법소재 재물표(62[6,6])：마촉매10[마촉매10](110G)&마촉매9[마촉매9](90G)x2"
+output = "마법소재 재물표(62[6,6]) ＞ 마촉매10[마촉매10](110G)&마촉매9[마촉매9](90G)x2"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -324,7 +324,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ITRS1"
-output = "환전아이템 재물표(17[6,6])：도자기 수반[환전](60G)"
+output = "환전아이템 재물표(17[6,6]) ＞ 도자기 수반[환전](60G)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -333,7 +333,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ITRS10"
-output = "환전아이템 재물표(62[6,6])：오래된 역사서[환전](280G)"
+output = "환전아이템 재물표(62[6,6]) ＞ 오래된 역사서[환전](280G)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -468,31 +468,31 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS+57"
-output = "금전 재보표(57)：241G"
+output = "금전 재보표(57) ＞ 241G"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS10$"
-output = "금전 재보표(57[7])：241G"
+output = "금전 재보표(57[7]) ＞ 241G"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ITRS+27"
-output = "환전아이템 재물표(27)：떡갈나무 의자[환전](90G)"
+output = "환전아이템 재물표(27) ＞ 떡갈나무 의자[환전](90G)"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS3+15$"
-output = "금전 재보표(37[7])：126G"
+output = "금전 재보표(37[7]) ＞ 126G"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS1"
-output = "히로인 재보표(7[1,1])：쓰러져 있는 초라한 말라깽이의 유녀"
+output = "히로인 재보표(7[1,1]) ＞ 쓰러져 있는 초라한 말라깽이의 유녀"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -501,7 +501,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS4+6"
-output = "히로인 재보표(33[3,4])：외환거래에 가진 돈을 전부 잃어 공허한 선배"
+output = "히로인 재보표(33[3,4]) ＞ 외환거래에 가진 돈을 전부 잃어 공허한 선배"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -510,7 +510,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS9"
-output = "히로인 재보표(52[3,4])：당신의 첫사랑과 닮은 그녀"
+output = "히로인 재보표(52[3,4]) ＞ 당신의 첫사랑과 닮은 그녀"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -519,7 +519,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS10"
-output = "히로인 재보표(57[3,4])：54以上の出目は未定義です"
+output = "히로인 재보표(57[3,4]) ＞ 54以上の出目は未定義です"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -528,7 +528,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS8"
-output = "히로인 재보표(52[6,6])：당신의 첫사랑과 닮은 그녀"
+output = "히로인 재보표(52[6,6]) ＞ 당신의 첫사랑과 닮은 그녀"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -537,25 +537,25 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS+57"
-output = "히로인 재보표(57)：54以上の出目は未定義です"
+output = "히로인 재보표(57) ＞ 54以上の出目は未定義です"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS+52"
-output = "히로인 재보표(52)：당신의 첫사랑과 닮은 그녀"
+output = "히로인 재보표(52) ＞ 당신의 첫사랑과 닮은 그녀"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS5+8$"
-output = "히로인 재보표(40[7])：전투 때마다 많이 먹어지게 되는게 고민인 궁술소녀"
+output = "히로인 재보표(40[7]) ＞ 전투 때마다 많이 먹어지게 되는게 고민인 궁술소녀"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS7$"
-output = "히로인 재보표(42[7])：함께 돌아가는 것을 부끄럽게 생각하는 핑크머리 소꿉친구"
+output = "히로인 재보표(42[7]) ＞ 함께 돌아가는 것을 부끄럽게 생각하는 핑크머리 소꿉친구"
 rands = []
 
 [[ test ]]
@@ -567,7 +567,7 @@ rands = []
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS+7"
-output = "히로인 재보표(7)：쓰러져 있는 초라한 말라깽이의 유녀"
+output = "히로인 재보표(7) ＞ 쓰러져 있는 초라한 말라깽이의 유녀"
 rands = []
 
 [[ test ]]
@@ -609,7 +609,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "IAT"
-output = "로데릭 연구소의 새로운 발명([1,1,1,1])：빛나고 돌며 소리가 울리는 중독성 있는 아름다운 무기"
+output = "로데릭 연구소의 새로운 발명([1,1,1,1]) ＞ 빛나고 돌며 소리가 울리는 중독성 있는 아름다운 무기"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -620,7 +620,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "IATALT"
-output = "로데릭 연구소의 새로운 발명([6,5,3])：좋은 감촉의 형언할 수 없는 악세사리"
+output = "로데릭 연구소의 새로운 발명([6,5,3]) ＞ 좋은 감촉의 형언할 수 없는 악세사리"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -630,7 +630,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "IATABBLT"
-output = "로데릭 연구소의 새로운 발명([1,2,3,4,5])：빛나고 돌며 소리가 울리는 굉장히 무거운 굉장히 냄새나는 참신한 약품"
+output = "로데릭 연구소의 새로운 발명([1,2,3,4,5]) ＞ 빛나고 돌며 소리가 울리는 굉장히 무거운 굉장히 냄새나는 참신한 약품"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -642,7 +642,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "IATA"
-output = "로데릭 연구소의 새로운 발명([1])：특징A(장점)：빛나고 돌며 소리가 울리는"
+output = "로데릭 연구소의 새로운 발명([1]) ＞ 특징A(장점)：빛나고 돌며 소리가 울리는"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -650,7 +650,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "IATB"
-output = "로데릭 연구소의 새로운 발명([6])：특징B(단점)：버려도 버려도 되돌아오는"
+output = "로데릭 연구소의 새로운 발명([6]) ＞ 특징B(단점)：버려도 버려도 되돌아오는"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -658,7 +658,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "IATL"
-output = "로데릭 연구소의 새로운 발명([3])：형용：풍류있는"
+output = "로데릭 연구소의 새로운 발명([3]) ＞ 형용：풍류있는"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -666,7 +666,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "IATT"
-output = "로데릭 연구소의 새로운 발명([2])：발명품의 종류：방어구"
+output = "로데릭 연구소의 새로운 발명([2]) ＞ 발명품의 종류：방어구"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -674,7 +674,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "TIAS"
-output = "아키바 거리에서 발생하는 문제([1,1,1,1])：〈로그 호라이즌〉이 길드 회관에서 불합리한 싸움"
+output = "아키바 거리에서 발생하는 문제([1,1,1,1]) ＞ 〈로그 호라이즌〉이 길드 회관에서 불합리한 싸움"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -685,7 +685,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "TIAS"
-output = "아키바 거리에서 발생하는 문제([2,3,4,5])：〈초승달 동맹〉이 거리 한가운데에서 부자연스러운 사고"
+output = "아키바 거리에서 발생하는 문제([2,3,4,5]) ＞ 〈초승달 동맹〉이 거리 한가운데에서 부자연스러운 사고"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -696,7 +696,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "TIAS"
-output = "아키바 거리에서 발생하는 문제([6,6,6,6])：〈로데릭 상회〉가 하수구에서 머리 나쁜 분실물"
+output = "아키바 거리에서 발생하는 문제([6,6,6,6]) ＞ 〈로데릭 상회〉가 하수구에서 머리 나쁜 분실물"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -707,7 +707,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ABDC"
-output = "버림받은 아이([1,1,1,1,1,1])：이름：꽃의 이름 주거：폐 건물 특기：무언가를 찾기 체형：깡마른 좋아하는 음식：과일 말투：말이 서툰"
+output = "버림받은 아이([1,1,1,1,1,1]) ＞ 이름：꽃의 이름 주거：폐 건물 특기：무언가를 찾기 체형：깡마른 좋아하는 음식：과일 말투：말이 서툰"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -720,7 +720,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ABDC"
-output = "버림받은 아이([5,4,3,2,3,4])：이름：동물 이름 주거：나무 위 특기：노래 체형：키작은 좋아하는 음식：신선한 야채 말투：사극체"
+output = "버림받은 아이([5,4,3,2,3,4]) ＞ 이름：동물 이름 주거：나무 위 특기：노래 체형：키작은 좋아하는 음식：신선한 야채 말투：사극체"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -733,7 +733,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ABDC"
-output = "버림받은 아이([6,6,6,6,6,6])：이름：번호 주거：하수도 특기：약삭빠른 행동 체형：근육질의 좋아하는 음식：벌레 말투：귀국자녀"
+output = "버림받은 아이([6,6,6,6,6,6]) ＞ 이름：번호 주거：하수도 특기：약삭빠른 행동 체형：근육질의 좋아하는 음식：벌레 말투：귀국자녀"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -746,7 +746,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MII"
-output = "악기 종류 표(1)：타악기１(1)：캐스터네츠"
+output = "악기 종류 표(1) ＞ 타악기１(1) ＞ 캐스터네츠"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -755,7 +755,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MII"
-output = "악기 종류 표(3)：현악기１(2)：류트"
+output = "악기 종류 표(3) ＞ 현악기１(2) ＞ 류트"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -764,7 +764,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MII"
-output = "악기 종류 표(6)：관악기２(6)：퉁소"
+output = "악기 종류 표(6) ＞ 관악기２(6) ＞ 퉁소"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -773,7 +773,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MII1"
-output = "악기 종류 표：타악기１(5)：북"
+output = "악기 종류 표 ＞ 타악기１(5) ＞ 북"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -781,7 +781,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MII3"
-output = "악기 종류 표：현악기１(4)：바이올린"
+output = "악기 종류 표 ＞ 현악기１(4) ＞ 바이올린"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -789,7 +789,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(1[1])：당신의 머리카락이 폭발했다! 멋진 아프로 헤어다: 시나리오가 끝날 때까지 [머리] 태그를 가진 장비는 장비 불가"
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(1[1]) ＞ 당신의 머리카락이 폭발했다! 멋진 아프로 헤어다: 시나리오가 끝날 때까지 [머리] 태그를 가진 장비는 장비 불가"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -797,7 +797,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT+3"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(4[1])：산양 슬라임이 폭발적으로 증식한다: [소지품] 슬롯을 모두 산양 슬라임([거래 불가], 가격50)으로 채운다."
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(4[1]) ＞ 산양 슬라임이 폭발적으로 증식한다: [소지품] 슬롯을 모두 산양 슬라임([거래 불가], 가격50)으로 채운다."
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -805,13 +805,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT+2$3"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(5[3])：당신의 리얼이 폭발한다: 커넥션 하나를 시나리오가 끝날 때까지 잃는다."
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(5[3]) ＞ 당신의 리얼이 폭발한다: 커넥션 하나를 시나리오가 끝날 때까지 잃는다."
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT-2"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(0[2])：……하지만 아무 일도 일어나지 않았다!: 효과 없음"
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(0[2]) ＞ ……하지만 아무 일도 일어나지 않았다!: 효과 없음"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -819,13 +819,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT-2$0"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(-2[0])：……하지만 아무 일도 일어나지 않았다!: 효과 없음"
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(-2[0]) ＞ ……하지만 아무 일도 일어나지 않았다!: 효과 없음"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT+3"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(7[4])：보스 에너미가 폭발한다: 시나리오는 클라이맥스를 맞이하지 않고 종료된다. 수고하셨습니다."
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(7[4]) ＞ 보스 에너미가 폭발한다: 시나리오는 클라이맥스를 맞이하지 않고 종료된다. 수고하셨습니다."
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -833,13 +833,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT+4$5"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(9[5])：보스 에너미가 폭발한다: 시나리오는 클라이맥스를 맞이하지 않고 종료된다. 수고하셨습니다."
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(9[5]) ＞ 보스 에너미가 폭발한다: 시나리오는 클라이맥스를 맞이하지 않고 종료된다. 수고하셨습니다."
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT3"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(1[1])：당신의 머리카락이 폭발했다! 멋진 아프로 헤어다: 시나리오가 끝날 때까지 [머리] 태그를 가진 장비는 장비 불가"
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(1[1]) ＞ 당신의 머리카락이 폭발했다! 멋진 아프로 헤어다: 시나리오가 끝날 때까지 [머리] 태그를 가진 장비는 장비 불가"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -847,7 +847,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT5+3"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(4[1])：산양 슬라임이 폭발적으로 증식한다: [소지품] 슬롯을 모두 산양 슬라임([거래 불가], 가격50)으로 채운다."
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(4[1]) ＞ 산양 슬라임이 폭발적으로 증식한다: [소지품] 슬롯을 모두 산양 슬라임([거래 불가], 가격50)으로 채운다."
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -855,13 +855,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT7+2$3"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(5[3])：당신의 리얼이 폭발한다: 커넥션 하나를 시나리오가 끝날 때까지 잃는다."
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(5[3]) ＞ 당신의 리얼이 폭발한다: 커넥션 하나를 시나리오가 끝날 때까지 잃는다."
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT3-2"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(0[2])：……하지만 아무 일도 일어나지 않았다!: 효과 없음"
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(0[2]) ＞ ……하지만 아무 일도 일어나지 않았다!: 효과 없음"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -869,13 +869,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT6-2$0"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(-2[0])：……하지만 아무 일도 일어나지 않았다!: 효과 없음"
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(-2[0]) ＞ ……하지만 아무 일도 일어나지 않았다!: 효과 없음"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT11+3"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(7[4])：보스 에너미가 폭발한다: 시나리오는 클라이맥스를 맞이하지 않고 종료된다. 수고하셨습니다."
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(7[4]) ＞ 보스 에너미가 폭발한다: 시나리오는 클라이맥스를 맞이하지 않고 종료된다. 수고하셨습니다."
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -883,13 +883,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ESCT0+4$5"
-output = "특수 소모표 : 로데릭 연구소는 폭발했다!(9[5])：보스 에너미가 폭발한다: 시나리오는 클라이맥스를 맞이하지 않고 종료된다. 수고하셨습니다."
+output = "특수 소모표 : 로데릭 연구소는 폭발했다!(9[5]) ＞ 보스 에너미가 폭발한다: 시나리오는 클라이맥스를 맞이하지 않고 종료된다. 수고하셨습니다."
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT"
-output = "특수 소모표: 알브의 저주다!(1[1])：공복의 저주: 즉시 식량 아이템 하나를 먹는다. 배가 고프니 엄청 맛있어!"
+output = "특수 소모표: 알브의 저주다!(1[1]) ＞ 공복의 저주: 즉시 식량 아이템 하나를 먹는다. 배가 고프니 엄청 맛있어!"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -897,7 +897,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT+3"
-output = "특수 소모표: 알브의 저주다!(4[1])：배리어 프리의 저주: [경감], [장벽]상태가 될 수 없게 된다."
+output = "특수 소모표: 알브의 저주다!(4[1]) ＞ 배리어 프리의 저주: [경감], [장벽]상태가 될 수 없게 된다."
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -905,13 +905,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT+2$3"
-output = "특수 소모표: 알브의 저주다!(5[3])：집중력을 흐트리는 속삭임의 저주:자세가 무너져 [태세] 태그를 가진 특기를 사용할 수 없게 된다."
+output = "특수 소모표: 알브의 저주다!(5[3]) ＞ 집중력을 흐트리는 속삭임의 저주:자세가 무너져 [태세] 태그를 가진 특기를 사용할 수 없게 된다."
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT-2"
-output = "특수 소모표: 알브의 저주다!(0[2])：「축복해주지!」 축복을 받는다: 당신의 【인과력】+1"
+output = "특수 소모표: 알브의 저주다!(0[2]) ＞ 「축복해주지!」 축복을 받는다: 당신의 【인과력】+1"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -919,13 +919,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT-2$0"
-output = "특수 소모표: 알브의 저주다!(-2[0])：「축복해주지!」 축복을 받는다: 당신의 【인과력】+1"
+output = "특수 소모표: 알브의 저주다!(-2[0]) ＞ 「축복해주지!」 축복을 받는다: 당신의 【인과력】+1"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT+3"
-output = "특수 소모표: 알브의 저주다!(7[4])：의욕이 사라지는 저주: 아~ 진짜 의욕이 안 나네. 아무 것도 하기 싫어.【인과력】 사용 불가."
+output = "특수 소모표: 알브의 저주다!(7[4]) ＞ 의욕이 사라지는 저주: 아~ 진짜 의욕이 안 나네. 아무 것도 하기 싫어.【인과력】 사용 불가."
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -933,13 +933,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT+4$5"
-output = "특수 소모표: 알브의 저주다!(9[5])：의욕이 사라지는 저주: 아~ 진짜 의욕이 안 나네. 아무 것도 하기 싫어.【인과력】 사용 불가."
+output = "특수 소모표: 알브의 저주다!(9[5]) ＞ 의욕이 사라지는 저주: 아~ 진짜 의욕이 안 나네. 아무 것도 하기 싫어.【인과력】 사용 불가."
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT3"
-output = "특수 소모표: 알브의 저주다!(1[1])：공복의 저주: 즉시 식량 아이템 하나를 먹는다. 배가 고프니 엄청 맛있어!"
+output = "특수 소모표: 알브의 저주다!(1[1]) ＞ 공복의 저주: 즉시 식량 아이템 하나를 먹는다. 배가 고프니 엄청 맛있어!"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -947,7 +947,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT4+3"
-output = "특수 소모표: 알브의 저주다!(4[1])：배리어 프리의 저주: [경감], [장벽]상태가 될 수 없게 된다."
+output = "특수 소모표: 알브의 저주다!(4[1]) ＞ 배리어 프리의 저주: [경감], [장벽]상태가 될 수 없게 된다."
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -955,13 +955,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT14+2$3"
-output = "특수 소모표: 알브의 저주다!(5[3])：집중력을 흐트리는 속삭임의 저주:자세가 무너져 [태세] 태그를 가진 특기를 사용할 수 없게 된다."
+output = "특수 소모표: 알브의 저주다!(5[3]) ＞ 집중력을 흐트리는 속삭임의 저주:자세가 무너져 [태세] 태그를 가진 특기를 사용할 수 없게 된다."
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT4-2"
-output = "특수 소모표: 알브의 저주다!(0[2])：「축복해주지!」 축복을 받는다: 당신의 【인과력】+1"
+output = "특수 소모표: 알브의 저주다!(0[2]) ＞ 「축복해주지!」 축복을 받는다: 당신의 【인과력】+1"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -969,13 +969,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT1-2$0"
-output = "특수 소모표: 알브의 저주다!(-2[0])：「축복해주지!」 축복을 받는다: 당신의 【인과력】+1"
+output = "특수 소모표: 알브의 저주다!(-2[0]) ＞ 「축복해주지!」 축복을 받는다: 당신의 【인과력】+1"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT20+3"
-output = "특수 소모표: 알브의 저주다!(7[4])：의욕이 사라지는 저주: 아~ 진짜 의욕이 안 나네. 아무 것도 하기 싫어.【인과력】 사용 불가."
+output = "특수 소모표: 알브의 저주다!(7[4]) ＞ 의욕이 사라지는 저주: 아~ 진짜 의욕이 안 나네. 아무 것도 하기 싫어.【인과력】 사용 불가."
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -983,13 +983,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CSCT1+4$5"
-output = "특수 소모표: 알브의 저주다!(9[5])：의욕이 사라지는 저주: 아~ 진짜 의욕이 안 나네. 아무 것도 하기 싫어.【인과력】 사용 불가."
+output = "특수 소모표: 알브의 저주다!(9[5]) ＞ 의욕이 사라지는 저주: 아~ 진짜 의욕이 안 나네. 아무 것도 하기 싫어.【인과력】 사용 불가."
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "GTRS1"
-output = "고블린 재물표(11[3,3])：가속의 두루마리(초급)"
+output = "고블린 재물표(11[3,3]) ＞ 가속의 두루마리(초급)"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -998,7 +998,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "GTRS3+2"
-output = "고블린 재물표(22[3,2])：흠집투성이의 상아상[환전](70G)"
+output = "고블린 재물표(22[3,2]) ＞ 흠집투성이의 상아상[환전](70G)"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -1007,7 +1007,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "GTRS5$"
-output = "고블린 재물표(32[7])：우든 라운드"
+output = "고블린 재물표(32[7]) ＞ 우든 라운드"
 rands = []
 
 [[ test ]]
@@ -1028,7 +1028,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE1"
-output = "金銭財宝表（拡張）(7[1,1])：35G"
+output = "金銭財宝表（拡張）(7[1,1]) ＞ 35G"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1037,7 +1037,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE30"
-output = "金銭財宝表（拡張）(162[6,6])：1600G"
+output = "金銭財宝表（拡張）(162[6,6]) ＞ 1600G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1046,7 +1046,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE30+1 +α検証"
-output = "金銭財宝表（拡張）(163[6,6])：1430G&200G"
+output = "金銭財宝表（拡張）(163[6,6]) ＞ 1430G&200G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1055,7 +1055,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE32+1 +α検証"
-output = "金銭財宝表（拡張）(173[6,6])：1430G&400G"
+output = "金銭財宝表（拡張）(173[6,6]) ＞ 1430G&400G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1064,7 +1064,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE35 上限"
-output = "金銭財宝表（拡張）(187[6,6])：1500G&600G"
+output = "金銭財宝表（拡張）(187[6,6]) ＞ 1500G&600G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1073,7 +1073,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE1-1 下限範囲外"
-output = "金銭財宝表（拡張）(6[1,1])：6以下の出目は未定義です"
+output = "金銭財宝表（拡張）(6[1,1]) ＞ 6以下の出目は未定義です"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1082,7 +1082,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE35+1 上限範囲外"
-output = "金銭財宝表（拡張）(188[6,6])：188以上の出目は未定義です"
+output = "金銭財宝表（拡張）(188[6,6]) ＞ 188以上の出目は未定義です"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1091,13 +1091,13 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE+100 任意の出目"
-output = "金銭財宝表（拡張）(100)：640G"
+output = "金銭財宝表（拡張）(100) ＞ 640G"
 rands = []
 
 [[ test ]]
 game_system = "LogHorizon"
 input = "CTRSE1+100$ 出目を7固定"
-output = "金銭財宝表（拡張）(112[7])：790G"
+output = "金銭財宝表（拡張）(112[7]) ＞ 790G"
 rands = []
 
 [[ test ]]
@@ -1109,7 +1109,7 @@ rands = []
 [[ test ]]
 game_system = "LogHorizon"
 input = "MTRSE1"
-output = "魔法素材財宝表（拡張）(7[1,1])：魔触媒2[魔触媒2](20G)&魔触媒1[魔触媒1](15G)"
+output = "魔法素材財宝表（拡張）(7[1,1]) ＞ 魔触媒2[魔触媒2](20G)&魔触媒1[魔触媒1](15G)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1118,7 +1118,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MTRSE30"
-output = "魔法素材財宝表（拡張）(162[6,6])：陽喰い鳥の嘴[コア素材](1640G)"
+output = "魔法素材財宝表（拡張）(162[6,6]) ＞ 陽喰い鳥の嘴[コア素材](1640G)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1127,7 +1127,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "MTRSE35"
-output = "魔法素材財宝表（拡張）(187[6,6])：魔触媒30[魔触媒30](820G)&輝くメガネ[換金](680G)&600G"
+output = "魔法素材財宝表（拡張）(187[6,6]) ＞ 魔触媒30[魔触媒30](820G)&輝くメガネ[換金](680G)&600G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1136,7 +1136,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ITRSE1"
-output = "換金アイテム財宝表（拡張）(7[1,1])：破れた書籍[換金](30G)"
+output = "換金アイテム財宝表（拡張）(7[1,1]) ＞ 破れた書籍[換金](30G)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1145,7 +1145,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ITRSE30"
-output = "換金アイテム財宝表（拡張）(162[6,6])：藍玉の腕輪[換金](1600G)"
+output = "換金アイテム財宝表（拡張）(162[6,6]) ＞ 藍玉の腕輪[換金](1600G)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1154,7 +1154,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "ITRSE35"
-output = "換金アイテム財宝表（拡張）(187[6,6])：しゃべる姿見[換金](1500G)&600G"
+output = "換金アイテム財宝表（拡張）(187[6,6]) ＞ しゃべる姿見[換金](1500G)&600G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1163,7 +1163,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "OTRSE1"
-output = "そのほか財宝表（拡張）(7[1,1])：百科事典(40G)"
+output = "そのほか財宝表（拡張）(7[1,1]) ＞ 百科事典(40G)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1172,7 +1172,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "OTRSE30"
-output = "そのほか財宝表（拡張）(162[6,6])：ウルミン(1900G)"
+output = "そのほか財宝表（拡張）(162[6,6]) ＞ ウルミン(1900G)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1181,7 +1181,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon"
 input = "OTRSE35"
-output = "そのほか財宝表（拡張）(187[6,6])：竜手甲[破損](1650G)&600G"
+output = "そのほか財宝表（拡張）(187[6,6]) ＞ 竜手甲[破損](1650G)&600G"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },

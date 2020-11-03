@@ -239,7 +239,7 @@ module BCDice
 
           chosen = items[total.clamp(0, 7)]
 
-          "#{@name}(#{total}[#{@dice_value}])：#{chosen}"
+          "#{@name}(#{total}[#{@dice_value}]) ＞ #{chosen}"
         end
       end
 
@@ -348,7 +348,7 @@ module BCDice
 
           dice_str = "[#{@dice_list&.join(',')}]" if @dice_list
 
-          "#{@name}(#{index}#{dice_str})：#{chosen}"
+          "#{@name}(#{index}#{dice_str}) ＞ #{chosen}"
         end
 
         private
@@ -441,7 +441,7 @@ module BCDice
           result.push(chosen)
         end
 
-        return "#{tableName}([#{number.join(',')}])：#{result.join(' ')}"
+        return "#{tableName}([#{number.join(',')}]) ＞ #{result.join(' ')}"
       end
 
       # アキバの街で遭遇するトラブルランダム決定表
@@ -465,7 +465,7 @@ module BCDice
         dice_list = @randomizer.roll_barabara(tables.size, 6)
         result = dice_list.map.with_index { |n, index| tables[index][n - 1] }
 
-        return "#{table[:name]}([#{dice_list.join(',')}])：#{result.join(' ')}"
+        return "#{table[:name]}([#{dice_list.join(',')}]) ＞ #{result.join(' ')}"
       end
 
       # 楽器種別表
@@ -483,7 +483,7 @@ module BCDice
         dice = @randomizer.roll_once(6)
         result = translate("LogHorizon.MII.items")[type - 1][dice - 1]
 
-        return tableName.to_s + (is_roll ? "(#{type})" : '') + "：#{type_name}(#{dice})：#{result}"
+        return tableName.to_s + (is_roll ? "(#{type})" : '') + " ＞ #{type_name}(#{dice}) ＞ #{result}"
       end
 
       # イースタル探索表
