@@ -44,7 +44,7 @@ module BCDice
         　$：＄を付けると財宝表のダイス目を7固定（1回分のプライズ用）。省略可能。
         　例） CTRS1　MTRS2+1　ITRS3-1　ITRS+27　CTRS3$
 
-        ■ 拡張ルール財宝表 (tTRSEx±y$)
+        ■ 財宝表（拡張ルールブック） (tTRSEx±y$)
         　LHZB2記載の財宝表
         　CTRSE 金銭／MTRSE 魔法素材／ITRSE 換金アイテム／OTRSE そのほか
         　記法は財宝表と同様
@@ -72,9 +72,9 @@ module BCDice
         　ESCT ロデ研は爆発だ！／CSCT アルヴの呪いじゃ！
 
         ■ ロデ研の新発明ランダム決定表※ (IATt)
-          IATA 特徴A(メリット)／IATB 特徴B(デメリット)／IATL 見た目／IATT 種類
-          tを省略すると全て表示。tにA/B/L/Tを任意の順で連結可能
-          例）IAT　IATALT  IATABBLT  IATABL
+        　IATA 特徴A(メリット)／IATB 特徴B(デメリット)／IATL 見た目／IATT 種類
+        　tを省略すると全て表示。tにA/B/L/Tを任意の順で連結可能
+        　例）IAT　IATALT  IATABBLT  IATABL
 
         ■ 表
         　・パーソナリティタグ表 (PTAG)

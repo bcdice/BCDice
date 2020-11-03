@@ -42,7 +42,7 @@ module BCDice
         　$：＄을 붙이면 재물표의 다이스를 7로 고정합니다.（1차 분량의 프라이즈 용도）생략이 가능합니다.
         　예시） CTRS1　MTRS2+1　ITRS3-1　ITRS+27　CTRS3$
 
-        ■ 拡張ルール財宝表 (tTRSEx±y$)
+        ■ 財宝表（拡張ルールブック） (tTRSEx±y$)
         　LHZB2記載の財宝表
         　CTRSE 金銭／MTRSE 魔法素材／ITRSE 換金アイテム／OTRSE そのほか
         　記法は財宝表と同様
@@ -70,9 +70,9 @@ module BCDice
         　ESCT 로데릭 연구소는 폭발했다!／CSCT 알브의 저주다!
 
         ■ 로데릭 연구소의 새로운 발명 랜덤 결정표※ (IATt)
-          IATA 특징A(장점)／IATB 특징B(단점)／IATL 외형／IATT 종류
-          t를 생략할 경우 모두 표시합니다. t에 A/B/L/T를 임의의 순서로 연결 할 수 있습니다.
-          例）IAT　IATALT  IATABBLT  IATABL
+        　IATA 특징A(장점)／IATB 특징B(단점)／IATL 외형／IATT 종류
+        　t를 생략할 경우 모두 표시합니다. t에 A/B/L/T를 임의의 순서로 연결 할 수 있습니다.
+        　例）IAT　IATALT  IATABBLT  IATABL
 
         ■ 표
         　・퍼스널리티 태그 표 (PTAG)
