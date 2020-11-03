@@ -131,7 +131,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCT11"
-output = "체력 소모표(6[6])：[피로:35]를 받는다"
+output = "체력 소모표(6[6])：[疲労:65]を受け、【因果力】を1点失う"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -207,7 +207,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS1-1"
-output = "금전 재보표(7[1,1])：39G"
+output = "금전 재보표(6[1,1])：6以下の出目は未定義です"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -288,7 +288,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "CTRS10+26"
-output = "금전 재보표(87[6,6])：241G&260G"
+output = "금전 재보표(88[6,6])：88以上の出目は未定義です"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -342,7 +342,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PTAG"
-output = "퍼스널리티 태그(11)：[조숙]"
+output = "퍼스널리티 태그(11) ＞ [조숙]"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -351,7 +351,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PTAG"
-output = "퍼스널리티 태그(66)：[미스테리어스]"
+output = "퍼스널리티 태그(66) ＞ [미스테리어스]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -360,7 +360,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "KOYU"
-output = "교우표([11]) ＞ 교우대상에 대한 보호\n당신은 교우대상을 보호하고 싶다. 당신에게는 지켜줄수 있는 강함이 있다."
+output = "교우표(11) ＞ 교우대상에 대한 보호\n당신은 교우대상을 보호하고 싶다. 당신에게는 지켜줄수 있는 강함이 있다."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -369,7 +369,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "KOYU"
-output = "교우표([32]) ＞ 교우대상의 라이벌\n당신은 교우대상을 라이벌이라고 생각한다. 이는 일반적인 감정일 수도 있고, 서로 절차탁마 하는 관계일 수도 있다."
+output = "교우표(32) ＞ 교우대상의 라이벌\n당신은 교우대상을 라이벌이라고 생각한다. 이는 일반적인 감정일 수도 있고, 서로 절차탁마 하는 관계일 수도 있다."
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -378,7 +378,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "KOYU"
-output = "교우표([66]) ＞ 교우대상의 가족\n당신은 교우대상과 함께 살고 있다. 같은집에 누군가 있으면 쓸쓸하지 않을 것이다."
+output = "교우표(66) ＞ 교우대상의 가족\n당신은 교우대상과 함께 살고 있다. 같은집에 누군가 있으면 쓸쓸하지 않을 것이다."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -387,7 +387,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MGR1"
-output = "프리픽스드 아이템 효과표（매직 그레이드１）([11]) ＞ 접두어：기합의　해당태그：모든 무기\n아이템 효과：이 무기의【공격력】에 ＋１한다."
+output = "프리픽스드 아이템 효과표（매직 그레이드１）(11) ＞ 접두어：기합의　해당태그：모든 무기\n아이템 효과：이 무기의【공격력】에 ＋１한다."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -396,7 +396,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MGR1"
-output = "프리픽스드 아이템 효과표（매직 그레이드１）([32]) ＞ 접두어：철신의　해당태그：[방패][중갑][경갑]\n아이템 효과：당신은 장면이 시작될 때[경감(지근거리부터의 공격) ：３]을 얻는다."
+output = "프리픽스드 아이템 효과표（매직 그레이드１）(32) ＞ 접두어：철신의　해당태그：[방패][중갑][경갑]\n아이템 효과：당신은 장면이 시작될 때[경감(지근거리부터의 공격) ：３]을 얻는다."
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -405,7 +405,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MGR1"
-output = "프리픽스드 아이템 효과표（매직 그레이드１）([66]) ＞ 접두어：돌변의　해당태그：[가방]\n아이템 효과：〔기동：인스턴트〕당신은 곧바로《장비 변경》을 한다. 시나리오당 １회 사용가능."
+output = "프리픽스드 아이템 효과표（매직 그레이드１）(66) ＞ 접두어：돌변의　해당태그：[가방]\n아이템 효과：〔기동：인스턴트〕당신은 곧바로《장비 변경》을 한다. 시나리오당 １회 사용가능."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -414,7 +414,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MGR2"
-output = "프리픽스드 아이템 효과표（매직 그레이드２）([11]) ＞ 접두어：분노의　해당태그：[양손]무기\n아이템 효과：〔기동：대미지굴림〕이 무기에 의한 [무기공격]의 대미지 굴림에＋[당신의【헤이트】]. 장면에 1회 사용가능."
+output = "프리픽스드 아이템 효과표（매직 그레이드２）(11) ＞ 접두어：분노의　해당태그：[양손]무기\n아이템 효과：〔기동：대미지굴림〕이 무기에 의한 [무기공격]의 대미지 굴림에＋[당신의【헤이트】]. 장면에 1회 사용가능."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -423,7 +423,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MGR2"
-output = "프리픽스드 아이템 효과표（매직 그레이드２）([32]) ＞ 접두어：견고한　해당태그：[중갑][경갑][연갑]\n아이템 효과：이 방어구의 【물리방어력】에 ＋４"
+output = "프리픽스드 아이템 효과표（매직 그레이드２）(32) ＞ 접두어：견고한　해당태그：[중갑][경갑][연갑]\n아이템 효과：이 방어구의 【물리방어력】에 ＋４"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -432,7 +432,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MGR2"
-output = "프리픽스드 아이템 효과표（매직 그레이드２）([66]) ＞ 접두어：여행자의　해당태그：[가방]\n아이템 효과：이 아이템에 [소지품 슬롯] 4개를 추가한다."
+output = "프리픽스드 아이템 효과표（매직 그레이드２）(66) ＞ 접두어：여행자의　해당태그：[가방]\n아이템 효과：이 아이템에 [소지품 슬롯] 4개를 추가한다."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -441,7 +441,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MGR3"
-output = "프리픽스드 아이템 효과표（매직그레이드３）([11]) ＞ 접두어：기백의　해당태그：모든 무기\n아이템 효과：이 무기의【공격력】에 ＋３한다."
+output = "프리픽스드 아이템 효과표（매직 그레이드３）(11) ＞ 접두어：기백의　해당태그：모든 무기\n아이템 효과：이 무기의【공격력】에 ＋３한다."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -450,7 +450,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MGR3"
-output = "프리픽스드 아이템 효과표（매직그레이드３）([32]) ＞ 접두어：화살반사　해당태그：[방패][경갑][연갑]\n아이템 효과：당신은 장면이 시작 될 때 [경감(지근거리 이외로부터의 공격) ：10]을 얻는다."
+output = "프리픽스드 아이템 효과표（매직 그레이드３）(32) ＞ 접두어：화살반사　해당태그：[방패][경갑][연갑]\n아이템 효과：당신은 장면이 시작 될 때 [경감(지근거리 이외로부터의 공격) ：10]을 얻는다."
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -459,7 +459,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "MGR3"
-output = "프리픽스드 아이템 효과표（매직그레이드３）([66]) ＞ 접두어：함정회피의　해당태그：[보조장비][악기][가방]\n아이템 효과：〔기동：데미지 적용 직전〕당신에게 적용될 예정인 프롭 및[기믹]에 의한 데미지를 무효로 할 수 있다. 시나리오당１회 사용할 수 있다."
+output = "프리픽스드 아이템 효과표（매직 그레이드３）(66) ＞ 접두어：함정회피의　해당태그：[보조장비][악기][가방]\n아이템 효과：〔기동：데미지 적용 직전〕당신에게 적용될 예정인 프롭 및[기믹]에 의한 데미지를 무효로 할 수 있다. 시나리오당１회 사용할 수 있다."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -519,7 +519,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS10"
-output = "히로인 재보표(57[3,4])：※ 53이후는 미정입니다 ※"
+output = "히로인 재보표(57[3,4])：54以上の出目は未定義です"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -537,7 +537,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS+57"
-output = "히로인 재보표(57)：※ 53이후는 미정입니다 ※"
+output = "히로인 재보표(57)：54以上の出目は未定義です"
 rands = []
 
 [[ test ]]
@@ -561,7 +561,7 @@ rands = []
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HTRS"
-output = "HTRS"
+output = "HTRS ＞ CRを指定してください"
 rands = []
 
 [[ test ]]
@@ -573,7 +573,7 @@ rands = []
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HLOC"
-output = "공격명중장소(11)：이마"
+output = "공격명중장소(11) ＞ 이마"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -582,7 +582,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "HLOC"
-output = "공격명중장소(66)：안경"
+output = "공격명중장소(66) ＞ 안경"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -591,7 +591,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCNM"
-output = "PC名(11)：Kuraudo"
+output = "PC名(11) ＞ Kuraudo"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -600,7 +600,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "PCNM"
-output = "PC名(66)：후지키도"
+output = "PC名(66) ＞ 후지키도"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -650,7 +650,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "IATB"
-output = "로데릭 연구소의 새로운 발명([6])：특징B(단점)：버려도 버려도 되돌아오는\t"
+output = "로데릭 연구소의 새로운 발명([6])：특징B(단점)：버려도 버려도 되돌아오는"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -707,7 +707,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ABDC"
-output = "버림받은 아이([1,1,1,1,1,1])：이름：꽃의 이름　주거：폐 건물　특기：무언가를 찾기　체형：깡마른　좋아하는 음식：과일　말투：말이 서툰"
+output = "버림받은 아이([1,1,1,1,1,1])：이름：꽃의 이름 주거：폐 건물 특기：무언가를 찾기 체형：깡마른 좋아하는 음식：과일 말투：말이 서툰"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -720,7 +720,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ABDC"
-output = "버림받은 아이([5,4,3,2,3,4])：이름：동물 이름　주거：나무 위　특기：노래　체형：키작은　좋아하는 음식：신선한 야채　말투：사극체"
+output = "버림받은 아이([5,4,3,2,3,4])：이름：동물 이름 주거：나무 위 특기：노래 체형：키작은 좋아하는 음식：신선한 야채 말투：사극체"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -733,7 +733,7 @@ rands = [
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "ABDC"
-output = "버림받은 아이([6,6,6,6,6,6])：이름：번호　주거：하수도　특기：약삭빠른 행동　체형：근육질의　좋아하는 음식：벌레　말투：귀국자녀"
+output = "버림받은 아이([6,6,6,6,6,6])：이름：번호 주거：하수도 특기：약삭빠른 행동 체형：근육질의 좋아하는 음식：벌레 말투：귀국자녀"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -988,69 +988,6 @@ rands = []
 
 [[ test ]]
 game_system = "LogHorizon_Korean"
-input = "ESTL1"
-output = "이스탈 탐색표CR1(7[1,1])\n숲 베리 따기: 여러분은 베리가 열린 수풀을 발견한다. 탐색을 하는 PC는 난이도 8의 [지각판정]을 한다(한 명당 1회만). 성공한 사람은 「숲 베리 (맘대로 샌드위치에 상당)」를 하나 입수한다."
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "LogHorizon_Korean"
-input = "ESTL2"
-output = "이스탈 탐색표CR2(22[6,6])\n정보교환: 여러분은 모험자 집단과 만났다. 대표자는 목표 10의 [교섭판정]을 한다(적절한 서브 직업이 있다면 +2의 보너스를 얻을 수도 있다). 성공하면 부근의 정보를 들을 수 있다. 여러분 중 하나는 다음에 하는 [정찰] 행동에 +2를 얻는다."
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon_Korean"
-input = "ESTL3"
-output = "이스탈 탐색표CR3(27[6,6])\n미끄러져 굴러서: 가도를 걷고 있는데 갑자기 거대한 와일드 보어가 튀어나온다. 피하던 찰나에 넘어져서 여러분 전원은 [소모품] 아이템을 하나 잃는다. [소모품]아이템을 가지고 있지 않다면 【인과력】 1점을 잃는다."
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon_Korean"
-input = "ESTL3"
-output = "이스탈 탐색표CR3(25[5,5])\n코볼트를 물리쳐라!: 여러분은 코볼트 순찰대를 물리쳤다. 전원 [피로: (1D6+5)]를 입는 대신, 전리품으로 1인당 20G를 입수한다."
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "LogHorizon_Korean"
-input = "ESTL4"
-output = "이스탈 탐색표CR4(27[5,2])\n미끄러져 굴러서: 가도를 걷고 있는데 갑자기 거대한 와일드 보어가 튀어나온다. 피하던 찰나에 넘어져서 여러분 전원은 [소모품] 아이템을 하나 잃는다. [소모품]아이템을 가지고 있지 않다면 【인과력】 1점을 잃는다."
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "LogHorizon_Korean"
-input = "ESTL4"
-output = "이스탈 탐색표CR4(27[2,5])\n미끄러져 굴러서: 가도를 걷고 있는데 갑자기 거대한 와일드 보어가 튀어나온다. 피하던 찰나에 넘어져서 여러분 전원은 [소모품] 아이템을 하나 잃는다. [소모품]아이템을 가지고 있지 않다면 【인과력】 1점을 잃는다."
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "LogHorizon_Korean"
-input = "ESTL10"
-output = "이스탈 탐색표CR10(62[6,6])\n줄곧 이어지는 생활: 산비탈의 한 면 전체에 밭들이 계단처럼 펼쳐져 있다. 이 정도의 논밭을 일구는 데 도대체 얼마나 많은 시간이 들었을까? 근처에는 틀림없이 〈대지인〉의 마을이 있을 것이다."
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "LogHorizon_Korean"
 input = "GTRS1"
 output = "고블린 재물표(11[3,3])：가속의 두루마리(초급)"
 rands = [
@@ -1076,5 +1013,176 @@ rands = []
 [[ test ]]
 game_system = "LogHorizon_Korean"
 input = "GTRS"
-output = "GTRS"
+output = "GTRS ＞ CRを指定してください"
 rands = []
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "ESTL1"
+output = "イースタル探索表(7[1,1])\n香りに誘われて：\n　小さな街道沿いで、商隊が〈走り茸〉にまとわりつかれている。\n　奴らを追い払うと、商隊のリーダーがお礼にと人数分の「干した〈走り松茸〉[換金](40G)」をくれる。\n　追われていた理由はこれだったらしい。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE1"
+output = "金銭財宝表（拡張）(7[1,1])：35G"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE30"
+output = "金銭財宝表（拡張）(162[6,6])：1600G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE30+1 +α検証"
+output = "金銭財宝表（拡張）(163[6,6])：1430G&200G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE32+1 +α検証"
+output = "金銭財宝表（拡張）(173[6,6])：1430G&400G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE35 上限"
+output = "金銭財宝表（拡張）(187[6,6])：1500G&600G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE1-1 下限範囲外"
+output = "金銭財宝表（拡張）(6[1,1])：6以下の出目は未定義です"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE35+1 上限範囲外"
+output = "金銭財宝表（拡張）(188[6,6])：188以上の出目は未定義です"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE+100 任意の出目"
+output = "金銭財宝表（拡張）(100)：640G"
+rands = []
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE1+100$ 出目を7固定"
+output = "金銭財宝表（拡張）(112[7])：790G"
+rands = []
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "CTRSE"
+output = "CTRSE ＞ CRを指定してください"
+rands = []
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "MTRSE1"
+output = "魔法素材財宝表（拡張）(7[1,1])：魔触媒2[魔触媒2](20G)&魔触媒1[魔触媒1](15G)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "MTRSE30"
+output = "魔法素材財宝表（拡張）(162[6,6])：陽喰い鳥の嘴[コア素材](1640G)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "MTRSE35"
+output = "魔法素材財宝表（拡張）(187[6,6])：魔触媒30[魔触媒30](820G)&輝くメガネ[換金](680G)&600G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "ITRSE1"
+output = "換金アイテム財宝表（拡張）(7[1,1])：破れた書籍[換金](30G)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "ITRSE30"
+output = "換金アイテム財宝表（拡張）(162[6,6])：藍玉の腕輪[換金](1600G)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "ITRSE35"
+output = "換金アイテム財宝表（拡張）(187[6,6])：しゃべる姿見[換金](1500G)&600G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "OTRSE1"
+output = "そのほか財宝表（拡張）(7[1,1])：百科事典(40G)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "OTRSE30"
+output = "そのほか財宝表（拡張）(162[6,6])：ウルミン(1900G)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "LogHorizon"
+input = "OTRSE35"
+output = "そのほか財宝表（拡張）(187[6,6])：竜手甲[破損](1650G)&600G"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
