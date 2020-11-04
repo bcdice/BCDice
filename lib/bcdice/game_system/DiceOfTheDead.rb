@@ -35,14 +35,18 @@ module BCDice
         case command
         when /^BIO(\d+)?$/
           roll_times = (Regexp.last_match(1) || 1).to_i
-          @is_secret = true
 
-          return checkInfection(roll_times)
+          Result.new.tap do |r|
+            r.secret = true
+            r.text = checkInfection(roll_times)
+          end
         when /^ZMB(\+(\d+))?$/
           value = Regexp.last_match(2).to_i
-          @is_secret = true
 
-          return rollZombie(value)
+          Result.new.tap do |r|
+            r.secret = true
+            r.text = rollZombie(value)
+          end
         end
       end
 
