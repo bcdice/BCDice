@@ -172,16 +172,9 @@ module BCDice
       command = BCDice::Preprocessor.process(@raw_input, @randomizer, self)
       upcased_command = command.upcase
 
-      result = Result.new
+      result = dice_command(command) || eval_common_command(upcased_command)
+      return nil unless result
 
-      result.text = dice_command(command)
-      result.text ||= eval_common_command(upcased_command)
-
-      result.secret = @is_secret
-      result.success = @is_success
-      result.failure = @is_failure
-      result.critical = @is_critical
-      result.fumble = @is_fumble
       result.rands = @randomizer.rand_results
       result.detailed_rands = @randomizer.detailed_rand_results
 
@@ -240,11 +233,8 @@ module BCDice
 
     def eval_common_command(command)
       CommonCommand::COMMANDS.each do |klass|
-        cmd = klass.new(command, @randomizer, self)
-        out = cmd.eval()
-
-        @is_secret = cmd.secret?
-        return out if out
+        result = klass.eval(command, self, @randomizer)
+        return result if result
       end
 
       return nil
@@ -265,8 +255,18 @@ module BCDice
       @is_secret ||= secret
       if output.nil? || output.empty? || output == "1"
         return nil
+      elsif output.is_a?(Result)
+        output.secret ||= @is_secret
+        return output
       else
-        return output.to_s
+        return Result.new.tap do |r|
+          r.text = output.to_s
+          r.secret = @is_secret
+          r.success = @is_success
+          r.failure = @is_failure
+          r.critical = @is_critical
+          r.fumble = @is_fumble
+        end
       end
     end
 
