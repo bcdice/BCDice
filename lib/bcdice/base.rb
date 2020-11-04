@@ -91,12 +91,6 @@ module BCDice
 
       @locale = :ja_jp # i18n用の言語設定
 
-      @is_secret = false
-      @is_success = false
-      @is_failure = false
-      @is_critical = false
-      @is_fumble = false
-
       @randomizer = BCDice::Randomizer.new
       @debug = false
     end
@@ -252,21 +246,16 @@ module BCDice
       command = command[1..-1] if secret # 先頭の 'S' をとる
 
       output = eval_game_system_specific_command(command)
-      @is_secret ||= secret
 
       if output.is_a?(Result)
-        output.secret = output.secret? || @is_secret
+        output.secret = output.secret? || secret
         return output
       elsif output.nil? || output.empty? || output == "1"
         return nil
       else
         return Result.new.tap do |r|
           r.text = output.to_s
-          r.secret = @is_secret
-          r.success = @is_success
-          r.failure = @is_failure
-          r.critical = @is_critical
-          r.fumble = @is_fumble
+          r.secret = secret
         end
       end
     end
