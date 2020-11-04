@@ -97,33 +97,26 @@ module BCDice
       private
 
       def getCheckResult(command)
-        broken_num = 0
-        diff = 0
+        m = %r{CCB?(\d+)?(?:<=([+-/*\d]+))?}i.match(command)
+        broken_num = m[1].to_i
+        diff = ArithmeticEvaluator.eval(m[2])
 
-        if (m = %r{CCB?(\d+)?<=([+-/*\d]+)}i.match(command))
-          broken_num = m[1].to_i
-          diff = ArithmeticEvaluator.eval(m[2])
+        if diff <= 0
+          total = @randomizer.roll_once(100)
+          return Result.new("(1D100) ＞ #{total}")
         end
 
-        output = ""
-
-        if diff > 0
-          output = "(1D100<=#{diff})"
-
-          if broken_num > 0
-            output += " #{translate('Cthulhu.broken_number')}[#{broken_num}]"
-          end
-
-          total_n = @randomizer.roll_once(100)
-
-          output += " ＞ #{total_n}"
-          output += " ＞ #{getCheckResultText(total_n, diff, broken_num)}"
-        else
-          total_n = @randomizer.roll_once(100)
-          output = "(1D100) ＞ #{total_n}"
+        expr = "(1D100<=#{diff})"
+        if broken_num > 0
+          expr += " #{translate('Cthulhu.broken_number')}[#{broken_num}]"
         end
 
-        return output
+        total = @randomizer.roll_once(100)
+        compare_result = compare(total, diff, broken_num)
+
+        compare_result.to_result.tap do |r|
+          r.text = "#{expr} ＞ #{total} ＞ #{compare_result.text}"
+        end
       end
 
       class CompareResult
