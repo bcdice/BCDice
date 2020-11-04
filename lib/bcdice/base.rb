@@ -253,11 +253,12 @@ module BCDice
 
       output = eval_game_system_specific_command(command)
       @is_secret ||= secret
-      if output.nil? || output.empty? || output == "1"
-        return nil
-      elsif output.is_a?(Result)
-        output.secret ||= @is_secret
+
+      if output.is_a?(Result)
+        output.secret = output.secret? || @is_secret
         return output
+      elsif output.nil? || output.empty? || output == "1"
+        return nil
       else
         return Result.new.tap do |r|
           r.text = output.to_s

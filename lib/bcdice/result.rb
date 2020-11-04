@@ -1,6 +1,23 @@
 module BCDice
   class Result
-    def initialize
+    class << self
+      def success(text)
+        new.tap do |r|
+          r.text = text
+          r.success = true
+        end
+      end
+
+      def failure(text)
+        new.tap do |r|
+          r.text = text
+          r.failure = true
+        end
+      end
+    end
+
+    def initialize(text = nil)
+      @text = text
       @secret = false
       @success = false
       @failure = false

@@ -94,6 +94,8 @@ module BCDice
         return nil
       end
 
+      private
+
       def getCheckResult(command)
         broken_num = 0
         diff = 0
@@ -122,6 +124,75 @@ module BCDice
         end
 
         return output
+      end
+
+      class CompareResult
+        include Translate
+        attr_accessor :success, :failure, :critical, :fumble, :special, :broken
+
+        def initialize(locale)
+          @locale = locale
+
+          @success = false
+          @failure = false
+          @critical = false
+          @fumble = false
+          @special = false
+          @broke = false
+        end
+
+        def text
+          if critical && special
+            translate("Cthulhu.critical_special")
+          elsif critical
+            translate("Cthulhu.critical")
+          elsif special
+            translate("Cthulhu.special")
+          elsif success
+            translate("success")
+          elsif broken && fumble
+            "#{translate('Cthulhu.fumble')}/#{translate('Cthulhu.broken')}"
+          elsif broken
+            translate("Cthulhu.broken")
+          elsif fumble
+            translate("Cthulhu.fumble")
+          elsif failure
+            translate("failure")
+          end
+        end
+
+        def to_result
+          Result.new.tap do |r|
+            r.success = success
+            r.failure = failure
+            r.critical = critical
+            r.fumble = fumble
+          end
+        end
+      end
+
+      def compare(total, target, broken_number = 0)
+        result = CompareResult.new(@locale)
+        target_special = (target * @special_percentage / 100).clamp(1, 100)
+
+        if (total <= target) && (total < 100)
+          result.success = true
+          result.special = total <= target_special
+          result.critical = total <= @critical_percentage
+        else
+          result.failure = true
+          result.fumble = total >= (101 - @fumble_percentage)
+        end
+
+        if broken_number > 0 && total >= broken_number
+          result.broken = true
+          result.failure = true
+          result.success = false
+          result.special = false
+          result.critical = false
+        end
+
+        return result
       end
 
       def getCheckResultText(total_n, diff, broken_num = 0)
@@ -186,27 +257,27 @@ module BCDice
       def getRegistResult(command)
         m = /RES(B)?([-\d]+)/i.match(command)
         unless m
-          return "1"
+          return nil
         end
 
         value = m[2].to_i
         target = value * 5 + 50
 
         if target < 5
-          @is_failure = true
-          return "(1d100<=#{target}) ＞ #{translate('Cthulhu.automatic_failure')}"
+          return Result.failure("(1d100<=#{target}) ＞ #{translate('Cthulhu.automatic_failure')}")
         end
 
         if target > 95
-          @is_success = true
-          return "(1d100<=#{target}) ＞ #{translate('Cthulhu.automatic_success')}"
+          return Result.success("(1d100<=#{target}) ＞ #{translate('Cthulhu.automatic_success')}")
         end
 
         # 通常判定
         total_n = @randomizer.roll_once(100)
-        result = getCheckResultText(total_n, target)
+        compare_result = compare(total_n, target)
 
-        return "(1d100<=#{target}) ＞ #{total_n} ＞ #{result}"
+        compare_result.to_result.tap do |r|
+          r.text = "(1d100<=#{target}) ＞ #{total_n} ＞ #{compare_result.text}"
+        end
       end
 
       def getCombineRoll(command)
