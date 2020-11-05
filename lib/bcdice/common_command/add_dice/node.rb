@@ -2,7 +2,7 @@
 
 module BCDice
   module CommonCommand
-    class AddDice
+    module AddDice
       # 加算ロールの構文解析木のノードを格納するモジュール
       module Node
         # 加算ロールコマンドのノード。
@@ -24,7 +24,8 @@ module BCDice
           # @param [Object] lhs 左辺のノード
           # @param [Symbol] cmp_op 比較演算子
           # @param [Integer, String] rhs 右辺のノード
-          def initialize(lhs, cmp_op, rhs)
+          def initialize(secret, lhs, cmp_op, rhs)
+            @secret = secret
             @lhs = lhs
             @cmp_op = cmp_op
             @rhs = rhs
@@ -43,6 +44,30 @@ module BCDice
               "(Command (#{@cmp_op} #{@lhs.s_exp} #{@rhs}))"
             else
               "(Command #{@lhs.s_exp})"
+            end
+          end
+
+          def eval(game_system, randomizer)
+            randomizer = Randomizer.new(randomizer, game_system, @cmp_op)
+            total = @lhs.eval(randomizer)
+
+            output =
+              if randomizer.dice_list.size <= 1 && @lhs.is_a?(Node::DiceRoll)
+                "(#{self}) ＞ #{total}"
+              else
+                "(#{self}) ＞ #{@lhs.output} ＞ #{total}"
+              end
+
+            dice_list = randomizer.dice_list
+
+            if @cmp_op
+              dice_total = dice_list.sum
+              output += game_system.check_result(total, dice_total, dice_list, randomizer.sides, @cmp_op, @rhs)
+            end
+
+            Result.new.tap do |r|
+              r.secret = @secret
+              r.text = output
             end
           end
 
