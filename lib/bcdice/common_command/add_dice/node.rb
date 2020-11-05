@@ -48,7 +48,7 @@ module BCDice
           end
 
           def eval(game_system, randomizer)
-            randomizer = Randomizer.new(randomizer, game_system, @cmp_op)
+            randomizer = Randomizer.new(randomizer, game_system)
             total = @lhs.eval(randomizer)
 
             output =
