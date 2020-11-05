@@ -1,0 +1,15 @@
+[[ test ]]
+game_system = "Comes"
+input = "PT"
+output = "判定ペナルティ表(1) ＞ 恐ろしい目に合う。『恐怖』を与える。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Comes"
+input = "PT"
+output = "判定ペナルティ表(6) ＞ 別の困難が立ちはだかる。新たに判定を行わせる。"
+rands = [
+  { sides = 6, value = 6 },
+]
