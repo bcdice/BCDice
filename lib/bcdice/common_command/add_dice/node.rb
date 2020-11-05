@@ -323,15 +323,10 @@ module BCDice
           # @param [Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果（出目の合計値）
           def eval(randomizer)
-            dice_groups = randomizer.roll(@times, @sides)
+            dice_list = randomizer.roll(@times, @sides)
 
-            # TODO: Ruby 2.4以降では Array#sum が使える
-            total = dice_groups.flatten.reduce(0, &:+)
-
-            dice_str = dice_groups
-                       .map { |dice_list| "[#{dice_list.join(',')}]" }
-                       .join
-            @text = "#{total}#{dice_str}"
+            total = dice_list.sum()
+            @text = "#{total}[#{dice_list.join(',')}]"
 
             return total
           end
@@ -416,10 +411,10 @@ module BCDice
           # @param [Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果（出目の合計値）
           def eval(randomizer)
-            sorted_values = randomizer.roll_once(@times, @sides).sort
+            sorted_values = randomizer.roll(@times, @sides).sort
             total = @filter
                     .apply[sorted_values, @n_filtering]
-                    .reduce(0, &:+)
+                    .sum()
 
             @text = "#{total}[#{sorted_values.join(',')}]"
 
