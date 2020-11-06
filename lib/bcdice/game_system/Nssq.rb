@@ -45,7 +45,7 @@ module BCDice
           return result.strip unless result.nil?
         end
 
-        return roll_sq(command)
+        return roll_sq(command) || heal_roll(command)
       end
 
       def roll_sq(command)
@@ -114,26 +114,16 @@ module BCDice
         return result
       end
 
-      def getHealRollDiceCommandResult(command)
-        # 回復ロール
-        return nil unless command =~ /(\d+)HR(\d*)/i
+      def heal_roll(command)
+        m = /^(\d+)HR(\d+)?$/i.match(command)
+        return nil unless m
 
-        diceCount = Regexp.last_match(1).to_i
-        resist = Regexp.last_match(2)
-        if resist == ''
-          resist = 3
-        else
-          resist = resist.to_i
-        end
+        dice_count = m[1].to_i
+        resist = m[2]&.to_i || 3
 
-        # ダイスロール
-        dice_str = @randomizer.roll_barabara(diceCount, 6).join(",")
-        diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
+        dice_list = @randomizer.roll_barabara(dice_count, 6)
 
-        # 出力文の生成
-        result = "(#{command}) ＞ [#{dice_str}]#{resist} ＞ " + damageCheck(diceList, resist).to_s + "回復"
-
-        return result
+        return "(#{command}) ＞ [#{dice_list.join(',')}]#{resist} ＞ #{damage(dice_list, resist)}回復"
       end
 
       def makeCommand(diceCount, diceList, dice_str, criticalText, plusText, resist)
@@ -152,6 +142,10 @@ module BCDice
 
       def numCheck(diceList, num)
         return(diceList.select { |i| i == num }.size)
+      end
+
+      def damage(dice_list, resist)
+        dice_list.count {|x| x > resist}
       end
 
       def damageCheck(diceList, resist)
