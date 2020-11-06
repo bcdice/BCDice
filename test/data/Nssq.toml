@@ -21,7 +21,7 @@ rands = [
 [[ test ]]
 game_system = "Nssq"
 input = "3SQ+1-2"
-output = "(3SQ+1-2) ＞ [6,1,1]+1-2 ＞ 6[6,1]"
+output = "(3SQ+1-2) ＞ [6,1,1]-1 ＞ 6[6,1]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -46,6 +46,31 @@ rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
   { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "Nssq"
+input = "10SQ ダイス数二桁"
+output = "(10SQ) ＞ [5,5,5,5,5,5,5,5,5,5] ＞ 10[5,5]"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Nssq"
+input = "1SQ 1の場合も動く"
+output = "(1SQ) ＞ [6] ＞ 6[6]"
+rands = [
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]

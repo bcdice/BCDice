@@ -30,7 +30,7 @@ module BCDice
           例) TC SC+1 GC-1
       MESSAGETEXT
 
-      register_prefix('\d+SQ([\+\-\d]*)', '\d+DR(C)?(\+)?\d+', '(T|S|G)C.*', '\d+HR\d*')
+      register_prefix('\d+SQ[\+\-\d]*', '\d+DR(C)?(\+)?\d+', '(T|S|G)C.*', '\d+HR\d*')
 
       def eval_game_system_specific_command(command)
         # get～DiceCommandResultという名前のメソッドを集めて実行、
@@ -45,46 +45,34 @@ module BCDice
           return result.strip unless result.nil?
         end
 
-        return nil
+        return roll_sq(command)
       end
 
-      def getRollDiceCommandResult(command)
-        return nil unless command =~ /(\d)SQ([\+\-\d]*)/i
+      def roll_sq(command)
+        m = /(\d+)SQ([\+\-\d]+)?/i.match(command)
+        return nil unless m
 
-        diceCount = Regexp.last_match(1).to_i
-        modifyText = (Regexp.last_match(2) || '')
-        modify = getValue(modifyText, 0)
-        crifanText = ''
+        dice_count = m[1].to_i
+        modifier = ArithmeticEvaluator.eval(m[2])
 
-        # ダイスロールして、結果を降順にソート
-        dice_list = @randomizer.roll_barabara(diceCount, 6)
-        dice = dice_list.sum
-        dice_str = dice_list.join(",")
-        diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort { |a, b| b <=> a }
+        dice_list = @randomizer.roll_barabara(dice_count, 6)
+        largest_two = dice_list.sort.reverse.take(2)
+        total = largest_two.sum + modifier
 
-        # 長さが2以上の場合先頭の2つを切り出し、合計値を算出
-        if diceList.size >= 2
-          diceList = diceList.slice(0, 2)
-          dice = diceList[0] + diceList[1]
-        end
-
-        # クリティカル、ファンブルを判定
-        if diceList[0] == diceList[1]
-          if diceList[0] == 6
-            crifanText = " クリティカル！"
+        additional_result =
+          if largest_two == [6, 6]
+            " クリティカル！"
+          elsif largest_two == [1, 1]
+            " ファンブル！"
           end
-          if diceList[0] == 1
-            crifanText = " ファンブル！"
-          end
-        end
 
-        # 修正値を加算
-        dice += modify
+        sequence = [
+          "(#{command})",
+          "[#{dice_list.join(',')}]#{Format.modifier(modifier)}",
+          "#{total}[#{largest_two.join(',')}]#{additional_result}",
+        ]
 
-        # 出力用文の生成
-        result = "(#{command}) ＞ [#{dice_str}]#{modifyText} ＞ #{dice}[#{diceList.join(',')}]" + crifanText
-
-        return result
+        return sequence.join(" ＞ ")
       end
 
       def getValue(text, defaultValue)
