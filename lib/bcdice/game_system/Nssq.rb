@@ -30,23 +30,13 @@ module BCDice
           例) TC SC+1 GC-1
       MESSAGETEXT
 
-      register_prefix('\d+SQ[\+\-\d]*', '\d+DR(C)?(\+)?\d+', '(T|S|G)C.*', '\d+HR\d*')
+      register_prefix('\d+SQ[\+\-\d]*', '\d+DR(C)?(\+)?\d+', '[TSG]C', '\d+HR\d*')
 
       def eval_game_system_specific_command(command)
-        # get～DiceCommandResultという名前のメソッドを集めて実行、
-        # 結果がnil以外の場合それを返して終了。
-
-        methodList = public_methods(false).select do |method|
-          method.to_s =~ /\Aget.+DiceCommandResult\z/
-        end
-
-        methodList.each do |method|
-          result = send(method, command)
-          return result.strip unless result.nil?
-        end
-
-        return roll_sq(command) || damage_roll(command) || heal_roll(command)
+        roll_sq(command) || damage_roll(command) || heal_roll(command) || collecting_roll(command)
       end
+
+      private
 
       # 判定
       def roll_sq(command)
@@ -107,6 +97,7 @@ module BCDice
         "(#{dice_count}DR#{resist}) ＞ [#{dice_list.join(',')}]#{resist} ＞ #{damage(dice_list, resist)}ダメージ"
       end
 
+      # 回復ロール
       def heal_roll(command)
         m = /^(\d+)HR(\d+)?$/i.match(command)
         return nil unless m
@@ -120,60 +111,48 @@ module BCDice
       end
 
       def damage(dice_list, resist)
-        dice_list.count {|x| x > resist}
+        dice_list.count { |x| x > resist }
       end
 
-      def getCollectDiceCommandResult(command)
-        # 採取表
+      # 採取ロール
+      def collecting_roll(command)
+        m = /([TSG])C([\+\-\d]+)?/i.match(command)
+        return nil unless m
 
-        return nil unless command =~ /(T|S|G)C([\+\-\d]*)/i
+        type = m[1]
+        modifier = ArithmeticEvaluator.eval(m[2])
 
-        type = Regexp.last_match(1)
-        modify = (Regexp.last_match(2) || 0).to_i
-
-        # ああっと値の設定
-        case type
-        when "T"
-          aattoParam = 3
-        when "S"
-          aattoParam = 4
-        when "G"
-          aattoParam = 5
-        else
-          return nil
-        end
-        if (aattoParam - 2 + modify) <= 0
-          return nil
-        end
-
-        # ダイスロール
-        i = 0
-        result = ""
-        while i < (aattoParam - 2 + modify)
-          # ああっと値-2回が採集回数
-          dice_list = @randomizer.roll_barabara(2, 6)
-          dice = dice_list.sum
-          dice_str = dice_list.join(",")
-
-          # 出力用文の生成
-          result += "(#{command}) ＞ #{dice}[#{dice_str}]: "
-
-          # ！ああっと！の判定
-          if (dice <= aattoParam) && (aattoParam - 2 > i)
-            result += "！ああっと！"
-          else
-            result += "成功"
-            if aattoParam - 2 <= i
-              result += "（追加分）"
-            end
+        aatto_param =
+          case type
+          when "T"
+            3
+          when "S"
+            4
+          when "G"
+            5
           end
-          result += "\n"
-          i += 1
-        end
-        # 末尾の改行文字を削除
-        result.chomp!
 
-        return result
+        roll_times = aatto_param - 2 + modifier
+        return nil if roll_times <= 0
+
+        results = Array.new(roll_times) do |i|
+          dice_list = @randomizer.roll_barabara(2, 6)
+          dice = dice_list.sum()
+
+          "(#{command}) ＞ #{dice}[#{dice_list.join(',')}]: #{result_collecting(i, dice, aatto_param)}"
+        end
+
+        results.join("\n")
+      end
+
+      def result_collecting(i, dice, aatto)
+        if (dice <= aatto) && (aatto - 2 > i)
+          "！ああっと！"
+        elsif aatto - 2 <= i
+          "成功（追加分）"
+        else
+          "成功"
+        end
       end
     end
   end
