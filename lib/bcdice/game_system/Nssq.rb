@@ -45,9 +45,10 @@ module BCDice
           return result.strip unless result.nil?
         end
 
-        return roll_sq(command) || heal_roll(command)
+        return roll_sq(command) || damage_roll(command) || heal_roll(command)
       end
 
+      # 判定
       def roll_sq(command)
         m = /(\d+)SQ([\+\-\d]+)?/i.match(command)
         return nil unless m
@@ -75,43 +76,35 @@ module BCDice
         return sequence.join(" ＞ ")
       end
 
-      def getValue(text, defaultValue)
-        return defaultValue if text.nil? || text.empty?
+      # ダメージロール
+      def damage_roll(command)
+        m = /(\d+)DR(C)?(\+)?(\d+)/i.match(command)
+        return nil unless m
 
-        ArithmeticEvaluator.eval(text)
-      end
+        dice_count = m[1].to_i
+        critical_up = !m[2].nil? # 強化効果 クリティカルアップ
+        increase_critical_dice = !m[3].nil?
+        resist = m[4].to_i
 
-      def getDamegeRollDiceCommandResult(command)
-        # ダメージロール
-        return nil unless command =~ /(\d+)DR(C)?(\+)?(\d+)/i
+        dice_list = @randomizer.roll_barabara(dice_count, 6)
 
-        diceCount = Regexp.last_match(1).to_i
-        criticalText = (Regexp.last_match(2) || '')
-        plusText = (Regexp.last_match(3) || '')
-        resist = Regexp.last_match(4).to_i
+        result = "(#{command}) ＞ [#{dice_list.join(',')}]#{resist} ＞ #{damage(dice_list, resist)}ダメージ"
 
-        # ダイスロール
-        dice_str = @randomizer.roll_barabara(diceCount, 6).join(",")
-        diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
+        critical_target = critical_up ? 1 : 2
 
-        # 出力文の生成
-        result = makeCommand(diceCount, diceList, dice_str, criticalText, plusText, resist)
-
-        # クリティカルチェック
-        # クリティカルアップ状態かどうかを判定
-        if criticalText == ''
-          if numCheck(diceList, 6) >= numCheck(diceList, 1) + 2
-            result += "クリティカル！\n"
-            result += criticalPlus(plusText, resist)
-          end
-        else
-          if numCheck(diceList, 6) >= numCheck(diceList, 1) + 1
-            result += "クリティカル！\n"
-            result += criticalPlus(plusText, resist)
-          end
+        if dice_list.count(6) - dice_list.count(1) >= critical_target
+          result += " クリティカル！\n"
+          result += additional_damage_roll(increase_critical_dice, resist)
         end
 
         return result
+      end
+
+      def additional_damage_roll(increase_critical_dice, resist)
+        dice_count = increase_critical_dice ? 8 : 4
+
+        dice_list = @randomizer.roll_barabara(dice_count, 6)
+        "(#{dice_count}DR#{resist}) ＞ [#{dice_list.join(',')}]#{resist} ＞ #{damage(dice_list, resist)}ダメージ"
       end
 
       def heal_roll(command)
@@ -126,48 +119,8 @@ module BCDice
         return "(#{command}) ＞ [#{dice_list.join(',')}]#{resist} ＞ #{damage(dice_list, resist)}回復"
       end
 
-      def makeCommand(diceCount, diceList, dice_str, criticalText, plusText, resist)
-        # 出力用ダイスコマンドを生成
-        command = "#{diceCount}DR" + criticalText + plusText + resist.to_s
-
-        # 出力文の生成
-        result = "(#{command}) ＞ [#{dice_str}]#{resist} ＞ "
-
-        damage = damageCheck(diceList, resist)
-
-        result += damage.to_s + "ダメージ "
-
-        return result
-      end
-
-      def numCheck(diceList, num)
-        return(diceList.select { |i| i == num }.size)
-      end
-
       def damage(dice_list, resist)
         dice_list.count {|x| x > resist}
-      end
-
-      def damageCheck(diceList, resist)
-        # ダメージ計算
-        damage = diceList.select { |i| i > resist }.size
-
-        return damage
-      end
-
-      def criticalPlus(plusText, resist)
-        # クリティカル時に4つダイスを振るか8つダイスを振るか判定し、ダメージロール
-        if plusText == ''
-          diceCount = 4
-        else
-          diceCount = 8
-        end
-        dice_str = @randomizer.roll_barabara(diceCount, 6).join(",")
-        diceList = dice_str.split(/,/).collect { |i| i.to_i }.sort
-
-        result = makeCommand(diceCount, diceList, dice_str, '', '', resist)
-
-        return result
       end
 
       def getCollectDiceCommandResult(command)
