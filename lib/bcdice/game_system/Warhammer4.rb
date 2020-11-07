@@ -48,62 +48,65 @@ module BCDice
         return '' if target == '?'
         return '' unless cmp_op == :<=
 
-        t10 = (total / 10).to_i
-        d10 = (target / 10).to_i
+        t10 = total / 10
+        d10 = target / 10
         sl = d10 - t10
 
-        output = ""
-        if total <= 5
-          sl = 1 if sl < 1
-          output = " ＞ 自動成功(SL+#{sl})"
-
-        elsif total >= 96
-          sl = -1 if sl > -1
-          output = " ＞ 自動失敗(SL#{sl})"
-
-        elsif total <= target
-          output = " ＞ 成功(SL+#{sl})"
-
-        else
-          if sl == 0
-            output = " ＞ 失敗(SL+#{sl})"
-          else
-            output = " ＞ 失敗(SL#{sl})"
-          end
+        if total <= 5 && sl < 1
+          # 自動成功時のSLは最低でも1
+          sl = 1
+        elsif total >= 96 && sl > -1
+          # 自動失敗時のSLは最大でも-1
+          sl = -1
         end
 
-        # テスト結果表
-        if sl == 0
+        result =
           if total <= 5
-            output += ' ＞ 小成功'
+            "自動成功"
           elsif total >= 96
-            output += ' ＞ 小失敗'
+            "自動失敗"
           elsif total <= target
-            output += ' ＞ 小成功'
+            "成功"
           else
-            output += ' ＞ 小失敗'
+            "失敗"
           end
-        elsif sl >= 6
-          output += ' ＞ 超大成功'
-        elsif sl >= 4
-          output += ' ＞ 大成功'
-        elsif sl >= 2
-          output += ' ＞ 成功'
-        elsif sl > 0
-          output += ' ＞ 小成功'
-        elsif sl >= -1
-          output += ' ＞ 小失敗'
-        elsif sl >= -3
-          output += ' ＞ 失敗'
-        elsif sl >= -5
-          output += ' ＞ 大失敗'
-        elsif sl <= -6
-          output += ' ＞ 超大失敗'
-        end
-        return output
+
+        sl_text = format("(SL%+d)", sl)
+
+        " ＞ #{result}#{sl_text} ＞ #{result_detail(sl, total, target)}"
       end
 
       private
+
+      def result_detail(sl, total, target)
+        if sl == 0
+          if total <= 5
+            '小成功'
+          elsif total >= 96
+            '小失敗'
+          elsif total <= target
+            '小成功'
+          else
+            '小失敗'
+          end
+        elsif sl >= 6
+          '超大成功'
+        elsif sl >= 4
+          '大成功'
+        elsif sl >= 2
+          '成功'
+        elsif sl > 0
+          '小成功'
+        elsif sl >= -1
+          '小失敗'
+        elsif sl >= -3
+          '失敗'
+        elsif sl >= -5
+          '大失敗'
+        else # sl <= -6
+          '超大失敗'
+        end
+      end
 
       # クリティカル表
       def roll_critical_table(command)
@@ -127,10 +130,10 @@ module BCDice
         def roll(randomizer, under_ganken_bonus)
           dice = randomizer.roll_once(100)
           if under_ganken_bonus
-            dice = (dice-20).clamp(1, 100)
+            dice = (dice - 20).clamp(1, 100)
           end
 
-          chosen = @items.find {|key, _| key >= dice }[1]
+          chosen = @items.find { |key, _| key >= dice }[1]
 
           "#{@name}(#{dice}) ＞ #{chosen}"
         end
