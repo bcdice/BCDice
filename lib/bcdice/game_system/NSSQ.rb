@@ -2,8 +2,8 @@
 
 module BCDice
   module GameSystem
-    class Nssq < Base
-      ID = "Nssq"
+    class NSSQ < Base
+      ID = "NSSQ"
       NAME = "SRSじゃない世界樹の迷宮TRPG"
       SORT_KEY = "えすえすああるしやないせかいしゆのめいきゆうTRPG"
 

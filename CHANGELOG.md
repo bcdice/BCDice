@@ -3,7 +3,7 @@
 ## Unreleased
 
 ### 対応ゲームシステムの追加
-- SRSじゃない世界樹の迷宮TRPG (Nssq): TTさんありがとうっ！ ([#284](https://github.com/bcdice/BCDice/pull/284))
+- SRSじゃない世界樹の迷宮TRPG (NSSQ): TTさんありがとうっ！ ([#284](https://github.com/bcdice/BCDice/pull/284))
 
 ### 追加機能
 - ログ・ホライズンTRPG: LHZB1とLHZB2両方の財宝表をサポート、消耗表ロールを追加、財宝表ロールを追加、区切り文字を変更 ([#279](https://github.com/bcdice/BCDice/pull/279))
