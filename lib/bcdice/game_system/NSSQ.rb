@@ -5,7 +5,7 @@ module BCDice
     class NSSQ < Base
       ID = "NSSQ"
       NAME = "SRSじゃない世界樹の迷宮TRPG"
-      SORT_KEY = "えすえすああるしやないせかいしゆのめいきゆうTRPG"
+      SORT_KEY = "えすああるえすしやないせかいしゆのめいきゆうTRPG"
 
       HELP_MESSAGE = <<~MESSAGETEXT
         ■ 判定 (xSQ±y)
