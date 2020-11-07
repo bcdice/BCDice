@@ -6,6 +6,7 @@ require "bcdice/randomizer"
 require "bcdice/dice_table"
 require "bcdice/enum"
 require "bcdice/translate"
+require "bcdice/command_parser"
 
 module BCDice
   class Base
