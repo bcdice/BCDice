@@ -1,13 +1,11 @@
 module BCDice
   class << self
-    # クラス名を指定してゲームシステムのクラスを取得する
+    # IDを指定してゲームシステムのクラスを取得する
     #
-    # @param class_name [String] クラス名
+    # @param id [String] ID
     # @return [Class, nil]
-    def game_system_class(class_name)
-      BCDice::GameSystem.const_get(class_name)
-    rescue NameError
-      return nil
+    def game_system_class(id)
+      all_game_systems.find { |game_system| game_system::ID == id }
     end
 
     # 現在ロードされているゲームシステムのクラス一覧を返す
@@ -29,8 +27,8 @@ module BCDice
 
       require "bcdice/game_system/#{class_name}"
 
-      return game_system_class(class_name)
-    rescue LoadError
+      return BCDice::GameSystem.const_get(class_name)
+    rescue LoadError, NameError
       return nil
     end
   end
