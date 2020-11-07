@@ -1,5 +1,5 @@
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 성공"
 rands = [
@@ -8,7 +8,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "2d6>=9"
 output = "(2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 실패"
 rands = [
@@ -17,7 +17,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "2d6>=9"
 output = "(2D6>=9) ＞ 2[1,1] ＞ 2 ＞ ファンブル(変調がランダムに1つ発生し、PCは【思い出】を1つ獲得する)"
 rands = [
@@ -26,7 +26,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "2d6>=9"
 output = "(2D6>=9) ＞ 12[6,6] ＞ 12 ＞ 스페셜!(PC는 【추억】 1개 획득)"
 rands = [
@@ -35,7 +35,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "WT"
 output = "업무표 ＞ [15] ＞ 파트너 플레이어의 「패션 특징」을 살리는 일이 왔다. 파트너.\n特技 : 파트너 플레이어가 보유한 속성분야의특기"
 rands = [
@@ -44,7 +44,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "WT"
 output = "업무표 ＞ [44] ＞ 오프"
 rands = [
@@ -53,7 +53,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "WT"
 output = "업무표 ＞ [26] ＞ 취미 프로그램에 출연. 이런 세계가 있는 것인가…….\n特技 : 趣味分野からランダム"
 rands = [
@@ -62,7 +62,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BWT"
 output = "대형 예능 프로덕션 업무표 ＞ [12] ＞ 선배 아이돌이 사회를 맡는 버라이어티 프로그램에 출연! 어떤 코너를 맡는지?\n特技 : 趣味分野からランダム"
 rands = [
@@ -71,7 +71,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BWT"
 output = "대형 예능 프로덕션 업무표 ＞ [66] ＞ プロダクション内で総選挙が開始！　今回のテーマは……？\n特技 : ランダム"
 rands = [
@@ -80,7 +80,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LWT"
 output = "약소 예능 프로덕션 업무표 ＞ [36] ＞ 코러스에서 결원이 나온 아이돌 라이브의 보충으로서 선택된다. 주역에게 맞추지 않으면.\n特技 : 属性分野からランダム"
 rands = [
@@ -89,7 +89,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LWT"
 output = "약소 예능 프로덕션 업무표 ＞ [45] ＞ PC들의 사무소에 리포트 카메라가 들어간다. 작은 곳이지만 힘내고 있습니다!\n特技 : ランダム"
 rands = [
@@ -98,7 +98,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "TWT"
 output = "라이브 시어터 업무표 ＞ [56] ＞ 극장 밖에서 실시하는 일을 해낸다.\n特技 : ランダム"
 rands = [
@@ -107,7 +107,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "TWT"
 output = "라이브 시어터 업무표 ＞ [23] ＞ 이번 극은 씬 플레이어의 【배경】을 바탕으로 한 논픽션 드라마!\n特技 : 趣味分野からランダム"
 rands = [
@@ -116,7 +116,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CWT"
 output = "아이돌 부 업무표 ＞ [24] ＞ 메이드 카페를 하게 되었다. 파트너 플레이어의 「좋아하는 것」이 주된 메뉴다.\n特技 : 파트너 플레이어가 보유한 취미분야의특기"
 rands = [
@@ -125,7 +125,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CWT"
 output = "아이돌 부 업무표 ＞ [13] ＞ 교내 이벤트의 사회 진행을 하게 되었다. 잘 분위기를 북돋울 수 있을까?\n特技 : 《팝／속성9》"
 rands = [
@@ -134,7 +134,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD2"
 output = "パフォーマンス ＞ [1,4] ＞ 5"
 rands = [
@@ -143,7 +143,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD2"
 output = "パフォーマンス ＞ [3,3] ＞ 【ミラクル】10"
 rands = [
@@ -152,7 +152,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD3"
 output = "パフォーマンス ＞ [3,3,4] ＞ [4] ＞ 4"
 rands = [
@@ -162,7 +162,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD4"
 output = "パフォーマンス ＞ [2,4,5,5] ＞ [2,4] ＞ 6"
 rands = [
@@ -173,7 +173,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD4"
 output = "パフォーマンス ＞ [2,2,2,5] ＞ [5] ＞ 5"
 rands = [
@@ -184,7 +184,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD6"
 output = "パフォーマンス ＞ [1,1,3,3,5,6] ＞ [5,6] ＞ 11"
 rands = [
@@ -197,7 +197,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD6"
 output = "パフォーマンス ＞ [1,2,3,4,5,6] ＞ 【パーフェクトミラクル】30"
 rands = [
@@ -210,7 +210,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "AT"
 output = "特技リスト ＞ [2,7] ＞ 《플레인／속성7》"
 rands = [
@@ -220,7 +220,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "AT"
 output = "特技リスト ＞ [6,11] ＞ 《훗카이도／출신11》"
 rands = [
@@ -230,7 +230,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "AT5"
 output = "特技リスト(취미분야) ＞ [8] ＞ 《쇼핑／취미8》"
 rands = [
@@ -239,7 +239,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "DT"
 output = "의상(챌린지 걸즈) ＞ [34] ＞ Travel Bag\n막간에 자신의 【이해도】 체크 1개를 해제할 수 있다."
 rands = [
@@ -248,7 +248,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "DT"
 output = "의상(챌린지 걸즈) ＞ [13] ＞ 시즈쿠\n라이브페이즈 개시 시 【멘탈】이 5점 상승한다."
 rands = [
@@ -257,7 +257,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BT"
 output = "변조 ＞ [2] ＞ 「미묘한 거리감」　【이해도】가 상승하지 않게 된다."
 rands = [
@@ -265,7 +265,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SGT"
 output = "아이돌 스킬 습득표(챌린지 걸즈) ＞ [4] ＞ 랜덤으로 지정한 특기가 지정 특기인 아이돌 스킬(신장분야、속성분야、출신분야가 나올경우 재굴림)\n特技リスト ＞ [1,2] ＞ 《～125／신장2》 ＞ 振り直し\n特技リスト ＞ [2,2] ＞ 《에스닉／속성2》 ＞ 振り直し\n特技リスト ＞ [6,2] ＞ 《오키나와／출신2》 ＞ 振り直し\n特技リスト ＞ [4,2] ＞ 《중2병／캐릭터2》"
 rands = [
@@ -285,7 +285,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BST"
 output = "대형 예능 프로덕션 장소표 ＞ [3] ＞ 사내 풀"
 rands = [
@@ -293,7 +293,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LVT"
 output = "약소 예능 프로덕션 회장표 ＞ [1] ＞ 지방 축제"
 rands = [
@@ -301,7 +301,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "TPT"
 output = "라이브 시어터 프레셔 종류 결정표 ＞ [2] ＞ 라이브 시어터에서 일하는 스텝"
 rands = [
@@ -309,7 +309,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CIT"
 output = "아이돌 부 도구표 ＞ [4] ＞ 핸드 카메라"
 rands = [
@@ -317,7 +317,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CBT"
 output = "캐릭터공백표(챌린지 걸즈) ＞ [15] ＞ 경박함"
 rands = [
@@ -326,7 +326,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "HBT"
 output = "취미공백표(챌린지 걸즈) ＞ [24] ＞ 산책"
 rands = [
@@ -335,7 +335,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "3d6>=4"
 output = "(3D6>=4) ＞ 11[1,4,6] ＞ 11 ＞ 성공"
 rands = [
@@ -345,7 +345,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "3d6>=9"
 output = "(3D6>=9) ＞ 5[1,2,2] ＞ 5 ＞ 실패"
 rands = [
@@ -355,7 +355,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "3d6>=9"
 output = "(3D6>=9) ＞ 12[3,4,5] ＞ 12 ＞ 스페셜!(PC는 【추억】 1개 획득)"
 rands = [
@@ -365,7 +365,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "3d6>=9"
 output = "(3D6>=9) ＞ 13[4,4,5] ＞ 13 ＞ 스페셜!(PC는 【추억】 1개 획득)"
 rands = [
@@ -375,7 +375,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD3+2"
 output = "パフォーマンス ＞ [5,5,5]+2 ＞ 【ミラクル】12"
 rands = [
@@ -385,7 +385,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD3+0"
 output = "パフォーマンス ＞ [3,3,4] ＞ [4] ＞ 4"
 rands = [
@@ -395,7 +395,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD4-6"
 output = "パフォーマンス ＞ [2,2,2,5]-6 ＞ [5]-6 ＞ -1"
 rands = [
@@ -406,7 +406,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD6+3"
 output = "パフォーマンス ＞ [1,2,3,4,5,6]+3 ＞ 【パーフェクトミラクル】33"
 rands = [
@@ -419,7 +419,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "246PD2"
 output = "シンフォニー ＞ [1,5],[2,4,6] ＞ [1,2,4,5,6] ＞ 18"
 rands = [
@@ -428,7 +428,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "15PD3"
 output = "シンフォニー ＞ [1,5,5],[1,5] ＞ 【ミラクルシンクロ】15＋シンフォニーを行った人数"
 rands = [
@@ -438,7 +438,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "145PD3-4"
 output = "シンフォニー ＞ [1,4,5],[1,4,5]-4 ＞ 【ミラクルシンクロ】11＋シンフォニーを行った人数"
 rands = [
@@ -448,7 +448,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "67PD6"
 output = "シンフォニー ＞ [2,2,3,4,4,5],[6,7] ＞ [3,5,6,7] ＞ 21"
 rands = [
@@ -461,7 +461,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "75127PD3"
 output = "シンフォニー ＞ [3,4,6],[1,2,5,7,7] ＞ [1,2,3,4,5,6] ＞ 【パーフェクトミラクル】30"
 rands = [
@@ -471,7 +471,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "5213PD2+1"
 output = "シンフォニー ＞ [4,6],[1,2,3,5]+1 ＞ [1,2,3,4,5,6]+1 ＞ 【パーフェクトミラクル】31"
 rands = [
@@ -480,7 +480,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "75127PD3-0"
 output = "シンフォニー ＞ [3,4,6],[1,2,5,7,7] ＞ [1,2,3,4,5,6] ＞ 【パーフェクトミラクル】30"
 rands = [
@@ -490,7 +490,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "HW"
 output = "向かい風シーン表 ＞ [1] ＞ 誰もいない屋内。静寂が世界を包んでいる。嵐の前の静けさだ。"
 rands = [
@@ -498,7 +498,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LO"
 output = "로컬 아이돌 업무표 ＞ [13] ＞ 握手会をすることになった。遠方から自分たち目当てにやって来るお客さんも多数見える。チャンスが5以下なら오프。\n特技 : 《아이돌／취미12》"
 rands = [
@@ -507,7 +507,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LO3"
 output = "로컬 아이돌 업무표 ＞ [15] ＞ 오프"
 rands = [
@@ -516,7 +516,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LO5"
 output = "로컬 아이돌 업무표 ＞ [14] ＞ ミニコンサートが全国放送で小さく紹介される。ちょっとだけ、外見が注目されたみたいだ。\n特技 : 《스타일／재능3》"
 rands = [
@@ -525,7 +525,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SU"
 output = "정열의 여름 업무표 ＞ [46] ＞ 여름의 여행 프로그램. 여름에만 가능한 현지의 강점을 몇 가지 있을 것이다.\n特技 : 씬 플레이어가 보유한 출신분야의특기"
 rands = [
@@ -534,7 +534,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SU"
 output = "정열의 여름 업무표 ＞ [33] ＞ 오프"
 rands = [
@@ -543,7 +543,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "WI"
 output = "온기의 겨울 업무표 ＞ [45] ＞ 겨울의 음식 특집. 냄비요리를 만드는 방법을 가르칩니다.\n特技 : 《요리／취미6》"
 rands = [
@@ -552,7 +552,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "WI"
 output = "온기의 겨울 업무표 ＞ [14] ＞ 씁쓸한 실연을 테마로 한 커머셜 무비를 찍게 되었다. 쿨하게 가자.\n特技 : 《쿨／속성11》"
 rands = [
@@ -561,7 +561,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "NA"
 output = "대자연 업무표 ＞ [24] ＞ 숲에서 술래잡기를 하게 되었다. 상대의 움직임을 읽으면 이길 수 있다!\n特技 : 파트너 플레이어가 보유한 신장분야의특기"
 rands = [
@@ -570,7 +570,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "NA"
 output = "대자연 업무표 ＞ [56] ＞ 드럼통 욕조를 준비하자. ……뜨겁지만!\n特技 : 《버닝／속성10》"
 rands = [
@@ -579,7 +579,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "VA"
 output = "버라이어티 업무표 ＞ [24] ＞ 낚시 프로그램에 나오게 되었지만, 거물을 낚을 때까지는 돌아갈 수 없다고 한다. 그런데 움직임의 적은 낚시로 어떻게 눈에 띌까?\n特技 : 《캐릭터분야의 공백／캐릭터7》"
 rands = [
@@ -588,7 +588,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "VA"
 output = "버라이어티 업무표 ＞ [46] ＞ 시츄에이션 코너에 출현. 거창한 연기가 요구 된다.\n特技 : 《연기력／재능12》"
 rands = [
@@ -597,7 +597,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "MU"
 output = "음악 관련 업무표 ＞ [11] ＞ 오프"
 rands = [
@@ -606,7 +606,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "MU"
 output = "음악 관련 업무표 ＞ [34] ＞ 어린이용의 노래를 만들게 되었다. 시선을 아이에게 맞추지 않으면.\n特技 : 《～125／신장2》"
 rands = [
@@ -615,7 +615,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "DR"
 output = "드라마 관련 업무표 ＞ [24] ＞ 학원 드라마에 고뇌하는 학생 역으로 출연. 청춘인 것 같음을 어디까지 보여야?\n特技 : 《중2병／캐릭터2》"
 rands = [
@@ -624,7 +624,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "DR"
 output = "드라마 관련 업무표 ＞ [36] ＞ 파트너 플레이어의 [배경]을 재현한 미니 드라마를 찍는 것 같다. 그의 과거를 어떻게 표현할 것 인가.\n特技 : 파트너 플레이어가 보유한속성분야의특기"
 rands = [
@@ -633,7 +633,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "VI"
 output = "비주얼 관련 업무표 ＞ [56] ＞ 파트너 플레이어의 선전용 촬영의 코디를 하게 되었다. 그런데 어떻게 해야?\n特技 : 파트너 플레이어가 보유한 신장분야의특기"
 rands = [
@@ -642,7 +642,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "VI"
 output = "비주얼 관련 업무표 ＞ [14] ＞ 지방마다의 패션을 도입하는 패션 쇼가 개막. 출연하게 되었다.\n特技 : 出身分野からランダム"
 rands = [
@@ -651,7 +651,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SP"
 output = "스포츠 업무표 ＞ [16] ＞ 오프"
 rands = [
@@ -660,7 +660,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SP"
 output = "스포츠 업무표 ＞ [55] ＞ 近々開催される大会の応援団長を任された。出場する選手たちにエールを送ろう！\n特技 : 《건강／캐릭터8》"
 rands = [
@@ -669,7 +669,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CHR"
 output = "クリスマス 업무표 ＞ [34] ＞ トークバラエティのクリスマス特番に呼ばれて収録を始める。本日のテーマは、「恋」について。\n特技 : 《유순／캐릭터5》"
 rands = [
@@ -678,7 +678,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CHR"
 output = "クリスマス 업무표 ＞ [46] ＞ サンタクロースの格好をして、街でイベントをすることに。異国っぽさをうまく出せるかな？\n特技 : 《해외／출신12》"
 rands = [
@@ -687,7 +687,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PAR"
 output = "パートナー関係 업무표 ＞ [33] ＞ 파트너 플레이어의 개성특기に関する仕事がやって来る。合わせてみよう。\n特技 : 파트너 플레이어의 개성특기"
 rands = [
@@ -696,7 +696,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PAR"
 output = "パートナー関係 업무표 ＞ [45] ＞ 파트너 플레이어가 보유한 취미분야의특기に関する仕事がやって来る。\n特技 : 파트너 플레이어가 보유한 취미분야의특기"
 rands = [
@@ -705,7 +705,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LUR"
 output = "로컬 아이돌 엉망진창표 ＞ [2,4] ＞ マスコット캐릭터クターと水着で宣伝"
 rands = [
@@ -714,7 +714,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LUR"
 output = "로컬 아이돌 엉망진창표 ＞ [1,1] ＞ 地元の商店街で愛について叫ぶ"
 rands = [
@@ -723,7 +723,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SUR"
 output = "정열의 여름 엉망진창표 ＞ [3,2] ＞ 그 유명 아이돌의 앞에서헌팅"
 rands = [
@@ -732,7 +732,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SUR"
 output = "정열의 여름 엉망진창표 ＞ [6,1] ＞ 일반관객 앞에서빙수를 단번에 먹는다"
 rands = [
@@ -741,7 +741,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "WUR"
 output = "온기의 겨울 엉망진창표 ＞ [2,5] ＞ 아이들 앞에서산타 코스프레"
 rands = [
@@ -750,7 +750,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "WUR"
 output = "온기의 겨울 엉망진창표 ＞ [4,1] ＞ 눈 내리기 시작한 거리에서눈 치우기"
 rands = [
@@ -759,7 +759,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "NUR"
 output = "대자연 엉망진창표 ＞ [2,4] ＞ 괭이를 가지고거물을 낚시한다."
 rands = [
@@ -768,7 +768,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "NUR"
 output = "대자연 엉망진창표 ＞ [6,6] ＞ 생명 줄을 달고서벼랑을 오른다."
 rands = [
@@ -777,7 +777,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BT3"
 output = "변조 ＞ [3,3,3] ＞ 「유리의 마음」　PC의 펌블치가 1점 상승한다."
 rands = [
@@ -787,7 +787,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BT5"
 output = "변조 ＞ [1,1,4,4,5] ＞ 以下の3つが発生する。\n「불온한 공기」　PC의 【멘탈】이 감소할 때, 감소하는 수치가 1점 상승한다.\n「부상」　막간 때, 프로듀서는 「회상」만 실시할 수 있다.\n「믿지 못하는」　PC전원의 【이해도】를 1점 낮은 것으로 취급한다."
 rands = [
@@ -799,7 +799,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SGT"
 output = "아이돌 스킬 습득표(챌린지 걸즈) ＞ [1] ＞ 씬 플레이어가 보유한 재능분야의특기가 지정 특기인 아이돌 스킬"
 rands = [
@@ -807,7 +807,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "RS"
 output = "아이돌 스킬 습득표(로드 투 프린스) ＞ [5] ＞ 《멘탈 디펜스》《판정 업》《개성 업》중 어느 쪽이든 1개"
 rands = [
@@ -815,7 +815,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "RS"
 output = "아이돌 스킬 습득표(로드 투 프린스) ＞ [4] ＞ 랜덤으로 지정한 특기가 지정 특기인 아이돌 스킬(신장분야、재능분야、출신분야가 나올경우 재굴림)\n特技リスト ＞ [1,3] ＞ 《131／신장3》 ＞ 振り直し\n特技リスト ＞ [3,5] ＞ 《담력／재능5》 ＞ 振り直し\n特技リスト ＞ [1,5] ＞ 《141／신장5》 ＞ 振り直し\n特技リスト ＞ [4,2] ＞ 《중2병／캐릭터2》"
 rands = [
@@ -835,7 +835,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SH"
 output = "ショッピングモール散策表 ＞ [55] ＞ CDコーナーを探しているうちに、迷ってしまった。さて、ここはどこだろう？\n변조 ＞ [6] ＞ 「엇갈림」　PC는 아이템 사용과 리절트 페이즈에 「부탁」을 할 수 없게 된다."
 rands = [
@@ -845,7 +845,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SH"
 output = "ショッピングモール散策表 ＞ [22] ＞ 特売品を買い漁る。さて、使えるものかな？\nシーンプレイヤーとパートナープレイヤーは、アイテムをランダムに二つ獲得する。"
 rands = [
@@ -854,7 +854,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "MO"
 output = "山散策表 ＞ [26] ＞ 山奥にある神社まで登って、お祈りをする。無事にライブが成功しますように。\nシーンプレイヤーとパートナープレイヤーの【合宿ポイント】が5点上昇する。"
 rands = [
@@ -863,7 +863,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "MO"
 output = "山散策表 ＞ [22] ＞ 山で迷った。\n변조 ＞ [2,2] ＞ 「미묘한 거리감」　【이해도】가 상승하지 않게 된다."
 rands = [
@@ -874,7 +874,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SEA"
 output = "海散策表 ＞ [46] ＞ 水族館のイルカショーから、新しい技のヒントをもらう。\nシーンプレイヤーとパートナープレイヤーは、アイドルスキル修得表を使ってアイドルスキルを一つ修得する。"
 rands = [
@@ -883,7 +883,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SEA"
 output = "海散策表 ＞ [55] ＞ 海で遊んでいたら、溺れかける。\n변조 ＞ [1,3,4] ＞ 以下の3つが発生する。\n「불온한 공기」　PC의 【멘탈】이 감소할 때, 감소하는 수치가 1점 상승한다.\n「유리의 마음」　PC의 펌블치가 1점 상승한다.\n「부상」　막간 때, 프로듀서는 「회상」만 실시할 수 있다."
 rands = [
@@ -895,7 +895,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SPA"
 output = "温泉街散策表 ＞ [36] ＞ お風呂の後の牛乳もうまい！\nシーンプレイヤーとパートナープレイヤーは、アイテム「スナミナドリンク」を一つ獲得する。"
 rands = [
@@ -904,7 +904,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SPA"
 output = "温泉街散策表 ＞ [13] ＞ お土産屋さんで、色々なものを買い込む。しかし、これは役に立つのだろうか。\nシーンプレイヤーとパートナープレイヤーは、アイテムをランダムに一つ獲得する。"
 rands = [
@@ -913,7 +913,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "TN"
 output = "夜語りシチュエーション表 ＞ [4] ＞ 「嫌いなもの」から逃げてきて、二人きりになってしまった。\n特技リスト ＞ [6,8] ＞ 《간토／출신8》"
 rands = [
@@ -924,7 +924,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "TN"
 output = "夜語りシチュエーション表 ＞ [1] ＞ みんなが寝静まった寝室。二人だけのお話。\n特技 : 好きな特技"
 rands = [
@@ -932,7 +932,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CG"
 output = "コモン成長表 ＞ [6] ＞ 【獲得ファン人数】が3点上昇する。"
 rands = [
@@ -940,7 +940,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CG"
 output = "コモン成長表 ＞ [5] ＞ アイテムをランダムに一つ獲得する。\nアイテム ＞ [3] ＞ ドリーミングシューズ"
 rands = [
@@ -949,7 +949,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "GG"
 output = "ゴールド成長表 ＞ [25] ＞ レアアイドルスキル修得表を使ってアイドルスキルを一つ修得する。\nレアアイドルスキル修得表 ＞ [4] ＞ 【最強の負けず嫌い】を修得する。"
 rands = [
@@ -959,7 +959,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "GG"
 output = "ゴールド成長表 ＞ [56] ＞ アイテムをランダムに一つ獲得する。\nアイテム ＞ [4] ＞ 캐릭터アイテム"
 rands = [
@@ -969,7 +969,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "FL"
 output = "駆け出しシーン表 ＞ [2] ＞ いつものたまり場。なのに、今日に限って、騒がしさがどこかに行ってしまったようだ。"
 rands = [
@@ -977,7 +977,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LN"
 output = "孤独表 ＞ [2] ＞ 事件がきっかけで、事務所の空気が悪くなった。嫌な雰囲気。\n변조 ＞ [4,4,6] ＞ 以下の2つが発生する。\n「부상」　막간 때, 프로듀서는 「회상」만 실시할 수 있다.\n「엇갈림」　PC는 아이템 사용과 리절트 페이즈에 「부탁」을 할 수 없게 된다."
 rands = [
@@ -988,7 +988,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LN"
 output = "孤独表 ＞ [5] ＞ 誰も、話をしない。気まずさと静寂が場を包んだ。このままでは、会場の空気も悪くなる。\n【目標動員数】が二倍になる。"
 rands = [
@@ -996,7 +996,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "MS"
 output = "マイスキル名決定表 ＞ [1,形容表25,情景表36,マテリアル表55] ＞ ドキドキ＋ヒート＋キャンディ"
 rands = [
@@ -1010,7 +1010,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "MS"
 output = "マイスキル名決定表 ＞ [5,形容表23,情景表45,称号表1] ＞ 1000%もしくはぴかぴか＋アイドル＋PCの名前"
 rands = [
@@ -1023,7 +1023,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "MSE"
 output = "マイスキル効果表 ＞ [6] ＞ パフォーマンスのサイコロを振った後に使用する。サイコロ1つの出目を6にすることができる。この効果は、1回のセッションに1度まで使用できる。"
 rands = [
@@ -1031,7 +1031,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "ST"
 output = "演出表 ＞ [1] ＞ 見事なパフォーマンスに、人々が感動する。"
 rands = [
@@ -1039,7 +1039,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "FST"
 output = "ファンタジー演出表 ＞ [3] ＞ 炎の旋風が観客を燃え上がらせる。"
 rands = [
@@ -1047,7 +1047,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CHO"
 output = "하이라이트 표 ＞ [23] ＞ 정말로 좋아해 / MAX\nPC 전원의 【멘탈】이 1D6점 상승.。"
 rands = [
@@ -1056,7 +1056,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CHO"
 output = "하이라이트 표 ＞ [45] ＞ 파티다 / 돈으로도\nPC전원은, 아이템을 1개 랜덤에 획득한다."
 rands = [
@@ -1065,7 +1065,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SCH"
 output = "정열의 여름 하이라이트 표 ＞ [2] ＞ 뜨거운 거야!\n이 공연간에 PC전원의 스페셜치가 1점 감소."
 rands = [
@@ -1073,7 +1073,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "WCH"
 output = "온기의 겨울 하이라이트 표 ＞ [5] ＞ 눈보라가\n이 공연 간, 미라클의 【퍼포먼스치】가 10점 상승."
 rands = [
@@ -1081,7 +1081,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "NCH"
 output = "대자연 하이라이트 표 ＞ [1] ＞ 야생의\n전원 【멘탈】이 1D6점 상승."
 rands = [
@@ -1089,7 +1089,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "IT"
 output = "アイテム ＞ [5] ＞ お菓子"
 rands = [
@@ -1097,7 +1097,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "IT3"
 output = "アイテム ＞ [1,1,1] ＞ スタミナドリンク3つ"
 rands = [
@@ -1107,7 +1107,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "IT3"
 output = "アイテム ＞ [2,3,5] ＞ 「トレーニングウェア」と「ドリーミングシューズ」と「お菓子」"
 rands = [
@@ -1117,7 +1117,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "IT7"
 output = "アイテム ＞ [1,3,3,4,5,5,6] ＞ 「スタミナドリンク」1つと「ドリーミングシューズ」2つと「캐릭터アイテム」1つと「お菓子」2つと「差し入れ」1つ"
 rands = [
@@ -1131,7 +1131,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "RC"
 output = "의상(로드 투 프린스) ＞ [23] ＞ Chime\n미러클 ・ 미라클 싱크로 ・ 퍼펙트 미라클・ 퍼펙트 미라클 싱크로가 발생했을 때, 그 캐릭터는 랜덤으로 아이템 1개를 얻는다."
 rands = [
@@ -1140,7 +1140,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "RC"
 output = "의상(로드 투 프린스) ＞ [55] ＞ Halloween Magic\n후반PP로 【멘탈】이 감소할 때, 그 값을 4점 감소시킨다. (최저 0)"
 rands = [
@@ -1149,7 +1149,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "RCB"
 output = "캐릭터공백표(로드 투 프린스) ＞ [12] ＞ 본좌 (어르신)"
 rands = [
@@ -1158,7 +1158,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "RHB"
 output = "취미공백표(로드 투 프린스) ＞ [55] ＞ 곤충채집"
 rands = [
@@ -1167,7 +1167,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "RU"
 output = "マスコット暴走表 ＞ [3] ＞ マスコット캐릭터クターが行方不明！　프로듀서가 代わりに着ぐるみを着たけれども、負担が大きかった。\n変調「怪我」が発生する。"
 rands = [
@@ -1175,7 +1175,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "55C"
 output = "バーストタイム ＞ 55+[1,3,3,5,5,6] ＞ 78 ＞ 大成功\n【獲得ファン人数】が2D6点上昇する。\nPC全員が挑戦者ではない場合、自分以外のPCを一人指名する。指名されたPCは、新たな挑戦者として、【メンタル】を減少させずに「バーストタイム」を行う。"
 rands = [
@@ -1188,7 +1188,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "54C"
 output = "バーストタイム ＞ 54+[4,4,6,6,6] ＞ 80 ＞ Burst!\n「バースト表」を使用する。"
 rands = [
@@ -1200,7 +1200,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "48C"
 output = "バーストタイム ＞ 48+[5,6,6] ＞ 65 ＞ 成功\n【獲得ファン人数】が2D6点上昇する。"
 rands = [
@@ -1210,7 +1210,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "50C"
 output = "バーストタイム ＞ 50+[1,4,4,5] ＞ 64 ＞ 失敗"
 rands = [
@@ -1221,7 +1221,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BU"
 output = "バースト表 ＞ [2] ＞ 慌てて浴槽から出ようとしたが、足を滑らせて浴槽に落ちる。ウケたはいいが、とても熱い。\n【メンタル】が1D6点減少し、【獲得ファン人数】が3D6点上昇する。"
 rands = [
@@ -1229,7 +1229,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BVT"
 output = "대형 예능 프로덕션 회장표 ＞ [5] ＞ 쇼핑센터"
 rands = [
@@ -1237,7 +1237,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "TVT"
 output = "라이브 시어터 회장표 ＞ [4] ＞ 라이브 시어터"
 rands = [
@@ -1245,7 +1245,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CVT"
 output = "아이돌 부 회장표 ＞ [6] ＞ 学園アイドル大会"
 rands = [
@@ -1253,7 +1253,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LST"
 output = "약소 예능 프로덕션 장소표 ＞ [1] ＞ 급탕실"
 rands = [
@@ -1261,7 +1261,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "TST"
 output = "라이브 시어터 장소표 ＞ [3] ＞ 매점"
 rands = [
@@ -1269,7 +1269,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CST"
 output = "아이돌 부 장소표 ＞ [2] ＞ 음악실"
 rands = [
@@ -1277,7 +1277,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BPT"
 output = "대형 예능 프로덕션 프레셔 종류 결정표 ＞ [1] ＞ 선배 아이돌의 기대"
 rands = [
@@ -1285,7 +1285,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LPT"
 output = "약소 예능 프로덕션 프레셔 종류 결정표 ＞ [5] ＞ 신곡을 제공한 뮤지션"
 rands = [
@@ -1293,7 +1293,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "CPT"
 output = "아이돌 부 프레셔 종류 결정표 ＞ [4] ＞ PC의 부모"
 rands = [
@@ -1301,7 +1301,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BIT"
 output = "대형 예능 프로덕션 도구표 ＞ [6] ＞ 대본"
 rands = [
@@ -1309,7 +1309,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LIT"
 output = "약소 예능 프로덕션 도구표 ＞ [2] ＞ 냉장고"
 rands = [
@@ -1317,7 +1317,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "TIT"
 output = "라이브 시어터 도구표 ＞ [1] ＞ 무대의 조명"
 rands = [
@@ -1325,7 +1325,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BWt"
 output = "대형 예능 프로덕션 업무표 ＞ [26] ＞ 프로덕션의 초대형 중진이 출연하는 프로그램에 불린다.\n特技 : 《담력／재능5》"
 rands = [
@@ -1334,7 +1334,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "lO"
 output = "로컬 아이돌 업무표 ＞ [13] ＞ 握手会をすることになった。遠方から自分たち目当てにやって来るお客さんも多数見える。チャンスが5以下なら오프。\n特技 : 《아이돌／취미12》"
 rands = [
@@ -1343,7 +1343,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "dr"
 output = "드라마 관련 업무표 ＞ [24] ＞ 학원 드라마에 고뇌하는 학생 역으로 출연. 청춘인 것 같음을 어디까지 보여야?\n特技 : 《중2병／캐릭터2》"
 rands = [
@@ -1352,7 +1352,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD"
 output = ""
 rands = [
@@ -1375,7 +1375,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD0"
 output = ""
 rands = [
@@ -1398,7 +1398,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "1PD"
 output = ""
 rands = [
@@ -1421,7 +1421,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD3+"
 output = ""
 rands = [
@@ -1444,7 +1444,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD4-"
 output = ""
 rands = [
@@ -1467,7 +1467,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "1PD1+"
 output = ""
 rands = [
@@ -1490,7 +1490,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "12PD2-"
 output = ""
 rands = [
@@ -1513,7 +1513,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "8PD6"
 output = ""
 rands = [
@@ -1536,7 +1536,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "8PD6+1"
 output = ""
 rands = [
@@ -1559,7 +1559,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "8PD6-1"
 output = ""
 rands = [
@@ -1582,7 +1582,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "PD6+-"
 output = ""
 rands = [
@@ -1605,7 +1605,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "34PD5+-"
 output = ""
 rands = [
@@ -1628,7 +1628,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "LO100"
 output = ""
 rands = [
@@ -1651,7 +1651,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "AT0"
 output = ""
 rands = [
@@ -1674,7 +1674,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "AT7"
 output = ""
 rands = [
@@ -1697,7 +1697,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BT0"
 output = ""
 rands = [
@@ -1720,7 +1720,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "IT0"
 output = ""
 rands = [
@@ -1743,7 +1743,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "44C"
 output = ""
 rands = [
@@ -1766,7 +1766,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "56C"
 output = ""
 rands = [
@@ -1789,7 +1789,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SPA1"
 output = ""
 rands = [
@@ -1812,7 +1812,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "9GG"
 output = ""
 rands = [
@@ -1835,7 +1835,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "WURR"
 output = ""
 rands = [
@@ -1858,7 +1858,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "TRS"
 output = ""
 rands = [
@@ -1881,7 +1881,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "GA"
 output = "聖デトワール女学園仕事表 ＞ [66] ＞ 裏山を使った簡単なPV撮影！　山での撮影は体力が要求される。\n特技 : 《体力／才能6》"
 rands = [
@@ -1890,7 +1890,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BA"
 output = "アカデミー仕事表 ＞ [24] ＞ アカデミーが製作しているドラマに出演。脇役だけど、しっかりと存在感を出していこう。\n特技 : 《演技力／才能12》"
 rands = [
@@ -1899,7 +1899,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SW"
 output = "お菓子仕事表 ＞ [45] ＞ 料理番組で、市販のお菓子を使った新しいおやつの開発を任される。\n特技 : 《料理／趣味6》"
 rands = [
@@ -1908,7 +1908,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "AN"
 output = "動物仕事表 ＞ [15] ＞ オフ"
 rands = [
@@ -1917,7 +1917,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "MOV"
 output = "映画仕事表 ＞ [23] ＞ 時代劇映画にサムライ役で出演。厚い忠義を見せよう。\n特技 : 《硬派／キャラ9》"
 rands = [
@@ -1926,7 +1926,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "FA"
 output = "ファンタジー仕事表 ＞ [12] ＞ オフ"
 rands = [
@@ -1935,7 +1935,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "HA"
 output = "ハプニング表 ＞ [22] ＞ パートナープレイヤーに、地方からオファーが来た。その土地独特の文化を学んで、パートナープレイヤーに伝えよう。\n特技リスト(출신분야) ＞ [10] ＞ 《도호쿠／출신10》"
 rands = [
@@ -1946,7 +1946,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "ACT"
 output = "アクセサリー種別決定表 ＞ [1] ＞ 頭アクセサリー表を使用する。\n頭アクセサリー表 ＞ [34] ＞ イヤリング"
 rands = [
@@ -1956,7 +1956,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "ACT"
 output = "アクセサリー種別決定表 ＞ [2] ＞ 帽子アクセサリー表を使用する。\n帽子アクセサリー表 ＞ [36] ＞ キャップ"
 rands = [
@@ -1966,7 +1966,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "ACT"
 output = "アクセサリー種別決定表 ＞ [3] ＞ 胴アクセサリー表を使用する。\n胴アクセサリー表 ＞ [12] ＞ カウベル"
 rands = [
@@ -1976,7 +1976,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "ACT"
 output = "アクセサリー種別決定表 ＞ [4] ＞ 腕アクセサリー表を使用する。\n腕アクセサリー表 ＞ [46] ＞ ゴールドアクセサリー"
 rands = [
@@ -1986,7 +1986,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "ACT"
 output = "アクセサリー種別決定表 ＞ [5] ＞ 足アクセサリー表を使用する。\n足アクセサリー表 ＞ [15] ＞ アンクル"
 rands = [
@@ -1996,7 +1996,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "ACT"
 output = "アクセサリー種別決定表 ＞ [6] ＞ その他アクセサリー表を使用する。\nその他アクセサリー表 ＞ [35] ＞ 大きなリボン"
 rands = [
@@ -2006,7 +2006,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "ACB"
 output = "アクセサリーブランド決定表 ＞ [2] ＞ 『챌린지 걸즈』の衣装ブランドからランダムに決定する。\n의상(챌린지 걸즈) ＞ [36] ＞ Sweet Girl"
 rands = [
@@ -2016,7 +2016,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "ACB"
 output = "アクセサリーブランド決定表 ＞ [4] ＞ 『로드 투 프린스』の衣装ブランドからランダムに決定する。\n의상(로드 투 프린스) ＞ [15] ＞ Starlight TourS"
 rands = [
@@ -2026,7 +2026,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "ACB"
 output = "アクセサリーブランド決定表 ＞ [5] ＞ 『フォーチュンスターズ』の衣装ブランドからランダムに決定する。\n의상(フォーチュンスターズ) ＞ [34] ＞ ネイキッドチャレンジ"
 rands = [
@@ -2036,7 +2036,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "ACE"
 output = "アクセサリー効果表 ＞ [15] ＞ このアクセサリーを装備したとき、【メンタル】が5点上昇する。この効果は、1回のセッションに1度まで使用できる。"
 rands = [
@@ -2045,7 +2045,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "FC"
 output = "의상(フォーチュンスターズ) ＞ [44] ＞ Rescue Power\n演目の判定でファンブルが発生した場合、好きな能力値でパフォーマンスを行うことができる。"
 rands = [
@@ -2054,7 +2054,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "GUR"
 output = "聖デトワール女学園無茶ぶり表 ＞ [2,3] ＞ 食堂でテニス"
 rands = [
@@ -2063,7 +2063,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "BUR"
 output = "アカデミー無茶ぶり表 ＞ [6,2] ＞ 初等部でゲリラライブ"
 rands = [
@@ -2072,7 +2072,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "1A+2"
 output = "攻撃 ＞ [3]+2 ＞ 5ダメージ"
 rands = [
@@ -2080,7 +2080,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "2SA"
 output = "攻撃 ＞ [1,1] ＞ 2ダメージ"
 rands = [
@@ -2089,7 +2089,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "2A1-3"
 output = "攻撃 ＞ [1,1]-3 ＞ 0ダメージ"
 rands = [
@@ -2098,7 +2098,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "3A2"
 output = "攻撃 ＞ [2,2,2] ＞ 0ダメージ"
 rands = [
@@ -2108,7 +2108,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "4A34"
 output = "攻撃 ＞ [2,2,3,4] ＞ [2,2] ＞ 失敗"
 rands = [
@@ -2119,7 +2119,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "4A61"
 output = "攻撃 ＞ [1,2,3,6] ＞ [2,3] ＞ 5ダメージ"
 rands = [
@@ -2130,7 +2130,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "5A5"
 output = "攻撃 ＞ [1,2,3,4,6] ＞ 16ダメージ"
 rands = [
@@ -2142,7 +2142,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "8A"
 output = "攻撃 ＞ [1,2,3,3,3,4,5,6] ＞ 失敗"
 rands = [
@@ -2157,7 +2157,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "SIP"
 output = "かんたんパーソン表 ＞ [1] ＞ テレビ番組に出て、ライブの宣伝をする。"
 rands = [
@@ -2165,7 +2165,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "BeginningIdol_Korean"
+game_system = "BeginningIdol:Korean"
 input = "3D6>=? 目標値?でバグらない"
 output = "(3D6>=?) ＞ 9[3,3,3] ＞ 9 ＞ 失敗"
 rands = [

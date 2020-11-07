@@ -1,5 +1,5 @@
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1D10>=5"
 output = "(1D10>=5) ＞ 9 ＞ 성공"
 rands = [
@@ -7,7 +7,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1D10>=5"
 output = "(1D10>=5) ＞ 6 ＞ 성공"
 rands = [
@@ -15,7 +15,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1D10>=5"
 output = "(1D10>=5) ＞ 5 ＞ 성공"
 rands = [
@@ -23,7 +23,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1D10>=5"
 output = "(1D10>=5) ＞ 2 ＞ 실패"
 rands = [
@@ -31,7 +31,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1D10>=5"
 output = "(1D10>=5) ＞ 9 ＞ 성공"
 rands = [
@@ -39,7 +39,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1D10>=5"
 output = "(1D10>=5) ＞ 3 ＞ 실패"
 rands = [
@@ -47,7 +47,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1D10>=5"
 output = "(1D10>=5) ＞ 7 ＞ 성공"
 rands = [
@@ -55,7 +55,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1D10>=5"
 output = "(1D10>=5) ＞ 9 ＞ 성공"
 rands = [
@@ -63,7 +63,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1D10>=5"
 output = "(1D10>=5) ＞ 9 ＞ 성공"
 rands = [
@@ -71,7 +71,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1D10>=5"
 output = "(1D10>=5) ＞ 6 ＞ 성공"
 rands = [
@@ -79,7 +79,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3D10>=15"
 output = "(3D10>=15) ＞ 13[1,6,6] ＞ 13 ＞ 실패"
 rands = [
@@ -89,7 +89,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3D10>=15"
 output = "(3D10>=15) ＞ 17[5,3,9] ＞ 17 ＞ 성공"
 rands = [
@@ -99,7 +99,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3D10>=15"
 output = "(3D10>=15) ＞ 15[6,2,7] ＞ 15 ＞ 성공"
 rands = [
@@ -109,7 +109,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3D10>=15"
 output = "(3D10>=15) ＞ 11[1,7,3] ＞ 11 ＞ 실패"
 rands = [
@@ -119,7 +119,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3D10>=15"
 output = "(3D10>=15) ＞ 11[3,7,1] ＞ 11 ＞ 실패"
 rands = [
@@ -129,7 +129,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3D10>=15"
 output = "(3D10>=15) ＞ 9[3,4,2] ＞ 9 ＞ 실패"
 rands = [
@@ -139,7 +139,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3D10>=15"
 output = "(3D10>=15) ＞ 12[6,5,1] ＞ 12 ＞ 실패"
 rands = [
@@ -149,7 +149,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3D10>=15"
 output = "(3D10>=15) ＞ 14[3,5,6] ＞ 14 ＞ 실패"
 rands = [
@@ -159,7 +159,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3D10>=15"
 output = "(3D10>=15) ＞ 9[3,5,1] ＞ 9 ＞ 실패"
 rands = [
@@ -169,7 +169,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3D10>=15"
 output = "(3D10>=15) ＞ 22[7,9,6] ＞ 22 ＞ 성공"
 rands = [
@@ -179,7 +179,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 45[5,9,5,6,10,2,2,1,3,2] ＞ 45 ＞ 실패"
 rands = [
@@ -196,7 +196,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 70[1,10,4,10,10,6,9,4,9,7] ＞ 70 ＞ 성공"
 rands = [
@@ -213,7 +213,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 40[4,1,5,3,6,9,5,1,4,2] ＞ 40 ＞ 실패"
 rands = [
@@ -230,7 +230,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 62[9,9,2,3,9,9,8,4,3,6] ＞ 62 ＞ 성공"
 rands = [
@@ -247,7 +247,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 45[8,3,2,3,6,2,2,6,9,4] ＞ 45 ＞ 실패"
 rands = [
@@ -264,7 +264,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 58[2,4,10,6,4,7,6,5,6,8] ＞ 58 ＞ 성공"
 rands = [
@@ -281,7 +281,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 60[2,4,5,7,10,10,10,2,8,2] ＞ 60 ＞ 성공"
 rands = [
@@ -298,7 +298,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 50[4,8,4,7,7,2,4,8,4,2] ＞ 50 ＞ 성공"
 rands = [
@@ -315,7 +315,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 51[4,9,5,1,9,2,7,4,1,9] ＞ 51 ＞ 성공"
 rands = [
@@ -332,7 +332,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 37[6,1,4,9,2,3,3,2,6,1] ＞ 37 ＞ 실패"
 rands = [
@@ -349,7 +349,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx"
 output = "(10DX10) ＞ 10[1,1,4,5,5,8,9,10,10,10]+6[4,5,6] ＞ 16"
 rands = [
@@ -369,7 +369,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx"
 output = "(10DX10) ＞ 10[1,1,3,4,4,7,9,10,10,10]+10[2,5,10]+5[5] ＞ 25"
 rands = [
@@ -390,7 +390,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx"
 output = "(10DX10) ＞ 10[3,4,4,4,5,5,8,9,10,10]+8[1,8] ＞ 18"
 rands = [
@@ -409,7 +409,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx"
 output = "(10DX10) ＞ 10[1,1,4,4,7,7,8,8,10,10]+10[4,10]+2[2] ＞ 22"
 rands = [
@@ -429,7 +429,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx"
 output = "(10DX10) ＞ 10[1,1,1,7,8,8,9,10,10,10]+10[4,4,10]+2[2] ＞ 22"
 rands = [
@@ -450,7 +450,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx"
 output = "(10DX10) ＞ 10[2,3,3,4,5,5,5,5,6,10]+3[3] ＞ 13"
 rands = [
@@ -468,7 +468,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx"
 output = "(10DX10) ＞ 10[1,5,5,5,5,6,6,7,8,10]+9[9] ＞ 19"
 rands = [
@@ -486,7 +486,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx"
 output = "(10DX10) ＞ 10[1,1,4,5,7,7,8,8,9,10]+5[5] ＞ 15"
 rands = [
@@ -504,7 +504,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx"
 output = "(10DX10) ＞ 10[3,3,4,4,4,6,8,9,10,10]+9[1,9] ＞ 19"
 rands = [
@@ -523,7 +523,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx"
 output = "(10DX10) ＞ 9[1,2,3,4,6,6,7,8,8,9] ＞ 9"
 rands = [
@@ -540,7 +540,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+5@8"
 output = "(10DX8+5) ＞ 10[2,3,6,6,6,6,7,8,10,10]+6[1,5,6]+5 ＞ 21"
 rands = [
@@ -560,7 +560,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+5@8"
 output = "(10DX8+5) ＞ 10[1,1,1,2,3,3,7,7,8,9]+10[7,9]+4[4]+5 ＞ 29"
 rands = [
@@ -580,7 +580,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+5@8"
 output = "(10DX8+5) ＞ 10[1,1,2,2,4,5,6,7,7,8]+10[10]+7[7]+5 ＞ 32"
 rands = [
@@ -599,7 +599,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+5@8"
 output = "(10DX8+5) ＞ 10[2,2,3,4,5,6,7,8,9,9]+10[6,7,9]+10[8]+10[10]+3[3]+5 ＞ 48"
 rands = [
@@ -622,7 +622,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+5@8"
 output = "(10DX8+5) ＞ 10[3,4,4,5,6,6,7,7,10,10]+10[5,10]+2[2]+5 ＞ 27"
 rands = [
@@ -642,7 +642,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+5@8"
 output = "(10DX8+5) ＞ 10[2,2,2,2,4,5,7,7,8,9]+10[10,10]+10[8,9]+10[1,10]+5[5]+5 ＞ 50"
 rands = [
@@ -666,7 +666,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+5@8"
 output = "(10DX8+5) ＞ 10[1,1,1,2,4,6,6,8,8,10]+10[4,9,9]+7[4,7]+5 ＞ 32"
 rands = [
@@ -688,7 +688,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+5@8"
 output = "(10DX8+5) ＞ 10[1,1,2,4,4,5,5,8,10,10]+10[1,2,8]+10[8]+4[4]+5 ＞ 39"
 rands = [
@@ -710,7 +710,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+5@8"
 output = "(10DX8+5) ＞ 10[1,2,2,2,2,4,5,6,7,8]+2[2]+5 ＞ 17"
 rands = [
@@ -728,7 +728,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+5@8"
 output = "(10DX8+5) ＞ 10[1,3,4,4,4,5,7,8,9,10]+10[4,5,8]+4[4]+5 ＞ 29"
 rands = [
@@ -749,7 +749,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3"
 output = "(5DX7+4) ＞ 10[5,6,6,7,8]+10[1,9]+5[5]+4 ＞ 29"
 rands = [
@@ -764,7 +764,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3"
 output = "(5DX7+4) ＞ 10[2,2,9,10,10]+10[6,9,9]+6[3,6]+4 ＞ 30"
 rands = [
@@ -781,7 +781,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3"
 output = "(5DX7+4) ＞ 10[3,4,5,5,9]+4[4]+4 ＞ 18"
 rands = [
@@ -794,7 +794,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3"
 output = "(5DX7+4) ＞ 10[5,6,6,8,10]+10[3,9]+1[1]+4 ＞ 25"
 rands = [
@@ -809,7 +809,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3"
 output = "(5DX7+4) ＞ 10[4,4,6,9,10]+3[3,3]+4 ＞ 17"
 rands = [
@@ -823,7 +823,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3"
 output = "(5DX7+4) ＞ 6[2,4,5,5,6]+4 ＞ 10"
 rands = [
@@ -835,7 +835,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3"
 output = "(5DX7+4) ＞ 10[1,1,2,6,7]+10[8]+10[7]+1[1]+4 ＞ 35"
 rands = [
@@ -850,7 +850,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3"
 output = "(5DX7+4) ＞ 10[3,6,8,8,10]+10[2,5,9]+6[6]+4 ＞ 30"
 rands = [
@@ -866,7 +866,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3"
 output = "(5DX7+4) ＞ 10[2,4,4,5,10]+4[4]+4 ＞ 18"
 rands = [
@@ -879,7 +879,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3"
 output = "(5DX7+4) ＞ 10[2,3,3,4,10]+6[6]+4 ＞ 20"
 rands = [
@@ -892,7 +892,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "7DX@2"
 output = "(7DX2) ＞ 10[1,2,5,5,5,10,10]+10[2,3,7,7,8,9]+10[1,2,2,3,4,8]+10[3,4,4,7,7]+10[2,5,7,7,8]+10[1,6,7,8,9]+10[1,2,3,8]+10[2,3,5]+10[5,6,8]+10[6,8,10]+10[1,5,9]+10[3,4]+10[1,5]+10[5]+10[9]+10[3]+10[10]+10[5]+10[7]+10[7]+10[6]+10[5]+10[7]+10[3]+1[1] ＞ 241"
 rands = [
@@ -965,7 +965,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "7DX@2"
 output = "(7DX2) ＞ 10[1,3,3,4,6,8,9]+10[4,5,5,7,7,9]+10[2,2,6,8,9,10]+10[1,2,2,4,6,8]+10[1,3,3,7,8]+10[2,6,7,8]+10[2,2,8,9]+10[3,5,6,7]+10[1,5,5,9]+10[1,1,5]+10[9]+10[6]+10[2]+10[10]+10[6]+10[6]+10[4]+10[2]+10[4]+10[2]+10[3]+10[4]+10[8]+10[4]+10[4]+1[1] ＞ 251"
 rands = [
@@ -1037,7 +1037,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "7DX@2"
 output = "(7DX2) ＞ 10[2,3,3,4,6,7,8]+10[1,1,2,3,3,6,10]+10[1,2,6,10,10]+10[1,7,7,9]+10[3,5,7]+10[1,6,10]+10[6,9]+10[8,8]+10[8,9]+10[1,10]+10[3]+10[7]+10[8]+10[9]+10[2]+10[4]+10[8]+10[3]+10[10]+10[2]+10[8]+10[9]+10[4]+10[7]+10[8]+1[1] ＞ 251"
 rands = [
@@ -1097,7 +1097,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "7DX@2"
 output = "(7DX2) ＞ 10[2,3,5,7,9,9,10]+10[5,6,6,6,8,9,9]+10[2,2,6,7,7,7,10]+10[3,4,4,6,8,8,9]+10[3,6,6,7,7,8,9]+10[2,3,4,6,6,9,9]+10[2,3,3,5,5,5,5]+10[4,4,5,6,7,8,10]+10[1,1,3,3,4,5,6]+10[3,4,4,9,10]+10[2,4,4,7,10]+10[2,3,3,6,8]+10[3,4,7,8,8]+10[1,2,4,7,7]+10[1,2,3,10]+10[4,7,7]+10[2,3,7]+10[2,6,10]+10[1,2,10]+10[2,5]+10[4,8]+10[1,8]+10[3]+10[5]+1[1] ＞ 241"
 rands = [
@@ -1217,7 +1217,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "7DX@2"
 output = "(7DX2) ＞ 10[3,4,5,6,6,9,10]+10[2,2,4,5,8,8,9]+10[1,2,3,8,8,9,10]+10[4,4,5,8,9,10]+10[5,6,6,9,9,10]+10[3,3,5,5,6,8]+10[1,2,7,9,10,10]+10[1,1,2,4,7]+10[4,6,7]+10[4,7,8]+10[5,7,9]+10[3,5,8]+10[1,9,10]+10[2,4]+10[1,9]+10[2]+10[4]+10[4]+10[6]+10[4]+10[9]+10[3]+1[1] ＞ 221"
 rands = [
@@ -1301,7 +1301,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "7DX@2"
 output = "(7DX2) ＞ 10[1,1,5,5,6,7,7]+10[1,4,8,9,9]+10[1,2,6,10]+10[2,6,7]+10[2,6,6]+10[2,4,10]+10[3,8,10]+10[7,9,9]+10[1,4,5]+10[6,9]+10[4,6]+10[1,3]+10[10]+10[3]+10[2]+10[9]+10[10]+10[2]+10[8]+10[8]+10[6]+1[1] ＞ 211"
 rands = [
@@ -1358,7 +1358,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "7DX@2"
 output = "(7DX2) ＞ 10[2,3,7,8,9,9,9]+10[2,3,3,4,4,8,10]+10[1,1,3,5,7,7,9]+10[1,2,4,6,8]+10[5,5,7,10]+10[2,2,5,6]+10[2,4,8,10]+10[1,3,6,10]+10[1,1,7]+1[1] ＞ 91"
 rands = [
@@ -1411,7 +1411,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "7DX@2"
 output = "(7DX2) ＞ 10[1,3,4,4,5,5,10]+10[1,2,2,4,6,6]+10[2,6,7,8,9]+10[3,4,7,8,8]+10[1,2,5,8,9]+10[1,1,3,7]+10[4,7]+10[5,7]+10[5,9]+10[5,9]+10[1,5]+10[2]+10[8]+10[8]+10[3]+10[5]+10[6]+10[6]+10[2]+10[4]+10[10]+10[4]+10[4]+10[8]+10[7]+10[2]+10[4]+1[1] ＞ 271"
 rands = [
@@ -1477,7 +1477,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "7DX@2"
 output = "(7DX2) ＞ 10[1,1,2,2,6,6,8]+10[1,3,6,7,8]+10[3,5,6,8]+10[5,7,8,10]+10[3,5,5,7]+10[2,6,7,9]+10[1,2,9,10]+10[2,7,8]+10[5,6,6]+10[2,4,4]+10[1,6,10]+10[5,7]+10[4,5]+10[7,9]+10[5,7]+10[5,6]+10[5,7]+10[1,10]+10[10]+10[3]+10[7]+10[3]+10[7]+10[7]+10[5]+10[10]+10[3]+10[2]+10[2]+10[9]+10[9]+10[2]+10[4]+10[6]+10[7]+10[5]+10[4]+10[5]+10[3]+10[2]+10[9]+10[7]+10[6]+10[10]+10[2]+10[2]+10[3]+10[3]+10[6]+10[9]+10[10]+10[6]+10[10]+10[2]+10[6]+10[4]+10[10]+10[5]+10[3]+10[3]+10[3]+10[5]+10[8]+10[3]+10[9]+10[8]+10[2]+10[7]+10[3]+10[9]+10[10]+10[2]+10[9]+10[6]+10[8]+10[7]+10[2]+10[9]+10[6]+10[8]+10[5]+10[6]+10[10]+10[3]+10[7]+10[6]+10[7]+10[10]+10[7]+10[2]+10[4]+10[8]+10[8]+10[3]+10[9]+10[8]+10[8]+10[10]+10[2]+10[5]+10[6]+10[5]+10[6]+10[10]+1[1] ＞ 1041"
 rands = [
@@ -1629,7 +1629,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "7DX@2"
 output = "(7DX2) ＞ 10[1,2,3,4,5,6,9]+10[6,7,7,7,8,9]+10[1,2,4,5,6,10]+10[2,2,3,3,5]+10[2,3,5,9,10]+10[5,5,5,8,10]+10[1,1,2,6,8]+10[3,3,8]+10[3,5,10]+10[3,9,10]+10[2,3,7]+10[6,6,9]+10[2,2,6]+10[2,4,5]+10[3,3,5]+10[6,7,10]+10[3,5,6]+10[3,4,9]+10[2,5,6]+10[1,5,10]+10[5,6]+10[2,10]+10[2,6]+10[7,9]+10[9,10]+10[1,3]+10[4]+10[9]+10[2]+10[5]+10[2]+10[5]+10[7]+10[4]+10[5]+10[5]+1[1] ＞ 361"
 rands = [
@@ -1737,7 +1737,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5"
 output = "(3DX5) ＞ 10[8,9,9]+10[2,8,10]+10[4,10]+3[3] ＞ 33"
 rands = [
@@ -1753,7 +1753,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5"
 output = "(3DX5) ＞ 10[2,4,7]+10[10]+4[4] ＞ 24"
 rands = [
@@ -1765,7 +1765,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5"
 output = "(3DX5) ＞ 10[1,3,5]+2[2] ＞ 12"
 rands = [
@@ -1776,7 +1776,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5"
 output = "(3DX5) ＞ 10[2,3,6]+10[5]+10[6]+10[9]+1[1] ＞ 41"
 rands = [
@@ -1790,7 +1790,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5"
 output = "(3DX5) ＞ 10[2,4,8]+10[6]+10[8]+10[10]+10[9]+1[1] ＞ 51"
 rands = [
@@ -1805,7 +1805,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5"
 output = "(3DX5) ＞ 10[3,7,7]+10[2,10]+10[5]+10[5]+10[8]+3[3] ＞ 53"
 rands = [
@@ -1821,7 +1821,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5"
 output = "(3DX5) ＞ 10[1,8,9]+10[8,9]+10[4,8]+10[6]+4[4] ＞ 44"
 rands = [
@@ -1837,7 +1837,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5"
 output = "(3DX5) ＞ 10[2,9,10]+3[1,3] ＞ 13"
 rands = [
@@ -1849,7 +1849,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5"
 output = "(3DX5) ＞ 10[6,6,9]+10[2,8,8]+4[1,4] ＞ 24"
 rands = [
@@ -1864,7 +1864,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5"
 output = "(3DX5) ＞ 10[2,8,9]+10[3,6]+10[5]+10[6]+10[7]+10[5]+10[5]+10[6]+10[6]+10[8]+2[2] ＞ 102"
 rands = [
@@ -1885,7 +1885,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5"
 output = "(3DX5) ＞ 1[1,1,1] ＞ 0 (펌블)"
 rands = [
@@ -1895,7 +1895,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX+1@5"
 output = "(3DX5+1) ＞ 1[1,1,1]+1 ＞ 0 (펌블)"
 rands = [
@@ -1905,7 +1905,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5>=12"
 output = "(3DX5>=12) ＞ 10[2,9,10]+3[1,3] ＞ 13 ＞ 성공"
 rands = [
@@ -1917,7 +1917,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5>=13"
 output = "(3DX5>=13) ＞ 10[2,9,10]+3[1,3] ＞ 13 ＞ 성공"
 rands = [
@@ -1929,7 +1929,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5>=14"
 output = "(3DX5>=14) ＞ 10[2,9,10]+3[1,3] ＞ 13 ＞ 실패"
 rands = [
@@ -1941,7 +1941,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5>=14"
 output = "(3DX5>=14) ＞ 1[1,1,1] ＞ 0 (펌블) ＞ 실패"
 rands = [
@@ -1951,7 +1951,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX+1@5>=14"
 output = "(3DX5+1>=14) ＞ 1[1,1,1]+1 ＞ 0 (펌블) ＞ 실패"
 rands = [
@@ -1961,7 +1961,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "3DX@5>=0"
 output = "(3DX5>=0) ＞ 1[1,1,1] ＞ 0 (펌블) ＞ 실패"
 rands = [
@@ -1971,19 +1971,19 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "0DX@2"
 output = "(0DX2) ＞ 자동실패"
 rands = []
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1DX@1"
 output = "(1DX1) ＞ 크리티컬치가 너무 낮습니다. 2 이상을 지정해주세요."
 rands = []
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1DX@2"
 output = "(1DX2) ＞ 10[2]+1[1] ＞ 11"
 rands = [
@@ -1992,7 +1992,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1DX@9"
 output = "(1DX9) ＞ 10[10]+10[9]+8[8] ＞ 28"
 rands = [
@@ -2002,7 +2002,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1DX@10"
 output = "(1DX10) ＞ 10[10]+9[9] ＞ 19"
 rands = [
@@ -2011,7 +2011,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "1DX"
 output = "(1DX10) ＞ 10[10]+9[9] ＞ 19"
 rands = [
@@ -2020,13 +2020,13 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10DX@1XXX"
 output = ""
 rands = []
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "ET"
 output = "감정표(69-7) ＞ 신뢰 - ○위협"
 rands = [
@@ -2036,7 +2036,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "ET"
 output = "감정표(51-33) ＞ 유지(遺志) - ○열등감"
 rands = [
@@ -2046,7 +2046,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "ET"
 output = "감정표(54-70) ＞ ○유지(遺志) - 혐오"
 rands = [
@@ -2056,7 +2056,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "ET"
 output = "감정표(89-10) ＞ ○호의 - 위협"
 rands = [
@@ -2066,7 +2066,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "ET"
 output = "감정표(70-79) ＞ ○신뢰 - 싫음"
 rands = [
@@ -2076,7 +2076,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "ET"
 output = "감정표(91-9) ＞ 유위(有為) - ○위협"
 rands = [
@@ -2086,7 +2086,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "ET"
 output = "감정표(39-15) ＞ 우정 - ○질투"
 rands = [
@@ -2096,7 +2096,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "ET"
 output = "감정표(91-72) ＞ 유위(有為) - ○시의심"
 rands = [
@@ -2106,7 +2106,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "ET"
 output = "감정표(66-57) ＞ ○신뢰 - 증오"
 rands = [
@@ -2116,7 +2116,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "ET"
 output = "감정표(82-21) ＞ ○성의 - 공포"
 rands = [
@@ -2126,7 +2126,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+5*2@8"
 output = "(10DX8+10) ＞ 10[2,3,6,6,6,6,7,8,10,10]+6[1,5,6]+10 ＞ 26"
 rands = [
@@ -2146,7 +2146,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+(5*2)@8"
 output = "(10DX8+10) ＞ 10[2,3,6,6,6,6,7,8,10,10]+6[1,5,6]+10 ＞ 26"
 rands = [
@@ -2166,7 +2166,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+3+(5*2)@8"
 output = "(10DX8+13) ＞ 10[2,3,6,6,6,6,7,8,10,10]+6[1,5,6]+13 ＞ 29"
 rands = [
@@ -2186,7 +2186,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+(5*2)+4@8"
 output = "(10DX8+14) ＞ 10[2,3,6,6,6,6,7,8,10,10]+6[1,5,6]+14 ＞ 30"
 rands = [
@@ -2206,7 +2206,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+3+(5*2)+4@8"
 output = "(10DX8+17) ＞ 10[2,3,6,6,6,6,7,8,10,10]+6[1,5,6]+17 ＞ 33"
 rands = [
@@ -2226,7 +2226,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "10dx+3+(5*2+1)+4@8"
 output = "(10DX8+18) ＞ 10[2,3,6,6,6,6,7,8,10,10]+6[1,5,6]+18 ＞ 34"
 rands = [
@@ -2246,7 +2246,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3*2"
 output = "(5DX7+1) ＞ 10[5,6,6,7,8]+10[1,9]+5[5]+1 ＞ 26"
 rands = [
@@ -2261,7 +2261,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3*2+4"
 output = "(5DX7+5) ＞ 10[5,6,6,7,8]+10[1,9]+5[5]+5 ＞ 30"
 rands = [
@@ -2276,7 +2276,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3*(2+1)"
 output = "(5DX7-2) ＞ 10[5,6,6,7,8]+10[1,9]+5[5]-2 ＞ 23"
 rands = [
@@ -2291,7 +2291,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-3*(2+1)+7"
 output = "(5DX7+5) ＞ 10[5,6,6,7,8]+10[1,9]+5[5]+5 ＞ 30"
 rands = [
@@ -2306,7 +2306,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "5DX7+7-2*(2+5-3)"
 output = "(5DX7-1) ＞ 10[5,6,6,7,8]+10[1,9]+5[5]-1 ＞ 24"
 rands = [
@@ -2321,7 +2321,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross_Korean"
+game_system = "DoubleCross:Korean"
 input = "2D10>=? 목표치?로 오작동하지 않는다"
 output = "(2D10>=?) ＞ 10[5,5] ＞ 10 ＞ 실패"
 rands = [
