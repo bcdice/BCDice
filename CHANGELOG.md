@@ -9,6 +9,13 @@
 ### 追加機能
 - ログ・ホライズンTRPG: LHZB1とLHZB2両方の財宝表をサポート、消耗表ロールを追加、財宝表ロールを追加、区切り文字を変更 ([#279](https://github.com/bcdice/BCDice/pull/279))
 
+### 変更
+- 真・女神転生TRPG 覚醒篇: IDを `ShinMegamiTenseiKakuseihen` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))
+- トーグ: IDを `Torg` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))
+- トーグ1.5版: IDを `Torg1.5` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))
+- NJSLYRBATTLE: IDを `NjslyrBattle` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))
+- ガープス: クラス名を `GURPS` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))
+
 ### バグ修正
 - キルデスビジネス: 蘇生副作用表の誤植を修正。スイさんありがとうっ！ ([#283](https://github.com/bcdice/BCDice/pull/283))
 
