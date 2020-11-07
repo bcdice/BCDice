@@ -44,17 +44,12 @@ module BCDice
         output_msg = nil
 
         case command.upcase
-
-        when /^(WH\d+)/i
-          attackCommand = Regexp.last_match(1)
-          output_msg = getAttackResult(attackCommand)
-
         when /^(WHCT[HABTL]U?)/i
           criticalCommand = Regexp.last_match(1)
           output_msg = getCriticalResult(criticalCommand)
         end
 
-        return output_msg || roll_tables(command, TABLES)
+        return output_msg || roll_attack(command) || roll_tables(command, TABLES)
       end
 
       def check_1D100(total, _dice_total, cmp_op, target)
@@ -261,46 +256,56 @@ module BCDice
         return output
       end
 
-      def getAttackResult(string)
-        debug("getAttackResult begin string", string)
+      # 命中判定
+      def roll_attack(command)
+        m = /^WH(\d+)$/.match(command)
+        return nil unless m
 
-        pos_type = ""
+        target_number = m[1].to_i
+        total = @randomizer.roll_once(100)
+        result = check_1D100(total, total, :<=, target_number).delete_prefix(" ＞ ")
 
-        if /(.+)/ =~ string
-          string = Regexp.last_match(1)
-        end
+        sequence = [
+          "(#{command})",
+          total,
+          result,
+          additional_result(total, target_number),
+        ].compact
 
-        unless /WH(\d+)/i =~ string
-          return '1'
-        end
+        return sequence.join(" ＞ ")
+      end
 
-        diff = Regexp.last_match(1).to_i
-
-        total_n = @randomizer.roll_once(100)
-
-        output = "(#{string}) ＞ #{total_n}"
-        output += check_1D100(total_n, total_n, :<=, diff)
-
-        pos10 = (total_n / 10).to_i
-        pos01 = total_n % 10
-        pos10 = 0 if pos10 == 10
-
-        if (total_n > diff) || (total_n > 95) # 自動失敗時のファンブル処理も
-          if pos01 == pos10
-            output += " ＞ ファンブル"
-          end
-        else
-          if pos01 == pos10
-            output += " ＞ クリティカル"
+      def additional_result(total, target_number)
+        tens, ones = split_d100(total)
+        result =
+          if (total > target_number) || (total > 95) # 自動失敗時のファンブル処理も
+            if ones == tens
+              "ファンブル"
+            end
+          elsif ones == tens
+            "クリティカル"
           else
-            pos_num = pos01 * 10 + pos10
-            pos_num = 100 if pos_num == 0
-
-            output += " ＞ #{HIT_PARTS_TABLE.fetch(pos_num).content}"
+            # 一の位と十の位を入れ替えて参照する
+            HIT_PARTS_TABLE.fetch(merge_d100(ones, tens)).content
           end
-        end
 
-        return output
+        result
+      end
+
+      def split_d100(dice)
+        if dice == 100
+          return 0, 0
+        else
+          return dice / 10, dice % 10
+        end
+      end
+
+      def merge_d100(tens, ones)
+        if tens == 0 && ones == 0
+          100
+        else
+          tens * 10 + ones
+        end
       end
 
       HIT_PARTS_TABLE = DiceTable::RangeTable.new(
