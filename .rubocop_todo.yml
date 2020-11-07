@@ -90,6 +90,7 @@ Style/FormatStringToken:
     - 'lib/bcdice/game_system/ShinMegamiTenseiKakuseihen.rb'
     - 'lib/bcdice/game_system/TorgEternity.rb'
     - 'lib/bcdice/game_system/TunnelsAndTrolls.rb'
+    - 'lib/bcdice/game_system/Warhammer4.rb'
 
 # Offense count: 10
 # Configuration parameters: AllowIfModifier.
