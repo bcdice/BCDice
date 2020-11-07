@@ -52,10 +52,6 @@ module BCDice
         when /^(WHCT[HABTL]U?)/i
           criticalCommand = Regexp.last_match(1)
           output_msg = getCriticalResult(criticalCommand)
-
-        when /^(WHLT)/i
-          hitlocationCommand = Regexp.last_match(1)
-          output_msg = getHitLocationResult(hitlocationCommand)
         end
 
         return output_msg || roll_tables(command, TABLES)
@@ -252,43 +248,6 @@ module BCDice
         return output
       end
 
-      def getHitLocationResult(_string)
-        pnum = @randomizer.roll_once(100)
-
-        return "命中部位表(#{pnum}) ＞ " + wh_atpos(pnum)
-      end
-
-      def wh_atpos(pos_num) # WHFRP2命中部位表
-        pos_2l = [
-          '二足',
-          9, '頭部',
-          24, '左腕(逆腕)',
-          44, '右腕(利腕)',
-          79, '胴体',
-          89, '左脚',
-          100, '右脚',
-        ]
-
-        pos_i = pos_2l
-
-        return get_wh_atpos_message(pos_i, pos_num)
-      end
-
-      def get_wh_atpos_message(pos_i, pos_num)
-        output = ""
-
-        #        output += ' ' + pos_i[0] + ":"
-
-        1.step(pos_i.length + 1, 2) do |i|
-          if pos_num <= pos_i[i]
-            output += pos_i[i + 1]
-            break
-          end
-        end
-
-        return output
-      end
-
       def get_wh_table_message(pos_i, pos_num)
         output = ""
 
@@ -326,7 +285,7 @@ module BCDice
         pos01 = total_n % 10
         pos10 = 0 if pos10 == 10
 
-        if (total_n > diff) || (total_n > 95)    # 自動失敗時のファンブル処理も
+        if (total_n > diff) || (total_n > 95) # 自動失敗時のファンブル処理も
           if pos01 == pos10
             output += " ＞ ファンブル"
           end
@@ -337,14 +296,29 @@ module BCDice
             pos_num = pos01 * 10 + pos10
             pos_num = 100 if pos_num == 0
 
-            output += ' ＞ ' + wh_atpos(pos_num)
+            output += " ＞ #{HIT_PARTS_TABLE.fetch(pos_num).content}"
           end
         end
 
         return output
       end
 
+      HIT_PARTS_TABLE = DiceTable::RangeTable.new(
+        "命中部位表",
+        "1D100",
+        [
+          # [0, '二足'],
+          [1..9, '頭部'],
+          [10..24, '左腕(逆腕)'],
+          [25..44, '右腕(利腕)'],
+          [45..79, '胴体'],
+          [80..89, '左脚'],
+          [90..100, '右脚'],
+        ]
+      )
+
       TABLES = {
+        "WHLT" => HIT_PARTS_TABLE,
         "WHFT" => DiceTable::RangeTable.new(
           "やっちまった！表",
           "1D100",
