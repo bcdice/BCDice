@@ -4,7 +4,7 @@ module BCDice
   module GameSystem
     class ShinMegamiTenseiKakuseihen < Base
       # ゲームシステムの識別子
-      ID = 'SMTKakuseihen'
+      ID = 'ShinMegamiTenseiKakuseihen'
 
       # ゲームシステム名
       NAME = '真・女神転生TRPG 覚醒篇'
