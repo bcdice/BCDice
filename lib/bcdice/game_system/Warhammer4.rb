@@ -53,17 +53,12 @@ module BCDice
           criticalCommand = Regexp.last_match(1)
           output_msg = getCriticalResult(criticalCommand)
 
-        when /^(WHFT)/i
-          fumbleCommand = Regexp.last_match(1)
-          output_msg = getFumbleResult(fumbleCommand)
-
         when /^(WHLT)/i
           hitlocationCommand = Regexp.last_match(1)
           output_msg = getHitLocationResult(hitlocationCommand)
         end
 
-        debug("rollDiceCommand Result")
-        return output_msg
+        return output_msg || roll_tables(command, TABLES)
       end
 
       def check_1D100(total, _dice_total, cmp_op, target)
@@ -257,26 +252,6 @@ module BCDice
         return output
       end
 
-      def getFumbleResult(_string) # WHFRP4やっちまった！表
-        fnum = @randomizer.roll_once(100)
-
-        return "やっちまった！表(#{fnum}) ＞ " + wh4_fumble_t(fnum)
-      end
-
-      def wh4_fumble_t(fnum) # WHFRP4やっちまった！表
-        fum_tbl = [
-          20, '君は自分の体の一部に当ててしまった。「耐久度」1点を失う。',
-          40, '君の武器が1ダメージを受ける。次のラウンドの行動順が一番最後になる。',
-          60, '君は身体動作の目算を誤る。次のラウンドのアクションに-10。',
-          70, '君はひどく躓きバランスを回復するのに手間取る。次の「移動」を失う。',
-          80, '君は武器を取り回しを誤る。次の「アクション」を失う。',
-          90, '君は筋を違えるか、足首をひねってしまう。「筋断裂(軽度)」の負傷を得る。「致命的負傷」としてカウントされる。',
-          100, '君は射程内のランダムな味方を攻撃してしまう。命中判定の出目の1の位をSLとして用いること。攻撃可能な味方が居ない場合は、自己を攻撃ししまい「朦朧状態」1つを得る。',
-        ]
-
-        return get_wh_table_message(fum_tbl, fnum)
-      end
-
       def getHitLocationResult(_string)
         pnum = @randomizer.roll_once(100)
 
@@ -368,6 +343,22 @@ module BCDice
 
         return output
       end
+
+      TABLES = {
+        "WHFT" => DiceTable::RangeTable.new(
+          "やっちまった！表",
+          "1D100",
+          [
+            [1..20, '君は自分の体の一部に当ててしまった。「耐久度」1点を失う。'],
+            [21..40, '君の武器が1ダメージを受ける。次のラウンドの行動順が一番最後になる。'],
+            [41..60, '君は身体動作の目算を誤る。次のラウンドのアクションに-10。'],
+            [61..70, '君はひどく躓きバランスを回復するのに手間取る。次の「移動」を失う。'],
+            [71..80, '君は武器を取り回しを誤る。次の「アクション」を失う。'],
+            [81..90, '君は筋を違えるか、足首をひねってしまう。「筋断裂(軽度)」の負傷を得る。「致命的負傷」としてカウントされる。'],
+            [91..100, '君は射程内のランダムな味方を攻撃してしまう。命中判定の出目の1の位をSLとして用いること。攻撃可能な味方が居ない場合は、自己を攻撃ししまい「朦朧状態」1つを得る。'],
+          ]
+        )
+      }.freeze
     end
   end
 end
