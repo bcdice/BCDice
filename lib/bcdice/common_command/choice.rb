@@ -3,6 +3,19 @@ module BCDice
     class Choice
       PREFIX_PATTERN = /choice/.freeze
 
+      class << self
+        def eval(command, game_system, randomizer)
+          command = new(command, randomizer, game_system)
+          res = command.eval()
+          return nil unless res
+
+          Result.new.tap do |r|
+            r.secret = command.secret?
+            r.text = res
+          end
+        end
+      end
+
       def initialize(command, randomizer, game_system)
         @command = command
         @randomizer = randomizer

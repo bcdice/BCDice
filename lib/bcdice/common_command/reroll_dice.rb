@@ -26,6 +26,19 @@ module BCDice
       PREFIX_PATTERN = /\d+R\d+/.freeze
       REROLL_LIMIT = 10000
 
+      class << self
+        def eval(command, game_system, randomizer)
+          command = new(command, randomizer, game_system)
+          res = command.eval()
+          return nil unless res
+
+          Result.new.tap do |r|
+            r.secret = command.secret?
+            r.text = res
+          end
+        end
+      end
+
       def initialize(command, bcdice, diceBot)
         @command = command
         @bcdice = bcdice

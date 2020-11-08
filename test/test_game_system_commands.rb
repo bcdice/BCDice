@@ -66,11 +66,18 @@ class TestGameSystemCommands < Test::Unit::TestCase
 
     msg = JSON.pretty_generate(data)
 
-    assert_equal(data[:output], game_system.eval(), msg)
-    assert_equal(data[:secret], game_system.secret?, msg)
-    assert_equal(data[:success], game_system.success?, msg)
-    assert_equal(data[:failure], game_system.failure?, msg)
-    assert_equal(data[:critical], game_system.critical?, msg)
-    assert_equal(data[:fumble], game_system.fumble?, msg)
+    result = game_system.eval()
+
+    if result.nil?
+      assert_nil(data[:output])
+      return
+    end
+
+    assert_equal(data[:output], result.text, msg)
+    assert_equal(data[:secret], result.secret?, msg)
+    assert_equal(data[:success], result.success?, msg)
+    assert_equal(data[:failure], result.failure?, msg)
+    assert_equal(data[:critical], result.critical?, msg)
+    assert_equal(data[:fumble], result.fumble?, msg)
   end
 end
