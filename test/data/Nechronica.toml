@@ -730,10 +730,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC"
+input = "5NC"
 output = "(5R10[0]) ＞ [3,6,8,8,9]  ＞ 9[3,6,8,8,9] ＞ 成功"
 rands = [
-  { sides = 5, value = 5 },
   { sides = 10, value = 3 },
   { sides = 10, value = 8 },
   { sides = 10, value = 8 },
@@ -743,19 +742,17 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC"
+input = "1NC"
 output = "(1R10[0]) ＞ [5]  ＞ 5[5] ＞ 失敗"
 rands = [
-  { sides = 5, value = 1 },
   { sides = 10, value = 5 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC"
+input = "4NC"
 output = "(4R10[0]) ＞ [1,5,6,7]  ＞ 7[1,5,6,7] ＞ 成功"
 rands = [
-  { sides = 5, value = 4 },
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
   { sides = 10, value = 1 },
@@ -764,10 +761,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC"
+input = "4NC"
 output = "(4R10[0]) ＞ [1,2,4,8]  ＞ 8[1,2,4,8] ＞ 成功"
 rands = [
-  { sides = 5, value = 4 },
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
   { sides = 10, value = 2 },
@@ -776,10 +772,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC"
+input = "3NC"
 output = "(3R10[0]) ＞ [4,8,9]  ＞ 9[4,8,9] ＞ 成功"
 rands = [
-  { sides = 5, value = 3 },
   { sides = 10, value = 4 },
   { sides = 10, value = 8 },
   { sides = 10, value = 9 },
@@ -787,10 +782,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC"
+input = "3NC"
 output = "(3R10[0]) ＞ [6,9,9]  ＞ 9[6,9,9] ＞ 成功"
 rands = [
-  { sides = 5, value = 3 },
   { sides = 10, value = 9 },
   { sides = 10, value = 6 },
   { sides = 10, value = 9 },
@@ -798,10 +792,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC"
+input = "5NC"
 output = "(5R10[0]) ＞ [1,2,4,8,9]  ＞ 9[1,2,4,8,9] ＞ 成功"
 rands = [
-  { sides = 5, value = 5 },
   { sides = 10, value = 8 },
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -811,20 +804,18 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC"
+input = "2NC"
 output = "(2R10[0]) ＞ [2,7]  ＞ 7[2,7] ＞ 成功"
 rands = [
-  { sides = 5, value = 2 },
   { sides = 10, value = 7 },
   { sides = 10, value = 2 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC"
+input = "5NC"
 output = "(5R10[0]) ＞ [3,5,7,8,10]  ＞ 10[3,5,7,8,10] ＞ 成功"
 rands = [
-  { sides = 5, value = 5 },
   { sides = 10, value = 8 },
   { sides = 10, value = 10 },
   { sides = 10, value = 5 },
@@ -834,10 +825,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC"
+input = "4NC"
 output = "(4R10[0]) ＞ [1,6,6,10]  ＞ 10[1,6,6,10] ＞ 成功"
 rands = [
-  { sides = 5, value = 4 },
   { sides = 10, value = 6 },
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
@@ -846,22 +836,18 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC+[1...5]"
+input = "2NC+1"
 output = "(2R10+1[0]) ＞ [2,5]+1  ＞ 6[3,6] ＞ 成功"
 rands = [
-  { sides = 5, value = 2 },
-  { sides = 5, value = 1 },
   { sides = 10, value = 5 },
   { sides = 10, value = 2 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC+[1...5]"
+input = "4NC+3"
 output = "(4R10+3[0]) ＞ [5,6,6,10]+3  ＞ 13[8,9,9,13] ＞ 大成功"
 rands = [
-  { sides = 5, value = 4 },
-  { sides = 5, value = 3 },
   { sides = 10, value = 10 },
   { sides = 10, value = 6 },
   { sides = 10, value = 5 },
@@ -870,11 +856,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC+[1...5]"
+input = "3NC+5"
 output = "(3R10+5[0]) ＞ [2,5,9]+5  ＞ 14[7,10,14] ＞ 大成功"
 rands = [
-  { sides = 5, value = 3 },
-  { sides = 5, value = 5 },
   { sides = 10, value = 9 },
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -882,11 +866,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC+[1...5]"
+input = "4NC+3"
 output = "(4R10+3[0]) ＞ [2,2,6,8]+3  ＞ 11[5,5,9,11] ＞ 大成功"
 rands = [
-  { sides = 5, value = 4 },
-  { sides = 5, value = 3 },
   { sides = 10, value = 6 },
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
@@ -895,11 +877,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC+[1...5]"
+input = "5NC+2"
 output = "(5R10+2[0]) ＞ [1,3,6,7,8]+2  ＞ 10[3,5,8,9,10] ＞ 成功"
 rands = [
-  { sides = 5, value = 5 },
-  { sides = 5, value = 2 },
   { sides = 10, value = 8 },
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
@@ -909,32 +889,26 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC+[1...5]"
+input = "2NC+5"
 output = "(2R10+5[0]) ＞ [2,3]+5  ＞ 8[7,8] ＞ 成功"
 rands = [
-  { sides = 5, value = 2 },
-  { sides = 5, value = 5 },
   { sides = 10, value = 3 },
   { sides = 10, value = 2 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC+[1...5]"
+input = "1NC+5"
 output = "(1R10+5[0]) ＞ [4]+5  ＞ 9[9] ＞ 成功"
 rands = [
-  { sides = 5, value = 1 },
-  { sides = 5, value = 5 },
   { sides = 10, value = 4 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC+[1...5]"
+input = "4NC+5"
 output = "(4R10+5[0]) ＞ [1,3,8,9]+5  ＞ 14[6,8,13,14] ＞ 大成功"
 rands = [
-  { sides = 5, value = 4 },
-  { sides = 5, value = 5 },
   { sides = 10, value = 9 },
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
@@ -943,11 +917,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC+[1...5]"
+input = "4NC+4"
 output = "(4R10+4[0]) ＞ [2,5,6,8]+4  ＞ 12[6,9,10,12] ＞ 大成功"
 rands = [
-  { sides = 5, value = 4 },
-  { sides = 5, value = 4 },
   { sides = 10, value = 8 },
   { sides = 10, value = 6 },
   { sides = 10, value = 2 },
@@ -956,11 +928,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NC+[1...5]"
+input = "1NC+5"
 output = "(1R10+5[0]) ＞ [7]+5  ＞ 12[12] ＞ 大成功"
 rands = [
-  { sides = 5, value = 1 },
-  { sides = 5, value = 5 },
   { sides = 10, value = 7 },
 ]
 
@@ -1326,10 +1296,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA"
+input = "4NA"
 output = "(4R10[1]) ＞ [1,1,2,10]  ＞ 10[1,1,2,10] ＞ 成功 ＞ 頭（なければ攻撃側任意）"
 rands = [
-  { sides = 5, value = 4 },
   { sides = 10, value = 1 },
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
@@ -1338,10 +1307,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA"
+input = "3NA"
 output = "(3R10[1]) ＞ [4,10,10]  ＞ 10[4,10,10] ＞ 成功 ＞ 頭（なければ攻撃側任意）"
 rands = [
-  { sides = 5, value = 3 },
   { sides = 10, value = 4 },
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -1349,10 +1317,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA"
+input = "4NA"
 output = "(4R10[1]) ＞ [5,6,7,9]  ＞ 9[5,6,7,9] ＞ 成功 ＞ 腕（なければ攻撃側任意）"
 rands = [
-  { sides = 5, value = 4 },
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
   { sides = 10, value = 5 },
@@ -1361,29 +1328,26 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA"
+input = "1NA"
 output = "(1R10[1]) ＞ [3]  ＞ 3[3] ＞ 失敗"
 rands = [
-  { sides = 5, value = 1 },
   { sides = 10, value = 3 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA"
+input = "2NA"
 output = "(2R10[1]) ＞ [1,3]  ＞ 3[1,3] ＞ 大失敗 ＞ 使用パーツ全損"
 rands = [
-  { sides = 5, value = 2 },
   { sides = 10, value = 1 },
   { sides = 10, value = 3 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA"
+input = "5NA"
 output = "(5R10[1]) ＞ [4,5,5,6,7]  ＞ 7[4,5,5,6,7] ＞ 成功 ＞ 脚（なければ攻撃側任意）"
 rands = [
-  { sides = 5, value = 5 },
   { sides = 10, value = 7 },
   { sides = 10, value = 4 },
   { sides = 10, value = 5 },
@@ -1393,10 +1357,9 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA"
+input = "4NA"
 output = "(4R10[1]) ＞ [1,1,2,5]  ＞ 5[1,1,2,5] ＞ 大失敗 ＞ 使用パーツ全損"
 rands = [
-  { sides = 5, value = 4 },
   { sides = 10, value = 2 },
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -1405,19 +1368,17 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA"
+input = "1NA"
 output = "(1R10[1]) ＞ [9]  ＞ 9[9] ＞ 成功 ＞ 腕（なければ攻撃側任意）"
 rands = [
-  { sides = 5, value = 1 },
   { sides = 10, value = 9 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA"
+input = "3NA"
 output = "(3R10[1]) ＞ [1,5,8]  ＞ 8[1,5,8] ＞ 成功 ＞ 胴（なければ攻撃側任意）"
 rands = [
-  { sides = 5, value = 3 },
   { sides = 10, value = 8 },
   { sides = 10, value = 5 },
   { sides = 10, value = 1 },
@@ -1425,31 +1386,26 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA"
+input = "2NA"
 output = "(2R10[1]) ＞ [5,6]  ＞ 6[5,6] ＞ 成功 ＞ 防御側任意"
 rands = [
-  { sides = 5, value = 2 },
   { sides = 10, value = 5 },
   { sides = 10, value = 6 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA+[1...5]"
+input = "1NA+4"
 output = "(1R10+4[1]) ＞ [8]+4  ＞ 12[12] ＞ 大成功 ＞ 攻撃側任意(追加ダメージ2)"
 rands = [
-  { sides = 5, value = 1 },
-  { sides = 5, value = 4 },
   { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA+[1...5]"
+input = "3NA+5"
 output = "(3R10+5[1]) ＞ [5,6,8]+5  ＞ 13[10,11,13] ＞ 大成功 ＞ 攻撃側任意(追加ダメージ3)"
 rands = [
-  { sides = 5, value = 3 },
-  { sides = 5, value = 5 },
   { sides = 10, value = 8 },
   { sides = 10, value = 5 },
   { sides = 10, value = 6 },
@@ -1457,22 +1413,18 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA+[1...5]"
+input = "2NA+1"
 output = "(2R10+1[1]) ＞ [4,7]+1  ＞ 8[5,8] ＞ 成功 ＞ 胴（なければ攻撃側任意）"
 rands = [
-  { sides = 5, value = 2 },
-  { sides = 5, value = 1 },
   { sides = 10, value = 4 },
   { sides = 10, value = 7 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA+[1...5]"
+input = "5NA+4"
 output = "(5R10+4[1]) ＞ [1,4,8,9,9]+4  ＞ 13[5,8,12,13,13] ＞ 大成功 ＞ 攻撃側任意(追加ダメージ3)"
 rands = [
-  { sides = 5, value = 5 },
-  { sides = 5, value = 4 },
   { sides = 10, value = 4 },
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
@@ -1482,64 +1434,52 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA+[1...5]"
+input = "2NA+4"
 output = "(2R10+4[1]) ＞ [3,3]+4  ＞ 7[7,7] ＞ 成功 ＞ 脚（なければ攻撃側任意）"
 rands = [
-  { sides = 5, value = 2 },
-  { sides = 5, value = 4 },
   { sides = 10, value = 3 },
   { sides = 10, value = 3 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA+[1...5]"
+input = "1NA+1"
 output = "(1R10+1[1]) ＞ [1]+1  ＞ 2[2] ＞ 失敗"
 rands = [
-  { sides = 5, value = 1 },
-  { sides = 5, value = 1 },
   { sides = 10, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA+[1...5]"
+input = "2NA+1"
 output = "(2R10+1[1]) ＞ [4,5]+1  ＞ 6[5,6] ＞ 成功 ＞ 防御側任意"
 rands = [
-  { sides = 5, value = 2 },
-  { sides = 5, value = 1 },
   { sides = 10, value = 4 },
   { sides = 10, value = 5 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA+[1...5]"
+input = "2NA+4"
 output = "(2R10+4[1]) ＞ [1,7]+4  ＞ 11[5,11] ＞ 大成功 ＞ 攻撃側任意(追加ダメージ1)"
 rands = [
-  { sides = 5, value = 2 },
-  { sides = 5, value = 4 },
   { sides = 10, value = 7 },
   { sides = 10, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA+[1...5]"
+input = "1NA+4"
 output = "(1R10+4[1]) ＞ [6]+4  ＞ 10[10] ＞ 成功 ＞ 頭（なければ攻撃側任意）"
 rands = [
-  { sides = 5, value = 1 },
-  { sides = 5, value = 4 },
   { sides = 10, value = 6 },
 ]
 
 [[ test ]]
 game_system = "Nechronica"
-input = "[1...5]NA+[1...5]"
+input = "1NA+5"
 output = "(1R10+5[1]) ＞ [3]+5  ＞ 8[8] ＞ 成功 ＞ 胴（なければ攻撃側任意）"
 rands = [
-  { sides = 5, value = 1 },
-  { sides = 5, value = 5 },
   { sides = 10, value = 3 },
 ]
 

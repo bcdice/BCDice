@@ -973,10 +973,9 @@ rands = [
 
 [[ test ]]
 game_system = "DarkBlaze"
-input = "BT[1...3]"
+input = "BT3"
 output = "掘り出し袋表[4,4] ＞ 《雷撃石》を3個獲得"
 rands = [
-  { sides = 3, value = 3 },
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -987,10 +986,9 @@ rands = [
 
 [[ test ]]
 game_system = "DarkBlaze"
-input = "BT[1...3]"
+input = "BT2"
 output = "掘り出し袋表[7,5] ＞ 《金貨》を5枚獲得"
 rands = [
-  { sides = 3, value = 2 },
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -999,10 +997,9 @@ rands = [
 
 [[ test ]]
 game_system = "DarkBlaze"
-input = "BT[1...3]"
+input = "BT1"
 output = "掘り出し袋表[9,1] ＞ 《獣皮 I》を1個獲得"
 rands = [
-  { sides = 3, value = 1 },
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -1010,10 +1007,9 @@ rands = [
 
 [[ test ]]
 game_system = "DarkBlaze"
-input = "BT[1...3]"
+input = "BT1"
 output = "掘り出し袋表[10,6] ＞ 《竜鱗 I》を3個獲得"
 rands = [
-  { sides = 3, value = 1 },
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -1021,10 +1017,9 @@ rands = [
 
 [[ test ]]
 game_system = "DarkBlaze"
-input = "BT[1...3]"
+input = "BT2"
 output = "掘り出し袋表[12,8] ＞ 《レアモノ II》を1個獲得"
 rands = [
-  { sides = 3, value = 2 },
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1033,10 +1028,9 @@ rands = [
 
 [[ test ]]
 game_system = "DarkBlaze"
-input = "BT[1...3]"
+input = "BT2"
 output = "掘り出し袋表[6,7] ＞ 《金属 I》を3個獲得"
 rands = [
-  { sides = 3, value = 2 },
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -1045,10 +1039,9 @@ rands = [
 
 [[ test ]]
 game_system = "DarkBlaze"
-input = "BT[1...3]"
+input = "BT1"
 output = "掘り出し袋表[9,5] ＞ 《獣皮 I》を2個獲得"
 rands = [
-  { sides = 3, value = 1 },
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -1056,10 +1049,9 @@ rands = [
 
 [[ test ]]
 game_system = "DarkBlaze"
-input = "BT[1...3]"
+input = "BT3"
 output = "掘り出し袋表[2,6] ＞ 《氷結石》を3個獲得"
 rands = [
-  { sides = 3, value = 3 },
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -1070,10 +1062,9 @@ rands = [
 
 [[ test ]]
 game_system = "DarkBlaze"
-input = "BT[1...3]"
+input = "BT2"
 output = "掘り出し袋表[7,7] ＞ 《金貨》を7枚獲得"
 rands = [
-  { sides = 3, value = 2 },
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -1082,10 +1073,9 @@ rands = [
 
 [[ test ]]
 game_system = "DarkBlaze"
-input = "BT[1...3]"
+input = "BT1"
 output = "掘り出し袋表[10,2] ＞ 《竜鱗 I》を1個獲得"
 rands = [
-  { sides = 3, value = 1 },
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
