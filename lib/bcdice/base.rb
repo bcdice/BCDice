@@ -164,7 +164,7 @@ module BCDice
     # コマンドを評価する
     # @return [Result, nil] コマンド実行結果。コマンドが実行できなかった場合はnilを返す
     def eval
-      command = BCDice::Preprocessor.process(@raw_input, @randomizer, self)
+      command = BCDice::Preprocessor.process(@raw_input, self)
       upcased_command = command.upcase
 
       result = dice_command(command) || eval_common_command(upcased_command)

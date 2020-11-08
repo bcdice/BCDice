@@ -1110,10 +1110,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]"
+input = "EM2"
 output = "(2R10>=2[20,2]) ＞ 10[4,6] ＞ 10 ＞ 成功 ＞ 命中レベルC ＞ [5]左脚"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 4 },
   { sides = 10, value = 6 },
   { sides = 10, value = 4 },
@@ -1122,10 +1121,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]"
+input = "EM5"
 output = "(2R10>=5[20,2]) ＞ 9[3,6] ＞ 9 ＞ 成功 ＞ 命中レベルC ＞ [3]頭"
 rands = [
-  { sides = 10, value = 5 },
   { sides = 10, value = 6 },
   { sides = 10, value = 3 },
   { sides = 10, value = 1 },
@@ -1134,11 +1132,10 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]"
+input = "EM5"
 output = "(2R10>=5[20,2]) ＞ 14[5,9] ＞ 14 ＞ 成功 ＞ 命中レベルB ＞ [15]右脚"
 rands = [
   { sides = 10, value = 5 },
-  { sides = 10, value = 5 },
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
   { sides = 10, value = 6 },
@@ -1146,10 +1143,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]"
+input = "EM5"
 output = "(2R10>=5[20,2]) ＞ 11[5,6] ＞ 11 ＞ 成功 ＞ 命中レベルC ＞ [17]右脚"
 rands = [
-  { sides = 10, value = 5 },
   { sides = 10, value = 6 },
   { sides = 10, value = 5 },
   { sides = 10, value = 9 },
@@ -1158,10 +1154,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]"
+input = "EM7"
 output = "(2R10>=7[20,2]) ＞ 11[4,7] ＞ 11 ＞ 成功 ＞ 命中レベルB ＞ [7]左脚"
 rands = [
-  { sides = 10, value = 7 },
   { sides = 10, value = 4 },
   { sides = 10, value = 7 },
   { sides = 10, value = 4 },
@@ -1170,10 +1165,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]"
+input = "EM2"
 output = "(2R10>=2[20,2]) ＞ 16[7,9] ＞ 16 ＞ 成功 ＞ 命中レベルB ＞ [11]胴"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 9 },
   { sides = 10, value = 7 },
   { sides = 10, value = 4 },
@@ -1182,11 +1176,10 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]"
+input = "EM8"
 output = "(2R10>=8[20,2]) ＞ 12[4,8] ＞ 12 ＞ 成功 ＞ 命中レベルB ＞ [16]右脚"
 rands = [
   { sides = 10, value = 8 },
-  { sides = 10, value = 8 },
   { sides = 10, value = 4 },
   { sides = 10, value = 10 },
   { sides = 10, value = 6 },
@@ -1194,11 +1187,10 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]"
+input = "EM9"
 output = "(2R10>=9[20,2]) ＞ 11[2,9] ＞ 11 ＞ 成功 ＞ 命中レベルB ＞ [9]左腕"
 rands = [
   { sides = 10, value = 9 },
-  { sides = 10, value = 9 },
   { sides = 10, value = 2 },
   { sides = 10, value = 3 },
   { sides = 10, value = 6 },
@@ -1206,10 +1198,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]"
+input = "EM7"
 output = "(2R10>=7[20,2]) ＞ 13[6,7] ＞ 13 ＞ 成功 ＞ 命中レベルB ＞ [17]右脚"
 rands = [
-  { sides = 10, value = 7 },
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
   { sides = 10, value = 7 },
@@ -1218,10 +1209,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]"
+input = "EM10"
 output = "(2R10>=10[20,2]) ＞ 11[3,8] ＞ 11 ＞ 成功 ＞ 命中レベルB ＞ [12]胴"
 rands = [
-  { sides = 10, value = 10 },
   { sides = 10, value = 3 },
   { sides = 10, value = 8 },
   { sides = 10, value = 5 },
@@ -1230,10 +1220,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1"
+input = "EM9+1"
 output = "(2R10+1>=9[20,2]) ＞ 10[3,7]+1 ＞ 11 ＞ 成功 ＞ 命中レベルB ＞ [11]胴"
 rands = [
-  { sides = 10, value = 9 },
   { sides = 10, value = 7 },
   { sides = 10, value = 3 },
   { sides = 10, value = 3 },
@@ -1242,10 +1231,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1"
+input = "EM9+1"
 output = "(2R10+1>=9[20,2]) ＞ 13[3,10]+1 ＞ 14 ＞ 成功 ＞ 命中レベルA ＞ [7]左脚"
 rands = [
-  { sides = 10, value = 9 },
   { sides = 10, value = 10 },
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
@@ -1254,10 +1242,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1"
+input = "EM8+1"
 output = "(2R10+1>=8[20,2]) ＞ 17[8,9]+1 ＞ 18 ＞ 成功 ＞ 命中レベルB ＞ [18]頭"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
   { sides = 10, value = 10 },
@@ -1266,10 +1253,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1"
+input = "EM6+1"
 output = "(2R10+1>=6[20,2]) ＞ 5[1,4]+1 ＞ 6 ＞ 成功 ＞ 命中レベルC ＞ [3]頭"
 rands = [
-  { sides = 10, value = 6 },
   { sides = 10, value = 1 },
   { sides = 10, value = 4 },
   { sides = 10, value = 1 },
@@ -1278,10 +1264,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1"
+input = "EM10+1"
 output = "(2R10+1>=10[20,2]) ＞ 6[1,5]+1 ＞ 7 ＞ 失敗"
 rands = [
-  { sides = 10, value = 10 },
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
   { sides = 10, value = 9 },
@@ -1290,10 +1275,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1"
+input = "EM6+1"
 output = "(2R10+1>=6[20,2]) ＞ 11[3,8]+1 ＞ 12 ＞ 成功 ＞ 命中レベルB ＞ [10]胴"
 rands = [
-  { sides = 10, value = 6 },
   { sides = 10, value = 3 },
   { sides = 10, value = 8 },
   { sides = 10, value = 1 },
@@ -1302,10 +1286,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1"
+input = "EM3+1"
 output = "(2R10+1>=3[20,2]) ＞ 6[1,5]+1 ＞ 7 ＞ 成功 ＞ 命中レベルC ＞ [10]胴"
 rands = [
-  { sides = 10, value = 3 },
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
   { sides = 10, value = 7 },
@@ -1314,10 +1297,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1"
+input = "EM10+1"
 output = "(2R10+1>=10[20,2]) ＞ 8[4,4]+1 ＞ 9 ＞ 失敗"
 rands = [
-  { sides = 10, value = 10 },
   { sides = 10, value = 4 },
   { sides = 10, value = 4 },
   { sides = 10, value = 6 },
@@ -1326,10 +1308,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1"
+input = "EM10+1"
 output = "(2R10+1>=10[20,2]) ＞ 8[2,6]+1 ＞ 9 ＞ 失敗"
 rands = [
-  { sides = 10, value = 10 },
   { sides = 10, value = 2 },
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
@@ -1338,10 +1319,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1"
+input = "EM1+1"
 output = "(2R10+1>=1[20,2]) ＞ 5[2,3]+1 ＞ 6 ＞ 成功 ＞ 命中レベルC ＞ [14]右腕"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 3 },
   { sides = 10, value = 2 },
   { sides = 10, value = 9 },
@@ -1350,10 +1330,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+10"
+input = "EM9+10"
 output = "(2R10+10>=9[20,2]) ＞ 2[1,1]+10 ＞ 12 ＞ ファンブル"
 rands = [
-  { sides = 10, value = 9 },
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
   { sides = 10, value = 9 },
@@ -1362,11 +1341,10 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+10"
+input = "EM8+10"
 output = "(2R10+10>=8[20,2]) ＞ 9[1,8]+10 ＞ 19 ＞ 成功 ＞ 命中レベルB ＞ [13]右腕"
 rands = [
   { sides = 10, value = 8 },
-  { sides = 10, value = 8 },
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
@@ -1374,10 +1352,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+10"
+input = "EM1+10"
 output = "(2R10+10>=1[20,2]) ＞ 9[4,5]+10 ＞ 19 ＞ 成功 ＞ 命中レベルC ＞ [6]左脚"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 4 },
   { sides = 10, value = 5 },
   { sides = 10, value = 3 },
@@ -1386,10 +1363,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+10"
+input = "EM3+10"
 output = "(2R10+10>=3[20,2]) ＞ 18[9,9]+10 ＞ 28 ＞ 成功 ＞ 命中レベルB ＞ [11]胴"
 rands = [
-  { sides = 10, value = 3 },
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
@@ -1398,10 +1374,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+10"
+input = "EM4+10"
 output = "(2R10+10>=4[20,2]) ＞ 6[1,5]+10 ＞ 16 ＞ 成功 ＞ 命中レベルC ＞ [19]頭"
 rands = [
-  { sides = 10, value = 4 },
   { sides = 10, value = 5 },
   { sides = 10, value = 1 },
   { sides = 10, value = 9 },
@@ -1410,10 +1385,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+10"
+input = "EM2+10"
 output = "(2R10+10>=2[20,2]) ＞ 13[3,10]+10 ＞ 23 ＞ 成功 ＞ 命中レベルA ＞ [9]左腕"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 10 },
   { sides = 10, value = 3 },
   { sides = 10, value = 1 },
@@ -1422,10 +1396,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+10"
+input = "EM4+10"
 output = "(2R10+10>=4[20,2]) ＞ 7[2,5]+10 ＞ 17 ＞ 成功 ＞ 命中レベルC ＞ [8]左腕"
 rands = [
-  { sides = 10, value = 4 },
   { sides = 10, value = 5 },
   { sides = 10, value = 2 },
   { sides = 10, value = 1 },
@@ -1434,11 +1407,10 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+10"
+input = "EM5+10"
 output = "(2R10+10>=5[20,2]) ＞ 15[5,10]+10 ＞ 25 ＞ 成功 ＞ 命中レベルA ＞ [13]右腕"
 rands = [
   { sides = 10, value = 5 },
-  { sides = 10, value = 5 },
   { sides = 10, value = 10 },
   { sides = 10, value = 3 },
   { sides = 10, value = 10 },
@@ -1446,10 +1418,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+10"
+input = "EM5+10"
 output = "(2R10+10>=5[20,2]) ＞ 7[3,4]+10 ＞ 17 ＞ 成功 ＞ 命中レベルC ＞ [14]右腕"
 rands = [
-  { sides = 10, value = 5 },
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
   { sides = 10, value = 6 },
@@ -1458,10 +1429,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+10"
+input = "EM7+10"
 output = "(2R10+10>=7[20,2]) ＞ 4[1,3]+10 ＞ 14 ＞ 成功 ＞ 命中レベルC ＞ [10]胴"
 rands = [
-  { sides = 10, value = 7 },
   { sides = 10, value = 3 },
   { sides = 10, value = 1 },
   { sides = 10, value = 3 },
@@ -1470,10 +1440,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19"
+input = "EM3+1@19"
 output = "(2R10+1>=3[19,2]) ＞ 9[4,5]+1 ＞ 10 ＞ 成功 ＞ 命中レベルC ＞ [10]胴"
 rands = [
-  { sides = 10, value = 3 },
   { sides = 10, value = 4 },
   { sides = 10, value = 5 },
   { sides = 10, value = 7 },
@@ -1482,10 +1451,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19"
+input = "EM7+1@19"
 output = "(2R10+1>=7[19,2]) ＞ 16[7,9]+1 ＞ 17 ＞ 成功 ＞ 命中レベルB ＞ [11]胴"
 rands = [
-  { sides = 10, value = 7 },
   { sides = 10, value = 9 },
   { sides = 10, value = 7 },
   { sides = 10, value = 4 },
@@ -1494,11 +1462,10 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19"
+input = "EM3+1@19"
 output = "(2R10+1>=3[19,2]) ＞ 4[1,3]+1 ＞ 5 ＞ 成功 ＞ 命中レベルC ＞ [2]頭"
 rands = [
   { sides = 10, value = 3 },
-  { sides = 10, value = 3 },
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -1506,10 +1473,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19"
+input = "EM4+1@19"
 output = "(2R10+1>=4[19,2]) ＞ 12[4,8]+1 ＞ 13 ＞ 成功 ＞ 命中レベルB ＞ [11]胴"
 rands = [
-  { sides = 10, value = 4 },
   { sides = 10, value = 8 },
   { sides = 10, value = 4 },
   { sides = 10, value = 2 },
@@ -1518,10 +1484,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19"
+input = "EM5+1@19"
 output = "(2R10+1>=5[19,2]) ＞ 14[4,10]+1 ＞ 15 ＞ 成功 ＞ 命中レベルA ＞ [16]右脚"
 rands = [
-  { sides = 10, value = 5 },
   { sides = 10, value = 4 },
   { sides = 10, value = 10 },
   { sides = 10, value = 8 },
@@ -1530,10 +1495,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19"
+input = "EM2+1@19"
 output = "(2R10+1>=2[19,2]) ＞ 15[7,8]+1 ＞ 16 ＞ 成功 ＞ 命中レベルB ＞ [13]右腕"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
   { sides = 10, value = 6 },
@@ -1542,10 +1506,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19"
+input = "EM8+1@19"
 output = "(2R10+1>=8[19,2]) ＞ 10[5,5]+1 ＞ 11 ＞ 成功 ＞ 命中レベルC ＞ [8]左腕"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 5 },
   { sides = 10, value = 5 },
   { sides = 10, value = 6 },
@@ -1554,10 +1517,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19"
+input = "EM1+1@19"
 output = "(2R10+1>=1[19,2]) ＞ 8[4,4]+1 ＞ 9 ＞ 成功 ＞ 命中レベルC ＞ [9]左腕"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 4 },
   { sides = 10, value = 4 },
   { sides = 10, value = 4 },
@@ -1566,10 +1528,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19"
+input = "EM8+1@19"
 output = "(2R10+1>=8[19,2]) ＞ 10[1,9]+1 ＞ 11 ＞ 成功 ＞ 命中レベルB ＞ [13]右腕"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 1 },
   { sides = 10, value = 9 },
   { sides = 10, value = 5 },
@@ -1578,10 +1539,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19"
+input = "EM2+1@19"
 output = "(2R10+1>=2[19,2]) ＞ 15[5,10]+1 ＞ 16 ＞ 成功 ＞ 命中レベルA ＞ [6]左脚"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 5 },
   { sides = 10, value = 10 },
   { sides = 10, value = 2 },
@@ -1590,10 +1550,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1#3"
+input = "EM1+1#3"
 output = "(2R10+1>=1[20,3]) ＞ 15[6,9]+1 ＞ 16 ＞ 成功 ＞ 命中レベルB ＞ [12]胴"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 9 },
   { sides = 10, value = 6 },
   { sides = 10, value = 5 },
@@ -1602,11 +1561,10 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1#3"
+input = "EM7+1#3"
 output = "(2R10+1>=7[20,3]) ＞ 15[7,8]+1 ＞ 16 ＞ 成功 ＞ 命中レベルB ＞ [7]左脚"
 rands = [
   { sides = 10, value = 7 },
-  { sides = 10, value = 7 },
   { sides = 10, value = 8 },
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
@@ -1614,10 +1572,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1#3"
+input = "EM6+1#3"
 output = "(2R10+1>=6[20,3]) ＞ 10[1,9]+1 ＞ 11 ＞ 成功 ＞ 命中レベルB ＞ [10]胴"
 rands = [
-  { sides = 10, value = 6 },
   { sides = 10, value = 1 },
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
@@ -1626,10 +1583,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1#3"
+input = "EM2+1#3"
 output = "(2R10+1>=2[20,3]) ＞ 17[8,9]+1 ＞ 18 ＞ 成功 ＞ 命中レベルB ＞ [12]胴"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
   { sides = 10, value = 5 },
@@ -1638,11 +1594,10 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1#3"
+input = "EM4+1#3"
 output = "(2R10+1>=4[20,3]) ＞ 7[3,4]+1 ＞ 8 ＞ 成功 ＞ 命中レベルC ＞ [10]胴"
 rands = [
   { sides = 10, value = 4 },
-  { sides = 10, value = 4 },
   { sides = 10, value = 3 },
   { sides = 10, value = 7 },
   { sides = 10, value = 3 },
@@ -1650,10 +1605,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1#3"
+input = "EM3+1#3"
 output = "(2R10+1>=3[20,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 成功 ＞ 命中レベルC ＞ [17]右脚"
 rands = [
-  { sides = 10, value = 3 },
   { sides = 10, value = 5 },
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
@@ -1662,10 +1616,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1#3"
+input = "EM5+1#3"
 output = "(2R10+1>=5[20,3]) ＞ 8[4,4]+1 ＞ 9 ＞ 成功 ＞ 命中レベルC ＞ [12]胴"
 rands = [
-  { sides = 10, value = 5 },
   { sides = 10, value = 4 },
   { sides = 10, value = 4 },
   { sides = 10, value = 3 },
@@ -1674,10 +1627,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1#3"
+input = "EM7+1#3"
 output = "(2R10+1>=7[20,3]) ＞ 7[1,6]+1 ＞ 8 ＞ 成功 ＞ 命中レベルC ＞ [12]胴"
 rands = [
-  { sides = 10, value = 7 },
   { sides = 10, value = 6 },
   { sides = 10, value = 1 },
   { sides = 10, value = 7 },
@@ -1686,11 +1638,10 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1#3"
+input = "EM5+1#3"
 output = "(2R10+1>=5[20,3]) ＞ 6[1,5]+1 ＞ 7 ＞ 成功 ＞ 命中レベルC ＞ [11]胴"
 rands = [
   { sides = 10, value = 5 },
-  { sides = 10, value = 5 },
   { sides = 10, value = 1 },
   { sides = 10, value = 4 },
   { sides = 10, value = 7 },
@@ -1698,10 +1649,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1#3"
+input = "EM6+1#3"
 output = "(2R10+1>=6[20,3]) ＞ 17[7,10]+1 ＞ 18 ＞ 成功 ＞ 命中レベルA ＞ [10]胴"
 rands = [
-  { sides = 10, value = 6 },
   { sides = 10, value = 7 },
   { sides = 10, value = 10 },
   { sides = 10, value = 8 },
@@ -1710,10 +1660,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19#3"
+input = "EM2+1@19#3"
 output = "(2R10+1>=2[19,3]) ＞ 10[4,6]+1 ＞ 11 ＞ 成功 ＞ 命中レベルC ＞ [10]胴"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 6 },
   { sides = 10, value = 4 },
   { sides = 10, value = 4 },
@@ -1722,11 +1671,10 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19#3"
+input = "EM6+1@19#3"
 output = "(2R10+1>=6[19,3]) ＞ 16[6,10]+1 ＞ 17 ＞ 成功 ＞ 命中レベルA ＞ [14]右腕"
 rands = [
   { sides = 10, value = 6 },
-  { sides = 10, value = 6 },
   { sides = 10, value = 10 },
   { sides = 10, value = 8 },
   { sides = 10, value = 6 },
@@ -1734,10 +1682,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19#3"
+input = "EM6+1@19#3"
 output = "(2R10+1>=6[19,3]) ＞ 9[1,8]+1 ＞ 10 ＞ 成功 ＞ 命中レベルB ＞ [9]左腕"
 rands = [
-  { sides = 10, value = 6 },
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
   { sides = 10, value = 5 },
@@ -1746,10 +1693,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19#3"
+input = "EM5+1@19#3"
 output = "(2R10+1>=5[19,3]) ＞ 14[6,8]+1 ＞ 15 ＞ 成功 ＞ 命中レベルB ＞ [9]左腕"
 rands = [
-  { sides = 10, value = 5 },
   { sides = 10, value = 8 },
   { sides = 10, value = 6 },
   { sides = 10, value = 5 },
@@ -1758,10 +1704,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19#3"
+input = "EM7+1@19#3"
 output = "(2R10+1>=7[19,3]) ＞ 10[4,6]+1 ＞ 11 ＞ 成功 ＞ 命中レベルC ＞ [7]左脚"
 rands = [
-  { sides = 10, value = 7 },
   { sides = 10, value = 4 },
   { sides = 10, value = 6 },
   { sides = 10, value = 5 },
@@ -1770,10 +1715,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19#3"
+input = "EM6+1@19#3"
 output = "(2R10+1>=6[19,3]) ＞ 11[3,8]+1 ＞ 12 ＞ 成功 ＞ 命中レベルB ＞ [12]胴"
 rands = [
-  { sides = 10, value = 6 },
   { sides = 10, value = 8 },
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
@@ -1782,10 +1726,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19#3"
+input = "EM4+1@19#3"
 output = "(2R10+1>=4[19,3]) ＞ 16[6,10]+1 ＞ 17 ＞ 成功 ＞ 命中レベルA ＞ [4]頭"
 rands = [
-  { sides = 10, value = 4 },
   { sides = 10, value = 6 },
   { sides = 10, value = 10 },
   { sides = 10, value = 3 },
@@ -1794,10 +1737,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19#3"
+input = "EM2+1@19#3"
 output = "(2R10+1>=2[19,3]) ＞ 7[3,4]+1 ＞ 8 ＞ 成功 ＞ 命中レベルC ＞ [13]右腕"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
   { sides = 10, value = 9 },
@@ -1806,10 +1748,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19#3"
+input = "EM1+1@19#3"
 output = "(2R10+1>=1[19,3]) ＞ 10[4,6]+1 ＞ 11 ＞ 成功 ＞ 命中レベルC ＞ [9]左腕"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 4 },
   { sides = 10, value = 6 },
   { sides = 10, value = 5 },
@@ -1818,10 +1759,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+1@19#3"
+input = "EM8+1@19#3"
 output = "(2R10+1>=8[19,3]) ＞ 12[5,7]+1 ＞ 13 ＞ 成功 ＞ 命中レベルB ＞ [11]胴"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 7 },
   { sides = 10, value = 5 },
   { sides = 10, value = 3 },
@@ -1830,10 +1770,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+2@20#2"
+input = "EM4+2@20#2"
 output = "(2R10+2>=4[20,2]) ＞ 10[2,8]+2 ＞ 12 ＞ 成功 ＞ 命中レベルB ＞ [10]胴"
 rands = [
-  { sides = 10, value = 4 },
   { sides = 10, value = 2 },
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
@@ -1842,10 +1781,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+2@20#2"
+input = "EM6+2@20#2"
 output = "(2R10+2>=6[20,2]) ＞ 13[3,10]+2 ＞ 15 ＞ 成功 ＞ 命中レベルA ＞ [10]胴"
 rands = [
-  { sides = 10, value = 6 },
   { sides = 10, value = 10 },
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
@@ -1854,10 +1792,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+2@20#2"
+input = "EM1+2@20#2"
 output = "(2R10+2>=1[20,2]) ＞ 18[9,9]+2 ＞ 20 ＞ 成功 ＞ 命中レベルB ＞ [10]胴"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
@@ -1866,11 +1803,10 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+2@20#2"
+input = "EM10+2@20#2"
 output = "(2R10+2>=10[20,2]) ＞ 18[8,10]+2 ＞ 20 ＞ 成功 ＞ 命中レベルA ＞ [12]胴"
 rands = [
   { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
   { sides = 10, value = 5 },
@@ -1878,10 +1814,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+2@20#2"
+input = "EM7+2@20#2"
 output = "(2R10+2>=7[20,2]) ＞ 14[5,9]+2 ＞ 16 ＞ 成功 ＞ 命中レベルB ＞ [11]胴"
 rands = [
-  { sides = 10, value = 7 },
   { sides = 10, value = 9 },
   { sides = 10, value = 5 },
   { sides = 10, value = 5 },
@@ -1890,10 +1825,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+2@20#2"
+input = "EM4+2@20#2"
 output = "(2R10+2>=4[20,2]) ＞ 8[1,7]+2 ＞ 10 ＞ 成功 ＞ 命中レベルB ＞ [8]左腕"
 rands = [
-  { sides = 10, value = 4 },
   { sides = 10, value = 1 },
   { sides = 10, value = 7 },
   { sides = 10, value = 5 },
@@ -1902,10 +1836,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+2@20#2"
+input = "EM4+2@20#2"
 output = "(2R10+2>=4[20,2]) ＞ 12[2,10]+2 ＞ 14 ＞ 成功 ＞ 命中レベルA ＞ [14]右腕"
 rands = [
-  { sides = 10, value = 4 },
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
   { sides = 10, value = 8 },
@@ -1914,10 +1847,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+2@20#2"
+input = "EM8+2@20#2"
 output = "(2R10+2>=8[20,2]) ＞ 9[2,7]+2 ＞ 11 ＞ 成功 ＞ 命中レベルB ＞ [10]胴"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 2 },
   { sides = 10, value = 7 },
   { sides = 10, value = 2 },
@@ -1926,10 +1858,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+2@20#2"
+input = "EM1+2@20#2"
 output = "(2R10+2>=1[20,2]) ＞ 12[6,6]+2 ＞ 14 ＞ 成功 ＞ 命中レベルC ＞ [9]左腕"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
   { sides = 10, value = 1 },
@@ -1938,10 +1869,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+2@20#2"
+input = "EM2+2@20#2"
 output = "(2R10+2>=2[20,2]) ＞ 7[1,6]+2 ＞ 9 ＞ 成功 ＞ 命中レベルC ＞ [5]左脚"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 6 },
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -1950,10 +1880,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]-1@20#2"
+input = "EM8-1@20#2"
 output = "(2R10-1>=8[20,2]) ＞ 11[2,9]-1 ＞ 10 ＞ 成功 ＞ 命中レベルB ＞ [8]左腕"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 9 },
   { sides = 10, value = 2 },
   { sides = 10, value = 7 },
@@ -1962,10 +1891,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]-1@20#2"
+input = "EM4-1@20#2"
 output = "(2R10-1>=4[20,2]) ＞ 9[1,8]-1 ＞ 8 ＞ 成功 ＞ 命中レベルB ＞ [14]右腕"
 rands = [
-  { sides = 10, value = 4 },
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
   { sides = 10, value = 6 },
@@ -1974,10 +1902,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]-1@20#2"
+input = "EM4-1@20#2"
 output = "(2R10-1>=4[20,2]) ＞ 16[6,10]-1 ＞ 15 ＞ 成功 ＞ 命中レベルA ＞ [14]右腕"
 rands = [
-  { sides = 10, value = 4 },
   { sides = 10, value = 10 },
   { sides = 10, value = 6 },
   { sides = 10, value = 8 },
@@ -1986,10 +1913,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]-1@20#2"
+input = "EM7-1@20#2"
 output = "(2R10-1>=7[20,2]) ＞ 10[4,6]-1 ＞ 9 ＞ 成功 ＞ 命中レベルC ＞ [8]左腕"
 rands = [
-  { sides = 10, value = 7 },
   { sides = 10, value = 6 },
   { sides = 10, value = 4 },
   { sides = 10, value = 3 },
@@ -1998,10 +1924,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]-1@20#2"
+input = "EM6-1@20#2"
 output = "(2R10-1>=6[20,2]) ＞ 12[3,9]-1 ＞ 11 ＞ 成功 ＞ 命中レベルB ＞ [15]右脚"
 rands = [
-  { sides = 10, value = 6 },
   { sides = 10, value = 9 },
   { sides = 10, value = 3 },
   { sides = 10, value = 9 },
@@ -2010,10 +1935,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]-1@20#2"
+input = "EM1-1@20#2"
 output = "(2R10-1>=1[20,2]) ＞ 10[4,6]-1 ＞ 9 ＞ 成功 ＞ 命中レベルC ＞ [3]頭"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 6 },
   { sides = 10, value = 4 },
   { sides = 10, value = 1 },
@@ -2022,10 +1946,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]-1@20#2"
+input = "EM8-1@20#2"
 output = "(2R10-1>=8[20,2]) ＞ 6[1,5]-1 ＞ 5 ＞ 失敗"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
   { sides = 10, value = 2 },
@@ -2034,10 +1957,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]-1@20#2"
+input = "EM2-1@20#2"
 output = "(2R10-1>=2[20,2]) ＞ 15[6,9]-1 ＞ 14 ＞ 成功 ＞ 命中レベルB ＞ [11]胴"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 6 },
   { sides = 10, value = 9 },
   { sides = 10, value = 1 },
@@ -2046,10 +1968,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]-1@20#2"
+input = "EM3-1@20#2"
 output = "(2R10-1>=3[20,2]) ＞ 14[7,7]-1 ＞ 13 ＞ 成功 ＞ 命中レベルB ＞ [9]左腕"
 rands = [
-  { sides = 10, value = 3 },
   { sides = 10, value = 7 },
   { sides = 10, value = 7 },
   { sides = 10, value = 3 },
@@ -2058,10 +1979,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]-1@20#2"
+input = "EM8-1@20#2"
 output = "(2R10-1>=8[20,2]) ＞ 19[9,10]-1 ＞ 18 ＞ 成功 ＞ 命中レベルA ＞ [10]胴"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
@@ -2070,13 +1990,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+[1...5]@[18...20]#[1...3]"
+input = "EM4+4@19#2"
 output = "(2R10+4>=4[19,2]) ＞ 12[6,6]+4 ＞ 16 ＞ 成功 ＞ 命中レベルC ＞ [3]頭"
 rands = [
-  { sides = 10, value = 4 },
-  { sides = 5, value = 4 },
-  { sides = 3, value = 2 },
-  { sides = 3, value = 2 },
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
   { sides = 10, value = 2 },
@@ -2085,13 +2001,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+[1...5]@[18...20]#[1...3]"
+input = "EM8+1@19#1"
 output = "(2R10+1>=8[19,1]) ＞ 10[2,8]+1 ＞ 11 ＞ 成功 ＞ 命中レベルB ＞ [10]胴"
 rands = [
-  { sides = 10, value = 8 },
-  { sides = 5, value = 1 },
-  { sides = 3, value = 2 },
-  { sides = 3, value = 1 },
   { sides = 10, value = 2 },
   { sides = 10, value = 8 },
   { sides = 10, value = 4 },
@@ -2100,13 +2012,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+[1...5]@[18...20]#[1...3]"
+input = "EM7+3@19#3"
 output = "(2R10+3>=7[19,3]) ＞ 7[1,6]+3 ＞ 10 ＞ 成功 ＞ 命中レベルC ＞ [6]左脚"
 rands = [
-  { sides = 10, value = 7 },
-  { sides = 5, value = 3 },
-  { sides = 3, value = 2 },
-  { sides = 3, value = 3 },
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
   { sides = 10, value = 4 },
@@ -2115,13 +2023,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+[1...5]@[18...20]#[1...3]"
+input = "EM10+1@19#2"
 output = "(2R10+1>=10[19,2]) ＞ 3[1,2]+1 ＞ 4 ＞ 失敗"
 rands = [
-  { sides = 10, value = 10 },
-  { sides = 5, value = 1 },
-  { sides = 3, value = 2 },
-  { sides = 3, value = 2 },
   { sides = 10, value = 2 },
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -2130,13 +2034,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+[1...5]@[18...20]#[1...3]"
+input = "EM2+2@20#2"
 output = "(2R10+2>=2[20,2]) ＞ 13[4,9]+2 ＞ 15 ＞ 成功 ＞ 命中レベルB ＞ [17]右脚"
 rands = [
-  { sides = 10, value = 2 },
-  { sides = 5, value = 2 },
-  { sides = 3, value = 3 },
-  { sides = 3, value = 2 },
   { sides = 10, value = 4 },
   { sides = 10, value = 9 },
   { sides = 10, value = 7 },
@@ -2145,14 +2045,10 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+[1...5]@[18...20]#[1...3]"
+input = "EM8+3@20#2"
 output = "(2R10+3>=8[20,2]) ＞ 11[3,8]+3 ＞ 14 ＞ 成功 ＞ 命中レベルB ＞ [4]頭"
 rands = [
   { sides = 10, value = 8 },
-  { sides = 5, value = 3 },
-  { sides = 3, value = 3 },
-  { sides = 3, value = 2 },
-  { sides = 10, value = 8 },
   { sides = 10, value = 3 },
   { sides = 10, value = 1 },
   { sides = 10, value = 3 },
@@ -2160,13 +2056,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+[1...5]@[18...20]#[1...3]"
+input = "EM5+3@18#2"
 output = "(2R10+3>=5[18,2]) ＞ 9[1,8]+3 ＞ 12 ＞ 成功 ＞ 命中レベルB ＞ [13]右腕"
 rands = [
-  { sides = 10, value = 5 },
-  { sides = 5, value = 3 },
-  { sides = 3, value = 1 },
-  { sides = 3, value = 2 },
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
   { sides = 10, value = 9 },
@@ -2175,13 +2067,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+[1...5]@[18...20]#[1...3]"
+input = "EM7+5@18#1"
 output = "(2R10+5>=7[18,1]) ＞ 10[3,7]+5 ＞ 15 ＞ 成功 ＞ 命中レベルB ＞ [15]右脚"
 rands = [
-  { sides = 10, value = 7 },
-  { sides = 5, value = 5 },
-  { sides = 3, value = 1 },
-  { sides = 3, value = 1 },
   { sides = 10, value = 3 },
   { sides = 10, value = 7 },
   { sides = 10, value = 5 },
@@ -2190,13 +2078,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+[1...5]@[18...20]#[1...3]"
+input = "EM9+2@18#3"
 output = "(2R10+2>=9[18,3]) ＞ 11[5,6]+2 ＞ 13 ＞ 成功 ＞ 命中レベルC ＞ [14]右腕"
 rands = [
-  { sides = 10, value = 9 },
-  { sides = 5, value = 2 },
-  { sides = 3, value = 1 },
-  { sides = 3, value = 3 },
   { sides = 10, value = 5 },
   { sides = 10, value = 6 },
   { sides = 10, value = 9 },
@@ -2205,13 +2089,9 @@ rands = [
 
 [[ test ]]
 game_system = "EmbryoMachine"
-input = "EM[1...10]+[1...5]@[18...20]#[1...3]"
+input = "EM2+4@19#3"
 output = "(2R10+4>=2[19,3]) ＞ 13[6,7]+4 ＞ 17 ＞ 成功 ＞ 命中レベルB ＞ [13]右腕"
 rands = [
-  { sides = 10, value = 2 },
-  { sides = 5, value = 4 },
-  { sides = 3, value = 2 },
-  { sides = 3, value = 3 },
   { sides = 10, value = 7 },
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
