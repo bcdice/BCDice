@@ -7,6 +7,7 @@ require "bcdice/dice_table"
 require "bcdice/enum"
 require "bcdice/translate"
 require "bcdice/result"
+require "bcdice/command_parser"
 
 module BCDice
   class Base

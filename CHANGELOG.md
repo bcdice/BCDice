@@ -1,5 +1,19 @@
 # ChangeLog
 
+## Unreleased
+
+### 対応ゲームシステムの追加
+- SRSじゃない世界樹の迷宮TRPG (NSSQ): TTさんありがとうっ！ ([#284](https://github.com/bcdice/BCDice/pull/284))
+- ウォーハンマーRPG第4版 (Warhammer4): Facelessさんありがとうっ！ ([#285](https://github.com/bcdice/BCDice/pull/285))
+
+### 追加機能
+- ログ・ホライズンTRPG: LHZB1とLHZB2両方の財宝表をサポート、消耗表ロールを追加、財宝表ロールを追加、区切り文字を変更 ([#279](https://github.com/bcdice/BCDice/pull/279))
+
+### バグ修正
+- キルデスビジネス: 蘇生副作用表の誤植を修正。スイさんありがとうっ！ ([#283](https://github.com/bcdice/BCDice/pull/283))
+
+## 2.XX.XX
+
 ### Ver2.08.00 2020/08/30
 - 「Vampire: The Masquerade 5th Edition」のヘルプメッセージの誤字を修正。フレッド緑野さんありがとうっ！ (#240)
 - ダイスボットに韓国語版ダブルクロス「더블크로스2nd,3rd」を追加。ルキさんありがとうっ！ (#245)
