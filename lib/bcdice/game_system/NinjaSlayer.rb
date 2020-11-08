@@ -170,7 +170,7 @@ module BCDice
       def executeEV(ev)
         command = bRollCommand(ev.num, ev.difficulty)
 
-        rollResult = BCDice::CommonCommand::BarabaraDice.new(command, @randomizer, self).eval().sub(B_ROLL_RESULT_HEAD_RE, '')
+        rollResult = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer).text.sub(B_ROLL_RESULT_HEAD_RE, '')
         return rollResult unless ev.targetValue
 
         m = /成功数(\d+)/.match(rollResult)
@@ -189,7 +189,7 @@ module BCDice
       # @return [String] 近接攻撃結果
       def executeAT(at)
         command = bRollCommand(at.num, at.difficulty)
-        rollResult = BCDice::CommonCommand::BarabaraDice.new(command, @randomizer, self).eval().sub(B_ROLL_RESULT_HEAD_RE, '')
+        rollResult = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer).text.sub(B_ROLL_RESULT_HEAD_RE, '')
 
         # バラバラロールの出目を取得する
         # TODO: バラバラロールの結果として、出目を配列で取得できるようにする
@@ -206,7 +206,7 @@ module BCDice
       # @return [String] 電子戦結果
       def executeEL(el)
         command = bRollCommand(el.num, el.difficulty)
-        rollResult = BCDice::CommonCommand::BarabaraDice.new(command, @randomizer, self).eval().sub(B_ROLL_RESULT_HEAD_RE, '')
+        rollResult = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer).text.sub(B_ROLL_RESULT_HEAD_RE, '')
 
         # バラバラロールの出目を取得する
         # TODO: バラバラロールの結果として、出目を配列で取得できるようにする
