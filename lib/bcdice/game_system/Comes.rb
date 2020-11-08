@@ -22,7 +22,6 @@ module BCDice
         super(command)
 
         @sort_add_dice = true
-        @enabled_d66 = true
         @d66_sort_type = D66SortType::ASC
       end
 
@@ -30,13 +29,20 @@ module BCDice
         return roll_tables(command, self.class::TABLES)
       end
 
-      def self.translate_tables(locale)
-        {
-          "PT" => DiceTable::Table.from_i18n("Comes.table.PT", locale),
-        }
-      end
-
-      TABLES = translate_tables(:ja_jp)
+      TABLES = {
+        'PT' => DiceTable::Table.new(
+          '判定ペナルティ表',
+          '1D6',
+          [
+            '恐ろしい目に合う。『恐怖』を与える。',
+            '今見ているものを理解できない。『混乱』を与える。',
+            '我を忘れて見とれてしまう。『魅了』を与える。',
+            '思わぬ遠回りをしてしまう。『疲労』を与える。',
+            '大きな失態を演じてしまう。『負傷』を与える。',
+            '別の困難が立ちはだかる。新たに判定を行わせる。',
+          ]
+        )
+      }.freeze
 
       register_prefix(TABLES.keys)
     end
