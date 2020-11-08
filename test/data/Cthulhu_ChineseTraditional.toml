@@ -1,5 +1,5 @@
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "1D100<=70 ファンブルなし"
 output = "(1D100<=70) ＞ 100 ＞ 失敗"
 rands = [
@@ -7,7 +7,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "1D100<=70 クリティカルなし"
 output = "(1D100<=70) ＞ 1 ＞ 成功"
 rands = [
@@ -18,7 +18,7 @@ rands = [
 ##### 対抗判定 RES #####
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(12-10) 失敗"
 output = "(1d100<=60) ＞ 83 ＞ 失敗"
 failure = true
@@ -27,7 +27,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(12-10) ファンブル"
 output = "(1d100<=60) ＞ 100 ＞ 致命性失敗"
 failure = true
@@ -37,7 +37,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(12-10) ファンブルは100のみ"
 output = "(1d100<=60) ＞ 99 ＞ 失敗"
 failure = true
@@ -46,7 +46,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(12-10) 失敗"
 output = "(1d100<=60) ＞ 88 ＞ 失敗"
 failure = true
@@ -55,7 +55,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(12-10) 失敗 1足りない"
 output = "(1d100<=60) ＞ 61 ＞ 失敗"
 failure = true
@@ -64,7 +64,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(12-10) 成功 1足りた"
 output = "(1d100<=60) ＞ 60 ＞ 成功"
 success = true
@@ -73,7 +73,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(12-10) 成功"
 output = "(1d100<=60) ＞ 42 ＞ 成功"
 success = true
@@ -82,7 +82,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(12-10) 特殊に1足りない"
 output = "(1d100<=60) ＞ 13 ＞ 成功"
 success = true
@@ -91,7 +91,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(12-10) 特殊"
 output = "(1d100<=60) ＞ 12 ＞ 特殊"
 success = true
@@ -100,7 +100,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(12-10) クリティカルは1のみ"
 output = "(1d100<=60) ＞ 2 ＞ 特殊"
 success = true
@@ -109,7 +109,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(12-10) クリティカル"
 output = "(1d100<=60) ＞ 1 ＞ 決定性的成功/特殊"
 success = true
@@ -119,7 +119,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(10-15) 引数が負数の場合には絶対値をとる"
 output = "(1d100<=25) ＞ 26 ＞ 失敗"
 failure = true
@@ -128,7 +128,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(10-15) 引数が負数の場合には絶対値をとる"
 output = "(1d100<=25) ＞ 25 ＞ 成功"
 success = true
@@ -137,21 +137,21 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(11-30) 自動失敗"
 output = "(1d100<=-45) ＞ 自動失敗"
 failure = true
 rands = []
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RES(30-11) 自動成功"
 output = "(1d100<=145) ＞ 自動成功"
 success = true
 rands = []
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "SRES(18-11) シークレット"
 output = "(1d100<=85) ＞ 47 ＞ 成功"
 secret = true
@@ -164,7 +164,7 @@ rands = [
 ##### 組み合わせロール CBR #####
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBR(70,30) ファンブル"
 output = "(1d100<=70,30) ＞ 100[致命性失敗,致命性失敗] ＞ 失敗"
 failure = true
@@ -174,7 +174,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBR(70,30) ファンブルは100のみ"
 output = "(1d100<=70,30) ＞ 99[失敗,失敗] ＞ 失敗"
 failure = true
@@ -183,7 +183,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBR(70,30) 失敗"
 output = "(1d100<=70,30) ＞ 71[失敗,失敗] ＞ 失敗"
 failure = true
@@ -192,7 +192,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBR(70,30) 部分性成功"
 output = "(1d100<=70,30) ＞ 70[成功,失敗] ＞ 部分性成功"
 success = true
@@ -201,7 +201,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBR(70,30) 部分性成功"
 output = "(1d100<=70,30) ＞ 31[成功,失敗] ＞ 部分性成功"
 success = true
@@ -210,7 +210,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBR(70,30) 成功"
 output = "(1d100<=70,30) ＞ 30[成功,成功] ＞ 成功"
 success = true
@@ -219,7 +219,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBR(70,30) 一方のみ特殊"
 output = "(1d100<=70,30) ＞ 7[特殊,成功] ＞ 成功"
 success = true
@@ -228,7 +228,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBR(70,30) 両方特殊"
 output = "(1d100<=70,30) ＞ 6[特殊,特殊] ＞ 成功"
 success = true
@@ -237,7 +237,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBR(70,30) クリティカル"
 output = "(1d100<=70,30) ＞ 1[決定性的成功/特殊,決定性的成功/特殊] ＞ 成功"
 success = true
@@ -247,7 +247,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBR(25,1) 特殊と失敗"
 output = "(1d100<=25,1) ＞ 5[特殊,失敗] ＞ 部分性成功"
 success = true
@@ -256,7 +256,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBR(90,99)"
 output = "(1d100<=90,99) ＞ 96[失敗,成功] ＞ 部分性成功"
 success = true
@@ -265,7 +265,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBR(90,95)"
 output = "(1d100<=90,95) ＞ 96[失敗,失敗] ＞ 失敗"
 failure = true
@@ -274,7 +274,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "SCBR(25,75) シークレット"
 output = "(1d100<=25,75) ＞ 30[失敗,成功] ＞ 部分性成功"
 secret = true
@@ -287,7 +287,7 @@ rands = [
 ##### 技能判定 CC #####
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC 1D100の置き換えなのでファンブルなし"
 output = "(1D100) ＞ 100"
 rands = [
@@ -295,7 +295,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC 1D100の置き換えなのでクリティカルなし"
 output = "(1D100) ＞ 1"
 rands = [
@@ -303,7 +303,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=60 ファンブル"
 output = "(1D100<=60) ＞ 100 ＞ 致命性失敗"
 failure = true
@@ -313,7 +313,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=60 ファンブルは100のみ"
 output = "(1D100<=60) ＞ 99 ＞ 失敗"
 failure = true
@@ -322,7 +322,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=60 失敗"
 output = "(1D100<=60) ＞ 78 ＞ 失敗"
 failure = true
@@ -331,7 +331,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=60 失敗 1足りない"
 output = "(1D100<=60) ＞ 61 ＞ 失敗"
 failure = true
@@ -340,7 +340,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=60 成功 1足りた"
 output = "(1D100<=60) ＞ 60 ＞ 成功"
 success = true
@@ -349,7 +349,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=60 成功"
 output = "(1D100<=60) ＞ 49 ＞ 成功"
 success = true
@@ -358,7 +358,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=60 特殊に1足りない"
 output = "(1D100<=60) ＞ 13 ＞ 成功"
 success = true
@@ -367,7 +367,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=60 特殊"
 output = "(1D100<=60) ＞ 12 ＞ 特殊"
 success = true
@@ -376,7 +376,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=60 クリティカルは1のみ"
 output = "(1D100<=60) ＞ 2 ＞ 特殊"
 success = true
@@ -385,7 +385,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=60 クリティカル"
 output = "(1D100<=60) ＞ 1 ＞ 決定性的成功/特殊"
 success = true
@@ -395,7 +395,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=59 特殊は端数切り捨て"
 output = "(1D100<=59) ＞ 12 ＞ 成功"
 success = true
@@ -404,7 +404,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=59 特殊は端数切り捨て"
 output = "(1D100<=59) ＞ 11 ＞ 特殊"
 success = true
@@ -413,7 +413,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC<=+60/2+15*2-10"
 output = "(1D100<=50) ＞ 37 ＞ 成功"
 success = true
@@ -422,7 +422,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC(94)<=98 故障 成功"
 output = "(1D100<=98) 故障率[94] ＞ 97 ＞ 故障"
 failure = true
@@ -431,7 +431,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC(94)<=98 故障 失敗"
 output = "(1D100<=98) 故障率[94] ＞ 99 ＞ 故障"
 failure = true
@@ -440,7 +440,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CC(94)<=98 故障 致命性失敗"
 output = "(1D100<=98) 故障率[94] ＞ 100 ＞ 致命性失敗/故障"
 failure = true
@@ -450,7 +450,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "SCC<=60 シークレット"
 output = "(1D100<=60) ＞ 77 ＞ 失敗"
 failure = true
@@ -463,7 +463,7 @@ rands = [
 ##### 戦闘用技能判定 CCB #####
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=+60/2+15*2-10"
 output = "(1D100<=50) ＞ 37 ＞ 成功"
 success = true
@@ -472,7 +472,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=(12*5)-20"
 output = "(1D100<=40) ＞ 37 ＞ 成功"
 success = true
@@ -481,7 +481,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=50 ファンブル"
 output = "(1D100<=50) ＞ 100 ＞ 致命性失敗"
 failure = true
@@ -491,7 +491,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=50 ファンブル"
 output = "(1D100<=50) ＞ 96 ＞ 致命性失敗"
 failure = true
@@ -501,7 +501,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=50 ファンブルは96~100"
 output = "(1D100<=50) ＞ 95 ＞ 失敗"
 failure = true
@@ -510,7 +510,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=50 失敗"
 output = "(1D100<=50) ＞ 61 ＞ 失敗"
 failure = true
@@ -519,7 +519,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=50 失敗 1足りない"
 output = "(1D100<=50) ＞ 51 ＞ 失敗"
 failure = true
@@ -528,7 +528,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=50 成功 1足りた"
 output = "(1D100<=50) ＞ 50 ＞ 成功"
 success = true
@@ -537,7 +537,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=50 特殊に1足りない"
 output = "(1D100<=50) ＞ 11 ＞ 成功"
 success = true
@@ -546,7 +546,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=50 特殊"
 output = "(1D100<=50) ＞ 10 ＞ 特殊"
 success = true
@@ -555,7 +555,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=50 クリティカルは1~5"
 output = "(1D100<=50) ＞ 6 ＞ 特殊"
 success = true
@@ -564,7 +564,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=50 クリティカル"
 output = "(1D100<=50) ＞ 5 ＞ 決定性的成功/特殊"
 success = true
@@ -574,7 +574,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=50 クリティカル"
 output = "(1D100<=50) ＞ 1 ＞ 決定性的成功/特殊"
 success = true
@@ -584,7 +584,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=98 出目が悪いがファンブルでない"
 output = "(1D100<=98) ＞ 98 ＞ 成功"
 success = true
@@ -593,7 +593,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=3 出目が良いがクリティカルでない"
 output = "(1D100<=3) ＞ 4 ＞ 失敗"
 failure = true
@@ -602,7 +602,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB<=-10+40/2+20*2 右辺が式"
 output = "(1D100<=50) ＞ 37 ＞ 成功"
 success = true
@@ -611,7 +611,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB(98)<=80 故障率：成功"
 output = "(1D100<=80) 故障率[98] ＞ 80 ＞ 成功"
 success = true
@@ -620,7 +620,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB(98)<=99 故障率：故障 成功"
 output = "(1D100<=99) 故障率[98] ＞ 99 ＞ 故障"
 failure = true
@@ -629,7 +629,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB(98)<=80 故障率：致命性失敗"
 output = "(1D100<=80) 故障率[98] ＞ 96 ＞ 致命性失敗"
 failure = true
@@ -639,7 +639,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB(98)<=80 (5%) 故障率：故障 致命性失敗"
 output = "(1D100<=80) 故障率[98] ＞ 99 ＞ 致命性失敗/故障"
 failure = true
@@ -649,7 +649,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CCB(98)<=80 (5%) 故障率：致命性失敗"
 output = "(1D100<=80) 故障率[98] ＞ 100 ＞ 致命性失敗/故障"
 failure = true
@@ -659,7 +659,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "SCCB<=50 シークレット"
 output = "(1D100<=50) ＞ 30 ＞ 成功"
 secret = true
@@ -672,7 +672,7 @@ rands = [
 ##### 戦闘用対抗判定 RESB #####
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(13-10) ファンブル"
 output = "(1d100<=65) ＞ 100 ＞ 致命性失敗"
 failure = true
@@ -682,7 +682,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(13-10) ファンブル"
 output = "(1d100<=65) ＞ 96 ＞ 致命性失敗"
 failure = true
@@ -692,7 +692,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(13-10) ファンブルは96~100"
 output = "(1d100<=65) ＞ 95 ＞ 失敗"
 failure = true
@@ -701,7 +701,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(13-10) 失敗 1足りない"
 output = "(1d100<=65) ＞ 66 ＞ 失敗"
 failure = true
@@ -710,7 +710,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(13-10) 成功 1足りた"
 output = "(1d100<=65) ＞ 65 ＞ 成功"
 success = true
@@ -719,7 +719,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(13-10) 特殊に1足りない"
 output = "(1d100<=65) ＞ 14 ＞ 成功"
 success = true
@@ -728,7 +728,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(13-10) 特殊"
 output = "(1d100<=65) ＞ 13 ＞ 特殊"
 success = true
@@ -737,7 +737,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(13-10) クリティカルは1~5"
 output = "(1d100<=65) ＞ 6 ＞ 特殊"
 success = true
@@ -746,7 +746,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(13-10) クリティカル"
 output = "(1d100<=65) ＞ 5 ＞ 決定性的成功/特殊"
 success = true
@@ -756,7 +756,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(13-10) クリティカル"
 output = "(1d100<=65) ＞ 1 ＞ 決定性的成功/特殊"
 success = true
@@ -766,7 +766,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(10-15) 絶対値をとる"
 output = "(1d100<=25) ＞ 90 ＞ 失敗"
 failure = true
@@ -775,7 +775,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(10-15) 絶対値をとる"
 output = "(1d100<=25) ＞ 25 ＞ 成功"
 success = true
@@ -784,21 +784,21 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(25-10) 自動成功"
 output = "(1d100<=125) ＞ 自動成功"
 success = true
 rands = []
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "RESB(10-25) 自動失敗"
 output = "(1d100<=-25) ＞ 自動失敗"
 failure = true
 rands = []
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "SRESB(16-12) シークレット"
 output = "(1d100<=70) ＞ 44 ＞ 成功"
 secret = true
@@ -811,7 +811,7 @@ rands = [
 ##### 戦闘用組み合わせロール CBRB #####
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBRB(70,30) ファンブル"
 output = "(1d100<=70,30) ＞ 100[致命性失敗,致命性失敗] ＞ 失敗"
 failure = true
@@ -821,7 +821,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBRB(70,30) ファンブル"
 output = "(1d100<=70,30) ＞ 96[致命性失敗,致命性失敗] ＞ 失敗"
 failure = true
@@ -831,7 +831,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBRB(70,30) ファンブルは96~100"
 output = "(1d100<=70,30) ＞ 95[失敗,失敗] ＞ 失敗"
 failure = true
@@ -840,7 +840,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBRB(70,30) ファンブルは96~100"
 output = "(1d100<=70,30) ＞ 95[失敗,失敗] ＞ 失敗"
 failure = true
@@ -849,7 +849,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBRB(70,30) 部分生成功"
 output = "(1d100<=70,30) ＞ 70[成功,失敗] ＞ 部分性成功"
 success = true
@@ -858,7 +858,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBRB(70,30) 部分性性成功"
 output = "(1d100<=70,30) ＞ 31[成功,失敗] ＞ 部分性成功"
 success = true
@@ -867,7 +867,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBRB(70,30) 一方のみ特殊"
 output = "(1d100<=70,30) ＞ 7[特殊,成功] ＞ 成功"
 success = true
@@ -876,7 +876,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBRB(70,30) クリティカルは1~5"
 output = "(1d100<=70,30) ＞ 6[特殊,特殊] ＞ 成功"
 success = true
@@ -885,7 +885,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBRB(70,30) クリティカル"
 output = "(1d100<=70,30) ＞ 5[決定性的成功/特殊,決定性的成功/特殊] ＞ 成功"
 success = true
@@ -895,7 +895,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBRB(70,30) クリティカル"
 output = "(1d100<=70,30) ＞ 1[決定性的成功/特殊,決定性的成功/特殊] ＞ 成功"
 success = true
@@ -905,7 +905,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBRB(98,50) 成功とファンブル"
 output = "(1d100<=98,50) ＞ 96[成功,致命性失敗] ＞ 部分性成功"
 success = true
@@ -915,7 +915,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "CBRB(70,2) クリティカルと失敗"
 output = "(1d100<=70,2) ＞ 3[決定性的成功/特殊,失敗] ＞ 部分性成功"
 success = true
@@ -925,7 +925,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_ChineseTraditional"
+game_system = "Cthulhu:ChineseTraditional"
 input = "SCBRB(70,30) シークレット"
 output = "(1d100<=70,30) ＞ 48[成功,失敗] ＞ 部分性成功"
 secret = true

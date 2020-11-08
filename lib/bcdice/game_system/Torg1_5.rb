@@ -6,7 +6,7 @@ module BCDice
   module GameSystem
     class Torg1_5 < Torg
       # ゲームシステムの識別子
-      ID = 'TORG1.5'
+      ID = 'Torg1.5'
 
       # ゲームシステム名
       NAME = 'トーグ1.5版'

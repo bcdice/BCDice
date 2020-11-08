@@ -1,5 +1,5 @@
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR"
 output = "(DR) ＞ 4D6 ＞ [ 3, 4, 5, 6 ]"
 rands = [
@@ -10,7 +10,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR"
 output = "(DR) ＞ 4D6 ＞ [ 3, 4, 6, 6, 10 ]"
 rands = [
@@ -21,7 +21,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR"
 output = "(DR) ＞ 4D6 ＞ [ 3, 6, 6, 6, 10 ]"
 rands = [
@@ -32,7 +32,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR"
 output = "(DR) ＞ 4D6 ＞ [ 1, 1, 3, 4, 10 ]"
 rands = [
@@ -43,7 +43,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR"
 output = "(DR) ＞ 4D6 ＞ [ 1, 1, 1, 3, 10 ]"
 rands = [
@@ -54,7 +54,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR6"
 output = "(DR6) ＞ 6D6 ＞ [ 1, 2, 3, 5, 5, 6 ]"
 rands = [
@@ -67,7 +67,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR6"
 output = "(DR6) ＞ 6D6 ＞ [ 5, 5, 6, 6, 6, 6, 10, 10 ]"
 rands = [
@@ -80,7 +80,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR6"
 output = "(DR6) ＞ 6D6 ＞ [ 5, 6, 6, 6, 6, 6, 10, 10 ]"
 rands = [
@@ -93,7 +93,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR6"
 output = "(DR6) ＞ 6D6 ＞ [ 1, 1, 5, 6, 6, 6, 10, 10 ]"
 rands = [
@@ -106,7 +106,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR6"
 output = "(DR6) ＞ 6D6 ＞ [ 1, 1, 1, 5, 6, 6, 10, 10 ]"
 rands = [
@@ -119,7 +119,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR6"
 output = "(DR6) ＞ 6D6 ＞ [ 1, 1, 1, 1, 6, 6, 10, 10, 10 ]"
 rands = [
@@ -132,7 +132,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR+1"
 output = "(DR+1) ＞ 4D6+1 ＞ [ 3, 4, 5, 6+1 ] ＞ [ 3, 4, 5, 7 ]"
 rands = [
@@ -143,7 +143,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR+2"
 output = "(DR+2) ＞ 4D6+2 ＞ [ 3, 4, 6, 6+2, 10 ] ＞ [ 3, 4, 6, 8, 10 ]"
 rands = [
@@ -154,7 +154,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR6+2"
 output = "(DR6+2) ＞ 6D6+2 ＞ [ 1, 1, 3, 4, 6, 6+2, 10, 10 ] ＞ [ 1, 1, 3, 4, 6, 8, 10, 10 ]"
 rands = [
@@ -167,7 +167,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DR+0"
 output = "(DR+0) ＞ 4D6 ＞ [ 3, 4, 5, 6 ]"
 rands = [
@@ -178,7 +178,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DRR4"
 output = "(DRR4) ＞ 4D6 ＞ [ 3, 4, 5, 6 ]"
 rands = [
@@ -189,7 +189,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DRR4"
 output = "(DRR4) ＞ 4D6 ＞ [ 3, 4, 6, 6 ]"
 rands = [
@@ -200,7 +200,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "DRR6"
 output = "(DRR6) ＞ 6D6 ＞ [ 1, 1, 5, 6, 6, 6 ]"
 rands = [
@@ -213,7 +213,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "RT"
 output = "반응표(11) ＞ 드라크：하늘에 빛나는 붉은 달을 올려본다／로젠부르크：콧방귀를 뀐다／헬스가르드：헛기침을 한다／더스트하임：미간을 찌푸리고 생각에 잠긴다／아발롬：하품을 참는다／노스페라스：명왕령의 방향을 노려본다"
 rands = [
@@ -222,7 +222,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "RT"
 output = "반응표(61) ＞ 영주：가슴을 펴고 자신있게 발언한다／근위：마음 속에서 다른 기사와 시합을 한다／방랑：자신의 고향을 떠올린다／현자：미래에 대해 점쳐본다／사냥꾼：과거의 원통함에 피눈물을 흘린다／야수：자신의 피부를 손톱등으로 상처입힌다"
 rands = [
@@ -231,7 +231,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "RT"
 output = "반응표(66) ＞ 영주：입가를 가리며 기품있게 웃는다／근위：주군에 대한 주변의 태도를 비난한다／방랑：아랫사람에게 미소짓는다／현자：다른 기사의 감정에 충고한다／사냥꾼：아랫사람을 내려다보는 눈으로 본다／야수：자학적인 말을 한다"
 rands = [
@@ -240,7 +240,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "RTDF"
 output = "반응표(11) ＞ 드라크：하늘에 빛나는 붉은 달을 올려본다"
 rands = [
@@ -249,7 +249,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "RTDF"
 output = "반응표(66) ＞ 영주：입가를 가리며 기품있게 웃는다"
 rands = [
@@ -258,7 +258,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "RTAN"
 output = "반응표(66) ＞ 야수：자학적인 말을 한다"
 rands = [
@@ -267,7 +267,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "RTMN"
 output = "반응표(16) ＞ 더스트하임：눈을 감고 과거를 생각한다"
 rands = [
@@ -276,7 +276,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "CT3"
 output = "2D6[1,1]-3 ＞  타락표(-1) ＞ 당신은 완전히 타락했다. 이 시점에서 당신은 [월 플라워]가 되어 늑대인간, 검은 산양, 야수 중 하나가 된다. 그 [막]의 종료 후에 세션에서 퇴장한다. 247페이지의 「소멸・완전한 타락」을 참조한다."
 rands = [
@@ -285,7 +285,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "CT3"
 output = "2D6[1,2]-3 ＞  타락표(0) ＞ 당신은 완전히 타락했다. 이 시점에서 당신은 [월 플라워]가 되어 늑대인간, 검은 산양, 야수 중 하나가 된다. 그 [막]의 종료 후에 세션에서 퇴장한다. 247페이지의 「소멸・완전한 타락」을 참조한다."
 rands = [
@@ -294,7 +294,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "CT3"
 output = "2D6[3,1]-3 ＞  타락표(1) ＞ 당신의 육체는 정신에 걸맞는 변화를 일으킨다……. 「타락의 전조표」를 2번 굴리고 특징을 얻는다. 이 세션 종료 후, 【길】을 「야수」로 변경한다.(이미「야수」라면 【길】은 변하지 않는다)"
 rands = [
@@ -303,7 +303,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "CT3"
 output = "2D6[2,3]-3 ＞  타락표(2) ＞ 당신의 육체는 정신에 걸맞는 변화를 일으킨다……. 「타락의 전조표」를 1번 굴리고 특징을 얻는다. 이 세션 종료 후, 【길】을 「야수」로 변경한다.(이미「야수」라면 【길】은 변하지 않는다)"
 rands = [
@@ -312,7 +312,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "CT3"
 output = "2D6[6,5]-3 ＞  타락표(8) ＞ 날뛰는 마음을 가라앉힌다……다행히 아무 일도 없었다."
 rands = [
@@ -321,7 +321,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "CT3"
 output = "2D6[6,6]-3 ＞  타락표(9) ＞ 당신은 미쳐 날뛰는 감정을 억누르고 이성을 되찾았다! 【갈증】이 1 감소한다!"
 rands = [
@@ -330,7 +330,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "CT1"
 output = "2D6[6,6]-1 ＞  타락표(11) ＞ 당신은 미쳐 날뛰는 감정을 억누르고 이성을 되찾았다! 【갈증】이 1 감소한다!"
 rands = [
@@ -339,7 +339,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "CS"
 output = "타락의 전조표(2) ＞ 당신은 완전히 타락했다. 이 시점에서 당신은 [월 플라워]가 되어 늑대인간, 검은 산양, 야수 중 하나가 된다. 그 [막]의 종료 후에 세션에서 퇴장한다. 247페이지의 「소멸・완전한 타락」을 참조한다."
 rands = [
@@ -348,7 +348,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "CS"
 output = "타락의 전조표(11) ＞ 튀어나온 송곳니"
 rands = [
@@ -357,7 +357,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "CS"
 output = "타락의 전조표(12) ＞ 눈에 보이는 변화는 없다……"
 rands = [
@@ -366,7 +366,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "D66"
 output = "(D66) ＞ 61"
 rands = [
@@ -375,7 +375,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Dracurouge_Korean"
+game_system = "Dracurouge:Korean"
 input = "BT"
 output = "인연 내용 결정표：루주／누아르(6) ＞ 복종(Obey)　상대를 주군으로서 받들고 충의를 맹세한다. ／복수(Vendetta)　상대를 원망하고 원수로 여긴다."
 rands = [

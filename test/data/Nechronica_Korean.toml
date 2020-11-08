@@ -1,5 +1,5 @@
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1D10>=1"
 output = "(1D10>=1) ＞ 2 ＞ 성공"
 rands = [
@@ -7,7 +7,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1D10>=1"
 output = "(1D10>=1) ＞ 8 ＞ 성공"
 rands = [
@@ -15,7 +15,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1D10>=1"
 output = "(1D10>=1) ＞ 3 ＞ 성공"
 rands = [
@@ -23,7 +23,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1D10>=1"
 output = "(1D10>=1) ＞ 6 ＞ 성공"
 rands = [
@@ -31,7 +31,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1D10>=1"
 output = "(1D10>=1) ＞ 9 ＞ 성공"
 rands = [
@@ -39,7 +39,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1D10>=1"
 output = "(1D10>=1) ＞ 5 ＞ 성공"
 rands = [
@@ -47,7 +47,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1D10>=1"
 output = "(1D10>=1) ＞ 2 ＞ 성공"
 rands = [
@@ -55,7 +55,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1D10>=1"
 output = "(1D10>=1) ＞ 10 ＞ 성공"
 rands = [
@@ -63,7 +63,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1D10>=1"
 output = "(1D10>=1) ＞ 5 ＞ 성공"
 rands = [
@@ -71,7 +71,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1D10>=1"
 output = "(1D10>=1) ＞ 6 ＞ 성공"
 rands = [
@@ -79,7 +79,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 56[3,4,4,4,5,6,6,7,8,9] ＞ 56 ＞ 대성공"
 rands = [
@@ -96,7 +96,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 60[1,2,4,6,6,6,8,8,9,10] ＞ 60 ＞ 대성공"
 rands = [
@@ -113,7 +113,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 56[1,2,4,4,5,7,8,8,8,9] ＞ 56 ＞ 대성공"
 rands = [
@@ -130,7 +130,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 48[1,1,3,3,4,5,6,7,9,9] ＞ 48 ＞ 대성공"
 rands = [
@@ -147,7 +147,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 62[1,2,3,4,5,8,9,10,10,10] ＞ 62 ＞ 대성공"
 rands = [
@@ -164,7 +164,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 57[2,2,3,4,7,7,7,7,9,9] ＞ 57 ＞ 대성공"
 rands = [
@@ -181,7 +181,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 44[1,1,2,2,2,3,5,8,10,10] ＞ 44 ＞ 대성공"
 rands = [
@@ -198,7 +198,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 61[2,3,3,5,6,7,7,8,10,10] ＞ 61 ＞ 대성공"
 rands = [
@@ -215,7 +215,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 52[2,2,3,3,4,5,6,7,10,10] ＞ 52 ＞ 대성공"
 rands = [
@@ -232,7 +232,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "10D10>=50"
 output = "(10D10>=50) ＞ 63[2,3,4,6,6,7,8,8,9,10] ＞ 63 ＞ 대성공"
 rands = [
@@ -249,7 +249,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "5D10>=25"
 output = "(5D10>=25) ＞ 29[2,5,6,6,10] ＞ 29 ＞ 대성공"
 rands = [
@@ -261,7 +261,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "5D10>=25"
 output = "(5D10>=25) ＞ 25[2,2,4,7,10] ＞ 25 ＞ 대성공"
 rands = [
@@ -273,7 +273,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "5D10>=25"
 output = "(5D10>=25) ＞ 22[2,4,4,4,8] ＞ 22 ＞ 대성공"
 rands = [
@@ -285,7 +285,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "5D10>=25"
 output = "(5D10>=25) ＞ 28[2,4,6,6,10] ＞ 28 ＞ 대성공"
 rands = [
@@ -297,7 +297,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "5D10>=25"
 output = "(5D10>=25) ＞ 23[1,3,4,6,9] ＞ 23 ＞ 대성공"
 rands = [
@@ -309,7 +309,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "5D10>=25"
 output = "(5D10>=25) ＞ 28[3,4,6,7,8] ＞ 28 ＞ 대성공"
 rands = [
@@ -321,7 +321,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "5D10>=25"
 output = "(5D10>=25) ＞ 26[1,2,5,9,9] ＞ 26 ＞ 대성공"
 rands = [
@@ -333,7 +333,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "5D10>=25"
 output = "(5D10>=25) ＞ 24[1,3,5,6,9] ＞ 24 ＞ 대성공"
 rands = [
@@ -345,7 +345,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "5D10>=25"
 output = "(5D10>=25) ＞ 29[2,5,6,6,10] ＞ 29 ＞ 대성공"
 rands = [
@@ -357,7 +357,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "5D10>=25"
 output = "(5D10>=25) ＞ 33[2,7,7,8,9] ＞ 33 ＞ 대성공"
 rands = [
@@ -369,7 +369,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NC"
 output = "(1R10[0]) ＞ [5]  ＞ 5[5] ＞ 실패"
 rands = [
@@ -377,7 +377,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NC"
 output = "(1R10[0]) ＞ [9]  ＞ 9[9] ＞ 성공"
 rands = [
@@ -385,7 +385,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NC"
 output = "(1R10[0]) ＞ [5]  ＞ 5[5] ＞ 실패"
 rands = [
@@ -393,7 +393,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NC"
 output = "(1R10[0]) ＞ [3]  ＞ 3[3] ＞ 실패"
 rands = [
@@ -401,7 +401,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NC"
 output = "(1R10[0]) ＞ [5]  ＞ 5[5] ＞ 실패"
 rands = [
@@ -409,7 +409,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NC"
 output = "(1R10[0]) ＞ [5]  ＞ 5[5] ＞ 실패"
 rands = [
@@ -417,7 +417,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NC"
 output = "(1R10[0]) ＞ [5]  ＞ 5[5] ＞ 실패"
 rands = [
@@ -425,7 +425,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NC"
 output = "(1R10[0]) ＞ [7]  ＞ 7[7] ＞ 성공"
 rands = [
@@ -433,7 +433,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NC"
 output = "(1R10[0]) ＞ [1]  ＞ 1[1] ＞ 대실패"
 rands = [
@@ -441,7 +441,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NC"
 output = "(1R10[0]) ＞ [10]  ＞ 10[10] ＞ 성공"
 rands = [
@@ -449,7 +449,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC+1"
 output = "(2R10+1[0]) ＞ [2,10]+1  ＞ 11[3,11] ＞ 대성공"
 rands = [
@@ -458,7 +458,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC+1"
 output = "(2R10+1[0]) ＞ [2,6]+1  ＞ 7[3,7] ＞ 성공"
 rands = [
@@ -467,7 +467,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC+1"
 output = "(2R10+1[0]) ＞ [6,6]+1  ＞ 7[7,7] ＞ 성공"
 rands = [
@@ -476,7 +476,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC+1"
 output = "(2R10+1[0]) ＞ [4,6]+1  ＞ 7[5,7] ＞ 성공"
 rands = [
@@ -485,7 +485,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC+1"
 output = "(2R10+1[0]) ＞ [7,7]+1  ＞ 8[8,8] ＞ 성공"
 rands = [
@@ -494,7 +494,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC+1"
 output = "(2R10+1[0]) ＞ [5,5]+1  ＞ 6[6,6] ＞ 성공"
 rands = [
@@ -503,7 +503,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC+1"
 output = "(2R10+1[0]) ＞ [5,9]+1  ＞ 10[6,10] ＞ 성공"
 rands = [
@@ -512,7 +512,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC+1"
 output = "(2R10+1[0]) ＞ [2,6]+1  ＞ 7[3,7] ＞ 성공"
 rands = [
@@ -521,7 +521,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC+1"
 output = "(2R10+1[0]) ＞ [2,8]+1  ＞ 9[3,9] ＞ 성공"
 rands = [
@@ -530,7 +530,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC+1"
 output = "(2R10+1[0]) ＞ [1,8]+1  ＞ 9[2,9] ＞ 성공"
 rands = [
@@ -539,7 +539,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC-1"
 output = "(2R10-1[0]) ＞ [2,10]-1  ＞ 9[1,9] ＞ 성공"
 rands = [
@@ -548,7 +548,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC-1"
 output = "(2R10-1[0]) ＞ [4,5]-1  ＞ 4[3,4] ＞ 실패"
 rands = [
@@ -557,7 +557,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC-1"
 output = "(2R10-1[0]) ＞ [4,6]-1  ＞ 5[3,5] ＞ 실패"
 rands = [
@@ -566,7 +566,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC-1"
 output = "(2R10-1[0]) ＞ [2,9]-1  ＞ 8[1,8] ＞ 성공"
 rands = [
@@ -575,7 +575,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC-1"
 output = "(2R10-1[0]) ＞ [4,8]-1  ＞ 7[3,7] ＞ 성공"
 rands = [
@@ -584,7 +584,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC-1"
 output = "(2R10-1[0]) ＞ [2,7]-1  ＞ 6[1,6] ＞ 성공"
 rands = [
@@ -593,7 +593,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC-1"
 output = "(2R10-1[0]) ＞ [6,6]-1  ＞ 5[5,5] ＞ 실패"
 rands = [
@@ -602,7 +602,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC-1"
 output = "(2R10-1[0]) ＞ [1,8]-1  ＞ 7[0,7] ＞ 성공"
 rands = [
@@ -611,7 +611,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC-1"
 output = "(2R10-1[0]) ＞ [6,10]-1  ＞ 9[5,9] ＞ 성공"
 rands = [
@@ -620,7 +620,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NC-1"
 output = "(2R10-1[0]) ＞ [5,5]-1  ＞ 4[4,4] ＞ 실패"
 rands = [
@@ -629,7 +629,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NC+5"
 output = "(3R10+5[0]) ＞ [6,6,9]+5  ＞ 14[11,11,14] ＞ 대성공"
 rands = [
@@ -639,7 +639,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NC+5"
 output = "(3R10+5[0]) ＞ [7,9,10]+5  ＞ 15[12,14,15] ＞ 대성공"
 rands = [
@@ -649,7 +649,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NC+5"
 output = "(3R10+5[0]) ＞ [2,6,7]+5  ＞ 12[7,11,12] ＞ 대성공"
 rands = [
@@ -659,7 +659,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NC+5"
 output = "(3R10+5[0]) ＞ [4,7,7]+5  ＞ 12[9,12,12] ＞ 대성공"
 rands = [
@@ -669,7 +669,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NC+5"
 output = "(3R10+5[0]) ＞ [3,4,8]+5  ＞ 13[8,9,13] ＞ 대성공"
 rands = [
@@ -679,7 +679,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NC+5"
 output = "(3R10+5[0]) ＞ [1,5,5]+5  ＞ 10[6,10,10] ＞ 성공"
 rands = [
@@ -689,7 +689,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NC+5"
 output = "(3R10+5[0]) ＞ [1,4,9]+5  ＞ 14[6,9,14] ＞ 대성공"
 rands = [
@@ -699,7 +699,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NC+5"
 output = "(3R10+5[0]) ＞ [1,6,10]+5  ＞ 15[6,11,15] ＞ 대성공"
 rands = [
@@ -709,7 +709,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NC+5"
 output = "(3R10+5[0]) ＞ [2,5,5]+5  ＞ 10[7,10,10] ＞ 성공"
 rands = [
@@ -719,7 +719,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NC+5"
 output = "(3R10+5[0]) ＞ [3,4,5]+5  ＞ 10[8,9,10] ＞ 성공"
 rands = [
@@ -729,7 +729,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC"
 output = "(5R10[0]) ＞ [3,6,8,8,9]  ＞ 9[3,6,8,8,9] ＞ 성공"
 rands = [
@@ -742,7 +742,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC"
 output = "(1R10[0]) ＞ [5]  ＞ 5[5] ＞ 실패"
 rands = [
@@ -751,7 +751,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC"
 output = "(4R10[0]) ＞ [1,5,6,7]  ＞ 7[1,5,6,7] ＞ 성공"
 rands = [
@@ -763,7 +763,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC"
 output = "(4R10[0]) ＞ [1,2,4,8]  ＞ 8[1,2,4,8] ＞ 성공"
 rands = [
@@ -775,7 +775,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC"
 output = "(3R10[0]) ＞ [4,8,9]  ＞ 9[4,8,9] ＞ 성공"
 rands = [
@@ -786,7 +786,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC"
 output = "(3R10[0]) ＞ [6,9,9]  ＞ 9[6,9,9] ＞ 성공"
 rands = [
@@ -797,7 +797,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC"
 output = "(5R10[0]) ＞ [1,2,4,8,9]  ＞ 9[1,2,4,8,9] ＞ 성공"
 rands = [
@@ -810,7 +810,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC"
 output = "(2R10[0]) ＞ [2,7]  ＞ 7[2,7] ＞ 성공"
 rands = [
@@ -820,7 +820,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC"
 output = "(5R10[0]) ＞ [3,5,7,8,10]  ＞ 10[3,5,7,8,10] ＞ 성공"
 rands = [
@@ -833,7 +833,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC"
 output = "(4R10[0]) ＞ [1,6,6,10]  ＞ 10[1,6,6,10] ＞ 성공"
 rands = [
@@ -845,7 +845,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC+[1...5]"
 output = "(2R10+1[0]) ＞ [2,5]+1  ＞ 6[3,6] ＞ 성공"
 rands = [
@@ -856,7 +856,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC+[1...5]"
 output = "(4R10+3[0]) ＞ [5,6,6,10]+3  ＞ 13[8,9,9,13] ＞ 대성공"
 rands = [
@@ -869,7 +869,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC+[1...5]"
 output = "(3R10+5[0]) ＞ [2,5,9]+5  ＞ 14[7,10,14] ＞ 대성공"
 rands = [
@@ -881,7 +881,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC+[1...5]"
 output = "(4R10+3[0]) ＞ [2,2,6,8]+3  ＞ 11[5,5,9,11] ＞ 대성공"
 rands = [
@@ -894,7 +894,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC+[1...5]"
 output = "(5R10+2[0]) ＞ [1,3,6,7,8]+2  ＞ 10[3,5,8,9,10] ＞ 성공"
 rands = [
@@ -908,7 +908,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC+[1...5]"
 output = "(2R10+5[0]) ＞ [2,3]+5  ＞ 8[7,8] ＞ 성공"
 rands = [
@@ -919,7 +919,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC+[1...5]"
 output = "(1R10+5[0]) ＞ [4]+5  ＞ 9[9] ＞ 성공"
 rands = [
@@ -929,7 +929,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC+[1...5]"
 output = "(4R10+5[0]) ＞ [1,3,8,9]+5  ＞ 14[6,8,13,14] ＞ 대성공"
 rands = [
@@ -942,7 +942,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC+[1...5]"
 output = "(4R10+4[0]) ＞ [2,5,6,8]+4  ＞ 12[6,9,10,12] ＞ 대성공"
 rands = [
@@ -955,7 +955,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NC+[1...5]"
 output = "(1R10+5[0]) ＞ [7]+5  ＞ 12[12] ＞ 대성공"
 rands = [
@@ -965,7 +965,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NA"
 output = "(1R10[1]) ＞ [10]  ＞ 10[10] ＞ 성공 ＞ 머리（없으면 공격측 임의）"
 rands = [
@@ -973,7 +973,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NA"
 output = "(1R10[1]) ＞ [1]  ＞ 1[1] ＞ 대실패"
 rands = [
@@ -981,7 +981,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NA"
 output = "(1R10[1]) ＞ [1]  ＞ 1[1] ＞ 대실패"
 rands = [
@@ -989,7 +989,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NA"
 output = "(1R10[1]) ＞ [6]  ＞ 6[6] ＞ 성공 ＞ 방어측 임의"
 rands = [
@@ -997,7 +997,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NA"
 output = "(1R10[1]) ＞ [7]  ＞ 7[7] ＞ 성공 ＞ 다리（없으면 공격측 임의）"
 rands = [
@@ -1005,7 +1005,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NA"
 output = "(1R10[1]) ＞ [7]  ＞ 7[7] ＞ 성공 ＞ 다리（없으면 공격측 임의）"
 rands = [
@@ -1013,7 +1013,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NA"
 output = "(1R10[1]) ＞ [1]  ＞ 1[1] ＞ 대실패"
 rands = [
@@ -1021,7 +1021,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NA"
 output = "(1R10[1]) ＞ [3]  ＞ 3[3] ＞ 실패"
 rands = [
@@ -1029,7 +1029,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NA"
 output = "(1R10[1]) ＞ [8]  ＞ 8[8] ＞ 성공 ＞ 몸통（없으면 공격측 임의）"
 rands = [
@@ -1037,7 +1037,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "1NA"
 output = "(1R10[1]) ＞ [5]  ＞ 5[5] ＞ 실패"
 rands = [
@@ -1045,7 +1045,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA+1"
 output = "(2R10+1[1]) ＞ [3,9]+1  ＞ 10[4,10] ＞ 성공 ＞ 머리（없으면 공격측 임의）"
 rands = [
@@ -1054,7 +1054,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA+1"
 output = "(2R10+1[1]) ＞ [6,8]+1  ＞ 9[7,9] ＞ 성공 ＞ 팔（없으면 공격측 임의）"
 rands = [
@@ -1063,7 +1063,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA+1"
 output = "(2R10+1[1]) ＞ [1,6]+1  ＞ 7[2,7] ＞ 성공 ＞ 다리（없으면 공격측 임의）"
 rands = [
@@ -1072,7 +1072,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA+1"
 output = "(2R10+1[1]) ＞ [6,6]+1  ＞ 7[7,7] ＞ 성공 ＞ 다리（없으면 공격측 임의）"
 rands = [
@@ -1081,7 +1081,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA+1"
 output = "(2R10+1[1]) ＞ [2,3]+1  ＞ 4[3,4] ＞ 실패"
 rands = [
@@ -1090,7 +1090,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA+1"
 output = "(2R10+1[1]) ＞ [9,9]+1  ＞ 10[10,10] ＞ 성공 ＞ 머리（없으면 공격측 임의）"
 rands = [
@@ -1099,7 +1099,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA+1"
 output = "(2R10+1[1]) ＞ [2,9]+1  ＞ 10[3,10] ＞ 성공 ＞ 머리（없으면 공격측 임의）"
 rands = [
@@ -1108,7 +1108,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA+1"
 output = "(2R10+1[1]) ＞ [5,5]+1  ＞ 6[6,6] ＞ 성공 ＞ 방어측 임의"
 rands = [
@@ -1117,7 +1117,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA+1"
 output = "(2R10+1[1]) ＞ [4,7]+1  ＞ 8[5,8] ＞ 성공 ＞ 몸통（없으면 공격측 임의）"
 rands = [
@@ -1126,7 +1126,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA+1"
 output = "(2R10+1[1]) ＞ [6,8]+1  ＞ 9[7,9] ＞ 성공 ＞ 팔（없으면 공격측 임의）"
 rands = [
@@ -1135,7 +1135,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA-1"
 output = "(2R10-1[1]) ＞ [1,4]-1  ＞ 3[0,3] ＞ 대실패 ＞ 사용파츠 전부 손실"
 rands = [
@@ -1144,7 +1144,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA-1"
 output = "(2R10-1[1]) ＞ [4,9]-1  ＞ 8[3,8] ＞ 성공 ＞ 몸통（없으면 공격측 임의）"
 rands = [
@@ -1153,7 +1153,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA-1"
 output = "(2R10-1[1]) ＞ [3,6]-1  ＞ 5[2,5] ＞ 실패"
 rands = [
@@ -1162,7 +1162,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA-1"
 output = "(2R10-1[1]) ＞ [9,9]-1  ＞ 8[8,8] ＞ 성공 ＞ 몸통（없으면 공격측 임의）"
 rands = [
@@ -1171,7 +1171,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA-1"
 output = "(2R10-1[1]) ＞ [7,9]-1  ＞ 8[6,8] ＞ 성공 ＞ 몸통（없으면 공격측 임의）"
 rands = [
@@ -1180,7 +1180,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA-1"
 output = "(2R10-1[1]) ＞ [6,6]-1  ＞ 5[5,5] ＞ 실패"
 rands = [
@@ -1189,7 +1189,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA-1"
 output = "(2R10-1[1]) ＞ [3,7]-1  ＞ 6[2,6] ＞ 성공 ＞ 방어측 임의"
 rands = [
@@ -1198,7 +1198,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA-1"
 output = "(2R10-1[1]) ＞ [2,2]-1  ＞ 1[1,1] ＞ 대실패 ＞ 사용파츠 전부 손실"
 rands = [
@@ -1207,7 +1207,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA-1"
 output = "(2R10-1[1]) ＞ [6,7]-1  ＞ 6[5,6] ＞ 성공 ＞ 방어측 임의"
 rands = [
@@ -1216,7 +1216,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2NA-1"
 output = "(2R10-1[1]) ＞ [4,5]-1  ＞ 4[3,4] ＞ 실패"
 rands = [
@@ -1225,7 +1225,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NA+5"
 output = "(3R10+5[1]) ＞ [3,7,8]+5  ＞ 13[8,12,13] ＞ 대성공 ＞ 공격측 임의(추가 데미지3)"
 rands = [
@@ -1235,7 +1235,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NA+5"
 output = "(3R10+5[1]) ＞ [8,9,9]+5  ＞ 14[13,14,14] ＞ 대성공 ＞ 공격측 임의(추가 데미지4)"
 rands = [
@@ -1245,7 +1245,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NA+5"
 output = "(3R10+5[1]) ＞ [4,6,9]+5  ＞ 14[9,11,14] ＞ 대성공 ＞ 공격측 임의(추가 데미지4)"
 rands = [
@@ -1255,7 +1255,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NA+5"
 output = "(3R10+5[1]) ＞ [5,6,10]+5  ＞ 15[10,11,15] ＞ 대성공 ＞ 공격측 임의(추가 데미지5)"
 rands = [
@@ -1265,7 +1265,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NA+5"
 output = "(3R10+5[1]) ＞ [4,9,9]+5  ＞ 14[9,14,14] ＞ 대성공 ＞ 공격측 임의(추가 데미지4)"
 rands = [
@@ -1275,7 +1275,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NA+5"
 output = "(3R10+5[1]) ＞ [2,8,8]+5  ＞ 13[7,13,13] ＞ 대성공 ＞ 공격측 임의(추가 데미지3)"
 rands = [
@@ -1285,7 +1285,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NA+5"
 output = "(3R10+5[1]) ＞ [5,10,10]+5  ＞ 15[10,15,15] ＞ 대성공 ＞ 공격측 임의(추가 데미지5)"
 rands = [
@@ -1295,7 +1295,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NA+5"
 output = "(3R10+5[1]) ＞ [6,7,10]+5  ＞ 15[11,12,15] ＞ 대성공 ＞ 공격측 임의(추가 데미지5)"
 rands = [
@@ -1305,7 +1305,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NA+5"
 output = "(3R10+5[1]) ＞ [1,2,4]+5  ＞ 9[6,7,9] ＞ 성공 ＞ 팔（없으면 공격측 임의）"
 rands = [
@@ -1315,7 +1315,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "3NA+5"
 output = "(3R10+5[1]) ＞ [1,2,5]+5  ＞ 10[6,7,10] ＞ 성공 ＞ 머리（없으면 공격측 임의）"
 rands = [
@@ -1325,7 +1325,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA"
 output = "(4R10[1]) ＞ [1,1,2,10]  ＞ 10[1,1,2,10] ＞ 성공 ＞ 머리（없으면 공격측 임의）"
 rands = [
@@ -1337,7 +1337,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA"
 output = "(3R10[1]) ＞ [4,10,10]  ＞ 10[4,10,10] ＞ 성공 ＞ 머리（없으면 공격측 임의）"
 rands = [
@@ -1348,7 +1348,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA"
 output = "(4R10[1]) ＞ [5,6,7,9]  ＞ 9[5,6,7,9] ＞ 성공 ＞ 팔（없으면 공격측 임의）"
 rands = [
@@ -1360,7 +1360,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA"
 output = "(1R10[1]) ＞ [3]  ＞ 3[3] ＞ 실패"
 rands = [
@@ -1369,7 +1369,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA"
 output = "(2R10[1]) ＞ [1,3]  ＞ 3[1,3] ＞ 대실패 ＞ 사용파츠 전부 손실"
 rands = [
@@ -1379,7 +1379,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA"
 output = "(5R10[1]) ＞ [4,5,5,6,7]  ＞ 7[4,5,5,6,7] ＞ 성공 ＞ 다리（없으면 공격측 임의）"
 rands = [
@@ -1392,7 +1392,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA"
 output = "(4R10[1]) ＞ [1,1,2,5]  ＞ 5[1,1,2,5] ＞ 대실패 ＞ 사용파츠 전부 손실"
 rands = [
@@ -1404,7 +1404,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA"
 output = "(1R10[1]) ＞ [9]  ＞ 9[9] ＞ 성공 ＞ 팔（없으면 공격측 임의）"
 rands = [
@@ -1413,7 +1413,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA"
 output = "(3R10[1]) ＞ [1,5,8]  ＞ 8[1,5,8] ＞ 성공 ＞ 몸통（없으면 공격측 임의）"
 rands = [
@@ -1424,7 +1424,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA"
 output = "(2R10[1]) ＞ [5,6]  ＞ 6[5,6] ＞ 성공 ＞ 방어측 임의"
 rands = [
@@ -1434,7 +1434,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA+[1...5]"
 output = "(1R10+4[1]) ＞ [8]+4  ＞ 12[12] ＞ 대성공 ＞ 공격측 임의(추가 데미지2)"
 rands = [
@@ -1444,7 +1444,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA+[1...5]"
 output = "(3R10+5[1]) ＞ [5,6,8]+5  ＞ 13[10,11,13] ＞ 대성공 ＞ 공격측 임의(추가 데미지3)"
 rands = [
@@ -1456,7 +1456,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA+[1...5]"
 output = "(2R10+1[1]) ＞ [4,7]+1  ＞ 8[5,8] ＞ 성공 ＞ 몸통（없으면 공격측 임의）"
 rands = [
@@ -1467,7 +1467,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA+[1...5]"
 output = "(5R10+4[1]) ＞ [1,4,8,9,9]+4  ＞ 13[5,8,12,13,13] ＞ 대성공 ＞ 공격측 임의(추가 데미지3)"
 rands = [
@@ -1481,7 +1481,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA+[1...5]"
 output = "(2R10+4[1]) ＞ [3,3]+4  ＞ 7[7,7] ＞ 성공 ＞ 다리（없으면 공격측 임의）"
 rands = [
@@ -1492,7 +1492,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA+[1...5]"
 output = "(1R10+1[1]) ＞ [1]+1  ＞ 2[2] ＞ 실패"
 rands = [
@@ -1502,7 +1502,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA+[1...5]"
 output = "(2R10+1[1]) ＞ [4,5]+1  ＞ 6[5,6] ＞ 성공 ＞ 방어측 임의"
 rands = [
@@ -1513,7 +1513,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA+[1...5]"
 output = "(2R10+4[1]) ＞ [1,7]+4  ＞ 11[5,11] ＞ 대성공 ＞ 공격측 임의(추가 데미지1)"
 rands = [
@@ -1524,7 +1524,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA+[1...5]"
 output = "(1R10+4[1]) ＞ [6]+4  ＞ 10[10] ＞ 성공 ＞ 머리（없으면 공격측 임의）"
 rands = [
@@ -1534,7 +1534,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "[1...5]NA+[1...5]"
 output = "(1R10+5[1]) ＞ [3]+5  ＞ 8[8] ＞ 성공 ＞ 몸통（없으면 공격측 임의）"
 rands = [
@@ -1592,7 +1592,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica_Korean"
+game_system = "Nechronica:Korean"
 input = "2D10>=? 目標値?でバグらない"
 output = "(2D10>=?) ＞ 10[5,5] ＞ 10 ＞ 실패"
 rands = [

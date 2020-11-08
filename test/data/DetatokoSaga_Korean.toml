@@ -1,5 +1,5 @@
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD"
 output = "판정！　스킬레벨：3　플래그：0 ＞ 7[1,3,2,4] ＞ 판정치：7"
 rands = [
@@ -10,7 +10,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "1JD"
 output = "판정！　스킬레벨：1　플래그：0 ＞ 7[4,3] ＞ 판정치：7"
 rands = [
@@ -19,7 +19,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "0JD"
 output = "판정！　스킬레벨：0　플래그：0 ＞ 7[6,3,4] ＞ 판정치：7"
 rands = [
@@ -29,7 +29,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD"
 output = "판정！　스킬레벨：3　플래그：0 ＞ 8[1,3,2,5] ＞ 판정치：8"
 rands = [
@@ -40,7 +40,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "2JD5"
 output = "판정！　스킬레벨：2　플래그：5 ＞ 7[5,2,1] ＞ 판정치：7"
 rands = [
@@ -50,7 +50,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD7"
 output = "판정！　스킬레벨：3　플래그：7 ＞ 7[5,2,1,1] ＞ 판정치：7, 플래그 이하！ 【기력1D6->3점 감소】 【판정치 변경 불가】"
 rands = [
@@ -62,7 +62,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD7+1"
 output = "판정！　스킬레벨：3　플래그：7　수정치：＋1 ＞ 7[5,2,1,1]＋1 ＞ 7+1 ＞ 판정치：8, 플래그 이하！ 【기력1D6->3점 감소】 【판정치 변경 불가】"
 rands = [
@@ -74,7 +74,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD7-1"
 output = "판정！　스킬레벨：3　플래그：7　수정치：－1 ＞ 7[5,2,1,1]－1 ＞ 7-1 ＞ 판정치：6, 플래그 이하！ 【기력1D6->3점 감소】 【판정치 변경 불가】"
 rands = [
@@ -86,7 +86,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD7/3"
 output = "판정！　스킬레벨：3　플래그：7　수정치：÷3 ＞ 8[5,3,1,2]÷3 ＞ 8÷3 ＞ 판정치：3"
 rands = [
@@ -97,7 +97,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD7/3"
 output = "판정！　스킬레벨：3　플래그：7　수정치：÷3 ＞ 9[6,3,1,2]÷3 ＞ 9÷3 ＞ 판정치：3"
 rands = [
@@ -108,7 +108,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD7/3"
 output = "판정！　스킬레벨：3　플래그：7　수정치：÷3 ＞ 10[6,4,1,2]÷3 ＞ 10÷3 ＞ 판정치：4"
 rands = [
@@ -119,7 +119,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD7/3"
 output = "판정！　스킬레벨：3　플래그：7　수정치：÷3 ＞ 11[6,5,1,2]÷3 ＞ 11÷3 ＞ 판정치：4"
 rands = [
@@ -130,7 +130,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD7/3"
 output = "판정！　스킬레벨：3　플래그：7　수정치：÷3 ＞ 12[6,6,1,2]÷3 ＞ 12÷3 ＞ 판정치：4"
 rands = [
@@ -141,7 +141,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD7/1"
 output = "판정！　스킬레벨：3　플래그：7　수정치：÷1 ＞ 12[6,6,1,2]÷1 ＞ 12÷1 ＞ 판정치：12"
 rands = [
@@ -152,7 +152,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD7/0 ゼロ除算"
 output = "판정！　스킬레벨：3　플래그：7 ＞ 12[6,6,1,2] ＞ 0으로는 나누어지지 않습니다"
 rands = [
@@ -163,7 +163,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD9"
 output = "판정！　스킬레벨：3　플래그：9 ＞ 8[1,3,2,5] ＞ 판정치：8, 플래그 이하！ 【기력1D6->3점 감소】 【판정치 변경 불가】"
 rands = [
@@ -175,7 +175,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3JD10"
 output = "판정！　스킬레벨：3　플래그：10 ＞ 8[1,3,2,5] ＞ 판정치：8, 플래그 이하！ 【기력6점 감소】 【판정치 변경 불가】"
 rands = [
@@ -186,7 +186,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3DS"
 output = "판정！　스킬레벨：3　플래그：0　목표치：8 ＞ 7[1,3,2,4] ＞ 판정치：7 ＞ 목표치 미달… 【실패】"
 rands = [
@@ -197,7 +197,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "1DS"
 output = "판정！　스킬레벨：1　플래그：0　목표치：8 ＞ 7[4,3] ＞ 판정치：7 ＞ 목표치 미달… 【실패】"
 rands = [
@@ -206,7 +206,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "0DS"
 output = "판정！　스킬레벨：0　플래그：0　목표치：8 ＞ 7[6,3,4] ＞ 판정치：7 ＞ 목표치 미달… 【실패】"
 rands = [
@@ -216,7 +216,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3DS"
 output = "판정！　스킬레벨：3　플래그：0　목표치：8 ＞ 8[1,3,2,5] ＞ 판정치：8 ＞ 목표치 이상！【성공】"
 rands = [
@@ -227,7 +227,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3DS7"
 output = "판정！　스킬레벨：3　플래그：7　목표치：8 ＞ 7[5,2,1,1] ＞ 판정치：7 ＞ 목표치 미달… 【실패】, 플래그 이하！ 【기력1D6->3점 감소】 【판정치 변경 불가】"
 rands = [
@@ -239,7 +239,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3DS9"
 output = "판정！　스킬레벨：3　플래그：9　목표치：8 ＞ 8[1,3,2,5] ＞ 판정치：8 ＞ 목표치 이상！【성공】, 플래그 이하！ 【기력1D6->3점 감소】 【판정치 변경 불가】"
 rands = [
@@ -251,7 +251,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3DS10"
 output = "판정！　스킬레벨：3　플래그：10　목표치：8 ＞ 8[1,3,2,5] ＞ 판정치：8 ＞ 목표치 이상！【성공】, 플래그 이하！ 【기력6점 감소】 【판정치 변경 불가】"
 rands = [
@@ -262,7 +262,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3DS>=10"
 output = "판정！　스킬레벨：3　플래그：0　목표치：10 ＞ 9[5,2,4,1] ＞ 판정치：9 ＞ 목표치 미달… 【실패】"
 rands = [
@@ -273,7 +273,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3DS>=10"
 output = "판정！　스킬레벨：3　플래그：0　목표치：10 ＞ 10[4,2,4,6] ＞ 판정치：10 ＞ 목표치 이상！【성공】"
 rands = [
@@ -284,7 +284,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "3DS9>=10"
 output = "판정！　스킬레벨：3　플래그：9　목표치：10 ＞ 9[5,2,4,1] ＞ 판정치：9 ＞ 목표치 미달… 【실패】, 플래그 이하！ 【기력1D6->3점 감소】 【판정치 변경 불가】"
 rands = [
@@ -296,7 +296,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "SST"
 output = "체력 낙인표(2) ＞ 당신은 【낙인】을 2개 받는다. 이 표를 다시 2번 굴려 받을 【낙인】을 정한다(그 경우, 다시 이 눈이 나와도 【낙인】은 늘어나지 않는다)."
 rands = [
@@ -305,7 +305,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "SST"
 output = "체력 낙인표(12) ＞ 기적적으로 당신은 【낙인】을 받지 않았다."
 rands = [
@@ -314,7 +314,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "WST"
 output = "기력 낙인표(2) ＞ 당신은 【낙인】을 2개 받는다. 이 표를 다시 2번 굴려 받을 【낙인】을 정한다(그 경우, 다시 이 눈이 나와도 【낙인】은 늘어나지 않는다)."
 rands = [
@@ -323,7 +323,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "WST"
 output = "기력 낙인표(12) ＞ 기적적으로 당신은 【낙인】을 받지 않았다."
 rands = [
@@ -332,7 +332,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "SBET"
 output = "체력 배드엔딩표(2) ＞ 【사망】 당신은 죽었다. 다음 세션에 참가하기 위해서는, 클래스 1개를 『몬스터』나 『암흑』으로 클래스 체인지해야만 한다."
 rands = [
@@ -341,7 +341,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "SBET"
 output = "체력 배드엔딩표(12) ＞ 그래도 아직 일어선다! 당신은 배드엔드를 맞이하지 않았다. 체력의 【낙인】을 1개 지워도 좋다."
 rands = [
@@ -350,7 +350,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "WBET"
 output = "기력 배드엔딩표(2) ＞ 【자해】 당신은 스스로 죽음을 골랐다. 다음 세션에 참가하기 위해서는 클래스 1개를 『암흑』으로 클래스 체인지해야만 한다."
 rands = [
@@ -359,7 +359,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DetatokoSaga_Korean"
+game_system = "DetatokoSaga:Korean"
 input = "WBET"
 output = "기력 배드엔딩표(12) ＞ 그래도 아직 포기하지 않아! 당신은 배드엔드를 맞이하지 않았다. 기력의 【낙인】을 1개 지워도 좋다."
 rands = [

@@ -2,7 +2,7 @@
 
 module BCDice
   module GameSystem
-    class Gurps < Base
+    class GURLS < Base
       # ゲームシステムの識別子
       ID = 'GURPS'
 
