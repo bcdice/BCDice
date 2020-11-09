@@ -17,8 +17,9 @@
 - NJSLYRBATTLE: IDを `NjslyrBattle` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))
 - ガープス: クラス名を `GURPS` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))
 
-### バグ修正
+### 誤植修正
 - キルデスビジネス: 蘇生副作用表の誤植を修正。スイさんありがとうっ！ ([#283](https://github.com/bcdice/BCDice/pull/283))
+- ストラトシャウト: 特技リストの誤植を修正。くずもちさんありがとうっ！ ([#299](https://github.com/bcdice/BCDice/pull/299))
 
 ## 2.XX.XX
 
