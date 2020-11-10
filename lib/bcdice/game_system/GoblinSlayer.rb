@@ -41,7 +41,7 @@ module BCDice
       MESSAGETEXT
 
       # 因果点は共有リソースなのでMCPIはシークレットダイスを無効化
-      register_prefix(['GS\(\d+\)', 'GS.*', '^MCPI.*\$\d+$', 'DB\d+'])
+      register_prefix('GS\(\d+\)', 'GS.*', '^MCPI.*\$\d+$', 'DB\d+')
 
       def initialize(command)
         super(command)

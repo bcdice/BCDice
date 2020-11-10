@@ -19,7 +19,7 @@ module BCDice
         例・CW8
       INFO_MESSAGE_TEXT
 
-      register_prefix(['CW\d+'])
+      register_prefix('CW\d+')
 
       def eval_game_system_specific_command(command)
         result = nil

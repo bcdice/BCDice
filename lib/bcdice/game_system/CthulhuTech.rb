@@ -6,7 +6,7 @@ require 'bcdice/arithmetic_evaluator'
 module BCDice
   module GameSystem
     class CthulhuTech < Base
-      register_prefix(['\d+D10.*'])
+      register_prefix('\d+D10.*')
 
       # ゲームシステムの識別子
       ID = 'CthulhuTech'

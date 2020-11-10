@@ -24,9 +24,9 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix([
+      register_prefix(
         'OP', 'TB', 'TK?\(\d+\)'
-      ])
+      )
 
       def eval_game_system_specific_command(command)
         output =

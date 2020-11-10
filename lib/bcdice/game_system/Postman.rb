@@ -37,11 +37,11 @@ module BCDice
         ◆自由行動シチュエーション表：FRE
       MESSAGETEXT
 
-      register_prefix([
+      register_prefix(
         'WEA\d*',
         '(\d+)?PO.*',
         'FRE'
-      ])
+      )
 
       def initialize(command)
         super(command)

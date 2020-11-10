@@ -50,13 +50,13 @@ module BCDice
         荒野ランダムエンカウント表：WENC[n]
       MESSAGETEXT
 
-      register_prefix([
+      register_prefix(
         '[AS]R\d+.*',
         '(HU|BK|WA|SC|BG|IN|PT|HT|TA|AC|HE|TR|VT|BO|CS|TH|AM|GD|HC|BI|BT|AI)HIT\d*',
         'SUV[A-Z]\d+', '[HTALMEBPD]DMG[LMHO]',
         'CRT\d*', '[GSME]AC\d*', '[ASL]MA\d*(\+\d+)?',
         'SEC', 'NAC', 'LDC', '[W]ENC\d*'
-      ])
+      )
 
       def eval_game_system_specific_command(command)
         text =

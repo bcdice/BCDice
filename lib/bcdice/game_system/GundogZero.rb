@@ -26,7 +26,7 @@ module BCDice
         　修正を後ろに書くことも出来ます。
       INFO_MESSAGE_TEXT
 
-      register_prefix(['(.DPT|.FT)\d*'])
+      register_prefix('(.DPT|.FT)\d*')
 
       def eval_game_system_specific_command(command)
         string = command.upcase

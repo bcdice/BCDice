@@ -32,13 +32,13 @@ module BCDice
         　　例）CTR+→因縁表（R版）を出目2～21でロールする。
       INFO_MESSAGE_TEXT
 
-      register_prefix([
+      register_prefix(
         '\d+A\d*[CF]?\d*[CF]?\d*',
         'CT3[\+\-]?',
         'CTR[\+\-]?',
         'DJV\-?',
         'AKST[\+\-]?'
-      ])
+      )
 
       def initialize(command)
         super(command)

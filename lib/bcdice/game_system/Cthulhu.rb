@@ -48,7 +48,7 @@ module BCDice
 
       INFO_MESSAGE_TEXT
 
-      register_prefix(['CC(B)?\(\d+\)', 'CC(B)?.*', 'RES(B)?.*', 'CBR(B)?\(\d+,\d+\)'])
+      register_prefix('CC(B)?\(\d+\)', 'CC(B)?.*', 'RES(B)?.*', 'CBR(B)?\(\d+,\d+\)')
 
       def initialize(command)
         super(command)

@@ -40,13 +40,13 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix([
+      register_prefix(
         'NJ\d+.*',
         'EV\d+.*',
         'AT\d+.*',
         'EL\d+.*',
         'SB'
-      ])
+      )
 
       def initialize(command)
         super(command)
@@ -263,12 +263,13 @@ module BCDice
       }.freeze
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix([
+      register_prefix(
         'NJ\d+.*',
         'EV\d+.*',
         'AT\d+.*',
-        'EL\d+.*'
-      ] + TABLES.keys)
+        'EL\d+.*',
+        TABLES.keys
+      )
     end
   end
 end

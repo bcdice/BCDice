@@ -553,7 +553,7 @@ module BCDice
         )
       }.freeze
 
-      register_prefix(['GR.*', '(C|E|F|A|L)DC\d+'] + TABLES.keys)
+      register_prefix('GR.*', '(C|E|F|A|L)DC\d+', TABLES.keys)
     end
   end
 end

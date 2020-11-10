@@ -32,7 +32,7 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      register_prefix(['\w*CRT', '\w*FMB', 'HIT', 'FEAR((\+)?\d*)', 'REACT((\+|\-)?\d*)', '[\d\+\-]+\-3[dD]6?[\d\+\-]*'])
+      register_prefix('\w*CRT', '\w*FMB', 'HIT', 'FEAR((\+)?\d*)', 'REACT((\+|\-)?\d*)', '[\d\+\-]+\-3[dD]6?[\d\+\-]*')
 
       def initialize(command)
         super(command)

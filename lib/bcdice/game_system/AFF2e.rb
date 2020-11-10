@@ -21,7 +21,7 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix(['FF.+', 'FR.+', 'FD.+'])
+      register_prefix('FF.+', 'FR.+', 'FD.+')
 
       def explicit_sign(i)
         format('%+d', i)

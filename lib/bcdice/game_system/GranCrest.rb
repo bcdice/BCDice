@@ -24,7 +24,7 @@ module BCDice
         　組織表（OCT）、拠点表（BCT）、文化表（CCT）
       MESSAGETEXT
 
-      register_prefix([
+      register_prefix(
         'MT',
         'PFT',
         'NFT',
@@ -35,7 +35,7 @@ module BCDice
         'OCT',
         'BCT',
         'CCT'
-      ])
+      )
 
       def initialize(command)
         super(command)

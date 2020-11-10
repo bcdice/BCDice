@@ -674,7 +674,7 @@ module BCDice
         }
       ].freeze
 
-      register_prefix(['MT', 'RTT'] + TABLES.keys)
+      register_prefix('MT', 'RTT', TABLES.keys)
     end
   end
 end

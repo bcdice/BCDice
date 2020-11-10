@@ -32,10 +32,10 @@ module BCDice
         ※アイデンティティ表はエラッタ適用済です。
       MESSAGETEXT
 
-      register_prefix([
+      register_prefix(
         'MP\d+', '\d+ST\d+(x|\*)\d+',
         'AFF', 'IDT', 'AFV', 'IDV'
-      ])
+      )
 
       def initialize(command)
         super(command)

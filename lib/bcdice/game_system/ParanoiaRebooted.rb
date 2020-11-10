@@ -26,7 +26,7 @@ module BCDice
         例）MP2
       INFO_MESSAGE_TEXT
 
-      register_prefix(['ND.*', 'MP.*'])
+      register_prefix('ND.*', 'MP.*')
 
       def eval_game_system_specific_command(command)
         case command

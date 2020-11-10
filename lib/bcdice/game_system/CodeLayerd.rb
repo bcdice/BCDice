@@ -28,7 +28,7 @@ module BCDice
           0CL : 1CL[0]と同じ判定
       MESSAGETEXT
 
-      register_prefix(['[+-]?\d*CL([+-]\d+)?[@\d]*.*'])
+      register_prefix('[+-]?\d*CL([+-]\d+)?[@\d]*.*')
 
       def eval_game_system_specific_command(command)
         debug('eval_game_system_specific_command command', command)

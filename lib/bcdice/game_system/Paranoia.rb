@@ -18,7 +18,7 @@ module BCDice
         ※このダイスボットは部屋のシステム名表示用となります。
       MESSAGETEXT
 
-      register_prefix(['geta'])
+      register_prefix('geta')
 
       def initialize(command)
         super(command)

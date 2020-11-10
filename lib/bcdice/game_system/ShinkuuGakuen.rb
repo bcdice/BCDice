@@ -33,10 +33,10 @@ module BCDice
         　例）CSW10　CBX76
       MESSAGETEXT
 
-      register_prefix([
+      register_prefix(
         'CRL.*', 'CSW.*', 'CLS.*', 'CSS.*', 'CSP.*', 'CAX.*', 'CCL.*', 'CMA.*', 'CBX.*', 'CPR.*', 'CST.*',
         'RL.*', 'SW.*', 'LS.*', 'SS.*', 'SP.*', 'AX.*', 'CL.*', 'BW.*', 'MA.*', 'BX.*', 'PR.*', 'ST.*'
-      ])
+      )
 
       def eval_game_system_specific_command(command)
         m = /^([A-Z]+)([\+\-]?\d+)?(?:>=(\d+))?$/i.match(command)

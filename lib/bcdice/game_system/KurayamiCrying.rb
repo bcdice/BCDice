@@ -43,7 +43,7 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix(["ACT.*"] + TABLES.keys)
+      register_prefix("ACT.*", TABLES.keys)
     end
   end
 end

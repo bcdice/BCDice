@@ -30,7 +30,7 @@ module BCDice
         　下から２番目の出目をずらした分だけ合計にマイナス修正を追加して表示します。
       INFO_MESSAGE_TEXT
 
-      register_prefix(['\d+H?BS.*', '\d+R6.*', '\d+D\d+.+', '\dD6.*'])
+      register_prefix('\d+H?BS.*', '\d+R6.*', '\d+D\d+.+', '\dD6.*')
 
       def initialize(command)
         super(command)
