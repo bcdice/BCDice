@@ -47,35 +47,21 @@ module BCDice
         return '' unless dice_list.size == 3 && cmp_op == :<=
 
         success = target - total # 成功度
-        crt_string = " ＞ クリティカル(成功度：#{success})"
-        fmb_string = " ＞ ファンブル(失敗度：#{success})"
-        fail_string = " ＞ 自動失敗(失敗度：#{success})"
 
-        # クリティカル
-        if (dice_total <= 6) && (target >= 16)
-          return crt_string
-        elsif (dice_total <= 5) && (target >= 15)
-          return crt_string
-        elsif dice_total <= 4
-          return crt_string
-        end
+        result =
+          if critical?(dice_total, target)
+            "クリティカル(成功度：#{success})"
+          elsif fumble?(dice_total, target)
+            "ファンブル(失敗度：#{success})"
+          elsif dice_total >= 17
+            "自動失敗(失敗度：#{success})"
+          elsif total <= target
+            "成功(成功度：#{success})"
+          else
+            "失敗(失敗度：#{success})"
+          end
 
-        # ファンブル
-        if (target - dice_total) <= -10
-          return fmb_string
-        elsif (dice_total >= 17) && (target <= 15)
-          return fmb_string
-        elsif dice_total >= 18
-          return fmb_string
-        elsif dice_total >= 17
-          return fail_string
-        end
-
-        if total <= target
-          return " ＞ 成功(成功度：#{success})"
-        else
-          return " ＞ 失敗(失敗度：#{success})"
-        end
+        " ＞ #{result}"
       end
 
       def eval_game_system_specific_command(command)
@@ -99,6 +85,16 @@ module BCDice
         return result unless result.nil?
 
         return ""
+      end
+
+      private
+
+      def critical?(dice_total, target)
+        (dice_total <= 6 && target >= 16) || (dice_total <= 5 && target >= 15) || dice_total <= 4
+      end
+
+      def fumble?(dice_total, target)
+        (target - dice_total <= -10) || (dice_total >= 17 && target <= 15) || dice_total >= 18
       end
 
       def getRollDiceResult(command)
