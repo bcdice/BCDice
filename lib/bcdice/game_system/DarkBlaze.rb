@@ -78,12 +78,17 @@ module BCDice
           diff = m[9].to_i
         end
 
-        total, out_str, dice_list = get_dice(mod, abl, skl)
+        total, out_str = get_dice(mod, abl, skl)
         output = "(#{string}) ＞ #{out_str}"
 
         if signOfInequality != "" # 成功度判定処理
           cmp_op = Normalize.comparison_operator(signOfInequality)
-          output += check_result(total, dice_list, 6, cmp_op, diff)
+          output +=
+            if total.send(cmp_op, diff)
+              " ＞ 成功"
+            else
+              " ＞ 失敗"
+            end
         end
 
         return output
@@ -125,7 +130,7 @@ module BCDice
 
         output = "#{total}[#{dice_str}]#{resultText}"
 
-        return total, output, dice_arr
+        return total, output
       end
 
       def eval_game_system_specific_command(command)

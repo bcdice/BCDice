@@ -52,16 +52,14 @@ module BCDice
             total = @lhs.eval(randomizer)
 
             output =
-              if randomizer.dice_list.size <= 1 && @lhs.is_a?(Node::DiceRoll)
+              if randomizer.rand_results.size <= 1 && @lhs.is_a?(Node::DiceRoll)
                 "(#{self}) ＞ #{total}"
               else
                 "(#{self}) ＞ #{@lhs.output} ＞ #{total}"
               end
 
-            dice_list = randomizer.dice_list
-
             if @cmp_op
-              output += game_system.check_result(total, dice_list, randomizer.sides, @cmp_op, @rhs)
+              output += game_system.check_result(total, randomizer.rand_results, @cmp_op, @rhs)
             end
 
             Result.new.tap do |r|
