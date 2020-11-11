@@ -18,8 +18,7 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定
-        GR+n>=X：「+n」で判定値を指定、「X」で目標値を指定。
+        ・判定 GRn#f （n：判定値、#f：不安定による大失敗値）
         ・部位決定チャート：HIT
         ・ダメージチャート：xDCy（CDC/EDC/FDC/ADC/LDC)
         　xは C：コックピット、E：エンジン、F：フレーム、A：アーム、L：レッグ
@@ -51,13 +50,12 @@ module BCDice
       # @param command [String]
       # @return [String, nil]
       def roll_gr(command)
-        m = /^GR([+-]\d+)?>=(\d+)$/i.match(command)
-        unless m
-          return nil
-        end
+        m = /^GR([+-]?\d+)?(?:#(\d))?(?:>=(\d+))?$/i.match(command)
+        return nil unless m
 
         modify_number = m[1].to_i
-        target_number = m[2].to_i
+        auto_failure_number = m[2].to_i
+        target_number = m[3].to_i
 
         dice = @randomizer.roll_once(10)
         total = dice + modify_number
@@ -65,23 +63,28 @@ module BCDice
         result =
           if dice == 1
             "ファンブル"
+          elsif dice <= auto_failure_number
+            "自動失敗"
           elsif dice == 10
             "クリティカル"
-          elsif total >= target_number
+          elsif target_number >= 1 && total >= target_number
             "成功"
-          else
+          elsif target_number >= 1
             "失敗"
           end
 
         formated_modifier = Format.modifier(modify_number)
+        formated_auto_failure = "##{auto_failure_number}" if auto_failure_number >= 2
+        format_target = ">=#{target_number}" if target_number >= 1
+
         sequence = [
-          "(1D10#{formated_modifier}>=#{target_number})",
+          "(1D10#{formated_modifier}#{formated_auto_failure}#{format_target})",
           "#{dice}[#{dice}]#{formated_modifier}",
           total.to_s,
           result
         ]
 
-        return sequence.join(" ＞ ")
+        return sequence.compact.join(" ＞ ")
       end
 
       # 部位ダメージチャート
