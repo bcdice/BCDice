@@ -497,7 +497,7 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix(['SA2?T\d*'] + TABLES.keys)
+      register_prefix('SA2?T\d*', TABLES.keys)
     end
   end
 end

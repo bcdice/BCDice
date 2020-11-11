@@ -32,9 +32,9 @@ module BCDice
         @sort_add_dice = true # ダイスのソート有
       end
 
-      register_prefix([
+      register_prefix(
         '(\d+)?IL([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?(P)?'
-      ])
+      )
 
       def eval_game_system_specific_command(command)
         if command =~ /(\d+)?IL([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?(P)?$/i

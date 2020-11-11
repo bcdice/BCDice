@@ -25,7 +25,7 @@ module BCDice
         　　DS+2@10 → 2D6+2で目標値10の判定
       MESSAGETEXT
 
-      register_prefix(['(\d+)?(A)?DS([-+\d]*)(@\d+)?'])
+      register_prefix('(\d+)?(A)?DS([-+\d]*)(@\d+)?')
 
       def eval_game_system_specific_command(command)
         return nil unless (m = /(\d+)?(A)?DS([-+\d]*)(@(\d+))?$/i.match(command.upcase))

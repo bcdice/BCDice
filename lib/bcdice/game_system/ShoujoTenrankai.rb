@@ -33,7 +33,7 @@ module BCDice
         　RUIN  廃屋／SHORE  水のほとり
       MESSAGETEXT
 
-      register_prefix(["SPRING", "SUMMER", "AUTUMN", "WINTER", "MORNING", "NOON", "AFTERNOON", "TWILIGHT", "NIGHT", "MIDNIGHT", "NORBLE", "MARCHEN", "COLONIAL", "SHELF", "LITTLE", "ELDER", "ATERIEL", "OPEN", "HAUNTED", "SIMPLE", "LARGE", "CORRIDOR", "STAIRS", "COSY", "TERRACE", "GARRET", "KITCHEN", "BATH", "REST", "CELLER", "LUMBER", "GARDEN", "WASTED", "RUIN", "SHORE"])
+      register_prefix("SPRING", "SUMMER", "AUTUMN", "WINTER", "MORNING", "NOON", "AFTERNOON", "TWILIGHT", "NIGHT", "MIDNIGHT", "NORBLE", "MARCHEN", "COLONIAL", "SHELF", "LITTLE", "ELDER", "ATERIEL", "OPEN", "HAUNTED", "SIMPLE", "LARGE", "CORRIDOR", "STAIRS", "COSY", "TERRACE", "GARRET", "KITCHEN", "BATH", "REST", "CELLER", "LUMBER", "GARDEN", "WASTED", "RUIN", "SHORE")
 
       def eval_game_system_specific_command(command)
         info = EVENT_TABLES[command.upcase]

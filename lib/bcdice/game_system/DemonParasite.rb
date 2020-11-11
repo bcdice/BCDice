@@ -28,7 +28,7 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      register_prefix(['[NAMUC]?URGE\d+'])
+      register_prefix('[NAMUC]?URGE\d+')
 
       def initialize(command)
         super(command)

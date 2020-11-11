@@ -41,7 +41,7 @@ module BCDice
       NOT_CHECK_SUCCESS = -1 # 判定成功にかかわるチェックを行わない(判定失敗に関わるチェックは行う)
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix(['\d*VMF.*'])
+      register_prefix('\d*VMF.*')
 
       def eval_game_system_specific_command(command)
         m = /\A(\d+)?(VMF)(\d+)(\+(\d+))?/.match(command)

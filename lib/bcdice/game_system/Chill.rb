@@ -22,7 +22,7 @@ module BCDice
         　例）SR7　　　sr13　　　SR(7+4)　　　Ssr10
       INFO_MESSAGE_TEXT
 
-      register_prefix(['SR\d+.*'])
+      register_prefix('SR\d+.*')
 
       def check_1D100(total, _dice_total, cmp_op, target)
         return '' if target == '?'

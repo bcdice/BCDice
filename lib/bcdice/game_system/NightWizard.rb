@@ -29,7 +29,7 @@ module BCDice
         　例）12NW-5@7#2$3 1NW 50nw+5@7,10#2,5 50nw-5+10@7,10#2,5+15+25
       INFO_MESSAGE_TEXT
 
-      register_prefix(['([-+]?\d+)?NW.*', '2R6.*'])
+      register_prefix('([-+]?\d+)?NW.*', '2R6.*')
 
       def initialize(command)
         super(command)

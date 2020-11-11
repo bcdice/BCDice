@@ -21,7 +21,7 @@ module BCDice
         BコマンドとRコマンド時に、グリッチの表示を行います。
       INFO_MESSAGE_TEXT
 
-      register_prefix(['(\d+)B6@(\d+)'])
+      register_prefix('(\d+)B6@(\d+)')
 
       def initialize(command)
         super(command)

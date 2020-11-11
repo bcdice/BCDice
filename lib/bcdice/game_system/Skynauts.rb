@@ -32,7 +32,7 @@ module BCDice
         　AVO9@8[縦1,横4],[縦2,横6],[縦3,横8]　AVO@2[縦6,横4],[縦2,横6]
       MESSAGETEXT
 
-      register_prefix(['D.*', '2[Dd]6<=.*', 'SN.*', 'NV.*', 'AVO.*', 'BOM.*'])
+      register_prefix('D.*', '2[Dd]6<=.*', 'SN.*', 'NV.*', 'AVO.*', 'BOM.*')
 
       def initialize(command)
         super(command)

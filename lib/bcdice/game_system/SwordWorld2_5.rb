@@ -68,7 +68,7 @@ module BCDice
         　絡み効果表を出すことができます。
       INFO_MESSAGE_TEXT
 
-      register_prefix(['H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT'])
+      register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT')
 
       # コマンド実行前にメッセージを置換する
       # @param [String] string 受信したメッセージ

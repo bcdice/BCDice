@@ -44,7 +44,7 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      register_prefix(['WT', 'FCT', 'ST', 'FT', 'AT', 'BGT', 'DAT', 'FAT', 'WIT', 'RTT', 'TPT', 'TCT', 'PCT', 'MCT', 'ICT', 'SCT', 'XCT', 'WCT', 'CCT', 'BST', 'PT', 'XEST', 'IWST', 'MCST', 'WDST', 'LWST', 'MIT', 'MOT', 'MAT', 'MUT', 'MFT', 'MLT', 'STB', 'RTS', 'RTB', 'RTF', 'RTP', 'RTD', 'RTN', 'MGCT', 'MBST', 'MAST', 'TCST', 'PWST', 'PAST', 'GBST', 'SLST', 'WLAT', 'WMT', 'FFT', 'OLST', 'TPTB', 'FLT'])
+      register_prefix('WT', 'FCT', 'ST', 'FT', 'AT', 'BGT', 'DAT', 'FAT', 'WIT', 'RTT', 'TPT', 'TCT', 'PCT', 'MCT', 'ICT', 'SCT', 'XCT', 'WCT', 'CCT', 'BST', 'PT', 'XEST', 'IWST', 'MCST', 'WDST', 'LWST', 'MIT', 'MOT', 'MAT', 'MUT', 'MFT', 'MLT', 'STB', 'RTS', 'RTB', 'RTF', 'RTP', 'RTD', 'RTN', 'MGCT', 'MBST', 'MAST', 'TCST', 'PWST', 'PAST', 'GBST', 'SLST', 'WLAT', 'WMT', 'FFT', 'OLST', 'TPTB', 'FLT')
 
       def initialize(command)
         super(command)

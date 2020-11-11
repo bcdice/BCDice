@@ -521,7 +521,7 @@ module BCDice
         )
       }.freeze
 
-      register_prefix(['2D6.*'] + TABLES.keys)
+      register_prefix('2D6.*', TABLES.keys)
     end
   end
 end

@@ -41,7 +41,7 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      register_prefix([
+      register_prefix(
         '\d+MK.*', '\d+R6.*',
         'LRT', 'ORT', 'CRT', 'ART', 'FRT',
         'TBT', 'CBT', 'SBT', 'VBT', 'FBT', 'ABT', 'WBT', 'LBT',
@@ -57,7 +57,7 @@ module BCDice
         '\d+RET',
         'PNT\d*', 'MLT\d*',
         'KNT\d+', 'WORD\d+'
-      ])
+      )
 
       def initialize(command)
         super(command)

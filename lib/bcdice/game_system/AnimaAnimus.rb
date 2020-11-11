@@ -90,7 +90,7 @@ module BCDice
       }.freeze
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix(['\d+AN<=\d([\+\-]\d+)*'] + TABLES.keys)
+      register_prefix('\d+AN<=\d([\+\-]\d+)*', TABLES.keys)
     end
   end
 end

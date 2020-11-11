@@ -32,12 +32,12 @@ module BCDice
         ・リアルネームチャート　日本（RNCJ）、海外（RNCO）
       INFO_MESSAGE_TEXT
 
-      register_prefix([
+      register_prefix(
         'DLH\\d+([\\+\\-]\\d+)*',
         'DC(L|S|C)\d+',
         'RNC[JO]',
         'HNC'
-      ])
+      )
 
       def eval_game_system_specific_command(command)
         case command
