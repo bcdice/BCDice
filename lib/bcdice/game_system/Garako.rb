@@ -20,7 +20,7 @@ module BCDice
       HELP_MESSAGE = <<~MESSAGETEXT
         ・判定 GRn#f （n：判定値、#f：不安定による大失敗値）
         ・部位決定チャート：HIT
-        ・ダメージチャート：xDCy（CDC/EDC/FDC/ADC/LDC)
+        ・ダメージチャート：xDCy（CDC/EDC/FDC/ADC/LDC )
         　xは C：コックピット、E：エンジン、F：フレーム、A：アーム、L：レッグ
         　yはダメージ値
         各種表
@@ -92,33 +92,16 @@ module BCDice
       # @param command [String]
       # @return [String, nil]
       def roll_damage_chart(command)
-        m = /^(\wDC)(\d+)$/i.match(command)
-        unless m
-          return nil
-        end
+        m = /^([CEFAL]DC)(-?\d+)$/i.match(command)
+        return nil unless m
 
         part = m[1]
-        damage = clamp(m[2].to_i, 1, 10)
-        index = damage - 1
+        damage = m[2].to_i.clamp(0, 10)
+        return "ダメージを受けない" if damage <= 0
 
         chart = DAMAGE_CHARTS[part]
-        unless chart
-          return nil
-        end
-
-        chosen = chart[:table][index]
-
-        return "#{chart[:name]}(#{damage}) ＞ #{chosen}"
-      end
-
-      def clamp(i, min, max)
-        if i < min
-          min
-        elsif i > max
-          max
-        else
-          i
-        end
+        result = chart[:table][damage - 1]
+        return "#{chart[:name]}(#{damage}) ＞ #{result}"
       end
 
       DAMAGE_CHARTS = {

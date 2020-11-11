@@ -185,7 +185,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "CDC0"
-output = "部位ダメージチャート：コックピット(1) ＞ 小破（アーマー損傷）：以後、この部位の【部位装甲】-1。"
+output = "ダメージを受けない"
 rands = []
 
 [[ test ]]
