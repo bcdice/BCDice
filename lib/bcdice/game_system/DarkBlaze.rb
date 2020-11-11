@@ -82,9 +82,8 @@ module BCDice
         output = "(#{string}) ＞ #{out_str}"
 
         if signOfInequality != "" # 成功度判定処理
-          dice_total = dice_list.inject(&:+)
           cmp_op = Normalize.comparison_operator(signOfInequality)
-          output += check_result(total, dice_total, dice_list, 6, cmp_op, diff)
+          output += check_result(total, dice_list, 6, cmp_op, diff)
         end
 
         return output

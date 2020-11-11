@@ -181,7 +181,8 @@ module BCDice
 
         if signOfInequality != "" # 成功度判定処理
           cmp_op = Normalize.comparison_operator(signOfInequality)
-          output += check_result(total_n, dice_now, dice_list, 6, cmp_op, diff)
+          output += get2D6Result(total_n, dice_now, cmp_op, diff)
+          output += getKiryokuResult(total_n, dice_list, diff)
         end
 
         return output

@@ -61,8 +61,7 @@ module BCDice
             dice_list = randomizer.dice_list
 
             if @cmp_op
-              dice_total = dice_list.sum
-              output += game_system.check_result(total, dice_total, dice_list, randomizer.sides, @cmp_op, @rhs)
+              output += game_system.check_result(total, dice_list, randomizer.sides, @cmp_op, @rhs)
             end
 
             Result.new.tap do |r|

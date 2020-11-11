@@ -185,13 +185,13 @@ module BCDice
     end
 
     # @param total [Integer] コマンド合計値
-    # @param dice_total [Integer] ダイス目の合計値
     # @param dice_list [Array<Integer>] ダイスの一覧
     # @param sides [Integer] 振ったダイスの面数
     # @param cmp_op [Symbol] 比較演算子
     # @param target [Integer, String] 目標値の整数か'?'
     # @return [String]
-    def check_result(total, dice_total, dice_list, sides, cmp_op, target)
+    def check_result(total, dice_list, sides, cmp_op, target)
+      dice_total = dice_list.sum()
       ret =
         case [dice_list.size, sides]
         when [1, 100]
