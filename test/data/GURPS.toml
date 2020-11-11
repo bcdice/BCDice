@@ -281,7 +281,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "REACT"
-output = "反応表(18)：とても良い"
+output = "反応表(18) ＞ とても良い"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -291,7 +291,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "REACT+1"
-output = "反応表(19)：最高"
+output = "反応表(19) ＞ 最高"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -301,7 +301,27 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "REACT-1"
-output = "反応表(17)：とても良い"
+output = "反応表(17) ＞ とても良い"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GURPS"
+input = "HIT"
+output = "命中部位表(3) ＞ 脳"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GURPS"
+input = "HIT"
+output = "命中部位表(18) ＞ 武器"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },

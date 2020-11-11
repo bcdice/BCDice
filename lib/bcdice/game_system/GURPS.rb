@@ -72,15 +72,7 @@ module BCDice
         result = getFearResult(command)
         return result unless result.nil?
 
-        # 反応表
-        result = getReactResult(command)
-        return result unless result.nil?
-
-        # 命中部位表
-        result = getHitResult(command)
-        return result unless result.nil?
-
-        return roll_tables(command, TABLES)
+        roll_react(command) || roll_tables(command, TABLES)
       end
 
       private
@@ -168,61 +160,36 @@ module BCDice
         return "#{tableName}(#{number})：#{result}"
       end
 
-      def getReactResult(command)
-        return nil unless command =~ /REACT((\+|\-)?\d*)/
+      def roll_react(command)
+        m = /^REACT([+-]?\d*)$/.match(command)
+        return nil unless m
 
-        modify = Regexp.last_match(1).to_i
+        modifier = m[1].to_i
 
-        tableName = "反応表"
         dice = @randomizer.roll_sum(3, 6)
-        number = dice + modify
+        number = dice + modifier
 
-        if number < 1
-          result = "最悪"
-        elsif number < 4
-          result = "とても悪い"
-        elsif number < 7
-          result = "悪い"
-        elsif number < 10
-          result = "良くない"
-        elsif number < 13
-          result = "中立"
-        elsif number < 16
-          result = "良い"
-        elsif number < 19
-          result = "とても良い"
-        else
-          result = "最高"
-        end
-
-        return "#{tableName}(#{number})：#{result}"
+        "反応表(#{number}) ＞ #{reaction(number)}"
       end
 
-      def getHitResult(command)
-        return nil unless command == "HIT"
-
-        tableName = "命中部位表"
-        table = [
-          '脳',
-          '脳',
-          '頭',
-          '遠い腕',
-          '手首(左右ランダム)',
-          '近い腕',
-          '胴体',
-          '胴体',
-          '胴体',
-          '遠い足',
-          '近い足',
-          '近い足',
-          '足首(左右ランダム)',
-          '足首(左右ランダム)',
-          '重要機関(胴体の)',
-          '武器',
-        ]
-        result, number = get_table_by_nD6(table, 3)
-
-        return "#{tableName}(#{number})：#{result}"
+      def reaction(number)
+        if number < 1
+          "最悪"
+        elsif number < 4
+          "とても悪い"
+        elsif number < 7
+          "悪い"
+        elsif number < 10
+          "良くない"
+        elsif number < 13
+          "中立"
+        elsif number < 16
+          "良い"
+        elsif number < 19
+          "とても良い"
+        else
+          "最高"
+        end
       end
 
       def getValue(text, defaultValue)
@@ -384,6 +351,28 @@ module BCDice
             '違った目標に、意図した効果とは正反対の効果があらわれる(どこにあらわれるかはランダムに決定)。とっさに思いつかなければ"振り直す"。',
             '妖術が完全に失敗し、術者の弱点が明らかにされる。弱点がなければ振り直して良い。',
             '妖術が完全に失敗する。術者は完全な行動不能におちいる。回復は反日ごとに生命力で判定を行う。',
+          ]
+        ),
+        "HIT" => DiceTable::Table.new(
+          "命中部位表",
+          "3D6",
+          [
+            '脳',
+            '脳',
+            '頭',
+            '遠い腕',
+            '手首(左右ランダム)',
+            '近い腕',
+            '胴体',
+            '胴体',
+            '胴体',
+            '遠い足',
+            '近い足',
+            '近い足',
+            '足首(左右ランダム)',
+            '足首(左右ランダム)',
+            '重要機関(胴体の)',
+            '武器',
           ]
         ),
       }.freeze
