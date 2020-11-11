@@ -170,24 +170,21 @@ module BCDice
       end
 
       def reaction(number)
-        if number < 1
-          "最悪"
-        elsif number < 4
-          "とても悪い"
-        elsif number < 7
-          "悪い"
-        elsif number < 10
-          "良くない"
-        elsif number < 13
-          "中立"
-        elsif number < 16
-          "良い"
-        elsif number < 19
-          "とても良い"
-        else
-          "最高"
-        end
+        REACTION_TABLE.find { |tuple| tuple.range.include?(number) }.text
       end
+
+      Tuple = Struct.new(:range, :text)
+
+      REACTION_TABLE = [
+        [-Float::INFINITY..0, "最悪"],
+        [1..3, "とても悪い"],
+        [4..6, "悪い"],
+        [7..9, "良くない"],
+        [10..12, "中立"],
+        [13..15, "良い"],
+        [16..18, "とても良い"],
+        [19..Float::INFINITY, "最高"],
+      ].map { |range, text| Tuple.new(range, text) }.freeze
 
       TABLES = {
         "CRT" => DiceTable::Table.new(
