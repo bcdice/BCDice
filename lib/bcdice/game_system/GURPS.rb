@@ -32,7 +32,7 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      register_prefix('FEAR(\+?\d+)?', 'REACT((\+|\-)?\d*)', '[\d\+\-]+\-3[dD]6?[\d\+\-]*')
+      register_prefix('FEAR(\+?\d+)?', 'REACT((\+|\-)?\d*)', '[\d\+\-]+\-3D6?[\d\+\-]*')
 
       def initialize(command)
         super(command)
@@ -65,10 +65,7 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        result = getRollDiceResult(command)
-        return result unless result.nil?
-
-        roll_fear(command) || roll_react(command) || roll_tables(command, TABLES)
+        roll_3d6(command) || roll_fear(command) || roll_react(command) || roll_tables(command, TABLES)
       end
 
       private
@@ -81,21 +78,24 @@ module BCDice
         (target - dice_total <= -10) || (dice_total >= 17 && target <= 15) || dice_total >= 18
       end
 
-      def getRollDiceResult(command)
-        return nil unless command =~ /([\d\+\-]+)\-3[dD]6?([\d\+\-]*)/
+      def roll_3d6(command)
+        m = /^([\d\+\-]+)\-3D6?([\d\+\-]*)$/.match(command)
+        return nil unless m
 
-        diffStr = Regexp.last_match(1)
-        modStr  = (Regexp.last_match(2) || '')
+        target_number = ArithmeticEvaluator.eval(m[1])
+        modifier = ArithmeticEvaluator.eval(m[2])
+        formated_modifier = Format.modifier(modifier)
 
-        diceList = @randomizer.roll_barabara(3, 6)
-        dice_n = diceList.sum()
-        dice_str = diceList.join(",")
+        dice_list = @randomizer.roll_barabara(3, 6)
+        dice_total = dice_list.sum()
+        dice_str = dice_list.join(",")
 
-        diff = getValue(diffStr, 0)
-        total_n = dice_n + getValue(modStr, 0)
+        total = dice_total + modifier
 
-        result = "(3D6#{modStr}<=#{diff}) ＞ #{dice_n}[#{dice_str}]#{modStr} ＞ #{total_n}#{check_nD6(total_n, dice_n, diceList, :<=, diff)}"
-        return result
+        "(3D6#{formated_modifier}<=#{target_number}) ＞ "\
+        "#{dice_total}[#{dice_str}]#{formated_modifier} ＞ "\
+        "#{total}"\
+        "#{check_nD6(total, dice_total, dice_list, :<=, target_number)}"
       end
 
       def roll_fear(command)
