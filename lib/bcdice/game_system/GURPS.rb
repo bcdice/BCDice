@@ -189,12 +189,6 @@ module BCDice
         end
       end
 
-      def getValue(text, defaultValue)
-        return defaultValue if text.nil? || text.empty?
-
-        ArithmeticEvaluator.eval(text)
-      end
-
       TABLES = {
         "CRT" => DiceTable::Table.new(
           "クリティカル表",
