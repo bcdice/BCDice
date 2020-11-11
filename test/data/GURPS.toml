@@ -191,7 +191,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "CRT"
-output = "クリティカル表(18)：体を狙っていたら、相手は気絶(回復は30分後に生命力判定)。他はダメージ3倍。"
+output = "クリティカル表(18) ＞ 体を狙っていたら、相手は気絶(回復は30分後に生命力判定)。他はダメージ3倍。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "FMB"
-output = "ファンブル表(18)：武器が壊れる。ただし、金属バットなど固い\"叩き\"武器は壊れない(ふりなおし)。"
+output = "ファンブル表(18) ＞ 武器が壊れる。ただし、金属バットなど固い\"叩き\"武器は壊れない(ふりなおし)。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -211,7 +211,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "MFMB"
-output = "呪文ファンブル表(18)：呪文が完全に失敗する。GMから見て、術者や呪文が純粋で善良なものでなければ、悪魔(第3版文庫版P.384参照)があらわれ、術者を攻撃する。"
+output = "呪文ファンブル表(18) ＞ 呪文が完全に失敗する。GMから見て、術者や呪文が純粋で善良なものでなければ、悪魔(第3版文庫版P.384参照)があらわれ、術者を攻撃する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -221,7 +221,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "HCRT"
-output = "頭部打撃クリティカル表(3)：敵は即死する。"
+output = "頭部打撃クリティカル表(3) ＞ 敵は即死する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -231,7 +231,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "YSCRT"
-output = "妖魔夜行スペシャルクリティカル表(3)：目(あるいは急所)に当たった！目(あるいは急所)が無ければ3倍ダメージ。"
+output = "妖魔夜行スペシャルクリティカル表(3) ＞ 目(あるいは急所)に当たった！目(あるいは急所)が無ければ3倍ダメージ。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "YSFMB"
-output = "妖魔夜行スペシャルファンブル表(3)：この表を2回振って、両方の結果を適用する。"
+output = "妖魔夜行スペシャルファンブル表(3) ＞ この表を2回振って、両方の結果を適用する。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -251,7 +251,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "YFMB"
-output = "妖術ファンブル表(3)：妖術が完全に失敗する。術者は3D点のダメージを受ける。"
+output = "妖術ファンブル表(3) ＞ 妖術が完全に失敗する。術者は3D点のダメージを受ける。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -261,7 +261,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "FEAR"
-output = "恐怖表(18)：生命力判定を行い、失敗すると1点の負傷を受ける。さらに1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。"
+output = "恐怖表(18) ＞ 生命力判定を行い、失敗すると1点の負傷を受ける。さらに1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -271,7 +271,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "FEAR+1"
-output = "恐怖表(19)：1点負傷。2D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。"
+output = "恐怖表(19) ＞ 1点負傷。2D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -281,7 +281,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "REACT"
-output = "反応表(18)：とても良い"
+output = "反応表(18) ＞ とても良い"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -291,7 +291,7 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "REACT+1"
-output = "反応表(19)：最高"
+output = "反応表(19) ＞ 最高"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -301,7 +301,27 @@ rands = [
 [[ test ]]
 game_system = "GURPS"
 input = "REACT-1"
-output = "反応表(17)：とても良い"
+output = "反応表(17) ＞ とても良い"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GURPS"
+input = "HIT"
+output = "命中部位表(3) ＞ 脳"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GURPS"
+input = "HIT"
+output = "命中部位表(18) ＞ 武器"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
