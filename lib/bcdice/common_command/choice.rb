@@ -4,44 +4,45 @@ module BCDice
       PREFIX_PATTERN = /choice/.freeze
 
       class << self
-        def eval(command, game_system, randomizer)
-          command = new(command, randomizer, game_system)
-          res = command.eval()
-          return nil unless res
+        # @param command [String]
+        # @param _game_system [BCDice::Base]
+        # @param randomizer [Randomizer]
+        # @return [Result, nil]
+        def eval(command, _game_system, randomizer)
+          cmd = parse(command)
+          cmd&.roll(randomizer)
+        end
 
-          Result.new.tap do |r|
-            r.secret = command.secret?
-            r.text = res
-          end
+        private
+
+        def parse(command)
+          m = /^(S)?choice\[([^,]+(?:,[^,]+)+)\]$/i.match(command)
+          return nil unless m
+
+          new(
+            secret: !m[1].nil?,
+            items: m[2].split(",").map(&:strip)
+          )
         end
       end
 
-      def initialize(command, randomizer, game_system)
-        @command = command
-        @randomizer = randomizer
-        @game_system = game_system
-
-        @is_secret = false
+      # @param secret [Boolean]
+      # @param items [Array<String>]
+      def initialize(secret:, items:)
+        @secret = secret
+        @items = items
       end
 
-      def secret?
-        @is_secret
-      end
+      # @param randomizer [Randomizer]
+      # @return [Result]
+      def roll(randomizer)
+        index = randomizer.roll_index(@items.size)
+        chosen = @items[index]
 
-      def eval
-        m = /^(S)?choice\[([^,]+(?:,[^,]+)+)\]$/i.match(@command)
-        unless m
-          return nil
+        Result.new.tap do |r|
+          r.secret = @secret
+          r.text = "(choice[#{@items.join(',')}]) ＞ #{chosen}"
         end
-
-        @is_secret = !m[1].nil?
-        items = m[2].split(",").map(&:strip)
-
-        index = @randomizer.roll_index(items.size)
-        chosen = items[index]
-
-        expr = "choice[#{items.join(',')}]"
-        return "(#{expr}) ＞ #{chosen}"
       end
     end
   end
