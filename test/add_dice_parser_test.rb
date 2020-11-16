@@ -194,7 +194,6 @@ class AddDiceParserTest < Test::Unit::TestCase
     parser = BCDice::CommonCommand::AddDice::Parser.new(command)
     node = parser.parse
 
-    assert(!parser.error?, "構文解析に成功する")
     assert_equal(expected_s_exp, node.s_exp, "結果の抽象構文木が正しい")
   end
 
@@ -203,9 +202,8 @@ class AddDiceParserTest < Test::Unit::TestCase
     message = build_message(message, "? are parsed", command)
     assert_block(message) do
       parser = BCDice::CommonCommand::AddDice::Parser.new(command)
-      parser.parse
 
-      parser.error?
+      parser.parse.nil?
     end
   end
 end

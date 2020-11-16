@@ -6,9 +6,17 @@ require "bcdice/common_command/add_dice/node"
 
 module BCDice
   module CommonCommand
-    class AddDice
+    module AddDice
       # 加算ロールの構文解析器のクラス
       class Parser
+        class << self
+          # @param expr [String]
+          # @return [Node::Command, nil]
+          def parse(expr)
+            new(expr).parse()
+          end
+        end
+
         # 構文解析器を初期化する
         # @param [String] expr 構文解析対象の文字列
         def initialize(expr)
@@ -20,12 +28,6 @@ module BCDice
           @error = false
           # 式にダイスロールが含まれるか
           @contain_dice_roll = false
-
-          @is_secret = false
-        end
-
-        def secret?
-          @is_secret
         end
 
         # 構文解析を実行する
@@ -43,23 +45,20 @@ module BCDice
             ae = ArithmeticEvaluator.new(rhs)
             rhs = ae.eval()
 
-            @error = ae.error?
+            if ae.error?
+              return nil
+            end
           end
 
           @tokens = tokenize(lhs)
-          lhs = expr()
+          secret = consume("S")
+          lhs = add()
 
-          if @idx != @tokens.size || !@contain_dice_roll
-            @error = true
+          if @error || @idx != @tokens.size || !@contain_dice_roll
+            return nil
           end
 
-          return AddDice::Node::Command.new(lhs, cmp_op, rhs)
-        end
-
-        # 構文解析エラーが発生したかどうかを返す
-        # @return [Boolean]
-        def error?
-          @error
+          return AddDice::Node::Command.new(secret, lhs, cmp_op, rhs)
         end
 
         private
@@ -68,13 +67,6 @@ module BCDice
         # @return [Array<String>]
         def tokenize(expr)
           expr.gsub(%r{[\+\-\*/DURSKHL@()]}) { |e| " #{e} " }.split(" ")
-        end
-
-        # 式
-        def expr
-          @is_secret = consume("S")
-
-          return add()
         end
 
         # 加算、減算
