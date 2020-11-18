@@ -18,7 +18,7 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定 GRn#f （n：判定値、#f：不安定による大失敗値）
+        ・判定 GRn#f （n：判定値、#f：不安定による自動失敗基準値）
         ・部位決定チャート：HIT
         ・ダメージチャート：xDCy（CDC/EDC/FDC/ADC/LDC )
         　xは C：コックピット、E：エンジン、F：フレーム、A：アーム、L：レッグ
@@ -50,12 +50,14 @@ module BCDice
       # @param command [String]
       # @return [String, nil]
       def roll_gr(command)
-        m = /^GR([+-]?\d+)?(?:#(\d))?(?:>=(\d+))?$/i.match(command)
-        return nil unless m
+        parser = CommandParser.new("GR")
+        cmd = parser.parse(command.sub(/^GR/i, "GR+0")) # GR5のようにコマンドと数値の間に記号を不要にするハック
+        return nil unless cmd
+        return nil if cmd.critical
 
-        modify_number = m[1].to_i
-        auto_failure_number = m[2].to_i
-        target_number = m[3].to_i
+        modify_number = cmd.modify_number || 0
+        auto_failure_number = cmd.fumble || 1
+        target_number = cmd.target_number
 
         dice = @randomizer.roll_once(10)
         total = dice + modify_number
@@ -63,19 +65,19 @@ module BCDice
         result =
           if dice == 1
             "ファンブル"
-          elsif dice <= auto_failure_number
+          elsif dice <= auto_failure_number # 公式FAQより、ファンブルと自動失敗を区別する可能性があるので分岐
             "自動失敗"
           elsif dice == 10
             "クリティカル"
-          elsif target_number >= 1 && total >= target_number
+          elsif target_number && total >= target_number
             "成功"
-          elsif target_number >= 1
+          elsif target_number
             "失敗"
           end
 
         formated_modifier = Format.modifier(modify_number)
         formated_auto_failure = "##{auto_failure_number}" if auto_failure_number >= 2
-        format_target = ">=#{target_number}" if target_number >= 1
+        format_target = ">=#{target_number}" if target_number
 
         sequence = [
           "(1D10#{formated_modifier}#{formated_auto_failure}#{format_target})",
