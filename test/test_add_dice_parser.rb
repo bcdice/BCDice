@@ -48,7 +48,7 @@ class AddDiceParserTest < Test::Unit::TestCase
 
   # 符号反転（負の整数で割る）
   def test_parse_negation_1
-    test_parse("1D6/-3", "(Command (/ (DiceRoll 1 6) -3))")
+    test_parse("1D6/-3", "(Command (/ (DiceRoll 1 6) (- 3)))")
   end
 
   # 符号反転（ダイスロールの符号反転）
@@ -116,7 +116,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_target_value_constant_fonding
     test_parse(
       "1D6+1-2>=1+2",
-      "(Command (>= (- (+ (DiceRoll 1 6) 1) 2) 3))"
+      "(Command (>= (- (+ (DiceRoll 1 6) 1) 2) (+ 1 2)))"
     )
   end
 
@@ -191,8 +191,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   # @param [String] expected_s_exp 期待されるS式
   # @return [void]
   def test_parse(command, expected_s_exp)
-    parser = BCDice::CommonCommand::AddDice::Parser.new(command)
-    node = parser.parse
+    node = BCDice::CommonCommand::AddDice::Parser.parse(command)
 
     assert_equal(expected_s_exp, node.s_exp, "結果の抽象構文木が正しい")
   end
@@ -201,9 +200,9 @@ class AddDiceParserTest < Test::Unit::TestCase
   def assert_not_parse(command, message = nil)
     message = build_message(message, "? are parsed", command)
     assert_block(message) do
-      parser = BCDice::CommonCommand::AddDice::Parser.new(command)
+      node = BCDice::CommonCommand::AddDice::Parser.parse(command)
 
-      parser.parse.nil?
+      node.nil?
     end
   end
 end
