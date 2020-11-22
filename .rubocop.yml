@@ -2,6 +2,10 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   Exclude:
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
     - lib/bcdice/common_command/add_dice/parser.rb
 
 # Due to old Ruby 1.8.x
