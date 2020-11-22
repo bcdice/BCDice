@@ -3,8 +3,6 @@ require "simplecov"
 if ENV["CI"] == "true" && ENV["CHECK_COVERAGE"] == "true"
   require "codecov"
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
-else
-  SimpleCov.formatter = SimpleCov::Formatter::SimpleFormatter
 end
 
 SimpleCov.at_exit do
@@ -12,4 +10,6 @@ SimpleCov.at_exit do
   SimpleCov.result.format!
 end
 
-SimpleCov.start
+SimpleCov.start do
+  add_filter "/test/"
+end
