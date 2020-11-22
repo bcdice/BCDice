@@ -31,19 +31,28 @@ class AddDiceParserTest < Test::Unit::TestCase
     )
   end
 
+  # 最初の空白までがパース対象となる
+  def test_parse_only_first_word
+    test_parse("2D6 +1", "(Command (DiceRoll 2 6))")
+    test_parse("2D6\n+1", "(Command (DiceRoll 2 6))")
+  end
+
   # 除法
   def test_parse_division
     test_parse("5D6/10", "(Command (/ (DiceRoll 5 6) 10))")
+    test_parse("5D6+300/10", "(Command (+ (DiceRoll 5 6) (/ 300 10)))")
   end
 
   # 除法（切り上げ）
   def test_parse_division_with_rounding_up
     test_parse("3D6/2U", "(Command (/U (DiceRoll 3 6) 2))")
+    test_parse("3D6-40/2U", "(Command (- (DiceRoll 3 6) (/U 40 2)))")
   end
 
   # 除法（四捨五入）
   def test_parse_division_with_rounding_off
     test_parse("1D100/10R", "(Command (/R (DiceRoll 1 100) 10))")
+    test_parse("1D100*12/10R", "(Command (/R (* (DiceRoll 1 100) 12) 10))")
   end
 
   # 符号反転（負の整数で割る）
@@ -71,6 +80,15 @@ class AddDiceParserTest < Test::Unit::TestCase
     test_parse("(1D6+2D4)*2", "(Command (* (Parenthesis (+ (DiceRoll 1 6) (DiceRoll 2 4))) 2))")
   end
 
+  def test_parse_nested_dice
+    assert_not_parse("(1D6)D6", "ダイス数にダイスロールをネストできない")
+    assert_not_parse("1D(1D6)", "面数数にダイスロールをネストできない")
+  end
+
+  def test_parse_without_dice
+    assert_not_parse("1+2", "ダイスロールがない場合にはエラーになる")
+  end
+
   # 目標値あり（=）
   def test_parse_target_value_eq_1
     test_parse("2D6=7", "(Command (== (DiceRoll 2 6) 7))")
@@ -82,8 +100,13 @@ class AddDiceParserTest < Test::Unit::TestCase
   end
 
   # 目標値あり（<>）
-  def test_parse_target_value_not_eq
+  def test_parse_target_value_not_eq_1
     test_parse("2D6<>7", "(Command (!= (DiceRoll 2 6) 7))")
+  end
+
+  # 目標値あり（!=）
+  def test_parse_target_value_not_eq_2
+    test_parse("2D6!=7", "(Command (!= (DiceRoll 2 6) 7))")
   end
 
   # 目標値あり（>=）
@@ -96,6 +119,26 @@ class AddDiceParserTest < Test::Unit::TestCase
     test_parse("2D6=>7", "(Command (>= (DiceRoll 2 6) 7))")
   end
 
+  # 目標値あり（<=）
+  def test_parse_target_value_leq
+    test_parse("2D6<=7", "(Command (<= (DiceRoll 2 6) 7))")
+  end
+
+  # 目標値あり（>）
+  def test_parse_target_value_less
+    test_parse("2D6>7", "(Command (> (DiceRoll 2 6) 7))")
+  end
+
+  # 目標値あり（<）
+  def test_parse_target_value_greater
+    test_parse("2D6<7", "(Command (< (DiceRoll 2 6) 7))")
+  end
+
+  # 目標値に式を書ける
+  def test_parse_target_value_expr
+    test_parse("2D6>=(5+1)*2", "(Command (>= (DiceRoll 2 6) (* (Parenthesis (+ 5 1)) 2)))")
+  end
+
   def test_parse_question_target
     test_parse("2D6<=?", "(Command (<= (DiceRoll 2 6) ?))")
   end
@@ -104,12 +147,20 @@ class AddDiceParserTest < Test::Unit::TestCase
     assert_not_parse("2D6<", "目標値無しはパースエラーになる")
   end
 
+  def test_parse_invalid_cmp_op
+    assert_not_parse("2D6!!10", "不正な比較演算子はパースエラーになる")
+  end
+
   def test_parse_invalid_question_target
     assert_not_parse("2D6<=?a")
   end
 
   def test_parse_invalid_target
     assert_not_parse("2D6<=12ab")
+  end
+
+  def test_parse_dice_target
+    assert_not_parse("2D6<=1D6", "目標値にダイスロールを設定できない")
   end
 
   # 目標値あり、目標値の定数畳み込み
@@ -182,6 +233,12 @@ class AddDiceParserTest < Test::Unit::TestCase
       "5D10DL3+1",
       "(Command (+ (DiceRollWithFilter 5 10 :DL 3) 1))"
     )
+  end
+
+  def test_parse_filter_nested_dice
+    assert_not_parse("(1D6)D6HK3", "ダイス数にダイスロールをネストできない")
+    assert_not_parse("1D(1D6)HK3", "面数数にダイスロールをネストできない")
+    assert_not_parse("1D6HK(1D6)", "ダイス保持数にダイスロールをネストできない")
   end
 
   private
