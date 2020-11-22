@@ -7,8 +7,6 @@ else
   SimpleCov.formatter = SimpleCov::Formatter::SimpleFormatter
 end
 
-SimpleCov.use_merging true
-
 SimpleCov.at_exit do
   SimpleCov.command_name "fork-#{$$}"
   SimpleCov.result.format!

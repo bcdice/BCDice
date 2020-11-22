@@ -66,11 +66,26 @@ task :release, ["version"] do |_, args|
 end
 
 namespace :test do
+  Rake::TestTask.new(:all) do |t|
+    t.description = "全てのテストを実行する"
+
+    t.test_files = [
+      "test/setup",
+      "test/test_*.rb",
+    ]
+    t.libs = [
+      "test/",
+      "lib/",
+    ]
+    t.ruby_opts = [
+      "--enable-frozen-string-literal"
+    ]
+  end
+
   Rake::TestTask.new(:dicebots) do |t|
     t.description = "ダイスボット"
 
     t.test_files = [
-      "test/setup",
       "test/test_game_system_commands.rb",
     ]
     t.libs = [
@@ -84,28 +99,24 @@ namespace :test do
 
   Rake::TestTask.new(:unit) do |t|
     t.description = "ユニットテスト"
-    t.test_files = [
-      "test/setup",
-      "test/test_base.rb",
-      "test/test_dicebot_info_is_defined.rb",
-      "test/test_command_parser.rb",
-      "test/test_d66_table.rb",
-      "test/test_srs_help_messages.rb",
-      "test/test_detailed_rand_results.rb",
-      "test/range_table_test.rb",
-      "test/add_dice_parser_test.rb",
-      "test/test_data_encoding.rb",
-      "test/test_user_defined_dice_table.rb",
-      "test/test_randomizer.rb",
-      "test/test_version_command.rb"
-    ].compact
+
+    t.test_files = FileList[
+      "test/test_*.rb",
+    ].exclude("test/test_game_system_commands.rb")
+
+    t.libs = [
+      "test/",
+      "lib/",
+    ]
+    t.ruby_opts = [
+      "--enable-frozen-string-literal"
+    ]
   end
 end
 
 task test: [
   :clean_coverage,
-  "test:dicebots",
-  "test:unit",
+  "test:all",
 ]
 
 require "rubocop/rake_task"
