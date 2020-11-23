@@ -73,24 +73,33 @@ module BCDice
 
         total = @randomizer.roll_once(100)
 
-        result =
+        result = Result.new
+
+        compare_result =
           if total >= fumble_border
+            result.fumble = true
+            result.failure = true
             'ファンブル'
           elsif total == 1 || total <= critical_border
+            result.critical = true
+            result.success = true
             'クリティカル'
           elsif total <= success_rate
+            result.success = true
             '成功'
           else
+            result.failure = true
             '失敗'
           end
 
         sequence = [
           "1D100<=#{success_rate}@#{critical_border}##{fumble_border}",
           total,
-          result
+          compare_result
         ]
 
-        return sequence.join(" ＞ ")
+        result.text = sequence.join(" ＞ ")
+        result
       end
 
       def roll_fp_damage(command)
