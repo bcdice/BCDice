@@ -6,6 +6,7 @@
 - SRSじゃない世界樹の迷宮TRPG (NSSQ): TTさんありがとうっ！ ([#284](https://github.com/bcdice/BCDice/pull/284))
 - ウォーハンマーRPG第4版 (Warhammer4): Facelessさんありがとうっ！ ([#285](https://github.com/bcdice/BCDice/pull/285))
 - カムズ (Comes): らぁさんありがとうっ！ ([#282](https://github.com/bcdice/BCDice/pull/282))
+- ルーインブレイカーズ (RuinBreakers): よっしーさんありがとうっ！ ([#307](https://github.com/bcdice/BCDice/pull/307))
 
 ### 追加機能
 - ログ・ホライズンTRPG: LHZB1とLHZB2両方の財宝表をサポート、消耗表ロールを追加、財宝表ロールを追加、区切り文字を変更 ([#279](https://github.com/bcdice/BCDice/pull/279))
