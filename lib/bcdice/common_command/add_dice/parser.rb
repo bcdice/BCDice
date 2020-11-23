@@ -73,11 +73,11 @@ racc_action_pointer = [
    nil,   nil,   nil,   nil ]
 
 racc_action_default = [
-    -3,   -28,   -28,    -4,   -28,    -1,    -9,   -12,   -28,   -28,
-   -18,   -21,   -28,   -27,    44,   -28,   -28,   -28,   -28,   -28,
-   -16,   -17,   -28,   -28,    -2,    -5,    -6,    -7,    -8,   -10,
-   -13,   -19,   -26,   -11,   -14,   -15,   -28,   -28,   -28,   -20,
-   -22,   -23,   -24,   -25 ]
+    -3,   -29,   -29,    -4,   -29,    -1,    -9,   -12,   -29,   -29,
+   -18,   -22,   -29,   -28,    44,   -29,   -29,   -29,   -29,   -29,
+   -16,   -17,   -20,   -29,    -2,    -5,    -6,    -7,    -8,   -10,
+   -13,   -19,   -27,   -11,   -14,   -15,   -29,   -29,   -29,   -21,
+   -23,   -24,   -25,   -26 ]
 
 racc_goto_table = [
     31,     1,     5,    27,    28,     2,    20,    21,    24,    33,
@@ -116,16 +116,17 @@ racc_reduce_table = [
   2, 24, :_reduce_17,
   1, 24, :_reduce_none,
   3, 26, :_reduce_19,
-  5, 26, :_reduce_20,
+  2, 26, :_reduce_20,
+  5, 26, :_reduce_21,
   1, 26, :_reduce_none,
-  2, 28, :_reduce_22,
   2, 28, :_reduce_23,
   2, 28, :_reduce_24,
   2, 28, :_reduce_25,
-  3, 27, :_reduce_26,
-  1, 27, :_reduce_27 ]
+  2, 28, :_reduce_26,
+  3, 27, :_reduce_27,
+  1, 27, :_reduce_28 ]
 
-racc_reduce_n = 28
+racc_reduce_n = 29
 
 racc_shift_n = 44
 
@@ -319,6 +320,16 @@ end
 
 def _reduce_20(val, _values, result)
         times = val[0]
+        sides = Node::Number.new(6)
+        raise ParseError if times.include_dice?
+
+        result = Node::DiceRoll.new(times, sides)
+
+    result
+end
+
+def _reduce_21(val, _values, result)
+        times = val[0]
         sides = val[2]
         filter = val[3]
         n_filtering = val[4]
@@ -329,34 +340,34 @@ def _reduce_20(val, _values, result)
     result
 end
 
-# reduce 21 omitted
+# reduce 22 omitted
 
-def _reduce_22(val, _values, result)
+def _reduce_23(val, _values, result)
  result = Node::DiceRollWithFilter::KEEP_HIGHEST
     result
 end
 
-def _reduce_23(val, _values, result)
+def _reduce_24(val, _values, result)
  result = Node::DiceRollWithFilter::KEEP_LOWEST
     result
 end
 
-def _reduce_24(val, _values, result)
+def _reduce_25(val, _values, result)
  result = Node::DiceRollWithFilter::DROP_HIGHEST
     result
 end
 
-def _reduce_25(val, _values, result)
+def _reduce_26(val, _values, result)
  result = Node::DiceRollWithFilter::DROP_LOWEST
     result
 end
 
-def _reduce_26(val, _values, result)
+def _reduce_27(val, _values, result)
  result = Node::Parenthesis.new(val[1])
     result
 end
 
-def _reduce_27(val, _values, result)
+def _reduce_28(val, _values, result)
  result = Node::Number.new(val[0])
     result
 end

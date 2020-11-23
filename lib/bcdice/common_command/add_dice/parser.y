@@ -79,6 +79,14 @@ rule
 
         result = Node::DiceRoll.new(times, sides)
       }
+      | term D
+      {
+        times = val[0]
+        sides = Node::Number.new(6)
+        raise ParseError if times.include_dice?
+
+        result = Node::DiceRoll.new(times, sides)
+      }
       | term D term filter_type term
       {
         times = val[0]
