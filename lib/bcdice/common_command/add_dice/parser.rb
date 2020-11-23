@@ -16,20 +16,22 @@ module BCDice
       class Parser < Racc::Parser
 
 
-include CommonCommand::Lexer
-
 def self.parse(source)
   new.parse(source)
 end
 
 def parse(source)
-  init_lexer(source)
+  @lexer = Lexer.new(source)
   do_parse()
 rescue ParseError
   nil
 end
 
 private
+
+def next_token
+  @lexer.next_token
+end
 
 # 加減算の右辺が負数である場合に加減算を逆転させる
 def expand_negate(op, rhs)

@@ -5,7 +5,7 @@ require "bcdice/normalize"
 
 module BCDice
   module CommonCommand
-    module Lexer
+    class Lexer
       SYMBOLS = {
         "+" => :PLUS,
         "-" => :MINUS,
@@ -18,9 +18,7 @@ module BCDice
         "?" => :QUESTION,
       }.freeze
 
-      private
-
-      def init_lexer(source)
+      def initialize(source)
         source = source.split(" ", 2).first
         @scanner = StringScanner.new(source)
       end
