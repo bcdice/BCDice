@@ -31,7 +31,7 @@ module BCDice
         elsif (cmp_op = @scanner.scan(/[<>!=]+/))
           [:CMP_OP, Normalize.comparison_operator(cmp_op)]
         else
-          char = @scanner.getch
+          char = @scanner.getch.upcase
           type = SYMBOLS[char] || char.to_sym
           [type, char]
         end
