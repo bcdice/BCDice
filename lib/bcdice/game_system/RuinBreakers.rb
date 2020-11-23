@@ -93,7 +93,7 @@ module BCDice
           end
 
         sequence = [
-          "1D100<=#{success_rate}@#{critical_border}##{fumble_border}",
+          "(1D100<=#{success_rate}@#{critical_border}##{fumble_border})",
           total,
           compare_result
         ]
@@ -116,7 +116,7 @@ module BCDice
         dice_str = dice_list.join(",")
 
         sequence = [
-          "(1+#{ruin_point_tens})D10+#{ruin_point_ones}",
+          "((1+#{ruin_point_tens})D10+#{ruin_point_ones})",
           "#{total}[#{dice_str}]+#{ruin_point_ones}",
           "#{total + ruin_point_ones}ダメージ"
         ]
@@ -138,7 +138,7 @@ module BCDice
         dice_str = dice_list.join(",")
 
         sequence = [
-          "#{dice_count}D10",
+          "(#{dice_count}D10)",
           "#{total}[#{dice_str}]",
           "#{total}回復"
         ]
