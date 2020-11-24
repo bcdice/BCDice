@@ -20,6 +20,7 @@ module BCDice
       HELP_MESSAGE = <<~MESSAGETEXT
         ・判定 GRn#f （n：判定値、#f：不安定による自動失敗基準値）
         ・部位決定チャート：HIT
+        ・ダメージ+部位決定：GAHn（n：火力）
         ・ダメージチャート：xDCy（CDC/EDC/FDC/ADC/LDC )
         ・ダメージチャートver2：xDTy（CDT/EDT/FDT/ADT/LDT）
         　xは C：コックピット、E：エンジン、F：フレーム、A：アーム、L：レッグ
@@ -41,7 +42,8 @@ module BCDice
       def eval_game_system_specific_command(command)
         roll_tables(command, TABLES) ||
           roll_gr(command) ||
-          roll_damage_chart(command)
+          roll_damage_chart(command) ||
+          roll_attack_hit(command)
       end
 
       private
@@ -90,9 +92,32 @@ module BCDice
         return sequence.compact.join(" ＞ ")
       end
 
-      def roll_damage_chart1(command)
-        m = /^([CEFAL]DC)(-?\d+)$/i.match(command)
-        roll_damage_chart(DAMAGE_CHARTS[m[1]], m[2].to_i)
+      # ダメージ算出+部位決定チャート
+      #
+      # @param command [String]
+      # @return [String, nil]
+      def roll_attack_hit(command)
+        m = /^GHA([-+\d]+)$/i.match(command)
+        return nil unless m
+
+        modifier = ArithmeticEvaluator.eval(Regexp.last_match(1))
+        attack = @randomizer.roll_once(10)
+        total = attack + modifier
+        hit_text = "#{total}（ダメージを受けない）"
+        if total > 0
+          hit = TABLES["HIT"].roll(@randomizer)
+          hit_dice = ", HIT[#{hit.value}]"
+          hit_text = "#{hit.body}に #{total} -【部位装甲】"
+        end
+
+        formated_modifier = Format.modifier(modifier)
+        sequence = [
+          "(1D10#{formated_modifier})",
+          "#{attack}[#{attack}]#{formated_modifier}#{hit_dice}",
+          hit_text
+        ]
+
+        return sequence.compact.join(" ＞ ")
       end
 
       # 部位ダメージチャート
@@ -627,7 +652,7 @@ module BCDice
         )
       }.freeze
 
-      register_prefix(['GR.*', '(C|E|F|A|L)DC-?\d+', '(C|E|F|A|L)DT-?\d+'] + TABLES.keys)
+      register_prefix(['GR.*', '(C|E|F|A|L)DC[-+\d]+', '(C|E|F|A|L)DT[-+\d]+', 'GHA[-+\d]+'] + TABLES.keys)
     end
   end
 end

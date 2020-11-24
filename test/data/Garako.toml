@@ -317,3 +317,20 @@ output = "戦闘開始距離(1) ＞ 3マス"
 rands = [
   { sides = 10, value = 1 },
 ]
+
+[[ test ]]
+game_system = "Garako"
+input = "GHA5"
+output = "(1D10+5) ＞ 8[8]+5, HIT[4] ＞ フレームに 13 -【部位装甲】"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Garako"
+input = "GHA-7+5"
+output = "(1D10-2) ＞ 1[1]-2 ＞ -1（ダメージを受けない）"
+rands = [
+  { sides = 10, value = 1 },
+]
