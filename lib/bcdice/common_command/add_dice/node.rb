@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "singleton"
+
 module BCDice
   module CommonCommand
     module AddDice
@@ -24,7 +26,7 @@ module BCDice
           # @param [Object] lhs 左辺のノード
           # @param [Symbol] cmp_op 比較演算子
           # @param [Integer, String] rhs 右辺のノード
-          def initialize(secret, lhs, cmp_op, rhs)
+          def initialize(secret, lhs, cmp_op = nil, rhs = nil)
             @secret = secret
             @lhs = lhs
             @cmp_op = cmp_op
@@ -34,14 +36,14 @@ module BCDice
           # 文字列に変換する
           # @return [String]
           def to_s
-            @lhs.to_s + cmp_op_text + @rhs.to_s
+            @lhs.to_s + cmp_op_text + @rhs&.eval(nil).to_s
           end
 
           # ノードのS式を返す
           # @return [String]
           def s_exp
             if @cmp_op
-              "(Command (#{@cmp_op} #{@lhs.s_exp} #{@rhs}))"
+              "(Command (#{@cmp_op} #{@lhs.s_exp} #{@rhs.s_exp}))"
             else
               "(Command #{@lhs.s_exp})"
             end
@@ -62,7 +64,8 @@ module BCDice
 
             if @cmp_op
               dice_total = dice_list.sum
-              output += game_system.check_result(total, dice_total, dice_list, randomizer.sides, @cmp_op, @rhs)
+              rhs = @rhs.eval(nil)
+              output += game_system.check_result(total, dice_total, dice_list, randomizer.sides, @cmp_op, rhs)
             end
 
             Result.new.tap do |r|
@@ -85,6 +88,25 @@ module BCDice
               @cmp_op.to_s
             end
           end
+        end
+
+        class UndecidedTarget
+          include Singleton
+
+          def eval(_randomizer)
+            "?"
+          end
+
+          def include_dice?
+            false
+          end
+
+          def to_s
+            "?"
+          end
+
+          alias output to_s
+          alias s_exp to_s
         end
 
         # 二項演算子のノード
@@ -110,6 +132,11 @@ module BCDice
             rhs = @rhs.eval(randomizer)
 
             return calc(lhs, rhs)
+          end
+
+          # @return [Boolean]
+          def include_dice?
+            @lhs.include_dice? || @rhs.include_dice?
           end
 
           # 文字列に変換する
@@ -283,6 +310,11 @@ module BCDice
             -@body.eval(randomizer)
           end
 
+          # @return [Boolean]
+          def include_dice?
+            @body.include_dice?
+          end
+
           # 文字列に変換する
           # @return [String]
           def to_s
@@ -329,6 +361,11 @@ module BCDice
             @text = "#{total}[#{dice_list.join(',')}]"
 
             return total
+          end
+
+          # @return [Boolean]
+          def include_dice?
+            true
           end
 
           # 文字列に変換する
@@ -421,6 +458,11 @@ module BCDice
             return total
           end
 
+          # @return [Boolean]
+          def include_dice?
+            true
+          end
+
           # 文字列に変換する
           # @return [String]
           def to_s
@@ -451,6 +493,11 @@ module BCDice
           # @return [integer]
           def eval(randomizer)
             @expr.eval(randomizer)
+          end
+
+          # @return [Boolean]
+          def include_dice?
+            @expr.include_dice?
           end
 
           # @return [String]
@@ -491,6 +538,11 @@ module BCDice
           # @return [Integer] 格納している値
           def eval(_randomizer)
             @literal
+          end
+
+          # @return [Boolean]
+          def include_dice?
+            false
           end
 
           # 文字列に変換する
