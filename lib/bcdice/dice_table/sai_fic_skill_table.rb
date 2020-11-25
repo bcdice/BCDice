@@ -1,27 +1,36 @@
 module BCDice
   module DiceTable
     class SaiFicSkillTable
-      def initialize(items, peekaboo_style: false, rtt: /^RTT$/i, rttn: /^RTT([1-6])$/i, rct: /^RCT$/i)
+      def initialize(items, rtt: nil, rct: nil, rttn: nil, rtt_format: "ランダム指定特技表(%<category_dice>d,%<row_dice>d) ＞ %<text>s", rct_format: "ランダム分野(%<dice>d) ＞ %<category>s", rttn_format: "%<category_name>s分野ランダム指定特技表(%<row_dice>d) ＞ %<text>s")
         @items = items
-        @peekaboo_style = peekaboo_style
         @rtt = rtt
-        @rttn = rttn
         @rct = rct
+        @rttn = rttn.to_a
+        @rtt_format = rtt_format
+        @rct_format = rct_format
+        @rttn_format = rttn_format
       end
 
+      RTTN = ["RTT1", "RTT2", "RTT3", "RTT4", "RTT5", "RTT6"].freeze
+      attr_reader :rtt_format
+      attr_reader :rct_format
+      attr_reader :rttn_format
+      attr_reader :items
+
       def roll_command(randomizer, command)
-        if @rtt =~ command
+        c = command.upcase
+        if ["RTT", @rtt].include?(c)
           roll(randomizer)
-        elsif @rttn =~ command
-          roll(randomizer, Regexp.last_match(1).to_i)
-        elsif @rct =~ command
-          cat,dice = roll_category(randomizer)
-          "ランダム分野(#{dice})＞ #{cat}"
+        elsif ["RCT", @rct].include?(c)
+          cat, dice = roll_category(randomizer)
+          format(rct_format, dice: dice, category: cat)
+        elsif (index = RTTN.index(c)) || (index = @rttn.index(c))
+          roll(randomizer, index + 1)
         end
       end
 
       def roll(randomizer, category_dice = nil)
-        skill = get_skill(randomizer, category_dice)
+        skill = roll_skill(randomizer, category_dice)
         if category_dice
           skill.result_rttn
         else
@@ -29,16 +38,12 @@ module BCDice
         end
       end
 
-      def get_skill(randomizer, category_dice = nil)
+      def roll_skill(randomizer, category_dice = nil)
         category_dice ||= randomizer.roll_once(6)
         row_dice = randomizer.roll_sum(2, 6)
-        return SaiFicSkill.new(@items,category_dice, row_dice)
+        return SaiFicSkill.new(self, category_dice, row_dice)
       end
 
-      # ランダム分野
-      #
-      # @param randomizer [Randomizer] 乱数生成器
-      ##### @return [RollResult]
       def roll_category(randomizer)
         category_dice = randomizer.roll_once(6)
         category = @items[category_dice - 1][0]
@@ -46,7 +51,7 @@ module BCDice
       end
 
       def prefixes
-        [@rtt,@rttn,@rct]
+        ([/RTT[1-6]?/i, "RCT", @rtt, @rct] + @rttn).compact
       end
     end
   end
