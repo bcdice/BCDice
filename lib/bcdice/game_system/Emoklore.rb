@@ -40,7 +40,7 @@ module BCDice
       def eval_game_system_specific_command(command)
         # コマンドを解析して下位に渡す（スペース、'['、']' は削除する）
         case command
-        when /\d*DM( )*<=( )*\d/
+        when /\d*DM<=\d/
           return getCheckResult(command.delete(" "))
         when /\d*DA\d+(\+)?\d*/
           return getCheckResultCustom(command.delete(" "))
