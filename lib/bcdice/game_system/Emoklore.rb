@@ -26,8 +26,8 @@ module BCDice
       # ダイスボットで使用するコマンドを配列で列挙する
       register_prefix(['\d*DM<=.*', '\d*DA\d+.*'])
 
-      Critical_value = 1
-      Fumble_value = 10
+      CRITICAL_VALUE = 1
+      FUMBLE_VALUE = 10
 
       def initialize(command)
         super(command)
@@ -54,10 +54,10 @@ module BCDice
         values = Array.new(num_dice.to_i) { @randomizer.roll_once(10) }
 
         # クリティカルが出た数
-        values_critical = values.select { |num| num <= Critical_value }
+        values_critical = values.select { |num| num <= CRITICAL_VALUE }
         delete_num = 1
         values_tmp = values.clone
-        while delete_num <= Critical_value
+        while delete_num <= CRITICAL_VALUE
           values_tmp.delete(delete_num)
           delete_num += 1
         end
@@ -66,7 +66,7 @@ module BCDice
         values_success = values_tmp.select { |num| num <= success_threshold }
 
         # ファンブルが出た数
-        values_fumble = values_tmp.select { |num| num >= Fumble_value }
+        values_fumble = values_tmp.select { |num| num >= FUMBLE_VALUE }
 
         # 出た目に従って成功値計算
         success_value = 2 * values_critical.size + values_success.size - values_fumble.size
