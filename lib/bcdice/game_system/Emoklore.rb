@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "utils/ArithmeticEvaluator"
-require "utils/modifier_formatter"
-
 module BCDice
   module GameSystem
     class Emoklore < Base
@@ -27,10 +24,10 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      setPrefixes(['\d*DM<=.*', '\d*DA\d+.*'])
+      register_prefix(['\d*DM<=.*', '\d*DA\d+.*'])
 
-      def initialize
-        super
+      def initialize(command)
+        super(command)
         @critical_value = 1
         @fumble_value = 10
       end
@@ -43,7 +40,7 @@ module BCDice
       # @param [String] command コマンド
       # @return [String] ダイスボット固有コマンドの結果
       # @return [nil] 無効なコマンドだった場合
-      def rollDiceCommand(command)
+      def eval_game_system_specific_command(command)
         # コマンドを解析して下位に渡す（スペース、'['、']' は削除する）
         case command
         when /\d*DM( )*<=( )*\d/
@@ -57,7 +54,7 @@ module BCDice
       # 判定ダイスロール
       def execRoll(num_dice, success_threshold)
         # ダイスを振った結果を配列として取得
-        values = Array.new(num_dice.to_i) { roll(1, 10)[0] }
+        values = Array.new(num_dice.to_i) { @randomizer.roll_once(10) }
 
         # クリティカルが出た数
         values_critical = values.select { |num| num <= @critical_value }
