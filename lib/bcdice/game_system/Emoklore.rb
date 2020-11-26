@@ -32,10 +32,6 @@ module BCDice
         @fumble_value = 10
       end
 
-      def changeText(string)
-        string
-      end
-
       # ダイスボット固有コマンドの処理を行う
       # @param [String] command コマンド
       # @return [String] ダイスボット固有コマンドの結果
