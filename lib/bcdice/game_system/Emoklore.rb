@@ -98,26 +98,29 @@ module BCDice
         num_dice = 1
 
         # コマンド解析
-        if (m = /(\d*)DM<=(\d+)/i.match(command))
-          # ダイスの数は省略可能（省略した場合は1個）
-          unless m[1].to_s == "" || m[1].to_s.nil?
-            if m[1].to_i <= 0
-              return nil
-            end
+        m = /(\d*)DM<=(\d+)/i.match(command)
 
-            num_dice = m[1].to_i
+        unless m
+          return nil
+        end
+
+        # ダイスの数は省略可能（省略した場合は1個）
+        unless m[1].to_s == "" || m[1].to_s.nil?
+          if m[1].to_i <= 0
+            return nil
           end
 
-          # 判定値
-          success_threshold = m[2].to_i
-
-          # ダイスロール本体
-          ret_str = execRoll(num_dice, success_threshold)
-
-          # 結果を返す
-          return "(#{num_dice}DM<=#{success_threshold}) ＞ " + ret_str
+          num_dice = m[1].to_i
         end
-        return nil
+
+        # 判定値
+        success_threshold = m[2].to_i
+
+        # ダイスロール本体
+        ret_str = execRoll(num_dice, success_threshold)
+
+        # 結果を返す
+        return "(#{num_dice}DM<=#{success_threshold}) ＞ " + ret_str
       end
 
       # 取得技能判定
