@@ -54,7 +54,7 @@ module BCDice
         values = Array.new(num_dice.to_i) { @randomizer.roll_once(10) }
 
         # クリティカルが出た数
-        values_critical = values.select { |num| num <= CRITICAL_VALUE }
+        values_critical = values.count { |num| num <= CRITICAL_VALUE }
         delete_num = 1
         values_tmp = values.clone
         while delete_num <= CRITICAL_VALUE
@@ -63,13 +63,13 @@ module BCDice
         end
 
         # 成功が出た数
-        values_success = values_tmp.select { |num| num <= success_threshold }
+        values_success = values_tmp.count { |num| num <= success_threshold }
 
         # ファンブルが出た数
-        values_fumble = values_tmp.select { |num| num >= FUMBLE_VALUE }
+        values_fumble = values_tmp.count { |num| num >= FUMBLE_VALUE }
 
         # 出た目に従って成功値計算
-        success_value = 2 * values_critical.size + values_success.size - values_fumble.size
+        success_value = 2 * values_critical + values_success - values_fumble
         return_str = ""
         if success_value < 0
           return_str = "ファンブル!"
