@@ -50,7 +50,7 @@ module BCDice
           　・新名前表 NNAMEx (xは個数)
           　　　芸術 NMAR／食べ物 NMFO／日用品 NMDN／地名 NMPL／機械 NMMA／神様 NMGO
           　・単語表１／２／３／４　WORD1／WORD2／WORD3／WORD4
-          　・生まれ決定表 BDT／生まれ表：才覚 TBO／魅力 CBO／探索 SBO／武勇 TBO
+          　・生まれ決定表 BDT／生まれ表：才覚 TBO／魅力 CBO／探索 SBO／武勇 VBO
           　・初期装備表 IEQ
         　・地名決定表　PNTx (xは個数)／迷宮風景表 MLTx (xは個数)
          ・D66ダイスあり

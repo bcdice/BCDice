@@ -18,6 +18,21 @@ namespace "gem" do
   end
 end
 
+RACC_TARGETS = [
+  "lib/bcdice/common_command/add_dice/parser.rb",
+].freeze
+
+task racc: RACC_TARGETS
+
+rule ".rb" => ".y" do |t|
+  opts = [t.source,
+          "-o", t.name,]
+  opts << "--no-line-convert" unless ENV["RACC_DEBUG"]
+  opts << "--debug" if ENV["RACC_DEBUG"]
+
+  sh "racc", *opts
+end
+
 desc "Clean coverage resuts"
 task :clean_coverage do
   require "simplecov"
@@ -112,6 +127,10 @@ namespace :test do
       "--enable-frozen-string-literal"
     ]
   end
+
+  task all: "racc"
+  task dicebots: "racc"
+  task unit: "racc"
 end
 
 task test: [

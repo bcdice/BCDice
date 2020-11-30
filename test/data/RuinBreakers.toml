@@ -1,0 +1,299 @@
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB32"
+output = "(1D100<=32@6#96) ＞ 32 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 32 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB32"
+output = "(1D100<=32@6#96) ＞ 33 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 33 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB32"
+output = "(1D100<=32@6#96) ＞ 7 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 7 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB32"
+output = "(1D100<=32@6#96) ＞ 6 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB-20"
+output = "(1D100<=-20@1#96) ＞ 1 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB99"
+output = "(1D100<=99@19#96) ＞ 96 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB100"
+output = "(1D100<=100@20#99) ＞ 98 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 98 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB100"
+output = "(1D100<=100@20#99) ＞ 99 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB30@10"
+output = "(1D100<=30@10#96) ＞ 10 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB90#90"
+output = "(1D100<=90@18#90) ＞ 90 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 90 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB90@90#90 ファンブル優先"
+output = "(1D100<=90@90#90) ＞ 90 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 90 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB(45+20)/2"
+output = "(1D100<=32@6#96) ＞ 10 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB40-20+10@10#90"
+output = "(1D100<=30@10#90) ＞ 15 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 15 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RB10*2/(3+4-5)@10#90"
+output = "(1D100<=10@10#90) ＞ 20 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 20 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "FPD23"
+output = "((1+2)D10+3) ＞ 16[10,1,5]+3 ＞ 19ダメージ"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "FPD20"
+output = "((1+2)D10+0) ＞ 16[10,1,5]+0 ＞ 16ダメージ"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "FPD2"
+output = "((1+0)D10+2) ＞ 10[10]+2 ＞ 12ダメージ"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "FPR29"
+output = "(3D10) ＞ 16[10,1,5] ＞ 16回復"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "FPR20"
+output = "(2D10) ＞ 11[10,1] ＞ 11回復"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "FPR2"
+output = "(1D10) ＞ 10[10] ＞ 10回復"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "PE"
+output = "ポジティブ感情表(1) ＞ 【希望】相手はまるで自分の過去、あるいは未来を見ているように感じる。"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "PE"
+output = "ポジティブ感情表(100) ＞ 【好敵手】相手のことを好敵手、ライバルだと思っている。"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "NE"
+output = "ネガティブ感情表(1) ＞ 【同族嫌悪】1日に自分の忌むべき過去、あるいは自分自身を見ているように感じる。"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "NE"
+output = "ネガティブ感情表(100) ＞ 【仇敵】相手のことを倒すべき相手と思っている。"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "DXM"
+output = "デウス・エクス・マキナ表(1) ＞ 神降臨。エンディングフェイズに効果を発揮する。あなたの願いはかなう。願いの内容はGMと相談して決定すること。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "DXM"
+output = "デウス・エクス・マキナ表(10) ＞ 不思議なことが起こった。あなたのFPが完全に回復する。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "JC"
+output = "断罪チャート(1) ＞ 【国王／女王】国レベルの代表者が現われて、あなたの主張を支持してくれる。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "JC"
+output = "断罪チャート(10) ＞ 【外国の王侯貴族】外国の代表者が現われて、あなたの主張を支持してくれる。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RDF"
+output = "破滅のイヤな感じ表(1) ＞ 【水中で拘束】\n演出：水中で長い髪の毛が全身に絡みついて動きが重くなるような感覚。\nルーインブレイク成功：重い拘束から解き放たれたような快感。"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "RDF"
+output = "破滅のイヤな感じ表(100) ＞ 【夢中感】\n演出：夢の中にいるような不安な感覚。\nルーインブレイク成功：しっかりとした現実感。"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "TC"
+output = "トラブルチャート／トラブル解決チャート(1) ＞ 【暴れ馬／交通事故】\nトラブル：いきなり、暴れ馬がやってきて、キミは刎ねられた。\n解決：時間はかかったが、事故は処理された。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "TC"
+output = "トラブルチャート／トラブル解決チャート(10) ＞ 【任意】\nGMと相談してトラブルの内容を決めよう。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "DA"
+output = "ドタバタアクション表(1) ＞ 【フードファイト（野菜）】大根ソードで切りつけ、カボチャハンマーで殴り抜け"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "RuinBreakers"
+input = "DA"
+output = "ドタバタアクション表(10) ＞ 【任意】GMと相談して、イメージをふくらませよう。"
+rands = [
+  { sides = 10, value = 10 },
+]
