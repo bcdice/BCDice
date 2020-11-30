@@ -185,31 +185,33 @@ module BCDice
     end
 
     # @param total [Integer] コマンド合計値
-    # @param dice_total [Integer] ダイス目の合計値
-    # @param dice_list [Array<Integer>] ダイスの一覧
-    # @param sides [Integer] 振ったダイスの面数
+    # @param rand_results [Array<CommonCommand::AddDice::Randomizer::RandResult>] ダイスの一覧
     # @param cmp_op [Symbol] 比較演算子
     # @param target [Integer, String] 目標値の整数か'?'
     # @return [String]
-    def check_result(total, dice_total, dice_list, sides, cmp_op, target)
+    def check_result(total, rand_results, cmp_op, target)
+      sides_list = rand_results.map(&:sides)
+      value_list = rand_results.map(&:value)
+      dice_total = value_list.sum()
+
       ret =
-        case [dice_list.size, sides]
-        when [1, 100]
+        case sides_list
+        when [100]
           check_1D100(total, dice_total, cmp_op, target)
-        when [1, 20]
+        when [20]
           check_1D20(total, dice_total, cmp_op, target)
-        when [2, 6]
-          check_2D6(total, dice_total, dice_list, cmp_op, target)
+        when [6, 6]
+          check_2D6(total, dice_total, value_list, cmp_op, target)
         end
 
       return ret unless ret.nil? || ret.empty?
 
       ret =
-        case sides
-        when 10
-          check_nD10(total, dice_total, dice_list, cmp_op, target)
-        when 6
-          check_nD6(total, dice_total, dice_list, cmp_op, target)
+        case sides_list.uniq
+        when [10]
+          check_nD10(total, dice_total, value_list, cmp_op, target)
+        when [6]
+          check_nD6(total, dice_total, value_list, cmp_op, target)
         end
 
       return ret unless ret.nil? || ret.empty?
