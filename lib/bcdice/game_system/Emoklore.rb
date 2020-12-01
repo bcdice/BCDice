@@ -40,14 +40,12 @@ module BCDice
       # @return [String] ダイスボット固有コマンドの結果
       # @return [nil] 無効なコマンドだった場合
       def eval_game_system_specific_command(command)
-        # コマンドを解析して下位に渡す（スペース、'['、']' は削除する）
         case command
-        when /\d*DM<=\d/
-          return getCheckResult(command.delete(" "))
-        when /\d*DA\d+(\+)?\d*/
-          return getCheckResultCustom(command.delete(" "))
+        when /^\d*DM<=\d/
+          getCheckResult(command)
+        when /^\d*DA\d+(\+)?\d*/
+          getCheckResultCustom(command)
         end
-        return nil
       end
 
       # 判定ダイスロール
