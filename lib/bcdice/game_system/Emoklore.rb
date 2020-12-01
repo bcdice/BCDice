@@ -30,14 +30,10 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix(['\d*DM<=.*', '\d*DA\d+.*'])
+      register_prefix('\d*DM<=.*', '\d*DA\d+.*')
 
       CRITICAL_VALUE = 1
       FUMBLE_VALUE = 10
-
-      def initialize(command)
-        super(command)
-      end
 
       # ダイスボット固有コマンドの処理を行う
       # @param [String] command コマンド
