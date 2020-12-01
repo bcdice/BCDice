@@ -48,47 +48,40 @@ module BCDice
         end
       end
 
-      # 判定ダイスロール
-      def execRoll(num_dice, success_threshold)
+      private
+
+      # ダイスロールの共通処理
+      def dice_roll(num_dice, success_threshold)
         # ダイスを振った結果を配列として取得
-        values = Array.new(num_dice.to_i) { @randomizer.roll_once(10) }
+        values = @randomizer.roll_barabara(num_dice, 10)
+        values_without_critical = values.reject { |num| num <= CRITICAL_VALUE }
 
-        # クリティカルが出た数
-        values_critical = values.count { |num| num <= CRITICAL_VALUE }
-        delete_num = 1
-        values_tmp = values.clone
-        while delete_num <= CRITICAL_VALUE
-          values_tmp.delete(delete_num)
-          delete_num += 1
+        critical = values.size - values_without_critical.size
+        success = values_without_critical.count { |num| num <= success_threshold }
+        fumble = values_without_critical.count { |num| num >= FUMBLE_VALUE }
+
+        # 成功値
+        success_value = 2 * critical + success - fumble
+
+        "#{values} ＞ #{success_value} ＞ #{result_text(success_value)}"
+      end
+
+      def result_text(success)
+        if success < 0
+          "ファンブル!"
+        elsif success == 0
+          "失敗!"
+        elsif success == 1
+          "成功!"
+        elsif success == 2
+          "ダブル!"
+        elsif success == 3
+          "トリプル!"
+        elsif success <= 9
+          "ミラクル!"
+        else
+          "カタストロフ!"
         end
-
-        # 成功が出た数
-        values_success = values_tmp.count { |num| num <= success_threshold }
-
-        # ファンブルが出た数
-        values_fumble = values_tmp.count { |num| num >= FUMBLE_VALUE }
-
-        # 出た目に従って成功値計算
-        success_value = 2 * values_critical + values_success - values_fumble
-        return_str = ""
-        if success_value < 0
-          return_str = "ファンブル!"
-        elsif success_value == 0
-          return_str = "失敗!"
-        elsif success_value == 1
-          return_str = "成功!"
-        elsif success_value == 2
-          return_str = "ダブル!"
-        elsif success_value == 3
-          return_str = "トリプル!"
-        elsif success_value >= 4 && success_value <= 9
-          return_str = "ミラクル!"
-        elsif success_value >= 10
-          return_str = "カタストロフ!"
-        end
-
-        # ダイスを振った結果を返す
-        return "#{values} ＞ #{success_value} ＞ #{return_str}"
       end
 
       # 技能判定
@@ -117,7 +110,7 @@ module BCDice
         success_threshold = m[2].to_i
 
         # ダイスロール本体
-        ret_str = execRoll(num_dice, success_threshold)
+        ret_str = dice_roll(num_dice, success_threshold)
 
         # 結果を返す
         return "(#{num_dice}DM<=#{success_threshold}) ＞ " + ret_str
@@ -147,7 +140,7 @@ module BCDice
           end
 
           # ダイスロール本体
-          ret_str = execRoll(num_dice, success_threshold)
+          ret_str = dice_roll(num_dice, success_threshold)
 
           # 結果を返す
           return "(#{m[1]}DA#{m[2]}#{m[3]}#{m[4]}) ＞ (#{num_dice}DM<=#{success_threshold}) ＞ " + ret_str
