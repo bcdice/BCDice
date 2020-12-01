@@ -30,7 +30,7 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('\d*DM<=.*', '\d*DA\d+.*')
+      register_prefix('\d*DM<=\d+', '\d*DA\d+')
 
       CRITICAL_VALUE = 1
       FUMBLE_VALUE = 10
