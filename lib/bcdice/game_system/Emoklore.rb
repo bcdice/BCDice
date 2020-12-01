@@ -44,7 +44,7 @@ module BCDice
         when /^\d*DM<=\d/
           roll_dm(command)
         when /^\d*DA\d+(\+)?\d*/
-          getCheckResultCustom(command)
+          roll_da(command)
         end
       end
 
@@ -108,33 +108,19 @@ module BCDice
       # 取得技能判定
       # @param [String] command コマンド
       # @return [String] コマンドの結果
-      def getCheckResultCustom(command)
-        skil_level = 0
-        num_dice = 1
-
-        # コマンド解析
-        if (m = /(\d*)DA(\d+)(\+)?(\d*)/i.match(command))
-          # ダイスの数は省略可能（省略した場合は1個）
-          unless m[1].to_s == "" || m[1].to_i <= 0
-            skil_level = m[1].to_i
-            num_dice = m[1].to_i
-          end
-
-          # 判定値を計算
-          success_threshold = m[2].to_i + skil_level.to_i
-
-          # ボーナスダイス加算
-          unless m[4].to_s == "" || m[4].to_i <= 0
-            num_dice = num_dice.to_i + m[4].to_i
-          end
-
-          # ダイスロール本体
-          ret_str = dice_roll(num_dice, success_threshold)
-
-          # 結果を返す
-          return "(#{m[1]}DA#{m[2]}#{m[3]}#{m[4]}) ＞ (#{num_dice}DM<=#{success_threshold}) ＞ " + ret_str
+      def roll_da(command)
+        m = /^(\d+)?DA(\d+)(\+\d+)?$/.match(command)
+        unless m
+          return nil
         end
-        return nil
+
+        skil_level = m[1].to_i # 未指定は0
+        bonus = m[3].to_i
+        num_dice = (m[1]&.to_i || 1) + bonus
+        success_threshold = m[2].to_i + skil_level
+
+        ret_str = dice_roll(num_dice, success_threshold)
+        "(#{command}) ＞ (#{num_dice}DM<=#{success_threshold}) ＞ #{ret_str}"
       end
     end
   end
