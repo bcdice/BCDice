@@ -51,6 +51,9 @@ module BCDice
       private
 
       # ダイスロールの共通処理
+      # @param [Integer] num_dice
+      # @param [Integer] success_threshold
+      # @return [String]
       def dice_roll(num_dice, success_threshold)
         # ダイスを振った結果を配列として取得
         values = @randomizer.roll_barabara(num_dice, 10)
@@ -66,6 +69,8 @@ module BCDice
         "#{values} ＞ #{success_value} ＞ #{result_text(success_value)}"
       end
 
+      # @param [Integer] success
+      # @return [String]
       def result_text(success)
         if success < 0
           "ファンブル!"
@@ -86,7 +91,7 @@ module BCDice
 
       # 技能判定
       # @param [String] command コマンド
-      # @return [String] コマンドの結果
+      # @return [String, nil] コマンドの結果
       def roll_dm(command)
         m = /^(\d+)?DM<=(\d+)$/.match(command)
         unless m
@@ -107,7 +112,7 @@ module BCDice
 
       # 取得技能判定
       # @param [String] command コマンド
-      # @return [String] コマンドの結果
+      # @return [String, nil] コマンドの結果
       def roll_da(command)
         m = /^(\d+)?DA(\d+)(\+\d+)?$/.match(command)
         unless m
