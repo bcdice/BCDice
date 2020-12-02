@@ -187,6 +187,27 @@ rands = [
 
 [[ test ]]
 game_system = "Emoklore"
+input = "bDA3"
+output = "(BDA3) ＞ (1DM<=3) ＞ [1] ＞ 2 ＞ ダブル!"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Emoklore"
+input = "bDA3+5"
+output = "(BDA3+5) ＞ (6DM<=3) ＞ [1, 2, 3, 4, 7, 8] ＞ 4 ＞ ミラクル!"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 }
+]
+
+[[ test ]]
+game_system = "Emoklore"
 input = "3DA3+5"
 output = "(3DA3+5) ＞ (8DM<=6) ＞ [1, 2, 3, 4, 7, 8, 9, 10] ＞ 4 ＞ ミラクル!"
 rands = [
