@@ -24,7 +24,7 @@ module BCDice
         　NORBLE  貴族趣味／MARCHEN  メルヒェン／COLONIAL  コロニアル／
         　SHELF  本棚のある場所／LITTLE  小さな妹の部屋／
         　ELDER  素敵なお姉さまの部屋／ATERIEL  アトリエ／OPEN  集まれる場所／
-        　HAUNTED  SIMPLE  侘び住まい
+        　HAUNTED  精神的瑕疵物件／SIMPLE  侘び住まい
         ・いろいろな場所
         　LARGE  広い場所／CORRIDOR  廊下／STAIRS  階段／
         　COSY  居心地のいい場所／TERRACE  テラス・ベランダ／
