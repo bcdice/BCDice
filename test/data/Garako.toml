@@ -136,6 +136,14 @@ rands = [
 
 [[ test ]]
 game_system = "Garako"
+input = "GR+1+3-5+4>=10"
+output = "(1D10+3>=10) ＞ 8[8]+3 ＞ 11 ＞ 成功"
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Garako"
 input = "GR+(1-1)>=10"
 output = "(1D10>=10) ＞ 8[8] ＞ 8 ＞ 失敗"
 rands = [

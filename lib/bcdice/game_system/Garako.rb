@@ -18,7 +18,7 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定 GRn#f （n：判定値、#f：不安定による自動失敗基準値）
+        ・判定 GR+n#f>=X （+n：判定値、#f：不安定による自動失敗基準値、X：目標値）
         ・部位決定チャート：HIT
         ・ダメージ+部位決定：GAHn（n：火力）
         ・ダメージチャート：xDCy（CDC/EDC/FDC/ADC/LDC )
@@ -54,7 +54,7 @@ module BCDice
       # @return [String, nil]
       def roll_gr(command)
         parser = CommandParser.new("GR")
-        cmd = parser.parse(command.sub(/^GR/i, "GR+0")) # GR5のようにコマンドと数値の間に記号を不要にするハック
+        cmd = parser.parse(command.sub(/^GR/i, "GR"))
         return nil unless cmd
         return nil if cmd.critical
 
@@ -100,7 +100,7 @@ module BCDice
         m = /^GHA([-+\d]+)$/i.match(command)
         return nil unless m
 
-        modifier = ArithmeticEvaluator.eval(Regexp.last_match(1))
+        modifier = ArithmeticEvaluator.eval(m[1])
         attack = @randomizer.roll_once(10)
         total = attack + modifier
         hit_text = "#{total}（ダメージを受けない）"
@@ -125,15 +125,11 @@ module BCDice
       # @param command [String]
       # @return [String, nil]
       def roll_damage_chart(command)
-        if /^([CEFAL]DC)([-+\d]+)$/i =~ command
-          chart = DAMAGE_CHARTS[Regexp.last_match(1)]
-          damage = ArithmeticEvaluator.eval(Regexp.last_match(2)).to_i.clamp(0, 10)
-        elsif /^([CEFAL]DT)([-+\d]+)$/i =~ command
-          chart = DAMAGE_CHARTS_V2[Regexp.last_match(1)]
-          damage = ArithmeticEvaluator.eval(Regexp.last_match(2)).to_i.clamp(0, 10)
-        else
-          return nil
-        end
+        m = /^([CEFAL]D[CT])([-+\d]+)$/i.match(command)
+        return nil unless m
+
+        chart = DAMAGE_CHARTS[m[1]]
+        damage = ArithmeticEvaluator.eval(m[2]).clamp(0, 10)
         return "ダメージを受けない" if damage <= 0
 
         result = chart[:table][damage - 1]
@@ -215,10 +211,7 @@ module BCDice
             "大破（跛足）：以後、【移動力】-2。この部位の【部位装甲】が0になる。［弱体1］を受ける。",
             "修復不能（破壊）：ダメージを受けた側のレッグが［修復不能］となる。【移動力】-2。［弱体2］を受ける。",
           ]
-        }
-      }.freeze
-
-      DAMAGE_CHARTS_V2 = {
+        },
         "CDT" => {
           name: "部位ダメージチャートv2: コックピット",
           table: [
@@ -652,7 +645,7 @@ module BCDice
         )
       }.freeze
 
-      register_prefix(['GR.*', '(C|E|F|A|L)DC[-+\d]+', '(C|E|F|A|L)DT[-+\d]+', 'GHA[-+\d]+'] + TABLES.keys)
+      register_prefix(['GR.*', '[CEFAL]D[CT][-+\d]+', 'GHA[-+\d]+'] + TABLES.keys)
     end
   end
 end
