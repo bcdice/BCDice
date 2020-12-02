@@ -101,7 +101,7 @@ module BCDice
         end
       end
 
-      # 除算（端数処理はゲームしステm依存）のノード
+      # 除算（端数処理はゲームシステム依存）のノード
       class DivideWithGameSystemDefault < DivideBase
         private
 
