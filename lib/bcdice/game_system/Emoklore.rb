@@ -30,7 +30,7 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('\d*DM<=\d+', '\d*DA\d+')
+      register_prefix('\d*DM<=\d+', '(B|\d*)DA\d+')
 
       CRITICAL_VALUE = 1
       FUMBLE_VALUE = 10
@@ -43,7 +43,7 @@ module BCDice
         case command
         when /^\d*DM<=\d/
           roll_dm(command)
-        when /^\d*DA\d+(\+)?\d*/
+        when /^(B|\d*)DA\d+(\+)?\d*/
           roll_da(command)
         end
       end
@@ -114,15 +114,14 @@ module BCDice
       # @param [String] command コマンド
       # @return [String, nil] コマンドの結果
       def roll_da(command)
-        m = /^(\d+)?DA(\d+)(\+\d+)?$/.match(command)
+        m = /^(B|\d+)?DA(\d+)(\+\d+)?$/.match(command)
         unless m
           return nil
         end
 
-        skil_level = m[1].to_i # 未指定は0
         bonus = m[3].to_i
-        num_dice = (m[1]&.to_i || 1) + bonus
-        success_threshold = m[2].to_i + skil_level
+        num_dice = (m[1] == "B" ? 1 : (m[1]&.to_i || 1)) + bonus
+        success_threshold = m[1].to_i + m[2].to_i
 
         ret_str = dice_roll(num_dice, success_threshold)
         "(#{command}) ＞ (#{num_dice}DM<=#{success_threshold}) ＞ #{ret_str}"
