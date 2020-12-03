@@ -28,7 +28,7 @@ module BCDice
         return '' unless cmp_op == :<=
 
         result = getCheckResult(total, target)
-        return "＞ #{result}"
+        return " ＞ #{result}"
       end
 
       def getCheckResult(total, diff)
