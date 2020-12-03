@@ -2,6 +2,7 @@
 game_system = "SamsaraBallad"
 input = "1D100<=90 roll 90"
 output = "(1D100<=90) ＞ 99 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 99 },
 ]

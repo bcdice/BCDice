@@ -380,6 +380,7 @@ rands = [
 game_system = "ShinkuuGakuen"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 9[6,3] ＞ 9 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },

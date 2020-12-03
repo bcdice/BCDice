@@ -1534,7 +1534,7 @@ rands = [
 [[ test ]]
 game_system = "Nechronica"
 input = "2D10>=? 目標値?でバグらない"
-output = "(2D10>=?) ＞ 10[5,5] ＞ 10 ＞ 失敗"
+output = "(2D10>=?) ＞ 10[5,5] ＞ 10"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 5 },

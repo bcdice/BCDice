@@ -162,6 +162,7 @@ rands = [
 game_system = "TokyoGhostResearch"
 input = "1d10>=2"
 output = "(1D10>=2) ＞ 2 ＞ 成功"
+success = true
 rands = [
   { sides = 10, value = 2 },
 ]
@@ -170,6 +171,7 @@ rands = [
 game_system = "TokyoGhostResearch"
 input = "1d10>=2"
 output = "(1D10>=2) ＞ 1 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -178,6 +180,7 @@ rands = [
 game_system = "TokyoGhostResearch"
 input = "1d10>=10"
 output = "(1D10>=10) ＞ 9 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -186,6 +189,7 @@ rands = [
 game_system = "TokyoGhostResearch"
 input = "1d10>=10"
 output = "(1D10>=10) ＞ 10 ＞ 成功"
+success = true
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -194,6 +198,7 @@ rands = [
 game_system = "TokyoGhostResearch"
 input = "1d10>=5"
 output = "(1D10>=5) ＞ 5 ＞ 成功"
+success = true
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -202,6 +207,7 @@ rands = [
 game_system = "TokyoGhostResearch"
 input = "1d10>=5"
 output = "(1D10>=5) ＞ 4 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 4 },
 ]
@@ -210,6 +216,7 @@ rands = [
 game_system = "TokyoGhostResearch"
 input = "1d10>=5"
 output = "(1D10>=5) ＞ 6 ＞ 成功"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]

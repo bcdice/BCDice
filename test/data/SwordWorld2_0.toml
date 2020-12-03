@@ -556,6 +556,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D6>4 超成功指定なし"
 output = "(2D6>4) ＞ 9[6,3] ＞ 9 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
