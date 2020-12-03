@@ -274,21 +274,20 @@ module BCDice
     # @return [String, nil]
     def eval_game_system_specific_command(command); end
 
-    # 成功か失敗かを文字列で返す
+    # 成功か失敗か返す
     #
-    # @param (see #check_result)
-    # @return [String]
+    # @param total [Integer]
+    # @param cmp_op [Symbol]
+    # @param target [Number]
+    # @return [Result]
     def result_ndx(total, cmp_op, target)
-      str =
-        if target.is_a?(String)
-          translate("failure")
-        elsif total.send(cmp_op, target)
-          translate("success")
-        else
-          translate("failure")
-        end
-
-      Result.new(str)
+      if target.is_a?(String)
+        nil
+      elsif total.send(cmp_op, target)
+        Result.success(translate("success"))
+      else
+        Result.failure(translate("failure"))
+      end
     end
 
     def result_1d100(total, dice_total, cmp_op, target); end
