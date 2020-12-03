@@ -8,6 +8,7 @@ require "bcdice/enum"
 require "bcdice/translate"
 require "bcdice/result"
 require "bcdice/command_parser"
+require "bcdice/deprecated/checker"
 
 module BCDice
   class Base
@@ -68,6 +69,7 @@ module BCDice
     end
 
     include Translate
+    include Deprecated::Checker
 
     def initialize(command)
       @raw_input = command
@@ -224,41 +226,6 @@ module BCDice
       return result_ndx(total, cmp_op, target)
     end
 
-    # @param total [Integer] コマンド合計値
-    # @param rand_results [Array<CommonCommand::AddDice::Randomizer::RandResult>] ダイスの一覧
-    # @param cmp_op [Symbol] 比較演算子
-    # @param target [Integer, String] 目標値の整数か'?'
-    # @return [Result]
-    def check_result_legacy(total, rand_results, cmp_op, target)
-      sides_list = rand_results.map(&:sides)
-      value_list = rand_results.map(&:value)
-      dice_total = value_list.sum()
-
-      ret =
-        case sides_list
-        when [100]
-          check_1D100(total, dice_total, cmp_op, target)
-        when [20]
-          check_1D20(total, dice_total, cmp_op, target)
-        when [6, 6]
-          check_2D6(total, dice_total, value_list, cmp_op, target)
-        end
-
-      return Result.new(ret.delete_prefix(" ＞ ")) unless ret.nil? || ret.empty?
-
-      ret =
-        case sides_list.uniq
-        when [10]
-          check_nD10(total, dice_total, value_list, cmp_op, target)
-        when [6]
-          check_nD6(total, dice_total, value_list, cmp_op, target)
-        end
-
-      return Result.new(ret.delete_prefix(" ＞ ")) unless ret.nil? || ret.empty?
-
-      return nil
-    end
-
     # シャドウラン用グリッチ判定
     # @param count_one [Integer] 出目1の数
     # @param dice_total_count [Integer] ダイスロールしたダイスの数
@@ -323,26 +290,6 @@ module BCDice
 
       Result.new(str)
     end
-
-    # @param (see #check_result)
-    # @return [nil]
-    def check_1D100(total, dice_total, cmp_op, target); end
-
-    # @param (see #check_result)
-    # @return [nil]
-    def check_1D20(total, dice_total, cmp_op, target); end
-
-    # @param (see #check_result)
-    # @return [nil]
-    def check_nD10(total, dice_total, dice_list, cmp_op, target); end
-
-    # @param (see #check_result)
-    # @return [nil]
-    def check_2D6(total, dice_total, dice_list, cmp_op, target); end
-
-    # @param (see #check_result)
-    # @return [nil]
-    def check_nD6(total, dice_total, dice_list, cmp_op, target); end
 
     def result_1d100(total, dice_total, cmp_op, target); end
 
