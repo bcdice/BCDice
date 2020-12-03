@@ -188,8 +188,48 @@ module BCDice
     # @param rand_results [Array<CommonCommand::AddDice::Randomizer::RandResult>] ダイスの一覧
     # @param cmp_op [Symbol] 比較演算子
     # @param target [Integer, String] 目標値の整数か'?'
-    # @return [String]
+    # @return [Result]
     def check_result(total, rand_results, cmp_op, target)
+      ret = check_result_legacy(total, rand_results, cmp_op, target)
+      return ret if ret
+
+      sides_list = rand_results.map(&:sides)
+      value_list = rand_results.map(&:value)
+      dice_total = value_list.sum()
+
+      ret =
+        case sides_list
+        when [100]
+          result_1d100(total, dice_total, cmp_op, target)
+        when [20]
+          result_1d20(total, dice_total, cmp_op, target)
+        when [6, 6]
+          result_2d6(total, dice_total, value_list, cmp_op, target)
+        end
+
+      return nil if ret == Result.nothing
+      return ret if ret
+
+      ret =
+        case sides_list.uniq
+        when [10]
+          result_nd10(total, dice_total, value_list, cmp_op, target)
+        when [6]
+          result_nd6(total, dice_total, value_list, cmp_op, target)
+        end
+
+      return nil if ret == Result.nothing
+      return ret if ret
+
+      return result_ndx(total, cmp_op, target)
+    end
+
+    # @param total [Integer] コマンド合計値
+    # @param rand_results [Array<CommonCommand::AddDice::Randomizer::RandResult>] ダイスの一覧
+    # @param cmp_op [Symbol] 比較演算子
+    # @param target [Integer, String] 目標値の整数か'?'
+    # @return [Result]
+    def check_result_legacy(total, rand_results, cmp_op, target)
       sides_list = rand_results.map(&:sides)
       value_list = rand_results.map(&:value)
       dice_total = value_list.sum()
@@ -204,7 +244,7 @@ module BCDice
           check_2D6(total, dice_total, value_list, cmp_op, target)
         end
 
-      return ret unless ret.nil? || ret.empty?
+      return Result.new(ret.delete_prefix(" ＞ ")) unless ret.nil? || ret.empty?
 
       ret =
         case sides_list.uniq
@@ -214,9 +254,9 @@ module BCDice
           check_nD6(total, dice_total, value_list, cmp_op, target)
         end
 
-      return ret unless ret.nil? || ret.empty?
+      return Result.new(ret.delete_prefix(" ＞ ")) unless ret.nil? || ret.empty?
 
-      check_nDx(total, cmp_op, target)
+      return nil
     end
 
     # シャドウラン用グリッチ判定
@@ -271,8 +311,8 @@ module BCDice
     #
     # @param (see #check_result)
     # @return [String]
-    def check_nDx(total, cmp_op, target)
-      result =
+    def result_ndx(total, cmp_op, target)
+      str =
         if target.is_a?(String)
           translate("failure")
         elsif total.send(cmp_op, target)
@@ -281,7 +321,7 @@ module BCDice
           translate("failure")
         end
 
-      return " ＞ #{result}"
+      Result.new(str)
     end
 
     # @param (see #check_result)
@@ -303,6 +343,16 @@ module BCDice
     # @param (see #check_result)
     # @return [nil]
     def check_nD6(total, dice_total, dice_list, cmp_op, target); end
+
+    def result_1d100(total, dice_total, cmp_op, target); end
+
+    def result_1d20(total, dice_total, cmp_op, target); end
+
+    def result_nd10(total, dice_total, value_list, cmp_op, target); end
+
+    def result_2d6(total, dice_total, value_list, cmp_op, target); end
+
+    def result_nd6(total, dice_total, value_list, cmp_op, target); end
 
     def get_table_by_2d6(table)
       get_table_by_nD6(table, 2)

@@ -14,6 +14,10 @@ module BCDice
           r.failure = true
         end
       end
+
+      def nothing
+        :nothing
+      end
     end
 
     def initialize(text = nil)

@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "2d6>=10"
-output = "(2D6>=10) ＞ 12[6,6] ＞ 12（クリティカル） ＞ 22 ＞ 成功"
+output = "(2D6>=10) ＞ 12[6,6] ＞ 12 ＞ （クリティカル） ＞ 22 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "3d6>=19"
-output = "(3D6>=19) ＞ 15[3,6,6] ＞ 15（クリティカル） ＞ 25 ＞ 成功"
+output = "(3D6>=19) ＞ 15[3,6,6] ＞ 15 ＞ （クリティカル） ＞ 25 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -38,7 +38,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "3d6+5>=24"
-output = "(3D6+5>=24) ＞ 18[6,6,6]+5 ＞ 23（クリティカル） ＞ 33 ＞ 成功"
+output = "(3D6+5>=24) ＞ 18[6,6,6]+5 ＞ 23 ＞ （クリティカル） ＞ 33 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -48,7 +48,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "3d6>=?"
-output = "(3D6>=?) ＞ 14[2,6,6] ＞ 14（クリティカル） ＞ 24"
+output = "(3D6>=?) ＞ 14[2,6,6] ＞ 14 ＞ （クリティカル） ＞ 24"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -58,7 +58,7 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "3d6+7>=?"
-output = "(3D6+7>=?) ＞ 13[1,6,6]+7 ＞ 20（クリティカル） ＞ 30"
+output = "(3D6+7>=?) ＞ 13[1,6,6]+7 ＞ 20 ＞ （クリティカル） ＞ 30"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
