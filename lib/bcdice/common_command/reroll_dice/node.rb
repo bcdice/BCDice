@@ -16,19 +16,41 @@ module BCDice
           end
 
           def eval(game_system, randomizer)
-            @game_system = game_system
-            @target_number = @target_number_node&.eval(round_type)
-            @reroll_threshold = @reroll_threshold_node&.eval(round_type)
+            round_type = game_system.round_type
+            cmp_op = @cmp_op || game_system.default_cmp_op
+            reroll_cmp_op = @reroll_cmp_op || cmp_op || :>=
 
-            dice_queue = notations.map { |node| node.to_dice(round_type) }
-            unless valid_command?(dice_queue)
-              return result_with_text("#{source} ＞ 条件が間違っています。2R6>=5 あるいは 2R6[5] のように振り足し目標値を指定してください。")
+            target_number =
+              @target_number_node&.eval(round_type) ||
+              game_system.default_target_number
+
+            reroll_threshold =
+              @reroll_threshold_node&.eval(round_type) ||
+              game_system.reroll_dice_reroll_threshold ||
+              target_number
+
+            reroll_condition = RerollCondition.new(reroll_cmp_op, reroll_threshold)
+
+            dice_queue = @notations.map { |node| node.to_dice(round_type) }
+            unless dice_queue.all? { |d| reroll_condition.valid?(d.sides) }
+              return result_with_text("#{@source} ＞ 条件が間違っています。2R6>=5 あるいは 2R6[5] のように振り足し目標値を指定してください。")
             end
 
-            dice_list_list = roll(dice_queue, randomizer)
+            dice_list_list = roll(
+              dice_queue,
+              randomizer,
+              reroll_condition,
+              game_system.sort_barabara_dice?
+            )
 
             dice_list = dice_list_list.flatten
-            one_count = dice_list_list.take(notations.size).flatten.count(1) # 振り足し分は出目1の個数をカウントしない
+
+            # 振り足し分は出目1の個数をカウントしない
+            one_count = dice_list_list
+                        .take(@notations.size)
+                        .flatten
+                        .count(1)
+
             success_count =
               if cmp_op
                 dice_list.count { |val| val.send(cmp_op, target_number) }
@@ -37,7 +59,7 @@ module BCDice
               end
 
             sequence = [
-              expr(),
+              expr(round_type, reroll_condition, cmp_op, target_number),
               dice_list_list.map { |list| list.join(",") }.join(" + "),
               "成功数#{success_count}",
               game_system.grich_text(one_count, dice_list.size, success_count),
@@ -48,7 +70,13 @@ module BCDice
 
           private
 
-          def roll(dice_queue, randomizer)
+          # ダイスロールを行う
+          # @param dice_queue [Array<Dice>] ダイスキュー
+          # @param randomizer [Randomizer] 乱数生成器
+          # @param reroll_condition [RerollCondition] 振り足し条件
+          # @param sort [Boolean] 出目を並び替えるか
+          # @return [Array<Array<Integer>>]
+          def roll(dice_queue, randomizer, reroll_condition, sort)
             dice_list_list = []
             loop_count = 0
 
@@ -57,10 +85,10 @@ module BCDice
               loop_count += 1
 
               dice_list = dice.roll(randomizer)
-              dice_list.sort! if sort?
+              dice_list.sort! if sort
               dice_list_list.push(dice_list)
 
-              reroll_count = dice_list.count { |val| val.send(reroll_cmp_op, reroll_threshold) }
+              reroll_count = dice_list.count { |val| reroll_condition.reroll?(val) }
               if reroll_count > 0
                 dice_queue.push(Dice.new(reroll_count, dice.sides))
               end
@@ -69,63 +97,19 @@ module BCDice
             return dice_list_list
           end
 
-          def valid_command?(dice_queue)
-            reroll_threshold && dice_queue.all? { |d| valid_reroll_rule?(d.sides, reroll_cmp_op, reroll_threshold) }
-          end
+          def expr(round_type, reroll_condition, cmp_op, target_number)
+            notation = @notations.map { |n| n.to_dice(round_type) }.join("+")
 
-          # @param sides [Integer]
-          # @param cmp_op [Symbol]
-          # @param reroll_threshold [Integer]
-          # @return [Boolean]
-          def valid_reroll_rule?(sides, cmp_op, reroll_threshold) # 振り足しロールの条件確認
-            case cmp_op
-            when :<=
-              reroll_threshold < sides
-            when :<
-              reroll_threshold <= sides
-            when :>=
-              reroll_threshold > 1
-            when :>
-              reroll_threshold >= 1
-            when :'!='
-              (1..sides).include?(reroll_threshold)
-            else # :==
-              true
-            end
-          end
+            reroll_cmp_op_text =
+              if reroll_condition.cmp_op == cmp_op
+                ""
+              else
+                Format.comparison_operator(reroll_condition.cmp_op)
+              end
 
-          attr_reader :notations, :source
-
-          def cmp_op
-            @cmp_op || @game_system.default_cmp_op
-          end
-
-          def target_number
-            @target_number || @game_system.default_target_number
-          end
-
-          def reroll_cmp_op
-            @reroll_cmp_op || cmp_op || :>=
-          end
-
-          def reroll_threshold
-            @reroll_threshold || @game_system.reroll_dice_reroll_threshold || target_number
-          end
-
-          def sort?
-            @game_system.sort_barabara_dice?
-          end
-
-          def round_type
-            @game_system.round_type
-          end
-
-          def expr
-            notation = notations.map { |n| n.to_dice(round_type) }.join("+")
-            reroll_cmp_op_text = Format.comparison_operator(reroll_cmp_op) if cmp_op != reroll_cmp_op
             cmp_op_text = Format.comparison_operator(cmp_op)
 
-            "(#{notation}[#{reroll_cmp_op_text}#{reroll_threshold}]#{cmp_op_text}#{target_number})"
+            "(#{notation}[#{reroll_cmp_op_text}#{reroll_condition.threshold}]#{cmp_op_text}#{target_number})"
           end
 
           def result_with_text(text)
@@ -133,6 +117,48 @@ module BCDice
               r.secret = @secret
               r.text = text
             end
+          end
+        end
+
+        # 振り足し条件を表すクラス。
+        class RerollCondition
+          # @return [Symbol] 比較演算子
+          attr_reader :cmp_op
+          # @return [Integer] 振り足しの閾値
+          attr_reader :threshold
+
+          # @param cmp_op [Symbol] 比較演算子
+          # @param threshold [Integer] 振り足しの閾値
+          def initialize(cmp_op, threshold)
+            @cmp_op = cmp_op
+            @threshold = threshold
+          end
+
+          # @param sides [Integer] ダイスの面数
+          # @return [Boolean] 振り足し条件が妥当か
+          def valid?(sides)
+            return false unless @threshold
+
+            case @cmp_op
+            when :<=
+              @threshold < sides
+            when :<
+              @threshold <= sides
+            when :>=
+              @threshold > 1
+            when :>
+              @threshold >= 1
+            when :'!='
+              (1..sides).include?(@threshold)
+            else # :==
+              true
+            end
+          end
+
+          # @param value [Integer] 出目
+          # @return [Boolean] 振り足しを行うべきか
+          def reroll?(value)
+            value.send(@cmp_op, @threshold)
           end
         end
 
