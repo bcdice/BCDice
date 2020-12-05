@@ -88,7 +88,7 @@ module BCDice
               dice_list.sort! if sort
               dice_list_list.push(dice_list)
 
-              reroll_count = dice_list.count { |val| val.send(reroll_condition.cmp_op, reroll_condition.threshold) }
+              reroll_count = dice_list.count { |val| reroll_condition.reroll?(val) }
               if reroll_count > 0
                 dice_queue.push(Dice.new(reroll_count, dice.sides))
               end
@@ -153,6 +153,12 @@ module BCDice
             else # :==
               true
             end
+          end
+
+          # @param value [Integer] 出目
+          # @return [Boolean] 振り足しを行うべきか
+          def reroll?(value)
+            value.send(@cmp_op, @threshold)
           end
         end
 
