@@ -49,7 +49,7 @@ class BCDice::CommonCommand::UpperDice::Parser
 
     target: /* none */
           { result = {} }
-          | CMP_OP term
+          | CMP_OP add
           {
             cmp_op, target = val
             raise ParseError unless cmp_op

@@ -30,6 +30,21 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
+input = "4U6[6]>=7+3"
+output = "(4U6[6]>=10) ＞ 5,2,11[6,5],23[6,6,6,5] ＞ 成功数2"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
 input = "4U6>=10@6 末尾の@でも指定できる"
 output = "(4U6[6]>=10) ＞ 5,2,11[6,5],23[6,6,6,5] ＞ 成功数2"
 rands = [
