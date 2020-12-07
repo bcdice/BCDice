@@ -54,7 +54,7 @@ module BCDice
       # @return [String, nil]
       def roll_gr(command)
         parser = CommandParser.new("GR")
-        cmd = parser.parse(command.sub(/^GR/i, "GR"))
+        cmd = parser.parse(command)
         return nil unless cmd
         return nil if cmd.critical
 
