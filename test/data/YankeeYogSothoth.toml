@@ -88,6 +88,23 @@ rands = [
 
 [[ test ]]
 game_system = "YankeeYogSothoth"
+input = "RTT1"
+output = "苦手分野ランダム特技(9) ＞ 《高所／苦手9》"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
+input = "RCT"
+output = "ランダム分野(1) ＞ 苦手"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YankeeYogSothoth"
 input = "KKT"
 output = "関係表(1) ＞ 「家族／気に食わない」"
 rands = [

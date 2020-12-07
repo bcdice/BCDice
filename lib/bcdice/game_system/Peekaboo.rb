@@ -26,12 +26,13 @@ module BCDice
         　・オバケぶらり旅表　　　　　　　STT
         　・仲間効果表　　　　　　　　　　NST
         　・ランダム特技決定表　　　　　　RTT
-        　・指定特技(不良)表　　　　　　　TNT
-        　・指定特技(運動)表　　　　　　　TET
-        　・指定特技(友達)表　　　　　　　TFT
-        　・指定特技(遊び)表　　　　　　　TPT
-        　・指定特技(勉強)表　　　　　　　TST
-        　・指定特技(大人)表　　　　　　　TAT
+        　・ランダム分野決定表　　　　　　RCT
+        　・指定特技(不良)表　　　　　　　RTT1, TNT
+        　・指定特技(運動)表　　　　　　　RTT2, TET
+        　・指定特技(友達)表　　　　　　　RTT3, TFT
+        　・指定特技(遊び)表　　　　　　　RTT4, TPT
+        　・指定特技(勉強)表　　　　　　　RTT5, TST
+        　・指定特技(大人)表　　　　　　　RTT6, TAT
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -73,7 +74,9 @@ module BCDice
           ['勉強', ['実験', '宇宙', '生き物', '工作', '計算', '宿題', '漢字', '作文', '歴史', '地理', '外国語',]],
           ['大人', ['法律', 'しかる', '手当て', 'マナー', '推理', '計画性', 'お料理', 'お買い物', 'オシャレ', '恋愛', '道楽',]],
         ],
-        rttn: ['TNT', 'TET', 'TFT', 'TPT', 'TST', 'TAT']
+        rttn: ['TNT', 'TET', 'TFT', 'TPT', 'TST', 'TAT'],
+        rtt_format: "ランダム指定特技表(%<category_dice>d,%<row_dice>d) ＞ %<text>s",
+        rttn_format: "指定特技(%<category_name>s)表(%<row_dice>d) ＞ %<text>s"
       )
       TABLES = {
         "SET" => DiceTable::Table.new(
