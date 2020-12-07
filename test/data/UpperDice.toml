@@ -90,18 +90,9 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
-input = "4U6[6]+11>=21@4 角カッコが優先"
-output = "(4U6[6]+11>=21) ＞ 5,2,11[6,5],23[6,6,6,5]+11 ＞ 成功数2"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
-]
+input = "4U6[6]+11>=21@4 角カッコと@の両指定はパースエラー"
+output = ""
+rands = []
 
 [[ test ]]
 game_system = "DiceBot"
