@@ -65,7 +65,7 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        roll_tables(command, TABLES) || roll_command(randomizer, command)
+        roll_tables(command, TABLES) || RTT.roll_command(randomizer, command)
       end
 
       NICKNAME_TABLE1 = DiceTable::D66Table.new(
