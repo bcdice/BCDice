@@ -48,7 +48,7 @@ class BCDice::CommonCommand::RerollDice::Parser
 
     target: /* none */
           { result = {} }
-          | CMP_OP term
+          | CMP_OP add
           {
             cmp_op, target = val
             raise ParseError unless cmp_op
@@ -95,13 +95,13 @@ class BCDice::CommonCommand::RerollDice::Parser
         }
 
     add: add PLUS mul
-       { result = Arithmetic::Node::BinaryOp(val[0], :+, val[2]) }
+       { result = Arithmetic::Node::BinaryOp.new(val[0], :+, val[2]) }
        | add MINUS mul
-       { result = Arithmetic::Node::BinaryOp(val[0], :-, val[2]) }
+       { result = Arithmetic::Node::BinaryOp.new(val[0], :-, val[2]) }
        | mul
 
     mul: mul ASTERISK unary
-       { result = Arithmetic::Node::BinaryOp(val[0], :*, val[2]) }
+       { result = Arithmetic::Node::BinaryOp.new(val[0], :*, val[2]) }
        | mul SLASH unary round_type
        {
          divied_class = val[3]
