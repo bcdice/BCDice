@@ -902,6 +902,16 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
+input = "2R6>=2+1"
+output = "(2R6[3]>=3) ＞ 3,1 + 2 ＞ 成功数1"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
 input = "12R6>=6"
 output = "(12R6[6]>=6) ＞ 4,1,5,4,3,2,5,1,6,3,2,5 + 5 ＞ 成功数1"
 rands = [
