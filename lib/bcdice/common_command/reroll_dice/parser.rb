@@ -8,7 +8,7 @@ require 'racc/parser.rb'
 
 
 require "bcdice/common_command/lexer"
-require "bcdice/common_command/reroll_dice/node"
+require "bcdice/common_command/barabara_dice/node"
 require "bcdice/arithmetic/node"
 
 module BCDice
