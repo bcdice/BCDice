@@ -6,15 +6,12 @@ module BCDice
       class Category
         def initialize(name, skills, dice, s_format)
           @name = name
-          @skills = skills
+          @skills = skills.map.with_index(2) { |s, index| SaiFicSkillTable::Skill.new(name, s, dice, index, s_format) }
           @dice = dice
-          @s_format = s_format
         end
 
         def roll(randomizer)
-          skill_dice = randomizer.roll_sum(2, 6)
-          skill = @skills[skill_dice - 2]
-          SaiFicSkillTable::Skill.new(@name, skill, @dice, skill_dice, @s_format)
+          skills[randomizer.roll_sum(2, 6) - 2]
         end
 
         def to_s

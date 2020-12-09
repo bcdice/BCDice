@@ -34,7 +34,7 @@ module BCDice
       end
 
       RTTN = ["RTT1", "RTT2", "RTT3", "RTT4", "RTT5", "RTT6"].freeze
-      attr_reader :items
+      attr_reader :categories
 
       # コマンドを解釈し、結果を取得する
       # return [String]
