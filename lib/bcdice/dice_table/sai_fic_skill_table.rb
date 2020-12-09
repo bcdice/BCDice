@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "bcdice/dice_table/sai_fic_skill_table/category.rb"
-require "bcdice/dice_table/sai_fic_skill_table/skill.rb"
+require "bcdice/dice_table/sai_fic_skill_table/category"
+require "bcdice/dice_table/sai_fic_skill_table/skill"
 
 module BCDice
   module DiceTable
@@ -11,6 +11,16 @@ module BCDice
       DEFAULT_RTTN = "%<category_name>s分野ランダム特技(%<row_dice>d) ＞ %<text>s"
       DEFAULT_S = "《%<skill_name>s／%<category_name>s%<row_dice>d》"
 
+      # サイコロ・フィクション用ダイステーブルを初期化する。
+      # 既存の実装の互換性維持とルールブックの記載に準拠するために、コマンドと書式文字列を指定できる。
+      # @param items [Array] 特技リスト
+      # @param rtt          [String] RTTに相当するコマンド
+      # @param rct          [String] RCTに相当するコマンド
+      # @param rttn         [String] RTTNに相当するコマンド
+      # @param rtt_format   [String] RTTコマンドの出力用の書式文字列
+      # @param rct_format   [String] RCTコマンドの出力用の書式文字列
+      # @param rttn_format  [String] RTTNコマンドの出力用の書式文字列
+      # @param s_format     [String] Skill#to_s出力用の書式文字列
       def initialize(items, rtt: nil, rct: nil, rttn: nil, rtt_format: DEFAULT_RTT, rct_format: DEFAULT_RCT, rttn_format: DEFAULT_RTTN, s_format: DEFAULT_S)
         @categories = items.map.with_index(1) do |(name, skills), index|
           SaiFicSkillTable::Category.new(name, skills, index, s_format)
@@ -26,10 +36,12 @@ module BCDice
       RTTN = ["RTT1", "RTT2", "RTT3", "RTT4", "RTT5", "RTT6"].freeze
       attr_reader :items
 
+      # コマンドを解釈し、結果を取得する
+      # return [String]
       def roll_command(randomizer, command)
         c = command
         if ["RTT", @rtt].include?(c)
-          format_skill(@rtt_format, roll_category(randomizer).roll(randomizer))
+          format_skill(@rtt_format, roll_skill(randomizer))
         elsif ["RCT", @rct].include?(c)
           cat = roll_category(randomizer)
           format(@rct_format, category_dice: cat.dice, category_name: cat.name)
@@ -38,8 +50,16 @@ module BCDice
         end
       end
 
+      # 1D6を振り、ランダムで分野を決定する
+      # @return [SaiFicSkillTable::Category]
       def roll_category(randomizer)
         @categories[randomizer.roll_once(6) - 1]
+      end
+
+      # 1D6と2D6を振り、ランダムで特技を決定する
+      # @return [SaiFicSkillTable::Skill]
+      def roll_skill(randomizer)
+        roll_category(randomizer).roll(randomizer)
       end
 
       def prefixes
