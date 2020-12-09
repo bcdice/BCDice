@@ -69,7 +69,7 @@ module BCDice
       private
 
       def format_skill(format_string, skill)
-        format(format_string, category_dice: skill.category_dice, row_dice: skill.row_dice, category_name: skill.category_name, skill_name: skill.skill_name, text: skill.to_s)
+        format(format_string, category_dice: skill.category_dice, row_dice: skill.row_dice, category_name: skill.category_name, skill_name: skill.name, text: skill.to_s)
       end
     end
   end
