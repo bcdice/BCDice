@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "RTT1"
-output = "背景分野ランダム特技(7) ＞ 《獲物／背景7》"
+output = "背景分野ランダム特技表(7) ＞ 《獲物／背景7》"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -66,7 +66,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "RCT"
-output = "ランダム分野(2) ＞ 仕事"
+output = "ランダム分野表(2) ＞ 仕事"
 rands = [
   { sides = 6, value = 2 },
 ]

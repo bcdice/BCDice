@@ -930,7 +930,7 @@ rands = [
 [[ test ]]
 game_system = "Peekaboo"
 input = "RCT"
-output = "ランダム分野(6) ＞ 大人"
+output = "ランダム分野表(6) ＞ 大人"
 rands = [
   { sides = 6, value = 6 },
 ]

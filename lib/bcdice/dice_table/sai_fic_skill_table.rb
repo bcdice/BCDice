@@ -6,9 +6,9 @@ require "bcdice/dice_table/sai_fic_skill_table/skill"
 module BCDice
   module DiceTable
     class SaiFicSkillTable
-      DEFAULT_RTT = "ランダム特技(%<category_dice>d,%<row_dice>d) ＞ %<text>s"
-      DEFAULT_RCT = "ランダム分野(%<category_dice>d) ＞ %<category_name>s"
-      DEFAULT_RTTN = "%<category_name>s分野ランダム特技(%<row_dice>d) ＞ %<text>s"
+      DEFAULT_RTT = "ランダム特技表(%<category_dice>d,%<row_dice>d) ＞ %<text>s"
+      DEFAULT_RCT = "ランダム分野表(%<category_dice>d) ＞ %<category_name>s"
+      DEFAULT_RTTN = "%<category_name>s分野ランダム特技表(%<row_dice>d) ＞ %<text>s"
       DEFAULT_S = "《%<skill_name>s／%<category_name>s%<row_dice>d》"
 
       # サイコロ・フィクション用ダイステーブルを初期化する。

@@ -89,7 +89,7 @@ rands = [
 [[ test ]]
 game_system = "YankeeYogSothoth"
 input = "RTT1"
-output = "苦手分野ランダム特技(9) ＞ 《高所／苦手9》"
+output = "苦手分野ランダム特技表(9) ＞ 《高所／苦手9》"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -98,7 +98,7 @@ rands = [
 [[ test ]]
 game_system = "YankeeYogSothoth"
 input = "RCT"
-output = "ランダム分野(1) ＞ 苦手"
+output = "ランダム分野表(1) ＞ 苦手"
 rands = [
   { sides = 6, value = 1 },
 ]
