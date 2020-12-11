@@ -11,6 +11,7 @@
 
 ### 追加機能
 - ログ・ホライズンTRPG: LHZB1とLHZB2両方の財宝表をサポート、消耗表ロールを追加、財宝表ロールを追加、区切り文字を変更 ([#279](https://github.com/bcdice/BCDice/pull/279))
+- ガラコと破戒の塔: GRコマンドとダメージチャートの機能拡張、GHAコマンドを追加を追加。くずもちさんありがとうっ！ ([#308](https://github.com/bcdice/BCDice/pull/308))
 
 ### 変更
 - 真・女神転生TRPG 覚醒篇: IDを `ShinMegamiTenseiKakuseihen` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))

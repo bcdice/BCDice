@@ -1,43 +1,37 @@
-class BCDice::CommonCommand::RerollDice::Parser
+class BCDice::CommonCommand::UpperDice::Parser
   token NUMBER R U C F S PLUS MINUS ASTERISK SLASH PARENL PARENR BRACKETL BRACKETR LESS GREATER EQUAL NOT AT CMP_OP
 
   rule
-    expr: secret notations target
+    expr: secret notations modifier target
         {
-          result = Node::Command.new(
+          result = UpperDice::Node::Command.new(
             secret: val[0],
             notations: val[1],
-            cmp_op: val[2][:cmp_op],
-            target_number: val[2][:target],
-            source: @lexer.source
+            modifier: val[2],
+            cmp_op: val[3][:cmp_op],
+            target_number: val[3][:target]
           )
         }
-        | secret notations bracket target
+        | secret notations bracket modifier target
         {
-          target = val[3]
-          threshold = val[2]
-          result = Node::Command.new(
+          result = UpperDice::Node::Command.new(
             secret: val[0],
             notations: val[1],
-            cmp_op: target[:cmp_op],
-            target_number: target[:target],
-            reroll_cmp_op: threshold[:cmp_op],
-            reroll_threshold: threshold[:threshold],
-            source: @lexer.source
+            modifier: val[3],
+            cmp_op: val[4][:cmp_op],
+            target_number: val[4][:target],
+            reroll_threshold: val[2]
           )
         }
-        | secret notations target at
+        | secret notations modifier target at
         {
-          target = val[2]
-          threshold = val[3]
-          result = Node::Command.new(
+          result = UpperDice::Node::Command.new(
             secret: val[0],
             notations: val[1],
-            cmp_op: target[:cmp_op],
-            target_number: target[:target],
-            reroll_cmp_op: threshold[:cmp_op],
-            reroll_threshold: threshold[:threshold],
-            source: @lexer.source
+            modifier: val[2],
+            cmp_op: val[3][:cmp_op],
+            target_number: val[3][:target],
+            reroll_threshold: val[4]
           )
         }
 
@@ -45,6 +39,13 @@ class BCDice::CommonCommand::RerollDice::Parser
           { result = false }
           | S
           { result = true }
+
+    modifier: /* none */
+            { result = Arithmetic::Node::Number.new(0) }
+            | PLUS add
+            { result = val[1] }
+            | MINUS add
+            { result = Arithmetic::Node::Negative.new(val[1]) }
 
     target: /* none */
           { result = {} }
@@ -57,26 +58,10 @@ class BCDice::CommonCommand::RerollDice::Parser
           }
 
     bracket: BRACKETL add BRACKETR
-           { result = {threshold: val[1]}  }
-           | BRACKETL CMP_OP add BRACKETR
-           {
-             cmp_op = val[1]
-             threshold = val[2]
-             raise ParseError unless cmp_op
-
-             result = {cmp_op: cmp_op, threshold: threshold}
-           }
+           { result = val[1] }
 
     at: AT add
-      { result = {threshold: val[1]} }
-      | AT CMP_OP add
-      {
-        cmp_op = val[1]
-        threshold = val[2]
-        raise ParseError unless cmp_op
-
-        result = {cmp_op: cmp_op, threshold: threshold}
-      }
+      { result = val[1] }
 
     notations: notations PLUS dice
              {
@@ -87,11 +72,11 @@ class BCDice::CommonCommand::RerollDice::Parser
              | dice
              { result = [val[0]] }
 
-    dice: term R term
+    dice: term U term
         {
           times = val[0]
           sides = val[2]
-          result = Node::Notation.new(times, sides)
+          result = UpperDice::Node::Notation.new(times, sides)
         }
 
     add: add PLUS mul
@@ -135,7 +120,7 @@ end
 ---- header
 
 require "bcdice/common_command/lexer"
-require "bcdice/common_command/barabara_dice/node"
+require "bcdice/common_command/upper_dice/node"
 require "bcdice/arithmetic/node"
 
 ---- inner

@@ -20,8 +20,10 @@ end
 
 RACC_TARGETS = [
   "lib/bcdice/common_command/add_dice/parser.rb",
+  "lib/bcdice/common_command/barabara_dice/parser.rb",
   "lib/bcdice/common_command/calc/parser.rb",
   "lib/bcdice/common_command/reroll_dice/parser.rb",
+  "lib/bcdice/common_command/upper_dice/parser.rb",
 ].freeze
 
 task racc: RACC_TARGETS
