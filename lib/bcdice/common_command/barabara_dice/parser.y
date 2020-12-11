@@ -1,5 +1,5 @@
-class BCDice::CommonCommand::RerollDice::Parser
-  token NUMBER R U C F S PLUS MINUS ASTERISK SLASH PARENL PARENR BRACKETL BRACKETR LESS GREATER EQUAL NOT AT CMP_OP
+class BCDice::CommonCommand::BarabaraDice::Parser
+  token NUMBER B R U C F S PLUS MINUS ASTERISK SLASH PARENL PARENR BRACKETL BRACKETR LESS GREATER EQUAL NOT AT CMP_OP
 
   rule
     expr: secret notations target
@@ -8,36 +8,7 @@ class BCDice::CommonCommand::RerollDice::Parser
             secret: val[0],
             notations: val[1],
             cmp_op: val[2][:cmp_op],
-            target_number: val[2][:target],
-            source: @lexer.source
-          )
-        }
-        | secret notations bracket target
-        {
-          target = val[3]
-          threshold = val[2]
-          result = Node::Command.new(
-            secret: val[0],
-            notations: val[1],
-            cmp_op: target[:cmp_op],
-            target_number: target[:target],
-            reroll_cmp_op: threshold[:cmp_op],
-            reroll_threshold: threshold[:threshold],
-            source: @lexer.source
-          )
-        }
-        | secret notations target at
-        {
-          target = val[2]
-          threshold = val[3]
-          result = Node::Command.new(
-            secret: val[0],
-            notations: val[1],
-            cmp_op: target[:cmp_op],
-            target_number: target[:target],
-            reroll_cmp_op: threshold[:cmp_op],
-            reroll_threshold: threshold[:threshold],
-            source: @lexer.source
+            target_number: val[2][:target]
           )
         }
 
@@ -56,28 +27,6 @@ class BCDice::CommonCommand::RerollDice::Parser
             result = {cmp_op: cmp_op, target: target}
           }
 
-    bracket: BRACKETL add BRACKETR
-           { result = {threshold: val[1]}  }
-           | BRACKETL CMP_OP add BRACKETR
-           {
-             cmp_op = val[1]
-             threshold = val[2]
-             raise ParseError unless cmp_op
-
-             result = {cmp_op: cmp_op, threshold: threshold}
-           }
-
-    at: AT add
-      { result = {threshold: val[1]} }
-      | AT CMP_OP add
-      {
-        cmp_op = val[1]
-        threshold = val[2]
-        raise ParseError unless cmp_op
-
-        result = {cmp_op: cmp_op, threshold: threshold}
-      }
-
     notations: notations PLUS dice
              {
                notations = val[0]
@@ -87,7 +36,7 @@ class BCDice::CommonCommand::RerollDice::Parser
              | dice
              { result = [val[0]] }
 
-    dice: term R term
+    dice: term B term
         {
           times = val[0]
           sides = val[2]
@@ -135,7 +84,7 @@ end
 ---- header
 
 require "bcdice/common_command/lexer"
-require "bcdice/common_command/barabara_dice/node"
+require "bcdice/common_command/reroll_dice/node"
 require "bcdice/arithmetic/node"
 
 ---- inner
