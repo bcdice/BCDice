@@ -117,7 +117,7 @@ module BCDice
           hit_text
         ]
 
-        return sequence.compact.join(" ＞ ")
+        return sequence.join(" ＞ ")
       end
 
       # 部位ダメージチャート
@@ -645,7 +645,7 @@ module BCDice
         )
       }.freeze
 
-      register_prefix(['GR.*', '[CEFAL]D[CT][-+\d]+', 'GHA[-+\d]+'] + TABLES.keys)
+      register_prefix('GR.*', '[CEFAL]D[CT][-+\d]+', 'GHA[-+\d]+', TABLES.keys)
     end
   end
 end
