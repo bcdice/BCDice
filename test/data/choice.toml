@@ -83,6 +83,30 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
+input = "choice[A,B,C,D) 終端記号が違う"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[A,B,C,D 終端記号がない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice(A,B,C,D] 終端記号が違う"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice(A,B,C,D 終端記号がない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
 input = "choice{A,B,C,D} 不正な範囲開始文字"
 output = ""
 rands = []
