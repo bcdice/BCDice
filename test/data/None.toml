@@ -1356,23 +1356,6 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
-input = "choice[abc,def]"
-output = "(choice[abc,def]) ＞ abc"
-rands = [
-  { sides = 2, value = 1 },
-]
-
-[[ test ]]
-game_system = "DiceBot"
-input = "Schoice[abc2,def3]"
-output = "(choice[abc2,def3]) ＞ def3"
-secret = true
-rands = [
-  { sides = 2, value = 2 },
-]
-
-[[ test ]]
-game_system = "DiceBot"
 input = "C(10/2)"
 output = "計算結果 ＞ 5"
 rands = []

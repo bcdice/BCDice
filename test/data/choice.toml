@@ -1,0 +1,124 @@
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[abc,def]"
+output = "(choice[abc,def]) ＞ abc"
+rands = [
+  { sides = 2, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "CHOICE[abc,def] 大文字"
+output = "(choice[abc,def]) ＞ abc"
+rands = [
+  { sides = 2, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "Schoice[abc2,def3]"
+output = "(choice[abc2,def3]) ＞ def3"
+secret = true
+rands = [
+  { sides = 2, value = 2 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "sChoice[abc2,def3] 混合"
+output = "(choice[abc2,def3]) ＞ def3"
+secret = true
+rands = [
+  { sides = 2, value = 2 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[The Call of Cthulhu, The Shadow Over Innsmouth, The Shadow Out of Time]"
+output = "(choice[The Call of Cthulhu,The Shadow Over Innsmouth,The Shadow Out of Time]) ＞ The Call of Cthulhu"
+rands = [
+  { sides = 3, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[A(), B(), C()] カッコが終端として認識されない"
+output = "(choice[A(),B(),C()]) ＞ A()"
+rands = [
+  { sides = 3, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice(The Call of Cthulhu, The Shadow Over Innsmouth, The Shadow Out of Time)"
+output = "(choice(The Call of Cthulhu,The Shadow Over Innsmouth,The Shadow Out of Time)) ＞ The Call of Cthulhu"
+rands = [
+  { sides = 3, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice(A[], B[], C[]) ブラケットが終端として認識されない"
+output = "(choice(A[],B[],C[])) ＞ A[]"
+rands = [
+  { sides = 3, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice The Call of Cthulhu"
+output = "(choice The Call of Cthulhu) ＞ Cthulhu"
+rands = [
+  { sides = 4, value = 4 },
+]
+
+# カンマが終端として認識されない
+[[ test ]]
+game_system = "DiceBot"
+input = "choice A,B P,J Z,Y"
+output = "(choice A,B P,J Z,Y) ＞ A,B"
+rands = [
+  { sides = 3, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[A,B,C,D) 終端記号が違う"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[A,B,C,D 終端記号がない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice(A,B,C,D] 終端記号が違う"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice(A,B,C,D 終端記号がない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice{A,B,C,D} 不正な範囲開始文字"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[] 要素数ゼロ"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[, ,,  ,, ,] 要素数ゼロ"
+output = ""
+rands = []
