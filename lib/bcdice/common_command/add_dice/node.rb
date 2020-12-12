@@ -337,8 +337,8 @@ module BCDice
           # @param [Number] times ダイスを振る回数のノード
           # @param [Number] sides ダイスの面数のノード
           def initialize(times, sides)
-            @times = times.literal
-            @sides = sides.literal
+            @times = times.eval(nil)
+            @sides = sides.eval(nil)
 
             # ダイスを振った結果の出力
             @text = nil
