@@ -190,7 +190,7 @@ module BCDice
     # @param rand_results [Array<CommonCommand::AddDice::Randomizer::RandResult>] ダイスの一覧
     # @param cmp_op [Symbol] 比較演算子
     # @param target [Integer, String] 目標値の整数か'?'
-    # @return [Result]
+    # @return [Result, nil]
     def check_result(total, rand_results, cmp_op, target)
       ret = check_result_legacy(total, rand_results, cmp_op, target)
       return ret if ret
