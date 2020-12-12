@@ -74,8 +74,7 @@ module BCDice
       # @param [String] string 受信したメッセージ
       # @return [String]
       def replace_text(string)
-        # TODO: Ruby 2.4以降では Regexp#match? を使うこと
-        return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match(string)
+        return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match?(string)
 
         super(string).gsub(/#([-+]?\d+)/) do
           modifier = Regexp.last_match(1).to_i

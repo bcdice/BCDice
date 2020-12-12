@@ -196,7 +196,7 @@ module BCDice
         m = /＞ (\d+(?:,\d+)*)/.match(rollResult)
         values = m[1].split(',').map(&:to_i)
 
-        numOfMaxValues = values.select { |v| v == 6 }.length
+        numOfMaxValues = values.count(6)
 
         return numOfMaxValues >= 2 ? "#{rollResult} ＞ サツバツ!!" : rollResult
       end
@@ -213,9 +213,9 @@ module BCDice
         m = /＞ (\d+(?:,\d+)*)/.match(rollResult)
         values = m[1].split(',').map(&:to_i)
 
-        numOfMaxValues = values.select { |v| v == 6 }.length
+        numOfMaxValues = values.count(6)
 
-        sumOfTrueValues = values.select { |v| v >= el.difficulty }.length
+        sumOfTrueValues = values.count { |v| v >= el.difficulty }
 
         return numOfMaxValues >= 1 ? "#{rollResult} + #{numOfMaxValues} ＞ #{sumOfTrueValues + numOfMaxValues}" : rollResult
       end

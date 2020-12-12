@@ -103,8 +103,7 @@ module BCDice
         # @return [String]
         def result_str(value_groups)
           fumble = value_groups[0].values.all? { |value| value == 1 }
-          # TODO: Ruby 2.4以降では Array#sum が使える
-          sum = value_groups.map(&:max).reduce(0, &:+)
+          sum = value_groups.map(&:max).sum
           achieved_value = fumble ? 0 : (sum + @modifier)
 
           parts = [
@@ -177,9 +176,7 @@ module BCDice
         # クリティカルの発生数を返す
         # @return [Integer]
         def num_of_critical_occurrences
-          @values
-            .select { |value| critical?(value) }
-            .length
+          @values.count { |value| critical?(value) }
         end
 
         private
