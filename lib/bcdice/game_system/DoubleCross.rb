@@ -176,9 +176,7 @@ module BCDice
         # クリティカルの発生数を返す
         # @return [Integer]
         def num_of_critical_occurrences
-          @values
-            .select { |value| critical?(value) }
-            .length
+          @values.count { |value| critical?(value) }
         end
 
         private
