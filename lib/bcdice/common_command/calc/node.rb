@@ -11,7 +11,12 @@ module BCDice
           end
 
           def eval(round_type)
-            value = @expr.eval(round_type)
+            value =
+              begin
+                @expr.eval(round_type)
+              rescue ZeroDivisionError
+                "ゼロ除算が発生したため計算できませんでした"
+              end
 
             Result.new.tap do |r|
               r.secret = @secret
