@@ -105,6 +105,9 @@ module BCDice
           items.push(last_item.delete_suffix(SUFFIX[type]))
 
           items = items.map(&:strip).reject(&:empty?)
+          if items.empty?
+            return nil
+          end
 
           new(
             secret: secret,

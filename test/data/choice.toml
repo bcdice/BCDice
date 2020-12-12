@@ -86,3 +86,15 @@ game_system = "DiceBot"
 input = "choice{A,B,C,D} 不正な範囲開始文字"
 output = ""
 rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[] 要素数ゼロ"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[, ,,  ,, ,] 要素数ゼロ"
+output = ""
+rands = []
