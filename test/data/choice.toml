@@ -80,3 +80,9 @@ output = "(choice A,B P,J Z,Y) ＞ A,B"
 rands = [
   { sides = 3, value = 1 },
 ]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice{A,B,C,D} 不正な範囲開始文字"
+output = ""
+rands = []
