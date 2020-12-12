@@ -2,6 +2,7 @@
 game_system = "Cthulhu:Korean"
 input = "1D100<=70 ファンブルなし"
 output = "(1D100<=70) ＞ 100 ＞ 실패"
+failure = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -10,6 +11,7 @@ rands = [
 game_system = "Cthulhu:Korean"
 input = "1D100<=70 クリティカルなし"
 output = "(1D100<=70) ＞ 1 ＞ 성공"
+success = true
 rands = [
   { sides = 100, value = 1 },
 ]

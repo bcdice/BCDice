@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100>=? 目標値?でバグらない"
-output = "(1D100>=?) ＞ 42 ＞ 失敗"
+output = "(1D100>=?) ＞ 42"
 rands = [
   { sides = 100, value = 42 },
 ]

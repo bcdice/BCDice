@@ -2323,7 +2323,7 @@ rands = [
 [[ test ]]
 game_system = "DoubleCross:Korean"
 input = "2D10>=? 목표치?로 오작동하지 않는다"
-output = "(2D10>=?) ＞ 10[5,5] ＞ 10 ＞ 실패"
+output = "(2D10>=?) ＞ 10[5,5] ＞ 10"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 5 },

@@ -382,7 +382,7 @@ rands = [
 [[ test ]]
 game_system = "TokumeiTenkousei"
 input = "3D6>=? 目標値?でバグらない"
-output = "(3D6>=?) ＞ 6[1,2,3] ＞ 6 ＞ 失敗"
+output = "(3D6>=?) ＞ 6[1,2,3] ＞ 6"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },

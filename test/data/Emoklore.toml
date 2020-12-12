@@ -2,6 +2,7 @@
 game_system = "Emoklore"
 input = "1D10>=5"
 output = "(1D10>=5) ＞ 9 ＞ 成功"
+success = true
 rands = [
   { sides = 10, value = 9 },
 ]

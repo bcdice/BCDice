@@ -242,6 +242,7 @@ rands = [
 game_system = "RuneQuest"
 input = "1d100>=68+12"
 output = "(1D100>=80) ＞ 11 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -250,6 +251,7 @@ rands = [
 game_system = "RuneQuest"
 input = "1d100>=(68+12)"
 output = "(1D100>=80) ＞ 11 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -337,7 +339,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuest"
 input = "1D100>=? 目標値?でバグらない"
-output = "(1D100>=?) ＞ 42 ＞ 失敗"
+output = "(1D100>=?) ＞ 42"
 rands = [
   { sides = 100, value = 42 },
 ]
