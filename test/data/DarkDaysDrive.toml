@@ -56,6 +56,23 @@ rands = [
 
 [[ test ]]
 game_system = "DarkDaysDrive"
+input = "RTT1"
+output = "背景分野ランダム特技表(7) ＞ 《獲物／背景7》"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DarkDaysDrive"
+input = "RCT"
+output = "ランダム分野表(2) ＞ 仕事"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "DarkDaysDrive"
 input = "ABRT"
 output = "アビリティ決定表(11) ＞ インストラクター(P155)"
 rands = [

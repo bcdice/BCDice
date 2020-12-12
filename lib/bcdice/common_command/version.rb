@@ -5,7 +5,8 @@ module BCDice
 
       class << self
         def eval(command, _game_system, _randomizer)
-          if command == "BCDICEVERSION"
+          command = command.split(" ", 2).first
+          if command.match?(/^BCDiceVersion$/i)
             Result.new.tap do |r|
               r.text = "BCDice Ver#{BCDice::VERSION}"
             end

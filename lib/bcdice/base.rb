@@ -167,9 +167,8 @@ module BCDice
     # @return [Result, nil] コマンド実行結果。コマンドが実行できなかった場合はnilを返す
     def eval
       command = BCDice::Preprocessor.process(@raw_input, self)
-      upcased_command = command.upcase
 
-      result = dice_command(command) || eval_common_command(upcased_command)
+      result = dice_command(command) || eval_common_command(@raw_input)
       return nil unless result
 
       result.rands = @randomizer.rand_results
@@ -236,6 +235,7 @@ module BCDice
     private
 
     def eval_common_command(command)
+      command = change_text(command)
       CommonCommand::COMMANDS.each do |klass|
         result = klass.eval(command, self, @randomizer)
         return result if result
