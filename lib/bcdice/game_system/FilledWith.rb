@@ -76,8 +76,7 @@ module BCDice
 
         when /COOK([1-8])/
           lv = Regexp.last_match(1).to_i
-          tableName = "マジカルクッキング"
-          result, number = getCookResult(lv)
+          return roll_jump_table("マジカルクッキング", COOK_TABLES[lv])
 
         when /TRAP[ENHL]/
           return getTrapResult(command)
@@ -220,105 +219,6 @@ module BCDice
           '[命中]判定に[6,6,6]でファンブル。更に、使用者がバッドステータス「転倒」を受ける。',
         ]
         return get_table_by_1d6(table)
-      end
-
-      # マジカルクッキング
-      def getCookResult(lv)
-        cook(lv, "")
-      end
-
-      def cook(lv, num)
-        case lv
-        when 1
-          table = [
-            'おべんとミートボール',
-            'パリパリ小魚',
-            'キャロットタルト',
-            'おにぎり',
-            lambda { return cook(2, 5) },
-            lambda { return cook(2, 6) },
-          ]
-        when 2
-          table = [
-            'カリカリミミズ肉',
-            '竹つきチクワ',
-            'トロピカルジュース',
-            'イナリ寿司',
-            lambda { return cook(3, 5) },
-            lambda { return cook(3, 6) },
-          ]
-        when 3
-          table = [
-            'ホットミートパイ',
-            '魔界魚の目玉',
-            'パンプキンプリン',
-            'スタミナ丼',
-            lambda { return cook(4, 5) },
-            lambda { return cook(4, 6) },
-          ]
-        when 4
-          table = [
-            'ジャンボ串焼き',
-            'シルヴァまっしぐら',
-            'フラウアイスクリーム',
-            'ピクニックランチ',
-            lambda { return cook(5, 5) },
-            lambda { return cook(5, 6) },
-          ]
-        when 5
-          table = [
-            'グラント風香草焼き',
-            'エドマエスシ',
-            'スターフルーツパフェ',
-            '具沢山本格カレー',
-            lambda { return cook(6, 5) },
-            lambda { return cook(6, 6) },
-          ]
-        when 6
-          table = [
-            'ドラゴンステーキ',
-            '刺身盛り合わせ',
-            'エデンのアップルパイ',
-            'フォートレス炒飯',
-            lambda { return cook(7, 5) },
-            lambda { return cook(7, 6) },
-          ]
-        when 7
-          table = [
-            'マツザカスペシャル',
-            'オオトロスシ',
-            'スノーホワイトボンブ',
-            'よもつへぐい',
-            lambda { return cook(8, 5) },
-            lambda { return cook(8, 6) },
-          ]
-        when 8
-          table = [
-            '超特大マンガ肉',
-            '特上うな丼',
-            '魔将樹のかき氷',
-            'ヘブンズランチ',
-            lambda { return cook(9, 5) },
-            lambda { return cook(9, 6) },
-          ]
-        when 9
-          table = [
-            '世界樹のサラダ',
-            '世界樹のサラダ',
-            '世界樹のサラダ',
-            '黄金のラダマン鍋',
-            '黄金のラダマン鍋',
-            '黄金のラダマン鍋',
-          ]
-        end
-
-        result, number = get_table_by_1d6(table)
-        if result.class.name == "Array"
-          number = result[1]
-          result = result[0]
-        end
-        number = "#{num}#{number}"
-        return result, number
       end
 
       # 夢幻の迷宮財宝表
@@ -1440,3 +1340,4 @@ module BCDice
 end
 
 require "bcdice/game_system/filled_with/lot_tables"
+require "bcdice/game_system/filled_with/cook_tables"
