@@ -38,6 +38,8 @@ module BCDice
 
     def initialize(text = nil)
       @text = text
+      @rands = nil
+      @detailed_rands = nil
       @secret = false
       @success = false
       @failure = false

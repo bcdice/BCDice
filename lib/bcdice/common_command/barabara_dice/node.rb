@@ -1,4 +1,5 @@
 require "bcdice/format"
+require "bcdice/common_command/barabara_dice/result"
 
 module BCDice
   module CommonCommand
@@ -12,7 +13,9 @@ module BCDice
             @target_number = target_number
           end
 
-          # @return [String, nil]
+          # @param game_system [Base] ゲームシステム
+          # @param randomizer [Randomizer] ランダマイザ
+          # @return [Result]
           def eval(game_system, randomizer)
             round_type = game_system.round_type
             notations = @notations.map { |n| n.to_dice(round_type) }
@@ -38,6 +41,9 @@ module BCDice
             Result.new.tap do |r|
               r.secret = @secret
               r.text = sequence.join(" ＞ ")
+              r.rands = randomizer.rand_results
+              r.detailed_rands = randomizer.detailed_rand_results
+              r.success_num = success_num
             end
           end
         end
