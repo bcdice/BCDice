@@ -127,7 +127,15 @@ rands = [
 
 [[ test ]]
 game_system = "FilledWith"
-input = "LOTN"
+input = "LOTN ジャンプなし"
+output = "ナンバーワンノーマルくじ(3):イレブンチキン"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "LOTN 1回ジャンプ"
 output = "ナンバーワンノーマルくじ(43):ヤコ仮面or梟の文鎮(選択可)"
 rands = [
   { sides = 6, value = 4 },
@@ -136,13 +144,68 @@ rands = [
 
 [[ test ]]
 game_system = "FilledWith"
-input = "LOTP"
-output = "ナンバーワンプレミアムくじ(46662):天使の望遠鏡orデスの目覚まし時計(選択可)"
+input = "LOTN 3回ジャンプ"
+output = "ナンバーワンノーマルくじ(4565):動くアダマンゴーレム"
 rands = [
   { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "LOTN プレミアムくじまでジャンプ"
+output = "ナンバーワンノーマルくじ(66661):グレヴディバリウス"
+rands = [
+  # ノーマルくじ phase 1
+  { sides = 6, value = 6 },
+  # ノーマルくじ phase 3
+  { sides = 6, value = 6 },
+  # ノーマルくじ phase 4
+  { sides = 6, value = 6 },
+  # ノーマルくじ phase 5
+  { sides = 6, value = 6 },
+  # プレミアムくじ phase 5
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "LOTP ジャンプなし"
+output = "ナンバーワンプレミアムくじ(3):プレミアムチキン"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "LOTP 最後まで"
+output = "ナンバーワンプレミアムくじ(566666):wish star"
+rands = [
+  { sides = 6, value = 5 },
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+
+[[ test ]]
+game_system = "FilledWith"
+input = "LOTP ノーマルくじとプレミアムくじとの行き来"
+output = "ナンバーワンプレミアムくじ(46662):天使の望遠鏡orデスの目覚まし時計(選択可)"
+rands = [
+  # プレミアムくじ phase 1
+  { sides = 6, value = 4 },
+  # ノーマルくじ phase 4
+  { sides = 6, value = 6 },
+  # ノーマルくじ phase 5
+  { sides = 6, value = 6 },
+  # プレミアムくじ phase 5
+  { sides = 6, value = 6 },
+  # プレミアムくじ phase 6
   { sides = 6, value = 2 },
 ]
 
