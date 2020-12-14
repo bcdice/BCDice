@@ -3,6 +3,7 @@ require "bcdice/common_command/barabara_dice"
 require "bcdice/common_command/calc"
 require "bcdice/common_command/choice"
 require "bcdice/common_command/d66_dice"
+require "bcdice/common_command/repeat"
 require "bcdice/common_command/reroll_dice"
 require "bcdice/common_command/upper_dice"
 require "bcdice/common_command/version"
@@ -15,6 +16,7 @@ module BCDice
       Calc,
       Choice,
       D66Dice,
+      Repeat,
       RerollDice,
       UpperDice,
       Version,
