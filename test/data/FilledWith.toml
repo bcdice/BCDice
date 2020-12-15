@@ -101,7 +101,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "HST"
-output = "【必殺技！】(2):[命中]判定と致傷力に「SLv×10」のボーナスを得る。"
+output = "【必殺技！】(2):〔命中〕判定と致傷力に「SLv×10」のボーナスを得る。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -246,7 +246,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS2+2"
-output = "財宝表(3):ミスリルメイル(鎧)"
+output = "財宝表(3):ミスリルスケイル(鎧)"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -273,7 +273,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "RANDL5"
-output = "ランダムイベント表(561):森林<悪夢>:魔族の狩りで傷ついた狼を発見する。ラウンド終了までに[HP]を1点でも回復してやればふらふらと歩きだし、木の根元でここを掘れというように吠える。埋まっていたものは1Dを振って決定する。\n----------\n1:犬の糞(ゴミ)\n2:10GP\n3:財宝ランク6のアイテム\n4:財宝ランク7のアイテム\n5:財宝ランク8のアイテム\n6:うぃっしゅすたー(大事なもの)"
+output = "ランダムイベント表(561):森林<悪夢>:魔族の狩りで傷ついた狼を発見する。ラウンド終了までに〔HP〕を1点でも回復してやればふらふらと歩きだし、木の根元でここを掘れというように吠える。埋まっていたものは1D6を振って決定する。\n----------\n1:犬の糞(ゴミ)\n2:10GP\n3:財宝ランク6のアイテム\n4:財宝ランク7のアイテム\n5:財宝ランク8のアイテム\n6:うぃっしゅすたー(大事なもの)"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -306,4 +306,137 @@ rands = []
 game_system = "FilledWith"
 input = "REDL465"
 output = "エネミーデータ表(465):水辺<悪夢>:リッチ(CL44)3匹"
+rands = []
+
+[[ test ]]
+game_system = "FilledWith"
+input = "TRS11"
+output = "財宝表(1):体力の欠片（大事なもの）(全員に10個)"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "TRS11"
+output = "財宝表(6):お好きな副能力の欠片（大事なもの）(1人ずつ好きなものを選択して全員に50個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "TRS12"
+output = "財宝表(1):体力の欠片（大事なもの）(全員に20個)"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "TRS12"
+output = "財宝表(6):お好きな副能力の欠片（大事なもの）(1人ずつ好きなものを選択して全員に100個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "TRAPX"
+output = "トラップ表<伝説>(3):トライディザスター:宝箱から広範囲に火炎・冷気・電撃が放たれる罠。PC全員に「300」の「火炎」「冷気」「電撃」属性ダメージ。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "TRAPX"
+output = "トラップ表<伝説>(18):デスクラウド:宝箱から致死性の毒ガスを放つ罠。PC全員を即死させる。[抵抗-12]判定に成功すれば無効。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "ROPX"
+output = "迷宮追加オプション表<伝説>(11):黄金の迷宮(財宝ランク+2):全てが黄金で彩られた迷宮。財宝ランクが大きく上昇する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "ROPX"
+output = "迷宮追加オプション表<伝説>(13):カラクリの迷宮:複雑なカラクリが周囲で絶え間なく動いている迷宮。分類「ギア」のエネミーが行うあらゆる判定に+2のボーナス。クリア時に「アタッチメント割引券」を全員が10枚獲得。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "ROPX"
+output = "迷宮追加オプション表<伝説>(66):バロールの迷宮(財宝ランク+2):第六魔将バロールの像が入口に設置された迷宮。「分類:ギア」のエネミーが行うあらゆる判定に+5のボーナス。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "RANDX"
+output = "ランダムイベント表(111):洞窟<伝説>:回復の泉。PC全員の〔HP〕〔FP〕が完全に回復する。「★死亡」以外のあらゆるBSも回復する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "RANDX"
+output = "ランダムイベント表(112):洞窟<伝説>:淡い光を放つ鉱石に包まれた部屋に出る。Ftが1点回復する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "RANDX"
+output = "ランダムイベント表(666):墓場<伝説>:『千ノ戦イデ千ノ勝チヲ知ル者、ココニ眠ル』と刻まれた棺を見つける。棺を開けた場合はエネミーとエンカウント。勝利するとウェポンマスターの証(装飾品)を入手できる。不利な特異点「好奇心は猫を殺す」「脳みそ筋肉」を持つキャラクターは[意思]判定を行い、失敗すると棺を開けてしまう。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FilledWith"
+input = "REDX141"
+output = "エネミーデータ表(141):洞窟<伝説>:キャンディークラウン(CL40/オリジン)1匹"
+rands = []
+
+[[ test ]]
+game_system = "FilledWith"
+input = "REDX646"
+output = "エネミーデータ表(646):墓場<伝説>:ボーンスネーク(CL20/オリジン)1匹(〔HP〕+1500、あらゆる致傷力+200)"
+rands = []
+
+[[ test ]]
+game_system = "FilledWith"
+input = "REDX644"
+output = "エネミーデータ表(644):墓場<伝説>:[現在エネミー未実装の為振り直ししてください]"
+rands = []
+
+[[ test ]]
+game_system = "FilledWith"
+input = "REDX666"
+output = "エネミーデータ表(666):墓場<伝説>:[現在エネミー未実装の為振り直ししてください]"
 rands = []
