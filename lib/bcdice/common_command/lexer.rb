@@ -16,6 +16,7 @@ module BCDice
         "[" => :BRACKETL,
         "]" => :BRACKETR,
         "?" => :QUESTION,
+        "@" => :AT,
       }.freeze
 
       def initialize(source)
@@ -35,6 +36,10 @@ module BCDice
           type = SYMBOLS[char] || char.to_sym
           [type, char]
         end
+      end
+
+      def source
+        @scanner.string
       end
     end
   end

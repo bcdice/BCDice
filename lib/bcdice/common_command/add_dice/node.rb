@@ -53,21 +53,28 @@ module BCDice
             randomizer = Randomizer.new(randomizer, game_system)
             total = @lhs.eval(randomizer)
 
-            output =
-              if randomizer.rand_results.size <= 1 && @lhs.is_a?(Node::DiceRoll)
-                "(#{self}) ＞ #{total}"
-              else
-                "(#{self}) ＞ #{@lhs.output} ＞ #{total}"
+            interrim_expr =
+              unless randomizer.rand_results.size <= 1 && @lhs.is_a?(Node::DiceRoll)
+                @lhs.output
               end
 
-            if @cmp_op
-              rhs = @rhs.eval(nil)
-              output += game_system.check_result(total, randomizer.rand_results, @cmp_op, rhs)
-            end
+            result =
+              if @cmp_op
+                rhs = @rhs.eval(nil)
+                game_system.check_result(total, randomizer.rand_results, @cmp_op, rhs)
+              end
+            result ||= Result.new
 
-            Result.new.tap do |r|
+            sequence = [
+              "(#{self})",
+              interrim_expr,
+              total,
+              result&.text
+            ].compact
+
+            result.tap do |r|
               r.secret = @secret
-              r.text = output
+              r.text = sequence.join(" ＞ ")
             end
           end
 
@@ -337,8 +344,8 @@ module BCDice
           # @param [Number] times ダイスを振る回数のノード
           # @param [Number] sides ダイスの面数のノード
           def initialize(times, sides)
-            @times = times.literal
-            @sides = sides.literal
+            @times = times.eval(nil)
+            @sides = sides.eval(nil)
 
             # ダイスを振った結果の出力
             @text = nil

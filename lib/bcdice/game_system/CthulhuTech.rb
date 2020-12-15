@@ -124,25 +124,19 @@ module BCDice
         def calculate_roll_result(sorted_dice_values)
           highest_single_roll = sorted_dice_values.last
 
+          sum_of_highest_set_of_multiples = sorted_dice_values
+                                            .group_by(&:itself)
+                                            .values
+                                            .map(&:sum)
+                                            .max
+
           candidates = [
             highest_single_roll,
-            sum_of_highest_set_of_multiples(sorted_dice_values),
+            sum_of_highest_set_of_multiples,
             sum_of_largest_straight(sorted_dice_values)
           ]
 
           return candidates.max
-        end
-
-        # ゾロ目の和の最大値を求める
-        # @param [Array<Integer>] dice_values 出目の配列
-        # @return [Integer]
-        def sum_of_highest_set_of_multiples(dice_values)
-          dice_values.
-            # TODO: Ruby 2.2以降では group_by(&:itself) が使える
-            group_by { |i| i }.
-            # TODO: Ruby 2.4以降では value_group.sum が使える
-            map { |_, value_group| value_group.reduce(0, &:+) }
-                     .max
         end
 
         # ストレートの和の最大値を求める

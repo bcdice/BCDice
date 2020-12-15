@@ -14,6 +14,26 @@ module BCDice
           r.failure = true
         end
       end
+
+      def critical(text)
+        new.tap do |r|
+          r.text = text
+          r.critical = true
+          r.success = true
+        end
+      end
+
+      def fumble(text)
+        new.tap do |r|
+          r.text = text
+          r.fumble = true
+          r.failure = true
+        end
+      end
+
+      def nothing
+        :nothing
+      end
     end
 
     def initialize(text = nil)

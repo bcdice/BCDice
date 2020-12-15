@@ -167,7 +167,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "2D6>=? 목표치를 달성하지 못했다"
-output = "(2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 실패"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },

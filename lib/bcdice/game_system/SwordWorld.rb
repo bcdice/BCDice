@@ -31,8 +31,7 @@ module BCDice
       # @param [String] string 受信したメッセージ
       # @return [String]
       def replace_text(string)
-        # TODO: Ruby 2.4以降では Regexp#match? を使うこと
-        return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match(string)
+        return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match?(string)
 
         string
           .gsub(/\[(\d+)\]/) { "c[#{Regexp.last_match(1)}]" }
@@ -45,17 +44,17 @@ module BCDice
         "cmCM"
       end
 
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
+      def result_2d6(total, dice_total, _dice_list, cmp_op, target)
         if dice_total >= 12
-          " ＞ 自動的成功"
+          Result.critical("自動的成功")
         elsif dice_total <= 2
-          " ＞ 自動的失敗"
+          Result.fumble("自動的失敗")
         elsif cmp_op != :>= || target == "?"
-          ''
+          nil
         elsif total >= target
-          " ＞ 成功"
+          Result.success("成功")
         else
-          " ＞ 失敗"
+          Result.failure("失敗")
         end
       end
 

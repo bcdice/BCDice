@@ -136,6 +136,14 @@ rands = [
 
 [[ test ]]
 game_system = "Garako"
+input = "GR+1+3-5+4>=10"
+output = "(1D10+3>=10) ＞ 8[8]+3 ＞ 11 ＞ 成功"
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Garako"
 input = "GR+(1-1)>=10"
 output = "(1D10>=10) ＞ 8[8] ＞ 8 ＞ 失敗"
 rands = [
@@ -185,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "Garako"
 input = "CDC0"
-output = "部位ダメージチャート：コックピット(1) ＞ 小破（アーマー損傷）：以後、この部位の【部位装甲】-1。"
+output = "ダメージを受けない"
 rands = []
 
 [[ test ]]
@@ -244,6 +252,42 @@ rands = []
 
 [[ test ]]
 game_system = "Garako"
+input = "CDT0"
+output = "ダメージを受けない"
+rands = []
+
+[[ test ]]
+game_system = "Garako"
+input = "CDT1"
+output = "部位ダメージチャートv2: コックピット(1) ＞ アーマー損傷（小破/弱体0/装甲ダメージ1）装甲に軽いひび割れが走る。"
+rands = []
+
+[[ test ]]
+game_system = "Garako"
+input = "CDT10"
+output = "部位ダメージチャートv2: コックピット(10) ＞ 破壊（修復不能/弱体2/装甲ダメージ3）コックピットが「修復不能」となる。キミは2d10-【身体】点のＨＰダメージを受ける。ガラコはすべての機能を停止する。コックピットのハッチが自動的に開く。"
+rands = []
+
+[[ test ]]
+game_system = "Garako"
+input = "CDT11"
+output = "部位ダメージチャートv2: コックピット(10) ＞ 破壊（修復不能/弱体2/装甲ダメージ3）コックピットが「修復不能」となる。キミは2d10-【身体】点のＨＰダメージを受ける。ガラコはすべての機能を停止する。コックピットのハッチが自動的に開く。"
+rands = []
+
+[[ test ]]
+game_system = "Garako"
+input = "LDT10"
+output = "部位ダメージチャートv2: レッグ(10) ＞ 破壊 （修復不能 /弱体2/装甲ダメージ3）ダメージを受けた側のレッグが「修復不能」となる。【移動力】-2。"
+rands = []
+
+[[ test ]]
+game_system = "Garako"
+input = "LDT5+5"
+output = "部位ダメージチャートv2: レッグ(10) ＞ 破壊 （修復不能 /弱体2/装甲ダメージ3）ダメージを受けた側のレッグが「修復不能」となる。【移動力】-2。"
+rands = []
+
+[[ test ]]
+game_system = "Garako"
 input = "GCC"
 output = "ガラコ改造チャート表(10) ＞ 【弱体無効】価格+500。このパーツへの部位ダメージによる[弱体]の効果を無視する。"
 rands = [
@@ -278,6 +322,23 @@ rands = [
 game_system = "Garako"
 input = "bsd"
 output = "戦闘開始距離(1) ＞ 3マス"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Garako"
+input = "GHA5"
+output = "(1D10+5) ＞ 8[8]+5, HIT[4] ＞ フレームに 13 -【部位装甲】"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Garako"
+input = "GHA-7+5"
+output = "(1D10-2) ＞ 1[1]-2 ＞ -1（ダメージを受けない）"
 rands = [
   { sides = 10, value = 1 },
 ]

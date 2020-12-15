@@ -1,232 +1,8 @@
 [[ test ]]
 game_system = "SwordWorld"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 9[6,3] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 8[2,6] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 6[1,5] ＞ 6 ＞ 成功"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 11[6,5] ＞ 11 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 9[4,5] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 9[4,5] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 5[1,4] ＞ 5 ＞ 成功"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 7[4,3] ＞ 7 ＞ 失敗"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 6[2,4] ＞ 6 ＞ 失敗"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 5[2,3] ＞ 5 ＞ 失敗"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 8[4,4] ＞ 8 ＞ 失敗"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 8[5,3] ＞ 8 ＞ 失敗"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 5[3,2] ＞ 5 ＞ 失敗"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 8[2,6] ＞ 8 ＞ 失敗"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 5[1,4] ＞ 5 ＞ 失敗"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 5[4,1] ＞ 5 ＞ 失敗"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 8[4,4] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 8[5,3] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 7[6,1] ＞ 7 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 8[3,5] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 11[6,5] ＞ 11 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 7[4,3] ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -235,37 +11,64 @@ rands = [
 [[ test ]]
 game_system = "SwordWorld"
 input = "2d6>=7"
-output = "(2D6>=7) ＞ 6[5,1] ＞ 6 ＞ 失敗"
+output = "(2D6>=7) ＞ 6[3,3] ＞ 6 ＞ 失敗"
+failure = true
 rands = [
-  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld"
+input = "2d6>=7"
+output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ 自動的成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SwordWorld"
+input = "2d6>=7"
+output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ 自動的失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
   { sides = 6, value = 1 },
 ]
 
 [[ test ]]
 game_system = "SwordWorld"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+input = "2d6>=?"
+output = "(2D6>=?) ＞ 12[6,6] ＞ 12 ＞ 自動的成功"
+success = true
+critical = true
 rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 7[4,3] ＞ 7 ＞ 成功"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "SwordWorld"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
   { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SwordWorld"
+input = "2d6>=?"
+output = "(2D6>=?) ＞ 2[1,1] ＞ 2 ＞ 自動的失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SwordWorld"
+input = "2d6>=?"
+output = "(2D6>=?) ＞ 7[2,5] ＞ 7"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
 ]
 
 [[ test ]]
@@ -5248,7 +5051,7 @@ rands = [
 [[ test ]]
 game_system = "SwordWorld"
 input = "2D6>=? 目標値?でバグらない"
-output = "(2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },

@@ -355,6 +355,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6=7"
 output = "(2D6=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -364,6 +365,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6=7"
 output = "(2D6=7) ＞ 6[3,3] ＞ 6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -373,6 +375,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6=7"
 output = "(2D6=7) ＞ 6[3,3] ＞ 6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -382,6 +385,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6<>7"
 output = "(2D6<>7) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -391,6 +395,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6<>7"
 output = "(2D6<>7) ＞ 6[3,3] ＞ 6 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -400,6 +405,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6<>7"
 output = "(2D6<>7) ＞ 8[3,5] ＞ 8 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -409,6 +415,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6<7"
 output = "(2D6<7) ＞ 6[3,3] ＞ 6 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -418,6 +425,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6<7"
 output = "(2D6<7) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -427,6 +435,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6>7"
 output = "(2D6>7) ＞ 8[3,5] ＞ 8 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -436,6 +445,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6>7"
 output = "(2D6>7) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -445,6 +455,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6<=7"
 output = "(2D6<=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -454,6 +465,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6<=7"
 output = "(2D6<=7) ＞ 8[3,5] ＞ 8 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -463,6 +475,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6>=7"
 output = "(2D6>=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -472,6 +485,7 @@ rands = [
 game_system = "DiceBot"
 input = "2D6>=7"
 output = "(2D6>=7) ＞ 6[3,3] ＞ 6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -481,6 +495,7 @@ rands = [
 game_system = "DiceBot"
 input = "-2D6<-7"
 output = "(-2D6<-7) ＞ -8[3,5] ＞ -8 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -490,6 +505,7 @@ rands = [
 game_system = "DiceBot"
 input = "-2D6<-7"
 output = "(-2D6<-7) ＞ -7[3,4] ＞ -7 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -499,6 +515,7 @@ rands = [
 game_system = "DiceBot"
 input = "-2D6>-7"
 output = "(-2D6>-7) ＞ -6[3,3] ＞ -6 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -508,6 +525,7 @@ rands = [
 game_system = "DiceBot"
 input = "-2D6>-7"
 output = "(-2D6>-7) ＞ -7[3,4] ＞ -7 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -517,6 +535,7 @@ rands = [
 game_system = "DiceBot"
 input = "-2D6<=-7"
 output = "(-2D6<=-7) ＞ -7[3,4] ＞ -7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -526,6 +545,7 @@ rands = [
 game_system = "DiceBot"
 input = "-2D6<=-7"
 output = "(-2D6<=-7) ＞ -6[3,3] ＞ -6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -535,6 +555,7 @@ rands = [
 game_system = "DiceBot"
 input = "-2D6>=-7"
 output = "(-2D6>=-7) ＞ -7[3,4] ＞ -7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -544,6 +565,7 @@ rands = [
 game_system = "DiceBot"
 input = "-2D6>=-7"
 output = "(-2D6>=-7) ＞ -8[3,5] ＞ -8 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -553,6 +575,7 @@ rands = [
 game_system = "DiceBot"
 input = "1d6>=1+2"
 output = "(1D6>=3) ＞ 3 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -560,7 +583,8 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "1d6-(1-2)>=3+2"
-output = "(1D6+1>=5) ＞ 3[3]+1 ＞ 4 ＞ 失敗"
+output = "(1D6-(1-2)>=5) ＞ 3[3]-(1-2) ＞ 4 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -898,6 +922,16 @@ rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "2R6>=2+1"
+output = "(2R6[3]>=3) ＞ 3,1 + 2 ＞ 成功数1"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
 ]
 
 [[ test ]]
@@ -1322,23 +1356,6 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
-input = "choice[abc,def]"
-output = "(choice[ABC,DEF]) ＞ ABC"
-rands = [
-  { sides = 2, value = 1 },
-]
-
-[[ test ]]
-game_system = "DiceBot"
-input = "Schoice[abc2,def3]"
-output = "(choice[ABC2,DEF3]) ＞ DEF3"
-secret = true
-rands = [
-  { sides = 2, value = 2 },
-]
-
-[[ test ]]
-game_system = "DiceBot"
 input = "C(10/2)"
 output = "計算結果 ＞ 5"
 rands = []
@@ -1442,13 +1459,13 @@ rands = []
 [[ test ]]
 game_system = "DiceBot"
 input = "C(1/0) 0で割る"
-output = "計算結果 ＞ 0"
+output = "計算結果 ＞ ゼロ除算が発生したため計算できませんでした"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "C(1+(2-3*4/(5/6))-7) 遠回しに0で割る"
-output = "計算結果 ＞ 0"
+output = "計算結果 ＞ ゼロ除算が発生したため計算できませんでした"
 rands = []
 
 [[ test ]]

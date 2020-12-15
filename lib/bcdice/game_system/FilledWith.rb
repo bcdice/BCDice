@@ -52,6 +52,8 @@ module BCDice
         @d66_sort_type = D66SortType::NO_SORT; # d66の差し替え
       end
 
+      # @param command [String] コマンド
+      # @return [Result, nil] 固有コマンドの評価結果
       def eval_game_system_specific_command(command)
         # ダイスロールコマンド
         result = checkRoll(command)
@@ -62,14 +64,11 @@ module BCDice
 
         # 各種コマンド
         case command
-        when /LOT(N|P)/
-          type = Regexp.last_match(1)
-          if type == "P"
-            tableName = "ナンバーワンプレミアムくじ"
-          else
-            tableName = "ナンバーワンノーマルくじ"
-          end
-          result, number = getLotResult(type)
+        when "LOTN"
+          return roll_jump_table("ナンバーワンノーマルくじ", LOT_NORMAL_TABLES[1])
+
+        when "LOTP"
+          return roll_jump_table("ナンバーワンプレミアムくじ", LOT_PREMIUM_TABLES[1])
 
         when "HST"
           tableName = "【必殺技！】"
@@ -77,8 +76,7 @@ module BCDice
 
         when /COOK([1-8])/
           lv = Regexp.last_match(1).to_i
-          tableName = "マジカルクッキング"
-          result, number = getCookResult(lv)
+          return roll_jump_table("マジカルクッキング", COOK_TABLES[lv])
 
         when /TRAP[ENHLX]/
           return getTrapResult(command)
@@ -102,7 +100,41 @@ module BCDice
           return nil
         end
 
-        return "#{tableName}(#{number}):#{result}"
+        return Result.new(format_table_roll_result(tableName, number, result))
+      end
+
+      # 表を振った結果を独自の書式で整形する
+      # @param table_name [String] 表の名前
+      # @param number [String] 出目の文字列
+      # @param result [String] 結果の文章
+      # @return [String]
+      def format_table_roll_result(table_name, number, result)
+        "#{table_name}(#{number}):#{result}"
+      end
+
+      # ジャンプする項目を含む表を振る
+      # @param table_name [String] 表の名前
+      # @param table [DiceTable::RangeTable] 振る対象の表
+      # @return [Result]
+      def roll_jump_table(table_name, table)
+        # 出目の配列
+        values = []
+
+        loop do
+          roll_result = table.roll(@randomizer)
+          values.concat(roll_result.values)
+
+          content = roll_result.content
+          case content
+          when String
+            return Result.new(format_table_roll_result(table_name, values.join, content))
+          when Proc
+            # 次の繰り返しで指定された表を参照する
+            table = content.call
+          else
+            raise TypeError
+          end
+        end
       end
 
       def checkRoll(command)
@@ -187,241 +219,6 @@ module BCDice
           '〔命中〕判定に[6,6,6]でファンブル。更に、使用者がバッドステータス「転倒」を受ける。',
         ]
         return get_table_by_1d6(table)
-      end
-
-      # マジカルクッキング
-      def getCookResult(lv)
-        cook(lv, "")
-      end
-
-      def cook(lv, num)
-        case lv
-        when 1
-          table = [
-            'おべんとミートボール',
-            'パリパリ小魚',
-            'キャロットタルト',
-            'おにぎり',
-            lambda { return cook(2, 5) },
-            lambda { return cook(2, 6) },
-          ]
-        when 2
-          table = [
-            'カリカリミミズ肉',
-            '竹つきチクワ',
-            'トロピカルジュース',
-            'イナリ寿司',
-            lambda { return cook(3, 5) },
-            lambda { return cook(3, 6) },
-          ]
-        when 3
-          table = [
-            'ホットミートパイ',
-            '魔界魚の目玉',
-            'パンプキンプリン',
-            'スタミナ丼',
-            lambda { return cook(4, 5) },
-            lambda { return cook(4, 6) },
-          ]
-        when 4
-          table = [
-            'ジャンボ串焼き',
-            'シルヴァまっしぐら',
-            'フラウアイスクリーム',
-            'ピクニックランチ',
-            lambda { return cook(5, 5) },
-            lambda { return cook(5, 6) },
-          ]
-        when 5
-          table = [
-            'グラント風香草焼き',
-            'エドマエスシ',
-            'スターフルーツパフェ',
-            '具沢山本格カレー',
-            lambda { return cook(6, 5) },
-            lambda { return cook(6, 6) },
-          ]
-        when 6
-          table = [
-            'ドラゴンステーキ',
-            '刺身盛り合わせ',
-            'エデンのアップルパイ',
-            'フォートレス炒飯',
-            lambda { return cook(7, 5) },
-            lambda { return cook(7, 6) },
-          ]
-        when 7
-          table = [
-            'マツザカスペシャル',
-            'オオトロスシ',
-            'スノーホワイトボンブ',
-            'よもつへぐい',
-            lambda { return cook(8, 5) },
-            lambda { return cook(8, 6) },
-          ]
-        when 8
-          table = [
-            '超特大マンガ肉',
-            '特上うな丼',
-            '魔将樹のかき氷',
-            'ヘブンズランチ',
-            lambda { return cook(9, 5) },
-            lambda { return cook(9, 6) },
-          ]
-        when 9
-          table = [
-            '世界樹のサラダ',
-            '世界樹のサラダ',
-            '世界樹のサラダ',
-            '黄金のラダマン鍋',
-            '黄金のラダマン鍋',
-            '黄金のラダマン鍋',
-          ]
-        end
-
-        result, number = get_table_by_1d6(table)
-        if result.class.name == "Array"
-          number = result[1]
-          result = result[0]
-        end
-        number = "#{num}#{number}"
-        return result, number
-      end
-
-      # フィルトウィズナンバーワンくじ(GURPS-FW版)
-      def getLotResult(type)
-        if type == "P"
-          premium(1, "")
-        else
-          normal(1, "")
-        end
-      end
-
-      # ノーマルくじ表
-      def normal(phase, num)
-        case phase
-        when 1
-          table = [
-            'イレブンチキン',
-            'イレブンチキン',
-            'イレブンチキン',
-            lambda { return normal(2, 4) },
-            lambda { return normal(2, 5) },
-            lambda { return normal(3, 6) },
-          ]
-        when 2
-          table = [
-            'バロールたわし',
-            'イグニスジッポ',
-            'ヤコ仮面or梟の文鎮(選択可)',
-            'ナレッジのハンモックorジンジャビースト',
-            lambda { return normal(3, 5) },
-            lambda { return normal(3, 6) },
-          ]
-        when 3
-          table = [
-            '特性HPポーション',
-            '特性MPポーション',
-            '黒い甲冑',
-            '天体望遠鏡',
-            '金獅子の剥製',
-            lambda { return normal(4, 6) },
-          ]
-        when 4
-          table = [
-            '特性スタミナポーション',
-            '戦乙女の兜',
-            'フェンリルの首輪',
-            'フェニックスカーペット',
-            '動くアダマンゴーレム',
-            lambda { return normal(5, 6) },
-          ]
-        when 5
-          table = [
-            'キャンディークッション',
-            '屑鉄の金床',
-            '薪割り王の斧',
-            'ロジエの水差し',
-            '箱舟の模型',
-            lambda { return premium(5, 6) },
-          ]
-        end
-
-        result, number = get_table_by_1d6(table)
-        if result.class.name == "Array"
-          number = result[1]
-          result = result[0]
-        end
-        number = "#{num}#{number}"
-        return result, number
-      end
-
-      # プレミアムくじ表
-      def premium(phase, num)
-        case phase
-        when 1
-          table = [
-            'プレミアムチキン',
-            'プレミアムチキン',
-            'プレミアムチキン',
-            lambda { return normal(3, 4) },
-            lambda { return premium(2, 5) },
-            lambda { return premium(2, 6) },
-          ]
-        when 2
-          table = [
-            '親衛隊バッジ',
-            'ハタモトチャブダイ',
-            '星のコンパス',
-            '白銀の甲冑',
-            lambda { return normal(4, 5) },
-            lambda { return premium(3, 6) },
-          ]
-        when 3
-          table = [
-            '特性クイックHPポーション',
-            '特性クイックMPポーション',
-            '特製クイックスタミナポーション',
-            '火龍のフィギュアor氷龍のフィギュア(選択可)',
-            'ヒメショーグンドレス',
-            lambda { return premium(4, 6) },
-          ]
-        when 4
-          table = [
-            'クイックユグドラポーション',
-            '銀河龍のフィギュア/ドラゴン',
-            '銀河龍のフィギュア/魔族',
-            '魔族チェスセット',
-            'イグニスコンロ',
-            lambda { return premium(5, 6) },
-          ]
-        when 5
-          table = [
-            'グレヴディバリウス',
-            '天使の望遠鏡orデスの目覚まし時計(選択可)',
-            '世界樹の蔦',
-            '死神の飾りドレス',
-            'ザバーニヤ等身大フィギュア',
-            lambda { return premium(6, 6) },
-          ]
-        when 6
-          table = [
-            'イレブンチキン',
-            'イレブンチキン(2ピース)',
-            'イレブンチキン(3ピース)',
-            'イレブンチキン(6ピース)',
-            'イレブンチキン(12ピース)',
-            'wish star',
-          ]
-        end
-
-        result, number = get_table_by_1d6(table)
-        if result.class.name == "Array"
-          number = result[1]
-          result = result[0]
-        end
-        number = "#{num}#{number}"
-        return result, number
       end
 
       # 夢幻の迷宮財宝表
@@ -1630,3 +1427,6 @@ module BCDice
     end
   end
 end
+
+require "bcdice/game_system/filled_with/lot_tables"
+require "bcdice/game_system/filled_with/cook_tables"

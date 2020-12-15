@@ -6,6 +6,42 @@ rands = []
 
 [[ test ]]
 game_system = "DiceBot"
+input = "c1/2R 四捨五入(切り上げ)"
+output = "計算結果 ＞ 1"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "c1/2C 切り上げ"
+output = "計算結果 ＞ 1"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "c1/2F 切り捨て"
+output = "計算結果 ＞ 0"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "c1/3R 四捨五入（切り捨て）"
+output = "計算結果 ＞ 0"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "c1/3C 切り上げ"
+output = "計算結果 ＞ 1"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "c1/3F 切り捨て"
+output = "計算結果 ＞ 0"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
 input = "c1+4* 不正な式は評価しない"
 output = ""
 rands = []

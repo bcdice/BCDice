@@ -18,6 +18,8 @@ module BCDice
         def parse(command, game_system)
           return nil unless game_system.enabled_d66?
 
+          command = command.split(" ", 2).first
+
           m = /^(S)?D66([ANS])?$/i.match(command)
           return nil unless m
 

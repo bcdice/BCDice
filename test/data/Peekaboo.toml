@@ -920,8 +920,25 @@ rands = [
 
 [[ test ]]
 game_system = "Peekaboo"
+input = "RTT6"
+output = "指定特技(大人)表(12) ＞ 《道楽／大人12》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Peekaboo"
+input = "RCT"
+output = "ランダム分野表(6) ＞ 大人"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Peekaboo"
 input = "2D6>=? 目標値?でバグらない"
-output = "(2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },

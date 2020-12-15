@@ -382,6 +382,7 @@ rands = [
 game_system = "TrinitySeven"
 input = "1D100<=50"
 output = "(1D100<=50) ＞ 49 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 49 },
 ]
@@ -390,6 +391,7 @@ rands = [
 game_system = "TrinitySeven"
 input = "1D100<=50"
 output = "(1D100<=50) ＞ 50 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -398,6 +400,7 @@ rands = [
 game_system = "TrinitySeven"
 input = "1D100<=50"
 output = "(1D100<=50) ＞ 51 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -405,7 +408,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "1D100>=? 目標値?でバグらない"
-output = "(1D100>=?) ＞ 42 ＞ 失敗"
+output = "(1D100>=?) ＞ 42"
 rands = [
   { sides = 100, value = 42 },
 ]

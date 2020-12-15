@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "InfiniteFantasia"
 input = "1D20>=? 目標値?でバグらない"
-output = "(1D20>=?) ＞ 10 ＞ 失敗"
+output = "(1D20>=?) ＞ 10"
 rands = [
   { sides = 20, value = 10 },
 ]

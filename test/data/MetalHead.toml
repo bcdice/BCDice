@@ -295,7 +295,7 @@ rands = []
 [[ test ]]
 game_system = "MetalHead"
 input = "2D6>=? 目標値?でバグらない"
-output = "(2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -304,7 +304,7 @@ rands = [
 [[ test ]]
 game_system = "MetalHead"
 input = "1D100>=? 目標値?でバグらない"
-output = "(1D100>=?) ＞ 42 ＞ 失敗"
+output = "(1D100>=?) ＞ 42"
 rands = [
   { sides = 100, value = 42 },
 ]
