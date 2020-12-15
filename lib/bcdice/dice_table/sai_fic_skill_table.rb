@@ -6,6 +6,20 @@ require "bcdice/dice_table/sai_fic_skill_table/skill"
 module BCDice
   module DiceTable
     class SaiFicSkillTable
+      # @param key    [String]
+      # @param locale [Symbol]
+      # @param rtt    [String] RTTに相当するコマンド
+      # @param rct    [String] RCTに相当するコマンド
+      # @param rttn   [Array]  RTT1～6に相当するコマンドの配列
+      # @return [SaiFicSkillTable]
+      def self.from_i18n(key, locale, rtt: nil, rct: nil, rttn: nil)
+        global = I18n.t("RTT", locale: locale, raise: false, default: {})
+        table = global.merge(I18n.t(key, locale: locale, raise: true))
+        items = table[:items]
+        table = table.select { |k, _| [:rtt_format, :rttn_format, :rct_format, :s_format].include?(k) }
+        new(items, **table, rtt: rtt, rct: rct, rttn: rttn)
+      end
+
       DEFAULT_RTT = "ランダム特技表(%<category_dice>d,%<row_dice>d) ＞ %<text>s"
       DEFAULT_RCT = "ランダム分野表(%<category_dice>d) ＞ %<category_name>s"
       DEFAULT_RTTN = "%<category_name>s分野ランダム特技表(%<row_dice>d) ＞ %<text>s"
@@ -16,7 +30,7 @@ module BCDice
       # @param items [Array] 特技リスト
       # @param rtt          [String] RTTに相当するコマンド
       # @param rct          [String] RCTに相当するコマンド
-      # @param rttn         [String] RTTNに相当するコマンド
+      # @param rttn         [Array]  RTT1～6に相当するコマンドの配列
       # @param rtt_format   [String] RTTコマンドの出力用の書式文字列
       # @param rct_format   [String] RCTコマンドの出力用の書式文字列
       # @param rttn_format  [String] RTTNコマンドの出力用の書式文字列
