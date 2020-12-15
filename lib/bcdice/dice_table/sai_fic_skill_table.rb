@@ -13,9 +13,10 @@ module BCDice
       # @param rttn   [Array]  RTT1～6に相当するコマンドの配列
       # @return [SaiFicSkillTable]
       def self.from_i18n(key, locale, rtt: nil, rct: nil, rttn: nil)
-        table = I18n.t(key, locale: locale, raise: true)
+        global = I18n.t("RTT", locale: locale, raise: false, default: {})
+        table = global.merge(I18n.t(key, locale: locale, raise: true))
         items = table[:items]
-        table = table.filter { |k, _v| [:rtt_format, :rttn_format, :rct_format, :s_format].include?(k) }
+        table = table.select { |k, _| [:rtt_format, :rttn_format, :rct_format, :s_format].include?(k) }
         new(items, **table, rtt: rtt, rct: rct, rttn: rttn)
       end
 

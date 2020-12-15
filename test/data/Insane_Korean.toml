@@ -224,7 +224,7 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "RTT"
-output = "랜덤 특기 결정표(1,2) ＞ 「폭력」≪소각≫"
+output = "랜덤 특기 결정표(1,2) ＞ 《소각／폭력2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -234,7 +234,7 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "RTT"
-output = "랜덤 특기 결정표(6,12) ＞ 「괴이」≪우주≫"
+output = "랜덤 특기 결정표(6,12) ＞ 《우주／괴이12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -244,7 +244,7 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "TVT"
-output = "지정특기(폭력)표(2) ＞ 소각"
+output = "지정특기(폭력)표(2) ＞ 《소각／폭력2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -253,7 +253,7 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "TVT"
-output = "지정특기(폭력)표(12) ＞ 매장"
+output = "지정특기(폭력)표(12) ＞ 《매장／폭력12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -262,7 +262,7 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "TET"
-output = "지정특기(감정)표(2) ＞ 연정"
+output = "지정특기(감정)표(2) ＞ 《연정／감정2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -270,8 +270,8 @@ rands = [
 
 [[ test ]]
 game_system = "Insane:Korean"
-input = "TET"
-output = "지정특기(감정)표(12) ＞ 사랑"
+input = "RTT2"
+output = "지정특기(감정)표(12) ＞ 《사랑／감정12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -279,8 +279,8 @@ rands = [
 
 [[ test ]]
 game_system = "Insane:Korean"
-input = "TPT"
-output = "지정특기(지각)표(2) ＞ 아픔"
+input = "RTT3"
+output = "지정특기(지각)표(2) ＞ 《아픔／지각2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -289,7 +289,7 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "TPT"
-output = "지정특기(지각)표(12) ＞ 그늘"
+output = "지정특기(지각)표(12) ＞ 《그늘／지각12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -298,7 +298,7 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "TST"
-output = "지정특기(기술)표(2) ＞ 분해"
+output = "지정특기(기술)표(2) ＞ 《분해／기술2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -307,7 +307,7 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "TST"
-output = "지정특기(기술)표(12) ＞ 병기"
+output = "지정특기(기술)표(12) ＞ 《병기／기술12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -316,7 +316,7 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "TKT"
-output = "지정특기(지식)표(2) ＞ 물리학"
+output = "지정특기(지식)표(2) ＞ 《물리학／지식2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -325,7 +325,7 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "TKT"
-output = "지정특기(지식)표(12) ＞ 천문학"
+output = "지정특기(지식)표(12) ＞ 《천문학／지식12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -334,7 +334,7 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "TMT"
-output = "지정특기(괴이)표(2) ＞ 시간"
+output = "지정특기(괴이)표(2) ＞ 《시간／괴이2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -343,10 +343,18 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "TMT"
-output = "지정특기(괴이)표(12) ＞ 우주"
+output = "지정특기(괴이)표(12) ＞ 《우주／괴이12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Insane:Korean"
+input = "RCT"
+output = "ランダム分野表(2) ＞ 감정"
+rands = [
+  { sides = 6, value = 2 },
 ]
 
 [[ test ]]

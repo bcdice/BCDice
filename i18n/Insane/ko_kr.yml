@@ -17,10 +17,6 @@ ko_kr:
         "11": 눈을 뜨니, 그곳은 평소의 그곳이었다. 하지만, 어딘가 위화감을 느낀다. 당신들 외에, 누구도 사건에 대해서는 모르는 것 같다. 죽었을 터인 그 인물도 살아있다. 시간을 여행한 것일까, 여긴 다른 세계선인가……? 　%{skill}의 특기가 【공포심】이 된다.
         "12": 뒤를 돌아보자, 거기에는 압도적인 「그것」이 기다리고 있었다. 무자비한 일격이 당신을 덮치고, 당신은 사망한다.
     RTT:
-      rtt_format: '랜덤 특기 결정표(%<category_dice>d,%<row_dice>d) ＞ %<text>s'
-      rct_format: 'Random Category Table(%<category_dice>d) ＞ %<category_name>s'
-      rttn_format: '지정특기(%<category_name>s)표(%<row_dice>d) ＞ %<skill_name>s'
-      s_format: '「%<category_name>s」≪%<skill_name>s≫'
       items:
       - ['폭력', ['소각', '고문', '긴박', '위협하기', '파괴', '구타', '절단', '찌르기', '사격', '전쟁', '매장']]
       - ['감정', ['연정', '기쁨', '근심', '부끄러움', '웃음', '참음', '놀람', '분노', '원한', '슬픔', '사랑']]
