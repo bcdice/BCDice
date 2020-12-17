@@ -2,6 +2,7 @@
 game_system = "MagicaLogia"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -11,6 +12,7 @@ rands = [
 game_system = "MagicaLogia"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 4[2,2] ＞ 4 ＞ 成功 ＞ 獣の魔素2が発生"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -20,6 +22,7 @@ rands = [
 game_system = "MagicaLogia"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -29,6 +32,7 @@ rands = [
 game_system = "MagicaLogia"
 input = "2d6>=9"
 output = "(2D6>=9) ＞ 6[3,3] ＞ 6 ＞ 失敗 ＞ 力の魔素2が発生"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -38,9 +42,22 @@ rands = [
 game_system = "MagicaLogia"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ スペシャル(魔力1D6点か変調1つ回復) ＞ 闇の魔素2が発生"
+critical = true
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "2d6>=7"
+output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル ＞ 星の魔素2が発生"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
 ]
 
 [[ test ]]
