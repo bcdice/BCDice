@@ -91,14 +91,15 @@ module BCDice
       end
 
       class SkillExpandTable
-        def self.from_i18n(key, locale)
+        def self.from_i18n(key, locale, skill_table)
           table = I18n.t(key, locale: locale, raise: false)
-          new(table[:name], table[:type], table[:items])
+          new(table[:name], table[:type], table[:items], skill_table)
         end
 
-        def initialize(name, type, items)
+        def initialize(name, type, items, skill_table)
           @name = name
           @items = items.freeze
+          @skill_table = skill_table
 
           m = /(\d+)D(\d+)/i.match(type)
           unless m
@@ -131,17 +132,17 @@ module BCDice
 
         def roll_skill(type, randomizer)
           if type == :skill
-            return SKILL_TABLE.roll_skill(randomizer)
+            return @skill_table.roll_skill(randomizer)
           end
 
           if type == :element
-            return SKILL_TABLE.roll_category(randomizer)
+            return @skill_table.roll_category(randomizer)
           end
 
           index = CATEGORIES.index(type)
           raise ArgumentError unless index
 
-          SKILL_TABLE.categories[index].roll(randomizer).name
+          @skill_table.categories[index].roll(randomizer).name
         end
       end
 
@@ -177,21 +178,21 @@ module BCDice
           )
         end
 
-        def translate_tables(locale)
-          inveterate_enemy_table = SkillExpandTable.from_i18n("MagicaLogia.inveterate_enemy_table", locale)
+        def translate_tables(locale, skill_table)
+          inveterate_enemy_table = SkillExpandTable.from_i18n("MagicaLogia.inveterate_enemy_table", locale, skill_table)
           conspiracy_table = DiceTable::Table.from_i18n("MagicaLogia.conspiracy_table", locale)
           fate_table = DiceTable::Table.from_i18n("MagicaLogia.fate_table", locale)
           cueball_table = DiceTable::Table.from_i18n("MagicaLogia.cueball_table", locale)
           force_field_table = DiceTable::Table.from_i18n("MagicaLogia.force_field_table", locale)
-          alliance_table = SkillExpandTable.from_i18n("MagicaLogia.alliance_table", locale)
+          alliance_table = SkillExpandTable.from_i18n("MagicaLogia.alliance_table", locale, skill_table)
 
           {
-            "TPT" => SkillExpandTable.from_i18n("MagicaLogia.tables.TPT", locale),
-            "ST" => SkillExpandTable.from_i18n("MagicaLogia.tables.ST", locale),
+            "TPT" => SkillExpandTable.from_i18n("MagicaLogia.tables.TPT", locale, skill_table),
+            "ST" => SkillExpandTable.from_i18n("MagicaLogia.tables.ST", locale, skill_table),
             "FT" => DiceTable::Table.from_i18n("MagicaLogia.tables.FT", locale),
-            "WT" => SkillExpandTable.from_i18n("MagicaLogia.tables.WT", locale),
+            "WT" => SkillExpandTable.from_i18n("MagicaLogia.tables.WT", locale, skill_table),
             "FCT" => DiceTable::Table.from_i18n("MagicaLogia.tables.FCT", locale),
-            "AT" => SkillExpandTable.from_i18n("MagicaLogia.tables.AT", locale),
+            "AT" => SkillExpandTable.from_i18n("MagicaLogia.tables.AT", locale, skill_table),
             "BGT" => DiceTable::Table.from_i18n("MagicaLogia.tables.BGT", locale),
             "DAT" => DiceTable::Table.from_i18n("MagicaLogia.tables.DAT", locale),
             "FAT" => DiceTable::Table.from_i18n("MagicaLogia.tables.FAT", locale),
@@ -223,32 +224,32 @@ module BCDice
               ]
             ),
             "PT" => DiceTable::Table.from_i18n("MagicaLogia.tables.PT", locale),
-            "XEST" => SkillExpandTable.from_i18n("MagicaLogia.tables.XEST", locale),
-            "IWST" => SkillExpandTable.from_i18n("MagicaLogia.tables.IWST", locale),
-            "MCST" => SkillExpandTable.from_i18n("MagicaLogia.tables.MCST", locale),
-            "WDST" => SkillExpandTable.from_i18n("MagicaLogia.tables.WDST", locale),
-            "LWST" => SkillExpandTable.from_i18n("MagicaLogia.tables.LWST", locale),
-            "STB" => SkillExpandTable.from_i18n("MagicaLogia.tables.STB", locale),
+            "XEST" => SkillExpandTable.from_i18n("MagicaLogia.tables.XEST", locale, skill_table),
+            "IWST" => SkillExpandTable.from_i18n("MagicaLogia.tables.IWST", locale, skill_table),
+            "MCST" => SkillExpandTable.from_i18n("MagicaLogia.tables.MCST", locale, skill_table),
+            "WDST" => SkillExpandTable.from_i18n("MagicaLogia.tables.WDST", locale, skill_table),
+            "LWST" => SkillExpandTable.from_i18n("MagicaLogia.tables.LWST", locale, skill_table),
+            "STB" => SkillExpandTable.from_i18n("MagicaLogia.tables.STB", locale, skill_table),
             "MGCT" => DiceTable::Table.from_i18n("MagicaLogia.tables.MGCT", locale),
-            "MBST" => SkillExpandTable.from_i18n("MagicaLogia.tables.MBST", locale),
-            "MAST" => SkillExpandTable.from_i18n("MagicaLogia.tables.MAST", locale),
-            "TCST" => SkillExpandTable.from_i18n("MagicaLogia.tables.TCST", locale),
-            "PWST" => SkillExpandTable.from_i18n("MagicaLogia.tables.PWST", locale),
-            "PAST" => SkillExpandTable.from_i18n("MagicaLogia.tables.PAST", locale),
-            "GBST" => SkillExpandTable.from_i18n("MagicaLogia.tables.GBST", locale),
-            "SLST" => SkillExpandTable.from_i18n("MagicaLogia.tables.SLST", locale),
+            "MBST" => SkillExpandTable.from_i18n("MagicaLogia.tables.MBST", locale, skill_table),
+            "MAST" => SkillExpandTable.from_i18n("MagicaLogia.tables.MAST", locale, skill_table),
+            "TCST" => SkillExpandTable.from_i18n("MagicaLogia.tables.TCST", locale, skill_table),
+            "PWST" => SkillExpandTable.from_i18n("MagicaLogia.tables.PWST", locale, skill_table),
+            "PAST" => SkillExpandTable.from_i18n("MagicaLogia.tables.PAST", locale, skill_table),
+            "GBST" => SkillExpandTable.from_i18n("MagicaLogia.tables.GBST", locale, skill_table),
+            "SLST" => SkillExpandTable.from_i18n("MagicaLogia.tables.SLST", locale, skill_table),
             "WLAT" => DiceTable::Table.from_i18n("MagicaLogia.tables.WLAT", locale),
-            "WMT" => SkillExpandTable.from_i18n("MagicaLogia.tables.WMT", locale),
+            "WMT" => SkillExpandTable.from_i18n("MagicaLogia.tables.WMT", locale, skill_table),
             "FFT" => DiceTable::Table.from_i18n("MagicaLogia.tables.FFT", locale),
-            "OLST" => SkillExpandTable.from_i18n("MagicaLogia.tables.OLST", locale),
-            "TPTB" => SkillExpandTable.from_i18n("MagicaLogia.tables.TPTB", locale),
+            "OLST" => SkillExpandTable.from_i18n("MagicaLogia.tables.OLST", locale, skill_table),
+            "TPTB" => SkillExpandTable.from_i18n("MagicaLogia.tables.TPTB", locale, skill_table),
             "FLT" => FallenAfterTable.from_i18n("MagicaLogia.tables.FLT", locale),
           }
         end
       end
 
       SKILL_TABLE = translate_skill_table(:ja_jp)
-      TABLES = translate_tables(:ja_jp)
+      TABLES = translate_tables(:ja_jp, SKILL_TABLE)
 
       register_prefix(SKILL_TABLE.prefixes)
       register_prefix(TABLES.keys)
