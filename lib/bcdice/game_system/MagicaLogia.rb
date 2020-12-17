@@ -35,9 +35,14 @@ module BCDice
         　並行世界 PWST／終末　　 PAST／異世界酒場 GBST
         　ほしかげ SLST／旧図書館 OLST
         世界法則追加表 WLAT/さまよう怪物表 WMT
+        ランダム分野表　RCT
         ランダム特技表　RTT
-        　指定特技（星）　RTS/指定特技（獣）　RTB/指定特技（力）　RTF
-        　指定特技（歌）　RTP/指定特技（夢）　RTD/指定特技（闇）　RTN
+        　星分野ランダム特技表  RTS, RTT1
+        　獣分野ランダム特技表  RTB, RTT2
+        　力分野ランダム特技表  RTF, RTT3
+        　歌分野ランダム特技表  RTP, RTT4
+        　夢分野ランダム特技表  RTD, RTT5
+        　闇分野ランダム特技表  RTN, RTT6
         ブランク秘密表　BST/
         　宿敵表　MIT/謀略表　MOT/因縁表　MAT
         　奇人表　MUT/力場表　MFT/同盟表　MLT
