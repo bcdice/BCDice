@@ -47,16 +47,12 @@ module BCDice
 
       register_prefix('CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA')
 
-      def initialize(command)
-        super(command)
-
-        @bonus_dice_range = (-2..2)
-      end
+      BONUS_DICE_RANGE = (-2..2)
 
       def eval_game_system_specific_command(command)
         case command
         when /^CC/i
-          return getCheckResult(command)
+          return skill_roll(command)
         when /^CBR/i
           return getCombineRoll(command)
         when /^FAR/i
@@ -98,37 +94,37 @@ module BCDice
         return "#{table_name}(#{total_n}) ＞ #{text}"
       end
 
-      def getCheckResult(command)
-        m = /^CC([-+]?\d+)?(<=(\d+))?/i.match(command)
+      def skill_roll(command)
+        m = /^CC([-+]?\d+)?(?:<=(\d+))?$/.match(command)
         unless m
           return nil
         end
 
-        bonus_dice_count = m[1].to_i # ボーナス・ペナルティダイスの個数
-        diff = m[3].to_i
-        without_compare = m[2].nil? || diff <= 0
+        bonus_dice = m[1].to_i
+        difficulty = m[2].to_i
 
-        if bonus_dice_count == 0 && diff <= 0
+        if bonus_dice == 0 && difficulty == 0
           dice = @randomizer.roll_once(100)
           return "1D100 ＞ #{dice}"
         end
 
-        unless @bonus_dice_range.include?(bonus_dice_count)
-          return "エラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
+        unless BONUS_DICE_RANGE.include?(bonus_dice)
+          return "エラー。ボーナス・ペナルティダイスの値は#{BONUS_DICE_RANGE.min}～#{BONUS_DICE_RANGE.max}です。"
         end
 
-        total, total_list = roll_with_bonus(bonus_dice_count)
+        total, total_list = roll_with_bonus(bonus_dice)
 
-        if without_compare
-          output = "(1D100) ボーナス・ペナルティダイス[#{bonus_dice_count}]"
-          output += " ＞ #{total_list.join(', ')} ＞ #{total}"
-        else
-          result_text = getCheckResultText(total, diff)
-          output = "(1D100<=#{diff}) ボーナス・ペナルティダイス[#{bonus_dice_count}]"
-          output += " ＞ #{total_list.join(', ')} ＞ #{total} ＞ #{result_text}"
-        end
+        expr = difficulty.zero? ? "1D100" : "1D100<=#{difficulty}"
+        result = result_level(total, difficulty) unless difficulty.zero?
 
-        return output
+        sequence = [
+          "(#{expr}) ボーナス・ペナルティダイス[#{bonus_dice}]",
+          total_list.join(", "),
+          total,
+          result,
+        ].compact
+
+        return sequence.join(" ＞ ")
       end
 
       # 1D100の一の位用のダイスロール
@@ -163,28 +159,22 @@ module BCDice
         return dice, dice_list
       end
 
-      def getCheckResultText(total, diff, fumbleable = false)
-        if total <= diff
-          return "クリティカル" if total == 1
-          return "イクストリーム成功" if total <= (diff / 5)
-          return "ハード成功" if total <= (diff / 2)
+      def result_level(total, difficulty, fumbleable = false)
+        fumble = difficulty < 50 || fumbleable ? 96 : 100
 
-          return "レギュラー成功"
+        if total == 1
+          "クリティカル"
+        elsif total <= (difficulty/5)
+          "イクストリーム成功"
+        elsif total <= (difficulty/2)
+          "ハード成功"
+        elsif total <= difficulty
+          "レギュラー成功"
+        elsif total >= fumble
+          "ファンブル"
+        else
+          "失敗"
         end
-
-        fumble_text = "ファンブル"
-
-        return fumble_text if total == 100
-
-        if total >= 96
-          if diff < 50
-            return fumble_text
-          else
-            return fumble_text if fumbleable
-          end
-        end
-
-        return "失敗"
       end
 
       def getCombineRoll(command)
@@ -195,8 +185,8 @@ module BCDice
 
         total = @randomizer.roll_once(100)
 
-        result_1 = getCheckResultText(total, diff_1)
-        result_2 = getCheckResultText(total, diff_2)
+        result_1 = result_level(total, diff_1)
+        result_2 = result_level(total, diff_2)
 
         successList = ["クリティカル", "イクストリーム成功", "ハード成功", "レギュラー成功"]
 
@@ -261,8 +251,8 @@ module BCDice
           broken_number = broken_number.abs
         end
 
-        unless @bonus_dice_range.include?(bonus_dice_count)
-          return "エラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
+        unless BONUS_DICE_RANGE.include?(bonus_dice_count)
+          return "エラー。ボーナス・ペナルティダイスの値は#{BONUS_DICE_RANGE.min}～#{BONUS_DICE_RANGE.max}です。"
         end
 
         output += "ボーナス・ペナルティダイス[#{bonus_dice_count}]"
@@ -286,7 +276,7 @@ module BCDice
           output += getNextDifficultyMessage(more_difficulty)
 
           # ペナルティダイスを減らしながらロール用ループ
-          while dice_num >= @bonus_dice_range.min
+          while dice_num >= BONUS_DICE_RANGE.min
 
             loopCount += 1
             hit_result, total, total_list = getHitResultInfos(dice_num, diff, more_difficulty)
@@ -349,7 +339,7 @@ module BCDice
         total, total_list = roll_with_bonus(dice_num)
 
         fumbleable = getFumbleable(more_difficulty)
-        hit_result = getCheckResultText(total, diff, fumbleable)
+        hit_result = result_level(total, diff, fumbleable)
 
         return hit_result, total, total_list
       end
