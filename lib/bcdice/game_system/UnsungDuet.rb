@@ -45,7 +45,7 @@ module BCDice
 
       def roll_replaced_command_if_match(command, regexp, dist)
         if command.match?(regexp)
-          CommonCommand::AddDice.new(command.sub(regexp, dist), @randomizer, self).eval()
+          CommonCommand::AddDice.eval(command.sub(regexp, dist), self, @randomizer)
         end
       end
 

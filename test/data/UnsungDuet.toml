@@ -18,6 +18,7 @@ rands = [
 game_system = "UnsungDuet"
 input = "shifter>=5"
 output = "(1D10>=5) ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -26,6 +27,7 @@ rands = [
 game_system = "UnsungDuet"
 input = "shifter>=8"
 output = "(1D10>=8) ＞ 7 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -34,6 +36,7 @@ rands = [
 game_system = "UnsungDuet"
 input = "shifter+3-2>=8"
 output = "(1D10+3-2>=8) ＞ 7[7]+3-2 ＞ 8 ＞ 成功"
+success = true
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -60,6 +63,7 @@ rands = [
 game_system = "UnsungDuet"
 input = "binder>=9"
 output = "(2D6>=9) ＞ 9[6,3] ＞ 9 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -69,6 +73,7 @@ rands = [
 game_system = "UnsungDuet"
 input = "binder>=10"
 output = "(2D6>=10) ＞ 9[6,3] ＞ 9 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -78,6 +83,7 @@ rands = [
 game_system = "UnsungDuet"
 input = "binder+2>=10"
 output = "(2D6+2>=10) ＞ 9[6,3]+2 ＞ 11 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
