@@ -33,8 +33,9 @@ module BCDice
         　・開発表　DVT／開発表（一括）DVTM
         　　　装備１種表　WP1T／装備２種表　WP2T／装備３種表　WP3T／装備４種表　WP4T
         　・アイテム表　ITT／目標表　MHT／戦果表　SNT／特殊戦果表　SPSNT
-        　・ランダム個性選択：一括　KTM／分野　BT
-        　　　背景　KHT／魅力　KMT／性格　KST／趣味　KSYT／航海　KKT／戦闘　KSNT
+          ・ランダム個性分野　BT, RCT
+        　・ランダム個性選択： 一括　KTM, RTTn (n：分野番号)
+        　　　1.背景 KHT／2.魅力 KMT／3.性格 KST／4.趣味 KSYT／5.航海 KKT／ 6.戦闘 KSNT
         　・戦場表　SNZ　暴走表／RNT
         　・特殊開発表　WPMC　(燃料6/弾薬3/鋼材6/ボーキ3)
         　・新・特殊開発表　WPMCN
@@ -92,36 +93,24 @@ module BCDice
         when 'WP4T'
           type = '装備４種表'
           output, total_n = get_weapon4_table
-        when 'KTM'
-          type = '個性：一括'
-          output, total_n = get_kosei_table
-        when 'BT'
-          type = '個性：分野表'
-          output, total_n = get_bunya_table
-        when 'KHT'
-          type = '個性：背景表'
-          output, total_n = get_kosei_haikei_table
-        when 'KMT'
-          type = '個性：魅力表'
-          output, total_n = get_kosei_miryoku_table
-        when 'KST'
-          type = '個性：性格表'
-          output, total_n = get_kosei_seikaku_table
-        when 'KSYT'
-          type = '個性：趣味表'
-          output, total_n = get_kosei_syumi_table
-        when 'KKT'
-          type = '個性：航海表'
-          output, total_n = get_kosei_koukai_table
-        when 'KSNT'
-          type = '個性：戦闘表'
-          output, total_n = get_kosei_sentou_table
         else
-          return roll_tables(command, TABLES)
+          return roll_tables(command, TABLES) || RTT.roll_command(@randomizer, command)
         end
 
         return "#{type}(#{total_n}) ＞ #{output}"
       end
+
+      RTT = DiceTable::SaiFicSkillTable.new([
+        ['背景', ['人脈', '名声', '暗い過去', '古風', '口ぐせ', '幸運', 'アイドル', '秘密兵器', 'お嬢様', 'スタイル', '外国暮らし',]],
+        ['魅力', ['素直', 'クール', '優しい', 'おしとやか', 'けなげ', '笑顔', 'ばか', 'さわやか', '面白い', 'えっち', '派手',]],
+        ['性格', ['不思議', 'おおらか', '面倒見', 'マジメ', '負けず嫌い', '元気', '楽観的', '丁寧', 'いじわる', '自由奔放', '大胆',]],
+        ['趣味', ['寝る', '空想', '生き物', '読書', '食べ物', 'おしゃべり', '買い物', '芸能', 'おしゃれ', '入浴', '恋愛',]],
+        ['航海', ['暗号', '通信', '索敵', '規律', '補給', '待機', '機動', '海図', '指揮', '衛生', '整備',]],
+        ['戦闘', ['電子戦', '航空打撃戦', '航空戦', '対空戦闘', '突撃', '砲撃', '退却', '支援', '魚雷', '対潜戦闘', '夜戦',]],
+      ], rtt: "KTM", rct: "BT", rttn: ["KHT", "KMT", "KST", "KSYT", "KKT", "KSNT"],
+         rtt_format: "個性：一括(%<category_dice>d,%<row_dice>d) ＞ %<text>s",
+         rct_format: "個性：分野表(%<category_dice>d) ＞ %<category_name>s",
+         rttn_format: "個性：%<category_name>s表(%<row_dice>d) ＞ %<skill_name>s")
 
       def get_develop_table
         table = [
@@ -213,144 +202,6 @@ module BCDice
           '改良型艦本式タービン（P252）',
         ]
         return get_table_by_1d6(table)
-      end
-
-      def get_kosei_table
-        output1, total_n1 = get_bunya_table
-        output2 = ''
-        total_n2 = ""
-
-        case total_n1
-        when 1
-          output2, total_n2 =  get_kosei_haikei_table
-        when 2
-          output2, total_n2 =  get_kosei_miryoku_table
-        when 3
-          output2, total_n2 =  get_kosei_seikaku_table
-        when 4
-          output2, total_n2 =  get_kosei_syumi_table
-        when 5
-          output2, total_n2 =  get_kosei_koukai_table
-        when 6
-          output2, total_n2 =  get_kosei_sentou_table
-        end
-        result = "《#{output2}／#{output1}#{total_n2}》"
-        number = "#{total_n1},#{total_n2}"
-        return result, number
-      end
-
-      def get_bunya_table
-        table = [
-          '背景',
-          '魅力',
-          '性格',
-          '趣味',
-          '航海',
-          '戦闘',
-        ]
-        return get_table_by_1d6(table)
-      end
-
-      def get_kosei_haikei_table
-        table = [
-          '人脈',
-          '名声',
-          '暗い過去',
-          '古風',
-          '口ぐせ',
-          '幸運',
-          'アイドル',
-          '秘密兵器',
-          'お嬢様',
-          'スタイル',
-          '外国暮らし',
-        ]
-        return get_table_by_2d6(table)
-      end
-
-      def get_kosei_miryoku_table
-        table = [
-          '素直',
-          'クール',
-          '優しい',
-          'おしとやか',
-          'けなげ',
-          '笑顔',
-          'ばか',
-          'さわやか',
-          '面白い',
-          'えっち',
-          '派手',
-        ]
-        return get_table_by_2d6(table)
-      end
-
-      def get_kosei_seikaku_table
-        table = [
-          '不思議',
-          'おおらか',
-          '面倒見',
-          'マジメ',
-          '負けず嫌い',
-          '元気',
-          '楽観的',
-          '丁寧',
-          'いじわる',
-          '自由奔放',
-          '大胆',
-        ]
-        return get_table_by_2d6(table)
-      end
-
-      def get_kosei_syumi_table
-        table = [
-          '寝る',
-          '空想',
-          '生き物',
-          '読書',
-          '食べ物',
-          'おしゃべり',
-          '買い物',
-          '芸能',
-          'おしゃれ',
-          '入浴',
-          '恋愛',
-        ]
-        return get_table_by_2d6(table)
-      end
-
-      def get_kosei_koukai_table
-        table = [
-          '暗号',
-          '通信',
-          '索敵',
-          '規律',
-          '補給',
-          '待機',
-          '機動',
-          '海図',
-          '指揮',
-          '衛生',
-          '整備',
-        ]
-        return get_table_by_2d6(table)
-      end
-
-      def get_kosei_sentou_table
-        table = [
-          '電子戦',
-          '航空打撃戦',
-          '航空戦',
-          '対空戦闘',
-          '突撃',
-          '砲撃',
-          '退却',
-          '支援',
-          '魚雷',
-          '対潜戦闘',
-          '夜戦',
-        ]
-        return get_table_by_2d6(table)
       end
 
       TABLES = {
@@ -931,7 +782,7 @@ module BCDice
 
       register_prefix(
         'DVT', 'DVTM', 'WP1T', 'WP2T', 'WP3T', 'WP4T',
-        'KTM', 'BT', 'KHT', 'KMT', 'KST', 'KSYT', 'KKT', 'KSNT',
+        RTT.prefixes,
         TABLES.keys
       )
     end
