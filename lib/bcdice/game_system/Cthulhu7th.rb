@@ -109,8 +109,16 @@ module BCDice
           @level_index <= LEVEL.index(:failure)
         end
 
+        def critical?
+          @level == :critical
+        end
+
+        def fumble?
+          @level == :fumble
+        end
+
         def to_s
-          LEVEL_TEXT[@level]
+          LEVEL_TO_S[@level]
         end
       end
 
@@ -162,7 +170,14 @@ module BCDice
           result,
         ].compact
 
-        return sequence.join(" ＞ ")
+        Result.new.tap do |r|
+          r.text = sequence.join(" ＞ ")
+          if result
+            r.condition = result.success?
+            r.critical = result.critical?
+            r.fumble = result.fumble?
+          end
+        end
       end
 
       # 1D100の一の位用のダイスロール
