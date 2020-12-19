@@ -3,60 +3,76 @@ module BCDice
     class D66Dice
       PREFIX_PATTERN = /D66/.freeze
 
-      def initialize(command, randomizer, game_system)
-        @command = command
-        @randomizer = randomizer
-        @game_system = game_system
-
-        @is_secret = false
-      end
-
-      def secret?
-        @is_secret
-      end
-
-      def eval
-        unless @game_system.enabled_d66?
-          return nil
+      class << self
+        # @param command [String]
+        # @param game_system [BCDice::Base]
+        # @param randomizer [Randomizer]
+        # @return [Result, nil]
+        def eval(command, game_system, randomizer)
+          cmd = parse(command, game_system)
+          cmd&.eval(randomizer)
         end
 
-        m = /^(S)?D66([ANS])?$/i.match(@command)
-        unless m
-          return nil
+        private
+
+        def parse(command, game_system)
+          return nil unless game_system.enabled_d66?
+
+          command = command.split(" ", 2).first
+
+          m = /^(S)?D66([ANS])?$/i.match(command)
+          return nil unless m
+
+          new(
+            secret: !m[1].nil?,
+            sort_type: sort_type_from_suffix(m[2]) || game_system.d66_sort_type,
+            suffix: m[2]
+          )
         end
 
-        @is_secret = !m[1].nil?
-        @sort_type = sort_type_from_suffix(m[2])
+        def sort_type_from_suffix(suffix)
+          case suffix
+          when "A", "S"
+            D66SortType::ASC
+          when "N"
+            D66SortType::NO_SORT
+          end
+        end
+      end
 
-        value = roll()
+      # @param secret [Boolean]
+      # @param sort_type [Symbol]
+      # @param suffix [String, nil]
+      def initialize(secret:, sort_type:, suffix:)
+        @secret = secret
+        @sort_type = sort_type
+        @suffix = suffix
+      end
 
-        return "(D66#{m[2]}) ＞ #{value}"
+      # @param randomizer [Randomizer]
+      # @return [Result]
+      def eval(randomizer)
+        value = roll(randomizer)
+
+        Result.new.tap do |r|
+          r.secret = @secret
+          r.text = "(D66#{@suffix}) ＞ #{value}"
+        end
       end
 
       private
 
-      def roll()
-        dice_list = Array.new(2) { @randomizer.roll_once(6) }
+      def roll(randomizer)
+        dice_list = Array.new(2) { randomizer.roll_once(6) }
 
         case @sort_type
-        when :asc
+        when D66SortType::ASC
           dice_list.sort!
-        when :desc
+        when D66SortType::DESC
           dice_list.sort!.reverse!
         end
 
         return dice_list[0] * 10 + dice_list[1]
-      end
-
-      def sort_type_from_suffix(suffix)
-        case suffix
-        when "A", "S"
-          :asc
-        when "N"
-          :no_sort
-        else
-          @game_system.d66_sort_type
-        end
       end
     end
   end

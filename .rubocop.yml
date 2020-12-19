@@ -1,5 +1,17 @@
 inherit_from: .rubocop_todo.yml
 
+AllCops:
+  Exclude:
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
+    - lib/bcdice/common_command/add_dice/parser.rb
+    - lib/bcdice/common_command/barabara_dice/parser.rb
+    - lib/bcdice/common_command/calc/parser.rb
+    - lib/bcdice/common_command/reroll_dice/parser.rb
+    - lib/bcdice/common_command/upper_dice/parser.rb
+
 # Due to old Ruby 1.8.x
 Style/Lambda:
   EnforcedStyle: lambda

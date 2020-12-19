@@ -563,7 +563,7 @@ module BCDice
 
         }.freeze
 
-      register_prefix(["CH.*", "B6T", "CNP"] + TABLES.keys)
+      register_prefix("CH.*", "B6T", "CNP", TABLES.keys)
     end
   end
 end

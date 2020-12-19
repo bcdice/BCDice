@@ -409,7 +409,7 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix(['\d+MD6?.*', '\d+R6.*'] + TABLES.keys)
+      register_prefix('\d+MD6?.*', '\d+R6.*', TABLES.keys)
     end
   end
 end

@@ -21,7 +21,7 @@ module BCDice
           あーしたてんきになーれ
       MESSAGETEXT
 
-      register_prefix(['geta'])
+      register_prefix('geta')
 
       def initialize(command)
         super(command)

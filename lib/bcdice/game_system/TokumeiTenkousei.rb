@@ -26,7 +26,7 @@ module BCDice
         @sort_add_dice = true
       end
 
-      register_prefix(['\d+D6.*'])
+      register_prefix('\d+D6.*')
 
       def eval_game_system_specific_command(command)
         parser = CommandParser.new(/^\d+D6$/)

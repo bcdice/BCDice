@@ -22,7 +22,7 @@ module BCDice
         　例）SET1　SET48
       MESSAGETEXT
 
-      register_prefix(['WQ\d+', 'SET\d+'])
+      register_prefix('WQ\d+', 'SET\d+')
 
       def eval_game_system_specific_command(command)
         case command

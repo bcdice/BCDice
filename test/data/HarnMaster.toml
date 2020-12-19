@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "HarnMaster"
 input = "1D100<=50"
-output = "(1D100<=50) ＞ 49＞ 成功"
+output = "(1D100<=50) ＞ 49 ＞ 成功"
 rands = [
   { sides = 100, value = 49 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "1D100<=50"
-output = "(1D100<=50) ＞ 51＞ 失敗"
+output = "(1D100<=50) ＞ 51 ＞ 失敗"
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "1D100<=50"
-output = "(1D100<=50) ＞ 50＞ 決定的成功"
+output = "(1D100<=50) ＞ 50 ＞ 決定的成功"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "1D100<=50"
-output = "(1D100<=50) ＞ 55＞ 致命的失敗"
+output = "(1D100<=50) ＞ 55 ＞ 致命的失敗"
 rands = [
   { sides = 100, value = 55 },
 ]
@@ -147,7 +147,7 @@ rands = [
 [[ test ]]
 game_system = "HarnMaster"
 input = "1D100>=? 目標値?でバグらない"
-output = "(1D100>=?) ＞ 42 ＞ 失敗"
+output = "(1D100>=?) ＞ 42"
 rands = [
   { sides = 100, value = 42 },
 ]

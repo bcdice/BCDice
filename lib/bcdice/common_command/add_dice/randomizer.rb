@@ -1,46 +1,38 @@
 module BCDice
   module CommonCommand
-    class AddDice
+    module AddDice
       class Randomizer
-        attr_reader :dicebot, :cmp_op, :dice_list, :sides
+        attr_reader :rand_results
 
-        def initialize(bcdice, dicebot, cmp_op)
-          @bcdice = bcdice
-          @dicebot = dicebot
-          @cmp_op = cmp_op
-          @sides = 0
-          @dice_list = []
+        RandResult = Struct.new(:sides, :value)
+
+        # @param rand_source [BCDice::Randomizer]
+        # @param game_system [BCDice::Base]
+        def initialize(rand_source, game_system)
+          @rand_source = rand_source
+          @game_system = game_system
+          @rand_results = []
         end
 
         # ダイスを振る
-        # @param [Integer] times ダイス数
-        # @param [Integer] sides 面数
-        # @return [Array<Array<Integer>>] 出目のグループの配列
-        def roll(times, sides)
-          # 振り足し分も含めた出目グループの配列
-          @dice_list = roll_once(times, sides)
-          return [@dice_list]
-        end
-
-        # ダイスを振る（振り足しなしの1回分）
-        # @param [Integer] times ダイス数
-        # @param [Integer] sides 面数
+        # @param times [Integer] ダイス数
+        # @param sides [Integer] 面数
         # @return [Array<Integer>] 出目の配列
-        def roll_once(times, sides)
-          @sides = sides if @sides < sides
+        def roll(times, sides)
+          dice_list =
+            if sides == 66 && @game_system.enabled_d66?
+              Array.new(times) { @rand_source.roll_d66(@game_system.d66_sort_type) }
+            elsif sides == 9 && @game_system.enabled_d9?
+              Array.new(times) { @rand_source.roll_d9() }
+            else
+              @rand_source.roll_barabara(times, sides)
+            end
 
-          if sides == 66 && @dicebot.enabled_d66?
-            return Array.new(times) { @bcdice.roll_d66(@dicebot.d66_sort_type) }
-          end
+          dice_list.sort! if @game_system.sort_add_dice?
+          rand_results = dice_list.map { |value| RandResult.new(sides, value) }
+          @rand_results.concat(rand_results)
 
-          if sides == 9 && @dicebot.enabled_d9?
-            return Array.new(times) { @bcdice.roll_d9() }
-          end
-
-          dice_list = @bcdice.roll_barabara(times, sides)
-          dice_list.sort! if @dicebot.sort_add_dice?
-
-          return dice_list
+          dice_list
         end
       end
     end

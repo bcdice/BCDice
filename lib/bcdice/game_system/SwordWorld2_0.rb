@@ -65,7 +65,7 @@ module BCDice
         　絡み効果表を出すことができます。
       INFO_MESSAGE_TEXT
 
-      register_prefix(['H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT'])
+      register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT')
 
       # 超越判定のノード
       class TranscendentTest
@@ -131,8 +131,7 @@ module BCDice
         #   出目のグループまたはその配列
         # @return [Integer]
         def sum_of_dice(value_groups)
-          # TODO: Ruby 2.4以降では Array#sum が使える
-          value_groups.flatten.reduce(0, &:+)
+          value_groups.flatten.sum
         end
 
         # ダイス部分の文字列を返す

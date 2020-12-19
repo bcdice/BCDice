@@ -18,10 +18,11 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定
-        GR+n>=X：「+n」で判定値を指定、「X」で目標値を指定。
+        ・判定 GR+n#f>=X （+n：判定値、#f：不安定による自動失敗基準値、X：目標値）
         ・部位決定チャート：HIT
-        ・ダメージチャート：xDCy（CDC/EDC/FDC/ADC/LDC)
+        ・ダメージ+部位決定：GAHn（n：火力）
+        ・ダメージチャート：xDCy（CDC/EDC/FDC/ADC/LDC )
+        ・ダメージチャートver2：xDTy（CDT/EDT/FDT/ADT/LDT）
         　xは C：コックピット、E：エンジン、F：フレーム、A：アーム、L：レッグ
         　yはダメージ値
         各種表
@@ -41,7 +42,8 @@ module BCDice
       def eval_game_system_specific_command(command)
         roll_tables(command, TABLES) ||
           roll_gr(command) ||
-          roll_damage_chart(command)
+          roll_damage_chart(command) ||
+          roll_attack_hit(command)
       end
 
       private
@@ -51,13 +53,14 @@ module BCDice
       # @param command [String]
       # @return [String, nil]
       def roll_gr(command)
-        m = /^GR([+-]\d+)?>=(\d+)$/i.match(command)
-        unless m
-          return nil
-        end
+        parser = CommandParser.new("GR")
+        cmd = parser.parse(command)
+        return nil unless cmd
+        return nil if cmd.critical
 
-        modify_number = m[1].to_i
-        target_number = m[2].to_i
+        modify_number = cmd.modify_number || 0
+        auto_failure_number = cmd.fumble || 1
+        target_number = cmd.target_number
 
         dice = @randomizer.roll_once(10)
         total = dice + modify_number
@@ -65,20 +68,53 @@ module BCDice
         result =
           if dice == 1
             "ファンブル"
+          elsif dice <= auto_failure_number # 公式FAQより、ファンブルと自動失敗を区別する可能性があるので分岐
+            "自動失敗"
           elsif dice == 10
             "クリティカル"
-          elsif total >= target_number
+          elsif target_number && total >= target_number
             "成功"
-          else
+          elsif target_number
             "失敗"
           end
 
         formated_modifier = Format.modifier(modify_number)
+        formated_auto_failure = "##{auto_failure_number}" if auto_failure_number >= 2
+        format_target = ">=#{target_number}" if target_number
+
         sequence = [
-          "(1D10#{formated_modifier}>=#{target_number})",
+          "(1D10#{formated_modifier}#{formated_auto_failure}#{format_target})",
           "#{dice}[#{dice}]#{formated_modifier}",
           total.to_s,
           result
+        ]
+
+        return sequence.compact.join(" ＞ ")
+      end
+
+      # ダメージ算出+部位決定チャート
+      #
+      # @param command [String]
+      # @return [String, nil]
+      def roll_attack_hit(command)
+        m = /^GHA([-+\d]+)$/i.match(command)
+        return nil unless m
+
+        modifier = ArithmeticEvaluator.eval(m[1])
+        attack = @randomizer.roll_once(10)
+        total = attack + modifier
+        hit_text = "#{total}（ダメージを受けない）"
+        if total > 0
+          hit = TABLES["HIT"].roll(@randomizer)
+          hit_dice = ", HIT[#{hit.value}]"
+          hit_text = "#{hit.body}に #{total} -【部位装甲】"
+        end
+
+        formated_modifier = Format.modifier(modifier)
+        sequence = [
+          "(1D10#{formated_modifier})",
+          "#{attack}[#{attack}]#{formated_modifier}#{hit_dice}",
+          hit_text
         ]
 
         return sequence.join(" ＞ ")
@@ -89,33 +125,15 @@ module BCDice
       # @param command [String]
       # @return [String, nil]
       def roll_damage_chart(command)
-        m = /^(\wDC)(\d+)$/i.match(command)
-        unless m
-          return nil
-        end
+        m = /^([CEFAL]D[CT])([-+\d]+)$/i.match(command)
+        return nil unless m
 
-        part = m[1]
-        damage = clamp(m[2].to_i, 1, 10)
-        index = damage - 1
+        chart = DAMAGE_CHARTS[m[1]]
+        damage = ArithmeticEvaluator.eval(m[2]).clamp(0, 10)
+        return "ダメージを受けない" if damage <= 0
 
-        chart = DAMAGE_CHARTS[part]
-        unless chart
-          return nil
-        end
-
-        chosen = chart[:table][index]
-
-        return "#{chart[:name]}(#{damage}) ＞ #{chosen}"
-      end
-
-      def clamp(i, min, max)
-        if i < min
-          min
-        elsif i > max
-          max
-        else
-          i
-        end
+        result = chart[:table][damage - 1]
+        return "#{chart[:name]}(#{damage}) ＞ #{result}"
       end
 
       DAMAGE_CHARTS = {
@@ -193,9 +211,83 @@ module BCDice
             "大破（跛足）：以後、【移動力】-2。この部位の【部位装甲】が0になる。［弱体1］を受ける。",
             "修復不能（破壊）：ダメージを受けた側のレッグが［修復不能］となる。【移動力】-2。［弱体2］を受ける。",
           ]
+        },
+        "CDT" => {
+          name: "部位ダメージチャートv2: コックピット",
+          table: [
+            "アーマー損傷（小破/弱体0/装甲ダメージ1）装甲に軽いひび割れが走る。",
+            "視界不良（小破/弱体0/装甲ダメージ1）モニターやハッチの歪み等により、視界を大きく遮られる。以後、【視認性】-1。",
+            "強震（小破/弱体0/装甲ダメージ1）大きく揺さぶられる。キミは【身体】10 の判定を行なう。失敗した場合、次のターンを失う。",
+            "貫通！（小破/弱体0/装甲ダメージ1）パイロットに被害が！キミはＨＰダメージ（1d10-【身体】）を受ける。",
+            "計器損傷（中破/弱体1/装甲ダメージ1）コンソールの一部が停止する。",
+            "制御不能（中破/弱体1/装甲ダメージ1）コントロールが効かなくなる。キミは次のターンを失う。",
+            "貫通！（中破/弱体1/装甲ダメージ1）パイロットに被害が！キミはＨＰダメージ（1d10-【身体】）を受ける。",
+            "故障（大破/弱体1/装甲ダメージ2）コックピットが完全にいかれる。キミは次のラウンド終了時まで、あらゆる判定に自動的にファンブルする。",
+            "貫通！（大破/弱体1/装甲ダメージ2）パイロットに被害が！キミはＨＰダメージ（1d10+3-【身体】）を受ける。",
+            "破壊（修復不能/弱体2/装甲ダメージ3）コックピットが「修復不能」となる。キミは2d10-【身体】点のＨＰダメージを受ける。ガラコはすべての機能を停止する。コックピットのハッチが自動的に開く。",
+          ]
+        },
+        "EDT" => {
+          name: "部位ダメージチャートv2: エンジン",
+          table: [
+            "アーマー損傷（小破/弱体0/装甲ダメージ1）装甲に軽いひび割れが走る。",
+            "アーマー損傷（小破/弱体0/装甲ダメージ1）装甲に軽いひび割れが走る。",
+            "燃料漏れ（小破/弱体0/装甲ダメージ1）タンクから燃料が漏れる。燃料-1。",
+            "燃料漏れ（小破/弱体0/装甲ダメージ1）タンクから燃料が漏れる。燃料-2。",
+            "エンジン不調（中破/弱体1/装甲ダメージ1）エンジンの調子が安定しない。",
+            "オーバーヒート（中破/弱体1/装甲ダメージ1）オーバーヒートする。次のターンの終了時まで、移動と攻撃を行えない。",
+            "エンジン不調（中破/弱体1/装甲ダメージ1）なんだか調子悪い。キミは次のターンを失う。",
+            "燃料漏れ（大破/弱体1/装甲ダメージ2）タンクから燃料が漏れる。燃料-3。",
+            "貫通！（大破/弱体1/装甲ダメージ2）パイロットに被害が！キミはＨＰダメージ（1d10+3-【身体】）を受ける。",
+            "エンジン停止（修復不能/弱体2/装甲ダメージ3）エンジンが停止する。ガラコはすべての機能を停止する。コックピットのハッチが自動的に開く。【操作性】10の判定を行なうこと。失敗するとエンジンが爆発する。その場合、すべての部位が［修復不能］となり、キミは2d10-【身体】点のＨＰダメージを受ける",
+          ]
+        },
+        "FDT" => {
+          name: "部位ダメージチャートv2: フレーム",
+          table: [
+            "アーマー損傷 （小破 /0/装甲ダメージ1）装甲に軽いひび割れが走る。",
+            "スクラッチ！（小破/弱体0/装甲ダメージ1）フレームに醜い傷が残る。",
+            "歪み（小破/弱体0/装甲ダメージ1）フレームが歪み、ガラコの動きを阻害し始める。【移動力】-1。",
+            "ハードポイント損傷（小破/弱体0/装甲ダメージ1）このフレームに装着している武器、及びオプションをすべて落とす。装着していた武器やオプションが外れかかる。キミは【身体】8の判定を行なう。失敗した場合、",
+            "放熱板損傷（中破/弱体1/装甲ダメージ1）熱を機体外に逃すことができなくなる。これはヤバい。",
+            "スタビライザー損傷（中破/弱体1/装甲ダメージ1）ターンを失う。機体のバランス調整装置が故障する。【身体】10の判定を行なうこと。失敗した場合、キミは次の",
+            "貫通！（中破/弱体1/装甲ダメージ1）パイロットに被害が！キミはＨＰダメージ（1d10-【身体】）を受ける。",
+            "停止（大破/弱体1/装甲ダメージ2）フレームが動かない。キミは次のターンを失う。",
+            "ハードポイント破壊（大破/弱体1/装甲ダメージ2）武器やオプションを取り付ける箇所が破壊される。以後、このフレームに（スロットを消費して）装着している武器やオプションは使用できない（常時効果のあるものも、効果を失う）。",
+            "フレーム崩壊（修復不能/弱体2/装甲ダメージ3）フレームが「修復不能」となる。フレームの大部分が剥がれ落ち、ガラコの内部が晒される。以後キミに対して部位狙いが行われる場合、その命中判定に対する修正（『GHT』p21）は発生しない。",
+          ]
+        },
+        "ADT" => {
+          name: "部位ダメージチャートv2: アーム",
+          table: [
+            "アーマー損傷（小破/弱体0/装甲ダメージ1）装甲に軽いひび割れが走る。",
+            "武器落とし！（小破/弱体0/装甲ダメージ1）キミは【身体】8の判定を行う。失敗した場合、ダメージを受けた側のアームに（スロットを消費して）装着していた武器を落とす。",
+            "マニピュレータ損傷（小破/弱体0/装甲ダメージ1）指が何本かちぎれ飛んだ。【操作性】-1。",
+            "機能停止（小破/弱体0/装甲ダメージ1）次のターンの終了時まで、このアームを使った攻撃はできない。",
+            "痙攣（中破/弱体1/装甲ダメージ1）アームの動きがぶれ始める。",
+            "武器落とし！（中破/弱体1/装甲ダメージ1）ダメージを受けた側のアームに（スロットを消費して）装着していた武器を落とす。",
+            "スピン（中破/弱体1/装甲ダメージ1）機体が大きく回転する。【身体】10の判定を行うこと。失敗した場合、［伏せ］状態となった上、次のターンを失う。",
+            "武器落とし！（大破/弱体1/装甲ダメージ2）ダメージを受けた側のアームに（スロットを消費して）装着していた武器を落とす。",
+            "ハードポイント破壊（大破/弱体1/装甲ダメージ2）している武器やオプションは使用できない（常時効果のあるものも、効果を失う）。武器やオプションを取り付ける箇所が破壊される。以後、このアームに（スロットを消費して）装着している武器やオプションは使用できない（常時効果のあるものも、効果を失う）。",
+            "破壊（修復不能/2/装甲ダメージ3）ダメージを受けた側のアームが「修復不能」となる。",
+          ]
+        },
+        "LDT" => {
+          name: "部位ダメージチャートv2: レッグ",
+          table: [
+            "アーマー損傷 （小破 /弱体0/装甲ダメージ1）装甲に軽いひび割れが走る。",
+            "よろめき （小破 /弱体0/装甲ダメージ1）次のターンの終了時まで、キミは移動できない。",
+            "スネア （小破 /弱体0/装甲ダメージ1）足元をすくわれる。【身体】8 の判定を行うこと。失敗した場合、キミは［伏せ］状態になる。",
+            "跛足 （小破 /弱体0/装甲ダメージ1）以後、【移動力】-1。",
+            "シャフト損傷 （中破 /弱体1/装甲ダメージ1）脚部の軸に歪みが生じる。",
+            "アクチュエータ損傷 （中破 /弱体1/装甲ダメージ1）脚部のアクチュエータに大きな損傷を受ける。【移動力】-1。",
+            "スピン （中破 /弱体1/装甲ダメージ1）機体が大きく回転する。【身体】10 の判定を行うこと。失敗した場合、［伏せ］状態となった上、次のターンを失う。",
+            "跛足 （大破 /弱体1/装甲ダメージ2）以後、【移動力】-2。",
+            "ハードポイント破壊 （大破 /弱体1/装甲ダメージ2）している武器やオプションは使用できない（常時効果のあるものも、効果を失う）。 武器やオプションを取り付ける箇所が破壊される。以後、このレッグに（スロットを消費して）装着している武器やオプションは使用できない（常時効果のあるものも、効果を失う）。",
+            "破壊 （修復不能 /弱体2/装甲ダメージ3）ダメージを受けた側のレッグが「修復不能」となる。【移動力】-2。",
+          ]
         }
       }.freeze
-
       TABLES = {
         "PNM" => DiceTable::Table.new(
           "名前表：ピグマー族（男）",
@@ -553,7 +645,7 @@ module BCDice
         )
       }.freeze
 
-      register_prefix(['GR.*', '(C|E|F|A|L)DC\d+'] + TABLES.keys)
+      register_prefix('GR.*', '[CEFAL]D[CT][-+\d]+', 'GHA[-+\d]+', TABLES.keys)
     end
   end
 end

@@ -1,6 +1,4 @@
-require "bcdice/arithmetic_evaluator"
-require "bcdice/normalize"
-require "bcdice/format"
+require "bcdice/common_command/upper_dice/parser"
 
 module BCDice
   module CommonCommand
@@ -30,135 +28,18 @@ module BCDice
     #   "2U4" -> 3[3]+10=13, 10[4,4,2]+10=20
     #   最大値：20
     #   合計値：23 = 3[3]+10[4,4,2]+10
-    class UpperDice
+    module UpperDice
       PREFIX_PATTERN = /\d+U\d+/.freeze
 
-      def initialize(command, bcdice, diceBot)
-        @string = command
-        @bcdice = bcdice
-        @diceBot = diceBot
-
-        @is_secret = false
-      end
-
-      def secret?
-        @is_secret
-      end
-
-      # 上方無限ロールを実行する
-      #
-      # @return [String, nil]
-      def eval
-        unless (m = /^S?(\d+U\d+(?:\+\d+U\d+)*)(?:\[(\d+)\])?([\+\-\d]*)(?:([<>=]+)(\d+))?(?:@(\d+))?/i.match(@string))
-          return nil
+      class << self
+        # @param command [String]
+        # @param game_system [BCDice::Base]
+        # @param randomizer [BCDice::Randomizer]
+        # @return [UpperDice, nil]
+        def eval(command, game_system, randomizer)
+          cmd = Parser.parse(command)
+          cmd&.eval(game_system, randomizer)
         end
-
-        @is_secret = @string.start_with?("S")
-
-        @command = m[1]
-        @cmp_op = Normalize.comparison_operator(m[4])
-        @target_number = @cmp_op ? m[5].to_i : nil
-        @reroll_threshold = reroll_threshold(m[2] || m[6])
-
-        @modify_number = ArithmeticEvaluator.eval(m[3], round_type: @diceBot.round_type)
-
-        if @reroll_threshold <= 1
-          return "(#{expr()}) ＞ 無限ロールの条件がまちがっています"
-        end
-
-        roll_list = []
-        @command.split("+").each do |u|
-          times, sides = u.split("U", 2).map(&:to_i)
-          roll_list.concat(roll(times, sides))
-        end
-
-        result =
-          if @cmp_op
-            success_count = roll_list.count do |e|
-              x = e[:sum] + @modify_number
-              x.send(@cmp_op, @target_number)
-            end
-            "成功数#{success_count}"
-          else
-            sum_list = roll_list.map { |e| e[:sum] }
-            total = sum_list.inject(0, :+) + @modify_number
-            max = sum_list.map { |i| i + @modify_number }.max
-            "#{max}/#{total}(最大/合計)"
-          end
-
-        sequence = [
-          "(#{expr()})",
-          dice_text(roll_list) + Format.modifier(@modify_number),
-          result
-        ]
-
-        return sequence.join(" ＞ ")
-      end
-
-      private
-
-      # ダイスロールし、ダイスボットのソート設定に応じてソートする
-      #
-      # @param times [Integer] ダイスの個数
-      # @param sides [Integer] ダイスの面数
-      # @return [Array<Hash>]
-      def roll(times, sides)
-        ret = Array.new(times) do
-          list = roll_ones(sides)
-          {sum: list.inject(0, :+), list: list}
-        end
-
-        if @diceBot.sort_barabara_dice?
-          ret = ret.sort_by { |e| e[:sum] }
-        end
-
-        return ret
-      end
-
-      # 一つだけダイスロールする
-      #
-      # @param sides [Integer] ダイスの面数
-      # @return [Array<Integer>]
-      def roll_ones(sides)
-        dice_list = []
-
-        loop do
-          value = @bcdice.roll_once(sides)
-          dice_list.push(value)
-          break if value < @reroll_threshold
-        end
-
-        return dice_list
-      end
-
-      # ダイスロールの結果を文字列に変換する
-      # 振り足しがなければその数値、振り足しがあれば合計と各ダイスの出目を出力する
-      #
-      # @param roll_list [Array<Hash>]
-      # @return [String]
-      def dice_text(roll_list)
-        roll_list.map do |e|
-          if e[:list].size == 1
-            e[:sum]
-          else
-            "#{e[:sum]}[#{e[:list].join(',')}]"
-          end
-        end.join(",")
-      end
-
-      # 振り足しの閾値を得る
-      #
-      # @param target [String]
-      # @return [Integer]
-      def reroll_threshold(target)
-        target&.to_i || @diceBot.upper_dice_reroll_threshold.to_i
-      end
-
-      # パース済みのコマンドを文字列で表示する
-      #
-      # @return [String]
-      def expr
-        "#{@command}[#{@reroll_threshold}]#{Format.modifier(@modify_number)}#{Format.comparison_operator(@cmp_op)}#{@target_number}"
       end
     end
   end

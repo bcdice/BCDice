@@ -68,14 +68,13 @@ module BCDice
         　絡み効果表を出すことができます。
       INFO_MESSAGE_TEXT
 
-      register_prefix(['H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT'])
+      register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT')
 
       # コマンド実行前にメッセージを置換する
       # @param [String] string 受信したメッセージ
       # @return [String]
       def replace_text(string)
-        # TODO: Ruby 2.4以降では Regexp#match? を使うこと
-        return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match(string)
+        return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match?(string)
 
         super(string).gsub(/#([-+]?\d+)/) do
           modifier = Regexp.last_match(1).to_i

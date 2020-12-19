@@ -26,7 +26,7 @@ module BCDice
         　例）GL
       MESSAGETEXT
 
-      register_prefix(['GK(#\d+)?', 'GL'])
+      register_prefix('GK(#\d+)?', 'GL')
 
       def eval_game_system_specific_command(command)
         output = nil

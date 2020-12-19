@@ -26,7 +26,7 @@ module BCDice
         　　最初の0が判断基準で、その右側5つがボッチダイスです。1*2,8*2,0*1なので1botchという訳です。
       INFO_MESSAGE_TEXT
 
-      register_prefix(['ArS.*', '1R10.*'])
+      register_prefix('ArS.*', '1R10.*')
 
       def eval_game_system_specific_command(string)
         unless parse_ars(string) || parse_1r10(string)

@@ -48,7 +48,7 @@ module BCDice
 
       INFO_MESSAGE_TEXT
 
-      register_prefix(['CC(B)?\(\d+\)', 'CC(B)?.*', 'RES(B)?.*', 'CBR(B)?\(\d+,\d+\)'])
+      register_prefix('CC(B)?\(\d+\)', 'CC(B)?.*', 'RES(B)?.*', 'CBR(B)?\(\d+,\d+\)')
 
       def initialize(command)
         super(command)
@@ -94,90 +94,95 @@ module BCDice
         return nil
       end
 
+      private
+
       def getCheckResult(command)
-        broken_num = 0
-        diff = 0
+        m = %r{CCB?(\d+)?(?:<=([+-/*\d]+))?}i.match(command)
+        broken_num = m[1].to_i
+        diff = ArithmeticEvaluator.eval(m[2])
 
-        if (m = %r{CCB?(\d+)?<=([+-/*\d]+)}i.match(command))
-          broken_num = m[1].to_i
-          diff = ArithmeticEvaluator.eval(m[2])
+        if diff <= 0
+          total = @randomizer.roll_once(100)
+          return Result.new("(1D100) ＞ #{total}")
         end
 
-        output = ""
-
-        if diff > 0
-          output = "(1D100<=#{diff})"
-
-          if broken_num > 0
-            output += " #{translate('Cthulhu.broken_number')}[#{broken_num}]"
-          end
-
-          total_n = @randomizer.roll_once(100)
-
-          output += " ＞ #{total_n}"
-          output += " ＞ #{getCheckResultText(total_n, diff, broken_num)}"
-        else
-          total_n = @randomizer.roll_once(100)
-          output = "(1D100) ＞ #{total_n}"
+        expr = "(1D100<=#{diff})"
+        if broken_num > 0
+          expr += " #{translate('Cthulhu.broken_number')}[#{broken_num}]"
         end
 
-        return output
+        total = @randomizer.roll_once(100)
+        compare_result = compare(total, diff, broken_num)
+
+        compare_result.to_result.tap do |r|
+          r.text = "#{expr} ＞ #{total} ＞ #{compare_result.text}"
+        end
       end
 
-      def getCheckResultText(total_n, diff, broken_num = 0)
-        result = ""
-        diff_special = 0
-        fumble = false
+      class CompareResult
+        include Translate
+        attr_accessor :success, :failure, :critical, :fumble, :special, :broken
 
-        if @special_percentage > 0
-          # specialの値設定が無い場合はクリティカル/ファンブル判定もしない
-          diff_special = (diff * @special_percentage / 100).floor
-          if diff_special < 1
-            diff_special = 1
+        def initialize(locale)
+          @locale = locale
+
+          @success = false
+          @failure = false
+          @critical = false
+          @fumble = false
+          @special = false
+          @broke = false
+        end
+
+        def text
+          if critical && special
+            translate("Cthulhu.critical_special")
+          elsif critical
+            translate("Cthulhu.critical")
+          elsif special
+            translate("Cthulhu.special")
+          elsif success
+            translate("success")
+          elsif broken && fumble
+            "#{translate('Cthulhu.fumble')}/#{translate('Cthulhu.broken')}"
+          elsif broken
+            translate("Cthulhu.broken")
+          elsif fumble
+            translate("Cthulhu.fumble")
+          elsif failure
+            translate("failure")
           end
         end
 
-        if (total_n <= diff) && (total_n < 100)
-          @is_success = true
-          result = translate("success")
-
-          if diff_special > 0
-            if total_n <= @critical_percentage
-              @is_critical = true
-              if total_n <= diff_special
-                result = translate("Cthulhu.critical_special")
-              else
-                result = translate("Cthulhu.critical")
-              end
-            else
-              if total_n <= diff_special
-                result = translate("Cthulhu.special")
-              end
-            end
+        def to_result
+          Result.new.tap do |r|
+            r.success = success
+            r.failure = failure
+            r.critical = critical
+            r.fumble = fumble
           end
+        end
+      end
+
+      def compare(total, target, broken_number = 0)
+        result = CompareResult.new(@locale)
+        target_special = (target * @special_percentage / 100).clamp(1, 100)
+
+        if (total <= target) && (total < 100)
+          result.success = true
+          result.special = total <= target_special
+          result.critical = total <= @critical_percentage
         else
-          @is_failure = true
-          result = translate("failure")
-
-          if diff_special > 0
-            if (total_n >= (101 - @fumble_percentage)) && (diff < 100)
-              @is_fumble = true
-              result = translate("Cthulhu.fumble")
-              fumble = true
-            end
-          end
+          result.failure = true
+          result.fumble = total >= (101 - @fumble_percentage)
         end
 
-        if broken_num > 0
-          if total_n >= broken_num
-            @is_success = false
-            @is_failure = true
-            if fumble
-              result += "/#{translate('Cthulhu.broken')}"
-            else
-              result = translate("Cthulhu.broken")
-            end
-          end
+        if broken_number > 0 && total >= broken_number
+          result.broken = true
+          result.failure = true
+          result.success = false
+          result.special = false
+          result.critical = false
         end
 
         return result
@@ -186,33 +191,33 @@ module BCDice
       def getRegistResult(command)
         m = /RES(B)?([-\d]+)/i.match(command)
         unless m
-          return "1"
+          return nil
         end
 
         value = m[2].to_i
         target = value * 5 + 50
 
         if target < 5
-          @is_failure = true
-          return "(1d100<=#{target}) ＞ #{translate('Cthulhu.automatic_failure')}"
+          return Result.failure("(1d100<=#{target}) ＞ #{translate('Cthulhu.automatic_failure')}")
         end
 
         if target > 95
-          @is_success = true
-          return "(1d100<=#{target}) ＞ #{translate('Cthulhu.automatic_success')}"
+          return Result.success("(1d100<=#{target}) ＞ #{translate('Cthulhu.automatic_success')}")
         end
 
         # 通常判定
         total_n = @randomizer.roll_once(100)
-        result = getCheckResultText(total_n, target)
+        compare_result = compare(total_n, target)
 
-        return "(1d100<=#{target}) ＞ #{total_n} ＞ #{result}"
+        compare_result.to_result.tap do |r|
+          r.text = "(1d100<=#{target}) ＞ #{total_n} ＞ #{compare_result.text}"
+        end
       end
 
       def getCombineRoll(command)
         m = /CBR(B)?\((\d+),(\d+)\)/i.match(command)
         unless m
-          return "1"
+          return nil
         end
 
         diff_1 = m[2].to_i
@@ -220,37 +225,24 @@ module BCDice
 
         total = @randomizer.roll_once(100)
 
-        result_1 = getCheckResultText(total, diff_1)
-        result_2 = getCheckResultText(total, diff_2)
-
-        successList = [
-          translate("Cthulhu.critical_special"),
-          translate("Cthulhu.critical"),
-          translate("Cthulhu.special"),
-          translate("success"),
-        ]
-
-        succesCount = 0
-        succesCount += 1 if successList.include?(result_1)
-        succesCount += 1 if successList.include?(result_2)
-        debug("succesCount", succesCount)
-
-        @is_failure = false
-        @is_success = false
+        result_1 = compare(total, diff_1)
+        result_2 = compare(total, diff_2)
 
         rank =
-          if succesCount >= 2
-            @is_success = true
+          if result_1.success && result_2.success
             translate("success")
-          elsif succesCount == 1
-            @is_success = true
+          elsif result_1.success || result_2.success
             translate("Cthulhu.partial_success")
           else
-            @is_failure = true
             translate("failure")
           end
 
-        return "(1d100<=#{diff_1},#{diff_2}) ＞ #{total}[#{result_1},#{result_2}] ＞ #{rank}"
+        Result.new.tap do |r|
+          r.text = "(1d100<=#{diff_1},#{diff_2}) ＞ #{total}[#{result_1.text},#{result_2.text}] ＞ #{rank}"
+          r.critical = result_1.critical || result_2.critical
+          r.fumble = result_1.fumble || result_2.fumble
+          r.condition = result_1.success || result_2.success
+        end
       end
     end
   end

@@ -54,7 +54,7 @@ module BCDice
         []内は省略可　D66入れ替えあり
       INFO_MESSAGE_TEXT
 
-      register_prefix([
+      register_prefix(
         '[1-7]*PD\d+(?:[\+\-]\d+)?',
         'HW',
         'BWT',
@@ -142,7 +142,7 @@ module BCDice
         'LIT',
         'TIT',
         'CIT'
-      ])
+      )
 
       def initialize(command)
         super(command)

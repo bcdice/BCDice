@@ -1,9 +1,8 @@
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20"
+input = "38E20"
 output = "ステップ38>=20 ＞ 2d20[75,10]+2d10[7,3]+1d8[2] ＞ 97 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 38 },
   { sides = 20, value = 20 },
   { sides = 20, value = 20 },
   { sides = 20, value = 20 },
@@ -16,10 +15,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20"
+input = "34E20"
 output = "ステップ34>=20 ＞ 1d20[9]+1d12[21]+2d10[9,8]+1d8[4] ＞ 51 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 34 },
   { sides = 20, value = 9 },
   { sides = 12, value = 12 },
   { sides = 12, value = 9 },
@@ -30,20 +28,18 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20"
+input = "18E20"
 output = "ステップ18>=20 ＞ 1d20[17]+1d12[3] ＞ 20 ＞ 成功"
 rands = [
-  { sides = 40, value = 18 },
   { sides = 20, value = 17 },
   { sides = 12, value = 3 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20"
+input = "24E20"
 output = "ステップ24>=20 ＞ 1d20[4]+1d12[8]+1d10[2] ＞ 14 ＞ 失敗"
 rands = [
-  { sides = 40, value = 24 },
   { sides = 20, value = 4 },
   { sides = 12, value = 8 },
   { sides = 10, value = 2 },
@@ -51,10 +47,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20"
+input = "23E20"
 output = "ステップ23>=20 ＞ 1d20[3]+2d10[4,7] ＞ 14 ＞ 失敗"
 rands = [
-  { sides = 40, value = 23 },
   { sides = 20, value = 3 },
   { sides = 10, value = 4 },
   { sides = 10, value = 7 },
@@ -62,10 +57,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20"
+input = "37E20"
 output = "ステップ37>=20 ＞ 2d20[25,19]+1d10[1]+2d8[4,7] ＞ 56 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 37 },
   { sides = 20, value = 20 },
   { sides = 20, value = 5 },
   { sides = 20, value = 19 },
@@ -76,10 +70,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20"
+input = "9E20"
 output = "ステップ9>=20 ＞ 1d8[3]+1d6[8] ＞ 11 ＞ 大失敗"
 rands = [
-  { sides = 40, value = 9 },
   { sides = 8, value = 3 },
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -87,10 +80,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20"
+input = "32E20"
 output = "ステップ32>=20 ＞ 1d20[9]+2d10[5,2]+2d8[6,9] ＞ 31 ＞ 良成功"
 rands = [
-  { sides = 40, value = 32 },
   { sides = 20, value = 9 },
   { sides = 10, value = 5 },
   { sides = 10, value = 2 },
@@ -101,10 +93,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20"
+input = "19E20"
 output = "ステップ19>=20 ＞ 1d20[2]+2d6[1,17] ＞ 20 ＞ 成功"
 rands = [
-  { sides = 40, value = 19 },
   { sides = 20, value = 2 },
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -114,10 +105,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20"
+input = "14E20"
 output = "ステップ14>=20 ＞ 1d20[17]+1d4[19] ＞ 36 ＞ 優成功"
 rands = [
-  { sides = 40, value = 14 },
   { sides = 20, value = 17 },
   { sides = 4, value = 4 },
   { sides = 4, value = 4 },
@@ -128,10 +118,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+4"
+input = "40E20+4"
 output = "ステップ40>=20 ＞ 2d20[7,9]+1d10[7]+1d8[4]+2d6[2,19]+4 ＞ 52 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 40 },
   { sides = 20, value = 7 },
   { sides = 20, value = 9 },
   { sides = 10, value = 7 },
@@ -145,10 +134,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+4"
+input = "30E20+4"
 output = "ステップ30>=20 ＞ 1d20[14]+1d10[16]+1d8[2]+2d6[3,3]+4 ＞ 42 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 30 },
   { sides = 20, value = 14 },
   { sides = 10, value = 10 },
   { sides = 10, value = 6 },
@@ -159,10 +147,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+4"
+input = "37E20+4"
 output = "ステップ37>=20 ＞ 2d20[18,2]+1d10[5]+2d8[6,7]+4 ＞ 42 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 37 },
   { sides = 20, value = 18 },
   { sides = 20, value = 2 },
   { sides = 10, value = 5 },
@@ -172,20 +159,18 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+4"
+input = "17E20+4"
 output = "ステップ17>=20 ＞ 1d20[14]+1d10[7]+4 ＞ 25 ＞ 成功"
 rands = [
-  { sides = 40, value = 17 },
   { sides = 20, value = 14 },
   { sides = 10, value = 7 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+4"
+input = "26E20+4"
 output = "ステップ26>=20 ＞ 1d20[9]+1d10[4]+1d8[1]+1d6[2]+4 ＞ 20 ＞ 成功"
 rands = [
-  { sides = 40, value = 26 },
   { sides = 20, value = 9 },
   { sides = 10, value = 4 },
   { sides = 8, value = 1 },
@@ -194,10 +179,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+4"
+input = "34E20+4"
 output = "ステップ34>=20 ＞ 1d20[7]+1d12[1]+2d10[6,7]+1d8[15]+4 ＞ 40 ＞ 優成功"
 rands = [
-  { sides = 40, value = 34 },
   { sides = 20, value = 7 },
   { sides = 12, value = 1 },
   { sides = 10, value = 6 },
@@ -208,10 +192,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+4"
+input = "40E20+4"
 output = "ステップ40>=20 ＞ 2d20[19,12]+1d10[9]+1d8[5]+2d6[1,5]+4 ＞ 55 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 40 },
   { sides = 20, value = 19 },
   { sides = 20, value = 12 },
   { sides = 10, value = 9 },
@@ -222,10 +205,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+4"
+input = "37E20+4"
 output = "ステップ37>=20 ＞ 2d20[13,14]+1d10[8]+2d8[7,4]+4 ＞ 50 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 37 },
   { sides = 20, value = 13 },
   { sides = 20, value = 14 },
   { sides = 10, value = 8 },
@@ -235,10 +217,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+4"
+input = "29E20+4"
 output = "ステップ29>=20 ＞ 1d20[12]+1d12[10]+1d10[3]+1d8[2]+4 ＞ 31 ＞ 良成功"
 rands = [
-  { sides = 40, value = 29 },
   { sides = 20, value = 12 },
   { sides = 12, value = 10 },
   { sides = 10, value = 3 },
@@ -247,10 +228,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+4"
+input = "30E20+4"
 output = "ステップ30>=20 ＞ 1d20[3]+1d10[3]+1d8[12]+2d6[4,2]+4 ＞ 28 ＞ 良成功"
 rands = [
-  { sides = 40, value = 30 },
   { sides = 20, value = 3 },
   { sides = 10, value = 3 },
   { sides = 8, value = 8 },
@@ -261,29 +241,26 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+6"
+input = "6E20+6"
 output = "ステップ6>=20 ＞ 1d10[7]+6 ＞ 13 ＞ 失敗"
 rands = [
-  { sides = 40, value = 6 },
   { sides = 10, value = 7 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+6"
+input = "9E20+6"
 output = "ステップ9>=20 ＞ 1d8[6]+1d6[3]+6 ＞ 15 ＞ 失敗"
 rands = [
-  { sides = 40, value = 9 },
   { sides = 8, value = 6 },
   { sides = 6, value = 3 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+6"
+input = "19E20+6"
 output = "ステップ19>=20 ＞ 1d20[2]+2d6[2,10]+6 ＞ 20 ＞ 成功"
 rands = [
-  { sides = 40, value = 19 },
   { sides = 20, value = 2 },
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -292,10 +269,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+6"
+input = "38E20+6"
 output = "ステップ38>=20 ＞ 2d20[14,4]+2d10[2,19]+1d8[4]+6 ＞ 49 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 38 },
   { sides = 20, value = 14 },
   { sides = 20, value = 4 },
   { sides = 10, value = 2 },
@@ -306,10 +282,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+6"
+input = "24E20+6"
 output = "ステップ24>=20 ＞ 1d20[5]+1d12[1]+1d10[5]+6 ＞ 17 ＞ 失敗"
 rands = [
-  { sides = 40, value = 24 },
   { sides = 20, value = 5 },
   { sides = 12, value = 1 },
   { sides = 10, value = 5 },
@@ -317,10 +292,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+6"
+input = "26E20+6"
 output = "ステップ26>=20 ＞ 1d20[6]+1d10[9]+1d8[2]+1d6[4]+6 ＞ 27 ＞ 成功"
 rands = [
-  { sides = 40, value = 26 },
   { sides = 20, value = 6 },
   { sides = 10, value = 9 },
   { sides = 8, value = 2 },
@@ -329,10 +303,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+6"
+input = "32E20+6"
 output = "ステップ32>=20 ＞ 1d20[12]+2d10[5,1]+2d8[1,7]+6 ＞ 32 ＞ 良成功"
 rands = [
-  { sides = 40, value = 32 },
   { sides = 20, value = 12 },
   { sides = 10, value = 5 },
   { sides = 10, value = 1 },
@@ -342,10 +315,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+6"
+input = "23E20+6"
 output = "ステップ23>=20 ＞ 1d20[13]+2d10[15,9]+6 ＞ 43 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 23 },
   { sides = 20, value = 13 },
   { sides = 10, value = 10 },
   { sides = 10, value = 5 },
@@ -354,20 +326,18 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+6"
+input = "9E20+6"
 output = "ステップ9>=20 ＞ 1d8[4]+1d6[5]+6 ＞ 15 ＞ 失敗"
 rands = [
-  { sides = 40, value = 9 },
   { sides = 8, value = 4 },
   { sides = 6, value = 5 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+6"
+input = "40E20+6"
 output = "ステップ40>=20 ＞ 2d20[27,6]+1d10[1]+1d8[3]+2d6[2,2]+6 ＞ 47 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 40 },
   { sides = 20, value = 20 },
   { sides = 20, value = 7 },
   { sides = 20, value = 6 },
@@ -379,10 +349,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+8"
+input = "23E20+8"
 output = "ステップ23>=20 ＞ 1d20[13]+2d10[6,4]+8 ＞ 31 ＞ 良成功"
 rands = [
-  { sides = 40, value = 23 },
   { sides = 20, value = 13 },
   { sides = 10, value = 6 },
   { sides = 10, value = 4 },
@@ -390,20 +359,18 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+8"
+input = "12E20+8"
 output = "ステップ12>=20 ＞ 2d10[2,2]+8 ＞ 12 ＞ 失敗"
 rands = [
-  { sides = 40, value = 12 },
   { sides = 10, value = 2 },
   { sides = 10, value = 2 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+8"
+input = "35E20+8"
 output = "ステップ35>=20 ＞ 2d20[7,19]+1d10[6]+1d8[3]+1d4[3]+8 ＞ 46 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 35 },
   { sides = 20, value = 7 },
   { sides = 20, value = 19 },
   { sides = 10, value = 6 },
@@ -413,10 +380,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+8"
+input = "35E20+8"
 output = "ステップ35>=20 ＞ 2d20[19,17]+1d10[7]+1d8[14]+1d4[1]+8 ＞ 66 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 35 },
   { sides = 20, value = 19 },
   { sides = 20, value = 17 },
   { sides = 10, value = 7 },
@@ -427,10 +393,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+8"
+input = "36E20+8"
 output = "ステップ36>=20 ＞ 2d20[15,12]+1d10[7]+1d8[2]+1d6[4]+8 ＞ 48 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 36 },
   { sides = 20, value = 15 },
   { sides = 20, value = 12 },
   { sides = 10, value = 7 },
@@ -440,10 +405,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+8"
+input = "28E20+8"
 output = "ステップ28>=20 ＞ 1d20[17]+2d10[1,8]+1d8[6]+8 ＞ 40 ＞ 優成功"
 rands = [
-  { sides = 40, value = 28 },
   { sides = 20, value = 17 },
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
@@ -452,10 +416,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+8"
+input = "34E20+8"
 output = "ステップ34>=20 ＞ 1d20[7]+1d12[3]+2d10[6,7]+1d8[13]+8 ＞ 44 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 34 },
   { sides = 20, value = 7 },
   { sides = 12, value = 3 },
   { sides = 10, value = 6 },
@@ -466,10 +429,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+8"
+input = "24E20+8"
 output = "ステップ24>=20 ＞ 1d20[2]+1d12[5]+1d10[9]+8 ＞ 24 ＞ 成功"
 rands = [
-  { sides = 40, value = 24 },
   { sides = 20, value = 2 },
   { sides = 12, value = 5 },
   { sides = 10, value = 9 },
@@ -477,10 +439,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+8"
+input = "31E20+8"
 output = "ステップ31>=20 ＞ 1d20[8]+1d10[6]+2d8[1,2]+1d6[2]+8 ＞ 27 ＞ 成功"
 rands = [
-  { sides = 40, value = 31 },
   { sides = 20, value = 8 },
   { sides = 10, value = 6 },
   { sides = 8, value = 1 },
@@ -490,29 +451,26 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+8"
+input = "18E20+8"
 output = "ステップ18>=20 ＞ 1d20[18]+1d12[10]+8 ＞ 36 ＞ 優成功"
 rands = [
-  { sides = 40, value = 18 },
   { sides = 20, value = 18 },
   { sides = 12, value = 10 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+10"
+input = "6E20+10"
 output = "ステップ6>=20 ＞ 1d10[4]+10 ＞ 14 ＞ 失敗"
 rands = [
-  { sides = 40, value = 6 },
   { sides = 10, value = 4 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+10"
+input = "37E20+10"
 output = "ステップ37>=20 ＞ 2d20[2,7]+1d10[7]+2d8[2,3]+10 ＞ 31 ＞ 良成功"
 rands = [
-  { sides = 40, value = 37 },
   { sides = 20, value = 2 },
   { sides = 20, value = 7 },
   { sides = 10, value = 7 },
@@ -522,10 +480,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+10"
+input = "22E20+10"
 output = "ステップ22>=20 ＞ 1d20[9]+1d10[3]+1d8[10]+10 ＞ 32 ＞ 良成功"
 rands = [
-  { sides = 40, value = 22 },
   { sides = 20, value = 9 },
   { sides = 10, value = 3 },
   { sides = 8, value = 8 },
@@ -534,20 +491,18 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+10"
+input = "16E20+10"
 output = "ステップ16>=20 ＞ 1d20[15]+1d8[7]+10 ＞ 32 ＞ 良成功"
 rands = [
-  { sides = 40, value = 16 },
   { sides = 20, value = 15 },
   { sides = 8, value = 7 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+10"
+input = "21E20+10"
 output = "ステップ21>=20 ＞ 1d20[8]+1d10[2]+1d6[11]+10 ＞ 31 ＞ 良成功"
 rands = [
-  { sides = 40, value = 21 },
   { sides = 20, value = 8 },
   { sides = 10, value = 2 },
   { sides = 6, value = 6 },
@@ -556,10 +511,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+10"
+input = "34E20+10"
 output = "ステップ34>=20 ＞ 1d20[8]+1d12[8]+2d10[6,4]+1d8[2]+10 ＞ 38 ＞ 優成功"
 rands = [
-  { sides = 40, value = 34 },
   { sides = 20, value = 8 },
   { sides = 12, value = 8 },
   { sides = 10, value = 6 },
@@ -569,10 +523,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+10"
+input = "29E20+10"
 output = "ステップ29>=20 ＞ 1d20[8]+1d12[3]+1d10[6]+1d8[1]+10 ＞ 28 ＞ 良成功"
 rands = [
-  { sides = 40, value = 29 },
   { sides = 20, value = 8 },
   { sides = 12, value = 3 },
   { sides = 10, value = 6 },
@@ -581,20 +534,18 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+10"
+input = "7E20+10"
 output = "ステップ7>=20 ＞ 1d12[22]+10 ＞ 32 ＞ 良成功"
 rands = [
-  { sides = 40, value = 7 },
   { sides = 12, value = 12 },
   { sides = 12, value = 10 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+10"
+input = "39E20+10"
 output = "ステップ39>=20 ＞ 2d20[3,23]+1d12[2]+1d10[11]+1d8[11]+10 ＞ 60 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 39 },
   { sides = 20, value = 3 },
   { sides = 20, value = 20 },
   { sides = 20, value = 3 },
@@ -607,10 +558,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+10"
+input = "8E20+10"
 output = "ステップ8>=20 ＞ 2d6[17,3]+10 ＞ 30 ＞ 良成功"
 rands = [
-  { sides = 40, value = 8 },
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -619,20 +569,18 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+12"
+input = "3E20+12"
 output = "ステップ3>=20 ＞ 1d4[7]+12 ＞ 19 ＞ 失敗"
 rands = [
-  { sides = 40, value = 3 },
   { sides = 4, value = 4 },
   { sides = 4, value = 3 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+12"
+input = "25E20+12"
 output = "ステップ25>=20 ＞ 1d20[9]+1d10[5]+1d8[23]+1d4[3]+12 ＞ 52 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 25 },
   { sides = 20, value = 9 },
   { sides = 10, value = 5 },
   { sides = 8, value = 8 },
@@ -643,10 +591,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+12"
+input = "31E20+12"
 output = "ステップ31>=20 ＞ 1d20[19]+1d10[9]+2d8[7,3]+1d6[4]+12 ＞ 54 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 31 },
   { sides = 20, value = 19 },
   { sides = 10, value = 9 },
   { sides = 8, value = 7 },
@@ -656,29 +603,26 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+12"
+input = "14E20+12"
 output = "ステップ14>=20 ＞ 1d20[18]+1d4[2]+12 ＞ 32 ＞ 良成功"
 rands = [
-  { sides = 40, value = 14 },
   { sides = 20, value = 18 },
   { sides = 4, value = 2 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+12"
+input = "7E20+12"
 output = "ステップ7>=20 ＞ 1d12[2]+12 ＞ 14 ＞ 失敗"
 rands = [
-  { sides = 40, value = 7 },
   { sides = 12, value = 2 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+12"
+input = "26E20+12"
 output = "ステップ26>=20 ＞ 1d20[15]+1d10[4]+1d8[1]+1d6[1]+12 ＞ 33 ＞ 良成功"
 rands = [
-  { sides = 40, value = 26 },
   { sides = 20, value = 15 },
   { sides = 10, value = 4 },
   { sides = 8, value = 1 },
@@ -687,10 +631,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+12"
+input = "32E20+12"
 output = "ステップ32>=20 ＞ 1d20[12]+2d10[2,9]+2d8[2,1]+12 ＞ 38 ＞ 優成功"
 rands = [
-  { sides = 40, value = 32 },
   { sides = 20, value = 12 },
   { sides = 10, value = 2 },
   { sides = 10, value = 9 },
@@ -700,10 +643,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+12"
+input = "27E20+12"
 output = "ステップ27>=20 ＞ 1d20[13]+1d10[2]+2d8[2,4]+12 ＞ 33 ＞ 良成功"
 rands = [
-  { sides = 40, value = 27 },
   { sides = 20, value = 13 },
   { sides = 10, value = 2 },
   { sides = 8, value = 2 },
@@ -712,10 +654,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+12"
+input = "22E20+12"
 output = "ステップ22>=20 ＞ 1d20[3]+1d10[3]+1d8[3]+12 ＞ 21 ＞ 成功"
 rands = [
-  { sides = 40, value = 22 },
   { sides = 20, value = 3 },
   { sides = 10, value = 3 },
   { sides = 8, value = 3 },
@@ -723,10 +664,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+12"
+input = "30E20+12"
 output = "ステップ30>=20 ＞ 1d20[12]+1d10[4]+1d8[5]+2d6[3,3]+12 ＞ 39 ＞ 優成功"
 rands = [
-  { sides = 40, value = 30 },
   { sides = 20, value = 12 },
   { sides = 10, value = 4 },
   { sides = 8, value = 5 },
@@ -736,10 +676,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+20"
+input = "9E20+20"
 output = "ステップ9>=20 ＞ 1d8[15]+1d6[1]+20 ＞ 36 ＞ 優成功"
 rands = [
-  { sides = 40, value = 9 },
   { sides = 8, value = 8 },
   { sides = 8, value = 7 },
   { sides = 6, value = 1 },
@@ -747,19 +686,17 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+20"
+input = "3E20+20"
 output = "ステップ3>=20 ＞ 1d4[3]+20 ＞ 23 ＞ 成功"
 rands = [
-  { sides = 40, value = 3 },
   { sides = 4, value = 3 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+20"
+input = "28E20+20"
 output = "ステップ28>=20 ＞ 1d20[9]+2d10[4,4]+1d8[3]+20 ＞ 40 ＞ 優成功"
 rands = [
-  { sides = 40, value = 28 },
   { sides = 20, value = 9 },
   { sides = 10, value = 4 },
   { sides = 10, value = 4 },
@@ -768,10 +705,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+20"
+input = "38E20+20"
 output = "ステップ38>=20 ＞ 2d20[10,5]+2d10[16,17]+1d8[14]+20 ＞ 82 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 38 },
   { sides = 20, value = 10 },
   { sides = 20, value = 5 },
   { sides = 10, value = 10 },
@@ -784,28 +720,25 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+20"
+input = "6E20+20"
 output = "ステップ6>=20 ＞ 1d10[6]+20 ＞ 26 ＞ 成功"
 rands = [
-  { sides = 40, value = 6 },
   { sides = 10, value = 6 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+20"
+input = "6E20+20"
 output = "ステップ6>=20 ＞ 1d10[3]+20 ＞ 23 ＞ 成功"
 rands = [
-  { sides = 40, value = 6 },
   { sides = 10, value = 3 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+20"
+input = "27E20+20"
 output = "ステップ27>=20 ＞ 1d20[2]+1d10[6]+2d8[5,5]+20 ＞ 38 ＞ 優成功"
 rands = [
-  { sides = 40, value = 27 },
   { sides = 20, value = 2 },
   { sides = 10, value = 6 },
   { sides = 8, value = 5 },
@@ -814,10 +747,9 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+20"
+input = "33E20+20"
 output = "ステップ33>=20 ＞ 1d20[16]+3d10[6,5,4]+1d8[4]+20 ＞ 55 ＞ 最良成功"
 rands = [
-  { sides = 40, value = 33 },
   { sides = 20, value = 16 },
   { sides = 10, value = 6 },
   { sides = 10, value = 5 },
@@ -827,20 +759,18 @@ rands = [
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+20"
+input = "2E20+20"
 output = "ステップ2>=20 ＞ 1d4[5]+19 ＞ 24 ＞ 成功"
 rands = [
-  { sides = 40, value = 2 },
   { sides = 4, value = 4 },
   { sides = 4, value = 1 },
 ]
 
 [[ test ]]
 game_system = "EarthDawn"
-input = "[1...40]E20+20"
+input = "4E20+20"
 output = "ステップ4>=20 ＞ 1d6[1]+20 ＞ 21 ＞ 自動失敗"
 rands = [
-  { sides = 40, value = 4 },
   { sides = 6, value = 1 },
 ]
 

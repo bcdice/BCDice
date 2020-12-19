@@ -990,7 +990,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "ERT"
-output = "蘇生副作用表(11) ＞ おいそそうな匂いがするようになった"
+output = "蘇生副作用表(11) ＞ おいしそうな匂いがするようになった"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1138,7 +1138,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "2D6>=? 目標値?でバグらない"
-output = "(2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },

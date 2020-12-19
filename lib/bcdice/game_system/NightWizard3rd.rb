@@ -14,7 +14,7 @@ module BCDice
       # ゲームシステムの識別子
       ID = 'NightWizard3rd'
 
-      register_prefix(['([-+]?\d+)?NW.*', '2R6.*'])
+      register_prefix('([-+]?\d+)?NW.*', '2R6.*')
 
       def fumble_base_number(parsed)
         parsed.passive_modify_number + parsed.active_modify_number

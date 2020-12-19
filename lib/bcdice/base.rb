@@ -6,6 +6,9 @@ require "bcdice/randomizer"
 require "bcdice/dice_table"
 require "bcdice/enum"
 require "bcdice/translate"
+require "bcdice/result"
+require "bcdice/command_parser"
+require "bcdice/deprecated/checker"
 
 module BCDice
   class Base
@@ -57,9 +60,16 @@ module BCDice
 
         @command_pattern = /^S?(#{pattarns.join("|")})/i.freeze
       end
+
+      # @param command [String]
+      # @return [Result]
+      def eval(command)
+        new(command).eval
+      end
     end
 
     include Translate
+    include Deprecated::Checker
 
     def initialize(command)
       @raw_input = command
@@ -83,12 +93,6 @@ module BCDice
       @enabled_upcase_input = true # 入力を String#upcase するかどうか
 
       @locale = :ja_jp # i18n用の言語設定
-
-      @is_secret = false
-      @is_success = false
-      @is_failure = false
-      @is_critical = false
-      @is_fumble = false
 
       @randomizer = BCDice::Randomizer.new
       @debug = false
@@ -154,50 +158,21 @@ module BCDice
       @enabled_d9
     end
 
-    # シークレットコマンドか
-    #
-    # @return [Boolean]
-    def secret?
-      @is_secret
-    end
-
-    # 結果が成功か
-    # @return [Boolean]
-    def success?
-      @is_success
-    end
-
-    # 結果が失敗か
-    # @return [Boolean]
-    def failure?
-      @is_failure
-    end
-
-    # 結果がクリティカルか
-    # @return [Boolean]
-    def critical?
-      @is_critical
-    end
-
-    # 結果がファンブルか
-    # @return [Boolean]
-    def fumble?
-      @is_fumble
-    end
-
     # デバッグを有用にする
     def enable_debug
       @debug = true
     end
 
     # コマンドを評価する
-    # @return [String, nil] コマンド実行結果。コマンドが実行できなかった場合はnilを返す
+    # @return [Result, nil] コマンド実行結果。コマンドが実行できなかった場合はnilを返す
     def eval
-      command = BCDice::Preprocessor.process(@raw_input, @randomizer, self)
-      upcased_command = command.upcase
+      command = BCDice::Preprocessor.process(@raw_input, self)
 
-      result = dice_command(command)
-      result ||= eval_common_command(upcased_command)
+      result = dice_command(command) || eval_common_command(@raw_input)
+      return nil unless result
+
+      result.rands = @randomizer.rand_results
+      result.detailed_rands = @randomizer.detailed_rand_results
 
       return result
     end
@@ -211,36 +186,43 @@ module BCDice
     end
 
     # @param total [Integer] コマンド合計値
-    # @param dice_total [Integer] ダイス目の合計値
-    # @param dice_list [Array<Integer>] ダイスの一覧
-    # @param sides [Integer] 振ったダイスの面数
+    # @param rand_results [Array<CommonCommand::AddDice::Randomizer::RandResult>] ダイスの一覧
     # @param cmp_op [Symbol] 比較演算子
     # @param target [Integer, String] 目標値の整数か'?'
-    # @return [String]
-    def check_result(total, dice_total, dice_list, sides, cmp_op, target)
-      ret =
-        case [dice_list.size, sides]
-        when [1, 100]
-          check_1D100(total, dice_total, cmp_op, target)
-        when [1, 20]
-          check_1D20(total, dice_total, cmp_op, target)
-        when [2, 6]
-          check_2D6(total, dice_total, dice_list, cmp_op, target)
-        end
+    # @return [Result, nil]
+    def check_result(total, rand_results, cmp_op, target)
+      ret = check_result_legacy(total, rand_results, cmp_op, target)
+      return ret if ret
 
-      return ret unless ret.nil? || ret.empty?
+      sides_list = rand_results.map(&:sides)
+      value_list = rand_results.map(&:value)
+      dice_total = value_list.sum()
 
       ret =
-        case sides
-        when 10
-          check_nD10(total, dice_total, dice_list, cmp_op, target)
-        when 6
-          check_nD6(total, dice_total, dice_list, cmp_op, target)
+        case sides_list
+        when [100]
+          result_1d100(total, dice_total, cmp_op, target)
+        when [20]
+          result_1d20(total, dice_total, cmp_op, target)
+        when [6, 6]
+          result_2d6(total, dice_total, value_list, cmp_op, target)
         end
 
-      return ret unless ret.nil? || ret.empty?
+      return nil if ret == Result.nothing
+      return ret if ret
 
-      check_nDx(total, cmp_op, target)
+      ret =
+        case sides_list.uniq
+        when [10]
+          result_nd10(total, dice_total, value_list, cmp_op, target)
+        when [6]
+          result_nd6(total, dice_total, value_list, cmp_op, target)
+        end
+
+      return nil if ret == Result.nothing
+      return ret if ret
+
+      return result_ndx(total, cmp_op, target)
     end
 
     # シャドウラン用グリッチ判定
@@ -253,12 +235,10 @@ module BCDice
     private
 
     def eval_common_command(command)
+      command = change_text(command)
       CommonCommand::COMMANDS.each do |klass|
-        cmd = klass.new(command, @randomizer, self)
-        out = cmd.eval()
-
-        @is_secret = cmd.secret?
-        return out if out
+        result = klass.eval(command, self, @randomizer)
+        return result if result
       end
 
       return nil
@@ -276,11 +256,17 @@ module BCDice
       command = command[1..-1] if secret # 先頭の 'S' をとる
 
       output = eval_game_system_specific_command(command)
-      @is_secret ||= secret
-      if output.nil? || output.empty? || output == "1"
+
+      if output.is_a?(Result)
+        output.secret = output.secret? || secret
+        return output
+      elsif output.nil? || output.empty? || output == "1"
         return nil
       else
-        return output.to_s
+        return Result.new.tap do |r|
+          r.text = output.to_s
+          r.secret = secret
+        end
       end
     end
 
@@ -288,42 +274,31 @@ module BCDice
     # @return [String, nil]
     def eval_game_system_specific_command(command); end
 
-    # 成功か失敗かを文字列で返す
+    # 成功か失敗か返す
     #
-    # @param (see #check_result)
-    # @return [String]
-    def check_nDx(total, cmp_op, target)
-      result =
-        if target.is_a?(String)
-          translate("failure")
-        elsif total.send(cmp_op, target)
-          translate("success")
-        else
-          translate("failure")
-        end
-
-      return " ＞ #{result}"
+    # @param total [Integer]
+    # @param cmp_op [Symbol]
+    # @param target [Number]
+    # @return [Result]
+    def result_ndx(total, cmp_op, target)
+      if target.is_a?(String)
+        nil
+      elsif total.send(cmp_op, target)
+        Result.success(translate("success"))
+      else
+        Result.failure(translate("failure"))
+      end
     end
 
-    # @param (see #check_result)
-    # @return [nil]
-    def check_1D100(total, dice_total, cmp_op, target); end
+    def result_1d100(total, dice_total, cmp_op, target); end
 
-    # @param (see #check_result)
-    # @return [nil]
-    def check_1D20(total, dice_total, cmp_op, target); end
+    def result_1d20(total, dice_total, cmp_op, target); end
 
-    # @param (see #check_result)
-    # @return [nil]
-    def check_nD10(total, dice_total, dice_list, cmp_op, target); end
+    def result_nd10(total, dice_total, value_list, cmp_op, target); end
 
-    # @param (see #check_result)
-    # @return [nil]
-    def check_2D6(total, dice_total, dice_list, cmp_op, target); end
+    def result_2d6(total, dice_total, value_list, cmp_op, target); end
 
-    # @param (see #check_result)
-    # @return [nil]
-    def check_nD6(total, dice_total, dice_list, cmp_op, target); end
+    def result_nd6(total, dice_total, value_list, cmp_op, target); end
 
     def get_table_by_2d6(table)
       get_table_by_nD6(table, 2)

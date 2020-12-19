@@ -268,7 +268,7 @@ rands = [
 [[ test ]]
 game_system = "Arianrhod"
 input = "3D6>=? 目標値?でバグらない"
-output = "(3D6>=?) ＞ 9[3,3,3] ＞ 9 ＞ 失敗"
+output = "(3D6>=?) ＞ 9[3,3,3] ＞ 9"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },

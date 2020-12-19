@@ -52,7 +52,7 @@ module BCDice
         ・迷宮追加オプション表(RANDOP)
       INFO_MESSAGE_TEXT
 
-      register_prefix([
+      register_prefix(
         'CRT',
         'HCRT',
         'FMB',
@@ -70,7 +70,7 @@ module BCDice
         'KHST',
         'RANDOP',
         'LOT(N|P)'
-      ])
+      )
 
       def initialize(command)
         super(command)

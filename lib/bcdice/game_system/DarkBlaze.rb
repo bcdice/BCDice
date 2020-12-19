@@ -29,7 +29,7 @@ module BCDice
         　例）BT1　　　BT2　　　BT[1...3]
       INFO_MESSAGE_TEXT
 
-      register_prefix(['DB.*', 'BT.*', '3R6.*'])
+      register_prefix('DB.*', 'BT.*', '3R6.*')
 
       def replace_text(string)
         return string unless string =~ /DB/i
@@ -78,13 +78,17 @@ module BCDice
           diff = m[9].to_i
         end
 
-        total, out_str, dice_list = get_dice(mod, abl, skl)
+        total, out_str = get_dice(mod, abl, skl)
         output = "(#{string}) ＞ #{out_str}"
 
         if signOfInequality != "" # 成功度判定処理
-          dice_total = dice_list.inject(&:+)
           cmp_op = Normalize.comparison_operator(signOfInequality)
-          output += check_result(total, dice_total, dice_list, 6, cmp_op, diff)
+          output +=
+            if total.send(cmp_op, diff)
+              " ＞ 成功"
+            else
+              " ＞ 失敗"
+            end
         end
 
         return output
@@ -126,7 +130,7 @@ module BCDice
 
         output = "#{total}[#{dice_str}]#{resultText}"
 
-        return total, output, dice_arr
+        return total, output
       end
 
       def eval_game_system_specific_command(command)

@@ -178,12 +178,9 @@ rands = [
 
 [[ test ]]
 game_system = "GehennaAn"
-input = "[1...20]GA[1...20]+[1...10]"
+input = "14GA1+2"
 output = "(14R6+2>=1[1]) ＞ 14[1,2,3,4,4,4,4,4,6,6,6,6,6,6]+2 ＞ 成功16、失敗0 ＞ 連撃[+7]/闘技[3]"
 rands = [
-  { sides = 20, value = 14 },
-  { sides = 20, value = 1 },
-  { sides = 10, value = 2 },
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -202,12 +199,9 @@ rands = [
 
 [[ test ]]
 game_system = "GehennaAn"
-input = "[1...20]GA[1...20]-[1...10]"
+input = "20GA4-4"
 output = "(20R6-4>=4[1]) ＞ 11[1,1,1,2,2,2,3,3,3,4,4,4,4,4,5,5,5,6,6,6]-4 ＞ 成功7、失敗9 ＞ 連撃[+3]/闘技[2]"
 rands = [
-  { sides = 20, value = 20 },
-  { sides = 20, value = 4 },
-  { sides = 10, value = 4 },
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },

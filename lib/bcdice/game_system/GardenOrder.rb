@@ -25,10 +25,10 @@ module BCDice
         　例）DCSL7　DCEL22
       INFO_MESSAGE_TEXT
 
-      register_prefix([
+      register_prefix(
         'GO(\-?\d+)(\/\d+)?(@\d+)?',
         'DC(SL|BL|IM|BR|RF|EL).+'
-      ])
+      )
 
       def eval_game_system_specific_command(command)
         case command

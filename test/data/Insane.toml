@@ -215,7 +215,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "BET ランダム特技決定を呼び出すケースその1"
-output = "バッドエンド表(3) ＞ 牢獄のような、手術室のような薄暗い部屋に監禁される。そして、毎日のようにひどい拷問を受けることになった。何とか隙を見て逃げ出すことができたが……。「知識」≪人類学≫の特技が【恐怖心】になる。"
+output = "バッドエンド表(3) ＞ 牢獄のような、手術室のような薄暗い部屋に監禁される。そして、毎日のようにひどい拷問を受けることになった。何とか隙を見て逃げ出すことができたが……。《人類学／知識8》の特技が【恐怖心】になる。"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -227,7 +227,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "BET ランダム特技決定を呼び出すケースその２"
-output = "バッドエンド表(11) ＞ 目を覚ますと、そこはいつもの場所だった。しかし、どこか違和感を覚える。君たち以外、誰も事件のことを知らないようだ。死んだはずのあの人物も生きている。時間を旅したのか、ここは違う世界線か……？　「情動」≪憂い≫の特技が【恐怖心】になる。"
+output = "バッドエンド表(11) ＞ 目を覚ますと、そこはいつもの場所だった。しかし、どこか違和感を覚える。君たち以外、誰も事件のことを知らないようだ。死んだはずのあの人物も生きている。時間を旅したのか、ここは違う世界線か……？　《憂い／情動4》の特技が【恐怖心】になる。"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -248,7 +248,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "RTT"
-output = "ランダム特技決定表(1,2) ＞ 「暴力」≪焼却≫"
+output = "ランダム特技表(1,2) ＞ 《焼却／暴力2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -258,7 +258,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "RTT"
-output = "ランダム特技決定表(6,12) ＞ 「怪異」≪宇宙≫"
+output = "ランダム特技表(6,12) ＞ 《宇宙／怪異12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -268,7 +268,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "TVT"
-output = "指定特技（暴力）表(2) ＞ 焼却"
+output = "暴力分野ランダム特技表(2) ＞ 《焼却／暴力2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -277,7 +277,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "TVT"
-output = "指定特技（暴力）表(12) ＞ 埋葬"
+output = "暴力分野ランダム特技表(12) ＞ 《埋葬／暴力12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -286,7 +286,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "TET"
-output = "指定特技（情動）表(2) ＞ 恋"
+output = "情動分野ランダム特技表(2) ＞ 《恋／情動2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -294,8 +294,8 @@ rands = [
 
 [[ test ]]
 game_system = "Insane"
-input = "TET"
-output = "指定特技（情動）表(12) ＞ 愛"
+input = "RTT2"
+output = "情動分野ランダム特技表(12) ＞ 《愛／情動12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -303,8 +303,8 @@ rands = [
 
 [[ test ]]
 game_system = "Insane"
-input = "TPT"
-output = "指定特技（知覚）表(2) ＞ 痛み"
+input = "RTT3"
+output = "知覚分野ランダム特技表(2) ＞ 《痛み／知覚2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -313,7 +313,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "TPT"
-output = "指定特技（知覚）表(12) ＞ 物陰"
+output = "知覚分野ランダム特技表(12) ＞ 《物陰／知覚12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -322,7 +322,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "TST"
-output = "指定特技（技術）表(2) ＞ 分解"
+output = "技術分野ランダム特技表(2) ＞ 《分解／技術2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -331,7 +331,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "TST"
-output = "指定特技（技術）表(12) ＞ 兵器"
+output = "技術分野ランダム特技表(12) ＞ 《兵器／技術12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -340,7 +340,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "TKT"
-output = "指定特技（知識）表(2) ＞ 物理学"
+output = "知識分野ランダム特技表(2) ＞ 《物理学／知識2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -349,7 +349,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "TKT"
-output = "指定特技（知識）表(12) ＞ 天文学"
+output = "知識分野ランダム特技表(12) ＞ 《天文学／知識12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -358,7 +358,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "TMT"
-output = "指定特技（怪異）表(2) ＞ 時間"
+output = "怪異分野ランダム特技表(2) ＞ 《時間／怪異2》"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -367,10 +367,18 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "TMT"
-output = "指定特技（怪異）表(12) ＞ 宇宙"
+output = "怪異分野ランダム特技表(12) ＞ 《宇宙／怪異12》"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Insane"
+input = "RCT"
+output = "ランダム分野表(2) ＞ 情動"
+rands = [
+  { sides = 6, value = 2 },
 ]
 
 [[ test ]]
@@ -550,7 +558,7 @@ rands = [
 [[ test ]]
 game_system = "Insane"
 input = "2D6>=? 目標値?でバグらない"
-output = "(2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },

@@ -2,7 +2,7 @@
 
 module BCDice
   module GameSystem
-    class Gurps < Base
+    class GURPS < Base
       # ゲームシステムの識別子
       ID = 'GURPS'
 
@@ -32,7 +32,7 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      register_prefix(['\w*CRT', '\w*FMB', 'HIT', 'FEAR((\+)?\d*)', 'REACT((\+|\-)?\d*)', '[\d\+\-]+\-3[dD]6?[\d\+\-]*'])
+      register_prefix('FEAR(\+?\d+)?', 'REACT((\+|\-)?\d*)', '[\d\+\-]+\-3D6?[\d\+\-]*')
 
       def initialize(command)
         super(command)
@@ -47,84 +47,150 @@ module BCDice
         return '' unless dice_list.size == 3 && cmp_op == :<=
 
         success = target - total # 成功度
-        crt_string = " ＞ クリティカル(成功度：#{success})"
-        fmb_string = " ＞ ファンブル(失敗度：#{success})"
-        fail_string = " ＞ 自動失敗(失敗度：#{success})"
 
-        # クリティカル
-        if (dice_total <= 6) && (target >= 16)
-          return crt_string
-        elsif (dice_total <= 5) && (target >= 15)
-          return crt_string
-        elsif dice_total <= 4
-          return crt_string
-        end
+        result =
+          if critical?(dice_total, target)
+            "クリティカル(成功度：#{success})"
+          elsif fumble?(dice_total, target)
+            "ファンブル(失敗度：#{success})"
+          elsif dice_total >= 17
+            "自動失敗(失敗度：#{success})"
+          elsif total <= target
+            "成功(成功度：#{success})"
+          else
+            "失敗(失敗度：#{success})"
+          end
 
-        # ファンブル
-        if (target - dice_total) <= -10
-          return fmb_string
-        elsif (dice_total >= 17) && (target <= 15)
-          return fmb_string
-        elsif dice_total >= 18
-          return fmb_string
-        elsif dice_total >= 17
-          return fail_string
-        end
-
-        if total <= target
-          return " ＞ 成功(成功度：#{success})"
-        else
-          return " ＞ 失敗(失敗度：#{success})"
-        end
+        " ＞ #{result}"
       end
 
       def eval_game_system_specific_command(command)
-        result = getRollDiceResult(command)
-        return result unless result.nil?
-
-        # クリティカル・ファンブル表
-        result = getCFTableResult(command)
-        return result unless result.nil?
-
-        # 恐怖表
-        result = getFearResult(command)
-        return result unless result.nil?
-
-        # 反応表
-        result = getReactResult(command)
-        return result unless result.nil?
-
-        # 命中部位表
-        result = getHitResult(command)
-        return result unless result.nil?
-
-        return ""
+        roll_3d6(command) || roll_fear(command) || roll_react(command) || roll_tables(command, TABLES)
       end
 
-      def getRollDiceResult(command)
-        return nil unless command =~ /([\d\+\-]+)\-3[dD]6?([\d\+\-]*)/
+      private
 
-        diffStr = Regexp.last_match(1)
-        modStr  = (Regexp.last_match(2) || '')
-
-        diceList = @randomizer.roll_barabara(3, 6)
-        dice_n = diceList.sum()
-        dice_str = diceList.join(",")
-
-        diff = getValue(diffStr, 0)
-        total_n = dice_n + getValue(modStr, 0)
-
-        result = "(3D6#{modStr}<=#{diff}) ＞ #{dice_n}[#{dice_str}]#{modStr} ＞ #{total_n}#{check_nD6(total_n, dice_n, diceList, :<=, diff)}"
-        return result
+      def critical?(dice_total, target)
+        (dice_total <= 6 && target >= 16) || (dice_total <= 5 && target >= 15) || dice_total <= 4
       end
 
-      def getCFTableResult(command)
-        return nil unless command =~ /\w*(FMB|CRT)/
+      def fumble?(dice_total, target)
+        (target - dice_total <= -10) || (dice_total >= 17 && target <= 15) || dice_total >= 18
+      end
 
-        case command
-        when "CRT"
-          tableName = "クリティカル表"
-          table = [
+      def roll_3d6(command)
+        m = /^([\d\+\-]+)\-3D6?([\d\+\-]*)$/.match(command)
+        return nil unless m
+
+        target_number = ArithmeticEvaluator.eval(m[1])
+        modifier = ArithmeticEvaluator.eval(m[2])
+        formated_modifier = Format.modifier(modifier)
+
+        dice_list = @randomizer.roll_barabara(3, 6)
+        dice_total = dice_list.sum()
+        dice_str = dice_list.join(",")
+
+        total = dice_total + modifier
+
+        "(3D6#{formated_modifier}<=#{target_number}) ＞ "\
+        "#{dice_total}[#{dice_str}]#{formated_modifier} ＞ "\
+        "#{total}"\
+        "#{check_nD6(total, dice_total, dice_list, :<=, target_number)}"
+      end
+
+      def roll_fear(command)
+        m = /^FEAR(\+?\d+)?$/.match(command)
+        return nil unless m
+
+        modifier = m[1].to_i
+
+        dice = @randomizer.roll_sum(3, 6)
+        number = dice + modifier
+
+        num =
+          if number > 40
+            36
+          else
+            number - 4
+          end
+
+        "恐怖表(#{number}) ＞ #{FEAR_TABLE[num]}"
+      end
+
+      FEAR_TABLE = [
+        '1ターン朦朧状態。2ターン目に自動回復。',
+        '1ターン朦朧状態。2ターン目に自動回復。',
+        '1ターン朦朧状態。以後、毎ターン不利な修正を無視した意志判定を行い、成功すると回復。',
+        '1ターン朦朧状態。以後、毎ターン不利な修正を無視した意志判定を行い、成功すると回復。',
+        '1ターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
+        '1ターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
+        '1Dターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
+        '2Dターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
+        '思考不能。15ターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
+        '新たな癖をひとつ植え付けられる。',
+        '1D点疲労。さらに1Dターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
+        '1D点疲労。さらに1Dターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
+        '新たな癖をひとつ獲得。さらに1Dターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
+        '1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。',
+        '生命力判定を行い、失敗すると1点の負傷を受ける。さらに1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。',
+        '1点負傷。2D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。',
+        '卒倒。4D分間意識不明。1D点疲労。',
+        'パニック。1D分間のあいだ、叫びながら走り回ったり、座り込んで泣きわめいたりする。以後、1分ごとに知力判定(修正なし)を行い、成功すると回復。',
+        '-10CPの妄想を植え付けられる。',
+        '-10CPの軽い恐怖症を植え付けられる。',
+        '肉体的な変化。髪が真白になったり、老化したりする。-15CPぶんの肉体的特徴に等しい。',
+        'その恐怖に関連する軽い恐怖症を持っているならそれが強い恐怖症(CP2倍)になる。そうでなければ、-10CPぶんの精神的特徴を植え付けられる。',
+        '-10CPの妄想を植え付けられる。生命力判定を行い、失敗すると1点の負傷を受ける。さらに1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。',
+        '-10CPの軽い恐怖症を植え付けられる。生命力判定を行い、失敗すると1点の負傷を受ける。さらに1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。',
+        '浅い昏睡状態。30分ごとに生命力判定を行い、成功すると目覚める。目覚めてから6時間はあらゆる判定に-2の修正。',
+        '昏睡状態。1時間ごとに生命力判定を行い、成功すると目覚める。目覚めてから6時間はあらゆる判定に-2の修正。',
+        '硬直。1D日のあいだ身動きしない。その時点で生命力判定を行い、成功すると動けるようになる。失敗するとさらに1D日硬直。その間、適切な医学的処置を受けていないかぎり、初日に1点、2日目に2点、3日目に3点と生命力を失っていく。動けるようになってからも、硬直していたのと同じ日数だけ、あらゆる判定に-2の修正。',
+        '痙攣。1D分間地面に倒れて痙攣する。2D点疲労。また、生命力判定に失敗すると1D点負傷。これがファンブルなら生命力1点を永遠に失う。',
+        '発作。軽い心臓発作を起こし、地面に倒れる。2D点負傷。',
+        '大パニック。キャラクターは支離滅裂な行動に出る。GMが3Dを振り、目が大きければ大きいほど馬鹿げた行動を行う。その行動が終わったら知力判定を行い、成功すると我に返る。失敗すると新たな馬鹿げた行動をとる。',
+        '強い妄想(-15CP)を植え付けられる。',
+        '強い恐怖症、ないし-15CPぶんの精神的特徴を植え付けられる。',
+        '激しい肉体的変化。髪が真白になったり、老化したりする。-20CPぶんの肉体的特徴に等しい。',
+        '激しい肉体的変化。髪が真白になったり、老化したりする。-30CPぶんの肉体的特徴に等しい。',
+        '昏睡状態。1時間ごとに生命力判定を行い、成功すると目覚める。目覚めてから6時間はあらゆる判定に-2の修正。さらに強い妄想(-15CP)を植え付けられる。',
+        '昏睡状態。1時間ごとに生命力判定を行い、成功すると目覚める。目覚めてから6時間はあらゆる判定に-2の修正。さらに強い恐怖症、ないし-30CPぶんの精神的特徴を植え付けられる。',
+        '昏睡状態。1時間ごとに生命力判定を行い、成功すると目覚める。目覚めてから6時間はあらゆる判定に-2の修正。さらに強い恐怖症、ないし-30CPぶんの精神的特徴を植え付けられる。知力が1点永遠に低下する。あわせて精神系の技能、呪文、超能力のレベルも低下する。',
+      ].freeze
+
+      def roll_react(command)
+        m = /^REACT([+-]?\d*)$/.match(command)
+        return nil unless m
+
+        modifier = m[1].to_i
+
+        dice = @randomizer.roll_sum(3, 6)
+        number = dice + modifier
+
+        "反応表(#{number}) ＞ #{reaction(number)}"
+      end
+
+      def reaction(number)
+        REACTION_TABLE.find { |tuple| tuple.range.include?(number) }.text
+      end
+
+      Tuple = Struct.new(:range, :text)
+
+      REACTION_TABLE = [
+        [-Float::INFINITY..0, "最悪"],
+        [1..3, "とても悪い"],
+        [4..6, "悪い"],
+        [7..9, "良くない"],
+        [10..12, "中立"],
+        [13..15, "良い"],
+        [16..18, "とても良い"],
+        [19..Float::INFINITY, "最高"],
+      ].map { |range, text| Tuple.new(range, text) }.freeze
+
+      TABLES = {
+        "CRT" => DiceTable::Table.new(
+          "クリティカル表",
+          "3D6",
+          [
             '体を狙っていたら、相手は気絶(回復は30分後に生命力判定)。他はダメージ3倍。',
             '相手の防御点を無視。',
             'ダメージ3倍。',
@@ -142,10 +208,11 @@ module BCDice
             'ダメージ3倍。',
             '体を狙っていたら、相手は気絶(回復は30分後に生命力判定)。他はダメージ3倍。',
           ]
-
-        when "HCRT"
-          tableName = "頭部打撃クリティカル表"
-          table = [
+        ),
+        "HCRT" => DiceTable::Table.new(
+          "頭部打撃クリティカル表",
+          "3D6",
+          [
             '敵は即死する。',
             '敵は意識を失う。30分ごとに生命力判定をして、成功すると意識を回復する。',
             '敵は意識を失う。30分ごとに生命力判定をして、成功すると意識を回復する。',
@@ -163,10 +230,11 @@ module BCDice
             '敵は通常のダメージを受け、朦朧状態になる。',
             '敵は通常のダメージを受け、朦朧状態になる。',
           ]
-
-        when "FMB"
-          tableName = "ファンブル表"
-          table = [
+        ),
+        "FMB" => DiceTable::Table.new(
+          "ファンブル表",
+          "3D6",
+          [
             '武器が壊れる。ただし、メイスなど固い"叩き"武器は壊れない(ふりなおし)。',
             '武器が壊れる。ただし、フレイルなど固い"叩き"武器は壊れない(ふりなおし)。',
             '自分の腕か足に命中(通常ダメージ)。ただし"刺し"武器や射撃ならふりなおし。',
@@ -184,10 +252,11 @@ module BCDice
             '武器が壊れる。ただし、モールなど固い"叩き"武器は壊れない(ふりなおし)。',
             '武器が壊れる。ただし、金属バットなど固い"叩き"武器は壊れない(ふりなおし)。',
           ]
-
-        when "MFMB"
-          tableName = "呪文ファンブル表"
-          table = [
+        ),
+        "MFMB" => DiceTable::Table.new(
+          "呪文ファンブル表",
+          "3D6",
+          [
             '呪文が完全に失敗する。術者は1D点のダメージを受ける。',
             '呪文が術者にかかる。',
             '呪文が術者の仲間にかかる(対象はランダムに決定)。',
@@ -205,10 +274,11 @@ module BCDice
             '呪文が完全に失敗し、術者の右腕が損なわれる。回復に1週間を要する。',
             '呪文が完全に失敗する。GMから見て、術者や呪文が純粋で善良なものでなければ、悪魔(第3版文庫版P.384参照)があらわれ、術者を攻撃する。',
           ]
-
-        when "YSCRT"
-          tableName = "妖魔夜行スペシャルクリティカル表"
-          table = [
+        ),
+        "YSCRT" => DiceTable::Table.new(
+          "妖魔夜行スペシャルクリティカル表",
+          "3D6",
+          [
             '目(あるいは急所)に当たった！目(あるいは急所)が無ければ3倍ダメージ。',
             '胴体を狙っていたら、相手は気絶(回復は30分後に生命力判定)。他は3倍ダメージ。',
             '相手の防護点を無視。通常ダメージ。',
@@ -226,10 +296,11 @@ module BCDice
             'ダメージ3倍。',
             '胴体を狙っていたら、相手は気絶(回復は30分後に生命力判定)。他は3倍ダメージ。',
           ]
-
-        when "YSFMB"
-          tableName = "妖魔夜行スペシャルファンブル表"
-          table = [
+        ),
+        "YSFMB" => DiceTable::Table.new(
+          "妖魔夜行スペシャルファンブル表",
+          "3D6",
+          [
             'この表を2回振って、両方の結果を適用する。',
             '自分に命中。通常ダメージ。防護点、吸収、反射は無視(「◯◯に無敵」の妖力は有効)。',
             '自分に命中。半分ダメージ。防護点、吸収、反射は無視(「◯◯に無敵」の妖力は有効)。',
@@ -247,10 +318,11 @@ module BCDice
             '自分に命中。半分ダメージ。防護点は無効。',
             'この表を2回振って、プレイヤーが好きな方を適用する。',
           ]
-
-        when "YFMB"
-          tableName = "妖術ファンブル表"
-          table = [
+        ),
+        "YFMB" => DiceTable::Table.new(
+          "妖術ファンブル表",
+          "3D6",
+          [
             '妖術が完全に失敗する。術者は3D点のダメージを受ける。',
             '妖術が完全に失敗する。術者は1D点のダメージを受ける。',
             '妖術が術者にかかる。',
@@ -268,136 +340,32 @@ module BCDice
             '妖術が完全に失敗し、術者の弱点が明らかにされる。弱点がなければ振り直して良い。',
             '妖術が完全に失敗する。術者は完全な行動不能におちいる。回復は反日ごとに生命力で判定を行う。',
           ]
+        ),
+        "HIT" => DiceTable::Table.new(
+          "命中部位表",
+          "3D6",
+          [
+            '脳',
+            '脳',
+            '頭',
+            '遠い腕',
+            '手首(左右ランダム)',
+            '近い腕',
+            '胴体',
+            '胴体',
+            '胴体',
+            '遠い足',
+            '近い足',
+            '近い足',
+            '足首(左右ランダム)',
+            '足首(左右ランダム)',
+            '重要機関(胴体の)',
+            '武器',
+          ]
+        ),
+      }.freeze
 
-        else
-          return nil
-        end
-
-        result, number = get_table_by_nD6(table, 3)
-
-        return "#{tableName}(#{number})：#{result}"
-      end
-
-      def getFearResult(command)
-        return nil unless command =~ /FEAR((\+)?\d+)?/
-
-        modify = Regexp.last_match(1).to_i
-
-        tableName = "恐怖表"
-        table = [
-          '1ターン朦朧状態。2ターン目に自動回復。',
-          '1ターン朦朧状態。2ターン目に自動回復。',
-          '1ターン朦朧状態。以後、毎ターン不利な修正を無視した意志判定を行い、成功すると回復。',
-          '1ターン朦朧状態。以後、毎ターン不利な修正を無視した意志判定を行い、成功すると回復。',
-          '1ターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
-          '1ターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
-          '1Dターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
-          '2Dターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
-          '思考不能。15ターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
-          '新たな癖をひとつ植え付けられる。',
-          '1D点疲労。さらに1Dターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
-          '1D点疲労。さらに1Dターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
-          '新たな癖をひとつ獲得。さらに1Dターン朦朧状態。以後、毎ターン通常の意志判定を行い、成功すると回復。',
-          '1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。',
-          '生命力判定を行い、失敗すると1点の負傷を受ける。さらに1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。',
-          '1点負傷。2D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。',
-          '卒倒。4D分間意識不明。1D点疲労。',
-          'パニック。1D分間のあいだ、叫びながら走り回ったり、座り込んで泣きわめいたりする。以後、1分ごとに知力判定(修正なし)を行い、成功すると回復。',
-          '-10CPの妄想を植え付けられる。',
-          '-10CPの軽い恐怖症を植え付けられる。',
-          '肉体的な変化。髪が真白になったり、老化したりする。-15CPぶんの肉体的特徴に等しい。',
-          'その恐怖に関連する軽い恐怖症を持っているならそれが強い恐怖症(CP2倍)になる。そうでなければ、-10CPぶんの精神的特徴を植え付けられる。',
-          '-10CPの妄想を植え付けられる。生命力判定を行い、失敗すると1点の負傷を受ける。さらに1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。',
-          '-10CPの軽い恐怖症を植え付けられる。生命力判定を行い、失敗すると1点の負傷を受ける。さらに1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。',
-          '浅い昏睡状態。30分ごとに生命力判定を行い、成功すると目覚める。目覚めてから6時間はあらゆる判定に-2の修正。',
-          '昏睡状態。1時間ごとに生命力判定を行い、成功すると目覚める。目覚めてから6時間はあらゆる判定に-2の修正。',
-          '硬直。1D日のあいだ身動きしない。その時点で生命力判定を行い、成功すると動けるようになる。失敗するとさらに1D日硬直。その間、適切な医学的処置を受けていないかぎり、初日に1点、2日目に2点、3日目に3点と生命力を失っていく。動けるようになってからも、硬直していたのと同じ日数だけ、あらゆる判定に-2の修正。',
-          '痙攣。1D分間地面に倒れて痙攣する。2D点疲労。また、生命力判定に失敗すると1D点負傷。これがファンブルなら生命力1点を永遠に失う。',
-          '発作。軽い心臓発作を起こし、地面に倒れる。2D点負傷。',
-          '大パニック。キャラクターは支離滅裂な行動に出る。GMが3Dを振り、目が大きければ大きいほど馬鹿げた行動を行う。その行動が終わったら知力判定を行い、成功すると我に返る。失敗すると新たな馬鹿げた行動をとる。',
-          '強い妄想(-15CP)を植え付けられる。',
-          '強い恐怖症、ないし-15CPぶんの精神的特徴を植え付けられる。',
-          '激しい肉体的変化。髪が真白になったり、老化したりする。-20CPぶんの肉体的特徴に等しい。',
-          '激しい肉体的変化。髪が真白になったり、老化したりする。-30CPぶんの肉体的特徴に等しい。',
-          '昏睡状態。1時間ごとに生命力判定を行い、成功すると目覚める。目覚めてから6時間はあらゆる判定に-2の修正。さらに強い妄想(-15CP)を植え付けられる。',
-          '昏睡状態。1時間ごとに生命力判定を行い、成功すると目覚める。目覚めてから6時間はあらゆる判定に-2の修正。さらに強い恐怖症、ないし-30CPぶんの精神的特徴を植え付けられる。',
-          '昏睡状態。1時間ごとに生命力判定を行い、成功すると目覚める。目覚めてから6時間はあらゆる判定に-2の修正。さらに強い恐怖症、ないし-30CPぶんの精神的特徴を植え付けられる。知力が1点永遠に低下する。あわせて精神系の技能、呪文、超能力のレベルも低下する。',
-        ]
-
-        dice = @randomizer.roll_sum(3, 6)
-        number = dice + modify
-        if number > 40
-          num = 36
-        else
-          num = number - 4
-        end
-        result = table[num]
-
-        return "#{tableName}(#{number})：#{result}"
-      end
-
-      def getReactResult(command)
-        return nil unless command =~ /REACT((\+|\-)?\d*)/
-
-        modify = Regexp.last_match(1).to_i
-
-        tableName = "反応表"
-        dice = @randomizer.roll_sum(3, 6)
-        number = dice + modify
-
-        if number < 1
-          result = "最悪"
-        elsif number < 4
-          result = "とても悪い"
-        elsif number < 7
-          result = "悪い"
-        elsif number < 10
-          result = "良くない"
-        elsif number < 13
-          result = "中立"
-        elsif number < 16
-          result = "良い"
-        elsif number < 19
-          result = "とても良い"
-        else
-          result = "最高"
-        end
-
-        return "#{tableName}(#{number})：#{result}"
-      end
-
-      def getHitResult(command)
-        return nil unless command == "HIT"
-
-        tableName = "命中部位表"
-        table = [
-          '脳',
-          '脳',
-          '頭',
-          '遠い腕',
-          '手首(左右ランダム)',
-          '近い腕',
-          '胴体',
-          '胴体',
-          '胴体',
-          '遠い足',
-          '近い足',
-          '近い足',
-          '足首(左右ランダム)',
-          '足首(左右ランダム)',
-          '重要機関(胴体の)',
-          '武器',
-        ]
-        result, number = get_table_by_nD6(table, 3)
-
-        return "#{tableName}(#{number})：#{result}"
-      end
-
-      def getValue(text, defaultValue)
-        return defaultValue if text.nil? || text.empty?
-
-        ArithmeticEvaluator.eval(text)
-      end
+      register_prefix(TABLES.keys)
     end
   end
 end

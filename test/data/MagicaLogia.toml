@@ -2,6 +2,7 @@
 game_system = "MagicaLogia"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -11,105 +12,27 @@ rands = [
 game_system = "MagicaLogia"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 4[2,2] ＞ 4 ＞ 成功 ＞ 獣の魔素2が発生"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 5[2,3] ＞ 5 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 7[2,5] ＞ 7 ＞ 成功"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 5[2,3] ＞ 5 ＞ 成功"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 8[2,6] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 8[3,5] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 9[3,6] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 11[5,6] ＞ 11 ＞ 成功"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 4[2,2] ＞ 4 ＞ 失敗 ＞ 獣の魔素2が発生"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 4[2,2] ＞ 4 ＞ 失敗 ＞ 獣の魔素2が発生"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 2 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
 input = "2d6>=9"
 output = "(2D6>=9) ＞ 6[3,3] ＞ 6 ＞ 失敗 ＞ 力の魔素2が発生"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -117,321 +40,276 @@ rands = [
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 7[2,5] ＞ 7 ＞ 失敗"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 10[5,5] ＞ 10 ＞ 成功 ＞ 夢の魔素2が発生"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 6[1,5] ＞ 6 ＞ 失敗"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 6[3,3] ＞ 6 ＞ 失敗 ＞ 力の魔素2が発生"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 5[1,4] ＞ 5 ＞ 失敗"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 7[2,5] ＞ 7 ＞ 失敗"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
 input = "2d6>=7"
-output = "(2D6>=7) ＞ 8[3,5] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 5[1,4] ＞ 5 ＞ 失敗"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 3[1,2] ＞ 3 ＞ 失敗"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 8[3,5] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 5[1,4] ＞ 5 ＞ 失敗"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
+output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ スペシャル(魔力1D6点か変調1つ回復) ＞ 闇の魔素2が発生"
+critical = true
+success = true
 rands = [
   { sides = 6, value = 6 },
-  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
 input = "2d6>=7"
-output = "(2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
+output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル ＞ 星の魔素2が発生"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTT"
+output = "ランダム特技表(5,9) ＞ 「夢」≪狂気≫"
 rands = [
   { sides = 6, value = 5 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 3[1,2] ＞ 3 ＞ 失敗"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 10[4,6] ＞ 10 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
   { sides = 6, value = 4 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "WT"
-output = "変調表(6) ＞ 『不運』「星」≪黄金≫のチェック欄をチェックする。その特技が使用不能になり、その分野の特技が指定特技になった判定を行うとき、マイナス1の修正が付く。"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "WT"
-output = "変調表(6) ＞ 『不運』「闇」≪死≫のチェック欄をチェックする。その特技が使用不能になり、その分野の特技が指定特技になった判定を行うとき、マイナス1の修正が付く。"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "WT"
-output = "変調表(1) ＞ 『封印』自分の魔法(習得タイプが装備以外)からランダムに一つ選ぶ。選んだ魔法のチェック欄をチェックする。その魔法を使用するには【魔力】を2点消費しなくてはいけない。"
+input = "RTT"
+output = "ランダム特技表(1,6) ＞ 「星」≪海≫"
 rands = [
   { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "WT"
-output = "変調表(1) ＞ 『封印』自分の魔法(習得タイプが装備以外)からランダムに一つ選ぶ。選んだ魔法のチェック欄をチェックする。その魔法を使用するには【魔力】を2点消費しなくてはいけない。"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "WT"
-output = "変調表(1) ＞ 『封印』自分の魔法(習得タイプが装備以外)からランダムに一つ選ぶ。選んだ魔法のチェック欄をチェックする。その魔法を使用するには【魔力】を2点消費しなくてはいけない。"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "WT"
-output = "変調表(5) ＞ 『遮蔽』【根源力】が1点減少する"
-rands = [
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "WT"
-output = "変調表(2) ＞ 『綻び』魔法戦の間、各ラウンドの終了時に自分の【魔力】が1点減少する。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "WT"
-output = "変調表(2) ＞ 『綻び』魔法戦の間、各ラウンドの終了時に自分の【魔力】が1点減少する。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "WT"
-output = "変調表(5) ＞ 『遮蔽』【根源力】が1点減少する"
-rands = [
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "WT"
-output = "変調表(2) ＞ 『綻び』魔法戦の間、各ラウンドの終了時に自分の【魔力】が1点減少する。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FCT"
-output = "運命変転表(2) ＞ 『別離』そのキャラクターにとって大切な人――親友や恋人、親や兄弟などを失う。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FCT"
-output = "運命変転表(3) ＞ 『大病』そのキャラクターは、不治の病を負う。"
-rands = [
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FCT"
-output = "運命変転表(6) ＞ 『事故』そのキャラクターは交通事故にあい、取り返しのつかない怪我を負う。"
-rands = [
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FCT"
-output = "運命変転表(4) ＞ 『借金』そのキャラクターは、悪人に利用され多額の借金を負う。"
-rands = [
   { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FCT"
-output = "運命変転表(1) ＞ 『挫折』そのキャラクターは、自分にとって大切だった夢を諦める。"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FCT"
-output = "運命変転表(2) ＞ 『別離』そのキャラクターにとって大切な人――親友や恋人、親や兄弟などを失う。"
-rands = [
   { sides = 6, value = 2 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "FCT"
-output = "運命変転表(1) ＞ 『挫折』そのキャラクターは、自分にとって大切だった夢を諦める。"
+input = "RTT"
+output = "ランダム特技表(3,11) ＞ 「力」≪光≫"
 rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTT"
+output = "ランダム特技表(6,12) ＞ 「闇」≪死≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTS"
+output = "星分野ランダム特技表(2) ＞ 「星」≪黄金≫"
+rands = [
+  { sides = 6, value = 1 },
   { sides = 6, value = 1 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "FCT"
-output = "運命変転表(3) ＞ 『大病』そのキャラクターは、不治の病を負う。"
+input = "RTS"
+output = "星分野ランダム特技表(12) ＞ 「星」≪異界≫"
 rands = [
-  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "FCT"
-output = "運命変転表(6) ＞ 『事故』そのキャラクターは交通事故にあい、取り返しのつかない怪我を負う。"
+input = "RTT1"
+output = "星分野ランダム特技表(12) ＞ 「星」≪異界≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTB"
+output = "獣分野ランダム特技表(2) ＞ 「獣」≪肉≫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTB"
+output = "獣分野ランダム特技表(12) ＞ 「獣」≪エロス≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTT2"
+output = "獣分野ランダム特技表(12) ＞ 「獣」≪エロス≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTF"
+output = "力分野ランダム特技表(2) ＞ 「力」≪重力≫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTF"
+output = "力分野ランダム特技表(12) ＞ 「力」≪円環≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTT3"
+output = "力分野ランダム特技表(12) ＞ 「力」≪円環≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTP"
+output = "歌分野ランダム特技表(2) ＞ 「歌」≪物語≫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTP"
+output = "歌分野ランダム特技表(12) ＞ 「歌」≪時≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTT4"
+output = "歌分野ランダム特技表(12) ＞ 「歌」≪時≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTD"
+output = "夢分野ランダム特技表(2) ＞ 「夢」≪追憶≫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTD"
+output = "夢分野ランダム特技表(12) ＞ 「夢」≪未来≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTT5"
+output = "夢分野ランダム特技表(12) ＞ 「夢」≪未来≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTN"
+output = "闇分野ランダム特技表(2) ＞ 「闇」≪深淵≫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTN"
+output = "闇分野ランダム特技表(12) ＞ 「闇」≪死≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "RTT6"
+output = "闇分野ランダム特技表(12) ＞ 「闇」≪死≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "TPT"
+output = "時の流れ表(1) ＞ 標的となり追われる生活が続いた。ここ数年は苦しい戦いの日々だった。「闇」≪死≫の判定を行う。成功するとセッション終了時に追加の功績点1点。失敗すると「運命変転」発生。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "TPT"
+output = "時の流れ表(2) ＞ 冒険の日々の途中、大きな幸せが訪れる。「闇」≪死≫の判定を行う。成功すると、自分のアンカーの災厄か、自分の疵一つを無効化する。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "TPT"
+output = "時の流れ表(3) ＞ 瞑想から目を覚ます。もうそんな時間か。おかげで十分な魔素を得ることができた。「歌」「夢」「闇」の魔素を獲得する。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "TPT"
+output = "時の流れ表(6) ＞ 日々研鑚を重ね、魔法の修行に精進した。もしも望むなら、蔵書欄にある魔法を、自分の修得できる範囲の中で、現在とは別の魔法に変更して構わない。もしも、魔素がチャージされていた魔法を見習得にした場合、その魔素は失われる。"
 rands = [
   { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "FCT"
-output = "運命変転表(5) ＞ 『不和』そのキャラクターは、人間関係に失敗し深い心の傷を負う。"
+input = "ST"
+output = "シーン表(2) ＞ 魔法で作り出した次元の狭間。ここは時間や空間から切り離された、どこでもあり、どこでもない場所だ。"
 rands = [
-  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
 ]
 
 [[ test ]]
@@ -449,36 +327,6 @@ rands = [
 [[ test ]]
 game_system = "MagicaLogia"
 input = "ST"
-output = "シーン表(6) ＞ 無人の路地裏。ここならば、邪魔が入ることもないだろう。"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "ST"
-output = "シーン表(9) ＞ 読んでいた本を閉じる。そこには、あなたが知りたがっていたことが書かれていた。なるほど、そういうことか。"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "ST"
-output = "シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「闇」≪死≫の判定を行うこと。成功すると、好きな魔素が一個発生する。失敗すると「運命変転表」を使用する。"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "ST"
 output = "シーン表(12) ＞ 未来の予感。このままだと起きるかもしれない出来事の幻が現れる。"
 rands = [
   { sides = 6, value = 6 },
@@ -487,109 +335,10 @@ rands = [
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "ST"
-output = "シーン表(8) ＞ 夜の街を歩く。暖かな家々の明かりが、遠く見える。"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "ST"
-output = "シーン表(2) ＞ 魔法で作り出した次元の狭間。ここは時間や空間から切り離された、どこでもあり、どこでもない場所だ。"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "ST"
-output = "シーン表(8) ＞ 夜の街を歩く。暖かな家々の明かりが、遠く見える。"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "ST"
-output = "シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「獣」≪花≫の判定を行うこと。成功すると、好きな魔素が一個発生する。失敗すると「運命変転表」を使用する。"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "ST"
-output = "シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「力」≪波≫の判定を行うこと。成功すると、好きな魔素が一個発生する。失敗すると「運命変転表」を使用する。"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FT"
-output = "ファンブル表(2) ＞ 魔法災厄が、あなたの魔素を奪い取る。チャージしている魔素の中から、好きな組み合わせで2点減少する。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
 input = "FT"
 output = "ファンブル表(1) ＞ 魔法災厄が、あなたのアンカーに降りかかる。「運命変転」が発生する。"
 rands = [
   { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FT"
-output = "ファンブル表(3) ＞ 魔法の制御に失敗してしまう。【魔力】が1点減少する。"
-rands = [
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FT"
-output = "ファンブル表(1) ＞ 魔法災厄が、あなたのアンカーに降りかかる。「運命変転」が発生する。"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FT"
-output = "ファンブル表(1) ＞ 魔法災厄が、あなたのアンカーに降りかかる。「運命変転」が発生する。"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FT"
-output = "ファンブル表(4) ＞ 魔法災厄になり、そのサイクルが終了するまで、行為判定にマイナス1の修正が付く。"
-rands = [
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FT"
-output = "ファンブル表(3) ＞ 魔法の制御に失敗してしまう。【魔力】が1点減少する。"
-rands = [
-  { sides = 6, value = 3 },
 ]
 
 [[ test ]]
@@ -602,18 +351,37 @@ rands = [
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "FT"
-output = "ファンブル表(6) ＞ ふぅ、危なかった。特に何も起こらない。"
+input = "WT"
+output = "変調表(1) ＞ 『封印』自分の魔法(習得タイプが装備以外)からランダムに一つ選ぶ。選んだ魔法のチェック欄をチェックする。その魔法を使用するには【魔力】を2点消費しなくてはいけない。"
 rands = [
-  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "FT"
-output = "ファンブル表(4) ＞ 魔法災厄になり、そのサイクルが終了するまで、行為判定にマイナス1の修正が付く。"
+input = "WT"
+output = "変調表(6) ＞ 『不運』「星」≪黄金≫のチェック欄をチェックする。その特技が使用不能になり、その分野の特技が指定特技になった判定を行うとき、マイナス1の修正が付く。"
 rands = [
-  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "FCT"
+output = "運命変転表(1) ＞ 『挫折』そのキャラクターは、自分にとって大切だった夢を諦める。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "FCT"
+output = "運命変転表(6) ＞ 『事故』そのキャラクターは交通事故にあい、取り返しのつかない怪我を負う。"
+rands = [
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
@@ -623,78 +391,6 @@ output = "事件表(2) ＞ 不意のプレゼント、素晴らしいアイデ�
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "AT"
-output = "事件表(9) ＞ 魂のひらめき、愛の告白、怪しい抱擁……その人物に対する【運命】が1点上昇する。【運命】の属性は「恋愛」になる。"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "AT"
-output = "事件表(8) ＞ 道路の曲がり角、コンビニ、空から落ちてくる……偶然出会う。その人物に対する【運命】が1点上昇する。【運命】の属性は「興味」になる。"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "AT"
-output = "事件表(6) ＞ 意図せぬ感謝、窮地からの救済、一生のお願いを叶える……その人物に対する【運命】が1点上昇する。【運命】の属性は「支配」になる。"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "AT"
-output = "事件表(6) ＞ 意図せぬ感謝、窮地からの救済、一生のお願いを叶える……その人物に対する【運命】が1点上昇する。【運命】の属性は「支配」になる。"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "AT"
-output = "事件表(8) ＞ 道路の曲がり角、コンビニ、空から落ちてくる……偶然出会う。その人物に対する【運命】が1点上昇する。【運命】の属性は「興味」になる。"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "AT"
-output = "事件表(9) ＞ 魂のひらめき、愛の告白、怪しい抱擁……その人物に対する【運命】が1点上昇する。【運命】の属性は「恋愛」になる。"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "AT"
-output = "事件表(4) ＞ 軽い口論、殴り合いの喧嘩、魔法戦……互いに1D6を振り、低い目を振った方が、高い目を振った方に対して【運命】が1点上昇する。【運命】の属性は高い目を振った方が、自由に決定できる。"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "AT"
-output = "事件表(8) ＞ 道路の曲がり角、コンビニ、空から落ちてくる……偶然出会う。その人物に対する【運命】が1点上昇する。【運命】の属性は「興味」になる。"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 4 },
 ]
 
 [[ test ]]
@@ -711,74 +407,11 @@ rands = [
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "BGT"
-output = "経歴表(2) ＞ 司書／ライブラリアン"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "BGT"
-output = "経歴表(2) ＞ 司書／ライブラリアン"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "BGT"
-output = "経歴表(5) ＞ 異端者／アウトサイダー"
-rands = [
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "BGT"
-output = "経歴表(5) ＞ 異端者／アウトサイダー"
-rands = [
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "BGT"
-output = "経歴表(3) ＞ 書工／アルチザン"
-rands = [
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "BGT"
-output = "経歴表(3) ＞ 書工／アルチザン"
-rands = [
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "BGT"
-output = "経歴表(6) ＞ 外典／アポクリファ"
+input = "AT"
+output = "事件表(12) ＞ 献身的な看護、魔法的な祝福、奇跡……その人物に対する【運命】が1点上昇する。【運命】の属性は自由に決定できる。もしも関係欄に疵があれば、その疵を1つ関係欄から消すことができる。"
 rands = [
   { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "BGT"
-output = "経歴表(3) ＞ 書工／アルチザン"
-rands = [
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "BGT"
-output = "経歴表(3) ＞ 書工／アルチザン"
-rands = [
-  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
@@ -791,92 +424,36 @@ rands = [
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "DAT"
-output = "初期アンカー表(8) ＞ 『同輩』あなたはそのアンカーと仕事場、もしくは学校が同じである。"
+input = "BGT"
+output = "経歴表(6) ＞ 外典／アポクリファ"
 rands = [
   { sides = 6, value = 6 },
-  { sides = 6, value = 2 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
 input = "DAT"
-output = "初期アンカー表(9) ＞ 『文通』あなたは、手紙やメール越しにそのアンカーと意見を交換している。"
+output = "初期アンカー表(2) ＞ 『恩人』あなたは、困っているところを、そのアンカーに助けてもらった。"
 rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "DAT"
-output = "初期アンカー表(4) ＞ 『酒友』あなたとアンカーは、酒飲み友達である。"
-rands = [
-  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
   { sides = 6, value = 1 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
 input = "DAT"
-output = "初期アンカー表(8) ＞ 『同輩』あなたはそのアンカーと仕事場、もしくは学校が同じである。"
+output = "初期アンカー表(12) ＞ 『情人』あなたは、そのアンカーと肉体関係を結んでいる。"
 rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "DAT"
-output = "初期アンカー表(8) ＞ 『同輩』あなたはそのアンカーと仕事場、もしくは学校が同じである。"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "DAT"
-output = "初期アンカー表(6) ＞ 『同人』あなたは、そのアンカーと同じ趣味を楽しむ同好の士である。"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "DAT"
-output = "初期アンカー表(8) ＞ 『同輩』あなたはそのアンカーと仕事場、もしくは学校が同じである。"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "DAT"
-output = "初期アンカー表(7) ＞ 『隣人』あなたは、そのアンカーの近所に住んでいる。"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "DAT"
-output = "初期アンカー表(7) ＞ 『隣人』あなたは、そのアンカーの近所に住んでいる。"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "DAT"
-output = "初期アンカー表(4) ＞ 『酒友』あなたとアンカーは、酒飲み友達である。"
+input = "FAT"
+output = "運命属性表(1) ＞ 『血縁』自分や、自分が愛した者の親類や家族。"
 rands = [
   { sides = 6, value = 1 },
-  { sides = 6, value = 3 },
 ]
 
 [[ test ]]
@@ -889,86 +466,6 @@ rands = [
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "FAT"
-output = "運命属性表(2) ＞ 『支配』あなたの部下になることが運命づけられた相手。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FAT"
-output = "運命属性表(3) ＞ 『宿敵』何らかの方法で戦いあい、競い合う不倶戴天の敵。"
-rands = [
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FAT"
-output = "運命属性表(2) ＞ 『支配』あなたの部下になることが運命づけられた相手。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FAT"
-output = "運命属性表(2) ＞ 『支配』あなたの部下になることが運命づけられた相手。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FAT"
-output = "運命属性表(4) ＞ 『恋愛』心を奪われ、相手に強い感情を抱いている存在。"
-rands = [
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FAT"
-output = "運命属性表(4) ＞ 『恋愛』心を奪われ、相手に強い感情を抱いている存在。"
-rands = [
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FAT"
-output = "運命属性表(1) ＞ 『血縁』自分や、自分が愛した者の親類や家族。"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FAT"
-output = "運命属性表(5) ＞ 『興味』とても稀少だったり、不可解だったりして研究や観察をしたくなる対象。"
-rands = [
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FAT"
-output = "運命属性表(1) ＞ 『血縁』自分や、自分が愛した者の親類や家族。"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "WIT"
-output = "願い表(2) ＞ 自分の大切な人や憧れの人に会わせて欲しい。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
 input = "WIT"
 output = "願い表(1) ＞ 自分以外の特定の誰かを助けてあげて欲しい。"
 rands = [
@@ -978,213 +475,340 @@ rands = [
 [[ test ]]
 game_system = "MagicaLogia"
 input = "WIT"
-output = "願い表(1) ＞ 自分以外の特定の誰かを助けてあげて欲しい。"
+output = "願い表(6) ＞ 自分の欲望（金銭欲、名誉欲、肉欲、知識欲など）を満たして欲しい。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "TCT"
+output = "運命変転「典型的災厄」(1) ＞ 挫折。自分にとって大切だった夢をあきらめる。"
 rands = [
   { sides = 6, value = 1 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "WIT"
-output = "願い表(5) ＞ 特定の誰かを罰して欲しい。"
+input = "TCT"
+output = "運命変転「典型的災厄」(6) ＞ 事故。交通事故にあい、取り返しのつかないケガを負う。"
 rands = [
-  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "WIT"
-output = "願い表(1) ＞ 自分以外の特定の誰かを助けてあげて欲しい。"
+input = "PCT"
+output = "運命変転「物理的災厄」(1) ＞ 火事。自分の家が焼け落ち、帰るところが無くなる。"
 rands = [
   { sides = 6, value = 1 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "WIT"
-output = "願い表(1) ＞ 自分以外の特定の誰かを助けてあげて欲しい。"
+input = "PCT"
+output = "運命変転「物理的災厄」(6) ＞ 傷害。通り魔やあなたを憎む者に傷を負わされる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MCT"
+output = "運命変転「精神的災厄」(1) ＞ 倦怠。疲労感に襲われ、何もやる気がなくなる。"
 rands = [
   { sides = 6, value = 1 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "WIT"
-output = "願い表(2) ＞ 自分の大切な人や憧れの人に会わせて欲しい。"
+input = "MCT"
+output = "運命変転「精神的災厄」(6) ＞ 記憶喪失。友達やPCのことを忘れてしまう。"
 rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "ICT"
+output = "運命変転「狂気的災厄」(1) ＞ 二重人格。もう一つの人格が現れ、勝手な行動を始める。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "ICT"
+output = "運命変転「狂気的災厄」(6) ＞ 発情。体温が上昇、脈拍が増大し、性的に興奮状態になる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "SCT"
+output = "運命変転「社会的災厄」(1) ＞ 逮捕。無実の罪で捕らわれ、留置される。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "SCT"
+output = "運命変転「社会的災厄」(6) ＞ 多忙。とてつもない量の仕事に追われ、心身共に疲労する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "XCT"
+output = "運命変転「超常的災厄」(1) ＞ 霊感。見えるはずのないものが見えるようになる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "XCT"
+output = "運命変転「超常的災厄」(6) ＞ 標的。殺人鬼や魔法災厄など、悪意を引き寄せてしまう。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "WCT"
+output = "運命変転「不思議系災厄」(1) ＞ 邪気眼。ついつい痛い言動を繰り返すようになってしまう。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "WCT"
+output = "運命変転「不思議系災厄」(6) ＞ ヤンデレ。PCのことを病的に愛するようになり、自分以外にPCへの好意を持つ者に対して攻撃的になる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "CCT"
+output = "運命変転「コミカル系災厄」(1) ＞ 性別逆転。自分の肉体の性別が逆転してしまう。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "CCT"
+output = "運命変転「コミカル系災厄」(6) ＞ 脱衣。その場ですべての服が脱げる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MIT"
+output = "宿敵表(1) ＞ 嫉妬。その人物は、実は調査者の実力をねたむ〈大法典〉の魔法使いだった。データは〈火刑人〉を使用する。ただし、魔法の使用には魔素を必要とし、魔法使いをコレクションすることはできない。GMは調査者やそのアンカーに魔法戦を挑み、邪魔をするように操作すること。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MIT"
+output = "宿敵表(4) ＞ 断章。その人物には、今回の件と関係ない〈断章〉が憑依していた。データは〈猛獣〉を使用する。ただし特技と召喚する騎士は「星」≪道≫に変更する。GMは〈断章〉に立ち会ったり、魔法戦を挑んだりして、調査者の邪魔するように操作すること。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
   { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "WIT"
-output = "願い表(5) ＞ 特定の誰かを罰して欲しい。"
+input = "MIT"
+output = "宿敵表(6) ＞ 忍者。その人物は、実はあなたを殺せという使命を受けた忍者である。データは〈忍者〉を使用する。GMは〈断章〉に立ち会ったり、魔法戦を挑んだりして、調査者の邪魔をするようにそうさすること。"
 rands = [
-  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "WIT"
-output = "願い表(2) ＞ 自分の大切な人や憧れの人に会わせて欲しい。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "WIT"
-output = "願い表(1) ＞ 自分以外の特定の誰かを助けてあげて欲しい。"
+input = "MOT"
+output = "謀略表(1) ＞ 爆弾。その人物には、調査者の肉体を爆発させる魔法爆弾が仕掛けられていた。この【秘密】が公開されると、調査者は1d6点のダメージを受ける。"
 rands = [
   { sides = 6, value = 1 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "RTT"
-output = "ランダム特技決定表(5,9) ＞ 「夢」≪狂気≫"
+input = "MOT"
+output = "謀略表(6) ＞ 脱走。その人物には、〈断章〉の逃亡を手助けする魔法が仕掛けられていた。この【秘密】が公開されると、GMは〈断章〉一つとNPC一人を選ぶ。その〈断章〉は、そのNPCに憑依できる。このときGMは、すでに魔法使いによって回収された〈断章〉を選んでも良く、その場合【魔力】は1d6点回復する。"
 rands = [
-  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MAT"
+output = "因縁表(1) ＞ 思慕。その人物は、実は調査者のことを知っており、深く愛していた。調査者はその人物に対する【運命】を2点上昇し、その属性を「恋愛」にする。その人物の【運命】の属性が「恋愛」の間、調査者は、この人物に対する【運命】が1点上昇するたび、【魔力】がその【運命】の値だけ回復する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MAT"
+output = "因縁表(6) ＞ 無関係。その人物は、今回の事件に特に関係はなかった。しかし、この出会いは本当に無意味だったのだろうか？ 調査者は、その人物を対象として事件表を振ること。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MUT"
+output = "奇人表(1) ＞ 寿命。その人物の命脈は尽きていた。この【秘密】が公開されると、その人物は死亡する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MUT"
+output = "奇人表(6) ＞ 依代。その人物は、霊媒体質で何かに憑依されやすい。この人物に〈断章〉が憑依した場合、【攻撃力】と【防御力】が2点ずつ上昇する。この【秘密】が公開されると、GMはサイクルの終わりに〈断章〉一つを選び、その憑依の対象をこのNPCに変更することができるようになる。ただし、すでに魔法使いによって回収された〈断章〉を選ぶことはできない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MFT"
+output = "力場表(1) ＞ 加護。その人物の頭上には、常に星の恩寵が降り注いでいる。この【秘密】が公開されると、そのシーンに「星」の魔素が2点発生する。また、このセッションの間、この人物に対する【運命】が1点上昇したキャラクターは「星」の魔素を2点獲得する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MFT"
+output = "力場表(6) ＞ 暗黒。その人物は、呪われた運命を背負っており、世界の破滅を呼び込む可能性を持っている。この【秘密】が公開されると、そのシーンに「闇」の魔素が2点発生する。また、このセッションの間、この人物に対する【運命】が1点上昇したキャラクターは「闇」の魔素を2点獲得する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MLT"
+output = "同盟表(1) ＞ 精霊。その人物は、実は姿を変え、人間界に顕現した精霊だった。象徴する特技は「夢」≪偶然≫である。調査者は、そのセッションの間だけ、その特技の【精霊召喚】を修得する。また、セッションに一度だけ、その【精霊召喚】の判定を自動的に成功にすることができる。"
+rands = [
+  { sides = 6, value = 1 },
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTT"
-output = "ランダム特技決定表(1,6) ＞ 「星」≪海≫"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTT"
-output = "ランダム特技決定表(3,11) ＞ 「力」≪光≫"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTT"
-output = "ランダム特技決定表(1,6) ＞ 「星」≪海≫"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTT"
-output = "ランダム特技決定表(3,10) ＞ 「力」≪炎≫"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTT"
-output = "ランダム特技決定表(6,12) ＞ 「闇」≪死≫"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTT"
-output = "ランダム特技決定表(1,10) ＞ 「星」≪太陽≫"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTT"
-output = "ランダム特技決定表(6,6) ＞ 「闇」≪怠惰≫"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTT"
-output = "ランダム特技決定表(6,8) ＞ 「闇」≪不幸≫"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
   { sides = 6, value = 3 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "RTT"
-output = "ランダム特技決定表(3,10) ＞ 「力」≪炎≫"
+input = "MLT"
+output = "同盟表(6) ＞ 無垢。その人物は、汚れ無き心の持ち主だった。このNPCは、プライズとして扱う。このプライズの持ち主は、セッション中に一度、【浄化】の呪文をコストなしで使用することができる。この判定は自動的に成功する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "BST"
+output = "ブランク秘密表(1) ＞ 宿敵表(1) ＞ 嫉妬。その人物は、実は調査者の実力をねたむ〈大法典〉の魔法使いだった。データは〈火刑人〉を使用する。ただし、魔法の使用には魔素を必要とし、魔法使いをコレクションすることはできない。GMは調査者やそのアンカーに魔法戦を挑み、邪魔をするように操作すること。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "BST"
+output = "ブランク秘密表(6) ＞ 同盟表(6) ＞ 無垢。その人物は、汚れ無き心の持ち主だった。このNPCは、プライズとして扱う。このプライズの持ち主は、セッション中に一度、【浄化】の呪文をコストなしで使用することができる。この判定は自動的に成功する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "PT"
+output = "プライズ表(2) ＞ 敗者は内側から破裂し、四散する。功績点を1点獲得する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "PT"
+output = "プライズ表(12) ＞ 敗者は影となって、その場に焼き付き、異境への入り口となる。勝者は、好きな異境を一つ選ぶ。そのセッションの間、その異境へ移動できるようになる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "XEST"
+output = "極限環境シーン表(2) ＞ 上下左右も分からない、完全なる闇。このシーンに登場しているPCのうち一人は、≪光≫の判定を行う。成功すると、闇の魔素二個を獲得する。失敗すると、｢遮断｣の変調を受ける。誰かが判定を行うと、成否に関わらずこの効果はなくなる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "XEST"
+output = "極限環境シーン表(7) ＞ 苛酷な自然環境によってキミたちは窮地に立たされる。「力」≪円環≫の判定を行うこと。成功すると、なんとか使えそうなものを探し、好きな魔素が一個発生する。失敗すると、キミの負った傷は時間と空間を超えて、キミのアンカーに不幸をもたらす。「運命変転」が発生する。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "STB"
-output = "大判シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「星」≪黄金≫の判定を行うこと。成功すると、そのシーンに好きな魔素が1点発生する。失敗すると、「運命変転表」を使用する。"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "STB"
-output = "大判シーン表(6) ＞ 無人の路地裏。ここならば、邪魔が入ることもないだろう。"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "STB"
-output = "大判シーン表(9) ＞ 読んでいた本を閉じる。そこには、あなたが知りたかったことが書かれていた。なるほど、そういうことか。"
-rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "STB"
-output = "大判シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「闇」≪死≫の判定を行うこと。成功すると、そのシーンに好きな魔素が1点発生する。失敗すると、「運命変転表」を使用する。"
+input = "XEST"
+output = "極限環境シーン表(12) ＞ 鼓膜を破りそうな、轟音が鳴り響く。言葉による意思の疎通は諦めた方がよさそうだ。≪旋律≫の判定を行う。失敗すると、チャージしているまその中から好きなものを二個失う。"
 rands = [
   { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "IWST"
+output = "内面世界シーン表(2) ＞ 肌の色と熱い吐息で満たされた場所。無数の男女が、思いつく限りの肉の欲望を実践している。このシーンに登場しているPCのうち一人は、≪エロス≫の判定を行うことができる。成功すると【一時的魔力】を1点獲得する。失敗すると【魔力】が2点減少する。誰かが判定を行うと、成否にかかわらずこの効果はなくなる。"
+rands = [
   { sides = 6, value = 1 },
-  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "IWST"
+output = "内面世界シーン表(7) ＞ 夜の道。もやもやと黒いものが後ろから、追いかけてくる。はっきりした姿も分からないのに、ひどく恐ろしく感じる。このシーンに登場するPCは、「力」≪円環≫の判定を行う。成功すると、好きな魔素二個を獲得できる。失敗した場合、もやもやとした黒いものは君のアンカーの前に現れる。「運命変転」が発生する。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "STB"
-output = "大判シーン表(12) ＞ 悲劇の予感。家族の不幸、友の絶望、仲間の死......このままだと起きてしまうかもしれない出来事の幻が見える。そのシーンに闇の魔素が1点発生する。"
+input = "IWST"
+output = "内面世界シーン表(12) ＞ どことも知れぬ空間。あなたの最も愛しい人が、目の前に現れる。このシーンに登場しているPCのうち一人は、≪情熱≫の判定を行うことができる。成功すると、好きなアンカーに対する【運命】を1点上昇させることができる。失敗すると、「運命変転」が発生する。誰かが判定を行うと、成否にかかわらずこの効果はなくなる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1192,11 +816,92 @@ rands = [
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "STB"
-output = "大判シーン表(8) ＞ なんの変哲もないおだやかな風景。しかし、その日常の背後で魔法災厄の影を感じる。"
+input = "MCST"
+output = "魔法都市シーン表(2) ＞ 急に爆発が起こる。誰かが実験で失敗したらしい。「綻び」の変調を受けた後、「力」の魔素を二個獲得する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MCST"
+output = "魔法都市シーン表(7) ＞ 広場。魔法使い同士が喧嘩を始め、魔法が飛び交い始める。このシーンに登場したPCは、「力」≪円環≫で判定を行う。成功すると、好きな魔素を二個獲得する。失敗すると、この場所の魔法の影響が時空を超えて、アンカーに現れる。「運命変転」が発生する。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MCST"
+output = "魔法都市シーン表(12) ＞ 闘技場。魔法使いが、強化した元型や幻獣を競い合わせている。シーンプレイヤーのPCは、一度だけ、基本ルールブックに載っている、ランク4以下の〈書籍卿〉か〈越境者〉に、魔法戦を挑むことができる。勝利すると、「プライズ表」を使用することができる。"
 rands = [
   { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "WDST"
+output = "死後世界シーン表(2) ＞ 寂しげな村。影のような人々が時折行き来する。ここでは、死んだキャラクターに会うことができる。このシーンに登場しているPCのうち一人は、疵をひとつだけ、克服することができる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "WDST"
+output = "死後世界シーン表(6) ＞ 床が白い雲になっている場所。雲の隙間からは、現世のような風景が見える。「力」≪円環≫の判定を行う。成功すると、このセッション中一度だけ、判定のサイコロを振り直すことができる。失敗すると、時空を越えて、アンカーが死後世界を垣間見てしまう。「運命変転」が発生する。"
+rands = [
   { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "WDST"
+output = "死後世界シーン表(12) ＞ どことも知れぬ空間。あなたの最も愛しい人が、目の前に現れる。このシーンに登場しているPCのうち一人は、≪情熱≫の判定を行うことができる。成功すると、好きなアンカーに対する【運命】を1点上昇させることができる。失敗すると、「運命変転」が発生する。誰かが判定を行うと、成否にかかわらずこの効果はなくなる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "LWST"
+output = "迷宮世界シーン表(2) ＞ がらんとした、石畳の部屋。床に描かれた魔法陣が、不気味な光を放っている。このシーンに登場しているPCのうち一人は、≪異界≫で判定を行うことができる。成功すると、その魔法陣を地球に帰還できる魔法門として使用できる。失敗すると、魔法門から現れた道の怪物に襲われ、このシーンに登場しているPC全員の【魔力】が1D6減少する。誰かが判定を行うと、成否にかかわらずこの効果はなくなる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "LWST"
+output = "迷宮世界シーン表(7) ＞ 怪物が現れ、キミたちを襲う。このシーンに登場しているPC全員は、「力」≪円環≫の判定を行うこと。成功すると、怪物を倒し、好きな魔素が一個発生する。失敗すると、キミの負った傷は時間と空間を越えて、キミのアンカーに不幸をもたらす。「運命変転」が発生する。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "LWST"
+output = "迷宮世界シーン表(12) ＞ 行き止まりの壁には、一見、意味不明な文字が並んでいる。ここから先に進むためには、この文字の謎を解かねばならないのだろうか。このシーンに登場しているPCのうち一人は、≪謎≫で判定を行うことができる。成功すると公開されているハンドアウトの中から、好きな【秘密】を公開することができる。失敗すると、部屋に仕掛けられた罠が発動し、このシーンは強制的に終了する。誰かが判定を行うと、成否にかかわらずこの効果はなくなる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
@@ -1211,259 +916,22 @@ rands = [
 [[ test ]]
 game_system = "MagicaLogia"
 input = "STB"
-output = "大判シーン表(8) ＞ なんの変哲もないおだやかな風景。しかし、その日常の背後で魔法災厄の影を感じる。"
+output = "大判シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「力」≪円環≫の判定を行うこと。成功すると、そのシーンに好きな魔素が1点発生する。失敗すると、「運命変転表」を使用する。"
 rands = [
-  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
 input = "STB"
-output = "大判シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「獣」≪花≫の判定を行うこと。成功すると、そのシーンに好きな魔素が1点発生する。失敗すると、「運命変転表」を使用する。"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "STB"
-output = "大判シーン表(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「力」≪波≫の判定を行うこと。成功すると、そのシーンに好きな魔素が1点発生する。失敗すると、「運命変転表」を使用する。"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTS"
-output = "指定特技（星）(7) ＞ 静寂"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTS"
-output = "指定特技（星）(2) ＞ 黄金"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTS"
-output = "指定特技（星）(12) ＞ 異界"
+output = "大判シーン表(12) ＞ 悲劇の予感。家族の不幸、友の絶望、仲間の死......このままだと起きてしまうかもしれない出来事の幻が見える。そのシーンに闇の魔素が1点発生する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTS"
-output = "指定特技（星）(4) ＞ 森"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTS"
-output = "指定特技（星）(7) ＞ 静寂"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTB"
-output = "指定特技（獣）(7) ＞ 混沌"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTB"
-output = "指定特技（獣）(2) ＞ 肉"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTB"
-output = "指定特技（獣）(12) ＞ エロス"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTB"
-output = "指定特技（獣）(7) ＞ 混沌"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTF"
-output = "指定特技（力）(7) ＞ 自由"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTF"
-output = "指定特技（力）(2) ＞ 重力"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTF"
-output = "指定特技（力）(12) ＞ 円環"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTF"
-output = "指定特技（力）(7) ＞ 自由"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTP"
-output = "指定特技（歌）(7) ＞ 想い"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTP"
-output = "指定特技（歌）(2) ＞ 物語"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTP"
-output = "指定特技（歌）(12) ＞ 時"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTP"
-output = "指定特技（歌）(7) ＞ 想い"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTD"
-output = "指定特技（夢）(7) ＞ 偶然"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTD"
-output = "指定特技（夢）(2) ＞ 追憶"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTD"
-output = "指定特技（夢）(12) ＞ 未来"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTD"
-output = "指定特技（夢）(7) ＞ 偶然"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTN"
-output = "指定特技（闇）(7) ＞ 歪み"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTN"
-output = "指定特技（闇）(2) ＞ 深淵"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTN"
-output = "指定特技（闇）(12) ＞ 死"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "RTN"
-output = "指定特技（闇）(7) ＞ 歪み"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
 ]
 
 [[ test ]]
@@ -1496,17 +964,6 @@ rands = [
 [[ test ]]
 game_system = "MagicaLogia"
 input = "MBST"
-output = "魔法書架シーン表(2) ＞ 〈禁書〉の保管庫へ入ることを許可された。幾重にも張り巡らされた決壊や、鋭い目つきの書警たちが目に付く。その隙をついて、〈禁書〉が襲い掛かってきた！このシーンに登場したPCは一人だけ《衝撃》の判定を行う。失敗すると、【魔力】が3点減少する。成功すると、【一時的魔力】を3点得る。誰かが判定すると、成否にかかわらず、この効果はなくなる。"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "MBST"
 output = "魔法書架シーン表(4) ＞ 町の図書館。いつのまにか、人界に戻ってきてしまったようだ。このシーンに登場しているPCのうち一人は、好きなキャラクターを1人選び、事件表を一回振って、その効果を適用する。"
 rands = [
   { sides = 6, value = 1 },
@@ -1528,11 +985,24 @@ rands = [
 [[ test ]]
 game_system = "MagicaLogia"
 input = "MBST"
+output = "魔法書架シーン表(11) ＞ 魔導書の閲覧室。数人の魔法使いが、熱心に魔導書を読んでいる。このシーンに登場しているPCのうち一人は、「星」≪異界≫の判定を行うことができる。成功すると、修得している魔法を一つ、修得可能な別の魔法に入れ替えることができる。失敗すると、「封印」の変調を受ける。誰かが判定すると、成否にかかわらず、この効果はなくなる。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "MBST"
 output = "魔法書架シーン表(12) ＞ 本棚と本棚の間に、唐突に扉が浮かんでいる。この扉は、異界につながる戸口だ。一体どこにつながっているのだろう。異界シーン表の中からランダムに一つを選んで、その効果を適用する。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
+
 
 [[ test ]]
 game_system = "MagicaLogia"
@@ -1614,12 +1084,32 @@ rands = [
 [[ test ]]
 game_system = "MagicaLogia"
 input = "TCST"
+output = "クレドの塔シーン表(2) ＞ 目の前に一人の少女が現れる。眠り姫の長、ラトゥナだ。ずっと眠り続けている筈の彼女が現れたのは、いったい何を告げるためなのだろうか。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "TCST"
 output = "クレドの塔シーン表(3) ＞ 突然何かが襲い掛かってきた！未熟な魔法使いが元型の召喚に失敗したようだ。このシーンに登場しているPCは一人だけ、≪炎≫の判定を行う。失敗すると、【魔力】が3点減少する。成功すると、【一時的魔力】を3点得る。誰かが判定すると、成否にかかわらず、この効果はなくなる。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "TCST"
+output = "クレドの塔シーン表(4) ＞ 話しかけてきた天涯預言者が、不幸な未来を予言する。このシーンに登場しているPCは一人だけ、≪眠り≫の判定を行う。失敗すると、【魔力】が1点減少する。成功すると、「夢」の魔素をを1点獲得する。誰かが判定すると、成否にかかわらず、この効果はなくなる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
 ]
 
 [[ test ]]
@@ -1637,12 +1127,19 @@ rands = [
 [[ test ]]
 game_system = "MagicaLogia"
 input = "TCST"
-output = "クレドの塔シーン表(4) ＞ 話しかけてきた天涯預言者が、不幸な未来を予言する。このシーンに登場しているPCは一人だけ、≪眠り≫の判定を行う。失敗すると、【魔力】が1点減少する。成功すると、「夢」の魔素をを1点獲得する。誰かが判定すると、成否にかかわらず、この効果はなくなる。"
+output = "クレドの塔シーン表(12) ＞ 突然、目の前に扉が現れる。この扉は、異界につながる戸口だ。一体どこにつながっているのだろう。異界シーン表の中からランダムに一つを選んで、その効果を適用する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "PWST"
+output = "並行世界シーン表(2) ＞ カフェのテーブル。FMラジオは、去年解散したはずのバンドの、先日発表した新曲を流している。このシーンに登場しているPCのうち一人は、「時の流れ表」を1回振り、効果を適用する。"
 rands = [
   { sides = 6, value = 1 },
-  { sides = 6, value = 3 },
   { sides = 6, value = 1 },
-  { sides = 6, value = 5 },
 ]
 
 [[ test ]]
@@ -1682,6 +1179,15 @@ rands = [
 
 [[ test ]]
 game_system = "MagicaLogia"
+input = "PWST"
+output = "並行世界シーン表(12) ＞ 目の前で、以前、経験した出来事が起きる。この世界では、これは、今から起きる出来事なのだ。このシーンに登場しているPCのうち一人は、このシーンの間、判定に+1の修正を受ける。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
 input = "PAST"
 output = "終末シーン表(2) ＞ 夜。雨宿りのために足を踏み入れた寺院に危険は気配はなく、ゆっくり休めそうだ。静に時が流れていく。"
 rands = [
@@ -1704,10 +1210,10 @@ rands = [
 [[ test ]]
 game_system = "MagicaLogia"
 input = "PAST"
-output = "終末シーン表(11) ＞ 昼。崩壊した農村のかたわらで、美味しそうな果実を発見する。≪大地≫の判定に成功すると【魔力】が2点回復する。"
+output = "終末シーン表(12) ＞ 夕刻。錆び付いた線路。その先までたくさんのしゃれこうべが無造作に転がっている。虚憑が一体襲い掛かってくる。魔法戦を開始すること。2ラウンド経過するまでは昼、以降のラウンドは夜として処理する。この魔法戦はゲーム中に一度だけ発生する。"
 rands = [
   { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
@@ -1773,17 +1279,17 @@ rands = [
 [[ test ]]
 game_system = "MagicaLogia"
 input = "WLAT"
-output = "世界法則追加表(2) ＞ 世界法則「夜祭」。星の明かりや提灯を頼りに、終わらないお祭りが続いている。このシーンに登場しているキャラクターは、「刻印百景」の特技で判定に成功すると、【手当】の俗呪を使用したとき、消費した魔素1点につき、【魔力】を2点回復できるようになる。"
+output = "世界法則追加表(1) ＞ 世界法則「楽園」。この「停車駅」は美しく、慰めに満ちている。この「停車駅」で降りた〈愚者〉は魅了され、ここで一生を過ごすことになる。「刻印百景」の特技で判定に成功すると、これを押しとどめることができる。この判定は、対象の〈愚者〉一人につき一回しかできない。"
 rands = [
-  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
 input = "WLAT"
-output = "世界法則追加表(5) ＞ この「停車駅」の周辺は死んだ〈愚者〉たちの終着点でもある。もしここで降りる〈愚者〉がいれば、その人物は死んでいたことになる。このシーンに登場しているキャラクターがその〈愚者〉をアンカーとしている場合、「刻印百景」の特技で判定に成功すると、「疵」になることなく運命欄から消去できる。"
+output = "世界法則追加表(6) ＞ 世界法則「魔法門」。他の異境への入り口が存在する。「刻印百景」の特技で判定に成功すると、その魔法門を発見できる。"
 rands = [
-  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
@@ -1808,18 +1314,28 @@ rands = [
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "FFT"
-output = "落花表(2) ＞ 精神が壊れる。その唇から、〈永遠〉が抱く夢や願望だけが小さく小さく、壊れた楽器のように吐き出され、季節が変わる頃に、死ぬ。〈永遠〉をアンカーにしているものは、それが疵になる。"
+input = "WMT"
+output = "さまよう怪物表(6) ＞ 黒いローブをまとった幽鬼が現れる。枯れ木のような細い腕を振り上げて、勇気は呪いの言葉を叫ぶ。幽鬼の【魔力】は4点。シーンに登場しているPC全員は≪バカ≫の判定を行う。失敗したPCは、「不幸」の変調を受け、運命変転が発生する。"
 rands = [
-  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
 ]
 
 [[ test ]]
 game_system = "MagicaLogia"
 input = "FFT"
-output = "落花表(3) ＞ その生命力が暴走し、死と再生が繰り返される。助けてくれと懇願する声すら出せない。1d6ヶ月後、死ぬ。〈永遠〉をアンカーにしているものは、それが疵になる。"
+output = "落花表(1) ＞ 肉体が枯れるように崩壊する。その苦痛は耐え難いもののようだ。人の言葉にならない断末魔が聞く者を苛み、死ぬ。〈永遠〉をアンカーにしているものは、それが疵になる。"
 rands = [
-  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "FFT"
+output = "落花表(6) ＞ 身体がしおれ、「種」が落ちる。しかし、再生することはない。もし大地に埋めてやれば、何かの植物として芽吹くだろう。（〈永遠〉をアンカーにしているものは、そのアンカーを失う。疵にはならない）"
+rands = [
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
@@ -1860,37 +1376,11 @@ rands = [
 
 [[ test ]]
 game_system = "MagicaLogia"
-input = "FLT"
-output = "その後表(1,1) ＞ 成就者は、邪悪な魔法の力にひかれるようになる。成就者が、そのセッションで〈断章〉に憑依されていたり、魔法災厄の犠牲になったりしていた場合、【堕落値】が1点上昇し、堕落チェックを行う。堕落チェックに失敗した場合、成就者は命を落とし、そのPCの疵となる。"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FLT"
-output = "その後表(3,6) ＞ 成就者は、自分の願いを叶えたのがPCだと気付く。成就者の【堕落値】が、そのPCの成就者との【運命】の値と同じ値になる。もし、この効果によって【堕落値】が以前より増えていた場合、堕落チェックを行う。堕落チェックに失敗した場合、成就者は〈愚者〉ではなくなり、魔法使いとなる。"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "FLT"
-output = "その後表(6,3) ＞ 成就者は、叶えて貰った願いを失うことになる。堕落チェックを行う。堕落チェックに成功すると、【堕落値】が1点減少する。"
+input = "OLST"
+output = "旧図書館シーン表(12) ＞ なぜ、君がここに？扉を開けると、そこにはPCのアンカーがいた。シーンプレイヤーのアンカーの中から、ランダムに一人を選ぶ。そのアンカーが登場する。シーンプレイヤーは、そのアンカーに「事件」を行っても、行動済みにならない。"
 rands = [
   { sides = 6, value = 6 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "MagicaLogia"
-input = "TPTB"
-output = "大判時の流れ表(3) ＞ 瞑想していたのか。それとも何か封印されていたのか。長い眠りから目を覚ます。もうそんな時間か。おかげで十分に休息できた。ランダムに魔素を三個獲得するか、自分が「魔力のリセット」を行うか、自分の受けている変調をすべて回復する。"
-rands = [
-  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
@@ -1917,8 +1407,52 @@ rands = [
 
 [[ test ]]
 game_system = "MagicaLogia"
+input = "TPTB"
+output = "大判時の流れ表(6) ＞ 日々研鑚を重ね、魔法の修行に精進した。もしも望むなら、蔵書欄にある魔法を、自分の修得可能な別の魔法に変更して構わない。もしも、魔素がチャージされていた魔法を未習得にした場合、その魔素は失われる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "FLT"
+output = "その後表(1,1) ＞ 成就者は、邪悪な魔法の力にひかれるようになる。成就者が、そのセッションで〈断章〉に憑依されていたり、魔法災厄の犠牲になったりしていた場合、【堕落値】が1点上昇し、堕落チェックを行う。堕落チェックに失敗した場合、成就者は命を落とし、そのPCの疵となる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "FLT"
+output = "その後表(3,6) ＞ 成就者は、自分の願いを叶えたのがPCだと気付く。成就者の【堕落値】が、そのPCの成就者との【運命】の値と同じ値になる。もし、この効果によって【堕落値】が以前より増えていた場合、堕落チェックを行う。堕落チェックに失敗した場合、成就者は〈愚者〉ではなくなり、魔法使いとなる。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "FLT"
+output = "その後表(6,1) ＞ 成就者は、突如自分に訪れた幸運に罪悪感を覚えるようになる。もし成就者の【堕落値】が1点以上だった場合、堕落チェックを行う。堕落チェックに失敗した場合、「運命変転表『精神的災厄』」を使用し、その不幸を受ける。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
+input = "FLT"
+output = "その後表(6,6) ＞ 成就者は、信じれば夢が叶うと思うようになり、少しだけ前向きになる。PCは功績点を1点獲得する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia"
 input = "2D6>=? 目標値?でバグらない"
-output = "(2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 失敗"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },

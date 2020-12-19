@@ -20,7 +20,7 @@ module BCDice
         DPの取得の有無も表示されます。
       INFO_MESSAGE_TEXT
 
-      register_prefix(['\d+\-2DR.*'])
+      register_prefix('\d+\-2DR.*')
 
       def eval_game_system_specific_command(command)
         return nil unless command =~ /^(\d+)-2DR([\+\-\d]*)(>=(\d+))?$/i

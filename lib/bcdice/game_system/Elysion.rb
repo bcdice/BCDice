@@ -1200,14 +1200,14 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix([
+      register_prefix(
         'EL.*',
         'DATE.*', 'FDATE.*', 'ODATE.*', 'MDATE.*',
         'RBT', 'SBT', 'BBT', 'CBT', 'DBT', 'IBT', 'FBT', 'LBT', 'PBT', 'NBT', 'ABT', 'VBT', 'GBT', 'HBT',
         'BFT', 'FWT', 'FT',
         'SRT', 'ORT', 'DRT', 'URT',
-        'NJ\d+', 'BS\d+'
-      ] + TABLES.keys)
+        'NJ\d+', 'BS\d+', TABLES.keys
+      )
     end
   end
 end

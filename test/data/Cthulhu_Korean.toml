@@ -1,15 +1,17 @@
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "1D100<=70 ファンブルなし"
 output = "(1D100<=70) ＞ 100 ＞ 실패"
+failure = true
 rands = [
   { sides = 100, value = 100 },
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "1D100<=70 クリティカルなし"
 output = "(1D100<=70) ＞ 1 ＞ 성공"
+success = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -18,7 +20,7 @@ rands = [
 ##### 対抗判定 RES #####
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(12-10) 失敗"
 output = "(1d100<=60) ＞ 83 ＞ 실패"
 failure = true
@@ -27,7 +29,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(12-10) ファンブル"
 output = "(1d100<=60) ＞ 100 ＞ 펌블"
 failure = true
@@ -37,7 +39,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(12-10) ファンブルは100のみ"
 output = "(1d100<=60) ＞ 99 ＞ 실패"
 failure = true
@@ -46,7 +48,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(12-10) 失敗"
 output = "(1d100<=60) ＞ 88 ＞ 실패"
 failure = true
@@ -55,7 +57,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(12-10) 失敗 1足りない"
 output = "(1d100<=60) ＞ 61 ＞ 실패"
 failure = true
@@ -64,7 +66,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(12-10) 成功 1足りた"
 output = "(1d100<=60) ＞ 60 ＞ 성공"
 success = true
@@ -73,7 +75,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(12-10) 成功"
 output = "(1d100<=60) ＞ 42 ＞ 성공"
 success = true
@@ -82,7 +84,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(12-10) スペシャルに1足りない"
 output = "(1d100<=60) ＞ 13 ＞ 성공"
 success = true
@@ -91,7 +93,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(12-10) スペシャル"
 output = "(1d100<=60) ＞ 12 ＞ 스페셜"
 success = true
@@ -100,7 +102,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(12-10) クリティカルは1のみ"
 output = "(1d100<=60) ＞ 2 ＞ 스페셜"
 success = true
@@ -109,7 +111,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(12-10) クリティカル"
 output = "(1d100<=60) ＞ 1 ＞ 크리티컬/스페셜"
 success = true
@@ -119,7 +121,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(10-15) 引数が負数の場合には絶対値をとる"
 output = "(1d100<=25) ＞ 26 ＞ 실패"
 failure = true
@@ -128,7 +130,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(10-15) 引数が負数の場合には絶対値をとる"
 output = "(1d100<=25) ＞ 25 ＞ 성공"
 success = true
@@ -137,21 +139,21 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(11-30) 自動失敗"
 output = "(1d100<=-45) ＞ 자동실패"
 failure = true
 rands = []
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RES(30-11) 自動成功"
 output = "(1d100<=145) ＞ 자동성공"
 success = true
 rands = []
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "SRES(18-11) シークレット"
 output = "(1d100<=85) ＞ 47 ＞ 성공"
 secret = true
@@ -164,7 +166,7 @@ rands = [
 ##### 組み合わせロール CBR #####
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBR(70,30) ファンブル"
 output = "(1d100<=70,30) ＞ 100[펌블,펌블] ＞ 실패"
 failure = true
@@ -174,7 +176,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBR(70,30) ファンブルは100のみ"
 output = "(1d100<=70,30) ＞ 99[실패,실패] ＞ 실패"
 failure = true
@@ -183,7 +185,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBR(70,30) 失敗"
 output = "(1d100<=70,30) ＞ 71[실패,실패] ＞ 실패"
 failure = true
@@ -192,7 +194,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBR(70,30) 部分的成功"
 output = "(1d100<=70,30) ＞ 70[성공,실패] ＞ 부분적 성공"
 success = true
@@ -201,7 +203,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBR(70,30) 部分的成功"
 output = "(1d100<=70,30) ＞ 31[성공,실패] ＞ 부분적 성공"
 success = true
@@ -210,7 +212,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBR(70,30) 成功"
 output = "(1d100<=70,30) ＞ 30[성공,성공] ＞ 성공"
 success = true
@@ -219,7 +221,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBR(70,30) 一方のみスペシャル"
 output = "(1d100<=70,30) ＞ 7[스페셜,성공] ＞ 성공"
 success = true
@@ -228,7 +230,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBR(70,30) 両方スペシャル"
 output = "(1d100<=70,30) ＞ 6[스페셜,스페셜] ＞ 성공"
 success = true
@@ -237,7 +239,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBR(70,30) クリティカル"
 output = "(1d100<=70,30) ＞ 1[크리티컬/스페셜,크리티컬/스페셜] ＞ 성공"
 success = true
@@ -247,7 +249,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBR(25,1) スペシャルと失敗"
 output = "(1d100<=25,1) ＞ 5[스페셜,실패] ＞ 부분적 성공"
 success = true
@@ -256,7 +258,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBR(90,99)"
 output = "(1d100<=90,99) ＞ 96[실패,성공] ＞ 부분적 성공"
 success = true
@@ -265,7 +267,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBR(90,95)"
 output = "(1d100<=90,95) ＞ 96[실패,실패] ＞ 실패"
 failure = true
@@ -274,7 +276,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "SCBR(25,75) シークレット"
 output = "(1d100<=25,75) ＞ 30[실패,성공] ＞ 부분적 성공"
 secret = true
@@ -287,7 +289,7 @@ rands = [
 ##### 技能判定 CC #####
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC 1D100の置き換えなのでファンブルなし"
 output = "(1D100) ＞ 100"
 rands = [
@@ -295,7 +297,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC 1D100の置き換えなのでクリティカルなし"
 output = "(1D100) ＞ 1"
 rands = [
@@ -303,7 +305,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=60 ファンブル"
 output = "(1D100<=60) ＞ 100 ＞ 펌블"
 failure = true
@@ -313,7 +315,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=60 ファンブルは100のみ"
 output = "(1D100<=60) ＞ 99 ＞ 실패"
 failure = true
@@ -322,7 +324,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=60 失敗"
 output = "(1D100<=60) ＞ 78 ＞ 실패"
 failure = true
@@ -331,7 +333,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=60 失敗 1足りない"
 output = "(1D100<=60) ＞ 61 ＞ 실패"
 failure = true
@@ -340,7 +342,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=60 成功 1足りた"
 output = "(1D100<=60) ＞ 60 ＞ 성공"
 success = true
@@ -349,7 +351,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=60 成功"
 output = "(1D100<=60) ＞ 49 ＞ 성공"
 success = true
@@ -358,7 +360,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=60 スペシャルに1足りない"
 output = "(1D100<=60) ＞ 13 ＞ 성공"
 success = true
@@ -367,7 +369,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=60 スペシャル"
 output = "(1D100<=60) ＞ 12 ＞ 스페셜"
 success = true
@@ -376,7 +378,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=60 クリティカルは1のみ"
 output = "(1D100<=60) ＞ 2 ＞ 스페셜"
 success = true
@@ -385,7 +387,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=60 クリティカル"
 output = "(1D100<=60) ＞ 1 ＞ 크리티컬/스페셜"
 success = true
@@ -395,7 +397,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=59 スペシャルは端数切り捨て"
 output = "(1D100<=59) ＞ 12 ＞ 성공"
 success = true
@@ -404,7 +406,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=59 スペシャルは端数切り捨て"
 output = "(1D100<=59) ＞ 11 ＞ 스페셜"
 success = true
@@ -413,7 +415,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC<=+60/2+15*2-10"
 output = "(1D100<=50) ＞ 37 ＞ 성공"
 success = true
@@ -422,7 +424,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC(94)<=98 故障 成功"
 output = "(1D100<=98) 고장넘버[94] ＞ 97 ＞ 고장"
 failure = true
@@ -431,7 +433,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC(94)<=98 故障 失敗"
 output = "(1D100<=98) 고장넘버[94] ＞ 99 ＞ 고장"
 failure = true
@@ -440,7 +442,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CC(94)<=98 故障 致命的失敗"
 output = "(1D100<=98) 고장넘버[94] ＞ 100 ＞ 펌블/고장"
 failure = true
@@ -450,7 +452,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "SCC<=60 シークレット"
 output = "(1D100<=60) ＞ 77 ＞ 실패"
 failure = true
@@ -463,7 +465,7 @@ rands = [
 ##### 戦闘用技能判定 CCB #####
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=+60/2+15*2-10"
 output = "(1D100<=50) ＞ 37 ＞ 성공"
 success = true
@@ -472,7 +474,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=(12*5)-20"
 output = "(1D100<=40) ＞ 37 ＞ 성공"
 success = true
@@ -481,7 +483,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=50 ファンブル"
 output = "(1D100<=50) ＞ 100 ＞ 펌블"
 failure = true
@@ -491,7 +493,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=50 ファンブル"
 output = "(1D100<=50) ＞ 96 ＞ 펌블"
 failure = true
@@ -501,7 +503,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=50 ファンブルは96~100"
 output = "(1D100<=50) ＞ 95 ＞ 실패"
 failure = true
@@ -510,7 +512,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=50 失敗"
 output = "(1D100<=50) ＞ 61 ＞ 실패"
 failure = true
@@ -519,7 +521,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=50 失敗 1足りない"
 output = "(1D100<=50) ＞ 51 ＞ 실패"
 failure = true
@@ -528,7 +530,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=50 成功 1足りた"
 output = "(1D100<=50) ＞ 50 ＞ 성공"
 success = true
@@ -537,7 +539,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=50 スペシャルに1足りない"
 output = "(1D100<=50) ＞ 11 ＞ 성공"
 success = true
@@ -546,7 +548,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=50 スペシャル"
 output = "(1D100<=50) ＞ 10 ＞ 스페셜"
 success = true
@@ -555,7 +557,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=50 クリティカルは1~5"
 output = "(1D100<=50) ＞ 6 ＞ 스페셜"
 success = true
@@ -564,7 +566,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=50 クリティカル"
 output = "(1D100<=50) ＞ 5 ＞ 크리티컬/스페셜"
 success = true
@@ -574,7 +576,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=50 クリティカル"
 output = "(1D100<=50) ＞ 1 ＞ 크리티컬/스페셜"
 success = true
@@ -584,7 +586,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=98 出目が悪いがファンブルでない"
 output = "(1D100<=98) ＞ 98 ＞ 성공"
 success = true
@@ -593,7 +595,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=3 出目が良いがクリティカルでない"
 output = "(1D100<=3) ＞ 4 ＞ 실패"
 failure = true
@@ -602,7 +604,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB<=-10+40/2+20*2 右辺が式"
 output = "(1D100<=50) ＞ 37 ＞ 성공"
 success = true
@@ -611,7 +613,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB(98)<=80 故障ナンバー：成功"
 output = "(1D100<=80) 고장넘버[98] ＞ 80 ＞ 성공"
 success = true
@@ -620,7 +622,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB(98)<=99 故障ナンバー：故障 成功"
 output = "(1D100<=99) 고장넘버[98] ＞ 99 ＞ 고장"
 failure = true
@@ -629,7 +631,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB(98)<=80 故障ナンバー：致命的失敗"
 output = "(1D100<=80) 고장넘버[98] ＞ 96 ＞ 펌블"
 failure = true
@@ -639,7 +641,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB(98)<=80 (5%) 故障ナンバー：故障 致命的失敗"
 output = "(1D100<=80) 고장넘버[98] ＞ 99 ＞ 펌블/고장"
 failure = true
@@ -649,7 +651,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CCB(98)<=80 (5%) 故障ナンバー：致命的失敗"
 output = "(1D100<=80) 고장넘버[98] ＞ 100 ＞ 펌블/고장"
 failure = true
@@ -659,7 +661,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "SCCB<=50 シークレット"
 output = "(1D100<=50) ＞ 30 ＞ 성공"
 secret = true
@@ -672,7 +674,7 @@ rands = [
 ##### 戦闘用対抗判定 RESB #####
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(13-10) ファンブル"
 output = "(1d100<=65) ＞ 100 ＞ 펌블"
 failure = true
@@ -682,7 +684,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(13-10) ファンブル"
 output = "(1d100<=65) ＞ 96 ＞ 펌블"
 failure = true
@@ -692,7 +694,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(13-10) ファンブルは96~100"
 output = "(1d100<=65) ＞ 95 ＞ 실패"
 failure = true
@@ -701,7 +703,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(13-10) 失敗 1足りない"
 output = "(1d100<=65) ＞ 66 ＞ 실패"
 failure = true
@@ -710,7 +712,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(13-10) 成功 1足りた"
 output = "(1d100<=65) ＞ 65 ＞ 성공"
 success = true
@@ -719,7 +721,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(13-10) スペシャルに1足りない"
 output = "(1d100<=65) ＞ 14 ＞ 성공"
 success = true
@@ -728,7 +730,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(13-10) スペシャル"
 output = "(1d100<=65) ＞ 13 ＞ 스페셜"
 success = true
@@ -737,7 +739,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(13-10) クリティカルは1~5"
 output = "(1d100<=65) ＞ 6 ＞ 스페셜"
 success = true
@@ -746,7 +748,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(13-10) クリティカル"
 output = "(1d100<=65) ＞ 5 ＞ 크리티컬/스페셜"
 success = true
@@ -756,7 +758,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(13-10) クリティカル"
 output = "(1d100<=65) ＞ 1 ＞ 크리티컬/스페셜"
 success = true
@@ -766,7 +768,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(10-15) 絶対値をとる"
 output = "(1d100<=25) ＞ 90 ＞ 실패"
 failure = true
@@ -775,7 +777,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(10-15) 絶対値をとる"
 output = "(1d100<=25) ＞ 25 ＞ 성공"
 success = true
@@ -784,21 +786,21 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(25-10) 自動成功"
 output = "(1d100<=125) ＞ 자동성공"
 success = true
 rands = []
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "RESB(10-25) 自動失敗"
 output = "(1d100<=-25) ＞ 자동실패"
 failure = true
 rands = []
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "SRESB(16-12) シークレット"
 output = "(1d100<=70) ＞ 44 ＞ 성공"
 secret = true
@@ -811,7 +813,7 @@ rands = [
 ##### 戦闘用組み合わせロール CBRB #####
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBRB(70,30) ファンブル"
 output = "(1d100<=70,30) ＞ 100[펌블,펌블] ＞ 실패"
 failure = true
@@ -821,7 +823,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBRB(70,30) ファンブル"
 output = "(1d100<=70,30) ＞ 96[펌블,펌블] ＞ 실패"
 failure = true
@@ -831,7 +833,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBRB(70,30) ファンブルは96~100"
 output = "(1d100<=70,30) ＞ 95[실패,실패] ＞ 실패"
 failure = true
@@ -840,7 +842,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBRB(70,30) ファンブルは96~100"
 output = "(1d100<=70,30) ＞ 95[실패,실패] ＞ 실패"
 failure = true
@@ -849,7 +851,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBRB(70,30) 部分的成功"
 output = "(1d100<=70,30) ＞ 70[성공,실패] ＞ 부분적 성공"
 success = true
@@ -858,7 +860,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBRB(70,30) 部分的成功"
 output = "(1d100<=70,30) ＞ 31[성공,실패] ＞ 부분적 성공"
 success = true
@@ -867,7 +869,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBRB(70,30) 一方のみスペシャル"
 output = "(1d100<=70,30) ＞ 7[스페셜,성공] ＞ 성공"
 success = true
@@ -876,7 +878,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBRB(70,30) クリティカルは1~5"
 output = "(1d100<=70,30) ＞ 6[스페셜,스페셜] ＞ 성공"
 success = true
@@ -885,7 +887,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBRB(70,30) クリティカル"
 output = "(1d100<=70,30) ＞ 5[크리티컬/스페셜,크리티컬/스페셜] ＞ 성공"
 success = true
@@ -895,7 +897,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBRB(70,30) クリティカル"
 output = "(1d100<=70,30) ＞ 1[크리티컬/스페셜,크리티컬/스페셜] ＞ 성공"
 success = true
@@ -905,7 +907,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBRB(98,50) 成功とファンブル"
 output = "(1d100<=98,50) ＞ 96[성공,펌블] ＞ 부분적 성공"
 success = true
@@ -915,7 +917,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "CBRB(70,2) クリティカルと失敗"
 output = "(1d100<=70,2) ＞ 3[크리티컬/스페셜,실패] ＞ 부분적 성공"
 success = true
@@ -925,7 +927,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Cthulhu_Korean"
+game_system = "Cthulhu:Korean"
 input = "SCBRB(70,30) シークレット"
 output = "(1d100<=70,30) ＞ 48[성공,실패] ＞ 부분적 성공"
 secret = true

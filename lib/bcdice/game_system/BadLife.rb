@@ -41,7 +41,7 @@ module BCDice
         ・スキル表：SKL
       MESSAGETEXT
 
-      register_prefix(['\d?(BAD|BL|GL).*', '[TDGKSB]RN', 'SKL'])
+      register_prefix('\d?(BAD|BL|GL).*', '[TDGKSB]RN', 'SKL')
 
       def eval_game_system_specific_command(command)
         command = command.upcase

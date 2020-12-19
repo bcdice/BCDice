@@ -24,7 +24,7 @@ module BCDice
         　NORBLE  貴族趣味／MARCHEN  メルヒェン／COLONIAL  コロニアル／
         　SHELF  本棚のある場所／LITTLE  小さな妹の部屋／
         　ELDER  素敵なお姉さまの部屋／ATERIEL  アトリエ／OPEN  集まれる場所／
-        　HAUNTED  SIMPLE  侘び住まい
+        　HAUNTED  精神的瑕疵物件／SIMPLE  侘び住まい
         ・いろいろな場所
         　LARGE  広い場所／CORRIDOR  廊下／STAIRS  階段／
         　COSY  居心地のいい場所／TERRACE  テラス・ベランダ／
@@ -33,7 +33,7 @@ module BCDice
         　RUIN  廃屋／SHORE  水のほとり
       MESSAGETEXT
 
-      register_prefix(["SPRING", "SUMMER", "AUTUMN", "WINTER", "MORNING", "NOON", "AFTERNOON", "TWILIGHT", "NIGHT", "MIDNIGHT", "NORBLE", "MARCHEN", "COLONIAL", "SHELF", "LITTLE", "ELDER", "ATERIEL", "OPEN", "HAUNTED", "SIMPLE", "LARGE", "CORRIDOR", "STAIRS", "COSY", "TERRACE", "GARRET", "KITCHEN", "BATH", "REST", "CELLER", "LUMBER", "GARDEN", "WASTED", "RUIN", "SHORE"])
+      register_prefix("SPRING", "SUMMER", "AUTUMN", "WINTER", "MORNING", "NOON", "AFTERNOON", "TWILIGHT", "NIGHT", "MIDNIGHT", "NORBLE", "MARCHEN", "COLONIAL", "SHELF", "LITTLE", "ELDER", "ATERIEL", "OPEN", "HAUNTED", "SIMPLE", "LARGE", "CORRIDOR", "STAIRS", "COSY", "TERRACE", "GARRET", "KITCHEN", "BATH", "REST", "CELLER", "LUMBER", "GARDEN", "WASTED", "RUIN", "SHORE")
 
       def eval_game_system_specific_command(command)
         info = EVENT_TABLES[command.upcase]

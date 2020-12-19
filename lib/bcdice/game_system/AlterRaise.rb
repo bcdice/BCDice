@@ -34,10 +34,10 @@ module BCDice
         QUI：平穏・経験表をダイスロール
       MESSAGETEXT
 
-      register_prefix([
+      register_prefix(
         'EMA(\d+)?', 'PER(\d+)?', 'LOC(\d+)?', 'QUI(\d+)?', 'DEL(\d+)?',
         'TRA(\d+)?', 'SCE(\d+)?', 'STA(\d+)?', 'EMO(\d+)?'
-      ])
+      )
 
       def eval_game_system_specific_command(command)
         output =

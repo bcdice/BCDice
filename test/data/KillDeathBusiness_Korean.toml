@@ -1,5 +1,5 @@
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "HST"
 output = "이력표(1) ＞ 마술\n당신은 악마와의 접촉을 위해 연구를 쌓아온 오컬티스트, 또는 공포의 탐색자다. 굉장한 고난과 노력을 통해,드디어 나타난 악마는, 소원을 들어주는 대신 방송에나가라, 다고 말했다. 당신은 조금 어이없어 하면서도,애당초 악마를 찾던 이유인 소원을 이루기 위해, 그들이 주최하는 방송에 출연할 것을 승낙했다."
 rands = [
@@ -7,7 +7,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "HST"
 output = "이력표(6) ＞ 친구\n당신은 평온한 인생을 보내고 있었으나, 어느 날 눈앞에 악마가 나타났다. 그 녀석은 방송 출연의 엔트리 시트를 가지고 있어서, 거기에는 당신의 이름이 적혀 있었다. 친구가 멋대로 당신의 이름으로 방송에 엔트리시트를 보낸 것이다! 당신은 그대로 납치되어, 억지로소원을 정하게 되어, 악취미인 방송에서 폭력을 휘두르게 됐다."
 rands = [
@@ -15,7 +15,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ST"
 output = "씬표(11,11) ＞ 당신이 근거로 삼고 있는 오피스"
 rands = [
@@ -26,7 +26,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ST"
 output = "씬표(66,66) ＞ 약탈을 당해 텅 빈 들판"
 rands = [
@@ -37,7 +37,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ST1"
 output = "씬표(11) ＞ 당신이 근거로 삼고 있는"
 rands = [
@@ -46,7 +46,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ST1"
 output = "씬표(66) ＞ 약탈을 당해 텅 빈"
 rands = [
@@ -55,7 +55,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ST2"
 output = "씬표(11) ＞ 오피스"
 rands = [
@@ -64,7 +64,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ST2"
 output = "씬표(66) ＞ 들판"
 rands = [
@@ -73,7 +73,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "DeathWT"
 output = "소원표「죽음」(1) ＞ 지금의 아름다움을 유지한 채 죽고 싶다."
 rands = [
@@ -81,7 +81,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "DeathWT"
 output = "소원표「죽음」(6) ＞ 불로불사가 질려서 죽고 싶다."
 rands = [
@@ -89,7 +89,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "DWT"
 output = "소원표「죽음」(1) ＞ 지금의 아름다움을 유지한 채 죽고 싶다."
 rands = [
@@ -97,7 +97,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "RevengeWT"
 output = "소원표「복수」(1) ＞ 가족을 죽인 범인에게 복수하고 싶다."
 rands = [
@@ -105,7 +105,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "RevengeWT"
 output = "소원표「복수」(6) ＞ 처참한 패배를 안겨준 라이벌에게 복수하고 싶다."
 rands = [
@@ -113,7 +113,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "RWT"
 output = "소원표「복수」(1) ＞ 가족을 죽인 범인에게 복수하고 싶다."
 rands = [
@@ -121,7 +121,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "VictoryWT"
 output = "소원표「승리」(1) ＞ 이전에 졌던 라이벌에게 이기고 싶다."
 rands = [
@@ -129,7 +129,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "VictoryWT"
 output = "소원표「승리」(6) ＞ 특정 테스트에서 1위를 하고 싶다."
 rands = [
@@ -137,7 +137,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "VWT"
 output = "소원표「승리」(1) ＞ 이전에 졌던 라이벌에게 이기고 싶다."
 rands = [
@@ -145,7 +145,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "PossesionWT"
 output = "소원표「획득」(1) ＞ 원하는 아이템이 있다."
 rands = [
@@ -153,7 +153,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "PossesionWT"
 output = "소원표「획득」(6) ＞ 원하는 부동산이 있다."
 rands = [
@@ -161,7 +161,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "PWT"
 output = "소원표「획득」(1) ＞ 원하는 아이템이 있다."
 rands = [
@@ -169,7 +169,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ControlWT"
 output = "소원표「지배」(1) ＞ 지배하고 싶은 인물집단이 있다."
 rands = [
@@ -177,7 +177,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ControlWT"
 output = "소원표「지배」(6) ＞ 어리광쟁이인 친척을 마음대로 하고 싶다."
 rands = [
@@ -185,7 +185,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "CWT"
 output = "소원표「지배」(1) ＞ 지배하고 싶은 인물집단이 있다."
 rands = [
@@ -193,7 +193,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "FlourishWT"
 output = "소원표「번영」(1) ＞ 몰락한 일족을 부흥시키고 싶다."
 rands = [
@@ -201,7 +201,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "FlourishWT"
 output = "소원표「번영」(6) ＞ 아무튼 많은 돈을 원한다."
 rands = [
@@ -209,7 +209,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "FWT"
 output = "소원표「번영」(1) ＞ 몰락한 일족을 부흥시키고 싶다."
 rands = [
@@ -217,7 +217,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "IntensifyWT"
 output = "소원표「강화」(1) ＞ 세계최강이 되고 싶다."
 rands = [
@@ -225,7 +225,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "IntensifyWT"
 output = "소원표「강화」(6) ＞ 세계에서 가장 빨라지고 싶다."
 rands = [
@@ -233,7 +233,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "IWT"
 output = "소원표「강화」(1) ＞ 세계최강이 되고 싶다."
 rands = [
@@ -241,7 +241,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "HealthWT"
 output = "소원표「건강」(1) ＞ 완성시키고 싶은 약물이 있다."
 rands = [
@@ -249,7 +249,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "HealthWT"
 output = "소원표「건강」(6) ＞ 병에 걸리지 않는 몸을 원한다."
 rands = [
@@ -257,7 +257,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "HWT"
 output = "소원표「건강」(1) ＞ 완성시키고 싶은 약물이 있다."
 rands = [
@@ -265,7 +265,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "SafetyWT"
 output = "소원표「안전」(1) ＞ 평온한 생활을 보내고 싶다."
 rands = [
@@ -273,7 +273,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "SafetyWT"
 output = "소원표「안전」(6) ＞ 다가오는 세계의 위기를 회피하고 싶다."
 rands = [
@@ -281,7 +281,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "SaWT"
 output = "소원표「안전」(1) ＞ 평온한 생활을 보내고 싶다."
 rands = [
@@ -289,7 +289,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "LongevityWT"
 output = "소원표「장수」(1) ＞ 지금의 아름다움을 유지하고 싶다."
 rands = [
@@ -297,7 +297,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "LongevityWT"
 output = "소원표「장수」(6) ＞ 손자의 얼굴을 보고 싶다."
 rands = [
@@ -305,7 +305,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "LWT"
 output = "소원표「장수」(1) ＞ 지금의 아름다움을 유지하고 싶다."
 rands = [
@@ -313,7 +313,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ExistWT"
 output = "소원표「삶」(1) ＞ 살아 있다는 실감을 원한다."
 rands = [
@@ -321,7 +321,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ExistWT"
 output = "소원표「삶」(6) ＞ 이상의 인생을 손에 넣고 싶다."
 rands = [
@@ -329,7 +329,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "EWT"
 output = "소원표「삶」(1) ＞ 살아 있다는 실감을 원한다."
 rands = [
@@ -337,7 +337,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "NAME"
 output = "만능이름표(11,11,11) ＞ 아날로그X암"
 rands = [
@@ -350,7 +350,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "NAME"
 output = "만능이름표(66,66,66) ＞ 레드로보레그"
 rands = [
@@ -363,7 +363,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "NAME1"
 output = "만능이름표(11) ＞ 아날로그"
 rands = [
@@ -372,7 +372,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "NAME1"
 output = "만능이름표(66) ＞ 레드"
 rands = [
@@ -381,7 +381,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "NAME2"
 output = "만능이름표(11) ＞ X"
 rands = [
@@ -390,7 +390,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "NAME2"
 output = "만능이름표(66) ＞ 로보"
 rands = [
@@ -399,7 +399,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "NAME3"
 output = "만능이름표(11) ＞ 암"
 rands = [
@@ -408,7 +408,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "NAME3"
 output = "만능이름표(66) ＞ 레그"
 rands = [
@@ -417,7 +417,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "OccultSPT"
 output = "서브플롯표「오컬트」(1) ＞ 『죽음의 탐구』\n회수인으로부터 한 명을 골라, 상대가 「직업」으로 습득하고 있는 특기를 지정특기로판정한다. 판정에 성공하면, 방송에 의한 빈번한 죽음이 상대를 어떻게 변화시키는지 관찰하고싶어진다. 상대에 대한 관계를, 속성 「연구대상」으로 획득한다. 【심도】는 1이 된다.\n클리어조건 : 상대가, 당신이 등장하고 있는 신에서 2번사망한다. 사망에 따라 상대가 어떻게 변하는지, 제멋대로 이러쿵저러쿵 말해도 되고, 아무것도 말하지 않고 다 안 것 같은 표정을 해도 된다.\n보수：【시청률】10%증가、400【소울】"
 rands = [
@@ -425,7 +425,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "OccultSPT"
 output = "서브플롯표「오컬트」(6) ＞ 『마법사』\n캐릭터로부터 한 명을 골라, 상대가 「소도구」으로 습득하고 있는 특기를 지정특기로 판정한다. 판정에 성공하면, 상대는 애초에 진짜로 마법을 사용할 수 있는 인간이며, 가지고 있는 도구는 고명한 매직 아이템이라고 확신한다. 상대에 대한 관계를, 속성 「마법사」으로획득한다. 【심도】는 1이 된다.\n클리어조건：상대에 대한 관계의 【심도】를 2이상으로\n하고, 또한 상대의 당신에 대한 관계의\n【심도】를 1이상으로 한다. 정체가 드러난 상대는 마법을 가르쳐주고, 당신은 만족한다. 덧붙여, 이 마법은 효과가 애매하고 확실하지 앟은 것을 적당히 설정한다.\n보수：【시청률】10%증가、당신과 상대 모두 300【소울】"
 rands = [
@@ -433,7 +433,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "OSPT"
 output = "서브플롯표「오컬트」(6) ＞ 『마법사』\n캐릭터로부터 한 명을 골라, 상대가 「소도구」으로 습득하고 있는 특기를 지정특기로 판정한다. 판정에 성공하면, 상대는 애초에 진짜로 마법을 사용할 수 있는 인간이며, 가지고 있는 도구는 고명한 매직 아이템이라고 확신한다. 상대에 대한 관계를, 속성 「마법사」으로획득한다. 【심도】는 1이 된다.\n클리어조건：상대에 대한 관계의 【심도】를 2이상으로\n하고, 또한 상대의 당신에 대한 관계의\n【심도】를 1이상으로 한다. 정체가 드러난 상대는 마법을 가르쳐주고, 당신은 만족한다. 덧붙여, 이 마법은 효과가 애매하고 확실하지 앟은 것을 적당히 설정한다.\n보수：【시청률】10%증가、당신과 상대 모두 300【소울】"
 rands = [
@@ -441,7 +441,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "FamilySPT"
 output = "서브플롯표「가족」(1) ＞ 『설득』\n캐릭터로부터 한 명을 골라, 상대가 「소도구」로 습득하고 있는 특기를 지정특기로 판정한다. 판정에 성공하면, 상대가 가지고 있는 것은 당신이 선물한 것이며, 옛 친구가 악취미인 쇼에 나왔단 것을 알 수 있다. 그만두도록 설득하지 않으면 상대에 대한 관계를, 속성 「옛 친구」로 획득한다. 【심도】는 1이 된다.\n클리어조건：상대에 대한 관계의 【심도】를 3으로 한다. 그러면, 설득을 할 만큼 한 당신은 만족한다. 상대는 분명 그만두지 않는다. 또는, 선택한 「옛 친구」가 사망하거나(회수인이라면)지옥에 떨어진다. 그러면, 아무래도 포기하게 된다.\n보수：【시청률】10%증가、400【소울】"
 rands = [
@@ -449,7 +449,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "FamilySPT"
 output = "서브플롯표「가족」(6) ＞ 『고독한 사람』\n캐릭터로부터 한 명을 골라, 상대가 「소원」으로 습득하고 있는 특기를 지정특기로 판정한다.\n판정에 성공하면, 상대가 고독을 견디고 있는 외로운 인물이란 것을 확신한다. 당신이 상대를 구하는 것이다.\n상대에 대한 관계를, 속성 「고독한 사람」으로 획득한다. 【심도】는 1이 된다.\n클리어조건：상대에 대한 관계의 【심도】를 2이상으로 한다.\n그러면, 상대는 변할……지도 모르고, 아무것도 변하지 않을지도 모른다. 그저, 당신은, 상대의 고독이 조금 치유된 것을 알 수 있다.\n보수：【시청률】10%증가、200【소울】"
 rands = [
@@ -457,7 +457,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "FSPT"
 output = "서브플롯표「가족」(1) ＞ 『설득』\n캐릭터로부터 한 명을 골라, 상대가 「소도구」로 습득하고 있는 특기를 지정특기로 판정한다. 판정에 성공하면, 상대가 가지고 있는 것은 당신이 선물한 것이며, 옛 친구가 악취미인 쇼에 나왔단 것을 알 수 있다. 그만두도록 설득하지 않으면 상대에 대한 관계를, 속성 「옛 친구」로 획득한다. 【심도】는 1이 된다.\n클리어조건：상대에 대한 관계의 【심도】를 3으로 한다. 그러면, 설득을 할 만큼 한 당신은 만족한다. 상대는 분명 그만두지 않는다. 또는, 선택한 「옛 친구」가 사망하거나(회수인이라면)지옥에 떨어진다. 그러면, 아무래도 포기하게 된다.\n보수：【시청률】10%증가、400【소울】"
 rands = [
@@ -465,7 +465,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "LoveSPT"
 output = "서브플롯표「연애」(1) ＞ 『금단의 사랑』\n표적이 「의장」으로 습득하고 있는 특기를 지정특기로 판정한다. 표적이 이미 사망한 경우, 서브플롯표를 다시 굴린다.\n판정에 성공하면, 표적에게 첫눈에 반하거나, 표적이 전부터 좋아했던 사람이란 것이 판명된다. 서두르지 않으면 죽어버린다.\n상대에 대한 관계를, 속성 「좋아하는 사람」으로 획득한다. 【심도】는 1이 된다.\n클리어조건：상대에 대한 관계의 【심도】를 3으로 한다.\n그러면, 표적은 당신의 마음에 대해 어떠한 대답을 돌려준다. 결과는 아무튼, 좋은 경험이 될 것이다.\n또는, 상대에 대한 관계의 【심도】가 2이상인 상태에서, 상대가 사망해도 좋다. 통곡하자.\n보수：【시청률】10%증가、400【소울】"
 rands = [
@@ -473,7 +473,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "LoveSPT"
 output = "서브플롯표「연애」(6) ＞ 『수제요리』\n캐릭터로부터 한 명을 골라, 상대가 「소도구」로 습득하고 있는 특기를 지정특기로 판정한다.\n판정에 성공하면, 상대가 가지고 있는 것이 힌트가 돼서, 엄청난 요리를 떠올린다. 어쩌면 재료로 할 수 있을지도 모른다.\n상대에 대한 관계를, 속성 「시식역」으로 획득한다. 【심도】는 1이 된다.\n클리어조건：상대에게 전투를 걸어, 킬러트릭으로 쓰러트린다.\n이때, 킬러트릭의 이름은 생각한 요리의 이름으로 변경된다.\n고민되면 만능 명명표를 사용할 것.\n보수：【시청률】10%증가、500【소울】"
 rands = [
@@ -481,7 +481,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "LoSPT"
 output = "서브플롯표「연애」(1) ＞ 『금단의 사랑』\n표적이 「의장」으로 습득하고 있는 특기를 지정특기로 판정한다. 표적이 이미 사망한 경우, 서브플롯표를 다시 굴린다.\n판정에 성공하면, 표적에게 첫눈에 반하거나, 표적이 전부터 좋아했던 사람이란 것이 판명된다. 서두르지 않으면 죽어버린다.\n상대에 대한 관계를, 속성 「좋아하는 사람」으로 획득한다. 【심도】는 1이 된다.\n클리어조건：상대에 대한 관계의 【심도】를 3으로 한다.\n그러면, 표적은 당신의 마음에 대해 어떠한 대답을 돌려준다. 결과는 아무튼, 좋은 경험이 될 것이다.\n또는, 상대에 대한 관계의 【심도】가 2이상인 상태에서, 상대가 사망해도 좋다. 통곡하자.\n보수：【시청률】10%증가、400【소울】"
 rands = [
@@ -489,7 +489,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JusticeSPT"
 output = "서브플롯표「정의」(1) ＞ 『죽일 수 없는 표적』\n표적이 「정동」으로 습득하고 있는 특기를 지정특기로 판정한다.\n판정에 성공하면, 상대가 당신의 정의에 비추어 볼 때 허물없는 인물이란 것을 알 수 있다(어쩌면, 실은 대단히 선량한 인물이었단 것을 안다). 이 사람을 죽일 수는 없다.\n상대에 대한 관계를, 속성 「호위대상」으로 획득한다. 【심도】는 1이 된다.\n클리어조건：결과 페이즈까지 상대를 생존시킨다.\n어째서 아군이 됐는지, 어째서 아군으로 삼았는지, 상대에게 말해주면 기뻐할지도 모른다.\n보수：【시청률】10%증가、700【소울】"
 rands = [
@@ -497,7 +497,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JusticeSPT"
 output = "서브플롯표「정의」(6) ＞ 『사이드킥』\n회수인으로부터 한 명을 골라, 상대가 「의장」으로 습득하고 있는 특기를 지정특기로 판정한다.\n판정에 성공하면, 상대는 자신의 파트너로써 악을 쓰러트리기에 최적인 인물이라 확신한다. 사이드킥이다.\n상대에 대한 관계를, 속성 「동료」으로 획득한다. 【심도】는 1이 된다.\n클리어조건：자신이 등장하고 있는 신에서, 상대가 누군가를 쓰러트리고, 그 후 당신이 죽지 않고 전투가 종료된다.\n상대를 칭찬해서, 동료에 어울리는 인물이라고 선언하자.\n보수：【시청률】10%증가、300【소울】"
 rands = [
@@ -505,7 +505,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JSPT"
 output = "서브플롯표「정의」(1) ＞ 『죽일 수 없는 표적』\n표적이 「정동」으로 습득하고 있는 특기를 지정특기로 판정한다.\n판정에 성공하면, 상대가 당신의 정의에 비추어 볼 때 허물없는 인물이란 것을 알 수 있다(어쩌면, 실은 대단히 선량한 인물이었단 것을 안다). 이 사람을 죽일 수는 없다.\n상대에 대한 관계를, 속성 「호위대상」으로 획득한다. 【심도】는 1이 된다.\n클리어조건：결과 페이즈까지 상대를 생존시킨다.\n어째서 아군이 됐는지, 어째서 아군으로 삼았는지, 상대에게 말해주면 기뻐할지도 모른다.\n보수：【시청률】10%증가、700【소울】"
 rands = [
@@ -513,7 +513,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "TrainingSPT"
 output = "서브플롯표「수행」(1) ＞ 『전투광』\n회수인으로부터 한 명을 골라, 상대가 「동작」으로 습득하고 있는 특기를 지정특기로 판정한다.\n판정에 성공하면, 주변에 있는 강해보이는 사람들에 대해 대항심이 끓어오른다. 결국, 남는 것은 한 사람 뿐이니까, 지금부터 때려눕히는 게 좋다.\n상대에 대한 관계를, 속성 「적」으로 획득한다. 【심도】는 1이 된다.\n클리어조건：상대를 포함해 세 명의 캐릭터를 한 번 이상 사망시킨다.\n그러면, 당신의 전투열은 가라앉는다. 이제부터 사이가 좋아질지는 미묘할지도 모른다.\n보수：【시청률】10%증가、600【소울】"
 rands = [
@@ -521,7 +521,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "TrainingSPT"
 output = "서브플롯표「수행」(6) ＞ 『특훈』\n캐릭터로부터 한 명을 골라, 상대가 「정동」으로 습득하고 있는 특기를 지정특기로 판정한다.\n판정에 성공하면, 상대는 자신과 마찬가지로 수행부족을 통감하고 있다고 확신한다. 함께 트레이닝이다.\n상대에 대한 관계를, 속성 「특훈동료」로 획득한다. 【심도】는 1이 된다.\n클리어조건：상대에 대한 관계의 【심도】를 2이상으로 한다.\n그러면, 당신과 상대는 어떠한 성과를 느끼고, 특훈은 끝난다.\n이 타이밍에서 킬러트릭의 이름을 바꾸거나 해도 된다.\n보수：【시청률】10%증가、200【소울】"
 rands = [
@@ -529,7 +529,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "TSPT"
 output = "서브플롯표「수행」(1) ＞ 『전투광』\n회수인으로부터 한 명을 골라, 상대가 「동작」으로 습득하고 있는 특기를 지정특기로 판정한다.\n판정에 성공하면, 주변에 있는 강해보이는 사람들에 대해 대항심이 끓어오른다. 결국, 남는 것은 한 사람 뿐이니까, 지금부터 때려눕히는 게 좋다.\n상대에 대한 관계를, 속성 「적」으로 획득한다. 【심도】는 1이 된다.\n클리어조건：상대를 포함해 세 명의 캐릭터를 한 번 이상 사망시킨다.\n그러면, 당신의 전투열은 가라앉는다. 이제부터 사이가 좋아질지는 미묘할지도 모른다.\n보수：【시청률】10%증가、600【소울】"
 rands = [
@@ -537,7 +537,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "BeamSPT"
 output = "서브플롯표「웃음」(1) ＞ 『대 서비스』\n캐릭터로부터 한 명을 골라, 상대가 「정동」으로 습득하고 있는 특기를 지정특기로 판정한다.\n판정에 성공하면, 이 살벌한 방송을 온화하게 할 수 있는 것은, 자신과 상대 밖에 없다고 확신한다.\n상대에 대한 관계를, 속성 「파트너」로 획득한다. 【심도】는 1이 된다.\n클리어조건：상대와 함께, 「서비스」신의 판정에 2번 성공한다.\n그러면, 어쩐지 방송이 즐거워진 것 같은 느낌도 드나……변하지 않은 것 같은 기분도 든다. 당신의 싸움은 아직 계속된다.\n보수：【시청률】10%증가、당신과 상대 모두 【소울】"
 rands = [
@@ -545,7 +545,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "BeamSPT"
 output = "서브플롯표「웃음」(6) ＞ 『친구』\n캐릭터로부터 한 명을 골라, 상대가 「소도구」으로 습득하고 있는 특기를 지정특기로 판정한다.\n판정에 성공하면, 그 소도구에 대한 대화를 계기로, 상대에 대한 흥미가 싹튼다. 어쩌면 친구가 될지도 모른다.\n상대에 대한 관계를, 속성 「친구」로 획득한다. 【심도】는 1이 된다.\n클리어조건：상대에 대한 관계의 【심도】를 2이상으로 한다.\n그러면, 당신과 상대는 우정과 같은 것으로 묶일지도 모르고, 역시 무리였다고, 당신이 포기할지도 모른다.\n보수：【시청률】10%증가、200【소울】"
 rands = [
@@ -553,7 +553,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "BSPT"
 output = "서브플롯표「웃음」(1) ＞ 『대 서비스』\n캐릭터로부터 한 명을 골라, 상대가 「정동」으로 습득하고 있는 특기를 지정특기로 판정한다.\n판정에 성공하면, 이 살벌한 방송을 온화하게 할 수 있는 것은, 자신과 상대 밖에 없다고 확신한다.\n상대에 대한 관계를, 속성 「파트너」로 획득한다. 【심도】는 1이 된다.\n클리어조건：상대와 함께, 「서비스」신의 판정에 2번 성공한다.\n그러면, 어쩐지 방송이 즐거워진 것 같은 느낌도 드나……변하지 않은 것 같은 기분도 든다. 당신의 싸움은 아직 계속된다.\n보수：【시청률】10%증가、당신과 상대 모두 【소울】"
 rands = [
@@ -561,7 +561,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "CMT"
 output = "CM표(11) ＞ 당신의 T셔츠\n결정 포즈의 모습이 등에 프린트 된 T셔츠입니다. 그리고 앞면에는 뭣이 그 명대사가!"
 rands = [
@@ -570,7 +570,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "CMT"
 output = "CM표(66) ＞ 헬 입욕제\n몸이 끓는다! 신감각으로 화제를 부른 헬 입욕제가 드디어 등장! 사체의 처리에는 사용하지 말아주세요."
 rands = [
@@ -579,7 +579,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "sErviceST"
 output = "서비스 씬 표(11) ＞ 탈의계 서비스 신표「의장의 문제」을/를 행한다."
 rands = [
@@ -588,7 +588,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "SERVICEST"
 output = "서비스 씬 표(66) ＞ 다른 장르계 서비스 신표「로보」을/를 행한다."
 rands = [
@@ -597,7 +597,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "EST"
 output = "서비스 씬 표(11) ＞ 탈의계 서비스 신표「의장의 문제」을/를 행한다."
 rands = [
@@ -606,7 +606,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "SOUL"
 output = "소울방출표(1) ＞ 100"
 rands = [
@@ -614,7 +614,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "SOUL"
 output = "소울방출표(6) ＞ 300"
 rands = [
@@ -622,7 +622,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "STGT"
 output = "범용 연출표(1) ＞ 크고 알기 쉬운 자막이 나온다."
 rands = [
@@ -630,7 +630,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "STGT"
 output = "범용 연출표(6) ＞ 헬 밴드의 신곡이 BGM으로 흐른다."
 rands = [
@@ -638,7 +638,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "HSAT"
 output = "헬 스타일리스트 매도 표(11,11) ＞ 「마치『땀범벅이 된 아르마딜로』같아!」"
 rands = [
@@ -651,7 +651,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "HSAT"
 output = "헬 스타일리스트 매도 표(66,66) ＞ 「너는『엽기살인을 취미로 하고 있는 들개』나 다를 바 없어! 」"
 rands = [
@@ -664,7 +664,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "HSAT1"
 output = "헬 스타일리스트 매도 표(11) ＞ 땀범벅이 된"
 rands = [
@@ -673,7 +673,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "HSAT1"
 output = "헬 스타일리스트 매도 표(66) ＞ 엽기살인을 취미로 하고 있는"
 rands = [
@@ -682,7 +682,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "HSAT2"
 output = "헬 스타일리스트 매도 표(11) ＞ 아르마딜로"
 rands = [
@@ -691,7 +691,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "HSAT2"
 output = "헬 스타일리스트 매도 표(66) ＞ 들개"
 rands = [
@@ -700,7 +700,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "SKLT"
 output = "지정특기 랜덤결정표(1,2) ＞ 「직업」《무직》"
 rands = [
@@ -710,7 +710,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "SKLT"
 output = "지정특기 랜덤결정표(6,12) ＞ 「소원」《생》"
 rands = [
@@ -720,7 +720,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "2d6>=5"
 output = "(2D6>=5) ＞ 2[1,1] ＞ 2 ＞ 펌블(판정 실패.【시청률】이 20%감소)"
 rands = [
@@ -729,7 +729,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "2d6>=5"
 output = "(2D6>=5) ＞ 12[6,6] ＞ 12 ＞ 스페셜(판정 성공.【시청률】이 10%증가)"
 rands = [
@@ -738,7 +738,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "2d6>=5"
 output = "(2D6>=5) ＞ 4[1,3] ＞ 4 ＞ 실패"
 rands = [
@@ -747,7 +747,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "2d6>=5"
 output = "(2D6>=5) ＞ 5[1,4] ＞ 5 ＞ 성공"
 rands = [
@@ -756,7 +756,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "SKLJ"
 output = "지정특기분야 랜덤결정표(1) ＞ 직업"
 rands = [
@@ -764,7 +764,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "SKLJ"
 output = "지정특기분야 랜덤결정표(6) ＞ 소원"
 rands = [
@@ -772,7 +772,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD5"
 output = "판정【난이도5、보정0、펌블치2】 ＞ 주사위 눈(3,1) ＞ 달성치4、난이도미만이므로 판정 실패!"
 rands = [
@@ -781,7 +781,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD5"
 output = "판정【난이도5、보정0、펌블치2】 ＞ 주사위 눈(4,1) ＞ 달성치5、난이도이상이므로 판정 성공!"
 rands = [
@@ -790,7 +790,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD6+1"
 output = "판정【난이도6、보정1、펌블치2】 ＞ 주사위 눈(3,1) ＞ 달성치5、난이도미만이므로 판정 실패!"
 rands = [
@@ -799,7 +799,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD6+1"
 output = "판정【난이도6、보정1、펌블치2】 ＞ 주사위 눈(4,1) ＞ 달성치6、난이도이상이므로 판정 성공!"
 rands = [
@@ -808,7 +808,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD6-1"
 output = "판정【난이도6、보정-1、펌블치2】 ＞ 주사위 눈(5,1) ＞ 달성치5、난이도미만이므로 판정 실패!"
 rands = [
@@ -817,7 +817,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD6-1"
 output = "판정【난이도6、보정-1、펌블치2】 ＞ 주사위 눈(6,1) ＞ 달성치6、난이도이상이므로 판정 성공!"
 rands = [
@@ -826,7 +826,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD5,4"
 output = "판정【난이도5、보정0、펌블치4】 ＞ 주사위 눈(4,1) ＞ 달성치5、난이도이상이므로 판정 성공!"
 rands = [
@@ -835,7 +835,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD6,5"
 output = "판정【난이도6、보정0、펌블치5】 ＞ 주사위 눈(4,1) ＞ 주사위 눈이\t  펌블율 이하이므로 펌블!(판정 실패.【시청률】이 20%감소)"
 rands = [
@@ -844,7 +844,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD5,5"
 output = "판정【난이도5、보정0、펌블치5】 ＞ 주사위 눈(4,1) ＞ 주사위 눈이\t  펌블율 이하이므로 펌블!(판정 실패.【시청률】이 20%감소)"
 rands = [
@@ -853,7 +853,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD6,5"
 output = "판정【난이도6、보정0、펌블치5】 ＞ 주사위 눈(4,1) ＞ 주사위 눈이\t  펌블율 이하이므로 펌블!(판정 실패.【시청률】이 20%감소)"
 rands = [
@@ -862,7 +862,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD5-1,4"
 output = "판정【난이도5、보정-1、펌블치4】 ＞ 주사위 눈(4,1) ＞ 달성치4、난이도미만이므로 판정 실패!"
 rands = [
@@ -871,7 +871,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD5-1,5"
 output = "판정【난이도5、보정-1、펌블치5】 ＞ 주사위 눈(4,1) ＞ 주사위 눈이\t  펌블율 이하이므로 펌블!(판정 실패.【시청률】이 20%감소)"
 rands = [
@@ -880,7 +880,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD5+1,3"
 output = "판정【난이도5、보정1、펌블치3】 ＞ 주사위 눈(3,1) ＞ 달성치5、난이도이상이므로 판정 성공!"
 rands = [
@@ -889,7 +889,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD5+1,4"
 output = "판정【난이도5、보정1、펌블치4】 ＞ 주사위 눈(3,1) ＞ 주사위 눈이\t  펌블율 이하이므로 펌블!(판정 실패.【시청률】이 20%감소)"
 rands = [
@@ -898,7 +898,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD12,4"
 output = "판정【난이도12、보정0、펌블치4】 ＞ 주사위 눈(3,1) ＞ 주사위 눈이\t  펌블율 이하이므로 펌블!(판정 실패.【시청률】이 20%감소)"
 rands = [
@@ -907,7 +907,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD12,4"
 output = "판정【난이도12、보정0、펌블치4】 ＞ 주사위 눈(6,6) ＞ 주사위 눈이 12이므로 스페셜!(판정 성공.【시청률】이 10%증가)"
 rands = [
@@ -916,7 +916,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD13,2"
 output = "판정【JD13,2】 ＞ 난이도가 12이상은 스페셜만 성공.\n【난이도12、보정0、펌블치2】 ＞ 주사위 눈(6,1) ＞ 달성치7、난이도미만이므로 판정 실패!"
 rands = [
@@ -925,7 +925,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD4,2"
 output = "판정【JD4,2】 ＞ 난이도의 최저치는 5.\n【난이도5、보정0、펌블치2】 ＞ 주사위 눈(6,1) ＞ 달성치7、난이도이상이므로 판정 성공!"
 rands = [
@@ -934,7 +934,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD12,12"
 output = "판정【JD12,12】 ＞ 스페셜을 내면 반드시 성공이므로, 펌블치은 11으로 한다.\n【난이도12、보정0、펌블치11】 ＞ 주사위 눈(7,1) ＞ 주사위 눈이\t  펌블율 이하이므로 펌블!(판정 실패.【시청률】이 20%감소)"
 rands = [
@@ -943,7 +943,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "JD13,13"
 output = "판정【JD13,13】 ＞ 난이도가 12이상은 스페셜만 성공.\n【JD13,13】 ＞ 스페셜을 내면 반드시 성공이므로, 펌블치은 11으로 한다.\n【난이도12、보정0、펌블치11】 ＞ 주사위 눈(7,1) ＞ 주사위 눈이\t  펌블율 이하이므로 펌블!(판정 실패.【시청률】이 20%감소)"
 rands = [
@@ -952,7 +952,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ERT"
 output = "소생부작용표(11) ＞ 늙다리같은 냄새가 나기 시작한다"
 rands = [
@@ -961,7 +961,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ERT"
 output = "소생부작용표(66) ＞ 훌륭한 뿔이 이마에 났다"
 rands = [
@@ -970,7 +970,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "WKT"
 output = "일주일간표(11) ＞ 집에서 쫓겨난 헬P가 묶으러 왔다"
 rands = [
@@ -979,7 +979,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "WKT"
 output = "일주일간표(66) ＞ 묘하게 기부를 모집하는 영업전화가 걸려오는 주였다"
 rands = [
@@ -988,7 +988,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "OHT"
 output = "실제로 어떠했는가 표(6) ＞ 에피소드의 표현중에 미묘하고 귀찮은 문제를 일으켜 많은 헬 피플이 언짢게 본다. 공개는 없음으로."
 rands = [
@@ -996,7 +996,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "PCT1"
 output = "헬 라이온터스크 표(6) ＞ 「길게 끌기.」지정 특기는《삶》. 컷 없이 30분 정도 같은 씬이 계속 된다. NG는 용서되지 않는다. 이것으로 중간을 가지게할 수 있는 것은 프로의 배우정도의 것이지만, 회수인은 연기의 아마추어다."
 rands = [
@@ -1004,7 +1004,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "PCT2"
 output = "헬 크로우터스크 표(6) ＞ 「식사가 나오지 않는다.」지정 특기는《획득》. 식사의 시간이지만, 헬 주문 도시락이 오지 않는다. 그 만큼의 예산이 착복되었던 것이다. 공복인 상태로 좋은 연기를 하려면 , 기합에 의지할 수 밖에 없다."
 rands = [
@@ -1012,7 +1012,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "PCT3"
 output = "헬 스네이크터스크 표(6) ＞ 「인류 일반상식의 미움.」지정 특기는《복수》. 이유 없게 사람을 미워하는 것을 강요 당한다. 원래 성격 좋은 회수인에 있어서는 상당한 난행이다. 인류의 나쁜 면 찾기를 하자!"
 rands = [
@@ -1020,7 +1020,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "PCT4"
 output = "헬 드래곤터스크 표(6) ＞ 「네 존재자체가 NG.」지정 특기는《안전》. 회수인의 인선 그 자체에 트집을 잡을 수 있었다. 당신에게 NG를 내는 것만이 목적이다. 이성을 잃지 않고 참아 줘. 상대는 무진장 강하다."
 rands = [
@@ -1028,7 +1028,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "PCT5"
 output = "헬 플라잉터스크 표(6) ＞ 「국부에의 심한 타격.」지정 특기는《죽음》. 헬 AD나 다른 캐릭터로부터 국부가 강타되는 것을 강요 당한다. 죽지 않고 잘 아파해라. 잘못하면 쇼크로 그대로 죽는다!"
 rands = [
@@ -1036,7 +1036,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "PCT6"
 output = "헬 갓터스크 표(6) ＞ 「같이 댄스.」지정 특기는《건강》. 갑자기 댄스 씬이 시작된다! 다만 회수인은 백 댄서다. 노래해라! 다 춤추어라! 헐떡거리거나 웃는 얼굴이 망가지면 NG다!"
 rands = [
@@ -1044,7 +1044,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "PCT7"
 output = "헬 베어터스크 표(6) ＞ 「헬 부적.」지정 특기는《번영》. 소원을 성취하는 악령이, 당신의 성공을 확약! 그 다음은 성공한 채로 사고로 죽게 되지만, 그런 것 사소한 일이다!"
 rands = [
@@ -1053,7 +1053,7 @@ rands = [
 
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "ANSPT"
 output = "サブプロット表「対悪魔」(6) ＞ 『仲間』\nキャラクターから一人を選び、相手が「動作」で修得している特技を指定特技として判定を行う。判定に成功すると、あなたは相手が悪魔と戦う際に力になってくれる人物だと確信する。愚かな番組への協力をやめさせれば、きっと大丈夫だ。相手への関係を、属性「同士」で獲得する。【深度】は１になる。\nクリア条件：相手への関係の【深度】を3にする。結局断られるかもしれないが、あなたは言うだけ言ったことで満足した。\n報酬：【視聴率】１０％増加、相手が回収人なら400【ソウル】　相手がＮＰＣなら600【ソウル】"
 rands = [
@@ -1061,7 +1061,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "MASPT"
 output = "サブプロット「意地悪」(6) ＞ 『泣かせたい』\nキャラクターから一人を選び、相手が「情動」で修得している特技を指定特技として判定を行う。判定に成功すると、あなたは相手の泣き顔がヘル視聴者(と、あなた)に非常な満足感を与えてくれるであろうと確信する。相手への関係を、属性「泣かせたい人」で獲得する。【深度】は１になる。\nクリア条件:相手への関係の【深度】を2以上にする。相手は泣き出すか、そっと涙を流す……が、理由は相手が決定する。血が目に入っただけかもしれない。\n報酬:【視聴率】１０％増加、200【ソウル】"
 rands = [
@@ -1069,7 +1069,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "MOSPT"
 output = "サブプロット表「金儲け」(6) ＞ 『ゆるキャラ』\nキャラクターから一人を選び、相手が「情動」で修得している特技を指定特技として判定を行う。判定に成功すると、相手のムードにぴったりのキャラを思いつく。あなたの考えた変な語尾をつけさせることができれば、大ヒット間違いなしだ……！相手への関係を、属性「中身」で獲得する。【深度】は１になる。\nクリア条件：語尾を一つ指定する。相手が登場するメインフェイズのうち三つで、プレイヤーのものを含む発言すべてにその語尾をつけて喋るとクリア。他のプレイヤーやゲームマスターに語尾の欠落を指摘されるとＮＧ。\n報酬：【視聴率】１０％増加、あなたと相手の両方に300【ソウル】"
 rands = [
@@ -1077,7 +1077,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "PASPT"
 output = "サブプロット表「仕切り」(6) ＞ 『テコ入れ回避』\nキャラクターから一人を選び、相手が「衣装」で修得している特技を指定特技として判定を行う。判定に成功すると、こんな人がいるんじゃあ番組の視聴率も期待できないと確信してしまう。頑張らなければ。誰が？あなたが！相手への関係を、属性「売れなさそう」で獲得する。【深度】は１になる。\nクリア条件:結果フェイズ開始時に【視聴率】が40%以上になっている。危ない場面もあったかもしれないが、とりあえずＯＫだ。\n報酬：【視聴率】１０％増加、300【ソウル】　クリア時にフィーバーが発生していれば、さらに300【ソウル】"
 rands = [
@@ -1085,7 +1085,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "POSPT"
 output = "サブプロット表「人気」(6) ＞ 『着こなし』\nキャラクターから一人を選び、相手が「衣装」で修得している特技を指定特技として判定を行う。判定に成功すると、相手のヘルドレスの着こなしはあなたを完全に凌駕していると確信してしまう。他の面では勝っているのに。相手への関係を、属性「ファッショナブル」で獲得する。【深度】は１になる。\nクリア条件：相手への関係の【深度】を2以上にする。すると相手は着こなしについて丁寧な、あるいは短いが核心を突いていると思われる助言をあなたにしてくれる。役に立ったり立たなかったりするだろう。\n報酬：【視聴率】１０％増加、200【ソウル】"
 rands = [
@@ -1093,7 +1093,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "UMSPT"
 output = "サブプロット表「恨み」(6) ＞ 『服よこせ』\nキャラクターから一人を選び、相手が「衣装」で修得している特技を指定特技として判定を行う。判定に成功すると、その衣装は本当はあなたが着たかったものだと判明する。ヘルスタイリストへの抗議がひどい罵倒とともに却下されるシーンが脳裏にフラッシュバックする。相手への関係を、属性「服よこせ」で獲得する。【深度】は１になる。\nクリア条件:相手への関係の【深度】を2以上にし、かつ相手からあなたへの関係の【深度】を1以上にする。根負けした相手はちょっとヘルドレスを貸してくれて、あなたは満足する。ちなみに、本当に似合っているかどうかは関係ない。\n報酬:【視聴率】１０％増加、あなたと相手の両方に300【ソウル】"
 rands = [
@@ -1101,9 +1101,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KillDeathBusiness_Korean"
+game_system = "KillDeathBusiness:Korean"
 input = "2D6>=? 目標値?でバグらない"
-output = "(2D6>=?) ＞ 7[3,4] ＞ 7 ＞ 실패"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },

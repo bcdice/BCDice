@@ -40,13 +40,13 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix([
+      register_prefix(
         'NJ\d+.*',
         'EV\d+.*',
         'AT\d+.*',
         'EL\d+.*',
         'SB'
-      ])
+      )
 
       def initialize(command)
         super(command)
@@ -170,7 +170,7 @@ module BCDice
       def executeEV(ev)
         command = bRollCommand(ev.num, ev.difficulty)
 
-        rollResult = BCDice::CommonCommand::BarabaraDice.new(command, @randomizer, self).eval().sub(B_ROLL_RESULT_HEAD_RE, '')
+        rollResult = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer).text.sub(B_ROLL_RESULT_HEAD_RE, '')
         return rollResult unless ev.targetValue
 
         m = /成功数(\d+)/.match(rollResult)
@@ -189,14 +189,14 @@ module BCDice
       # @return [String] 近接攻撃結果
       def executeAT(at)
         command = bRollCommand(at.num, at.difficulty)
-        rollResult = BCDice::CommonCommand::BarabaraDice.new(command, @randomizer, self).eval().sub(B_ROLL_RESULT_HEAD_RE, '')
+        rollResult = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer).text.sub(B_ROLL_RESULT_HEAD_RE, '')
 
         # バラバラロールの出目を取得する
         # TODO: バラバラロールの結果として、出目を配列で取得できるようにする
         m = /＞ (\d+(?:,\d+)*)/.match(rollResult)
         values = m[1].split(',').map(&:to_i)
 
-        numOfMaxValues = values.select { |v| v == 6 }.length
+        numOfMaxValues = values.count(6)
 
         return numOfMaxValues >= 2 ? "#{rollResult} ＞ サツバツ!!" : rollResult
       end
@@ -206,16 +206,16 @@ module BCDice
       # @return [String] 電子戦結果
       def executeEL(el)
         command = bRollCommand(el.num, el.difficulty)
-        rollResult = BCDice::CommonCommand::BarabaraDice.new(command, @randomizer, self).eval().sub(B_ROLL_RESULT_HEAD_RE, '')
+        rollResult = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer).text.sub(B_ROLL_RESULT_HEAD_RE, '')
 
         # バラバラロールの出目を取得する
         # TODO: バラバラロールの結果として、出目を配列で取得できるようにする
         m = /＞ (\d+(?:,\d+)*)/.match(rollResult)
         values = m[1].split(',').map(&:to_i)
 
-        numOfMaxValues = values.select { |v| v == 6 }.length
+        numOfMaxValues = values.count(6)
 
-        sumOfTrueValues = values.select { |v| v >= el.difficulty }.length
+        sumOfTrueValues = values.count { |v| v >= el.difficulty }
 
         return numOfMaxValues >= 1 ? "#{rollResult} + #{numOfMaxValues} ＞ #{sumOfTrueValues + numOfMaxValues}" : rollResult
       end
@@ -263,12 +263,13 @@ module BCDice
       }.freeze
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix([
+      register_prefix(
         'NJ\d+.*',
         'EV\d+.*',
         'AT\d+.*',
-        'EL\d+.*'
-      ] + TABLES.keys)
+        'EL\d+.*',
+        TABLES.keys
+      )
     end
   end
 end

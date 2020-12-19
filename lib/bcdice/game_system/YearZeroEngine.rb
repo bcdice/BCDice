@@ -29,7 +29,7 @@ module BCDice
       SKILL_INDEX        = 5 # 技能値ダイスのインデックス
       MODIFIED_INDEX     = 7 # 修正ダイスのインデックス
 
-      register_prefix(['(\d+)?(YZE|MYZ).*'])
+      register_prefix('(\d+)?(YZE|MYZ).*')
 
       def dice_info_init()
         @total_success_dice = 0
