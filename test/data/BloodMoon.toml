@@ -293,3 +293,13 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "BloodMoon"
+input = "RTT"
+output = "ランダム全特技表(6) ＞ 環境(12) ＞ 休まない"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]

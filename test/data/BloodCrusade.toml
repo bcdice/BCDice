@@ -194,11 +194,28 @@ rands = [
 
 [[ test ]]
 game_system = "BloodCrusade"
-input = "AST"
+input = "RTT"
 output = "ランダム全特技表(6) ＞ 環境(12) ＞ 休まない"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "RTT1"
+output = "社会分野ランダム特技表(4) ＞ 《考えない／社会4》"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "RCT"
+output = "ランダム分野表(6) ＞ 環境"
+rands = [
   { sides = 6, value = 6 },
 ]
 

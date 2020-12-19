@@ -61,8 +61,18 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        roll_tables(command, TABLES)
+        roll_tables(command, TABLES) || RTT.roll_command(randomizer, command)
       end
+      RTT = DiceTable::SaiFicSkillTable.new(
+        [["社会", ["怯える", "脅す", "考えない", "自信", "黙る", "伝える", "だます", "地位", "笑う", "話す", "怒る"]],
+         ["頭部", ["聴く", "感覚器", "見る", "反応", "考える", "脳", "閃く", "予感", "叫ぶ", "口", "噛む"]],
+         ["腕部", ["締める", "殴る", "斬る", "利き腕", "撃つ", "操作", "刺す", "逆腕", "振る", "掴む", "投げる"]],
+         ["胴部", ["塞ぐ", "呼吸器", "止める", "受ける", "測る", "心臓", "逸らす", "かわす", "耐える", "消化器", "落ちる"]],
+         ["脚部", ["走る", "迫る", "蹴る", "利き脚", "跳ぶ", "仕掛ける", "踏む", "逆脚", "這う", "伏せる", "歩く"]],
+         ["環境", ["休む", "日常", "隠れる", "待つ", "現れる", "人脈", "捕らえる", "開ける", "逃げる", "退路", "休まない"]],],
+        rtt: 'AST',
+        rtt_format: "ランダム全特技表(%<category_dice>d) ＞ %<category_name>s(%<row_dice>d) ＞ %<skill_name>s"
+      )
 
       TABLES_WITH_BLOOD_MOON = {
         "ST" => DiceTable::Table.new(
@@ -109,42 +119,6 @@ module BCDice
             "《逆脚》",
             "《逆腕》",
             "《心臓》"
-          ]
-        ),
-        "AST" => DiceTable::ChainTable.new(
-          "ランダム全特技表",
-          "1D6",
-          [
-            DiceTable::Table.new(
-              "社会",
-              "2D6",
-              ["怯える", "脅す", "考えない", "自信", "黙る", "伝える", "だます", "地位", "笑う", "話す", "怒る"]
-            ),
-            DiceTable::Table.new(
-              "頭部",
-              "2D6",
-              ["聴く", "感覚器", "見る", "反応", "考える", "脳", "閃く", "予感", "叫ぶ", "口", "噛む"]
-            ),
-            DiceTable::Table.new(
-              "腕部",
-              "2D6",
-              ["締める", "殴る", "斬る", "利き腕", "撃つ", "操作", "刺す", "逆腕", "振る", "掴む", "投げる"]
-            ),
-            DiceTable::Table.new(
-              "胴部",
-              "2D6",
-              ["塞ぐ", "呼吸器", "止める", "受ける", "測る", "心臓", "逸らす", "かわす", "耐える", "消化器", "落ちる"]
-            ),
-            DiceTable::Table.new(
-              "脚部",
-              "2D6",
-              ["走る", "迫る", "蹴る", "利き脚", "跳ぶ", "仕掛ける", "踏む", "逆脚", "這う", "伏せる", "歩く"]
-            ),
-            DiceTable::Table.new(
-              "環境",
-              "2D6",
-              ["休む", "日常", "隠れる", "待つ", "現れる", "人脈", "捕らえる", "開ける", "逃げる", "退路", "休まない"]
-            )
           ]
         ),
         "MIT" => DiceTable::Table.new(
@@ -417,7 +391,7 @@ module BCDice
         ),
       }.merge(TABLES_WITH_BLOOD_MOON).freeze
 
-      register_prefix(TABLES.keys)
+      register_prefix(RTT.prefixes, TABLES.keys)
     end
   end
 end

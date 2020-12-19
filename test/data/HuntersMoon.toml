@@ -1396,6 +1396,16 @@ rands = [
 
 [[ test ]]
 game_system = "HuntersMoon"
+input = "RTT"
+output = "ランダム特技表(5,10) ＞ 《滑る／脚部10》"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HuntersMoon"
 input = "TST"
 output = "指定特技(社会)表(4) ＞ 話す"
 rands = [
@@ -1477,7 +1487,7 @@ rands = [
 
 [[ test ]]
 game_system = "HuntersMoon"
-input = "TST"
+input = "RTT1"
 output = "指定特技(社会)表(8) ＞ 作る"
 rands = [
   { sides = 6, value = 6 },
@@ -1567,7 +1577,7 @@ rands = [
 
 [[ test ]]
 game_system = "HuntersMoon"
-input = "THT"
+input = "RTT2"
 output = "指定特技(頭部)表(8) ＞ 考える"
 rands = [
   { sides = 6, value = 3 },
@@ -1657,7 +1667,7 @@ rands = [
 
 [[ test ]]
 game_system = "HuntersMoon"
-input = "TAT"
+input = "RTT3"
 output = "指定特技(腕部)表(6) ＞ 撃つ"
 rands = [
   { sides = 6, value = 3 },
@@ -1747,7 +1757,7 @@ rands = [
 
 [[ test ]]
 game_system = "HuntersMoon"
-input = "TBT"
+input = "RTT4"
 output = "指定特技(胴部)表(9) ＞ かわす"
 rands = [
   { sides = 6, value = 3 },
@@ -1837,7 +1847,7 @@ rands = [
 
 [[ test ]]
 game_system = "HuntersMoon"
-input = "TLT"
+input = "RTT5"
 output = "指定特技(脚部)表(8) ＞ しゃがむ"
 rands = [
   { sides = 6, value = 5 },
@@ -1927,7 +1937,7 @@ rands = [
 
 [[ test ]]
 game_system = "HuntersMoon"
-input = "TET"
+input = "RTT6"
 output = "指定特技(環境)表(7) ＞ 追う"
 rands = [
   { sides = 6, value = 1 },
