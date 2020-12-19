@@ -8,6 +8,7 @@
 - カムズ (Comes): らぁさんありがとうっ！ ([#282](https://github.com/bcdice/BCDice/pull/282))
 - ルーインブレイカーズ (RuinBreakers): よっしーさんありがとうっ！ ([#307](https://github.com/bcdice/BCDice/pull/307))
 - エモクロア (Emoklore): さんありがとうっ！  ([#310](https://github.com/bcdice/BCDice/pull/310))
+- アンサング・デュエット (UnsungDuet): ([#281](https://github.com/bcdice/BCDice/pull/281))
 
 ### 追加機能
 - ログ・ホライズンTRPG: LHZB1とLHZB2両方の財宝表をサポート、消耗表ロールを追加、財宝表ロールを追加、区切り文字を変更 ([#279](https://github.com/bcdice/BCDice/pull/279))
