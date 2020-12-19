@@ -70,12 +70,20 @@ rands = [
 
 [[ test ]]
 game_system = "CardRanker"
-input = "RM"
+input = "RTT"
 output = "ランダムモンスター選択(5,8) ＞ 赤の8：大鬼"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "RCT"
+output = "ランダム分野表(5) ＞ 赤"
+rands = [
+  { sides = 6, value = 5 },
 ]
 
 [[ test ]]

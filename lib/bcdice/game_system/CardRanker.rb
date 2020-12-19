@@ -14,7 +14,8 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        ランダムでモンスターカードを選ぶ (RM)
+        ランダムでモンスターカードを選ぶ (RM) (RTTn n：色番号、省略可能)
+        ランダム分野表 RCT
         特定のモンスターカードを選ぶ (CMxy　x：色、y：番号）
         　白：W、青：U、緑：V、金：G、赤：R、黒：B
         　例）CMW1→白の2：白竜　CMG12→金の12：土精霊
@@ -44,7 +45,7 @@ module BCDice
         if dice_total <= 2
           return " ＞ ファンブル"
         elsif dice_total >= 12
-          return " ＞ スペシャル ＞ " + getRandumMonster()
+          return " ＞ スペシャル ＞ " + RTT.roll_command(@randomizer, "RM")
         elsif total >= target
           return " ＞ 成功"
         else
@@ -53,72 +54,31 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        command = command.upcase
-
-        case command
-        when /^RM$/i
-          return getRandumMonster
-        when /^CM(\w)(\d+)$/i
-          color = Regexp.last_match(1).upcase
-          index = Regexp.last_match(2).to_i
-          return getMonster(color, index)
-        else
-          return roll_tables(command, TABLES)
-        end
+        roll_tables(command, TABLES) || get_monster(command) || RTT.roll_command(randomizer, command)
       end
 
-      def getRandumMonster
-        type = "ランダムモンスター選択"
-        colorTable = getColorTable
-        color, colorIndex = get_table_by_1d6(colorTable)
+      COLOR_TABLE = ['W', 'U', 'V', 'G', 'R', 'B'].freeze
 
-        monsters = getMonsterTables(colorIndex - 1)
-        monsterName, monsterIndex = get_table_by_2d6(monsters)
+      RTT = DiceTable::SaiFicSkillTable.new([
+        ['白', ['白竜', '僧侶', '格闘家', '斧使い', '剣士', '槍士', '歩兵', '弓兵', '砲兵', '天使', '軍神']],
+        ['青', ['水竜', '魚', '魚人', 'イカ', '蟹', '探偵', '海賊', '魔術師', '使い魔', '雲', '水精霊']],
+        ['緑', ['緑竜', 'ワーム', '鳥人', '鳥', '獣', '獣人', 'エルフ', '妖精', '昆虫', '植物', '森精霊']],
+        ['金', ['金竜', '宝石', '岩石', '鋼', '錬金術師', '魔法生物', 'ドワーフ', '機械', '運命', '女神', '土精霊']],
+        ['赤', ['火竜', '竜人', '恐竜', '戦車', '蛮族', '小鬼', '大鬼', '巨人', '雷', '炎', '火精霊']],
+        ['黒', ['黒竜', '闇騎士', '怪物', '忍者', '妖怪', '蝙蝠', '吸血鬼', '不死者', '幽霊', '悪魔', '邪神']],
+      ], rtt: "RM", rtt_format: "ランダムモンスター選択(%<category_dice>d,%<row_dice>d) ＞ %<text>s", s_format: "%<category_name>sの%<row_dice>d：%<skill_name>s")
 
-        output = "#{type}(#{colorIndex},#{monsterIndex}) ＞ #{color}の#{monsterIndex}：#{monsterName}"
-        return output
-      end
+      def get_monster(command)
+        m = command.match(/^CM(\w)(\d+)$/i)
+        return nil unless m
 
-      def getColorTable
-        ['白', '青', '緑', '金', '赤', '黒']
-      end
+        cat = COLOR_TABLE.index(m[1])
+        row_dice = m[2].to_i
+        return nil unless cat
+        return nil unless row_dice.between?(2, 12)
 
-      def getMonsterTables(colorIndex)
-        tables = [
-          ['白竜', '僧侶', '格闘家', '斧使い', '剣士', '槍士', '歩兵', '弓兵', '砲兵', '天使', '軍神'],
-          ['水竜', '魚', '魚人', 'イカ', '蟹', '探偵', '海賊', '魔術師', '使い魔', '雲', '水精霊'],
-          ['緑竜', 'ワーム', '鳥人', '鳥', '獣', '獣人', 'エルフ', '妖精', '昆虫', '植物', '森精霊'],
-          ['金竜', '宝石', '岩石', '鋼', '錬金術師', '魔法生物', 'ドワーフ', '機械', '運命', '女神', '土精霊'],
-          ['火竜', '竜人', '恐竜', '戦車', '蛮族', '小鬼', '大鬼', '巨人', '雷', '炎', '火精霊'],
-          ['黒竜', '闇騎士', '怪物', '忍者', '妖怪', '蝙蝠', '吸血鬼', '不死者', '幽霊', '悪魔', '邪神'],
-        ]
-
-        return tables[colorIndex]
-      end
-
-      def getMonster(color, monsterIndex)
-        return nil if monsterIndex < 2
-
-        type = "モンスター選択"
-
-        colorWords = ['W', 'U', 'V', 'G', 'R', 'B']
-        colorIndex = colorWords.index(color)
-        debug("colorIndex")
-
-        return nil if colorIndex.nil?
-
-        colorTable = getColorTable
-        color = colorTable[colorIndex]
-
-        monsters = getMonsterTables(colorIndex)
-        debug("monsters", monsters)
-        debug("monsterIndex", monsterIndex)
-        monsterName = monsters[monsterIndex - 2]
-
-        return nil if monsterName.nil?
-
-        output = "#{type} ＞ #{color}の#{monsterIndex}：#{monsterName}"
-        return output
+        skill = RTT.categories[cat].skills[row_dice - 2]
+        return "モンスター選択 ＞ #{skill}"
       end
 
       TABLES = {
@@ -243,7 +203,7 @@ module BCDice
           ]
         ),
       }.freeze
-      register_prefix('RM', 'CM.*', TABLES.keys)
+      register_prefix(RTT.prefixes, 'CM.*', TABLES.keys)
     end
   end
 end
