@@ -2,6 +2,7 @@
 game_system = "Cthulhu7th"
 input = "CBR(70,30)"
 output = "(1d100<=70,30) ＞ 30[ハード成功,レギュラー成功] ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 30 },
 ]
@@ -26,6 +27,7 @@ rands = [
 game_system = "Cthulhu7th"
 input = "CBR(70,69)"
 output = "(1d100<=70,69) ＞ 14[イクストリーム成功,ハード成功] ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 14 },
 ]
@@ -34,6 +36,7 @@ rands = [
 game_system = "Cthulhu7th"
 input = "CBR(70,30)"
 output = "(1d100<=70,30) ＞ 100[ファンブル,ファンブル] ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -42,6 +45,7 @@ rands = [
 game_system = "Cthulhu7th"
 input = "CBR(70,30)"
 output = "(1d100<=70,30) ＞ 1[クリティカル,クリティカル] ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -50,6 +54,7 @@ rands = [
 game_system = "Cthulhu7th"
 input = "CBR(25,20)"
 output = "(1d100<=25,20) ＞ 1[クリティカル,クリティカル] ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -66,6 +71,7 @@ rands = [
 game_system = "Cthulhu7th"
 input = "CBR(90,40)"
 output = "(1d100<=90,40) ＞ 97[失敗,ファンブル] ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 97 },
 ]

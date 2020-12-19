@@ -251,7 +251,11 @@ module BCDice
             "失敗"
           end
 
-        return "(1d100<=#{difficulty_1},#{difficulty_2}) ＞ #{total}[#{result_1},#{result_2}] ＞ #{rank}"
+        Result.new.tap do |r|
+          r.text = "(1d100<=#{difficulty_1},#{difficulty_2}) ＞ #{total}[#{result_1},#{result_2}] ＞ #{rank}"
+          r.success = true if result_1.success? && result_2.success?
+          r.failure = true if result_1.failure? && result_2.failure?
+        end
       end
 
       def getFullAutoResult(command)
