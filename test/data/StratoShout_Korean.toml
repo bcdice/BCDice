@@ -166,6 +166,34 @@ rands = [
 
 [[ test ]]
 game_system = "StratoShout:Korean"
+input = "RTT"
+output = "특기 리스트 ＞ [6,11] ＞ 《연애／역경11》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StratoShout:Korean"
+input = "RTT2"
+output = "특기 리스트(신체분야) ＞ [8] ＞ 《피／신체8》"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+
+[[ test ]]
+game_system = "StratoShout:Korean"
+input = "RCT"
+output = "ランダム分野表(5) ＞ 행동"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StratoShout:Korean"
 input = "2D6>=? 목표치를 달성하지 못했다"
 output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
 rands = [

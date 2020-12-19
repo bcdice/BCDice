@@ -17,14 +17,13 @@ module BCDice
 
         VOT, GUT, BAT, KEYT, DRT: (ボーカル、ギター、ベース、キーボード、ドラム)トラブル表
         EMO: 感情表
-        AT[1-6]: 特技表(空: ランダム 1: 主義 2: 身体 3: モチーフ 4: エモーション 5: 行動 6: 逆境)
+        ATn, RTTn: 特技表(n＝分野。空:ランダム 1:主義 2:身体 3:モチーフ 4:エモーション 5:行動 6:逆境)
+        RCT: 分野ランダム表
         SCENE, MACHI, GAKKO, BAND: (汎用、街角、学校、バンド)シーン表 接近シーンで使用
         TENKAI: シーン展開表 奔走シーン 練習シーンで使用
 
-        []内は省略可　D66入れ替えあり
+        D66入れ替えあり
       INFO_MESSAGE_TEXT
-
-      register_prefix('AT[1-6]?')
 
       def initialize(command)
         super(command)
@@ -53,37 +52,7 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        if (m = /^AT([1-6]?)$/.match(command))
-          value = m[1].to_i
-          return getSkillList(value)
-        end
-
-        roll_tables(command, self.class::TABLES)
-      end
-
-      def getSkillList(field = 0)
-        title = translate("StratoShout.AT.name")
-        table = translate("StratoShout.AT.table")
-
-        number1 = 0
-        if field == 0
-          table, number1 = get_table_by_1d6(table)
-        else
-          table = table[field - 1]
-        end
-
-        fieldName, table = table
-        skill, number2 = get_table_by_2d6(table)
-
-        text = title
-        if field == 0
-          text += " ＞ [#{number1},#{number2}]"
-        else
-          skill_class = translate("StratoShout.AT.skill_class", name: fieldName)
-          text += "#{skill_class} ＞ [#{number2}]"
-        end
-
-        return "#{text} ＞ 《#{skill}／#{fieldName}#{number2}》"
+        roll_tables(command, self.class::TABLES) || self.class::RTT.roll_command(@randomizer, command)
       end
 
       class << self
@@ -104,11 +73,16 @@ module BCDice
             "TENKAI" => DiceTable::D66Table.from_i18n("StratoShout.table.TENKAI", locale),
           }
         end
+
+        def translate_rtt(locale)
+          DiceTable::SaiFicSkillTable.from_i18n("StratoShout.RTT", locale, rtt: 'AT', rttn: ['AT1', 'AT2', 'AT3', 'AT4', 'AT5', 'AT6'])
+        end
       end
 
       TABLES = translate_tables(:ja_jp)
+      RTT = translate_rtt(:ja_jp)
 
-      register_prefix(TABLES.keys)
+      register_prefix(TABLES.keys, RTT.prefixes)
     end
   end
 end

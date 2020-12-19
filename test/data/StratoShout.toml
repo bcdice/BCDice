@@ -166,6 +166,33 @@ rands = [
 
 [[ test ]]
 game_system = "StratoShout"
+input = "RTT"
+output = "特技リスト ＞ [6,11] ＞ 《恋愛／逆境11》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StratoShout"
+input = "RTT2"
+output = "特技リスト(身体分野) ＞ [8] ＞ 《血／身体8》"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "StratoShout"
+input = "RCT"
+output = "ランダム分野表(6) ＞ 逆境"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StratoShout"
 input = "2D6>=? 目標値?でバグらない"
 output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
 rands = [
