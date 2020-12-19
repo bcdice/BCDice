@@ -721,6 +721,25 @@ rands = [
 
 [[ test ]]
 game_system = "KillDeathBusiness:Korean"
+input = "RTT"
+output = "지정특기 랜덤결정표(6,12) ＞ 「소원」《생》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness:Korean"
+input = "RTT1"
+output = "지정특기(직업)표(2) ＞ 「직업」《무직》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness:Korean"
 input = "2d6>=5"
 output = "(2D6>=5) ＞ 2[1,1] ＞ 2 ＞ 펌블(판정 실패.【시청률】이 20%감소)"
 rands = [
@@ -765,7 +784,7 @@ rands = [
 
 [[ test ]]
 game_system = "KillDeathBusiness:Korean"
-input = "SKLJ"
+input = "RCT"
 output = "지정특기분야 랜덤결정표(6) ＞ 소원"
 rands = [
   { sides = 6, value = 6 },

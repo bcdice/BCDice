@@ -33,7 +33,7 @@ module BCDice
         ・ソウル放出表 (SOUL)
         ・汎用演出表 (STGT)
         ・ヘルスタイリスト罵倒表 (HSAT、HSATx) xに数字(1,2)で表を個別ロール
-        ・指定特技ランダム決定表 (SKLT)、指定特技分野ランダム決定表 (SKLJ)
+        ・指定特技ランダム決定表 (SKLT, RTTn nは分野番号)、指定特技分野ランダム決定表 (RCT, SKLJ)
         ・エキストラ表 (EXT、EXTx) xに数字(1,2,3,4)で表を個別ロール
         ・製作委員決定表　PCDT/実際どうだったのか表　OHT
         ・タスク表　ヘルライオン　PCT1/ヘルクロウ　PCT2/ヘルスネーク　PCT3/
@@ -144,7 +144,7 @@ module BCDice
 
       def rollTableCommand(command)
         command = ALIAS[command] || command
-        result = roll_tables(command, self.class::TABLES)
+        result = roll_tables(command, self.class::TABLES) || self.class::RTT.roll_command(@randomizer, command)
         return result if result
 
         tableName = ""
@@ -169,10 +169,6 @@ module BCDice
         when /^EXT(\d)?$/
           type = Regexp.last_match(1).to_i
           tableName, result, number = getExtraTableResult(type)
-
-        when /^SKL(T|J)$/
-          type = Regexp.last_match(1)
-          tableName, result, number = getSkillTableResult(type)
         end
 
         if result.empty?
@@ -280,24 +276,6 @@ module BCDice
           after, = get_table_by_1d6(hellStylistwtable2)
           result = "#{before}#{result1} #{result2}#{after}"
           number = "#{num1},#{num2}"
-        end
-
-        return tableName, result, number
-      end
-
-      def getSkillTableResult(type)
-        skillTableFull = translate("KillDeathBusiness.SKLT.items")
-        skillTable, num1 = get_table_by_1d6(skillTableFull)
-        skillGroup, table = skillTable
-        if type == "T"
-          tableName = translate("KillDeathBusiness.SKLT.name")
-          skill, num2 = get_table_by_2d6(table)
-          result = "「#{skillGroup}」《#{skill}》"
-          number = "#{num1},#{num2}"
-        else
-          tableName = translate("KillDeathBusiness.SKLJ.name")
-          result = skillGroup
-          number = num1
         end
 
         return tableName, result, number
@@ -418,9 +396,14 @@ module BCDice
             "UMSPT" => DiceTable::Table.from_i18n("KillDeathBusiness.table.UMSPT", locale),
           }
         end
+
+        def translate_rtt(locale)
+          DiceTable::SaiFicSkillTable.from_i18n("KillDeathBusiness.RTT", locale, rtt: "SKLT", rct: "SKLJ")
+        end
       end
 
       TABLES = translate_tables(:ja_jp)
+      RTT = translate_rtt(:ja_jp)
 
       register_prefix(
         'ST[1-2]?',
@@ -428,12 +411,9 @@ module BCDice
         'EST', 'sErviceST',
         'HSAT[1-2]?',
         'EXT[1-4]?',
-        'SKLT',
-        'SKLJ',
         'JD'
       )
-      register_prefix(TABLES.keys)
-      register_prefix(ALIAS.keys)
+      register_prefix(TABLES.keys, register_prefix(ALIAS.keys), RTT.prefixes)
     end
   end
 end

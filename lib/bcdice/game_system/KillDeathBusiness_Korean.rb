@@ -35,7 +35,7 @@ module BCDice
         ・소울 방출표 (SOUL)
         ・범용연출표 (STGT)
         ・헬 스타일리스트 매도표 (HSAT、HSATx) x에 숫자(1,2)로 표를 개별 롤
-        ・지정특기 랜덤 결정표 (SKLT)、지정특기 분야 랜덤 결정표 (SKLJ)
+        ・지정특기 랜덤 결정표 (RTT, SKLT)、지정특기 분야 랜덤 결정표 (RCT, SKLJ)
         ・엑스트라 표 (EXT、EXTx) x에 숫자(1,2,3,4)로 표를 개별 롤
         ・제작위원 결정표　PCDT/실제 어떠했는가 표　OHT
         ・태스크 표　헬 라이온　PCT1/헬 크로우　PCT2/헬 스네이크　PCT3/
@@ -52,6 +52,7 @@ module BCDice
       end
 
       TABLES = translate_tables(:ko_kr)
+      RTT = translate_rtt(:ko_kr)
     end
   end
 end

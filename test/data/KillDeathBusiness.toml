@@ -727,6 +727,25 @@ rands = [
 
 [[ test ]]
 game_system = "KillDeathBusiness"
+input = "RTT"
+output = "指定特技ランダム決定表(6,12) ＞ 「願望」《生》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "RTT1"
+output = "職業分野ランダム特技表(7) ＞ 「職業」《悪漢》"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
 input = "EXT"
 output = "エキストラ表(66,66,66,66) ＞ 歴史上の人物だが実は生きていた神が炎をバックに陽気に登場"
 rands = [
@@ -805,6 +824,14 @@ input = "SKLJ"
 output = "指定特技分野ランダム決定表(6) ＞ 願望"
 rands = [
   { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "RCT"
+output = "指定特技分野ランダム決定表(2) ＞ 動作"
+rands = [
+  { sides = 6, value = 2 },
 ]
 
 [[ test ]]
