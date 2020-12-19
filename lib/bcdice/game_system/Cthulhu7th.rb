@@ -47,14 +47,14 @@ module BCDice
 
       register_prefix('CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA')
 
-      BONUS_DICE_RANGE = (-2..2)
+      BONUS_DICE_RANGE = (-2..2).freeze
 
       def eval_game_system_specific_command(command)
         case command
         when /^CC/i
           return skill_roll(command)
         when /^CBR/i
-          return getCombineRoll(command)
+          return combine_roll(command)
         when /^FAR/i
           return getFullAutoResult(command)
         when /^BMR/i # 狂気の発作（リアルタイム）
@@ -75,6 +75,44 @@ module BCDice
       end
 
       private
+
+      class ResultLevel
+        LEVEL = [
+          :fumble,
+          :failure,
+          :regular_success,
+          :hard_success,
+          :extreme_success,
+          :critical,
+        ].freeze
+
+        LEVEL_TO_S = {
+          critical: "クリティカル",
+          extreme_success: "イクストリーム成功",
+          hard_success: "ハード成功",
+          regular_success: "レギュラー成功",
+          fumble: "ファンブル",
+          failure: "失敗",
+        }.freeze
+
+        def initialize(level)
+          @level = level
+          @level_index = LEVEL.index(level)
+          raise ArgumentError unless @level_index
+        end
+
+        def success?
+          @level_index >= LEVEL.index(:regular_success)
+        end
+
+        def failure?
+          @level_index <= LEVEL.index(:failure)
+        end
+
+        def to_s
+          LEVEL_TEXT[@level]
+        end
+      end
 
       def roll_1d8_table(table_name, table)
         total_n = @randomizer.roll_once(8)
@@ -163,48 +201,42 @@ module BCDice
         fumble = difficulty < 50 || fumbleable ? 96 : 100
 
         if total == 1
-          "クリティカル"
-        elsif total <= (difficulty/5)
-          "イクストリーム成功"
-        elsif total <= (difficulty/2)
-          "ハード成功"
+          ResultLevel.new(:critical)
+        elsif total <= (difficulty / 5)
+          ResultLevel.new(:extreme_success)
+        elsif total <= (difficulty / 2)
+          ResultLevel.new(:hard_success)
         elsif total <= difficulty
-          "レギュラー成功"
+          ResultLevel.new(:regular_success)
         elsif total >= fumble
-          "ファンブル"
+          ResultLevel.new(:fumble)
         else
-          "失敗"
+          ResultLevel.new(:failure)
         end
       end
 
-      def getCombineRoll(command)
-        return nil unless /CBR\((\d+),(\d+)\)/i =~ command
+      def combine_roll(command)
+        m = /^CBR\((\d+),(\d+)\)$/.match(command)
+        return nil unless m
 
-        diff_1 = Regexp.last_match(1).to_i
-        diff_2 = Regexp.last_match(2).to_i
+        difficulty_1 = m[1].to_i
+        difficulty_2 = m[2].to_i
 
         total = @randomizer.roll_once(100)
 
-        result_1 = result_level(total, diff_1)
-        result_2 = result_level(total, diff_2)
-
-        successList = ["クリティカル", "イクストリーム成功", "ハード成功", "レギュラー成功"]
-
-        succesCount = 0
-        succesCount += 1 if successList.include?(result_1)
-        succesCount += 1 if successList.include?(result_2)
-        debug("succesCount", succesCount)
+        result_1 = result_level(total, difficulty_1)
+        result_2 = result_level(total, difficulty_2)
 
         rank =
-          if succesCount >= 2
+          if result_1.success? && result_2.success?
             "成功"
-          elsif succesCount == 1
+          elsif result_1.success? || result_2.success?
             "部分的成功"
           else
             "失敗"
           end
 
-        return "(1d100<=#{diff_1},#{diff_2}) ＞ #{total}[#{result_1},#{result_2}] ＞ #{rank}"
+        return "(1d100<=#{difficulty_1},#{difficulty_2}) ＞ #{total}[#{result_1},#{result_2}] ＞ #{rank}"
       end
 
       def getFullAutoResult(command)
@@ -339,7 +371,7 @@ module BCDice
         total, total_list = roll_with_bonus(dice_num)
 
         fumbleable = getFumbleable(more_difficulty)
-        hit_result = result_level(total, diff, fumbleable)
+        hit_result = result_level(total, diff, fumbleable).to_s
 
         return hit_result, total, total_list
       end
