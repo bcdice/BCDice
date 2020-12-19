@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BCDice
   # 入力文字列に対して前処理を行う
   #
@@ -41,8 +43,14 @@ module BCDice
 
     # カッコ書きの数式を事前計算する
     def replace_parentheses
-      @text = @text.gsub(%r{\([\d/\+\*\-\(\)]+\)}) do |expr|
-        ArithmeticEvaluator.eval(expr, round_type: @game_system.round_type)
+      loop do
+        prev = @text
+        @text = @text.gsub(%r{\([\d/\+\*\-]+\)}) do |expr|
+          ae = ArithmeticEvaluator.new(expr, round_type: @game_system.round_type)
+          val = ae.eval
+          ae.error? ? expr : val
+        end
+        break if prev == @text
       end
     end
 

@@ -2322,6 +2322,21 @@ rands = [
 
 [[ test ]]
 game_system = "DoubleCross"
+input = "5DX(8-1)-(2-1)"
+output = "(5DX7-1) ＞ 10[5,6,6,7,8]+10[1,9]+5[5]-1 ＞ 24"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "DoubleCross"
 input = "2D10>=? 目標値?でバグらない"
 output = "(2D10>=?) ＞ 10[5,5] ＞ 10"
 rands = [
