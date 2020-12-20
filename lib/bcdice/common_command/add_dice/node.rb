@@ -61,7 +61,7 @@ module BCDice
 
             result =
               if @cmp_op
-                rhs = @rhs.eval(nil, nil)
+                rhs = @rhs.eval(game_system, nil)
                 game_system.check_result(total, randomizer.rand_results, @cmp_op, rhs)
               end
             result ||= Result.new
@@ -133,13 +133,14 @@ module BCDice
           #
           # 左右のオペランドをそれぞれ再帰的に評価した後で、演算を行う。
           #
-          # @param [Randomizer] randomizer ランダマイザ
+          # @param game_system [BCDice::Base]
+          # @param randomizer [Randomizer] ランダマイザ
           # @return [Integer] 評価結果
           def eval(game_system, randomizer)
             lhs = @lhs.eval(game_system, randomizer)
             rhs = @rhs.eval(game_system, randomizer)
 
-            return calc(lhs, rhs)
+            return calc(lhs, rhs, game_system.round_type)
           end
 
           # @return [Boolean]
@@ -171,10 +172,11 @@ module BCDice
           private
 
           # 演算を行う
-          # @param [Integer] lhs 左のオペランド
-          # @param [Integer] rhs 右のオペランド
+          # @param lhs [Integer] lhs 左のオペランド
+          # @param rhs [Integer] 右のオペランド
+          # @param _round_type [Symbol] ゲームシステムの端数処理設定
           # @return [Integer] 演算の結果
-          def calc(lhs, rhs)
+          def calc(lhs, rhs, _round_type)
             lhs.send(@op, rhs)
           end
 
@@ -231,23 +233,48 @@ module BCDice
           end
 
           # 演算を行う
-          # @param [Integer] lhs 左のオペランド
-          # @param [Integer] rhs 右のオペランド
+          # @param lhs [Integer] 左のオペランド
+          # @param rhs [Integer] 右のオペランド
+          # @param round_type [Symbol] ゲームシステムの端数処理設定
           # @return [Integer] 演算の結果
-          def calc(lhs, rhs)
+          def calc(lhs, rhs, round_type)
             if rhs.zero?
               return 1
             end
 
-            return divide_and_round(lhs, rhs)
+            return divide_and_round(lhs, rhs, round_type)
           end
 
           # 除算および端数処理を行う
-          # @param [Integer] _dividend 被除数
-          # @param [Integer] _divisor 除数（0以外）
+          # @param _dividend [Integer] 被除数
+          # @param _divisor [Integer] 除数（0以外）
+          # @param _round_type [Symbol] ゲームシステムの端数処理設定
           # @return [Integer]
-          def divide_and_round(_dividend, _divisor)
+          def divide_and_round(dividend, divisor, round_type)
             raise NotImplementedError
+          end
+        end
+
+        # 除算（端数処理はゲームシステム依存）のノード
+        class DivideWithGameSystemDefault < DivideBase
+          ROUNDING_METHOD = ""
+
+          private
+
+          # 除算および端数処理を行う
+          # @param dividend [Integer] 被除数
+          # @param divisor [Integer] 除数（0以外）
+          # @param round_type [Symbol] ゲームシステムの端数処理設定
+          # @return [Integer]
+          def divide_and_round(dividend, divisor, round_type)
+            case round_type
+            when RoundType::CEIL
+              (dividend.to_f / divisor).ceil
+            when RoundType::ROUND
+              (dividend.to_f / divisor).round
+            else # RoundType::FLOOR
+              dividend / divisor
+            end
           end
         end
 
@@ -259,10 +286,9 @@ module BCDice
           private
 
           # 除算および端数処理を行う
-          # @param [Integer] dividend 被除数
-          # @param [Integer] divisor 除数（0以外）
+          # @param (see DivideWithGameSystemDefault#divide_and_round)
           # @return [Integer]
-          def divide_and_round(dividend, divisor)
+          def divide_and_round(dividend, divisor, _round_type)
             (dividend.to_f / divisor).ceil
           end
         end
@@ -275,10 +301,9 @@ module BCDice
           private
 
           # 除算および端数処理を行う
-          # @param [Integer] dividend 被除数
-          # @param [Integer] divisor 除数（0以外）
+          # @param (see DivideWithGameSystemDefault#divide_and_round)
           # @return [Integer]
-          def divide_and_round(dividend, divisor)
+          def divide_and_round(dividend, divisor, _round_type)
             (dividend.to_f / divisor).round
           end
         end
@@ -286,15 +311,14 @@ module BCDice
         # 除算（切り捨て）のノード
         class DivideWithRoundingDown < DivideBase
           # 端数処理方法を示す記号
-          ROUNDING_METHOD = ""
+          ROUNDING_METHOD = "F"
 
           private
 
           # 除算および端数処理を行う
-          # @param [Integer] dividend 被除数
-          # @param [Integer] divisor 除数（0以外）
+          # @param (see DivideWithGameSystemDefault#divide_and_round)
           # @return [Integer]
-          def divide_and_round(dividend, divisor)
+          def divide_and_round(dividend, divisor, _round_type)
             dividend / divisor
           end
         end

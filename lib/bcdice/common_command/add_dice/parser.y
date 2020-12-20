@@ -1,5 +1,5 @@
 class BCDice::CommonCommand::AddDice::Parser
-token NUMBER CMP_OP S D K H L U R PLUS MINUS ASTERISK SLASH PARENL PARENR QUESTION
+token NUMBER CMP_OP S D K H L U R F C PLUS MINUS ASTERISK SLASH PARENL PARENR QUESTION
 
 rule
   command: secret add
@@ -56,8 +56,12 @@ rule
      | unary
 
   round_type: /* none */
+            { result = Node::DivideWithGameSystemDefault }
+            | F
             { result = Node::DivideWithRoundingDown }
             | U
+            { result = Node::DivideWithRoundingUp }
+            | C
             { result = Node::DivideWithRoundingUp }
             | R
             { result = Node::DivideWithRoundingOff }
