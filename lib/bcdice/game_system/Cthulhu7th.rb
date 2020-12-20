@@ -47,18 +47,14 @@ module BCDice
 
       register_prefix('CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA')
 
-      def initialize(command)
-        super(command)
-
-        @bonus_dice_range = (-2..2)
-      end
+      BONUS_DICE_RANGE = (-2..2).freeze
 
       def eval_game_system_specific_command(command)
         case command
         when /^CC/i
-          return getCheckResult(command)
+          return skill_roll(command)
         when /^CBR/i
-          return getCombineRoll(command)
+          return combine_roll(command)
         when /^FAR/i
           return getFullAutoResult(command)
         when /^BMR/i # 狂気の発作（リアルタイム）
@@ -80,6 +76,52 @@ module BCDice
 
       private
 
+      class ResultLevel
+        LEVEL = [
+          :fumble,
+          :failure,
+          :regular_success,
+          :hard_success,
+          :extreme_success,
+          :critical,
+        ].freeze
+
+        LEVEL_TO_S = {
+          critical: "クリティカル",
+          extreme_success: "イクストリーム成功",
+          hard_success: "ハード成功",
+          regular_success: "レギュラー成功",
+          fumble: "ファンブル",
+          failure: "失敗",
+        }.freeze
+
+        def initialize(level)
+          @level = level
+          @level_index = LEVEL.index(level)
+          raise ArgumentError unless @level_index
+        end
+
+        def success?
+          @level_index >= LEVEL.index(:regular_success)
+        end
+
+        def failure?
+          @level_index <= LEVEL.index(:failure)
+        end
+
+        def critical?
+          @level == :critical
+        end
+
+        def fumble?
+          @level == :fumble
+        end
+
+        def to_s
+          LEVEL_TO_S[@level]
+        end
+      end
+
       def roll_1d8_table(table_name, table)
         total_n = @randomizer.roll_once(8)
         index = total_n - 1
@@ -98,37 +140,44 @@ module BCDice
         return "#{table_name}(#{total_n}) ＞ #{text}"
       end
 
-      def getCheckResult(command)
-        m = /^CC([-+]?\d+)?(<=(\d+))?/i.match(command)
+      def skill_roll(command)
+        m = /^CC([-+]?\d+)?(?:<=(\d+))?$/.match(command)
         unless m
           return nil
         end
 
-        bonus_dice_count = m[1].to_i # ボーナス・ペナルティダイスの個数
-        diff = m[3].to_i
-        without_compare = m[2].nil? || diff <= 0
+        bonus_dice = m[1].to_i
+        difficulty = m[2].to_i
 
-        if bonus_dice_count == 0 && diff <= 0
+        if bonus_dice == 0 && difficulty == 0
           dice = @randomizer.roll_once(100)
           return "1D100 ＞ #{dice}"
         end
 
-        unless @bonus_dice_range.include?(bonus_dice_count)
-          return "エラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
+        unless BONUS_DICE_RANGE.include?(bonus_dice)
+          return "エラー。ボーナス・ペナルティダイスの値は#{BONUS_DICE_RANGE.min}～#{BONUS_DICE_RANGE.max}です。"
         end
 
-        total, total_list = roll_with_bonus(bonus_dice_count)
+        total, total_list = roll_with_bonus(bonus_dice)
 
-        if without_compare
-          output = "(1D100) ボーナス・ペナルティダイス[#{bonus_dice_count}]"
-          output += " ＞ #{total_list.join(', ')} ＞ #{total}"
-        else
-          result_text = getCheckResultText(total, diff)
-          output = "(1D100<=#{diff}) ボーナス・ペナルティダイス[#{bonus_dice_count}]"
-          output += " ＞ #{total_list.join(', ')} ＞ #{total} ＞ #{result_text}"
+        expr = difficulty.zero? ? "1D100" : "1D100<=#{difficulty}"
+        result = result_level(total, difficulty) unless difficulty.zero?
+
+        sequence = [
+          "(#{expr}) ボーナス・ペナルティダイス[#{bonus_dice}]",
+          total_list.join(", "),
+          total,
+          result,
+        ].compact
+
+        Result.new.tap do |r|
+          r.text = sequence.join(" ＞ ")
+          if result
+            r.condition = result.success?
+            r.critical = result.critical?
+            r.fumble = result.fumble?
+          end
         end
-
-        return output
       end
 
       # 1D100の一の位用のダイスロール
@@ -163,58 +212,50 @@ module BCDice
         return dice, dice_list
       end
 
-      def getCheckResultText(total, diff, fumbleable = false)
-        if total <= diff
-          return "クリティカル" if total == 1
-          return "イクストリーム成功" if total <= (diff / 5)
-          return "ハード成功" if total <= (diff / 2)
+      def result_level(total, difficulty, fumbleable = false)
+        fumble = difficulty < 50 || fumbleable ? 96 : 100
 
-          return "レギュラー成功"
+        if total == 1
+          ResultLevel.new(:critical)
+        elsif total <= (difficulty / 5)
+          ResultLevel.new(:extreme_success)
+        elsif total <= (difficulty / 2)
+          ResultLevel.new(:hard_success)
+        elsif total <= difficulty
+          ResultLevel.new(:regular_success)
+        elsif total >= fumble
+          ResultLevel.new(:fumble)
+        else
+          ResultLevel.new(:failure)
         end
-
-        fumble_text = "ファンブル"
-
-        return fumble_text if total == 100
-
-        if total >= 96
-          if diff < 50
-            return fumble_text
-          else
-            return fumble_text if fumbleable
-          end
-        end
-
-        return "失敗"
       end
 
-      def getCombineRoll(command)
-        return nil unless /CBR\((\d+),(\d+)\)/i =~ command
+      def combine_roll(command)
+        m = /^CBR\((\d+),(\d+)\)$/.match(command)
+        return nil unless m
 
-        diff_1 = Regexp.last_match(1).to_i
-        diff_2 = Regexp.last_match(2).to_i
+        difficulty_1 = m[1].to_i
+        difficulty_2 = m[2].to_i
 
         total = @randomizer.roll_once(100)
 
-        result_1 = getCheckResultText(total, diff_1)
-        result_2 = getCheckResultText(total, diff_2)
-
-        successList = ["クリティカル", "イクストリーム成功", "ハード成功", "レギュラー成功"]
-
-        succesCount = 0
-        succesCount += 1 if successList.include?(result_1)
-        succesCount += 1 if successList.include?(result_2)
-        debug("succesCount", succesCount)
+        result_1 = result_level(total, difficulty_1)
+        result_2 = result_level(total, difficulty_2)
 
         rank =
-          if succesCount >= 2
+          if result_1.success? && result_2.success?
             "成功"
-          elsif succesCount == 1
+          elsif result_1.success? || result_2.success?
             "部分的成功"
           else
             "失敗"
           end
 
-        return "(1d100<=#{diff_1},#{diff_2}) ＞ #{total}[#{result_1},#{result_2}] ＞ #{rank}"
+        Result.new.tap do |r|
+          r.text = "(1d100<=#{difficulty_1},#{difficulty_2}) ＞ #{total}[#{result_1},#{result_2}] ＞ #{rank}"
+          r.success = result_1.success? && result_2.success?
+          r.failure = result_1.failure? && result_2.failure?
+        end
       end
 
       def getFullAutoResult(command)
@@ -261,8 +302,8 @@ module BCDice
           broken_number = broken_number.abs
         end
 
-        unless @bonus_dice_range.include?(bonus_dice_count)
-          return "エラー。ボーナス・ペナルティダイスの値は#{@bonus_dice_range.min}～#{@bonus_dice_range.max}です。"
+        unless BONUS_DICE_RANGE.include?(bonus_dice_count)
+          return "エラー。ボーナス・ペナルティダイスの値は#{BONUS_DICE_RANGE.min}～#{BONUS_DICE_RANGE.max}です。"
         end
 
         output += "ボーナス・ペナルティダイス[#{bonus_dice_count}]"
@@ -286,7 +327,7 @@ module BCDice
           output += getNextDifficultyMessage(more_difficulty)
 
           # ペナルティダイスを減らしながらロール用ループ
-          while dice_num >= @bonus_dice_range.min
+          while dice_num >= BONUS_DICE_RANGE.min
 
             loopCount += 1
             hit_result, total, total_list = getHitResultInfos(dice_num, diff, more_difficulty)
@@ -349,7 +390,7 @@ module BCDice
         total, total_list = roll_with_bonus(dice_num)
 
         fumbleable = getFumbleable(more_difficulty)
-        hit_result = getCheckResultText(total, diff, fumbleable)
+        hit_result = result_level(total, diff, fumbleable).to_s
 
         return hit_result, total, total_list
       end

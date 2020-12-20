@@ -152,6 +152,7 @@ rands = [
 game_system = "PulpCthulhu"
 input = "CBR(70,30)"
 output = "(1d100<=70,30) ＞ 30[ハード成功,レギュラー成功] ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 30 },
 ]
@@ -160,6 +161,7 @@ rands = [
 game_system = "PulpCthulhu"
 input = "CC(1)<=53"
 output = "(1D100<=53) ボーナス・ペナルティダイス[1] ＞ 92, 52 ＞ 52 ＞ レギュラー成功"
+success = true
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 5 },

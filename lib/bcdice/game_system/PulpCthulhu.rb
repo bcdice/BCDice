@@ -52,9 +52,9 @@ module BCDice
       def eval_game_system_specific_command(command)
         case command
         when /^CC/i
-          return getCheckResult(command)
+          return skill_roll(command)
         when /^CBR/i
-          return getCombineRoll(command)
+          return combine_roll(command)
         when /^FAR/i
           return getFullAutoResult(command)
         when /^BMR/i # 狂気の発作（リアルタイム）
