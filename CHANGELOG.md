@@ -7,13 +7,15 @@
 - ウォーハンマーRPG第4版 (Warhammer4): Facelessさんありがとうっ！ ([#285](https://github.com/bcdice/BCDice/pull/285))
 - カムズ (Comes): らぁさんありがとうっ！ ([#282](https://github.com/bcdice/BCDice/pull/282))
 - ルーインブレイカーズ (RuinBreakers): よっしーさんありがとうっ！ ([#307](https://github.com/bcdice/BCDice/pull/307))
-- エモクロア (Emoklore): さんありがとうっ！  ([#310](https://github.com/bcdice/BCDice/pull/310))
+- エモクロア (Emoklore): ここあさんありがとうっ！  ([#310](https://github.com/bcdice/BCDice/pull/310))
 - アンサング・デュエット (UnsungDuet): ([#281](https://github.com/bcdice/BCDice/pull/281))
 
 ### 追加機能
 - ログ・ホライズンTRPG: LHZB1とLHZB2両方の財宝表をサポート、消耗表ロールを追加、財宝表ロールを追加、区切り文字を変更 ([#279](https://github.com/bcdice/BCDice/pull/279))
 - ガラコと破戒の塔: GRコマンドとダメージチャートの機能拡張、GHAコマンドを追加を追加。くずもちさんありがとうっ！ ([#308](https://github.com/bcdice/BCDice/pull/308))
 - フィルトウィズ: 財宝表ランク11と12を追加。ランダムイベント表、エネミーデータ表、迷宮追加オプション表に伝説級を追加。虚向 風音さん寄稿、らぁさんコード作成補助ありがとうっ！ ([#311](https://github.com/bcdice/BCDice/pull/311))
+- Choice: 半角スペースで区切るなど、要素指定をより柔軟にできるように変更 ([#321](https://github.com/bcdice/BCDice/pull/321))
+- 同じコマンドを複数回実行できるRepeatコマンドを追加 ([#297](https://github.com/bcdice/BCDice/pull/297))
 
 ### 変更
 - 真・女神転生TRPG 覚醒篇: IDを `ShinMegamiTenseiKakuseihen` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))
@@ -26,6 +28,9 @@
 - キルデスビジネス: 蘇生副作用表の誤植を修正。スイさんありがとうっ！ ([#283](https://github.com/bcdice/BCDice/pull/283))
 - ストラトシャウト: 特技リストの誤植を修正。くずもちさんありがとうっ！ ([#299](https://github.com/bcdice/BCDice/pull/299))
 - フィルトウィズ: 多数の誤植を修正。虚向 風音さんありがとうっ！ ([#311](https://github.com/bcdice/BCDice/pull/311))
+
+### バグ修正
+- カッコを使った四則演算が複数あるときに、事前処理で四則演算が誤った範囲で展開される問題を修正。tonbyさん報告ありがとうっ！ ([#326](https://github.com/bcdice/BCDice/pull/326))
 
 ## 2.XX.XX
 
