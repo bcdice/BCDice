@@ -34,9 +34,10 @@ module BCDice
           end
 
           # 文字列に変換する
+          # @param game_system [BCDice::Base]
           # @return [String]
-          def to_s
-            @lhs.to_s + cmp_op_text + @rhs&.eval(nil).to_s
+          def expr(game_system)
+            @lhs.expr(game_system) + cmp_op_text + @rhs&.eval(game_system, nil).to_s
           end
 
           # ノードのS式を返す
@@ -51,7 +52,7 @@ module BCDice
 
           def eval(game_system, randomizer)
             randomizer = Randomizer.new(randomizer, game_system)
-            total = @lhs.eval(randomizer)
+            total = @lhs.eval(game_system, randomizer)
 
             interrim_expr =
               unless randomizer.rand_results.size <= 1 && @lhs.is_a?(Node::DiceRoll)
@@ -60,13 +61,13 @@ module BCDice
 
             result =
               if @cmp_op
-                rhs = @rhs.eval(nil)
+                rhs = @rhs.eval(game_system, nil)
                 game_system.check_result(total, randomizer.rand_results, @cmp_op, rhs)
               end
             result ||= Result.new
 
             sequence = [
-              "(#{self})",
+              "(#{expr(game_system)})",
               interrim_expr,
               total,
               result&.text
@@ -97,7 +98,7 @@ module BCDice
         class UndecidedTarget
           include Singleton
 
-          def eval(_randomizer)
+          def eval(_game_system, _randomizer)
             "?"
           end
 
@@ -105,12 +106,15 @@ module BCDice
             false
           end
 
-          def to_s
+          def expr(_game_system)
             "?"
           end
 
-          alias output to_s
-          alias s_exp to_s
+          def output
+            "?"
+          end
+
+          alias s_exp output
         end
 
         # 二項演算子のノード
@@ -129,13 +133,14 @@ module BCDice
           #
           # 左右のオペランドをそれぞれ再帰的に評価した後で、演算を行う。
           #
-          # @param [Randomizer] randomizer ランダマイザ
+          # @param game_system [BCDice::Base]
+          # @param randomizer [Randomizer] ランダマイザ
           # @return [Integer] 評価結果
-          def eval(randomizer)
-            lhs = @lhs.eval(randomizer)
-            rhs = @rhs.eval(randomizer)
+          def eval(game_system, randomizer)
+            lhs = @lhs.eval(game_system, randomizer)
+            rhs = @rhs.eval(game_system, randomizer)
 
-            return calc(lhs, rhs)
+            return calc(lhs, rhs, game_system.round_type)
           end
 
           # @return [Boolean]
@@ -145,8 +150,11 @@ module BCDice
 
           # 文字列に変換する
           # @return [String]
-          def to_s
-            "#{@lhs}#{@op}#{@rhs}"
+          def expr(game_system)
+            lhs = @lhs.expr(game_system)
+            rhs = @rhs.expr(game_system)
+
+            "#{lhs}#{@op}#{rhs}"
           end
 
           # メッセージへの出力を返す
@@ -164,10 +172,11 @@ module BCDice
           private
 
           # 演算を行う
-          # @param [Integer] lhs 左のオペランド
-          # @param [Integer] rhs 右のオペランド
+          # @param lhs [Integer] lhs 左のオペランド
+          # @param rhs [Integer] 右のオペランド
+          # @param _round_type [Symbol] ゲームシステムの端数処理設定
           # @return [Integer] 演算の結果
-          def calc(lhs, rhs)
+          def calc(lhs, rhs, _round_type)
             lhs.send(@op, rhs)
           end
 
@@ -196,8 +205,8 @@ module BCDice
           # 通常の結果の末尾に、端数処理方法を示す記号を付加する。
           #
           # @return [String]
-          def to_s
-            "#{super}#{rounding_method}"
+          def expr(game_system)
+            "#{super(game_system)}#{rounding_method}"
           end
 
           # メッセージへの出力を返す
@@ -224,23 +233,48 @@ module BCDice
           end
 
           # 演算を行う
-          # @param [Integer] lhs 左のオペランド
-          # @param [Integer] rhs 右のオペランド
+          # @param lhs [Integer] 左のオペランド
+          # @param rhs [Integer] 右のオペランド
+          # @param round_type [Symbol] ゲームシステムの端数処理設定
           # @return [Integer] 演算の結果
-          def calc(lhs, rhs)
+          def calc(lhs, rhs, round_type)
             if rhs.zero?
               return 1
             end
 
-            return divide_and_round(lhs, rhs)
+            return divide_and_round(lhs, rhs, round_type)
           end
 
           # 除算および端数処理を行う
-          # @param [Integer] _dividend 被除数
-          # @param [Integer] _divisor 除数（0以外）
+          # @param _dividend [Integer] 被除数
+          # @param _divisor [Integer] 除数（0以外）
+          # @param _round_type [Symbol] ゲームシステムの端数処理設定
           # @return [Integer]
-          def divide_and_round(_dividend, _divisor)
+          def divide_and_round(dividend, divisor, round_type)
             raise NotImplementedError
+          end
+        end
+
+        # 除算（端数処理はゲームシステム依存）のノード
+        class DivideWithGameSystemDefault < DivideBase
+          ROUNDING_METHOD = ""
+
+          private
+
+          # 除算および端数処理を行う
+          # @param dividend [Integer] 被除数
+          # @param divisor [Integer] 除数（0以外）
+          # @param round_type [Symbol] ゲームシステムの端数処理設定
+          # @return [Integer]
+          def divide_and_round(dividend, divisor, round_type)
+            case round_type
+            when RoundType::CEIL
+              (dividend.to_f / divisor).ceil
+            when RoundType::ROUND
+              (dividend.to_f / divisor).round
+            else # RoundType::FLOOR
+              dividend / divisor
+            end
           end
         end
 
@@ -252,10 +286,9 @@ module BCDice
           private
 
           # 除算および端数処理を行う
-          # @param [Integer] dividend 被除数
-          # @param [Integer] divisor 除数（0以外）
+          # @param (see DivideWithGameSystemDefault#divide_and_round)
           # @return [Integer]
-          def divide_and_round(dividend, divisor)
+          def divide_and_round(dividend, divisor, _round_type)
             (dividend.to_f / divisor).ceil
           end
         end
@@ -268,10 +301,9 @@ module BCDice
           private
 
           # 除算および端数処理を行う
-          # @param [Integer] dividend 被除数
-          # @param [Integer] divisor 除数（0以外）
+          # @param (see DivideWithGameSystemDefault#divide_and_round)
           # @return [Integer]
-          def divide_and_round(dividend, divisor)
+          def divide_and_round(dividend, divisor, _round_type)
             (dividend.to_f / divisor).round
           end
         end
@@ -279,15 +311,14 @@ module BCDice
         # 除算（切り捨て）のノード
         class DivideWithRoundingDown < DivideBase
           # 端数処理方法を示す記号
-          ROUNDING_METHOD = ""
+          ROUNDING_METHOD = "F"
 
           private
 
           # 除算および端数処理を行う
-          # @param [Integer] dividend 被除数
-          # @param [Integer] divisor 除数（0以外）
+          # @param (see DivideWithGameSystemDefault#divide_and_round)
           # @return [Integer]
-          def divide_and_round(dividend, divisor)
+          def divide_and_round(dividend, divisor, _round_type)
             dividend / divisor
           end
         end
@@ -310,8 +341,8 @@ module BCDice
           #
           # @param [Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果
-          def eval(randomizer)
-            -@body.eval(randomizer)
+          def eval(game_system, randomizer)
+            -@body.eval(game_system, randomizer)
           end
 
           # @return [Boolean]
@@ -321,8 +352,8 @@ module BCDice
 
           # 文字列に変換する
           # @return [String]
-          def to_s
-            "-#{@body}"
+          def expr(game_system)
+            "-#{@body.expr(game_system)}"
           end
 
           # メッセージへの出力を返す
@@ -344,8 +375,8 @@ module BCDice
           # @param [Number] times ダイスを振る回数のノード
           # @param [Number] sides ダイスの面数のノード
           def initialize(times, sides)
-            @times = times.eval(nil)
-            @sides = sides.eval(nil)
+            @times = times
+            @sides = sides
 
             # ダイスを振った結果の出力
             @text = nil
@@ -358,8 +389,11 @@ module BCDice
           #
           # @param [Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果（出目の合計値）
-          def eval(randomizer)
-            dice_list = randomizer.roll(@times, @sides)
+          def eval(game_system, randomizer)
+            times = @times.eval(game_system, nil)
+            sides = @sides.eval(game_system, nil)
+
+            dice_list = randomizer.roll(times, sides)
 
             total = dice_list.sum()
             @text = "#{total}[#{dice_list.join(',')}]"
@@ -374,8 +408,11 @@ module BCDice
 
           # 文字列に変換する
           # @return [String]
-          def to_s
-            "#{@times}D#{@sides}"
+          def expr(game_system)
+            times = @times.eval(game_system, nil)
+            sides = @sides.eval(game_system, nil)
+
+            "#{times}D#{sides}"
           end
 
           # メッセージへの出力を返す
@@ -387,7 +424,7 @@ module BCDice
           # ノードのS式を返す
           # @return [String]
           def s_exp
-            "(DiceRoll #{@times} #{@sides})"
+            "(DiceRoll #{@times.s_exp} #{@sides.s_exp})"
           end
         end
 
@@ -451,7 +488,7 @@ module BCDice
           #
           # @param [Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果（出目の合計値）
-          def eval(randomizer)
+          def eval(_game_system, randomizer)
             sorted_values = randomizer.roll(@times, @sides).sort
             total = @filter
                     .apply[sorted_values, @n_filtering]
@@ -469,7 +506,7 @@ module BCDice
 
           # 文字列に変換する
           # @return [String]
-          def to_s
+          def expr(_game_system)
             "#{@times}D#{@sides}#{@filter.abbr}#{@n_filtering}"
           end
 
@@ -495,8 +532,8 @@ module BCDice
 
           # @param randomizer [Randomizer]
           # @return [integer]
-          def eval(randomizer)
-            @expr.eval(randomizer)
+          def eval(game_system, randomizer)
+            @expr.eval(game_system, randomizer)
           end
 
           # @return [Boolean]
@@ -505,8 +542,8 @@ module BCDice
           end
 
           # @return [String]
-          def to_s
-            "(#{@expr})"
+          def expr(game_system)
+            "(#{@expr.expr(game_system)})"
           end
 
           # @return [String]
@@ -540,7 +577,7 @@ module BCDice
 
           # ノードを評価する
           # @return [Integer] 格納している値
-          def eval(_randomizer)
+          def eval(_game_system, _randomizer)
             @literal
           end
 
@@ -551,12 +588,15 @@ module BCDice
 
           # 文字列に変換する
           # @return [String]
-          def to_s
+          def expr(_game_system)
             @literal.to_s
           end
 
-          alias output to_s
-          alias s_exp to_s
+          def output
+            @literal.to_s
+          end
+
+          alias s_exp output
         end
       end
     end
