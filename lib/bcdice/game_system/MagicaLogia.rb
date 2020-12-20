@@ -56,7 +56,6 @@ module BCDice
 
         @sort_add_dice = true
         @sort_barabara_dice = true
-        @enabled_d66 = true
         @d66_sort_type = D66SortType::ASC
       end
 

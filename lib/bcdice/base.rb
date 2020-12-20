@@ -77,7 +77,6 @@ module BCDice
       @sort_add_dice = false # 加算ダイスでダイス目をソートするかどうか
       @sort_barabara_dice = false # バラバラダイスでダイス目をソートするかどうか
 
-      @enabled_d66 = true # D66ダイスを利用するかどうか
       @d66_sort_type = D66SortType::NO_SORT # 入れ替えの種類 詳しくはBCDice::D66SortTypeを参照すること
 
       @enabled_d9 = false # D9ダイスを有効にするか（ガンドッグ）で使用
@@ -142,13 +141,6 @@ module BCDice
     # @return [Boolean]
     def sort_barabara_dice?
       @sort_barabara_dice
-    end
-
-    # D66ダイスが有効か
-    #
-    # @return [Boolean]
-    def enabled_d66?
-      @enabled_d66
     end
 
     # D9ダイスが有効か

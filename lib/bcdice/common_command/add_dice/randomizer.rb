@@ -20,7 +20,7 @@ module BCDice
         # @return [Array<Integer>] 出目の配列
         def roll(times, sides)
           dice_list =
-            if sides == 66 && @game_system.enabled_d66?
+            if sides == 66
               Array.new(times) { @rand_source.roll_d66(@game_system.d66_sort_type) }
             elsif sides == 9 && @game_system.enabled_d9?
               Array.new(times) { @rand_source.roll_d9() }
