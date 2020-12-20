@@ -467,14 +467,14 @@ module BCDice
           ).freeze
 
           # ノードを初期化する
-          # @param [Number] times ダイスを振る回数のノード
-          # @param [Number] sides ダイスの面数のノード
-          # @param [Number] n_filtering ダイスを残す/減らす個数のノード
+          # @param [Object] times ダイスを振る回数のノード
+          # @param [Object] sides ダイスの面数のノード
+          # @param [Object] n_filtering ダイスを残す/減らす個数のノード
           # @param [Filter] filter フィルタ
           def initialize(times, sides, n_filtering, filter)
-            @times = times.literal
-            @sides = sides.literal
-            @n_filtering = n_filtering.literal
+            @times = times
+            @sides = sides
+            @n_filtering = n_filtering
             @filter = filter
 
             # ダイスを振った結果の出力
@@ -488,10 +488,14 @@ module BCDice
           #
           # @param [Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果（出目の合計値）
-          def eval(_game_system, randomizer)
-            sorted_values = randomizer.roll(@times, @sides).sort
+          def eval(game_system, randomizer)
+            times = @times.eval(game_system, nil)
+            sides = @sides.eval(game_system, nil)
+            n_filtering = @n_filtering.eval(game_system, nil)
+
+            sorted_values = randomizer.roll(times, sides).sort
             total = @filter
-                    .apply[sorted_values, @n_filtering]
+                    .apply[sorted_values, n_filtering]
                     .sum()
 
             @text = "#{total}[#{sorted_values.join(',')}]"
@@ -506,8 +510,12 @@ module BCDice
 
           # 文字列に変換する
           # @return [String]
-          def expr(_game_system)
-            "#{@times}D#{@sides}#{@filter.abbr}#{@n_filtering}"
+          def expr(game_system)
+            times = @times.eval(game_system, nil)
+            sides = @sides.eval(game_system, nil)
+            n_filtering = @n_filtering.eval(game_system, nil)
+
+            "#{times}D#{sides}#{@filter.abbr}#{n_filtering}"
           end
 
           # メッセージへの出力を返す
@@ -519,7 +527,7 @@ module BCDice
           # ノードのS式を返す
           # @return [String]
           def s_exp
-            "(DiceRollWithFilter #{@times} #{@sides} #{@filter.abbr.inspect} #{@n_filtering})"
+            "(DiceRollWithFilter #{@times.s_exp} #{@sides.s_exp} #{@filter.abbr.inspect} #{@n_filtering.s_exp})"
           end
         end
 

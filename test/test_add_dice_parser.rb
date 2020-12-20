@@ -185,6 +185,14 @@ class AddDiceParserTest < Test::Unit::TestCase
     )
   end
 
+  # 括弧で指定
+  def test_parse_keep_high_with_parentheses
+    test_parse(
+      "(3+2)D(5+5)KH(5-2)",
+      "(Command (DiceRollWithFilter (Parenthesis (+ 3 2)) (Parenthesis (+ 5 5)) :KH (Parenthesis (- 5 2))))"
+    )
+  end
+
   # 小さな出目から複数個取る
   def test_parse_keep_low
     test_parse(
