@@ -34,9 +34,10 @@ module BCDice
           end
 
           # 文字列に変換する
+          # @param game_system [BCDice::Base]
           # @return [String]
-          def to_s
-            @lhs.to_s + cmp_op_text + @rhs&.eval(nil, nil).to_s
+          def expr(game_system)
+            @lhs.expr(game_system) + cmp_op_text + @rhs&.eval(game_system, nil).to_s
           end
 
           # ノードのS式を返す
@@ -66,7 +67,7 @@ module BCDice
             result ||= Result.new
 
             sequence = [
-              "(#{self})",
+              "(#{expr(game_system)})",
               interrim_expr,
               total,
               result&.text
@@ -105,12 +106,15 @@ module BCDice
             false
           end
 
-          def to_s
+          def expr(_game_system)
             "?"
           end
 
-          alias output to_s
-          alias s_exp to_s
+          def output
+            "?"
+          end
+
+          alias s_exp output
         end
 
         # 二項演算子のノード
@@ -145,8 +149,11 @@ module BCDice
 
           # 文字列に変換する
           # @return [String]
-          def to_s
-            "#{@lhs}#{@op}#{@rhs}"
+          def expr(game_system)
+            lhs = @lhs.expr(game_system)
+            rhs = @rhs.expr(game_system)
+
+            "#{lhs}#{@op}#{rhs}"
           end
 
           # メッセージへの出力を返す
@@ -196,8 +203,8 @@ module BCDice
           # 通常の結果の末尾に、端数処理方法を示す記号を付加する。
           #
           # @return [String]
-          def to_s
-            "#{super}#{rounding_method}"
+          def expr(game_system)
+            "#{super(game_system)}#{rounding_method}"
           end
 
           # メッセージへの出力を返す
@@ -321,8 +328,8 @@ module BCDice
 
           # 文字列に変換する
           # @return [String]
-          def to_s
-            "-#{@body}"
+          def expr(game_system)
+            "-#{@body.expr(game_system)}"
           end
 
           # メッセージへの出力を返す
@@ -344,8 +351,8 @@ module BCDice
           # @param [Number] times ダイスを振る回数のノード
           # @param [Number] sides ダイスの面数のノード
           def initialize(times, sides)
-            @times = times.eval(nil, nil)
-            @sides = sides.eval(nil, nil)
+            @times = times
+            @sides = sides
 
             # ダイスを振った結果の出力
             @text = nil
@@ -358,8 +365,11 @@ module BCDice
           #
           # @param [Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果（出目の合計値）
-          def eval(_game_system, randomizer)
-            dice_list = randomizer.roll(@times, @sides)
+          def eval(game_system, randomizer)
+            times = @times.eval(game_system, nil)
+            sides = @sides.eval(game_system, nil)
+
+            dice_list = randomizer.roll(times, sides)
 
             total = dice_list.sum()
             @text = "#{total}[#{dice_list.join(',')}]"
@@ -374,8 +384,11 @@ module BCDice
 
           # 文字列に変換する
           # @return [String]
-          def to_s
-            "#{@times}D#{@sides}"
+          def expr(game_system)
+            times = @times.eval(game_system, nil)
+            sides = @sides.eval(game_system, nil)
+
+            "#{times}D#{sides}"
           end
 
           # メッセージへの出力を返す
@@ -387,7 +400,7 @@ module BCDice
           # ノードのS式を返す
           # @return [String]
           def s_exp
-            "(DiceRoll #{@times} #{@sides})"
+            "(DiceRoll #{@times.s_exp} #{@sides.s_exp})"
           end
         end
 
@@ -469,7 +482,7 @@ module BCDice
 
           # 文字列に変換する
           # @return [String]
-          def to_s
+          def expr(_game_system)
             "#{@times}D#{@sides}#{@filter.abbr}#{@n_filtering}"
           end
 
@@ -505,8 +518,8 @@ module BCDice
           end
 
           # @return [String]
-          def to_s
-            "(#{@expr})"
+          def expr(game_system)
+            "(#{@expr.expr(game_system)})"
           end
 
           # @return [String]
@@ -551,12 +564,15 @@ module BCDice
 
           # 文字列に変換する
           # @return [String]
-          def to_s
+          def expr(_game_system)
             @literal.to_s
           end
 
-          alias output to_s
-          alias s_exp to_s
+          def output
+            @literal.to_s
+          end
+
+          alias s_exp output
         end
       end
     end
