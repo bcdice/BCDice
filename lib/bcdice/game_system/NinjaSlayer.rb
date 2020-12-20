@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'bcdice/common_command/barabara_dice'
 require 'bcdice/dice_table/table'
 
 module BCDice
@@ -68,9 +69,6 @@ module BCDice
       AT_RE = /\AAT(\d+)#{DIFFICULTY_RE}?\z/io.freeze
       # 電子戦の正規表現
       EL_RE = /\AEL(\d+)#{DIFFICULTY_RE}?\z/io.freeze
-
-      # バラバラロール結果の "(" の前までの先頭部分
-      B_ROLL_RESULT_HEAD_RE = /\A[^(]+/.freeze
 
       # 回避判定のノード
       EV = Struct.new(:num, :difficulty, :targetValue)
@@ -169,19 +167,15 @@ module BCDice
       # @return [String] 回避判定結果
       def executeEV(ev)
         command = bRollCommand(ev.num, ev.difficulty)
+        roll_result = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer)
 
-        rollResult = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer).text.sub(B_ROLL_RESULT_HEAD_RE, '')
-        return rollResult unless ev.targetValue
+        parts = [roll_result.text]
 
-        m = /成功数(\d+)/.match(rollResult)
-        raise '成功数が見つかりません' unless m
-
-        numOfSuccesses = m[1].to_i
-        if numOfSuccesses > ev.targetValue
-          return "#{rollResult} ＞ カウンターカラテ!!"
+        if ev.targetValue && roll_result.success_num > ev.targetValue
+          parts.push("カウンターカラテ!!")
         end
 
-        return rollResult
+        return parts.join(" ＞ ")
       end
 
       # 近接攻撃を行う
@@ -189,16 +183,18 @@ module BCDice
       # @return [String] 近接攻撃結果
       def executeAT(at)
         command = bRollCommand(at.num, at.difficulty)
-        rollResult = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer).text.sub(B_ROLL_RESULT_HEAD_RE, '')
+        roll_result = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer)
 
-        # バラバラロールの出目を取得する
-        # TODO: バラバラロールの結果として、出目を配列で取得できるようにする
-        m = /＞ (\d+(?:,\d+)*)/.match(rollResult)
-        values = m[1].split(',').map(&:to_i)
+        values = roll_result.rands.map { |v, _| v }
+        num_of_max_values = values.count(6)
 
-        numOfMaxValues = values.count(6)
+        parts = [roll_result.text]
 
-        return numOfMaxValues >= 2 ? "#{rollResult} ＞ サツバツ!!" : rollResult
+        if num_of_max_values >= 2
+          parts.push("サツバツ!!")
+        end
+
+        return parts.join(" ＞ ")
       end
 
       # 電子戦を行う
@@ -206,18 +202,20 @@ module BCDice
       # @return [String] 電子戦結果
       def executeEL(el)
         command = bRollCommand(el.num, el.difficulty)
-        rollResult = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer).text.sub(B_ROLL_RESULT_HEAD_RE, '')
+        roll_result = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer)
 
-        # バラバラロールの出目を取得する
-        # TODO: バラバラロールの結果として、出目を配列で取得できるようにする
-        m = /＞ (\d+(?:,\d+)*)/.match(rollResult)
-        values = m[1].split(',').map(&:to_i)
+        values = roll_result.rands.map { |v, _| v }
+        num_of_max_values = values.count(6)
+        sum_of_true_values = values.count { |v| v >= el.difficulty }
 
-        numOfMaxValues = values.count(6)
+        if num_of_max_values >= 1
+          return [
+            "#{roll_result.text} + #{num_of_max_values}",
+            sum_of_true_values + num_of_max_values
+          ].join(" ＞ ")
+        end
 
-        sumOfTrueValues = values.count { |v| v >= el.difficulty }
-
-        return numOfMaxValues >= 1 ? "#{rollResult} + #{numOfMaxValues} ＞ #{sumOfTrueValues + numOfMaxValues}" : rollResult
+        return roll_result.text
       end
 
       # 難易度の整数値を返す
