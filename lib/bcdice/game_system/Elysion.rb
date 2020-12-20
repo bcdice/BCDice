@@ -50,7 +50,6 @@ module BCDice
 
       def initialize(command)
         super(command)
-        @enabled_d66 = true
         @d66_sort_type = D66SortType::ASC
 
         @enabled_upcase_input = false

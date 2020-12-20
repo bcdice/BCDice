@@ -28,7 +28,6 @@ module BCDice
         super(command)
 
         @sort_add_dice = true
-        @enabled_d66 = true
         @d66_sort_type = D66SortType::NO_SORT
       end
 

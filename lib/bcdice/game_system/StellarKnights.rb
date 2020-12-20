@@ -67,7 +67,6 @@ module BCDice
         super(command)
 
         @sort_barabara_dice = true # バラバラロール（Bコマンド）でソート有
-        @enabled_d66 = true
         @d66_sort_type = D66SortType::NO_SORT
       end
 
