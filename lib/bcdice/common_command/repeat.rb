@@ -87,7 +87,7 @@ module BCDice
         if /\A(repeat|rep|x)\d+/.match?(@trailer)
           result_with_text("Repeatコマンドの重複はできません")
         elsif @times < 1 || REPEAT_LIMIT < @times
-          result_with_text("繰り返し回数は1以上、#{REPEAT_LIMIT}以下が指定可能です")
+          result_with_text("繰り返し回数は1以上、#{REPEAT_LIMIT}以下としてください")
         end
       end
 

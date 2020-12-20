@@ -438,13 +438,13 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "rep0 1D6"
-output = "繰り返し回数は1以上、100以下が指定可能です"
+output = "繰り返し回数は1以上、100以下としてください"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "rep101 1D6"
-output = "繰り返し回数は1以上、100以下が指定可能です"
+output = "繰り返し回数は1以上、100以下としてください"
 rands = []
 
 [[ test ]]
