@@ -36,7 +36,7 @@ module BCDice
           # 文字列に変換する
           # @return [String]
           def to_s
-            @lhs.to_s + cmp_op_text + @rhs&.eval(nil).to_s
+            @lhs.to_s + cmp_op_text + @rhs&.eval(nil, nil).to_s
           end
 
           # ノードのS式を返す
@@ -51,7 +51,7 @@ module BCDice
 
           def eval(game_system, randomizer)
             randomizer = Randomizer.new(randomizer, game_system)
-            total = @lhs.eval(randomizer)
+            total = @lhs.eval(game_system, randomizer)
 
             interrim_expr =
               unless randomizer.rand_results.size <= 1 && @lhs.is_a?(Node::DiceRoll)
@@ -60,7 +60,7 @@ module BCDice
 
             result =
               if @cmp_op
-                rhs = @rhs.eval(nil)
+                rhs = @rhs.eval(nil, nil)
                 game_system.check_result(total, randomizer.rand_results, @cmp_op, rhs)
               end
             result ||= Result.new
@@ -97,7 +97,7 @@ module BCDice
         class UndecidedTarget
           include Singleton
 
-          def eval(_randomizer)
+          def eval(_game_system, _randomizer)
             "?"
           end
 
@@ -131,9 +131,9 @@ module BCDice
           #
           # @param [Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果
-          def eval(randomizer)
-            lhs = @lhs.eval(randomizer)
-            rhs = @rhs.eval(randomizer)
+          def eval(game_system, randomizer)
+            lhs = @lhs.eval(game_system, randomizer)
+            rhs = @rhs.eval(game_system, randomizer)
 
             return calc(lhs, rhs)
           end
@@ -310,8 +310,8 @@ module BCDice
           #
           # @param [Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果
-          def eval(randomizer)
-            -@body.eval(randomizer)
+          def eval(game_system, randomizer)
+            -@body.eval(game_system, randomizer)
           end
 
           # @return [Boolean]
@@ -344,8 +344,8 @@ module BCDice
           # @param [Number] times ダイスを振る回数のノード
           # @param [Number] sides ダイスの面数のノード
           def initialize(times, sides)
-            @times = times.eval(nil)
-            @sides = sides.eval(nil)
+            @times = times.eval(nil, nil)
+            @sides = sides.eval(nil, nil)
 
             # ダイスを振った結果の出力
             @text = nil
@@ -358,7 +358,7 @@ module BCDice
           #
           # @param [Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果（出目の合計値）
-          def eval(randomizer)
+          def eval(_game_system, randomizer)
             dice_list = randomizer.roll(@times, @sides)
 
             total = dice_list.sum()
@@ -451,7 +451,7 @@ module BCDice
           #
           # @param [Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果（出目の合計値）
-          def eval(randomizer)
+          def eval(_game_system, randomizer)
             sorted_values = randomizer.roll(@times, @sides).sort
             total = @filter
                     .apply[sorted_values, @n_filtering]
@@ -495,8 +495,8 @@ module BCDice
 
           # @param randomizer [Randomizer]
           # @return [integer]
-          def eval(randomizer)
-            @expr.eval(randomizer)
+          def eval(game_system, randomizer)
+            @expr.eval(game_system, randomizer)
           end
 
           # @return [Boolean]
@@ -540,7 +540,7 @@ module BCDice
 
           # ノードを評価する
           # @return [Integer] 格納している値
-          def eval(_randomizer)
+          def eval(_game_system, _randomizer)
             @literal
           end
 
