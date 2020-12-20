@@ -192,22 +192,6 @@ module BCDice
         end
       end
 
-      def check_nD10(total, _dice_total, dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
-
-        result =
-          if dice_list.count(1) == dice_list.size
-            translate("fumble")
-          elsif total >= target
-            translate("success")
-          else
-            translate("failure")
-          end
-
-        return " ＞ #{result}"
-      end
-
       # ダイスボット固有コマンドの処理を行う
       # @param [String] command コマンド
       # @return [String] ダイスボット固有コマンドの結果
