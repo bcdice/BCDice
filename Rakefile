@@ -89,7 +89,7 @@ namespace :test do
     t.description = "全てのテストを実行する"
 
     t.test_files = [
-      "test/setup",
+      "test/setup.rb",
       "test/test_*.rb",
     ]
     t.libs = [

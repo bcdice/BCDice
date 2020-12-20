@@ -55,6 +55,7 @@ module BCDice
       end
 
       TABLES = translate_tables(:ko_kr)
+      RTT = translate_rtt(:ko_kr)
     end
   end
 end
