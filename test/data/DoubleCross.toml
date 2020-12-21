@@ -1,355 +1,5 @@
 [[ test ]]
 game_system = "DoubleCross"
-input = "1D10>=5"
-output = "(1D10>=5) ＞ 9 ＞ 成功"
-rands = [
-  { sides = 10, value = 9 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "1D10>=5"
-output = "(1D10>=5) ＞ 6 ＞ 成功"
-rands = [
-  { sides = 10, value = 6 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "1D10>=5"
-output = "(1D10>=5) ＞ 5 ＞ 成功"
-rands = [
-  { sides = 10, value = 5 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "1D10>=5"
-output = "(1D10>=5) ＞ 2 ＞ 失敗"
-rands = [
-  { sides = 10, value = 2 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "1D10>=5"
-output = "(1D10>=5) ＞ 9 ＞ 成功"
-rands = [
-  { sides = 10, value = 9 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "1D10>=5"
-output = "(1D10>=5) ＞ 3 ＞ 失敗"
-rands = [
-  { sides = 10, value = 3 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "1D10>=5"
-output = "(1D10>=5) ＞ 7 ＞ 成功"
-rands = [
-  { sides = 10, value = 7 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "1D10>=5"
-output = "(1D10>=5) ＞ 9 ＞ 成功"
-rands = [
-  { sides = 10, value = 9 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "1D10>=5"
-output = "(1D10>=5) ＞ 9 ＞ 成功"
-rands = [
-  { sides = 10, value = 9 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "1D10>=5"
-output = "(1D10>=5) ＞ 6 ＞ 成功"
-rands = [
-  { sides = 10, value = 6 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "3D10>=15"
-output = "(3D10>=15) ＞ 13[1,6,6] ＞ 13 ＞ 失敗"
-rands = [
-  { sides = 10, value = 1 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 6 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "3D10>=15"
-output = "(3D10>=15) ＞ 17[5,3,9] ＞ 17 ＞ 成功"
-rands = [
-  { sides = 10, value = 5 },
-  { sides = 10, value = 3 },
-  { sides = 10, value = 9 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "3D10>=15"
-output = "(3D10>=15) ＞ 15[6,2,7] ＞ 15 ＞ 成功"
-rands = [
-  { sides = 10, value = 6 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 7 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "3D10>=15"
-output = "(3D10>=15) ＞ 11[1,7,3] ＞ 11 ＞ 失敗"
-rands = [
-  { sides = 10, value = 1 },
-  { sides = 10, value = 7 },
-  { sides = 10, value = 3 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "3D10>=15"
-output = "(3D10>=15) ＞ 11[3,7,1] ＞ 11 ＞ 失敗"
-rands = [
-  { sides = 10, value = 3 },
-  { sides = 10, value = 7 },
-  { sides = 10, value = 1 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "3D10>=15"
-output = "(3D10>=15) ＞ 9[3,4,2] ＞ 9 ＞ 失敗"
-rands = [
-  { sides = 10, value = 3 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 2 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "3D10>=15"
-output = "(3D10>=15) ＞ 12[6,5,1] ＞ 12 ＞ 失敗"
-rands = [
-  { sides = 10, value = 6 },
-  { sides = 10, value = 5 },
-  { sides = 10, value = 1 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "3D10>=15"
-output = "(3D10>=15) ＞ 14[3,5,6] ＞ 14 ＞ 失敗"
-rands = [
-  { sides = 10, value = 3 },
-  { sides = 10, value = 5 },
-  { sides = 10, value = 6 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "3D10>=15"
-output = "(3D10>=15) ＞ 9[3,5,1] ＞ 9 ＞ 失敗"
-rands = [
-  { sides = 10, value = 3 },
-  { sides = 10, value = 5 },
-  { sides = 10, value = 1 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "3D10>=15"
-output = "(3D10>=15) ＞ 22[7,9,6] ＞ 22 ＞ 成功"
-rands = [
-  { sides = 10, value = 7 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 6 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "10D10>=50"
-output = "(10D10>=50) ＞ 45[5,9,5,6,10,2,2,1,3,2] ＞ 45 ＞ 失敗"
-rands = [
-  { sides = 10, value = 5 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 5 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 3 },
-  { sides = 10, value = 2 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "10D10>=50"
-output = "(10D10>=50) ＞ 70[1,10,4,10,10,6,9,4,9,7] ＞ 70 ＞ 成功"
-rands = [
-  { sides = 10, value = 1 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 7 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "10D10>=50"
-output = "(10D10>=50) ＞ 40[4,1,5,3,6,9,5,1,4,2] ＞ 40 ＞ 失敗"
-rands = [
-  { sides = 10, value = 4 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 5 },
-  { sides = 10, value = 3 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 5 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 2 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "10D10>=50"
-output = "(10D10>=50) ＞ 62[9,9,2,3,9,9,8,4,3,6] ＞ 62 ＞ 成功"
-rands = [
-  { sides = 10, value = 9 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 3 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 8 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 3 },
-  { sides = 10, value = 6 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "10D10>=50"
-output = "(10D10>=50) ＞ 45[8,3,2,3,6,2,2,6,9,4] ＞ 45 ＞ 失敗"
-rands = [
-  { sides = 10, value = 8 },
-  { sides = 10, value = 3 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 3 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 4 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "10D10>=50"
-output = "(10D10>=50) ＞ 58[2,4,10,6,4,7,6,5,6,8] ＞ 58 ＞ 成功"
-rands = [
-  { sides = 10, value = 2 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 7 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 5 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 8 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "10D10>=50"
-output = "(10D10>=50) ＞ 60[2,4,5,7,10,10,10,2,8,2] ＞ 60 ＞ 成功"
-rands = [
-  { sides = 10, value = 2 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 5 },
-  { sides = 10, value = 7 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 8 },
-  { sides = 10, value = 2 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "10D10>=50"
-output = "(10D10>=50) ＞ 50[4,8,4,7,7,2,4,8,4,2] ＞ 50 ＞ 成功"
-rands = [
-  { sides = 10, value = 4 },
-  { sides = 10, value = 8 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 7 },
-  { sides = 10, value = 7 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 8 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 2 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "10D10>=50"
-output = "(10D10>=50) ＞ 51[4,9,5,1,9,2,7,4,1,9] ＞ 51 ＞ 成功"
-rands = [
-  { sides = 10, value = 4 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 5 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 7 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 9 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "10D10>=50"
-output = "(10D10>=50) ＞ 37[6,1,4,9,2,3,3,2,6,1] ＞ 37 ＞ 失敗"
-rands = [
-  { sides = 10, value = 6 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 3 },
-  { sides = 10, value = 3 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 1 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
 input = "10dx"
 output = "(10DX10) ＞ 10[1,1,4,5,5,8,9,10,10,10]+6[4,5,6] ＞ 16"
 rands = [
@@ -1888,6 +1538,7 @@ rands = [
 game_system = "DoubleCross"
 input = "3DX@5"
 output = "(3DX5) ＞ 1[1,1,1] ＞ 0 (ファンブル)"
+fumble = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -1898,6 +1549,7 @@ rands = [
 game_system = "DoubleCross"
 input = "3DX+1@5"
 output = "(3DX5+1) ＞ 1[1,1,1]+1 ＞ 0 (ファンブル)"
+fumble = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -1908,6 +1560,7 @@ rands = [
 game_system = "DoubleCross"
 input = "3DX@5>=12"
 output = "(3DX5>=12) ＞ 10[2,9,10]+3[1,3] ＞ 13 ＞ 成功"
+success = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -1920,6 +1573,7 @@ rands = [
 game_system = "DoubleCross"
 input = "3DX@5>=13"
 output = "(3DX5>=13) ＞ 10[2,9,10]+3[1,3] ＞ 13 ＞ 成功"
+success = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -1932,6 +1586,7 @@ rands = [
 game_system = "DoubleCross"
 input = "3DX@5>=14"
 output = "(3DX5>=14) ＞ 10[2,9,10]+3[1,3] ＞ 13 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -1944,6 +1599,8 @@ rands = [
 game_system = "DoubleCross"
 input = "3DX@5>=14"
 output = "(3DX5>=14) ＞ 1[1,1,1] ＞ 0 (ファンブル) ＞ 失敗"
+fumble = true
+failure = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -1954,6 +1611,8 @@ rands = [
 game_system = "DoubleCross"
 input = "3DX+1@5>=14"
 output = "(3DX5+1>=14) ＞ 1[1,1,1]+1 ＞ 0 (ファンブル) ＞ 失敗"
+fumble = true
+failure = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -1964,6 +1623,8 @@ rands = [
 game_system = "DoubleCross"
 input = "3DX@5>=0"
 output = "(3DX5>=0) ＞ 1[1,1,1] ＞ 0 (ファンブル) ＞ 失敗"
+fumble = true
+failure = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -1974,6 +1635,7 @@ rands = [
 game_system = "DoubleCross"
 input = "0DX@2"
 output = "(0DX2) ＞ 自動失敗"
+failure = true
 rands = []
 
 [[ test ]]
@@ -2332,14 +1994,5 @@ rands = [
   { sides = 10, value = 7 },
   { sides = 10, value = 9 },
   { sides = 10, value = 1 },
-  { sides = 10, value = 5 },
-]
-
-[[ test ]]
-game_system = "DoubleCross"
-input = "2D10>=? 目標値?でバグらない"
-output = "(2D10>=?) ＞ 10[5,5] ＞ 10"
-rands = [
-  { sides = 10, value = 5 },
   { sides = 10, value = 5 },
 ]

@@ -55,14 +55,14 @@ module BCDice
 
         # 成功判定を行う
         # @param randomizer [Randomizer]
-        # @return [String] 判定結果
+        # @return [Result] 判定結果
         def execute(randomizer)
           if @critical_value < 2
-            return "(#{@expression}) ＞ #{translate('DoubleCross.DX.invalid_critical')}"
+            return Result.new("(#{@expression}) ＞ #{translate('DoubleCross.DX.invalid_critical')}")
           end
 
           if @num < 1
-            return "(#{@expression}) ＞ #{translate('DoubleCross.DX.auto_failure')}"
+            return Result.failure("(#{@expression}) ＞ #{translate('DoubleCross.DX.auto_failure')}")
           end
 
           # 出目のグループの配列
@@ -85,7 +85,7 @@ module BCDice
             loop_count += 1
           end
 
-          return result_str(value_groups)
+          return result(value_groups)
         end
 
         private
@@ -98,46 +98,51 @@ module BCDice
           return @target_value ? "#{lhs}>=#{@target_value}" : lhs
         end
 
-        # 判定結果の文字列を返す
+        # 判定結果を返す
         # @param [Array<ValueGroup>] value_groups 出目のグループの配列
-        # @return [String]
-        def result_str(value_groups)
-          fumble = value_groups[0].values.all? { |value| value == 1 }
+        # @return [Result]
+        def result(value_groups)
+          r = Result.new
+
+          r.fumble = value_groups[0].values.all?(1)
+
           sum = value_groups.map(&:max).sum
-          achieved_value = fumble ? 0 : (sum + @modifier)
+          achieved_value = r.fumble? ? 0 : (sum + @modifier)
+
+          # ファンブルかどうかを含む達成値の表記
+          achieved_value_with_if_fumble =
+            if r.fumble?
+              "#{achieved_value} (#{translate('fumble')})"
+            else
+              achieved_value.to_s
+            end
 
           parts = [
             "(#{@expression})",
             "#{value_groups.join('+')}#{@modifier_str}",
-            achieved_value_with_if_fumble(achieved_value, fumble),
-            compare_result(achieved_value, fumble)
+            achieved_value_with_if_fumble
           ]
 
-          return parts.compact.join(' ＞ ')
-        end
+          if @target_value
+            # 行為判定成功か？
+            #
+            # ファンブル時は自動失敗、達成値が目標値以上ならば行為判定成功
+            # [3rd ルールブック1 pp. 186-187]
+            success = !r.fumble? && (achieved_value >= @target_value)
 
-        # ファンブルかどうかを含む達成値の表記を返す
-        # @param [Integer] achieved_value 達成値
-        # @param [Boolean] fumble ファンブルしたか
-        # @return [String]
-        def achieved_value_with_if_fumble(achieved_value, fumble)
-          fumble ? "#{achieved_value} (#{translate('fumble')})" : achieved_value.to_s
-        end
+            if success
+              r.success = true
+            else
+              r.failure = true
+            end
 
-        # 達成値と目標値を比較した結果を返す
-        # @param [Integer] achieved_value 達成値
-        # @param [Boolean] fumble ファンブルしたか
-        # @return [String, nil]
-        def compare_result(achieved_value, fumble)
-          return nil unless @target_value
+            compare_result_text = translate(success ? 'success' : 'failure')
+            parts.push(compare_result_text)
+          end
 
-          # ファンブル時は自動失敗
-          # [3rd ルールブック1 pp. 186-187]
-          return translate("failure") if fumble
+          r.text = parts.join(' ＞ ')
 
-          # 達成値が目標値以上ならば行為判定成功
-          # [3rd ルールブック1 p. 187]
-          return achieved_value >= @target_value ? translate("success") : translate("failure")
+          return r
         end
       end
 
@@ -190,22 +195,6 @@ module BCDice
         def critical?(value)
           value >= @critical_value
         end
-      end
-
-      def check_nD10(total, _dice_total, dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
-
-        result =
-          if dice_list.count(1) == dice_list.size
-            translate("fumble")
-          elsif total >= target
-            translate("success")
-          else
-            translate("failure")
-          end
-
-        return " ＞ #{result}"
       end
 
       # ダイスボット固有コマンドの処理を行う
@@ -290,7 +279,7 @@ module BCDice
       #
       # ポジティブとネガティブの両方を振って、表になっている側に○を付ける。
       #
-      # @return [String]
+      # @return [Result]
       def roll_emotion_table
         pos_result = self.class::POSITIVE_EMOTION_TABLE.roll(@randomizer)
         neg_result = self.class::NEGATIVE_EMOTION_TABLE.roll(@randomizer)
@@ -309,7 +298,7 @@ module BCDice
           pos_neg_text.join(' - ')
         ]
 
-        return output_parts.join(' ＞ ')
+        return Result.new(output_parts.join(' ＞ '))
       end
 
       class << self
