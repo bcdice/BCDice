@@ -1515,6 +1515,18 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
+input = "(2+3)D(5+5)KH(5-2) 大きな出目から3個取った後の和"
+output = "(5D10KH3) ＞ 21[2,3,5,8,8] ＞ 21"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
 input = "5D10KL3 小さな出目から3個取った後の和"
 output = "(5D10KL3) ＞ 10[2,3,5,8,8] ＞ 10"
 rands = [
