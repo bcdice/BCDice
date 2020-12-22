@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-bcdice_root = File.expand_path("..", File.dirname(__FILE__))
-$:.unshift(bcdice_root) unless $:.include?(bcdice_root)
-
 require "test/unit"
 require "bcdice"
 require "bcdice/common_command/add_dice/parser"
