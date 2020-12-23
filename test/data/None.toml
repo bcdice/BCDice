@@ -1632,6 +1632,15 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
+input = "D66D 降順入れ替え"
+output = "(D66D) ＞ 61"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
 input = "D66N 入れ替えなし"
 output = "(D66N) ＞ 61"
 rands = [
