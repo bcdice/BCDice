@@ -18,7 +18,7 @@ module BCDice
         def parse(command, game_system)
           command = command.split(" ", 2).first
 
-          m = /^(S)?D66([ANS])?$/i.match(command)
+          m = /^(S)?D66([ANSD])?$/i.match(command)
           return nil unless m
 
           new(
@@ -32,6 +32,8 @@ module BCDice
           case suffix
           when "A", "S"
             D66SortType::ASC
+          when "D"
+            D66SortType::DESC
           when "N"
             D66SortType::NO_SORT
           end
