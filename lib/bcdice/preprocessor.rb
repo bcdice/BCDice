@@ -29,7 +29,7 @@ module BCDice
 
       @text = @game_system.change_text(@text)
 
-      replace_implicit_d6()
+      replace_implicit_d()
 
       return @text
     end
@@ -54,9 +54,15 @@ module BCDice
       end
     end
 
-    # nDをnD6に置き換える
-    def replace_implicit_d6
-      @text = @text.gsub(/(\d+)D([^\w]|$)/i) { "#{Regexp.last_match(1)}D6#{Regexp.last_match(2)}" }
+    # nDをゲームシステムに応じて置き換える
+    def replace_implicit_d
+      @text = @text.gsub(/(\d+)D([^\w]|$)/i) do
+        times = Regexp.last_match(1)
+        sides = @game_system.sides_implicit_d
+        trailer = Regexp.last_match(2)
+
+        "#{times}D#{sides}#{trailer}"
+      end
     end
   end
 end

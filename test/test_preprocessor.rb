@@ -4,6 +4,13 @@ require "bcdice/preprocessor"
 class TestPreprocessor < Test::Unit::TestCase
   class Mock < BCDice::Base; end
 
+  class ImplicitD10 < BCDice::Base
+    def initialize(command)
+      super(command)
+      @sides_implicit_d = 10
+    end
+  end
+
   def setup
     @game_system = Mock.new("")
   end
@@ -40,5 +47,11 @@ class TestPreprocessor < Test::Unit::TestCase
   def test_no_implicit_d
     text = BCDice::Preprocessor.process("1Dhoge", @game_system)
     assert_equal("1Dhoge", text)
+  end
+
+  def test_implicit_d10
+    game_system = ImplicitD10.new("")
+    text = BCDice::Preprocessor.process("1D+3", game_system)
+    assert_equal("1D10+3", text)
   end
 end
