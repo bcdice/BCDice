@@ -1742,6 +1742,23 @@ rands = [
 
 [[ test ]]
 game_system = "ShinobiGami"
+input = "RTT1"
+output = "器術分野ランダム特技表(6) ＞ 『器術』仕込み"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "RCT"
+output = "ランダム分野表(6) ＞ 妖術"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
 input = "MT"
 output = "異形表(2) ＞ 1D6を振り、「妖魔忍法表B」で、ランダムに忍法の種類を決定する。妖魔化している間、その妖魔忍法を修得しているものとして扱う。この異形は、違う種類の妖魔忍法である限り、違う異形として扱う。 妖魔忍法表B ＞ 【木魂】(怪p.253)"
 rands = [
