@@ -65,6 +65,7 @@ module BCDice
         result = roll_tables(command, TABLES) || RTT.roll_command(@randomizer, command)
         return result if result
         return sinobigami_metamorphose_table() if command == 'MT'
+
         nil
       end
       RTT = DiceTable::SaiFicSkillTable.new(
