@@ -1,0 +1,25 @@
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "6as"
+output = "(6D) ＞ [1, 2, 3, 3, 4, 5]"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "6as3"
+output = "(6D>>3D) ＞ [1, 2, 3, 3, 4, 5] >> [3, 4, 5] ＞ 12"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
