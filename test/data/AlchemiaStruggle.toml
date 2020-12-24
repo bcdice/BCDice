@@ -23,3 +23,83 @@ rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CElement"
+output = "奇跡の触媒（エレメント）(1) ＞ ワンド"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CELE"
+output = "奇跡の触媒（エレメント）(6) ＞ 宝石"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CAlchemia"
+output = "奇跡の触媒（アルケミア）(1) ＞ 指輪"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CALC"
+output = "奇跡の触媒（アルケミア）(6) ＞ ヘアピン"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CInformant"
+output = "奇跡の触媒（インフォーマント）(1) ＞ スマートフォン"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CINF"
+output = "奇跡の触媒（インフォーマント）(6) ＞ 携帯ゲーム機"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CInnocence"
+output = "奇跡の触媒（イノセンス）(1) ＞ 手袋"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CINN"
+output = "奇跡の触媒（イノセンス）(6) ＞ 弦楽器"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CAcquired"
+output = "奇跡の触媒（アクワイヤード）(1) ＞ ボタン"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CACQ"
+output = "奇跡の触媒（アクワイヤード）(6) ＞ ＡＩ"
+rands = [
+  { sides = 6, value = 6 },
+]

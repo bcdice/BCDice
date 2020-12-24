@@ -17,6 +17,14 @@ module BCDice
         ■ ダイスロール＆最大になるようにピック（ XASY ）
           ＸＤをロールし、そこから最大になるようにＹ個をピックします。
           例） 4AS3
+
+        ■ 表
+          ・奇跡の触媒
+            ・エレメント (CELE, CElement)
+            ・アルケミア (CALC, CAlchemia)
+            ・インフォーマント (CINF, CInformant)
+            ・イノセンス (CINN, CInnocence)
+            ・アクワイヤード (CACQ, CAcquired)
       MESSAGETEXT
 
       ROLL_REG = /^(\d+)AS(\d+)?$/i.freeze
@@ -24,7 +32,20 @@ module BCDice
       register_prefix('\\d+AS')
 
       def eval_game_system_specific_command(command)
-        try_roll_alchemia(command)
+        c = resolve_alias command
+
+        try_roll_alchemia(c) ||
+          roll_tables(c, COMPOSITE_TABLES)
+      end
+
+      def resolve_alias(source_command)
+        ALIAS.each do |key, value|
+          if key.upcase == source_command.upcase || value.upcase == source_command.upcase
+            return value
+          end
+        end
+
+        source_command
       end
 
       def try_roll_alchemia(command)
@@ -82,6 +103,77 @@ module BCDice
       def make_dice_text(dice_list)
         "[#{dice_list.sort.join ', '}]"
       end
+
+      CATALYST_TABLES = {
+        'CElement' => DiceTable::Table.new(
+          "奇跡の触媒（エレメント）",
+          "1D6",
+          [
+            "ワンド",
+            "水晶玉",
+            "カード",
+            "ステッキ",
+            "手鏡",
+            "宝石",
+          ]
+        ),
+        'CAlchemia' => DiceTable::Table.new(
+          "奇跡の触媒（アルケミア）",
+          "1D6",
+          [
+            "指輪",
+            "ブレスレット",
+            "イヤリング",
+            "ネックレス",
+            "ブローチ",
+            "ヘアピン",
+          ]
+        ),
+        'CInformant' => DiceTable::Table.new(
+          "奇跡の触媒（インフォーマント）",
+          "1D6",
+          [
+            "スマートフォン",
+            "タブレット",
+            "ノートパソコン",
+            "無線機（トランシーバー）",
+            "ウェアラブルデバイス",
+            "携帯ゲーム機",
+          ]
+        ),
+        'CInnocence' => DiceTable::Table.new(
+          "奇跡の触媒（イノセンス）",
+          "1D6",
+          [
+            "手袋",
+            "笛",
+            "靴",
+            "鈴",
+            "拡声器",
+            "弦楽器",
+          ]
+        ),
+        'CAcquired' => DiceTable::Table.new(
+          "奇跡の触媒（アクワイヤード）",
+          "1D6",
+          [
+            "ボタン",
+            "音声",
+            "モーション",
+            "脳波",
+            "記録媒体",
+            "ＡＩ",
+          ]
+        ),
+      }.freeze
+
+      COMPOSITE_TABLES =
+        CATALYST_TABLES
+
+      ALIAS =
+        CATALYST_TABLES.keys.map { |x| [x[0...4].upcase, x] }.to_h.freeze
+
+      register_prefix(ALIAS.keys, COMPOSITE_TABLES.keys)
     end
   end
 end
