@@ -47,24 +47,23 @@ module BCDice
       end
 
       def try_roll_alchemia(command)
-        if command.match? ROLL_REG
-          match = ROLL_REG.match command
+        match = ROLL_REG.match(command)
+        return nil unless match
 
-          roll_dice_count = match[1].to_i
+        roll_dice_count = match[1].to_i
 
-          if match[2].nil?
-            # ロールのみ（ピックなし）:
+        if match[2].nil?
+          # ロールのみ（ピックなし）:
 
-            result = roll_alchemia(roll_dice_count)
-            return make_roll_text(result)
-          else
-            # ロールして最大値をピック:
+          result = roll_alchemia(roll_dice_count)
+          return make_roll_text(result)
+        else
+          # ロールして最大値をピック:
 
-            pick_dice_count = match[2].to_i
+          pick_dice_count = match[2].to_i
 
-            result = roll_alchemia_and_pick(roll_dice_count, pick_dice_count)
-            return make_roll_and_pick_text(result[:rolled_dices], pick_dice_count, result[:picked_dices])
-          end
+          result = roll_alchemia_and_pick(roll_dice_count, pick_dice_count)
+          return make_roll_and_pick_text(result[:rolled_dices], pick_dice_count, result[:picked_dices])
         end
       end
 
