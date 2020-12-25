@@ -103,3 +103,165 @@ output = "奇跡の触媒（アクワイヤード）(6) ＞ ＡＩ"
 rands = [
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleS"
+output = "携行品（Ｓサイズ）(11) ＞ マッチ"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleS"
+output = "携行品（Ｓサイズ）(12) ＞ ペットボトル"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleS"
+output = "携行品（Ｓサイズ）(13) ＞ 試験管"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARS"
+output = "携行品（Ｓサイズ）(66) ＞ ペンライト"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleM"
+output = "携行品（Ｍサイズ）(11) ＞ 本"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleM"
+output = "携行品（Ｍサイズ）(12) ＞ 傘"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(14) ＞ 花火"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(16) ＞ 包帯"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleM"
+output = "携行品（Ｍサイズ）(31) ＞ 本"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(51) ＞ 本"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleM"
+output = "携行品（Ｍサイズ）(21) ＞ 工具"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleM"
+output = "携行品（Ｍサイズ）(22) ＞ ジャケット"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(42) ＞ ジャケット"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(62) ＞ ジャケット"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(63) ＞ ロープ"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(66) ＞ ガラス瓶"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleL"
+output = "携行品（Ｌサイズ）(14) ＞ バット"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARL"
+output = "携行品（Ｌサイズ）(41) ＞ 物干し竿"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]

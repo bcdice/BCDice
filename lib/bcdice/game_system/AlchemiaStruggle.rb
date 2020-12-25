@@ -25,6 +25,10 @@ module BCDice
             ・インフォーマント (CINF, CInformant)
             ・イノセンス (CINN, CInnocence)
             ・アクワイヤード (CACQ, CAcquired)
+          ・携行品
+            ・Ｓサイズ (ARS, ArticleS)
+            ・Ｍサイズ (ARM, ArticleM)
+            ・Ｌサイズ (ARL, ArticleL)
       MESSAGETEXT
 
       ROLL_REG = /^(\d+)AS(\d+)?$/i.freeze
@@ -104,6 +108,27 @@ module BCDice
         "[#{dice_list.sort.join ', '}]"
       end
 
+      # ひとつめのダイスは偶奇だけを見るテーブルをつくる
+      # items は { odd: [ , , , , , ], even: [ , , , , , ] } の構造
+      def self.make_d66_small_table(name, items)
+        formatted_items = {}
+
+        (1..6).each do |left_dice|
+          child_table = left_dice.odd? ? items[:odd] : items[:even]
+
+          (1..6).each do |right_dice|
+            index_for_child_table = right_dice - 1
+            formatted_items[left_dice * 10 + right_dice] = child_table[index_for_child_table]
+          end
+        end
+
+        DiceTable::D66Table.new(
+          name,
+          D66SortType::NO_SORT,
+          formatted_items
+        )
+      end
+
       CATALYST_TABLES = {
         'CElement' => DiceTable::Table.new(
           "奇跡の触媒（エレメント）",
@@ -167,11 +192,85 @@ module BCDice
         ),
       }.freeze
 
+      ARTICLE_TABLES = {
+        'ArticleS' => DiceTable::D66Table.new(
+          "携行品（Ｓサイズ）",
+          D66SortType::ASC,
+          {
+            11 => "マッチ",
+            12 => "ペットボトル",
+            13 => "試験管",
+            14 => "団扇",
+            15 => "植物",
+            16 => "ハンカチ",
+            22 => "化粧用具",
+            23 => "ベルト",
+            24 => "タバコ",
+            25 => "チェーン",
+            26 => "電池",
+            33 => "お菓子",
+            34 => "針金",
+            35 => "コイン",
+            36 => "ナイフ",
+            44 => "カトラリー",
+            45 => "砂",
+            46 => "スプレー",
+            55 => "石",
+            56 => "文房具",
+            66 => "ペンライト",
+          }
+        ),
+        'ArticleM' => make_d66_small_table(
+          "携行品（Ｍサイズ）",
+          {
+            odd: [
+              "本",
+              "傘",
+              "金属板",
+              "花火",
+              "エアガン",
+              "包帯",
+            ],
+            even: [
+              "工具",
+              "ジャケット",
+              "ロープ",
+              "人形",
+              "軽食",
+              "ガラス瓶",
+            ],
+          }
+        ),
+        'ArticleL' => make_d66_small_table(
+          "携行品（Ｌサイズ）",
+          {
+            odd: [
+              "木刀",
+              "釣り具",
+              "自転車",
+              "バット",
+              "寝袋",
+              "丸太",
+            ],
+            even: [
+              "物干し竿",
+              "鍋",
+              "スケートボード",
+              "シャベル（スコップ）",
+              "タンク",
+              "脚立",
+            ],
+          }
+        ),
+      }.freeze
+
       COMPOSITE_TABLES =
-        CATALYST_TABLES
+        CATALYST_TABLES.merge(ARTICLE_TABLES)
 
       ALIAS =
-        CATALYST_TABLES.keys.map { |x| [x[0...4].upcase, x] }.to_h.freeze
+        CATALYST_TABLES.keys.map { |x| [x[0...4].upcase, x] }.to_h.merge(
+          ARTICLE_TABLES.keys.map { |x| [x[0...2].upcase + x[-1], x] }.to_h
+        ).freeze
 
       register_prefix(ALIAS.keys, COMPOSITE_TABLES.keys)
     end
