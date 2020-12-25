@@ -194,7 +194,7 @@ module BCDice
             "ＡＩ",
           ]
         ),
-      }.freeze
+      }.transform_keys(&:upcase).freeze
 
       ARTICLE_TABLES = {
         'ArticleS' => DiceTable::D66Table.new(
@@ -266,7 +266,7 @@ module BCDice
             ],
           }
         ),
-      }.freeze
+      }.transform_keys(&:upcase).freeze
 
       DRAMA_SEQUENCE_TABLES = {
         'PCInformation' => make_d66_small_table(
@@ -335,7 +335,7 @@ module BCDice
             "ケアをしてあげる ―― 髪をとかす、肩をもむ、頭を撫でる。相手を労ってする行為全般。",
           ]
         ),
-      }.freeze
+      }.transform_keys(&:upcase).freeze
 
       COMPOSITE_TABLES =
         CATALYST_TABLES.merge(ARTICLE_TABLES).merge(DRAMA_SEQUENCE_TABLES)
