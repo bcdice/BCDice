@@ -39,6 +39,19 @@ rands = [
 
 [[ test ]]
 game_system = "AlchemiaStruggle"
+input = "6as7"
+output = "(6D>>7D) ＞ [1, 2, 3, 3, 4, 5] >> [1, 2, 3, 3, 4, 5] ＞ 18"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
 input = "CElement"
 output = "奇跡の触媒（エレメント）(1) ＞ ワンド"
 rands = [
