@@ -40,20 +40,10 @@ module BCDice
       register_prefix('\\d+AS')
 
       def eval_game_system_specific_command(command)
-        c = resolve_alias command
+        c = ALIAS[command] || command
 
         try_roll_alchemia(c) ||
           roll_tables(c, COMPOSITE_TABLES)
-      end
-
-      def resolve_alias(source_command)
-        ALIAS.each do |key, value|
-          if key.upcase == source_command.upcase || value.upcase == source_command.upcase
-            return value
-          end
-        end
-
-        source_command
       end
 
       def try_roll_alchemia(command)
