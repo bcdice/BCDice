@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "AlchemiaStruggle"
 input = "6as"
-output = "(6D) ＞ [1, 2, 3, 3, 4, 5]"
+output = "(6D6) ＞ [1, 2, 3, 3, 4, 5]"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -14,7 +14,7 @@ rands = [
 [[ test ]]
 game_system = "AlchemiaStruggle"
 input = "6as3"
-output = "(6D|>3D) ＞ [1, 2, 3, 3, 4, 5] >> [3, 4, 5] ＞ 12"
+output = "(6D6|>3D6) ＞ [1, 2, 3, 3, 4, 5] >> [3, 4, 5] ＞ 12"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -27,7 +27,7 @@ rands = [
 [[ test ]]
 game_system = "AlchemiaStruggle"
 input = "6as6"
-output = "(6D|>6D) ＞ [1, 2, 3, 3, 4, 5] >> [1, 2, 3, 3, 4, 5] ＞ 18"
+output = "(6D6|>6D6) ＞ [1, 2, 3, 3, 4, 5] >> [1, 2, 3, 3, 4, 5] ＞ 18"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -40,7 +40,7 @@ rands = [
 [[ test ]]
 game_system = "AlchemiaStruggle"
 input = "6as7"
-output = "(6D|>7D) ＞ [1, 2, 3, 3, 4, 5] >> [1, 2, 3, 3, 4, 5] ＞ 18"
+output = "(6D6|>7D6) ＞ [1, 2, 3, 3, 4, 5] >> [1, 2, 3, 3, 4, 5] ＞ 18"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
