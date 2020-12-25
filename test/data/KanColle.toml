@@ -516,6 +516,16 @@ rands = [
 
 [[ test ]]
 game_system = "KanColle"
+input = "RTT"
+output = "個性：一括(6,12) ＞ 《夜戦／戦闘12》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KanColle"
 input = "KTM"
 output = "個性：一括(6,12) ＞ 《夜戦／戦闘12》"
 rands = [
@@ -529,6 +539,23 @@ game_system = "KanColle"
 input = "BT"
 output = "個性：分野表(6) ＞ 戦闘"
 rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KanColle"
+input = "RCT"
+output = "個性：分野表(6) ＞ 戦闘"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KanColle"
+input = "RTT1"
+output = "個性：背景表(12) ＞ 外国暮らし"
+rands = [
+  { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
 

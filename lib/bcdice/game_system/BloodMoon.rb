@@ -59,7 +59,7 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        return roll_tables(command, TABLES)
+        return roll_tables(command, TABLES) || BloodCrusade::RTT.roll_command(randomizer, command)
       end
 
       TABLES = {
@@ -206,7 +206,7 @@ module BCDice
         ),
       }.merge(BloodCrusade::TABLES_WITH_BLOOD_MOON).freeze
 
-      register_prefix(TABLES.keys)
+      register_prefix(BloodCrusade::RTT.prefixes, TABLES.keys)
     end
   end
 end

@@ -18,7 +18,10 @@ module BCDice
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         ・各種表
         　・(無印)シーン表　ST／ファンブル表　FT／感情表　ET
-        　　　／変調表　WT／戦場表　BT／異形表　MT／ランダム特技決定表　RTT
+        　　　／変調表　WT／戦場表　BT／異形表　MT
+        　・ランダム特技決定表　RTTn (n：分野番号、省略可能)
+        　　　1器術 2体術 3忍術 4謀術 5戦術 6妖術
+        　・ランダム分野表 RCT
         　・(弐)都市シーン表　CST／館シーン表　　MST／出島シーン表　DST
         　・(参)トラブルシーン表　TST／日常シーン表　NST／回想シーン表　KST
         　・(死)東京シーン表　TKST／戦国シーン表　GST
@@ -58,33 +61,26 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        string = command.upcase
+        result = roll_tables(command, TABLES) || RTT.roll_command(@randomizer, command)
+        return result if result
+        return sinobigami_metamorphose_table() if command == 'MT'
 
-        result = roll_tables(command, TABLES)
-        if result
-          return result
-        end
-
-        case string
-        when /\w*RTT/ # ランダム特技決定表
-          return sinobigami_random_skill_table()
-        when 'MT' # 異形表
-          return sinobigami_metamorphose_table()
-        end
-
-        return nil
+        nil
       end
+      RTT = DiceTable::SaiFicSkillTable.new(
+        [
+          ['器術', ['絡繰術', '火術', '水術', '針術', '仕込み', '衣装術', '縄術', '登術', '拷問術', '壊器術', '掘削術']],
+          ['体術', ['騎乗術', '砲術', '手裏剣術', '手練', '身体操術', '歩法', '走法', '飛術', '骨法術', '刀術', '怪力']],
+          ['忍術', ['生存術', '潜伏術', '遁走術', '盗聴術', '腹話術', '隠形術', '変装術', '香術', '分身の術', '隠蔽術', '第六感']],
+          ['謀術', ['医術', '毒術', '罠術', '調査術', '詐術', '対人術', '遊芸', '九ノ一の術', '傀儡の術', '流言の術', '経済力']],
+          ['戦術', ['兵糧術', '鳥獣術', '野戦術', '地の利', '意気', '用兵術', '記憶術', '見敵術', '暗号術', '伝達術', '人脈']],
+          ['妖術', ['異形化', '召喚術', '死霊術', '結界術', '封術', '言霊術', '幻術', '瞳術', '千里眼の術', '憑依術', '呪術']],
+        ],
+        s_format: "『%<category_name>s』%<skill_name>s",
+        rtt_format: "ランダム指定特技表(%<category_dice>d,%<row_dice>d) ＞ %<text>s"
+      )
 
       private
-
-      # ランダム指定特技表
-      def sinobigami_random_skill_table()
-        skill_table, value1 = get_table_by_1d6(RANDOM_SKILL_TABLE)
-        table_name, skill_table = skill_table
-        skill, value2 = get_table_by_2d6(skill_table)
-
-        return "ランダム指定特技表(#{value1},#{value2}) ＞ 『#{table_name}』#{skill}"
-      end
 
       # 異形表
       def sinobigami_metamorphose_table()
@@ -613,16 +609,6 @@ module BCDice
         ),
       }.freeze
 
-      # ランダム指定特技表
-      RANDOM_SKILL_TABLE = [
-        ['器術', ['絡繰術', '火術', '水術', '針術', '仕込み', '衣装術', '縄術', '登術', '拷問術', '壊器術', '掘削術']],
-        ['体術', ['騎乗術', '砲術', '手裏剣術', '手練', '身体操術', '歩法', '走法', '飛術', '骨法術', '刀術', '怪力']],
-        ['忍術', ['生存術', '潜伏術', '遁走術', '盗聴術', '腹話術', '隠形術', '変装術', '香術', '分身の術', '隠蔽術', '第六感']],
-        ['謀術', ['医術', '毒術', '罠術', '調査術', '詐術', '対人術', '遊芸', '九ノ一の術', '傀儡の術', '流言の術', '経済力']],
-        ['戦術', ['兵糧術', '鳥獣術', '野戦術', '地の利', '意気', '用兵術', '記憶術', '見敵術', '暗号術', '伝達術', '人脈']],
-        ['妖術', ['異形化', '召喚術', '死霊術', '結界術', '封術', '言霊術', '幻術', '瞳術', '千里眼の術', '憑依術', '呪術']],
-      ].freeze
-
       # 異形表
       METAMORPHOSE_TABLE = [
         '1D6を振り、「妖魔忍法表A」で、ランダムに忍法の種類を決定する。妖魔化している間、その妖魔忍法を修得しているものとして扱う。この異形は、違う種類の妖魔忍法である限り、違う異形として扱う。',
@@ -673,7 +659,7 @@ module BCDice
         }
       ].freeze
 
-      register_prefix('MT', 'RTT', TABLES.keys)
+      register_prefix('MT', RTT.prefixes, TABLES.keys)
     end
   end
 end
