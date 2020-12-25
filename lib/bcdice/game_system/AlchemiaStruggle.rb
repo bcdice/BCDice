@@ -89,12 +89,12 @@ module BCDice
       end
 
       def make_roll_text(rolled_dice_list)
-        "(#{rolled_dice_list.size}D) ＞ #{make_dice_text(rolled_dice_list)}"
+        "(#{rolled_dice_list.size}D6) ＞ #{make_dice_text(rolled_dice_list)}"
       end
 
       # 実際にピックできた数と要求されたピック数は一致しないケースが（ルール上）あるため、 pick_dice_count はパラメータとして受ける必要がある。
       def make_roll_and_pick_text(rolled_dice_list, pick_dice_count, picked_dice_list)
-        "(#{rolled_dice_list.size}D|>#{pick_dice_count}D) ＞ #{make_dice_text(rolled_dice_list)} >> #{make_dice_text(picked_dice_list)} ＞ #{picked_dice_list.sum}"
+        "(#{rolled_dice_list.size}D6|>#{pick_dice_count}D6) ＞ #{make_dice_text(rolled_dice_list)} >> #{make_dice_text(picked_dice_list)} ＞ #{picked_dice_list.sum}"
       end
 
       def make_dice_text(dice_list)
