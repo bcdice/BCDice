@@ -330,10 +330,10 @@ module BCDice
         CATALYST_TABLES.merge(ARTICLE_TABLES).merge(DRAMA_SEQUENCE_TABLES)
 
       ALIAS =
-        CATALYST_TABLES.keys.map { |x| [x[0...4], x] }.to_h.merge(
-          ARTICLE_TABLES.keys.map { |x| [x[0...2] + x[-1], x] }.to_h
+        CATALYST_TABLES.keys.map { |key| [key[0...4], key] }.to_h.merge(
+          ARTICLE_TABLES.keys.map { |key| [key[0...2] + key[-1], key] }.to_h
         ).merge(
-          DRAMA_SEQUENCE_TABLES.keys.map { |x| [x[0...3], x] }.to_h
+          DRAMA_SEQUENCE_TABLES.keys.map { |key| [key[0...3], key] }.to_h
         ).freeze
 
       register_prefix(ALIAS.keys, COMPOSITE_TABLES.keys)
