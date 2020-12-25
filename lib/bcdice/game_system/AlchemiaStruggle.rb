@@ -95,7 +95,7 @@ module BCDice
         if dice_list.size <= pick_dice_count
           dice_list
         else
-          dice_list.sort[-pick_dice_count..-1]
+          dice_list.sort.pop(pick_dice_count)
         end
       end
 
