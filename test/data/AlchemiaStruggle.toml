@@ -265,3 +265,71 @@ rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
 ]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "PCInformation"
+output = "ＰＣ情報獲得表(14) ＞ 自学派の拠点 ―― 自分が学派の仲間と共に使用する場所。仲間に手は出させず、あくまでプレッシャーを与えるだけにしてもらう。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "PCI"
+output = "ＰＣ情報獲得表(41) ＞ 廃墟 ―― 廃ビル、廃工場のような人が立ち入らない場所。おあつらえ向きの場所を用意してやった。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "Reason"
+output = "理由表(1) ＞ 不信感 ―― 行動や言動になにか釈然としない部分を感じる。白黒はっきりさせよう。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "REA"
+output = "理由表(6) ＞ 直感 ―― 根拠はないが、なにか隠している気がする。一か八か、勝負に出よう。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "Associate"
+output = "交流表(14) ＞ 相手学派の拠点 ―― 相手が学派の仲間と共に使用する場所。若干の居心地悪さはあるが、好感を持ってもらうためには我慢も必要。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ASS"
+output = "交流表(41) ＞ お祭り ―― 老若男女が参加するイベント。非日常的な空気を楽しむことで、気分転換もできるだろう。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "Contact"
+output = "接触のきっかけ表(1) ＞ 体勢を崩す ―― 転びそうになったところを支える、支えられる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CON"
+output = "接触のきっかけ表(6) ＞ ケアをしてあげる ―― 髪をとかす、肩をもむ、頭を撫でる。相手を労ってする行為全般。"
+rands = [
+  { sides = 6, value = 6 },
+]
