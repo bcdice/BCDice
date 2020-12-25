@@ -391,7 +391,7 @@ module BCDice
           # @return [Integer] 評価結果（出目の合計値）
           def eval(game_system, randomizer)
             times = @times.eval(game_system, nil)
-            sides = @sides.eval(game_system, nil)
+            sides = eval_sides(game_system)
 
             dice_list = randomizer.roll(times, sides)
 
@@ -410,7 +410,7 @@ module BCDice
           # @return [String]
           def expr(game_system)
             times = @times.eval(game_system, nil)
-            sides = @sides.eval(game_system, nil)
+            sides = eval_sides(game_system)
 
             "#{times}D#{sides}"
           end
@@ -425,6 +425,31 @@ module BCDice
           # @return [String]
           def s_exp
             "(DiceRoll #{@times.s_exp} #{@sides.s_exp})"
+          end
+
+          private
+
+          def eval_sides(game_system)
+            @sides.eval(game_system, nil)
+          end
+        end
+
+        class ImplicitSidesDiceRoll < DiceRoll
+          # @param [Number] times ダイスを振る回数のノード
+          def initialize(times)
+            @times = times
+            @text = nil
+          end
+
+          # @return [String]
+          def s_exp
+            "(ImplicitSidesDiceRoll #{@times.s_exp})"
+          end
+
+          private
+
+          def eval_sides(game_system)
+            game_system.sides_implicit_d
           end
         end
 

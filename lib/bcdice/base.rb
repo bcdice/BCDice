@@ -83,6 +83,8 @@ module BCDice
 
       @round_type = RoundType::FLOOR # 割り算をした時の端数の扱い (FLOOR: 切り捨て, CEIL: 切り上げ, ROUND: 四捨五入)
 
+      @sides_implicit_d = 6 # 1D のようにダイスの面数が指定されていない場合に何面ダイスにするか
+
       @upper_dice_reroll_threshold = nil # UpperDiceで振り足しをする出目の閾値 nilの場合デフォルト設定なし
       @reroll_dice_reroll_threshold = nil # RerollDiceで振り足しをする出目の閾値 nilの場合デフォルト設定なし
 
@@ -108,6 +110,11 @@ module BCDice
     #
     # @return [Symbol]
     attr_reader :round_type
+
+    # ダイスの面数が指定されていない場合に何面ダイスにするか
+    #
+    # @return [Integer]
+    attr_reader :sides_implicit_d
 
     # UpperDiceで振り足しをする出目の閾値
     #
