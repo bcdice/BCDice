@@ -329,12 +329,11 @@ module BCDice
       COMPOSITE_TABLES =
         CATALYST_TABLES.merge(ARTICLE_TABLES).merge(DRAMA_SEQUENCE_TABLES)
 
-      ALIAS =
-        CATALYST_TABLES.keys.map { |key| [key[0, 4], key] }.to_h.merge(
-          ARTICLE_TABLES.keys.map { |key| [key[0, 2] + key[-1], key] }.to_h
-        ).merge(
-          DRAMA_SEQUENCE_TABLES.keys.map { |key| [key[0, 3], key] }.to_h
-        ).freeze
+      alias_catalyst_tables = CATALYST_TABLES.keys.map { |key| [key[0, 4], key] }.to_h
+      alias_article_tables = ARTICLE_TABLES.keys.map { |key| [key[0, 2] + key[-1], key] }.to_h
+      alias_drama_sequence_tables = DRAMA_SEQUENCE_TABLES.keys.map { |key| [key[0, 3], key] }.to_h
+
+      ALIAS = alias_catalyst_tables.merge(alias_article_tables).merge(alias_drama_sequence_tables).freeze
 
       register_prefix(ALIAS.keys, COMPOSITE_TABLES.keys)
     end
