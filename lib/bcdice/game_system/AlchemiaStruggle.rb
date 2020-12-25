@@ -43,7 +43,7 @@ module BCDice
         c = ALIAS[command] || command
 
         try_roll_alchemia(c) ||
-          roll_tables(c, COMPOSITE_TABLES)
+          roll_tables(c, TABLES)
       end
 
       def try_roll_alchemia(command)
@@ -326,7 +326,7 @@ module BCDice
         ),
       }.transform_keys(&:upcase).freeze
 
-      COMPOSITE_TABLES =
+      TABLES =
         CATALYST_TABLES.merge(ARTICLE_TABLES).merge(DRAMA_SEQUENCE_TABLES)
 
       alias_catalyst_tables = CATALYST_TABLES.keys.map { |key| [key[0, 4], key] }.to_h
@@ -335,7 +335,7 @@ module BCDice
 
       ALIAS = alias_catalyst_tables.merge(alias_article_tables).merge(alias_drama_sequence_tables).freeze
 
-      register_prefix(ALIAS.keys, COMPOSITE_TABLES.keys)
+      register_prefix(ALIAS.keys, TABLES.keys)
     end
   end
 end
