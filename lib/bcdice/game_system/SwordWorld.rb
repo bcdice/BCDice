@@ -86,7 +86,7 @@ module BCDice
 
         key, addValue = getKeyAndAddValueFromString(string)
 
-        return '1' unless key =~ /([\d]+)/
+        return '1' unless key =~ /(\d+)/
 
         key = Regexp.last_match(1).to_i
 

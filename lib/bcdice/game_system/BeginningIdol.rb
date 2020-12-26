@@ -2261,7 +2261,7 @@ module BCDice
         return text, skill unless text =~ /チャンスが(\d{1,2})以下ならオフ。/
 
         target = Regexp.last_match(1).to_i
-        matchedText = $&
+        matchedText = Regexp.last_match(0)
 
         if target >= chance.to_i
           text = "オフ"
@@ -2433,7 +2433,7 @@ module BCDice
         end
 
         substitution = text.clone
-        substitution = substitution.gsub($&, '')
+        substitution = substitution.gsub(Regexp.last_match(0), '')
         substitution += "\n" unless substitution.empty? || /\n$/ =~ substitution
 
         return substitution + badStatus(counts)

@@ -30,6 +30,12 @@ Layout/FirstArrayElementIndentation:
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
+Lint/StructNewOverride:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
 Naming/VariableName:
   Enabled: false
 
@@ -37,6 +43,9 @@ Naming/VariableNumber:
   Enabled: false
 
 Style/AsciiComments:
+  Enabled: false
+
+Style/CaseLikeIf:
   Enabled: false
 
 Style/CommentedKeyword:
@@ -67,6 +76,10 @@ Style/FrozenStringLiteralComment:
 Style/GuardClause:
   Enabled: false
 
+Style/HashLikeCase:
+  Exclude:
+    - 'lib/bcdice/game_system/**/*.rb'
+
 Style/IfUnlessModifier:
   Enabled: false
 
@@ -76,11 +89,19 @@ Style/MethodCallWithoutArgsParentheses:
 Style/NumericPredicate:
   Enabled: false
 
+Style/OptionalBooleanParameter:
+  Exclude:
+    - 'lib/bcdice/game_system/**/*.rb'
+
 Style/PercentLiteralDelimiters:
   Enabled: false
 
 Style/RedundantReturn:
   Enabled: false
+
+Style/StringConcatenation:
+  Exclude:
+    - 'lib/bcdice/game_system/**/*.rb'
 
 Style/StringLiterals:
   Enabled: true

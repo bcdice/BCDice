@@ -41,7 +41,7 @@ module BCDice
           if dig1 <= 0
             " ＞ クリティカル(達成値20+SL)"
           else
-            " ＞ 成功(達成値#{(dig10 + dig1)}+SL)"
+            " ＞ 成功(達成値#{dig10 + dig1}+SL)"
           end
         else
           " ＞ 失敗"

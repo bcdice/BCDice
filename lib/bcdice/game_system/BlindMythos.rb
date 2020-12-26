@@ -100,8 +100,8 @@ module BCDice
         debug("commandText", commandText)
 
         message = ""
-        if rerollCounts.size > 1
-          message += "(#{commandText})" if isStop
+        if rerollCounts.size > 1 && isStop
+          message += "(#{commandText})"
         end
         message += "\n"
         isReRoll = true
@@ -167,13 +167,16 @@ module BCDice
 
         canReRoll = !rerollCommand.empty?
 
-        if canReRoll
-          unless isStop
-            text, successListTmp, countOneListTmp, = reRoll(rerollCommand, isStop)
-            message += text
-            successList += successListTmp
-            countOneList += countOneListTmp
-          end
+        # frozen_string_literal: true
+        # ゲームシステムの識別子
+        # ゲームシステム名
+        # ゲームシステム名の読みがな
+        # ダイスボットの使い方
+        if canReRoll && !isStop
+          text, successListTmp, countOneListTmp, = reRoll(rerollCommand, isStop)
+          message += text
+          successList += successListTmp
+          countOneList += countOneListTmp
         end
 
         return message, bitList, successList, countOneList, canReRoll

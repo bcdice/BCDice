@@ -10,29 +10,29 @@ module BCDice
       SORT_KEY = "あるけみあすとらくる"
 
       HELP_MESSAGE = <<~MESSAGETEXT
-        ■ ダイスロール（ xAS ）
-          xDをロールします。
-          例） 5AS
-        
-        ■ ダイスロール＆最大になるようにピック（ xASy ）
-          xDをロールし、そこから最大になるようにy個をピックします。
-          例） 4AS3
-
-        ■ 表
-          ・奇跡の触媒
-            ・エレメント (CELE, CElement)
-            ・アルケミア (CALC, CAlchemia)
-            ・インフォーマント (CINF, CInformant)
-            ・イノセンス (CINN, CInnocence)
-            ・アクワイヤード (CACQ, CAcquired)
-          ・携行品
-            ・Ｓサイズ (ARS, ArticleS)
-            ・Ｍサイズ (ARM, ArticleM)
-            ・Ｌサイズ (ARL, ArticleL)
-          ・ＰＣ情報獲得表 (PCI, PCInformation)
-          ・理由表 (REA, Reason)
-          ・交流表 (ASS, Associate)
-          ・接触のきっかけ表 (CON, Contact)
+                        ■ ダイスロール（ xAS ）
+                          xDをロールします。
+                          例） 5AS
+                #{'        '}
+                        ■ ダイスロール＆最大になるようにピック（ xASy ）
+                          xDをロールし、そこから最大になるようにy個をピックします。
+                          例） 4AS3
+        #{'        '}
+                        ■ 表
+                          ・奇跡の触媒
+                            ・エレメント (CELE, CElement)
+                            ・アルケミア (CALC, CAlchemia)
+                            ・インフォーマント (CINF, CInformant)
+                            ・イノセンス (CINN, CInnocence)
+                            ・アクワイヤード (CACQ, CAcquired)
+                          ・携行品
+                            ・Ｓサイズ (ARS, ArticleS)
+                            ・Ｍサイズ (ARM, ArticleM)
+                            ・Ｌサイズ (ARL, ArticleL)
+                          ・ＰＣ情報獲得表 (PCI, PCInformation)
+                          ・理由表 (REA, Reason)
+                          ・交流表 (ASS, Associate)
+                          ・接触のきっかけ表 (CON, Contact)
       MESSAGETEXT
 
       ROLL_REG = /^(\d+)AS(\d+)?$/i.freeze

@@ -36,7 +36,7 @@ module BCDice
 
         string = string.gsub(/DB(\d),(\d)/) { "DB#{Regexp.last_match(1)}#{Regexp.last_match(2)}" }
         string = string.gsub(/DB@(\d)@(\d)/) { "DB#{Regexp.last_match(1)}#{Regexp.last_match(2)}" }
-        string = string.gsub(/DB(\d)(\d)(#([\d][+\-\d]*))/) { "3R6+#{Regexp.last_match(4)}[#{Regexp.last_match(1)},#{Regexp.last_match(2)}]" }
+        string = string.gsub(/DB(\d)(\d)(#(\d[+\-\d]*))/) { "3R6+#{Regexp.last_match(4)}[#{Regexp.last_match(1)},#{Regexp.last_match(2)}]" }
         string = string.gsub(/DB(\d)(\d)(#([+\-\d]*))/) { "3R6#{Regexp.last_match(4)}[#{Regexp.last_match(1)},#{Regexp.last_match(2)}]" }
         string = string.gsub(/DB(\d)(\d)/) { "3R6[#{Regexp.last_match(1)},#{Regexp.last_match(2)}]" }
 

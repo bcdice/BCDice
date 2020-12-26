@@ -90,6 +90,7 @@ module BCDice
         attr_accessor :modify_number
 
         def initialize(command)
+          super()
           @command = command
         end
 

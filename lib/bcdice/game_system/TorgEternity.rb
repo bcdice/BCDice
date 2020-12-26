@@ -42,9 +42,6 @@ module BCDice
         　・ロールボーナス表「BTx+y or BONUSx+y or TOTALx+y」 xは数値, yは技能基本値
       INFO_MESSAGE_TEXT
       register_prefix('TE.*', 'UP.*', 'POS.*', '\d+BD.*', 'TG.*', 'RT.*', 'Result.*', 'DT.*', 'damage.*', 'BT.*', 'bonus.*', 'total.*', '1R20.*')
-      def initialize(command)
-        super(command)
-      end
 
       def eval_game_system_specific_command(command)
         torg_check(command) ||

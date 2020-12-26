@@ -263,19 +263,16 @@ module BCDice
 
       def additional_result(total, target_number)
         tens, ones = split_d100(total)
-        result =
-          if (total > target_number) || (total > 95) # 自動失敗時のファンブル処理も
-            if ones == tens
-              "ファンブル"
-            end
-          elsif ones == tens
-            "クリティカル"
-          else
-            # 一の位と十の位を入れ替えて参照する
-            HIT_PARTS_TABLE.fetch(merge_d100(ones, tens)).content
+        if (total > target_number) || (total > 95) # 自動失敗時のファンブル処理も
+          if ones == tens
+            "ファンブル"
           end
-
-        result
+        elsif ones == tens
+          "クリティカル"
+        else
+          # 一の位と十の位を入れ替えて参照する
+          HIT_PARTS_TABLE.fetch(merge_d100(ones, tens)).content
+        end
       end
 
       def split_d100(dice)

@@ -121,7 +121,7 @@ module BCDice
           when 'LDC'
             get_loserDestiny_chart
 
-          when /([W])ENC(\d+)?/i
+          when /(W)ENC(\d+)?/i
             locationType = Regexp.last_match(1)
             roc = (Regexp.last_match(2) || 0).to_i
             get_randomEncounter_table(locationType, roc)
