@@ -99,7 +99,7 @@ module BCDice
       if block
         instance_exec(*args, &block)
       else
-        eval_game_system(command)
+        eval_game_system(input)
       end
     end
 
