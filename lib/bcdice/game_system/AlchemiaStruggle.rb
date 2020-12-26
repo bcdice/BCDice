@@ -101,27 +101,6 @@ module BCDice
         "[#{dice_list.sort.join ', '}]"
       end
 
-      # ひとつめのダイスは偶奇だけを見るテーブルをつくる
-      # items は { odd: [ , , , , , ], even: [ , , , , , ] } の構造
-      def self.make_d66_small_table(name, items)
-        formatted_items = {}
-
-        (1..6).each do |left_dice|
-          child_table = left_dice.odd? ? items[:odd] : items[:even]
-
-          (1..6).each do |right_dice|
-            index_for_child_table = right_dice - 1
-            formatted_items[left_dice * 10 + right_dice] = child_table[index_for_child_table]
-          end
-        end
-
-        DiceTable::D66Table.new(
-          name,
-          D66SortType::NO_SORT,
-          formatted_items
-        )
-      end
-
       CATALYST_TABLES = {
         'CElement' => DiceTable::Table.new(
           "奇跡の触媒（エレメント）",
@@ -213,7 +192,7 @@ module BCDice
             66 => "ペンライト",
           }
         ),
-        'ArticleM' => make_d66_small_table(
+        'ArticleM' => DiceTable::D66ParityTable.new(
           "携行品（Ｍサイズ）",
           {
             odd: [
@@ -234,7 +213,7 @@ module BCDice
             ],
           }
         ),
-        'ArticleL' => make_d66_small_table(
+        'ArticleL' => DiceTable::D66ParityTable.new(
           "携行品（Ｌサイズ）",
           {
             odd: [
@@ -258,7 +237,7 @@ module BCDice
       }.transform_keys(&:upcase).freeze
 
       DRAMA_SEQUENCE_TABLES = {
-        'PCInformation' => make_d66_small_table(
+        'PCInformation' => DiceTable::D66ParityTable.new(
           "ＰＣ情報獲得表",
           {
             odd: [
@@ -291,7 +270,7 @@ module BCDice
             "直感 ―― 根拠はないが、なにか隠している気がする。一か八か、勝負に出よう。",
           ]
         ),
-        'Associate' => make_d66_small_table(
+        'Associate' => DiceTable::D66ParityTable.new(
           "交流表",
           {
             odd: [
