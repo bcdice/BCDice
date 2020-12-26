@@ -45,7 +45,7 @@ module BCDice
     def replace_parentheses
       loop do
         prev = @text
-        @text = @text.gsub(%r{\([\d/\+\*\-]+\)}) do |expr|
+        @text = @text.gsub(%r{\([\d/+*\-]+\)}) do |expr|
           ae = ArithmeticEvaluator.new(expr, round_type: @game_system.round_type)
           val = ae.eval
           ae.error? ? expr : val

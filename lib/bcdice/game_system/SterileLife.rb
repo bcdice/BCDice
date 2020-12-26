@@ -104,7 +104,7 @@ module BCDice
 
       def getJudgeResult(command)
         case command
-        when /(\d+)*DA([\d\+\*\-]*[\d])?\[(\d+),(\d+)(,(\d+))?\]/i
+        when /(\d+)*DA([\d+*\-]*[\d])?\[(\d+),(\d+)(,(\d+))?\]/i
           number = (Regexp.last_match(1) || 1).to_i
           correction = (Regexp.last_match(2) || 0).to_i
           single = (Regexp.last_match(3) || 4).to_i

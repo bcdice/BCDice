@@ -120,7 +120,7 @@ module BCDice
         ttype = ""
         value = 0
 
-        return nil unless /([RITMDB]T)(\d+([\+\-]\d+)*)/i =~ string
+        return nil unless /([RITMDB]T)(\d+([+\-]\d+)*)/i =~ string
 
         type = Regexp.last_match(1)
         num = Regexp.last_match(2)

@@ -40,9 +40,9 @@ module BCDice
       private
 
       def replace_text(string)
-        string = string.gsub(/(\d+)NC(10)?([\+\-][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(3)}[0]" }
+        string = string.gsub(/(\d+)NC(10)?([+\-][+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(3)}[0]" }
         string = string.gsub(/(\d+)NC(10)?/i) { "#{Regexp.last_match(1)}R10[0]" }
-        string = string.gsub(/(\d+)NA(10)?([\+\-][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(3)}[1]" }
+        string = string.gsub(/(\d+)NA(10)?([+\-][+\-\d]+)/i) { "#{Regexp.last_match(1)}R10#{Regexp.last_match(3)}[1]" }
         string = string.gsub(/(\d+)NA(10)?/i) { "#{Regexp.last_match(1)}R10[1]" }
 
         return string
@@ -82,7 +82,7 @@ module BCDice
         string = replace_text(string)
         debug("nechronica_check string", string)
 
-        unless /(^|\s)S?((\d+)[rR]10([\+\-\d]+)?(\[(\d+)\])?)(\s|$)/i =~ string
+        unless /(^|\s)S?((\d+)[rR]10([+\-\d]+)?(\[(\d+)\])?)(\s|$)/i =~ string
           return nil
         end
 

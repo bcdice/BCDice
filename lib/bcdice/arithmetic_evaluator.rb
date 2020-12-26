@@ -55,7 +55,7 @@ module BCDice
     private
 
     def tokenize(expr)
-      expr.gsub(%r{[\(\)\+\-\*/]}) { |e| " #{e} " }.split(" ")
+      expr.gsub(%r{[()+\-*/]}) { |e| " #{e} " }.split(" ")
     end
 
     def add

@@ -53,7 +53,7 @@ module BCDice
       end
 
       def amadeusDice(command)
-        return nil unless /^(R([A-DS])([\+\-\d]*))(@(\d))?((>(=)?)([\+\-\d]*))?(@(\d))?$/i =~ command
+        return nil unless /^(R([A-DS])([+\-\d]*))(@(\d))?((>(=)?)([+\-\d]*))?(@(\d))?$/i =~ command
 
         commandText = Regexp.last_match(1)
         skillRank = Regexp.last_match(2)

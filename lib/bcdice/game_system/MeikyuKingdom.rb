@@ -141,7 +141,7 @@ module BCDice
 
         string = replace_text(string)
 
-        m = /^S?((\d+)R6([\+\-\d]*)(([>=]+)(\d+))?)/i.match(string)
+        m = /^S?((\d+)R6([+\-\d]*)(([>=]+)(\d+))?)/i.match(string)
         unless m
           return nil
         end

@@ -51,7 +51,7 @@ module BCDice
       end
 
       def judgeRoll(command)
-        return nil unless /^(R([A-DS]|\d+)([\+\-\d,]*))(@(\d))?((>(=)?)([\+\-\d]*))?(@(\d))?$/i =~ command
+        return nil unless /^(R([A-DS]|\d+)([+\-\d,]*))(@(\d))?((>(=)?)([+\-\d]*))?(@(\d))?$/i =~ command
 
         skillRank = Regexp.last_match(2)
         modifyText = Regexp.last_match(3)

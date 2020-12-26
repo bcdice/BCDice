@@ -55,7 +55,7 @@ module BCDice
       private
 
       def resolute_action(command)
-        m = /^DLH(\d+([\+\-]\d+)*)$/.match(command)
+        m = /^DLH(\d+([+\-]\d+)*)$/.match(command)
         unless m
           return nil
         end

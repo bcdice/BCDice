@@ -255,18 +255,18 @@ module BCDice
         debug("pos_type", pos_type)
         if pos_type != ""
           case pos_type
-          when /\@(2W|W2)/i
+          when /@(2W|W2)/i
             pos_t = 1
-          when /\@(4W|W4)/i
+          when /@(4W|W4)/i
             pos_t = 4
-          when /\@(4H|H4)/i
+          when /@(4H|H4)/i
             pos_t = 3
-          when /\@4/i
+          when /@4/i
             pos_t = 2
-          when /\@W/i
+          when /@W/i
             pos_t = 5
           else
-            unless  /\@(2H|H2|2)/i =~ pos_type
+            unless  /@(2H|H2|2)/i =~ pos_type
               pos_t = -1
             end
           end

@@ -165,7 +165,7 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         case command.upcase
-        when /^([1-7]*)PD(\d+)([\+\-]\d+)?$/
+        when /^([1-7]*)PD(\d+)([+\-]\d+)?$/
           counts = Regexp.last_match(2).to_i
           return nil if counts <= 0
 
@@ -1802,7 +1802,7 @@ module BCDice
           ]
           return textFrom1D6Table(title, table)
 
-        when /^(\d+)(S?)A([1-6]*)([\+\-]\d+)?$/
+        when /^(\d+)(S?)A([1-6]*)([+\-]\d+)?$/
           title = '攻撃'
           counts = Regexp.last_match(1).to_i
           return nil if counts <= 0

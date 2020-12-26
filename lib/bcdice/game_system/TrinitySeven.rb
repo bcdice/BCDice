@@ -44,14 +44,14 @@ module BCDice
           return "#{firstName} , #{secondName}"
         end
 
-        if /^TR([\+\-\d]*)<=([\d]*)([\+\-\d]*)/ =~ command
+        if /^TR([+\-\d]*)<=([\d]*)([+\-\d]*)/ =~ command
           critical = Regexp.last_match(1).to_i + 7
           target = Regexp.last_match(2).to_i
           modify = Regexp.last_match(3).to_i
           return rollHit(command, critical, target, modify)
         end
 
-        if /^([\d]*)DM([\d]*)([\+\-\d]*)$/ =~ command
+        if /^([\d]*)DM([\d]*)([+\-\d]*)$/ =~ command
           diceCount = Regexp.last_match(1).to_i
           critical = Regexp.last_match(2).to_i
           modify = Regexp.last_match(3).to_i

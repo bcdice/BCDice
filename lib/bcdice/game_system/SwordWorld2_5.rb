@@ -108,7 +108,7 @@ module BCDice
 
       def getKeptDiceChangesFromString(string)
         keptDiceChangeModify = 0
-        regexp = /a\[([\+\-]\d+)\]/i
+        regexp = /a\[([+\-]\d+)\]/i
         if regexp =~ string
           keptDiceChangeModify = Regexp.last_match(1)
           string = string.gsub(regexp, '')

@@ -23,7 +23,7 @@ module BCDice
       register_prefix('\d+\-2DR.*')
 
       def eval_game_system_specific_command(command)
-        return nil unless command =~ /^(\d+)-2DR([\+\-\d]*)(>=(\d+))?$/i
+        return nil unless command =~ /^(\d+)-2DR([+\-\d]*)(>=(\d+))?$/i
 
         baseAvility = Regexp.last_match(1).to_i
         modText = Regexp.last_match(2)

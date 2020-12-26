@@ -160,7 +160,7 @@ module BCDice
 
       # 消耗表ロール
       def roll_consumption(command)
-        m = /^CT\d*([\+\-\d]+)?$/.match(command)
+        m = /^CT\d*([+\-\d]+)?$/.match(command)
         return nil unless m
 
         modifier = ArithmeticEvaluator.eval(m[1])
@@ -180,7 +180,7 @@ module BCDice
 
       ### 消耗表 ###
       def roll_consumption_table(command)
-        m = /(P|E|G|C|ES|CS)CT(\d+)?([\+\-\d]+)?(?:\$(\d+))?/.match(command)
+        m = /(P|E|G|C|ES|CS)CT(\d+)?([+\-\d]+)?(?:\$(\d+))?/.match(command)
         return nil unless m
 
         table = construct_consumption_table(m[1])
@@ -244,7 +244,7 @@ module BCDice
 
       # 財宝表ロール
       def roll_treasure(command)
-        m = /^TRS(\d+)*([\+\-\d]+)?$/.match(command)
+        m = /^TRS(\d+)*([+\-\d]+)?$/.match(command)
         return nil unless m
 
         character_rank = m[1].to_i
@@ -261,7 +261,7 @@ module BCDice
 
       ### 財宝表 ###
       def roll_treasure_table(command)
-        m = /^([CMIHG]TRS)(\d+)*([\+\-\d]+)?(\$)?$/.match(command)
+        m = /^([CMIHG]TRS)(\d+)*([+\-\d]+)?(\$)?$/.match(command)
         return nil unless m
 
         type = m[1]
@@ -286,7 +286,7 @@ module BCDice
 
       # 拡張ルール財宝表
       def roll_treasure_table_b2(command)
-        m = /^([CMIO]TRSE)(\d+)*([\+\-\d]+)?(\$)?$/.match(command)
+        m = /^([CMIO]TRSE)(\d+)*([+\-\d]+)?(\$)?$/.match(command)
         return nil unless m
 
         type = m[1]
@@ -487,7 +487,7 @@ module BCDice
 
       # イースタル探索表
       def roll_eastal_exploration_table(command)
-        m = /ESTL(\d+)?([\+\-\d]+)?(?:\$(\d+))?/.match(command)
+        m = /ESTL(\d+)?([+\-\d]+)?(?:\$(\d+))?/.match(command)
         return nil unless m
         return nil if m[1].nil? && m[2].nil? && m[3].nil?
 

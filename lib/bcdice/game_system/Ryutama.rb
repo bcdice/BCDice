@@ -31,7 +31,7 @@ module BCDice
       def eval_game_system_specific_command(command)
         debug('eval_game_system_specific_command begin')
 
-        unless command =~ /^R(\d+)(,(\d+))?([\+\-\d]+)?(>=(\d+))?/
+        unless command =~ /^R(\d+)(,(\d+))?([+\-\d]+)?(>=(\d+))?/
           debug('unmatched!')
           return ''
         end

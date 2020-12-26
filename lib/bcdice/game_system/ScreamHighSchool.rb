@@ -44,14 +44,14 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         case command
-        when /(EM|TR|FE)(\-?\d+)(@(\d+))?/i
+        when /(EM|TR|FE)(-?\d+)(@(\d+))?/i
           command_type = Regexp.last_match(1).upcase
           success_rate = Regexp.last_match(2).to_i
           critical_border_text = Regexp.last_match(4)
           critical_border = get_critical_border(critical_border_text, success_rate)
 
           return check_roll_sh(success_rate, critical_border, command_type)
-        when %r{(SH|SHS)(\-?\d+)(/(\d+))?(@(\d+))?}i
+        when %r{(SH|SHS)(-?\d+)(/(\d+))?(@(\d+))?}i
           success_rate = Regexp.last_match(2).to_i
           repeat_count = (Regexp.last_match(4) || 1).to_i
           critical_border_text = Regexp.last_match(6)

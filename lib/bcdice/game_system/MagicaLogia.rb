@@ -124,7 +124,7 @@ module BCDice
         private
 
         def expand(chosen, randomizer)
-          chosen.gsub(/\%{([a-z]+)}/) do
+          chosen.gsub(/%{([a-z]+)}/) do
             m = Regexp.last_match
             type = m[1].to_sym
 

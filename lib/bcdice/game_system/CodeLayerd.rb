@@ -36,7 +36,7 @@ module BCDice
         result = ''
 
         case command
-        when /([+-]?\d+)?CL([+-]\d+)?(\@(\d))?(\[(\d+)\])?([+-]\d+)?(>=(\d+))?/i
+        when /([+-]?\d+)?CL([+-]\d+)?(@(\d))?(\[(\d+)\])?([+-]\d+)?(>=(\d+))?/i
           m = Regexp.last_match
           base = (m[1] || 1).to_i
           modifier1 = m[2].to_i

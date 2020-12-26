@@ -45,7 +45,7 @@ module BCDice
       def getCheckRollDiceCommandResult(command)
         debug("getCheckRollDiceCommandResult command", command)
 
-        return nil unless command =~ /(\d+)?CH([\+\-\d]*)(>=([\+\-\d]*))?$/i
+        return nil unless command =~ /(\d+)?CH([+\-\d]*)(>=([+\-\d]*))?$/i
 
         diceCount = (Regexp.last_match(1) || 3).to_i
         modifyText = (Regexp.last_match(2) || '')
@@ -134,7 +134,7 @@ module BCDice
       def getYear(yearText)
         text = yearText.gsub(/(\d+)D(6+)/) { getD6xResult(Regexp.last_match(1).to_i, Regexp.last_match(2).length) }
 
-        unless text.match?(%r{^[\+\-\*/\d]+$})
+        unless text.match?(%r{^[+\-*/\d]+$})
           return nil
         end
 

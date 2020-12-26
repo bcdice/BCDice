@@ -82,7 +82,7 @@ module BCDice
         return rollTableCommand(command)
       end
 
-      JUDGE_DICE_REG = /(^|\s)JD(\d+)([\+\-]\d+)?(,(\d+))?($|\s)/i.freeze
+      JUDGE_DICE_REG = /(^|\s)JD(\d+)([+\-]\d+)?(,(\d+))?($|\s)/i.freeze
 
       def judgeDice(command)
         unless command.match(JUDGE_DICE_REG)

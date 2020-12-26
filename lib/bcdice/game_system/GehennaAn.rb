@@ -35,9 +35,9 @@ module BCDice
 
       def replace_text(string)
         string
-          .gsub(/(\d+)GA(\d+)([\+\-][\+\-\d]+)/) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(3)}>=#{Regexp.last_match(2)}[1]" }
+          .gsub(/(\d+)GA(\d+)([+\-][+\-\d]+)/) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(3)}>=#{Regexp.last_match(2)}[1]" }
           .gsub(/(\d+)GA(\d+)/) { "#{Regexp.last_match(1)}R6>=#{Regexp.last_match(2)}[1]" }
-          .gsub(/(\d+)G(\d+)([\+\-][\+\-\d]+)/) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(3)}>=#{Regexp.last_match(2)}[0]" }
+          .gsub(/(\d+)G(\d+)([+\-][+\-\d]+)/) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(3)}>=#{Regexp.last_match(2)}[0]" }
           .gsub(/(\d+)G(\d+)/) { "#{Regexp.last_match(1)}R6>=#{Regexp.last_match(2)}[0]" }
       end
 
@@ -46,7 +46,7 @@ module BCDice
       def eval_game_system_specific_command(string)
         string = replace_text(string)
 
-        unless /(^|\s)S?((\d+)[rR]6([\+\-\d]+)?([>=]+(\d+))(\[(\d)\]))(\s|$)/i =~ string
+        unless /(^|\s)S?((\d+)[rR]6([+\-\d]+)?([>=]+(\d+))(\[(\d)\]))(\s|$)/i =~ string
           return nil
         end
 
