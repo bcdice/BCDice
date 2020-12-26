@@ -66,7 +66,7 @@ module BCDice
           end
           return rollAct(counts, judgment, critical, fumble)
 
-        when /^CT3([\+\-]?)$/
+        when /^CT3([+\-]?)$/
           sign = Regexp.last_match(1)
           title = '因縁表(The 3rd)　『BoA3』P292'
           table = [
@@ -95,7 +95,7 @@ module BCDice
           ]
           return tableText(title, table, sign)
 
-        when /^CTR([\+\-]?)$/
+        when /^CTR([+\-]?)$/
           sign = Regexp.last_match(1)
           title = '因縁表(リインカーネイション)　『BAR』P51、299'
           table = [
@@ -124,7 +124,7 @@ module BCDice
           ]
           return tableText(title, table, sign)
 
-        when /^DJV(\-?)$/
+        when /^DJV(-?)$/
           sign = Regexp.last_match(1)
           title = '前世邂逅表（デジャブ）　『BAR』P235'
           table = [
@@ -153,7 +153,7 @@ module BCDice
           ]
           return tableText(title, table, sign)
 
-        when /^AKST([\+\-]?)$/
+        when /^AKST([+\-]?)$/
           sign = Regexp.last_match(1)
           title = '悪徳シーン表　『GoV』P16、164'
           table = [

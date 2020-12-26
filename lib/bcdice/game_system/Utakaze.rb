@@ -39,7 +39,7 @@ module BCDice
         result = ''
 
         case command
-        when /(\d+)?UK(\@?(\d))?(>=(\d+))?/i
+        when /(\d+)?UK(@?(\d))?(>=(\d+))?/i
           base = (Regexp.last_match(1) || 2).to_i
           crit = Regexp.last_match(3).to_i
           diff = Regexp.last_match(5).to_i

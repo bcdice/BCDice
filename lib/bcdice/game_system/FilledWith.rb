@@ -140,12 +140,12 @@ module BCDice
         crt = 4
         fmb = 17
 
-        if command =~ /(\d[\+\-\d]*)-(\d+)FW(\@(\d+))?(\#(\d+))?/i
+        if command =~ /(\d[+\-\d]*)-(\d+)FW(@(\d+))?(\#(\d+))?/i
           difficultyText = Regexp.last_match(1)
           diceCount = Regexp.last_match(2).to_i
           crt = Regexp.last_match(4).to_i unless Regexp.last_match(3).nil?
           fmb = Regexp.last_match(6).to_i unless Regexp.last_match(5).nil?
-        elsif command =~ /(\d+)FW(\@(\d+))?(\#(\d+))?(<=([\+\-\d]*))?/i
+        elsif command =~ /(\d+)FW(@(\d+))?(\#(\d+))?(<=([+\-\d]*))?/i
           diceCount = Regexp.last_match(1).to_i
           crt = Regexp.last_match(3).to_i unless Regexp.last_match(2).nil?
           fmb = Regexp.last_match(5).to_i unless Regexp.last_match(4).nil?
@@ -222,7 +222,7 @@ module BCDice
 
       # 夢幻の迷宮財宝表
       def getTresureResult(command)
-        return nil unless command =~ /TRS(\d+)([\+\-]\d)?/
+        return nil unless command =~ /TRS(\d+)([+\-]\d)?/
 
         rank   = Regexp.last_match(1).to_i
         modify = Regexp.last_match(2).to_i

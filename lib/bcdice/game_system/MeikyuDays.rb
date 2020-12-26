@@ -63,7 +63,7 @@ module BCDice
         string = replace_text(string)
 
         debug("checkRoll string", string)
-        unless (m = /(^|\s)S?((\d+)[rR]6([\+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i.match(string))
+        unless (m = /(^|\s)S?((\d+)[rR]6([+\-\d]*)(([>=]+)(\d+))?)(\s|$)/i.match(string))
           debug("not mutch")
           return nil
         end

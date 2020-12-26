@@ -40,7 +40,7 @@ module BCDice
 
       # 判定
       def roll_sq(command)
-        m = /(\d+)SQ([\+\-\d]+)?/i.match(command)
+        m = /(\d+)SQ([+\-\d]+)?/i.match(command)
         return nil unless m
 
         dice_count = m[1].to_i
@@ -116,7 +116,7 @@ module BCDice
 
       # 採取ロール
       def collecting_roll(command)
-        m = /([TSG])C([\+\-\d]+)?/i.match(command)
+        m = /([TSG])C([+\-\d]+)?/i.match(command)
         return nil unless m
 
         type = m[1]

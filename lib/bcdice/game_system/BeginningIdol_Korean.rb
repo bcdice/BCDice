@@ -165,7 +165,7 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         case command.upcase
-        when /^([1-7]*)PD(\d+)([\+\-]\d+)?$/
+        when /^([1-7]*)PD(\d+)([+\-]\d+)?$/
           counts = Regexp.last_match(2).to_i
           return nil if counts <= 0
 
@@ -1802,7 +1802,7 @@ module BCDice
           ]
           return textFrom1D6Table(title, table)
 
-        when /^(\d+)(S?)A([1-6]*)([\+\-]\d+)?$/
+        when /^(\d+)(S?)A([1-6]*)([+\-]\d+)?$/
           title = '攻撃'
           counts = Regexp.last_match(1).to_i
           return nil if counts <= 0
@@ -2112,7 +2112,7 @@ module BCDice
         return text, skill unless text =~ /チャンスが(\d{1,2})以下なら오프。/
 
         target = Regexp.last_match(1).to_i
-        matchedText = $&
+        matchedText = Regexp.last_match(0)
 
         if target >= chance.to_i
           text = "오프"
@@ -2284,7 +2284,7 @@ module BCDice
         end
 
         substitution = text.clone
-        substitution = substitution.gsub($&, '')
+        substitution = substitution.gsub(Regexp.last_match(0), '')
         substitution += "\n" unless substitution.empty? || /\n$/ =~ substitution
 
         return substitution + badStatus(counts)

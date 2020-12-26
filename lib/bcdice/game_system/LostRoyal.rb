@@ -98,9 +98,7 @@ module BCDice
         sequences = (1...6).map do |start_key|
           find_sequence_from_start_key(keys, start_key)
         end
-        sequence = sequences.select { |x| x.size > 1 }.max { |a, b| a.size <=> b.size }
-
-        sequence
+        sequences.select { |x| x.size > 1 }.max { |a, b| a.size <=> b.size }
       end
 
       def find_sequence_from_start_key(keys, start_key)

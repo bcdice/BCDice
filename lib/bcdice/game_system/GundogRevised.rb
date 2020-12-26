@@ -52,7 +52,7 @@ module BCDice
           if dig1 <= 0
             " ＞ クリティカル(達成値20+SL)"
           else
-            " ＞ 成功(達成値#{(dig10 + dig1)}+SL)"
+            " ＞ 成功(達成値#{dig10 + dig1}+SL)"
           end
         else
           " ＞ 失敗"
@@ -68,7 +68,7 @@ module BCDice
         mod = 0
 
         # ダメージペナルティ表
-        if /(\w)DPT([\+\-\d]*)/i =~ string
+        if /(\w)DPT([+\-\d]*)/i =~ string
           ttype = 'ダメージペナルティー'
           head = Regexp.last_match(1)
           mod = ArithmeticEvaluator.eval(Regexp.last_match(2)) if Regexp.last_match(2)
@@ -77,7 +77,7 @@ module BCDice
         end
 
         # ファンブル表
-        if /(\w)FT([\+\-\d]*)/i =~ string
+        if /(\w)FT([+\-\d]*)/i =~ string
           ttype = 'ファンブル'
           head = Regexp.last_match(1)
           mod = ArithmeticEvaluator.eval(Regexp.last_match(2)) if Regexp.last_match(2)

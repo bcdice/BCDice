@@ -53,13 +53,13 @@ module BCDice
       # 通常判定
       def getJudgeResult(command)
         case command
-        when /^(\d+)*D20<=(\d+)?(\[(\d+)(,(\d+))?\])?(\@(\d+))?$/i
+        when /^(\d+)*D20<=(\d+)?(\[(\d+)(,(\d+))?\])?(@(\d+))?$/i
           number = (Regexp.last_match(1) || 1).to_i # ダイス数。省略時は1
           target = (Regexp.last_match(2) || 14).to_i # 目標値。省略時は14  if 空白 then 14 else 記載の値
           fumble1 = (Regexp.last_match(4) || 21).to_i # 追加ファンブル値。省略時は21
           fumble2 = (Regexp.last_match(6) || 21).to_i # 追加ファンブル値。省略時は21
           critical = (Regexp.last_match(8) || 21).to_i # 追加クリティカル値。省略時は21
-        when /^(\d+)*CP(\d+)?(\[(\d+)(,(\d+))?\])?(\@(\d+))?$/i
+        when /^(\d+)*CP(\d+)?(\[(\d+)(,(\d+))?\])?(@(\d+))?$/i
           number = (Regexp.last_match(1) || 1).to_i
           target = (Regexp.last_match(2) || 14).to_i
           fumble1 = (Regexp.last_match(4) || 21).to_i

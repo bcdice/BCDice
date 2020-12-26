@@ -18,7 +18,7 @@ module BCDice
         :<
       when />/
         :>
-      when /\=/
+      when /=/
         :==
       end
     end

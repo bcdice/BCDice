@@ -42,9 +42,9 @@ module BCDice
 
       def replace_text(string)
         if /BS/i =~ string
-          string = string.gsub(/(\d+)HBS([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(2)}[H]" }
+          string = string.gsub(/(\d+)HBS([^\d\s][+\-\d]+)/i) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(2)}[H]" }
           string = string.gsub(/(\d+)HBS/i) { "#{Regexp.last_match(1)}R6[H]" }
-          string = string.gsub(/(\d+)BS([^\d\s][\+\-\d]+)/i) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(2)}" }
+          string = string.gsub(/(\d+)BS([^\d\s][+\-\d]+)/i) { "#{Regexp.last_match(1)}R6#{Regexp.last_match(2)}" }
           string = string.gsub(/(\d+)BS/i) { "#{Regexp.last_match(1)}R6" }
         end
 
@@ -61,7 +61,7 @@ module BCDice
 
         output = "1"
 
-        return output unless (m = /(^|\s)S?((\d+)[rR]6([\+\-\d]*)(\[(\w+)\])?)(\s|$)/i.match(string))
+        return output unless (m = /(^|\s)S?((\d+)[rR]6([+\-\d]*)(\[(\w+)\])?)(\s|$)/i.match(string))
 
         debug('tandt_berserk matched')
 

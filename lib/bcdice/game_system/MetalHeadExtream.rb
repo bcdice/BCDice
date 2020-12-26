@@ -62,7 +62,7 @@ module BCDice
         text =
           case command.upcase
 
-          when %r{([AS])R(\d+)(([\*/]\d+)*)?(((@|A|L)\d+)*)(\!M)?$}i
+          when %r{([AS])R(\d+)(([*/]\d+)*)?(((@|A|L)\d+)*)(!M)?$}i
             m = Regexp.last_match
 
             type = m[1]
@@ -121,7 +121,7 @@ module BCDice
           when 'LDC'
             get_loserDestiny_chart
 
-          when /([W])ENC(\d+)?/i
+          when /(W)ENC(\d+)?/i
             locationType = Regexp.last_match(1)
             roc = (Regexp.last_match(2) || 0).to_i
             get_randomEncounter_table(locationType, roc)
@@ -904,9 +904,9 @@ module BCDice
       # 端数が使いたいので、parren_killer未使用
       def get_value(originalValue, calculateText)
         result = originalValue.to_f
-        calculateArray = (calculateText || '').scan(%r{[\*/]\d*}) # 修正値を分割して配列へ
+        calculateArray = (calculateText || '').scan(%r{[*/]\d*}) # 修正値を分割して配列へ
         calculateArray.each do |i| # 配列内ループで補正率を計算
-          i =~ %r{([\*/])(\d*)}i
+          i =~ %r{([*/])(\d*)}i
           result *= Regexp.last_match(2).to_i if Regexp.last_match(1) == '*'
           result /= Regexp.last_match(2).to_i if Regexp.last_match(1) == '/'
         end

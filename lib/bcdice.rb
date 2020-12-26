@@ -1,5 +1,5 @@
 require "bcdice/version"
-require "bcdice/arithmetic_evaluator.rb"
+require "bcdice/arithmetic_evaluator"
 
 require "bcdice/base"
 require "bcdice/loader"

@@ -284,7 +284,7 @@ module BCDice
           end
           result = table[num]
 
-        when /REACT((\+|\-)?\d*)/
+        when /REACT((\+|-)?\d*)/
           modify = Regexp.last_match(1).to_i
 
           tableName = "反応表"
@@ -320,7 +320,7 @@ module BCDice
           result, number = get_table_by_nD6(table, 3)
           result = "#{dif}：#{result}"
 
-        when /TRS(E|N|H|L)(\d+)((\+|\-)?\d*)/
+        when /TRS(E|N|H|L)(\d+)((\+|-)?\d*)/
           tableName = "財宝テーブル"
           diff = Regexp.last_match(1)
           depth = Regexp.last_match(2).to_i

@@ -62,7 +62,7 @@ module BCDice
       private
 
       def check_roll(command)
-        m = %r{^RB(\-?\d+([\+\-\*/]\d+)*)(@(\d+))?(#(\d+))?$}.match(command)
+        m = %r{^RB(-?\d+([+\-*/]\d+)*)(@(\d+))?(#(\d+))?$}.match(command)
         unless m
           return nil
         end

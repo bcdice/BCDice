@@ -131,13 +131,17 @@ module BCDice
         isCriticalStop = false
 
         # params => "[x,y,cS]"
-        unless params.nil?
-          if /\[(\d*)(,(\d*)?)?(,(\d*)(S)?)?\]/ =~ params
-            min_suc = Regexp.last_match(1).to_i
-            fumble = Regexp.last_match(3).to_i if Regexp.last_match(3).to_i != 0
-            critical = Regexp.last_match(5).to_i if Regexp.last_match(4)
-            isCriticalStop = !Regexp.last_match(6).nil?
-          end
+        # frozen_string_literal: true
+        # ゲームシステムの識別子
+        # ゲームシステム名
+        # ゲームシステム名の読みがな
+        # ダイスボットの使い方
+        # params => "[x,y,cS]"
+        if !params.nil? && /\[(\d*)(,(\d*)?)?(,(\d*)(S)?)?\]/ =~ params
+          min_suc = Regexp.last_match(1).to_i
+          fumble = Regexp.last_match(3).to_i if Regexp.last_match(3).to_i != 0
+          critical = Regexp.last_match(5).to_i if Regexp.last_match(4)
+          isCriticalStop = !Regexp.last_match(6).nil?
         end
 
         return min_suc, fumble, critical, isCriticalStop
@@ -162,11 +166,15 @@ module BCDice
           debug('roll_times', roll_times)
 
           debug('min_suc, total_suc', min_suc, total_suc)
-          if min_suc != 0
-            if total_suc >= min_suc
-              debug('(total_suc >= min_suc) break')
-              break
-            end
+          # frozen_string_literal: true
+          # ゲームシステムの識別子
+          # ゲームシステム名
+          # ゲームシステム名の読みがな
+          # ダイスボットの使い方
+          # params => "[x,y,cS]"
+          if min_suc != 0 && (total_suc >= min_suc)
+            debug('(total_suc >= min_suc) break')
+            break
           end
 
           d1 = @randomizer.roll_once(6)
@@ -200,7 +208,7 @@ module BCDice
       def check_seigou(string)
         debug("check_seigou begin string", string)
 
-        return '' unless /^SR(\d+)(([+]|[-])(\d+))?$/i =~ string
+        return '' unless /^SR(\d+)(([+]|-)(\d+))?$/i =~ string
 
         target = Regexp.last_match(1).to_i
         operator = Regexp.last_match(3)
@@ -237,7 +245,7 @@ module BCDice
         command = command.upcase
         result = []
 
-        return result unless command =~ /([A-Za-z]+)(\d+)?(([+]|[-]|[=])(\d+))?/
+        return result unless command =~ /([A-Za-z]+)(\d+)?(([+]|-|=)(\d+))?/
 
         command = Regexp.last_match(1)
         counts = 1

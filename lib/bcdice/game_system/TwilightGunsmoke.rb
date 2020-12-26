@@ -58,7 +58,7 @@ module BCDice
       private
 
       def check_roll(command)
-        m = /^2D6([\+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i.match(command)
+        m = /^2D6([+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i.match(command)
         unless m
           return nil
         end

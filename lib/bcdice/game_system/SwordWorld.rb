@@ -71,7 +71,7 @@ module BCDice
 
         commands = getRatingCommandStrings
 
-        m = /^S?(H?K[\d\+\-]+([#{commands}]\[([\d\+\-]+)\])*([\d\+\-]*)([CMR]\[([\d\+\-]+)\]|GF|H)*)/i.match(string)
+        m = /^S?(H?K[\d+\-]+([#{commands}]\[([\d+\-]+)\])*([\d+\-]*)([CMR]\[([\d+\-]+)\]|GF|H)*)/i.match(string)
         unless m
           debug("not matched")
           return '1'
@@ -86,7 +86,7 @@ module BCDice
 
         key, addValue = getKeyAndAddValueFromString(string)
 
-        return '1' unless key =~ /([\d]+)/
+        return '1' unless key =~ /(\d+)/
 
         key = Regexp.last_match(1).to_i
 
@@ -204,12 +204,12 @@ module BCDice
         firstDiceChanteTo = 0
         firstDiceChangeModify = 0
 
-        regexp = /m\[([\d\+\-]+)\]/i
+        regexp = /m\[([\d+\-]+)\]/i
 
         if  regexp =~ string
           firstDiceChangeModify = Regexp.last_match(1)
 
-          unless /[\+\-]/ =~ firstDiceChangeModify
+          unless /[+\-]/ =~ firstDiceChangeModify
             firstDiceChanteTo = firstDiceChangeModify.to_i
             firstDiceChangeModify = 0
           end
@@ -229,7 +229,7 @@ module BCDice
         key = nil
         addValue = 0
 
-        if /K(\d+)([\d\+\-]*)/i =~ string # ボーナスの抽出
+        if /K(\d+)([\d+\-]*)/i =~ string # ボーナスの抽出
           key = Regexp.last_match(1)
           if Regexp.last_match(2)
             addValue = ArithmeticEvaluator.eval(Regexp.last_match(2))

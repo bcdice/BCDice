@@ -35,9 +35,9 @@ module BCDice
         return string unless string =~ /DB/i
 
         string = string.gsub(/DB(\d),(\d)/) { "DB#{Regexp.last_match(1)}#{Regexp.last_match(2)}" }
-        string = string.gsub(/DB\@(\d)\@(\d)/) { "DB#{Regexp.last_match(1)}#{Regexp.last_match(2)}" }
-        string = string.gsub(/DB(\d)(\d)(#([\d][\+\-\d]*))/) { "3R6+#{Regexp.last_match(4)}[#{Regexp.last_match(1)},#{Regexp.last_match(2)}]" }
-        string = string.gsub(/DB(\d)(\d)(#([\+\-\d]*))/) { "3R6#{Regexp.last_match(4)}[#{Regexp.last_match(1)},#{Regexp.last_match(2)}]" }
+        string = string.gsub(/DB@(\d)@(\d)/) { "DB#{Regexp.last_match(1)}#{Regexp.last_match(2)}" }
+        string = string.gsub(/DB(\d)(\d)(#(\d[+\-\d]*))/) { "3R6+#{Regexp.last_match(4)}[#{Regexp.last_match(1)},#{Regexp.last_match(2)}]" }
+        string = string.gsub(/DB(\d)(\d)(#([+\-\d]*))/) { "3R6#{Regexp.last_match(4)}[#{Regexp.last_match(1)},#{Regexp.last_match(2)}]" }
         string = string.gsub(/DB(\d)(\d)/) { "3R6[#{Regexp.last_match(1)},#{Regexp.last_match(2)}]" }
 
         return string
@@ -56,7 +56,7 @@ module BCDice
 
       def check_roll(string)
         string = replace_text(string)
-        return nil unless (m = /(^|\s)S?(3[rR]6([\+\-\d]+)?(\[(\d+),(\d+)\])(([>=]+)(\d+))?)(\s|$)/i.match(string))
+        return nil unless (m = /(^|\s)S?(3[rR]6([+\-\d]+)?(\[(\d+),(\d+)\])(([>=]+)(\d+))?)(\s|$)/i.match(string))
 
         string = m[2]
         mod = 0

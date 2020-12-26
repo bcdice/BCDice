@@ -126,15 +126,13 @@ module BCDice
 
         # 正規表現の都合で先頭に ',' が残っているので取っておく
         text = text[1..-1]
-        rules = text.split(',').map do |rule|
+        text.split(',').map do |rule|
           v = rule.split('>').map(&:to_i)
           {
             from: v[0],
             to: v[1],
           }
         end
-
-        rules
       end
 
       def roll_all_situation_b2_tables
