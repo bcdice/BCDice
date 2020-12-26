@@ -9,24 +9,22 @@ class TestD66ParityTable < Test::Unit::TestCase
   def test_parity_and_number
     table = BCDice::DiceTable::D66ParityTable.new(
       "テスト",
-      {
-        odd: [
-          "o-1",
-          "o-2",
-          "o-3",
-          "o-4",
-          "o-5",
-          "o-6",
-        ],
-        even: [
-          "e-1",
-          "e-2",
-          "e-3",
-          "e-4",
-          "e-5",
-          "e-6",
-        ],
-      }
+      [
+        "o-1",
+        "o-2",
+        "o-3",
+        "o-4",
+        "o-5",
+        "o-6",
+      ],
+      [
+        "e-1",
+        "e-2",
+        "e-3",
+        "e-4",
+        "e-5",
+        "e-6",
+      ]
     )
 
     randomizer = RandomizerMock.new([[3, 6], [5, 6]])

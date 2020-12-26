@@ -3,10 +3,12 @@ module BCDice
     # 出目の偶奇による場合分け機能をもつD66表
     class D66ParityTable
       # @param name [String] 表の名前
-      # @param items [Hash<(Symbol, Array<string>)>]
-      def initialize(name, items)
+      # @param odd [Array<String>] 左ダイスが奇数だったときの次層テーブル（サイズ６）
+      # @param even [Array<String>] 左ダイスが偶数だったときの次層テーブル（サイズ６）
+      def initialize(name, odd, even)
         @name = name
-        @items = items.freeze
+        @odd = odd.freeze
+        @even = even.freeze
       end
 
       # 表を振る
@@ -17,9 +19,9 @@ module BCDice
         dice2 = randomizer.roll_once(6)
 
         if dice1.odd?
-          second_table = @items[:odd]
+          second_table = @odd
         else
-          second_table = @items[:even]
+          second_table = @even
         end
 
         result = second_table[dice2 - 1]
