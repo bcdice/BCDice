@@ -1,0 +1,361 @@
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "6as"
+output = "(6D6) ＞ [1, 2, 3, 3, 4, 5]"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "6as3"
+output = "(6D6|>3D6) ＞ [1, 2, 3, 3, 4, 5] >> [3, 4, 5] ＞ 12"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "6as6"
+output = "(6D6|>6D6) ＞ [1, 2, 3, 3, 4, 5] >> [1, 2, 3, 3, 4, 5] ＞ 18"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "6as7"
+output = "(6D6|>7D6) ＞ [1, 2, 3, 3, 4, 5] >> [1, 2, 3, 3, 4, 5] ＞ 18"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CElement"
+output = "奇跡の触媒（エレメント）(1) ＞ ワンド"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CELE"
+output = "奇跡の触媒（エレメント）(6) ＞ 宝石"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CAlchemia"
+output = "奇跡の触媒（アルケミア）(1) ＞ 指輪"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CALC"
+output = "奇跡の触媒（アルケミア）(6) ＞ ヘアピン"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CInformant"
+output = "奇跡の触媒（インフォーマント）(1) ＞ スマートフォン"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CINF"
+output = "奇跡の触媒（インフォーマント）(6) ＞ 携帯ゲーム機"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CInnocence"
+output = "奇跡の触媒（イノセンス）(1) ＞ 手袋"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CINN"
+output = "奇跡の触媒（イノセンス）(6) ＞ 弦楽器"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CAcquired"
+output = "奇跡の触媒（アクワイヤード）(1) ＞ ボタン"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CACQ"
+output = "奇跡の触媒（アクワイヤード）(6) ＞ ＡＩ"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleS"
+output = "携行品（Ｓサイズ）(11) ＞ マッチ"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleS"
+output = "携行品（Ｓサイズ）(12) ＞ ペットボトル"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleS"
+output = "携行品（Ｓサイズ）(13) ＞ 試験管"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARS"
+output = "携行品（Ｓサイズ）(66) ＞ ペンライト"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleM"
+output = "携行品（Ｍサイズ）(11) ＞ 本"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleM"
+output = "携行品（Ｍサイズ）(12) ＞ 傘"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(14) ＞ 花火"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(16) ＞ 包帯"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleM"
+output = "携行品（Ｍサイズ）(31) ＞ 本"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(51) ＞ 本"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleM"
+output = "携行品（Ｍサイズ）(21) ＞ 工具"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleM"
+output = "携行品（Ｍサイズ）(22) ＞ ジャケット"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(42) ＞ ジャケット"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(62) ＞ ジャケット"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(63) ＞ ロープ"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARM"
+output = "携行品（Ｍサイズ）(66) ＞ ガラス瓶"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ArticleL"
+output = "携行品（Ｌサイズ）(14) ＞ バット"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ARL"
+output = "携行品（Ｌサイズ）(41) ＞ 物干し竿"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "PCInformation"
+output = "ＰＣ情報獲得表(14) ＞ 自学派の拠点 ―― 自分が学派の仲間と共に使用する場所。仲間に手は出させず、あくまでプレッシャーを与えるだけにしてもらう。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "PCI"
+output = "ＰＣ情報獲得表(41) ＞ 廃墟 ―― 廃ビル、廃工場のような人が立ち入らない場所。おあつらえ向きの場所を用意してやった。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "Reason"
+output = "理由表(1) ＞ 不信感 ―― 行動や言動になにか釈然としない部分を感じる。白黒はっきりさせよう。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "REA"
+output = "理由表(6) ＞ 直感 ―― 根拠はないが、なにか隠している気がする。一か八か、勝負に出よう。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "Associate"
+output = "交流表(14) ＞ 相手学派の拠点 ―― 相手が学派の仲間と共に使用する場所。若干の居心地悪さはあるが、好感を持ってもらうためには我慢も必要。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "ASS"
+output = "交流表(41) ＞ お祭り ―― 老若男女が参加するイベント。非日常的な空気を楽しむことで、気分転換もできるだろう。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "Contact"
+output = "接触のきっかけ表(1) ＞ 体勢を崩す ―― 転びそうになったところを支える、支えられる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "CON"
+output = "接触のきっかけ表(6) ＞ ケアをしてあげる ―― 髪をとかす、肩をもむ、頭を撫でる。相手を労ってする行為全般。"
+rands = [
+  { sides = 6, value = 6 },
+]

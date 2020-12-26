@@ -1,6 +1,7 @@
 require "bcdice/game_system/AFF2e"
 require "bcdice/game_system/AceKillerGene"
 require "bcdice/game_system/Airgetlamh"
+require "bcdice/game_system/AlchemiaStruggle"
 require "bcdice/game_system/Alsetto"
 require "bcdice/game_system/Alshard"
 require "bcdice/game_system/AlterRaise"
