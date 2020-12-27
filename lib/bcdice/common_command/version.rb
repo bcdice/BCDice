@@ -8,7 +8,7 @@ module BCDice
           command = command.split(" ", 2).first
           if command.match?(/^BCDiceVersion$/i)
             Result.new.tap do |r|
-              r.text = "BCDice Ver#{BCDice::VERSION}"
+              r.text = "BCDice #{BCDice::VERSION}"
             end
           end
         end
