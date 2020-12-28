@@ -15,7 +15,7 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         ・判定
-        　JDx or JDx+y or JDx-y or JDx,z or JDx+y,z JDx-y,z
+        　JDx or JDx±y or JDx,z JDx#z or JDx±y,z JDx±y#z
         　（x＝難易度、y＝補正、z＝ファンブル率(リスク)）
         ・履歴表 (HST)
         ・願い事表 (-WT)
@@ -70,28 +70,29 @@ module BCDice
       def eval_game_system_specific_command(command)
         debug("eval_game_system_specific_command command", command)
 
-        # 判定チェックは先に処理
-        case command
-        when JUDGE_DICE_REG
-          result = judgeDice(command)
-          text = translate("KillDeathBusiness.JD.name") + result
-          return text
+        if command.start_with?("JD")
+          judgeDice(command)
+        else
+          rollTableCommand(command)
         end
-
-        # 判定以外なら表コマンドの処理に
-        return rollTableCommand(command)
       end
 
-      JUDGE_DICE_REG = /(^|\s)JD(\d+)([+\-]\d+)?(,(\d+))?($|\s)/i.freeze
+      private
 
       def judgeDice(command)
-        unless command.match(JUDGE_DICE_REG)
+        fumble_match = /,(\d+)$/.match(command)
+
+        parser = CommandParser.new(/^JD(\d+)$/).allow_cmp_op(nil)
+        cmd = parser.parse(fumble_match&.pre_match || command)
+        unless cmd
           return nil
         end
 
-        target = Regexp.last_match(2).to_i
-        modify = Regexp.last_match(3).to_i
-        fumble = Regexp.last_match(5).to_i
+        target = cmd.command.delete_prefix("JD").to_i
+        modify = cmd.modify_number
+        fumble = fumble_match ? fumble_match[1].to_i : cmd.fumble.to_i
+
+        command = judge_expr(target, modify, fumble)
 
         result = ""
 
@@ -138,7 +139,14 @@ module BCDice
           end
         end
 
-        return result
+        return translate("KillDeathBusiness.JD.name") + result
+      end
+
+      def judge_expr(target, modifier, fumble)
+        modifier = Format.modifier(modifier)
+        fumble = ",#{fumble}" if fumble > 0
+
+        "JD#{target}#{modifier}#{fumble}"
       end
 
       def rollTableCommand(command)
