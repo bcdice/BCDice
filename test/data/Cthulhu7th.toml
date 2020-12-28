@@ -328,14 +328,14 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu7th"
-input = "CC(-3)<=80"
-output = "エラー。ボーナス・ペナルティダイスの値は-2～2です。"
+input = "CC(-101)<=80"
+output = "ボーナス・ペナルティダイスの値は-100以上、100以下としてください"
 rands = []
 
 [[ test ]]
 game_system = "Cthulhu7th"
-input = "CC(3)<=80"
-output = "エラー。ボーナス・ペナルティダイスの値は-2～2です。"
+input = "CC(101)<=80"
+output = "ボーナス・ペナルティダイスの値は-100以上、100以下としてください"
 rands = []
 
 [[ test ]]
@@ -377,6 +377,30 @@ rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 3 },
   { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(3) ボーナスダイス数緩和"
+output = "(1D100) ボーナス・ペナルティダイス[3] ＞ 20, 100, 50, 30 ＞ 20"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC(-3) ペナルティダイス数緩和"
+output = "(1D100) ボーナス・ペナルティダイス[-3] ＞ 20, 100, 50, 30 ＞ 100"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
