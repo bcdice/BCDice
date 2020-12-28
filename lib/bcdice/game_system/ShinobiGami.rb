@@ -16,6 +16,12 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        ・行為判定 SG@s#f>=x
+        　2D6の行為判定を行う
+        　s: スペシャル値 (省略時 12)
+        　f: ファンブル値 (省略時 2)
+        　x: 目標値 (省略可)
+        　例）SG, SG@11, SG@11#3, SG#3>=7
         ・各種表
         　・(無印)シーン表　ST／ファンブル表　FT／感情表　ET
         　　　／変調表　WT／戦場表　BT／異形表　MT
@@ -44,13 +50,15 @@ module BCDice
         @d66_sort_type = D66SortType::ASC
       end
 
+      SPECIAL = "スペシャル(【生命力】1点か変調一つを回復)"
+
       def result_2d6(total, dice_total, _dice_list, cmp_op, target)
         return nil unless cmp_op == :>=
 
         if dice_total <= 2
           Result.fumble("ファンブル")
         elsif dice_total >= 12
-          Result.critical("スペシャル(【生命力】1点か変調一つを回復)")
+          Result.critical(SPECIAL)
         elsif target == "?"
           nil
         elsif total >= target
@@ -60,8 +68,10 @@ module BCDice
         end
       end
 
+      register_prefix("SG")
+
       def eval_game_system_specific_command(command)
-        result = roll_tables(command, TABLES) || RTT.roll_command(@randomizer, command)
+        result = action_roll(command) || roll_tables(command, TABLES) || RTT.roll_command(@randomizer, command)
         return result if result
         return sinobigami_metamorphose_table() if command == 'MT'
 
@@ -82,6 +92,42 @@ module BCDice
       )
 
       private
+
+      def action_roll(command)
+        parser = CommandParser.new("SG").allow_cmp_op(:>=, nil)
+        cmd = parser.parse(command)
+        return nil unless cmd
+
+        cmd.critical ||= 12
+        cmd.fumble ||= 2
+
+        dice_list = @randomizer.roll_barabara(2, 6).sort
+        dice_total = dice_list.sum()
+        total = dice_total + cmd.modify_number
+
+        result =
+          if dice_total >= cmd.critical
+            Result.critical(SPECIAL)
+          elsif dice_total <= cmd.fumble
+            Result.fumble("ファンブル")
+          elsif cmd.cmp_op.nil?
+            Result.new
+          elsif total >= cmd.target_number
+            Result.success("成功")
+          else
+            Result.failure("失敗")
+          end
+
+        sequence = [
+          "(#{cmd.to_s(:after_modify_number)})",
+          "#{dice_total}[#{dice_list.join(',')}]#{Format.modifier(cmd.modify_number)}",
+          total,
+          result.text
+        ].compact
+
+        result.text = sequence.join(" ＞ ")
+        result
+      end
 
       # 異形表
       def sinobigami_metamorphose_table()
