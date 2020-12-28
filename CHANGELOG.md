@@ -18,6 +18,7 @@
 - フィルトウィズ: 財宝表ランク11と12を追加。ランダムイベント表、エネミーデータ表、迷宮追加オプション表に伝説級を追加。虚向 風音さん寄稿、らぁさんコード作成補助ありがとうっ！ ([#311](https://github.com/bcdice/BCDice/pull/311))
 - Choice: 半角スペースで区切るなど、要素指定をより柔軟にできるように変更 ([#321](https://github.com/bcdice/BCDice/pull/321))
 - 同じコマンドを複数回実行できるRepeatコマンドを追加 ([#297](https://github.com/bcdice/BCDice/pull/297))
+- シノビガミ: スペシャル値とファンブル値を指定可能な行為判定コマンドを追加。yuGit1985さん提案ありがとうっ！ ([#347](https://github.com/bcdice/BCDice/pull/347))
 
 ### 変更
 - 真・女神転生TRPG 覚醒篇: IDを `ShinMegamiTenseiKakuseihen` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))
