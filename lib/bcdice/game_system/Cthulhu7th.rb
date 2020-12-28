@@ -154,8 +154,8 @@ module BCDice
           return "1D100 ＞ #{dice}"
         end
 
-        unless BONUS_DICE_RANGE.include?(bonus_dice)
-          return "エラー。ボーナス・ペナルティダイスの値は#{BONUS_DICE_RANGE.min}～#{BONUS_DICE_RANGE.max}です。"
+        if bonus_dice.abs > 100
+          return "ボーナス・ペナルティダイスの値は-100以上、100以下としてください"
         end
 
         total, total_list = roll_with_bonus(bonus_dice)
