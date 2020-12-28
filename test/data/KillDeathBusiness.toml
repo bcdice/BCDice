@@ -899,6 +899,15 @@ rands = [
 
 [[ test ]]
 game_system = "KillDeathBusiness"
+input = "JD5#4"
+output = "判定【難易度5、補正0、ファンブル率4】 ＞ 出目(4,1) ＞ 達成値5、難易度以上なので判定成功！"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
 input = "JD6,5"
 output = "判定【難易度6、補正0、ファンブル率5】 ＞ 出目(4,1) ＞ 出目がファンブル率以下なのでファンブル！(判定失敗。【視聴率】が20％減少)"
 rands = [
@@ -927,6 +936,15 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "JD5-1,4"
+output = "判定【難易度5、補正-1、ファンブル率4】 ＞ 出目(4,1) ＞ 達成値4、難易度未満なので判定失敗！"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "JD5+(1-2),4"
 output = "判定【難易度5、補正-1、ファンブル率4】 ＞ 出目(4,1) ＞ 達成値4、難易度未満なので判定失敗！"
 rands = [
   { sides = 6, value = 4 },
