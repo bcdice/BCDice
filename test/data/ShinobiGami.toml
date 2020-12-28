@@ -2,71 +2,9 @@
 game_system = "ShinobiGami"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 2 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 8[2,6] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 8[3,5] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 5[2,3] ＞ 5 ＞ 成功"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 4[1,3] ＞ 4 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 7[3,4] ＞ 7 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 10[4,6] ＞ 10 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
   { sides = 6, value = 4 },
 ]
 
@@ -74,6 +12,7 @@ rands = [
 game_system = "ShinobiGami"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 4[1,3] ＞ 4 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -82,191 +21,13 @@ rands = [
 [[ test ]]
 game_system = "ShinobiGami"
 input = "2d6>=4"
-output = "(2D6>=4) ＞ 6[3,3] ＞ 6 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+output = "(2D6>=4) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
 ]
 
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 9[4,5] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 5[1,4] ＞ 5 ＞ 失敗"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 4[1,3] ＞ 4 ＞ 失敗"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 7[2,5] ＞ 7 ＞ 失敗"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 6[1,5] ＞ 6 ＞ 失敗"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 5[2,3] ＞ 5 ＞ 失敗"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 7[2,5] ＞ 7 ＞ 失敗"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 11[5,6] ＞ 11 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 6[2,4] ＞ 6 ＞ 失敗"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 8[3,5] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 8[3,5] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 6[3,3] ＞ 6 ＞ 失敗"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 7[1,6] ＞ 7 ＞ 成功"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 8[2,6] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 9[4,5] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 10[5,5] ＞ 10 ＞ 成功"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 8[3,5] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
 
 [[ test ]]
 game_system = "ShinobiGami"
@@ -1676,62 +1437,6 @@ rands = [
 
 [[ test ]]
 game_system = "ShinobiGami"
-input = "BT"
-output = "戦場表(4) ＞ 悪天候:嵐や吹雪、ミサイルの雨など。この戦場では、すべての攻撃忍法の間合が１上昇する。"
-rands = [
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "BT"
-output = "戦場表(2) ＞ 水中:海や川や、プール、血の池地獄など。この戦場では、回避判定に-2の修正がつく。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "BT"
-output = "戦場表(4) ＞ 悪天候:嵐や吹雪、ミサイルの雨など。この戦場では、すべての攻撃忍法の間合が１上昇する。"
-rands = [
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "BT"
-output = "戦場表(5) ＞ 雑踏:人混みや教室、渋滞中の車道など。この戦場では、行為判定のとき、2D6の目がプロット値+1以下だとファンブルする。"
-rands = [
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "BT"
-output = "戦場表(3) ＞ 高所:ビルの谷間や樹上、断崖絶壁など。この戦場でファンブルすると1点のダメージを受ける。"
-rands = [
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "BT"
-output = "戦場表(4) ＞ 悪天候:嵐や吹雪、ミサイルの雨など。この戦場では、すべての攻撃忍法の間合が１上昇する。"
-rands = [
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "BT"
-output = "戦場表(2) ＞ 水中:海や川や、プール、血の池地獄など。この戦場では、回避判定に-2の修正がつく。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
 input = "RTT"
 output = "ランダム指定特技表(2,7) ＞ 『体術』歩法"
 rands = [
@@ -1847,15 +1552,6 @@ rands = [
 
 [[ test ]]
 game_system = "ShinobiGami"
-input = "HY"
-output = "夜行列車シーン表(12) ＞ 車輌の果てを確かめるため、延々扉をくぐっているが、いつまでたっても最前列（最後尾？）にたどりつかない。今、いったい何輌目だろうか？"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
 input = "D66"
 output = "(D66) ＞ 66"
 rands = [
@@ -1939,6 +1635,8 @@ rands = [
 game_system = "ShinobiGami"
 input = "2d6>=5"
 output = "(2D6>=5) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1948,6 +1646,8 @@ rands = [
 game_system = "ShinobiGami"
 input = "2d6>=5"
 output = "(2D6>=5) ＞ 12[6,6] ＞ 12 ＞ スペシャル(【生命力】1点か変調一つを回復)"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1957,6 +1657,8 @@ rands = [
 game_system = "ShinobiGami"
 input = "2d6>=? 目標値?でファンブル"
 output = "(2D6>=?) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1966,6 +1668,8 @@ rands = [
 game_system = "ShinobiGami"
 input = "2d6>=? 目標値?でクリティカル"
 output = "(2D6>=?) ＞ 12[6,6] ＞ 12 ＞ スペシャル(【生命力】1点か変調一つを回復)"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },

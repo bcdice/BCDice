@@ -44,19 +44,19 @@ module BCDice
         @d66_sort_type = D66SortType::ASC
       end
 
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' unless cmp_op == :>=
+      def result_2d6(total, dice_total, _dice_list, cmp_op, target)
+        return nil unless cmp_op == :>=
 
         if dice_total <= 2
-          " ＞ ファンブル"
+          Result.fumble("ファンブル")
         elsif dice_total >= 12
-          " ＞ スペシャル(【生命力】1点か変調一つを回復)"
+          Result.critical("スペシャル(【生命力】1点か変調一つを回復)")
         elsif target == "?"
-          ""
+          nil
         elsif total >= target
-          " ＞ 成功"
+          Result.success("成功")
         else
-          " ＞ 失敗"
+          Result.failure("失敗")
         end
       end
 
@@ -67,6 +67,7 @@ module BCDice
 
         nil
       end
+
       RTT = DiceTable::SaiFicSkillTable.new(
         [
           ['器術', ['絡繰術', '火術', '水術', '針術', '仕込み', '衣装術', '縄術', '登術', '拷問術', '壊器術', '掘削術']],
