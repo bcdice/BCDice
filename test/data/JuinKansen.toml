@@ -1,0 +1,444 @@
+[[ test ]]
+game_system = "JuinKansen"
+input = "Daily"
+output = "日常表(2) ＞ 「入浴中」『内容』PCの自己紹介後、自宅でどのように入浴しているかについて、簡単に説明せよ。『終了条件』GMが「体を洗い終えたので、そろそろあがることにした」と宣言する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Daily"
+output = "日常表(12) ＞ 「趣味」『内容』PCの自己紹介後、自室でどんな趣味に没頭しているかを簡単に説明せよ。『終了条件』GMが「名残惜しいが、そろそろ寝る時間のようだ」と宣言する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "DAI"
+output = "日常表(2) ＞ 「入浴中」『内容』PCの自己紹介後、自宅でどのように入浴しているかについて、簡単に説明せよ。『終了条件』GMが「体を洗い終えたので、そろそろあがることにした」と宣言する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "DAI"
+output = "日常表(12) ＞ 「趣味」『内容』PCの自己紹介後、自室でどんな趣味に没頭しているかを簡単に説明せよ。『終了条件』GMが「名残惜しいが、そろそろ寝る時間のようだ」と宣言する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "PlaceCity"
+output = "場所表「都市」(2) ＞ 「事件現場」ここは以前、怪事件が起こったと噂される事件現場だ。よく見ると、近くには枯れた花束が置かれている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "PlaceCity"
+output = "場所表「都市」(12) ＞ 「警察署の前」ここは街中にある警察署の前だ。今回の事件、あるいは先ほどの怪現象を話しても……おそらく、信じてはくれないだろう。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "PCI"
+output = "場所表「都市」(2) ＞ 「事件現場」ここは以前、怪事件が起こったと噂される事件現場だ。よく見ると、近くには枯れた花束が置かれている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "PCI"
+output = "場所表「都市」(12) ＞ 「警察署の前」ここは街中にある警察署の前だ。今回の事件、あるいは先ほどの怪現象を話しても……おそらく、信じてはくれないだろう。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "PlaceCountryside"
+output = "場所表「田舎」(2) ＞ 「事件現場」ここは以前、怪事件が起こったと噂される事件現場だ。よく見ると、近くには枯れた花束が置いてある。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "PlaceCountryside"
+output = "場所表「田舎」(12) ＞ 「交番の前」ここは村唯一の交番だ。しかし、警察官の姿はなく、ドアも締め切られたままだ。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "PCO"
+output = "場所表「田舎」(2) ＞ 「事件現場」ここは以前、怪事件が起こったと噂される事件現場だ。よく見ると、近くには枯れた花束が置いてある。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "PCO"
+output = "場所表「田舎」(12) ＞ 「交番の前」ここは村唯一の交番だ。しかし、警察官の姿はなく、ドアも締め切られたままだ。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "PlaceFacility"
+output = "場所表「施設内」(2) ＞ 「礼拝堂」ここは地下に存在する、礼拝堂と思しき場所だ。部屋の奥には奇妙な姿をした石像があり、周囲には瘴気が漂っている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "PlaceFacility"
+output = "場所表「施設内」(12) ＞ 「研究室」ここは研究室と思しき場所だ。部屋は全体的に暗く、奥の棚には奇妙な姿をした生物のホルマリン漬けが並んでる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "PFA"
+output = "場所表「施設内」(2) ＞ 「礼拝堂」ここは地下に存在する、礼拝堂と思しき場所だ。部屋の奥には奇妙な姿をした石像があり、周囲には瘴気が漂っている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "PFA"
+output = "場所表「施設内」(12) ＞ 「研究室」ここは研究室と思しき場所だ。部屋は全体的に暗く、奥の棚には奇妙な姿をした生物のホルマリン漬けが並んでる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "FirstLook"
+output = "初見表(2) ＞ 「襲撃からの救出」『内容』PC同士が再会後、【命運】の低いPCが突如、不良などに絡まれ、【命運】の高いPCが実力や機転で救う場面を演出せよ。『終了条件』【命運】の低いPCが、【命運】の高いPCに対して感謝の言葉を述べる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "FirstLook"
+output = "初見表(12) ＞ 「呪印」『内容』PC同士が再会後、【敏捷】の高いPCが、【敏捷】の低いPCの持つ[呪印]に気付く場面を演出せよ。『終了条件』【敏捷】の高いPCが自身にも同じものがあると告げる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "FL"
+output = "初見表(2) ＞ 「襲撃からの救出」『内容』PC同士が再会後、【命運】の低いPCが突如、不良などに絡まれ、【命運】の高いPCが実力や機転で救う場面を演出せよ。『終了条件』【命運】の低いPCが、【命運】の高いPCに対して感謝の言葉を述べる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "FL"
+output = "初見表(12) ＞ 「呪印」『内容』PC同士が再会後、【敏捷】の高いPCが、【敏捷】の低いPCの持つ[呪印]に気付く場面を演出せよ。『終了条件』【敏捷】の高いPCが自身にも同じものがあると告げる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "AppreciativeFriend"
+output = "知己表(2) ＞ 「大切な人」『内容』PC同士が再会後、事件に関する相談をするうちに、PCが互いに、自身の[大切な人]について語る場面を演出せよ。『終了条件』いずれかのPCが「なんにせよ、その人のためにも、生き残らないといけませんね」と言う。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "AppreciativeFriend"
+output = "知己表(12) ＞ 「方法はあるはずだ」『内容』PC同士が出会い、いずれかのPCが「生き残る方法は、必ずあるはずだ」と鼓舞する場面を演出せよ。『終了条件』鼓舞されたPCが、「そうですね……その方法を探してみましょう」と言う。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "AF"
+output = "知己表(2) ＞ 「大切な人」『内容』PC同士が再会後、事件に関する相談をするうちに、PCが互いに、自身の[大切な人]について語る場面を演出せよ。『終了条件』いずれかのPCが「なんにせよ、その人のためにも、生き残らないといけませんね」と言う。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "AF"
+output = "知己表(12) ＞ 「方法はあるはずだ」『内容』PC同士が出会い、いずれかのPCが「生き残る方法は、必ずあるはずだ」と鼓舞する場面を演出せよ。『終了条件』鼓舞されたPCが、「そうですね……その方法を探してみましょう」と言う。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Foreshadow"
+output = "伏線表(1) ＞ PCとの会話のなかで、ふと閃くものがあった。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Foreshadow"
+output = "伏線表(6) ＞ そのとき、不思議な力が身のうちに宿った。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "FOR"
+output = "伏線表(1) ＞ PCとの会話のなかで、ふと閃くものがあった。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "FOR"
+output = "伏線表(6) ＞ そのとき、不思議な力が身のうちに宿った。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Emotion"
+output = "感情表(1) ＞ 尊敬"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Emotion"
+output = "感情表(6) ＞ 安心"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "EMO"
+output = "感情表(1) ＞ 尊敬"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "EMO"
+output = "感情表(6) ＞ 安心"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Situation"
+output = "状況表(1) ＞ 「不運の連鎖」事件が関係しているのか、PCたちの周囲で次々と不幸が起こり始めている。なんとかして、この連鎖を止めなければ……。『使用可能能力値』【幸運】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Situation"
+output = "状況表(6) ＞ 「運が味方」状況は逼迫しつつある。だが、幸運にも状況がPCたちに味方し始めた。なんとしてでも、このチャンスを活かさねば……。『使用可能能力値』各PCの任意の【能力値】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "SIT"
+output = "状況表(1) ＞ 「不運の連鎖」事件が関係しているのか、PCたちの周囲で次々と不幸が起こり始めている。なんとかして、この連鎖を止めなければ……。『使用可能能力値』【幸運】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "SIT"
+output = "状況表(6) ＞ 「運が味方」状況は逼迫しつつある。だが、幸運にも状況がPCたちに味方し始めた。なんとしてでも、このチャンスを活かさねば……。『使用可能能力値』各PCの任意の【能力値】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Target"
+output = "対象表(1) ＞ 【体力】が最も高い順"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Target"
+output = "対象表(6) ＞ 【希望】が最も低い順"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "TAR"
+output = "対象表(1) ＞ 【体力】が最も高い順"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "TAR"
+output = "対象表(6) ＞ 【希望】が最も低い順"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Insanity"
+output = "狂気表(1) ＞ 「逃げたい」次[フェイズ]の終了を迎えるまで、PCは恐怖のため、その場から一刻も早く立ち去りたいという衝動に駆られる様子を演出せよ。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Insanity"
+output = "狂気表(6) ＞ 「一時的発狂」次[フェイズ]の終了を迎えるまで、PCは衝撃のあまり、一時的に発狂してしまい、うわごとを何度も何度も繰り返してしまう状況を演出せよ。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "INS"
+output = "狂気表(1) ＞ 「逃げたい」次[フェイズ]の終了を迎えるまで、PCは恐怖のため、その場から一刻も早く立ち去りたいという衝動に駆られる様子を演出せよ。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "INS"
+output = "狂気表(6) ＞ 「一時的発狂」次[フェイズ]の終了を迎えるまで、PCは衝撃のあまり、一時的に発狂してしまい、うわごとを何度も何度も繰り返してしまう状況を演出せよ。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Death"
+output = "終焉表(1) ＞ 「猟奇殺人」その後、PCは郊外の廃屋のなかでバラバラ死体となって発見された。警察は懸命に捜査を行ったが、結局、手がかりは見つからず、事件は迷宮入りした。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Death"
+output = "終焉表(6) ＞ 「行方不明」その後、PCは行方不明となった。家族はPCの捜索届を出したが、結局、最後までPCが見つかることはなかった。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "DEA"
+output = "終焉表(1) ＞ 「猟奇殺人」その後、PCは郊外の廃屋のなかでバラバラ死体となって発見された。警察は懸命に捜査を行ったが、結局、手がかりは見つからず、事件は迷宮入りした。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "DEA"
+output = "終焉表(6) ＞ 「行方不明」その後、PCは行方不明となった。家族はPCの捜索届を出したが、結局、最後までPCが見つかることはなかった。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Fear"
+output = "恐怖表(2) ＞ 「不気味なモノ」血液、人骨のようなもの、大量の粘液など……奇妙なモノが突如、足元に落ちてきた。[効果算出]PC全員に5+[呪印÷2]d。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "Fear"
+output = "恐怖表(12) ＞ 「暗闇のなかへ」PCは突如として<なにか>に手足をつかまれ、暗闇へと引きずり込まれそうになる！[効果算出]PC1体に6+[呪印÷2]d。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "FEA"
+output = "恐怖表(2) ＞ 「不気味なモノ」血液、人骨のようなもの、大量の粘液など……奇妙なモノが突如、足元に落ちてきた。[効果算出]PC全員に5+[呪印÷2]d。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen"
+input = "FEA"
+output = "恐怖表(12) ＞ 「暗闇のなかへ」PCは突如として<なにか>に手足をつかまれ、暗闇へと引きずり込まれそうになる！[効果算出]PC1体に6+[呪印÷2]d。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
