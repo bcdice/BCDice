@@ -26,6 +26,7 @@
 - トーグ1.5版: IDを `Torg1.5` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))
 - NJSLYRBATTLE: IDを `NjslyrBattle` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))
 - ガープス: クラス名を `GURPS` に変更 ([#286](https://github.com/bcdice/BCDice/pull/286))
+- 新クトゥルフ神話TRPG: 技能ロールで指定できるボーナス・ダイスとペナルティー・ダイスの上限を100に緩和。BrutalBEnforcerさん提案ありがとうっ！ ([#348](https://github.com/bcdice/BCDice/pull/348))
 
 ### 誤植修正
 - キルデスビジネス: 蘇生副作用表の誤植を修正。スイさんありがとうっ！ ([#283](https://github.com/bcdice/BCDice/pull/283))
