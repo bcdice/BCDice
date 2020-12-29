@@ -24,7 +24,7 @@ module BCDice
           　・休憩表：才覚 TBT／魅力 CBT／探索 SBT／武勇 VBT
                      お祭り FBT／空振り EBT／全体 WBT／カップル LBT
           　・ハプニング表：才覚 THT／魅力 CHT／探索 SHT／武勇 VHT
-          　・視察表 RT／情報収集表 IGT／ランダムマップ選択表 RMS
+          　・視察表 RT／情報収集表 IG／ランダムマップ選択表 RMS
           　・痛打表 CAT／致命傷表 FWT／戦闘ファンブル表 CFT
           　・道中表 TT／交渉表 NT／相場表 MPT／王国災厄表 KDT／王国変動表 KCT
           　・感情表 ET／好意表 FET／敵意表 HET
