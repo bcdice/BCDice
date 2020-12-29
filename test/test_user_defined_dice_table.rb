@@ -17,110 +17,182 @@ class TestUserDefinedDiceTable < Test::Unit::TestCase
     TEXT
 
     @text_3d4 = <<~TEXT
-      抜けありテスト表
+      3-4テスト表
       3D4
       3:さん
       4:し
       5:ご
       6:ろく
+      7:なな
+      8:はち
+      9:きゅう
+      10:じゅう
+      11:じゅういち
       12:じゅうに
     TEXT
 
     @text_d66 = <<~TEXT
       ソートなし表
       D66
+      11:a
+      12:a
+      13:a
+      14:a
+      15:a
       16:いちろく
+      21:a
+      22:a
+      23:a
+      24:a
+      25:a
+      26:a
+      31:a
+      32:a
+      33:a
+      34:a
+      35:a
+      36:a
+      41:a
+      42:a
+      43:a
+      44:a
+      45:a
+      46:a
+      51:a
+      52:a
+      53:a
+      54:a
+      55:a
+      56:a
       61:ろくいち
+      62:a
+      63:a
+      64:a
+      65:a
+      66:a
     TEXT
 
     @text_d66a = <<~TEXT
       ソート昇順表
       D66a
+      11:a
+      12:a
+      13:a
+      14:a
+      15:a
       16:いちろく
+      22:a
+      23:a
+      24:a
+      25:a
+      26:a
+      33:a
+      34:a
+      35:a
+      36:a
+      44:a
+      45:a
+      46:a
+      55:a
+      56:a
+      66:a
     TEXT
 
     @text_d66d = <<~TEXT
       ソート降順表
       D66d
+      11:a
+      21:a
+      22:a
+      31:a
+      32:a
+      33:a
+      41:a
+      42:a
+      43:a
+      44:a
+      51:a
+      52:a
+      53:a
+      54:a
+      55:a
       61:ろくいち
+      62:a
+      63:a
+      64:a
+      65:a
+      66:a
     TEXT
   end
 
   def test_1d6_1
     table = BCDice::UserDefinedDiceTable.new(@text_1d6)
-    table.randomizer = RandomizerMock.new([[1, 6]])
+    result = table.roll(randomizer: RandomizerMock.new([[1, 6]]))
 
-    assert_equal("テスト表(1) ＞ いち", table.roll())
+    assert_equal("テスト表(1) ＞ いち", result.text)
   end
 
   def test_1d6_6
     table = BCDice::UserDefinedDiceTable.new(@text_1d6)
-    table.randomizer = RandomizerMock.new([[6, 6]])
+    result = table.roll(randomizer: RandomizerMock.new([[6, 6]]))
 
-    assert_equal("テスト表(6) ＞ ろく", table.roll())
+    assert_equal("テスト表(6) ＞ ろく", result.text)
   end
 
   def test_3d4_3
     table = BCDice::UserDefinedDiceTable.new(@text_3d4)
-    table.randomizer = RandomizerMock.new([[1, 4], [1, 4], [1, 4]])
+    result = table.roll(randomizer: RandomizerMock.new([[1, 4], [1, 4], [1, 4]]))
 
-    assert_equal("抜けありテスト表(3) ＞ さん", table.roll())
+    assert_equal("3-4テスト表(3) ＞ さん", result.text)
   end
 
   def test_3d4_12
     table = BCDice::UserDefinedDiceTable.new(@text_3d4)
-    table.randomizer = RandomizerMock.new([[4, 4], [4, 4], [4, 4]])
+    result = table.roll(randomizer: RandomizerMock.new([[4, 4], [4, 4], [4, 4]]))
 
-    assert_equal("抜けありテスト表(12) ＞ じゅうに", table.roll())
-  end
-
-  def test_notcontain
-    table = BCDice::UserDefinedDiceTable.new(@text_3d4)
-    table.randomizer = RandomizerMock.new([[4, 4], [4, 4], [3, 4]])
-
-    assert_nil(table.roll())
+    assert_equal("3-4テスト表(12) ＞ じゅうに", result.text)
   end
 
   def test_d66_16
     table = BCDice::UserDefinedDiceTable.new(@text_d66)
-    table.randomizer = RandomizerMock.new([[1, 6], [6, 6]])
+    result = table.roll(randomizer: RandomizerMock.new([[1, 6], [6, 6]]))
 
-    assert_equal("ソートなし表(16) ＞ いちろく", table.roll())
+    assert_equal("ソートなし表(16) ＞ いちろく", result.text)
   end
 
   def test_d66_61
     table = BCDice::UserDefinedDiceTable.new(@text_d66)
-    table.randomizer = RandomizerMock.new([[6, 6], [1, 6]])
+    result = table.roll(randomizer: RandomizerMock.new([[6, 6], [1, 6]]))
 
-    assert_equal("ソートなし表(61) ＞ ろくいち", table.roll())
+    assert_equal("ソートなし表(61) ＞ ろくいち", result.text)
   end
 
   def test_d66a_16
     table = BCDice::UserDefinedDiceTable.new(@text_d66a)
-    table.randomizer = RandomizerMock.new([[1, 6], [6, 6]])
+    result = table.roll(randomizer: RandomizerMock.new([[1, 6], [6, 6]]))
 
-    assert_equal("ソート昇順表(16) ＞ いちろく", table.roll())
+    assert_equal("ソート昇順表(16) ＞ いちろく", result.text)
   end
 
   def test_d66a_61
     table = BCDice::UserDefinedDiceTable.new(@text_d66a)
-    table.randomizer = RandomizerMock.new([[6, 6], [1, 6]])
+    result = table.roll(randomizer: RandomizerMock.new([[6, 6], [1, 6]]))
 
-    assert_equal("ソート昇順表(16) ＞ いちろく", table.roll())
+    assert_equal("ソート昇順表(16) ＞ いちろく", result.text)
   end
 
   def test_d66d_16
     table = BCDice::UserDefinedDiceTable.new(@text_d66d)
-    table.randomizer = RandomizerMock.new([[1, 6], [6, 6]])
+    result = table.roll(randomizer: RandomizerMock.new([[1, 6], [6, 6]]))
 
-    assert_equal("ソート降順表(61) ＞ ろくいち", table.roll())
+    assert_equal("ソート降順表(61) ＞ ろくいち", result.text)
   end
 
   def test_d66d_61
     table = BCDice::UserDefinedDiceTable.new(@text_d66d)
-    table.randomizer = RandomizerMock.new([[6, 6], [1, 6]])
+    result = table.roll(randomizer: RandomizerMock.new([[6, 6], [1, 6]]))
 
-    assert_equal("ソート降順表(61) ＞ ろくいち", table.roll())
+    assert_equal("ソート降順表(61) ＞ ろくいち", result.text)
   end
 
   def invalid_dice_type
@@ -140,115 +212,32 @@ class TestUserDefinedDiceTable < Test::Unit::TestCase
   end
 
   def test_verify_d66
-    text = <<~TEXT
-      フォーマット確認(D66)
-      D66
-      11:a
-      12:a
-      13:a
-      14:a
-      15:a
-      16:a
-      21:a
-      22:a
-      23:a
-      24:a
-      25:a
-      26:a
-      31:a
-      32:a
-      33:a
-      34:a
-      35:a
-      36:a
-      41:a
-      42:a
-      43:a
-      44:a
-      45:a
-      46:a
-      51:a
-      52:a
-      53:a
-      54:a
-      55:a
-      56:a
-      61:a
-      62:a
-      63:a
-      64:a
-      65:a
-      66:a
-    TEXT
-
-    table = BCDice::UserDefinedDiceTable.new(text)
+    table = BCDice::UserDefinedDiceTable.new(@text_d66)
     assert(table.valid?)
   end
 
   def test_verify_d66a
-    text = <<~TEXT
-      フォーマット確認(D66a)
-      D66a
-      11:a
-      12:a
-      13:a
-      14:a
-      15:a
-      16:a
-      22:a
-      23:a
-      24:a
-      25:a
-      26:a
-      33:a
-      34:a
-      35:a
-      36:a
-      44:a
-      45:a
-      46:a
-      55:a
-      56:a
-      66:a
-    TEXT
-
-    table = BCDice::UserDefinedDiceTable.new(text)
+    table = BCDice::UserDefinedDiceTable.new(@text_d66a)
     assert(table.valid?)
   end
 
   def test_verify_d66d
-    text = <<~TEXT
-      フォーマット確認(D66d)
-      D66d
-      11:a
-      21:a
-      22:a
-      31:a
-      32:a
-      33:a
-      41:a
-      42:a
-      43:a
-      44:a
-      51:a
-      52:a
-      53:a
-      54:a
-      55:a
-      61:a
-      62:a
-      63:a
-      64:a
-      65:a
-      66:a
-    TEXT
-
-    table = BCDice::UserDefinedDiceTable.new(text)
+    table = BCDice::UserDefinedDiceTable.new(@text_d66d)
     assert(table.valid?)
   end
 
   def test_verify_3d4_miss_rows
-    table = BCDice::UserDefinedDiceTable.new(@text_3d4)
+    text = <<~TEXT
+      抜けありテスト表
+      3D4
+      3:さん
+      4:し
+      5:ご
+      6:ろく
+      12:じゅうに
+    TEXT
+
+    table = BCDice::UserDefinedDiceTable.new(text)
     assert_false(table.valid?)
   end
 

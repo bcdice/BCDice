@@ -14,25 +14,32 @@ module BCDice
   #   TEXT
   #   table = BCDice::UserDefinedDiceTable.new(text)
   #   table.valid?() #=> true
-  #   table.roll()   #=> "飲み物表(6) ＞ 選ばれし者の知的飲料"
+  #   table.roll().text #=> "飲み物表(6) ＞ 選ばれし者の知的飲料"
+  #   BCDice::UserDefinedDiceTable.eval(text) #=> #<BCDice::Result>
   #
   class UserDefinedDiceTable
+    class << self
+      # @param text [String]
+      # @return [Result nil]
+      def roll(text)
+        new(text).roll()
+      end
+    end
+
     # @param text [String] ダイス表のテキストデータ
     def initialize(text)
       @text = text
-      @randomizer = Randomizer.new
       @rows = nil
     end
 
-    # @return [Randomizer]
-    attr_accessor :randomizer
-
     # ダイス表をロールする
-    # @return [String, nil]
-    def roll
+    # @param randomizer [Randomizer]
+    # @return [Result, nil]
+    def roll(randomizer: Randomizer.new)
       parse()
-      index = roll_index()
-      unless index
+
+      index = roll_index(randomizer)
+      unless valid? && index
         return nil
       end
 
@@ -43,7 +50,11 @@ module BCDice
       end
 
       chosen = row.delete_prefix(key).gsub('\n', "\n").strip
-      return "#{@name}(#{index}) ＞ #{chosen}"
+      Result.new.tap do |r|
+        r.text = "#{@name}(#{index}) ＞ #{chosen}"
+        r.rands = randomizer.rand_results
+        r.detailed_rands = randomizer.detailed_rand_results
+      end
     end
 
     # 有効なダイス表かをチェックする。テキスト形式のミスだけではなく、抜けている出目や範囲外の出目がないか確認する。
@@ -75,20 +86,20 @@ module BCDice
     private
 
     # @return [Integer, nil]
-    def roll_index
+    def roll_index(randomizer)
       if (m = /^(\d+)D(\d+)$/.match(@type))
         times = m[1].to_i
         sides = m[2].to_i
-        return @randomizer.roll_sum(times, sides)
+        return randomizer.roll_sum(times, sides)
       end
 
       case @type
       when "D66", "D66N"
-        @randomizer.roll_d66(D66SortType::NO_SORT)
+        randomizer.roll_d66(D66SortType::NO_SORT)
       when "D66A", "D66S"
-        @randomizer.roll_d66(D66SortType::ASC)
+        randomizer.roll_d66(D66SortType::ASC)
       when "D66D"
-        @randomizer.roll_d66(D66SortType::DESC)
+        randomizer.roll_d66(D66SortType::DESC)
       end
     end
 
