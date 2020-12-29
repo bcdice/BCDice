@@ -754,7 +754,7 @@ rands = [
 
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
-input = "IG"
+input = "IGT"
 output = "情報収集表(2) ＞ 調査隊は、伝説の財宝の噂を聞きつける。《配下》を（1D6）人消費すると、迷宮マップの中からランダムに部屋を1つ目標に選ぶことができる。冒険フェイズに目標の捜索に成功すると、ランダムに選んだレアアイテム1個を獲得する。"
 rands = [
   { sides = 6, value = 1 },
@@ -763,7 +763,7 @@ rands = [
 
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
-input = "IG"
+input = "IGT"
 output = "情報収集表(8) ＞ 調査隊は不慮の事故に巻き込まれる。《配下》を1人消費すると、迷宮マップの中から好きな部屋を1つ目標に選ぶことができる。目標の脅威情報と通路情報をGMに教えてもらう。"
 rands = [
   { sides = 6, value = 5 },
@@ -772,7 +772,7 @@ rands = [
 
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
-input = "IG"
+input = "IGT"
 output = "情報収集表(12) ＞ 調査隊の素晴らしい活躍！ 迷宮マップの中から好きな部屋を1つ目標に選ぶ。目標の脅威情報と通路情報をGMに教えてもらう。さらに、「情報収集表」をもう1回使用できる。"
 rands = [
   { sides = 6, value = 6 },
