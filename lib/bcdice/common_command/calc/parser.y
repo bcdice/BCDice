@@ -48,7 +48,7 @@ class BCDice::CommonCommand::Calc::Parser
          | term
 
     term: PARENL add PARENR
-        { result = val[1] }
+        { result = Arithmetic::Node::Parenthesis.new(val[1]) }
         | NUMBER
         { result = Arithmetic::Node::Number.new(val[0]) }
 end

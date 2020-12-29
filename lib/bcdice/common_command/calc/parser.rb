@@ -252,7 +252,7 @@ end
 # reduce 17 omitted
 
 def _reduce_18(val, _values, result)
- result = val[1]
+ result = Arithmetic::Node::Parenthesis.new(val[1])
     result
 end
 
