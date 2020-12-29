@@ -20,7 +20,8 @@ module BCDice
       }.freeze
 
       def initialize(source)
-        source = source.split(" ", 2).first
+        # sourceが空文字だとString#splitが空になる
+        source = source.split(" ", 2).first || ""
         @scanner = StringScanner.new(source)
       end
 

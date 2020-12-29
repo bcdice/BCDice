@@ -39,6 +39,12 @@ class TestPreprocessor < Test::Unit::TestCase
     assert_equal("1D10", text)
   end
 
+  # 丸め指定
+  def test_replace_parentheses_with_specific_round_type
+    text = BCDice::Preprocessor.process("(1/2C),(1/2U),(1/2R),(1/2F)", @game_system)
+    assert_equal("1,1,1,0", text)
+  end
+
   def test_implicit_d
     text = BCDice::Preprocessor.process("1D+3", @game_system)
     assert_equal("1D6+3", text)

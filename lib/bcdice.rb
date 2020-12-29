@@ -1,4 +1,5 @@
 require "bcdice/version"
+require "bcdice/arithmetic"
 require "bcdice/arithmetic_evaluator"
 
 require "bcdice/base"
