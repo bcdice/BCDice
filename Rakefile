@@ -16,6 +16,8 @@ namespace "gem" do
   task "push" do
     sh "gem push pkg/#{gem_pkg} -V"
   end
+
+  task build: "racc"
 end
 
 RACC_TARGETS = [
@@ -42,46 +44,6 @@ task :clean_coverage do
   require "simplecov"
   resultset_path = SimpleCov::ResultMerger.resultset_path
   FileUtils.rm resultset_path if File.exist? resultset_path
-end
-
-desc "Release BCDice"
-task :release, ["version"] do |_, args|
-  version = args.version
-  version_with_prefix = "Ver#{version}"
-  version_tag = "v#{version}"
-  date = Time.now.strftime("%Y/%m/%d")
-
-  header = "#{version_with_prefix} #{date}"
-  md_header = "### #{header}"
-
-  def replace(file, src, dst)
-    txt = File.read(file).sub(src, dst)
-    File.write(file, txt)
-  end
-
-  # Replace versions
-  replace("CHANGELOG.md", "### Unreleased", md_header)
-  replace("src/bcdiceCore.rb", /VERSION = ".+"/, "VERSION = \"#{version}\"")
-  replace("src/configBcDice.rb", /\$bcDiceVersion = ".+"/, "$bcDiceVersion = \"#{version}\"")
-  sh "git --no-pager diff"
-
-  # Test and lint
-  Rake::Task[:test].invoke
-
-  # Commit release
-  sh "git commit -a -v -e --message='Release #{version_with_prefix}'"
-
-  # Create tag
-  sections = File.read("CHANGELOG.md").split(/\n{2,}/)
-  section = sections.find { |s| s.start_with?(md_header) }
-  section_body = section.sub(md_header, "").strip
-  sh "git tag -a -e #{version_tag} -m '#{header}' -m '#{section_body}'"
-
-  puts "Do followings:"
-  puts "  $ git checkout release; git merge master"
-  puts "  $ git push origin release"
-  puts "  $ git push origin master"
-  puts "  $ git push origin #{version_tag}"
 end
 
 namespace :test do
