@@ -1,43 +1,43 @@
 [[ test ]]
 game_system = "DiceBot"
 input = "c1+4*3/2"
-output = "計算結果 ＞ 7"
+output = "c(1+4*3/2) ＞ 7"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "c1/2R 四捨五入(切り上げ)"
-output = "計算結果 ＞ 1"
+output = "c(1/2R) ＞ 1"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "c1/2C 切り上げ"
-output = "計算結果 ＞ 1"
+output = "c(1/2C) ＞ 1"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "c1/2F 切り捨て"
-output = "計算結果 ＞ 0"
+output = "c(1/2F) ＞ 0"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "c1/3R 四捨五入（切り捨て）"
-output = "計算結果 ＞ 0"
+output = "c(1/3R) ＞ 0"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "c1/3C 切り上げ"
-output = "計算結果 ＞ 1"
+output = "c(1/3C) ＞ 1"
 rands = []
 
 [[ test ]]
 game_system = "DiceBot"
 input = "c1/3F 切り捨て"
-output = "計算結果 ＞ 0"
+output = "c(1/3F) ＞ 0"
 rands = []
 
 [[ test ]]
@@ -49,6 +49,6 @@ rands = []
 [[ test ]]
 game_system = "DiceBot"
 input = "sc1+4*3/2"
-output = "計算結果 ＞ 7"
+output = "c(1+4*3/2) ＞ 7"
 secret = true
 rands = []
