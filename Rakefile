@@ -16,6 +16,8 @@ namespace "gem" do
   task "push" do
     sh "gem push pkg/#{gem_pkg} -V"
   end
+
+  task build: "racc"
 end
 
 RACC_TARGETS = [
