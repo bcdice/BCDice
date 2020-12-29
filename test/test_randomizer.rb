@@ -72,4 +72,68 @@ class TestRandomizer < Test::Unit::TestCase
   def test_roll_sum_minus_d
     assert_equal(0, @randomizer.roll_sum(-10, 100))
   end
+
+  def test_no_raise_rands_limit_with_barabara
+    assert_nothing_raised do
+      @randomizer.roll_barabara(10000, 100)
+    end
+  end
+
+  def test_raise_rands_limit_with_barabara
+    assert_raise_kind_of(BCDice::TooManyRandsError) do
+      @randomizer.roll_barabara(10001, 100)
+    end
+  end
+
+  def test_raise_rands_limit_with_sum
+    assert_raise_kind_of(BCDice::TooManyRandsError) do
+      @randomizer.roll_sum(10001, 100)
+    end
+  end
+
+  def test_no_raise_rands_limit_with_ones
+    assert_nothing_raised do
+      10000.times do
+        @randomizer.roll_once(6)
+      end
+    end
+  end
+
+  def test_raise_rands_limit_with_ones
+    assert_raise_kind_of(BCDice::TooManyRandsError) do
+      10001.times do
+        @randomizer.roll_once(6)
+      end
+    end
+  end
+
+  def test_raise_rands_limit_with_roll_tens_d10
+    assert_raise_kind_of(BCDice::TooManyRandsError) do
+      10001.times do
+        @randomizer.roll_tens_d10()
+      end
+    end
+  end
+
+  def test_raise_rands_limit_with_d9
+    assert_raise_kind_of(BCDice::TooManyRandsError) do
+      10001.times do
+        @randomizer.roll_d9()
+      end
+    end
+  end
+
+  def test_raise_rands_limit_with_d66
+    assert_raise_kind_of(BCDice::TooManyRandsError) do
+      10001.times do
+        @randomizer.roll_d66(BCDice::D66SortType::ASC)
+      end
+    end
+  end
+
+  def test_raise_rands_limit_with_eval
+    assert_raise_kind_of(BCDice::TooManyRandsError) do
+      BCDice::GameSystem::DiceBot.eval("x100 101D6")
+    end
+  end
 end
