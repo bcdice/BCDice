@@ -1,5 +1,209 @@
 [[ test ]]
 game_system = "DiceBot"
+input = "C(1+2)"
+output = "c(1+2) ＞ 3"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(2-1)"
+output = "c(2-1) ＞ 1"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(1-2)"
+output = "c(1-2) ＞ -1"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(2*3)"
+output = "c(2*3) ＞ 6"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(6/2)"
+output = "c(6/2) ＞ 3"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(2/3)"
+output = "c(2/3) ＞ 0"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(12/3-2*6)"
+output = "c(12/3-2*6) ＞ -8"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(99/21*11-23+57/3*7+13-17)"
+output = "c(99/21*11-23+57/3*7+13-17) ＞ 150"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(20+10)"
+output = "c(20+10) ＞ 30"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(10*5)"
+output = "c(10*5) ＞ 50"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "c(30-10/2)"
+output = "c(30-10/2) ＞ 25"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "c((10+10)*9)"
+output = "c((10+10)*9) ＞ 180"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(10+5) mokekeke"
+output = "c(10+5) ＞ 15"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(10/2+(5*2)-(3+1))"
+output = "c(10/2+(5*2)-(3+1)) ＞ 11"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(5-(1-2))"
+output = "c(5-(1-2)) ＞ 6"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(10/2)"
+output = "c(10/2) ＞ 5"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(-1-1)"
+output = "c(-1-1) ＞ -2"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(-1--1)"
+output = "c(-1--1) ＞ 0"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(-1---1)"
+output = "c(-1---1) ＞ -2"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(-1----1)"
+output = "c(-1----1) ＞ 0"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(-1)"
+output = "c(-1) ＞ -1"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C((-1)*(-1))"
+output = "c((-1)*(-1)) ＞ 1"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(-1*-1)"
+output = "c(-1*-1) ＞ 1"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(5/-1)"
+output = "c(5/-1) ＞ -5"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(10/2)"
+output = "c(10/2) ＞ 5"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(1+(128/2)/2)"
+output = "c(1+(128/2)/2) ＞ 33"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(-1+-1)"
+output = "c(-1+-1) ＞ -2"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(-1+-1*2-32/8)"
+output = "c(-1+-1*2-32/8) ＞ -7"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(-20/-10)"
+output = "c(-20/-10) ＞ 2"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(-20/5)"
+output = "c(-20/5) ＞ -4"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(20/-4)"
+output = "c(20/-4) ＞ -5"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(1+2-3*4/5)"
+output = "c(1+2-3*4/5) ＞ 1"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(1/0) 0で割る"
+output = "c(1/0) ＞ ゼロ除算が発生したため計算できませんでした"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "C(1+(2-3*4/(5/6))-7) 遠回しに0で割る"
+output = "c(1+(2-3*4/(5/6))-7) ＞ ゼロ除算が発生したため計算できませんでした"
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
 input = "c1+4*3/2"
 output = "c(1+4*3/2) ＞ 7"
 rands = []
