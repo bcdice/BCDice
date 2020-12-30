@@ -2,7 +2,6 @@
 
 require 'bcdice/game_system/SRS'
 
-# メタリックガーディアンのダイスボット
 module BCDice
   module GameSystem
     class MetallicGuardian < SRS

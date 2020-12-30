@@ -2,7 +2,6 @@
 
 require 'bcdice/game_system/SRS'
 
-# フルメタル・パニック！のダイスボット
 module BCDice
   module GameSystem
     class FullMetalPanic < SRS

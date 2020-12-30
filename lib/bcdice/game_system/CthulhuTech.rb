@@ -2,7 +2,6 @@
 
 require 'bcdice/arithmetic_evaluator'
 
-# クトゥルフテックのダイスボット
 module BCDice
   module GameSystem
     class CthulhuTech < Base

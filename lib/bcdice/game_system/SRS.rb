@@ -2,11 +2,6 @@
 
 require 'bcdice/arithmetic_evaluator'
 
-# スタンダードRPGシステムのダイスボット
-#
-# スタンダードRPGシステムにおいて共通な2D6成功判定を実装している。
-# また、各ゲームシステムに合わせた2D6成功判定のエイリアスコマンドを
-# 登録するクラスメソッド set_aliases_for_srs_roll を持つ。
 module BCDice
   module GameSystem
     class SRS < Base

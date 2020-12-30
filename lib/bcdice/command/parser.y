@@ -144,6 +144,7 @@ require "bcdice/command/parsed"
 #
 #   parsed.command #=> "RE44"
 #   parsed.modify_number #=> 20
+class BCDice::Command::Parser < Racc::Parser; end
 
 ---- inner
 

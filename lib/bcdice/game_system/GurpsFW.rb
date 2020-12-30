@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-# どどんとふ用 GURPS-FW オリジナルダイスボット
-# Last update 2013/11/07
-
 module BCDice
   module GameSystem
     class GurpsFW < Base

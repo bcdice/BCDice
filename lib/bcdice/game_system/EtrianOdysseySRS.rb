@@ -2,7 +2,6 @@
 
 require 'bcdice/game_system/SRS'
 
-# 世界樹の迷宮SRSのダイスボット
 module BCDice
   module GameSystem
     class EtrianOdysseySRS < SRS

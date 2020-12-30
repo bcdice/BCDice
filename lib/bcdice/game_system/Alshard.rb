@@ -2,7 +2,6 @@
 
 require 'bcdice/game_system/SRS'
 
-# アルシャードのダイスボット
 module BCDice
   module GameSystem
     class Alshard < SRS
