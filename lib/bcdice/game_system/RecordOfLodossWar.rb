@@ -1,5 +1,3 @@
-require 'bcdice/command_parser'
-
 module BCDice
   module GameSystem
     class RecordOfLodossWar < Base

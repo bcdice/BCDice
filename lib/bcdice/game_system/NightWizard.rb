@@ -2,7 +2,6 @@
 
 require "bcdice/normalize"
 require "bcdice/format"
-require "bcdice/command_parser"
 
 module BCDice
   module GameSystem

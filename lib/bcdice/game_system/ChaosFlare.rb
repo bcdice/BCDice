@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'bcdice/command_parser'
-
 module BCDice
   module GameSystem
     class ChaosFlare < Base

@@ -8,7 +8,6 @@ require "bcdice/enum"
 require "bcdice/translate"
 require "bcdice/result"
 require "bcdice/command/parser"
-require "bcdice/command_parser"
 require "bcdice/deprecated/checker"
 
 module BCDice

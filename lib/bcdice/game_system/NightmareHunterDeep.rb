@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "bcdice/command_parser"
 require "bcdice/format"
 
 module BCDice
