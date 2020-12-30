@@ -246,9 +246,9 @@ module BCDice
           end
 
           # 除算および端数処理を行う
-          # @param _dividend [Integer] 被除数
-          # @param _divisor [Integer] 除数（0以外）
-          # @param _round_type [Symbol] ゲームシステムの端数処理設定
+          # @param dividend [Integer] 被除数
+          # @param divisor [Integer] 除数（0以外）
+          # @param round_type [Symbol] ゲームシステムの端数処理設定
           # @return [Integer]
           def divide_and_round(dividend, divisor, round_type)
             raise NotImplementedError
