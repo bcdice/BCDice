@@ -53,10 +53,11 @@ module BCDice
       # @param command [String]
       # @return [String, nil]
       def roll_gr(command)
-        parser = CommandParser.new("GR")
+        parser = Command::Parser.new("GR", round_type: round_type)
+                                .enable_fumble
+                                .restrict_cmp_op_to(:>=)
         cmd = parser.parse(command)
         return nil unless cmd
-        return nil if cmd.critical
 
         modify_number = cmd.modify_number || 0
         auto_failure_number = cmd.fumble || 1

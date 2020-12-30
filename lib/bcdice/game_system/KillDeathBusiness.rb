@@ -82,7 +82,10 @@ module BCDice
       def judgeDice(command)
         fumble_match = /,(\d+)$/.match(command)
 
-        parser = CommandParser.new(/^JD(\d+)$/).allow_cmp_op(nil)
+        parser = Command::Parser.new(/JD\d+/, round_type: round_type)
+                                .enable_critical
+                                .enable_fumble
+                                .restrict_cmp_op_to(nil)
         cmd = parser.parse(fumble_match&.pre_match || command)
         unless cmd
           return nil

@@ -43,9 +43,9 @@ module BCDice
                   .sub(/Lv(\d+)/i) { (Regexp.last_match(1).to_i * 5 - 1).to_s }
                   .sub(/NL(\d+)/i) { (Regexp.last_match(1).to_i * 5 + 5).to_s }
 
-        parser = CommandParser.new(/^\d+D6$/)
-                              .allow_cmp_op(nil, :>=)
-                              .enable_question_target()
+        parser = Command::Parser.new(/\d+D6/, round_type: round_type)
+                                .restrict_cmp_op_to(nil, :>=)
+                                .enable_question_target()
         cmd = parser.parse(command)
         unless cmd
           return nil

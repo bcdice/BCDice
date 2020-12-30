@@ -94,7 +94,10 @@ module BCDice
       private
 
       def action_roll(command)
-        parser = CommandParser.new("SG").allow_cmp_op(:>=, nil)
+        parser = Command::Parser.new("SG", round_type: round_type)
+                                .restrict_cmp_op_to(:>=, nil)
+                                .enable_critical
+                                .enable_fumble
         cmd = parser.parse(command)
         return nil unless cmd
 
