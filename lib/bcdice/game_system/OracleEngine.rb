@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'bcdice/command_parser'
 require 'bcdice/format'
 
 module BCDice
@@ -58,14 +57,12 @@ MESSAGETEXT
       def clutch_roll(string)
         debug("clutch_roll begin", string)
 
-        parser = CommandParser.new(/\d+CL[67]?/i)
+        parser = Command::Parser.new(/\d+CL[67]?/, round_type: round_type)
+                                .restrict_cmp_op_to(nil, :>=)
+
         @cmd = parser.parse(string)
 
         unless @cmd
-          return nil
-        end
-
-        unless [:>=, nil].include?(@cmd.cmp_op)
           return nil
         end
 
@@ -120,13 +117,13 @@ MESSAGETEXT
 
       # 判定
       def r_roll(string)
-        parser = CommandParser.new(/\d+R6/i)
+        parser = Command::Parser.new(/\d+R6/, round_type: round_type)
+                                .restrict_cmp_op_to(nil, :>=)
+                                .enable_critical
+                                .enable_fumble
+                                .enable_dollar
         @cmd = parser.parse(string)
         unless @cmd
-          return nil
-        end
-
-        unless [:>=, nil].include?(@cmd.cmp_op)
           return nil
         end
 
@@ -214,12 +211,11 @@ MESSAGETEXT
 
       # ダメージロール
       def damage_roll(string)
-        parser = CommandParser.new(/\d+D6/i)
+        parser = Command::Parser.new(/\d+D6/, round_type: round_type)
+                                .restrict_cmp_op_to(nil)
+                                .enable_dollar
         @cmd = parser.parse(string)
-
-        if @cmd.nil? || !@cmd.cmp_op.nil?
-          return nil
-        end
+        return nil unless @cmd
 
         @times = @cmd.command.to_i
         @break = (@cmd.dollar || 0).abs

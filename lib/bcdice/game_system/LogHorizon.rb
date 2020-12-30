@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "bcdice/base"
-require "bcdice/command_parser"
 
 module BCDice
   module GameSystem
@@ -115,7 +114,8 @@ module BCDice
       private
 
       def getCheckRollDiceCommandResult(command)
-        parser = CommandParser.new(/^\d+LH$/).allow_cmp_op(nil, :>=)
+        parser = Command::Parser.new(/\d+LH/, round_type: round_type)
+                                .restrict_cmp_op_to(nil, :>=)
 
         parsed = parser.parse(command)
         unless parsed

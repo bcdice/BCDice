@@ -1,5 +1,3 @@
-require 'bcdice/command_parser'
-
 module BCDice
   module GameSystem
     class RecordOfLodossWar < Base
@@ -22,7 +20,8 @@ module BCDice
       register_prefix('LW.*')
 
       def eval_game_system_specific_command(command)
-        parser = CommandParser.new("LW", "LWD")
+        parser = Command::Parser.new("LWD", "LW", round_type: round_type)
+                                .restrict_cmp_op_to(nil, :<=)
         cmd = parser.parse(command)
 
         if cmd.nil? || ![nil, :<=].include?(cmd.cmp_op)

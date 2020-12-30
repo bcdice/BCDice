@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "bcdice/command_parser"
-
 module BCDice
   module GameSystem
     class SamsaraBallad < Base
@@ -38,7 +36,10 @@ module BCDice
       def eval_game_system_specific_command(command)
         debug("eval_game_system_specific_command Begin")
 
-        parser = CommandParser.new('SB', 'SBS')
+        parser = Command::Parser.new('SBS', 'SB', round_type: round_type)
+                                .enable_critical
+                                .enable_fumble
+                                .restrict_cmp_op_to(nil, :<=, :<)
         cmd = parser.parse(command)
 
         unless cmd

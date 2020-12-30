@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'bcdice/command_parser'
-
 module BCDice
   module GameSystem
     class ChaosFlare < Base
@@ -108,7 +106,9 @@ module BCDice
       # @param command [String]
       # @return [String, nil]
       def cf_roll(command)
-        parser = CommandParser.new(/\d*CF/)
+        parser = Command::Parser.new(/\d*CF/, round_type: round_type)
+                                .enable_critical
+                                .enable_fumble
 
         @cmd = parser.parse(command)
         unless @cmd

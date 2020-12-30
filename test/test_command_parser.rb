@@ -1,9 +1,12 @@
 require "test/unit"
-require "bcdice/command_parser"
+require "bcdice/command/parser"
 
 class TestCommandParser < Test::Unit::TestCase
   def setup
-    @parser = BCDice::CommandParser.new("LL", "SA")
+    @parser = BCDice::Command::Parser.new("LL", "SA", round_type: BCDice::RoundType::FLOOR)
+                                     .enable_critical
+                                     .enable_fumble
+                                     .enable_dollar
   end
 
   def test_parse_full
@@ -143,5 +146,18 @@ class TestCommandParser < Test::Unit::TestCase
     assert_equal(10, parsed.modify_number)
     assert_equal(:>, parsed.cmp_op)
     assert_equal(30, parsed.target_number)
+  end
+
+  def test_question_target
+    @parser.enable_question_target
+    parsed = @parser.parse("LL>=?")
+
+    assert_equal("LL", parsed.command)
+    assert_equal(nil, parsed.critical)
+    assert_equal(nil, parsed.fumble)
+    assert_equal(nil, parsed.dollar)
+    assert_equal(0, parsed.modify_number)
+    assert_equal(:>=, parsed.cmp_op)
+    assert_true(parsed.question_target?)
   end
 end

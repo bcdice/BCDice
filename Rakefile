@@ -22,6 +22,7 @@ end
 
 RACC_TARGETS = [
   "lib/bcdice/arithmetic/parser.rb",
+  "lib/bcdice/command/parser.rb",
   "lib/bcdice/common_command/add_dice/parser.rb",
   "lib/bcdice/common_command/barabara_dice/parser.rb",
   "lib/bcdice/common_command/calc/parser.rb",
