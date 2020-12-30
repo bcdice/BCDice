@@ -282,7 +282,7 @@ rands = [
 [[ test ]]
 game_system = "BloodMoon"
 input = "C(1/2) 切り上げ"
-output = "計算結果 ＞ 1"
+output = "c(1/2) ＞ 1"
 rands = []
 
 [[ test ]]
