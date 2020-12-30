@@ -4,6 +4,8 @@ module BCDice
     UPPER_LIMIT_DICE_TIMES = 200
     UPPER_LIMIT_DICE_SIDES = 1000
 
+    UPPER_LIMIT_RANDS = 10000
+
     def initialize
       @rand_results = []
       @detailed_rand_results = []
@@ -30,6 +32,10 @@ module BCDice
     # @param sides [Integer] ダイスの面数
     # @return [Array<Integer>] ダイスの出目一覧
     def roll_barabara(times, sides)
+      if @rand_results.size + times > UPPER_LIMIT_RANDS
+        raise TooManyRandsError
+      end
+
       if times <= 0 || times > UPPER_LIMIT_DICE_TIMES
         return []
       end
@@ -113,6 +119,10 @@ module BCDice
     # @param sides [Integer]
     # @return [Integer] 1以上sides以下の整数
     def rand_inner(sides)
+      if @rand_results.size >= UPPER_LIMIT_RANDS
+        raise TooManyRandsError
+      end
+
       dice = random(sides)
 
       @rand_results << [dice, sides]
@@ -134,4 +144,6 @@ module BCDice
       @detailed_rand_results.push(detail)
     end
   end
+
+  class TooManyRandsError < StandardError; end
 end
