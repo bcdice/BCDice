@@ -81,7 +81,7 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         self.class::SKILL_TABLE.roll_command(@randomizer, command) ||
-          roll_tables(command, TABLES)
+          roll_tables(command, self.class::TABLES)
       end
 
       private
@@ -216,7 +216,7 @@ module BCDice
             "MFT" => force_field_table,
             "MLT" => alliance_table,
             "BST" => DiceTable::ChainTable.new(
-              "ブランク秘密表",
+              I18n.translate("MagicaLogia.tables.BST.name", raise: true, locale: locale),
               "1D6",
               [
                 inveterate_enemy_table,

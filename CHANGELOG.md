@@ -11,6 +11,7 @@
 - アンサング・デュエット (UnsungDuet): ([#281](https://github.com/bcdice/BCDice/pull/281))
 - アルケミア・ストラグル (AlchemiaStruggle): ViViさんありがとうっ！ ([#341](https://github.com/bcdice/BCDice/pull/341))
 - 呪印感染 (JuinKansen): 猫あきら。さん情報提供ありがとうっ！ ([#345](https://github.com/bcdice/BCDice/pull/345))
+- 韓国語版マギカロギア 마기카로기아 (MagicaLogia:Korean): Faithさんありがとうっ！ ([#360](https://github.com/bcdice/BCDice/pull/360))
 
 ### 追加機能
 - ログ・ホライズンTRPG: LHZB1とLHZB2両方の財宝表をサポート、消耗表ロールを追加、財宝表ロールを追加、区切り文字を変更 ([#279](https://github.com/bcdice/BCDice/pull/279))
