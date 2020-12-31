@@ -42,10 +42,17 @@ class BCDice::CommonCommand::UpperDice::Parser
 
     modifier: /* none */
             { result = Arithmetic::Node::Number.new(0) }
-            | PLUS add
-            { result = val[1] }
-            | MINUS add
-            { result = Arithmetic::Node::Negative.new(val[1]) }
+            | modifier_expr
+            { result = val[0] }
+
+    modifier_expr : PLUS mul
+                  { result = val[1] }
+                  | MINUS mul
+                  { result = Arithmetic::Node::Negative.new(val[1]) }
+                  | modifier_expr PLUS mul
+                  { result = Arithmetic::Node::BinaryOp.new(val[0], :+, val[2]) }
+                  | modifier_expr MINUS mul
+                  { result = Arithmetic::Node::BinaryOp.new(val[0], :-, val[2]) }
 
     target: /* none */
           { result = {} }
