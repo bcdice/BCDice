@@ -1,0 +1,1459 @@
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 4[2,2] ＞ 4 ＞ 성공 ＞ 짐승 마소 2점 발생"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 3[1,2] ＞ 3 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "2d6>=9"
+output = "(2D6>=9) ＞ 6[3,3] ＞ 6 ＞ 실패 ＞ 힘 마소 2점 발생"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "2d6>=7"
+output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ 스페셜(마력 1D6점 또는 상태이상 하나 회복) ＞ 어둠 마소 2점 발생"
+critical = true
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "2d6>=7"
+output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ 펌블 ＞ 별 마소 2점 발생"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTT"
+output = "랜덤 특기 결정표(5,9) ＞ 「꿈」≪광기≫"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTT"
+output = "랜덤 특기 결정표(1,6) ＞ 「별」≪바다≫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTT"
+output = "랜덤 특기 결정표(3,11) ＞ 「힘」≪빛≫"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTT"
+output = "랜덤 특기 결정표(6,12) ＞ 「어둠」≪죽음≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTS"
+output = "지정특기(별)표(2) ＞ 「별」≪황금≫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTS"
+output = "지정특기(별)표(12) ＞ 「별」≪이계≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTT1"
+output = "지정특기(별)표(12) ＞ 「별」≪이계≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTB"
+output = "지정특기(짐승)표(2) ＞ 「짐승」≪살≫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTB"
+output = "지정특기(짐승)표(12) ＞ 「짐승」≪에로스≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTT2"
+output = "지정특기(짐승)표(12) ＞ 「짐승」≪에로스≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTF"
+output = "지정특기(힘)표(2) ＞ 「힘」≪중력≫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTF"
+output = "지정특기(힘)표(12) ＞ 「힘」≪원환≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTT3"
+output = "지정특기(힘)표(12) ＞ 「힘」≪원환≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTP"
+output = "지정특기(노래)표(2) ＞ 「노래」≪이야기≫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTP"
+output = "지정특기(노래)표(12) ＞ 「노래」≪시간≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTT4"
+output = "지정특기(노래)표(12) ＞ 「노래」≪시간≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTD"
+output = "지정특기(꿈)표(2) ＞ 「꿈」≪추억≫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTD"
+output = "지정특기(꿈)표(12) ＞ 「꿈」≪미래≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTT5"
+output = "지정특기(꿈)표(12) ＞ 「꿈」≪미래≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTN"
+output = "지정특기(어둠)표(2) ＞ 「어둠」≪심연≫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTN"
+output = "지정특기(어둠)표(12) ＞ 「어둠」≪죽음≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "RTT6"
+output = "지정특기(어둠)표(12) ＞ 「어둠」≪죽음≫"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TPT"
+output = "시간의 흐름 표(구판)(1) ＞ 標的となり追われる生活が続いた。ここ数年は苦しい戦いの日々だった。「어둠」≪죽음≫の判定を行う。成功するとセッション終了時に追加の功績点1点。失敗すると「運命変転」発生。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TPT"
+output = "시간의 흐름 표(구판)(2) ＞ 冒険の日々の途中、大きな幸せが訪れる。「어둠」≪죽음≫の判定を行う。成功すると、自分のアンカーの災厄か、自分の疵一つを無効化する。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TPT"
+output = "시간의 흐름 표(구판)(3) ＞ 瞑想から目を覚ます。もうそんな時間か。おかげで十分な魔素を得ることができた。「노래」「꿈」「어둠」の魔素を獲得する。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TPT"
+output = "시간의 흐름 표(구판)(6) ＞ 日々研鑚を重ね、魔法の修行に精進した。もしも望むなら、蔵書欄にある魔法を、自分の修得できる範囲の中で、現在とは別の魔法に変更して構わない。もしも、魔素がチャージされていた魔法を見習得にした場合、その魔素は失われる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "ST"
+output = "장면 표(구판)(2) ＞ 魔法で作り出した次元の狭間。ここは時間や空間から切り離された、どこでもあり、どこでもない場所だ。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "ST"
+output = "장면 표(구판)(7) ＞ 周囲で〈断章〉が引き起こした魔法災厄が発生する。「별」≪황금≫の判定を行うこと。成功すると、好きな魔素が一個発生する。失敗すると「運命変転表」を使用する。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "ST"
+output = "장면 표(구판)(12) ＞ 未来の予感。このままだと起きるかもしれない出来事の幻が現れる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "FT"
+output = "펌블 표(1) ＞ 마법재액이 당신의 앵커를 덮친다. 자신에게 「운명 변전」이 발생한다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "FT"
+output = "펌블 표(6) ＞ 휴우, 큰일날 뻔했다. 아무 일도 일어나지 않는다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WT"
+output = "상태이상 표(1) ＞ 봉인. 자신이 습득한 장비 타입 이외의 마법 중에서 무작위로 하나를 선택한다. 선택한 마법의 체크칸에 체크한다. 그 마법을 사용하려면 【마력】을 2점 소비해야 한다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WT"
+output = "상태이상 표(6) ＞ 불운. 「별」≪황금≫의 체크칸에 체크한다. 이 특기를 사용할 수 없게 되며, 그 분야의 특기가 지정특기인 판정을 할 때는 -1의 수정이 붙는다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "FCT"
+output = "운명 변전 표(1) ＞ 좌절. 그 캐릭터는 자신의 소중한 꿈을 포기한다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "FCT"
+output = "운명 변전 표(6) ＞ 사고. 그 캐릭터는 교통사고를 당해 돌이킬 수 없는 상처를 입는다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "AT"
+output = "사건 표(2) ＞ 예기치 못한 선물, 멋진 아이디어, 악마의 거래…… 목표가 당신이 바라는 것을 주려고 한다. 당신은 아무거나 마소를 1점 획득하거나, 【마력】을 1D6점 회복할 수 있다. 어느 한쪽을 선택했다면 목표에 대한 당신의 【운명】이 1점 상승한다. 【운명】의 속성은 GM이 마음대로 결정할 수 있다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "AT"
+output = "사건 표(7) ＞ 살아있는 시체의 무리, 지옥의 업화, 미궁화…… 목표와 함께 있을 때 마법 재액에 휘말린다. 「힘」≪파문≫(으)로 판정한다. 성공하면 아무거나 마소가 1점 발생한다. 실패하면 「운명 변전 표」를 사용해서 정한 불행이 목표에게 닥친다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "AT"
+output = "사건 표(12) ＞ 헌신적인 간호, 마법의 축복, 기적…… 목표가 당신을 구했다. 목표에 대한 【운명】이 1점 상승한다. 【운명】의 속성은 마음대로 결정할 수 있다. 만약 관계칸에 상흔이 있다면, 상흔 하나를 관계칸에서 지울 수 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "BGT"
+output = "경력 표(1) ＞ 서경 / 북 워치"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "BGT"
+output = "경력 표(6) ＞ 외전 / 아포크리파"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "DAT"
+output = "초기 앵커 표(2) ＞ 은인. 당신은 곤란한 상황에서 그 앵커의 도움을 받았다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "DAT"
+output = "초기 앵커 표(12) ＞ 애인. 당신은 그 앵커와 육체 관계를 맺고 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "FAT"
+output = "운명 속성 표(1) ＞ 혈연. 자신이나 자신이 사랑한 이의 친척 또는 가족."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "FAT"
+output = "운명 속성 표(6) ＞ 존경. 그 재능과 사상, 자세에 대해 외경심이나 존경심을 품은 인물."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WIT"
+output = "소원 표(1) ＞ 자신 이외의 특정한 누군가를 도와달라."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WIT"
+output = "소원 표(6) ＞ 자신의 욕망(금전욕, 명예욕, 육욕, 지식욕 등)을 충족시켜달라."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TCT"
+output = "운명 변전 표 「전형적 재액」(1) ＞ 좌절. 그 캐릭터는 자신의 소중한 꿈을 포기한다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TCT"
+output = "운명 변전 표 「전형적 재액」(6) ＞ 사고. 그 캐릭터는 교통사고를 당해 돌이킬 수 없는 상처를 입는다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "PCT"
+output = "운명 변전 표 「물리계 재액」(1) ＞ 화재. 집이 불타서 돌아갈 곳이 없어진다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "PCT"
+output = "운명 변전 표 「물리계 재액」(6) ＞ 상해. 무차별 폭행을 당하거나, 당신을 증오하는 이에게 상처를 입는다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MCT"
+output = "운명 변전 표 「정신계 재액」(1) ＞ 권태. 피로감에 사로잡혀 아무 일도 하기 싫어진다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MCT"
+output = "운명 변전 표 「정신계 재액」(6) ＞ 기억상실. 친구나 PC를 잊어버린다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "ICT"
+output = "운명 변전 표 「광기계 재액」(1) ＞ 이중인격. 또 하나의 인격이 나타나 제멋대로 행동하기 시작한다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "ICT"
+output = "운명 변전 표 「광기계 재액」(6) ＞ 발정. 체온이 상승하고 맥박이 빨라지며 성적인 흥분 상태가 된다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "SCT"
+output = "운명 변전 표 「사회계 재액」(1) ＞ 체포. 저지르지도 않은 죄로 잡혀서 유치된다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "SCT"
+output = "운명 변전 표 「사회계 재액」(6) ＞ 과로. 터무니 없는 양의 업무에 쫓겨 심신 모두 피로에 찌든다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "XCT"
+output = "운명 변전 표 「초자연계 재액」(1) ＞ 영감. 보일 리가 없는 것이 보이게 된다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "XCT"
+output = "운명 변전 표 「초자연계 재액」(6) ＞ 표적. 살인마나 마법 재액 같은 악의적인 존재의 관심을 끌어들이고 만다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WCT"
+output = "운명 변전 표 「불가사의계 재액」(1) ＞ 중2병. 종종 안쓰러운 언동을 반복하게 된다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WCT"
+output = "운명 변전 표 「불가사의계 재액」(6) ＞ 얀데레. PC를 병적으로 사랑하게 되며, 자기 이외의 누군가가 PC에게 호감을 품으면 공격적으로 대한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "CCT"
+output = "운명 변전 표 「코믹계 재액」(1) ＞ 성별 역전. 육체의 성별이 반전한다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "CCT"
+output = "운명 변전 표 「코믹계 재액」(6) ＞ 탈의. 그 자리에서 모든 옷을 벗는다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MIT"
+output = "숙적 표(1) ＞ 질투. 그 인물은 사실 조사자의 실력을 시샘하는 <대법전>의 마법사였다. 데이터는 <화형 집행인>을 사용한다. 단, 마법을 사용하려면 마소가 필요하며, 마법사를 콜렉션으로 삼지는 못한다. GM은 조사자의 앵커나 조사자에게 마법전을 신청하는 등 조사자를 방해하는 방침으로 이 NPC를 조작해야 한다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MIT"
+output = "숙적 표(4) ＞ 단장. 그 인물에게는 이번 사건과 관계 없는 <단장>이 빙의되어 있었다. 데이터는 <열락>을 사용한다. GM은 조사자와 적대하는 <단장> 쪽에 입회하거나, 마법전을 신청하는 등 조사자를 방해하는 방침으로 이 NPC를 조작해야 한다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MIT"
+output = "숙적 표(6) ＞ 닌자. 그 인물은 사실 당신을 죽이라는 사명을 띤 닌자다. 데이터는 <닌자>를 사용한다. GM은 <단장> 쪽에 입회하거나 마법전을 신청하는 등 조사자를 방해하는 방침으로 이 NPC를 조작해야 한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MOT"
+output = "모략 표(1) ＞ 폭탄. 그 인물에게는 조사자의 육체를 폭발시키는 마법 폭탄이 설치되어 있다. 이 【비밀】이 공개되면 조사자는 1D6의 대미지를 입는다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MOT"
+output = "모략 표(6) ＞ 탈주. 그 인물에게는 <단장>의 도주를 돕는 마법이 걸려 있었다. 이 【비밀】이 공개되면, GM은 <단장> 하나와 NPC 한 명을 선택한다. 그 <단장>은 해당 NPC에게 빙의할 수 있다. 이때, GM은 이미 마법사가 회수한 <단장>을 선택할 수도 있으며, 이때는 【마력】을 1D6점 회복한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MAT"
+output = "인연 표(1) ＞ 사모. 그 인물은 사실 조사자에 대해 알고 있으며, 깊이 사랑하고 있다. 조사자는 그 인물에 대한 【운명】을 2점 상승시키고, 속성을 「연애」로 정한다. 그 인물의 【운명】 속성이 「연애」인 동안, 조사자는 그 인물에 대한 【운명】이 1점 상승할 때마다 【마력】을 해당하는 【운명】 수치만큼 회복한다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MAT"
+output = "인연 표(6) ＞ 무괸계. 그 인물은 이번 사건과 딱히 관계가 없었디. 하지만 이 만남이 정말로 무의미했을까? 조사자는 그 인물을 대상으로 사건표를 사용한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MUT"
+output = "기인 표(1) ＞ 수명. 그 인물의 명백은 한계에 도달했다. 이 【비밀】이 공개되면 그 인물은 사망한다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MUT"
+output = "기인 표(6) ＞ 그릇. 그 인물은 영매 체질이라 무언가에 빙의당하기 쉽다. 이 인물에게 <단장>이 빙의하면 【공격력】과 【방어력】이 2점씩 상승한다. 이 【비밀】이 공개되면 GM은 이 사이클을 끝낼 때 <단장>을 하나 선택해서, 그 <단장>의 빙의 대상을 이 NPC로 변경할 수 있다. 단, 이미 마법사에게 회수당한 <단장>은 선택할 수 없다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MFT"
+output = "역장 표(1) ＞ 가호. 그 인물의 머리 위에는 항상 별의 은총이 내리고 있다. 이 【비밀】이 공개되면, 그 장면에 「별」 마소가 2점 발생한다. 또, 이번 세션동안 이 인물에 대한 【운명】이 1점 상승한 캐릭터는 「별」 마소를 2점 획득한다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MFT"
+output = "역장 표(6) ＞ 암흑. 그 인물은 저주받은 운명을 짊어지고 있으며, 세계의 파멸을 초래할 가능성을 품고 있다. 이 【비밀】이 공개되면, 그 장면에 「어둠」 마소가 2점 발생한다. 또, 이번 세션 동안 이 인물에 대한 【운명】이 1점 상승한 캐릭터는 「어둠」 마소를 2점 획득할 수 있다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MLT"
+output = "동맹 표(1) ＞ 정령. 그 인물은 사실 변신한 모습으로 인간계에 나타난 정령이었다. 「꿈」≪우연≫(이)가 그 원형이 상징하는 특기다. 조사자는 그 세션 동안에만 그 특기에 해당하는 【정령 소환】을 습득한다. 또, 세션마다 한 번씩 그 【정령 소환】의 판정에 자동으로 성공할 수 있다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MLT"
+output = "동맹 표(6) ＞ 무구. 그 인물은 티 없는 마음의 소유자였다. 이 NPC는 프라이즈로 간주한다. 이 프라이즈의 소유자는 세션 동안 한번만 【정화】 주문을 코스트 없이 사용할 수 있다. 이때, 판정은 자동으로 성공한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "BST"
+output = "백지 비밀 표(1) ＞ 숙적 표(1) ＞ 질투. 그 인물은 사실 조사자의 실력을 시샘하는 <대법전>의 마법사였다. 데이터는 <화형 집행인>을 사용한다. 단, 마법을 사용하려면 마소가 필요하며, 마법사를 콜렉션으로 삼지는 못한다. GM은 조사자의 앵커나 조사자에게 마법전을 신청하는 등 조사자를 방해하는 방침으로 이 NPC를 조작해야 한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "BST"
+output = "백지 비밀 표(6) ＞ 동맹 표(6) ＞ 무구. 그 인물은 티 없는 마음의 소유자였다. 이 NPC는 프라이즈로 간주한다. 이 프라이즈의 소유자는 세션 동안 한번만 【정화】 주문을 코스트 없이 사용할 수 있다. 이때, 판정은 자동으로 성공한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "PT"
+output = "프라이즈 표(2) ＞ 패자는 안쪽부터 파열하여 산산이 흩어진다. 공적점을 1점 획득한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "PT"
+output = "프라이즈 표(12) ＞ 패자는 그림자가 되어 그 자리에 새겨져서 이경의 입구가 된다. 승자는 아무거나 이경을 하나 선택한다. 그 세션 동안 해당하는 이경으로 이동할 수 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "XEST"
+output = "극한 환경 장면 표(2) ＞ 상하좌우조차 알 수 없는 완전한 어둠. 이 장면에 등장한 PC 중 한 명은 《빛》으로 판정한다. 판정에 성공하면 「어둠」 마소 2점을 획득하지만, 실패하면 「차단」 상태이상에 걸린다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "XEST"
+output = "극한 환경 장면 표(7) ＞ 가혹한 자연 환경 탓에 여러분은 궁지에 몰렸다. 이 장면에 등장한 PC는 「힘」≪원환≫(으)로 판정한다. 성공하면 어떻게든 쓸 만한 것을 찾아서 임의로 선택한 마소가 1점 발생한다. 실패하면 자신이 입은 부상이 시간과 공간을 넘어 앵커에게 불행을 가져다준다. 「운명 변전」이 발생한다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "XEST"
+output = "극한 환경 장면 표(12) ＞ 고막을 때리는 굉음이 울려 퍼진다. 말을 통한 의사 소통은 포기하는게 나을 것 같다. 《선율》로 판정한다. 실패하면 충전한 마소 중에서 임의로 선택한 것을 2점 감소한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "IWST"
+output = "내면 세계 장면 표(2) ＞ 드러난 피부와 뜨거운 숨결이 가득한 장소. 무수한 남녀가 정신 없이 육욕을 탐하고 있다. 이 장면에 등장한 PC 중 한 명은 《에로스》로 판정할 수 있다. 판정에 성공하면 【일시적 마력】을 1점 획득하고, 실패하면 【마력】이 2점 감소한다. 누간가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "IWST"
+output = "내면 세계 장면 표(7) ＞ 밤길. 뒤에서 검은 무언가가 아른거리며 쫓아온다. 명확한 모습도 알아볼 수 없건만, 굉장히 무섭다. 이 장면에 등장한 PC는 「힘」≪원환≫(으)로 판정한다. 판정에 성공하면 원하는 마소 2점을 획득할 수 있다. 판정에 실패하면 아른거리는 형체의 검은 무언가가 자신의 앵커 앞에 나타난다. 「운명 변전」이 발생한다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "IWST"
+output = "내면 세계 장면 표(12) ＞ 어딘지 알 수 없는 공간. 당신이 가장 사랑하는 인물이 눈앞에 나타난다. 이 장면에 등장한 PC 중 한 명은 《정열》로 판정할 수 있다. 판정에 성공하면 임의의 앵커에 대한 【운명】을 1점 상승시킬 수 있다. 판정에 실패하면 「운명 변전」이 발생한다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MCST"
+output = "마법 도시 장면 표(2) ＞ 갑자기 폭발이 일어난다. 누군가가 실험에 실패한 모영이다. 「타짐」 상태이상에 걸린 후, 「힘」 마소를 2점 획득한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MCST"
+output = "마법 도시 장면 표(7) ＞ 광장. 마법사끼리 다투기 시작하더니, 결국 마법까지 주고받으며 싸운다. 이 장면에 등장한 PC는 「힘」≪원환≫(으)로 판정한다. 판정에 성공하면 원하는 마소를 2점 획득하지만, 실패하면 이 장소에서 사용된 마법의 영향이 시공을 넘어 앵커에게 미친다. 「운명 변전」이 발생한다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MCST"
+output = "마법 도시 장면 표(12) ＞ 투기장. 마법사가 강화한 원형이나 환수를 싸움 붙이고 있다. 장면 플레이어의 PC는 한 번만 기본 룰북에 실린 랭크4 이하의 〈서젹경〉이나 〈월경자〉에게 마법전을 신청할 수 있다. 여기에 승리하면 「프라이즈 표」를 사용할 수 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WDST"
+output = "사후 세계 장면 표(2) ＞ 한적한 거리. 그림자 같은 형상의 사람들이 때때로 왕래한다. 여기에서는 죽은 캐릭터를 만날 수 있다. 이 장면에 등장한 PC 중 한 명은 상흔을 하나 극복할 수 있다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WDST"
+output = "사후 세계 장면 표(6) ＞ 바닥이 하얀 구름으로 이루어진 장소. 구름 틈새로는 현세로 추정되는 풍경이 보인다. 「힘」≪원환≫(으)로 판정한다. 판정에 성공하면 이 세션 동안 한 번만 판정에서 굴린 주사위를 다시 굴릴 수 있다. 실패하면 시공을 넘어 앵커가 사후 세계를 엿보고 만다. 「운명 변전」이 발생한다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WDST"
+output = "사후 세계 장면 표(12) ＞ 어딘지 알 수 없는 공간. 당신이 가장 사랑하는 인물이 눈앞에 나타난다. 이 장면에 등장한 PC 중 한 명은 《정열》로 판정할 수 있다. 판정에 성공하면 임의의 앵커에 대한 【운명】을 1점 상승시킬 수 있다. 판정에 실패하면 「운명 변전」이 발생한다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "LWST"
+output = "미궁 세계 장면 표(2) ＞ 석제 타일이 깔려 있는 텅 빈 방. 바닥에 그린 마법진이 묘하게 기분 나쁜 빛을 내고 있다. 이 장면에 등장한 PC 중 한 명은 《이계》로 판정할 수 있다. 판정에 성공하면 그 마법진을 지구로 귀환하는 마법문으로 사용할 수 있다. 판정에 실패하면 마법문에서 나타난 미지의 괴물에게 습격받아 이 장면에 등장한 PC 전원의 【마력】이 1D6점 감소한다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "LWST"
+output = "미궁 세계 장면 표(7) ＞ 괴물이 나타나 여러분을 덮친다. 이 장면에 등장한 PC 전원은 「힘」≪원환≫(으)로 판정한다. 판정에 성공하면 괴물을 쓰러트리며, 임의로 선택한 마소가 1점 발생한다. 판정에 실패하면 싸우다 입은 부상이 사간과 공간을 넘어 앵커에게 불행을 가져다준다. 「운명 변전」이 발생한다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "LWST"
+output = "미궁 세계 장면 표(12) ＞ 막다른 길의 벽에는 언뜻 보기에 의미를 알 수 없는 문자가 나열되어 있다. 이 앞으로 가려면 이 문자의 수수께끼를 풀어야 한다는 걸까? 이 장면에 등장한 PC 중 한 명은 《수수께끼》로 판정할 수 있다. 판정에 성공하면 공개된 핸드아웃 중 원하는 것의 【비밀】을 공개할 수 있다. 실패하면 방에 설치된 함정이 발동해서 이 장면이 강제로 종료된다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "STB"
+output = "대형판 장면 표(2) ＞ 여기가 아닌 어딘가. 마법의 힘이 충만한 이경 중 한곳으로 한순간의 여행을 떠난다. 그 장면에 별 마소가 1점 발생한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "STB"
+output = "대형판 장면 표(7) ＞ 주위에서 <단장>이 일으킨 마법 재액이 발생한다. 「힘」≪원환≫(으)로 판정한다. 성공하면 그 장면에 원하는 마소가 1점 발생한다. 실패하면 「운명 변전 표」를 사용한다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "STB"
+output = "대형판 장면 표(12) ＞ 비극의 예감. 가족의 불행, 친구의 절망, 동료의 죽음….. 이대로 내버려두면 일어날지도 모를 사건의 환각이 보인다. 그 장면에 어둠 마소가 1점 발생한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MGCT"
+output = "운명 변전 표 「마법사 재액」(1) ＞ 혐오. 우자들을 혐오하고, 〈대법전〉의 방식에 의문을 품게 된다. 이 불행이 두 번 발생하면, 그 마법사는 사망하는 대신 〈서적경〉이 되어 NPC가 된다. 이 불행이 〈서적경〉에게 내렸을 때는 불행이 무효가 된다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MGCT"
+output = "운명 변전 표 「마법사 재액」(6) ＞ 소모. 【마력】이 1점 감소한다. 이 불행이 두 번 발생해도 사망하지 않는다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MBST"
+output = "마법 서가 장면 표(2) ＞ <금서> 보관고의 입장을 허가받았다. 몇 겹의 결계와 예리한 눈매의 서경들이 눈에 띈다. 그 틈을 노려 〈금서〉가 습격해 왔다! 이 장면에 등장한 PC 중 한 명만 《흐름》(으)로 판정을 한다. 실패하면 【마력】을 3점 감소한다. 성공하면 【일시적 마력】을 3점 얻는다. 누군가가 판정을 하면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MBST"
+output = "마법 서가 장면 표(4) ＞ 도시의 도서관. 어느새 인계로 돌아와버린 것 같다. 이 장면에 등장한 PC 중 한 명은 임의의 캐릭터를 한 명 골라 사건 표에서 주사위를 1회 굴리고, 그 효과를 적용한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MBST"
+output = "마법 서가 장면 표(7) ＞ 황폐해진 방. 텅 빈 책장이 쓰러져 있는 모습이 눈에 띈다. 이것은 〈대파괴〉의 영향일까......? 「별」≪이계≫(으)로 판정한다. 실패하면 시공을 넘어 앵커에게 영향이 나타난다. 「운명 변전」이 발생한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MBST"
+output = "마법 서가 장면 표(11) ＞ 마도서 열람실. 몇 명의 마법사가 열심히 마도서를 읽고 있다. 무작위로 특기 하나를 선택한다. 이 장면에 등장한 PC 중 한 명은 「별」≪이계≫(으)로 판정한다. 판정에 성공하면 습득한 마법 하나를 습득 가능한 다른 마법으로 바꿀 수 있다. 실패하면 「봉인」 상태이상에 걸린다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MBST"
+output = "마법 서가 장면 표(12) ＞ 책장과 책장 사이에 갑자기 문이 나타난다. 이 문은 이경으로 이어지는 출입구다. 도대체 어디로 연결되어 있는 걸까? 이경 장면 표 중 하나를 무작위로 선택해서 2D6을 굴리고, 해당하는 효과를 적용한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MAST"
+output = "마법 학원 장면 표(2) ＞ 눈앞에 아름다운 흑룡이 나타났다. 학원장 자날파토스다. 대체 무슨 말을 하러 나타난 걸까?"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MAST"
+output = "마법 학원 장면 표(3) ＞ 갑자기 무언가가 덤벼들었다! 학생이 원형 소환에 실패한 모양이다. 이 장면에 등장한 PC 중 한 명만 ≪흐름≫(으)로 판정한다. 판정에 실패하면 【마력】이 2점 감소한다. 판정에 성공하면 【일시적 마력】을 3점 얻는다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MAST"
+output = "마법 학원 장면 표(4) ＞ 이곳은...... 여자 기숙사? 이 장면에 남성 PC가 등장했다면 그 남성 PC는 ≪비늘≫(으)로 판정한다. 실패하면 「봉인」 상태이상에 걸린다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MAST"
+output = "마법 학원 장면 표(7) ＞ 문을 열며 나타난 것은 잘 아는 상대였다. 무슨 이유인지 학원에 들어와버린 모양이다. 「힘」≪물≫(으)로 판정한다. 여기에 실패하면 「운명 변전」이 발생한다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MAST"
+output = "마법 학원 장면 표(10) ＞ 수업 중인 교실. 강사가 불러낸 원형이 이쪽으로 날아온다. 이 장면에 등장한 PC 중 한 명만 「어둠」≪죽음≫(으)로 판정한다. 판정에 실패하면 【마력】이 1점 감소한다. 성공하면 그 특기의 정령을 소환할 수 있다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MAST"
+output = "마법 학원 장면 표(11) ＞ 학생이 뭔가 마법을 보여달라고 청한다. 이 장면에 등장한 PC 중 한 명만 ≪추억≫(으)로 판정한다. 판정에 실패하면 「불운」 상태이상에 걸린다. 성공하면 「꿈」 마소를 2점 획득한다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "MAST"
+output = "마법 학원 장면 표(12) ＞ 자습실. 학생들이 필사적으로 마도서의 내용을 이해하려고 애쓴다. 이 장면에 등장한 PC 중 한 명만 ≪천공≫(으)로 판정한다. 판정에 성공하면 원하는 마소를 2점 획득한다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TCST"
+output = "크레도의 탑 장면 표(2) ＞ 눈 앞에 한 소녀가 나타난다. 잠자는 공주의 우두머리, 라투나다. 항상 잠만 자고 있을 그녀가 나타나다니, 도대체 무엇을 전하러 온 걸까?"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TCST"
+output = "크레도의 탑 장면 표(3) ＞ 갑자기 무언가가 습격해 왔다! 미숙한 마법사가 원형 소환에 실패한 모양이다. 이 장면에 등장한 PC 중 한 명만 ≪불≫(으)로 판정한다. 판정에 실패하면 【마력】이 2점 감소한다. 판정에 성공하면 【일시적 마력】을 3점 얻는다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TCST"
+output = "크레도의 탑 장면 표(4) ＞ 말을 걸어온 천애의 예언자가 불행한 미래를 예언한다. 이 장면에 등장한 PC 중 한 명만 ≪잠≫(으)로 판정한다. 판정에 실패하면 【마력】이 1점 감소한다. 판정에 성공하면 「꿈」 마소를 1점 획득할 수 있다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TCST"
+output = "크레도의 탑 장면 표(7) ＞ 이런 곳에 있을 리가 없는 인물이 당신의 앞에 나타난다. 잠자는 공주의 꿈속에 우연히 들어와버린 모양이다. 「힘」≪물≫(으)로 판정한다. 실패하면 「운명 변전」이 발생한다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TCST"
+output = "크레도의 탑 장면 표(12) ＞ 갑자기 눈앞에 문이 나타난다. 이 문은 이경으로 이어지는 출입구다. 도대체 어디로 연결되어 있는 걸까? 이경 장면 표 중 하나를 무작위로 선택해서 2D6을 굴리고, 해당하는 효과를 적용한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "PWST"
+output = "병행 세계 장면 표(2) ＞ 카페의 테이블. FM 라디오에서는 작년에 해산했을 밴드가 어제 발표한 신곡이 흘러나오고 있다. 이 장면에 등장한 PC 중 한 명은 「시간의 흐름 표」에서 주사위를 한번 굴려 효과를 적용한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "PWST"
+output = "병행 세계 장면 표(3) ＞ 인파로 북적이는 길거리. 건너편에서 당신과 쏙 빼닮은 인물이 걸어온다. 저것은 이 세계의 당신 자신일까? PC 중 한 명은 「짐승」≪꽃≫(으)로 판정한다. 판정에 성공하면 원하는 마소를 2점 획득하지만, 실패하면 「병마」 상태이상에 걸린다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "PWST"
+output = "병행 세계 장면 표(7) ＞ 알고 지내는 인물의 집 앞. 현관에서 낯선 사람이 나타나 이쪽을 수상하다는 듯이 바라본다. 이 사람, 혹시......? 「꿈」≪추억≫(으)로 판정한다. 판정에 실패하면 「운명 변전」이 발생한다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "PWST"
+output = "병행 세계 장면 표(11) ＞ 초등학교 앞을 지나간다. 음악실 창 너머로 낯선 음악가의 초상화가 보인다. ≪미소≫(으)로 판정한다. 판정에 실패하면 「봉인」 상태이상에 걸린다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "PWST"
+output = "병행 세계 장면 표(12) ＞ 눈앞에서 예전에 경험한 적이 있는 일이 일어난다. 이 세계에서는 지금부터 일어나는 일이다. 이 장면에 등장한 PC 중 한 명은 이 장면 동안 판정에 +1의 수정을 적용한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "PAST"
+output = "종말 장면 표(2) ＞ 밤. 비를 피하러 사원에 들어간다. 위험한 기척은 느껴지지 않는 것을 보니 느긋하게 쉴 수 있을 것 같다. 조용한 시간이 흘러간다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "PAST"
+output = "종말 장면 표(5) ＞ 밤. 이미 폐허가 되어버린 먼지투성이 도시. 〈우자〉가 허무 빙의자에게 습격당하고 있다. 이 장면에 등장한 PC 중 한 명은 「별」≪정적≫(으)로 판정할 수 있다. 성공하면 구출에 성공하며, 도와준 〈우자〉에 대해 임의의 속성으로 운명을 1점 획득한다. 실패하면 【마력】을 3점 잃는다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "PAST"
+output = "종말 장면 표(12) ＞ 저녁. 녹슨 선로. 그 앞쪽까지 대량의 해골이 아무렇게나 굴러다니고 있다. 허무 빙의자가 하나 나타나 덤벼든다. 마법전을 개시한다. 2라운드가 경과할 때까지는 낮, 이후의 라운드는 밤으로 처리한다. 이 마법전은 게임 동안 한 번만 발생한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "GBST"
+output = "이세계 술집 장면 표(2) ＞ 주인장인 뇌신에게 트집을 잡힌다. 이 장면에 등장한 PC 중 한 명은 뇌신을 상대로 「사건 표」에서 주사위를 굴린다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "GBST"
+output = "이세계 술집 장면 표(7) ＞ 손님 한 사람이 억지로 술을 먹였다. 뭐 이렇게 독한 술이 다 있지? 「별」≪정적≫(으)로 판정한다. 실패하면 「운명 변전」이 발생한다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "GBST"
+output = "이세계 술집 장면 표(12) ＞ 아름다운 여신이 거울을 들여다보고 있다. 듣자하니 운명이 비치는 거울이라는 모양인데...... 이 장면에 등장한 PC 중 한 명은 《미래》로 판정할 수 있다. 성공하면 원하는 앵커와의 【운명】이 1점 상승한다. 성공 여부와 관계없이 이 효과는 한 번만 발생한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "SLST"
+output = "별빛 장면 표(2) ＞ 차장이 나타나 당신이 가진 「표」는 효력이 없다고 알린다. 다른 승객의 눈이 따갑다. 이 장면에 등장한 PC 중 한 명은 다시 한 번 「표」를 조달해야 한다. 혼의 특기 판정을 성공할 때까지 반복해야 한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "SLST"
+output = "별빛 장면 표(10) ＞ 「여기 앉아도 될까요?」 당신의 옆자리에 〈서적경〉이 앉는다. 「짐승」≪이빨≫(으)로 판정한다. 판정에 성공하면 공개된 핸드아웃 중에서 원하는 것을 골라 해당하는 【비밀】을 공개할 수 있다. 누군가가 판정을 했다면 성공 여부와 관계없이 이 효과는 없어진다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "SLST"
+output = "별빛 장면 표(12) ＞ 옆 차량에서 누군가가 넘어왔다. 놀랍게도 당신의 앵커다. 이 장면에 등장한 PC를 무작위로 한 명 선택하고, 그 PC의 앵커 중에서 이 이경에 존재하지 않는 〈우자〉 앵커를 무작위로 한 명 선택한다. 그 앵커가 원래 세계로 무사히 돌아갈 수 있었다면 게임을 종료할 때 공적점을 1점 획득한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WLAT"
+output = "세계 법칙 추가 표(1) ＞ 세계 법칙 「낙원」. 이 「정차역」은 아름답고 마음에 위안이 되는 곳이다. 이 「정차역」에 내린 〈우자〉는 그 장소에 매료되어 이곳에서 평생을 보내게 된다. 「각인에 따른 풍경」에서 지정한 특기로 판정해서 성공하면 이를 말릴 수 있다. 이 판정은 대상이 되는 〈우자〉마다 한 번씩만 할 수 있다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WLAT"
+output = "세계 법칙 추가 표(6) ＞ 세계 법칙 「마법문」. 다른 이경으로 통하는 입구가 있다. 「각인에 따른 풍경」에서 지정한 특기로 판정해서 성공하면 그 마법문을 발견할 수 있다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WMT"
+output = "떠돌이 괴물 표(1) ＞ 트롤이 이끄는 오크와 고블린의 대군과 만난다. 수백 마리의 괴물들이 야만적인 고함 소리와 함께 마버사들을 덮친다. 장면에 등장한 PC 전원은 ≪정적≫(으)로 판정한다. 전원의 판정을 마쳤다면, 실패한 PC는 1D6점의 대미지를 입는다. 이때, 판정에 성공한 PC의 수만큼 대미지 수치를 경감할 수 있다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WMT"
+output = "떠돌이 괴물 표(4) ＞ 백은 갑옷을 입은 기사가 나타난다. 기사는 일대일 결투를 신청했다. 장면에 등장한 PC 중에서 대표 한 명을 선택한다. 대표는 ≪사랑≫(으)로 판정해야 한다. 실패하면 대표가 5점의 대미지를 입는다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "WMT"
+output = "떠돌이 괴물 표(6) ＞ 검은 로브를 걸친 유귀가 나타난다. 말라 죽은 나무처럼 가느다란 팔을 치켜 올리더니, 저주의 말을 외친다. 유귀의 【마력】은 4점. 장면에 등장한 PC 전원은 ≪바보≫(으)로 판정한다. 실패한 PC는 「불행」 상태이상에 걸리며, 운명 변전이 발생한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "FFT"
+output = "낙화 표(1) ＞ 육체가 초목이 시들 듯이 붕괴한다. 견딜 수 없을 만큼 고통스러운 것 같다. 〈영원〉은 의미조차 없는 단말마로 듣는 이를 괴롭히며 죽는다. 〈영원〉을 앵커로 두고 있다면, 그 앵커는 상흔이 된다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "FFT"
+output = "낙화 표(6) ＞ 몸이 시들며 「씨앗」을 떨군다. 하지만 재생하지는 않는다. 땅에 심어주면 종류야 어떻든 식물로서 싹을 틔울 것이다(〈영원〉을 앵커로 두고 있다면 그 앵커를 잃는다. 상흔이 되지는 않는다)."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "OLST"
+output = "구 도서관 장면 표(2) ＞ 曲がり角。唐突に〈禁書〉が現れ、襲いかかってきた！このシーンに登場するPCは、「별」≪황금≫で判定を行う。失敗すると、【魔力】を3点失う。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "OLST"
+output = "구 도서관 장면 표(7) ＞ 破壊された魔導書が、山のように積み重なる場所。本の山に隠れていた〈断章〉が襲い掛かってくる。このシーンに登場するPCは、「힘」≪자유≫で判定を行う。成功すると、〈断章〉を倒し、好きな魔素を一個手に入れる。失敗すると、時空を超えてアンカーに影響が現れる。「運命変転」が発生する。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "OLST"
+output = "구 도서관 장면 표(11) ＞ どこからか湧き出した水が、床の上に泉を作っている場所。泉の上に何者かの呼び出した元型が浮かんでいる。「짐승」≪외침≫で判定を行う。成功すると、【一時的魔力】を1点手に入れる。失敗すると、攻撃され、【魔力】が1点減少する。誰かが判定すると、成否にかかわらず、この効果はなくなる。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "OLST"
+output = "구 도서관 장면 표(12) ＞ なぜ、君がここに？扉を開けると、そこにはPCのアンカーがいた。シーンプレイヤーのアンカーの中から、ランダムに一人を選ぶ。そのアンカーが登場する。シーンプレイヤーは、そのアンカーに「事件」を行っても、行動済みにならない。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TPTB"
+output = "대형판 시간의 흐름 표(1) ＞ 파란만장한 인생을 보낸다. 이 시대에 일어난 유명한 사건의 배후에는 많은 마법적 존재가 암약했다. 당신도 그 사건에 관여하여 〈금서〉나 〈서적경〉들과 싸웠다. 「짐승」≪외침≫(으)로 판정한다. 판정에 성공하면 세션을 종료할 때 공적점을 1점 더 획득한다. 실패했다면 자신에게 「운명 변전」이 발생한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TPTB"
+output = "대형판 시간의 흐름 표(2) ＞ 모험의 나날을 보내던 도중에 큰 행복이 찾아온다. 「어둠」≪죽음≫(으)로 판정한다. 판정에 성공하면 자신의 앵커가 짊어지고 있는 불행이나 자신이 짊어지고 있는 상흔 하나를 무효로 한다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "TPTB"
+output = "대형판 시간의 흐름 표(6) ＞ 날마다 연찬을 거듭해서 마법 수행에 정진했다. 만약 바란다면 장서 칸에 있는 마법을 자신이 습득할 수 있는 다른 마법으로 변경할 수 있다. 만약 마소가 충전되어 있던 마법을 미습득 상태로 되돌렸다면, 그 마소는 잃는다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "FLT"
+output = "그 후의 전개 표(1,1) ＞ 성취자는 사악한 마법의 힘에 이끌린다. 성취자가 그 세션에서 <단장>에게 빙의당했거나 마법 재액에 희생당했다면 【타락치】가 1점 상승하며, 타락 체크를 해야 한다. 타락 체크에 실패하면 성취자는 목숨을 잃고, 해당하는 PC의 상흔이 된다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "FLT"
+output = "그 후의 전개 표(3,6) ＞ 성취자는 자신의 소원을 들어준 것이 PC라는 것을 알아차린다. 성취자의 【타락치】는 해당 PC가 성취자에 대해 맺은 【운명】 수치와 같아진다. 만약 이 효과로 【타락치】가 이전보다 늘었다면 타락 체크를 해야 한다. 타락 체크에 실패하면 성취자는 우자가 아니게 되며, 마법사가 된다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "FLT"
+output = "그 후의 전개 표(6,1) ＞ 성취자는 갑작스럽게 자신에게 찾아온 행운에 죄책감을 느끼게 된다. 만약 성취자의 【타락치】가 1 이상이라면 타락 체크를 해야 한다. 타락 체크에 실패하면 성취자는 「운명 변전 표 『정신계 재액』」을 사용해서 해당하는 불행에 휘말린다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "FLT"
+output = "그 후의 전개 표(6,6) ＞ 성취자는 믿으면 꿈이 이루어진다고 여기게 되어 조금 긍정적으로 바뀐다. PC는 공적점을 1점 획득한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:Korean"
+input = "2D6>=? 目標値?でバグらない"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
