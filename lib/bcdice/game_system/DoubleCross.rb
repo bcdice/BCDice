@@ -215,64 +215,42 @@ module BCDice
 
       private
 
-      # OD Tool式の成功判定コマンドの正規表現
-      #
-      # キャプチャ内容は以下のとおり:
-      #
-      # 1. ダイス数
-      # 2. 修正値
-      # 3. クリティカル値
-      # 4. 達成値
-      DX_OD_TOOL_RE = /\A(\d+)DX([-+]\d+(?:[-+*]\d+)*)?@(\d+)(?:>=(\d+))?\z/io.freeze
-
-      # 疾風怒濤式の成功判定コマンドの正規表現
-      #
-      # キャプチャ内容は以下のとおり:
-      #
-      # 1. ダイス数
-      # 2. クリティカル値
-      # 3. 修正値
-      # 4. 達成値
-      DX_SHIPPU_DOTO_RE = /\A(\d+)DX(\d+)?([-+]\d+(?:[-+*]\d+)*)?(?:>=(\d+))?\z/io.freeze
-
       # 成功判定コマンドの構文解析を行う
       # @param [String] command コマンド文字列
       # @return [DX, nil]
       def parse_dx(command)
-        case command
-        when DX_OD_TOOL_RE
-          return parse_dx_od(Regexp.last_match)
-        when DX_SHIPPU_DOTO_RE
-          return parse_dx_shippu_doto(Regexp.last_match)
-        end
-
-        return nil
+        parse_dx_od(command) || parse_dx_shippu_doto(command)
       end
 
       # OD Tool式の成功判定コマンドの正規表現マッチ情報からノードを作る
-      # @param [MatchData] m 正規表現のマッチ情報
+      # @param command [String]
       # @return [DX]
-      def parse_dx_od(m)
-        num = m[1].to_i
-        modifier = m[2] ? ArithmeticEvaluator.eval(m[2]) : 0
-        critical_value = m[3] ? m[3].to_i : 10
+      def parse_dx_od(command)
+        parser = Command::Parser.new(/\d+DX/, round_type: round_type)
+                                .enable_critical
+                                .restrict_cmp_op_to(nil, :>=)
+        parsed = parser.parse(command)
+        return nil unless parsed
 
-        target_value = m[4]&.to_i
+        num = parsed.command.to_i
+        critical_value = parsed.critical || 10
 
-        return self.class::DX.new(num, critical_value, modifier, target_value)
+        self.class::DX.new(num, critical_value, parsed.modify_number, parsed.target_number)
       end
 
       # 疾風怒濤式の成功判定コマンドの正規表現マッチ情報からノードを作る
       # @param [MatchData] m 正規表現のマッチ情報
       # @return [DX]
-      def parse_dx_shippu_doto(m)
-        num = m[1].to_i
-        critical_value = m[2] ? m[2].to_i : 10
-        modifier = m[3] ? ArithmeticEvaluator.eval(m[3]) : 0
+      def parse_dx_shippu_doto(command)
+        parser = Command::Parser.new(/\d+DX\d*/, round_type: round_type)
+                                .restrict_cmp_op_to(nil, :>=)
+        parsed = parser.parse(command)
+        return nil unless parsed
 
-        target_value = m[4]&.to_i
+        num, critical_value = parsed.command.split("DX", 2).map {|x| x&.to_i }
+        critical_value ||= 10
 
-        return self.class::DX.new(num, critical_value, modifier, target_value)
+        self.class::DX.new(num, critical_value, parsed.modify_number, parsed.target_number)
       end
 
       # 感情表を振る
