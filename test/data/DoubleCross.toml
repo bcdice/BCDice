@@ -1689,6 +1689,34 @@ rands = []
 
 [[ test ]]
 game_system = "DoubleCross"
+input = "(1+1+1)DX(8-0)+4+-4 埋め込み対応"
+output = "(3DX8) ＞ 10[2,4,9]+4[4] ＞ 14"
+rands = [
+    { sides = 10, value = 4 },
+    { sides = 10, value = 9 },
+    { sides = 10, value = 2 },
+    { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "(1+1+1)DX@(8-0)+4+-4 埋め込み対応"
+output = "(3DX8) ＞ 10[2,4,9]+4[4] ＞ 14"
+rands = [
+    { sides = 10, value = 4 },
+    { sides = 10, value = 9 },
+    { sides = 10, value = 2 },
+    { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "10DX10@10 クリティカル値が両方書いてあるのはパースエラー"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DoubleCross"
 input = "ET"
 output = "感情表(69-7) ＞ 信頼(しんらい) - ○脅威(きょうい)"
 rands = [
