@@ -247,7 +247,7 @@ module BCDice
         parsed = parser.parse(command)
         return nil unless parsed
 
-        num, critical_value = parsed.command.split("DX", 2).map {|x| x&.to_i }
+        num, critical_value = parsed.command.split("DX", 2).map { |x| x&.to_i }
         critical_value ||= 10
 
         self.class::DX.new(num, critical_value, parsed.modify_number, parsed.target_number)
