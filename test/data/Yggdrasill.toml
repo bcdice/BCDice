@@ -8,6 +8,14 @@ rands = [
 
 [[ test ]]
 game_system = "Yggdrasill"
+input = "cf5+1d6-2"
+output = "(CF5+1D6-2) ＞ 計【 5 】 ： 5+2[2]-2"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
 input = "cf1d6"
 output = "(CF1D6) ＞ 計【 11 】 ： 6[6] (cr:1)+5[5] (cr:計1回)"
 rands = [
@@ -1007,6 +1015,12 @@ rands = [
 
 [[ test ]]
 game_system = "Yggdrasill"
+input = "cfg10+2D6-1D6 マイナスのダイスロールは受け付けない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Yggdrasill"
 input = "ra50"
 output = "(RA50) 暴走Lv.1(1) ＞ 発作【自爆÷2ダメージ。（自身に能力攻撃ロールダメージ÷2）。防御無視】"
 rands = [
@@ -1252,6 +1266,12 @@ output = "(RA110) 臨界ロール(5) ＞ 自壊【自爆ダメージ。自身の
 rands = [
   { sides = 6, value = 5 },
 ]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra150"
+output = "(RA150) ＞ 因子崩壊【キャラロスト】"
+rands = []
 
 [[ test ]]
 game_system = "Yggdrasill"
