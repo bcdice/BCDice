@@ -1726,7 +1726,7 @@ rands = [
 
 [[ test ]]
 game_system = "Yggdrasill"
-input = "fatal1"
+input = "fatal2"
 output = "因子変化判定(1) ＞ 能力変化【能力がまったく別ものに変化する】 ＞ 能力タイプ(3) ＞ トランサー"
 rands = [
   { sides = 6, value = 1 },
@@ -1735,7 +1735,7 @@ rands = [
 
 [[ test ]]
 game_system = "Yggdrasill"
-input = "fatal1"
+input = "fatal2"
 output = "因子変化判定(3) ＞ 因子抑制【能力変化は起こらない】"
 rands = [
   { sides = 6, value = 3 },
@@ -1743,7 +1743,7 @@ rands = [
 
 [[ test ]]
 game_system = "Yggdrasill"
-input = "fatal1"
+input = "fatal2"
 output = "因子変化判定(4) ＞ 因子抑制【能力変化は起こらない】"
 rands = [
   { sides = 6, value = 4 },
@@ -1751,7 +1751,7 @@ rands = [
 
 [[ test ]]
 game_system = "Yggdrasill"
-input = "fatal1"
+input = "fatal2"
 output = "因子変化判定(5) ＞ 能力喪失・能力覚醒【能力を持つものは失い、ノーマルは能力に覚醒する。喪失者はノーマルのキャラ特性ポイントを1p獲得する。覚醒者はノーマルのキャラ特性ポイントを1p失い、キャラ特性を6つ取得していた場合は1つ喪失する】 ＞ 能力タイプ(6) ＞ 好きな能力タイプを選択。ノーマル選択でも可"
 rands = [
   { sides = 6, value = 5 },
@@ -1760,7 +1760,7 @@ rands = [
 
 [[ test ]]
 game_system = "Yggdrasill"
-input = "fatal1"
+input = "fatal2"
 output = "因子変化判定(6) ＞ 能力喪失・能力覚醒【能力を持つものは失い、ノーマルは能力に覚醒する。喪失者はノーマルのキャラ特性ポイントを1p獲得する。覚醒者はノーマルのキャラ特性ポイントを1p失い、キャラ特性を6つ取得していた場合は1つ喪失する】 ＞ 能力タイプ(1) ＞ サイキッカー"
 rands = [
   { sides = 6, value = 6 },
@@ -1769,7 +1769,7 @@ rands = [
 
 [[ test ]]
 game_system = "Yggdrasill"
-input = "fatal2"
+input = "fatal1"
 output = "後遺症判定(1) ＞ 聴覚崩壊【聴覚に異常が起きる。幻聴、難聴、失聴、など】"
 rands = [
   { sides = 6, value = 1 },
@@ -1777,7 +1777,7 @@ rands = [
 
 [[ test ]]
 game_system = "Yggdrasill"
-input = "fatal2"
+input = "fatal1"
 output = "後遺症判定(6) ＞ 記憶崩壊【記憶に異常が起こる。記憶障害、記憶喪失、など】"
 rands = [
   { sides = 6, value = 6 },

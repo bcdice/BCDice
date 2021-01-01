@@ -12,28 +12,47 @@ module BCDice
       SORT_KEY = "こうてつのゆくとらしる"
 
       HELP_MESSAGE = <<~HELP_MESSAGE
-        用途に合わせて判定式の頭に、以下を記述してください。
-        h：先頭につけると「固定値＋ダイス目」後に半減処理をする。cf系にも対応済み
-        cf：クリティカルファンブルアリ
-        cfl：付加効果【幸運】付与
-        cfg：付加効果【ギャンブル】付与
-        ra：暴走ロール。「ra50」のように、暴走レベルに合わせた暴走結果を出力する
-        so：スペックオーバー判定
-        down：気絶判定
-        cont：コンティニュー判定
-        risk：リスク判定
-        guki：偶奇判定
-        cond：コンディションロール
-        cft/cflt/cfgt：応急処置判定。左から通常判定、幸運判定、ギャンブル判定
-        treat：応急処置の回復量算出。「treat18」のように達成値を記入する
-        allr：オールレンジ発動ロール
-        pafe：パーフェクト発動ロール
-        fatal：暴走崩壊判定。fatal1で因子変化、fatal2で後遺症決定。あなたがこのコマンドを使用する事がない事を祈っています
-        mikuzi：浅草寺みくじ。1d100であなたの運勢を占います
+        ■ 行為判定 (CFx+nD6)
+          クリティカルとファンブルによるダイス追加を行う
+          先頭のcfを変更することで、動作が変更される
+          hcf: 達成値が半減
+          cfl: 付加効果【幸運】を付与
+          cfg: 付加効果【ギャンブル】を付与
+          cft: 【応急処置】判定 (tは末尾に記入してください)
+          例）
+            CF10+1D6, HCFL6+2D6, CFG11+1D6-2, cfgt10+1D6
+
+        ■ 暴走ロール (RAx)
+          暴走率xの暴走ロールおよび臨界ロールを行う
+          例）
+            RA50, RA110, RA150
+
+        ■ SOペナルティ表 (SOx)
+          スペック数がxオーバーした際のペナルティロールを行う
+          例）
+            SO1, SO5
+
+        ■ 【応急処置】 (TREATx)
+          達成値xの【応急処置】による回復量を決定する
+          例）
+            TREAT1, TREAT18
+
+        ■ その他の判定および表
+          down：気絶判定
+          cont：コンティニュー判定
+          risk：リスク判定
+          guki：偶奇判定
+          cond：コンディションロール
+          allr：オールレンジ発動ロール
+          pafe：パーフェクト発動ロール
+          stag：ステージ決定（電脳ロワイヤル用）
+          fatal1：後遺症
+          fatal2：因子変化ロール
+          mikuzi：浅草寺みくじ。1d100であなたの運勢を占います
       HELP_MESSAGE
 
       register_prefix(
-        'H?CF', 'H', 'RA', 'SO', 'DOWN', 'CO(NT)?',
+        'H?CF', 'RA', 'SO', 'DOWN', 'CO(NT)?',
         'RISK', 'GUKI', 'COND', 'TREAT',
         'ALLR', 'PAFE', 'FATAL', 'STAG', 'MIKUZI'
       )
@@ -135,13 +154,6 @@ module BCDice
           end
 
         dice_list.count { |x| x <= threshold }
-      end
-
-      def roll_half(command)
-        return nil unless command.start_with?("H")
-
-        expr = command.delete_prefix("H")
-        CommonCommand::AddDice.eval("(#{expr})/2", self, @randomizer)
       end
 
       def roll_ra(command)
@@ -514,7 +526,7 @@ module BCDice
             '覚醒発動【（能力精度÷３）＋３Ｄ６を加える】'
           ]
         ),
-        "FATAL2" => DiceTable::Table.new(
+        "FATAL1" => DiceTable::Table.new(
           "後遺症判定",
           "1D6",
           [
@@ -526,7 +538,7 @@ module BCDice
             '記憶崩壊【記憶に異常が起こる。記憶障害、記憶喪失、など】'
           ]
         ),
-        "FATAL1" => ChainTable.new(
+        "FATAL2" => ChainTable.new(
           "因子変化判定",
           "1D6",
           [
