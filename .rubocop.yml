@@ -24,6 +24,9 @@ Style/Lambda:
 Style/SpecialGlobalVars:
   EnforcedStyle: use_perl_names
 
+Style/FormatStringToken:
+  Enabled: false
+
 Layout/EndOfLine:
   EnforcedStyle: lf
 
