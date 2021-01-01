@@ -1,0 +1,1879 @@
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf1d6"
+output = "(CF1D6) ＞ 計【 2 】 ： 2[2]"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf5+1d6-2"
+output = "(CF5+1D6-2) ＞ 計【 5 】 ： 5+2[2]-2"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf1d6"
+output = "(CF1D6) ＞ 計【 11 】 ： 6[6] (cr:1)+5[5] (cr:計1回)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf1d6"
+output = "(CF1D6) ＞ 計【 17 】 ： 6[6] (cr:1)+11[6][5] (cr:計2回)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf1d6"
+output = "(CF1D6) ＞ 計【 -5 】 ： 1[1] (fa:1)-6[6]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf2d6"
+output = "(CF2D6) ＞ 計【 9 】 ： 9[5,4]"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf2d6"
+output = "(CF2D6) ＞ 計【 14 】 ： 9[3,6] (cr:1)+5[5] (cr:計1回)"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf2d6"
+output = "(CF2D6) ＞ 計【 17 】 ： 12[6,6] (cr:2)+5[3,2] (cr:計2回)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf2d6"
+output = "(CF2D6) ＞ 計【 3 】 ： 4[3,1] (fa:1)-1[1]"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf2d6"
+output = "(CF2D6) ＞ 計【 -3 】 ： 2[1,1] (fa:2)-5[1,4]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf3d6"
+output = "(CF3D6) ＞ 計【 11 】 ： 11[5,3,3]"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf3d6"
+output = "(CF3D6) ＞ 計【 16 】 ： 13[5,6,2] (cr:1)+3[3] (cr:計1回)"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf3d6"
+output = "(CF3D6) ＞ 計【 24 】 ： 16[4,6,6] (cr:2)+8[4,4] (cr:計2回)"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf3d6"
+output = "(CF3D6) ＞ 計【 32 】 ： 16[6,6,4] (cr:2)+16[5,6][5] (cr:計3回)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf3d6"
+output = "(CF3D6) ＞ 計【 7 】 ： 9[1,5,3] (fa:1)-2[2]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf3d6"
+output = "(CF3D6) ＞ 計【 3 】 ： 6[1,4,1] (fa:2)-3[1,2]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf10d6"
+output = "(CF10D6) ＞ 計【 43 】 ： 38[5,3,6,3,4,2,6,4,3,2] (cr:2)+5[4,1] (cr:計2回)"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf10d6"
+output = "(CF10D6) ＞ 計【 29 】 ： 34[4,2,5,5,3,2,4,4,1,4] (fa:1)-5[5]"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf10d6"
+output = "(CF10D6) ＞ 計【 15 】 ： 25[4,2,3,1,1,2,3,1,6,2] (fa:3)-12[4,3,5] (cr:1)+2[2] (cr:計1回)"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf10d6"
+output = "(CF10D6) ＞ 計【 52 】 ： 39[2,1,5,6,3,4,6,5,6,1] (fa:2)-5[2,3] (cr:3)+18[6,1,3][6][2] (cr:計5回)"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf10d6"
+output = "(CF10D6) ＞ 計【 74 】 ： 40[4,6,6,2,5,2,1,5,3,6] (fa:1)-5[5] (cr:3)+39[1,6,6][6,5][6][6][3] (cr:計8回)"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf10+10d6"
+output = "(CF10+10D6) ＞ 計【 43 】 ： 10+33[3,4,4,2,3,3,2,5,5,2]"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf10+10d6"
+output = "(CF10+10D6) ＞ 計【 40 】 ： 10+31[3,1,4,2,3,3,2,6,5,2] (fa:1)-5[5] (cr:1)+4[4] (cr:計1回)"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf10+10d6"
+output = "(CF10+10D6) ＞ 計【 51 】 ： 10+34[3,4,2,3,6,4,1,3,2,6] (fa:1)-5[5] (cr:2)+12[5,6][1] (cr:計3回)"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf10+10d6"
+output = "(CF10+10D6) ＞ 計【 30 】 ： 10+24[1,3,1,3,3,2,3,3,2,3] (fa:2)-4[1,3]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf5d6+10"
+output = "(CF5D6+10) ＞ 計【 26 】 ： 16[4,3,4,2,3]+10"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf5d6+10"
+output = "(CF5D6+10) ＞ 計【 36 】 ： 20[3,2,6,3,6]+10 (cr:2)+6[5,1] (cr:計2回)"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf5d6+10"
+output = "(CF5D6+10) ＞ 計【 37 】 ： 19[2,6,4,3,4]+10 (cr:1)+8[6][2] (cr:計2回)"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cf5d6+10"
+output = "(CF5D6+10) ＞ 計【 17 】 ： 12[2,3,1,4,2]+10 (fa:1)-5[5]"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl1d6"
+output = "(CFL1D6) ＞ 計【 3 】 ： 3[3]"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl1d6"
+output = "(CFL1D6) ＞ 計【 4 】 ： 4[4]"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl1d6"
+output = "(CFL1D6) ＞ 計【 6 】 ： 5[5] (cr:1)+1[1] (cr:計1回)"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl1d6"
+output = "(CFL1D6) ＞ 計【 8 】 ： 6[6] (cr:1)+2[2] (cr:計1回)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl1d6"
+output = "(CFL1D6) ＞ 計【 16 】 ： 5[5] (cr:1)+11[6][5] (cr:計2回)"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl1d6"
+output = "(CFL1D6) ＞ 計【 0 】 ： 1[1] (fa:1)-1[1]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl1d6"
+output = "(CFL1D6) ＞ 計【 -1 】 ： 2[2] (fa:1)-3[3]"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6"
+output = "(CFL5D6) ＞ 計【 20 】 ： 20[4,4,4,4,4]"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6"
+output = "(CFL5D6) ＞ 計【 22 】 ： 19[1,5,3,4,6] (fa:1)-6[6] (cr:2)+9[4,5] (cr:計2回)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6"
+output = "(CFL5D6) ＞ 計【 22 】 ： 17[3,6,4,1,3] (fa:1)-5[5] (cr:1)+10[6][4] (cr:計2回)"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6"
+output = "(CFL5D6) ＞ 計【 14 】 ： 16[4,2,2,6,2] (fa:3)-17[6,6,5] (cr:1)+15[6][6][3] (cr:計3回)"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6"
+output = "(CFL5D6) ＞ 計【 40 】 ： 26[6,2,6,6,6] (fa:1)-6[6] (cr:4)+20[6,3,5,1][5] (cr:計5回)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6"
+output = "(CFL5D6) ＞ 計【 3 】 ： 12[2,1,3,5,1] (fa:3)-12[2,5,5] (cr:1)+3[3] (cr:計1回)"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6"
+output = "(CFL5D6) ＞ 計【 33 】 ： 23[4,3,5,6,5] (cr:3)+10[3,2,5] (cr:計3回)"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6"
+output = "(CFL5D6) ＞ 計【 8 】 ： 15[2,4,2,4,3] (fa:2)-7[1,6]"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl10+5d6"
+output = "(CFL10+5D6) ＞ 計【 30 】 ： 10+20[4,4,4,4,4]"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl10+5d6"
+output = "(CFL10+5D6) ＞ 計【 45 】 ： 10+21[3,5,6,4,3] (cr:2)+14[3,6][5] (cr:計3回)"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl10+5d6"
+output = "(CFL10+5D6) ＞ 計【 13 】 ： 10+14[2,3,1,4,4] (fa:2)-11[6,5]"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl10+5d6"
+output = "(CFL10+5D6) ＞ 計【 43 】 ： 10+22[5,4,3,5,5] (cr:3)+11[5,5,1] (cr:計3回)"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl10+5d6"
+output = "(CFL10+5D6) ＞ 計【 7 】 ： 10+12[2,1,2,6,1] (fa:4)-18[6,4,6,2] (cr:1)+3[3] (cr:計1回)"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6+10"
+output = "(CFL5D6+10) ＞ 計【 29 】 ： 19[4,3,4,4,4]+10"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6+10"
+output = "(CFL5D6+10) ＞ 計【 48 】 ： 24[3,6,5,4,6]+10 (cr:3)+14[3,6,4][1] (cr:計4回)"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6+10"
+output = "(CFL5D6+10) ＞ 計【 16 】 ： 12[1,1,3,3,4]+10 (fa:2)-6[4,2]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6+10"
+output = "(CFL5D6+10) ＞ 計【 7 】 ： 11[1,2,1,3,4]+10 (fa:3)-14[4,5,5]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6+10"
+output = "(CFL5D6+10) ＞ 計【 42 】 ： 23[5,5,6,1,6]+10 (fa:1)-4[4] (cr:4)+13[5,4,3,1] (cr:計4回)"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfl5d6+10"
+output = "(CFL5D6+10) ＞ 計【 54 】 ： 21[5,5,4,6,1]+10 (fa:1)-2[2] (cr:3)+25[5,3,6][6][5] (cr:計5回)"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg5d6"
+output = "(CFG5D6) ＞ 計【 35 】 ： 20[4,4,4,4,4] (cr:5)+15[3,3,3,3,3] (cr:計5回)"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg5d6"
+output = "(CFG5D6) ＞ 計【 43 】 ： 20[4,4,4,4,4] (cr:5)+23[3,3,3,4,6][4] (cr:計6回)"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg5d6"
+output = "(CFG5D6) ＞ 計【 0 】 ： 15[3,3,3,3,3] (fa:5)-15[3,3,3,3,3]"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg5d6"
+output = "(CFG5D6) ＞ 計【 5 】 ： 13[2,3,4,2,2] (fa:4)-11[1,3,1,6] (cr:1)+3[3] (cr:計1回)"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg5d6"
+output = "(CFG5D6) ＞ 計【 24 】 ： 18[2,2,3,6,5] (fa:3)-12[4,2,6] (cr:2)+18[6,6][2,4] (cr:計4回)"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg10+5d6"
+output = "(CFG10+5D6) ＞ 計【 45 】 ： 10+20[4,4,4,4,4] (cr:5)+15[3,3,3,3,3] (cr:計5回)"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg10+5d6"
+output = "(CFG10+5D6) ＞ 計【 53 】 ： 10+20[4,4,4,4,4] (cr:5)+23[3,3,3,4,6][4] (cr:計6回)"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg10+5d6"
+output = "(CFG10+5D6) ＞ 計【 10 】 ： 10+15[3,3,3,3,3] (fa:5)-15[3,3,3,3,3]"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg10+5d6"
+output = "(CFG10+5D6) ＞ 計【 38 】 ： 10+19[4,1,5,4,5] (fa:1)-2[2] (cr:4)+11[5,1,2,3] (cr:計4回)"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg10+5d6"
+output = "(CFG10+5D6) ＞ 計【 33 】 ： 10+22[6,6,3,6,1] (fa:2)-8[3,5] (cr:3)+9[5,1,3] (cr:計3回)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg10+5d6"
+output = "(CFG10+5D6) ＞ 計【 32 】 ： 10+14[4,1,2,4,3] (fa:3)-13[5,4,4] (cr:2)+21[6,1][6][6][2] (cr:計5回)"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg5d6+10"
+output = "(CFG5D6+10) ＞ 計【 53 】 ： 20[4,4,4,4,4]+10 (cr:5)+23[3,3,3,4,6][4] (cr:計6回)"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg5d6+10"
+output = "(CFG5D6+10) ＞ 計【 28 】 ： 21[5,6,3,1,6]+10 (fa:2)-9[3,6] (cr:3)+6[2,3,1] (cr:計3回)"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg5d6+10"
+output = "(CFG5D6+10) ＞ 計【 24 】 ： 19[5,2,6,3,3]+10 (fa:3)-11[4,1,6] (cr:2)+6[5,1] (cr:計2回)"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg5d6+10"
+output = "(CFG5D6+10) ＞ 計【 42 】 ： 21[6,5,4,5,1]+10 (fa:1)-6[6] (cr:4)+17[1,2,6,3][5] (cr:計5回)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfg10+2D6-1D6 マイナスのダイスロールは受け付けない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra50"
+output = "(RA50) 暴走Lv.1(1) ＞ 発作【自爆÷2ダメージ。（自身に能力攻撃ロールダメージ÷2）。防御無視】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra50"
+output = "(RA50) 暴走Lv.1(2) ＞ 高揚【1D6暴走率上昇】 ： 2[2] ％"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra50"
+output = "(RA50) 暴走Lv.1(3) ＞ 高揚【1D6暴走率上昇】 ： 3[3] ％"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra50"
+output = "(RA50) 暴走Lv.1(4) ＞ 自制【暴走なし】"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra50"
+output = "(RA50) 暴走Lv.1(5) ＞ 自制【暴走なし】"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra50"
+output = "(RA50) 暴走Lv.1(6) ＞ 自制【暴走なし】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra70"
+output = "(RA70) 暴走Lv.3(1) ＞ 自爆【自爆ダメージ。自身に能力攻撃ロールダメージ。防御無視】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra70"
+output = "(RA70) 暴走Lv.3(2) ＞ 自爆【自爆ダメージ。自身に能力攻撃ロールダメージ。防御無視】"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra70"
+output = "(RA70) 暴走Lv.3(3) ＞ 暴発【ランダム攻撃。基本的に能力攻撃。対象は自分、キャラ、オブジェクトの三種類】"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra70"
+output = "(RA70) 暴走Lv.3(4) ＞ 連鎖【2D6暴走率上昇】 ： 3[2,1] ％"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra70"
+output = "(RA70) 暴走Lv.3(5) ＞ 発症 ： 暴走状態表(62) ＞ 過負荷【ワンアクション毎に能力精度÷3の防御無視ダメージ（発症時も発生）。閃きの判定結果が半減】"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra70"
+output = "(RA70) 暴走Lv.3(5) ＞ 発症 ： 暴走状態表(35) ＞ 忘我【自プリアクション時に偶奇判定。奇数の場合は宣言せずにターン終了。あらゆる技能判定結果が半減】"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra70"
+output = "(RA70) 暴走Lv.3(5) ＞ 発症 ： 暴走状態表(16) ＞ 自制【暴走無し】"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra70"
+output = "(RA70) 暴走Lv.3(6) ＞ 自制【暴走無し】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra90"
+output = "(RA90) 暴走状態表(41) ＞ 制御異常【自プリアクション毎（行動決定前）に偶奇判定。奇数の場合は暴発によるランダム攻撃。（発症時も発生）。技術、幸運の判定結果が半減】"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra90"
+output = "(RA90) 暴走状態表(62) ＞ 過負荷【ワンアクション毎に能力精度÷3の防御無視ダメージ（発症時も発生）。閃きの判定結果が半減】"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra90"
+output = "(RA90) 暴走状態表(23) ＞ 聴覚異常【回避判定結果が半減する。察知の半減結果が半減】"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra90"
+output = "(RA90) 暴走状態表(44) ＞ 視覚異常【SS＆命中力＆回避力が半減する※判定結果は半減しない。観察眼の判定結果が半減】"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra90"
+output = "(RA90) 暴走状態表(65) ＞ 身体異常【防御を差し引く前のダメージロールが半減する。力技、俊敏の判定結果が半減】"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra90"
+output = "(RA90) 暴走状態表(66) ＞ 自制【暴走なし】"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra90"
+output = "(RA90) 暴走状態表(31) ＞ 能力異常【能力使用時に偶奇判定。奇数の場合は消費だけ行い能力発動失敗。暴走チェックごとに+2％される（発症時も発生）。能力精度の判定結果が半減】"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra90"
+output = "(RA90) 暴走状態表(12) ＞ 言語異常【AE使用時に偶奇判定。奇数の場合は消費だけ行いAE発動失敗。話術の判定結果が半減】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra90"
+output = "(RA90) 暴走状態表(33) ＞ 記憶異常【命中判定結果が半減する。知識の判定結果が半減】"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra90"
+output = "(RA90) 暴走状態表(14) ＞ 精神異常【自分のリアクション（回避判定など）で偶奇判定。奇数の場合は行動自動失敗。隠密、読心の判定結果が半減】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra90"
+output = "(RA90) 暴走状態表(15) ＞ 忘我【自プリアクション時に偶奇判定。奇数の場合は宣言せずにターン終了。あらゆる技能判定結果が半減】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra90"
+output = "(RA90) 暴走状態表(16) ＞ 自制【暴走無し】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra110"
+output = "(RA110) 臨界ロール(4) ＞ 超活性【HP・PPを2D6回復】 ： 5[2,3] 回復"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra110"
+output = "(RA110) 臨界ロール(5) ＞ 自壊【自爆ダメージ。自身の最も高い攻撃ロールダメージ。防御無視】"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "ra150"
+output = "(RA150) ＞ 因子崩壊【キャラロスト】"
+rands = []
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so1"
+output = "SOペナルティ表 1オーバー(1) ＞ 消費負荷【ＰＰ２倍消費　※ＡＥ消費は含まない】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so1"
+output = "SOペナルティ表 1オーバー(5) ＞ 反動【命中＆回避－１Ｄ６（4[4]）　１ラウンド継続】"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so1"
+output = "SOペナルティ表 1オーバー(6) ＞ 制御成功【発動成功　ペナルティ無し】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so2"
+output = "SOペナルティ表 2オーバー(1) ＞ 自爆【自分へ能力攻撃ダメージ　※防御無視】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so2"
+output = "SOペナルティ表 2オーバー(5) ＞ 反動【命中＆回避－１Ｄ６（6[6]）　１ラウンド継続】"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so2"
+output = "SOペナルティ表 2オーバー(6) ＞ 制御成功【発動成功　ペナルティ無し】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so3"
+output = "SOペナルティ表 3オーバー(1) ＞ 自爆【自分へ能力攻撃ダメージ　※防御無視】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so3"
+output = "SOペナルティ表 3オーバー(5) ＞ 過反動【命中＆回避－２Ｄ６（8[4,4]）　１ラウンド継続】"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so3"
+output = "SOペナルティ表 3オーバー(6) ＞ 制御成功【発動成功　ペナルティ無し】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so4"
+output = "SOペナルティ表 4オーバー(1) ＞ 崩壊【自爆ダメージ×２　※防御無視】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so4"
+output = "SOペナルティ表 4オーバー(5) ＞ 過反動【命中＆回避－２Ｄ６（7[4,3]）　１ラウンド継続】"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so4"
+output = "SOペナルティ表 4オーバー(6) ＞ 制御成功【発動成功　ペナルティ無し】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so5"
+output = "SOペナルティ表 5オーバー(1) ＞ 崩壊【自爆ダメージ×２　※防御無視】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so5"
+output = "SOペナルティ表 5オーバー(5) ＞ 超負荷【ＰＰ３倍消費　※ＡＥ消費は含まない】"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "so5"
+output = "SOペナルティ表 5オーバー(6) ＞ 制御成功【発動成功　ペナルティ無し】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "down"
+output = "気絶判定 ＞ 4 ＞ 回避"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "down"
+output = "気絶判定 ＞ 3 ＞ 気絶【6R行動不能】"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cont"
+output = "コンティニュー判定 ＞ 1 ＞ 1R追加"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cont"
+output = "コンティニュー判定 ＞ 6 ＞ 2R追加"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "risk"
+output = "リスク判定(1) ＞ 能力自爆【能力は発動せず、ＰＰを２倍消費する。併用ＡＥのＰＰは含まない。それに加え【自爆】する。能力攻撃力分を自身へ防御無視ダメージ】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "risk"
+output = "リスク判定(6) ＞ 覚醒発動【（能力精度÷３）＋３Ｄ６を加える】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "guki"
+output = "(GUKI) ＞ 1 ＞ 失敗"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "guki"
+output = "(GUKI) ＞ 2 ＞ 成功"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "guki"
+output = "(GUKI) ＞ 3 ＞ 失敗"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "guki"
+output = "(GUKI) ＞ 4 ＞ 成功"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "guki"
+output = "(GUKI) ＞ 5 ＞ 失敗"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "guki"
+output = "(GUKI) ＞ 6 ＞ 成功"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cond"
+output = "(COND) ＞ HP8[6,2] 、 PP3[2,1]"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cond"
+output = "(COND) ＞ HP11[5,6] 、 PP8[6,2]"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cft4+1d6"
+output = "(CFT4+1D6) ＞ 計【 8 】 ： 4+4[4]\n ＞ ＡＥ【応急処置】 ＞ HPが0(1[1]/2)回復"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cft4+1d6"
+output = "(CFT4+1D6) ＞ 計【 13 】 ： 4+6[6] (cr:1)+3[3] (cr:計1回)\n ＞ ＡＥ【応急処置】 ＞ HPが5(5[5])回復"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cft6+1d6"
+output = "(CFT6+1D6) ＞ 計【 15 】 ： 6+6[6] (cr:1)+3[3] (cr:計1回)\n ＞ ＡＥ【応急処置】 ＞ HPが4(1[1]+3)回復"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cft20+1d6"
+output = "(CFT20+1D6) ＞ 計【 23 】 ： 20+3[3]\n ＞ ＡＥ【応急処置】 ＞ HPが10(8[4,4]+2)回復"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cflt6+1d6"
+output = "(CFLT6+1D6) ＞ 計【 10 】 ： 6+4[4]\n ＞ ＡＥ【応急処置】 ＞ HPが1(3[3]/2)回復"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cflt6+1d6"
+output = "(CFLT6+1D6) ＞ 計【 15 】 ： 6+5[5] (cr:1)+4[4] (cr:計1回)\n ＞ ＡＥ【応急処置】 ＞ HPが4(1[1]+3)回復"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfgt12+1d6"
+output = "(CFGT12+1D6) ＞ 計【 9 】 ： 12+3[3] (fa:1)-6[6]\n ＞ ＡＥ【応急処置】 ＞ HPが1(3[3]/2)回復"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "cfgt12+1d6"
+output = "(CFGT12+1D6) ＞ 計【 19 】 ： 12+4[4] (cr:1)+3[3] (cr:計1回)\n ＞ ＡＥ【応急処置】 ＞ HPが10(8[4,4]+2)回復"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "treat"
+output = "ＡＥ【応急処置】 ＞ このコマンドは数値を付けてください"
+rands = []
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "treat0"
+output = "ＡＥ【応急処置】 ＞ HPが0回復"
+rands = []
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "treat6"
+output = "ＡＥ【応急処置】 ＞ HPが1回復"
+rands = []
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "treat8"
+output = "ＡＥ【応急処置】 ＞ HPが1(3[3]/2)回復"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "treat12"
+output = "ＡＥ【応急処置】 ＞ HPが2(2[2])回復"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "treat15"
+output = "ＡＥ【応急処置】 ＞ HPが6(3[3]+3)回復"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "treat18"
+output = "ＡＥ【応急処置】 ＞ HPが10(8[3,5]+2)回復"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "allr"
+output = "オールレンジ判定 ＞ 1 ＞ 発動失敗【技対象が敵味方含めた全員となる】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "allr"
+output = "オールレンジ判定 ＞ 2 ＞ 発動成功"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "allr"
+output = "オールレンジ判定 ＞ 3 ＞ 発動成功"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "allr"
+output = "オールレンジ判定 ＞ 4 ＞ 発動成功"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "allr"
+output = "オールレンジ判定 ＞ 5 ＞ 発動成功"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "allr"
+output = "オールレンジ判定 ＞ 6 ＞ 発動成功"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "pafe"
+output = "発動ロール ＞ 1 ＞ 発動失敗【通常命中・回避判定となり、発動時のアクション内の命中力＆回避力が半減する】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "pafe"
+output = "発動ロール ＞ 2 ＞ 発動成功"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "pafe"
+output = "発動ロール ＞ 3 ＞ 発動成功"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "pafe"
+output = "発動ロール ＞ 4 ＞ 発動成功"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "pafe"
+output = "発動ロール ＞ 5 ＞ 発動成功"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "pafe"
+output = "発動ロール ＞ 6 ＞ 発動成功"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "fatal2"
+output = "因子変化判定(1) ＞ 能力変化【能力がまったく別ものに変化する】 ＞ 能力タイプ(3) ＞ トランサー"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "fatal2"
+output = "因子変化判定(3) ＞ 因子抑制【能力変化は起こらない】"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "fatal2"
+output = "因子変化判定(4) ＞ 因子抑制【能力変化は起こらない】"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "fatal2"
+output = "因子変化判定(5) ＞ 能力喪失・能力覚醒【能力を持つものは失い、ノーマルは能力に覚醒する。喪失者はノーマルのキャラ特性ポイントを1p獲得する。覚醒者はノーマルのキャラ特性ポイントを1p失い、キャラ特性を6つ取得していた場合は1つ喪失する】 ＞ 能力タイプ(6) ＞ 好きな能力タイプを選択。ノーマル選択でも可"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "fatal2"
+output = "因子変化判定(6) ＞ 能力喪失・能力覚醒【能力を持つものは失い、ノーマルは能力に覚醒する。喪失者はノーマルのキャラ特性ポイントを1p獲得する。覚醒者はノーマルのキャラ特性ポイントを1p失い、キャラ特性を6つ取得していた場合は1つ喪失する】 ＞ 能力タイプ(1) ＞ サイキッカー"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "fatal1"
+output = "後遺症判定(1) ＞ 聴覚崩壊【聴覚に異常が起きる。幻聴、難聴、失聴、など】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "fatal1"
+output = "後遺症判定(6) ＞ 記憶崩壊【記憶に異常が起こる。記憶障害、記憶喪失、など】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "mikuzi"
+output = "おみくじ(2) ＞ 大吉"
+rands = [
+  { sides = 100, value = 2 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "mikuzi"
+output = "おみくじ(23) ＞ 吉"
+rands = [
+  { sides = 100, value = 23 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "mikuzi"
+output = "おみくじ(55) ＞ 半吉"
+rands = [
+  { sides = 100, value = 55 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "mikuzi"
+output = "おみくじ(62) ＞ 末小吉"
+rands = [
+  { sides = 100, value = 62 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "mikuzi"
+output = "おみくじ(68) ＞ 末吉"
+rands = [
+  { sides = 100, value = 68 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "mikuzi"
+output = "おみくじ(87) ＞ 凶"
+rands = [
+  { sides = 100, value = 87 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "stag"
+output = "ステージ決定(11) ＞ ロシアンルーレット【幸運にて判定。参加者は銃をこめかみにあて、１発の銃弾をひかないように祈る。 敗者は３Ｄ６ダメージ】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "stag"
+output = "ステージ決定(33) ＞ パズル【知識or閃きにて判定。３Ｄの難解パズルを解き明かせ！！時折金庫破りのパスワードがターゲットになってたり】"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "stag"
+output = "ステージ決定(66) ＞ 無双撃破！【ダメージ量にて判定。た、大量のモヒカンだぁ～！ダメージ量の２倍くらいが倒した数。敗者は２Ｄ６ダメージ。ＳＥ【オールレンジ】技は成功で判定＋１０】"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
