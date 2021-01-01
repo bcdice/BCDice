@@ -16,5 +16,4 @@ jobs:
     - name: "Set CHECK_COVERAGE=true on Ruby 2.7"
       run: echo "CHECK_COVERAGE=true" >> $GITHUB_ENV
       if: matrix.ruby == '2.7'
-    - run: bundle install
     - run: bundle exec rake test
