@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 module BCDice
   module GameSystem
     class BBN < Base
       # ダイスボットで使用するコマンドを配列で列挙する
       register_prefix('\d+BN.*')
 
-      ID = 'BBN'.freeze
+      ID = 'BBN'
 
-      NAME = 'BBNTRPG'.freeze
+      NAME = 'BBNTRPG'
 
-      SORT_KEY = 'ひいひいえぬTRPG'.freeze
+      SORT_KEY = 'ひいひいえぬTRPG'
 
-      HELP_MESSAGE = <<~MESSAGETEXT.freeze
+      HELP_MESSAGE = <<~MESSAGETEXT
         ・判定(xBN±y>=z[c,f])
         　xD6の判定。クリティカル、ファンブルの自動判定を行います。
         　1Dのクリティカル値とファンブル値は1。2Dのクリティカル値とファンブル値は2。

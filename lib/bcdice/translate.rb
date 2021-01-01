@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BCDice
   # i18n用のモジュール
   module Translate

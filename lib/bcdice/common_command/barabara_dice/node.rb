@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bcdice/format"
 require "bcdice/common_command/barabara_dice/result"
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BCDice
   # D66のダイス入れ替え
   module D66SortType

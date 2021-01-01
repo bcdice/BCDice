@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require "test/unit"
 require "bcdice"
 
 class TestChecknDx < Test::Unit::TestCase
-  SUFFIX = " ＞ Called MockSystem#check_2D6".freeze
+  SUFFIX = " ＞ Called MockSystem#check_2D6"
 
   class MockSystem < BCDice::Base
     def check_2D6(_total, _dice_total, _dice_list, _cmp_op, _target)

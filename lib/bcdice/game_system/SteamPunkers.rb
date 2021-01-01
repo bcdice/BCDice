@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require 'bcdice/dice_table/d66_range_table'
 
 module BCDice
   module GameSystem
     class SteamPunkers < Base
-      ID = 'SteamPunkers'.freeze
-      NAME = 'スチームパンカーズ'.freeze
-      SORT_KEY = 'すちいむはんかあす'.freeze
+      ID = 'SteamPunkers'
+      NAME = 'スチームパンカーズ'
+      SORT_KEY = 'すちいむはんかあす'
 
-      HELP_MESSAGE = <<~MESSAGETEXT.freeze
+      HELP_MESSAGE = <<~MESSAGETEXT
         ・判定コマンド (SPn)
           SP(判定ダイス数)>=(目標値)
           SP4>=3のように入力し、5が出たらヒット数1，6が出たらヒット数2として成功数を数えます。

@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
 require "bcdice/dice_table/table"
 
 module BCDice
   module GameSystem
     class RyuTuber < Base
       # ゲームシステムの識別子
-      ID = 'RyuTuber'.freeze
+      ID = 'RyuTuber'
 
       # ゲームシステム名
-      NAME = 'リューチューバーとちいさな奇跡'.freeze
+      NAME = 'リューチューバーとちいさな奇跡'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'りゆうちゆうはあとちいさなきせき'.freeze
+      SORT_KEY = 'りゆうちゆうはあとちいさなきせき'
 
-      HELP_MESSAGE = <<~MESSAGETEXT.freeze
+      HELP_MESSAGE = <<~MESSAGETEXT
         ◆判定
         　・判定　nB6<=1
         　　※　n:サイコロの数　例）12B6<=1　サイコロの数12個の場合

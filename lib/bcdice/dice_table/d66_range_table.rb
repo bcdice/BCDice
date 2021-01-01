@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BCDice
   module DiceTable
     # 項目をRangeを用いて参照するD66表

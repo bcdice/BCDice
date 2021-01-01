@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BCDice
   # テキストで定義したダイス表を実行するクラス
   #

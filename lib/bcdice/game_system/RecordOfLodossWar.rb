@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 module BCDice
   module GameSystem
     class RecordOfLodossWar < Base
-      ID = 'RecordOfLodossWar'.freeze
-      NAME = 'ロードス島戦記RPG'.freeze
-      SORT_KEY = 'ろおとすとうせんきRPG'.freeze
+      ID = 'RecordOfLodossWar'
+      NAME = 'ロードス島戦記RPG'
+      SORT_KEY = 'ろおとすとうせんきRPG'
 
-      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT.freeze
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         ●判定
         　LW<=(目標値)で判定。
         　達成値が目標値の1/10(端数切り上げ)以下であれば大成功。1～10であれば自動成功。

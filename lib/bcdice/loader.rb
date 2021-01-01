@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BCDice
   class << self
     # IDを指定してゲームシステムのクラスを取得する

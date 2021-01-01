@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BCDice
   module Normalize
     module_function

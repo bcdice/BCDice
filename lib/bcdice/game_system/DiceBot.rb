@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 module BCDice
   module GameSystem
     class DiceBot < Base
       # ゲームシステムの識別子
-      ID = 'DiceBot'.freeze
+      ID = 'DiceBot'
 
       # ゲームシステム名
-      NAME = 'DiceBot'.freeze
+      NAME = 'DiceBot'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = '*たいすほつと'.freeze
+      SORT_KEY = '*たいすほつと'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~HELP

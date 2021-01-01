@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BCDice
   module DiceTable
     # 表を表すクラス

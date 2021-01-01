@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BCDice
   module DiceTable
     # 出目の偶奇による場合分け機能をもつD66表

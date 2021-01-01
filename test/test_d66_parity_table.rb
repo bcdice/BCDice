@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test/unit"
 require "bcdice"
 require "bcdice/dice_table/d66_parity_table"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bcdice/common_command/add_dice"
 require "bcdice/common_command/barabara_dice"
 require "bcdice/common_command/calc"

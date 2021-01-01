@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bcdice/dice_table/roll_result"
 require "bcdice/dice_table/chain_table"
 require "bcdice/dice_table/d66_grid_table"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BCDice
   # 乱数生成器
   class Randomizer

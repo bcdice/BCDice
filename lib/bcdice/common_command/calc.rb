@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bcdice/common_command/calc/parser"
 
 module BCDice

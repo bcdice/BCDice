@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BCDice
   module DiceTable
     # D66を振って出目を昇順/降順にして表を参照する
