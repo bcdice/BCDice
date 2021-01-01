@@ -131,7 +131,6 @@ module BCDice
         isCriticalStop = false
 
         # params => "[x,y,cS]"
-        # frozen_string_literal: true
         # ゲームシステムの識別子
         # ゲームシステム名
         # ゲームシステム名の読みがな
@@ -166,7 +165,6 @@ module BCDice
           debug('roll_times', roll_times)
 
           debug('min_suc, total_suc', min_suc, total_suc)
-          # frozen_string_literal: true
           # ゲームシステムの識別子
           # ゲームシステム名
           # ゲームシステム名の読みがな

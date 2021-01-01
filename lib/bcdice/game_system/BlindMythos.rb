@@ -167,7 +167,6 @@ module BCDice
 
         canReRoll = !rerollCommand.empty?
 
-        # frozen_string_literal: true
         # ゲームシステムの識別子
         # ゲームシステム名
         # ゲームシステム名の読みがな
