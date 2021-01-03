@@ -1,0 +1,472 @@
+[[ test ]]
+game_system = "DesperateRun"
+input = "DDC"
+output = "難易度決定：　出目：2、5　＞　5－2＝3　＞　難易度8"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "DDC"
+output = "難易度決定：　出目：6、6　＞　6－6＝0　＞　難易度5"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "DDC"
+output = "難易度決定：　出目：5、1　＞　5－1＝4　＞　難易度9"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "DDC"
+output = "難易度決定：　出目：1、1　＞　1－1＝0　＞　難易度5"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "DDC"
+output = "難易度決定：　出目：2、6　＞　6－2＝4　＞　難易度9"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "DDC"
+output = "難易度決定：　出目：6、1　＞　6－1＝5　＞　難易度10"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "RC7"
+output = "判定　難易度：7　＞　出目：1、4　＞　5、難易度未満！【Ｍｉｓｓ】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "RC9"
+output = "判定　難易度：9　＞　出目：5、4　＞　9、難易度以上！【Ｓｕｃｃｅｓｓ】"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "RC5"
+output = "判定　難易度：5　＞　出目：3、3　＞　ゾロ目！【Ｃｒｉｔｉｃａｌ】"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "RC5"
+output = "判定　難易度：5　＞　出目：2、5　＞　ダイスの出目が表裏！【Ｆｕｍｂｌｅ】"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "RC7+1"
+output = "判定　難易度：7　修正値：1　＞　出目：1、5　＞　7、難易度以上！【Ｓｕｃｃｅｓｓ】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "RC7+2"
+output = "判定　難易度：7　修正値：2　＞　出目：1、2　＞　5、難易度未満！【Ｍｉｓｓ】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "RC9+1"
+output = "判定　難易度：9　修正値：1　＞　出目：3、3　＞　ゾロ目！【Ｃｒｉｔｉｃａｌ】"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "RC10+2"
+output = "判定　難易度：10　修正値：2　＞　出目：6、1　＞　ダイスの出目が表裏！【Ｆｕｍｂｌｅ】"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ACT"
+output = "アクシデント表(3) ＞ この戦闘の行動順が、ＰＣ→モンスター、から、モンスター→ＰＣに変わる。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ACT"
+output = "アクシデント表(4) ＞ ＰＣ全員、アイテム１つを選んで失う。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ACT"
+output = "アクシデント表(5) ＞ ＰＣ全員１Ｄ６を振る。この戦闘中、その出目はノープランになる。"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ACT"
+output = "アクシデント表(6) ＞ ＰＣ全員、Ｆｌａｇが１増加する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ACT"
+output = "アクシデント表(1) ＞ ＰＣ全員、隊列を１Ｄ６で決める（１２：前列、３４：中列、５６：後列）"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ACT"
+output = "アクシデント表(2) ＞ １ターン、モンスター側のみ行動する。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ITEMT"
+output = "初期アイテム表(5) ＞ 食料　効果：（消費）ムーブシーンで使用可。Ｌｉｆｅ３回復　回数：１回"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ITEMT"
+output = "初期アイテム表(6) ＞ 応急キット　効果：（装備）メディカルＬｖ＋１　回数：回復３回"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ITEMT"
+output = "初期アイテム表(7) ＞ 刃物　効果：（装備）アタックＬｖ＋１　回数：攻撃６回"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ITEMT"
+output = "初期アイテム表(8) ＞ 銃　効果：（装備）シュートＬｖ＋１　回数：攻撃６回"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ITEMT"
+output = "初期アイテム表(9) ＞ ドラッグ　効果：（消費）いつでも使用可。Ｂｒａｖｅ１回復　回数：１回"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ITEMT"
+output = "初期アイテム表(10) ＞ 金券　効果：（消費）アフタープレイで使用可。経験点＋２　回数：１回"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ITEMT"
+output = "初期アイテム表(11) ＞ プロテクター　効果：（装備）ガードＬｖ＋１　回数：防御５回"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ITEMT"
+output = "初期アイテム表(12) ＞ トミーガン　効果：（装備）チェーンＬｖ＋５　回数：攻撃１回"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ITEMT"
+output = "初期アイテム表(2) ＞ ロケットランチャー　効果：（装備）マカブルＬｖ＋３　回数：攻撃１回"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ITEMT"
+output = "初期アイテム表(3) ＞ キーピック　効果：（消費）ムーブシーンで使用可。判定の出目の合計＋１　回数：２回"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ITEMT"
+output = "初期アイテム表(4) ＞ レーダー　効果：（装備）ノープラン　装備時、「危険」を１減らすことが出来る　回数：危険減少２回"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "DOUKIT"
+output = "動機表(2) ＞ 献身。この番組は誰かのために出ている。病気の家族を救うため、参加者の一人が恋人である、など。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "DOUKIT"
+output = "動機表(3) ＞ 成行。望んでいないのに参加することとなってしまった。誰かが勝手に申し込んだ、紛れ込んでしまった、など。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "DOUKIT"
+output = "動機表(4) ＞ 渇望。とにかく何かを欲して参加している。金、スリル、金で手に入るもの、など。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "DOUKIT"
+output = "動機表(5) ＞ 奇人。好き好んでこの番組に出ている。殺人癖、ナルシスト、自殺願望、化け物マニア、など。"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "DOUKIT"
+output = "動機表(6) ＞ 仕事。この番組に出るのは仕事だからだ。賞金稼ぎ、芸能人、記者、番組スタッフ、など。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "DOUKIT"
+output = "動機表(1) ＞ 隷属。何か弱みに付け込まれ、嫌々ながらも参加することとなる。後ろめたい事、借金、など。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "DOUKIT"
+output = "動機表(2) ＞ 献身。この番組は誰かのために出ている。病気の家族を救うため、参加者の一人が恋人である、など。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "FLAGT"
+output = "死亡フラグ台詞表(4) ＞ 絶望。「もうだめだぁ、、、おしまいだぁ、、、」「く、くるなっ、くるなぁぁぁぁ！！」など。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "FLAGT"
+output = "死亡フラグ台詞表(5) ＞ 慢心。「なんだ、こんなやつ、俺だけで十分だ」「大丈夫だ、問題ない」など。"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "FLAGT"
+output = "死亡フラグ台詞表(6) ＞ 犠牲。「ふふ、俺なら大丈夫だ、、、気にするな」「お前ら下がれっ！ここは俺に任せろ！」など。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "FLAGT"
+output = "死亡フラグ台詞表(1) ＞ 希望。「これが終わったら、一緒に酒でも飲もうや」「もう何も怖くない」など。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "FLAGT"
+output = "死亡フラグ台詞表(2) ＞ 望郷。「くそっ、、、俺には、帰りを待つ人が、、、っ！」「ああ、故郷のマルゲリータをもう一度食べたかった、、、」など。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "FLAGT"
+output = "死亡フラグ台詞表(3) ＞ 狂乱。「お前を、殺せば、俺は、億万長者なんだよぉぉぉお！！」「ヒハッ、死ね死ね死ね死ねぇぇぇぇ」など。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ENTRYT"
+output = "途中参加動機表(2) ＞ 現住。もともとここに住んでいた。何？番組？え？あ、お金もらえんの？イイネ！"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ENTRYT"
+output = "途中参加動機表(3) ＞ 突発。もともと視聴者としてスタジオに居たんだけど、司会にうまく乗せられて・・・"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ENTRYT"
+output = "途中参加動機表(4) ＞ 乱入。何か目的があって乱入した。今回のステージが簡単に見えたり、参加者に大事な人がいたのかもしれない。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ENTRYT"
+output = "途中参加動機表(5) ＞ 神隠。今回より前の番組に参加していたが行方不明・死んだと思われていた。が。君はまだここにいる。"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ENTRYT"
+output = "途中参加動機表(6) ＞ 職員。あれ、逃げ遅れました？あらあら、大変ですね、しょうがないから参加者さんと一緒に走ってください。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ENTRYT"
+output = "途中参加動機表(1) ＞ 遅刻。もともと参加する予定だったのだが遅れてしまった。今からでも走れと無理矢理参加。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ROADT"
+output = "途中参加道中表(6) ＞ 迷子。あれ、ここどこだ？途中参加道中表を振る回数＋２"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ROADT"
+output = "途中参加道中表(1) ＞ 死線。死ぬかと思った。Ｆｌａｇ＋１"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ROADT"
+output = "途中参加道中表(2) ＞ 怪我。痛い。Ｌｉｆｅ－１"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ROADT"
+output = "途中参加道中表(3) ＞ 失意。どうしてこうなった。Ｂｒａｖｅ－１。減らせない場合、Ｆｌａｇ＋１"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ROADT"
+output = "途中参加道中表(4) ＞ 紛失。どっかいった。Ｉｔｅｍをどれか１つ捨てる。捨てれない場合、Ｆｌａｇ＋１"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "ROADT"
+output = "途中参加道中表(5) ＞ 追尾。後ろ！後ろーっ！参加開始部屋の危険＋１"
+rands = [
+  { sides = 6, value = 5 },
+]

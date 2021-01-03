@@ -1,0 +1,173 @@
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "DDC"
+output = "難易度決定：　出目：2、5　＞　5－2＝3　＞　難易度8"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "DDC"
+output = "難易度決定：　出目：6、6　＞　6－6＝0　＞　難易度5"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "DDC"
+output = "難易度決定：　出目：5、1　＞　5－1＝4　＞　難易度9"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "DDC"
+output = "難易度決定：　出目：1、1　＞　1－1＝0　＞　難易度5"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "DDC"
+output = "難易度決定：　出目：2、6　＞　6－2＝4　＞　難易度9"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "DDC"
+output = "難易度決定：　出目：6、1　＞　6－1＝5　＞　難易度10"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "RC7"
+output = "判定　難易度：7　＞　出目：1、4　＞　5、難易度未満！【Ｍｉｓｓ】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "RC9"
+output = "判定　難易度：9　＞　出目：5、4　＞　9、難易度以上！【Ｓｕｃｃｅｓｓ】"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "RC5"
+output = "判定　難易度：5　＞　出目：3、3　＞　ゾロ目！【Ｃｒｉｔｉｃａｌ】"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "RC5"
+output = "判定　難易度：5　＞　出目：2、5　＞　ダイスの出目が表裏！【Ｆｕｍｂｌｅ】"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "RC7+1"
+output = "判定　難易度：7　修正値：1　＞　出目：1、5　＞　7、難易度以上！【Ｓｕｃｃｅｓｓ】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "RC7+2"
+output = "判定　難易度：7　修正値：2　＞　出目：1、2　＞　5、難易度未満！【Ｍｉｓｓ】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "RC9+1"
+output = "判定　難易度：9　修正値：1　＞　出目：3、3　＞　ゾロ目！【Ｃｒｉｔｉｃａｌ】"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "RC10+2"
+output = "判定　難易度：10　修正値：2　＞　出目：6、1　＞　ダイスの出目が表裏！【Ｆｕｍｂｌｅ】"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "GOALT"
+output = "目標決定表(2) ＞ 「主人格の目的阻害」"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "GOALT"
+output = "目標決定表(3) ＞ 「主人格のハッピーエンド（目的達成しなくてもよい）」"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "GOALT"
+output = "目標決定表(4) ＞ 「主人格のバッドエンド（目的達成していてもよい）」"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "GOALT"
+output = "目標決定表(5) ＞ 「自分の人格が目的を決定できる」"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "GOALT"
+output = "目標決定表(6) ＞ 「主人格の目的達成」「主人格の目的阻害」「主人格のハッピーエンド（目的達成しなくてもよい）」「主人格のバッドエンド（目的達成していてもよい）」「自分の人格が目的を決定できる」のどれかを自由に選べる"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JekyllandHyde"
+input = "GOALT"
+output = "目標決定表(1) ＞ 「主人格の目的達成」"
+rands = [
+  { sides = 6, value = 1 },
+]
