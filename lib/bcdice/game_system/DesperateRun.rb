@@ -129,20 +129,23 @@ module BCDice
 
         result =
           if d1 == d2
-            "ゾロ目！【Critical】"
+            Result.critical("ゾロ目！【Critical】")
           elsif dice_total == 7
-            "ダイスの出目が表裏！【Fumble】"
+            Result.fumble("ダイスの出目が表裏！【Fumble】")
           elsif total >= target
-            "#{total}、難易度以上！【Success】"
+            Result.success("#{total}、難易度以上！【Success】")
           else
-            "#{total}、難易度未満！【Miss】"
+            Result.failure("#{total}、難易度未満！【Miss】")
           end
 
         sequence = [
           "判定　難易度：#{target}#{modifier_str}",
           "出目：#{d1}、#{d2}",
-          result,
-        ].join(" ＞ ")
+          result.text,
+        ]
+
+        result.text = sequence.join(" ＞ ")
+        result
       end
 
       def ddc_table(command)
