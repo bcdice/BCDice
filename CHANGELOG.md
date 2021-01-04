@@ -13,6 +13,8 @@
 - 呪印感染 (JuinKansen): 猫あきら。さん情報提供ありがとうっ！ ([#345](https://github.com/bcdice/BCDice/pull/345))
 - 韓国語版マギカロギア 마기카로기아 (MagicaLogia:Korean): Faithさんありがとうっ！ ([#360](https://github.com/bcdice/BCDice/pull/360))
 - 鋼鉄のユグドラシル (Yggdrasill): Doktorさん、Mid9658さんありがとうっ！ ([#361](https://github.com/bcdice/BCDice/pull/361))
+- Desperate Run TRPG (Desperate Run): えおふさんありがとうっ！ ([#362](https://github.com/bcdice/BCDice/pull/362))
+- ジキルとハイドとグリトグラ (JekyllAndHyde): えおふさんありがとうっ！ ([#362](https://github.com/bcdice/BCDice/pull/362))
 
 ### 追加機能
 - ログ・ホライズンTRPG: LHZB1とLHZB2両方の財宝表をサポート、消耗表ロールを追加、財宝表ロールを追加、区切り文字を変更 ([#279](https://github.com/bcdice/BCDice/pull/279))
