@@ -48,6 +48,7 @@ module BCDice
 
         @sort_add_dice = true # 加算ダイスのソート有
         @sort_barabara_dice = true # バラバラダイスでソート有
+        @round_type = RoundType::CEIL # 割り算をした時の端数切り上げ
       end
 
       def eval_game_system_specific_command(command)

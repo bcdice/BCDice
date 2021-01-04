@@ -394,3 +394,9 @@ rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
 ]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "c(4/3) 端数切り上げ"
+output = "c(4/3) ＞ 2"
+rands = []
