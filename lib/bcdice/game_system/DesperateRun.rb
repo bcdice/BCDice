@@ -120,20 +120,14 @@ module BCDice
         cmd = parser.parse(string)
         return nil unless cmd
 
-        target = cmd.command[2..-1].to_i
-
-        result = "判定　難易度：#{target}　"
-        if cmd.modify_number != 0
-          result += "修正値：#{cmd.modify_number}　"
-        end
-
         d1, d2 = @randomizer.roll_barabara(2, 6)
         dice_total = d1 + d2
         total = d1 + d2 + cmd.modify_number
+        target = cmd.command[2..-1].to_i
 
-        result += "＞　出目：#{d1}、#{d2}　＞　"
+        modifier_str = "　修正値：#{cmd.modify_number}" if cmd.modify_number != 0
 
-        result +=
+        result =
           if d1 == d2
             "ゾロ目！【Ｃｒｉｔｉｃａｌ】"
           elsif dice_total == 7
@@ -144,7 +138,11 @@ module BCDice
             "#{total}、難易度未満！【Ｍｉｓｓ】"
           end
 
-        return result
+        sequence = [
+          "判定　難易度：#{target}#{modifier_str}",
+          "出目：#{d1}、#{d2}",
+          result,
+        ].join(" ＞ ")
       end
 
       def ddc_table(command)
@@ -155,7 +153,7 @@ module BCDice
         smaller, larger = [d1, d2].sort
         difference = larger - smaller
 
-        "難易度決定：　出目：#{d1}、#{d2}　＞　#{larger}－#{smaller}＝#{difference}　＞　難易度#{5 + difference}"
+        "難易度決定 ＞ 出目：#{d1}、#{d2} ＞ #{larger}－#{smaller}＝#{difference} ＞ 難易度#{5 + difference}"
       end
     end
   end
