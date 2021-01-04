@@ -482,3 +482,12 @@ output = "途中参加道中表(5) ＞ 追尾。後ろ！後ろーっ！参加�
 rands = [
   { sides = 6, value = 5 },
 ]
+
+[[ test ]]
+game_system = "DesperateRun"
+input = "2D6 加算ダイスがソートされている"
+output = "(2D6) ＞ 7[1,6] ＞ 7"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 }
+]

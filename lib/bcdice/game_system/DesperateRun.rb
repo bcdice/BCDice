@@ -104,7 +104,7 @@ module BCDice
 
       def initialize(command)
         super(command)
-        @sortType = true
+        @sort_add_dice = true
         @d66_sort_type = D66SortType::ASC
       end
 
