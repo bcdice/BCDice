@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "DesperateRun"
 input = "DDC"
-output = "難易度決定 ＞ 出目：2、5 ＞ 5－2＝3 ＞ 難易度8"
+output = "難易度決定 ＞ 出目：2、5 ＞ 5-2=3 ＞ 難易度8"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 }
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "DDC"
-output = "難易度決定 ＞ 出目：6、6 ＞ 6－6＝0 ＞ 難易度5"
+output = "難易度決定 ＞ 出目：6、6 ＞ 6-6=0 ＞ 難易度5"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 }
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "DDC"
-output = "難易度決定 ＞ 出目：5、1 ＞ 5－1＝4 ＞ 難易度9"
+output = "難易度決定 ＞ 出目：5、1 ＞ 5-1=4 ＞ 難易度9"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 }
@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "DDC"
-output = "難易度決定 ＞ 出目：1、1 ＞ 1－1＝0 ＞ 難易度5"
+output = "難易度決定 ＞ 出目：1、1 ＞ 1-1=0 ＞ 難易度5"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 }
@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "DDC"
-output = "難易度決定 ＞ 出目：2、6 ＞ 6－2＝4 ＞ 難易度9"
+output = "難易度決定 ＞ 出目：2、6 ＞ 6-2=4 ＞ 難易度9"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 }
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "DDC"
-output = "難易度決定 ＞ 出目：6、1 ＞ 6－1＝5 ＞ 難易度10"
+output = "難易度決定 ＞ 出目：6、1 ＞ 6-1=5 ＞ 難易度10"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 }
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "RC7"
-output = "判定　難易度：7 ＞ 出目：1、4 ＞ 5、難易度未満！【Ｍｉｓｓ】"
+output = "判定　難易度：7 ＞ 出目：1、4 ＞ 5、難易度未満！【Miss】"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 }
@@ -64,7 +64,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "RC9"
-output = "判定　難易度：9 ＞ 出目：5、4 ＞ 9、難易度以上！【Ｓｕｃｃｅｓｓ】"
+output = "判定　難易度：9 ＞ 出目：5、4 ＞ 9、難易度以上！【Success】"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 }
@@ -73,7 +73,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "RC5"
-output = "判定　難易度：5 ＞ 出目：3、3 ＞ ゾロ目！【Ｃｒｉｔｉｃａｌ】"
+output = "判定　難易度：5 ＞ 出目：3、3 ＞ ゾロ目！【Critical】"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 }
@@ -82,7 +82,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "RC5"
-output = "判定　難易度：5 ＞ 出目：2、5 ＞ ダイスの出目が表裏！【Ｆｕｍｂｌｅ】"
+output = "判定　難易度：5 ＞ 出目：2、5 ＞ ダイスの出目が表裏！【Fumble】"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 }
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "RC7+1"
-output = "判定　難易度：7　修正値：1 ＞ 出目：1、5 ＞ 7、難易度以上！【Ｓｕｃｃｅｓｓ】"
+output = "判定　難易度：7　修正値：1 ＞ 出目：1、5 ＞ 7、難易度以上！【Success】"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 }
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "RC7+2"
-output = "判定　難易度：7　修正値：2 ＞ 出目：1、2 ＞ 5、難易度未満！【Ｍｉｓｓ】"
+output = "判定　難易度：7　修正値：2 ＞ 出目：1、2 ＞ 5、難易度未満！【Miss】"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 }
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "RC9+1"
-output = "判定　難易度：9　修正値：1 ＞ 出目：3、3 ＞ ゾロ目！【Ｃｒｉｔｉｃａｌ】"
+output = "判定　難易度：9　修正値：1 ＞ 出目：3、3 ＞ ゾロ目！【Critical】"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 }
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "RC10+2"
-output = "判定　難易度：10　修正値：2 ＞ 出目：6、1 ＞ ダイスの出目が表裏！【Ｆｕｍｂｌｅ】"
+output = "判定　難易度：10　修正値：2 ＞ 出目：6、1 ＞ ダイスの出目が表裏！【Fumble】"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 }
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ACT"
-output = "アクシデント表(3) ＞ この戦闘の行動順が、ＰＣ→モンスター、から、モンスター→ＰＣに変わる。"
+output = "アクシデント表(3) ＞ この戦闘の行動順が、PC→モンスター、から、モンスター→PCに変わる。"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -135,7 +135,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ACT"
-output = "アクシデント表(4) ＞ ＰＣ全員、アイテム１つを選んで失う。"
+output = "アクシデント表(4) ＞ PC全員、アイテム1つを選んで失う。"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -143,7 +143,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ACT"
-output = "アクシデント表(5) ＞ ＰＣ全員１Ｄ６を振る。この戦闘中、その出目はノープランになる。"
+output = "アクシデント表(5) ＞ PC全員1D6を振る。この戦闘中、その出目はノープランになる。"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -151,7 +151,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ACT"
-output = "アクシデント表(6) ＞ ＰＣ全員、Ｆｌａｇが１増加する。"
+output = "アクシデント表(6) ＞ PC全員、Flagが1増加する。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -159,7 +159,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ACT"
-output = "アクシデント表(1) ＞ ＰＣ全員、隊列を１Ｄ６で決める（１２：前列、３４：中列、５６：後列）"
+output = "アクシデント表(1) ＞ PC全員、隊列を1D6で決める（12：前列、34：中列、56：後列）"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -167,7 +167,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ACT"
-output = "アクシデント表(2) ＞ １ターン、モンスター側のみ行動する。"
+output = "アクシデント表(2) ＞ 1ターン、モンスター側のみ行動する。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -175,7 +175,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ITEMT"
-output = "初期アイテム表(5) ＞ 食料　効果：（消費）ムーブシーンで使用可。Ｌｉｆｅ３回復　回数：１回"
+output = "初期アイテム表(5) ＞ 食料　効果：（消費）ムーブシーンで使用可。Life3回復　回数：1回"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -184,7 +184,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ITEMT"
-output = "初期アイテム表(6) ＞ 応急キット　効果：（装備）メディカルＬｖ＋１　回数：回復３回"
+output = "初期アイテム表(6) ＞ 応急キット　効果：（装備）メディカルLv+1　回数：回復3回"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ITEMT"
-output = "初期アイテム表(7) ＞ 刃物　効果：（装備）アタックＬｖ＋１　回数：攻撃６回"
+output = "初期アイテム表(7) ＞ 刃物　効果：（装備）アタックLv+1　回数：攻撃6回"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -202,7 +202,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ITEMT"
-output = "初期アイテム表(8) ＞ 銃　効果：（装備）シュートＬｖ＋１　回数：攻撃６回"
+output = "初期アイテム表(8) ＞ 銃　効果：（装備）シュートLv+1　回数：攻撃6回"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -211,7 +211,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ITEMT"
-output = "初期アイテム表(9) ＞ ドラッグ　効果：（消費）いつでも使用可。Ｂｒａｖｅ１回復　回数：１回"
+output = "初期アイテム表(9) ＞ ドラッグ　効果：（消費）いつでも使用可。Brave1回復　回数：1回"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -220,7 +220,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ITEMT"
-output = "初期アイテム表(10) ＞ 金券　効果：（消費）アフタープレイで使用可。経験点＋２　回数：１回"
+output = "初期アイテム表(10) ＞ 金券　効果：（消費）アフタープレイで使用可。経験点+2　回数：1回"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -229,7 +229,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ITEMT"
-output = "初期アイテム表(11) ＞ プロテクター　効果：（装備）ガードＬｖ＋１　回数：防御５回"
+output = "初期アイテム表(11) ＞ プロテクター　効果：（装備）ガードLv+1　回数：防御5回"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -238,7 +238,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ITEMT"
-output = "初期アイテム表(12) ＞ トミーガン　効果：（装備）チェーンＬｖ＋５　回数：攻撃１回"
+output = "初期アイテム表(12) ＞ トミーガン　効果：（装備）チェーンLv+5　回数：攻撃1回"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -247,7 +247,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ITEMT"
-output = "初期アイテム表(2) ＞ ロケットランチャー　効果：（装備）マカブルＬｖ＋３　回数：攻撃１回"
+output = "初期アイテム表(2) ＞ ロケットランチャー　効果：（装備）マカブルLv+3　回数：攻撃1回"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -256,7 +256,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ITEMT"
-output = "初期アイテム表(3) ＞ キーピック　効果：（消費）ムーブシーンで使用可。判定の出目の合計＋１　回数：２回"
+output = "初期アイテム表(3) ＞ キーピック　効果：（消費）ムーブシーンで使用可。判定の出目の合計+1　回数：2回"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -265,7 +265,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ITEMT"
-output = "初期アイテム表(4) ＞ レーダー　効果：（装備）ノープラン　装備時、「危険」を１減らすことが出来る　回数：危険減少２回"
+output = "初期アイテム表(4) ＞ レーダー　効果：（装備）ノープラン　装備時、「危険」を1減らすことが出来る　回数：危険減少2回"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -426,7 +426,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ROADT"
-output = "途中参加道中表(6) ＞ 迷子。あれ、ここどこだ？途中参加道中表を振る回数＋２"
+output = "途中参加道中表(6) ＞ 迷子。あれ、ここどこだ？途中参加道中表を振る回数+2"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -434,7 +434,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ROADT"
-output = "途中参加道中表(1) ＞ 死線。死ぬかと思った。Ｆｌａｇ＋１"
+output = "途中参加道中表(1) ＞ 死線。死ぬかと思った。Flag+1"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -442,7 +442,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ROADT"
-output = "途中参加道中表(2) ＞ 怪我。痛い。Ｌｉｆｅ－１"
+output = "途中参加道中表(2) ＞ 怪我。痛い。Life-1"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -450,7 +450,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ROADT"
-output = "途中参加道中表(3) ＞ 失意。どうしてこうなった。Ｂｒａｖｅ－１。減らせない場合、Ｆｌａｇ＋１"
+output = "途中参加道中表(3) ＞ 失意。どうしてこうなった。Brave-1。減らせない場合、Flag+1"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -458,7 +458,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ROADT"
-output = "途中参加道中表(4) ＞ 紛失。どっかいった。Ｉｔｅｍをどれか１つ捨てる。捨てれない場合、Ｆｌａｇ＋１"
+output = "途中参加道中表(4) ＞ 紛失。どっかいった。Itemをどれか1つ捨てる。捨てれない場合、Flag+1"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -466,7 +466,7 @@ rands = [
 [[ test ]]
 game_system = "DesperateRun"
 input = "ROADT"
-output = "途中参加道中表(5) ＞ 追尾。後ろ！後ろーっ！参加開始部屋の危険＋１"
+output = "途中参加道中表(5) ＞ 追尾。後ろ！後ろーっ！参加開始部屋の危険+1"
 rands = [
   { sides = 6, value = 5 },
 ]
