@@ -2,6 +2,7 @@ ko_kr:
   DetatokoSaga:
     DS:
       input_options: "판정！　스킬레벨：%{skill}　플래그：%{flag}　목표치：%{target}"
+      modifier: "　수정치：%{modifier}"
       success: 목표치 이상！【성공】
       failure: 목표치 미달… 【실패】
     JD:

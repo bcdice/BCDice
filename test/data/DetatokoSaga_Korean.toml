@@ -297,6 +297,78 @@ rands = [
 
 [[ test ]]
 game_system = "DetatokoSaga:Korean"
+input = "1DS+1"
+output = "판정！　스킬레벨：1　플래그：0　목표치：8　수정치：＋1 ＞ 4[2,2]＋1 ＞ 4+1 ＞ 판정치：5 ＞ 목표치 미달… 【실패】"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga:Korean"
+input = "2DS2+2"
+output = "판정！　스킬레벨：2　플래그：2　목표치：8　수정치：＋2 ＞ 7[4,2,3]＋2 ＞ 7+2 ＞ 판정치：9 ＞ 목표치 이상！【성공】"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga:Korean"
+input = "3DS+1>=11"
+output = "판정！　스킬레벨：3　플래그：0　목표치：11　수정치：＋1 ＞ 6[1,4,2,2]＋1 ＞ 6+1 ＞ 판정치：7 ＞ 목표치 미달… 【실패】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga:Korean"
+input = "2DS3+1>=10"
+output = "판정！　스킬레벨：2　플래그：3　목표치：10　수정치：＋1 ＞ 9[4,5,3]＋1 ＞ 9+1 ＞ 판정치：10 ＞ 목표치 이상！【성공】"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga:Korean"
+input = "1DS5+1"
+output = "판정！　스킬레벨：1　플래그：5　목표치：8　수정치：＋1 ＞ 3[1,2]＋1 ＞ 3+1 ＞ 판정치：4 ＞ 목표치 미달… 【실패】, 플래그 이하！ 【기력1D6->5점 감소】 【판정치 변경 불가】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga:Korean"
+input = "2DS9+1"
+output = "판정！　스킬레벨：2　플래그：9　목표치：8　수정치：＋1 ＞ 7[3,4,3]＋1 ＞ 7+1 ＞ 판정치：8 ＞ 목표치 이상！【성공】, 플래그 이하！ 【기력1D6->2점 감소】 【판정치 변경 불가】"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga:Korean"
+input = "3DS11+2>=9"
+output = "판정！　스킬레벨：3　플래그：11　목표치：9　수정치：＋2 ＞ 9[1,2,5,4]＋2 ＞ 9+2 ＞ 판정치：11 ＞ 목표치 이상！【성공】, 플래그 이하！ 【기력6점 감소】 【판정치 변경 불가】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga:Korean"
 input = "SST"
 output = "체력 낙인표(2) ＞ 당신은 【낙인】을 2개 받는다. 이 표를 다시 2번 굴려 받을 【낙인】을 정한다(그 경우, 다시 이 눈이 나와도 【낙인】은 늘어나지 않는다)."
 rands = [

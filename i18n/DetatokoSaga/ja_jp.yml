@@ -2,6 +2,7 @@ ja_jp:
   DetatokoSaga:
     DS:
       input_options: "判定！　スキルランク：%{skill}　フラグ：%{flag}　目標値：%{target}"
+      modifier: "　修正値：%{modifier}"
       success: 目標値以上！【成功】
       failure: 目標値未満…【失敗】
     JD:

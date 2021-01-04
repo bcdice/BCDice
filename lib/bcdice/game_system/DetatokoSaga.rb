@@ -14,9 +14,9 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        ・通常判定　xDS or xDSy or xDS>=z or xDSy>=z
-        　(x＝スキルランク、y＝現在フラグ値(省略時0)、z＝目標値(省略時８))
-        　例）3DS　2DS5　0DS　3DS>=10　3DS7>=12
+        ・通常判定　xDS or xDSy or xDS>=t or xDSy>=t or xDS+z>=t or xDSy+z>=t
+        　(x＝スキルランク、y＝現在フラグ値(省略時0)、z＝修正値(省略時０)、t＝目標値(省略時８))
+        　例）3DS　2DS5　0DS　3DS>=10　3DS7>=12 2DS3+1 3DS2+1>=10
         ・判定値　xJD or xJDy or xJDy+z or xJDy-z or xJDy/z
         　(x＝スキルランク、y＝現在フラグ値(省略時0)、z＝修正値(省略時０))
         　例）3JD　2JD5　3JD7+1　4JD/3
@@ -52,19 +52,37 @@ module BCDice
       def checkRoll(string)
         debug("checkRoll begin string", string)
 
-        m = /^(\d+)DS(\d+)?(?:>=(\d+))?$/i.match(string)
+        m = %r{^(\d+)DS(\d+)?(([+-/])(\d+))?(?:>=(\d+))?$}i.match(string)
         unless m
           return nil
         end
 
         skill = m[1].to_i
         flag = m[2].to_i
-        target = m[3]&.to_i || 8
+        operator = m[4]
+        value = m[5].to_i
+        target = m[6]&.to_i || 8
 
         result = translate("DetatokoSaga.DS.input_options", skill: skill, flag: flag, target: target)
 
+        modifyText = getModifyText(operator, value)
+        result += translate("DetatokoSaga.DS.modifier", modifier: modifyText) unless modifyText.empty?
+
         total, rollText = getRollResult(skill)
-        result += " ＞ #{total}[#{rollText}] ＞ " + translate("DetatokoSaga.total_value", total: total)
+
+        result += " ＞ #{total}[#{rollText}]#{modifyText}"
+
+        totalResult = getTotalResultValue(total, value, operator)
+        result += " ＞ #{totalResult}"
+
+        unless modifyText.empty?
+          case operator
+          when "+"
+            total += value
+          when "-"
+            total -= value
+          end
+        end
 
         success = getSuccess(total, target)
         result += " ＞ #{success}"

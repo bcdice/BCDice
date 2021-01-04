@@ -297,6 +297,78 @@ rands = [
 
 [[ test ]]
 game_system = "DetatokoSaga"
+input = "1DS+1"
+output = "判定！　スキルランク：1　フラグ：0　目標値：8　修正値：＋1 ＞ 4[2,2]＋1 ＞ 4+1 ＞ 判定値：5 ＞ 目標値未満…【失敗】"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga"
+input = "2DS2+2"
+output = "判定！　スキルランク：2　フラグ：2　目標値：8　修正値：＋2 ＞ 7[4,2,3]＋2 ＞ 7+2 ＞ 判定値：9 ＞ 目標値以上！【成功】"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga"
+input = "3DS+1>=11"
+output = "判定！　スキルランク：3　フラグ：0　目標値：11　修正値：＋1 ＞ 6[1,4,2,2]＋1 ＞ 6+1 ＞ 判定値：7 ＞ 目標値未満…【失敗】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga"
+input = "2DS3+1>=10"
+output = "判定！　スキルランク：2　フラグ：3　目標値：10　修正値：＋1 ＞ 9[4,5,3]＋1 ＞ 9+1 ＞ 判定値：10 ＞ 目標値以上！【成功】"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga"
+input = "1DS5+1"
+output = "判定！　スキルランク：1　フラグ：5　目標値：8　修正値：＋1 ＞ 3[1,2]＋1 ＞ 3+1 ＞ 判定値：4 ＞ 目標値未満…【失敗】、フラグ以下！【気力1D6->5点減少】【判定値変更不可】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga"
+input = "2DS9+1"
+output = "判定！　スキルランク：2　フラグ：9　目標値：8　修正値：＋1 ＞ 7[3,4,3]＋1 ＞ 7+1 ＞ 判定値：8 ＞ 目標値以上！【成功】、フラグ以下！【気力1D6->2点減少】【判定値変更不可】"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga"
+input = "3DS11+2>=9"
+output = "判定！　スキルランク：3　フラグ：11　目標値：9　修正値：＋2 ＞ 9[1,2,5,4]＋2 ＞ 9+2 ＞ 判定値：11 ＞ 目標値以上！【成功】、フラグ以下！【気力6点減少】【判定値変更不可】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "DetatokoSaga"
 input = "SST"
 output = "体力烙印表(2) ＞ あなたは【烙印】を２つ受ける。この表をさらに２回振って受ける【烙印】を決める（その結果、再びこの出目が出ても【烙印】は増えない）。"
 rands = [

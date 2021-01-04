@@ -16,9 +16,9 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        ・통상판정　xDS or xDSy or xDS>=z or xDSy>=z
-        　(x＝스킬레벨, y＝현재 플래그(생략=0), z＝목표치(생략=８))
-        　예）3DS　2DS5　0DS　3DS>=10　3DS7>=12
+        ・통상판정　xDS or xDSy or xDS>=t or xDSy>=t or xDS+z>=t or xDSy+z>=t
+        　(x＝스킬레벨, y＝현재 플래그(생략=0), z＝수정치(생략=０), t＝목표치(생략=８))
+        　예）3DS　2DS5　0DS　3DS>=10　3DS7>=12 2DS3+1 3DS2+1>=10
         ・판정치　xJD or xJDy or xJDy+z or xJDy-z or xJDy/z
         　(x＝스킬레벨, y＝현재 플래그(생략=0), z＝수정치(생략=０))
         　예）3JD　2JD5　3JD7+1　4JD/3
