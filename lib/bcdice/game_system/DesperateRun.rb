@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "bcdice/base"
+
 module BCDice
   module GameSystem
     class DesperateRun < Base
@@ -109,7 +111,7 @@ module BCDice
       private
 
       def eval_game_system_specific_command(command)
-        check_roll(command) || ddc_table(command) || roll_tables(command, TABLES)
+        check_roll(command) || ddc_table(command) || roll_tables(command, self.class::TABLES)
       end
 
       def check_roll(string)
