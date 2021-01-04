@@ -1,11 +1,12 @@
 ja_jp:
   DetatokoSaga:
     DS:
-      input_options: "判定！　スキルレベル：%{skill}　フラグ：%{flag}　目標値：%{target}"
+      input_options: "判定！　スキルランク：%{skill}　フラグ：%{flag}　目標値：%{target}"
+      modifier: "　修正値：%{modifier}"
       success: 目標値以上！【成功】
       failure: 目標値未満…【失敗】
     JD:
-      input_options: "判定！　スキルレベル：%{skill}　フラグ：%{flag}"
+      input_options: "判定！　スキルランク：%{skill}　フラグ：%{flag}"
       modifier: "　修正値：%{modifier}"
     total_value: "判定値：%{total}"
     less_than_flag: "、フラグ以下！【気力%{will}点減少】【判定値変更不可】"
