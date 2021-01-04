@@ -359,3 +359,44 @@ output = "接触のきっかけ表(6) ＞ ケアをしてあげる ―― 髪を
 rands = [
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "6UL"
+output = "(6D6) ＞ [1,1,2,2,3,6] ＞ No.1: 2個, No.2: 2個, No.3: 1個, No.6: 1個"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "4d 出目ソート"
+output = "(4D6) ＞ 10[1,2,3,4] ＞ 10"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "4b6 出目ソート"
+output = "(4B6) ＞ 1,2,3,4"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "c(4/3) 端数切り上げ"
+output = "c(4/3) ＞ 2"
+rands = []

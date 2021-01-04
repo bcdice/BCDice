@@ -10,39 +10,52 @@ module BCDice
       SORT_KEY = "あるけみあすとらくる"
 
       HELP_MESSAGE = <<~MESSAGETEXT
-                        ■ ダイスロール（ xAS ）
-                          xDをロールします。
-                          例） 5AS
-                #{'        '}
-                        ■ ダイスロール＆最大になるようにピック（ xASy ）
-                          xDをロールし、そこから最大になるようにy個をピックします。
-                          例） 4AS3
-        #{'        '}
-                        ■ 表
-                          ・奇跡の触媒
-                            ・エレメント (CELE, CElement)
-                            ・アルケミア (CALC, CAlchemia)
-                            ・インフォーマント (CINF, CInformant)
-                            ・イノセンス (CINN, CInnocence)
-                            ・アクワイヤード (CACQ, CAcquired)
-                          ・携行品
-                            ・Ｓサイズ (ARS, ArticleS)
-                            ・Ｍサイズ (ARM, ArticleM)
-                            ・Ｌサイズ (ARL, ArticleL)
-                          ・ＰＣ情報獲得表 (PCI, PCInformation)
-                          ・理由表 (REA, Reason)
-                          ・交流表 (ASS, Associate)
-                          ・接触のきっかけ表 (CON, Contact)
+        ■ ダイスロール（ xAS ）
+          xDをロールします。
+          例） 5AS
+
+        ■ ダイスロール＆最大になるようにピック（ xASy ）
+          xDをロールし、そこから最大になるようにy個をピックします。
+          例） 4AS3
+
+        ■ ウルダイスの獲得（ xUL ）
+          xDのウルダイスを振り、出た出目の個数をNo.ごとにカウントします。
+          例） 6UL
+
+        ■ 表
+          ・奇跡の触媒
+            ・エレメント (CELE, CElement)
+            ・アルケミア (CALC, CAlchemia)
+            ・インフォーマント (CINF, CInformant)
+            ・イノセンス (CINN, CInnocence)
+            ・アクワイヤード (CACQ, CAcquired)
+          ・携行品
+            ・Ｓサイズ (ARS, ArticleS)
+            ・Ｍサイズ (ARM, ArticleM)
+            ・Ｌサイズ (ARL, ArticleL)
+          ・ＰＣ情報獲得表 (PCI, PCInformation)
+          ・理由表 (REA, Reason)
+          ・交流表 (ASS, Associate)
+          ・接触のきっかけ表 (CON, Contact)
       MESSAGETEXT
 
       ROLL_REG = /^(\d+)AS(\d+)?$/i.freeze
 
-      register_prefix('\\d+AS')
+      register_prefix('\d+AS', '\d+UL')
+
+      def initialize(command)
+        super(command)
+
+        @sort_add_dice = true # 加算ダイスのソート有
+        @sort_barabara_dice = true # バラバラダイスでソート有
+        @round_type = RoundType::CEIL # 割り算をした時の端数切り上げ
+      end
 
       def eval_game_system_specific_command(command)
         c = ALIAS[command] || command
 
         try_roll_alchemia(c) ||
+          try_roll_uldice(c) ||
           roll_tables(c, TABLES)
       end
 
@@ -65,6 +78,27 @@ module BCDice
           result = roll_alchemia_and_pick(roll_dice_count, pick_dice_count)
           return make_roll_and_pick_text(result[:rolled_dices], pick_dice_count, result[:picked_dices])
         end
+      end
+
+      def try_roll_uldice(command)
+        match = /^(\d+)UL$/.match(command)
+        return nil unless match
+
+        roll_dice_count = match[1].to_i
+        dice_list = @randomizer.roll_barabara(roll_dice_count, 6).sort
+        dice_list_text = dice_list.join(",")
+
+        result = dice_list.group_by(&:itself)
+                          .map { |k, v| "No.#{k}: #{v.size}個" }
+                          .join(", ")
+
+        sequence = [
+          "(#{roll_dice_count}D6)",
+          "[#{dice_list_text}]",
+          result
+        ]
+
+        sequence.join(" ＞ ")
       end
 
       def roll_alchemia(roll_dice_count)
