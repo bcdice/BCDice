@@ -15,10 +15,10 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         ・通常判定　xDS or xDSy or xDS>=z or xDSy>=z
-        　(x＝スキルレベル、y＝現在フラグ値(省略時0)、z＝目標値(省略時８))
+        　(x＝スキルランク、y＝現在フラグ値(省略時0)、z＝目標値(省略時８))
         　例）3DS　2DS5　0DS　3DS>=10　3DS7>=12
         ・判定値　xJD or xJDy or xJDy+z or xJDy-z or xJDy/z
-        　(x＝スキルレベル、y＝現在フラグ値(省略時0)、z＝修正値(省略時０))
+        　(x＝スキルランク、y＝現在フラグ値(省略時0)、z＝修正値(省略時０))
         　例）3JD　2JD5　3JD7+1　4JD/3
         ・体力烙印表　SST (StrengthStigmaTable)
         ・気力烙印表　WST (WillStigmaTable)
