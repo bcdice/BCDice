@@ -43,6 +43,13 @@ module BCDice
 
       register_prefix('\d+AS', '\d+UL')
 
+      def initialize(command)
+        super(command)
+
+        @sort_add_dice = true # 加算ダイスのソート有
+        @sort_barabara_dice = true # バラバラダイスでソート有
+      end
+
       def eval_game_system_specific_command(command)
         c = ALIAS[command] || command
 

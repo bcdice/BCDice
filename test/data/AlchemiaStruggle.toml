@@ -372,3 +372,25 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "4d 出目ソート"
+output = "(4D6) ＞ 10[1,2,3,4] ＞ 10"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "AlchemiaStruggle"
+input = "4b6 出目ソート"
+output = "(4B6) ＞ 1,2,3,4"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
