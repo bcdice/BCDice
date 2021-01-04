@@ -2,9 +2,9 @@
 
 module BCDice
   module GameSystem
-    class JekyllandHyde < Base
+    class JekyllAndHyde < Base
       # ゲームシステムの識別子
-      ID = "JekyllandHyde"
+      ID = "JekyllAndHyde"
 
       # ゲームシステム名
       NAME = "ジキルとハイドとグリトグラ"
