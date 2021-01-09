@@ -3,6 +3,7 @@
 module BCDice
   class << self
     # IDを指定してゲームシステムのクラスを取得する
+    # ゲームシステム一覧がロードされていなければロードする
     #
     # @param id [String] ID
     # @return [Class, nil]
@@ -10,10 +11,12 @@ module BCDice
       all_game_systems.find { |game_system| game_system::ID == id }
     end
 
-    # 現在ロードされているゲームシステムのクラス一覧を返す
+    # ゲームシステムのクラス一覧を返す
+    # ゲームシステム一覧がロードされていなければロードする
     #
     # @return [Array<Class>]
     def all_game_systems()
+      require "bcdice/game_system"
       BCDice::GameSystem.constants.map { |class_name| BCDice::GameSystem.const_get(class_name) }
     end
 
