@@ -20,11 +20,13 @@ module BCDice
       BCDice::GameSystem.constants.map { |class_name| BCDice::GameSystem.const_get(class_name) }
     end
 
-    # クラス名を指定して対象のソースコードを動的にロードし、そのクラスを取得する
+    # IDを指定して対象のソースコードを動的にロードし、そのクラスを取得する
     #
-    # @param class_name [String] クラス名
+    # @param id [String] ID
     # @return [Class, nil]
-    def dynamic_load(class_name)
+    def dynamic_load(id)
+      class_name = id.tr(":.", "_")
+
       # 対象ディレクトリの外にあるファイルをロードされないように制約を設ける
       unless /\A[A-Z]\w*\z/.match?(class_name)
         return nil
