@@ -1,0 +1,728 @@
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "HOT"
+output = "出来事表：暑い日([1,1]) ＞ 【奇・1】透明な汗が、するりと頬を伝い落ちていった。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "HOT"
+output = "出来事表：暑い日([2,6]) ＞ 【偶・6】何か鈍い音が聞こえた気がする。（タナトス +1）（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "HOT"
+output = "出来事表：暑い日([6,6]) ＞ 【偶・6】何か鈍い音が聞こえた気がする。（タナトス +1）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "COLD"
+output = "出来事表：寒い日([1,1]) ＞ 【奇・1】なんだか無性にとてつもなく、人肌が恋しい。（エロス +1）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "COLD"
+output = "出来事表：寒い日([2,6]) ＞ 【偶・6】凍ったところを踏んで、滑ってコケた。（パトス +1）（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "COLD"
+output = "出来事表：寒い日([6,6]) ＞ 【偶・6】凍ったところを踏んで、滑ってコケた。（パトス +1）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "MORNING"
+output = "出来事表：朝([1,1]) ＞ 【奇・1】起きたら涙を流していた。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "MORNING"
+output = "出来事表：朝([2,6]) ＞ 【偶・6】周囲の音がやけに鮮明に耳に響いている。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "MORNING"
+output = "出来事表：朝([6,6]) ＞ 【偶・6】周囲の音がやけに鮮明に耳に響いている。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "NOON"
+output = "出来事表：昼([1,1]) ＞ 【奇・1】なんだかじっとしていられない。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "NOON"
+output = "出来事表：昼([2,6]) ＞ 【偶・6】目に触れるあらゆるものが輝いて見えるような気がする。（パトス +1）（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "NOON"
+output = "出来事表：昼([6,6]) ＞ 【偶・6】目に触れるあらゆるものが輝いて見えるような気がする。（パトス +1）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "AFTERNOON"
+output = "出来事表：昼下がり([1,1]) ＞ 【奇・1】壮絶に気持ちよく眠い。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "AFTERNOON"
+output = "出来事表：昼下がり([2,6]) ＞ 【偶・6】視線を感じた。（ロゴス +1）（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "AFTERNOON"
+output = "出来事表：昼下がり([6,6]) ＞ 【偶・6】視線を感じた。（ロゴス +1）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "TWILIGHT"
+output = "出来事表：黄昏([1,1]) ＞ 【奇・1】人影を見たような気がする。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "TWILIGHT"
+output = "出来事表：黄昏([2,6]) ＞ 【偶・6】物の境目が曖昧で、全てが溶けて混ざり合ってしまいそうな気がする。（エロス +1）（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "TWILIGHT"
+output = "出来事表：黄昏([6,6]) ＞ 【偶・6】物の境目が曖昧で、全てが溶けて混ざり合ってしまいそうな気がする。（エロス +1）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "NIGHT"
+output = "出来事表：夜中([1,1]) ＞ 【奇・1】目が冴えて寝れない。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "NIGHT"
+output = "出来事表：夜中([2,6]) ＞ 【偶・6】どこからかとても美味しそうな匂いが漂ってくる。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "NIGHT"
+output = "出来事表：夜中([6,6]) ＞ 【偶・6】どこからかとても美味しそうな匂いが漂ってくる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "MIDNIGHT"
+output = "出来事表：夜明け([1,1]) ＞ 【奇・1】時計の音がやけに大きく響いている。（タナトス +1）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "MIDNIGHT"
+output = "出来事表：夜明け([2,6]) ＞ 【偶・6】違和感のある香りがする。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "MIDNIGHT"
+output = "出来事表：夜明け([6,6]) ＞ 【偶・6】違和感のある香りがする。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "LARGE"
+output = "出来事表：広い場所([1,1]) ＞ 【奇・1】誰もいない、何もない虚空に投げ出されたような気分になった"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "LARGE"
+output = "出来事表：広い場所([2,6]) ＞ 【偶・6】建物の壁に、大きなラクガキがある。（パトス +1）（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "LARGE"
+output = "出来事表：広い場所([6,6]) ＞ 【偶・6】建物の壁に、大きなラクガキがある。（パトス +1）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "ALLEY"
+output = "出来事表：路地([1,1]) ＞ 【奇・1】窓が開け放たれている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "ALLEY"
+output = "出来事表：路地([2,6]) ＞ 【偶・6】空っぽのゴミ箱が置かれている。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "ALLEY"
+output = "出来事表：路地([6,6]) ＞ 【偶・6】空っぽのゴミ箱が置かれている。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "STAIRS"
+output = "出来事表：階段([1,1]) ＞ 【奇・1】暗く、冷たく、静まり返っている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "STAIRS"
+output = "出来事表：階段([2,6]) ＞ 【偶・6】一段踏み外した。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "STAIRS"
+output = "出来事表：階段([6,6]) ＞ 【偶・6】一段踏み外した。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "COSY"
+output = "出来事表：居心地のいい場所([1,1]) ＞ 【奇・1】一瞬、物音が全て途絶えた。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "COSY"
+output = "出来事表：居心地のいい場所([2,6]) ＞ 【偶・6】軽い眠気に襲われた。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "COSY"
+output = "出来事表：居心地のいい場所([6,6]) ＞ 【偶・6】軽い眠気に襲われた。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "SKY"
+output = "出来事表：空が見える場所([1,1]) ＞ 【奇・1】あたたかな風が通り過ぎていく。（パトス +1）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "SKY"
+output = "出来事表：空が見える場所([2,6]) ＞ 【偶・6】空の向こうに、何かが飛んでいくのが見えた。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "SKY"
+output = "出来事表：空が見える場所([6,6]) ＞ 【偶・6】空の向こうに、何かが飛んでいくのが見えた。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "BATH"
+output = "出来事表：浴室([1,1]) ＞ 【奇・1】床のタイルがとても冷たくなっている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "BATH"
+output = "出来事表：浴室([2,6]) ＞ 【偶・6】なにかが這い回ったような跡があった。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "BATH"
+output = "出来事表：浴室([6,6]) ＞ 【偶・6】なにかが這い回ったような跡があった。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "BOTANY"
+output = "出来事表：植物がある場所([1,1]) ＞ 【奇・1】葉が落ちた蔦が、壁一面にビッシリと這っている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "BOTANY"
+output = "出来事表：植物がある場所([2,6]) ＞ 【偶・6】壁のヒビから芽が顔を出している。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "BOTANY"
+output = "出来事表：植物がある場所([6,6]) ＞ 【偶・6】壁のヒビから芽が顔を出している。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "WAHER"
+output = "出来事表：水がある場所([1,1]) ＞ 【奇・1】水に何かが浮いている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "WAHER"
+output = "出来事表：水がある場所([2,6]) ＞ 【偶・6】浅いと思った水溜りに、足首まで浸かった。（パトス +1）（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "WAHER"
+output = "出来事表：水がある場所([6,6]) ＞ 【偶・6】浅いと思った水溜りに、足首まで浸かった。（パトス +1）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "DIM"
+output = "出来事表：薄暗い場所([1,1]) ＞ 【奇・1】足元を何か小さい生き物がすり抜けていった。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "DIM"
+output = "出来事表：薄暗い場所([2,6]) ＞ 【偶・6】大声で歌い出したい気分だ。（ロゴス +1）（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "DIM"
+output = "出来事表：薄暗い場所([6,6]) ＞ 【偶・6】大声で歌い出したい気分だ。（ロゴス +1）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "FIRE"
+output = "出来事表：火がある場所([1,1]) ＞ 【奇・1】ぱちり、と火の粉が爆ぜた。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "FIRE"
+output = "出来事表：火がある場所([2,6]) ＞ 【偶・6】火はほっといてもしばらく消えなさそうだ。（パトス +1）（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "FIRE"
+output = "出来事表：火がある場所([6,6]) ＞ 【偶・6】火はほっといてもしばらく消えなさそうだ。（パトス +1）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "LABO"
+output = "出来事表：ラボトラリー([1,1]) ＞ 【奇・1】資料らしき紙束が雑多に積み重なっている。（パトス +1）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "LABO"
+output = "出来事表：ラボトラリー([2,6]) ＞ 【偶・6】配線が壁から伸びている。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "LABO"
+output = "出来事表：ラボトラリー([6,6]) ＞ 【偶・6】配線が壁から伸びている。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "BED"
+output = "出来事表：寝室([1,1]) ＞ 【奇・1】やっぱりおふとんは最高だぜ！（パトス +1）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "BED"
+output = "出来事表：寝室([2,6]) ＞ 【偶・6】天井のシミが顔のように見える。（ロゴス +1）（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "BED"
+output = "出来事表：寝室([6,6]) ＞ 【偶・6】天井のシミが顔のように見える。（ロゴス +1）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "CHIMNEY"
+output = "出来事表：煙突街([1,1]) ＞ 【奇・1】煙突のひとつが、真っ黒な煙をあげて荒ぶっている。（タナトス +1）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "CHIMNEY"
+output = "出来事表：煙突街([2,6]) ＞ 【偶・6】煙突のてっぺんに向かうはしごが錆びて朽ちかけている。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "CHIMNEY"
+output = "出来事表：煙突街([6,6]) ＞ 【偶・6】煙突のてっぺんに向かうはしごが錆びて朽ちかけている。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "LIBRARY"
+output = "出来事表：ライブラリー([1,1]) ＞ 【奇・1】破り取られた本の頁が一葉、無残な破れ目をさらしている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "LIBRARY"
+output = "出来事表：ライブラリー([2,6]) ＞ 【偶・6】壊れた本が打ち捨てられている。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "LIBRARY"
+output = "出来事表：ライブラリー([6,6]) ＞ 【偶・6】壊れた本が打ち捨てられている。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "SLUM"
+output = "出来事表：スラム([1,1]) ＞ 【奇・1】口笛を吹かれた。（エロス +1）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "SLUM"
+output = "出来事表：スラム([2,6]) ＞ 【偶・6】汚物が溜まっている。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "SLUM"
+output = "出来事表：スラム([6,6]) ＞ 【偶・6】汚物が溜まっている。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "JUNKYARD"
+output = "出来事表：ジャンクヤード([1,1]) ＞ 【奇・1】頭のとれたネジ巻き式の【からくり人形（従押）】（グッズ）が落ちてる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "JUNKYARD"
+output = "出来事表：ジャンクヤード([2,6]) ＞ 【偶・6】針の無い大きな時計が、物悲しげに鎮座している。（タナトス +1）（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "JUNKYARD"
+output = "出来事表：ジャンクヤード([6,6]) ＞ 【偶・6】針の無い大きな時計が、物悲しげに鎮座している。（タナトス +1）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "IROMACHI"
+output = "出来事表：イロマチ([1,1]) ＞ 【奇・1】物憂げな楽の音が聞こえてくる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "IROMACHI"
+output = "出来事表：イロマチ([2,6]) ＞ 【偶・6】ふと、賑やかな雑踏のなかに取り残されたような感覚に陥った。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "IROMACHI"
+output = "出来事表：イロマチ([6,6]) ＞ 【偶・6】ふと、賑やかな雑踏のなかに取り残されたような感覚に陥った。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "MONASTERY"
+output = "出来事表：修道院([1,1]) ＞ 【奇・1】水鏡が静かに景色を映している。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "MONASTERY"
+output = "出来事表：修道院([2,6]) ＞ 【偶・6】ステンドグラスが床にうっすらと模様を映している。（エロス +1）（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "MONASTERY"
+output = "出来事表：修道院([6,6]) ＞ 【偶・6】ステンドグラスが床にうっすらと模様を映している。（エロス +1）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "ROSE"
+output = "出来事表：ローズガーデン([1,1]) ＞ 【奇・1】滴るような赤い色の薔薇が咲き乱れている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "ROSE"
+output = "出来事表：ローズガーデン([2,6]) ＞ 【偶・6】何かの気配を背後に感じた。（テンション＋4）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "InfiniteBabeL"
+input = "ROSE"
+output = "出来事表：ローズガーデン([6,6]) ＞ 【偶・6】何かの気配を背後に感じた。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]

@@ -36,7 +36,7 @@ module BCDice
       register_prefix("SPRING", "SUMMER", "AUTUMN", "WINTER", "MORNING", "NOON", "AFTERNOON", "TWILIGHT", "NIGHT", "MIDNIGHT", "NORBLE", "MARCHEN", "COLONIAL", "SHELF", "LITTLE", "ELDER", "ATERIEL", "OPEN", "HAUNTED", "SIMPLE", "LARGE", "CORRIDOR", "STAIRS", "COSY", "TERRACE", "GARRET", "KITCHEN", "BATH", "REST", "CELLER", "LUMBER", "GARDEN", "WASTED", "RUIN", "SHORE")
 
       def eval_game_system_specific_command(command)
-        info = EVENT_TABLES[command.upcase]
+        info = self.class::EVENT_TABLES[command]
 
         return nil if info.nil?
 
