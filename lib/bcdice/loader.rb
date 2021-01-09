@@ -3,6 +3,7 @@
 module BCDice
   class << self
     # IDを指定してゲームシステムのクラスを取得する
+    # ゲームシステム一覧がロードされていなければロードする
     #
     # @param id [String] ID
     # @return [Class, nil]
@@ -10,18 +11,22 @@ module BCDice
       all_game_systems.find { |game_system| game_system::ID == id }
     end
 
-    # 現在ロードされているゲームシステムのクラス一覧を返す
+    # ゲームシステムのクラス一覧を返す
+    # ゲームシステム一覧がロードされていなければロードする
     #
     # @return [Array<Class>]
     def all_game_systems()
+      require "bcdice/game_system"
       BCDice::GameSystem.constants.map { |class_name| BCDice::GameSystem.const_get(class_name) }
     end
 
-    # クラス名を指定して対象のソースコードを動的にロードし、そのクラスを取得する
+    # IDを指定して対象のソースコードを動的にロードし、そのクラスを取得する
     #
-    # @param class_name [String] クラス名
+    # @param id [String] ID
     # @return [Class, nil]
-    def dynamic_load(class_name)
+    def dynamic_load(id)
+      class_name = id.tr(":.", "_")
+
       # 対象ディレクトリの外にあるファイルをロードされないように制約を設ける
       unless /\A[A-Z]\w*\z/.match?(class_name)
         return nil
