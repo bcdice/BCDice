@@ -258,3 +258,25 @@ output = "-5CL+5 ＞ (1d10+5) ＞ [8]+5 ＞ クリティカル値[0] 達成値[0
 rands = [
   { sides = 10, value = 8 },
 ]
+
+[[ test ]]
+game_system = "CodeLayerd"
+input = "2d+5 デフォルト10面ダイス"
+output = "(2D10+5) ＞ 14[5,9]+5 ＞ 19"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "CodeLayerd"
+input = "2d*5+2d6+1D 複雑な式"
+output = "(2D10*5+2D6+1D10) ＞ 12[8,4]*5+11[6,5]+4[4] ＞ 75"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 10, value = 4 },
+]
+

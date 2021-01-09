@@ -30,6 +30,12 @@ module BCDice
 
       register_prefix('[+-]?\d*CL([+-]\d+)?[@\d]*.*')
 
+      def initialize(command)
+        super(command)
+
+        @sides_implicit_d = 10
+      end
+
       def eval_game_system_specific_command(command)
         debug('eval_game_system_specific_command command', command)
 
@@ -41,10 +47,10 @@ module BCDice
           base = (m[1] || 1).to_i
           modifier1 = m[2].to_i
           target = (m[4] || 6).to_i
-          criticalTarget = (m[6] || 1).to_i
+          critical_target = (m[6] || 1).to_i
           modifier2 = m[7].to_i
           diff = m[9].to_i
-          result = checkRoll(base, target, criticalTarget, diff, modifier1 + modifier2)
+          result = check_roll(base, target, critical_target, diff, modifier1 + modifier2)
         end
 
         return nil if result.empty?
@@ -52,80 +58,42 @@ module BCDice
         return "#{command} ＞ #{result}"
       end
 
-      def checkRoll(base, target, criticalTarget, diff, modifier)
-        result = ""
-
-        base = getValue(base)
-        target = getValue(target)
-        criticalTarget = getValue(criticalTarget)
-        if base <= 0
-          criticalTarget = 0
+      def check_roll(base, target, critical_target, diff, modifier)
+        if base <= 0 # クリティカルしない1D
+          critical_target = 0
           base = 1
         end
 
         target = 10 if target > 10
+        dice_list = @randomizer.roll_barabara(base, 10).sort
+        success_count = dice_list.count { |x| x <= target }
+        critical_count = dice_list.count { |x| x <= critical_target }
+        success_total = success_count + critical_count + modifier
 
-        result += "(#{base}d10#{Format.modifier(modifier)})"
+        mod_text = Format.modifier(modifier)
 
-        diceList = @randomizer.roll_barabara(base, 10).sort
-
-        result += " ＞ [#{diceList.join(',')}]#{Format.modifier(modifier)} ＞ "
-        result += getRollResultString(diceList, target, criticalTarget, diff, modifier)
-
-        return result
-      end
-
-      def getRollResultString(diceList, target, criticalTarget, diff, modifier)
-        successCount, criticalCount = getSuccessInfo(diceList, target, criticalTarget)
-
-        successTotal = successCount + criticalCount + modifier
-        result = ""
-
+        # (10d10+5)
+        result = "(#{base}d10#{mod_text}) ＞ [#{dice_list.join(',')}]#{mod_text} ＞ "
         result += "判定値[#{target}] " unless target == 6
-        result += "クリティカル値[#{criticalTarget}] " unless criticalTarget == 1
-        result += "達成値[#{successCount}]"
+        result += "クリティカル値[#{critical_target}] " unless critical_target == 1
+        result += "達成値[#{success_count}]"
 
-        # 出目がすべて判定値より大きければ固定値に関わらずファンブル
-        if successCount <= 0
-          result += " ＞ ファンブル！"
-          return result
-        end
+        return "#{result} ＞ ファンブル！" if success_count <= 0
 
-        result += "+クリティカル[#{criticalCount}]" if criticalCount > 0
-        result += Format.modifier(modifier)
-        result += "=[#{successTotal}]" if criticalCount > 0 || modifier != 0
+        result += "+クリティカル[#{critical_count}]" if critical_count > 0
+        result += mod_text
+        result += "=[#{success_total}]" if critical_count > 0 || modifier != 0
 
-        successText = getSuccessResultText(successTotal, diff)
-        result += " ＞ #{successText}"
+        success_text =
+          if diff == 0
+            success_total.to_s
+          elsif success_total >= diff
+            "成功"
+          else
+            "失敗"
+          end
 
-        return result
-      end
-
-      def getSuccessResultText(successTotal, diff)
-        return successTotal.to_s if diff == 0
-        return "成功" if successTotal >= diff
-
-        return "失敗"
-      end
-
-      def getSuccessInfo(diceList, target, criticalTarget)
-        debug("checkSuccess diceList, target, criticalTarget", diceList, target, criticalTarget)
-
-        successCount  = 0
-        criticalCount = 0
-
-        diceList.each do |dice|
-          successCount += 1 if dice <= target
-          criticalCount += 1 if dice <= criticalTarget
-        end
-
-        return successCount, criticalCount
-      end
-
-      def getValue(number)
-        return 0 if number > 100
-
-        return number
+        return "#{result} ＞ #{success_text}"
       end
     end
   end
