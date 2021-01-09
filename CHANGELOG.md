@@ -15,6 +15,7 @@
 - 鋼鉄のユグドラシル (Yggdrasill): Doktorさん、Mid9658さんありがとうっ！ ([#361](https://github.com/bcdice/BCDice/pull/361))
 - Desperate Run TRPG (Desperate Run): えおふさんありがとうっ！ ([#362](https://github.com/bcdice/BCDice/pull/362))
 - ジキルとハイドとグリトグラ (JekyllAndHyde): えおふさんありがとうっ！ ([#362](https://github.com/bcdice/BCDice/pull/362))
+- 少年のための少女展爛会異聞 Infinite BabeL (InfiniteBabeL): 全裸さんありがとうっ！ ([#367](https://github.com/bcdice/BCDice/pull/367))
 
 ### 追加機能
 - ログ・ホライズンTRPG: LHZB1とLHZB2両方の財宝表をサポート、消耗表ロールを追加、財宝表ロールを追加、区切り文字を変更 ([#279](https://github.com/bcdice/BCDice/pull/279))
