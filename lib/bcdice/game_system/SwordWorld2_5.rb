@@ -66,9 +66,29 @@ module BCDice
 
         ・絡み効果表　(TT)
         　絡み効果表を出すことができます。
+
+        ・ドルイドの物理魔法用表　(Dru[2-6の値,7-9の値,10-12の値])
+        　例）Dru[0,3,6]+10-3
       INFO_MESSAGE_TEXT
 
-      register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT')
+      register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT', 'Dru\[\d+,\d+,\d+\]')
+
+      def eval_game_system_specific_command(command)
+        case command
+        when /dru\[(\d+),(\d+),(\d+)\].*/i
+          power_list = (1..3).map{ |i|  Regexp.last_match(i).to_i }
+          doruid_parser = Command::Parser.new(/dru\[\d+,\d+,\d+\]/i, round_type: BCDice::RoundType::CEIL)
+
+          cmd = doruid_parser.parse(command)
+          unless cmd
+            return nil
+          end
+
+          doruid_dice(cmd, power_list)
+        else
+          super(command)
+        end
+      end
 
       # コマンド実行前にメッセージを置換する
       # @param [String] string 受信したメッセージ
@@ -80,6 +100,29 @@ module BCDice
           modifier = Regexp.last_match(1).to_i
           "a[#{Format.modifier(modifier)}]"
         end
+      end
+
+      def doruid_dice(command, power_list)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        dice_total = dice_list.sum()
+        offset =
+          case dice_total
+          when 2..6
+            0
+          when 7..9
+            1
+          when 10..12
+            2
+          end
+        power = power_list[offset]
+        total = power + command.modify_number
+        sequence = [
+          "2D[#{dice_list.join(",")}]=#{power}",
+          "#{power}#{Format.modifier(command.modify_number)}",
+          total
+        ].compact
+
+        return sequence.join(" ＞ ")
       end
 
       def getRatingCommandStrings
