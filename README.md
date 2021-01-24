@@ -8,18 +8,12 @@
 
 様々なTRPGシステムの判定に対応したIRC用ダイスボット兼オンセツール用ダイスエンジン
 
-## :warning: 注意 :warning:
-
-リポジトリサイズ削減のため、2020/09/01にmasterブランチのコミットログを改変します。
-
-詳細は [bcdice/BCDice#204](https://github.com/bcdice/BCDice/issues/204) をご覧ください。
-
 ## Documents
 
+- [BCDiceコマンドガイド](https://docs.bcdice.org/)
 - [ロードマップ](ROADMAP.md)
 - [ChangeLog](CHANGELOG.md)
-- [旧README](docs/README.txt)
-- [ダイスボットの作り方](docs/how_to_make_dicebot.md)
+- [ダイスボットの作り方（旧版）](docs/how_to_make_dicebot.md)
 - [Pull Requestを送る前に確認したいこと](https://github.com/bcdice/BCDice/wiki/Pull-Requestを送る前に確認したいこと)
 
 ## バグ報告や機能要望

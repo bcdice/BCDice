@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 3.0.0 2021/01/24
+
 ### 対応ゲームシステムの追加
 - SRSじゃない世界樹の迷宮TRPG (NSSQ): TTさんありがとうっ！ ([#284](https://github.com/bcdice/BCDice/pull/284))
 - ウォーハンマーRPG第4版 (Warhammer4): Facelessさんありがとうっ！ ([#285](https://github.com/bcdice/BCDice/pull/285))
