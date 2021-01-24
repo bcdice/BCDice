@@ -77,14 +77,14 @@ module BCDice
         case command
         when /dru\[(\d+),(\d+),(\d+)\].*/i
           power_list = (1..3).map{ |i|  Regexp.last_match(i).to_i }
-          doruid_parser = Command::Parser.new(/dru\[\d+,\d+,\d+\]/i, round_type: BCDice::RoundType::CEIL)
+          druid_parser = Command::Parser.new(/dru\[\d+,\d+,\d+\]/i, round_type: BCDice::RoundType::CEIL)
 
-          cmd = doruid_parser.parse(command)
+          cmd = druid_parser.parse(command)
           unless cmd
             return nil
           end
 
-          doruid_dice(cmd, power_list)
+          druid_dice(cmd, power_list)
         else
           super(command)
         end
@@ -102,7 +102,7 @@ module BCDice
         end
       end
 
-      def doruid_dice(command, power_list)
+      def druid_dice(command, power_list)
         dice_list = @randomizer.roll_barabara(2, 6)
         dice_total = dice_list.sum()
         offset =
