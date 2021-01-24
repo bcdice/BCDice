@@ -71,7 +71,7 @@ module BCDice
         　例）Dru[0,3,6]+10-3
       INFO_MESSAGE_TEXT
 
-      register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT', 'Dru\[\d+,\d+,\d+\]')
+      register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT', 'Dru\[\d+,\d+,\d+\].*')
 
       def eval_game_system_specific_command(command)
         case command
