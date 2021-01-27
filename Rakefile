@@ -28,6 +28,7 @@ RACC_TARGETS = [
   "lib/bcdice/common_command/calc/parser.rb",
   "lib/bcdice/common_command/reroll_dice/parser.rb",
   "lib/bcdice/common_command/upper_dice/parser.rb",
+  "lib/bcdice/game_system/sword_world/rating_parser.rb",
 ].freeze
 
 task racc: RACC_TARGETS
