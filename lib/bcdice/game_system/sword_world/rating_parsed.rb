@@ -47,8 +47,7 @@ module BCDice
 
         # @return [Integer]
         def sanitized_critical
-          crit = case
-                 when @critical.nil?
+          crit = if @critical.nil?
                    half ? 13 : 10
                  else
                    @critical

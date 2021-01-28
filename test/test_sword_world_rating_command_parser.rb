@@ -4,8 +4,6 @@ require "test/unit"
 require "bcdice/base"
 require "bcdice/game_system/sword_world/rating_parser"
 
-class BCDice::GameSystem::SwordWorld < BCDice::Base; end
-
 class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
   def setup
     @parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
@@ -154,5 +152,4 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
     assert_true(parsed.half)
     assert_equal(2, parsed.modifier_after_half)
   end
-
 end

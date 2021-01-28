@@ -1,5 +1,4 @@
-# coding: utf-8
- # frozen_string_literal: true
+# frozen_string_literal: true
 
 require "bcdice/game_system/sword_world/rating_parser"
 
@@ -70,7 +69,7 @@ module BCDice
 
         newRates = getNewRates(rate_sw2_0)
 
-        output = "#{command.to_s} ＞ "
+        output = "#{command} ＞ "
 
         diceResultTotals = []
         diceResults = []
