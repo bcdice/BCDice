@@ -339,7 +339,7 @@ module BCDice
         total = rating_total + command.modifier
         if command.half
           total = (total / 2.0).ceil
-          if command.sanitized_modifier_after_half > 0
+          if command.sanitized_modifier_after_half != 0
             total += command.sanitized_modifier_after_half
           end
         end
