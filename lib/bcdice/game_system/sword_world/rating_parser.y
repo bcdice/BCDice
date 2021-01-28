@@ -200,7 +200,6 @@ def parsed(rate, modifier, option)
     p.rateup = option[:rateup]&.eval(Arithmetic::Node::DivideWithGameSystemDefault)
     p.greatest_fortune = option.fetch(:greatest_fortune, false)
     p.modifier = modifier.eval(Arithmetic::Node::DivideWithGameSystemDefault)
-    p.half = !option[:modifier_after_half].nil?
     p.modifier_after_half = option[:modifier_after_half]&.eval(Arithmetic::Node::DivideWithGameSystemDefault)
   end
 end

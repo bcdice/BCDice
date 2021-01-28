@@ -70,33 +70,7 @@ module BCDice
 
         newRates = getNewRates(rate_sw2_0)
 
-        crit = case
-               when command.critical.nil?
-                 command.half ? 13 : 10
-               else
-                 command.critical
-               end
-        crit = 3 if crit < 3 # エラートラップ(クリティカル値が3未満なら3とする)
-        first_modify = command.first_modify.nil? ? 0 : command.first_modify
-        first_to = command.first_to.nil? ? 0 : command.first_to
-        rateup = command.rateup.nil? ? 0 : command.rateup
-        kept_modify = command.kept_modify.nil? ? 0 : command.kept_modify
-        modifier_after_half = command.modifier_after_half.nil? ? 0 : command.modifier_after_half
-
-        output = "KeyNo.#{command.rate}"
-
-        output += "c[#{crit}]" if crit < 13
-        output += "m[#{Format.modifier(first_modify)}]" if first_modify != 0
-        output += "m[#{first_to}]" if first_to != 0
-        output += "r[#{rateup}]" if rateup != 0
-        output += "gf" if command.greatest_fortune
-        output += "a[#{Format.modifier(kept_modify)}]" if kept_modify != 0
-
-        if command.modifier != 0
-          output += Format.modifier(command.modifier)
-        end
-
-        output += " ＞ "
+        output = "#{command.to_s} ＞ "
 
         diceResultTotals = []
         diceResults = []
@@ -105,6 +79,8 @@ module BCDice
         diceOnlyTotal = 0
         totalValue = 0
         round = 0
+        first_to = command.sanitized_first_to
+        first_modify = command.sanitized_first_modify
 
         loop do
           dice_raw, diceText = rollDice(command)
@@ -128,12 +104,12 @@ module BCDice
             break
           end
 
-          dice += kept_modify if (kept_modify != 0) && (dice != 2)
+          dice += command.sanitized_kept_modify if (command.sanitized_kept_modify != 0) && (dice != 2)
 
           dice = 2 if dice < 2
           dice = 12 if dice > 12
 
-          currentKey = [command.rate + round * rateup, keyMax].min
+          currentKey = [command.rate + round * command.sanitized_rateup, keyMax].min
           debug("currentKey", currentKey)
           rateValue = newRates[dice][currentKey]
           debug("rateValue", rateValue)
@@ -147,11 +123,11 @@ module BCDice
 
           round += 1
 
-          break unless dice >= crit
+          break unless dice >= command.sanitized_critical
         end
 
-        output += getResultText(totalValue, command.modifier, diceResults, diceResultTotals,
-                                rateResults, diceOnlyTotal, round, command.half, modifier_after_half)
+        output += getResultText(totalValue, command, diceResults, diceResultTotals,
+                                rateResults, diceOnlyTotal, round)
 
         return output
       end
@@ -320,16 +296,14 @@ module BCDice
       end
 
       # @param rating_total [Integer]
-      # @param modifier [Integer]
+      # @param command [SwordWorld::RatingParsed]
       # @param diceResults [Array<String>]
       # @param diceResultTotals [Array<String>]
       # @param rateResults  [Array<String>]
       # @param dice_total [Integer]
       # @param round [Integer]
-      # @param half [Boolean]
-      # @param modifier_after_half [Integer, nil]
-      def getResultText(rating_total, modifier, diceResults, diceResultTotals,
-                        rateResults, dice_total, round, half, modifier_after_half)
+      def getResultText(rating_total, command, diceResults, diceResultTotals,
+                        rateResults, dice_total, round)
         sequence = []
 
         sequence.push("2D:[#{diceResults.join(' ')}]=#{diceResultTotals.join(',')}")
@@ -341,19 +315,19 @@ module BCDice
         end
 
         # rate回数が1回で、修正値がない時には途中式と最終結果が一致するので、途中式を省略する
-        if rateResults.size > 1 || modifier != 0
-          text = rateResults.join(',') + Format.modifier(modifier)
-          if half
+        if rateResults.size > 1 || command.modifier != 0
+          text = rateResults.join(',') + Format.modifier(command.modifier)
+          if command.half
             text = "(#{text})/2"
-            if modifier_after_half != 0
-              text += Format.modifier(modifier_after_half)
+            if command.sanitized_modifier_after_half != 0
+              text += Format.modifier(command.sanitized_modifier_after_half)
             end
           end
           sequence.push(text)
-        elsif half
+        elsif command.half
           text = "#{rateResults.first}/2"
-          if modifier_after_half != 0
-            text += Format.modifier(modifier_after_half)
+          if command.sanitized_modifier_after_half != 0
+            text += Format.modifier(command.sanitized_modifier_after_half)
           end
           sequence.push(text)
         end
@@ -363,11 +337,11 @@ module BCDice
           sequence.push(round_text)
         end
 
-        total = rating_total + modifier
-        if half
+        total = rating_total + command.modifier
+        if command.half
           total = (total / 2.0).ceil
-          if modifier_after_half > 0
-            total += modifier_after_half
+          if command.sanitized_modifier_after_half > 0
+            total += command.sanitized_modifier_after_half
           end
         end
 
