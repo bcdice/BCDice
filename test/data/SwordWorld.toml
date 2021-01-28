@@ -5011,6 +5011,15 @@ rands = [
 
 [[ test ]]
 game_system = "SwordWorld"
+input = "k10h+(1+1) カッコをつければ半減後加算に繰り込まれる"
+output = "KeyNo.10 ＞ 2D:[6,6]=12 ＞ 7/2+2 ＞ 6"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SwordWorld"
 input = "hk10h"
 output = "KeyNo.10 ＞ 2D:[6,6]=12 ＞ 7/2 ＞ 4"
 rands = [
