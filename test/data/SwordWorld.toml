@@ -4975,6 +4975,26 @@ rands = [
 
 [[ test ]]
 game_system = "SwordWorld"
+input = "k10+10@8+5 複数箇所での修正。クリティカル値が13にはならない"
+output = "KeyNo.10c[8]+15 ＞ 2D:[3,5 3,1]=8,4 ＞ 4,1+15 ＞ 1回転 ＞ 20"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SwordWorld"
+input = "k10+10@(8+5) カッコをつけるとクリティカル値が加算される"
+output = "KeyNo.10+10 ＞ 2D:[6,5]=11 ＞ 6+10 ＞ 16"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "SwordWorld"
 input = "hk10 HKのクリティカル値は13"
 output = "KeyNo.10 ＞ 2D:[6,6]=12 ＞ 7/2 ＞ 4"
 rands = [
