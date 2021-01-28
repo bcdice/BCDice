@@ -35,7 +35,15 @@ module BCDice
         ・武器改造チャート表：WCC
         ・イベントチャート表：EVC
         ・戦闘開始距離：BSD
+
+        デフォルトダイス：10面
       MESSAGETEXT
+
+      def initialize(command)
+        super(command)
+
+        @sides_implicit_d = 10
+      end
 
       # @param command [String]
       # @return [String, nil]

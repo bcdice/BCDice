@@ -342,3 +342,24 @@ output = "(1D10-2) ＞ 1[1]-2 ＞ -1（ダメージを受けない）"
 rands = [
   { sides = 10, value = 1 },
 ]
+
+[[ test ]]
+game_system = "Garako"
+input = "2d+5 デフォルト10面ダイス"
+output = "(2D10+5) ＞ 14[5,9]+5 ＞ 19"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Garako"
+input = "2d*5+2d6+1D 複雑な式"
+output = "(2D10*5+2D6+1D10) ＞ 12[8,4]*5+11[6,5]+4[4] ＞ 75"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 10, value = 4 },
+]
