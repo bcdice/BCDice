@@ -70,50 +70,8 @@ module BCDice
 
       register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT')
 
-      # コマンド実行前にメッセージを置換する
-      # @param [String] string 受信したメッセージ
-      # @return [String]
-      def replace_text(string)
-        return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match?(string)
-
-        super(string).gsub(/#([-+]?\d+)/) do
-          modifier = Regexp.last_match(1).to_i
-          "a[#{Format.modifier(modifier)}]"
-        end
-      end
-
-      def getRatingCommandStrings
-        super + "aA"
-      end
-
-      def getAdditionalString(string, output)
-        output, values = super(string, output)
-
-        keptDiceChangeModify, = getKeptDiceChangesFromString(string)
-
-        values['keptDiceChangeModify'] = keptDiceChangeModify
-        output += "a[#{keptDiceChangeModify}]" if keptDiceChangeModify != 0
-
-        return output, values
-      end
-
-      def getAdditionalDiceValue(dice, values)
-        keptDiceChangeModify = values['keptDiceChangeModify'].to_i
-
-        value = 0
-        value += keptDiceChangeModify.to_i if (keptDiceChangeModify != 0) && (dice != 2)
-
-        return value
-      end
-
-      def getKeptDiceChangesFromString(string)
-        keptDiceChangeModify = 0
-        regexp = /a\[([+\-]\d+)\]/i
-        if regexp =~ string
-          keptDiceChangeModify = Regexp.last_match(1)
-          string = string.gsub(regexp, '')
-        end
-        return keptDiceChangeModify, string
+      def rating_parser
+        return RatingParser.new.set_version(:v2_5)
       end
     end
   end

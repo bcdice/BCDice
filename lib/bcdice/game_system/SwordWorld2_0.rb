@@ -201,49 +201,18 @@ module BCDice
         end
       end
 
-      def getRateUpFromString(string)
-        rateUp = 0
-
-        regexp = /r\[(\d+)\]/i
-        if (m = regexp.match(string))
-          rateUp = m[1].to_i
-          string = string.gsub(regexp, '')
-        end
-
-        return rateUp, string
+      def rating_parser
+        return RatingParser.new.set_version(:v2_0)
       end
 
-      def getAdditionalString(string, output)
-        output, values = super(string, output)
-
-        isGratestFortune, = getGratestFortuneFromString(string)
-
-        values['isGratestFortune'] = isGratestFortune
-        output += "gf" if isGratestFortune
-
-        return output, values
-      end
-
-      def rollDice(values)
-        unless values['isGratestFortune']
-          return super(values)
+      def rollDice(command)
+        unless command.greatest_fortune
+          return super(command)
         end
 
         dice = @randomizer.roll_once(6)
 
         return dice * 2, "#{dice},#{dice}"
-      end
-
-      def getGratestFortuneFromString(string)
-        isGratestFortune = false
-
-        regexp = /gf/i
-        if regexp.match?(string)
-          isGratestFortune = true
-          string = string.gsub(regexp, '')
-        end
-
-        return isGratestFortune, string
       end
 
       def growth(count = 1)

@@ -1,4 +1,7 @@
-# frozen_string_literal: true
+# coding: utf-8
+ # frozen_string_literal: true
+
+require "bcdice/game_system/sword_world/rating_parser"
 
 module BCDice
   module GameSystem
@@ -22,28 +25,6 @@ module BCDice
         @rating_table = 0
       end
 
-      # change_textで使うレーティング表コマンドの正規表現
-      #
-      # SW 2.5のダイスボットでも必要なため、共通化のために定数として定義する
-      RATING_TABLE_RE_FOR_CHANGE_TEXT = /\AS?H?K\d+/i.freeze
-
-      # コマンド実行前にメッセージを置換する
-      # @param [String] string 受信したメッセージ
-      # @return [String]
-      def replace_text(string)
-        return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match?(string)
-
-        string
-          .gsub(/\[(\d+)\]/) { "c[#{Regexp.last_match(1)}]" }
-          .gsub(/@(\d+)/) { "c[#{Regexp.last_match(1)}]" }
-          .gsub(/\$([-+]?\d+)/) { "m[#{Regexp.last_match(1)}]" }
-          .gsub(/r([-+]?\d+)/i) { "r[#{Regexp.last_match(1)}]" }
-      end
-
-      def getRatingCommandStrings
-        "cmCM"
-      end
-
       def result_2d6(total, dice_total, _dice_list, cmp_op, target)
         if dice_total >= 12
           Result.critical("自動的成功")
@@ -64,57 +45,55 @@ module BCDice
 
       private
 
+      def rating_parser
+        return RatingParser.new
+      end
+
       ####################        SWレーティング表       ########################
       def rating(string) # レーティング表
-        string = replace_text(string)
         debug("rating string", string)
+        command = rating_parser.parse(string)
 
-        commands = getRatingCommandStrings
-
-        m = /^S?(H?K[\d+\-]+([#{commands}]\[([\d+\-]+)\])*([\d+\-]*)([CMR]\[([\d+\-]+)\]|GF|H)*)/i.match(string)
-        unless m
+        unless command
           debug("not matched")
           return '1'
         end
-
-        string = m[1]
-        half = string.include?("H")
-
-        rateUp, string = getRateUpFromString(string)
-        crit, string = getCriticalFromString(string, half)
-        firstDiceChanteTo, firstDiceChangeModify, string = getDiceChangesFromString(string)
-
-        key, addValue = getKeyAndAddValueFromString(string)
-
-        return '1' unless key =~ /(\d+)/
-
-        key = Regexp.last_match(1).to_i
 
         # 2.0対応
         rate_sw2_0 = getSW2_0_RatingTable
 
         keyMax = rate_sw2_0.length - 1
         debug("keyMax", keyMax)
-        if key > keyMax
+        if command.rate > keyMax
           return "キーナンバーは#{keyMax}までです"
         end
 
         newRates = getNewRates(rate_sw2_0)
 
-        output = "KeyNo.#{key}"
+        crit = case
+               when command.critical.nil?
+                 command.half ? 13 : 10
+               else
+                 command.critical
+               end
+        crit = 3 if crit < 3 # エラートラップ(クリティカル値が3未満なら3とする)
+        first_modify = command.first_modify.nil? ? 0 : command.first_modify
+        first_to = command.first_to.nil? ? 0 : command.first_to
+        rateup = command.rateup.nil? ? 0 : command.rateup
+        kept_modify = command.kept_modify.nil? ? 0 : command.kept_modify
+        modifier_after_half = command.modifier_after_half.nil? ? 0 : command.modifier_after_half
+
+        output = "KeyNo.#{command.rate}"
 
         output += "c[#{crit}]" if crit < 13
-        output += "m[#{firstDiceChangeModify}]" if firstDiceChangeModify != 0
-        output += "m[#{firstDiceChanteTo}]" if  firstDiceChanteTo != 0
-        output += "r[#{rateUp}]" if rateUp != 0
+        output += "m[#{Format.modifier(first_modify)}]" if first_modify != 0
+        output += "m[#{first_to}]" if first_to != 0
+        output += "r[#{rateup}]" if rateup != 0
+        output += "gf" if command.greatest_fortune
+        output += "a[#{Format.modifier(kept_modify)}]" if kept_modify != 0
 
-        output, values = getAdditionalString(string, output)
-
-        debug('output', output)
-
-        if addValue != 0
-          output += "+#{addValue}" if addValue > 0
-          output += addValue.to_s if addValue < 0
+        if command.modifier != 0
+          output += Format.modifier(command.modifier)
         end
 
         output += " ＞ "
@@ -128,15 +107,15 @@ module BCDice
         round = 0
 
         loop do
-          dice_raw, diceText = rollDice(values)
+          dice_raw, diceText = rollDice(command)
           dice = dice_raw
 
-          if  firstDiceChanteTo != 0
-            dice = dice_raw = firstDiceChanteTo
-            firstDiceChanteTo = 0
-          elsif  firstDiceChangeModify != 0
-            dice += firstDiceChangeModify.to_i
-            firstDiceChangeModify = 0
+          if first_to != 0
+            dice = dice_raw = first_to
+            first_to = 0
+          elsif first_modify != 0
+            dice += first_modify
+            first_modify = 0
           end
 
           # 出目がピンゾロの時にはそこで終了
@@ -149,12 +128,12 @@ module BCDice
             break
           end
 
-          dice += getAdditionalDiceValue(dice, values)
+          dice += kept_modify if (kept_modify != 0) && (dice != 2)
 
           dice = 2 if dice < 2
           dice = 12 if dice > 12
 
-          currentKey = [key + round * rateUp, keyMax].min
+          currentKey = [command.rate + round * rateup, keyMax].min
           debug("currentKey", currentKey)
           rateValue = newRates[dice][currentKey]
           debug("rateValue", rateValue)
@@ -171,74 +150,10 @@ module BCDice
           break unless dice >= crit
         end
 
-        output += getResultText(totalValue, addValue, diceResults, diceResultTotals,
-                                rateResults, diceOnlyTotal, round, half)
+        output += getResultText(totalValue, command.modifier, diceResults, diceResultTotals,
+                                rateResults, diceOnlyTotal, round, command.half, modifier_after_half)
 
         return output
-      end
-
-      def getAdditionalString(_string, output)
-        values = {}
-        return output, values
-      end
-
-      def getAdditionalDiceValue(_dice, _values)
-        0
-      end
-
-      def getCriticalFromString(string, half)
-        crit = half ? 13 : 10
-
-        regexp = /c\[(\d+)\]/i
-
-        if regexp =~ string
-          crit = Regexp.last_match(1).to_i
-          crit = 3 if crit < 3 # エラートラップ(クリティカル値が3未満なら3とする)
-          string = string.gsub(regexp, '')
-        end
-
-        return crit, string
-      end
-
-      def getDiceChangesFromString(string)
-        firstDiceChanteTo = 0
-        firstDiceChangeModify = 0
-
-        regexp = /m\[([\d+\-]+)\]/i
-
-        if  regexp =~ string
-          firstDiceChangeModify = Regexp.last_match(1)
-
-          unless /[+\-]/ =~ firstDiceChangeModify
-            firstDiceChanteTo = firstDiceChangeModify.to_i
-            firstDiceChangeModify = 0
-          end
-
-          string = string.gsub(regexp, '')
-        end
-
-        return firstDiceChanteTo, firstDiceChangeModify, string
-      end
-
-      def getRateUpFromString(string)
-        rateUp = 0
-        return rateUp, string
-      end
-
-      def getKeyAndAddValueFromString(string)
-        key = nil
-        addValue = 0
-
-        if /K(\d+)([\d+\-]*)/i =~ string # ボーナスの抽出
-          key = Regexp.last_match(1)
-          if Regexp.last_match(2)
-            addValue = ArithmeticEvaluator.eval(Regexp.last_match(2))
-          end
-        else
-          key = string
-        end
-
-        return key, addValue
       end
 
       def getSW2_0_RatingTable
@@ -397,7 +312,7 @@ module BCDice
         return newRates
       end
 
-      def rollDice(_values)
+      def rollDice(_command)
         dice_list = @randomizer.roll_barabara(2, 6)
         total = dice_list.sum()
         dice_str = dice_list.join(",")
@@ -412,8 +327,9 @@ module BCDice
       # @param dice_total [Integer]
       # @param round [Integer]
       # @param half [Boolean]
+      # @param modifier_after_half [Integer, nil]
       def getResultText(rating_total, modifier, diceResults, diceResultTotals,
-                        rateResults, dice_total, round, half)
+                        rateResults, dice_total, round, half, modifier_after_half)
         sequence = []
 
         sequence.push("2D:[#{diceResults.join(' ')}]=#{diceResultTotals.join(',')}")
@@ -429,10 +345,17 @@ module BCDice
           text = rateResults.join(',') + Format.modifier(modifier)
           if half
             text = "(#{text})/2"
+            if modifier_after_half != 0
+              text += Format.modifier(modifier_after_half)
+            end
           end
           sequence.push(text)
         elsif half
-          sequence.push("#{rateResults.first}/2")
+          text = "#{rateResults.first}/2"
+          if modifier_after_half != 0
+            text += Format.modifier(modifier_after_half)
+          end
+          sequence.push(text)
         end
 
         if round > 1
@@ -443,6 +366,9 @@ module BCDice
         total = rating_total + modifier
         if half
           total = (total / 2.0).ceil
+          if modifier_after_half > 0
+            total += modifier_after_half
+          end
         end
 
         total_text = total.to_s
