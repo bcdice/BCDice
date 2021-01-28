@@ -134,8 +134,7 @@ class RatingParser
        { result = Arithmetic::Node::BinaryOp.new(val[0], :*, val[2]) }
        | mul SLASH unary
        {
-         divied_class = val[3]
-         result = divied_class.new(val[0], val[2])
+         result = Arithmetic::Node::DivideWithGameSystemDefault.new(val[0], val[2])
        }
        | unary
 

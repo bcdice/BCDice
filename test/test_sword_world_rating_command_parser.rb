@@ -112,6 +112,22 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
     assert_nil(parsed)
   end
 
+  def test_parse_v1_arithmetic
+    parsed = @parser.parse("K50+5*4/2-1+3@10")
+
+    assert_not_nil(parsed)
+    assert_equal(50, parsed.rate)
+    assert_equal(12, parsed.modifier)
+    assert_equal(10, parsed.critical)
+    assert_nil(parsed.kept_modify)
+    assert_nil(parsed.first_to)
+    assert_nil(parsed.first_modify)
+    assert_false(parsed.greatest_fortune)
+    assert_nil(parsed.rateup)
+    assert_false(parsed.half)
+    assert_nil(parsed.modifier_after_half)
+  end
+
   def test_parse_v20_full
     @parser.set_version(:v2_0)
     parsed = @parser.parse("K20+5+3@9$+1gfr5H+2")
