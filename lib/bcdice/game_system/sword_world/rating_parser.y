@@ -29,11 +29,9 @@ class RatingParser
           | option modifier
           {
             option, term = val
-            if option.key?(:modifier)  # 分散したmodifierは足し込む
-                option[:modifier] = Arithmetic::Node::BinaryOp.new(option[:modifier], :+, term)
-            else
-                option[:modifier] = term
-            end
+            raise ParseError unless option[:modifier].nil?
+
+            option[:modifier] = term
             result = option
           }
           | option BRACKETL unary BRACKETR
