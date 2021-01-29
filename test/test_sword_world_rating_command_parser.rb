@@ -5,7 +5,6 @@ require "bcdice/base"
 require "bcdice/game_system/sword_world/rating_parser"
 
 class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
-
   def test_parse_v1_full_first_modify
     parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
     parsed = parser.parse("K20+5+3@9$+1H+2")
