@@ -71,11 +71,11 @@ module BCDice
         　例）Dru[0,3,6]+10-3
       INFO_MESSAGE_TEXT
 
-      register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT', '^Dru\[\d+,\d+,\d+\]')
+      register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT', 'Dru\[\d+,\d+,\d+\].*')
 
       def eval_game_system_specific_command(command)
         case command
-        when /dru\[(\d+),(\d+),(\d+)\].*/i
+        when /^dru\[(\d+),(\d+),(\d+)\]/i
           power_list = Regexp.last_match.captures.map(&:to_i)
           druid_parser = Command::Parser.new(/dru\[\d+,\d+,\d+\]/i, round_type: BCDice::RoundType::CEIL)
 
