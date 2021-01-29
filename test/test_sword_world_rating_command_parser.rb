@@ -98,7 +98,8 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
   end
 
   def test_parse_v1_multiple_modifier
-    parsed = @parser.parse("K20+5H+3+2")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
+    parsed = parser.parse("K20+5H+3+2")
 
     assert_nil(parsed)
   end
