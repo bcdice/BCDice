@@ -735,7 +735,7 @@ rands = [
 [[ test ]]
 game_system = "SwordWorld2.5"
 input = "Dru[4,7,13]+10"
-output = "2D[6,5]=13 ＞ 13+10 ＞ 23"
+output = "(Dru[4,7,13]+10) ＞ 2D[6,5]=13 ＞ 13+10 ＞ 23"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -744,7 +744,7 @@ rands = [
 [[ test ]]
 game_system = "SwordWorld2.5"
 input = "Dru[4,7,13]+10"
-output = "2D[6,6]=13 ＞ 13+10 ＞ 23"
+output = "(Dru[4,7,13]+10) ＞ 2D[6,6]=13 ＞ 13+10 ＞ 23"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -753,7 +753,7 @@ rands = [
 [[ test ]]
 game_system = "SwordWorld2.5"
 input = "Dru[4,7,13]+10"
-output = "2D[4,6]=13 ＞ 13+10 ＞ 23"
+output = "(Dru[4,7,13]+10) ＞ 2D[4,6]=13 ＞ 13+10 ＞ 23"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -762,7 +762,7 @@ rands = [
 [[ test ]]
 game_system = "SwordWorld2.5"
 input = "Dru[4,7,13]+10"
-output = "2D[4,5]=7 ＞ 7+10 ＞ 17"
+output = "(Dru[4,7,13]+10) ＞ 2D[4,5]=7 ＞ 7+10 ＞ 17"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -770,8 +770,8 @@ rands = [
 
 [[ test ]]
 game_system = "SwordWorld2.5"
-input = "Dru[0,3,6]+10+4-5"
-output = "2D[2,3]=0 ＞ 0+9 ＞ 9"
+input = "dru[0,3,6]+10+4-5"
+output = "(Dru[0,3,6]+9) ＞ 2D[2,3]=0 ＞ 0+9 ＞ 9"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -779,8 +779,8 @@ rands = [
 
 [[ test ]]
 game_system = "SwordWorld2.5"
-input = "Dru[0,3,6]+10+4-5"
-output = "2D[3,3]=0 ＞ 0+9 ＞ 9"
+input = "dru[0,3,6]+10+4-5"
+output = "(Dru[0,3,6]+9) ＞ 2D[3,3]=0 ＞ 0+9 ＞ 9"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -788,26 +788,26 @@ rands = [
 
 [[ test ]]
 game_system = "SwordWorld2.5"
-input = "Dru[0,3,6]+10+4-5"
-output = "2D[4,3]=3 ＞ 3+9 ＞ 12"
+input = "dru[0,3,6]+10+4-5"
+output = "(Dru[0,3,6]+9) ＞ 2D[4,3]=3 ＞ 3+9 ＞ 12"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "SwordWorld2.5"
-input = "Dru[13,16,19]+12+8-10"
-output = "2D[4,4]=16 ＞ 16+10 ＞ 26"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 4 },
 ]
 
 [[ test ]]
 game_system = "SwordWorld2.5"
 input = "Dru[13,16,19]+12+8-10"
-output = "2D[4,5]=16 ＞ 16+10 ＞ 26"
+output = "(Dru[13,16,19]+10) ＞ 2D[4,4]=16 ＞ 16+10 ＞ 26"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "Dru[13,16,19]+12+8-10"
+output = "(Dru[13,16,19]+10) ＞ 2D[4,5]=16 ＞ 16+10 ＞ 26"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },

@@ -117,6 +117,7 @@ module BCDice
         power = power_list[offset]
         total = power + command.modify_number
         sequence = [
+          "(#{command.command.capitalize}#{Format.modifier(command.modify_number)})",
           "2D[#{dice_list.join(',')}]=#{power}",
           "#{power}#{Format.modifier(command.modify_number)}",
           total
