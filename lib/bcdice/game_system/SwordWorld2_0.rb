@@ -204,7 +204,7 @@ module BCDice
       end
 
       def rating_parser
-        return RatingParser.new.set_version(:v2_0)
+        return RatingParser.new(version: :v2_0)
       end
 
       def rollDice(command)

@@ -47,38 +47,34 @@ module BCDice
 
         # @return [Integer]
         def sanitized_critical
-          crit = if @critical.nil?
-                   half ? 13 : 10
-                 else
-                   @critical
-                 end
+          crit = @critical || (half ? 13 : 10)
           crit = 3 if crit < 3
           return crit
         end
 
         # @return [Integer]
         def sanitized_first_modify
-          return @first_modify.nil? ? 0 : @first_modify
+          return @first_modify || 0
         end
 
         # @return @[Integer]
         def sanitized_first_to
-          return @first_to.nil? ? 0 : @first_to
+          return @first_to || 0
         end
 
         # @return @[Integer]
         def sanitized_rateup
-          return @rateup.nil? ? 0 : @rateup
+          return @rateup || 0
         end
 
         # @return @[Integer]
         def sanitized_kept_modify
-          return @kept_modify.nil? ? 0 : @kept_modify
+          return @kept_modify || 0
         end
 
         # @return @[Integer]
         def sanitized_modifier_after_half
-          return @modifier_after_half.nil? ? 0 : @modifier_after_half
+          return @modifier_after_half || 0
         end
 
         # @return [String]

@@ -5,12 +5,10 @@ require "bcdice/base"
 require "bcdice/game_system/sword_world/rating_parser"
 
 class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
-  def setup
-    @parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
-  end
 
   def test_parse_v1_full_first_modify
-    parsed = @parser.parse("K20+5+3@9$+1H+2")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
+    parsed = parser.parse("K20+5+3@9$+1H+2")
 
     assert_not_nil(parsed)
     assert_equal(20, parsed.rate)
@@ -26,7 +24,8 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
   end
 
   def test_parse_v1_full_first_to
-    parsed = @parser.parse("K20+5+3@9$8H+2")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
+    parsed = parser.parse("K20+5+3@9$8H+2")
 
     assert_not_nil(parsed)
     assert_equal(20, parsed.rate)
@@ -42,7 +41,8 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
   end
 
   def test_parse_v1_head_half
-    parsed = @parser.parse("HK30+5+3")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
+    parsed = parser.parse("HK30+5+3")
 
     assert_not_nil(parsed)
     assert_equal(30, parsed.rate)
@@ -58,7 +58,8 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
   end
 
   def test_parse_v1_brace_critical
-    parsed = @parser.parse("K50[8]+5+3")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
+    parsed = parser.parse("K50[8]+5+3")
 
     assert_not_nil(parsed)
     assert_equal(50, parsed.rate)
@@ -74,7 +75,9 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
   end
 
   def test_parse_v1_brace_critical_only
-    parsed = @parser.parse("K50[8]")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
+    parsed = parser.parse("K50[8]")
+
     assert_not_nil(parsed)
     assert_equal(50, parsed.rate)
     assert_equal(0, parsed.modifier)
@@ -89,31 +92,36 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
   end
 
   def test_parse_v1_brace_critical_duplicate
-    parsed = @parser.parse("K50[8]+5+3@9")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
+    parsed = parser.parse("K50[8]+5+3@9")
 
     assert_nil(parsed)
   end
 
   def test_parse_v1_gf_unsupported
-    parsed = @parser.parse("K50[8]+5+3gf")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
+    parsed = parser.parse("K50[8]+5+3gf")
 
     assert_nil(parsed)
   end
 
   def test_parse_v1_kept_modify_unsupported
-    parsed = @parser.parse("K50[8]+5+3#+1")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
+    parsed = parser.parse("K50[8]+5+3#+1")
 
     assert_nil(parsed)
   end
 
   def test_parse_v1_rateup_unsupported
-    parsed = @parser.parse("K50[8]+5+3r10")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
+    parsed = parser.parse("K50[8]+5+3r10")
 
     assert_nil(parsed)
   end
 
   def test_parse_v1_arithmetic
-    parsed = @parser.parse("K50+5*4/2-1+3@10")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new().set_debug()
+    parsed = parser.parse("K50+5*4/2-1+3@10")
 
     assert_not_nil(parsed)
     assert_equal(50, parsed.rate)
@@ -129,8 +137,8 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
   end
 
   def test_parse_v20_full
-    @parser.set_version(:v2_0)
-    parsed = @parser.parse("K20+5+3@9$+1gfr5H+2")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new(version: :v2_0).set_debug()
+    parsed = parser.parse("K20+5+3@9$+1gfr5H+2")
 
     assert_not_nil(parsed)
     assert_equal(20, parsed.rate)
@@ -146,15 +154,15 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
   end
 
   def test_parse_v20_kept_modify_unsupported
-    @parser.set_version(:v2_0)
-    parsed = @parser.parse("K20+5+3#1")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new(version: :v2_0).set_debug()
+    parsed = parser.parse("K20+5+3#1")
 
     assert_nil(parsed)
   end
 
   def test_parse_v25_full
-    @parser.set_version(:v2_5)
-    parsed = @parser.parse("K20+5+3@9#+2$+1gfr5H+2")
+    parser = BCDice::GameSystem::SwordWorld::RatingParser.new(version: :v2_5).set_debug()
+    parsed = parser.parse("K20+5+3@9#+2$+1gfr5H+2")
 
     assert_not_nil(parsed)
     assert_equal(20, parsed.rate)

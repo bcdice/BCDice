@@ -7,14 +7,14 @@ class RatingParser
     expr: rate option
         {
           rate, option = val
-          modifier = option[:modifier].nil? ? Arithmetic::Node::Number.new(0) : option[:modifier]
+          modifier = option[:modifier] || Arithmetic::Node::Number.new(0)
           result = parsed(rate, modifier, option)
         }
         | H rate option
         {
           _, rate, option = val
-          option[:modifier_after_half] = Arithmetic::Node::Number.new(0) if option[:modifier_after_half].nil?
-          modifier = option[:modifier].nil? ? Arithmetic::Node::Number.new(0) : option[:modifier]
+          option[:modifier_after_half] ||= Arithmetic::Node::Number.new(0)
+          modifier = option[:modifier] || Arithmetic::Node::Number.new(0)
           result = parsed(rate, modifier, option)
         }
 
@@ -153,6 +153,7 @@ end
 ---- header
 
 require "bcdice/arithmetic/node"
+require "bcdice/enum"
 require "bcdice/game_system/sword_world/rating_lexer"
 require "bcdice/game_system/sword_world/rating_parsed"
 
@@ -163,15 +164,17 @@ module BCDice
 
 ---- inner
 
-def initialize()
+# デフォルトの丸めを切り上げとしているが、SwordWorldには切り捨てもあるので決め切れない（四捨五入は現状ない）
+def initialize(version: :v1_0, round_type: RoundType::CEIL)
   super()
-  @version = :v1_0
+  @version = version
+  @round_type = round_type
 end
 
-# バージョンを指定する
+# 割り算の丸め方を指定する
 # @return [BCDice::GameSystem::SwordWorld::RatingParser]
-def set_version(version)
-  @version = version
+def set_round_type(round_type)
+  @round_type = round_type
   self
 end
 
@@ -194,14 +197,14 @@ private
 def parsed(rate, modifier, option)
   RatingParsed.new.tap do |p|
     p.rate = rate
-    p.critical = option[:critical]&.eval(Arithmetic::Node::DivideWithGameSystemDefault)
-    p.kept_modify = option[:kept_modify]&.eval(Arithmetic::Node::DivideWithGameSystemDefault)
+    p.critical = option[:critical]&.eval(@round_type)
+    p.kept_modify = option[:kept_modify]&.eval(@round_type)
     p.first_to = option[:first_to]
     p.first_modify = option[:first_modify]
-    p.rateup = option[:rateup]&.eval(Arithmetic::Node::DivideWithGameSystemDefault)
+    p.rateup = option[:rateup]&.eval(@round_type)
     p.greatest_fortune = option.fetch(:greatest_fortune, false)
-    p.modifier = modifier.eval(Arithmetic::Node::DivideWithGameSystemDefault)
-    p.modifier_after_half = option[:modifier_after_half]&.eval(Arithmetic::Node::DivideWithGameSystemDefault)
+    p.modifier = modifier.eval(@round_type)
+    p.modifier_after_half = option[:modifier_after_half]&.eval(@round_type)
   end
 end
 

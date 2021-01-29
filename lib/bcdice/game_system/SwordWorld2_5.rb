@@ -73,7 +73,7 @@ module BCDice
       register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT')
 
       def rating_parser
-        return RatingParser.new.set_version(:v2_5)
+        return RatingParser.new(version: :v2_5)
       end
     end
   end
