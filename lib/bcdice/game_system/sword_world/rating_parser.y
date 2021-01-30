@@ -77,6 +77,8 @@ class RatingParser
           | option H
           {
             option, _ = val
+            raise ParseError unless option[:modifier_after_half].nil?
+
             option[:modifier_after_half] = Arithmetic::Node::Number.new(0)
             result = option
           }
