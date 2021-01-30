@@ -11,30 +11,35 @@ require_relative "randomizer_mock"
 class TestGameSystemCommands < Test::Unit::TestCase
   class << self
     def target_files
-      target = ENV["target"]
-      unless target
+      env_target = ENV["target"]
+      unless env_target
         return Dir.glob("test/data/*.toml")
       end
 
-      if File.exist?(target)
-        return [target]
+      files = env_target.split(",").map do |target|
+        target_with_extension = target.end_with?(".toml") ? target : "#{target}.toml"
+        path = "test/data/#{target_with_extension}"
+
+        unless File.exist?(path)
+          warn("Unknown target: #{path}")
+          next nil
+        end
+
+        path
       end
 
-      target += ".toml" unless target.end_with?(".toml")
-      target = File.join("test/data", target)
-
-      unless File.exist?(target)
-        warn "unknown target: #{target}"
-        exit(1)
-      end
-
-      return [target]
+      return files.compact
     end
   end
 
   data do
     data_set = {}
+
     files = target_files()
+    if files.empty?
+      warn("No target found!")
+      exit(1)
+    end
 
     files.each do |filename|
       filename_base = File.basename(filename, ".toml")
