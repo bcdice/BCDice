@@ -2,6 +2,8 @@
 
 require "singleton"
 
+require "bcdice/randomizer"
+
 module BCDice
   module CommonCommand
     module AddDice
@@ -50,7 +52,9 @@ module BCDice
             end
           end
 
-          def eval(game_system, randomizer)
+          # @param game_system [BCDice::Base] ゲームシステム
+          # @param _randomizer [AddDice::Randomizer]
+          def eval(game_system, _randomizer)
             randomizer = Randomizer.new(randomizer, game_system)
             total = @lhs.eval(game_system, randomizer)
 
@@ -133,8 +137,8 @@ module BCDice
           #
           # 左右のオペランドをそれぞれ再帰的に評価した後で、演算を行う。
           #
-          # @param game_system [BCDice::Base]
-          # @param randomizer [Randomizer] ランダマイザ
+          # @param game_system [BCDice::Base] ゲームシステム
+          # @param randomizer [AddDice::Randomizer] ランダマイザ
           # @return [Integer] 評価結果
           def eval(game_system, randomizer)
             lhs = @lhs.eval(game_system, randomizer)
@@ -246,9 +250,9 @@ module BCDice
           end
 
           # 除算および端数処理を行う
-          # @param _dividend [Integer] 被除数
-          # @param _divisor [Integer] 除数（0以外）
-          # @param _round_type [Symbol] ゲームシステムの端数処理設定
+          # @param dividend [Integer] 被除数
+          # @param divisor [Integer] 除数（0以外）
+          # @param round_type [Symbol] ゲームシステムの端数処理設定
           # @return [Integer]
           def divide_and_round(dividend, divisor, round_type)
             raise NotImplementedError
@@ -339,7 +343,8 @@ module BCDice
           #
           # 対象オペランドを再帰的に評価した後、評価結果の符号を反転する。
           #
-          # @param [Randomizer] randomizer ランダマイザ
+          # @param game_system [BCDice::Base] ゲームシステム
+          # @param [AddDice::Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果
           def eval(game_system, randomizer)
             -@body.eval(game_system, randomizer)
@@ -387,7 +392,8 @@ module BCDice
           # 評価結果は出目の合計値になる。
           # 出目はランダマイザに記録される。
           #
-          # @param [Randomizer] randomizer ランダマイザ
+          # @param game_system [BCDice::Base] ゲームシステム
+          # @param [AddDice::Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果（出目の合計値）
           def eval(game_system, randomizer)
             times = @times.eval(game_system, nil)
@@ -486,7 +492,8 @@ module BCDice
           # 評価結果は出目の合計値になる。
           # 出目はランダマイザに記録される。
           #
-          # @param [Randomizer] randomizer ランダマイザ
+          # @param game_system [BCDice::Base] ゲームシステム
+          # @param [AddDice::Randomizer] randomizer ランダマイザ
           # @return [Integer] 評価結果（出目の合計値）
           def eval(game_system, randomizer)
             times = @times.eval(game_system, nil)
@@ -538,8 +545,9 @@ module BCDice
             @expr = expr
           end
 
-          # @param randomizer [Randomizer]
-          # @return [integer]
+          # @param game_system [BCDice::Base] ゲームシステム
+          # @param randomizer [AddDice::Randomizer]
+          # @return [Integer]
           def eval(game_system, randomizer)
             @expr.eval(game_system, randomizer)
           end

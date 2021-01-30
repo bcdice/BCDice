@@ -15,7 +15,7 @@ module BCDice
 
           # @param game_system [Base] ゲームシステム
           # @param randomizer [Randomizer] ランダマイザ
-          # @return [Result]
+          # @return [BarabaraDice::Result]
           def eval(game_system, randomizer)
             round_type = game_system.round_type
             notations = @notations.map { |n| n.to_dice(round_type) }

@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-# どどんとふ用 GURPS-FW オリジナルダイスボット
-# Last update 2013/11/07
-
 module BCDice
   module GameSystem
+    # どどんとふ用 GURPS-FW オリジナルダイスボット
     class GurpsFW < Base
       # ゲームシステムの識別子
       ID = 'GurpsFW'

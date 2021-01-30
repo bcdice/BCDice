@@ -214,7 +214,7 @@ module BCDice
       # 消耗表
       class ConsumptionTable
         # @param name [String]
-        # @param tables [Array[Hash{Integer => String}]]
+        # @param tables [Array<Hash{Integer => String}>]
         def initialize(name, tables)
           @name = name
           @tables = tables

@@ -2,9 +2,9 @@
 
 require 'bcdice/game_system/SRS'
 
-# アルシャードのダイスボット
 module BCDice
   module GameSystem
+    # アルシャードのダイスボット
     class Alshard < SRS
       # ゲームシステム名
       NAME = 'アルシャード'

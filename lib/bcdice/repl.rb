@@ -30,7 +30,7 @@ module BCDice
     end
 
     # ゲームシステムを切り替える
-    # @param game_system [Game]
+    # @param game_system [String]
     def load_game_system(game_system)
       klass = BCDice.dynamic_load(game_system)
       if klass

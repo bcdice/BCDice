@@ -118,7 +118,7 @@ module BCDice
       end
 
       # @param secret [Boolean]
-      # @param block_delimiter [BlockDelimiter::BRACKET, BlockDelimiter::PAREN, BlockDelimiter::SPACE]
+      # @param block_delimiter [Symbol]
       # @param items [Array<String>]
       def initialize(secret:, block_delimiter:, items:)
         @secret = secret

@@ -78,7 +78,7 @@ module BCDice
       # @param [Array<(Range, Object)>, Array<(Integer, Object)>] items
       #   表の項目の配列。[出目の合計の範囲, 内容]
       # @yieldparam [RangeTable] table 振った表
-      # @yieldparam [RollResult] result 表を振った結果
+      # @yieldparam [RangeTable::RollResult] result 表を振った結果
       # @raise [ArgumentError] ダイスロール方法が正しい書式で指定されていなかった場合
       # @raise [TypeError] 範囲の型が正しくなかった場合
       # @raise [RangeError] 出目の合計の最小値がカバーされていなかった場合
@@ -146,7 +146,7 @@ module BCDice
 
       # 表を振る
       # @param randomizer [#roll_barabara] ランダマイザ
-      # @return [RollResult] 表を振った結果
+      # @return [RangeTable::RollResult] 表を振った結果
       def roll(randomizer)
         values = randomizer.roll_barabara(@num_of_dice, @num_of_sides)
         sum = values.sum()

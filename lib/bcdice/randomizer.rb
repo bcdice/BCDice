@@ -9,7 +9,7 @@ module BCDice
       @detailed_rand_results = []
     end
 
-    # @return [Array<Array<(Integer, Integer)>>] ダイスの出目一覧
+    # @return [Array<(Integer, Integer)>] ダイスの出目一覧
     attr_reader :rand_results
 
     # @return [Array<DetailedRandResult>]

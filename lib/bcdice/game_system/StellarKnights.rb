@@ -92,7 +92,7 @@ module BCDice
       private
 
       # @param [Integer] num_dices
-      # @param [Integer | nil] defence
+      # @param [Integer, nil] defence
       # @param [String] dice_change_text
       # @param [String] command
       # @return [String]

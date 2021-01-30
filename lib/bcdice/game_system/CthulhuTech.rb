@@ -2,9 +2,9 @@
 
 require 'bcdice/arithmetic_evaluator'
 
-# クトゥルフテックのダイスボット
 module BCDice
   module GameSystem
+    # クトゥルフテックのダイスボット
     class CthulhuTech < Base
       register_prefix('\d+D10.*')
 
@@ -48,7 +48,7 @@ module BCDice
         end
 
         # 判定を行う
-        # @param randomizer [Randoizer]
+        # @param randomizer [Randomizer]
         # @return [String] 判定結果
         def execute(randomizer)
           dice_values = randomizer.roll_barabara(@num, 10)

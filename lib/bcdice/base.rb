@@ -19,11 +19,13 @@ module BCDice
 
       # 応答するコマンドのprefixを登録する
       # @param prefixes [Array<String>]
+      # @return [void]
       def register_prefix(*prefixes)
         @prefixes ||= []
         @prefixes.concat(prefixes.flatten)
       end
 
+      # @return [void]
       def register_prefix_from_super_class
         register_prefix(superclass.prefixes)
       end
@@ -71,8 +73,9 @@ module BCDice
     include Translate
     include Deprecated::Checker
 
-    def initialize(command)
-      @raw_input = command
+    # @param raw_input [String] 加工前の入力
+    def initialize(raw_input)
+      @raw_input = raw_input
 
       @sort_add_dice = false # 加算ダイスでダイス目をソートするかどうか
       @sort_barabara_dice = false # バラバラダイスでダイス目をソートするかどうか
@@ -150,7 +153,8 @@ module BCDice
       @enabled_d9
     end
 
-    # デバッグを有用にする
+    # デバッグを有効にする
+    # @return [void]
     def enable_debug
       @debug = true
     end
@@ -226,6 +230,8 @@ module BCDice
 
     private
 
+    # @param command [String]
+    # @return [Result, nil]
     def eval_common_command(command)
       command = change_text(command)
       CommonCommand::COMMANDS.each do |klass|
@@ -236,6 +242,8 @@ module BCDice
       return nil
     end
 
+    # @param command [String]
+    # @return [Result, nil]
     def dice_command(command)
       command = command.upcase if @enabled_upcase_input
 
@@ -263,15 +271,15 @@ module BCDice
     end
 
     # @param command [String]
-    # @return [String, nil]
+    # @return [Result, String, nil]
     def eval_game_system_specific_command(command); end
 
     # 成功か失敗か返す
     #
     # @param total [Integer]
     # @param cmp_op [Symbol]
-    # @param target [Number]
-    # @return [Result]
+    # @param target [Integer, String]
+    # @return [Result, nil]
     def result_ndx(total, cmp_op, target)
       if target.is_a?(String)
         nil

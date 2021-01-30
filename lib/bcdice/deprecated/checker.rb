@@ -3,7 +3,7 @@
 module BCDice
   module Deprecated
     # 2D6などの特定の加算ダイスの結果をゲームシステムごとにカスタマイズするための
-    # @deprecate Base#result_2d6 等を利用してください
+    # @deprecated Base#result_2d6 等を利用してください
     module Checker
       private
 
@@ -47,12 +47,12 @@ module BCDice
       # @param cmp_op [Symbol]
       # @param target
       # @return [String, nil]
-      # @deprecate Base#result_1d100 を使ってください
+      # @deprecated Base#result_1d100 を使ってください
       def check_1D100(total, dice_total, cmp_op, target); end
 
       # @param (see #check_1D100)
       # @return [String, nil]
-      # @deprecate Base#result_1d20 を使ってください
+      # @deprecated Base#result_1d20 を使ってください
       def check_1D20(total, dice_total, cmp_op, target); end
 
       # @param total [Integer]
@@ -61,17 +61,17 @@ module BCDice
       # @param cmp_op [Symbol]
       # @param target
       # @return [String, nil]
-      # @deprecate Base#result_nd10 を使ってください
+      # @deprecated Base#result_nd10 を使ってください
       def check_nD10(total, dice_total, dice_list, cmp_op, target); end
 
       # @param (see #check_nD10)
       # @return [String, nil]
-      # @deprecate Base#result_2d6 を使ってください
+      # @deprecated Base#result_2d6 を使ってください
       def check_2D6(total, dice_total, dice_list, cmp_op, target); end
 
       # @param (see #check_nD10)
       # @return [String, nil]
-      # @deprecate Base#result_nd6 を使ってください
+      # @deprecated Base#result_nd6 を使ってください
       def check_nD6(total, dice_total, dice_list, cmp_op, target); end
     end
   end

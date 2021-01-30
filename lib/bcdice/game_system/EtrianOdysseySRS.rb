@@ -2,9 +2,9 @@
 
 require 'bcdice/game_system/SRS'
 
-# 世界樹の迷宮SRSのダイスボット
 module BCDice
   module GameSystem
+    # 世界樹の迷宮SRSのダイスボット
     class EtrianOdysseySRS < SRS
       # ゲームシステムの識別子
       ID = 'EtrianOdysseySRS'
