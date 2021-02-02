@@ -31,46 +31,38 @@ module BCDice
       end
 
       register_prefix(
-        '(\d+)?OR([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?'
+        '(\d+)?OR(\d{0,6})?'
       )
 
       def eval_game_system_specific_command(command)
-        if command =~ /(\d+)?OR([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?([0-9])?$/i
-          diceCount = (Regexp.last_match(1) || 1).to_i
-          countNo = [(Regexp.last_match(2) || -1).to_i, (Regexp.last_match(3) || -1).to_i, (Regexp.last_match(4) || -1).to_i, (Regexp.last_match(5) || -1).to_i, (Regexp.last_match(6) || -1).to_i, (Regexp.last_match(7) || -1).to_i]
-          countNo.delete(-1)
-          countNo = countNo.sort
+        m = command.match(/(\d+)?OR(\d{0,6})$/i)
+        return nil unless m
 
-          return checkRoll(diceCount, countNo)
-        end
-
-        return nil
+        dice_count = (m[1] || 1).to_i
+        count_no = (m[2] || "").split(//).map(&:to_i).sort
+        return check_roll(dice_count, count_no)
       end
 
-      def checkRoll(diceCount, countNo)
-        diceArray = @randomizer.roll_barabara(diceCount, 10).sort
-        diceText = diceArray.join(',')
+      def check_roll(dice_count, count_no)
+        dice_array = @randomizer.roll_barabara(dice_count, 10).sort
+        dice_text = dice_array.join(',')
 
-        diceArray.map! { |x| x == 10 ? 0 : x }
-
-        resultArray = []
+        result_array = []
         success = 0
-        diceArray.each do |i|
-          multiple = countNo.count(i)
+        dice_array.map { |x| x == 10 ? 0 : x }.each do |i|
+          multiple = count_no.count(i)
           if multiple > 0
-            resultArray.push("#{i}(x#{multiple})")
+            result_array.push("#{i}(x#{multiple})")
             success += multiple
           else
-            resultArray.push("×")
+            result_array.push("×")
           end
         end
 
-        countText = countNo.join(',')
-        resultText = resultArray.join(',')
+        count_text = count_no.join(',')
+        result_text = result_array.join(',')
 
-        result = "#{diceCount}D10(命数：#{countText}) ＞ #{diceText} ＞ #{resultText} ＞ 成功数：#{success}"
-
-        return result
+        return "#{dice_count}D10(命数：#{count_text}) ＞ #{dice_text} ＞ #{result_text} ＞ 成功数：#{success}"
       end
     end
   end
