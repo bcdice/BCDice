@@ -18,7 +18,7 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定 GR+n#f>=X （+n：判定値、#f：不安定による自動失敗基準値、X：目標値）
+        ・判定 GR+n#f>=X （+n：判定値、#f：不安定による自動失敗基準値、X：目標値、それぞれ省略可能）
         ・部位決定チャート：HIT
         ・ダメージ+部位決定：GAHn（n：火力）
         ・ダメージチャート：xDCy（CDC/EDC/FDC/ADC/LDC )
@@ -63,7 +63,7 @@ module BCDice
       def roll_gr(command)
         parser = Command::Parser.new("GR", round_type: round_type)
                                 .enable_fumble
-                                .restrict_cmp_op_to(:>=)
+                                .restrict_cmp_op_to(nil, :>=)
         cmd = parser.parse(command)
         return nil unless cmd
 
