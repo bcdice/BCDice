@@ -33,56 +33,47 @@ module BCDice
       end
 
       register_prefix(
-        '(\d+)?IL([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?(P)?'
+        '(\d+)?IL([1-6]{0,6})(P)?'
       )
 
       def eval_game_system_specific_command(command)
-        if command =~ /(\d+)?IL([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?([1-6])?(P)?$/i
-          diceCount = (Regexp.last_match(1) || 1).to_i
-          blockNo = [(Regexp.last_match(2) || 0).to_i, (Regexp.last_match(3) || 0).to_i, (Regexp.last_match(4) || 0).to_i, (Regexp.last_match(5) || 0).to_i, (Regexp.last_match(6) || 0).to_i, (Regexp.last_match(7) || 0).to_i]
-          blockNo.delete(0)
-          blockNo = blockNo.sort
-          blockNo = blockNo.uniq
-          isParry = !Regexp.last_match(8).nil?
+        m = command.match(/(\d+)?IL([1-6]{0,6})(P)?$/i)
+        return nil unless m
 
-          return checkRoll(diceCount, blockNo, isParry)
-        end
+        dice_count = (m[1] || 1).to_i
+        block_no = (m[2] || "").split(//).map(&:to_i).uniq.sort
+        is_parry = !m[3].nil?
 
-        return nil
+        return check_roll(dice_count, block_no, is_parry)
       end
 
-      def checkRoll(diceCount, blockNo, isParry)
-        diceArray = @randomizer.roll_barabara(diceCount, 6).sort
-        diceText = diceArray.join(',')
+      def check_roll(dice_count, block_no, is_parry)
+        dice_array = @randomizer.roll_barabara(dice_count, 6).sort
+        dice_text = dice_array.join(',')
 
-        resultArray = []
+        result_array = []
         success = 0
-        diceArray.each do |i|
-          if blockNo.count(i) > 0
-            resultArray.push("×")
+        dice_array.each do |i|
+          if block_no.count(i) > 0
+            result_array.push("×")
           else
-            resultArray.push(i)
+            result_array.push(i)
             success += 1
           end
         end
 
-        blockText = blockNo.join(',')
-        blockText2 = "Block"
-        blockText2 = "Parry" if isParry
-        resultText = resultArray.join(',')
+        block_text = block_no.join(',')
+        block_text2 = is_parry ? "Parry" : "Block"
+        result_text = result_array.join(',')
 
-        result = "#{diceCount}D6(#{blockText2}:#{blockText}) ＞ #{diceText} ＞ #{resultText} ＞ "
-        if isParry
-          if  success < diceCount
-            result += "パリィ成立！　次の非ダメージ2倍。"
-          else
-            result += "成功数：#{success}　パリィ失敗"
-          end
+        result = "#{dice_count}D6(#{block_text2}:#{block_text}) ＞ #{dice_text} ＞ #{result_text} ＞ "
+        return "#{result}成功数：#{success}" unless is_parry
+
+        if success < dice_count
+          "#{result}パリィ成立！　次の非ダメージ2倍。"
         else
-          result += "成功数：#{success}"
+          "#{result}成功数：#{success}　パリィ失敗"
         end
-
-        return result
       end
     end
   end
