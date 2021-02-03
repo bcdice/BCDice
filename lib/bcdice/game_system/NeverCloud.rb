@@ -22,17 +22,22 @@ module BCDice
         　x：振るダイスの数。
         　±y：固定値・修正値。省略可能。
         　z：目標値。省略可能。
+        　ダイスの出目ふたつが6ならクリティカル(自動成功)
+        　ダイスの出目すべてが1ならファンブル(自動失敗)
         　例）　2NC+2>=5　1NC
+        ・ルール詳細、表の一覧(LIST)
       MESSAGETEXT
 
-      # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('\d+NC.*', '\d+D6?([\+\-\d]*)>=\d+')
-
       def eval_game_system_specific_command(command)
-        m = /^(\d+)(?:NC|D6?)((?:[-+]\d+)*)(>=(\d+))?$/i.match(command)
-        unless m
+        case command
+        when /^(\d+)(?:NC|D6?)((?:[-+]\d+)*)(>=(\d+))?$/i
+          check_action(Regexp.last_match)
+        else
           return nil
         end
+      end
+
+      def check_action(m)
 
         dice_count = m[1].to_i
         modify_str = m[2]
@@ -69,6 +74,9 @@ module BCDice
 
         return sequence.join(" ＞ ")
       end
+ 
+      # ダイスボットで使用するコマンドを配列で列挙する
+      register_prefix('\d+NC.*', '\d+D6?([\+\-\d]*)>=\d+')
     end
   end
 end
