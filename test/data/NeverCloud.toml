@@ -981,3 +981,54 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
 ]
+
+[[ test ]]
+game_system = "NeverCloud"
+input = "CHAR1"
+output = "所属表(2) ＞ 無職/専業主婦/専業主夫"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NeverCloud"
+input = "char1"
+output = "所属表(12) ＞ 経営者"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NeverCloud"
+input = "CHAR1"
+output = "所属表(7) ＞ 短大/専門学校生"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NeverCloud"
+input = "CHAR3"
+output = "リビド武装形状表(8) ＞ 異形。巨大化した体や鉤爪、伸びる腕など"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "NeverCloud"
+input = "NAYA5"
+output = "悩みの詳細表・住/Home(2) ＞ 親がもううるさくない"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NeverCloud"
+input = "STAT2"
+output = "●LSリスト(基本ルールブック書籍版P41)＿\n　下記4つのロングステータス(LS)は準備プロセス終了時に解除されない。\n・[リフレクト]　ダメージを受けた時その2倍の値のダメージを相手に与え効果を解除する。\n・[ブースト:ｎ]　[威力ロール]の前に消費を選択した場合は威力ロールに[+n]を与え効果を解除する。\n・[DoT:xTn](Damage_on_Time)　準備プロセスにx点のHPダメージを受け、\n　nを1減らし0になると解除される。効果が累積した場合それぞれ大きい値になる。\n・[行動不能]　HPが0になった時[未行動]でなくなり、全ての行動や判定を行うことができない。\n　{パケット}が0になり全てのSSが解除される。《助け起こす》または[フレンドシップ]1つ消費して[未行動]になることで解除できる。"
+rands = []
