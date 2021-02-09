@@ -39,7 +39,7 @@ module BCDice
         return nil unless m
 
         dice_count = (m[1] || 1).to_i
-        count_no = (m[2] || "").split(//).map(&:to_i).sort
+        count_no = (m[2] || "").each_char.map(&:to_i).sort
         return check_roll(dice_count, count_no)
       end
 
