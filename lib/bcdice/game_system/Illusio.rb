@@ -41,7 +41,7 @@ module BCDice
         return nil unless m
 
         dice_count = (m[1] || 1).to_i
-        block_no = (m[2] || "").split(//).map(&:to_i).uniq.sort
+        block_no = (m[2] || "").each_char.map(&:to_i).uniq.sort
         is_parry = !m[3].nil?
 
         return check_roll(dice_count, block_no, is_parry)
