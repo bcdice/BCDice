@@ -73,13 +73,11 @@ module BCDice
 
       register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT', 'Dru\[\d+,\d+,\d+\].*')
 
-      DRUID_DICE_RE = /^dru\[(\d+),(\d+),(\d+)\]/i.freeze
-
       def eval_game_system_specific_command(command)
         case command
-        when DRUID_DICE_RE
+        when /^dru\[(\d+),(\d+),(\d+)\]/i
           power_list = Regexp.last_match.captures.map(&:to_i)
-          druid_parser = Command::Parser.new(DRUID_DICE_RE, round_type: BCDice::RoundType::CEIL)
+          druid_parser = Command::Parser.new(/dru\[(\d+),(\d+),(\d+)\]/i, round_type: BCDice::RoundType::CEIL)
 
           cmd = druid_parser.parse(command)
           unless cmd
