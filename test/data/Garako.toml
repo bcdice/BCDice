@@ -152,6 +152,30 @@ rands = [
 
 [[ test ]]
 game_system = "Garako"
+input = "GR+1"
+output = "(1D10+1) ＞ 10[10]+1 ＞ 11 ＞ クリティカル"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Garako"
+input = "GR+1"
+output = "(1D10+1) ＞ 9[9]+1 ＞ 10"
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Garako"
+input = "GR+1"
+output = "(1D10+1) ＞ 1[1]+1 ＞ 2 ＞ ファンブル"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Garako"
 input = "IDI"
 output = "個性表(1) ＞ 〈近接武器熟練〉 近接攻撃の火力+1。"
 rands = [
