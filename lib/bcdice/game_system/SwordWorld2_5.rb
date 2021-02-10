@@ -77,7 +77,7 @@ module BCDice
         case command
         when /^dru\[(\d+),(\d+),(\d+)\]/i
           power_list = Regexp.last_match.captures.map(&:to_i)
-          druid_parser = Command::Parser.new(/dru\[(\d+),(\d+),(\d+)\]/i, round_type: BCDice::RoundType::CEIL)
+          druid_parser = Command::Parser.new(/dru\[\d+,\d+,\d+\]/i, round_type: BCDice::RoundType::CEIL)
 
           cmd = druid_parser.parse(command)
           unless cmd
