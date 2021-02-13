@@ -731,3 +731,84 @@ output = "絡み効果表(6) → 特殊：尻尾や翼などに命中。絡め�
 rands = [
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "Dru[4,7,13]+10"
+output = "(Dru[4,7,13]+10) ＞ 2D[6,5]=11 ＞ 13+10 ＞ 23"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "Dru[4,7,13]+10"
+output = "(Dru[4,7,13]+10) ＞ 2D[6,6]=12 ＞ 13+10 ＞ 23"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "Dru[4,7,13]+10"
+output = "(Dru[4,7,13]+10) ＞ 2D[4,6]=10 ＞ 13+10 ＞ 23"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "Dru[4,7,13]+10"
+output = "(Dru[4,7,13]+10) ＞ 2D[4,5]=9 ＞ 7+10 ＞ 17"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "dru[0,3,6]+10+4-5"
+output = "(Dru[0,3,6]+9) ＞ 2D[2,3]=5 ＞ 0+9 ＞ 9"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "dru[0,3,6]+10+4-5"
+output = "(Dru[0,3,6]+9) ＞ 2D[3,3]=6 ＞ 0+9 ＞ 9"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "dru[0,3,6]+10+4-5"
+output = "(Dru[0,3,6]+9) ＞ 2D[4,3]=7 ＞ 3+9 ＞ 12"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "Dru[13,16,19]+12+8-10"
+output = "(Dru[13,16,19]+10) ＞ 2D[4,4]=8 ＞ 16+10 ＞ 26"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "Dru[13,16,19]+12+8-10"
+output = "(Dru[13,16,19]+10) ＞ 2D[4,5]=9 ＞ 16+10 ＞ 26"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
