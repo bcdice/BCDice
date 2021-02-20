@@ -62,6 +62,15 @@ rands = [
 [[ test ]]
 game_system = "BloodCrusade"
 input = "ST"
+output = "シーン表(10) ＞ 喧しい飲食店。騒ぐ人々に紛れつつ事態は進行する。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "ST"
 output = "シーン表(12) ＞ 高い塔の上。都市を一望できる。"
 rands = [
   { sides = 6, value = 6 },
@@ -230,6 +239,14 @@ rands = [
 [[ test ]]
 game_system = "BloodCrusade"
 input = "MIT"
+output = "軽度狂気表(3) ＞ 【こだわり】（戦闘中の行動を「パス」以外で一つ選択し、その行動をすると【感情】が６増加する。）"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "MIT"
 output = "軽度狂気表(6) ＞ 【血の飢え】（戦闘中に最低１体でも死亡させないと、戦闘終了時に【感情】１０増加。【激情】は獲得できない。）"
 rands = [
   { sides = 6, value = 6 },
@@ -241,6 +258,30 @@ input = "SIT"
 output = "重度狂気表(1) ＞ 【幸福依存】（【幸福】を一つ選択し、その【幸福】が結果フェイズに失われたとき、死亡する。）"
 rands = [
   { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "SIT"
+output = "重度狂気表(2) ＞ 【見えない友達】（自分の関わる「関係を深める」判定にマイナス３の修正がつく。）"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "SIT"
+output = "重度狂気表(4) ＞ 【陰謀論】（「幸福を味わう」判定にマイナス３の修正がつく。）"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "BloodCrusade"
+input = "SIT"
+output = "重度狂気表(5) ＞ 【指令受信】（追跡フェイズＢでの自分の行動は、可能な範囲でGMが決定する。）"
+rands = [
+  { sides = 6, value = 5 },
 ]
 
 [[ test ]]
