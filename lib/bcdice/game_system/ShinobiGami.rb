@@ -109,10 +109,10 @@ module BCDice
         total = dice_total + cmd.modify_number
 
         result =
-          if dice_total >= cmd.critical
-            Result.critical(SPECIAL)
-          elsif dice_total <= cmd.fumble
+          if dice_total <= cmd.fumble
             Result.fumble("ファンブル")
+          elsif dice_total >= cmd.critical
+            Result.critical(SPECIAL)
           elsif cmd.cmp_op.nil?
             Result.new
           elsif total >= cmd.target_number
