@@ -27,6 +27,16 @@ rands = [
 
 [[ test ]]
 game_system = "BeastBindTrinity"
+input = "3BB+5>=17"
+output = "(3BB+5@12#2>=17) ＞ 11[4,5,6]+5 ＞ 16 ＞ 失敗"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "BeastBindTrinity"
 input = "2BB+5@11#5"
 output = "(2BB+5@11#5) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
 rands = [
