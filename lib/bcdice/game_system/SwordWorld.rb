@@ -349,41 +349,6 @@ module BCDice
 
         return sequence.join(" ＞ ")
       end
-
-      def setRatingTable(tnick)
-        mode_str = ""
-        pre_mode = @rating_table
-
-        if /(\d+)/ =~ tnick
-          @rating_table = Regexp.last_match(1).to_i
-          if @rating_table > 1
-            mode_str = "2.0-mode"
-            @rating_table = 2
-          elsif @rating_table > 0
-            mode_str = "new-mode"
-            @rating_table = 1
-          else
-            mode_str = "old-mode"
-            @rating_table = 0
-          end
-        else
-          case tnick
-          when /old/i
-            @rating_table = 0
-            mode_str = "old-mode"
-          when /new/i
-            @rating_table = 1
-            mode_str = "new-mode"
-          when /2\.0/i
-            @rating_table = 2
-            mode_str = "2.0-mode"
-          end
-        end
-
-        return '1' if @rating_table == pre_mode
-
-        return "RatingTableを#{mode_str}に変更しました"
-      end
     end
   end
 end
