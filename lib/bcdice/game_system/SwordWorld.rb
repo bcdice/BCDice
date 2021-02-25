@@ -78,8 +78,8 @@ module BCDice
         diceOnlyTotal = 0
         totalValue = 0
         round = 0
-        first_to = command.sanitized_first_to
-        first_modify = command.sanitized_first_modify
+        first_to = command.first_to
+        first_modify = command.first_modify
 
         loop do
           dice_raw, diceText = rollDice(command)
@@ -103,12 +103,12 @@ module BCDice
             break
           end
 
-          dice += command.sanitized_kept_modify if (command.sanitized_kept_modify != 0) && (dice != 2)
+          dice += command.kept_modify if (command.kept_modify != 0) && (dice != 2)
 
           dice = 2 if dice < 2
           dice = 12 if dice > 12
 
-          currentKey = [command.rate + round * command.sanitized_rateup, keyMax].min
+          currentKey = [command.rate + round * command.rateup, keyMax].min
           debug("currentKey", currentKey)
           rateValue = newRates[dice][currentKey]
           debug("rateValue", rateValue)
@@ -122,7 +122,7 @@ module BCDice
 
           round += 1
 
-          break unless dice >= command.sanitized_critical
+          break unless dice >= command.critical
         end
 
         output += getResultText(totalValue, command, diceResults, diceResultTotals,
@@ -318,15 +318,15 @@ module BCDice
           text = rateResults.join(',') + Format.modifier(command.modifier)
           if command.half
             text = "(#{text})/2"
-            if command.sanitized_modifier_after_half != 0
-              text += Format.modifier(command.sanitized_modifier_after_half)
+            if command.modifier_after_half != 0
+              text += Format.modifier(command.modifier_after_half)
             end
           end
           sequence.push(text)
         elsif command.half
           text = "#{rateResults.first}/2"
-          if command.sanitized_modifier_after_half != 0
-            text += Format.modifier(command.sanitized_modifier_after_half)
+          if command.modifier_after_half != 0
+            text += Format.modifier(command.modifier_after_half)
           end
           sequence.push(text)
         end
@@ -339,8 +339,8 @@ module BCDice
         total = rating_total + command.modifier
         if command.half
           total = (total / 2.0).ceil
-          if command.sanitized_modifier_after_half != 0
-            total += command.sanitized_modifier_after_half
+          if command.modifier_after_half != 0
+            total += command.modifier_after_half
           end
         end
 
