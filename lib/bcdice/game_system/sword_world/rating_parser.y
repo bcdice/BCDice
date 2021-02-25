@@ -171,13 +171,6 @@ def initialize(version: :v1_0, round_type: RoundType::CEIL)
   @round_type = round_type
 end
 
-# 割り算の丸め方を指定する
-# @return [BCDice::GameSystem::SwordWorld::RatingParser]
-def set_round_type(round_type)
-  @round_type = round_type
-  self
-end
-
 def set_debug
   @yydebug = true
   return self
