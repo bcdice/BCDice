@@ -152,6 +152,30 @@ rands = [
 
 [[ test ]]
 game_system = "Garako"
+input = "GR+1"
+output = "(1D10+1) ＞ 10[10]+1 ＞ 11 ＞ クリティカル"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Garako"
+input = "GR+1"
+output = "(1D10+1) ＞ 9[9]+1 ＞ 10"
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Garako"
+input = "GR+1"
+output = "(1D10+1) ＞ 1[1]+1 ＞ 2 ＞ ファンブル"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Garako"
 input = "IDI"
 output = "個性表(1) ＞ 〈近接武器熟練〉 近接攻撃の火力+1。"
 rands = [
@@ -341,4 +365,25 @@ input = "GHA-7+5"
 output = "(1D10-2) ＞ 1[1]-2 ＞ -1（ダメージを受けない）"
 rands = [
   { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Garako"
+input = "2d+5 デフォルト10面ダイス"
+output = "(2D10+5) ＞ 14[5,9]+5 ＞ 19"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Garako"
+input = "2d*5+2d6+1D 複雑な式"
+output = "(2D10*5+2D6+1D10) ＞ 12[8,4]*5+11[6,5]+4[4] ＞ 75"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 10, value = 4 },
 ]

@@ -68,12 +68,56 @@ module BCDice
 
         ・絡み効果表　(TT)
         　絡み効果表を出すことができます。
+
+        ・ドルイドの物理魔法用表　(Dru[2-6の値,7-9の値,10-12の値])
+        　例）Dru[0,3,6]+10-3
       INFO_MESSAGE_TEXT
 
-      register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT')
+      register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT', 'Dru\[\d+,\d+,\d+\].*')
+
+      def eval_game_system_specific_command(command)
+        case command
+        when /^dru\[(\d+),(\d+),(\d+)\]/i
+          power_list = Regexp.last_match.captures.map(&:to_i)
+          druid_parser = Command::Parser.new(/dru\[\d+,\d+,\d+\]/i, round_type: BCDice::RoundType::CEIL)
+
+          cmd = druid_parser.parse(command)
+          unless cmd
+            return nil
+          end
+
+          druid_dice(cmd, power_list)
+        else
+          super(command)
+        end
+      end
 
       def rating_parser
         return RatingParser.new(version: :v2_5)
+      end
+
+      def druid_dice(command, power_list)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        dice_total = dice_list.sum()
+        offset =
+          case dice_total
+          when 2..6
+            0
+          when 7..9
+            1
+          when 10..12
+            2
+          end
+        power = power_list[offset]
+        total = power + command.modify_number
+        sequence = [
+          "(#{command.command.capitalize}#{Format.modifier(command.modify_number)})",
+          "2D[#{dice_list.join(',')}]=#{dice_total}",
+          "#{power}#{Format.modifier(command.modify_number)}",
+          total
+        ]
+
+        return sequence.join(" ＞ ")
       end
     end
   end
