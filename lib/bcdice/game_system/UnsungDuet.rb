@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "bcdice"
+require "bcdice/base"
 
 module BCDice
   module GameSystem
