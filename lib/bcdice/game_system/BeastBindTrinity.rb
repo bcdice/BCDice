@@ -76,7 +76,7 @@ module BCDice
           end
 
           dice_list_filtered = dice_list_org.map { |dice| [dice, @dice_value_lower_limit].max }.sort
-          @dice_total = dice_list_filtered.inject(0, :+)
+          @dice_total = dice_list_filtered.last(2).inject(0, :+)
 
           total = calc_total()
 
