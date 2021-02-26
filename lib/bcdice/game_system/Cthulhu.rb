@@ -97,7 +97,11 @@ module BCDice
       private
 
       def getCheckResult(command)
-        m = %r{CCB?(\d+)?(?:<=([+-/*\d]+))?}i.match(command)
+        m = %r{^CCB?(\d+)?(?:<=([+-/*\d]+))?$}i.match(command)
+        unless m
+          return nil
+        end
+
         broken_num = m[1].to_i
         diff = ArithmeticEvaluator.eval(m[2])
 
@@ -189,7 +193,7 @@ module BCDice
       end
 
       def getRegistResult(command)
-        m = /RES(B)?([-\d]+)/i.match(command)
+        m = /^RES(B)?([-\d]+)$/i.match(command)
         unless m
           return nil
         end
@@ -215,7 +219,7 @@ module BCDice
       end
 
       def getCombineRoll(command)
-        m = /CBR(B)?\((\d+),(\d+)\)/i.match(command)
+        m = /^CBR(B)?\((\d+),(\d+)\)$/i.match(command)
         unless m
           return nil
         end
