@@ -2,6 +2,25 @@
 
 ## Unreleased
 
+### 追加機能
+- ソードワールド2.5: 森羅魔法のダメージ算出コマンドを追加。三木里 秀予さんありがとうっ！ ([#372](https://github.com/bcdice/BCDice/pull/372))
+- ソードワールド各種: 威力表コマンドの半減後の加減算修正への対応とコマンドの柔軟性を向上。三木里 秀予さんありがとうっ！ ([#373](https://github.com/bcdice/BCDice/pull/373))
+- ネバークラウドTRPG: 様々な表を追加。蜂紫さんありがとうっ！ ([#381](https://github.com/bcdice/BCDice/pull/381))
+
+### 変更
+- ガラコと破戒の塔: デフォルトダイスを10面に変更。くずもちさんありがとうっ！ ([#371](https://github.com/bcdice/BCDice/pull/371))
+- ガラコと破戒の塔: 判定コマンドの目標値を省略できるように。くずもちさんありがとうっ！ ([#378](https://github.com/bcdice/BCDice/pull/378))
+- ブラッドムーン: ブラッド・クルセイドから流用していた一部の表を専用の内容にする。ViViさんありがとうっ！ ([#388](https://github.com/bcdice/BCDice/pull/388))
+- クトゥルフ神話TRPG: コマンドを完全一致でのみ実行できるように変更 ([#389](https://github.com/bcdice/BCDice/pull/389))
+
+### 誤植修正
+- モノトーンミュージアムRPG: 歪み表（館・城）のエラッタを反映。えいむさんありがとうっ！ ([#375](https://github.com/bcdice/BCDice/pull/375))
+- ブラッド・クルセイド: 先制判定指定特技表とシーン表の誤植を修正。ViViさんありがとうっ！ ([#383](https://github.com/bcdice/BCDice/pull/383), [#384](https://github.com/bcdice/BCDice/pull/384))
+
+### バグ修正
+- ビーストバインド トリニティ: 判定コマンドで大きい出目2個を取る処理が欠けていたのを修正 ([#386](https://github.com/bcdice/BCDice/pull/386))
+- シノビガミ: 行為判定でクルティカルとファンブルが同時発生した際にファンブルを優先するように修正 ([#387](https://github.com/bcdice/BCDice/pull/387))
+
 ## 3.0.0 2021/01/24
 
 ### 対応ゲームシステムの追加
