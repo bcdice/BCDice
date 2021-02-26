@@ -461,6 +461,11 @@ rands = [
   { sides = 100, value = 77 },
 ]
 
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCさくら 完全一致"
+output = ""
+rands = []
 
 ##### 戦闘用技能判定 CCB #####
 
@@ -670,6 +675,11 @@ rands = [
   { sides = 100, value = 30 },
 ]
 
+[[ test ]]
+game_system = "Cthulhu"
+input = "CCBさくら 完全一致"
+output = ""
+rands = []
 
 ##### 戦闘用対抗判定 RESB #####
 
