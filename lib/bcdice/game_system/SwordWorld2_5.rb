@@ -32,10 +32,12 @@ module BCDice
         　またタイプの軽減化のために末尾に「@クリティカル値」でも処理するようにしました。
         　例）K20[10]　　　K10+5[9]　　　k30[10]　　　k10[9]+10　　　k10-5@9
 
-        ・レーティング表の半減 (HKx)
+        ・レーティング表の半減 (HKx, KxH+N)
         　レーティング表の先頭または末尾に"H"をつけると、レーティング表を振って最終結果を半減させます。
+        　末尾につけた場合、直後に修正ををつけることで、半減後の加減算を行うことができます。
+        　この際、複数の項による修正にはカッコで囲うことが必要です（カッコがないとパースに失敗します）
         　クリティカル値を指定しない場合、クリティカルなしと扱われます。
-        　例）HK20　　K20h　　HK10-5@9　　K10-5@9H　　K20gfH
+        　例）HK20　　K20h　　HK10-5@9　　K10-5@9H　　K20gfH　　K20+8H+2　　K20+8H+(1+1)
 
         ・ダイス目の修正（運命変転やクリティカルレイ用）
         　末尾に「$修正値」でダイス目に修正がかかります。
@@ -90,16 +92,8 @@ module BCDice
         end
       end
 
-      # コマンド実行前にメッセージを置換する
-      # @param [String] string 受信したメッセージ
-      # @return [String]
-      def replace_text(string)
-        return string unless RATING_TABLE_RE_FOR_CHANGE_TEXT.match?(string)
-
-        super(string).gsub(/#([-+]?\d+)/) do
-          modifier = Regexp.last_match(1).to_i
-          "a[#{Format.modifier(modifier)}]"
-        end
+      def rating_parser
+        return RatingParser.new(version: :v2_5)
       end
 
       def druid_dice(command, power_list)
@@ -124,40 +118,6 @@ module BCDice
         ]
 
         return sequence.join(" ＞ ")
-      end
-
-      def getRatingCommandStrings
-        super + "aA"
-      end
-
-      def getAdditionalString(string, output)
-        output, values = super(string, output)
-
-        keptDiceChangeModify, = getKeptDiceChangesFromString(string)
-
-        values['keptDiceChangeModify'] = keptDiceChangeModify
-        output += "a[#{keptDiceChangeModify}]" if keptDiceChangeModify != 0
-
-        return output, values
-      end
-
-      def getAdditionalDiceValue(dice, values)
-        keptDiceChangeModify = values['keptDiceChangeModify'].to_i
-
-        value = 0
-        value += keptDiceChangeModify.to_i if (keptDiceChangeModify != 0) && (dice != 2)
-
-        return value
-      end
-
-      def getKeptDiceChangesFromString(string)
-        keptDiceChangeModify = 0
-        regexp = /a\[([+\-]\d+)\]/i
-        if regexp =~ string
-          keptDiceChangeModify = Regexp.last_match(1)
-          string = string.gsub(regexp, '')
-        end
-        return keptDiceChangeModify, string
       end
     end
   end

@@ -34,10 +34,12 @@ module BCDice
         　またタイプの軽減化のために末尾に「@クリティカル値」でも処理するようにしました。
         　例）K20[10]　　　K10+5[9]　　　k30[10]　　　k10[9]+10　　　k10-5@9
 
-        ・レーティング表の半減 (HKx)
+        ・レーティング表の半減 (HKx, KxH+N)
         　レーティング表の先頭または末尾に"H"をつけると、レーティング表を振って最終結果を半減させます。
+        　末尾につけた場合、直後に修正ををつけることで、半減後の加減算を行うことができます。
+        　この際、複数の項による修正にはカッコで囲うことが必要です（カッコがないとパースに失敗します）
         　クリティカル値を指定しない場合、クリティカルなしと扱われます。
-        　例）HK20　　K20h　　HK10-5@9　　K10-5@9H　　K20gfH
+        　例）HK20　　K20h　　HK10-5@9　　K10-5@9H　　K20gfH　　K20+8H+2　　K20+8H(1+1)
 
         ・ダイス目の修正（運命変転やクリティカルレイ用）
         　末尾に「$修正値」でダイス目に修正がかかります。
@@ -201,49 +203,18 @@ module BCDice
         end
       end
 
-      def getRateUpFromString(string)
-        rateUp = 0
-
-        regexp = /r\[(\d+)\]/i
-        if (m = regexp.match(string))
-          rateUp = m[1].to_i
-          string = string.gsub(regexp, '')
-        end
-
-        return rateUp, string
+      def rating_parser
+        return RatingParser.new(version: :v2_0)
       end
 
-      def getAdditionalString(string, output)
-        output, values = super(string, output)
-
-        isGratestFortune, = getGratestFortuneFromString(string)
-
-        values['isGratestFortune'] = isGratestFortune
-        output += "gf" if isGratestFortune
-
-        return output, values
-      end
-
-      def rollDice(values)
-        unless values['isGratestFortune']
-          return super(values)
+      def rollDice(command)
+        unless command.greatest_fortune
+          return super(command)
         end
 
         dice = @randomizer.roll_once(6)
 
         return dice * 2, "#{dice},#{dice}"
-      end
-
-      def getGratestFortuneFromString(string)
-        isGratestFortune = false
-
-        regexp = /gf/i
-        if regexp.match?(string)
-          isGratestFortune = true
-          string = string.gsub(regexp, '')
-        end
-
-        return isGratestFortune, string
       end
 
       def growth(count = 1)
