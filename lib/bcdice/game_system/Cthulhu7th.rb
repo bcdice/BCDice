@@ -48,30 +48,28 @@ module BCDice
         　　強力でない呪文の場合　FCL／強力な呪文の場合　FCM
       INFO_MESSAGE_TEXT
 
-      register_prefix('CC\(\d+\)', 'CC.*', 'CBR\(\d+,\d+\)', 'FAR.*', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA')
+      register_prefix('CC', 'CBR\(\d+,\d+\)', 'FAR', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA')
 
       def eval_game_system_specific_command(command)
         case command
         when /^CC/i
-          return skill_roll(command)
+          skill_roll(command)
         when /^CBR/i
-          return combine_roll(command)
+          combine_roll(command)
         when /^FAR/i
-          return getFullAutoResult(command)
+          getFullAutoResult(command)
         when /^BMR/i # 狂気の発作（リアルタイム）
-          return roll_bmr_table()
+          roll_bmr_table()
         when /^BMS/i # 狂気の発作（サマリー）
-          return roll_bms_table()
+          roll_bms_table()
         when /^FCL/i # キャスティング・ロールのプッシュに失敗した場合（小）
-          return roll_1d8_table("キャスティング・ロール失敗(小)表", FAILED_CASTING_L_TABLE)
+          roll_1d8_table("キャスティング・ロール失敗(小)表", FAILED_CASTING_L_TABLE)
         when /^FCM/i # キャスティング・ロールのプッシュに失敗した場合（大）
-          return roll_1d8_table("キャスティング・ロール失敗(大)表", FAILED_CASTING_M_TABLE)
+          roll_1d8_table("キャスティング・ロール失敗(大)表", FAILED_CASTING_M_TABLE)
         when /^PH/i # 恐怖症表
-          return roll_1d100_table("恐怖症表", PHOBIAS_TABLE)
+          roll_1d100_table("恐怖症表", PHOBIAS_TABLE)
         when /^MA/i # マニア表
-          return roll_1d100_table("マニア表", MANIAS_TABLE)
-        else
-          return nil
+          roll_1d100_table("マニア表", MANIAS_TABLE)
         end
       end
 
