@@ -83,9 +83,9 @@ module BCDice
           else
             growth
           end
-        when /^2D6?@(\d+)/i
-          critical_value = Regexp.last_match(1).to_i
-          transcendent_parser = Command::Parser.new(/2D6?@\d+/i, round_type: BCDice::RoundType::CEIL)
+        when /^2D6?@\d+/i
+          transcendent_parser = Command::Parser.new(/2D6?/i, round_type: BCDice::RoundType::CEIL)
+                                               .enable_critical
                                                .restrict_cmp_op_to(nil, :>=, :>)
           cmd = transcendent_parser.parse(command)
 
@@ -93,7 +93,7 @@ module BCDice
             return nil
           end
 
-          node = TranscendentTest.new(critical_value, cmd.modify_number, cmd.cmp_op, cmd.target_number)
+          node = TranscendentTest.new(cmd.critical, cmd.modify_number, cmd.cmp_op, cmd.target_number)
           node.execute(@randomizer)
         when 'FT'
           get_fumble_table
