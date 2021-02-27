@@ -33,14 +33,17 @@ module BCDice
         include Rollable
 
         def getFullAutoResult(command)
-          return nil unless /^FAR\((-?\d+),(-?\d+),(-?\d+)(?:,(-?\d+)?)?(?:,(-?\w+)?)?(?:,(-?\d+)?)?\)/i =~ command
+          m = /^FAR\((-?\d+),(-?\d+),(-?\d+)(?:,(-?\d+)?)?(?:,(-?\w+)?)?(?:,(-?\d+)?)?\)$/i.match(command)
+          unless m
+            return nil
+          end
 
-          bullet_count = Regexp.last_match(1).to_i
-          diff = Regexp.last_match(2).to_i
-          broken_number = Regexp.last_match(3).to_i
-          bonus_dice_count = (Regexp.last_match(4) || 0).to_i
-          stop_count = (Regexp.last_match(5) || "").to_s.downcase
-          bullet_set_count_cap = (Regexp.last_match(6) || diff / 10).to_i
+          bullet_count = m[1].to_i
+          diff = m[2].to_i
+          broken_number = m[3].to_i
+          bonus_dice_count = m[4]&.to_i || 0
+          stop_count = m[5]&.downcase || ""
+          bullet_set_count_cap = m[6]&.to_i || diff / 10
 
           output = ""
 
@@ -52,18 +55,18 @@ module BCDice
           end
 
           # ボレーの上限の設定がおかしい場合の注意表示
-          if (bullet_set_count_cap > diff / 10) && (diff > 39) && !Regexp.last_match(6).nil?
+          if (bullet_set_count_cap > diff / 10) && (diff > 39) && !m[6].nil?
             bullet_set_count_cap = diff / 10
             output += "ボレーの弾丸の数の上限は\[技能値÷10（切り捨て）\]発なので、それより高い数を指定できません。ボレーの弾丸の数を#{bullet_set_count_cap}発に変更します。\n"
-          elsif (diff <= 39) && (bullet_set_count_cap > 3) && !Regexp.last_match(6).nil?
+          elsif (diff <= 39) && (bullet_set_count_cap > 3) && !m[6].nil?
             bullet_set_count_cap = 3
             output += "技能値が39以下ではボレーの弾丸の数の上限および下限は3発です。ボレーの弾丸の数を#{bullet_set_count_cap}発に変更します。\n"
           end
 
           # ボレーの下限の設定がおかしい場合の注意表示およびエラー表示
-          return "ボレーの弾丸の数は正の数です。" if (bullet_set_count_cap <= 0) && !Regexp.last_match(6).nil?
+          return "ボレーの弾丸の数は正の数です。" if (bullet_set_count_cap <= 0) && !m[6].nil?
 
-          if (bullet_set_count_cap < 3) && !Regexp.last_match(6).nil?
+          if (bullet_set_count_cap < 3) && !m[6].nil?
             bullet_set_count_cap = 3
             output += "ボレーの弾丸の数の下限は3発です。ボレーの弾丸の数を3発に変更します。\n"
           end
