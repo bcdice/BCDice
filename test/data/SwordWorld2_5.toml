@@ -812,3 +812,43 @@ rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
 ]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "ABT"
+output = "アビスカース表(45) ＞ 「滑り落ちる」　携行時　戦闘中の手番開始時に1dし、出目が「1」なら手に装備または保持しているものをすべてその場に落とす（その手番の主動作で拾う事は可能）。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "ABT"
+output = "アビスカース表(33) ＞ 「施しは受けない」　装備時　戦闘中、「抵抗：任意」の効果を受け入れた場合、次の手番終了時まで生命抵抗力、精神抵抗力に-2のペナルティ修正を受ける。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "ABT"
+output = "アビスカース表(14) ＞ 「差別の」　装備時　特定の分類に対して与える物理ダメージ・魔法ダメージが2点減少する。分類は「分類決定表」で無作為に決定する。\nアビスカース分類決定表(33) ＞ 植物"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "ABT"
+output = "アビスカース表(25) ＞ 「過敏な」　装備時　特定の属性から受ける物理ダメージ、魔法ダメージが2点上昇する。属性は「属性決定表」で無作為に決定する。\nアビスカース属性決定表(45) ＞ 呪い"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
