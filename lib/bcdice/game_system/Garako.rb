@@ -20,7 +20,7 @@ module BCDice
       HELP_MESSAGE = <<~MESSAGETEXT
         ・判定 GR+n#f>=X （+n：判定値、#f：不安定による自動失敗基準値、X：目標値、それぞれ省略可能）
         ・部位決定チャート：HIT
-        ・ダメージ+部位決定：GAHn（n：火力）
+        ・ダメージ+部位決定：GHAn（n：火力）
         ・ダメージチャート：xDCy（CDC/EDC/FDC/ADC/LDC )
         ・ダメージチャートver2：xDTy（CDT/EDT/FDT/ADT/LDT）
         　xは C：コックピット、E：エンジン、F：フレーム、A：アーム、L：レッグ

@@ -229,12 +229,6 @@ rands = []
 
 [[ test ]]
 game_system = "Torg"
-input = "IT17"
-output = "威圧/威嚇表[17] ＞ プレイヤーズコール"
-rands = []
-
-[[ test ]]
-game_system = "Torg"
 input = "IT14"
 output = "威圧/威嚇表[14] ＞ 逆転負け"
 rands = []
@@ -272,6 +266,18 @@ rands = []
 [[ test ]]
 game_system = "Torg"
 input = "IT1"
+output = "威圧/威嚇表[1] ＞ 技能なし"
+rands = []
+
+[[ test ]]
+game_system = "Torg"
+input = "Test1"
+output = "威圧/威嚇表[1] ＞ 技能なし"
+rands = []
+
+[[ test ]]
+game_system = "Torg"
+input = "Intimidate1"
 output = "威圧/威嚇表[1] ＞ 技能なし"
 rands = []
 

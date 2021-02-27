@@ -28,7 +28,7 @@ module BCDice
         　・ボーナス表「BTx+y or BONUSx+y or TOTALx+y」 xは数値, yは技能基本値
       INFO_MESSAGE_TEXT
 
-      register_prefix('TG.*', '1R20.*', 'RT.*', 'Result.*', 'IT.*', 'Initimidate.*', 'TT.*', 'Taunt.*', 'Trick.*', 'CT.*', 'MT.*', 'Maneuver.*', 'ODT.*', 'ords.*', 'odamage.*', 'DT.*', 'damage.*', 'BT.*', 'bonus.*', 'total.*')
+      register_prefix('TG', '1R20', 'RT', 'Result', 'IT', 'Intimidate', 'Test', 'TT', 'Taunt', 'Trick', 'CT', 'MT', 'Maneuver', 'ODT', 'ords', 'odamage', 'DT', 'damage', 'BT', 'bonus', 'total')
 
       def replace_text(string)
         string = string.gsub(/Result/i, 'RT')
