@@ -3,6 +3,7 @@
 require 'bcdice/arithmetic_evaluator'
 
 require 'bcdice/game_system/SwordWorld'
+require 'bcdice/game_system/sword_world/transcendent_test'
 
 module BCDice
   module GameSystem
@@ -69,112 +70,10 @@ module BCDice
 
       register_prefix('H?K\d+.*', 'Gr(\d+)?', '2D6?@\d+.*', 'FT', 'TT')
 
-      # 超越判定のノード
-      class TranscendentTest
-        # @param [Integer] critical_value クリティカル値
-        # @param [Integer] modifier 修正値
-        # @param [String, nil] cmp_op 比較演算子（> または >=）
-        # @param [Integer, nil] target 目標値
-        def initialize(critical_value, modifier, cmp_op, target)
-          @critical_value = critical_value
-          @modifier = modifier
-          @cmp_op = cmp_op
-          @target = target
-
-          @modifier_str = Format.modifier(@modifier)
-          @expression = node_expression()
-        end
-
-        # 超越判定を行う
-        # @param randomizer [Randomizer]
-        # @return [String]
-        def execute(randomizer)
-          if @critical_value < 3
-            return "(#{@expression}) ＞ クリティカル値が小さすぎます。3以上を指定してください。"
-          end
-
-          first_value_group = randomizer.roll_barabara(2, 6)
-          value_groups = [first_value_group]
-
-          fumble = first_value_group == [1, 1]
-          critical = first_value_group == [6, 6]
-
-          if !fumble && !critical
-            while sum_of_dice(value_groups.last) >= @critical_value
-              value_groups.push(randomizer.roll_barabara(2, 6))
-            end
-          end
-
-          sum = sum_of_dice(value_groups)
-          total_sum = sum + @modifier
-
-          parts = [
-            "(#{@expression})",
-            "#{dice_str(value_groups, sum)}#{@modifier_str}",
-            total_sum,
-            @target && result_str(total_sum, value_groups.length, fumble, critical)
-          ].compact
-
-          return parts.join(' ＞ ')
-        end
-
-        private
-
-        # 数式表記を返す
-        # @return [String]
-        def node_expression
-          lhs = "2D6@#{@critical_value}#{@modifier_str}"
-
-          return @target ? "#{lhs}#{@cmp_op}#{@target}" : lhs
-        end
-
-        # 出目の合計を返す
-        # @param [(Integer, Integer), Array<(Integer, Integer)>] value_groups
-        #   出目のグループまたはその配列
-        # @return [Integer]
-        def sum_of_dice(value_groups)
-          value_groups.flatten.sum
-        end
-
-        # ダイス部分の文字列を返す
-        # @param [Array<(Integer, Integer)>] value_groups 出目のグループの配列
-        # @param [Integer] sum 出目の合計
-        # @return [String]
-        def dice_str(value_groups, sum)
-          value_groups_str =
-            value_groups
-            .map { |values| "[#{values.join(',')}]" }
-            .join
-
-          return "#{sum}#{value_groups_str}"
-        end
-
-        # 判定結果の文字列を返す
-        # @param [Integer] total_sum 合計値
-        # @param [Integer] n_value_groups 出目のグループの数
-        # @param [Boolean] fumble ファンブルかどうか
-        # @param [Boolean] critical クリティカルかどうか
-        # @return [String]
-        def result_str(total_sum, n_value_groups, fumble, critical)
-          return '自動的失敗' if fumble
-          return '自動的成功' if critical
-
-          if total_sum.send(@cmp_op, @target)
-            # 振り足しが行われ、合計値が41以上ならば「超成功」
-            n_value_groups >= 2 && total_sum >= 41 ? '超成功' : '成功'
-          else
-            '失敗'
-          end
-        end
-      end
-
       def initialize(command)
         super(command)
         @rating_table = 2
       end
-
-      # 超越判定のパターン
-      TRANSCENDENT_TEST_RE = /\A2D6?@(\d+)([-+\d]+)?(?:(>=?)(\d+))?/.freeze
 
       def eval_game_system_specific_command(command)
         case command
@@ -184,15 +83,17 @@ module BCDice
           else
             growth
           end
-        when TRANSCENDENT_TEST_RE
-          m = Regexp.last_match
+        when /^2D6?@(\d+)/i
+          critical_value = Regexp.last_match(1).to_i
+          transcendent_parser = Command::Parser.new(/2D6?@\d+/i, round_type: BCDice::RoundType::CEIL)
+                                               .restrict_cmp_op_to(nil, :>=, :>)
+          cmd = transcendent_parser.parse(command)
 
-          critical_value = m[1].to_i
-          modifier = m[2] ? ArithmeticEvaluator.eval(m[2]) : 0
-          cmp_op = m[3]
-          target = m[3] && m[4].to_i
+          unless cmd
+            return nil
+          end
 
-          node = TranscendentTest.new(critical_value, modifier, cmp_op, target)
+          node = TranscendentTest.new(critical_value, cmd.modify_number, cmd.cmp_op, cmd.target_number)
           node.execute(@randomizer)
         when 'FT'
           get_fumble_table
