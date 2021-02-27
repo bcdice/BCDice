@@ -41,7 +41,7 @@ module BCDice
         　・ダメージ結果表「DTx or DAMAGEx」
         　・ロールボーナス表「BTx+y or BONUSx+y or TOTALx+y」 xは数値, yは技能基本値
       INFO_MESSAGE_TEXT
-      register_prefix('TE.*', 'UP.*', 'POS.*', '\d+BD.*', 'TG.*', 'RT.*', 'Result.*', 'DT.*', 'damage.*', 'BT.*', 'bonus.*', 'total.*', '1R20.*')
+      register_prefix('TE', 'UP', 'POS', '\d+BD', 'TG', 'RT', 'Result', 'DT', 'damage', 'BT', 'bonus', 'total', '1R20')
 
       def eval_game_system_specific_command(command)
         torg_check(command) ||
@@ -229,7 +229,7 @@ module BCDice
       # ロールボーナス表コマンド
       def getRollBonusDiceCommandResult(command)
         debug("TorgEternity Roll Bonus Table Command ? ", command)
-        m = /(BT|Bonus)(\d+)(([+\-]\d+)*)/i.match(command)
+        m = /(BT|Bonus|Total)(\d+)(([+\-]\d+)*)/i.match(command)
         unless m
           return nil
         end

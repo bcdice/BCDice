@@ -426,6 +426,12 @@ rands = []
 
 [[ test ]]
 game_system = "TorgEternity"
+input = "Total62"
+output = "ロールボーナス表[62] ＞ 16"
+rands = []
+
+[[ test ]]
+game_system = "TorgEternity"
 input = "3BD+10"
 output = "ボーナスダメージロール(3BD+10) ＞ 19[5,1,5∞,5∞,3]+10 ＞ 29ダメージ"
 rands = [
