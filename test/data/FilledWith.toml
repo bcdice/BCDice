@@ -238,7 +238,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS1"
-output = "財宝表(1):高級HPポーション(消耗品)"
+output = "財宝表(1) ＞ 高級HPポーション(消耗品)"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -246,7 +246,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS2+2"
-output = "財宝表(3):ミスリルスケイル(鎧)"
+output = "財宝表(3) ＞ ミスリルスケイル(鎧)"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -311,7 +311,7 @@ rands = []
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS11"
-output = "財宝表(1):体力の欠片（大事なもの）(全員に10個)"
+output = "財宝表(1) ＞ 体力の欠片（大事なもの）(全員に10個)"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -319,7 +319,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS11"
-output = "財宝表(6):お好きな副能力の欠片（大事なもの）(1人ずつ好きなものを選択して全員に50個)"
+output = "財宝表(6) ＞ お好きな副能力の欠片（大事なもの）(1人ずつ好きなものを選択して全員に50個)"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -327,7 +327,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS12"
-output = "財宝表(1):体力の欠片（大事なもの）(全員に20個)"
+output = "財宝表(1) ＞ 体力の欠片（大事なもの）(全員に20個)"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -335,7 +335,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS12"
-output = "財宝表(6):お好きな副能力の欠片（大事なもの）(1人ずつ好きなものを選択して全員に100個)"
+output = "財宝表(6) ＞ お好きな副能力の欠片（大事なもの）(1人ずつ好きなものを選択して全員に100個)"
 rands = [
   { sides = 6, value = 6 },
 ]
