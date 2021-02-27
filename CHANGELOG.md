@@ -16,6 +16,7 @@
 ### 誤植修正
 - モノトーンミュージアムRPG: 歪み表（館・城）のエラッタを反映。えいむさんありがとうっ！ ([#375](https://github.com/bcdice/BCDice/pull/375))
 - ブラッド・クルセイド: 先制判定指定特技表とシーン表の誤植を修正。ViViさんありがとうっ！ ([#383](https://github.com/bcdice/BCDice/pull/383), [#384](https://github.com/bcdice/BCDice/pull/384))
+- いくつかのゲームシステムのヘルプメッセージにあった誤植を修正。円柱さん報告ありがとうっ！ ([#390](https://github.com/bcdice/BCDice/issues/390))
 
 ### バグ修正
 - ビーストバインド トリニティ: 判定コマンドで大きい出目2個を取る処理が欠けていたのを修正 ([#386](https://github.com/bcdice/BCDice/pull/386))
