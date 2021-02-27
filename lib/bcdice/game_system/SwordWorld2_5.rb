@@ -186,13 +186,13 @@ module BCDice
       end
 
       def get_abyss_curse_table
-        table_result = self.class::ABYSS_CURSE_TABLE.roll(@randomizer)
+        table_result = ABYSS_CURSE_TABLE.roll(@randomizer)
         additional =
           case table_result.value
           when 14  # 「差別の」における分類決定表
-            self.class::ABYSS_CURSE_CATEGORY_TABLE.roll(@randomizer).to_s
+            ABYSS_CURSE_CATEGORY_TABLE.roll(@randomizer).to_s
           when 25  # 「過敏な」における属性決定表
-            self.class::ABYSS_CURSE_ATTR_TABLE.roll(@randomizer).to_s
+            ABYSS_CURSE_ATTR_TABLE.roll(@randomizer).to_s
           end
         final_result = [
           table_result.to_s,
