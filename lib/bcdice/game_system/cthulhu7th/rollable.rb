@@ -2,6 +2,8 @@ module BCDice
   module GameSystem
     class Cthulhu7th < Base
       module Rollable
+        private
+
         # 1D100の一の位用のダイスロール
         # 0から9までの値を返す
         #
