@@ -356,7 +356,7 @@ module BCDice
           _, index = getTableIndex(operator, value, 2, 6)
 
           info = table.choice(index)
-          text = "#{info.table_name}#{info.value}:#{info.body}"
+          text = "#{info.table_name}:#{info.value}:#{info.body}"
           result.push(text)
         end
 
