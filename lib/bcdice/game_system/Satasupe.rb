@@ -210,31 +210,29 @@ module BCDice
       def check_seigou(string)
         debug("check_seigou begin string", string)
 
-        return '' unless /^SR(\d+)(([+]|-)(\d+))?$/i =~ string
+        return '' unless /^SR(\d+).*$/i =~ string
 
         target = Regexp.last_match(1).to_i
-        operator = Regexp.last_match(3)
-        value = Regexp.last_match(4).to_i
+        sr_parser = Command::Parser.new(/SR\d+/i, round_type: round_type)
+                                   .restrict_cmp_op_to(nil)
+        cmd = sr_parser.parse(string)
+        return '' unless cmd
 
         dice = @randomizer.roll_sum(2, 6)
-        modify = 0
+        diceTotal = dice + cmd.modify_number
 
-        unless operator.nil?
-          modify = value if operator == "+"
-          modify = value * -1 if operator == "-"
-        end
+        seigou = if target < diceTotal
+                   "「激」"
+                 elsif target > diceTotal
+                   "「律」"
+                 else # target == diceTotal
+                   "「迷」"
+                 end
 
-        diceTotal = dice + modify
+        result = "〔性業値〕#{target}、「修正値」#{cmd.modify_number} ＞ ダイス結果：（#{dice}） ＞ #{dice}＋（#{cmd.modify_number}）＝#{diceTotal} ＞ #{seigou}"
 
-        seigou = ""
-        seigou = "「激」" if target < diceTotal
-        seigou = "「迷」" if target == diceTotal
-        seigou = "「律」" if target > diceTotal
-
-        result = "〔性業値〕#{target}、「修正値」#{modify} ＞ ダイス結果：（#{dice}） ＞ #{dice}＋（#{modify}）＝#{diceTotal} ＞ #{seigou}"
-
-        result += " ＞ 1ゾロのため〔性業値〕が1点上昇！" if  dice == 2
-        result += " ＞ 6ゾロのため〔性業値〕が1点減少！" if  dice == 12
+        result += " ＞ 1ゾロのため〔性業値〕が1点上昇！" if dice == 2
+        result += " ＞ 6ゾロのため〔性業値〕が1点減少！" if dice == 12
 
         debug('check_seigou result result', result)
         return result
