@@ -23,7 +23,7 @@ module BCDice
         　例）12SFM-5@7#2　　1SFM　　50SFM+5@7,10#2,5　50SFM-5+10@7,10#2,5+15+25
       INFO_MESSAGE_TEXT
 
-      register_prefix('([-+]?\d+)?SFM.*', '2R6.*')
+      register_prefix('([-+]?\d+)?SFM', '2R6')
 
       def initialize(command)
         super(command)

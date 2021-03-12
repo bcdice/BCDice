@@ -34,7 +34,7 @@ module BCDice
 MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('\d+CL.*', '\d+R6.*', '\d+D6.*\$[\+\-]?\d+.*')
+      register_prefix('\d+CL', '\d+R6', '\d+D6.*\$[\+\-]?\d+')
 
       def initialize(command)
         super(command)

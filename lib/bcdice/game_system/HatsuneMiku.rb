@@ -699,7 +699,7 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix('R([A-DS]|\d+).*', TABLES.keys)
+      register_prefix('R([A-DS]|\d+)', TABLES.keys)
     end
   end
 end

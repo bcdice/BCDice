@@ -31,7 +31,7 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('SBS?.*')
+      register_prefix('SBS?')
 
       def eval_game_system_specific_command(command)
         debug("eval_game_system_specific_command Begin")

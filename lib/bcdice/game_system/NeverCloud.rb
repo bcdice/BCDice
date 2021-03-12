@@ -603,7 +603,7 @@ module BCDice
       }.freeze
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('\d+NC.*', '\d+D6?([\+\-\d]*)>=\d+', TEXTS.keys, TABLES.keys)
+      register_prefix('\d+NC', '\d+D6?([\+\-\d]*)>=\d+', TEXTS.keys, TABLES.keys)
     end
   end
 end

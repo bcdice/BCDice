@@ -21,7 +21,7 @@ module BCDice
         例) G>=7 : 2D6して7以上なら成功
       MESSAGETEXT
 
-      register_prefix('G.*')
+      register_prefix('G')
 
       def change_text(string)
         string = string.gsub(/^(S)?G/i) { "#{Regexp.last_match(1)}2D6" }

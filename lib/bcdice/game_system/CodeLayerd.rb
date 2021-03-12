@@ -30,7 +30,7 @@ module BCDice
           デフォルトダイス：10面
       MESSAGETEXT
 
-      register_prefix('[+-]?\d*CL([+-]\d+)?[@\d]*.*')
+      register_prefix('[+-]?\d*CL([+-]\d+)?[@\d]*')
 
       def initialize(command)
         super(command)

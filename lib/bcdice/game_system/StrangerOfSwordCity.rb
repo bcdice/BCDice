@@ -21,7 +21,7 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      register_prefix('\d+SR.*')
+      register_prefix('\d+SR')
 
       def initialize(command)
         super(command)
