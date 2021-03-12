@@ -49,7 +49,7 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      register_prefix('\d+R.*', 'SR\\d+.*', 'TAGT.*', 'GETSST.*', 'NPCT.*', TABLES.keys.map { |k| "#{k}.*" }, ALIASES.keys.map { |k| "#{k}.*" })
+      register_prefix('\d+R', 'SR\\d+', 'TAGT', 'GETSST', 'NPCT', TABLES.keys, ALIASES.keys)
 
       CREATE_ARMS_STRUCT = Struct.new(:base_parts, :accessory_parts, :parts_effect, :hit, :damage, :life, :kutibeni, :kiba, :abilities)
 
@@ -80,11 +80,12 @@ module BCDice
       def checkRoll(string)
         debug("checkRoll begin string", string)
 
-        return '' unless /^(\d+)R>=(\d+)(\[(\d+)?(,|,\d+)?(,\d+(S)?)?\])?$/i =~ string
+        m = /^(\d+)R>=(\d+)(\[(\d+)?(,|,\d+)?(,\d+(S)?)?\])?$/i.match(string)
+        return '' unless m
 
-        roll_times = Regexp.last_match(1).to_i
-        target = Regexp.last_match(2).to_i
-        params = Regexp.last_match(3)
+        roll_times = m[1].to_i
+        target = m[2].to_i
+        params = m[3]
 
         min_suc, fumble, critical, isCriticalStop = getRollParams(params)
 
@@ -140,11 +141,14 @@ module BCDice
         # ゲームシステム名の読みがな
         # ダイスボットの使い方
         # params => "[x,y,cS]"
-        if !params.nil? && /\[(\d*)(,(\d*)?)?(,(\d*)(S)?)?\]/ =~ params
-          min_suc = Regexp.last_match(1).to_i
-          fumble = Regexp.last_match(3).to_i if Regexp.last_match(3).to_i != 0
-          critical = Regexp.last_match(5).to_i if Regexp.last_match(4)
-          isCriticalStop = !Regexp.last_match(6).nil?
+        unless params.nil?
+          m = /\[(\d*)(,(\d*)?)?(,(\d*)(S)?)?\]/.match(params)
+          if m
+            min_suc = m[1].to_i
+            fumble = m[3].to_i if m[3].to_i != 0
+            critical = m[5].to_i if m[4]
+            isCriticalStop = !m[6].nil?
+          end
         end
 
         return min_suc, fumble, critical, isCriticalStop
@@ -210,9 +214,10 @@ module BCDice
       def check_seigou(string)
         debug("check_seigou begin string", string)
 
-        return '' unless /^SR(\d+).*$/i =~ string
+        m = /^SR(\d+).*$/i.match(string)
+        return '' unless m
 
-        target = Regexp.last_match(1).to_i
+        target = m[1].to_i
         sr_parser = Command::Parser.new(/SR\d+/i, round_type: round_type)
                                    .restrict_cmp_op_to(nil)
         cmd = sr_parser.parse(string)
@@ -245,13 +250,14 @@ module BCDice
         command = command.upcase
         result = []
 
-        return result unless command =~ /([A-Za-z]+)(\d+)?(([+]|-|=)(\d+))?/
+        m = /([A-Za-z]+)(\d+)?(([+]|-|=)(\d+))?/.match(command)
+        return result unless m
 
-        command = Regexp.last_match(1)
+        command = m[1]
         counts = 1
-        counts = Regexp.last_match(2).to_i if Regexp.last_match(2)
-        operator = Regexp.last_match(4)
-        value = Regexp.last_match(5).to_i
+        counts = m[2].to_i if m[2]
+        operator = m[4]
+        value = m[5].to_i
 
         debug("eval_game_system_specific_command command", command)
 
