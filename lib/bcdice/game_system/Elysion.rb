@@ -1200,8 +1200,8 @@ module BCDice
       }.freeze
 
       register_prefix(
-        'EL.*',
-        'DATE.*', 'FDATE.*', 'ODATE.*', 'MDATE.*',
+        'EL',
+        'DATE', 'FDATE', 'ODATE', 'MDATE',
         'RBT', 'SBT', 'BBT', 'CBT', 'DBT', 'IBT', 'FBT', 'LBT', 'PBT', 'NBT', 'ABT', 'VBT', 'GBT', 'HBT',
         'BFT', 'FWT', 'FT',
         'SRT', 'ORT', 'DRT', 'URT',

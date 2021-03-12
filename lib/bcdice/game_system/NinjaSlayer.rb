@@ -40,15 +40,6 @@ module BCDice
         　KIDS=K,EASY=E,NORMAL=N,HARD=H,ULTRA HARD=UH 数字にも対応
       MESSAGETEXT
 
-      # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix(
-        'NJ\d+.*',
-        'EV\d+.*',
-        'AT\d+.*',
-        'EL\d+.*',
-        'SB'
-      )
-
       def initialize(command)
         super(command)
 
@@ -262,10 +253,10 @@ module BCDice
 
       # ダイスボットで使用するコマンドを配列で列挙する
       register_prefix(
-        'NJ\d+.*',
-        'EV\d+.*',
-        'AT\d+.*',
-        'EL\d+.*',
+        'NJ\d+',
+        'EV\d+',
+        'AT\d+',
+        'EL\d+',
         TABLES.keys
       )
     end

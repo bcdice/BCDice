@@ -481,7 +481,7 @@ module BCDice
         )
       }.freeze
 
-      register_prefix('SP.*', TABLES.keys)
+      register_prefix('SP', TABLES.keys)
     end
   end
 end

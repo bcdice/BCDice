@@ -21,7 +21,7 @@ module BCDice
         （上記二つは最初からシークレットダイスで行われます）
       INFO_MESSAGE_TEXT
 
-      register_prefix('(ZMB|BIO).*')
+      register_prefix('ZMB', 'BIO')
 
       def initialize(command)
         super(command)

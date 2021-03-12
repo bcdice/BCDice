@@ -202,7 +202,7 @@ module BCDice
           ]
         ),
       }.freeze
-      register_prefix(RTT.prefixes, 'CM.*', TABLES.keys)
+      register_prefix(RTT.prefixes, 'CM', TABLES.keys)
     end
   end
 end

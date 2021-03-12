@@ -15,7 +15,7 @@ module BCDice
       SORT_KEY = 'ふるめたるはにつくRPG'
 
       # 固有のコマンドの接頭辞を設定する
-      register_prefix('2D6.*', 'MG.*', 'FP.*')
+      register_prefix('2D6', 'MG', 'FP')
 
       # 成功判定のエイリアスコマンドを設定する
       set_aliases_for_srs_roll('MG', 'FP')

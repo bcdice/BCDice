@@ -4,7 +4,7 @@ module BCDice
   module GameSystem
     class BBN < Base
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('\d+BN.*')
+      register_prefix('\d+BN')
 
       ID = 'BBN'
 

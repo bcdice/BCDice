@@ -24,7 +24,7 @@ module BCDice
         　　ステップ12、目標値8、カルマダイスD12：10E8+1D6
       INFO_MESSAGE_TEXT
 
-      register_prefix('\d+e.*')
+      register_prefix('\d+e')
 
       def initialize(command)
         super(command)

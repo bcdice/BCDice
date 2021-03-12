@@ -19,7 +19,7 @@ module BCDice
         　判定と回避判定は、どちらもコマンドだけの場合、出目の表示と自動成功と自動失敗の判定のみを行います。
       INFO_MESSAGE_TEXT
 
-      register_prefix('LW.*')
+      register_prefix('LW')
 
       def eval_game_system_specific_command(command)
         parser = Command::Parser.new("LWD", "LW", round_type: round_type)

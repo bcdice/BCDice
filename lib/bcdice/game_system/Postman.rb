@@ -39,7 +39,7 @@ module BCDice
 
       register_prefix(
         'WEA\d*',
-        '(\d+)?PO.*',
+        '(\d+)?PO',
         'FRE'
       )
 

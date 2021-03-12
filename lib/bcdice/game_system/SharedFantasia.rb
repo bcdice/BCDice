@@ -21,7 +21,7 @@ module BCDice
         例) SF+4>=9 : 2D6して4を足した値が9以上なら成功
       MESSAGETEXT
 
-      register_prefix('SF.*', 'ST.*')
+      register_prefix('SF', 'ST')
 
       def change_text(string)
         string.gsub(/SF/i, "2D6").gsub(/ST/i, "2D6")

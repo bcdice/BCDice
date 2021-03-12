@@ -57,7 +57,7 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       register_prefix(
-        '\d+MK.*', '\d+R6.*',
+        '\d+MK', '\d+R6',
         'IG', 'TT', 'NT', 'RMS',
         'CFT', 'FWT', 'CAT', 'KDT', 'KCT',
         'TBT', 'CBT', 'SBT', 'VBT', 'FBT', 'EBT', 'WBT', 'LBT',
@@ -65,7 +65,7 @@ module BCDice
         'BDT', 'TBO', 'CBO', 'SBO', 'VBO',
         'ET', 'FET', 'HET', 'SDT', 'IEQ', 'FRT',
         'T1T', 'T2T', 'T3T', 'T4T', 'T5T',
-        'MPT', 'KNT\d+', 'WORD\d+', 'NAME.*', 'NNAME.*', 'NM.*',
+        'MPT', 'KNT\d+', 'WORD\d+', 'NAME', 'NNAME', 'NM',
         'RT', 'CIR', 'RUIR', 'RWIR',
         'WIT', 'LIT', 'RIT', 'SIT', 'NRWT', 'NRUT', 'ARWT', 'ARUT',
         'KET', 'TET', 'NST', 'RET', 'FAT', 'HRT', 'BLT',
