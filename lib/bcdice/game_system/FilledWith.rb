@@ -44,7 +44,7 @@ module BCDice
         ・迷宮追加オプション表(ROPd)
       MESSAGETEXT
 
-      register_prefix('3FW.*', '[\+\-\d]*-3FW.*', 'LOT[NP]', 'HST', 'COOK[1-8]', 'RAND.*', 'RENC.*', 'RED.*', 'TRS.*', 'TRAP[ENHLX]', 'ROP[ENHLX]')
+      register_prefix('3FW', '[\+\-\d]*-3FW', 'LOT[NP]', 'HST', 'COOK[1-8]', 'RAND', 'RENC', 'RED', 'TRS', 'TRAP[ENHLX]', 'ROP[ENHLX]')
 
       def initialize(command)
         super(command)
