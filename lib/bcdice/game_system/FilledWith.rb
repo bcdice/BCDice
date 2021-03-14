@@ -55,7 +55,7 @@ module BCDice
       # @return [Result, nil] 固有コマンドの評価結果
       def eval_game_system_specific_command(command)
         # ダイスロールコマンド
-        result = checkRoll(command)
+        result = FW.roll(command, @randomizer)
         return result if result
 
         # 各種コマンド
@@ -118,65 +118,78 @@ module BCDice
         end
       end
 
-      def checkRoll(command)
-        crt = 4
-        fmb = 17
+      class FW
+        attr_accessor :dice_count, :target, :critical, :fumble
 
-        if command =~ /(\d[+\-\d]*)-(\d+)FW(@(\d+))?(\#(\d+))?/i
-          difficultyText = Regexp.last_match(1)
-          diceCount = Regexp.last_match(2).to_i
-          crt = Regexp.last_match(4).to_i unless Regexp.last_match(3).nil?
-          fmb = Regexp.last_match(6).to_i unless Regexp.last_match(5).nil?
-        elsif command =~ /(\d+)FW(@(\d+))?(\#(\d+))?(<=([+\-\d]*))?/i
-          diceCount = Regexp.last_match(1).to_i
-          crt = Regexp.last_match(3).to_i unless Regexp.last_match(2).nil?
-          fmb = Regexp.last_match(5).to_i unless Regexp.last_match(4).nil?
-          difficultyText = Regexp.last_match(7)
-        else
-          return nil
+        def self.roll(command, randomizer)
+          fw = parse(command)
+
+          return fw&.roll(randomizer)
         end
 
-        # 目標値の計算
-        difficulty = getValue(difficultyText, nil)
-
-        # ダイスロール
-        dice_list = @randomizer.roll_barabara(diceCount, 6)
-        dice = dice_list.sum()
-        dice_str = dice_list.join(",")
-
-        # 出力用ダイスコマンドを生成
-        command = "#{diceCount}FW"
-        command += "@#{crt}" unless crt == 4
-        command += "##{fmb}" unless fmb == 17
-        command += "<=#{difficulty}" unless difficulty.nil?
-
-        # 出力文の生成
-        result = "(#{command}) ＞ #{dice}[#{dice_str}]"
-
-        # クリティカル・ファンブルチェック
-        if dice <= crt
-          result += " ＞ クリティカル！"
-        elsif dice >= fmb
-          result += " ＞ ファンブル！"
-        else
-          # 成否判定
-          unless difficultyText.nil?
-            success = difficulty - dice
-            if dice <= difficulty
-              result += " ＞ 成功(成功度:#{success})"
-            else
-              result += " ＞ 失敗(失敗度:#{success})"
+        def self.parse(command)
+          if (m = /^(\d[+\-\d]*)-(\d+)FW(?:@(\d+))?(?:\#(\d+))?$/.match(command))
+            new.tap do |fw|
+              fw.dice_count = m[2].to_i
+              fw.target = Arithmetic.eval(m[1], RoundType::FLOOR)
+              fw.critical = m[3]&.to_i || 4
+              fw.fumble = m[4]&.to_i || 17
+            end
+          elsif (m = /(\d+)FW(?:@(\d+))?(?:\#(\d+))?(?:<=([+\-\d]+))?/.match(command))
+            new.tap do |fw|
+              fw.dice_count = m[1].to_i
+              fw.target = Arithmetic.eval(m[4], RoundType::FLOOR) if m[4]
+              fw.critical = m[2]&.to_i || 4
+              fw.fumble = m[3]&.to_i || 17
             end
           end
         end
 
-        return result
-      end
+        def roll(randomizer)
+          dice_list = randomizer.roll_barabara(@dice_count, 6)
+          dice = dice_list.sum()
+          dice_str = dice_list.join(",")
 
-      def getValue(text, defaultValue)
-        return defaultValue if text.nil? || text.empty?
+          res = result(dice)
 
-        ArithmeticEvaluator.eval(text)
+          sequence = [
+            "(#{expr})",
+            "#{dice}[#{dice_str}]",
+            res.text,
+          ].compact
+
+          res.text = sequence.join(" ＞ ")
+
+          return res
+        end
+
+        private
+
+        def expr
+          ret = "#{@dice_count}FW"
+          ret += "@#{@critical}" if @critical != 4
+          ret += "##{@fumble}" if @fumble != 17
+          ret += "<=#{@target}" if @target
+
+          return ret
+        end
+
+        def result(total)
+          if total <= @critical
+            Result.critical("クリティカル！")
+          elsif total >= @fumble
+            Result.fumble("ファンブル！")
+          elsif @target
+            success = @target - total
+            if total <= @target
+              Result.success("成功(成功度:#{success})")
+            else
+              Result.failure("失敗(失敗度:#{success})")
+            end
+          else
+            Result.new
+          end
+        end
       end
 
       TABLES = {
