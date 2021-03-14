@@ -90,7 +90,7 @@ module BCDice
           return roll_random_event_table(command)
 
         when /RED.*/i
-          return getRandomEnemyDataResult(command)
+          return fetch_enemy_data(command)
 
         when /ROP[ENHLX]/
           return roll_random_option_table(command)
