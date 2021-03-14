@@ -18,7 +18,7 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定　nAG[s](±a)
+        ・判定　nAG[s][±a]
         []内は省略可能。
         n:判定値
         s:技能値
