@@ -101,7 +101,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "HST"
-output = "【必殺技！】(2):〔命中〕判定と致傷力に「SLv×10」のボーナスを得る。"
+output = "【必殺技！】(2) ＞ 〔命中〕判定と致傷力に「SLv×10」のボーナスを得る。"
 rands = [
   { sides = 6, value = 2 },
 ]

@@ -56,50 +56,32 @@ module BCDice
       def eval_game_system_specific_command(command)
         # ダイスロールコマンド
         result = checkRoll(command)
-        return result unless result.nil?
-
-        tableName = ""
-        number = 0
+        return result if result
 
         # 各種コマンド
         case command
         when "LOTN"
-          return roll_jump_table("ナンバーワンノーマルくじ", LOT_NORMAL_TABLES[1])
-
+          roll_jump_table("ナンバーワンノーマルくじ", LOT_NORMAL_TABLES[1])
         when "LOTP"
-          return roll_jump_table("ナンバーワンプレミアムくじ", LOT_PREMIUM_TABLES[1])
-
-        when "HST"
-          tableName = "【必殺技！】"
-          result, number = getSpecialResult
-
+          roll_jump_table("ナンバーワンプレミアムくじ", LOT_PREMIUM_TABLES[1])
         when /COOK([1-8])/
           lv = Regexp.last_match(1).to_i
-          return roll_jump_table("マジカルクッキング", COOK_TABLES[lv])
-
+          roll_jump_table("マジカルクッキング", COOK_TABLES[lv])
         when /TRAP[ENHLX]/
-          return roll_trap_table(command)
-
+          roll_trap_table(command)
         when /TRS.*/i
-          return getTresureResult(command)
-
+          getTresureResult(command)
         when /RAND.*/
-          return roll_random_event_table(command)
-
+          roll_random_event_table(command)
         when /RENC.*/
-          return roll_random_event_table(command)
-
+          roll_random_event_table(command)
         when /RED.*/i
-          return fetch_enemy_data(command)
-
+          fetch_enemy_data(command)
         when /ROP[ENHLX]/
-          return roll_random_option_table(command)
-
+          roll_random_option_table(command)
         else
-          return nil
+          roll_tables(command, TABLES)
         end
-
-        return Result.new(format_table_roll_result(tableName, number, result))
       end
 
       # 表を振った結果を独自の書式で整形する
@@ -197,28 +179,20 @@ module BCDice
         ArithmeticEvaluator.eval(text)
       end
 
-      def getAdjustNumber(number, table)
-        min = table.first.first
-        return min if number < min
-
-        max = table.last.first
-        return max if number > max
-
-        return number
-      end
-
-      # 必殺技表
-      def getSpecialResult
-        table = [
-          '〔命中〕判定に出目[1,1,1]でクリティカル。更に致傷力に「SLv×20」のボーナスを得る。',
-          '〔命中〕判定と致傷力に「SLv×10」のボーナスを得る。',
-          '致傷力に「SLv×10」のボーナスを得る。',
-          '攻撃が命中するとバッドステータス「転倒」を与える。',
-          '通常攻撃。',
-          '〔命中〕判定に[6,6,6]でファンブル。更に、使用者がバッドステータス「転倒」を受ける。',
-        ]
-        return get_table_by_1d6(table)
-      end
+      TABLES = {
+        "HST" => DiceTable::Table.new(
+          "【必殺技！】",
+          "1D6",
+          [
+            '〔命中〕判定に出目[1,1,1]でクリティカル。更に致傷力に「SLv×20」のボーナスを得る。',
+            '〔命中〕判定と致傷力に「SLv×10」のボーナスを得る。',
+            '致傷力に「SLv×10」のボーナスを得る。',
+            '攻撃が命中するとバッドステータス「転倒」を与える。',
+            '通常攻撃。',
+            '〔命中〕判定に[6,6,6]でファンブル。更に、使用者がバッドステータス「転倒」を受ける。',
+          ]
+        )
+      }.freeze
 
       class Row
         def initialize(body, *args)
