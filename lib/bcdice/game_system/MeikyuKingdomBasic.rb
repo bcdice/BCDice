@@ -13,7 +13,7 @@ module BCDice
       NAME = '迷宮キングダム 基本ルールブック'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'めいきゆうきんくたむ きほんるうるふつく'
+      SORT_KEY = 'めいきゆうきんくたむきほんるうるふつく'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
