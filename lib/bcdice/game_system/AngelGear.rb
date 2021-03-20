@@ -14,7 +14,7 @@ module BCDice
       NAME = 'エンゼルギア 天使大戦TRPG The 2nd Editon'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'エンセルキア2'
+      SORT_KEY = 'えんせるきあ2'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
