@@ -12,7 +12,7 @@ class TestSortKey < Test::Unit::TestCase
   end
   def test_sort_key(sort_key)
     assert_match(
-      /^#{HIRAGANA_BASIC_CHARS}+[\d.A-Za-z]*|国際化:[\w ]+:.+|\*たいすほつと$/,
+      /\A(?:#{HIRAGANA_BASIC_CHARS}+[\d.A-Za-z]*|国際化:[\w ]+:.+|\*たいすほつと)\z/,
       sort_key,
       "SORT_KEY \"#{sort_key}\" はSORT_KEYの規約に違反しています。規約は docs/dicebot_sort_key.md を参照してください"
     )
