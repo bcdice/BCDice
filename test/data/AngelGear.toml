@@ -85,6 +85,58 @@ rands = [
 
 [[ test ]]
 game_system = "AngelGear"
+input = "10AG3+2+3"
+output = "(10AG3+2+3) ＞ 4[1,2,2,3,4,4,5,6,6,6]+5 ＞ 成功数: 9"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AngelGear"
+input = "10AG3+95 福音発生でない"
+output = "(10AG3+95) ＞ 4[1,2,2,3,4,4,5,6,6,6]+95 ＞ 成功数: 99"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "AngelGear"
+input = "10AG3+96 福音発生"
+output = "(10AG3+96) ＞ 4[1,2,2,3,4,4,5,6,6,6]+96 ＞ 成功数: 100(福音発生)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+
+[[ test ]]
+game_system = "AngelGear"
 input = "10AG3+100"
 output = "(10AG3+100) ＞ 4[1,2,2,3,4,4,5,6,6,6]+100 ＞ 成功数: 104(福音発生)"
 rands = [
@@ -105,7 +157,7 @@ game_system = "AngelGear"
 input = "ET"
 output = "感情表(32) ＞ 親近感（しんきんかん）"
 rands = [
-  { sides = 6, value = 3 }, 
+  { sides = 6, value = 3 },
   { sides = 6, value = 2 },
 ]
 
@@ -114,7 +166,7 @@ game_system = "AngelGear"
 input = "ET"
 output = "感情表(62) ＞ 苛立ち（いらだち）"
 rands = [
-  { sides = 6, value = 6 }, 
+  { sides = 6, value = 6 },
   { sides = 6, value = 2 },
 ]
 
@@ -123,7 +175,7 @@ game_system = "AngelGear"
 input = "ET"
 output = "感情表(66) ＞ 支配（しはい）"
 rands = [
-  { sides = 6, value = 6 }, 
+  { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
 
