@@ -10,7 +10,7 @@ module BCDice
       NAME = '克蘇魯神話第7版'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = '国際化:Chinese Traditional:克蘇魯神話'
+      SORT_KEY = '国際化:Chinese Traditional:克蘇魯神話第7版'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
