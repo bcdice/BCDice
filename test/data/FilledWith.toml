@@ -12,6 +12,8 @@ rands = [
 game_system = "FilledWith"
 input = "3FW"
 output = "(3FW) ＞ 3[1,1,1] ＞ クリティカル！"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -22,6 +24,8 @@ rands = [
 game_system = "FilledWith"
 input = "3FW"
 output = "(3FW) ＞ 18[6,6,6] ＞ ファンブル！"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -32,6 +36,8 @@ rands = [
 game_system = "FilledWith"
 input = "3FW#15"
 output = "(3FW#15) ＞ 15[6,4,5] ＞ ファンブル！"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -42,6 +48,7 @@ rands = [
 game_system = "FilledWith"
 input = "3FW<=15"
 output = "(3FW<=15) ＞ 12[1,6,5] ＞ 成功(成功度:3)"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -52,6 +59,7 @@ rands = [
 game_system = "FilledWith"
 input = "3FW<=13-4"
 output = "(3FW<=9) ＞ 11[3,3,5] ＞ 失敗(失敗度:-2)"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -62,6 +70,8 @@ rands = [
 game_system = "FilledWith"
 input = "3FW@6<=12+3"
 output = "(3FW@6<=15) ＞ 6[4,1,1] ＞ クリティカル！"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -72,6 +82,7 @@ rands = [
 game_system = "FilledWith"
 input = "10-3FW"
 output = "(3FW<=10) ＞ 9[2,4,3] ＞ 成功(成功度:1)"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -82,6 +93,7 @@ rands = [
 game_system = "FilledWith"
 input = "10+2-3FW"
 output = "(3FW<=12) ＞ 9[1,4,4] ＞ 成功(成功度:3)"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -92,6 +104,8 @@ rands = [
 game_system = "FilledWith"
 input = "10+2-3FW@8#8"
 output = "(3FW@8#8<=12) ＞ 8[1,4,3] ＞ クリティカル！"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -101,7 +115,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "HST"
-output = "【必殺技！】(2):〔命中〕判定と致傷力に「SLv×10」のボーナスを得る。"
+output = "【必殺技！】(2) ＞ 〔命中〕判定と致傷力に「SLv×10」のボーナスを得る。"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -238,7 +252,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS1"
-output = "財宝表(1):高級HPポーション(消耗品)"
+output = "財宝表(1) ＞ 高級HPポーション(消耗品)"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -246,7 +260,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS2+2"
-output = "財宝表(3):ミスリルスケイル(鎧)"
+output = "財宝表(3) ＞ ミスリルスケイル(鎧)"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -311,7 +325,7 @@ rands = []
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS11"
-output = "財宝表(1):体力の欠片（大事なもの）(全員に10個)"
+output = "財宝表(1) ＞ 体力の欠片（大事なもの）(全員に10個)"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -319,7 +333,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS11"
-output = "財宝表(6):お好きな副能力の欠片（大事なもの）(1人ずつ好きなものを選択して全員に50個)"
+output = "財宝表(6) ＞ お好きな副能力の欠片（大事なもの）(1人ずつ好きなものを選択して全員に50個)"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -327,7 +341,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS12"
-output = "財宝表(1):体力の欠片（大事なもの）(全員に20個)"
+output = "財宝表(1) ＞ 体力の欠片（大事なもの）(全員に20個)"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -335,7 +349,7 @@ rands = [
 [[ test ]]
 game_system = "FilledWith"
 input = "TRS12"
-output = "財宝表(6):お好きな副能力の欠片（大事なもの）(1人ずつ好きなものを選択して全員に100個)"
+output = "財宝表(6) ＞ お好きな副能力の欠片（大事なもの）(1人ずつ好きなものを選択して全員に100個)"
 rands = [
   { sides = 6, value = 6 },
 ]
