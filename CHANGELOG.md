@@ -2,10 +2,14 @@
 
 ## Unreleased
 
+### 対応ゲームシステムの追加
+- エンゼルギア 天使大戦TRPG The 2nd Edition (AngelGear): sakura40さんありがとうっ！ ([#398](https://github.com/bcdice/BCDice/pull/398))
+
 ### 追加機能
 - ソードワールド2.5: 森羅魔法のダメージ算出コマンドを追加。三木里 秀予さんありがとうっ！ ([#372](https://github.com/bcdice/BCDice/pull/372))
 - ソードワールド各種: 威力表コマンドの半減後の加減算修正への対応とコマンドの柔軟性を向上。三木里 秀予さんありがとうっ！ ([#373](https://github.com/bcdice/BCDice/pull/373))
 - ネバークラウドTRPG: 様々な表を追加。蜂紫さんありがとうっ！ ([#381](https://github.com/bcdice/BCDice/pull/381))
+- ソードワールド2.5: アビスカース表コマンドを追加。三木里 秀予さんありがとうっ！ ([#393](https://github.com/bcdice/BCDice/pull/393))
 
 ### 変更
 - ガラコと破戒の塔: デフォルトダイスを10面に変更。くずもちさんありがとうっ！ ([#371](https://github.com/bcdice/BCDice/pull/371))
@@ -16,7 +20,7 @@
 ### 誤植修正
 - モノトーンミュージアムRPG: 歪み表（館・城）のエラッタを反映。えいむさんありがとうっ！ ([#375](https://github.com/bcdice/BCDice/pull/375))
 - ブラッド・クルセイド: 先制判定指定特技表とシーン表の誤植を修正。ViViさんありがとうっ！ ([#383](https://github.com/bcdice/BCDice/pull/383), [#384](https://github.com/bcdice/BCDice/pull/384))
-- いくつかのゲームシステムのヘルプメッセージにあった誤植を修正。円柱さん報告ありがとうっ！ ([#390](https://github.com/bcdice/BCDice/issues/390))
+- いくつかのゲームシステムのヘルプメッセージにあった誤植を修正。円柱さん報告ありがとうっ！ ([#390](https://github.com/bcdice/BCDice/issues/390), [#391](https://github.com/bcdice/BCDice/pull/391))
 
 ### バグ修正
 - ビーストバインド トリニティ: 判定コマンドで大きい出目2個を取る処理が欠けていたのを修正 ([#386](https://github.com/bcdice/BCDice/pull/386))
