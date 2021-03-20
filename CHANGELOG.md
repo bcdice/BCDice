@@ -1,6 +1,6 @@
 # ChangeLog
 
-## Unreleased
+## 3.1.0 2021/03/20
 
 ### 対応ゲームシステムの追加
 - エンゼルギア 天使大戦TRPG The 2nd Edition (AngelGear): sakura40さんありがとうっ！ ([#398](https://github.com/bcdice/BCDice/pull/398))
