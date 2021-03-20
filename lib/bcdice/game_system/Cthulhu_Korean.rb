@@ -12,7 +12,7 @@ module BCDice
       NAME = '크툴루'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = '国際化:Korean:크툴루의부름7'
+      SORT_KEY = '国際化:Korean:크툴루'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
