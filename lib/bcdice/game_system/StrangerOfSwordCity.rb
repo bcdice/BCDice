@@ -10,7 +10,7 @@ module BCDice
       NAME = '剣の街の異邦人TRPG'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'けんのまちのいほうしんTRPG'
+      SORT_KEY = 'つるきのまちのいほうしんTRPG'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
