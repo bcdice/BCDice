@@ -77,7 +77,7 @@ module BCDice
       end
 
       def prefixes
-        ([/RTT[1-6]?/i, "RCT", @rtt, @rct] + @rttn).compact
+        (["RTT[1-6]?", "RCT", @rtt, @rct] + @rttn).compact
       end
 
       private
