@@ -1,5 +1,17 @@
 # ChangeLog
 
+## 3.1.2 2021/03/28
+
+### バグ修正
+- 以下のゲームシステムのソートキーを修正 ([#399](https://github.com/bcdice/BCDice/pull/399), [#402](https://github.com/bcdice/BCDice/pull/402))
+  - 迷宮キングダム 基本ルールブック
+  - 剣の街の異邦人TRPG
+  - 크툴루
+  - 크툴루의 부름 7판
+  - 克蘇魯神話
+  - 克蘇魯神話第7版
+- サイコロフィクション系のゲームシステムで `command_pattern` の出力に問題があったのを修正 ([#401](https://github.com/bcdice/BCDice/pull/401))
+
 ## 3.1.1 2021/03/20
 
 ### バグ修正
