@@ -4,13 +4,13 @@ module BCDice
   module GameSystem
     class Template < Base
       # ゲームシステムの識別子
-      ID = 'Template'
+      ID = "Template"
 
       # ゲームシステム名
-      NAME = 'ゲームシステム名'
+      NAME = "ゲームシステム名"
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'けえむしすてむめい'
+      SORT_KEY = "けえむしすてむめい"
 
       HELP_MESSAGE = <<~TEXT
         ここにヘルプメッセージを記述します。

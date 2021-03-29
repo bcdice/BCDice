@@ -396,7 +396,7 @@ Finished in 0.001021 seconds.
             "ゆとチャadv.",
           ]
         ),
-      }
+      }.freeze
 
       register_prefix('\d+OT>=\d+', TABLES.keys)
 

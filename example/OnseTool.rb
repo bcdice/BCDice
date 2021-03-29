@@ -34,7 +34,7 @@ module BCDice
             "ゆとチャadv.",
           ]
         ),
-      }
+      }.freeze
 
       register_prefix('\d+OT>=\d+', TABLES.keys)
 
