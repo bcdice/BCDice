@@ -50,7 +50,7 @@ Wikiにある[開発の始め方](https://github.com/bcdice/BCDice/wiki/開発�
 
 ## プログラムの雛形を用意する
 
-ダイスボットの作成用にプログラムのテンプレート `example/Template.rb` を用意してあります。
+ダイスボットの作成用にプログラムのテンプレート[`example/Template.rb`](../example/Template.rb)を用意してあります。
 このファイルを元に今回のファイルを作成しましょう。
 例ではIDを `OnseTool` にしたので、その名前を用いて `lib/bcdice/game_system/OnseTool.rb` にファイルをコピーします。
 
@@ -102,7 +102,7 @@ Wikiにある[開発の始め方](https://github.com/bcdice/BCDice/wiki/開発�
 また、`SORT_KEY` ではゲーム名の読みがなのようなもの定義します。詳細なルールが定められているので、「[ゲームシステム名の読みがなの設定方法](./dicebot_sort_key.md)」を参照してください。
 
 
-最後に、ダイスボットの一覧にこのダイスボットを加えます。 `lib/bcdice/game_system.rb` に以下の行を追加してください。
+最後に、ダイスボットの一覧にこのダイスボットを加えます。[`lib/bcdice/game_system.rb`](../lib/bcdice/game_system.rb)に以下の行を追加してください。
 このファイルにはアルファベット順にダイスボットが記載されているので、該当する位置に行を追加しましょう。
 
 ```ruby
@@ -116,10 +116,10 @@ require "bcdice/game_system/OnseTool"
 ## 動作テストを先に用意する
 
 BCDiceでは、ダイスボットの品質保証のために動作テスト用の仕組みを用意しています。一般には「ユニットテスト」と呼ばれます。
-`test/` にはテストに用いるプログラムやテストのデータが入っています。
-特に、 `test/data/` 以下にあるファイルは全てダイスボットのテストに用いるデータです。
+[`test/`](../test/)にはテストに用いるプログラムやテストのデータが入っています。
+特に、[`test/data/`](../test/data/)以下にあるファイルは全てダイスボットのテストに用いるデータです。
 
-例として `test/data/Cthulhu.toml` を見てみましょう。抜粋を以下に示します。
+例として[`test/data/Cthulhu.toml`](../test/data/Cthulhu.toml)を見てみましょう。抜粋を以下に示します。
 
 ```toml
 [[ test ]]
@@ -368,7 +368,7 @@ Finished in 0.001021 seconds.
 ### 前処理の内容
 
 `eval_game_system_specific_command` には前処理がされた状態の文字列が引数として渡されます。
-前処理は[`BCDice::Preprocessor`](lib/bcdice/preprocessor.rb)などで以下の処理を行います。
+前処理は[`BCDice::Preprocessor`](../lib/bcdice/preprocessor.rb)などで以下の処理を行います。
 
 - 一行目の半角スペースより前だけにする
 - カッコ書きの数式を事前計算する
@@ -410,14 +410,14 @@ Finished in 0.001021 seconds.
 これを `roll_tables(command, TABLES)` と実行すると `TABLES` の中に適合するものがあれば自動でダイス表を実行してくれます。
 
 `DiceTable::Table` には表の名前、ダイスロールの記法（`nDx`のみ）、表の内容を渡すことでダイス表を定義できます。
-このほかにも `DiceTable::D66Table` のように頻出の処理が `lib/bcdice/dice_table/` ディレクトリに用意してあります。是非活用してください。
+このほかにも `DiceTable::D66Table` のように頻出の処理が [`lib/bcdice/dice_table/`](../lib/bcdice/dice_table/)ディレクトリに用意してあります。是非活用してください。
 
 
 ## まとめ
 
 架空のTRPGシステム「オンセツールTRPG」への対応を例に、ダイスボットの作成方法をレクチャーしました。
-ここで作成したプログラムを `example/OnseTool.rb` に記載していますのでぜひ活用してください。
-また、`example/OnseTool.toml`にテストデータの作成例もあります。
+ここで作成したプログラムを [`example/OnseTool.rb`](../example/OnseTool.rb) に記載していますのでぜひ活用してください。
+また、[`example/OnseTool.toml`](../example/OnseTool.toml) にテストデータの作成例もあります。
 
 このドキュメントで記述した方法は、作り方のほんの一部です。
 より高度なコマンドを作成するための手がかりを以下に列挙します。
@@ -425,7 +425,7 @@ Finished in 0.001021 seconds.
 - 他のダイスボットのコードをみる
   - 古い記述のコードも多いので気をつけてください
 - [クラス一覧](https://yard.bcdice.org/)を参照する
-- `BCDice::Command::Parser` や `BCDice::Arithmetic` を活用する。
+- [`BCDice::Command::Parser`](https://yard.bcdice.org/BCDice/Command/Parser.html) や [`BCDice::Arithmetic`](https://yard.bcdice.org/BCDice/Arithmetic.html) を活用する。
 - プログラミング言語Rubyを学ぶ
 
 ダイスボットを作成していてわからないことがあれば、 [BCDiceのDiscordサーバー](https://discord.gg/MEcN5eP)に質問してみてください。
