@@ -61,13 +61,13 @@ Wikiにある[開発の始め方](https://github.com/bcdice/BCDice/wiki/開発�
 ```ruby
     class Template < Base
       # ゲームシステムの識別子
-      ID = 'Template'
+      ID = "Template"
 
       # ゲームシステム名
-      NAME = 'ゲームシステム名'
+      NAME = "ゲームシステム名"
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'けえむしすてむめい'
+      SORT_KEY = "けえむしすてむめい"
 
       HELP_MESSAGE = <<~TEXT
         ここにヘルプメッセージを記述します。
@@ -80,13 +80,13 @@ Wikiにある[開発の始め方](https://github.com/bcdice/BCDice/wiki/開発�
 ```ruby
     class OnseTool < Base
       # ゲームシステムの識別子
-      ID = 'OnseTool'
+      ID = "OnseTool"
 
       # ゲームシステム名
-      NAME = 'オンセツールTRPG'
+      NAME = "オンセツールTRPG"
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'おんせつうるTRPG'
+      SORT_KEY = "おんせつうるTRPG"
 
       HELP_MESSAGE = <<~TEXT
         ■ 判定 (nOT>=x)
