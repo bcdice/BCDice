@@ -45,7 +45,7 @@ module BCDice
       private
 
       def roll_ot(command)
-        m = /^(\d)+OT>=(\d+)$/.match(command)
+        m = /^(\d+)OT>=(\d+)$/.match(command)
         return nil unless m
 
         times = m[1].to_i

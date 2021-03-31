@@ -307,7 +307,7 @@ BCDiceは入力された文字列にたいして様々な前処理を行った�
       private
 
       def roll_ot(command)
-        m = /^(\d)+OT>=(\d+)$/.match(command)
+        m = /^(\d+)OT>=(\d+)$/.match(command)
         return nil unless m
 
         times = m[1].to_i
