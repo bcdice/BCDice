@@ -157,10 +157,10 @@ require "bcdice/enum"
 require "bcdice/game_system/sword_world/rating_lexer"
 require "bcdice/game_system/sword_world/rating_parsed"
 
-# SwordWorldの威力表コマンドをパースするクラス
 module BCDice
   module GameSystem
     class SwordWorld < Base
+    # SwordWorldの威力表コマンドをパースするクラス
 
 ---- inner
 
