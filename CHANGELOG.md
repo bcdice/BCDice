@@ -1,5 +1,13 @@
 # ChangeLog
 
+## Unreleased
+
+## 変更
+- ウォーハンマーRPG第4版: 判定コマンドで失敗しても命中部位を表示する。Facelessさんありがとうっ！ ([#405](https://github.com/bcdice/BCDice/pull/405))
+
+## 誤植修正
+- ウォーハンマーRPG第4版: やっちまった表の誤植を修正。Facelessさんありがとうっ！ ([#405](https://github.com/bcdice/BCDice/pull/405))
+
 ## 3.1.2 2021/03/28
 
 ### バグ修正
