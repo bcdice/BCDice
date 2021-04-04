@@ -32,5 +32,7 @@ class TestBase < Test::Unit::TestCase
     assert_match(DummySystem.command_pattern, "-3+2D100<=70")
     assert_match(DummySystem.command_pattern, "+3+2D100<=70")
     assert_not_match(DummySystem.command_pattern, "D6")
+    assert_not_match(DummySystem.command_pattern, "+-")
+    assert_match(DummySystem.command_pattern, "+(---(-3+1))D")
   end
 end
