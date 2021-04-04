@@ -9,7 +9,7 @@ end
 
 class TestBase < Test::Unit::TestCase
   def test_command_pattern
-    assert_equal(/^S?([+\-\dD(]+|\d+B\d+|C|choice|D66|(repeat|rep|x)\d+|\d+R\d+|\d+U\d+|BCDiceVersion|ABC|XYZ|IP\d+)/i, DummySystem.command_pattern)
+    assert_equal(/^S?([+\-(]*\d+|\d+B\d+|C|choice|D66|(repeat|rep|x)\d+|\d+R\d+|\d+U\d+|BCDiceVersion|ABC|XYZ|IP\d+)/i, DummySystem.command_pattern)
 
     assert_match(DummySystem.command_pattern, "ABC+123")
     assert_match(DummySystem.command_pattern, "XYZ[hoge]")
@@ -31,5 +31,6 @@ class TestBase < Test::Unit::TestCase
     assert_not_match(DummySystem.command_pattern, "[1...3]D100<=70")
     assert_match(DummySystem.command_pattern, "-3+2D100<=70")
     assert_match(DummySystem.command_pattern, "+3+2D100<=70")
+    assert_not_match(DummySystem.command_pattern, "D6")
   end
 end
