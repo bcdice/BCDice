@@ -19,3 +19,51 @@ game_system = "KurayamiCrying"
 input = "ACT4"
 output = "アクシデント表(4) ＞ 不意を突かれたあなたは、とっさに化物を攻撃する！……確かに化物に見えたのだ。しかし、あなたが手にかけたのは見知った顔だった。あなたが正の「ツナガリ」を結んでいる主人公をランダムに1人選び、2点のダメージを与える。正の「ツナガリ」を結んでいる主人公がいない場合、ダイスを振り直し、再度「アクシデント表」に当てはめる。"
 rands = []
+
+[[ test ]]
+game_system = "KurayamiCrying"
+input = "EMO"
+output = "感情表(1) ＞ (正)信頼／(負)依存"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KurayamiCrying"
+input = "EMO"
+output = "感情表(10) ＞ (正)狂信／(負)殺意"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "KurayamiCrying"
+input = "SST"
+output = "幕間シーン表（情景）(1) ＞ 先が見えない闇の中を、あなたは手探りに進んでいる。暗がりに入り込んでしまったのか、それとも辺りの光が消えたのか———その時、あなたの眼前に、闇から溶け出すように何者かの姿が現れた。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KurayamiCrying"
+input = "SST"
+output = "幕間シーン表（情景）(10) ＞ 周囲を確認し、あなたは相手に合図を送る。足音静かに、相手があなたの元へと駆け寄る。———他の気配はない。慎重に、密やかに、あなたは相手と話し始めた。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "KurayamiCrying"
+input = "SRT"
+output = "幕間シーン表（関係）(1) ＞ 微かな香り。ちょっとした仕事。横顔。あの人のすべてが、あなたの胸を高鳴らせる———こんな気持ちは、初めてだ。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KurayamiCrying"
+input = "SRT"
+output = "幕間シーン表（関係）(10) ＞ 間違いない……！あなたはその人物をにらみつけた。何という幸運だろう。追い求めた相手が、すぐそこにいるなんて！あなたは荒れ狂う胸の内を気取られぬよう、ゆっくりと近づいた。"
+rands = [
+  { sides = 10, value = 10 },
+]
