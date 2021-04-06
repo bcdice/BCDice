@@ -379,7 +379,7 @@ Finished in 0.001021 seconds.
 
 次はオンセツール決定表を実装してみましょう。
 ダイスロールして表を参照するダイス表はBCDiceはで頻出の処理です。
-そのため、BCDiceはダイス表の処理を行うクラス DiceTable::Table を用意しています。
+そのため、BCDiceはダイス表の処理を行うクラス `DiceTable::Table` を用意しています。
 
 `eval_game_system_specific_command` の周辺を以下のように変更してみてください。
 
