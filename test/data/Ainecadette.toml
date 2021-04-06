@@ -1,0 +1,208 @@
+# 行為判定（先輩）
+[[ test ]]
+game_system = "Ainecadette"
+input = "AI"
+output = "(AI) ＞ [4,3] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "AI"
+output = "(AI) ＞ [3,1] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "AI"
+output = "(AI) ＞ [1,1] ＞ ファンブル（もやもやカウンターを2個獲得）"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "AI"
+output = "(AI) ＞ [6,1] ＞ スペシャル（絆カウンターを1個獲得し、後輩は先輩への感情を1つ獲得）"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "AI 6がある時だけクリティカル"
+output = "(AI) ＞ [8,10] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+]
+
+
+# 行為判定（先輩）不利
+[[ test ]]
+game_system = "Ainecadette"
+input = "1AI"
+output = "(1AI) ＞ [4] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "1AI"
+output = "(1AI) ＞ [3] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+]
+
+
+# 行為判定（先輩）有利
+[[ test ]]
+game_system = "Ainecadette"
+input = "3AI"
+output = "(3AI) ＞ [2,3,4] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "3AI"
+output = "(3AI) ＞ [2,3,3] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "4AI 有利+ブースト"
+output = "(4AI) ＞ [2,3,4,5] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+]
+
+
+# 行為判定（後輩）
+[[ test ]]
+game_system = "Ainecadette"
+input = "CA"
+output = "(CA) ＞ [4,3] ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "CA"
+output = "(CA) ＞ [3,1] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "CA"
+output = "(CA) ＞ [1,1] ＞ ファンブル（もやもやカウンターを2個獲得）"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "CA"
+output = "(CA) ＞ [6,1] ＞ スペシャル（絆カウンターを1個獲得し、先輩は後輩への感情を1つ獲得）"
+critical = true
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+
+# 行為判定（後輩）不利
+[[ test ]]
+game_system = "Ainecadette"
+input = "1CA"
+output = "(1CA) ＞ [4] ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "1CA"
+output = "(1CA) ＞ [3] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+]
+
+
+# 行為判定（後輩）有利
+[[ test ]]
+game_system = "Ainecadette"
+input = "3CA"
+output = "(3CA) ＞ [2,3,4] ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "3CA"
+output = "(3CA) ＞ [2,3,3] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Ainecadette"
+input = "4CA 有利+ブースト"
+output = "(4CA) ＞ [2,3,4,5] ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
