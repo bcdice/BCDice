@@ -115,3 +115,22 @@ require "yard"
 require "yard/rake/yardoc_task"
 
 YARD::Rake::YardocTask.new
+
+namespace :release do
+  gem_helper = Bundler::GemHelper.new
+  version = gem_helper.gemspec.version
+
+  desc "Commit BCDice #{version}"
+  task :commit do
+    changelog = File.read("CHANGELOG.md")
+    date = Time.now.strftime("%Y/%m/%d")
+    header = "## #{version} #{date}"
+    unless changelog.include?(header)
+      warn "[Error] CHANGELOG.md does not contain the header #{header.inspect}"
+      exit(1)
+    end
+
+    sh "git commit -e -m 'Release BCDice #{version}'"
+    sh "git tag -a 'v#{version}' -m '#{version}'"
+  end
+end
