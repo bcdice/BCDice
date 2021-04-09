@@ -37,8 +37,8 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       register_prefix(
-        '(SH|SHS)(\-?\d+)(\/\d+)?(@\d+)?',
-        '(EM|TR|FE)(\-?\d+)(@\d+)?',
+        '(SH|SHS)\S*\d+',
+        '(EM|TR|FE)\S*\d+',
         'DC(SL|BL|IM|BR|RF|EL).+'
       )
 
