@@ -28,7 +28,7 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       register_prefix(
-        '(AK|AKG)\S*\d+',
+        '(AK|AKG)',
         'DC(SL|BL|IM|BR|RF|EL).+'
       )
 
