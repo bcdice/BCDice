@@ -7,10 +7,10 @@ module BCDice
       ID = 'Skynauts'
 
       # ゲームシステム名
-      NAME = '歯車の塔の探空士'
+      NAME = '歯車の塔の探空士（六畳間幻想空間）'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'すかいのおつ'
+      SORT_KEY = 'はくるまのとうのすかいのおつ'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
