@@ -244,7 +244,7 @@ module BCDice
 
       # 財宝表ロール
       def roll_treasure(command)
-        m = /^TRS(\d+)*([+\-\d]+)?$/.match(command)
+        m = /^TRS(\d+)?([+\-\d]+)?$/.match(command)
         return nil unless m
 
         character_rank = m[1].to_i
@@ -261,7 +261,7 @@ module BCDice
 
       ### 財宝表 ###
       def roll_treasure_table(command)
-        m = /^([CMIHG]TRS)(\d+)*([+\-\d]+)?(\$)?$/.match(command)
+        m = /^([CMIHG]TRS)(\d+)?([+\-\d]+)?(\$)?$/.match(command)
         return nil unless m
 
         type = m[1]
@@ -286,7 +286,7 @@ module BCDice
 
       # 拡張ルール財宝表
       def roll_treasure_table_b2(command)
-        m = /^([CMIO]TRSE)(\d+)*([+\-\d]+)?(\$)?$/.match(command)
+        m = /^([CMIO]TRSE)(\d+)?([+\-\d]+)?(\$)?$/.match(command)
         return nil unless m
 
         type = m[1]
