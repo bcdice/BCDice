@@ -25,7 +25,7 @@ module BCDice
         ・FT ファンブル表(p76)
         ・NV 航行表
 
-        ⬛ 判定セット
+        ■ 判定セット
         ・《回避運動》判定+回避（nSNt#f/AVO@ダメージ）
         　　nSNt#f → 成功なら AVO@m
         　　例）SN/AVO@8[1,4],[2,6],[3,8]　3SN#2/AVO@2[6,4],[2,6]
@@ -76,7 +76,7 @@ module BCDice
 
       D_REGEXP = %r{^D([12346789]{0,8})(\[.+\]|S|F|SF|FS)?/(\d{1,2})(@([2468]))?$}.freeze
 
-      register_prefix('D', '2D6<=', '\d?SN', 'NV', '\d?AVO', 'BOM')
+      register_prefix('D', '\d?SN', 'NV', 'FT', 'AVO')
 
       def initialize(command)
         super(command)
@@ -133,7 +133,7 @@ module BCDice
         if ballistics != 0
           dir = DIRECTION_INFOS[ballistics]
           diff_x, diff_y = dir[:position_diff]
-          result << "\《弾道学》" + dir[:name]
+          result << "\n《弾道学》" + dir[:name]
           result << get_points_text(points, diff_x, diff_y)
         end
 
