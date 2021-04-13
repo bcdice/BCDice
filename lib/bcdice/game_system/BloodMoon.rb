@@ -9,7 +9,7 @@ module BCDice
       ID = 'BloodMoon'
 
       # ゲームシステム名
-      NAME = 'ブラッド・ムーン'
+      NAME = 'ブラッドムーン'
 
       # ゲームシステム名の読みがな
       SORT_KEY = 'ふらつとむうん'
