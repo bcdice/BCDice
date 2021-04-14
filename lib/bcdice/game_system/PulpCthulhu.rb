@@ -47,7 +47,7 @@ module BCDice
         　・プッシュ時のキャスティング・ロールの失敗（Failed Casting Effects）表　FCE
       INFO_MESSAGE_TEXT
 
-      register_prefix('CC\(\d+\)', 'CC', 'CBR\(\d+,\d+\)', 'FAR', 'BMR', 'BMS', 'FCE', 'PH', 'MA', 'IT')
+      register_prefix('CC', 'CBR', 'FAR', 'BMR', 'BMS', 'FCE', 'PH', 'MA', 'IT')
 
       def eval_game_system_specific_command(command)
         case command

@@ -31,7 +31,7 @@ module BCDice
           例）Hourai : 仁義八徳は、【義】(奇数、奇数、偶数)
       INFO_MESSAGE_TEXT
 
-      register_prefix('ROL', 'MED\(\d+,\d+\)', 'RES\(\d+,\d+\)', 'INY', 'HTK', 'GOG')
+      register_prefix('ROL', 'MED', 'RES', 'INY', 'HTK', 'GOG')
 
       # ゲームの名前
       # チャット欄表示名

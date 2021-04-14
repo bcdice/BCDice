@@ -33,8 +33,8 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       register_prefix(
-        'DLH\\d+([\\+\\-]\\d+)*',
-        'DC(L|S|C)\d+',
+        'DLH',
+        'DC[LSC]',
         'RNC[JO]',
         'HNC'
       )

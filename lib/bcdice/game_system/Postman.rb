@@ -38,7 +38,7 @@ module BCDice
       MESSAGETEXT
 
       register_prefix(
-        'WEA\d*',
+        'WEA',
         '(\d+)?PO',
         'FRE'
       )

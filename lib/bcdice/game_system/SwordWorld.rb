@@ -17,7 +17,7 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = "・SW　レーティング表　(Kx[c]+m$f) (x:キー, c:クリティカル値, m:ボーナス, f:出目修正)\n"
 
-      register_prefix('H?K\d+')
+      register_prefix('H?K')
 
       def initialize(command)
         super(command)

@@ -49,7 +49,7 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      register_prefix('\d+R', 'SR\d+', 'TAGT', 'GETSST', 'NPCT', TABLES.keys, ALIASES.keys)
+      register_prefix('\d+R', 'SR', 'TAGT', 'GETSST', 'NPCT', TABLES.keys, ALIASES.keys)
 
       CREATE_ARMS_STRUCT = Struct.new(:base_parts, :accessory_parts, :parts_effect, :hit, :damage, :life, :kutibeni, :kiba, :abilities)
 

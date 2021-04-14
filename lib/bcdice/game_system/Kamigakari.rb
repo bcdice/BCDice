@@ -193,7 +193,7 @@ module BCDice
 
       TABLES = translate_tables(:ja_jp)
 
-      register_prefix('MT(\d*)', TABLES.keys)
+      register_prefix('MT', TABLES.keys)
     end
   end
 end

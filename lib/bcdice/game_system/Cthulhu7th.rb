@@ -48,7 +48,7 @@ module BCDice
         　　強力でない呪文の場合　FCL／強力な呪文の場合　FCM
       INFO_MESSAGE_TEXT
 
-      register_prefix('CC', 'CBR\(\d+,\d+\)', 'FAR', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA')
+      register_prefix('CC', 'CBR', 'FAR', 'BMR', 'BMS', 'FCL', 'FCM', 'PH', 'MA')
 
       def eval_game_system_specific_command(command)
         case command

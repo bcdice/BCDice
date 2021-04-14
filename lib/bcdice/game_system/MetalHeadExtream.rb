@@ -51,11 +51,11 @@ module BCDice
       MESSAGETEXT
 
       register_prefix(
-        '[AS]R\d+',
-        '(HU|BK|WA|SC|BG|IN|PT|HT|TA|AC|HE|TR|VT|BO|CS|TH|AM|GD|HC|BI|BT|AI)HIT\d*',
-        'SUV[A-Z]\d+', '[HTALMEBPD]DMG[LMHO]',
-        'CRT\d*', '[GSME]AC\d*', '[ASL]MA\d*(\+\d+)?',
-        'SEC', 'NAC', 'LDC', '[W]ENC\d*'
+        '[AS]R',
+        '(HU|BK|WA|SC|BG|IN|PT|HT|TA|AC|HE|TR|VT|BO|CS|TH|AM|GD|HC|BI|BT|AI)HIT',
+        'SUV[A-Z]', '[HTALMEBPD]DMG[LMHO]',
+        'CRT', '[GSME]AC', '[ASL]MA',
+        'SEC', 'NAC', 'LDC', '[W]ENC'
       )
 
       def eval_game_system_specific_command(command)

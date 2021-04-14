@@ -117,7 +117,7 @@ module BCDice
         )
       }.freeze
 
-      register_prefix('(\d+)AG(\d+)?(([\+\-]\d+)*)', TABLES.keys)
+      register_prefix('\d+AG', TABLES.keys)
     end
   end
 end

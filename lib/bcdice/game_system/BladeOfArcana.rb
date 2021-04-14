@@ -33,7 +33,7 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       register_prefix(
-        '\d+A\d*[CF]?\d*[CF]?\d*',
+        '\d+A',
         'CT3[\+\-]?',
         'CTR[\+\-]?',
         'DJV\-?',

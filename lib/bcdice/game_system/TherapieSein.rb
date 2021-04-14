@@ -30,7 +30,7 @@ module BCDice
         ・OP3@12 → ダイス合計+3の達成値＆クリティカル、判定の成否を表示。
       MESSAGETEXT
 
-      register_prefix('(TS|OP)(\d+)?([\+\-]\d)*(\@\d+)?')
+      register_prefix('TS', 'OP')
 
       def eval_game_system_specific_command(command)
         output =

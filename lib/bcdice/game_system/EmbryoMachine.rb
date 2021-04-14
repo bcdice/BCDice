@@ -24,7 +24,7 @@ module BCDice
         　・射撃攻撃ファンブル表　SFT
       INFO_MESSAGE_TEXT
 
-      register_prefix('EM\d+', 'HLT', 'MFT', 'SFT', '2R10')
+      register_prefix('EM', 'HLT', 'MFT', 'SFT', '2R10')
 
       def initialize(command)
         super(command)

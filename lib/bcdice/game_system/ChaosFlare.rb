@@ -39,7 +39,7 @@ module BCDice
           - FT7
       INFO_MESSAGE_TEXT
 
-      register_prefix('\d*CF', 'FT\d*')
+      register_prefix('\d*CF', 'FT')
 
       # ゲーム別成功度判定(2D6)。以前の処理をそのまま残しています。
       def check_2D6(total, dice_total, _dice_list, cmp_op, target)

@@ -33,7 +33,7 @@ module BCDice
       MESSAGETEXT
 
       register_prefix(
-        'MP\d+', '\d+ST\d+(x|\*)\d+',
+        'MP', '\d+ST',
         'AFF', 'IDT', 'AFV', 'IDV'
       )
 

@@ -654,7 +654,7 @@ module BCDice
         )
       }.freeze
 
-      register_prefix('GR', '[CEFAL]D[CT][-+\d]+', 'GHA[-+\d]+', TABLES.keys)
+      register_prefix('GR', '[CEFAL]D[CT]', 'GHA', TABLES.keys)
     end
   end
 end

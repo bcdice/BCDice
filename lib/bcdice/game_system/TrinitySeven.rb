@@ -33,7 +33,7 @@ module BCDice
 
       MESSAGETEXT
 
-      register_prefix('(\d+)DM\d+(\+|\-)?\d*', '(\d+)DM(\+|\-)?\d*', 'TR(\d+)<=(\d+)(\+|\-)?\d*', 'TR<=(\d+)(\+|\-)?\d*', 'TR(\+|\-)?(\d+)<=(\d+)(\+|\-)?\d*', 'TRNAME')
+      register_prefix('\d+DM', 'TR', 'TRNAME')
 
       def eval_game_system_specific_command(command) # スパゲッティなコードだけど許して！！！ → 絶対に許さない。全力でリファクタリングした。
         debug("eval_game_system_specific_command command", command)

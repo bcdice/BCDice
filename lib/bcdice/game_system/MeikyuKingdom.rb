@@ -51,12 +51,12 @@ module BCDice
         'TT', 'NT', 'ET', 'MPT',
         'T1T', 'T2T', 'T3T', 'T4T', 'T5T',
         'NAME',
-        'DFT', 'IDT\d*',
+        'DFT', 'IDT',
         'WIT', 'LIT', 'RIT', 'SIT', 'RWIT', 'RUIT',
         'IFT',
         '\d+RET',
-        'PNT\d*', 'MLT\d*',
-        'KNT\d+', 'WORD\d+'
+        'PNT', 'MLT',
+        'KNT', 'WORD'
       )
 
       def initialize(command)

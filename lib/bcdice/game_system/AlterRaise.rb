@@ -35,8 +35,8 @@ module BCDice
       MESSAGETEXT
 
       register_prefix(
-        'EMA(\d+)?', 'PER(\d+)?', 'LOC(\d+)?', 'QUI(\d+)?', 'DEL(\d+)?',
-        'TRA(\d+)?', 'SCE(\d+)?', 'STA(\d+)?', 'EMO(\d+)?'
+        'EMA', 'PER', 'LOC', 'QUI', 'DEL',
+        'TRA', 'SCE', 'STA', 'EMO'
       )
 
       def eval_game_system_specific_command(command)

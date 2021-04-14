@@ -26,7 +26,7 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      register_prefix('(N|A|M|U|C|)?URGE\d+')
+      register_prefix('[NAMUC]?URGE')
 
       def get_urge(string) # パラサイトブラッドの衝動表
         unless /(\w*)URGE\s*(\d+)/i =~ string

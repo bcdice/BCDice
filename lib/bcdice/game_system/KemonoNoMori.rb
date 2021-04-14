@@ -252,7 +252,7 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix('K[AC]\d[-+\d]*', 'CTR', TABLES.keys)
+      register_prefix('K[AC]', 'CTR', TABLES.keys)
     end
   end
 end

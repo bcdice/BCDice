@@ -36,7 +36,7 @@ module BCDice
         )
       }.freeze
 
-      register_prefix('RC\d+', 'DDC', TABLES.keys)
+      register_prefix('RC', 'DDC', TABLES.keys)
     end
   end
 end
