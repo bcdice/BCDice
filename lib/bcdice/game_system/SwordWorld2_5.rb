@@ -9,7 +9,7 @@ module BCDice
       ID = 'SwordWorld2.5'
 
       # ゲームシステム名
-      NAME = 'ソードワールド2.5'
+      NAME = 'ソード・ワールド2.5'
 
       # ゲームシステム名の読みがな
       SORT_KEY = 'そおとわあると2.5'
