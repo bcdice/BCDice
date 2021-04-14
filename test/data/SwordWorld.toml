@@ -5086,6 +5086,21 @@ rands = [
 
 [[ test ]]
 game_system = "SwordWorld"
+input = "K(10+10)+6@4h"
+output = "KeyNo.20c[4]+6 ＞ 2D:[4,3 2,5 2,6 1,1]=7,7,8,2 ＞ (5,5,6,**+6)/2 ＞ 3回転 ＞ 11"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SwordWorld"
 input = "2D6>=? 目標値?でバグらない"
 output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
 rands = [

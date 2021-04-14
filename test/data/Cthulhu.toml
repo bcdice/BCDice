@@ -938,6 +938,16 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu"
+input = "CBRB(70,(1+1)) クリティカルと失敗"
+output = "(1d100<=70,2) ＞ 3[決定的成功/スペシャル,失敗] ＞ 部分的成功"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 3 },
+]
+
+[[ test ]]
+game_system = "Cthulhu"
 input = "SCBRB(70,30) シークレット"
 output = "(1d100<=70,30) ＞ 48[成功,失敗] ＞ 部分的成功"
 secret = true
