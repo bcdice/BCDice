@@ -26,7 +26,7 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       register_prefix(
-        'GO(\-?\d+)(\/\d+)?(@\d+)?',
+        'GO',
         'DC(SL|BL|IM|BR|RF|EL).+'
       )
 

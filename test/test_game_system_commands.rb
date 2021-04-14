@@ -84,5 +84,6 @@ class TestGameSystemCommands < Test::Unit::TestCase
     assert_equal(data[:failure], result.failure?, msg)
     assert_equal(data[:critical], result.critical?, msg)
     assert_equal(data[:fumble], result.fumble?, msg)
+    assert_match(klass.command_pattern, data[:input])
   end
 end
