@@ -8,6 +8,11 @@
 ## 誤植修正
 - ウォーハンマーRPG第4版: やっちまった表の誤植を修正。Facelessさんありがとうっ！ ([#405](https://github.com/bcdice/BCDice/pull/405))
 
+## 3.1.3 2021/04/12
+
+### バグ修正
+- 悪意ある入力に対処 ([`c302300`](https://github.com/bcdice/BCDice/commit/c30230038b44b8d373e4a342b4cb4d528dc7c472))
+
 ## 3.1.2 2021/03/28
 
 ### バグ修正

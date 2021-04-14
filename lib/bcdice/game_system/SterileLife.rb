@@ -37,8 +37,7 @@ module BCDice
         　・超未来の宇宙船内　INT
       MESSAGETEXT
 
-      register_prefix('(\d+)*DA.*\[(\d+),(\d+)(,(\d+))?\]', 'VPFT', 'VNFT', 'VNRT', 'AAFT', 'AST', 'RNST', 'RET', 'TRST', 'TRAT', 'TRMT', 'TROT', 'TET', 'ENT', 'CUT', 'NAT', 'INT') # '(\d+)*DA.*\[.*\]'
-
+      register_prefix('\d*DA.*\[(\d+),(\d+)(,(\d+))?\]', 'VPFT', 'VNFT', 'VNRT', 'AAFT', 'AST', 'RNST', 'RET', 'TRST', 'TRAT', 'TRMT', 'TROT', 'TET', 'ENT', 'CUT', 'NAT', 'INT')
       def eval_game_system_specific_command(command) # ダイスロールコマンド
         # 通常判定部分をgetJudgeResultコマンドに切り分け
         output = getJudgeResult(command)
@@ -104,7 +103,7 @@ module BCDice
 
       def getJudgeResult(command)
         case command
-        when /(\d+)*DA([\d+*\-]*\d)?\[(\d+),(\d+)(,(\d+))?\]/i
+        when /(\d+)?DA([\d+*\-]*\d)?\[(\d+),(\d+)(,(\d+))?\]/i
           number = (Regexp.last_match(1) || 1).to_i
           correction = (Regexp.last_match(2) || 0).to_i
           single = (Regexp.last_match(3) || 4).to_i

@@ -25,7 +25,7 @@ module BCDice
         　例）DC4:【攻撃力】4でダメージチェック　DC5[20]:【攻撃力】5でダメージチェック、うち1つは20mm機銃　DC5[20,30]:【攻撃力】5でダメージチェック、うち1つは20mm機銃、うち1つは30mmガンポッド
       MESSAGETEXT
 
-      register_prefix('(\d+)*D20<=', '(\d+)*CP', 'RMT', 'TOT', 'EXT', 'SUT', 'DC(\d+)')
+      register_prefix('\d*D20<=', '\d*CP', 'RMT', 'TOT', 'EXT', 'SUT', 'DC(\d+)')
 
       def eval_game_system_specific_command(command) # ダイスロールコマンド
         # 通常判定部分をgetJudgeResultコマンドに切り分け
@@ -53,13 +53,13 @@ module BCDice
       # 通常判定
       def getJudgeResult(command)
         case command
-        when /^(\d+)*D20<=(\d+)?(\[(\d+)(,(\d+))?\])?(@(\d+))?$/i
+        when /^(\d+)?D20<=(\d+)?(\[(\d+)(,(\d+))?\])?(@(\d+))?$/i
           number = (Regexp.last_match(1) || 1).to_i # ダイス数。省略時は1
           target = (Regexp.last_match(2) || 14).to_i # 目標値。省略時は14  if 空白 then 14 else 記載の値
           fumble1 = (Regexp.last_match(4) || 21).to_i # 追加ファンブル値。省略時は21
           fumble2 = (Regexp.last_match(6) || 21).to_i # 追加ファンブル値。省略時は21
           critical = (Regexp.last_match(8) || 21).to_i # 追加クリティカル値。省略時は21
-        when /^(\d+)*CP(\d+)?(\[(\d+)(,(\d+))?\])?(@(\d+))?$/i
+        when /^(\d+)?CP(\d+)?(\[(\d+)(,(\d+))?\])?(@(\d+))?$/i
           number = (Regexp.last_match(1) || 1).to_i
           target = (Regexp.last_match(2) || 14).to_i
           fumble1 = (Regexp.last_match(4) || 21).to_i
