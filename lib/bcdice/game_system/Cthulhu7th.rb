@@ -22,7 +22,7 @@ module BCDice
         　目標値が無くても1D100は表示される。
         　ファンブル／失敗／　レギュラー成功／ハード成功／
         　イクストリーム成功／クリティカル を自動判定。
-        　例）CC<=30　CC(2)<=50 CC(+2)<=50 CC(-1)<=75 CC-1<=50 CC1<=65 CC+1<=65 CC CC<=70h
+        　例）CC<=30　CC(2)<=50 CC(+2)<=50 CC(-1)<=75 CC-1<=50 CC1<=65 CC+1<=65 CC
 
         ・技能ロールの難易度指定　CC(x)<=(目標値)(難易度)
         　目標値の後に難易度を指定することで
@@ -100,17 +100,7 @@ module BCDice
           failure: "失敗",
         }.freeze
 
-        def self.with_difficulty_level(total, difficulty, difficulty_level)
-          return from_values(total, difficulty) unless difficulty_level
-
-          if difficulty_level == "E"
-            difficulty /= 5
-          elsif difficulty_level == "H"
-            difficulty /= 2
-          elsif difficulty_level == "C"
-            difficulty = 0
-          end
-
+        def self.with_difficulty_level(total, difficulty)
           fumble = difficulty < 50 ? 96 : 100
 
           if total == 1
@@ -198,10 +188,20 @@ module BCDice
         end
 
         bonus_dice = m[1].to_i
-        difficulty = m[2].to_i
+        difficulty = m[2]&.to_i
         difficulty_level = m[3]
 
-        if bonus_dice == 0 && difficulty == 0
+        if difficulty == 0
+          difficulty = nil
+        elsif difficulty_level == "H"
+          difficulty /= 2
+        elsif difficulty_level == "E"
+          difficulty /= 5
+        elsif difficulty_level == "C"
+          difficulty = 0
+        end
+
+        if bonus_dice == 0 && difficulty.nil?
           dice = @randomizer.roll_once(100)
           return "1D100 ＞ #{dice}"
         end
@@ -212,8 +212,13 @@ module BCDice
 
         total, total_list = roll_with_bonus(bonus_dice)
 
-        expr = difficulty.zero? ? "1D100" : "1D100<=#{difficulty}#{difficulty_level&.downcase}"
-        result = ResultLevel.with_difficulty_level(total, difficulty, difficulty_level) unless difficulty.zero?
+        expr = difficulty.nil? ? "1D100" : "1D100<=#{difficulty}"
+        result =
+          if difficulty_level
+            ResultLevel.with_difficulty_level(total, difficulty)
+          elsif difficulty
+            ResultLevel.from_values(total, difficulty)
+          end
 
         sequence = [
           "(#{expr}) ボーナス・ペナルティダイス[#{bonus_dice}]",
