@@ -37,7 +37,7 @@ module BCDice
         　・超未来の宇宙船内　INT
       MESSAGETEXT
 
-      register_prefix('\d*DA.*\[(\d+),(\d+)(,(\d+))?\]', 'VPFT', 'VNFT', 'VNRT', 'AAFT', 'AST', 'RNST', 'RET', 'TRST', 'TRAT', 'TRMT', 'TROT', 'TET', 'ENT', 'CUT', 'NAT', 'INT')
+      register_prefix('\d*DA', 'VPFT', 'VNFT', 'VNRT', 'AAFT', 'AST', 'RNST', 'RET', 'TRST', 'TRAT', 'TRMT', 'TROT', 'TET', 'ENT', 'CUT', 'NAT', 'INT')
       def eval_game_system_specific_command(command) # ダイスロールコマンド
         # 通常判定部分をgetJudgeResultコマンドに切り分け
         output = getJudgeResult(command)

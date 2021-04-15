@@ -403,7 +403,7 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix(RTT.prefixes, 'SA2?T\d*', TABLES.keys)
+      register_prefix(RTT.prefixes, 'SA', TABLES.keys)
     end
   end
 end

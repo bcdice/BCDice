@@ -83,6 +83,27 @@ rands = [
 
 [[ test ]]
 game_system = "WitchQuest"
+input = "WQ(6+1)"
+output = "(1,1 / 2,2 / 2,2 / 2,2 / 2,2 / 2,2 / 2,2) ＞ ６レベル成功(神話的大成功)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "WitchQuest"
 input = "SET1"
 output = "SET1 ＞ 1:船から降りてきた ＞ 11:おじさん"
 rands = [
@@ -94,6 +115,22 @@ rands = [
 [[ test ]]
 game_system = "WitchQuest"
 input = "SET48"
+output = "SET48 ＞ 6:墓守をしている ＞ 56:表２へ ＞ 56:表３へ ＞ 66:表４へ ＞ 66:宇宙人"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "WitchQuest"
+input = "SET(40+8)"
 output = "SET48 ＞ 6:墓守をしている ＞ 56:表２へ ＞ 56:表３へ ＞ 66:表４へ ＞ 66:宇宙人"
 rands = [
   { sides = 6, value = 6 },

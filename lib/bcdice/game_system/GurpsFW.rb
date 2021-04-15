@@ -55,18 +55,18 @@ module BCDice
         'FMB',
         'MFMB',
         'HIT',
-        'FEAR((\+)?\d*)',
-        'REACT((\+|\-)?\d*)',
-        'TRAP(E|N|H|L)',
-        'TRS((E|N|H|L)\d+)((\+|\-)?\d*)',
-        'RAND(E|N|H|L)[1-6]?',
-        'RENC(E|N|H|L)[1-6]?',
+        'FEAR',
+        'REACT',
+        'TRAP[ENHL]',
+        'TRS[ENHL]',
+        'RAND[ENHL]',
+        'RENC[ENHL]',
         'AREA',
-        'DROP(N)?((\+)?\d)?',
+        'DROPN?',
         'HST',
         'KHST',
         'RANDOP',
-        'LOT(N|P)'
+        'LOT[NP]'
       )
 
       def initialize(command)

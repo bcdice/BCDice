@@ -65,14 +65,14 @@ module BCDice
         'BDT', 'TBO', 'CBO', 'SBO', 'VBO',
         'ET', 'FET', 'HET', 'SDT', 'IEQ', 'FRT',
         'T1T', 'T2T', 'T3T', 'T4T', 'T5T',
-        'MPT', 'KNT\d+', 'WORD\d+', 'NAME', 'NNAME', 'NM',
+        'MPT', 'KNT', 'WORD', 'NAME', 'NNAME', 'NM',
         'RT', 'CIR', 'RUIR', 'RWIR',
         'WIT', 'LIT', 'RIT', 'SIT', 'NRWT', 'NRUT', 'ARWT', 'ARUT',
         'KET', 'TET', 'NST', 'RET', 'FAT', 'HRT', 'BLT',
         'BUS', 'SHS', 'ASS', 'SUS', 'SCS', 'LAS', 'NES', 'COS', 'ENS', 'TOS',
         'ABUS', 'ASHS', 'AASS', 'ASUS', 'ASCS', 'ALAS', 'ANES', 'ACOS', 'AENS', 'ATOS',
         'SE', 'ARN', 'WEN', 'NEN', 'CEN', 'SEN', 'OEN',
-        'DFT\d+'
+        'DFT'
       )
 
       def initialize(command)

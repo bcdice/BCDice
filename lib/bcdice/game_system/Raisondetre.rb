@@ -39,8 +39,8 @@ module BCDice
       end
 
       register_prefix(
-        '(-)?(\d+)?RD(\d+)?(@(\d+))?',
-        '(-)?(\d+)?DD([1-9])?([\+\-]\d+)?'
+        '(-)?(\d+)?RD',
+        '(-)?(\d+)?DD'
       )
 
       def eval_game_system_specific_command(command)

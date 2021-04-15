@@ -166,7 +166,7 @@ module BCDice
 
       TABLES = translate_tables(:ja_jp)
 
-      register_prefix('\d+NC.*', '\d+NA.*', '\d+R10.*', TABLES.keys)
+      register_prefix('\d+NC', '\d+NA', '\d+R10', TABLES.keys)
     end
   end
 end

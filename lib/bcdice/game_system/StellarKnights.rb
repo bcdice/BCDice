@@ -847,7 +847,7 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix('\d+SK\d?(,\d>\d)*', 'STB2', 'ALLS', 'PET', 'FT\d*', TABLES.keys)
+      register_prefix('\d+SK', 'STB2', 'ALLS', 'PET', 'FT', TABLES.keys)
     end
   end
 end

@@ -32,7 +32,7 @@ module BCDice
         예）FAR(25,70,98)　FAR(50,80,98,-1)
       INFO_MESSAGE_TEXT
 
-      register_prefix('CC\(\d+\)', 'CC', 'CBR\(\d+,\d+\)', 'FAR\(\d+\)', 'FAR')
+      register_prefix('CC', 'CBR', 'FAR')
 
       def initialize(command)
         super(command)

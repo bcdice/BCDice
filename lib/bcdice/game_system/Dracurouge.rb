@@ -548,7 +548,7 @@ module BCDice
 
       TABLES = translate_tables(:ja_jp)
 
-      register_prefix('DR', 'RT', 'HRT', 'CT\d+', TABLES.keys)
+      register_prefix('DR', 'RT', 'HRT', 'CT', TABLES.keys)
     end
   end
 end

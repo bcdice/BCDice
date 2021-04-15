@@ -253,10 +253,10 @@ module BCDice
 
       # ダイスボットで使用するコマンドを配列で列挙する
       register_prefix(
-        'NJ\d+',
-        'EV\d+',
-        'AT\d+',
-        'EL\d+',
+        'NJ',
+        'EV',
+        'AT',
+        'EL',
         TABLES.keys
       )
     end

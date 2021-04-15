@@ -20,7 +20,7 @@ module BCDice
       ※ WとBは片方指定(Bx, Wx)、入替指定(WxBx,BxWx)可能
 INFO_MESSAGE_TEXT
 
-      register_prefix('FS\d+', '[WB]\d+')
+      register_prefix('FS', 'W', 'B')
 
       def eval_game_system_specific_command(command)
         roll_fs(command) || roll_white_black(command) || roll_white_black_single(command)

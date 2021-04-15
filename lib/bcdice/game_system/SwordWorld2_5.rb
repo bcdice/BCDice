@@ -76,7 +76,7 @@ module BCDice
         　アビスカース表を出すことができます。
       INFO_MESSAGE_TEXT
 
-      register_prefix('H?K\d+', 'Gr(\d+)?', '2D6?@\d+', 'FT', 'TT', 'Dru\[\d+,\d+,\d+\]', 'ABT')
+      register_prefix('H?K', 'Gr', '2D6?@\d+', 'FT', 'TT', 'Dru', 'ABT')
 
       ABYSS_CURSE_TABLE = DiceTable::D66GridTable.new(
         'アビスカース表', [

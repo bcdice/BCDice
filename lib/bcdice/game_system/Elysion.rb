@@ -1205,7 +1205,7 @@ module BCDice
         'RBT', 'SBT', 'BBT', 'CBT', 'DBT', 'IBT', 'FBT', 'LBT', 'PBT', 'NBT', 'ABT', 'VBT', 'GBT', 'HBT',
         'BFT', 'FWT', 'FT',
         'SRT', 'ORT', 'DRT', 'URT',
-        'NJ\d+', 'BS\d+', TABLES.keys
+        'NJ', 'BS', TABLES.keys
       )
     end
   end

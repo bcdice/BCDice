@@ -42,7 +42,7 @@ module BCDice
       MESSAGETEXT
 
       register_prefix(
-        '(\d+)?A(A|L)(\d+)?((x|\*)(\d+)(\+(\d+))?)?(C(\d+))?'
+        '\d*A[AL]'
       )
 
       def initialize(command)

@@ -34,7 +34,7 @@ module BCDice
         ・8av4*7+10 → 8d10で目標値4、攻撃力7、クリティカルトリガー10の命中判定。
       MESSAGETEXT
 
-      register_prefix('\d+AV\d+((x|\*)\d+(\+\d+)?)?(c\d+)?')
+      register_prefix('\d+AV')
 
       def initialize(command)
         super(command)

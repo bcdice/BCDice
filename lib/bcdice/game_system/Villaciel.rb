@@ -47,7 +47,7 @@ module BCDice
         ・改良種表　　　　　　IS
       MESSAGETEXT
 
-      register_prefix('\\d+VBS(>=\\d+)?', '\\d+VF', '\\d+VM', '\\d+VG', 'PJ[VA]?', 'PQ[VA]?', 'AC', 'MM([IAD]|V[VA]?)', 'F[LRWGBCS]', 'IP[VA]?', 'EP[VA]?\\d?', 'MP', 'IS')
+      register_prefix('\d+VBS(>=\d+)?', '\d+VF', '\d+VM', '\d+VG', 'PJ[VA]?', 'PQ[VA]?', 'AC', 'MM([IAD]|V[VA]?)', 'F[LRWGBCS]', 'IP[VA]?', 'EP[VA]?', 'MP', 'IS')
 
       def initialize(command)
         super(command)

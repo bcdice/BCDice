@@ -86,6 +86,14 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu7th"
+input = "CBR(10,(40+50))"
+output = "(1d100<=10,90) ＞ 30[失敗,ハード成功] ＞ 部分的成功"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
 input = "CBR(xxx,xxx) 失敗パターン"
 output = ""
 rands = []

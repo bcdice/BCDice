@@ -35,7 +35,7 @@ module BCDice
           例）CRCM98 対物で数値98の戦闘結果を参照する。
       MESSAGETEXT
 
-      register_prefix('AR', 'SR', 'HR<=.+', 'CC', 'ACT', 'ACL', 'ACS', 'CRC[A-Z]\d+')
+      register_prefix('AR', 'SR', 'HR<=', 'CC', 'ACT', 'ACL', 'ACS', 'CRC[A-Z]')
 
       def eval_game_system_specific_command(command)
         result = roll_tables(command, TABLES)
