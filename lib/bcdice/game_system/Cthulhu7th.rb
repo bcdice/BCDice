@@ -17,13 +17,19 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        ※コマンドは入力内容の前方一致で検出しています。
         ・判定　CC(x)<=（目標値）
         　x：ボーナス・ペナルティダイス (2～－2)。省略可。
         　目標値が無くても1D100は表示される。
         　ファンブル／失敗／　レギュラー成功／ハード成功／
         　イクストリーム成功／クリティカル を自動判定。
-        例）CC<=30　CC(2)<=50 CC(+2)<=50 CC(-1)<=75 CC-1<=50 CC1<=65 CC+1<=65 CC
+        　例）CC<=30　CC(2)<=50 CC(+2)<=50 CC(-1)<=75 CC-1<=50 CC1<=65 CC+1<=65 CC CC<=70h
+
+        ・技能ロールの難易度指定　CC(x)<=(目標値)(難易度)
+        　目標値の後に難易度を指定することで
+        　成功／失敗／クリティカル／ファンブル を自動判定する。
+        　難易度の指定：
+        　　r:レギュラー　h:ハード　e:イクストリーム　c:クリティカル
+        　例）CC<=70r CC1<=60h CC-2<=50e CC2<=99c
 
         ・組み合わせ判定　(CBR(x,y))
         　目標値 x と y で％ロールを行い、成否を判定。
@@ -77,6 +83,7 @@ module BCDice
         LEVEL = [
           :fumble,
           :failure,
+          :success,
           :regular_success,
           :hard_success,
           :extreme_success,
@@ -88,9 +95,34 @@ module BCDice
           extreme_success: "イクストリーム成功",
           hard_success: "ハード成功",
           regular_success: "レギュラー成功",
+          success: "成功",
           fumble: "ファンブル",
           failure: "失敗",
         }.freeze
+
+        def self.with_difficulty_level(total, difficulty, difficulty_level)
+          return from_values(total, difficulty) unless difficulty_level
+
+          if difficulty_level == "E"
+            difficulty /= 5
+          elsif difficulty_level == "H"
+            difficulty /= 2
+          elsif difficulty_level == "C"
+            difficulty = 0
+          end
+
+          fumble = difficulty < 50 ? 96 : 100
+
+          if total == 1
+            ResultLevel.new(:critical)
+          elsif total <= difficulty
+            ResultLevel.new(:success)
+          elsif total >= fumble
+            ResultLevel.new(:fumble)
+          else
+            ResultLevel.new(:failure)
+          end
+        end
 
         def self.from_values(total, difficulty, fumbleable = false)
           fumble = difficulty < 50 || fumbleable ? 96 : 100
@@ -117,7 +149,7 @@ module BCDice
         end
 
         def success?
-          @level_index >= LEVEL.index(:regular_success)
+          @level_index >= LEVEL.index(:success)
         end
 
         def failure?
@@ -160,13 +192,14 @@ module BCDice
       end
 
       def skill_roll(command)
-        m = /^CC([-+]?\d+)?(?:<=(\d+))?$/.match(command)
+        m = /^CC([-+]?\d+)?(?:<=(\d+)([RHEC])?)?$/.match(command)
         unless m
           return nil
         end
 
         bonus_dice = m[1].to_i
         difficulty = m[2].to_i
+        difficulty_level = m[3]
 
         if bonus_dice == 0 && difficulty == 0
           dice = @randomizer.roll_once(100)
@@ -179,8 +212,8 @@ module BCDice
 
         total, total_list = roll_with_bonus(bonus_dice)
 
-        expr = difficulty.zero? ? "1D100" : "1D100<=#{difficulty}"
-        result = ResultLevel.from_values(total, difficulty) unless difficulty.zero?
+        expr = difficulty.zero? ? "1D100" : "1D100<=#{difficulty}#{difficulty_level&.downcase}"
+        result = ResultLevel.with_difficulty_level(total, difficulty, difficulty_level) unless difficulty.zero?
 
         sequence = [
           "(#{expr}) ボーナス・ペナルティダイス[#{bonus_dice}]",
