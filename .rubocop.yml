@@ -87,6 +87,9 @@ Style/HashLikeCase:
   Exclude:
     - 'lib/bcdice/game_system/**/*.rb'
 
+Style/IfInsideElse:
+  Enabled: false
+
 Style/IfUnlessModifier:
   Enabled: false
 
