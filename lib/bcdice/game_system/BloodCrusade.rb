@@ -44,18 +44,17 @@ module BCDice
         @round_type = RoundType::CEIL # 端数切り上げに設定
       end
 
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
+      def result_2d6(total, dice_total, _dice_list, cmp_op, target)
+        return nil if target == '?' || cmp_op != :>=
 
         if dice_total <= 2
-          " ＞ ファンブル(【モラル】-3。追跡フェイズなら吸血シーンを追加。戦闘フェイズなら吸血鬼は追加行動を一回得る)"
+          Result.fumble("ファンブル(【モラル】-3。追跡フェイズなら吸血シーンを追加。戦闘フェイズなら吸血鬼は追加行動を一回得る)")
         elsif dice_total >= 12
-          " ＞ スペシャル(【モラル】+3。追跡フェイズならあなたに関係を持つPCの【モラル】+2。攻撃判定ならダメージ+1D6）"
+          Result.critical("スペシャル(【モラル】+3。追跡フェイズならあなたに関係を持つPCの【モラル】+2。攻撃判定ならダメージ+1D6）")
         elsif total >= target
-          " ＞ 成功"
+          Result.success("成功")
         else
-          " ＞ 失敗"
+          Result.failure("失敗")
         end
       end
 
