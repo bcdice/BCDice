@@ -16,34 +16,34 @@ module BCDice
       HELP_MESSAGE =
         '1D100<=m 方式の判定で成否、クリティカル・ファンブルを自動判定'
 
-      def check_1D100(total, _dice_total, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :<=
+      def result_1d100(total, _dice_total, cmp_op, target)
+        return nil if target == '?'
+        return nil unless cmp_op == :<=
 
-        diceValue = total % 100 # 出目00は100ではなく00とする
-        dice_ten_place = diceValue / 10
-        dice_one_place = diceValue % 10
+        dice_value = total % 100 # 出目00は100ではなく00とする
+        dice_ten_place = dice_value / 10
+        dice_one_place = dice_value % 10
 
         if dice_ten_place == dice_one_place
-          return ' ＞ 決定的失敗' if diceValue == 99
-          return ' ＞ 00 ＞ 決定的成功' if diceValue == 0
-          return ' ＞ 決定的成功' if total <= target
+          return Result.fumble('決定的失敗') if dice_value == 99
+          return Result.critical('00 ＞ 決定的成功') if dice_value == 0
+          return Result.critical('決定的成功') if total <= target
 
-          return ' ＞ 決定的失敗'
+          return Result.fumble('決定的失敗')
         end
 
         diff_threshold = 30
 
         if total <= target
           if total >= diff_threshold
-            ' ＞ エクセレント'
+            Result.success('エクセレント')
           else
-            ' ＞ 成功'
+            Result.success('成功')
           end
         elsif (total - target) >= diff_threshold
-          ' ＞ シビア'
+          Result.failure('シビア')
         else
-          ' ＞ 失敗'
+          Result.failure('失敗')
         end
       end
     end
