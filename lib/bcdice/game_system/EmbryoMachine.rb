@@ -45,18 +45,19 @@ module BCDice
       end
 
       # ゲーム別成功度判定(nD10)
-      def check_nD10(total, dice_total, _dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
+      def result_nd10(total, dice_total, _dice_list, cmp_op, target)
+        return nil unless cmp_op == :>=
 
         if dice_total <= 2
-          " ＞ ファンブル"
+          Result.fumble("ファンブル")
         elsif dice_total >= 20
-          " ＞ クリティカル"
+          Result.critical("クリティカル")
+        elsif target == "?"
+          Result.nothing
         elsif total >= target
-          " ＞ 成功"
+          Result.success("成功")
         else
-          " ＞ 失敗"
+          Result.failure("失敗")
         end
       end
 
