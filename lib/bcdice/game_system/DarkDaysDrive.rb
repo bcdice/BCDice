@@ -51,18 +51,19 @@ module BCDice
       end
 
       # ゲーム別成功度判定(2D6)
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
+      def result_2d6(total, dice_total, _dice_list, cmp_op, target)
+        return nil unless cmp_op == :>=
 
         if dice_total <= 2
-          " ＞ ファンブル(判定失敗。失敗表(FT)を追加で１回振る)"
+          Result.fumble("ファンブル(判定失敗。失敗表(FT)を追加で１回振る)")
         elsif dice_total >= 12
-          " ＞ スペシャル(判定成功。大成功表(GJT)を１回使用可能)"
+          Result.critical("スペシャル(判定成功。大成功表(GJT)を１回使用可能)")
+        elsif target == "?"
+          Result.nothing
         elsif total >= target
-          " ＞ 成功"
+          Result.success("成功")
         else
-          " ＞ 失敗"
+          Result.failure("失敗")
         end
       end
 
