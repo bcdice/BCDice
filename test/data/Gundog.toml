@@ -1,87 +1,37 @@
 [[ test ]]
 game_system = "Gundog"
 input = "1D100<=10"
-output = "(1D100<=10) ＞ 29 ＞ 失敗"
+output = "(1D100<=10) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
-  { sides = 100, value = 29 },
+  { sides = 100, value = 100 },
 ]
 
 [[ test ]]
 game_system = "Gundog"
 input = "1D100<=10"
-output = "(1D100<=10) ＞ 36 ＞ 失敗"
+output = "(1D100<=10) ＞ 11 ＞ 失敗"
+failure = true
 rands = [
-  { sides = 100, value = 36 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 92 ＞ 失敗"
-rands = [
-  { sides = 100, value = 92 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 22 ＞ 失敗"
-rands = [
-  { sides = 100, value = 22 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 14 ＞ 失敗"
-rands = [
-  { sides = 100, value = 14 },
+  { sides = 100, value = 11 },
 ]
 
 [[ test ]]
 game_system = "Gundog"
 input = "1D100<=10"
 output = "(1D100<=10) ＞ 9 ＞ 成功(達成値9+SL)"
+success = true
 rands = [
   { sides = 100, value = 9 },
 ]
 
 [[ test ]]
 game_system = "Gundog"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 99 ＞ 失敗"
-rands = [
-  { sides = 100, value = 99 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 80 ＞ 失敗"
-rands = [
-  { sides = 100, value = 80 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 19 ＞ 失敗"
-rands = [
-  { sides = 100, value = 19 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 21 ＞ 失敗"
-rands = [
-  { sides = 100, value = 21 },
-]
-
-[[ test ]]
-game_system = "Gundog"
 input = "1D100<=90"
 output = "(1D100<=90) ＞ 20 ＞ クリティカル(達成値20+SL)"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 20 },
 ]
@@ -89,153 +39,41 @@ rands = [
 [[ test ]]
 game_system = "Gundog"
 input = "1D100<=90"
-output = "(1D100<=90) ＞ 69 ＞ 成功(達成値15+SL)"
+output = "(1D100<=90) ＞ 80 ＞ クリティカル(達成値20+SL)"
+success = true
+critical = true
 rands = [
-  { sides = 100, value = 69 },
+  { sides = 100, value = 80 },
 ]
 
 [[ test ]]
 game_system = "Gundog"
 input = "1D100<=90"
-output = "(1D100<=90) ＞ 50 ＞ クリティカル(達成値20+SL)"
+output = "(1D100<=90) ＞ 1 ＞ 絶対成功(達成値1+SL)"
+success = true
+critical = true
 rands = [
-  { sides = 100, value = 50 },
+  { sides = 100, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Gundog"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 60 ＞ クリティカル(達成値20+SL)"
+input = "1D100<=?"
+output = "(1D100<=?) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
-  { sides = 100, value = 60 },
+  { sides = 100, value = 100 },
 ]
 
 [[ test ]]
 game_system = "Gundog"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 94 ＞ 失敗"
+input = "1D100<=?"
+output = "(1D100<=?) ＞ 1 ＞ 絶対成功(達成値1+SL)"
+success = true
+critical = true
 rands = [
-  { sides = 100, value = 94 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 86 ＞ 成功(達成値14+SL)"
-rands = [
-  { sides = 100, value = 86 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 23 ＞ 成功(達成値5+SL)"
-rands = [
-  { sides = 100, value = 23 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 33 ＞ 成功(達成値6+SL)"
-rands = [
-  { sides = 100, value = 33 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 13 ＞ 成功(達成値4+SL)"
-rands = [
-  { sides = 100, value = 13 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 93 ＞ 失敗"
-rands = [
-  { sides = 100, value = 93 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 2 ＞ 成功(達成値2+SL)"
-rands = [
-  { sides = 100, value = 2 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 39 ＞ 成功(達成値12+SL)"
-rands = [
-  { sides = 100, value = 39 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 36 ＞ 成功(達成値9+SL)"
-rands = [
-  { sides = 100, value = 36 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 69 ＞ 失敗"
-rands = [
-  { sides = 100, value = 69 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 14 ＞ 成功(達成値5+SL)"
-rands = [
-  { sides = 100, value = 14 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 56 ＞ 失敗"
-rands = [
-  { sides = 100, value = 56 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 16 ＞ 成功(達成値7+SL)"
-rands = [
-  { sides = 100, value = 16 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 63 ＞ 失敗"
-rands = [
-  { sides = 100, value = 63 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 52 ＞ 失敗"
-rands = [
-  { sides = 100, value = 52 },
-]
-
-[[ test ]]
-game_system = "Gundog"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 35 ＞ 成功(達成値8+SL)"
-rands = [
-  { sides = 100, value = 35 },
+  { sides = 100, value = 1 },
 ]
 
 [[ test ]]
