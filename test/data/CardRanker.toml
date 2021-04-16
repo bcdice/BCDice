@@ -144,6 +144,8 @@ rands = []
 game_system = "CardRanker"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -153,6 +155,7 @@ rands = [
 game_system = "CardRanker"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 5[2,3] ＞ 5 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -162,6 +165,7 @@ rands = [
 game_system = "CardRanker"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -171,6 +175,33 @@ rands = [
 game_system = "CardRanker"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ スペシャル ＞ ランダムモンスター選択(2,7) ＞ 青の7：探偵"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "2d6>=?"
+output = "(2D6>=?) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "CardRanker"
+input = "2d6>=?"
+output = "(2D6>=?) ＞ 12[6,6] ＞ 12 ＞ スペシャル ＞ ランダムモンスター選択(2,7) ＞ 青の7：探偵"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
