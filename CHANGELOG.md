@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+### 追加機能
+- 新クトゥルフ神話TRPG: 技能ロールで難易度を設定できるように ([#417](https://github.com/bcdice/BCDice/pull/417))
+
 ## 変更
 - ウォーハンマーRPG第4版: 判定コマンドで失敗しても命中部位を表示する。Facelessさんありがとうっ！ ([#405](https://github.com/bcdice/BCDice/pull/405))
 
