@@ -75,14 +75,14 @@ module BCDice
         @d66_sort_type = D66SortType::NO_SORT
       end
 
-      def check_nD6(total, dice_total, dice_list, cmp_op, target)
-        return '' if target == '?'
-        return "" unless dice_list.size == 3 && cmp_op == :<=
+      def result_nd6(total, dice_total, dice_list, cmp_op, target)
+        return Result.nothing if target == '?'
+        return nil unless dice_list.size == 3 && cmp_op == :<=
 
         success = target - total # 成功度
-        crt_string = " ＞ クリティカル(成功度：#{success})"
-        fmb_string = " ＞ ファンブル(失敗度：#{success})"
-        fail_string = " ＞ 自動失敗(失敗度：#{success})"
+        crt_string = Result.critical("クリティカル(成功度：#{success})")
+        fmb_string = Result.fumble("ファンブル(失敗度：#{success})")
+        fail_string = Result.failure("自動失敗(失敗度：#{success})")
 
         # クリティカル
         if (dice_total <= 6) && (target >= 16)
@@ -105,9 +105,9 @@ module BCDice
         end
 
         if total <= target
-          return " ＞ 成功(成功度：#{success})"
+          return Result.success("成功(成功度：#{success})")
         else
-          return " ＞ 失敗(失敗度：#{success})"
+          return Result.failure("失敗(失敗度：#{success})")
         end
       end
 
