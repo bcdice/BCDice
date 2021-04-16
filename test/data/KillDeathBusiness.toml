@@ -778,6 +778,8 @@ rands = [
 game_system = "KillDeathBusiness"
 input = "2d6>=5"
 output = "(2D6>=5) ＞ 2[1,1] ＞ 2 ＞ ファンブル(判定失敗。【視聴率】が20％減少)"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -787,6 +789,8 @@ rands = [
 game_system = "KillDeathBusiness"
 input = "2d6>=5"
 output = "(2D6>=5) ＞ 12[6,6] ＞ 12 ＞ スペシャル(判定成功。【視聴率】が10％増加)"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -796,6 +800,7 @@ rands = [
 game_system = "KillDeathBusiness"
 input = "2d6>=5"
 output = "(2D6>=5) ＞ 4[1,3] ＞ 4 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -805,9 +810,32 @@ rands = [
 game_system = "KillDeathBusiness"
 input = "2d6>=5"
 output = "(2D6>=5) ＞ 5[1,4] ＞ 5 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "2d6>=?"
+output = "(2D6>=?) ＞ 2[1,1] ＞ 2 ＞ ファンブル(判定失敗。【視聴率】が20％減少)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "2d6>=?"
+output = "(2D6>=?) ＞ 12[6,6] ＞ 12 ＞ スペシャル(判定成功。【視聴率】が10％増加)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
