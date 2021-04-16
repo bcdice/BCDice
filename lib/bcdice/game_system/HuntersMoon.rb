@@ -47,18 +47,13 @@ module BCDice
       end
 
       # ゲーム別成功度判定(2D6)
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
+      def result_2d6(_total, dice_total, _dice_list, cmp_op, _target)
+        return nil unless cmp_op == :>=
 
         if dice_total <= 2
-          " ＞ ファンブル(モノビースト追加行動+1)"
+          Result.fumble("ファンブル(モノビースト追加行動+1)")
         elsif dice_total >= 12
-          " ＞ スペシャル(変調1つ回復orダメージ+1D6)"
-        elsif total >= target
-          " ＞ 成功"
-        else
-          " ＞ 失敗"
+          Result.critical("スペシャル(変調1つ回復orダメージ+1D6)")
         end
       end
 
