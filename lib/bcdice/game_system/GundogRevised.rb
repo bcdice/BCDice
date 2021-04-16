@@ -35,14 +35,15 @@ module BCDice
 
       # ---- 以降、Gundog.rbよりほぼコピペ（絶対成功→ベアリーに用語変更対応の為、継承だと不都合）
       # ゲーム別成功度判定(1d100)
-      def check_1D100(total, _dice_total, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :<=
+      def result_1d100(total, _dice_total, cmp_op, target)
+        return nil unless cmp_op == :<=
 
         if total >= 100
-          " ＞ ファンブル"
+          Result.fumble("ファンブル")
         elsif total <= 1
-          " ＞ ベアリー(達成値1+SL)"
+          Result.critical("ベアリー(達成値1+SL)")
+        elsif target == "?"
+          Result.nothing
         elsif total <= target
           dig10 = total / 10
           dig1 = total - dig10 * 10
@@ -50,12 +51,12 @@ module BCDice
           dig1 = 0 if dig1 >= 10 # 条件的にはあり得ない(笑
 
           if dig1 <= 0
-            " ＞ クリティカル(達成値20+SL)"
+            Result.critical("クリティカル(達成値20+SL)")
           else
-            " ＞ 成功(達成値#{dig10 + dig1}+SL)"
+            Result.success("成功(達成値#{dig10 + dig1}+SL)")
           end
         else
-          " ＞ 失敗"
+          Result.failure("失敗")
         end
       end
 
