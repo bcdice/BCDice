@@ -19,9 +19,9 @@ module BCDice
         　　　Chill3 : (1D100<=50) ＞ 55 ＞ Botch
       INFO_MESSAGE_TEXT
 
-      def check_1D100(total, dice_total, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :<=
+      def result_1d100(total, dice_total, cmp_op, target)
+        return nil if target == '?'
+        return nil unless cmp_op == :<=
 
         # ゾロ目ならC-ResultかBotch
         tens = (dice_total / 10) % 10
@@ -30,21 +30,21 @@ module BCDice
         if tens == ones
           if (total > target) || (dice_total == 100) # 00は必ず失敗
             if target > 100 # 目標値が100を超えている場合は、00を振ってもBotchにならない
-              return " ＞ 失敗"
+              return Result.failure("失敗")
             else
-              return " ＞ Botch"
+              return Result.fumble("Botch")
             end
           else
-            return " ＞ Ｃ成功"
+            return Result.critical("Ｃ成功")
           end
         elsif (total <= target) || (dice_total == 1) # 01は必ず成功
           if total <= (target / 2)
-            return " ＞ Ｈ成功"
+            return Result.success("Ｈ成功")
           else
-            return " ＞ Ｌ成功"
+            return Result.success("Ｌ成功")
           end
         else
-          return " ＞ 失敗"
+          return Result.failure("失敗")
         end
       end
     end
