@@ -13,38 +13,40 @@ module BCDice
       SORT_KEY = 'むけんのふあんたしあ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = "失敗、成功レベルの自動判定を行います。\n"
+      HELP_MESSAGE = "失敗、成功レベルの自動判定を行います。"
 
       # ゲーム別成功度判定(1d20)
-      def check_1D20(total, _dice_total, cmp_op, target)
-        return '' if target == '?'
+      def result_1d20(total, _dice_total, cmp_op, target)
+        return Result.nothing if target == '?'
+        return nil unless cmp_op == :<=
 
-        if cmp_op != :<=
-          return ''
-        elsif total > target
-          return " ＞ 失敗"
+        if total > target
+          return Result.failure("失敗")
         end
 
         output =
           if total <= (target / 32)
-            " ＞ 32レベル成功(32Lv+)"
+            "32レベル成功(32Lv+)"
           elsif total <= (target / 16)
-            " ＞ 16レベル成功(16LV+)"
+            "16レベル成功(16Lv+)"
           elsif total <= (target / 8)
-            " ＞ 8レベル成功"
+            "8レベル成功"
           elsif total <= (target / 4)
-            " ＞ 4レベル成功"
+            "4レベル成功"
           elsif total <= (target / 2)
-            " ＞ 2レベル成功"
+            "2レベル成功"
           else
-            " ＞ 1レベル成功"
+            "1レベル成功"
           end
 
-        if total <= 1
-          output += "/クリティカル"
+        Result.new.tap do |r|
+          r.text = output
+          r.success = true
+          if total <= 1
+            r.critical = true
+            r.text += "/クリティカル"
+          end
         end
-
-        output
       end
     end
   end
