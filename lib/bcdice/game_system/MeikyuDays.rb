@@ -44,18 +44,19 @@ module BCDice
         return string
       end
 
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
+      def result_2d6(total, dice_total, _dice_list, cmp_op, target)
+        return nil unless cmp_op == :>=
 
         if dice_total <= 2
-          " ＞ 絶対失敗"
+          Result.fumble("絶対失敗")
         elsif dice_total >= 12
-          " ＞ 絶対成功"
+          Result.critical("絶対成功")
+        elsif target == "?"
+          Result.nothing
         elsif total >= target
-          " ＞ 成功"
+          Result.success("成功")
         else
-          " ＞ 失敗"
+          Result.failure("失敗")
         end
       end
 
@@ -104,7 +105,8 @@ module BCDice
 
         if signOfInequality != "" # 成功度判定処理
           cmp_op = Normalize.comparison_operator(signOfInequality)
-          output += check_2D6(total_n, dice_now, dice_num, cmp_op, diff)
+          result = result_2d6(total_n, dice_now, dice_num, cmp_op, diff)
+          output += " ＞ #{result.text}" if result
         end
 
         return output
