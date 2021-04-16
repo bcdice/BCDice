@@ -1,135 +1,74 @@
 [[ test ]]
 game_system = "Hieizan"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 55 ＞ 失敗"
+input = "1D100<=50"
+output = "(1D100<=50) ＞ 100 ＞ 大失敗"
+failure = true
+fumble = true
 rands = [
-  { sides = 100, value = 55 },
+  { sides = 100, value = 100 },
 ]
 
 [[ test ]]
 game_system = "Hieizan"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 76 ＞ 失敗"
+input = "1D100<=50"
+output = "(1D100<=50) ＞ 99 ＞ 自動失敗"
+failure = true
 rands = [
-  { sides = 100, value = 76 },
+  { sides = 100, value = 99 },
 ]
 
 [[ test ]]
 game_system = "Hieizan"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 29 ＞ 失敗"
+input = "1D100<=50"
+output = "(1D100<=50) ＞ 96 ＞ 自動失敗"
+failure = true
 rands = [
-  { sides = 100, value = 29 },
+  { sides = 100, value = 96 },
 ]
 
 [[ test ]]
 game_system = "Hieizan"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 7 ＞ 成功"
+input = "1D100<=50"
+output = "(1D100<=50) ＞ 95 ＞ 失敗"
+failure = true
 rands = [
-  { sides = 100, value = 7 },
+  { sides = 100, value = 95 },
 ]
 
 [[ test ]]
 game_system = "Hieizan"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 63 ＞ 失敗"
-rands = [
-  { sides = 100, value = 63 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 67 ＞ 失敗"
-rands = [
-  { sides = 100, value = 67 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 59 ＞ 失敗"
-rands = [
-  { sides = 100, value = 59 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 60 ＞ 失敗"
-rands = [
-  { sides = 100, value = 60 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 17 ＞ 失敗"
-rands = [
-  { sides = 100, value = 17 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 54 ＞ 失敗"
-rands = [
-  { sides = 100, value = 54 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=100"
-output = "(1D100<=100) ＞ 91 ＞ 成功"
-rands = [
-  { sides = 100, value = 91 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=100"
-output = "(1D100<=100) ＞ 65 ＞ 成功"
-rands = [
-  { sides = 100, value = 65 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=100"
-output = "(1D100<=100) ＞ 49 ＞ 成功"
-rands = [
-  { sides = 100, value = 49 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=100"
-output = "(1D100<=100) ＞ 60 ＞ 成功"
-rands = [
-  { sides = 100, value = 60 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=100"
-output = "(1D100<=100) ＞ 50 ＞ 成功"
+input = "1D100<=50"
+output = "(1D100<=50) ＞ 50 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 50 },
 ]
 
 [[ test ]]
 game_system = "Hieizan"
-input = "1D100<=100"
-output = "(1D100<=100) ＞ 22 ＞ 成功"
+input = "1D100<=50"
+output = "(1D100<=50) ＞ 11 ＞ 成功"
+success = true
 rands = [
-  { sides = 100, value = 22 },
+  { sides = 100, value = 11 },
 ]
 
 [[ test ]]
 game_system = "Hieizan"
-input = "1D100<=100"
-output = "(1D100<=100) ＞ 1 ＞ 大成功"
+input = "1D100<=50"
+output = "(1D100<=50) ＞ 10 ＞ 大成功"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "Hieizan"
+input = "1D100<=50"
+output = "(1D100<=50) ＞ 1 ＞ 大成功"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -137,105 +76,47 @@ rands = [
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "(1D100<=100) ＞ 81 ＞ 成功"
+output = "(1D100<=100) ＞ 100 ＞ 大失敗"
+failure = true
+fumble = true
 rands = [
-  { sides = 100, value = 81 },
+  { sides = 100, value = 100 },
 ]
 
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "(1D100<=100) ＞ 28 ＞ 成功"
+output = "(1D100<=100) ＞ 96 ＞ 自動失敗"
+failure = true
 rands = [
-  { sides = 100, value = 28 },
+  { sides = 100, value = 96 },
 ]
 
 [[ test ]]
 game_system = "Hieizan"
 input = "1D100<=100"
-output = "(1D100<=100) ＞ 54 ＞ 成功"
+output = "(1D100<=100) ＞ 95 ＞ 成功"
+success = true
 rands = [
-  { sides = 100, value = 54 },
+  { sides = 100, value = 95 },
 ]
 
 [[ test ]]
 game_system = "Hieizan"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 39 ＞ 成功"
+input = "1D100<=2"
+output = "(1D100<=2) ＞ 2 ＞ 成功"
+success = true
 rands = [
-  { sides = 100, value = 39 },
+  { sides = 100, value = 2 },
 ]
 
 [[ test ]]
 game_system = "Hieizan"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 58 ＞ 失敗"
+input = "1D100<=2"
+output = "(1D100<=2) ＞ 1 ＞ 自動成功"
+success = true
 rands = [
-  { sides = 100, value = 58 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 35 ＞ 成功"
-rands = [
-  { sides = 100, value = 35 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 85 ＞ 失敗"
-rands = [
-  { sides = 100, value = 85 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 87 ＞ 失敗"
-rands = [
-  { sides = 100, value = 87 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 85 ＞ 失敗"
-rands = [
-  { sides = 100, value = 85 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 34 ＞ 成功"
-rands = [
-  { sides = 100, value = 34 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 39 ＞ 成功"
-rands = [
-  { sides = 100, value = 39 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 89 ＞ 失敗"
-rands = [
-  { sides = 100, value = 89 },
-]
-
-[[ test ]]
-game_system = "Hieizan"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 46 ＞ 成功"
-rands = [
-  { sides = 100, value = 46 },
+  { sides = 100, value = 1 },
 ]
 
 [[ test ]]
