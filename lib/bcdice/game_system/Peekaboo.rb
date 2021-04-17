@@ -45,18 +45,13 @@ module BCDice
       end
 
       # ゲーム別成功度判定(2D6)
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
+      def result_2d6(_total, dice_total, _dice_list, cmp_op, _target)
+        return nil unless cmp_op == :>=
 
         if dice_total <= 2
-          return " ＞ ファンブル(【眠気】が1d6点上昇)"
+          Result.fumble("ファンブル(【眠気】が1d6点上昇)")
         elsif dice_total >= 12
-          return " ＞ スペシャル(【魔力】あるいは【眠気】が1d6点回復)"
-        elsif total >= target
-          return " ＞ 成功"
-        else
-          return " ＞ 失敗"
+          Result.critical("スペシャル(【魔力】あるいは【眠気】が1d6点回復)")
         end
       end
 
