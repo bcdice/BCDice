@@ -104,18 +104,24 @@ module BCDice
         debug("SN Parsed", dice_count, target, fumble)
 
         dice_list = @randomizer.roll_barabara(dice_count, 6)
-        dice_largest = dice_list.sort[-2..-1]
-        res = if dice_largest == [6, 6]
+        dice_top_two = dice_list.sort[-2..-1]
+        res = if dice_top_two == [6, 6]
                 Result.critical("スペシャル（【生命点】1d6回復）")
               elsif dice_list.max <= fumble
                 Result.fumble("ファンブル（ファンブル表FT）")
-              elsif dice_largest.sum >= target
+              elsif dice_top_two.sum >= target
                 Result.success("成功")
               else
                 Result.failure("失敗")
               end
-        res.text = ["#{dice_count}SN#{target}##{fumble}", dice_list.to_s, "#{dice_largest.sum}#{dice_largest}", res.text]
+
+        if dice_count == 2
+          res.text = ["(#{dice_count}SN#{target}##{fumble})","#{dice_top_two.sum}[#{dice_list.join(",")}]", res.text]
                    .compact.join(" ＞ ")
+        else
+          res.text = ["(#{dice_count}SN#{target}##{fumble})", "[" + dice_list.join(",") + "]", "#{dice_top_two.sum}[#{dice_top_two.join(",")}]", res.text]
+              .compact.join(" ＞ ")
+        end
         res
       end
 
@@ -129,11 +135,12 @@ module BCDice
 
         points = get_fire_points(fire_count, fire_range)
         command = command.sub("SF/", "[大揺れ,火災]/").sub("FS/", "[火災,大揺れ]/").sub("F/", "[火災]/").sub("S/", "[大揺れ]/")
-        result = [command, get_points_text(points, 0, 0)]
+        result = ["(#{command})", get_points_text(points, 0, 0)]
         if ballistics != 0
           dir = DIRECTION_INFOS[ballistics]
           diff_x, diff_y = dir[:position_diff]
-          result << "\n《弾道学》" + dir[:name]
+          result[-1] += "\n"
+          result << "《弾道学》#{dir[:name]}"
           result << get_points_text(points, diff_x, diff_y)
         end
 
@@ -164,7 +171,7 @@ module BCDice
         return nil unless res
 
         if res.success?
-          res.text += "\n ＞ AVO#{avo}\n ＞ " + command_avo("AVO" + avo)
+          res.text += "\n ＞ " + command_avo("AVO" + avo)
         end
         res
       end
@@ -172,14 +179,14 @@ module BCDice
       def command_snd(command)
         sn, d = command.split(%r{/?D}, 2)
         debug("SND", sn, d)
-        m = D_REGEXP.match("D" + d)
+        m = D_REGEXP.match("D#{d}")
         return nil unless m
 
         res = command_sn(sn)
         return nil unless res
 
         if res.success?
-          res.text += " ＞ #{command_d('D' + d)}"
+          res.text += "\n ＞ #{command_d('D' + d)}"
         end
         res
       end
