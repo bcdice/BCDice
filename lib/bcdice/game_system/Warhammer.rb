@@ -51,14 +51,23 @@ module BCDice
         return output_msg
       end
 
-      def check_1D100(total, _dice_total, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :<=
+      def result_1d100(total, _dice_total, cmp_op, target)
+        return Result.nothing if target == '?'
+        return nil unless cmp_op == :<=
 
         if total <= target
-          " ＞ 成功(成功度#{(target - total) / 10})"
+          Result.success("成功(成功度#{(target - total) / 10})")
         else
-          " ＞ 失敗(失敗度#{(total - target) / 10})"
+          Result.failure("失敗(失敗度#{(total - target) / 10})")
+        end
+      end
+
+      def result_1d100_text(total, dice_total, cmp_op, target)
+        result = result_1d100(total, dice_total, cmp_op, target)&.text
+        if result.nil?
+          ""
+        else
+          " ＞ #{result}"
         end
       end
 
@@ -322,7 +331,7 @@ module BCDice
         total_n = @randomizer.roll_once(100)
 
         output = "(#{string}) ＞ #{total_n}"
-        output += check_1D100(total_n, total_n, :<=, diff)
+        output += result_1d100_text(total_n, total_n, :<=, diff)
 
         pos_num = (total_n % 10) * 10 + (total_n / 10).to_i
         pos_num = 100 if total_n >= 100
