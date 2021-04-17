@@ -21,20 +21,17 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       # ゲーム別成功度判定(2D6)
-      def check_2D6(total, _dice_total, dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' if cmp_op != :<=
+      def result_2d6(total, _dice_total, dice_list, cmp_op, target)
+        return Result.nothing if target == "?"
+        return nil if cmp_op != :<=
 
-        return success_text(total, target) + juuten(dice_list)
+        result = (total <= target ? Result.success("成功") : Result.failure("失敗"))
+        result.text += juuten(dice_list)
+
+        return result
       end
 
-      def success_text(total, target)
-        if total <= target
-          " ＞ 成功"
-        else
-          " ＞ 失敗"
-        end
-      end
+      private
 
       def juuten(dice_list)
         juuten = dice_list.count(1) + dice_list.count(6)
