@@ -2,6 +2,7 @@
 game_system = "MetalHead"
 input = "2D6>=7 成功"
 output = "(2D6>=7) ＞ 7[4,3] ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -11,6 +12,7 @@ rands = [
 game_system = "MetalHead"
 input = "2D6>=7 失敗"
 output = "(2D6>=7) ＞ 6[2,4] ＞ 6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -18,8 +20,31 @@ rands = [
 
 [[ test ]]
 game_system = "MetalHead"
+input = "2D6>=7 成功"
+output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ 絶対成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MetalHead"
+input = "2D6>=7 失敗"
+output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ 絶対失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MetalHead"
 input = "1D100<=50 成功"
 output = "(1D100<=50) ＞ 50 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -28,6 +53,7 @@ rands = [
 game_system = "MetalHead"
 input = "1D100<=94 失敗"
 output = "(1D100<=94) ＞ 95 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -36,6 +62,7 @@ rands = [
 game_system = "MetalHead"
 input = "1D100<=6 成功"
 output = "(1D100<=6) ＞ 6 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -44,6 +71,8 @@ rands = [
 game_system = "MetalHead"
 input = "1D100<=1 絶対成功(SR)"
 output = "(1D100<=1) ＞ 5 ＞ 絶対成功"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 5 },
 ]
@@ -52,6 +81,8 @@ rands = [
 game_system = "MetalHead"
 input = "1D100<=100 絶対失敗(SR)"
 output = "(1D100<=100) ＞ 96 ＞ 絶対失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 96 },
 ]
@@ -60,6 +91,8 @@ rands = [
 game_system = "MetalHead"
 input = "S1D100<=70"
 output = "(1D100<=70) ＞ 1 ＞ 絶対成功"
+success = true
+critical = true
 secret = true
 rands = [
   { sides = 100, value = 1 },
@@ -69,6 +102,8 @@ rands = [
 game_system = "MetalHead"
 input = "AR>=18 絶対成功"
 output = "(2D6>=18) ＞ 12[6,6] ＞ 12 ＞ 絶対成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -78,6 +113,8 @@ rands = [
 game_system = "MetalHead"
 input = "AR>=2 絶対失敗"
 output = "(2D6>=2) ＞ 2[1,1] ＞ 2 ＞ 絶対失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -87,6 +124,8 @@ rands = [
 game_system = "MetalHead"
 input = "SR<=1 絶対成功"
 output = "(1D100<=1) ＞ 5 ＞ 絶対成功"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 5 },
 ]
@@ -95,6 +134,8 @@ rands = [
 game_system = "MetalHead"
 input = "SR<=99 絶対失敗"
 output = "(1D100<=99) ＞ 96 ＞ 絶対失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 96 },
 ]

@@ -62,17 +62,13 @@ module BCDice
         return string
       end
 
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' if cmp_op != :>= || target == "?"
+      def result_2d6(_total, dice_total, _dice_list, cmp_op, _target)
+        return nil if cmp_op != :>=
 
         if dice_total >= 12
-          " ＞ 絶対成功"
+          Result.critical("絶対成功")
         elsif dice_total <= 2
-          " ＞ 絶対失敗"
-        elsif total >= target
-          " ＞ 成功"
-        else
-          " ＞ 失敗"
+          Result.fumble("絶対失敗")
         end
       end
 
@@ -85,11 +81,14 @@ module BCDice
         return text
       end
 
-      def check_1D100(total, dice_total, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :<=
+      def result_1d100(_total, dice_total, cmp_op, _target)
+        return nil unless cmp_op == :<=
 
-        return getResult(total, dice_total, target)
+        if dice_total <= 5
+          Result.critical("絶対成功")
+        elsif dice_total >= 96
+          Result.fumble("絶対失敗")
+        end
       end
 
       def getHitResult(total_n, _dice_n, diff)
@@ -104,15 +103,6 @@ module BCDice
         return ' ＞ 失敗（アクシデント）' if  dice1 == 0
 
         return ' ＞ 成功'
-      end
-
-      def getResult(total_n, dice_n, diff)
-        return ' ＞ 絶対成功' if  dice_n <= 5
-        return ' ＞ 絶対失敗' if  dice_n >= 96
-
-        return ' ＞ 成功' if total_n <= diff
-
-        return ' ＞ 失敗'
       end
 
       # 戦闘結果チャートを振る
