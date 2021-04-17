@@ -15,17 +15,19 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = "失敗、成功度の自動判定を行います。\n"
 
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
+      def result_2d6(total, dice_total, _dice_list, cmp_op, target)
+        return nil unless cmp_op == :<=
+
         if dice_total <= 2
-          " ＞ クリティカル"
+          Result.critical("クリティカル")
         elsif dice_total >= 12
-          " ＞ ファンブル"
-        elsif cmp_op == :<= && target != "?"
-          if total <= target
-            " ＞ #{target - total}成功"
-          else
-            " ＞ 失敗"
-          end
+          Result.fumble("ファンブル")
+        elsif target == "?"
+          Result.nothing
+        elsif total <= target
+          Result.success("#{target - total}成功")
+        else
+          Result.failure("失敗")
         end
       end
     end
