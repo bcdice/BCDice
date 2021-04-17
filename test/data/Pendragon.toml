@@ -1,231 +1,10 @@
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=2"
-output = "(1D20<=2) ＞ 19 ＞ 失敗"
-rands = [
-  { sides = 20, value = 19 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=2"
-output = "(1D20<=2) ＞ 9 ＞ 失敗"
-rands = [
-  { sides = 20, value = 9 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=2"
-output = "(1D20<=2) ＞ 12 ＞ 失敗"
-rands = [
-  { sides = 20, value = 12 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=2"
-output = "(1D20<=2) ＞ 8 ＞ 失敗"
-rands = [
-  { sides = 20, value = 8 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=2"
-output = "(1D20<=2) ＞ 16 ＞ 失敗"
-rands = [
-  { sides = 20, value = 16 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=2"
-output = "(1D20<=2) ＞ 17 ＞ 失敗"
-rands = [
-  { sides = 20, value = 17 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=2"
-output = "(1D20<=2) ＞ 18 ＞ 失敗"
-rands = [
-  { sides = 20, value = 18 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=2"
-output = "(1D20<=2) ＞ 15 ＞ 失敗"
-rands = [
-  { sides = 20, value = 15 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=2"
-output = "(1D20<=2) ＞ 17 ＞ 失敗"
-rands = [
-  { sides = 20, value = 17 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=2"
-output = "(1D20<=2) ＞ 1 ＞ 成功"
-rands = [
-  { sides = 20, value = 1 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=19"
-output = "(1D20<=19) ＞ 13 ＞ 成功"
-rands = [
-  { sides = 20, value = 13 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=19"
-output = "(1D20<=19) ＞ 6 ＞ 成功"
-rands = [
-  { sides = 20, value = 6 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=19"
-output = "(1D20<=19) ＞ 13 ＞ 成功"
-rands = [
-  { sides = 20, value = 13 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=19"
-output = "(1D20<=19) ＞ 1 ＞ 成功"
-rands = [
-  { sides = 20, value = 1 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=19"
-output = "(1D20<=19) ＞ 3 ＞ 成功"
-rands = [
-  { sides = 20, value = 3 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=19"
-output = "(1D20<=19) ＞ 6 ＞ 成功"
-rands = [
-  { sides = 20, value = 6 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=19"
-output = "(1D20<=19) ＞ 13 ＞ 成功"
-rands = [
-  { sides = 20, value = 13 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=19"
-output = "(1D20<=19) ＞ 5 ＞ 成功"
-rands = [
-  { sides = 20, value = 5 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=19"
-output = "(1D20<=19) ＞ 13 ＞ 成功"
-rands = [
-  { sides = 20, value = 13 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=19"
-output = "(1D20<=19) ＞ 9 ＞ 成功"
-rands = [
-  { sides = 20, value = 9 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=10"
-output = "(1D20<=10) ＞ 7 ＞ 成功"
-rands = [
-  { sides = 20, value = 7 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=10"
-output = "(1D20<=10) ＞ 9 ＞ 成功"
-rands = [
-  { sides = 20, value = 9 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=10"
-output = "(1D20<=10) ＞ 19 ＞ 失敗"
-rands = [
-  { sides = 20, value = 19 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=10"
-output = "(1D20<=10) ＞ 12 ＞ 失敗"
-rands = [
-  { sides = 20, value = 12 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=10"
-output = "(1D20<=10) ＞ 1 ＞ 成功"
-rands = [
-  { sides = 20, value = 1 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=10"
-output = "(1D20<=10) ＞ 9 ＞ 成功"
-rands = [
-  { sides = 20, value = 9 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=10"
-output = "(1D20<=10) ＞ 11 ＞ 失敗"
-rands = [
-  { sides = 20, value = 11 },
-]
-
-[[ test ]]
-game_system = "Pendragon"
-input = "1D20<=10"
-output = "(1D20<=10) ＞ 7 ＞ 成功"
-rands = [
-  { sides = 20, value = 7 },
-]
 
 [[ test ]]
 game_system = "Pendragon"
 input = "1D20<=10"
 output = "(1D20<=10) ＞ 20 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 20, value = 20 },
 ]
@@ -233,9 +12,57 @@ rands = [
 [[ test ]]
 game_system = "Pendragon"
 input = "1D20<=10"
-output = "(1D20<=10) ＞ 6 ＞ 成功"
+output = "(1D20<=10) ＞ 19 ＞ 失敗"
+failure = true
 rands = [
-  { sides = 20, value = 6 },
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "Pendragon"
+input = "1D20<=10"
+output = "(1D20<=10) ＞ 11 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 20, value = 11 },
+]
+
+[[ test ]]
+game_system = "Pendragon"
+input = "1D20<=10"
+output = "(1D20<=10) ＞ 10 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 10 },
+]
+
+[[ test ]]
+game_system = "Pendragon"
+input = "1D20<=10"
+output = "(1D20<=10) ＞ 9 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Pendragon"
+input = "1D20<=30"
+output = "(1D20<=30) ＞ 10 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 10 },
+]
+
+[[ test ]]
+game_system = "Pendragon"
+input = "1D20<=30"
+output = "(1D20<=30) ＞ 9 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 9 },
 ]
 
 [[ test ]]
