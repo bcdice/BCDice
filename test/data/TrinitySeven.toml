@@ -358,6 +358,8 @@ rands = [
 game_system = "TrinitySeven"
 input = "1D100<=50"
 output = "(1D100<=50) ＞ 1 ＞ クリティカル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -366,6 +368,8 @@ rands = [
 game_system = "TrinitySeven"
 input = "1D100<=50"
 output = "(1D100<=50) ＞ 99 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -374,6 +378,8 @@ rands = [
 game_system = "TrinitySeven"
 input = "1D100<=50"
 output = "(1D100<=50) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
