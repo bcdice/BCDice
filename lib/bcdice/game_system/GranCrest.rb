@@ -46,28 +46,35 @@ module BCDice
       end
 
       # ゲーム別成功度判定(nD6)
-      def check_nD6(total, _dice_total, dice_list, cmp_op, target)
-        result = ''
+      def result_nd6(total, _dice_total, dice_list, cmp_op, target)
+        return nil unless cmp_op == :>=
+
+        result = Result.new
+        sequence = []
 
         if dice_list.count(6) >= 2
           total += 10
-          result = "（クリティカル） ＞ #{total}"
+          result.critical = true
+          sequence.push("（クリティカル）", total.to_s)
         end
 
-        if cmp_op != :>= || target == '?'
-          return result
+        if target != '?'
+          if total >= target
+            sequence.push("成功")
+            result.success = true
+          else
+            sequence.push("失敗")
+            result.failure = true
+          end
         end
 
-        if total >= target
-          result += " ＞ 成功"
-        else
-          result += " ＞ 失敗"
+        if sequence.empty?
+          return nil
         end
 
+        result.text = sequence.join(" ＞ ")
         return result
       end
-
-      alias check_2D6 check_nD6
 
       def eval_game_system_specific_command(command)
         debug("eval_game_system_specific_command command", command)
