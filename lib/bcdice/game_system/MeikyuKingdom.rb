@@ -77,38 +77,38 @@ module BCDice
         return string
       end
 
-      def check_nD6(total, dice_total, dice_list, cmp_op, target)
-        return '' if target == '?'
+      def result_nd6(total, dice_total, dice_list, cmp_op, target)
+        return Result.nothing if target == "?"
+        return nil unless cmp_op == :>=
 
-        result = get2D6Result(total, dice_total, cmp_op, target)
-        result += getKiryokuResult(total, dice_list, target)
+        result = result_nd6_only(total, dice_total, cmp_op, target)
+        result.text += kiryoku_result(total, dice_list, target)
 
         return result
       end
 
-      alias check_2D6 check_nD6
+      def result_nd6_only(total, dice_total, cmp_op, target)
+        return nil unless cmp_op == :>=
 
-      def get2D6Result(total_n, dice_n, signOfInequality, diff)
-        return '' unless signOfInequality == :>=
-
-        if dice_n <= 2
-          " ＞ 絶対失敗"
-        elsif dice_n >= 12
-          " ＞ 絶対成功"
+        if dice_total <= 2
+          Result.fumble("絶対失敗")
+        elsif dice_total >= 12
+          Result.critical("絶対成功")
+        elsif total >= target
+          Result.success("成功")
         else
-          get2D6ResultOnlySuccess(total_n, diff)
+          Result.failure("失敗")
         end
       end
 
-      def get2D6ResultOnlySuccess(total_n, diff)
-        if total_n >= diff
-          " ＞ 成功"
-        else
-          " ＞ 失敗"
-        end
+      def result_2d6_text(total, dice_total, cmp_op, target)
+        text = result_nd6_only(total, dice_total, cmp_op, target)&.text
+        return "" if text.nil?
+
+        return " ＞ #{text}"
       end
 
-      def getKiryokuResult(total_n, dice_list, diff)
+      def kiryoku_result(total_n, dice_list, diff)
         num_6 = dice_list.count(6)
 
         if num_6 == 0
@@ -131,7 +131,7 @@ module BCDice
         none6Dice_n = maxDice1 + maxDice2
         debug("none6Dice_n", none6Dice_n)
         debug("diff", diff)
-        none6DiceReuslt = get2D6ResultOnlySuccess(none6Total_n, diff)
+        none6DiceReuslt = (none6Total_n >= diff ? " ＞ 成功" : " ＞ 失敗")
 
         return " (もしくは) #{none6Total_n}#{none6DiceReuslt} ＆ 《気力》1点獲得"
       end
@@ -180,8 +180,8 @@ module BCDice
 
         if signOfInequality != "" # 成功度判定処理
           cmp_op = Normalize.comparison_operator(signOfInequality)
-          output += get2D6Result(total_n, dice_now, cmp_op, diff)
-          output += getKiryokuResult(total_n, dice_list, diff)
+          output += result_2d6_text(total_n, dice_now, cmp_op, diff)
+          output += kiryoku_result(total_n, dice_list, diff)
         end
 
         return output

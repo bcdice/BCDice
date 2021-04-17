@@ -82,7 +82,7 @@ module BCDice
         @d66_sort_type = D66SortType::ASC
       end
 
-      def getKiryokuResult(_total_n, dice_list, _diff)
+      def kiryoku_result(_total_n, dice_list, _diff)
         num_6 = dice_list.count(6)
 
         if num_6 == 0
