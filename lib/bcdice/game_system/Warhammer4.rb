@@ -44,9 +44,9 @@ module BCDice
         roll_critical_table(command) || roll_attack(command) || roll_tables(command, TABLES)
       end
 
-      def check_1D100(total, _dice_total, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :<=
+      def result_1d100(total, _dice_total, cmp_op, target)
+        return Result.nothing if target == '?'
+        return nil unless cmp_op == :<=
 
         t10 = total / 10
         d10 = target / 10
@@ -62,18 +62,19 @@ module BCDice
 
         result =
           if total <= 5
-            "自動成功"
+            Result.success("自動成功")
           elsif total >= 96
-            "自動失敗"
+            Result.failure("自動失敗")
           elsif total <= target
-            "成功"
+            Result.success("成功")
           else
-            "失敗"
+            Result.failure("失敗")
           end
 
         sl_text = format("(SL%+d)", sl)
+        result.text += "#{sl_text} ＞ #{result_detail(sl, total, target)}"
 
-        " ＞ #{result}#{sl_text} ＞ #{result_detail(sl, total, target)}"
+        return result
       end
 
       private
@@ -249,7 +250,7 @@ module BCDice
 
         target_number = m[1].to_i
         total = @randomizer.roll_once(100)
-        result = check_1D100(total, total, :<=, target_number).delete_prefix(" ＞ ")
+        result = result_1d100(total, total, :<=, target_number)&.text
 
         sequence = [
           "(#{command})",
