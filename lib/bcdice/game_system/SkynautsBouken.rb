@@ -116,11 +116,11 @@ module BCDice
               end
 
         if dice_count == 2
-          res.text = ["(#{dice_count}SN#{target}##{fumble})","#{dice_top_two.sum}[#{dice_list.join(",")}]", res.text]
-                   .compact.join(" ＞ ")
+          res.text = ["(#{dice_count}SN#{target}##{fumble})", "#{dice_top_two.sum}[#{dice_list.join(',')}]", res.text]
+                     .compact.join(" ＞ ")
         else
-          res.text = ["(#{dice_count}SN#{target}##{fumble})", "[" + dice_list.join(",") + "]", "#{dice_top_two.sum}[#{dice_top_two.join(",")}]", res.text]
-              .compact.join(" ＞ ")
+          res.text = ["(#{dice_count}SN#{target}##{fumble})", "[" + dice_list.join(",") + "]", "#{dice_top_two.sum}[#{dice_top_two.join(',')}]", res.text]
+                     .compact.join(" ＞ ")
         end
         res
       end
