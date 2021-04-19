@@ -4,6 +4,7 @@
 
 ### 追加機能
 - 新クトゥルフ神話TRPG: 技能ロールで難易度を設定できるように ([#417](https://github.com/bcdice/BCDice/pull/417))
+- 多くのゲームシステムで加算ダイスの特殊処理時に `Result` での成功／失敗／ファンブル／クリティカルの情報を付与する ([#418](https://github.com/bcdice/BCDice/pull/418))
 
 ## 変更
 - ウォーハンマーRPG第4版: 判定コマンドで失敗しても命中部位を表示する。Facelessさんありがとうっ！ ([#405](https://github.com/bcdice/BCDice/pull/405))
