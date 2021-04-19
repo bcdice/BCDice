@@ -12,6 +12,7 @@
 
 ## 変更
 - ウォーハンマーRPG第4版: 判定コマンドで失敗しても命中部位を表示する。Facelessさんありがとうっ！ ([#405](https://github.com/bcdice/BCDice/pull/405))
+- エモクロアTRPG: 日本語名を「エモクロアTRPG」に変更し、合わせてソートキーも変更 ([#419](https://github.com/bcdice/BCDice/pull/419))
 
 ## 誤植修正
 - ウォーハンマーRPG第4版: やっちまった表の誤植を修正。Facelessさんありがとうっ！ ([#405](https://github.com/bcdice/BCDice/pull/405))
