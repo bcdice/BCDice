@@ -32,22 +32,14 @@ module BCDice
         @d66_sort_type = D66SortType::ASC
       end
 
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
+      def result_2d6(_total, dice_total, _dice_list, cmp_op, _target)
+        return nil unless cmp_op == :>=
 
-        result =
-          if dice_total <= 2
-            translate("StratoShout.fumble")
-          elsif dice_total >= 12
-            translate("StratoShout.critical")
-          elsif total >= target
-            translate("success")
-          else
-            translate("failure")
-          end
-
-        return " ＞ #{result}"
+        if dice_total <= 2
+          Result.fumble(translate("StratoShout.fumble"))
+        elsif dice_total >= 12
+          Result.critical(translate("StratoShout.critical"))
+        end
       end
 
       def eval_game_system_specific_command(command)

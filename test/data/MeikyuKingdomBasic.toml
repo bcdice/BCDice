@@ -2,6 +2,7 @@
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=9"
 output = "(2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -11,6 +12,7 @@ rands = [
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 8[2,6] ＞ 8 ＞ 成功 ＆ 《気力》1点獲得"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -20,6 +22,7 @@ rands = [
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=9"
 output = "(2D6>=9) ＞ 7[1,6] ＞ 7 ＞ 失敗 ＆ 《気力》1点獲得"
+failure = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -29,6 +32,8 @@ rands = [
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=9"
 output = "(2D6>=9) ＞ 12[6,6] ＞ 12 ＞ 絶対成功 ＆ 《気力》2点獲得"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -38,6 +43,8 @@ rands = [
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=9"
 output = "(2D6>=9) ＞ 12[6,6] ＞ 12 ＞ 絶対成功 ＆ 《気力》2点獲得"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -45,8 +52,20 @@ rands = [
 
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
+input = "2d6>=9"
+output = "(2D6>=9) ＞ 2[1,1] ＞ 2 ＞ 絶対失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 5[2,3] ＞ 5 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -56,6 +75,7 @@ rands = [
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 8[4,4] ＞ 8 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -65,6 +85,7 @@ rands = [
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 9[4,5] ＞ 9 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -74,6 +95,7 @@ rands = [
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 9[4,5] ＞ 9 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -83,6 +105,7 @@ rands = [
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -92,6 +115,7 @@ rands = [
 game_system = "MeikyuKingdomBasic"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 8[2,6] ＞ 8 ＞ 成功 ＆ 《気力》1点獲得"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },

@@ -18,9 +18,9 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       # ゲーム別成功度判定(1d20)
-      def check_1D20(total, _dice_total, cmp_op, diff)
-        return '' if diff == '?'
-        return '' unless cmp_op == :<=
+      def result_1d20(total, _dice_total, cmp_op, diff)
+        return Result.nothing if diff == '?'
+        return nil unless cmp_op == :<=
 
         # 技能値の修正を計算する
         skill_mod = 0
@@ -46,7 +46,7 @@ module BCDice
           else
             fum_str += "-#{skill_mod}=#{fum_num}"
           end
-          return " ＞ 致命的失敗(#{fum_str})"
+          return Result.fumble("致命的失敗(#{fum_str})")
 
         elsif (total <= critical) || (total <= 1)
           crit_num = dice_now + skill_mod
@@ -54,14 +54,14 @@ module BCDice
           crit_num = 1 if crit_num < 1
 
           if skill_mod < 0
-            return " ＞ 成功"
+            return Result.success("成功")
           end
 
-          return " ＞ 決定的成功(#{dice_now}+#{skill_mod}=#{crit_num})"
+          return Result.critical("決定的成功(#{dice_now}+#{skill_mod}=#{crit_num})")
         elsif total <= diff
-          return " ＞ 成功"
+          return Result.success("成功")
         else
-          return " ＞ 失敗"
+          return Result.failure("失敗")
         end
       end
     end

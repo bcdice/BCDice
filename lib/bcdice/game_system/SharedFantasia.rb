@@ -24,11 +24,12 @@ module BCDice
       register_prefix('SF', 'ST')
 
       def change_text(string)
-        string.gsub(/SF/i, "2D6").gsub(/ST/i, "2D6")
+        string.gsub(/S[FT]/i, "2D6")
       end
 
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' if target == '?'
+      def result_2d6(total, dice_total, _dice_list, cmp_op, target)
+        return Result.nothing if target == '?'
+        return nil unless [:>=, :>].include?(cmp_op)
 
         critical = false
         fumble   = false
@@ -39,28 +40,23 @@ module BCDice
           fumble = true
         end
 
-        totalValueBonus = 0
-        if cmp_op == :>=
-          totalValueBonus = 1
-        end
+        totalValueBonus = (cmp_op == :>= ? 1 : 0)
 
-        if [:>=, :>].include?(cmp_op)
-          if (total + totalValueBonus) > target
-            if critical
-              return " ＞ 自動成功(劇的成功)"
-            elsif fumble
-              return " ＞ 自動失敗"
-            else
-              return " ＞ 成功"
-            end
+        if (total + totalValueBonus) > target
+          if critical
+            Result.critical("自動成功(劇的成功)")
+          elsif fumble
+            Result.failure("自動失敗")
           else
-            if critical
-              return " ＞ 自動成功"
-            elsif fumble
-              return " ＞ 自動失敗(致命的失敗)"
-            else
-              return " ＞ 失敗"
-            end
+            Result.success("成功")
+          end
+        else
+          if critical
+            Result.success("自動成功")
+          elsif fumble
+            Result.fumble("自動失敗(致命的失敗)")
+          else
+            Result.failure("失敗")
           end
         end
       end

@@ -80,20 +80,6 @@ Naming/MethodName:
 Naming/MethodParameterName:
   Enabled: false
 
-# Offense count: 10
-# Configuration parameters: AllowIfModifier.
-Style/IfInsideElse:
-  Exclude:
-    - 'lib/bcdice/game_system/Alsetto.rb'
-    - 'lib/bcdice/game_system/Cthulhu.rb'
-    - 'lib/bcdice/game_system/Cthulhu7th.rb'
-    - 'lib/bcdice/game_system/Cthulhu7th_ChineseTraditional.rb'
-    - 'lib/bcdice/game_system/Cthulhu7th_Korean.rb'
-    - 'lib/bcdice/game_system/Cthulhu_ChineseTraditional.rb'
-    - 'lib/bcdice/game_system/Cthulhu_Korean.rb'
-    - 'lib/bcdice/game_system/GurpsFW.rb'
-    - 'lib/bcdice/game_system/SharedFantasia.rb'
-
 # Offense count: 1289
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.

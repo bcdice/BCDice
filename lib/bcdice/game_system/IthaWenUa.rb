@@ -15,22 +15,15 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = "1D100<=m 方式の判定で成否、クリティカル(01)・ファンブル(00)を自動判定します。\n"
 
-      def check_1D100(total, _dice_total, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :<=
+      def result_1d100(total, _dice_total, cmp_op, target)
+        return nil unless cmp_op == :<=
 
-        diceValue = total % 100
-        dice0 = diceValue / 10 # 10の位を代入
-        dice1 = diceValue % 10 # 1の位を代入
-
-        if (dice0 == 0) && (dice1 == 1)
-          ' ＞ 01 ＞ クリティカル'
-        elsif (dice0 == 0) && (dice1 == 0)
-          ' ＞ 00 ＞ ファンブル'
-        elsif total <= target
-          ' ＞ 成功'
-        else
-          ' ＞ 失敗'
+        if total % 100 == 1
+          Result.critical("01 ＞ クリティカル")
+        elsif total % 100 == 0
+          Result.fumble("00 ＞ ファンブル")
+        elsif target == "?"
+          Result.nothing
         end
       end
     end

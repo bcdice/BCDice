@@ -2,6 +2,7 @@
 game_system = "IthaWenUa"
 input = "1D100<=50 成功"
 output = "(1D100<=50) ＞ 50 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -10,6 +11,7 @@ rands = [
 game_system = "IthaWenUa"
 input = "1D100<=50 失敗"
 output = "(1D100<=50) ＞ 51 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -18,6 +20,7 @@ rands = [
 game_system = "IthaWenUa"
 input = "1D100<=99 成功"
 output = "(1D100<=99) ＞ 99 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 99 },
 ]
@@ -26,6 +29,8 @@ rands = [
 game_system = "IthaWenUa"
 input = "1D100<=1 クリティカル"
 output = "(1D100<=1) ＞ 1 ＞ 01 ＞ クリティカル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -34,6 +39,8 @@ rands = [
 game_system = "IthaWenUa"
 input = "1D100<=100 ファンブル"
 output = "(1D100<=100) ＞ 100 ＞ 00 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -42,9 +49,31 @@ rands = [
 game_system = "IthaWenUa"
 input = "S1D100<=70"
 output = "(1D100<=70) ＞ 1 ＞ 01 ＞ クリティカル"
+success = true
+critical = true
 secret = true
 rands = [
   { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "IthaWenUa"
+input = "1D100<=? クリティカル"
+output = "(1D100<=?) ＞ 1 ＞ 01 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "IthaWenUa"
+input = "1D100<=? ファンブル"
+output = "(1D100<=?) ＞ 100 ＞ 00 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
 ]
 
 [[ test ]]

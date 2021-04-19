@@ -29,6 +29,7 @@ rands = [
 game_system = "WaresBlade"
 input = "1D10>=9"
 output = "(1D10>=9) ＞ 9 ＞ 成功"
+success = true
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -55,6 +56,7 @@ rands = [
 game_system = "WaresBlade"
 input = "(1+2)D10+3>=12"
 output = "(3D10+3>=12) ＞ 12[3,4,5]+3 ＞ 15 ＞ 成功"
+success = true
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
@@ -66,6 +68,7 @@ game_system = "WaresBlade"
 input = "S1D10>=10"
 output = "(1D10>=10) ＞ 9 ＞ 失敗"
 secret = true
+failure = true
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -74,6 +77,8 @@ rands = [
 game_system = "WaresBlade"
 input = "1D10+2>=13 完全成功"
 output = "(1D10+2>=13) ＞ 10[10]+2 ＞ 12 ＞ 完全成功"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -82,6 +87,8 @@ rands = [
 game_system = "WaresBlade"
 input = "1D10+2>=3 絶対失敗"
 output = "(1D10+2>=3) ＞ 1[1]+2 ＞ 3 ＞ 絶対失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -90,6 +97,8 @@ rands = [
 game_system = "WaresBlade"
 input = "(1+1)D10+1>=30 複数dice完全成功"
 output = "(2D10+1>=30) ＞ 20[10,10]+1 ＞ 21 ＞ 完全成功"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -99,6 +108,8 @@ rands = [
 game_system = "WaresBlade"
 input = "(1+2)D10+2>=3 複数dice絶対失敗"
 output = "(3D10+2>=3) ＞ 3[1,1,1]+2 ＞ 5 ＞ 絶対失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },

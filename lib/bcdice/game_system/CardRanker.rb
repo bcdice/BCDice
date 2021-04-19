@@ -37,18 +37,19 @@ module BCDice
       end
 
       # ゲーム別成功度判定(2D6)
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
+      def result_2d6(total, dice_total, _dice_list, cmp_op, target)
+        return nil unless cmp_op == :>=
 
         if dice_total <= 2
-          return " ＞ ファンブル"
+          Result.fumble("ファンブル")
         elsif dice_total >= 12
-          return " ＞ スペシャル ＞ " + RTT.roll_command(@randomizer, "RM")
+          Result.critical("スペシャル ＞ " + RTT.roll_command(@randomizer, "RM"))
+        elsif target == "?"
+          Result.nothing
         elsif total >= target
-          return " ＞ 成功"
+          Result.success("成功")
         else
-          return " ＞ 失敗"
+          Result.failure("失敗")
         end
       end
 

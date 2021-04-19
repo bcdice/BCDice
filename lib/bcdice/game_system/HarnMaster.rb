@@ -23,30 +23,23 @@ module BCDice
 
       register_prefix('SHK', 'SLH', 'SLHU', 'SLHD')
 
-      def check_1D100(total, _dice_total, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :<=
+      def result_1d100(total, _dice_total, cmp_op, target)
+        return Result.nothing if target == '?'
+        return nil unless cmp_op == :<=
 
-        result = getCheckResult(total, target)
-        return " ＞ #{result}"
-      end
-
-      def getCheckResult(total, diff)
-        return getFailResult(total) if total > diff
-
-        return getSuccessResult(total)
-      end
-
-      def getFailResult(total)
-        return "致命的失敗" if (total % 5) == 0
-
-        return "失敗"
-      end
-
-      def getSuccessResult(total)
-        return "決定的成功" if (total % 5) == 0
-
-        return "成功"
+        if total <= target
+          if total % 5 == 0
+            Result.critical("決定的成功")
+          else
+            Result.success("成功")
+          end
+        else
+          if total % 5 == 0
+            Result.fumble("致命的失敗")
+          else
+            Result.failure("失敗")
+          end
+        end
       end
 
       def eval_game_system_specific_command(command)

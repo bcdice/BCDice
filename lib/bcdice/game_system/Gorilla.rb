@@ -28,15 +28,9 @@ module BCDice
         return string
       end
 
-      def check_2D6(total, _dice_total, dice_list, cmp_op, target)
-        return '' if target == '?'
-
+      def result_2d6(_total, _dice_total, dice_list, _cmp_op, _target)
         if dice_list == [5, 5]
-          " ＞ ゴリティカル（自動的成功）"
-        elsif total.send(cmp_op, target)
-          " ＞ 成功"
-        else
-          " ＞ 失敗"
+          Result.critical("ゴリティカル（自動的成功）")
         end
       end
     end

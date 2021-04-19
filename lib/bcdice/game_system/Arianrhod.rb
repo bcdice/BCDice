@@ -25,25 +25,23 @@ module BCDice
         @d66_sort_type = D66SortType::NO_SORT
       end
 
-      def check_nD6(total, _dice_total, dice_list, cmp_op, target)
+      def result_nd6(total, _dice_total, dice_list, cmp_op, target)
         n_max = dice_list.count(6)
 
         if dice_list.count(1) == dice_list.size
           # 全部１の目ならファンブル
-          " ＞ ファンブル"
+          Result.fumble("ファンブル")
         elsif n_max >= 2
           # ２個以上６の目があったらクリティカル
-          " ＞ クリティカル(+#{n_max}D6)" if n_max >= 2
+          Result.critical("クリティカル(+#{n_max}D6)")
         elsif cmp_op != :>= || target == '?'
-          ''
+          nil
         elsif total >= target
-          " ＞ 成功"
+          Result.success("成功")
         else
-          " ＞ 失敗"
+          Result.failure("失敗")
         end
       end
-
-      alias check_2D6 check_nD6
     end
   end
 end

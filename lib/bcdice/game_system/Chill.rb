@@ -24,22 +24,22 @@ module BCDice
 
       register_prefix('SR')
 
-      def check_1D100(total, _dice_total, cmp_op, target)
-        return '' if target == '?'
-        return '' if cmp_op != :<=
+      def result_1d100(total, _dice_total, cmp_op, target)
+        return nil if target == '?'
+        return nil if cmp_op != :<=
 
         if total >= 100
-          " ＞ ファンブル"
+          Result.fumble("ファンブル")
         elsif total > target
-          " ＞ 失敗"
+          Result.failure("失敗")
         elsif total >= (target * 0.9)
-          " ＞ Ｌ成功"
+          Result.success("Ｌ成功")
         elsif total >= (target / 2)
-          " ＞ Ｍ成功"
+          Result.success("Ｍ成功")
         elsif total >= (target / 10)
-          " ＞ Ｈ成功"
+          Result.success("Ｈ成功")
         else
-          " ＞ Ｃ成功"
+          Result.critical("Ｃ成功")
         end
       end
 

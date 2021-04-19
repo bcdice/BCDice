@@ -1,232 +1,9 @@
 [[ test ]]
 game_system = "HuntersMoon"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 9[3,6] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 6[3,3] ＞ 6 ＞ 成功"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 8[2,6] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 4[2,2] ＞ 4 ＞ 成功"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 10[4,6] ＞ 10 ＞ 成功"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 8[3,5] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 11[5,6] ＞ 11 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 8[2,6] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 10[5,5] ＞ 10 ＞ 成功"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=4"
-output = "(2D6>=4) ＞ 9[3,6] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 4[2,2] ＞ 4 ＞ 失敗"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 10[4,6] ＞ 10 ＞ 成功"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 5[2,3] ＞ 5 ＞ 失敗"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 8[4,4] ＞ 8 ＞ 失敗"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 9[4,5] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 11[5,6] ＞ 11 ＞ 成功"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 8[4,4] ＞ 8 ＞ 失敗"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 10[4,6] ＞ 10 ＞ 成功"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=9"
-output = "(2D6>=9) ＞ 3[1,2] ＞ 3 ＞ 失敗"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 8[4,4] ＞ 8 ＞ 成功"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 7[2,5] ＞ 7 ＞ 成功"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 10[5,5] ＞ 10 ＞ 成功"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 6[2,4] ＞ 6 ＞ 失敗"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
 input = "2d6>=7"
 output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル(モノビースト追加行動+1)"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -235,37 +12,54 @@ rands = [
 [[ test ]]
 game_system = "HuntersMoon"
 input = "2d6>=7"
-output = "(2D6>=7) ＞ 9[3,6] ＞ 9 ＞ 成功"
+output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ スペシャル(変調1つ回復orダメージ+1D6)"
+success = true
+critical = true
 rands = [
-  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "HuntersMoon"
 input = "2d6>=7"
-output = "(2D6>=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+output = "(2D6>=7) ＞ 3[1,2] ＞ 3 ＞ 失敗"
+failure = true
 rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 9[4,5] ＞ 9 ＞ 成功"
-rands = [
-  { sides = 6, value = 5 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "2d6>=7"
-output = "(2D6>=7) ＞ 7[2,5] ＞ 7 ＞ 成功"
-rands = [
-  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
   { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "HuntersMoon"
+input = "2d6>=7"
+output = "(2D6>=7) ＞ 11[5,6] ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HuntersMoon"
+input = "2d6>=?"
+output = "(2D6>=?) ＞ 2[1,1] ＞ 2 ＞ ファンブル(モノビースト追加行動+1)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "HuntersMoon"
+input = "2d6>=?"
+output = "(2D6>=?) ＞ 12[6,6] ＞ 12 ＞ スペシャル(変調1つ回復orダメージ+1D6)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
@@ -295,14 +89,6 @@ rands = [
 [[ test ]]
 game_system = "HuntersMoon"
 input = "ET"
-output = "遭遇表(1) ＞ 獲物/恐怖/あなたはモノビーストの獲物として追い回される。満月の夜でないと傷を負わせることができない怪物相手に、あなたは逃げ回るしかない。"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "ET"
 output = "遭遇表(5) ＞ 現場/怒り/あなたはモノビーストが獲物を捕食した現場を発見した。派手な血の跡が目に焼きつく。こんなことをする奴を生かしてはおけない。"
 rands = [
   { sides = 6, value = 5 },
@@ -319,41 +105,9 @@ rands = [
 [[ test ]]
 game_system = "HuntersMoon"
 input = "ET"
-output = "遭遇表(2) ＞ 暗闇/恐怖/あの獣は暗闇の中から現れ、暗闇の中へ消えていった。どんなに振り払おうとしても、あの恐ろしい姿の記憶から逃れられない。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "ET"
 output = "遭遇表(3) ＞ 依頼/怒り/あなたはモノビーストの被害者の関係者、あるいはハンターや魔術師の組織から、モノビーストを倒す依頼を受けた。"
 rands = [
   { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "ET"
-output = "遭遇表(3) ＞ 依頼/怒り/あなたはモノビーストの被害者の関係者、あるいはハンターや魔術師の組織から、モノビーストを倒す依頼を受けた。"
-rands = [
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "ET"
-output = "遭遇表(2) ＞ 暗闇/恐怖/あの獣は暗闇の中から現れ、暗闇の中へ消えていった。どんなに振り払おうとしても、あの恐ろしい姿の記憶から逃れられない。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "CLT"
-output = "都市ロケーション表(5) ＞ ビル屋上/高いビルの屋上。ハンターはファンブル時に屋上から落下して強制的に撤退する。命に別状はない"
-rands = [
-  { sides = 6, value = 5 },
 ]
 
 [[ test ]]
@@ -370,14 +124,6 @@ input = "CLT"
 output = "都市ロケーション表(3) ＞ 駅/人のいない駅。全てのキャラクターがファンブル時に砂利に突っ込んだり伝染に接触しかけることで1D6のダメージを受ける。"
 rands = [
   { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "CLT"
-output = "都市ロケーション表(5) ＞ ビル屋上/高いビルの屋上。ハンターはファンブル時に屋上から落下して強制的に撤退する。命に別状はない"
-rands = [
-  { sides = 6, value = 5 },
 ]
 
 [[ test ]]
@@ -418,14 +164,6 @@ input = "CLT"
 output = "都市ロケーション表(1) ＞ 住宅街/閑静な住宅街。不意打ちに適しているため、ハンターの攻撃判定に+1の修正をつけてもよい。"
 rands = [
   { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "CLT"
-output = "都市ロケーション表(3) ＞ 駅/人のいない駅。全てのキャラクターがファンブル時に砂利に突っ込んだり伝染に接触しかけることで1D6のダメージを受ける。"
-rands = [
-  { sides = 6, value = 3 },
 ]
 
 [[ test ]]
@@ -471,14 +209,6 @@ rands = [
 [[ test ]]
 game_system = "HuntersMoon"
 input = "SLT"
-output = "閉所ロケーション表(6) ＞ 都市の底/都市の全てのゴミが流れ着く場所。広い空洞にゴミが敷き詰められている。この敵対的な環境では、ハンターの攻撃判定に-1の修正がつく。さらにハンターは攻撃失敗時に2ダメージを受ける。"
-rands = [
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "SLT"
 output = "閉所ロケーション表(3) ＞ 地下道/暗いトンネル。車道や照明の落ちた地下街。ハンターは、ファンブル時にアイテムを一つランダムに失くしてしまう。"
 rands = [
   { sides = 6, value = 3 },
@@ -511,30 +241,6 @@ rands = [
 [[ test ]]
 game_system = "HuntersMoon"
 input = "HLT"
-output = "炎熱ロケーション表(4) ＞ 機関室/何らかの工場。入り組みすぎて周りを見通せないうえ、配置がわからず出たとこ勝負を強いられる。キャラクター全員が戦闘開始時に「妨害」の変調を発動する。"
-rands = [
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "HLT"
-output = "炎熱ロケーション表(5) ＞ 火事場/事故現場なのかモノビーストの仕業か、あたりは激しく燃え盛っている。ハンターはファンブル時に「炎上」の変調を発動する。"
-rands = [
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "HLT"
-output = "炎熱ロケーション表(5) ＞ 火事場/事故現場なのかモノビーストの仕業か、あたりは激しく燃え盛っている。ハンターはファンブル時に「炎上」の変調を発動する。"
-rands = [
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "HLT"
 output = "炎熱ロケーション表(6) ＞ 製鉄所/無人ながら稼働中の製鉄所。安全対策が不十分で、溶けた金属の周囲まで近づくことが可能だ。ハンターは毎ラウンド終了時に《耐熱》で行為判定をし、これに失敗すると「炎上」の変調を発動する。"
 rands = [
   { sides = 6, value = 6 },
@@ -562,14 +268,6 @@ input = "HLT"
 output = "炎熱ロケーション表(1) ＞ 温室/植物が栽培されている熱く湿った場所。生命に満ち溢れた様子は、戦闘開始時にハンターの【モラル】を1点増加する。"
 rands = [
   { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "HLT"
-output = "炎熱ロケーション表(6) ＞ 製鉄所/無人ながら稼働中の製鉄所。安全対策が不十分で、溶けた金属の周囲まで近づくことが可能だ。ハンターは毎ラウンド終了時に《耐熱》で行為判定をし、これに失敗すると「炎上」の変調を発動する。"
-rands = [
-  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
@@ -623,22 +321,6 @@ rands = [
 [[ test ]]
 game_system = "HuntersMoon"
 input = "FLT"
-output = "冷暗ロケーション表(5) ＞ 空き地/寒風吹きすさぶ空き地。長くいると凍えてしまいそうだ。ハンターはファンブル時に身体がかじかみ、「重傷」の変調を発動する。"
-rands = [
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "FLT"
-output = "冷暗ロケーション表(1) ＞ 冷凍保管室/食品が氷漬けにされている場所。ここではモノビーストは氷に覆われてしまう。モノビーストは戦闘開始時に「捕縛」の変調を発動する。"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "FLT"
 output = "冷暗ロケーション表(6) ＞ 氷室/氷で満たされた洞窟。こんな場所が都市にあったとは信じがたいが、とにかくひどく寒い。ハンターは毎ラウンド終了時に《耐寒》で判定し、失敗すると「重傷」の変調を発動する。"
 rands = [
   { sides = 6, value = 6 },
@@ -650,14 +332,6 @@ input = "FLT"
 output = "冷暗ロケーション表(3) ＞ 魚市場/発泡スチロールの箱に鮮魚と氷が詰まり、コンクリートの床は濡れていて滑りやすい。ハンターはファンブル時に転んで1D6ダメージを受ける。"
 rands = [
   { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "HuntersMoon"
-input = "FLT"
-output = "冷暗ロケーション表(2) ＞ 墓地/死んだ人々が眠る場所。ここで激しいアクションを行うことは冒涜的だ。全てのキャラクターは感情属性が恐怖の場合、全てのアビリティの反動が１増加する。"
-rands = [
-  { sides = 6, value = 2 },
 ]
 
 [[ test ]]

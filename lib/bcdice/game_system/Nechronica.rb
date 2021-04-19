@@ -56,26 +56,33 @@ module BCDice
 
       private
 
-      def check_nD10(total, _dice_total, dice_list, cmp_op, target) # ゲーム別成功度判定(nD10)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
+      def result_nd10(total, _dice_total, dice_list, cmp_op, target) # ゲーム別成功度判定(nD10)
+        return Result.nothing if target == '?'
+        return nil unless cmp_op == :>=
 
-        result =
-          if total >= 11
-            translate("Nechronica.critical")
-          elsif total >= target
-            translate("success")
-          elsif dice_list.count { |i| i <= 1 } == 0
-            translate("failure")
-          elsif dice_list.size > 1
-            fumble = translate("Nechronica.fumble")
-            break_all_parts = translate("Nechronica.break_all_parts")
-            "#{fumble} ＞ #{break_all_parts}"
-          else
-            translate("Nechronica.fumble")
-          end
+        if total >= 11
+          Result.critical(translate("Nechronica.critical"))
+        elsif total >= target
+          Result.success(translate("success"))
+        elsif dice_list.count { |i| i <= 1 } == 0
+          Result.failure(translate("failure"))
+        elsif dice_list.size > 1
+          fumble = translate("Nechronica.fumble")
+          break_all_parts = translate("Nechronica.break_all_parts")
+          Result.fumble("#{fumble} ＞ #{break_all_parts}")
+        else
+          Result.fumble(translate("Nechronica.fumble"))
+        end
+      end
 
-        return " ＞ #{result}"
+      def result_nd10_text(total, dice_list, target)
+        text = result_nd10(total, 0, dice_list, :>=, target)&.text
+
+        if text.nil?
+          ""
+        else
+          " ＞ #{text}"
+        end
       end
 
       def nechronica_check(string)
@@ -120,7 +127,7 @@ module BCDice
         dice_str = dice.join(",")
         output += "  ＞ #{total_n}[#{dice_str}]"
 
-        output += check_nD10(total_n, dice_n, dice, :>=, diff)
+        output += result_nd10_text(total_n, dice, diff)
 
         if isBattleMode
           hit_loc = getHitLocation(total_n)

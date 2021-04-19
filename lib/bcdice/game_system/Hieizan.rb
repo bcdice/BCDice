@@ -16,31 +16,22 @@ module BCDice
       HELP_MESSAGE = "大成功、自動成功、失敗、自動失敗、大失敗の自動判定を行います。\n"
 
       # ゲーム別成功度判定(1d100)
-      def check_1D100(total, _dice_total, _cmp_op, target)
-        return '' if target == '?'
+      def result_1d100(total, _dice_total, cmp_op, target)
+        return Result.nothing if target == '?'
+        return nil unless cmp_op == :<=
 
-        if total <= 1
-          # 1は自動成功
-          if total <= (target / 5)
-            " ＞ 大成功"
-          else
-            " ＞ 自動成功"
-          end
-        elsif total >= 100
-          # 00は大失敗(大失敗は自動失敗でもある)
-          " ＞ 大失敗"
+        if total >= 100
+          Result.fumble("大失敗")
         elsif total >= 96
-          # 96-00は自動失敗
-          " ＞ 自動失敗"
+          Result.failure("自動失敗")
+        elsif total <= (target / 5)
+          Result.critical("大成功")
+        elsif total <= 1
+          Result.success("自動成功")
         elsif total <= target
-          if total <= (target / 5)
-            # 目標値の1/5以下は大成功
-            " ＞ 大成功"
-          else
-            " ＞ 成功"
-          end
+          Result.success("成功")
         else
-          " ＞ 失敗"
+          Result.failure("失敗")
         end
       end
     end

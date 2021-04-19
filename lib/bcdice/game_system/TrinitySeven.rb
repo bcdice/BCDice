@@ -133,11 +133,11 @@ module BCDice
         return total, diceList
       end
 
-      def check_1D100(_total, dice_total, _cmp_op, _target)
+      def result_1d100(_total, dice_total, _cmp_op, _target)
         if dice_total >= 96
-          " ＞ ファンブル"
+          Result.fumble("ファンブル")
         elsif dice_total <= 7
-          " ＞ クリティカル"
+          Result.critical("クリティカル")
         end
       end
 

@@ -1,297 +1,103 @@
 [[ test ]]
 game_system = "Chill"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 40 ＞ 失敗"
+input = "1D100<=50"
+output = "(1D100<=50) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
-  { sides = 100, value = 40 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 55 ＞ 失敗"
-rands = [
-  { sides = 100, value = 55 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 32 ＞ 失敗"
-rands = [
-  { sides = 100, value = 32 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 42 ＞ 失敗"
-rands = [
-  { sides = 100, value = 42 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 34 ＞ 失敗"
-rands = [
-  { sides = 100, value = 34 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 6 ＞ Ｍ成功"
-rands = [
-  { sides = 100, value = 6 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 41 ＞ 失敗"
-rands = [
-  { sides = 100, value = 41 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 55 ＞ 失敗"
-rands = [
-  { sides = 100, value = 55 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 97 ＞ 失敗"
-rands = [
-  { sides = 100, value = 97 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=10"
-output = "(1D100<=10) ＞ 51 ＞ 失敗"
-rands = [
-  { sides = 100, value = 51 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 5 ＞ Ｃ成功"
-rands = [
-  { sides = 100, value = 5 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 68 ＞ Ｍ成功"
-rands = [
-  { sides = 100, value = 68 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 29 ＞ Ｈ成功"
-rands = [
-  { sides = 100, value = 29 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 80 ＞ Ｍ成功"
-rands = [
-  { sides = 100, value = 80 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 38 ＞ Ｈ成功"
-rands = [
-  { sides = 100, value = 38 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 51 ＞ Ｍ成功"
-rands = [
-  { sides = 100, value = 51 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 45 ＞ Ｍ成功"
-rands = [
-  { sides = 100, value = 45 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 25 ＞ Ｈ成功"
-rands = [
-  { sides = 100, value = 25 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 42 ＞ Ｈ成功"
-rands = [
-  { sides = 100, value = 42 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=90"
-output = "(1D100<=90) ＞ 24 ＞ Ｈ成功"
-rands = [
-  { sides = 100, value = 24 },
+  { sides = 100, value = 100 },
 ]
 
 [[ test ]]
 game_system = "Chill"
 input = "1D100<=50"
-output = "(1D100<=50) ＞ 39 ＞ Ｍ成功"
+output = "(1D100<=50) ＞ 99 ＞ 失敗"
+failure = true
 rands = [
-  { sides = 100, value = 39 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 98 ＞ 失敗"
-rands = [
-  { sides = 100, value = 98 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 84 ＞ 失敗"
-rands = [
-  { sides = 100, value = 84 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 55 ＞ 失敗"
-rands = [
-  { sides = 100, value = 55 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 57 ＞ 失敗"
-rands = [
-  { sides = 100, value = 57 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 58 ＞ 失敗"
-rands = [
-  { sides = 100, value = 58 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 1 ＞ Ｃ成功"
-rands = [
-  { sides = 100, value = 1 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 4 ＞ Ｃ成功"
-rands = [
-  { sides = 100, value = 4 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 5 ＞ Ｈ成功"
-rands = [
-  { sides = 100, value = 5 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 24 ＞ Ｈ成功"
-rands = [
-  { sides = 100, value = 24 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 25 ＞ Ｍ成功"
-rands = [
-  { sides = 100, value = 25 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 44 ＞ Ｍ成功"
-rands = [
-  { sides = 100, value = 44 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 45 ＞ Ｌ成功"
-rands = [
-  { sides = 100, value = 45 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 49 ＞ Ｌ成功"
-rands = [
-  { sides = 100, value = 49 },
-]
-
-[[ test ]]
-game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 50 ＞ Ｌ成功"
-rands = [
-  { sides = 100, value = 50 },
+  { sides = 100, value = 99 },
 ]
 
 [[ test ]]
 game_system = "Chill"
 input = "1D100<=50"
 output = "(1D100<=50) ＞ 51 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 51 },
 ]
 
 [[ test ]]
 game_system = "Chill"
-input = "1D100<=50"
-output = "(1D100<=50) ＞ 76 ＞ 失敗"
+input = "1D100<=50 L成功上限"
+output = "(1D100<=50) ＞ 50 ＞ Ｌ成功"
+success = true
 rands = [
-  { sides = 100, value = 76 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "Chill"
+input = "1D100<=50 L成功下限"
+output = "(1D100<=50) ＞ 45 ＞ Ｌ成功"
+success = true
+rands = [
+  { sides = 100, value = 45 },
+]
+
+[[ test ]]
+game_system = "Chill"
+input = "1D100<=50 M成功上限"
+output = "(1D100<=50) ＞ 44 ＞ Ｍ成功"
+success = true
+rands = [
+  { sides = 100, value = 44 },
+]
+
+[[ test ]]
+game_system = "Chill"
+input = "1D100<=50 M成功下限"
+output = "(1D100<=50) ＞ 25 ＞ Ｍ成功"
+success = true
+rands = [
+  { sides = 100, value = 25 },
+]
+
+[[ test ]]
+game_system = "Chill"
+input = "1D100<=50 L成功上限"
+output = "(1D100<=50) ＞ 24 ＞ Ｈ成功"
+success = true
+rands = [
+  { sides = 100, value = 24 },
+]
+
+[[ test ]]
+game_system = "Chill"
+input = "1D100<=50 L成功下限"
+output = "(1D100<=50) ＞ 5 ＞ Ｈ成功"
+success = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Chill"
+input = "1D100<=50 C成功上限"
+output = "(1D100<=50) ＞ 4 ＞ Ｃ成功"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 4 },
+]
+
+[[ test ]]
+game_system = "Chill"
+input = "1D100<=50 C成功下限"
+output = "(1D100<=50) ＞ 1 ＞ Ｃ成功"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
 ]
 
 [[ test ]]

@@ -2,6 +2,7 @@
 game_system = "NjslyrBattle"
 input = "2D6<=5"
 output = "(2D6<=5) ＞ 5[2,3] ＞ 5 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -11,6 +12,7 @@ rands = [
 game_system = "NjslyrBattle"
 input = "2D6<=5"
 output = "(2D6<=5) ＞ 6[2,4] ＞ 6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -20,6 +22,7 @@ rands = [
 game_system = "NjslyrBattle"
 input = "2D6<=5"
 output = "(2D6<=5) ＞ 4[2,2] ＞ 4 ＞ 成功 重点 1 溜まる"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -29,6 +32,7 @@ rands = [
 game_system = "NjslyrBattle"
 input = "2D6<=5"
 output = "(2D6<=5) ＞ 3[1,2] ＞ 3 ＞ 成功 重点 1 溜まる"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -38,6 +42,7 @@ rands = [
 game_system = "NjslyrBattle"
 input = "2D6<=5"
 output = "(2D6<=5) ＞ 8[2,6] ＞ 8 ＞ 失敗 重点 1 溜まる"
+failure = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -47,6 +52,7 @@ rands = [
 game_system = "NjslyrBattle"
 input = "2D6<=5"
 output = "(2D6<=5) ＞ 7[1,6] ＞ 7 ＞ 失敗 重点 2 溜まる"
+failure = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -56,6 +62,7 @@ rands = [
 game_system = "NjslyrBattle"
 input = "2D6<=5"
 output = "(2D6<=5) ＞ 2[1,1] ＞ 2 ＞ 成功 重点 3 溜まる"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -65,6 +72,7 @@ rands = [
 game_system = "NjslyrBattle"
 input = "2D6<=5"
 output = "(2D6<=5) ＞ 12[6,6] ＞ 12 ＞ 失敗 重点 3 溜まる"
+failure = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },

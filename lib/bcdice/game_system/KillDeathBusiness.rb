@@ -49,22 +49,14 @@ module BCDice
       end
 
       # ゲーム別成功度判定(2D6)
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
+      def result_2d6(_total, dice_total, _dice_list, cmp_op, _target)
+        return nil unless cmp_op == :>=
 
-        result =
-          if dice_total <= 2
-            translate("KillDeathBusiness.fumble")
-          elsif dice_total >= 12
-            translate("KillDeathBusiness.special")
-          elsif total >= target
-            translate("success")
-          else
-            translate("failure")
-          end
-
-        return " ＞ #{result}"
+        if dice_total <= 2
+          Result.fumble(translate("KillDeathBusiness.fumble"))
+        elsif dice_total >= 12
+          Result.critical(translate("KillDeathBusiness.special"))
+        end
       end
 
       def eval_game_system_specific_command(command)

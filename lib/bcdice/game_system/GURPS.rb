@@ -41,26 +41,23 @@ module BCDice
       end
 
       # ゲーム別成功度判定(nD6)
-      def check_nD6(total, dice_total, dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless dice_list.size == 3 && cmp_op == :<=
+      def result_nd6(total, dice_total, dice_list, cmp_op, target)
+        return nil if target == "?"
+        return nil unless dice_list.size == 3 && cmp_op == :<=
 
         success = target - total # 成功度
 
-        result =
-          if critical?(dice_total, target)
-            "クリティカル(成功度：#{success})"
-          elsif fumble?(dice_total, target)
-            "ファンブル(失敗度：#{success})"
-          elsif dice_total >= 17
-            "自動失敗(失敗度：#{success})"
-          elsif total <= target
-            "成功(成功度：#{success})"
-          else
-            "失敗(失敗度：#{success})"
-          end
-
-        " ＞ #{result}"
+        if critical?(dice_total, target)
+          Result.critical("クリティカル(成功度：#{success})")
+        elsif fumble?(dice_total, target)
+          Result.fumble("ファンブル(失敗度：#{success})")
+        elsif dice_total >= 17
+          Result.failure("自動失敗(失敗度：#{success})")
+        elsif total <= target
+          Result.success("成功(成功度：#{success})")
+        else
+          Result.failure("失敗(失敗度：#{success})")
+        end
       end
 
       def eval_game_system_specific_command(command)
@@ -85,16 +82,8 @@ module BCDice
         modifier = ArithmeticEvaluator.eval(m[2])
         formated_modifier = Format.modifier(modifier)
 
-        dice_list = @randomizer.roll_barabara(3, 6)
-        dice_total = dice_list.sum()
-        dice_str = dice_list.join(",")
-
-        total = dice_total + modifier
-
-        "(3D6#{formated_modifier}<=#{target_number}) ＞ "\
-        "#{dice_total}[#{dice_str}]#{formated_modifier} ＞ "\
-        "#{total}"\
-        "#{check_nD6(total, dice_total, dice_list, :<=, target_number)}"
+        cmd = "3D6#{formated_modifier}<=#{target_number}"
+        return CommonCommand::AddDice.eval(cmd, self, @randomizer)
       end
 
       def roll_fear(command)

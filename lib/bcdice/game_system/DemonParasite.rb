@@ -38,21 +38,13 @@ module BCDice
       end
 
       # ゲーム別成功度判定(nD6)
-      def check_nD6(total, _dice_total, dice_list, cmp_op, target)
+      def result_nd6(_total, _dice_total, dice_list, _cmp_op, target)
         if dice_list.count(1) >= 2 # １の目が２個以上ならファンブル
-          return " ＞ 致命的失敗"
+          Result.fumble("致命的失敗")
         elsif dice_list.count(6) >= 2 # ６の目が２個以上あったらクリティカル
-          return " ＞ 効果的成功"
+          Result.critical("効果的成功")
         elsif target == "?"
-          return ''
-        end
-
-        if [:>=, :>].include?(cmp_op)
-          if total.send(cmp_op, target)
-            " ＞ 成功"
-          else
-            " ＞ 失敗"
-          end
+          Result.nothing
         end
       end
 

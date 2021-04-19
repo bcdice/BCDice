@@ -29,6 +29,7 @@ rands = [
 game_system = "KanColle"
 input = "2d6>=7 判定：成功"
 output = "(2D6>=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -38,6 +39,7 @@ rands = [
 game_system = "KanColle"
 input = "2d6>=7 判定：失敗"
 output = "(2D6>=7) ＞ 5[2,3] ＞ 5 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -47,6 +49,8 @@ rands = [
 game_system = "KanColle"
 input = "2d6>=7 判定：スペシャル"
 output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ スペシャル（判定成功。【行動力】が1D6点回復）"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -56,6 +60,30 @@ rands = [
 game_system = "KanColle"
 input = "2d6>=7 判定：ファンブル"
 output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル（判定失敗。アクシデント表を自分のPCに適用）"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KanColle"
+input = "2d6>=? 判定：スペシャル"
+output = "(2D6>=?) ＞ 12[6,6] ＞ 12 ＞ スペシャル（判定成功。【行動力】が1D6点回復）"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KanColle"
+input = "2d6>=? 判定：ファンブル"
+output = "(2D6>=?) ＞ 2[1,1] ＞ 2 ＞ ファンブル（判定失敗。アクシデント表を自分のPCに適用）"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -65,6 +93,7 @@ rands = [
 game_system = "KanColle"
 input = "2d6+2>=7 修正付判定：成功"
 output = "(2D6+2>=7) ＞ 5[2,3]+2 ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -74,6 +103,7 @@ rands = [
 game_system = "KanColle"
 input = "2d6+2>=7 修正付判定：失敗"
 output = "(2D6+2>=7) ＞ 4[2,2]+2 ＞ 6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -83,6 +113,8 @@ rands = [
 game_system = "KanColle"
 input = "2d6+2>=7 修正付判定：スペシャル"
 output = "(2D6+2>=7) ＞ 12[6,6]+2 ＞ 14 ＞ スペシャル（判定成功。【行動力】が1D6点回復）"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -92,6 +124,8 @@ rands = [
 game_system = "KanColle"
 input = "2d6+2>=7 修正付判定：ファンブル"
 output = "(2D6+2>=7) ＞ 2[1,1]+2 ＞ 4 ＞ ファンブル（判定失敗。アクシデント表を自分のPCに適用）"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -101,6 +135,7 @@ rands = [
 game_system = "KanColle"
 input = "2d6+2>=7 修正付判定：天龍ちゃんスペシャル(手動)"
 output = "(2D6+2>=7) ＞ 10[5,5]+2 ＞ 12 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -110,6 +145,7 @@ rands = [
 game_system = "KanColle"
 input = "2D6-10>=5"
 output = "(2D6-10>=5) ＞ 3[1,2]-10 ＞ -7 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },

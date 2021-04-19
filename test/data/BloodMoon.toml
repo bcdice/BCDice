@@ -2,6 +2,7 @@
 game_system = "BloodMoon"
 input = "2D6>=7"
 output = "(2D6>=7) ＞ 7[1,6] ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -11,6 +12,7 @@ rands = [
 game_system = "BloodMoon"
 input = "2D6>=7"
 output = "(2D6>=7) ＞ 6[1,5] ＞ 6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -20,6 +22,8 @@ rands = [
 game_system = "BloodMoon"
 input = "2D6>=7"
 output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル(【余裕】が 0 に)"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -29,6 +33,30 @@ rands = [
 game_system = "BloodMoon"
 input = "2D6>=7"
 output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ スペシャル(【余裕】+3）"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BloodMoon"
+input = "2D6>=?"
+output = "(2D6>=?) ＞ 2[1,1] ＞ 2 ＞ ファンブル(【余裕】が 0 に)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BloodMoon"
+input = "2D6>=?"
+output = "(2D6>=?) ＞ 12[6,6] ＞ 12 ＞ スペシャル(【余裕】+3）"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },

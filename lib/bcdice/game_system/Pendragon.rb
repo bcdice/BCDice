@@ -18,20 +18,20 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       # ゲーム別成功度判定(1d20)
-      def check_1D20(total, _dice_total, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :<=
+      def result_1d20(total, _dice_total, cmp_op, target)
+        return Result.nothing if target == '?'
+        return nil unless cmp_op == :<=
 
         if total <= target
           if (total >= (40 - target)) || (total == target)
-            " ＞ クリティカル"
+            Result.critical("クリティカル")
           else
-            " ＞ 成功"
+            Result.success("成功")
           end
         elsif total == 20
-          " ＞ ファンブル"
+          Result.fumble("ファンブル")
         else
-          " ＞ 失敗"
+          Result.failure("失敗")
         end
       end
     end

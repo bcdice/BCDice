@@ -43,17 +43,6 @@ module BCDice
         return string
       end
 
-      # ゲーム別成功度判定(nD6)
-      def check_nD6(total, _dice_total, _dice_list, cmp_op, target)
-        if cmp_op != :>= || target == "?"
-          ''
-        elsif total >= target
-          " ＞ 成功"
-        else
-          " ＞ 失敗"
-        end
-      end
-
       def check_roll(string)
         string = replace_text(string)
         return nil unless (m = /(^|\s)S?(3[rR]6([+\-\d]+)?(\[(\d+),(\d+)\])(([>=]+)(\d+))?)(\s|$)/i.match(string))

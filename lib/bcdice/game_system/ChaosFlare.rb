@@ -42,30 +42,36 @@ module BCDice
       register_prefix('\d*CF', 'FT')
 
       # ゲーム別成功度判定(2D6)。以前の処理をそのまま残しています。
-      def check_2D6(total, dice_total, _dice_list, cmp_op, target)
-        return '' if target == '?'
+      def result_2d6(total, dice_total, _dice_list, cmp_op, target)
+        return nil unless cmp_op == :>=
 
-        output = ''
+        sequence = []
+        result = Result.new
 
         if dice_total <= 2
           total -= 20
-          output = " ＞ ファンブル(-20)"
+          sequence.push("ファンブル(-20)")
+          result.fumble = true
         end
 
-        unless cmp_op == :>=
-          return output
-        end
-
-        if total >= target
-          output += " ＞ 成功"
-          if total > target
-            output += " ＞ 差分値#{total - target}"
+        if target != '?'
+          if total >= target
+            sequence.push("成功")
+            result.success = true
+          else
+            sequence.push("失敗")
+            result.failure = true
           end
-        else
-          output += " ＞ 失敗 ＞ 差分値#{total - target}"
+
+          if total - target != 0
+            sequence.push("差分値#{total - target}")
+          end
         end
 
-        return output
+        return Result.nothing if sequence.empty?
+
+        result.text = sequence.join(" ＞ ")
+        return result
       end
 
       def eval_game_system_specific_command(command)

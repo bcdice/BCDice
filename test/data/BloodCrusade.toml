@@ -2,6 +2,7 @@
 game_system = "BloodCrusade"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 9[3,6] ＞ 9 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -11,6 +12,7 @@ rands = [
 game_system = "BloodCrusade"
 input = "2d6>=10"
 output = "(2D6>=10) ＞ 9[3,6] ＞ 9 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -20,6 +22,8 @@ rands = [
 game_system = "BloodCrusade"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 2[1,1] ＞ 2 ＞ ファンブル(【モラル】-3。追跡フェイズなら吸血シーンを追加。戦闘フェイズなら吸血鬼は追加行動を一回得る)"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -29,6 +33,8 @@ rands = [
 game_system = "BloodCrusade"
 input = "2d6>=4"
 output = "(2D6>=4) ＞ 12[6,6] ＞ 12 ＞ スペシャル(【モラル】+3。追跡フェイズならあなたに関係を持つPCの【モラル】+2。攻撃判定ならダメージ+1D6）"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
