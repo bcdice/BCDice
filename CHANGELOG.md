@@ -1,8 +1,12 @@
-# ChangeLog
+# Change Log
 
 ## Unreleased
 
+### 対応ゲームシステムの追加
+- エネカデット (Ainecadette): 如才さん要望ありがとうっ！ ([#409](https://github.com/bcdice/BCDice/pull/409))
+
 ### 追加機能
+- クラヤミクライン: 感情表、幕間シーン表（情景）、幕間シーン表（関係）を追加。Hero_Fullcutさん要望ありがとうっ！ ([#408](https://github.com/bcdice/BCDice/pull/408))
 - 新クトゥルフ神話TRPG: 技能ロールで難易度を設定できるように ([#417](https://github.com/bcdice/BCDice/pull/417))
 - 多くのゲームシステムで加算ダイスの特殊処理時に `Result` での成功／失敗／ファンブル／クリティカルの情報を付与する ([#418](https://github.com/bcdice/BCDice/pull/418))
 
