@@ -16,12 +16,13 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        ・行為判定 SG@s#f>=x
-        　2D6の行為判定を行う
+        ・行為判定 nSG@s#f>=x
+        　2D6の行為判定を行う。ダイス数が指定された場合、大きい出目2個を採用する。
+        　n: ダイス数 (省略時 2)
         　s: スペシャル値 (省略時 12)
         　f: ファンブル値 (省略時 2)
         　x: 目標値 (省略可)
-        　例）SG, SG@11, SG@11#3, SG#3>=7
+        　例）SG, SG@11, SG@11#3, SG#3>=7, 3SG>=7
         ・各種表
         　・(無印)シーン表　ST／ファンブル表　FT／感情表　ET
         　　　／変調表　WT／戦場表　BT／異形表　MT
@@ -68,7 +69,7 @@ module BCDice
         end
       end
 
-      register_prefix("SG")
+      register_prefix('\d*SG')
 
       def eval_game_system_specific_command(command)
         result = action_roll(command) || roll_tables(command, TABLES) || RTT.roll_command(@randomizer, command)
@@ -94,17 +95,23 @@ module BCDice
       private
 
       def action_roll(command)
-        parser = Command::Parser.new("SG", round_type: round_type)
+        parser = Command::Parser.new(/\d*SG/, round_type: round_type)
                                 .restrict_cmp_op_to(:>=, nil)
                                 .enable_critical
                                 .enable_fumble
         cmd = parser.parse(command)
         return nil unless cmd
 
+        times = cmd.command.start_with?(/\d/) ? cmd.command.to_i : 2
+        return nil if times <= 1
+
         cmd.critical ||= 12
         cmd.fumble ||= 2
 
-        dice_list = @randomizer.roll_barabara(2, 6).sort
+        dice_list_full = @randomizer.roll_barabara(times, 6).sort
+        dice_list_full_str = "[#{dice_list_full.join(',')}]" if times > 2
+
+        dice_list = dice_list_full[-2, 2]
         dice_total = dice_list.sum()
         total = dice_total + cmd.modify_number
 
@@ -123,6 +130,7 @@ module BCDice
 
         sequence = [
           "(#{cmd.to_s(:after_modify_number)})",
+          dice_list_full_str,
           "#{dice_total}[#{dice_list.join(',')}]#{Format.modifier(cmd.modify_number)}",
           total,
           result.text
