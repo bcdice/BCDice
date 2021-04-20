@@ -110,7 +110,7 @@ module BCDice
         # @param [Integer] n_value_groups 出目のグループの数
         # @param [Boolean] fumble ファンブルかどうか
         # @param [Boolean] critical クリティカルかどうか
-        # @return [String]
+        # @return [Integer]
         def result_status(total_sum, n_value_groups, fumble, critical)
           return NO_TARGET unless @target
           return FUMBLE if fumble
