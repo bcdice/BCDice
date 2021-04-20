@@ -296,6 +296,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D6@10+15>=30"
 output = "(2D6@10+15>=30) ＞ 9[6,3]+15 ＞ 24 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -305,6 +306,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D6@10+15>=30"
 output = "(2D6@10+15>=30) ＞ 15[6,4][3,2]+15 ＞ 30 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -316,6 +318,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D6@10+15>=30"
 output = "(2D6@10+15>=30) ＞ 25[6,4][5,5][1,4]+15 ＞ 40 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -329,6 +332,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D6@10+16>=30"
 output = "(2D6@10+16>=30) ＞ 25[6,4][5,5][1,4]+16 ＞ 41 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -342,6 +346,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D@10+16>=30 超越判定：面数省略"
 output = "(2D6@10+16>=30) ＞ 25[6,4][5,5][1,4]+16 ＞ 41 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -355,6 +360,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D6@10+15>=30"
 output = "(2D6@10+15>=30) ＞ 22[6,4][5,5][1,1]+15 ＞ 37 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -368,6 +374,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D6@10+31>=30"
 output = "(2D6@10+31>=30) ＞ 9[6,3]+31 ＞ 40 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -377,6 +384,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D6@10+32>=30"
 output = "(2D6@10+32>=30) ＞ 9[6,3]+32 ＞ 41 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -386,6 +394,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D6@10+31>=30"
 output = "(2D6@10+31>=30) ＞ 12[6,4][1,1]+31 ＞ 43 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -397,6 +406,8 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D6@10+31>=30"
 output = "(2D6@10+31>=30) ＞ 12[6,6]+31 ＞ 43 ＞ 自動的成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -406,6 +417,8 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D6@10+31>=30"
 output = "(2D6@10+31>=30) ＞ 2[1,1]+31 ＞ 33 ＞ 自動的失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -415,6 +428,8 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2D6@10+39>=30"
 output = "(2D6@10+39>=30) ＞ 2[1,1]+39 ＞ 41 ＞ 自動的失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -452,6 +467,8 @@ rands = []
 game_system = "SwordWorld2.0"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 12[6,6]+11 ＞ 23 ＞ 自動的成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -461,6 +478,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 38[4,6][5,5][5,5][3,5]+11 ＞ 49 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -476,6 +494,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 30[6,5][6,6][6,1]+11 ＞ 41 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -489,6 +508,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 40[6,5][6,6][5,5][6,1]+11 ＞ 51 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -504,6 +524,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 52[6,5][6,6][5,5][6,6][6,1]+11 ＞ 63 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -521,6 +542,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 25[6,5][6,6][1,1]+11 ＞ 36 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -534,6 +556,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "2d6@10+5>30"
 output = "(2D6@10+5>30) ＞ 25[6,5][6,6][1,1]+5 ＞ 30 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },

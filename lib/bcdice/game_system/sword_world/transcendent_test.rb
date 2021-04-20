@@ -1,8 +1,25 @@
+require "bcdice/result"
+
 module BCDice
   module GameSystem
     class SwordWorld2_0 < SwordWorld
       # 超越判定のノード
       class TranscendentTest
+        NO_TARGET = 0
+        SUCCESS = 1
+        FAILURE = 2
+        SUPER_SUCCESS = 3
+        CRITICAL = 4
+        FUMBLE = 5
+
+        RESULT_STR = {
+          SUCCESS => "成功",
+          FAILURE => "失敗",
+          SUPER_SUCCESS => "超成功",
+          CRITICAL => "自動的成功",
+          FUMBLE => "自動的失敗",
+        }.freeze
+
         # @param [Integer] critical_value クリティカル値
         # @param [Integer] modifier 修正値
         # @param [String, nil] cmp_op 比較演算子（> または >=）
@@ -40,14 +57,21 @@ module BCDice
           sum = sum_of_dice(value_groups)
           total_sum = sum + @modifier
 
+          result = result_status(total_sum, value_groups.length, fumble, critical)
           parts = [
             "(#{@expression})",
             "#{dice_str(value_groups, sum)}#{@modifier_str}",
             total_sum,
-            @target && result_str(total_sum, value_groups.length, fumble, critical)
+            RESULT_STR[result],
           ].compact
 
-          return parts.join(" ＞ ")
+          return Result.new.tap do |r|
+            r.text = parts.join(" ＞ ")
+            r.fumble = result == FUMBLE
+            r.critical = result == CRITICAL
+            r.success = [SUCCESS, SUPER_SUCCESS, CRITICAL].include?(result)
+            r.failure = [FAILURE, FUMBLE].include?(result)
+          end
         end
 
         private
@@ -87,15 +111,16 @@ module BCDice
         # @param [Boolean] fumble ファンブルかどうか
         # @param [Boolean] critical クリティカルかどうか
         # @return [String]
-        def result_str(total_sum, n_value_groups, fumble, critical)
-          return "自動的失敗" if fumble
-          return "自動的成功" if critical
+        def result_status(total_sum, n_value_groups, fumble, critical)
+          return NO_TARGET unless @target
+          return FUMBLE if fumble
+          return CRITICAL if critical
 
           if total_sum.send(@cmp_op, @target)
             # 振り足しが行われ、合計値が41以上ならば「超成功」
-            n_value_groups >= 2 && total_sum >= 41 ? "超成功" : "成功"
+            n_value_groups >= 2 && total_sum >= 41 ? SUPER_SUCCESS : SUCCESS
           else
-            "失敗"
+            FAILURE
           end
         end
       end
