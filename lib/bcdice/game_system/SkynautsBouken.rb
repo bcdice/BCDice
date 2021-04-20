@@ -61,6 +61,20 @@ module BCDice
         )
       }.freeze
 
+      register_prefix('D', '\d?SN', 'NV', 'FT', 'AVO')
+
+      def initialize(command)
+        super(command)
+        @round_type = RoundType::FLOOR # 端数切り捨て
+      end
+
+      def eval_game_system_specific_command(command)
+        command_sn(command) || command_d(command) || command_avo(command) || command_snavo(command) ||
+          command_snd(command) || roll_tables(command, TABLES)
+      end
+
+      private
+
       DIRECTION_INFOS = {
         0 => {name: "", position_diff: [0, 0]},
         1 => {name: "左下", position_diff: [-1, +1]},
@@ -74,25 +88,13 @@ module BCDice
         9 => {name: "右上", position_diff: [+1, -1]},
       }.freeze
 
-      D_REGEXP = %r{^D([12346789]{0,8})(\[.+\]|S|F|SF|FS)?/(\d{1,2})(@([2468]))?$}.freeze
-
-      register_prefix('D', '\d?SN', 'NV', 'FT', 'AVO')
-
-      def initialize(command)
-        super(command)
-        @round_type = RoundType::FLOOR # 端数切り捨て
-      end
-
-      def eval_game_system_specific_command(command)
-        command_sn(command) || command_d(command) || command_avo(command) || command_snavo(command) ||
-          command_snd(command) || roll_tables(command, TABLES)
-      end
+      D_REGEXP = %r{^D([1-46-9]{0,8})(\[.+\]|S|F|SF|FS)?/(\d{1,2})(@([2468]))?$}.freeze
 
       def command_sn(command)
         debug("SN", command)
         cmd = Command::Parser.new(/[1-9]?SN(\d{0,2})/, round_type: round_type)
                              .restrict_cmp_op_to(nil)
-                             .enable_fumble.enable_critical.parse(command)
+                             .enable_fumble.parse(command)
         return nil unless cmd
 
         # [dice_count]SN[target]
