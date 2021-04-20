@@ -2,6 +2,7 @@
 game_system = "SwordWorld2.0"
 input = "K10r10"
 output = "KeyNo.10c[10]r[10] ＞ 2D:[5,5 5,5 5,5 5,5 5,5 5,5 5,5 5,5 5,5 5,4]=10,10,10,10,10,10,10,10,10,9 ＞ 5,8,10,11,13,15,18,21,23,22 ＞ 9回転 ＞ 146"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -29,6 +30,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "K10r10"
 output = "KeyNo.10c[10]r[10] ＞ 2D:[6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 5,4]=12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,9 ＞ 7,10,10,13,15,18,19,23,26,30,30,30,30,30,30,30,30,30,30,22 ＞ 19回転 ＞ 463"
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -76,6 +78,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "K11r10"
 output = "KeyNo.11c[10]r[10] ＞ 2D:[6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 5,4]=12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,9 ＞ 7,10,11,13,15,18,20,23,26,30,30,30,30,30,30,30,30,30,30,22 ＞ 19回転 ＞ 465"
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -123,6 +126,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "K40+24@8$12r10"
 output = "KeyNo.40c[8]m[12]r[10]+24 ＞ 2D:[5,3 5,3 5,3 5,3 5,3 5,3 5,2]=12,8,8,8,8,8,7 ＞ 13,12,13,16,18,19,19+24 ＞ 6回転 ＞ 134"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -144,6 +148,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "K10gf"
 output = "KeyNo.10c[10]gf ＞ 2D:[5,5 2,2]=10,4 ＞ 5,1 ＞ 1回転 ＞ 6"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -169,6 +174,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "K40+24@8$12r10gf"
 output = "KeyNo.40c[8]m[12]r[10]gf+24 ＞ 2D:[4,4 4,4 4,4 4,4 4,4 4,4 3,3]=12,8,8,8,8,8,6 ＞ 13,12,13,16,18,19,18+24 ＞ 6回転 ＞ 133"
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -266,6 +272,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "HK20+6@4"
 output = "KeyNo.20c[4]+6 ＞ 2D:[4,3 2,5 2,6 1,1]=7,7,8,2 ＞ (5,5,6,**+6)/2 ＞ 3回転 ＞ 11"
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -281,6 +288,7 @@ rands = [
 game_system = "SwordWorld2.0"
 input = "K20+6@4h"
 output = "KeyNo.20c[4]+6 ＞ 2D:[4,3 2,5 2,6 1,1]=7,7,8,2 ＞ (5,5,6,**+6)/2 ＞ 3回転 ＞ 11"
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
