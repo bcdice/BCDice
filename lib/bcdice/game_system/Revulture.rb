@@ -15,12 +15,12 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~HELP
         ■アタック判定（ xAT, xATK, xATTACK ）
-        x: ダイス数（加算記号 + で連結可能）
-        例） 3AT, 4ATK, 5+6ATTACK
+        x: ダイス数（加算 + と除算 / を使用可能）
+        例） 3AT, 4ATK, 5+6ATTACK, 15/2AT
       HELP
 
-      ATTACK_ROLL_REG = /^(\d+(\+\d+)*)?AT(TACK|K)?/i.freeze
-      register_prefix('\d+(\+\d+)*AT')
+      ATTACK_ROLL_REG = %r{^(\d+([+/]\d+)*)?AT(TACK|K)?}i.freeze
+      register_prefix('\d+([+\/]\d+)*AT')
 
       def eval_game_system_specific_command(command)
         if (m = ATTACK_ROLL_REG.match(command))

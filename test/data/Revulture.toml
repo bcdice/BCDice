@@ -71,3 +71,37 @@ rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "Revulture"
+input = "4/2at"
+output = "(2attack) ＞ 5,6"
+success = false
+failure = false
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Revulture"
+input = "5/2at"
+output = "(2attack) ＞ 5,6"
+success = false
+failure = false
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Revulture"
+input = "6/2at"
+output = "(3attack) ＞ 1,5,6"
+success = false
+failure = false
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
