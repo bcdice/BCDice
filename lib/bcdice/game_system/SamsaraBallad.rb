@@ -59,39 +59,55 @@ module BCDice
           total = 100 if total == 0
         end
 
-        cmp_result = compare(total, cmd)
+        result = compare(total, cmd)
+
+        result_str =
+          if result.fumble?
+            "ファンブル"
+          elsif result.critical?
+            "クリティカル"
+          elsif result.failure?
+            "失敗"
+          elsif result.success?
+            "成功"
+          end
 
         sequence = [
           "(D100#{cmd.cmp_op}#{cmd.target_number})",
           places_text,
           total.to_s,
-          cmp_result,
+          result_str
         ].compact
 
-        return sequence.join(" ＞ ")
+        result.text = sequence.join(" ＞ ")
+
+        return result
       end
 
       private
 
-      # @return [String]
-      # @return [nil]
+      # @return [Result]
       def compare(total, cmd)
+        r = Result.new
         if [:<=, :<].include?(cmd.cmp_op)
           if !total.send(cmd.cmp_op, cmd.target_number)
-            "失敗"
+            r.failure = true
           elsif fumble_?(total, cmd.fumble)
-            "ファンブル"
+            r.failure = true
+            r.fumble = true
           elsif critical_?(total, cmd.critical)
-            "クリティカル"
+            r.success = true
+            r.critical = true
           else
-            "成功"
+            r.success = true
           end
         elsif fumble_?(total, cmd.fumble)
           # ファンブル優先
-          "ファンブル"
+          r.fumble = true
         elsif critical_?(total, cmd.critical)
-          "クリティカル"
+          r.critical = true
         end
+        return r
       end
 
       # @param total [Integer]
