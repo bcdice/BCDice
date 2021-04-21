@@ -36,3 +36,24 @@ rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "Revulture"
+input = "12attack"
+output = "(12attack) ＞ 1,1,1,2,3,4,4,5,5,5,6,6"
+success = false
+failure = false
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
