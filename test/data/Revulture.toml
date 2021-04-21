@@ -297,3 +297,55 @@ rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "Revulture"
+input = "3at<=2[>=1:+3]"
+output = "(3attack<=2[>=1:+3]) ＞ 3,4,5 ＞ ヒット数 0 ＞ ダメージ 0"
+success = false
+failure = true
+critical = false
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Revulture"
+input = "3at<=3[>=1:+3]"
+output = "(3attack<=3[>=1:+3]) ＞ 3,4,5 ＞ ヒット数 1 ＞ ダメージ 4"
+success = true
+failure = false
+critical = false
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Revulture"
+input = "3at<=3[>=2:+3]"
+output = "(3attack<=3[>=2:+3]) ＞ 3,4,5 ＞ ヒット数 1 ＞ ダメージ 1"
+success = true
+failure = false
+critical = false
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Revulture"
+input = "3at<=4[>=2:+3]"
+output = "(3attack<=4[>=2:+3]) ＞ 3,4,5 ＞ ヒット数 2 ＞ ダメージ 5"
+success = true
+failure = false
+critical = false
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
