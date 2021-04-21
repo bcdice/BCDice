@@ -11,6 +11,7 @@ rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
 ]
+success=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -39,6 +40,7 @@ rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
 ]
+failure=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -53,6 +55,7 @@ rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
 ]
+success=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -64,6 +67,8 @@ rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
 ]
+success=true
+critical=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -75,6 +80,8 @@ rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
 ]
+fumble=true
+failure=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -86,6 +93,8 @@ rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
 ]
+fumble=true
+failure=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -100,6 +109,7 @@ rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
 ]
+success=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -128,6 +138,7 @@ rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
 ]
+success=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -156,6 +167,7 @@ rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
 ]
+failure=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -167,6 +179,8 @@ rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
 ]
+success=true
+critical=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -178,6 +192,8 @@ rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
 ]
+fumble=true
+failure=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -217,6 +233,9 @@ rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
 ]
+fumble=true
+failure=true
+failure=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -228,6 +247,8 @@ rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
 ]
+success=true
+critical=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -242,6 +263,7 @@ rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
 ]
+critical=true
 
 [[ test ]]
 game_system = "CodeLayerd"
@@ -258,6 +280,8 @@ output = "-5CL+5 ＞ (1d10+5) ＞ [8]+5 ＞ クリティカル値[0] 達成値[0
 rands = [
   { sides = 10, value = 8 },
 ]
+fumble=true
+failure=true
 
 [[ test ]]
 game_system = "CodeLayerd"
