@@ -43,7 +43,10 @@ module BCDice
         if border.nil?
           Result.new("(#{dice_count}attack) ＞ #{dices.join(',')}")
         else
-          Result.new("(#{dice_count}attack<=#{border}) ＞ #{dices.join(',')} ＞ ヒット数 #{hit_count}")
+          Result.new("(#{dice_count}attack<=#{border}) ＞ #{dices.join(',')} ＞ ヒット数 #{hit_count}").tap do |r|
+            r.success = hit_count > 0
+            r.failure = !r.success?
+          end
         end
       end
     end
