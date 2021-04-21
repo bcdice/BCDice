@@ -2,8 +2,6 @@
 game_system = "StellarKnights"
 input = "4SK"
 output = "(4SK) ＞ 1,3,4,5"
-success = false
-failure = false
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
