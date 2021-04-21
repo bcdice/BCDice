@@ -44,7 +44,7 @@ module BCDice
         message_elements = []
         message_elements << (border.nil? ? "(#{dice_count}attack)" : "(#{dice_count}attack<=#{border})")
         message_elements << dices.join(',')
-        message_elements << "クリティカル #{critical_hit_count}" if critical_hit_count > 0 && !border.nil?
+        message_elements << "クリティカル #{critical_hit_count}" if critical_hit_count > 0
         message_elements << "ヒット数 #{hit_count}" unless hit_count.nil?
 
         Result.new(message_elements.join(' ＞ ')).tap do |r|
