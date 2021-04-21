@@ -62,12 +62,12 @@ module BCDice
         result = compare(total, cmd)
 
         result_str =
-          if result.fumble?
+          if result.failure?
+            "失敗"
+          elsif result.fumble?
             "ファンブル"
           elsif result.critical?
             "クリティカル"
-          elsif result.failure?
-            "失敗"
           elsif result.success?
             "成功"
           end
@@ -92,7 +92,10 @@ module BCDice
           if !total.send(cmd.cmp_op, cmd.target_number)
             Result.failure(nil)
           elsif fumble_?(total, cmd.fumble)
-            Result.fumble(nil)
+            Result.new.tap do |r|
+              r.success = true
+              r.fumble = true
+            end
           elsif critical_?(total, cmd.critical)
             Result.critical(nil)
           else
