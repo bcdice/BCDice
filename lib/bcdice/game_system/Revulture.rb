@@ -52,7 +52,7 @@ module BCDice
 
         border = border_expression.nil? ? nil : Arithmetic.eval(border_expression, round_type: RoundType::FLOOR).clamp(1, 6)
 
-        dices = dice_count > 0 ? @randomizer.roll_barabara(dice_count, 6).sort : []
+        dices = dice_count > 0 && !(!additional_damage_rules.nil? && border.nil?) ? @randomizer.roll_barabara(dice_count, 6).sort : []
         critical_hit_count = dices.count { |dice| dice == 1 }
         hit_count = dices.empty? || border.nil? ? nil : dices.count { |dice| dice <= border.to_i } + critical_hit_count
         damage = dices.empty? || additional_damage_rules.nil? ? nil : hit_count.to_i
@@ -67,11 +67,16 @@ module BCDice
 
         message_elements = []
         message_elements << self.class.make_command_text(dice_count, border, additional_damage_rules)
-        message_elements << dices.join(',') unless dices.empty?
-        message_elements << 'ダイス数が 0 です' if dices.empty?
-        message_elements << "クリティカル #{critical_hit_count}" if critical_hit_count > 0
-        message_elements << "ヒット数 #{hit_count}" unless hit_count.nil?
-        message_elements << "ダメージ #{damage}" unless damage.nil?
+        if dice_count.zero?
+          message_elements << 'ダイス数が 0 です'
+        elsif !additional_damage_rules.nil? && border.nil?
+          message_elements << '目標値が指定されていないため、追加ダメージを算出できません'
+        else
+          message_elements << dices.join(',')
+          message_elements << "クリティカル #{critical_hit_count}" if critical_hit_count > 0
+          message_elements << "ヒット数 #{hit_count}" unless hit_count.nil?
+          message_elements << "ダメージ #{damage}" unless damage.nil?
+        end
 
         Result.new(message_elements.join(' ＞ ')).tap do |r|
           r.success = !hit_count.nil? && hit_count > 0
