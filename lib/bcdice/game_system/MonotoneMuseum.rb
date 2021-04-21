@@ -77,23 +77,25 @@ module BCDice
 
         result =
           if dice_value <= fumble
-            translate("MonotoneMuseum.automatic_failure")
+            Result.fumble(translate("MonotoneMuseum.automatic_failure"))
           elsif dice_value >= critical
-            translate("MonotoneMuseum.automatic_success")
+            Result.critical(translate("MonotoneMuseum.automatic_success"))
           elsif total >= target
-            translate("success")
+            Result.success(translate("success"))
           else
-            translate("failure")
+            Result.failure(translate("failure"))
           end
 
         sequence = [
           "(#{command})",
           "#{dice_value}[#{dice_str}]#{Format.modifier(modify_number)}",
           total.to_s,
-          result,
+          result.text,
         ]
 
-        return sequence.join(" ＞ ")
+        result.text = sequence.join(" ＞ ")
+
+        result
       end
 
       # モノトーンミュージアム用のテーブル
