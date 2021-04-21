@@ -88,26 +88,27 @@ module BCDice
 
       # @return [Result]
       def compare(total, cmd)
-        r = Result.new
         if [:<=, :<].include?(cmd.cmp_op)
           if !total.send(cmd.cmp_op, cmd.target_number)
-            r.failure = true
+            Result.failure(nil)
           elsif fumble_?(total, cmd.fumble)
-            r.failure = true
-            r.fumble = true
+            Result.fumble(nil)
           elsif critical_?(total, cmd.critical)
-            r.success = true
-            r.critical = true
+            Result.critical(nil)
           else
-            r.success = true
+            Result.success(nil)
           end
         elsif fumble_?(total, cmd.fumble)
-          # ファンブル優先
-          r.fumble = true
+          Result.new.tap do |r|
+            r.fumble = true
+          end
         elsif critical_?(total, cmd.critical)
-          r.critical = true
+          Result.new.tap do |r|
+            r.critical = true
+          end
+        else
+          Result.new
         end
-        return r
       end
 
       # @param total [Integer]
