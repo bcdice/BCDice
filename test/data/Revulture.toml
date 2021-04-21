@@ -427,3 +427,33 @@ rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "Revulture"
+input = "0at"
+output = "(0attack) ＞ ダイス数が 0 です"
+rands = []
+
+[[ test ]]
+game_system = "Revulture"
+input = "1/2at"
+output = "(0attack) ＞ ダイス数が 0 です"
+rands = []
+
+[[ test ]]
+game_system = "Revulture"
+input = "0at<=3"
+output = "(0attack<=3) ＞ ダイス数が 0 です"
+rands = []
+
+[[ test ]]
+game_system = "Revulture"
+input = "0at[>=2:+3]"
+output = "(0attack[>=2:+3]) ＞ ダイス数が 0 です"
+rands = []
+
+[[ test ]]
+game_system = "Revulture"
+input = "0at<=3[>=2:+3]"
+output = "(0attack<=3[>=2:+3]) ＞ ダイス数が 0 です"
+rands = []
