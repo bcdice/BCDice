@@ -20,11 +20,11 @@ module BCDice
 
         □アタック判定　目標値つき（ xAT<=y, xATK<=y, xATTACK<=y ）
         x: ダイス数（加算 + と除算 / を使用可能）
-        y: 目標値（ 1 以上 6 以下）
-        例） 3AT<=4
+        y: 目標値（ 1 以上 6 以下。加算 + を使用可能）
+        例） 3AT<=4, 3AT<=2+1
       HELP
 
-      ATTACK_ROLL_REG = %r{^(\d+([+/]\d+)*)?AT(TACK|K)?(<=([1-6]))?}i.freeze
+      ATTACK_ROLL_REG = %r{^(\d+([+/]\d+)*)?AT(TACK|K)?(<=([1-6](\+\d)*))?}i.freeze
       register_prefix('\d+([+\/]\d+)*AT')
 
       def eval_game_system_specific_command(command)
@@ -33,9 +33,11 @@ module BCDice
         end
       end
 
-      def roll_attack(dice_count_expression, border)
+      def roll_attack(dice_count_expression, border_expression)
         dice_count = Arithmetic.eval(dice_count_expression, round_type: RoundType::FLOOR)
         raise if dice_count < 1
+
+        border = border_expression.nil? ? nil : Arithmetic.eval(border_expression, round_type: RoundType::FLOOR).clamp(1, 6)
 
         dices = @randomizer.roll_barabara(dice_count, 6).sort
         critical_hit_count = dices.count { |dice| dice == 1 }
