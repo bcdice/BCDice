@@ -64,19 +64,23 @@ module BCDice
         result_str =
           if result.failure?
             "失敗"
-          elsif result.fumble?
+          elsif result.success?
+            "成功"
+          end
+
+        additional_str =
+          if result.fumble?
             "ファンブル"
           elsif result.critical?
             "クリティカル"
-          elsif result.success?
-            "成功"
           end
 
         sequence = [
           "(D100#{cmd.cmp_op}#{cmd.target_number})",
           places_text,
           total.to_s,
-          result_str
+          result_str,
+          additional_str,
         ].compact
 
         result.text = sequence.join(" ＞ ")

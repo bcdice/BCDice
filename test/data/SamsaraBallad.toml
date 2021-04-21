@@ -212,7 +212,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SB#2@8<=90 roll 90"
-output = "(D100<=90) ＞ 58 ＞ クリティカル"
+output = "(D100<=90) ＞ 58 ＞ 成功 ＞ クリティカル"
 success = true
 critical = true
 rands = [
@@ -231,7 +231,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SB#2@8<90 roll 90"
-output = "(D100<90) ＞ 58 ＞ クリティカル"
+output = "(D100<90) ＞ 58 ＞ 成功 ＞ クリティカル"
 success = true
 critical = true
 rands = [
@@ -241,7 +241,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SB#2@8<=90 roll 90"
-output = "(D100<=90) ＞ 59 ＞ クリティカル"
+output = "(D100<=90) ＞ 59 ＞ 成功 ＞ クリティカル"
 success = true
 critical = true
 rands = [
@@ -287,7 +287,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SB#2@8<=90 roll 90"
-output = "(D100<=90) ＞ 52 ＞ ファンブル"
+output = "(D100<=90) ＞ 52 ＞ 成功 ＞ ファンブル"
 success = true
 fumble = true
 rands = [
@@ -297,7 +297,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SB#0@8<=90 roll 90"
-output = "(D100<=90) ＞ 80 ＞ ファンブル"
+output = "(D100<=90) ＞ 80 ＞ 成功 ＞ ファンブル"
 success = true
 fumble = true
 rands = [
@@ -316,7 +316,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SB#2@8<=90 roll 90"
-output = "(D100<=90) ＞ 51 ＞ ファンブル"
+output = "(D100<=90) ＞ 51 ＞ 成功 ＞ ファンブル"
 success = true
 fumble = true
 rands = [
@@ -326,7 +326,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SB#0@5<=35 roll 35"
-output = "(D100<=35) ＞ 35 ＞ クリティカル"
+output = "(D100<=35) ＞ 35 ＞ 成功 ＞ クリティカル"
 success = true
 critical = true
 rands = [
@@ -345,7 +345,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SBS#2@8<=80 roll 80"
-output = "(D100<=80) ＞ 8,1 ＞ 18 ＞ クリティカル"
+output = "(D100<=80) ＞ 8,1 ＞ 18 ＞ 成功 ＞ クリティカル"
 success = true
 critical = true
 rands = [
@@ -356,7 +356,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SBS#2@8<=80 roll 80"
-output = "(D100<=80) ＞ 9,7 ＞ 79 ＞ クリティカル"
+output = "(D100<=80) ＞ 9,7 ＞ 79 ＞ 成功 ＞ クリティカル"
 success = true
 critical = true
 rands = [
@@ -437,7 +437,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SBS#2@8<=80 roll 80"
-output = "(D100<=80) ＞ 2,1 ＞ 12 ＞ ファンブル"
+output = "(D100<=80) ＞ 2,1 ＞ 12 ＞ 成功 ＞ ファンブル"
 success = true
 fumble = true
 rands = [
@@ -448,7 +448,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SBS#2@8<80 roll 80"
-output = "(D100<80) ＞ 2,1 ＞ 12 ＞ ファンブル"
+output = "(D100<80) ＞ 2,1 ＞ 12 ＞ 成功 ＞ ファンブル"
 success = true
 fumble = true
 rands = [
@@ -469,7 +469,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SBS#2@8<=90 roll 90"
-output = "(D100<=90) ＞ 1,1 ＞ 11 ＞ ファンブル"
+output = "(D100<=90) ＞ 1,1 ＞ 11 ＞ 成功 ＞ ファンブル"
 success = true
 fumble = true
 rands = [
@@ -480,7 +480,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SB#5@3<=90 roll 90"
-output = "(D100<=90) ＞ 24 ＞ ファンブル"
+output = "(D100<=90) ＞ 24 ＞ 成功 ＞ ファンブル"
 success = true
 fumble = true
 rands = [
@@ -490,7 +490,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SBS#0@5<=35 roll 35"
-output = "(D100<=35) ＞ 5,3 ＞ 35 ＞ クリティカル"
+output = "(D100<=35) ＞ 5,3 ＞ 35 ＞ 成功 ＞ クリティカル"
 success = true
 critical = true
 rands = [
@@ -511,7 +511,7 @@ rands = [
 [[ test ]]
 game_system = "SamsaraBallad"
 input = "SBS#3@8<=23 roll 23"
-output = "(D100<=23) ＞ 2,3 ＞ 23 ＞ ファンブル"
+output = "(D100<=23) ＞ 2,3 ＞ 23 ＞ 成功 ＞ ファンブル"
 success = true
 fumble = true
 rands = [
