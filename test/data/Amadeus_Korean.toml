@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "Amadeus:Korean"
 input = "RC-3+2"
-output = "(RC-3+2>=4) ＞ [2]-3+2 ＞ 1_실패[2]"
+output = "(RC-1>=4) ＞ [2]-1 ＞ 1_실패[2]"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "Amadeus:Korean"
 input = "RC>=5-1"
-output = "(RC>=5-1) ＞ [5] ＞ 5_성공[5]"
+output = "(RC>=4) ＞ [5] ＞ 5_성공[5]"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "Amadeus:Korean"
 input = "RC>=5-2 hogehoge"
-output = "(RC>=5-2) ＞ [5] ＞ 5_성공[5]"
+output = "(RC>=3) ＞ [5] ＞ 5_성공[5]"
 rands = [
   { sides = 6, value = 5 },
 ]

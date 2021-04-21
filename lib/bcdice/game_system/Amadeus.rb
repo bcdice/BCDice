@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require "bcdice/arithmetic_evaluator"
+require "bcdice/format"
+require "bcdice/normalize"
+
 module BCDice
   module GameSystem
     class Amadeus < Base
@@ -53,24 +57,18 @@ module BCDice
       end
 
       def amadeusDice(command)
-        return nil unless /^(R([A-DS])([+\-\d]*))(@(\d))?((>(=)?)([+\-\d]*))?(@(\d))?$/i =~ command
-
-        commandText = Regexp.last_match(1)
-        skillRank = Regexp.last_match(2)
-        modifyText = Regexp.last_match(3)
-        signOfInequality = (Regexp.last_match(7).nil? ? ">=" : Regexp.last_match(7))
-        targetText = (Regexp.last_match(9).nil? ? "4" : Regexp.last_match(9))
-        if nil | Regexp.last_match(5)
-          specialNum = Regexp.last_match(5).to_i
-        elsif nil | Regexp.last_match(11)
-          specialNum = Regexp.last_match(11).to_i
-        else
-          specialNum = 6
+        m = /^(R([A-DS])([+\-\d]*))(@(\d))?((>(=)?)([+\-\d]*))?(@(\d))?$/i.match(command)
+        unless m
+          return nil
         end
 
+        skillRank = m[2]
+        modifier = ArithmeticEvaluator.eval(m[3])
+        cmp_op = m[7] ? Normalize.comparison_operator(m[7]) : :>=
+        target = m[9] ? ArithmeticEvaluator.eval(m[9]) : 4
+        specialNum = (m[5] || m[11] || 6).to_i
+
         diceCount = CHECK_DICE_COUNT[skillRank]
-        modify = ArithmeticEvaluator.eval(modifyText)
-        target = ArithmeticEvaluator.eval(targetText)
 
         diceList = @randomizer.roll_barabara(diceCount, 6)
         diceText = diceList.join(",")
@@ -82,8 +80,8 @@ module BCDice
 
         results =
           diceList.map do |dice|
-            achieve = dice + modify
-            result = check_success(achieve, dice, signOfInequality, target, specialNum)
+            achieve = dice + modifier
+            result = check_success(achieve, dice, cmp_op, target, specialNum)
             if available_inga
               inga = inga_table[dice - 1]
               "#{achieve}_#{result}[#{dice}#{inga}]"
@@ -93,20 +91,17 @@ module BCDice
           end
 
         sequence = [
-          "(#{commandText}#{specialText}#{signOfInequality}#{targetText})",
-          "[#{diceText}]#{modifyText}",
+          "(R#{skillRank}#{Format.modifier(modifier)}#{specialText}#{cmp_op}#{target})",
+          "[#{diceText}]#{Format.modifier(modifier)}",
           results.join(" / ")
         ]
 
         return sequence.join(" ＞ ")
       end
 
-      def check_success(total_n, dice_n, signOfInequality, diff, special_n)
+      def check_success(total_n, dice_n, cmp_op, target_num, special_n)
         return translate("Amadeus.fumble") if dice_n == 1
         return translate("Amadeus.special") if dice_n >= special_n
-
-        cmp_op = Normalize.comparison_operator(signOfInequality)
-        target_num = diff.to_i
 
         if total_n.send(cmp_op, target_num)
           translate("success")
