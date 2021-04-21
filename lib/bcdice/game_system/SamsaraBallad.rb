@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'bcdice/base'
+
 module BCDice
   module GameSystem
     class SamsaraBallad < Base
