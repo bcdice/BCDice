@@ -41,14 +41,16 @@ module BCDice
         critical_hit_count = dices.count { |dice| dice == 1 }
         hit_count = border.nil? ? nil : dices.count { |dice| dice <= border.to_i } + critical_hit_count
 
-        if border.nil?
-          Result.new("(#{dice_count}attack) ＞ #{dices.join(',')}").tap { |r| r.critical = critical_hit_count > 0 }
-        else
-          Result.new("(#{dice_count}attack<=#{border}) ＞ #{dices.join(',')} #{critical_hit_count > 0 ? "＞ クリティカル #{critical_hit_count} " : ''}＞ ヒット数 #{hit_count}").tap do |r|
-            r.success = hit_count > 0
-            r.failure = !r.success?
-            r.critical = critical_hit_count > 0
-          end
+        message_elements = []
+        message_elements << (border.nil? ? "(#{dice_count}attack)" : "(#{dice_count}attack<=#{border})")
+        message_elements << dices.join(',')
+        message_elements << "クリティカル #{critical_hit_count}" if critical_hit_count > 0 && !border.nil?
+        message_elements << "ヒット数 #{hit_count}" unless hit_count.nil?
+
+        Result.new(message_elements.join(' ＞ ')).tap do |r|
+          r.success = !hit_count.nil? && hit_count > 0
+          r.failure = !hit_count.nil? && hit_count == 0
+          r.critical = critical_hit_count > 0
         end
       end
     end
