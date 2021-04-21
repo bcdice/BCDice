@@ -50,60 +50,58 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        text = amadeusDice(command)
-        return text unless text.nil?
-
-        return roll_tables(command, self.class::TABLES)
+        roll_amadeus(command) ||
+          roll_tables(command, self.class::TABLES)
       end
 
-      def amadeusDice(command)
+      def roll_amadeus(command)
         m = /^R([A-DS])([+\-\d]*)(@(\d))?((>=?)([+\-\d]*))?(@(\d))?$/i.match(command)
         unless m
           return nil
         end
 
-        skillRank = m[1]
+        rank = m[1]
         modifier = ArithmeticEvaluator.eval(m[2])
         cmp_op = m[6] ? Normalize.comparison_operator(m[6]) : :>=
         target = m[7] ? ArithmeticEvaluator.eval(m[7]) : 4
-        specialNum = (m[4] || m[9] || 6).to_i
+        special = (m[4] || m[9] || 6).to_i
 
-        diceCount = CHECK_DICE_COUNT[skillRank]
+        dice_count = CHECK_DICE_COUNT[rank]
 
-        diceList = @randomizer.roll_barabara(diceCount, 6)
-        diceText = diceList.join(",")
-        specialText = (specialNum == 6 ? "" : "@#{specialNum}")
+        dice_list = @randomizer.roll_barabara(dice_count, 6)
+        dice_text = dice_list.join(",")
+        special_text = (special == 6 ? "" : "@#{special}")
 
-        diceList = [diceList.min] if skillRank == "D"
-        available_inga = diceList.size > 1
+        dice_list = [dice_list.min] if rank == "D"
+        available_inga = dice_list.size > 1
         inga_table = translate("Amadeus.inga_table")
 
         results =
-          diceList.map do |dice|
-            achieve = dice + modifier
-            result = check_success(achieve, dice, cmp_op, target, specialNum)
+          dice_list.map do |dice|
+            total = dice + modifier
+            result = check_success(total, dice, cmp_op, target, special)
             if available_inga
               inga = inga_table[dice - 1]
-              "#{achieve}_#{result}[#{dice}#{inga}]"
+              "#{total}_#{result}[#{dice}#{inga}]"
             else
-              "#{achieve}_#{result}[#{dice}]"
+              "#{total}_#{result}[#{dice}]"
             end
           end
 
         sequence = [
-          "(R#{skillRank}#{Format.modifier(modifier)}#{specialText}#{cmp_op}#{target})",
-          "[#{diceText}]#{Format.modifier(modifier)}",
+          "(R#{rank}#{Format.modifier(modifier)}#{special_text}#{cmp_op}#{target})",
+          "[#{dice_text}]#{Format.modifier(modifier)}",
           results.join(" / ")
         ]
 
         return sequence.join(" ＞ ")
       end
 
-      def check_success(total_n, dice_n, cmp_op, target_num, special_n)
-        return translate("Amadeus.fumble") if dice_n == 1
-        return translate("Amadeus.special") if dice_n >= special_n
+      def check_success(total, dice, cmp_op, target, special)
+        return translate("Amadeus.fumble") if dice == 1
+        return translate("Amadeus.special") if dice >= special
 
-        if total_n.send(cmp_op, target_num)
+        if total.send(cmp_op, target)
           translate("success")
         else
           translate("failure")
