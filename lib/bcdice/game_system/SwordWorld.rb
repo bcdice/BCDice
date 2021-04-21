@@ -309,7 +309,7 @@ module BCDice
       # @param rateResults  [Array<String>]
       # @param dice_total [Integer]
       # @param round [Integer]
-      # @return [Array<String, Boolean>] output, critical, fumble
+      # @return [Array(String, Boolean, Boolean)] output, critical, fumble
       def getResultText(rating_total, command, diceResults, diceResultTotals,
                         rateResults, dice_total, round)
         sequence = []

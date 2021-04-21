@@ -5,19 +5,12 @@ module BCDice
     class SwordWorld2_0 < SwordWorld
       # 超越判定のノード
       class TranscendentTest
-        NO_TARGET = 0
-        SUCCESS = 1
-        FAILURE = 2
-        SUPER_SUCCESS = 3
-        CRITICAL = 4
-        FUMBLE = 5
-
         RESULT_STR = {
-          SUCCESS => "成功",
-          FAILURE => "失敗",
-          SUPER_SUCCESS => "超成功",
-          CRITICAL => "自動的成功",
-          FUMBLE => "自動的失敗",
+          success: "成功",
+          failure: "失敗",
+          super_success: "超成功",
+          critical: "自動的成功",
+          fumble: "自動的失敗",
         }.freeze
 
         # @param [Integer] critical_value クリティカル値
@@ -67,10 +60,10 @@ module BCDice
 
           return Result.new.tap do |r|
             r.text = parts.join(" ＞ ")
-            r.fumble = result == FUMBLE
-            r.critical = result == CRITICAL
-            r.success = [SUCCESS, SUPER_SUCCESS, CRITICAL].include?(result)
-            r.failure = [FAILURE, FUMBLE].include?(result)
+            r.fumble = result == :fumble
+            r.critical = result == :critical
+            r.success = [:success, :super_success, :critical].include?(result)
+            r.failure = [:failure, :fumble].include?(result)
           end
         end
 
@@ -110,17 +103,17 @@ module BCDice
         # @param [Integer] n_value_groups 出目のグループの数
         # @param [Boolean] fumble ファンブルかどうか
         # @param [Boolean] critical クリティカルかどうか
-        # @return [Integer]
+        # @return [Symbol]
         def result_status(total_sum, n_value_groups, fumble, critical)
-          return NO_TARGET unless @target
-          return FUMBLE if fumble
-          return CRITICAL if critical
+          return :no_target unless @target
+          return :fumble if fumble
+          return :critical if critical
 
           if total_sum.send(@cmp_op, @target)
             # 振り足しが行われ、合計値が41以上ならば「超成功」
-            n_value_groups >= 2 && total_sum >= 41 ? SUPER_SUCCESS : SUCCESS
+            n_value_groups >= 2 && total_sum >= 41 ? :super_success : :success
           else
-            FAILURE
+            :failure
           end
         end
       end
