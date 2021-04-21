@@ -31,7 +31,7 @@ module BCDice
         例） 3AT<=4[>=2:+3] #ルールブックp056「グレングラントAR」
       HELP
 
-      ATTACK_ROLL_REG = %r{^(\d+([+/]\d+)*)?AT(TACK|K)?(<=([1-6](\+\d)*))?(\[>=\d+:\+\d+\])?}i.freeze
+      ATTACK_ROLL_REG = %r{^(\d+([+/]\d+)*)?AT(TACK|K)?(<=([1-6](\+\d)*))?(\[>?=\d+:\+\d+\])?}i.freeze
       register_prefix('\d+([+\/]\d+)*AT')
 
       def eval_game_system_specific_command(command)
@@ -53,7 +53,7 @@ module BCDice
 
         if !damage.nil? && !additional_damage_rule.nil?
           rule = self.class.parse_additional_damage_rule(additional_damage_rule)
-          if hit_count.to_i >= rule[:border]
+          if rule[:condition].call(hit_count)
             damage += rule[:additinal_damage]
           end
         end
@@ -82,15 +82,25 @@ module BCDice
       end
 
       def self.parse_additional_damage_rule(source)
-        m = /^\[>=(\d+):\+(\d+)\]$/.match(source)
+        m = /^\[(>?=)(\d+):\+(\d+)\]$/.match(source)
 
-        border = m[1].to_i
-        additinal_damage = m[2].to_i
+        comparer = m[1]
+        comparing_target = m[2].to_i
+        additinal_damage = m[3].to_i
 
         {
-          border: border,
+          condition: make_additional_damage_condition(comparer, comparing_target),
           additinal_damage: additinal_damage,
         }
+      end
+
+      def self.make_additional_damage_condition(comparer, comparing_target)
+        case comparer
+        when '='
+          lambda { |hit_count| hit_count == comparing_target }
+        when '>='
+          lambda { |hit_count| hit_count >= comparing_target }
+        end
       end
     end
   end
