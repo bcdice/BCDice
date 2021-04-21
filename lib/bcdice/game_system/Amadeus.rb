@@ -57,16 +57,16 @@ module BCDice
       end
 
       def amadeusDice(command)
-        m = /^(R([A-DS])([+\-\d]*))(@(\d))?((>(=)?)([+\-\d]*))?(@(\d))?$/i.match(command)
+        m = /^R([A-DS])([+\-\d]*)(@(\d))?((>=?)([+\-\d]*))?(@(\d))?$/i.match(command)
         unless m
           return nil
         end
 
-        skillRank = m[2]
-        modifier = ArithmeticEvaluator.eval(m[3])
-        cmp_op = m[7] ? Normalize.comparison_operator(m[7]) : :>=
-        target = m[9] ? ArithmeticEvaluator.eval(m[9]) : 4
-        specialNum = (m[5] || m[11] || 6).to_i
+        skillRank = m[1]
+        modifier = ArithmeticEvaluator.eval(m[2])
+        cmp_op = m[6] ? Normalize.comparison_operator(m[6]) : :>=
+        target = m[7] ? ArithmeticEvaluator.eval(m[7]) : 4
+        specialNum = (m[4] || m[9] || 6).to_i
 
         diceCount = CHECK_DICE_COUNT[skillRank]
 
