@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "bcdice/base"
 require "bcdice/game_system/sword_world/rating_parser"
 
 module BCDice
@@ -125,10 +126,17 @@ module BCDice
           break unless dice >= command.critical
         end
 
-        output += getResultText(totalValue, command, diceResults, diceResultTotals,
-                                rateResults, diceOnlyTotal, round)
+        result_text, critical, fumble = getResultText(
+          totalValue, command, diceResults, diceResultTotals,
+          rateResults, diceOnlyTotal, round
+        )
+        output += result_text
 
-        return output
+        return Result.new.tap do |r|
+          r.text = output
+          r.critical = critical
+          r.fumble = fumble
+        end
       end
 
       def getSW2_0_RatingTable
@@ -301,6 +309,7 @@ module BCDice
       # @param rateResults  [Array<String>]
       # @param dice_total [Integer]
       # @param round [Integer]
+      # @return [Array(String, Boolean, Boolean)] output, critical, fumble
       def getResultText(rating_total, command, diceResults, diceResultTotals,
                         rateResults, dice_total, round)
         sequence = []
@@ -310,7 +319,7 @@ module BCDice
         if dice_total <= 2
           sequence.push(rateResults.join(','))
           sequence.push("自動的失敗")
-          return sequence.join(" ＞ ")
+          return sequence.join(" ＞ "), false, true
         end
 
         # rate回数が1回で、修正値がない時には途中式と最終結果が一致するので、途中式を省略する
@@ -347,7 +356,7 @@ module BCDice
         total_text = total.to_s
         sequence.push(total_text)
 
-        return sequence.join(" ＞ ")
+        return sequence.join(" ＞ "), round > 1, false
       end
     end
   end

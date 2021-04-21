@@ -2,6 +2,7 @@
 game_system = "SwordWorld2.5"
 input = "K10r10"
 output = "KeyNo.10c[10]r[10] ＞ 2D:[5,5 5,5 5,5 5,5 5,5 5,5 5,5 5,5 5,5 5,4]=10,10,10,10,10,10,10,10,10,9 ＞ 5,8,10,11,13,15,18,21,23,22 ＞ 9回転 ＞ 146"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -29,6 +30,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "K10r10"
 output = "KeyNo.10c[10]r[10] ＞ 2D:[6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 5,4]=12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,9 ＞ 7,10,10,13,15,18,19,23,26,30,30,30,30,30,30,30,30,30,30,22 ＞ 19回転 ＞ 463"
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -76,6 +78,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "K11r10"
 output = "KeyNo.11c[10]r[10] ＞ 2D:[6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 5,4]=12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,9 ＞ 7,10,11,13,15,18,20,23,26,30,30,30,30,30,30,30,30,30,30,22 ＞ 19回転 ＞ 465"
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -123,6 +126,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "K40+24@8$12r10"
 output = "KeyNo.40c[8]m[12]r[10]+24 ＞ 2D:[5,3 5,3 5,3 5,3 5,3 5,3 5,2]=12,8,8,8,8,8,7 ＞ 13,12,13,16,18,19,19+24 ＞ 6回転 ＞ 134"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -144,6 +148,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "K10gf"
 output = "KeyNo.10c[10]gf ＞ 2D:[5,5 2,2]=10,4 ＞ 5,1 ＞ 1回転 ＞ 6"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -153,6 +158,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "K40+24@8$12r10gf"
 output = "KeyNo.40c[8]m[12]r[10]gf+24 ＞ 2D:[4,4 4,4 4,4 4,4 4,4 4,4 3,3]=12,8,8,8,8,8,6 ＞ 13,12,13,16,18,19,18+24 ＞ 6回転 ＞ 133"
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -205,6 +211,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "K20+5#1"
 output = "KeyNo.20c[10]a[+1]+5 ＞ 2D:[5,4 2,2]=10,5 ＞ 8,3+5 ＞ 1回転 ＞ 16"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -216,6 +223,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "K20+5#-1"
 output = "KeyNo.20c[10]a[-1]+5 ＞ 2D:[5,6 2,2]=10,3 ＞ 8,1+5 ＞ 1回転 ＞ 14"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -227,6 +235,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "K20+5#+10"
 output = "KeyNo.20c[10]a[+10]+5 ＞ 2D:[1,1]=2 ＞ ** ＞ 自動的失敗"
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -236,6 +245,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "K20+5#10"
 output = "KeyNo.20c[10]a[+10]+5 ＞ 2D:[2,1 1,1]=12,2 ＞ 10,**+5 ＞ 1回転 ＞ 15"
+critical = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -247,6 +257,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "K20+5#1$+1"
 output = "KeyNo.20c[10]m[+1]a[+1]+5 ＞ 2D:[5,4 2,2]=11,5 ＞ 9,3+5 ＞ 1回転 ＞ 17"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -258,6 +269,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "k10-5@9#2"
 output = "KeyNo.10c[9]a[+2]-5 ＞ 2D:[5,4 2,2]=11,6 ＞ 6,3-5 ＞ 1回転 ＞ 4"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
@@ -314,6 +326,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "HK20+6@4"
 output = "KeyNo.20c[4]+6 ＞ 2D:[4,3 2,5 2,6 1,1]=7,7,8,2 ＞ (5,5,6,**+6)/2 ＞ 3回転 ＞ 11"
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -329,6 +342,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "K20+6@4h"
 output = "KeyNo.20c[4]+6 ＞ 2D:[4,3 2,5 2,6 1,1]=7,7,8,2 ＞ (5,5,6,**+6)/2 ＞ 3回転 ＞ 11"
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -344,6 +358,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2D6@10+15>=30"
 output = "(2D6@10+15>=30) ＞ 9[6,3]+15 ＞ 24 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -353,6 +368,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2D6@10+15>=30"
 output = "(2D6@10+15>=30) ＞ 15[6,4][3,2]+15 ＞ 30 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -364,6 +380,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2D6@10+15>=30"
 output = "(2D6@10+15>=30) ＞ 25[6,4][5,5][1,4]+15 ＞ 40 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -377,6 +394,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2D6@10+16>=30"
 output = "(2D6@10+16>=30) ＞ 25[6,4][5,5][1,4]+16 ＞ 41 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -390,6 +408,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2D6@10+15>=30"
 output = "(2D6@10+15>=30) ＞ 22[6,4][5,5][1,1]+15 ＞ 37 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -403,6 +422,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2D6@10+31>=30"
 output = "(2D6@10+31>=30) ＞ 9[6,3]+31 ＞ 40 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -412,6 +432,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2D6@10+32>=30"
 output = "(2D6@10+32>=30) ＞ 9[6,3]+32 ＞ 41 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -421,6 +442,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2D6@10+31>=30"
 output = "(2D6@10+31>=30) ＞ 12[6,4][1,1]+31 ＞ 43 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -432,6 +454,8 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2D6@10+31>=30"
 output = "(2D6@10+31>=30) ＞ 12[6,6]+31 ＞ 43 ＞ 自動的成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -441,6 +465,8 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2D6@10+31>=30"
 output = "(2D6@10+31>=30) ＞ 2[1,1]+31 ＞ 33 ＞ 自動的失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -450,6 +476,8 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2D6@10+39>=30"
 output = "(2D6@10+39>=30) ＞ 2[1,1]+39 ＞ 41 ＞ 自動的失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -487,6 +515,8 @@ rands = []
 game_system = "SwordWorld2.5"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 12[6,6]+11 ＞ 23 ＞ 自動的成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -496,6 +526,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 38[4,6][5,5][5,5][3,5]+11 ＞ 49 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -511,6 +542,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 30[6,5][6,6][6,1]+11 ＞ 41 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -524,6 +556,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 40[6,5][6,6][5,5][6,1]+11 ＞ 51 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -539,6 +572,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 52[6,5][6,6][5,5][6,6][6,1]+11 ＞ 63 ＞ 超成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -556,6 +590,7 @@ rands = [
 game_system = "SwordWorld2.5"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 25[6,5][6,6][1,1]+11 ＞ 36 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
