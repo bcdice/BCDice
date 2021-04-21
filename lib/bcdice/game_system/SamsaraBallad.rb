@@ -99,6 +99,7 @@ module BCDice
             Result.success(nil)
           end
         elsif fumble_?(total, cmd.fumble)
+          # ファンブル優先
           Result.new.tap do |r|
             r.fumble = true
           end
