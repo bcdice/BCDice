@@ -76,27 +76,29 @@ module BCDice
         diceText = diceList.join(",")
         specialText = (specialNum == 6 ? "" : "@#{specialNum}")
 
-        message = "(#{commandText}#{specialText}#{signOfInequality}#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "
         diceList = [diceList.min] if skillRank == "D"
-        is_loop = false
-        diceList.each do |dice|
-          if  is_loop
-            message += " / "
-          elsif diceList.length > 1
-            is_loop = true
-          end
-          achieve = dice + modify
-          result = check_success(achieve, dice, signOfInequality, target, specialNum)
-          if is_loop
-            inga_table = translate("Amadeus.inga_table")
-            inga = inga_table[dice - 1]
-            message += "#{achieve}_#{result}[#{dice}#{inga}]"
-          else
-            message += "#{achieve}_#{result}[#{dice}]"
-          end
-        end
+        available_inga = diceList.size > 1
+        inga_table = translate("Amadeus.inga_table")
 
-        return message
+        results =
+          diceList.map do |dice|
+            achieve = dice + modify
+            result = check_success(achieve, dice, signOfInequality, target, specialNum)
+            if available_inga
+              inga = inga_table[dice - 1]
+              "#{achieve}_#{result}[#{dice}#{inga}]"
+            else
+              "#{achieve}_#{result}[#{dice}]"
+            end
+          end
+
+        sequence = [
+          "(#{commandText}#{specialText}#{signOfInequality}#{targetText})",
+          "[#{diceText}]#{modifyText}",
+          results.join(" / ")
+        ]
+
+        return sequence.join(" ＞ ")
       end
 
       def check_success(total_n, dice_n, signOfInequality, diff, special_n)
