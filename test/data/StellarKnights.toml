@@ -37,8 +37,6 @@ rands = [
 game_system = "StellarKnights"
 input = "3SK,1>6"
 output = "(3SK,1>6) ＞ 1,2,3 ＞ [2,3,6]"
-success = false
-failure = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
