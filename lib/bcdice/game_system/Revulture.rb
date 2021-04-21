@@ -38,14 +38,16 @@ module BCDice
         raise if dice_count < 1
 
         dices = @randomizer.roll_barabara(dice_count, 6).sort
-        hit_count = border.nil? ? nil : dices.count { |dice| dice <= border.to_i }
+        critical_hit_count = dices.count { |dice| dice == 1 }
+        hit_count = border.nil? ? nil : dices.count { |dice| dice <= border.to_i } + critical_hit_count
 
         if border.nil?
-          Result.new("(#{dice_count}attack) ＞ #{dices.join(',')}")
+          Result.new("(#{dice_count}attack) ＞ #{dices.join(',')}").tap { |r| r.critical = critical_hit_count > 0 }
         else
-          Result.new("(#{dice_count}attack<=#{border}) ＞ #{dices.join(',')} ＞ ヒット数 #{hit_count}").tap do |r|
+          Result.new("(#{dice_count}attack<=#{border}) ＞ #{dices.join(',')} #{critical_hit_count > 0 ? "＞ クリティカル #{critical_hit_count} " : ''}＞ ヒット数 #{hit_count}").tap do |r|
             r.success = hit_count > 0
             r.failure = !r.success?
+            r.critical = critical_hit_count > 0
           end
         end
       end

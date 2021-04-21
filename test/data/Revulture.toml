@@ -4,6 +4,7 @@ input = "3at"
 output = "(3attack) ＞ 2,4,5"
 success = false
 failure = false
+critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -16,6 +17,7 @@ input = "4atk"
 output = "(4attack) ＞ 2,4,5,5"
 success = false
 failure = false
+critical = false
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -29,6 +31,7 @@ input = "5attack"
 output = "(5attack) ＞ 1,4,5,5,6"
 success = false
 failure = false
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -43,6 +46,7 @@ input = "12attack"
 output = "(12attack) ＞ 1,1,1,2,3,4,4,5,5,5,6,6"
 success = false
 failure = false
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -64,6 +68,7 @@ input = "3+2at"
 output = "(5attack) ＞ 1,4,5,5,6"
 success = false
 failure = false
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -78,6 +83,7 @@ input = "4/2at"
 output = "(2attack) ＞ 5,6"
 success = false
 failure = false
+critical = false
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -89,6 +95,7 @@ input = "5/2at"
 output = "(2attack) ＞ 5,6"
 success = false
 failure = false
+critical = false
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -100,6 +107,7 @@ input = "6/2at"
 output = "(3attack) ＞ 1,5,6"
 success = false
 failure = false
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -112,6 +120,7 @@ input = "3at<=1"
 output = "(3attack<=1) ＞ 2,4,5 ＞ ヒット数 0"
 success = false
 failure = true
+critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -124,6 +133,7 @@ input = "3at<=2"
 output = "(3attack<=2) ＞ 2,4,5 ＞ ヒット数 1"
 success = true
 failure = false
+critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -136,6 +146,7 @@ input = "3at<=3"
 output = "(3attack<=3) ＞ 2,4,5 ＞ ヒット数 1"
 success = true
 failure = false
+critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -148,6 +159,7 @@ input = "3at<=4"
 output = "(3attack<=4) ＞ 2,4,5 ＞ ヒット数 2"
 success = true
 failure = false
+critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -160,6 +172,7 @@ input = "3at<=5"
 output = "(3attack<=5) ＞ 2,4,5 ＞ ヒット数 3"
 success = true
 failure = false
+critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -172,8 +185,37 @@ input = "3at<=6"
 output = "(3attack<=6) ＞ 2,4,5 ＞ ヒット数 3"
 success = true
 failure = false
+critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Revulture"
+input = "3at<=5"
+output = "(3attack<=5) ＞ 1,4,5 ＞ クリティカル 1 ＞ ヒット数 4"
+success = true
+failure = false
+critical = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Revulture"
+input = "5at<=5"
+output = "(5attack<=5) ＞ 1,1,4,5,6 ＞ クリティカル 2 ＞ ヒット数 6"
+success = true
+failure = false
+critical = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
 ]
