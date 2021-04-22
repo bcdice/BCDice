@@ -54,6 +54,8 @@ module BCDice
           roll_tables(command, self.class::TABLES)
       end
 
+      private
+
       def roll_amadeus(command)
         m = /^R([A-DS])([+\-\d]*)(@(\d))?((>=?)([+\-\d]*))?(@(\d))?$/i.match(command)
         unless m
@@ -110,42 +112,46 @@ module BCDice
 
       CHECK_DICE_COUNT = {"S" => 4, "A" => 3, "B" => 2, "C" => 1, "D" => 2}.freeze
 
-      def self.translate_tables(locale)
-        {
-          "ECT" => DiceTable::Table.from_i18n("Amadeus.table.ECT", locale),
-          "BST" => DiceTable::Table.from_i18n("Amadeus.table.BST", locale),
-          "RT" => DiceTable::Table.from_i18n("Amadeus.table.RT", locale),
-          "PRT" => DiceTable::Table.from_i18n("Amadeus.table.PRT", locale),
-          "FT" => DiceTable::Table.from_i18n("Amadeus.table.FT", locale),
-          "BT" => DiceTable::D66Table.from_i18n("Amadeus.table.BT", locale),
-          "FWT" => DiceTable::Table.from_i18n("Amadeus.table.FWT", locale),
-          "BRT" => DiceTable::Table.from_i18n("Amadeus.table.BRT", locale),
-          "RIT" => DiceTable::Table.from_i18n("Amadeus.table.RIT", locale),
-          "WT" => DiceTable::Table.from_i18n("Amadeus.table.WT", locale),
-          "NMT" => DiceTable::Table.from_i18n("Amadeus.table.NMT", locale),
-          "TGT" => DiceTable::Table.from_i18n("Amadeus.table.TGT", locale),
-          "CST" => DiceTable::Table.from_i18n("Amadeus.table.CST", locale),
-          "GCVT" => DiceTable::Table.from_i18n("Amadeus.table.GCVT", locale),
-          "YCVT" => DiceTable::Table.from_i18n("Amadeus.table.YCVT", locale),
-          "ECVT" => DiceTable::Table.from_i18n("Amadeus.table.ECVT", locale),
-          "CCVT" => DiceTable::Table.from_i18n("Amadeus.table.CCVT", locale),
-          "NCVT" => DiceTable::Table.from_i18n("Amadeus.table.NCVT", locale),
-          "DGVT" => DiceTable::Table.from_i18n("Amadeus.table.DGVT", locale),
-          "DAVT" => DiceTable::Table.from_i18n("Amadeus.table.DAVT", locale),
-          "PRCT" => DiceTable::Table.from_i18n("Amadeus.table.PRCT", locale),
-          "TCCT" => DiceTable::Table.from_i18n("Amadeus.table.TCCT", locale),
-          "INCT" => DiceTable::Table.from_i18n("Amadeus.table.INCT", locale),
-          "PSCT" => DiceTable::Table.from_i18n("Amadeus.table.PSCT", locale),
-          "LVCT" => DiceTable::Table.from_i18n("Amadeus.table.LVCT", locale),
-          "DACT" => DiceTable::Table.from_i18n("Amadeus.table.DACT", locale),
-          "RGT" => DiceTable::Table.from_i18n("Amadeus.table.RGT", locale),
-          "FBT" => DiceTable::Table.from_i18n("Amadeus.table.FBT", locale),
-          "CHVT" => DiceTable::Table.from_i18n("Amadeus.table.CHVT", locale),
-          "LCVT" => DiceTable::Table.from_i18n("Amadeus.table.LCVT", locale),
-          "KCVT" => DiceTable::Table.from_i18n("Amadeus.table.KCVT", locale),
-          "SAT" => DiceTable::D66Table.from_i18n("Amadeus.table.SAT", locale),
-          "SMT" => DiceTable::D66Table.from_i18n("Amadeus.table.SMT", locale),
-        }
+      class << self
+        private
+
+        def translate_tables(locale)
+          {
+            "ECT" => DiceTable::Table.from_i18n("Amadeus.table.ECT", locale),
+            "BST" => DiceTable::Table.from_i18n("Amadeus.table.BST", locale),
+            "RT" => DiceTable::Table.from_i18n("Amadeus.table.RT", locale),
+            "PRT" => DiceTable::Table.from_i18n("Amadeus.table.PRT", locale),
+            "FT" => DiceTable::Table.from_i18n("Amadeus.table.FT", locale),
+            "BT" => DiceTable::D66Table.from_i18n("Amadeus.table.BT", locale),
+            "FWT" => DiceTable::Table.from_i18n("Amadeus.table.FWT", locale),
+            "BRT" => DiceTable::Table.from_i18n("Amadeus.table.BRT", locale),
+            "RIT" => DiceTable::Table.from_i18n("Amadeus.table.RIT", locale),
+            "WT" => DiceTable::Table.from_i18n("Amadeus.table.WT", locale),
+            "NMT" => DiceTable::Table.from_i18n("Amadeus.table.NMT", locale),
+            "TGT" => DiceTable::Table.from_i18n("Amadeus.table.TGT", locale),
+            "CST" => DiceTable::Table.from_i18n("Amadeus.table.CST", locale),
+            "GCVT" => DiceTable::Table.from_i18n("Amadeus.table.GCVT", locale),
+            "YCVT" => DiceTable::Table.from_i18n("Amadeus.table.YCVT", locale),
+            "ECVT" => DiceTable::Table.from_i18n("Amadeus.table.ECVT", locale),
+            "CCVT" => DiceTable::Table.from_i18n("Amadeus.table.CCVT", locale),
+            "NCVT" => DiceTable::Table.from_i18n("Amadeus.table.NCVT", locale),
+            "DGVT" => DiceTable::Table.from_i18n("Amadeus.table.DGVT", locale),
+            "DAVT" => DiceTable::Table.from_i18n("Amadeus.table.DAVT", locale),
+            "PRCT" => DiceTable::Table.from_i18n("Amadeus.table.PRCT", locale),
+            "TCCT" => DiceTable::Table.from_i18n("Amadeus.table.TCCT", locale),
+            "INCT" => DiceTable::Table.from_i18n("Amadeus.table.INCT", locale),
+            "PSCT" => DiceTable::Table.from_i18n("Amadeus.table.PSCT", locale),
+            "LVCT" => DiceTable::Table.from_i18n("Amadeus.table.LVCT", locale),
+            "DACT" => DiceTable::Table.from_i18n("Amadeus.table.DACT", locale),
+            "RGT" => DiceTable::Table.from_i18n("Amadeus.table.RGT", locale),
+            "FBT" => DiceTable::Table.from_i18n("Amadeus.table.FBT", locale),
+            "CHVT" => DiceTable::Table.from_i18n("Amadeus.table.CHVT", locale),
+            "LCVT" => DiceTable::Table.from_i18n("Amadeus.table.LCVT", locale),
+            "KCVT" => DiceTable::Table.from_i18n("Amadeus.table.KCVT", locale),
+            "SAT" => DiceTable::D66Table.from_i18n("Amadeus.table.SAT", locale),
+            "SMT" => DiceTable::D66Table.from_i18n("Amadeus.table.SMT", locale),
+          }
+        end
       end
 
       TABLES = translate_tables(:ja_jp)
