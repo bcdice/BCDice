@@ -78,10 +78,28 @@ module BCDice
         available_inga = dice_list.size > 1
         inga_table = translate("Amadeus.inga_table")
 
+        success = false
+        critical = false
+        fumble = false
+
         results =
           dice_list.map do |dice|
             total = dice + modifier
-            result = check_success(total, dice, cmp_op, target, special)
+            result =
+              if dice == 1
+                fumble = true
+                translate("Amadeus.fumble")
+              elsif dice >= special
+                critical = true
+                success = true
+                translate("Amadeus.special")
+              elsif total.send(cmp_op, target)
+                success = true
+                translate("success")
+              else
+                translate("failure")
+              end
+
             if available_inga
               inga = inga_table[dice - 1]
               "#{total}_#{result}[#{dice}#{inga}]"
@@ -96,17 +114,15 @@ module BCDice
           results.join(" / ")
         ]
 
-        return sequence.join(" ＞ ")
-      end
-
-      def check_success(total, dice, cmp_op, target, special)
-        return translate("Amadeus.fumble") if dice == 1
-        return translate("Amadeus.special") if dice >= special
-
-        if total.send(cmp_op, target)
-          translate("success")
-        else
-          translate("failure")
+        Result.new.tap do |r|
+          r.text = sequence.join(" ＞ ")
+          if success
+            r.success = true
+            r.critical = critical
+          else
+            r.failure = true
+            r.fumble = fumble
+          end
         end
       end
 
