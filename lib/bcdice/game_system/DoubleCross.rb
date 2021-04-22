@@ -239,7 +239,7 @@ module BCDice
       end
 
       # 疾風怒濤式の成功判定コマンドの正規表現マッチ情報からノードを作る
-      # @param [MatchData] m 正規表現のマッチ情報
+      # @param command [String]
       # @return [DX]
       def parse_dx_shippu_doto(command)
         parser = Command::Parser.new(/\d+DX\d*/, round_type: round_type)

@@ -57,22 +57,22 @@ module BCDice
           return @first_modify || 0
         end
 
-        # @return @[Integer]
+        # @return [Integer]
         def first_to
           return @first_to || 0
         end
 
-        # @return @[Integer]
+        # @return [Integer]
         def rateup
           return @rateup || 0
         end
 
-        # @return @[Integer]
+        # @return [Integer]
         def kept_modify
           return @kept_modify || 0
         end
 
-        # @return @[Integer]
+        # @return [Integer]
         def modifier_after_half
           return @modifier_after_half || 0
         end
