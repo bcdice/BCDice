@@ -4,23 +4,37 @@
 
 ### 対応ゲームシステムの追加
 - エネカデット (Ainecadette): 如才さん要望ありがとうっ！ ([#409](https://github.com/bcdice/BCDice/pull/409))
+- 歯車の塔の探空士（冒険企画局） (SkynautsBouken): くずもちさんありがとうっ！ ([#414]https://github.com/bcdice/BCDice/pull/414)
+- 光砕のリヴァルチャー (Revulture): ViViさんありがとうっ！ ([#427](https://github.com/bcdice/BCDice/pull/427))
 
 ### 追加機能
 - クラヤミクライン: 感情表、幕間シーン表（情景）、幕間シーン表（関係）を追加。Hero_Fullcutさん要望ありがとうっ！ ([#408](https://github.com/bcdice/BCDice/pull/408))
 - 新クトゥルフ神話TRPG: 技能ロールで難易度を設定できるように ([#417](https://github.com/bcdice/BCDice/pull/417))
 - 多くのゲームシステムで加算ダイスの特殊処理時に `Result` での成功／失敗／ファンブル／クリティカルの情報を付与する ([#418](https://github.com/bcdice/BCDice/pull/418))
+- いくつかのゲームシステムで固有コマンドの処理に `Result` での成功／失敗／ファンブル／クリティカルの情報を付与する
+  - ソード・ワールド系 ([#424](https://github.com/bcdice/BCDice/pull/424))
+  - 銀剣のステラナイツ ([#425](https://github.com/bcdice/BCDice/pull/425))
+  - モノトーンミュージアムRPG ([#426](https://github.com/bcdice/BCDice/pull/426))
 
 ## 変更
 - ウォーハンマーRPG第4版: 判定コマンドで失敗しても命中部位を表示する。Facelessさんありがとうっ！ ([#405](https://github.com/bcdice/BCDice/pull/405))
-- エモクロアTRPG: 日本語名を「エモクロアTRPG」に変更し、合わせてソートキーも変更 ([#419](https://github.com/bcdice/BCDice/pull/419))
+- いくつかのシステムの日本語名を以下に変更
+  - 歯車の塔の探空士（六畳間幻想空間） ([#414]https://github.com/bcdice/BCDice/pull/414)
+  - ブラッドムーン ([#415](https://github.com/bcdice/BCDice/pull/415))
+  - ソード・ワールドRPG, ソード・ワールド2.0, ソード・ワールド2.5([#415] (https://github.com/bcdice/BCDice/pull/415))
+  - エモクロアTRPG ([#419](https://github.com/bcdice/BCDice/pull/419))
 
 ## 誤植修正
 - ウォーハンマーRPG第4版: やっちまった表の誤植を修正。Facelessさんありがとうっ！ ([#405](https://github.com/bcdice/BCDice/pull/405))
+- 迷宮キングダム 基本ルールブック: 王国環境表および技術決定表の誤植を修正。ぶためんさんありがとうっ！ ([#421](https://github.com/bcdice/BCDice/pull/421))
+
+## バグ修正
+- `BCDice::Base#.command_pattern` で正確な正規表現を得られるように修正 ([#413](https://github.com/bcdice/BCDice/pull/413), [#416](https://github.com/bcdice/BCDice/pull/416))
 
 ## 3.1.3 2021/04/12
 
 ### バグ修正
-- 悪意ある入力に対処 ([`c302300`](https://github.com/bcdice/BCDice/commit/c30230038b44b8d373e4a342b4cb4d528dc7c472))
+- 悪意ある入力に対処。くずもちさんありがとうっ！ ([`c302300`](https://github.com/bcdice/BCDice/commit/c30230038b44b8d373e4a342b4cb4d528dc7c472))
 
 ## 3.1.2 2021/03/28
 
