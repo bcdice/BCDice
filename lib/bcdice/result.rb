@@ -1,8 +1,18 @@
 # frozen_string_literal: true
 
 module BCDice
+  # ダイスロールの結果を表すクラス
+  #
+  # コマンドの結果の文字列や、成功／失敗／クリティカル／ファンブルの情報を保持する。
+  # 成功／失敗は同時に発生しないこととする。
+  # 成功／失敗のペアとクリティカル、ファンブルの三者は独立した要素とし、
+  # 「クリティカルだが失敗」や「ファンブルだが成功でも失敗でもない」を許容する。
   class Result
     class << self
+      # +success+ が設定された +Result+ を作成する
+      #
+      # @param text [String]
+      # @return [Result]
       def success(text)
         new.tap do |r|
           r.text = text
@@ -10,6 +20,10 @@ module BCDice
         end
       end
 
+      # +failure+ が設定された +Result+ を作成する
+      #
+      # @param text [String]
+      # @return [Result]
       def failure(text)
         new.tap do |r|
           r.text = text
@@ -17,6 +31,10 @@ module BCDice
         end
       end
 
+      # +success+ と +critical+ が設定された +Result+ を作成する
+      #
+      # @param text [String]
+      # @return [Result]
       def critical(text)
         new.tap do |r|
           r.text = text
@@ -25,6 +43,10 @@ module BCDice
         end
       end
 
+      # +failure+ と +fumble+ が設定された +Result+ を作成する
+      #
+      # @param text [String]
+      # @return [Result]
       def fumble(text)
         new.tap do |r|
           r.text = text
@@ -33,11 +55,15 @@ module BCDice
         end
       end
 
+      # その後の判定で何もすることがないことを示すために利用する
+      #
+      # @return [:nothing]
       def nothing
         :nothing
       end
     end
 
+    # @param text [String | nil]
     def initialize(text = nil)
       @text = text
       @rands = nil
