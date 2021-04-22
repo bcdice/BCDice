@@ -2,9 +2,6 @@
 game_system = "Revulture"
 input = "3at"
 output = "(3attack) ＞ 2,4,5"
-success = false
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -15,9 +12,6 @@ rands = [
 game_system = "Revulture"
 input = "4atk"
 output = "(4attack) ＞ 2,4,5,5"
-success = false
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -29,8 +23,6 @@ rands = [
 game_system = "Revulture"
 input = "5attack"
 output = "(5attack) ＞ 1,4,5,5,6 ＞ クリティカル 1"
-success = false
-failure = false
 critical = true
 rands = [
   { sides = 6, value = 6 },
@@ -44,8 +36,6 @@ rands = [
 game_system = "Revulture"
 input = "12attack"
 output = "(12attack) ＞ 1,1,1,2,3,4,4,5,5,5,6,6 ＞ クリティカル 3"
-success = false
-failure = false
 critical = true
 rands = [
   { sides = 6, value = 6 },
@@ -66,8 +56,6 @@ rands = [
 game_system = "Revulture"
 input = "3+2at"
 output = "(5attack) ＞ 1,4,5,5,6 ＞ クリティカル 1"
-success = false
-failure = false
 critical = true
 rands = [
   { sides = 6, value = 6 },
@@ -81,9 +69,6 @@ rands = [
 game_system = "Revulture"
 input = "4/2at"
 output = "(2attack) ＞ 5,6"
-success = false
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -93,9 +78,6 @@ rands = [
 game_system = "Revulture"
 input = "5/2at"
 output = "(2attack) ＞ 5,6"
-success = false
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -105,8 +87,6 @@ rands = [
 game_system = "Revulture"
 input = "6/2at"
 output = "(3attack) ＞ 1,5,6 ＞ クリティカル 1"
-success = false
-failure = false
 critical = true
 rands = [
   { sides = 6, value = 6 },
@@ -118,9 +98,7 @@ rands = [
 game_system = "Revulture"
 input = "3at<=1"
 output = "(3attack<=1) ＞ 2,4,5 ＞ ヒット数 0"
-success = false
 failure = true
-critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -132,8 +110,6 @@ game_system = "Revulture"
 input = "3at<=2"
 output = "(3attack<=2) ＞ 2,4,5 ＞ ヒット数 1"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -145,8 +121,6 @@ game_system = "Revulture"
 input = "3at<=3"
 output = "(3attack<=3) ＞ 2,4,5 ＞ ヒット数 1"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -158,8 +132,6 @@ game_system = "Revulture"
 input = "3at<=4"
 output = "(3attack<=4) ＞ 2,4,5 ＞ ヒット数 2"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -171,8 +143,6 @@ game_system = "Revulture"
 input = "3at<=5"
 output = "(3attack<=5) ＞ 2,4,5 ＞ ヒット数 3"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -184,8 +154,6 @@ game_system = "Revulture"
 input = "3at<=6"
 output = "(3attack<=6) ＞ 2,4,5 ＞ ヒット数 3"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -197,7 +165,6 @@ game_system = "Revulture"
 input = "3at<=5"
 output = "(3attack<=5) ＞ 1,4,5 ＞ クリティカル 1 ＞ ヒット数 4"
 success = true
-failure = false
 critical = true
 rands = [
   { sides = 6, value = 1 },
@@ -210,7 +177,6 @@ game_system = "Revulture"
 input = "5at<=5"
 output = "(5attack<=5) ＞ 1,1,4,5,6 ＞ クリティカル 2 ＞ ヒット数 6"
 success = true
-failure = false
 critical = true
 rands = [
   { sides = 6, value = 1 },
@@ -224,9 +190,7 @@ rands = [
 game_system = "Revulture"
 input = "3at<=1+1"
 output = "(3attack<=2) ＞ 3,4,5 ＞ ヒット数 0"
-success = false
 failure = true
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -238,8 +202,6 @@ game_system = "Revulture"
 input = "3at<=2+1"
 output = "(3attack<=3) ＞ 3,4,5 ＞ ヒット数 1"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -251,7 +213,6 @@ game_system = "Revulture"
 input = "3at<=2+1"
 output = "(3attack<=3) ＞ 1,3,4 ＞ クリティカル 1 ＞ ヒット数 3"
 success = true
-failure = false
 critical = true
 rands = [
   { sides = 6, value = 3 },
@@ -264,8 +225,6 @@ game_system = "Revulture"
 input = "3at<=2+2"
 output = "(3attack<=4) ＞ 3,4,5 ＞ ヒット数 2"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -277,8 +236,6 @@ game_system = "Revulture"
 input = "3at<=2+4"
 output = "(3attack<=6) ＞ 3,5,6 ＞ ヒット数 3"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -290,8 +247,6 @@ game_system = "Revulture"
 input = "3at<=2+5"
 output = "(3attack<=6) ＞ 3,5,6 ＞ ヒット数 3"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -302,9 +257,7 @@ rands = [
 game_system = "Revulture"
 input = "3at<=2[>=1:+3]"
 output = "(3attack<=2[>=1:+3]) ＞ 3,4,5 ＞ ヒット数 0 ＞ ダメージ 0"
-success = false
 failure = true
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -316,8 +269,6 @@ game_system = "Revulture"
 input = "3at<=3[>=1:+3]"
 output = "(3attack<=3[>=1:+3]) ＞ 3,4,5 ＞ ヒット数 1 ＞ ダメージ 4"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -329,8 +280,6 @@ game_system = "Revulture"
 input = "3at<=3[>=2:+3]"
 output = "(3attack<=3[>=2:+3]) ＞ 3,4,5 ＞ ヒット数 1 ＞ ダメージ 1"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -342,8 +291,6 @@ game_system = "Revulture"
 input = "3at<=4[>=2:+3]"
 output = "(3attack<=4[>=2:+3]) ＞ 3,4,5 ＞ ヒット数 2 ＞ ダメージ 5"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -354,9 +301,7 @@ rands = [
 game_system = "Revulture"
 input = "3at<=2[=1:+5]"
 output = "(3attack<=2[=1:+5]) ＞ 3,4,5 ＞ ヒット数 0 ＞ ダメージ 0"
-success = false
 failure = true
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -368,8 +313,6 @@ game_system = "Revulture"
 input = "3at<=3[=1:+5]"
 output = "(3attack<=3[=1:+5]) ＞ 3,4,5 ＞ ヒット数 1 ＞ ダメージ 6"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -381,8 +324,6 @@ game_system = "Revulture"
 input = "3at<=4[=1:+5]"
 output = "(3attack<=4[=1:+5]) ＞ 3,4,5 ＞ ヒット数 2 ＞ ダメージ 2"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -393,9 +334,7 @@ rands = [
 game_system = "Revulture"
 input = "3at<=2[=1:+5][>=2:+8]"
 output = "(3attack<=2[=1:+5][>=2:+8]) ＞ 3,4,5 ＞ ヒット数 0 ＞ ダメージ 0"
-success = false
 failure = true
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -407,8 +346,6 @@ game_system = "Revulture"
 input = "3at<=3[=1:+5][>=2:+8]"
 output = "(3attack<=3[=1:+5][>=2:+8]) ＞ 3,4,5 ＞ ヒット数 1 ＞ ダメージ 6"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -420,8 +357,6 @@ game_system = "Revulture"
 input = "3at<=4[=1:+5][>=2:+8]"
 output = "(3attack<=4[=1:+5][>=2:+8]) ＞ 3,4,5 ＞ ヒット数 2 ＞ ダメージ 10"
 success = true
-failure = false
-critical = false
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
