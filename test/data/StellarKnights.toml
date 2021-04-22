@@ -13,11 +13,23 @@ rands = [
 game_system = "StellarKnights"
 input = "5SK3"
 output = "(5SK3) ＞ 2,3,5,6,6 ＞ 成功数: 4"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StellarKnights"
+input = "3SK6"
+output = "(3SK6) ＞ 2,3,5 ＞ 成功数: 0"
+failure = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
   { sides = 6, value = 2 },
 ]
 
@@ -35,6 +47,7 @@ rands = [
 game_system = "StellarKnights"
 input = "6SK4,1>6,2>6"
 output = "(6SK4,1>6,2>6) ＞ 1,2,3,4,5,6 ＞ [3,4,5,6,6,6] ＞ 成功数: 5"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -48,6 +61,7 @@ rands = [
 game_system = "StellarKnights"
 input = "6SK4,1>6,6>1"
 output = "(6SK4,1>6,6>1) ＞ 1,2,3,4,5,6 ＞ [1,1,2,3,4,5] ＞ 成功数: 2"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },

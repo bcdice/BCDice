@@ -113,12 +113,20 @@ module BCDice
           output += " ＞ [#{dices.join(',')}]"
         end
 
-        unless defence.nil?
-          success = dices.count { |val| val >= defence }
-          output += " ＞ " + translate("StellarKnights.SK.success_num", success_num: success)
+        if defence.nil?
+          success = false
+          failure = false
+        else
+          success_num = dices.count { |val| val >= defence }
+          output += " ＞ " + translate("StellarKnights.SK.success_num", success_num: success_num)
+          success = success_num > 0
+          failure = !success
         end
 
-        output
+        Result.new(output).tap do |r|
+          r.success = success
+          r.failure = failure
+        end
       end
 
       def parse_dice_change_rules(text)
