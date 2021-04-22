@@ -121,6 +121,10 @@ module BCDice
       class FW
         attr_accessor :dice_count, :target, :critical, :fumble
 
+        def initialize
+          @target = nil
+        end
+
         def self.roll(command, randomizer)
           fw = parse(command)
 
