@@ -4,7 +4,7 @@
 
 ### 対応ゲームシステムの追加
 - エネカデット (Ainecadette): 如才さん要望ありがとうっ！ ([#409](https://github.com/bcdice/BCDice/pull/409))
-- 歯車の塔の探空士（冒険企画局） (SkynautsBouken): くずもちさんありがとうっ！ ([#414]https://github.com/bcdice/BCDice/pull/414)
+- 歯車の塔の探空士（冒険企画局） (SkynautsBouken): くずもちさんありがとうっ！ ([#414](https://github.com/bcdice/BCDice/pull/414))
 - 光砕のリヴァルチャー (Revulture): ViViさんありがとうっ！ ([#427](https://github.com/bcdice/BCDice/pull/427))
 
 ### 追加機能
@@ -19,9 +19,9 @@
 ## 変更
 - ウォーハンマーRPG第4版: 判定コマンドで失敗しても命中部位を表示する。Facelessさんありがとうっ！ ([#405](https://github.com/bcdice/BCDice/pull/405))
 - いくつかのシステムの日本語名を以下に変更
-  - 歯車の塔の探空士（六畳間幻想空間） ([#414]https://github.com/bcdice/BCDice/pull/414)
+  - 歯車の塔の探空士（六畳間幻想空間） ([#414](https://github.com/bcdice/BCDice/pull/414))
   - ブラッドムーン ([#415](https://github.com/bcdice/BCDice/pull/415))
-  - ソード・ワールドRPG, ソード・ワールド2.0, ソード・ワールド2.5([#415] (https://github.com/bcdice/BCDice/pull/415))
+  - ソード・ワールドRPG, ソード・ワールド2.0, ソード・ワールド2.5 ([#415](https://github.com/bcdice/BCDice/pull/415))
   - エモクロアTRPG ([#419](https://github.com/bcdice/BCDice/pull/419))
 
 ## 誤植修正
