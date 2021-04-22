@@ -235,7 +235,6 @@ rands = [
 ]
 fumble=true
 failure=true
-failure=true
 
 [[ test ]]
 game_system = "CodeLayerd"
