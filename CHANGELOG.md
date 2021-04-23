@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+## 3.2.0 2021/04/23
 
 ### 対応ゲームシステムの追加
 - エネカデット (Ainecadette): 如才さん要望ありがとうっ！ ([#409](https://github.com/bcdice/BCDice/pull/409))
