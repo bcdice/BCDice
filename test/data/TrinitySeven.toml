@@ -436,7 +436,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "TRNAME"
-output = "魔王 , 目についた物の名前（シャーペン、メガネなど）"
+output = "\"魔王\" , 目についた物の名前（シャーペン、メガネなど）"
 rands = [
   { sides = 100, value = 100 },
   { sides = 100, value = 100 },
@@ -457,6 +457,15 @@ input = "TRNAME"
 output = "北千住 , スカー/綾瀬"
 rands = [
   { sides = 100, value = 30 },
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TRNAME"
+output = "サンクチュアリ , スカー/綾瀬"
+rands = [
+  { sides = 100, value = 70 },
   { sides = 100, value = 30 },
 ]
 
