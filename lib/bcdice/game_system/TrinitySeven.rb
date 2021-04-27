@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "bcdice/format"
+
 module BCDice
   module GameSystem
     class TrinitySeven < Base
@@ -44,17 +46,8 @@ module BCDice
           return "#{firstName} , #{secondName}"
         end
 
-        result = roll_hit(command)
-        return result if result
-
-        if /^(\d*)DM(\d*)([+\-\d]*)$/ =~ command
-          diceCount = Regexp.last_match(1).to_i
-          critical = Regexp.last_match(2).to_i
-          modify = Regexp.last_match(3).to_i
-          return rollDamage(command, diceCount, critical, modify)
-        end
-
-        return ''
+        roll_hit(command) ||
+          roll_damage(command)
       end
 
       def roll_hit(command)
@@ -91,38 +84,33 @@ module BCDice
         end
       end
 
-      def rollDamage(command, diceCount, critical, modify)
-        return "" if diceCount < critical
+      def roll_damage(command)
+        parser = Command::Parser.new(/\d+DM\d*/, round_type: round_type)
+                                .restrict_cmp_op_to(nil)
+        cmd = parser.parse(command)
+        return nil unless cmd
 
-        dice_list = @randomizer.roll_barabara(diceCount, 6)
-        total = dice_list.sum()
-        diceText = dice_list.join(",")
+        dice_count, critical = cmd.command.split("DM", 2).map(&:to_i)
+        modify = cmd.modify_number
 
-        additionalListText = ""
-        total, additionalList = getRollDamageCritialText(diceCount, critical, total, diceText, modify)
+        dice_list = @randomizer.roll_barabara(dice_count, 6).sort
+        dice_text = dice_list.join(",")
 
-        additionalListText = "→[#{additionalList.join(',')}]" unless additionalList.empty?
+        total, additionalList = get_roll_damage_result(dice_count, critical, dice_list, modify)
 
-        modifyText = ""
-        modifyText = "+#{modify}" if modify > 0
-        modifyText = modify.to_s if modify < 0
+        additionalListText = additionalList.nil? ? "" : "→[#{additionalList.join(',')}]"
 
-        text = "(#{command}) [#{diceText}]#{additionalListText}#{modifyText} ＞ #{total}"
+        text = "(#{cmd}) ＞ [#{dice_text}]#{additionalListText}#{Format.modifier(modify)} ＞ #{total}"
 
         return text
       end
 
-      def getRollDamageCritialText(diceCount, critical, total, diceText, modify)
-        diceList = []
-
-        if critical == 0
-          total += modify
-          return total, diceList
+      def get_roll_damage_result(diceCount, critical, diceList, modify)
+        if critical <= 0
+          total = diceList.sum() + modify
+          return total, nil
         end
 
-        diceList = diceText.split(/,/).map(&:to_i)
-
-        diceList.sort!
         restDice = diceList.clone
 
         critical = diceCount if critical > diceCount
@@ -136,8 +124,7 @@ module BCDice
         max = restDice.pop
         max = 1 if max.nil?
 
-        total = max * (7**critical) + modify
-        restDice.each { |i| total += i }
+        total = max * (7**critical) + restDice.sum() + modify
 
         return total, diceList
       end
