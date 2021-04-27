@@ -82,16 +82,34 @@ module BCDice
 
           dice_list_org_str = "[#{dice_list_org.join(',')}]" if dice_list_filtered != dice_list_org
 
+          result = result_compare(total)
+          result.critical = critical?
+          result.fumble = fumble?
+
+          dice_status =
+            if result.fumble?
+              "ファンブル"
+            elsif result.critical?
+              "クリティカル"
+            end
+          result_str =
+            if result.success?
+              "成功"
+            elsif result.failure?
+              "失敗"
+            end
+
           sequence = [
             command_expr(),
             dice_list_org_str,
             interim_expr(dice_list_filtered),
-            dice_status(),
+            dice_status,
             total.to_s,
-            result_compare(total)
+            result_str
           ].compact
+          result.text = sequence.join(" ＞ ")
 
-          return sequence.join(" ＞ ")
+          return result
         end
 
         private
@@ -187,14 +205,6 @@ module BCDice
           return expr
         end
 
-        def dice_status
-          if fumble?
-            "ファンブル"
-          elsif critical?
-            "クリティカル"
-          end
-        end
-
         def fumble?
           @dice_total <= @fumble
         end
@@ -220,7 +230,13 @@ module BCDice
 
         def result_compare(total)
           if @cmp_op
-            total.send(@cmp_op, @target_number) ? "成功" : "失敗"
+            if total.send(@cmp_op, @target_number)
+              Result.success(nil)
+            else
+              Result.failure(nil)
+            end
+          else
+            Result.new
           end
         end
       end

@@ -11,6 +11,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5>=16"
 output = "(2BB+5@12#2>=16) ＞ 11[5,6]+5 ＞ 16 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -20,6 +21,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5>=17"
 output = "(2BB+5@12#2>=17) ＞ 11[5,6]+5 ＞ 16 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -29,6 +31,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "3BB+5>=17"
 output = "(3BB+5@12#2>=17) ＞ 11[4,5,6]+5 ＞ 16 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -39,6 +42,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5@11#5"
 output = "(2BB+5@11#5) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -48,6 +52,8 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5@11#5>=36"
 output = "(2BB+5@11#5>=36) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36 ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -57,6 +63,8 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5@11#5>=37"
 output = "(2BB+5@11#5>=37) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36 ＞ 失敗"
+failure = true
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -66,6 +74,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5@11#6"
 output = "(2BB+5@11#6) ＞ 6[1,5]+5 ＞ ファンブル ＞ 0"
+fumble = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -75,6 +84,8 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5@11#6>=1"
 output = "(2BB+5@11#6>=1) ＞ 6[1,5]+5 ＞ ファンブル ＞ 0 ＞ 失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -93,6 +104,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%41>=30"
 output = "(2BB+5@12#2>=30) ＞ 11[5,6]+5 ＞ 16 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -102,6 +114,8 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%41>=30"
 output = "(2BB+5@12#2>=30) ＞ 12[6,6]+5+20 ＞ クリティカル ＞ 37 ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -111,6 +125,8 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%21>=30"
 output = "(2BB+5@11#2>=30) ＞ 12[6,6]+5+20 ＞ クリティカル ＞ 37 ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -120,6 +136,8 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%21>=30"
 output = "(2BB+5@11#2>=30) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36 ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -129,6 +147,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%21>=30"
 output = "(2BB+5@11#2>=30) ＞ 10[4,6]+5 ＞ 15 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -138,6 +157,8 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%1>=30"
 output = "(2BB+5@10#2>=30) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36 ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -147,6 +168,8 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%1>=30"
 output = "(2BB+5@10#2>=30) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35 ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -156,6 +179,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%1>=30"
 output = "(2BB+5@10#2>=30) ＞ 9[4,5]+5 ＞ 14 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -165,6 +189,8 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%-1>=30"
 output = "(2BB+5@9#2>=30) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35 ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -174,6 +200,8 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%-1>=30"
 output = "(2BB+5@9#2>=30) ＞ 9[4,5]+5+20 ＞ クリティカル ＞ 34 ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -183,6 +211,8 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%1@9>=30"
 output = "(2BB+5@9#2>=30) ＞ 9[4,5]+5+20 ＞ クリティカル ＞ 34 ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -192,6 +222,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%12$56"
 output = "(2BB+5@10#2) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
+critical = true
 rands = []
 
 [[ test ]]
@@ -224,6 +255,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%20@-1"
 output = "(2BB+5@9#2) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35"
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -233,6 +265,8 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5%20@-1>=30"
 output = "(2BB+5@9#2>=30) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35 ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -242,6 +276,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5@-1-2"
 output = "(2BB+5@9#2) ＞ 10[4,6]+5+20 ＞ クリティカル ＞ 35"
+critical = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -260,6 +295,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5#A6"
 output = "(2BB+5@12#6) ＞ 6[1,5]+5 ＞ ファンブル ＞ 11"
+fumble = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -269,6 +305,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB+5#A+6"
 output = "(2BB+5@12#8) ＞ 6[1,5]+5 ＞ ファンブル ＞ 11"
+fumble = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -329,6 +366,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2BB6+5@11#5"
 output = "(2BB+5@11#5) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -338,6 +376,7 @@ rands = [
 game_system = "BeastBindTrinity"
 input = "2R6+5@11#5"
 output = "(2BB+5@11#5) ＞ 11[5,6]+5+20 ＞ クリティカル ＞ 36"
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
