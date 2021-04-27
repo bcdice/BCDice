@@ -44,12 +44,8 @@ module BCDice
           return "#{firstName} , #{secondName}"
         end
 
-        if /^TR([+\-\d]*)<=(\d*)([+\-\d]*)/ =~ command
-          critical = Regexp.last_match(1).to_i + 7
-          target = Regexp.last_match(2).to_i
-          modify = Regexp.last_match(3).to_i
-          return rollHit(command, critical, target, modify)
-        end
+        result = roll_hit(command)
+        return result if result
 
         if /^(\d*)DM(\d*)([+\-\d]*)$/ =~ command
           diceCount = Regexp.last_match(1).to_i
@@ -61,25 +57,38 @@ module BCDice
         return ''
       end
 
-      def rollHit(command, critical, target, modify)
-        target += modify
+      def roll_hit(command)
+        parser = Command::Parser.new(/TR\d*/, round_type: round_type)
+                                .restrict_cmp_op_to(:<=)
+        cmd = parser.parse(command)
+        return nil unless cmd
+
+        modify = cmd.command[2..-1].to_i + cmd.modify_number
+        critical = 7 + modify
+        target = cmd.target_number
 
         total = @randomizer.roll_once(100)
-        result = getHitRollResult(total, target, critical)
+        result = get_hit_roll_result(total, target, critical)
 
-        text = "(#{command}) ＞ #{total}[#{total}] ＞ #{result}"
-        debug("eval_game_system_specific_command result text", text)
+        cmd.command = "TR"
+        cmd.modify_number = modify
 
-        return text
+        result.text = "(#{cmd}) ＞ #{total} ＞ #{result.text}"
+        debug("eval_game_system_specific_command result text", result.text)
+
+        result
       end
 
-      def getHitRollResult(total, target, critical)
-        return "ファンブル" if total >= 96
-        return "クリティカル" if total <= critical
-
-        return "成功" if total <= target
-
-        return "失敗"
+      def get_hit_roll_result(total, target, critical)
+        if total >= 96
+          Result.fumble("ファンブル")
+        elsif total <= critical
+          Result.critical("クリティカル")
+        elsif total <= target
+          Result.success("成功")
+        else
+          Result.failure("失敗")
+        end
       end
 
       def rollDamage(command, diceCount, critical, modify)
