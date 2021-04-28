@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'bcdice/base'
+
 module BCDice
   module GameSystem
     class SamsaraBallad < Base
@@ -59,38 +61,63 @@ module BCDice
           total = 100 if total == 0
         end
 
-        cmp_result = compare(total, cmd)
+        result = compare(total, cmd)
+
+        result_str =
+          if result.failure?
+            "失敗"
+          elsif result.success?
+            "成功"
+          end
+
+        additional_str =
+          if result.fumble?
+            "ファンブル"
+          elsif result.critical?
+            "クリティカル"
+          end
 
         sequence = [
           "(D100#{cmd.cmp_op}#{cmd.target_number})",
           places_text,
           total.to_s,
-          cmp_result,
+          result_str,
+          additional_str,
         ].compact
 
-        return sequence.join(" ＞ ")
+        result.text = sequence.join(" ＞ ")
+
+        return result
       end
 
       private
 
-      # @return [String]
-      # @return [nil]
+      # @return [Result]
       def compare(total, cmd)
         if [:<=, :<].include?(cmd.cmp_op)
           if !total.send(cmd.cmp_op, cmd.target_number)
-            "失敗"
+            Result.failure(nil)
           elsif fumble_?(total, cmd.fumble)
-            "ファンブル"
+            Result.new.tap do |r|
+              r.success = true
+              r.fumble = true
+            end
           elsif critical_?(total, cmd.critical)
-            "クリティカル"
+            Result.critical(nil)
           else
-            "成功"
+            Result.success(nil)
           end
         elsif fumble_?(total, cmd.fumble)
           # ファンブル優先
-          "ファンブル"
+          Result.new.tap do |r|
+            r.fumble = true
+          end
         elsif critical_?(total, cmd.critical)
-          "クリティカル"
+          Result.new.tap do |r|
+            r.critical = true
+          end
+        else
+          Result.new
         end
       end
 
