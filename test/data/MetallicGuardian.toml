@@ -1,9 +1,10 @@
 [[ test ]]
 game_system = "MetallicGuardian"
 input = "MG>=7"
-output = "(2D6>=7[12,2]) ＞ 7[2,5] ＞ 7 ＞ 成功"
+output = "(2D6>=7[12,2]) ＞ 6[2,4] ＞ 6 ＞ 失敗"
+failure = true
 rands = [
-  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
   { sides = 6, value = 2 },
 ]
 
@@ -11,6 +12,7 @@ rands = [
 game_system = "MetallicGuardian"
 input = "MG-3>=8"
 output = "(2D6-3>=8[12,2]) ＞ 11[5,6]-3 ＞ 8 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -21,6 +23,8 @@ game_system = "MetallicGuardian"
 input = "SMG+1>=5[11,3]"
 output = "(2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
 secret = true
+success = true
+critical = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -51,6 +55,8 @@ rands = [
 game_system = "MetallicGuardian"
 input = "MG"
 output = "(2D6[12,2]) ＞ 12[6,6] ＞ 12 ＞ 自動成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -60,6 +66,8 @@ rands = [
 game_system = "MetallicGuardian"
 input = "MG"
 output = "(2D6[12,2]) ＞ 2[1,1] ＞ 2 ＞ 自動失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -108,6 +116,8 @@ rands = [
 game_system = "MetallicGuardian"
 input = "MG+1[11,3]"
 output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -117,6 +127,8 @@ rands = [
 game_system = "MetallicGuardian"
 input = "MG+1[11,3]"
 output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
