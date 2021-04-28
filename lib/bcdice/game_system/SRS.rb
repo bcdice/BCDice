@@ -219,7 +219,7 @@ module BCDice
 
       # 固有のダイスロールコマンドを実行する
       # @param [String] command 入力されたコマンド
-      # @return [String, nil] ダイスロールコマンドの実行結果
+      # @return [Result, nil] ダイスロールコマンドの実行結果
       def eval_game_system_specific_command(command)
         alias_replaced_with_2d6 = replace_alias_for_srs_roll_with_2d6(command)
 
@@ -297,7 +297,7 @@ module BCDice
 
       # 成功判定を実行する
       # @param [SRSRollNode] srs_roll 成功判定ノード
-      # @return [String] 成功判定結果
+      # @return [Result] 成功判定結果
       def execute_srs_roll(srs_roll)
         dice_list = @randomizer.roll_barabara(2, 6)
         dice_list.sort! if @sort_add_dice
@@ -307,35 +307,36 @@ module BCDice
 
         modified_sum = sum + srs_roll.modifier
 
+        result = compare_result(srs_roll, sum, modified_sum)
+
         parts = [
           "(#{srs_roll})",
           "#{sum}[#{dice_str}]#{Format.modifier(srs_roll.modifier)}",
           modified_sum,
-          compare_result(srs_roll, sum, modified_sum)
+          result.text
         ]
 
-        return parts.compact.join(' ＞ ')
+        result.text = parts.compact.join(' ＞ ')
+        result
       end
 
       # ダイスロール結果を目標値、クリティカル値、ファンブル値と比較する
       # @param [SRSRollNode] srs_roll 成功判定ノード
       # @param [Integer] sum 出目の合計
       # @param [Integer] modified_sum 修正後の値
-      # @return [String, nil] 比較結果
+      # @return [Result] 比較結果
       def compare_result(srs_roll, sum, modified_sum)
         if sum >= srs_roll.critical_value
-          return '自動成功'
+          Result.critical("自動成功")
+        elsif sum <= srs_roll.fumble_value
+          Result.fumble("自動失敗")
+        elsif srs_roll.target_value.nil?
+          Result.new
+        elsif modified_sum >= srs_roll.target_value
+          Result.success("成功")
+        else
+          Result.failure("失敗")
         end
-
-        if sum <= srs_roll.fumble_value
-          return '自動失敗'
-        end
-
-        if srs_roll.target_value
-          return modified_sum >= srs_roll.target_value ? '成功' : '失敗'
-        end
-
-        return nil
       end
     end
   end
