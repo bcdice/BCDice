@@ -150,6 +150,19 @@ rands = [
 
 [[ test ]]
 game_system = "ColossalHunter"
+input = "4CH+1"
+output = "(4CH+1) ＞ 5[1,1,2,1]+1 ＞ 6 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ColossalHunter"
 input = "B6T"
 output = "BIG-6表(11) ＞ この世の地獄：あれはまさに地獄。屍の山。嘆く者。呆然とする者。目の前で潰される者。あの日、人類は霊長ではなく……弱き獣の一種となった。 ＞ 年齢：15+2D6 ＞ (15+2) ＞ 年齢：17歳"
 rands = [

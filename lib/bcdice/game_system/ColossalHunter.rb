@@ -16,10 +16,12 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定（CH±x>=y)
-        　3D6の判定。クリティカル、ファンブルの自動判定を行います。
-        　x：修正値。省略可能。y：目標値。省略可能。
-        　例） CH　CH+1　CH+2>=10
+        ・判定（nCH±x>=y)
+        　nD6の判定。クリティカル、ファンブルの自動判定を行います。
+        　n：ダイス数。省略可能。省略した場合3。
+        　x：修正値。省略可能。
+        　y：目標値。省略可能。
+        　例） CH　CH+1　CH+2>=10　4CH+1
         ・BIG-6表(B6T)
         ・覚醒表(AWT)
         ・現状表(CST)
@@ -547,7 +549,7 @@ module BCDice
 
         }.freeze
 
-      register_prefix("CH.*", "B6T", "CNP", TABLES.keys)
+      register_prefix('\d*CH', "B6T", "CNP", TABLES.keys)
     end
   end
 end
