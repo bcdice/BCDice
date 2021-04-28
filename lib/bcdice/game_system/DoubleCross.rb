@@ -117,7 +117,7 @@ module BCDice
               achieved_value.to_s
             end
 
-          r.critical = !r.fumble? && value_groups.length > 1
+          r.critical = value_groups.length > 1
 
           parts = [
             "(#{@expression})",
