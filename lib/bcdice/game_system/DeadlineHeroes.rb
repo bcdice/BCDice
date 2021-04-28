@@ -71,10 +71,11 @@ module BCDice
           "行為判定(成功率:#{success_rate}％)",
           "1D100[#{dice10},#{dice01}]=#{roll_result_text}",
           roll_result_text.to_s,
-          result
+          result.text
         ]
 
-        return sequence.join(" ＞ ")
+        result.text = sequence.join(" ＞ ")
+        result
       end
 
       SUCCESS_STR = "成功"
@@ -84,19 +85,19 @@ module BCDice
 
       def action_result(total, tens, ones, success_rate)
         if total == 100 || success_rate <= 0
-          FUMBLE_STR
+          Result.fumble(FUMBLE_STR)
         elsif total <= success_rate - 100
-          CRITICAL_STR
+          Result.critical(CRITICAL_STR)
         elsif tens == ones
           if total <= success_rate
-            CRITICAL_STR
+            Result.critical(CRITICAL_STR)
           else
-            FUMBLE_STR
+            Result.fumble(FUMBLE_STR)
           end
         elsif total <= success_rate
-          SUCCESS_STR
+          Result.success(SUCCESS_STR)
         else
-          FAILURE_STR
+          Result.failure(FAILURE_STR)
         end
       end
 
