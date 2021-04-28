@@ -117,6 +117,8 @@ module BCDice
               achieved_value.to_s
             end
 
+          r.critical = value_groups.length > 1
+
           parts = [
             "(#{@expression})",
             "#{value_groups.join('+')}#{@modifier_str}",
