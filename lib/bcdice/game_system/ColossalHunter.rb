@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "bcdice/format"
+
 module BCDice
   module GameSystem
     class ColossalHunter < Base
@@ -14,10 +16,12 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定（CH±x>=y)
-        　3D6の判定。クリティカル、ファンブルの自動判定を行います。
-        　x：修正値。省略可能。y：目標値。省略可能。
-        　例） CH　CH+1　CH+2>=10
+        ・判定（nCH±x>=y)
+        　nD6の判定。クリティカル、ファンブルの自動判定を行います。
+        　n：ダイス数。省略可能。省略した場合3。
+        　x：修正値。省略可能。
+        　y：目標値。省略可能。
+        　例） CH　CH+1　CH+2>=10　4CH+1
         ・BIG-6表(B6T)
         ・覚醒表(AWT)
         ・現状表(CST)
@@ -45,65 +49,48 @@ module BCDice
       def getCheckRollDiceCommandResult(command)
         debug("getCheckRollDiceCommandResult command", command)
 
-        return nil unless command =~ /(\d+)?CH([+\-\d]*)(>=([+\-\d]*))?$/i
+        parser = Command::Parser.new(/\d*CH/, round_type: round_type)
+                                .restrict_cmp_op_to(nil, :>=)
 
-        diceCount = (Regexp.last_match(1) || 3).to_i
-        modifyText = (Regexp.last_match(2) || '')
-        difficultyText = Regexp.last_match(4)
+        parsed = parser.parse(command)
+        unless parsed
+          return nil
+        end
 
-        # 修正値の計算
-        modify = getValue(modifyText, 0)
+        parsed.command = "3CH" unless parsed.command.start_with?(/\d/)
 
-        # 目標値の計算
-        difficulty = getValue(difficultyText, nil)
+        dice_count = parsed.command.to_i
+        modify = parsed.modify_number
 
         # ダイスロール
-        dice_list = @randomizer.roll_barabara(diceCount, 6)
+        dice_list = @randomizer.roll_barabara(dice_count, 6)
         dice = dice_list.sum()
         dice_str = dice_list.join(",")
 
         total = dice + modify
 
-        # 出力用ダイスコマンドを生成
-        command =  "#{diceCount}CH#{modifyText}"
-        command += ">=#{difficulty}" unless difficulty.nil?
-
         # 出力文の生成
-        result = "(#{command}) ＞ #{dice}[#{dice_str}]#{modifyText} ＞ #{total}"
+        text = "(#{parsed}) ＞ #{dice}[#{dice_str}]#{Format.modifier(modify)} ＞ #{total}"
 
-        # クリティカル・ファンブルチェック
-        if isFamble(dice)
-          result += " ＞ ファンブル"
-        elsif isCritical(total)
-          result += " ＞ クリティカル"
-        else
-          result += getJudgeResultString(difficulty, total)
-        end
+        result = get_judge_result(dice, total, parsed)
 
+        result.text = text + result.text
         return result
       end
 
       # 成否判定
-      def getJudgeResultString(difficulty, total)
-        return '' if difficulty.nil?
-
-        return " ＞ 成功" if total >= difficulty
-
-        return " ＞ 失敗"
-      end
-
-      def getValue(text, defaultValue)
-        return defaultValue if text.nil? || text.empty?
-
-        ArithmeticEvaluator.eval(text)
-      end
-
-      def isCritical(total)
-        (total >= 16)
-      end
-
-      def isFamble(total)
-        (total <= 5)
+      def get_judge_result(dice, total, parsed)
+        if dice <= 5
+          Result.fumble(" ＞ ファンブル")
+        elsif total >= 16
+          Result.critical(" ＞ クリティカル")
+        elsif parsed.cmp_op.nil?
+          Result.new("")
+        elsif total >= parsed.target_number
+          Result.success(" ＞ 成功")
+        else
+          Result.failure(" ＞ 失敗")
+        end
       end
 
       def getSourceSceneDiceCommandResult(command)
@@ -562,7 +549,7 @@ module BCDice
 
         }.freeze
 
-      register_prefix("CH.*", "B6T", "CNP", TABLES.keys)
+      register_prefix('\d*CH', "B6T", "CNP", TABLES.keys)
     end
   end
 end
