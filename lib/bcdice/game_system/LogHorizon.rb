@@ -128,27 +128,30 @@ module BCDice
         dice_total = dice_list.sum()
         total = dice_total + parsed.modify_number
 
+        result = result_text(dice_count, dice_list, total, parsed)
+
         sequence = [
           "(#{parsed})",
           "#{dice_total}[#{dice_list.join(',')}]#{Format.modifier(parsed.modify_number)}",
           total,
-          result_text(dice_count, dice_list, total, parsed),
+          result.text,
         ].compact
 
-        return sequence.join(" ＞ ")
+        result.text = sequence.join(" ＞ ")
+        result
       end
 
       def result_text(dice_count, dice_list, total, parsed)
         if dice_list.count(6) >= 2
-          translate("LogHorizon.LH.critical")
+          Result.critical(translate("LogHorizon.LH.critical"))
         elsif dice_list.count(1) >= dice_count
-          translate("LogHorizon.LH.fumble")
+          Result.fumble(translate("LogHorizon.LH.fumble"))
         elsif parsed.cmp_op.nil?
-          nil
+          Result.new
         elsif total >= parsed.target_number
-          translate('success')
+          Result.success(translate("success"))
         else
-          translate('failure')
+          Result.failure(translate("failure"))
         end
       end
 
