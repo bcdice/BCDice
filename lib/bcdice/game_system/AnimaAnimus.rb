@@ -2,7 +2,7 @@
 
 require 'bcdice/dice_table/table'
 require 'bcdice/dice_table/range_table'
-require 'bcdice/arithmetic_evaluator'
+require 'bcdice/arithmetic'
 
 module BCDice
   module GameSystem
@@ -32,17 +32,19 @@ module BCDice
       MESSAGETEXT
 
       def eval_game_system_specific_command(command)
-        case command
-        when /(\d+)AN<=(\d+([+\-]\d+)*)/i
-          return check_action(Regexp.last_match)
-        else
+        m = /(\d+)AN<=(\d+([+\-]\d+)*)/i.match(command)
+        if TABLES.key?(command)
           return roll_tables(command, TABLES)
+        elsif m
+          return check_action(m)
+        else
+          return nil
         end
       end
 
       def check_action(match_data)
-        dice_cnt = ArithmeticEvaluator.eval(match_data[1])
-        target = ArithmeticEvaluator.eval(match_data[2])
+        dice_cnt = Arithmetic.eval(match_data[1], RoundType::FLOOR)
+        target = Arithmetic.eval(match_data[2], RoundType::FLOOR)
         debug("dice_cnt", dice_cnt)
         debug("target", target)
 
@@ -52,7 +54,12 @@ module BCDice
         has_critical = dice_arr.include?(1)
         result = has_critical ? suc_cnt + 2 : suc_cnt
 
-        return "(#{dice_cnt}B10<=#{target}) ＞ #{dice_str} ＞ #{result > 0 ? '成功' : '失敗'}(達成値:#{result})#{has_critical ? ' (クリティカル発生)' : ''}"
+        Result.new.tap do |r|
+          r.text = "(#{dice_cnt}B10<=#{target}) ＞ #{dice_str} ＞ #{result > 0 ? '成功' : '失敗'}(達成値:#{result})#{has_critical ? ' (クリティカル発生)' : ''}"
+          r.critical = has_critical
+          r.success = result > 0
+          r.failure = !r.success?
+        end
       end
 
       TABLES = {
