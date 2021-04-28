@@ -68,35 +68,27 @@ module BCDice
         total = dice + modify
 
         # 出力文の生成
-        result = "(#{parsed}) ＞ #{dice}[#{dice_str}]#{Format.modifier(modify)} ＞ #{total}"
+        text = "(#{parsed}) ＞ #{dice}[#{dice_str}]#{Format.modifier(modify)} ＞ #{total}"
 
-        # クリティカル・ファンブルチェック
-        if isFamble(dice)
-          result += " ＞ ファンブル"
-        elsif isCritical(total)
-          result += " ＞ クリティカル"
-        else
-          result += getJudgeResultString(total, parsed)
-        end
+        result = get_judge_result(dice, total, parsed)
 
+        result.text = text + result.text
         return result
       end
 
       # 成否判定
-      def getJudgeResultString(total, parsed)
-        return '' if parsed.cmp_op.nil?
-
-        return " ＞ 成功" if total >= parsed.target_number
-
-        return " ＞ 失敗"
-      end
-
-      def isCritical(total)
-        (total >= 16)
-      end
-
-      def isFamble(total)
-        (total <= 5)
+      def get_judge_result(dice, total, parsed)
+        if dice <= 5
+          Result.fumble(" ＞ ファンブル")
+        elsif total >= 16
+          Result.critical(" ＞ クリティカル")
+        elsif parsed.cmp_op.nil?
+          Result.new("")
+        elsif total >= parsed.target_number
+          Result.success(" ＞ 成功")
+        else
+          Result.failure(" ＞ 失敗")
+        end
       end
 
       def getSourceSceneDiceCommandResult(command)
