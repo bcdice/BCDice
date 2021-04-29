@@ -72,16 +72,17 @@ module BCDice
 
         result =
           if max <= 1
-            translate("FutariSousa.DT.fumble")
+            Result.fumble(translate("FutariSousa.DT.fumble"))
           elsif dice_list.include?(SPECIAL_DICE)
-            translate("FutariSousa.DT.special")
+            Result.critical(translate("FutariSousa.DT.special"))
           elsif max >= SUCCESS_THRESHOLD
-            translate("success")
+            Result.success(translate("success"))
           else
-            translate("failure")
+            Result.failure(translate("failure"))
           end
 
-        return "#{command}(#{dice_list.join(',')}) ＞ #{result}"
+        result.text = "#{command}(#{dice_list.join(',')}) ＞ #{result.text}"
+        result
       end
 
       # 助手用判定コマンド AS
@@ -91,16 +92,17 @@ module BCDice
 
         result =
           if max <= 1
-            translate("FutariSousa.AS.fumble")
+            Result.fumble(translate("FutariSousa.AS.fumble"))
           elsif dice_list.include?(SPECIAL_DICE)
-            translate("FutariSousa.AS.special")
+            Result.critical(translate("FutariSousa.AS.special"))
           elsif max >= SUCCESS_THRESHOLD
-            translate("FutariSousa.AS.success")
+            Result.success(translate("FutariSousa.AS.success"))
           else
-            translate("failure")
+            Result.failure(translate("failure"))
           end
 
-        return "#{command}(#{dice_list.join(',')}) ＞ #{result}"
+        result.text = "#{command}(#{dice_list.join(',')}) ＞ #{result.text}"
+        result
       end
 
       class << self
