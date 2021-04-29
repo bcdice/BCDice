@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'bcdice/base'
+
 module BCDice
   module GameSystem
     class ZettaiReido < Base
@@ -45,13 +47,13 @@ module BCDice
         total = baseAvility - diceTotal + mod
         output += " ＞ #{total}"
 
-        successText = getSuccessText(diceTotal, total, diff)
-        output += successText
+        result = getResult(diceTotal, total, diff, output)
 
-        darkPointText = getDarkPointResult(total, diff, darkPoint)
-        output += darkPointText
+        if darkPoint > 0
+          result.text += " ＞ #{darkPoint}DP"
+        end
 
-        return output
+        return result
       end
 
       def roll2DarkDice()
@@ -107,23 +109,13 @@ module BCDice
         return diffValue, diffText
       end
 
-      def getDarkPointResult(_total, _diff, darkPoint)
-        text = ''
-
-        if darkPoint > 0
-          text = " ＞ #{darkPoint}DP"
-        end
-
-        return text
-      end
-
-      def getSuccessText(diceTotal, total, diff)
+      def getResult(diceTotal, total, diff, output)
         if diceTotal == 0
-          return " ＞ クリティカル"
+          return Result.critical(output + " ＞ クリティカル")
         end
 
         if diceTotal == 10
-          return " ＞ ファンブル"
+          return Result.fumble(output + " ＞ ファンブル")
         end
 
         if diff.nil?
@@ -132,10 +124,10 @@ module BCDice
 
         successLevel = (total - diff)
         if successLevel >= 0
-          return " ＞ #{successLevel} 成功"
+          return Result.success(output + " ＞ #{successLevel} 成功")
         end
 
-        return ' ＞ 失敗'
+        return Result.failure(output + " ＞ 失敗")
       end
     end
   end
