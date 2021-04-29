@@ -75,7 +75,7 @@ module BCDice
 
       # Rコマンドの後方互換を維持する
       def r_backward_compatibility(command)
-        m = command.match(/^(\d+)R10([+\-\d]+)?(\[(\d+)\])?$/)
+        m = command.match(/^(\d)?R10([+\-\d]+)?(\[(\d+)\])?$/)
         return command unless m
         if(m[4] == "1")
           "#{m[1]}NA#{m[2]}"
@@ -134,11 +134,7 @@ module BCDice
 
       TABLES = translate_tables(:ja_jp)
 
-<<<<<<< HEAD
-      register_prefix('\d+NC', '\d+NA', '\d+R10', TABLES.keys)
-=======
-      register_prefix('\d?R10','\d?NC.*', '\d?NA.*', TABLES.keys)
->>>>>>> ネクロニカのリファクタリング
+      register_prefix('\d?NC', '\d?NA', '\dR10', TABLES.keys)
     end
   end
 end
