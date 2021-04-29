@@ -77,7 +77,8 @@ module BCDice
       def r_backward_compatibility(command)
         m = command.match(/^(\d)?R10([+\-\d]+)?(\[(\d+)\])?$/)
         return command unless m
-        if(m[4] == "1")
+
+        if m[4] == "1"
           "#{m[1]}NA#{m[2]}"
         else
           "#{m[1]}NC#{m[2]}"
