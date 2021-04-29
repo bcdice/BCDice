@@ -43,72 +43,46 @@ module BCDice
         debug("\n=======================================\n")
         debug("eval_game_system_specific_command command", command)
 
-        # 通常判定
-        result = getJudgeResult(command)
-        return result unless result.nil?
-
-        # 航行チェック
-        result = navigationResult(command)
-        return result unless result.nil?
-
-        # ダメージチェック
-        result = getFireResult(command)
-        return result unless result.nil?
-
-        # 砲撃判定+ダメージチェック
-        result = getBomberResult(command)
-        return result unless result.nil?
-
-        # 回避運動(操舵判定含む)
-        result = getAvoidResult(command)
-        return result unless result.nil?
-
-        debug("rollCommand result")
-        return nil
+        return get_judge_result(command) || navigation_result(command) || get_fire_result(command) ||
+               get_bomb_result(command) || get_avoid_result(command)
       end
 
-      def getJudgeResult(command)
+      private
+
+      def get_judge_result(command)
         return nil unless (m = (/^2D6<=(\d)$/i.match(command) || /^SN(\d*)$/i.match(command)))
 
-        debug("====getJudgeResult====")
+        debug("====get_judge_result====")
 
         target = m[1].empty? ? 7 : m[1].to_i # 目標値。省略時は7
         debug("目標値", target)
 
         dice_list = @randomizer.roll_barabara(2, 6)
         total = dice_list.sum()
-        diceText = dice_list.join(",")
-
+        text = "(2D6<=#{target}) ＞ #{total}[#{dice_list.join(',')}] ＞ #{total}"
         if total <= 2
-          result = "ファンブル"
+          Result.fumble(text + " ＞ ファンブル")
         elsif total <= target
-          result = "成功"
+          Result.success(text + " ＞ 成功")
         else
-          result = "失敗"
+          Result.failure(text + " ＞ 失敗")
         end
-
-        text = "(2D6<=#{target}) ＞ #{total}[#{diceText}] ＞ #{total} ＞ #{result}"
-
-        return text
       end
 
-      def navigationResult(command)
+      def navigation_result(command)
         return nil unless (m = /^NV(\+(\d+))?$/.match(command))
 
-        debug("====navigationResult====")
+        debug("====navigation_result====")
 
         bonus = m[2].to_i # 〈操舵室〉の修正。GMの任意修正にも対応できるように(マイナスは無視)
         debug("移動修正", bonus)
 
         total = @randomizer.roll_once(6)
-        movePointBase = (total / 2) <= 0 ? 1 : (total / 2)
-        movePoint = movePointBase + bonus
+        move_point_base = (total / 2) <= 0 ? 1 : (total / 2)
+        movePoint = move_point_base + bonus
         debug("移動エリア数", movePoint)
 
-        text = "航行チェック(最低1)　(1D6/2+#{bonus}) ＞ #{total} /2+#{bonus} ＞ "
-        text += "#{movePointBase}+#{bonus} ＞ #{movePoint}エリア進む"
-
-        return text
+        Result.new("航行チェック(最低1)　(1D6/2+#{bonus}) ＞ #{total} /2+#{bonus} ＞ #{move_point_base}+#{bonus} ＞ #{movePoint}エリア進む")
       end
 
       DIRECTION_INFOS = {
@@ -123,201 +97,188 @@ module BCDice
         9 => {name: "右上", position_diff: {x: +1, y: -1}},
       }.freeze
 
-      def getDirectionInfo(direction, key, defaultValue = nil)
+      def get_direction_info(direction, key, default_value = nil)
         info = DIRECTION_INFOS[direction.to_i]
-        return defaultValue if info.nil?
+        return default_value if info.nil?
 
         return info[key]
       end
 
-      def getFireResult(command)
-        return nil unless (m = %r{^D([12346789]*)(\[.+\])*/(\d+)(@([2468]))?$}.match(command))
+      def get_fire_result(command)
+        return nil unless (m = %r{^D([12346789]*)(\[.+\])*/(\d{1,2})(@([2468]))?$}.match(command))
 
-        debug("====getFireResult====")
+        debug("====get_fire_result====")
 
-        fireCount = m[3].to_i # 砲撃回数
-        fireRange = m[1].to_s # 砲撃範囲
+        fire_count = m[3].to_i # 砲撃回数
+        fire_range = m[1].to_s # 砲撃範囲
         ballistics = m[5].to_i # 《弾道学》
-        debug("fireCount", fireCount)
-        debug("fireRange", fireRange)
+        debug("fire_count", fire_count)
+        debug("fire_range", fire_range)
         debug("ballistics", ballistics)
 
-        fireCountMax = 25
-        fireCount = [fireCount, fireCountMax].min
-
-        firePoint = getFirePoint(fireRange, fireCount) # 着弾座標取得（3次元配列）
-        fireText = getFirePointText(firePoint, fireCount) # 表示用文字列作成
+        fire_point = get_fire_point(fire_range, fire_count) # 着弾座標取得（3次元配列）
+        result = [command, get_fire_point_text(fire_point, fire_count).text] # 表示用文字列作成
 
         if ballistics != 0 # 《弾道学》有
-          fireText += " ＞ 《弾道学》:"
-          fireText += getDirectionInfo(ballistics, :name, "")
-          fireText += "\n ＞ "
-          fireText += getFirePointText(firePoint, fireCount, ballistics)
+          result << "《弾道学》:#{get_direction_info(ballistics, :name, '')}\n"
+          result << get_fire_point_text(fire_point, fire_count, ballistics).text
         end
-
-        text = "#{command} ＞ #{fireText}"
-
-        return text
+        Result.new(result.join(" ＞ "))
       end
 
-      def getFirePoint(fireRange, fireCount)
-        debug("====getFirePoint====")
+      def get_fire_point(fire_range, fire_count)
+        debug("====get_fire_point====")
 
-        firePoint = []
+        fire_point = []
 
-        fireCount.times do |count|
+        fire_count.times do |count|
           debug("\n砲撃回数", count + 1)
 
-          firePoint << []
+          fire_point << []
 
-          yPos = @randomizer.roll_once(6) # 縦
-          xPos = @randomizer.roll_sum(2, 6) # 横
-          position = [xPos, yPos]
+          y_pos = @randomizer.roll_once(6) # 縦
+          x_pos = @randomizer.roll_sum(2, 6) # 横
+          position = [x_pos, y_pos]
 
-          firePoint[-1] << position
+          fire_point[-1] << position
 
-          debug("着弾点", firePoint)
+          debug("着弾点", fire_point)
 
-          fireRange.split(//).each do |rangeText|
-            debug("範囲", rangeText)
+          fire_range.chars do |range_text|
+            debug("範囲", range_text)
 
-            position_diff = getDirectionInfo(rangeText, :position_diff, {})
-            position = [xPos + position_diff[:x].to_i, yPos + position_diff[:y].to_i]
+            position_diff = get_direction_info(range_text, :position_diff, {})
+            position = [x_pos + position_diff[:x].to_i, y_pos + position_diff[:y].to_i]
 
-            firePoint[-1] << position
-            debug("着弾点:範囲", firePoint)
+            fire_point[-1] << position
+            debug("着弾点:範囲", fire_point)
           end
         end
 
-        debug("\n最終着弾点", firePoint)
+        debug("\n最終着弾点", fire_point)
 
-        return firePoint
+        return fire_point
       end
 
-      def getFirePointText(firePoint, _fireCount, direction = 0)
-        debug("====getFirePointText====")
+      def get_fire_point_text(fire_point, _fire_count, direction = 0)
+        debug("====get_fire_point_text====")
 
-        fireTextList = []
-        firePoint.each do |point|
+        fire_text_list = []
+        fire_point.each do |point|
           text = ""
           point.each do |x, y|
             # 《弾道学》《回避運動》などによる座標移動
-            x, y = getMovePoint(x, y, direction)
+            x, y = get_move_point(x, y, direction)
 
             # マップ外の座標は括弧を付ける
-            text += (isInMapPosition(x, y) ? "[縦#{y},横#{x}]" : "([縦#{y},横#{x}])")
+            text += in_map_position?(x, y) ? "[縦#{y},横#{x}]" : "([縦#{y},横#{x}])"
             debug("着弾点テキスト", text)
           end
 
-          fireTextList << text
+          fire_text_list << text
         end
 
-        fireText = fireTextList.join(",")
-
-        debug("\n最終着弾点テキスト", fireText)
-        return fireText
+        Result.new(fire_text_list.join(","))
       end
 
-      def isInMapPosition(x, y)
+      def in_map_position?(x, y)
         ((1 <= y) && (y <= 6)) && ((2 <= x) && (x <= 12))
       end
 
-      def getMovePoint(x, y, direction)
-        debug("====getMovePoint====")
+      def get_move_point(x, y, direction)
+        debug("====get_move_point====")
         debug("方向", direction)
-        debug("座標移動前x", x)
-        debug("座標移動前y", y)
+        debug("座標移動前(x,y)", x, y)
 
-        position_diff = getDirectionInfo(direction, :position_diff, {})
+        position_diff = get_direction_info(direction, :position_diff, {})
         x += position_diff[:x].to_i
         y += position_diff[:y].to_i
 
-        debug("\n座標移動後x", x)
-        debug("座標移動後y", y)
+        debug("\n座標移動後(x,y)", x, y)
         return x, y
       end
 
-      def getBomberResult(command)
+      def get_bomb_result(command)
         return nil unless (m = %r{^BOM(\d*)?/D([12346789]*)(\[.+\])*/(\d+)(@([2468]))?$}i.match(command))
 
-        debug("====getBomberResult====", command)
+        debug("====get_bomb_result====", command)
 
         target = m[1].to_s
         direction = m[6].to_i
         debug("弾道学方向", direction)
 
-        text = "#{command} ＞ "
-        text += getJudgeResult("SN" + target) # 砲撃判定
+        sn = get_judge_result("SN" + target) # 砲撃判定
 
-        return text unless text =~ /成功/
+        if sn.failure?
+          sn.text = "#{command} ＞ #{sn.text}"
+          return sn
+        end
 
         # ダメージチェック部分
-        fireCommand = command.slice(%r{D([12346789]*)(\[.+\])*/(\d+)(@([2468]))?})
-
-        text += "\n ＞ #{getFireResult(fireCommand)}"
-
-        return text
+        fire_command = command.slice(%r{D([12346789]*)(\[.+\])*/(\d+)(@([2468]))?})
+        sn.text = "#{command} ＞ #{sn.text}\n ＞ #{get_fire_result(fire_command).text}"
+        sn
       end
 
-      def getAvoidResult(command)
+      def get_avoid_result(command)
         return nil unless (m = /^AVO(\d*)?(@([2468]))(\(?\[縦\d+,横\d+\]\)?,?)+$/.match(command))
 
-        debug("====getAvoidResult====", command)
+        debug("====get_avoid_result====", command)
 
         direction = m[3].to_i
         debug("回避方向", direction)
 
-        judgeCommand = command.slice(/^AVO(\d*)?(@([2468]))/) # 判定部分
-        text = "#{judgeCommand} ＞ 《回避運動》"
-        text += getJudgeResult("SN" + Regexp.last_match(1).to_s) # 操舵判定
+        judge_command = command.slice(/^AVO(\d*)?(@([2468]))/) # 判定部分
+        sn = get_judge_result("SN" + Regexp.last_match(1).to_s)
 
-        return text unless text =~ /成功/
+        if sn.failure?
+          sn.text = "#{judge_command} ＞ 《回避運動》#{sn.text}"
+          return sn
+        end
+        point_command = command.slice(/(\(?\[縦\d+,横\d+\]\)?,?)+/) # 砲撃座標
 
-        pointCommand = command.slice(/(\(?\[縦\d+,横\d+\]\)?,?)+/) # 砲撃座標
-
-        firePoint = scanFirePoints(pointCommand)
-        fireCount = firePoint.size
-
-        text += "\n ＞ #{pointCommand}"
-        text += " ＞ 《回避運動》:"
-        text += getDirectionInfo(direction, :name, "")
-        text += "\n ＞ "
-        text += getFirePointText(firePoint, fireCount, direction)
-
-        return text
+        fire_point = scan_fire_point(point_command)
+        fire_count = fire_point.size
+        Result.success([
+          judge_command,
+          "《回避運動》#{sn.text}\n",
+          point_command,
+          "《回避運動》:" + get_direction_info(direction, :name, "") + "\n",
+          get_fire_point_text(fire_point, fire_count, direction).text
+        ].compact.join(" ＞ "))
       end
 
-      def scanFirePoints(command)
-        debug("====scanFirePoints====", command)
+      def scan_fire_point(command)
+        debug("====scan_fire_point====", command)
 
         command = command.gsub(/\(|\)/, "") # 正規表現が大変なので最初に括弧を外しておく
 
-        firePoint = []
+        fire_point = []
 
         # 一組ずつに分ける("[縦y,横xの単位)
-        command.split(/\],/).each do |pointText|
-          debug("pointText", pointText)
+        command.split(/\],/).each do |point_text|
+          debug("point_text", point_text)
 
-          firePoint << []
+          fire_point << []
 
           # D以外の砲撃範囲がある時に必要
-          pointText.split(/\]/).each do |point|
+          point_text.split(/\]/).each do |point|
             debug("point", point)
 
-            firePoint[-1] << []
+            fire_point[-1] << []
 
             next unless point =~ /[^\d]*(\d+),[^\d]*(\d+)/
 
             y = Regexp.last_match(1).to_i
             x = Regexp.last_match(2).to_i
 
-            firePoint[-1][-1] = [x, y]
+            fire_point[-1][-1] = [x, y]
 
-            debug("着弾点", firePoint)
+            debug("着弾点", fire_point)
           end
         end
 
-        return firePoint
+        return fire_point
       end
     end
   end

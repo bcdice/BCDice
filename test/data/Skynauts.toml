@@ -29,6 +29,7 @@ rands = [
 game_system = "Skynauts"
 input = "2d6<=7 判定：成功\tSkynauts"
 output = "(2D6<=7) ＞ 6[2,4] ＞ 6 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -38,6 +39,7 @@ rands = [
 game_system = "Skynauts"
 input = "2D6<=(6+2-1) 判定：成功\tSkynauts"
 output = "(2D6<=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -47,6 +49,7 @@ rands = [
 game_system = "Skynauts"
 input = "2d6<=7 判定：失敗\tSkynauts"
 output = "(2D6<=7) ＞ 8[3,5] ＞ 8 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -56,6 +59,8 @@ rands = [
 game_system = "Skynauts"
 input = "2d6<=7 判定：ファンブル\tSkynauts"
 output = "(2D6<=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -65,6 +70,8 @@ rands = [
 game_system = "Skynauts"
 input = "2d6<=2 判定：ファンブル2\tSkynauts"
 output = "(2D6<=2) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -74,6 +81,7 @@ rands = [
 game_system = "Skynauts"
 input = "SN 判定：成功\tSkynauts"
 output = "(2D6<=7) ＞ 6[2,4] ＞ 6 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -83,6 +91,7 @@ rands = [
 game_system = "Skynauts"
 input = "SN7 判定：成功\tSkynauts"
 output = "(2D6<=7) ＞ 6[2,4] ＞ 6 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -92,6 +101,7 @@ rands = [
 game_system = "Skynauts"
 input = "SN(6+2-1) 判定：成功\tSkynauts"
 output = "(2D6<=7) ＞ 7[3,4] ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -101,6 +111,7 @@ rands = [
 game_system = "Skynauts"
 input = "SN 判定：失敗\tSkynauts"
 output = "(2D6<=7) ＞ 8[3,5] ＞ 8 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -110,6 +121,7 @@ rands = [
 game_system = "Skynauts"
 input = "SN5 判定：失敗\tSkynauts"
 output = "(2D6<=5) ＞ 8[3,5] ＞ 8 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -119,6 +131,8 @@ rands = [
 game_system = "Skynauts"
 input = "SN 判定：ファンブル\tSkynauts"
 output = "(2D6<=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -128,6 +142,8 @@ rands = [
 game_system = "Skynauts"
 input = "SN2 判定：ファンブル2\tSkynauts"
 output = "(2D6<=2) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -137,6 +153,7 @@ rands = [
 game_system = "Skynauts"
 input = "SN(3+2) 判定：足し\tSkynauts"
 output = "(2D6<=5) ＞ 5[3,2] ＞ 5 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -363,6 +380,7 @@ rands = [
 game_system = "Skynauts"
 input = "BOM9/D19/2 砲撃+ダメージチェック\tSkynauts"
 output = "BOM9/D19/2 ＞ (2D6<=9) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ D19/2 ＞ [縦3,横7][縦4,横6][縦2,横8],[縦1,横6][縦2,横5]([縦0,横7])"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -378,6 +396,7 @@ rands = [
 game_system = "Skynauts"
 input = "BOM/D[大揺れ]/1 砲撃+ダメージチェック大揺れ\tSkynauts"
 output = "BOM/D[大揺れ]/1 ＞ (2D6<=7) ＞ 6[1,5] ＞ 6 ＞ 成功\n ＞ D[大揺れ]/1 ＞ [縦3,横5]"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -390,6 +409,7 @@ rands = [
 game_system = "Skynauts"
 input = "BOM/D/4 砲撃+ダメージチェック\tSkynauts"
 output = "BOM/D/4 ＞ (2D6<=7) ＞ 12[6,6] ＞ 12 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -399,6 +419,8 @@ rands = [
 game_system = "Skynauts"
 input = "BOM10/D/4 砲撃+ダメージチェック\tSkynauts"
 output = "BOM10/D/4 ＞ (2D6<=10) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -408,6 +430,7 @@ rands = [
 game_system = "Skynauts"
 input = "BOM/D/2@4 砲撃+ダメージチェック\tSkynauts"
 output = "BOM/D/2@4 ＞ (2D6<=7) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ D/2@4 ＞ [縦1,横2],[縦2,横4] ＞ 《弾道学》:左\n ＞ ([縦1,横1]),[縦2,横3]"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -423,6 +446,7 @@ rands = [
 game_system = "Skynauts"
 input = "BOM10/D4/2@6 砲撃+ダメージチェック\tSkynauts"
 output = "BOM10/D4/2@6 ＞ (2D6<=10) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ D4/2@6 ＞ [縦1,横2]([縦1,横1]),[縦2,横4][縦2,横3] ＞ 《弾道学》:右\n ＞ [縦1,横3][縦1,横2],[縦2,横5][縦2,横4]"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -438,6 +462,7 @@ rands = [
 game_system = "Skynauts"
 input = "AVO@8[縦1,横4],[縦2,横6],[縦3,横8] 回避運動\tSkynauts"
 output = "AVO@8 ＞ 《回避運動》(2D6<=7) ＞ 3[1,2] ＞ 3 ＞ 成功\n ＞ [縦1,横4],[縦2,横6],[縦3,横8] ＞ 《回避運動》:上\n ＞ ([縦0,横4]),[縦1,横6],[縦2,横8]"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -447,6 +472,7 @@ rands = [
 game_system = "Skynauts"
 input = "AVO9@6[縦1,横4],([縦2,横1]),[縦3,横8],([縦0,横7]) 回避運動\tSkynauts"
 output = "AVO9@6 ＞ 《回避運動》(2D6<=9) ＞ 3[1,2] ＞ 3 ＞ 成功\n ＞ [縦1,横4],([縦2,横1]),[縦3,横8],([縦0,横7]) ＞ 《回避運動》:右\n ＞ [縦1,横5],[縦2,横2],[縦3,横9],([縦0,横8])"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -456,6 +482,7 @@ rands = [
 game_system = "Skynauts"
 input = "AVO9@2[縦3,横7][縦4,横6][縦2,横8],[縦1,横6][縦2,横5]([縦0,横7]) 回避運動\tSkynauts"
 output = "AVO9@2 ＞ 《回避運動》(2D6<=9) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ [縦3,横7][縦4,横6][縦2,横8],[縦1,横6][縦2,横5]([縦0,横7]) ＞ 《回避運動》:下\n ＞ [縦4,横7][縦5,横6][縦3,横8],[縦2,横6][縦3,横5][縦1,横7]"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -465,6 +492,7 @@ rands = [
 game_system = "Skynauts"
 input = "AVO9@4[縦3,横7][縦4,横6][縦4,横7][縦4,横8][縦3,横6][縦3,横8][縦2,横6][縦2,横7][縦2,横8],[縦1,横6][縦2,横5][縦2,横6][縦2,横7][縦1,横5][縦1,横7]([縦0,横5])([縦0,横6])([縦0,横7]) 回避運動\tSkynauts"
 output = "AVO9@4 ＞ 《回避運動》(2D6<=9) ＞ 6[3,3] ＞ 6 ＞ 成功\n ＞ [縦3,横7][縦4,横6][縦4,横7][縦4,横8][縦3,横6][縦3,横8][縦2,横6][縦2,横7][縦2,横8],[縦1,横6][縦2,横5][縦2,横6][縦2,横7][縦1,横5][縦1,横7]([縦0,横5])([縦0,横6])([縦0,横7]) ＞ 《回避運動》:左\n ＞ [縦3,横6][縦4,横5][縦4,横6][縦4,横7][縦3,横5][縦3,横7][縦2,横5][縦2,横6][縦2,横7],[縦1,横5][縦2,横4][縦2,横5][縦2,横6][縦1,横4][縦1,横6]([縦0,横4])([縦0,横5])([縦0,横6])"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -474,6 +502,7 @@ rands = [
 game_system = "Skynauts"
 input = "AVO(4+2)@6[縦4,横7],[縦2,横4],[縦6,横8],[縦6,横12],[縦3,横11] 回避運動\tSkynauts"
 output = "AVO6@6 ＞ 《回避運動》(2D6<=6) ＞ 3[1,2] ＞ 3 ＞ 成功\n ＞ [縦4,横7],[縦2,横4],[縦6,横8],[縦6,横12],[縦3,横11] ＞ 《回避運動》:右\n ＞ [縦4,横8],[縦2,横5],[縦6,横9],([縦6,横13]),[縦3,横12]"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -483,6 +512,7 @@ rands = [
 game_system = "Skynauts"
 input = "AVO@8[縦1,横4],[縦2,横6],[縦3,横8] 回避運動\tSkynauts"
 output = "AVO@8 ＞ 《回避運動》(2D6<=7) ＞ 12[6,6] ＞ 12 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -492,6 +522,8 @@ rands = [
 game_system = "Skynauts"
 input = "AVO@8[縦1,横4],[縦2,横6],[縦3,横8] 回避運動\tSkynauts"
 output = "AVO@8 ＞ 《回避運動》(2D6<=7) ＞ 2[1,1] ＞ 2 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
