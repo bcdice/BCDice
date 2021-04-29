@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require "bcdice/arithmetic_evaluator"
+require "bcdice/format"
+require "bcdice/normalize"
+
 module BCDice
   module GameSystem
     class Amadeus < Base
@@ -46,111 +50,124 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        text = amadeusDice(command)
-        return text unless text.nil?
-
-        return roll_tables(command, self.class::TABLES)
+        roll_amadeus(command) ||
+          roll_tables(command, self.class::TABLES)
       end
 
-      def amadeusDice(command)
-        return nil unless /^(R([A-DS])([+\-\d]*))(@(\d))?((>(=)?)([+\-\d]*))?(@(\d))?$/i =~ command
+      private
 
-        commandText = Regexp.last_match(1)
-        skillRank = Regexp.last_match(2)
-        modifyText = Regexp.last_match(3)
-        signOfInequality = (Regexp.last_match(7).nil? ? ">=" : Regexp.last_match(7))
-        targetText = (Regexp.last_match(9).nil? ? "4" : Regexp.last_match(9))
-        if nil | Regexp.last_match(5)
-          specialNum = Regexp.last_match(5).to_i
-        elsif nil | Regexp.last_match(11)
-          specialNum = Regexp.last_match(11).to_i
-        else
-          specialNum = 6
+      def roll_amadeus(command)
+        m = /^R([A-DS])([+\-\d]*)(@(\d))?((>=?)([+\-\d]*))?(@(\d))?$/i.match(command)
+        unless m
+          return nil
         end
 
-        diceCount = CHECK_DICE_COUNT[skillRank]
-        modify = ArithmeticEvaluator.eval(modifyText)
-        target = ArithmeticEvaluator.eval(targetText)
+        rank = m[1]
+        modifier = ArithmeticEvaluator.eval(m[2])
+        cmp_op = m[6] ? Normalize.comparison_operator(m[6]) : :>=
+        target = m[7] ? ArithmeticEvaluator.eval(m[7]) : 4
+        special = (m[4] || m[9] || 6).to_i
 
-        diceList = @randomizer.roll_barabara(diceCount, 6)
-        diceText = diceList.join(",")
-        specialText = (specialNum == 6 ? "" : "@#{specialNum}")
+        dice_count = CHECK_DICE_COUNT[rank]
 
-        message = "(#{commandText}#{specialText}#{signOfInequality}#{targetText}) ＞ [#{diceText}]#{modifyText} ＞ "
-        diceList = [diceList.min] if skillRank == "D"
-        is_loop = false
-        diceList.each do |dice|
-          if  is_loop
-            message += " / "
-          elsif diceList.length > 1
-            is_loop = true
+        dice_list = @randomizer.roll_barabara(dice_count, 6)
+        dice_text = dice_list.join(",")
+        special_text = (special == 6 ? "" : "@#{special}")
+
+        dice_list = [dice_list.min] if rank == "D"
+        available_inga = dice_list.size > 1
+        inga_table = translate("Amadeus.inga_table")
+
+        success = false
+        critical = false
+        fumble = false
+
+        results =
+          dice_list.map do |dice|
+            total = dice + modifier
+            result =
+              if dice == 1
+                fumble = true
+                translate("Amadeus.fumble")
+              elsif dice >= special
+                critical = true
+                success = true
+                translate("Amadeus.special")
+              elsif total.send(cmp_op, target)
+                success = true
+                translate("success")
+              else
+                translate("failure")
+              end
+
+            if available_inga
+              inga = inga_table[dice - 1]
+              "#{total}_#{result}[#{dice}#{inga}]"
+            else
+              "#{total}_#{result}[#{dice}]"
+            end
           end
-          achieve = dice + modify
-          result = check_success(achieve, dice, signOfInequality, target, specialNum)
-          if is_loop
-            inga_table = translate("Amadeus.inga_table")
-            inga = inga_table[dice - 1]
-            message += "#{achieve}_#{result}[#{dice}#{inga}]"
+
+        sequence = [
+          "(R#{rank}#{Format.modifier(modifier)}#{special_text}#{cmp_op}#{target})",
+          "[#{dice_text}]#{Format.modifier(modifier)}",
+          results.join(" / ")
+        ]
+
+        Result.new.tap do |r|
+          r.text = sequence.join(" ＞ ")
+          if success
+            r.success = true
+            r.critical = critical
           else
-            message += "#{achieve}_#{result}[#{dice}]"
+            r.failure = true
+            r.fumble = fumble
           end
-        end
-
-        return message
-      end
-
-      def check_success(total_n, dice_n, signOfInequality, diff, special_n)
-        return translate("Amadeus.fumble") if dice_n == 1
-        return translate("Amadeus.special") if dice_n >= special_n
-
-        cmp_op = Normalize.comparison_operator(signOfInequality)
-        target_num = diff.to_i
-
-        if total_n.send(cmp_op, target_num)
-          translate("success")
-        else
-          translate("failure")
         end
       end
 
       CHECK_DICE_COUNT = {"S" => 4, "A" => 3, "B" => 2, "C" => 1, "D" => 2}.freeze
 
-      def self.translate_tables(locale)
-        {
-          "ECT" => DiceTable::Table.from_i18n("Amadeus.table.ECT", locale),
-          "BST" => DiceTable::Table.from_i18n("Amadeus.table.BST", locale),
-          "RT" => DiceTable::Table.from_i18n("Amadeus.table.RT", locale),
-          "PRT" => DiceTable::Table.from_i18n("Amadeus.table.PRT", locale),
-          "FT" => DiceTable::Table.from_i18n("Amadeus.table.FT", locale),
-          "BT" => DiceTable::D66Table.from_i18n("Amadeus.table.BT", locale),
-          "FWT" => DiceTable::Table.from_i18n("Amadeus.table.FWT", locale),
-          "BRT" => DiceTable::Table.from_i18n("Amadeus.table.BRT", locale),
-          "RIT" => DiceTable::Table.from_i18n("Amadeus.table.RIT", locale),
-          "WT" => DiceTable::Table.from_i18n("Amadeus.table.WT", locale),
-          "NMT" => DiceTable::Table.from_i18n("Amadeus.table.NMT", locale),
-          "TGT" => DiceTable::Table.from_i18n("Amadeus.table.TGT", locale),
-          "CST" => DiceTable::Table.from_i18n("Amadeus.table.CST", locale),
-          "GCVT" => DiceTable::Table.from_i18n("Amadeus.table.GCVT", locale),
-          "YCVT" => DiceTable::Table.from_i18n("Amadeus.table.YCVT", locale),
-          "ECVT" => DiceTable::Table.from_i18n("Amadeus.table.ECVT", locale),
-          "CCVT" => DiceTable::Table.from_i18n("Amadeus.table.CCVT", locale),
-          "NCVT" => DiceTable::Table.from_i18n("Amadeus.table.NCVT", locale),
-          "DGVT" => DiceTable::Table.from_i18n("Amadeus.table.DGVT", locale),
-          "DAVT" => DiceTable::Table.from_i18n("Amadeus.table.DAVT", locale),
-          "PRCT" => DiceTable::Table.from_i18n("Amadeus.table.PRCT", locale),
-          "TCCT" => DiceTable::Table.from_i18n("Amadeus.table.TCCT", locale),
-          "INCT" => DiceTable::Table.from_i18n("Amadeus.table.INCT", locale),
-          "PSCT" => DiceTable::Table.from_i18n("Amadeus.table.PSCT", locale),
-          "LVCT" => DiceTable::Table.from_i18n("Amadeus.table.LVCT", locale),
-          "DACT" => DiceTable::Table.from_i18n("Amadeus.table.DACT", locale),
-          "RGT" => DiceTable::Table.from_i18n("Amadeus.table.RGT", locale),
-          "FBT" => DiceTable::Table.from_i18n("Amadeus.table.FBT", locale),
-          "CHVT" => DiceTable::Table.from_i18n("Amadeus.table.CHVT", locale),
-          "LCVT" => DiceTable::Table.from_i18n("Amadeus.table.LCVT", locale),
-          "KCVT" => DiceTable::Table.from_i18n("Amadeus.table.KCVT", locale),
-          "SAT" => DiceTable::D66Table.from_i18n("Amadeus.table.SAT", locale),
-          "SMT" => DiceTable::D66Table.from_i18n("Amadeus.table.SMT", locale),
-        }
+      class << self
+        private
+
+        def translate_tables(locale)
+          {
+            "ECT" => DiceTable::Table.from_i18n("Amadeus.table.ECT", locale),
+            "BST" => DiceTable::Table.from_i18n("Amadeus.table.BST", locale),
+            "RT" => DiceTable::Table.from_i18n("Amadeus.table.RT", locale),
+            "PRT" => DiceTable::Table.from_i18n("Amadeus.table.PRT", locale),
+            "FT" => DiceTable::Table.from_i18n("Amadeus.table.FT", locale),
+            "BT" => DiceTable::D66Table.from_i18n("Amadeus.table.BT", locale),
+            "FWT" => DiceTable::Table.from_i18n("Amadeus.table.FWT", locale),
+            "BRT" => DiceTable::Table.from_i18n("Amadeus.table.BRT", locale),
+            "RIT" => DiceTable::Table.from_i18n("Amadeus.table.RIT", locale),
+            "WT" => DiceTable::Table.from_i18n("Amadeus.table.WT", locale),
+            "NMT" => DiceTable::Table.from_i18n("Amadeus.table.NMT", locale),
+            "TGT" => DiceTable::Table.from_i18n("Amadeus.table.TGT", locale),
+            "CST" => DiceTable::Table.from_i18n("Amadeus.table.CST", locale),
+            "GCVT" => DiceTable::Table.from_i18n("Amadeus.table.GCVT", locale),
+            "YCVT" => DiceTable::Table.from_i18n("Amadeus.table.YCVT", locale),
+            "ECVT" => DiceTable::Table.from_i18n("Amadeus.table.ECVT", locale),
+            "CCVT" => DiceTable::Table.from_i18n("Amadeus.table.CCVT", locale),
+            "NCVT" => DiceTable::Table.from_i18n("Amadeus.table.NCVT", locale),
+            "DGVT" => DiceTable::Table.from_i18n("Amadeus.table.DGVT", locale),
+            "DAVT" => DiceTable::Table.from_i18n("Amadeus.table.DAVT", locale),
+            "PRCT" => DiceTable::Table.from_i18n("Amadeus.table.PRCT", locale),
+            "TCCT" => DiceTable::Table.from_i18n("Amadeus.table.TCCT", locale),
+            "INCT" => DiceTable::Table.from_i18n("Amadeus.table.INCT", locale),
+            "PSCT" => DiceTable::Table.from_i18n("Amadeus.table.PSCT", locale),
+            "LVCT" => DiceTable::Table.from_i18n("Amadeus.table.LVCT", locale),
+            "DACT" => DiceTable::Table.from_i18n("Amadeus.table.DACT", locale),
+            "RGT" => DiceTable::Table.from_i18n("Amadeus.table.RGT", locale),
+            "FBT" => DiceTable::Table.from_i18n("Amadeus.table.FBT", locale),
+            "CHVT" => DiceTable::Table.from_i18n("Amadeus.table.CHVT", locale),
+            "LCVT" => DiceTable::Table.from_i18n("Amadeus.table.LCVT", locale),
+            "KCVT" => DiceTable::Table.from_i18n("Amadeus.table.KCVT", locale),
+            "SAT" => DiceTable::D66Table.from_i18n("Amadeus.table.SAT", locale),
+            "SMT" => DiceTable::D66Table.from_i18n("Amadeus.table.SMT", locale),
+          }
+        end
       end
 
       TABLES = translate_tables(:ja_jp)
