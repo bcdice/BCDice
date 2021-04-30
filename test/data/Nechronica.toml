@@ -334,3 +334,12 @@ rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 10 },
 ]
+
+[[ test ]]
+game_system = "Nechronica"
+input = "1D10+1>=? 目標値?でバグらない"
+output = "(1D10+1>=?) ＞ 5[5]+1 ＞ 6"
+rands = [
+  { sides = 10, value = 5 },
+]
+

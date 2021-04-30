@@ -43,7 +43,9 @@ module BCDice
 
       def result_nd10(total, _dice_total, value_list, cmp_op, target)
         # 後方互換を維持するため、1d10>=nを目標値nの1NCとして処理
-        return nil unless value_list.count == 1 && cmp_op == :>=
+        if value_list.count != 1 || cmp_op != :>= || target.nil? || target == "?"
+          return nil
+        end
 
         result_nechronica([total], target)
       end
@@ -88,11 +90,11 @@ module BCDice
       def nechronica_check(command)
         command = r_backward_compatibility(command)
         # 歴史的経緯で10を受理する
-        parser = Command::Parser.new(/\d?N(C|A)(10)?/, round_type: round_type)
-        cmd = parser.parse(command)
+        cmd = Command::Parser.new(/N(C|A)(10)?/, round_type: round_type)
+                             .enable_prefix_number.parse(command)
         return nil unless cmd
 
-        dice_count = [1, cmd.command.to_i].max
+        dice_count = [1, cmd.prefix_number.to_i].max
         modify_number = cmd.modify_number || 0
 
         dice = @randomizer.roll_barabara(dice_count, 10).sort
