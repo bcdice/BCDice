@@ -129,6 +129,7 @@ module BCDice
 
         return Result.new.tap do |r|
           r.text = result
+          r.success = !is_fumble && min_suc > 0 && total_suc >= min_suc
           r.failure = is_fumble
           r.critical = is_critical
           r.fumble = is_fumble
