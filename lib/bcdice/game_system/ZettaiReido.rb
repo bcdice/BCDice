@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'bcdice/base'
+
 module BCDice
   module GameSystem
     class ZettaiReido < Base
@@ -38,20 +40,23 @@ module BCDice
         mod, modText = getModInfo(modText)
         diff, diffText = getDiffInfo(diffValue)
 
-        output = ""
-        output += "(#{baseAvility}-2DR#{modText}#{diffText})"
-        output += " ＞ #{baseAvility}-#{diceTotal}[#{diceText}]#{modText}"
-
+        baseCommandText = "(#{baseAvility}-2DR#{modText}#{diffText})"
+        diceCommandText = "#{baseAvility}-#{diceTotal}[#{diceText}]#{modText}"
         total = baseAvility - diceTotal + mod
-        output += " ＞ #{total}"
 
-        successText = getSuccessText(diceTotal, total, diff)
-        output += successText
+        result = getResult(diceTotal, total, diff)
 
-        darkPointText = getDarkPointResult(total, diff, darkPoint)
-        output += darkPointText
+        darkPointText = "#{darkPoint}DP" if darkPoint > 0
 
-        return output
+        result.text = [
+          baseCommandText,
+          diceCommandText,
+          total.to_i,
+          result.text,
+          darkPointText,
+        ].compact.join(" ＞ ")
+
+        return result
       end
 
       def roll2DarkDice()
@@ -107,23 +112,13 @@ module BCDice
         return diffValue, diffText
       end
 
-      def getDarkPointResult(_total, _diff, darkPoint)
-        text = ''
-
-        if darkPoint > 0
-          text = " ＞ #{darkPoint}DP"
-        end
-
-        return text
-      end
-
-      def getSuccessText(diceTotal, total, diff)
+      def getResult(diceTotal, total, diff)
         if diceTotal == 0
-          return " ＞ クリティカル"
+          return Result.critical("クリティカル")
         end
 
         if diceTotal == 10
-          return " ＞ ファンブル"
+          return Result.fumble("ファンブル")
         end
 
         if diff.nil?
@@ -132,10 +127,10 @@ module BCDice
 
         successLevel = (total - diff)
         if successLevel >= 0
-          return " ＞ #{successLevel} 成功"
+          return Result.success("#{successLevel} 成功")
         end
 
-        return ' ＞ 失敗'
+        return Result.failure("失敗")
       end
     end
   end
