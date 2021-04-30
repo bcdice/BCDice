@@ -40,18 +40,21 @@ module BCDice
         mod, modText = getModInfo(modText)
         diff, diffText = getDiffInfo(diffValue)
 
-        output = ""
-        output += "(#{baseAvility}-2DR#{modText}#{diffText})"
-        output += " ＞ #{baseAvility}-#{diceTotal}[#{diceText}]#{modText}"
-
+        baseCommandText = "(#{baseAvility}-2DR#{modText}#{diffText})"
+        diceCommandText = "#{baseAvility}-#{diceTotal}[#{diceText}]#{modText}"
         total = baseAvility - diceTotal + mod
-        output += " ＞ #{total}"
 
-        result = getResult(diceTotal, total, diff, output)
+        result = getResult(diceTotal, total, diff)
 
-        if darkPoint > 0
-          result.text += " ＞ #{darkPoint}DP"
-        end
+        darkPointText = "#{darkPoint}DP" if darkPoint > 0
+
+        result.text = [
+          baseCommandText,
+          diceCommandText,
+          total.to_i,
+          result.text,
+          darkPointText,
+        ].compact.join(" ＞ ")
 
         return result
       end
@@ -109,13 +112,13 @@ module BCDice
         return diffValue, diffText
       end
 
-      def getResult(diceTotal, total, diff, output)
+      def getResult(diceTotal, total, diff)
         if diceTotal == 0
-          return Result.critical(output + " ＞ クリティカル")
+          return Result.critical("クリティカル")
         end
 
         if diceTotal == 10
-          return Result.fumble(output + " ＞ ファンブル")
+          return Result.fumble("ファンブル")
         end
 
         if diff.nil?
@@ -124,10 +127,10 @@ module BCDice
 
         successLevel = (total - diff)
         if successLevel >= 0
-          return Result.success(output + " ＞ #{successLevel} 成功")
+          return Result.success("#{successLevel} 成功")
         end
 
-        return Result.failure(output + " ＞ 失敗")
+        return Result.failure("失敗")
       end
     end
   end
