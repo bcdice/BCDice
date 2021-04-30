@@ -7,6 +7,12 @@ module BCDice
       attr_accessor :command
 
       # @return [Integer, nil]
+      attr_accessor :prefix_number
+
+      # @return [Integer, nil]
+      attr_accessor :suffix_number
+
+      # @return [Integer, nil]
       attr_accessor :critical
 
       # @return [Integer, nil]
@@ -29,6 +35,8 @@ module BCDice
       attr_writer :question_target
 
       def initialize
+        @prefix_number = nil
+        @suffix_number = nil
         @critical = nil
         @fumble = nil
         @dollar = nil
@@ -53,11 +61,11 @@ module BCDice
 
         case suffix_position
         when :after_command
-          [@command, c, f, d, m, @cmp_op, target].join()
+          [@prefix_number, @command, @suffix_number, c, f, d, m, @cmp_op, target].join()
         when :after_modify_number
-          [@command, m, c, f, d, @cmp_op, target].join()
+          [@prefix_number, @command, @suffix_number, m, c, f, d, @cmp_op, target].join()
         when :after_target_number
-          [@command, m, @cmp_op, target, c, f, d].join()
+          [@prefix_number, @command, @suffix_number, m, @cmp_op, target, c, f, d].join()
         end
       end
     end
