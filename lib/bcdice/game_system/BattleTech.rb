@@ -105,7 +105,7 @@ module BCDice
 
         partTable = HitPart::TABLES[side]
 
-        resultTexts = []
+        resultLines = []
         damages = {}
         hitCount = 0
 
@@ -117,15 +117,24 @@ module BCDice
             damages, damageText = getDamages(damageFunc, partTable, damages)
             hitResult += damageText
           end
-          resultTexts << hitResult
+          resultLines << hitResult
         end
 
-        resultTexts.push(" ＞ #{hitCount}回命中")
+        # 命中したか？
+        hit = hitCount > 0
 
-        totalResultText = resultTexts.join("\n")
-        totalResultText += " 命中箇所：" + getTotalDamage(damages) if hitCount > 0
+        hitCountText = " ＞ #{hitCount}回命中"
+        hitDetails =
+          if hit
+            "#{hitCountText} 命中箇所：#{getTotalDamage(damages)}"
+          else
+            hitCountText
+          end
+        resultLines.push(hitDetails)
 
-        return totalResultText
+        resultText = resultLines.join("\n")
+
+        return hit ? Result.success(resultText) : Result.failure(resultText)
       end
 
       def getBaseValue(baseString)
