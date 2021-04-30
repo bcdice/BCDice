@@ -31,7 +31,7 @@ module BCDice
         　　左上半身にSRM6連を技能ベース5目標値8で3回判定
         ・CT：致命的命中表
         ・DW：転倒後の向き表
-        ・CDx：メック戦士意識維持表。ダメージ値xで判定　例）CD3
+        ・CDx：メック戦士意識維持ロール。ダメージ値x（1〜6）で判定　例）CD3
       MESSAGETEXT
 
       register_prefix('\d*SRM', '\d*LRM', '\d*BT', 'PPC', 'CT', 'DW', 'CD')
@@ -55,9 +55,9 @@ module BCDice
         debug('executeCommandCatched command', command)
 
         case command
-        when /^CD(\d+)$/
+        when /\ACD([1-6])\z/
           damage = Regexp.last_match(1).to_i
-          return getCheckDieResult(damage)
+          return consciousness_roll(damage)
         when /^((S|L)RM\d+)(.+)/
           tail = Regexp.last_match(3)
           type = Regexp.last_match(1)
@@ -272,26 +272,53 @@ module BCDice
         return result_parts.join(' ＞ '), hit_part.name, criticalText
       end
 
-      def getCheckDieResult(damage)
-        if damage >= 6
-          return "死亡"
+      # メック戦士意識維持ロールを行う
+      #
+      # damageが6の場合は死亡。
+      # damageが5以下の場合は、2d6の結果が意識維持表の値以上かの成功判定。
+      #
+      # @param damage [Integer] メック戦士へのダメージ（1〜6）
+      # @return [Result]
+      # @see 「BattleTech: A Game of Armored Combat」ルールブックp. 44
+      def consciousness_roll(damage)
+        unless (1..6).include?(damage)
+          return nil
         end
 
-        table = [[1,  3],
-                 [2,  5],
-                 [3,  7],
-                 [4,  10],
-                 [5,  11]]
+        command = "CD#{damage}"
 
-        target = get_table_by_number(damage, table, nil)
+        if damage == 6
+          return Result.fumble("#{command} ＞ 死亡")
+        end
 
-        dice1 = @randomizer.roll_once(6)
-        dice2 = @randomizer.roll_once(6)
-        total = dice1 + dice2
-        result = total >= target ? "成功" : "失敗"
-        text = "#{total}[#{dice1},#{dice2}]>=#{target} ＞ #{result}"
+        consciousness_table = {
+          1 => 3,
+          2 => 5,
+          3 => 7,
+          4 => 10,
+          5 => 11,
+        }
 
-        return text
+        target = consciousness_table[damage]
+        expr = "(2D6>=#{target})"
+
+        sum = @randomizer.roll_sum(2, 6)
+        values_str = @randomizer.rand_results.map(&:first).join(",")
+        sum_and_values = "#{sum}[#{values_str}]"
+
+        success = sum >= target
+        result = success ? "成功" : "失敗"
+
+        parts = [
+          command,
+          expr,
+          sum_and_values,
+          sum,
+          result,
+        ]
+        text = parts.join(" ＞ ")
+
+        return success ? Result.success(text) : Result.failure(text)
       end
 
       # 表の集合
