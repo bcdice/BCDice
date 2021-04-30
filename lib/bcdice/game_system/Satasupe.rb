@@ -125,20 +125,11 @@ module BCDice
           result += " ＞ 必殺発動可能！"
         end
 
-        is_success = false
-        is_failure = is_fumble
-        # 目標成功度が設定されており、ファンブルしておらず、成功度が目標成功度より高ければ成功
-        if min_suc > 0 && !is_fumble
-          is_success = total_suc >= min_suc
-          is_failure = !is_success
-        end
-
         debug('checkRoll result result', result)
 
         return Result.new.tap do |r|
           r.text = result
-          r.success = is_success
-          r.failure = is_failure
+          r.failure = is_fumble
           r.critical = is_critical
           r.fumble = is_fumble
         end
