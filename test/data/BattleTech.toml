@@ -383,3 +383,15 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "BattleTech"
+input = "CD0 範囲外"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "BattleTech"
+input = "CD7 範囲外"
+output = ""
+rands = []
