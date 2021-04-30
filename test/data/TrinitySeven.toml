@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "TrinitySeven"
 input = "1DM1+1"
-output = "(1DM1+1) [1]→[7]+1 ＞ 8"
+output = "(1DM1+1) ＞ [1]→[7]+1 ＞ 8"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "1DM1-1"
-output = "(1DM1-1) [1]→[7]-1 ＞ 6"
+output = "(1DM1-1) ＞ [1]→[7]-1 ＞ 6"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -17,7 +17,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "1DM1"
-output = "(1DM1) [1]→[7] ＞ 7"
+output = "(1DM1) ＞ [1]→[7] ＞ 7"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -25,7 +25,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "1DM"
-output = "(1DM) [1] ＞ 1"
+output = "(1DM) ＞ [1] ＞ 1"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -39,7 +39,7 @@ rands = []
 [[ test ]]
 game_system = "TrinitySeven"
 input = "1DM-1"
-output = "(1DM-1) [1]-1 ＞ 0"
+output = "(1DM-1) ＞ [1]-1 ＞ 0"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -47,7 +47,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "2DM1+1"
-output = "(2DM1+1) [1,6]→[6,7]+1 ＞ 43"
+output = "(2DM1+1) ＞ [1,6]→[6,7]+1 ＞ 43"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -56,7 +56,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "2DM1"
-output = "(2DM1) [1,6]→[6,7] ＞ 42"
+output = "(2DM1) ＞ [1,6]→[6,7] ＞ 42"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -65,7 +65,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "2DM2"
-output = "(2DM2) [1,6]→[7,7] ＞ 49"
+output = "(2DM2) ＞ [1,6]→[7,7] ＞ 49"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -74,7 +74,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "2DM1-1"
-output = "(2DM1-1) [1,6]→[6,7]-1 ＞ 41"
+output = "(2DM1-1) ＞ [1,6]→[6,7]-1 ＞ 41"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -83,7 +83,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "2DM1+1"
-output = "(2DM1+1) [1,6]→[6,7]+1 ＞ 43"
+output = "(2DM1+1) ＞ [1,6]→[6,7]+1 ＞ 43"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -92,7 +92,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "2DM"
-output = "(2DM) [1,6] ＞ 7"
+output = "(2DM) ＞ [1,6] ＞ 7"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -101,7 +101,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "2DM+1"
-output = "(2DM+1) [1,6]+1 ＞ 8"
+output = "(2DM+1) ＞ [1,6]+1 ＞ 8"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -110,7 +110,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "2DM-1"
-output = "(2DM-1) [1,6]-1 ＞ 6"
+output = "(2DM-1) ＞ [1,6]-1 ＞ 6"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -119,7 +119,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "3DM1-1"
-output = "(3DM1-1) [1,6,3]→[3,6,7]-1 ＞ 44"
+output = "(3DM1-1) ＞ [1,3,6]→[3,6,7]-1 ＞ 44"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -129,7 +129,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "3DM1+1"
-output = "(3DM1+1) [1,6,3]→[3,6,7]+1 ＞ 46"
+output = "(3DM1+1) ＞ [1,3,6]→[3,6,7]+1 ＞ 46"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -139,7 +139,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "3DM1"
-output = "(3DM1) [1,6,3]→[3,6,7] ＞ 45"
+output = "(3DM1) ＞ [1,3,6]→[3,6,7] ＞ 45"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -149,7 +149,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "3DM2"
-output = "(3DM2) [1,6,3]→[6,7,7] ＞ 294"
+output = "(3DM2) ＞ [1,3,6]→[6,7,7] ＞ 294"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -159,7 +159,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "3DM3"
-output = "(3DM3) [1,6,3]→[7,7,7] ＞ 343"
+output = "(3DM3) ＞ [1,3,6]→[7,7,7] ＞ 343"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -169,7 +169,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "4DM2"
-output = "(4DM2) [1,2,3,4]→[3,4,7,7] ＞ 199"
+output = "(4DM2) ＞ [1,2,3,4]→[3,4,7,7] ＞ 199"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -180,7 +180,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "4DM4"
-output = "(4DM4) [1,2,3,4]→[7,7,7,7] ＞ 2401"
+output = "(4DM4) ＞ [1,2,3,4]→[7,7,7,7] ＞ 2401"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -191,7 +191,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "3DM1-1"
-output = "(3DM1-1) [1,6,3]→[3,6,7]-1 ＞ 44"
+output = "(3DM1-1) ＞ [1,3,6]→[3,6,7]-1 ＞ 44"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "3DM1+1"
-output = "(3DM1+1) [1,6,3]→[3,6,7]+1 ＞ 46"
+output = "(3DM1+1) ＞ [1,3,6]→[3,6,7]+1 ＞ 46"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -211,7 +211,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "3DM"
-output = "(3DM) [1,6,3] ＞ 10"
+output = "(3DM) ＞ [1,3,6] ＞ 10"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -221,7 +221,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "3DM+1"
-output = "(3DM+1) [1,6,3]+1 ＞ 11"
+output = "(3DM+1) ＞ [1,3,6]+1 ＞ 11"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -231,7 +231,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "3DM-1"
-output = "(3DM-1) [1,6,3]-1 ＞ 9"
+output = "(3DM-1) ＞ [1,3,6]-1 ＞ 9"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -241,7 +241,9 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "TR-1<=50+20"
-output = "(TR-1<=50+20) ＞ 1[1] ＞ クリティカル"
+output = "(TR-1<=70) ＞ 1 ＞ クリティカル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -249,7 +251,9 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "TR-1<=50+20"
-output = "(TR-1<=50+20) ＞ 100[100] ＞ ファンブル"
+output = "(TR-1<=70) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -257,7 +261,9 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "TR+1<=50-20"
-output = "(TR+1<=50-20) ＞ 1[1] ＞ クリティカル"
+output = "(TR+1<=30) ＞ 1 ＞ クリティカル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -265,7 +271,9 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "TR+1<=50-20"
-output = "(TR+1<=50-20) ＞ 100[100] ＞ ファンブル"
+output = "(TR+1<=30) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -273,7 +281,9 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "TR+1<=50"
-output = "(TR+1<=50) ＞ 1[1] ＞ クリティカル"
+output = "(TR+1<=50) ＞ 1 ＞ クリティカル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -281,7 +291,9 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "TR-1<=50"
-output = "(TR-1<=50) ＞ 100[100] ＞ ファンブル"
+output = "(TR-1<=50) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -289,7 +301,9 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "TR<=50+20"
-output = "(TR<=50+20) ＞ 1[1] ＞ クリティカル"
+output = "(TR<=70) ＞ 1 ＞ クリティカル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -297,7 +311,9 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "TR<=50+20"
-output = "(TR<=50+20) ＞ 100[100] ＞ ファンブル"
+output = "(TR<=70) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -305,7 +321,9 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "TR<=50"
-output = "(TR<=50) ＞ 1[1] ＞ クリティカル"
+output = "(TR<=50) ＞ 1 ＞ クリティカル"
+success = true
+critical = true
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -313,9 +331,97 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "TR<=50"
-output = "(TR<=50) ＞ 100[100] ＞ ファンブル"
+output = "(TR<=50) ＞ 7 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 7 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR<=50"
+output = "(TR<=50) ＞ 8 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 8 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR<=50"
+output = "(TR<=50) ＞ 50 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR<=50"
+output = "(TR<=50) ＞ 51 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR<=50"
+output = "(TR<=50) ＞ 95 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 95 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR<=50"
+output = "(TR<=50) ＞ 96 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR<=50"
+output = "(TR<=50) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR<=0 目標値に関わらずクリティカル"
+output = "(TR<=0) ＞ 7 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 7 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR<=100 目標値に関わらずファンブル"
+output = "(TR<=100) ＞ 96 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TR7<=40 クリティカル値変動"
+output = "(TR+7<=40) ＞ 14 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 14 },
 ]
 
 [[ test ]]
@@ -330,7 +436,7 @@ rands = [
 [[ test ]]
 game_system = "TrinitySeven"
 input = "TRNAME"
-output = "魔王 , 目についた物の名前（シャーペン、メガネなど）"
+output = "\"魔王\" , 目についた物の名前（シャーペン、メガネなど）"
 rands = [
   { sides = 100, value = 100 },
   { sides = 100, value = 100 },
@@ -351,6 +457,15 @@ input = "TRNAME"
 output = "北千住 , スカー/綾瀬"
 rands = [
   { sides = 100, value = 30 },
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "TrinitySeven"
+input = "TRNAME"
+output = "サンクチュアリ , スカー/綾瀬"
+rands = [
+  { sides = 100, value = 70 },
   { sides = 100, value = 30 },
 ]
 

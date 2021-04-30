@@ -2,6 +2,7 @@
 game_system = "BattleTech"
 input = "4BT3C+5>=11"
 output = "16[5,6+5]>=11 ＞ 命中 ＞ [12] 頭 3点\n17[6,6+5]>=11 ＞ 命中 ＞ [2] 胴中央（致命的命中） 3点 ＞ [9] 1箇所の致命的命中\n7[1,1+5]>=11 ＞ 外れ\n17[6,6+5]>=11 ＞ 命中 ＞ [12] 頭 3点\n ＞ 3回命中 命中箇所：頭(2回) 6点 ／ 胴中央(1回) 3点 1箇所の致命的命中 ＞ 合計ダメージ 9点"
+success = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -25,6 +26,7 @@ rands = [
 game_system = "BattleTech"
 input = "3BT1>=2"
 output = "11[5,6]>=2 ＞ 命中 ＞ [2] 胴中央（致命的命中） 1点 ＞ [9] 1箇所の致命的命中\n11[5,6]>=2 ＞ 命中 ＞ [2] 胴中央（致命的命中） 1点 ＞ [9] 1箇所の致命的命中\n11[5,6]>=2 ＞ 命中 ＞ [2] 胴中央（致命的命中） 1点 ＞ [9] 1箇所の致命的命中\n ＞ 3回命中 命中箇所：胴中央(3回) 3点 1箇所の致命的命中 1箇所の致命的命中 1箇所の致命的命中 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -50,6 +52,7 @@ rands = [
 game_system = "BattleTech"
 input = "BT3R>=7"
 output = "7[3,4]>=7 ＞ 命中 ＞ [2] 右胴（致命的命中） 3点 ＞ [7] 致命的命中はなかった\n ＞ 1回命中 命中箇所：右胴(1回) 3点 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -63,6 +66,7 @@ rands = [
 game_system = "BattleTech"
 input = "1BT3C+5>=11"
 output = "17[6,6+5]>=11 ＞ 命中 ＞ [11] 左腕 3点\n ＞ 1回命中 命中箇所：左腕(1回) 3点 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -74,6 +78,7 @@ rands = [
 game_system = "BattleTech"
 input = "1BT3+5>=11"
 output = "17[6,6+5]>=11 ＞ 命中 ＞ [11] 左腕 3点\n ＞ 1回命中 命中箇所：左腕(1回) 3点 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -85,6 +90,7 @@ rands = [
 game_system = "BattleTech"
 input = "1BT3C>=11"
 output = "12[6,6]>=11 ＞ 命中 ＞ [11] 左腕 3点\n ＞ 1回命中 命中箇所：左腕(1回) 3点 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -96,6 +102,7 @@ rands = [
 game_system = "BattleTech"
 input = "1BT3>=11"
 output = "12[6,6]>=11 ＞ 命中 ＞ [11] 左腕 3点\n ＞ 1回命中 命中箇所：左腕(1回) 3点 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -107,6 +114,7 @@ rands = [
 game_system = "BattleTech"
 input = "BT3>=11"
 output = "12[6,6]>=11 ＞ 命中 ＞ [11] 左腕 3点\n ＞ 1回命中 命中箇所：左腕(1回) 3点 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -118,6 +126,7 @@ rands = [
 game_system = "BattleTech"
 input = "PPC>=11"
 output = "12[6,6]>=11 ＞ 命中 ＞ [11] 左腕 10点\n ＞ 1回命中 命中箇所：左腕(1回) 10点 ＞ 合計ダメージ 10点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -129,6 +138,7 @@ rands = [
 game_system = "BattleTech"
 input = "BT3C>=11"
 output = "12[6,6]>=11 ＞ 命中 ＞ [11] 左腕 3点\n ＞ 1回命中 命中箇所：左腕(1回) 3点 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -140,6 +150,7 @@ rands = [
 game_system = "BattleTech"
 input = "SRM2>=11"
 output = "12[6,6]>=11 ＞ 命中 ＞ [11] 左腕 [2] 2点\n ＞ 1回命中 命中箇所：左腕(1回) 2点 ＞ 合計ダメージ 2点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -153,6 +164,7 @@ rands = [
 game_system = "BattleTech"
 input = "SRM4>=11"
 output = "12[6,6]>=11 ＞ 命中 ＞ [4] 右腕 [10] 6点\n ＞ 1回命中 命中箇所：右腕(1回) 6点 ＞ 合計ダメージ 6点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -166,6 +178,7 @@ rands = [
 game_system = "BattleTech"
 input = "SRM6>=11"
 output = "12[6,6]>=11 ＞ 命中 ＞ [12] 頭 [11] 12点\n ＞ 1回命中 命中箇所：頭(1回) 12点 ＞ 合計ダメージ 12点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -179,6 +192,7 @@ rands = [
 game_system = "BattleTech"
 input = "LRM20>=11"
 output = "11[6,5]>=11 ＞ 命中 ＞ [2] 6点 [12] 頭 5点 [12] 頭 1点\n ＞ 1回命中 命中箇所：頭(2回) 6点 ＞ 合計ダメージ 6点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -194,6 +208,7 @@ rands = [
 game_system = "BattleTech"
 input = "LRM20>=11"
 output = "11[6,5]>=11 ＞ 命中 ＞ [10] 16点 [2] 胴中央（致命的命中） 5点 ＞ [12] その部位が吹き飛ぶ（腕、脚、頭）または3箇所の致命的命中（胴） [2] 胴中央（致命的命中） 5点 ＞ [9] 1箇所の致命的命中 [11] 左腕 5点 [3] 右腕 1点\n ＞ 1回命中 命中箇所：胴中央(2回) 10点 その部位が吹き飛ぶ（腕、脚、頭）または3箇所の致命的命中（胴） 1箇所の致命的命中 ／ 右腕(1回) 1点 ／ 左腕(1回) 5点 ＞ 合計ダメージ 16点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -226,6 +241,7 @@ rands = [
 game_system = "BattleTech"
 input = "LRM5LU>=11"
 output = "11[6,5]>=11 ＞ 命中 ＞ [8] 3点 [4] 左腕 3点\n ＞ 1回命中 命中箇所：左腕(1回) 3点 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -238,6 +254,7 @@ rands = [
 game_system = "BattleTech"
 input = "LRM5cu>=11"
 output = "11[6,5]>=11 ＞ 命中 ＞ [7] 3点 [4] 右胴 3点\n ＞ 1回命中 命中箇所：右胴(1回) 3点 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -250,6 +267,7 @@ rands = [
 game_system = "BattleTech"
 input = "LRM5rU>=11"
 output = "11[6,5]>=11 ＞ 命中 ＞ [8] 3点 [4] 右腕 3点\n ＞ 1回命中 命中箇所：右腕(1回) 3点 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -262,6 +280,7 @@ rands = [
 game_system = "BattleTech"
 input = "LRM5Cl>=11"
 output = "11[6,5]>=11 ＞ 命中 ＞ [7] 3点 [4] 左脚 3点\n ＞ 1回命中 命中箇所：左脚(1回) 3点 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -274,6 +293,7 @@ rands = [
 game_system = "BattleTech"
 input = "LRM5rl>=11"
 output = "11[6,5]>=11 ＞ 命中 ＞ [5] 3点 [4] 右脚 3点\n ＞ 1回命中 命中箇所：右脚(1回) 3点 ＞ 合計ダメージ 3点"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -286,6 +306,7 @@ rands = [
 game_system = "BattleTech"
 input = "BT9>=99"
 output = "11[6,5]>=99 ＞ 外れ\n ＞ 0回命中"
+failure = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },

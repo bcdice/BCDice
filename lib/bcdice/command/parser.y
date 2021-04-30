@@ -4,23 +4,45 @@ class BCDice::Command::Parser
   expect 2
 
   rule
-    expr: NOTATION option modifier target
+    expr: notation option modifier target
         {
           raise ParseError unless @modifier
           notation, option, modifier, target = val
           result = parsed(notation, option, modifier, target)
         }
-        | NOTATION modifier option target
+        | notation modifier option target
         {
           raise ParseError unless @modifier
           notation, modifier, option, target = val
           result = parsed(notation, option, modifier, target)
         }
-        | NOTATION option target
+        | notation option target
         {
           notation, option, target = val
           result = parsed(notation, option,  Arithmetic::Node::Number.new(0), target)
         }
+
+    notation: term NOTATION term
+            {
+              raise ParseError unless @prefix_number && @suffix_number
+              result = { command: val[1], prefix: val[0], suffix: val[2] }
+            }
+            | term NOTATION
+            {
+              raise ParseError unless @prefix_number
+              raise ParseError if @need_suffix_number
+              result = { command: val[1], prefix: val[0] }
+            }
+            | NOTATION term
+            {
+              raise ParseError unless @suffix_number
+              raise ParseError if @need_prefix_number
+              result = { command: val[0], suffix: val[1] }
+            }
+            | NOTATION {
+              raise ParseError if @need_prefix_number || @need_suffix_number
+              result = { command: val[0] }
+            }
 
     option: /* none */
           {
@@ -148,10 +170,16 @@ class BCDice::Command::Parser < Racc::Parser; end
 
 ---- inner
 
+# @param notations [Array<String, Regexp>] 反応するコマンドの表記
+# @param round_type [Symbol] 除算での端数の扱い
 def initialize(*notations, round_type:)
   super()
   @notations = notations
   @round_type = round_type
+  @prefix_number = false
+  @suffix_number = false
+  @need_prefix_number = false
+  @need_suffix_number = false
   @modifier = true
   @critical = false
   @fumble = false
@@ -164,6 +192,36 @@ end
 # @return [BCDice::Command::Parser]
 def disable_modifier
   @modifier = false
+  self
+end
+
+# リテラルの前に数値を許可する
+# @return [BCDice::Command::Parser]
+def enable_prefix_number
+  @prefix_number = true
+  self
+end
+
+# リテラルの後ろに数値を許可する
+# @return [BCDice::Command::Parser]
+def enable_suffix_number
+  @suffix_number = true
+  self
+end
+
+# リテラルの前に数値が必要であると設定する
+# @return [BCDice::Command::Parser]
+def has_prefix_number
+  @prefix_number = true
+  @need_prefix_number = true
+  self
+end
+
+# リテラルの後ろに数値が必要であると設定する
+# @return [BCDice::Command::Parser]
+def has_suffix_number
+  @suffix_number = true
+  @need_suffix_number = true
   self
 end
 
@@ -217,7 +275,9 @@ private
 
 def parsed(notation, option, modifier, target)
   Parsed.new.tap do |p|
-    p.command = notation
+    p.command = notation[:command]
+    p.prefix_number = notation[:prefix]&.eval(@round_type)
+    p.suffix_number = notation[:suffix]&.eval(@round_type)
     p.critical = option[:critical]&.eval(@round_type)
     p.fumble = option[:fumble]&.eval(@round_type)
     p.dollar = option[:dollar]&.eval(@round_type)

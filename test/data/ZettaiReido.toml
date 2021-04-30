@@ -2,6 +2,8 @@
 game_system = "ZettaiReido"
 input = "12-2DR-1>=10"
 output = "(12-2DR-1>=10) ＞ 12-0[0,0]-1 ＞ 11 ＞ クリティカル ＞ 4DP"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -11,6 +13,8 @@ rands = [
 game_system = "ZettaiReido"
 input = "10-2DR+1>=99"
 output = "(10-2DR+1>=99) ＞ 10-0[0,0]+1 ＞ 11 ＞ クリティカル ＞ 4DP"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -20,6 +24,7 @@ rands = [
 game_system = "ZettaiReido"
 input = "10-2DR+1>=10"
 output = "(10-2DR+1>=10) ＞ 10-1[1,0]+1 ＞ 10 ＞ 0 成功 ＞ 1DP"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -29,6 +34,7 @@ rands = [
 game_system = "ZettaiReido"
 input = "8-2DR>=6"
 output = "(8-2DR>=6) ＞ 8-2[1,1] ＞ 6 ＞ 0 成功"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -38,6 +44,7 @@ rands = [
 game_system = "ZettaiReido"
 input = "8-2DR-1>=4"
 output = "(8-2DR-1>=4) ＞ 8-2[1,1]-1 ＞ 5 ＞ 1 成功"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -47,6 +54,7 @@ rands = [
 game_system = "ZettaiReido"
 input = "30-2DR-10>=19"
 output = "(30-2DR-10>=19) ＞ 30-1[0,1]-10 ＞ 19 ＞ 0 成功 ＞ 1DP"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -56,6 +64,7 @@ rands = [
 game_system = "ZettaiReido"
 input = "8-2DR>=7"
 output = "(8-2DR>=7) ＞ 8-2[1,1] ＞ 6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -65,6 +74,7 @@ rands = [
 game_system = "ZettaiReido"
 input = "30-2DR-10>=20"
 output = "(30-2DR-10>=20) ＞ 30-1[0,1]-10 ＞ 19 ＞ 失敗 ＞ 1DP"
+failure = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -74,6 +84,8 @@ rands = [
 game_system = "ZettaiReido"
 input = "9-2DR>=7"
 output = "(9-2DR>=7) ＞ 9-10[5,5] ＞ -1 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -83,6 +95,8 @@ rands = [
 game_system = "ZettaiReido"
 input = "20-2DR>=7"
 output = "(20-2DR>=7) ＞ 20-10[5,5] ＞ 10 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -92,6 +106,7 @@ rands = [
 game_system = "ZettaiReido"
 input = "6-2DR"
 output = "(6-2DR) ＞ 6-5[2,3] ＞ 1 ＞ 1 成功"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -101,6 +116,7 @@ rands = [
 game_system = "ZettaiReido"
 input = "6-2DR"
 output = "(6-2DR) ＞ 6-6[3,3] ＞ 0 ＞ 0 成功"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -110,6 +126,8 @@ rands = [
 game_system = "ZettaiReido"
 input = "6-2DR"
 output = "(6-2DR) ＞ 6-0[0,0] ＞ 6 ＞ クリティカル ＞ 4DP"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -119,6 +137,7 @@ rands = [
 game_system = "ZettaiReido"
 input = "6-2DR"
 output = "(6-2DR) ＞ 6-7[4,3] ＞ -1 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -128,6 +147,8 @@ rands = [
 game_system = "ZettaiReido"
 input = "6-2DR"
 output = "(6-2DR) ＞ 6-10[5,5] ＞ -4 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
