@@ -29,6 +29,8 @@ rands = [
 game_system = "Satasupe"
 input = "10r>=7"
 output = "【難易度7、ファンブル率1、必殺なし】 ＞ 1[4,4]+1[4,4]+0[4,2]+1[5,3]+0[2,4]+1[5,3]+1[6,4]+1[1,6]+0[1,1] ＞ 成功度6 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -135,6 +137,8 @@ rands = [
 game_system = "Satasupe"
 input = "10r>=7"
 output = "【難易度7、ファンブル率1、必殺なし】 ＞ 1[1,6]+1[4,3]+1[3,6]+1[6,3]+1[4,3]+1[6,6]+0[3,2]+0[2,1]+0[1,1] ＞ 成功度6 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -268,6 +272,7 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[1,6]+1[6,6]+0[3,1]+1[4,4] ＞ 成功度3"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -283,6 +288,7 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[2,4]+0[5,1]+1[6,6]+1[5,2]+0[1,3]+0[2,3]+1[6,3] ＞ 成功度3"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -304,6 +310,8 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[2,2] ＞ 成功度0 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -313,6 +321,8 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[6,4]+0[3,3] ＞ 成功度1 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -324,6 +334,7 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[4,6]+1[3,4]+1[3,5] ＞ 成功度3"
+success = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -337,6 +348,7 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[5,2]+1[3,4]+1[6,5] ＞ 成功度3"
+success = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -350,6 +362,7 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[6,2]+0[1,4]+1[4,4]+1[5,2] ＞ 成功度3"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -365,6 +378,7 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[5,2]+1[2,6]+1[4,4] ＞ 成功度3"
+success = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -378,6 +392,8 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[2,1]+0[2,2] ＞ 成功度0 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -389,6 +405,7 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[4,5]+0[1,2]+0[4,1]+0[2,3]+0[4,2]+1[6,5]+0[2,1]+0[2,4] ＞ 成功度2"
+failure = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -412,6 +429,7 @@ rands = [
 game_system = "Satasupe"
 input = "10r>=5[5]"
 output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[4,5]+1[6,6]+0[2,2]+1[3,5]+0[1,2]+1[3,3]+1[5,3] ＞ 成功度5"
+success = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -433,6 +451,7 @@ rands = [
 game_system = "Satasupe"
 input = "10r>=5[5]"
 output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,6]+1[2,3]+1[4,5]+1[5,5]+0[1,3]+1[5,2] ＞ 成功度5"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -452,6 +471,7 @@ rands = [
 game_system = "Satasupe"
 input = "10r>=5[5]"
 output = "【難易度5、ファンブル率1、必殺なし】 ＞ 0[3,1]+1[1,6]+1[6,1]+1[5,6]+1[5,3]+1[5,4] ＞ 成功度5"
+success = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -471,6 +491,7 @@ rands = [
 game_system = "Satasupe"
 input = "10r>=5[5]"
 output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[4,5]+1[3,4]+1[5,1]+1[6,2]+1[4,2] ＞ 成功度5"
+success = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -488,6 +509,8 @@ rands = [
 game_system = "Satasupe"
 input = "10r>=5[5]"
 output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[5,1]+1[1,6]+0[1,2]+1[3,6]+1[6,5]+0[1,1] ＞ 成功度4 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
@@ -507,6 +530,7 @@ rands = [
 game_system = "Satasupe"
 input = "10r>=5[5]"
 output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,4]+1[4,1]+1[5,5]+1[4,5]+1[4,6] ＞ 成功度5"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -524,6 +548,7 @@ rands = [
 game_system = "Satasupe"
 input = "10r>=5[5]"
 output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,5]+1[6,2]+1[5,4]+1[5,3]+1[1,5] ＞ 成功度5"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -541,6 +566,7 @@ rands = [
 game_system = "Satasupe"
 input = "10r>=5[5]"
 output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[2,6]+1[4,2]+1[6,2]+1[2,6]+1[6,5] ＞ 成功度5"
+success = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -558,6 +584,7 @@ rands = [
 game_system = "Satasupe"
 input = "10r>=5[5]"
 output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,4]+1[6,5]+0[2,1]+1[1,6]+1[5,4]+1[4,1] ＞ 成功度5"
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
@@ -577,6 +604,7 @@ rands = [
 game_system = "Satasupe"
 input = "10r>=5[5]"
 output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[5,5]+1[6,6]+1[1,6]+1[2,3]+1[5,4] ＞ 成功度5"
+success = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -594,6 +622,8 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[4,2]+1[3,6]+1[1,6]+0[4,2]+0[2,2] ＞ 成功度2 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 },
@@ -726,6 +756,8 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[6,5]+1[6,3]+1[2,5]+0[2,2] ＞ 成功度3 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -741,6 +773,8 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[5,6]+1[2,5]+1[5,4]+1[5,6]+1[3,5]+1[6,4]+0[1,1] ＞ 成功度6 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -762,6 +796,8 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 1[3,4]+0[1,5]+0[1,1] ＞ 成功度1 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -775,6 +811,8 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[2,2] ＞ 成功度0 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -784,6 +822,8 @@ rands = [
 game_system = "Satasupe"
 input = "8R>=7[3,3]"
 output = "【難易度7、ファンブル率3、必殺なし】 ＞ 0[3,3] ＞ 成功度0 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -997,6 +1037,8 @@ rands = [
 game_system = "Satasupe"
 input = "5R>=5"
 output = "【難易度5、ファンブル率1、必殺なし】 ＞ 1[6,5]+1[2,6]+0[1,1] ＞ 成功度2 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1008,8 +1050,10 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2]"
+input = "5R>=5[,2]"
 output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[4,3]+1[2,4]+1[6,3]+0[2,2] ＞ 成功度3 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -1023,7 +1067,7 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2]"
+input = "5R>=5[,2]"
 output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[5,5]+1[5,3]+0[1,2]+0[2,1]+1[6,3] ＞ 成功度3"
 rands = [
   { sides = 6, value = 5 },
@@ -1040,8 +1084,10 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2]"
+input = "5R>=5[,2]"
 output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[5,3]+1[4,6]+1[3,5]+1[4,5]+0[1,1] ＞ 成功度4 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -1057,7 +1103,7 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2]"
+input = "5R>=5[,2]"
 output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[5,3]+1[6,5]+1[3,3]+1[4,4]+1[6,5] ＞ 成功度5"
 rands = [
   { sides = 6, value = 5 },
@@ -1074,7 +1120,7 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2]"
+input = "5R>=5[,2]"
 output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[6,2]+1[6,3]+1[1,5]+1[2,5]+1[6,3] ＞ 成功度5"
 rands = [
   { sides = 6, value = 6 },
@@ -1091,7 +1137,7 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2]"
+input = "5R>=5[,2]"
 output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[4,5]+1[6,3]+1[5,5]+1[1,6]+1[3,6] ＞ 成功度5"
 rands = [
   { sides = 6, value = 4 },
@@ -1108,7 +1154,7 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2]"
+input = "5R>=5[,2]"
 output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[4,5]+1[3,5]+1[3,3]+0[1,2]+1[3,4] ＞ 成功度4"
 rands = [
   { sides = 6, value = 4 },
@@ -1125,7 +1171,7 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2]"
+input = "5R>=5[,2]"
 output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[5,2]+1[3,4]+1[4,1]+0[1,2]+1[2,3] ＞ 成功度4"
 rands = [
   { sides = 6, value = 5 },
@@ -1142,7 +1188,7 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2]"
+input = "5R>=5[,2]"
 output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[6,5]+1[6,4]+1[3,3]+0[3,1]+1[3,4] ＞ 成功度4"
 rands = [
   { sides = 6, value = 6 },
@@ -1159,8 +1205,10 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2]"
+input = "5R>=5[,2]"
 output = "【難易度5、ファンブル率2、必殺なし】 ＞ 1[1,4]+1[2,6]+0[2,1]+1[5,2]+0[1,1] ＞ 成功度3 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -1176,8 +1224,9 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2,7]"
+input = "5R>=5[,2,7]"
 output = "【難易度5、ファンブル率2、必殺7】 ＞ 1[6,5]『必殺！』+1[6,4]『必殺！』+1[3,3]+0[3,1]+1[3,4]『必殺！』 ＞ 成功度4 ＞ 必殺発動可能！"
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1193,8 +1242,10 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2,7]"
+input = "5R>=5[,2,7]"
 output = "【難易度5、ファンブル率2、必殺7】 ＞ 1[1,4]+1[2,6]『必殺！』+0[2,1]+1[5,2]『必殺！』+0[1,1] ＞ 成功度3 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -1210,20 +1261,23 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,6,7]"
+input = "5R>=5[,6,7]"
 output = "【難易度5、ファンブル率6、必殺7】 ＞ ファンブル率が6を超えたため自動失敗！"
+failure = true
 rands = []
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,6]"
+input = "5R>=5[,6]"
 output = "【難易度5、ファンブル率6、必殺なし】 ＞ ファンブル率が6を超えたため自動失敗！"
+failure = true
 rands = []
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2,7S]"
+input = "5R>=5[,2,7S]"
 output = "【難易度5、ファンブル率2、必殺7】 ＞ 1[6,5]『必殺！』 ＞ 成功度1 ＞ 必殺発動可能！"
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1231,8 +1285,9 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2,7s]"
+input = "5R>=5[,2,7s]"
 output = "【難易度5、ファンブル率2、必殺7】 ＞ 1[6,5]『必殺！』 ＞ 成功度1 ＞ 必殺発動可能！"
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -1240,8 +1295,9 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2,7S]"
+input = "5R>=5[,2,7S]"
 output = "【難易度5、ファンブル率2、必殺7】 ＞ 1[1,4]+1[2,6]『必殺！』 ＞ 成功度2 ＞ 必殺発動可能！"
+critical = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -1251,14 +1307,16 @@ rands = [
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,6,7S]"
+input = "5R>=5[,6,7S]"
 output = "【難易度5、ファンブル率6、必殺7】 ＞ ファンブル率が6を超えたため自動失敗！"
+failure = true
 rands = []
 
 [[ test ]]
 game_system = "Satasupe"
-input = "5R>=5[10,2,7S] mokeke"
+input = "5R>=5[,2,7S] mokeke"
 output = "【難易度5、ファンブル率2、必殺7】 ＞ 1[1,4]+1[2,6]『必殺！』 ＞ 成功度2 ＞ 必殺発動可能！"
+critical = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
