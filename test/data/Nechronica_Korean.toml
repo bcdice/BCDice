@@ -269,7 +269,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Nechronica"
+game_system = "Nechronica:Korean"
 input = "1D10+1>=? 目標値?でバグらない"
 output = "(1D10+1>=?) ＞ 5[5]+1 ＞ 6"
 rands = [
