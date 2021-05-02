@@ -196,7 +196,7 @@ rands = [
 
 [[ test ]]
 game_system = "BattleTech"
-input = "PPC1>=11 BT111>=11とならないことの確認"
+input = "PPC1>=11 BT101>=11とならないことの確認"
 output = ""
 rands = []
 
