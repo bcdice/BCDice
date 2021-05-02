@@ -125,7 +125,9 @@ rands = [
 [[ test ]]
 game_system = "BattleTech"
 input = "PPC>=11"
-output = "12[6,6]>=11 ＞ 命中 ＞ [11] 左腕 10点\n ＞ 1回命中 命中箇所：左腕(1回) 10点 ＞ 合計ダメージ 10点"
+output = """
+12[6,6]>=11 ＞ 命中 ＞ [11] 左腕 10点
+ ＞ 1回命中 命中箇所：左腕(1回) 10点 ＞ 合計ダメージ 10点"""
 success = true
 rands = [
   { sides = 6, value = 6 },
@@ -133,6 +135,70 @@ rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "BattleTech"
+input = "PPC+1>=11"
+output = """
+13[6,6+1]>=11 ＞ 命中 ＞ [11] 左腕 10点
+ ＞ 1回命中 命中箇所：左腕(1回) 10点 ＞ 合計ダメージ 10点"""
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BattleTech"
+input = "PPCR>=11"
+output = """
+12[6,6]>=11 ＞ 命中 ＞ [3] 右脚 10点
+ ＞ 1回命中 命中箇所：右脚(1回) 10点 ＞ 合計ダメージ 10点"""
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "BattleTech"
+input = "PPCLU>=11"
+output = """
+12[6,6]>=11 ＞ 命中 ＞ [6] 頭 10点
+ ＞ 1回命中 命中箇所：頭(1回) 10点 ＞ 合計ダメージ 10点"""
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "BattleTech"
+input = "2PPC>=11"
+output = """
+12[6,6]>=11 ＞ 命中 ＞ [11] 左腕 10点
+7[3,4]>=11 ＞ 外れ
+ ＞ 1回命中 命中箇所：左腕(1回) 10点 ＞ 合計ダメージ 10点"""
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "BattleTech"
+input = "PPC1>=11 BT111>=11とならないことの確認"
+output = ""
+rands = []
 
 [[ test ]]
 game_system = "BattleTech"
