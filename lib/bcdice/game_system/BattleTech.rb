@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'bcdice/format'
+require 'bcdice/command/parser'
 require 'bcdice/dice_table/table'
 require 'bcdice/dice_table/range_table'
 
@@ -34,16 +36,34 @@ module BCDice
         ・CDx：メック戦士意識維持表。ダメージ値xで判定　例）CD3
       MESSAGETEXT
 
-      register_prefix('\d*SRM', '\d*LRM', '\d*BT', 'PPC', 'CT', 'DW', 'CD')
+      register_prefix('\d*SRM', '\d*LRM', '\d*BT', '\d*PPC', 'CT', 'DW', 'CD')
 
       # 致命的命中が発生しない上限値
       NO_CRITICAL_HIT_LIMIT = 7
+
+      # @return [Command::Parser] PPCコマンドの構文解析器
+      def self.ppc_parser
+        return @ppc_parser if @ppc_parser
+
+        @ppc_parser = Command::Parser.new(/PPC(?:[LCR][LU]?)?/, round_type: :floor)
+        @ppc_parser.enable_prefix_number
+        @ppc_parser.restrict_cmp_op_to(:>=)
+
+        @ppc_parser
+      end
+
+      # @return [Command::Parser] PPCコマンドの構文解析器
+      def ppc_parser
+        self.class.ppc_parser
+      end
 
       def eval_game_system_specific_command(command)
         result = roll_tables(command, TABLES)
         return result if result
 
-        command = command.gsub("PPC", "BT10")
+        if (ppc_parse_result = ppc_parser.parse(command))
+          return execute_ppc(ppc_parse_result)
+        end
 
         count = 1
         if command =~ /^(\d+)(.+)/
@@ -301,6 +321,27 @@ module BCDice
         text = "#{total}[#{dice1},#{dice2}]>=#{target} ＞ #{result}"
 
         return text
+      end
+
+      # PPCコマンドを実行する
+      # @param parse_result [Command::Parsed] PPCコマンドの構文解析結果
+      # @return [Result, nil]
+      def execute_ppc(parse_result)
+        count = parse_result.prefix_number || 1
+
+        # getHitResult() の引数tailの形に合わせる
+        # TODO: 攻撃を表すクラスに変える
+
+        # "PPC" 以降の部位指定
+        side = parse_result.command[2..-1]
+
+        modifier = Format.modifier(parse_result.modify_number)
+        target = parse_result.target_number
+
+        tail = "#{side}#{modifier}>=#{target}"
+
+        # ダメージ10固定で命中判定を行う
+        return getHitResult(count, lambda { 10 }, tail)
       end
 
       # 表の集合
