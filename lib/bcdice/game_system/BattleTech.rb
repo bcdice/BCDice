@@ -48,7 +48,7 @@ module BCDice
       def self.ppc_parser
         return @ppc_parser if @ppc_parser
 
-        @ppc_parser = Command::Parser.new(/PPC(?:[LCR][LU]?)?/, round_type: :floor)
+        @ppc_parser = Command::Parser.new(/PPC(?:[LCR][LU]?)?/, round_type: RoundType::FLOOR)
         @ppc_parser.enable_prefix_number
         @ppc_parser.restrict_cmp_op_to(:>=)
 
