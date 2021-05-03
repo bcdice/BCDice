@@ -30,6 +30,19 @@ rands = [
 
 [[ test ]]
 game_system = "StellarKnights"
+input = "(4+2)SK"
+output = "(6SK) ＞ 1,1,3,4,5,6"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights"
 input = "4/2SK"
 output = "(2SK) ＞ 1,5"
 rands = [
@@ -44,6 +57,16 @@ output = "(2SK) ＞ 1,5"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights"
+input = "(4+2)/2SK"
+output = "(3SK) ＞ 1,3,5"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
 ]
 
 [[ test ]]
