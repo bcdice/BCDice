@@ -79,11 +79,11 @@ module BCDice
         if (table = self.class::TABLES[command])
           table.roll(@randomizer)
         elsif (m = %r{([()+/\d]+)SK(\d)?((,\d>\d)+)?}.match(command))
-          resolute_action(
-            Arithmetic.eval(m[1], round_type: RoundType::FLOOR),
-            m[2] && m[2].to_i,
-            m[3]
-          )
+          num_dices = Arithmetic.eval(m[1], round_type: RoundType::FLOOR)
+
+          unless num_dices.nil?
+            resolute_action(num_dices, m[2] && m[2].to_i, m[3])
+          end
         elsif command == 'STB2'
           roll_all_situation_b2_tables
         elsif command == 'ALLS'
