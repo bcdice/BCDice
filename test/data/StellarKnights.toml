@@ -11,6 +11,12 @@ rands = [
 
 [[ test ]]
 game_system = "StellarKnights"
+input = "0SK"
+output = "(0SK) ＞ ダイスが 0 個です"
+rands = []
+
+[[ test ]]
+game_system = "StellarKnights"
 input = "5SK3"
 output = "(5SK3) ＞ 2,3,5,6,6 ＞ 成功数: 4"
 success = true
@@ -32,6 +38,13 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
 ]
+
+[[ test ]]
+game_system = "StellarKnights"
+input = "0SK6"
+output = "(0SK6) ＞ ダイスが 0 個です ＞ 成功数: 0"
+failure = true
+rands = []
 
 [[ test ]]
 game_system = "StellarKnights"
@@ -70,6 +83,19 @@ rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "StellarKnights"
+input = "0SK,1>6"
+output = "(0SK,1>6) ＞ ダイスが 0 個です"
+rands = []
+
+[[ test ]]
+game_system = "StellarKnights"
+input = "0SK4,1>6"
+output = "(0SK4,1>6) ＞ ダイスが 0 個です ＞ 成功数: 0"
+failure = true
+rands = []
 
 [[ test ]]
 game_system = "StellarKnights"

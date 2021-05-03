@@ -101,6 +101,7 @@ module BCDice
         dice_text = dices.join(",")
 
         output = "(#{command}) ＞ #{dice_text}"
+        output += "ダイスが 0 個です" if dices.empty?
 
         # FAQによると、ダイスの置き換えは宣言された順番に適用されていく
         dice_change_rules = parse_dice_change_rules(dice_change_text)
@@ -108,7 +109,7 @@ module BCDice
           dices.map! { |val| val == rule[:from] ? rule[:to] : val }
         end
 
-        unless dice_change_rules.empty?
+        unless dice_change_rules.empty? || dices.empty?
           dices.sort!
           output += " ＞ [#{dices.join(',')}]"
         end
