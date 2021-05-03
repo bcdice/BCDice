@@ -30,6 +30,24 @@ rands = [
 
 [[ test ]]
 game_system = "StellarKnights"
+input = "4/2SK"
+output = "(2SK) ＞ 1,5"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights"
+input = "5/2SK"
+output = "(2SK) ＞ 1,5"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights"
 input = "5SK3"
 output = "(5SK3) ＞ 2,3,5,6,6 ＞ 成功数: 4"
 success = true

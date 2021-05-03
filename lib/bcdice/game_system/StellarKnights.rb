@@ -24,6 +24,7 @@ module BCDice
 
         4SK: ダイスを4個振って、その結果を表示
         4+2SK: ダイスを4+2 (=6) 個振って、その結果を表示
+        5/2SK: ダイスを5個の半分 (=2) 個振って、その結果を表示
         5SK3: 【アタック判定：5ダイス】、対象の防御力を3として成功数を表示
         3SK,1>6: ダイスを3個振り、出目が1のダイスを全て6に変更し、その結果を表示
         6SK4,1>6,2>6: 【アタック判定：6ダイス】、出目が1と2のダイスを全て6に変更、対象の防御力を4として成功数を表示
@@ -76,7 +77,7 @@ module BCDice
 
         if (table = self.class::TABLES[command])
           table.roll(@randomizer)
-        elsif (m = /(\d+(\+\d+)*)SK(\d)?((,\d>\d)+)?/.match(command))
+        elsif (m = %r{(\d+([+/]\d+)*)SK(\d)?((,\d>\d)+)?}.match(command))
           resolute_action(
             Arithmetic.eval(m[1], round_type: RoundType::FLOOR),
             m[3] && m[3].to_i,
@@ -224,7 +225,7 @@ module BCDice
 
       TABLES = translate_tables(:ja_jp)
 
-      register_prefix('\d+(\+\d+)*SK', 'STB2', 'ALLS', 'PET', 'FT', TABLES.keys)
+      register_prefix('\d+([+\/]\d+)*SK', 'STB2', 'ALLS', 'PET', 'FT', TABLES.keys)
     end
   end
 end
