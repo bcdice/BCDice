@@ -1,0 +1,647 @@
+[[ test ]]
+game_system = "StarryDolls"
+input = "2d6>=5 成功"
+output = "(2D6>=5) ＞ 5[2,3] ＞ 5 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2d6>=5 失敗"
+output = "(2D6>=5) ＞ 4[3,1] ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2d6+1>=5 修正で成功"
+output = "(2D6+1>=5) ＞ 4[3,1]+1 ＞ 5 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2d6-1>=5 修正で失敗"
+output = "(2D6-1>=5) ＞ 5[4,1]-1 ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2d6-1>=13 スペシャル"
+output = "(2D6-1>=13) ＞ 12[6,6]-1 ＞ 11 ＞ スペシャル(【星命力】を1D6点回復)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2d6+1>=5 スペシャルの境界"
+output = "(2D6+1>=5) ＞ 11[5,6]+1 ＞ 12 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2d6+1>=2 ファンブル"
+output = "(2D6+1>=2) ＞ 2[1,1]+1 ＞ 3 ＞ ファンブル(ランダムなサインが【蝕】状態へ変化)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2d6-1>=5 ファンブルの境界"
+output = "(2D6-1>=5) ＞ 3[2,1]-1 ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2d6+100>=? 目標値?"
+output = "(2D6+100>=?) ＞ 11[5,6]+100 ＞ 111"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2d6+1>=? 目標値?でファンブル"
+output = "(2D6+1>=?) ＞ 2[1,1]+1 ＞ 3 ＞ ファンブル(ランダムなサインが【蝕】状態へ変化)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2d6-1>=? 目標値?でスペシャル"
+output = "(2D6-1>=?) ＞ 12[6,6]-1 ＞ 11 ＞ スペシャル(【星命力】を1D6点回復)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2D6@11>=12 スペシャル値変更"
+output = "(2D6@11>=12) ＞ 11[6,5] ＞ 11 ＞ スペシャル(【星命力】を1D6点回復)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2D6@2>=2 スペシャル値がファンブル値以下"
+output = "(2D6@3>=2) ＞ 2[1,1] ＞ 2 ＞ ファンブル(ランダムなサインが【蝕】状態へ変化)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2D6+1>=5 修正値がファンブルに影響しない"
+output = "(2D6+1>=5) ＞ 2[1,1]+1 ＞ 3 ＞ ファンブル(ランダムなサインが【蝕】状態へ変化)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2D6-1>=5 修正値がスペシャルに影響しない"
+output = "(2D6-1>=5) ＞ 12[6,6]-1 ＞ 11 ＞ スペシャル(【星命力】を1D6点回復)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2D6@11-1>=5 @が修正値の前"
+output = "(2D6-1@11>=5) ＞ 11[6,5]-1 ＞ 10 ＞ スペシャル(【星命力】を1D6点回復)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2D6-1@11>=5 @が修正値の後"
+output = "(2D6-1@11>=5) ＞ 11[6,5]-1 ＞ 10 ＞ スペシャル(【星命力】を1D6点回復)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2D6@11>=7"
+output = "(2D6@11>=7) ＞ 6[3,3] ＞ 6 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2D6@11>=7"
+output = "(2D6@11>=7) ＞ 7[4,3] ＞ 7 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "1D6>=7"
+output = "(1D6>=7) ＞ 2[2] ＞ 2 ＞ ファンブル(ランダムなサインが【蝕】状態へ変化)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "3D6+1>=7 ダイス数増加"
+output = "(3D6+1>=7) ＞ 6[1,3,2]+1 ＞ 7 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "3D6+1>=7"
+output = "(3D6+1>=7) ＞ 5[1,3,1]+1 ＞ 6 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "3D6-1>=7"
+output = "(3D6-1>=7) ＞ 12[4,3,5]-1 ＞ 11 ＞ スペシャル(【星命力】を1D6点回復)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "10D6-10@10>=100"
+output = "(10D6-10@10>=100) ＞ 10[1,1,1,1,1,1,1,1,1,1]-10 ＞ 0 ＞ スペシャル(【星命力】を1D6点回復)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2D>=5 nDで判定"
+output = "(2D6>=5) ＞ 5[2,3] ＞ 5 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2D-1>=5 nDで判定"
+output = "(2D6-1>=5) ＞ 5[2,3]-1 ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "2D+1>=2 nDで判定"
+output = "(2D6+1>=2) ＞ 2[1,1]+1 ＞ 3 ＞ ファンブル(ランダムなサインが【蝕】状態へ変化)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "4D-1>=13 nDで判定"
+output = "(4D6-1>=13) ＞ 12[1,4,5,2]-1 ＞ 11 ＞ スペシャル(【星命力】を1D6点回復)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "0D6>=7"
+output = "(0D6>=7) ＞ 0 ＞ 失敗"
+failure = true
+rands = []
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "D66 昇順ソート"
+output = "(D66) ＞ 16"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RTT"
+output = "ランダム特技表(1,2) ＞ 《創造／願望2》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RTT"
+output = "ランダム特技表(2,5) ＞ 《水／元素5》"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RTT"
+output = "ランダム特技表(6,12) ＞ 《理性／人間性12》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RTT1"
+output = "願望分野ランダム特技表(2) ＞ 《創造／願望2》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RTT5"
+output = "召喚分野ランダム特技表(4) ＞ 《*うお座／召喚4》"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RTT6"
+output = "人間性分野ランダム特技表(12) ＞ 《理性／人間性12》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RCT"
+output = "ランダム分野表(1) ＞ 願望"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RCT"
+output = "ランダム分野表(6) ＞ 人間性"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "HORA"
+output = "ランダム星座表A(1) ＞ おひつじ座"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "HORA"
+output = "ランダム星座表A(6) ＞ おとめ座"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "HORB"
+output = "ランダム星座表B(1) ＞ てんびん座"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "HORB"
+output = "ランダム星座表B(6) ＞ うお座"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "HOR"
+output = "ランダム星座表(3) ＞ ランダム星座表A(6) ＞ おとめ座"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "HOR"
+output = "ランダム星座表(4) ＞ ランダム星座表B(1) ＞ てんびん座"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "MRT"
+output = "主人関係表(1) ＞ 親"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "MRT"
+output = "主人関係表(6) ＞ 恋人"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAT"
+output = "関係属性表(1) ＞ 尊敬／優越感"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAT"
+output = "関係属性表(6) ＞ 庇護／劣等感"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "MIR"
+output = "奇跡表(1) ＞ 空から降る一筋の光が星人形の体を包み込み、不思議な力を与えてくれる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "MIR"
+output = "奇跡表(6) ＞ 体中に星命力が溢れ出し、限界を超えた大規模な星術を扱えるようになる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "BRT"
+output = "戦果表(1) ＞ 所持しているアイテムから一つを選び、同じものをもう一つ獲得する。所持していない場合はもう一度戦果表を使用する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "BRT"
+output = "戦果表(6) ＞ 自由なアイテムを一つ獲得する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TRO"
+output = "事件表(2) ＞ 〈変晶体〉を手にした途端、人形兵の軍勢に見つかり追われることに……！ なんとかして振り切ろう！"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TRO"
+output = "事件表(7) ＞ 罪のない人たちが〈変晶体〉を持つ敵に捕らわれているようだ。仲間と共に人々を助け出し、〈変晶体〉を浄化しよう。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TRO"
+output = "事件表(12) ＞ 〈変晶体〉は深い水の底に沈んでいるようだ。浄化する方法はないだろうか……。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "ENC"
+output = "遭遇表(1) ＞ 『弁士』コオロギのパルランテ\n指定特技: 《調和／人間性5》\n効果: プラネタリカードルール非採用時、このセッション中【運命力】を1点上昇させる。\nプラネタリカードルール採用時、ベネフィックを1枚獲得する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "ENC"
+output = "遭遇表(6) ＞ 『少女』ヤギのカプレッティーナ\n指定特技: 《愛情／人間性7》\n効果: ロザリオを1つ獲得する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "FWT"
+output = "致命傷表(1) ＞ 敵の攻撃は星人形の瞳を直撃し、宝石は鮮血のごとく砕け散った。PCは形骸化する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "FWT"
+output = "致命傷表(6) ＞ こんなところで倒れるわけにはいかない。星人形は【星命力】1点で戦闘に復帰する。再度【星命力】が0になった場合、PCは致命傷表を使用せず戦闘から脱落する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "CAT"
+output = "カタストロフ表(1) ＞ 〈劇場〉全体が大きく揺れ、空間に裂け目が生じる。現実は塗り替えられ……〈変容区〉と化した。最も恐れていた事態に、星人形たちは呆然と立ち尽くすほかなかった。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "CAT"
+output = "カタストロフ表(6) ＞ 〈型堕ち〉の体は膨張する〈悪夢の霧〉の圧力に耐えきれず、宝石を内側から破壊してしまった。〈型堕ち〉に残された命はあとわずかだ。星人形は〈型堕ち〉の最期を看取ることになる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "JDSRT"
+output = "〈魔術師の庭〉回想表(1) ＞ 仕事に必要な道具が不足し、急遽買い出しへ。荷物が重くなりそうだからと、キーNPCも手伝ってくれることになった。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "JDSRT"
+output = "〈魔術師の庭〉回想表(6) ＞ 部屋を移動中、あるものが目に留まる。それはキーNPCにとって思い出深いものであるようだ。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "SHRT"
+output = "〈セブンス・ヘブン〉回想表(1) ＞ 掃除をしていたら、お家のものを引っ掛けて壊してしまった！ そこへキーNPCがやってきて……。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "SHRT"
+output = "〈セブンス・ヘブン〉回想表(6) ＞ 今日はセブンス・ヘブンのファン感謝イベント。会場には、差し入れを持ったキーNPCの姿もあった。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "BCRT"
+output = "〈祝福の鐘〉回想表(1) ＞ 終演後のエントランスで挨拶をしていると、キーNPCが誰かと話し込んでいる。ちょっと様子を見に行こう。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "BCRT"
+output = "〈祝福の鐘〉回想表(6) ＞ 撤収作業も終わりに近づくステージの上。誰もいない客席に向けて、キーNPCが遠い目をしている。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "ODRT"
+output = "〈オメガ探偵社〉回想表(1) ＞ 事件調査のため、キーNPCに聞き込み。何か有益な情報は出るだろうか。世間話になってしまうかも？"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "ODRT"
+output = "〈オメガ探偵社〉回想表(6) ＞ 華麗なる事件解決！ 主人の推理をたくさん手伝うことができた。キーNPCも、あなたに一目置いてくれそう。"
+rands = [
+  { sides = 6, value = 6 },
+]
