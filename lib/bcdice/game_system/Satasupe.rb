@@ -64,7 +64,7 @@ module BCDice
         debug("eval_game_system_specific_command begin string", command)
 
         result = checkRoll(command)
-        return result unless result.empty?
+        return result unless result.nil?
 
         debug("判定ロールではなかった")
 
@@ -81,13 +81,13 @@ module BCDice
         debug("checkRoll begin string", string)
 
         m = /^(\d+)R>=(\d+)(\[(\d+)?(,|,\d+)?(,\d+(S)?)?\])?$/i.match(string)
-        return '' unless m
+        return nil unless m
 
         roll_times = m[1].to_i
         target = m[2].to_i
         params = m[3]
 
-        min_suc, fumble, critical, isCriticalStop = getRollParams(params)
+        min_suc, fumble, critical, is_critical_stop = get_roll_params(params)
 
         result = ""
 
@@ -104,8 +104,8 @@ module BCDice
         end
 
         if fumble >= 6
-          result += "#{getJudgeInfo(target, fumble, critical)} ＞ ファンブル率が6を超えたため自動失敗！"
-          return result
+          result += "#{get_judge_info(target, fumble, critical)} ＞ ファンブル率が6を超えたため自動失敗！"
+          return Result.failure(result)
         end
 
         if target < 5
@@ -113,23 +113,30 @@ module BCDice
           target = 5
         end
 
-        dice_str, total_suc, isCritical, isFumble = checkRollLoop(roll_times, min_suc, target, critical, fumble, isCriticalStop)
+        dice_str, total_suc, is_critical, is_fumble = check_roll_loop(roll_times, min_suc, target, critical, fumble, is_critical_stop)
 
-        result += "#{getJudgeInfo(target, fumble, critical)} ＞ #{dice_str} ＞ 成功度#{total_suc}"
+        result += "#{get_judge_info(target, fumble, critical)} ＞ #{dice_str} ＞ 成功度#{total_suc}"
 
-        if isFumble
+        if is_fumble
           result += " ＞ ファンブル"
         end
 
-        if isCritical && (total_suc > 0)
+        if is_critical && (total_suc > 0)
           result += " ＞ 必殺発動可能！"
         end
 
         debug('checkRoll result result', result)
-        return result
+
+        return Result.new.tap do |r|
+          r.text = result
+          r.success = !is_fumble && min_suc > 0 && total_suc >= min_suc
+          r.failure = is_fumble
+          r.critical = is_critical
+          r.fumble = is_fumble
+        end
       end
 
-      def getRollParams(params)
+      def get_roll_params(params)
         min_suc = 0
         fumble = 1
         critical = 13
@@ -154,19 +161,14 @@ module BCDice
         return min_suc, fumble, critical, isCriticalStop
       end
 
-      def getJudgeInfo(target, fumble, critical)
-        "【難易度#{target}、ファンブル率#{fumble}#{getcriticalString(critical)}】"
+      def get_judge_info(target, fumble, critical)
+        return "【難易度#{target}、ファンブル率#{fumble}、必殺#{critical == 13 ? 'なし' : critical.to_s}】"
       end
 
-      def getcriticalString(critical)
-        criticalString = (critical == 13 ? "なし" : critical.to_s)
-        return "、必殺#{criticalString}"
-      end
-
-      def checkRollLoop(roll_times, min_suc, target, critical, fumble, isCriticalStop)
+      def check_roll_loop(roll_times, min_suc, target, critical, fumble, is_critical_stop)
         dice_str = ''
-        isFumble = false
-        isCritical = false
+        is_fumble = false
+        is_critical = false
         total_suc = 0
 
         roll_times.times do |_i|
@@ -193,22 +195,22 @@ module BCDice
           total_suc += dice_suc
 
           if critical <= d1 + d2
-            isCritical = true
+            is_critical = true
             dice_str += "『必殺！』"
           end
 
           if (d1 == d2) && (d1 <= fumble) # ファンブルの確認
-            isFumble = true
-            isCritical = false
+            is_fumble = true
+            is_critical = false
             break
           end
 
-          if isCritical && isCriticalStop # 必殺止めの確認
+          if is_critical && is_critical_stop # 必殺止めの確認
             break
           end
         end
 
-        return dice_str, total_suc, isCritical, isFumble
+        return dice_str, total_suc, is_critical, is_fumble
       end
 
       def check_seigou(string)
