@@ -302,7 +302,8 @@ module BCDice
         target = consciousness_table[damage]
         expr = "(2D6>=#{target})"
 
-        sum = @randomizer.roll_sum(2, 6)
+        values = @randomizer.roll_barabara(2, 6)
+        sum = values.sum
         values_str = @randomizer.rand_results.map(&:first).join(",")
         sum_and_values = "#{sum}[#{values_str}]"
 
