@@ -214,17 +214,15 @@ module BCDice
       def check_seigou(string)
         debug("check_seigou begin string", string)
 
-        m = /^SR(\d+).*$/i.match(string)
-        return '' unless m
-
-        target = m[1].to_i
-        sr_parser = Command::Parser.new(/SR\d+/i, round_type: round_type)
+        sr_parser = Command::Parser.new("SR", round_type: round_type)
+                                   .has_suffix_number
                                    .restrict_cmp_op_to(nil)
         cmd = sr_parser.parse(string)
         return '' unless cmd
 
         dice = @randomizer.roll_sum(2, 6)
         diceTotal = dice + cmd.modify_number
+        target = cmd.suffix_number
 
         seigou = if target < diceTotal
                    "「激」"
