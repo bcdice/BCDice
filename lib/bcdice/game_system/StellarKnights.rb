@@ -114,7 +114,7 @@ module BCDice
           output += " ＞ [#{dices.join(',')}]"
         end
 
-        if defence.nil?
+        if defence.nil? || dices.empty?
           success = false
           failure = false
         else

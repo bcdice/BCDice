@@ -42,8 +42,7 @@ rands = [
 [[ test ]]
 game_system = "StellarKnights"
 input = "0SK6"
-output = "(0SK6) ＞ ダイスが 0 個です ＞ 成功数: 0"
-failure = true
+output = "(0SK6) ＞ ダイスが 0 個です"
 rands = []
 
 [[ test ]]
@@ -93,8 +92,7 @@ rands = []
 [[ test ]]
 game_system = "StellarKnights"
 input = "0SK4,1>6"
-output = "(0SK4,1>6) ＞ ダイスが 0 個です ＞ 成功数: 0"
-failure = true
+output = "(0SK4,1>6) ＞ ダイスが 0 個です"
 rands = []
 
 [[ test ]]
