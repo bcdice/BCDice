@@ -2049,7 +2049,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "DoubleCross"
+game_system = "DoubleCross:Korean"
 input = "5DX(8-1)-(2-1)"
 output = "(5DX7-1) ＞ 10[5,6,6,7,8]+10[1,9]+5[5]-1 ＞ 24"
 critical = true

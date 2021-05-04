@@ -1023,7 +1023,7 @@ output = "GTRS ＞ CRを指定してください"
 rands = []
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "ESTL1"
 output = "イースタル探索表(7[1,1])\n香りに誘われて：\n　小さな街道沿いで、商隊が〈走り茸〉にまとわりつかれている。\n　奴らを追い払うと、商隊のリーダーがお礼にと人数分の「干した〈走り松茸〉[換金](40G)」をくれる。\n　追われていた理由はこれだったらしい。"
 rands = [
@@ -1032,7 +1032,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "CTRSE1"
 output = "金銭財宝表（拡張）(7[1,1]) ＞ 35G"
 rands = [
@@ -1041,7 +1041,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "CTRSE30"
 output = "金銭財宝表（拡張）(162[6,6]) ＞ 1600G"
 rands = [
@@ -1050,7 +1050,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "CTRSE30+1 +α検証"
 output = "金銭財宝表（拡張）(163[6,6]) ＞ 1430G&200G"
 rands = [
@@ -1059,7 +1059,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "CTRSE32+1 +α検証"
 output = "金銭財宝表（拡張）(173[6,6]) ＞ 1430G&400G"
 rands = [
@@ -1068,7 +1068,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "CTRSE35 上限"
 output = "金銭財宝表（拡張）(187[6,6]) ＞ 1500G&600G"
 rands = [
@@ -1077,7 +1077,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "CTRSE1-1 下限範囲外"
 output = "金銭財宝表（拡張）(6[1,1]) ＞ 6以下の出目は未定義です"
 rands = [
@@ -1086,7 +1086,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "CTRSE35+1 上限範囲外"
 output = "金銭財宝表（拡張）(188[6,6]) ＞ 188以上の出目は未定義です"
 rands = [
@@ -1095,25 +1095,25 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "CTRSE+100 任意の出目"
 output = "金銭財宝表（拡張）(100) ＞ 640G"
 rands = []
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "CTRSE1+100$ 出目を7固定"
 output = "金銭財宝表（拡張）(112[7]) ＞ 790G"
 rands = []
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "CTRSE"
 output = "CTRSE ＞ CRを指定してください"
 rands = []
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "MTRSE1"
 output = "魔法素材財宝表（拡張）(7[1,1]) ＞ 魔触媒2[魔触媒2](20G)&魔触媒1[魔触媒1](15G)"
 rands = [
@@ -1122,7 +1122,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "MTRSE30"
 output = "魔法素材財宝表（拡張）(162[6,6]) ＞ 陽喰い鳥の嘴[コア素材](1640G)"
 rands = [
@@ -1131,7 +1131,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "MTRSE35"
 output = "魔法素材財宝表（拡張）(187[6,6]) ＞ 魔触媒30[魔触媒30](820G)&輝くメガネ[換金](680G)&600G"
 rands = [
@@ -1140,7 +1140,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "ITRSE1"
 output = "換金アイテム財宝表（拡張）(7[1,1]) ＞ 破れた書籍[換金](30G)"
 rands = [
@@ -1149,7 +1149,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "ITRSE30"
 output = "換金アイテム財宝表（拡張）(162[6,6]) ＞ 藍玉の腕輪[換金](1600G)"
 rands = [
@@ -1158,7 +1158,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "ITRSE35"
 output = "換金アイテム財宝表（拡張）(187[6,6]) ＞ しゃべる姿見[換金](1500G)&600G"
 rands = [
@@ -1167,7 +1167,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "OTRSE1"
 output = "そのほか財宝表（拡張）(7[1,1]) ＞ 百科事典(40G)"
 rands = [
@@ -1176,7 +1176,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "OTRSE30"
 output = "そのほか財宝表（拡張）(162[6,6]) ＞ ウルミン(1900G)"
 rands = [
@@ -1185,7 +1185,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "LogHorizon"
+game_system = "LogHorizon:Korean"
 input = "OTRSE35"
 output = "そのほか財宝表（拡張）(187[6,6]) ＞ 竜手甲[破損](1650G)&600G"
 rands = [
