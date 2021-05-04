@@ -117,7 +117,7 @@ module BCDice
       LRM_LIMIT = 5
 
       def getHitResult(count, damageFunc, tail)
-        m = /([LCR][LU]?)?(\+\d+)?>=(\d+)/.match(tail)
+        m = /\A([LCR][LU]?)?(\+\d+)?>=(\d+)/.match(tail)
         return nil unless m
 
         side = m[1] || 'C'
@@ -336,7 +336,7 @@ module BCDice
         # TODO: 攻撃を表すクラスに変える
 
         # "PPC" 以降の部位指定
-        side = parse_result.command[2..-1]
+        side = parse_result.command[3..-1]
 
         modifier = Format.modifier(parse_result.modify_number)
         target = parse_result.target_number
