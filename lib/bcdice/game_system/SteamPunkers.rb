@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'bcdice/base'
 require 'bcdice/dice_table/d66_range_table'
 
 module BCDice
