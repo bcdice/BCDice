@@ -2,6 +2,8 @@
 game_system = "SteamPunkers"
 input = "SP4"
 output = "(SP4) ＞ [1,1,1,1] ＞ 成功数:0, 失敗数:4 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -13,6 +15,8 @@ rands = [
 game_system = "SteamPunkers"
 input = "SP4>=0"
 output = "(SP4>=0) ＞ [1,1,1,1] ＞ 成功数:0, 失敗数:4 ＞ ファンブル"
+failure = true
+fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -24,6 +28,7 @@ rands = [
 game_system = "SteamPunkers"
 input = "sp13"
 output = "(SP13) ＞ [1,2,3,4,5,6,5,4,3,2,1,2,3] ＞ 成功数:4, 失敗数:10"
+critical = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -44,6 +49,8 @@ rands = [
 game_system = "SteamPunkers"
 input = "sp5>=2"
 output = "(SP5>=2) ＞ [6,6,6,6,6] ＞ 成功数:10, 失敗数:0 ＞ 成功"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -54,8 +61,23 @@ rands = [
 
 [[ test ]]
 game_system = "SteamPunkers"
+input = "sp5>=2"
+output = "(SP5>=2) ＞ [2,5,3,1,5] ＞ 成功数:2, 失敗数:3 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "SteamPunkers"
 input = "sp4>=3"
 output = "(SP4>=3) ＞ [3,4,1,6] ＞ 成功数:2, 失敗数:3 ＞ 失敗"
+failure = true
+critical = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -67,6 +89,8 @@ rands = [
 game_system = "SteamPunkers"
 input = "SSP4>=3"
 output = "(SP4>=3) ＞ [3,4,1,6] ＞ 成功数:2, 失敗数:3 ＞ 失敗"
+failure = true
+critical = true
 secret = true
 rands = [
   { sides = 6, value = 3 },
@@ -79,6 +103,7 @@ rands = [
 game_system = "SteamPunkers"
 input = "sp3>=3 MurMurChantPrayInvoke!!"
 output = "(SP3>=3) ＞ [1,5,4] ＞ 成功数:1, 失敗数:2 ＞ 失敗"
+failure = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -89,6 +114,7 @@ rands = [
 game_system = "SteamPunkers"
 input = "sp8 ささやきえいしょういのいねんじよ！"
 output = "(SP8) ＞ [2,4,3,1,6,6,3,5] ＞ 成功数:5, 失敗数:5"
+critical = true
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },

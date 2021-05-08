@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'bcdice/base'
 require 'bcdice/dice_table/d66_range_table'
 
 module BCDice
@@ -52,19 +53,23 @@ module BCDice
 
         result =
           if dice_list.all? { |x| x == 1 }
-            "ファンブル"
+            Result.fumble("ファンブル")
           elsif target_number
-            successes >= target_number ? "成功" : "失敗"
+            successes >= target_number ? Result.success("成功") : Result.failure("失敗")
+          else
+            Result.new
           end
 
-        sequence = [
+        result.text = [
           "(#{command})",
           "[#{dice_list_text}]",
           "成功数:#{successes}, 失敗数:#{failures}",
-          result
-        ].compact
+          result.text
+        ].compact.join(" ＞ ")
 
-        return sequence.join(" ＞ ")
+        result.critical = dice_list.include?(6)
+
+        return result
       end
 
       # スチームパンカーズ用のテーブル
