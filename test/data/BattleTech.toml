@@ -425,14 +425,39 @@ rands = [
 [[ test ]]
 game_system = "BattleTech"
 input = "CD6"
-output = "死亡"
+output = "CD6 ＞ 死亡"
+failure = true
+fumble = true
 rands = []
 
 [[ test ]]
 game_system = "BattleTech"
 input = "CD3"
-output = "7[5,2]>=7 ＞ 成功"
+output = "CD3 ＞ (2D6>=7) ＞ 7[5,2] ＞ 7 ＞ 成功"
+success = true
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
 ]
+
+[[ test ]]
+game_system = "BattleTech"
+input = "CD4"
+output = "CD4 ＞ (2D6>=10) ＞ 8[3,5] ＞ 8 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "BattleTech"
+input = "CD0 範囲外"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "BattleTech"
+input = "CD7 範囲外"
+output = ""
+rands = []
