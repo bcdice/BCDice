@@ -168,13 +168,16 @@ rands = [
 game_system = "BattleTech"
 input = "PPCLU>=11"
 output = """
-12[6,6]>=11 ＞ 命中 ＞ [6] 頭 10点
- ＞ 1回命中 命中箇所：頭(1回) 10点 ＞ 合計ダメージ 10点"""
+12[6,6]>=11 ＞ 命中 ＞ [1] 左胴 10点
+ ＞ 1回命中 命中箇所：左胴(1回) 10点 ＞ 合計ダメージ 10点"""
 success = true
 rands = [
+  # 2D6 命中判定
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
+
+  # 1D6 部位
+  { sides = 6, value = 1 },
 ]
 
 [[ test ]]
