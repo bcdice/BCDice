@@ -12,7 +12,7 @@ rands = [
 [[ test ]]
 game_system = "StellarKnights"
 input = "0SK"
-output = "(0SK) ＞ ダイスが 0 個です"
+output = "(0SK) ＞ ダイスが 0 個です（アタック判定が発生しません）"
 rands = []
 
 [[ test ]]
@@ -42,7 +42,7 @@ rands = [
 [[ test ]]
 game_system = "StellarKnights"
 input = "0SK6"
-output = "(0SK6) ＞ ダイスが 0 個です"
+output = "(0SK6) ＞ ダイスが 0 個です（アタック判定が発生しません）"
 rands = []
 
 [[ test ]]
@@ -86,13 +86,13 @@ rands = [
 [[ test ]]
 game_system = "StellarKnights"
 input = "0SK,1>6"
-output = "(0SK,1>6) ＞ ダイスが 0 個です"
+output = "(0SK,1>6) ＞ ダイスが 0 個です（アタック判定が発生しません）"
 rands = []
 
 [[ test ]]
 game_system = "StellarKnights"
 input = "0SK4,1>6"
-output = "(0SK4,1>6) ＞ ダイスが 0 個です"
+output = "(0SK4,1>6) ＞ ダイスが 0 個です（アタック判定が発生しません）"
 rands = []
 
 [[ test ]]
