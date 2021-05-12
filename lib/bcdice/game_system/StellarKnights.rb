@@ -95,12 +95,15 @@ module BCDice
       # @param [Integer | nil] defence
       # @param [String] dice_change_text
       # @param [String] command
-      # @return [String]
+      # @return [Result, String]
       def resolute_action(num_dices, defence, dice_change_text, command)
         dices = @randomizer.roll_barabara(num_dices, 6).sort
         dice_text = dices.join(",")
 
         output = "(#{command}) ＞ #{dice_text}"
+        if dices.empty?
+          return output + "ダイスが 0 個です（アタック判定が発生しません）"
+        end
 
         # FAQによると、ダイスの置き換えは宣言された順番に適用されていく
         dice_change_rules = parse_dice_change_rules(dice_change_text)
