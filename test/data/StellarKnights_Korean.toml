@@ -1,0 +1,933 @@
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "4SK"
+output = "(4SK) ＞ 1,3,4,5"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "5SK3"
+output = "(5SK3) ＞ 2,3,5,6,6 ＞ 성공 수: 4"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "3SK6"
+output = "(3SK6) ＞ 2,3,5 ＞ 성공 수: 0"
+failure = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "3SK,1>6"
+output = "(3SK,1>6) ＞ 1,2,3 ＞ [2,3,6]"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "6SK4,1>6,2>6"
+output = "(6SK4,1>6,2>6) ＞ 1,2,3,4,5,6 ＞ [3,4,5,6,6,6] ＞ 성공 수: 5"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "6SK4,1>6,6>1"
+output = "(6SK4,1>6,6>1) ＞ 1,2,3,4,5,6 ＞ [1,1,2,3,4,5] ＞ 성공 수: 2"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "0SK"
+output = "(0SK) ＞ 다이스가 0개입니다 (공격 판정이 발생하지 않습니다)"
+rands = []
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "0SK6"
+output = "(0SK6) ＞ 다이스가 0개입니다 (공격 판정이 발생하지 않습니다)"
+rands = []
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "TT"
+output = "소재 표(16) ＞ 거울"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "TT"
+output = "소재 표(26) ＞ 푸른 하늘"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "TT"
+output = "소재 표(36) ＞ 쇠사슬"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "TT"
+output = "소재 표(46) ＞ 보석"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "TT"
+output = "소재 표(56) ＞ 진흙"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "TT"
+output = "소재 표(66) ＞ 작은 상처"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STA"
+output = "상황 표 A: 시간(1) ＞ 아침, 아무도 없는"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB"
+output = "상황 표 B-1: 장소(11) ＞ 교실. 소도구: 창문, 책상, 필기도구, 분필과 칠판, 창밖에서 들려오는 동아리 활동 소리"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB"
+output = "상황 표 B-1: 장소(16) ＞ 구름다리 복도. 소도구: 하늘에 닿을 것 같은 높이, 멀리 보이는 다른 학교, 옆을 날아가는 새"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB"
+output = "상황 표 B-1: 장소(21) ＞ 교실. 소도구: 창문, 책상, 필기도구, 분필과 칠판, 창밖에서 들려오는 동아리 활동 소리"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB"
+output = "상황 표 B-1: 장소(26) ＞ 구름다리 복도. 소도구: 하늘에 닿을 것 같은 높이, 멀리 보이는 다른 학교, 옆을 날아가는 새"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB"
+output = "상황 표 B-1: 장소(31) ＞ 꽃이 만발한 온실. 소도구: 숨이 막힐 것 같은 꽃 향기, 자태를 뽐내는 꽃들, 유리 너머의 햇빛"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB"
+output = "상황 표 B-1: 장소(46) ＞ 고급 레스토랑. 소도구: 맛있는 식사, 고급스러운 분위기, 느긋하게 보내는 시간"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB"
+output = "상황 표 B-1: 장소(66) ＞ 소원의 결투장. 소도구: 결투장, 스텔라나이트들의 꽃의 문장이 피어나는 장소"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB2"
+output = "상황 표 B-2: 학원편, 아셀트레이 공립대학(6) ＞ 낡은 교실\n상황 표 B-2: 학원편, 이데아글로리아 예술종합대학(6) ＞ 완벽한 조화가 느껴지는 온실\n상황 표 B-2: 학원편, 시트라 여학원(6) ＞ 기숙사 복도\n상황 표 B-2: 학원편, 필로소피아 대학(6) ＞ 나무 사이로 해가 드는 따뜻한 숲\n상황 표 B-2: 학원편, 성 아제티아 학원(6) ＞ 꽃들이 흐드러지게 핀 온실\n상황 표 B-2: 학원편, 스폰 오브 아셀트레이(6) ＞ 외곽 순환도로로 이어지는 다리"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB21"
+output = "상황 표 B-2: 학원편, 아셀트레이 공립대학(1) ＞ 휑한 지하 학생 식당"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB22"
+output = "상황 표 B-2: 학원편, 이데아글로리아 예술종합대학(1) ＞ (미술 또는 음악) 준비실"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB23"
+output = "상황 표 B-2: 학원편, 시트라 여학원(1) ＞ 신전 같은 안뜰 온실"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB24"
+output = "상황 표 B-2: 학원편, 필로소피아 대학(1) ＞ 멀리서 들리는 폭발음"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB25"
+output = "상황 표 B-2: 학원편, 성 아제티아 학원(1) ＞ 멋들어진 카페"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STB26"
+output = "상황 표 B-2: 학원편, 스폰 오브 아셀트레이(1) ＞ 인기척 없는 교실"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STC"
+output = "상황 표 C: 화제(11) ＞ 미래 이야기: 결투에서 이기면, 또는 지면... 미래에 두 사람은 어떻게 될까?"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STC"
+output = "상황 표 C: 화제(16) ＞ 다음 주말 이야기: 주말에 뭐 해요? 소원을 건 결투와 결투의 사이, 일상의 한 때도 분명 소중한 시간일 것."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STC"
+output = "상황 표 C: 화제(31) ＞ 미래 이야기: 결투에서 이기면, 또는 지면... 미래에 두 사람은 어떻게 될까?"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STC"
+output = "상황 표 C: 화제(36) ＞ 다음 주말 이야기: 주말에 뭐 해요? 소원을 건 결투와 결투의 사이, 일상의 한 때도 분명 소중한 시간일 것."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STC"
+output = "상황 표 C: 화제(41) ＞ 좋아하는 사람 이야기: 좋아하는 사람 있어요? 이것은 분명 진지한 이야기. 다른 무엇보다도 중요한 이야기다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STC"
+output = "상황 표 C: 화제(46) ＞ 쟤 누구지?: 전에 내 파트너랑 같이 있던 걔. 걔 누구야? 대체 뭐하는 애야?"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STC"
+output = "상황 표 C: 화제(61) ＞ 좋아하는 사람 이야기: 좋아하는 사람 있어요? 이것은 분명 진지한 이야기. 다른 무엇보다도 중요한 이야기다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STC"
+output = "상황 표 C: 화제(66) ＞ 쟤 누구지?: 전에 내 파트너랑 같이 있던 걔. 걔 누구야? 대체 뭐하는 애야?"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "ALLS"
+output = "상황 표 A: 시간(6) ＞ 해 뜨기 전의\n상황 표 B-1: 장소(66) ＞ 소원의 결투장. 소도구: 결투장, 스텔라나이트들의 꽃의 문장이 피어나는 장소\n상황 표 C: 화제(66) ＞ 쟤 누구지?: 전에 내 파트너랑 같이 있던 걔. 걔 누구야? 대체 뭐하는 애야?"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "GAT"
+output = "소속 조직 결정(1) ＞ 아셀트레이 공립대학"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "GAT"
+output = "소속 조직 결정(4) ＞ 필로소피아 대학"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "GAT"
+output = "소속 조직 결정(6) ＞ 스폰 오브 아셀트레이"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "HOT"
+output = "희망 표(11) ＞ 보다 나은 세계: 세계는 더 좋은 곳이 된다. 분명, 계속, 더더욱."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "HOT"
+output = "희망 표(51) ＞ 이 몸을 희생해서라도: 세계는 그보다 더 반짝이는 곳이야! 그것을 전하기 위해, 당신은 자기희생도 불사한다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "HOT"
+output = "희망 표(66) ＞ 이렇게나 좋아하는 사람을 위해!: 세계는 희망으로 가득하다. 당신을 더 행복하게 만들고 싶어!"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "DET"
+output = "절망 표(11) ＞ 부조리한 세계: 당신은 세계가 얼마나 부조리한지를 깨달았다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "DET"
+output = "절망 표(35) ＞ 과거는 절망으로 가득차 있다: 계속, 계속, 나쁜 일밖에, 괴로운 일밖에 없었다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "DET"
+output = "절망 표(66) ＞ 가짜였다: 당신은 행복했다. 그렇다고 생각했다. 그러나 그것은 모두 지어낸 것이다. 당신은 속고 있었다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YST"
+output = "당신의 이야기 표(11) ＞ 숙련된 스텔라나이트: 당신은 이미 여러 차례 스텔라배틀에서 승리한 숙련자이다. 【훈장: 3~7 중 원하는 만큼】 【왜곡의 공명: 1】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YST"
+output = "당신의 이야기 표(34) ＞ 파트너 정말 좋아!!!!!!: 나는─! 내 파트너가─!! 정말 좋아─!!!"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YST"
+output = "당신의 이야기 표(66) ＞ 서약학생회(커베넌터): 당신은 한 번 이클립스가 되어 토벌당했다. 그러나 소원을 포기할 수 없었다. 그래서 당신은 이 가면을 쓰고 계속 싸우고 있다. 【훈장: 0~5 중 원하는 만큼】 【왜곡의 공명: 0~2 중 원하는 만큼】"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTA"
+output = "당신의 이야기 표 (이세계)(11) ＞ 끝없는 전장: 당신은 끝이 보이지 않는 전쟁의 세계에서 이곳에 흘러들어왔다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTA"
+output = "당신의 이야기 표 (이세계)(46) ＞ 괴수침략의 세계: 거대한 괴수들과 맞서 싸우는 투쟁의 나날이 반복되던 세계에서 당신은 이곳에 흘러들어왔다. 그리고 이세계에서 온 침략자 로아테라가 아셀트레이를 노리고 있다는 것의 의미를, 당신은 매우 잘 알고 있다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTA"
+output = "당신의 이야기 표 (이세계)(66) ＞ 초목의 세계: 식물과 사람이 융합한 세계에서, 당신은 이곳에 흘러들어왔다. 당신은 몸이 통째로 식물 그 자체일 수도 있고, 눈구멍에서 꽃이 피어나 있을 수도 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "WIT"
+output = "소원 표(11) ＞ 미지를 개척하는 자: 누구도 모르는 세계, 누구도 모르는 우주, 누구도 모르는 별로 여행을 떠난다! 【소원의 단계: 4】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "WIT"
+output = "소원 표(44) ＞ 되찾는다: 당신들은 무언가를 빼앗겼다. 그것을 되찾는 것이 유일한 소원이다. 【소원의 단계: 4(노력에 따라서는 언젠가 손이 닿는 것)】  【소원의 단계: 6(보통은 되찾을 수 없는 것)】"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "WIT"
+output = "소원 표(66) ＞ 계약자: 당신의 소원은 이미 이루어졌다. 지금도 싸우고 있는 이유는 여신과 계약을 했기 때문이다.  【소원의 단계: 없음】"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "PET"
+output = "성격 표(11,11) ＞ 가련 그리고 가련"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "PET"
+output = "성격 표(36,32) ＞ 겸허 그리고 완고"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "PET"
+output = "성격 표(66,66) ＞ 사디스트 그리고 사디스트"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTM"
+output = "당신의 이야기 표 (마르지날리아)(11) ＞ 펍/카페 점원: 당신은 안개 제도의 무수히 많은 펍, 혹은 벚꽃 제도에서 늘어나기 시작한 카페의 점원이다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTM"
+output = "당신의 이야기 표 (마르지날리아)(41) ＞ 제도 경찰: 당신은 제도 경찰로서 도시의 평화를 지키고 있다. 제도 경찰은 시민들이 동경하는 직업이며 모두 긍지를 갖고 직무에 힘쓰고 있다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTM"
+output = "당신의 이야기 표 (마르지날리아)(66) ＞ 백업: 당신은 과거에 벚꽃 황제, 안개 여왕의 백업으로 만들어진 인조생명체다. 똑 닮은 모습을 하고 있으나 그 기억은 엄중히 봉인되어 있고, 당신을 포함해 누구도 그 진실을 알지 못한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STM"
+output = "상황 표: 마르지날리아(11) ＞ 겉으로 하는 일: 살아가는 데는 돈이 든다. 안개 여왕이나 총수에 의지하기만 해서는 안 돼! 자, 오늘도 힘차게 출근이다! 파트너와 함께 어떤 일을 하고 있는지 묘사해보자!"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STM"
+output = "상황 표: 마르지날리아(33) ＞ 노면전차: 도로에 전차가 달리다니 신기한 기분. 최신예 노면전차를 만끽하라. 그럼, 오늘은 어디에 갈까?"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STM"
+output = "상황 표: 마르지날리아(66) ＞ 안개 여왕의 부름: 안개 여왕의 부름을 받아 궁전으로 향하는 도중의 대화. 대체 무슨 볼일일까? 분명 지난주에는 아셀트레이 이야기를 잔뜩 하면서 맛있는 차를 마셨었지."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTL"
+output = "당신의 이야기 표 (편지)(11) ＞ 여행을 떠났다: 당신이 행선지에 있을 때 세계 멸망이 일어났다. 여행을 가지 않았다면 그 사람과 떨어지지 않았을 텐데."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTL"
+output = "당신의 이야기 표 (편지)(32) ＞ 생이별한―: 파트너와는 생이별한 형제자매, 부모자식 같은 친밀한 관계였다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTL"
+output = "당신의 이야기 표 (편지)(66) ＞ 공범자: 두 사람은 예전에 무언가의 공범자였다. 내용은 스스로가 알고 있을 터다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTR"
+output = "당신의 이야기 표 (리콜렉트 돌)(11) ＞ 정말 좋아해: 사실은, 세계 같은 거 어찌되어도 괜찮다. 파트너 쪽이 중요하다. 계속 계속 소중히 해왔으니까."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTR"
+output = "당신의 이야기 표 (리콜렉트 돌)(36) ＞ 탐험대: 당신은 황폐해진 이 세계를 어디까지고 탐험하고 싶다고 생각하고 있다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTR"
+output = "당신의 이야기 표 (리콜렉트 돌)(66) ＞ 막연한 불안: 여행도 싸움도, 그 앞에 기다리는 것이 마지막 날이라면…. 모두 어째서 불안해하지 않는 거야…?"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STBR"
+output = "상황 표 B: 장소 (리콜렉트 돌)(11) ＞ 교실: 옛날에 교실이었던 장소. 의자와 책상이 어지럽게 흩어져 있다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STBR"
+output = "상황 표 B: 장소 (리콜렉트 돌)(32) ＞ 극장: 옛날에 큰 극장이었던 장소. 천장은 무너졌고, 스테이지는 잔해에 파묻혀 있다. "
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STBR"
+output = "상황 표 B: 장소 (리콜렉트 돌)(66) ＞ 공원: 석화된 나무들과 썩은 벤치가 여기저기 흩어져 있는 공원터. 옛날에는 사람들이 휴식하던 장소였다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STCR"
+output = "상황 표 C: 리콜렉트(11) ＞ 사이 좋음: 친구일까 가족일까. 즐거운 듯 붙어있는 두 사람의 모습."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STCR"
+output = "상황 표 C: 리콜렉트(36) ＞ 수다: 즐거운 듯 수다떨고 있는 사람들의 모습. 재밌어 보이네, 아니, 행복해 보인다, 일까?"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STCR"
+output = "상황 표 C: 리콜렉트(66) ＞ 괴물: 키의 두 배는 될 듯한 용 같은 괴물과 도망치려 갈팡질팡하는 사람들의 모습."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STBS"
+output = "상황 표 B: 시트라 세팅(11) ＞ 긴 복도: 수다떨면서 걷다보면, 아무리 시간이 지나도 목적지에 도착하지 않는 긴ー 복도. 이따금 조난자가 나와."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STBS"
+output = "상황 표 B: 시트라 세팅(44) ＞ 안뜰의 벚꽃: 제1층, 시트라 여학원의 안뜰에는 아주 아름다운 벚꽃이 피어 있다. 지구시대부터 있었던 것이라나…."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STBS"
+output = "상황 표 B: 시트라 세팅(66) ＞ 별노래의 문: 빛나는 실의 탑, 최상층에 있는 작은 방. 지구가 있었을 때의 별하늘을 재현하는, 별하늘 투영기가 설치되어 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STE"
+output = "상황 표: 이클립스 전용(11) ＞ 길가는 사람들의 모든 시선이, 전부 우리를 평가하고 있는 것 같아…."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STE"
+output = "상황 표: 이클립스 전용(42) ＞ 두 여신놈들, 너희가 흑막이었나. 스텔라배틀을 마치면, 다음에는 너희들을 죽이겠어."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STE"
+output = "상황 표: 이클립스 전용(66) ＞ 세상 모든 게 흑백으로 보인다. 뭐야, 이건. 로아테라의 힘 때문인가? 빨리, 빨리 세계를 구해야…."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "FT"
+output = "프래그먼트 표(11,11,11,11,11) ＞ 만남, 만남, 만남, 만남, 만남"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "FT"
+output = "프래그먼트 표(13,63,24,26,44) ＞ 동물원, 청력, 좋아해, 증오, 담요"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "FT"
+output = "프래그먼트 표(66,66,66,66,66) ＞ 촉각, 촉각, 촉각, 촉각, 촉각"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "FT2"
+output = "프래그먼트 표(43,66) ＞ 온기, 촉각"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "FT3"
+output = "프래그먼트 표(13,63,24) ＞ 동물원, 청력, 좋아해"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "FT4"
+output = "프래그먼트 표(63,24,26,44) ＞ 청력, 좋아해, 증오, 담요"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTB"
+output = "당신의 이야기 표: 브링거(11) ＞ 혈육을 잃었다: 당신은 브라이트가 일으킨 사건으로 혈육을 잃었다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTB"
+output = "당신의 이야기 표: 브링거(55) ＞ 역전의 브링거: 당신의 파트너는 포지의 프래그먼트를 1~3개 잃은 상태에서 작성한다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTB"
+output = "당신의 이야기 표: 브링거(66) ＞ 다른 계층 출신: 당신은 다른 계층에서 제753층에 왔을 때, 세계의 붕괴에 휩쓸렸다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTF"
+output = "당신의 이야기 표: 포지(11) ＞ 신뢰: 당신은 파트너를 신뢰하고 있다. 당신과 함께라면 괜찮아."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTF"
+output = "당신의 이야기 표: 포지(35) ＞ 신경쓰인다: 파트너가 신경쓰인다. 신경쓰여. 좋, 좋아한다거나 그런 게 아니고. 신경쓰이는 것뿐이야."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "YSTF"
+output = "당신의 이야기 표: 포지(66) ＞ 과거의 기억: 당신의 밑바탕이 된 영혼의 아름다운 빛, 그 기억을 당신은 가지고 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STAL"
+output = "상황 표: 알트리부트(11) ＞ 잠복중: 파트너가 팥빵과 커피를 사왔다. 일단 배부터 채우자!"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STAL"
+output = "상황 표: 알트리부트(43) ＞ 살인현장: 브라이트의 범행 현장. 현장검증에 입회하게 되었지만…."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "StellarKnights:Korean"
+input = "STAL"
+output = "상황 표: 알트리부트(66) ＞ 기념일: 포지와의 기념일은 매월 있다. 일주년이 없으니, 매월이다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
