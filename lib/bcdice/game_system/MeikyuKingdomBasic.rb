@@ -72,7 +72,8 @@ module BCDice
         'BUS', 'SHS', 'ASS', 'SUS', 'SCS', 'LAS', 'NES', 'COS', 'ENS', 'TOS',
         'ABUS', 'ASHS', 'AASS', 'ASUS', 'ASCS', 'ALAS', 'ANES', 'ACOS', 'AENS', 'ATOS',
         'SE', 'ARN', 'WEN', 'NEN', 'CEN', 'SEN', 'OEN',
-        'DFT'
+        'DFT',
+        'PNT', 'MLT'
       )
 
       def initialize(command)
