@@ -53,7 +53,7 @@ module BCDice
       # ダイスロールの共通処理
       # @param [Integer] num_dice
       # @param [Integer] success_threshold
-      # @return [String]
+      # @return [Result]
       def dice_roll(num_dice, success_threshold)
         # ダイスを振った結果を配列として取得
         values = @randomizer.roll_barabara(num_dice, 10)
@@ -65,33 +65,35 @@ module BCDice
 
         # 成功値
         success_value = 2 * critical + success - fumble
+        result = compare_result(success_value)
 
-        "#{values} ＞ #{success_value} ＞ #{result_text(success_value)}"
+        result.text = "#{values} ＞ #{success_value} ＞ #{result.text}"
+        return result
       end
 
       # @param [Integer] success
-      # @return [String]
-      def result_text(success)
+      # @return [Result]
+      def compare_result(success)
         if success < 0
-          "ファンブル!"
+          Result.fumble("ファンブル!")
         elsif success == 0
-          "失敗!"
+          Result.failure("失敗!")
         elsif success == 1
-          "成功!"
+          Result.success("成功!")
         elsif success == 2
-          "ダブル!"
+          Result.critical("ダブル!")
         elsif success == 3
-          "トリプル!"
+          Result.critical("トリプル!")
         elsif success <= 9
-          "ミラクル!"
+          Result.critical("ミラクル!")
         else
-          "カタストロフ!"
+          Result.critical("カタストロフ!")
         end
       end
 
       # 技能判定
       # @param [String] command コマンド
-      # @return [String, nil] コマンドの結果
+      # @return [Result, nil] コマンドの結果
       def roll_dm(command)
         m = /^(\d+)?DM<=(\d+)$/.match(command)
         unless m
@@ -105,14 +107,15 @@ module BCDice
         end
 
         # ダイスロール本体
-        ret_str = dice_roll(num_dice, success_threshold)
+        result = dice_roll(num_dice, success_threshold)
 
-        return "(#{num_dice}DM<=#{success_threshold}) ＞ #{ret_str}"
+        result.text = "(#{num_dice}DM<=#{success_threshold}) ＞ #{result.text}"
+        return result
       end
 
       # 取得技能判定
       # @param [String] command コマンド
-      # @return [String, nil] コマンドの結果
+      # @return [Result, nil] コマンドの結果
       def roll_da(command)
         m = /^(B|\d+)?DA(\d+)(\+\d+)?$/.match(command)
         unless m
@@ -123,8 +126,10 @@ module BCDice
         num_dice = (m[1] == "B" ? 1 : (m[1]&.to_i || 1)) + bonus
         success_threshold = m[1].to_i + m[2].to_i
 
-        ret_str = dice_roll(num_dice, success_threshold)
-        "(#{command}) ＞ (#{num_dice}DM<=#{success_threshold}) ＞ #{ret_str}"
+        result = dice_roll(num_dice, success_threshold)
+
+        result.text = "(#{command}) ＞ (#{num_dice}DM<=#{success_threshold}) ＞ #{result.text}"
+        return result
       end
     end
   end
