@@ -2,6 +2,7 @@ ja_jp:
   StellarKnights:
     SK:
       success_num: "成功数: %{success_num}"
+      no_dice_error: "ダイスが 0 個です（アタック判定が発生しません）"
     PET:
       name: 性格表
       result: "%{value1}にして%{value2}"
@@ -44,6 +45,7 @@ ja_jp:
       - 'サディスト'
     FT:
       name: フラグメント表
+      sep: ","
       items:
       - '出会い'
       - '水族館'

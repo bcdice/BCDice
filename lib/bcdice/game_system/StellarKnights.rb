@@ -73,7 +73,7 @@ module BCDice
       def eval_game_system_specific_command(command)
         command = command.upcase
 
-        if (table = TABLES[command])
+        if (table = self.class::TABLES[command])
           table.roll(@randomizer)
         elsif (m = /(\d+)SK(\d)?((,\d>\d)+)?/.match(command))
           resolute_action(m[1].to_i, m[2] && m[2].to_i, m[3], command)
@@ -102,7 +102,7 @@ module BCDice
 
         output = "(#{command}) ＞ #{dice_text}"
         if dices.empty?
-          return output + "ダイスが 0 個です（アタック判定が発生しません）"
+          return output + translate("StellarKnights.SK.no_dice_error")
         end
 
         # FAQによると、ダイスの置き換えは宣言された順番に適用されていく
@@ -147,11 +147,11 @@ module BCDice
       end
 
       def roll_all_situation_b2_tables
-        (1..6).map { |num| TABLES["STB2#{num}"].roll(@randomizer) }.join("\n")
+        (1..6).map { |num| self.class::TABLES["STB2#{num}"].roll(@randomizer) }.join("\n")
       end
 
       def roll_all_situation_tables
-        ['STA', 'STB', 'STC'].map { |command| TABLES[command].roll(@randomizer) }.join("\n")
+        ['STA', 'STB', 'STC'].map { |command| self.class::TABLES[command].roll(@randomizer) }.join("\n")
       end
 
       def roll_personality_table
@@ -172,7 +172,7 @@ module BCDice
         indexes = results.map { |r| r[1] }
         name = translate("StellarKnights.FT.name")
 
-        return "#{name}(#{indexes.join(',')}) ＞ #{values.join(',')}"
+        return "#{name}(#{indexes.join(',')}) ＞ #{values.join(translate('StellarKnights.FT.sep'))}"
       end
 
       class << self
