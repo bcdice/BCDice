@@ -11,6 +11,7 @@ rands = [
 game_system = "Emoklore"
 input = "1DM<=5"
 output = "(1DM<=5) ＞ [6] ＞ 0 ＞ 失敗!"
+failure = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -19,6 +20,7 @@ rands = [
 game_system = "Emoklore"
 input = "1DM<=5"
 output = "(1DM<=5) ＞ [5] ＞ 1 ＞ 成功!"
+success = true
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -27,6 +29,8 @@ rands = [
 game_system = "Emoklore"
 input = "1DM<=5"
 output = "(1DM<=5) ＞ [1] ＞ 2 ＞ ダブル!"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -35,6 +39,8 @@ rands = [
 game_system = "Emoklore"
 input = "DM<=5"
 output = "(1DM<=5) ＞ [1] ＞ 2 ＞ ダブル!"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -43,6 +49,8 @@ rands = [
 game_system = "Emoklore"
 input = "2DM<=5"
 output = "(2DM<=5) ＞ [1, 6] ＞ 2 ＞ ダブル!"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
@@ -52,6 +60,8 @@ rands = [
 game_system = "Emoklore"
 input = "2DM<=5"
 output = "(2DM<=5) ＞ [1, 1] ＞ 4 ＞ ミラクル!"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -61,6 +71,8 @@ rands = [
 game_system = "Emoklore"
 input = "10DM<=3"
 output = "(10DM<=3) ＞ [4, 7, 10, 3, 6, 9, 2, 5, 8, 1] ＞ 3 ＞ トリプル!"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 7 },
@@ -78,6 +90,8 @@ rands = [
 game_system = "Emoklore"
 input = "10DM<=3"
 output = "(10DM<=3) ＞ [10, 10, 10, 1, 1, 1, 1, 1, 1, 1] ＞ 11 ＞ カタストロフ!"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -95,6 +109,8 @@ rands = [
 game_system = "Emoklore"
 input = "10DM<=3"
 output = "(10DM<=3) ＞ [10, 10, 5, 1, 1, 1, 1, 1, 1, 1] ＞ 12 ＞ カタストロフ!"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -112,6 +128,8 @@ rands = [
 game_system = "Emoklore"
 input = "10DM<=3"
 output = "(10DM<=3) ＞ [10, 10, 10, 10, 1, 1, 1, 1, 1, 1] ＞ 8 ＞ ミラクル!"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -129,6 +147,8 @@ rands = [
 game_system = "Emoklore"
 input = "10DM<=3"
 output = "(10DM<=3) ＞ [10, 10, 10, 10, 1, 4, 5, 6, 7, 8] ＞ -2 ＞ ファンブル!"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -146,6 +166,7 @@ rands = [
 game_system = "Emoklore"
 input = "2DA3"
 output = "(2DA3) ＞ (2DM<=5) ＞ [8, 5] ＞ 1 ＞ 成功!"
+success = true
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 5 },
@@ -155,6 +176,7 @@ rands = [
 game_system = "Emoklore"
 input = "2DA3+1"
 output = "(2DA3+1) ＞ (3DM<=5) ＞ [8, 5, 6] ＞ 1 ＞ 成功!"
+success = true
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 5 },
@@ -165,6 +187,7 @@ rands = [
 game_system = "Emoklore"
 input = "DA3+1"
 output = "(DA3+1) ＞ (2DM<=3) ＞ [8, 6] ＞ 0 ＞ 失敗!"
+failure = true
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 6 },
@@ -174,6 +197,7 @@ rands = [
 game_system = "Emoklore"
 input = "1DA3"
 output = "(1DA3) ＞ (1DM<=4) ＞ [2] ＞ 1 ＞ 成功!"
+success = true
 rands = [
   { sides = 10, value = 2 },
 ]
@@ -182,6 +206,8 @@ rands = [
 game_system = "Emoklore"
 input = "1DA3"
 output = "(1DA3) ＞ (1DM<=4) ＞ [1] ＞ 2 ＞ ダブル!"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -190,6 +216,8 @@ rands = [
 game_system = "Emoklore"
 input = "bDA3"
 output = "(BDA3) ＞ (1DM<=3) ＞ [1] ＞ 2 ＞ ダブル!"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -198,6 +226,8 @@ rands = [
 game_system = "Emoklore"
 input = "bDA3+5"
 output = "(BDA3+5) ＞ (6DM<=3) ＞ [1, 2, 3, 4, 7, 8] ＞ 4 ＞ ミラクル!"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -211,6 +241,8 @@ rands = [
 game_system = "Emoklore"
 input = "3DA3+5"
 output = "(3DA3+5) ＞ (8DM<=6) ＞ [1, 2, 3, 4, 7, 8, 9, 10] ＞ 4 ＞ ミラクル!"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -226,6 +258,8 @@ rands = [
 game_system = "Emoklore"
 input = "3DA3+9"
 output = "(3DA3+9) ＞ (12DM<=6) ＞ [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10] ＞ -12 ＞ ファンブル!"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -245,6 +279,8 @@ rands = [
 game_system = "Emoklore"
 input = "3DA3+4 (技能：調査)"
 output = "(3DA3+4) ＞ (7DM<=6) ＞ [10, 10, 10, 10, 10, 10, 10] ＞ -7 ＞ ファンブル!"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
