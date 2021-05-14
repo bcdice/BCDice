@@ -40,8 +40,8 @@ module BCDice
       def eval_game_system_specific_command(command)
         debug("eval_game_system_specific_command Begin")
 
-        text = judgeRoll(command)
-        return text unless text.nil?
+        result = judgeRoll(command)
+        return result unless result.nil?
 
         isStop = true
         text, = reRoll(command, isStop)
@@ -72,9 +72,10 @@ module BCDice
           getRollResult([diceCount], judgeNumberText, judgeNumber, targetNumber, isReRoll, isStop)
 
         message += text
-        message += getTotalResultMessageText(bitList, successList, countOneList, targetNumber, isStop, canReRoll)
+        result = getTotalResult(bitList, successList, countOneList, targetNumber, isStop, canReRoll)
+        result.text = message + result.text
 
-        return message
+        return result
       end
 
       def reRoll(command, isStop)
@@ -181,7 +182,7 @@ module BCDice
         return message, bitList, successList, countOneList, canReRoll
       end
 
-      def getTotalResultMessageText(bitList, successList, countOneList, targetNumber, isStop, canReRoll)
+      def getTotalResult(bitList, successList, countOneList, targetNumber, isStop, canReRoll)
         success = successList.inject { |sum, i| sum + i }
         countOne = countOneList.inject { |sum, i| sum + i }
 
@@ -196,27 +197,35 @@ module BCDice
 
           if success >= targetNumber
             result += " ＞ 現状で成功。コマンド実行で追加リロールも可能"
+            return Result.success(result)
           else
             result += " ＞ 現状のままでは失敗"
-            result += "。汚染ポイント+#{countOne}" if countOne >= 1
+            if countOne >= 1
+              result += "。汚染ポイント+#{countOne}"
+              return Result.fumble(result)
+            else
+              return Result.failure(result)
+            end
           end
-
-          return result
         end
 
         if success >= targetNumber
           result += " ＞ 成功"
-
           if bitList.size >= 1
             result += "、禁書ビット発生[#{bitList.join(',')}]"
+            return Result.critical(result)
+          else
+            return Result.success(result)
           end
-
         else
           result += " ＞ 失敗"
-          result += "。汚染ポイント+#{countOne}" if countOne >= 1
+          if countOne >= 1
+            result += "。汚染ポイント+#{countOne}"
+            return Result.fumble(result)
+          else
+            return Result.failure(result)
+          end
         end
-
-        return result
       end
 
       def getSameDieList(diceList)
