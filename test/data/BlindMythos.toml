@@ -303,6 +303,7 @@ rands = [
 game_system = "BlindMythos"
 input = "RP123"
 output = "守護星表チェック(1,2,3) ＞ 2D10[1,0] ＞ 発動"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 10 },
@@ -312,6 +313,7 @@ rands = [
 game_system = "BlindMythos"
 input = "RP258"
 output = "守護星表チェック(2,5,8) ＞ 2D10[1,4] ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 4 },
@@ -321,6 +323,7 @@ rands = [
 game_system = "BlindMythos"
 input = "RP890"
 output = "守護星表チェック(8,9,0) ＞ 2D10[3,0] ＞ 発動"
+success = true
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 3 },

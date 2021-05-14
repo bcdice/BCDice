@@ -22,7 +22,7 @@ module BCDice
         　BMSは振り足しを自動では行いません。
          例）BM>=1　BM@3>=1　BMS2>=1
 
-        ・判定振り足し：ReRollx,x,x...@y>=1
+        ・判定振り足し：ReRollx,x,x...@y>=z
           　x:振るダイスの個数
         　　y:目標難易度（省略可。デフォルト4）
         　　z:必要成功度
@@ -47,8 +47,8 @@ module BCDice
         text, = reRoll(command, isStop)
         return text unless text.nil?
 
-        text = getRulingPlanetDiceCommandResult(command)
-        return text unless text.nil?
+        result = getRulingPlanetDiceCommandResult(command)
+        return result unless result.nil?
 
         text = getDurtyTableCommandReuslt(command)
         return text unless text.nil?
@@ -261,42 +261,34 @@ module BCDice
       end
 
       def getRulingPlanetDiceCommandResult(command)
-        return nil unless command =~ /^RP(\d+)/i
+        m = /^RP(\d+)$/i.match(command)
+        return nil unless m
 
-        targetNumbers = Regexp.last_match(1).split(//).map(&:to_i)
+        targetNumbers = m[1].each_char.map(&:to_i)
         diceList = getRulingPlanetDice
 
-        matchResult = "失敗"
-        targetNumbers.each do |i|
-          if diceList.include?(i)
-            matchResult = "発動"
-            break
-          end
+        condition = diceList.any? { |dice| targetNumbers.include?(dice) }
+
+        result = condition ? "発動" : "失敗"
+        text = "守護星表チェック(#{targetNumbers.join(',')}) ＞ #{diceList.count}D10[#{diceList.join(',')}] ＞ #{result}"
+
+        Result.new.tap do |r|
+          r.text = text
+          r.condition = condition
         end
-
-        text = "守護星表チェック(#{targetNumbers.join(',')}) ＞ #{diceList.count}D10[#{diceList.join(',')}] ＞ #{matchResult}"
-
-        return text
       end
 
       def getRulingPlanetDice
-        dice1 = @randomizer.roll_once(10)
-        dice2 = dice1
+        dice1, dice2 = @randomizer.roll_barabara(2, 10)
 
         while dice1 == dice2
           dice2 = @randomizer.roll_once(10)
         end
 
-        dice1 = changeRulingPlanetDice(dice1)
-        dice2 = changeRulingPlanetDice(dice2)
+        dice1 = 0 if dice1 == 10
+        dice2 = 0 if dice2 == 10
 
         return dice1, dice2
-      end
-
-      def changeRulingPlanetDice(dice)
-        return 0 if dice == 10
-
-        return dice
       end
 
       def getDurtyTableCommandReuslt(command)
