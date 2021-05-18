@@ -52,18 +52,19 @@ module BCDice
 
         result =
           if cmd.cmp_op
-            total.send(cmd.cmp_op, cmd.target_number) ? "成功" : "失敗"
+            total.send(cmd.cmp_op, cmd.target_number) ? Result.success("成功") : Result.failure("失敗")
           end
 
         sequence = [
           "(#{cmd})",
           interim_expr(cmd, dice_total),
           total.to_s,
-          result,
+          result.text,
           epp(count_one)
         ].compact
 
-        return sequence.join(" ＞ ")
+        result.text = sequence.join(" ＞ ")
+        return result
       end
 
       # 出目が全て同じか
