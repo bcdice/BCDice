@@ -1717,3 +1717,135 @@ rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
 ]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "PNT"
+output = "地名表(1) ＞ 「好きな数字の組み合わせ堀（モート）」"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "PNT1"
+output = "地名表(1) ＞ 「地獄（じごく）坑道（トンネル）」"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "PNT10"
+output = "地名表(10) ＞ 「ブラック砂漠（デザート）」「好きなトラップの名前星雲（ネビュラ）」「ドラゴン山脈（マウンテンズ）」「ドッキリ湖（レイク）」「バロック海岸（コースト）」「ダイナマイト星雲（ネビュラ）」「ブラック荒野（ヒース）」「ブラック沼（ポンド）」「マヌエル山脈（マウンテンズ）」「ダイナマイト山脈（マウンテンズ）」"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MLT"
+output = "地名表(1) ＞ 「巨大な縦穴にぶら下がる縄ばしごや鎖」"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MLT1"
+output = "地名表(1) ＞ 「時折稲妻の走る部屋」"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MLT10"
+output = "地名表(10) ＞ 「オーロラがゆらめく空洞」「澄んだ水が流れる噴水と水飲み場」「空洞中に広がるアザラシの営巣地」「生物が掘った、つるつるした洞穴」「石組みの部屋」「轟々と音を立てる巨大排気孔」「真ん中に大木が一本そびえ立っている空洞」「流砂が流れる洞穴」「底に遺跡が見える水没した空洞」「埋まりかけで天井すれすれの洞穴」"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
