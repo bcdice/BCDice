@@ -67,7 +67,7 @@ module BCDice
 
         sequence = [
           command,
-          "(#{base}d6)",
+          "(#{base}D6)",
           "[#{dice_list.join(',')}]",
           result.text
         ]
