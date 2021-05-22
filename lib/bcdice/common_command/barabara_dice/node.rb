@@ -43,8 +43,8 @@ module BCDice
             Result.new.tap do |r|
               r.secret = @secret
               r.text = sequence.join(" ＞ ")
-              r.rands = randomizer.rand_results
-              r.detailed_rands = randomizer.detailed_rand_results
+              r.last_dice_list_list = dice_list_list
+              r.last_dice_list = dice_list
               r.success_num = success_num
             end
           end
