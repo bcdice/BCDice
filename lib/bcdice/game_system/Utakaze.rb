@@ -18,10 +18,13 @@ module BCDice
           n個のサイコロで行為判定ロール。ゾロ目の最大個数を成功レベルとして表示。nを省略すると2UK扱い。
           例）3UK ：サイコロ3個で行為判定
           例）UK  ：サイコロ2個で行為判定
-          不等号用いた成否判定は現時点では実装してません。
+        ・難易度付き行為判定ロール（nUK>=t）
+          tに難易度を指定した行為判定ロール。
+          成功レベルと難易度tを比べて成否を判定します。
+          例）6UK>=3 ：サイコロ6個で行為判定して、成功レベル3が出れば成功。
         ・クリティカルコール付き行為判定ロール（nUK@c or nUKc）
-        　cに「龍のダイス目」を指定した行為判定ロール。
-          ゾロ目ではなく、cと同じ値の出目数x2が成功レベルとなります。
+          cに「龍のダイス目」を指定した行為判定ロール。
+          ゾロ目ではなく、cと同じ値の出目数x2が成功レベルとなります。難易度の指定も可能です。
           例）3UK@5 ：龍のダイス「月」でクリティカルコール宣言したサイコロ3個の行為判定
       MESSAGETEXT
 
@@ -36,66 +39,63 @@ module BCDice
       def eval_game_system_specific_command(command)
         debug('eval_game_system_specific_command command', command)
 
-        result = ''
-
-        case command
-        when /(\d+)?UK(@?(\d))?(>=(\d+))?/i
-          base = (Regexp.last_match(1) || 2).to_i
-          crit = Regexp.last_match(3).to_i
-          diff = Regexp.last_match(5).to_i
-          result = checkRoll(base, crit, diff)
-        end
-
-        return nil if result.empty?
-
-        return "#{command} ＞ #{result}"
+        check_roll(command)
       end
 
-      def checkRoll(base, crit, diff = 0)
-        result = ""
+      def check_roll(command)
+        m = /^(\d+)?UK(@?(\d))?(>=(\d+))?$/i.match(command)
+        return nil unless m
+
+        base = (m[1] || 2).to_i
+        crit = m[3].to_i
+        diff = m[5].to_i
 
         base = getValue(base)
         crit = getValue(crit)
 
-        return result if base < 1
+        return nil if base < 1
 
         crit = 6 if crit > 6
 
-        result += "(#{base}d6)"
+        dice_list = @randomizer.roll_barabara(base, 6).sort
+        result = get_roll_result(dice_list, crit, diff)
 
-        diceList = @randomizer.roll_barabara(base, 6).sort
-
-        result += " ＞ [#{diceList.join(',')}] ＞ "
-        result += getRollResultString(diceList, crit, diff)
+        sequence = [
+          command,
+          "(#{base}d6)",
+          "[#{dice_list.join(',')}]",
+          result.text
+        ]
+        result.text = sequence.join(" ＞ ")
 
         return result
       end
 
-      def getRollResultString(diceList, crit, diff)
+      def get_roll_result(diceList, crit, diff)
         success, maxnum, setCount = getSuccessInfo(diceList, crit, diff)
 
-        result = ""
+        sequence = []
 
         if isDragonDice(crit)
-          result += "龍のダイス「#{@arrayDragonDiceName[crit]}」(#{crit})を使用 ＞ "
+          sequence.push("龍のダイス「#{@arrayDragonDiceName[crit]}」(#{crit})を使用")
         end
 
-        if  success
-          result += "成功レベル:#{maxnum} (#{setCount}セット)"
-          if diff != 0
-            diffSuccess = (maxnum >= diff)
-            if diffSuccess
-              result += " ＞ 成功"
-            else
-              result += " ＞ 失敗"
-            end
-          end
-
+        if success
+          sequence.push("成功レベル:#{maxnum} (#{setCount}セット)")
         else
-          result += "失敗"
+          sequence.push("失敗")
+          return Result.failure(sequence.join(" ＞ "))
         end
 
-        return result
+        if diff == 0
+          return Result.success(sequence.join(" ＞ ")) # 難易度なしでも成功として扱う
+        elsif maxnum >= diff
+          sequence.push("成功")
+          return Result.success(sequence.join(" ＞ "))
+        else
+          sequence.push("失敗")
+          return Result.failure(sequence.join(" ＞ "))
+        end
       end
 
       def getSuccessInfo(diceList, crit, _diff)
