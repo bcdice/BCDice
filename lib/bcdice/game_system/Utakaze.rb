@@ -30,17 +30,22 @@ module BCDice
 
       register_prefix('\d*UK')
 
-      def initialize(command)
-        super(command)
-        @arrayDragonDiceName = ['', '風', '雨', '雲', '影', '月', '歌']
-        @enabled_upcase_input = false
-      end
-
       def eval_game_system_specific_command(command)
         debug('eval_game_system_specific_command command', command)
 
         check_roll(command)
       end
+
+      private
+
+      DRAGON_DICE_NAME = {
+        1 => "風",
+        2 => "雨",
+        3 => "雲",
+        4 => "影",
+        5 => "月",
+        6 => "歌"
+      }.freeze
 
       def check_roll(command)
         m = /^(\d+)?UK(@?(\d))?(>=(\d+))?$/i.match(command)
@@ -72,12 +77,12 @@ module BCDice
       end
 
       def get_roll_result(diceList, crit, diff)
-        success, maxnum, setCount = getSuccessInfo(diceList, crit, diff)
+        success, maxnum, setCount = getSuccessInfo(diceList, crit)
 
         sequence = []
 
         if isDragonDice(crit)
-          sequence.push("龍のダイス「#{@arrayDragonDiceName[crit]}」(#{crit})を使用")
+          sequence.push("龍のダイス「#{DRAGON_DICE_NAME[crit]}」(#{crit})を使用")
         end
 
         if success
@@ -98,7 +103,7 @@ module BCDice
         end
       end
 
-      def getSuccessInfo(diceList, crit, _diff)
+      def getSuccessInfo(diceList, crit)
         debug("checkSuccess diceList, crit", diceList, crit)
 
         diceCountHash = getDiceCountHash(diceList, crit)
@@ -109,7 +114,7 @@ module BCDice
         countThreshold = (isDragonDice(crit) ? 1 : 2)
 
         diceCountHash.each do |dice, count|
-          maxnum = count if  count > maxnum
+          maxnum = count if count > maxnum
           successDiceList << dice if count >= countThreshold
         end
 
