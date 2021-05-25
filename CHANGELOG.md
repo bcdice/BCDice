@@ -1,5 +1,27 @@
 # Change Log
 
+## Unreleased
+
+### 対応ゲームシステムの追加
+- スタリィドール (StarryDolls): よっしーさんありがとうっ！ ([#443](https://github.com/bcdice/BCDice/pull/443))
+- 韓国語版 銀剣のステラナイツ 은검의 스텔라나이츠 (StellarKnights:Korean): Soaさんありがとうっ！ ([#458](https://github.com/bcdice/BCDice/pull/458))
+
+### 追加機能
+- 多くののゲームシステムで固有コマンドの処理に `Result` での成功／失敗／ファンブル／クリティカルの情報を付与する
+  - みんなりがとうっ！： @blhsrwznrghfzpr, @h-mikisato, @GenKuzumochi, @spore0814, @yan30408
+  - 詳細はissueを参照：[#423](https://github.com/bcdice/BCDice/issues/423)
+- 銀剣のステラナイツ: アタック判定のダイス数指定において加算・除算をあつかえるように。ViViさんありがとうっ！ ([#465](https://github.com/bcdice/BCDice/pull/465))
+
+### 変更
+- ネクロニカ: 加算ダイスでD10の個数が2以上の時に特殊処理の結果が妥当でないため、2D10以降は特殊処理をしないように変更。くずもちさんありがとうっ！ ([#440](https://github.com/bcdice/BCDice/pull/440))
+- バトルテック: メック戦士意識維持ロールを改良 ([#445](https://github.com/bcdice/BCDice/pull/445))
+- 銀剣のステラナイツ: アタック判定のダイス数が0の時にエラーメッセージを表示するように。ViViさんありがとうっ！ ([#455](https://github.com/bcdice/BCDice/pull/455))
+- ガーデンオーダー: 連続攻撃の条件を満たしていない時にエラーとなるように。yan3さんありがとうっ！ ([#463](https://github.com/bcdice/BCDice/pull/463))
+
+### バグ修正
+- 迷宮キングダム 基本ルールブック: 地名決定表と迷宮風景表が実行できない問題を修正。リベルさん、三木里 秀予さんありがとうっ！ ([#462](https://github.com/bcdice/BCDice/pull/462))
+- 一部のコマンドを繰り返しコマンドで利用すると正しく処理されない問題を修正 ([#469](https://github.com/bcdice/BCDice/pull/469), [#470](https://github.com/bcdice/BCDice/pull/470))
+
 ## 3.2.0 2021/04/23
 
 ### 対応ゲームシステムの追加
