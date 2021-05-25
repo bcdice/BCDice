@@ -376,12 +376,46 @@ rands = [
 [[ test ]]
 game_system = "NinjaSlayer"
 input = "AT4"
+output = "(4B6>=4) ＞ 1,1,1,1 ＞ 成功数0"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer"
+input = "AT4"
 output = "(4B6>=4) ＞ 2,2,6,6 ＞ 成功数2 ＞ サツバツ!!"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer"
+input = "x2 AT4 繰り返し実行で蓄積した出目を用いて判断しない"
+output = """
+#1
+(4B6>=4) ＞ 2,2,6,6 ＞ 成功数2 ＞ サツバツ!!
+
+#2
+(4B6>=4) ＞ 1,1,1,1 ＞ 成功数0"""
+rands = [
+  # 1回目
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+
+  # 2回目
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
 ]
 
 [[ test ]]
@@ -464,12 +498,46 @@ rands = [
 [[ test ]]
 game_system = "NinjaSlayer"
 input = "EL4"
+output = "(4B6>=4) ＞ 1,1,1,1 ＞ 成功数0"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer"
+input = "EL4"
 output = "(4B6>=4) ＞ 2,2,2,6 ＞ 成功数1 + 1 ＞ 2"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer"
+input = "x2 EL4 繰り返し実行で蓄積した出目を用いて判断しない"
+output = """
+#1
+(4B6>=4) ＞ 2,2,2,6 ＞ 成功数1 + 1 ＞ 2
+
+#2
+(4B6>=4) ＞ 1,1,1,1 ＞ 成功数0"""
+rands = [
+  # 1回目
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+
+  # 2回目
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
 ]
 
 [[ test ]]

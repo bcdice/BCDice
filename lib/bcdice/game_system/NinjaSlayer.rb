@@ -176,8 +176,7 @@ module BCDice
         command = bRollCommand(at.num, at.difficulty)
         roll_result = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer)
 
-        values = roll_result.rands.map { |v, _| v }
-        num_of_max_values = values.count(6)
+        num_of_max_values = roll_result.last_dice_list.count(6)
 
         parts = [roll_result.text]
 
@@ -195,7 +194,7 @@ module BCDice
         command = bRollCommand(el.num, el.difficulty)
         roll_result = BCDice::CommonCommand::BarabaraDice.eval(command, self, @randomizer)
 
-        values = roll_result.rands.map { |v, _| v }
+        values = roll_result.last_dice_list
         num_of_max_values = values.count(6)
         sum_of_true_values = values.count { |v| v >= el.difficulty }
 
