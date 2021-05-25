@@ -284,7 +284,7 @@ rands = [
 [[ test ]]
 game_system = "GardenOrder"
 input = "GO99/2"
-output = "エラー。最終的な成功率が50％未満です。"
+output = "D100<=49@19 ＞ 連続攻撃は成功率が50％以上必要です"
 rands = []
 
 [[ test ]]

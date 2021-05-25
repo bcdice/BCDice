@@ -59,7 +59,9 @@ module BCDice
       def check_roll_repeat_attack(success_rate, repeat_count, critical_border)
         success_rate_per_one = success_rate / repeat_count
         # 連続攻撃は最終的な成功率が50%以上であることが必要 cf. p217
-        return "エラー。最終的な成功率が50％未満です。" if repeat_count > 1 && success_rate_per_one < 50
+        if repeat_count > 1 && success_rate_per_one < 50
+          return "D100<=#{success_rate_per_one}@#{critical_border} ＞ 連続攻撃は成功率が50％以上必要です"
+        end
 
         check_roll(success_rate_per_one, critical_border)
       end
