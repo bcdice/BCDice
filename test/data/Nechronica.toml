@@ -307,6 +307,26 @@ rands = [
 
 [[ test ]]
 game_system = "Nechronica"
+input = "1D10>=5"
+output = "(1D10>=5) ＞ 1 ＞ 大失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Nechronica"
+input = "1D10-5>=5"
+output = "(1D10-5>=5) ＞ 5[5]-5 ＞ 0 ＞ 大失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Nechronica"
 input = "1R10-1+2 後方互換R"
 output = "(1NC+1) ＞ [9]+1 ＞ 10[10] ＞ 成功"
 success = true
