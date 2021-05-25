@@ -58,6 +58,10 @@ module BCDice
 
       def check_roll_repeat_attack(success_rate, repeat_count, critical_border)
         success_rate_per_one = success_rate / repeat_count
+        # 連続攻撃は最終的な成功率が50%以上であることが必要 cf. p217
+        if repeat_count > 1 && success_rate_per_one < 50
+          return "D100<=#{success_rate_per_one}@#{critical_border} ＞ 連続攻撃は成功率が50％以上必要です"
+        end
 
         check_roll(success_rate_per_one, critical_border)
       end
@@ -69,16 +73,17 @@ module BCDice
         dice_value = @randomizer.roll_once(100)
         result = get_check_result(dice_value, success_rate, critical_border, fumble_border)
 
-        text = "D100<=#{success_rate}@#{critical_border} ＞ #{dice_value} ＞ #{result}"
-        return text
+        result.text = "D100<=#{success_rate}@#{critical_border} ＞ #{dice_value} ＞ #{result.text}"
+        return result
       end
 
       def get_check_result(dice_value, success_rate, critical_border, fumble_border)
-        return "クリティカル" if dice_value <= critical_border
-        return "ファンブル" if dice_value >= fumble_border
-        return "成功" if dice_value <= success_rate
+        # クリティカルとファンブルが重なった場合は、ファンブルとなる。 cf. p175
+        return Result.fumble("ファンブル") if dice_value >= fumble_border
+        return Result.critical("クリティカル") if dice_value <= critical_border
+        return Result.success("成功") if dice_value <= success_rate
 
-        return "失敗"
+        return Result.failure("失敗")
       end
 
       def look_up_damage_chart(type, damage_value)

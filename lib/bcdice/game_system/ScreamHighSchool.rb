@@ -73,13 +73,13 @@ module BCDice
 
         dice_value = @randomizer.roll_once(100)
         result = get_check_result(dice_value, success_rate, critical_border, fumble_border)
-        title, supplementary = get_supplementary(command_type, result)
+        title, supplementary = get_supplementary(command_type, result.text)
         unless supplementary.empty?
           supplementary = "（#{supplementary}）"
         end
 
-        text = "#{title}判定 D100<=#{success_rate}@#{critical_border} ＞ #{dice_value} ＞ #{result}#{supplementary}"
-        return text
+        result.text = "#{title}判定 D100<=#{success_rate}@#{critical_border} ＞ #{dice_value} ＞ #{result.text}#{supplementary}"
+        return result
       end
 
       def get_supplementary(command_type, result)
