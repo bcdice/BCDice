@@ -52,26 +52,21 @@ module BCDice
 
       private
 
-      def result_nechronica(value_list, target, output = [], na = nil)
+      def result_nechronica(value_list, target)
         if value_list.max >= target
           if value_list.max >= 11
-            output << translate("Nechronica.critical") << na
-            Result.critical(output.compact.join(" ＞ "))
+            Result.critical(translate("Nechronica.critical"))
           else
-            output << translate("success") << na
-            Result.success(output.compact.join(" ＞ "))
+            Result.success(translate("success"))
           end
         elsif value_list.count { |i| i <= 1 } == 0
-          output << translate("failure") << na
-          Result.failure(output.compact.join(" ＞ "))
+          Result.failure(translate("failure"))
         elsif value_list.size > 1
           break_all_parts = translate("Nechronica.break_all_parts")
           fumble = translate("Nechronica.fumble")
-          output << "#{fumble} ＞ #{break_all_parts}" << na
-          Result.fumble(output.compact.join(" ＞ "))
+          Result.fumble("#{fumble} ＞ #{break_all_parts}")
         else
-          output << translate("Nechronica.fumble") << na
-          Result.fumble(output.compact.join(" ＞ "))
+          Result.fumble(translate("Nechronica.fumble"))
         end
       end
 
@@ -90,7 +85,7 @@ module BCDice
       def nechronica_check(command)
         command = r_backward_compatibility(command)
         # 歴史的経緯で10を受理する
-        cmd = Command::Parser.new(/N(C|A)(10)?/, round_type: round_type)
+        cmd = Command::Parser.new(/N[CA](10)?/, round_type: round_type)
                              .enable_prefix_number.parse(command)
         return nil unless cmd
 
@@ -101,13 +96,20 @@ module BCDice
         dice_mod = dice.map { |i| i + modify_number }
         total = dice_mod.max
 
-        output = [
+        na = get_hit_location(total) if cmd.command.start_with?("NA")
+
+        result = result_nechronica(dice_mod, 6)
+
+        sequence = [
           "(#{cmd})",
           "[#{dice.join(',')}]#{Format.modifier(modify_number)}",
           "#{total}[#{dice_mod.join(',')}]",
-        ]
-        na = get_hit_location(total) if cmd.command.include?("NA")
-        result_nechronica(dice_mod, 6, output, na)
+          result.text,
+          na,
+        ].compact
+
+        result.text = sequence.join(" ＞ ")
+        return result
       end
 
       def get_hit_location(value)
