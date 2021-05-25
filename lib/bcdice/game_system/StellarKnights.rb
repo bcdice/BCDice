@@ -23,6 +23,9 @@ module BCDice
         d省略時はダイスを振った結果のみ表示。（nSKはnB6と同じ）
 
         4SK: ダイスを4個振って、その結果を表示
+        4+2SK: ダイスを4+2 (=6) 個振って、その結果を表示
+        5/2SK: ダイスを5個の半分 (=2) 個振って、その結果を表示
+        (5+3)/2SK: ダイスを(5+3)個の半分 (=4) 個振って、その結果を表示
         5SK3: 【アタック判定：5ダイス】、対象の防御力を3として成功数を表示
         3SK,1>6: ダイスを3個振り、出目が1のダイスを全て6に変更し、その結果を表示
         6SK4,1>6,2>6: 【アタック判定：6ダイス】、出目が1と2のダイスを全て6に変更、対象の防御力を4として成功数を表示
@@ -75,8 +78,12 @@ module BCDice
 
         if (table = self.class::TABLES[command])
           table.roll(@randomizer)
-        elsif (m = /(\d+)SK(\d)?((,\d>\d)+)?/.match(command))
-          resolute_action(m[1].to_i, m[2] && m[2].to_i, m[3], command)
+        elsif (m = %r{([()+/\d]+)SK(\d)?((,\d>\d)+)?}.match(command))
+          num_dices = Arithmetic.eval(m[1], round_type: RoundType::FLOOR)
+
+          unless num_dices.nil?
+            resolute_action(num_dices, m[2] && m[2].to_i, m[3])
+          end
         elsif command == 'STB2'
           roll_all_situation_b2_tables
         elsif command == 'ALLS'
@@ -94,13 +101,12 @@ module BCDice
       # @param [Integer] num_dices
       # @param [Integer | nil] defence
       # @param [String] dice_change_text
-      # @param [String] command
       # @return [Result, String]
-      def resolute_action(num_dices, defence, dice_change_text, command)
+      def resolute_action(num_dices, defence, dice_change_text)
         dices = @randomizer.roll_barabara(num_dices, 6).sort
         dice_text = dices.join(",")
 
-        output = "(#{command}) ＞ #{dice_text}"
+        output = "(#{remake_command(num_dices, defence, dice_change_text)}) ＞ #{dice_text}"
         if dices.empty?
           return output + translate("StellarKnights.SK.no_dice_error")
         end
@@ -130,6 +136,13 @@ module BCDice
           r.success = success
           r.failure = failure
         end
+      end
+
+      def remake_command(num_dices, defence, dice_change_text)
+        command = "#{num_dices}SK"
+        command += defence.to_s unless defence.nil?
+        command += dice_change_text unless dice_change_text.nil?
+        command
       end
 
       def parse_dice_change_rules(text)
@@ -213,7 +226,7 @@ module BCDice
 
       TABLES = translate_tables(:ja_jp)
 
-      register_prefix('\d+SK', 'STB2', 'ALLS', 'PET', 'FT', TABLES.keys)
+      register_prefix('[()+\/\d]+SK', 'STB2', 'ALLS', 'PET', 'FT', TABLES.keys)
     end
   end
 end
