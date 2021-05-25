@@ -2,6 +2,7 @@
 game_system = "KemonoNoMori"
 input = "KA9"
 output = "(1D12<=9) ＞ 1 ＞ 成功（成功度+1）"
+success = true
 rands = [
   { sides = 12, value = 1 },
 ]
@@ -10,6 +11,7 @@ rands = [
 game_system = "KemonoNoMori"
 input = "KA8+1"
 output = "(1D12<=9) ＞ 9 ＞ 成功（成功度+1）"
+success = true
 rands = [
   { sides = 12, value = 9 },
 ]
@@ -18,6 +20,7 @@ rands = [
 game_system = "KemonoNoMori"
 input = "ka10"
 output = "(1D12<=10) ＞ 9 ＞ 成功（成功度+2）"
+success = true
 rands = [
   { sides = 12, value = 9 },
 ]
@@ -26,6 +29,7 @@ rands = [
 game_system = "KemonoNoMori"
 input = "KA18+2-1"
 output = "(1D12<=19) ＞ 9 ＞ 成功（成功度+2）"
+success = true
 rands = [
   { sides = 12, value = 9 },
 ]
@@ -34,6 +38,7 @@ rands = [
 game_system = "KemonoNoMori"
 input = "KA20"
 output = "(1D12<=20) ＞ 9 ＞ 成功（成功度+3）"
+success = true
 rands = [
   { sides = 12, value = 9 },
 ]
@@ -42,6 +47,7 @@ rands = [
 game_system = "KemonoNoMori"
 input = "KA9"
 output = "(1D12<=9) ＞ 10 ＞ 失敗"
+failure = true
 rands = [
   { sides = 12, value = 10 },
 ]
@@ -50,6 +56,8 @@ rands = [
 game_system = "KemonoNoMori"
 input = "kA9"
 output = "(1D12<=9) ＞ 11 ＞ 大成功（成功度+1, 次の継続判定の目標値を10に変更）"
+success = true
+critical = true
 rands = [
   { sides = 12, value = 11 },
 ]
@@ -58,6 +66,8 @@ rands = [
 game_system = "KemonoNoMori"
 input = "ka10"
 output = "(1D12<=10) ＞ 11 ＞ 大成功（成功度+2, 次の継続判定の目標値を10に変更）"
+success = true
+critical = true
 rands = [
   { sides = 12, value = 11 },
 ]
@@ -66,6 +76,8 @@ rands = [
 game_system = "KemonoNoMori"
 input = "KA19"
 output = "(1D12<=19) ＞ 11 ＞ 大成功（成功度+2, 次の継続判定の目標値を10に変更）"
+success = true
+critical = true
 rands = [
   { sides = 12, value = 11 },
 ]
@@ -74,6 +86,8 @@ rands = [
 game_system = "KemonoNoMori"
 input = "SKa20"
 output = "(1D12<=20) ＞ 11 ＞ 大成功（成功度+3, 次の継続判定の目標値を10に変更）"
+success = true
+critical = true
 secret = true
 rands = [
   { sides = 12, value = 11 },
@@ -83,6 +97,8 @@ rands = [
 game_system = "KemonoNoMori"
 input = "KA12"
 output = "(1D12<=12) ＞ 12 ＞ 大失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 12, value = 12 },
 ]
@@ -91,6 +107,7 @@ rands = [
 game_system = "KemonoNoMori"
 input = "KC9"
 output = "(1D12<=9) ＞ 1 ＞ 成功（成功度+1）"
+success = true
 rands = [
   { sides = 12, value = 1 },
 ]
@@ -99,6 +116,7 @@ rands = [
 game_system = "KemonoNoMori"
 input = "SKC8+1"
 output = "(1D12<=9) ＞ 9 ＞ 成功（成功度+1）"
+success = true
 secret = true
 rands = [
   { sides = 12, value = 9 },
@@ -108,6 +126,7 @@ rands = [
 game_system = "KemonoNoMori"
 input = "kc10"
 output = "(1D12<=10) ＞ 9 ＞ 成功（成功度+1）"
+success = true
 rands = [
   { sides = 12, value = 9 },
 ]
@@ -116,6 +135,7 @@ rands = [
 game_system = "KemonoNoMori"
 input = "KC18-1+2"
 output = "(1D12<=19) ＞ 9 ＞ 成功（成功度+1）"
+success = true
 rands = [
   { sides = 12, value = 9 },
 ]
@@ -124,6 +144,7 @@ rands = [
 game_system = "KemonoNoMori"
 input = "skc17+1+1+1"
 output = "(1D12<=20) ＞ 9 ＞ 成功（成功度+1）"
+success = true
 secret = true
 rands = [
   { sides = 12, value = 9 },
@@ -133,6 +154,7 @@ rands = [
 game_system = "KemonoNoMori"
 input = "kC9"
 output = "(1D12<=9) ＞ 10 ＞ 失敗"
+failure = true
 rands = [
   { sides = 12, value = 10 },
 ]
@@ -141,6 +163,8 @@ rands = [
 game_system = "KemonoNoMori"
 input = "KC10"
 output = "(1D12<=10) ＞ 11 ＞ 大成功（成功度+1, 次の継続判定の目標値を10に変更）"
+success = true
+critical = true
 rands = [
   { sides = 12, value = 11 },
 ]
@@ -149,6 +173,8 @@ rands = [
 game_system = "KemonoNoMori"
 input = "Kc20"
 output = "(1D12<=20) ＞ 11 ＞ 大成功（成功度+1, 次の継続判定の目標値を10に変更）"
+success = true
+critical = true
 rands = [
   { sides = 12, value = 11 },
 ]
@@ -157,6 +183,8 @@ rands = [
 game_system = "KemonoNoMori"
 input = "Skc12"
 output = "(1D12<=12) ＞ 12 ＞ 大失敗"
+failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 12, value = 12 },

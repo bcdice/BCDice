@@ -42,25 +42,18 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         case command
-        when /KA\d[-+\d]*/
-          return check_1D12(command, true)
-        when /KC\d[-+\d]*/
-          return check_1D12(command, false)
-        when 'CTR'
-          return getTrapResult()
-        when 'EET'
-          return getEscapeExperienceTableResult(command)
-        else
-          return roll_tables(command, TABLES)
+        when /KA\d[-+\d]*/ then check_1D12(command, true)
+        when /KC\d[-+\d]*/ then check_1D12(command, false)
+        when 'CTR' then get_trap_result()
+        when 'EET' then get_escape_experience_table_result(command)
+        else roll_tables(command, TABLES)
         end
       end
 
       def check_1D12(command, is_action_judge)
         debug('獸ノ森の1d12判定')
         m = /K[AC](\d[-+\d]*)/.match(command)
-        unless m
-          return ''
-        end
+        return nil unless m
 
         # 修正込みの目標値を計算
         target_total = ArithmeticEvaluator.eval(m[1])
@@ -74,41 +67,35 @@ module BCDice
         debug('dice_total, target_total, success_degree = ', dice_total, target_total, success_degree)
 
         if dice_total == 12
-          return "(1D12<=#{target_total}) ＞ #{dice_total} ＞ 大失敗"
+          Result.fumble("(1D12<=#{target_total}) ＞ #{dice_total} ＞ 大失敗")
         elsif dice_total == 11
-          return "(1D12<=#{target_total}) ＞ #{dice_total} ＞ 大成功（成功度+#{success_degree}, 次の継続判定の目標値を10に変更）"
+          Result.critical("(1D12<=#{target_total}) ＞ #{dice_total} ＞ 大成功（成功度+#{success_degree}, 次の継続判定の目標値を10に変更）")
         elsif dice_total <= target_total
-          return "(1D12<=#{target_total}) ＞ #{dice_total} ＞ 成功（成功度+#{success_degree}）"
+          Result.success("(1D12<=#{target_total}) ＞ #{dice_total} ＞ 成功（成功度+#{success_degree}）")
         else
-          return "(1D12<=#{target_total}) ＞ #{dice_total} ＞ 失敗"
+          Result.failure("(1D12<=#{target_total}) ＞ #{dice_total} ＞ 失敗")
         end
       end
 
-      def getTrapResult()
-        trapCheckNumber = @randomizer.roll_once(12)
-
-        # 12が出た場合のみ罠が動作する
-        if trapCheckNumber == 12
-          chaseNumber = @randomizer.roll_once(12)
-          chase = nil
-          case chaseNumber
-          when 1, 2, 3, 4
-            chase = '小型動物'
-          when 5, 6, 7, 8
-            chase = '大型動物'
-          when 9, 10, 11, 12
-            chase = '人間の放浪者'
-          end
-          return "罠動作チェック(1D12) ＞ #{trapCheckNumber} ＞ 罠が動作していた！ ＞ 獲物表(#{chaseNumber}) ＞ #{chase}が罠にかかっていた"
+      def get_trap_result()
+        tra_check_num = @randomizer.roll_once(12)
+        unless tra_check_num == 12
+          return Result.new("罠動作チェック(1D12) ＞ #{tra_check_num} ＞ 罠は動作していなかった")
         end
 
-        return "罠動作チェック(1D12) ＞ #{trapCheckNumber} ＞ 罠は動作していなかった"
+        chase_num = @randomizer.roll_once(12)
+        chase = case chase_num
+                when 1, 2, 3, 4 then '小型動物'
+                when 5, 6, 7, 8 then '大型動物'
+                when 9, 10, 11, 12 then '人間の放浪者'
+                end
+        Result.new("罠動作チェック(1D12) ＞ #{tra_check_num} ＞ 罠が動作していた！ ＞ 獲物表(#{chase_num}) ＞ #{chase}が罠にかかっていた")
       end
 
-      def getEscapeExperienceTableResult(command)
-        escapeExperience = roll_tables(command, TABLES)
-        escapeDuration = @randomizer.roll_once(12)
-        return "#{escapeExperience} (再登場: #{escapeDuration}時間後)"
+      def get_escape_experience_table_result(command)
+        escape_experience = roll_tables(command, TABLES)
+        escape_duration = @randomizer.roll_once(12)
+        Result.new("#{escape_experience} (再登場: #{escape_duration}時間後)")
       end
 
       TABLES = {
