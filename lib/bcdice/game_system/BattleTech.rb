@@ -336,7 +336,7 @@ module BCDice
 
         values = @randomizer.roll_barabara(2, 6)
         sum = values.sum
-        values_str = @randomizer.rand_results.map(&:first).join(",")
+        values_str = values.join(",")
         sum_and_values = "#{sum}[#{values_str}]"
 
         success = sum >= target
