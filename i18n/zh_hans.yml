@@ -1,0 +1,7 @@
+zh_hans:
+  success: 成功
+  failure: 失败
+  fumble: 大失败
+  RTT:
+    rtt_format: '随机特技表(%<category_dice>d,%<row_dice>d) ＞ %<text>s'
+    rttn_format: '%<category_name>s领域随机特技表(%<row_dice>d) ＞ %<text>s'
