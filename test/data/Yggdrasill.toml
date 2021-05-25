@@ -1877,3 +1877,25 @@ rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "Yggdrasill"
+input = "x2 cf2d6"
+output = """
+#1
+(CF2D6) ＞ 計【 3 】 ： 4[3,1] (fa:1)-1[1]
+
+#2
+(CF2D6) ＞ 計【 -3 】 ： 2[1,1] (fa:2)-5[1,4]"""
+rands = [
+  # 1回目
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+
+  # 2回目
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]

@@ -88,7 +88,7 @@ module BCDice
 
         add_dice_randomizer = CommonCommand::AddDice::Randomizer.new(@randomizer, self)
         total = node.lhs.eval(self, add_dice_randomizer)
-        rand_values = @randomizer.rand_results.map(&:first)
+        rand_values = add_dice_randomizer.rand_results.map(&:value)
 
         n1 = count_fumble(rand_values, lucky_state)
         n_max = count_critical(rand_values, lucky_state)
