@@ -5,12 +5,14 @@
 ### 対応ゲームシステムの追加
 - スタリィドール (StarryDolls): よっしーさんありがとうっ！ ([#443](https://github.com/bcdice/BCDice/pull/443))
 - 韓国語版 銀剣のステラナイツ 은검의 스텔라나이츠 (StellarKnights:Korean): Soaさんありがとうっ！ ([#458](https://github.com/bcdice/BCDice/pull/458))
+- 中国語 簡体字版 ネクロニカ 魔导书大战 (MagicaLogia:SimplifiedChinese): sasaさんありがとうっ！ ([#471](https://github.com/bcdice/BCDice/pull/471))
 
 ### 追加機能
 - 多くののゲームシステムで固有コマンドの処理に `Result` での成功／失敗／ファンブル／クリティカルの情報を付与する
   - みんなりがとうっ！： @blhsrwznrghfzpr, @h-mikisato, @GenKuzumochi, @spore0814, @yan30408
   - 詳細はissueを参照：[#423](https://github.com/bcdice/BCDice/issues/423)
 - 銀剣のステラナイツ: アタック判定のダイス数指定において加算・除算をあつかえるように。ViViさんありがとうっ！ ([#465](https://github.com/bcdice/BCDice/pull/465))
+- クラヤミクライン: ヨイヤミメビウスの大事故イベント表を追加。アカツキシマさんありがとうっ！ ([#472](https://github.com/bcdice/BCDice/pull/472))
 
 ### 変更
 - ネクロニカ: 加算ダイスでD10の個数が2以上の時に特殊処理の結果が妥当でないため、2D10以降は特殊処理をしないように変更。くずもちさんありがとうっ！ ([#440](https://github.com/bcdice/BCDice/pull/440))
@@ -38,7 +40,7 @@
   - 銀剣のステラナイツ ([#425](https://github.com/bcdice/BCDice/pull/425))
   - モノトーンミュージアムRPG ([#426](https://github.com/bcdice/BCDice/pull/426))
 
-## 変更
+### 変更
 - ウォーハンマーRPG第4版: 判定コマンドで失敗しても命中部位を表示する。Facelessさんありがとうっ！ ([#405](https://github.com/bcdice/BCDice/pull/405))
 - いくつかのシステムの日本語名を以下に変更
   - 歯車の塔の探空士（六畳間幻想空間） ([#414](https://github.com/bcdice/BCDice/pull/414))
@@ -46,11 +48,11 @@
   - ソード・ワールドRPG, ソード・ワールド2.0, ソード・ワールド2.5 ([#415](https://github.com/bcdice/BCDice/pull/415))
   - エモクロアTRPG ([#419](https://github.com/bcdice/BCDice/pull/419))
 
-## 誤植修正
+### 誤植修正
 - ウォーハンマーRPG第4版: やっちまった表の誤植を修正。Facelessさんありがとうっ！ ([#405](https://github.com/bcdice/BCDice/pull/405))
 - 迷宮キングダム 基本ルールブック: 王国環境表および技術決定表の誤植を修正。ぶためんさんありがとうっ！ ([#421](https://github.com/bcdice/BCDice/pull/421))
 
-## バグ修正
+### バグ修正
 - `BCDice::Base#.command_pattern` で正確な正規表現を得られるように修正 ([#413](https://github.com/bcdice/BCDice/pull/413), [#416](https://github.com/bcdice/BCDice/pull/416))
 
 ## 3.1.3 2021/04/12
