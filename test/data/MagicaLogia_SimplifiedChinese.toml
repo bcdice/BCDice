@@ -1,0 +1,1459 @@
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 4[2,2] ＞ 4 ＞ 成功 ＞ 产生2个兽魔素"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 3[1,2] ＞ 3 ＞ 失败"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "2d6>=9"
+output = "(2D6>=9) ＞ 6[3,3] ＞ 6 ＞ 失败 ＞ 产生2个力魔素"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "2d6>=7"
+output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ 大成功(回复1D6点魔力或恢复1种变调) ＞ 产生2个暗魔素"
+critical = true
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "2d6>=7"
+output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ 大失败 ＞ 产生2个星魔素"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTT"
+output = "随机特技表(5,9) ＞ 「梦」《狂气》"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTT"
+output = "随机特技表(1,6) ＞ 「星」《海》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTT"
+output = "随机特技表(3,11) ＞ 「力」《光》"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTT"
+output = "随机特技表(6,12) ＞ 「暗」《死》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTS"
+output = "星领域随机特技表(2) ＞ 「星」《黄金》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTS"
+output = "星领域随机特技表(12) ＞ 「星」《异界》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTT1"
+output = "星领域随机特技表(12) ＞ 「星」《异界》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTB"
+output = "兽领域随机特技表(2) ＞ 「兽」《肉》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTB"
+output = "兽领域随机特技表(12) ＞ 「兽」《爱欲》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTT2"
+output = "兽领域随机特技表(12) ＞ 「兽」《爱欲》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTF"
+output = "力领域随机特技表(2) ＞ 「力」《重力》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTF"
+output = "力领域随机特技表(12) ＞ 「力」《圆环》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTT3"
+output = "力领域随机特技表(12) ＞ 「力」《圆环》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTP"
+output = "歌领域随机特技表(2) ＞ 「歌」《物语》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTP"
+output = "歌领域随机特技表(12) ＞ 「歌」《时间》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTT4"
+output = "歌领域随机特技表(12) ＞ 「歌」《时间》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTD"
+output = "梦领域随机特技表(2) ＞ 「梦」《追忆》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTD"
+output = "梦领域随机特技表(12) ＞ 「梦」《未来》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTT5"
+output = "梦领域随机特技表(12) ＞ 「梦」《未来》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTN"
+output = "暗领域随机特技表(2) ＞ 「暗」《深渊》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTN"
+output = "暗领域随机特技表(12) ＞ 「暗」《死》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "RTT6"
+output = "暗领域随机特技表(12) ＞ 「暗」《死》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TPT"
+output = "时间流逝表(1) ＞ 持续过着被当作目标被他人追逐的生活。最近几年每天都在艰苦的战斗中度过。以「暗」《死》进行判定。若成功在本局游戏结束后额外获得1个功绩点；若失败发生「命运转变」。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TPT"
+output = "时间流逝表(2) ＞ 在冒险的旅途中，无上的幸福降临了。以「暗」《死》进行判定。若成功使降临在自身锚点身上的一种灾厄、或者是自己背负的一个创伤无效化。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TPT"
+output = "时间流逝表(3) ＞ 从冥想中醒来，不知不觉已经是这个时间了。得益于冥想，获得了充足的魔素。获得「歌」「梦」「暗」魔素。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TPT"
+output = "时间流逝表(6) ＞ 每日刻苦钻研，精进魔法修行。如果玩家愿意，可以将藏书栏中的魔法变更为自己可习得的其他魔法。如果将已填充魔素的魔法更改为未习得的，则失去已填充的魔素。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "ST"
+output = "场景表(2) ＞ 用魔法创造出的次元间隙。这里是无关时间与空间的地方，既随处可见、又不属于任何地方。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "ST"
+output = "场景表(7) ＞ 周围发生了由《断章》引起的魔法灾厄。以「星」《黄金》进行判定。若成功任意获得1个魔素；若失败使用「命运转变表」。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "ST"
+output = "场景表(12) ＞ 未来的预感。眼前浮现了可能会发生的事情。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "FT"
+output = "大失败表(1) ＞ 魔法灾厄降临在你的锚点身上。发生「命运转变」。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "FT"
+output = "大失败表(6) ＞ 啊，好险呀。幸好什么也没发生。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WT"
+output = "变调表(1) ＞ 『封印』随机选择一个自己的魔法（装备魔法除外），并在魔法的确认栏内打上勾。使用该魔法时必须消耗2点【魔力】。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WT"
+output = "变调表(6) ＞ 『不幸』在「星」《黄金》的确认栏内打上勾。此后无法使用该特技，并且当该特技所属领域内的特技成为指定特技时，判定附加-1向下修正。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "FCT"
+output = "命运转变表(1) ＞ 『挫折』这个角色放弃了自身重要的梦想。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "FCT"
+output = "命运转变表(6) ＞ 『事故』这个角色遇到交通事故，受了无法治愈的伤。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "AT"
+output = "事件表(2) ＞ 意外的礼物、出色的主意、恶魔般的交易……你可以任意获得1个【魔素】、或者回复1D6【魔力】。不论如何选择，对该人物的【命运】值上升1。【命运】属性可由GM自由决定。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "AT"
+output = "事件表(7) ＞ 行走的僵尸群、地狱的业火、迷宫化……以「力」《波》进行判定。若成功任意获得1个魔素；若失败对该人物使用「命运转变表」。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "AT"
+output = "事件表(12) ＞ 献身的看护、魔法的祝福、奇迹……对该人物的【命运】值上升1。【命运】属性可自由决定。如果关系栏中有创伤，可以从关系栏中消去一个创伤。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "BGT"
+output = "经历表(1) ＞ 书警／Bookwatch"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "BGT"
+output = "经历表(6) ＞ 外典／Apocrypha"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "DAT"
+output = "初期锚点表(2) ＞ 『恩人』在你困难之时，得到了锚点的相助。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "DAT"
+output = "初期锚点表(12) ＞ 『情人』你与锚点有肉体关系。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "FAT"
+output = "命运属性表(1) ＞ 『血缘』自己或者自己所爱之人的家属亲戚。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "FAT"
+output = "命运属性表(6) ＞ 『尊敬』对这个人物的才能、思想、态度抱有敬畏或尊重。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WIT"
+output = "愿望表(1) ＞ 希望拯救自己以外的某个特定的人。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WIT"
+output = "愿望表(6) ＞ 希望满足自己的欲望（财欲、名欲、肉欲、求知欲等）。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TCT"
+output = "命运转变「典型性灾厄」(1) ＞ 挫折。这个角色放弃了自身重要的梦想。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TCT"
+output = "命运转变「典型性灾厄」(6) ＞ 事故。这个角色遇到交通事故，受了无法治愈的伤。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "PCT"
+output = "命运转变「物理性灾厄」(1) ＞ 火灾。自己的家被烧毁，无家可归。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "PCT"
+output = "命运转变「物理性灾厄」(6) ＞ 伤害。被路过的歹徒或者憎恨你的人所伤。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MCT"
+output = "命运转变「精神性灾厄」(1) ＞ 倦怠。被疲劳感侵袭，做什么都提不起劲。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MCT"
+output = "命运转变「精神性灾厄」(6) ＞ 记忆丧失。忘记朋友或者PC。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "ICT"
+output = "命运转变「狂气性灾厄」(1) ＞ 双重人格。出现了另一种人格并开始擅自行动。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "ICT"
+output = "命运转变「狂气性灾厄」(6) ＞ 发情。体温上升、心跳加快、进入性兴奋状态。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "SCT"
+output = "命运转变「社会性灾厄」(1) ＞ 逮捕。因冤罪被逮捕拘留。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "SCT"
+output = "命运转变「社会性灾厄」(6) ＞ 忙碌。被巨大的工作量追赶着，身心俱疲。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "XCT"
+output = "命运转变「超自然灾厄」(1) ＞ 通灵。变得能够看到本应无法看见的东西。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "XCT"
+output = "命运转变「超自然灾厄」(6) ＞ 靶子。容易吸引杀人狂、魔法灾厄等。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WCT"
+output = "命运转变「不可思议的灾厄」(1) ＞ 中二病。总是不自觉地做出中二的言行举止。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WCT"
+output = "命运转变「不可思议的灾厄」(6) ＞ 病娇。病态般地爱慕着PC，对自己以外的对PC抱有好感的人持攻击性态度。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "CCT"
+output = "命运转变「喜剧性灾厄」(1) ＞ 性转。自身的肉体性别反转。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "CCT"
+output = "命运转变「喜剧性灾厄」(6) ＞ 脱衣。当场脱光所有衣服。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MIT"
+output = "宿敌表(1) ＞ 嫉妒。这个人物其实是嫉妬调查者实力的《大法典》的魔法使。该人物使用《火刑人》（大判P.174）的数据，但使用魔法时需要消耗魔素，且无法收藏魔法使。GM操作时，请让该人物向调查者或者调查者的锚点发起魔法战，阻碍他们的行动。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MIT"
+output = "宿敌表(4) ＞ 断章。这个人物其实被与这次事件无关的《断章》凭依。该人物使用《悦乐》（大判P.173）的数据。GM操作时，请让该人物成为《断章》的立会人、或者发起魔法战来阻碍调查者的行动。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MIT"
+output = "宿敌表(6) ＞ 忍者。这个人物其实是奉命刺杀你的忍者。该人物使用《忍者》（大判P.177）的数据。GM操作时，请让该人物成为《断章》的立会人、或者发起魔法战来阻碍调查者的行动。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MOT"
+output = "谋略表(1) ＞ 炸弹。这个人物的身上其实藏着会使调查者的肉身爆炸的魔法炸弹。公开该【秘密】时，调查者受到1D6的伤害。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MOT"
+output = "谋略表(6) ＞ 逃脱。这个人物的身上其实藏着协助《断章》逃跑的魔法。公开该【秘密】时，GM选择一本《断章》及一名NPC，让《断章》凭依在NPC身上。此时GM也可以选择已经被魔法使回收的《断章》，然后回复《断章》1D6的魔力。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MAT"
+output = "因缘表(1) ＞ 思慕。这个人物其实早就认识并深爱着调查者。调查者对该人物的【命运】值上升2，属性为「恋爱」。在对该人物的【命运】属性为「恋爱」期间，每当调查者对该人物的【命运】值上升1时，回复与【命运】值相等的【魔力】。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MAT"
+output = "因缘表(6) ＞ 无关。这个人物与本次事件无关，但这次相遇真的是无意义的吗？调查者对该人物使用事件表。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MUT"
+output = "奇人表(1) ＞ 寿命。这个人物的命数已尽。公开该【秘密】时，该人物死亡。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MUT"
+output = "奇人表(6) ＞ 依代。这个人物因灵媒体质容易被凭依。该人物被《断章》凭依时，《断章》的【攻击力】与【防御力】均上升2。公开该【秘密】后，循环结束时GM可以选择一本《断章》，将凭依对象变更为该NPC。但GM无法选择已经被魔法使回收的《断章》。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MFT"
+output = "力场表(1) ＞ 加护。这个人物的头顶总会降落星之恩宠。公开该【秘密】时，该场景内产生2个「星」魔素。并且在本局游戏中，对该人物的【命运】值上升1的角色获得2个「星」魔素。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MFT"
+output = "力场表(6) ＞ 暗黑。这个人物背负着被诅咒的命运，可能招致世界毁灭。公开该【秘密】时，该场景内产生2个「暗」魔素。并且在本局游戏中，对该人物的【命运】值上升1的角色获得2个「暗」魔素。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MLT"
+output = "同盟表(1) ＞ 精灵。这个人物其实是改变了姿态、在人界显现的精灵。象征特技是「梦」《偶然》。调查者在本局游戏间习得该特技的【精灵召唤】。并且在本局游戏中，有且仅有一次可使该【精灵召唤】自动成功。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MLT"
+output = "同盟表(6) ＞ 无垢。这个人物拥有纯洁无瑕的心灵。该NPC被视为战利品。持有该战利品的角色在本局游戏中有且仅有一次机会，可以无需消耗魔素就发动咒文魔法【净化】（大判P.120）并自动成功。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "BST"
+output = "空白秘密表(1) ＞ 宿敌表(1) ＞ 嫉妒。这个人物其实是嫉妬调查者实力的《大法典》的魔法使。该人物使用《火刑人》（大判P.174）的数据，但使用魔法时需要消耗魔素，且无法收藏魔法使。GM操作时，请让该人物向调查者或者调查者的锚点发起魔法战，阻碍他们的行动。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "BST"
+output = "空白秘密表(6) ＞ 同盟表(6) ＞ 无垢。这个人物拥有纯洁无瑕的心灵。该NPC被视为战利品。持有该战利品的角色在本局游戏中有且仅有一次机会，可以无需消耗魔素就发动咒文魔法【净化】（大判P.120）并自动成功。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "PT"
+output = "战利品表(2) ＞ 败者的躯体从内部开始破裂、四处散落。获得1点【功绩点】。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "PT"
+output = "战利品表(12) ＞ 败者化为暗影，在灼烧下变为异境的入口。胜者任意选择一个异境，可以在本局游戏期间移动至该异境。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "XEST"
+output = "极限环境场景表(2) ＞ 无法分辨上下左右，陷入一片黑暗中。由一名在该场景中登场的PC用《光》进行判定。若成功，获得2个暗魔素；若失败，承受｢遮断｣变调。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "XEST"
+output = "极限环境场景表(7) ＞ 你们被残酷的自然环境逼入绝境。以「力」《圆环》进行判定。若成功，好不容易找到了姑且能派上用场的东西，任意获得1个魔素；若失败，你受的伤跨越时间与空间，为你的锚点带去不幸，发生「命运转变」。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "XEST"
+output = "极限环境场景表(12) ＞ 振聋发聩般的轰鸣声。看来用言语与对方沟通是没指望了。以《旋律》进行判定。若失败，从已填充的魔素当中自行选择，共减少2个魔素。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "IWST"
+output = "内心世界场景表(2) ＞ 这里满是裸露的肌肤与湿热的吐息，无数男男女女正肆意放纵肉欲。可以允许一名在该场景中登场的PC用《爱欲》进行判定。若成功，获得1点【临时魔力】；若失败，【魔力】减少2。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "IWST"
+output = "内心世界场景表(7) ＞ 夜路。模糊的黑影在身后追赶着你。明明无法看清样子，却让人觉得异常恐惧。在该场景中登场的PC以「力」《圆环》进行判定。若成功，任意获得2个魔素；若失败，模糊的黑影会出现在你的锚点身前，发生「命运转变」。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "IWST"
+output = "内心世界场景表(12) ＞ 不知是何处的空间，你最爱的人出现在眼前。可以允许一名在该场景中登场的PC用《热情》进行判定。若成功，可以对任意一个锚点的【命运】值上升1；若失败，发生「命运转变」。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MCST"
+output = "魔法都市场景表(2) ＞ 突然发生了爆炸，似乎是谁在做实验时失败了。承受「破绽」变调后，获得2个「力」魔素。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MCST"
+output = "魔法都市场景表(7) ＞ 广场。魔法使之间的争吵导致各种魔法乱飞。在该场景中登场的PC以「力」《圆环》进行判定。若成功，任意获得2个魔素；若失败，现场的魔法将跨越时空对锚点造成影响，发生「命运转变」。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MCST"
+output = "魔法都市场景表(12) ＞ 斗技场。魔法使们让经过强化的元型和幻兽互相厮杀。发起该场景的PC拥有一次向基本规则书中记载的Rank4以下的〈书籍卿〉或〈越境者〉挑起魔法战的机会。若胜利，可以使用「战利品表」。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WDST"
+output = "死后世界场景表(2) ＞ 寂落的村庄，偶尔有影子一般的人们路过。在这里，可以见到已经死去的角色。在该场景登场的PC中，有且仅有一人可以克服一个创伤。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WDST"
+output = "死后世界场景表(6) ＞ 在这里，地面化为白云，透过云层间隙好像可以看到现世的景象。以「力」《圆环》进行判定。若成功，在本次跑团期间有且仅有一次机会重掷判定骰；若失败，锚点跨越时空看到了死后世界，发生｢命运转变｣。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WDST"
+output = "死后世界场景表(12) ＞ 不知是何处的空间，你最爱的人出现在眼前。可以允许一名在该场景中登场的PC用《热情》进行判定。若成功，可以对任意一个锚点的【命运】值上升1；若失败，发生「命运转变」。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "LWST"
+output = "迷宫世界场景表(2) ＞ 空旷的石制房间，画在地板上的魔法阵散发着诡异的光芒。可以允许一名在该场景中登场的PC用《异界》进行判定。若成功，可以将那个魔法阵作为返回地球的魔法门来使用；若失败，被从魔法门中涌现的怪物袭击，该场景中登场的所有PC减少1D6【魔力】。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "LWST"
+output = "迷宫世界场景表(7) ＞ 突然出现的怪物袭击了你们。该场景中登场的所有PC以「力」《圆环》进行判定。若成功，则打倒怪物并任意获得1个魔素；若失败，你受的伤跨越时间与空间，为你的锚点带去不幸，发生「命运转变」。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "LWST"
+output = "迷宫世界场景表(12) ＞ 道路尽头的墙壁上排列着乍看之下不明所以的文字。如果想要继续前进，就必须解开这些文字谜题。可以允许一名在该场景中登场的PC用《谜》进行判定。若成功，选择一个已公开的概要，公开对应的【秘密】；若失败，暗藏在房间内的陷阱将启动，强制结束本次场景。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "STB"
+output = "大判场景表(2) ＞ 这里是与原本所在之处完全不同的地方。只有这短暂的一瞬间，来到了一个充满着魔法之力的异境。场景中产生1个「星」魔素。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "STB"
+output = "大判场景表(7) ＞ 周围发生了由《断章》引起的魔法灾厄。以「力」《圆环》进行判定。若成功任意获得1个魔素；若失败使用「命运转变表」。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "STB"
+output = "大判场景表(12) ＞ 悲剧的预感。家人的不幸、亲友的绝望、同伴之死……幻觉之中看到了将来可能会发生的事情。场景中产生1个「暗」魔素。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MGCT"
+output = "命运转变「魔法使的灾厄」(1) ＞ 厌恶。厌恶〈愚者〉，开始对〈大法典〉的做法抱有疑问。该不幸发生两次后，这个魔法使不会死亡但会变为NPC〈书籍卿〉。若该不幸降临在〈书籍卿〉身上，则没有效果。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MGCT"
+output = "命运转变「魔法使的灾厄」(6) ＞ 消耗。【魔力】减少1。即使该不幸发生两次，这个魔法使也不会死亡。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MBST"
+output = "魔法书架场景表(2) ＞ 获得了进入《禁书》保管库的许可。四周重重展开的结界、眼神锐利的书警们都异常显眼。可就趁着一瞬间的不注意，《禁书》居然偷袭了你们！必须从该场景登场的PC中选出一人，以《流动》进行判定。若失败，【魔力】减少3；若成功，【临时魔力】增加3。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MBST"
+output = "魔法书架场景表(4) ＞ 镇上的图书馆。不知何时回到了人界。在该场景登场的PC中，有且只有一人可以任意选择一个角色，对其使用「事件表」。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MBST"
+output = "魔法书架场景表(7) ＞ 荒废的房间中，倒落的空书架格外显眼。这是〈大破坏〉的影响吗……在该场景中登场的PC以「星」《异界》进行判定。若失败，将跨越时空对锚点造成影响，发生「命运转变」。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MBST"
+output = "魔法书架场景表(11) ＞ 魔导书的阅览室。几名魔法使正专心致志地阅读着魔导书。可以允许一名在该场景中登场的PC用「星」《异界》进行判定。若成功，可以将已习得的魔法更换为另一个可以习得的魔法；若失败，承受｢封印｣变调。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MBST"
+output = "魔法书架场景表(12) ＞ 书架与书架之间突然出现了一扇门。这扇连接异界的大门，到底会通向何方呢？掷异界场景表，并使结果生效。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MAST"
+output = "魔法学院场景表(2) ＞ 一条美丽的黑龙出现在眼前，是学院的扎那尔帕托斯院长。他似乎想告诉你们什么。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MAST"
+output = "魔法学院场景表(3) ＞ 突然被什么东西袭击！似乎是有学生召唤元型时失败了。在该场景登场的PC中选出一人，以《流动》进行判定。若失败，【魔力】减少3；若成功，【临时魔力】增加3。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MAST"
+output = "魔法学院场景表(4) ＞ 这里是女生宿舍？有男性PC在该场景登场时，男性PC以《鳞》进行判定。若失败，承受｢封印｣变调。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MAST"
+output = "魔法学院场景表(7) ＞ 打开门后看到的是你熟识之人，好像不小心误闯学院了。以「力」《水》进行判定。若失败，发生「命运转变」。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MAST"
+output = "魔法学院场景表(10) ＞ 正在上课的教室。讲师呼唤出的元型朝这边飞来！在该场景登场的PC中选出一人，以「暗」《死》进行判定。若失败，【魔力】减少1；若成功，可以召唤该特技的精灵。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MAST"
+output = "魔法学院场景表(11) ＞ 学生央求你施展魔法给大家看看。在该场景登场的PC中选出一人，以《追忆》进行判定。若失败，承受「不幸」变调；若成功，获得2个「梦」魔素。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "MAST"
+output = "魔法学院场景表(12) ＞ 自习室。学生们绞尽脑汁尝试读懂魔导书。在该场景登场的PC中选出一人，以《天空》进行判定。若成功，任意获得2个魔素。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TCST"
+output = "克雷德塔场景表(2) ＞ 一位少女出现在你的眼前。她是睡美人的领袖拉托乌娜。本应持续沉眠的她现身于此，到底想要告诉你些什么呢？"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TCST"
+output = "克雷德塔场景表(3) ＞ 陷⼊狂⽓的睡美⼈突然袭来！在该场景登场的PC中选出一人，以《炎》进行判定。若失败，【魔力】减少3；若成功，【临时魔力】增加3。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TCST"
+output = "克雷德塔场景表(4) ＞ 向你搭话的天涯预言家告知了不幸的未来。在该场景登场的PC中选出一人，以《睡眠》进行判定。若失败，【魔力】减少1；若成功，获得1个「梦」魔素。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TCST"
+output = "克雷德塔场景表(7) ＞ 不应在这里的人突然出现在你眼前，似乎是误入了睡美人的梦境之中。以「力」《水》进行判定。若失败，发生「命运转变」。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TCST"
+output = "克雷德塔场景表(12) ＞ 眼前突然出现了一扇门。这扇连接异界的大门，到底会通向何方呢？掷异界场景表，并使结果生效。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "PWST"
+output = "平行世界场景表(2) ＞ 咖啡店的桌子上，FM收音机正在播放本应去年解散的乐队在前几日刚发布的新曲。在该场景登场的PC中，有且只有一人掷「时间流逝表」，并使结果生效。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "PWST"
+output = "平行世界场景表(3) ＞ 热闹的街道。迎面走来一个与你长相完全相同的人，那就是这个世界的你自己吗？在该场景登场的PC中选出一人，以「兽」《花》进行判定。若成功，任意获得2个魔素；若失败，承受「病魔」变调。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "PWST"
+output = "平行世界场景表(7) ＞ 有缘之人的家门前。你不认识的人从大门走出，正以一种怀疑的眼神打量着你。这个人难道是……？以「梦」《追忆》进行判定。若失败，发生「命运转变」。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "PWST"
+output = "平行世界场景表(11) ＞ 经过小学门口。透过音乐教室的窗户，你看到了不认识的音乐家的肖像照。以《微笑》进行判定。若失败，承受「封印」变调。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "PWST"
+output = "平行世界场景表(12) ＞ 眼前正发生着你曾经经历过的事情。而对于这个世界来说，这是正要发生的事情。在该场景登场的PC中，有且只有一人在该场景中的判定获得＋1向上修正。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "PAST"
+output = "终末世界场景表(2) ＞ 夜晚。为避雨踏入某个寺院之中，在这里感觉不到危险的气息，应该能好好休息一下吧。时间在静静地流逝。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "PAST"
+output = "终末世界场景表(5) ＞ 夜晚。已经化为废墟满是尘埃的城市之中，虚凭正在袭击愚者。可以允许一名在该场景中登场的PC用「星」《静寂》进行判定。若成功，可救下愚者并对其【命运】上升1，属性可自由决定；若失败，【魔力】减少3。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "PAST"
+output = "终末世界场景表(12) ＞ 黄昏。锈迹斑斑的铁轨周围满是凌乱的骷髅。被一只虚凭袭击并进行魔法战，前两回合为白昼，之后的回合作为夜晚处理。该魔法战在本局游戏中只会发生一次。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "GBST"
+output = "异世界酒吧场景表(2) ＞ 被酒吧老板雷神缠上了。在该场景登场的PC中选出一人，以雷神为对象掷「事件表」。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "GBST"
+output = "异世界酒吧场景表(7) ＞ 被一位客人强迫灌下烈酒。以「星」《静寂》进行判定。若失败，发生「命运转变」。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "GBST"
+output = "异世界酒吧场景表(12) ＞ 美丽的女神正在窥视镜子。这似乎是能够映照出命运的镜子。可以允许一名在该场景中登场的PC用《未来》进行判定。若成功，自由选择与一名锚点的【命运】上升1。不论成功与否，该效果只发生一次。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "SLST"
+output = "星影场景表(2) ＞ 被列车长告知你持有的是无效「车票」，感觉到了其他乘客注视你的视线。必须从该场景登场的PC中选出一人，想方设法再获得一张车票。以魂之特技进行判定。若失败，重复判定直至成功为止。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "SLST"
+output = "星影场景表(10) ＞ “请问我可以坐在这里吗？”〈书籍卿〉这么说着，在你身旁坐下。以「兽」《牙》进行判定。若成功，选择一个已公开的概要，公开对应的【秘密】。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "SLST"
+output = "星影场景表(12) ＞ 从旁边车厢走来的竟然是你的锚点。随机选择一名在该场景登场的PC，并从那名PC的未在该异境出现的愚者锚点中随机选择一人、并让其登场。如果被选中的锚点能够成功返回原来的世界，游戏结束时对应PC获得1点【功绩点】。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WLAT"
+output = "世界法则追加表(1) ＞ 世界法则「乐园」。这个停靠站是一个如此美丽、令人感到慰藉的地方。在这里下车的愚者会被美景夺走心神，一辈子停留在此。以「刻印百景」的特技进行判定，若成功，可以阻止愚者被魅惑。不论成功与否，对每位愚者只能进行一次该判定。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WLAT"
+output = "世界法则追加表(6) ＞ 世界法则「魔法门」。这里存在着通往其他异境的入口。以「刻印百景」的特技进行判定。若成功，可以发现那扇魔法门。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WMT"
+output = "徘徊怪物表(1) ＞ 遭遇了由巨魔率领的半兽人和哥布林大军。数百只怪物发出野蛮的叫喊，朝魔法使们袭来。所有PC以《静寂》进行判定。待全员完成判定后，失败的PC受到1D6点伤害。若有判定成功的PC，可以将伤害点数减去与成功人数相当的数值。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WMT"
+output = "徘徊怪物表(4) ＞ 身着白银盔甲的骑士出现在眼前。骑士对你发起一对一单挑。在该场景登场的PC中选出一人作为代表应战，以《恋》进行判定。若失败，代表受到5点伤害。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "WMT"
+output = "徘徊怪物表(6) ＞ 披着黑色斗篷的幽鬼出现在眼前。它举起犹如枯木的细长双手，开始诅咒你。幽鬼的【魔力】为4。在场景中登场的所有PC以《愚昧》进行判定。判定失败的PC承受「不幸」变调，并发生「命运转变」。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "FFT"
+output = "落花表(1) ＞ 肉体如枯死的植物般开始崩坏，这份痛苦根本难以忍受。不成人话的痛苦嘶喊折磨着自己也折磨着他人，最终死去。对于将该〈永远〉设为锚点的角色，死亡的〈永远〉会成为创伤。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "FFT"
+output = "落花表(6) ＞ 从枯萎的身体中落下一枚「种子」，但〈永远〉已经无法重生了。如果把种子埋入大地，会发芽长出什么植物吧。对于将该〈永远〉设为锚点的角色，失去这个锚点且不会留下创伤。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "OLST"
+output = "旧图书馆场景表(2) ＞ 拐角。《禁书》突然出现，朝你袭来！在该场景登场的PC用「星」《黄金》进行判定。若失败，【魔力】减少3。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "OLST"
+output = "旧图书馆场景表(7) ＞ 堆积地如小山一般的被破坏的魔导书。藏匿在书堆中的《断章》向你袭来！在该场景登场的PC以「力」《自由》进行判定。若成功，击败《断章》后任意获得1个魔素；若失败，将跨越时空对锚点造成影响，发生「命运转变」。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "OLST"
+output = "旧图书馆场景表(11) ＞ 不知从何涌出的水流在地面形成一口清泉，泉水上浮着被他人唤出的元型。以「兽」《吼叫》进行判定。若成功，获得1点【临时魔力】；若失败，被元型攻击后减少1点【魔力】。不论成功与否，只要有人进行判定后，该场景效果即失效。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "OLST"
+output = "旧图书馆场景表(12) ＞ 为什么，你会在这里？推开门后，PC的锚点正站在那儿。从发起该场景的PC的锚点中随机选择一人，并使其登场。发起该场景的PC能够以那名锚点为对象进行「事件」，事件结束后继续推进原场景。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TPTB"
+output = "大判时间流逝表(1) ＞ 过着波澜万丈的动荡生活。这个时代发生的许多著名事件的背后，都有魔法性存在暗中推波助澜。你也与事件有关，不停地与《禁书》和《书籍卿》们战斗。以「兽」《吼叫》进行判定。若成功在本局游戏结束后额外获得1个功绩点；若失败，自身发生「命运转变」。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TPTB"
+output = "大判时间流逝表(2) ＞ 在冒险的旅途中，无上的幸福降临了。以「暗」《死》进行判定。若成功使降临在自身锚点身上的一种灾厄、或者是自己背负的一个创伤无效化。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "TPTB"
+output = "大判时间流逝表(6) ＞ 每日刻苦钻研，精进魔法修行。如果玩家愿意，可以将藏书栏中的魔法变更为自己可习得的其他魔法。如果将已填充魔素的魔法更改为未习得的，则失去已填充的魔素。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "FLT"
+output = "那之后表(1,1) ＞ 成就者变得容易被邪恶的魔法之力吸引。成就者如果在本局游戏中被《断章》凭依、或成为魔法灾厄的牺牲者，【堕落值】上升1，并进行堕落检定。若检定失败，成就者会丧命并成为PC的创伤。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "FLT"
+output = "那之后表(3,6) ＞ 成就者注意到自己的愿望是由PC实现的。成就者的【堕落值】变为与PC的【命运】相同的数值。如果因为该效果导致【堕落值】上升，进行堕落检定。若检定失败，成就者不再是〈愚者〉，而会成为魔法使。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "FLT"
+output = "那之后表(6,1) ＞ 成就者对于突然降临的幸运产生了罪恶感。如果成就者的【堕落值】在1以上，则进行堕落检定。若检定失败，使用「命运转变表『精神性灾厄』」，成就者遭受不幸。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "FLT"
+output = "那之后表(6,6) ＞ 成就者认为只要愿意相信，梦想就会成真。成就者稍微变得积极了一些。PC获得1点功绩点。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MagicaLogia:SimplifiedChinese"
+input = "2D6>=? 目标值?时不会出bug"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
