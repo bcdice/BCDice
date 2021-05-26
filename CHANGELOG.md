@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+## 3.3.0 2021/05/26
 
 ### 対応ゲームシステムの追加
 - スタリィドール (StarryDolls): よっしーさんありがとうっ！ ([#443](https://github.com/bcdice/BCDice/pull/443))
