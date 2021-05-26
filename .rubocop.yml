@@ -37,6 +37,10 @@ Layout/FirstArrayElementIndentation:
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
+Lint/UnusedMethodArgument:
+  Exclude:
+    - example/Template.rb
+
 Lint/StructNewOverride:
   Enabled: false
 

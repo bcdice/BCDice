@@ -14,7 +14,7 @@
 - [BCDiceコマンドガイド](https://docs.bcdice.org/)
 - [ロードマップ](ROADMAP.md)
 - [ChangeLog](CHANGELOG.md)
-- [ダイスボットの作り方（旧版）](docs/how_to_make_dicebot.md)
+- [ダイスボットの作り方](docs/how_to_make_dicebot.md)
 - [Pull Requestを送る前に確認したいこと](https://github.com/bcdice/BCDice/wiki/Pull-Requestを送る前に確認したいこと)
 
 ## バグ報告や機能要望
