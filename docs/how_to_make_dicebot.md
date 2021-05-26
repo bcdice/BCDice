@@ -427,6 +427,7 @@ Finished in 0.001021 seconds.
   - 古い記述のコードも多いので気をつけてください
 - [クラス一覧](https://yard.bcdice.org/)を参照する
 - [`BCDice::Command::Parser`](https://yard.bcdice.org/BCDice/Command/Parser.html) や [`BCDice::Arithmetic`](https://yard.bcdice.org/BCDice/Arithmetic.html) を活用する。
+- [`BCDice::Base#initialize`](https://github.com/bcdice/BCDice/blob/master/lib/bcdice/base.rb#L77-L94) にあるようなコンストラクタによる設定の初期化を活用する。
 - プログラミング言語Rubyを学ぶ
 
 ダイスボットを作成していてわからないことがあれば、 [BCDiceのDiscordサーバー](https://discord.gg/MEcN5eP)に質問してみてください。
