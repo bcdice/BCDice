@@ -17,8 +17,8 @@ module BCDice
         # @return [String]
         def roll(randomizer)
           value1, value2 = randomizer.roll_barabara(2, 6)
-          chosen1 = @items1[value1-1]
-          chosen2 = @items2[value2-1]
+          chosen1 = @items1[value1 - 1]
+          chosen2 = @items2[value2 - 1]
 
           "#{@name}[#{value1},#{value2}] ＞ #{chosen1}#{chosen2}"
         end
