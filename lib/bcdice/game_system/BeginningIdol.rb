@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'bcdice/game_system/beginning_idol/d6_twice_table'
 require 'bcdice/game_system/beginning_idol/accessories_table'
 require 'bcdice/game_system/beginning_idol/heart_step_table'
 require 'bcdice/game_system/beginning_idol/work_table'
