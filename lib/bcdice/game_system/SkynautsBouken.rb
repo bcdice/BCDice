@@ -106,7 +106,7 @@ module BCDice
         debug("SN Parsed", dice_count, target, fumble)
 
         dice_list = @randomizer.roll_barabara(dice_count, 6)
-        dice_top_two = dice_list.sort[-2..-1]
+        dice_top_two = dice_list.sort[-2..]
         res = if dice_top_two == [6, 6]
                 Result.critical("スペシャル（【生命点】1d6回復）")
               elsif dice_list.max <= fumble

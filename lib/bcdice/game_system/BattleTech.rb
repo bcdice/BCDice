@@ -364,7 +364,7 @@ module BCDice
         # TODO: 攻撃を表すクラスに変える
 
         # "PPC" 以降の部位指定
-        side = parse_result.command[3..-1]
+        side = parse_result.command[3..]
 
         modifier = Format.modifier(parse_result.modify_number)
         target = parse_result.target_number

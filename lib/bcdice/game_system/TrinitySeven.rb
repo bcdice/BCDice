@@ -52,7 +52,7 @@ module BCDice
         cmd = parser.parse(command)
         return nil unless cmd
 
-        modify = cmd.command[2..-1].to_i + cmd.modify_number
+        modify = cmd.command[2..].to_i + cmd.modify_number
         critical = 7 + modify
         target = cmd.target_number
 
