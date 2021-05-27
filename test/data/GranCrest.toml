@@ -125,6 +125,15 @@ rands = [
 
 [[ test ]]
 game_system = "GranCrest"
+input = "PositiveFT"
+output = "ポジティブ感情表(11) ＞ 好奇心\nあなたは彼（彼女）に好奇心を感じた。彼（彼女）はとても面白い。もっと知ってみたいと感じた。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GranCrest"
 input = "NFT"
 output = "ネガティブ感情表(32) ＞ 嫌悪\nあなたは彼（彼女）のことを嫌っている。考え方なのか、癖なのか、どうしても拒否感を覚えずにはいられない。"
 rands = [
@@ -143,6 +152,15 @@ rands = [
 
 [[ test ]]
 game_system = "GranCrest"
+input = "NegativeFT"
+output = "ネガティブ感情表(12) ＞ 悲哀\nあなたは彼（彼女）に悲哀を感じている。その過去か、それとも別のものか、あなたは彼（彼女）をかわいそうだと感じている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "GranCrest"
 input = "CT"
 output = "国特徴・カテゴリー表(2) ＞ 産業（ICT）\n農耕が盛ん、鍛冶技術に優れるなど、その国の産業を表す。"
 rands = [
@@ -152,6 +170,14 @@ rands = [
 [[ test ]]
 game_system = "GranCrest"
 input = "CT"
+output = "国特徴・カテゴリー表(4) ＞ 組織（OCT）\n狩人の組合がある、キャラバンがいるなど、その国にある組織を表す。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "GranCrest"
+input = "CategoryCT"
 output = "国特徴・カテゴリー表(4) ＞ 組織（OCT）\n狩人の組合がある、キャラバンがいるなど、その国にある組織を表す。"
 rands = [
   { sides = 6, value = 4 },
