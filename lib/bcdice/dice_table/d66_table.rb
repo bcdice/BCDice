@@ -41,6 +41,11 @@ module BCDice
         chosen = chosen.roll(randomizer) if chosen.respond_to?(:roll)
         return RollResult.new(@name, key, chosen)
       end
+
+      def choise(_value)
+        chosen = @items[key]
+        return RollResult.new(@name, key, chosen)
+      end
     end
   end
 end
