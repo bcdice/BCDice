@@ -2,6 +2,7 @@
 game_system = "AngelGear"
 input = "10AG"
 output = "(10AG) ＞ 0[1,1,1,4,4,4,6,6,6,6]+0 ＞ 成功数: 0"
+failure = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -19,6 +20,7 @@ rands = [
 game_system = "AngelGear"
 input = "10AG3"
 output = "(10AG3) ＞ 6[1,1,1,2,3,3,4,4,5,6]+0 ＞ 成功数: 6"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -36,6 +38,7 @@ rands = [
 game_system = "AngelGear"
 input = "10AG3"
 output = "(10AG3) ＞ 0[4,4,4,4,5,5,6,6,6,6]+0 ＞ 成功数: 0"
+failure = true
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -53,6 +56,7 @@ rands = [
 game_system = "AngelGear"
 input = "10AG3"
 output = "(10AG3) ＞ 10[1,1,1,1,1,2,2,2,2,3]+0 ＞ 成功数: 10"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -70,6 +74,7 @@ rands = [
 game_system = "AngelGear"
 input = "10AG3+5"
 output = "(10AG3+5) ＞ 4[1,2,2,3,4,4,5,6,6,6]+5 ＞ 成功数: 9"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -87,6 +92,7 @@ rands = [
 game_system = "AngelGear"
 input = "10AG3+2+3"
 output = "(10AG3+2+3) ＞ 4[1,2,2,3,4,4,5,6,6,6]+5 ＞ 成功数: 9"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -104,6 +110,7 @@ rands = [
 game_system = "AngelGear"
 input = "10AG3+95 福音発生でない"
 output = "(10AG3+95) ＞ 4[1,2,2,3,4,4,5,6,6,6]+95 ＞ 成功数: 99"
+success = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -121,6 +128,8 @@ rands = [
 game_system = "AngelGear"
 input = "10AG3+96 福音発生"
 output = "(10AG3+96) ＞ 4[1,2,2,3,4,4,5,6,6,6]+96 ＞ 成功数: 100(福音発生)"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -139,6 +148,8 @@ rands = [
 game_system = "AngelGear"
 input = "10AG3+100"
 output = "(10AG3+100) ＞ 4[1,2,2,3,4,4,5,6,6,6]+100 ＞ 成功数: 104(福音発生)"
+success = true
+critical = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
