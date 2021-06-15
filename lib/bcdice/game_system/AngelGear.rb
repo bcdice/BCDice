@@ -48,25 +48,22 @@ module BCDice
         dice_text = dice.join(",")
         modify_n = 0
         success = 0
-        gospel = false
         if skill_value
           success = dice.count { |val| val <= skill_value }
           modify_n = Arithmetic.eval(modify, RoundType::FLOOR) unless modify.empty?
         end
 
-        gospel = true if success + modify_n >= 100
+        gospel = '(福音発生)' if success + modify_n >= 100
 
-        output = "(#{command}) ＞ #{success}[#{dice_text}]#{format('%+d', modify_n)} ＞ 成功数: #{success + modify_n}#{gospel ? '(福音発生)' : ''}"
+        output = "(#{command}) ＞ #{success}[#{dice_text}]#{format('%+d', modify_n)} ＞ 成功数: #{success + modify_n}#{gospel}"
 
         if success + modify_n >= 100
-          result = Result.critical(output)
+          Result.critical(output)
         elsif 0 < success + modify_n
-          result = Result.success(output)
+          Result.success(output)
         else
-          result = Result.failure(output)
+          Result.failure(output)
         end
-
-        return result
       end
 
       TABLES = {
