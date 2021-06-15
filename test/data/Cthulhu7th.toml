@@ -446,6 +446,28 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu7th"
+input = "CC<=100"
+output = "(1D100<=100) ボーナス・ペナルティダイス[0] ＞ 100 ＞ 100 ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC<=150"
+output = "(1D100<=150) ボーナス・ペナルティダイス[0] ＞ 100 ＞ 100 ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
 input = "CC<=53r"
 output = "(1D100<=53) ボーナス・ペナルティダイス[0] ＞ 53 ＞ 53 ＞ 成功"
 success = true
@@ -577,6 +599,28 @@ fumble = true
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC<=100r"
+output = "(1D100<=100) ボーナス・ペナルティダイス[0] ＞ 100 ＞ 100 ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th"
+input = "CC<=300h"
+output = "(1D100<=150) ボーナス・ペナルティダイス[0] ＞ 100 ＞ 100 ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
 ]
 
 [[ test ]]

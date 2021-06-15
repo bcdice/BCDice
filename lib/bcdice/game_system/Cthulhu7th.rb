@@ -105,10 +105,10 @@ module BCDice
 
           if total == 1
             ResultLevel.new(:critical)
-          elsif total <= difficulty
-            ResultLevel.new(:success)
           elsif total >= fumble
             ResultLevel.new(:fumble)
+          elsif total <= difficulty
+            ResultLevel.new(:success)
           else
             ResultLevel.new(:failure)
           end
@@ -119,14 +119,14 @@ module BCDice
 
           if total == 1
             ResultLevel.new(:critical)
+          elsif total >= fumble
+            ResultLevel.new(:fumble)
           elsif total <= (difficulty / 5)
             ResultLevel.new(:extreme_success)
           elsif total <= (difficulty / 2)
             ResultLevel.new(:hard_success)
           elsif total <= difficulty
             ResultLevel.new(:regular_success)
-          elsif total >= fumble
-            ResultLevel.new(:fumble)
           else
             ResultLevel.new(:failure)
           end
