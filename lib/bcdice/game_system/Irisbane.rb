@@ -23,9 +23,14 @@ module BCDice
 
         上記 x y z にはそれぞれ四則演算を指定可能。
         例） ATTACK2+7,3*2,5-1
+
+        □攻撃判定のダメージ増減（ ATTACKx,y,z[+a]  ATTACKx,y,z[-a]）
+        末尾に [+a] または [-a] と指定すると、最終的なダメージを増減できる。
+        a: 増減量
+        例） ATTACK2,3,5[+10], ATK10,2,4[-8], AT8,3,2[-8+5]
       HELP
 
-      ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+),([+\-*/()\d]+),([+\-*/()\d]+)}i.freeze
+      ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+),([+\-*/()\d]+),([+\-*/()\d]+)(\[([+\-])([+\-*/()\d]+)\])?}i.freeze
       register_prefix('AT(TACK|K)?')
 
       def initialize(command)
@@ -37,22 +42,24 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         if (m = ATTACK_ROLL_REG.match(command))
-          roll_attack(m[2], m[3], m[4])
+          roll_attack(m[2], m[3], m[4], m[6], m[7])
         end
       end
 
       private
 
-      def roll_attack(power_expression, dice_count_expression, border_expression)
+      def roll_attack(power_expression, dice_count_expression, border_expression, modification_operator, modification_expression)
         power = Arithmetic.eval(power_expression, RoundType::CEIL)
         dice_count = Arithmetic.eval(dice_count_expression, RoundType::CEIL)
         border = Arithmetic.eval(border_expression, RoundType::CEIL)
+        modification_value = modification_expression.nil? ? nil : Arithmetic.eval(modification_expression, RoundType::CEIL)
         return if power.nil? || dice_count.nil? || border.nil?
+        return if modification_operator && modification_value.nil?
 
         power = power.clamp(0..)
         border = border.clamp(1, 6)
 
-        command = make_command_text(power, dice_count, border)
+        command = make_command_text(power, dice_count, border, modification_operator, modification_value)
 
         if dice_count <= 0
           return "#{command} ＞ 判定数が 0 です"
@@ -68,15 +75,36 @@ module BCDice
         message_elements << dices.join(',')
         message_elements << "成功ダイス数 #{success_dice_count}"
         message_elements << "× 攻撃力 #{power}" if success_dice_count > 0
-        message_elements << "ダメージ #{damage}" if success_dice_count > 0
+
+        if success_dice_count > 0
+          if modification_operator && modification_value
+            message_elements << "ダメージ #{damage}#{modification_operator}#{modification_value}"
+            damage = parse_operator(modification_operator).call(damage, modification_value).clamp(0..)
+            message_elements << damage.to_s
+          else
+            message_elements << "ダメージ #{damage}"
+          end
+        end
 
         Result.new(message_elements.join(' ＞ ')).tap do |r|
           r.condition = success_dice_count > 0
         end
       end
 
-      def make_command_text(power, dice_count, border)
-        "(ATTACK#{power},#{dice_count},#{border})"
+      def make_command_text(power, dice_count, border, modification_operator, modification_value)
+        text = "(ATTACK#{power},#{dice_count},#{border}"
+        text += "[#{modification_operator}#{modification_value}]" if modification_operator
+        text += ")"
+        text
+      end
+
+      def parse_operator(operator)
+        case operator
+        when '+'
+          lambda { |x, y| x + y }
+        when '-'
+          lambda { |x, y| x - y }
+        end
       end
     end
   end
