@@ -472,3 +472,39 @@ rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CDesire"
+output = "願望(11) ＞ 【栄光】己が目指した、まともであれば届かぬ高みへ、もしもこの手が届くとしたら……"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CDesire"
+output = "願望(14) ＞ 【逃避】大袈裟なことなんて誰も望んでいない。「何処かへ行きたい」、只それだけなのに……"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CDesire"
+output = "願望(32) ＞ 【愛情】「愛こそはすべて」と皆が知っている。だからこそ、奪い取ってでも手に入れなければ。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CDesire"
+output = "願望(54) ＞ 【笑顔】突き詰めるのなら、そう言うことだ。全員同じ想いなら、望んで悪い筈が無い。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
