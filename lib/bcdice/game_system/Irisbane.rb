@@ -35,6 +35,7 @@ module BCDice
 
         ■表
         CAge 年齢（p27）
+        CGender 性別（p27）
       HELP
 
       ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+),([+\-*/()\d]+),([+\-*/()\d]+)(\[([+\-])([+\-*/()\d]+)\])?}i.freeze
@@ -129,6 +130,12 @@ module BCDice
             "【老年】六十代からそれ以上。",
             "【晩年】百歳またはそれ以上。",
           ]
+        ),
+        "CGENDER" => DiceTable::ParityTable.new(
+          "性別",
+          "1D6",
+          "【男性 male】その種の雄性配偶体。それ以上でも、以下でも有り得ない。",
+          "【女性 female】その種の雌性配偶体。それ以上でも、以下でも有り得ない。"
         ),
       }.freeze
 

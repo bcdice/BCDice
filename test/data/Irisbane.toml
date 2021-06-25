@@ -420,3 +420,19 @@ output = "年齢(1) ＞ 【幼年】誕生から一桁代。"
 rands = [
   { sides = 6, value = 1 },
 ]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CGender"
+output = "性別(1) ＞ 【男性 male】その種の雄性配偶体。それ以上でも、以下でも有り得ない。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CGender"
+output = "性別(4) ＞ 【女性 female】その種の雌性配偶体。それ以上でも、以下でも有り得ない。"
+rands = [
+  { sides = 6, value = 4 },
+]
