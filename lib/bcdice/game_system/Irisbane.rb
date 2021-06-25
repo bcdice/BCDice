@@ -19,7 +19,9 @@ module BCDice
         y: 判定数
         z: 目標値
         （※ ATTACK は ATK または AT と簡略化可能）
-        例） ATTACK2,3,5, ATK10,2,4, AT8,3,2
+        例） ATTACK2,3,5
+        例） ATK10,2,4
+        例） AT8,3,2
 
         上記 x y z にはそれぞれ四則演算を指定可能。
         例） ATTACK2+7,3*2,5-1
@@ -27,7 +29,9 @@ module BCDice
         □攻撃判定のダメージ増減（ ATTACKx,y,z[+a]  ATTACKx,y,z[-a]）
         末尾に [+a] または [-a] と指定すると、最終的なダメージを増減できる。
         a: 増減量
-        例） ATTACK2,3,5[+10], ATK10,2,4[-8], AT8,3,2[-8+5]
+        例） ATTACK2,3,5[+10]
+        例） ATK10,2,4[-8]
+        例） AT8,3,2[-8+5]
       HELP
 
       ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+),([+\-*/()\d]+),([+\-*/()\d]+)(\[([+\-])([+\-*/()\d]+)\])?}i.freeze
