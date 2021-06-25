@@ -20,9 +20,12 @@ module BCDice
         z: 目標値
         （※ ATTACK は ATK または AT と簡略化可能）
         例） ATTACK2,3,5, ATK10,2,4, AT8,3,2
+
+        上記 x y z にはそれぞれ四則演算を指定可能。
+        例） ATTACK2+7,3*2,5-1
       HELP
 
-      ATTACK_ROLL_REG = /^AT(TACK|K)?(\d+),(\d+),(\d+)/i.freeze
+      ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+),([+\-*/()\d]+),([+\-*/()\d]+)}i.freeze
       register_prefix('AT(TACK|K)?')
 
       def eval_game_system_specific_command(command)
@@ -36,7 +39,11 @@ module BCDice
       def roll_attack(power_expression, dice_count_expression, border_expression)
         power = Arithmetic.eval(power_expression, RoundType::CEIL)
         dice_count = Arithmetic.eval(dice_count_expression, RoundType::CEIL)
-        border = Arithmetic.eval(border_expression, RoundType::CEIL).clamp(1, 6)
+        border = Arithmetic.eval(border_expression, RoundType::CEIL)
+        return if power.nil? || dice_count.nil? || border.nil?
+
+        power = power.clamp(0..)
+        border = border.clamp(1, 6)
 
         command = make_command_text(power, dice_count, border)
 
