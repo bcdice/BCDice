@@ -50,8 +50,8 @@ module BCDice
       private
 
       def roll_attack(dice_count_expression, border_expression, additional_damage_rules)
-        dice_count = Arithmetic.eval(dice_count_expression, round_type: RoundType::FLOOR)
-        border = Arithmetic.eval(border_expression, round_type: RoundType::FLOOR).clamp(1, 6) if border_expression
+        dice_count = Arithmetic.eval(dice_count_expression, RoundType::FLOOR)
+        border = Arithmetic.eval(border_expression, RoundType::FLOOR).clamp(1, 6) if border_expression
 
         command = make_command_text(dice_count, border, additional_damage_rules)
 
