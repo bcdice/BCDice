@@ -616,3 +616,39 @@ output = "望む執行の方向性(3) ＞ 社会的な制裁を望む"
 rands = [
   { sides = 6, value = 3 },
 ]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SceneSituation"
+output = "シチュエーション(11) ＞ 【日常】何一つ変わることの無い日々の一幕。移ろい易い世界では、それはとても大切である。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SCENESITUATION"
+output = "シチュエーション(14) ＞ 【喫茶】一息入れ、嗜好品を嗜む時の一幕。穏やかな空気は、だが、往々にして変わりやすい。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SSi"
+output = "シチュエーション(32) ＞ 【準備】何かを為すための用意をする一幕。情報収集、買物遠征、やるべきことは一杯だ。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SSI"
+output = "シチュエーション(54) ＞ 【食事】何かを糧とし、己の力を蓄える一幕。行動すれば消耗する。腹が減っては何とやらだ。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
