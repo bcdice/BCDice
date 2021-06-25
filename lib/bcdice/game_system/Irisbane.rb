@@ -41,6 +41,7 @@ module BCDice
         CQuestion 問い掛け（p34-35）
         CEndblessStyle, CEndStyle 復讐者のスタイル（p40）
         CEmblaceStyle, CEmbStyle 掌握者のスタイル（p41）
+        ExpectExecution, EEx 望む執行の方向性（p48）
       HELP
 
       ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+),([+\-*/()\d]+),([+\-*/()\d]+)(\[([+\-])([+\-*/()\d]+)\])?}i.freeze
@@ -257,11 +258,24 @@ module BCDice
             "【ポーン】（P83／作成済み：P188）――軍勢の気質。他者とは「集団の一要素」である。",
           ]
         ),
+        "ExpectExecution" => DiceTable::Table.new(
+          "望む執行の方向性",
+          "1D6",
+          [
+            "物理的な制裁を望む",
+            "精神的な制裁を望む",
+            "社会的な制裁を望む",
+            "己の手による制裁を望む",
+            "復讐者以外の制裁を望む",
+            "贖罪と改心こそを望む",
+          ]
+        ),
       }.transform_keys(&:upcase).freeze
 
       ALIAS = {
         "CEndStyle" => "CEndblessStyle",
         "CEmbStyle" => "CEmblaceStyle",
+        "EEx" => "ExpectExecution",
       }.transform_keys(&:upcase).transform_values(&:upcase).freeze
 
       register_prefix(TABLES.keys, ALIAS.keys)

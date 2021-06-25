@@ -592,3 +592,27 @@ output = "掌握者のスタイル(3) ＞ 【ルーク】（P80／作成済み�
 rands = [
   { sides = 6, value = 3 },
 ]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "ExpectExecution"
+output = "望む執行の方向性(1) ＞ 物理的な制裁を望む"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "EXPECTEXECUTION"
+output = "望む執行の方向性(2) ＞ 精神的な制裁を望む"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "EEx"
+output = "望む執行の方向性(3) ＞ 社会的な制裁を望む"
+rands = [
+  { sides = 6, value = 3 },
+]
