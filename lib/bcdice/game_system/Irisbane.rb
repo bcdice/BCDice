@@ -28,6 +28,13 @@ module BCDice
       ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+),([+\-*/()\d]+),([+\-*/()\d]+)}i.freeze
       register_prefix('AT(TACK|K)?')
 
+      def initialize(command)
+        super(command)
+
+        @sort_barabara_dice = true
+        @round_type = RoundType::CEIL
+      end
+
       def eval_game_system_specific_command(command)
         if (m = ATTACK_ROLL_REG.match(command))
           roll_attack(m[2], m[3], m[4])

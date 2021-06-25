@@ -1,5 +1,21 @@
 [[ test ]]
 game_system = "Irisbane"
+input = "3b6"
+output = "(3B6) ＞ 3,5,6"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "C(5/2)"
+output = "c(5/2) ＞ 3"
+rands = []
+
+[[ test ]]
+game_system = "Irisbane"
 input = "ATTACK2,4,5"
 output = "(ATTACK2,4,5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 2 ＞ ダメージ 6"
 rands = [
