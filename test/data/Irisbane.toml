@@ -652,3 +652,168 @@ rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SilhouetteLineEye"
+output = "シルエットライン：瞳の印象(1) ＞ 【鋭利】 ○－－－－－ 【柔和】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SLineEye"
+output = "シルエットライン：瞳の印象(2) ＞ 【鋭利】 －○－－－－ 【柔和】"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SilhouetteLEye"
+output = "シルエットライン：瞳の印象(3) ＞ 【鋭利】 －－○－－－ 【柔和】"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SLEye"
+output = "シルエットライン：瞳の印象(4) ＞ 【鋭利】 －－－○－－ 【柔和】"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SLEye"
+output = "シルエットライン：瞳の印象(5) ＞ 【鋭利】 －－－－○－ 【柔和】"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SLEye"
+output = "シルエットライン：瞳の印象(6) ＞ 【鋭利】 －－－－－○ 【柔和】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SLHair"
+output = "シルエットライン：髪の長さ(4) ＞ 【短い】 －－－○－－ 【長い】"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SLHeight"
+output = "シルエットライン：身長(4) ＞ 【低い】 －－－○－－ 【高い】"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SLConstitution"
+output = "シルエットライン：体型(4) ＞ 【小柄】 －－－○－－ 【大柄】"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SilhouetteLineCon"
+output = "シルエットライン：体型(1) ＞ 【小柄】 ○－－－－－ 【大柄】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SLineCon"
+output = "シルエットライン：体型(2) ＞ 【小柄】 －○－－－－ 【大柄】"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SilhouetteLCon"
+output = "シルエットライン：体型(3) ＞ 【小柄】 －－○－－－ 【大柄】"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SLCon"
+output = "シルエットライン：体型(4) ＞ 【小柄】 －－－○－－ 【大柄】"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SLDress"
+output = "シルエットライン：服飾(4) ＞ 【簡素 / シンプル】 －－－○－－ 【派手 / ゴージャス】"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SLTint"
+output = "シルエットライン：色彩(4) ＞ 【単色 / シンプル】 －－－○－－ 【多色 / カラフル】"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SilhouetteLine"
+output = "シルエットライン：\n【鋭利】 －－－○－－ 【柔和】 瞳の印象\n【短い】 －○－－－－ 【長い】 髪の長さ\n【低い】 ○－－－－－ 【高い】 身長\n【小柄】 －－－－○－ 【大柄】 体型\n【簡素】 －－－○－－ 【派手】 服飾\n【単色】 －－－－－○ 【多色】 色彩"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SilhouetteL"
+output = "シルエットライン：\n【鋭利】 －－－○－－ 【柔和】 瞳の印象\n【短い】 －○－－－－ 【長い】 髪の長さ\n【低い】 ○－－－－－ 【高い】 身長\n【小柄】 －－－－○－ 【大柄】 体型\n【簡素】 －－－○－－ 【派手】 服飾\n【単色】 －－－－－○ 【多色】 色彩"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SLine"
+output = "シルエットライン：\n【鋭利】 －－－○－－ 【柔和】 瞳の印象\n【短い】 －○－－－－ 【長い】 髪の長さ\n【低い】 ○－－－－－ 【高い】 身長\n【小柄】 －－－－○－ 【大柄】 体型\n【簡素】 －－－○－－ 【派手】 服飾\n【単色】 －－－－－○ 【多色】 色彩"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "SL"
+output = ""
+rands = []

@@ -36,6 +36,17 @@ module BCDice
         ■シチュエーション（p115）
         SceneSituation, SSi
 
+        ■シルエットライン（p37）
+        SilhouetteLineEye, SilhouetteLEye, SLineEye, SLEye 瞳の印象
+        SilhouetteLineHair, SilhouetteLHair, SLineHair, SLHair 髪の長さ
+        SilhouetteLineHeight, SilhouetteLHeight, SLineHeight, SLHeight 身長
+        SilhouetteLineCon, SilhouetteLCon, SLineCon, SLCon 体型
+        SilhouetteLineDress, SilhouetteLDress, SLineDress, SLDress 服飾
+        SilhouetteLineTint, SilhouetteLTint, SLineTint, SLTint 色彩
+
+        □シルエットライン一括
+        SilhouetteLine, SilhouetteL, SLine
+
         ■そのほかの表
         CAge 年齢（p27）
         CGender 性別（p27）
@@ -50,6 +61,9 @@ module BCDice
       ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+),([+\-*/()\d]+),([+\-*/()\d]+)(\[([+\-])([+\-*/()\d]+)\])?}i.freeze
       register_prefix('AT(TACK|K)?')
 
+      SILHOUETTE_LINE_REG = /^(S(ilhouette)?L(ine)?(Eye|Hair|Height|Constitution|Dress|Tint)|S(ilhouette)?Line|SilhouetteL)/i.freeze
+      register_prefix('S(ilhouette)?L(ine)?')
+
       def initialize(command)
         super(command)
 
@@ -58,10 +72,18 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
+        command = ALIAS[command] || command
+
         if (m = ATTACK_ROLL_REG.match(command))
           roll_attack(m[2], m[3], m[4], m[6], m[7])
+        elsif (m = SILHOUETTE_LINE_REG.match(command))
+          if m[4].nil?
+            roll_silhouette_line_all
+          else
+            roll_silhouette_line(m[4])
+          end
         else
-          roll_tables(ALIAS[command] || command, TABLES)
+          roll_tables(command, TABLES)
         end
       end
 
@@ -126,6 +148,49 @@ module BCDice
           lambda { |x, y| x - y }
         end
       end
+
+      def roll_silhouette_line_all
+        "シルエットライン：\n" + (SILHOUETTE_LINES.values.map do |sl|
+          r = sl.roll(@randomizer)
+          "#{r[:simple]} #{r[:name]}"
+        end).join("\n")
+      end
+
+      def roll_silhouette_line(kind)
+        SILHOUETTE_LINES[kind].roll(@randomizer)[:full]
+      end
+
+      class SilhouetteLine
+        def initialize(name, left, right)
+          @name = name.freeze
+          @left = left.freeze
+          @right = right.freeze
+        end
+
+        def roll(randomizer)
+          dice = randomizer.roll_once(6)
+          line = self.class.make_line(dice)
+
+          {
+            name: @name,
+            full: "シルエットライン：#{@name}(#{dice}) ＞ 【#{@left}】 #{line} 【#{@right}】",
+            simple: "【#{@left[0...2]}】 #{line} 【#{@right[0...2]}】",
+          }
+        end
+
+        def self.make_line(dice)
+          ("－" * (dice - 1)) + "○" + ("－" * (6 - dice))
+        end
+      end
+
+      SILHOUETTE_LINES = {
+        "Eye" => SilhouetteLine.new("瞳の印象", "鋭利", "柔和"),
+        "Hair" => SilhouetteLine.new("髪の長さ", "短い", "長い"),
+        "Height" => SilhouetteLine.new("身長", "低い", "高い"),
+        "Constitution" => SilhouetteLine.new("体型", "小柄", "大柄"),
+        "Dress" => SilhouetteLine.new("服飾", "簡素 / シンプル", "派手 / ゴージャス"),
+        "Tint" => SilhouetteLine.new("色彩", "単色 / シンプル", "多色 / カラフル"),
+      }.transform_keys(&:upcase).freeze
 
       TABLES = {
         "CAGE" => DiceTable::Table.new(
@@ -302,6 +367,10 @@ module BCDice
         "CEmbStyle" => "CEmblaceStyle",
         "EEx" => "ExpectExecution",
         "SSi" => "SceneSituation",
+        "SilhouetteLineCon" => "SilhouetteLineConstitution",
+        "SLineCon" => "SLineConstitution",
+        "SilhouetteLCon" => "SilhouetteLConstitution",
+        "SLCon" => "SLConstitution",
       }.transform_keys(&:upcase).transform_values(&:upcase).freeze
 
       register_prefix(TABLES.keys, ALIAS.keys)
