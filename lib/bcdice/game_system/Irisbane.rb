@@ -40,6 +40,7 @@ module BCDice
         CDesire 願望（p31）
         CQuestion 問い掛け（p34-35）
         CEndblessStyle, CEndStyle 復讐者のスタイル（p40）
+        CEmblaceStyle, CEmbStyle 掌握者のスタイル（p41）
       HELP
 
       ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+),([+\-*/()\d]+),([+\-*/()\d]+)(\[([+\-])([+\-*/()\d]+)\])?}i.freeze
@@ -244,10 +245,23 @@ module BCDice
             "【パール】（P63）――白の焔を宿す瞳。復讐とは「正義の遵守」である。",
           ]
         ),
+        "CEmblaceStyle" => DiceTable::Table.new(
+          "掌握者のスタイル",
+          "1D6",
+          [
+            "【キング】（P78／作成済み：P178）――王者の気質。他者とは「都合の良い手駒」である。",
+            "【クイーン】（P79／作成済み：P180）――女王の気質。他者とは「返答する鏡」である。",
+            "【ルーク】（P80／作成済み：P182）――戦車の気質。他者とは「歩く薪の束」である。",
+            "【ビショップ】（P81／作成済み：P184）――司祭の気質。他者とは「計略の道具類」である。",
+            "【ナイト】（P82／作成済み：P186）――騎士の気質。他者とは「伴侶と、それ以外」である。",
+            "【ポーン】（P83／作成済み：P188）――軍勢の気質。他者とは「集団の一要素」である。",
+          ]
+        ),
       }.transform_keys(&:upcase).freeze
 
       ALIAS = {
         "CEndStyle" => "CEndblessStyle",
+        "CEmbStyle" => "CEmblaceStyle",
       }.transform_keys(&:upcase).transform_values(&:upcase).freeze
 
       register_prefix(TABLES.keys, ALIAS.keys)
