@@ -1,0 +1,74 @@
+[[ test ]]
+game_system = "Irisbane"
+input = "ATTACK2,4,5"
+output = "(ATTACK2,4,5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 2 ＞ ダメージ 6"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+success = true
+
+[[ test ]]
+game_system = "Irisbane"
+input = "ATK10,2,4"
+output = "(ATTACK10,2,4) ＞ 3,4 ＞ 成功ダイス数 2 ＞ × 攻撃力 10 ＞ ダメージ 20"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+success = true
+
+[[ test ]]
+game_system = "Irisbane"
+input = "AT8,3,2"
+output = "(ATTACK8,3,2) ＞ 3,4,6 ＞ 成功ダイス数 0"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+failure = true
+
+[[ test ]]
+game_system = "Irisbane"
+input = "ATTACK0,4,5"
+output = "(ATTACK0,4,5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 0 ＞ ダメージ 0"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+success = true
+
+[[ test ]]
+game_system = "Irisbane"
+input = "ATTACK2,0,5"
+output = "(ATTACK2,0,5) ＞ 判定数が 0 です"
+rands = []
+
+[[ test ]]
+game_system = "Irisbane"
+input = "ATTACK2,4,0"
+output = "(ATTACK2,4,1) ＞ 1,3,4,6 ＞ 成功ダイス数 1 ＞ × 攻撃力 2 ＞ ダメージ 2"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+success = true
+
+[[ test ]]
+game_system = "Irisbane"
+input = "ATTACK2,4,7"
+output = "(ATTACK2,4,6) ＞ 1,3,4,6 ＞ 成功ダイス数 4 ＞ × 攻撃力 2 ＞ ダメージ 8"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+success = true
