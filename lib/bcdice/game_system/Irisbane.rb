@@ -39,6 +39,7 @@ module BCDice
         CFailure 欠落（p30）
         CDesire 願望（p31）
         CQuestion 問い掛け（p34-35）
+        CEndblessStyle, CEndStyle 復讐者のスタイル（p40）
       HELP
 
       ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+),([+\-*/()\d]+),([+\-*/()\d]+)(\[([+\-])([+\-*/()\d]+)\])?}i.freeze
@@ -55,7 +56,7 @@ module BCDice
         if (m = ATTACK_ROLL_REG.match(command))
           roll_attack(m[2], m[3], m[4], m[6], m[7])
         else
-          roll_tables(command, TABLES)
+          roll_tables(ALIAS[command] || command, TABLES)
         end
       end
 
@@ -231,9 +232,25 @@ module BCDice
             66 => "離れて行ったのは【誰】ですか？",
           }
         ),
-      }.freeze
+        "CEndblessStyle" => DiceTable::Table.new(
+          "復讐者のスタイル",
+          "1D6",
+          [
+            "【ルビー】（P58）――赤の焔を宿す瞳。復讐とは「激情の発露」である。",
+            "【サファイア】（P59）――青の焔を宿す瞳。復讐とは「冴えたやり方」である。",
+            "【トパーズ】（P60）――黄の焔を宿す瞳。復讐とは「ある種の冗句」である。",
+            "【エメラルド】（P61）――緑の焔を宿す瞳。復讐とは「良く生きること」である。",
+            "【オブシダン】（P62）――黒の焔を宿す瞳。復讐とは「沈黙の祈り」である。",
+            "【パール】（P63）――白の焔を宿す瞳。復讐とは「正義の遵守」である。",
+          ]
+        ),
+      }.transform_keys(&:upcase).freeze
 
-      register_prefix(TABLES.keys)
+      ALIAS = {
+        "CEndStyle" => "CEndblessStyle",
+      }.transform_keys(&:upcase).transform_values(&:upcase).freeze
+
+      register_prefix(TABLES.keys, ALIAS.keys)
     end
   end
 end

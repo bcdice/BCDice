@@ -544,3 +544,27 @@ rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CEndblessStyle"
+output = "復讐者のスタイル(1) ＞ 【ルビー】（P58）――赤の焔を宿す瞳。復讐とは「激情の発露」である。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CENDBLESSSTYLE"
+output = "復讐者のスタイル(2) ＞ 【サファイア】（P59）――青の焔を宿す瞳。復讐とは「冴えたやり方」である。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CENDStyle"
+output = "復讐者のスタイル(3) ＞ 【トパーズ】（P60）――黄の焔を宿す瞳。復讐とは「ある種の冗句」である。"
+rands = [
+  { sides = 6, value = 3 },
+]
