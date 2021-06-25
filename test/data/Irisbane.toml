@@ -412,3 +412,11 @@ rands = [
   { sides = 6, value = 5 },
 ]
 success = true
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CAge"
+output = "年齢(1) ＞ 【幼年】誕生から一桁代。"
+rands = [
+  { sides = 6, value = 1 },
+]

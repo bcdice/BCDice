@@ -32,6 +32,9 @@ module BCDice
         例） ATTACK2,3,5[+10]
         例） ATK10,2,4[-8]
         例） AT8,3,2[-8+5]
+
+        ■表
+        CAge 年齢（p27）
       HELP
 
       ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+),([+\-*/()\d]+),([+\-*/()\d]+)(\[([+\-])([+\-*/()\d]+)\])?}i.freeze
@@ -47,6 +50,8 @@ module BCDice
       def eval_game_system_specific_command(command)
         if (m = ATTACK_ROLL_REG.match(command))
           roll_attack(m[2], m[3], m[4], m[6], m[7])
+        else
+          roll_tables(command, TABLES)
         end
       end
 
@@ -111,6 +116,23 @@ module BCDice
           lambda { |x, y| x - y }
         end
       end
+
+      TABLES = {
+        "CAGE" => DiceTable::Table.new(
+          "年齢",
+          "1D6",
+          [
+            "【幼年】誕生から一桁代。",
+            "【少年】十代真っ盛り。",
+            "【青年】二十代から三十代。",
+            "【壮年】三十代から五十代。",
+            "【老年】六十代からそれ以上。",
+            "【晩年】百歳またはそれ以上。",
+          ]
+        ),
+      }.freeze
+
+      register_prefix(TABLES.keys)
     end
   end
 end
