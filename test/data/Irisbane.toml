@@ -508,3 +508,39 @@ rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CQuestion"
+output = "問い掛け(11) ＞ 【誰】を愛していましたか？"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CQuestion"
+output = "問い掛け(14) ＞ どんな【格好】をしていましたか？"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CQuestion"
+output = "問い掛け(32) ＞ どんな【空】が広がっていましたか？"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Irisbane"
+input = "CQuestion"
+output = "問い掛け(54) ＞ 【何処】へ向かっていましたか？"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
