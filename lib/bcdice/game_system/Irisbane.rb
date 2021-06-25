@@ -60,7 +60,7 @@ module BCDice
         return if power.nil? || dice_count.nil? || border.nil?
         return if modification_operator && modification_value.nil?
 
-        power = power.clamp(0..)
+        power = 0 if power < 0
         border = border.clamp(1, 6)
 
         command = make_command_text(power, dice_count, border, modification_operator, modification_value)
@@ -83,7 +83,8 @@ module BCDice
         if success_dice_count > 0
           if modification_operator && modification_value
             message_elements << "ダメージ #{damage}#{modification_operator}#{modification_value}"
-            damage = parse_operator(modification_operator).call(damage, modification_value).clamp(0..)
+            damage = parse_operator(modification_operator).call(damage, modification_value)
+            damage = 0 if damage < 0
             message_elements << damage.to_s
           else
             message_elements << "ダメージ #{damage}"
