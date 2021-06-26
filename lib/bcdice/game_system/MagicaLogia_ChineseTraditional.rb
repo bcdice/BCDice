@@ -12,7 +12,7 @@ module BCDice
       NAME = "魔導書大戰"
 
       # ゲームシステム名の読みがな
-      SORT_KEY = "國際化:Chinese Traditional:魔導書大戰"
+      SORT_KEY = "国際化:Chinese Traditional:魔導書大戰"
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
