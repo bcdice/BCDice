@@ -14,24 +14,24 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~HELP
-        ■攻撃判定（ ATTACKx,y,z ）
+        ■攻撃判定（ ATTACKx@y<=z ）
         x: 攻撃力
         y: 判定数
         z: 目標値
         （※ ATTACK は ATK または AT と簡略化可能）
-        例） ATTACK2,3,5
-        例） ATK10,2,4
-        例） AT8,3,2
+        例） ATTACK2@3<=5
+        例） ATK10@2<=4
+        例） AT8@3<=2
 
         上記 x y z にはそれぞれ四則演算を指定可能。
-        例） ATTACK2+7,3*2,5-1
+        例） ATTACK2+7@3*2<=5-1
 
-        □攻撃判定のダメージ増減（ ATTACKx,y,z[+a]  ATTACKx,y,z[-a]）
+        □攻撃判定のダメージ増減（ ATTACKx@y<=z[+a]  ATTACKx@y<=z[-a]）
         末尾に [+a] または [-a] と指定すると、最終的なダメージを増減できる。
         a: 増減量
-        例） ATTACK2,3,5[+10]
-        例） ATK10,2,4[-8]
-        例） AT8,3,2[-8+5]
+        例） ATTACK2@3<=5[+10]
+        例） ATK10@2<=4[-8]
+        例） AT8@3<=2[-8+5]
 
         ■シチュエーション（p115）
         SceneSituation, SSi
@@ -58,7 +58,7 @@ module BCDice
         ExpectExecution, EEx 望む執行の方向性（p48）
       HELP
 
-      ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+),([+\-*/()\d]+),([+\-*/()\d]+)(\[([+\-])([+\-*/()\d]+)\])?}i.freeze
+      ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+)@([+\-*/()\d]+)<=([+\-*/()\d]+)(\[([+\-])([+\-*/()\d]+)\])?}i.freeze
       register_prefix('AT(TACK|K)?')
 
       SILHOUETTE_LINE_REG = /^(S(ilhouette)?L(ine)?(Eye|Hair|Height|Constitution|Dress|Tint)|S(ilhouette)?Line|SilhouetteL)/i.freeze
@@ -134,7 +134,7 @@ module BCDice
       end
 
       def make_command_text(power, dice_count, border, modification_operator, modification_value)
-        text = "(ATTACK#{power},#{dice_count},#{border}"
+        text = "(ATTACK#{power}@#{dice_count}<=#{border}"
         text += "[#{modification_operator}#{modification_value}]" if modification_operator
         text += ")"
         text

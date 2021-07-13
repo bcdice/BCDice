@@ -16,8 +16,8 @@ rands = []
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2,4,5"
-output = "(ATTACK2,4,5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 2 ＞ ダメージ 6"
+input = "ATTACK2@4<=5"
+output = "(ATTACK2@4<=5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 2 ＞ ダメージ 6"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -28,8 +28,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATK10,2,4"
-output = "(ATTACK10,2,4) ＞ 3,4 ＞ 成功ダイス数 2 ＞ × 攻撃力 10 ＞ ダメージ 20"
+input = "ATK10@2<=4"
+output = "(ATTACK10@2<=4) ＞ 3,4 ＞ 成功ダイス数 2 ＞ × 攻撃力 10 ＞ ダメージ 20"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -38,8 +38,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT8,3,2"
-output = "(ATTACK8,3,2) ＞ 3,4,6 ＞ 成功ダイス数 0"
+input = "AT8@3<=2"
+output = "(ATTACK8@3<=2) ＞ 3,4,6 ＞ 成功ダイス数 0"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -49,8 +49,8 @@ failure = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK0,4,5"
-output = "(ATTACK0,4,5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 0 ＞ ダメージ 0"
+input = "ATTACK0@4<=5"
+output = "(ATTACK0@4<=5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 0 ＞ ダメージ 0"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -61,14 +61,14 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2,0,5"
-output = "(ATTACK2,0,5) ＞ 判定数が 0 です"
+input = "ATTACK2@0<=5"
+output = "(ATTACK2@0<=5) ＞ 判定数が 0 です"
 rands = []
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2,4,0"
-output = "(ATTACK2,4,1) ＞ 1,3,4,6 ＞ 成功ダイス数 1 ＞ × 攻撃力 2 ＞ ダメージ 2"
+input = "ATTACK2@4<=0"
+output = "(ATTACK2@4<=1) ＞ 1,3,4,6 ＞ 成功ダイス数 1 ＞ × 攻撃力 2 ＞ ダメージ 2"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -79,8 +79,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2,4,7"
-output = "(ATTACK2,4,6) ＞ 1,3,4,6 ＞ 成功ダイス数 4 ＞ × 攻撃力 2 ＞ ダメージ 8"
+input = "ATTACK2@4<=7"
+output = "(ATTACK2@4<=6) ＞ 1,3,4,6 ＞ 成功ダイス数 4 ＞ × 攻撃力 2 ＞ ダメージ 8"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -91,8 +91,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2+7,4,5"
-output = "(ATTACK9,4,5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27"
+input = "AT2+7@4<=5"
+output = "(ATTACK9@4<=5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -103,8 +103,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2-1,4,5"
-output = "(ATTACK1,4,5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 1 ＞ ダメージ 3"
+input = "AT2-1@4<=5"
+output = "(ATTACK1@4<=5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 1 ＞ ダメージ 3"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -115,8 +115,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2-2,4,5"
-output = "(ATTACK0,4,5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 0 ＞ ダメージ 0"
+input = "AT2-2@4<=5"
+output = "(ATTACK0@4<=5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 0 ＞ ダメージ 0"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -127,8 +127,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2-3,4,5"
-output = "(ATTACK0,4,5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 0 ＞ ダメージ 0"
+input = "AT2-3@4<=5"
+output = "(ATTACK0@4<=5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 0 ＞ ダメージ 0"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -139,8 +139,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT(2+3)*2,4,5"
-output = "(ATTACK10,4,5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 10 ＞ ダメージ 30"
+input = "AT(2+3)*2@4<=5"
+output = "(ATTACK10@4<=5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 10 ＞ ダメージ 30"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -151,14 +151,14 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT(2+3/2,4,5"
+input = "AT(2+3/2@4<=5"
 output = ""
 rands = []
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT(2+3)/2,4,5"
-output = "(ATTACK3,4,5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 3 ＞ ダメージ 9"
+input = "AT(2+3)/2@4<=5"
+output = "(ATTACK3@4<=5) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 3 ＞ ダメージ 9"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -169,14 +169,14 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT(2+3/2,4,5"
+input = "AT(2+3/2@4<=5"
 output = ""
 rands = []
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2,4-1,5"
-output = "(ATTACK2,3,5) ＞ 3,4,6 ＞ 成功ダイス数 2 ＞ × 攻撃力 2 ＞ ダメージ 4"
+input = "AT2@4-1<=5"
+output = "(ATTACK2@3<=5) ＞ 3,4,6 ＞ 成功ダイス数 2 ＞ × 攻撃力 2 ＞ ダメージ 4"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -186,8 +186,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT6,5/2,5"
-output = "(ATTACK6,3,5) ＞ 1,3,6 ＞ 成功ダイス数 2 ＞ × 攻撃力 6 ＞ ダメージ 12"
+input = "AT6@5/2<=5"
+output = "(ATTACK6@3<=5) ＞ 1,3,6 ＞ 成功ダイス数 2 ＞ × 攻撃力 6 ＞ ダメージ 12"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -197,8 +197,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2,4*2,5"
-output = "(ATTACK2,8,5) ＞ 1,1,2,3,4,5,5,6 ＞ 成功ダイス数 7 ＞ × 攻撃力 2 ＞ ダメージ 14"
+input = "AT2@4*2<=5"
+output = "(ATTACK2@8<=5) ＞ 1,1,2,3,4,5,5,6 ＞ 成功ダイス数 7 ＞ × 攻撃力 2 ＞ ダメージ 14"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -213,8 +213,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2,(2*3)+2,5"
-output = "(ATTACK2,8,5) ＞ 1,1,2,3,4,5,5,6 ＞ 成功ダイス数 7 ＞ × 攻撃力 2 ＞ ダメージ 14"
+input = "AT2@(2*3)+2<=5"
+output = "(ATTACK2@8<=5) ＞ 1,1,2,3,4,5,5,6 ＞ 成功ダイス数 7 ＞ × 攻撃力 2 ＞ ダメージ 14"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -229,14 +229,14 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2,(2*3+2,5"
+input = "AT2@(2*3+2<=5"
 output = ""
 rands = []
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2,4,4+1"
-output = "(ATTACK2,4,5) ＞ 3,4,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 2 ＞ ダメージ 6"
+input = "AT2@4<=4+1"
+output = "(ATTACK2@4<=5) ＞ 3,4,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 2 ＞ ダメージ 6"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -247,8 +247,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2,4,4+3"
-output = "(ATTACK2,4,6) ＞ 3,4,5,6 ＞ 成功ダイス数 4 ＞ × 攻撃力 2 ＞ ダメージ 8"
+input = "AT2@4<=4+3"
+output = "(ATTACK2@4<=6) ＞ 3,4,5,6 ＞ 成功ダイス数 4 ＞ × 攻撃力 2 ＞ ダメージ 8"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -259,8 +259,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2,4,4-1"
-output = "(ATTACK2,4,3) ＞ 3,4,5,6 ＞ 成功ダイス数 1 ＞ × 攻撃力 2 ＞ ダメージ 2"
+input = "AT2@4<=4-1"
+output = "(ATTACK2@4<=3) ＞ 3,4,5,6 ＞ 成功ダイス数 1 ＞ × 攻撃力 2 ＞ ダメージ 2"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -271,8 +271,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2,4,4-2"
-output = "(ATTACK2,4,2) ＞ 3,4,5,6 ＞ 成功ダイス数 0"
+input = "AT2@4<=4-2"
+output = "(ATTACK2@4<=2) ＞ 3,4,5,6 ＞ 成功ダイス数 0"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -283,8 +283,8 @@ failure = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2,4,4-5"
-output = "(ATTACK2,4,1) ＞ 3,4,5,6 ＞ 成功ダイス数 0"
+input = "AT2@4<=4-5"
+output = "(ATTACK2@4<=1) ＞ 3,4,5,6 ＞ 成功ダイス数 0"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -295,14 +295,14 @@ failure = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "AT2,4,4-"
+input = "AT2@4<=4-"
 output = ""
 rands = []
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2+7,3*2,5-1"
-output = "(ATTACK9,6,4) ＞ 1,3,4,5,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27"
+input = "ATTACK2+7@3*2<=5-1"
+output = "(ATTACK9@6<=4) ＞ 1,3,4,5,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -315,8 +315,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2,4,5[+10]"
-output = "(ATTACK2,4,5[+10]) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 2 ＞ ダメージ 6+10 ＞ 16"
+input = "ATTACK2@4<=5[+10]"
+output = "(ATTACK2@4<=5[+10]) ＞ 1,3,4,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 2 ＞ ダメージ 6+10 ＞ 16"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -327,8 +327,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2,4,2[+10]"
-output = "(ATTACK2,4,2[+10]) ＞ 3,4,5,6 ＞ 成功ダイス数 0"
+input = "ATTACK2@4<=2[+10]"
+output = "(ATTACK2@4<=2[+10]) ＞ 3,4,5,6 ＞ 成功ダイス数 0"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -339,14 +339,14 @@ failure = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2,4,2[+10-]"
+input = "ATTACK2@4<=2[+10-]"
 output = ""
 rands = []
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2+7,3*2,5-1[+5]"
-output = "(ATTACK9,6,4[+5]) ＞ 1,3,4,5,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27+5 ＞ 32"
+input = "ATTACK2+7@3*2<=5-1[+5]"
+output = "(ATTACK9@6<=4[+5]) ＞ 1,3,4,5,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27+5 ＞ 32"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -359,8 +359,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2+7,3*2,5-1[+5+7*2-1]"
-output = "(ATTACK9,6,4[+18]) ＞ 1,3,4,5,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27+18 ＞ 45"
+input = "ATTACK2+7@3*2<=5-1[+5+7*2-1]"
+output = "(ATTACK9@6<=4[+18]) ＞ 1,3,4,5,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27+18 ＞ 45"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -373,8 +373,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2+7,3*2,5-1[-8]"
-output = "(ATTACK9,6,4[-8]) ＞ 1,3,4,5,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27-8 ＞ 19"
+input = "ATTACK2+7@3*2<=5-1[-8]"
+output = "(ATTACK9@6<=4[-8]) ＞ 1,3,4,5,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27-8 ＞ 19"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -387,8 +387,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2+7,3*2,5-1[-27]"
-output = "(ATTACK9,6,4[-27]) ＞ 1,3,4,5,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27-27 ＞ 0"
+input = "ATTACK2+7@3*2<=5-1[-27]"
+output = "(ATTACK9@6<=4[-27]) ＞ 1,3,4,5,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27-27 ＞ 0"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -401,8 +401,8 @@ success = true
 
 [[ test ]]
 game_system = "Irisbane"
-input = "ATTACK2+7,3*2,5-1[-28]"
-output = "(ATTACK9,6,4[-28]) ＞ 1,3,4,5,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27-28 ＞ 0"
+input = "ATTACK2+7@3*2<=5-1[-28]"
+output = "(ATTACK9@6<=4[-28]) ＞ 1,3,4,5,5,6 ＞ 成功ダイス数 3 ＞ × 攻撃力 9 ＞ ダメージ 27-28 ＞ 0"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
