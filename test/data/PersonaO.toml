@@ -1,0 +1,105 @@
+[[ test ]]
+game_system = "PersonaO"
+input = "PT50"
+output = "D100<=50@5 ＞ 50 ＞ 成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "PersonaO"
+input = "PT50"
+output = "D100<=50@5 ＞ 51 ＞ 失敗"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "PersonaO"
+input = "PT50"
+output = "D100<=50@5 ＞ 95 ＞ 失敗"
+rands = [
+  { sides = 100, value = 95 },
+]
+
+[[ test ]]
+game_system = "PersonaO"
+input = "PT100"
+output = "D100<=100@5 ＞ 96 ＞ 成功"
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "PersonaO"
+input = "PT100"
+output = "D100<=100@5 ＞ 98 ＞ 成功"
+rands = [
+  { sides = 100, value = 98 },
+]
+
+[[ test ]]
+game_system = "PersonaO"
+input = "PT50"
+output = "D100<=50@5 ＞ 11 ＞ 成功"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "PersonaO"
+input = "PT50"
+output = "D100<=50@5 ＞ 11 ＞ 成功"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "PersonaO"
+input = "PT50@11"
+output = "D100<=50@11 ＞ 11 ＞ クリティカル"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "PersonaO"
+input = "PT50@11"
+output = "D100<=50@11 ＞ 12 ＞ 成功"
+rands = [
+  { sides = 100, value = 12 },
+]
+
+[[ test ]]
+game_system = "PersonaO"
+input = "PT90@(5+50)"
+output = "D100<=90@55 ＞ 57 ＞ 成功"
+rands = [
+  { sides = 100, value = 57 },
+]
+
+[[ test ]]
+game_system = "PersonaO"
+input = "PT90@(5+50)"
+output = "D100<=90@55 ＞ 12 ＞ クリティカル"
+rands = [
+  { sides = 100, value = 12 },
+]
+
+[[ test ]]
+game_system = "PersonaO"
+input = "2PD+(20+2*2)%(100+50-50)-2"
+output = "2D10+24＊100%-2 ＞ [8,5]+24＊100%-2 ＞ 35 ダメージ！"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "PersonaO"
+input = "2PD+(20+2*2)%(100+50)-2"
+output = "2D10+24＊150%-2 ＞ [8,5]+24＊150%-2 ＞ 47 ダメージ！"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 5 }
+]
