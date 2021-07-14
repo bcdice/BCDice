@@ -6,7 +6,7 @@ module BCDice
       # ゲームシステムの識別子
       ID = 'TorgEternity'
       # ゲームシステム名
-      NAME = 'TORG Eternity'
+      NAME = 'トーグ エターニティ'
       # ゲームシステム名の読みがな
       SORT_KEY = 'とおくえたあにてい'
       # ダイスボットの使い方
