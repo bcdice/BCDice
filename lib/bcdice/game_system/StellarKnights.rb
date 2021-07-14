@@ -149,7 +149,7 @@ module BCDice
         return [] if text.nil?
 
         # 正規表現の都合で先頭に ',' が残っているので取っておく
-        text = text[1..]
+        text = text[1..-1]
         text.split(',').map do |rule|
           v = rule.split('>').map(&:to_i)
           {

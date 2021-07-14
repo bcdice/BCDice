@@ -28,6 +28,10 @@ Style/SpecialGlobalVars:
 Style/FormatStringToken:
   Enabled: false
 
+# Due to Opal
+Style/SlicingWithRange:
+  Enabled: false
+
 Layout/EndOfLine:
   EnforcedStyle: lf
 

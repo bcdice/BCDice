@@ -123,7 +123,7 @@ module BCDice
         d1, d2 = @randomizer.roll_barabara(2, 6)
         dice_total = d1 + d2
         total = d1 + d2 + cmd.modify_number
-        target = cmd.command[2..].to_i
+        target = cmd.command[2..-1].to_i
 
         modifier_str = "　修正値：#{cmd.modify_number}" if cmd.modify_number != 0
 

@@ -252,7 +252,7 @@ module BCDice
       end
 
       secret = !m[1].nil?
-      command = command[1..] if secret # 先頭の 'S' をとる
+      command = command[1..-1] if secret # 先頭の 'S' をとる
 
       output = eval_game_system_specific_command(command)
 
