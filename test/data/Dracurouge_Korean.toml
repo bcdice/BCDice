@@ -180,7 +180,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "DRR4"
-output = "(DRR4) ＞ 4D6 ＞ [ 3, 4, 5, 6 ]"
+output = "(DRR4) ＞ 4D6 ＞ [ 3, 4, 5, 6 ] ＞ 18"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -191,7 +191,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "DRR4"
-output = "(DRR4) ＞ 4D6 ＞ [ 3, 4, 6, 6 ]"
+output = "(DRR4) ＞ 4D6 ＞ [ 3, 4, 6, 6 ] ＞ 19"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -202,7 +202,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "DRR6"
-output = "(DRR6) ＞ 6D6 ＞ [ 1, 1, 5, 6, 6, 6 ]"
+output = "(DRR6) ＞ 6D6 ＞ [ 1, 1, 5, 6, 6, 6 ] ＞ 25"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },

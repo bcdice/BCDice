@@ -115,8 +115,9 @@ module BCDice
         dice_count = 4 if dice_count == 0
 
         dice_list = @randomizer.roll_barabara(dice_count, 6).sort
+        total = dice_list.sum()
 
-        return "(#{command}) ＞ #{dice_count}D6 ＞ [ #{dice_list.join(', ')} ]"
+        return "(#{command}) ＞ #{dice_count}D6 ＞ [ #{dice_list.join(', ')} ] ＞ #{total}"
       end
 
       def getReactionDiceCommandResult(command)
