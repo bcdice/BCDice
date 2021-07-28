@@ -29,6 +29,17 @@ module BCDice
     #   choice A,B X,Y -> "A,B" と "X,Y" から選ぶ
     #   choice(A[], B[], C[]) -> "A[]", "B[]", "C[]" から選ぶ
     #   choice[A(), B(), C()] -> "A()", "B()", "C()" から選ぶ
+    #
+    # "choise"の後に数を指定することで、列挙した要素から重複なしで複数個を選ぶ
+    #   choice2[A,B,C] -> "A", "B", "C" から重複なしで2個選ぶ
+    #
+    # 指定したい要素が「AからD」のように連続する項目の場合に「A-D」と省略して記述できる
+    # 略記の展開はアルファベット1文字もしくは数字の範囲に限り、略記1つを指定したときのみ展開される
+    #   choice[A-D] -> choice[A,B,C,D] と等価
+    #   choice[b-g] -> choice[b,c,d,e,f,g] と等価
+    #   choice[3-7] -> choice[3,4,5,6,7] と等価
+    #   choice[A-D,Z] -> 展開されない。 "A-D", "Z" から選ぶ
+    #   choice[D-A] -> 展開されない。
     class Choice
       PREFIX_PATTERN = /choice/.freeze
 
