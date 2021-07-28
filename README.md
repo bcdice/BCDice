@@ -7,7 +7,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/15261694a7d758c4309f/maintainability)](https://codeclimate.com/github/bcdice/BCDice/maintainability)
 [![Discord](https://img.shields.io/discord/597133335243784192.svg?color=7289DA&logo=discord&logoColor=fff)][invite discord]
 
-様々なTRPGシステムの判定に対応したIRC用ダイスボット兼オンセツール用ダイスエンジン
+様々なTRPGシステムの判定に対応したオンセツール用ダイスコマンドエンジン
 
 
 ## Documents
