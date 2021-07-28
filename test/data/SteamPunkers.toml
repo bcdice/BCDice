@@ -380,6 +380,24 @@ rands = [
 
 [[ test ]]
 game_system = "SteamPunkers"
+input = "PACT"
+output = "過去表『チャレンジ』(11) ＞ 【誓い】 とある陰謀により、あなたは大切な何かを失った。いつか陰謀を暴く……それがあなたの誓いだ。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SteamPunkers"
+input = "PACT"
+output = "過去表『チャレンジ』(66) ＞ 【異質】 あなたは困難に立ち向かうことでしか高揚できない。そして、蒸気事件以上の困難など存在しないのだ。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SteamPunkers"
 input = "BGT"
 output = "経緯表『ギガントアームズ』(11) ＞ 【元近衛兵】 あなたは上層部の警護を任されていた元近衛兵で、スチームギアは大戦時に入手したものである。"
 rands = [
