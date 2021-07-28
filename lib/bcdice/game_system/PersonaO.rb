@@ -50,14 +50,15 @@ module BCDice
         dice_value = @randomizer.roll_once(100)
         result =
           if dice_value <= critical_border
-            "クリティカル"
+            Result.critical("クリティカル")
           elsif dice_value <= success_rate
-            "成功"
+            Result.success("成功")
           else
-            "失敗"
+            Result.failure("失敗")
           end
 
-        return "D100<=#{success_rate}@#{critical_border} ＞ #{dice_value} ＞ #{result}"
+        result.text = "D100<=#{success_rate}@#{critical_border} ＞ #{dice_value} ＞ #{result.text}"
+        return result
       end
 
       def roll_damage(command)
