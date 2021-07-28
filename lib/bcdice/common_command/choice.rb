@@ -44,6 +44,12 @@ module BCDice
         space: /\s+/,
       }.freeze
 
+      DELIMITER_CHAR = {
+        bracket: ", ",
+        paren: ", ",
+        space: " ",
+      }.freeze
+
       TERMINATION = {
         bracket: /\]/,
         paren: /\)/,
@@ -77,6 +83,11 @@ module BCDice
             return nil
           end
 
+          takes = scanner.scan(/\d+/)&.to_i || 1
+          if takes == 0
+            return nil
+          end
+
           type =
             case scanner.scan(/\(|\[|\s+/)
             when "["
@@ -105,13 +116,14 @@ module BCDice
           items.push(last_item.delete_suffix(SUFFIX[type]))
 
           items = items.map(&:strip).reject(&:empty?)
-          if items.empty?
+          if items.empty? || items.size < takes
             return nil
           end
 
           new(
             secret: secret,
             block_delimiter: type,
+            takes: takes,
             items: items
           )
         end
@@ -119,33 +131,43 @@ module BCDice
 
       # @param secret [Boolean]
       # @param block_delimiter [BlockDelimiter::BRACKET, BlockDelimiter::PAREN, BlockDelimiter::SPACE]
+      # @param takes [Integer] 何個チョイスするか
       # @param items [Array<String>]
-      def initialize(secret:, block_delimiter:, items:)
+      def initialize(secret:, block_delimiter:, takes:, items:)
         @secret = secret
         @block_delimiter = block_delimiter
+        @takes = takes
         @items = items
       end
 
       # @param randomizer [Randomizer]
       # @return [Result]
       def roll(randomizer)
-        index = randomizer.roll_index(@items.size)
-        chosen = @items[index]
+        items = @items.dup
+        chosens = []
+        @takes.times do
+          index = randomizer.roll_index(items.size)
+          chosens << items.delete_at(index)
+        end
 
         Result.new.tap do |r|
+          chosen = chosens.join(DELIMITER_CHAR[@block_delimiter])
+
           r.secret = @secret
           r.text = "(#{expr()}) ＞ #{chosen}"
         end
       end
 
       def expr
+        takes = @takes == 1 ? nil : @takes
+
         case @block_delimiter
         when BlockDelimiter::SPACE
-          "choice #{@items.join(' ')}"
+          "choice#{takes} #{@items.join(' ')}"
         when BlockDelimiter::BRACKET
-          "choice[#{@items.join(',')}]"
+          "choice#{takes}[#{@items.join(',')}]"
         when BlockDelimiter::PAREN
-          "choice(#{@items.join(',')})"
+          "choice#{takes}(#{@items.join(',')})"
         end
       end
     end
