@@ -116,6 +116,10 @@ module BCDice
           items.push(last_item.delete_suffix(SUFFIX[type]))
 
           items = items.map(&:strip).reject(&:empty?)
+          if items.size == 1
+            items = parse_multi_item_shorthand(items.first)
+          end
+
           if items.empty? || items.size < takes
             return nil
           end
@@ -126,6 +130,40 @@ module BCDice
             takes: takes,
             items: items
           )
+        end
+
+        def parse_multi_item_shorthand(str)
+          parse_multi_nums_shorthand(str) || parse_multi_chars_shorthand(str) || []
+        end
+
+        def parse_multi_nums_shorthand(str)
+          m = /^(\d+)-(\d+)$/.match(str)
+          unless m
+            return nil
+          end
+
+          first = m[1].to_i
+          last = m[2].to_i
+          if first > last
+            return nil
+          end
+
+          return first.upto(last).to_a
+        end
+
+        def parse_multi_chars_shorthand(str)
+          m = /^([a-z])-([a-z])$/.match(str) || /^([A-Z])-([A-Z])$/.match(str)
+          unless m
+            return nil
+          end
+
+          first = m[1]
+          last = m[2]
+          if first > last
+            return nil
+          end
+
+          return first.upto(last).to_a
         end
       end
 

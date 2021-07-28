@@ -153,3 +153,86 @@ game_system = "DiceBot"
 input = "choice3[abc,def] とる数が多い"
 output = ""
 rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[A-F] 複数要素の省略形"
+output = "(choice[A,B,C,D,E,F]) ＞ C"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[c-g] 複数要素の省略形"
+output = "(choice[c,d,e,f,g]) ＞ g"
+rands = [
+  { sides = 5, value = 5 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[3-10] 複数要素の省略形"
+output = "(choice[3,4,5,6,7,8,9,10]) ＞ 10"
+rands = [
+  { sides = 8, value = 8 },
+]
+
+# 複数要素の省略形 空白区切り
+[[ test ]]
+game_system = "DiceBot"
+input = "choice A-F"
+output = "(choice A B C D E F) ＞ C"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice(A-F) 複数要素の省略形 カッコ区切り"
+output = "(choice(A,B,C,D,E,F)) ＞ C"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[F-A] 大小関係が逆"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[g-c] 大小関係が逆"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[10-3] 大小関係が逆"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[a-zz] 複数文字では省略にならない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[A-F, Z] こういうケースでは展開しない"
+output = "(choice[A-F,Z]) ＞ A-F"
+rands = [
+  { sides = 2, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice3[A-F] 複数選択との混合"
+output = "(choice3[A,B,C,D,E,F]) ＞ C, F, A"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 5, value = 5 },
+  { sides = 4, value = 1 },
+]
