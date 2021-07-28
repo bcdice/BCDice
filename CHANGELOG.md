@@ -1,5 +1,21 @@
 # Change Log
 
+## Unreleased
+
+### 対応ゲームシステムの追加
+- 中国語簡体字版 クトゥルフ神話TRPG 克苏鲁的呼唤 第六版 (Cthulhu:SimplifiedChinese): Dravolutionさんありがとうっ！ ([#477](https://github.com/bcdice/BCDice/pull/477))
+- 瞳逸らさぬイリスベイン (Irisbane): ViViさんありがとうっ！ ([#482](https://github.com/bcdice/BCDice/pull/482))
+- ペルソナTRPG-O (PersonaO): 猫あきら。さんありがとうっ！ ([#485](https://github.com/bcdice/BCDice/pull/485))
+- としあきの聖杯戦争TRPG (ToshiakiHolyGrailWar): 覇王庭師さん要望ありがとうっ！ ([#487](https://github.com/bcdice/BCDice/pull/487))
+
+### 変更
+- 日本語版発売に伴い「TORG Eternity」を「トーグ エタニティ」に変更 ([#486](https://github.com/bcdice/BCDice/pull/486))
+- ドラクルージュ: 抗い判定で合計値を表示する。ひらさんに要望ありがとうっ！ ([#488](https://github.com/bcdice/BCDice/pull/488))
+
+### バグ修正
+- 新クトゥルフ神話TRPG: 技能ロールで目標値が100以上に設定された場合でも、出目100ではファンブルするように。mocoさんありがとうっ！ ([#476](https://github.com/bcdice/BCDice/pull/476))
+- スチームパンカーズ: コマンドの重複により「過去表『チャレンジ』」のデータが欠けていたのを修正。 倉坂悠さんありがとうっ！ ([#489](https://github.com/bcdice/BCDice/pull/489))
+
 ## 3.3.0 2021/05/26
 
 ### 対応ゲームシステムの追加
