@@ -122,3 +122,136 @@ game_system = "DiceBot"
 input = "choice[, ,,  ,, ,] 要素数ゼロ"
 output = ""
 rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice2[The Call of Cthulhu, The Shadow Over Innsmouth, The Shadow Out of Time] 複数個取得"
+output = "(choice2[The Call of Cthulhu,The Shadow Over Innsmouth,The Shadow Out of Time]) ＞ The Shadow Out of Time, The Call of Cthulhu"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 2, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice2(a,b,c) かっこ区切り"
+output = "(choice2(a,b,c)) ＞ a, b"
+rands = [
+  { sides = 3, value = 1 },
+  { sides = 2, value = 1 },
+]
+
+# 空白区切り
+[[ test ]]
+game_system = "DiceBot"
+input = "choice2 a b c"
+output = "(choice2 a b c) ＞ a b"
+rands = [
+  { sides = 3, value = 1 },
+  { sides = 2, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice3[A(), B(), C()] 全部取る"
+output = "(choice3[A(),B(),C()]) ＞ A(), C(), B()"
+rands = [
+  { sides = 3, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 1, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice0[abc,def] 0個とる"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice3[abc,def] とる数が多い"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[A-F] 複数要素の省略形"
+output = "(choice[A,B,C,D,E,F]) ＞ C"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[c-g] 複数要素の省略形"
+output = "(choice[c,d,e,f,g]) ＞ g"
+rands = [
+  { sides = 5, value = 5 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[3-10] 複数要素の省略形"
+output = "(choice[3,4,5,6,7,8,9,10]) ＞ 10"
+rands = [
+  { sides = 8, value = 8 },
+]
+
+# 複数要素の省略形 空白区切り
+[[ test ]]
+game_system = "DiceBot"
+input = "choice A-F"
+output = "(choice A B C D E F) ＞ C"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice(A-F) 複数要素の省略形 カッコ区切り"
+output = "(choice(A,B,C,D,E,F)) ＞ C"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[F-A] 大小関係が逆"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[g-c] 大小関係が逆"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[10-3] 大小関係が逆"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[a-zz] 複数文字では省略にならない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice[A-F, Z] こういうケースでは展開しない"
+output = "(choice[A-F,Z]) ＞ A-F"
+rands = [
+  { sides = 2, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "choice3[A-F] 複数選択との混合"
+output = "(choice3[A,B,C,D,E,F]) ＞ C, F, A"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 5, value = 5 },
+  { sides = 4, value = 1 },
+]
