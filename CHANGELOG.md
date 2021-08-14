@@ -1,12 +1,15 @@
 # Change Log
 
-## Unreleased
+## 3.4.0 2021/08/14
 
 ### 対応ゲームシステムの追加
 - 中国語簡体字版 クトゥルフ神話TRPG 克苏鲁的呼唤 第六版 (Cthulhu:SimplifiedChinese): Dravolutionさんありがとうっ！ ([#477](https://github.com/bcdice/BCDice/pull/477))
 - 瞳逸らさぬイリスベイン (Irisbane): ViViさんありがとうっ！ ([#482](https://github.com/bcdice/BCDice/pull/482))
 - ペルソナTRPG-O (PersonaO): 猫あきら。さんありがとうっ！ ([#485](https://github.com/bcdice/BCDice/pull/485))
 - としあきの聖杯戦争TRPG (ToshiakiHolyGrailWar): 覇王庭師さん要望ありがとうっ！ ([#487](https://github.com/bcdice/BCDice/pull/487))
+
+### 追加機能
+- choiceコマンドで連続要素の省略記法と複数選択機能を追加 ([#490](https://github.com/bcdice/BCDice/pull/490))
 
 ### 変更
 - 日本語版発売に伴い「TORG Eternity」を「トーグ エタニティ」に変更 ([#486](https://github.com/bcdice/BCDice/pull/486))
