@@ -256,10 +256,73 @@ rands = [
 [[ test ]]
 game_system = "StellarLife"
 input = "RNST"
-output = "ランダムNPC艦表(21) ＞ 〈リサイクルフォージ〉"
+output = "ランダムNPC艦表(00) ＞ 装甲＋20(HP+400)"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RNST"
+output = "ランダムNPC艦表(34) ＞ 〈リサイクルフォージ〉"
 rands = [
   { sides = 10, value = 3 },
-  { sides = 10, value = 2 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RNST"
+output = "ランダムNPC艦表(35) ＞ 〈リサイクルフォージ〉"
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RNST"
+output = "ランダムNPC艦表(36) ＞ 〈高機動ミサイル〉2基"
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RNST"
+output = "ランダムNPC艦表(45) ＞ 〈高圧縮精製装置〉"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RNST"
+output = "ランダムNPC艦表(46) ＞ 〈アタックドローン〉1基"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RNST"
+output = "ランダムNPC艦表(88) ＞ 装甲＋40(HP+800)"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RNST"
+output = "ランダムNPC艦表(97) ＞ 〈マイクロミサイルポッド〉2基"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
 ]
 
 [[ test ]]
@@ -269,6 +332,15 @@ output = "ランダムイベント表(00) ＞ 燃料1　《周辺探索》成功
 rands = [
   { sides = 10, value = 0 },
   { sides = 10, value = 0 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RNST"
+output = "ランダムNPC艦表(44) ＞ 〈高圧縮精製装置〉"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
 ]
 
 [[ test ]]
