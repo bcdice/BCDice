@@ -183,7 +183,7 @@ rands = [
 [[ test ]]
 game_system = "StellarLife"
 input = "VNRT"
-output = "船名後半表(99) ＞ (PC 1人の名前)"
+output = "船名後半表(99) ＞ (PC1人の名前)"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
@@ -701,6 +701,14 @@ rands = [
 [[ test ]]
 game_system = "StellarLife"
 input = "ENT"
+output = "超未来のエンタメ(3) ＞ VRゲーム：外接電脳さえ持っていれば、VRゴーグルがなくても仮想現実世界にダイブできます。圧倒的なリアリティを持つ仮想世界を堪能し、育成や対戦、パズルなど様々なゲームを楽しめます。"
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "ENT"
 output = "超未来のエンタメ(9) ＞ ミステリーハウス：宝探しや事件解決など、規定時間以内に「謎」を解くイベントです。屋敷の中には手がかりが散りばめられており、VRでもリアルでも手軽に探偵遊びを楽しむことができます。"
 rands = [
   { sides = 10, value = 9 },
@@ -709,7 +717,7 @@ rands = [
 [[ test ]]
 game_system = "StellarLife"
 input = "ENT"
-output = "超未来のエンタメ(0) ＞ SNS：超未来のSNS は濃密にして苛烈！超高速でやり取りが行いながら、惑星の多くの人々と触れ合い交流を深めます。惑星ごとの微妙な文化の違いに注意を払いましょう。"
+output = "超未来のエンタメ(0) ＞ SNS：超未来のSNSは濃密にして苛烈！超高速でやり取りが行いながら、惑星の多くの人々と触れ合い交流を深めます。惑星ごとの微妙な文化の違いに注意を払いましょう。"
 rands = [
   { sides = 10, value = 10 },
 ]
