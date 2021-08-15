@@ -265,10 +265,100 @@ rands = [
 [[ test ]]
 game_system = "StellarLife"
 input = "RET"
-output = "ランダムイベント表(81) ＞ 氷火山アステロイド　推進剤300、希少金属1を獲得"
+output = "ランダムイベント表(00) ＞ 燃料1　《周辺探索》成功数0～1では推進剤[1D10×30]獲得"
+rands = [
+  { sides = 10, value = 0 },
+  { sides = 10, value = 0 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RET"
+output = "ランダムイベント表(01) ＞ 燃料1　《周辺探索》成功数0～1では推進剤[1D10×30]獲得"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RET"
+output = "ランダムイベント表(02) ＞ 鋼材1　《周辺探索》成功数0～1では鋼材[1D10×30]獲得"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RET"
+output = "ランダムイベント表(04) ＞ 金属塊　鋼材300を獲得"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RET"
+output = "ランダムイベント表(14) ＞ S型アステロイド　鋼材400を獲得"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RET"
+output = "ランダムイベント表(84) ＞ 小惑星の欠片　ビーム攻撃でダメージ200を出すと鋼材600を獲得"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RET"
+output = "ランダムイベント表(94) ＞ 希少金属アステロイド　希少金属2を獲得"
 rands = [
   { sides = 10, value = 9 },
-  { sides = 10, value = 2 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RET"
+output = "ランダムイベント表(97) ＞ 巨大アイスブロック　推進剤600を獲得"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RET"
+output = "ランダムイベント表(98) ＞ レアアースアステロイド　希少金属4を獲得"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RET"
+output = "ランダムイベント表(99) ＞ レアアースアステロイド　希少金属4を獲得"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "RET"
+output = "ランダムイベント表(18) ＞ 氷火山アステロイド　推進剤300、希少金属1を獲得"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
 ]
 
 [[ test ]]
