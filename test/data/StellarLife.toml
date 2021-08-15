@@ -273,6 +273,60 @@ rands = [
 
 [[ test ]]
 game_system = "StellarLife"
+input = "TRST"
+output = "お宝特徴表(00) ＞ 恐竜を模した(価値+3)"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRST"
+output = "お宝特徴表(01) ＞ ヘビを模した(価値+1)"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRST"
+output = "お宝特徴表(10) ＞ 触り心地の良い(価値+1)"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRST"
+output = "お宝特徴表(89) ＞ 輝きを纏う(価値+1)"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRST"
+output = "お宝特徴表(98) ＞ あのシリーズの1つ(価値+1)"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRST"
+output = "お宝特徴表(99) ＞ 寵愛を受けた(価値+3)"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
 input = "TRAT"
 output = "お宝形容表(00) ＞ ブレスト(価値+3)"
 rands = [
