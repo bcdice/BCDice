@@ -132,22 +132,6 @@ module BCDice
         return result
       end
 
-      # D510 ロール用
-      def get_table_by_d510(table)
-        dice1 = @randomizer.roll_once(10)
-        dice2 = @randomizer.roll_once(10)
-
-        num = ((dice1 - 1) / 2) * 10 + (dice2 - 1)
-
-        text = table[num]
-
-        indexText = "#{dice1 - 1}#{dice2 - 1}"
-
-        return '1', indexText if text.nil?
-
-        return text, indexText
-      end
-
       class StellarLifeD10Table < DiceTable::Table
         def initialize(name, items)
           super(name, '1D10', items)
