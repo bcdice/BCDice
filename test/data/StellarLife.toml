@@ -41,6 +41,24 @@ rands = [
 
 [[ test ]]
 game_system = "StellarLife"
+input = "VNRT"
+output = "船名後半表(37) ＞ スペース"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VNRT"
+output = "船名後半表(38) ＞ フェアラー"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
 input = "aaft"
 output = "アバターアルファベット表①(6) ＞ R"
 rands = [
