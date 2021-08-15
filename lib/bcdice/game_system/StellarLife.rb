@@ -48,7 +48,7 @@ module BCDice
         type = ""
         total_n = ""
 
-        case command.upcase # 大文字にしてチェックする
+        case command
         when 'VPFT'
           type = '船名接頭辞表'
           result, total_n = get_shipprefix_table
