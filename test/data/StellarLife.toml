@@ -274,10 +274,64 @@ rands = [
 [[ test ]]
 game_system = "StellarLife"
 input = "TRAT"
+output = "お宝形容表(00) ＞ ブレスト(価値+3)"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRAT"
+output = "お宝形容表(01) ＞ ホーリー(価値+1)"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRAT"
+output = "お宝形容表(10) ＞ アース(価値+1)"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRAT"
 output = "お宝形容表(36) ＞ アバンギャルド"
 rands = [
-  { sides = 10, value = 4 },
-  { sides = 10, value = 7 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRAT"
+output = "お宝形容表(89) ＞ 海の(価値+1)"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRAT"
+output = "お宝形容表(98) ＞ 華の(価値+1)"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRAT"
+output = "お宝形容表(99) ＞ 奇跡の(価値+3)"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
 ]
 
 [[ test ]]

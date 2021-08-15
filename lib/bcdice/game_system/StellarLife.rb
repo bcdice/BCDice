@@ -69,8 +69,7 @@ module BCDice
           type = 'お宝特徴表'
           result, total_n = get_treasurespec_table
         when 'TRAT'
-          type = 'お宝形容表'
-          result, total_n = get_treasureappearance_table
+          return get_treasureappearance_table.roll(@randomizer)
         when 'TRMT'
           type = 'お宝外見表'
           result, total_n = get_treasurematerial_table
@@ -343,9 +342,9 @@ module BCDice
         return get_table_by_d1010(table)
       end
 
-      # お宝形容表
       def get_treasureappearance_table
-        table = [
+        StellarLife2D10Table.new(
+          'お宝形容表',
           'ブレスト(価値+3)', 'ホーリー(価値+1)', 'ワンダフル(価値+1)', 'シャイニング(価値+1)', 'スーパー(価値+1)', 'エクセレント(価値+1)', 'グロリアス(価値+1)', 'グレート(価値+1)', 'フラワリー(価値+1)', 'ミラクル(価値+2)',
           'アース(価値+1)', 'サバンナ(価値+1)', 'マウンテン', 'リバー', 'フォレスト', 'ジャングル', 'デザート', 'ハイランド', 'レイク', 'オーシャン(価値+1)',
           'スペース(価値+1)', 'コスモ', 'ワールド(価値+1)', 'ユニバーサル', 'スカイ', 'メテオール', 'コメット', 'ルナティック', 'プラネタリー', 'ステラー(価値+1)',
@@ -356,8 +355,7 @@ module BCDice
           '宇宙(価値+1)', '乾坤', '世界', '森羅万象', '空の', '流星の', '隕石の', '月の(価値+1)', '惑星', '星の(価値+1)',
           '大地の(価値+1)', '草原の', '山の', '川の', '森の', '林の', '砂漠の', '高地の', '湖の(価値+1)', '海の(価値+1)',
           '祝福の(価値+2)', '神聖な(価値+1)', '不思議な(価値+1)', '輝かしい(価値+1)', '超(価値+1)', '素晴らしい(価値+1)', '栄光の(価値+1)', '偉大な(価値+1)', '華の(価値+1)', '奇跡の(価値+3)'
-        ]
-        return get_table_by_d1010(table)
+        )
       end
 
       # お宝外見表
