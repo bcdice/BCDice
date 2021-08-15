@@ -37,7 +37,7 @@ module BCDice
         　・超未来の宇宙船内　INT
       MESSAGETEXT
 
-      register_prefix('\d*DA', 'VPFT', 'VNFT', 'VNRT', 'AAFT', 'AAST', 'RNST', 'RET', 'TRST', 'TRAT', 'TRMT', 'TROT', 'TET', 'ENT', 'CUT', 'NAT', 'INT')
+      register_prefix('\d*DA')
       def eval_game_system_specific_command(command)
         # 通常判定部分をgetJudgeResultコマンドに切り分け
         output = getJudgeResult(command)
@@ -379,6 +379,8 @@ module BCDice
           'スターリー・スカイ：惑星の明かりも大気もない宇宙船の上からは、星空を鮮やかに見ることができます。当然、星によって天球図も違います。月が2つや4つあったり、連星が見られたりします。'
         ),
       }.freeze
+
+      register_prefix(TABLES.keys)
     end
   end
 end
