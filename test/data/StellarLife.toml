@@ -785,3 +785,9 @@ output = "超未来の宇宙船内(0) ＞ スターリー・スカイ：惑星�
 rands = [
   { sides = 10, value = 10 },
 ]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "INTXX"
+output = ""
+rands = []
