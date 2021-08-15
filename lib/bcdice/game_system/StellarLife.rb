@@ -52,11 +52,9 @@ module BCDice
         when 'VPFT'
           return get_shipprefix_table.roll(@randomizer)
         when 'VNFT'
-          type = '船名前半表'
-          result, total_n = get_shipnameformer_table
+          return get_shipnameformer_table.roll(@randomizer)
         when 'VNRT'
-          type = '船名後半表'
-          result, total_n = get_shipnamelatter_table
+          return get_shipnamelatter_table.roll(@randomizer)
         when 'AAFT'
           return get_avataralphabetfirst_table.roll(@randomizer)
         when 'AAST'
@@ -204,6 +202,34 @@ module BCDice
         end
       end
 
+      # D10 を 2 個振って、 100 通りの結果を得るテーブル
+      # （このゲームではこの振り方の表に 2D10 と書いてあるので、そういう名前にしてある）
+      class StellarLife2D10Table
+        def initialize(name, *items)
+          @name = name
+          @items = items.freeze
+        end
+
+        def roll(randomizer)
+          dices = randomizer.roll_barabara(2, 10)
+
+          row_index = dices[0] == 10 ? 0 : dices[0]
+          column_index = dices[1] == 10 ? 0 : dices[1]
+
+          key = row_index * 10 + column_index
+          chosen = @items[key]
+
+          return RollResult.new(@name, format("%02d", key), chosen)
+        end
+
+        # 出目 10 を 0 と読むため、ゼロパディングしなければならない
+        class RollResult < DiceTable::RollResult
+          def to_s
+            "#{@table_name}(#{format('%02d', @value)}) ＞ #{@body}"
+          end
+        end
+      end
+
       def get_shipprefix_table
         StellarLifeD10_0to9_Table.new(
           '船名接頭辞表',
@@ -220,9 +246,9 @@ module BCDice
         )
       end
 
-      # 船名前半表
       def get_shipnameformer_table
-        table = [
+        StellarLife2D10Table.new(
+          '船名前半表',
           'ブラック', 'ホワイト', 'レッド', 'ブルー', 'グリーン', 'パープル', 'ライラック', 'ブラウン', 'シルバー', 'ゴールド',
           'ネイビー', 'マリン', 'オーシャン', 'アクア', 'セイル', 'アンカー', 'パイレーツ', 'プライヴァティア', 'アルマダ', 'フロティラ',
           'ギャリソン', 'タンク', 'センチネル', 'スクァッド', 'トループ', 'フロント', 'オフェンシブ', 'ヴァンガード', 'オーダー', 'フラッグ',
@@ -233,13 +259,12 @@ module BCDice
           'フリー', 'ライト', 'リベラル', 'リッチ', 'エコノミー', 'マーケット', 'ナショナル', 'ソーシャル', 'エコロジカル', 'ナチュラル',
           'ロイヤル', 'プリンシパル', 'インペリアル', 'マジェスティック', 'ノーブル', 'ロード', 'ハイネス', 'デューク', 'カウント', 'バロン',
           'スモーク', 'クリア', 'ブリザード', 'ゲイル', 'ミスト', 'ヘイル', 'スノウ', 'ライトニング', 'サンダー', '(PC1人の名前)'
-        ]
-        return get_table_by_d1010(table)
+        )
       end
 
-      # 船名後半表
       def get_shipnamelatter_table
-        table = [
+        StellarLife2D10Table.new(
+          '船名後半表',
           'ローズ', 'ダンデリオン', 'オーキッド', 'アザリア', 'スウォードリリー', 'アイリス', 'ラベンダー', 'プロテア', 'グラジオラス', 'マグノリア',
           'ライナー', 'カッター', 'フライター', 'フェリー', 'バルジ', 'クルーザー', 'クラフト', 'リガー', 'キール', 'ヴェッセル',
           'リミテッド', 'インク', 'マーチャント', 'エクスペディション', 'コンボイ', 'キャラバン', 'コマース', 'レティニュー', 'アドバイザリー', 'コンサルティング',
@@ -250,8 +275,7 @@ module BCDice
           'コンキスタドール', 'フサリア', 'ナイト', 'コサック', 'ヘタイロイ', 'バーサーカー', 'レギオン', 'ウォリアー', 'テルシオ', 'ライダー',
           'ルール', 'ディメイン', 'レイン', 'ジャスティス', 'エンクレーブ', 'ステート', 'カントリー', 'レルム', 'ドミニオン', 'ソブリン',
           'ストーム', 'テンペスト', 'アヴァランチ', 'ストライク', 'フォール', 'クエイク', 'ハリケーン', 'ブラスター', 'ブリザード', '(PC 1人の名前)'
-        ]
-        return get_table_by_d1010(table)
+        )
       end
 
       def get_avataralphabetfirst_table

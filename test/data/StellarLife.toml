@@ -56,11 +56,92 @@ rands = [
 
 [[ test ]]
 game_system = "StellarLife"
+input = "VNFT"
+output = "船名前半表(00) ＞ ブラック"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VNFT"
+output = "船名前半表(01) ＞ ホワイト"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VNFT"
+output = "船名前半表(10) ＞ ネイビー"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VNFT"
+output = "船名前半表(89) ＞ バロン"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VNFT"
+output = "船名前半表(98) ＞ サンダー"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VNFT"
+output = "船名前半表(99) ＞ (PC1人の名前)"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VNRT"
+output = "船名後半表(00) ＞ ローズ"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VNRT"
+output = "船名後半表(01) ＞ ダンデリオン"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VNRT"
+output = "船名後半表(10) ＞ ライナー"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
 input = "VNRT"
 output = "船名後半表(31) ＞ オブザーバー"
 rands = [
-  { sides = 10, value = 4 },
-  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
 ]
 
 [[ test ]]
@@ -68,8 +149,8 @@ game_system = "StellarLife"
 input = "VNRT"
 output = "船名後半表(37) ＞ スペース"
 rands = [
-  { sides = 10, value = 4 },
-  { sides = 10, value = 8 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
 ]
 
 [[ test ]]
@@ -77,7 +158,34 @@ game_system = "StellarLife"
 input = "VNRT"
 output = "船名後半表(38) ＞ フェアラー"
 rands = [
-  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VNRT"
+output = "船名後半表(89) ＞ ソブリン"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VNRT"
+output = "船名後半表(98) ＞ ブリザード"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VNRT"
+output = "船名後半表(99) ＞ (PC 1人の名前)"
+rands = [
+  { sides = 10, value = 9 },
   { sides = 10, value = 9 },
 ]
 
