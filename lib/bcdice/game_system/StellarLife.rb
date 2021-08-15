@@ -69,7 +69,8 @@ module BCDice
         if number <= 0 then number = 1 end
 
         number.times do
-          dice = @randomizer.roll_once(10) - 1
+          dice = @randomizer.roll_once(10)
+          dice = 0 if dice == 10
           if (dice + correction).to_i >= single || dice == triple then success += 1 end
           if (dice + correction).to_i >= double || dice == triple then success += 1 end
           if dice == triple then success += 1 end # unless triple == -1 3成功はダイス目一致時のみ
