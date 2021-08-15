@@ -49,6 +49,14 @@ rands = [
 
 [[ test ]]
 game_system = "StellarLife"
+input = "aast"
+output = "アバターアルファベット表②(8) ＞ X"
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
 input = "RNST"
 output = "ランダムNPC艦表(21) ＞ 〈リサイクルフォージ〉"
 rands = [
