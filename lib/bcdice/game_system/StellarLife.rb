@@ -140,19 +140,6 @@ module BCDice
         return result
       end
 
-      # 1D10 ロール用
-      def get_table_by_1d10(table)
-        dice = @randomizer.roll_once(10)
-
-        text = table[dice - 1]
-
-        indexText = (dice - 1).to_s
-
-        return '1', indexText if text.nil?
-
-        return text, indexText
-      end
-
       # D1010 ロール用
       def get_table_by_d1010(table)
         dice1 = @randomizer.roll_once(10)
