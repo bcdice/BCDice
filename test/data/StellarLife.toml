@@ -59,16 +59,64 @@ rands = [
 
 [[ test ]]
 game_system = "StellarLife"
+input = "AAFT"
+output = "アバターアルファベット表①(0) ＞ A"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "aaft"
+output = "アバターアルファベット表①(1) ＞ F"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
 input = "aaft"
 output = "アバターアルファベット表①(6) ＞ R"
 rands = [
-  { sides = 10, value = 7 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "aaft"
+output = "アバターアルファベット表①(9) ＞ V"
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "AAST"
+output = "アバターアルファベット表②(0) ＞ D"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "aast"
+output = "アバターアルファベット表②(1) ＞ F"
+rands = [
+  { sides = 10, value = 1 },
 ]
 
 [[ test ]]
 game_system = "StellarLife"
 input = "aast"
 output = "アバターアルファベット表②(8) ＞ X"
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "aast"
+output = "アバターアルファベット表②(9) ＞ Z"
 rands = [
   { sides = 10, value = 9 },
 ]

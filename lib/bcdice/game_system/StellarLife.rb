@@ -59,11 +59,9 @@ module BCDice
           type = '船名後半表'
           result, total_n = get_shipnamelatter_table
         when 'AAFT'
-          type = 'アバターアルファベット表①'
-          result, total_n = get_avataralphabetfirst_table
+          return get_avataralphabetfirst_table.roll(@randomizer)
         when 'AAST'
-          type = 'アバターアルファベット表②'
-          result, total_n = get_avataralphabetsecond_table
+          return get_avataralphabetsecond_table.roll(@randomizer)
         when 'RNST'
           type = 'ランダムNPC艦表'
           result, total_n = get_randomnpcship_table
@@ -206,6 +204,13 @@ module BCDice
         end
       end
 
+      # 紙面上で 0 始まり 9 終わりの D10 テーブル（ 0, 1, 2, ..., 8, 9 ）
+      class StellarLifeD10_0to9_Table < StellarLifeD10Table
+        def initialize(name, *items)
+          super(name, items[1..9] + [items[0]]) # 出目 10 を 0 と読む（表示する）ため、 0 番目を末尾に回す.
+        end
+      end
+
       # 紙面上で 1 始まり 0 終わりの D10 テーブル（ 1, 2, 3, ..., 8, 9, 0 ）
       class StellarLifeD10_1to0_Table < StellarLifeD10Table
         def initialize(name, *items)
@@ -264,20 +269,18 @@ module BCDice
         return get_table_by_d1010(table)
       end
 
-      # アバターアルファベット表①
       def get_avataralphabetfirst_table
-        table = [
+        StellarLifeD10_0to9_Table.new(
+          'アバターアルファベット表①',
           'A', 'F', 'G', 'I', 'J', 'K', 'R', 'S', 'T', 'V'
-        ]
-        return get_table_by_1d10(table)
+        )
       end
 
-      # アバターアルファベット表②
       def get_avataralphabetsecond_table
-        table = [
+        StellarLifeD10_0to9_Table.new(
+          'アバターアルファベット表②',
           'D', 'F', 'L', 'M', 'N', 'O', 'R', 'S', 'X', 'Z'
-        ]
-        return get_table_by_1d10(table)
+        )
       end
 
       # ランダムNPC艦
