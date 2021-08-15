@@ -38,7 +38,7 @@ module BCDice
       MESSAGETEXT
 
       register_prefix('\d*DA', 'VPFT', 'VNFT', 'VNRT', 'AAFT', 'AAST', 'RNST', 'RET', 'TRST', 'TRAT', 'TRMT', 'TROT', 'TET', 'ENT', 'CUT', 'NAT', 'INT')
-      def eval_game_system_specific_command(command) # ダイスロールコマンド
+      def eval_game_system_specific_command(command)
         # 通常判定部分をgetJudgeResultコマンドに切り分け
         output = getJudgeResult(command)
         return output unless output.nil?
