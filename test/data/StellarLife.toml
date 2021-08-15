@@ -25,9 +25,33 @@ rands = [
 [[ test ]]
 game_system = "StellarLife"
 input = "VPFT"
+output = "船名接頭辞表(0) ＞ ISS(独立宇宙船)"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VPFT"
 output = "船名接頭辞表(4) ＞ PSS(民間宇宙船)"
 rands = [
-  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VPFT"
+output = "船名接頭辞表(8) ＞ SSS(主権星間船)"
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "VPFT"
+output = "船名接頭辞表(9) ＞ HMS(陛下の船)"
+rands = [
+  { sides = 10, value = 9 },
 ]
 
 [[ test ]]

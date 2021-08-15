@@ -50,8 +50,7 @@ module BCDice
 
         case command
         when 'VPFT'
-          type = '船名接頭辞表'
-          result, total_n = get_shipprefix_table
+          return get_shipprefix_table.roll(@randomizer)
         when 'VNFT'
           type = '船名前半表'
           result, total_n = get_shipnameformer_table
@@ -218,9 +217,9 @@ module BCDice
         end
       end
 
-      # 船名接頭辞表
       def get_shipprefix_table
-        table = [
+        StellarLifeD10_0to9_Table.new(
+          '船名接頭辞表',
           'ISS(独立宇宙船)',
           'PCS(惑星運搬船)',
           'NSS(中立星間船)',
@@ -231,8 +230,7 @@ module BCDice
           'OES(外縁探検船)',
           'SSS(主権星間船)',
           'HMS(陛下の船)'
-        ]
-        return get_table_by_1d10(table)
+        )
       end
 
       # 船名前半表
