@@ -390,6 +390,60 @@ rands = [
 
 [[ test ]]
 game_system = "StellarLife"
+input = "TRMT"
+output = "お宝外見表(00) ＞ ダイヤモンド(価値+3)"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRMT"
+output = "お宝外見表(01) ＞ ジェイド(価値+1)"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRMT"
+output = "お宝外見表(10) ＞ ゴールデン(価値+1)"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRMT"
+output = "お宝外見表(89) ＞ 白金の(価値+1)"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRMT"
+output = "お宝外見表(98) ＞ 紫水晶の(価値+1)"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TRMT"
+output = "お宝外見表(99) ＞ 煙水晶の(価値+3)"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
 input = "TET"
 output = "超未来の技術(1) ＞ 船の種、家の種、ビルの種：発達したバイオテクノロジーにより、光合成をしながらカーボン製品を作り出す「種」が作られました。土に植えると一軒家に育ったり、立派な木になってコップの実をならせたりします。"
 rands = [
