@@ -444,6 +444,60 @@ rands = [
 
 [[ test ]]
 game_system = "StellarLife"
+input = "TROT"
+output = "お宝物品表(00) ＞ フルート(価値+3)"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TROT"
+output = "お宝物品表(01) ＞ オカリナ(価値+1)"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TROT"
+output = "お宝物品表(10) ＞ ブランコ(価値+1)"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TROT"
+output = "お宝物品表(89) ＞ ベッド(価値+1)"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TROT"
+output = "お宝物品表(98) ＞ タペストリー(価値+1)"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
+input = "TROT"
+output = "お宝物品表(99) ＞ 絵画(価値+3)"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
 input = "TET"
 output = "超未来の技術(1) ＞ 船の種、家の種、ビルの種：発達したバイオテクノロジーにより、光合成をしながらカーボン製品を作り出す「種」が作られました。土に植えると一軒家に育ったり、立派な木になってコップの実をならせたりします。"
 rands = [

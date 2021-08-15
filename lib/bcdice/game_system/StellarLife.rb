@@ -72,8 +72,7 @@ module BCDice
         when 'TRMT'
           return get_treasurematerial_table.roll(@randomizer)
         when 'TROT'
-          type = 'お宝物品表'
-          result, total_n = get_treasureobject_table
+          return get_treasureobject_table.roll(@randomizer)
         when 'TET'
           return get_sftechnology_table.roll(@randomizer)
         when 'ENT'
@@ -371,9 +370,9 @@ module BCDice
         )
       end
 
-      # お宝物品表
       def get_treasureobject_table
-        table = [
+        StellarLife2D10Table.new(
+          'お宝物品表',
           'フルート(価値+3)', 'オカリナ(価値+1)', 'ギター(価値+1)', 'ピアノ(価値+1)', 'ドラム(価値+1)', 'ティンパニー(価値+1)', '太鼓(価値+1)', 'トランペット(価値+1)', 'ハープ(価値+1)', 'マイク(価値+2)',
           'ブランコ(価値+1)', '人形(価値+1)', 'シーソー', 'ベンチ', 'すべり台', 'ラケット', 'ミニカー', 'コースター', 'ボール', 'オーブ(価値+1)',
           '皿(価値+1)', 'プレート', 'ティーセット(価値+1)', '箸', 'フォーク', 'スプーン', 'ナイフ', 'フライパン', '鍋', 'カップ(価値+1)',
@@ -384,8 +383,7 @@ module BCDice
           'スマートドレス(価値+1)', 'タッチパネル', 'インプットグローブ', 'プロジェクター', 'ディテクター', 'アナライザー', 'インジェクター', 'エアーボトル(価値+1)', 'ワイヤーロンチャー', 'ジェットパック(価値+1)',
           'ランプ(価値+1)', 'ドア', '窓', '灯籠', '棚', 'キッチン', 'ソファ', '椅子', 'テーブル(価値+1)', 'ベッド(価値+1)',
           '人物像(価値+2)', 'フィギュア(価値+1)', 'モデル(価値+1)', '植物像(価値+1)', '動物像(価値+1)', 'レリーフ(価値+1)', 'オブジェ(価値+1)', 'ドーム(価値+1)', 'タペストリー(価値+1)', '絵画(価値+3)'
-        ]
-        return get_table_by_d1010(table)
+        )
       end
 
       def get_sftechnology_table
