@@ -55,6 +55,19 @@ rands = [
 
 [[ test ]]
 game_system = "StellarLife"
+input = "6DA+2[3,7]"
+output = "(0,7,5,1,9,3) +2 ＞ (2,9,7,3,11,5) ＞ 成功数8"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "StellarLife"
 input = "6DA-1[3,7,9]"
 output = "(0,7,5,1,9,3) -1 ＞ (-1,6,4,0,8,2) ＞ 成功数5"
 rands = [
