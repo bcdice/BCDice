@@ -140,90 +140,9 @@ rands = [
 [[test]]
 game_system = "CastleInGray"
 input = "ET"
-output = "感情表(2) ＞ 恋慕(白)／嫌悪(黒)"
-rands = [
-  { sides = 12, value = 2 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "ET"
-output = "感情表(3) ＞ 信頼(白)／不信(黒)"
-rands = [
-  { sides = 12, value = 3 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "ET"
 output = "感情表(4) ＞ 同情(白)／憐憫(黒)"
 rands = [
   { sides = 12, value = 4 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "ET"
-output = "感情表(5) ＞ 憧憬(白)／劣等感(黒)"
-rands = [
-  { sides = 12, value = 5 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "ET"
-output = "感情表(6) ＞ 尊敬(白)／蔑視(黒)"
-rands = [
-  { sides = 12, value = 6 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "ET"
-output = "感情表(7) ＞ 忠誠(白)／執着(黒)"
-rands = [
-  { sides = 12, value = 7 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "ET"
-output = "感情表(8) ＞ 有用(白)／邪魔(黒)"
-rands = [
-  { sides = 12, value = 8 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "ET"
-output = "感情表(9) ＞ 許容(白)／罪悪感(黒)"
-rands = [
-  { sides = 12, value = 9 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "ET"
-output = "感情表(10) ＞ 羨望(白)／嫉妬(黒)"
-rands = [
-  { sides = 12, value = 10 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "ET"
-output = "感情表(11) ＞ 共感(白)／拒絶(黒)"
-rands = [
-  { sides = 12, value = 11 },
 ]
 
 
@@ -247,91 +166,11 @@ rands = [
 [[test]]
 game_system = "CastleInGray"
 input = "BIT"
-output = "暗示表(黒)(2) ＞ 悪意もて真実を語らば"
-rands = [
-  { sides = 12, value = 2 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "BIT"
-output = "暗示表(黒)(3) ＞ 笑えども笑みはなし"
-rands = [
-  { sides = 12, value = 3 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "BIT"
-output = "暗示表(黒)(4) ＞ 影より抜け出ることあたわじ"
-rands = [
-  { sides = 12, value = 4 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "BIT"
-output = "暗示表(黒)(5) ＞ 心の赴くままに手をとれ"
-rands = [
-  { sides = 12, value = 5 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "BIT"
-output = "暗示表(黒)(6) ＞ 時ならぬ嵐の過ぎ去るを待つ"
-rands = [
-  { sides = 12, value = 6 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "BIT"
-output = "暗示表(黒)(7) ＞ 赦されぬと知るがゆえに"
-rands = [
-  { sides = 12, value = 7 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "BIT"
-output = "暗示表(黒)(8) ＞ 見張りは持ち場を離れる"
-rands = [
-  { sides = 12, value = 8 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "BIT"
-output = "暗示表(黒)(9) ＞ 誰もが盲いたる彷徨い人なり"
-rands = [
-  { sides = 12, value = 9 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "BIT"
 output = "暗示表(黒)(10) ＞ 落ちる日を眺めるがごとく"
 rands = [
   { sides = 12, value = 10 },
 ]
 
-
-[[test]]
-game_system = "CastleInGray"
-input = "BIT"
-output = "暗示表(黒)(11) ＞ 冷たく雨ぞ降りしきる"
-rands = [
-  { sides = 12, value = 11 },
-]
 
 
 [[test]]
@@ -355,90 +194,9 @@ rands = [
 [[test]]
 game_system = "CastleInGray"
 input = "WIT"
-output = "暗示表(白)(2) ＞ げに慈悲深きは沈黙なり"
-rands = [
-  { sides = 12, value = 2 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "WIT"
-output = "暗示表(白)(3) ＞ 懐かしき日々は去りぬ"
-rands = [
-  { sides = 12, value = 3 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "WIT"
-output = "暗示表(白)(4) ＞ 束の間に光さす"
-rands = [
-  { sides = 12, value = 4 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "WIT"
-output = "暗示表(白)(5) ＞ 迷える者に手を差し伸べよ"
-rands = [
-  { sides = 12, value = 5 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "WIT"
 output = "暗示表(白)(6) ＞ 嵐の前には静けさがある"
 rands = [
   { sides = 12, value = 6 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "WIT"
-output = "暗示表(白)(7) ＞ どうか責めないで"
-rands = [
-  { sides = 12, value = 7 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "WIT"
-output = "暗示表(白)(8) ＞ 灯した明かりを絶やさぬように"
-rands = [
-  { sides = 12, value = 8 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "WIT"
-output = "暗示表(白)(9) ＞ 目を開けて見よ"
-rands = [
-  { sides = 12, value = 9 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "WIT"
-output = "暗示表(白)(10) ＞ 淑やかに訪れる"
-rands = [
-  { sides = 12, value = 10 },
-]
-
-
-[[test]]
-game_system = "CastleInGray"
-input = "WIT"
-output = "暗示表(白)(11) ＞ 今こそ泣け、さもなくば二度と泣くな"
-rands = [
-  { sides = 12, value = 11 },
 ]
 
 
