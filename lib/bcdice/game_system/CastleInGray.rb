@@ -100,7 +100,7 @@ module BCDice
 
         value = @randomizer.roll_once(12)
 
-        if black == white 
+        if black == white
           return color_text(black, white, value, '白と黒は重ねられません')
         end
 
