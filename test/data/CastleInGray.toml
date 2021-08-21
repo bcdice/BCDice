@@ -56,12 +56,35 @@ rands = [
 
 [[ test ]]
 game_system = "CastleInGray"
+input = "B8W0"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "CastleInGray"
+input = "B9W13"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "CastleInGray"
+input = "B0W4"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "CastleInGray"
+input = "B13W2"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "CastleInGray"
 input = "MAL1"
 output = "悪意の渦(1) ＞ [1] ＞ 黒"
 rands = [
   { sides = 12, value = 1 },
 ]
-
 
 [[ test ]]
 game_system = "CastleInGray"
@@ -70,7 +93,6 @@ output = "悪意の渦(1) ＞ [2] ＞ 白"
 rands = [
   { sides = 12, value = 2 },
 ]
-
 
 [[ test ]]
 game_system = "CastleInGray"
@@ -122,11 +144,15 @@ rands = [
 
 [[ test ]]
 game_system = "CastleInGray"
-input = "MAL12"
-output = "悪意の渦(12) ＞ [3] ＞ 黒"
-rands = [
-  { sides = 12, value = 3 },
-]
+input = "MAL0"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "CastleInGray"
+input = "MAL13"
+output = ""
+rands = []
 
 [[test]]
 game_system = "CastleInGray"
@@ -136,7 +162,6 @@ rands = [
   { sides = 12, value = 1 },
 ]
 
-
 [[test]]
 game_system = "CastleInGray"
 input = "ET"
@@ -144,7 +169,6 @@ output = "感情表(4) ＞ 同情(白)／憐憫(黒)"
 rands = [
   { sides = 12, value = 4 },
 ]
-
 
 [[test]]
 game_system = "CastleInGray"
@@ -172,7 +196,6 @@ rands = [
 ]
 
 
-
 [[test]]
 game_system = "CastleInGray"
 input = "BIT"
@@ -190,7 +213,6 @@ rands = [
   { sides = 12, value = 1 },
 ]
 
-
 [[test]]
 game_system = "CastleInGray"
 input = "WIT"
@@ -199,7 +221,6 @@ rands = [
   { sides = 12, value = 6 },
 ]
 
-
 [[test]]
 game_system = "CastleInGray"
 input = "WIT"
@@ -207,5 +228,3 @@ output = "暗示表(白)(12) ＞ 時が許す間に薔薇を摘め"
 rands = [
   { sides = 12, value = 12 },
 ]
-
-

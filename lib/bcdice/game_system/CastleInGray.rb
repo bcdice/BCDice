@@ -28,6 +28,7 @@ module BCDice
         ・暗示表(黒) BIT
         ・暗示表(白) WIT
       TEXT
+
       TABLES = {
         "ET" => DiceTable::Table.new(
           "感情表",
@@ -85,18 +86,19 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix('B(1|2|3|4|5|6|7|8|9|10|11|12)W(1|2|3|4|5|6|7|8|9|10|11|12)', 'MAL(1|2|3|4|5|6|7|8|9|10|11|12)', TABLES.keys)
+      register_prefix('B', 'MAL', TABLES.keys)
 
       def eval_game_system_specific_command(command)
         return roll_color(command) || roll_mal(command) || roll_tables(command, TABLES)
       end
 
       def roll_color(command)
-        m = /^B(1|2|3|4|5|6|7|8|9|10|11|12)W(1|2|3|4|5|6|7|8|9|10|11|12)$/.match(command)
+        m = /^B(\d{1,2})W(\d{1,2})$/.match(command)
         return nil unless m
 
         black = m[1].to_i
         white = m[2].to_i
+        return nil unless black.between?(1, 12) && white.between?(1, 12)
 
         value = @randomizer.roll_once(12)
 
@@ -105,9 +107,9 @@ module BCDice
         end
 
         if white > black
-          return color_text(black, white, value, value < black || value >= white ? '白' : '黒')
+          return color_text(black, white, value, black <= value && value < white ? '黒' : '白')
         else
-          return color_text(black, white, value, value >= white && value < black ? '白' : '黒')
+          return color_text(black, white, value, white <= value && value < black ? '白' : '黒')
         end
       end
 
@@ -116,10 +118,12 @@ module BCDice
       end
 
       def roll_mal(command)
-        m = /^MAL(1|2|3|4|5|6|7|8|9|10|11|12)$/i.match(command)
+        m = /^MAL(\d{1,2})$/i.match(command)
         return nil unless m
 
         mal = m[1].to_i
+        return nil unless mal.between?(1, 12)
+
         value = @randomizer.roll_once(12)
         result = value <= mal ? '黒' : '白'
         return "悪意の渦(#{mal}) ＞ [#{value}] ＞ #{result}"
