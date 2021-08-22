@@ -2,7 +2,7 @@
 
 module BCDice
   module GameSystem
-    class StellarLifeLife < Base
+    class StellarLife < Base
       # ゲームシステムの識別子
       ID = 'StellarLife'
 
