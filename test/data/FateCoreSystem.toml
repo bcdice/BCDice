@@ -1,0 +1,219 @@
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF"
+output = "(4DF) ＞ [-][ ][-][-] ＞ Terrible(-3)"
+rands = [
+  { sides = 3, value = 1 },
+  { sides = 3, value = 2 },
+  { sides = 3, value = 1 },
+  { sides = 3, value = 1 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF"
+output = "(4DF) ＞ [-][ ][-][ ] ＞ Terrible(-2)"
+rands = [
+  { sides = 3, value = 1 },
+  { sides = 3, value = 2 },
+  { sides = 3, value = 1 },
+  { sides = 3, value = 2 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF"
+output = "(4DF) ＞ [ ][ ][-][ ] ＞ Poor(-1)"
+rands = [
+  { sides = 3, value = 2 },
+  { sides = 3, value = 2 },
+  { sides = 3, value = 1 },
+  { sides = 3, value = 2 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF"
+output = "(4DF) ＞ [ ][ ][ ][ ] ＞ Mediocre(+0)"
+rands = [
+  { sides = 3, value = 2 },
+  { sides = 3, value = 2 },
+  { sides = 3, value = 2 },
+  { sides = 3, value = 2 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF"
+output = "(4DF) ＞ [+][ ][ ][ ] ＞ Average(+1)"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 2 },
+  { sides = 3, value = 2 },
+  { sides = 3, value = 2 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF"
+output = "(4DF) ＞ [+][+][ ][ ] ＞ Fair(+2)"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 2 },
+  { sides = 3, value = 2 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF"
+output = "(4DF) ＞ [+][+][+][ ] ＞ Good(+3)"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 2 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF"
+output = "(4DF) ＞ [+][+][+][+] ＞ Great(+4)"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "5DF"
+output = "(5DF) ＞ [+][+][+][+][+] ＞ Superb(+5)"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "5DF+1"
+output = "(5DF+1) ＞ [+][+][+][+][+]+1 ＞ Fantastic(+6)"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "5DF+2"
+output = "(5DF+2) ＞ [+][+][+][+][+]+2 ＞ Epic(+7)"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "5DF+3"
+output = "(5DF+3) ＞ [+][+][+][+][+]+3 ＞ Legendary(+8)"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "5DF+4"
+output = "(5DF+4) ＞ [+][+][+][+][+]+4 ＞ Legendary(+9)"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF"
+output = "(4DF) ＞ [ ][-][ ][+] ＞ Mediocre(+0)"
+rands = [
+  { sides = 3, value = 2 },
+  { sides = 3, value = 1 },
+  { sides = 3, value = 2 },
+  { sides = 3, value = 3 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF>=3"
+output = "(4DF>=3) ＞ [+][+][+][+] ＞ Great(+4) ＞ Succeed"
+success = true
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF+1>=3"
+output = "(4DF+1>=3) ＞ [+][+][+][+]+1 ＞ Superb(+5) ＞ Succeed"
+success = true
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF+2>=3"
+output = "(4DF+2>=3) ＞ [+][+][+][+]+2 ＞ Fantastic(+6) ＞ Succeed with Style"
+success = true
+critical = true
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF+1>=3"
+output = "(4DF+1>=3) ＞ [+][+][+][-]+1 ＞ Good(+3) ＞ Tie"
+success = true
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 1 },
+]
+
+[[ test ]]
+game_system = "FateCoreSystem"
+input = "4DF+1>=3"
+output = "(4DF+1>=3) ＞ [+][ ][+][-]+1 ＞ Fair(+2) ＞ Fail"
+failure = true
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 3, value = 2 },
+  { sides = 3, value = 3 },
+  { sides = 3, value = 1 },
+]
