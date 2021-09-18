@@ -205,37 +205,37 @@ module BCDice
           return nil
         end
 
-        title = 'バーストタイム'
-        degrees = Regexp.last_match(1).to_i
-        counts = 6
+        degrees = m[1].to_i
         if (degrees < 45) || (degrees > 55)
           return nil
-        elsif degrees <= 49
-          counts = 3
-        elsif degrees <= 52
-          counts = 4
-        elsif degrees <= 54
-          counts = 5
         end
+
+        counts =
+          if degrees <= 49
+            3
+          elsif degrees <= 52
+            4
+          elsif degrees <= 54
+            5
+          else
+            6
+          end
 
         dice_list = @randomizer.roll_barabara(counts, 6).sort
-        total = dice_list.sum()
-        dice = dice_list.join(",")
-        total += degrees
+        total = dice_list.sum() + degrees
 
-        text = "#{title} ＞ #{degrees}+[#{dice}] ＞ #{total} ＞ "
-        if total >= 80
-          text += "Burst!\n「バースト表」を使用する。"
-        elsif total >= 65
-          string = "成功\n【獲得ファン人数】が2D6点上昇する。"
-          if total >= 75
-            string = "大#{string}\nPC全員が挑戦者ではない場合、自分以外のPCを一人指名する。指名されたPCは、新たな挑戦者として、【メンタル】を減少させずに「バーストタイム」を行う。"
+        result =
+          if total >= 80
+            "Burst!\n「バースト表」を使用する。"
+          elsif total >= 75
+            "大成功\n【獲得ファン人数】が2D6点上昇する。\nPC全員が挑戦者ではない場合、自分以外のPCを一人指名する。指名されたPCは、新たな挑戦者として、【メンタル】を減少させずに「バーストタイム」を行う。"
+          elsif total >= 65
+            "成功\n【獲得ファン人数】が2D6点上昇する。"
+          else
+            "失敗"
           end
-          text += string
-        else
-          text += '失敗'
-        end
-        return text
+
+        return "バーストタイム ＞ #{degrees}+[#{dice_list.join(',')}] ＞ #{total} ＞ #{result}"
       end
 
       def roll_attack(command)
@@ -244,13 +244,12 @@ module BCDice
           return nil
         end
 
-        title = '攻撃'
-        counts = Regexp.last_match(1).to_i
+        counts = m[1].to_i
         return nil if counts <= 0
 
-        sure = !Regexp.last_match(2).empty?
-        remove = Regexp.last_match(3).each_char.map(&:to_i)
-        adjust = Regexp.last_match(4)&.to_i
+        sure = !m[2].empty?
+        remove = m[3].each_char.map(&:to_i)
+        adjust = m[4].to_i
         adjust_str = Format.modifier(adjust)
 
         dice = @randomizer.roll_barabara(counts, 6).sort
@@ -258,16 +257,14 @@ module BCDice
 
         dice -= remove
 
-        text = "#{title} ＞ [#{dice_str}]#{adjust_str} ＞ "
+        text = "攻撃 ＞ [#{dice_str}]#{adjust_str} ＞ "
 
         unless (dice.count == counts) || dice.empty?
           text += "[#{dice.join(',')}]#{adjust_str} ＞ "
         end
 
         if sure || (dice.count == dice.uniq.count)
-          total = adjust.to_i
-          total += dice.sum()
-          total = 0 if total < 0
+          total = [dice.sum() + adjust.to_i, 0].max
           text += "#{total}ダメージ"
         else
           text += '失敗'
@@ -284,65 +281,66 @@ module BCDice
         counts = m[2].to_i
         return nil if counts <= 0
 
-        residual = m[1]
-        adjust = m[3].to_i
-
-        title = 'パフォーマンス'
-
-        string = ''
-        string += '+' if adjust > 0
-        string += adjust.to_s unless adjust == 0
+        carry = m[1].chars.map(&:to_i).sort
+        modifier = m[3].to_i
 
         dice_list = @randomizer.roll_barabara(counts, 6).sort
-        dice_str = dice_list.join(",")
-        diceAll = dice_list.join("") + residual
+        all_dice = (dice_list + carry).sort
+        filtered = select_uniqs(all_dice)
 
-        total = 0
-        diceUse = []
-        (1..7).each do |i|
-          if diceAll.count(i.to_s) == 1
-            total += i
-            diceUse.push(i)
-          end
-        end
+        title = carry.empty? ? "パフォーマンス" : "シンフォニー"
 
-        text = " ＞ [#{dice_str}]"
-
-        if residual.empty?
-          text = "#{title}#{text}"
-        else
-          text = "シンフォニー#{text}"
-        end
-
-        unless residual.empty?
-          text += ',[' + residual.split("").sort.join(",") + ']'
-        end
-
-        text += "#{string} ＞ "
-
-        if total == 0
-          if residual.empty?
-            total = 10 + adjust
-            text += "【ミラクル】#{total}"
+        result =
+          if carry.empty?
+            result_performance(filtered, modifier, all_dice)
           else
-            total = 15 + adjust
-            text += "【ミラクルシンクロ】#{total}＋シンフォニーを行った人数"
+            result_symphony(filtered, modifier)
           end
-        elsif (total == 21) && !diceUse.include?(7)
-          unless residual.empty?
-            text += '[' + diceUse.join(',') + "]#{string} ＞ "
-          end
-          total = 30 + adjust
-          text += "【パーフェクトミラクル】#{total}"
-        else
-          unless residual.empty? && (diceUse.count == diceAll.length)
-            text += '[' + diceUse.join(',') + "]#{string} ＞ "
-          end
-          total += adjust
-          text += total.to_s
-        end
 
-        return text
+        sequence = [
+          title,
+          format_dice_list(dice_list, carry, modifier),
+          result,
+        ]
+
+        return sequence.join(" ＞ ")
+      end
+
+      def select_uniqs(dice_list)
+        dice_list.group_by(&:itself).to_a
+                 .select { |_, arr| arr.size == 1 }
+                 .map { |dice, _| dice }
+                 .sort
+      end
+
+      def format_dice_list(dice_list, carry, modifier)
+        if carry.empty?
+          "[#{dice_list.join(',')}]#{Format.modifier(modifier)}"
+        else
+          "[#{dice_list.join(',')}],[#{carry.join(',')}]#{Format.modifier(modifier)}"
+        end
+      end
+
+      def result_performance(list, modifier, all_list)
+        if list.empty?
+          "【ミラクル】#{modifier + 10}"
+        elsif list == [1, 2, 3, 4, 5, 6]
+          "【パーフェクトミラクル】#{modifier + 30}"
+        elsif list.size != all_list.size
+          "[#{list.join(',')}]#{Format.modifier(modifier)} ＞ #{list.sum() + modifier}"
+        else
+          (list.sum() + modifier).to_s
+        end
+      end
+
+      def result_symphony(list, modifier)
+        if list.empty?
+          "【ミラクルシンクロ】#{modifier + 15}＋シンフォニーを行った人数"
+        elsif list == [1, 2, 3, 4, 5, 6]
+          "[#{list.join(',')}]#{Format.modifier(modifier)} ＞ 【パーフェクトミラクル】#{modifier + 30}"
+        else
+          "[#{list.join(',')}]#{Format.modifier(modifier)} ＞ #{list.sum() + modifier}"
+        end
       end
     end
   end
