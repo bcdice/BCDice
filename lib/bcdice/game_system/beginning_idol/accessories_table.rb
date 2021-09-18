@@ -235,7 +235,7 @@ module BCDice
         "ACT" => ACCESSORIE,
         "ACB" => BLAND,
         "ACE" => ACCESSORIE_SKILL,
-      }
+      }.freeze
 
       register_prefix(ACCESSORIE_TABLES.keys)
     end

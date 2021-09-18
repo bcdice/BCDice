@@ -74,7 +74,7 @@ module BCDice
         'BT',
         '\d{2}C',
         '\d+S?A',
-        '[1-7]*PD',
+        '[1-7]*PD'
       )
 
       def initialize(command)
