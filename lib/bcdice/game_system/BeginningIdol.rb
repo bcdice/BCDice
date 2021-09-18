@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 require 'bcdice/game_system/beginning_idol/chain_table'
+require 'bcdice/game_system/beginning_idol/chain_d66_table'
+require 'bcdice/game_system/beginning_idol/table'
+require 'bcdice/game_system/beginning_idol/item_table'
 require 'bcdice/game_system/beginning_idol/d6_twice_table'
 require 'bcdice/game_system/beginning_idol/costume'
 require 'bcdice/game_system/beginning_idol/accessories_table'
 require 'bcdice/game_system/beginning_idol/heart_step_table'
 require 'bcdice/game_system/beginning_idol/work_table'
 require 'bcdice/game_system/beginning_idol/world_setting_table'
-require 'bcdice/game_system/beginning_idol/table'
 
 module BCDice
   module GameSystem
@@ -182,7 +184,9 @@ module BCDice
               roll_heart_step_table(command) ||
               roll_accessories_table(command) ||
               roll_world_setting_table(command) ||
-              roll_other_table(command)
+              roll_other_table(command) ||
+              SKILL_TABLE.roll_command(@randomizer, command) ||
+              ItemTable.roll_command(@randomizer, command)
         return res if res
 
         case command
@@ -195,18 +199,9 @@ module BCDice
 
           return rollPerformance(counts, residual, adjust)
 
-        when /^AT([1-6]?)$/
-          value = Regexp.last_match(1).to_i
-          return getSkillList(value)
-
         when /^BT(\d+)?$/
           counts = (Regexp.last_match(1) || 1).to_i
           return badStatus(counts)
-
-        when /^IT(\d+)?$/
-          counts = (Regexp.last_match(1) || 1).to_i
-          return getItem(counts)
-
         when 'DT'
           return COSTUME_CHALLENGE_GIRLS.roll(@randomizer)
 
@@ -345,55 +340,11 @@ module BCDice
         return text
       end
 
-      def textFromD66Table(title, table, chance = '')
+      def textFromD66Table(title, table)
         dice = @randomizer.roll_d66(D66SortType::ASC)
         number, text, skill = table.assoc(dice)
 
-        text, skill = checkChance(text, skill, chance)
-        return "#{title} ＞ [#{number}] ＞ " + replaceBadStatus(text) + getSkillText(skill)
-      end
-
-      def checkChance(text, skill, chance)
-        return text, skill if chance.empty?
-        return text, skill unless text =~ /チャンスが(\d{1,2})以下ならオフ。/
-
-        target = Regexp.last_match(1).to_i
-        matchedText = Regexp.last_match(0)
-
-        if target >= chance.to_i
-          text = "オフ"
-          skill = ''
-        else
-          text = text.gsub(matchedText, '')
-          text = text.chomp
-        end
-
-        return text, skill
-      end
-
-      def textFrom1D6Table(title, table1, table2 = nil)
-        text1, number1 = get_table_by_1d6(table1)
-
-        text = "#{title} ＞ "
-        if table2.nil?
-          text += "[#{number1}] ＞ #{text1}"
-        else
-          text2, number2 = get_table_by_1d6(table2)
-          text += "[#{number1},#{number2}] ＞ #{text1}#{text2}"
-        end
-
-        if /ランダムに決定した特技が指定特技のアイドルスキル\(身長分野、(属性|才能)分野、出身分野が出たら振り直し\)$/ =~ text
-          category = Regexp.last_match(1)
-          loop do
-            skill = getSkillList()
-            text += "\n#{skill}"
-            break unless skill.include?("身長") || skill.include?(category) || skill.include?("出身")
-
-            text += " ＞ 振り直し"
-          end
-        end
-
-        return replaceBadStatus(text)
+        return "#{title} ＞ [#{number}] ＞ " + text + getSkillText(skill)
       end
 
       def getSkillList(field = 0)
@@ -478,62 +429,6 @@ module BCDice
         dice = @randomizer.roll_d66(D66SortType::ASC)
         number, text, = table.assoc(dice)
         array.push([index, src, text, number])
-      end
-
-      def getItem(counts = 1)
-        title = 'アイテム'
-        table = [
-          "スタミナドリンク",
-          "トレーニングウェア",
-          "ドリーミングシューズ",
-          "キャラアイテム",
-          "お菓子",
-          "差し入れ",
-        ]
-
-        return '' if counts <= 0
-
-        numbers = @randomizer.roll_barabara(counts, 6).sort
-        unique = numbers.uniq
-
-        text = "#{title} ＞ [#{numbers.join(',')}] ＞ "
-        acquisitions = numbers.count
-        kinds = unique.count
-
-        kinds.times do |i|
-          string = table[unique[i].to_i - 1]
-          unless kinds == 1
-            string = "「#{string}」"
-          end
-
-          text += string
-          unless acquisitions == kinds
-            text += numbers.count(unique[i]).to_s + 'つ'
-          end
-          text += 'と'
-        end
-
-        text = text.sub(/と$/, '')
-
-        return text
-      end
-
-      def replaceBadStatus(text)
-        return text unless /変調がランダムに(一|二|三)つ発生する。/ =~ text
-
-        counts = 1
-        case Regexp.last_match(1)
-        when '二'
-          counts = 2
-        when '三'
-          counts = 3
-        end
-
-        substitution = text.clone
-        substitution = substitution.gsub(Regexp.last_match(0), '')
-        substitution += "\n" unless substitution.empty? || /\n$/ =~ substitution
-
-        return substitution + badStatus(counts)
       end
     end
   end

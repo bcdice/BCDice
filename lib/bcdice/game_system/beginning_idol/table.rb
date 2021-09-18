@@ -18,7 +18,13 @@ module BCDice
         ]
       )
 
-      SkillTable = DiceTable::SaiFicSkillTable.new(
+      class SkillTable < DiceTable::SaiFicSkillTable
+        def roll(randomizer)
+          roll_command(randomizer, "RTT")
+        end
+      end
+
+      SKILL_TABLE = SkillTable.new(
         [
           ["身長", ["～125", "131", "136", "141", "146", "156", "166", "171", "176", "180", "190～"]],
           ["属性", ["エスニック", "ダーク", "セクシー", "フェミニン", "キュート", "プレーン", "パッション", "ポップ", "バーニング", "クール", "スター"]],
@@ -26,7 +32,9 @@ module BCDice
           ["キャラ", ["中二病", "ミステリアス", "マイペース", "軟派", "語尾", "キャラ分野の空白", "元気", "硬派", "物腰丁寧", "どじ", "ばか"]],
           ["趣味", ["オカルト", "ペット", "スポーツ", "おしゃれ", "料理", "趣味分野の空白", "ショッピング", "ダンス", "ゲーム", "音楽", "アイドル"]],
           ["出身", ["沖縄", "九州地方", "四国地方", "中国地方", "近畿地方", "中部地方", "関東地方", "北陸地方", "東北地方", "北海道", "海外"]],
-        ]
+        ],
+        rtt: "AT",
+        rttn: ["AT1", "AT2", "AT3", "AT4", "AT5", "AT6"]
       )
 
       class SkillGetTable < DiceTable::Table
@@ -41,7 +49,7 @@ module BCDice
           reroll_category = ["身長", m[1], "出身"]
           body = chosen.body + "\n"
           loop do
-            skill = SkillTable.roll_skill(randomizer)
+            skill = SKILL_TABLE.roll_skill(randomizer)
             body += "特技リスト ＞ [#{skill.category_dice},#{skill.row_dice}] ＞ #{skill}"
             unless reroll_category.include?(skill.category_name)
               break
