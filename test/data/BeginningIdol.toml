@@ -1025,11 +1025,11 @@ input = "MS"
 output = "マイスキル名決定表 ＞ [5,形容表23,情景表45,称号表1] ＞ 1000%もしくはぴかぴか＋アイドル＋PCの名前"
 rands = [
   { sides = 6, value = 5 },
-  { sides = 6, value = 1 },
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
 ]
 
 [[ test ]]

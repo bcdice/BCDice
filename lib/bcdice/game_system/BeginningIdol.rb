@@ -421,15 +421,6 @@ module BCDice
 
         return "\n#{text}"
       end
-
-      def setArrayFromD66Table(array, name, src, table)
-        index = name.index(src)
-        return if index.nil?
-
-        dice = @randomizer.roll_d66(D66SortType::ASC)
-        number, text, = table.assoc(dice)
-        array.push([index, src, text, number])
-      end
     end
   end
 end
