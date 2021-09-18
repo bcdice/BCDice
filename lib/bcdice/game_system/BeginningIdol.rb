@@ -2,6 +2,9 @@
 
 require 'bcdice/game_system/beginning_idol/chain_table'
 require 'bcdice/game_system/beginning_idol/chain_d66_table'
+require 'bcdice/game_system/beginning_idol/bad_status_table'
+require 'bcdice/game_system/beginning_idol/random_event_table'
+require 'bcdice/game_system/beginning_idol/my_skill_name_table'
 require 'bcdice/game_system/beginning_idol/table'
 require 'bcdice/game_system/beginning_idol/item_table'
 require 'bcdice/game_system/beginning_idol/d6_twice_table'
@@ -186,7 +189,8 @@ module BCDice
               roll_world_setting_table(command) ||
               roll_other_table(command) ||
               SKILL_TABLE.roll_command(@randomizer, command) ||
-              ItemTable.roll_command(@randomizer, command)
+              ItemTable.roll_command(@randomizer, command) ||
+              BadStatusTable.roll_command(@randomizer, command)
         return res if res
 
         case command
@@ -198,10 +202,6 @@ module BCDice
           adjust = Regexp.last_match(3).to_i
 
           return rollPerformance(counts, residual, adjust)
-
-        when /^BT(\d+)?$/
-          counts = (Regexp.last_match(1) || 1).to_i
-          return badStatus(counts)
         when 'DT'
           return COSTUME_CHALLENGE_GIRLS.roll(@randomizer)
 
@@ -338,88 +338,6 @@ module BCDice
         end
 
         return text
-      end
-
-      def textFromD66Table(title, table)
-        dice = @randomizer.roll_d66(D66SortType::ASC)
-        number, text, skill = table.assoc(dice)
-
-        return "#{title} ＞ [#{number}] ＞ " + text + getSkillText(skill)
-      end
-
-      def getSkillList(field = 0)
-        title = '特技リスト'
-        table = [
-          ['身長', ['～125', '131', '136', '141', '146', '156', '166', '171', '176', '180', '190～']],
-          ['属性', ['エスニック', 'ダーク', 'セクシー', 'フェミニン', 'キュート', 'プレーン', 'パッション', 'ポップ', 'バーニング', 'クール', 'スター']],
-          ['才能', ['異国文化', 'スタイル', '集中力', '胆力', '体力', '笑顔', '運動神経', '気配り', '学力', 'セレブ', '演技力']],
-          ['キャラ', ['中二病', 'ミステリアス', 'マイペース', '軟派', '語尾', 'キャラ分野の空白', '元気', '硬派', '物腰丁寧', 'どじ', 'ばか']],
-          ['趣味', ['オカルト', 'ペット', 'スポーツ', 'おしゃれ', '料理', '趣味分野の空白', 'ショッピング', 'ダンス', 'ゲーム', '音楽', 'アイドル']],
-          ['出身', ['沖縄', '九州地方', '四国地方', '中国地方', '近畿地方', '中部地方', '関東地方', '北陸地方', '東北地方', '北海道', '海外']],
-        ]
-
-        number1 = 0
-        if field == 0
-          table, number1 = get_table_by_1d6(table)
-        else
-          table = table[field - 1]
-        end
-
-        fieldName, table = table
-        skill, number2 = get_table_by_2d6(table)
-
-        text = title
-        if field == 0
-          text += " ＞ [#{number1},#{number2}]"
-        else
-          text += "(#{fieldName}分野) ＞ [#{number2}]"
-        end
-
-        return "#{text} ＞ 《#{skill}／#{fieldName}#{number2}》"
-      end
-
-      def badStatus(counts = 1)
-        title = '変調'
-        table = [
-          "「不穏な空気」　PCの【メンタル】が減少するとき、減少する数値が1点上昇する",
-          "「微妙な距離感」　【理解度】が上昇しなくなる",
-          "「ガラスの心」　PCのファンブル値が1点上昇する",
-          "「怪我」　幕間のとき、プロデューサーは「回想」しか行えない",
-          "「信じきれない」　PC全員の【理解度】を1点低いものとして扱う",
-          "「すれ違い」　PCはアイテムの使用と、リザルトフェイズに「おねがい」をすることができなくなる",
-        ]
-
-        return '' if counts <= 0
-
-        dice_list = @randomizer.roll_barabara(counts, 6).sort
-        dice_str = dice_list.join(",")
-        numbers = dice_list.uniq
-
-        text = "#{title} ＞ [#{dice_str}] ＞ "
-        occurrences = numbers.count
-
-        if occurrences > 1
-          text += "以下の#{occurrences}つが発生する。\n"
-        end
-
-        occurrences.times do |i|
-          text += table[numbers[i] - 1] + "\n"
-        end
-
-        return text[0, text.length - 1]
-      end
-
-      def getSkillText(skill)
-        return '' if skill.nil? || skill.empty?
-
-        text = skill
-        if /^AT([1-6]?)$/ =~ text
-          text = getSkillList(Regexp.last_match(1).to_i)
-        else
-          text = "特技 : #{text}"
-        end
-
-        return "\n#{text}"
       end
     end
   end
