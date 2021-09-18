@@ -255,6 +255,8 @@ module BCDice
         "RE" => RandomEventTable,
       }.freeze
 
+      register_prefix(TABLE.keys)
+
       def roll_other_table(command)
         TABLE[command]&.roll(@randomizer)
       end

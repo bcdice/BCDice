@@ -6,16 +6,7 @@ module BCDice
       private
 
       def roll_accessories_table(command)
-        case command
-        when "ACT"
-          return ACCESSORIE.roll(@randomizer)
-        when "ACB"
-          return BLAND.roll(@randomizer)
-        when "ACE"
-          return ACCESSORIE_SKILL.roll(@randomizer)
-        end
-
-        return nil
+        roll_tables(command, ACCESSORIE_TABLES)
       end
 
       ACCESSORIE_HEAD = DiceTable::D66Table.new(
@@ -239,6 +230,14 @@ module BCDice
           66 => "スペシャルが発生したとき、【メンタル】が10点上昇する。",
         }
       )
+
+      ACCESSORIE_TABLES = {
+        "ACT" => ACCESSORIE,
+        "ACB" => BLAND,
+        "ACE" => ACCESSORIE_SKILL,
+      }
+
+      register_prefix(ACCESSORIE_TABLES.keys)
     end
   end
 end

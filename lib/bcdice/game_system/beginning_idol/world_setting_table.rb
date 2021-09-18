@@ -432,6 +432,8 @@ module BCDice
         ),
       }.freeze
 
+      register_prefix(WORLD_SETTING_TABLES.keys)
+
       def roll_world_setting_table(command)
         WORLD_SETTING_TABLES[command]&.roll(@randomizer)
       end

@@ -122,6 +122,8 @@ module BCDice
         ),
       }.freeze
 
+      register_prefix(MUCHABURI_TABLE.keys)
+
       def roll_muchaburi_table(command)
         MUCHABURI_TABLE[command]&.roll(@randomizer)
       end

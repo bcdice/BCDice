@@ -301,6 +301,8 @@ module BCDice
           ]
         ),
       }.freeze
+
+      register_prefix(HEART_STEP_TABLES.keys)
     end
   end
 end

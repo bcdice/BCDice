@@ -114,6 +114,8 @@ module BCDice
         "RC" => COSTUME_ROAD_TO_PRINCE,
         "FC" => COSTUME_FORTUNE_STARS,
       }.freeze
+
+      register_prefix(COSTUME_TABLES.keys)
     end
   end
 end

@@ -621,6 +621,8 @@ module BCDice
         }
       )
 
+      register_prefix("LO", WORK_TABLE.keys)
+
       def roll_work_table(command)
         if (m = /^LO([1-6]{1,2})?$/.match(command))
           LocalWorkTable.roll(@randomizer, m[1]&.to_i)
