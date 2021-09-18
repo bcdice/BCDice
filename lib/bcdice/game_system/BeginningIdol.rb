@@ -183,105 +183,110 @@ module BCDice
       alias check_2D6 check_nD6
 
       def eval_game_system_specific_command(command)
-        res = roll_work_table(command) ||
-              roll_heart_step_table(command) ||
-              roll_accessories_table(command) ||
-              roll_world_setting_table(command) ||
-              roll_other_table(command) ||
-              SKILL_TABLE.roll_command(@randomizer, command) ||
-              ItemTable.roll_command(@randomizer, command) ||
-              BadStatusTable.roll_command(@randomizer, command)
-        return res if res
-
-        case command
-        when /^([1-7]*)PD(\d+)([+\-]\d+)?$/
-          counts = Regexp.last_match(2).to_i
-          return nil if counts <= 0
-
-          residual = Regexp.last_match(1)
-          adjust = Regexp.last_match(3).to_i
-
-          return rollPerformance(counts, residual, adjust)
-        when 'DT'
-          return COSTUME_CHALLENGE_GIRLS.roll(@randomizer)
-
-        when 'RC'
-          return COSTUME_ROAD_TO_PRINCE.roll(@randomizer)
-
-        when 'FC'
-          return COSTUME_FORTUNE_STARS.roll(@randomizer)
-
-        when /^(\d{2})C$/
-          title = 'バーストタイム'
-          degrees = Regexp.last_match(1).to_i
-          counts = 6
-          if (degrees < 45) || (degrees > 55)
-            return nil
-          elsif degrees <= 49
-            counts = 3
-          elsif degrees <= 52
-            counts = 4
-          elsif degrees <= 54
-            counts = 5
-          end
-
-          dice_list = @randomizer.roll_barabara(counts, 6).sort
-          total = dice_list.sum()
-          dice = dice_list.join(",")
-          total += degrees
-
-          text = "#{title} ＞ #{degrees}+[#{dice}] ＞ #{total} ＞ "
-          if total >= 80
-            text += "Burst!\n「バースト表」を使用する。"
-          elsif total >= 65
-            string = "成功\n【獲得ファン人数】が2D6点上昇する。"
-            if total >= 75
-              string = "大#{string}\nPC全員が挑戦者ではない場合、自分以外のPCを一人指名する。指名されたPCは、新たな挑戦者として、【メンタル】を減少させずに「バーストタイム」を行う。"
-            end
-            text += string
-          else
-            text += '失敗'
-          end
-          return text
-
-        when /^(\d+)(S?)A([1-6]*)([+\-]\d+)?$/
-          title = '攻撃'
-          counts = Regexp.last_match(1).to_i
-          return nil if counts <= 0
-
-          sure = !Regexp.last_match(2).empty?
-          remove = Regexp.last_match(3).each_char.map(&:to_i)
-          adjust = Regexp.last_match(4)&.to_i
-          adjust_str = Format.modifier(adjust)
-
-          dice = @randomizer.roll_barabara(counts, 6).sort
-          dice_str = dice.join(",")
-
-          dice -= remove
-
-          text = "#{title} ＞ [#{dice_str}]#{adjust_str} ＞ "
-
-          unless (dice.count == counts) || dice.empty?
-            text += "[#{dice.join(',')}]#{adjust_str} ＞ "
-          end
-
-          if sure || (dice.count == dice.uniq.count)
-            total = adjust.to_i
-            total += dice.sum()
-            total = 0 if total < 0
-            text += "#{total}ダメージ"
-          else
-            text += '失敗'
-          end
-          return text
-        end
-
-        return nil
+        roll_work_table(command) ||
+        roll_heart_step_table(command) ||
+        roll_accessories_table(command) ||
+        roll_world_setting_table(command) ||
+        roll_other_table(command) ||
+        roll_attack(command) ||
+        roll_burst(command) ||
+        roll_performance(command) ||
+        roll_tables(command, COSTUME_TABLES) ||
+        SKILL_TABLE.roll_command(@randomizer, command) ||
+        ItemTable.roll_command(@randomizer, command) ||
+        BadStatusTable.roll_command(@randomizer, command)
       end
 
       private
 
-      def rollPerformance(counts, residual, adjust)
+      def roll_burst(command)
+        m = /^(\d{2})C$/.match(command)
+        unless m
+          return nil
+        end
+
+        title = 'バーストタイム'
+        degrees = Regexp.last_match(1).to_i
+        counts = 6
+        if (degrees < 45) || (degrees > 55)
+          return nil
+        elsif degrees <= 49
+          counts = 3
+        elsif degrees <= 52
+          counts = 4
+        elsif degrees <= 54
+          counts = 5
+        end
+
+        dice_list = @randomizer.roll_barabara(counts, 6).sort
+        total = dice_list.sum()
+        dice = dice_list.join(",")
+        total += degrees
+
+        text = "#{title} ＞ #{degrees}+[#{dice}] ＞ #{total} ＞ "
+        if total >= 80
+          text += "Burst!\n「バースト表」を使用する。"
+        elsif total >= 65
+          string = "成功\n【獲得ファン人数】が2D6点上昇する。"
+          if total >= 75
+            string = "大#{string}\nPC全員が挑戦者ではない場合、自分以外のPCを一人指名する。指名されたPCは、新たな挑戦者として、【メンタル】を減少させずに「バーストタイム」を行う。"
+          end
+          text += string
+        else
+          text += '失敗'
+        end
+        return text
+      end
+
+      def roll_attack(command)
+        m = /^(\d+)(S?)A([1-6]*)([+\-]\d+)?$/.match(command)
+        unless m
+          return nil
+        end
+
+        title = '攻撃'
+        counts = Regexp.last_match(1).to_i
+        return nil if counts <= 0
+
+        sure = !Regexp.last_match(2).empty?
+        remove = Regexp.last_match(3).each_char.map(&:to_i)
+        adjust = Regexp.last_match(4)&.to_i
+        adjust_str = Format.modifier(adjust)
+
+        dice = @randomizer.roll_barabara(counts, 6).sort
+        dice_str = dice.join(",")
+
+        dice -= remove
+
+        text = "#{title} ＞ [#{dice_str}]#{adjust_str} ＞ "
+
+        unless (dice.count == counts) || dice.empty?
+          text += "[#{dice.join(',')}]#{adjust_str} ＞ "
+        end
+
+        if sure || (dice.count == dice.uniq.count)
+          total = adjust.to_i
+          total += dice.sum()
+          total = 0 if total < 0
+          text += "#{total}ダメージ"
+        else
+          text += '失敗'
+        end
+        return text
+      end
+
+      def roll_performance(command)
+        m = /^([1-7]*)PD(\d+)([+\-]\d+)?$/.match(command)
+        unless m
+          return nil
+        end
+
+        counts = m[2].to_i
+        return nil if counts <= 0
+
+        residual = m[1]
+        adjust = m[3].to_i
+
         title = 'パフォーマンス'
 
         string = ''

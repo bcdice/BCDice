@@ -108,6 +108,12 @@ module BCDice
           66 => "See Diver\n演目名に「海」「水」「泡」「湖」「風呂」を含む演目を行った場合、【獲得ファン人数】が1D6点上昇する。",
         }
       ).freeze
+
+      COSTUME_TABLES = {
+        "DT" => COSTUME_CHALLENGE_GIRLS,
+        "RC" => COSTUME_ROAD_TO_PRINCE,
+        "FC" => COSTUME_FORTUNE_STARS,
+      }.freeze
     end
   end
 end
