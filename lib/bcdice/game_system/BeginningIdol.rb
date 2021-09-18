@@ -184,17 +184,17 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         roll_work_table(command) ||
-        roll_heart_step_table(command) ||
-        roll_accessories_table(command) ||
-        roll_world_setting_table(command) ||
-        roll_other_table(command) ||
-        roll_attack(command) ||
-        roll_burst(command) ||
-        roll_performance(command) ||
-        roll_tables(command, COSTUME_TABLES) ||
-        SKILL_TABLE.roll_command(@randomizer, command) ||
-        ItemTable.roll_command(@randomizer, command) ||
-        BadStatusTable.roll_command(@randomizer, command)
+          roll_heart_step_table(command) ||
+          roll_accessories_table(command) ||
+          roll_world_setting_table(command) ||
+          roll_other_table(command) ||
+          roll_attack(command) ||
+          roll_burst(command) ||
+          roll_performance(command) ||
+          roll_tables(command, COSTUME_TABLES) ||
+          SKILL_TABLE.roll_command(@randomizer, command) ||
+          ItemTable.roll_command(@randomizer, command) ||
+          BadStatusTable.roll_command(@randomizer, command)
       end
 
       private
