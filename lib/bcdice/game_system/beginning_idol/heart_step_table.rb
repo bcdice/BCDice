@@ -19,7 +19,7 @@ module BCDice
           end
 
           abno_count = kanji_to_i(m[1])
-          text = BadStatusTable.roll(randomizer, abno_count)
+          text = BAD_STATUS_TABLE.roll(randomizer, abno_count)
           new_body = chosen.body.sub(REG, text)
 
           return DiceTable::RollResult.new(chosen.table_name, chosen.value, new_body)

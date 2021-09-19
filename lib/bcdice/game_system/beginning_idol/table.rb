@@ -121,7 +121,28 @@ module BCDice
         private
 
         def translate_tables(locale)
+          costume_challenge_girls = CostumeTable.from_i18n("BeginningIdol.tables.DT", locale)
+          costume_road_to_prince = CostumeTable.from_i18n("BeginningIdol.tables.RC", locale)
+          costume_fortune_stars = CostumeTable.from_i18n("BeginningIdol.tables.FC", locale)
+
+          bland = ChainTable.new(
+            I18n.t("BeginningIdol.ACB.name", locale: locale),
+            "1D6",
+            [
+              [I18n.t("BeginningIdol.ACB.items.challenge_girls", locale: locale), costume_challenge_girls.brand_only()],
+              [I18n.t("BeginningIdol.ACB.items.challenge_girls", locale: locale), costume_challenge_girls.brand_only()],
+              [I18n.t("BeginningIdol.ACB.items.road_to_prince", locale: locale), costume_road_to_prince.brand_only()],
+              [I18n.t("BeginningIdol.ACB.items.road_to_prince", locale: locale), costume_road_to_prince.brand_only()],
+              [I18n.t("BeginningIdol.ACB.items.fortune_stars", locale: locale), costume_fortune_stars.brand_only()],
+              [I18n.t("BeginningIdol.ACB.items.fortune_stars", locale: locale), costume_fortune_stars.brand_only()],
+            ]
+          )
+
           {
+            "DT" => costume_challenge_girls,
+            "RC" => costume_road_to_prince,
+            "FC" => costume_fortune_stars,
+            "ACB" => bland,
             "CBT" => DiceTable::D66Table.from_i18n("BeginningIdol.tables.CBT", locale),
             "RCB" => DiceTable::D66Table.from_i18n("BeginningIdol.tables.RCB", locale),
             "HBT" => DiceTable::D66Table.from_i18n("BeginningIdol.tables.HBT", locale),
@@ -183,11 +204,14 @@ module BCDice
             "NUR" => D6TwiceTable.from_i18n("BeginningIdol.tables.NUR", locale),
             "GUR" => D6TwiceTable.from_i18n("BeginningIdol.tables.GUR", locale),
             "BUR" => D6TwiceTable.from_i18n("BeginningIdol.tables.BUR", locale),
+            "ACE" => DiceTable::D66Table.from_i18n("BeginningIdol.tables.ACE", locale),
           }
         end
       end
 
       TABLES = translate_tables(:ja_jp)
+
+      BAD_STATUS_TABLE = BadStatusTable.new(:ja_jp)
 
       register_prefix(TABLES.keys)
     end
