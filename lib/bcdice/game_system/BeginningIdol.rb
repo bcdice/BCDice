@@ -5,14 +5,13 @@ require 'bcdice/game_system/beginning_idol/chain_d66_table'
 require 'bcdice/game_system/beginning_idol/bad_status_table'
 require 'bcdice/game_system/beginning_idol/random_event_table'
 require 'bcdice/game_system/beginning_idol/my_skill_name_table'
+require 'bcdice/game_system/beginning_idol/d6_twice_table'
 require 'bcdice/game_system/beginning_idol/table'
 require 'bcdice/game_system/beginning_idol/item_table'
-require 'bcdice/game_system/beginning_idol/d6_twice_table'
 require 'bcdice/game_system/beginning_idol/costume'
 require 'bcdice/game_system/beginning_idol/accessories_table'
 require 'bcdice/game_system/beginning_idol/heart_step_table'
 require 'bcdice/game_system/beginning_idol/work_table'
-require 'bcdice/game_system/beginning_idol/world_setting_table'
 
 module BCDice
   module GameSystem
@@ -105,7 +104,6 @@ module BCDice
         roll_work_table(command) ||
           roll_heart_step_table(command) ||
           roll_accessories_table(command) ||
-          roll_world_setting_table(command) ||
           roll_other_table(command) ||
           roll_attack(command) ||
           roll_burst(command) ||
@@ -113,7 +111,8 @@ module BCDice
           roll_tables(command, COSTUME_TABLES) ||
           SKILL_TABLE.roll_command(@randomizer, command) ||
           ItemTable.roll_command(@randomizer, command) ||
-          BadStatusTable.roll_command(@randomizer, command)
+          BadStatusTable.roll_command(@randomizer, command) ||
+          roll_tables(command, TABLES)
       end
 
       private
