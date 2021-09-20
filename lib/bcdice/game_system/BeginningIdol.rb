@@ -10,9 +10,9 @@ require 'bcdice/game_system/beginning_idol/item_table'
 require 'bcdice/game_system/beginning_idol/costume'
 require 'bcdice/game_system/beginning_idol/accessories_table'
 require 'bcdice/game_system/beginning_idol/with_abnormality'
+require 'bcdice/game_system/beginning_idol/work_table'
 require 'bcdice/game_system/beginning_idol/table'
 require 'bcdice/game_system/beginning_idol/heart_step_table'
-require 'bcdice/game_system/beginning_idol/work_table'
 
 module BCDice
   module GameSystem
@@ -102,8 +102,8 @@ module BCDice
       alias check_2D6 check_nD6
 
       def eval_game_system_specific_command(command)
-        roll_work_table(command) ||
-          roll_heart_step_table(command) ||
+        # roll_work_table(command) ||
+        roll_heart_step_table(command) ||
           roll_other_table(command) ||
           roll_attack(command) ||
           roll_burst(command) ||
@@ -111,6 +111,7 @@ module BCDice
           SKILL_TABLE.roll_command(@randomizer, command) ||
           ItemTable.roll_command(@randomizer, command) ||
           BAD_STATUS_TABLE.roll_command(@randomizer, command) ||
+          LOCAL_WORK_TABLE.roll_command(@randomizer, command) ||
           roll_tables(command, TABLES)
       end
 

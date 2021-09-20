@@ -222,6 +222,8 @@ module BCDice
 
       BAD_STATUS_TABLE = BadStatusTable.new(:ja_jp)
 
+      LOCAL_WORK_TABLE = translate_local_work_table(:ja_jp)
+
       register_prefix(TABLES.keys)
     end
   end
