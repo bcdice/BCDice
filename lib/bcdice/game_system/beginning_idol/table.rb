@@ -137,6 +137,8 @@ module BCDice
             ]
           )
 
+          bad_status_table = BadStatusTable.new(:ja_jp)
+
           {
             "DT" => costume_challenge_girls,
             "RC" => costume_road_to_prince,
@@ -207,6 +209,11 @@ module BCDice
             "ACT" => translate_accessories_table(locale),
             "MS" => MySkillNameTable.new(locale),
             "RE" => RandomEventTable.new(locale),
+            "SH" => D66WithAbnormality.from_i18n("BeginningIdol.tables.SH", bad_status_table, locale),
+            "MO" => D66WithAbnormality.from_i18n("BeginningIdol.tables.MO", bad_status_table, locale),
+            "SEA" => D66WithAbnormality.from_i18n("BeginningIdol.tables.SEA", bad_status_table, locale),
+            "SPA" => D66WithAbnormality.from_i18n("BeginningIdol.tables.SPA", bad_status_table, locale),
+            "LN" => TableWithAbnormality.from_i18n("BeginningIdol.tables.LN", bad_status_table, locale),
           }
         end
       end
