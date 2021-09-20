@@ -108,7 +108,6 @@ module BCDice
             66 => ["パートナープレイヤーの周りで、幽霊騒ぎが起こる。安心させるためにも、調査に乗り出そう。", "特技 : 《オカルト／趣味2》"],
           }
         ),
-        "RE" => RandomEventTable,
       }.freeze
 
       register_prefix(TABLE.keys)
@@ -207,6 +206,7 @@ module BCDice
             "ACE" => DiceTable::D66Table.from_i18n("BeginningIdol.tables.ACE", locale),
             "ACT" => translate_accessories_table(locale),
             "MS" => MySkillNameTable.new(locale),
+            "RE" => RandomEventTable.new(locale),
           }
         end
       end
