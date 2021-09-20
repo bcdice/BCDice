@@ -69,7 +69,6 @@ module BCDice
       )
 
       HEART_STEP_TABLES = {
-        "MS" => MySkillNameTable,
         "GG" => ChainD66Table.new(
           "ゴールド成長表",
           {
