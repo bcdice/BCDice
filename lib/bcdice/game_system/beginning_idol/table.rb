@@ -205,6 +205,7 @@ module BCDice
             "GUR" => D6TwiceTable.from_i18n("BeginningIdol.tables.GUR", locale),
             "BUR" => D6TwiceTable.from_i18n("BeginningIdol.tables.BUR", locale),
             "ACE" => DiceTable::D66Table.from_i18n("BeginningIdol.tables.ACE", locale),
+            "ACT" => translate_accessories_table(locale),
           }
         end
       end

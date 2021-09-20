@@ -103,7 +103,6 @@ module BCDice
       def eval_game_system_specific_command(command)
         roll_work_table(command) ||
           roll_heart_step_table(command) ||
-          roll_accessories_table(command) ||
           roll_other_table(command) ||
           roll_attack(command) ||
           roll_burst(command) ||
