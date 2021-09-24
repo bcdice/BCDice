@@ -1,5 +1,21 @@
 ja_jp:
   BeginningIdol:
+    special: スペシャル！(PCは【思い出】を1つ獲得する)
+    fumble: ファンブル(変調がランダムに1つ発生し、PCは【思い出】を1つ獲得する)
+    burst:
+      name: バーストタイム
+      burst: "Burst!\n「バースト表」を使用する。"
+      critical_success: "大成功\n【獲得ファン人数】が2D6点上昇する。\nPC全員が挑戦者ではない場合、自分以外のPCを一人指名する。指名されたPCは、新たな挑戦者として、【メンタル】を減少させずに「バーストタイム」を行う。"
+      success: "成功\n【獲得ファン人数】が2D6点上昇する。"
+    attack:
+      name: 攻撃
+      damage: "%{total}ダメージ"
+    PD:
+      paformance: パフォーマンス
+      symphony: シンフォニー
+      miracle: "【ミラクル】%{value}"
+      perfect_miracle: "【パーフェクトミラクル】%{value}"
+      miracle_synchro: "【ミラクルシンクロ】%{value}＋シンフォニーを行った人数"
     abnormality:
       regexp: 変調がランダムに(一|二|三)つ発生する。
       num_map: ['一', '二', '三']

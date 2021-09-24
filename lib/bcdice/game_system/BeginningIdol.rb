@@ -72,18 +72,18 @@ module BCDice
         @d66_sort_type = D66SortType::ASC
       end
 
-      def check_nD6(total, dice_total, _dice_list, cmp_op, target)
-        return '' if target == '?'
-        return '' unless cmp_op == :>=
+      def result_nd6(total, dice_total, _value_list, cmp_op, target)
+        return nil if target == '?'
+        return nil unless cmp_op == :>=
 
         if dice_total <= 2
-          " ＞ ファンブル(変調がランダムに1つ発生し、PCは【思い出】を1つ獲得する)"
+          Result.fumble(translate("BeginningIdol.fumble"))
         elsif dice_total >= 12
-          " ＞ スペシャル！(PCは【思い出】を1つ獲得する)"
+          Result.critical(translate("BeginningIdol.special"))
         elsif total >= target
-          " ＞ 成功"
+          Result.success(translate("success"))
         else
-          " ＞ 失敗"
+          Result.failure(translate("failure"))
         end
       end
 
@@ -129,16 +129,17 @@ module BCDice
 
         result =
           if total >= 80
-            "Burst!\n「バースト表」を使用する。"
+            translate("BeginningIdol.burst.burst")
           elsif total >= 75
-            "大成功\n【獲得ファン人数】が2D6点上昇する。\nPC全員が挑戦者ではない場合、自分以外のPCを一人指名する。指名されたPCは、新たな挑戦者として、【メンタル】を減少させずに「バーストタイム」を行う。"
+            translate("BeginningIdol.burst.critical_success")
           elsif total >= 65
-            "成功\n【獲得ファン人数】が2D6点上昇する。"
+            translate("BeginningIdol.burst.success")
           else
-            "失敗"
+            translate("failure")
           end
 
-        return "バーストタイム ＞ #{degrees}+[#{dice_list.join(',')}] ＞ #{total} ＞ #{result}"
+        name = translate("BeginningIdol.burst.name")
+        return "#{name} ＞ #{degrees}+[#{dice_list.join(',')}] ＞ #{total} ＞ #{result}"
       end
 
       def roll_attack(command)
@@ -160,7 +161,7 @@ module BCDice
 
         dice -= remove
 
-        text = "攻撃 ＞ [#{dice_str}]#{adjust_str} ＞ "
+        text = "#{translate('BeginningIdol.attack.name')} ＞ [#{dice_str}]#{adjust_str} ＞ "
 
         unless (dice.count == counts) || dice.empty?
           text += "[#{dice.join(',')}]#{adjust_str} ＞ "
@@ -168,9 +169,9 @@ module BCDice
 
         if sure || (dice.count == dice.uniq.count)
           total = [dice.sum() + adjust.to_i, 0].max
-          text += "#{total}ダメージ"
+          text += format(translate('BeginningIdol.attack.damage'), total: total)
         else
-          text += '失敗'
+          text += translate('failure')
         end
         return text
       end
@@ -191,7 +192,7 @@ module BCDice
         all_dice = (dice_list + carry).sort
         filtered = select_uniqs(all_dice)
 
-        title = carry.empty? ? "パフォーマンス" : "シンフォニー"
+        title = carry.empty? ? translate("BeginningIdol.PD.paformance") : translate("BeginningIdol.PD.symphony")
 
         result =
           if carry.empty?
@@ -226,9 +227,9 @@ module BCDice
 
       def result_performance(list, modifier, all_list)
         if list.empty?
-          "【ミラクル】#{modifier + 10}"
+          format(translate("BeginningIdol.PD.miracle"), value: modifier + 10)
         elsif list == [1, 2, 3, 4, 5, 6]
-          "【パーフェクトミラクル】#{modifier + 30}"
+          format(translate("BeginningIdol.PD.perfect_miracle"), value: modifier + 30)
         elsif list.size != all_list.size
           "[#{list.join(',')}]#{Format.modifier(modifier)} ＞ #{list.sum() + modifier}"
         else
@@ -238,9 +239,10 @@ module BCDice
 
       def result_symphony(list, modifier)
         if list.empty?
-          "【ミラクルシンクロ】#{modifier + 15}＋シンフォニーを行った人数"
+          format(translate("BeginningIdol.PD.miracle_synchro"), value: modifier + 15)
         elsif list == [1, 2, 3, 4, 5, 6]
-          "[#{list.join(',')}]#{Format.modifier(modifier)} ＞ 【パーフェクトミラクル】#{modifier + 30}"
+          perfect_miracle = format(translate("BeginningIdol.PD.perfect_miracle"), value: modifier + 30)
+          "[#{list.join(',')}]#{Format.modifier(modifier)} ＞ #{perfect_miracle}"
         else
           "[#{list.join(',')}]#{Format.modifier(modifier)} ＞ #{list.sum() + modifier}"
         end
