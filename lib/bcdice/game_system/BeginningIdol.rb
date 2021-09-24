@@ -93,11 +93,11 @@ module BCDice
         roll_attack(command) ||
           roll_burst(command) ||
           roll_performance(command) ||
-          SKILL_TABLE.roll_command(@randomizer, command) ||
-          ITEM_TABLE.roll_command(@randomizer, command) ||
-          BAD_STATUS_TABLE.roll_command(@randomizer, command) ||
-          LOCAL_WORK_TABLE.roll_command(@randomizer, command) ||
-          roll_tables(command, TABLES)
+          self.class::SKILL_TABLE.roll_command(@randomizer, command) ||
+          self.class::ITEM_TABLE.roll_command(@randomizer, command) ||
+          self.class::BAD_STATUS_TABLE.roll_command(@randomizer, command) ||
+          self.class::LOCAL_WORK_TABLE.roll_command(@randomizer, command) ||
+          roll_tables(command, self.class::TABLES)
       end
 
       private
