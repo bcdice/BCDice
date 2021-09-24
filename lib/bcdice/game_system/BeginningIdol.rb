@@ -101,8 +101,7 @@ module BCDice
       alias check_2D6 check_nD6
 
       def eval_game_system_specific_command(command)
-        roll_other_table(command) ||
-          roll_attack(command) ||
+        roll_attack(command) ||
           roll_burst(command) ||
           roll_performance(command) ||
           SKILL_TABLE.roll_command(@randomizer, command) ||

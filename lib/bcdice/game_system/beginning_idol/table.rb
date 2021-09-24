@@ -3,121 +3,73 @@
 module BCDice
   module GameSystem
     class BeginningIdol < Base
-      private
-
       class SkillTable < DiceTable::SaiFicSkillTable
         def roll(randomizer)
           roll_command(randomizer, "RTT")
         end
       end
 
-      SKILL_TABLE = SkillTable.new(
-        [
-          ["身長", ["～125", "131", "136", "141", "146", "156", "166", "171", "176", "180", "190～"]],
-          ["属性", ["エスニック", "ダーク", "セクシー", "フェミニン", "キュート", "プレーン", "パッション", "ポップ", "バーニング", "クール", "スター"]],
-          ["才能", ["異国文化", "スタイル", "集中力", "胆力", "体力", "笑顔", "運動神経", "気配り", "学力", "セレブ", "演技力"]],
-          ["キャラ", ["中二病", "ミステリアス", "マイペース", "軟派", "語尾", "キャラ分野の空白", "元気", "硬派", "物腰丁寧", "どじ", "ばか"]],
-          ["趣味", ["オカルト", "ペット", "スポーツ", "おしゃれ", "料理", "趣味分野の空白", "ショッピング", "ダンス", "ゲーム", "音楽", "アイドル"]],
-          ["出身", ["沖縄", "九州地方", "四国地方", "中国地方", "近畿地方", "中部地方", "関東地方", "北陸地方", "東北地方", "北海道", "海外"]],
-        ],
-        rtt: "AT",
-        rttn: ["AT1", "AT2", "AT3", "AT4", "AT5", "AT6"]
-      )
-
       class SkillGetTable < DiceTable::Table
+        def self.from_i18n(key, skill_table, locale)
+          table = I18n.t(key, locale: locale)
+          new(table[:name], table[:type], table[:items], skill_table, locale)
+        end
+
+        def initialize(name, type, items, skill_table, locale)
+          super(name, type, items)
+          @skill_table = skill_table
+
+          skill_get_table = I18n.t("BeginningIdol.skill_get_table", locale: locale)
+          @reroll_reg = Regexp.new(skill_get_table[:reroll_reg])
+          @reroll = skill_get_table[:reroll]
+          @secondary_name = skill_get_table[:secondary_name]
+        end
+
         def roll(randomizer)
           chosen = super(randomizer)
 
-          m = /身長分野、(属性|才能)分野、出身分野が出たら振り直し/.match(chosen.body)
+          m = @reroll_reg.match(chosen.body)
           unless m
             return chosen
           end
 
-          reroll_category = ["身長", m[1], "出身"]
+          reroll_category = m.captures
           body = chosen.body + "\n"
           loop do
-            skill = SKILL_TABLE.roll_skill(randomizer)
-            body += "特技リスト ＞ [#{skill.category_dice},#{skill.row_dice}] ＞ #{skill}"
+            skill = @skill_table.roll_skill(randomizer)
+            body += "#{@secondary_name} ＞ [#{skill.category_dice},#{skill.row_dice}] ＞ #{skill}"
             unless reroll_category.include?(skill.category_name)
               break
             end
 
-            body += " ＞ 振り直し\n"
+            body += " ＞ #{@reroll}\n"
           end
 
           DiceTable::RollResult.new(chosen.table_name, chosen.value, body)
         end
       end
 
-      module SkillHometown
-        module_function
+      class SkillHometown
+        def initialize(skill_table)
+          @skill_name = skill_table
+        end
 
         def roll(randomizer)
-          SKILL_TABLE.roll_command(randomizer, "AT6")
+          @skill_name.roll_command(randomizer, "AT6")
         end
-      end
-
-      TABLE = {
-        "SGT" => SkillGetTable.new(
-          "アイドルスキル修得表(チャレンジガールズ)",
-          "1D6",
-          [
-            "シーンプレイヤーが修得している才能分野の特技が指定特技のアイドルスキル",
-            "シーンプレイヤーが修得しているキャラ分野の特技が指定特技のアイドルスキル",
-            "シーンプレイヤーが修得している趣味分野の特技が指定特技のアイドルスキル",
-            "ランダムに決定した特技が指定特技のアイドルスキル(身長分野、属性分野、出身分野が出たら振り直し)",
-            "《メンタルアップ》《パフォーマンスアップ》《アイテムアップ》のうちいずれか1つ",
-            "《メンタルアップ》《パフォーマンスアップ》《アイテムアップ》のうちいずれか1つ",
-          ]
-        ),
-        "RS" => SkillGetTable.new(
-          "アイドルスキル修得表(ロードトゥプリンス)",
-          "1D6",
-          [
-            "シーンプレイヤーが修得している属性分野の特技が指定特技のアイドルスキル",
-            "シーンプレイヤーが修得しているキャラ分野の特技が指定特技のアイドルスキル",
-            "シーンプレイヤーが修得している趣味分野の特技が指定特技のアイドルスキル",
-            "ランダムに決定した特技が指定特技のアイドルスキル(身長分野、才能分野、出身分野が出たら振り直し)",
-            "《メンタルディフェンス》《判定アップ》《個性アップ》のうちいずれか1つ",
-            "《メンタルディフェンス》《判定アップ》《個性アップ》のうちいずれか1つ",
-          ]
-        ),
-        "HA" => ChainD66Table.new(
-          "ハプニング表",
-          {
-            11 => ["ハプニングなし"],
-            12 => ["ハプニングなし"],
-            13 => ["ハプニングなし"],
-            14 => ["ハプニングなし"],
-            15 => ["ハプニングなし"],
-            16 => ["ハプニングなし"],
-            22 => ["パートナープレイヤーに、地方からオファーが来た。その土地独特の文化を学んで、パートナープレイヤーに伝えよう。", SkillHometown],
-            23 => ["グラビア撮影だが、用意された衣装のサイズがパートナープレイヤーに合わなかった。何とかして、衣装を合わせなければいけない。", "特技 : パートナープレイヤーが修得している身長分野の特技"],
-            24 => ["ダンス撮影中。パートナープレイヤーのダンスに迷いが見えた。何かアドバイスをして、迷いを取り払いたい。", "特技 : 《ダンス／趣味9》"],
-            25 => ["歌の仕事だが、パートナープレイヤーの歌がどこかぎこちない。うまく本来の歌を取り戻させよう。", "特技 : パートナープレイヤーが修得している属性分野の特技"],
-            26 => ["体力を消費する仕事の最中に、パートナープレイヤーが倒れてしまった！　急いで処置をしなければ！", "特技 : 《気配り／才能9》"],
-            33 => ["パートナープレイヤーにマイナースポーツのCMが回ってきたが、知らない様子だ。ルールを教えよう。", "特技 : 《スポーツ／趣味4》"],
-            34 => ["パートナープレイヤーのキャラに合わない仕事が舞い込んだ。演技力で乗り切ってほしい。", "特技 : 《演技力／才能12》"],
-            35 => ["パートナープレイヤーが風邪をひいてしまう。次の仕事までに、なんとか治してもらわなければ。", "特技 : 《元気／キャラ8》"],
-            36 => ["パートナープレイヤーの属性らしくない衣装が来てしまった。うまくアレンジできればいいけど。", "特技 : 《おしゃれ／趣味5》"],
-            44 => ["パートナープレイヤーのテンションが低い。テンションを上げるようなことを言おう。", "特技 : 《バーニング／属性10》"],
-            45 => ["パートナープレイヤーの仕事に必要な小道具が足りなくなった。調達しよう。", "特技 : 《ショッピング／趣味8》"],
-            46 => ["パートナープレイヤーに外国から仕事が舞い込んできた。外国の文化に合わせた仕事をしなければ。", "特技 : 《異国文化／才能2》"],
-            55 => ["パートナープレイヤーに大会社からの仕事のオファーがやって来る。プレッシャーに負けないように後押ししよう。", "特技 : 《胆力／才能5》"],
-            56 => ["パートナープレイヤーと他のアイドルグループとのコラボイベントが行われる。そのアイドルの情報を集めてこよう。", "特技 : 《アイドル／趣味12》"],
-            66 => ["パートナープレイヤーの周りで、幽霊騒ぎが起こる。安心させるためにも、調査に乗り出そう。", "特技 : 《オカルト／趣味2》"],
-          }
-        ),
-      }.freeze
-
-      register_prefix(TABLE.keys)
-
-      def roll_other_table(command)
-        TABLE[command]&.roll(@randomizer)
       end
 
       class << self
         private
+
+        def translate_skill_table(locale)
+          SkillTable.from_i18n(
+            "BeginningIdol.skill_table",
+            locale,
+            rtt: "AT",
+            rttn: ["AT1", "AT2", "AT3", "AT4", "AT5", "AT6"]
+          )
+        end
 
         def translate_tables(locale)
           costume_challenge_girls = CostumeTable.from_i18n("BeginningIdol.tables.DT", locale)
@@ -137,14 +89,9 @@ module BCDice
             ]
           )
 
-          bad_status_table = BadStatusTable.new(:ja_jp)
+          bad_status_table = BadStatusTable.new(locale)
 
-          skill_table = SkillTable.from_i18n(
-            "BeginningIdol.skill_table",
-            locale,
-            rtt: "AT",
-            rttn: ["AT1", "AT2", "AT3", "AT4", "AT5", "AT6"]
-          )
+          skill_table = translate_skill_table(locale)
 
           rare_skill_table = DiceTable::Table.from_i18n("BeginningIdol.rare_skill_table", locale)
 
@@ -184,6 +131,11 @@ module BCDice
             end
           )
 
+          ha = ChainD66Table.new(
+            I18n.t("BeginningIdol.HA.name", locale: locale),
+            I18n.t("BeginningIdol.HA.items", locale: locale).dup.tap { |items| items[22].push(SkillHometown.new(skill_table)) }
+          )
+
           {
             "DT" => costume_challenge_girls,
             "RC" => costume_road_to_prince,
@@ -192,6 +144,7 @@ module BCDice
             "TN" => tn,
             "CG" => cg,
             "GG" => gg,
+            "HA" => ha,
             "CBT" => DiceTable::D66Table.from_i18n("BeginningIdol.tables.CBT", locale),
             "RCB" => DiceTable::D66Table.from_i18n("BeginningIdol.tables.RCB", locale),
             "HBT" => DiceTable::D66Table.from_i18n("BeginningIdol.tables.HBT", locale),
@@ -262,6 +215,8 @@ module BCDice
             "SEA" => D66WithAbnormality.from_i18n("BeginningIdol.tables.SEA", bad_status_table, locale),
             "SPA" => D66WithAbnormality.from_i18n("BeginningIdol.tables.SPA", bad_status_table, locale),
             "LN" => TableWithAbnormality.from_i18n("BeginningIdol.tables.LN", bad_status_table, locale),
+            "SGT" => SkillGetTable.from_i18n("BeginningIdol.tables.SGT", skill_table, locale),
+            "RS" => SkillGetTable.from_i18n("BeginningIdol.tables.RS", skill_table, locale),
           }
         end
       end
@@ -272,6 +227,8 @@ module BCDice
 
       LOCAL_WORK_TABLE = translate_local_work_table(:ja_jp)
       ITEM_TABLE = ItemTable.new(:ja_jp)
+
+      SKILL_TABLE = translate_skill_table(:ja_jp)
 
       register_prefix(TABLES.keys)
     end
