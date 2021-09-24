@@ -613,6 +613,15 @@ rands = [
 
 [[ test ]]
 game_system = "KillDeathBusiness"
+input = "EST"
+output = "サービスシーン表(23) ＞ 暴力系サービスシーン表「暴力をほのめかす会話」を行う。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
 input = "SOUL"
 output = "ソウル放出表(1) ＞ 100"
 rands = [
