@@ -139,11 +139,59 @@ module BCDice
 
           bad_status_table = BadStatusTable.new(:ja_jp)
 
+          skill_table = SkillTable.from_i18n(
+            "BeginningIdol.skill_table",
+            locale,
+            rtt: "AT",
+            rttn: ["AT1", "AT2", "AT3", "AT4", "AT5", "AT6"]
+          )
+
+          rare_skill_table = DiceTable::Table.from_i18n("BeginningIdol.rare_skill_table", locale)
+
+          item_table = ItemTable.new(locale)
+
+          tn = ChainTable.new(
+            I18n.t("BeginningIdol.TN.name", locale: locale),
+            "1D6",
+            I18n.t("BeginningIdol.TN.items", locale: locale).dup.tap { |items| items[3].push(skill_table) }
+          )
+
+          cg = ChainTable.new(
+            I18n.t("BeginningIdol.CG.name", locale: locale),
+            "1D6",
+            I18n.t("BeginningIdol.CG.items", locale: locale).map.with_index do |item, index|
+              if [3, 4].include?(index)
+                [item, item_table]
+              else
+                [item]
+              end
+            end
+          )
+
+          gg = ChainD66Table.new(
+            I18n.t("BeginningIdol.GG.name", locale: locale),
+            I18n.t("BeginningIdol.GG.items", locale: locale).to_h do |index, value|
+              chain =
+                if [23, 24, 25].include?(index)
+                  [value, rare_skill_table]
+                elsif index == 56
+                  [value, item_table]
+                else
+                  [value]
+                end
+
+              [index, chain]
+            end
+          )
+
           {
             "DT" => costume_challenge_girls,
             "RC" => costume_road_to_prince,
             "FC" => costume_fortune_stars,
             "ACB" => bland,
+            "TN" => tn,
+            "CG" => cg,
+            "GG" => gg,
             "CBT" => DiceTable::D66Table.from_i18n("BeginningIdol.tables.CBT", locale),
             "RCB" => DiceTable::D66Table.from_i18n("BeginningIdol.tables.RCB", locale),
             "HBT" => DiceTable::D66Table.from_i18n("BeginningIdol.tables.HBT", locale),
@@ -223,6 +271,7 @@ module BCDice
       BAD_STATUS_TABLE = BadStatusTable.new(:ja_jp)
 
       LOCAL_WORK_TABLE = translate_local_work_table(:ja_jp)
+      ITEM_TABLE = ItemTable.new(:ja_jp)
 
       register_prefix(TABLES.keys)
     end

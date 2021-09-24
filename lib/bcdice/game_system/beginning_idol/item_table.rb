@@ -3,17 +3,10 @@
 module BCDice
   module GameSystem
     class BeginningIdol < Base
-      module ItemTable
-        ITEMS = [
-          "スタミナドリンク",
-          "トレーニングウェア",
-          "ドリーミングシューズ",
-          "キャラアイテム",
-          "お菓子",
-          "差し入れ",
-        ].freeze
-
-        module_function
+      class ItemTable
+        def initialize(locale)
+          @locale = locale
+        end
 
         def roll_command(randomizer, command)
           m = /^IT(\d+)?$/.match(command)
@@ -32,23 +25,25 @@ module BCDice
             return nil
           end
 
+          table = I18n.t("BeginningIdol.item_table", locale: @locale)
+
           dice_list = randomizer.roll_barabara(roll_counts, 6).sort
           grouped = dice_list.group_by(&:itself)
 
           item_list = grouped.map do |dice, list|
-            item = ITEMS[dice - 1]
+            item = table[:items][dice - 1]
             if grouped.size != 1
-              item = "「#{item}」"
+              item = format(table[:emph], item: item)
             end
 
             if dice_list.size == grouped.size
               item
             else
-              "#{item}#{list.size}つ"
+              format(table[:counting], item: item, count: list.size)
             end
           end
 
-          return "アイテム ＞ [#{dice_list.join(',')}] ＞ #{item_list.join('と')}"
+          return "#{table[:name]} ＞ [#{dice_list.join(',')}] ＞ #{item_list.join(table[:sep])}"
         end
       end
     end
