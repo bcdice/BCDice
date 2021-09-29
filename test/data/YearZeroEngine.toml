@@ -852,7 +852,6 @@ game_system = "YearZeroEngine"
 input = "S2MYZ1+2+3"
 output = "(1D6)+(2D6)+(3D6) ＞ [2]+[4,6]+[6,1,5] 成功数:2 難易度=2:判定成功！\n出目1：[能力：0,技能：0,アイテム：1) プッシュ可能=3ダイス"
 success = true
-success = true
 secret = true
 rands = [
   { sides = 6, value = 2 },
@@ -878,4 +877,140 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "2MYZ3-3+3"
+output = "(3D6)-(3D6)+(3D6) ＞ [1,6,3]-[1,6,1]+[3,1,4] 成功数:0 難易度=2:判定失敗！\n出目1：[能力：1,技能：2,アイテム：1) プッシュ可能=5ダイス"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "2MYZ3-3+3"
+output = "(3D6)-(3D6)+(3D6) ＞ [1,6,3]-[1,6,6]+[3,1,4] 成功数:-1 難易度=2:判定失敗！\n出目1：[能力：1,技能：1,アイテム：1) プッシュ可能=4ダイス"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "2MYZ3-3+3"
+output = "(3D6)-(3D6)+(3D6) ＞ [1,6,6]-[1,6,2]+[6,1,4] 成功数:2 難易度=2:判定成功！\n出目1：[能力：1,技能：1,アイテム：1) プッシュ可能=3ダイス"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "2MYZ3-3"
+output = "(3D6)-(3D6) ＞ [1,6,6]-[1,6,2] 成功数:1 難易度=2:判定失敗！\n出目1：[能力：1,技能：1,アイテム：0) プッシュ可能=2ダイス"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "2MYZ3-3"
+output = "(3D6)-(3D6) ＞ [6,6,6]-[1,6,2] 成功数:2 難易度=2:判定成功！\n出目1：[能力：0,技能：1,アイテム：0) プッシュ可能=2ダイス"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "MYZ3-3+3"
+output = "(3D6)-(3D6)+(3D6) ＞ [1,6,3]-[1,6,6]+[3,1,4] 成功数:-1\n出目1：[能力：1,技能：1,アイテム：1) プッシュ可能=4ダイス"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "MYZ3-3+3"
+output = "(3D6)-(3D6)+(3D6) ＞ [1,6,6]-[1,6,2]+[6,1,4] 成功数:2\n出目1：[能力：1,技能：1,アイテム：1) プッシュ可能=3ダイス"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "MYZ3-3"
+output = "(3D6)-(3D6) ＞ [1,6,6]-[1,6,2] 成功数:1\n出目1：[能力：1,技能：1,アイテム：0) プッシュ可能=2ダイス"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "MYZ3-3"
+output = "(3D6)-(3D6) ＞ [6,6,6]-[1,6,2] 成功数:2\n出目1：[能力：0,技能：1,アイテム：0) プッシュ可能=2ダイス"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
 ]

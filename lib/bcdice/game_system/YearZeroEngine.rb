@@ -19,6 +19,7 @@ module BCDice
 
         ・判定コマンド(nMYZx+x+x)
           (難易度)MYZ(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (1と6を数え、プッシュ可能数を表示)
+          (難易度)MYZ(能力ダイス数)-(技能ダイス数)+(アイテムダイス数)  # (1と6を数え、プッシュ可能数を表示、技能のマイナス指定)
 
           ※ 難易度と技能、アイテムダイス数は省略可能
       INFO_MESSAGE_TEXT
@@ -26,8 +27,9 @@ module BCDice
       DIFFICULTY_INDEX   =  1 # 難易度のインデックス
       COMMAND_TYPE_INDEX =  2 # コマンドタイプのインデックス
       ABILITY_INDEX      =  3 # 能力値ダイスのインデックス
-      SKILL_INDEX        =  5 # 技能値ダイスのインデックス
-      GEAR_INDEX         =  7 # アイテムダイスのインデックス
+      SKILL_SIGNED_INDEX =  5 # 技能値ダイス符号のインデックス
+      SKILL_INDEX        =  6 # 技能値ダイスのインデックス
+      GEAR_INDEX         =  8 # アイテムダイスのインデックス
 
       register_prefix('(\d+)?(YZE|MYZ)')
 
@@ -42,7 +44,7 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        m = /\A(\d+)?(YZE|MYZ)(\d+)(\+(\d+))?(\+(\d+))?/.match(command)
+        m = /\A(\d+)?(YZE|MYZ)(\d+)((\+|-)(\d+))?(\+(\d+))?/.match(command)
         unless m
           return ''
         end
@@ -70,13 +72,18 @@ module BCDice
           dice_pool = m[SKILL_INDEX].to_i
           skill_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
 
-          @total_success_dice += success_dice
+          skill_unsigned = m[SKILL_SIGNED_INDEX]
+          if command_type == 'MYZ' and skill_unsigned == '-'
+            @total_success_dice -= success_dice # マイナス技能の成功は通常の成功と相殺される
+          else
+            @total_success_dice += success_dice
+          end
           @total_botch_dice += botch_dice
-          @skill_botch_dice += botch_dice # 技能ダイスの1はpushで振り直し可能
-          @push_dice += (dice_pool - success_dice) # 技能ダイスのみ1を含む
+          @skill_botch_dice += botch_dice # 技能ダイスの1はpushで振り直し可能（例えマイナス技能でも）
+          @push_dice += (dice_pool - success_dice) # 技能ダイスのみ1を含むので、ここでは1を計算に入れない
 
-          dice_count_text += "+(#{dice_pool}D6)"
-          dice_text += "+#{skill_dice_text}"
+          dice_count_text += "#{skill_unsigned}(#{dice_pool}D6)"
+          dice_text += "#{skill_unsigned}#{skill_dice_text}"
         end
 
         if m[GEAR_INDEX]
