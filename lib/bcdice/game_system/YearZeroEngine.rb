@@ -73,6 +73,9 @@ module BCDice
           skill_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
 
           skill_unsigned = m[SKILL_SIGNED_INDEX]
+          if command_type == 'YZE' and skill_unsigned == '-'
+             # YZEはシンプルに動作するコマンドなのでマイナス技能の処理は対応しない。
+             return "YZEコマンドでは技能ダイスをマイナス指定できません。"
           if command_type == 'MYZ' and skill_unsigned == '-'
             @total_success_dice -= success_dice # マイナス技能の成功は通常の成功と相殺される
           else
