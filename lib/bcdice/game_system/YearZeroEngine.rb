@@ -73,14 +73,15 @@ module BCDice
           skill_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
 
           skill_unsigned = m[SKILL_SIGNED_INDEX]
-          if command_type == 'YZE' and skill_unsigned == '-'
-             # YZEはシンプルに動作するコマンドなのでマイナス技能の処理は対応しない。
-             return "YZEコマンドでは技能ダイスをマイナス指定できません。"
-          elsif command_type == 'MYZ' and skill_unsigned == '-'
+          if command_type == 'YZE' && skill_unsigned == '-'
+            # YZEはシンプルに動作するコマンドなのでマイナス技能の処理は対応しない。
+            return "YZEコマンドでは技能ダイスをマイナス指定できません。"
+          elsif command_type == 'MYZ' && skill_unsigned == '-'
             @total_success_dice -= success_dice # マイナス技能の成功は通常の成功と相殺される
           else
             @total_success_dice += success_dice
           end
+
           @total_botch_dice += botch_dice
           @skill_botch_dice += botch_dice # 技能ダイスの1はpushで振り直し可能（例えマイナス技能でも）
           @push_dice += (dice_pool - success_dice) # 技能ダイスのみ1を含むので、ここでは1を計算に入れない
@@ -130,7 +131,7 @@ module BCDice
       def make_result_with_myz(dice_count_text, dice_text)
         result_text = "#{dice_count_text} ＞ #{dice_text} 成功数:#{@total_success_dice}"
         atter_text = "\n出目1：[能力：#{@base_botch_dice},技能：#{@skill_botch_dice},アイテム：#{@gear_botch_dice}) プッシュ可能=#{@push_dice}ダイス"
-        
+
         if @difficulty > 0
           if @total_success_dice >= @difficulty
             return Result.success("#{result_text} 難易度=#{@difficulty}:判定成功！#{atter_text}")
