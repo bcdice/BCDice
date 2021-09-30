@@ -1018,7 +1018,7 @@ rands = [
 [[ test ]]
 game_system = "YearZeroEngine"
 input = "YZE3-3"
-output = "YZEでは技能ダイスをマイナス指定できません。"
+output = "YZEコマンドでは技能ダイスをマイナス指定できません。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
