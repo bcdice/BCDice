@@ -1,0 +1,120 @@
+[[ test ]]
+game_system = "AssaultEngine"
+input = "AE44"
+output = "(AE44) ＞ (05)成功"
+success = true
+rands = [ { sides = 100, value = 5 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "AE44"
+output = "(AE44) ＞ (33)クリティカル"
+success = true
+critical = true
+rands = [ { sides = 100, value = 33 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "AE44"
+output = "(AE44) ＞ (44)クリティカル"
+success = true
+critical = true
+rands = [ { sides = 100, value = 44 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "AE44"
+output = "(AE44) ＞ (45)失敗"
+failure = true
+rands = [ { sides = 100, value = 45 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "AE44"
+output = "(AE44) ＞ (55)ファンブル"
+failure = true
+fumble = true
+rands = [ { sides = 100, value = 55 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "AE0 100=00は常にクリティカル"
+output = "(AE00) ＞ (00)クリティカル"
+success = true
+critical = true
+rands = [ { sides = 100, value = 100 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "AE09"
+output = "(AE09) ＞ (00)クリティカル"
+success = true
+critical = true
+rands = [ { sides = 100, value = 100 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "AE123"
+output = "(AE99) ＞ (99)クリティカル"
+success = true
+critical = true
+rands = [ { sides = 100, value = 99 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "AES44"
+output = "(AES44) ＞ (00)クリティカル / スワップ(00)クリティカル"
+success = true
+critical = true
+rands = [ { sides = 100, value = 100 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "AES44"
+output = "(AES44) ＞ (53)失敗 / スワップ(35)成功"
+success = true
+rands = [ { sides = 100, value = 53 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "AES44"
+output = "(AES44) ＞ (00)クリティカル / スワップ(00)クリティカル"
+success = true
+critical = true
+rands = [ { sides = 100, value = 100 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "12AES44 AESではprefix無視"
+output = "(AES44) ＞ (43)成功 / スワップ(34)成功"
+success = true
+rands = [ { sides = 100, value = 43 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "56AE44"
+output = "(56AE44) ＞ 1 ＞ (51)失敗 / (16)成功"
+success = true
+rands = [ { sides = 10, value = 1 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "56AE44"
+output = "(56AE44) ＞ 8 ＞ (58)失敗 / (86)失敗"
+failure = true
+rands = [ { sides = 10, value = 8 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "66AE44 本来ファンブルは振り直せないが、警告等はださない"
+output = "(66AE44) ＞ 7 ＞ (67)失敗 / (76)失敗"
+failure = true
+rands = [ { sides = 10, value = 7 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "90AE44"
+output = "(90AE44) ＞ 0 ＞ (90)失敗 / (00)クリティカル"
+success = true
+critical = true
+rands = [ { sides = 10, value = 10 } ]
