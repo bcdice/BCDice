@@ -9,7 +9,7 @@ end
 
 class TestBase < Test::Unit::TestCase
   def test_command_pattern
-    assert_equal(/^S?([+\-(]*\d+|\d+B\d+|C[+\-(]*\d+|choice|D66|(repeat|rep|x)\d+|\d+R\d+|\d+U\d+|BCDiceVersion|ABC|XYZ|IP\d+)/i, DummySystem.command_pattern)
+    assert_equal(/^S?([+\-(]*\d+|\d+B\d+|\d+BC\d+|C[+\-(]*\d+|choice|D66|(repeat|rep|x)\d+|\d+R\d+|\d+U\d+|BCDiceVersion|ABC|XYZ|IP\d+)/i, DummySystem.command_pattern)
 
     assert_match(DummySystem.command_pattern, "ABC+123")
     assert_match(DummySystem.command_pattern, "XYZ[hoge]")
