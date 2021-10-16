@@ -67,7 +67,7 @@ module BCDice
         success_value = 2 * critical + success - fumble
         result = compare_result(success_value)
 
-        result.text = "#{values} ＞ #{success_value} ＞ #{result.text}"
+        result.text = "#{values} ＞ #{success_value} ＞ 成功数#{success_value} #{result.text}"
         return result
       end
 
