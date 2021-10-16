@@ -14,10 +14,12 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定 (nEB)
-          n個のD6を振る判定。ダブルトリガー発動で自動振り足し。
-        ・各種表
-          ・生死不明表 (LDUT)
+        ■ ファッジダイスによる判定 (xDF+y>=t)
+          ファッジダイスをx個ダイスロールし、結果を判定します。
+          x: ダイス数
+          y: 修正値（省略可）
+          t: 目標値値（省略可）
+          例）4DF, 4DF>=3, 4DF+1>=3
       MESSAGETEXT
 
       register_prefix('\d+DF')
