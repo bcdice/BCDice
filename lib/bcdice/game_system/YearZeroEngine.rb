@@ -19,15 +19,17 @@ module BCDice
 
         ・判定コマンド(nMYZx+x+x)
           (難易度)MYZ(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (1と6を数え、プッシュ可能数を表示)
+          (難易度)MYZ(能力ダイス数)-(技能ダイス数)+(アイテムダイス数)  # (1と6を数え、プッシュ可能数を表示、技能のマイナス指定)
 
           ※ 難易度と技能、アイテムダイス数は省略可能
       INFO_MESSAGE_TEXT
 
-      DIFFICULTY_INDEX   = 1 # 難易度のインデックス
-      COMMAND_TYPE_INDEX = 2 # コマンドタイプのインデックス
-      ABILITY_INDEX      = 3 # 能力値ダイスのインデックス
-      SKILL_INDEX        = 5 # 技能値ダイスのインデックス
-      MODIFIED_INDEX     = 7 # 修正ダイスのインデックス
+      DIFFICULTY_INDEX   =  1 # 難易度のインデックス
+      COMMAND_TYPE_INDEX =  2 # コマンドタイプのインデックス
+      ABILITY_INDEX      =  3 # 能力値ダイスのインデックス
+      SKILL_SIGNED_INDEX =  5 # 技能値ダイス符号のインデックス
+      SKILL_INDEX        =  6 # 技能値ダイスのインデックス
+      GEAR_INDEX         =  8 # アイテムダイスのインデックス
 
       register_prefix('(\d+)?(YZE|MYZ)')
 
@@ -42,7 +44,7 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        m = /\A(\d+)?(YZE|MYZ)(\d+)(\+(\d+))?(\+(\d+))?/.match(command)
+        m = /\A(\d+)?(YZE|MYZ)(\d+)((\+|-)(\d+))?(\+(\d+))?/.match(command)
         unless m
           return ''
         end
@@ -70,18 +72,27 @@ module BCDice
           dice_pool = m[SKILL_INDEX].to_i
           skill_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
 
-          @total_success_dice += success_dice
-          @total_botch_dice += botch_dice
-          @skill_botch_dice += botch_dice # 技能ダイスの1はpushで振り直し可能
-          @push_dice += (dice_pool - success_dice) # 技能ダイスのみ1を含む
+          skill_unsigned = m[SKILL_SIGNED_INDEX]
+          if command_type == 'YZE' && skill_unsigned == '-'
+            # YZEはシンプルに動作するコマンドなのでマイナス技能の処理は対応しない。
+            return "YZEコマンドでは技能ダイスをマイナス指定できません。"
+          elsif command_type == 'MYZ' && skill_unsigned == '-'
+            @total_success_dice -= success_dice # マイナス技能の成功は通常の成功と相殺される
+          else
+            @total_success_dice += success_dice
+          end
 
-          dice_count_text += "+(#{dice_pool}D6)"
-          dice_text += "+#{skill_dice_text}"
+          @total_botch_dice += botch_dice
+          @skill_botch_dice += botch_dice # 技能ダイスの1はpushで振り直し可能（例えマイナス技能でも）
+          @push_dice += (dice_pool - success_dice) # 技能ダイスのみ1を含むので、ここでは1を計算に入れない
+
+          dice_count_text += "#{skill_unsigned}(#{dice_pool}D6)"
+          dice_text += "#{skill_unsigned}#{skill_dice_text}"
         end
 
-        if m[MODIFIED_INDEX]
-          dice_pool = m[MODIFIED_INDEX].to_i
-          modified_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
+        if m[GEAR_INDEX]
+          dice_pool = m[GEAR_INDEX].to_i
+          gear_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
 
           @total_success_dice += success_dice
           @total_botch_dice += botch_dice
@@ -89,8 +100,9 @@ module BCDice
           @push_dice += (dice_pool - (success_dice + botch_dice))
 
           dice_count_text += "+(#{dice_pool}D6)"
-          dice_text += "+#{modified_dice_text}"
+          dice_text += "+#{gear_dice_text}"
         end
+
         return make_result_text(command_type, dice_count_text, dice_text)
       end
 
@@ -108,18 +120,27 @@ module BCDice
         result_text = "#{dice_count_text} ＞ #{dice_text} 成功数:#{@total_success_dice}"
         if @difficulty > 0
           if @total_success_dice >= @difficulty
-            result_text = "#{result_text} 難易度=#{@difficulty}:判定成功！"
+            return Result.success("#{result_text} 難易度=#{@difficulty}:判定成功！")
           else
-            result_text = "#{result_text} 難易度=#{@difficulty}:判定失敗！"
+            return Result.failure("#{result_text} 難易度=#{@difficulty}:判定失敗！")
           end
         end
         return result_text
       end
 
       def make_result_with_myz(dice_count_text, dice_text)
-        result_text = make_result_with_yze(dice_count_text, dice_text)
+        result_text = "#{dice_count_text} ＞ #{dice_text} 成功数:#{@total_success_dice}"
+        atter_text = "\n出目1：[能力：#{@base_botch_dice},技能：#{@skill_botch_dice},アイテム：#{@gear_botch_dice}) プッシュ可能=#{@push_dice}ダイス"
 
-        return "#{result_text}\n出目1：[能力：#{@base_botch_dice},技能：#{@skill_botch_dice},アイテム：#{@gear_botch_dice}) プッシュ可能=#{@push_dice}ダイス"
+        if @difficulty > 0
+          if @total_success_dice >= @difficulty
+            return Result.success("#{result_text} 難易度=#{@difficulty}:判定成功！#{atter_text}")
+          else
+            return Result.failure("#{result_text} 難易度=#{@difficulty}:判定失敗！#{atter_text}")
+          end
+        end
+
+        return "#{result_text}#{atter_text}"
       end
 
       def make_dice_roll(dice_pool)
