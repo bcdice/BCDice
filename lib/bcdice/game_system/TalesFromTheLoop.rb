@@ -35,7 +35,7 @@ module BCDice
       register_prefix('(\d+)?(TFL)')
 
       def eval_game_system_specific_command(command)
-        parser = Command::Parser.new(/\d*TFL\d+/)
+        parser = Command::Parser.new(/\d*TFL\d+/, round_type: round_type)
 
         parsed = parser.parse(command)
         return nil unless parsed
