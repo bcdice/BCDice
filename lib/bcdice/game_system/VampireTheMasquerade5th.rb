@@ -73,24 +73,47 @@ module BCDice
 
         result_text = "#{result_text} 成功数=#{success_dice}"
 
-        if difficulty > 0
-          if success_dice >= difficulty
-            judgment_result = get_success_result(ten_dice >= 2, hunger_ten_dice)
-          else
-            judgment_result = get_fail_result(hunger_botch_dice)
-          end
-          result_text = "#{result_text} 難易度=#{difficulty}#{judgment_result}"
-        elsif difficulty < 0
+        if difficulty == NOT_CHECK_SUCCESS
           if success_dice == 0
+            # 成功数0の時は判定失敗を決定できる
             judgment_result = get_fail_result(hunger_botch_dice)
+            if hunger_botch_dice > 0
+              # [Bestial Failure]はファンブル扱い
+              return Result.fumble("#{result_text}#{judgment_result}")
+            else
+              return Result.failure("#{result_text}#{judgment_result}")
+            end
           else
-            judgment_result = ""
+            # それ以外の時は判定せず、成功数のみ表示
+            return result_text.to_s
           end
-          result_text = "#{result_text}#{judgment_result}"
+        else
+          if difficulty > 0
+            if success_dice >= difficulty
+              judgment_result = get_success_result(ten_dice >= 2, hunger_ten_dice)
+              result_text = "#{result_text} 難易度=#{difficulty}#{judgment_result}"
+              if ten_dice >= 2
+                # [Messy Critical]も[Critical Win]もクリティカル扱い
+                return Result.critical(result_text)
+              else
+                return Result.success(result_text)
+              end
+            else
+              judgment_result = get_fail_result(hunger_botch_dice)
+              result_text = Result.failure("#{result_text} 難易度=#{difficulty}#{judgment_result}")
+              if hunger_botch_dice > 0
+                # [Bestial Failure]はファンブル扱い
+                return Result.fumble(result_text)
+              else
+                return Result.failure(result_text)
+              end
+            end
+          end
         end
-
         return result_text
       end
+
+      private
 
       def get_critical_success(ten_dice)
         # 10の目が2個毎に追加2成功
@@ -110,10 +133,12 @@ module BCDice
 
       def get_success_result(is_critical, hunger_ten_dice)
         judgment_result = "：判定成功!"
-        if hunger_ten_dice > 0 && is_critical
-          return "#{judgment_result} [Messy Critical]"
-        elsif is_critical
-          return "#{judgment_result} [Critical Win]"
+        if is_critical
+          if hunger_ten_dice > 0
+            return "#{judgment_result} [Messy Critical]"
+          else
+            return "#{judgment_result} [Critical Win]"
+          end
         end
 
         return judgment_result

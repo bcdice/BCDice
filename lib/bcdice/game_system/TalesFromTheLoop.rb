@@ -14,8 +14,7 @@ module BCDice
 
       HELP_MESSAGE = <<~TEXT
         ■ 判定コマンド(nTFLx-x+x or nTFLx+x-x)
-          (必要成功数)TFL(判定ダイス数)-(修正ダイス数1)+(修正ダイス数2)
-          (必要成功数)TFL(判定ダイス数)+(修正ダイス数1)-(修正ダイス数2)
+          (必要成功数)TFL(判定ダイス数)+/-(修正ダイス数)
 
         ※ 必要成功数と修正ダイス数は省略可能
 
@@ -33,33 +32,16 @@ module BCDice
               1TFL(2+1)+1-(1+1)
       TEXT
 
-      COMMAND_NAME = "TFL" # コマンド名
-
-      DIFFICULTY_INDEX = 1 # 難易度のインデックス
-      DICE_POOL_INDEX = 3 # 判定値ダイスのインデックス
-      ADJUSTED_SIGNED_INDEX_1 =  5 # 修正値ダイス符号のインデックス
-      ADJUSTED_INDEX_1        =  6 # 修正値ダイスのインデックス
-      ADJUSTED_SIGNED_INDEX_2 =  8 # 修正値ダイス符号のインデックス
-      ADJUSTED_INDEX_2        =  9 # 修正値ダイスのインデックス
-
       register_prefix('(\d+)?(TFL)')
 
       def eval_game_system_specific_command(command)
-        m = /\A(\d+)?(#{COMMAND_NAME})(\d+)((\+|-)(\d+))?((\+|-)(\d+))?/.match(command)
-        unless m
-          return ''
-        end
+        parser = Command::Parser.new(/\d*TFL\d+/)
 
-        difficulty = m[DIFFICULTY_INDEX].to_i
+        parsed = parser.parse(command)
+        return nil unless parsed
 
-        dice_pool = m[DICE_POOL_INDEX].to_i
-
-        if m[ADJUSTED_INDEX_1]
-          dice_pool = get_adjust_count(dice_pool, m[ADJUSTED_INDEX_1], m[ADJUSTED_SIGNED_INDEX_1])
-        end
-        if m[ADJUSTED_INDEX_1]
-          dice_pool = get_adjust_count(dice_pool, m[ADJUSTED_INDEX_2], m[ADJUSTED_SIGNED_INDEX_2])
-        end
+        difficulty, dice_pool = parsed.command.split("TFL", 2).map(&:to_i)
+        dice_pool += parsed.modify_number
         if dice_pool <= 0
           dice_pool = 1
         end
@@ -71,22 +53,13 @@ module BCDice
 
       private
 
-      def get_adjust_count(dice_pool, adjust_dice, adjust_signed)
-        if adjust_signed == '-'
-          dice_pool -= adjust_dice.to_i
-        else
-          dice_pool += adjust_dice.to_i
-        end
-        return dice_pool
-      end
-
       def make_dice_roll_text(difficulty, dice_pool, ability_dice_text, success_dice)
         dice_count_text = "(#{dice_pool}D6) ＞ #{ability_dice_text} 成功数:#{success_dice}"
         push_dice = (dice_pool - success_dice)
 
         if push_dice > 0
           dice_count_text = "#{dice_count_text} 振り直し可能:#{push_dice}"
-          reroll_command = "\n振り直しコマンド: #{COMMAND_NAME}#{push_dice}"
+          reroll_command = "\n振り直しコマンド: TFL#{push_dice}"
         end
 
         if difficulty > 0
