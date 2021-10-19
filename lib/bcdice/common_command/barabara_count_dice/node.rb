@@ -20,14 +20,15 @@ module BCDice
           # @param randomizer [Randomizer] ランダマイザ
           # @return [Result, nil]
           def eval(game_system, randomizer)
-            round_type = game_system.round_type
-            dice = @notation.to_dice(round_type)
-
+            dice = @notation.to_dice(game_system.round_type)
             unless dice.valid?
               return nil
             end
 
             values = dice.roll(randomizer)
+
+            values_str = (game_system.sort_barabara_dice? ? values.sort : values)
+                         .join(",")
 
             # TODO: Ruby 2.7以降のみサポートするようになった場合
             # Enumerable#tally で書く
@@ -38,7 +39,7 @@ module BCDice
 
             sequence = [
               "(#{dice})",
-              values.join(","),
+              values_str,
               values_count.join(", "),
             ].compact
 
