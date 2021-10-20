@@ -35,7 +35,7 @@ module BCDice
             values_count = values
                            .group_by(&:itself)
                            .sort_by { |value, _| value }
-                           .map { |value, group| "#{value}: #{group.length}個" }
+                           .map { |value, group| "[#{value}]×#{group.length}個" }
 
             sequence = [
               "(#{dice})",
