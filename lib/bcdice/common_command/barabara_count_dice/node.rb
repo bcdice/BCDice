@@ -34,13 +34,16 @@ module BCDice
             # Enumerable#tally で書く
             values_count = values
                            .group_by(&:itself)
-                           .sort_by { |value, _| value }
-                           .map { |value, group| "[#{value}]×#{group.length}個" }
+                           .to_h { |value, group| [value, group.length] }
+
+            values_count_str = (1..dice.sides)
+                               .map { |v| "[#{v}]×#{values_count.fetch(v, 0)}個" }
+                               .join(", ")
 
             sequence = [
               "(#{dice})",
               values_str,
-              values_count.join(", "),
+              values_count_str,
             ].compact
 
             Result.new.tap do |r|
@@ -71,6 +74,11 @@ module BCDice
 
         # 個数カウントダイス：ダイスのノード
         class Dice
+          # @return [Integer] 振る回数
+          attr_reader :times
+          # @return [Integer] 面数
+          attr_reader :sides
+
           # @param times [Integer] 振る回数
           # @param sides [Integer] 面数
           def initialize(times, sides)

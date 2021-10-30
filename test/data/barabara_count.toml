@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "DiceBot"
 input = "5BC6 出現しなかった出目がある場合"
-output = "(5BC6) ＞ 6,1,2,5,2 ＞ [1]×1個, [2]×2個, [5]×1個, [6]×1個"
+output = "(5BC6) ＞ 6,1,2,5,2 ＞ [1]×1個, [2]×2個, [3]×0個, [4]×0個, [5]×1個, [6]×1個"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
