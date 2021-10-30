@@ -34,10 +34,10 @@ module BCDice
             # Enumerable#tally で書く
             values_count = values
                            .group_by(&:itself)
-                           .to_h { |value, group| [value, group.length] }
+                           .transform_values(&:length)
 
             values_count_str = (1..dice.sides)
-                               .map { |v| "[#{v}]×#{values_count.fetch(v, 0)}個" }
+                               .map { |v| "[#{v}]×#{values_count.fetch(v, 0)}" }
                                .join(", ")
 
             sequence = [
