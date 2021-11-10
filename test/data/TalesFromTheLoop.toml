@@ -1,0 +1,445 @@
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL3"
+output = "(3D6) ＞ [2,5,3] 成功数:0 振り直し可能:3\n振り直しコマンド: TFL3"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL3"
+output = "(3D6) ＞ [2,6,1] 成功数:1 振り直し可能:2\n振り直しコマンド: TFL2"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL3"
+output = "(3D6) ＞ [6,6,6] 成功数:3"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "1TFL3"
+output = "(3D6) ＞ [1,6,5] 成功数:1 振り直し可能:2 成功！\n振り直しコマンド: TFL2"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "2TFL3"
+output = "(3D6) ＞ [1,6,5] 成功数:1 振り直し可能:2 失敗！\n振り直しコマンド: TFL2"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "2TFL3"
+output = "(3D6) ＞ [1,6,6] 成功数:2 振り直し可能:1 成功！\n振り直しコマンド: TFL1"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "STFL3"
+output = "(3D6) ＞ [2,5,3] 成功数:0 振り直し可能:3\n振り直しコマンド: TFL3"
+secret = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "S2TFL3"
+output = "(3D6) ＞ [1,6,6] 成功数:2 振り直し可能:1 成功！\n振り直しコマンド: TFL1"
+success = true
+secret = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+# 修正ダイスをひとつ指定
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL3-1"
+output = "(2D6) ＞ [1,6] 成功数:1 振り直し可能:1\n振り直しコマンド: TFL1"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL3+1"
+output = "(4D6) ＞ [1,6,4,6] 成功数:2 振り直し可能:2\n振り直しコマンド: TFL2"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL3-3"
+output = "(1D6) ＞ [1] 成功数:0 振り直し可能:1\n振り直しコマンド: TFL1"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL(3+1)-(1)"
+output = "(3D6) ＞ [1,6,5] 成功数:1 振り直し可能:2\n振り直しコマンド: TFL2"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL(3+1)-(5)"
+output = "(1D6) ＞ [1] 成功数:0 振り直し可能:1\n振り直しコマンド: TFL1"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL(3+1)+(1)"
+output = "(5D6) ＞ [1,6,5,4,2] 成功数:1 振り直し可能:4\n振り直しコマンド: TFL4"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "1TFL3-1"
+output = "(2D6) ＞ [1,6] 成功数:1 振り直し可能:1 成功！\n振り直しコマンド: TFL1"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "2TFL3-1"
+output = "(2D6) ＞ [1,6] 成功数:1 振り直し可能:1 失敗！\n振り直しコマンド: TFL1"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "2TFL3+1"
+output = "(4D6) ＞ [1,6,4,6] 成功数:2 振り直し可能:2 成功！\n振り直しコマンド: TFL2"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "1TFL3-3"
+output = "(1D6) ＞ [1] 成功数:0 振り直し可能:1 失敗！\n振り直しコマンド: TFL1"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "1TFL3-3"
+output = "(1D6) ＞ [6] 成功数:1 成功！"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "STFL3-1"
+output = "(2D6) ＞ [1,6] 成功数:1 振り直し可能:1\n振り直しコマンド: TFL1"
+secret = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "STFL3+1"
+output = "(4D6) ＞ [1,6,4,6] 成功数:2 振り直し可能:2\n振り直しコマンド: TFL2"
+secret = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "S2TFL3-1"
+output = "(2D6) ＞ [1,6] 成功数:1 振り直し可能:1 失敗！\n振り直しコマンド: TFL1"
+failure = true
+secret = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "S2TFL3+1"
+secret = true
+output = "(4D6) ＞ [1,6,4,6] 成功数:2 振り直し可能:2 成功！\n振り直しコマンド: TFL2"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+# 修正ダイスをふたつ指定
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL3-1+1"
+output = "(3D6) ＞ [1,6,2] 成功数:1 振り直し可能:2\n振り直しコマンド: TFL2"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL3+1-1"
+output = "(3D6) ＞ [1,6,4] 成功数:1 振り直し可能:2\n振り直しコマンド: TFL2"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL3-4+1"
+output = "(1D6) ＞ [1] 成功数:0 振り直し可能:1\n振り直しコマンド: TFL1"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL3-(1)+(1+1)"
+output = "(4D6) ＞ [1,6,5,6] 成功数:2 振り直し可能:2\n振り直しコマンド: TFL2"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL3-(5)+1"
+output = "(1D6) ＞ [1] 成功数:0 振り直し可能:1\n振り直しコマンド: TFL1"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "TFL(3+1)+(1)-1"
+output = "(4D6) ＞ [1,6,5,4] 成功数:1 振り直し可能:3\n振り直しコマンド: TFL3"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "1TFL3-1+1"
+output = "(3D6) ＞ [1,6,3] 成功数:1 振り直し可能:2 成功！\n振り直しコマンド: TFL2"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "2TFL3-1+1"
+output = "(3D6) ＞ [1,6,3] 成功数:1 振り直し可能:2 失敗！\n振り直しコマンド: TFL2"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "2TFL3+2-1"
+output = "(4D6) ＞ [1,6,4,6] 成功数:2 振り直し可能:2 成功！\n振り直しコマンド: TFL2"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "1TFL3-3"
+output = "(1D6) ＞ [1] 成功数:0 振り直し可能:1 失敗！\n振り直しコマンド: TFL1"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "1TFL3-3+1"
+output = "(1D6) ＞ [6] 成功数:1 成功！"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "STFL2-1+1"
+output = "(2D6) ＞ [1,6] 成功数:1 振り直し可能:1\n振り直しコマンド: TFL1"
+secret = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "STFL4+1-1"
+output = "(4D6) ＞ [1,6,4,6] 成功数:2 振り直し可能:2\n振り直しコマンド: TFL2"
+secret = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "S2TFL2-1+1"
+output = "(2D6) ＞ [1,6] 成功数:1 振り直し可能:1 失敗！\n振り直しコマンド: TFL1"
+failure = true
+secret = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "S2TFL4+1-1"
+secret = true
+output = "(4D6) ＞ [1,6,4,6] 成功数:2 振り直し可能:2 成功！\n振り直しコマンド: TFL2"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+
+# 使用を考えてないが想定内＆止めるほどでもないパターン
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "1TFL3+1+1"
+output = "(5D6) ＞ [1,6,5,3,2] 成功数:1 振り直し可能:4 成功！\n振り直しコマンド: TFL4"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "S1TFL3+1+1"
+output = "(5D6) ＞ [1,6,5,3,2] 成功数:1 振り直し可能:4 成功！\n振り直しコマンド: TFL4"
+success = true
+secret = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "1TFL3-1-1"
+output = "(1D6) ＞ [1] 成功数:0 振り直し可能:1 失敗！\n振り直しコマンド: TFL1"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TalesFromTheLoop"
+input = "S1TFL3-1-1"
+output = "(1D6) ＞ [1] 成功数:0 振り直し可能:1 失敗！\n振り直しコマンド: TFL1"
+failure = true
+secret = true
+rands = [
+  { sides = 6, value = 1 },
+]
