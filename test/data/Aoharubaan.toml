@@ -1,0 +1,115 @@
+[[ test ]]
+game_system = "Aoharubaan"
+input = "1d6>=4"
+output = "(1D6>=4) ＞ 5 ＞ 成功"
+rands = [
+  { sides = 6, value = 5 },
+]
+success = true
+
+[[ test ]]
+game_system = "Aoharubaan"
+input = "1d>=4"
+output = "(1D6>=4) ＞ 5 ＞ 成功"
+rands = [
+  { sides = 6, value = 5 },
+]
+success = true
+
+[[ test ]]
+game_system = "Aoharubaan"
+input = "d6>=4"
+output = "(1D6>=4) ＞ 5 ＞ 成功"
+rands = [
+  { sides = 6, value = 5 },
+]
+success = true
+
+[[ test ]]
+game_system = "Aoharubaan"
+input = "d6>=4"
+output = "(1D6>=4) ＞ 3 ＞ 失敗"
+rands = [
+  { sides = 6, value = 3 },
+]
+failure = true
+
+[[ test ]]
+game_system = "Aoharubaan"
+input = "d6>=4"
+output = "(1D6>=4) ＞ 4 ＞ 成功 ＆ ピタリ賞"
+rands = [
+  { sides = 6, value = 4 },
+]
+success = true
+critical = true
+
+[[ test ]]
+game_system = "Aoharubaan"
+input = "d6+1>=5"
+output = "(1D6+1>=5) ＞ 3+1 ＞ 4 ＞ 失敗"
+rands = [
+  { sides = 6, value = 3 },
+]
+failure = true
+
+[[ test ]]
+game_system = "Aoharubaan"
+input = "d6+1>=5"
+output = "(1D6+1>=5) ＞ 5+1 ＞ 6 ＞ 成功"
+rands = [
+  { sides = 6, value = 5 },
+]
+success = true
+
+[[ test ]]
+game_system = "Aoharubaan"
+input = "d6+2>=5"
+output = "(1D6+2>=5) ＞ 5+2 ＞ 7 ＞ 成功 ＆ 限界突破"
+rands = [
+  { sides = 6, value = 5 },
+]
+success = true
+critical = true
+
+[[ test ]]
+game_system = "Aoharubaan"
+input = "d6+2>=7"
+output = "(1D6+2>=7) ＞ 5+2 ＞ 7 ＞ 成功 ＆ ピタリ賞 ＆ 限界突破"
+rands = [
+  { sides = 6, value = 5 },
+]
+success = true
+critical = true
+
+[[ test ]]
+game_system = "Aoharubaan"
+input = "kreaction"
+output = "カレカノ反応表(1) ＞ 何となく素っ気ない気がする。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aoharubaan"
+input = "KReaction"
+output = "カレカノ反応表(2) ＞ 何となく素っ気ない気がする。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Aoharubaan"
+input = "kr"
+output = "カレカノ反応表(3) ＞ いつもと変わらない安心感。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Aoharubaan"
+input = "KR"
+output = "カレカノ反応表(5) ＞ 何故だかすごくデレてきた！　嬉しくて〈テンション〉１回復。"
+rands = [
+  { sides = 6, value = 5 },
+]
