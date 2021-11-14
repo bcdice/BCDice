@@ -64,17 +64,17 @@ module BCDice
           combine_roll(command)
         when /^FAR/i
           getFullAutoResult(command)
-        when /^BMR/i # 狂気の発作（リアルタイム）
+        when "BMR" # 狂気の発作（リアルタイム）
           roll_bmr_table()
-        when /^BMS/i # 狂気の発作（サマリー）
+        when "BMS" # 狂気の発作（サマリー）
           roll_bms_table()
-        when /^FCL/i # キャスティング・ロールのプッシュに失敗した場合（小）
+        when "FCL" # キャスティング・ロールのプッシュに失敗した場合（小）
           roll_1d8_table("キャスティング・ロール失敗(小)表", FAILED_CASTING_L_TABLE)
-        when /^FCM/i # キャスティング・ロールのプッシュに失敗した場合（大）
+        when "FCM" # キャスティング・ロールのプッシュに失敗した場合（大）
           roll_1d8_table("キャスティング・ロール失敗(大)表", FAILED_CASTING_M_TABLE)
-        when /^PH/i # 恐怖症表
+        when "PH" # 恐怖症表
           roll_1d100_table("恐怖症表", PHOBIAS_TABLE)
-        when /^MA/i # マニア表
+        when "MA" # マニア表
           roll_1d100_table("マニア表", MANIAS_TABLE)
         end
       end
