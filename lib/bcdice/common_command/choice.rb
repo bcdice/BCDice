@@ -192,6 +192,10 @@ module BCDice
       # @param randomizer [Randomizer]
       # @return [Result]
       def roll(randomizer)
+        if @items.size > 100
+          return Result.new("項目数は100以下としてください")
+        end
+
         items = @items.dup
         chosens = []
         @takes.times do

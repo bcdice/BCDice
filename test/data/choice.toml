@@ -255,3 +255,10 @@ rands = [
   { sides = 5, value = 5 },
   { sides = 4, value = 1 },
 ]
+
+# 処理時間の爆発的増加への対処
+[[ test ]]
+game_system = "DiceBot"
+input = "choice3[1-1000]"
+output = "項目数は100以下としてください"
+rands = []
