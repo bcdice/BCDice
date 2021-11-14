@@ -1,5 +1,36 @@
 # Change Log
 
+## Unreleased
+
+### 対応ゲームシステムの追加
+- 灰色城綺譚 (CastleInGray): reismannnr2さんありがとうっ！ ([#495](https://github.com/bcdice/BCDice/pull/495))
+- Fate Core System (FateCoreSystem): GMasterさん要望ありがとうっ！ ([#499](https://github.com/bcdice/BCDice/pull/499))
+- カルカミ (Karukami): しるくろさん要望ありがとうっ！ ([#503](https://github.com/bcdice/BCDice/pull/503))
+- アサルトエンジン (AssaultEngine): くずもちさんありがとうっ！ ([#506](https://github.com/bcdice/BCDice/pull/506))
+- ザ・ループTRPG (TalesFromTheLoop): フレッド緑野さんありがとうっ！ ([#510](https://github.com/bcdice/BCDice/pull/510))
+- あおはるばーんっ (Aoharubaan): ViViさんありがとうっ！ ([#511](https://github.com/bcdice/BCDice/pull/511))
+
+### 追加機能
+- 個数カウントダイスを追加 ([#509](https://github.com/bcdice/BCDice/pull/509))
+
+### 変更
+- ステラーライフTRPG: IDを `StellarLife` に変更。ViViさんありがとうっ！ ([#491](https://github.com/bcdice/BCDice/pull/491), [#496](https://github.com/bcdice/BCDice/pull/496))
+- YearZeroEngine: 技能のマイナスに対応。フレッド緑野さんありがとうっ！ ([#504](https://github.com/bcdice/BCDice/pull/504))
+- エモクロアTRPG: 判定で成功数を明示するように。rassi0429さんありがとうっ！ ([#505](https://github.com/bcdice/BCDice/pull/505))
+- 新クトゥルフ神話TRPG: コマンドを完全一致で判定する ([ef61f72](https://github.com/bcdice/BCDice/commit/ef61f72328ad063ea4ec51721c19a880e2031371))
+- choise: 指定できる要素数を100以下に限定 ([f0c7c35](https://github.com/bcdice/BCDice/commit/f0c7c35b2606114539061ff036d7e97a0d34e064))
+
+### 誤植修正
+- ステラーライフTRPG: 船名後半表の誤植を修正。ViViさんありがとうっ！ ([#493](https://github.com/bcdice/BCDice/pull/493))
+- マギカロギア: 変調表の誤植を修正。くずもちさんありがとうっ！ ([#497](https://github.com/bcdice/BCDice/pull/497))
+- キルデスビジネス: サービスシーン表の誤字を修正。六連　昴さんありがとうっ！ ([#502](https://github.com/bcdice/BCDice/pull/502))
+- クラヤミクライン: アクシデント表の誤字を修正。アカツキシマさんありがとうっ！ ([50031ec](https://github.com/bcdice/BCDice/commit/50031ec7c19839898e66c06b26d7888e761d2e03))
+
+### バグ修正
+- ステラーライフTRPG: アバターアルファベット表②を実行できない問題を修正。ViViさんありがとうっ！ ([#492](https://github.com/bcdice/BCDice/pull/492))
+- ステラーライフTRPG: ダイス目表示のズレを修正。ViViさんありがとうっ！ ([#494](https://github.com/bcdice/BCDice/pull/494))
+
+
 ## 3.4.0 2021/08/14
 
 ### 対応ゲームシステムの追加
