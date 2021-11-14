@@ -2,6 +2,7 @@
 
 require "bcdice/common_command/add_dice"
 require "bcdice/common_command/barabara_dice"
+require "bcdice/common_command/tally_dice"
 require "bcdice/common_command/calc"
 require "bcdice/common_command/choice"
 require "bcdice/common_command/d66_dice"
@@ -15,6 +16,7 @@ module BCDice
     COMMANDS = [
       AddDice,
       BarabaraDice,
+      TallyDice,
       Calc,
       Choice,
       D66Dice,

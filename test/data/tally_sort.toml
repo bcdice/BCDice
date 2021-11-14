@@ -1,0 +1,53 @@
+[[ test ]]
+game_system = "StellarKnights"
+input = "20TY6 銀剣のステラナイツ ソートあり（sort_barabara_dice? => true）"
+output = "(20TY6) ＞ 1,1,2,2,3,3,4,4,4,4,4,4,5,5,5,5,6,6,6,6 ＞ [1]×2, [2]×2, [3]×2, [4]×6, [5]×4, [6]×4"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StellarKnights"
+input = "20TZ6 銀剣のステラナイツ ソートあり（sort_barabara_dice? => true）"
+output = "(20TZ6) ＞ 1,1,2,2,3,3,4,4,4,4,4,4,5,5,5,5,6,6,6,6 ＞ [1]×2, [2]×2, [3]×2, [4]×6, [5]×4, [6]×4"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
