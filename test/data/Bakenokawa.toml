@@ -1,0 +1,725 @@
+[[test]]
+game_system = "Bakenokawa"
+input = "BK6"
+output = "(2B6>=4) ＞ [1,3] ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 6, value = 1 },
+    { sides = 6, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK6"
+output = "(2B6>=4) ＞ [1,4] ＞ 5 ＞ 成功"
+success = true
+rands = [
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK6"
+output = "(2B6>=4) ＞ [5,6] ＞ 11 ＞ 成功"
+success = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 5 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK6"
+output = "(2B6>=4) ＞ [1,1] ＞ 2 ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+    { sides = 6, value = 1 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK6"
+output = "(2B6>=4) ＞ [6,6] ＞ 12 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK6"
+output = "(2B6>=4) ＞ [1,3] ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 6, value = 1 },
+    { sides = 6, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK6"
+output = "(2B6>=4) ＞ [1,4] ＞ 5 ＞ 成功"
+success = true
+rands = [
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK6"
+output = "(2B6>=4) ＞ [5,6] ＞ 11 ＞ 成功"
+success = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 5 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK6"
+output = "(2B6>=4) ＞ [1,1] ＞ 2 ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+    { sides = 6, value = 1 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK6"
+output = "(2B6>=4) ＞ [6,6] ＞ 12 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK10"
+output = "(2B10>=4) ＞ [1,3] ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 10, value = 1 },
+    { sides = 10, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK10"
+output = "(2B10>=4) ＞ [1,4] ＞ 5 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 4 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK10"
+output = "(2B10>=4) ＞ [4,7] ＞ 11 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 7 },
+    { sides = 10, value = 4 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK10"
+output = "(2B10>=4) ＞ [1,1] ＞ 2 ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+    { sides = 10, value = 1 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK10"
+output = "(2B10>=4) ＞ [6,6] ＞ 12 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 6 },
+    { sides = 10, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK10"
+output = "(2B10>=4) ＞ [5,9] ＞ 14 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 9 },
+    { sides = 10, value = 5 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK10"
+output = "(2B10>=4) ＞ [1,3] ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 10, value = 1 },
+    { sides = 10, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK10"
+output = "(2B10>=4) ＞ [1,4] ＞ 5 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 4 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK10"
+output = "(2B10>=4) ＞ [4,7] ＞ 11 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 7 },
+    { sides = 10, value = 4 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK10"
+output = "(2B10>=4) ＞ [1,1] ＞ 2 ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+    { sides = 10, value = 1 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK10"
+output = "(2B10>=4) ＞ [6,6] ＞ 12 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 6 },
+    { sides = 10, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK10"
+output = "(2B10>=4) ＞ [5,9] ＞ 14 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 9 },
+    { sides = 10, value = 5 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "4BK6"
+output = "(4B6>=4) ＞ [1,3,3,4] ＞ 11 ＞ 成功"
+success = true
+rands = [
+    { sides = 6, value = 3 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 4 },
+    { sides = 6, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "4BK6"
+output = "(4B6>=4) ＞ [1,1,1,1] ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 6, value = 1 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "4BK6"
+output = "(4B6>=4) ＞ [1,2,3,6] ＞ 12 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 6, value = 3 },
+    { sides = 6, value = 6 },
+    { sides = 6, value = 2 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "4BK6"
+output = "(4B6>=4) ＞ [3,3,6,6] ＞ 18 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 6, value = 3 },
+    { sides = 6, value = 3 },
+    { sides = 6, value = 6 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "4BK10"
+output = "(4B10>=4) ＞ [1,3,3,4] ＞ 11 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 3 },
+    { sides = 10, value = 1 },
+    { sides = 10, value = 4 },
+    { sides = 10, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "4BK10"
+output = "(4B10>=4) ＞ [1,1,1,1] ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 10, value = 1 },
+    { sides = 10, value = 1 },
+    { sides = 10, value = 1 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "4BK10"
+output = "(4B10>=4) ＞ [1,2,2,7] ＞ 12 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 2 },
+    { sides = 10, value = 7 },
+    { sides = 10, value = 2 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "4BK10"
+output = "(4B10>=4) ＞ [3,3,6,6] ＞ 18 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 3 },
+    { sides = 10, value = 3 },
+    { sides = 10, value = 6 },
+    { sides = 10, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "4BK10"
+output = "(4B10>=4) ＞ [1,8,9,10] ＞ 28 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 9 },
+    { sides = 10, value = 1 },
+    { sides = 10, value = 8 },
+    { sides = 10, value = 10 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK6@10"
+output = "(2B6>=4) ＞ [1,3] ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 6, value = 1 },
+    { sides = 6, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK6@10"
+output = "(2B6>=4) ＞ [1,4] ＞ 5 ＞ 成功"
+success = true
+rands = [
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK6@10"
+output = "(2B6>=4) ＞ [4,6] ＞ 10 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 4 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK6@10"
+output = "(2B6>=4) ＞ [1,1] ＞ 2 ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+    { sides = 6, value = 1 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK6@10"
+output = "(2B6>=4) ＞ [6,6] ＞ 12 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK6@10"
+output = "(2B6>=4) ＞ [1,3] ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 6, value = 1 },
+    { sides = 6, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK6@10"
+output = "(2B6>=4) ＞ [1,4] ＞ 5 ＞ 成功"
+success = true
+rands = [
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK6@10"
+output = "(2B6>=4) ＞ [4,6] ＞ 10 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 4 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK6@10"
+output = "(2B6>=4) ＞ [1,1] ＞ 2 ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+    { sides = 6, value = 1 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK6@10"
+output = "(2B6>=4) ＞ [6,6] ＞ 12 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK10@10"
+output = "(2B10>=4) ＞ [1,3] ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 10, value = 1 },
+    { sides = 10, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK10@10"
+output = "(2B10>=4) ＞ [1,4] ＞ 5 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 4 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK10@10"
+output = "(2B10>=4) ＞ [3,7] ＞ 10 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 7 },
+    { sides = 10, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK10@10"
+output = "(2B10>=4) ＞ [1,1] ＞ 2 ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+    { sides = 10, value = 1 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK10@10"
+output = "(2B10>=4) ＞ [6,6] ＞ 12 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 6 },
+    { sides = 10, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "BK10@10"
+output = "(2B10>=4) ＞ [5,9] ＞ 14 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 9 },
+    { sides = 10, value = 5 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK10@10"
+output = "(2B10>=4) ＞ [1,3] ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 10, value = 1 },
+    { sides = 10, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK10@10"
+output = "(2B10>=4) ＞ [1,4] ＞ 5 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 4 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK10@10"
+output = "(2B10>=4) ＞ [3,7] ＞ 10 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 7 },
+    { sides = 10, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK10@10"
+output = "(2B10>=4) ＞ [1,1] ＞ 2 ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+    { sides = 10, value = 1 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK10@10"
+output = "(2B10>=4) ＞ [6,6] ＞ 12 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 6 },
+    { sides = 10, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "2BK10@10"
+output = "(2B10>=4) ＞ [5,9] ＞ 14 ＞ 成功(スペシャル)"
+success = true
+critical = true
+rands = [
+    { sides = 10, value = 9 },
+    { sides = 10, value = 5 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "SBK6"
+output = "(2B6>=4) ＞ [1,3] ＞ 4 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+    { sides = 6, value = 1 },
+    { sides = 6, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "S2BK6"
+output = "(2B6>=4) ＞ [1,4] ＞ 5 ＞ 成功"
+success = true
+secret = true
+rands = [
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "NRT"
+output = "今の関係表(45) ＞ 何か悩んでいそうな顔が気になった"
+rands = [
+    { sides = 6, value = 5 },
+    { sides = 6, value = 4 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "SNRT"
+output = "今の関係表(44) ＞ 毎朝挨拶をするようなご近所さん／寮の部屋が隣"
+secret = true
+rands = [
+    { sides = 6, value = 4 },
+    { sides = 6, value = 4 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "KKT"
+output = "カイブツ時代からの因縁表(36) ＞ 一緒にお茶会をした仲"
+rands = [
+    { sides = 6, value = 3 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "SKKT"
+output = "カイブツ時代からの因縁表(15) ＞ 生まれた時からずっと一緒だった"
+secret = true
+rands = [
+    { sides = 6, value = 5 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "RTK"
+output = "調査演出表　カイブツ(2) ＞ カイブツとしての力を使い、チェインNPCを尾行して好みを調べた"
+rands = [
+    { sides = 10, value = 2 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "SRTK"
+output = "調査演出表　カイブツ(6) ＞ 魔法の鏡に問いかけて、答えを貰った"
+secret = true
+rands = [
+    { sides = 10, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "RTB"
+output = "調査演出表　バケノカワ(3) ＞ チェインPCに話を聞いて、その子の特徴から好みを推察する"
+rands = [
+    { sides = 10, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "SRTB"
+output = "調査演出表　バケノカワ(1) ＞ 人間の友人を頼ってチェインNPCの噂話を聞く"
+secret = true
+rands = [
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "CTK"
+output = "コラボテーマ表　カイブツ(14) ＞ 自分とコラボ相手の特徴を活かすコラボ"
+rands = [
+    { sides = 6, value = 1 },
+    { sides = 6, value = 4 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "SCTK"
+output = "コラボテーマ表　カイブツ(34) ＞ 魔法の力を演出に使った、キラキラのコラボ"
+secret = true
+rands =[
+    { sides = 6, value = 3 },
+    { sides = 6, value = 4 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "CTB"
+output = "コラボテーマ表　バケノカワ(35) ＞ 二つの施設を合わせたような施設を限定オープン"
+rands = [
+    { sides = 6, value = 5 },
+    { sides = 6, value = 3 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "SCTB"
+output = "コラボテーマ表　バケノカワ(56) ＞ バケノカワの伝手を使って、人間の友達に話を聞く"
+secret = true
+rands = [
+    { sides = 6, value = 5 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "FT"
+output = "ファンブル表(1) ＞ 「あれ？”自分”は一体何者だったかな？」カバーパーソナルを1つ選んで失う"
+rands = [
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Bakenokawa"
+input = "SFT"
+output = "ファンブル表(6) ＞ 失敗してしまったが、それがお客様にウケた。ワンダートークンを1個獲得する"
+secret = true
+rands = [
+    { sides = 6, value = 6 },
+]
