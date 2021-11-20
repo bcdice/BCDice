@@ -126,6 +126,7 @@ module BCDice
         unless command.greatest_fortune
           return super(command, round)
         end
+
         if command.greatest_fortune
           dice = @randomizer.roll_once(6)
           return dice * 2, "#{dice},#{dice}"

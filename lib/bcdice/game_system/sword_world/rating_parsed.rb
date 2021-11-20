@@ -27,7 +27,7 @@ module BCDice
 
         # @return [Integer, nil]
         attr_writer :semi_fixed_val
-        
+
         # @return [Integer, nil]
         attr_writer :tmp_fixed_val
 
@@ -57,8 +57,8 @@ module BCDice
         def critical
           crit = @critical || (half ? 13 : 10)
           crit = 3 if crit < 3
-          if !@semi_fixed_val.nil?
-            crit = @semi_fixed_val + 2 if crit < @semi_fixed_val + 2
+          unless @semi_fixed_val.nil? || crit >= @semi_fixed_val + 2
+            crit = @semi_fixed_val + 2
           end
           return crit
         end
@@ -77,14 +77,14 @@ module BCDice
         def rateup
           return @rateup || 0
         end
-        
+
         # @return [Integer]
         def semi_fixed_val
           sf = @semi_fixed_val || 0
           sf = 6 if sf > 6
           return sf
         end
-        
+
         # @return [Integer]
         def tmp_fixed_val
           tf = @tmp_fixed_val || 0
