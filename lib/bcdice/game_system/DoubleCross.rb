@@ -30,6 +30,11 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
+      def initialize(command)
+        super(command)
+        @sides_implicit_d = 10
+      end
+
       register_prefix('\d+DX', 'ET')
 
       # 成功判定コマンドのノード
