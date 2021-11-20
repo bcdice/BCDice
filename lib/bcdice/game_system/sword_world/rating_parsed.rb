@@ -57,6 +57,9 @@ module BCDice
         def critical
           crit = @critical || (half ? 13 : 10)
           crit = 3 if crit < 3
+          if !@semi_fixed_val.nil?
+            crit = @semi_fixed_val + 2 if crit < @semi_fixed_val + 2
+          end
           return crit
         end
 

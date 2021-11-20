@@ -117,9 +117,6 @@ module BCDice
       def rollDice(command, round)
         if command.semi_fixed_val > 0
           dice = @randomizer.roll_once(6)
-          if command.critical < command.semi_fixed_val + 2
-            command.critical = command.semi_fixed_val + 2
-          end
           return dice + command.semi_fixed_val, "#{dice},#{command.semi_fixed_val}"
         end
         if round == 0 && command.tmp_fixed_val > 0
