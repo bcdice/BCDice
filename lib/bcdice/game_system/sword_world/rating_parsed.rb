@@ -77,12 +77,16 @@ module BCDice
         
         # @return [Integer]
         def semi_fixed_val
-          return @semi_fixed_val || 0
+          sf = @semi_fixed_val || 0
+          sf = 6 if sf > 6
+          return sf
         end
         
         # @return [Integer]
         def tmp_fixed_val
-          return @tmp_fixed_val || 0
+          tf = @tmp_fixed_val || 0
+          tf = 6 if tf > 6
+          return tf
         end
 
         # @return [Integer]
@@ -104,8 +108,8 @@ module BCDice
           output += "m[#{first_to}]" if first_to != 0
           output += "r[#{rateup}]" if rateup != 0
           output += "gf" if @greatest_fortune
-          output += "x[#{semi_fixed_val}]" if semi_fixed_val != 0
-          output += "y[#{tmp_fixed_val}]" if tmp_fixed_val != 0
+          output += "sf[#{semi_fixed_val}]" if semi_fixed_val != 0
+          output += "tf[#{tmp_fixed_val}]" if tmp_fixed_val != 0
           output += "a[#{Format.modifier(kept_modify)}]" if kept_modify != 0
 
           if @modifier != 0

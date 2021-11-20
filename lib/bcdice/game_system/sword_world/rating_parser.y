@@ -109,7 +109,7 @@ class RatingParser
             option[:greatest_fortune] = true
             result = option
           }
-          | option S F unary
+          | option S F NUMBER
           {
             option, _, _, term = val
             raise ParseError unless [:v2_5, :v2_0].include?(@version)
@@ -117,10 +117,10 @@ class RatingParser
             raise ParseError unless option[:semi_fixed_val].nil?
             raise ParseError unless option[:tmp_fixed_val].nil?
 
-            option[:semi_fixed_val] = term
+            option[:semi_fixed_val] = term.to_i
             result = option
           }
-          | option T F unary
+          | option T F NUMBER
           {
             option, _, _, term = val
             raise ParseError unless [:v2_5, :v2_0].include?(@version)
@@ -128,7 +128,7 @@ class RatingParser
             raise ParseError unless option[:semi_fixed_val].nil?
             raise ParseError unless option[:tmp_fixed_val].nil?
 
-            option[:tmp_fixed_val] = term
+            option[:tmp_fixed_val] = term.to_i
             result = option
           }
           | option SHARP unary
@@ -221,8 +221,8 @@ def parsed(rate, modifier, option)
     p.first_modify = option[:first_modify]
     p.rateup = option[:rateup]&.eval(@round_type)
     p.greatest_fortune = option.fetch(:greatest_fortune, false)
-    p.semi_fixed_val = option[:semi_fixed_val]&.eval(@round_type)
-    p.tmp_fixed_val = option[:tmp_fixed_val]&.eval(@round_type)
+    p.semi_fixed_val = option[:semi_fixed_val]
+    p.tmp_fixed_val = option[:tmp_fixed_val]
     p.modifier = modifier.eval(@round_type)
     p.modifier_after_half = option[:modifier_after_half]&.eval(@round_type)
   end

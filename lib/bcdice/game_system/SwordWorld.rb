@@ -81,12 +81,13 @@ module BCDice
         round = 0
         first_to = command.first_to
         first_modify = command.first_modify
+        tmp_fixed_val = command.tmp_fixed_val
 
         loop do
-          dice_raw, diceText = rollDice(command)
-          if command.tmp_fixed_val > 0
-            command.tmp_fixed_val = 0
+          if tmp_fixed_val > 0 && round > 0
+            tmp_fixed_val = 0
           end
+          dice_raw, diceText = rollDice(command, tmp_fixed_val)
           dice = dice_raw
 
           if first_to != 0
@@ -128,6 +129,8 @@ module BCDice
 
           break unless dice >= command.critical
         end
+
+        command.tmp_fixed_val = tmp_fixed_val
 
         result_text, critical, fumble = getResultText(
           totalValue, command, diceResults, diceResultTotals,
@@ -298,7 +301,7 @@ module BCDice
         return newRates
       end
 
-      def rollDice(_command)
+      def rollDice(_command, _tmp_fixed_val)
         dice_list = @randomizer.roll_barabara(2, 6)
         total = dice_list.sum()
         dice_str = dice_list.join(",")
