@@ -1,5 +1,5 @@
 class RatingParser
-  token NUMBER K R H G F PLUS MINUS ASTERISK SLASH PARENL PARENR BRACKETL BRACKETR AT SHARP DOLLAR
+  token NUMBER K R H G F S T PLUS MINUS ASTERISK SLASH PARENL PARENR BRACKETL BRACKETR AT SHARP DOLLAR
 
   expect 4
 
@@ -101,9 +101,34 @@ class RatingParser
           | option G F
           {
             option, _, _ = val
-            raise ParseError unless [:v2_5, :v2_0].include?(@version) && option[:greatest_fortune].nil?
+            raise ParseError unless [:v2_5, :v2_0].include?(@version)
+            raise ParseError unless option[:greatest_fortune].nil?
+            raise ParseError unless option[:semi_fixed_val].nil?
+            raise ParseError unless option[:tmp_fixed_val].nil?
 
             option[:greatest_fortune] = true
+            result = option
+          }
+          | option S F unary
+          {
+            option, _, _, term = val
+            raise ParseError unless [:v2_5, :v2_0].include?(@version)
+            raise ParseError unless option[:greatest_fortune].nil?
+            raise ParseError unless option[:semi_fixed_val].nil?
+            raise ParseError unless option[:tmp_fixed_val].nil?
+
+            option[:semi_fixed_val] = term
+            result = option
+          }
+          | option T F unary
+          {
+            option, _, _, term = val
+            raise ParseError unless [:v2_5, :v2_0].include?(@version)
+            raise ParseError unless option[:greatest_fortune].nil?
+            raise ParseError unless option[:semi_fixed_val].nil?
+            raise ParseError unless option[:tmp_fixed_val].nil?
+
+            option[:tmp_fixed_val] = term
             result = option
           }
           | option SHARP unary
@@ -196,6 +221,8 @@ def parsed(rate, modifier, option)
     p.first_modify = option[:first_modify]
     p.rateup = option[:rateup]&.eval(@round_type)
     p.greatest_fortune = option.fetch(:greatest_fortune, false)
+    p.semi_fixed_val = option[:semi_fixed_val]&.eval(@round_type)
+    p.tmp_fixed_val = option[:tmp_fixed_val]&.eval(@round_type)
     p.modifier = modifier.eval(@round_type)
     p.modifier_after_half = option[:modifier_after_half]&.eval(@round_type)
   end

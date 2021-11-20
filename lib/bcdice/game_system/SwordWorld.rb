@@ -84,6 +84,9 @@ module BCDice
 
         loop do
           dice_raw, diceText = rollDice(command)
+          if command.tmp_fixed_val > 0
+            command.tmp_fixed_val = 0
+          end
           dice = dice_raw
 
           if first_to != 0

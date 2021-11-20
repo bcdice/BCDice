@@ -51,6 +51,12 @@ module BCDice
         ・首切り刀用レーティング上昇 r10
         　例）K20r10　K30+24@8R10　K40+24@8$12r10
 
+        ・威力表を1d+sfで参照 回転後も継続 sf4
+        　例）k10sf4
+
+        ・威力表を1d+tfで参照 回転後は2dで判定 tf3
+        　例）k10tf3
+
         ・グレイテストフォーチュンは末尾に gf
         　例）K20gf　K30+24@8GF　K40+24@8$12r10gf
 
@@ -109,13 +115,30 @@ module BCDice
       end
 
       def rollDice(command)
+        if command.semi_fixed_val > 0
+          if command.semi_fixed_val > 6
+             command.semi_fixed_val = 6
+          end
+          dice = @randomizer.roll_once(6)
+          if command.critical < command.semi_fixed_val + 2
+            command.critical = command.semi_fixed_val + 2
+          end
+          return dice + command.semi_fixed_val, "#{dice},#{command.semi_fixed_val}"
+        end
+        if command.tmp_fixed_val > 0
+          if command.tmp_fixed_val > 6
+             command.tmp_fixed_val = 6
+          end
+          dice = @randomizer.roll_once(6)
+          return dice + command.tmp_fixed_val, "#{dice},#{command.tmp_fixed_val}"
+        end
         unless command.greatest_fortune
           return super(command)
         end
-
-        dice = @randomizer.roll_once(6)
-
-        return dice * 2, "#{dice},#{dice}"
+        if command.greatest_fortune
+          dice = @randomizer.roll_once(6)
+          return dice * 2, "#{dice},#{dice}"
+        end
       end
 
       def growth(count = 1)

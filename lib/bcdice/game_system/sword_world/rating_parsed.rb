@@ -25,6 +25,12 @@ module BCDice
         # @return [Boolean]
         attr_accessor :greatest_fortune
 
+        # @return [Integer, nil]
+        attr_writer :semi_fixed_val
+        
+        # @return [Integer, nil]
+        attr_writer :tmp_fixed_val
+
         # @return [Integer]
         attr_accessor :modifier
 
@@ -38,6 +44,8 @@ module BCDice
           @first_modify = nil
           @greatest_fortune = false
           @rateup = nil
+          @semi_fixed_val = nil
+          @tmp_fixed_val = nil
         end
 
         # @return [Boolean]
@@ -66,6 +74,16 @@ module BCDice
         def rateup
           return @rateup || 0
         end
+        
+        # @return [Integer]
+        def semi_fixed_val
+          return @semi_fixed_val || 0
+        end
+        
+        # @return [Integer]
+        def tmp_fixed_val
+          return @tmp_fixed_val || 0
+        end
 
         # @return [Integer]
         def kept_modify
@@ -86,6 +104,8 @@ module BCDice
           output += "m[#{first_to}]" if first_to != 0
           output += "r[#{rateup}]" if rateup != 0
           output += "gf" if @greatest_fortune
+          output += "x[#{semi_fixed_val}]" if semi_fixed_val != 0
+          output += "y[#{tmp_fixed_val}]" if tmp_fixed_val != 0
           output += "a[#{Format.modifier(kept_modify)}]" if kept_modify != 0
 
           if @modifier != 0
