@@ -114,7 +114,7 @@ module BCDice
         return RatingParser.new(version: :v2_0)
       end
 
-      def rollDice(command, tmp_fixed_val)
+      def rollDice(command, round)
         if command.semi_fixed_val > 0
           dice = @randomizer.roll_once(6)
           if command.critical < command.semi_fixed_val + 2
@@ -122,12 +122,12 @@ module BCDice
           end
           return dice + command.semi_fixed_val, "#{dice},#{command.semi_fixed_val}"
         end
-        if tmp_fixed_val > 0
+        if round == 0 && command.tmp_fixed_val > 0
           dice = @randomizer.roll_once(6)
-          return dice + tmp_fixed_val, "#{dice},#{tmp_fixed_val}"
+          return dice + command.tmp_fixed_val, "#{dice},#{command.tmp_fixed_val}"
         end
         unless command.greatest_fortune
-          return super(command, tmp_fixed_val)
+          return super(command, round)
         end
         if command.greatest_fortune
           dice = @randomizer.roll_once(6)
