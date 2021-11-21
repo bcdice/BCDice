@@ -44,7 +44,7 @@ module BCDice
 
         def roll_with_day(day, randomizer)
           value = randomizer.roll_once(6)
-          chosen = choise(value, day)
+          chosen = choice(value, day)
 
           chosen =
             if chosen.respond_to?(:roll_with_day)
@@ -63,7 +63,7 @@ module BCDice
           return result
         end
 
-        def choise(value, day)
+        def choice(value, day)
           raise NotImplementedError
         end
 
@@ -73,7 +73,7 @@ module BCDice
       end
 
       class BranchByElapsedDays < BranchByDay
-        def choise(value, day)
+        def choice(value, day)
           value > day ? @greater : @less_than_equal
         end
 
@@ -87,7 +87,7 @@ module BCDice
       end
 
       class BranchByDayParity < BranchByDay
-        def choise(value, _)
+        def choice(value, _)
           value.odd? ? @greater : @less_than_equal
         end
 
