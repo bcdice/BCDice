@@ -32,16 +32,13 @@ module BCDice
         CT キャンプ表
         KZT 関係属性表
         IA イケメンアクション決定表
-         IAA 遠距離
-         IAB 移動
-         IAC 近距離
-         IAD 善人
-         IAE 悪人
-         IAF 幼い
-         IAG バカ
-         IAH 渋い
-         IAI 賢い
-         IAJ 超自然
+         IAA 遠距離 IAB 移動 IAC 近距離 IAD 善人 IAE 悪人
+         IAF 幼い IAG バカ IAH 渋い IAI 賢い IAJ 超自然
+        IAX イケメンアクション決定表 → IA表
+        
+        ■本格的な戦闘
+        CAC センターの行動決定
+        DDC 対話ダメージ表
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -69,8 +66,21 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         roll_tables(command, TABLES) ||
+          command_iax(command) ||
           RTT.roll_command(randomizer, command)
       end
+      
+      private
+      
+      def command_iax(command)
+        return nil unless command == "IAX"
+        ia = TABLES["IA"].choise(@randomizer.roll_d66(D66SortType::ASC))
+        m = ia.body.match(/\((.+?)\)/)
+        return ia unless m
+        ia2 = TABLES[m[1]].choice(@randomizer.roll_once(6))
+        return "#{ia} ＞ #{ia2}"
+      end
+
       RTT = DiceTable::SaiFicSkillTable.new(
         [
           ['背景', ['呪い', '絶望', '孤児', '死別', '一般人', '獲物', '憧れ', '友人', '挑戦者', '血縁', '永遠']],
@@ -277,31 +287,31 @@ module BCDice
           "イケメンアクション決定表",
           D66SortType::ASC,
           {
-            11 => "遠距離",
-            12 => "遠距離",
-            13 => "移動",
-            14 => "移動",
-            15 => "近距離",
-            16 => "近距離",
-            22 => "善人",
-            23 => "善人",
-            24 => "悪人",
-            25 => "悪人",
-            26 => "幼い",
-            33 => "幼い",
-            34 => "バカ",
-            35 => "バカ",
-            36 => "渋い",
-            44 => "渋い",
-            45 => "賢い",
-            46 => "賢い",
-            55 => "超自然",
-            56 => "超自然",
+            11 => "遠距離(IAA)",
+            12 => "遠距離(IAA)",
+            13 => "移動(IAB)",
+            14 => "移動(IAB)",
+            15 => "近距離(IAC)",
+            16 => "近距離(IAC)",
+            22 => "善人(IAD)",
+            23 => "善人(IAD)",
+            24 => "悪人(IAE)",
+            25 => "悪人(IAE)",
+            26 => "幼い(IAF)",
+            33 => "幼い(IAF)",
+            34 => "バカ(IAG)",
+            35 => "バカ(IAG)",
+            36 => "渋い(IAH)",
+            44 => "渋い(IAH)",
+            45 => "賢い(IAI)",
+            46 => "賢い(IAI)",
+            55 => "超自然(IAJ)",
+            56 => "超自然(IAJ)",
             66 => "振り直しor自由選択"
           }
         ),
         "IAA" => DiceTable::Table.new(
-          "イケメンアクション（遠距離）表",
+          "イケメンアクション（遠距離）表(P172)",
           "1D6",
           [
             "目を合わせて微笑む（かっこよさ：4）",
@@ -313,7 +323,7 @@ module BCDice
           ]
         ),
         "IAB" => DiceTable::Table.new(
-          "イケメンアクション（移動）表",
+          "イケメンアクション（移動）表(P172)",
           "1D6",
           [
             "車道側を歩く（かっこよさ：4）",
@@ -325,7 +335,7 @@ module BCDice
           ]
         ),
         "IAC" => DiceTable::Table.new(
-          "イケメンアクション（近距離）表",
+          "イケメンアクション（近距離）表(P173)",
           "1D6",
           [
             "黙って見つめる（かっこよさ：3）",
@@ -337,7 +347,7 @@ module BCDice
           ]
         ),
         "IAD" => DiceTable::Table.new(
-          "イケメンアクション（善人）表",
+          "イケメンアクション（善人）表(P173)",
           "1D6",
           [
             "手を引いて逃げる（かっこよさ：4）",
@@ -349,7 +359,7 @@ module BCDice
           ]
         ),
         "IAE" => DiceTable::Table.new(
-          "イケメンアクション（悪人）表",
+          "イケメンアクション（悪人）表(P174)",
           "1D6",
           [
             "攻撃する（かっこよさ：4）",
@@ -361,7 +371,7 @@ module BCDice
           ]
         ),
         "IAF" => DiceTable::Table.new(
-          "イケメンアクション（幼い）表",
+          "イケメンアクション（幼い）表(P174)",
           "1D6",
           [
             "甘える（かっこよさ：3）",
@@ -373,7 +383,7 @@ module BCDice
           ]
         ),
         "IAG" => DiceTable::Table.new(
-          "イケメンアクション（バカ）表",
+          "イケメンアクション（バカ）表(P175)",
           "1D6",
           [
             "苦悩する（かっこよさ：4）",
@@ -385,7 +395,7 @@ module BCDice
           ]
         ),
         "IAH" => DiceTable::Table.new(
-          "イケメンアクション（渋い）表",
+          "イケメンアクション（渋い）表(P175)",
           "1D6",
           [
             "説教（かっこよさ：4）",
@@ -397,7 +407,7 @@ module BCDice
           ]
         ),
         "IAI" => DiceTable::Table.new(
-          "イケメンアクション（賢い）表",
+          "イケメンアクション（賢い）表(P176)",
           "1D6",
           [
             "難しい本を読む（かっこよさ：3）",
@@ -409,7 +419,7 @@ module BCDice
           ]
         ),
         "IAJ" => DiceTable::Table.new(
-          "イケメンアクション（超自然）表",
+          "イケメンアクション（超自然）表(P176)",
           "1D6",
           [
             "水に濡れる（かっこよさ：4）",
@@ -420,6 +430,30 @@ module BCDice
             "光る（かっこよさ：6）"
           ]
         ),
+        "CAC" => DiceTable::Table.new(
+          "センターの行動決定表",
+          "1d6",
+          [
+            "逃走",
+            "不意打ち",
+            "連続行動",
+            "対話",
+           "威嚇",
+          "攻撃"
+          ]
+          ) ,
+        "DDC" => DiceTable::Table.new(
+          "対話ダメージ表",
+          "1d6",
+          [
+            "焦り",
+            "焦り",
+            "不調",
+            "不調",
+            "ショック",
+            "ショック",
+          ]
+        )
       }.freeze
 
       register_prefix(RTT.prefixes, TABLES.keys)

@@ -343,7 +343,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IA"
-output = "イケメンアクション決定表(11) ＞ 遠距離"
+output = "イケメンアクション決定表(11) ＞ 遠距離(IAA)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -352,7 +352,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IA"
-output = "イケメンアクション決定表(25) ＞ 悪人"
+output = "イケメンアクション決定表(25) ＞ 悪人(IAE)"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -361,7 +361,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IA"
-output = "イケメンアクション決定表(56) ＞ 超自然"
+output = "イケメンアクション決定表(56) ＞ 超自然(IAJ)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -379,7 +379,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAA"
-output = "イケメンアクション（遠距離）表(1) ＞ 目を合わせて微笑む（かっこよさ：4）"
+output = "イケメンアクション（遠距離）表(P172)(1) ＞ 目を合わせて微笑む（かっこよさ：4）"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -387,7 +387,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAB"
-output = "イケメンアクション（移動）表(1) ＞ 車道側を歩く（かっこよさ：4）"
+output = "イケメンアクション（移動）表(P172)(1) ＞ 車道側を歩く（かっこよさ：4）"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -395,7 +395,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAC"
-output = "イケメンアクション（近距離）表(1) ＞ 黙って見つめる（かっこよさ：3）"
+output = "イケメンアクション（近距離）表(P173)(1) ＞ 黙って見つめる（かっこよさ：3）"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -403,7 +403,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAD"
-output = "イケメンアクション（善人）表(6) ＞ 悪堕ち（かっこよさ：6）"
+output = "イケメンアクション（善人）表(P173)(6) ＞ 悪堕ち（かっこよさ：6）"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -411,7 +411,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAE"
-output = "イケメンアクション（悪人）表(5) ＞ 罠にかける（かっこよさ：6）"
+output = "イケメンアクション（悪人）表(P174)(5) ＞ 罠にかける（かっこよさ：6）"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -419,7 +419,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAF"
-output = "イケメンアクション（幼い）表(2) ＞ 疲れる（かっこよさ：3）"
+output = "イケメンアクション（幼い）表(P174)(2) ＞ 疲れる（かっこよさ：3）"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -427,7 +427,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAG"
-output = "イケメンアクション（バカ）表(3) ＞ 転ぶ（かっこよさ：4）"
+output = "イケメンアクション（バカ）表(P175)(3) ＞ 転ぶ（かっこよさ：4）"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -435,7 +435,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAH"
-output = "イケメンアクション（渋い）表(4) ＞ 残心（かっこよさ：5）"
+output = "イケメンアクション（渋い）表(P175)(4) ＞ 残心（かっこよさ：5）"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -443,7 +443,7 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAI"
-output = "イケメンアクション（賢い）表(6) ＞ 大丈夫だと言う（かっこよさ：7）"
+output = "イケメンアクション（賢い）表(P176)(6) ＞ 大丈夫だと言う（かっこよさ：7）"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -451,9 +451,28 @@ rands = [
 [[ test ]]
 game_system = "DarkDaysDrive"
 input = "IAJ"
-output = "イケメンアクション（超自然）表(5) ＞ 闇を生み出す（かっこよさ：6）"
+output = "イケメンアクション（超自然）表(P176)(5) ＞ 闇を生み出す（かっこよさ：6）"
 rands = [
   { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DarkDaysDrive"
+input = "IAX"
+output = "イケメンアクション決定表(23) ＞ 善人(IAD) ＞ イケメンアクション（善人）表(P173)(3) ＞ 守る（かっこよさ：5）"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DarkDaysDrive"
+input = "IAX"
+output = "イケメンアクション決定表(66) ＞ 振り直しor自由選択"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 }
 ]
 
 [[ test ]]
