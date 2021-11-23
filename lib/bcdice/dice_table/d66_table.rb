@@ -39,12 +39,11 @@ module BCDice
         key = dice[0] * 10 + dice[1]
         chosen = @items[key]
         chosen = chosen.roll(randomizer) if chosen.respond_to?(:roll)
-        return RollResult.new(@name, key, chosen)
+        RollResult.new(@name, key, chosen)
       end
 
-      def choise(_value)
-        chosen = @items[key]
-        return RollResult.new(@name, key, chosen)
+      def choice(key)
+        RollResult.new(@name, key, @items[key])
       end
     end
   end
