@@ -2093,3 +2093,29 @@ rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
 ]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "8D"
+output = "(8D10) ＞ 43[7,7,4,1,6,7,2,9] ＞ 43"
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "4d+12"
+output = "(4D10+12) ＞ 23[9,2,3,9]+12 ＞ 35"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+]
