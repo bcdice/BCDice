@@ -68,6 +68,10 @@ module BCDice
           return "キーナンバーは#{keyMax}までです"
         end
 
+        if command.infinite_roll?
+          return Result.new("C値を#{command.min_critical}以上にしてください")
+        end
+
         newRates = getNewRates(rate_sw2_0)
 
         output = "#{command} ＞ "

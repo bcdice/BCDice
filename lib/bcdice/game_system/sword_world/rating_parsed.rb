@@ -11,6 +11,9 @@ module BCDice
         attr_writer :critical
 
         # @return [Integer, nil]
+        attr_writer :min_critical
+
+        # @return [Integer, nil]
         attr_writer :kept_modify
 
         # @return [Integer, nil]
@@ -39,6 +42,7 @@ module BCDice
 
         def initialize
           @critical = nil
+          @min_critical = nil
           @kept_modify = nil
           @first_to = nil
           @first_modify = nil
@@ -55,12 +59,22 @@ module BCDice
 
         # @return [Integer]
         def critical
-          crit = @critical || (half ? 13 : 10)
-          crit = 3 if crit < 3
-          unless @semi_fixed_val.nil? || crit >= @semi_fixed_val + 2
-            crit = @semi_fixed_val + 2
+          return @critical || (half ? 13 : 10)
+        end
+
+        # @return [Integer]
+        def min_critical
+          min_critical = 3
+          if !@semi_fixed_val.nil?
+            if !@kept_modify.nil?
+              min_critical = @semi_fixed_val + @kept_modify + 2 if min_critical < @semi_fixed_val + @kept_modify + 2
+            else
+              min_critical = @semi_fixed_val + 2 if min_critical < @semi_fixed_val + 2
+            end
+            min_critical = 3 if @semi_fixed_val == 1
           end
-          return crit
+          min_critical = 13 if min_critical > 13
+          return min_critical
         end
 
         # @return [Integer]
@@ -119,6 +133,11 @@ module BCDice
             output += Format.modifier(@modifier)
           end
           return output
+        end
+
+        # @return [Boolean]
+        def infinite_roll?
+          return critical < min_critical
         end
       end
     end

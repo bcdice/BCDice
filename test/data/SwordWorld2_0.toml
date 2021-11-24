@@ -388,26 +388,6 @@ rands = [
   { sides = 6, value = 1 },
 ]
 
-
-[[ test ]]
-game_system = "SwordWorld2.0"
-input = "k20sf4@3 sfクリティカル下限変更 通常時"
-output = "KeyNo.20c[6]sf[4] ＞ 2D:[1,4]=5 ＞ 3"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "SwordWorld2.0"
-input = "k20sf3@3 sfクリティカル下限変更　クリティカル時"
-output = "KeyNo.20c[5]sf[3] ＞ 2D:[2,3 5,3 1,3]=5,8,4 ＞ 3,6,2 ＞ 2回転 ＞ 11"
-critical = true
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 1 },
-]
-
 [[ test ]]
 game_system = "SwordWorld2.0"
 input = "k20tf3@3 tfクリティカル自動失敗時"
@@ -420,6 +400,18 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
 ]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
+input = "k20@2 クリティカル下限エラー 通常の下限は3"
+output = "C値を3以上にしてください"
+rands = []
+
+[[ test ]]
+game_system = "SwordWorld2.0"
+input = "k20sf2@2 クリティカル下限エラー sfが2以上の時はsf+2"
+output = "C値を4以上にしてください"
+rands = []
 
 [[ test ]]
 game_system = "SwordWorld2.0"
