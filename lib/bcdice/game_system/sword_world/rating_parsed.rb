@@ -11,9 +11,6 @@ module BCDice
         attr_writer :critical
 
         # @return [Integer, nil]
-        attr_writer :min_critical
-
-        # @return [Integer, nil]
         attr_writer :kept_modify
 
         # @return [Integer, nil]
