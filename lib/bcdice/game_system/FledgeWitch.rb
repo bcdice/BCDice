@@ -38,6 +38,9 @@ module BCDice
         例） 3b6&5>=4#2
         　　 ダイス３個、成功ライン４、必要な成功数２で、５の出目も成功数２とする
         　　 ※魔法スキル「ひらめいた！」の効果を想定
+
+        ■各種表
+        □日常表（ DailyLife または DL ）
       HELP
 
       def initialize(command)
@@ -50,6 +53,8 @@ module BCDice
       register_prefix('(\d+(\+\d+)*)(B6?|FW)(&([1-6]))?((>=|=>)(\d+([+\-]\d+)*))?(#(\d+(\+\d+)*)(\*([1-6]))?)?')
 
       def eval_game_system_specific_command(command)
+        command = ALIAS[command] || command
+
         if (m = JUDGE_ROLL_REG.match(command))
           dice_count_expression, _, keyword, _, number_as_twice_expression, _, _, success_line_expression, _, _, required_success_count_expression, _, _, required_number_expression = m.captures
 
@@ -57,6 +62,8 @@ module BCDice
           return nil if number_as_twice_expression.nil? && success_line_expression.nil? && required_success_count_expression.nil? && keyword != 'FW'
 
           roll_judge(dice_count_expression, number_as_twice_expression, success_line_expression, required_success_count_expression, required_number_expression)
+        else
+          roll_tables(command, TABLES)
         end
       end
 
@@ -141,6 +148,27 @@ module BCDice
 
         "[#{text}]"
       end
+
+      ALIAS = {
+        "DL" => "DailyLife",
+      }.transform_keys(&:upcase).transform_values(&:upcase).freeze
+
+      TABLES = {
+        "DailyLife" => DiceTable::Table.new(
+          "日常表", # ルールブック p24
+          "1D6",
+          [
+            "お手伝い ⇒ 家事を手伝ったり、薬の調合を手伝ったり、本をしまったり。",
+            "お稽古 ⇒ 魔女に魔法を教わったり、講義を聞いたり、直接教えてもらえる時間。上手にできることも、できないこともあるでしょう。",
+            "散歩 ⇒ 薬草を摘みに行ったり、時には人里まで買い出しに行ったり。外の空気を吸うのは、珍しいことかも。",
+            "休憩 ⇒ 時には休むのも弟子の仕事。魔女に言われて休む弟子も、勝手に抜け出して休む弟子もいる。",
+            "ごはん ⇒ 一日三食、ちゃんと食べましょう。おやつもあります。",
+            "相談 ⇒ 将来の相談から明日の献立まで。些細なことも大事なことも、相手に聞いてみるのが吉。",
+          ]
+        ),
+      }.transform_keys(&:upcase).freeze
+
+      register_prefix(ALIAS.keys, TABLES.keys)
     end
   end
 end

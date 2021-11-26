@@ -402,3 +402,35 @@ rands = [
   { sides = 6, value = 5 },
 ]
 success = true
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "dailylife"
+output = "日常表(1) ＞ お手伝い ⇒ 家事を手伝ったり、薬の調合を手伝ったり、本をしまったり。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "DailyLife"
+output = "日常表(2) ＞ お稽古 ⇒ 魔女に魔法を教わったり、講義を聞いたり、直接教えてもらえる時間。上手にできることも、できないこともあるでしょう。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "dl"
+output = "日常表(5) ＞ ごはん ⇒ 一日三食、ちゃんと食べましょう。おやつもあります。"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "DL"
+output = "日常表(6) ＞ 相談 ⇒ 将来の相談から明日の献立まで。些細なことも大事なことも、相手に聞いてみるのが吉。"
+rands = [
+  { sides = 6, value = 6 },
+]
