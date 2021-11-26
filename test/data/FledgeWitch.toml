@@ -434,3 +434,19 @@ output = "日常表(6) ＞ 相談 ⇒ 将来の相談から明日の献立まで
 rands = [
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "FailureTrouble"
+output = "トラブル表(3) ＞ 空回り ⇒ 良いとこ見せるために、めいっぱい頑張らないと！　意気込みすぎて、ドツボにはまる羽目に。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "ft"
+output = "トラブル表(4) ＞ 気持ちの落ち込み ⇒ こんな結果じゃ、魔女様にがっかりされちゃう。そんな不安や自己嫌悪で、落ち込んでしまいます。"
+rands = [
+  { sides = 6, value = 4 },
+]
