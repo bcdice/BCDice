@@ -450,3 +450,19 @@ output = "トラブル表(4) ＞ 気持ちの落ち込み ⇒ こんな結果じ
 rands = [
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "RandomField"
+output = "ランダム技能(2) ＞ 詠唱術"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "RF"
+output = "ランダム技能(4) ＞ 道具術"
+rands = [
+  { sides = 6, value = 4 },
+]

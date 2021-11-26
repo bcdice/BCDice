@@ -42,6 +42,7 @@ module BCDice
         ■各種表
         □日常表（ DailyLife または DL ）
         □トラブル表（ FailureTrouble または FT ）
+        □ランダム技能（ RandomField または RF ）
       HELP
 
       def initialize(command)
@@ -153,6 +154,7 @@ module BCDice
       ALIAS = {
         "DL" => "DailyLife",
         "FT" => "FailureTrouble",
+        "RF" => "RandomField",
       }.transform_keys(&:upcase).transform_values(&:upcase).freeze
 
       TABLES = {
@@ -178,6 +180,18 @@ module BCDice
             "気持ちの落ち込み ⇒ こんな結果じゃ、魔女様にがっかりされちゃう。そんな不安や自己嫌悪で、落ち込んでしまいます。",
             "疲労 ⇒ 試練のために集中していっぱい魔法を使うのは、とっても大変。慣れないことの連続に、目が回ってしまいます。",
             "突然の爆発 ⇒ 調合中の釜、持ち歩いていた薬、唱えていた魔法……ささいなきっかけから、なにかが爆発してしまいます。",
+          ]
+        ),
+        "RandomField" => DiceTable::Table.new(
+          "ランダム技能", # ルールブック p35
+          "1D6",
+          [
+            "召喚術",
+            "詠唱術",
+            "薬品術",
+            "道具術",
+            "図書術",
+            "生活術",
           ]
         ),
       }.transform_keys(&:upcase).freeze
