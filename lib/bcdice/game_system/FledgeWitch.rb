@@ -16,7 +16,7 @@ module BCDice
       HELP_MESSAGE = <<~HELP
         ■判定（ xB6>=y#z または xFW>=y#z ）
         x: ダイス数（加算式を記述可）
-        y: 成功ライン
+        y: 成功ライン（加算・減算式を記述可）
         z: 必要な成功数
 
         □成功ラインを省略（ xB6#z または xFW#z ）
@@ -35,12 +35,12 @@ module BCDice
         @sort_barabara_dice = true
       end
 
-      JUDGE_ROLL_REG = /^(\d+(\+\d+)*)(B6?|FW)((>=|=>)(\d+))?(#(\d+))?$/i.freeze
-      register_prefix('(\d+(\+\d+)*)(B6?|FW)((>=|=>)(\d+))?(#(\d+))?')
+      JUDGE_ROLL_REG = /^(\d+(\+\d+)*)(B6?|FW)((>=|=>)(\d+([+\-]\d+)*))?(#(\d+))?$/i.freeze
+      register_prefix('(\d+(\+\d+)*)(B6?|FW)((>=|=>)(\d+([+\-]\d+)*))?(#(\d+))?')
 
       def eval_game_system_specific_command(command)
         if (m = JUDGE_ROLL_REG.match(command))
-          dice_count_expression, _, keyword, _, _, success_line_expression, _, required_success_count_expression = m.captures
+          dice_count_expression, _, keyword, _, _, success_line_expression, _, _, required_success_count_expression = m.captures
 
           # 汎用コマンドの xB6 と完全に同じ書式なら、判定コマンドとして扱わない.
           return nil if success_line_expression.nil? && required_success_count_expression.nil? && keyword != 'FW'
@@ -53,7 +53,11 @@ module BCDice
 
       def roll_judge(dice_count_expression, success_line_expression, required_success_count_expression)
         dice_count = Arithmetic.eval(dice_count_expression, RoundType::FLOOR)
-        success_line = success_line_expression ? success_line_expression.to_i : 4
+
+        # 「成功ライン」（ルールブック p29 ）
+        # 1..7 の範囲にまるめる（「出目 ≧ 成功ライン」の判断にもちいるので、 1 未満はすべて 1 と等価であり、 7 超はすべて 7 と等価である）
+        success_line = success_line_expression ? Arithmetic.eval(success_line_expression, RoundType::FLOOR).clamp(1, 7) : 4
+
         required_success_count = required_success_count_expression ? required_success_count_expression.to_i : nil
 
         return 'ダイス数は 1 個以上でなければなりません' if dice_count < 1
