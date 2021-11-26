@@ -279,3 +279,69 @@ rands = [
 ]
 success = true
 critical = true
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "5fw>=4#3*6"
+output = "(5B6>=4#3*6) ＞ [1,2,4,5,5] ＞ 成功数: 3 ＞ 失敗（出目 6 がありません）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+failure = true
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "5fw>=4#3*6"
+output = "(5B6>=4#3*6) ＞ [1,2,3,5,*6*] ＞ 成功数: 3 ＞ 成功"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+success = true
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "5fw#4*5"
+output = "(5B6>=4#4*5) ＞ [1,2,4,4,6] ＞ 成功数: 4 ＞ 失敗（出目 5 がありません）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+failure = true
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "5fw#4*5"
+output = "(5B6>=4#4*5) ＞ [1,2,4,*5*,6] ＞ 成功数: 4 ＞ 成功"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+success = true
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "5fw#4*5"
+output = "(5B6>=4#4*5) ＞ [1,1,2,6,6] ＞ 成功数: 4 ＞ スペシャル"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+success = true
+critical = true

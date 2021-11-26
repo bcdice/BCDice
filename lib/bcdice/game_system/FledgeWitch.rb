@@ -27,6 +27,11 @@ module BCDice
 
         □成功ラインと必要な成功数を省略（ xFW ）
         成功ラインは 4 となり、最終的な成功・失敗は表示されない。
+
+        □特定のダイス目を必要とする（ #z の後に *r ）
+        r: 必要なダイス目（ 1 以上 6 以下）
+        例） 5fw>=4#3*6
+        　　 ダイス５個、成功ライン４、必要な成功数３かつ、６のダイス目が必要
       HELP
 
       def initialize(command)
@@ -35,23 +40,23 @@ module BCDice
         @sort_barabara_dice = true
       end
 
-      JUDGE_ROLL_REG = /^(\d+(\+\d+)*)(B6?|FW)((>=|=>)(\d+([+\-]\d+)*))?(#(\d+(\+\d+)*))?$/i.freeze
-      register_prefix('(\d+(\+\d+)*)(B6?|FW)((>=|=>)(\d+([+\-]\d+)*))?(#(\d+(\+\d+)*))?')
+      JUDGE_ROLL_REG = /^(\d+(\+\d+)*)(B6?|FW)((>=|=>)(\d+([+\-]\d+)*))?(#(\d+(\+\d+)*)(\*([1-6]))?)?$/i.freeze
+      register_prefix('(\d+(\+\d+)*)(B6?|FW)((>=|=>)(\d+([+\-]\d+)*))?(#(\d+(\+\d+)*)(\*([1-6]))?)?')
 
       def eval_game_system_specific_command(command)
         if (m = JUDGE_ROLL_REG.match(command))
-          dice_count_expression, _, keyword, _, _, success_line_expression, _, _, required_success_count_expression = m.captures
+          dice_count_expression, _, keyword, _, _, success_line_expression, _, _, required_success_count_expression, _, _, required_number_expression = m.captures
 
           # 汎用コマンドの xB6 と完全に同じ書式なら、判定コマンドとして扱わない.
           return nil if success_line_expression.nil? && required_success_count_expression.nil? && keyword != 'FW'
 
-          roll_judge(dice_count_expression, success_line_expression, required_success_count_expression)
+          roll_judge(dice_count_expression, success_line_expression, required_success_count_expression, required_number_expression)
         end
       end
 
       private
 
-      def roll_judge(dice_count_expression, success_line_expression, required_success_count_expression)
+      def roll_judge(dice_count_expression, success_line_expression, required_success_count_expression, required_number_expression)
         dice_count = Arithmetic.eval(dice_count_expression, RoundType::FLOOR)
 
         # 「成功ライン」（ルールブック p29 ）
@@ -60,9 +65,12 @@ module BCDice
 
         required_success_count = required_success_count_expression ? Arithmetic.eval(required_success_count_expression, RoundType::FLOOR) : nil
 
+        # 特定のダイス目を必要とするケース（ルールブック p59 ）における、そのダイス目
+        required_number = required_number_expression ? required_number_expression.to_i : nil
+
         return 'ダイス数は 1 個以上でなければなりません' if dice_count < 1
 
-        command_text = make_command_text(dice_count, success_line, required_success_count)
+        command_text = make_command_text(dice_count, success_line, required_success_count, required_number)
 
         dices = @randomizer.roll_barabara(dice_count, 6).sort
 
@@ -79,16 +87,22 @@ module BCDice
         end
 
         is_special = dices.count { |dice| dice == 6 } >= 2 # 「６」の目がふたつ以上なら「スペシャル」（ p30 ）
-        is_success = is_special || success_count >= required_success_count if is_special || required_success_count
+
+        if is_special || required_success_count
+          is_success = is_special ||
+                       (success_count >= required_success_count &&
+                       (required_number.nil? || dices.include?(required_number)))
+        end
 
         message_elements = []
         message_elements << command_text
-        message_elements << "[#{dices.join(',')}]"
+        message_elements << make_dices_text(dices, required_number)
         message_elements << "成功数: #{success_count}"
         if is_special
           message_elements << "スペシャル"
         elsif required_success_count
           message_elements << (is_success ? "成功" : "失敗")
+          message_elements[-1] = message_elements.last + "（出目 #{required_number} がありません）" if !is_success && required_number
         end
 
         Result.new(message_elements.join(' ＞ ')).tap do |r|
@@ -97,11 +111,24 @@ module BCDice
         end
       end
 
-      def make_command_text(dice_count, success_line, required_success_count)
+      def make_command_text(dice_count, success_line, required_success_count, required_number)
         command = "#{dice_count}B6"
         command = "#{command}>=#{success_line}"
         command = "#{command}\##{required_success_count}" unless required_success_count.nil?
+        command = "#{command}*#{required_number}" unless required_number.nil?
         "(#{command})"
+      end
+
+      def make_dices_text(dices, required_number)
+        text = dices.map do |dice|
+          if dice == required_number
+            "*#{dice}*" # 特定のダイス目が必要とされているなら、その目は強調する
+          else
+            dice.to_s
+          end
+        end.join(',')
+
+        "[#{text}]"
       end
     end
   end
