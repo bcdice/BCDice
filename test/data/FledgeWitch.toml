@@ -345,3 +345,60 @@ rands = [
 ]
 success = true
 critical = true
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "2B6&5>=4#2"
+output = "(2B6&5>=4#2) ＞ [1,4] ＞ 成功数: 1 ＞ 失敗"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+failure = true
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "2B6&5>=4#2"
+output = "(2B6&5>=4#2) ＞ [1,&5] ＞ 成功数: 2 ＞ 成功"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+success = true
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "2B6&5"
+output = "(2B6&5>=4) ＞ [1,&5] ＞ 成功数: 2"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "2B6&4>=5"
+output = "(2B6&4>=5) ＞ [1,4] ＞ 成功数: 0"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "2B6&4>=5"
+output = "(2B6&4>=5) ＞ [4,5] ＞ 成功数: 1"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "2B6&5#2*5"
+output = "(2B6&5>=4#2*5) ＞ [1,&*5*] ＞ 成功数: 2 ＞ 成功"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+success = true
