@@ -132,3 +132,38 @@ output = "(1B6) ＞ 4"
 rands = [
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "1+1b6#2"
+output = "(2B6>=4#2) ＞ [3,4] ＞ 成功数: 1 ＞ 失敗"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+failure = true
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "2+1+1FW#4"
+output = "(4B6>=4#4) ＞ [3,4,5,6] ＞ 成功数: 4 ＞ 成功"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+success = true
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "2+1+1B>=2#8"
+output = "(4B6>=2#8) ＞ [2,6,6,6] ＞ 成功数: 7 ＞ スペシャル"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+success = true
+critical = true

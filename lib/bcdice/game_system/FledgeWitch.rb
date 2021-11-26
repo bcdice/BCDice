@@ -15,7 +15,7 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~HELP
         ■判定（ xB6>=y#z または xFW>=y#z ）
-        x: ダイス数
+        x: ダイス数（加算式を記述可）
         y: 成功ライン
         z: 必要な成功数
 
@@ -35,12 +35,12 @@ module BCDice
         @sort_barabara_dice = true
       end
 
-      JUDGE_ROLL_REG = /^(\d+)(B6?|FW)((>=|=>)(\d+))?(#(\d+))?$/i.freeze
-      register_prefix('(\d+)(B6?|FW)((>=|=>)(\d+))?(#(\d+))?')
+      JUDGE_ROLL_REG = /^(\d+(\+\d+)*)(B6?|FW)((>=|=>)(\d+))?(#(\d+))?$/i.freeze
+      register_prefix('(\d+(\+\d+)*)(B6?|FW)((>=|=>)(\d+))?(#(\d+))?')
 
       def eval_game_system_specific_command(command)
         if (m = JUDGE_ROLL_REG.match(command))
-          dice_count_expression, keyword, _, _, success_line_expression, _, required_success_count_expression = m.captures
+          dice_count_expression, _, keyword, _, _, success_line_expression, _, required_success_count_expression = m.captures
 
           # 汎用コマンドの xB6 と完全に同じ書式なら、判定コマンドとして扱わない.
           return nil if success_line_expression.nil? && required_success_count_expression.nil? && keyword != 'FW'
@@ -52,7 +52,7 @@ module BCDice
       private
 
       def roll_judge(dice_count_expression, success_line_expression, required_success_count_expression)
-        dice_count = dice_count_expression.to_i
+        dice_count = Arithmetic.eval(dice_count_expression, RoundType::FLOOR)
         success_line = success_line_expression ? success_line_expression.to_i : 4
         required_success_count = required_success_count_expression ? required_success_count_expression.to_i : nil
 
