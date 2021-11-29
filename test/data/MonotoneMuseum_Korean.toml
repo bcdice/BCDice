@@ -21,7 +21,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "2D6>=7"
-output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ 자동 성공"
+output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ 자동성공"
 success = true
 critical = true
 rands = [
@@ -32,7 +32,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "2D6>=7"
-output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ 자동 실패"
+output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ 자동실패"
 failure = true
 fumble = true
 rands = [
@@ -53,7 +53,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "2D6+1>=5[11,3]"
-output = "(2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
+output = "(2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동성공"
 success = true
 critical = true
 rands = [
@@ -64,7 +64,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "2D6+1>=5[11,3]"
-output = "(2D6+1>=5[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동 실패"
+output = "(2D6+1>=5[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동실패"
 failure = true
 fumble = true
 rands = [
@@ -75,7 +75,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "2D6+1>=5[11]"
-output = "(2D6+1>=5[11]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
+output = "(2D6+1>=5[11]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동성공"
 success = true
 critical = true
 rands = [
@@ -86,7 +86,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "2D6+1>=5[,3]"
-output = "(2D6+1>=5[,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동 실패"
+output = "(2D6+1>=5[,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동실패"
 failure = true
 fumble = true
 rands = [
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "2D6+1>=5[,3]"
-output = "(2D6+1>=5[,3]) ＞ 12[6,6]+1 ＞ 13 ＞ 자동 성공"
+output = "(2D6+1>=5[,3]) ＞ 12[6,6]+1 ＞ 13 ＞ 자동성공"
 success = true
 critical = true
 rands = [
@@ -108,7 +108,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "2D6+1>=5[7,7] ファンブル値優先"
-output = "(2D6+1>=5[7,7]) ＞ 7[2,5]+1 ＞ 8 ＞ 자동 실패"
+output = "(2D6+1>=5[7,7]) ＞ 7[2,5]+1 ＞ 8 ＞ 자동실패"
 failure = true
 fumble = true
 rands = [
@@ -119,7 +119,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "3D6+1>=7"
-output = "(3D6+1>=7) ＞ 12[2,4,6]+1 ＞ 13 ＞ 자동 성공"
+output = "(3D6+1>=7) ＞ 12[2,4,6]+1 ＞ 13 ＞ 자동성공"
 success = true
 critical = true
 rands = [
@@ -131,7 +131,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "1D6>=2"
-output = "(1D6>=2) ＞ 2[2] ＞ 2 ＞ 자동 실패"
+output = "(1D6>=2) ＞ 2[2] ＞ 2 ＞ 자동실패"
 failure = true
 fumble = true
 rands = [
@@ -150,7 +150,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "DT"
-output = "일그러짐표(2) ＞ 【세계소실】\n연극의 무대가 모두 없어진다. 무대에 남아있는 것은 너희들과 이형, 가람뿐이다. 클라이맥스 페이즈로."
+output = "일그러짐표(2) ＞ 【세계 소실】\n연극의 무대가 모두 사라진다. 무대에 남아있는 것은 당신들과 이형, 가람뿐이다. 클라이막스 페이즈로."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -159,7 +159,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "WDT"
-output = "세계왜곡표(2) ＞ 【소실】\n세계로부터 보스 캐릭터가 소거되어 소멸한다. 엔딩 페이즈로 직행."
+output = "세계왜곡표(2) ＞ 【소실】\n세계의 일그러짐이 보스캐릭터를 휘감아 그를 감싸고 허무에 인도한다. 세계에서 보스캐릭터는 소거되고 소멸한다. 엔딩페이즈로."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -204,7 +204,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "DT2"
-output = "일그러짐표ver2.0(66) ＞ 【지역소멸】\n연극의 무대가 되는 지역 그 자체가 사라져서 없어진다. 영향 아래에 있는 모든 캐릭터(가람을 포함한다)는 【봉제】 난이도 10의 판정에 성공하면 탈출할 수 있다. 실패했을 경우 그 즉시 사망한다. 엑스트라는 무조건 사망한다."
+output = "일그러짐표ver2.0(66) ＞ 【지역 소멸】\n공연의 무대인 지역 자체가 허무에 삼켜져 사라진다. 영향 아래 있는 모든 캐릭터(가람 포함)는 【재봉】 난이도 10 판정에 성공하면 탈출할 수 있다. 실패할 경우 즉석에서 사망한다. 엑스트라는 무조건 사망한다."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -213,7 +213,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "DT2"
-output = "일그러짐표ver2.0(32) ＞ 【시간가속】\n씬 내에 존재하는 모든 무생물과 생물은 2D6년만큼 시간이 가속한다. 생물이라면 노화한다. 방적공은 【봉제】 난이도 8의 판정에 성공하면 이 영향을 받지 않는다."
+output = "일그러짐표ver2.0(32) ＞ 【시간가속】\n시간이 가속한다. 씬 내에 존재하는 여러 무생물과 생물은 2d6 년의 세월이 지난 것 처럼 행동한다. 생물이라면 노화한다. 실 잣는 이는 【재봉】 난이도 8의 판정에 성공하면 이 영향을 받지 않는다."
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -222,7 +222,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "WDT2"
-output = "世界歪曲表ver2.0(32) ＞ 【豪雨】\nすさまじい雨が降る。雨は全ての人の心を凍らせる。このシーンの間、「種別：銃」である武器を用いた攻撃のファンブル値を+6する。また、別エンゲージへの物理攻撃の達成値を-2する。"
+output = "세계왜곡표ver2.0(32) ＞ 【폭우】\n무시무시한 비가 내린다. 비는 모든 사람의 마음을 얼어붙게 만든다. 이 씬 동안 「구분：총」인 무기를 사용한 경우 펌블치가 +6이 된다. 또한 다른 인게이지에 대한 물리공격의 달성치가 -2된다."
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -231,7 +231,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "OT2"
-output = "兆候表ver2.0(63) ＞ 【剥離の伝播】\n世界の歪みは広がり、拡散し、誰も逃れられない。あなたの剥離値が、シーンに登場しているPCで最も剥離値の高いPCと同じになる。あなたが最も高いなら、最も低いPCの剥離値があなたと同じになる（複数登場している場合はランダムに選ぶこと）。"
+output = "징조표ver2.0(63) ＞ 【剥離の伝播】\n 세계의 왜곡은 넓어지고 확장되어 누구도 도망칠 수 없다. 당신의 박탈치가 씬에 등장한 PC중에 가장 박탈치가 높은 PC와 같아진다. 만약 당신이 가장 높다면 가장 낮은 PC의 박탈치가 당신과 같아진다(여럿이 등장하고 있을 경우에는 랜덤으로 정할것)."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -240,7 +240,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "DTO"
-output = "歪み表(野外)(63) ＞ 【汚染世界】\n水は毒を含み、大気は有毒の霧に包まれる。登場している全てのキャラクターは【体力】難易度10の判定を行い、失敗すると邪毒5を受ける。エキストラがどうなるかはGMが決定するが、治療されなければ早晩死亡するだろう。"
+output = "일그러짐표(야외)(63) ＞ 【오염세계】\n물은 독을 품고, 대기는 유독성 안개로 가득하다. 등장하고 있는 모든 캐릭터는 【체력】난이도 10의 판정을 해서 실패할 경우 [중독] 5를 받는다. 엑스트라가 어떻게 될지는 GM이 정하지만 치료하지 않는 한 얼마 안 가 사망할 것이다."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -249,7 +249,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "DTS"
-output = "歪み表(海)(56) ＞ 【酒の海】\n海の水が酒になる。水を飲んだすべての者は酔っ払い理性を失う。その様はまるで暗黒期に滅亡した“怠惰の古都”を彷彿とさせる。"
+output = "일그러짐표(바다)(56) ＞ 【술의 바다】\n바닷물이 술이 된다. 물을 마신 모든 것은 취해 이성을 잃는다. 그 모습이 마치 암흑기에 멸망한 "나태의 고도"를 연상시킨다."
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -258,7 +258,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "EDT"
-output = "永劫消失表(2) ＞ 【無慈悲な現実】\n願いも希望も叶いはしない。伽藍を倒すことができた、それが精一杯の、あなたたちに許された幸福だったのだ。意識が、虚無へと呑まれ消えていく……。\n＞ ダイスの後振りは行なえず、伽藍となる"
+output = "영구소실표(2) ＞ 【무자비한 현실】\n소망도 희망도 이뤄지지 않는다. 가람을 쓰러트리는 것, 그것이 당신의 최선의, 당신에게 허락된 행복이었다. 의식이, 허무에 삼켜져 사라진다....\n＞ 다이스의 추가롤은 불가능하다. 가람이 된다."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -267,7 +267,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "EDT"
-output = "永劫消失表(12) ＞ 【一念の奇跡】\n奇跡は起きた。想いが神へと届いたか、それとも紡ぎ手の一念か、その身のなにを失うこともなく、あなたはこの戦いを終えることを許されたのだ。\n＞ 代償は発生しない"
+output = "영구소실표(12) ＞ 【기적의 일념】\n기적은 일어났다. 기도가 신에게 닿은 것일까 아니면 실잣는이의 집념일까. 아무것도 잃지 않은 채, 당신은 이 싸움을 계속하는 것을 용서받았다.\n＞ 대가 발생 없음"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -276,7 +276,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "DTM"
-output = "歪み表(館・城)(12) ＞ 【ほつれ】\n世界がひび割れ、ほつれが現出する。ほつれに触れたものは虚無に飲み込まれ、帰ってくることはない。"
+output = "일그러짐표(저택・성)(12) ＞ 【올풀림】\n세계는 금이 가고 올풀림이 출현한다. 올풀림에 닿은 자는 허무에 삼켜져 돌아올 수 없다."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -285,7 +285,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "DTM"
-output = "歪み表(館・城)(65) ＞ 【炎上】\n館が炎上をはじめる。ここに留まっていれば、問答無用で死ぬことになるだろう。"
+output = "일그러짐표(저택・성)(65) ＞ 【염상(炎上)】\n저택이 불타오르기 시작한다. 이대로 머문다면 문답무용으로 죽을 것이다."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -294,7 +294,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "OT3"
-output = "兆候表ver3.0(2) ＞ 【暴走衝動】\n心の奥から抗いがたい衝動が湧き上がってくる。目の前の生命を引き裂きたい――あなたの意に反して、その腕が振り上げられた。 至近距離にいるキャラクターすべてに、即座に〈縫〉2D6点のダメージを与える。 戦闘中でない場合、どこまでを至近距離とするかはGMが判断すること。ダメージを与える対象がいない場合、この演目中あなたの行動値を+1する。"
+output = "징조표ver3.0(2) ＞ 【폭주충동】\n마음 속 깊은 곳에서부터 충동이 치솟는다. 눈 앞의 생명을 찢어버리고싶다ㅡ당신의 의지와 반대로 그 팔이 휘둘러진다. 지근거리에 있는 캐릭터 전원에게 즉시 <재봉> 2D6점의 대미지를 준다. 전투 중이 아닐 경우 어디까지를 지근으로 할지는 GM이 판단할것. 대미지를 줄 대상이 없는 경우 이 연극 중 당신의 행동치를 +1한다."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -303,7 +303,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "OT3"
-output = "兆候表ver3.0(12) ＞ 【虚無のしたたり】\nあなたの身体から漆黒の汗や曇白の霧がにじみ出る。この演目中、「対象:自身」を除くあなたが行なう特技の対象すべてに、本来の効果に加え邪毒1を与える。"
+output = "징조표ver3.0(12) ＞ 【허무의 낙숫물】\n당신의 몸에서 칠흑의 땀이나 흐린 백색의 안개가 새어나온다. 이 공연중 [대상 : 자신]을 제외하고 당신이 한 특기의 대상 모두에게 원래 효과에 더해 사독1을 준다."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
