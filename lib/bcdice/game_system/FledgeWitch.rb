@@ -14,12 +14,12 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~HELP
-        ■判定（ xB6>=y#z または xFW>=y#z ）
+        ■判定（ xB6>=y@z または xFW>=y@z ）
         x: ダイス数（加算式を記述可）
         y: 成功ライン（加算・減算式を記述可）
         z: 必要な成功数（加算式を記述可）
 
-        □成功ラインを省略（ xB6#z または xFW#z ）
+        □成功ラインを省略（ xB6@z または xFW@z ）
         成功ラインは 4 となる。
 
         □必要な成功数を省略（ xB6>=y または xFW>=y ）
@@ -28,14 +28,14 @@ module BCDice
         □成功ラインと必要な成功数を省略（ xFW ）
         成功ラインは 4 となり、最終的な成功・失敗は表示されない。
 
-        □特定のダイス目を必要とする（ #z の後に *r ）
+        □特定のダイス目を必要とする（ @z の後に *r ）
         r: 必要なダイス目（ 1 以上 6 以下）
-        例） 5fw>=4#3*6
+        例） 5fw>=4@3*6
         　　 ダイス５個、成功ライン４、必要な成功数３かつ、６のダイス目が必要
 
         □ 6 以外の特定のダイス目を成功数 2 として扱う（ B6 か FW の後に、 &t ）
         t: 成功数 2 として扱うダイス目
-        例） 3b6&5>=4#2
+        例） 3b6&5>=4@2
         　　 ダイス３個、成功ライン４、必要な成功数２で、５の出目も成功数２とする
         　　 ※魔法スキル「ひらめいた！」の効果を想定
 
@@ -51,8 +51,8 @@ module BCDice
         @sort_barabara_dice = true
       end
 
-      JUDGE_ROLL_REG = /^(\d+(\+\d+)*)(B6?|FW)(&([1-6]))?((>=|=>)(\d+([+\-]\d+)*))?(#(\d+(\+\d+)*)(\*([1-6]))?)?$/i.freeze
-      register_prefix('(\d+(\+\d+)*)(B6?|FW)(&([1-6]))?((>=|=>)(\d+([+\-]\d+)*))?(#(\d+(\+\d+)*)(\*([1-6]))?)?')
+      JUDGE_ROLL_REG = /^(\d+(\+\d+)*)(B6?|FW)(&([1-6]))?((>=|=>)(\d+([+\-]\d+)*))?(@(\d+(\+\d+)*)(\*([1-6]))?)?$/i.freeze
+      register_prefix('(\d+(\+\d+)*)(B6?|FW)(&([1-6]))?((>=|=>)(\d+([+\-]\d+)*))?(@(\d+(\+\d+)*)(\*([1-6]))?)?')
 
       def eval_game_system_specific_command(command)
         command = ALIAS[command] || command
@@ -135,7 +135,7 @@ module BCDice
         command = "#{dice_count}B6"
         command = "#{command}&#{number_as_twice}" unless number_as_twice.nil?
         command = "#{command}>=#{success_line}"
-        command = "#{command}\##{required_success_count}" unless required_success_count.nil?
+        command = "#{command}@#{required_success_count}" unless required_success_count.nil?
         command = "#{command}*#{required_number}" unless required_number.nil?
         "(#{command})"
       end

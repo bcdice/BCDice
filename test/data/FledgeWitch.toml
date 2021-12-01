@@ -1,13 +1,13 @@
 [[ test ]]
 game_system = "FledgeWitch"
-input = "0b6>=5#1"
+input = "0b6>=5@1"
 output = "ダイス数は 1 個以上でなければなりません"
 rands = []
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1B6>=5#1"
-output = "(1B6>=5#1) ＞ [5] ＞ 成功数: 1 ＞ 成功"
+input = "1B6>=5@1"
+output = "(1B6>=5@1) ＞ [5] ＞ 成功数: 1 ＞ 成功"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -15,8 +15,8 @@ success = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1FW>=4#1"
-output = "(1B6>=4#1) ＞ [3] ＞ 成功数: 0 ＞ 失敗"
+input = "1FW>=4@1"
+output = "(1B6>=4@1) ＞ [3] ＞ 成功数: 0 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -24,8 +24,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1b6>=4#1"
-output = "(1B6>=4#1) ＞ [4] ＞ 成功数: 1 ＞ 成功"
+input = "1b6>=4@1"
+output = "(1B6>=4@1) ＞ [4] ＞ 成功数: 1 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -33,8 +33,8 @@ success = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "2b6>=4#2"
-output = "(2B6>=4#2) ＞ [3,4] ＞ 成功数: 1 ＞ 失敗"
+input = "2b6>=4@2"
+output = "(2B6>=4@2) ＞ [3,4] ＞ 成功数: 1 ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -43,8 +43,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "2b>=4#2"
-output = "(2B6>=4#2) ＞ [4,4] ＞ 成功数: 2 ＞ 成功"
+input = "2b>=4@2"
+output = "(2B6>=4@2) ＞ [4,4] ＞ 成功数: 2 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -53,8 +53,8 @@ success = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "2FW>=4#2"
-output = "(2B6>=4#2) ＞ [3,6] ＞ 成功数: 2 ＞ 成功"
+input = "2FW>=4@2"
+output = "(2B6>=4@2) ＞ [3,6] ＞ 成功数: 2 ＞ 成功"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
@@ -63,8 +63,8 @@ success = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "2b6>=4#99"
-output = "(2B6>=4#99) ＞ [6,6] ＞ 成功数: 4 ＞ スペシャル"
+input = "2b6>=4@99"
+output = "(2B6>=4@99) ＞ [6,6] ＞ 成功数: 4 ＞ スペシャル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -74,8 +74,8 @@ critical = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "2b6>=99#4"
-output = "(2B6>=7#4) ＞ [6,6] ＞ 成功数: 0 ＞ スペシャル"
+input = "2b6>=99@4"
+output = "(2B6>=7@4) ＞ [6,6] ＞ 成功数: 0 ＞ スペシャル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -85,8 +85,8 @@ critical = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1b6#1"
-output = "(1B6>=4#1) ＞ [3] ＞ 成功数: 0 ＞ 失敗"
+input = "1b6@1"
+output = "(1B6>=4@1) ＞ [3] ＞ 成功数: 0 ＞ 失敗"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -94,8 +94,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1fw#1"
-output = "(1B6>=4#1) ＞ [4] ＞ 成功数: 1 ＞ 成功"
+input = "1fw@1"
+output = "(1B6>=4@1) ＞ [4] ＞ 成功数: 1 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -135,8 +135,8 @@ rands = [
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1+1b6#2"
-output = "(2B6>=4#2) ＞ [3,4] ＞ 成功数: 1 ＞ 失敗"
+input = "1+1b6@2"
+output = "(2B6>=4@2) ＞ [3,4] ＞ 成功数: 1 ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -145,8 +145,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "2+1+1FW#4"
-output = "(4B6>=4#4) ＞ [3,4,5,6] ＞ 成功数: 4 ＞ 成功"
+input = "2+1+1FW@4"
+output = "(4B6>=4@4) ＞ [3,4,5,6] ＞ 成功数: 4 ＞ 成功"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -157,8 +157,8 @@ success = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "2+1+1B>=2#8"
-output = "(4B6>=2#8) ＞ [2,6,6,6] ＞ 成功数: 7 ＞ スペシャル"
+input = "2+1+1B>=2@8"
+output = "(4B6>=2@8) ＞ [2,6,6,6] ＞ 成功数: 7 ＞ スペシャル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -170,8 +170,8 @@ critical = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1b6>=4-1#1"
-output = "(1B6>=3#1) ＞ [3] ＞ 成功数: 1 ＞ 成功"
+input = "1b6>=4-1@1"
+output = "(1B6>=3@1) ＞ [3] ＞ 成功数: 1 ＞ 成功"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -179,8 +179,8 @@ success = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1b6>=4+1#1"
-output = "(1B6>=5#1) ＞ [4] ＞ 成功数: 0 ＞ 失敗"
+input = "1b6>=4+1@1"
+output = "(1B6>=5@1) ＞ [4] ＞ 成功数: 0 ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -188,8 +188,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1b6>=4+1+2#1"
-output = "(1B6>=7#1) ＞ [6] ＞ 成功数: 0 ＞ 失敗"
+input = "1b6>=4+1+2@1"
+output = "(1B6>=7@1) ＞ [6] ＞ 成功数: 0 ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -197,8 +197,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1b6>=4+1+2+1#1"
-output = "(1B6>=7#1) ＞ [6] ＞ 成功数: 0 ＞ 失敗"
+input = "1b6>=4+1+2+1@1"
+output = "(1B6>=7@1) ＞ [6] ＞ 成功数: 0 ＞ 失敗"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -206,8 +206,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1b6>=4-1-2#1"
-output = "(1B6>=1#1) ＞ [1] ＞ 成功数: 1 ＞ 成功"
+input = "1b6>=4-1-2@1"
+output = "(1B6>=1@1) ＞ [1] ＞ 成功数: 1 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -215,8 +215,8 @@ success = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1b6>=4-1+2#1"
-output = "(1B6>=5#1) ＞ [4] ＞ 成功数: 0 ＞ 失敗"
+input = "1b6>=4-1+2@1"
+output = "(1B6>=5@1) ＞ [4] ＞ 成功数: 0 ＞ 失敗"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -224,8 +224,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "1b6>=4-1-2-1#1"
-output = "(1B6>=1#1) ＞ [1] ＞ 成功数: 1 ＞ 成功"
+input = "1b6>=4-1-2-1@1"
+output = "(1B6>=1@1) ＞ [1] ＞ 成功数: 1 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -233,8 +233,8 @@ success = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "4B6>=3#2"
-output = "(4B6>=3#2) ＞ [1,2,3,4] ＞ 成功数: 2 ＞ 成功"
+input = "4B6>=3@2"
+output = "(4B6>=3@2) ＞ [1,2,3,4] ＞ 成功数: 2 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -245,8 +245,8 @@ success = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "4B6>=3#2+1"
-output = "(4B6>=3#3) ＞ [1,2,3,4] ＞ 成功数: 2 ＞ 失敗"
+input = "4B6>=3@2+1"
+output = "(4B6>=3@3) ＞ [1,2,3,4] ＞ 成功数: 2 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -257,8 +257,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "4B6>=4-1-1#2+1+1"
-output = "(4B6>=2#4) ＞ [1,2,3,4] ＞ 成功数: 3 ＞ 失敗"
+input = "4B6>=4-1-1@2+1+1"
+output = "(4B6>=2@4) ＞ [1,2,3,4] ＞ 成功数: 3 ＞ 失敗"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -269,8 +269,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "4B6>=3#2+99"
-output = "(4B6>=3#101) ＞ [1,4,6,6] ＞ 成功数: 5 ＞ スペシャル"
+input = "4B6>=3@2+99"
+output = "(4B6>=3@101) ＞ [1,4,6,6] ＞ 成功数: 5 ＞ スペシャル"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -282,8 +282,8 @@ critical = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "5fw>=4#3*6"
-output = "(5B6>=4#3*6) ＞ [1,2,4,5,5] ＞ 成功数: 3 ＞ 失敗（出目 6 がありません）"
+input = "5fw>=4@3*6"
+output = "(5B6>=4@3*6) ＞ [1,2,4,5,5] ＞ 成功数: 3 ＞ 失敗（出目 6 がありません）"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -295,8 +295,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "5fw>=4#3*6"
-output = "(5B6>=4#3*6) ＞ [1,2,3,5,*6*] ＞ 成功数: 3 ＞ 成功"
+input = "5fw>=4@3*6"
+output = "(5B6>=4@3*6) ＞ [1,2,3,5,*6*] ＞ 成功数: 3 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -308,8 +308,8 @@ success = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "5fw#4*5"
-output = "(5B6>=4#4*5) ＞ [1,2,4,4,6] ＞ 成功数: 4 ＞ 失敗（出目 5 がありません）"
+input = "5fw@4*5"
+output = "(5B6>=4@4*5) ＞ [1,2,4,4,6] ＞ 成功数: 4 ＞ 失敗（出目 5 がありません）"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -321,8 +321,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "5fw#4*5"
-output = "(5B6>=4#4*5) ＞ [1,2,4,*5*,6] ＞ 成功数: 4 ＞ 成功"
+input = "5fw@4*5"
+output = "(5B6>=4@4*5) ＞ [1,2,4,*5*,6] ＞ 成功数: 4 ＞ 成功"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -334,8 +334,8 @@ success = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "5fw#4*5"
-output = "(5B6>=4#4*5) ＞ [1,1,2,6,6] ＞ 成功数: 4 ＞ スペシャル"
+input = "5fw@4*5"
+output = "(5B6>=4@4*5) ＞ [1,1,2,6,6] ＞ 成功数: 4 ＞ スペシャル"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -348,8 +348,8 @@ critical = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "2B6&5>=4#2"
-output = "(2B6&5>=4#2) ＞ [1,4] ＞ 成功数: 1 ＞ 失敗"
+input = "2B6&5>=4@2"
+output = "(2B6&5>=4@2) ＞ [1,4] ＞ 成功数: 1 ＞ 失敗"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -358,8 +358,8 @@ failure = true
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "2B6&5>=4#2"
-output = "(2B6&5>=4#2) ＞ [1,&5] ＞ 成功数: 2 ＞ 成功"
+input = "2B6&5>=4@2"
+output = "(2B6&5>=4@2) ＞ [1,&5] ＞ 成功数: 2 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -395,8 +395,8 @@ rands = [
 
 [[ test ]]
 game_system = "FledgeWitch"
-input = "2B6&5#2*5"
-output = "(2B6&5>=4#2*5) ＞ [1,&*5*] ＞ 成功数: 2 ＞ 成功"
+input = "2B6&5@2*5"
+output = "(2B6&5>=4@2*5) ＞ [1,&*5*] ＞ 成功数: 2 ＞ 成功"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
