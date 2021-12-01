@@ -25,6 +25,12 @@ module BCDice
         # @return [Boolean]
         attr_accessor :greatest_fortune
 
+        # @return [Integer, nil]
+        attr_writer :semi_fixed_val
+
+        # @return [Integer, nil]
+        attr_writer :tmp_fixed_val
+
         # @return [Integer]
         attr_accessor :modifier
 
@@ -33,11 +39,14 @@ module BCDice
 
         def initialize
           @critical = nil
+          @min_critical = nil
           @kept_modify = nil
           @first_to = nil
           @first_modify = nil
           @greatest_fortune = false
           @rateup = nil
+          @semi_fixed_val = nil
+          @tmp_fixed_val = nil
         end
 
         # @return [Boolean]
@@ -47,9 +56,22 @@ module BCDice
 
         # @return [Integer]
         def critical
-          crit = @critical || (half ? 13 : 10)
-          crit = 3 if crit < 3
-          return crit
+          return @critical || (half ? 13 : 10)
+        end
+
+        # @return [Integer]
+        def min_critical
+          min_critical = 3
+          unless @semi_fixed_val.nil?
+            if @kept_modify.nil?
+              min_critical = @semi_fixed_val + 2 if min_critical < @semi_fixed_val + 2
+            else
+              min_critical = @semi_fixed_val + @kept_modify + 2 if min_critical < @semi_fixed_val + @kept_modify + 2
+            end
+            min_critical = 3 if @semi_fixed_val == 1
+          end
+          min_critical = 13 if min_critical > 13
+          return min_critical
         end
 
         # @return [Integer]
@@ -65,6 +87,20 @@ module BCDice
         # @return [Integer]
         def rateup
           return @rateup || 0
+        end
+
+        # @return [Integer]
+        def semi_fixed_val
+          sf = @semi_fixed_val || 0
+          sf = 6 if sf > 6
+          return sf
+        end
+
+        # @return [Integer]
+        def tmp_fixed_val
+          tf = @tmp_fixed_val || 0
+          tf = 6 if tf > 6
+          return tf
         end
 
         # @return [Integer]
@@ -86,12 +122,19 @@ module BCDice
           output += "m[#{first_to}]" if first_to != 0
           output += "r[#{rateup}]" if rateup != 0
           output += "gf" if @greatest_fortune
+          output += "sf[#{semi_fixed_val}]" if semi_fixed_val != 0
+          output += "tf[#{tmp_fixed_val}]" if tmp_fixed_val != 0
           output += "a[#{Format.modifier(kept_modify)}]" if kept_modify != 0
 
           if @modifier != 0
             output += Format.modifier(@modifier)
           end
           return output
+        end
+
+        # @return [Boolean]
+        def infinite_roll?
+          return critical < min_critical
         end
       end
     end

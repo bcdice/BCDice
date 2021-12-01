@@ -68,6 +68,10 @@ module BCDice
           return "キーナンバーは#{keyMax}までです"
         end
 
+        if command.infinite_roll?
+          return Result.new("C値を#{command.min_critical}以上にしてください")
+        end
+
         newRates = getNewRates(rate_sw2_0)
 
         output = "#{command} ＞ "
@@ -83,7 +87,7 @@ module BCDice
         first_modify = command.first_modify
 
         loop do
-          dice_raw, diceText = rollDice(command)
+          dice_raw, diceText = rollDice(command, round)
           dice = dice_raw
 
           if first_to != 0
@@ -295,7 +299,7 @@ module BCDice
         return newRates
       end
 
-      def rollDice(_command)
+      def rollDice(_command, _round)
         dice_list = @randomizer.roll_barabara(2, 6)
         total = dice_list.sum()
         dice_str = dice_list.join(",")

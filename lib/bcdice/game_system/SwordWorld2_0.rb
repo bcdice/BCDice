@@ -54,6 +54,12 @@ module BCDice
         ・グレイテストフォーチュンは末尾に gf
         　例）K20gf　K30+24@8GF　K40+24@8$12r10gf
 
+        ・威力表を1d+sfで参照 クリティカル後も継続 sf4
+        　例）k10sf4　k0+5SF4@13　k70+26sf3@9
+
+        ・威力表を1d+tfで参照 クリティカル後は2dで参照 tf3
+        　例）k10tf3　k0+5TF4@13　k70+26tf3@9
+
         ・超越判定用に2d6ロールに 2D6@10 書式でクリティカル値付与が可能に。
         　例）2D6@10　2D6@10+11>=30
 
@@ -108,14 +114,23 @@ module BCDice
         return RatingParser.new(version: :v2_0)
       end
 
-      def rollDice(command)
+      def rollDice(command, round)
+        if command.semi_fixed_val > 0
+          dice = @randomizer.roll_once(6)
+          return dice + command.semi_fixed_val, "#{dice},#{command.semi_fixed_val}"
+        end
+        if round == 0 && command.tmp_fixed_val > 0
+          dice = @randomizer.roll_once(6)
+          return dice + command.tmp_fixed_val, "#{dice},#{command.tmp_fixed_val}"
+        end
         unless command.greatest_fortune
-          return super(command)
+          return super(command, round)
         end
 
-        dice = @randomizer.roll_once(6)
-
-        return dice * 2, "#{dice},#{dice}"
+        if command.greatest_fortune
+          dice = @randomizer.roll_once(6)
+          return dice * 2, "#{dice},#{dice}"
+        end
       end
 
       def growth(count = 1)
