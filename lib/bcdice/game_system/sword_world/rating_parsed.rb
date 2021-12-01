@@ -7,7 +7,7 @@ module BCDice
         # @return [Integer]
         attr_accessor :rate
 
-        # @return [Integer, nil]
+        # @return [Integer]
         attr_accessor :critical
 
         # @return [Integer]
@@ -40,7 +40,7 @@ module BCDice
         def initialize(rate, modifier)
           @rate = rate
           @modifier = modifier
-          @critical = nil
+          @critical = 13
           @kept_modify = 0
           @first_to = 0
           @first_modify = 0
