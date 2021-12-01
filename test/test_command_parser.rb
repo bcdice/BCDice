@@ -246,4 +246,14 @@ class TestCommandParser < Test::Unit::TestCase
     assert_equal(16, parsed.prefix_number)
     assert_equal(62, parsed.suffix_number)
   end
+
+  def test_ampersand
+    parser = BCDice::Command::Parser.new("EX", round_type: BCDice::RoundType::FLOOR)
+                                    .enable_ampersand
+
+    parsed = parser.parse("EX&5")
+
+    assert_equal("EX", parsed.command)
+    assert_equal(5, parsed.ampersand)
+  end
 end

@@ -21,6 +21,9 @@ module BCDice
       # @return [Integer, nil]
       attr_accessor :dollar
 
+      # @return [Integer, nil]
+      attr_accessor :ampersand
+
       # @return [Integer]
       attr_accessor :modify_number
 
@@ -40,6 +43,7 @@ module BCDice
         @critical = nil
         @fumble = nil
         @dollar = nil
+        @ampersand = nil
         @cmp_op = nil
         @target_number = nil
         @question_target = false
@@ -56,16 +60,17 @@ module BCDice
         c = @critical ? "@#{@critical}" : nil
         f = @fumble ? "##{@fumble}" : nil
         d = @dollar ? "$#{@dollar}" : nil
+        a = @ampersand ? "&#{@ampersand}" : nil
         m = Format.modifier(@modify_number)
         target = @question_target ? "?" : @target_number
 
         case suffix_position
         when :after_command
-          [@prefix_number, @command, @suffix_number, c, f, d, m, @cmp_op, target].join()
+          [@prefix_number, @command, @suffix_number, c, f, d, a, m, @cmp_op, target].join()
         when :after_modify_number
-          [@prefix_number, @command, @suffix_number, m, c, f, d, @cmp_op, target].join()
+          [@prefix_number, @command, @suffix_number, m, c, f, d, a, @cmp_op, target].join()
         when :after_target_number
-          [@prefix_number, @command, @suffix_number, m, @cmp_op, target, c, f, d].join()
+          [@prefix_number, @command, @suffix_number, m, @cmp_op, target, c, f, d, a].join()
         end
       end
     end

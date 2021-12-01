@@ -1,5 +1,5 @@
 class BCDice::Command::Parser
-  token NUMBER R U C F PLUS MINUS ASTERISK SLASH PARENL PARENR AT SHARP DOLLAR CMP_OP QUESTION NOTATION
+  token NUMBER R U C F PLUS MINUS ASTERISK SLASH PARENL PARENR AT SHARP DOLLAR AMPERSAND CMP_OP QUESTION NOTATION
 
   expect 2
 
@@ -70,6 +70,14 @@ class BCDice::Command::Parser
             raise ParseError unless @dollar && option[:dollar].nil?
 
             option[:dollar] = term
+            result = option
+          }
+          | option AMPERSAND unary
+          {
+            option, _, term = val
+            raise ParseError unless @ampersand && option[:ampersand].nil?
+
+            option[:ampersand] = term
             result = option
           }
 
@@ -184,6 +192,7 @@ def initialize(*notations, round_type:)
   @critical = false
   @fumble = false
   @dollar = false
+  @ampersand = false
   @allowed_cmp_op = [nil, :>=, :>, :<=, :<, :==, :!=]
   @question_target = false
 end
@@ -246,6 +255,13 @@ def enable_dollar
   self
 end
 
+# +&+による値の指定を許可する
+# @return [BCDice::Command::Parser]
+def enable_ampersand
+  @ampersand = true
+  self
+end
+
 # 使用できる比較演算子を制限する。
 # 目標値未入力を許可する場合には+nil+を指定する。
 # @param ops [Array<nil, Symbol>] 許可する比較演算子の一覧
@@ -281,6 +297,7 @@ def parsed(notation, option, modifier, target)
     p.critical = option[:critical]&.eval(@round_type)
     p.fumble = option[:fumble]&.eval(@round_type)
     p.dollar = option[:dollar]&.eval(@round_type)
+    p.ampersand = option[:ampersand]&.eval(@round_type)
     p.modify_number = modifier.eval(@round_type)
     p.cmp_op = target[:cmp_op]
     if target[:target] == "?"

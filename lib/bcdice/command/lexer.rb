@@ -17,6 +17,7 @@ module BCDice
         "@" => :AT,
         "#" => :SHARP,
         "$" => :DOLLAR,
+        "&" => :AMPERSAND,
       }.freeze
 
       def initialize(source, notations)
