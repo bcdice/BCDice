@@ -7,14 +7,14 @@ class RatingParser
     expr: rate option
         {
           rate, option = val
-          modifier = option[:modifier] || Arithmetic::Node::Number.new(0)
+          modifier = option.modifier || Arithmetic::Node::Number.new(0)
           result = parsed(rate, modifier.eval(@round_type), option)
         }
         | H rate option
         {
           _, rate, option = val
-          option[:modifier_after_half] ||= Arithmetic::Node::Number.new(0)
-          modifier = option[:modifier] || Arithmetic::Node::Number.new(0)
+          option.modifier_after_half ||= Arithmetic::Node::Number.new(0)
+          modifier = option.modifier || Arithmetic::Node::Number.new(0)
           result = parsed(rate, modifier.eval(@round_type), option)
         }
 
@@ -24,119 +24,110 @@ class RatingParser
 
     option: /* none */
           {
-            result = {}
+            result = RatingOptions.new
           }
           | option modifier
           {
             option, term = val
-            raise ParseError unless option[:modifier].nil?
+            raise ParseError unless option.modifier.nil?
 
-            option[:modifier] = term
+            option.modifier = term
             result = option
           }
           | option BRACKETL unary BRACKETR
           {
             option, _, term, _ = val
-            raise ParseError unless option[:critical].nil?
+            raise ParseError unless option.critical.nil?
 
-            option[:critical] = term
+            option.critical = term
             result = option
           }
           | option AT unary
           {
             option, _, term = val
-            raise ParseError unless option[:critical].nil?
+            raise ParseError unless option.critical.nil?
 
-            option[:critical] = term
+            option.critical = term
             result = option
           }
           | option DOLLAR NUMBER
           {
             option, _, term = val
-            raise ParseError unless option[:first_to].nil? && option[:first_modify].nil?
+            raise ParseError unless option.settable_first_roll_adjust_option?
 
-            option[:first_to] = term.to_i
+            option.first_to = term.to_i
             result = option
           }
           | option DOLLAR PLUS NUMBER
           {
             option, _, _, term = val
-            raise ParseError unless option[:first_to].nil? && option[:first_modify].nil?
+            raise ParseError unless option.settable_first_roll_adjust_option?
 
-            option[:first_modify] = term.to_i
+            option.first_modify = term.to_i
             result = option
           }
           | option DOLLAR MINUS NUMBER
           {
             option, _, _, term = val
-            raise ParseError unless option[:first_to].nil? && option[:first_modify].nil?
+            raise ParseError unless option.settable_first_roll_adjust_option?
 
-            option[:first_modify] = -(term.to_i)
+            option.first_modify = -(term.to_i)
             result = option
           }
           | option H
           {
             option, _ = val
-            raise ParseError unless option[:modifier_after_half].nil?
+            raise ParseError unless option.modifier_after_half.nil?
 
-            option[:modifier_after_half] = Arithmetic::Node::Number.new(0)
+            option.modifier_after_half = Arithmetic::Node::Number.new(0)
             result = option
           }
           | option H unary
           {
             option, _, term = val
-            raise ParseError unless option[:modifier_after_half].nil?
+            raise ParseError unless option.modifier_after_half.nil?
 
-            option[:modifier_after_half] = term
+            option.modifier_after_half = term
             result = option
           }
           | option R unary
           {
             option, _, term = val
-            raise ParseError unless [:v2_5, :v2_0].include?(@version) && option[:rateup].nil?
+            raise ParseError unless [:v2_5, :v2_0].include?(@version) && option.rateup.nil?
 
-            option[:rateup] = term
+            option.rateup = term
             result = option
           }
           | option G F
           {
             option, _, _ = val
-            raise ParseError unless [:v2_5, :v2_0].include?(@version)
-            raise ParseError unless option[:greatest_fortune].nil?
-            raise ParseError unless option[:semi_fixed_val].nil?
-            raise ParseError unless option[:tmp_fixed_val].nil?
+            raise ParseError unless [:v2_5, :v2_0].include?(@version) && option.settable_non_2d_roll_option?
 
-            option[:greatest_fortune] = true
+            option.greatest_fortune = true
             result = option
           }
           | option S F NUMBER
           {
             option, _, _, term = val
-            raise ParseError unless [:v2_5, :v2_0].include?(@version)
-            raise ParseError unless option[:greatest_fortune].nil?
-            raise ParseError unless option[:semi_fixed_val].nil?
-            raise ParseError unless option[:tmp_fixed_val].nil?
+            raise ParseError unless [:v2_5, :v2_0].include?(@version) && option.settable_non_2d_roll_option?
 
-            option[:semi_fixed_val] = term.to_i
+            option.semi_fixed_val = term.to_i
             result = option
           }
           | option T F NUMBER
           {
             option, _, _, term = val
-            raise ParseError unless [:v2_5, :v2_0].include?(@version)
-            raise ParseError unless option[:greatest_fortune].nil?
-            raise ParseError unless option[:semi_fixed_val].nil?
-            raise ParseError unless option[:tmp_fixed_val].nil?
+            raise ParseError unless [:v2_5, :v2_0].include?(@version) && option.settable_non_2d_roll_option?
 
-            option[:tmp_fixed_val] = term.to_i
+            option.tmp_fixed_val = term.to_i
             result = option
           }
           | option SHARP unary
           {
             option, _, term = val
-            raise ParseError unless @version == :v2_5 && option[:kept_modify].nil?
+            raise ParseError unless @version == :v2_5 && option.kept_modify.nil?
 
-            option[:kept_modify] = term
+            option.kept_modify = term
             result = option
           }
 
@@ -181,6 +172,7 @@ require "bcdice/arithmetic/node"
 require "bcdice/enum"
 require "bcdice/game_system/sword_world/rating_lexer"
 require "bcdice/game_system/sword_world/rating_parsed"
+require "bcdice/game_system/sword_world/rating_options"
 
 module BCDice
   module GameSystem
@@ -214,15 +206,15 @@ private
 
 def parsed(rate, modifier, option)
   RatingParsed.new(rate, modifier).tap do |p|
-    p.kept_modify = option[:kept_modify]&.eval(@round_type) || 0
-    p.first_to = option[:first_to] || 0
-    p.first_modify = option[:first_modify] || 0
-    p.rateup = option[:rateup]&.eval(@round_type) || 0
-    p.greatest_fortune = option.fetch(:greatest_fortune, false)
-    p.semi_fixed_val = option[:semi_fixed_val]&.clamp(1..6) || 0
-    p.tmp_fixed_val = option[:tmp_fixed_val]&.clamp(1..6) || 0
-    p.modifier_after_half = option[:modifier_after_half]&.eval(@round_type)
-    p.critical = option[:critical]&.eval(@round_type)&.clamp(..13) || (p.half ? 13 : 10)
+    p.kept_modify = option.kept_modify&.eval(@round_type) || 0
+    p.first_to = option.first_to || 0
+    p.first_modify = option.first_modify || 0
+    p.rateup = option.rateup&.eval(@round_type) || 0
+    p.greatest_fortune = option.greatest_fortune if !option.greatest_fortune.nil?
+    p.semi_fixed_val = option.semi_fixed_val&.clamp(1..6) || 0
+    p.tmp_fixed_val = option.tmp_fixed_val&.clamp(1..6) || 0
+    p.modifier_after_half = option.modifier_after_half&.eval(@round_type)
+    p.critical = option.critical&.eval(@round_type)&.clamp(..13) || (p.half ? 13 : 10)
   end
 end
 
