@@ -187,6 +187,36 @@ rands = [
 
 [[ test ]]
 game_system = "SwordWorld2.0"
+input = "K40+24sf4@8$12r10"
+output = "KeyNo.40c[8]m[12]r[10]sf[4]+24 ＞ 2D:[1,4 5,4 4,4 5,4 2,4]=12,9,8,9,6 ＞ 13,12,13,17,13+24 ＞ 4回転 ＞ 92"
+critical = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
+input = "K40+24tf4@8$12r10"
+output = "KeyNo.40c[8]m[12]r[10]tf[4]+24 ＞ 2D:[1,4 4,5 5,4 3,5 5,2]=12,9,9,8,7 ＞ 13,12,14,16,16+24 ＞ 4回転 ＞ 95"
+critical = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
 input = "K20+5"
 output = "KeyNo.20c[10]+5 ＞ 2D:[5,2]=7 ＞ 5+5 ＞ 10"
 rands = [
@@ -299,6 +329,89 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
 ]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
+input = "k20sf4 sf通常時"
+output = "KeyNo.20c[10]sf[4] ＞ 2D:[3,4]=7 ＞ 5"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
+input = "k20tf4 tf通常時"
+output = "KeyNo.20c[10]tf[4] ＞ 2D:[3,4]=7 ＞ 5"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
+input = "k20sf7 sfクリティカル時"
+output = "KeyNo.20c[10]sf[6] ＞ 2D:[5,6 4,6 3,6]=11,10,9 ＞ 9,8,7 ＞ 2回転 ＞ 24"
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
+input = "k20tf7 tfクリティカル時"
+output = "KeyNo.20c[10]tf[6] ＞ 2D:[5,6 6,5 3,4]=11,11,7 ＞ 9,9,5 ＞ 2回転 ＞ 23"
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
+input = "k20sf1@3 sf自動失敗時"
+output = "KeyNo.20c[3]sf[1] ＞ 2D:[1,1]=2 ＞ ** ＞ 自動的失敗"
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
+input = "k20tf1@3 tf自動失敗時"
+output = "KeyNo.20c[3]tf[1] ＞ 2D:[1,1]=2 ＞ ** ＞ 自動的失敗"
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
+input = "k20tf3@3 tfクリティカル自動失敗時"
+output = "KeyNo.20c[3]tf[3] ＞ 2D:[2,3 6,5 1,1]=5,11,2 ＞ 3,9,** ＞ 2回転 ＞ 12"
+critical = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
+input = "k20@2 クリティカル下限エラー 通常の下限は3"
+output = "C値を3以上にしてください"
+rands = []
+
+[[ test ]]
+game_system = "SwordWorld2.0"
+input = "k20sf2@2 クリティカル下限エラー sfが2以上の時はsf+2"
+output = "C値を4以上にしてください"
+rands = []
 
 [[ test ]]
 game_system = "SwordWorld2.0"

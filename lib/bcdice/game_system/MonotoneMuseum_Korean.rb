@@ -23,10 +23,10 @@ module BCDice
         　　자동성공, 자동실패, 성공, 실패를 자동표기합니다.
         ・각종표
         　・감정표　ET／감정표 2.0　ET2
-        　・징조표　OT／兆候表ver2.0　OT2／兆候表ver3.0　OT3
-        　・일그러짐표　DT／일그러짐표ver2.0　DT2／歪み表(野外)　DTO／歪み表(海)　DTS／歪み表(館・城)　DTM
-        　・세계왜곡표　　WDT／世界歪曲表2.0　WDT2
-        　・永劫消失表　EDT
+        　・징조표　OT／징조표ver2.0　OT2／징조표ver3.0　OT3
+        　・일그러짐표　DT／일그러짐표ver2.0　DT2／일그러짐표(야외)　DTO／일그러짐표(바다)　DTS／일그러짐표(저택・성)　DTM
+        　・세계왜곡표　　WDT／세계왜곡표2.0　WDT2
+        　・영구소실표　EDT
         ・D66다이스 있음
       INFO_MESSAGE_TEXT
 
