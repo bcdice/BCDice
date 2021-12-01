@@ -28,9 +28,9 @@ module BCDice
         □成功ラインと必要な成功数を省略（ xFW ）
         成功ラインは 4 となり、最終的な成功・失敗は表示されない。
 
-        □特定のダイス目を必要とする（ @z の後に *r ）
+        □特定のダイス目を必要とする（ @z の後に #r ）
         r: 必要なダイス目（ 1 以上 6 以下）
-        例） 5fw>=4@3*6
+        例） 5fw>=4@3#6
         　　 ダイス５個、成功ライン４、必要な成功数３かつ、６のダイス目が必要
 
         □ 6 以外の特定のダイス目を成功数 2 として扱う（ B6 か FW の後に、 &t ）
@@ -51,8 +51,8 @@ module BCDice
         @sort_barabara_dice = true
       end
 
-      JUDGE_ROLL_REG = /^(\d+(\+\d+)*)(B6?|FW)(&([1-6]))?((>=|=>)(\d+([+\-]\d+)*))?(@(\d+(\+\d+)*)(\*([1-6]))?)?$/i.freeze
-      register_prefix('(\d+(\+\d+)*)(B6?|FW)(&([1-6]))?((>=|=>)(\d+([+\-]\d+)*))?(@(\d+(\+\d+)*)(\*([1-6]))?)?')
+      JUDGE_ROLL_REG = /^(\d+(\+\d+)*)(B6?|FW)(&([1-6]))?((>=|=>)(\d+([+\-]\d+)*))?(@(\d+(\+\d+)*)(#([1-6]))?)?$/i.freeze
+      register_prefix('(\d+(\+\d+)*)(B6?|FW)(&([1-6]))?((>=|=>)(\d+([+\-]\d+)*))?(@(\d+(\+\d+)*)(#([1-6]))?)?')
 
       def eval_game_system_specific_command(command)
         command = ALIAS[command] || command
@@ -136,14 +136,14 @@ module BCDice
         command = "#{command}&#{number_as_twice}" unless number_as_twice.nil?
         command = "#{command}>=#{success_line}"
         command = "#{command}@#{required_success_count}" unless required_success_count.nil?
-        command = "#{command}*#{required_number}" unless required_number.nil?
+        command = "#{command}##{required_number}" unless required_number.nil?
         "(#{command})"
       end
 
       def make_dices_text(dices, number_as_twice, success_line, required_number)
         text = dices.map do |dice|
           dice_text = dice.to_s
-          dice_text = "*#{dice_text}*" if dice == required_number # 特定のダイス目が必要とされているなら、その目は強調する
+          dice_text = "##{dice_text}#" if dice == required_number # 特定のダイス目が必要とされているなら、その目は強調する
           dice_text = "&#{dice_text}" if dice >= success_line && dice == number_as_twice # 特別に成功数２と扱うダイス目なら、その目は強調する
           dice_text
         end.join(',')
