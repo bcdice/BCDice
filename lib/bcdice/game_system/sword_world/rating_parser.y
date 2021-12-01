@@ -214,7 +214,7 @@ def parsed(rate, modifier, option)
     p.semi_fixed_val = option.semi_fixed_val&.clamp(1..6) || 0
     p.tmp_fixed_val = option.tmp_fixed_val&.clamp(1..6) || 0
     p.modifier_after_half = option.modifier_after_half&.eval(@round_type)
-    p.critical = option.critical&.eval(@round_type)&.clamp(..13) || (p.half ? 13 : 10)
+    p.critical = option.critical&.eval(@round_type)&.clamp(0..13) || (p.half ? 13 : 10)
   end
 end
 
