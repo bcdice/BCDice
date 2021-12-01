@@ -8,14 +8,14 @@ class RatingParser
         {
           rate, option = val
           modifier = option[:modifier] || Arithmetic::Node::Number.new(0)
-          result = parsed(rate, modifier, option)
+          result = parsed(rate, modifier.eval(@round_type), option)
         }
         | H rate option
         {
           _, rate, option = val
           option[:modifier_after_half] ||= Arithmetic::Node::Number.new(0)
           modifier = option[:modifier] || Arithmetic::Node::Number.new(0)
-          result = parsed(rate, modifier, option)
+          result = parsed(rate, modifier.eval(@round_type), option)
         }
 
 
@@ -213,18 +213,16 @@ end
 private
 
 def parsed(rate, modifier, option)
-  RatingParsed.new.tap do |p|
-    p.rate = rate
-    p.critical = option[:critical]&.eval(@round_type)
-    p.kept_modify = option[:kept_modify]&.eval(@round_type)
-    p.first_to = option[:first_to]
-    p.first_modify = option[:first_modify]
-    p.rateup = option[:rateup]&.eval(@round_type)
+  RatingParsed.new(rate, modifier).tap do |p|
+    p.kept_modify = option[:kept_modify]&.eval(@round_type) || 0
+    p.first_to = option[:first_to] || 0
+    p.first_modify = option[:first_modify] || 0
+    p.rateup = option[:rateup]&.eval(@round_type) || 0
     p.greatest_fortune = option.fetch(:greatest_fortune, false)
-    p.semi_fixed_val = option[:semi_fixed_val]
-    p.tmp_fixed_val = option[:tmp_fixed_val]
-    p.modifier = modifier.eval(@round_type)
+    p.semi_fixed_val = option[:semi_fixed_val]&.clamp(1..6) || 0
+    p.tmp_fixed_val = option[:tmp_fixed_val]&.clamp(1..6) || 0
     p.modifier_after_half = option[:modifier_after_half]&.eval(@round_type)
+    p.critical = option[:critical]&.eval(@round_type)&.clamp(..13) || (p.half ? 13 : 10)
   end
 end
 
