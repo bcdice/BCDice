@@ -211,10 +211,10 @@ def parsed(rate, modifier, option)
     p.first_modify = option.first_modify || 0
     p.rateup = option.rateup&.eval(@round_type) || 0
     p.greatest_fortune = option.greatest_fortune if !option.greatest_fortune.nil?
-    p.semi_fixed_val = option.semi_fixed_val&.clamp(1..6) || 0
-    p.tmp_fixed_val = option.tmp_fixed_val&.clamp(1..6) || 0
+    p.semi_fixed_val = option.semi_fixed_val&.clamp(1, 6) || 0
+    p.tmp_fixed_val = option.tmp_fixed_val&.clamp(1, 6) || 0
     p.modifier_after_half = option.modifier_after_half&.eval(@round_type)
-    p.critical = option.critical&.eval(@round_type)&.clamp(0..13) || (p.half ? 13 : 10)
+    p.critical = option.critical&.eval(@round_type)&.clamp(0, 13) || (p.half ? 13 : 10)
   end
 end
 

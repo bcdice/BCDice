@@ -61,7 +61,7 @@ module BCDice
           if @semi_fixed_val <= 1
             return 3
           else
-            return (@semi_fixed_val + @kept_modify + 2).clamp(3..13)
+            return (@semi_fixed_val + @kept_modify + 2).clamp(3, 13)
           end
         end
 
