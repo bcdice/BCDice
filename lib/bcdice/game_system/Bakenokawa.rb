@@ -3,6 +3,7 @@
 require 'bcdice/dice_table/table'
 require 'bcdice/dice_table/d66_table'
 require 'bcdice/arithmetic'
+require 'bcdice/command/parser'
 
 module BCDice
   module GameSystem
@@ -53,30 +54,14 @@ module BCDice
       end
 
       def check_action(command)
-        m = /(\d*)BK(\d+)(@(\d+))?/i.match(command)
-        if m.nil?
-          return nil
-        end
+        parser = Command::Parser.new("BK", round_type: RoundType::FLOOR).enable_critical.enable_prefix_number.has_suffix_number
+        parsed = parser.parse(command)
+        return nil if parsed.nil?
 
-        if Arithmetic.eval(m[2], RoundType::FLOOR) == 6
-          dice_faces = 6
-        elsif Arithmetic.eval(m[2], RoundType::FLOOR) == 10
-          dice_faces = 10
-        else
-          return nil
-        end
-
-        if m[1] == ''
-          dice_cnt = 2
-        else
-          dice_cnt = Arithmetic.eval(m[1], RoundType::FLOOR)
-        end
         target = 4
-        if m[3].nil?
-          special_target = 12
-        else
-          special_target = Arithmetic.eval(m[4], RoundType::FLOOR)
-        end
+        dice_cnt = parsed.prefix_number || 2
+        dice_faces = parsed.suffix_number
+        special_target = parsed.critical || 12
 
         debug("dice_faces", dice_faces)
         debug("dice_cnt", dice_cnt)
