@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+## 3.5.0 2021/12/02
 
 ### 対応ゲームシステムの追加
 - 灰色城綺譚 (CastleInGray): reismannnr2さんありがとうっ！ ([#495](https://github.com/bcdice/BCDice/pull/495))
