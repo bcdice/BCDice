@@ -9,9 +9,12 @@
 - アサルトエンジン (AssaultEngine): くずもちさんありがとうっ！ ([#506](https://github.com/bcdice/BCDice/pull/506))
 - ザ・ループTRPG (TalesFromTheLoop): フレッド緑野さんありがとうっ！ ([#510](https://github.com/bcdice/BCDice/pull/510))
 - あおはるばーんっ (Aoharubaan): ViViさんありがとうっ！ ([#511](https://github.com/bcdice/BCDice/pull/511))
+- バケノカワ (Bakenokawa): 蜂紫さんありがとうっ！ ([#512](https://github.com/bcdice/BCDice/pull/512))
 
 ### 追加機能
 - 個数カウントダイスを追加 ([#509](https://github.com/bcdice/BCDice/pull/509))
+- ソード・ワールド2.0, ソード・ワールド2.5: レーティング表コマンドに1d6+nで参照するオプションを追加。Sarlaさんありがとうっ！ ([#515](https://github.com/bcdice/BCDice/pull/515))
+- 韓国語版 モノトーンミュージアムRPG: 表類の翻訳を追加。jbblilyさんありがとうっ！ ([#518](https://github.com/bcdice/BCDice/pull/518))
 
 ### 変更
 - ステラーライフTRPG: IDを `StellarLife` に変更。ViViさんありがとうっ！ ([#491](https://github.com/bcdice/BCDice/pull/491), [#496](https://github.com/bcdice/BCDice/pull/496))
@@ -19,6 +22,7 @@
 - エモクロアTRPG: 判定で成功数を明示するように。rassi0429さんありがとうっ！ ([#505](https://github.com/bcdice/BCDice/pull/505))
 - 新クトゥルフ神話TRPG: コマンドを完全一致で判定する ([ef61f72](https://github.com/bcdice/BCDice/commit/ef61f72328ad063ea4ec51721c19a880e2031371))
 - choise: 指定できる要素数を100以下に限定 ([f0c7c35](https://github.com/bcdice/BCDice/commit/f0c7c35b2606114539061ff036d7e97a0d34e064))
+- ダブルクロス2nd,3rd: 面数指定なしのダイスを10面ダイスに変更。蜂紫さんありがとうっ！ ([#513](https://github.com/bcdice/BCDice/pull/513))
 
 ### 誤植修正
 - ステラーライフTRPG: 船名後半表の誤植を修正。ViViさんありがとうっ！ ([#493](https://github.com/bcdice/BCDice/pull/493))
@@ -29,6 +33,7 @@
 ### バグ修正
 - ステラーライフTRPG: アバターアルファベット表②を実行できない問題を修正。ViViさんありがとうっ！ ([#492](https://github.com/bcdice/BCDice/pull/492))
 - ステラーライフTRPG: ダイス目表示のズレを修正。ViViさんありがとうっ！ ([#494](https://github.com/bcdice/BCDice/pull/494))
+- クトゥルフ神話TRPG: 抵抗表ロールで不正確なコマンドを実行できてしまう問題を修正。 Rayさん報告ありがとうっ！ ([#521](https://github.com/bcdice/BCDice/pull/521))
 
 
 ## 3.4.0 2021/08/14
