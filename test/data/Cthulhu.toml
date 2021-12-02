@@ -162,6 +162,12 @@ rands = [
   { sides = 100, value = 47 },
 ]
 
+[[ test ]]
+game_system = "Cthulhu"
+input = "RES18-11"
+output = ""
+rands = []
+
 
 ##### 組み合わせロール CBR #####
 
@@ -819,6 +825,12 @@ rands = [
   { sides = 100, value = 44 },
 ]
 
+
+[[ test ]]
+game_system = "Cthulhu"
+input = "RESB18-11"
+output = ""
+rands = []
 
 ##### 戦闘用組み合わせロール CBRB #####
 

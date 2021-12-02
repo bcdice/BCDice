@@ -193,12 +193,12 @@ module BCDice
       end
 
       def getRegistResult(command)
-        m = /^RES(B)?([-\d]+)$/i.match(command)
+        m = /^RESB?(-?\d+)$/i.match(command)
         unless m
           return nil
         end
 
-        value = m[2].to_i
+        value = m[1].to_i
         target = value * 5 + 50
 
         if target < 5
