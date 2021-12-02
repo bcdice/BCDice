@@ -51,42 +51,35 @@ module BCDice
         @sort_barabara_dice = true
       end
 
-      JUDGE_ROLL_REG = /^(\d+(\+\d+)*)(B6?|FW)(&([1-6]))?((>=|=>)(\d+([+\-]\d+)*))?(@(\d+(\+\d+)*)(#([1-6]))?)?$/i.freeze
-      register_prefix('(\d+(\+\d+)*)(B6?|FW)(&([1-6]))?((>=|=>)(\d+([+\-]\d+)*))?(@(\d+(\+\d+)*)(#([1-6]))?)?')
+      register_prefix('[\d+]+(B6?|FW)(&[1-6])?((>=|=>)[\d+\-]+)?(@[\d+]+(#[1-6])?)?')
 
       def eval_game_system_specific_command(command)
         command = ALIAS[command] || command
 
-        if (m = JUDGE_ROLL_REG.match(command))
-          dice_count_expression, _, keyword, _, number_as_twice_expression, _, _, success_line_expression, _, _, required_success_count_expression, _, _, required_number_expression = m.captures
-
-          # 汎用コマンドの xB6 と完全に同じ書式なら、判定コマンドとして扱わない.
-          return nil if number_as_twice_expression.nil? && success_line_expression.nil? && required_success_count_expression.nil? && keyword != 'FW'
-
-          roll_judge(dice_count_expression, number_as_twice_expression, success_line_expression, required_success_count_expression, required_number_expression)
-        else
+        try_roll_judge(command) ||
           roll_tables(command, TABLES)
-        end
       end
 
       private
 
-      def roll_judge(dice_count_expression, number_as_twice_expression, success_line_expression, required_success_count_expression, required_number_expression)
-        dice_count = Arithmetic.eval(dice_count_expression, RoundType::FLOOR)
+      def try_roll_judge(command)
+        parsed = RollCommandParser.new.parse(command)
+        return nil if parsed.nil? || parsed.common_barabara_dice?
 
-        # 「成功ライン」（ルールブック p29 ）
-        # 1..7 の範囲にまるめる（「出目 ≧ 成功ライン」の判断にもちいるので、 1 未満はすべて 1 と等価であり、 7 超はすべて 7 と等価である）
-        success_line = success_line_expression ? Arithmetic.eval(success_line_expression, RoundType::FLOOR).clamp(1, 7) : 4
+        roll_judge(parsed)
+      end
 
-        required_success_count = required_success_count_expression ? Arithmetic.eval(required_success_count_expression, RoundType::FLOOR) : nil
-
-        # 特定のダイス目を必要とするケース（ルールブック p59 ）における、そのダイス目
-        required_number = required_number_expression ? required_number_expression.to_i : nil
-
-        # 成功数をふたつ分として数えるダイス目（ルールブック p11, 魔法スキル「ひらめいた！」）
-        number_as_twice = number_as_twice_expression ? number_as_twice_expression.to_i : nil
-
+      def roll_judge(parsed)
+        dice_count = parsed.dice_count
         return 'ダイス数は 1 個以上でなければなりません' if dice_count < 1
+
+        # 「成功ライン」（ルールブック p29 ）は、
+        # 1..7 の範囲にまるめる（「出目 ≧ 成功ライン」の判断にもちいるので、 1 未満はすべて 1 と等価であり、 7 超はすべて 7 と等価である）
+        success_line = parsed.success_line.nil? ? 4 : parsed.success_line.clamp(1, 7)
+
+        required_success_count = parsed.required_success_count
+        required_number = parsed.required_number
+        number_as_twice = parsed.number_as_twice
 
         command_text = make_command_text(dice_count, number_as_twice, success_line, required_success_count, required_number)
 
@@ -149,6 +142,81 @@ module BCDice
         end.join(',')
 
         "[#{text}]"
+      end
+
+      class RollCommandParser < Command::Parser
+        def initialize
+          super('B', 'FW', round_type: BCDice::RoundType::FLOOR)
+          has_prefix_number
+          enable_suffix_number
+          enable_post_option
+          enable_critical
+          enable_fumble
+          enable_ampersand
+          restrict_cmp_op_to(nil, :>=)
+        end
+
+        # コマンドの解析ロジックは汎用のものをつかうが、括弧の追加と、値の意味合いの読み替えのため、ラップしている.
+        # @return [BCDice::GameSystem:::FledgeWitch.RollCommandParser.Parsed]
+        def parse(command)
+          # 各数値部分を括弧でくくる（式を評価できるようにするため）
+          number_enclosed_command = command.gsub(/[0-9+\-()]{2,}/, '(\0)')
+
+          original_result = super(number_enclosed_command)
+
+          if original_result.nil?
+            nil
+          else
+            # xB6 記法を受け容れるために notation に B を指定しているが（※ B6 と指定しても suffix number の解釈が優先されてしまうので）、 B6 以外の指定は弾く.
+            unless original_result.suffix_number.nil?
+              return nil unless original_result.command == 'B'
+              return nil unless original_result.suffix_number == 6
+            end
+
+            Parsed.new(original_result)
+          end
+        end
+
+        class Parsed
+          def initialize(original)
+            @original = original
+          end
+
+          # 判定コマンド（ 'B' or 'FW' ）
+          def keyword
+            @original.command
+          end
+
+          # ダイス数
+          def dice_count
+            @original.prefix_number
+          end
+
+          # 成功数を二倍で形状するダイス目
+          def number_as_twice
+            @original.ampersand
+          end
+
+          # 成功ライン
+          def success_line
+            @original.target_number
+          end
+
+          # 必要な成功数
+          def required_success_count
+            @original.critical
+          end
+
+          # 特定のダイス目を必要とするケース（ルールブック p59 ）における、そのダイス目
+          def required_number
+            @original.fumble
+          end
+
+          # 汎用コマンドの xB6 （閾値指定なし）と完全に同じ書式か？
+          def common_barabara_dice?
+            keyword == 'B' && number_as_twice.nil? && success_line.nil? && required_success_count.nil? && required_number.nil?
+          end
+        end
       end
 
       ALIAS = {
