@@ -6,7 +6,7 @@ module BCDice
     class D66ParityTable
       # @param key [String]
       # @param locale [Symbol]
-      # @return [D66GridTable]
+      # @return [D66ParityTable]
       def self.from_i18n(key, locale)
         table = I18n.t(key, locale: locale, raise: true)
         new(table[:name], table[:odd], table[:even])
