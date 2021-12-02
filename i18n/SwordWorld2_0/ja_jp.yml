@@ -1,14 +1,18 @@
 ja_jp:
   SwordWorld2_0:
-    proficiently: 器用度
-    dexterity: 敏捷度
-    strength: 筋力
-    vitality: 生命力
-    intelligence: 知力
-    mentalily: 精神力
-
     transcendent_critical_to_small: (%{expression}) ＞ クリティカル値が小さすぎます。3以上を指定してください。
     super_success: 超成功
+
+    GrowthTable:
+      name: 成長表
+      type: 1D6
+      items:
+        - 器用度
+        - 敏捷度
+        - 筋力
+        - 生命力
+        - 知力
+        - 精神力
 
     FumbleTable:
       name: 防御ファンブル表

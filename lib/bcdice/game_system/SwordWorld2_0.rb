@@ -138,18 +138,11 @@ module BCDice
       end
 
       def growth_step
-        d1 = @randomizer.roll_once(6)
-        d2 = @randomizer.roll_once(6)
+        table = DiceTable::Table.from_i18n("SwordWorld2_0.GrowthTable", @locale)
+        r1 = table.roll(@randomizer)
+        r2 = table.roll(@randomizer)
 
-        a1 = get_ability_by_dice(d1)
-        a2 = get_ability_by_dice(d2)
-
-        return a1 != a2 ? "[#{d1},#{d2}]->(#{a1} or #{a2})" : "[#{d1},#{d2}]->(#{a1})"
-      end
-
-      def get_ability_by_dice(dice)
-        [translate('SwordWorld2_0.proficiently'), translate('SwordWorld2_0.dexterity'), translate('SwordWorld2_0.strength'),
-         translate('SwordWorld2_0.vitality'), translate('SwordWorld2_0.intelligence'), translate('SwordWorld2_0.mentalily')][dice - 1]
+        return r1.value != r2.value ? "[#{r1.value},#{r2.value}]->(#{r1.body} or #{r2.body})" : "[#{r1.value},#{r2.value}]->(#{r1.body})"
       end
 
       def get_fumble_table()
