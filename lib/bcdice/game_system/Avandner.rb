@@ -49,7 +49,7 @@ module BCDice
           damage = (Regexp.last_match(5) || 0).to_i
           criticalTrigger = (Regexp.last_match(7) || 0).to_i
           criticalNumber = (Regexp.last_match(9) || 1).to_i
-          criticalNumber = 2 if criticalNumber > 3
+          criticalNumber = 2 if criticalNumber > 2
           return checkRoll(diceCount, target, damage, criticalTrigger, criticalNumber)
         end
 

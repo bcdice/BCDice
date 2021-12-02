@@ -99,6 +99,21 @@ rands = [
 
 [[ test ]]
 game_system = "Avandner"
+input = "6AV4c3" # クリティカル閾値の上限が 2 である（ 2 以下に丸められる）ことのテスト
+output = "(6D10<=4) ＞ 4[1,2,3,4,5,6]+1[3,6] ＞ 成功数：5 / 2クリティカル"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Avandner"
 input = "4AV3*5"
 output = "(4D10<=3) ＞ 0[6,6,6,6] ＞ Hits：0*5 ＞ 0ダメージ"
 rands = [
