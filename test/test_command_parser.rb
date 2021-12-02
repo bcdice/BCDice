@@ -256,4 +256,72 @@ class TestCommandParser < Test::Unit::TestCase
     assert_equal("EX", parsed.command)
     assert_equal(5, parsed.ampersand)
   end
+
+  def test_post_option_not_enabled
+    parser = BCDice::Command::Parser.new("EX", round_type: BCDice::RoundType::FLOOR)
+                                    .enable_prefix_number
+                                    .enable_suffix_number
+                                    .enable_critical
+                                    .enable_fumble
+                                    .enable_dollar
+
+    parsed = parser.parse("1EX2>=3@4")
+
+    assert_nil(parsed)
+  end
+
+  def test_post_option
+    parser = BCDice::Command::Parser.new("EX", round_type: BCDice::RoundType::FLOOR)
+                                    .enable_prefix_number
+                                    .enable_suffix_number
+                                    .enable_post_option
+                                    .enable_critical
+                                    .enable_fumble
+                                    .enable_dollar
+
+    parsed = parser.parse("1EX2>=3@4#5$6")
+
+    assert_not_nil(parsed)
+    assert_equal("EX", parsed.command)
+    assert_equal(1, parsed.prefix_number)
+    assert_equal(2, parsed.suffix_number)
+    assert_equal(3, parsed.target_number)
+    assert_equal(4, parsed.critical)
+    assert_equal(5, parsed.fumble)
+    assert_equal(6, parsed.dollar)
+  end
+
+  def test_pre_option_and_post_option
+    parser = BCDice::Command::Parser.new("EX", round_type: BCDice::RoundType::FLOOR)
+                                    .enable_prefix_number
+                                    .enable_suffix_number
+                                    .enable_post_option
+                                    .enable_critical
+                                    .enable_fumble
+                                    .enable_dollar
+
+    parsed = parser.parse("1EX2@3>=4#5")
+
+    assert_not_nil(parsed)
+    assert_equal("EX", parsed.command)
+    assert_equal(1, parsed.prefix_number)
+    assert_equal(2, parsed.suffix_number)
+    assert_equal(3, parsed.critical)
+    assert_equal(4, parsed.target_number)
+    assert_equal(5, parsed.fumble)
+  end
+
+  def test_option_duplicated_at_pre_and_post
+    parser = BCDice::Command::Parser.new("EX", round_type: BCDice::RoundType::FLOOR)
+                                    .enable_prefix_number
+                                    .enable_suffix_number
+                                    .enable_post_option
+                                    .enable_critical
+                                    .enable_fumble
+                                    .enable_dollar
+
+    parsed = parser.parse("1EX2@3>=4@5")
+
+    assert_nil(parsed)
+  end
 end

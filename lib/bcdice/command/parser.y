@@ -4,21 +4,62 @@ class BCDice::Command::Parser
   expect 2
 
   rule
-    expr: notation option modifier target
+    expr: notation option modifier target option
         {
           raise ParseError unless @modifier
-          notation, option, modifier, target = val
+          notation, option, modifier, target, post_option = val
+          raise ParseError unless post_option.empty? || @post_option
+          merge_options(option, post_option)
           result = parsed(notation, option, modifier, target)
         }
-        | notation modifier option target
+        | notation modifier option target option
         {
           raise ParseError unless @modifier
-          notation, modifier, option, target = val
+          notation, modifier, option, target, post_option = val
+          raise ParseError unless post_option.empty? || @post_option
+          merge_options(option, post_option)
           result = parsed(notation, option, modifier, target)
         }
-        | notation option target
+        | notation option target option
         {
-          notation, option, target = val
+          notation, option, target, post_option = val
+          raise ParseError unless post_option.empty? || @post_option
+          merge_options(option, post_option)
+          result = parsed(notation, option,  Arithmetic::Node::Number.new(0), target)
+        }
+
+        #
+        # none target
+        #
+        | notation option modifier option
+        {
+          raise ParseError unless @modifier
+          notation, option, modifier, post_option = val
+          raise ParseError unless post_option.empty? || @post_option
+          merge_options(option, post_option)
+
+          raise ParseError unless @allowed_cmp_op.include?(nil)
+          target = {}
+
+          result = parsed(notation, option, modifier, target)
+        }
+        | notation modifier option
+        {
+          raise ParseError unless @modifier
+          notation, modifier, option = val
+
+          raise ParseError unless @allowed_cmp_op.include?(nil)
+          target = {}
+
+          result = parsed(notation, option, modifier, target)
+        }
+        | notation option
+        {
+          notation, option = val
+
+          raise ParseError unless @allowed_cmp_op.include?(nil)
+          target = {}
+
           result = parsed(notation, option,  Arithmetic::Node::Number.new(0), target)
         }
 
@@ -90,12 +131,7 @@ class BCDice::Command::Parser
             | modifier MINUS mul
             { result = Arithmetic::Node::BinaryOp.new(val[0], :-, val[2]) }
 
-    target: /* none */
-          {
-            raise ParseError unless @allowed_cmp_op.include?(nil)
-            result = {}
-          }
-          | CMP_OP add
+    target: CMP_OP add
           {
             cmp_op, target = val
             raise ParseError unless @allowed_cmp_op.include?(cmp_op)
@@ -195,6 +231,7 @@ def initialize(*notations, round_type:)
   @ampersand = false
   @allowed_cmp_op = [nil, :>=, :>, :<=, :<, :==, :!=]
   @question_target = false
+  @post_option = false
 end
 
 # 修正値は受け付けないようにする
@@ -278,6 +315,13 @@ def enable_question_target
   self
 end
 
+# オプションの後置記法を許可する
+# @return [BCDice::Command::Parser]
+def enable_post_option
+  @post_option = true
+  self
+end
+
 # @param source [String]
 # @return [BCDice::Command::Parsed, nil]
 def parse(source)
@@ -312,4 +356,11 @@ end
 
 def next_token
   @lexer.next_token
+end
+
+# 前置オプションと後置オプションを統合する.
+# 同じキーがあれば ParseError とする.
+def merge_options(pre_option, post_option)
+  raise ParseError unless (pre_option.keys & post_option.keys).empty?
+  pre_option.update(post_option)
 end
