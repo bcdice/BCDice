@@ -4,6 +4,14 @@ module BCDice
   module DiceTable
     # 出目の偶奇による場合分け機能をもつD66表
     class D66ParityTable
+      # @param key [String]
+      # @param locale [Symbol]
+      # @return [D66GridTable]
+      def self.from_i18n(key, locale)
+        table = I18n.t(key, locale: locale, raise: true)
+        new(table[:name], table[:odd], table[:even])
+      end
+
       # @param name [String] 表の名前
       # @param odd [Array<String>] 左ダイスが奇数だったときの次層テーブル（サイズ６）
       # @param even [Array<String>] 左ダイスが偶数だったときの次層テーブル（サイズ６）
