@@ -1,0 +1,6 @@
+ja_jp:
+  SwordWorld:
+    critical: 自動的成功
+    fumble: 自動的失敗
+    keynumber_exceeds: キーナンバーは%{keyMax}までです
+    infinite_critical: C値を%{min_critical}以上にしてください
