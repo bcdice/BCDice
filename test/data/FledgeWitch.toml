@@ -6,6 +6,18 @@ rands = []
 
 [[ test ]]
 game_system = "FledgeWitch"
+input = "2b5>=5@1 # B6 以外の Bx が指定されるケース（不正な形式）"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "FledgeWitch"
+input = "2FW6>=5@1 # FW の後に数値が指定されるケース（不正な形式）"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "FledgeWitch"
 input = "1B6>=5@1"
 output = "(1B6>=5@1) ＞ [5] ＞ 成功数: 1 ＞ 成功"
 rands = [
