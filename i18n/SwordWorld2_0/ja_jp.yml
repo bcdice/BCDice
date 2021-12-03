@@ -1,6 +1,6 @@
 ja_jp:
   SwordWorld2_0:
-    transcendent_critical_to_small: (%{expression}) ＞ クリティカル値が小さすぎます。3以上を指定してください。
+    transcendent_critical_too_small: (%{expression}) ＞ クリティカル値が小さすぎます。3以上を指定してください。
     super_success: 超成功
 
     GrowthTable:

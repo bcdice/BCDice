@@ -8,14 +8,6 @@ module BCDice
       class TranscendentTest
         include Translate
 
-        RESULT_KEY = {
-          success: "success",
-          failure: "failure",
-          super_success: "SwordWorld2_0.super_success",
-          critical: "SwordWorld.critical",
-          fumble: "SwordWorld.fumble",
-        }.freeze
-
         # @param [Integer] critical_value クリティカル値
         # @param [Integer] modifier 修正値
         # @param [String, nil] cmp_op 比較演算子（> または >=）
@@ -35,7 +27,7 @@ module BCDice
         # @return [String]
         def execute(randomizer)
           if @critical_value < 3
-            return translate("SwordWorld2_0.transcendent_critical_to_small", expression: @expression)
+            return translate("SwordWorld2_0.transcendent_critical_too_small", expression: @expression)
           end
 
           first_value_group = randomizer.roll_barabara(2, 6)
@@ -54,11 +46,19 @@ module BCDice
           total_sum = sum + @modifier
 
           result = result_status(total_sum, value_groups.length, fumble, critical)
+          result_str = {
+            success: translate("success"),
+            failure: translate("failure"),
+            super_success: translate("SwordWorld2_0.super_success"),
+            critical: translate("SwordWorld.critical"),
+            fumble: translate("SwordWorld.fumble"),
+          }.freeze[result]
+
           parts = [
             "(#{@expression})",
             "#{dice_str(value_groups, sum)}#{@modifier_str}",
             total_sum,
-            RESULT_KEY.key?(result) ? translate(RESULT_KEY[result]) : nil,
+            result_str,
           ].compact
 
           return Result.new.tap do |r|
