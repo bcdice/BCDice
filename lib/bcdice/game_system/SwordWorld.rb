@@ -27,15 +27,15 @@ module BCDice
 
       def result_2d6(total, dice_total, _dice_list, cmp_op, target)
         if dice_total >= 12
-          Result.critical("自動的成功")
+          Result.critical(translate('SwordWorld.critical'))
         elsif dice_total <= 2
-          Result.fumble("自動的失敗")
+          Result.fumble(translate('SwordWorld.fumble'))
         elsif cmp_op != :>= || target == "?"
           nil
         elsif total >= target
-          Result.success("成功")
+          Result.success(translate('success'))
         else
-          Result.failure("失敗")
+          Result.failure(translate('failure'))
         end
       end
 
@@ -65,11 +65,11 @@ module BCDice
         keyMax = rate_sw2_0.length - 1
         debug("keyMax", keyMax)
         if command.rate > keyMax
-          return "キーナンバーは#{keyMax}までです"
+          return Result.new(translate('SwordWorld.keynumber_exceeds', keyMax: keyMax))
         end
 
         if command.infinite_roll?
-          return Result.new("C値を#{command.min_critical}以上にしてください")
+          return Result.new(translate('SwordWorld.infinite_critical', min_critical: command.min_critical))
         end
 
         newRates = getNewRates(rate_sw2_0)

@@ -1,17 +1,12 @@
 require "bcdice/result"
+require "bcdice/translate"
 
 module BCDice
   module GameSystem
     class SwordWorld2_0 < SwordWorld
       # 超越判定のノード
       class TranscendentTest
-        RESULT_STR = {
-          success: "成功",
-          failure: "失敗",
-          super_success: "超成功",
-          critical: "自動的成功",
-          fumble: "自動的失敗",
-        }.freeze
+        include Translate
 
         # @param [Integer] critical_value クリティカル値
         # @param [Integer] modifier 修正値
@@ -32,7 +27,7 @@ module BCDice
         # @return [String]
         def execute(randomizer)
           if @critical_value < 3
-            return "(#{@expression}) ＞ クリティカル値が小さすぎます。3以上を指定してください。"
+            return translate("SwordWorld2_0.transcendent_critical_too_small", expression: @expression)
           end
 
           first_value_group = randomizer.roll_barabara(2, 6)
@@ -51,11 +46,19 @@ module BCDice
           total_sum = sum + @modifier
 
           result = result_status(total_sum, value_groups.length, fumble, critical)
+          result_str = {
+            success: translate("success"),
+            failure: translate("failure"),
+            super_success: translate("SwordWorld2_0.super_success"),
+            critical: translate("SwordWorld.critical"),
+            fumble: translate("SwordWorld.fumble"),
+          }.freeze[result]
+
           parts = [
             "(#{@expression})",
             "#{dice_str(value_groups, sum)}#{@modifier_str}",
             total_sum,
-            RESULT_STR[result],
+            result_str,
           ].compact
 
           return Result.new.tap do |r|
