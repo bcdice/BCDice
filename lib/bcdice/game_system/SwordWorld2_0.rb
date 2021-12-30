@@ -99,7 +99,7 @@ module BCDice
             return nil
           end
 
-          node = TranscendentTest.new(cmd.critical, cmd.modify_number, cmd.cmp_op, cmd.target_number)
+          node = TranscendentTest.new(cmd.critical, cmd.modify_number, cmd.cmp_op, cmd.target_number, @locale)
           node.execute(@randomizer)
         when 'FT'
           get_fumble_table
