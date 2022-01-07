@@ -12,11 +12,12 @@ module BCDice
         # @param [Integer] modifier 修正値
         # @param [String, nil] cmp_op 比較演算子（> または >=）
         # @param [Integer, nil] target 目標値
-        def initialize(critical_value, modifier, cmp_op, target)
+        def initialize(critical_value, modifier, cmp_op, target, locale)
           @critical_value = critical_value
           @modifier = modifier
           @cmp_op = cmp_op
           @target = target
+          @locale = locale
 
           @modifier_str = Format.modifier(@modifier)
           @expression = node_expression()

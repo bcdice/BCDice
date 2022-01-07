@@ -84,12 +84,6 @@ module BCDice
 
       register_prefix('H?K', 'Gr', '2D6?@\d+', 'FT', 'TT', 'Dru', 'ABT')
 
-      ABYSS_CURSE_TABLE = DiceTable::D66GridTable.from_i18n('SwordWorld2_5.AbyssCurseTable', @locale)
-
-      ABYSS_CURSE_CATEGORY_TABLE = DiceTable::D66ParityTable.from_i18n('SwordWorld2_5.AbyssCurseCategoryTable', @locale)
-
-      ABYSS_CURSE_ATTR_TABLE = DiceTable::D66ParityTable.from_i18n('SwordWorld2_5.AbyssCurseAttrTable', @locale)
-
       def eval_game_system_specific_command(command)
         case command
         when /^dru\[(\d+),(\d+),(\d+)\]/i
@@ -138,13 +132,13 @@ module BCDice
       end
 
       def get_abyss_curse_table
-        table_result = ABYSS_CURSE_TABLE.roll(@randomizer)
+        table_result = DiceTable::D66GridTable.from_i18n('SwordWorld2_5.AbyssCurseTable', @locale).roll(@randomizer)
         additional =
           case table_result.value
           when 14  # 「差別の」における分類決定表
-            ABYSS_CURSE_CATEGORY_TABLE.roll(@randomizer).to_s
+            DiceTable::D66ParityTable.from_i18n('SwordWorld2_5.AbyssCurseCategoryTable', @locale).roll(@randomizer).to_s
           when 25  # 「過敏な」における属性決定表
-            ABYSS_CURSE_ATTR_TABLE.roll(@randomizer).to_s
+            DiceTable::D66ParityTable.from_i18n('SwordWorld2_5.AbyssCurseAttrTable', @locale).roll(@randomizer).to_s
           end
         final_result = [
           table_result.to_s,
