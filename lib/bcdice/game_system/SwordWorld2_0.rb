@@ -116,20 +116,19 @@ module BCDice
 
       def rollDice(command, round)
         if command.semi_fixed_val > 0
+          # 常に片方の出目を固定
           dice = @randomizer.roll_once(6)
           return dice + command.semi_fixed_val, "#{dice},#{command.semi_fixed_val}"
-        end
-        if round == 0 && command.tmp_fixed_val > 0
+        elsif round == 0 && command.tmp_fixed_val > 0
+          # 回転前だけ片方の出目を固定
           dice = @randomizer.roll_once(6)
           return dice + command.tmp_fixed_val, "#{dice},#{command.tmp_fixed_val}"
-        end
-        unless command.greatest_fortune
-          return super(command, round)
-        end
-
-        if command.greatest_fortune
+        elsif command.greatest_fortune
+          # グレイテスト・フォーチュン
           dice = @randomizer.roll_once(6)
           return dice * 2, "#{dice},#{dice}"
+        else
+          return super(command, round)
         end
       end
 

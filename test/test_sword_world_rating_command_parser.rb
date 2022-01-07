@@ -70,7 +70,7 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
     assert_false(parsed.greatest_fortune)
     assert_equal(0, parsed.rateup)
     assert_false(parsed.half)
-    assert_equal(0, parsed.modifier_after_half)
+    assert_nil(parsed.modifier_after_half)
   end
 
   def test_parse_v1_brace_critical_only
@@ -87,7 +87,7 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
     assert_false(parsed.greatest_fortune)
     assert_equal(0, parsed.rateup)
     assert_false(parsed.half)
-    assert_equal(0, parsed.modifier_after_half)
+    assert_nil(parsed.modifier_after_half)
   end
 
   def test_parse_v1_brace_critical_duplicate
@@ -139,7 +139,7 @@ class TestSwordWorldRatingCommandParser < Test::Unit::TestCase
     assert_false(parsed.greatest_fortune)
     assert_equal(0, parsed.rateup)
     assert_false(parsed.half)
-    assert_equal(0, parsed.modifier_after_half)
+    assert_nil(parsed.modifier_after_half)
   end
 
   def test_parse_v20_full_gf

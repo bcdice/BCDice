@@ -7,46 +7,48 @@ module BCDice
         # @return [Integer]
         attr_accessor :rate
 
-        # @return [Integer, nil]
-        attr_writer :critical
+        # @return [Integer]
+        attr_accessor :critical
 
-        # @return [Integer, nil]
-        attr_writer :kept_modify
+        # @return [Integer]
+        attr_accessor :kept_modify
 
-        # @return [Integer, nil]
-        attr_writer :first_to
+        # @return [Integer]
+        attr_accessor :first_to
 
-        # @return [Integer, nil]
-        attr_writer :first_modify
+        # @return [Integer]
+        attr_accessor :first_modify
 
-        # @return [Integer, nil]
-        attr_writer :rateup
+        # @return [Integer]
+        attr_accessor :rateup
 
         # @return [Boolean]
         attr_accessor :greatest_fortune
 
-        # @return [Integer, nil]
-        attr_writer :semi_fixed_val
+        # @return [Integer]
+        attr_accessor :semi_fixed_val
 
-        # @return [Integer, nil]
-        attr_writer :tmp_fixed_val
+        # @return [Integer]
+        attr_accessor :tmp_fixed_val
 
         # @return [Integer]
         attr_accessor :modifier
 
         # @return [Integer, nil]
-        attr_writer :modifier_after_half
+        attr_accessor :modifier_after_half
 
-        def initialize
-          @critical = nil
-          @min_critical = nil
-          @kept_modify = nil
-          @first_to = nil
-          @first_modify = nil
+        def initialize(rate, modifier)
+          @rate = rate
+          @modifier = modifier
+          @critical = 13
+          @kept_modify = 0
+          @first_to = 0
+          @first_modify = 0
           @greatest_fortune = false
-          @rateup = nil
-          @semi_fixed_val = nil
-          @tmp_fixed_val = nil
+          @rateup = 0
+          @semi_fixed_val = 0
+          @tmp_fixed_val = 0
+          @modifier_after_half = nil
         end
 
         # @return [Boolean]
@@ -55,62 +57,17 @@ module BCDice
         end
 
         # @return [Integer]
-        def critical
-          return @critical || (half ? 13 : 10)
-        end
-
-        # @return [Integer]
         def min_critical
-          min_critical = 3
-          unless @semi_fixed_val.nil?
-            if @kept_modify.nil?
-              min_critical = @semi_fixed_val + 2 if min_critical < @semi_fixed_val + 2
-            else
-              min_critical = @semi_fixed_val + @kept_modify + 2 if min_critical < @semi_fixed_val + @kept_modify + 2
-            end
-            min_critical = 3 if @semi_fixed_val == 1
+          if @semi_fixed_val <= 1
+            return 3
+          else
+            return (@semi_fixed_val + @kept_modify + 2).clamp(3, 13)
           end
-          min_critical = 13 if min_critical > 13
-          return min_critical
         end
 
-        # @return [Integer]
-        def first_modify
-          return @first_modify || 0
-        end
-
-        # @return [Integer]
-        def first_to
-          return @first_to || 0
-        end
-
-        # @return [Integer]
-        def rateup
-          return @rateup || 0
-        end
-
-        # @return [Integer]
-        def semi_fixed_val
-          sf = @semi_fixed_val || 0
-          sf = 6 if sf > 6
-          return sf
-        end
-
-        # @return [Integer]
-        def tmp_fixed_val
-          tf = @tmp_fixed_val || 0
-          tf = 6 if tf > 6
-          return tf
-        end
-
-        # @return [Integer]
-        def kept_modify
-          return @kept_modify || 0
-        end
-
-        # @return [Integer]
-        def modifier_after_half
-          return @modifier_after_half || 0
+        # @return [Boolean]
+        def infinite_roll?
+          return critical < min_critical
         end
 
         # @return [String]
@@ -130,11 +87,6 @@ module BCDice
             output += Format.modifier(@modifier)
           end
           return output
-        end
-
-        # @return [Boolean]
-        def infinite_roll?
-          return critical < min_critical
         end
       end
     end
