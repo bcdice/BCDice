@@ -246,7 +246,7 @@ rands = [
 [[ test ]]
 game_system = "KemonoNoMori"
 input = "FT"
-output = "大失敗表(9) ＞ ランダム天気表を使用し、結果をターンの終了まで適用する"
+output = "大失敗表(9) ＞ ランダム天気表(RWT)を使用し、結果をターンの終了まで適用する"
 rands = [
   { sides = 12, value = 9 },
 ]
