@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "bcdice/game_system/filled_with/jump_table"
+
 module BCDice
   module GameSystem
     class FilledWith < Base
@@ -46,6 +48,8 @@ module BCDice
 
       register_prefix('3FW', '[\+\-\d]*-3FW', 'LOT[NP]', 'HST', 'COOK[1-8]', 'RAND', 'RENC', 'RED', 'TRS', 'TRAP[ENHLX]', 'ROP[ENHLX]')
 
+      include JumpTable
+
       def initialize(command)
         super(command)
         @d66_sort_type = D66SortType::NO_SORT; # d66の差し替え
@@ -81,40 +85,6 @@ module BCDice
           roll_random_option_table(command)
         else
           roll_tables(command, TABLES)
-        end
-      end
-
-      # 表を振った結果を独自の書式で整形する
-      # @param table_name [String] 表の名前
-      # @param number [String] 出目の文字列
-      # @param result [String] 結果の文章
-      # @return [String]
-      def format_table_roll_result(table_name, number, result)
-        "#{table_name}(#{number}):#{result}"
-      end
-
-      # ジャンプする項目を含む表を振る
-      # @param table_name [String] 表の名前
-      # @param table [DiceTable::RangeTable] 振る対象の表
-      # @return [Result]
-      def roll_jump_table(table_name, table)
-        # 出目の配列
-        values = []
-
-        loop do
-          roll_result = table.roll(@randomizer)
-          values.concat(roll_result.values)
-
-          content = roll_result.content
-          case content
-          when String
-            return Result.new(format_table_roll_result(table_name, values.join, content))
-          when Proc
-            # 次の繰り返しで指定された表を参照する
-            table = content.call
-          else
-            raise TypeError
-          end
         end
       end
 

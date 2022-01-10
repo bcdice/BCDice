@@ -365,7 +365,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "LOTN"
-output = "ナンバーワンノーマルくじ：ヤコ仮面or梟の文鎮(選択可)"
+output = "ナンバーワンノーマルくじ(43):ヤコ仮面or梟の文鎮(選択可)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -374,7 +374,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "LOTP"
-output = "ナンバーワンプレミアムくじ：天使の望遠鏡orデスの目覚まし時計(選択可)"
+output = "ナンバーワンプレミアムくじ(46662):天使の望遠鏡orデスの目覚まし時計(選択可)"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
