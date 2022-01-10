@@ -410,161 +410,176 @@ module BCDice
       ].freeze
 
       def eval_game_system_specific_command(string)
-        tableName = ""
-        result = ""
-        number = 0
-
         case string
-        when /FEAR((\+)?\d+)?/
-          modify = Regexp.last_match(1).to_i
-
-          tableName = "恐怖表"
-
-          dice = @randomizer.roll_sum(3, 6)
-          number = dice + modify
-          if number > 40
-            num = 36
-          else
-            num = number - 4
-          end
-          result = FEAR_TABLE[num]
-
-        when /REACT((\+|-)?\d*)/
-          modify = Regexp.last_match(1).to_i
-
-          tableName = "反応表"
-          dice = @randomizer.roll_sum(3, 6)
-          number = dice + modify
-
-          if number < 1
-            result = "最悪"
-          elsif number < 4
-            result = "とても悪い"
-          elsif number < 7
-            result = "悪い"
-          elsif number < 10
-            result = "良くない"
-          elsif number < 13
-            result = "中立"
-          elsif number < 16
-            result = "良い"
-          elsif number < 19
-            result = "とても良い"
-          else
-            result = "最高"
-          end
-
-        when /TRAP([ENHL])/
-          difficulty = TableWithDifficulty::Difficulty.from_flag(Regexp.last_match(1))
-
-          return TRAP_TABLE.roll(difficulty, @randomizer)
-        when /TRS(E|N|H|L)(\d+)((\+|-)?\d*)/
-          tableName = "財宝テーブル"
-          diff = Regexp.last_match(1)
-          depth = Regexp.last_match(2).to_i
-          num = depth / 10
-          if num >= 6
-            num = 5
-          end
-          case diff
-          when "N"
-            num += 1
-
-          when "H"
-            num += 2
-
-          when "L"
-            num += 3
-          end
-          unless Regexp.last_match(4).nil?
-            num += Regexp.last_match(3).to_i
-          end
-          table = TRESURE_TABLE[num]
-          if table.nil?
-            return ""
-          end
-
-          result, number = get_table_by_1d6(table)
-
-        when /RAND(E|N|H|L)(\d)?/
-          tableName = "ランダムイベント表"
-          diff = Regexp.last_match(1)
-          if !Regexp.last_match(2).nil?
-            dice1 = Regexp.last_match(2).to_i
-          else
-            dice1 = @randomizer.roll_once(6)
-          end
-          dice2 = @randomizer.roll_once(6)
-          area, dif, table = getRandomEvent(dice1, dice2, diff)
-          result, dice3 = get_table_by_1d6(table)
-          number = "#{dice1}#{dice2}#{dice3}"
-          result = "#{area}(#{dif})：#{result}"
-
-        when /RENC(E|N|H|L)(\d)?/
-          tableName = "ランダムエンカウント表"
-          diff = Regexp.last_match(1)
-          if !Regexp.last_match(2).nil?
-            dice1 = Regexp.last_match(2).to_i
-          else
-            dice1 = @randomizer.roll_once(6)
-          end
-          dice2 = 4
-          area, dif, table = getRandomEvent(dice1, dice2, diff)
-          result, dice3 = get_table_by_1d6(table)
-          number = "#{dice1}#{dice2}#{dice3}"
-          result = "#{area}(#{dif})：#{result}"
-
-        when /DROP(N)?((\+)?(\d))?/
-          tableName = "ドロップ判定"
-          mode = "S"
-          modify = 0
-
-          unless Regexp.last_match(1).nil?
-            mode = Regexp.last_match(1)
-          end
-          unless Regexp.last_match(4).nil?
-            modify = Regexp.last_match(4).to_i
-          end
-
-          dice = @randomizer.roll_sum(3, 6)
-          number = dice - modify
-
-          if number <= 3
-            result = "レアアイテム1"
-
-          elsif (number <= 4) && (mode == "N")
-            result = "レアアイテム2"
-
-          elsif number < 7
-            if mode == "N"
-              result = "CL×200GP"
-
-            else
-              result = "CL×100GP"
-
-            end
-
-          else
-            if mode == "N"
-              result = "CL×20GP"
-
-            else
-              result = "CL×10GP"
-
-            end
-
-          end
         when "LOTN"
-          return roll_jump_table("ナンバーワンノーマルくじ", FilledWith::LOT_NORMAL_TABLES[1])
+          roll_jump_table("ナンバーワンノーマルくじ", FilledWith::LOT_NORMAL_TABLES[1])
         when "LOTP"
-          return roll_jump_table("ナンバーワンプレミアムくじ", FilledWith::LOT_PREMIUM_TABLES[1])
+          roll_jump_table("ナンバーワンプレミアムくじ", FilledWith::LOT_PREMIUM_TABLES[1])
         else
-          return roll_tables(string, TABLES)
+          roll_tables(string, TABLES) || roll_fear(string) || roll_react(string) || roll_trap(string) || roll_trs(string) || roll_rand(string) || roll_renc(string) || roll_drop(string)
+        end
+      end
+
+      private
+
+      def format_table_result(name, value, chosen)
+        "#{name}(#{value}) ＞ #{chosen}"
+      end
+
+      def roll_fear(command)
+        m = /^FEAR(\+?\d+)?$/.match(command)
+        unless m
+          return nil
         end
 
-        text = "#{tableName}(#{number})：#{result}"
+        modify = m[1].to_i
 
-        return text
+        value = (@randomizer.roll_sum(3, 6) + modify).clamp(3, FEAR_TABLE.size + 3)
+        index = value - 3
+        return format_table_result("恐怖表", value, FEAR_TABLE[index])
+      end
+
+      def roll_react(command)
+        m = /^REACT([+-]?\d+)?$/.match(command)
+        unless m
+          return nil
+        end
+
+        modify = m[1].to_i
+
+        dice = @randomizer.roll_sum(3, 6)
+        number = dice + modify
+
+        result =
+          if number < 1
+            "最悪"
+          elsif number < 4
+            "とても悪い"
+          elsif number < 7
+            "悪い"
+          elsif number < 10
+            "良くない"
+          elsif number < 13
+            "中立"
+          elsif number < 16
+            "良い"
+          elsif number < 19
+            "とても良い"
+          else
+            "最高"
+          end
+        return format_table_result("反応表", number, result)
+      end
+
+      def roll_trap(command)
+        m = /^TRAP([ENHL])$/.match(command)
+        unless m
+          return nil
+        end
+
+        difficulty = TableWithDifficulty::Difficulty.from_flag(m[1])
+        return TRAP_TABLE.roll(difficulty, @randomizer)
+      end
+
+      def roll_trs(command)
+        m = /^TRS([ENHL])(\d+)([+-]?\d+)?$/.match(command)
+        unless m
+          return nil
+        end
+
+        difficulty = m[1]
+        depth = m[2].to_i
+        index = (depth / 10).clamp(0, 5)
+
+        case difficulty
+        when "N"
+          index += 1
+        when "H"
+          index += 2
+        when "L"
+          index += 3
+        end
+
+        index += m[3].to_i
+        table = TRESURE_TABLE[index]
+        if table.nil?
+          return nil
+        end
+
+        result, number = get_table_by_1d6(table)
+
+        return format_table_result("財宝テーブル", number, result)
+      end
+
+      def roll_rand(command)
+        m = /^RAND([ENHL])(\d)?$/.match(command)
+        unless m
+          return nil
+        end
+
+        diff = m[1]
+        dice1 = m[2]&.to_i || @randomizer.roll_once(6)
+        dice2 = @randomizer.roll_once(6)
+
+        area, dif, table = getRandomEvent(dice1, dice2, diff)
+        result, dice3 = get_table_by_1d6(table)
+        number = "#{dice1}#{dice2}#{dice3}"
+        result = "#{area}(#{dif})：#{result}"
+
+        return format_table_result("ランダムイベント表", number, result)
+      end
+
+      def roll_renc(command)
+        m = /^RENC([ENHL])(\d)?$/.match(command)
+        unless m
+          return nil
+        end
+
+        diff = m[1]
+        dice1 = m[2]&.to_i || @randomizer.roll_once(6)
+        dice2 = 4
+
+        area, dif, table = getRandomEvent(dice1, dice2, diff)
+        result, dice3 = get_table_by_1d6(table)
+        number = "#{dice1}#{dice2}#{dice3}"
+        result = "#{area}(#{dif})：#{result}"
+
+        return format_table_result("ランダムエンカウント表", number, result)
+      end
+
+      def roll_drop(command)
+        m = /^DROP(N)?(\+?\d)?$/.match(command)
+        unless m
+          return nil
+        end
+
+        tableName = "ドロップ判定"
+        mode = m[1] || "S"
+        modify = m[2].to_i
+
+        dice = @randomizer.roll_sum(3, 6)
+        number = dice - modify
+
+        result =
+          if number <= 3
+            "レアアイテム1"
+          elsif (number <= 4) && (mode == "N")
+            "レアアイテム2"
+          elsif number < 7
+            if mode == "N"
+              "CL×200GP"
+            else
+              "CL×100GP"
+            end
+          else
+            if mode == "N"
+              "CL×20GP"
+            else
+              "CL×10GP"
+            end
+          end
+
+        return format_table_result(tableName, number, result)
       end
 
       # ランダムイベント表(ver.2013/11/07)

@@ -223,7 +223,17 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "FEAR"
-output = "恐怖表(18)：生命力判定を行い、失敗すると1点の負傷を受ける。さらに1D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。"
+output = "恐怖表(3) ＞ 1ターン朦朧状態。2ターン目に自動回復。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GurpsFW"
+input = "FEAR"
+output = "恐怖表(18) ＞ 1点負傷。2D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -233,7 +243,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "FEAR+1"
-output = "恐怖表(19)：1点負傷。2D分間意識を失う。以後、1分ごとに生命力判定を行い、成功すると回復。"
+output = "恐怖表(19) ＞ 卒倒。4D分間意識不明。1D点疲労。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -243,7 +253,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "REACT"
-output = "反応表(18)：とても良い"
+output = "反応表(18) ＞ とても良い"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -253,7 +263,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "REACT+1"
-output = "反応表(19)：最高"
+output = "反応表(19) ＞ 最高"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -263,7 +273,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "REACT-1"
-output = "反応表(17)：とても良い"
+output = "反応表(17) ＞ とても良い"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -273,7 +283,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "RANDE"
-output = "ランダムイベント表(312)：断崖(初級)：休憩に丁度いい広場を見つけた。FPが2D回復するが、「意志」判定を行うこと。PCの半数以上が失敗すると居心地が良すぎて離れづらくなり次の深度判定と地形変化が起きなくなる。その場合次もこのイベントを行うこと。"
+output = "ランダムイベント表(312) ＞ 断崖(初級)：休憩に丁度いい広場を見つけた。FPが2D回復するが、「意志」判定を行うこと。PCの半数以上が失敗すると居心地が良すぎて離れづらくなり次の深度判定と地形変化が起きなくなる。その場合次もこのイベントを行うこと。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 1 },
@@ -293,7 +303,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "TRSN28"
-output = "財宝テーブル(2)：最高級能力増加ポーション(消耗品)"
+output = "財宝テーブル(2) ＞ 最高級能力増加ポーション(消耗品)"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -301,7 +311,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "RENCH"
-output = "ランダムエンカウント表(144)：洞窟(上級)：デビルホイール(CL26)とエンカウント、防護点+4、HP+24。トロッコに乗って逃げつつの戦闘になり、2ラウンド以内に倒せなければ轢かれてPC全員が8Dの防護点無視ダメージを受ける。また、1ラウンドに1人誰かが体力判定を行ってトロッコを運転する必要があり、これに失敗すると即座に轢かれてしまう。轢かれると戦闘は終了する。パーテイー内にケイヴウォーカーがいればこの判定は不要。"
+output = "ランダムエンカウント表(144) ＞ 洞窟(上級)：デビルホイール(CL26)とエンカウント、防護点+4、HP+24。トロッコに乗って逃げつつの戦闘になり、2ラウンド以内に倒せなければ轢かれてPC全員が8Dの防護点無視ダメージを受ける。また、1ラウンドに1人誰かが体力判定を行ってトロッコを運転する必要があり、これに失敗すると即座に轢かれてしまう。轢かれると戦闘は終了する。パーテイー内にケイヴウォーカーがいればこの判定は不要。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -318,7 +328,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "DROP"
-output = "ドロップ判定(12)：CL×10GP"
+output = "ドロップ判定(12) ＞ CL×10GP"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -328,7 +338,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "DROPN"
-output = "ドロップ判定(3)：レアアイテム1"
+output = "ドロップ判定(3) ＞ レアアイテム1"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
