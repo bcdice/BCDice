@@ -173,7 +173,17 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "CRT"
-output = "クリティカル表(18)：体を狙っていたら、相手は気絶(回復は30分後に生命力判定)。他はダメージ3倍。"
+output = "クリティカル表(18) ＞ 体を狙っていたら、相手は気絶(回復は30分後に生命力判定)。他はダメージ3倍。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GurpsFW"
+input = "HCRT"
+output = "頭部打撃クリティカル表(18) ＞ 敵は通常のダメージを受け、朦朧状態になる。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -183,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "FMB"
-output = "ファンブル表(18)：武器が壊れる。ただし、金属バットなど固い\"叩き\"武器は壊れない(ふりなおし)。"
+output = "ファンブル表(18) ＞ 武器が壊れる。ただし、金属バットなど固い\"叩き\"武器は壊れない(ふりなおし)。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -193,7 +203,17 @@ rands = [
 [[ test ]]
 game_system = "GurpsFW"
 input = "MFMB"
-output = "呪文ファンブル表(18)：呪文が完全に失敗する。GMから見て、術者や呪文が純粋で善良なものでなければ、悪魔(第3版文庫版P.384参照)があらわれ、術者を攻撃する。"
+output = "呪文ファンブル表(18) ＞ 呪文が完全に失敗する。GMから見て、術者や呪文が純粋で善良なものでなければ、悪魔(第3版文庫版P.384参照)があらわれ、術者を攻撃する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GurpsFW"
+input = "HIT"
+output = "命中部位表(18) ＞ 武器"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
