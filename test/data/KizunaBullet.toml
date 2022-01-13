@@ -61,3 +61,84 @@ output = "交流表・内容(6) ＞ 敵 → 事件の犯人や標的などにつ
 rands = [
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "TTM"
+output = "ターンテーマ表(1,1) ＞ 感謝 → パートナーへ感謝の言葉を送ろう。円滑な関係には、こういうことも必要だ。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "TTM"
+output = "ターンテーマ表(2,1) ＞ 感謝 → パートナーへ感謝の言葉を送ろう。円滑な関係には、こういうことも必要だ。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "TTM"
+output = "ターンテーマ表(3,1) ＞ 感謝 → パートナーへ感謝の言葉を送ろう。円滑な関係には、こういうことも必要だ。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "TTM"
+output = "ターンテーマ表(1,2) ＞ 協力 → パートナーと力を合わせる必要がある。どんな役割分担がよいだろう？"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "TTM"
+output = "ターンテーマ表(1,3) ＞ 思い出作り → 調査のついでに、パートナーと思い出を作ろう。いい思い出になるかな？"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "TTM"
+output = "ターンテーマ表(1,6) ＞ 気になっていたこと → パートナーについて、前から気になっていたこと。この機会に、尋ねてよう。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "TTM"
+output = "ターンテーマ表(4,1) ＞ エンジョイ！ → どんな時でも、楽しむことが大切だ！　調査も大事だが、楽しいことを探そう。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "TTM"
+output = "ターンテーマ表(6,1) ＞ エンジョイ！ → どんな時でも、楽しむことが大切だ！　調査も大事だが、楽しいことを探そう。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "ttm"
+output = "ターンテーマ表(6,6) ＞ ほしかった物 → 調査のついでに、ほしかった物を探してみよう。意外な場所で手に入るかも。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
