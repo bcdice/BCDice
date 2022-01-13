@@ -37,6 +37,7 @@ module BCDice
       def initialize(command)
         super(command)
         @round_type = RoundType::CEIL
+        @sort_barabara_dice = true
       end
 
       def eval_game_system_specific_command(command)

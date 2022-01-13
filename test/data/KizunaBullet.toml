@@ -6,6 +6,16 @@ rands = []
 
 [[ test ]]
 game_system = "KizunaBullet"
+input = "3b6" # 
+output = "(3B6) ＞ 2,4,6"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
 input = "DLL"
 output = "日常表・場所(1) ＞ ケージ → ハウンドの私室にオーナーがお邪魔している。"
 rands = [
