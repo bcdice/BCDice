@@ -13,6 +13,9 @@ module BCDice
         ■最大値（ｘＤ）ダイスロール
         max:xD  または  max(xD)
 
+        □調査判定
+        max:xD>=5  または  max(xD)>=5
+
         ■表
         日常表・場所  DLL
         日常表・内容  DLA
@@ -23,8 +26,8 @@ module BCDice
         調査表・ダイナミック  RSD
       MESSAGETEXT
 
-      MAX_DICE_ROLL_WITH_COLON_RE = /^max:(\d+)d6?$/i.freeze
-      MAX_DICE_ROLL_WITH_PARENTHESIS_RE = /^max\((\d+)d6?\)$/i.freeze
+      MAX_DICE_ROLL_WITH_COLON_RE = /^max:(\d+)d6?((>=|=>)(\d+))?$/i.freeze
+      MAX_DICE_ROLL_WITH_PARENTHESIS_RE = /^max\((\d+)d6?\)((>=|=>)(\d+))?$/i.freeze
 
       register_prefix('max[:(]\\d+D')
 
@@ -34,20 +37,43 @@ module BCDice
       end
 
       def max_dice_roll(command)
-        dice_number = self.class.extract_dice_number_from_max_roll_command(command)
-        return nil if dice_number.nil? || dice_number.zero?
+        parsed = self.class.parse_max_dice_roll_command(command)
+        return nil if parsed.nil?
+
+        dice_number = parsed[:dice_number]
+        return nil if dice_number.zero?
 
         dices = @randomizer.roll_barabara(dice_number, 6)
         max = dices.max
 
-        "(max:#{dice_number}D) ＞ [#{dices.join(',')}] ＞ #{max}"
+        threshold = parsed[:threshold]
+
+        result = "(#{self.class.rebuild_command(dice_number, threshold)}) ＞ [#{dices.join(',')}] ＞ #{max}"
+
+        unless threshold.nil?
+          success = max >= threshold
+          result = Result.new("#{result} ＞ #{success ? '成功' : '失敗'}").tap do |r|
+            r.condition = success
+          end
+        end
+
+        result
       end
 
-      def self.extract_dice_number_from_max_roll_command(command)
+      def self.parse_max_dice_roll_command(command)
         m = MAX_DICE_ROLL_WITH_COLON_RE.match(command) || MAX_DICE_ROLL_WITH_PARENTHESIS_RE.match(command)
         return nil if m.nil?
 
-        m[1].to_i
+        {
+          dice_number: m[1].to_i,
+          threshold: m[4].nil? ? nil : m[4].to_i,
+        }
+      end
+
+      def self.rebuild_command(dice_number, threshold)
+        command = "max:#{dice_number}D"
+        command += ">=#{threshold}" unless threshold.nil?
+        command
       end
 
       # ダイスを２回振って12通りの結果を得るテーブル.
