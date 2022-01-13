@@ -178,3 +178,29 @@ rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "max:0D"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "max:3D"
+output = "(max:3D) ＞ [3,5,1] ＞ 5"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "max(3D)"
+output = "(max:3D) ＞ [3,5,1] ＞ 5"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
