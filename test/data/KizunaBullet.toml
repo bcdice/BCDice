@@ -29,3 +29,19 @@ output = "日常表・内容(6) ＞ 訓練／手入れ → 戦闘訓練や、武
 rands = [
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "INL"
+output = "交流表・場所(1) ＞ カフェ → お洒落なカフェ。一息つくには丁度いい。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "inl"
+output = "交流表・場所(6) ＞ 屋上 → 街を見下ろせるビルの屋上。風が気持ちいい。"
+rands = [
+  { sides = 6, value = 6 },
+]
