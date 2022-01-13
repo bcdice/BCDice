@@ -16,6 +16,9 @@ module BCDice
         □調査判定
         max:xD>=5  または  max(xD)>=5
 
+        □作戦判定（調査値ｙ，脅威度ｚ）
+        max:xD+y>=z  または  max(xD)+y>=z
+
         ■表
         日常表・場所  DLL
         日常表・内容  DLA
@@ -26,7 +29,7 @@ module BCDice
         調査表・ダイナミック  RSD
       MESSAGETEXT
 
-      MAX_DICE_ROLL_RE = /^max(:(\d+)d6?|\((\d+)d6?\))((>=|=>)(\d+))?$/i.freeze
+      MAX_DICE_ROLL_RE = /^max(:(\d+)d6?|\((\d+)d6?\))(\+\d+)?((>=|=>)(\d+))?$/i.freeze
 
       register_prefix('max[:(]\\d+D')
 
@@ -49,13 +52,20 @@ module BCDice
 
         dices = @randomizer.roll_barabara(dice_number, 6)
         max = dices.max
+        total = max
 
+        offset = parsed[:offset]
         threshold = parsed[:threshold]
 
-        result = "(#{self.class.rebuild_command(dice_number, threshold)}) ＞ [#{dices.join(',')}] ＞ #{max}"
+        result = "(#{self.class.rebuild_command(dice_number, offset, threshold)}) ＞ [#{dices.join(',')}] ＞ #{max}"
+
+        unless offset.nil?
+          total += offset
+          result = "#{result}+#{offset} ＞ #{total}"
+        end
 
         unless threshold.nil?
-          success = max >= threshold
+          success = total >= threshold
           result = Result.new("#{result} ＞ #{success ? '成功' : '失敗'}").tap do |r|
             r.condition = success
           end
@@ -70,12 +80,14 @@ module BCDice
 
         {
           dice_number: (m[2] || m[3]).to_i,
-          threshold: m[6].nil? ? nil : m[6].to_i,
+          offset: m[4].nil? ? nil : m[4].to_i,
+          threshold: m[7].nil? ? nil : m[7].to_i,
         }
       end
 
-      def self.rebuild_command(dice_number, threshold)
+      def self.rebuild_command(dice_number, offset, threshold)
         command = "max:#{dice_number}D"
+        command += "+#{offset}" unless offset.nil?
         command += ">=#{threshold}" unless threshold.nil?
         command
       end

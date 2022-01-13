@@ -276,3 +276,46 @@ rands = [
   { sides = 6, value = 1 },
 ]
 failure = true
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "max:3D+2"
+output = "(max:3D+2) ＞ [3,5,1] ＞ 5+2 ＞ 7"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "max:3D+2>=6"
+output = "(max:3D+2>=6) ＞ [3,5,1] ＞ 5+2 ＞ 7 ＞ 成功"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+success = true
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "max:3D+2>=7"
+output = "(max:3D+2>=7) ＞ [3,5,1] ＞ 5+2 ＞ 7 ＞ 成功"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+success = true
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "max:3D+2>=8"
+output = "(max:3D+2>=8) ＞ [3,5,1] ＞ 5+2 ＞ 7 ＞ 失敗"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+failure = true
