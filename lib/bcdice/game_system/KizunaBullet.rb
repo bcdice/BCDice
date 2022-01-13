@@ -26,8 +26,7 @@ module BCDice
         調査表・ダイナミック  RSD
       MESSAGETEXT
 
-      MAX_DICE_ROLL_WITH_COLON_RE = /^max:(\d+)d6?((>=|=>)(\d+))?$/i.freeze
-      MAX_DICE_ROLL_WITH_PARENTHESIS_RE = /^max\((\d+)d6?\)((>=|=>)(\d+))?$/i.freeze
+      MAX_DICE_ROLL_RE = /^max(:(\d+)d6?|\((\d+)d6?\))((>=|=>)(\d+))?$/i.freeze
 
       register_prefix('max[:(]\\d+D')
 
@@ -66,12 +65,12 @@ module BCDice
       end
 
       def self.parse_max_dice_roll_command(command)
-        m = MAX_DICE_ROLL_WITH_COLON_RE.match(command) || MAX_DICE_ROLL_WITH_PARENTHESIS_RE.match(command)
+        m = MAX_DICE_ROLL_RE.match(command)
         return nil if m.nil?
 
         {
-          dice_number: m[1].to_i,
-          threshold: m[4].nil? ? nil : m[4].to_i,
+          dice_number: (m[2] || m[3]).to_i,
+          threshold: m[6].nil? ? nil : m[6].to_i,
         }
       end
 
