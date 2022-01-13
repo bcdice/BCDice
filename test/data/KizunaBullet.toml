@@ -187,6 +187,22 @@ rands = [
 
 [[ test ]]
 game_system = "KizunaBullet"
+input = "HAZ"
+output = "ハザード効果表(1) ＞ 不活性化 → 【励起値】がもっとも高いＰＣが、【励起値】を１点失う。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "haz"
+output = "ハザード効果表(6) ＞ 悪運強し → なんたる幸運！　何も発生しない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
 input = "max:0D"
 output = ""
 rands = []
