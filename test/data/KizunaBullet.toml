@@ -160,3 +160,21 @@ rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "RSD"
+output = "調査表・ダイナミック(3,1) ＞ 突然の抗争 → 聞き込みに訪れた店で銃撃戦が発生した。やめさせるか、全員ぶちのめして話を聞くとしよう。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "rsd"
+output = "調査表・ダイナミック(4,6) ＞ 逃走劇 → 情報を持っていそうな人物が逃げ出した。追いかけて捕まえて、お話をしてもらおう。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
