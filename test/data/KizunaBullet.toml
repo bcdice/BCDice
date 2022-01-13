@@ -1,0 +1,15 @@
+[[ test ]]
+game_system = "KizunaBullet"
+input = "DLL"
+output = "日常表・場所(1) ＞ ケージ → ハウンドの私室にオーナーがお邪魔している。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "dll"
+output = "日常表・場所(6) ＞ 資料室 → 組織の資料室や書庫、証拠品の保管庫など。"
+rands = [
+  { sides = 6, value = 6 },
+]
