@@ -142,3 +142,21 @@ rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "RSB"
+output = "調査表・ベーシック(3,1) ＞ 遺留品 → 現場に残された遺留品や、押収された品などを、しっかり調べてみよう。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "RSB"
+output = "調査表・ベーシック(4,6) ＞ 謎の電話 → 関係者を名乗る謎の電話がかかってきた。うまく話を聞き出すことはできるだろうか？"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
