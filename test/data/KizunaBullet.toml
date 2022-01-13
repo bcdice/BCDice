@@ -13,3 +13,19 @@ output = "日常表・場所(6) ＞ 資料室 → 組織の資料室や書庫、
 rands = [
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "DLA"
+output = "日常表・内容(1) ＞ 仕事／勉強 → 片方の仕事や勉強を、もう片方が手伝っている。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "dla"
+output = "日常表・内容(6) ＞ 訓練／手入れ → 戦闘訓練や、武器の手入れなどを行なっている。"
+rands = [
+  { sides = 6, value = 6 },
+]
