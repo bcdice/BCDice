@@ -45,3 +45,19 @@ output = "交流表・場所(6) ＞ 屋上 → 街を見下ろせるビルの屋
 rands = [
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "INT"
+output = "交流表・内容(1) ＞ 下準備 → 次の調査や、戦いに向けた下準備を進めよう。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "int"
+output = "交流表・内容(6) ＞ 敵 → 事件の犯人や標的などについて話し合ってみよう。"
+rands = [
+  { sides = 6, value = 6 },
+]
