@@ -1,5 +1,11 @@
 [[ test ]]
 game_system = "KizunaBullet"
+input = "c(10/3)" # 端数は原則切り上げ（ルールブックp9）
+output = "c(10/3) ＞ 4"
+rands = []
+
+[[ test ]]
+game_system = "KizunaBullet"
 input = "DLL"
 output = "日常表・場所(1) ＞ ケージ → ハウンドの私室にオーナーがお邪魔している。"
 rands = [

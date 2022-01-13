@@ -31,6 +31,11 @@ module BCDice
 
       register_prefix('max[:(]\\d+D')
 
+      def initialize(command)
+        super(command)
+        @round_type = RoundType::CEIL
+      end
+
       def eval_game_system_specific_command(command)
         max_dice_roll(command) ||
           roll_tables(command, TABLES)
