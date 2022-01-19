@@ -16,7 +16,7 @@ module BCDice
         □調査判定
         max:nD>=5  または  max(nD)>=5
 
-        □作戦判定（調査値ｘ，脅威度ｙ）
+        □作戦判定（作戦力ｘ，脅威度ｙ）
         max:nD+x>=y  または  max(nD)+x>=y
 
         ■表
