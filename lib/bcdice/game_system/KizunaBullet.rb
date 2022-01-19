@@ -95,15 +95,12 @@ module BCDice
       end
 
       # ダイスを２回振って12通りの結果を得るテーブル.
-      class KizunaBullet_12_Table < DiceTable::D66LeftRangeTable
+      class KizunaBullet_12_Table < DiceTable::D66HalfGridTable
         def initialize(name, items)
           super(
             name,
-            BCDice::D66SortType::NO_SORT,
-            [
-              [1..3, items[0...6]],
-              [4..6, items[6...12]],
-            ]
+            items[0...6],
+            items[6...12]
           )
         end
 
