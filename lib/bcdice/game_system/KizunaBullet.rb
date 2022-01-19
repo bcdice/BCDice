@@ -52,28 +52,16 @@ module BCDice
         dice_number = parsed[:dice_number]
         return nil if dice_number.zero?
 
-        dices = @randomizer.roll_barabara(dice_number, 6)
-        max = dices.max
-        total = max
-
         offset = parsed[:offset]
         threshold = parsed[:threshold]
 
-        result = "(#{self.class.rebuild_command(dice_number, offset, threshold)}) ＞ [#{dices.join(',')}] ＞ #{max}"
+        common_command = self.class.build_common_command(dice_number, offset, threshold)
+        common_command_result = eval_common_command(common_command)
 
-        unless offset.nil?
-          total += offset
-          result = "#{result}+#{offset} ＞ #{total}"
-        end
+        # コマンド部分を、システム固有の形式に置換.
+        common_command_result.text.sub!(common_command, self.class.rebuild_command(dice_number, offset, threshold))
 
-        unless threshold.nil?
-          success = total >= threshold
-          result = Result.new("#{result} ＞ #{success ? '成功' : '失敗'}").tap do |r|
-            r.condition = success
-          end
-        end
-
-        result
+        common_command_result
       end
 
       def self.parse_max_dice_roll_command(command)
@@ -89,6 +77,13 @@ module BCDice
 
       def self.rebuild_command(dice_number, offset, threshold)
         command = "max:#{dice_number}D"
+        command += "+#{offset}" unless offset.nil?
+        command += ">=#{threshold}" unless threshold.nil?
+        command
+      end
+
+      def self.build_common_command(dice_number, offset, threshold)
+        command = "#{dice_number}D6KH1"
         command += "+#{offset}" unless offset.nil?
         command += ">=#{threshold}" unless threshold.nil?
         command
