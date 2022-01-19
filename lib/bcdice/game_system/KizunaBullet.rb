@@ -11,13 +11,13 @@ module BCDice
 
       HELP_MESSAGE = <<~MESSAGETEXT
         ■最大値（ｎＤ）ダイスロール
-        max:nD  または  max(nD)
+        nMAX  または  max:nD  または  max(nD)
 
         □調査判定
-        max:nD>=5  または  max(nD)>=5
+        nMAX>=5  または  max:nD>=5  または  max(nD)>=5
 
         □作戦判定（作戦力ｘ，脅威度ｙ）
-        max:nD+x>=y  または  max(nD)+x>=y
+        nMAX+x>=y  または  max:nD+x>=y  または  max(nD)+x>=y
 
         ■表
         日常表・場所  DLL
@@ -30,9 +30,9 @@ module BCDice
         ハザード効果表  HAZ
       MESSAGETEXT
 
-      MAX_DICE_ROLL_RE = /^max(:(\d+)d6?|\((\d+)d6?\))(\+\d+)?((>=|=>)(\d+))?$/i.freeze
+      MAX_DICE_ROLL_RE = /^(max(:(\d+)d6?|\((\d+)d6?\))|(\d+)max)(\+\d+)?((>=|=>)(\d+))?$/i.freeze
 
-      register_prefix('max[:(]\\d+D')
+      register_prefix('(max[:(]\\d+D|\d+max)')
 
       def initialize(command)
         super(command)
@@ -69,9 +69,9 @@ module BCDice
         return nil if m.nil?
 
         {
-          dice_number: (m[2] || m[3]).to_i,
-          offset: m[4].nil? ? nil : m[4].to_i,
-          threshold: m[7].nil? ? nil : m[7].to_i,
+          dice_number: (m[3] || m[4] || m[5]).to_i,
+          offset: m[6].nil? ? nil : m[6].to_i,
+          threshold: m[9].nil? ? nil : m[9].to_i,
         }
       end
 
