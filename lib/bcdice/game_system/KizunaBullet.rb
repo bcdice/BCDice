@@ -10,14 +10,14 @@ module BCDice
       SORT_KEY = "きすなはれつと"
 
       HELP_MESSAGE = <<~MESSAGETEXT
-        ■最大値（ｘＤ）ダイスロール
-        max:xD  または  max(xD)
+        ■最大値（ｎＤ）ダイスロール
+        max:nD  または  max(nD)
 
         □調査判定
-        max:xD>=5  または  max(xD)>=5
+        max:nD>=5  または  max(nD)>=5
 
-        □作戦判定（調査値ｙ，脅威度ｚ）
-        max:xD+y>=z  または  max(xD)+y>=z
+        □作戦判定（調査値ｘ，脅威度ｙ）
+        max:nD+x>=y  または  max(nD)+x>=y
 
         ■表
         日常表・場所  DLL
