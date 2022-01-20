@@ -1401,6 +1401,83 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
+input = "3D6MAX 最大値抽出"
+output = "(3D6KH1) ＞ 5[1,3,5] ＞ 5"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "3D6MAX+2 最大値抽出、修正値つき"
+output = "(3D6KH1+2) ＞ 5[1,3,5]+2 ＞ 7"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "3D6MAX>=4 最大値抽出、目標値つき（成功）"
+output = "(3D6KH1>=4) ＞ 5[1,3,5] ＞ 5 ＞ 成功"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+success = true
+
+[[ test ]]
+game_system = "DiceBot"
+input = "3D6MAX>=5 最大値抽出、目標値つき（成功・同値）"
+output = "(3D6KH1>=5) ＞ 5[1,3,5] ＞ 5 ＞ 成功"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+success = true
+
+[[ test ]]
+game_system = "DiceBot"
+input = "3D6MAX>=6 最大値抽出、目標値つき（失敗）"
+output = "(3D6KH1>=6) ＞ 5[1,3,5] ＞ 5 ＞ 失敗"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+failure = true
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5D10MIN 最小値抽出"
+output = "(5D10KL1) ＞ 2[2,3,5,7,9] ＞ 2"
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5D10MIN-3 最小値抽出、修正値つき"
+output = "(5D10KL1-3) ＞ 2[2,3,5,7,9]-3 ＞ -1"
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
 input = "D66 入れ替えはゲーム依存"
 output = "(D66) ＞ 16"
 rands = [

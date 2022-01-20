@@ -246,6 +246,38 @@ class AddDiceParserTest < Test::Unit::TestCase
     )
   end
 
+  # 最大値抽出（ KH1 の簡易記法）
+  def test_parse_max
+    test_parse(
+      "3D6MAX",
+      "(Command (DiceRollWithFilter 3 6 :KH 1))"
+    )
+  end
+
+  # 最大値抽出、修正値つき
+  def test_parse_max_with_modifier
+    test_parse(
+      "3D6MAX+2",
+      "(Command (+ (DiceRollWithFilter 3 6 :KH 1) 2))"
+    )
+  end
+
+  # 最小値抽出（ KL1 の簡易記法）
+  def test_parse_min
+    test_parse(
+      "5D10MIN",
+      "(Command (DiceRollWithFilter 5 10 :KL 1))"
+    )
+  end
+
+  # 最小値抽出、修正値つき
+  def test_parse_min_with_modifier
+    test_parse(
+      "5D10MIN-3",
+      "(Command (- (DiceRollWithFilter 5 10 :KL 1) 3))"
+    )
+  end
+
   def test_parse_filter_nested_dice
     assert_not_parse("(1D6)D6HK3", "ダイス数にダイスロールをネストできない")
     assert_not_parse("1D(1D6)HK3", "面数数にダイスロールをネストできない")
