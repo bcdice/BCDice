@@ -254,6 +254,14 @@ class AddDiceParserTest < Test::Unit::TestCase
     )
   end
 
+  # 最大値抽出、面数省略
+  def test_parse_max_implicit_sides
+    test_parse(
+      "3DMAX",
+      "(Command (ImplicitSidesDiceRollWithFilter 3 :KH 1))"
+    )
+  end
+
   # 最大値抽出、修正値つき
   def test_parse_max_with_modifier
     test_parse(
@@ -267,6 +275,14 @@ class AddDiceParserTest < Test::Unit::TestCase
     test_parse(
       "5D10MIN",
       "(Command (DiceRollWithFilter 5 10 :KL 1))"
+    )
+  end
+
+  # 最小値抽出、面数省略
+  def test_parse_min_implicit_sides
+    test_parse(
+      "5DMIN",
+      "(Command (ImplicitSidesDiceRollWithFilter 5 :KL 1))"
     )
   end
 

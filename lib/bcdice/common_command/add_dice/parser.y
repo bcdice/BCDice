@@ -90,6 +90,15 @@ rule
 
         result = Node::ImplicitSidesDiceRoll.new(times)
       }
+      | term D filter_shorthand
+      {
+        times = val[0]
+        filter = val[2]
+        raise ParseError if times.include_dice?
+
+        n_filtering = Node::Number.new(1)
+        result = Node::DiceRollWithFilterImplicitSides.new(times, n_filtering, filter)
+      }
       | term D term filter_shorthand
       {
         times = val[0]
