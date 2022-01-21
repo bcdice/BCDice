@@ -67,4 +67,18 @@ class AddDiceTest < Test::Unit::TestCase
 
     assert_equal("(1D6+4) ＞ 6[6]+4 ＞ 10", game_system.eval.text)
   end
+
+  def test_max
+    game_system = BCDice::Base.new("2D4MAX")
+    game_system.randomizer = RandomizerMock.new([[3, 4], [1, 4]])
+
+    assert_equal("(2D4KH1) ＞ 3[1,3] ＞ 3", game_system.eval.text)
+  end
+
+  def test_min
+    game_system = BCDice::Base.new("2D4MIN")
+    game_system.randomizer = RandomizerMock.new([[3, 4], [1, 4]])
+
+    assert_equal("(2D4KL1) ＞ 1[1,3] ＞ 1", game_system.eval.text)
+  end
 end
