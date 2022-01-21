@@ -96,8 +96,9 @@ rule
         filter = val[2]
         raise ParseError if times.include_dice?
 
+        sides = nil
         n_filtering = Node::Number.new(1)
-        result = Node::DiceRollWithFilterImplicitSides.new(times, n_filtering, filter)
+        result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
       }
       | term D term filter_shorthand
       {

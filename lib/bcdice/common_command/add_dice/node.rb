@@ -493,7 +493,7 @@ module BCDice
 
           # ノードを初期化する
           # @param [Object] times ダイスを振る回数のノード
-          # @param [Object] sides ダイスの面数のノード
+          # @param [Object, nil] sides ダイスの面数のノード（暗黙の面数を参照したい場合は nil ）
           # @param [Object] n_filtering ダイスを残す/減らす個数のノード
           # @param [Filter] filter フィルタ
           def initialize(times, sides, n_filtering, filter)
@@ -515,7 +515,7 @@ module BCDice
           # @return [Integer] 評価結果（出目の合計値）
           def eval(game_system, randomizer)
             times = @times.eval(game_system, nil)
-            sides = @sides.eval(game_system, nil)
+            sides = @sides.nil? ? game_system.sides_implicit_d : @sides.eval(game_system, nil)
             n_filtering = @n_filtering.eval(game_system, nil)
 
             sorted_values = randomizer.roll(times, sides).sort
@@ -537,7 +537,7 @@ module BCDice
           # @return [String]
           def expr(game_system)
             times = @times.eval(game_system, nil)
-            sides = @sides.eval(game_system, nil)
+            sides = @sides.nil? ? game_system.sides_implicit_d : @sides.eval(game_system, nil)
             n_filtering = @n_filtering.eval(game_system, nil)
 
             "#{times}D#{sides}#{@filter.abbr}#{n_filtering}"
@@ -552,63 +552,7 @@ module BCDice
           # ノードのS式を返す
           # @return [String]
           def s_exp
-            "(DiceRollWithFilter #{@times.s_exp} #{@sides.s_exp} #{@filter.abbr.inspect} #{@n_filtering.s_exp})"
-          end
-        end
-
-        # フィルタ処理付きダイスロール（面数省略）のノード
-        class DiceRollWithFilterImplicitSides
-          # @param [Object] times ダイスを振る回数のノード
-          # @param [Object] n_filtering ダイスを残す/減らす個数のノード
-          # @param [Filter] filter フィルタ
-          def initialize(times, n_filtering, filter)
-            @times = times
-            @n_filtering = n_filtering
-            @filter = filter
-
-            @text = nil
-          end
-
-          # @param [Randomizer] randomizer ランダマイザ
-          # @return [Integer] 評価結果（出目の合計値）
-          def eval(game_system, randomizer)
-            times = @times.eval(game_system, nil)
-            sides = game_system.sides_implicit_d
-            n_filtering = @n_filtering.eval(game_system, nil)
-
-            sorted_values = randomizer.roll(times, sides).sort
-            total = @filter
-                    .apply[sorted_values, n_filtering]
-                    .sum()
-
-            @text = "#{total}[#{sorted_values.join(',')}]"
-
-            return total
-          end
-
-          # @return [Boolean]
-          def include_dice?
-            true
-          end
-
-          # @return [String]
-          def expr(game_system)
-            times = @times.eval(game_system, nil)
-            n_filtering = @n_filtering.eval(game_system, nil)
-
-            "#{times}D#{game_system.sides_implicit_d}#{@filter.abbr}#{n_filtering}"
-          end
-
-          # メッセージへの出力を返す
-          # @return [String]
-          def output
-            @text
-          end
-
-          # ノードのS式を返す
-          # @return [String]
-          def s_exp
-            "(ImplicitSidesDiceRollWithFilter #{@times.s_exp} #{@filter.abbr.inspect} #{@n_filtering.s_exp})"
+            "(DiceRollWithFilter #{@times.s_exp} #{@sides.nil? ? 'nil' : @sides.s_exp} #{@filter.abbr.inspect} #{@n_filtering.s_exp})"
           end
         end
 

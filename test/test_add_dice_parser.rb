@@ -258,7 +258,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_max_implicit_sides
     test_parse(
       "3DMAX",
-      "(Command (ImplicitSidesDiceRollWithFilter 3 :KH 1))"
+      "(Command (DiceRollWithFilter 3 nil :KH 1))"
     )
   end
 
@@ -282,7 +282,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_min_implicit_sides
     test_parse(
       "5DMIN",
-      "(Command (ImplicitSidesDiceRollWithFilter 5 :KL 1))"
+      "(Command (DiceRollWithFilter 5 nil :KL 1))"
     )
   end
 
