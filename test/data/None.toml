@@ -1311,6 +1311,42 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
+input = "5D10KH 最大値を取る（ KH の個数省略）"
+output = "(5D10KH1) ＞ 8[2,3,5,8,8] ＞ 8"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5DKH3 大きな出目から3個取った後の和（面数省略）"
+output = "(5D6KH3) ＞ 17[2,3,5,6,6] ＞ 17"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5DKH 最大値を取る（面数省略）"
+output = "(5D6KH1) ＞ 6[2,3,5,6,6] ＞ 6"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
 input = "(2+3)D(5+5)KH(5-2) 大きな出目から3個取った後の和"
 output = "(5D10KH3) ＞ 21[2,3,5,8,8] ＞ 21"
 rands = [
@@ -1335,6 +1371,42 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
+input = "5D10KL 最小値を取る（ KL の個数省略）"
+output = "(5D10KL1) ＞ 2[2,3,5,8,8] ＞ 2"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5DKL3 小さな出目から3個取った後の和（面数省略）"
+output = "(5D6KL3) ＞ 10[2,3,5,6,6] ＞ 10"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5DKL 最小値を取る（（面数省略）"
+output = "(5D6KL1) ＞ 2[2,3,5,6,6] ＞ 2"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
 input = "5D10DH3 大きな出目から3個除いた後の和"
 output = "(5D10DH3) ＞ 5[2,3,5,8,8] ＞ 5"
 rands = [
@@ -1343,6 +1415,90 @@ rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
   { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5D10DH 最も大きな出目1個を除いた後の和"
+output = "(5D10DH1) ＞ 18[2,3,5,8,8] ＞ 18"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5DDH3 大きな出目から3個除いた後の和（面数省略）"
+output = "(5D6DH3) ＞ 5[2,3,5,6,6] ＞ 5"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5DDH 最も大きな出目1個を除いた後の和（面数省略）"
+output = "(5D6DH1) ＞ 16[2,3,5,6,6] ＞ 16"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5D10DL3 小さな出目から3個除いた後の和"
+output = "(5D10DL3) ＞ 16[2,3,5,8,8] ＞ 16"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5D10DL 最も小さな出目1個を除いた後の和"
+output = "(5D10DL1) ＞ 24[2,3,5,8,8] ＞ 24"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5DDL3 小さな出目から3個除いた後の和（面数省略）"
+output = "(5D6DL3) ＞ 12[2,3,5,6,6] ＞ 12"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "5DDL 最も小さな出目1個を除いた後の和（面数省略）"
+output = "(5D6DL1) ＞ 20[2,3,5,6,6] ＞ 20"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]

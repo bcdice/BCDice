@@ -190,11 +190,59 @@ class AddDiceParserTest < Test::Unit::TestCase
     )
   end
 
+  # 大きな出目から1個取る
+  def test_parse_keep_highest
+    test_parse(
+      "5D10KH",
+      "(Command (DiceRollWithFilter 5 10 :KH 1))"
+    )
+  end
+
+  # 大きな出目から複数個取る（面数省略）
+  def test_parse_keep_high_implicit_sides
+    test_parse(
+      "5DKH3",
+      "(Command (DiceRollWithFilter 5 nil :KH 3))"
+    )
+  end
+
+  # 大きな出目から1個取る（面数省略）
+  def test_parse_keep_highest_implicit_sides
+    test_parse(
+      "5DKH",
+      "(Command (DiceRollWithFilter 5 nil :KH 1))"
+    )
+  end
+
   # 小さな出目から複数個取る
   def test_parse_keep_low
     test_parse(
       "5D10KL3",
       "(Command (DiceRollWithFilter 5 10 :KL 3))"
+    )
+  end
+
+  # 小さな出目から1個取る
+  def test_parse_keep_lowest
+    test_parse(
+      "5D10KL",
+      "(Command (DiceRollWithFilter 5 10 :KL 1))"
+    )
+  end
+
+  # 小さな出目から複数個取る（面数省略）
+  def test_parse_keep_low_implicit_sides
+    test_parse(
+      "5DKL3",
+      "(Command (DiceRollWithFilter 5 nil :KL 3))"
+    )
+  end
+
+  # 小さな出目から1個取る（面数省略）
+  def test_parse_keep_lowest_implicit_sides
+    test_parse(
+      "5DKL",
+      "(Command (DiceRollWithFilter 5 nil :KL 1))"
     )
   end
 
@@ -206,11 +254,59 @@ class AddDiceParserTest < Test::Unit::TestCase
     )
   end
 
+  # 大きな出目から1個除く
+  def test_parse_drop_highest
+    test_parse(
+      "5D10DH",
+      "(Command (DiceRollWithFilter 5 10 :DH 1))"
+    )
+  end
+
+  # 大きな出目から複数個除く（面数省略）
+  def test_parse_drop_high_implicit_sides
+    test_parse(
+      "5DDH3",
+      "(Command (DiceRollWithFilter 5 nil :DH 3))"
+    )
+  end
+
+  # 大きな出目から1個除く（面数省略）
+  def test_parse_drop_highest_implicit_sides
+    test_parse(
+      "5DDH",
+      "(Command (DiceRollWithFilter 5 nil :DH 1))"
+    )
+  end
+
   # 小さな出目から複数個除く
   def test_parse_drop_low
     test_parse(
       "5D10DL3",
       "(Command (DiceRollWithFilter 5 10 :DL 3))"
+    )
+  end
+
+  # 小さな出目から1個除く
+  def test_parse_drop_lowest
+    test_parse(
+      "5D10DL",
+      "(Command (DiceRollWithFilter 5 10 :DL 1))"
+    )
+  end
+
+  # 小さな出目から複数個除く（面数省略）
+  def test_parse_drop_low_implicit_sides
+    test_parse(
+      "5DDL3",
+      "(Command (DiceRollWithFilter 5 nil :DL 3))"
+    )
+  end
+
+  # 小さな出目から1個除く（面数省略）
+  def test_parse_drop_lowest_implicit_sides
+    test_parse(
+      "5DDL",
+      "(Command (DiceRollWithFilter 5 nil :DL 1))"
     )
   end
 

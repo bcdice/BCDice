@@ -68,6 +68,41 @@ class AddDiceTest < Test::Unit::TestCase
     assert_equal("(1D6+4) ＞ 6[6]+4 ＞ 10", game_system.eval.text)
   end
 
+  def test_parse_keep_highest
+    game_system = BCDice::Base.new("2D4KH")
+    game_system.randomizer = RandomizerMock.new([[3, 4], [1, 4]])
+
+    assert_equal("(2D4KH1) ＞ 3[1,3] ＞ 3", game_system.eval.text)
+  end
+
+  def test_parse_keep_high_implicit_d
+    game_system = BCDice::Base.new("3DKH2")
+    game_system.randomizer = RandomizerMock.new([[3, 6], [1, 6], [2, 6]])
+
+    assert_equal("(3D6KH2) ＞ 5[1,2,3] ＞ 5", game_system.eval.text)
+  end
+
+  def test_parse_keep_high_implicit_d10
+    game_system = ImplicitD10.new("3DKH2")
+    game_system.randomizer = RandomizerMock.new([[8, 10], [1, 10], [3, 10]])
+
+    assert_equal("(3D10KH2) ＞ 11[1,3,8] ＞ 11", game_system.eval.text)
+  end
+
+  def test_parse_keep_highest_implicit_d
+    game_system = BCDice::Base.new("3DKH")
+    game_system.randomizer = RandomizerMock.new([[3, 6], [1, 6], [2, 6]])
+
+    assert_equal("(3D6KH1) ＞ 3[1,2,3] ＞ 3", game_system.eval.text)
+  end
+
+  def test_parse_keep_highest_implicit_d10
+    game_system = ImplicitD10.new("3DKH")
+    game_system.randomizer = RandomizerMock.new([[9, 10], [1, 10], [3, 10]])
+
+    assert_equal("(3D10KH1) ＞ 9[1,3,9] ＞ 9", game_system.eval.text)
+  end
+
   def test_max
     game_system = BCDice::Base.new("2D4MAX")
     game_system.randomizer = RandomizerMock.new([[3, 4], [1, 4]])

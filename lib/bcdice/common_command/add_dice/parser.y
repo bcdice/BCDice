@@ -110,6 +110,16 @@ rule
         n_filtering = Node::Number.new(1)
         result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
       }
+      | term D term filter_type
+      {
+        times = val[0]
+        sides = val[2]
+        filter = val[3]
+        raise ParseError if times.include_dice? || sides.include_dice?
+
+        n_filtering = Node::Number.new(1)
+        result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
+      }
       | term D term filter_type term
       {
         times = val[0]
@@ -118,6 +128,26 @@ rule
         n_filtering = val[4]
         raise ParseError if times.include_dice? || sides.include_dice? || n_filtering.include_dice?
 
+        result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
+      }
+      | term D filter_type term
+      {
+        times = val[0]
+        filter = val[2]
+        n_filtering = val[3]
+        raise ParseError if times.include_dice? || n_filtering.include_dice?
+
+        sides = nil
+        result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
+      }
+      | term D filter_type
+      {
+        times = val[0]
+        filter = val[2]
+        raise ParseError if times.include_dice?
+
+        sides = nil
+        n_filtering = Node::Number.new(1)
         result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
       }
       | term
