@@ -202,7 +202,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_keep_high_implicit_sides
     test_parse(
       "5DKH3",
-      "(Command (DiceRollWithFilter 5 nil :KH 3))"
+      "(Command (DiceRollWithFilter 5 :implicit :KH 3))"
     )
   end
 
@@ -210,7 +210,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_keep_highest_implicit_sides
     test_parse(
       "5DKH",
-      "(Command (DiceRollWithFilter 5 nil :KH 1))"
+      "(Command (DiceRollWithFilter 5 :implicit :KH 1))"
     )
   end
 
@@ -234,7 +234,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_keep_low_implicit_sides
     test_parse(
       "5DKL3",
-      "(Command (DiceRollWithFilter 5 nil :KL 3))"
+      "(Command (DiceRollWithFilter 5 :implicit :KL 3))"
     )
   end
 
@@ -242,7 +242,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_keep_lowest_implicit_sides
     test_parse(
       "5DKL",
-      "(Command (DiceRollWithFilter 5 nil :KL 1))"
+      "(Command (DiceRollWithFilter 5 :implicit :KL 1))"
     )
   end
 
@@ -266,7 +266,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_drop_high_implicit_sides
     test_parse(
       "5DDH3",
-      "(Command (DiceRollWithFilter 5 nil :DH 3))"
+      "(Command (DiceRollWithFilter 5 :implicit :DH 3))"
     )
   end
 
@@ -274,7 +274,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_drop_highest_implicit_sides
     test_parse(
       "5DDH",
-      "(Command (DiceRollWithFilter 5 nil :DH 1))"
+      "(Command (DiceRollWithFilter 5 :implicit :DH 1))"
     )
   end
 
@@ -298,7 +298,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_drop_low_implicit_sides
     test_parse(
       "5DDL3",
-      "(Command (DiceRollWithFilter 5 nil :DL 3))"
+      "(Command (DiceRollWithFilter 5 :implicit :DL 3))"
     )
   end
 
@@ -306,7 +306,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_drop_lowest_implicit_sides
     test_parse(
       "5DDL",
-      "(Command (DiceRollWithFilter 5 nil :DL 1))"
+      "(Command (DiceRollWithFilter 5 :implicit :DL 1))"
     )
   end
 
@@ -354,7 +354,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_max_implicit_sides
     test_parse(
       "3DMAX",
-      "(Command (DiceRollWithFilter 3 nil :KH 1))"
+      "(Command (DiceRollWithFilter 3 :implicit :KH 1))"
     )
   end
 
@@ -385,7 +385,7 @@ class AddDiceParserTest < Test::Unit::TestCase
   def test_parse_min_implicit_sides
     test_parse(
       "5DMIN",
-      "(Command (DiceRollWithFilter 5 nil :KL 1))"
+      "(Command (DiceRollWithFilter 5 :implicit :KL 1))"
     )
   end
 

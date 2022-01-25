@@ -562,7 +562,7 @@ module BCDice
           # ノードのS式を返す
           # @return [String]
           def s_exp
-            sides_s_exp = implicit_sides? ? 'nil' : @sides.s_exp
+            sides_s_exp = implicit_sides? ? @sides.inspect : @sides.s_exp
 
             "(DiceRollWithFilter #{@times.s_exp} #{sides_s_exp} #{@filter.abbr.inspect} #{@n_filtering.s_exp})"
           end
