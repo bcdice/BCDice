@@ -366,6 +366,13 @@ class AddDiceParserTest < Test::Unit::TestCase
     )
   end
 
+  # 最大値抽出、パース不可
+  def test_not_parse_max
+    # 個数を指定できない
+    assert_not_parse("3D6MAX1")
+    assert_not_parse("3DMAX1")
+  end
+
   # 最小値抽出（ KL1 の簡易記法）
   def test_parse_min
     test_parse(
@@ -388,6 +395,13 @@ class AddDiceParserTest < Test::Unit::TestCase
       "5D10MIN-3",
       "(Command (- (DiceRollWithFilter 5 10 :KL 1) 3))"
     )
+  end
+
+  # 最小値抽出、パース不可
+  def test_not_parse_min
+    # 個数を指定できない
+    assert_not_parse("3D6MIN1")
+    assert_not_parse("3DMIN1")
   end
 
   def test_parse_filter_nested_dice
