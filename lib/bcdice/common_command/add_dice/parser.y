@@ -90,67 +90,36 @@ rule
 
         result = Node::ImplicitSidesDiceRoll.new(times)
       }
-      | term D filter_shorthand
+      | term D explicit_or_implicit_sides filter_type_with_shorthand
       {
         times = val[0]
-        filter = val[2]
+        sides = val[2]
+        filter = val[3]
+
+        raise ParseError if sides != :implicit && sides.include_dice?
         raise ParseError if times.include_dice?
 
-        sides = nil
         n_filtering = Node::Number.new(1)
         result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
       }
-      | term D term filter_shorthand
-      {
-        times = val[0]
-        sides = val[2]
-        filter = val[3]
-        raise ParseError if times.include_dice? || sides.include_dice?
-
-        n_filtering = Node::Number.new(1)
-        result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
-      }
-      | term D term filter_type
-      {
-        times = val[0]
-        sides = val[2]
-        filter = val[3]
-        raise ParseError if times.include_dice? || sides.include_dice?
-
-        n_filtering = Node::Number.new(1)
-        result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
-      }
-      | term D term filter_type term
+      | term D explicit_or_implicit_sides filter_type term
       {
         times = val[0]
         sides = val[2]
         filter = val[3]
         n_filtering = val[4]
-        raise ParseError if times.include_dice? || sides.include_dice? || n_filtering.include_dice?
 
-        result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
-      }
-      | term D filter_type term
-      {
-        times = val[0]
-        filter = val[2]
-        n_filtering = val[3]
+        raise ParseError if sides != :implicit && sides.include_dice?
         raise ParseError if times.include_dice? || n_filtering.include_dice?
 
-        sides = nil
-        result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
-      }
-      | term D filter_type
-      {
-        times = val[0]
-        filter = val[2]
-        raise ParseError if times.include_dice?
-
-        sides = nil
-        n_filtering = Node::Number.new(1)
         result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
       }
       | term
+
+  explicit_or_implicit_sides: /* 指定なし => 暗黙の面数 */
+                            { result = :implicit }
+                            | term
+                            { result = val[0] }
 
   filter_shorthand: M A X
                   { result = Node::DiceRollWithFilter::KEEP_HIGHEST }
@@ -165,6 +134,8 @@ rule
              { result = Node::DiceRollWithFilter::DROP_HIGHEST }
              | D L
              { result = Node::DiceRollWithFilter::DROP_LOWEST }
+
+  filter_type_with_shorthand: filter_type | filter_shorthand
 
   term: PARENL add PARENR
       { result = Node::Parenthesis.new(val[1]) }

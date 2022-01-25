@@ -493,10 +493,14 @@ module BCDice
 
           # ノードを初期化する
           # @param [Object] times ダイスを振る回数のノード
-          # @param [Object, nil] sides ダイスの面数のノード（暗黙の面数を参照したい場合は nil ）
+          # @param [Object, :implicit] sides ダイスの面数のノード（暗黙の面数を参照したい場合は `:implicit`）
           # @param [Object] n_filtering ダイスを残す/減らす個数のノード
           # @param [Filter] filter フィルタ
           def initialize(times, sides, n_filtering, filter)
+            if sides != :implicit && !sides.respond_to?(:eval)
+              raise TypeError, "sides must be a Node or :implicit (#{sides.inspect})"
+            end
+
             @times = times
             @sides = sides
             @n_filtering = n_filtering
@@ -515,7 +519,7 @@ module BCDice
           # @return [Integer] 評価結果（出目の合計値）
           def eval(game_system, randomizer)
             times = @times.eval(game_system, nil)
-            sides = @sides.nil? ? game_system.sides_implicit_d : @sides.eval(game_system, nil)
+            sides = eval_sides(game_system)
             n_filtering = @n_filtering.eval(game_system, nil)
 
             sorted_values = randomizer.roll(times, sides).sort
@@ -533,11 +537,17 @@ module BCDice
             true
           end
 
+          # 暗黙の面数を参照するか?
+          # @return [Boolean]
+          def implicit_sides?
+            @sides == :implicit
+          end
+
           # 文字列に変換する
           # @return [String]
           def expr(game_system)
             times = @times.eval(game_system, nil)
-            sides = @sides.nil? ? game_system.sides_implicit_d : @sides.eval(game_system, nil)
+            sides = eval_sides(game_system)
             n_filtering = @n_filtering.eval(game_system, nil)
 
             "#{times}D#{sides}#{@filter.abbr}#{n_filtering}"
@@ -552,7 +562,21 @@ module BCDice
           # ノードのS式を返す
           # @return [String]
           def s_exp
-            "(DiceRollWithFilter #{@times.s_exp} #{@sides.nil? ? 'nil' : @sides.s_exp} #{@filter.abbr.inspect} #{@n_filtering.s_exp})"
+            sides_s_exp = implicit_sides? ? 'nil' : @sides.s_exp
+
+            "(DiceRollWithFilter #{@times.s_exp} #{sides_s_exp} #{@filter.abbr.inspect} #{@n_filtering.s_exp})"
+          end
+
+          private
+
+          # 面数を評価する
+          # @return [Integer] 指定された面数または暗黙の面数
+          def eval_sides(game_system)
+            if implicit_sides?
+              game_system.sides_implicit_d
+            else
+              @sides.eval(game_system, nil)
+            end
           end
         end
 
