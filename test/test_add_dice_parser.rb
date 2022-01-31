@@ -190,11 +190,59 @@ class AddDiceParserTest < Test::Unit::TestCase
     )
   end
 
+  # 大きな出目から1個取る
+  def test_parse_keep_highest
+    test_parse(
+      "5D10KH",
+      "(Command (DiceRollWithFilter 5 10 :KH 1))"
+    )
+  end
+
+  # 大きな出目から複数個取る（面数省略）
+  def test_parse_keep_high_implicit_sides
+    test_parse(
+      "5DKH3",
+      "(Command (DiceRollWithFilter 5 :implicit :KH 3))"
+    )
+  end
+
+  # 大きな出目から1個取る（面数省略）
+  def test_parse_keep_highest_implicit_sides
+    test_parse(
+      "5DKH",
+      "(Command (DiceRollWithFilter 5 :implicit :KH 1))"
+    )
+  end
+
   # 小さな出目から複数個取る
   def test_parse_keep_low
     test_parse(
       "5D10KL3",
       "(Command (DiceRollWithFilter 5 10 :KL 3))"
+    )
+  end
+
+  # 小さな出目から1個取る
+  def test_parse_keep_lowest
+    test_parse(
+      "5D10KL",
+      "(Command (DiceRollWithFilter 5 10 :KL 1))"
+    )
+  end
+
+  # 小さな出目から複数個取る（面数省略）
+  def test_parse_keep_low_implicit_sides
+    test_parse(
+      "5DKL3",
+      "(Command (DiceRollWithFilter 5 :implicit :KL 3))"
+    )
+  end
+
+  # 小さな出目から1個取る（面数省略）
+  def test_parse_keep_lowest_implicit_sides
+    test_parse(
+      "5DKL",
+      "(Command (DiceRollWithFilter 5 :implicit :KL 1))"
     )
   end
 
@@ -206,11 +254,59 @@ class AddDiceParserTest < Test::Unit::TestCase
     )
   end
 
+  # 大きな出目から1個除く
+  def test_parse_drop_highest
+    test_parse(
+      "5D10DH",
+      "(Command (DiceRollWithFilter 5 10 :DH 1))"
+    )
+  end
+
+  # 大きな出目から複数個除く（面数省略）
+  def test_parse_drop_high_implicit_sides
+    test_parse(
+      "5DDH3",
+      "(Command (DiceRollWithFilter 5 :implicit :DH 3))"
+    )
+  end
+
+  # 大きな出目から1個除く（面数省略）
+  def test_parse_drop_highest_implicit_sides
+    test_parse(
+      "5DDH",
+      "(Command (DiceRollWithFilter 5 :implicit :DH 1))"
+    )
+  end
+
   # 小さな出目から複数個除く
   def test_parse_drop_low
     test_parse(
       "5D10DL3",
       "(Command (DiceRollWithFilter 5 10 :DL 3))"
+    )
+  end
+
+  # 小さな出目から1個除く
+  def test_parse_drop_lowest
+    test_parse(
+      "5D10DL",
+      "(Command (DiceRollWithFilter 5 10 :DL 1))"
+    )
+  end
+
+  # 小さな出目から複数個除く（面数省略）
+  def test_parse_drop_low_implicit_sides
+    test_parse(
+      "5DDL3",
+      "(Command (DiceRollWithFilter 5 :implicit :DL 3))"
+    )
+  end
+
+  # 小さな出目から1個除く（面数省略）
+  def test_parse_drop_lowest_implicit_sides
+    test_parse(
+      "5DDL",
+      "(Command (DiceRollWithFilter 5 :implicit :DL 1))"
     )
   end
 
@@ -244,6 +340,68 @@ class AddDiceParserTest < Test::Unit::TestCase
       "5D10DL3+1",
       "(Command (+ (DiceRollWithFilter 5 10 :DL 3) 1))"
     )
+  end
+
+  # 最大値抽出（ KH1 の簡易記法）
+  def test_parse_max
+    test_parse(
+      "3D6MAX",
+      "(Command (DiceRollWithFilter 3 6 :KH 1))"
+    )
+  end
+
+  # 最大値抽出、面数省略
+  def test_parse_max_implicit_sides
+    test_parse(
+      "3DMAX",
+      "(Command (DiceRollWithFilter 3 :implicit :KH 1))"
+    )
+  end
+
+  # 最大値抽出、修正値つき
+  def test_parse_max_with_modifier
+    test_parse(
+      "3D6MAX+2",
+      "(Command (+ (DiceRollWithFilter 3 6 :KH 1) 2))"
+    )
+  end
+
+  # 最大値抽出、パース不可
+  def test_not_parse_max
+    # 個数を指定できない
+    assert_not_parse("3D6MAX1")
+    assert_not_parse("3DMAX1")
+  end
+
+  # 最小値抽出（ KL1 の簡易記法）
+  def test_parse_min
+    test_parse(
+      "5D10MIN",
+      "(Command (DiceRollWithFilter 5 10 :KL 1))"
+    )
+  end
+
+  # 最小値抽出、面数省略
+  def test_parse_min_implicit_sides
+    test_parse(
+      "5DMIN",
+      "(Command (DiceRollWithFilter 5 :implicit :KL 1))"
+    )
+  end
+
+  # 最小値抽出、修正値つき
+  def test_parse_min_with_modifier
+    test_parse(
+      "5D10MIN-3",
+      "(Command (- (DiceRollWithFilter 5 10 :KL 1) 3))"
+    )
+  end
+
+  # 最小値抽出、パース不可
+  def test_not_parse_min
+    # 個数を指定できない
+    assert_not_parse("3D6MIN1")
+    assert_not_parse("3DMIN1")
   end
 
   def test_parse_filter_nested_dice
