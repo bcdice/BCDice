@@ -35,11 +35,10 @@ module BCDice
          IAA 遠距離 IAB 移動 IAC 近距離 IAD 善人 IAE 悪人
          IAF 幼い IAG バカ IAH 渋い IAI 賢い IAJ 超自然
         IAX イケメンアクション決定表 → IA表
-        
         ■本格的な戦闘
         CAC センターの行動決定
         DDC 対話ダメージ表
-        ・D66ダイスあり
+        ・D66ダイス昇順
       INFO_MESSAGE_TEXT
 
       def initialize(command)
@@ -69,14 +68,16 @@ module BCDice
           command_iax(command) ||
           RTT.roll_command(randomizer, command)
       end
-      
+
       private
-      
+
       def command_iax(command)
         return nil unless command == "IAX"
+
         ia = TABLES["IA"].choise(@randomizer.roll_d66(D66SortType::ASC))
         m = ia.body.match(/\((.+?)\)/)
         return ia unless m
+
         ia2 = TABLES[m[1]].choice(@randomizer.roll_once(6))
         return "#{ia} ＞ #{ia2}"
       end
@@ -438,10 +439,10 @@ module BCDice
             "不意打ち",
             "連続行動",
             "対話",
-           "威嚇",
-          "攻撃"
+            "威嚇",
+            "攻撃"
           ]
-          ) ,
+        ),
         "DDC" => DiceTable::Table.new(
           "対話ダメージ表",
           "1d6",
