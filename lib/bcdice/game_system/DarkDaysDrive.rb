@@ -38,7 +38,7 @@ module BCDice
         ■本格的な戦闘
         CAC センターの行動決定
         DDC 対話ダメージ表
-        ・D66ダイス昇順
+        ・D66ダイス昇順 git remote
       INFO_MESSAGE_TEXT
 
       def initialize(command)
@@ -74,7 +74,7 @@ module BCDice
       def command_iax(command)
         return nil unless command == "IAX"
 
-        ia = TABLES["IA"].choise(@randomizer.roll_d66(D66SortType::ASC))
+        ia = TABLES["IA"].choice(@randomizer.roll_d66(D66SortType::ASC))
         m = ia.body.match(/\((.+?)\)/)
         return ia unless m
 
