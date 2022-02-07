@@ -46,7 +46,7 @@ module BCDice
 
       # @return [Command::Parser] PPCコマンドの構文解析器
       def self.ppc_parser
-        return @ppc_parser if @ppc_parser
+        return @ppc_parser if defined?(@ppc_parser) && @ppc_parser
 
         @ppc_parser = Command::Parser.new(/PPC(?:[LCR][LU]?)?/, round_type: RoundType::FLOOR)
         @ppc_parser.enable_prefix_number
