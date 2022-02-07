@@ -35,11 +35,11 @@ module BCDice
         attr_accessor :modifier_after_half
 
         def settable_first_roll_adjust_option?
-          return @first_modify.nil? && @first_to.nil?
+          return first_modify.nil? && first_to.nil?
         end
 
         def settable_non_2d_roll_option?
-          return @greatest_fortune.nil? && @semi_fixed_val.nil? && @tmp_fixed_val.nil?
+          return greatest_fortune.nil? && semi_fixed_val.nil? && tmp_fixed_val.nil?
         end
       end
     end
