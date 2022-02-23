@@ -2,6 +2,7 @@
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3"
 output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗!"
+failure = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -12,6 +13,7 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3"
 output = "(3D10) ＞ [2,6,10]  成功数=2 難易度=3：判定失敗!"
+failure = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 6 },
@@ -22,6 +24,7 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3"
 output = "(3D10) ＞ [7,9,6]  成功数=3 難易度=3：判定成功!"
+success = true
 rands = [
   { sides = 10, value = 7 },
   { sides = 10, value = 9 },
@@ -32,6 +35,8 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3"
 output = "(3D10) ＞ [2,10,10]  成功数=4 難易度=3：判定成功! [Critical Win]"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -42,6 +47,8 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "3VMF5"
 output = "(5D10) ＞ [10,10,10,10,10]  成功数=9 難易度=3：判定成功! [Critical Win]"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -54,6 +61,7 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3+2"
 output = "(3D10+2D10) ＞ [2,5,9]+[2,6]  成功数=2 難易度=3：判定失敗!"
+failure = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -66,6 +74,8 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3+2"
 output = "(3D10+2D10) ＞ [2,5,9]+[1,2]  成功数=1 難易度=3：判定失敗! [Bestial Failure]"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -78,6 +88,7 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3+2"
 output = "(3D10+2D10) ＞ [8,2,6]+[1,7]  成功数=3 難易度=3：判定成功!"
+success = true
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 2 },
@@ -90,6 +101,8 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3+2"
 output = "(3D10+2D10) ＞ [10,10,10]+[4,7]  成功数=6 難易度=3：判定成功! [Critical Win]"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -102,6 +115,8 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3+2"
 output = "(3D10+2D10) ＞ [10,10,6]+[1,10]  成功数=6 難易度=3：判定成功! [Messy Critical]"
+success = true
+critical = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -112,8 +127,37 @@ rands = [
 
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
+input = "3VMF3+2"
+output = "(3D10+2D10) ＞ [10,8,6]+[1,10]  成功数=6 難易度=3：判定成功! [Messy Critical]"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF3+2"
+output = "(3D10+2D10) ＞ [1,4,5]+[10,10]  成功数=4 難易度=3：判定成功! [Messy Critical]"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
 input = "VMF3"
 output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗!"
+failure = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -144,6 +188,7 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "VMF3+2"
 output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗!"
+failure = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -156,6 +201,8 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "VMF3+2"
 output = "(3D10+2D10) ＞ [2,5,1]+[4,1]  成功数=0：判定失敗! [Bestial Failure]"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -276,6 +323,7 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3"
 output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗!"
+failure = true
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -287,6 +335,7 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3"
 output = "(3D10) ＞ [2,6,10]  成功数=2 難易度=3：判定失敗!"
+failure = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -298,6 +347,7 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3"
 output = "(3D10) ＞ [7,9,6]  成功数=3 難易度=3：判定成功!"
+success = true
 secret = true
 rands = [
   { sides = 10, value = 7 },
@@ -309,6 +359,8 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3"
 output = "(3D10) ＞ [2,10,10]  成功数=4 難易度=3：判定成功! [Critical Win]"
+success = true
+critical = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -320,6 +372,8 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF5"
 output = "(5D10) ＞ [10,10,10,10,10]  成功数=9 難易度=3：判定成功! [Critical Win]"
+success = true
+critical = true
 secret = true
 rands = [
   { sides = 10, value = 10 },
@@ -333,6 +387,7 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3+2"
 output = "(3D10+2D10) ＞ [2,5,9]+[2,6]  成功数=2 難易度=3：判定失敗!"
+failure = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -346,6 +401,8 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3+2"
 output = "(3D10+2D10) ＞ [2,5,9]+[1,2]  成功数=1 難易度=3：判定失敗! [Bestial Failure]"
+failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -359,6 +416,7 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3+2"
 output = "(3D10+2D10) ＞ [8,2,6]+[1,7]  成功数=3 難易度=3：判定成功!"
+success = true
 secret = true
 rands = [
   { sides = 10, value = 8 },
@@ -372,6 +430,8 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3+2"
 output = "(3D10+2D10) ＞ [10,10,10]+[4,7]  成功数=6 難易度=3：判定成功! [Critical Win]"
+success = true
+critical = true
 secret = true
 rands = [
   { sides = 10, value = 10 },
@@ -385,6 +445,8 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3+2"
 output = "(3D10+2D10) ＞ [10,10,6]+[1,10]  成功数=6 難易度=3：判定成功! [Messy Critical]"
+success = true
+critical = true
 secret = true
 rands = [
   { sides = 10, value = 10 },
@@ -396,8 +458,39 @@ rands = [
 
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
+input = "S3VMF3+2"
+output = "(3D10+2D10) ＞ [10,8,6]+[1,10]  成功数=6 難易度=3：判定成功! [Messy Critical]"
+success = true
+critical = true
+secret = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "S3VMF3+2"
+output = "(3D10+2D10) ＞ [1,4,5]+[10,10]  成功数=4 難易度=3：判定成功! [Messy Critical]"
+success = true
+critical = true
+secret = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
 input = "SVMF3"
 output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗!"
+failure = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -431,6 +524,7 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "SVMF3+2"
 output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗!"
+failure = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -444,6 +538,8 @@ rands = [
 game_system = "VampireTheMasquerade5th"
 input = "SVMF3+2"
 output = "(3D10+2D10) ＞ [2,5,1]+[4,1]  成功数=0：判定失敗! [Bestial Failure]"
+failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
