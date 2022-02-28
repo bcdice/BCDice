@@ -71,25 +71,46 @@ module BCDice
 
         difficulty = m[DIFFICULTY_INDEX] ? m[DIFFICULTY_INDEX].to_i : NOT_CHECK_SUCCESS
 
+        return get_roll_result(result_text, success_dice, ten_dice, hunger_ten_dice, hunger_botch_dice, difficulty)
+      end
+
+      private
+
+      def get_roll_result(result_text, success_dice, ten_dice, hunger_ten_dice, hunger_botch_dice, difficulty)
         result_text = "#{result_text} 成功数=#{success_dice}"
 
         if difficulty > 0
+          result_text = "#{result_text} 難易度=#{difficulty}"
+
           if success_dice >= difficulty
-            judgment_result = get_success_result(ten_dice >= 2, hunger_ten_dice)
+            is_critical = ten_dice >= 2
+
+            if hunger_ten_dice > 0 && is_critical
+              return Result.critical("#{result_text}：判定成功! [Messy Critical]")
+            elsif is_critical
+              return Result.critical("#{result_text}：判定成功! [Critical Win]")
+            end
+
+            return Result.success("#{result_text}：判定成功!")
           else
-            judgment_result = get_fail_result(hunger_botch_dice)
+            if hunger_botch_dice > 0
+              return Result.fumble("#{result_text}：判定失敗! [Bestial Failure]")
+            end
+
+            return Result.failure("#{result_text}：判定失敗!")
           end
-          result_text = "#{result_text} 難易度=#{difficulty}#{judgment_result}"
         elsif difficulty < 0
           if success_dice == 0
-            judgment_result = get_fail_result(hunger_botch_dice)
-          else
-            judgment_result = ""
+            if hunger_botch_dice > 0
+              return Result.fumble("#{result_text}：判定失敗! [Bestial Failure]")
+            end
+
+            return Result.failure("#{result_text}：判定失敗!")
           end
-          result_text = "#{result_text}#{judgment_result}"
         end
 
-        return result_text
+        # 難易度0指定(=全ての判定チェックを行わない)
+        return result_text.to_s
       end
 
       def get_critical_success(ten_dice)
@@ -106,26 +127,6 @@ module BCDice
         botch_dice = dice_list.count(1)
 
         return dice_text, success_dice, ten_dice, botch_dice
-      end
-
-      def get_success_result(is_critical, hunger_ten_dice)
-        judgment_result = "：判定成功!"
-        if hunger_ten_dice > 0 && is_critical
-          return "#{judgment_result} [Messy Critical]"
-        elsif is_critical
-          return "#{judgment_result} [Critical Win]"
-        end
-
-        return judgment_result
-      end
-
-      def get_fail_result(hunger_botch_dice)
-        judgment_result = "：判定失敗!"
-        if hunger_botch_dice > 0
-          return "#{judgment_result} [Bestial Failure]"
-        end
-
-        return judgment_result
       end
     end
   end
