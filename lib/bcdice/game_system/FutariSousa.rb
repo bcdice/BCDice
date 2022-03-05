@@ -19,13 +19,25 @@ module BCDice
         助手用：【AS】…6面ダイスを2つ振って判定します。『有利』なら【3AS】、『不利』なら【1AS】を使います。
         ・各種表
         【調査時】
-        異常な癖決定表 SHRD
-        　口から出る表 SHFM／強引な捜査表　　　 SHBT／すっとぼけ表　 SHPI
-        　事件に夢中表 SHEG／パートナーと……表 SHWP／何かしている表 SHDS
-        　奇想天外表　 SHFT／急なひらめき表　　 SHIN／喜怒哀楽表　　 SHEM
+        異常な癖決定表　　　　　 SHRD／新・異常な癖決定表　　 SHND
+        普通の？・異常な癖決定表 SHAD／ケイジ異常な癖決定表　 SHKD
+        　口から出る表　　　 SHFM／強引な捜査表　　　　　 SHBT／すっとぼけ表　　　　　　 SHPI
+        　事件に夢中表　　　 SHEG／パートナーと……表　　　 SHWP／何かしている表　　　　　 SHDS
+        　奇想天外表　　　　 SHFT／急なひらめき表　　　　 SHIN／喜怒哀楽表　　　　　　　 SHEM
+        　人間エミュレート表 SHHE／人間エミュレート失敗表 SHHF／パートナーへのいたずら表 SHMP
+        　思わせぶり表　　　 SHSB／もどかしい表　　　　　 SHFR／突然どうした表　　　　　 SHIS
+        　わがままを言う表　 SHSE／普通に見える表　　　　 SHLM／嫉妬に狂う表　　　　　　 SHJS
+        　傲慢な態度表　　　 SHAR／比較的軽度なもの表　　 SHRM／ノータイム表　　　　　　 SHNT
+        　捜査のやり方表　　 SHIM／貴族表　　　　　　　　 SHNO／説明しない表　　　　　　 SHNE
+        　刑事としての癖表　 SHHD
         イベント表
         　現場にて　 EVS／なぜ？　 EVW／協力者と共に EVN
         　向こうから EVC／VS容疑者 EVV
+        　閉鎖空間　 EVE
+        　探偵のみ捜査 EVD／助手のみ捜査　　 EVA／観光捜査　 EVT
+        　思わぬヒント EVH／実験をしてみよう EVX／ゲスト捜査 EVG
+        　ケイジ聞き込み捜査　　　 EVQ／ケイジ大規模捜査　　　　　 EVM／こっそり情報の受け渡し EVP
+        　同僚たちと一緒に捜査する EVO／頻染みの店シチュエーション EVF／ハードBデカアクション  EVB
         調査の障害表 OBT　　変調表 ACT　　目撃者表 EWT　　迷宮入り表 WMT
         【設定時】
         背景表
@@ -111,6 +123,9 @@ module BCDice
         def translate_tables(locale)
           {
             "SHRD" => DiceTable::Table.from_i18n("FutariSousa.table.SHRD", locale),
+            "SHND" => DiceTable::Table.from_i18n("FutariSousa.table.SHND", locale),
+            "SHAD" => DiceTable::Table.from_i18n("FutariSousa.table.SHAD", locale),
+            "SHKD" => DiceTable::Table.from_i18n("FutariSousa.table.SHKD", locale),
             "SHFM" => DiceTable::Table.from_i18n("FutariSousa.table.SHFM", locale),
             "SHBT" => DiceTable::Table.from_i18n("FutariSousa.table.SHBT", locale),
             "SHPI" => DiceTable::Table.from_i18n("FutariSousa.table.SHPI", locale),
@@ -120,11 +135,40 @@ module BCDice
             "SHFT" => DiceTable::Table.from_i18n("FutariSousa.table.SHFT", locale),
             "SHIN" => DiceTable::Table.from_i18n("FutariSousa.table.SHIN", locale),
             "SHEM" => DiceTable::Table.from_i18n("FutariSousa.table.SHEM", locale),
+            "SHHE" => DiceTable::Table.from_i18n("FutariSousa.table.SHHE", locale),
+            "SHHF" => DiceTable::Table.from_i18n("FutariSousa.table.SHHF", locale),
+            "SHMP" => DiceTable::Table.from_i18n("FutariSousa.table.SHMP", locale),
+            "SHSB" => DiceTable::Table.from_i18n("FutariSousa.table.SHSB", locale),
+            "SHFR" => DiceTable::Table.from_i18n("FutariSousa.table.SHFR", locale),
+            "SHIS" => DiceTable::Table.from_i18n("FutariSousa.table.SHIS", locale),
+            "SHSE" => DiceTable::Table.from_i18n("FutariSousa.table.SHSE", locale),
+            "SHLM" => DiceTable::Table.from_i18n("FutariSousa.table.SHLM", locale),
+            "SHJS" => DiceTable::Table.from_i18n("FutariSousa.table.SHJS", locale),
+            "SHAR" => DiceTable::Table.from_i18n("FutariSousa.table.SHAR", locale),
+            "SHRM" => DiceTable::Table.from_i18n("FutariSousa.table.SHRM", locale),
+            "SHNT" => DiceTable::Table.from_i18n("FutariSousa.table.SHNT", locale),
+            "SHIM" => DiceTable::Table.from_i18n("FutariSousa.table.SHIM", locale),
+            "SHNO" => DiceTable::Table.from_i18n("FutariSousa.table.SHNO", locale),
+            "SHNE" => DiceTable::Table.from_i18n("FutariSousa.table.SHNE", locale),
+            "SHHD" => DiceTable::Table.from_i18n("FutariSousa.table.SHHD", locale),
             "EVS" => DiceTable::Table.from_i18n("FutariSousa.table.EVS", locale),
             "EVW" => DiceTable::Table.from_i18n("FutariSousa.table.EVW", locale),
             "EVN" => DiceTable::Table.from_i18n("FutariSousa.table.EVN", locale),
             "EVC" => DiceTable::Table.from_i18n("FutariSousa.table.EVC", locale),
             "EVV" => DiceTable::Table.from_i18n("FutariSousa.table.EVV", locale),
+            "EVE" => DiceTable::Table.from_i18n("FutariSousa.table.EVE", locale),
+            "EVD" => DiceTable::Table.from_i18n("FutariSousa.table.EVD", locale),
+            "EVA" => DiceTable::Table.from_i18n("FutariSousa.table.EVA", locale),
+            "EVT" => DiceTable::Table.from_i18n("FutariSousa.table.EVT", locale),
+            "EVH" => DiceTable::Table.from_i18n("FutariSousa.table.EVH", locale),
+            "EVX" => DiceTable::Table.from_i18n("FutariSousa.table.EVX", locale),
+            "EVG" => DiceTable::Table.from_i18n("FutariSousa.table.EVG", locale),
+            "EVQ" => DiceTable::Table.from_i18n("FutariSousa.table.EVQ", locale),
+            "EVM" => DiceTable::Table.from_i18n("FutariSousa.table.EVM", locale),
+            "EVP" => DiceTable::Table.from_i18n("FutariSousa.table.EVP", locale),
+            "EVO" => DiceTable::Table.from_i18n("FutariSousa.table.EVO", locale),
+            "EVF" => DiceTable::Table.from_i18n("FutariSousa.table.EVF", locale),
+            "EVB" => DiceTable::Table.from_i18n("FutariSousa.table.EVB", locale),
             "OBT" => DiceTable::D66Table.from_i18n("FutariSousa.table.OBT", locale),
             "ACT" => DiceTable::Table.from_i18n("FutariSousa.table.ACT", locale),
             "EWT" => DiceTable::Table.from_i18n("FutariSousa.table.EWT", locale),
