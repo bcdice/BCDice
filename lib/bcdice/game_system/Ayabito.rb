@@ -61,7 +61,7 @@ module BCDice
 
         dice_arr = @randomizer.roll_barabara(dice_cnt, 6).sort
         dice_str = dice_arr.join(",")
-        has_critical = (dice_arr.count { |x| x >= critical_target } > 0)
+        has_critical = dice_arr.any? { |x| x >= critical_target }
         success_cnt = dice_arr.count { |x| x >= 4 } + dice_arr.count(6) + over_modify * 2
         has_fumble = success_cnt == 0 && dice_arr.include?(1)
         if has_fumble
