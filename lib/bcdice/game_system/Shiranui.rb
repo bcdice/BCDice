@@ -37,7 +37,7 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         if (m = INFINITE_D66_ROLL_REG.match(command))
-          fixed_score = m[1].nil? ? nil : m[1].to_i
+          fixed_score = m[1]&.to_i
           roll_infinite_d66(fixed_score)
         end
       end
