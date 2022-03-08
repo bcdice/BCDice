@@ -1,0 +1,155 @@
+[[ test ]]
+game_system = "Shiranui"
+input = "∞D666"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Shiranui"
+input = "∞D66"
+output = "(∞D66) ＞ [1,2] ＞ 12"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Shiranui"
+input = "∞d66"
+output = "(∞D66) ＞ [1,2] ＞ 12"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Shiranui"
+input = "ID66"
+output = "(∞D66) ＞ [5,6] ＞ 56"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Shiranui"
+input = "id66"
+output = "(∞D66) ＞ [1,1] ＞ しくじり"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+failure = true
+fumble = true
+
+[[ test ]]
+game_system = "Shiranui"
+input = "ID66"
+output = "(∞D66) ＞ [3,3] ＞ [5,6] ＞ 30+56 ＞ 86"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+critical = true
+
+[[ test ]]
+game_system = "Shiranui"
+input = "ID66"
+output = "(∞D66) ＞ [3,3] ＞ [1,1] ＞ 30+0 ＞ 30"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+critical = true
+
+[[ test ]]
+game_system = "Shiranui"
+input = "ID66"
+output = "(∞D66) ＞ [2,2] ＞ [6,6] ＞ [1,4] ＞ 20+60+14 ＞ 94"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+critical = true
+
+[[ test ]]
+game_system = "Shiranui"
+input = "5+∞d66"
+output = "(5+∞D66) ＞ [1,2] ＞ 5+(12) ＞ 17"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Shiranui"
+input = "13+id66"
+output = "(13+∞D66) ＞ [1,1] ＞ しくじり"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+failure = true
+fumble = true
+
+[[ test ]]
+game_system = "Shiranui"
+input = "8+ID66"
+output = "(8+∞D66) ＞ [3,3] ＞ [5,6] ＞ 8+(30+56) ＞ 94"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+critical = true
+
+[[ test ]]
+game_system = "Shiranui"
+input = "17+ID66"
+output = "(17+∞D66) ＞ [3,3] ＞ [1,1] ＞ 17+(30+0) ＞ 47"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+critical = true
+
+[[ test ]]
+game_system = "Shiranui"
+input = "3+ID66"
+output = "(3+∞D66) ＞ [2,2] ＞ [6,6] ＞ [1,4] ＞ 3+(20+60+14) ＞ 97"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+critical = true
+
+[[ test ]]
+game_system = "Shiranui"
+input = "OMKJ"
+output = "おみくじ(1) ＞ 大凶［御利益１］――このみくじにあたる人は、凶運から逃れることができぬ者なり。まさに凶運にその身をゆだねてこそ、浮かぶ瀬もあれ。……これより上演中に演者が振る［∞Ｄ66］で初めて⚀⚀が出たら、御利益を使っても振り直しができない。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Shiranui"
+input = "omkj"
+output = "おみくじ(6) ＞ 大吉［御利益６］――このみくじにあたる人は、思いもよらぬ幸運に巡り合う者なり。まさに、暗き道より出て、気づけば月の光あり。……これより上演中に演者が振る［∞Ｄ66］で１回だけ、サイコロの出目を⚅⚅に変えてよい。"
+rands = [
+  { sides = 6, value = 6 },
+]
