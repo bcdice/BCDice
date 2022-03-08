@@ -137,7 +137,7 @@ module BCDice
             "大吉［御利益６］――このみくじにあたる人は、思いもよらぬ幸運に巡り合う者なり。まさに、暗き道より出て、気づけば月の光あり。……これより上演中に演者が振る［∞Ｄ66］で１回だけ、サイコロの出目を⚅⚅に変えてよい。",
           ]
         ),
-      }.transform_keys(&:upcase).freeze
+      }.freeze
 
       register_prefix(TABLES.keys)
     end
