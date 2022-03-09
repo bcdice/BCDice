@@ -1,0 +1,377 @@
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "3B6>=5" # 判定のダイスロール（汎用コマンド）
+output = "(3B6>=5) ＞ 1,5,4 ＞ 成功数1"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "ResourceLose"
+output = "資源の減少チェック(1) ＞ 〈食料〉"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rlose"
+output = "資源の減少チェック(6) ＞ ［資源の減少チェック］をもう１回行なう。その際、減少する資源は１ではなく２となる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "ResourceGain"
+output = "獲得資源決定(1) ＞ 〈食料〉"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rgain"
+output = "獲得資源決定(6) ＞ 任意、好きな資源を手に入れる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomArea"
+output = "都市／荒野決定(1) ＞ 荒野エリア決定表へ（ → RWaste ）"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "randomarea"
+output = "都市／荒野決定(3) ＞ 荒野エリア決定表へ（ → RWaste ）"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rarea"
+output = "都市／荒野決定(4) ＞ 都市エリア決定表へ（ → RUrban ）"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rarea"
+output = "都市／荒野決定(6) ＞ 都市エリア決定表へ（ → RUrban ）"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomWaste"
+output = "荒野エリア決定(1) ＞ 平原――地平線の果てまで続く、茫漠とした荒野。それを貫くように走るハイウェイの痕跡。その沿道に廃墟が点在している。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "randomwaste"
+output = "荒野エリア決定(2) ＞ 平原――地平線の果てまで続く、茫漠とした荒野。それを貫くように走るハイウェイの痕跡。その沿道に廃墟が点在している。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rwaste"
+output = "荒野エリア決定(3) ＞ 砂漠――砂漠がどこまでも広がっている。大海に浮かぶ島のように、倒壊した高層ビルが顔を出している。熱と渇きが旅人を苛む。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rwaste"
+output = "荒野エリア決定(6) ＞ 山岳――旅人の前にそびえる巨大な山塊。山越えは落石や崩落の危険性など、通過するだけでリスクが高い。だが他に道はない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomUrban"
+output = "都市エリア決定(2) ＞ 無人都市――かつて栄華を誇ったメトロポリス。だが今、旅人のほかに動いているものはいない。無数のビル群が墓標のようにそびえる。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rurban"
+output = "都市エリア決定(3) ＞ 要塞都市――巨大な城壁と、朽ち果てた無人防衛兵器群によって守られた要塞都市。この都市が守ろうとした住人はもういない。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomObs"
+output = "障害シーン決定(1) ＞ 技術系Ａ（ → ROTA ）"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "robs"
+output = "障害シーン決定(6) ＞ 戦闘系Ｂ（ → ROCB ）"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomObsTechA"
+output = "ランダム障害シーン／技術系Ａ(2) ＞ 電子ロック――電子ロックが生きている倉庫を発見。ロックを開けて中の資源を回収する。【技術】の協力判定を行なう。成功数３以上なら［リワード］を１得る。成功数０なら［資源の減少チェック］１回。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rota"
+output = "ランダム障害シーン／技術系Ａ(3) ＞ 発電機の再生――停止した風力発電機（風車）を発見。発電効率は低いが、復旧させればロボットのバッテリーを充電できる。【技術】の協力判定を行なう。成功数３以上なら［リワード］を１得る。成功数０なら〈電力〉－１。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomObsTechB"
+output = "ランダム障害シーン／技術系Ｂ(2) ＞ 悪路走破――ヴィークルで悪路を走る。スピードを落とさず走り抜ければ、時間的消耗を抑えることができる。【技術】の協力判定を行なう。成功数３以上なら［リワード］を１得る。成功数０なら［資源の減少チェック］を１回行なう。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rotb"
+output = "ランダム障害シーン／技術系Ｂ(3) ＞ 食料生産プラント――食料生産プラント跡を発見。うまく復旧すれば、最後に残った材料で食料を生産できる。【技術】の協力判定を行なう。成功数３以上なら［リワード］を１得る。成功数０なら〈食料〉－１。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomObsSurviveA"
+output = "ランダム障害シーン／生存系Ａ(2) ＞ 迷い路――入り組んだ地域を進む。方向感覚を失えば、さらなる消耗を強いられる。【生存】の協力判定を行なう。成功数３以上なら［リワード］を１得る。成功数０なら道に迷い、［資源の減少チェック］を１回行なう。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rosa"
+output = "ランダム障害シーン／生存系Ａ(3) ＞ 危険地帯――ガスや汚染物質に満ちた危険地帯を通過する。ロボットはともかく、人間は長居できない。【生存】の協力判定を行なう。成功数３以上なら［リワード］を１得る。成功数０なら人間は負傷し〈健康〉－１。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomObsSurviveB"
+output = "ランダム障害シーン／生存系Ｂ(2) ＞ 隠れんぼ――狂暴なミュータントの群を発見。隠れてやりすごせ。【生存】の協力判定を行なう。成功数３以上なら［リワード］を１得る。成功数０なら［資源の減少チェック］を１回行なう。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rosb"
+output = "ランダム障害シーン／生存系Ｂ(3) ＞ ソーラーパネル掃除――ソーラーパネルを繁茂したミュータント植物が覆っている。植物を刈り取ってパネルを復旧し、電力を得よう。【生存】の協力判定を行なう。成功数３以上なら［リワード］を１得る。成功数０なら〈電力〉－１。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomObsCombatA"
+output = "ランダム障害シーン／戦闘系Ａ(2) ＞ 大群との遭遇――狂暴なミュータントの群の襲撃を受ける。激しい戦闘で消耗戦となる。【戦闘】の協力判定を行なう。成功数３以上なら［リワード］を１得る。成功数０なら［資源の減少チェック］を１回行なう。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "roca"
+output = "ランダム障害シーン／戦闘系Ａ(3) ＞ 地獄の毒々ミュータント――猛毒を持つ狂暴なミュータントが襲ってくる。うまく毒を避けて倒さなければ。【戦闘】の協力判定を行なう。成功数３以上なら［リワード］を１得る。成功数０なら〈健康〉－１。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomObsCombatB"
+output = "ランダム障害シーン／戦闘系Ｂ(2) ＞ 瓦礫撤去――巨大な瓦礫が進路を塞いでいる。破壊して通らなければ、遠回りを強いられ消耗する。【戦闘】の協力判定を行なう。成功数３以上なら［リワード］を１得る。成功数０なら［資源の減少チェック］を１回行なう。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rocb"
+output = "ランダム障害シーン／戦闘系Ｂ(3) ＞ 溶解ミュータント――金属や樹脂を溶かすミュータントに遭遇。執拗にロボットを狙ってくる。【戦闘】の協力判定を行なう。成功数３以上なら［リワード］を１得る。成功数０なら〈パーツ〉－１。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomEmo"
+output = "旅情シーン決定(1) ＞ 日常系Ａ（ → REDA ）"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "remo"
+output = "旅情シーン決定(6) ＞ 追憶系Ｃ（ → RERC ）"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomEmoDailyA"
+output = "ランダム旅情シーン／日常系Ａ(2) ＞ 野営――ふたりぼっちの夜がくる。熱を失わないよう、火を焚き、寄り添う。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "reda"
+output = "ランダム旅情シーン／日常系Ａ(3) ＞ 暇つぶし――悪天候などにより、停滞を余儀なくされる。暇だ。とにかく暇だ。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomEmoDailyB"
+output = "ランダム旅情シーン／日常系Ｂ(2) ＞ 食事――人間は、ものを食べなければ生きていけない。どうせいつかは死ぬのに、不便なことだ。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "redb"
+output = "ランダム旅情シーン／日常系Ｂ(3) ＞ 観察――もうひとりの旅人を観察する。今まで知らなかった一面が見られるかもしれない。知らない方がよかったかもしれない。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomEmoDailyC"
+output = "ランダム旅情シーン／日常系Ｃ(2) ＞ 記録――日記でも、写真、スケッチ、なんでもいい。今この瞬間を、形にして残しておきたい。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "redc"
+output = "ランダム旅情シーン／日常系Ｃ(3) ＞ 酒――なんと生きている酒蔵を発見。飲もうぜ、今宵、銀河を杯にして。ロボットが酔えるかは知らん。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomEmoReminiscenceA"
+output = "ランダム旅情シーン／追憶系Ａ(2) ＞ 住居――住居跡を訪れる。ミイラ化した人間の死体を発見する。だいぶ前に死んだものだ。この死体はどう生き、どう死んだのだろう？"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rera"
+output = "ランダム旅情シーン／追憶系Ａ(3) ＞ 届かなかった手紙――郵便ポストを発見する。配達されなかった手紙が残されている。恋文、借金の督促など、往時の人類の日常を垣間見る。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomEmoReminiscenceB"
+output = "ランダム旅情シーン／追憶系Ｂ(2) ＞ 人の遺したもの――文化施設跡（博物館、図書館、美術館）を訪れる。人類が築いた文化の残滓を垣間見る。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rerb"
+output = "ランダム旅情シーン／追憶系Ｂ(3) ＞ 残骸――旅人のロボットとよく似た、別のロボットの残骸を発見する。このロボットは何のために動き、ここで力尽きたのだろう。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomEmoReminiscenceC"
+output = "ランダム旅情シーン／追憶系Ｃ(2) ＞ 兵どもが夢の跡――戦場跡を通過する。動かなくなった兵器があちこちに散らばっている。彼らは何と、何のために戦ったのだろう？"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rerc"
+output = "ランダム旅情シーン／追憶系Ｃ(3) ＞ 地下鉄――廃墟の地下鉄。旅人が車両に乗ると、自動制御で勝手に走り出す。次の駅に到着すると、最後まで残っていた電力が尽きる。終電だったらしい。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomDangerousWaste"
+output = "ランダム難所シーン／荒野系(1) ＞ 渡河（ p27 ）"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rdw"
+output = "ランダム難所シーン／荒野系(6) ＞ 殺戮兵器、起動（ p28 ）"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "RandomDangerousUrban"
+output = "ランダム難所シーン／都市系(1) ＞ 亀裂を超える（ p29 ）"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuKikou"
+input = "rdu"
+output = "ランダム難所シーン／都市系(6) ＞ 地底よりの恐怖（ p30 ）"
+rands = [
+  { sides = 6, value = 6 },
+]
