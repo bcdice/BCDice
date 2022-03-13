@@ -89,7 +89,7 @@ module BCDice
           ・キャラ作成アプリ：https://nctrpg.com/bloomi
 
           ・判定(xD6±y>=z)
-          
+
           ()内のコマンドを入力して詳細を表示。
 
           2D6(CHAR1)　・所属表(2D6またはRoC。基本ルール書籍版P33)
