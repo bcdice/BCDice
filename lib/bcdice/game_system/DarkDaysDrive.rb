@@ -75,7 +75,7 @@ module BCDice
         return nil unless command == "IAX"
 
         ia = TABLES["IA"].choice(@randomizer.roll_d66(D66SortType::ASC))
-        m = ia.body.match(/\((.+?)\)/)
+        m = ia.body.match(/\(([A-Z]+)\)/)
         return ia unless m
 
         ia2 = TABLES[m[1]].choice(@randomizer.roll_once(6))
