@@ -252,6 +252,30 @@ rands = [
 
 [[ test ]]
 game_system = "FutariSousa"
+input = "SHND"
+output = "新・異常な癖決定表(6) ＞ 「異常な癖・突然どうした表」を使用する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHAD"
+output = "普通の？・異常な癖決定表(6) ＞ 「異常な癖・ノータイム表」を使用する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHKD"
+output = "ケイジ異常な癖決定表(6) ＞ この表を振り直す"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
 input = "SHFM"
 output = "異常な癖・口から出る表(10) ＞ 「黙っていろ」"
 rands = [
@@ -324,6 +348,142 @@ rands = [
 
 [[ test ]]
 game_system = "FutariSousa"
+input = "SHHE"
+output = "異常な癖・人間エミュレート表(10) ＞ 助手の言葉に納得する"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHHF"
+output = "異常な癖・人間エミュレート失敗表(10) ＞ 助手に納得するフリをしているのを見抜かれる"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHMP"
+output = "異常な癖・パートナーへのいたずら表(10) ＞ かくれんぼをしてみる"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHSB"
+output = "異常な癖・思わせぶり表(10) ＞ 「まだ確信が持てない」"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHFR"
+output = "異常な癖・もどかしい表(10) ＞ パートナーに対して言いたいことがあるが、言わないまま終わる"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHIS"
+output = "異常な癖・突然どうした表(10) ＞ パートナーとの関係を考え直す"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHSE"
+output = "異常な癖・わがままを言う表(10) ＞ わがままを言う。それが解消されてもされなくても次のわがままを言う"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHLM"
+output = "異常な癖・普通に見える表(10) ＞ 辛いときは辛いと言う。嬉しいときは嬉しいと言う"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHJS"
+output = "異常な癖・嫉妬に狂う表(10) ＞ 自分を安心させる言葉をパートナーから引き出そうとして必死になる"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHAR"
+output = "異常な癖・傲慢な態度表(10) ＞ ナチュラルに上から目線"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHRM"
+output = "異常な癖・比較的軽度なもの表(10) ＞ 急にやる気を出す"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHNT"
+output = "異常な癖・ノータイム表(10) ＞ 人々に指示を出して動かしているが、何のためかは説明しない"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHNT"
+output = "異常な癖・ノータイム表(4) ＞ 「そうだ！」と言ってパートナーの手を引っ張って移動する"
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHIM"
+output = "異常な癖・捜査のやり方表(10) ＞ 過去の類似事件を引き合いに出す"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHNO"
+output = "異常な癖・貴族表(10) ＞ 食事の予約をしている"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHNE"
+output = "異常な癖・説明しない表(10) ＞ 「理解しました」"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHHD"
+output = "異常な癖・刑事としての癖表(10) ＞ 監視カメラの位置を確認する"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
 input = "EVS"
 output = "現場にて／イベント表(6) ＞ 逃げた人物（P.170）\n　脱兎のごとく、誰かが現場から逃げている。\n　その人物の走り方、焦り方は普通ではなかった。\n　これは、何かを知っている。あるいは、何かを持ち去った可能性がある。\n　PCたちは、追いかけ始めた。"
 rands = [
@@ -358,6 +518,110 @@ rands = [
 game_system = "FutariSousa"
 input = "EVV"
 output = "VS容疑者／イベント表(6) ＞ 鬼の居ぬ間に（P.194）\n　その容疑者の元を訪ねたとき、偶然にも席をはずしていた。\n　これはチャンス。\n　そう思ってしまうのが、探偵の悲しい性だ。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVE"
+output = "閉鎖空間／イベント表(6) ＞ 気をたしかに（怪盗からの誘惑P.37）\n　外と連絡がつかない。\n　外に出られない。\n　そういう状況は、人の心を荒ませる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVD"
+output = "探偵のみ捜査／イベント表(6) ＞ イマジナリー助手（あなたと仲良くなる方法P.75）\n　誰もいないのに、横にいるはずの誰かに事件の解説をしてしまう。横にいるはずの誰かに頼みごとをしてしまう。\n　そんなことを繰り返しているうちに、助手はここにいるのではないかという気になってきた。\n　いっそのこと、頭の中の助手と一緒に推理してみようか。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVA"
+output = "助手のみ捜査／イベント表(6) ＞ 自分だけでも（あなたと仲良くなる方法P.81）\n　あいつには負けられない。あの人を助けたい。\n　それが、今の自分を動かしている。\n　……どうして、そんなにがんばれるんだろう？"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVT"
+output = "観光捜査／イベント表(6) ＞ 地元の人に助けられて（あなたと仲良くなる方法P.87）\n　困ったことに、捜査が手詰まりになった。\n　そんなとき、助け舟を出してくれた人がいる。\n　なぜだか、妙に存在感がある人だ。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVH"
+output = "思わぬヒント／イベント表(6) ＞ 生活空間の中から（あなたと仲良くなる方法P.93）\n　休むことになった。\n　しばらく、まずは日常の中に戻ることにしよう。\n　だけど、頭はまだ捜査モードのまま切り替えられていない。気が付くと、事件のことばかり考えてしまう。\n　リラックスは、難しそうだ。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVX"
+output = "実験をしてみよう／イベント表(6) ＞ 新兵器、登場（あなたと仲良くなる方法P.99）\n　この時を待っていた。\n　ここで使わなければ、いつ使う。\n　捜査解決の新兵器、登場。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVG"
+output = "ゲスト捜査／イベント表(6) ＞ ゲスト、暴走中（あなたと仲良くなる方法P.105）\n　どういうわけか、すごい剣幕で捜査をしているやつがいる。\n　暴走しているようなものだ。止めなければ。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVQ"
+output = "ケイジ聞き込み捜査／イベント表(6) ＞ 一癖ありそうな相手（フタリケイジP.49）\n　探偵PCに負けず劣らず、「癖」のある相手だ。\n　そんな人物から、証言を聞きださなければいけない。\n　うまくやれるかどうか。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVM"
+output = "ケイジ大規模捜査／イベント表(6) ＞ 本格的ローラー捜査（フタリケイジP.55）\n　事件と容疑者には、あらゆる可能性がある。\n　だから、その可能性を一つ一つ潰す。\n　そうすれば、残ったものが真実だ。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVP"
+output = "こっそり情報の受け渡し／イベント表(6) ＞ 届いた暗号文（フタリケイジP.61）\n　情報が届きましたよ。\n　書かれていた暗号文ですか？\n　あれは、自分が考えたんですよ。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVO"
+output = "同僚たちと一緒に捜査する／イベント表(6) ＞ 同僚と飯（フタリケイジP.67）\n　同僚と示し合わせて、飯を食うことになった。\n　事件の合間のちょっとした休憩だ。\n　しかし、どうしても事件の話になってしまう。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVF"
+output = "頻染みの店シチュエーション／イベント表(6) ＞ 相談を受ける（フタリケイジP.73）\n　いつもの店の店主が相談をしてきた。\n　どうやら、手助けがいるようだ。\n　仕方ない。手伝ってあげよう。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVB"
+output = "ハードBデカアクション／イベント表(6) ＞ 暴走重機を止めろ！（フタリケイジP.79）\n　制御を失った重機が暴れ回っている。\n　どうやら、運転手が運転中に気絶をしてしまったらしい。\n　急いで乗り込んで止めなければ、甚大な被害が出てしまう。"
 rands = [
   { sides = 6, value = 6 },
 ]
