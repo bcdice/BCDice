@@ -37,6 +37,8 @@ module BCDice
         command = command.upcase
 
         result = checkRoll(command)
+
+        return result if result.instance_of?(Result)
         return result unless result.empty?
 
         return result
@@ -65,14 +67,14 @@ module BCDice
           result.critical = true
           result.success = true
           result.text += " ＞ クリティカル(+#{criticalResult}D6)"
-          return result.text
+          return result
         end
 
         if isFumble(diceList, diceCount)
           result.fumble = true
           result.failure = true
           result.text += ' ＞ ファンブル'
-          return result.text
+          return result
         end
 
         unless difficulty.nil?
@@ -85,7 +87,7 @@ module BCDice
           end
         end
 
-        return result.text
+        return result
       end
 
       def getModifyText(modify)
