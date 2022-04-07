@@ -16,9 +16,9 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~HELP
-        ・判定　CP+x+y+z>=t
-        　(x＝能力値、y＝技能、z＝修正値、t＝難易度 or 受動側　x、z、y、tは省略可)
-        　例）CP+7+6 CP+8+4>=12　CP+5+2-1　CP+8　CP+7>=12　CP　CP>=9
+        ・判定　CPx+y>=z
+        　(x＝能力値と技能値の合計、y＝修正値、z＝難易度 or 受動側　x、y、zは省略可)
+        　例）CP12 CP10+2>=12　CP7-1　CP8+4　CP7>=12　CP　CP>=9
         ・イニシアティブを振る　INIx
         　(x＝反応)
         　例）INI8
@@ -60,22 +60,7 @@ module BCDice
       HELP
 
       # 判定の正規表現
-      CP_RE = /^CP(?<ability>\+\d+)?(?<skill>\+\d+)?(?<modifier>[+-]\d+)?(?<target>>=\d+)?/.freeze
-
-      # 演算子
-      OP_RE = /([+-])/.freeze
-
-      # 能力値
-      ABI_RE = /(\d+)/.freeze
-
-      # 技能値
-      SKILL_RE = /(\d+)/.freeze
-
-      # 修正値
-      MOD_RE = /(\d+)/.freeze
-
-      # 難易度
-      TARGET_RE = /(\d+)/.freeze
+      CP_RE = /^CP(?<ability>\d+)?(?<modifier>[+-]\d+)?(?<target>>=\d+)?/.freeze
 
       # クリティカル値
       CRITICAL_SIDE = 10
@@ -110,66 +95,71 @@ module BCDice
       private
 
       def cp_roll_result(command)
-        result = "(#{command})"
+        parser = Command::Parser.new('CP', round_type: RoundType::FLOOR).enable_suffix_number.enable_question_target
+        parsed = parser.parse(command)
+        return nil if parsed.nil?
+
+        dice_cnt = 1
+        dice_face = 10
+        modify_number = 0
         total = 0
 
-        cp_match = CP_RE.match(command)
-        ability = nil
-        ability ||= ABI_RE.match(cp_match[:ability])[1].to_i if cp_match[:ability]
-        skill = nil
-        skill ||= SKILL_RE.match(cp_match[:skill])[1].to_i if cp_match[:skill]
-        modifier = nil
-        modifier ||= SKILL_RE.match(cp_match[:modifier])[1].to_i if cp_match[:modifier]
-        op = nil
-        op ||= OP_RE.match(cp_match[:modifier]).to_s if cp_match[:modifier]
-        target = nil
-        target ||= TARGET_RE.match(cp_match[:target])[1].to_i if cp_match[:target]
+        result = Result.new
 
-        dice = []
-        dice << @randomizer.roll_once(10)
-        total += dice.first
+        dices = []
+        dices << @randomizer.roll_once(dice_face)
+        total += dices.first
+        modify_number += parsed.suffix_number if parsed.suffix_number
+        modify_number += parsed.modify_number if parsed.modify_number
+        total += modify_number
 
-        result += " ＞ #{dice.first}[#{dice.first}]"
-
-        if dice.first.eql? 10
-          Result.critical('決定的成功！')
-          dice << @randomizer.roll_once(10)
-          result += "+#{dice.last}[#{dice.last}]"
-          total += dice.last
-        elsif dice.first.eql? 1
-          Result.fumble('決定的失敗！')
-          dice << @randomizer.roll_once(10)
-          result += "-#{dice.last}[#{dice.last}]"
-          total -= dice.last
+        case dices.first
+        when CRITICAL_SIDE
+          dices << @randomizer.roll_once(dice_face)
+          total += dices.last
+          result.critical = true
+        when FUMBLE_SIDE
+          dices << @randomizer.roll_once(dice_face)
+          total -= dices.last
+          result.fumble = true
         end
 
-        if ability
-          result += "+#{ability}"
-          total += ability
-        end
-        if skill
-          result += "+#{skill}"
-          total += skill
-        end
-        if modifier && op == '+'
-          result += "+#{modifier}"
-          total += modifier
-        elsif modifier && op == '-'
-          result += "-#{modifier}"
-          total -= modifier
+        if parsed.target_number
+          if total >= parsed.target_number
+            result.success = true
+          else
+            result.failure = true
+          end
         end
 
-        result += " ＞ #{total}"
+        result.text = ''
+        result.text += "(#{dice_cnt}D#{dice_face}"
+        result.text += "+#{modify_number}" unless modify_number.zero?
+        result.text += "#{parsed.cmp_op}#{parsed.target_number}" if parsed.target_number
+        result.text += ') ＞ '
+        result.text += "#{dices.first}[#{dices.first}]"
+        result.text += "+#{modify_number}" unless modify_number.zero?
+        result.text += ' ＞ '
 
-        if target && total > target
-          Result.success('成功！')
-          result += ' ＞ 成功！'
-        elsif target && total <= target
-          Result.failure('失敗！')
-          result += ' ＞ 失敗！'
+        if result.critical?
+          result.text += '決定的成功！ ＞ '
+          result.text += "#{dices.last}[#{dices.last}] ＞ "
+        end
+        if result.fumble?
+          result.text += '決定的失敗！ ＞ '
+          result.text += "#{dices.last}[#{dices.last}] ＞ "
         end
 
-        return result
+        result.text += total.to_s
+
+        if result.success?
+          result.text += ' ＞ 成功！'
+        end
+        if result.failure?
+          result.text += ' ＞ 失敗！'
+        end
+
+        return result.text
       end
 
       def ini_roll_result(command)

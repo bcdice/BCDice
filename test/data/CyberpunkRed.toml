@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP+8+4"
-output = "(CP+8+4) ＞ 4[4]+8+4 ＞ 16"
+output = "(1D10+12) ＞ 4[4]+12 ＞ 16"
 rands = [
   { sides = 10, value = 4 }
 ]
@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP+7+3"
-output = "(CP+7+3) ＞ 10[10]+6[6]+7+3 ＞ 26"
+output = "(1D10+10) ＞ 10[10]+10 ＞ 決定的成功！ ＞ 6[6] ＞ 26"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 6 }
@@ -18,7 +18,7 @@ rands = [
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP+4+3"
-output = "(CP+4+3) ＞ 10[10]+10[10]+4+3 ＞ 27"
+output = "(1D10+7) ＞ 10[10]+7 ＞ 決定的成功！ ＞ 10[10] ＞ 27"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 }
@@ -27,7 +27,7 @@ rands = [
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP+8+2"
-output = "(CP+8+2) ＞ 1[1]-5[5]+8+2 ＞ 6"
+output = "(1D10+10) ＞ 1[1]+10 ＞ 決定的失敗！ ＞ 5[5] ＞ 6"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 }
@@ -36,7 +36,7 @@ rands = [
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP+6+4"
-output = "(CP+6+4) ＞ 1[1]-1[1]+6+4 ＞ 10"
+output = "(1D10+10) ＞ 1[1]+10 ＞ 決定的失敗！ ＞ 1[1] ＞ 10"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 }
@@ -45,7 +45,7 @@ rands = [
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP+6+3>=10"
-output = "(CP+6+3>=10) ＞ 7[7]+6+3 ＞ 16 ＞ 成功！"
+output = "(1D10+9>=10) ＞ 7[7]+9 ＞ 16 ＞ 成功！"
 rands = [
   { sides = 10, value = 7 }
 ]
@@ -53,9 +53,25 @@ rands = [
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP+7+2-1>=12"
-output = "(CP+7+2-1>=12) ＞ 2[2]+7+2-1 ＞ 10 ＞ 失敗！"
+output = "(1D10+8>=12) ＞ 2[2]+8 ＞ 10 ＞ 失敗！"
 rands = [
   { sides = 10, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP11"
+output = "(1D10+11) ＞ 6[6]+11 ＞ 17"
+rands = [
+  { sides = 10, value = 6 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP7+5"
+output = "(1D10+12) ＞ 3[3]+12 ＞ 15"
+rands = [
+  { sides = 10, value = 3 }
 ]
 
 [[ test ]]
@@ -505,8 +521,8 @@ game_system = "CyberpunkRed"
 input = "STORE"
 output = "おまえが立ち寄ったボデガには――母性的な老婆。客を自分の子供のように扱い、世話を焼いたり小言を言う――といった店員と、騒ぎ立てる迷惑な酔っぱらい――という印象の客と、場違いに高そうな服を着た金持ちのカップル。上流社会のパーティーからの帰り道に、酒を買おうとしてたまたまこの店に立ち寄った――という感じの客がいるようだ。どうにも、嫌な予感がする。"
 rands = [
-  { sides = 6, value = 1 }
-  { sides = 6, value = 2 }
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
   { sides = 6, value = 6 }
 ]
 
@@ -515,7 +531,7 @@ game_system = "CyberpunkRed"
 input = "STORE"
 output = "おまえが立ち寄ったボデガには――理解不能な中年。何かつけておまえに文句を言おうとする――といった店員と、金欠のジョイガール／ボーイ（娼婦／男娼）。「お願いを聞いてあげるから、スマッシュをおごってくれない？」と持ちかけてくる――という印象の客と、1d6ターン後にこの店を襲う予定のギャンガー――という感じの客がいるようだ。どうにも、嫌な予感がする。"
 rands = [
-  { sides = 6, value = 6 }
-  { sides = 6, value = 4 }
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
   { sides = 6, value = 2 }
 ]
