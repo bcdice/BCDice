@@ -87,7 +87,6 @@ module BCDice
       end
 
       private_constant :CP_RE, :INI_RE
-      private
 
       def cp_roll_result(command)
         parser = Command::Parser.new('CP', round_type: RoundType::FLOOR).enable_suffix_number.enable_question_target
