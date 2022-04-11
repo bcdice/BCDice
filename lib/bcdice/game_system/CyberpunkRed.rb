@@ -62,12 +62,6 @@ module BCDice
       # 判定の正規表現
       CP_RE = /^CP(?<ability>\d+)?(?<modifier>[+-]\d+)?(?<target>>=\d+)?/.freeze
 
-      # クリティカル値
-      CRITICAL_SIDE = 10
-
-      # ファンブル値
-      FUMBLE_SIDE = 1
-
       # イニシアティブロールの正規表現
       INI_RE = /^INI(?<initiative>\d+)/.freeze
 
@@ -92,6 +86,7 @@ module BCDice
         roll_tables(command, TABLES)
       end
 
+      private_constant :CP_RE, :INI_RE
       private
 
       def cp_roll_result(command)
@@ -114,11 +109,11 @@ module BCDice
         total += modify_number
 
         case dices.first
-        when CRITICAL_SIDE
+        when 10 # critical
           dices << @randomizer.roll_once(dice_face)
           total += dices.last
           result.critical = true
-        when FUMBLE_SIDE
+        when 1 # fumble
           dices << @randomizer.roll_once(dice_face)
           total -= dices.last
           result.fumble = true
@@ -134,7 +129,7 @@ module BCDice
 
         result.text = ''
         result.text += "(#{dice_cnt}D#{dice_face}"
-        result.text += "+#{modify_number}" unless modify_number.zero?
+        result.text += Format.modifier(modify_number) unless modify_number.zero?
         result.text += "#{parsed.cmp_op}#{parsed.target_number}" if parsed.target_number
         result.text += ') ＞ '
         result.text += "#{dices.first}[#{dices.first}]"
@@ -159,7 +154,7 @@ module BCDice
           result.text += ' ＞ 失敗！'
         end
 
-        return result.text
+        return result
       end
 
       def ini_roll_result(command)
