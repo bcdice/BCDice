@@ -86,6 +86,7 @@ module BCDice
           return roll_tables(command, TABLES) if result.empty?
         end
 
+        return result if result.instance_of?(Result)
         return '' if result.empty?
 
         return "#{command} ＞ #{result}"
@@ -158,16 +159,20 @@ module BCDice
         addTotal = base + modify
         total = diceTotal + addTotal
 
-        result = ""
-        result += "(2D6#{getValueString(base)}#{getValueString(modify)})"
-        result += " ＞ #{diceTotal}[#{dice1},#{dice2}]#{getValueString(addTotal)} ＞ #{total}"
+        result = Result.new
+        result.text = "EL"
+        result.text += base.to_s unless base.zero?
+        result.text += getValueString(modify) unless modify.zero?
+        result.text += " ＞ "
+        result.text += "(2D6#{getValueString(base)}#{getValueString(modify)})"
+        result.text += " ＞ #{diceTotal}[#{dice1},#{dice2}]#{getValueString(addTotal)} ＞ #{total}"
 
         if dice1 == dice2
-          result += getSpecialResult(dice1, total)
+          getSpecialResult(dice1, total, result)
           return result
         end
 
-        result += getCheckResult(total)
+        result = getCheckResult(total, result)
 
         return result
       end
@@ -185,17 +190,25 @@ module BCDice
         return ""
       end
 
-      def getCheckResult(total)
+      def getCheckResult(total, result)
         success = getSuccessRank(total)
 
-        return " ＞ 失敗" if success == 0
+        if success == 0
+          result.failure = true
+          result.text += " ＞ 失敗"
+          return result
+        end
 
-        return getSuccessResult(success)
+        return getSuccessResult(success, result)
       end
 
-      def getSuccessResult(success)
-        result = " ＞ 成功度#{success}"
-        result += " ＞ 大成功 《アウル》2点獲得" if success >= SUCCESS_MAX
+      def getSuccessResult(success, result)
+        result.success = true
+        result.text += " ＞ 成功度#{success}"
+        if success >= SUCCESS_MAX
+          result.critical = true
+          result.text += " ＞ 大成功 《アウル》2点獲得"
+        end
 
         return result
       end
@@ -209,29 +222,32 @@ module BCDice
         return success
       end
 
-      def getSpecialResult(number, total)
+      def getSpecialResult(number, total, result)
         debug("getSpecialResult", number)
 
         if number == 6
-          return getCriticalResult
+          return getCriticalResult(result)
         end
 
-        return getFambleResultText(number, total)
+        return getFambleResultText(number, total, result)
       end
 
-      def getCriticalResult
-        getSuccessResult(SUCCESS_MAX)
+      def getCriticalResult(result)
+        getSuccessResult(SUCCESS_MAX, result)
       end
 
-      def getFambleResultText(number, total)
+      def getFambleResultText(number, total, result)
         debug("getFambleResultText number", number)
 
         if number == 1
-          return " ＞ 大失敗"
+          result.fumble = true
+          result.failure = true
+          result.text += " ＞ 大失敗"
+          return result
         end
 
-        result = getCheckResult(total)
-        result += " ／ (#{number - 1}回目のアシストなら)大失敗"
+        result = getCheckResult(total, result)
+        result.text += " ／ (#{number - 1}回目のアシストなら)大失敗"
 
         debug("getFambleResultText result", result)
 
