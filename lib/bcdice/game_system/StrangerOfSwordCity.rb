@@ -37,6 +37,8 @@ module BCDice
         command = command.upcase
 
         result = checkRoll(command)
+
+        return result if result.instance_of?(Result)
         return result unless result.empty?
 
         return result
@@ -45,7 +47,8 @@ module BCDice
       def checkRoll(command)
         debug("checkRoll begin command", command)
 
-        result = ''
+        result = Result.new
+        result.text = ''
         return result unless command =~ /^(\d+)SR([+\-]?\d+)?(>=(\d+))?$/i
 
         diceCount = Regexp.last_match(1).to_i
@@ -57,21 +60,31 @@ module BCDice
 
         totalValue = (dice + modify)
         modifyText = getModifyText(modify)
-        result += "(#{command}) ＞ #{dice}[#{diceList.join(',')}]#{modifyText} ＞ #{totalValue}"
+        result.text += "(#{command}) ＞ #{dice}[#{diceList.join(',')}]#{modifyText} ＞ #{totalValue}"
 
         criticalResult = getCriticalResult(diceList)
         unless criticalResult.nil?
-          result += " ＞ クリティカル(+#{criticalResult}D6)"
+          result.critical = true
+          result.success = true
+          result.text += " ＞ クリティカル(+#{criticalResult}D6)"
           return result
         end
 
         if isFumble(diceList, diceCount)
-          result += ' ＞ ファンブル'
+          result.fumble = true
+          result.failure = true
+          result.text += ' ＞ ファンブル'
           return result
         end
 
         unless difficulty.nil?
-          result += totalValue >= difficulty ? ' ＞ 成功' : ' ＞ 失敗'
+          if totalValue >= difficulty
+            result.success = true
+            result.text += ' ＞ 成功'
+          else
+            result.failure = true
+            result.text += ' ＞ 失敗'
+          end
         end
 
         return result
