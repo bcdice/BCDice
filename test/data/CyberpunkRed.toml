@@ -49,7 +49,7 @@ rands = [
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP+6+3>=10"
-output = "(1D10+9>=10) ＞ 7[7]+9 ＞ 16 ＞ 成功！"
+output = "(1D10+9>=10) ＞ 7[7]+9 ＞ 16 ＞ 成功"
 success = true
 rands = [
   { sides = 10, value = 7 }
@@ -58,7 +58,7 @@ rands = [
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP+7+2-1>=12"
-output = "(1D10+8>=12) ＞ 2[2]+8 ＞ 10 ＞ 失敗！"
+output = "(1D10+8>=12) ＞ 2[2]+8 ＞ 10 ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 2 }
@@ -67,7 +67,7 @@ rands = [
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP7>=13"
-output = "(1D10+7>=13) ＞ 1[1]+7 ＞ 決定的失敗！ ＞ 5[5] ＞ 3 ＞ 失敗！"
+output = "(1D10+7>=13) ＞ 1[1]+7 ＞ 決定的失敗！ ＞ 5[5] ＞ 3 ＞ 失敗"
 fumble = true
 failure = true
 rands = [
@@ -78,7 +78,7 @@ rands = [
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP9>=7"
-output = "(1D10+9>=7) ＞ 1[1]+9 ＞ 決定的失敗！ ＞ 1[1] ＞ 9 ＞ 成功！"
+output = "(1D10+9>=7) ＞ 1[1]+9 ＞ 決定的失敗！ ＞ 1[1] ＞ 9 ＞ 成功"
 fumble = true
 success = true
 rands = [
@@ -89,7 +89,7 @@ rands = [
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP3>=17"
-output = "(1D10+3>=17) ＞ 10[10]+3 ＞ 決定的成功！ ＞ 1[1] ＞ 14 ＞ 失敗！"
+output = "(1D10+3>=17) ＞ 10[10]+3 ＞ 決定的成功！ ＞ 1[1] ＞ 14 ＞ 失敗"
 critical = true
 failure = true
 rands = [
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "CyberpunkRed"
 input = "CP8>=12"
-output = "(1D10+8>=12) ＞ 10[10]+8 ＞ 決定的成功！ ＞ 4[4] ＞ 22 ＞ 成功！"
+output = "(1D10+8>=12) ＞ 10[10]+8 ＞ 決定的成功！ ＞ 4[4] ＞ 22 ＞ 成功"
 critical = true
 success = true
 rands = [
@@ -202,22 +202,6 @@ rands = [
 
 [[ test ]]
 game_system = "CyberpunkRed"
-input = "NCNT"
-output = "ナイトシティにおける夜間の遭遇(74) ＞ ブースターギャング ＞ PCグループと同人数の、アイアン・サイツというギャングの一団。P.422参照。"
-rands = [
-  { sides = 100, value = 74 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "NCNT"
-output = "ナイトシティにおける夜間の遭遇(92) ＞ メジャー級の犯罪者 ＞ PCは悪名高いスカガッタリア・ファミリーの大きな仕事の真っただ中に迷い込んだ。P.422参照。"
-rands = [
-  { sides = 100, value = 92 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
 input = "NCMT"
 output = "ナイトシティにおける深夜の遭遇(29) ＞ クローマー ＞ 地元のクロマティック・ロック・バンドの筋金入りのファンの一団。P.423参照。"
 rands = [
@@ -230,136 +214,6 @@ input = "NCMT"
 output = "ナイトシティにおける深夜の遭遇(66) ＞ ストリート・パンク ＞ ブラック・レース中毒者どもが、クスリを買うカネを欲しがっている。人数はPCより2人多い。P.423参照。"
 rands = [
   { sides = 100, value = 66 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTT"
-output = "ナイトマーケット(分類のみ)(3) ＞ 武器と防具 ＞ ストリートに混沌を巻き起こすために必要なすべて。"
-rands = [
-  { sides = 6, value = 3 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTT"
-output = "ナイトマーケット(分類のみ)(1) ＞ 食品とドラッグ ＞ 加工食品、生野菜、生きた動物、そして時には”新鮮な”ストリート・ドラッグ。"
-rands = [
-  { sides = 6, value = 1 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTE"
-output = "食品とドラッグ(32) ＞ ストリート・ドラッグ　20ed以下"
-rands = [
-  { sides = 100, value = 32 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTE"
-output = "食品とドラッグ(86) ＞ 珍しい果物　100ed(上等)"
-rands = [
-  { sides = 100, value = 86 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTD"
-output = "個人用電子機器(5) ＞ エージェント　100ed(上等)"
-rands = [
-  { sides = 100, value = 5 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTD"
-output = "個人用電子機器(100) ＞ エージェント　100ed(上等) or ヴァーチャリティ・ゴーグル　100ed(上等)"
-rands = [
-  { sides = 100, value = 100 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTW"
-output = "武器と防具(29) ＞ アサルト・ライフル　500ed(高級)"
-rands = [
-  { sides = 100, value = 29 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTW"
-output = "武器と防具(72) ＞ 超大型近接武器　100ed(上等)"
-rands = [
-  { sides = 100, value = 72 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTC"
-output = "サイバーウェア(40) ＞ 体内用サイバーウェア　1,000edちょうど"
-rands = [
-  { sides = 100, value = 40 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTC"
-output = "サイバーウェア(98) ＞ GMが選んだ任意のサイバーウェア"
-rands = [
-  { sides = 100, value = 98 },
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTF"
-output = "衣料品とファッションウェア(13) ＞ ジェネリック・シック"
-rands = [
-  { sides = 100, value = 13 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTF"
-output = "衣料品とファッションウェア(65) ＞ EMPスレッディング　10ed(安物)"
-rands = [
-  { sides = 100, value = 65 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTS"
-output = "サバイバル用品(83) ＞ グラップル・ガン　100ed(上等)"
-rands = [
-  { sides = 100, value = 83 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTS"
-output = "サバイバル用品(41) ＞ 手錠　50ed(程々)"
-rands = [
-  { sides = 100, value = 41 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTK"
-output = "ナイトマーケット表(3) ＞ 武器と防具(17) ＞ 大型SMG　100ed(上等)"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 100, value = 17 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "MKTK"
-output = "ナイトマーケット表(6) ＞ サバイバル用品(55) ＞ テント＆キャンプ用品　50ed(程々)"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 100, value = 55 }
 ]
 
 [[ test ]]

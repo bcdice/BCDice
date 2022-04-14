@@ -29,17 +29,7 @@ module BCDice
         　HFD　：頭部への致命的損傷
         ・遭遇表
         　NCDT　：ナイトシティ(日中)
-        　NCNT　：ナイトシティ(夜間)
         　NCMT　：ナイトシティ(深夜)
-        ・ナイトマーケット表
-        　MKTT　：ナイトマーケット(分類のみ)
-        　MKTK　：ナイトマーケット表
-        　MKTE　：食品とドラッグ
-        　MKTD　：個人用電子機器
-        　MKTW　：武器と防具
-        　MKTC　：サイバーウェア
-        　MKTF　：衣料品とファッションウェア
-        　MKTS　：サバイバル用品
         ・スクリームシート
         　SCSR　：スクリームシート(ランダム)
         　SCST　：スクリームシート分類
@@ -75,21 +65,15 @@ module BCDice
       def eval_game_system_specific_command(command)
         debug("eval_game_system_specific_command begin string", command)
 
-        case command
-        when CP_RE
-          return cp_roll_result(command)
-        when INI_RE
-          return ini_roll_result(command)
-        end
-
-        debug("各種表として処理")
-        roll_tables(command, TABLES)
+        cp_roll_result(command) || ini_roll_result(command) || roll_tables(command, TABLES)
       end
 
       private_constant :CP_RE, :INI_RE
 
       def cp_roll_result(command)
-        parser = Command::Parser.new('CP', round_type: RoundType::FLOOR).enable_suffix_number.enable_question_target
+        parser = Command::Parser.new('CP', round_type: RoundType::FLOOR)
+                                .enable_suffix_number
+                                .restrict_cmp_op_to(nil, :>=)
         parsed = parser.parse(command)
         return nil if parsed.nil?
 
@@ -100,8 +84,7 @@ module BCDice
 
         result = Result.new
 
-        dices = []
-        dices << @randomizer.roll_once(dice_face)
+        dices = [@randomizer.roll_once(dice_face)]
         total += dices.first
         modify_number += parsed.suffix_number if parsed.suffix_number
         modify_number += parsed.modify_number if parsed.modify_number
@@ -126,13 +109,9 @@ module BCDice
           end
         end
 
-        result.text = ''
-        result.text += "(#{dice_cnt}D#{dice_face}"
-        result.text += Format.modifier(modify_number) unless modify_number.zero?
-        result.text += "#{parsed.cmp_op}#{parsed.target_number}" if parsed.target_number
-        result.text += ') ＞ '
-        result.text += "#{dices.first}[#{dices.first}]"
-        result.text += "+#{modify_number}" unless modify_number.zero?
+        result.text = "(#{dice_cnt}D#{dice_face}#{Format.modifier(modify_number)}#{parsed.cmp_op}#{parsed.target_number})"
+        result.text += ' ＞ '
+        result.text += "#{dices.first}[#{dices.first}]#{Format.modifier(modify_number)}"
         result.text += ' ＞ '
 
         if result.critical?
@@ -147,10 +126,10 @@ module BCDice
         result.text += total.to_s
 
         if result.success?
-          result.text += ' ＞ 成功！'
+          result.text += ' ＞ 成功'
         end
         if result.failure?
-          result.text += ' ＞ 失敗！'
+          result.text += ' ＞ 失敗'
         end
 
         return result
@@ -163,6 +142,8 @@ module BCDice
         ini_match = INI_RE.match(command)
         ini = nil
         ini ||= ini_match[:initiative].to_i if ini_match
+
+        return nil if ini.nil?
 
         dice = @randomizer.roll_once(10)
         total += dice
