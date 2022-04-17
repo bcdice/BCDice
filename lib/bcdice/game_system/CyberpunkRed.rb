@@ -19,9 +19,6 @@ module BCDice
         ・判定　CPx+y>=z
         　(x＝能力値と技能値の合計、y＝修正値、z＝難易度 or 受動側　x、y、zは省略可)
         　例）CP12 CP10+2>=12　CP7-1　CP8+4　CP7>=12　CP　CP>=9
-        ・イニシアティブを振る　INIx
-        　(x＝反応)
-        　例）INI8
 
         各種表
         ・致命的損傷表
@@ -52,9 +49,6 @@ module BCDice
       # 判定の正規表現
       CP_RE = /^CP(?<ability>\d+)?(?<modifier>[+-]\d+)?(?<target>>=\d+)?/.freeze
 
-      # イニシアティブロールの正規表現
-      INI_RE = /^INI(?<initiative>\d+)/.freeze
-
       def initialize(command)
         super(command)
 
@@ -65,10 +59,10 @@ module BCDice
       def eval_game_system_specific_command(command)
         debug("eval_game_system_specific_command begin string", command)
 
-        cp_roll_result(command) || ini_roll_result(command) || roll_tables(command, TABLES)
+        cp_roll_result(command) || roll_tables(command, TABLES)
       end
 
-      private_constant :CP_RE, :INI_RE
+      private_constant :CP_RE
 
       def cp_roll_result(command)
         parser = Command::Parser.new('CP', round_type: RoundType::FLOOR)
@@ -135,31 +129,7 @@ module BCDice
         return result
       end
 
-      def ini_roll_result(command)
-        result = "(#{command})"
-        total = 0
-
-        ini_match = INI_RE.match(command)
-        ini = nil
-        ini ||= ini_match[:initiative].to_i if ini_match
-
-        return nil if ini.nil?
-
-        dice = @randomizer.roll_once(10)
-        total += dice
-
-        result += " ＞ #{dice}[#{dice}]"
-        if ini
-          total += ini
-          result += "+#{ini}"
-        end
-
-        result += " ＞ #{total}"
-
-        return result
-      end
-
-      register_prefix('CP', 'INI', TABLES.keys)
+      register_prefix('CP', TABLES.keys)
     end
   end
 end

@@ -126,30 +126,6 @@ rands = [
 
 [[ test ]]
 game_system = "CyberpunkRed"
-input = "INI6"
-output = "(INI6) ＞ 8[8]+6 ＞ 14"
-rands = [
-  { sides = 10, value = 8 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "INI4"
-output = "(INI4) ＞ 10[10]+4 ＞ 14"
-rands = [
-  { sides = 10, value = 10 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
-input = "INI7"
-output = "(INI7) ＞ 1[1]+7 ＞ 8"
-rands = [
-  { sides = 10, value = 1 }
-]
-
-[[ test ]]
-game_system = "CyberpunkRed"
 input = "FFD"
 output = "身体への致命的損傷(7) ＞ 外傷異物 ＞ 1ターンに徒歩で4m(2マス)より多く移動するたび、そのターン終了時に、この致命的損傷によるボーナス・ダメージ5点を直接HPに受ける。"
 rands = [
