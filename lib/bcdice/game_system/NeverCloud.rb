@@ -38,6 +38,8 @@ module BCDice
           return TEXTS[command].chomp
         elsif TABLES.key?(command)
           return roll_tables(command, TABLES)
+        elsif ALIAS_TEXTS.key?(command)
+          return TEXTS[ALIAS_TEXTS[command]].chomp
         else
           return nil
         end
@@ -109,7 +111,7 @@ module BCDice
           (RESE3)　パイルドライヴ(基本ルール書籍版P64)
           (RESE4)　[決意]と[使命](基本ルール書籍版P61)
 
-          (ARTS)　リビドアーツのデータ項目(基本ルール書籍版P40)
+          (ARTS1)　リビドアーツのデータ項目(基本ルール書籍版P40)
           (STAT1)　SSリスト(基本ルール書籍版P41)
           (STAT2)　LSリスト(基本ルール書籍版P411)
           (ACTI1)　タイミング:サブアクション(基本ルール書籍版P422)
@@ -172,7 +174,7 @@ module BCDice
           ・これとは別にGMは[LIKE]の合計点を5で割った値を[使命]言う単位(最大5点)とする。
           　[決意]と[使命]は[Pコトノハ][Sコトノハ][ワード]の単語ごとに割り振られ、これらの単語を使用したロールプレイを推奨する。
         TEXT
-        'ARTS' => <<~TEXT,
+        'ARTS1' => <<~TEXT,
           リビドアーツのデータ項目(基本ルール書籍版P40)
           ・射程:起点から『ぴったり』に、何Sq離れたキャラクターを対象に取れるかを示す。射程0は自身のみのことである。
           ・威力:そのアーツを使用した結果に対象に及ぼす数値を示す。ダイスロールを含む場合「威力ロール」と呼ぶ。
@@ -607,8 +609,12 @@ module BCDice
         ),
       }.freeze
 
+      ALIAS_TEXTS = {
+        "ARTS" => "ARTS1",
+      }.freeze
+
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('\d+NC', '\d+D6?([\+\-\d]*)>=\d+', TEXTS.keys, TABLES.keys)
+      register_prefix('\d+NC', '\d+D6?([\+\-\d]*)>=\d+', TEXTS.keys, TABLES.keys, ALIAS_TEXTS.keys)
     end
   end
 end
