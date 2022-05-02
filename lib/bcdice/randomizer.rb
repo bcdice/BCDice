@@ -4,7 +4,7 @@ module BCDice
   # 乱数生成器
   class Randomizer
     UPPER_LIMIT_DICE_TIMES = 200
-    UPPER_LIMIT_DICE_SIDES = 1000
+    UPPER_LIMIT_DICE_SIDES = 10000
 
     UPPER_LIMIT_RANDS = 10000
 
