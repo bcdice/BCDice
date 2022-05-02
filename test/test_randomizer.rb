@@ -10,12 +10,12 @@ class TestRandomizer < Test::Unit::TestCase
 
   # ダイス面数が上限ぎりぎり
   def test_upper_limit_sides
-    assert_not_equal(0, @randomizer.roll_once(1000))
+    assert_not_equal(0, @randomizer.roll_once(10000))
   end
 
   # ダイス面数が上限超え
   def test_over_upper_limit_sides
-    assert_equal(0, @randomizer.roll_once(1001))
+    assert_equal(0, @randomizer.roll_once(10001))
   end
 
   # ダイス個数が上限ぎりぎり
