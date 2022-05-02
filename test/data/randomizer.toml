@@ -1,0 +1,13 @@
+[[ test ]]
+game_system = "DiceBot"
+input = "1D10000"
+output = "(1D10000) ＞ 9876"
+rands = [
+  { sides = 10000, value = 9876 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "1D10001"
+output = "(1D10001) ＞ 0"
+rands = []
