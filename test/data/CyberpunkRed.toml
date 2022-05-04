@@ -1,0 +1,417 @@
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP+8+4"
+output = "(1D10+12) ＞ 4[4]+12 ＞ 16"
+rands = [
+  { sides = 10, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP+7+3"
+output = "(1D10+10) ＞ 10[10]+10 ＞ 決定的成功！ ＞ 6[6] ＞ 26"
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP+4+3"
+output = "(1D10+7) ＞ 10[10]+7 ＞ 決定的成功！ ＞ 10[10] ＞ 27"
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP+8+2"
+output = "(1D10+10) ＞ 1[1]+10 ＞ 決定的失敗！ ＞ 5[5] ＞ 6"
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP+6+4"
+output = "(1D10+10) ＞ 1[1]+10 ＞ 決定的失敗！ ＞ 1[1] ＞ 10"
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP+6+3>=10"
+output = "(1D10+9>=10) ＞ 7[7]+9 ＞ 16 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 7 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP+7+2-1>=12"
+output = "(1D10+8>=12) ＞ 2[2]+8 ＞ 10 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP7>=13"
+output = "(1D10+7>=13) ＞ 1[1]+7 ＞ 決定的失敗！ ＞ 5[5] ＞ 3 ＞ 失敗"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP9>=7"
+output = "(1D10+9>=7) ＞ 1[1]+9 ＞ 決定的失敗！ ＞ 1[1] ＞ 9 ＞ 成功"
+fumble = true
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP3>=17"
+output = "(1D10+3>=17) ＞ 10[10]+3 ＞ 決定的成功！ ＞ 1[1] ＞ 14 ＞ 失敗"
+critical = true
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP8>=12"
+output = "(1D10+8>=12) ＞ 10[10]+8 ＞ 決定的成功！ ＞ 4[4] ＞ 22 ＞ 成功"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP11"
+output = "(1D10+11) ＞ 6[6]+11 ＞ 17"
+rands = [
+  { sides = 10, value = 6 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "CP7+5"
+output = "(1D10+12) ＞ 3[3]+12 ＞ 15"
+rands = [
+  { sides = 10, value = 3 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "FFD"
+output = "身体への致命的損傷(7) ＞ 外傷異物 ＞ 1ターンに徒歩で4m(2マス)より多く移動するたび、そのターン終了時に、この致命的損傷によるボーナス・ダメージ5点を直接HPに受ける。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "FFD"
+output = "身体への致命的損傷(3) ＞ 片手喪失 ＞ 1本の手が完全に失われる。おまえはその手に持っていたアイテムを即座に落とす。死亡セーヴ修正値の基本値が1増える。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "HFD"
+output = "頭部への致命的損傷(8) ＞ 頚椎損傷 ＞ 死亡セーヴ修正値の基本値が1増える。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "HFD"
+output = "頭部への致命的損傷(10) ＞ 片耳損傷 ＞ 1ターンに徒歩で4m(2マス)より多く移動すると、その次のターンは移動アクションを行うことができなくなる。聴覚に関する〈知覚〉判定に-2。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "NCDT"
+output = "ナイトシティにおける日中の遭遇(24) ＞ 地元民 ＞ この辺りに住む2人の若者。P.418参照。"
+rands = [
+  { sides = 100, value = 24 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "NCDT"
+output = "ナイトシティにおける日中の遭遇(41) ＞ 私立探偵 ＞ 1人の私立探偵。P.418参照。"
+rands = [
+  { sides = 100, value = 41 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "NCMT"
+output = "ナイトシティにおける深夜の遭遇(29) ＞ クローマー ＞ 地元のクロマティック・ロック・バンドの筋金入りのファンの一団。P.423参照。"
+rands = [
+  { sides = 100, value = 29 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "NCMT"
+output = "ナイトシティにおける深夜の遭遇(66) ＞ ストリート・パンク ＞ ブラック・レース中毒者どもが、クスリを買うカネを欲しがっている。人数はPCより2人多い。P.423参照。"
+rands = [
+  { sides = 100, value = 66 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "SCST"
+output = "スクリームシート分類(2) ＞ 全国"
+rands = [
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "SCST"
+output = "スクリームシート分類(4) ＞ 地方"
+rands = [
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "SCSA"
+output = "ヘッドラインA(7) ＞ 殺し屋／殺人鬼"
+rands = [
+  { sides = 10, value = 7 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "SCSA"
+output = "ヘッドラインA(1) ＞ (企業を1つ選ぶ)"
+rands = [
+  { sides = 10, value = 1 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "SCSB"
+output = "ヘッドラインB(9) ＞ 事故を"
+rands = [
+  { sides = 10, value = 9 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "SCSB"
+output = "ヘッドラインB(5) ＞ 計画を"
+rands = [
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "SCSC"
+output = "ヘッドラインC(6) ＞ 死亡／終了／途絶える"
+rands = [
+  { sides = 10, value = 6 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "SCSC"
+output = "ヘッドラインC(2) ＞ 脅かす／危機"
+rands = [
+  { sides = 10, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "SCSR"
+output = "スクリームシート分類(5) ＞ 経済ニュース　『市議会が殺し屋／殺人鬼に対しスキャンダルを継続』"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 10, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 10, value = 7 },
+  { sides = 6, value = 3 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "SCSR"
+output = "スクリームシート分類(3) ＞ 州ニュース　『上院議員／議員をサイバーサイコより女性を脅かす／危機』"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "VMCT"
+output = "最寄りの自販機のタイプ(3) ＞ 食品"
+rands = [
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "VMCT"
+output = "最寄りの自販機のタイプ(5) ＞ ファッション"
+rands = [
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "VMCE"
+output = "食品(7) ＞ キブルの1kgパック"
+rands = [
+  { sides = 10, value = 7 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "VMCE"
+output = "食品(5) ＞ スシ"
+rands = [
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "VMCF"
+output = "ファッション(2) ＞ 性的玩具"
+rands = [
+  { sides = 10, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "VMCF"
+output = "ファッション(9) ＞ ブレインダンス・チップ"
+rands = [
+  { sides = 10, value = 9 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "VMCS"
+output = "変なもの(1) ＞ ペット用のカツラ"
+rands = [
+  { sides = 10, value = 1 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "VMCS"
+output = "変なもの(10) ＞ 使用済みのパンティ"
+rands = [
+  { sides = 10, value = 10 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "STOREA"
+output = "店主またはレジ係(2) ＞ 怒りっぽい年寄り。皆が嫌いで、特におまえのことが大嫌いだ。"
+rands = [
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "STOREA"
+output = "店主またはレジ係(5) ＞ 露骨な薬物常用者。おまえにひらひら手を振って「もうどうにでもしてくれ……」と言う。"
+rands = [
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "STOREB"
+output = "変わった客その1(6) ＞ ストリートで襲われる不安に駆られた客。誰かに近寄られると身構える(銃を抜くかもしれない)。"
+rands = [
+  { sides = 6, value = 6 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "STOREB"
+output = "変わった客その1(4) ＞ 金欠のジョイガール／ボーイ（娼婦／男娼）。「お願いを聞いてあげるから、スマッシュをおごってくれない？」と持ちかけてくる。"
+rands = [
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "STOREC"
+output = "変わった客その2(1) ＞ この店に強盗に入る下見中のヨーギャンガー。強盗になる覚悟はまだ固まっていないようだ。"
+rands = [
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "STOREC"
+output = "変わった客その2(3) ＞ 店主を痛めつけて”みかじめ料”を取り立てようとする三流のギャンガー。"
+rands = [
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "STORE"
+output = "おまえが立ち寄ったボデガには――母性的な老婆。客を自分の子供のように扱い、世話を焼いたり小言を言う――といった店員と、騒ぎ立てる迷惑な酔っぱらい――という印象の客と、場違いに高そうな服を着た金持ちのカップル。上流社会のパーティーからの帰り道に、酒を買おうとしてたまたまこの店に立ち寄った――という感じの客がいるようだ。どうにも、嫌な予感がする。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "STORE"
+output = "おまえが立ち寄ったボデガには――理解不能な中年。何かつけておまえに文句を言おうとする――といった店員と、金欠のジョイガール／ボーイ（娼婦／男娼）。「お願いを聞いてあげるから、スマッシュをおごってくれない？」と持ちかけてくる――という印象の客と、1d6ターン後にこの店を襲う予定のギャンガー――という感じの客がいるようだ。どうにも、嫌な予感がする。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 }
+]
