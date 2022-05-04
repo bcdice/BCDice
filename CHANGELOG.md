@@ -1,5 +1,34 @@
 # Change Log
 
+## 3.6.0 2022/05/04
+
+### 対応ゲームシステムの追加
+- あやびと (Ayabito): 蜂紫さんありがとうっ！ ([#537](https://github.com/bcdice/BCDice/pull/537))
+- 不知火 (Shiranui): ViViさんありがとうっ！ ([#533](https://github.com/bcdice/BCDice/pull/533))
+- 終末紀行RPG (ShuumatsuKikou): ViViさんありがとうっ！ ([#538](https://github.com/bcdice/BCDice/pull/538))
+- サイバーパンクRED (CyberpunkRed): えおふさんありがとうっ！ ([#540](https://github.com/bcdice/BCDice/pull/540))
+
+### 追加機能
+- ダークデイズドライブ: センターの行動決定、対話ダメージ表を追加。ケメンアクション表を連続で実行するIAXコマンドを追加 ([#531](https://github.com/bcdice/BCDice/pull/531))
+- 加算ダイスの出目を選別機能を拡張。 ([#528](https://github.com/bcdice/BCDice/pull/528))
+  - 選別数 `n` を省略した場合には `1` 扱いに
+  - `MAX`、`MIN` を追加。それぞれ `KH1`、`KL1`の別表記。
+- フタリソウサ: 「怪盗からの誘惑」「あなたと仲良くなる方法」「フタリケイジ」の異常な癖表、イベント表を追加。えいむさん、エノキさん、ベンベンさんありがとうっ！([#536](https://github.com/bcdice/BCDice/pull/536))
+- スタリィドール: 「双子座の小径」の表を追加。Taiさんありがとうっ！ ([#545](https://github.com/bcdice/BCDice/pull/545))
+
+### 変更
+- ダイス面数の上限を 10,000。 ViViさん提案ありがとうっ！ ([#544](https://github.com/bcdice/BCDice/pull/544))
+- ネバークラウドTRPG: 一部コマンドを変更 `LIKE1`, `ARTS1`。蜂紫さんありがとうっ！ ([#539](https://github.com/bcdice/BCDice/pull/539))
+
+### 誤植修正
+- 獸ノ森: 表の誤植を修正。くずもちさんありがとうっ！ ([#524](https://github.com/bcdice/BCDice/pull/524))
+- キルデスビジネス: サブプロット表「家族」の誤字を修正。蒼さんありがとうっ！ ([#524](https://github.com/bcdice/BCDice/pull/524))
+- 迷宮キングダム／迷宮キングダム 基本ルールブック: 王国変動表の誤植を修正。く〜やさんありがとうっ！ ([#530](https://github.com/bcdice/BCDice/pull/530)), ([#546](https://github.com/bcdice/BCDice/pull/546))
+- サタスペ: らぶらぶ遭遇表の誤植を修正。ねおたそさんありがとうっ！ ([#547](https://github.com/bcdice/BCDice/pull/547))
+
+### バグ修正
+- 黒絢のアヴァンドナー: クリティカル閾値の上限を修正。ViViさんありがとうっ！ ([#529](https://github.com/bcdice/BCDice/pull/529))
+
 ## 3.5.0 2021/12/02
 
 ### 対応ゲームシステムの追加
