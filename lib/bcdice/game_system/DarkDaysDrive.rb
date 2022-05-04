@@ -38,7 +38,7 @@ module BCDice
         ■本格的な戦闘
         CAC センターの行動決定
         DDC 対話ダメージ表
-        ・D66ダイス昇順 git remote
+        ・D66ダイス昇順
       INFO_MESSAGE_TEXT
 
       def initialize(command)
