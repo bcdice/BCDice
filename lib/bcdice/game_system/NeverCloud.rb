@@ -19,6 +19,8 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
+        ・LIST　のコマンドを入力して、ルールの解説・2D6表、一覧の表示
+
         ・判定(xNC±y>=z)
         　xD6の判定を行います。ファンブル、クリティカルの場合、その旨を出力します。
         　x：振るダイスの数。
@@ -27,7 +29,6 @@ module BCDice
         　ダイスの出目ふたつが6ならクリティカル(自動成功)
         　ダイスの出目すべてが1ならファンブル(自動失敗)
         　例）　2NC+2>=5　1NC
-        ・ルール詳細、表の一覧(LIST)
       MESSAGETEXT
 
       def eval_game_system_specific_command(command)
@@ -37,6 +38,8 @@ module BCDice
           return TEXTS[command].chomp
         elsif TABLES.key?(command)
           return roll_tables(command, TABLES)
+        elsif ALIAS_TEXTS.key?(command)
+          return TEXTS[ALIAS_TEXTS[command]].chomp
         else
           return nil
         end
@@ -88,23 +91,27 @@ module BCDice
           ・キャラ作成アプリ：https://nctrpg.com/bloomi
 
           ・判定(xD6±y>=z)
+
+          ()内のコマンドを入力して詳細を表示。
+
           2D6(CHAR1)　・所属表(2D6またはRoC。基本ルール書籍版P33)
-          2D6(CHRA2)　・趣味表(2D6またはRoC。基本ルール書籍版P38)
+          2D6(CHAR2)　・趣味表(2D6またはRoC。基本ルール書籍版P38)
           2D6(CHAR3)　・リビド武装形状表(2D6またはRoC。基本ルール書籍版P39)
           2D6(NAYA1)　悩みの詳細表・愛/Love:得意方向(正面)(2D6またはRoC。基本ルール書籍版P49)
           2D6(NAYA2)　悩みの詳細表・体/Figure:得意方向(正面)(2D6またはRoC。基本ルール書籍版P49)
           2D6(NAYA3)　悩みの詳細表・才/Talent:得意方向(背面)(2D6またはRoC。基本ルール書籍版P49)
           2D6(NAYA4)　悩みの詳細表・絆/Bonds:得意方向(側面)(2D6またはRoC。基本ルール書籍版P49)
           2D6(NAYA5)　悩みの詳細表・住/Home:得意方向(側面)(2D6またはRoC。基本ルール書籍版P49)
-          各種RoC表はコマンドの最後にアルファベットのLを付けることにより一覧表示が可能
 
-          (LIKE)　LIKE(基本ルール書籍版P60)
+          各種2D6:RoC表はコマンドの最後にアルファベットのLを付けて一覧表示が可能(例:NAYA5→NAYA5L)
+
+          (LIKE1)　LIKE(基本ルール書籍版P60)
           (RESE1)　リサーチカード(基本ルール書籍版P63)
           (RESE2)　インタビュー(基本ルール書籍版P62)
           (RESE3)　パイルドライヴ(基本ルール書籍版P64)
           (RESE4)　[決意]と[使命](基本ルール書籍版P61)
 
-          (ARTS)　リビドアーツのデータ項目(基本ルール書籍版P40)
+          (ARTS1)　リビドアーツのデータ項目(基本ルール書籍版P40)
           (STAT1)　SSリスト(基本ルール書籍版P41)
           (STAT2)　LSリスト(基本ルール書籍版P411)
           (ACTI1)　タイミング:サブアクション(基本ルール書籍版P422)
@@ -132,7 +139,7 @@ module BCDice
           (MINI5)　ねばくらミニでのスペシャルアーツ(ねばくらミニ書籍版P13)
           (MINI6)　ねばくらミニでのポータルとサーヴァント(ねばくらミニ書籍版P14)
         TEXT
-        'LIKE' => <<~TEXT,
+        'LIKE1' => <<~TEXT,
           LIKE(基本ルール書籍版P60)
           ・全ての参加者(PLやGMや見学者)はセッション中にPCやGMのロールプレイや行動に、
           　共感や称賛や琴線に触れた時[LIKE:～]と言ってその内容と共に記述して蓄積して行く。
@@ -167,7 +174,7 @@ module BCDice
           ・これとは別にGMは[LIKE]の合計点を5で割った値を[使命]言う単位(最大5点)とする。
           　[決意]と[使命]は[Pコトノハ][Sコトノハ][ワード]の単語ごとに割り振られ、これらの単語を使用したロールプレイを推奨する。
         TEXT
-        'ARTS' => <<~TEXT,
+        'ARTS1' => <<~TEXT,
           リビドアーツのデータ項目(基本ルール書籍版P40)
           ・射程:起点から『ぴったり』に、何Sq離れたキャラクターを対象に取れるかを示す。射程0は自身のみのことである。
           ・威力:そのアーツを使用した結果に対象に及ぼす数値を示す。ダイスロールを含む場合「威力ロール」と呼ぶ。
@@ -602,8 +609,12 @@ module BCDice
         ),
       }.freeze
 
+      ALIAS_TEXTS = {
+        "ARTS" => "ARTS1",
+      }.freeze
+
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('\d+NC', '\d+D6?([\+\-\d]*)>=\d+', TEXTS.keys, TABLES.keys)
+      register_prefix('\d+NC', '\d+D6?([\+\-\d]*)>=\d+', TEXTS.keys, TABLES.keys, ALIAS_TEXTS.keys)
     end
   end
 end
