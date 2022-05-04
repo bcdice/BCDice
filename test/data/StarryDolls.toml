@@ -645,3 +645,424 @@ output = "〈オメガ探偵社〉回想表(6) ＞ 華麗なる事件解決！ �
 rands = [
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TRS"
+output = "従者トラブル表(2) ＞ 〈変晶体〉を見つけた従者は一人で「狭い場所／高い場所」へ行って戻れなくなってしまった。助けてあげよう。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TRS"
+output = "従者トラブル表(7) ＞ 従者が〈変晶体〉に取り憑かれ、「暴れだした／逃げ出した」。なんとか取り押さえて浄化しよう！"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TRS"
+output = "従者トラブル表(12) ＞ 住人が従者を珍しく思い、無理やり「コレクション／商品」に加えようとしている。連れて行かれる前に救い出そう。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "SRT"
+output = "従者関係表(1) ＞ 悪友"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "SRT"
+output = "従者関係表(6) ＞ 双子"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAL"
+output = "リアクション表　忠誠(1) ＞ 仰せの通りに"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAL"
+output = "リアクション表　忠誠(6) ＞ (従者の姿）の騎士として、主命を全ういたします"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAC"
+output = "リアクション表　冷静(1) ＞ 嫌な予感がするわね"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAC"
+output = "リアクション表　冷静(6) ＞ 私は（従者の姿）だけれど……あなたは本当の友達よ"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAM"
+output = "リアクション表　母性(1) ＞ あらあら、どうしたのかしら"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAM"
+output = "リアクション表　母性(6) ＞ （従者の姿）の私でよければ、いっぱい甘えてくださいまし"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAO"
+output = "リアクション表　年長者(1) ＞ 大丈夫、心配しなくていいよ"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAO"
+output = "リアクション表　年長者(6) ＞ （従者の姿）たる私を友人に選んでくれたこと、誇りに思うよ"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAI"
+output = "リアクション表　無邪気(1) ＞ やっちゃう～？"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAI"
+output = "リアクション表　無邪気(6) ＞ そんなこと言われても……ボク、（従者の姿）だし"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAE"
+output = "リアクション表　長老(1) ＞ ほっほ、元気がいいのう"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "RAE"
+output = "リアクション表　長老(6) ＞ ワシも長いこと（従者の姿）をやっとるが、こんなことは初めてじゃ"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "JDSBT"
+output = "〈魔術師の庭〉出張表(1) ＞ 定期点検で通っている組織が人手不足になり、協力を求められた。あなたは主人にお願いされ、手伝いをしにいくことになる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "JDSBT"
+output = "〈魔術師の庭〉出張表(6) ＞ 〈魔術師の庭〉の仕事に退屈してしまったあなたは、別の職場を体験してみることにした。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "SHBT"
+output = "〈セブンス・ヘブン〉出張表(1) ＞ 以前のクライアントが人手不足になり、協力を求められた。あなたは主人にお願いされ、手伝いをしにいくことになる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "SHBT"
+output = "〈セブンス・ヘブン〉出張表(6) ＞ 仕事のスキルアップがしたいと思ったあなたは、一人で出張し、別の主人の元で家事を担当することになった。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "BCBT"
+output = "〈祝福の鐘〉出張表(1) ＞ いつも応援してくれている組織が人手不足になり、協力を求められた。あなたは主人にお願いされ、手伝いをしにいくことになる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "BCBT"
+output = "〈祝福の鐘〉出張表(6) ＞ 次の公演まで長期休暇をもらったあなたは、気分転換に別の主人の元で生活をすることになった。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "ODBT"
+output = "〈オメガ探偵社〉出張表(1) ＞ 以前捜査協力してくれた組織が人手不足になり、協力を求められた。あなたは主人にお願いされ、手伝いをしにいくことになる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "ODBT"
+output = "〈オメガ探偵社〉出張表(6) ＞ 依頼が来ない……！退屈そうにしているあなたを気遣い、主人はあなたを別の主人の元で手伝わせることにした。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "ASBT"
+output = "〈天の川商店街〉出張表(1) ＞ お店の常連が人手不足になり、協力を求められた。あなたは主人にお願いされ、手伝いをしにいくことになる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "ASBT"
+output = "〈天の川商店街〉出張表(6) ＞ お店の常連と仲良くなったあなたは、主人の計らいで出張をすることになった。楽しい思い出をたくさん作ろう。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "PABT"
+output = "〈ポラリス星学院〉出張表(1) ＞ クラスの非常勤講師が人手不足になり、協力を求められた。あなたは先生にお願いされ、手伝いをしにいくことになる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "PABT"
+output = "〈ポラリス星学院〉出張表(6) ＞ あなたは国内留学で、別の学堂へ一時的に転入することになった。新しい出会いに期待をふくらませて、あなたは出張する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "SCBT"
+output = "〈人形騎士団〉出張表(1) ＞ 知り合いの主人が人手不足になり、協力を求められた。あなたは正体を隠しつつ、手伝いをしにいくことになる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "SCBT"
+output = "〈人形騎士団〉出張表(6) ＞ 主人は「自分が守っているものを知ることも大事だ」と、あなたに出張を勧めた。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TOSCBT"
+output = "〈人形騎士団〉への出張表(1) ＞ あなたの職場が〈型堕ち〉に襲われた。主人は怪我により入院、あなたは襲撃時加勢に来た〈人形騎士団〉に匿われることになった。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TOSCBT"
+output = "〈人形騎士団〉への出張表(6) ＞ かつてあなたは〈人形騎士団〉と共闘し、またいつでも協力すると約束した。その約束を果たすときが来たようだ。あなたは主人に願い出る。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROF"
+output = "森事件表(2) ＞ 〈変晶体〉に取り憑かれた食虫植物が仲間を飲み込んでしまった。早く助けなければ！"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROF"
+output = "森事件表(12) ＞ 崖にかかったボロボロな吊り橋の中央に〈変晶体〉を見つけた。罠だろうか。普通に取りに行けば橋が落ちてしまいそうだが……。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROG"
+output = "庭園事件表(2) ＞ 紳士の蒐集家が、鞄の中に〈変晶体〉を入れて持ち歩いているようだ。何とか相手を傷つけず手に入れたいが、どうしようか。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROG"
+output = "庭園事件表(7) ＞ 「侵入者だ！」〈変晶体〉に取り憑かれた人形兵たちが、武器を持ってあなたに襲いかかる！"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROG"
+output = "庭園事件表(12) ＞ 焼却炉の中で〈変晶体〉が燃え盛り、辺りに〈悪夢の霧〉を撒き散らしている。この激しい炎を止めないと、浄化はできそうにない。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROC"
+output = "城内事件表(2) ＞ 「あなたには王（姫）を救うことができるのですか？」女性があなたに問いかける。あなたが力を示せば、〈変晶体〉の場所を教えるつもりのようだ。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROC"
+output = "城内事件表(7) ＞ 通路に飾られていた甲冑が突然動き出し襲いかかってきた！〈変晶体〉に操られているようだ。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROC"
+output = "城内事件表(12) ＞ 「助けてくれれば、〈変晶体〉の在り処を教える」手枷と足枷をかけられた星人形があなたに訴える。人形兵と違い、はっきり意識があるようだ。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROT"
+output = "都市事件表(2) ＞ 信号が突如めちゃくちゃになって混乱が起きている。信号に〈変晶体〉が憑依しているようだ。暴走する車をかき分けて信号へ辿り着こう。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROT"
+output = "都市事件表(7) ＞ 厳重な鍵がついたショーケースの中に〈変晶体〉を見つけた。何か開ける方法は……？"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROT"
+output = "都市事件表(12) ＞ 路上で男同士が喧嘩をしているが、様子がおかしい。殴りかかろうとする男の手には〈変晶体〉が！　喧嘩を仲裁して〈変晶体〉を手に入れよう。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROL"
+output = "図書館事件表(2) ＞ 本棚に誰かの日記が混ざっているのを見つけた。中には「邪悪な黒い宝石を入手した」とある。持ち主を見つければ、〈変晶体〉が手に入るかもしれない。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROL"
+output = "図書館事件表(7) ＞ 〈変晶体〉を見つけた直後、巨大な本棚が倒れてきた。このままでは〈変晶体〉を手に入れる前に全員下敷きになってしまう……！"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROL"
+output = "図書館事件表(12) ＞ 「ご本を読んでくださらない？」少女は〈悪夢の霧〉で黒く澱んだ本を抱えて言う。願いを叶えなければ〈変晶体〉が潜んだ本は離してもらえなさそうだ。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROS"
+output = "駅事件表(2) ＞ 「旅行キャンペーンお申し込みの方には〈変晶体〉プレゼント！」と書かれた張り紙を見つける。誰かの手に渡る前に回収しよう！"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROS"
+output = "駅事件表(7) ＞ 線路上に〈変晶体〉が落ちているが、もうすぐ列車がやってくる！列車が通過したあと、元の場所にあるかはわからない……！"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls"
+input = "TROS"
+output = "駅事件表(12) ＞ 路上コンサートの観客達の様子がおかしい。よく見ると演奏者の楽器に〈変晶体〉が埋め込まれている！早く浄化してみんなの目を覚まそう。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
