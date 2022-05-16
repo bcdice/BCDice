@@ -21,3 +21,99 @@ output = "追加目標表(6) ＞ すべての［回収品］を集める。（�
 rands = [
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "GhostLive"
+input = "jibakuHauntA"
+output = "地縛霊：霊障リスト(1) ＞ 隙間――家具の隙間、扉の隙間、そんな暗がりから視線を感じる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GhostLive"
+input = "jha"
+output = "地縛霊：霊障リスト(6) ＞ 鏡――鏡に背を向けた瞬間、あり得ない強さでそちらへ引き寄せられた。肩には手の形のアザができている。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GhostLive"
+input = "jibakuHauntB"
+output = "地縛霊：霊障効果リスト(1) ＞ ［精神力］減少：［１Ｄ２＋ＰＣ人数］点／［視聴回数］増加：とくになし／特殊効果：とくになし"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GhostLive"
+input = "jhb"
+output = "地縛霊：霊障効果リスト(6) ＞ ［精神力］減少：［１Ｄ100＋ＰＣ人数］点／［視聴回数］増加：10倍／特殊効果：シーンに登場しているＰＣのスマホを破壊する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GhostLive"
+input = "shyHauntA"
+output = "シャイな幽霊：霊障リスト(1) ＞ 倦怠感――歩くのも辛いくらいの倦怠感。生きているのも辛い。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GhostLive"
+input = "sha"
+output = "シャイな幽霊：霊障リスト(6) ＞ 血文字――壁に、床に、赤⿊い液体が滲み出す。それは文字を形作った。「か　え　れ」"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GhostLive"
+input = "shyHauntB"
+output = "シャイな幽霊：霊障効果リスト(1) ＞ ［精神力］減少：［２＋ＰＣ人数］点／［視聴回数］増加：とくになし／特殊効果：とくになし"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GhostLive"
+input = "shb"
+output = "シャイな幽霊：霊障効果リスト(6) ＞ ［精神力］減少：［40＋ＰＣ人数］点／［視聴回数］増加：20倍／特殊効果：シーンに登場しているＰＣのスマホを破壊する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GhostLive"
+input = "guchaHauntA"
+output = "ぐちゃぐちゃ：霊障リスト(1) ＞ 走る人形――ひび割れた人形が落ちている。一瞬視線をそらした瞬間、それはありえない動きで走り去っていった。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GhostLive"
+input = "gha"
+output = "ぐちゃぐちゃ：霊障リスト(6) ＞ 記憶がない――数分間のことを何も覚えてない。コメント欄がリスナーの心配する声でいっぱいだ。いったい何が……？"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GhostLive"
+input = "guchaHauntB"
+output = "ぐちゃぐちゃ：霊障効果リスト(1) ＞ ［精神力］減少：［５＋ＰＣ人数］点／［視聴回数］増加：２倍／特殊効果：とくになし"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GhostLive"
+input = "ghb"
+output = "ぐちゃぐちゃ：霊障効果リスト(6) ＞ ［精神力］減少：［１Ｄ100＋10＋ＰＣ人数］点／［視聴回数］増加：20倍／特殊効果：すべてのＰＣのスマホを破壊する。"
+rands = [
+  { sides = 6, value = 6 },
+]
