@@ -14,7 +14,7 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        ・SGS　命中判定
+        ・SGS　命中判定・回避判定
       INFO_MESSAGE_TEXT
 
       register_prefix('SGS')
