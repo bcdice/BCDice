@@ -34,6 +34,11 @@ class AddDiceParserTest < Test::Unit::TestCase
     test_parse("2D+3", "(Command (+ (ImplicitSidesDiceRoll 2) 3))")
   end
 
+  def test_parse_implicit_times
+    test_parse("D20", "(Command (DiceRoll 1 20))")
+    test_parse("D20+3", "(Command (+ (DiceRoll 1 20) 3))")
+  end
+
   # 最初の空白までがパース対象となる
   def test_parse_only_first_word
     test_parse("2D6 +1", "(Command (DiceRoll 2 6))")

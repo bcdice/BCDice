@@ -82,6 +82,16 @@ rands = [
   { sides = 6, value = 1 },
 ]
 
+[[ test ]]
+game_system = "DiceBot"
+input = "D20+3D4"
+output = "(1D20+3D4) ＞ 20[20]+6[1,2,3] ＞ 26"
+rands = [
+  { sides = 20, value = 20 },
+  { sides = 4, value = 1 },
+  { sides = 4, value = 2 },
+  { sides = 4, value = 3 },
+]
 
 [[ test ]]
 game_system = "DiceBot"

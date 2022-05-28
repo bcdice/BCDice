@@ -114,6 +114,40 @@ rule
 
         result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
       }
+      | D term
+      {
+        times = Node::Number.new(1)
+        sides = val[1]
+        raise ParseError if sides.include_dice?
+        raise ParseError if sides.instance_of?(Node::Number) && sides.literal == 66
+
+        result = Node::DiceRoll.new(times, sides)
+      }
+      | D term filter_type_with_shorthand
+      {
+        times = Node::Number.new(1)
+        sides = val[1]
+        filter = val[2]
+
+        raise ParseError if sides != :implicit && sides.include_dice?
+        raise ParseError if sides.instance_of?(Node::Number) && sides.literal == 66
+
+        n_filtering = Node::Number.new(1)
+        result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
+      }
+      | D term filter_type term
+      {
+        times = Node::Number.new(1)
+        sides = val[1]
+        filter = val[2]
+        n_filtering = val[3]
+
+        raise ParseError if sides != :implicit && sides.include_dice?
+        raise ParseError if n_filtering.include_dice?
+        raise ParseError if sides.instance_of?(Node::Number) && sides.literal == 66
+
+        result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
+      }
       | term
 
   explicit_or_implicit_sides: /* 指定なし => 暗黙の面数 */
