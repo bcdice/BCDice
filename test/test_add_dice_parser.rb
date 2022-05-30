@@ -34,9 +34,20 @@ class AddDiceParserTest < Test::Unit::TestCase
     test_parse("2D+3", "(Command (+ (ImplicitSidesDiceRoll 2) 3))")
   end
 
+  # ダイス数の省略
   def test_parse_implicit_times
     test_parse("D20", "(Command (DiceRoll 1 20))")
     test_parse("D20+3", "(Command (+ (DiceRoll 1 20) 3))")
+  end
+
+  def test_parse_d66
+    assert_not_parse("D66", "D66は処理しない")
+    assert_not_parse("1+D66", "D66は処理しない")
+  end
+
+  # 1D66は66面ダイス扱い
+  def test_parse_1d66
+    test_parse("1D66", "(Command (DiceRoll 1 66))")
   end
 
   # 最初の空白までがパース対象となる
