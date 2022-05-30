@@ -9,6 +9,6 @@ group :development, :test do
   gem "rubocop", "~> 1.7.0", require: false
   gem "simplecov", "~>0.21.2", require: false
   gem "test-unit", "~>3.3.7", require: false
-  gem "tomlrb", "2.0.1"
+  gem "tomlrb", "~>2.0.3"
   gem "yard"
 end
