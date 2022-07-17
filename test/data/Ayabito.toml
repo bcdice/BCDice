@@ -315,6 +315,49 @@ rands = [
 
 [[test]]
 game_system = "Ayabito"
+input = "6AB@5$5>=3"
+output = "(6B6>=4) ＞ [1,1,2,4,4,4] ＞ 成功数3 ＞ 成功"
+success = true
+rands = [
+    { sides = 6, value = 2 },
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 4 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "6AB@5$5>=3"
+output = "(6B6>=4) ＞ [1,1,2,4,5,5] ＞ 成功数5 ＞ 成功(クリティカル)"
+success = true
+critical = true
+rands = [
+    { sides = 6, value = 2 },
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 5 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 5 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "6AB@5$5>=3"
+output = "(6B6>=4) ＞ [1,1,2,3,4,4] ＞ 成功数2 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 6, value = 2 },
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 3 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 4 },
+]
+
+[[test]]
+game_system = "Ayabito"
 input = "ET"
 output = "感情表(51) ＞ 羨望/嫌悪"
 rands = [
