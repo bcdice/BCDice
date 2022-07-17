@@ -15,10 +15,11 @@ module BCDice
       SORT_KEY = "あやひと"
 
       HELP_MESSAGE = <<~TEXT
-        ・判定コマンド(xAB±y@c>=z)
+        ・判定コマンド(xAB±y@c$d>=z)
           x：サイコロの数(10以上の場合9個振り、それ以降を成功数2として加算する)
           ±y：成功数への補正(省略可)
           c：クリティカル値(@ごと省略可。省略時は6)
+          d：出目を2として数える数の最小値($ごと省略可。省略時は6)
           z：目標値(妨害値など。>=ごと省略可)
           (例) 4AB
                11AB>=5
@@ -44,7 +45,7 @@ module BCDice
       end
 
       def check_action(command)
-        parser = Command::Parser.new("AB", round_type: RoundType::CEIL).has_prefix_number.enable_critical.restrict_cmp_op_to(nil, :>=)
+        parser = Command::Parser.new("AB", round_type: RoundType::CEIL).has_prefix_number.enable_critical.enable_dollar.restrict_cmp_op_to(nil, :>=)
         parsed = parser.parse(command)
         return nil if parsed.nil?
 
@@ -57,19 +58,20 @@ module BCDice
         end
         modify = parsed.modify_number
         critical_target = parsed.critical || 6
+        addition_target = parsed.dollar || 6
         target = parsed.target_number
 
         dice_arr = @randomizer.roll_barabara(dice_cnt, 6).sort
         dice_str = dice_arr.join(",")
         has_critical = dice_arr.any? { |x| x >= critical_target }
-        success_cnt = dice_arr.count { |x| x >= 4 } + dice_arr.count(6) + over_modify * 2
+        success_cnt = dice_arr.count { |x| x >= 4 } + dice_arr.count{ |x| x >= addition_target } + over_modify * 2
         has_fumble = success_cnt == 0 && dice_arr.include?(1)
         if has_fumble
           success_cnt = 0
         else
           success_cnt += modify
         end
-        result = target.nil? ? success_cnt >= 1 : success_cnt > target
+        result = target.nil? ? success_cnt >= 1 : success_cnt >= target
 
         Result.new.tap do |r|
           r.text = "(#{dice_cnt}B6>=4)#{over_modify > 0 ? "+#{over_modify * 2}" : ''} ＞ [#{dice_str}]#{over_modify > 0 ? "+#{over_modify * 2}" : ''} ＞ 成功数#{success_cnt} ＞ #{result ? '成功' : '失敗'}#{has_critical ? '(クリティカル)' : ''}#{has_fumble ? '(ファンブル)' : ''}"
