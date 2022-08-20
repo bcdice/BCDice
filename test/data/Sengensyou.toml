@@ -61,3 +61,9 @@ rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
 ]
+
+[[ test ]]
+game_system = "Sengensyou"
+input = "SGS>=5"
+output = ""
+rands = []

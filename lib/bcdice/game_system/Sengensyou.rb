@@ -21,7 +21,7 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         # 命中判定・回避判定
-        parser = Command::Parser.new('SGS', round_type: @round_type)
+        parser = Command::Parser.new('SGS', round_type: @round_type).restrict_cmp_op_to(nil)
         command = parser.parse(command)
 
         unless command
