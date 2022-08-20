@@ -272,6 +272,92 @@ rands = [
 
 [[test]]
 game_system = "Ayabito"
+input = "6AB$5>=3"
+output = "(6B6>=4) ＞ [1,2,2,3,4,5] ＞ 成功数3 ＞ 成功"
+success = true
+rands = [
+    { sides = 6, value = 3 },
+    { sides = 6, value = 4 },
+    { sides = 6, value = 2 },
+    { sides = 6, value = 5 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 2 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "6AB$5>=3"
+output = "(6B6>=4) ＞ [1,1,2,2,2,5] ＞ 成功数2 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 6, value = 2 },
+    { sides = 6, value = 2 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 5 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 2 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "6AB$5>=3"
+output = "(6B6>=4) ＞ [1,1,2,4,5,6] ＞ 成功数5 ＞ 成功(クリティカル)"
+success = true
+critical = true
+rands = [
+    { sides = 6, value = 2 },
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 5 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "6AB@5$5>=3"
+output = "(6B6>=4) ＞ [1,1,2,4,4,4] ＞ 成功数3 ＞ 成功"
+success = true
+rands = [
+    { sides = 6, value = 2 },
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 4 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "6AB@5$5>=3"
+output = "(6B6>=4) ＞ [1,1,2,4,5,5] ＞ 成功数5 ＞ 成功(クリティカル)"
+success = true
+critical = true
+rands = [
+    { sides = 6, value = 2 },
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 5 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 5 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "6AB@5$5>=3"
+output = "(6B6>=4) ＞ [1,1,2,3,4,4] ＞ 成功数2 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 6, value = 2 },
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 3 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 4 },
+]
+
+[[test]]
+game_system = "Ayabito"
 input = "ET"
 output = "感情表(51) ＞ 羨望/嫌悪"
 rands = [
@@ -347,4 +433,66 @@ input = "LT"
 output = "封印期間表(1) ＞ 1週間"
 rands = [
     { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "TET"
+output = "帝都東京エリア選択(2) ＞ 上野。あらゆる路線の中心である帝都の玄関口。"
+rands = [
+    { sides = 6, value = 2 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "AST"
+output = "浅草シーン表(33) ＞ ［寅］待乳の渡し。隅田川を橋で渡る代わりに、乗せて渡ってくれる小舟。"
+rands = [
+    { sides = 6, value = 3 },
+    { sides = 6, value = 3 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "UST"
+output = "上野シーン表(25) ＞ ［辰］御徒町。高架下と周辺に所狭しと民家や長屋、様々な店がひしめきあう下町の歓楽街。"
+rands = [
+    { sides = 6, value = 2 },
+    { sides = 6, value = 5 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "NST"
+output = "日本橋シーン表(44) ＞ ［酉］東京駅。皇居に対面する形で作られた煉瓦造りの壮麗な駅。"
+rands = [
+    { sides = 6, value = 4 },
+    { sides = 6, value = 4 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "GST"
+output = "銀座シーン表(31) ＞ ［子］ダンスホウル・ガアデン。モダンボーイやモダンガール御用達の帝都東京有数のダンスホウル。"
+rands = [
+    { sides = 6, value = 3 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "KST"
+output = "霞ヶ関シーン表(56) ＞ ［亥］帝国図書館。国立図書館で、国内で出版されたあらゆる書籍が収蔵されている。"
+rands = [
+    { sides = 6, value = 5 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "Ayabito"
+input = "SST"
+output = "新宿シーン表(32) ＞ ［丑］二幸。食料品専門百貨店。あやびとたちに友好的で、伝奇事件が解決すると飲食が提供される。"
+rands = [
+    { sides = 6, value = 3 },
+    { sides = 6, value = 2 },
 ]
