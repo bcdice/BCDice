@@ -12,6 +12,6 @@ class TestSaiFicSkillTable < Test::Unit::TestCase
   end
 
   def test_command_pattern
-    assert_equal(/^S?([+\-(]*\d+|\d+B\d+|\d+T[YZ]\d+|C[+\-(]*\d+|choice|D66|(repeat|rep|x)\d+|\d+R\d+|\d+U\d+|BCDiceVersion|RTT[1-6]?|RCT)/i, DummySystem.command_pattern)
+    assert_equal(/^S?([+\-(]*(\d+|D\d+)|\d+B\d+|\d+T[YZ]\d+|C[+\-(]*\d+|choice|D66|(repeat|rep|x)\d+|\d+R\d+|\d+U\d+|BCDiceVersion|RTT[1-6]?|RCT)/i, DummySystem.command_pattern)
   end
 end

@@ -90,27 +90,37 @@ rule
 
         result = Node::ImplicitSidesDiceRoll.new(times)
       }
-      | term D explicit_or_implicit_sides filter_type_with_shorthand
+      | term D explicit_or_implicit_sides filter
       {
         times = val[0]
         sides = val[2]
-        filter = val[3]
-
-        raise ParseError if sides != :implicit && sides.include_dice?
-        raise ParseError if times.include_dice?
-
-        n_filtering = Node::Number.new(1)
-        result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
-      }
-      | term D explicit_or_implicit_sides filter_type term
-      {
-        times = val[0]
-        sides = val[2]
-        filter = val[3]
-        n_filtering = val[4]
+        filter = val[3][:filter]
+        n_filtering = val[3][:n_filtering]
 
         raise ParseError if sides != :implicit && sides.include_dice?
         raise ParseError if times.include_dice? || n_filtering.include_dice?
+
+        result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
+      }
+      | D term
+      {
+        times = Node::Number.new(1)
+        sides = val[1]
+        raise ParseError if sides.include_dice?
+        raise ParseError if sides.instance_of?(Node::Number) && sides.literal == 66
+
+        result = Node::DiceRoll.new(times, sides)
+      }
+      | D term filter
+      {
+        times = Node::Number.new(1)
+        sides = val[1]
+        filter = val[2][:filter]
+        n_filtering = val[2][:n_filtering]
+
+        raise ParseError if sides != :implicit && sides.include_dice?
+        raise ParseError if n_filtering.include_dice?
+        raise ParseError if sides.instance_of?(Node::Number) && sides.literal == 66
 
         result = Node::DiceRollWithFilter.new(times, sides, n_filtering, filter)
       }
@@ -120,6 +130,12 @@ rule
                             { result = :implicit }
                             | term
                             { result = val[0] }
+
+
+  filter: filter_type term
+        { result = {filter: val[0], n_filtering: val[1]} }
+        | filter_type_with_shorthand
+        { result = {filter: val[0], n_filtering: Node::Number.new(1)} }
 
   filter_shorthand: M A X
                   { result = Node::DiceRollWithFilter::KEEP_HIGHEST }

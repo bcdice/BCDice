@@ -9,7 +9,7 @@ end
 
 class TestBase < Test::Unit::TestCase
   def test_command_pattern
-    assert_equal(/^S?([+\-(]*\d+|\d+B\d+|\d+T[YZ]\d+|C[+\-(]*\d+|choice|D66|(repeat|rep|x)\d+|\d+R\d+|\d+U\d+|BCDiceVersion|ABC|XYZ|IP\d+)/i, DummySystem.command_pattern)
+    assert_equal(/^S?([+\-(]*(\d+|D\d+)|\d+B\d+|\d+T[YZ]\d+|C[+\-(]*\d+|choice|D66|(repeat|rep|x)\d+|\d+R\d+|\d+U\d+|BCDiceVersion|ABC|XYZ|IP\d+)/i, DummySystem.command_pattern)
 
     assert_match(DummySystem.command_pattern, "ABC+123")
     assert_match(DummySystem.command_pattern, "XYZ[hoge]")
@@ -18,6 +18,8 @@ class TestBase < Test::Unit::TestCase
     assert_not_match(DummySystem.command_pattern, "EFG")
 
     assert_match(DummySystem.command_pattern, "1D100<=70")
+    assert_match(DummySystem.command_pattern, "D6")
+    assert_match(DummySystem.command_pattern, "3D")
     assert_match(DummySystem.command_pattern, "4D6+2D8")
     assert_match(DummySystem.command_pattern, "4B6+2B8")
     assert_match(DummySystem.command_pattern, "5TY6")
@@ -33,7 +35,8 @@ class TestBase < Test::Unit::TestCase
     assert_not_match(DummySystem.command_pattern, "[1...3]D100<=70")
     assert_match(DummySystem.command_pattern, "-3+2D100<=70")
     assert_match(DummySystem.command_pattern, "+3+2D100<=70")
-    assert_not_match(DummySystem.command_pattern, "D6")
+    assert_not_match(DummySystem.command_pattern, "D")
+    assert_not_match(DummySystem.command_pattern, "D-6")
     assert_not_match(DummySystem.command_pattern, "+-")
     assert_match(DummySystem.command_pattern, "+(---(-3+1))D")
   end
