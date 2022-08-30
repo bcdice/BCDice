@@ -41,8 +41,9 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_action(command)
-        m = %r{(\d)KU}.match(command)
+        m = /(\d)KU/.match(command)
         return nil unless m
+
         num_dices = m[1].to_i
 
         dices = @randomizer.roll_barabara(num_dices, 6).sort
@@ -68,8 +69,9 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_competition(command)
-        m = %r{(\d)KR}.match(command)
+        m = /(\d)KR/.match(command)
         return nil unless m
+
         num_dices = m[1].to_i
 
         dices = @randomizer.roll_barabara(num_dices, 6).sort
@@ -88,7 +90,6 @@ module BCDice
           return Result.failure(output)
         end
       end
-
     end
   end
 end
