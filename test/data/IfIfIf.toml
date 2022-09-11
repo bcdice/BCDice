@@ -1,0 +1,151 @@
+[[test]]
+game_system = "IfIfIf"
+input = "ie"
+output = "(3B6=6) ＞ 4,2,3 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 6, value = 4 },
+    { sides = 6, value = 2 },
+    { sides = 6, value = 3 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "ie"
+output = "(3B6=6) ＞ 5,5,6 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 6, value = 5 },
+    { sides = 6, value = 5 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "ie" 
+output = "(3B6=6) ＞ 6,1,6 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 1 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "ie" 
+output = "(3B6=6) ＞ 6,6,6 ＞ 成功"
+success = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 6 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "if"
+output = "(3B6=6) ＞ 4,4,1 ＞ 成功数0"
+failure = true
+rands = [
+    { sides = 6, value = 4 },
+    { sides = 6, value = 4 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "if"
+output = "(3B6=6) ＞ 6,5,1 ＞ 成功数1"
+success = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 5 },
+    { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "if"
+output = "(3B6=6) ＞ 6,2,6 ＞ 成功数2"
+success = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 2 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "if"
+output = "(3B6=6) ＞ 6,6,6 ＞ 成功数3"
+success = true
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 6 },
+    { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "id"
+output = "(3TY6) ＞ 6,2,5 ＞ [2]×1, [5]×1, [6]×1"
+rands = [
+    { sides = 6, value = 6 },
+    { sides = 6, value = 2 },
+    { sides = 6, value = 5 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "hqt"
+output = "100の質問(2) ＞ 100の質問表その２ー日常質問(6) ＞ ふたりで買い物をするときは、どんな様子ですか？"
+rands = [
+    { sides = 10, value = 2 },
+    { sides = 10, value = 6 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "hqt"
+output = "100の質問(7) ＞ 100の質問表その７ーブラック質問２(1) ＞ 相手と出会ってなかったら今頃どうなってたと思いますか？"
+rands = [
+    { sides = 10, value = 7 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "ldt"
+output = "ローリスク歪み表(2) ＞ ローリスク歪み表：外見的特徴(8) ＞ 特徴的なファッションになる（ゴスロリ、赤一色、常に白衣など）"
+rands = [
+    { sides = 10, value = 2 },
+    { sides = 10, value = 8 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "ldt"
+output = "ローリスク歪み表(9) ＞ ローリスク歪み表：自由欄１(10) ＞ 暗いところが怖くなる"
+rands = [
+    { sides = 10, value = 9 },
+    { sides = 10, value = 10 }
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "hdt"
+output = "ハイリスク歪み表(4) ＞ ハイリスク歪み表：得意不得意(2) ＞ 戦闘能力を失う／高負荷の運動ができなくなる"
+rands = [
+    { sides = 10, value = 4 },
+    { sides = 10, value = 2 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "hdt"
+output = "ハイリスク歪み表(1) ＞ ハイリスク歪み表：名前、性別、年齢、人称(1) ＞ 名前の綴り、あるいは漢字が変化する"
+rands = [
+    { sides = 10, value = 1 },
+    { sides = 10, value = 1 },
+]
