@@ -1,7 +1,7 @@
 [[test]]
 game_system = "IfIfIf"
 input = "ie"
-output = "(3B6=6) ＞ 4,2,3 ＞ 失敗"
+output = "(3B6=6) ＞ 4,2,3 ＞ 6の数:0 不足数:3"
 failure = true
 rands = [
     { sides = 6, value = 4 },
@@ -12,7 +12,7 @@ rands = [
 [[test]]
 game_system = "IfIfIf"
 input = "ie"
-output = "(3B6=6) ＞ 5,5,6 ＞ 失敗"
+output = "(3B6=6) ＞ 5,5,6 ＞ 6の数:1 不足数:2"
 failure = true
 rands = [
     { sides = 6, value = 5 },
@@ -23,7 +23,7 @@ rands = [
 [[test]]
 game_system = "IfIfIf"
 input = "ie" 
-output = "(3B6=6) ＞ 6,1,6 ＞ 失敗"
+output = "(3B6=6) ＞ 6,1,6 ＞ 6の数:2 不足数:1"
 failure = true
 rands = [
     { sides = 6, value = 6 },
@@ -34,7 +34,7 @@ rands = [
 [[test]]
 game_system = "IfIfIf"
 input = "ie" 
-output = "(3B6=6) ＞ 6,6,6 ＞ 成功"
+output = "(3B6=6) ＞ 6,6,6 ＞ 6の数:3"
 success = true
 rands = [
     { sides = 6, value = 6 },
@@ -44,8 +44,8 @@ rands = [
 
 [[test]]
 game_system = "IfIfIf"
-input = "if"
-output = "(3B6=6) ＞ 4,4,1 ＞ 成功数0"
+input = "im"
+output = "(3B6=6) ＞ 4,4,1 ＞ 6の数:0 選べるエンド数:1"
 failure = true
 rands = [
     { sides = 6, value = 4 },
@@ -55,8 +55,8 @@ rands = [
 
 [[test]]
 game_system = "IfIfIf"
-input = "if"
-output = "(3B6=6) ＞ 6,5,1 ＞ 成功数1"
+input = "im"
+output = "(3B6=6) ＞ 6,5,1 ＞ 6の数:1 選べるエンド数:2"
 success = true
 rands = [
     { sides = 6, value = 6 },
@@ -66,8 +66,8 @@ rands = [
 
 [[test]]
 game_system = "IfIfIf"
-input = "if"
-output = "(3B6=6) ＞ 6,2,6 ＞ 成功数2"
+input = "im"
+output = "(3B6=6) ＞ 6,2,6 ＞ 6の数:2 選べるエンド数:3"
 success = true
 rands = [
     { sides = 6, value = 6 },
@@ -77,8 +77,8 @@ rands = [
 
 [[test]]
 game_system = "IfIfIf"
-input = "if"
-output = "(3B6=6) ＞ 6,6,6 ＞ 成功数3"
+input = "im"
+output = "(3B6=6) ＞ 6,6,6 ＞ 6の数:3 選べるエンド数:4"
 success = true
 rands = [
     { sides = 6, value = 6 },
@@ -99,7 +99,7 @@ rands = [
 [[test]]
 game_system = "IfIfIf"
 input = "hqt"
-output = "100の質問(2) ＞ 100の質問表その２ー日常質問(6) ＞ ふたりで買い物をするときは、どんな様子ですか？"
+output = "100の質問(2) ＞ 100の質問表その２‐日常質問(6) ＞ ふたりで買い物をするときは、どんな様子ですか？"
 rands = [
     { sides = 10, value = 2 },
     { sides = 10, value = 6 },
@@ -108,10 +108,26 @@ rands = [
 [[test]]
 game_system = "IfIfIf"
 input = "hqt"
-output = "100の質問(7) ＞ 100の質問表その７ーブラック質問２(1) ＞ 相手と出会ってなかったら今頃どうなってたと思いますか？"
+output = "100の質問(7) ＞ 100の質問表その７‐ブラック質問２(1) ＞ 相手と出会ってなかったら今頃どうなってたと思いますか？"
 rands = [
     { sides = 10, value = 7 },
     { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "hqt8"
+output = "100の質問表その８‐雑談質問(9) ＞ 相手に手料理を食べさせたことはありますか？"
+rands = [
+    { sides = 10, value = 9 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "hqt5"
+output = "100の質問表その５‐内緒の質問（オフレコ推奨）(2) ＞ 相手に嘘をついていることはありますか？　教えてください！"
+rands = [
+    {sides = 10, value = 2 },
 ]
 
 [[test]]
@@ -129,7 +145,23 @@ input = "ldt"
 output = "ローリスク歪み表(9) ＞ ローリスク歪み表：自由欄１(10) ＞ 暗いところが怖くなる"
 rands = [
     { sides = 10, value = 9 },
-    { sides = 10, value = 10 }
+    { sides = 10, value = 10 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "ldt7"
+output = "ローリスク歪み表：現在の生活(1) ＞ 近づくと赤ちゃんがギャン泣きする体質になる"
+rands = [
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "ldt6"
+output = "ローリスク歪み表：パートナーとの関係性や呼び方(9) ＞ パートナーを傷つけたくてたまらなくなる"
+rands = [
+    {sides = 10, value = 9 },
 ]
 
 [[test]]
@@ -148,4 +180,20 @@ output = "ハイリスク歪み表(1) ＞ ハイリスク歪み表：名前、�
 rands = [
     { sides = 10, value = 1 },
     { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "hdt9"
+output = "ハイリスク歪み表：自由欄１(1) ＞ パートナー以外の人の顔が塗りつぶされて見える"
+rands = [
+    {sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "IfIfIf"
+input = "hdt2"
+output = "ハイリスク歪み表：外見的特徴(7) ＞ 翼が生える／元が有翼の場合は翼を失う"
+rands = [
+    {sides = 10, value = 7 },
 ]

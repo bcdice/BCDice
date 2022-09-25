@@ -13,11 +13,12 @@ module BCDice
 
       HELP_MESSAGE = <<~TEXT
         100の質問：HQT
-        ローリスク歪み表：LDT
         ハイリスク歪み表：HDT
+        ローリスク歪み表：LDT
+          「HQT1」「LDT4」のように、表の後ろに数字を付けることで、10個の表から個別に振ることができます。
         致命的な歪みの回避：ID
+        改竄判定：IM
         強制改竄判定：IE
-        改竄判定：IF
       TEXT
 
       def eval_game_system_specific_command(command)
@@ -31,18 +32,19 @@ module BCDice
         when "IE"
           dicearr = @randomizer.roll_barabara(3, 6)
           success = dicearr.count(6) == 3
+          success_count = dicearr.count(6)
           if success
-            Result.success("(3B6=6) ＞ #{dicearr.join(',')} ＞ 成功")
+            Result.success("(3B6=6) ＞ #{dicearr.join(',')} ＞ 6の数:#{success_count}")
           else
-            Result.failure("(3B6=6) ＞ #{dicearr.join(',')} ＞ 失敗")
+            Result.failure("(3B6=6) ＞ #{dicearr.join(',')} ＞ 6の数:#{success_count} 不足数:#{3 - success_count}")
           end
-        when "IF"
+        when "IM"
           dicearr = @randomizer.roll_barabara(3, 6)
           success_count = dicearr.count(6)
           if success_count == 0
-            Result.failure("(3B6=6) ＞ #{dicearr.join(',')} ＞ 成功数#{success_count}")
+            Result.failure("(3B6=6) ＞ #{dicearr.join(',')} ＞ 6の数:#{success_count} 選べるエンド数:#{success_count + 1}")
           else
-            Result.success("(3B6=6) ＞ #{dicearr.join(',')} ＞ 成功数#{success_count}")
+            Result.success("(3B6=6) ＞ #{dicearr.join(',')} ＞ 6の数:#{success_count} 選べるエンド数:#{success_count + 1}")
           end
         else
           return nil
@@ -50,7 +52,7 @@ module BCDice
       end
 
       HQT1 = DiceTable::Table.new(
-        "100の質問表その１ー印象質問",
+        "100の質問表その１‐印象質問",
         "1D10",
         [
           "相手の好きなところはどこですか？",
@@ -67,7 +69,7 @@ module BCDice
       )
 
       HQT2 = DiceTable::Table.new(
-        "100の質問表その２ー日常質問",
+        "100の質問表その２‐日常質問",
         "1D10",
         [
           "ふたりの関係性を一言で表すなら？",
@@ -84,7 +86,7 @@ module BCDice
       )
 
       HQT3 = DiceTable::Table.new(
-        "100の質問表その３ー汎用思い出質問",
+        "100の質問表その３‐汎用思い出質問",
         "1D10",
         [
           "喧嘩した思い出はありますか？　詳しく語ってください！",
@@ -101,7 +103,7 @@ module BCDice
       )
 
       HQT4 = DiceTable::Table.new(
-        "100の質問表その４ー情景思い出質問",
+        "100の質問表その４‐情景思い出質問",
         "1D10",
         [
           "ふたりで夜明けを迎えたときの思い出を語ってくれますか？",
@@ -118,7 +120,7 @@ module BCDice
       )
 
       HQT5 = DiceTable::Table.new(
-        "100の質問表その５ー内緒の質問（オフレコ推奨）",
+        "100の質問表その５‐内緒の質問（オフレコ推奨）",
         "1D10",
         [
           "相手に絶対に知られたくない秘密ってありますか？　教えてください！",
@@ -135,7 +137,7 @@ module BCDice
       )
 
       HQT6 = DiceTable::Table.new(
-        "100の質問表その６ーブラック質問１",
+        "100の質問表その６‐ブラック質問１",
         "1D10",
         [
           "相手に嫌われたらどうしますか？",
@@ -152,7 +154,7 @@ module BCDice
       )
 
       HQT7 = DiceTable::Table.new(
-        "100の質問表その７ーブラック質問２",
+        "100の質問表その７‐ブラック質問２",
         "1D10",
         [
           "相手と出会ってなかったら今頃どうなってたと思いますか？",
@@ -169,7 +171,7 @@ module BCDice
       )
 
       HQT8 = DiceTable::Table.new(
-        "100の質問表その８ー雑談質問",
+        "100の質問表その８‐雑談質問",
         "1D10",
         [
           "相手に対して、自分が自慢できるのはどんなところですか？",
@@ -186,7 +188,7 @@ module BCDice
       )
 
       HQT9 = DiceTable::Table.new(
-        "100の質問表その９ーファンタジー質問",
+        "100の質問表その９‐ファンタジー質問",
         "1D10",
         [
           "相手の種族についてどう思いますか？",
@@ -203,7 +205,7 @@ module BCDice
       )
 
       HQT10 = DiceTable::Table.new(
-        "100の質問表その１０ー現代質問",
+        "100の質問表その１０‐現代質問",
         "1D10",
         [
           "お互い、どんな学校に通っていますか／通っていましたか？",
@@ -608,9 +610,39 @@ module BCDice
             HDT10,
           ]
         ),
+        "HQT1" => HQT1,
+        "HQT2" => HQT2,
+        "HQT3" => HQT3,
+        "HQT4" => HQT4,
+        "HQT5" => HQT5,
+        "HQT6" => HQT6,
+        "HQT7" => HQT7,
+        "HQT8" => HQT8,
+        "HQT9" => HQT9,
+        "HQT10" => HQT10,
+        "HDT1" => HDT1,
+        "HDT2" => HDT2,
+        "HDT3" => HDT3,
+        "HDT4" => HDT4,
+        "HDT5" => HDT5,
+        "HDT6" => HDT6,
+        "HDT7" => HDT7,
+        "HDT8" => HDT8,
+        "HDT9" => HDT9,
+        "HDT10" => HDT10,
+        "LDT1" => LDT1,
+        "LDT2" => LDT2,
+        "LDT3" => LDT3,
+        "LDT4" => LDT4,
+        "LDT5" => LDT5,
+        "LDT6" => LDT6,
+        "LDT7" => LDT7,
+        "LDT8" => LDT8,
+        "LDT9" => LDT9,
+        "LDT10" => LDT10,
       }.freeze
 
-      register_prefix('ID', 'IE', 'IF', TABLES.keys)
+      register_prefix('ID', 'IE', 'IM', TABLES.keys)
     end
   end
 end
