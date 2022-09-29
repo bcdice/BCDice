@@ -628,6 +628,31 @@ rands = [
 
 [[ test ]]
 game_system = "FutariSousa"
+input = "EVL"
+output = "探偵を大人しくさせる捜査／イベント表(6) ＞ 異常な癖キャンセル（探偵フェスティバルP.32）\n　探偵が突飛なことをする。\n　いつもは止められないそれを、止める。\n　そうするとどうなるだろうか？"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVZ"
+output = "伝統的捜査／イベント表(6) ＞ ニュース（探偵フェスティバルP.38）\n　ニュースというものは、大切な情報源であり、娯楽だ。\n　それだけに、多くの人々が関心を持つ。\n　それらを拾い集めれば、いずれ真実に近づくだろう。\n　さて、事件に繋がるものはあるかな。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "EVR"
+output = "原始的捜査／イベント表(6) ＞ 見せる（探偵フェスティバルP.44）\n　何か、情報を引き出せるものはないだろうか。\n　鞄の中やポケットの中をあさる。\n　……よし、これでいこう！\n　これはどうだ！　何か感じないか！"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+
+[[ test ]]
+game_system = "FutariSousa"
 input = "OBT"
 output = "調査の障害表(66) ＞ 偶然が積み重なってうまくいかない"
 rands = [
@@ -743,6 +768,14 @@ rands = [
 
 [[ test ]]
 game_system = "FutariSousa"
+input = "MITE"
+output = "エピソード付き思い出の品表(10) ＞ 二人でやってきたことを纏めた日記。探偵と助手のどちらが日記を付けているのかは、相談して決めること。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
 input = "JBT66"
 output = "職業表A(66) ＞ パートナーと同じ"
 rands = [
@@ -790,6 +823,122 @@ input = "FLT10"
 output = "感情表B(10) ＞ 自分との関係"
 rands = [
   { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTL66"
+output = "追加感情表・気に入っているところ(66) ＞ 誓い合った「大事な約束」を忘れていないところ"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTD66"
+output = "追加感情表・気に入らないところ(66) ＞ 誓い合った「大事な約束」を忘れてるんじゃないか"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTRA"
+output = "ランダム感情決定表（あなた）(6) ＞ 追加感情表・ヘビーウェイトを使用する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTF66"
+output = "追加感情表・顔のパーツ(66) ＞ うなじ"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTB66"
+output = "追加感情表・体のパーツ(66) ＞ 胴回り"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTH66"
+output = "追加感情表・生活習慣(66) ＞ 財布の中身"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTS66"
+output = "追加感情表・ふわっとした感覚(66) ＞ テンションが上がるタイミング"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTA66"
+output = "追加感情表・他人への態度(66) ＞ 他人と話すときの自分を見る頻度"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTW66"
+output = "追加感情表・ヘビーウェイト(66) ＞ 自分のすべて捧げたいと思う瞬間"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTC66"
+output = "追加感情表・同僚(66) ＞ 昔言ったセリフ"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTU66"
+output = "追加感情表・部下(66) ＞ 勘の良さ"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTO66"
+output = "追加感情表・上司(66) ＞ 知らないところで活躍しているところ"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTI66"
+output = "追加感情表・捜査のやり方(66) ＞ なんだそれと思うところ"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]

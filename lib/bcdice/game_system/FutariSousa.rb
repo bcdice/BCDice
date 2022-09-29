@@ -18,11 +18,11 @@ module BCDice
         探偵用：【DT】…10面ダイスを2つ振って判定します。『有利』なら【3DT】、『不利』なら【1DT】を使います。
         助手用：【AS】…6面ダイスを2つ振って判定します。『有利』なら【3AS】、『不利』なら【1AS】を使います。
         ・各種表
-        【調査時】
+        【セッション時】
         異常な癖決定表　　　　　 SHRD／新・異常な癖決定表　　 SHND
         普通の？・異常な癖決定表 SHAD／ケイジ異常な癖決定表　 SHKD
         　口から出る表　　　 SHFM／強引な捜査表　　　　　 SHBT／すっとぼけ表　　　　　　 SHPI
-        　事件に夢中表　　　 SHEG／パートナーと……表　　　 SHWP／何かしている表　　　　　 SHDS
+        　事件に夢中表　　　 SHEG／パートナーと……表　　 SHWP／何かしている表　　　　　 SHDS
         　奇想天外表　　　　 SHFT／急なひらめき表　　　　 SHIN／喜怒哀楽表　　　　　　　 SHEM
         　人間エミュレート表 SHHE／人間エミュレート失敗表 SHHF／パートナーへのいたずら表 SHMP
         　思わせぶり表　　　 SHSB／もどかしい表　　　　　 SHFR／突然どうした表　　　　　 SHIS
@@ -38,15 +38,23 @@ module BCDice
         　思わぬヒント EVH／実験をしてみよう EVX／ゲスト捜査 EVG
         　ケイジ聞き込み捜査　　　 EVQ／ケイジ大規模捜査　　　　　 EVM／こっそり情報の受け渡し EVP
         　同僚たちと一緒に捜査する EVO／頻染みの店シチュエーション EVF／ハードBデカアクション  EVB
+        感情表
+        　感情表A／B　　 FLT66・FLT10
+        　気に入っているところ　 FLTL66　／気に入らないところ　 FLTD66
+        　ランダム感情決定表（あなた）　 FLTRA
+        　顔のパーツ　　　　 FLTF66／体のパーツ　 FLTB66／生活習慣　　　 FLTH66
+        　ふわっとした感覚　 FLTS66／他人への態度 FLTA66／ヘビーウェイト FLTW66
+        　同僚　　　　 FLTC66／部下　　　　 FLTU66／上司　　　　 FLTO66
+        　捜査のやり方 FLTI66
         調査の障害表 OBT　　変調表 ACT　　目撃者表 EWT　　迷宮入り表 WMT
+        思い出の品決定表 MIT　　エピソード付き思い出の品表 MITE　　呼び名表A・B　 NCT66・NCT10
         【設定時】
         背景表
         　探偵　運命の血統 BGDD／天性の才能 BGDG／マニア　　　　 BGDM
         　助手　正義の人　 BGAJ／情熱の人　 BGAP／巻き込まれの人 BGAI
-        身長表 HT　　たまり場表 BT　　関係表 GRT　　思い出の品決定表 MIT
+        身長表 HT　　たまり場表 BT　　関係表 GRT
         職業表A・B　　JBT66・JBT10　　ファッション特徴表A・B　　　　FST66・FST10
-        感情表A／B　　FLT66・FLT10　　好きなもの／嫌いなもの表A・B　LDT66・LDT10
-        呼び名表A・B　NCT66・NCT10
+        好きなもの／嫌いなもの表A・B　LDT66・LDT10
       MESSAGETEXT
 
       def initialize(command)
@@ -169,6 +177,9 @@ module BCDice
             "EVO" => DiceTable::Table.from_i18n("FutariSousa.table.EVO", locale),
             "EVF" => DiceTable::Table.from_i18n("FutariSousa.table.EVF", locale),
             "EVB" => DiceTable::Table.from_i18n("FutariSousa.table.EVB", locale),
+            "EVL" => DiceTable::Table.from_i18n("FutariSousa.table.EVL", locale),
+            "EVZ" => DiceTable::Table.from_i18n("FutariSousa.table.EVZ", locale),
+            "EVR" => DiceTable::Table.from_i18n("FutariSousa.table.EVR", locale),
             "OBT" => DiceTable::D66Table.from_i18n("FutariSousa.table.OBT", locale),
             "ACT" => DiceTable::Table.from_i18n("FutariSousa.table.ACT", locale),
             "EWT" => DiceTable::Table.from_i18n("FutariSousa.table.EWT", locale),
@@ -183,6 +194,7 @@ module BCDice
             "BT" => DiceTable::Table.from_i18n("FutariSousa.table.BT", locale),
             "GRT" => DiceTable::D66Table.from_i18n("FutariSousa.table.GRT", locale),
             "MIT" => DiceTable::D66Table.from_i18n("FutariSousa.table.MIT", locale),
+            "MITE" => DiceTable::Table.from_i18n("FutariSousa.table.MITE", locale),
             "JBT66" => DiceTable::D66Table.from_i18n("FutariSousa.table.JBT66", locale),
             "JBT10" => DiceTable::Table.from_i18n("FutariSousa.table.JBT10", locale),
             "FST66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FST66", locale),
@@ -191,6 +203,19 @@ module BCDice
             "LDT10" => DiceTable::Table.from_i18n("FutariSousa.table.LDT10", locale),
             "FLT66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLT66", locale),
             "FLT10" => DiceTable::Table.from_i18n("FutariSousa.table.FLT10", locale),
+            "FLTL66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTL66", locale),
+            "FLTD66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTD66", locale),
+            "FLTRA" => DiceTable::Table.from_i18n("FutariSousa.table.FLTRA", locale),
+            "FLTF66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTF66", locale),
+            "FLTB66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTB66", locale),
+            "FLTH66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTH66", locale),
+            "FLTS66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTS66", locale),
+            "FLTA66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTA66", locale),
+            "FLTW66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTW66", locale),
+            "FLTC66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTC66", locale),
+            "FLTU66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTU66", locale),
+            "FLTO66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTO66", locale),
+            "FLTI66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTI66", locale),
             "NCT66" => DiceTable::D66Table.from_i18n("FutariSousa.table.NCT66", locale),
             "NCT10" => DiceTable::Table.from_i18n("FutariSousa.table.NCT10", locale),
           }
