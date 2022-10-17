@@ -14,11 +14,13 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定　GS(x)>=y
+        ・判定　GS(x)@c#f>=y
         　2d6の判定を行い、達成値を出力します。
-        　xは基準値、yは目標値です。いずれも省略可能です。
+        　xは基準値、yは目標値、cは大成功の下限、fは大失敗の上限です。いずれも省略可能です。
+        　cが未指定の場合には c=12 、fが未指定の場合には f=2 となります。
         　yが設定されている場合、大成功/成功/失敗/大失敗を自動判定します。
         　例）GS>=12　GS>10　GS(10)>14　GS+10>=15　GS10>=15　GS(10)　GS+10　GS10　GS
+        　　　GS@10　GS@10#3　GS#3@10
 
         ・祈念　MCPI(n)$m
         　祈念を行います。
@@ -62,15 +64,26 @@ module BCDice
       end
 
       def getCheckResult(command)
-        m = /^GS([-+]?\d+)?((>=?)(\d+))?$/i.match(command)
+        m = /^GS([-+]?\d+)?(?:(?:([@#])([-+]?\d+))(?:([@#])([-+]?\d+))?)?(?:(>=?)(\d+))?$/i.match(command)
         unless m
           return nil
         end
 
         basis = m[1].to_i # 基準値
-        target = m[4].to_i
-        without_compare = m[2].nil? || target <= 0
-        cmp_op = m[3]
+        target = m[7].to_i
+        cmp_op = m[6]
+        without_compare = cmp_op.nil?
+
+        option1 = m[2]
+        option1_value = m[3]
+        option2 = m[4]
+        option2_param = m[5]
+
+        if option1 && option1 == option2
+          return nil
+        end
+
+        threshold_critical, threshold_fumble = calc_threshold(option1, option1_value, option2, option2_param)
 
         dice_list = @randomizer.roll_barabara(2, 6)
         total = dice_list.sum()
@@ -78,8 +91,8 @@ module BCDice
 
         achievement = basis + total # 達成値
 
-        fumble = diceText == "1,1"
-        critical = diceText == "6,6"
+        fumble = total <= threshold_fumble
+        critical = total >= threshold_critical
 
         result = " ＞ #{resultStr(achievement, target, cmp_op, fumble, critical)}"
         if without_compare && !fumble && !critical
@@ -88,6 +101,15 @@ module BCDice
         basis_str = basis == 0 ? "" : "#{basis} + "
 
         return "(#{command}) ＞ #{basis_str}#{total}[#{diceText}] ＞ #{achievement}#{result}"
+      end
+
+      CRITICAL = 12
+      FUMBLE = 2
+
+      def calc_threshold(option1, option1_value, _option2, option2_value)
+        critical, fumble = option1 == "@" ? [option1_value, option2_value] : [option2_value, option1_value]
+
+        return [critical&.to_i || CRITICAL, fumble&.to_i || FUMBLE]
       end
 
       def murmurChantPrayInvoke(command)
