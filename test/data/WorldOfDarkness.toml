@@ -565,3 +565,166 @@ rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
 ]
+
+# ひとつでも成功の目が出たら1の目が成功より多くても大失敗ではなく失敗になるか確認
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5ST"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,1,6,6 ＞ 失敗"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STS"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,1,10,10 ＞ 1,5 ＞ 失敗"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STA"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,1,5,10 ＞ 失敗"
+rands = [
+   { sides = 10, value = 1  },
+   { sides = 10, value = 1  },
+   { sides = 10, value = 1  },
+   { sides = 10, value = 5  },
+   { sides = 10, value = 10 },
+]
+
+# リロール分の1が成功を打ち消してないか確認
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STS"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,2,10,10 ＞ 1,6 ＞ 成功数1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+]
+
+# 自動成功が打ち消されずに成功になるか確認
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5ST+1"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,1,5,5 ＞ 成功数1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5ST+1"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,1,6,6 ＞ 成功数1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5ST+1"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,6,6,6 ＞ 成功数2"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STS+1"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,1,5,5 ＞ 成功数1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STS+1"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,1,6,6 ＞ 成功数1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STS+1"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,6,6,6 ＞ 成功数2"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STA+1"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,1,6,6 ＞ 成功数1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STA+1"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,1,5,5 ＞ 成功数1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STS+1"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,6,6,6 ＞ 成功数2"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
