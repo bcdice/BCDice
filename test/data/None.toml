@@ -1656,51 +1656,6 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
-input = "D66 入れ替えはゲーム依存"
-output = "(D66) ＞ 16"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "DiceBot"
-input = "D66A 昇順入れ替え"
-output = "(D66A) ＞ 16"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "DiceBot"
-input = "D66S 昇順入れ替え"
-output = "(D66S) ＞ 16"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "DiceBot"
-input = "D66D 降順入れ替え"
-output = "(D66D) ＞ 61"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "DiceBot"
-input = "D66N 入れ替えなし"
-output = "(D66N) ＞ 61"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "DiceBot"
 input = "1D3+2D66 加算ダイスのD66"
 output = "(1D3+2D66) ＞ 3[3]+77[16,61] ＞ 80"
 rands = [

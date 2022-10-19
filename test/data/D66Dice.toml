@@ -1,0 +1,80 @@
+[[test]]
+game_system = "DiceBot"
+input = "d66a 小文字対応テスト"
+output = "(D66A) ＞ 25"
+rands = [
+    { sides = 6, value = 5 },
+    { sides = 6, value = 2 },
+]
+
+[[test]]
+game_system = "DiceBot"
+input = "d66s 小文字対応テスト"
+output = "(D66S) ＞ 25"
+rands = [
+    { sides = 6, value = 5 },
+    { sides = 6, value = 2 },
+]
+
+[[test]]
+game_system = "DiceBot"
+input = "d66n 小文字対応テスト"
+output = "(D66N) ＞ 52"
+rands = [
+    { sides = 6, value = 5 },
+    { sides = 6, value = 2 },
+]
+
+[[test]]
+game_system = "DiceBot"
+input = "d66d 小文字対応テスト"
+output = "(D66D) ＞ 61"
+rands = [
+    { sides = 6, value = 1 },
+    { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "D66 入れ替えはゲーム依存"
+output = "(D66) ＞ 16"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "D66A 昇順入れ替え"
+output = "(D66A) ＞ 16"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "D66S 昇順入れ替え"
+output = "(D66S) ＞ 16"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "D66D 降順入れ替え"
+output = "(D66D) ＞ 61"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "D66N 入れ替えなし"
+output = "(D66N) ＞ 61"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
