@@ -26,6 +26,17 @@ rands = [
 
 [[ test ]]
 game_system = "DiceBot"
+input = "2D66"
+output = "(2D66) ＞ 120[66,54] ＞ 120"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
 input = "1D6+1"
 output = "(1D6+1) ＞ 4[4]+1 ＞ 5"
 rands = [
@@ -1641,4 +1652,16 @@ rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "DiceBot"
+input = "1D3+2D66 加算ダイスのD66"
+output = "(1D3+2D66) ＞ 3[3]+77[16,61] ＞ 80"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
 ]

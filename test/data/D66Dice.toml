@@ -78,26 +78,3 @@ rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
 ]
-
-[[ test ]]
-game_system = "DiceBot"
-input = "1D3+2D66 加算ダイスのD66"
-output = "(1D3+2D66) ＞ 3[3]+77[16,61] ＞ 80"
-rands = [
-  { sides = 3, value = 3 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "DiceBot"
-input = "2D66"
-output = "(2D66) ＞ 120[66,54] ＞ 120"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 5 },
-  { sides = 6, value = 4 },
-]
