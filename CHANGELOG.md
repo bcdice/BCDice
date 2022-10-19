@@ -1,5 +1,30 @@
 # Change Log
 
+## Unreleased
+
+### 対応ゲームシステムの追加
+- 実況ゴーストライヴ (GhostLive): ViViさんありがとうっ！ ([#548](https://github.com/bcdice/BCDice/pull/548))
+- 千幻抄 (Sengensyou): 三木里 秀予さんありがとうっ！ ([#549](https://github.com/bcdice/BCDice/pull/549))
+- ヴィジョンコネクト (VisionConnect): 蜂紫さんありがとうっ！ ([#553](https://github.com/bcdice/BCDice/pull/553))
+- Kutulu (Kutulu): Facelessさん、らぁありがとうっ！ ([#554](https://github.com/bcdice/BCDice/pull/554))
+- イフ・イフ・イフ (IfIfIf): realizecatさんありがとうっ！ ([#555](https://github.com/bcdice/BCDice/pull/555))
+- ビギニングアイドル（2022年改訂版） (BeginningIdol2022): 時雨さん要望ありがとうっ！ ([#565](https://github.com/bcdice/BCDice/pull/565))
+
+### 追加機能
+- 加算ダイスでダイス数を省略した `D6` のような記法を追加 ([#550](https://github.com/bcdice/BCDice/pull/550))
+- あやびと: 判定コマンドに出目を2として数える数の最小値を指定するオプションを追加。サプリメント『よいばな』記載の表を追加。蜂紫さんありがとうっ！ ([#552](https://github.com/bcdice/BCDice/pull/552))
+- フタリソウサ: 『探偵フェスティバル』『怪盗からの誘惑』『あなたと仲良くなる方法』『フタリケイジ』記載の表を追加。えいむさん、ベンベンさんありがとうっ！ ([#560](https://github.com/bcdice/BCDice/pull/560))
+- ゴブリンスレイヤーTRPG: 判定コマンド `GS` に大成功と大失敗の閾値を変更するオプションを追加。カノンさん要望ありがとうっ！ ([#562](https://github.com/bcdice/BCDice/pull/562))
+
+### 変更
+
+### 誤植修正
+
+### バグ修正
+- あやびと: 判定コマンドで誤った大小比較をしていた問題を修正。蜂紫さんありがとうっ！ ([#537](https://github.com/bcdice/BCDice/pull/537))
+- ワールド・オブ・ダークネス: 成功数より1の数が多いときに常に大失敗になるバグを修正。フレッド緑野さんありがとうっ！ ([#561](https://github.com/bcdice/BCDice/pull/561))
+- D66ダイスの並べ替え指定を小文字でしたときに無視される問題を修正。蜂紫さんありがとうっ！ ([#567](https://github.com/bcdice/BCDice/pull/567))
+
 ## 3.6.0 2022/05/04
 
 ### 対応ゲームシステムの追加
