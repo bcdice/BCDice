@@ -20,7 +20,7 @@ module BCDice
         def parse(command, game_system)
           command = command.split(" ", 2).first
 
-          m = /^(S)?D66([ANSD])?$/i.match(command)
+          m = /^(S)?D66([ANSD])?$/i.match(command.upcase)
           return nil unless m
 
           new(
