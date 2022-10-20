@@ -19,6 +19,8 @@
 ### 変更
 
 ### 誤植修正
+- ログ・ホライズンTRPG: 魔法素材財宝表(41)の素材価格を修正。Hasturさんありがとうっ！ ([#569](https://github.com/bcdice/BCDice/pull/569)))
+- サタスペ: タグ決定表(12)の読み替えを反映。ねおたそさんありがとうっ！ ([#570](https://github.com/bcdice/BCDice/pull/570)))
 
 ### バグ修正
 - あやびと: 判定コマンドで誤った大小比較をしていた問題を修正。蜂紫さんありがとうっ！ ([#537](https://github.com/bcdice/BCDice/pull/537))
