@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+## 3.7.0 2022/10/21
 
 ### 対応ゲームシステムの追加
 - 実況ゴーストライヴ (GhostLive): ViViさんありがとうっ！ ([#548](https://github.com/bcdice/BCDice/pull/548))
@@ -15,8 +15,6 @@
 - あやびと: 判定コマンドに出目を2として数える数の最小値を指定するオプションを追加。サプリメント『よいばな』記載の表を追加。蜂紫さんありがとうっ！ ([#552](https://github.com/bcdice/BCDice/pull/552))
 - フタリソウサ: 『探偵フェスティバル』『怪盗からの誘惑』『あなたと仲良くなる方法』『フタリケイジ』記載の表を追加。えいむさん、ベンベンさんありがとうっ！ ([#560](https://github.com/bcdice/BCDice/pull/560))
 - ゴブリンスレイヤーTRPG: 判定コマンド `GS` に大成功と大失敗の閾値を変更するオプションを追加。カノンさん要望ありがとうっ！ ([#562](https://github.com/bcdice/BCDice/pull/562))
-
-### 変更
 
 ### 誤植修正
 - ログ・ホライズンTRPG: 魔法素材財宝表(41)の素材価格を修正。Hasturさんありがとうっ！ ([#569](https://github.com/bcdice/BCDice/pull/569)))
