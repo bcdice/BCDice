@@ -728,3 +728,76 @@ rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
 ]
+
+# リロール分でボッチが発生するコマンドのテスト
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "1STB テキスト"
+output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 1 ＞ 大失敗"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "1STB"
+output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 6 ＞ 成功数1"
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STB"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,5,6,10,10 ＞ 1,7 ＞ 成功数2"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STB7"
+output = "DicePool=5, Difficulty=7, AutomaticSuccess=0 ＞ 1,1,1,6,10 ＞ 1 ＞ 失敗"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STB7+1"
+output = "DicePool=5, Difficulty=7, AutomaticSuccess=1 ＞ 1,1,1,6,10 ＞ 1 ＞ 成功数1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+
+# リロール分の1で大失敗が起きないか確認
+[[ test ]]
+game_system = "WorldOfDarkness"
+input = "5STB"
+output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,1,6,10 ＞ 1 ＞ 失敗"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+

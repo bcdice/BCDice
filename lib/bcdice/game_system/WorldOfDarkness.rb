@@ -16,7 +16,8 @@ module BCDice
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         ・判定コマンド(xSTn+y or xSTSn+y or xSTAn+y)
         　(ダイス個数)ST(難易度)+(自動成功)
-        　(ダイス個数)STS(難易度)+(自動成功) ※出目10で振り足し
+        　(ダイス個数)STS(難易度)+(自動成功) ※出目10で振り足し、振り足し分の1で打ち消されない
+        　(ダイス個数)STB(難易度)+(自動成功) ※出目10で振り足し、振り足し分の1で打ち消される
         　(ダイス個数)STA(難易度)+(自動成功) ※出目10は2成功 [20thルール]
 
         　難易度=省略時6
@@ -29,9 +30,10 @@ module BCDice
         difficulty = 6
         auto_success = 0
         enabled_reroll = false
+        enabled_reroll_with_botch = false
         enabled_20th = false
 
-        md = command.match(/\A(\d+)(ST[SA]?)(\d+)?([+-]\d+)?/)
+        md = command.match(/\A(\d+)(ST[SAB]?)(\d+)?([+-]\d+)?/)
 
         dice_pool = md[1].to_i
         case md[2]
@@ -39,6 +41,8 @@ module BCDice
           enabled_reroll = true
         when 'STA'
           enabled_20th = true
+        when 'STB'
+          enabled_reroll_with_botch = true
         end
         difficulty = md[3].to_i if md[3]
         auto_success = md[4].to_i if md[4]
@@ -71,12 +75,16 @@ module BCDice
           total_success += ten_success
 
           # 振り足し判定ありなら10が出ただけ振り足しを行う
-          if enabled_reroll
+          if enabled_reroll || enabled_reroll_with_botch
             while ten_success > 0
-              # 振り足しの出目1は大失敗ではない
-              dice, ten_success, success = roll_wod(ten_success, difficulty)
+              dice, ten_success, success, botch = roll_wod(ten_success, difficulty)
               sequence.push dice.join(',')
               total_success += (success + ten_success)
+
+              if enabled_reroll_with_botch
+                # 振り足しでのボッチありなら出目1をカウントする
+                total_botch += botch
+              end
             end
           end
         end
