@@ -1,0 +1,7 @@
+ja_jp:
+  Emoklore:
+    success_count: "成功数%{count}"
+    double: ダブル
+    triple: トリプル
+    miracle: ミラクル
+    catastrophe: カタストロフ

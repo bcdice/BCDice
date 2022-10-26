@@ -67,7 +67,7 @@ module BCDice
         success_value = 2 * critical + success - fumble
         result = compare_result(success_value)
 
-        result.text = "#{values} ＞ #{success_value} ＞ 成功数#{success_value} #{result.text}"
+        result.text = "#{values} ＞ #{success_value} ＞ #{translate('Emoklore.success_count', count: success_value)} #{result.text}"
         return result
       end
 
@@ -75,19 +75,19 @@ module BCDice
       # @return [Result]
       def compare_result(success)
         if success < 0
-          Result.fumble("ファンブル!")
+          Result.fumble(translate("fumble"))
         elsif success == 0
-          Result.failure("失敗!")
+          Result.failure(translate("failure"))
         elsif success == 1
-          Result.success("成功!")
+          Result.success(translate("success"))
         elsif success == 2
-          Result.critical("ダブル!")
+          Result.critical(translate("Emoklore.double"))
         elsif success == 3
-          Result.critical("トリプル!")
+          Result.critical(translate("Emoklore.triple"))
         elsif success <= 9
-          Result.critical("ミラクル!")
+          Result.critical(translate("Emoklore.miracle"))
         else
-          Result.critical("カタストロフ!")
+          Result.critical(translate("Emoklore.catastrophe"))
         end
       end
 
