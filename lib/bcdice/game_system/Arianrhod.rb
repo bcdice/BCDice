@@ -30,16 +30,16 @@ module BCDice
 
         if dice_list.count(1) == dice_list.size
           # 全部１の目ならファンブル
-          Result.fumble("ファンブル")
+          Result.fumble(translate("fumble"))
         elsif n_max >= 2
           # ２個以上６の目があったらクリティカル
-          Result.critical("クリティカル(+#{n_max}D6)")
+          Result.critical(translate("Arianrhod.critical", dice: n_max))
         elsif cmp_op != :>= || target == '?'
           nil
         elsif total >= target
-          Result.success("成功")
+          Result.success(translate("success"))
         else
-          Result.failure("失敗")
+          Result.failure(translate("failure"))
         end
       end
     end

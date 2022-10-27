@@ -1,0 +1,3 @@
+ja_jp:
+  Arianrhod:
+    critical: "クリティカル(+%{dice}D6)"
