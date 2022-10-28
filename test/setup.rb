@@ -2,9 +2,9 @@
 
 require "simplecov"
 
-if ENV["CI"] == "true" && ENV["CHECK_COVERAGE"] == "true"
-  require "codecov"
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+if ENV["CI"] == "true" && ENV["ENABLE_COBERTURA"] == "true"
+  require "simplecov-cobertura"
+  SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 end
 
 SimpleCov.at_exit do
