@@ -1,0 +1,601 @@
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "0DR12 DRロール 成功失敗の確認"
+output = "(0DR12) ＞ 12+0 ＞ 12 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 12 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "0DR12"
+output = "(0DR12) ＞ 11+0 ＞ 11 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 20, value = 11 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "0DR12"
+output = "(0DR12) ＞ 20+0 ＞ 20 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "0DR12"
+output = "(0DR12) ＞ 1+0 ＞ 1 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "-3DR12 DRロール 能力値加算の確認"
+output = "(-3DR12) ＞ 14-3 ＞ 11 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "-2DR12"
+output = "(-2DR12) ＞ 14-2 ＞ 12 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "-1DR12"
+output = "(-1DR12) ＞ 14-1 ＞ 13 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "0DR12"
+output = "(0DR12) ＞ 14+0 ＞ 14 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "1DR12"
+output = "(1DR12) ＞ 14+1 ＞ 15 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "2DR12"
+output = "(2DR12) ＞ 14+2 ＞ 16 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "+3DR12"
+output = "(+3DR12) ＞ 14+3 ＞ 17 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "DR12 能力値0の時の省略が有効か？"
+output = "(DR12) ＞ 14+0 ＞ 14 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "3DR12 DRロール クリティカル・ファンブルが出目だけに影響を受けているか確認"
+output = "(3DR12) ＞ 17+3 ＞ 20 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 17 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "-2DR12"
+output = "(-2DR12) ＞ 3-2 ＞ 1 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "INS イニシアティヴ　敵・PC先行の確認"
+output = "(INS) ＞ 1 ＞ 敵先行"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "INS"
+output = "(INS) ＞ 3 ＞ 敵先行"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "INS"
+output = "(INS) ＞ 4 ＞ PC先行"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "INS"
+output = "(INS) ＞ 6 ＞ PC先行"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "SWT 武器表"
+output = "武器表(1) ＞ 尖らせた骨の杭（D3）"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "SWT 武器表"
+output = "武器表(2) ＞ 竹槍（D4）"
+rands = [
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "SWT 武器表"
+output = "武器表(3) ＞ 百姓から奪った鍬（D4）"
+rands = [
+  { sides = 12, value = 3 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "SWT 武器表"
+output = "武器表(4) ＞ 脇差し（D4）"
+rands = [
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "SWT 武器表"
+output = "武器表(5) ＞ 手裏剣　D6本（D4）"
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "SWT 武器表"
+output = "武器表(6) ＞ 刀（D6）"
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "SWT 武器表"
+output = "武器表(7) ＞ 鎖鎌（D6）"
+rands = [
+  { sides = 12, value = 7 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "SWT 武器表"
+output = "武器表(8) ＞ 太刀（D8）"
+rands = [
+  { sides = 12, value = 8 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "SWT 武器表"
+output = "武器表(9) ＞ 種子島銃（2D6）　弾丸（心+5）発"
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "SWT 武器表"
+output = "武器表(10) ＞ 大槍（D8）"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "SWT 武器表"
+output = "武器表(11) ＞ 爆裂弾（D4）　心+3発"
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "SWT 武器表"
+output = "武器表(12) ＞ 斬馬刀（D10）"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "OSWT その他の奇妙な武器表"
+output = "その他の奇妙な武器表(1) ＞ 六尺棒（D4）"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "OSWT その他の奇妙な武器表"
+output = "その他の奇妙な武器表(2) ＞ 手槍（D4）"
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "OSWT その他の奇妙な武器表"
+output = "その他の奇妙な武器表(3) ＞ 弓矢（D6）"
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "OSWT その他の奇妙な武器表"
+output = "その他の奇妙な武器表(4) ＞ 鉄扇（D4）"
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "OSWT その他の奇妙な武器表"
+output = "その他の奇妙な武器表(5) ＞ 大鉞（D8）"
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "OSWT その他の奇妙な武器表"
+output = "その他の奇妙な武器表(6) ＞ 吹き矢（D2）＋感染"
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "OSWT その他の奇妙な武器表"
+output = "その他の奇妙な武器表(7) ＞ 鞭（D3）"
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "OSWT その他の奇妙な武器表"
+output = "その他の奇妙な武器表(8) ＞ 熊手（D4）"
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "OSWT その他の奇妙な武器表"
+output = "その他の奇妙な武器表(9) ＞ 石つぶて（D3）"
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "OSWT その他の奇妙な武器表"
+output = "その他の奇妙な武器表(10) ＞ 丸太（D4）"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ART 鎧表"
+output = "鎧表(1) ＞ 防具は、何もない"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ART 鎧表"
+output = "鎧表(2) ＞ 防具は、何もない"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ART 鎧表"
+output = "鎧表(3) ＞ 部分鎧（腹巻き）　-D2ダメージ"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ART 鎧表"
+output = "鎧表(4) ＞ お貸し具足　-D3ダメージ"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ART 鎧表"
+output = "鎧表(5) ＞ 武者鎧　-D4ダメージ"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ART 鎧表"
+output = "鎧表(6) ＞ 大鎧　-D6ダメージ"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(2) ＞ お前ら、殺す！"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(3) ＞ お前ら、殺す！"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(4) ＞ 憎悪の視線で睨んでくる。すきを見せれば、攻撃してくる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(5) ＞ 憎悪の視線で睨んでくる。すきを見せれば、攻撃してくる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(6) ＞ 憎悪の視線で睨んでくる。すきを見せれば、攻撃してくる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(7) ＞ 警戒はしているが、特に、戦闘は望んでいない。怒らせなければ、自分たちの目的に沿って動く。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(8) ＞ 警戒はしているが、特に、戦闘は望んでいない。怒らせなければ、自分たちの目的に沿って動く。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(9) ＞ 中立。何かを与えたり、取引の材料を提示したりできれば、交渉できそうだ。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(10) ＞ 中立。何かを与えたり、取引の材料を提示したりできれば、交渉できそうだ。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(11) ＞ 好意的に会話できそうだ。向こうも取引したがっている。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(12) ＞ 好意的に会話できそうだ。向こうも取引したがっている。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "NPCST NPC能力値作成の境界値確認"
+output = "(NPCST) ＞ 心-3(3), 技-3(4), 体-2(5), 耐久-2(6), HP6(8)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "NPCST NPC能力値作成"
+output = "(NPCST) ＞ 心-1(7), 技-1(8), 体+0(9), 耐久+0(12), HP6(6)"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+
+  { sides = 8, value = 6 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "NPCST NPC能力値作成"
+output = "(NPCST) ＞ 心+1(13), 技+1(14), 体+2(15), 耐久+2(16), HP8(6)"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+
+  { sides = 8, value = 6 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "NPCST NPC能力値作成"
+output = "(NPCST) ＞ 心+3(17), 技+3(18), 体+3(18), 耐久-3(3), HP1(1)"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "D66 ソートされていないかの確認"
+output = "(D66) ＞ 63"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "NobunagasBlackCastle"
+input = "D66 ソートされていないかの確認"
+output = "(D66) ＞ 13"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
