@@ -165,7 +165,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "SWT 武器表"
-output = "武器表(1) ＞ 尖らせた骨の杭（Ｄ３）"
+output = "武器表(1) ＞ 尖らせた骨の杭（D3）"
 rands = [
   { sides = 12, value = 1 },
 ]
@@ -173,7 +173,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "SWT 武器表"
-output = "武器表(2) ＞ 竹槍（Ｄ４）"
+output = "武器表(2) ＞ 竹槍（D4）"
 rands = [
   { sides = 12, value = 2 },
 ]
@@ -181,7 +181,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "SWT 武器表"
-output = "武器表(3) ＞ 百姓から奪った鍬（Ｄ４）"
+output = "武器表(3) ＞ 百姓から奪った鍬（D4）"
 rands = [
   { sides = 12, value = 3 },
 ]
@@ -189,7 +189,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "SWT 武器表"
-output = "武器表(4) ＞ 脇差し（Ｄ４）"
+output = "武器表(4) ＞ 脇差し（D4）"
 rands = [
   { sides = 12, value = 4 },
 ]
@@ -197,7 +197,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "SWT 武器表"
-output = "武器表(5) ＞ 手裏剣　Ｄ６本（Ｄ４）"
+output = "武器表(5) ＞ 手裏剣　D6本（D4）"
 rands = [
   { sides = 12, value = 5 },
 ]
@@ -205,7 +205,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "SWT 武器表"
-output = "武器表(6) ＞ 刀（Ｄ６）"
+output = "武器表(6) ＞ 刀（D6）"
 rands = [
   { sides = 12, value = 6 },
 ]
@@ -213,7 +213,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "SWT 武器表"
-output = "武器表(7) ＞ 鎖鎌（Ｄ６）"
+output = "武器表(7) ＞ 鎖鎌（D6）"
 rands = [
   { sides = 12, value = 7 },
 ]
@@ -221,7 +221,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "SWT 武器表"
-output = "武器表(8) ＞ 太刀（Ｄ８）"
+output = "武器表(8) ＞ 太刀（D8）"
 rands = [
   { sides = 12, value = 8 },
 ]
@@ -229,7 +229,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "SWT 武器表"
-output = "武器表(9) ＞ 種子島銃（２Ｄ６）　弾丸（心＋５）発"
+output = "武器表(9) ＞ 種子島銃（2D6）　弾丸（心+5）発"
 rands = [
   { sides = 12, value = 9 },
 ]
@@ -237,7 +237,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "SWT 武器表"
-output = "武器表(10) ＞ 大槍（Ｄ８）"
+output = "武器表(10) ＞ 大槍（D8）"
 rands = [
   { sides = 12, value = 10 },
 ]
@@ -245,7 +245,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "SWT 武器表"
-output = "武器表(11) ＞ 爆裂弾（Ｄ４）　心＋３発"
+output = "武器表(11) ＞ 爆裂弾（D4）　心+3発"
 rands = [
   { sides = 12, value = 11 },
 ]
@@ -253,7 +253,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "SWT 武器表"
-output = "武器表(12) ＞ 斬馬刀（Ｄ１０）"
+output = "武器表(12) ＞ 斬馬刀（D10）"
 rands = [
   { sides = 12, value = 12 },
 ]
@@ -261,7 +261,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "OSWT その他の奇妙な武器表"
-output = "その他の奇妙な武器表(1) ＞ 六尺棒（Ｄ４）"
+output = "その他の奇妙な武器表(1) ＞ 六尺棒（D4）"
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -269,7 +269,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "OSWT その他の奇妙な武器表"
-output = "その他の奇妙な武器表(2) ＞ 手槍（Ｄ４）"
+output = "その他の奇妙な武器表(2) ＞ 手槍（D4）"
 rands = [
   { sides = 10, value = 2 },
 ]
@@ -277,7 +277,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "OSWT その他の奇妙な武器表"
-output = "その他の奇妙な武器表(3) ＞ 弓矢（Ｄ６）"
+output = "その他の奇妙な武器表(3) ＞ 弓矢（D6）"
 rands = [
   { sides = 10, value = 3 },
 ]
@@ -285,7 +285,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "OSWT その他の奇妙な武器表"
-output = "その他の奇妙な武器表(4) ＞ 鉄扇（Ｄ４）"
+output = "その他の奇妙な武器表(4) ＞ 鉄扇（D4）"
 rands = [
   { sides = 10, value = 4 },
 ]
@@ -293,7 +293,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "OSWT その他の奇妙な武器表"
-output = "その他の奇妙な武器表(5) ＞ 大鉞（Ｄ８）"
+output = "その他の奇妙な武器表(5) ＞ 大鉞（D8）"
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -301,7 +301,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "OSWT その他の奇妙な武器表"
-output = "その他の奇妙な武器表(6) ＞ 吹き矢（Ｄ２）＋感染"
+output = "その他の奇妙な武器表(6) ＞ 吹き矢（D2）＋感染"
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -309,7 +309,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "OSWT その他の奇妙な武器表"
-output = "その他の奇妙な武器表(7) ＞ 鞭（Ｄ３）"
+output = "その他の奇妙な武器表(7) ＞ 鞭（D3）"
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -317,7 +317,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "OSWT その他の奇妙な武器表"
-output = "その他の奇妙な武器表(8) ＞ 熊手（Ｄ４）"
+output = "その他の奇妙な武器表(8) ＞ 熊手（D4）"
 rands = [
   { sides = 10, value = 8 },
 ]
@@ -325,7 +325,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "OSWT その他の奇妙な武器表"
-output = "その他の奇妙な武器表(9) ＞ 石つぶて（Ｄ３）"
+output = "その他の奇妙な武器表(9) ＞ 石つぶて（D3）"
 rands = [
   { sides = 10, value = 9 },
 ]
@@ -333,7 +333,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "OSWT その他の奇妙な武器表"
-output = "その他の奇妙な武器表(10) ＞ 丸太（Ｄ４）"
+output = "その他の奇妙な武器表(10) ＞ 丸太（D4）"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -357,7 +357,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "ART 鎧表"
-output = "鎧表(3) ＞ 部分鎧（腹巻き）　－Ｄ２ダメージ"
+output = "鎧表(3) ＞ 部分鎧（腹巻き）　-D2ダメージ"
 rands = [
   { sides = 6, value = 3 },
 ]
@@ -365,7 +365,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "ART 鎧表"
-output = "鎧表(4) ＞ お貸し具足　－Ｄ３ダメージ"
+output = "鎧表(4) ＞ お貸し具足　-D3ダメージ"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -373,7 +373,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "ART 鎧表"
-output = "鎧表(5) ＞ 武者鎧　－Ｄ４ダメージ"
+output = "鎧表(5) ＞ 武者鎧　-D4ダメージ"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -381,7 +381,7 @@ rands = [
 [[ test ]]
 game_system = "NobunagasBlackCastle"
 input = "ART 鎧表"
-output = "鎧表(6) ＞ 大鎧　－Ｄ６ダメージ"
+output = "鎧表(6) ＞ 大鎧　-D6ダメージ"
 rands = [
   { sides = 6, value = 6 },
 ]

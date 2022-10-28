@@ -37,9 +37,6 @@ module BCDice
 
       INFO_MESSAGETEXT
 
-      # コマンドを追加するときは、ここにコマンドを登録すること
-      register_prefix('[+-]?\d*DR[\d]+', 'INS', 'NPCST', 'O?SWT', 'ERT', 'ART')
-
       def initialize(command)
         super(command)
 
@@ -53,7 +50,7 @@ module BCDice
 
       private
 
-      def result_DR(total, dice_total, target)
+      def result_dr(total, dice_total, target)
         if dice_total <= 1
           Result.fumble("ファンブル")
         elsif dice_total >= 20
@@ -69,7 +66,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_action(command)
-        m = /([+-]?\d*)DR(\d+)/.match(command)
+        m = /^([+-]?\d*)DR(\d+)$/.match(command)
         return nil unless m
 
         num_status = m[1].to_i
@@ -77,14 +74,14 @@ module BCDice
 
         total = @randomizer.roll_once(20)
         total_status = total.to_s + with_symbol(num_status)
-        result = result_DR(total + num_status, total, num_target)
+        result = result_dr(total + num_status, total, num_target)
 
         sequence = [
           "(#{command})",
           total_status,
           total + num_status,
-          result&.text,
-        ].compact
+          result.text,
+        ]
 
         result.text = sequence.join(" ＞ ")
         return result
@@ -104,8 +101,9 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_initiative(command)
-        m = /INS/.match(command)
-        return nil unless m
+        unless command == "INS"
+          return nil
+        end
 
         total = @randomizer.roll_once(6)
         result =
@@ -114,13 +112,8 @@ module BCDice
           else
             Result.failure("敵先行")
           end
-        sequence = [
-          "(#{command})",
-          total,
-          result&.text,
-        ].compact
 
-        result.text = sequence.join(" ＞ ")
+        result.text = "(#{command}) ＞ #{total} ＞ #{result.text}"
         return result
       end
 
@@ -128,28 +121,27 @@ module BCDice
       # @param [String] command
       # @return [String]
       def make_npc_status(command)
-        m = /NPCST/.match(command)
-        return nil unless m
+        unless command == "NPCST"
+          return nil
+        end
 
-        pre = @randomizer.roll_barabara(3, 6).sum()
-        agi = @randomizer.roll_barabara(3, 6).sum()
-        str = @randomizer.roll_barabara(3, 6).sum()
-        tgh = @randomizer.roll_barabara(3, 6).sum()
-        hpd = @randomizer.roll_once(8).to_i
+        pre = @randomizer.roll_sum(3, 6)
+        agi = @randomizer.roll_sum(3, 6)
+        str = @randomizer.roll_sum(3, 6)
+        tgh = @randomizer.roll_sum(3, 6)
+        hpd = @randomizer.roll_once(8)
         hp  = hpd + calc_status(tgh)
         hp = 1 if hp < 1
 
-        text  =   "心"  + with_symbol(calc_status(pre)) + "(#{pre})"
-        text += ", 技"  + with_symbol(calc_status(agi)) + "(#{agi})"
-        text += ", 体"  + with_symbol(calc_status(str)) + "(#{str})"
-        text += ", 耐久" + with_symbol(calc_status(tgh)) + "(#{tgh})"
-        text += ", HP" + hp.to_s + "(#{hpd})"
+        text = [
+          "心#{with_symbol(calc_status(pre))}(#{pre})",
+          "技#{with_symbol(calc_status(agi))}(#{agi})",
+          "体#{with_symbol(calc_status(str))}(#{str})",
+          "耐久#{with_symbol(calc_status(tgh))}(#{tgh})",
+          "HP#{hp}(#{hpd})",
+        ].join(", ")
 
-        sequence = [
-          "(#{command})",
-          text,
-        ].compact
-        sequence.join(" ＞ ")
+        return "(#{command}) ＞ #{text}"
       end
 
       def calc_status(st)
@@ -177,34 +169,34 @@ module BCDice
           'その他の奇妙な武器表',
           '1D10',
           [
-            '六尺棒（Ｄ４）',
-            '手槍（Ｄ４）',
-            '弓矢（Ｄ６）',
-            '鉄扇（Ｄ４）',
-            '大鉞（Ｄ８）',
-            '吹き矢（Ｄ２）＋感染',
-            '鞭（Ｄ３）',
-            '熊手（Ｄ４）',
-            '石つぶて（Ｄ３）',
-            '丸太（Ｄ４）',
+            '六尺棒（D4）',
+            '手槍（D4）',
+            '弓矢（D6）',
+            '鉄扇（D4）',
+            '大鉞（D8）',
+            '吹き矢（D2）＋感染',
+            '鞭（D3）',
+            '熊手（D4）',
+            '石つぶて（D3）',
+            '丸太（D4）',
           ]
         ),
         'SWT' => DiceTable::Table.new(
           '武器表',
           '1D12',
           [
-            '尖らせた骨の杭（Ｄ３）',
-            '竹槍（Ｄ４）',
-            '百姓から奪った鍬（Ｄ４）',
-            '脇差し（Ｄ４）',
-            '手裏剣　Ｄ６本（Ｄ４）',
-            '刀（Ｄ６）',
-            '鎖鎌（Ｄ６）',
-            '太刀（Ｄ８）',
-            '種子島銃（２Ｄ６）　弾丸（心＋５）発',
-            '大槍（Ｄ８）',
-            '爆裂弾（Ｄ４）　心＋３発',
-            '斬馬刀（Ｄ１０）',
+            '尖らせた骨の杭（D3）',
+            '竹槍（D4）',
+            '百姓から奪った鍬（D4）',
+            '脇差し（D4）',
+            '手裏剣　D6本（D4）',
+            '刀（D6）',
+            '鎖鎌（D6）',
+            '太刀（D8）',
+            '種子島銃（2D6）　弾丸（心+5）発',
+            '大槍（D8）',
+            '爆裂弾（D4）　心+3発',
+            '斬馬刀（D10）',
           ]
         ),
         'ART' => DiceTable::Table.new(
@@ -213,10 +205,10 @@ module BCDice
           [
             '防具は、何もない',
             '防具は、何もない',
-            '部分鎧（腹巻き）　－Ｄ２ダメージ',
-            'お貸し具足　－Ｄ３ダメージ',
-            '武者鎧　－Ｄ４ダメージ',
-            '大鎧　－Ｄ６ダメージ',
+            '部分鎧（腹巻き）　-D2ダメージ',
+            'お貸し具足　-D3ダメージ',
+            '武者鎧　-D4ダメージ',
+            '大鎧　-D6ダメージ',
           ]
         ),
         # 無理に高度なことをしなくても、表は展開して実装しても動く
@@ -238,6 +230,8 @@ module BCDice
           ]
         ),
       }.freeze
+
+      register_prefix('[+-]?\d*DR[\d]+', 'INS', 'NPCST', TABLES.keys)
     end
   end
 end
