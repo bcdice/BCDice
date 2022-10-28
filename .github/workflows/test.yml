@@ -13,7 +13,11 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
-    - name: "Set CHECK_COVERAGE=true on Ruby 2.7"
-      run: echo "CHECK_COVERAGE=true" >> $GITHUB_ENV
-      if: matrix.ruby == '2.7'
     - run: bundle exec rake test
+      env:
+        ENABLE_COBERTURA: true
+    - name: Upload to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: coverage/coverage.xml
+      if: matrix.ruby == '3.1'
