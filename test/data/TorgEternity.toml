@@ -635,6 +635,35 @@ rands = [
 
 [[ test ]]
 game_system = "TorgEternity"
+input = "UP10 #高揚修正付き"
+output = "d20ロール（高揚） ＞ 1d20[5] + 1d20[10,20,11] + 10 ＞ +13[46]+10（技能有） / +10[35]+10（技能無） ＞ +23（技能有） / +20（技能無）"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 10 },
+  { sides = 20, value = 20 },
+  { sides = 20, value = 11 },
+]
+
+[[ test ]]
+game_system = "TorgEternity"
+input = "UP10 #高揚修正付き"
+output = "d20ロール（高揚） ＞ 1d20[17] + 1d20[1] + 10 ＞ +5[18]+10 ＞ +15"
+rands = [
+  { sides = 20, value = 17 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "TorgEternity"
+input = "UP3 #高揚修正付き"
+output = "d20ロール（高揚） ＞ 1d20[2] + 1d20[1] + 3 ＞ -6[3]+3 ＞ -3"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "TorgEternity"
 input = "UP1+2+3"
 output = ""
 rands = []
