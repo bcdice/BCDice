@@ -17,17 +17,18 @@ module BCDice
         ・判定コマンド(nVMFx+x)
           注意：難易度は必要成功数を表す
 
-          難易度指定：判定成功と失敗、Critical判定、
+          難易度指定：成功数のカウント、判定成功と失敗、Critical処理、Critical Winのチェックを行う
                      （Hungerダイスがある場合）Messy CriticalとBestial Failureチェックを行う
           例) (難易度)VMF(ダイスプール)+(Hungerダイス)
               (難易度)VMF(ダイスプール)
 
-          難易度省略：判定失敗、Critical、（Hungerダイスがある場合）Bestial Failureチェックを行う
+          難易度省略：成功数のカウント、判定失敗、Critical処理、（Hungerダイスがある場合）Bestial Failureチェックを行う
                       判定成功、Messy Criticalのチェックを行わない
+                      Critical Win、（Hungerダイスがある場合）Bestial Failure、Messy Criticalのヒントを出力
           例) VMF(ダイスプール)+(Hungerダイス)
               VMF(ダイスプール)
 
-          難易度0指定：全てのチェックを行わない
+          難易度0指定：Critical処理と成功数のカウントを行い、全てのチェックを行わない
           例) 0VMF(ダイスプール)+(Hungerダイス)
               0VMF(ダイスプール)
 
@@ -78,13 +79,12 @@ module BCDice
 
       def get_roll_result(result_text, success_dice, ten_dice, hunger_ten_dice, hunger_botch_dice, difficulty)
         result_text = "#{result_text} 成功数=#{success_dice}"
+        is_critical = ten_dice >= 2
 
         if difficulty > 0
           result_text = "#{result_text} 難易度=#{difficulty}"
 
           if success_dice >= difficulty
-            is_critical = ten_dice >= 2
-
             if hunger_ten_dice > 0 && is_critical
               return Result.critical("#{result_text}：判定成功! [Messy Critical]")
             elsif is_critical
@@ -106,6 +106,16 @@ module BCDice
             end
 
             return Result.failure("#{result_text}：判定失敗!")
+          else
+            if hunger_botch_dice > 0
+              result_text = "#{result_text}\n　判定失敗なら [Bestial Failure]"
+            end
+            if hunger_ten_dice > 0 && is_critical
+              result_text = "#{result_text}\n　判定成功なら [Messy Critical]"
+            elsif is_critical
+              result_text = "#{result_text}\n　判定成功なら [Critical Win]"
+            end
+            return result_text.to_s
           end
         end
 
