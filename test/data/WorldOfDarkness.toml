@@ -2,6 +2,8 @@
 game_system = "WorldOfDarkness"
 input = "1ST テキスト"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 1 ＞ 大失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -10,6 +12,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1ST"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 5 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -18,6 +21,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1ST"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -26,6 +30,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1ST"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 10 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -34,6 +39,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1ST1"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -42,6 +48,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1ST7"
 output = "DicePool=1, Difficulty=7, AutomaticSuccess=0 ＞ 6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -50,6 +57,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1ST7"
 output = "DicePool=1, Difficulty=7, AutomaticSuccess=0 ＞ 7 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -58,6 +66,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "10ST11"
 output = "DicePool=10, Difficulty=11, AutomaticSuccess=0 ＞ 2,2,3,4,5,6,7,8,9,10 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 9 },
@@ -75,6 +84,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1ST7+1"
 output = "DicePool=1, Difficulty=7, AutomaticSuccess=1 ＞ 6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -83,6 +93,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1ST7+1"
 output = "DicePool=1, Difficulty=7, AutomaticSuccess=1 ＞ 7 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -91,6 +102,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1ST+1"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=1 ＞ 6 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -99,6 +111,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5ST"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,5,6,7,10 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -111,6 +124,8 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5ST"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,2,5,5,5 ＞ 大失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -123,6 +138,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5ST"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,5,6,10 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -135,6 +151,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5ST"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 2,3,4,5,5 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 2 },
@@ -147,6 +164,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5ST7"
 output = "DicePool=5, Difficulty=7, AutomaticSuccess=0 ＞ 1,5,6,7,10 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -159,6 +177,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5ST7+1"
 output = "DicePool=5, Difficulty=7, AutomaticSuccess=1 ＞ 1,5,6,7,10 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -171,6 +190,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5ST+1"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 2,5,6,7,9 ＞ 成功数4"
+success = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -183,6 +203,8 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STS テキスト"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 1 ＞ 大失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -191,6 +213,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STS"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 5 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -199,6 +222,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STS"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -207,6 +231,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STS"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 10 ＞ 6 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 6 },
@@ -216,6 +241,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STS1"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -224,6 +250,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STS7"
 output = "DicePool=1, Difficulty=7, AutomaticSuccess=0 ＞ 6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -232,6 +259,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STS7"
 output = "DicePool=1, Difficulty=7, AutomaticSuccess=0 ＞ 7 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -240,6 +268,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "10STS11"
 output = "DicePool=10, Difficulty=11, AutomaticSuccess=0 ＞ 2,2,3,4,5,6,7,8,9,10 ＞ 2 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 9 },
@@ -258,6 +287,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STS7+1"
 output = "DicePool=1, Difficulty=7, AutomaticSuccess=1 ＞ 6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -266,6 +296,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STS7+1"
 output = "DicePool=1, Difficulty=7, AutomaticSuccess=1 ＞ 7 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -274,6 +305,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STS+1"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=1 ＞ 6 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -282,6 +314,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,5,6,7,10 ＞ 10 ＞ 6 ＞ 成功数4"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -296,6 +329,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,5,6,7,10 ＞ 10 ＞ 1 ＞ 成功数3"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -310,6 +344,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,5,6,10 ＞ 10 ＞ 1 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -324,6 +359,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 2,3,4,5,5 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 2 },
@@ -336,6 +372,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS7"
 output = "DicePool=5, Difficulty=7, AutomaticSuccess=0 ＞ 1,5,6,10,10 ＞ 4,5 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -350,6 +387,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS7+1"
 output = "DicePool=5, Difficulty=7, AutomaticSuccess=1 ＞ 1,5,6,10,10 ＞ 7,10 ＞ 1 ＞ 成功数4"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -365,6 +403,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS+1"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 2,5,6,7,9 ＞ 成功数4"
+success = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -377,6 +416,8 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STA テキスト"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 1 ＞ 大失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -385,6 +426,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STA"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 5 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 5 },
 ]
@@ -393,6 +435,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STA"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -401,6 +444,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STA"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 10 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -409,6 +453,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STA1"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -417,6 +462,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STA7"
 output = "DicePool=1, Difficulty=7, AutomaticSuccess=0 ＞ 6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -425,6 +471,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STA7"
 output = "DicePool=1, Difficulty=7, AutomaticSuccess=0 ＞ 7 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -433,6 +480,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "10STA11"
 output = "DicePool=10, Difficulty=11, AutomaticSuccess=0 ＞ 2,2,3,4,5,6,7,8,9,10 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 9 },
@@ -450,6 +498,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STA7+1"
 output = "DicePool=1, Difficulty=7, AutomaticSuccess=1 ＞ 6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -458,6 +507,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STA7+1"
 output = "DicePool=1, Difficulty=7, AutomaticSuccess=1 ＞ 7 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 7 },
 ]
@@ -466,6 +516,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STA+1"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=1 ＞ 6 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -474,6 +525,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STA"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,5,6,7,10 ＞ 成功数3"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -486,6 +538,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STA"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,5,6,10 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -498,6 +551,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STA"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 2,3,4,5,5 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 2 },
@@ -510,6 +564,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STA7"
 output = "DicePool=5, Difficulty=7, AutomaticSuccess=0 ＞ 1,5,6,10,10 ＞ 成功数3"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -522,6 +577,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STA7+1"
 output = "DicePool=5, Difficulty=7, AutomaticSuccess=1 ＞ 1,5,6,10,10 ＞ 成功数4"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -534,6 +590,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STA+1"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 2,5,6,7,9 ＞ 成功数4"
+success = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -546,6 +603,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STA"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,5,6,10 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -558,6 +616,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STA7"
 output = "DicePool=5, Difficulty=7, AutomaticSuccess=0 ＞ 1,1,5,6,10 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -571,6 +630,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5ST"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,1,6,6 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -583,6 +643,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,1,10,10 ＞ 1,5 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -597,6 +658,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STA"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,1,5,10 ＞ 失敗"
+failure = true
 rands = [
    { sides = 10, value = 1  },
    { sides = 10, value = 1  },
@@ -610,6 +672,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,2,10,10 ＞ 1,6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -625,6 +688,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5ST+1"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,1,5,5 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -637,6 +701,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5ST+1"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,1,6,6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -649,6 +714,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5ST+1"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,6,6,6 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -661,6 +727,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS+1"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,1,5,5 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -673,6 +740,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS+1"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,1,6,6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -685,6 +753,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS+1"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,6,6,6 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -697,6 +766,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STA+1"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,1,6,6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -709,6 +779,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STA+1"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,1,5,5 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -721,6 +792,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STS+1"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=1 ＞ 1,1,6,6,6 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -734,6 +806,8 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STB テキスト"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 1 ＞ 大失敗"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
 ]
@@ -742,6 +816,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "1STB"
 output = "DicePool=1, Difficulty=6, AutomaticSuccess=0 ＞ 6 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 6 },
 ]
@@ -750,6 +825,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STB"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,5,6,10,10 ＞ 1,7 ＞ 成功数2"
+success = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
@@ -764,6 +840,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STB7"
 output = "DicePool=5, Difficulty=7, AutomaticSuccess=0 ＞ 1,1,1,6,10 ＞ 1 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -777,6 +854,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STB7+1"
 output = "DicePool=5, Difficulty=7, AutomaticSuccess=1 ＞ 1,1,1,6,10 ＞ 1 ＞ 成功数1"
+success = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -792,6 +870,7 @@ rands = [
 game_system = "WorldOfDarkness"
 input = "5STB"
 output = "DicePool=5, Difficulty=6, AutomaticSuccess=0 ＞ 1,1,1,6,10 ＞ 1 ＞ 失敗"
+failure = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
