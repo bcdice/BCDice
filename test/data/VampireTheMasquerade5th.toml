@@ -177,11 +177,23 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMF3"
-output = "(3D10) ＞ [10,10,4]  成功数=4"
+output = "(3D10) ＞ [10,10,4]  成功数=4\n　判定成功なら [Critical Win]"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
   { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMF3+2"
+output = "(3D10+2D10) ＞ [2,5,1]+[6,3]  成功数=1"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
 ]
 
 [[ test ]]
@@ -214,7 +226,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMF3+2"
-output = "(3D10+2D10) ＞ [2,5,8]+[1,6]  成功数=2"
+output = "(3D10+2D10) ＞ [2,5,8]+[1,6]  成功数=2\n　判定失敗なら [Bestial Failure]"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -226,7 +238,19 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMF3+2"
-output = "(3D10+2D10) ＞ [2,10,10]+[1,6]  成功数=5"
+output = "(3D10+2D10) ＞ [2,5,8]+[10,10]  成功数=5\n　判定成功なら [Messy Critical]"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMF3+2"
+output = "(3D10+2D10) ＞ [2,10,10]+[1,6]  成功数=5\n　判定失敗なら [Bestial Failure]\n　判定成功なら [Critical Win]"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -238,7 +262,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMF3+2"
-output = "(3D10+2D10) ＞ [2,10,10]+[10,1]  成功数=5"
+output = "(3D10+2D10) ＞ [2,10,10]+[10,1]  成功数=5\n　判定失敗なら [Bestial Failure]\n　判定成功なら [Messy Critical]"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -512,7 +536,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMF3"
-output = "(3D10) ＞ [10,10,4]  成功数=4"
+output = "(3D10) ＞ [10,10,4]  成功数=4\n　判定成功なら [Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 10 },
@@ -537,6 +561,19 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMF3+2"
+output = "(3D10+2D10) ＞ [2,5,1]+[6,3]  成功数=1"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "SVMF3+2"
 output = "(3D10+2D10) ＞ [2,5,1]+[4,1]  成功数=0：判定失敗! [Bestial Failure]"
 failure = true
 fumble = true
@@ -552,7 +589,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMF3+2"
-output = "(3D10+2D10) ＞ [2,5,8]+[1,6]  成功数=2"
+output = "(3D10+2D10) ＞ [2,5,8]+[1,6]  成功数=2\n　判定失敗なら [Bestial Failure]"
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -565,7 +602,20 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMF3+2"
-output = "(3D10+2D10) ＞ [2,10,10]+[1,6]  成功数=5"
+output = "(3D10+2D10) ＞ [2,5,8]+[10,10]  成功数=5\n　判定成功なら [Messy Critical]"
+secret = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "SVMF3+2"
+output = "(3D10+2D10) ＞ [2,10,10]+[1,6]  成功数=5\n　判定失敗なら [Bestial Failure]\n　判定成功なら [Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -578,7 +628,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMF3+2"
-output = "(3D10+2D10) ＞ [2,10,10]+[10,1]  成功数=5"
+output = "(3D10+2D10) ＞ [2,10,10]+[10,1]  成功数=5\n　判定失敗なら [Bestial Failure]\n　判定成功なら [Messy Critical]"
 secret = true
 rands = [
   { sides = 10, value = 2 },
