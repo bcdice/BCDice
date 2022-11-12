@@ -22,7 +22,8 @@ module BCDice
         　　振り足しを自動で行い、20の出目が出たときには技能無し値も並記します。
         　　出目1の時には「Mishap!　自動失敗！」と出力されます。
         　・UP
-        　　"UP"で高揚状態のロール(通常の1d20に加え、1d20を追加で振り足し)を行います。
+        　　"UP[m]"で高揚状態のロール(通常の1d20に加え、1d20を追加で振り足し)を行います。
+        　　[]内は省略可能。mは技能基本値を入れて下さい。
         　　各ロールでの振り足しを自動で行い、20の出目が出たときには技能無し値も並記します。
         　　一投目で出目1の時には「Mishap!　自動失敗！」と出力され、二投目は行われません。
         　・POS
@@ -123,26 +124,61 @@ module BCDice
       # ロールコマンド (高揚ロール)
       def getUpRollDiceCommandResult(command)
         debug("Torg Eternity Dice Roll ( UP ) Command ? ", command)
-        m = /(^|\s)(S)?(UP)$/i.match(command)
+        m = /(^|\s)(S)?(UP)(\d*)(\s|$)/i.match(command)
         unless m
           return nil
         end
 
+        sequence = []
+        mod = m[4].to_i
         skilled1, unskilled1, dice_str1, mishap = torg_eternity_dice(false, true)
         if mishap == 1
-          output = "d20ロール（高揚） ＞ 1d20[#{dice_str1}] ＞ Mishap!　絶対失敗！"
+          sequence = [
+            "d20ロール（高揚）",
+            "1d20[#{dice_str1}]",
+            "Mishap!　絶対失敗！",
+          ].compact
         else
           skilled2, unskilled2, dice_str2, = torg_eternity_dice(false, false)
           subtotal_skilled = skilled1 + skilled2
           subtotal_unskilled = unskilled1 + unskilled2
           value_skilled = format("%+d", get_torg_eternity_bonus(subtotal_skilled))
-          if subtotal_skilled != subtotal_unskilled
-            value_unskilled = format("%+d", get_torg_eternity_bonus(subtotal_unskilled))
-            output = "d20ロール（高揚） ＞ 1d20[#{dice_str1}] + 1d20[#{dice_str2}] ＞ #{value_skilled}[#{subtotal_skilled}]（技能有） / #{value_unskilled}[#{subtotal_unskilled}]（技能無）"
+          value_unskilled = format("%+d", get_torg_eternity_bonus(subtotal_unskilled))
+
+          if mod <= 0
+            if subtotal_skilled != subtotal_unskilled
+              sequence = [
+                "d20ロール（高揚）",
+                "1d20[#{dice_str1}] + 1d20[#{dice_str2}]",
+                "#{value_skilled}[#{subtotal_skilled}]（技能有） / #{value_unskilled}[#{subtotal_unskilled}]（技能無）",
+              ].compact
+            else
+              sequence = [
+                "d20ロール（高揚）",
+                "1d20[#{dice_str1}] + 1d20[#{dice_str2}]",
+                "#{value_skilled}[#{subtotal_skilled}]",
+              ].compact
+            end
           else
-            output = "d20ロール（高揚） ＞ 1d20[#{dice_str1}] + 1d20[#{dice_str2}] ＞ #{value_skilled}[#{subtotal_skilled}]"
+            if subtotal_skilled != subtotal_unskilled
+              sequence = [
+                "d20ロール（高揚）",
+                "1d20[#{dice_str1}] + 1d20[#{dice_str2}] + #{mod}",
+                "#{value_skilled}[#{subtotal_skilled}]+#{mod}（技能有） / #{value_unskilled}[#{subtotal_unskilled}]+#{mod}（技能無）",
+                format("%+d", (value_skilled.to_i + mod)) + "（技能有） / " + format("%+d", (value_unskilled.to_i + mod)) + "（技能無）",
+              ].compact
+            else
+              sequence = [
+                "d20ロール（高揚）",
+                "1d20[#{dice_str1}] + 1d20[#{dice_str2}] + #{mod}",
+                "#{value_skilled}[#{subtotal_skilled}]+#{mod}",
+                format("%+d", (value_skilled.to_i + mod)),
+              ].compact
+            end
           end
         end
+
+        output = sequence.join(" ＞ ")
 
         return output
       end
