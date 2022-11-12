@@ -55,6 +55,8 @@ module BCDice
           getRollBonusDiceCommandResult(command)
       end
 
+      private
+
       ####################            TORG 1.x            ########################
       def replace_text(string)
         string = string.gsub(/TG(\d+)/i) { "1R20+#{Regexp.last_match(1)}" }
@@ -65,13 +67,12 @@ module BCDice
       def torg_check(string)
         string = replace_text(string)
 
-        m = /(^|\s)S?(1R20(([+-]\d+)*))(\s|$)/i.match(string)
+        m = /^1R20(([+-]\d+)*)$/i.match(string)
         unless m
           return nil
         end
 
-        string = m[2]
-        mod = m[3]
+        mod = m[1]
 
         debug(mod)
         mod = ArithmeticEvaluator.eval(mod) if mod
@@ -100,8 +101,7 @@ module BCDice
       # ロールコマンド (通常ロール)
       def getRolld20DiceCommandResult(command)
         debug("Torg Eternity Dice Roll Command ? ", command)
-        m = /(^|\s)(S)?(TE)$/i.match(command)
-        unless m
+        unless command == "TE"
           return nil
         end
 
@@ -124,13 +124,13 @@ module BCDice
       # ロールコマンド (高揚ロール)
       def getUpRollDiceCommandResult(command)
         debug("Torg Eternity Dice Roll ( UP ) Command ? ", command)
-        m = /(^|\s)(S)?(UP)(\d*)(\s|$)/i.match(command)
+        m = /^UP(\d*)$/i.match(command)
         unless m
           return nil
         end
 
         sequence = []
-        mod = m[4].to_i
+        mod = m[1].to_i
         skilled1, unskilled1, dice_str1, mishap = torg_eternity_dice(false, true)
         if mishap == 1
           sequence = [
@@ -186,12 +186,12 @@ module BCDice
       # ロールコマンド (ポシビリティロール)
       def getPossibilityRollDiceCommandResult(command)
         debug("Torg Eternity Possibility Roll Command ? ", command)
-        m = /(^|\s)(S)?(POS)((\d+)(\+\d+)?)/i.match(command)
+        m = /^POS((\d+)(\+\d+)?)$/i.match(command)
         unless m
           return nil
         end
 
-        output_modifier = ArithmeticEvaluator.eval(m[4])
+        output_modifier = ArithmeticEvaluator.eval(m[1])
         skilled, unskilled, dice_str, = torg_eternity_dice(true, false)
         subtotal_skilled = skilled + output_modifier
         subtotal_unskilled = unskilled + output_modifier
@@ -209,7 +209,7 @@ module BCDice
       # ダメージボーナスコマンド
       def getBonusDamageDiceCommandResult(command)
         debug("TorgEternity Bonus Damage Roll Command ? ", command)
-        m = /(\d+)(BD)(([+\-]\d+)*)/i.match(command)
+        m = /^(\d+)(BD)(([+\-]\d+)*)$/i.match(command)
         unless m
           return nil
         end
@@ -229,7 +229,7 @@ module BCDice
       # 成功レベル表コマンド
       def getSuccessLevelDiceCommandResult(command)
         debug("TorgEternity Success Level Table Command ? ", command)
-        m = /(RT|Result)(-*\d+([+\-]\d+)*)/i.match(command)
+        m = /^(RT|Result)(-*\d+([+\-]\d+)*)$/i.match(command)
         unless m
           return nil
         end
@@ -249,7 +249,7 @@ module BCDice
       # ダメージ結果表コマンド
       def getDamageResultDiceCommandResult(command)
         debug("TorgEternity Damage Result Table Command ? ", command)
-        m = /(DT|Damage)(-*\d+([+\-]\d+)*)/i.match(command)
+        m = /^(DT|Damage)(-*\d+([+\-]\d+)*)$/i.match(command)
         unless m
           return nil
         end
@@ -265,7 +265,7 @@ module BCDice
       # ロールボーナス表コマンド
       def getRollBonusDiceCommandResult(command)
         debug("TorgEternity Roll Bonus Table Command ? ", command)
-        m = /(BT|Bonus|Total)(\d+)(([+\-]\d+)*)/i.match(command)
+        m = /^(BT|Bonus|Total)(\d+)(([+\-]\d+)*)$/i.match(command)
         unless m
           return nil
         end
