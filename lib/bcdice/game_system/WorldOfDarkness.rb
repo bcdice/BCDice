@@ -95,15 +95,15 @@ module BCDice
 
         if total_success > 0
           sequence.push "成功数#{total_success}"
+          return Result.success(sequence.join(' ＞ '))
         elsif total_botch > 0 && once_success == false
           # ボッチが存在し、かつ成功がひとつもない場合のみ大失敗
           sequence.push "大失敗"
+          return Result.fumble(sequence.join(' ＞ '))
         else
           sequence.push "失敗"
+          return Result.failure(sequence.join(' ＞ '))
         end
-
-        output = sequence.join(' ＞ ')
-        return output
       end
 
       # 出目10と1、難易度以上が出た成功の目をカウントする。
