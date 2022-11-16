@@ -210,7 +210,7 @@ module BCDice
         }
 
         # 難度變更用Lｏｏｐ
-        (0..3).each do |more_difficlty|
+        4.times do |more_difficlty|
           output += getNextDifficltyMessage(more_difficlty)
 
           # ペナルティダイスを減らしながらロール用ループ削減獎勵骰時角色用Lｏｏｐ

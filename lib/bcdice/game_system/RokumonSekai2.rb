@@ -31,7 +31,7 @@ module BCDice
       end
 
       def replace_text(string)
-        string = string.gsub(/(\d+)RS([+\-][+\-\d]+)<=(\d+)/i) { "3R6#{Regexp.last_match(2)}<=#{Regexp.last_match(3)}[#{Regexp.last_match(1)}]" }
+        string = string.gsub(/(\d+)RS([+-][+\-\d]+)<=(\d+)/i) { "3R6#{Regexp.last_match(2)}<=#{Regexp.last_match(3)}[#{Regexp.last_match(1)}]" }
         string = string.gsub(/(\d+)RS<=(\d+)/i) { "3R6<=#{Regexp.last_match(2)}[#{Regexp.last_match(1)}]" }
 
         return string

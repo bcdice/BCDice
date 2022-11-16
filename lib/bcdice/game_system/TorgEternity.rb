@@ -209,7 +209,7 @@ module BCDice
       # ダメージボーナスコマンド
       def getBonusDamageDiceCommandResult(command)
         debug("TorgEternity Bonus Damage Roll Command ? ", command)
-        m = /^(\d+)(BD)(([+\-]\d+)*)$/i.match(command)
+        m = /^(\d+)(BD)(([+-]\d+)*)$/i.match(command)
         unless m
           return nil
         end
@@ -229,7 +229,7 @@ module BCDice
       # 成功レベル表コマンド
       def getSuccessLevelDiceCommandResult(command)
         debug("TorgEternity Success Level Table Command ? ", command)
-        m = /^(RT|Result)(-*\d+([+\-]\d+)*)$/i.match(command)
+        m = /^(RT|Result)(-*\d+([+-]\d+)*)$/i.match(command)
         unless m
           return nil
         end
@@ -249,7 +249,7 @@ module BCDice
       # ダメージ結果表コマンド
       def getDamageResultDiceCommandResult(command)
         debug("TorgEternity Damage Result Table Command ? ", command)
-        m = /^(DT|Damage)(-*\d+([+\-]\d+)*)$/i.match(command)
+        m = /^(DT|Damage)(-*\d+([+-]\d+)*)$/i.match(command)
         unless m
           return nil
         end
@@ -265,7 +265,7 @@ module BCDice
       # ロールボーナス表コマンド
       def getRollBonusDiceCommandResult(command)
         debug("TorgEternity Roll Bonus Table Command ? ", command)
-        m = /^(BT|Bonus|Total)(\d+)(([+\-]\d+)*)$/i.match(command)
+        m = /^(BT|Bonus|Total)(\d+)(([+-]\d+)*)$/i.match(command)
         unless m
           return nil
         end

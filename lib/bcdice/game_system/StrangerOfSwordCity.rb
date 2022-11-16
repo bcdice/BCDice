@@ -49,7 +49,7 @@ module BCDice
 
         result = Result.new
         result.text = ''
-        return result unless command =~ /^(\d+)SR([+\-]?\d+)?(>=(\d+))?$/i
+        return result unless command =~ /^(\d+)SR([+-]?\d+)?(>=(\d+))?$/i
 
         diceCount = Regexp.last_match(1).to_i
         modify = Regexp.last_match(2).to_i

@@ -46,7 +46,7 @@ MESSAGETEXT
         case command
         when /\d+CL.*/i
           clutch_roll(command)
-        when /\d+D6.*\$[+\-]?\d.*/
+        when /\d+D6.*\$[+-]?\d.*/
           damage_roll(command)
         when /\d+R6/
           r_roll(command)

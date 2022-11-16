@@ -100,7 +100,7 @@ module BCDice
           }
 
           # 難易度変更用ループ
-          (0..3).each do |more_difficulty|
+          4.times do |more_difficulty|
             output += getNextDifficultyMessage(more_difficulty)
 
             # ペナルティダイスを減らしながらロール用ループ

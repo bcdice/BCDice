@@ -32,7 +32,7 @@ module BCDice
       MESSAGETEXT
 
       def eval_game_system_specific_command(command)
-        m = /(\d+)AN<=(\d+([+\-]\d+)*)/i.match(command)
+        m = /(\d+)AN<=(\d+([+-]\d+)*)/i.match(command)
         if TABLES.key?(command)
           return roll_tables(command, TABLES)
         elsif m

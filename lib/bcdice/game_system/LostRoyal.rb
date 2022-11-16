@@ -64,7 +64,7 @@ module BCDice
       def check_lostroyal(checking_table)
         keys = []
 
-        (0...3).each do |_i|
+        3.times do |_i|
           key = @randomizer.roll_once(6)
           keys << key
         end

@@ -91,7 +91,7 @@ module BCDice
 
       # パフォーマンス判定
       def roll_performance_check(command)
-        m = /^PD(\d+)([+\-]\d+)?$/.match(command)
+        m = /^PD(\d+)([+-]\d+)?$/.match(command)
         unless m
           return nil
         end
@@ -145,7 +145,7 @@ module BCDice
 
       # シンフォニー
       def roll_symphony_check(command)
-        m = /^([1-6]+)PD([1-6])([+\-]\d+)?$/.match(command)
+        m = /^([1-6]+)PD([1-6])([+-]\d+)?$/.match(command)
         unless m
           return nil
         end
