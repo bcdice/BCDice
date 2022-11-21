@@ -36,7 +36,7 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        if (m = /^(\d+)AG(\d+)?(([+\-]\d+)*)$/.match(command))
+        if (m = /^(\d+)AG(\d+)?(([+-]\d+)*)$/.match(command))
           resolute_action(m[1].to_i, m[2]&.to_i, m[3], command)
         else
           roll_tables(command, TABLES)

@@ -5,7 +5,7 @@ module BCDice
     class FilledWith < Base
       # 夢幻の迷宮財宝表
       def getTresureResult(command)
-        m = /^TRS(\d+)([+\-]\d)?$/.match(command)
+        m = /^TRS(\d+)([+-]\d)?$/.match(command)
         unless m
           return nil
         end

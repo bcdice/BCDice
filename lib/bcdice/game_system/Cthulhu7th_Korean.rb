@@ -207,7 +207,7 @@ module BCDice
         }
 
         # 난이도 변경용 루프
-        (0..3).each do |more_difficlty|
+        4.times do |more_difficlty|
           output += getNextDifficltyMessage(more_difficlty)
 
           # 패널티 다이스를 줄이면서 굴리는 용 루프

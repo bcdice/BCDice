@@ -145,7 +145,7 @@ module BCDice
       end
 
       def roll_attack(command)
-        m = /^(\d+)(S?)A([1-6]*)([+\-]\d+)?$/.match(command)
+        m = /^(\d+)(S?)A([1-6]*)([+-]\d+)?$/.match(command)
         unless m
           return nil
         end
@@ -179,7 +179,7 @@ module BCDice
       end
 
       def roll_performance(command)
-        m = /^([1-7]*)PD(\d+)([+\-]\d+)?$/.match(command)
+        m = /^([1-7]*)PD(\d+)([+-]\d+)?$/.match(command)
         unless m
           return nil
         end

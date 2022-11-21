@@ -75,7 +75,7 @@ module BCDice
       end
 
       def roll_3d6(command)
-        m = /^([\d+\-]+)-3D6?([\d+\-]*)$/.match(command)
+        m = /^([\d+-]+)-3D6?([\d+-]*)$/.match(command)
         return nil unless m
 
         target_number = ArithmeticEvaluator.eval(m[1])
