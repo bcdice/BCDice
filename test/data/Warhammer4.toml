@@ -64,7 +64,7 @@ rands = [
 [[ test ]]
 game_system = "Warhammer4"
 input = "1D100<=10"
-output = "(1D100<=10) ＞ 19 ＞ 失敗(SL+0) ＞ 小失敗"
+output = "(1D100<=10) ＞ 19 ＞ 失敗(SL-0) ＞ 小失敗"
 failure = true
 rands = [
   { sides = 100, value = 19 }

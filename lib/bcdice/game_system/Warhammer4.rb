@@ -72,6 +72,10 @@ module BCDice
           end
 
         sl_text = format("(SL%+d)", sl)
+        if (sl == 0) && (total > target)
+          sl_text = "(SL-0)"
+        end
+
         result.text += "#{sl_text} ＞ #{result_detail(sl, total, target)}"
 
         return result
