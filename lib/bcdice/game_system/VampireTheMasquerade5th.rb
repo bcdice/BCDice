@@ -15,22 +15,24 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
         ・判定コマンド(nVMFx+x)
-          注意：難易度は必要成功数を表す
+          注意：Hungerダイスは内数として処理する。
+                例：9ダイスプールでHungerダイス3個ならば、通常ダイス6個、Hungerダイス3個となる。
+                また、難易度は必要成功数を表す。
 
           難易度指定：成功数のカウント、判定成功と失敗、Critical処理、Critical Winのチェックを行う
                      （Hungerダイスがある場合）Messy CriticalとBestial Failureチェックを行う
-          例) (難易度)VMF(ダイスプール)+(Hungerダイス)
-              (難易度)VMF(ダイスプール)
+          例) (難易度)VMF(通常ダイス)+(Hungerダイス)
+              (難易度)VMF(通常ダイス)
 
           難易度省略：成功数のカウント、判定失敗、Critical処理、（Hungerダイスがある場合）Bestial Failureチェックを行う
                       判定成功、Messy Criticalのチェックを行わない
                       Critical Win、（Hungerダイスがある場合）Bestial Failure、Messy Criticalのヒントを出力
-          例) VMF(ダイスプール)+(Hungerダイス)
-              VMF(ダイスプール)
+          例) VMF(通常ダイス)+(Hungerダイス)
+              VMF(通常ダイス)
 
           難易度0指定：Critical処理と成功数のカウントを行い、全てのチェックを行わない
-          例) 0VMF(ダイスプール)+(Hungerダイス)
-              0VMF(ダイスプール)
+          例) 0VMF(通常ダイス)+(Hungerダイス)
+              0VMF(通常ダイス)
 
       MESSAGETEXT
 
