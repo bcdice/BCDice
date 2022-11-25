@@ -67,7 +67,7 @@ module BCDice
       def cp_roll_result(command)
         parser = Command::Parser.new('CP', round_type: RoundType::FLOOR)
                                 .enable_suffix_number
-                                .restrict_cmp_op_to(nil, :>=)
+                                .restrict_cmp_op_to(nil, :>)
         parsed = parser.parse(command)
         return nil if parsed.nil?
 
@@ -96,11 +96,7 @@ module BCDice
         end
 
         if parsed.target_number
-          if total >= parsed.target_number
-            result.success = true
-          else
-            result.failure = true
-          end
+          result.condition = total > parsed.target_number
         end
 
         result.text = "(#{dice_cnt}D#{dice_face}#{Format.modifier(modify_number)}#{parsed.cmp_op}#{parsed.target_number})"
