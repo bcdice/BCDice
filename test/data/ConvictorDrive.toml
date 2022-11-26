@@ -1,0 +1,12 @@
+[[ test ]]
+game_system = "ConvictorDrive"
+input = "(3+2)CD@(10-1)>=7"
+output = "5CD@9>=7 ＞ 3,4,7,8,9 ＞ クリティカル数1 ＞ 成功数4"
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
