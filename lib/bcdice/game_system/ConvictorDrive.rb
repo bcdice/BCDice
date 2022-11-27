@@ -19,7 +19,9 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        xCD@z>=y x個の10面ダイスで目標値y、クリティカルラインzの判定を行う
+        xCD@z>=y: x個の10面ダイスで目標値y、クリティカルラインzの判定を行う
+        SLT: 技能レベル表を振る
+        DCT: 遅延イベント表を振る
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
