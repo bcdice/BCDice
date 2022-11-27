@@ -985,7 +985,39 @@ rands = [
 [[ test ]]
 game_system = "ShinobiGami"
 input = "FT"
+output = "ファンブル表(3) ＞ 情報が漏れる！　あなた以外のキャラクターは、あなたの持っている【秘密】か【居所】の中から、好きなものをそれぞれ一つ知ることができる。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "FT"
 output = "ファンブル表(6) ＞ ふう。危ないところだった。特に何も起こらない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "OFT"
+output = "ファンブル表（旧文庫版）(1) ＞ 何か調子がおかしい。そのサイクルの間、すべての行為判定にマイナス１の修正がつく。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "OFT"
+output = "ファンブル表（旧文庫版）(3) ＞ 情報が漏れる！　このゲームであなたが獲得した【秘密】は、他のキャラクター全員の知るところとなる。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "OFT"
+output = "ファンブル表（旧文庫版）(6) ＞ ふう。危ないところだった。特に何も起こらない。"
 rands = [
   { sides = 6, value = 6 },
 ]
