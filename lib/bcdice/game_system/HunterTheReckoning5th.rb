@@ -22,7 +22,7 @@ module BCDice
           例) (難易度)HRF(通常ダイス)+(Desperationダイス)
               (難易度)HRF(通常ダイス)
 
-          難易度省略：成功数のカウント、判定失敗、Critical処理、（Hungerダイスがある場合）Despairチェックを行う
+          難易度省略：成功数のカウント、判定失敗、Critical処理、（Desperationダイスがある場合）Despairチェックを行う
                       判定成功、Overreachのチェックを行わない
                       Critical Win、（Desperationダイスがある場合）Despair、Overreachのヒントを出力
           例) HRF(通常ダイス)+(Desperationダイス)
