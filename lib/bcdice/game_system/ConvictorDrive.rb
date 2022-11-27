@@ -52,11 +52,12 @@ module BCDice
         text = [
           cmd.to_s,
           dice_list.join(','),
-          "クリティカル数#{critical_num}",
+          critical_num > 0 ? "クリティカル数#{critical_num}" : nil,
           "成功数#{succeed_num + critical_num}",
-        ].join(" ＞ ")
+        ].compact.join(" ＞ ")
 
         return Result.new.tap do |r|
+          r.success = succeed_num > 0
           r.critical = critical_num > 0
           r.text = text
         end
