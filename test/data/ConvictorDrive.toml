@@ -2,6 +2,7 @@
 game_system = "ConvictorDrive"
 input = "(3+2)CD@(10-1)>=7"
 output = "5CD@9>=7 ＞ 3,4,7,8,9 ＞ クリティカル数1 ＞ 成功数4"
+success = true
 critical = true
 rands = [
   { sides = 10, value = 3 },
@@ -10,3 +11,92 @@ rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 9 },
 ]
+
+[[ test ]]
+game_system = "ConvictorDrive"
+input = "5CD@8>=6"
+output = "5CD@8>=6 ＞ 3,5,7,6,2 ＞ 成功数2"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "ConvictorDrive"
+input = "4CD>=7"
+output = "4CD>=7 ＞ 2,6,10,8 ＞ クリティカル数1 ＞ 成功数3"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "ConvictorDrive"
+input = "6CD@6>=7"
+output = "6CD@6>=7 ＞ 4,6,5,8,9,3 ＞ クリティカル数2 ＞ 成功数4"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "ConvictorDrive"
+input = "6CD@6>=7"
+output = "6CD@6>=7 ＞ 4,6,5,1,3,6 ＞ 成功数0"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "ConvictorDrive"
+input = "SLT"
+output = "技能ランク表(8) ＞ Ｄ＋"
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "ConvictorDrive"
+input = "SLT"
+output = "技能ランク表(20) ＞ Ｓ＋"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "ConvictorDrive"
+input = "DCT"
+output = "遅延イベント表(4) ＞ 武装を許すⅠ（ボスの攻撃ダイスを+1dする）"
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "ConvictorDrive"
+input = "DCT"
+output = "遅延イベント表(9) ＞ 緊急出撃Ⅲ（ランダムなPC2人のHPを-1する）"
+rands = [
+  { sides = 10, value = 9 },
+]
+
