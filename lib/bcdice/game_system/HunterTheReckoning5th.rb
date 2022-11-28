@@ -85,6 +85,8 @@ module BCDice
           result_text = "#{result_text} 難易度=#{difficulty}"
 
           if success_dice >= difficulty
+            result_text = "#{result_text} 差分=#{success_dice - difficulty}"
+
             if desperaton_ten_dice > 0 && is_critical
               return Result.critical("#{result_text}：判定成功! [Overreach or Despair?]")
             elsif is_critical
