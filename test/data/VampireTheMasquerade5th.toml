@@ -23,7 +23,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3"
-output = "(3D10) ＞ [7,9,6]  成功数=3 難易度=3：判定成功!"
+output = "(3D10) ＞ [7,9,6]  成功数=3 難易度=3 差分=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 7 },
@@ -34,7 +34,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3"
-output = "(3D10) ＞ [2,10,10]  成功数=4 難易度=3：判定成功! [Critical Win]"
+output = "(3D10) ＞ [2,10,10]  成功数=4 難易度=3 差分=1：判定成功! [Critical Win]"
 success = true
 critical = true
 rands = [
@@ -46,7 +46,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMF5"
-output = "(5D10) ＞ [10,10,10,10,10]  成功数=9 難易度=3：判定成功! [Critical Win]"
+output = "(5D10) ＞ [10,10,10,10,10]  成功数=9 難易度=3 差分=6：判定成功! [Critical Win]"
 success = true
 critical = true
 rands = [
@@ -87,7 +87,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3+2"
-output = "(3D10+2D10) ＞ [8,2,6]+[1,7]  成功数=3 難易度=3：判定成功!"
+output = "(3D10+2D10) ＞ [8,2,6]+[1,7]  成功数=3 難易度=3 差分=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 8 },
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3+2"
-output = "(3D10+2D10) ＞ [10,10,10]+[4,7]  成功数=6 難易度=3：判定成功! [Critical Win]"
+output = "(3D10+2D10) ＞ [10,10,10]+[4,7]  成功数=6 難易度=3 差分=3：判定成功! [Critical Win]"
 success = true
 critical = true
 rands = [
@@ -114,7 +114,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3+2"
-output = "(3D10+2D10) ＞ [10,10,6]+[1,10]  成功数=6 難易度=3：判定成功! [Messy Critical]"
+output = "(3D10+2D10) ＞ [10,10,6]+[1,10]  成功数=6 難易度=3 差分=3：判定成功! [Messy Critical]"
 success = true
 critical = true
 rands = [
@@ -128,7 +128,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3+2"
-output = "(3D10+2D10) ＞ [10,8,6]+[1,10]  成功数=6 難易度=3：判定成功! [Messy Critical]"
+output = "(3D10+2D10) ＞ [10,8,6]+[1,10]  成功数=6 難易度=3 差分=3：判定成功! [Messy Critical]"
 success = true
 critical = true
 rands = [
@@ -142,7 +142,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3+2"
-output = "(3D10+2D10) ＞ [1,4,5]+[10,10]  成功数=4 難易度=3：判定成功! [Messy Critical]"
+output = "(3D10+2D10) ＞ [1,4,5]+[10,10]  成功数=4 難易度=3 差分=1：判定成功! [Messy Critical]"
 success = true
 critical = true
 rands = [
@@ -370,7 +370,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3"
-output = "(3D10) ＞ [7,9,6]  成功数=3 難易度=3：判定成功!"
+output = "(3D10) ＞ [7,9,6]  成功数=3 難易度=3 差分=0：判定成功!"
 success = true
 secret = true
 rands = [
@@ -382,7 +382,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3"
-output = "(3D10) ＞ [2,10,10]  成功数=4 難易度=3：判定成功! [Critical Win]"
+output = "(3D10) ＞ [2,10,10]  成功数=4 難易度=3 差分=1：判定成功! [Critical Win]"
 success = true
 critical = true
 secret = true
@@ -395,7 +395,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF5"
-output = "(5D10) ＞ [10,10,10,10,10]  成功数=9 難易度=3：判定成功! [Critical Win]"
+output = "(5D10) ＞ [10,10,10,10,10]  成功数=9 難易度=3 差分=6：判定成功! [Critical Win]"
 success = true
 critical = true
 secret = true
@@ -439,7 +439,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3+2"
-output = "(3D10+2D10) ＞ [8,2,6]+[1,7]  成功数=3 難易度=3：判定成功!"
+output = "(3D10+2D10) ＞ [8,2,6]+[1,7]  成功数=3 難易度=3 差分=0：判定成功!"
 success = true
 secret = true
 rands = [
@@ -453,7 +453,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3+2"
-output = "(3D10+2D10) ＞ [10,10,10]+[4,7]  成功数=6 難易度=3：判定成功! [Critical Win]"
+output = "(3D10+2D10) ＞ [10,10,10]+[4,7]  成功数=6 難易度=3 差分=3：判定成功! [Critical Win]"
 success = true
 critical = true
 secret = true
@@ -468,7 +468,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3+2"
-output = "(3D10+2D10) ＞ [10,10,6]+[1,10]  成功数=6 難易度=3：判定成功! [Messy Critical]"
+output = "(3D10+2D10) ＞ [10,10,6]+[1,10]  成功数=6 難易度=3 差分=3：判定成功! [Messy Critical]"
 success = true
 critical = true
 secret = true
@@ -483,7 +483,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3+2"
-output = "(3D10+2D10) ＞ [10,8,6]+[1,10]  成功数=6 難易度=3：判定成功! [Messy Critical]"
+output = "(3D10+2D10) ＞ [10,8,6]+[1,10]  成功数=6 難易度=3 差分=3：判定成功! [Messy Critical]"
 success = true
 critical = true
 secret = true
@@ -498,7 +498,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3+2"
-output = "(3D10+2D10) ＞ [1,4,5]+[10,10]  成功数=4 難易度=3：判定成功! [Messy Critical]"
+output = "(3D10+2D10) ＞ [1,4,5]+[10,10]  成功数=4 難易度=3 差分=1：判定成功! [Messy Critical]"
 success = true
 critical = true
 secret = true
