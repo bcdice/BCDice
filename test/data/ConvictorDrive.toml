@@ -69,7 +69,7 @@ rands = [
 [[ test ]]
 game_system = "ConvictorDrive"
 input = "SLT"
-output = "技能ランク表(8) ＞ Ｄ＋"
+output = "技能ランク表(8) ＞ D+"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 5 },
@@ -78,7 +78,7 @@ rands = [
 [[ test ]]
 game_system = "ConvictorDrive"
 input = "SLT"
-output = "技能ランク表(20) ＞ Ｓ＋"
+output = "技能ランク表(20) ＞ S+"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },

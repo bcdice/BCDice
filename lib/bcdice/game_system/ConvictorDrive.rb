@@ -24,8 +24,52 @@ module BCDice
         DCT: 遅延イベント表を振る
       MESSAGETEXT
 
+      TABLES = {
+        "SLT" => DiceTable::Table.new(
+          "技能ランク表",
+          "2D10",
+          [
+            "ランク外",
+            "E-",
+            "E",
+            "E+",
+            "D-",
+            "D",
+            "D+",
+            "C-",
+            "C",
+            "C+",
+            "B-",
+            "B",
+            "B+",
+            "A-",
+            "A",
+            "A+",
+            "S-",
+            "S",
+            "S+",
+          ]
+        ),
+        "DCT" => DiceTable::Table.new(
+          "遅延イベント表",
+          "1D10",
+          [
+            "状況遅延Ⅰ（全員の初期リソースを-1する）",
+            "状況遅延Ⅱ（全員の初期リソースを-1する）",
+            "状況遅延Ⅲ（全員の初期リソースを-2する）",
+            "武装を許すⅠ（ボスの攻撃ダイスを+1dする）",
+            "武装を許すⅡ（脅威度4以下のエネミーの攻撃ダイスを2体まで+1dする）",
+            "武装を許すⅢ（脅威度3以下のエネミーの攻撃ダイスを1体+2dする）",
+            "緊急出撃Ⅰ（ランダムなPCのHPを-1する）",
+            "緊急出撃Ⅱ（ランダムなPCのHPを-1する）",
+            "緊急出撃Ⅲ（ランダムなPC2人のHPを-1する）",
+            "絶望（ダイスを二度振り、二つ適用する）",
+          ]
+        ),
+      }.freeze
+
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix("[-+*0-9\(\)]*CD", "SLT", "DCT")
+      register_prefix("[-+*0-9\(\)]*CD", TABLES.keys)
 
       def initialize(command)
         super(command)
@@ -36,17 +80,10 @@ module BCDice
       def eval_game_system_specific_command(command)
         debug("eval_game_system_specific_command Begin")
 
-        case command
-        when "SLT"
-          return skill_rank_table
-        when "DCT"
-          return delay_event_table
-        else
-          return check_command(command)
-        end
+        return roll_command(command) || roll_tables(command, TABLES)
       end
 
-      def check_command(command)
+      def roll_command(command)
         parser = Command::Parser.new('CD', round_type: round_type)
                                 .has_prefix_number
                                 .enable_critical
@@ -58,7 +95,7 @@ module BCDice
         end
 
         dice_list = @randomizer.roll_barabara(cmd.prefix_number, 10)
-        critical = (cmd.critical || 10).clamp(cmd.target_number, 10)
+        critical = cmd.critical&.clamp(cmd.target_number, 10) || 10
         succeed_num = dice_list.count { |x| x >= cmd.target_number }
         critical_num = dice_list.count { |x| x >= critical }
 
@@ -74,53 +111,6 @@ module BCDice
           r.critical = critical_num > 0
           r.text = text
         end
-      end
-
-      def skill_rank_table
-        return DiceTable::Table.new(
-          "技能ランク表",
-          "2D10",
-          [
-            "ランク外",
-            "Ｅ－",
-            "Ｅ",
-            "Ｅ＋",
-            "Ｄ－",
-            "Ｄ",
-            "Ｄ＋",
-            "Ｃ－",
-            "Ｃ",
-            "Ｃ＋",
-            "Ｂ－",
-            "Ｂ",
-            "Ｂ＋",
-            "Ａ－",
-            "Ａ",
-            "Ａ＋",
-            "Ｓ－",
-            "Ｓ",
-            "Ｓ＋",
-          ]
-        ).roll(@randomizer)
-      end
-
-      def delay_event_table
-        return DiceTable::Table.new(
-          "遅延イベント表",
-          "1D10",
-          [
-            "状況遅延Ⅰ（全員の初期リソースを-1する）",
-            "状況遅延Ⅱ（全員の初期リソースを-1する）",
-            "状況遅延Ⅲ（全員の初期リソースを-2する）",
-            "武装を許すⅠ（ボスの攻撃ダイスを+1dする）",
-            "武装を許すⅡ（脅威度4以下のエネミーの攻撃ダイスを2体まで+1dする）",
-            "武装を許すⅢ（脅威度3以下のエネミーの攻撃ダイスを1体+2dする）",
-            "緊急出撃Ⅰ（ランダムなPCのHPを-1する）",
-            "緊急出撃Ⅱ（ランダムなPCのHPを-1する）",
-            "緊急出撃Ⅲ（ランダムなPC2人のHPを-1する）",
-            "絶望（ダイスを二度振り、二つ適用する）",
-          ]
-        ).roll(@randomizer)
       end
     end
   end
