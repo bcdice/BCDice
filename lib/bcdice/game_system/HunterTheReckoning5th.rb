@@ -45,7 +45,7 @@ module BCDice
       register_prefix('\d*HRF')
 
       def eval_game_system_specific_command(command)
-        m = /\A(\d+)?(HRF)(\d+)(\+(\d+))?/.match(command)
+        m = /\A(\d+)?(HRF)(\d+)(\+(\d+))?$/.match(command)
         unless m
           return ''
         end
