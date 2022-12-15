@@ -77,9 +77,10 @@ module BCDice
 
       private
 
-      def get_roll_result(result_text, success_dice, ten_dice, desperaton_ten_dice, desperaton_botch_dice, difficulty)
+      def get_roll_result(result_text, success_dice, ten_dice, _desperaton_ten_dice, desperaton_botch_dice, difficulty)
         result_text = "#{result_text} 成功数=#{success_dice}"
         is_critical = ten_dice >= 2
+        desperation_result = ""
 
         if difficulty > 0
           result_text = "#{result_text} 難易度=#{difficulty}"
@@ -87,13 +88,16 @@ module BCDice
           if success_dice >= difficulty
             result_text = "#{result_text} 差分=#{success_dice - difficulty}"
 
-            if desperaton_ten_dice > 0 && is_critical
-              return Result.critical("#{result_text}：判定成功! [Overreach or Despair?]")
-            elsif is_critical
-              return Result.critical("#{result_text}：判定成功! [Critical Win]")
+            if desperaton_botch_dice > 0
+              desperation_result = " [Overreach or Despair?]"
             end
 
-            return Result.success("#{result_text}：判定成功!")
+            if is_critical
+              return Result.critical("#{result_text}：判定成功! [Critical Win]#{desperation_result}")
+            else
+              return Result.success("#{result_text}：判定成功!#{desperation_result}")
+            end
+
           else
             if desperaton_botch_dice > 0
               return Result.fumble("#{result_text}：判定失敗! [Despair]")
@@ -111,13 +115,16 @@ module BCDice
           else
             if desperaton_botch_dice > 0
               result_text = "#{result_text}\n　判定失敗なら [Despair]"
+              desperation_result = " [Overreach or Despair?]"
             end
-            if desperaton_ten_dice > 0 && is_critical
-              result_text = "#{result_text}\n　判定成功なら [Overreach or Despair?]"
-            elsif is_critical
+
+            if is_critical
               result_text = "#{result_text}\n　判定成功なら [Critical Win]"
+            elsif desperaton_botch_dice > 0
+              result_text = "#{result_text}\n　判定成功なら"
             end
-            return result_text.to_s
+
+            return "#{result_text}#{desperation_result}"
           end
         end
 

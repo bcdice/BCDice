@@ -87,7 +87,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "3HRF3+2"
-output = "(3D10+2D10) ＞ [8,2,6]+[1,7]  成功数=3 難易度=3 差分=0：判定成功!"
+output = "(3D10+2D10) ＞ [8,2,6]+[1,7]  成功数=3 難易度=3 差分=0：判定成功! [Overreach or Despair?]"
 success = true
 rands = [
   { sides = 10, value = 8 },
@@ -114,7 +114,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "3HRF3+2"
-output = "(3D10+2D10) ＞ [10,10,6]+[1,10]  成功数=6 難易度=3 差分=3：判定成功! [Overreach or Despair?]"
+output = "(3D10+2D10) ＞ [10,10,6]+[1,10]  成功数=6 難易度=3 差分=3：判定成功! [Critical Win] [Overreach or Despair?]"
 success = true
 critical = true
 rands = [
@@ -128,7 +128,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "3HRF3+2"
-output = "(3D10+2D10) ＞ [10,8,6]+[1,10]  成功数=6 難易度=3 差分=3：判定成功! [Overreach or Despair?]"
+output = "(3D10+2D10) ＞ [10,8,6]+[1,10]  成功数=6 難易度=3 差分=3：判定成功! [Critical Win] [Overreach or Despair?]"
 success = true
 critical = true
 rands = [
@@ -142,7 +142,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "3HRF3+2"
-output = "(3D10+2D10) ＞ [1,4,5]+[10,10]  成功数=4 難易度=3 差分=1：判定成功! [Overreach or Despair?]"
+output = "(3D10+2D10) ＞ [1,4,5]+[10,10]  成功数=4 難易度=3 差分=1：判定成功! [Critical Win]"
 success = true
 critical = true
 rands = [
@@ -151,6 +151,19 @@ rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HunterTheReckoning5th"
+input = "3HRF3+2"
+output = "(3D10+2D10) ＞ [1,4,7]+[6,6]  成功数=3 難易度=3 差分=0：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
 ]
 
 [[ test ]]
@@ -226,7 +239,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "HRF3+2"
-output = "(3D10+2D10) ＞ [2,5,8]+[1,6]  成功数=2\n　判定失敗なら [Despair]"
+output = "(3D10+2D10) ＞ [2,5,8]+[1,6]  成功数=2\n　判定失敗なら [Despair]\n　判定成功なら [Overreach or Despair?]"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -238,7 +251,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "HRF3+2"
-output = "(3D10+2D10) ＞ [2,5,8]+[10,10]  成功数=5\n　判定成功なら [Overreach or Despair?]"
+output = "(3D10+2D10) ＞ [2,5,8]+[10,10]  成功数=5\n　判定成功なら [Critical Win]"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -250,7 +263,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "HRF3+2"
-output = "(3D10+2D10) ＞ [2,10,10]+[1,6]  成功数=5\n　判定失敗なら [Despair]\n　判定成功なら [Critical Win]"
+output = "(3D10+2D10) ＞ [2,10,10]+[1,6]  成功数=5\n　判定失敗なら [Despair]\n　判定成功なら [Critical Win] [Overreach or Despair?]"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -262,13 +275,25 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "HRF3+2"
-output = "(3D10+2D10) ＞ [2,10,10]+[10,1]  成功数=5\n　判定失敗なら [Despair]\n　判定成功なら [Overreach or Despair?]"
+output = "(3D10+2D10) ＞ [2,10,10]+[10,1]  成功数=5\n　判定失敗なら [Despair]\n　判定成功なら [Critical Win] [Overreach or Despair?]"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "HunterTheReckoning5th"
+input = "HRF3+2"
+output = "(3D10+2D10) ＞ [1,4,7]+[6,6]  成功数=3"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
 ]
 
 [[ test ]]
@@ -341,6 +366,18 @@ rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 3 },
   { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HunterTheReckoning5th"
+input = "0HRF3+2"
+output = "(3D10+2D10) ＞ [1,4,7]+[6,6]  成功数=3"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
 ]
 
 [[ test ]]
@@ -439,7 +476,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "S3HRF3+2"
-output = "(3D10+2D10) ＞ [8,2,6]+[1,7]  成功数=3 難易度=3 差分=0：判定成功!"
+output = "(3D10+2D10) ＞ [8,2,6]+[1,7]  成功数=3 難易度=3 差分=0：判定成功! [Overreach or Despair?]"
 success = true
 secret = true
 rands = [
@@ -468,7 +505,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "S3HRF3+2"
-output = "(3D10+2D10) ＞ [10,10,6]+[1,10]  成功数=6 難易度=3 差分=3：判定成功! [Overreach or Despair?]"
+output = "(3D10+2D10) ＞ [10,10,6]+[1,10]  成功数=6 難易度=3 差分=3：判定成功! [Critical Win] [Overreach or Despair?]"
 success = true
 critical = true
 secret = true
@@ -483,7 +520,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "S3HRF3+2"
-output = "(3D10+2D10) ＞ [10,8,6]+[1,10]  成功数=6 難易度=3 差分=3：判定成功! [Overreach or Despair?]"
+output = "(3D10+2D10) ＞ [10,8,6]+[1,10]  成功数=6 難易度=3 差分=3：判定成功! [Critical Win] [Overreach or Despair?]"
 success = true
 critical = true
 secret = true
@@ -498,7 +535,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "S3HRF3+2"
-output = "(3D10+2D10) ＞ [1,4,5]+[10,10]  成功数=4 難易度=3 差分=1：判定成功! [Overreach or Despair?]"
+output = "(3D10+2D10) ＞ [1,4,5]+[10,10]  成功数=4 難易度=3 差分=1：判定成功! [Critical Win]"
 success = true
 critical = true
 secret = true
@@ -508,6 +545,20 @@ rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HunterTheReckoning5th"
+input = "S3HRF3+2"
+output = "(3D10+2D10) ＞ [1,4,7]+[6,6]  成功数=3 難易度=3 差分=0：判定成功!"
+success = true
+secret = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
 ]
 
 [[ test ]]
@@ -589,7 +640,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "SHRF3+2"
-output = "(3D10+2D10) ＞ [2,5,8]+[1,6]  成功数=2\n　判定失敗なら [Despair]"
+output = "(3D10+2D10) ＞ [2,5,8]+[1,6]  成功数=2\n　判定失敗なら [Despair]\n　判定成功なら [Overreach or Despair?]"
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -602,7 +653,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "SHRF3+2"
-output = "(3D10+2D10) ＞ [2,5,8]+[10,10]  成功数=5\n　判定成功なら [Overreach or Despair?]"
+output = "(3D10+2D10) ＞ [2,5,8]+[10,10]  成功数=5\n　判定成功なら [Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -615,7 +666,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "SHRF3+2"
-output = "(3D10+2D10) ＞ [2,10,10]+[1,6]  成功数=5\n　判定失敗なら [Despair]\n　判定成功なら [Critical Win]"
+output = "(3D10+2D10) ＞ [2,10,10]+[1,6]  成功数=5\n　判定失敗なら [Despair]\n　判定成功なら [Critical Win] [Overreach or Despair?]"
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -628,7 +679,7 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "SHRF3+2"
-output = "(3D10+2D10) ＞ [2,10,10]+[10,1]  成功数=5\n　判定失敗なら [Despair]\n　判定成功なら [Overreach or Despair?]"
+output = "(3D10+2D10) ＞ [2,10,10]+[10,1]  成功数=5\n　判定失敗なら [Despair]\n　判定成功なら [Critical Win] [Overreach or Despair?]"
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -636,6 +687,19 @@ rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "HunterTheReckoning5th"
+input = "SHRF3+2"
+output = "(3D10+2D10) ＞ [1,4,7]+[6,6]  成功数=3"
+secret = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
 ]
 
 [[ test ]]
@@ -714,4 +778,17 @@ rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 3 },
   { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HunterTheReckoning5th"
+input = "S0HRF3+2"
+output = "(3D10+2D10) ＞ [1,4,7]+[6,6]  成功数=3"
+secret = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
 ]
