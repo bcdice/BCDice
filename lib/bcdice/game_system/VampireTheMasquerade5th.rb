@@ -47,7 +47,7 @@ module BCDice
       register_prefix('\d*VMF')
 
       def eval_game_system_specific_command(command)
-        m = /\A(\d+)?(VMF)(\d+)(\+(\d+))?/.match(command)
+        m = /\A(\d+)?(VMF)(\d+)(\+(\d+))?$/.match(command)
         unless m
           return ''
         end
