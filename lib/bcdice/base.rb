@@ -20,8 +20,7 @@ module BCDice
       # 応答するコマンドのprefixを登録する
       # @param prefixes [Array<String>]
       def register_prefix(*prefixes)
-        @prefixes ||= []
-        @prefixes.concat(prefixes.flatten)
+        @prefixes = (@prefixes || []) + prefixes.flatten
       end
 
       def register_prefix_from_super_class
