@@ -56,7 +56,7 @@ module BCDice
           end
         end
         output.push(usedie)
-       
+
         result = Result.new
         if usedie == 20
           result.critical = true
@@ -81,7 +81,6 @@ module BCDice
           end
         end
       end
-
     end
   end
 end
