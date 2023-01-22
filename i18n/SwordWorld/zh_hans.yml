@@ -1,0 +1,6 @@
+zh_hans:
+  SwordWorld:
+    critical: 自动成功
+    fumble: 自动失败
+    keynumber_exceeds: 威力最大为%{keyMax}
+    infinite_critical: 请输入比%{min_critical}大的C值
