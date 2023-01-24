@@ -322,7 +322,7 @@ module BCDice
 
         if dice_total <= 2
           sequence.push(rateResults.join(','))
-          sequence.push("自動的失敗")
+          sequence.push(translate("SwordWorld.fumble"))
           return sequence.join(" ＞ "), false, true
         end
 
@@ -345,7 +345,7 @@ module BCDice
         end
 
         if round > 1
-          round_text = "#{round - 1}回転"
+          round_text = "#{round - 1}#{translate('SwordWorld.rating_reroll')}"
           sequence.push(round_text)
         end
 
