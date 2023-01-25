@@ -345,7 +345,7 @@ module BCDice
         end
 
         if round > 1
-          round_text = "#{round - 1}#{translate('SwordWorld.rating_reroll')}"
+          round_text = translate("SwordWorld.round_text", reroll_count: round - 1)
           sequence.push(round_text)
         end
 
