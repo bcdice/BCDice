@@ -404,13 +404,13 @@ rands = [
 [[ test ]]
 game_system = "SwordWorld2.0"
 input = "k20@2 クリティカル下限エラー 通常の下限は3"
-output = "请输入比3大的C值"
+output = "请输入3以上的C值"
 rands = []
 
 [[ test ]]
 game_system = "SwordWorld2.0"
 input = "k20sf2@2 クリティカル下限エラー sfが2以上の時はsf+2"
-output = "请输入比4大的C值"
+output = "请输入4以上的C值"
 rands = []
 
 [[ test ]]
