@@ -852,7 +852,7 @@ rands = [
 [[ test ]]
 game_system = "SwordWorld2.0:SimplifiedChinese"
 input = "tt"
-output = "缠绕效果表(4) ＞ 脚：无法移动，且回避力判定受到-2的惩罚修正 ※两脚被缠绕时效果不累计"
+output = "缠绕效果表(4) ＞ 脚：无法移动，且回避力判定受到-2的惩罚修正 ※两脚被缠绕时效果不累积"
 rands = [
   { sides = 6, value = 4 },
 ]
