@@ -915,7 +915,7 @@ rands = [
 [[ test ]]
 game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "tt"
-output = "缠绕效果表(4) ＞ 脚：无法移动，且回避力判定受到-2的惩罚修正 ※两脚被缠绕时效果不累计"
+output = "缠绕效果表(4) ＞ 脚：无法移动，且回避力判定受到-2的惩罚修正 ※两脚被缠绕时效果不累积"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -1029,7 +1029,7 @@ rands = [
 [[ test ]]
 game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "ABT"
-output = "奈落诅咒表(33) ＞ 「不受施舍的」　装备时　战斗中，接受「抵抗：任意」的效果时，生命抵抗力、精神抵抗力受到-2的惩罚修正直到下回合开始。"
+output = "奈落诅咒表(33) ＞ 「拒绝施舍的」　装备时　战斗中，接受「抵抗：任意」的效果时，生命抵抗力、精神抵抗力受到-2的惩罚修正直到下回合开始。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
