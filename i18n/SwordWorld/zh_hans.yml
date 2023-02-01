@@ -4,4 +4,4 @@ zh_hans:
     fumble: 自动失败
     keynumber_exceeds: 威力最大为%{keyMax}
     infinite_critical: 请输入%{min_critical}以上的C值
-    rating_reroll: "%{reroll_count}暴击"
+    round_text: "%{reroll_count}暴击"

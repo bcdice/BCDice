@@ -18,6 +18,12 @@ module BCDice
       HELP_MESSAGE = "・SW　威力表　(Kx[c]+m$f) (x:威力值, c:暴击值, m:加值, f:骰子出目修正)\n"
 
       register_prefix_from_super_class()
+
+      def initialize(command)
+        super(command)
+
+        @locale = :zh_hans
+      end
     end
   end
 end

@@ -84,6 +84,12 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       register_prefix_from_super_class()
+
+      def initialize(command)
+        super(command)
+
+        @locale = :zh_hans
+      end
     end
   end
 end
