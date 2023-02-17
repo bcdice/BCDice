@@ -1,5 +1,35 @@
 # Change Log
 
+## Unreleased
+
+### 対応ゲームシステムの追加
+- 信長の黒い城 (NobunagasBlackCastle): Facelessさんありがとうっ！ ([#577](https://github.com/bcdice/BCDice/pull/577))
+- 砂塵戦機アーガス (SajinsenkiAGuS): 猫あきら。さんありがとうっ！ ([#582](https://github.com/bcdice/BCDice/pull/582))
+- Hunter: The Reckoning 5th Edition (HunterTheReckoning5th): フレッド緑野さんありがとうっ！ ([#589](https://github.com/bcdice/BCDice/pull/589))
+- コンヴィクター・ドライブ (ConvictorDrive): 三木里 秀予さんありがとうっ！ ([#590](https://github.com/bcdice/BCDice/pull/590))
+- 中国語 簡体字版 ソード・ワールド系 (SwordWorld:SimplifiedChinese, SwordWorld2.0:SimplifiedChinese, SwordWorld2.5:SimplifiedChinese): 冬子さん翻訳ありがとうっ！ ([#595](https://github.com/bcdice/BCDice/pull/595))
+- ブラドリウム (Bloodorium): ([#599](https://github.com/bcdice/BCDice/pull/599))
+
+### 追加機能
+- ワールド・オブ・ダークネス: 振り足しの1で成功数の打ち消しが発生するコマンド（STB）を追加。フレッド緑野さんありがとうっ！ ([#571](https://github.com/bcdice/BCDice/pull/571))
+- トーグ エタニティ: 高揚コマンドで修正値指定が出来るように拡張。Facelessさんありがとうっ！ ([#577](https://github.com/bcdice/BCDice/pull/577))
+- Vampire: The Masquerade 5th Edition: 判定コマンドの難易度省略時に判定結果のヒント出力を追加。フレッド緑野さんありがとうっ！ ([#581](https://github.com/bcdice/BCDice/pull/581))
+- Vampire: The Masquerade 5th Edition: 難易度指定時に成功差分を表示する機能を追加。フレッド緑野さんありがとうっ！ ([#591](https://github.com/bcdice/BCDice/pull/591))
+
+### 変更
+- シノビガミ: ファンブル表の内容を改訂版に変更。 ([#588](https://github.com/bcdice/BCDice/pull/588))
+
+### 誤植修正
+- フタリソウサ: ヘルプメッセージにイベント表の記載漏れを追記。あまねさんありがとうっ！ ([#580](https://github.com/bcdice/BCDice/pull/580))
+- ウォーハンマーRPG第4版: SLの誤植を修正。Facelessさんありがとうっ！ ([#585](https://github.com/bcdice/BCDice/pull/585))
+
+### バグ修正
+- サイバーパンクRED: 判定コマンドの比較記号の誤りを修正。Roratioさん指摘ありがとうっ！ ([#587](https://github.com/bcdice/BCDice/pull/587))
+- アサルトエンジン: 加算ダイスを実行できないバグを修正。ぽてちさん報告、蜂紫さん修正ありがとうっ！ ([#598](https://github.com/bcdice/BCDice/pull/598))
+
+
+
+
 ## 3.7.0 2022/10/21
 
 ### 対応ゲームシステムの追加

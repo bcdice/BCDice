@@ -44,7 +44,7 @@ module BCDice
           r1 = judge(target, total)
           r2 = judge(target, swap)
           text = "(AES#{format00(target)}) ＞ #{r1.text} / スワップ#{r2.text}"
-          check_result(r1, r2, text)
+          return_result(r1, r2, text)
         elsif cmd.prefix_number.nil? # 初回ロール
           total = @randomizer.roll_once(100) % 100 # 0-99
           judge(target, total).tap do |r|
@@ -57,7 +57,7 @@ module BCDice
           new2 = judge(target, now % 10 + die * 10)      # 10の位を振り直す
 
           text = "(#{format00(now)}AE#{format00(target)}) ＞ #{die} ＞ #{new1.text} / #{new2.text}"
-          check_result(new1, new2, text)
+          return_result(new1, new2, text)
         end
       end
 
@@ -65,7 +65,7 @@ module BCDice
         format("%02d", dice)
       end
 
-      def check_result(result1, result2, text)
+      def return_result(result1, result2, text)
         if result1.critical? || result2.critical?
           Result.critical(text)
         elsif result1.success? || result2.success?
