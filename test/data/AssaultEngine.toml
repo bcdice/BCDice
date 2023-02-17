@@ -118,3 +118,17 @@ output = "(90AE44) ＞ 0 ＞ (90)失敗 / (00)クリティカル"
 success = true
 critical = true
 rands = [ { sides = 10, value = 10 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "1D100<=39"
+output = "(1D100<=39) ＞ 20 ＞ 成功"
+success = true
+rands = [ { sides = 100, value = 20 } ]
+
+[[ test ]]
+game_system = "AssaultEngine"
+input = "1D100<=39"
+output = "(1D100<=39) ＞ 52 ＞ 失敗"
+failure = true
+rands = [ { sides = 100, value = 52 } ]
