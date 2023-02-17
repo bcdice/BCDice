@@ -12,7 +12,7 @@ module BCDice
       NAME = '剑世界'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = '国際化:Simplified Chinese:そおとわあると'
+      SORT_KEY = '国際化:Simplified Chinese:剑世界'
 
       # ダイスボットの使い方
       HELP_MESSAGE = "・SW　威力表　(Kx[c]+m$f) (x:威力值, c:暴击值, m:加值, f:骰子出目修正)\n"

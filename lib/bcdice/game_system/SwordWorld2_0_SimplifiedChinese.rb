@@ -12,7 +12,7 @@ module BCDice
       NAME = '剑世界2.0'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = '国際化:Simplified Chinese:そおとわあると2.0'
+      SORT_KEY = '国際化:Simplified Chinese:剑世界2.0'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
