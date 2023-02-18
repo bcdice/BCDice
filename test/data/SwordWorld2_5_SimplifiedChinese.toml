@@ -1,7 +1,7 @@
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K10r10"
-output = "KeyNo.10c[10]r[10] ＞ 2D:[5,5 5,5 5,5 5,5 5,5 5,5 5,5 5,5 5,5 5,4]=10,10,10,10,10,10,10,10,10,9 ＞ 5,8,10,11,13,15,18,21,23,22 ＞ 9回転 ＞ 146"
+output = "KeyNo.10c[10]r[10] ＞ 2D:[5,5 5,5 5,5 5,5 5,5 5,5 5,5 5,5 5,5 5,4]=10,10,10,10,10,10,10,10,10,9 ＞ 5,8,10,11,13,15,18,21,23,22 ＞ 9暴击 ＞ 146"
 critical = true
 rands = [
   { sides = 6, value = 5 },
@@ -27,9 +27,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K10r10"
-output = "KeyNo.10c[10]r[10] ＞ 2D:[6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 5,4]=12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,9 ＞ 7,10,10,13,15,18,19,23,26,30,30,30,30,30,30,30,30,30,30,22 ＞ 19回転 ＞ 463"
+output = "KeyNo.10c[10]r[10] ＞ 2D:[6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 5,4]=12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,9 ＞ 7,10,10,13,15,18,19,23,26,30,30,30,30,30,30,30,30,30,30,22 ＞ 19暴击 ＞ 463"
 critical = true
 rands = [
   { sides = 6, value = 6 },
@@ -75,9 +75,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K11r10"
-output = "KeyNo.11c[10]r[10] ＞ 2D:[6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 5,4]=12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,9 ＞ 7,10,11,13,15,18,20,23,26,30,30,30,30,30,30,30,30,30,30,22 ＞ 19回転 ＞ 465"
+output = "KeyNo.11c[10]r[10] ＞ 2D:[6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 6,6 5,4]=12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,9 ＞ 7,10,11,13,15,18,20,23,26,30,30,30,30,30,30,30,30,30,30,22 ＞ 19暴击 ＞ 465"
 critical = true
 rands = [
   { sides = 6, value = 6 },
@@ -123,9 +123,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K40+24@8$12r10"
-output = "KeyNo.40c[8]m[12]r[10]+24 ＞ 2D:[5,3 5,3 5,3 5,3 5,3 5,3 5,2]=12,8,8,8,8,8,7 ＞ 13,12,13,16,18,19,19+24 ＞ 6回転 ＞ 134"
+output = "KeyNo.40c[8]m[12]r[10]+24 ＞ 2D:[5,3 5,3 5,3 5,3 5,3 5,3 5,2]=12,8,8,8,8,8,7 ＞ 13,12,13,16,18,19,19+24 ＞ 6暴击 ＞ 134"
 critical = true
 rands = [
   { sides = 6, value = 5 },
@@ -145,9 +145,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K10gf"
-output = "KeyNo.10c[10]gf ＞ 2D:[5,5 2,2]=10,4 ＞ 5,1 ＞ 1回転 ＞ 6"
+output = "KeyNo.10c[10]gf ＞ 2D:[5,5 2,2]=10,4 ＞ 5,1 ＞ 1暴击 ＞ 6"
 critical = true
 rands = [
   { sides = 6, value = 5 },
@@ -155,9 +155,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K40+24@8$12r10gf"
-output = "KeyNo.40c[8]m[12]r[10]gf+24 ＞ 2D:[4,4 4,4 4,4 4,4 4,4 4,4 3,3]=12,8,8,8,8,8,6 ＞ 13,12,13,16,18,19,18+24 ＞ 6回転 ＞ 133"
+output = "KeyNo.40c[8]m[12]r[10]gf+24 ＞ 2D:[4,4 4,4 4,4 4,4 4,4 4,4 3,3]=12,8,8,8,8,8,6 ＞ 13,12,13,16,18,19,18+24 ＞ 6暴击 ＞ 133"
 critical = true
 rands = [
   { sides = 6, value = 4 },
@@ -170,9 +170,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K40+24sf4@8$12r10"
-output = "KeyNo.40c[8]m[12]r[10]sf[4]+24 ＞ 2D:[1,4 5,4 4,4 5,4 2,4]=12,9,8,9,6 ＞ 13,12,13,17,13+24 ＞ 4回転 ＞ 92"
+output = "KeyNo.40c[8]m[12]r[10]sf[4]+24 ＞ 2D:[1,4 5,4 4,4 5,4 2,4]=12,9,8,9,6 ＞ 13,12,13,17,13+24 ＞ 4暴击 ＞ 92"
 critical = true
 rands = [
   { sides = 6, value = 1 },
@@ -183,9 +183,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K40+24tf4@8$12r10"
-output = "KeyNo.40c[8]m[12]r[10]tf[4]+24 ＞ 2D:[1,4 4,5 5,4 3,5 5,2]=12,9,9,8,7 ＞ 13,12,14,16,16+24 ＞ 4回転 ＞ 95"
+output = "KeyNo.40c[8]m[12]r[10]tf[4]+24 ＞ 2D:[1,4 4,5 5,4 3,5 5,2]=12,9,9,8,7 ＞ 13,12,14,16,16+24 ＞ 4暴击 ＞ 95"
 critical = true
 rands = [
   { sides = 6, value = 1 },
@@ -200,9 +200,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K40+24sf4@8$12r10#1"
-output = "KeyNo.40c[8]m[12]r[10]sf[4]a[+1]+24 ＞ 2D:[4,4 4,4 6,4 5,4 1,4]=12,9,11,10,6 ＞ 13,12,16,18,13+24 ＞ 4回転 ＞ 96"
+output = "KeyNo.40c[8]m[12]r[10]sf[4]a[+1]+24 ＞ 2D:[4,4 4,4 6,4 5,4 1,4]=12,9,11,10,6 ＞ 13,12,16,18,13+24 ＞ 4暴击 ＞ 96"
 critical = true
 rands = [
   { sides = 6, value = 4 },
@@ -213,9 +213,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K40+24tf4@8$12r10#1"
-output = "KeyNo.40c[8]m[12]r[10]tf[4]a[+1]+24 ＞ 2D:[6,4 4,5 1,6 4,4 3,5 3,3]=12,10,8,9,9,7 ＞ 13,13,13,17,20,18+24 ＞ 5回転 ＞ 118"
+output = "KeyNo.40c[8]m[12]r[10]tf[4]a[+1]+24 ＞ 2D:[6,4 4,5 1,6 4,4 3,5 3,3]=12,10,8,9,9,7 ＞ 13,13,13,17,20,18+24 ＞ 5暴击 ＞ 118"
 critical = true
 rands = [
   { sides = 6, value = 6 },
@@ -232,7 +232,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K20+5"
 output = "KeyNo.20c[10]+5 ＞ 2D:[5,2]=7 ＞ 5+5 ＞ 10"
 rands = [
@@ -241,7 +241,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "SK20+5"
 output = "KeyNo.20c[10]+5 ＞ 2D:[5,2]=7 ＞ 5+5 ＞ 10"
 secret = true
@@ -251,7 +251,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K20@10+5"
 output = "KeyNo.20c[10]+5 ＞ 2D:[5,2]=7 ＞ 5+5 ＞ 10"
 rands = [
@@ -260,7 +260,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "SK20@10+5"
 output = "KeyNo.20c[10]+5 ＞ 2D:[5,2]=7 ＞ 5+5 ＞ 10"
 secret = true
@@ -270,9 +270,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K20+5#1"
-output = "KeyNo.20c[10]a[+1]+5 ＞ 2D:[5,4 2,2]=10,5 ＞ 8,3+5 ＞ 1回転 ＞ 16"
+output = "KeyNo.20c[10]a[+1]+5 ＞ 2D:[5,4 2,2]=10,5 ＞ 8,3+5 ＞ 1暴击 ＞ 16"
 critical = true
 rands = [
   { sides = 6, value = 5 },
@@ -282,9 +282,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K20+5#-1"
-output = "KeyNo.20c[10]a[-1]+5 ＞ 2D:[5,6 2,2]=10,3 ＞ 8,1+5 ＞ 1回転 ＞ 14"
+output = "KeyNo.20c[10]a[-1]+5 ＞ 2D:[5,6 2,2]=10,3 ＞ 8,1+5 ＞ 1暴击 ＞ 14"
 critical = true
 rands = [
   { sides = 6, value = 5 },
@@ -294,9 +294,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K20+5#+10"
-output = "KeyNo.20c[10]a[+10]+5 ＞ 2D:[1,1]=2 ＞ ** ＞ 自動的失敗"
+output = "KeyNo.20c[10]a[+10]+5 ＞ 2D:[1,1]=2 ＞ ** ＞ 自动失败"
 fumble = true
 rands = [
   { sides = 6, value = 1 },
@@ -304,9 +304,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K20+5#10"
-output = "KeyNo.20c[10]a[+10]+5 ＞ 2D:[2,1 1,1]=12,2 ＞ 10,**+5 ＞ 1回転 ＞ 15"
+output = "KeyNo.20c[10]a[+10]+5 ＞ 2D:[2,1 1,1]=12,2 ＞ 10,**+5 ＞ 1暴击 ＞ 15"
 critical = true
 rands = [
   { sides = 6, value = 2 },
@@ -316,9 +316,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K20+5#1$+1"
-output = "KeyNo.20c[10]m[+1]a[+1]+5 ＞ 2D:[5,4 2,2]=11,5 ＞ 9,3+5 ＞ 1回転 ＞ 17"
+output = "KeyNo.20c[10]m[+1]a[+1]+5 ＞ 2D:[5,4 2,2]=11,5 ＞ 9,3+5 ＞ 1暴击 ＞ 17"
 critical = true
 rands = [
   { sides = 6, value = 5 },
@@ -328,9 +328,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k10-5@9#2"
-output = "KeyNo.10c[9]a[+2]-5 ＞ 2D:[5,4 2,2]=11,6 ＞ 6,3-5 ＞ 1回転 ＞ 4"
+output = "KeyNo.10c[9]a[+2]-5 ＞ 2D:[5,4 2,2]=11,6 ＞ 6,3-5 ＞ 1暴击 ＞ 4"
 critical = true
 rands = [
   { sides = 6, value = 5 },
@@ -340,7 +340,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "hk10 HKのクリティカル値は13"
 output = "KeyNo.10 ＞ 2D:[6,6]=12 ＞ 7/2 ＞ 4"
 rands = [
@@ -349,7 +349,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k10h"
 output = "KeyNo.10 ＞ 2D:[6,6]=12 ＞ 7/2 ＞ 4"
 rands = [
@@ -358,7 +358,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "hk10h"
 output = "KeyNo.10 ＞ 2D:[6,6]=12 ＞ 7/2 ＞ 4"
 rands = [
@@ -367,7 +367,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "hk10[9]+10"
 output = "KeyNo.10c[9]+10 ＞ 2D:[5,3]=8 ＞ (4+10)/2 ＞ 7"
 rands = [
@@ -376,7 +376,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "hk10[9]+10 切り上げ"
 output = "KeyNo.10c[9]+10 ＞ 2D:[2,4]=6 ＞ (3+10)/2 ＞ 7"
 rands = [
@@ -385,9 +385,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "HK20+6@4"
-output = "KeyNo.20c[4]+6 ＞ 2D:[4,3 2,5 2,6 1,1]=7,7,8,2 ＞ (5,5,6,**+6)/2 ＞ 3回転 ＞ 11"
+output = "KeyNo.20c[4]+6 ＞ 2D:[4,3 2,5 2,6 1,1]=7,7,8,2 ＞ (5,5,6,**+6)/2 ＞ 3暴击 ＞ 11"
 critical = true
 rands = [
   { sides = 6, value = 4 },
@@ -401,9 +401,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "K20+6@4h"
-output = "KeyNo.20c[4]+6 ＞ 2D:[4,3 2,5 2,6 1,1]=7,7,8,2 ＞ (5,5,6,**+6)/2 ＞ 3回転 ＞ 11"
+output = "KeyNo.20c[4]+6 ＞ 2D:[4,3 2,5 2,6 1,1]=7,7,8,2 ＞ (5,5,6,**+6)/2 ＞ 3暴击 ＞ 11"
 critical = true
 rands = [
   { sides = 6, value = 4 },
@@ -417,7 +417,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20sf4 sf通常時"
 output = "KeyNo.20c[10]sf[4] ＞ 2D:[3,4]=7 ＞ 5"
 rands = [
@@ -425,7 +425,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20tf4 tf通常時"
 output = "KeyNo.20c[10]tf[4] ＞ 2D:[3,4]=7 ＞ 5"
 rands = [
@@ -433,9 +433,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20sf7 sfクリティカル時"
-output = "KeyNo.20c[10]sf[6] ＞ 2D:[5,6 4,6 3,6]=11,10,9 ＞ 9,8,7 ＞ 2回転 ＞ 24"
+output = "KeyNo.20c[10]sf[6] ＞ 2D:[5,6 4,6 3,6]=11,10,9 ＞ 9,8,7 ＞ 2暴击 ＞ 24"
 critical = true
 rands = [
   { sides = 6, value = 5 },
@@ -444,9 +444,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20tf7 tfクリティカル時"
-output = "KeyNo.20c[10]tf[6] ＞ 2D:[5,6 6,5 3,4]=11,11,7 ＞ 9,9,5 ＞ 2回転 ＞ 23"
+output = "KeyNo.20c[10]tf[6] ＞ 2D:[5,6 6,5 3,4]=11,11,7 ＞ 9,9,5 ＞ 2暴击 ＞ 23"
 critical = true
 rands = [
   { sides = 6, value = 5 },
@@ -457,27 +457,27 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20sf1@3 sf自動失敗時"
-output = "KeyNo.20c[3]sf[1] ＞ 2D:[1,1]=2 ＞ ** ＞ 自動的失敗"
+output = "KeyNo.20c[3]sf[1] ＞ 2D:[1,1]=2 ＞ ** ＞ 自动失败"
 fumble = true
 rands = [
   { sides = 6, value = 1 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20tf1@3 tf自動失敗時"
-output = "KeyNo.20c[3]tf[1] ＞ 2D:[1,1]=2 ＞ ** ＞ 自動的失敗"
+output = "KeyNo.20c[3]tf[1] ＞ 2D:[1,1]=2 ＞ ** ＞ 自动失败"
 fumble = true
 rands = [
   { sides = 6, value = 1 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20tf3@3 tfクリティカル自動失敗時"
-output = "KeyNo.20c[3]tf[3] ＞ 2D:[2,3 6,5 1,1]=5,11,2 ＞ 3,9,** ＞ 2回転 ＞ 12"
+output = "KeyNo.20c[3]tf[3] ＞ 2D:[2,3 6,5 1,1]=5,11,2 ＞ 3,9,** ＞ 2暴击 ＞ 12"
 critical = true
 rands = [
   { sides = 6, value = 2 },
@@ -488,45 +488,45 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20@2 クリティカル下限エラー 通常の下限は3"
-output = "C値を3以上にしてください"
+output = "请输入3以上的C值"
 rands = []
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20sf2@2 クリティカル下限エラー sfが2以上の時はsf+2"
-output = "C値を4以上にしてください"
+output = "请输入4以上的C值"
 rands = []
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20sf2#1@2 クリティカル下限エラー sfと#の同時指定時はsf+#+2"
-output = "C値を5以上にしてください"
+output = "请输入5以上的C值"
 rands = []
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20sf2#20@2 クリティカル下限エラー 下限の上限は13"
-output = "C値を13以上にしてください"
+output = "请输入13以上的C值"
 rands = []
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20sf1@2 クリティカル下限エラー sfが1の時の下限は3"
-output = "C値を3以上にしてください"
+output = "请输入3以上的C值"
 rands = []
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "k20sf1#8@2 クリティカル下限エラー sfが1の時の下限は3"
-output = "C値を3以上にしてください"
+output = "请输入3以上的C值"
 rands = []
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@10+15>=30"
-output = "(2D6@10+15>=30) ＞ 9[6,3]+15 ＞ 24 ＞ 失敗"
+output = "(2D6@10+15>=30) ＞ 9[6,3]+15 ＞ 24 ＞ 失败"
 failure = true
 rands = [
   { sides = 6, value = 6 },
@@ -534,7 +534,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@10+15>=30"
 output = "(2D6@10+15>=30) ＞ 15[6,4][3,2]+15 ＞ 30 ＞ 成功"
 success = true
@@ -546,7 +546,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@10+15>=30"
 output = "(2D6@10+15>=30) ＞ 25[6,4][5,5][1,4]+15 ＞ 40 ＞ 成功"
 success = true
@@ -560,7 +560,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@10+16>=30"
 output = "(2D6@10+16>=30) ＞ 25[6,4][5,5][1,4]+16 ＞ 41 ＞ 超成功"
 success = true
@@ -574,7 +574,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@10+15>=30"
 output = "(2D6@10+15>=30) ＞ 22[6,4][5,5][1,1]+15 ＞ 37 ＞ 成功"
 success = true
@@ -588,7 +588,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@10+31>=30"
 output = "(2D6@10+31>=30) ＞ 9[6,3]+31 ＞ 40 ＞ 成功"
 success = true
@@ -598,7 +598,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@10+32>=30"
 output = "(2D6@10+32>=30) ＞ 9[6,3]+32 ＞ 41 ＞ 成功"
 success = true
@@ -608,7 +608,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@10+31>=30"
 output = "(2D6@10+31>=30) ＞ 12[6,4][1,1]+31 ＞ 43 ＞ 超成功"
 success = true
@@ -620,9 +620,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@10+31>=30"
-output = "(2D6@10+31>=30) ＞ 12[6,6]+31 ＞ 43 ＞ 自動的成功"
+output = "(2D6@10+31>=30) ＞ 12[6,6]+31 ＞ 43 ＞ 自动成功"
 success = true
 critical = true
 rands = [
@@ -631,9 +631,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@10+31>=30"
-output = "(2D6@10+31>=30) ＞ 2[1,1]+31 ＞ 33 ＞ 自動的失敗"
+output = "(2D6@10+31>=30) ＞ 2[1,1]+31 ＞ 33 ＞ 自动失败"
 failure = true
 fumble = true
 rands = [
@@ -642,9 +642,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@10+39>=30"
-output = "(2D6@10+39>=30) ＞ 2[1,1]+39 ＞ 41 ＞ 自動的失敗"
+output = "(2D6@10+39>=30) ＞ 2[1,1]+39 ＞ 41 ＞ 自动失败"
 failure = true
 fumble = true
 rands = [
@@ -653,7 +653,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@10"
 output = "(2D6@10) ＞ 15[6,4][1,4] ＞ 15"
 rands = [
@@ -664,7 +664,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@8 クリティカル値が10以外"
 output = "(2D6@8) ＞ 13[3,5][1,4] ＞ 13"
 rands = [
@@ -675,15 +675,15 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2D6@2 クリティカル値が小さすぎる場合"
-output = "(2D6@2) ＞ クリティカル値が小さすぎます。3以上を指定してください。"
+output = "(2D6@2) ＞ 暴击值过小。请输入3以上的暴击值。"
 rands = []
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2d6@10+11>30"
-output = "(2D6@10+11>30) ＞ 12[6,6]+11 ＞ 23 ＞ 自動的成功"
+output = "(2D6@10+11>30) ＞ 12[6,6]+11 ＞ 23 ＞ 自动成功"
 success = true
 critical = true
 rands = [
@@ -692,7 +692,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 38[4,6][5,5][5,5][3,5]+11 ＞ 49 ＞ 超成功"
 success = true
@@ -708,7 +708,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 30[6,5][6,6][6,1]+11 ＞ 41 ＞ 超成功"
 success = true
@@ -722,7 +722,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 40[6,5][6,6][5,5][6,1]+11 ＞ 51 ＞ 超成功"
 success = true
@@ -738,7 +738,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 52[6,5][6,6][5,5][6,6][6,1]+11 ＞ 63 ＞ 超成功"
 success = true
@@ -756,7 +756,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "2d6@10+11>30"
 output = "(2D6@10+11>30) ＞ 25[6,5][6,6][1,1]+11 ＞ 36 ＞ 成功"
 success = true
@@ -770,25 +770,25 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "gr"
-output = "[1,2]->(器用度 or 敏捷度)"
+output = "[1,2]->(灵巧度 or 敏捷度)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "gr"
-output = "[5,3]->(知力 or 筋力)"
+output = "[5,3]->(智力 or 力量)"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "gr"
 output = "[4,6]->(生命力 or 精神力)"
 rands = [
@@ -797,7 +797,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "gr"
 output = "[2,2]->(敏捷度)"
 rands = [
@@ -806,18 +806,18 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "gr1"
-output = "[1,2]->(器用度 or 敏捷度)"
+output = "[1,2]->(灵巧度 or 敏捷度)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "gr3"
-output = "[1,2]->(器用度 or 敏捷度) | [6,5]->(精神力 or 知力) | [3,4]->(筋力 or 生命力)"
+output = "[1,2]->(灵巧度 or 敏捷度) | [6,5]->(精神力 or 智力) | [3,4]->(力量 or 生命力)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -828,9 +828,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "gr3"
-output = "[1,2]->(器用度 or 敏捷度) | [5,5]->(知力) | [3,4]->(筋力 or 生命力)"
+output = "[1,2]->(灵巧度 or 敏捷度) | [5,5]->(智力) | [3,4]->(力量 or 生命力)"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -841,103 +841,103 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "ft"
-output = "防御ファンブル表(1) ＞ この表を2回振り、その両方を適用する。（同じ出目による影響は累積しない）。この自動失敗により得られる経験点は、+50点される"
+output = "防御大失败表(1) ＞ 骰本表2次，适用两边的效果。（同出目带来的影响不会累积）。本次自动失败获得的经验点+50点"
 rands = [
   { sides = 6, value = 1 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "ft"
-output = "防御ファンブル表(2) ＞ ダメージに、攻撃者を強化している「剣のかけら」の数が追加される"
+output = "防御大失败表(2) ＞ 伤害追加强化攻击者的「剑之碎片」个数点"
 rands = [
   { sides = 6, value = 2 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "ft"
-output = "防御ファンブル表(3) ＞ ダメージに、攻撃者の「レベル」が追加される"
+output = "防御大失败表(3) ＞ 伤害追加攻击者的「等级」点"
 rands = [
   { sides = 6, value = 3 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "ft"
-output = "防御ファンブル表(4) ＞ ダメージ決定を2回行い、より高い方を採用する"
+output = "防御大失败表(4) ＞ 进行2次伤害决定，采用更高的结果"
 rands = [
   { sides = 6, value = 4 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "ft"
-output = "防御ファンブル表(5) ＞ 合算ダメージを2倍する"
+output = "防御大失败表(5) ＞ 合算伤害变为2倍"
 rands = [
   { sides = 6, value = 5 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "ft"
-output = "防御ファンブル表(6) ＞ 防護点無効"
+output = "防御大失败表(6) ＞ 防护点无效"
 rands = [
   { sides = 6, value = 6 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "tt"
-output = "絡み効果表(1) ＞ 頭や顔：牙や噛みつきなどにおける命中力判定及び、魔法の行使やブレスに-2のペナルティ修正を受ける"
+output = "缠绕效果表(1) ＞ 头或脸：用牙和咬的攻击命中力判定，以及魔法行使和祝福术受到-2的惩罚修正。"
 rands = [
   { sides = 6, value = 1 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "tt"
-output = "絡み効果表(2) ＞ 武器や盾：武器の使用不可、又は盾の回避力修正及び防護点を無効化する"
+output = "缠绕效果表(2) ＞ 武器或盾：武器不能使用，且盾的回避力修正和防护点无效"
 rands = [
   { sides = 6, value = 2 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "tt"
-output = "絡み効果表(3) ＞ 腕や手：武器や爪などにおける命中力判定に-2のペナルティ修正、盾を持つ腕方の腕ならその盾の回避力修正及び防護点を無効化する"
+output = "缠绕效果表(3) ＞ 胳膊或手：武器和爪之类的命中力判定受到-2的惩罚修正，如果持盾的手被缠绕则该盾的回避力修正以及防护点无效"
 rands = [
   { sides = 6, value = 3 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "tt"
-output = "絡み効果表(4) ＞ 脚や足：移動不可、更に回避力判定に-2のペナルティ修正を受ける ※両足に絡んでも累積しない"
+output = "缠绕效果表(4) ＞ 脚：无法移动，且回避力判定受到-2的惩罚修正 ※两脚被缠绕时效果不累积"
 rands = [
   { sides = 6, value = 4 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "tt"
-output = "絡み効果表(5) ＞ 胴体：生命・精神抵抗力を基準値に用いる判定を除き、あらゆる行為判定に-1のペナルティ修正を受ける"
+output = "缠绕效果表(5) ＞ 躯干：除使用生命、精神抵抗力为基础值的判定外，所有行为判定受到-1的惩罚修正"
 rands = [
   { sides = 6, value = 5 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "tt"
-output = "絡み効果表(6) ＞ 特殊：尻尾や翼などに命中。絡められた部位を使用する判定において-2のペナルティ修正、またはそこが使えていたことによるボーナス修正を失う ※存在しない場合は決め直し"
+output = "缠绕效果表(6) ＞ 特殊：命中尾巴或翅膀等部位。被缠上的部位使用的判定，受到-2的惩罚修正。且失去该部位提供的加值。 ※不存在这样的部位时重新决定"
 rands = [
   { sides = 6, value = 6 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "Dru[4,7,13]+10"
 output = "(Dru[4,7,13]+10) ＞ 2D[6,5]=11 ＞ 13+10 ＞ 23"
 rands = [
@@ -946,7 +946,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "Dru[4,7,13]+10"
 output = "(Dru[4,7,13]+10) ＞ 2D[6,6]=12 ＞ 13+10 ＞ 23"
 rands = [
@@ -955,7 +955,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "Dru[4,7,13]+10"
 output = "(Dru[4,7,13]+10) ＞ 2D[4,6]=10 ＞ 13+10 ＞ 23"
 rands = [
@@ -964,7 +964,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "Dru[4,7,13]+10"
 output = "(Dru[4,7,13]+10) ＞ 2D[4,5]=9 ＞ 7+10 ＞ 17"
 rands = [
@@ -973,7 +973,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "dru[0,3,6]+10+4-5"
 output = "(Dru[0,3,6]+9) ＞ 2D[2,3]=5 ＞ 0+9 ＞ 9"
 rands = [
@@ -982,7 +982,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "dru[0,3,6]+10+4-5"
 output = "(Dru[0,3,6]+9) ＞ 2D[3,3]=6 ＞ 0+9 ＞ 9"
 rands = [
@@ -991,7 +991,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "dru[0,3,6]+10+4-5"
 output = "(Dru[0,3,6]+9) ＞ 2D[4,3]=7 ＞ 3+9 ＞ 12"
 rands = [
@@ -1000,7 +1000,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "Dru[13,16,19]+12+8-10"
 output = "(Dru[13,16,19]+10) ＞ 2D[4,4]=8 ＞ 16+10 ＞ 26"
 rands = [
@@ -1009,7 +1009,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "Dru[13,16,19]+12+8-10"
 output = "(Dru[13,16,19]+10) ＞ 2D[4,5]=9 ＞ 16+10 ＞ 26"
 rands = [
@@ -1018,27 +1018,27 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "ABT"
-output = "アビスカース表(45) ＞ 「滑り落ちる」　携行時　戦闘中の手番開始時に1dし、出目が「1」なら手に装備または保持しているものをすべてその場に落とす（その手番の主動作で拾う事は可能）。"
+output = "奈落诅咒表(45) ＞ 「滑落的」　携带时　战斗中回合开始时掷1d，出目为「1」则手部装备及拿着的东西全部掉在原地（该回合可以用主动作捡起）。"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "ABT"
-output = "アビスカース表(33) ＞ 「施しは受けない」　装備時　戦闘中、「抵抗：任意」の効果を受け入れた場合、次の手番開始時まで生命抵抗力、精神抵抗力に-2のペナルティ修正を受ける。"
+output = "奈落诅咒表(33) ＞ 「拒绝施舍的」　装备时　战斗中，接受「抵抗：任意」的效果时，生命抵抗力、精神抵抗力受到-2的惩罚修正直到下回合开始。"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "ABT"
-output = "アビスカース表(14) ＞ 「差別の」　装備時　特定の分類に対して与える物理ダメージ・魔法ダメージが2点減少する。分類は「分類決定表」で無作為に決定する。\nアビスカース分類決定表(33) ＞ 植物"
+output = "奈落诅咒表(14) ＞ 「差别的」　装备时　给予特定分类角色的物理伤害・魔法伤害减少2点。分类由「分类决定表」随机决定。\n奈落诅咒分类决定表(33) ＞ 植物"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -1047,9 +1047,9 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "SwordWorld2.5"
+game_system = "SwordWorld2.5:SimplifiedChinese"
 input = "ABT"
-output = "アビスカース表(25) ＞ 「過敏な」　装備時　特定の属性から受ける物理ダメージ、魔法ダメージが2点上昇する。属性は「属性決定表」で無作為に決定する。\nアビスカース属性決定表(45) ＞ 呪い"
+output = "奈落诅咒表(25) ＞ 「过敏的」　装备时　受到特定属性的物理伤害、魔法伤害上升2点。属性由「属性决定表」随机决定。\n奈落诅咒属性决定表(45) ＞ 诅咒"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
