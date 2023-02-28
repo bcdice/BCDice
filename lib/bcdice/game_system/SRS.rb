@@ -207,12 +207,6 @@ module BCDice
       private
 
       def parse(command)
-        if command == "2D6"
-          # if there are no special modifier or specifier,
-          # fallback to default dice command
-          return nil
-        end
-
         prefix_re = Regexp.new(["2D6"].concat(aliases()).join('|'), Regexp::IGNORECASE)
         parser = Command::Parser.new(prefix_re, round_type: @round_type)
                                 .enable_critical
@@ -220,6 +214,11 @@ module BCDice
                                 .restrict_cmp_op_to(nil, :>=)
         cmd = parser.parse(command)
         unless cmd
+          return nil
+        end
+
+        if command.start_with?("2D6") && cmd.critical.nil? && cmd.fumble.nil? && cmd.target_number.nil?
+          # fallback to default dice
           return nil
         end
 
