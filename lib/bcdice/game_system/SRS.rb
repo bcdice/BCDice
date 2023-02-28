@@ -217,7 +217,7 @@ module BCDice
           return nil
         end
 
-        if command.start_with?("2D6") && cmd.critical.nil? && cmd.fumble.nil? && cmd.target_number.nil?
+        if command.start_with?(/2D6/i) && cmd.critical.nil? && cmd.fumble.nil? && cmd.target_number.nil?
           # fallback to default dice
           return nil
         end
