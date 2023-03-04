@@ -45,6 +45,18 @@ module BCDice
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
+      class DemonSkillTableForMetamorphose
+        def initialize(pretext, table)
+          @pretext = pretext
+          @table = table
+        END
+
+        def roll(randomizer)
+          result = @table.roll(randomizer)
+          return DiceTable::RollResult.new(result.table_name, result.value, @pretext)
+        end
+      END
+
       def initialize(command)
         super(command)
 
@@ -73,9 +85,8 @@ module BCDice
       register_prefix('\d*SG')
 
       def eval_game_system_specific_command(command)
-        result = action_roll(command) || roll_tables(command, TABLES) || RTT.roll_command(@randomizer, command)
+        result = action_roll(command) || roll_tables(command, TABLES) || roll_tables(command, DEMON_SKILL_TABLES) || RTT.roll_command(@randomizer, command)
         return result if result
-        return sinobigami_metamorphose_table() if command == 'MT'
 
         nil
       end
@@ -140,19 +151,93 @@ module BCDice
         result.text = sequence.join(" ＞ ")
         result
       end
-
-      # 異形表
-      def sinobigami_metamorphose_table()
-        text, value = get_table_by_1d6(METAMORPHOSE_TABLE)
-        output = "異形表(#{value}) ＞ #{text}"
-
-        if (demon_skill_table = DEMON_SKILL_TABLES[value - 1])
-          text, = get_table_by_1d6(demon_skill_table[:table])
-          output += " #{demon_skill_table[:name]} ＞ #{text}#{demon_skill_table[:page]}"
-        end
-
-        return output
-      end
+      # 妖魔忍法表A, B, C
+      DEMON_SKILL_TABLES = {
+        'DMSA' => DiceTable::Table.new(
+          '妖魔忍法表A',
+          '1D6',
+          [
+            '【震々】(怪p.252,基本ルルブp.172)',
+            '【神隠】(怪p.252,基本ルルブp.172)',
+            '【夜雀】(怪p.252,基本ルルブp.172)',
+            '【猟犬】(怪p.252,基本ルルブp.172)',
+            '【逢魔時】(怪p.252,基本ルルブp.172)',
+            '【狂骨】(怪p.252,基本ルルブp.172)',
+          ]
+        ),
+        'DMSB' => DiceTable::Table.new(
+          '妖魔忍法表B',
+          '1D6',
+          [
+            '【野衾】(怪p.253,基本ルルブp.172)',
+            '【付喪神】(怪p.253,基本ルルブp.172)',
+            '【見越】(怪p.253,基本ルルブp.172)',
+            '【木魂】(怪p.253,基本ルルブp.172)',
+            '【鵺】(怪p.253,基本ルルブp.172)',
+            '【生剥】(怪p.253,基本ルルブp.172)',
+          ]
+        ),
+        'DMSC' => DiceTable::Table.new(
+          '妖魔忍法表C',
+          '1D6',
+          [
+            '【百眼】(怪p.254,基本ルルブp.173)',
+            '【呑口】(怪p.254,基本ルルブp.173)',
+            '【荒吐】(怪p.254,基本ルルブp.173)',
+            '【怨霊】(怪p.254,基本ルルブp.173)',
+            '【鬼火】(怪p.254,基本ルルブp.173)',
+            '【蛭子】(怪p.254,基本ルルブp.173)',
+          ]
+        )
+        'NDMA' => DiceTable::Table.new(
+          '妖魔忍法表・異霊',
+          '1D6',
+          [
+            '【逢魔時】(怪p.252,基本ルルブp.172)または【虚舟】(隠忍流派ブックp.28)',
+            '【神隠】(怪p.252,基本ルルブp.172)または【夢喰】(隠忍流派ブックp.28)',
+            '【狂骨】(怪p.252,基本ルルブp.172)または【金毛】(隠忍流派ブックp.28)',
+            '【木魂】(怪p.252,基本ルルブp.172)または【金毛】(隠忍流派ブックp.28)',
+            '【付喪神】(怪p.252,基本ルルブp.172)または【朽縄】(隠忍流派ブックp.28)',
+            '【生剥】(怪p.252,基本ルルブp.172)または【三尸】(隠忍流派ブックp.28)',
+          ]
+        ),
+        'NDMB' => DiceTable::Table.new(
+          '妖魔忍法表・凶身',
+          '1D6',
+          [
+            '【荒吐】(怪p.254,基本ルルブp.173)または【赤舌】(隠忍流派ブックp.29)',
+            '【鬼火】(怪p.254,基本ルルブp.173)または【大太郎】(隠忍流派ブックp.29)',
+            '【怨霊】(怪p.254,基本ルルブp.173)または【白面】(隠忍流派ブックp.29)',
+            '【呑口】(怪p.254,基本ルルブp.173)または【邪魅】(隠忍流派ブックp.29)',
+            '【百眼】(怪p.254,基本ルルブp.173)または【鬼胎】(隠忍流派ブックp.29)',
+            '【蛭子】(怪p.254,基本ルルブp.173)または【岩肌】(隠忍流派ブックp.29)',
+          ]
+        ),
+        'NDMC' => DiceTable::Table.new(
+          '妖魔忍法表・神化',
+          '1D6',
+          [
+            '【鵺】(怪p.253,基本ルルブp.172)または【朱盤】(隠忍流派ブックp.29)',
+            '【野衾】(怪p.253,基本ルルブp.172)または【長壁】(隠忍流派ブックp.29)',
+            '【震々】(怪p.252,基本ルルブp.172)または【物気】(隠忍流派ブックp.29)',
+            '【見越】(怪p.253,基本ルルブp.172)または【紙舞】(隠忍流派ブックp.29)',
+            '【夜雀】(怪p.252,基本ルルブp.172)または【目競】(隠忍流派ブックp.29)',
+            '【猟犬】(怪p.252,基本ルルブp.172)または【置行】(隠忍流派ブックp.29)',
+          ]
+        )
+        'NDMD' => DiceTable::Table.new(
+          '妖魔忍法表・攻激',
+          '1D6',
+          [
+            '【黒手】(隠忍流派ブックp.28)または【強威】(隠忍流派ブックp.25)',
+            '【業弓】(隠忍流派ブックp.28)または【強威】(隠忍流派ブックp.25)',
+            '【怪病】(隠忍流派ブックp.28)または【強威】(隠忍流派ブックp.25)',
+            '【鏖殺】(隠忍流派ブックp.28)または【強威】(隠忍流派ブックp.25)',
+            '【精霊風】(隠忍流派ブックp.28)または【強威】(隠忍流派ブックp.25)',
+            '【雷獣】(隠忍流派ブックp.28)または【強威】(隠忍流派ブックp.25)',
+          ]
+        )
+      }
 
       TABLES = {
         'ST' => DiceTable::Table.new(
@@ -678,59 +763,50 @@ module BCDice
             '極地:宇宙や深海、溶岩、魔界など。ラウンドの終わりにＧＭが1D6を振り、経過ラウンド以下なら全員1点ダメージ。ここから脱落したものは変調表を適用する。',
           ]
         ),
+        'MT' => DiceTable::ChainTable.new(
+          "異形表",
+          '1D6',
+          [
+            DemonSkillTableForMetamorphose.new(
+              '1D6を振り、「妖魔忍法表A」で、ランダムに忍法の種類を決定する。妖魔化している間、その妖魔忍法を修得しているものとして扱う。この異形は、違う種類の妖魔忍法である限り、違う異形として扱う。',
+              DEMON_SKILL_TABLES['DMSA']),
+            DemonSkillTableForMetamorphose.new(
+              '1D6を振り、「妖魔忍法表B」で、ランダムに忍法の種類を決定する。妖魔化している間、その妖魔忍法を修得しているものとして扱う。この異形は、違う種類の妖魔忍法である限り、違う異形として扱う。',
+              DEMON_SKILL_TABLES['DMSB']
+            ),
+            DemonSkillTableForMetamorphose.new(
+              '1D6を振り、「妖魔忍法表C」で、ランダムに忍法の種類を決定する。妖魔化している間、その妖魔忍法を修得しているものとして扱う。この異形は、違う種類の妖魔忍法である限り、違う異形として扱う。',
+              DEMON_SKILL_TABLES['DMSC']
+            ),
+            '妖魔化している間、戦闘中、1ラウンドに使用できる忍法のコストが、自分のプロット値+3点になり、装備忍法の【揺音】を修得する。',
+            '妖魔化している間、【接近戦攻撃】によって与える接近戦ダメージが2点になる。',
+            '妖魔化している間、このキャラクターの攻撃に対する回避判定と、このキャラクターの奥義に対する奥義破り判定にマイナス1の修正がつく。'
+          ]
+        ),
+        'NMT'=> DiceTable::Table.new(
+          "新異形表",
+          '1D6',
+          [
+            DemonSkillTableForMetamorphose.new(
+              '異霊態。「妖魔忍法表・異霊」を使用し、妖魔化している間、その妖魔忍法を修得する。',
+              DEMON_SKILL_TABLES['NDMA']),
+            DemonSkillTableForMetamorphose.new(
+              '凶身態。「妖魔忍法表・凶身」を使用し、妖魔化している間、その妖魔忍法を修得する。',
+              DEMON_SKILL_TABLES['NDMB']),
+            DemonSkillTableForMetamorphose.new(
+              '神化態。「妖魔忍法表・神化」を使用し、妖魔化している間、その妖魔忍法を修得する。',
+              DEMON_SKILL_TABLES['NDMC']),
+            DemonSkillTableForMetamorphose.new(
+              '攻激態。「妖魔忍法表・攻激」を使用し、妖魔化している間、その妖魔忍法を修得する。',
+              DEMON_SKILL_TABLES['NDMD']),
+            
+            '業魔態。妖魔化している間、戦闘中、1ラウンドに使用できる忍法のコストが、自分のプロット値+3点になり、装備忍法の【揺音】を修得する。',
+            '不視態。妖魔化している間、このキャラクターの攻撃に対する回避判定と、このキャラクターの奥義に対する奥義破り判定にマイナス1の修正がつく。'
+          ]
+        )
       }.freeze
 
-      # 異形表
-      METAMORPHOSE_TABLE = [
-        '1D6を振り、「妖魔忍法表A」で、ランダムに忍法の種類を決定する。妖魔化している間、その妖魔忍法を修得しているものとして扱う。この異形は、違う種類の妖魔忍法である限り、違う異形として扱う。',
-        '1D6を振り、「妖魔忍法表B」で、ランダムに忍法の種類を決定する。妖魔化している間、その妖魔忍法を修得しているものとして扱う。この異形は、違う種類の妖魔忍法である限り、違う異形として扱う。',
-        '1D6を振り、「妖魔忍法表C」で、ランダムに忍法の種類を決定する。妖魔化している間、その妖魔忍法を修得しているものとして扱う。この異形は、違う種類の妖魔忍法である限り、違う異形として扱う。',
-        '妖魔化している間、戦闘中、1ラウンドに使用できる忍法のコストが、自分のプロット値+3点になり、装備忍法の【揺音】を修得する。',
-        '妖魔化している間、【接近戦攻撃】によって与える接近戦ダメージが2点になる。',
-        '妖魔化している間、このキャラクターの攻撃に対する回避判定と、このキャラクターの奥義に対する奥義破り判定にマイナス1の修正がつく。'
-      ].freeze
-
-      # 妖魔忍法表A, B, C
-      DEMON_SKILL_TABLES = [
-        {
-          name: '妖魔忍法表A',
-          page: '(怪p.252)',
-          table: [
-            '【震々】',
-            '【神隠】',
-            '【夜雀】',
-            '【猟犬】',
-            '【逢魔時】',
-            '【狂骨】',
-          ]
-        },
-        {
-          name: '妖魔忍法表B',
-          page: '(怪p.253)',
-          table: [
-            '【野衾】',
-            '【付喪神】',
-            '【見越】',
-            '【木魂】',
-            '【鵺】',
-            '【生剥】',
-          ]
-        },
-        {
-          name: '妖魔忍法表C',
-          page: '(怪p.254)',
-          table: [
-            '【百眼】',
-            '【呑口】',
-            '【荒吐】',
-            '【怨霊】',
-            '【鬼火】',
-            '【蛭子】',
-          ]
-        }
-      ].freeze
-
-      register_prefix('MT', RTT.prefixes, TABLES.keys)
+      register_prefix(RTT.prefixes, TABLES.keys, DEMON_SKILL_TABLES.keys)
     end
   end
 end
