@@ -307,6 +307,31 @@ rands = [
 
 [[ test ]]
 game_system = "HatsuneMiku"
+input = "CLT"
+output = "クロウル表(12) ＞ 同じ種類のオトダマと契約しているオトダマ使いと意気投合。このセッションの間、自分のナンバー1つを、修得可能な別のナンバーに変更することができる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku"
+input = "RWT"
+output = "報酬表(6) ＞ 戦いの経験が【ウタの欠片】になる。今回の冒険に登場した敵、情景、出来事などなどから、キーワードを一つ選ぶ。そのキーワードを【ウタの欠片】のキーワード欄に追加する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku"
+input = "NMT"
+output = "悪夢表(6) ＞ 絶望のウタの中を必死で逃げ出した。背後から仲間の声が聞こえた気がする。しかし、あなたは振り返ることができなかった。【日常】で判定を行う。失敗すると、自分に対して【想い】を持っているPC一人を選び、その自分に対する【想い】が失われる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku"
 input = "ST"
 output = "情景表(66) ＞ 誰もいない体育館"
 rands = [
