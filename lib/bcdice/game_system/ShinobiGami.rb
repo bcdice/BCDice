@@ -93,10 +93,8 @@ module BCDice
       register_prefix('\d*SG')
 
       def eval_game_system_specific_command(command)
-        result = action_roll(command) || roll_tables(command, TABLES) || roll_tables(command, SCENE_TABLES) || roll_tables(command, DEMON_SKILL_TABLES) || roll_tables(command, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, command)
-        return result if result
-
-        nil
+        return action_roll(command) || roll_tables(command, TABLES) || roll_tables(command, SCENE_TABLES) ||
+               roll_tables(command, DEMON_SKILL_TABLES) || roll_tables(command, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, command)
       end
 
       RTT = DiceTable::SaiFicSkillTable.new(
@@ -198,7 +196,7 @@ module BCDice
             '【蛭子】(怪p.254／基本p.173)',
           ]
         )
-      }
+      }.freeze
       # 妖魔忍法表（隠忍流派）
       DEMON_SKILL_TABLES_NEW = {
         'DSN1' => DiceTable::Table.new(
@@ -249,7 +247,7 @@ module BCDice
             '【雷獣】(隠忍 p28)／【強威】（隠忍 p25）',
           ]
         )
-      }
+      }.freeze
       TABLES = {
         'FT' => DiceTable::Table.new(
           'ファンブル表',
