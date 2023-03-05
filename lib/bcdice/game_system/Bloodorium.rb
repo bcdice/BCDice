@@ -20,7 +20,7 @@ module BCDice
         　y: 結果への修正値 （省略可）
       INFO_MESSAGE_TEXT
 
-      register_prefix('\dDC')
+      register_prefix('\d+DC')
 
       def eval_game_system_specific_command(command)
         dicecheck(command)
