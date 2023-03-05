@@ -93,7 +93,7 @@ module BCDice
       register_prefix('\d*SG')
 
       def eval_game_system_specific_command(command)
-        result = action_roll(command) || roll_tables(command, TABLES) || roll_tables(command, DEMON_SKILL_TABLES) || roll_tables(command, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, command)
+        result = action_roll(command) || roll_tables(command, TABLES) || roll_tables(command, SCENE_TABLES) || roll_tables(command, DEMON_SKILL_TABLES) || roll_tables(command, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, command)
         return result if result
 
         nil
