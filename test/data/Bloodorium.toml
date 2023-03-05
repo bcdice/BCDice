@@ -81,6 +81,24 @@ rands = [
 
 [[ test ]]
 game_system = "Bloodorium"
+input = "10DC"
+output = "(10DC) ＞ [1,1,2,2,3,3,4,4,5,6] ＞ 《トライアンフ》(*2) ＞ 6*2 ＞ 12"
+critical = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Bloodorium"
 input = "DC"
 output = ""
 rands = []
