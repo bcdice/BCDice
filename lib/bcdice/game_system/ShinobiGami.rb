@@ -161,7 +161,8 @@ module BCDice
       end
 
       # 妖魔忍法表A, B, C
-      DEMON_SKILL_TABLES = {
+      DEMON_SKILL_TABLES = 
+      {
         'DSA' => DiceTable::Table.new(
           '妖魔忍法表A',
           '1D6',
@@ -200,7 +201,8 @@ module BCDice
         )
       }
       # 妖魔忍法表（隠忍流派）
-      DEMON_SKILL_TABLES_NEW = {
+      DEMON_SKILL_TABLES_NEW = 
+      {
         'DSN1' => DiceTable::Table.new(
           '妖魔忍法表・異霊',
           '1D6',
