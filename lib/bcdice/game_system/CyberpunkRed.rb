@@ -16,9 +16,9 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~HELP
-        ・判定　CPx+y>=z
+        ・判定　CPx+y>z
         　(x＝能力値と技能値の合計、y＝修正値、z＝難易度 or 受動側　x、y、zは省略可)
-        　例）CP12 CP10+2>=12　CP7-1　CP8+4　CP7>=12　CP　CP>=9
+        　例）CP12 CP10+2>12　CP7-1　CP8+4　CP7>12　CP　CP>9
 
         各種表
         ・致命的損傷表
