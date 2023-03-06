@@ -491,7 +491,6 @@ module BCDice
         ),
 
       }.freeze
-      
       # シーン表
       SCENE_TABLES = {
         ## 以下シーン表
