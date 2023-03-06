@@ -52,7 +52,6 @@ module BCDice
         　(その他シーン表)秋空に雪舞えば AKST、災厄 CLST、出島EX DXST、斜歯ラボ HLST、夏の終わり NTST、培養プラント PLST
         ＞正忍記
         カジノ TC、ロードムービ TR、マスカレイド・キャッスル TMC、月天に死の咲く TGS、恋人との日々 TKH、学校（黒星祭） TKG、魔都学園 TMG、魔都東京 TMT
-        
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -472,6 +471,7 @@ module BCDice
             'その戦闘の間、あらゆる判定のスペシャル値が１減少する。この効果は累積しない。'
           ]
         ),
+
         'PT' => DiceTable::Table.new(
           'プライズ効果表',
           '2D6',
@@ -492,7 +492,7 @@ module BCDice
 
       }.freeze
 
-      # シーン表
+     # シーン表
       SCENE_TABLES = {
         ## 以下シーン表
         'ST' => DiceTable::Table.new(
@@ -921,6 +921,7 @@ module BCDice
             '無人の実験室。中央には破壊された培養器があり、人とも獣ともつかない濡れた足跡が扉へと続いている。',
             '美少年改造プラント。このシーンに登場した者は《変装術》で判定すること。成功した場合、美少年になることができる。',
           ]
+
         ),
         'TMT' => DiceTable::Table.new(
           '魔都東京シーン表',

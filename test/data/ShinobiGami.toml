@@ -1048,94 +1048,6 @@ rands = [
 
 [[ test ]]
 game_system = "ShinobiGami"
-input = "WT"
-output = "変調表(1) ＞ 故障:すべての忍具が使用不能。１サイクルの終了時に、《絡繰術》で判定を行い、成功するとこの効果は無効化される。"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "WT"
-output = "変調表(4) ＞ 行方不明:その戦闘終了後、メインフェイズ中に行動不可。１サイクルの終了時に、《経済力》で成功すると無効化される。"
-rands = [
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "WT"
-output = "変調表(6) ＞ 呪い:修得済み忍法がランダムに１つ使用不能。１サイクルの終了時に、《呪術》で成功すると無効化される。"
-rands = [
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "GWT"
-output = "戦国変調表(1) ＞ 催眠:戦闘に参加した時、戦闘開始時、もしくはこの変調を受けた時に【生命力】を1点減少しないと、戦闘から脱落する。サイクル終了時に〈意気〉判定し成功すると無効化。"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "GWT"
-output = "戦国変調表(5) ＞ 残刃:回復判定、忍法、背景、忍具の効果による【生命力】回復無効。サイクル終了時に〈拷問術〉判定し成功すると無効化。"
-rands = [
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "GWT"
-output = "戦国変調表(2) ＞ 火達磨:ファンブル値が1上昇し、ファンブル時に1点の近接ダメージを受ける。シーン終了時に無効化。"
-rands = [
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "GWT"
-output = "戦国変調表(3) ＞ 猛毒:戦闘に参加した時、ラウンドの終了時にサイコロを1つ振る(飢餓と共用)。奇数だったら【生命力】を1減少。サイクル終了時に〈毒術〉判定し成功すると無効化。"
-rands = [
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "GWT"
-output = "戦国変調表(4) ＞ 飢餓:戦闘に参加した時、ラウンドの終了時にサイコロを1つ振る(猛毒と共用)。偶数だったら【生命力】を1減少。サイクル終了時に〈兵糧術〉判定し成功すると無効化。"
-rands = [
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "BT"
-output = "戦場表(1) ＞ 平地:特になし。"
-rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "BT"
-output = "戦場表(6) ＞ 極地:宇宙や深海、溶岩、魔界など。ラウンドの終わりにＧＭが1D6を振り、経過ラウンド以下なら全員1点ダメージ。ここから脱落したものは変調表を適用する。"
-rands = [
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "BT"
-output = "戦場表(3) ＞ 高所:ビルの谷間や樹上、断崖絶壁など。この戦場でファンブルすると1点のダメージを受ける。"
-rands = [
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
 input = "RTT"
 output = "ランダム指定特技表(2,7) ＞ 『体術』歩法"
 rands = [
@@ -1159,15 +1071,6 @@ input = "RCT"
 output = "ランダム分野表(6) ＞ 妖術"
 rands = [
   { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
-input = "MT"
-output = "異形表(2) ＞ 1D6を振り、「妖魔忍法表B」で、ランダムに忍法の種類を決定する。妖魔化している間、その妖魔忍法を修得しているものとして扱う。この異形は、違う種類の妖魔忍法である限り、違う異形として扱う。 妖魔忍法表B ＞ 【木魂】(怪p.253)"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 4 },
 ]
 
 [[ test ]]
@@ -1373,3 +1276,118 @@ rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "MT 異形表の動作更新"
+output = "異形表(2) ＞ 妖魔忍法表B(4) ＞ 1D6を振り、「妖魔忍法表B」で、ランダムに忍法の種類を決定する。妖魔化している間、その妖魔忍法を修得しているものとして扱う。この異形は、違う種類の妖魔忍法である限り、違う異形として扱う。 ＞ 【木魂】(怪p.253／基本p.172)"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "MTR 異形表単体"
+output = "異形表(2) ＞ 1D6を振り、「妖魔忍法表B」で、ランダムに忍法の種類を決定する。妖魔化している間、その妖魔忍法を修得しているものとして扱う。この異形は、違う種類の妖魔忍法である限り、違う異形として扱う。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "NMT 新異形表"
+output = '新異形表(2) ＞ 妖魔忍法表・凶身(5) ＞ 凶身態。「妖魔忍法表・凶身」を使用し、妖魔化している間、その妖魔忍法を修得する。 ＞ 【百眼】(基本 p173)／【鬼胎】（隠忍 p29）'
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "NMTR 新異形表単体"
+output = '新異形表(2) ＞ 凶身態。「妖魔忍法表・凶身」を使用し、妖魔化している間、その妖魔忍法を修得する。'
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "WT 変調表改訂"
+output = "変調表(1) ＞ 故障:すべての忍具が使用不能になる。この効果は累積しない。各サイクルの終了時に、《絡繰術》で行為判定を行い、成功するとこの変調は無効化される。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "KWT"
+output = "怪変調表(4) ＞ 行方不明:メインフェイズ中、自分以外がシーンプレイヤーのシーンに登場することができなくなる。この効果は累積しない。各サイクルの終了時に、《経済力》で行為判定を行い、成功するとこの変調は無効化される。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "OWT"
+output = "変調表（旧文庫版）(6) ＞ 呪い:修得済み忍法がランダムに１つ使用不能。１サイクルの終了時に、《呪術》で成功すると無効化される。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "GWT 戦国変調改訂"
+output = "戦国変調表(1) ＞ 催眠:この変調を受けた者は、戦闘に参加したとき、戦闘開始時、もしくはこの変調を受けたときに【生命力】を１点減少しないと、その戦闘から自動的に脱落する。この効果は累積しない。サイクルの終了時に、《意気》の判定を行い、成功するとこの効果は無効化される。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "GWT"
+output = "戦国変調表(5) ＞ 残刃:この変調を受けた者は、回復判定や忍法、忍具の効果によって【生命力】を回復できなくなる（変調を回復することはできる）。この効果は累積しない。サイクルの終了時に、《拷問術》の判定を行い、成功するとこの効果は無効化される。"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "GWT"
+output = "戦国変調表(2) ＞ 火達磨:この変調を受けた者は、ファンブル値が１上昇し、ファンブル時に１点の接近戦ダメージを受ける。この効果は累積する。シーンの終了時に、この効果は無効化される。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "GWT"
+output = "戦国変調表(3) ＞ 猛毒:この変調を受けた者は、戦闘に参加した時、ラウンドの終了時にサイコロを１個振る。その目が奇数だったら、【生命力】を１点減少する。この効果は累積する。サイクルの終了時に、《毒術》の判定を行い、成功するとこの効果は無効化される。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "BT"
+output = "戦場表(1) ＞ 平地:特になし。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "BT 戦場表改訂"
+output = "戦場表(6) ＞ 極地:宇宙や深海、溶岩、魔界など。ゲームマスターは、ラウンドの終わりに１Ｄ６を振る。戦闘開始時からの経過ラウンド以下の目が出ると、この戦場にいると、接近戦ダメージを１点受ける。この戦場から脱落した者は、１Ｄ６を振り、変調表の結果を適用すること。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "OBT"
+output = "戦場表（旧文庫版）(3) ＞ 高所:ビルの谷間や樹上、断崖絶壁など。この戦場でファンブルすると1点のダメージを受ける。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
