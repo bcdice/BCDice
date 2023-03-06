@@ -2,6 +2,7 @@
 
 require "bcdice/dice_table/roll_result"
 require "bcdice/dice_table/chain_table"
+require "bcdice/dice_table/chain_with_text"
 require "bcdice/dice_table/d66_grid_table"
 require "bcdice/dice_table/d66_half_grid_table"
 require "bcdice/dice_table/d66_one_third_table"
