@@ -218,6 +218,48 @@ rands = [
 
 [[ test ]]
 game_system = "SRS"
+input = "2D6+1>=8[,3]"
+output = "(2D6+1>=8[12,3]) ＞ 10[4,6]+1 ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1>=8[,3]"
+output = "(2D6+1>=8[12,3]) ＞ 4[2,2]+1 ＞ 5 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6-1>=12[,3]"
+output = "(2D6-1>=12[12,3]) ＞ 12[6,6]-1 ＞ 11 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1>=3[,3]"
+output = "(2D6+1>=3[12,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "SRS"
 input = "2D6[]"
 output = "(2D6[12,2]) ＞ 11[5,6] ＞ 11"
 rands = [
@@ -431,3 +473,279 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
 ]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11#3>=8"
+output = "(2D6+1>=8[11,3]) ＞ 10[4,6]+1 ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11#3>=8"
+output = "(2D6+1>=8[11,3]) ＞ 4[1,3]+1 ＞ 5 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6-1@11#3>=12"
+output = "(2D6-1>=12[11,3]) ＞ 11[5,6]-1 ＞ 10 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11#3>=3"
+output = "(2D6+1>=3[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11>=8"
+output = "(2D6+1>=8[11,2]) ＞ 10[4,6]+1 ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11>=8"
+output = "(2D6+1>=8[11,2]) ＞ 3[1,2]+1 ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6-1@11>=12"
+output = "(2D6-1>=12[11,2]) ＞ 11[5,6]-1 ＞ 10 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11>=3"
+output = "(2D6+1>=3[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6@11#3"
+output = "(2D6[11,3]) ＞ 4[1,3] ＞ 4"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6@11#3"
+output = "(2D6[11,3]) ＞ 11[5,6] ＞ 11 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6@11#3"
+output = "(2D6[11,3]) ＞ 3[1,2] ＞ 3 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6@11#3"
+output = "(2D6[11,3]) ＞ 10[4,6] ＞ 10"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11#3"
+output = "(2D6+1[11,3]) ＞ 4[1,3]+1 ＞ 5"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11#3"
+output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11#3"
+output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1-1@11#3"
+output = "(2D6[11,3]) ＞ 6[2,4] ＞ 6"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6@11"
+output = "(2D6[11,2]) ＞ 10[4,6] ＞ 10"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6@11"
+output = "(2D6[11,2]) ＞ 3[1,2] ＞ 3"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6@11"
+output = "(2D6[11,2]) ＞ 11[5,6] ＞ 11 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11"
+output = "(2D6+1[11,2]) ＞ 10[4,6]+1 ＞ 11"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11"
+output = "(2D6+1[11,2]) ＞ 3[1,2]+1 ＞ 4"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11"
+output = "(2D6+1[11,2]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1@11"
+output = "(2D6+1[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1#3>=8"
+output = "(2D6+1>=8[12,3]) ＞ 10[4,6]+1 ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1#3>=8"
+output = "(2D6+1>=8[12,3]) ＞ 4[2,2]+1 ＞ 5 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6-1#3>=12"
+output = "(2D6-1>=12[12,3]) ＞ 12[6,6]-1 ＞ 11 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SRS"
+input = "2D6+1#3>=3"
+output = "(2D6+1>=3[12,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+

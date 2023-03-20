@@ -1,6 +1,6 @@
 [[ test ]]
-game_system = "Alshard"
-input = "AL>=7"
+game_system = "TenkaRyouran"
+input = "TR>=7"
 output = "(2D6>=7[12,2]) ＞ 7[2,5] ＞ 7 ＞ 成功"
 success = true
 rands = [
@@ -9,8 +9,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "AL-2>=10"
+game_system = "TenkaRyouran"
+input = "TR-2>=10"
 output = "(2D6-2>=10[12,2]) ＞ 11[5,6]-2 ＞ 9 ＞ 失敗"
 failure = true
 rands = [
@@ -19,8 +19,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "SAL+1>=5[11,3]"
+game_system = "TenkaRyouran"
+input = "STR+1>=5[11,3]"
 output = "(2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
 secret = true
 success = true
@@ -31,19 +31,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "AL1>=7"
-output = ""
-rands = []
-
-[[ test ]]
-game_system = "Alshard"
-input = "ALA>=7"
-output = ""
-rands = []
-
-[[ test ]]
-game_system = "Alshard"
+game_system = "TenkaRyouran"
 input = "D66"
 output = "(D66) ＞ 64"
 rands = [
@@ -52,8 +40,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "AL"
+game_system = "TenkaRyouran"
+input = "TR"
 output = "(2D6[12,2]) ＞ 12[6,6] ＞ 12 ＞ 自動成功"
 success = true
 critical = true
@@ -63,8 +51,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "AL"
+game_system = "TenkaRyouran"
+input = "TR"
 output = "(2D6[12,2]) ＞ 2[1,1] ＞ 2 ＞ 自動失敗"
 failure = true
 fumble = true
@@ -74,20 +62,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "AL1"
-output = ""
-rands = []
-
-[[ test ]]
-game_system = "Alshard"
-input = "ALA"
-output = ""
-rands = []
-
-[[ test ]]
-game_system = "Alshard"
-input = "AL+1"
+game_system = "TenkaRyouran"
+input = "TR+1"
 output = "(2D6+1[12,2]) ＞ 11[5,6]+1 ＞ 12"
 rands = [
   { sides = 6, value = 5 },
@@ -95,8 +71,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "AL-1"
+game_system = "TenkaRyouran"
+input = "TR-1"
 output = "(2D6-1[12,2]) ＞ 3[1,2]-1 ＞ 2"
 rands = [
   { sides = 6, value = 2 },
@@ -104,8 +80,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "AL+1[11,3]"
+game_system = "TenkaRyouran"
+input = "TR+1[11,3]"
 output = "(2D6+1[11,3]) ＞ 6[2,4]+1 ＞ 7"
 rands = [
   { sides = 6, value = 4 },
@@ -113,8 +89,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "AL+1[11,3]"
+game_system = "TenkaRyouran"
+input = "TR+1[11,3]"
 output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
 success = true
 critical = true
@@ -124,8 +100,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "AL+1[11,3]"
+game_system = "TenkaRyouran"
+input = "TR+1[11,3]"
 output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
 failure = true
 fumble = true
@@ -135,8 +111,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "SAL+1@11#3>=5"
+game_system = "TenkaRyouran"
+input = "STR+1@11#3>=5"
 output = "(2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
 secret = true
 success = true
@@ -147,8 +123,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "AL+1@11#3"
+game_system = "TenkaRyouran"
+input = "TR+1@11#3"
 output = "(2D6+1[11,3]) ＞ 6[2,4]+1 ＞ 7"
 rands = [
   { sides = 6, value = 4 },
@@ -156,8 +132,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "AL+1@11#3"
+game_system = "TenkaRyouran"
+input = "TR+1@11#3"
 output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
 success = true
 critical = true
@@ -167,8 +143,8 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Alshard"
-input = "AL+1@11#3"
+game_system = "TenkaRyouran"
+input = "TR+1@11#3"
 output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
 failure = true
 fumble = true
@@ -177,3 +153,74 @@ rands = [
   { sides = 6, value = 1 },
 ]
 
+[[ test ]]
+game_system = "TenkaRyouran"
+input = "TR@11"
+output = "(2D6[11,2]) ＞ 11[5,6] ＞ 11 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "TenkaRyouran"
+input = "TR+1@11"
+output = "(2D6+1[11,2]) ＞ 10[4,6]+1 ＞ 11"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "TenkaRyouran"
+input = "TR+1@11"
+output = "(2D6+1[11,2]) ＞ 3[1,2]+1 ＞ 4"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TenkaRyouran"
+input = "TR+1#3"
+output = "(2D6+1[12,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "TenkaRyouran"
+input = "TR+1#3>=8"
+output = "(2D6+1>=8[12,3]) ＞ 4[2,2]+1 ＞ 5 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "TenkaRyouran"
+input = "TR-1#3>=12"
+output = "(2D6-1>=12[12,3]) ＞ 12[6,6]-1 ＞ 11 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TenkaRyouran"
+input = "TR+1#3>=3"
+output = "(2D6+1>=3[12,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
