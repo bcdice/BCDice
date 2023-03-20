@@ -23,9 +23,14 @@ module BCDice
         ・能力値判定　AR[x][>=t][y]
         　攻撃ロールと同様。失敗／成功を自動判定。
         　例）AR AR>=10 AR+5>=18 AR-3>=16 ARA AR>=10A AR+3>=18A AR-3>=16 ARD AR>=10D AR+5>=18D AR-5>=16D
+        ・両手持ちのダメージ　2HnDx[m]
+        　n:ダイスの個数
+        　x:ダイスの面数
+        　m:+-修正。省略可。
+        　パラディンとファイターの武器の両手持ちによるダメージダイスの1,2の出目の振り直しを行います。
       INFO_MESSAGE_TEXT
 
-      register_prefix('AT([+-]\d+)?(>=\d+)?[AD]?', 'AR([+-]\d+)?(>=\d+)?[AD]?')
+      register_prefix('AT([+-]\d+)?(>=\d+)?[AD]?', 'AR([+-]\d+)?(>=\d+)?[AD]?', '2H(\d+)D(\d+)([+-]\d+)?')
 
       def initialize(command)
         super(command)
@@ -34,7 +39,7 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        attack_roll(command) || ability_roll(command)
+        attack_roll(command) || ability_roll(command) || twohands_damage_roll(command)
       end
 
       def number_with_sign_from_int(number)
@@ -47,6 +52,7 @@ module BCDice
         end
       end
 
+      # 攻撃ロール
       def attack_roll(command)
         m = /^AT([-+]\d+)?(>=(\d+))?([AD]?)/.match(command)
         unless m
@@ -122,6 +128,7 @@ module BCDice
         end
       end
 
+      # 能力値ロール
       def ability_roll(command)
         m = /^AR([-+]\d+)?(>=(\d+))?([AD]?)/.match(command)
         unless m
@@ -187,6 +194,46 @@ module BCDice
             r.critical = result.critical?
             r.fumble = result.fumble?
           end
+        end
+      end
+
+      # 武器の両手持ちダメージ
+      def twohands_damage_roll(command)
+        m = /^2H(\d+)D(\d+)([+-]\d+)?/.match(command)
+        unless m
+          return nil
+        end
+
+        dice_count = m[1].to_i
+        dice_number = m[2].to_i
+        modify = m[3].to_i
+        mod_str = number_with_sign_from_int(modify)
+        output = ["(2H#{dice_count}D#{dice_number}#{mod_str})"]
+
+        dice = @randomizer.roll_barabara(dice_count, dice_number)
+        roll_dice = "[" + dice.join(",") + "]"
+        output.push("#{roll_dice}#{mod_str}")
+
+        ex_dice = []
+        new_dice = []
+        sum_dice = 0
+        dice.each do |num|
+          if num.to_i > 2
+            sum_dice += num.to_i
+            ex_dice.push(num)
+          else
+            one_die = @randomizer.roll_once(dice_number)
+            sum_dice += one_die.to_i
+            new_dice.push(one_die)
+          end
+        end
+        if new_dice.!empty?
+          output.push("[" + ex_dice.join(",") + "][" + new_dice.join(",") + "]#{mod_str}")
+        end
+        output.push((sum_dice + modify).to_s)
+
+        Result.new.tap do |r|
+          r.text = output.join(" ＞ ")
         end
       end
     end
