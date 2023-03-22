@@ -228,7 +228,7 @@ module BCDice
             new_dice.push(one_die)
           end
         end
-        if new_dice.!empty?
+        unless new_dice.empty?
           output.push("[" + ex_dice.join(",") + "][" + new_dice.join(",") + "]#{mod_str}")
         end
         output.push((sum_dice + modify).to_s)
