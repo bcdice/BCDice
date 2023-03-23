@@ -31,7 +31,7 @@ module BCDice
         　例)2H3D6 2H1D10+3 2H2D8-1
       INFO_MESSAGE_TEXT
 
-      register_prefix('AT([+-]\d+)?(>=\d+)?[AD]?', 'AR([+-]\d+)?(>=\d+)?[AD]?', '2H(\d+)D(\d+)([+-]\d+)?')
+      register_prefix('AT([+-]\d+)?(@\d+)?(>=\d+)?[AD]?', 'AR([+-]\d+)?(>=\d+)?[AD]?', '2H(\d+)D(\d+)([+-]\d+)?')
 
       def initialize(command)
         super(command)
@@ -55,19 +55,25 @@ module BCDice
 
       # 攻撃ロール
       def attack_roll(command)
-        m = /^AT([-+]\d+)?(>=(\d+))?([AD]?)/.match(command)
+        m = /^AT([-+]\d+)?(@(\d+))?(>=(\d+))?([AD]?)/.match(command)
         unless m
           return nil
         end
 
         modify = m[1].to_i
-        difficulty = m[3].to_i
-        advantage = m[4]
+        critical_no = m[3].to_i
+        difficulty = m[5].to_i
+        advantage = m[6]
 
         usedie = 0
         roll_die = ""
 
         dice_command = "AT#{number_with_sign_from_int(modify)}"
+        if critical_no > 0
+          dice_command += "@#{critical_no}"
+        else
+          critical_no = 20
+        end
         if difficulty > 0
           dice_command += ">=#{difficulty}"
         end
@@ -101,7 +107,7 @@ module BCDice
         end
 
         result = Result.new
-        if usedie == 20
+        if usedie >= critical_no
           result.critical = true
           result.success = true
           output.push("クリティカル")
