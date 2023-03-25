@@ -229,22 +229,13 @@ module BCDice
       end
 
       def parse_legacy(command, c_f)
-        parsed_c_f = c_f.split(",")
-        critical, fumble = case parsed_c_f.length
-                           when 0
-                             [DEFAULT_CRITICAL_VALUE, DEFAULT_FUMBLE_VALUE]
-                           when 1
-                             [Integer(parsed_c_f[0], exception: false), DEFAULT_FUMBLE_VALUE]
-                           when 2
-                             if parsed_c_f[0] == ""
-                               [DEFAULT_CRITICAL_VALUE, Integer(parsed_c_f[1], exception: false)]
-                             else
-                               [Integer(parsed_c_f[0], exception: false), Integer(parsed_c_f[1], exception: false)]
-                             end
-                           end
-        if critical.nil? || fumble.nil?
+        m = /^(-?\d+)?(?:,(-?\d+))?$/.match(c_f)
+        unless m
           return nil
         end
+
+        critical = m[1]&.to_i || DEFAULT_CRITICAL_VALUE
+        fumble = m[2]&.to_i || DEFAULT_FUMBLE_VALUE
 
         prefix_re = Regexp.new(["2D6"].concat(aliases()).join('|'), Regexp::IGNORECASE)
         parser = Command::Parser.new(prefix_re, round_type: @round_type)
