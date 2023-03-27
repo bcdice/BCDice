@@ -1,5 +1,27 @@
 # Change Log
 
+## 3.9.0 2023/03/25
+
+### 対応ゲームシステムの追加
+- 天下繚乱 (TenkaRyouran): 三木里 秀予さんありがとうっ！ ([#604](https://github.com/bcdice/BCDice/pull/604))
+- ワールドエンドフロントライン (WorldsEndFrontline): ([#611](https://github.com/bcdice/BCDice/pull/611))
+
+### 追加機能
+- 初音ミクTRPG: 表をいくつか追加。カルメヤキさんありがとうっ！ ([#602](https://github.com/bcdice/BCDice/pull/602))
+- スタンダードRPGシステム系: クリティカルを `@` で、ファンブルを `#` で指定できるように。三木里 秀予さんありがとうっ！ ([#605](https://github.com/bcdice/BCDice/pull/605))
+- ダンジョンズ＆ドラゴンズ第5版: 両手持ちのダメージ算出コマンドを追加。Facelessさんありがとうっ！ ([#612](https://github.com/bcdice/BCDice/pull/612))
+- ダンジョンズ＆ドラゴンズ第5版: 攻撃ロールでクリティカル値を指定できるように。Facelessさんありがとうっ！ ([#612](https://github.com/bcdice/BCDice/pull/612))
+
+### 変更
+- シノビガミ: 変調表と戦場表の内容を改訂版に変更。 ([#588](https://github.com/bcdice/BCDice/pull/588))
+
+### 誤植修正
+- 歯車の塔の探空士（冒険企画局）: 航行イベント表　困難系の誤植を修正。おさむさんありがとうっ！ ([#607](https://github.com/bcdice/BCDice/pull/607))
+- サイバーパンクRED: 判定コマンドに対するヘルプメッセージの誤りを修正。 ([#609](https://github.com/bcdice/BCDice/pull/609))
+
+### バグ修正
+- ブラドリウム: ダイスチェックで二桁以上のダイス数を指定できない問題を修正。ゆずあずさん指摘ありがとうっ！ ([#606](https://github.com/bcdice/BCDice/pull/606))
+
 ## 3.8.0 2023/02/18
 
 ### 対応ゲームシステムの追加
@@ -13,7 +35,7 @@
 
 ### 追加機能
 - ワールド・オブ・ダークネス: 振り足しの1で成功数の打ち消しが発生するコマンド（STB）を追加。フレッド緑野さんありがとうっ！ ([#571](https://github.com/bcdice/BCDice/pull/571))
-- トーグ エタニティ: 高揚コマンドで修正値指定が出来るように拡張。Facelessさんありがとうっ！ ([#577](https://github.com/bcdice/BCDice/pull/577))
+- トーグ エタニティ: 高揚コマンドで修正値指定が出来るように拡張。Facelessさんありがとうっ！ ([#580](https://github.com/bcdice/BCDice/pull/580))
 - Vampire: The Masquerade 5th Edition: 判定コマンドの難易度省略時に判定結果のヒント出力を追加。フレッド緑野さんありがとうっ！ ([#581](https://github.com/bcdice/BCDice/pull/581))
 - Vampire: The Masquerade 5th Edition: 難易度指定時に成功差分を表示する機能を追加。フレッド緑野さんありがとうっ！ ([#591](https://github.com/bcdice/BCDice/pull/591))
 - 歯車の塔の探空士（冒険企画局）: 航行イベント表を追加。前田さんありがとうっ！ ([#601](https://github.com/bcdice/BCDice/pull/601))
@@ -22,7 +44,7 @@
 - シノビガミ: ファンブル表の内容を改訂版に変更。 ([#588](https://github.com/bcdice/BCDice/pull/588))
 
 ### 誤植修正
-- フタリソウサ: ヘルプメッセージにイベント表の記載漏れを追記。あまねさんありがとうっ！ ([#580](https://github.com/bcdice/BCDice/pull/580))
+- フタリソウサ: ヘルプメッセージにイベント表の記載漏れを追記。あまねさんありがとうっ！ ([#579](https://github.com/bcdice/BCDice/pull/579))
 - ウォーハンマーRPG第4版: SLの誤植を修正。Facelessさんありがとうっ！ ([#585](https://github.com/bcdice/BCDice/pull/585))
 - シノビガミ: 怪変調表の誤植を修正。なす車さんありがとうっ！ ([#600](https://github.com/bcdice/BCDice/pull/600))
 
