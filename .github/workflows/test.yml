@@ -20,4 +20,4 @@ jobs:
       uses: codecov/codecov-action@v3
       with:
         file: coverage/coverage.xml
-      if: matrix.ruby == '3.1'
+      if: matrix.ruby == '3.2'
