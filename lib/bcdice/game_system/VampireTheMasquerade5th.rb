@@ -14,49 +14,63 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定コマンド(nVMFx+x)
-          注意：Hungerダイスは内数として処理する。
-                例：9ダイスプールでHungerダイス3個ならば、通常ダイス6個、Hungerダイス3個となる。
-                また、難易度は必要成功数を表す。
+        ・判定コマンド(nVMFx+x または nVMIxHx)
+          VMFコマンドはHungerダイスとダイスプールを個別に指定する。
+          VMIコマンドはHungerダイスをダイスプールの内数として指定する。
+
+            例：難易度2、9ダイスプールでHungerダイス3個の場合、それぞれ以下のようなコマンドとなる。
+            2VMF6+3
+            2VMI9H3
 
           難易度指定：成功数のカウント、判定成功と失敗、Critical処理、Critical Winのチェックを行う
                      （Hungerダイスがある場合）Messy CriticalとBestial Failureチェックを行う
           例) (難易度)VMF(通常ダイス)+(Hungerダイス)
               (難易度)VMF(通常ダイス)
+              (難易度)VMI(通常ダイス)H(Hungerダイス)
+              (難易度)VMI(通常ダイス)
 
           難易度省略：成功数のカウント、判定失敗、Critical処理、（Hungerダイスがある場合）Bestial Failureチェックを行う
                       判定成功、Messy Criticalのチェックを行わない
                       Critical Win、（Hungerダイスがある場合）Bestial Failure、Messy Criticalのヒントを出力
           例) VMF(通常ダイス)+(Hungerダイス)
               VMF(通常ダイス)
+              VMI(通常ダイス)H(Hungerダイス)
+              VMI(通常ダイス)
 
           難易度0指定：Critical処理と成功数のカウントを行い、全てのチェックを行わない
           例) 0VMF(通常ダイス)+(Hungerダイス)
               0VMF(通常ダイス)
+              0VMI(通常ダイス)+(Hungerダイス)
+              0VMI(通常ダイス)
 
       MESSAGETEXT
 
-      DIFFICULTY_INDEX   = 1
-      DICE_POOL_INDEX    = 3
-      HUNGER_DICE_INDEX  = 5
+      DIFFICULTY_INDEX                            = 1
+      DICE_POOL_HUNGER_DICE_NO_INCLUDED_INDEX     = 5
+      HUNGER_DICE_NO_INCLUDED_INDEX               = 7
+      COMMAND_HUNGER_DICE_INCLUDED_INDEX          = 9
+      DICE_POOL_HUNGER_DICE_INCLUDED_INDEX        = 10
+      HUNGER_DICE_INCLUDED_INDEX                  = 12
 
       # 難易度に指定可能な特殊値
       NOT_CHECK_SUCCESS = -1 # 判定成功にかかわるチェックを行わない(判定失敗に関わるチェックは行う)
 
-      # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('\d*VMF')
+      register_prefix('\d*(VMF|(VMI\d*(H\d?)?))')
 
       def eval_game_system_specific_command(command)
-        m = /\A(\d+)?(VMF)(\d+)(\+(\d+))?$/.match(command)
+        m = /\A(\d+)?(((VMF)(\d)(\+(\d+))?)|((VMI)(\d)(H(\d+))?))$/.match(command)
         unless m
           return ''
         end
 
-        dice_pool = m[DICE_POOL_INDEX].to_i
+        dice_pool, hunger_dice_pool = get_dice_pools(m)
+        if dice_pool < 0
+          return "ダイスプールより多いHungerダイスは指定できません。"
+        end
+
         dice_text, success_dice, ten_dice, = make_dice_roll(dice_pool)
         result_text = "(#{dice_pool}D10"
 
-        hunger_dice_pool = m[HUNGER_DICE_INDEX]&.to_i
         if hunger_dice_pool
           hunger_dice_text, hunger_success_dice, hunger_ten_dice, hunger_botch_dice = make_dice_roll(hunger_dice_pool)
 
@@ -78,6 +92,20 @@ module BCDice
       end
 
       private
+
+      def get_dice_pools(m)
+        hunger_dice_included_command = m[COMMAND_HUNGER_DICE_INCLUDED_INDEX]
+        if hunger_dice_included_command && hunger_dice_included_command == "VMI"
+          # Hunger Diceを内数処理するの場合
+          hunger_dice_pool = m[HUNGER_DICE_INCLUDED_INDEX]&.to_i
+          dice_pool = m[DICE_POOL_HUNGER_DICE_INCLUDED_INDEX].to_i - (hunger_dice_pool || 0)
+        else
+          # Hunger DiceがPLによる内数指定の場合
+          hunger_dice_pool = m[HUNGER_DICE_NO_INCLUDED_INDEX]&.to_i
+          dice_pool = m[DICE_POOL_HUNGER_DICE_NO_INCLUDED_INDEX].to_i
+        end
+        return dice_pool, hunger_dice_pool
+      end
 
       def get_roll_result(result_text, success_dice, ten_dice, hunger_ten_dice, hunger_botch_dice, difficulty)
         result_text = "#{result_text} 成功数=#{success_dice}"
