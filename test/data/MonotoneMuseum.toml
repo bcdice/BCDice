@@ -140,6 +140,146 @@ rands = [
 
 [[ test ]]
 game_system = "MonotoneMuseum"
+input = "2D6>=?"
+output = "(2D6>=?) ＞ 7[2,5] ＞ 7"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "2D6+1>=0"
+output = "(2D6+1>=0) ＞ 5[1,4]+1 ＞ 6"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "2D6>=?"
+output = "(2D6>=?) ＞ 12[6,6] ＞ 12 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "2D6>=?"
+output = "(2D6>=?) ＞ 2[1,1] ＞ 2 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "2D6+1>=?[11,3]"
+output = "(2D6+1>=?[11,3]) ＞ 6[2,4]+1 ＞ 7"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "2D6+1>=?[11,3]"
+output = "(2D6+1>=?[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "2D6+1>=?[11,3]"
+output = "(2D6+1>=?[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "2D6+1>=?[11]"
+output = "(2D6+1>=?[11]) ＞ 11[5,6]+1 ＞ 12 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "2D6+1>=?[,3]"
+output = "(2D6+1>=?[,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "2D6+1>=?[,3]"
+output = "(2D6+1>=?[,3]) ＞ 12[6,6]+1 ＞ 13 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "2D6+1>=?[7,7] ファンブル値優先"
+output = "(2D6+1>=?[7,7]) ＞ 7[2,5]+1 ＞ 8 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "3D6+1>=?"
+output = "(3D6+1>=?) ＞ 12[2,4,6]+1 ＞ 13 ＞ 自動成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "1D6>=?"
+output = "(1D6>=?) ＞ 2[2] ＞ 2 ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
 input = "OT"
 output = "兆候表(6) ＞ 【重圧】\nあなたはバッドステータスの[重圧]を受ける。"
 rands = [
