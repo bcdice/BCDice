@@ -30,6 +30,7 @@ module BCDice
         　ファンブル表 FT、変調表 WT、戦国変調表 GWT、戦場表 BT、感情表 ET
         　妖魔化（異形表、妖魔忍法表一括） MT
         　異形表 MTR、妖魔忍法表(x:A,B,C) DSx
+        　プライズ効果表 PT
         ＞流派ブック以降
         　新戦場表 BNT、【数奇】OTS、妖術変調対応表（現代／戦国）YWT
         　妖魔化（新異形表利用） NMT、新異形表 NMTR、妖魔忍法表（x:1-異霊 2-凶身 3-神化 4-攻激）DSNx
@@ -45,7 +46,7 @@ module BCDice
         　(死)東京 TKST、(リプレイ戦1〜2巻)京都 KYST、神社仏閣 JBST
         　(その他シーン表)秋空に雪舞えば AKST、災厄 CLST、出島EX DXST、斜歯ラボ HLST、夏の終わり NTST、培養プラント PLST
         ＞正忍記
-        カジノ TC、ロードムービ TR、マスカレイド・キャッスル TMC、月天に死の咲く TGS、恋人との日々 TKH、学校（黒星祭） TKG、魔都学園 TMG、魔都東京 TMT
+        カジノ TC、ロードムービ TRM、マスカレイド・キャッスル TMC、月天に死の咲く TGS、恋人との日々 TKH、学校（黒星祭） TKG、魔都学園 TMG、魔都東京 TMT
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 

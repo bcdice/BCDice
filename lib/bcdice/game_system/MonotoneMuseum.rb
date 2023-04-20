@@ -59,7 +59,7 @@ module BCDice
       private
 
       def check_roll(command)
-        m = /^(\d+)D6([+\-\d]*)>=(\d+)(\[(\d+)?(,(\d+))?\])?$/i.match(command)
+        m = /^(\d+)D6([+\-\d]*)>=(\?|\d+)(\[(\d+)?(,(\d+))?\])?$/i.match(command)
         unless m
           return nil
         end
@@ -80,6 +80,8 @@ module BCDice
             Result.fumble(translate("MonotoneMuseum.automatic_failure"))
           elsif dice_value >= critical
             Result.critical(translate("MonotoneMuseum.automatic_success"))
+          elsif target == 0
+            Result.success('')
           elsif total >= target
             Result.success(translate("success"))
           else
@@ -93,7 +95,7 @@ module BCDice
           result.text,
         ]
 
-        result.text = sequence.join(" ＞ ")
+        result.text = sequence.join(" ＞ ").chomp(" ＞ ")
 
         result
       end

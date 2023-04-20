@@ -9,11 +9,12 @@
 ### 追加機能
 - 初音ミクTRPG: 表をいくつか追加。カルメヤキさんありがとうっ！ ([#602](https://github.com/bcdice/BCDice/pull/602))
 - スタンダードRPGシステム系: クリティカルを `@` で、ファンブルを `#` で指定できるように。三木里 秀予さんありがとうっ！ ([#605](https://github.com/bcdice/BCDice/pull/605))
+- シノビガミ: 表を多数追加。NiSLaさん、hetaregirl1802さん、三木里 秀予さんありがとうっ！ ([#608](https://github.com/bcdice/BCDice/pull/608))
 - ダンジョンズ＆ドラゴンズ第5版: 両手持ちのダメージ算出コマンドを追加。Facelessさんありがとうっ！ ([#612](https://github.com/bcdice/BCDice/pull/612))
 - ダンジョンズ＆ドラゴンズ第5版: 攻撃ロールでクリティカル値を指定できるように。Facelessさんありがとうっ！ ([#612](https://github.com/bcdice/BCDice/pull/612))
 
 ### 変更
-- シノビガミ: 変調表と戦場表の内容を改訂版に変更。 ([#588](https://github.com/bcdice/BCDice/pull/588))
+- シノビガミ: 変調表と戦場表の内容を改訂版に変更。NiSLaさんありがとうっ！ ([#608](https://github.com/bcdice/BCDice/pull/608))
 
 ### 誤植修正
 - 歯車の塔の探空士（冒険企画局）: 航行イベント表　困難系の誤植を修正。おさむさんありがとうっ！ ([#607](https://github.com/bcdice/BCDice/pull/607))
