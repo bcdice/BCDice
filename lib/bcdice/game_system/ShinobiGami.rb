@@ -33,6 +33,7 @@ module BCDice
         　ファンブル表 FT、変調表 WT、戦国変調表 GWT、戦場表 BT、感情表 ET
         　妖魔化（異形表、妖魔忍法表一括） MT
         　異形表 MTR、妖魔忍法表(x:A,B,C) DSx
+        　プライズ効果表 PT
 
         ＞流派ブック以降
         　新戦場表 BNT、【数奇】OTS、妖術変調対応表（現代／戦国）YWT
@@ -51,7 +52,7 @@ module BCDice
         　(死)東京 TKST、(リプレイ戦1〜2巻)京都 KYST、神社仏閣 JBST
         　(その他シーン表)秋空に雪舞えば AKST、災厄 CLST、出島EX DXST、斜歯ラボ HLST、夏の終わり NTST、培養プラント PLST
         ＞正忍記
-        カジノ TC、ロードムービ TR、マスカレイド・キャッスル TMC、月天に死の咲く TGS、恋人との日々 TKH、学校（黒星祭） TKG、魔都学園 TMG、魔都東京 TMT
+        カジノ TC、ロードムービ TRM、マスカレイド・キャッスル TMC、月天に死の咲く TGS、恋人との日々 TKH、学校（黒星祭） TKG、魔都学園 TMG、魔都東京 TMT
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -62,8 +63,7 @@ module BCDice
         end
 
         def roll(randomizer)
-          result = @table.roll(randomizer)
-          return DiceTable::RollResult.new(result.table_name, result.value, @pretext + ' ＞ ' + result.body)
+          return "#{@pretext} ＞ #{@table.roll(randomizer)}"
         end
       end
 
@@ -205,12 +205,12 @@ module BCDice
           '妖魔忍法表・異霊',
           '1D6',
           [
-            '【荒吐】(基本 p173)／【赤舌】（隠忍 p29）',
-            '【鬼火】(基本 p173)／【大太郎】（隠忍 p29）',
-            '【怨霊】(基本 p173)／【白面】（隠忍 p29）',
-            '【呑口】(基本 p173)／【邪魅】（隠忍 p29）',
-            '【百眼】(基本 p173)／【鬼胎】（隠忍 p29）',
-            '【蛭子】(基本 p173)／【岩肌】（隠忍 p29）',
+            '【逢魔時】(基本 p173)／【虚舟】（隠忍 p28）',
+            '【神隠】(基本 p173)／【夢喰】（隠忍 p28）',
+            '【狂骨】(基本 p173)／【金毛】（隠忍 p28）',
+            '【木魂】(基本 p173)／【朽縄】（隠忍 p28）',
+            '【付喪神】(基本 p173)／【香魂】（隠忍 p28）',
+            '【生剥】(基本 p173)／【三尸】（隠忍 p28）',
           ]
         ),
         'DSN2' => DiceTable::Table.new(

@@ -18,6 +18,36 @@ rands = [
 
 [[ test ]]
 game_system = "DungeonsAndDragons5"
+input = "AT@19 クリティカル"
+output = "(AT@19) ＞ 19 ＞ クリティカル"
+critical = true
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "AT@18 クリティカル"
+output = "(AT@18) ＞ 18 ＞ クリティカル"
+critical = true
+success = true
+rands = [
+  { sides = 20, value = 18 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "AT@18 クリティカル"
+output = "(AT@18) ＞ 19 ＞ クリティカル"
+critical = true
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
 input = "AT ファンブル"
 output = "(AT) ＞ 1 ＞ ファンブル"
 fumble = true
@@ -62,6 +92,16 @@ success = true
 critical = true
 rands = [
   { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "AT@18>=10 クリティカルの表示確認"
+output = "(AT@18>=10) ＞ 18 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 18 },
 ]
 
 [[ test ]]
@@ -147,12 +187,32 @@ rands = [
 
 [[ test ]]
 game_system = "DungeonsAndDragons5"
+input = "AT+3@18>=10 クリティカルの表示確認"
+output = "(AT+3@18>=10) ＞ 18+3 ＞ 21 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 18 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
 input = "AT-3>=10 クリティカルの表示確認"
 output = "(AT-3>=10) ＞ 20-3 ＞ 17 ＞ クリティカル"
 success = true
 critical = true
 rands = [
   { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "AT-3@18>=10 クリティカルの表示確認"
+output = "(AT-3@18>=10) ＞ 18-3 ＞ 15 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 18 },
 ]
 
 [[ test ]]
@@ -404,5 +464,69 @@ failure = true
 rands = [
   { sides = 20, value = 18 },
   { sides = 20, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "2H3D6 両手持ちダメージ、振り直しなし、修正なし"
+output = "(2H3D6) ＞ [5,4,3] ＞ 12"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "2H3D6+3 振り直しなし、+修正"
+output = "(2H3D6+3) ＞ [3,4,5]+3 ＞ 15"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "2H3D6-5 振り直しなし、-修正"
+output = "(2H3D6-5) ＞ [5,4,3]-5 ＞ 7"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "2H3D6 振り直しあり、修正なし"
+output = "(2H3D6) ＞ [5,4,2] ＞ [5,4][4] ＞ 13"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "2H3D6+5 振り直しあり、+修正"
+output = "(2H3D6+5) ＞ [5,2,4]+5 ＞ [5,4][4]+5 ＞ 18"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "2H3D6-3 振り直しあり、-修正"
+output = "(2H3D6-3) ＞ [5,4,2]-3 ＞ [5,4][6]-3 ＞ 12"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
 ]
 

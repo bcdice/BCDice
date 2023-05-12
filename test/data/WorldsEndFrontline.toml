@@ -1,5 +1,5 @@
 [[ test ]]
-game_system = "Bloodorium"
+game_system = "WorldsEndFrontline"
 input = "4DC"
 output = "(4DC) ＞ [1,2,3,4] ＞ 4"
 rands = [
@@ -10,7 +10,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Bloodorium"
+game_system = "WorldsEndFrontline"
 input = "3DC"
 output = "(3DC) ＞ [3,4,5] ＞ 5"
 rands = [
@@ -20,7 +20,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Bloodorium"
+game_system = "WorldsEndFrontline"
 input = "4DC"
 output = "(4DC) ＞ [1,2,2,4] ＞ 《トライアンフ》(*2) ＞ 4*2 ＞ 8"
 critical = true
@@ -32,7 +32,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Bloodorium"
+game_system = "WorldsEndFrontline"
 input = "5DC"
 output = "(5DC) ＞ [2,2,5,5,5] ＞ 《トライアンフ》(*3) ＞ 5*3 ＞ 15"
 critical = true
@@ -45,7 +45,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Bloodorium"
+game_system = "WorldsEndFrontline"
 input = "4DC+1"
 output = "(4DC+1) ＞ [1,2,3,4]+1 ＞ 4+1 ＞ 5"
 rands = [
@@ -56,7 +56,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Bloodorium"
+game_system = "WorldsEndFrontline"
 input = "4DC+1+2"
 output = "(4DC+3) ＞ [1,2,3,4]+3 ＞ 4+3 ＞ 7"
 rands = [
@@ -67,7 +67,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Bloodorium"
+game_system = "WorldsEndFrontline"
 input = "5DC+1"
 output = "(5DC+1) ＞ [2,2,5,5,5]+1 ＞ 《トライアンフ》(*3) ＞ 5*3+1 ＞ 16"
 critical = true
@@ -80,7 +80,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Bloodorium"
+game_system = "WorldsEndFrontline"
 input = "10DC"
 output = "(10DC) ＞ [1,1,2,2,3,3,4,4,5,6] ＞ 《トライアンフ》(*2) ＞ 6*2 ＞ 12"
 critical = true
@@ -98,13 +98,13 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Bloodorium"
+game_system = "WorldsEndFrontline"
 input = "DC"
 output = ""
 rands = []
 
 [[ test ]]
-game_system = "Bloodorium"
+game_system = "WorldsEndFrontline"
 input = "DC+1"
 output = ""
 rands = []

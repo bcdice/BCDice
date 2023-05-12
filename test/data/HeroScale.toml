@@ -1,0 +1,1078 @@
+[[ test ]]
+game_system = "HeroScale"
+input = "5HS4"
+output = "超越 ＞ 24[1,2,3,4,1]"
+rands = [
+  { sides = 4, value = 1 },
+  { sides = 4, value = 2 },
+  { sides = 4, value = 3 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "5hs4,p"
+output = "激情の超越 ＞ 24[1,2,3,4,1] ＞ 1080[3,4,5,6,3]"
+rands = [
+  { sides = 4, value = 1 },
+  { sides = 4, value = 2 },
+  { sides = 4, value = 3 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "5hs4,s"
+output = "エラー：科学力を設定してください。"
+rands = [
+  { sides = 4, value = 1 },
+  { sides = 4, value = 2 },
+  { sides = 4, value = 3 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "5hs4,s,xx"
+output = "エラー：科学力を設定してください。"
+rands = [
+  { sides = 4, value = 1 },
+  { sides = 4, value = 2 },
+  { sides = 4, value = 3 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "5hs4,s,1024"
+output = "エラー：科学力が1024を超えています。"
+rands = [
+  { sides = 4, value = 1 },
+  { sides = 4, value = 2 },
+  { sides = 4, value = 3 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "5hs4,s,999"
+output = "科学の超越 ＞ 24[1,2,3,4,1] ＞ 1023"
+rands = [
+  { sides = 4, value = 1 },
+  { sides = 4, value = 2 },
+  { sides = 4, value = 3 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "5hs4,s,1000"
+output = "科学の超越 ＞ 24[1,2,3,4,1] ＞ 1024(科学臨界)"
+rands = [
+  { sides = 4, value = 1 },
+  { sides = 4, value = 2 },
+  { sides = 4, value = 3 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "5hs4,b"
+output = "肉体の超越 ＞ 24[1,2,3,4,1] ＞ 24[1,2,3,4,1,1]"
+rands = [
+  { sides = 4, value = 1 },
+  { sides = 4, value = 2 },
+  { sides = 4, value = 3 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 1 },
+  { sides = 4, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "5hs4,b"
+output = "肉体の超越 ＞ 8[1,2,1,4,1] ＞ 64[1,2,1,4,1,4,2]"
+rands = [
+  { sides = 4, value = 1 },
+  { sides = 4, value = 2 },
+  { sides = 4, value = 1 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 1 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "4hs6"
+output = "加護 ＞ 24[1,2,3,4]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "4hs6,r"
+output = "逆転の加護 ＞ 24[1,2,3,4] ＞ 480[6,5,4,4]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "4hs6,p"
+output = "安寧の加護 ＞ 24[1,2,3,4] ＞ 274"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "4hs6,s"
+output = "選択の加護 ＞ 24[1,2,3,4] ＞ 8[1,2,3,4,1,1,1]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "4hs6,s"
+output = "選択の加護 ＞ 24[1,2,3,4] ＞ 9[1,2,3,4,1,1,3]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs8"
+output = "契約 ＞ 12[2,2,3]"
+rands = [
+  { sides = 8, value = 2 },
+  { sides = 8, value = 2 },
+  { sides = 8, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs8,5,2"
+output = "契約 ＞ 12[2,2,3] ＞ 120[2,2,3,5,2]"
+rands = [
+  { sides = 8, value = 2 },
+  { sides = 8, value = 2 },
+  { sides = 8, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs8,o"
+output = "奉納の契約 ＞ 12[2,2,3](奉納：2,2)"
+rands = [
+  { sides = 8, value = 2 },
+  { sides = 8, value = 2 },
+  { sides = 8, value = 3 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs8,o,2,5"
+output = "奉納の契約 ＞ 12[2,2,3] ＞ 120[2,2,3,2,5](奉納：2,2)"
+rands = [
+  { sides = 8, value = 2 },
+  { sides = 8, value = 2 },
+  { sides = 8, value = 3 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs8,b"
+output = "燃焼の契約 ＞ 12[2,2,3] ＞ 72"
+rands = [
+  { sides = 8, value = 2 },
+  { sides = 8, value = 2 },
+  { sides = 8, value = 3 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs8,e,25"
+output = "収奪の契約 ＞ 4[2,2,1] ＞ 100[2,2,25]"
+rands = [
+  { sides = 8, value = 2 },
+  { sides = 8, value = 2 },
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs8,e"
+output = "エラー：収奪数を指定してください。"
+rands = [
+  { sides = 8, value = 2 },
+  { sides = 8, value = 2 },
+  { sides = 8, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs8,a,3,4"
+output = "享受の契約 ＞ 4[2,2,1] ＞ 24[4,2,3]"
+rands = [
+  { sides = 8, value = 2 },
+  { sides = 8, value = 2 },
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs8,a"
+output = "エラー：享受数を指定してください。"
+rands = [
+  { sides = 8, value = 2 },
+  { sides = 8, value = 2 },
+  { sides = 8, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs20"
+output = "呪い ＞ 24[2,12]"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 12 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs20,r"
+output = "破滅の呪い ＞ 24[2,12] ＞ 12[2,12,2,7]"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 12 },
+  { sides = 20, value = 2 },
+  { sides = 20, value = 7 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs20,c"
+output = "崩壊の呪い ＞ 24[2,12] ＞ 72[2,6,6]"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 12 },
+]
+
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs20,c"
+output = "崩壊の呪い ＞ 22[2,11] ＞ 72[2,6,6]"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 11 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs20,c"
+output = "崩壊の呪い ＞ 4[2,2] ＞ 1[1,1,1,1]"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 2 },
+]
+
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs20,d"
+output = "歪曲の呪い ＞ 4[2,2] ＞ 225[15,15]"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs20,d"
+output = "歪曲の呪い ＞ 2[1,2] ＞ 28[14,2]"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs10"
+output = "異物 ＞ 0[0,1,9]"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs10,i"
+output = "模造の異物 ＞ 0[0,1,9] ＞ 90[10,9]"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+]
+
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs10,i"
+output = "模造の異物 ＞ 0[0,0,9] ＞ 900[100,9]"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs10,m"
+output = "混血の異物 ＞ 0[0,0,9] ＞ 0[10,0,9](10置換)"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs10,m,2"
+output = "混血の異物 ＞ 18[1,2,9] ＞ 180[10,2,9](10置換)"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs10,m,2"
+output = "混血の異物 ＞ 90[5,2,9] ＞ 1080[5,2,9,12](追加振り)"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs10,b"
+output = "彼方の異物 ＞ 0[0,0,9] ＞ 0[0,0,9]"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs10,b,500"
+output = "彼方の異物 ＞ 0[0,0,9] ＞ 0[0,0,9]"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs10,b"
+output = "彼方の異物 ＞ 729[9,9,9] ＞ 729[9,9,9]"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs10,b"
+output = "彼方の異物 ＞ 81[1,9,9] ＞ 729[1,9,9,9]"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs10,b,20"
+output = "彼方の異物 ＞ 81[1,9,9] ＞ 81[1,9,9]"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "1hs60"
+output = "報い ＞ 12[12]"
+rands = [
+  { sides = 60, value = 12 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "1hs60,d"
+output = "堕落の報い ＞ 12[12] ＞ 24[12,2]"
+rands = [
+  { sides = 60, value = 12 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "1hs60,d"
+output = "堕落の報い ＞ 22[22] ＞ 88[22,2,2]"
+rands = [
+  { sides = 60, value = 22 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "1hs60,d"
+output = "堕落の報い ＞ 20[20] ＞ 40[20,2]"
+rands = [
+  { sides = 60, value = 20 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "1hs60,o"
+output = "忘却の報い ＞ 20[20] ＞ 600[20,60]"
+rands = [
+  { sides = 60, value = 20 },
+  { sides = 60, value = 60 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "1hs60,s"
+output = "封印の報い ＞ 20[20] ＞ 20[20](封印解除成功：4)"
+rands = [
+  { sides = 60, value = 20 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "1hs60,s"
+output = "封印の報い ＞ 40[40] ＞ 40[40](封印解除成功：2)"
+rands = [
+  { sides = 60, value = 40 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "1hs60,s,2"
+output = "封印の報い ＞ 20[20] ＞ 40[40](封印解除成功：4)"
+rands = [
+  { sides = 60, value = 20 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "1hs60,s,2"
+output = "封印の報い ＞ 40[40] ＞ 80[80](封印解除失敗：2)"
+rands = [
+  { sides = 60, value = 40 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "12hs2"
+output = "同化 ＞ 64[1,1,1,1,1,1,2,2,2,2,2,2]"
+rands = [
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "12hs2,m"
+output = "エラー：変異状態を指定してください。"
+rands = [
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "12hs2,m,12,0,0,0,0,0,0,0"
+output = "怪物の同化 ＞ 64[1,1,1,1,1,1,2,2,2,2,2,2] 浸蝕値：18(人間性喪失)"
+rands = [
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "12hs2,m,1,1,0,0,0,0,0,0"
+output = "怪物の同化 ＞ 8[2,4] 浸蝕値：6(変異進行)"
+rands = [
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 4, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "12hs2,m,1,1,0,1,0,0,0,0"
+output = "怪物の同化 ＞ 4[1,4,1] 浸蝕値：6(変異進行)(人間性喪失)"
+rands = [
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 1 },
+  { sides = 4, value = 4 },
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "12hs2,m,0,1,1,1,1,1,1,1"
+output = "怪物の同化 ＞ 0[4,6,8,0,12,20,60] 浸蝕値：110"
+rands = [
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 4, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 8, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 12, value = 12 },
+  { sides = 20, value = 20 },
+  { sides = 60, value = 60 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "12hs2,t"
+output = "エラー：解放率を指定してください。"
+rands = [
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "12hs2,t,7"
+output = "秘宝の同化 ＞ 64[1,1,1,1,1,1,2,2,2,2,2,2] ＞ 64(同調失敗)"
+rands = [
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "12hs2,t,6"
+output = "秘宝の同化 ＞ 64[1,1,1,1,1,1,2,2,2,2,2,2] ＞ 384(同調成功)"
+rands = [
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "12hs2,c,6"
+output = "概念の同化 ＞ 64[1,1,1,1,1,1,2,2,2,2,2,2] ＞ 4096[2,2,2,2,2,2,2,2,2,2,2,2]"
+rands = [
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "12hs2,c"
+output = "エラー：事象強度を指定してください。"
+rands = [
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 1 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+  { sides = 2, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "1hs12"
+output = "下位存在 ＞ 2[2]"
+rands = [
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs12"
+output = "中位存在 ＞ 24[2,12]"
+rands = [
+  { sides = 12, value = 2 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs12,g"
+output = "萌芽の中位存在 ＞ 24[2,12](成長段階：50)"
+rands = [
+  { sides = 12, value = 2 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs12,g,50"
+output = "萌芽の中位存在 ＞ 24[2,12] ＞ 74(成長段階：100)"
+rands = [
+  { sides = 12, value = 2 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs12,t"
+output = "変遷の中位存在 ＞ 24[2,12] ＞ 0[2,12,0]"
+rands = [
+  { sides = 12, value = 2 },
+  { sides = 12, value = 12 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs12,c"
+output = "偶然の中位存在 ＞ 24[2,12]"
+rands = [
+  { sides = 12, value = 2 },
+  { sides = 12, value = 12 },
+]
+
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs12,c"
+output = "偶然の中位存在 ＞ 1[1,1] ＞ 24"
+rands = [
+  { sides = 12, value = 1 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12"
+output = "上位存在 ＞ 24[3,2,4]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,g"
+output = "大神の上位存在 ＞ 24[3,2,4] ＞ 210[6,5,7]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,h"
+output = "神性の上位存在 ＞ 24[3,2,4] ＞ 60[4,3,5]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,w"
+output = "魔性の上位存在 ＞ 24[3,2,4] ＞ 144"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,m"
+output = "悪意の上位存在 ＞ 24[3,2,4] ＞ 48"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,s"
+output = "エラー：罪の重さを指定してください。"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,s,20"
+output = "大罪の上位存在 ＞ 24[3,2,4]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,s,30"
+output = "大罪の上位存在 ＞ 24[3,2,4] ＞ 36[3,3,4]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,s,40"
+output = "大罪の上位存在 ＞ 24[3,2,4] ＞ 36[3,3,4] ＞ 90[3,3,10]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 4 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,s,100"
+output = "大罪の上位存在 ＞ 24[3,2,4] ＞ 36[3,3,4] ＞ 90[3,3,10] ＞ 300[3,10,10]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 4 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 10 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 10 },
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,s,400"
+output = "大罪の上位存在 ＞ 24[3,2,4] ＞ 36[3,3,4] ＞ 90[3,3,10] ＞ 300[3,10,10]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 4 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 10 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 10 },
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,d"
+output = "破壊の上位存在 ＞ 24[3,2,4] ＞ -228[3,2,4,3]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+  { sides = 12, value = 3 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,a"
+output = "懊悩の上位存在 ＞ 24[3,2,4] ＞ 343[7,7,7]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,a"
+output = "懊悩の上位存在 ＞ 60[3,2,10] ＞ 490[7,7,10]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,o"
+output = "試練の上位存在 ＞ 24[3,2,4] ＞ 729[9,9,9]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,o"
+output = "試練の上位存在 ＞ 60[3,2,10] ＞ 810[9,9,10]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,c"
+output = "創造の上位存在 ＞ 60[3,2,10] ＞ 180[3,2,10,3]"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,c"
+output = "創造の上位存在 ＞ 40[2,2,10] ＞ 80[2,2,10,2]"
+rands = [
+  { sides = 12, value = 2 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,c"
+output = "創造の上位存在 ＞ 1000[10,10,10] ＞ 10000[10,10,10,10]"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 10 },
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,e"
+output = "元素の上位存在 ＞ 100[1,1,1,10,10]"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 10 },
+  { sides = 12, value = 10 },
+  { sides = 4, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 8, value = 1 },
+  { sides = 12, value = 10 },
+  { sides = 20, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs12,x"
+output = "上位存在 ＞ 1000[10,10,10]"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 10 },
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "2hs8"
+output = "2HS8 ＞ 8[1,8]"
+rands = [
+  { sides = 8, value = 1 },
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "HeroScale"
+input = "aahs8"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "HeroScale"
+input = "3hs"
+output = ""
+rands = []
