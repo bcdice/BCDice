@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bcdice/result"
 require "bcdice/translate"
 
