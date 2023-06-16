@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 module BCDice
   module GameSystem
     class CastleInGray < Base
       # ゲームシステムの識別子
-      ID = "CastleInGray".freeze
+      ID = "CastleInGray"
 
       # ゲームシステム名
-      NAME = "灰色城綺譚".freeze
+      NAME = "灰色城綺譚"
 
       # ゲームシステム名の読みがな
-      SORT_KEY = "はいいろしようきたん".freeze
+      SORT_KEY = "はいいろしようきたん"
 
-      HELP_MESSAGE = <<~TEXT.freeze
+      HELP_MESSAGE = <<~TEXT
         ■ 色占い (BnWm)
         n: 黒
         m: 白
