@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module BCDice
   module GameSystem
     class Cthulhu7th < Base
