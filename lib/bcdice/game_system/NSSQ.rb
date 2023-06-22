@@ -9,25 +9,25 @@ module BCDice
 
       HELP_MESSAGE = <<~MESSAGETEXT
         ■ 判定 (xSQ±y>=z)
-          xD6の判定。3つ以上振ったとき、出目の高い2つを表示します。クリティカル、ファンブルも計算します。
+          xD6の判定。3つ以上振ったとき、出目の高い2つを表示します。絶対成功、絶対失敗も計算します。
           2つのサイコロを使用して出目に1があった場合は、FPの獲得も表示します。3つ以上使用した場合は表示しません。
           ±y: yに修正値を入力。±の計算に対応。省略可能。
           z: 目標値。省略可能。
 
         ■ ダメージロール (xDR(C)(+)y)
-          xD6のダメージロール。クリティカルの自動判定を行います。Cを付けるとクリティカルアップ状態で計算できます。+を付けるとクリティカル時のダイスが8個になります。
+          xD6のダメージロール。クリティカルヒットの自動判定を行います。Cを付けるとクリティカルアップ状態で計算できます。+を付けるとクリティカルヒット時のダイスが8個になります。
           x: xに振るダイス数を入力。
           y: yに耐性を入力。
           例) 5DR3 5DRC4 5DRC+4
 
         ■ 回復ロール (xHRy)
-          xD6の回復ロール。クリティカルが発生しません。
+          xD6の回復ロール。クリティカルヒットが発生しません。
           x: xに振るダイス数を入力。
           y: yに耐性を入力。省略した場合3。
           例) 2HR 10HR2
 
-        ■ 採取ロール (TC±z,SC±z,GC±z)
-          ちょっと(T)、そこそこ(S)、がっつり(G)採取採掘伐採を行う。
+        ■ 採集ロール (TC±z,SC±z,GC±z)
+          少しだけ(T)、そこそこ(S)、ガッツリ(G)採取採掘伐採を行います。
           z: zに追加でロールする回数を入力。省略可能。
           例) TC SC+1 GC-1
       MESSAGETEXT
@@ -56,9 +56,9 @@ module BCDice
 
         additional_result =
           if largest_two == [6, 6]
-            Result.critical(" ＞ クリティカル！")
+            Result.critical(" ＞ 絶対成功！")
           elsif largest_two == [1, 1]
-            Result.fumble(" ＞ ファンブル！")
+            Result.fumble(" ＞ 絶対失敗！")
           elsif target && total >= target
             Result.success(" ＞ 成功")
           elsif target && total < target
@@ -96,7 +96,7 @@ module BCDice
         critical_target = critical_up ? 1 : 2
 
         if dice_list.count(6) - dice_list.count(1) >= critical_target
-          result += " クリティカル！\n"
+          result += " クリティカルヒット！\n"
           result += additional_damage_roll(increase_critical_dice, resist)
         end
 
