@@ -31,7 +31,7 @@ rands = [
 [[ test ]]
 game_system = "NSSQ"
 input = "3SQ ファンブルチェック"
-output = "(3SQ) ＞ [1,1,1] ＞ 2[1,1] ファンブル！"
+output = "(3SQ) ＞ [1,1,1] ＞ 2[1,1] ＞ ファンブル！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "NSSQ"
 input = "3SQ クリティカルチェック"
-output = "(3SQ) ＞ [6,6,1] ＞ 12[6,6] クリティカル！"
+output = "(3SQ) ＞ [6,6,1] ＞ 12[6,6] ＞ クリティカル！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -67,10 +67,76 @@ rands = [
 
 [[ test ]]
 game_system = "NSSQ"
-input = "1SQ 1の場合も動く"
-output = "(1SQ) ＞ [6] ＞ 6[6]"
+input = "2SQ"
+output = "(2SQ) ＞ [1,4] ＞ 5[4,1] (【FP】1獲得)"
 rands = [
-  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "2SQ 絶対失敗でもFP獲得ができる"
+output = "(2SQ) ＞ [1,1] ＞ 2[1,1] ＞ ファンブル！ (【FP】2獲得)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "3SQ ダイスが2個以外の時はFPを獲得できない"
+output = "(3SQ) ＞ [1,4,1] ＞ 5[4,1]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "2SQ>=5"
+output = "(2SQ>=5) ＞ [1,4] ＞ 5[4,1] ＞ 成功 (【FP】1獲得)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "3SQ>=8"
+output = "(3SQ>=8) ＞ [1,5,3] ＞ 8[5,3] ＞ 成功"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "2SQ>=5"
+output = "(2SQ>=5) ＞ [1,3] ＞ 4[3,1] ＞ 失敗 (【FP】1獲得)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "3SQ>=8"
+output = "(3SQ>=8) ＞ [3,1,4] ＞ 7[4,3] ＞ 失敗"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "1SQ 1の場合も動く（FPは獲得できない）"
+output = "(1SQ) ＞ [1] ＞ 1[1]"
+rands = [
+  { sides = 6, value = 1 },
 ]
 
 [[ test ]]

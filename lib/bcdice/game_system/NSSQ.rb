@@ -8,9 +8,11 @@ module BCDice
       SORT_KEY = "えすああるえすしやないせかいしゆのめいきゆうTRPG"
 
       HELP_MESSAGE = <<~MESSAGETEXT
-        ■ 判定 (xSQ±y)
+        ■ 判定 (xSQ±y>=z)
           xD6の判定。3つ以上振ったとき、出目の高い2つを表示します。クリティカル、ファンブルも計算します。
+          2つのサイコロを使用して出目に1があった場合は、FPの獲得も表示します。3つ以上使用した場合は表示しません。
           ±y: yに修正値を入力。±の計算に対応。省略可能。
+          z: 目標値。省略可能。
 
         ■ ダメージロール (xDR(C)(+)y)
           xD6のダメージロール。クリティカルの自動判定を行います。Cを付けるとクリティカルアップ状態で計算できます。+を付けるとクリティカル時のダイスが8個になります。
@@ -40,27 +42,38 @@ module BCDice
 
       # 判定
       def roll_sq(command)
-        m = /(\d+)SQ([+\-\d]+)?/i.match(command)
+        m = /(\d+)SQ([+\-\d]+)?(([>=]+)(\d+))?/i.match(command)
         return nil unless m
 
         dice_count = m[1].to_i
         modifier = ArithmeticEvaluator.eval(m[2])
+        target = m[5].nil? ? nil : m[5].to_i
 
         dice_list = @randomizer.roll_barabara(dice_count, 6)
         largest_two = dice_list.sort.reverse.take(2)
         total = largest_two.sum + modifier
+        num_1 = dice_list.count(1)
 
         additional_result =
           if largest_two == [6, 6]
-            " クリティカル！"
+            Result.critical(" ＞ クリティカル！")
           elsif largest_two == [1, 1]
-            " ファンブル！"
+            Result.fumble(" ＞ ファンブル！")
+          elsif target && total >= target
+            Result.success(" ＞ 成功")
+          elsif target && total < target
+            Result.failure(" ＞ 失敗")
+          else
+            Result.new
           end
+
+        # ダイス数が2個の場合は1の出目の数だけ【FP】を獲得できる
+        fp_result = dice_count == 2 && num_1 >= 1 ? " (【FP】#{num_1}獲得)" : ""
 
         sequence = [
           "(#{command})",
           "[#{dice_list.join(',')}]#{Format.modifier(modifier)}",
-          "#{total}[#{largest_two.join(',')}]#{additional_result}",
+          "#{total}[#{largest_two.join(',')}]#{additional_result.text}#{fp_result}",
         ]
 
         return sequence.join(" ＞ ")
