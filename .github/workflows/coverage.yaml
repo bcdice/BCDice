@@ -18,4 +18,4 @@ jobs:
       with:
         coverageCommand: bundle exec rake test
         coverageLocations: |
-          ${{github.workspace}}/coverage/.resultset.json:simplecov
+          ${{github.workspace}}/coverage/.resultset.json
