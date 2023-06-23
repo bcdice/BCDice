@@ -17,5 +17,4 @@ jobs:
         ENABLE_COVERAGE: true
       with:
         coverageCommand: bundle exec rake test
-        coverageLocations: |
-          ${{github.workspace}}/coverage/.resultset.json
+        coverageLocations: ${{github.workspace}}/coverage/.resultset.json
