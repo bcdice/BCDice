@@ -7,6 +7,10 @@ if ENV["CI"] == "true" && ENV["ENABLE_COBERTURA"] == "true"
   SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 end
 
+if ENV["CI"] == "true" && ENV["ENABLE_COVERAGE"] == "true"
+  SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
+end
+
 SimpleCov.at_exit do
   SimpleCov.command_name "fork-#{$$}"
   SimpleCov.result.format!
