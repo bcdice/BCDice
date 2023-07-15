@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+## 3.10.0 2023/07/15
 
 ### 対応ゲームシステムの追加
 - 英雄の尺度 (HeroScale): モグさんありがとうっ！ ([#613](https://github.com/bcdice/BCDice/pull/613))
