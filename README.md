@@ -4,7 +4,6 @@
 [![Gem Version](https://badge.fury.io/rb/bcdice.svg)](https://badge.fury.io/rb/bcdice)
 [![YARD](https://img.shields.io/badge/yard-docs-blue.svg)](https://yard.bcdice.org/)
 [![codecov](https://codecov.io/gh/bcdice/BCDice/branch/master/graph/badge.svg)](https://codecov.io/gh/bcdice/BCDice)
-[![Maintainability](https://api.codeclimate.com/v1/badges/15261694a7d758c4309f/maintainability)](https://codeclimate.com/github/bcdice/BCDice/maintainability)
 [![Discord](https://img.shields.io/discord/597133335243784192.svg?color=7289DA&logo=discord&logoColor=fff)][invite discord]
 
 様々なTRPGシステムの判定に対応したオンセツール用ダイスコマンドエンジン
