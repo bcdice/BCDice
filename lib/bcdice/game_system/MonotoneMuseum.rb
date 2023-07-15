@@ -81,7 +81,7 @@ module BCDice
           elsif dice_value >= critical
             Result.critical(translate("MonotoneMuseum.automatic_success"))
           elsif target == 0
-            Result.success('')
+            Result.success(nil)
           elsif total >= target
             Result.success(translate("success"))
           else
@@ -93,9 +93,9 @@ module BCDice
           "#{dice_value}[#{dice_str}]#{Format.modifier(modify_number)}",
           total.to_s,
           result.text,
-        ]
+        ].compact
 
-        result.text = sequence.join(" ＞ ").chomp(" ＞ ")
+        result.text = sequence.join(" ＞ ")
 
         result
       end
