@@ -1,5 +1,29 @@
 # Change Log
 
+## Unreleased
+
+### 対応ゲームシステムの追加
+- 英雄の尺度 (HeroScale): モグさんありがとうっ！ ([#613](https://github.com/bcdice/BCDice/pull/613))
+- Ventangle (Ventangle): 三木里 秀予さんありがとうっ！ ([#626](https://github.com/bcdice/BCDice/pull/626))
+
+### 追加機能
+- Vampire:The Masquerade5th: Hungerダイスを内数指定できるコマンドを追加。フレッド緑野さんありがとうっ！ ([#615](https://github.com/bcdice/BCDice/pull/615))
+- モノトーンミュージアムRPG: 目標値 `?` に対応。えいむさんありがとうっ！ ([#617](https://github.com/bcdice/BCDice/pull/617))
+- シノビガミ: ヘルプメッセージを修正 ([#618](https://github.com/bcdice/BCDice/pull/618))
+- シノビガミ: 表を多数追加。NiSLaさんありがとうっ！ ([#625](https://github.com/bcdice/BCDice/pull/625))
+- 獸ノ森: 「嚙神ノ宴」の表を追加。ゆいこさんありがとうっ！ ([#629](https://github.com/bcdice/BCDice/pull/629))
+- SRSじゃない世界樹の迷宮TRPG: 判定の成否を表示するよう変更。ゆいこさんありがとうっ！ ([#630](https://github.com/bcdice/BCDice/pull/630))
+
+### 変更
+- SRSじゃない世界樹の迷宮TRPG: 各種表記を公式ルールの用語に合わせて変更。ゆいこさんありがとうっ！ ([#630](https://github.com/bcdice/BCDice/pull/630))
+
+### 誤植修正
+- シノビガミ: ヘルプメッセージを修正 ([#618](https://github.com/bcdice/BCDice/pull/618))
+- エモクロアTRPG: ヘルプメッセージを修正。電気魚さんありがとうっ！ ([#622](https://github.com/bcdice/BCDice/pull/622))
+
+### バグ修正
+- シノビガミ: 異形表を修正。クキソージさんありがとうっ！ ([#621](https://github.com/bcdice/BCDice/pull/621))
+
 ## 3.9.0 2023/03/25
 
 ### 対応ゲームシステムの追加
