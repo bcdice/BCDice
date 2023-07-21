@@ -7,7 +7,7 @@ module BCDice
       ID = 'GundamSentinel'
 
       # ゲームシステム名
-      NAME = 'ガンダム・センチネルＲＰＧ'
+      NAME = 'ガンダム・センチネルRPG'
 
       # ゲームシステム名の読みがな
       SORT_KEY = 'かんたむせんちねる'
