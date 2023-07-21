@@ -28,7 +28,7 @@ rands = [
 [[ test ]]
 game_system = "GundamSentinel"
 input = "BB+5>14 #修正値＆目標値付き"
-output = "(BB+5>14) ＞ 15+5 ＞ 24 ＞ 命中"
+output = "(BB+5>14) ＞ 15+5 ＞ 24 ＞ 命中(+6)"
 success = true
 rands = [
   { sides = 6, value = 1 }
@@ -48,7 +48,7 @@ rands = [
 [[ test ]]
 game_system = "GundamSentinel"
 input = "BB+5>30 #クリティカル抑制"
-output = "(BB+5>30) ＞ 65+5 ＞ 74 ＞ 命中"
+output = "(BB+5>30) ＞ 65+5 ＞ 74 ＞ 命中(+28)"
 success = true
 rands = [
   { sides = 6, value = 6 }
@@ -78,7 +78,7 @@ rands = [
 [[ test ]]
 game_system = "GundamSentinel"
 input = "BBM+8>30 #加算によるクリティカル表示"
-output = "(BBM+8>30) ＞ 55+8 ＞ 71 ＞ 命中 ＞ クリティカル"
+output = "(BBM+8>30) ＞ 55+8 ＞ 71 ＞ 命中(+25) ＞ クリティカル"
 success = true
 critical = true
 rands = [

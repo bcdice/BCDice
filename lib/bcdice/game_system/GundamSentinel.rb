@@ -82,7 +82,7 @@ module BCDice
         result = nil
         if have_avoid
           if total > avoid
-            result = "命中"
+            result = "命中(+" + count_success(total, avoid).to_s + ")"
             success = true
           else
             result = "回避"
@@ -103,6 +103,15 @@ module BCDice
           r.failure = failure
           r.critical = critical
         end
+      end
+
+      def count_success(dice, avoid)
+        d60 = dice.div(10)
+        d06 = dice.modulo(10)
+        a60 = avoid.div(10)
+        a06 = avoid.modulo(10)
+
+        return ((d60 * 6 + d06) - (a60 * 6 + a06))
       end
 
       # 一般技能ロール
