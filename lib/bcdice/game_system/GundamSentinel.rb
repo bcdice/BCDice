@@ -21,7 +21,7 @@ module BCDice
         　例）BB BBM BB+5>14 BBM+5>15
 
         ・一般技能(GS)
-        　GS[+修正]で一般技能を判定します。目標値を指定しない場合は、目標値10で判定します。
+        　GS[+修正][>目標値]で一般技能を判定します。目標値を指定しない場合は、目標値10で判定します。
 
         　例）GS GS+5 GS+5>10
       INFO_MESSAGE_TEXT
@@ -58,6 +58,7 @@ module BCDice
         d60 += (d06 + modify - 1).div(6)
         d06 = (d06 + modify - 1).modulo(6) + 1
         total = d60 * 10 + d06
+        total = 11 if total < 11
 
         success = false
         failure = false
@@ -65,7 +66,11 @@ module BCDice
 
         modify_label = nil
         if have_modify
-          modify_label = "#{total_d}+#{modify}"
+          if modify >= 0
+            modify_label = "#{total_d}+#{modify}"
+          else
+            modify_label = "#{total_d}#{modify}"
+          end
         end
 
         critical_label = nil
@@ -118,7 +123,11 @@ module BCDice
 
         modify_label = nil
         if have_modify
-          modify_label = "#{dice}+#{modify}"
+          if modfy >= 0
+            modify_label = "#{dice}+#{modify}"
+          else
+            modify_label = "#{dice}-#{modify}"
+          end
         end
         total = dice + modify
         if total > target
