@@ -1,0 +1,119 @@
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BB #基本戦闘"
+output = "(BB) ＞ 15"
+rands = [
+  { sides = 6, value = 1 }
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BB+5 #修正値付き"
+output = "(BB+5) ＞ 15+5 ＞ 24"
+rands = [
+  { sides = 6, value = 1 }
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BB+5>14 #修正値＆目標値付き"
+output = "(BB+5>14) ＞ 15+5 ＞ 24 ＞ 命中"
+success = true
+rands = [
+  { sides = 6, value = 1 }
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BB+5>30 #修正値＆目標値付き"
+output = "(BB+5>30) ＞ 15+5 ＞ 24 ＞ 回避"
+failure = true
+rands = [
+  { sides = 6, value = 1 }
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BB+5>30 #クリティカル抑制"
+output = "(BB+5>30) ＞ 65+5 ＞ 74 ＞ 命中"
+success = true
+rands = [
+  { sides = 6, value = 6 }
+  { sides = 6, value = 5 }
+]
+
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BBM #基本戦闘モブ用"
+output = "(BBM) ＞ 51"
+rands = [
+  { sides = 6, value = 5 }
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BBM #基本戦闘モブ用"
+output = "(BBM) ＞ 66 ＞ クリティカル"
+critical = true
+rands = [
+  { sides = 6, value = 6 }
+  { sides = 6, value = 6 }
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BBM+8>30 #加算によるクリティカル表示"
+output = "(BBM+8>30) ＞ 55+8 ＞ 71 ＞ 命中 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 }
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "GS #一般技能-失敗"
+output = "(GS) ＞ 10 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 5 }
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "GS #一般技能-成功"
+output = "(GS) ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 }
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "GS>10 #一般技能-目標値あり-失敗"
+output = "(GS>10) ＞ 10 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 5 }
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "GS>10 #一般技能-目標値あり-成功"
+output = "(GS>10) ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 }
+  { sides = 6, value = 5 }
+]
+
