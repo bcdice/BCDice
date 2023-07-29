@@ -24,9 +24,11 @@ module BCDice
         　GS[+修正][>目標値]で一般技能を判定します。目標値を指定しない場合は、目標値10で判定します。
 
         　例）GS GS+5 GS+5>10
-      INFO_MESSAGE_TEXT
 
-      register_prefix('BB(M)?([-+][-+\d]+)?(>([-+\d]+))?|GS([-+][-+\d]+)?(>([-+\d]+))?')
+
+        ・各種表
+        　敵MSクリティカルヒットチャート　(ECHC)
+      INFO_MESSAGE_TEXT
 
       def initialize(command)
         super(command)
@@ -36,7 +38,7 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        roll_basic_battle(command) || roll_general_skill(command)
+        roll_basic_battle(command) || roll_general_skill(command) || roll_tables(command, TABLES)
       end
 
       # 基本戦闘ロール
@@ -159,6 +161,30 @@ module BCDice
           r.failure = failure
         end
       end
+
+      # 各種表
+
+      TABLES = {
+        'ECHC' => DiceTable::Table.new(
+          '敵MSクリティカルヒットチャート',
+          '2D6',
+          [
+            'コックピット直撃：目標ＭＳは残骸となる。',
+            '腕破損：同時に携帯武器も失う。携帯武装の交換も行えない。直ちにモラル判定を－４で行う。',
+            '射撃武装破損：目標ＭＳはその時点で使用しているナンバーの若い武装を１つ失う。全ての武装を失った場合、モラル判定を行う。',
+            '頭部直撃：目標ＭＳはメインカメラを失い、以後射撃、格闘の命中判定に－６の修正を受ける。頭部に装備されている武装も失われる。',
+            'パイロット気絶：目標ＭＳは回復するまで行動不能。',
+            '目標ＭＳへのダメージ２倍。',
+            '目標ＭＳへのダメージ２倍。',
+            '目標ＭＳへのダメージ３倍。',
+            '脚破損：目標ＭＳは、以後の回避値に－６の修正を受ける。',
+            'コントロール不能：目標ＭＳは１Ｄ６ラウンドの間、行動不能。',
+            '熱核ジェネレーター直撃：目標ＭＳは直ちに爆発（耐久力０）する。',
+          ]
+        ),
+      }.freeze
+
+      register_prefix('BB(M)?([-+][-+\d]+)?(>([-+\d]+))?', 'GS([-+][-+\d]+)?(>([-+\d]+))?', TABLES.keys)
     end
   end
 end

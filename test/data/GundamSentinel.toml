@@ -126,3 +126,30 @@ rands = [
   { sides = 6, value = 5 },
 ]
 
+[[ test ]]
+game_system = "GundamSentinel"
+input = "ECHC #敵MSクリティカルヒットチャート"
+output = "敵MSクリティカルヒットチャート(2) ＞ コックピット直撃：目標ＭＳは残骸となる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "ECHC #敵MSクリティカルヒットチャート"
+output = "敵MSクリティカルヒットチャート(7) ＞ 目標ＭＳへのダメージ２倍。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "ECHC #敵MSクリティカルヒットチャート"
+output = "敵MSクリティカルヒットチャート(12) ＞ 熱核ジェネレーター直撃：目標ＭＳは直ちに爆発（耐久力０）する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
