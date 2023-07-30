@@ -44,11 +44,11 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         roll_basic_battle(command) ||
-        roll_general_skill(command) ||
-        roll_anti_aircraft_gun_result_chart(command) ||
-        roll_PC_Escape_Judgment_Chart(command) ||
-        roll_Rehabilitation_judgment_chart(command) ||
-        roll_tables(command, TABLES)
+          roll_general_skill(command) ||
+          roll_anti_aircraft_gun_result_chart(command) ||
+          roll_PC_Escape_Judgment_Chart(command) ||
+          roll_Rehabilitation_judgment_chart(command) ||
+          roll_tables(command, TABLES)
       end
 
       # 基本戦闘ロール
@@ -178,11 +178,11 @@ module BCDice
       def index_within_collect_range(range_min, range_max, index_no)
         index_no = range_min if index_no < range_min
         index_no = range_max if index_no > range_max
-        
+
         return index_no
       end
 
-      def get_GundamSentinel_anti_aircraft_gun_result_chart
+      def read_GundamSentinel_anti_aircraft_gun_result_chart
         anti_aircraft_gun_result_chart = [
           '*,*,*,*,*,*,*',
           '*,D,D,D,D,D,D',
@@ -211,8 +211,8 @@ module BCDice
         defence_rate5 = []
         defence_rate6 = []
 
-        anti_aircraft_gun_result_chart.each do |rateText|
-          rate_arr = rateText.split(/,/)
+        anti_aircraft_gun_result_chart.each do |ratetext|
+          rate_arr = ratetext.split(/,/)
           defence_rate0.push('*')
           defence_rate1.push(rate_arr[1])
           defence_rate2.push(rate_arr[2])
@@ -246,7 +246,7 @@ module BCDice
           end
         end
         total = index_within_collect_range(1, 13, dice + modify)
-        newChart = getNew_anti_aircraft_gun_result_chart(get_GundamSentinel_anti_aircraft_gun_result_chart)
+        newChart = getNew_anti_aircraft_gun_result_chart(read_GundamSentinel_anti_aircraft_gun_result_chart)
         result = newChart[target][total]
 
         sequence = [
@@ -257,9 +257,13 @@ module BCDice
         ].compact
 
         Result.new(sequence.join(" ＞ ")).tap do |r|
-          success = true if Float(result) rescue success = false
+          begin
+            success = true if Float(result)
+          rescue StandardError
+            success = false
+          end
           r.success = success
-          r.failure = ! success
+          r.failure = !success
         end
       end
 
