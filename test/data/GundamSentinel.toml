@@ -267,3 +267,30 @@ rands = [
   { sides = 6, value = 6 },
 ]
 
+[[ test ]]
+game_system = "GundamSentinel"
+input = "RTJC #リハビリ判定チャート"
+output = "リハビリ判定チャート(2) ＞ なし"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "RTJC #リハビリ判定チャート"
+output = "リハビリ判定チャート(12) ＞ １年と、もう一度このチャートで振った結果分を足した期間"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "RTJC+1 #リハビリ判定チャート"
+output = "リハビリ判定チャート(7+1=8) ＞ ６ヶ月"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+

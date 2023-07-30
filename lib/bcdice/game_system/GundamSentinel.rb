@@ -28,9 +28,10 @@ module BCDice
 
         ・各種表
         　敵MSクリティカルヒットチャート　(ECHC)
-        　PC用脱出判定チャート　　　　　　(PEJC)
+        　PC用脱出判定チャート　　　　　　(PEJC[+m] m:修正)
         　艦船追加ダメージ決定チャート　　(ASDC)
         　対空砲結果チャート　　　　　　　(AARC[+m]=t m:修正, t=対空防御力)
+        　リハビリ判定チャート　　　　　　(RTJC[+m] m:修正)
       INFO_MESSAGE_TEXT
 
       def initialize(command)
@@ -44,6 +45,8 @@ module BCDice
         roll_basic_battle(command) ||
         roll_general_skill(command) ||
         roll_anti_aircraft_gun_result_chart(command) ||
+        roll_PC_Escape_Judgment_Chart(command) ||
+        roll_Rehabilitation_judgment_chart(command) ||
         roll_tables(command, TABLES)
       end
 
@@ -259,6 +262,112 @@ module BCDice
         end
       end
 
+      # PC用脱出判定チャート
+      def getNew_PC_Escape_Judgment_Chart
+        [
+          '*',
+          '*',
+          '無傷で脱出',
+          '無傷で脱出',
+          '無傷で脱出',
+          '軽傷で脱出「１Ｄ６ダメージ。」',
+          '中傷で脱出「２Ｄ６ダメージ。」',
+          '重傷で脱出「３Ｄ６ダメージ。」',
+          '重体で脱出「１Ｄ３の耐久力が残る。」',
+          '戦死「二階級特進。」',
+          '戦死「二階級特進。」',
+          '戦死「二階級特進。」',
+          '戦死「二階級特進。」',
+        ]
+      end
+
+      def roll_PC_Escape_Judgment_Chart(command)
+        m = /^PEJC([-+][-+\d]+)?/.match(command)
+        return nil unless m
+
+        modify = ArithmeticEvaluator.eval(m[1])
+        have_modify = false
+        have_modify = true if m[1]
+
+        dice = @randomizer.roll_sum(2, 6)
+        total = index_within_collect_range(2, 12, dice + modify)
+
+        modify_label = nil
+        base_label = "PC用脱出判定チャート"
+        if have_modify
+          if modify >= 0
+            modify_label = "#{dice}+#{modify}"
+          else
+            modify_label = "#{dice}#{modify}"
+          end
+          base_label += "(#{modify_label}=#{total})"
+        else
+          base_label += "(#{total})"
+        end
+        newChart = getNew_PC_Escape_Judgment_Chart
+        result = newChart[total]
+
+        sequence = [
+          base_label,
+          result,
+        ].compact
+
+        Result.new(sequence.join(" ＞ "))
+      end
+
+      # リハビリ判定チャート
+      def getNew_Rehabilitation_judgment_chart
+        [
+          '*',
+          '*',
+          'なし',
+          '１ヶ月',
+          '２ヶ月',
+          '３ヶ月',
+          '４ヶ月',
+          '５ヶ月',
+          '６ヶ月',
+          '１０ヶ月',
+          '１年',
+          '１年６ヶ月',
+          '１年と、もう一度このチャートで振った結果分を足した期間',
+        ]
+      end
+
+      def roll_Rehabilitation_judgment_chart(command)
+        m = /^RTJC([-+][-+\d]+)?/.match(command)
+        return nil unless m
+
+        modify = ArithmeticEvaluator.eval(m[1])
+        have_modify = false
+        have_modify = true if m[1]
+
+        dice = @randomizer.roll_sum(2, 6)
+        total = index_within_collect_range(2, 12, dice + modify)
+
+        modify_label = nil
+        base_label = "リハビリ判定チャート"
+        if have_modify
+          if modify >= 0
+            modify_label = "#{dice}+#{modify}"
+          else
+            modify_label = "#{dice}#{modify}"
+          end
+          base_label += "(#{modify_label}=#{total})"
+        else
+          base_label += "(#{total})"
+        end
+        newChart = getNew_Rehabilitation_judgment_chart
+        result = newChart[total]
+
+        sequence = [
+          base_label,
+          result,
+        ].compact
+
+        Result.new(sequence.join(" ＞ "))
+      end
+
       TABLES = {
         'ECHC' => DiceTable::Table.new(
           '敵MSクリティカルヒットチャート',
@@ -275,24 +384,6 @@ module BCDice
             '脚破損：目標ＭＳは、以後の回避値に－６の修正を受ける。',
             'コントロール不能：目標ＭＳは１Ｄ６ラウンドの間、行動不能。',
             '熱核ジェネレーター直撃：目標ＭＳは直ちに爆発（耐久力０）する。',
-          ]
-        ),
-
-        'PEJC' => DiceTable::Table.new(
-          'PC用脱出判定チャート',
-          '2D6',
-          [
-            '無傷で脱出',
-            '無傷で脱出',
-            '無傷で脱出',
-            '軽傷で脱出「１Ｄ６ダメージ。」',
-            '中傷で脱出「２Ｄ６ダメージ。」',
-            '重傷で脱出「３Ｄ６ダメージ。」',
-            '重体で脱出「１Ｄ３の耐久力が残る。」',
-            '戦死「二階級特進。」',
-            '戦死「二階級特進。」',
-            '戦死「二階級特進。」',
-            '戦死「二階級特進。」',
           ]
         ),
 
@@ -315,7 +406,7 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix('BB(M)?([-+][-+\d]+)?(>([-+\d]+))?', 'GS([-+][-+\d]+)?(>([-+\d]+))?', 'AARC([-+][-+\d]+)?(=(\d))', TABLES.keys)
+      register_prefix('BB(M)?([-+][-+\d]+)?(>([-+\d]+))?', 'GS([-+][-+\d]+)?(>([-+\d]+))?', 'AARC([-+][-+\d]+)?(=(\d))', 'PEJC([-+][-+\d]+)?', 'RTJC([-+][-+\d]+)?', TABLES.keys)
     end
   end
 end
