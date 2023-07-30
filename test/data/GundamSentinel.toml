@@ -294,3 +294,30 @@ rands = [
   { sides = 6, value = 4 },
 ]
 
+[[ test ]]
+game_system = "GundamSentinel"
+input = "SDDC #二次被害判定チャート"
+output = "二次被害判定チャート(11) ＞ 奇蹟的に無傷「不発！？今回のダメージは0。」"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "SDDC #二次被害判定チャート"
+output = "二次被害判定チャート(16) ＞ 気絶「気絶判定の余地無く、必ず気絶する。」"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "SDDC #二次被害判定チャート"
+output = "二次被害判定チャート(66) ＞ 熱核ジェネレーター直撃「そのＭＳは爆発する。ＰＣは直ちに脱出判定を行う。」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
