@@ -30,6 +30,7 @@ module BCDice
         　敵MSクリティカルヒットチャート　(ECHC)
         　PC用脱出判定チャート　　　　　　(PEJC)
         　艦船追加ダメージ決定チャート　　(ASDC)
+        　対空砲結果チャート　　　　　　　(AARC[+m]=t m:修正, t=対空防御力)
       INFO_MESSAGE_TEXT
 
       def initialize(command)
@@ -40,7 +41,10 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        roll_basic_battle(command) || roll_general_skill(command) || roll_tables(command, TABLES)
+        roll_basic_battle(command) ||
+        roll_general_skill(command) ||
+        roll_anti_aircraft_gun_result_chart(command) ||
+        roll_tables(command, TABLES)
       end
 
       # 基本戦闘ロール
@@ -136,10 +140,10 @@ module BCDice
 
         modify_label = nil
         if have_modify
-          if modfy >= 0
+          if modify >= 0
             modify_label = "#{dice}+#{modify}"
           else
-            modify_label = "#{dice}-#{modify}"
+            modify_label = "#{dice}#{modify}"
           end
         end
         total = dice + modify
@@ -165,6 +169,95 @@ module BCDice
       end
 
       # 各種表
+
+      # 対空砲結果チャート
+      def index_within_collect_range(range_min, range_max, index_no)
+        index_no = range_min if index_no < range_min
+        index_no = range_max if index_no > range_max
+        
+        return index_no
+      end
+
+      def get_GundamSentinel_anti_aircraft_gun_result_chart
+        anti_aircraft_gun_result_chart = [
+          '*,*,*,*,*,*,*',
+          '*,D,D,D,D,D,D',
+          '*,H,H,D,D,D,D',
+          '*,H,H,H,H,D,D',
+          '*,H,H,H,H,H,H',
+          '*,10,12,H,H,H,H',
+          '*,8,10,12,14,H,H',
+          '*,6,9,10,13,14,H',
+          '*,5,8,9,12,13,16',
+          '*,4,6,7,10,11,14',
+          '*,2,5,6,8,9,12',
+          '*,1,3,4,6,7,11',
+          '*,-,2,3,5,6,8',
+          '*,-,-,1,3,4,6'
+        ]
+        return anti_aircraft_gun_result_chart
+      end
+
+      def getNew_anti_aircraft_gun_result_chart(anti_aircraft_gun_result_chart)
+        defence_rate0 = []
+        defence_rate1 = []
+        defence_rate2 = []
+        defence_rate3 = []
+        defence_rate4 = []
+        defence_rate5 = []
+        defence_rate6 = []
+
+        anti_aircraft_gun_result_chart.each do |rateText|
+          rate_arr = rateText.split(/,/)
+          defence_rate0.push('*')
+          defence_rate1.push(rate_arr[1])
+          defence_rate2.push(rate_arr[2])
+          defence_rate3.push(rate_arr[3])
+          defence_rate4.push(rate_arr[4])
+          defence_rate5.push(rate_arr[5])
+          defence_rate6.push(rate_arr[6])
+        end
+
+        return [defence_rate0, defence_rate1, defence_rate2, defence_rate3, defence_rate4, defence_rate5, defence_rate6]
+      end
+
+      def roll_anti_aircraft_gun_result_chart(command)
+        m = /^AARC([-+][-+\d]+)?(=(\d))/.match(command)
+        return nil unless m
+
+        modify = ArithmeticEvaluator.eval(m[1])
+        have_modify = false
+        have_modify = true if m[1]
+        target = ArithmeticEvaluator.eval(m[3])
+        target = index_within_collect_range(1, 6, target)
+
+        dice = @randomizer.roll_sum(2, 6)
+
+        modify_label = nil
+        if have_modify
+          if modify >= 0
+            modify_label = "#{dice}+#{modify}"
+          else
+            modify_label = "#{dice}#{modify}"
+          end
+        end
+        total = index_within_collect_range(1, 13, dice + modify)
+        newChart = getNew_anti_aircraft_gun_result_chart(get_GundamSentinel_anti_aircraft_gun_result_chart)
+        result = newChart[target][total]
+
+        sequence = [
+          "(#{command})",
+          modify_label,
+          total,
+          "対空砲結果チャート(#{total}vs#{target}):結果「#{result}」",
+        ].compact
+
+        Result.new(sequence.join(" ＞ ")).tap do |r|
+          success = true if Float(result) rescue success = false
+          r.success = success
+          r.failure = ! success
+        end
+      end
 
       TABLES = {
         'ECHC' => DiceTable::Table.new(
@@ -222,7 +315,7 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix('BB(M)?([-+][-+\d]+)?(>([-+\d]+))?', 'GS([-+][-+\d]+)?(>([-+\d]+))?', TABLES.keys)
+      register_prefix('BB(M)?([-+][-+\d]+)?(>([-+\d]+))?', 'GS([-+][-+\d]+)?(>([-+\d]+))?', 'AARC([-+][-+\d]+)?(=(\d))', TABLES.keys)
     end
   end
 end
