@@ -30,7 +30,7 @@ module BCDice
         　敵MSクリティカルヒットチャート　(ECHC)
         　PC用脱出判定チャート　　　　　　(PEJC[+m] m:修正)
         　艦船追加ダメージ決定チャート　　(ASDC)
-        　対空砲結果チャート　　　　　　　(AARC[+m]=t m:修正, t=対空防御力)
+        　対空砲結果チャート　　　　　　　(AARC[+m]=t m:修正, t:対空防御力)
         　リハビリ判定チャート　　　　　　(RTJC[+m] m:修正)
         　二次被害判定チャート　　　　　　(SDDC)
       INFO_MESSAGE_TEXT
