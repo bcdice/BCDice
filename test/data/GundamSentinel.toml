@@ -153,3 +153,57 @@ rands = [
   { sides = 6, value = 6 },
 ]
 
+[[ test ]]
+game_system = "GundamSentinel"
+input = "PEJC #PC用脱出判定チャート"
+output = "PC用脱出判定チャート(2) ＞ 無傷で脱出"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "PEJC #PC用脱出判定チャート"
+output = "PC用脱出判定チャート(7) ＞ 重傷で脱出「３Ｄ６ダメージ。」"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "PEJC #PC用脱出判定チャート"
+output = "PC用脱出判定チャート(12) ＞ 戦死「二階級特進。」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "ASDC #艦船追加ダメージ決定チャート"
+output = "艦船追加ダメージ決定チャート(2) ＞ ブリッジ損傷「複数ある艦は、総てのブリッジが損傷すると以後の対空防御は修正を＋５する。」"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "ASDC #艦船追加ダメージ決定チャート"
+output = "艦船追加ダメージ決定チャート(7) ＞ 追加ダメージ「追加２Ｄ６ダメージ。」"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "ASDC #艦船追加ダメージ決定チャート"
+output = "艦船追加ダメージ決定チャート(12) ＞ エンジン誘爆「１Ｄ６×１０％の耐久力を失う。」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
