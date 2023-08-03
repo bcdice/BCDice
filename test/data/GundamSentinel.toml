@@ -210,7 +210,7 @@ rands = [
 [[ test ]]
 game_system = "GundamSentinel"
 input = "AARC=1 #対空砲結果チャート"
-output = "(AARC=1) ＞ 7 ＞ 対空砲結果チャート(7vs1):結果「6」"
+output = "対空砲結果チャート(7vs1) ＞ 結果「6」"
 success = true
 rands = [
   { sides = 6, value = 3 },
@@ -220,7 +220,7 @@ rands = [
 [[ test ]]
 game_system = "GundamSentinel"
 input = "AARC=6 #対空砲結果チャート"
-output = "(AARC=6) ＞ 7 ＞ 対空砲結果チャート(7vs6):結果「H」"
+output = "対空砲結果チャート(7vs6) ＞ 結果「H」"
 failure = true
 rands = [
   { sides = 6, value = 3 },
@@ -230,7 +230,7 @@ rands = [
 [[ test ]]
 game_system = "GundamSentinel"
 input = "AARC-1=1 #対空砲結果チャート"
-output = "(AARC-1=1) ＞ 2-1 ＞ 1 ＞ 対空砲結果チャート(1vs1):結果「D」"
+output = "対空砲結果チャート((2-1=1)vs1) ＞ 結果「D」"
 failure = true
 rands = [
   { sides = 6, value = 1 },
@@ -240,7 +240,7 @@ rands = [
 [[ test ]]
 game_system = "GundamSentinel"
 input = "AARC-1=6 #対空砲結果チャート"
-output = "(AARC-1=6) ＞ 2-1 ＞ 1 ＞ 対空砲結果チャート(1vs6):結果「D」"
+output = "対空砲結果チャート((2-1=1)vs6) ＞ 結果「D」"
 failure = true
 rands = [
   { sides = 6, value = 1 },
@@ -250,7 +250,7 @@ rands = [
 [[ test ]]
 game_system = "GundamSentinel"
 input = "AARC+1=1 #対空砲結果チャート"
-output = "(AARC+1=1) ＞ 12+1 ＞ 13 ＞ 対空砲結果チャート(13vs1):結果「-」"
+output = "対空砲結果チャート((12+1=13)vs1) ＞ 結果「-」"
 failure = true
 rands = [
   { sides = 6, value = 6 },
@@ -260,7 +260,7 @@ rands = [
 [[ test ]]
 game_system = "GundamSentinel"
 input = "AARC+1=6 #対空砲結果チャート"
-output = "(AARC+1=6) ＞ 12+1 ＞ 13 ＞ 対空砲結果チャート(13vs6):結果「6」"
+output = "対空砲結果チャート((12+1=13)vs6) ＞ 結果「6」"
 success = true
 rands = [
   { sides = 6, value = 6 },

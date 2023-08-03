@@ -236,7 +236,9 @@ module BCDice
         target = index_within_collect_range(1, 6, target)
 
         dice = @randomizer.roll_sum(2, 6)
+        total = index_within_collect_range(1, 13, dice + modify)
 
+        base_label = "対空砲結果チャート"
         modify_label = nil
         if have_modify
           if modify >= 0
@@ -244,16 +246,16 @@ module BCDice
           else
             modify_label = "#{dice}#{modify}"
           end
+          base_label += "((#{modify_label}=#{total})vs#{target})"
+        else
+          base_label += "(#{total}vs#{target})"
         end
-        total = index_within_collect_range(1, 13, dice + modify)
         newChart = getNew_anti_aircraft_gun_result_chart(read_GundamSentinel_anti_aircraft_gun_result_chart)
         result = newChart[target][total]
 
         sequence = [
-          "(#{command})",
-          modify_label,
-          total,
-          "対空砲結果チャート(#{total}vs#{target}):結果「#{result}」",
+          base_label,
+          "結果「#{result}」",
         ].compact
 
         Result.new(sequence.join(" ＞ ")).tap do |r|
