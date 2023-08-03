@@ -46,10 +46,12 @@ module BCDice
         roll_basic_battle(command) ||
           roll_general_skill(command) ||
           roll_anti_aircraft_gun_result_chart(command) ||
-          roll_PC_Escape_Judgment_Chart(command) ||
-          roll_Rehabilitation_judgment_chart(command) ||
+          roll_escape_chart(command) ||
+          roll_rehabilitation_chart(command) ||
           roll_tables(command, TABLES)
       end
+
+      private
 
       # 基本戦闘ロール
       def roll_basic_battle(command)
@@ -175,204 +177,108 @@ module BCDice
       # 各種表
 
       # 対空砲結果チャート
-      def index_within_collect_range(range_min, range_max, index_no)
-        index_no = range_min if index_no < range_min
-        index_no = range_max if index_no > range_max
-
-        return index_no
-      end
-
-      def read_GundamSentinel_anti_aircraft_gun_result_chart
-        anti_aircraft_gun_result_chart = [
-          '*,*,*,*,*,*,*',
-          '*,D,D,D,D,D,D',
-          '*,H,H,D,D,D,D',
-          '*,H,H,H,H,D,D',
-          '*,H,H,H,H,H,H',
-          '*,10,12,H,H,H,H',
-          '*,8,10,12,14,H,H',
-          '*,6,9,10,13,14,H',
-          '*,5,8,9,12,13,16',
-          '*,4,6,7,10,11,14',
-          '*,2,5,6,8,9,12',
-          '*,1,3,4,6,7,11',
-          '*,-,2,3,5,6,8',
-          '*,-,-,1,3,4,6'
-        ]
-        return anti_aircraft_gun_result_chart
-      end
-
-      def getNew_anti_aircraft_gun_result_chart(anti_aircraft_gun_result_chart)
-        defence_rate0 = []
-        defence_rate1 = []
-        defence_rate2 = []
-        defence_rate3 = []
-        defence_rate4 = []
-        defence_rate5 = []
-        defence_rate6 = []
-
-        anti_aircraft_gun_result_chart.each do |ratetext|
-          rate_arr = ratetext.split(/,/)
-          defence_rate0.push('*')
-          defence_rate1.push(rate_arr[1])
-          defence_rate2.push(rate_arr[2])
-          defence_rate3.push(rate_arr[3])
-          defence_rate4.push(rate_arr[4])
-          defence_rate5.push(rate_arr[5])
-          defence_rate6.push(rate_arr[6])
-        end
-
-        return [defence_rate0, defence_rate1, defence_rate2, defence_rate3, defence_rate4, defence_rate5, defence_rate6]
-      end
+      GUN_RESULT_CHART = [
+        ["D", "H", "H", "H", 10, 8, 6, 5, 4, 2, 1, "-", "-"],
+        ["D", "H", "H", "H", 12, 10, 9, 8, 6, 5, 3, 2, "-"],
+        ["D", "D", "H", "H", "H", 12, 10, 9, 7, 6, 4, 3, 1],
+        ["D", "D", "H", "H", "H", 14, 13, 12, 10, 8, 6, 5, 3],
+        ["D", "D", "D", "H", "H", "H", 14, 13, 11, 9, 7, 6, 4],
+        ["D", "D", "D", "H", "H", "H", "H", 16, 14, 12, 11, 8, 6],
+      ].freeze
 
       def roll_anti_aircraft_gun_result_chart(command)
-        m = /^AARC([-+][-+\d]+)?(=(\d))/.match(command)
-        return nil unless m
+        parser = Command::Parser.new("AARC", round_type: @round_type).restrict_cmp_op_to(:==)
+        parsed = parser.parse(command)
 
-        modify = ArithmeticEvaluator.eval(m[1])
-        have_modify = false
-        have_modify = true if m[1]
-        target = ArithmeticEvaluator.eval(m[3])
-        target = index_within_collect_range(1, 6, target)
+        return nil unless parsed
 
+        target = parsed.target_number.clamp(1, 6)
         dice = @randomizer.roll_sum(2, 6)
-        total = index_within_collect_range(1, 13, dice + modify)
+        total = (dice + parsed.modify_number).clamp(1, 13)
 
-        base_label = "対空砲結果チャート"
-        modify_label = nil
-        if have_modify
-          if modify >= 0
-            modify_label = "#{dice}+#{modify}"
+        cmd =
+          if parsed.modify_number != 0
+            "(#{dice}#{Format.modifier(parsed.modify_number)}=#{total})"
           else
-            modify_label = "#{dice}#{modify}"
+            total.to_s
           end
-          base_label += "((#{modify_label}=#{total})vs#{target})"
-        else
-          base_label += "(#{total}vs#{target})"
-        end
-        newChart = getNew_anti_aircraft_gun_result_chart(read_GundamSentinel_anti_aircraft_gun_result_chart)
-        result = newChart[target][total]
+        result = GUN_RESULT_CHART[target - 1][total - 1]
 
-        sequence = [
-          base_label,
-          "結果「#{result}」",
-        ].compact
-
-        Result.new(sequence.join(" ＞ ")).tap do |r|
-          begin
-            success = true if Float(result)
-          rescue StandardError
-            success = false
-          end
-          r.success = success
-          r.failure = !success
+        Result.new().tap do |r|
+          r.text = "対空砲結果チャート(#{cmd}vs#{target}) ＞ 結果「#{result}」"
+          r.condition = result.is_a?(Integer)
         end
       end
 
       # PC用脱出判定チャート
-      def getNew_PC_Escape_Judgment_Chart
-        [
-          '*',
-          '*',
-          '無傷で脱出',
-          '無傷で脱出',
-          '無傷で脱出',
-          '軽傷で脱出「１Ｄ６ダメージ。」',
-          '中傷で脱出「２Ｄ６ダメージ。」',
-          '重傷で脱出「３Ｄ６ダメージ。」',
-          '重体で脱出「１Ｄ３の耐久力が残る。」',
-          '戦死「二階級特進。」',
-          '戦死「二階級特進。」',
-          '戦死「二階級特進。」',
-          '戦死「二階級特進。」',
-        ]
-      end
+      ESCAPE_CHART = [
+        '*',
+        '*',
+        '無傷で脱出',
+        '無傷で脱出',
+        '無傷で脱出',
+        '軽傷で脱出「１Ｄ６ダメージ。」',
+        '中傷で脱出「２Ｄ６ダメージ。」',
+        '重傷で脱出「３Ｄ６ダメージ。」',
+        '重体で脱出「１Ｄ３の耐久力が残る。」',
+        '戦死「二階級特進。」',
+        '戦死「二階級特進。」',
+        '戦死「二階級特進。」',
+        '戦死「二階級特進。」',
+      ].freeze
 
-      def roll_PC_Escape_Judgment_Chart(command)
-        m = /^PEJC([-+][-+\d]+)?/.match(command)
-        return nil unless m
-
-        modify = ArithmeticEvaluator.eval(m[1])
-        have_modify = false
-        have_modify = true if m[1]
+      def roll_escape_chart(command)
+        parser = Command::Parser.new("PEJC", round_type: @round_type).restrict_cmp_op_to(nil)
+        parsed = parser.parse(command)
+        return nil unless parsed
 
         dice = @randomizer.roll_sum(2, 6)
-        total = index_within_collect_range(2, 12, dice + modify)
+        total = (dice + parsed.modify_number).clamp(2, 12)
 
-        modify_label = nil
-        base_label = "PC用脱出判定チャート"
-        if have_modify
-          if modify >= 0
-            modify_label = "#{dice}+#{modify}"
+        cmd =
+          if parsed.modify_number != 0
+            "#{dice}#{Format.modifier(parsed.modify_number)}=#{total}"
           else
-            modify_label = "#{dice}#{modify}"
+            total.to_s
           end
-          base_label += "(#{modify_label}=#{total})"
-        else
-          base_label += "(#{total})"
-        end
-        newChart = getNew_PC_Escape_Judgment_Chart
-        result = newChart[total]
+        result = ESCAPE_CHART[total]
 
-        sequence = [
-          base_label,
-          result,
-        ].compact
-
-        Result.new(sequence.join(" ＞ "))
+        Result.new("PC用脱出判定チャート(#{cmd}) ＞ #{result}")
       end
 
-      # リハビリ判定チャート
-      def getNew_Rehabilitation_judgment_chart
-        [
-          '*',
-          '*',
-          'なし',
-          '１ヶ月',
-          '２ヶ月',
-          '３ヶ月',
-          '４ヶ月',
-          '５ヶ月',
-          '６ヶ月',
-          '１０ヶ月',
-          '１年',
-          '１年６ヶ月',
-          '１年と、もう一度このチャートで振った結果分を足した期間',
-        ]
-      end
+      REHABILITATION_CHART = [
+        '*',
+        '*',
+        'なし',
+        '１ヶ月',
+        '２ヶ月',
+        '３ヶ月',
+        '４ヶ月',
+        '５ヶ月',
+        '６ヶ月',
+        '１０ヶ月',
+        '１年',
+        '１年６ヶ月',
+        '１年と、もう一度このチャートで振った結果分を足した期間',
+      ].freeze
 
-      def roll_Rehabilitation_judgment_chart(command)
-        m = /^RTJC([-+][-+\d]+)?/.match(command)
-        return nil unless m
-
-        modify = ArithmeticEvaluator.eval(m[1])
-        have_modify = false
-        have_modify = true if m[1]
+      def roll_rehabilitation_chart(command)
+        parser = Command::Parser.new("RTJC", round_type: @round_type).restrict_cmp_op_to(nil)
+        parsed = parser.parse(command)
+        return nil unless parsed
 
         dice = @randomizer.roll_sum(2, 6)
-        total = index_within_collect_range(2, 12, dice + modify)
+        total = (dice + parsed.modify_number).clamp(2, 12)
 
-        modify_label = nil
-        base_label = "リハビリ判定チャート"
-        if have_modify
-          if modify >= 0
-            modify_label = "#{dice}+#{modify}"
+        cmd =
+          if parsed.modify_number != 0
+            "#{dice}#{Format.modifier(parsed.modify_number)}=#{total}"
           else
-            modify_label = "#{dice}#{modify}"
+            total.to_s
           end
-          base_label += "(#{modify_label}=#{total})"
-        else
-          base_label += "(#{total})"
-        end
-        newChart = getNew_Rehabilitation_judgment_chart
-        result = newChart[total]
+        result = REHABILITATION_CHART[total]
 
-        sequence = [
-          base_label,
-          result,
-        ].compact
-
-        Result.new(sequence.join(" ＞ "))
+        Result.new("リハビリ判定チャート(#{cmd}) ＞ #{result}")
       end
 
       TABLES = {
@@ -393,7 +299,6 @@ module BCDice
             '熱核ジェネレーター直撃：目標ＭＳは直ちに爆発（耐久力０）する。',
           ]
         ),
-
         'ASDC' => DiceTable::Table.new(
           '艦船追加ダメージ決定チャート',
           '2D6',
@@ -411,7 +316,6 @@ module BCDice
             'エンジン誘爆「１Ｄ６×１０％の耐久力を失う。」',
           ]
         ),
-
         'SDDC' => DiceTable::D66GridTable.new(
           '二次被害判定チャート',
           [
@@ -467,7 +371,7 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix('BB(M)?([-+][-+\d]+)?(>([-+\d]+))?', 'GS([-+][-+\d]+)?(>([-+\d]+))?', 'AARC([-+][-+\d]+)?(=(\d))', 'PEJC([-+][-+\d]+)?', 'RTJC([-+][-+\d]+)?', TABLES.keys)
+      register_prefix('BBM?', 'GS', 'AARC', 'PEJC', 'RTJC', TABLES.keys)
     end
   end
 end
