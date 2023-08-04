@@ -52,12 +52,6 @@ Lint/StructNewOverride:
 Lint/MissingSuper:
   Enabled: false
 
-Naming/VariableName:
-  Enabled: false
-
-Naming/VariableNumber:
-  Enabled: false
-
 Style/AsciiComments:
   Enabled: false
 
