@@ -1,0 +1,136 @@
+[[ test ]]
+game_system = "MamonoScramble"
+input = "1MS<=6"
+output = "(1MS<=6) ＞ [6] ＞ 成功, [マリョク]が1上がる"
+success = true
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "1MS<=6"
+output = "(1MS<=6) ＞ [1] ＞ 成功, [マリョク]が2上がる"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "1MS<=6"
+output = "(1MS<=6) ＞ [7] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 7 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "2MS<=6"
+output = "(2MS<=6) ＞ [6,7] ＞ 成功, [マリョク]が1上がる"
+success = true
+rands = [
+  { sides = 12, value = 7 },
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "2MS<=6"
+output = "(2MS<=6) ＞ [4,5] ＞ 成功, [マリョク]が2上がる"
+success = true
+rands = [
+  { sides = 12, value = 4 },
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "2MS<=6"
+output = "(2MS<=6) ＞ [4,12] ＞ 成功, [マリョク]が0上がる"
+success = true
+rands = [
+  { sides = 12, value = 4 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "2MS<=6"
+output = "(2MS<=6) ＞ [1,12] ＞ 成功, [マリョク]が2上がる"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 1 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "2MS<=6"
+output = "(2MS<=6) ＞ [1,7] ＞ 成功, [マリョク]が2上がる"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 1 },
+  { sides = 12, value = 7 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "2MS<=6"
+output = "(2MS<=6) ＞ [1,1] ＞ 成功, [マリョク]が4上がる"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 1 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "2MS<=6"
+output = "(2MS<=6) ＞ [7,12] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 7 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "3MS<=10"
+output = "(3MS<=10) ＞ [1,5,12] ＞ 成功, [マリョク]が3上がる"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 1 },
+  { sides = 12, value = 5 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "ACC"
+output = "アクシデント表(1) ＞ 思わぬ対立：[判定]で10〜12の出目を1個でも出した場合、【耐久値】を2点減らす。"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "ACC"
+output = "アクシデント表(6) ＞ からりと晴天：エリアの[特性]に[強い日光]や[日だまり]などを足してもいい。"
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "MamonoScramble"
+input = "ACC"
+output = "アクシデント表(12) ＞ 平穏な時間：特別な効果は発生しない。"
+rands = [
+  { sides = 12, value = 12 },
+]
