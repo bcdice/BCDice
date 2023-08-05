@@ -48,7 +48,7 @@ module BCDice
         when /RSA/i
           return do_resistance_active_characteristic_roll(command)
         end
-        Result.nothing
+        return nil
       end
 
       private
@@ -57,7 +57,7 @@ module BCDice
       def do_ability_roll(command)
         m = %r{\A(RQG)(<=([+-/*\d]+))?$}.match(command)
         unless m
-          return Result.nothing
+          return nil
         end
 
         roll_value = @randomizer.roll_once(100)
@@ -84,11 +84,11 @@ module BCDice
       def do_resistance_roll(command)
         m = %r{\A(RES)([+-/*\d]+)(M([+-/*\d]+))?$}.match(command)
         unless m
-          return Result.nothing
+          return nil
         end
 
         unless m[2]
-          return Result.nothing
+          return nil
         end
 
         difference_value = Arithmetic.eval(m[2], :round)
@@ -108,11 +108,11 @@ module BCDice
       def do_resistance_active_characteristic_roll(command)
         m = %r{\A(RSA)(\d+)(M([+-/*\d]+))?$}.match(command)
         unless m
-          return Result.nothing
+          return nil
         end
 
         unless m[2]
-          return Result.nothing
+          return nil
         end
 
         active_ability_value = m[2].to_i
