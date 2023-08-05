@@ -66,7 +66,7 @@ module BCDice
           return "(1D100) ＞ #{roll_value}"
         end
 
-        ability_value = Arithmetic.eval(m[3], :round)
+        ability_value = Arithmetic.eval(m[3], RoundType::ROUND)
         result_prefix_str = "(1D100<=#{ability_value}) ＞"
 
         if ability_value == 0
@@ -91,11 +91,11 @@ module BCDice
           return nil
         end
 
-        difference_value = Arithmetic.eval(m[2], :round)
+        difference_value = Arithmetic.eval(m[2], RoundType::ROUND)
         difference_value = -10 if difference_value < -10
 
         resistance_velue = 50 + (difference_value * 5)
-        resistance_velue += Arithmetic.eval(m[4], :round) if m[4]
+        resistance_velue += Arithmetic.eval(m[4], RoundType::ROUND) if m[4]
 
         roll_value = @randomizer.roll_once(100)
         result_str = "(1D100<=#{resistance_velue}) ＞ #{roll_value} ＞"
@@ -120,7 +120,7 @@ module BCDice
           return "0は指定できません。"
         end
 
-        modifiy_value = m[4] ? Arithmetic.eval(m[4], :round) : 0
+        modifiy_value = m[4] ? Arithmetic.eval(m[4], RoundType::ROUND) : 0
         roll_value = @randomizer.roll_once(100)
         active_value = active_ability_value * 5 + modifiy_value
         result_prefix_str = "(1D100<=#{active_value}) ＞ #{roll_value} ＞"
