@@ -1,0 +1,1495 @@
+#======= RQG 通常判定コマンド =======#
+
+# 1d100をロール(CoC互換機能)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG"
+output = "(1D100) ＞ 15"
+rands = [
+  { sides = 100, value = 15 },
+]
+
+# 失敗(技能値0は判定できない＝失敗とする)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=0"
+output = "(1D100<=0) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+# クリティカル(01の出目でクリティカル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=10"
+output = "(1D100<=10) ＞ 1 ＞ クリティカル/スペシャル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+# 成功(02の出目は成功)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=1"
+output = "(1D100<=1) ＞ 2 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 2 },
+]
+
+# 成功(03の出目は成功)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=1"
+output = "(1D100<=1) ＞ 3 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 3 },
+]
+
+# 成功(04の出目は成功)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=1"
+output = "(1D100<=1) ＞ 4 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 4 },
+]
+
+# 成功(05の出目は成功)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=1"
+output = "(1D100<=1) ＞ 5 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+# 失敗(06の出目は成功ではない)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=1"
+output = "(1D100<=1) ＞ 6 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+# 成功(95の出目は失敗ではない)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=120"
+output = "(1D100<=120) ＞ 95 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 95 },
+]
+
+# 失敗(96の出目は失敗)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=120"
+output = "(1D100<=120) ＞ 96 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+# 失敗(97の出目は失敗)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=120"
+output = "(1D100<=120) ＞ 97 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 97 },
+]
+
+# 失敗(98の出目は失敗)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=120"
+output = "(1D100<=120) ＞ 98 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 98 },
+]
+
+# 失敗(99の出目で失敗)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=120"
+output = "(1D100<=120) ＞ 99 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+# ファンブル(00の出目でファンブル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=120"
+output = "(1D100<=120) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+# クリティカル(境界の出目)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=70"
+output = "(1D100<=70) ＞ 4 ＞ クリティカル/スペシャル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 4 },
+]
+
+# クリティカルにならずスペシャルになる(境界の出目)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=70"
+output = "(1D100<=70) ＞ 5 ＞ スペシャル"
+success = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+# スペシャル成功(境界の出目)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=67"
+output = "(1D100<=67) ＞ 13 ＞ スペシャル"
+success = true
+rands = [
+  { sides = 100, value = 13 },
+]
+
+# スペシャルにならず成功になる(境界の出目)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=67"
+output = "(1D100<=67) ＞ 14 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 14 },
+]
+
+# 成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=67"
+output = "(1D100<=67) ＞ 67 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 67 },
+]
+
+# 失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=67"
+output = "(1D100<=67) ＞ 68 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 68 },
+]
+
+# ファンブルにならず通常失敗になる
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=51"
+output = "(1D100<=51) ＞ 98 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 98 },
+]
+
+# ファンブル
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=51"
+output = "(1D100<=51) ＞ 99 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+# クリティカル(100%以上の技能値)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=122"
+output = "(1D100<=122) ＞ 6 ＞ クリティカル/スペシャル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+# クリティカルにならずスペシャルになる(100%以上の技能値)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=122"
+output = "(1D100<=122) ＞ 7 ＞ スペシャル"
+success = true
+rands = [
+  { sides = 100, value = 7 },
+]
+
+# スペシャル(100%以上の技能値)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=122"
+output = "(1D100<=122) ＞ 24 ＞ スペシャル"
+success = true
+rands = [
+  { sides = 100, value = 24 },
+]
+
+# スペシャルにならず成功になる(100%以上の技能値)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=122"
+output = "(1D100<=122) ＞ 25 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 25 },
+]
+
+# 四則演算 全部入り(成功率40%)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=60*2/4+20-10"
+output = "(1D100<=40) ＞ 40 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 加算 (成功率40%)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=20+20"
+output = "(1D100<=40) ＞ 40 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 減算 (成功率40%)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=60-20"
+output = "(1D100<=40) ＞ 40 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 乗算 (成功率40%)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=20*2"
+output = "(1D100<=40) ＞ 40 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 除算 (成功率40%)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=80/2"
+output = "(1D100<=40) ＞ 40 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+#======= RQG 通常判定シークレットコマンド =======#
+
+# 1d100をロール(CoC互換機能)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG"
+output = "(1D100) ＞ 15"
+secret = true
+rands = [
+  { sides = 100, value = 15 },
+]
+
+# 失敗(技能値0は判定できない＝失敗とする)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=0"
+output = "(1D100<=0) ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+# クリティカル(01の出目でクリティカル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=10"
+output = "(1D100<=10) ＞ 1 ＞ クリティカル/スペシャル"
+success = true
+critical = true
+secret = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+# 成功(02の出目は成功)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=1"
+output = "(1D100<=1) ＞ 2 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 2 },
+]
+
+# 成功(03の出目は成功)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=1"
+output = "(1D100<=1) ＞ 3 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 3 },
+]
+
+# 成功(04の出目は成功)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=1"
+output = "(1D100<=1) ＞ 4 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 4 },
+]
+
+# 成功(05の出目は成功)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=1"
+output = "(1D100<=1) ＞ 5 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+# 失敗(06の出目は成功ではない)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=1"
+output = "(1D100<=1) ＞ 6 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+# 成功(95の出目は失敗ではない)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=120"
+output = "(1D100<=120) ＞ 95 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 95 },
+]
+
+# 失敗(96の出目は失敗)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=120"
+output = "(1D100<=120) ＞ 96 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+# 失敗(97の出目は失敗)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=120"
+output = "(1D100<=120) ＞ 97 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 97 },
+]
+
+# 失敗(98の出目は失敗)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=120"
+output = "(1D100<=120) ＞ 98 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 98 },
+]
+
+# 失敗(99の出目で失敗)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=120"
+output = "(1D100<=120) ＞ 99 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+# ファンブル(00の出目でファンブル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=120"
+output = "(1D100<=120) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
+secret = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+# クリティカル(境界の出目)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=70"
+output = "(1D100<=70) ＞ 4 ＞ クリティカル/スペシャル"
+success = true
+critical = true
+secret = true
+rands = [
+  { sides = 100, value = 4 },
+]
+
+# クリティカルにならずスペシャルになる(境界の出目)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=70"
+output = "(1D100<=70) ＞ 5 ＞ スペシャル"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+# スペシャル成功(境界の出目)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=67"
+output = "(1D100<=67) ＞ 13 ＞ スペシャル"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 13 },
+]
+
+# スペシャルにならず成功になる(境界の出目)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=67"
+output = "(1D100<=67) ＞ 14 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 14 },
+]
+
+# 成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=67"
+output = "(1D100<=67) ＞ 67 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 67 },
+]
+
+# 失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=67"
+output = "(1D100<=67) ＞ 68 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 68 },
+]
+
+# ファンブルにならず通常失敗になる
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=51"
+output = "(1D100<=51) ＞ 98 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 98 },
+]
+
+# ファンブル
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=51"
+output = "(1D100<=51) ＞ 99 ＞ ファンブル"
+failure = true
+fumble = true
+secret = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+# クリティカル(100%以上の技能値)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=122"
+output = "(1D100<=122) ＞ 6 ＞ クリティカル/スペシャル"
+success = true
+critical = true
+secret = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+# クリティカルにならずスペシャルになる(100%以上の技能値)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=122"
+output = "(1D100<=122) ＞ 7 ＞ スペシャル"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 7 },
+]
+
+# スペシャル(100%以上の技能値)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=122"
+output = "(1D100<=122) ＞ 24 ＞ スペシャル"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 24 },
+]
+
+# スペシャルにならず成功になる(100%以上の技能値)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=122"
+output = "(1D100<=122) ＞ 25 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 25 },
+]
+
+# 四則演算 全部入り(成功率40%)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=60*2/4+20-10"
+output = "(1D100<=40) ＞ 40 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 加算 (成功率40%)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=20+20"
+output = "(1D100<=40) ＞ 40 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 減算 (成功率40%)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=60-20"
+output = "(1D100<=40) ＞ 40 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 乗算 (成功率40%)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=20*2"
+output = "(1D100<=40) ＞ 40 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 除算 (成功率40%)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG<=80/2"
+output = "(1D100<=40) ＞ 40 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+#======= RES 抵抗判定コマンド =======#
+
+# 確率0%でも01はクリティカル
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-19)"
+output = "(1D100<=0) ＞ 1 ＞ クリティカル/スペシャル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+# 確率0%でも02は成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-19)"
+output = "(1D100<=0) ＞ 2 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 2 },
+]
+
+# 確率0%でも03は成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-19)"
+output = "(1D100<=0) ＞ 3 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 3 },
+]
+
+# 確率0%でも04は成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-19)"
+output = "(1D100<=0) ＞ 4 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 4 },
+]
+
+# 確率0%でも05は成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-19)"
+output = "(1D100<=0) ＞ 5 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+# 確率0%なら06は当然失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-19)"
+output = "(1D100<=0) ＞ 6 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+# 確率100%なら95は当然成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(19-9)"
+output = "(1D100<=100) ＞ 95 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 95 },
+]
+
+# 確率100%でも96は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(19-9)"
+output = "(1D100<=100) ＞ 96 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+# 確率100%でも97は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(19-9)"
+output = "(1D100<=100) ＞ 97 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 97 },
+]
+
+# 確率100%でも98は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(19-9)"
+output = "(1D100<=100) ＞ 98 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 98 },
+]
+
+# 確率100%でも99は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(19-9)"
+output = "(1D100<=100) ＞ 99 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+# 確率100%でも100はファンブル
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(19-9)"
+output = "(1D100<=100) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+# 50%の抵抗判定(クリティカル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-9)"
+output = "(1D100<=50) ＞ 3 ＞ クリティカル/スペシャル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 3 },
+]
+
+# 50%の抵抗判定(スペシャル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-9)"
+output = "(1D100<=50) ＞ 10 ＞ スペシャル"
+success = true
+rands = [
+  { sides = 100, value = 10 },
+]
+
+# 50%の抵抗判定(成功)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-9)"
+output = "(1D100<=50) ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 11 },
+]
+
+# 50%の抵抗判定(失敗)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-9)"
+output = "(1D100<=50) ＞ 97 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 97 },
+]
+
+# 50%の抵抗判定(ファンブル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-9)"
+output = "(1D100<=50) ＞ 98 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 98 },
+]
+
+# 120%の抵抗判定でクリティカル率をチェック(クリティカル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(23-9)"
+output = "(1D100<=120) ＞ 6 ＞ クリティカル/スペシャル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+# 120%の抵抗判定でクリティカル率をチェック(クリティカルにならずスペシャルになる)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(23-9)"
+output = "(1D100<=120) ＞ 7 ＞ スペシャル"
+success = true
+rands = [
+  { sides = 100, value = 7 },
+]
+
+# 120%の抵抗判定でスペシャル率をチェック(スペシャル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(23-9)"
+output = "(1D100<=120) ＞ 24 ＞ スペシャル"
+success = true
+rands = [
+  { sides = 100, value = 24 },
+]
+
+# 120%の抵抗判定でスペシャル率をチェック(スペシャルにならず成功になる)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(23-9)"
+output = "(1D100<=120) ＞ 25 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 25 },
+]
+
+# 70%の抵抗判定(+20%の修正あり)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-9)m20"
+output = "(1D100<=70) ＞ 40 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 30%の抵抗判定(-20%の修正あり)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-9)m-20"
+output = "(1D100<=30) ＞ 40 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 20%の抵抗判定(能力値差で0%だが+20の修正で20%に引き上げられる)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-20)m20"
+output = "(1D100<=20) ＞ 20 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 20 },
+]
+
+# 50%の抵抗判定(能力値比較部の演算)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES9-9"
+output = "(1D100<=50) ＞ 40 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 65%の抵抗判定(成功率修正部の演算)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RES(9-9)m20-5*3/3"
+output = "(1D100<=65) ＞ 40 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+#======= RES 抵抗判定シークレットコマンド =======#
+
+# 確率0%でも01はクリティカル
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-19)"
+output = "(1D100<=0) ＞ 1 ＞ クリティカル/スペシャル"
+success = true
+critical = true
+secret = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+# 確率0%でも02は成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-19)"
+output = "(1D100<=0) ＞ 2 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 2 },
+]
+
+# 確率0%でも03は成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-19)"
+output = "(1D100<=0) ＞ 3 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 3 },
+]
+
+# 確率0%でも04は成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-19)"
+output = "(1D100<=0) ＞ 4 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 4 },
+]
+
+# 確率0%でも05は成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-19)"
+output = "(1D100<=0) ＞ 5 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+# 確率0%なら06は当然失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-19)"
+output = "(1D100<=0) ＞ 6 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+# 確率100%なら95は当然成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(19-9)"
+output = "(1D100<=100) ＞ 95 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 95 },
+]
+
+# 確率100%でも96は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(19-9)"
+output = "(1D100<=100) ＞ 96 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+# 確率100%でも97は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(19-9)"
+output = "(1D100<=100) ＞ 97 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 97 },
+]
+
+# 確率100%でも98は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(19-9)"
+output = "(1D100<=100) ＞ 98 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 98 },
+]
+
+# 確率100%でも99は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(19-9)"
+output = "(1D100<=100) ＞ 99 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+# 確率100%でも100はファンブル
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(19-9)"
+output = "(1D100<=100) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
+secret = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+# 50%の抵抗判定(クリティカル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-9)"
+output = "(1D100<=50) ＞ 3 ＞ クリティカル/スペシャル"
+success = true
+critical = true
+secret = true
+rands = [
+  { sides = 100, value = 3 },
+]
+
+# 50%の抵抗判定(スペシャル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-9)"
+output = "(1D100<=50) ＞ 10 ＞ スペシャル"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 10 },
+]
+
+# 50%の抵抗判定(成功)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-9)"
+output = "(1D100<=50) ＞ 11 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 11 },
+]
+
+# 50%の抵抗判定(失敗)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-9)"
+output = "(1D100<=50) ＞ 97 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 97 },
+]
+
+# 50%の抵抗判定(ファンブル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-9)"
+output = "(1D100<=50) ＞ 98 ＞ ファンブル"
+failure = true
+fumble = true
+secret = true
+rands = [
+  { sides = 100, value = 98 },
+]
+
+# 120%の抵抗判定でクリティカル率をチェック(クリティカル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(23-9)"
+output = "(1D100<=120) ＞ 6 ＞ クリティカル/スペシャル"
+success = true
+critical = true
+secret = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+# 120%の抵抗判定でクリティカル率をチェック(クリティカルにならずスペシャルになる)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(23-9)"
+output = "(1D100<=120) ＞ 7 ＞ スペシャル"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 7 },
+]
+
+# 120%の抵抗判定でスペシャル率をチェック(スペシャル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(23-9)"
+output = "(1D100<=120) ＞ 24 ＞ スペシャル"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 24 },
+]
+
+# 120%の抵抗判定でスペシャル率をチェック(スペシャルにならず成功になる)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(23-9)"
+output = "(1D100<=120) ＞ 25 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 25 },
+]
+
+# 70%の抵抗判定(+20%の修正あり)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-9)m20"
+output = "(1D100<=70) ＞ 40 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 30%の抵抗判定(-20%の修正あり)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-9)m-20"
+output = "(1D100<=30) ＞ 40 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 20%の抵抗判定(能力値差で0%だが+20の修正で20%に引き上げられる)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-20)m20"
+output = "(1D100<=20) ＞ 20 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 20 },
+]
+
+# 50%の抵抗判定(能力値比較部の演算)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES9-9"
+output = "(1D100<=50) ＞ 40 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+# 65%の抵抗判定(成功率修正部の演算)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRES(9-9)m20-5*3/3"
+output = "(1D100<=65) ＞ 40 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+#======= RSA0 単体抵抗判定コマンド =======#
+
+# 能力値0はありえない。エラー。
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA0"
+output = "0は指定できません。"
+rands = [
+  { sides = 100, value = 23 },
+]
+
+# 01の出目でクリティカル
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 1 ＞ 成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+success = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+# 02の出目は成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 2 ＞ 成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+success = true
+rands = [
+  { sides = 100, value = 2 },
+]
+
+# 03の出目は成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 3 ＞ 成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+success = true
+rands = [
+  { sides = 100, value = 3 },
+]
+
+# 04の出目は成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 4 ＞ 成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+success = true
+rands = [
+  { sides = 100, value = 4 },
+]
+
+# 05の出目は成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 5 ＞ 成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+success = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値19)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 6 ＞ 相手側能力値19まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 6 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値18)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 11 ＞ 相手側能力値18まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 11 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値17)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 16 ＞ 相手側能力値17まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 16 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値16)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 21 ＞ 相手側能力値16まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 21 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値15)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 26 ＞ 相手側能力値15まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 26 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値14)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 31 ＞ 相手側能力値14まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 31 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値13)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 36 ＞ 相手側能力値13まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 36 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値12)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 41 ＞ 相手側能力値12まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 41 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値11)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 46 ＞ 相手側能力値11まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 46 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値10)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 51 ＞ 相手側能力値10まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 51 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値09)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 56 ＞ 相手側能力値9まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 56 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値08)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 61 ＞ 相手側能力値8まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 61 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値07)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 66 ＞ 相手側能力値7まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 66 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値06)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 71 ＞ 相手側能力値6まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 71 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値05)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 76 ＞ 相手側能力値5まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 76 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値04)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 81 ＞ 相手側能力値4まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 81 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値03)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 86 ＞ 相手側能力値3まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 86 },
+]
+
+# 成功可能な受動能力値を割り出す(能力値02)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 95 ＞ 相手側能力値2まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+rands = [
+  { sides = 100, value = 95 },
+]
+
+# 96の出目は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 96 ＞ 失敗\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+failure = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+# 97の出目は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 97 ＞ 失敗\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+failure = true
+rands = [
+  { sides = 100, value = 97 },
+]
+
+# 98の出目は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 98 ＞ 失敗\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+failure = true
+rands = [
+  { sides = 100, value = 98 },
+]
+
+# 99の出目は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 99 ＞ 失敗\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+failure = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+# 00の出目でファンブル
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RSA11"
+output = "(1D100<=55) ＞ 100 ＞ 失敗\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+failure = true
+rands = [
+  { sides = 100, value = 100 },
+]
