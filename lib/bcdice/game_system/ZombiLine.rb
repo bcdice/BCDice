@@ -55,17 +55,18 @@ module BCDice
           is_fumble = false
         end
 
-        if is_success && is_critical
-          success_message = "成功(クリティカル)"
-        elsif is_success && is_fumble
-          success_message = "成功(ファンブル)"
-        elsif is_success
-          success_message = "成功"
-        elsif is_fumble
-          success_message = "失敗(ファンブル)"
-        else
-          success_message = "失敗"
-        end
+        success_message =
+          if is_success && is_critical
+            "成功(クリティカル)"
+          elsif is_success && is_fumble
+            "成功(ファンブル)"
+          elsif is_success
+            "成功"
+          elsif is_fumble
+            "失敗(ファンブル)"
+          else
+            "失敗"
+          end
         sequence = [
           "(#{parsed})",
           "[#{dice_list.join(',')}]",
@@ -108,7 +109,7 @@ module BCDice
         )
       }.freeze
 
-      register_prefix('\d?ZL', TABLES.keys)
+      register_prefix('\d*ZL', TABLES.keys)
     end
   end
 end
