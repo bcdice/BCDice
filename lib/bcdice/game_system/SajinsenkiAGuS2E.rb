@@ -40,29 +40,15 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       def eval_game_system_specific_command(command)
-        roll_ippan(command) || roll_hit_check(command) || roll_tables(command, TABLES)
+        roll_ippan(command) || 
+        roll_hit_check(command) || 
+        roll_tables(command, TABLES) || 
+        roll_tables(command, SECOND_ED_TABLES)
       end
 
       private
 
-
-      TABLES = {
-        "CR" => DiceTable::Table.new(
-          "クリティカル表",
-          "1D10",
-          [
-            "1：「小破」ダメージ+［5］。耐久値-［1］",
-            "2：「小破」ダメージ+［5］。耐久値-［1］",
-            "3：「小破」ダメージ+［5］。耐久値-［1］",
-            "4：「小破」ダメージ+［5］。耐久値-［1］",
-            "5：「兵装」損壊を受けるごとに［1D10］を振り、出目に応じた部位の兵装とオプションが《脱落》",
-            "6：「上体」攻撃系能力［白兵/ 火器/ 索敵］は各［- 損壊Lv］",
-            "7：「脚部」行動系・防御系能力［Iv 値（イニシア値）/ 最大MP/ 回避］は各［- 損壊Lv］",
-            "8：「搭乗者」搭乗者の〈最大HP〉および〈HP〉は［-（4 ×損壊Lv）］",
-            "9：「搭乗者」搭乗者の〈最大HP〉および〈HP〉は［-（4 ×損壊Lv）］",
-            "0：「小破」ダメージ+［5］。耐久値-［1］",
-          ]
-        ),
+      SECOND_ED_TABLES = {
         "CAP" => DiceTable::RangeTable.new(
           "鹵獲結果表",
           "2D10",
@@ -88,7 +74,7 @@ module BCDice
           ]
         ),
       }.freeze
-      register_prefix('-?\d*AG', 'OM', 'NM', 'CR', TABLES.keys)
+      register_prefix('-?\d*AG', 'OM', 'NM', TABLES.keys, SECOND_ED_TABLES.keys)
     end
   end
 end
