@@ -526,11 +526,13 @@ rands = [
 [[ test ]]
 game_system = "SwordWorld2.0:SimplifiedChinese"
 input = "2D6@10+31>=30"
-output = "(2D6@10+31>=30) ＞ 12[6,6]+31 ＞ 43 ＞ 自动成功"
+output = "(2D6@10+31>=30) ＞ 20[6,6][2,6]+31 ＞ 51 ＞ 自动成功"
 success = true
 critical = true
 rands = [
   { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
   { sides = 6, value = 6 },
 ]
 
@@ -587,11 +589,13 @@ rands = []
 [[ test ]]
 game_system = "SwordWorld2.0:SimplifiedChinese"
 input = "2d6@10+11>30"
-output = "(2D6@10+11>30) ＞ 12[6,6]+11 ＞ 23 ＞ 自动成功"
+output = "(2D6@10+11>30) ＞ 20[6,6][2,6]+11 ＞ 31 ＞ 自动成功"
 success = true
 critical = true
 rands = [
   { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
   { sides = 6, value = 6 },
 ]
 
