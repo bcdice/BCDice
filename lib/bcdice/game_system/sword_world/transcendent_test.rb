@@ -39,7 +39,7 @@ module BCDice
           fumble = first_value_group == [1, 1]
           critical = first_value_group == [6, 6]
 
-          if !fumble && !critical
+          unless fumble
             while sum_of_dice(value_groups.last) >= @critical_value
               value_groups.push(randomizer.roll_barabara(2, 6))
             end
