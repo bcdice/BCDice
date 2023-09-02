@@ -266,10 +266,10 @@ rands = [
 [[ test ]]
 game_system = "SajinsenkiAGuS2E"
 input = "CAP #鹵獲結果表"
-output = "鹵獲結果表(2) ＞ 敵A:GuS を完全な状態で鹵獲︕ ※総合価格÷ 2 で売却可。"
+output = "鹵獲結果表(0) ＞ 敵A:GuS を完全な状態で鹵獲︕ ※総合価格÷ 2 で売却可。"
 rands = [
-  { sides = 10, value = 1 },
-  { sides = 10, value = 1 },
+  { sides = 9, value = 0 },
+  { sides = 9, value = 0 },
 ]
 
 [[ test ]]
@@ -277,8 +277,8 @@ game_system = "SajinsenkiAGuS2E"
 input = "CAP #鹵獲結果表"
 output = "鹵獲結果表(7) ＞ 敵A:GuS の兵装を鹵獲︕ ※敵A:GuS の装備している任意の兵装1つを獲得。"
 rands = [
-  { sides = 10, value = 6 },
-  { sides = 10, value = 1 },
+  { sides = 9, value = 6 },
+  { sides = 9, value = 1 },
 ]
 
 [[ test ]]
@@ -286,17 +286,17 @@ game_system = "SajinsenkiAGuS2E"
 input = "CAP #鹵獲結果表"
 output = "鹵獲結果表(13) ＞ 使えそうな兵装を発見︕ ※1D10 を振り、出目の部位の兵装1つを獲得。"
 rands = [
-  { sides = 10, value = 6 },
-  { sides = 10, value = 7 },
+  { sides = 9, value = 6 },
+  { sides = 9, value = 7 },
 ]
 
 [[ test ]]
 game_system = "SajinsenkiAGuS2E"
 input = "CAP #鹵獲結果表"
-output = "鹵獲結果表(20) ＞ 残念、完全にスクラップだ……。※部品代として［バランス値×300］cdtを獲得。"
+output = "鹵獲結果表(18) ＞ 残念、完全にスクラップだ……。※部品代として［バランス値×300］cdtを獲得。"
 rands = [
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
+  { sides = 9, value = 9 },
+  { sides = 9, value = 9 },
 ]
 
 [[ test ]]
@@ -358,9 +358,9 @@ rands = [
 [[ test ]]
 game_system = "SajinsenkiAGuS2E"
 input = "DEF #赤字ペナルティー表"
-output = "赤字ペナルティー表(1) ＞ 解雇 クルー1名を失う。10,000cdtを得る。"
+output = "赤字ペナルティー表(0) ＞ 解雇 クルー1名を失う。10,000cdtを得る。"
 rands = [
-  { sides = 10, value = 1 },
+  { sides = 9, value = 0 },
 ]
 
 [[ test ]]
@@ -368,7 +368,7 @@ game_system = "SajinsenkiAGuS2E"
 input = "DEF #赤字ペナルティー表"
 output = "赤字ペナルティー表(5) ＞ 借金 次回の維持費が+20,000cdt。10,000cdtを得る。"
 rands = [
-  { sides = 10, value = 5 },
+  { sides = 9, value = 5 },
 ]
 
 [[ test ]]
@@ -376,13 +376,29 @@ game_system = "SajinsenkiAGuS2E"
 input = "DEF #赤字ペナルティー表"
 output = "赤字ペナルティー表(9) ＞ 売却 各PCはオプション以外の兵装を一つずつ廃棄。10,000cdtを得る。"
 rands = [
-  { sides = 10, value = 9 },
+  { sides = 9, value = 9 },
 ]
 
 [[ test ]]
 game_system = "SajinsenkiAGuS2E"
-input = "DEF #赤字ペナルティー表"
-output = "赤字ペナルティー表(10) ＞ 解雇 クルー1名を失う。10,000cdtを得る。"
+input = "SPE #特殊戦況表"
+output = "特殊戦況表(1) ＞ 0:雨 雨は砂を土へと変えてしまう。R中、全ユニット移動/突撃不可。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "SPE #特殊戦況表"
+output = "特殊戦況表(6) ＞ 5:流砂 以下のエリアのユニットは脱出のため、MPとEPを［3］点失う。［♠：A ♣：B ♦：C ♥：D］"
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "SPE #特殊戦況表"
+output = "特殊戦況表(10) ＞ 9:飛礫 飛礫によって、すべてのユニットはAPを［1D10］（以下のエリアでは［2D10］）点失う。［♠：A ♣：B ♦：C ♥：D］"
 rands = [
   { sides = 10, value = 10 },
 ]
