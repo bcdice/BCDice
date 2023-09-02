@@ -275,7 +275,7 @@ rands = [
 [[ test ]]
 game_system = "SajinsenkiAGuS2E"
 input = "CAP #鹵獲結果表"
-output = "鹵獲結果表(7) ＞ 敵A:GuS の兵装を鹵獲︕ ※敵A︓GuS の装備している任意の兵装1つを獲得。"
+output = "鹵獲結果表(7) ＞ 敵A:GuS の兵装を鹵獲︕ ※敵A:GuS の装備している任意の兵装1つを獲得。"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 1 },
@@ -299,5 +299,91 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "INT #幕間クエスト表"
+output = "幕間クエスト表(1) ＞ 慰労 PC/クルー1名が、労ってくれる。 最大HP+4"
+rands = [
+  { sides = 100, value = 1 },
+]
 
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "INT #幕間クエスト表"
+output = "幕間クエスト表(50) ＞ 個人収入 チームとは関係ない個人的な商売や取引で利益を得る。 4,000cdtを獲得。"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "INT #幕間クエスト表"
+output = "幕間クエスト表(99) ＞ 歓迎 街の住民にたいへんな歓迎を受ける。 50～95の任意の効果を適用可。（p69参照）"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "INT #幕間クエスト表"
+output = "幕間クエスト表(100) ＞ 慰労 PC/クルー1名が、労ってくれる。 最大HP+4"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "SAL #サルベージ表"
+output = "サルベージ表(1) ＞ 大失敗…。大変な損失を出してしまった…。 -5,000cdt"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "SAL #サルベージ表"
+output = "サルベージ表(50) ＞ ヘビーハンドガンを獲得。 →p35"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "SAL #サルベージ表"
+output = "サルベージ表(100) ＞ 掘り出し物を発見！25,000cdt以下の【上級携行兵装】一つを獲得！ 上級兵装 (→p37）"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "DEF #赤字ペナルティー表"
+output = "赤字ペナルティー表(1) ＞ 解雇 クルー1名を失う。10,000cdtを得る。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "DEF #赤字ペナルティー表"
+output = "赤字ペナルティー表(5) ＞ 借金 次回の維持費が+20,000cdt。10,000cdtを得る。"
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "DEF #赤字ペナルティー表"
+output = "赤字ペナルティー表(9) ＞ 売却 各PCはオプション以外の兵装を一つずつ廃棄。10,000cdtを得る。"
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "DEF #赤字ペナルティー表"
+output = "赤字ペナルティー表(10) ＞ 解雇 クルー1名を失う。10,000cdtを得る。"
+rands = [
+  { sides = 10, value = 10 },
+]
 
