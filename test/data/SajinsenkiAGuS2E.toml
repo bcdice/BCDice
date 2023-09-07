@@ -101,7 +101,7 @@ rands = [
 [[ test ]]
 game_system = "SajinsenkiAGuS2E"
 input = "10AG #自動失敗"
-output = "(2D10<=20) ＞ 16[8,8] ＞ 自動失敗"
+output = "(2D10<=20) ＞ 16[8,8] ＞ ファンブル"
 failure = true
 fumble = true
 rands = [
@@ -187,7 +187,7 @@ rands = [
 [[ test ]]
 game_system = "SajinsenkiAGuS2E"
 input = "OM+20 #自動失敗"
-output = "(2D10<=20) ＞ 17[9,8] ＞ 自動失敗"
+output = "(2D10<=20) ＞ 17[9,8] ＞ ファンブル"
 failure = true
 fumble = true
 rands = [
@@ -256,8 +256,8 @@ rands = [
 
 [[ test ]]
 game_system = "SajinsenkiAGuS2E"
-input = "NM+20"
-output = "(3D10<=20) ＞ 18[9,9&1] ＞ 自動失敗"
+input = "NM+16 #自動失敗"
+output = "(3D10<=16) ＞ 18[9,9&1] ＞ ファンブル"
 failure = true
 fumble = true
 rands = [

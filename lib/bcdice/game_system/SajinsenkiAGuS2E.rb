@@ -72,7 +72,7 @@ module BCDice
         return nil if result.nil?
 
         if check_fumble(result.rands)
-          result.text.sub!(/(成功|失敗).*$/, '自動失敗')
+          result.text.sub!(/(成功|失敗).*$/, 'ファンブル')
           result.failure = true
           result.success = false
           result.fumble = true
