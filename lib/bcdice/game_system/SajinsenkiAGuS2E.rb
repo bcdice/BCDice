@@ -69,20 +69,14 @@ module BCDice
       def change_fumble(result)
         return nil if result.nil?
 
-        if check_fumble(result.rands)
+        fumble_counts = result.rands.count { |val| val >= 8 }
+        if fumble_counts >= 2
           result.text.sub!(/(成功|失敗).*$/, 'ファンブル')
           result.failure = true
           result.success = false
           result.fumble = true
         end
         return result
-      end
-
-      def check_fumble(dice)
-        return false if dice.nil?
-
-        fumble_counts = dice.count { |val| val >= 8 }
-        return fumble_counts >= 2
       end
 
       SECOND_ED_TABLES = {
