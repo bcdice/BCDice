@@ -54,6 +54,7 @@ module BCDice
 
         return Result.new.tap do |result|
           result.condition = total <= target
+          result.rands = dice_list
 
           sequence = [
             "(2D10<=#{target})",
@@ -91,6 +92,7 @@ module BCDice
 
         return Result.new.tap do |r|
           r.condition = total <= target
+          r.rands = dice_list
           r.critical = criticals >= 1
           r.text = [
             "(2D10<=#{target})",
@@ -114,6 +116,7 @@ module BCDice
 
         return Result.new.tap do |r|
           r.condition = total <= target
+          r.rands = dice_list
           r.critical = criticals >= 1
           r.text = [
             "(3D10<=#{target})",

@@ -100,6 +100,17 @@ rands = [
 
 [[ test ]]
 game_system = "SajinsenkiAGuS2E"
+input = "10AG #自動失敗"
+output = "(2D10<=20) ＞ 16[8,8] ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
 input = "OM+8"
 output = "(2D10<=8) ＞ 4[3,1] ＞ 成功（HR=4、クリティカル0）"
 success = true
@@ -175,6 +186,17 @@ rands = [
 
 [[ test ]]
 game_system = "SajinsenkiAGuS2E"
+input = "OM+20 #自動失敗"
+output = "(2D10<=20) ＞ 17[9,8] ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
 input = "NM+8"
 output = "(3D10<=8) ＞ 5[3,2&1] ＞ 成功（HR=3、クリティカル0）"
 success = true
@@ -229,6 +251,19 @@ rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
+]
+
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "NM+20"
+output = "(3D10<=20) ＞ 18[9,9&1] ＞ 自動失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 1 },
 ]
 
 [[ test ]]

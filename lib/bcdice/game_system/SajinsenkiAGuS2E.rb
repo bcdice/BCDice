@@ -30,6 +30,10 @@ module BCDice
         　　　HRの算出時には、HRが大きくなる場合に出目0を10に読み替えます。
         　　　例）NM+4-3:命中補正値+4-3で非適正距離の判定
 
+        　作者の潮屋様の提案により「西風旅徨」で導入された自動失敗ルールを採用しています。
+        　　判定時にダイスがすべて8以上なら自動失敗です。
+
+
         ・クリティカル表　　 CR
         ・鹵獲結果表　　　　 CAP
         ・幕間クエスト表　　 INT
@@ -48,8 +52,39 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        super(command) ||
+        roll_ippan2(command) ||
+          roll_hit_check2(command) ||
+          roll_tables(command, TABLES) ||
           roll_tables(command, SECOND_ED_TABLES)
+      end
+
+      def roll_ippan2(command)
+        result = roll_ippan(command)
+        return change_fumble(result)
+      end
+
+      def roll_hit_check2(command)
+        result = roll_hit_check(command)
+        return change_fumble(result)
+      end
+
+      def change_fumble(result)
+        return nil if result.nil?
+
+        if check_fumble(result.rands)
+          result.text.sub!(/(成功|失敗).*$/, '自動失敗')
+          result.failure = true
+          result.success = false
+          result.fumble = true
+        end
+        return result
+      end
+
+      def check_fumble(dice)
+        return false if dice.nil?
+
+        fumble_counts = dice.count { |val| val >= 8 }
+        return fumble_counts >= 2
       end
 
       SECOND_ED_TABLES = {
