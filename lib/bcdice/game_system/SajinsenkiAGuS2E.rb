@@ -52,19 +52,17 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        roll_ippan2(command) ||
-          roll_hit_check2(command) ||
-          roll_tables(command, TABLES) ||
+        super(command) ||
           roll_tables(command, SECOND_ED_TABLES)
       end
 
-      def roll_ippan2(command)
-        result = roll_ippan(command)
+      def roll_ippan(command)
+        result = super
         return change_fumble(result)
       end
 
-      def roll_hit_check2(command)
-        result = roll_hit_check(command)
+      def roll_hit_check(command)
+        result = super
         return change_fumble(result)
       end
 
