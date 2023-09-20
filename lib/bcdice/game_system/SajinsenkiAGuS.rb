@@ -51,6 +51,7 @@ module BCDice
 
         dice_list = @randomizer.roll_barabara(2, 10).map { |d| d == 10 ? 0 : d }
         total = dice_list.sum
+        success_level = 1 + dice_list.count { |val| val <= level }
 
         return Result.new.tap do |result|
           result.condition = total <= target
@@ -59,7 +60,7 @@ module BCDice
             "(2D10<=#{target})",
             "#{total}[#{dice_list.join(',')}]",
             ("チャンス" if dice_list.include?(0)),
-            result.success? ? "成功" : "失敗"
+            result.success? ? "成功(+#{success_level})" : "失敗"
           ].compact
 
           result.text = sequence.join(" ＞ ")
