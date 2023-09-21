@@ -16,22 +16,26 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        ・一般判定Lv（チャンス出目0→判定0） nAG+x
+        ・一般判定Lv（チャンス出目0→判定0） nAG[W]+x
         　　　nは習得レベル、Lv0の場合nの省略可能。xは判定値修正（数式による修正可）、省略した場合はレベル修正0
         　　　例）AG:習得レベル0の一般技能、1AG+1:習得レベル1・判定値修正+1の技能、AG+2-1：習得レベル0・判定値修正2-1の技能、(1-1)AG：習得レベル1・レベル修正-1の技能
 
-        ・適正距離での命中判定（チャンス出目0→判定0、HR算出）OM+y@z
+        　　　コマンドにWを付けると「西風旅徨」で導入されたファンブルを採用します。
+        　　　判定時にダイスがすべて8以上ならファンブル(自動失敗)です。
+
+        ・適正距離での命中判定（チャンス出目0→判定0、HR算出）OM[W]+y@z
         　　　yは命中補正値（数式可）、zはクリティカル値。クリティカル値省略時は0
         　　　HRの算出時には、HRが大きくなる場合に出目0を10に読み替えます。
         　　　例）OM+18-6@2:命中補正値+18-6でクリティカル値2、適正距離の判定
 
-        ・非適正距離での命中判定（チャンス出目0→判定0、HR算出）NM+y@z
+        　　　コマンドにWを付けると「西風旅徨」で導入されたファンブルを採用します。
+
+        ・非適正距離での命中判定（チャンス出目0→判定0、HR算出）NM[W]+y@z
         　　　yは命中補正値（数式可）、zはクリティカル値。クリティカル値省略時は0
         　　　HRの算出時には、HRが大きくなる場合に出目0を10に読み替えます。
         　　　例）NM+4-3:命中補正値+4-3で非適正距離の判定
 
-        　作者の潮屋様の提案により「西風旅徨」で導入されたファンブルを採用しています。
-        　　判定時にダイスがすべて8以上ならファンブル(自動失敗)です。
+        　　　コマンドにWを付けると「西風旅徨」で導入されたファンブルを採用します。
 
 
         ・クリティカル表　　 CR
@@ -53,16 +57,24 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         super(command) ||
+          roll_ippan_west(command) ||
+          roll_hit_check_west(command) ||
           roll_tables(command, SECOND_ED_TABLES)
       end
 
-      def roll_ippan(command)
-        result = super
+      def roll_ippan_west(command)
+        m = /AGW/.match(command)
+        return nil unless m
+
+        result = roll_ippan(command.sub(/(AG)W/) { ::Regexp.last_match(1) })
         return change_fumble(result)
       end
 
-      def roll_hit_check(command)
-        result = super
+      def roll_hit_check_west(command)
+        m = /[ON]MW/.match(command)
+        return nil unless m
+
+        result = roll_hit_check(command.sub(/([ON]M)W/) { ::Regexp.last_match(1) })
         return change_fumble(result)
       end
 
@@ -71,7 +83,7 @@ module BCDice
 
         fumble_counts = result.rands.count { |val| val >= 8 }
         if fumble_counts >= 2
-          result.text.sub!(/(成功|失敗).*$/, 'ファンブル')
+          result.text = result.text.sub(/(成功|失敗).*$/, 'ファンブル')
           result.failure = true
           result.success = false
           result.fumble = true
@@ -265,7 +277,7 @@ module BCDice
         ),
       }.freeze
       register_prefix_from_super_class()
-      register_prefix(SECOND_ED_TABLES.keys)
+      register_prefix('-?\d*AGW', 'OMW', 'NMW', SECOND_ED_TABLES.keys)
     end
   end
 end
