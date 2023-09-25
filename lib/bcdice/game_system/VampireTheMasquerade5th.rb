@@ -58,7 +58,7 @@ module BCDice
       register_prefix('\d*(VMF|(VMI\d*(H\d?)?))')
 
       def eval_game_system_specific_command(command)
-        m = /\A(\d+)?(((VMF)(\d)(\+(\d+))?)|((VMI)(\d)(H(\d+))?))$/.match(command)
+        m = /\A(\d+)?(((VMF)(\d+)(\+(\d+))?)|((VMI)(\d+)(H(\d+))?))$/.match(command)
         unless m
           return ''
         end
