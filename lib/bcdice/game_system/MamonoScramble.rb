@@ -26,6 +26,7 @@ module BCDice
         super(command)
 
         @sides_implicit_d = 12
+        @round_type = RoundType::CEIL
       end
 
       def eval_game_system_specific_command(command)

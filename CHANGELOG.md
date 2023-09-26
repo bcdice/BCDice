@@ -1,12 +1,13 @@
 # Change Log
 
-## Unreleased
+## 3.11.0 2023/08/23
 
 ### 対応ゲームシステムの追加
 - ガンダム・センチネルRPG (GundamSentinel): Facelessさんありがとうっ！ ([#633](https://github.com/bcdice/BCDice/pull/633), [#634](https://github.com/bcdice/BCDice/pull/634))
 - マモノスクランブル (MamonoScramble): ([#635](https://github.com/bcdice/BCDice/pull/635))
 - デモンスパイク (DemonSpike): ([#636](https://github.com/bcdice/BCDice/pull/636))
 - RuneQuest:Roleplaying in Glorantha (RuneQuestRoleplayingInGlorantha): フレッド緑野さんありがとうっ！ ([#637](https://github.com/bcdice/BCDice/pull/637))
+- ゾンビライン (ZombiLine): 蜂紫さんありがとうっ！ ([#638](https://github.com/bcdice/BCDice/pull/638/files))
 
 ## 3.10.0 2023/07/15
 
