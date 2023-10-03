@@ -1998,3 +1998,44 @@ rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 10 },
 ]
+
+# 10ダイス以上の判定確認
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF10+2"
+output = "(10D10+2D10) ＞ [4,6,8,10,3,9,6,9,1,6]+[7,5]  成功数=8 難易度=3 差分=5：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMI12H2"
+output = "(10D10+2D10) ＞ [4,6,8,10,3,9,6,9,1,6]+[7,5]  成功数=8 難易度=3 差分=5：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 5 },
+]
