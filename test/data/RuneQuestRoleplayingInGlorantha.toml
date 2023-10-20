@@ -1496,7 +1496,7 @@ rands = [
 
 #===== バグ対応 ======#
 
-#【出目96以上でスペシャルになる問題対応】
+#【技能540%の時、出目96以上でスペシャルになる問題対応】
 # 96は計算上スペシャルだが、96以上の出目は失敗
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
@@ -1507,7 +1507,7 @@ rands = [
   { sides = 100, value = 96 },
 ]
 
-#【出目96以上でスペシャルになる問題対応】
+#【技能540%の時、出目96以上でスペシャルになる問題対応】
 # 95は計算上スペシャル
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
