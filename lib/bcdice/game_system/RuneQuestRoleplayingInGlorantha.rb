@@ -128,10 +128,10 @@ module BCDice
         note_str = "クリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
 
         if roll_value >= 96
-          # 96-99は無条件で失敗
+          # 96以上は無条件で失敗
           Result.failure("#{result_prefix_str} 失敗\n#{note_str}")
         elsif roll_value <= 5 || roll_value <= modifiy_value
-          # 02-05あるいは修正値以下は無条件で成功
+          # 05以下あるいは修正値以下は無条件で成功
           Result.success("#{result_prefix_str} 成功\n#{note_str}")
         else
           # 上記全てが当てはまらない時に突破可能な能力値を算出
@@ -151,15 +151,18 @@ module BCDice
         elsif (roll_value == 100) || (roll_value >= (100 - funmble_value + 1))
           # ファンブル(00は必ずファンブル)
           Result.fumble("#{result_str} ファンブル")
+        elsif roll_value >= 96 || ((roll_value > success_value) && (roll_value > 5))
+          # 失敗(96以上は必ず失敗、出目が01-05ではなく技能値より上なら失敗)
+          Result.failure("#{result_str} 失敗")
         elsif roll_value <= special_value
           # スペシャル
           Result.success("#{result_str} スペシャル")
-        elsif (roll_value <= 95) && ((roll_value <= 5) || (roll_value <= success_value))
-          # 成功(02-05は必ず成功で、96-99は必ず失敗)
+        elsif (roll_value <= 5) || (roll_value <= success_value)
+          # 成功(05以下は必ず成功)
           Result.success("#{result_str} 成功")
         else
-          # 失敗
-          Result.failure("#{result_str} 失敗")
+          # ここには到達しないはずだが、念のため捕捉
+          Result.failure("#{result_str} エラー")
         end
       end
     end
