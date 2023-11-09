@@ -30,6 +30,16 @@ module BCDice
         　　　HRの算出時には、HRが大きくなる場合に出目0を10に読み替えます。
         　　　例）NM+4-3:命中補正値+4-3で非適正距離の判定
 
+
+        ・『西風旅徨』で導入されたファンブル・ルールを用いた判定
+        　判定時にダイスがすべて8以上ならファンブル(自動失敗)です。
+        　それぞれのコマンドにWを付けると『西風旅徨』モードになります。
+        　　　・一般判定                nAGW+x
+        　　　・適正距離での命中判定    OMW+y@z
+        　　　・非適正距離での命中判定  NMW+y@z
+
+
+
         ・クリティカル表　　 CR
         ・鹵獲結果表　　　　 CAP
         ・幕間クエスト表　　 INT
@@ -49,7 +59,38 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         super(command) ||
+          roll_ippan_west(command) ||
+          roll_hit_check_west(command) ||
           roll_tables(command, SECOND_ED_TABLES)
+      end
+
+      def roll_ippan_west(command)
+        m = /AGW/.match(command)
+        return nil unless m
+
+        result = roll_ippan(command.sub(/(AG)W/) { ::Regexp.last_match(1) })
+        return change_fumble(result)
+      end
+
+      def roll_hit_check_west(command)
+        m = /[ON]MW/.match(command)
+        return nil unless m
+
+        result = roll_hit_check(command.sub(/([ON]M)W/) { ::Regexp.last_match(1) })
+        return change_fumble(result)
+      end
+
+      def change_fumble(result)
+        return nil if result.nil?
+
+        fumble_counts = result.rands.count { |val| val >= 8 }
+        if fumble_counts >= 2
+          result.text = result.text.sub(/(成功|失敗).*$/, 'ファンブル')
+          result.failure = true
+          result.success = false
+          result.fumble = true
+        end
+        return result
       end
 
       SECOND_ED_TABLES = {
@@ -238,7 +279,7 @@ module BCDice
         ),
       }.freeze
       register_prefix_from_super_class()
-      register_prefix(SECOND_ED_TABLES.keys)
+      register_prefix('-?\d*AGW', 'OMW', 'NMW', SECOND_ED_TABLES.keys)
     end
   end
 end
