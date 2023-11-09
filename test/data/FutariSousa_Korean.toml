@@ -21,7 +21,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "DT"
-output = "DT(1,1) ＞ 펌블（변조를 받고, 조수의 마음고생이 1점 상승）"
+output = "DT(1,1) ＞ 펌블（상태 이상을 받고, 조수의 마음고생이 1점 상승）"
 failure = true
 fumble = true
 rands = [
@@ -72,7 +72,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "1DT"
-output = "1DT(1) ＞ 펌블（변조를 받고, 조수의 마음고생이 1점 상승）"
+output = "1DT(1) ＞ 펌블（상태 이상을 받고, 조수의 마음고생이 1점 상승）"
 failure = true
 fumble = true
 rands = [
@@ -152,7 +152,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "AS"
-output = "AS(1,1) ＞ 펌블（변조를 받고, 조수의 마음고생이 1점 상승）"
+output = "AS(1,1) ＞ 펌블（상태 이상을 받고, 조수의 마음고생이 1점 상승）"
 failure = true
 fumble = true
 rands = [
@@ -203,7 +203,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "1AS"
-output = "1AS(1) ＞ 펌블（변조를 받고, 조수의 마음고생이 1점 상승）"
+output = "1AS(1) ＞ 펌블（상태 이상을 받고, 조수의 마음고생이 1점 상승）"
 failure = true
 fumble = true
 rands = [
@@ -245,15 +245,39 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "SHRD"
-output = "이상한 버릇 결정표(10) ＞ 원하는「이상한 버릇표」를 사용한다."
+output = "기벽 결정 표(10) ＞ 원하는「기벽 표」를 사용한다."
 rands = [
   { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "FutariSousa:Korean"
+input = "SHND"
+output = "신・기벽 결정 표(6) ＞ 「기벽・갑자기 왜 그래 표」를 사용한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHAD"
+output = "평범한(?)・기벽 표(6) ＞ 「기벽・노 타임 표」를 사용한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHKD"
+output = "형사 기벽 결정 표(6) ＞ 이 표에서 주사위를 다시 굴린다"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
 input = "SHFM"
-output = "이상한 버릇・지껄이다표(10) ＞ 「잠자코 있어.」"
+output = "기벽・발언 표(10) ＞ 「입 다물고 있게.」"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -261,7 +285,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "SHBT"
-output = "이상한 버릇・강압적인 수사표(10) ＞ 마음대로 감식을 시작한다."
+output = "기벽・수사 강행 표(10) ＞ 멋대로 감식을 시작한다."
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -269,7 +293,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "SHPI"
-output = "이상한 버릇・시치미 떼기표(10) ＞ 관계자에게 유도 신문을 한다."
+output = "기벽・시치미 표(10) ＞ 관계자를 상대로 유도 심문을 건다."
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -277,7 +301,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "SHEG"
-output = "이상한 버릇・사건에 몰두표(10) ＞ 식사중이라도, 상관 없이 사건 이야기를 한다."
+output = "기벽・사건에 몰두 표(10) ＞ 식사 중이라도 개의치 않고 사건 이야기를 한다."
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -285,7 +309,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "SHWP"
-output = "이상한 버릇・파트너와……표(10) ＞ 파트너의 귓가에 갑자기 말하기 시작한다."
+output = "기벽・파트너와…… 표(10) ＞ 갑자기 파트너의 귓가에 대고 말하기 시작한다."
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -293,7 +317,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "SHDS"
-output = "이상한 버릇・무언가 하고 있다표(10) ＞ 잠시 아무 것도 하지 않는다."
+output = "기벽・뭔가 하고 있음 표(10) ＞ 한동안 아무 일도 하지 않는다."
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -301,7 +325,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "SHFT"
-output = "이상한 버릇・기상천외표(10) ＞ 사건과는 관계 없을 것 같은 신문의 기사를 읽고 있다."
+output = "기벽・기상천외 표(10) ＞ 사건과 관계가 없어 보이는 신문 기사를 읽고 있다."
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -309,7 +333,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "SHIN"
-output = "이상한 버릇・갑작스런 번뜩임표(10) ＞ 관계자와 대화를 나누는 중에 번뜩이다."
+output = "기벽・갑작스러운 영감 표(10) ＞ 관계자와 이야기를 하는 와중에 무언가를 깨닫는다."
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -317,7 +341,143 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "SHEM"
-output = "이상한 버릇・희노애락표(10) ＞ 로봇처럼 정해진 것만 한다."
+output = "기벽・희노애락 표(10) ＞ 로봇처럼 정해진 일만 한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHHE"
+output = "기벽・인간 모방 표(10) ＞ 조수의 말에 납득한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHHF"
+output = "기벽・인간 모방 실패 표(10) ＞ 납득하는 척만 하고 있다는 사실을 조수에게 간파당한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHMP"
+output = "기벽・파트너를 향한 장난 표(10) ＞ 숨바꼭질을 해본다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHSB"
+output = "기벽・의미심장 표(10) ＞ 「아직 확신이 서지 않아.」"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHFR"
+output = "기벽・초조함 표(10) ＞ 파트너에게 말하고 싶은 것이 있지만, 말하지 않은 채로 끝마친다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHIS"
+output = "기벽・갑자기 왜 그래 표(10) ＞ 파트너와의 관계를 재고한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHSE"
+output = "기벽・억지 요구 표(10) ＞ 억지 요구를 한다. 욕구가 해소되든 해소되지 않았든 또 다른 요구를 한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHLM"
+output = "기벽・멀쩡해 보임 표(10) ＞ 괴로울 때는 괴롭다고, 기쁠 때는 기쁘다고 말한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHJS"
+output = "기벽・질투에 사로잡힘 표(10) ＞ 필사적으로 파트너의 입에서 자신을 안심시키는 말이 나오도록 유도한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHAR"
+output = "기벽・오만한 태도 표(10) ＞ 매우 당연하다는 듯이 남을 내려다보는 태도."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHRM"
+output = "기벽・비교적 가벼운 행동 표(10) ＞ 갑자기 의욕을 낸다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHNT"
+output = "기벽・노 타임 표(10) ＞ 사람들에게 이것저것 시키는데, 시키는 이유는 설명하지 않는다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHNT"
+output = "기벽・노 타임 표(4) ＞ 「그거다!」라고 외치더니 파트너의 손을 잡아끌며 이동한다."
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHIM"
+output = "기벽・수사 방식 표(10) ＞ 과거의 유사한 사건을 인용한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHNO"
+output = "기벽・귀족 표(10) ＞ 식당을 예약한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHNE"
+output = "기벽・설명하지 않음 표(10) ＞ 「이해했습니다.」"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "SHHD"
+output = "기벽・형사 특유의 습관 표(10) ＞ 감시 카메라의 위치를 확인한다."
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -325,7 +485,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "EVS"
-output = "현장에서／이벤트표(6) ＞ 도망친 인물（P.170）\n　매우 빠르게 누군가가 현장에서 도망치고 있다.\n　그 인물의 달리는 모습이나 초조해하는 모습은 평범하지 않았다.\n　이건, 무언가를 알고 있다. 혹은 무언가를 가지고 떠났을 가능성이 있다.\n　PC들은 쫓기 시작했다."
+output = "현장에서／이벤트 표(6) ＞ 도망친 인물（P.173）\n　누군가가 허겁지겁 현장에서 도망친다.\n　그 달리는 모습과 초조해 하는 기색은 정상이 아니었다.\n　분명 뭔가를 알고 있는 것이다. 혹은, 뭔가를 빼돌렸을 가능성도 있다.\n　PC들은 그 뒤를 쫓기 시작했다."
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -333,7 +493,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "EVW"
-output = "어째서?／이벤트표(6) ＞ 피해자의 시점（P.176）\n　피해자의 몸에 무슨 일이 일어났는가.\n　피해자는 무엇을 보았는가.\n　그 힌트는 피해자 자신이 알 것이다."
+output = "왜?／이벤트 표(6) ＞ 피해자의 시점（P.180）\n　피해자의 몸에 무슨 일이 일어난 걸까?\n　피해자는 무엇을 봤을까?\n　그 힌트는 피해자 자신이 알고 있을 것이다."
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -341,7 +501,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "EVN"
-output = "협력자와 함께／이벤트표(6) ＞ 아마추어 추리（P.182）\n　사건관계자 앞에서, 게스트 NPC가 추리를 선보이고 있다.\n　하지만 그 추리는 구멍투성이고……."
+output = "협력자와 함께／이벤트 표(6) ＞ 아마추어 추리（P.186）\n　사건 관계자의 앞에서 게스트 NPC가 추리를 피로한다.\n　하지만 그 추리는 구멍투성이라……."
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -349,7 +509,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "EVC"
-output = "상대쪽에서／이벤트표(6) ＞ PC들의 위기（P.188）\n　수사는 갑자기 멈췄다.\n　그 원인은 알고 있다.\n　원인을 제거하지 않으면 사건 조사는 할 수 없다."
+output = "알아서 찾아온 단서／이벤트 표(6) ＞ 탐정들의 위기（P.193）\n　수사가 갑자기 멈췄다.\n　원인은 알고 있다.\n　그 원인을 제거하기 전까지는 사건을 조사할 수 없다."
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -357,7 +517,136 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "EVV"
-output = "VS용의자／이벤트표(6) ＞ 술래가 없는 사이에（P.194）\n　그 용의자를 찾아갔을 때 우연히 자리를 비우고 있었다.\n　이건 기회다.\n　그렇게 생각하는 것이 바로 탐정의 슬픈 천성이다."
+output = "VS용의자／이벤트 표(6) ＞ 뭐라할 사람이 없을 때（P.200）\n　그 용의자를 찾아갔을 때, 우연히도 당사자는 자리를 비운 상태였다.\n　이건 찬스다.\n　그렇게 생각해버리는 것이 탐정이라는 직종의 슬픈 천성이다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVE"
+output = "폐쇄 공간／이벤트 표(6) ＞ 정신 똑바로 차려!（괴도의 유혹P.36）\n　외부와 연락이 되지 않는다.\n　밖으로 나갈 수 없다.\n　이런 상황이 되면 사람의 마음이란 거칠어지기 마련이다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVD"
+output = "탐정 혼자 수사／이벤트 표(6) ＞ 상상의 조수（당신과 친해지는 방법P.76）\n　아무도 없는데 옆에 누가 있는 것처럼 사건에 대한 해설을 늘어놓는다. 옆에 누가 있는 것처럼 부탁을 하곤 한다.\n　그런 짓을 되풀이하다 보니 마치 여기에 조수가 있는 것 같은 기분이 들었다.\n　아예 머릿속의 조수와 함께 추리를 해볼까?"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVA"
+output = "조수 혼자 수사／이벤트 표(6) ＞ 혼자서라도（당신과 친해지는 방법P.83）\n　그 녀석에게 지고 싶지 않다. 그 사람을 돕고 싶다.\n　그것이 지금 자신을 움직이는 원동력이다.\n　……어째서 이렇게까지 애쓸 수 있는 것일까?"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVT"
+output = "관광 수사／이벤트 표(6) ＞ 현지인의 도움을 받아（당신과 친해지는 방법P.90）\n　곤란하게도 수사가 벽에 부딪쳤다.\n　그때, 조력자가 나타났다.\n　왠지 묘하게 존재감이 있는 인물이다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVH"
+output = "예상치 못한 힌트／이벤트 표(6) ＞ 생활 공간 내부에서（당신과 친해지는 방법P.97）\n　쉬기로 했다.\n　당분간 평소 생활로 돌아가자.\n　하지만 머리는 아직 수사 모드다. 어느새 사건 생각만 하고 있다.\n　쉬는 것도 쉬운 일이 아니다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVX"
+output = "실험을 해보자／이벤트 표(6) ＞ 신병기, 등장（당신과 친해지는 방법P.104）\n　이때를 기다렸다.\n　지금 사용하지 않으면 언제 사용할 것인가!\n　수사를 해결하기 위한 신병기, 등장!"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVG"
+output = "게스트 수사／이벤트 표(6) ＞ 게스트, 폭주중（당신과 친해지는 방법P.111）\n　어찌된 영문인지 굉장히 험악한 기세로 수사를 하고 있는 녀석이 있다.\n　거의 폭주 중이라고 봐도 무방하다. 막아야 한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVQ"
+output = "형사 탐문 수사／이벤트 표(6) ＞ 보통내기가 아닌 듯한 상대（둘이서 형사P.50）\n　탐정 PC 못지 않은 「기벽」을 지닌 상대다.\n　그런 인물로부터 증언을 들어야 한다.\n　과연 잘 풀릴까?"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVM"
+output = "형사 대규모 수사／이벤트 표(6) ＞ 본격적인 인력 동원 수사（둘이서 형사P.57）\n　사건과 용의자에는 온갖 가능성이 존재한다.\n　그러니 그 가능성을 하나하나 배제한다.\n　다른 가능성을 모두 배제하고 마지막에 남는 것이 진실이다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVP"
+output = "비밀스러운 정보 교환／이벤트 표(6) ＞ 암호문 도착（둘이서 형사P.64）\n　정보가 도착했어요.\n　거기에 적혀 있는 암호요?\n　그건 제가 만든 겁니다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVO"
+output = "동료들과 함께 수사／이벤트 표(6) ＞ 동료와 함께 식사（둘이서 형사P.71）\n　동료와 약속을 잡아 함께 식사를 하기로 했다.\n　수사 중이지만 잠깐 시간을 내서 쉬도록 하자.\n　하지만, 그 와중에도 결국 사건에 대해 이야기하게 된다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVF"
+output = "단골 가게 시추에이션／이벤트 표(6) ＞ 상담을 받다（둘이서 형사P.78）\n　항상 이용하는 가게의 주인이 상담을 청했다.\n　아무래도 도움이 필요한 것 같다.\n　할 수 없지. 좀 도와줄까."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVB"
+output = "하드B 형사 액션／이벤트 표(6) ＞ 폭주하는 중장비를 멈춰라!（둘이서 형사P.85）\n　제어를 잃은 중장비가 미쳐 날뛰고 있다.\n　아무래도 운전수가 운전 중에 기절해버린 것 같다.\n　서둘러 올라타서 멈추지 않으면 막대한 피해가 발생한다!"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVL"
+output = "탐정을 얌전하게 만드는 수사／이벤트 표(6) ＞ 기벽 캔슬（탐정 페스티벌P.32）\n　탐정이 돌발행동을 하려 한다.\n　평소라면 말릴 수 없는 그걸, 막는다.\n　그렇게 하면 어떻게 될까?"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVZ"
+output = "전통적 수사／이벤트 표(6) ＞ 뉴스（탐정 페스티벌P.38）\n　뉴스라는 건 중요한 정보원이자 오락이다.\n　그만으로도 많은 사람이 관심을 가진다.\n　뉴스를 주워 모으면 결국엔 진실에 가까워지겠지.\n　어디, 사건에 이어질 게 있으려나."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "EVR"
+output = "원시적 수사／이벤트 표(6) ＞ 보여준다（탐정 페스티벌P.44）\n　무언가 정보를 얻어낼 방법이 없을까.\n　가방 안이나 주머니 속을 뒤진다.\n　……좋아, 이걸로 가자!\n　이걸로 어떠냐! 무언가 느껴지지 않나!"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -365,7 +654,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "OBT"
-output = "조사의 장애표(66) ＞ 우연이 겹쳐서 잘 안 된다."
+output = "조사 방해 요인 표(66) ＞ 거듭된 우연으로 일이 꼬인다"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -374,7 +663,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "ACT"
-output = "변조표(6) ＞ 주목의 대상"
+output = "상태 이상 표(6) ＞ 주목받음"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -382,7 +671,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "EWT"
-output = "목격자표(6) ＞ 반사회주의자. 판정기능：≪돌파≫"
+output = "목격자 표(6) ＞ 반사회주의자. 판정기능：≪돌파≫"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -390,7 +679,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "WMT"
-output = "미제사건표(10) ＞ 탐정은 직감으로 진범을 밝혀냈다. 하지만 진범을 잡기 위한 증거가 없다. 범인을 고발하지 못해 이를 갈았다."
+output = "미제 사건 표(10) ＞ 탐정은 직감만으로 진범을 밝혀냈다. 하지만 진범을 붙잡을 증거가 없다. 범인을 고발할 수조차 없어서 좌절했다."
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -398,7 +687,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "BGDD"
-output = "탐정・운명의 혈통 배경표(10) ＞ 『클론』자신은 유명한 명탐정의 DNA에서 태어난 존재다. 그래서인지 명탐정의 힘은 타고난 것이었다."
+output = "탐정・운명의 혈통 배경 표(10) ＞ 『클론』PC는 유명한 명탐정의 DNA에서 태어난 존재다. 그 덕분인지 태어날 때부터 명탐정의 능력을 갖추고 있었다."
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -406,7 +695,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "BGDG"
-output = "탐정・천성의 재능 배경표(10) ＞ 『인공 명탐정』자신은 누군가에게 연금되어 탐정 지식을 주입당한 「인공 명탐정」이다. 명탐정이 되도록 길러진 자신은 그 능력을 기대한 대로 발휘할 수 있다."
+output = "탐정・천성적인 재능 배경 표(10) ＞ 『인공 명탐정』PC는 누군가에게 연금되어 탐정에게 필요한 지식을 주입받은 「인공 명탐정」이다. 명탐정이 되기 위해 육성된 PC는 자신의 능력을 기대받은 대로 발휘할 수 있다."
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -414,7 +703,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "BGDM"
-output = "탐정・마니아 배경표(10) ＞ 『정의의 마니아』자신이 신봉하고 있는 무언가(서적, 과학 등)가 사건에 연루되면 좌불안석이다. 마니아로서 그 수수께끼를 풀어야 한다."
+output = "탐정・마니아 배경 표(10) ＞ 『정의 마니아』PC가 신봉하는 무언가(서적, 과학 등)가 사건에 관여되어 있으면 가만히 있지 못한다. 마니아로서 그 수수께끼를 해명해야만 하는 것이다."
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -422,7 +711,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "BGAJ"
-output = "조수・정의로운 사람 배경표(6) ＞ 『정의의 동지』파트너도 함께 정의를 위해 사건 해결을 해주고 있다. 자신은 그렇게 느끼고 있다. 그렇게 믿고 있을 뿐일지도 모르지만, 그 믿음은 멈출 수 없다. 어쩌면 자신이 파트너를 휘두르고 있는지도 모르겠다."
+output = "조수・정의로운 사람 배경 표(6) ＞ 『정의를 위한 동지』파트너도 마찬가지로 정의를 위해 사건을 해결해준다. PC는 그렇게 생각하고 있다. 일방적인 믿음일지도 모르지만, 여하튼 그렇게 믿고 만다. 어쩌면 파트너가 PC에게 휘둘리고 있을 뿐일지도 모르지만."
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -430,7 +719,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "BGAP"
-output = "조수・정렬적인 사람 배경표(6) ＞ 『내버려둘 수 없다』파트너를 내버려두면 무슨 짓을 할지 모른다. 그러니까 자신이 지켜보고 있어야 돼. 그렇게 느꼈다."
+output = "조수・정열적인 사람 배경 표(6) ＞ 『내버려둘 수 없다』파트너를 내버려두면 무슨 짓을 할지 알 수가 없다. 그러니 지켜봐줘야만 한다. 그렇게 느꼈다."
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -438,7 +727,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "BGAI"
-output = "조수・말려든 사람 배경표(6) ＞ 『우연의 연속』파트너가 사건에 직면할 때마다 마침 그 자리에 있다. 그러다 보니 어느새 친해져 있었다. 지금은 함께 있는 일도 많다."
+output = "조수・말려든 사람 배경 표(6) ＞ 『거듭된 우연』파트너가 사건에 직면할 때마다 마주친다. 그런 일이 반복되다 보니 어느샌가 친해졌다. 지금은 자주 함께 있는다."
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -446,7 +735,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "HT"
-output = "신장표(6) ＞ 파트너보다 조금 크다／조금 작다"
+output = "신장 표(6) ＞ 파트너보다 조금 크다／조금 작다"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -454,7 +743,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "BT"
-output = "아지트표(10) ＞ 둘만 알고 있는 비밀장소"
+output = "아지트 표(10) ＞ 둘만 아는 비밀 장소"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -462,7 +751,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "GRT"
-output = "관계표(66) ＞ 일방적으로 알려져 있다"
+output = "관계 표(66) ＞ 상대가 이쪽을 일방적으로 안다"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -471,7 +760,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "MIT"
-output = "추억의 물건 결정표(66) ＞ 둘만의 비밀교환일기"
+output = "추억의 물품 결정 표(66) ＞ 둘만의 비밀 교환일기"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -479,8 +768,16 @@ rands = [
 
 [[ test ]]
 game_system = "FutariSousa:Korean"
+input = "MITE"
+output = "에피소드 동반 추억의 물품 표(10) ＞ 둘이 함께 해온 일을 정리한 일기. 탐정과 조수 중 누가 일기를 쓰는지는 상의해서 결정한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
 input = "JBT66"
-output = "직업표A(66) ＞ 파트너와 같음"
+output = "직업 표A(66) ＞ 파트너와 동일"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -489,7 +786,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "JBT10"
-output = "직업표B(10) ＞ 학생"
+output = "직업 표B(10) ＞ 학생"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -497,7 +794,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "FST66"
-output = "패션 특징표A(66) ＞ 패션에 구애받지 않는다"
+output = "패션 특징 표A(66) ＞ 패션에 얽매이지 않음"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -506,7 +803,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "FST10"
-output = "패션 특징표B(10) ＞ 패션에 구애받지 않는다"
+output = "패션 특징 표B(10) ＞ 패션에 얽매이지 않음"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -514,7 +811,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "FLT66"
-output = "감정표A(66) ＞ 생활습관"
+output = "감정 표A(66) ＞ 생활 습관"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -523,15 +820,131 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "FLT10"
-output = "감정표B(10) ＞ 자신과의 관계"
+output = "감정 표B(10) ＞ 자신과의 관계"
 rands = [
   { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "FutariSousa:Korean"
+input = "FLTL66"
+output = "추가 감정 표・마음에 드는 점(66) ＞ 함께 맹세한 「소중한 약속」을 잊지 않는 점"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "FLTD66"
+output = "추가 감정 표・마음에 안 드는 점(66) ＞ 함께 맹세한 「소중한 약속」을 잊어버린 것 같은데?"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "FLTRA"
+output = "무작위 감정 결정 표（당친법）(6) ＞ 추가 감정 표・헤비 웨이트를 사용한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "FLTF66"
+output = "추가 감정 표・얼굴 부위(66) ＞ 목덜미"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "FLTB66"
+output = "추가 감정 표・신체 부위(66) ＞ 허리 둘레"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "FLTH66"
+output = "추가 감정 표・생활 습관(66) ＞ 지갑 내용물"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "FLTS66"
+output = "추가 감정 표・마음이 들뜨는 감각(66) ＞ 텐션이 오르는 타이밍"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "FLTA66"
+output = "추가 감정 표・타인에 대한 태도(66) ＞ 타인과 이야기할 때 자신을 보는 빈도"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "FLTW66"
+output = "추가 감정 표・헤비 웨이트(66) ＞ 자신의 모든 것을 바치고 싶다고 생각한 순간"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "FLTC66"
+output = "추가 감정 표・동료(66) ＞ 옛날에 했던 말"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "FLTU66"
+output = "추가 감정 표・부하(66) ＞ 예리한 감"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "FLTO66"
+output = "추가 감정 표・상사(66) ＞ 모르는 사이에 활약하는 점"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
+input = "FLTI66"
+output = "추가 감정 표・수사 방식(66) ＞ 이게 뭐냐 싶은 점"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa:Korean"
 input = "LDT66"
-output = "좋아하는 것／싫어하는 것표A(66) ＞ 총"
+output = "호불호 표A(66) ＞ 총"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -540,7 +953,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "LDT10"
-output = "좋아하는 것／싫어하는 것표B(10) ＞ 모르는 것"
+output = "호불호 표B(10) ＞ 모르는 것"
 rands = [
   { sides = 10, value = 10 },
 ]
@@ -548,7 +961,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "NCT66"
-output = "호칭표A(66) ＞ 매번 호칭이 바뀐다."
+output = "호칭 표A(66) ＞ 매번 호칭이 바뀜"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -557,7 +970,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "NCT10"
-output = "호칭표B(10) ＞ 별명"
+output = "호칭 표B(10) ＞ 별명"
 rands = [
   { sides = 10, value = 10 },
 ]
