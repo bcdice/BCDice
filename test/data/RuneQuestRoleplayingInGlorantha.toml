@@ -1493,3 +1493,27 @@ failure = true
 rands = [
   { sides = 100, value = 100 },
 ]
+
+#===== バグ対応 ======#
+
+#【技能540%の時、出目96以上でスペシャルになる問題対応】
+# 96は計算上スペシャルだが、96以上の出目は失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=540"
+output = "(1D100<=540) ＞ 96 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+#【技能540%の時、出目96以上でスペシャルになる問題対応】
+# 95は計算上スペシャル
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG<=540"
+output = "(1D100<=540) ＞ 95 ＞ スペシャル"
+success = true
+rands = [
+  { sides = 100, value = 95 },
+]
