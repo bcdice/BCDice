@@ -2039,3 +2039,31 @@ rands = [
   { sides = 10, value = 7 },
   { sides = 10, value = 5 },
 ]
+
+# 5ダイスを超えるHungerダイス
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF6+6"
+output = "Hungerダイス指定は5ダイスが最大です。"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+]
+
+# 5ダイスを超えるHungerダイス
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMI6H6"
+output = "Hungerダイス指定は5ダイスが最大です。"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+]

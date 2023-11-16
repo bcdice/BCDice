@@ -67,6 +67,9 @@ module BCDice
         if dice_pool < 0
           return "ダイスプールより多いHungerダイスは指定できません。"
         end
+        if hunger_dice_pool && hunger_dice_pool > 5
+          return "Hungerダイス指定は5ダイスが最大です。"
+        end
 
         dice_text, success_dice, ten_dice, = make_dice_roll(dice_pool)
         result_text = "(#{dice_pool}D10"
