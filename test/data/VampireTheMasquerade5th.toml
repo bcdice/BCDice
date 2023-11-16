@@ -2054,6 +2054,21 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
+# 5ダイスちょうどのHungerダイス
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMF1+5"
+output = "(1D10+5D10) ＞ [4]+[6,6,5,3,10]  成功数=3 難易度=3 差分=0：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+]
+
 # 5ダイスを超えるHungerダイス
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
@@ -2064,6 +2079,21 @@ rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+]
+
+# 5ダイスちょうどのHungerダイス
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "3VMI6H5"
+output = "(1D10+5D10) ＞ [4]+[6,6,5,3,10]  成功数=3 難易度=3 差分=0：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
   { sides = 10, value = 3 },
   { sides = 10, value = 10 },
 ]
