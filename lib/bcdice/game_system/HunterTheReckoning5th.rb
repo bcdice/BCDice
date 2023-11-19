@@ -56,6 +56,10 @@ module BCDice
 
         desperaton_dice_pool = m[DESPERATION_DICE_INDEX]&.to_i
         if desperaton_dice_pool
+          if desperaton_dice_pool > 5
+            return "Desperationダイス指定は5ダイスが最大です。"
+          end
+
           desperaton_dice_text, desperaton_success_dice, desperaton_ten_dice, desperaton_botch_dice = make_dice_roll(desperaton_dice_pool)
 
           ten_dice += desperaton_ten_dice
