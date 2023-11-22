@@ -129,7 +129,7 @@ module BCDice
               return Result.fumble("#{result_text}：判定失敗! [Bestial Failure]")
             end
             if success_dice == 0
-              return Result.failure("#{result_text}：判定失敗! [Total Failure]")
+              return Result.fumble("#{result_text}：判定失敗! [Total Failure]")
             end
 
             return Result.failure("#{result_text}：判定失敗!")
@@ -139,8 +139,7 @@ module BCDice
             if hunger_botch_dice > 0
               return Result.fumble("#{result_text}：判定失敗! [Bestial Failure]")
             end
-
-            return Result.failure("#{result_text}：判定失敗! [Total Failure]")
+            return Result.fumble("#{result_text}：判定失敗! [Total Failure]")
           else
             if hunger_botch_dice > 0
               result_text = "#{result_text}\n　判定失敗なら [Bestial Failure]"
