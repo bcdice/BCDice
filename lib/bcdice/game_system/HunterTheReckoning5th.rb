@@ -17,12 +17,12 @@ module BCDice
         ・判定コマンド(nHRFx+x)
           注意：難易度は必要成功数を表す
 
-          難易度指定：成功数のカウント、判定成功と失敗、Critical処理、Critical Winのチェックを行う
+          難易度指定：成功数のカウント、判定成功と失敗、Critical処理、Critical Win、Total Failureのチェックを行う
                      （Desperationダイスがある場合）OverreachとDespairの発生チェックを行う
           例) (難易度)HRF(通常ダイス)+(Desperationダイス)
               (難易度)HRF(通常ダイス)
 
-          難易度省略：成功数のカウント、判定失敗、Critical処理、（Desperationダイスがある場合）Despairチェックを行う
+          難易度省略：成功数のカウント、判定失敗、Critical処理、Total Failure、（Desperationダイスがある場合）Despairチェックを行う
                       判定成功、Overreachのチェックを行わない
                       Critical Win、（Desperationダイスがある場合）Despair、Overreachのヒントを出力
           例) HRF(通常ダイス)+(Desperationダイス)
@@ -102,6 +102,9 @@ module BCDice
             if desperaton_botch_dice > 0
               return Result.fumble("#{result_text}：判定失敗! [Despair]")
             end
+            if success_dice == 0
+              return Result.fumble("#{result_text}：判定失敗! [Total Failure]")
+            end
 
             return Result.failure("#{result_text}：判定失敗!")
           end
@@ -111,7 +114,7 @@ module BCDice
               return Result.fumble("#{result_text}：判定失敗! [Despair]")
             end
 
-            return Result.failure("#{result_text}：判定失敗!")
+            return Result.fumble("#{result_text}：判定失敗! [Total Failure]")
           else
             if desperaton_botch_dice > 0
               result_text = "#{result_text}\n　判定失敗なら [Despair]"
