@@ -110,7 +110,7 @@ module BCDice
         return dice_pool, rage_dice_pool
       end
 
-      def get_roll_result(result_text, success_dice, ten_dice, rage_ten_dice, brutal_outcome, difficulty)
+      def get_roll_result(result_text, success_dice, ten_dice, _rage_ten_dice, brutal_outcome, difficulty)
         is_critical = ten_dice >= 2
 
         if brutal_outcome > 0 && difficulty != 0
