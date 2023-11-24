@@ -2,8 +2,9 @@
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMF0"
-output = "(0D10) ＞ []  成功数=0 難易度=3：判定失敗!"
+output = "(0D10) ＞ []  成功数=0 難易度=3：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -13,8 +14,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMF3"
-output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗!"
+output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -210,8 +212,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMF3"
-output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗!"
+output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -221,8 +224,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMF0"
-output = "(0D10) ＞ []  成功数=0：判定失敗!"
+output = "(0D10) ＞ []  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 6 },
@@ -252,8 +256,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMF0+0"
-output = "(0D10+0D10) ＞ []+[]  成功数=0：判定失敗!"
+output = "(0D10+0D10) ＞ []+[]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 6 },
@@ -312,8 +317,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMF3+2"
-output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗!"
+output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -489,8 +495,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF0"
-output = "(0D10) ＞ []  成功数=0 難易度=3：判定失敗!"
+output = "(0D10) ＞ []  成功数=0 難易度=3：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -501,8 +508,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF3"
-output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗!"
+output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -704,8 +712,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMF0"
-output = "(0D10) ＞ []  成功数=0：判定失敗!"
+output = "(0D10) ＞ []  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -716,8 +725,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMF3"
-output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗!"
+output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -750,8 +760,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMF3+2"
-output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗!"
+output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -996,8 +1007,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMI0"
-output = "(0D10) ＞ []  成功数=0 難易度=3：判定失敗!"
+output = "(0D10) ＞ []  成功数=0 難易度=3：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1007,8 +1019,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMI3"
-output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗!"
+output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1190,8 +1203,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMI3"
-output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗!"
+output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -1201,8 +1215,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMI0"
-output = "(0D10) ＞ []  成功数=0：判定失敗!"
+output = "(0D10) ＞ []  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 6 },
@@ -1232,8 +1247,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMI0H0"
-output = "(0D10+0D10) ＞ []+[]  成功数=0：判定失敗!"
+output = "(0D10+0D10) ＞ []+[]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 6 },
@@ -1292,8 +1308,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMI5H2"
-output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗!"
+output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -1469,8 +1486,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMI0"
-output = "(0D10) ＞ []  成功数=0 難易度=3：判定失敗!"
+output = "(0D10) ＞ []  成功数=0 難易度=3：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1481,8 +1499,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMI3"
-output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗!"
+output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1684,8 +1703,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMI0"
-output = "(0D10) ＞ []  成功数=0：判定失敗!"
+output = "(0D10) ＞ []  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -1696,8 +1716,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMI3"
-output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗!"
+output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -1730,8 +1751,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMI5H2"
-output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗!"
+output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 2 },

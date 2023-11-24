@@ -22,14 +22,14 @@ module BCDice
             2VMF6+3
             2VMI9H3
 
-          難易度指定：成功数のカウント、判定成功と失敗、Critical処理、Critical Winのチェックを行う
+          難易度指定：成功数のカウント、判定成功と失敗、Critical処理、Critical Win、Total Failureのチェックを行う
                      （Hungerダイスがある場合）Messy CriticalとBestial Failureチェックを行う
           例) (難易度)VMF(通常ダイス)+(Hungerダイス)
               (難易度)VMF(通常ダイス)
               (難易度)VMI(通常ダイス)H(Hungerダイス)
               (難易度)VMI(通常ダイス)
 
-          難易度省略：成功数のカウント、判定失敗、Critical処理、（Hungerダイスがある場合）Bestial Failureチェックを行う
+          難易度省略：成功数のカウント、判定失敗、Critical処理、Total Failure、（Hungerダイスがある場合）Bestial Failureチェックを行う
                       判定成功、Messy Criticalのチェックを行わない
                       Critical Win、（Hungerダイスがある場合）Bestial Failure、Messy Criticalのヒントを出力
           例) VMF(通常ダイス)+(Hungerダイス)
@@ -128,6 +128,9 @@ module BCDice
             if hunger_botch_dice > 0
               return Result.fumble("#{result_text}：判定失敗! [Bestial Failure]")
             end
+            if success_dice == 0
+              return Result.fumble("#{result_text}：判定失敗! [Total Failure]")
+            end
 
             return Result.failure("#{result_text}：判定失敗!")
           end
@@ -137,7 +140,7 @@ module BCDice
               return Result.fumble("#{result_text}：判定失敗! [Bestial Failure]")
             end
 
-            return Result.failure("#{result_text}：判定失敗!")
+            return Result.fumble("#{result_text}：判定失敗! [Total Failure]")
           else
             if hunger_botch_dice > 0
               result_text = "#{result_text}\n　判定失敗なら [Bestial Failure]"
