@@ -334,12 +334,23 @@ module BCDice
             if command.modifier_after_half != 0
               text += Format.modifier(command.modifier_after_half)
             end
+          elsif command.one_and_a_half
+            text = "(#{text})*1.5"
+            if command.modifier_after_one_and_a_half != 0
+              text += Format.modifier(command.modifier_after_one_and_a_half)
+            end
           end
           sequence.push(text)
         elsif command.half
           text = "#{rateResults.first}/2"
           if command.modifier_after_half != 0
             text += Format.modifier(command.modifier_after_half)
+          end
+          sequence.push(text)
+        elsif command.one_and_a_half
+          text = "#{rateResults.first}*1.5"
+          if command.modifier_after_one_and_a_half != 0
+            text += Format.modifier(command.modifier_after_one_and_a_half)
           end
           sequence.push(text)
         end
@@ -354,6 +365,11 @@ module BCDice
           total = (total / 2.0).ceil
           if command.modifier_after_half != 0
             total += command.modifier_after_half
+          end
+        elsif command.one_and_a_half
+          total = (total * 1.5).ceil
+          if command.modifier_after_one_and_a_half != 0
+            total += command.modifier_after_one_and_a_half
           end
         end
 

@@ -34,6 +34,9 @@ module BCDice
         # @return [Integer, nil]
         attr_accessor :modifier_after_half
 
+        # @return [Integer, nil]
+        attr_accessor :modifier_after_one_and_a_half
+
         def settable_first_roll_adjust_option?
           return first_modify.nil? && first_to.nil?
         end
