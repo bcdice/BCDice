@@ -57,14 +57,12 @@ module BCDice
       def dice_roll(num_dice, success_threshold)
         # ダイスを振った結果を配列として取得
         values = @randomizer.roll_barabara(num_dice, 10)
-        values_without_critical = values.reject { |num| num <= CRITICAL_VALUE }
-
-        critical = values.size - values_without_critical.size
-        success = values_without_critical.count { |num| num <= success_threshold }
-        fumble = values_without_critical.count { |num| num >= FUMBLE_VALUE }
+        critical = values.count(CRITICAL_VALUE)
+        success = values.count { |num| num <= success_threshold }
+        fumble = values.count(FUMBLE_VALUE)
 
         # 成功値
-        success_value = 2 * critical + success - fumble
+        success_value = critical + success - fumble
         result = compare_result(success_value)
 
         result.text = "#{values} ＞ #{success_value} ＞ #{translate('Emoklore.success_count', count: success_value)} #{result.text}"
