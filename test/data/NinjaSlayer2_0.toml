@@ -1,0 +1,1099 @@
+# B6K{m} ([K]ids判定用の簡易コマンド)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "K5"
+output = "(5B6>=2) ＞ 4,6,3,1,5 ＞ 成功数:4 \n"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+# B6E{m} ([E]asy判定用の簡易コマンド)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "E5"
+output = "(5B6>=3) ＞ 4,6,3,1,5 ＞ 成功数:4 \n"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+# B6N{m} ([N]ormal判定用の簡易コマンド)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "N5"
+output = "(5B6>=4) ＞ 4,6,3,1,5 ＞ 成功数:3 \n"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+# B6H{m} ([H]ard判定用の簡易コマンド)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "H5"
+output = "(5B6>=5) ＞ 4,6,3,1,5 ＞ 成功数:2 \n"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+# B6U{m} ([U]ltra-hard判定用の簡易コマンド)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "U5"
+output = "(5B6>=6) ＞ 4,2,3,1,5 ＞ 成功数:0 \n"
+failure = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+# N{m},{n}[appendix] 簡易コマンドの連続処理 (追加判定)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "N5,3,4[!=1][s][c2]"
+output = "(5B6>=4) ＞ 4,6,3,1,5 ＞ 成功数:3, 追加判定:4[6,5,4,3], サツバツ！:1[6], クリティカル！:4[6,5,4,3] \n(3B6>=4) ＞ 1,1,2 ＞ 成功数:0, 追加判定:1[2], サツバツ！:0, クリティカル！:1[2] \n(4B6>=4) ＞ 6,6,1,2 ＞ 成功数:2, 追加判定:3[6,6,2], サツバツ！:2[6,6], クリティカル！:3[6,6,2] \n"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+# NAME
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NAM"
+output = "◆ニンジャ名(D66,D66) ＞ (12,34) ＞ ホワイト ソード"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+# NAME(番号指定)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NAM@66,11"
+output = "◆ニンジャ名(66,11) ＞ ライトニング シャドウ"
+rands = [
+]
+
+# STATUS
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "STA"
+output = "◆基礎能力値(4B6) ＞ (6,3,4,6) ＞ カラテ:6, ニューロン:3, ワザマエ:4, ジツ:3 (スクラッチビルド19ポイント相当)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+# JITSU
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "JIT"
+output = "◆初期ジツ系統(D6) ＞ (3) ＞ 『☆カラテミサイル』（系統：遠隔攻撃系） \n使用タイミング：手番「攻撃フェイズ」 \nコスト：精神力1、1行動 \nターゲット：カラテミサイルのLV数+1体までの敵（最大で4） \n発動難易度：ニューロン＋ジツ：NORMAL \n効果種別：射撃（マルチターゲット） \nカラテミサイルのLV数+1個のカラテ光球が発射され、使用者から視線が通ってさえいれば、どれだけ離れていても自動的に命中する。ダメージはそれぞれ1である（『回避：NORMAL』）。複数の敵に振り分けても、1つの敵に集中してもよい（まとめて回避可能）。カラテミサイルは射撃系効果のため、ターゲットが隣接している場合には使用できない。このジツで射出できるカラテ光級の最大数は4個である。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+# JITSU(番号指定)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "JIT@5"
+output = "◆初期ジツ系統(5) ＞ 『☆カナシバリ・ジツ』（系統：精神攻撃/幻惑/毒系） \n使用タイミング：手番「攻撃フェイズ」 \nコスト：精神力1、1行動 \nターゲット：隣接する3×3マス \n発動難易度：ニューロン＋ジツ：NORMAL \n効果種別：範囲攻撃、精神攻撃 \n無効：「戦闘兵器」には効果を発揮しない \n術者と隣接した3×3マスの敵全員に『精神力ダメージ1』（『回避：NORMAL』）を与え、それがモブ敵ならばこのターンの手番を失わせる。 \n【ジツ】値2の場合、効果範囲内の敵いずれか1体のみを『精神力ダメージD2』（『回避：HARD』）にできる。また、このジツを回避できなかった敵全員を、ターン終了まで『崩れ状態』にする。 \n【ジツ】値3の場合、この『回避：HARD』に失敗した敵1体は、続けて【ニューロン】で『抵抗判定：HARD』を行わねばならず、失敗すると術者側の次の手番まで『拘束状態』（脱出判定不可）となる（それがモブ敵ならば戦闘不能とみなし取り除いてもよい）。この『拘束状態』にある者が新たにダメージを受けて【体力】/【精神力】を1以上失った場合、そのフェイズの終わりにこの『拘束状態』は自動的に解除される。"
+rands = [
+]
+
+# SKILL
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "SKI"
+output = "◆初期スキル(D6) ＞ (4) ＞ 『◉魅了』（系統：特殊系◉スキル） \n効果種別：精神攻撃、特殊戦闘行動 \n手番攻撃フェイズに「その他の行動」として【ニューロン】+【ジツ】で判定を行う（『難易度：NORMAL』、【ジツ】0でも使用できる）。成功すると、6マス以内にいて視線が通っているモブ敵モータル1体を直ちに戦闘不能状態にし、マップから取り除く。 \n【6,6】：直ちにターゲットを1体追加し、同じ効果を与える。ターゲット選定の条件は変わらない。 \n【6,6,6】：直ちにターゲットを2体追加し、同じ効果を与える。ターゲット選定の条件は変わらない。 \n【ニューロン】7以上：上記効果とは別に、このキャラは『交渉判定』をシナリオ中1回だけ振り直せる（【精神力】1をコストとして支払うこと）。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+# SKILL(番号指定)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "SKI@1"
+output = "◆初期スキル(1) ＞ 『◉常人の三倍の脚力』（系統：常時強化系◉スキル） \n【脚力】+1。また『連続側転判定』の難易度が−1される。"
+rands = [
+]
+
+# KNOWLEDGE
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "KNO"
+output = "◆初期知識スキル(D66) ＞ (65) ＞ 『◉知識：IRCネットワーク』 \n（地域系）IRCネット、およびハッカーが視る無限地平コトダマ空間などの伝説について"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+# KNOWLEDGE(番号指定)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "KNO@11"
+output = "◆初期知識スキル(11) ＞ 『◉知識：ストリートの流儀』 \n（流儀系）困窮の中でたくましく生き抜く知恵、義理や人情、筋の通し方などについて"
+rands = [
+]
+
+# ITEM
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "ITE"
+output = "◆初期アイテム(D6) ＞ (1) ＞ 『家族の写真』（種別：レリック） \nつねに【精神力】+1。以下のいずれかの方法で、「使い捨て」の回復アイテムとしても使用できる（使用後完全に失われる） \n効果１：自分の手番かどうかを問わず、【DKK】獲得直後、または『Wasshoi!判定』が行われる直前に使用を宣言し、現在の自分自身の【DKK】値を０にする。 \n効果２：【精神力】を直ちに4回復する。これは「瞬時行動」ですらなく、手番以外でもあらゆるタイミングに割り込んで使用できる（『ニンジャ耐久力の発露』時にも使用できる）。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+# ITEM(番号指定)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "ITE@6"
+output = "◆初期アイテム(6) ＞ 『カタナ』（種別：近接武器） \n種別とスロット占有数：標準近接武器、1スロット \n所持ペナルティ：なし \n装備時ペナルティ：側転難易度+1 \nダメージや基本攻撃難易度：1ダメージ、NORMAL \n装備時の獲得スタイル： \n『●戦闘スタイル：強攻撃』：全『攻撃判定』が難易度+1となり、全攻撃が『痛打+1』となる。連続攻撃上限が3となる。 \n『●戦闘スタイル：精密攻撃』：【ワザマエ】で『攻撃判定』を行う。『サツバツ！』は【6,6,6】、『ナムアミダブツ！』は【6,6,6,6】となる。『痛打』は発生しない。"
+rands = [
+]
+
+# CYBERNETICS
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "CYB"
+output = "◆初期サイバネ(D6) ＞ (2) ＞ 『▶︎ヒキャクLV1』（種別：脚部サイバネ） \n【脚力】+1、回避ダイス+1個 \n【万札】-10(ふわふわローン)"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+# CYBERNETICS(番号指定)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "CYB@6"
+output = "◆初期サイバネ(6) ＞ 『▲▲戦闘用バイオサイバネLV1』（種別：戦闘用バイオサイバネ（頭部＋腕部を占有）） \n近接攻撃時のダメージ+1、交渉難易度+1（これを選択した場合、初期装備アイテムと初期スキルを全て捨てること） \n【万札】-10(ふわふわローン)"
+rands = [
+]
+
+# 生い立ち
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "BAC"
+output = "◆生い立ち(D66) ＞ (21) ＞ 『○錠前破り』 \nこの者はかつてハック＆スラッシュ武装強盗団の一員として開錠役やトラップ排除役を担っていた。 \nロック解除判定やトラップ解除判定でつねにダイスが+1個される。 \n1つ選択：『◉知識：カチグミエリア』『◉知識：セキュリティ』『◉知識：犯罪』"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 生い立ち(番号指定)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "BAC@42"
+output = "◆生い立ち(42) ＞ 『○堕落マッポ』 \nこの者はかつて堕落したマッポや暴力デッカーであったが、ついに行き過ぎた悪事が露見して公職から追放されてしまった。しかしかつてのコネやマッポ装備に関する知識は未だ健在である。 \n『◉憎悪（NPSD/ハイデッカー）』を持つ（モブエネミーリストの「警察機構系」に分類される敵、および同様の背景を持つボス級の敵を単体のターゲットとした時、攻撃ダイス/射撃ダイスが+1個される）。またブラックマーケットでの買い物時、トロ粉末を本来より【万札】-1の価格で入手できる。 \n1つ選択：『◉知識：公僕の流儀』『◉知識：ドラッグ』『◉知識：犯罪』"
+rands = [
+]
+
+# NB(ジツあり)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NB"
+output = "◆ニンジャ名(D66,D66) ＞ (34,56) ＞ ブルータル コブラ \n\n◆基礎能力値(4B6) ＞ (6,3,4,6) ＞ カラテ:6, ニューロン:3, ワザマエ:4, ジツ:3 (スクラッチビルド19ポイント相当) \n\n◆初期ジツ系統(D6) ＞ (3) ＞ 『☆カラテミサイル』（系統：遠隔攻撃系） \n使用タイミング：手番「攻撃フェイズ」 \nコスト：精神力1、1行動 \nターゲット：カラテミサイルのLV数+1体までの敵（最大で4） \n発動難易度：ニューロン＋ジツ：NORMAL \n効果種別：射撃（マルチターゲット） \nカラテミサイルのLV数+1個のカラテ光球が発射され、使用者から視線が通ってさえいれば、どれだけ離れていても自動的に命中する。ダメージはそれぞれ1である（『回避：NORMAL』）。複数の敵に振り分けても、1つの敵に集中してもよい（まとめて回避可能）。カラテミサイルは射撃系効果のため、ターゲットが隣接している場合には使用できない。このジツで射出できるカラテ光級の最大数は4個である。 \n\n◆初期知識スキル(D66) ＞ (65) ＞ 『◉知識：IRCネットワーク』 \n（地域系）IRCネット、およびハッカーが視る無限地平コトダマ空間などの伝説について \n\n◆初期アイテム(D6) ＞ (1) ＞ 『家族の写真』（種別：レリック） \nつねに【精神力】+1。以下のいずれかの方法で、「使い捨て」の回復アイテムとしても使用できる（使用後完全に失われる） \n効果１：自分の手番かどうかを問わず、【DKK】獲得直後、または『Wasshoi!判定』が行われる直前に使用を宣言し、現在の自分自身の【DKK】値を０にする。 \n効果２：【精神力】を直ちに4回復する。これは「瞬時行動」ですらなく、手番以外でもあらゆるタイミングに割り込んで使用できる（『ニンジャ耐久力の発露』時にも使用できる）。 \n\n◆初期サイバネ(D6) ＞ (2) ＞ 『▶︎ヒキャクLV1』（種別：脚部サイバネ） \n【脚力】+1、回避ダイス+1個 \n【万札】-10(ふわふわローン)"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  
+  { sides = 6, value = 3 },
+  
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  
+  { sides = 6, value = 1 },
+  
+  { sides = 6, value = 2 },
+]
+
+# NB(ジツなし)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NB"
+output = "◆ニンジャ名(D66,D66) ＞ (34,56) ＞ ブルータル コブラ \n\n◆基礎能力値(4B6) ＞ (6,3,4,2) ＞ カラテ:6, ニューロン:3, ワザマエ:4, ジツ:0 (スクラッチビルド13ポイント相当) \n\n◆初期スキル(D6) ＞ (3) ＞ 『◉ランスキック』（系統：近接攻撃系◉スキル） \n効果種別：戦闘スタイル \n現在装備している武器に関わらず、この素手系戦闘スタイルを選択できる。素手以外の武器を装備している場合、このフェイズ中のみ一時的に素手装備に切り替わり、本来装備している他の武器の効果は一切得られなくなる。素手近接攻撃への『エンハンス』や『リーチ+X』を持つ場合は、通常どおりそれらの効果を得られる。 \n『●戦闘スタイル：ランスキック』：【脚力】値で『攻撃判定：NORMAL』を行う。これは『●連続攻撃1（固定）』だが、【脚力】7以上の場合のみ『●連続攻撃2（固定）』も選択できる。この攻撃の基本ダメージは1固定である。回避されなかった場合、『サツバツ！』出目1の効果（『痛打』＋『弾き飛ばし』）が自動的に発生する。この攻撃に対してカウンターを受けた場合、回避不能となる。 \nこの攻撃時、『サツバツ！』や『ナムアミダブツ！』は通常どおり発生する（出目1を選ぶか、D6でランダムに決めるかを選択できる）。ただし、特定の出目によって発動するワザ（『マウントタックル』など）やヒサツ・ワザ（『ポン・パンチ』など）へと派生させることはできない。『◉叩き伏せ』などの効果は通常どおり使用できる。 \n\n◆初期知識スキル(D66) ＞ (65) ＞ 『◉知識：IRCネットワーク』 \n（地域系）IRCネット、およびハッカーが視る無限地平コトダマ空間などの伝説について \n\n◆初期アイテム(D6) ＞ (1) ＞ 『家族の写真』（種別：レリック） \nつねに【精神力】+1。以下のいずれかの方法で、「使い捨て」の回復アイテムとしても使用できる（使用後完全に失われる） \n効果１：自分の手番かどうかを問わず、【DKK】獲得直後、または『Wasshoi!判定』が行われる直前に使用を宣言し、現在の自分自身の【DKK】値を０にする。 \n効果２：【精神力】を直ちに4回復する。これは「瞬時行動」ですらなく、手番以外でもあらゆるタイミングに割り込んで使用できる（『ニンジャ耐久力の発露』時にも使用できる）。 \n\n◆初期サイバネ(D6) ＞ (2) ＞ 『▶︎ヒキャクLV1』（種別：脚部サイバネ） \n【脚力】+1、回避ダイス+1個 \n【万札】-10(ふわふわローン)"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  
+  { sides = 6, value = 3 },
+  
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  
+  { sides = 6, value = 1 },
+  
+  { sides = 6, value = 2 },
+]
+
+# サツバツ！(D6)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "SB"
+output = "サツバツ!!(D6) ＞ (3) ＞ 「苦しみ抜いて死ぬがいい！」急所や内臓を情け容赦なく破壊！ \n『痛打+1』。敵の【体力】を減らした場合、付属効果として『ニューロンダメージ1』と『精神力ダメージ2』と『●部位損傷：胴体』を与える。"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 3 },
+]
+
+# サツバツ！(効果指定)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "SB@6"
+output = "サツバツ!!(6) ＞ 「さらばだ！ イイイヤアアアアーーーーッ！」ヤリめいたチョップが敵の胸を貫通！ さらに心臓を掴み取り、握りつぶした！ ゴウランガ！ \n『即死！』。敵が『即死耐性』を持つ場合、この効果は『痛打＋2D6』に置き換えられる。"
+success = true
+critical = true
+rands = []
+
+# Wasshoi！(2D6/失敗)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "WS8"
+output = "Wasshoi!判定(2D6) ＞ (4+5) ＞ 9(>8) 判定失敗"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+# Wasshoi！(2D6/成功)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "WS8"
+output = "Wasshoi!判定(2D6) ＞ (3+1) ＞ 4(<=8) 判定成功!! \nニンジャスレイヤー=サンのエントリーだ!!"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+# Wasshoi!エントリー(D6)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "WSE"
+output = "ニンジャスレイヤー=サンのエントリー!!(D6) ＞ (4) ＞ 天井破壊や床破砕、または垂直リフト射出により出現！ \n標的ニンジャから2マス離れた任意の場所に【殺】コマを置くこと。 \n激しい恐怖や動揺により、次のターンの終了時まで、その場にいる【DKK】1以上のニンジャ全員は『連続側転判定』の難易度が+1される。"
+failure = true
+rands = [  
+  { sides = 6, value = 4 },
+]
+
+# Wasshoi！エントリー(エントリー表指定)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "WSE@6"
+output = "ニンジャスレイヤー=サンのエントリー!!(6) ＞ 「行き先はジゴクですよ」 \nマップ上にいるNPC1人（標的ニンジャから最も近くにいる者）が、実はニンジャスレイヤーの変装であった。そのNPCのコマを【殺】に変更せよ（本物のNPCがどこにいったのかはニンジャマスターが後で考える）。 \n激しい恐怖や動揺により、次のターンの終了時まで、その場にいる【DKK】1以上のニンジャ全員は『連続側転判定』の難易度が+2される。"
+failure = true
+rands = []
+
+# NRS判定(難易度Easy, 成功)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NRS_E4"
+output = "NRS判定(4B6>=3) ＞ 1,2,3,4 ＞ 成功数:2 NRS克服!!"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+# NRS判定(難易度Easy, 失敗, 発狂表指定なし)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NRS_E4"
+output = "NRS判定(4B6>=3) ＞ 1,1,1,1 ＞ 成功数:0 NRS発症!! \nNRS発狂(1D3) ＞ (3) ＞ パニック逃走や異常行動 \n恐怖のあまり絶叫し、仲間を見捨ててその場から全速力で逃げ出そうとしたり、銃を持っている場合は見えない敵に向かって乱射しようとする。 \nあるいは仲間のことをニンジャだと思い込んで攻撃を仕掛けたり、理解不能な異常行動を取ったりする。 \n探索シーケンスの場合、直ちに戦闘シーケンスが発生してこのPCの手番となり、1ターンだけマスターがこのPCを操作する。このPCは常軌を逸した身体能力を発揮し、【脚力】6として行動する。マスターはこのPCに自傷行為以外のどんな行動を取らせてもよい。このPCにとっては、あらゆるキャラが敵とみなされる。このターンの終了時に、このPCは正気に戻る。 \n戦闘中の場合も同様で、次の手番にこの状態となる。手番開始時に攻撃できる相手がニンジャしか見えていない場合、逃走を優先する。"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 3, value = 3 },
+]
+
+# NRS判定(難易度Normal, 失敗, 発狂表指定なし)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NRS_N4"
+output = "NRS判定(4B6>=4) ＞ 1,1,1,1 ＞ 成功数:0 NRS発症!! \nNRS発狂(1D6) ＞ (6) ＞ 気絶 \n失禁し【精神力】に1ダメージ。さらに打ち上げられたマグロめいてその場で倒れて口をパクパクとさせ、『気絶状態』となる。 \n戦闘が終了するか、一定時間が経過するか、誰かに蘇生してもらうまで、この状態は解除されない。"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+# NRS判定(難易度Hard, 失敗, 発狂表指定なし)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NRS_H4"
+output = "NRS判定(4B6>=5) ＞ 1,1,1,1 ＞ 成功数:0 NRS発症!! \nNRS発狂(1D6+1) ＞ (6) ＞ 気絶 \n失禁し【精神力】に1ダメージ。さらに打ち上げられたマグロめいてその場で倒れて口をパクパクとさせ、『気絶状態』となる。 \n戦闘が終了するか、一定時間が経過するか、誰かに蘇生してもらうまで、この状態は解除されない。"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+# NRS判定(難易度Ultra-hard, 失敗, 発狂表指定なし)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NRS_U4"
+output = "NRS判定(4B6>=6) ＞ 1,1,1,1 ＞ 成功数:0 NRS発症!! \nNRS発狂(1D6+1) ＞ (7) ＞ 心臓発作や狂死 \n急激なニンジャリアリティショックに耐えきれず、PCは心臓発作やニューロン損傷を起こして【体力】0となり、その場に倒れ『気絶状態』となる。 \nZBRアドレナリンでなければ蘇生できない。処置を受けずに時間が経過すると死亡する。"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+# NRS判定(難易度Easy, 失敗, 発狂表指定あり)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NRS_E4@7"
+output = "NRS判定(4B6>=3) ＞ 1,1,1,1 ＞ 成功数:0 NRS発症!! \nNRS発狂(7) ＞ 心臓発作や狂死 \n急激なニンジャリアリティショックに耐えきれず、PCは心臓発作やニューロン損傷を起こして【体力】0となり、その場に倒れ『気絶状態』となる。 \nZBRアドレナリンでなければ蘇生できない。処置を受けずに時間が経過すると死亡する。"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 3, value = 3 },
+]
+
+# NRS判定(判定なし, 発狂表指定あり)
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NRS@7"
+output = "NRS発狂(7) ＞ 心臓発作や狂死 \n急激なニンジャリアリティショックに耐えきれず、PCは心臓発作やニューロン損傷を起こして【体力】0となり、その場に倒れ『気絶状態』となる。 \nZBRアドレナリンでなければ蘇生できない。処置を受けずに時間が経過すると死亡する。"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 3, value = 3 },
+]
+
+
+
+
+
+
+
+
+
+
+# 以下は1版互換の動作確認
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[N]"
+output = "(4B6>=4) ＞ 2,3,6,4 ＞ 成功数2"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[N]"
+output = "(4B6>=4) ＞ 2,3,2,1 ＞ 成功数0"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[n]"
+output = "(4B6>=4) ＞ 2,3,6,4 ＞ 成功数2"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[4]"
+output = "(4B6>=4) ＞ 2,3,6,4 ＞ 成功数2"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4"
+output = "(4B6>=4) ＞ 2,3,6,4 ＞ 成功数2"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "SNJ4"
+output = "(4B6>=4) ＞ 2,3,6,4 ＞ 成功数2"
+secret = true
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4@N"
+output = "(4B6>=4) ＞ 2,3,6,4 ＞ 成功数2"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4@n"
+output = "(4B6>=4) ＞ 2,3,6,4 ＞ 成功数2"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4@4"
+output = "(4B6>=4) ＞ 2,3,6,4 ＞ 成功数2"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[H]"
+output = "(4B6>=5) ＞ 2,3,6,4 ＞ 成功数1"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[H]"
+output = "(4B6>=5) ＞ 2,3,3,4 ＞ 成功数0"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[UH]"
+output = "(4B6>=6) ＞ 2,3,6,4 ＞ 成功数1"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[UH]"
+output = "(4B6>=6) ＞ 2,3,5,4 ＞ 成功数0"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[K]"
+output = "(4B6>=2) ＞ 2,3,6,4 ＞ 成功数4"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[k]"
+output = "(4B6>=2) ＞ 2,3,6,4 ＞ 成功数4"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4@K"
+output = "(4B6>=2) ＞ 2,3,6,4 ＞ 成功数4"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[2]"
+output = "(4B6>=2) ＞ 2,3,6,4 ＞ 成功数4"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4@2"
+output = "(4B6>=2) ＞ 2,3,6,4 ＞ 成功数4"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[E]"
+output = "(4B6>=3) ＞ 2,3,6,4 ＞ 成功数3"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[e]"
+output = "(4B6>=3) ＞ 2,3,6,4 ＞ 成功数3"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4@E"
+output = "(4B6>=3) ＞ 2,3,6,4 ＞ 成功数3"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[3]"
+output = "(4B6>=3) ＞ 2,3,6,4 ＞ 成功数3"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4@3"
+output = "(4B6>=3) ＞ 2,3,6,4 ＞ 成功数3"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EV4[N]/2"
+output = "(4B6>=4) ＞ 2,5,6,4 ＞ 成功数3 ＞ カウンターカラテ!!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EV4[N]/2"
+output = "(4B6>=4) ＞ 2,5,3,1 ＞ 成功数1"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EV4[n]/2"
+output = "(4B6>=4) ＞ 2,5,6,4 ＞ 成功数3 ＞ カウンターカラテ!!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EV4[4]/2"
+output = "(4B6>=4) ＞ 2,5,6,4 ＞ 成功数3 ＞ カウンターカラテ!!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EV4@N/2"
+output = "(4B6>=4) ＞ 2,5,6,4 ＞ 成功数3 ＞ カウンターカラテ!!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EV4[H]/2"
+output = "(4B6>=5) ＞ 2,5,6,4 ＞ 成功数2"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EV4[UH]/2"
+output = "(4B6>=6) ＞ 6,5,6,4 ＞ 成功数2"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EV4[K]/2"
+output = "(4B6>=2) ＞ 2,5,6,4 ＞ 成功数4 ＞ カウンターカラテ!!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EV4[N]"
+output = "(4B6>=4) ＞ 2,5,6,4 ＞ 成功数3"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EV4"
+output = "(4B6>=4) ＞ 2,5,6,4 ＞ 成功数3"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "AT4[N]"
+output = "(4B6>=4) ＞ 2,2,6,6 ＞ 成功数2 ＞ サツバツ!!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "AT4"
+output = "(4B6>=4) ＞ 1,1,1,1 ＞ 成功数0"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "AT4"
+output = "(4B6>=4) ＞ 2,2,6,6 ＞ 成功数2 ＞ サツバツ!!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "x2 AT4 繰り返し実行で蓄積した出目を用いて判断しない"
+output = """
+#1
+(4B6>=4) ＞ 2,2,6,6 ＞ 成功数2 ＞ サツバツ!!
+
+#2
+(4B6>=4) ＞ 1,1,1,1 ＞ 成功数0"""
+rands = [
+  # 1回目
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+
+  # 2回目
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "AT4[n]"
+output = "(4B6>=4) ＞ 2,2,6,6 ＞ 成功数2 ＞ サツバツ!!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "AT4[4]"
+output = "(4B6>=4) ＞ 2,2,6,6 ＞ 成功数2 ＞ サツバツ!!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "AT4@N"
+output = "(4B6>=4) ＞ 2,2,6,6 ＞ 成功数2 ＞ サツバツ!!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "AT4[K]"
+output = "(4B6>=2) ＞ 2,1,3,2 ＞ 成功数3"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "AT4[H]"
+output = "(4B6>=5) ＞ 2,2,6,6 ＞ 成功数2 ＞ サツバツ!!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "AT4[UH]"
+output = "(4B6>=6) ＞ 2,2,6,6 ＞ 成功数2 ＞ サツバツ!!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EL4[N]"
+output = "(4B6>=4) ＞ 2,2,6,6 ＞ 成功数2 + 2 ＞ 4"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EL4"
+output = "(4B6>=4) ＞ 1,1,1,1 ＞ 成功数0"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EL4"
+output = "(4B6>=4) ＞ 2,2,2,6 ＞ 成功数1 + 1 ＞ 2"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "x2 EL4 繰り返し実行で蓄積した出目を用いて判断しない"
+output = """
+#1
+(4B6>=4) ＞ 2,2,2,6 ＞ 成功数1 + 1 ＞ 2
+
+#2
+(4B6>=4) ＞ 1,1,1,1 ＞ 成功数0"""
+rands = [
+  # 1回目
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+
+  # 2回目
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EL4[n]"
+output = "(4B6>=4) ＞ 2,2,2,2 ＞ 成功数0"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EL4[4]"
+output = "(4B6>=4) ＞ 2,6,6,6 ＞ 成功数3 + 3 ＞ 6"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EL4@N"
+output = "(4B6>=4) ＞ 6,6,6,6 ＞ 成功数4 + 4 ＞ 8"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EL4[K]"
+output = "(4B6>=2) ＞ 2,1,3,2 ＞ 成功数3"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EL4[H]"
+output = "(4B6>=5) ＞ 2,2,6,6 ＞ 成功数2 + 2 ＞ 4"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "EL4[UH]"
+output = "(4B6>=6) ＞ 2,2,6,6 ＞ 成功数2 + 2 ＞ 4"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+# 以下は1版のバグ修正動作確認
+[[ test ]]
+game_system = "NinjaSlayer2.0"
+input = "NJ4[N] コメント"
+output = "(4B6>=4) ＞ 2,3,6,4 ＞ 成功数2"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
