@@ -13,7 +13,7 @@ module BCDice
       NAME = 'ニンジャスレイヤーTRPG'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'にんしやすれいやあRPG'
+      SORT_KEY = 'にんしやすれいやあTRPG'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
