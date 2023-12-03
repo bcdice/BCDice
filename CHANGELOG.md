@@ -1,5 +1,34 @@
 # Change Log
 
+## Unreleased
+
+### 対応ゲームシステムの追加
+- 砂塵戦機アーガス 2nd Edition (SajinsenkiAGuS2E): Facelessさんありがとうっ！ ([#641](https://github.com/bcdice/BCDice/pull/641), [#643](https://github.com/bcdice/BCDice/pull/643))
+- Werewolf: The Apocalypse 5th Edition (WerewolfTheApocalypse5th): フレッド緑野さんありがとうっ！ ([#653](https://github.com/bcdice/BCDice/pull/653))
+- 神椿市建設中。NARRATIVE (KamitsubakiCityUnderConstructionNarrative): ([#653](https://github.com/bcdice/BCDice/pull/653))
+
+### 追加機能
+- 韓国語版 フタリソウサ: 翻訳を追加。GUNGさん翻訳ありがとうっ！ ([#646](https://github.com/bcdice/BCDice/pull/646))
+- 韓国語版 インセイン: 翻訳を追加。eidals224さんありがとうっ！ ([#647](https://github.com/bcdice/BCDice/pull/647))
+- ソードワールド 2.5: レーティング表の結果を1.5倍にするオプションを追加。朝霧翼さん提案ありがとうっ！ ([#655](https://github.com/bcdice/BCDice/pull/655))
+
+### 変更
+- マモノスクランブル: 割り算の端数処理を切り上げに変更。蜂紫さんありがとうっ！ ([#639](https://github.com/bcdice/BCDice/pull/639))
+- ソードワールド2.0, 2.5: 超越判定の際に自動的成功した場合でも、達成値算出のために振り足しを行うように変更。三木里 秀予さんありがとうっ！ ([#640](https://github.com/bcdice/BCDice/pull/640))
+- 砂塵戦機アーガス: 成功レベルを表示するように変更。Facelessさんありがとうっ！ ([#642](https://github.com/bcdice/BCDice/pull/642))
+- Vampire:The Masquerade5th: Hungerダイスの上限をルールに合わせて設定。フレッド緑野さんありがとうっ！ ([#649](https://github.com/bcdice/BCDice/pull/649))
+- Hunter:the Reckoning 5th: Hungerダイスの上限をルールに合わせて設定。フレッド緑野さんありがとうっ！ ([#650](https://github.com/bcdice/BCDice/pull/650))
+- Vampire:The Masquerade5th: Total Failureのチェックを行うように変更。フレッド緑野さんありがとうっ！ ([#651](https://github.com/bcdice/BCDice/pull/651))
+- Hunter:the Reckoning 5th: Total Failureのチェックを行うように変更。フレッド緑野さんありがとうっ！ ([#652](https://github.com/bcdice/BCDice/pull/652))
+
+### 誤植修正
+- 歯車の塔の探空士（冒険企画局）: 航行イベント表 遭遇系の誤植を修正。nabyさん指摘ありがとうっ！ ([#657](https://github.com/bcdice/BCDice/pull/657))
+
+### バグ修正
+- Vampire:The Masquerade5th: 判定ダイスが10個以上指定できない問題を修正。フレッド緑野さんありがとうっ！ ([#644](https://github.com/bcdice/BCDice/pull/644))
+- RuneQuest:Roleplaying in Glorantha: 誤った判定結果になる問題を修正。フレッド緑野さんありがとうっ！ ([#645](https://github.com/bcdice/BCDice/pull/645))
+- エモクロアTRPG: クリティカル・ダイスの処理を修正 ([#654](https://github.com/bcdice/BCDice/pull/654))
+
 ## 3.11.0 2023/08/23
 
 ### 対応ゲームシステムの追加
