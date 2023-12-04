@@ -40,30 +40,6 @@ module BCDice
         - NRS_E{x} or NRS_E{x}@{y} or NRS@{y}
         ダイス{x}個で難易度[E]asy(>=3)のNRS判定({x}省略時はスキップ)を行い、失敗した場合は{y}(1～7/省略時は難易度に応じたダイス目)に対応するNRS発狂表を返します。
         「_E」部分を変更することで、難易度N,H,U,UHでも利用可能です。(Kはありません)
-
-        以下は1版用のダイスボット互換の処理です。
-        2版用のルールに適合しない箇所もありますので、利用の際はご注意ください。
-
-        - NJ{x}[{y}] or NJ{x}@{y} or NJ{x}
-        ダイス{x}個で難易度{y}(2-6もしくはK,E,N,H,U,UH/省略時は4)の成功判定を行います。
-
-        - EV{x}[{y}]/{z} or EV{x}@{y}/{z} or EV{x}/{z} or EV{x}[{y}] or EV{x}@{y} or EV{x}
-        ダイス{x}個で難易度{y}(2-6もしくはK,E,N,H,U,UH/省略時は4)の回避判定を行います。
-        成功数が{z}(0～/省略時はカウンター発生なし)を超えた場合はカウンターカラテ発生を表示します。
-
-        - AT{x}[{y}] or AT{x}@{y} or AT{x}
-        ダイス{x}個で難易度{y}(2-6もしくはK,E,N,H,U,UH/省略時は4)の近接攻撃判定を行います。
-        出目に【6,6】が含まれていた場合はサツバツ！発生を表示します。
-        ※ 2版ルールでは【6,6】以外の条件でもサツバツ！が発生することがあります。
-
-        - EL{x}[{y}] or EL{x}@{y} or EL{x}
-        ダイス{x}個で難易度{y}(2-6もしくはK,E,N,H,U,UH/省略時は4)の電子戦判定を行います。
-        出目が【6】のダイスを成功数に加算します。
-        ※ 現時点での2版のコア・ルールには電子戦は存在しません。
-
-        ◆出典
-        本ダイスボットで使用している難易度表記と判定式、および各種乱数表のテキストは、
-        物理書籍版『ニンジャスレイヤーTRPG コア・ルールブック』記載の内容に対応しています。
       TEXT
 
       # Base::eval_game_system_specific_commandの実装
@@ -75,10 +51,6 @@ module BCDice
 
         begin
           case command
-          when RE_OLD_COMMAND
-            # 1版のコマンドにマッチしたら1版側の処理
-            return proc_dice_1st(Regexp.last_match)
-
           when RE_JUDGE_DICEROLL
             # 2版用のダイス判定
             proc_result = proc_dice_2nd(Regexp.last_match)
@@ -128,58 +100,6 @@ module BCDice
 
         success_dice_s = success_dice.empty? ? "" : "[#{success_dice.sort.reverse.join(',')}]"
         return "#{title_text}:#{success_num}#{success_dice_s}", success_num
-      end
-
-      # ダイス処理(1版用)
-      # @param match [MatchData]
-      def proc_dice_1st(match)
-        # 基本的なnBx>=t処理までは共通
-        command_type = match[1]
-        dice_num = match[2].to_i
-        dificulty_s = match[3] || match[4]
-        dificulty_i = dificulty_s.to_i
-        ev_target = match[5].to_i
-
-        if dificulty_i == 0
-          dificulty_i = dificulty_s.nil? ? 4 : DIFFICULTY_SYMBOL_TO_INTEGER.fetch(dificulty_s)
-        end
-
-        roll_command = "#{dice_num}B6>=#{dificulty_i}"
-        roll_result = BCDice::CommonCommand::BarabaraDice.eval(roll_command, self, @randomizer)
-        output_text = "(#{roll_command}) ＞ #{roll_result.last_dice_list.join(',')} ＞ 成功数#{roll_result.success_num}"
-
-        case command_type
-        when "NJ"
-          # NJコマンドは成功/失敗判定あり
-          if roll_result.success_num > 0
-            return Result.success(output_text)
-          else
-            return Result.failure(output_text)
-          end
-        else
-          # NJコマンド以外は成功/失敗判定なし
-          case command_type
-          when "EV"
-            # EVコマンドは成功数が目標値を超えたらカウンターカラテ発生
-            if ev_target > 0 && roll_result.success_num > ev_target
-              output_text += " ＞ カウンターカラテ!!"
-            end
-          when "AT"
-            # ATコマンドは【6,6】でサツバツ!!判定
-            if roll_result.last_dice_list.count(6) >= 2
-              output_text += " ＞ サツバツ!!"
-            end
-          when "EL"
-            # ELコマンドはダイス目6を成功数に上乗せ
-            if roll_result.last_dice_list.count(6) > 0
-              output_text += " + #{roll_result.last_dice_list.count(6)} ＞ #{roll_result.success_num + roll_result.last_dice_list.count(6)}"
-            end
-          end
-
-          return Result.new.tap do |r|
-            r.text = output_text
-          end
-        end
       end
 
       # ダイス処理(2版用)
@@ -350,7 +270,7 @@ module BCDice
       RE_COUNT_CRITICAL = /C([1-6])?/i.freeze
       RE_COUNT_JUDGE = /(=|!=|>=|>|<=|<)([1-6])/.freeze
 
-      RE_JUDGE_DICEROLL = /^(UH|[KENHU])([\d,]+)(?:\[((?:(?:#{RE_COUNT_SATZ_BATZ}|#{RE_COUNT_CRITICAL}|#{RE_COUNT_JUDGE})(?:\]\[)?)+)\])?$/i.freeze
+      RE_JUDGE_DICEROLL = /^(UH|[KENHU])([\d,]+)(?:\[((?:(?:S([1-6])?|C([1-6])?|(=|!=|>=|>|<=|<)([1-6]))(?:\]\[)?)+)\])?$/i.freeze
       RE_JUDGE_SATZ_BATZ = /^SB(?:@([1-6]))?$/i.freeze
       RE_JUDGE_WASSHOI = /^WS([1-9]|10|11|12)$/i.freeze
       RE_JUDGE_WASSHOI_ENTRY = /^WSE(?:@([1-6]))?$/i.freeze
@@ -366,28 +286,14 @@ module BCDice
         'UH' => 6
       }.freeze
 
-      # 以下、1版互換用の処理
-
-      # 難易度の値の正規表現
-      DIFFICULTY_VALUE_RE = /UH|[2-6KENHU]/i.freeze
-      # 難易度の正規表現
-      DIFFICULTY_RE = /\[(#{DIFFICULTY_VALUE_RE})\]|@(#{DIFFICULTY_VALUE_RE})/io.freeze
-
-      RE_OLD_COMMAND = %r{^(NJ|EV|AT|EL)(\d+)#{DIFFICULTY_RE}?(?:/(\d+))?$}i.freeze
-      RE_OLD_NJ_COMMAND = /^NJ(\d+)#{DIFFICULTY_RE}?$/i.freeze
-      RE_OLD_AT_COMMAND = /^AT(\d+)#{DIFFICULTY_RE}?$/i.freeze
-      RE_OLD_EL_COMMAND = /^EL(\d+)#{DIFFICULTY_RE}?$/i.freeze
-
       register_prefix(
-        RE_JUDGE_DICEROLL,
-        RE_JUDGE_SATZ_BATZ,
-        RE_JUDGE_WASSHOI,
-        RE_JUDGE_WASSHOI_ENTRY,
-        RE_JUDGE_NRS
+        "UH",
+        "[KENHU]",
+        "SB",
+        "WS",
+        "WSE",
+        "NRS"
       )
-
-      # 1版互換用のコマンド登録
-      register_prefix("NJ", "EV", "AT", "EL")
     end
   end
 end
