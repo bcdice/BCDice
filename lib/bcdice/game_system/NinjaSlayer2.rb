@@ -122,8 +122,7 @@ module BCDice
         success_num = 0
         success_dice = []
         dice_array.each do |dice_value|
-          comparison_s = "#{dice_value}#{cmp_op == '=' ? '==' : cmp_op}#{difficulty}"
-          if Kernel.eval(comparison_s)
+          if dice_value.send(Normalize.comparison_operator(cmp_op), difficulty)
             success_num += 1
             success_dice.push(dice_value)
           end
