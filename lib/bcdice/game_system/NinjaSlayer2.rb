@@ -244,9 +244,9 @@ module BCDice
       def proc_satz_batz(type)
         # サツバツ判定(d6)
         if type > 0
-          return Result.critical("サツバツ!!(#{type}) ＞ #{translate('NinjaSlayer2.table.SATSUBATSU.items')[type - 1]}")
+          return "サツバツ!!(#{type}) ＞ #{translate('NinjaSlayer2.table.SATSUBATSU.items')[type - 1]}"
         else
-          return Result.critical(DiceTable::Table.from_i18n("NinjaSlayer2.table.SATSUBATSU", @locale).roll(@randomizer).to_s)
+          return DiceTable::Table.from_i18n("NinjaSlayer2.table.SATSUBATSU", @locale).roll(@randomizer)
         end
       end
 
@@ -279,7 +279,7 @@ module BCDice
           table = DiceTable::Table.from_i18n("NinjaSlayer2.table.WASSHOI", @locale)
           output_text += table.roll(@randomizer).to_s
         end
-        return Result.failure(output_text)
+        return output_text
       end
 
       # NRS判定の処理を実行する
@@ -325,7 +325,7 @@ module BCDice
         end
         roll_command = "1D#{dice_face}#{additional > 0 ? '+' + additional.to_s : ''}"
         output_text += "NRS発狂#{dice_face > 0 ? "(#{roll_command}) ＞ " : ''}(#{type}) ＞ #{translate('NinjaSlayer2.table.NRS.items')[type - 1]}"
-        return Result.fumble(output_text)
+        return Result.failure(output_text)
       end
 
       # テキスト系処理
