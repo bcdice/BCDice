@@ -270,7 +270,7 @@ module BCDice
       RE_COUNT_CRITICAL = /C([1-6])?/i.freeze
       RE_COUNT_JUDGE = /(=|!=|>=|>|<=|<)([1-6])/.freeze
 
-      RE_JUDGE_DICEROLL = /^(UH|[KENHU])([\d,]+)(?:\[((?:(?:#{RE_COUNT_SATZ_BATZ}|#{RE_COUNT_CRITICAL}|#{RE_COUNT_JUDGE})(?:\]\[)?)+)\])?$/i.freeze
+      RE_JUDGE_DICEROLL = /^(UH|[KENHU])([\d,]+)(?:\[((?:(?:S([1-6])?|C([1-6])?|(=|!=|>=|>|<=|<)([1-6]))(?:\]\[)?)+)\])?$/i.freeze
       RE_JUDGE_SATZ_BATZ = /^SB(?:@([1-6]))?$/i.freeze
       RE_JUDGE_WASSHOI = /^WS([1-9]|10|11|12)$/i.freeze
       RE_JUDGE_WASSHOI_ENTRY = /^WSE(?:@([1-6]))?$/i.freeze
@@ -287,11 +287,12 @@ module BCDice
       }.freeze
 
       register_prefix(
-        RE_JUDGE_DICEROLL,
-        RE_JUDGE_SATZ_BATZ,
-        RE_JUDGE_WASSHOI,
-        RE_JUDGE_WASSHOI_ENTRY,
-        RE_JUDGE_NRS
+        "UH",
+        "[KENHU]",
+        "SB",
+        "WS",
+        "WSE",
+        "NRS"
       )
     end
   end
