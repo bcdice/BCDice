@@ -1075,6 +1075,25 @@ rands = [
 
 [[ test ]]
 game_system = "ShinobiGami"
+input = "2RCT"
+output = "ランダム分野表(2,3) ＞ 体術, 忍術"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "3RCT"
+output = "ランダム分野表(3,4,6) ＞ 忍術, 謀術, 妖術"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
 input = "PLST"
 output = "培養プラントシーン表(2) ＞ 巨大なガラス管の中に冒涜的な生物が蠢く実験室。《意気》で判定を行い、失敗すると《マヒ》の変調を受ける。"
 rands = [
