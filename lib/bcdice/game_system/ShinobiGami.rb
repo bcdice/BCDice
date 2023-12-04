@@ -27,7 +27,10 @@ module BCDice
         ・ランダム特技決定表 RTTn (n:分野番号、省略可能)
         　1器術 2体術 3忍術 4謀術 5戦術 6妖術
 
-        ・ランダム分野表 RCT
+        ・ランダム分野表 nRCT
+        　ランダムに特技分野を決定する。
+        　n: 決定する特技分野の数 (省略時 1)
+        　例) RCT, 4RCT
 
         ・各種表(基本ルールブック以降)
         　ファンブル表 FT、変調表 WT、戦国変調表 GWT、戦場表 BT、感情表 ET
@@ -97,9 +100,10 @@ module BCDice
       end
 
       register_prefix('\d*SG')
+      register_prefix('\d*RCT')
 
       def eval_game_system_specific_command(command)
-        return action_roll(command) || roll_tables(command, TABLES) || roll_tables(command, SCENE_TABLES) ||
+        return action_roll(command) || rct_roll(command) || roll_tables(command, TABLES) || roll_tables(command, SCENE_TABLES) ||
                roll_tables(command, DEMON_SKILL_TABLES) || roll_tables(command, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, command)
       end
 
@@ -162,6 +166,32 @@ module BCDice
 
         result.text = sequence.join(" ＞ ")
         result
+      end
+
+      # nRCT ランダム分野表
+      RCT = ["器術", "体術", "忍術", "謀術", "戦術", "妖術"].freeze
+
+      def rct_roll(command)
+        m = /^(\d*)RCT$/.match(command)
+        return nil unless m
+
+        times = m[1].to_i
+
+        if times <= 0
+          times = 1
+        end
+
+        die = @randomizer.roll_barabara(times, 6)
+        die = die.sort
+
+        results = []
+
+        die.each do |i|
+          results.push(RCT[i - 1])
+        end
+
+        result_text = "ランダム分野表(#{die.join(',')}) ＞ #{results.join(', ')}"
+        return result_text
       end
 
       # 妖魔忍法表A, B, C
