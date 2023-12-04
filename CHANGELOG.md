@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+## 3.12.0 2023/12/04
 
 ### 対応ゲームシステムの追加
 - 砂塵戦機アーガス 2nd Edition (SajinsenkiAGuS2E): Facelessさんありがとうっ！ ([#641](https://github.com/bcdice/BCDice/pull/641), [#643](https://github.com/bcdice/BCDice/pull/643))
