@@ -1075,21 +1075,21 @@ rands = [
 
 [[ test ]]
 game_system = "ShinobiGami"
-input = "2RCT"
-output = "ランダム分野表(2,3) ＞ 体術, 忍術"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "ShinobiGami"
 input = "3RCT"
 output = "ランダム分野表(3,4,6) ＞ 忍術, 謀術, 妖術"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami"
+input = "2RCT"
+output = "ランダム分野表(2,3) ＞ 体術, 忍術"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
 ]
 
 [[ test ]]
