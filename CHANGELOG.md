@@ -6,6 +6,7 @@
 - 砂塵戦機アーガス 2nd Edition (SajinsenkiAGuS2E): Facelessさんありがとうっ！ ([#641](https://github.com/bcdice/BCDice/pull/641), [#643](https://github.com/bcdice/BCDice/pull/643))
 - Werewolf: The Apocalypse 5th Edition (WerewolfTheApocalypse5th): フレッド緑野さんありがとうっ！ ([#653](https://github.com/bcdice/BCDice/pull/653))
 - 神椿市建設中。NARRATIVE (KamitsubakiCityUnderConstructionNarrative): ([#653](https://github.com/bcdice/BCDice/pull/653))
+- ニンジャスレイヤーTRPG 2版 (NinjaSlayer2): たかぽム。さんありがとうっ！ ([#658](https://github.com/bcdice/BCDice/pull/658))
 
 ### 追加機能
 - 韓国語版 フタリソウサ: 翻訳を追加。GUNGさん翻訳ありがとうっ！ ([#646](https://github.com/bcdice/BCDice/pull/646))
@@ -20,6 +21,7 @@
 - Hunter:the Reckoning 5th: Hungerダイスの上限をルールに合わせて設定。フレッド緑野さんありがとうっ！ ([#650](https://github.com/bcdice/BCDice/pull/650))
 - Vampire:The Masquerade5th: Total Failureのチェックを行うように変更。フレッド緑野さんありがとうっ！ ([#651](https://github.com/bcdice/BCDice/pull/651))
 - Hunter:the Reckoning 5th: Total Failureのチェックを行うように変更。フレッド緑野さんありがとうっ！ ([#652](https://github.com/bcdice/BCDice/pull/652))
+- ニンジャスレイヤーTRPG: ソートキーを変更 ([#659](https://github.com/bcdice/BCDice/pull/659))
 
 ### 誤植修正
 - 歯車の塔の探空士（冒険企画局）: 航行イベント表 遭遇系の誤植を修正。nabyさん指摘ありがとうっ！ ([#657](https://github.com/bcdice/BCDice/pull/657))
