@@ -9,7 +9,7 @@ module BCDice
       ID = "NinjaSlayer2"
 
       # ゲームシステム名
-      NAME = "ニンジャスレイヤーTRPG2版"
+      NAME = "ニンジャスレイヤーTRPG 2版"
 
       # ゲームシステム名の読みがな
       SORT_KEY = "にんしやすれいやあTRPG2"
