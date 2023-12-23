@@ -64,3 +64,12 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
 ]
+[[ test ]]
+game_system = "Liminal"
+input = "LI0>=8+1 イニシアティヴ,技能なし"
+output = "(LM0+0>=9) ＞ 9[3,6]+0 ＞ 9 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
