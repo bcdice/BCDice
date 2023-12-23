@@ -23,10 +23,9 @@ module BCDice
         ■イニシアティヴ判定　LIx+b>=t+m   x:認識力レベル b:ボーナス t:難易度 m:敵の認識力レベル
         例)LI2>=8+2:  認識力レベル2,難易度8,敵認識力レベル2で技能判定し、その結果を表示。
            LI0>=8+2:  認識力なし,難易度8,敵認識力レベル2で技能判定する。(難易度加算なし)
-        
       INFO_MESSAGETEXT
 
-      register_prefix('L[MI]\d[\+\d]*>=[\+\d]+')
+      register_prefix('L[MI]\d[+\d]*>=[+\d]+')
 
       def eval_game_system_specific_command(command)
         resolute_action(command) || resolute_initiative(command)
@@ -38,7 +37,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_action(command)
-        m = /LM(\d)([+\d]*)>=([\+\d]+)/.match(command)
+        m = /LM(\d)([+\d]*)>=([+\d]+)/.match(command)
         return nil unless m
 
         skill_level = m[1].to_i
@@ -86,12 +85,11 @@ module BCDice
         end
       end
 
-
       # イニシアティヴ判定
       # @param [String] command
       # @return [Result]
       def resolute_initiative(command)
-        m = /LI(\d)([+\d]*)>=([\+\d]+)/.match(command)
+        m = /LI(\d)([+\d]*)>=([+\d]+)/.match(command)
         return nil unless m
 
         skill_level = m[1].to_i
