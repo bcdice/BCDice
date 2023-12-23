@@ -110,7 +110,7 @@ module BCDice
           end
 
           sequence = [
-            "(LM#{skill_level}#{with_symbol(bonus)}>=#{difficulty})",
+            "(LI#{skill_level}#{with_symbol(bonus)}>=#{difficulty})",
             "#{dice_total}[#{dice.join(',')}]#{with_symbol(skill_level + bonus)}",
             total.to_s,
             if result.fumble?
