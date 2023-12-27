@@ -118,7 +118,7 @@ module BCDice
       end
 
       def getRoundCountText(roundCount)
-        if  roundCount <= 0
+        if roundCount <= 0
           return ""
         end
 
