@@ -7,7 +7,7 @@ module BCDice
       ID = 'RuneQuestRoleplayingInGlorantha'
 
       # ゲームシステム名
-      NAME = 'RuneQuest：Roleplaying in Glorantha'
+      NAME = 'ルーンクエスト：ロールプレイング・イン・グローランサ'
 
       # ゲームシステム名の読みがな
       SORT_KEY = 'るうんくえすと4'
