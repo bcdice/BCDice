@@ -47,7 +47,7 @@ module BCDice
 
         dice_count = m[1].to_i
         modifier = ArithmeticEvaluator.eval(m[2])
-        target = m[5].nil? ? nil : m[5].to_i
+        target = m[5]&.to_i
 
         dice_list = @randomizer.roll_barabara(dice_count, 6)
         largest_two = dice_list.sort.reverse.take(2)

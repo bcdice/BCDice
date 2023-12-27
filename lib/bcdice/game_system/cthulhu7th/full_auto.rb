@@ -41,7 +41,7 @@ module BCDice
           bullet_count = m[1].to_i
           diff = m[2].to_i
           broken_number = m[3].to_i
-          bonus_dice_count = m[4]&.to_i || 0
+          bonus_dice_count = m[4].to_i
           stop_count = m[5]&.downcase || ""
           bullet_set_count_cap = m[6]&.to_i || diff / 10
 
