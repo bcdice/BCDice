@@ -22,4 +22,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "i18n", "~> 1.8.5"
+  spec.add_runtime_dependency "racc", "~> 1.7.3"
 end
