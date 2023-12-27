@@ -1,0 +1,170 @@
+[[ test ]]
+game_system = "Siren"
+input = "SL+2<=80"
+output = "(1D100<=80) ＞ 25 ＞ 成功(達成値：9)"
+success = true
+rands = [
+  { sides = 100, value = 25 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "SL+2<=80"
+output = "(1D100<=80) ＞ 91 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 91 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "TR$2<=60"
+output = "(1D100<=60) ＞ 27 ＞ 成功(能力値上昇：19 / ヘルス減少：9)"
+success = true
+rands = [
+  { sides = 100, value = 27 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "TR$2<=60"
+output = "(1D100<=60) ＞ 74 ＞ 失敗(能力値減少：10 / ヘルス減少：11)"
+failure = true
+rands = [
+  { sides = 100, value = 74 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "SL+2<=80"
+output = "(1D100<=80) ＞ 80 ＞ 成功(達成値：20)"
+success = true
+rands = [
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "SL+2<=80"
+output = "(1D100<=80) ＞ 81 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 81 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "SL<=80"
+output = "(1D100<=80) ＞ 25 ＞ 成功(達成値：7)"
+success = true
+rands = [
+  { sides = 100, value = 25 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "SL+2<=80+10"
+output = "(1D100<=90) ＞ 90 ＞ 成功(達成値：21)"
+success = true
+rands = [
+  { sides = 100, value = 90 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "SL+2<=80+10"
+output = "(1D100<=90) ＞ 91 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 91 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "SL+2<=80"
+output = "(1D100<=80) ＞ 8 ＞ 成功(達成値：20)"
+success = true
+rands = [
+  { sides = 100, value = 8 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "SL+2<=80"
+output = "(1D100<=80) ＞ 100 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "SL<=120"
+output = "(1D100<=120) ＞ 100 ＞ 成功(達成値：20)"
+success = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "TR$1<=80"
+output = "(1D100<=80) ＞ 16 ＞ 成功(能力値上昇：12 / ヘルス減少：7)"
+success = true
+rands = [
+  { sides = 100, value = 16 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "TR$1<=80"
+output = "(1D100<=80) ＞ 84 ＞ 失敗(能力値減少：10 / ヘルス減少：12)"
+failure = true
+rands = [
+  { sides = 100, value = 84 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "TR$2<=60"
+output = "(1D100<=60) ＞ 60 ＞ 成功(能力値上昇：26 / ヘルス減少：16)"
+success = true
+rands = [
+  { sides = 100, value = 60 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "TR$2<=60"
+output = "(1D100<=60) ＞ 61 ＞ 失敗(能力値減少：10 / ヘルス減少：7)"
+failure = true
+rands = [
+  { sides = 100, value = 61 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "TR$2<=60"
+output = "(1D100<=60) ＞ 4 ＞ 成功(能力値上昇：24 / ヘルス減少：14)"
+success = true
+rands = [
+  { sides = 100, value = 4 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "TR$2<=60"
+output = "(1D100<=60) ＞ 70 ＞ 失敗(能力値減少：10 / ヘルス減少：17)"
+failure = true
+rands = [
+  { sides = 100, value = 70 },
+]
+
+[[ test ]]
+game_system = "Siren"
+input = "TR$2<=60"
+output = "(1D100<=60) ＞ 100 ＞ 失敗(能力値減少：10 / ヘルス減少：20)"
+failure = true
+rands = [
+  { sides = 100, value = 100 },
+]
