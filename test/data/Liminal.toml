@@ -7,6 +7,7 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
 ]
+
 [[ test ]]
 game_system = "Liminal"
 input = "LM3>=8 失敗"
@@ -16,6 +17,7 @@ rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
 ]
+
 [[ test ]]
 game_system = "Liminal"
 input = "LM3>=10 クリティカル"
@@ -26,6 +28,7 @@ rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
+
 [[ test ]]
 game_system = "Liminal"
 input = "LM3>=5 ファンブル"
@@ -36,6 +39,7 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
 ]
+
 [[ test ]]
 game_system = "Liminal"
 input = "LM4+2>=3 クリティカルとファンブルの両立するケース"
@@ -46,6 +50,7 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
 ]
+
 [[ test ]]
 game_system = "Liminal"
 input = "LM0>=8 技能なし"
@@ -55,6 +60,7 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
 ]
+
 [[ test ]]
 game_system = "Liminal"
 input = "LM3>=8+3 対抗判定"
@@ -64,6 +70,13 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "Liminal"
+input = "LM>=8"
+output = ""
+rands = []
+
 [[ test ]]
 game_system = "Liminal"
 input = "LI0>=8+1 イニシアティヴ,技能なし"
@@ -73,3 +86,9 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "Liminal"
+input = "LI>=8"
+output = ""
+rands = []

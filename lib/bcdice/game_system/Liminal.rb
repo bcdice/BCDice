@@ -25,7 +25,7 @@ module BCDice
            LI0>=8+2:  認識力なし,難易度8,敵認識力レベル2で技能判定する。(難易度加算なし)
       INFO_MESSAGETEXT
 
-      register_prefix('L[MI]\d[+\d]*>=[+\d]+')
+      register_prefix("LI", "LM")
 
       def eval_game_system_specific_command(command)
         resolute_action(command) || resolute_initiative(command)
@@ -37,12 +37,15 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_action(command)
-        m = /LM(\d)([+\d]*)>=([+\d]+)/.match(command)
-        return nil unless m
+        parser = Command::Parser.new("LM", round_type: @round_type)
+                                .has_suffix_number
+                                .restrict_cmp_op_to(:>=)
+        parsed = parser.parse(command)
+        return nil unless parsed
 
-        skill_level = m[1].to_i
-        bonus = ArithmeticEvaluator.eval(m[2])
-        difficulty = ArithmeticEvaluator.eval(m[3])
+        skill_level = parsed.suffix_number
+        bonus = parsed.modify_number
+        difficulty = parsed.target_number
 
         dice = @randomizer.roll_barabara(2, 6)
         dice_total = dice.sum
@@ -89,12 +92,15 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_initiative(command)
-        m = /LI(\d)([+\d]*)>=([+\d]+)/.match(command)
-        return nil unless m
+        parser = Command::Parser.new("LI", round_type: @round_type)
+                                .has_suffix_number
+                                .restrict_cmp_op_to(:>=)
+        parsed = parser.parse(command)
+        return nil unless parsed
 
-        skill_level = m[1].to_i
-        bonus = ArithmeticEvaluator.eval(m[2])
-        difficulty = ArithmeticEvaluator.eval(m[3])
+        skill_level = parsed.suffix_number
+        bonus = parsed.modify_number
+        difficulty = parsed.target_number
 
         dice = @randomizer.roll_barabara(2, 6)
         dice_total = dice.sum
