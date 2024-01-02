@@ -60,10 +60,6 @@ module BCDice
                       TABLES.keys
                       )
 
-      def eval_game_system_specific_command_old(command)
-        return roll_b_old(command)
-      end
-
       def eval_game_system_specific_command(command)
         case command
         when /^AD<=(\d+)$/
