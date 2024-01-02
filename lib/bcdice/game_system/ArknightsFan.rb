@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BCDice
   module GameSystem
     class ArknightsFan < Base
@@ -30,9 +32,9 @@ module BCDice
             x が10以下でクリティカル。成功数-1。
           上記による成功数をカウントした上で、以下の役職による成功数増加効果を適応。
             狙撃 成功数1以上のとき、成功数+1。
-          
+        #{'  '}
       TEXT
-      
+
       TABLES = {
         "--WORSENING" => {
           name: "worsening",
@@ -54,47 +56,49 @@ module BCDice
         },
       }.freeze
 
-      register_prefix('AD<=\d+', '\d+AD\d+<=\d+', 
+      register_prefix('AD<=\d+', '\d+AD\d+<=\d+',
                       '\d+AB+<=\d+', '\d+AB\d+<=\d+',
                       '\d+AB+<=\d+--[^\d\s]+', '\d+AB\d+<=\d+--[^\d\s]+',
-                      TABLES.keys
-                      )
+                      TABLES.keys)
 
       def eval_game_system_specific_command(command)
         case command
         when /^AD<=(\d+)$/
-          return roll_D(command, 1, 100, $1.to_i)
+          return roll_d(command, 1, 100, ::Regexp.last_match(1).to_i)
         when /^(\d+)AD(\d+)<=(\d+)$/
-          return roll_D(command, $1.to_i, $2.to_i, $3.to_i)
+          return roll_d(command, ::Regexp.last_match(1).to_i, ::Regexp.last_match(2).to_i, ::Regexp.last_match(3).to_i)
+
         when /^(\d+)AB<=(\d+)$/
-          return roll_B(command, $1.to_i, 100, $2.to_i)
+          return roll_b(command, ::Regexp.last_match(1).to_i, 100, ::Regexp.last_match(2).to_i)
         when /^(\d+)AB(\d+)<=(\d+)$/
-          return roll_B(command, $1.to_i, $2.to_i, $3.to_i)
+          return roll_b(command, ::Regexp.last_match(1).to_i, ::Regexp.last_match(2).to_i, ::Regexp.last_match(3).to_i)
+
         when /^(\d+)AB<=(\d+)--([^\d\s]+)$/
-          return roll_B_withtype(command, $1.to_i, 100, $2.to_i, $3)
+          return roll_b_withtype(command, ::Regexp.last_match(1).to_i, 100, ::Regexp.last_match(2).to_i, ::Regexp.last_match(3))
         when /^(\d+)AB(\d+)<=(\d+)--([^\d\s]+)$/
-          return roll_B_withtype(command, $1.to_i, $2.to_i, $3.to_i, $4)
+          return roll_b_withtype(command, ::Regexp.last_match(1).to_i, ::Regexp.last_match(2).to_i, ::Regexp.last_match(3).to_i, ::Regexp.last_match(4))
         when /^(\d+)AB<=(\d+)--([^\d\s]+)0$/
-          return roll_B(command, $1.to_i, 100, $2.to_i)
+          return roll_b(command, ::Regexp.last_match(1).to_i, 100, ::Regexp.last_match(2).to_i)
         when /^(\d+)AB(\d+)<=(\d+)--([^\d\s]+)0$/
-          return roll_B(command, $1.to_i, $2.to_i, $3.to_i)
+          return roll_b(command, ::Regexp.last_match(1).to_i, ::Regexp.last_match(2).to_i, ::Regexp.last_match(3).to_i)
+
         when /^--ADDICTION$/
           return roll_addiction(command, TABLES)
         when /^--WORSENING$/
           return roll_worsening(command, TABLES)
         end
-        
+
         return nil
       end
 
       private
 
-      def roll_D(command, times, sides, target)
+      def roll_d(command, times, sides, target)
         dice_list = @randomizer.roll_barabara(times, sides).sort
         total = dice_list.sum
         success = total <= target
 
-        crierror = 
+        crierror =
           if total <= 10
             "Critical"
           elsif total >= 91
@@ -103,7 +107,7 @@ module BCDice
             "Neutral"
           end
 
-        result = 
+        result =
           if success && (crierror == "Critical")
             "クリティカル！"
           elsif success && (crierror == "Neutral")
@@ -125,48 +129,47 @@ module BCDice
         end
       end
 
-      def roll_B(command, times, sides, target)
-        dice_list, success_count, critical_count, error_count = process_B(times, sides, target)
+      def roll_b(command, times, sides, target)
+        dice_list, success_count, critical_count, error_count = process_b(times, sides, target)
         result_count = success_count + critical_count - error_count
 
         return "(#{command}) ＞ [#{dice_list.join(',')}] ＞ #{success_count}+#{critical_count}C-#{error_count}E ＞ 成功数#{result_count}"
       end
 
-      def roll_B_withtype(command, times, sides, target, type)
-        dice_list, success_count, critical_count, error_count = process_B(times, sides, target)
+      def roll_b_withtype(command, times, sides, target, type)
+        dice_list, success_count, critical_count, error_count = process_b(times, sides, target)
         result_count = success_count + critical_count - error_count
 
-        type_effect = 
+        type_effect =
           if (type == "SNIPER") && (result_count > 0)
             1
           else
             0
           end
-          result_count += type_effect
+        result_count += type_effect
 
         return "(#{command}) ＞ [#{dice_list.join(',')}] ＞ #{success_count}+#{critical_count}C-#{error_count}E+#{type_effect}(#{type}) ＞ 成功数#{result_count}"
       end
 
-      def process_B(times, sides, target)
+      def process_b(times, sides, target)
         dice_list = @randomizer.roll_barabara(times, sides).sort
 
         success_count = 0
-        for num in 1..target do
+        (1..target).each do |num|
           success_count += dice_list.count(num)
         end
-        
+
         critical_count = 0
-        for num in 1..10 do
+        (1..10).each do |num|
           critical_count += dice_list.count(num)
         end
 
         error_count = 0
-        for num in 91..100 do
+        (91..100).each do |num|
           error_count += dice_list.count(num)
         end
 
         return [dice_list, success_count, critical_count, error_count]
-
       end
 
       ### ダイステーブル（ユーザー定義配列）の処理
@@ -174,6 +177,7 @@ module BCDice
       def roll_addiction(command, tables)
         syndrome = roll_ark_tables(command, tables, @randomizer)
         return nil unless syndrome
+
         return syndrome
       end
 
@@ -181,8 +185,9 @@ module BCDice
         randomizer = @randomizer
         addiction = roll_ark_tables(command, tables, randomizer)
         return nil unless addiction
+
         elapse = randomizer.roll_barabara(1, 6)[0] + 1
-        
+
         return "#{addiction}: #{elapse} rounds"
       end
 
@@ -193,9 +198,8 @@ module BCDice
         contents = table[:contents]
         m = /^(\d+)d(\d+)$/.match(table[:dice])
         dice_result = randomizer.roll_barabara(m[1].to_i, m[2].to_i)[0]
-        return contents[dice_result-1]
+        return contents[dice_result - 1]
       end
-
     end
   end
 end
