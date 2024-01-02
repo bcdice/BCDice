@@ -62,25 +62,25 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         case command
-        when /^AD<=(\d+)$/
+        when /^AD<=(\d+)$/                        # AD<=70
           return roll_D(command, 1, 100, $1.to_i)
-        when /^(\d+)AD(\d+)<=(\d+)$/
+        when /^(\d+)AD(\d+)<=(\d+)$/              # 2AD100<=70
           return roll_D(command, $1.to_i, $2.to_i, $3.to_i)
-        when /^(\d+)AB<=(\d+)$/
+        when /^(\d+)AB<=(\d+)$/                   # 2AB<=70
           return roll_B(command, $1.to_i, 100, $2.to_i)
-        when /^(\d+)AB(\d+)<=(\d+)$/
+        when /^(\d+)AB(\d+)<=(\d+)$/              # 2AB100<=70
           return roll_B(command, $1.to_i, $2.to_i, $3.to_i)
-        when /^(\d+)AB<=(\d+)--([^\d\s]+)$/
+        when /^(\d+)AB<=(\d+)--([^\d\s]+)$/       # 2AB<=70--SNIPER
           return roll_B_withtype(command, $1.to_i, 100, $2.to_i, $3)
-        when /^(\d+)AB(\d+)<=(\d+)--([^\d\s]+)$/
+        when /^(\d+)AB(\d+)<=(\d+)--([^\d\s]+)$/  # 2AB100<=70--SNIPER
           return roll_B_withtype(command, $1.to_i, $2.to_i, $3.to_i, $4)
-        when /^(\d+)AB<=(\d+)--([^\d\s]+)0$/
+        when /^(\d+)AB<=(\d+)--([^\d\s]+)0$/      # 2AB<=70--SNIPER0
           return roll_B(command, $1.to_i, 100, $2.to_i)
-        when /^(\d+)AB(\d+)<=(\d+)--([^\d\s]+)0$/
+        when /^(\d+)AB(\d+)<=(\d+)--([^\d\s]+)0$/ # 2AB100<=70--SNIPER
           return roll_B(command, $1.to_i, $2.to_i, $3.to_i)
-        when /^--ADDICTION$/
+        when /^--ADDICTION$/                      # --ADDICTION
           return roll_addiction(command, TABLES)
-        when /^--WORSENING$/
+        when /^--WORSENING$/                      # --WORSENING
           return roll_worsening(command, TABLES)
         end
         
