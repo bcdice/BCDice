@@ -56,31 +56,45 @@ module BCDice
         },
       }.freeze
 
-      register_prefix('AD<=\d+', '\d+AD\d+<=\d+',
-                      '\d+AB+<=\d+', '\d+AB\d+<=\d+',
-                      '\d+AB+<=\d+--[^\d\s]+', '\d+AB\d+<=\d+--[^\d\s]+',
+      register_prefix('\d*AD\d*<=\d+',
+                      '\d*AB\d*<=\d+',
+                      '\d*AB\d*<=\d+--[^\d\s]+',
                       TABLES.keys)
 
       def eval_game_system_specific_command(command)
         case command
-        when /^AD<=(\d+)$/
-          return roll_d(command, 1, 100, ::Regexp.last_match(1).to_i)
-        when /^(\d+)AD(\d+)<=(\d+)$/
-          return roll_d(command, ::Regexp.last_match(1).to_i, ::Regexp.last_match(2).to_i, ::Regexp.last_match(3).to_i)
+        when /^(\d*)AD(\d*)<=(\d+)$/
+          times = ::Regexp.last_match(1) 
+          sides = ::Regexp.last_match(2)
+          target = ::Regexp.last_match(3).to_i
+          times = !times.empty? ? times.to_i : 1
+          sides = !sides.empty? ? sides.to_i : 100
+          return roll_d(command, times, sides, target)
 
-        when /^(\d+)AB<=(\d+)$/
-          return roll_b(command, ::Regexp.last_match(1).to_i, 100, ::Regexp.last_match(2).to_i)
-        when /^(\d+)AB(\d+)<=(\d+)$/
-          return roll_b(command, ::Regexp.last_match(1).to_i, ::Regexp.last_match(2).to_i, ::Regexp.last_match(3).to_i)
-
-        when /^(\d+)AB<=(\d+)--([^\d\s]+)$/
-          return roll_b_withtype(command, ::Regexp.last_match(1).to_i, 100, ::Regexp.last_match(2).to_i, ::Regexp.last_match(3))
-        when /^(\d+)AB(\d+)<=(\d+)--([^\d\s]+)$/
-          return roll_b_withtype(command, ::Regexp.last_match(1).to_i, ::Regexp.last_match(2).to_i, ::Regexp.last_match(3).to_i, ::Regexp.last_match(4))
-        when /^(\d+)AB<=(\d+)--([^\d\s]+)0$/
-          return roll_b(command, ::Regexp.last_match(1).to_i, 100, ::Regexp.last_match(2).to_i)
-        when /^(\d+)AB(\d+)<=(\d+)--([^\d\s]+)0$/
-          return roll_b(command, ::Regexp.last_match(1).to_i, ::Regexp.last_match(2).to_i, ::Regexp.last_match(3).to_i)
+        when /^(\d*)AB(\d*)<=(\d+)$/
+          times = ::Regexp.last_match(1) 
+          sides = ::Regexp.last_match(2)
+          target = ::Regexp.last_match(3).to_i
+          times = !times.empty? ? times.to_i : 1
+          sides = !sides.empty? ? sides.to_i : 100
+          return roll_b(command, times, sides, target)
+          
+        when /^(\d*)AB(\d*)<=(\d+)--([^\d\s]+)$/
+          times = ::Regexp.last_match(1) 
+          sides = ::Regexp.last_match(2)
+          target = ::Regexp.last_match(3).to_i
+          type = ::Regexp.last_match(4)
+          times = !times.empty? ? times.to_i : 1
+          sides = !sides.empty? ? sides.to_i : 100
+          return roll_b_withtype(command, times, sides, target, type)
+          
+        when /^(\d*)AB(\d*)<=(\d+)--([^\d\s]+)0$/
+          times = ::Regexp.last_match(1) 
+          sides = ::Regexp.last_match(2)
+          target = ::Regexp.last_match(3).to_i
+          times = !times.empty? ? times.to_i : 1
+          sides = !sides.empty? ? sides.to_i : 100
+          return roll_b(command, times, sides, target)
 
         when /^--ADDICTION$/
           return roll_addiction(command, TABLES)
@@ -191,6 +205,8 @@ module BCDice
         return "#{addiction}: #{elapse} rounds"
       end
 
+      # 事情により自作。roll_worsening()で症状の内容と期間をそれぞれ決定する際、同一のrandmizerを受け渡して使う必要がある模様。
+      # このとき、roll_addictionと処理が重複する症状決定処理について、randmizerを引数指定可能な形で以下に実装する形となった。
       def roll_ark_tables(command, tables, randomizer)
         table = tables[command]
         return nil unless table
