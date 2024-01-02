@@ -33,62 +33,37 @@ module BCDice
           
       TEXT
       
-      register_prefix('1D100<=\d+', '\d+D\d+<=\d+', '\d+B\d+<=\d+--[^\d\s]+', '\d+B\d+<=\d+')
+      register_prefix('AD<=\d+', '\d+AD\d+<=\d+', 
+                      '\d+AB+<=\d+', '\d+AB\d+<=\d+',
+                      '\d+AB+<=\d+--[^\d\s]+', '\d+AB\d+<=\d+--[^\d\s]+'
+                      )
+
+      def eval_game_system_specific_command_old(command)
+        return roll_b_old(command)
+      end
 
       def eval_game_system_specific_command(command)
-        return roll_1d100(command) || roll_d(command) || roll_b_type(command) || roll_b(command)
+        case command
+        when /^AD<=(\d+)$/
+          return roll_D(command, 1, 100, $1.to_i)
+        when /^(\d+)AD(\d+)<=(\d+)$/
+          return roll_D(command, $1.to_i, $2.to_i, $3.to_i)
+        when /^(\d+)AB<=(\d+)$/
+          return roll_B(command, $1.to_i, 100, $2.to_i)
+        when /^(\d+)AB(\d+)<=(\d+)$/
+          return roll_B(command, $1.to_i, $2.to_i, $3.to_i)
+        when /^(\d+)AB<=(\d+)--([^\d\s]+)$/
+          return roll_B_withtype(command, $1.to_i, 100, $2.to_i, $3)
+        when /^(\d+)AB(\d+)<=(\d+)--([^\d\s]+)$/
+          return roll_B_withtype(command, $1.to_i, $2.to_i, $3.to_i, $4)
+        end
+        
+        return "command"
       end
 
       private
 
-      def roll_1d100(command)
-        m = /^1D100<=(\d+)$/.match(command)
-        return nil unless m
-        
-        times = 1
-        sides = 100
-        target = m[1].to_i
-
-        dice_list = @randomizer.roll_barabara(times, sides)
-        total = dice_list[0]
-
-        success = total <= target
-
-        crierror = 
-          if total <= 10
-            "Critical"
-          elsif total >= 91
-            "Error"
-          else
-            "Neutral"
-          end
-
-        result = 
-          if success && (crierror == "Critical")
-            "クリティカル！"
-          elsif success && (crierror == "Neutral")
-            "成功"
-          elsif success && (crierror == "Error")
-            "成功"
-          elsif !success && (crierror == "Critical")
-            "失敗"
-          elsif !success && (crierror == "Neutral")
-            "失敗"
-          elsif !success && (crierror == "Error")
-            "エラー"
-          end
-
-        return "(#{command}) ＞ #{dice_list.join(',')} ＞ #{result}"
-      end
-
-      def roll_d(command)
-        m = /^(\d+)D(\d+)<=(\d+)$/.match(command)
-        return nil unless m
-
-        times = m[1].to_i
-        sides = m[2].to_i
-        target = m[3].to_i
-
+      def roll_D(command, times, sides, target)
         dice_list = @randomizer.roll_barabara(times, sides)
         total = dice_list.sum
 
@@ -118,11 +93,64 @@ module BCDice
             "エラー"
           end
 
-        return "(#{command}) ＞ #{total}[#{dice_list.join(',')}] ＞ #{result}"
+        if times == 1
+          return "(#{command}) ＞ #{dice_list.join(',')} ＞ #{result}"
+        else
+          return "(#{command}) ＞ #{total}[#{dice_list.join(',')}] ＞ #{result}"
+        end
       end
 
-      def roll_b_type(command)
-        m = /^(\d+)B(\d+)<=(\d+)--([^\d\s]+)$/.match(command)
+      def roll_B(command, times, sides, target)
+        result = process_B(times, sides, target)
+        dice_list = result[0]
+        success_count = result[1]
+
+        return "(#{command}) ＞ [#{dice_list.join(',')}] ＞ 成功数#{success_count}"
+      end
+
+      def roll_B_withtype(command, times, sides, target, type)
+        result = process_B(times, sides, target)
+        dice_list = result[0]
+        success_count = result[1]
+
+        type_effect = 
+          if (type == "SNIPER") && (success_count > 0)
+            1
+          else
+            0
+          end
+        success_count += type_effect
+
+        return "(#{command}) ＞ [#{dice_list.join(',')}] ＞ 役職効果(#{type})+#{type_effect} ＞ 成功数#{success_count}"
+      end
+
+      def process_B(times, sides, target)
+        dice_list = @randomizer.roll_barabara(times, sides)
+
+        success_count = 0
+        for num in 1..target do
+          success_count += dice_list.count(num)
+        end
+        
+        critical_count = 0
+        for num in 1..10 do
+          critical_count += dice_list.count(num)
+        end
+
+        error_count = 0
+        for num in 91..100 do
+          error_count += dice_list.count(num)
+        end
+
+        success_count += critical_count
+        success_count -= error_count
+
+        return [dice_list, success_count, critical_count, error_count]
+
+      end
+
+      def roll_b_type_old(command)
+        m = /^(\d+)AN(\d+)<=(\d+)--([^\d\s]+)$/.match(command)
         return nil unless m
 
         times = m[1].to_i
@@ -162,8 +190,8 @@ module BCDice
         return "(#{command}) ＞ [#{dice_list.join(',')}] ＞ 役職効果(#{type})+#{type_effect} ＞ 成功数#{success_count}"
       end
 
-      def roll_b(command)
-        m = /^(\d+)B(\d+)<=(\d+)$/.match(command)
+      def roll_b_old(command)
+        m = /^(\d+)AN(\d+)<=(\d+)$/.match(command)
         return nil unless m
 
         times = m[1].to_i

@@ -1,31 +1,39 @@
 [[ test ]]
 game_system = "ArknightsFan"
-input = "1D100<=70"
-output = "(1D100<=70) ＞ 50 ＞ 成功"
+input = "AD<=70"
+output = "(AD<=70) ＞ 50 ＞ 成功"
 rands = [
   { sides = 100, value = 50 },
 ]
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "1D100<=70"
-output = "(1D100<=70) ＞ 10 ＞ クリティカル！"
+input = "AD<=70"
+output = "(AD<=70) ＞ 10 ＞ クリティカル！"
 rands = [
   { sides = 100, value = 10 },
 ]
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "1D100<=70"
-output = "(1D100<=70) ＞ 91 ＞ エラー"
+input = "AD<=70"
+output = "(AD<=70) ＞ 91 ＞ エラー"
 rands = [
   { sides = 100, value = 91 },
 ]
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "3B100<=70"
-output = "(3B100<=70) ＞ [90,50,50] ＞ 成功数2"
+input = "AD<=99"
+output = "(AD<=99) ＞ 95 ＞ 成功"
+rands = [
+  { sides = 100, value = 95 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70"
+output = "(3AB100<=70) ＞ [90,50,50] ＞ 成功数2"
 rands = [
   { sides = 100, value = 90 },
   { sides = 100, value = 50 },
@@ -34,8 +42,8 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "3b100<=70"
-output = "(3B100<=70) ＞ [90,50,50] ＞ 成功数2"
+input = "3AB100<=70"
+output = "(3AB100<=70) ＞ [90,50,50] ＞ 成功数2"
 rands = [
   { sides = 100, value = 90 },
   { sides = 100, value = 50 },
@@ -44,8 +52,8 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "3B100<=70"
-output = "(3B100<=70) ＞ [91,50,50] ＞ 成功数1"
+input = "3AB100<=70"
+output = "(3AB100<=70) ＞ [91,50,50] ＞ 成功数1"
 rands = [
   { sides = 100, value = 91 },
   { sides = 100, value = 50 },
@@ -54,8 +62,8 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "3B100<=70"
-output = "(3B100<=70) ＞ [100,50,50] ＞ 成功数1"
+input = "3AB100<=70"
+output = "(3AB100<=70) ＞ [100,50,50] ＞ 成功数1"
 rands = [
   { sides = 100, value = 100 },
   { sides = 100, value = 50 },
@@ -64,8 +72,8 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "3B100<=70"
-output = "(3B100<=70) ＞ [100,50,10] ＞ 成功数2"
+input = "3AB100<=70"
+output = "(3AB100<=70) ＞ [100,50,10] ＞ 成功数2"
 rands = [
   { sides = 100, value = 100 },
   { sides = 100, value = 50 },
@@ -74,8 +82,118 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "3B100<=70--狙撃"
-output = "(3B100<=70--狙撃) ＞ [90,50,50] ＞ 役職効果(狙撃)+1 ＞ 成功数3"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [100,100,1,1] ＞ 成功数2"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [100,100,50,1] ＞ 成功数1"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [100,100,70,1] ＞ 成功数0"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 70 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [100,100,50,50] ＞ 成功数0"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [100,100,70,50] ＞ 成功数-1"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 70 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [100,100,70,70] ＞ 成功数-2"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 70 },
+  { sides = 100, value = 70 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [100,70,1,1] ＞ 成功数3"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 70 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [100,50,1,1] ＞ 成功数4"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [70,50,1,1] ＞ 成功数5"
+rands = [
+  { sides = 100, value = 70 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [50,50,1,1] ＞ 成功数6"
+rands = [
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--Sniper"
+output = "(3AB100<=70--SNIPER) ＞ [90,50,50] ＞ 役職効果(SNIPER)+1 ＞ 成功数3"
 rands = [
   { sides = 100, value = 90 },
   { sides = 100, value = 50 },
@@ -84,8 +202,8 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "3B100<=70--狙撃"
-output = "(3B100<=70--狙撃) ＞ [91,50,80] ＞ 役職効果(狙撃)+0 ＞ 成功数0"
+input = "3AB100<=70--Sniper"
+output = "(3AB100<=70--SNIPER) ＞ [91,50,80] ＞ 役職効果(SNIPER)+0 ＞ 成功数0"
 rands = [
   { sides = 100, value = 91 },
   { sides = 100, value = 50 },
@@ -94,8 +212,8 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "3B100<=70--先鋒"
-output = "(3B100<=70--先鋒) ＞ [90,50,50] ＞ 役職効果(先鋒)+0 ＞ 成功数2"
+input = "3AB100<=70--先鋒"
+output = "(3AB100<=70--先鋒) ＞ [90,50,50] ＞ 役職効果(先鋒)+0 ＞ 成功数2"
 rands = [
   { sides = 100, value = 90 },
   { sides = 100, value = 50 },
