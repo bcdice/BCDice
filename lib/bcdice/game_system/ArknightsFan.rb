@@ -5,10 +5,10 @@ module BCDice
       ID = "ArknightsFan"
 
       # ゲームシステム名
-      NAME = "アークナイツTRPG"
+      NAME = "アークナイツTRPG by Dapto"
 
       # ゲームシステム名の読みがな
-      SORT_KEY = "あーくないつTRPG"
+      SORT_KEY = "あーくないつTRPG ばい だぷと"
 
       HELP_MESSAGE = <<~TEXT
         ■ 判定 (nADm>=x)
@@ -34,24 +34,24 @@ module BCDice
       TEXT
       
       TABLES = {
-        "--WORSENING" => [
-          "worsening",
-          "3",
-          [
+        "--WORSENING" => {
+          name: "worsening",
+          dice: "1d3",
+          contents: [
             "末梢神経障害",
             "内臓機能不全",
             "精神症状",
           ]
-        ],
-        "--ADDICTION" => [
-          "addiction",
-          "3",
-          [
+        },
+        "--ADDICTION" => {
+          name: "addiction",
+          dice: "1d3",
+          contents: [
             "中枢神経障害",
             "多臓器不全",
             "急性ストレス反応",
           ]
-        ],
+        },
       }.freeze
 
       register_prefix('AD<=\d+', '\d+AD\d+<=\d+', 
@@ -194,81 +194,10 @@ module BCDice
         table = tables[command]
         return nil unless table
 
-        contents = table[2]
-        dice_result = randomizer.roll_barabara(1, table[1].to_i)[0]
+        contents = table[:contents]
+        m = /^(\d+)d(\d+)$/.match(table[:dice])
+        dice_result = randomizer.roll_barabara(m[1].to_i, m[2].to_i)[0]
         return contents[dice_result-1]
-      end
-
-      def roll_b_type_old(command)
-        m = /^(\d+)AN(\d+)<=(\d+)--([^\d\s]+)$/.match(command)
-        return nil unless m
-
-        times = m[1].to_i
-        sides = m[2].to_i
-        target = m[3].to_i
-        type = m[4]
-
-        dice_list = @randomizer.roll_barabara(times, sides)
-
-        success_count = 0
-        for num in 1..target do
-          success_count += dice_list.count(num)
-        end
-        
-        critical_count = 0
-        for num in 1..10 do
-          critical_count += dice_list.count(num)
-        end
-
-        error_count = 0
-        for num in 91..100 do
-          error_count += dice_list.count(num)
-        end
-
-        success_count += critical_count
-        success_count -= error_count
-
-        type_effect = 
-          if (type == "狙撃") && (success_count > 0)
-            1
-          else
-            0
-          end
-
-        success_count += type_effect
-        
-        return "(#{command}) ＞ [#{dice_list.join(',')}] ＞ 役職効果(#{type})+#{type_effect} ＞ 成功数#{success_count}"
-      end
-
-      def roll_b_old(command)
-        m = /^(\d+)AN(\d+)<=(\d+)$/.match(command)
-        return nil unless m
-
-        times = m[1].to_i
-        sides = m[2].to_i
-        target = m[3].to_i
-
-        dice_list = @randomizer.roll_barabara(times, sides)
-
-        success_count = 0
-        for num in 1..target do
-          success_count += dice_list.count(num)
-        end
-        
-        critical_count = 0
-        for num in 1..10 do
-          critical_count += dice_list.count(num)
-        end
-
-        error_count = 0
-        for num in 91..100 do
-          error_count += dice_list.count(num)
-        end
-
-        success_count += critical_count
-        success_count -= error_count
-
-        return "(#{command}) ＞ [#{dice_list.join(',')}] ＞ 成功数#{success_count}"
       end
 
     end
