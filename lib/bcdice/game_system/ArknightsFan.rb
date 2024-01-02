@@ -33,9 +33,31 @@ module BCDice
           
       TEXT
       
+      TABLES = {
+        "--WORSENING" => [
+          "worsening",
+          "3",
+          [
+            "末梢神経障害",
+            "内臓機能不全",
+            "精神症状",
+          ]
+        ],
+        "--ADDICTION" => [
+          "addiction",
+          "3",
+          [
+            "中枢神経障害",
+            "多臓器不全",
+            "急性ストレス反応",
+          ]
+        ],
+      }.freeze
+
       register_prefix('AD<=\d+', '\d+AD\d+<=\d+', 
                       '\d+AB+<=\d+', '\d+AB\d+<=\d+',
-                      '\d+AB+<=\d+--[^\d\s]+', '\d+AB\d+<=\d+--[^\d\s]+'
+                      '\d+AB+<=\d+--[^\d\s]+', '\d+AB\d+<=\d+--[^\d\s]+',
+                      TABLES.keys
                       )
 
       def eval_game_system_specific_command_old(command)
@@ -56,15 +78,43 @@ module BCDice
           return roll_B_withtype(command, $1.to_i, 100, $2.to_i, $3)
         when /^(\d+)AB(\d+)<=(\d+)--([^\d\s]+)$/
           return roll_B_withtype(command, $1.to_i, $2.to_i, $3.to_i, $4)
+        when /^--ADDICTION$/
+          return roll_addiction(command, TABLES)
+        when /^--WORSENING$/
+          return roll_worsening(command, TABLES)
         end
         
-        return "command"
+        return nil
       end
 
       private
 
+      def roll_addiction(command, tables)
+        syndrome = roll_ark_tables(command, tables, @randomizer)
+        return nil unless syndrome
+        return syndrome
+      end
+
+      def roll_worsening(command, tables)
+        randomizer = @randomizer
+        addiction = roll_ark_tables(command, tables, randomizer)
+        return nil unless addiction
+        elapse = randomizer.roll_barabara(1, 6)[0] + 1
+        
+        return "#{addiction}: #{elapse} rounds"
+      end
+
+      def roll_ark_tables(command, tables, randomizer)
+        table = tables[command]
+        return nil unless table
+
+        contents = table[2]
+        dice_result = randomizer.roll_barabara(1, table[1].to_i)[0]
+        return contents[dice_result-1]
+      end
+
       def roll_D(command, times, sides, target)
-        dice_list = @randomizer.roll_barabara(times, sides)
+        dice_list = @randomizer.roll_barabara(times, sides).sort
         total = dice_list.sum
 
         success = total <= target
@@ -125,7 +175,7 @@ module BCDice
       end
 
       def process_B(times, sides, target)
-        dice_list = @randomizer.roll_barabara(times, sides)
+        dice_list = @randomizer.roll_barabara(times, sides).sort
 
         success_count = 0
         for num in 1..target do
