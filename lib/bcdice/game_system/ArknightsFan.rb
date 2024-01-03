@@ -63,42 +63,42 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         case command
-        when /^(\d*)AD(\d*)<=(\d+)$/
-          times = ::Regexp.last_match(1) 
+        when /^(\d*)AD(\d*)<=(\d+)$/                        # AD<=70, 2AD100<=70
+          times = ::Regexp.last_match(1)
           sides = ::Regexp.last_match(2)
           target = ::Regexp.last_match(3).to_i
           times = !times.empty? ? times.to_i : 1
           sides = !sides.empty? ? sides.to_i : 100
           return roll_d(command, times, sides, target)
 
-        when /^(\d*)AB(\d*)<=(\d+)$/
-          times = ::Regexp.last_match(1) 
-          sides = ::Regexp.last_match(2)
-          target = ::Regexp.last_match(3).to_i
-          times = !times.empty? ? times.to_i : 1
-          sides = !sides.empty? ? sides.to_i : 100
-          return roll_b(command, times, sides, target)
-          
-        when /^(\d*)AB(\d*)<=(\d+)--([^\d\s]+)$/
-          times = ::Regexp.last_match(1) 
-          sides = ::Regexp.last_match(2)
-          target = ::Regexp.last_match(3).to_i
-          type = ::Regexp.last_match(4)
-          times = !times.empty? ? times.to_i : 1
-          sides = !sides.empty? ? sides.to_i : 100
-          return roll_b_withtype(command, times, sides, target, type)
-          
-        when /^(\d*)AB(\d*)<=(\d+)--([^\d\s]+)0$/
-          times = ::Regexp.last_match(1) 
+        when /^(\d*)AB(\d*)<=(\d+)$/                        # 2AB<=70, 2AB100<=70
+          times = ::Regexp.last_match(1)
           sides = ::Regexp.last_match(2)
           target = ::Regexp.last_match(3).to_i
           times = !times.empty? ? times.to_i : 1
           sides = !sides.empty? ? sides.to_i : 100
           return roll_b(command, times, sides, target)
 
-        when /^--ADDICTION$/
+        when /^(\d*)AB(\d*)<=(\d+)--([^\d\s]+)$/             # 2AB<=70--SNIPER, 2AB100<=70--SNIPER
+          times = ::Regexp.last_match(1)
+          sides = ::Regexp.last_match(2)
+          target = ::Regexp.last_match(3).to_i
+          type = ::Regexp.last_match(4)
+          times = !times.empty? ? times.to_i : 1
+          sides = !sides.empty? ? sides.to_i : 100
+          return roll_b_withtype(command, times, sides, target, type)
+
+        when /^(\d*)AB(\d*)<=(\d+)--([^\d\s]+)0$/            # 2AB<=70--SNIPER0, 2AB100<=70--SNIPER0
+          times = ::Regexp.last_match(1)
+          sides = ::Regexp.last_match(2)
+          target = ::Regexp.last_match(3).to_i
+          times = !times.empty? ? times.to_i : 1
+          sides = !sides.empty? ? sides.to_i : 100
+          return roll_b(command, times, sides, target)
+
+        when /^--ADDICTION$/                                  # --ADDICTION
           return roll_addiction(command, TABLES)
-        when /^--WORSENING$/
+        when /^--WORSENING$/                                  # --WORSENING
           return roll_worsening(command, TABLES)
         end
 
