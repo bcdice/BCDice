@@ -123,7 +123,7 @@ module BCDice
 
       # @return [ParsedNW, nil]
       def parse_nw(string)
-        m = /^([-+]?\d+)?#{@nw_command}((?:[-+]\d+)+)?(?:@(\d+(?:,\d+)*))?(?:#(\d+(?:,\d+)*))?(?:\$(\d+(?:,\d+)*))?((?:[-+]\d+)+)?(?:([>=]+)(\d+))?$/.match(string)
+        m = /^([-+]?\d+)?#{@nw_command}((?:[-+]\d+)+)?(?:@(\d+(?:,\d+)*))?(?:#(\d+(?:,\d+)*))?(?:\$(\d+))?((?:[-+]\d+)+)?(?:([>=]+)(\d+))?$/.match(string)
         unless m
           return nil
         end
