@@ -35,7 +35,7 @@ rands = [
 [[ test ]]
 game_system = "FullFace"
 input = "8FF<=3 成功度及び１の目及びバースト"
-output = "(8FF<=3) ＞ 6,5,4,3,2,1,6,5+4 ＞ バースト"
+output = "(8FF<=3) ＞ 6,5,4,3,2,1,6,5+4 ＞ 成功度(3),1の目(1),バースト"
 fumble = true
 failure = true
 rands = [

@@ -33,16 +33,15 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_action(command)
-        m = /(\d*)([+]\d+)*FF<=(\d)/.match(command)
+        m = /(\d*)([+\d]+)*FF<=(\d)/.match(command)
         return nil unless m
 
         heat_level = m[1].to_i
         heat_level = 3 if heat_level == 0
-        modify = Arithmetic.eval("0#{m[2]}", @round_type) || 0
+        modify = Arithmetic.eval("0#{m[2]}", @round_type)
         status_no = m[3].to_i
 
         dice_array = []
-        is_critical = false
 
         dice = @randomizer.roll_barabara(heat_level, 6)
         ones = dice.count { |val| val == 1 }
@@ -59,7 +58,6 @@ module BCDice
         ones_total = ones
 
         while ones > 0
-          is_critical = true
           dice = @randomizer.roll_barabara(ones, 6)
           ones = dice.count { |val| val == 1 }
           ones_total += ones
@@ -68,24 +66,22 @@ module BCDice
         end
 
         return Result.new.tap do |result|
-          result.condition = (success_num > 0)
-          result.critical = is_critical
           if sixs >= 2
             result.fumble = true
-            result.critical = false
             result.condition = false
+          else
+            result.condition = (success_num > 0)
+            result.critical = (ones_total > 0)
           end
+          result_txt = []
+          result_txt.push("成功度(#{success_num})")
+          result_txt.push("1の目(#{ones_total})") if ones_total > 0
+          result_txt.push("バースト") if result.fumble?
 
           sequence = [
             "(#{heat_level}#{Format.modifier(modify)}FF<=#{status_no})",
             dice_array.join('+').to_s,
-            if result.fumble?
-              "バースト"
-            elsif result.critical?
-              "成功度(#{success_num}),1の目(#{ones_total})"
-            else
-              "成功度(#{success_num})"
-            end
+            result_txt.join(',').to_s,
           ].compact
 
           result.text = sequence.join(" ＞ ")
