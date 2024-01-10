@@ -2,9 +2,9 @@
 
 module BCDice
   module GameSystem
-    class Animalus < Base
+    class AniMalus < Base
       # ゲームシステムの識別子
-      ID = 'Animalus'
+      ID = 'AniMalus'
 
       # ゲームシステム名
       NAME = 'アニマラス'
@@ -113,6 +113,7 @@ module BCDice
         damage2 = dice.max.to_i
         if dice[0] == dice[1] && dice[1] == dice[2] && dice[2] <= num_target
           damage2 += 6
+          damage1 = damage2
         elsif dice[0] == dice[1] && dice[1] <= num_target
           damage2 += 3
         elsif dice[1] == dice[2] && dice[2] <= num_target
