@@ -160,7 +160,7 @@ module BCDice
 
         dice = @randomizer.roll_barabara(3, 6).sort
         dice_text = dice.join(",")
-        success_num = dice.count { |val| val == num_target }
+        success_num = dice.count(num_target)
         is_critical = (dice[0] == 1 && dice[1] == 2 && dice[2] == 3)
         is_fumble = (dice[0] == 4 && dice[1] == 5 && dice[2] == 6)
 
@@ -197,7 +197,7 @@ module BCDice
 
         dice = @randomizer.roll_barabara(1, 6)
         dice_text = dice.join(",")
-        success_num = dice.count { |val| val == num_target }
+        success_num = dice.count(num_target)
 
         return Result.new.tap do |result|
           result.condition = (success_num > 0)
