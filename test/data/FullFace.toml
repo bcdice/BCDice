@@ -1,0 +1,113 @@
+[[ test ]]
+game_system = "FullFace"
+input = "8FF<=3 成功度"
+output = "(8FF<=3) ＞ 6,5,4,3,2,2,5,4 ＞ 成功度(3)"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "FullFace"
+input = "8FF<=3 成功度及び１の目"
+output = "(8FF<=3) ＞ 6,5,4,3,2,1,5,4+3 ＞ 成功度(4),1の目(1)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "FullFace"
+input = "8FF<=3 成功度及び１の目及びバースト"
+output = "(8FF<=3) ＞ 6,5,4,3,2,1,6,5+4 ＞ 成功度(3),1の目(1),バースト"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "FullFace"
+input = "8FF<=3 成功度及び１の目及びバーストせず"
+output = "(8FF<=3) ＞ 6,5,4,3,2,1,5,4+6 ＞ 成功度(3),1の目(1)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullFace"
+input = "8FF<=3 多重1の目"
+output = "(8FF<=3) ＞ 6,5,4,3,2,1,5,4+1+3 ＞ 成功度(5),1の目(2)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "FullFace"
+input = "FF<=3 一般判定"
+output = "(3FF<=3) ＞ 6,5,4 ＞ 成功度(0)"
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "FullFace"
+input = "+2FF<=3 一般判定"
+output = "(3+2FF<=3) ＞ 6,5,4+3,2 ＞ 成功度(2)"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
