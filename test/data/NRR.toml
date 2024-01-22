@@ -1,0 +1,119 @@
+[[ test ]]
+game_system = "NRR"
+input = "NR6"
+output = "(NR6) ＞ 1 ＞ 💀 ファンブル（大失敗）"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "NR6"
+output = "(NR6) ＞ 6 ＞ ⭕️ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "NR8"
+output = "(NR8) ＞ 1 ＞ 💀 ファンブル（大失敗）"
+fumble = true
+failure = true
+rands = [
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "NR8"
+output = "(NR8) ＞ 8 ＞ ✨ クリティカル（大成功）"
+critical = true
+success = true
+rands = [
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "NR10"
+output = "(NR10) ＞ 1 ＞ 💀 ファンブル（大失敗）"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "NR10"
+output = "(NR10) ＞ 10 ＞ ✨ クリティカル（大成功）"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "NR12"
+output = "(NR12) ＞ 1 ＞ 💀 ファンブル（大失敗）"
+fumble = true
+failure = true
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "NR12"
+output = "(NR12) ＞ 4 ＞ ❌ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "NR12"
+output = "(NR12) ＞ 6 ＞ ⭕️ 成功"
+success = true
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "NR12"
+output = "(NR12) ＞ 10 ＞ ✨ クリティカル（大成功）"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "NR12"
+output = "(NR12) ＞ 12 ＞ 🌈 ミラクル（奇跡）"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "6NR12"
+output = "(6NR12) ＞ 3,4,5,7,11,12 ＞ 💀 1, ❌ 1, ⭕️ 1, ✨ 1, 🌈 2"
+rands = [
+  { sides = 12, value = 3 },
+  { sides = 12, value = 4 },
+  { sides = 12, value = 5 },
+  { sides = 12, value = 7 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 12 },
+]
