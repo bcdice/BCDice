@@ -44,14 +44,14 @@ module BCDice
         dice_array = []
 
         dice = @randomizer.roll_barabara(heat_level, 6)
-        ones = dice.count { |val| val == 1 }
-        sixs = dice.count { |val| val == 6 }
+        ones = dice.count(1)
+        sixs = dice.count(6)
         success_num = dice.count { |val| val <= status_no }
         dice_array.push(dice.join(","))
 
         if modify > 0
           dice = @randomizer.roll_barabara(modify, 6)
-          ones += dice.count { |val| val == 1 }
+          ones += dice.count(1)
           success_num += dice.count { |val| val <= status_no }
           dice_array.push(dice.join(","))
         end
@@ -59,7 +59,7 @@ module BCDice
 
         while ones > 0
           dice = @randomizer.roll_barabara(ones, 6)
-          ones = dice.count { |val| val == 1 }
+          ones = dice.count(1)
           ones_total += ones
           success_num += dice.count { |val| val <= status_no }
           dice_array.push(dice.join(","))
