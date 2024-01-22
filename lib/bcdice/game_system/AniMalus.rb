@@ -52,7 +52,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_action(command)
-        m = /(\d+)AM<=(\d+),(\d)/.match(command)
+        m = /^(\d+)AM<=(\d+),(\d)$/.match(command)
         return nil unless m
 
         num_dice = m[1].to_i
@@ -76,7 +76,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_investigation(command)
-        m = /AI<=(\d+),(\d)/.match(command)
+        m = /^AI<=(\d+),(\d)$/.match(command)
         return nil unless m
 
         num_target = m[1].to_i
@@ -99,7 +99,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_attacking(command)
-        m = /AA<=(\d+)/.match(command)
+        m = /^AA<=(\d+)$/.match(command)
         return nil unless m
 
         num_target = m[1].to_i
@@ -153,7 +153,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_guarding(command)
-        m = /AG=(\d+)/.match(command)
+        m = /^AG=(\d+)$/.match(command)
         return nil unless m
 
         num_target = m[1].to_i
@@ -190,7 +190,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_dodging(command)
-        m = /AD=(\d+)/.match(command)
+        m = /^AD=(\d+)$/.match(command)
         return nil unless m
 
         num_target = m[1].to_i
