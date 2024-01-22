@@ -33,7 +33,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_action(command)
-        m = /(\d*)([+\d]+)*FF<=(\d)/.match(command)
+        m = /^(\d*)([+\d]+)*FF<=(\d)$/.match(command)
         return nil unless m
 
         heat_level = m[1].to_i
