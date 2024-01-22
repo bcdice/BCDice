@@ -10,7 +10,7 @@ module BCDice
       NAME = "アークナイツTRPG by Dapto"
 
       # ゲームシステム名の読みがな
-      SORT_KEY = "あーくないつTRPG ばい だぷと"
+      SORT_KEY = "ああくないつTRPGはいたふと"
 
       HELP_MESSAGE = <<~TEXT
         ■ 判定 (nADm>=x)
@@ -32,7 +32,6 @@ module BCDice
             x が10以下でクリティカル。成功数-1。
           上記による成功数をカウントした上で、以下の役職による成功数増加効果を適応。
             狙撃 成功数1以上のとき、成功数+1。
-        #{'  '}
       TEXT
 
       TABLES = {
