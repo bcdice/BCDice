@@ -109,8 +109,8 @@ module BCDice
         success_num = dice.count { |val| val <= num_target }
         is_critical = (dice[0] == 1 && dice[1] == 2 && dice[2] == 3)
         is_fumble = (dice[0] == 4 && dice[1] == 5 && dice[2] == 6)
-        damage1 = dice.max.to_i
-        damage2 = dice.max.to_i
+        damage1 = dice.max
+        damage2 = dice.max
         if dice[0] == dice[1] && dice[1] == dice[2] && dice[2] <= num_target
           damage2 += 6
           damage1 = damage2
