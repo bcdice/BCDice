@@ -2881,20 +2881,126 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ========== エラーコマンド ========== #
+# ========== ダイスプールより多いRageダイス指定 ========== #
 
-# ダイスプールより多いRageダイス指定
+# ダイスプールより多いRageダイス指定(難易度なし、Brutal outcome)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI3R4"
-output = "ダイスプールより多いRageダイス指定はできません。"
+output = "(0D10+3D10) ＞ []+[1,2,6]  [Brutal outcome] 自動失敗、または 成功数=5"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
   { sides = 10, value = 6 },
-  { sides = 10, value = 8 },
+]
+
+# ダイスプールより多いRageダイス指定(難易度なし)
+[[ test ]]
+game_system = "WerewolfTheApocalypse5th"
+input = "WAI3R5"
+output = "(0D10+3D10) ＞ []+[3,2,6]  成功数=1"
+rands = [
+  { sides = 10, value = 3 },
   { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+]
+
+# ダイスプールより多いRageダイス指定(難易度なし、Critical)
+[[ test ]]
+game_system = "WerewolfTheApocalypse5th"
+input = "WAI3R4"
+output = "(0D10+3D10) ＞ []+[10,10,6]  成功数=5\n　判定成功なら [Critical Win]"
+rands = [
   { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+]
+
+# ダイスプールより多いRageダイス指定(難易度なし、Total Failure)
+[[ test ]]
+game_system = "WerewolfTheApocalypse5th"
+input = "WAI3R4"
+output = "(0D10+3D10) ＞ []+[3,2,5]  成功数=0：判定失敗! [Total Failure]"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+]
+
+# ダイスプールより多いRageダイス指定(難易度あり、Brutal outcome)
+[[ test ]]
+game_system = "WerewolfTheApocalypse5th"
+input = "1WAI3R4"
+output = "(0D10+3D10) ＞ []+[1,2,6]  [Brutal outcome] 自動失敗、または 成功数=5 難易度=1 差分=4：判定成功!"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+]
+
+# ダイスプールより多いRageダイス指定(難易度あり、成功)
+[[ test ]]
+game_system = "WerewolfTheApocalypse5th"
+input = "1WAI3R5"
+output = "(0D10+3D10) ＞ []+[3,2,6]  成功数=1 難易度=1 差分=0：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+]
+
+# ダイスプールより多いRageダイス指定(難易度あり、失敗)
+[[ test ]]
+game_system = "WerewolfTheApocalypse5th"
+input = "2WAI3R5"
+output = "(0D10+3D10) ＞ []+[3,2,6]  成功数=1 難易度=2：判定失敗!"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+]
+
+# ダイスプールより多いRageダイス指定(難易度あり、Critical)
+[[ test ]]
+game_system = "WerewolfTheApocalypse5th"
+input = "1WAI3R4"
+output = "(0D10+3D10) ＞ []+[10,10,6]  成功数=5 難易度=1 差分=4：判定成功! [Critical Win]"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+]
+
+# ダイスプールより多いRageダイス指定(難易度あり、Total Failure)
+[[ test ]]
+game_system = "WerewolfTheApocalypse5th"
+input = "2WAI3R4"
+output = "(0D10+3D10) ＞ []+[3,2,5]  成功数=0 難易度=2：判定失敗! [Total Failure]"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+]
+
+# ========== エラーコマンド ========== #
+
+# ダイスプール0の時のRageダイス指定
+[[ test ]]
+game_system = "WerewolfTheApocalypse5th"
+input = "WAI0R4"
+output = "ダイスプール0のときにRageダイスは指定できません。"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
 ]
 
 # 5を超えるRageダイス指定(WAI)
