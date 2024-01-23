@@ -61,50 +61,41 @@ module BCDice
                       TABLES.keys)
 
       def eval_game_system_specific_command(command)
-        case command
-        when /^(\d*)AD(\d*)<=(\d+)$/                        # AD<=70, 2AD100<=70
-          times = ::Regexp.last_match(1)
-          sides = ::Regexp.last_match(2)
-          target = ::Regexp.last_match(3).to_i
-          times = !times.empty? ? times.to_i : 1
-          sides = !sides.empty? ? sides.to_i : 100
-          return roll_d(command, times, sides, target)
-
-        when /^(\d*)AB(\d*)<=(\d+)$/                        # 2AB<=70, 2AB100<=70
-          times = ::Regexp.last_match(1)
-          sides = ::Regexp.last_match(2)
-          target = ::Regexp.last_match(3).to_i
-          times = !times.empty? ? times.to_i : 1
-          sides = !sides.empty? ? sides.to_i : 100
-          return roll_b(command, times, sides, target)
-
-        when /^(\d*)AB(\d*)<=(\d+)--([^\d\s]+)$/             # 2AB<=70--SNIPER, 2AB100<=70--SNIPER
-          times = ::Regexp.last_match(1)
-          sides = ::Regexp.last_match(2)
-          target = ::Regexp.last_match(3).to_i
-          type = ::Regexp.last_match(4)
-          times = !times.empty? ? times.to_i : 1
-          sides = !sides.empty? ? sides.to_i : 100
-          return roll_b_withtype(command, times, sides, target, type)
-
-        when /^(\d*)AB(\d*)<=(\d+)--([^\d\s]+)0$/            # 2AB<=70--SNIPER0, 2AB100<=70--SNIPER0
-          times = ::Regexp.last_match(1)
-          sides = ::Regexp.last_match(2)
-          target = ::Regexp.last_match(3).to_i
-          times = !times.empty? ? times.to_i : 1
-          sides = !sides.empty? ? sides.to_i : 100
-          return roll_b(command, times, sides, target)
-
-        when /^--ADDICTION$/                                  # --ADDICTION
-          return roll_addiction(command, TABLES)
-        when /^--WORSENING$/                                  # --WORSENING
-          return roll_worsening(command, TABLES)
-        end
-
-        return nil
+        roll_ad(command) || roll_ab(command) || roll_addiction(command) || roll_worsening(command)
       end
 
       private
+
+      def roll_ad(command)
+        m = /^(\d*)AD(\d*)<=(\d+)$/.match(command)
+        return nil unless m
+
+        times = m[1]
+        sides = m[2]
+        target = m[3].to_i
+        times = !times.empty? ? times.to_i : 1
+        sides = !sides.empty? ? sides.to_i : 100
+        return roll_d(command, times, sides, target)
+      end
+
+      def roll_ab(command)
+        m = /^(\d*)AB(\d*)<=(\d+)(?:--([^\d\s]+)(0)?)?$/.match(command)
+        return nil unless m
+
+        times = m[1]
+        sides = m[2]
+        target = m[3].to_i
+        type = m[4]
+        suffix = m[5]
+        times = !times.empty? ? times.to_i : 1
+        sides = !sides.empty? ? sides.to_i : 100
+
+        if suffix || type.nil?
+          roll_b(command, times, sides, target)
+        else
+          roll_b_withtype(command, times, sides, target, type)
+        end
+      end
 
       def roll_d(command, times, sides, target)
         dice_list = @randomizer.roll_barabara(times, sides).sort
@@ -187,16 +178,20 @@ module BCDice
 
       ### ダイステーブル（ユーザー定義配列）の処理
 
-      def roll_addiction(command, tables)
-        syndrome = roll_ark_tables(command, tables, @randomizer)
+      def roll_addiction(command)
+        return nil if command != "--ADDICTION"
+
+        syndrome = roll_ark_tables(command, TABLES, @randomizer)
         return nil unless syndrome
 
         return syndrome
       end
 
-      def roll_worsening(command, tables)
+      def roll_worsening(command)
+        return nil if command != "--WORSENING"
+
         randomizer = @randomizer
-        addiction = roll_ark_tables(command, tables, randomizer)
+        addiction = roll_ark_tables(command, TABLES, randomizer)
         return nil unless addiction
 
         elapse = randomizer.roll_barabara(1, 6)[0] + 1
