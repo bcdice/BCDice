@@ -2011,7 +2011,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMI0H3"
-output = "ダイスプールより多いHungerダイスは指定できません。"
+output = "ダイスプール0のときにHungerダイスは指定できません。"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 10 },
@@ -2118,4 +2118,128 @@ rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 3 },
   { sides = 10, value = 10 },
+]
+
+# 内数指定とHungerダイスが同じ(難易度あり)
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "2VMI5H5"
+output = "(0D10+5D10) ＞ []+[4,6,6,6,1]  成功数=3 難易度=2 差分=1：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+]
+
+# 内数指定とHungerダイスが同じ(難易度なし)
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMI5H5"
+output = "(0D10+5D10) ＞ []+[4,6,6,6,1]  成功数=3\n　判定失敗なら [Bestial Failure]"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+]
+
+# 内数指定においてHungerダイスがダイスプールを上回る指定(難易度あり)
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "2VMI3H5"
+output = "(0D10+3D10) ＞ []+[4,6,6]  成功数=2 難易度=2 差分=0：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
+
+# 内数指定においてHungerダイスがダイスプールを上回る指定(難易度なし)
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMI3H5"
+output = "(0D10+3D10) ＞ []+[4,6,6]  成功数=2"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
+
+# 内数指定においてHungerダイスがダイスプールを上回る指定(難易度あり、Messy Critical)
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "2VMI3H5"
+output = "(0D10+3D10) ＞ []+[4,10,10]  成功数=4 難易度=2 差分=2：判定成功! [Messy Critical]"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+# 内数指定においてHungerダイスがダイスプールを上回る指定(難易度なし、Messy Critical)
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMI3H5"
+output = "(0D10+3D10) ＞ []+[4,10,10]  成功数=4\n　判定成功なら [Messy Critical]"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+# 内数指定においてHungerダイスがダイスプールを上回る指定(難易度あり、Bestial Failure)
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "2VMI3H4"
+output = "(0D10+3D10) ＞ []+[4,1,10]  成功数=1 難易度=2：判定失敗! [Bestial Failure]"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+# 内数指定においてHungerダイスがダイスプールを上回る指定(難易度なし、Bestial Failure)
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMI3H4"
+output = "(0D10+3D10) ＞ []+[4,1,10]  成功数=1\n　判定失敗なら [Bestial Failure]"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+# 内数指定においてHungerダイスがダイスプールを上回る指定(難易度あり、Total Failure)
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "2VMI3H4"
+output = "(0D10+3D10) ＞ []+[4,2,5]  成功数=0 難易度=2：判定失敗! [Total Failure]"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+]
+
+# 内数指定においてHungerダイスがダイスプールを上回る指定(難易度なし、Total Failure)
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "VMI3H4"
+output = "(0D10+3D10) ＞ []+[4,2,5]  成功数=0：判定失敗! [Total Failure]"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
 ]
