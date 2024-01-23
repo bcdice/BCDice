@@ -65,16 +65,16 @@ module BCDice
 
         dice_pool, hunger_dice_pool = get_dice_pools(m)
         if dice_pool < 0
-          return "ダイスプールより多いHungerダイスは指定できません。"
+          return "ダイスプール0のときにHungerダイスは指定できません。"
         end
-        if hunger_dice_pool && hunger_dice_pool > 5
+        if hunger_dice_pool > 5
           return "Hungerダイス指定は5ダイスが最大です。"
         end
 
         dice_text, success_dice, ten_dice, = make_dice_roll(dice_pool)
         result_text = "(#{dice_pool}D10"
 
-        if hunger_dice_pool
+        if hunger_dice_pool >= 0
           hunger_dice_text, hunger_success_dice, hunger_ten_dice, hunger_botch_dice = make_dice_roll(hunger_dice_pool)
 
           ten_dice += hunger_ten_dice
@@ -100,11 +100,17 @@ module BCDice
         hunger_dice_included_command = m[COMMAND_HUNGER_DICE_INCLUDED_INDEX]
         if hunger_dice_included_command && hunger_dice_included_command == "VMI"
           # Hunger Diceを内数処理するの場合
-          hunger_dice_pool = m[HUNGER_DICE_INCLUDED_INDEX]&.to_i
-          dice_pool = m[DICE_POOL_HUNGER_DICE_INCLUDED_INDEX].to_i - (hunger_dice_pool || 0)
+          hunger_dice_pool = m[HUNGER_DICE_INCLUDED_INDEX].nil? ? -1 : m[HUNGER_DICE_INCLUDED_INDEX].to_i
+          dice_pool_value = m[DICE_POOL_HUNGER_DICE_INCLUDED_INDEX].to_i
+          dice_pool = dice_pool_value - (hunger_dice_pool < 0 ? 0 : hunger_dice_pool)
+          if dice_pool_value > 0 && hunger_dice_pool >= dice_pool_value
+            # 1 以上のダイスプール、かつ、Hungerダイスがダイスプール以上のとき、ダイスプールが全てHungerダイスになる。
+            dice_pool = 0
+            hunger_dice_pool = dice_pool_value
+          end
         else
           # Hunger DiceがPLによる内数指定の場合
-          hunger_dice_pool = m[HUNGER_DICE_NO_INCLUDED_INDEX]&.to_i
+          hunger_dice_pool = m[HUNGER_DICE_NO_INCLUDED_INDEX].nil? ? -1 : m[HUNGER_DICE_NO_INCLUDED_INDEX].to_i
           dice_pool = m[DICE_POOL_HUNGER_DICE_NO_INCLUDED_INDEX].to_i
         end
         return dice_pool, hunger_dice_pool
