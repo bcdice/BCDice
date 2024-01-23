@@ -159,18 +159,13 @@ module BCDice
         dice_list = @randomizer.roll_barabara(times, sides).sort
 
         success_count = 0
-        (1..target).each do |num|
-          success_count += dice_list.count(num)
-        end
-
         critical_count = 0
-        (1..10).each do |num|
-          critical_count += dice_list.count(num)
-        end
-
         error_count = 0
-        (91..100).each do |num|
-          error_count += dice_list.count(num)
+
+        dice_list.each do |value|
+          success_count += 1 if value <= target
+          critical_count += 1 if value <= 10
+          error_count += 1 if value >= 91
         end
 
         return [dice_list, success_count, critical_count, error_count]
