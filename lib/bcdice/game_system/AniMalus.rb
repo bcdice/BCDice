@@ -107,8 +107,8 @@ module BCDice
         dice = @randomizer.roll_barabara(3, 6).sort
         dice_text = dice.join(",")
         success_num = dice.count { |val| val <= num_target }
-        is_critical = (dice[0] == 1 && dice[1] == 2 && dice[2] == 3)
-        is_fumble = (dice[0] == 4 && dice[1] == 5 && dice[2] == 6)
+        is_critical = dice[0] == 1 && dice[1] == 2 && dice[2] == 3
+        is_fumble = dice[0] == 4 && dice[1] == 5 && dice[2] == 6
         damage1 = dice.max
         damage2 = dice.max
         if dice[0] == dice[1] && dice[1] == dice[2] && dice[2] <= num_target
@@ -161,8 +161,8 @@ module BCDice
         dice = @randomizer.roll_barabara(3, 6).sort
         dice_text = dice.join(",")
         success_num = dice.count(num_target)
-        is_critical = (dice[0] == 1 && dice[1] == 2 && dice[2] == 3)
-        is_fumble = (dice[0] == 4 && dice[1] == 5 && dice[2] == 6)
+        is_critical = dice[0] == 1 && dice[1] == 2 && dice[2] == 3
+        is_fumble = dice[0] == 4 && dice[1] == 5 && dice[2] == 6
 
         return Result.new.tap do |result|
           result.critical = is_critical
