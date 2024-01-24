@@ -50,7 +50,7 @@ module BCDice
       private
 
       def get_judge_result(command)
-        return nil unless (m = (/^2D6<=(\d)$/i.match(command) || /^SN(\d*)$/i.match(command)))
+        return nil unless (m = /^2D6<=(\d)$/i.match(command) || /^SN(\d*)$/i.match(command))
 
         debug("====get_judge_result====")
 

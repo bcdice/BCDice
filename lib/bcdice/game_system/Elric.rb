@@ -22,7 +22,7 @@ module BCDice
         if total <= 1
           Result.critical("貫通") # 1は常に貫通
         elsif total >= 100
-          Result.fumble("致命的失敗")  # 100は常に致命的失敗
+          Result.fumble("致命的失敗") # 100は常に致命的失敗
         elsif target == '?'
           Result.nothing
         elsif total <= (target / 5.0).ceil

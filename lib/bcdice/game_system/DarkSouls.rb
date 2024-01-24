@@ -64,7 +64,7 @@ module BCDice
         result += " ＞ #{successValue}#{targetText}"
 
         if target > 0
-          if  successValue >= target
+          if successValue >= target
             result += " ＞ 【成功】"
           else
             result += " ＞ 【失敗】"

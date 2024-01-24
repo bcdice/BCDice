@@ -58,7 +58,7 @@ module BCDice
         @prefixes.freeze
         pattarns = CommonCommand::COMMANDS.map { |c| c::PREFIX_PATTERN.source } + @prefixes
 
-        @command_pattern = /^S?(#{pattarns.join("|")})/i.freeze
+        @command_pattern = /^S?(#{pattarns.join('|')})/i.freeze
       end
 
       # @param command [String]

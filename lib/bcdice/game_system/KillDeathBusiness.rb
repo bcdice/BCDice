@@ -101,7 +101,7 @@ module BCDice
           target = 5
         end
 
-        if  fumble < 2
+        if fumble < 2
           fumble = 2
         elsif fumble > 11
           result += "【#{command}】 ＞ #{translate('KillDeathBusiness.JD.warning.over_fumble')}\n"

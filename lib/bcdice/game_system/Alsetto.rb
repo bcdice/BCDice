@@ -50,7 +50,7 @@ module BCDice
         if command =~ /(\d+)AL(C|G)?(\d+)?((x|\*)(\d+))?$/i
           rapid = Regexp.last_match(1).to_i
           isCritical = Regexp.last_match(2).nil?
-          if  isCritical
+          if isCritical
             criticalNumber = 1
           else
             if Regexp.last_match(2) == "G"
@@ -98,7 +98,7 @@ module BCDice
           text += "+" unless text.empty?
           text += "#{successCount}[#{diceText}]"
 
-          break unless  isCritical
+          break unless isCritical
 
           rollCount = criticalCount
         end

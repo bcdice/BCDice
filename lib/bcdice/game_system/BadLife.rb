@@ -58,7 +58,7 @@ module BCDice
         fumble = 1
 
         isStormy = (m[2] == 'GL') # 波乱万丈
-        if  isStormy
+        if isStormy
           critical -= 3
           fumble += 1
         end
@@ -69,7 +69,7 @@ module BCDice
         critical, fumble = get_critival_fumble(critical, fumble, m[8], m[9])
 
         target = get_value(m[11])
-        optionalText = (m[13] || '')
+        optionalText = m[13] || ''
 
         return checkRoll(diceCount, modify, critical, fumble, target, isStormy, optionalText)
       end
@@ -116,7 +116,7 @@ module BCDice
 
           if isCritical
             result += "成功（クリティカル）"
-          elsif  total >= target
+          elsif total >= target
             result += "成功"
           else
             result += "失敗"
