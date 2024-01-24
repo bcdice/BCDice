@@ -373,7 +373,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--WORSENING"
-output = "末梢神経障害: 2 rounds"
+output = "--WORSENING ＞ 末梢神経障害: 2 rounds"
 rands = [
   { sides = 3, value = 1 },
   { sides = 6, value = 1 },
@@ -382,7 +382,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--WORSENING"
-output = "内臓機能不全: 2 rounds"
+output = "--WORSENING ＞ 内臓機能不全: 2 rounds"
 rands = [
   { sides = 3, value = 2 },
   { sides = 6, value = 1 },
@@ -391,7 +391,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--WORSENING"
-output = "精神症状: 2 rounds"
+output = "--WORSENING ＞ 精神症状: 2 rounds"
 rands = [
   { sides = 3, value = 3 },
   { sides = 6, value = 1 },
@@ -400,7 +400,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--WORSENING いろは"
-output = "精神症状: 2 rounds"
+output = "--WORSENING ＞ 精神症状: 2 rounds"
 rands = [
   { sides = 3, value = 3 },
   { sides = 6, value = 1 },
@@ -409,7 +409,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--ADDICTION"
-output = "中枢神経障害"
+output = "--ADDICTION ＞ 中枢神経障害"
 rands = [
   { sides = 3, value = 1 },
 ]
@@ -417,7 +417,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--ADDICTION"
-output = "多臓器不全"
+output = "--ADDICTION ＞ 多臓器不全"
 rands = [
   { sides = 3, value = 2 },
 ]
@@ -425,7 +425,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--ADDICTION"
-output = "急性ストレス反応"
+output = "--ADDICTION ＞ 急性ストレス反応"
 rands = [
   { sides = 3, value = 3 },
 ]

@@ -15,50 +15,26 @@ module BCDice
       HELP_MESSAGE = <<~TEXT
         ■ 判定 (nADm>=x)
           nDmのダイスロールをして、x 以下であれば成功。
-          x が91以上でエラー。
-          x が10以下でクリティカル。
+          出目が91以上でエラー。
+          出目が10以下でクリティカル。
 
         ■ 判定 (nABm>=x)
           nBmのダイスロールをして、
             x 以下であれば成功数+1。
-            x が91以上でエラー。成功数+1。
-            x が10以下でクリティカル。成功数-1。
+            出目が91以上でエラー。成功数+1。
+            出目が10以下でクリティカル。成功数-1。
           上記による成功数をカウント。
 
-        ■ 判定 (nBm>=x--役職)
+        ■ 判定 (nABm>=x--役職)
           nBmのダイスロールをして、
-            x 以下であれば成功数+1。
-            x が91以上でエラー。成功数+1。
-            x が10以下でクリティカル。成功数-1。
+            出目が x 以下であれば成功数+1。
+            出目が91以上でエラー。成功数+1。
+            出目が10以下でクリティカル。成功数-1。
           上記による成功数をカウントした上で、以下の役職による成功数増加効果を適応。
-            狙撃 成功数1以上のとき、成功数+1。
+            狙撃（SNIPER） 成功数1以上のとき、成功数+1。
       TEXT
 
-      TABLES = {
-        "--WORSENING" => {
-          name: "worsening",
-          dice: "1d3",
-          contents: [
-            "末梢神経障害",
-            "内臓機能不全",
-            "精神症状",
-          ]
-        },
-        "--ADDICTION" => {
-          name: "addiction",
-          dice: "1d3",
-          contents: [
-            "中枢神経障害",
-            "多臓器不全",
-            "急性ストレス反応",
-          ]
-        },
-      }.freeze
-
-      register_prefix('\d*AD\d*<=\d+',
-                      '\d*AB\d*<=\d+',
-                      '\d*AB\d*<=\d+--[^\d\s]+',
-                      TABLES.keys)
+      register_prefix('\d*AD\d*', '\d*AB\d*', '--ADDICTION', '--WORSENING')
 
       def eval_game_system_specific_command(command)
         roll_ad(command) || roll_ab(command) || roll_addiction(command) || roll_worsening(command)
@@ -171,39 +147,35 @@ module BCDice
         return [dice_list, success_count, critical_count, error_count]
       end
 
-      ### ダイステーブル（ユーザー定義配列）の処理
+      ADDICTION_TABLE = [
+        "中枢神経障害",
+        "多臓器不全",
+        "急性ストレス反応",
+      ].freeze
 
       def roll_addiction(command)
         return nil if command != "--ADDICTION"
 
-        syndrome = roll_ark_tables(command, TABLES, @randomizer)
-        return nil unless syndrome
+        value = @randomizer.roll_once(3)
+        chosen = ADDICTION_TABLE[value - 1]
 
-        return syndrome
+        return "--ADDICTION ＞ #{chosen}"
       end
+
+      WORSENING_TABLE = [
+        "末梢神経障害",
+        "内臓機能不全",
+        "精神症状",
+      ].freeze
 
       def roll_worsening(command)
         return nil if command != "--WORSENING"
 
-        randomizer = @randomizer
-        addiction = roll_ark_tables(command, TABLES, randomizer)
-        return nil unless addiction
+        value = @randomizer.roll_once(3)
+        chosen = WORSENING_TABLE[value - 1]
+        elapse = @randomizer.roll_once(6) + 1
 
-        elapse = randomizer.roll_barabara(1, 6)[0] + 1
-
-        return "#{addiction}: #{elapse} rounds"
-      end
-
-      # 事情により自作。roll_worsening()で症状の内容と期間をそれぞれ決定する際、同一のrandmizerを受け渡して使う必要がある模様。
-      # このとき、roll_addictionと処理が重複する症状決定処理について、randmizerを引数指定可能な形で以下に実装する形となった。
-      def roll_ark_tables(command, tables, randomizer)
-        table = tables[command]
-        return nil unless table
-
-        contents = table[:contents]
-        m = /^(\d+)d(\d+)$/.match(table[:dice])
-        dice_result = randomizer.roll_barabara(m[1].to_i, m[2].to_i)[0]
-        return contents[dice_result - 1]
+        return "--WORSENING ＞ #{chosen}: #{elapse} rounds"
       end
     end
   end
