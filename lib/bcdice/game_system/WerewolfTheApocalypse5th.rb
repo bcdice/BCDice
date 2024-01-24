@@ -64,16 +64,16 @@ module BCDice
 
         dice_pool, rage_dice_pool = get_dice_pools(m)
         if dice_pool < 0
-          return "ダイスプールより多いRageダイス指定はできません。"
+          return "ダイスプール0のときにRageダイスは指定できません。"
         end
-        if rage_dice_pool && rage_dice_pool > 5
+        if rage_dice_pool > 5
           return "5を超えるRageダイス指定はできません。"
         end
 
         dice_text, success_dice, ten_dice, = make_dice_roll(dice_pool)
         result_text = "(#{dice_pool}D10"
 
-        if rage_dice_pool
+        if rage_dice_pool >= 0
           rage_dice_text, rage_success_dice, rage_ten_dice, brutal_result_dice = make_dice_roll(rage_dice_pool)
 
           brutal_outcome = brutal_result_dice / 2
@@ -100,11 +100,17 @@ module BCDice
         rage_dice_included_command = m[COMMAND_RAGE_DICE_INCLUDED_INDEX]
         if rage_dice_included_command && rage_dice_included_command == "WAI"
           # Rage Diceを内数処理するの場合
-          rage_dice_pool = m[RAGE_DICE_INCLUDED_INDEX]&.to_i
-          dice_pool = m[DICE_POOL_RAGE_DICE_INCLUDED_INDEX].to_i - (rage_dice_pool || 0)
+          rage_dice_pool = m[RAGE_DICE_INCLUDED_INDEX].nil? ? -1 : m[RAGE_DICE_INCLUDED_INDEX].to_i
+          dice_pool_value = m[DICE_POOL_RAGE_DICE_INCLUDED_INDEX].to_i
+          dice_pool = dice_pool_value - (rage_dice_pool < 0 ? 0 : rage_dice_pool)
+          if dice_pool_value > 0 && rage_dice_pool >= dice_pool_value
+            # 1 以上のダイスプール、かつ、Rageダイスがダイスプール以上のとき、ダイスプールが全てRageダイスになる。
+            dice_pool = 0
+            rage_dice_pool = dice_pool_value
+          end
         else
           # Rage DiceがPLによる内数指定の場合
-          rage_dice_pool = m[RAGE_DICE_NO_INCLUDED_INDEX]&.to_i
+          rage_dice_pool = m[RAGE_DICE_NO_INCLUDED_INDEX].nil? ? -1 : m[RAGE_DICE_NO_INCLUDED_INDEX].to_i
           dice_pool = m[DICE_POOL_RAGE_DICE_NO_INCLUDED_INDEX].to_i
         end
         return dice_pool, rage_dice_pool
