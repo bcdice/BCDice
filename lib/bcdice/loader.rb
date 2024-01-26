@@ -8,7 +8,7 @@ module BCDice
     # @param id [String] ID
     # @return [Class, nil]
     def game_system_class(id)
-      all_game_systems.find { |game_system| game_system::ID == id }
+      all_game_systems.find { |game_system| id == game_system::ID }
     end
 
     # ゲームシステムのクラス一覧を返す

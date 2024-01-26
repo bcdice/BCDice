@@ -85,7 +85,7 @@ module BCDice
           totalDamage = totalSuccessCount * damage + totalCriticalCount * criticalTrigger
 
           result += "(#{diceCount}D10\<\=#{target}) ＞ #{text} ＞ Hits：#{totalSuccessCount}*#{damage}"
-          result += " + Trigger：#{totalCriticalCount}*#{criticalTrigger}" if  criticalTrigger > 0
+          result += " + Trigger：#{totalCriticalCount}*#{criticalTrigger}" if criticalTrigger > 0
           result += " ＞ #{totalDamage}ダメージ"
         else
           result += "(#{diceCount}D10\<\=#{target}) ＞ #{text} ＞ 成功数：#{totalSuccessCount}"

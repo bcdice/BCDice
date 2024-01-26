@@ -72,7 +72,7 @@ module BCDice
         @roll_times = m[1].to_i
         @modify_str = m[2] || ''
         @modify = m[2].to_i
-        @difficulty = m[4] ? m[4].to_i : nil
+        @difficulty = m[4]&.to_i
 
         base = critical_base(@roll_times)
         @critical = base + m[7].to_i

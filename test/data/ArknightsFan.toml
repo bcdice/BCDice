@@ -1,0 +1,431 @@
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AD<=70"
+output = "(AD<=70) ＞ 50 ＞ 成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AD100<=70"
+output = "(AD100<=70) ＞ 50 ＞ 成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "1AD<=70"
+output = "(1AD<=70) ＞ 50 ＞ 成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "1AD100<=70"
+output = "(1AD100<=70) ＞ 50 ＞ 成功"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AD<=70"
+output = "(AD<=70) ＞ 10 ＞ クリティカル！"
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AD<=70"
+output = "(AD<=70) ＞ 91 ＞ エラー"
+rands = [
+  { sides = 100, value = 91 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AD<=99"
+output = "(AD<=99) ＞ 95 ＞ 成功"
+rands = [
+  { sides = 100, value = 95 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AB<=70"
+output = "(AB<=70) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "1AB<=70"
+output = "(1AB<=70) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AB100<=70"
+output = "(AB100<=70) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "1AB100<=70"
+output = "(1AB100<=70) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70"
+output = "(3AB100<=70) ＞ [50,50,90] ＞ 2+0C-0E ＞ 成功数2"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB<=70"
+output = "(3AB<=70) ＞ [50,50,90] ＞ 2+0C-0E ＞ 成功数2"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70 いろは"
+output = "(3AB100<=70) ＞ [50,50,90] ＞ 2+0C-0E ＞ 成功数2"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70"
+output = "(3AB100<=70) ＞ [50,50,91] ＞ 2+0C-1E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 91 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70"
+output = "(3AB100<=70) ＞ [50,50,100] ＞ 2+0C-1E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70"
+output = "(3AB100<=70) ＞ [10,50,100] ＞ 2+1C-1E ＞ 成功数2"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [1,1,100,100] ＞ 2+2C-2E ＞ 成功数2"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [1,50,100,100] ＞ 2+1C-2E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [1,70,100,100] ＞ 1+1C-2E ＞ 成功数0"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 70 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [50,50,100,100] ＞ 2+0C-2E ＞ 成功数0"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [50,70,100,100] ＞ 1+0C-2E ＞ 成功数-1"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 70 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [70,70,100,100] ＞ 0+0C-2E ＞ 成功数-2"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 70 },
+  { sides = 100, value = 70 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [1,1,70,100] ＞ 2+2C-1E ＞ 成功数3"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 70 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [1,1,50,100] ＞ 3+2C-1E ＞ 成功数4"
+rands = [
+  { sides = 100, value = 100 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [1,1,50,70] ＞ 3+2C-0E ＞ 成功数5"
+rands = [
+  { sides = 100, value = 70 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "4AB100<=60"
+output = "(4AB100<=60) ＞ [1,1,50,50] ＞ 4+2C-0E ＞ 成功数6"
+rands = [
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AB<=70--Sniper"
+output = "(AB<=70--SNIPER) ＞ [50] ＞ 1+0C-0E+1(SNIPER) ＞ 成功数2"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "1AB<=70--Sniper"
+output = "(1AB<=70--SNIPER) ＞ [50] ＞ 1+0C-0E+1(SNIPER) ＞ 成功数2"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AB100<=70--Sniper"
+output = "(AB100<=70--SNIPER) ＞ [50] ＞ 1+0C-0E+1(SNIPER) ＞ 成功数2"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "1AB100<=70--Sniper"
+output = "(1AB100<=70--SNIPER) ＞ [50] ＞ 1+0C-0E+1(SNIPER) ＞ 成功数2"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--Sniper"
+output = "(3AB100<=70--SNIPER) ＞ [50,50,90] ＞ 2+0C-0E+1(SNIPER) ＞ 成功数3"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--Sniper"
+output = "(3AB100<=70--SNIPER) ＞ [50,80,91] ＞ 1+0C-1E+0(SNIPER) ＞ 成功数0"
+rands = [
+  { sides = 100, value = 91 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--Sniper あ"
+output = "(3AB100<=70--SNIPER) ＞ [50,50,90] ＞ 2+0C-0E+1(SNIPER) ＞ 成功数3"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AB<=70--Sniper0"
+output = "(AB<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "1AB<=70--Sniper0"
+output = "(1AB<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AB100<=70--Sniper0"
+output = "(AB100<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "1AB100<=70--Sniper0"
+output = "(1AB100<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--Sniper0"
+output = "(3AB100<=70--SNIPER0) ＞ [50,50,90] ＞ 2+0C-0E ＞ 成功数2"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--先鋒"
+output = "(3AB100<=70--先鋒) ＞ [50,50,90] ＞ 2+0C-0E+0(先鋒) ＞ 成功数2"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "--WORSENING"
+output = "--WORSENING ＞ 末梢神経障害: 2 rounds"
+rands = [
+  { sides = 3, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "--WORSENING"
+output = "--WORSENING ＞ 内臓機能不全: 2 rounds"
+rands = [
+  { sides = 3, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "--WORSENING"
+output = "--WORSENING ＞ 精神症状: 2 rounds"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "--WORSENING いろは"
+output = "--WORSENING ＞ 精神症状: 2 rounds"
+rands = [
+  { sides = 3, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "--ADDICTION"
+output = "--ADDICTION ＞ 中枢神経障害"
+rands = [
+  { sides = 3, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "--ADDICTION"
+output = "--ADDICTION ＞ 多臓器不全"
+rands = [
+  { sides = 3, value = 2 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "--ADDICTION"
+output = "--ADDICTION ＞ 急性ストレス反応"
+rands = [
+  { sides = 3, value = 3 },
+]
