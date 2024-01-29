@@ -1,0 +1,1344 @@
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "D66 D66ダイスは小さいほうが十の位になる"
+output = "(D66) ＞ 26"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 6[4,2] ＞ 6 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 4[3,1] ＞ 4 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 3[2,1] ＞ 3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 2[1,1] ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "2d6>=4 ファンブルの境界"
+output = "(2D6>=4) ＞ 3[2,1] ＞ 3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "2d6>=4 スペシャルの境界"
+output = "(2D6>=4) ＞ 11[6,5] ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 12[6,6] ＞ 12 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP>=4"
+output = "(PP@12#2>=4) ＞ 6[2,4] ＞ 6 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP>=4"
+output = "(PP@12#2>=4) ＞ 4[3,1] ＞ 4 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP>=4"
+output = "(PP@12#2>=4) ＞ 3[2,1] ＞ 3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP>=4"
+output = "(PP@12#2>=4) ＞ 2[1,1] ＞ 2 ＞ ファンブル(判定失敗。改変度を1D6点増加してバタフライエフェクト発生)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP>=4 ファンブルの境界"
+output = "(PP@12#2>=4) ＞ 3[2,1] ＞ 3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP>=4 スペシャルの境界"
+output = "(PP@12#2>=4) ＞ 11[6,5] ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP>=4"
+output = "(PP@12#2>=4) ＞ 12[6,6] ＞ 12 ＞ スペシャル(判定成功。疲労度を1D6点減少してバタフライエフェクト発生)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP#3>=4 ファンブル値変更"
+output = "(PP@12#3>=4) ＞ 3[2,1] ＞ 3 ＞ ファンブル(判定失敗。改変度を1D6点増加してバタフライエフェクト発生)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP@11>=4 スペシャル値変更"
+output = "(PP@11#2>=4) ＞ 11[6,5] ＞ 11 ＞ スペシャル(判定成功。疲労度を1D6点減少してバタフライエフェクト発生)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP@11#3>=4"
+output = "(PP@11#3>=4) ＞ 3[2,1] ＞ 3 ＞ ファンブル(判定失敗。改変度を1D6点増加してバタフライエフェクト発生)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP@11#3>=4"
+output = "(PP@11#3>=4) ＞ 11[6,5] ＞ 11 ＞ スペシャル(判定成功。疲労度を1D6点減少してバタフライエフェクト発生)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP@5#7 ファンブルが優先"
+output = "(PP@5#7) ＞ 5[4,1] ＞ 5 ＞ ファンブル(判定失敗。改変度を1D6点増加してバタフライエフェクト発生)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP+1>=4 修正値がファンブルに影響しない"
+output = "(PP+1@12#2>=4) ＞ 2[1,1]+1 ＞ 3 ＞ ファンブル(判定失敗。改変度を1D6点増加してバタフライエフェクト発生)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP-1 修正値がスペシャルに影響しない"
+output = "(PP-1@12#2) ＞ 12[6,6]-1 ＞ 11 ＞ スペシャル(判定成功。疲労度を1D6点減少してバタフライエフェクト発生)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP@11#3>=7"
+output = "(PP@11#3>=7) ＞ 6[3,3] ＞ 6 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP@11#3>=7"
+output = "(PP@11#3>=7) ＞ 7[4,3] ＞ 7 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP"
+output = "(PP@12#2) ＞ 7[4,3] ＞ 7"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "PP0 余計な文字が付いていたら"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "RTT"
+output = "ランダム指定特技表(2,7) ＞ 分野「知識」《情報》"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "RTT"
+output = "ランダム指定特技表(6,2) ＞ 分野「迷信」《思い込み》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "RTT1"
+output = "科学分野ランダム特技表(6) ＞ 分野「科学」《物理学》"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "RCT"
+output = "ランダム分野表(4) ＞ センス"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ST4"
+output = "現代シーン表:10[4,6] ＞ 10:ヴィーガンメニューが並ぶスタイリッシュなレストラン。野菜だけを食べる習慣。この時代に流行りの多様性ってやつか。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ST4=7"
+output = "現代シーン表:7 ＞ 7:駅前のショッピングビル。この建物だけで欲しいものが全て手に入る。なんて便利な時代なんだ。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ST4=1 1以下を指定しても最低の2が表示される"
+output = "現代シーン表:2 ＞ 2:鳴り響く雷鳴と土砂降りの雨。嵐の路地でなすべきことをしろ。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ST4=-10 マイナスの値を指定しても最低の2が表示される"
+output = "現代シーン表:2 ＞ 2:鳴り響く雷鳴と土砂降りの雨。嵐の路地でなすべきことをしろ。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ST4=100 13以上を指定しても最高の12が表示される"
+output = "現代シーン表:12 ＞ 12:おだやかな風が通り抜ける。自然あふれるこんな場所も、この時代にあったのだな。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ST4-1"
+output = "現代シーン表:9[3,6]-1 ＞ 8:鮮やかなネオンが照らす夜の繁華街。若者たちが新型の携帯通信端末を振り回しながら往来している。この時代が平和な証拠だろう。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ST4+2"
+output = "現代シーン表:3[2,1]+2 ＞ 5:ノートPCを開く人々でひしめき合う、有名コーヒーチェーン店。ひとまず落ち着こう。焦ってもいいことはない。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ST4-10 修正値を適用した結果が1以下になっても最低の2が表示される"
+output = "現代シーン表:11[6,5]-10 ＞ 2:鳴り響く雷鳴と土砂降りの雨。嵐の路地でなすべきことをしろ。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ST4-10 修正値を適用した結果がマイナスの値になっても最低の2が表示される"
+output = "現代シーン表:3[2,1]-10 ＞ 2:鳴り響く雷鳴と土砂降りの雨。嵐の路地でなすべきことをしろ。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ST4+100 修正値を適用した結果が13以上になっても最高の12が表示される"
+output = "現代シーン表:3[2,1]+100 ＞ 12:おだやかな風が通り抜ける。自然あふれるこんな場所も、この時代にあったのだな。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CT1"
+output = "原始時代経歴表(34) ＞ 恐竜騎手"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CT2"
+output = "古代経歴表(16) ＞ 壁画画家"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CT3"
+output = "中世時代経歴表(66) ＞ 勇者"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CT4"
+output = "現代経歴表(22) ＞ 経営者"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CT5"
+output = "超情報化時代経歴表(45) ＞ メガコーポ役員"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CT6"
+output = "宇宙時代経歴表(25) ＞ 宇宙ニンジャ"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CT6a 余計な英字があったら結果は表示しない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CT60 余計な数字があったら結果は表示しない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NMT1"
+output = "原始時代名前表（男性名）(66) ＞ ドデカーン"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NFT1"
+output = "原始時代名前表（女性名）(12) ＞ プシュ"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NMT2"
+output = "古代名前表（男性名）(56) ＞ オーシャナス"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NFT2"
+output = "古代名前表（女性名）(35) ＞ イシュチャック"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NLT2"
+output = "古代名前表（姓）(16) ＞ なし"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NMT3"
+output = "中世時代（日本）名前表（男性名）(35) ＞ 鉄舟（てっしゅう）"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NFT3"
+output = "中世時代（日本）名前表（女性名）(46) ＞ 千（せん）"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NLT3"
+output = "中世時代（日本）名前表（姓）(26) ＞ 柳生"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NMT3W"
+output = "中世時代（西洋）名前表（男性名）(13) ＞ エイモン"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NFT3W"
+output = "中世時代（西洋）名前表（女性名）(34) ＞ カサンドラ"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NLT3W"
+output = "中世時代（西洋）名前表（姓）(35) ＞ ストームダンサー"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NMT4"
+output = "現代（日本）名前表（男性名）(45) ＞ 大和"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NFT4"
+output = "現代（日本）名前表（女性名）(36) ＞ 美月"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NLT4"
+output = "現代（日本）名前表（姓）(23) ＞ 中村"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NMT4W"
+output = "現代（西洋）名前表（男性名）(14) ＞ マイケル"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NFT4W"
+output = "現代（西洋）名前表（女性名）(56) ＞ ミシェル"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NLT4W"
+output = "現代（西洋）名前表（姓）(14) ＞ ブラウン"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NMT5"
+output = "超情報化時代名前表（男性名）(66) ＞ ヨリノブ"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NFT5"
+output = "超情報化時代名前表（女性名）(33) ＞ サファイア"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NLT5"
+output = "超情報化時代名前表（姓）(44) ＞ スズキ"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NMT6"
+output = "宇宙時代名前表（男性名）(23) ＞ ハイペリオン"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NFT6"
+output = "宇宙時代名前表（女性名）(46) ＞ ミレニアム"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NLT6"
+output = "宇宙時代名前表（姓）(55) ＞ オメガ"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NMT2=56 D66の表は出目指定はできない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NMT2-1 D66の表は修正も付けられない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "NMT2+2 D66の表は修正も付けられない"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CTT"
+output = "因縁種別表（因縁種別／因縁強度）(34) ＞ クラスメイト／2"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CPT"
+output = "ポジティブ因縁内容表:4[4] ＞ 4:片愛。あなたは、相手のことが大好きだ。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CPT=1"
+output = "ポジティブ因縁内容表:1 ＞ 1:共存。一緒にいて自然な関係だ。"
+rands = []
+[[ test ]]
+
+game_system = "PastFutureParadox"
+input = "CPT=-5 0以下を指定しても最低の1の結果を表示"
+output = "ポジティブ因縁内容表:1 ＞ 1:共存。一緒にいて自然な関係だ。"
+rands = []
+
+game_system = "PastFutureParadox"
+input = "CPT=10 7以上を指定しても最高の6の結果を表示"
+output = "ポジティブ因縁内容表:6 ＞ 6:理解。何も言わなくても相手のことならなんでもわかる。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CPT-1"
+output = "ポジティブ因縁内容表:3[3]-1 ＞ 2:互助。つらい時にはいつでもそばにいた。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CPT+1"
+output = "ポジティブ因縁内容表:4[4]+1 ＞ 5:相愛。お互いのことが大好きだ。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CPT-10 計算結果が0以下でも最低の1を表示"
+output = "ポジティブ因縁内容表:3[3]-10 ＞ 1:共存。一緒にいて自然な関係だ。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CPT+10 計算結果が7以上でも最高の6を表示"
+output = "ポジティブ因縁内容表:3[3]+10 ＞ 6:理解。何も言わなくても相手のことならなんでもわかる。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CNT"
+output = "ネガティブ因縁内容表:4[4] ＞ 4:嫌悪。やることなすことすべてが気に食わない。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CNT=1"
+output = "ネガティブ因縁内容表:1 ＞ 1:邪魔。なぜかいつも視界の端にいる。"
+rands = []
+[[ test ]]
+
+game_system = "PastFutureParadox"
+input = "CNT=-5 0以下を指定しても最低の1の結果を表示"
+output = "ネガティブ因縁内容表:1 ＞ 1:邪魔。なぜかいつも視界の端にいる。"
+rands = []
+
+game_system = "PastFutureParadox"
+input = "CNT=10 7以上を指定しても最高の6の結果を表示"
+output = "ネガティブ因縁内容表:6 ＞ 6:天敵。不倶戴天の敵、いつでも対立して喧嘩ばかりしている。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CNT-1"
+output = "ネガティブ因縁内容表:3[3]-1 ＞ 2:不快。一緒にいるとちょっとイラつく。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CNT+1"
+output = "ネガティブ因縁内容表:4[4]+1 ＞ 5:憎悪。過去の恨みか、激しい感情を持っている。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CNT-10 計算結果が0以下でも最低の1を表示"
+output = "ネガティブ因縁内容表:3[3]-10 ＞ 1:邪魔。なぜかいつも視界の端にいる。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "CNT+10 計算結果が7以上でも最高の6を表示"
+output = "ネガティブ因縁内容表:3[3]+10 ＞ 6:天敵。不倶戴天の敵、いつでも対立して喧嘩ばかりしている。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "SBET"
+output = "重度バタフライエフェクト表:7[4,3] ＞ 7:病。対象は不治の病に侵されてしまう。表を振ったプレイヤーのPCは《医療》《漢方》《縁起》のいずれかを指定特技として判定を行うことができる。判定に失敗すると対象は不治の病により死亡してしまう。この表の出目「1or2」の効果を適用すること。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "SBET=6"
+output = "重度バタフライエフェクト表:6 ＞ 6:困窮。対象は経済的に困窮してしまい、その生活は荒れ果ててしまう。その対象との因縁内容がポジティブだった場合、表を振ったプレイヤーのPCは《経済》もしくは《心理》を指定特技として判定を行うことができる。判定に失敗した場合、そのPCは［疲労度］を「対象の因縁強度」点増加させたうえ、ネガティブ因縁内容表を使用して新たに決定し直さなければならない。もともと因縁内容がネガティブだった場合は何も起こらない。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "SBET=-6 -6以下を指定しても最低の-5が表示される"
+output = "重度バタフライエフェクト表:-5 ＞ -5:消失。対象の存在自体が時空連続体から完全に消失する。対象を【因縁】としていた全てのPCはその【因縁】の消失欄にチェックを入れ、その対象との【因縁】内容がネガティブなら［疲労度］が「対象の因縁強度+3」点減少、ポジティブなら［疲労度］と［改変度］が「対象の因縁強度+3」点ずつ増加する。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "SBET=100 13以上を指定しても最高の12が表示される"
+output = "重度バタフライエフェクト表:12 ＞ 12:宇宙開闢の女神が微笑む。何も変化は起こらなかった。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "SBET-1"
+output = "重度バタフライエフェクト表:9[3,6]-1 ＞ 8:年齢変化。対象の年齢が変わってしまう。表を振ったプレイヤーはまず1D6を振る。奇数なら年齢は減り、偶数なら年齢は増えてしまう。何歳変化するかは1D6を振って決定する。ただし、6の目が出た場合は追加で1D6を振る。6が出るたびにこれを繰り返す。最終的に全ての出目の合計だけ年齢が変化する。変化後の年齢が0才未満になってしまった場合は、対象の存在が消えてしまう。この表の出目「-5or-4」の効果を適用すること。一方、変化後の年齢が「寿命＝30+(対象のEL×10)歳」以上になった場合は、寿命を迎えて死亡していないかどうかを決めるため、ランダムに決定した指定特技で判定する。判定に失敗すると対象は死亡してしまう。この表の出目「1or2」の効果を適用すること。また、対象の存在が消えるもしくは死亡しなかった場合でも、結果が矛盾した状態（パラドックス）になったとTAが判断した場合、そのPCの［改変度］が「対象の因縁強度」点増加する。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "SBET+2"
+output = "重度バタフライエフェクト表:3[2,1]+2 ＞ 5:忘却。対象はあなたのことを忘れてしまう。表を振ったプレイヤーのPCはその対象との因縁内容がネガティブなら［疲労度］が「対象の因縁強度」点減少、ポジティブなら［疲労度］が「対象の因縁強度」点増加する。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "SBET-10 修正値を適用した結果がマイナスの値になっても-5以上ならその結果が表示される"
+output = "重度バタフライエフェクト表:7[3,4]-10 ＞ -3:消失の可能性。対象の存在自体があいまいになってしまう。表をふったプレイヤーはランダムに選んだ特技を指定特技として判定する。判定に失敗すると対象の存在は消失する。対象を【因縁】としていた全てのPCは対象の【因縁】の消失欄にチェックを入れ、その対象との因縁内容がネガティブなら［疲労度］が「対象の因縁強度+2」点減少、ポジティブなら［疲労度］と［改変度］が「対象の因縁強度+2」点ずつ増加する。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "SBET-100 修正値を適用した結果が-6以下になっても最低の-5が表示される"
+output = "重度バタフライエフェクト表:11[6,5]-100 ＞ -5:消失。対象の存在自体が時空連続体から完全に消失する。対象を【因縁】としていた全てのPCはその【因縁】の消失欄にチェックを入れ、その対象との【因縁】内容がネガティブなら［疲労度］が「対象の因縁強度+3」点減少、ポジティブなら［疲労度］と［改変度］が「対象の因縁強度+3」点ずつ増加する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "SBET+100 修正値を適用した結果が13以上になっても最高の12が表示される"
+output = "重度バタフライエフェクト表:3[2,1]+100 ＞ 12:宇宙開闢の女神が微笑む。何も変化は起こらなかった。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "MBET"
+output = "軽度バタフライエフェクト表:7[4,3] ＞ 7:半透明化の兆し。身体が半透明になってきた気がする。対象の［改変度］が1点増加する。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "MBET=6"
+output = "軽度バタフライエフェクト表:6 ＞ 6:記憶喪失。記憶が混濁し失われていく。対象がPCだった場合、修得している【スキル】のうち、ランダムに選択した【クラススキル】1つがこのセッションの間、使用不能になる。クライマックスフェイズでこのバタフライエフェクトを発生させたPCの【バタフライエフェクト問題】が解決されれば、この効果で使用不能になった【クラススキル】は即座に使用可能になる。対象の［改変度］が「対象の因縁強度の半分」点増加する。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "MBET=-6 -6以下を指定しても最低の-5が表示される"
+output = "軽度バタフライエフェクト表:-5 ＞ -5:激痛。耐え難い激しい痛みが全身を襲う。対象の［疲労度］が「対象の因縁強度」点、［改変度］が「対象の因縁強度+2D6」点増加する。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "MBET=100 13以上を指定しても最高の12が表示される"
+output = "軽度バタフライエフェクト表:12 ＞ 12:宇宙開闢の女神が微笑む。何も変化は起こらなかった。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "MBET-1"
+output = "軽度バタフライエフェクト表:9[3,6]-1 ＞ 8:年齢変化。急激に対象の年齢が変化する。表を振ったプレイヤーはまず1D6を振る。奇数なら1D6才若返り、偶数なら1D6才年を取ってしまう。対象の［改変度］が1点増加する。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "MBET+2"
+output = "軽度バタフライエフェクト表:3[2,1]+2 ＞ 5:外見変化。表を振ったプレイヤーは時代決定表を使用して時代を一つ決定し、その時代の経歴表を使用する。対象はその結果に合った外見・服装に見た目が変化してしまう。対象の［改変度］が「対象の因縁強度の半分」点増加する。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "MBET-10 修正値を適用した結果がマイナスの値になっても-5以上ならその結果が表示される"
+output = "軽度バタフライエフェクト表:7[3,4]-10 ＞ -3:吐血。激しいせき込みの末、吐血してしまう。対象の［疲労度］が「対象の因縁強度」点、［改変度］が「対象の因縁強度+2D6-1」点増加する。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "MBET-100 修正値を適用した結果が-6以下になっても最低の-5が表示される"
+output = "軽度バタフライエフェクト表:11[6,5]-100 ＞ -5:激痛。耐え難い激しい痛みが全身を襲う。対象の［疲労度］が「対象の因縁強度」点、［改変度］が「対象の因縁強度+2D6」点増加する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "MBET+100 修正値を適用した結果が13以上になっても最高の12が表示される"
+output = "軽度バタフライエフェクト表:3[2,1]+100 ＞ 12:宇宙開闢の女神が微笑む。何も変化は起こらなかった。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TBET"
+output = "タイムトラベラー重度バタフライエフェクト表:7[4,3] ＞ 7:年齢変化。急激にPCの年齢が変化する。まず1D6を振る。奇数なら1D6才若返り、偶数なら1D6才年を取ってしまう。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TBET=6"
+output = "タイムトラベラー重度バタフライエフェクト表:6 ＞ 6:病。PCは病に侵されてしまう。病が治るまで（次回から3セッションの間）、セッション開始時の［疲労度］が3になり、セッション中も3より小さい値にならない。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TBET=-6 -6以下を指定しても最低の-5が表示される"
+output = "タイムトラベラー重度バタフライエフェクト表:-5 ＞ -5:消失。PCの存在自体が時空連続体から完全に消失する。PCはロストする。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TBET=100 13以上を指定しても最高の12が表示される"
+output = "タイムトラベラー重度バタフライエフェクト表:12 ＞ 12:宇宙開闢の女神が微笑む。何も変化は起こらなかった。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TBET-1"
+output = "タイムトラベラー重度バタフライエフェクト表:9[3,6]-1 ＞ 8:経歴変化。PCの経歴が変化してしまう。自分の時代の経歴表を振って、新しい経歴を決め直すこと。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TBET+2"
+output = "タイムトラベラー重度バタフライエフェクト表:3[2,1]+2 ＞ 5:コミュニケーション障害。宇宙開闢の加護の効果が薄まり、PCはタイムトラベル先の言語を理解しにくくなってしまう。今後、PCが行う接近判定に常にマイナス1の修正が付いてしまう。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TBET-10 修正値を適用した結果がマイナスの値になっても-5以上ならその結果が表示される"
+output = "タイムトラベラー重度バタフライエフェクト表:7[3,4]-10 ＞ -3:消失の可能性。PCの存在自体があいまいになってしまう。ランダムに選んだ指定特技で判定を行う。判定に失敗すると対象のPCは消失する。PCはロストする。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TBET-100 修正値を適用した結果が-6以下になっても最低の-5が表示される"
+output = "タイムトラベラー重度バタフライエフェクト表:11[6,5]-100 ＞ -5:消失。PCの存在自体が時空連続体から完全に消失する。PCはロストする。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TBET+100 修正値を適用した結果が13以上になっても最高の12が表示される"
+output = "タイムトラベラー重度バタフライエフェクト表:3[2,1]+100 ＞ 12:宇宙開闢の女神が微笑む。何も変化は起こらなかった。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ACT"
+output = "アクシデント表:10[4,6] ＞ 10:シーンプレイヤーは好きなPCを登場させることができる。宇宙開闢の女神があなたに微笑みかける。これを成功させれば歴史改変を修正できる、という理路が導き出される。シーンプレイヤーのPCはランダムに決定した指定特技の判定を行う。判定に成功すれば、登場しているPCのうち好きな一人の［改変度］が1D6点減少する。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ACT=7"
+output = "アクシデント表:7 ＞ 7:シーンプレイヤーは好きなPCを登場させることができる。そしてシーンプレイヤーはシーンに登場しているキャラクター一人を選び、二人で何かしらひと時を過ごす。シーンプレイヤーのPCは好きな指定特技で判定を行う。判定に成功すれば、選んだキャラクターを新たな【因縁】として獲得できる。相手のPCもシーンプレイヤーのPCを新たな【因縁】として獲得できる。因縁種別は「タイムトラベル仲間／因縁強度6」となる。因縁内容は状況にふさわしいものをポジティブ因縁内容表もしくはネガティブ因縁内容表から選択する。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ACT=1 1以下を指定しても最低の2が表示される"
+output = "アクシデント表:2 ＞ 2:一匹の蝶の羽ばたきが、地球の裏側では竜巻を巻き起こす。あなたは目の前にある他愛のない何かを拾って、置き直した。GMはランダムに指定特技を決定する。シーンに登場しているPCは全員その指定特技で判定する。判定に成功すれば何も起こらない。判定に失敗すると自分を対象としてバタフライエフェクトが発生する。その際の対象の因縁強度は6として処理する。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ACT=-10 マイナスの値を指定しても最低の2が表示される"
+output = "アクシデント表:2 ＞ 2:一匹の蝶の羽ばたきが、地球の裏側では竜巻を巻き起こす。あなたは目の前にある他愛のない何かを拾って、置き直した。GMはランダムに指定特技を決定する。シーンに登場しているPCは全員その指定特技で判定する。判定に成功すれば何も起こらない。判定に失敗すると自分を対象としてバタフライエフェクトが発生する。その際の対象の因縁強度は6として処理する。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ACT=100 13以上を指定しても最高の12が表示される"
+output = "アクシデント表:12 ＞ 12:シーンプレイヤーは好きなPCを登場させることができる。宇宙開闢の女神があなたたちを抱擁する。これを成功させれば大幅に歴史改変を修正できる、という理路が導き出される。シーンプレイヤーのPCはランダムに決定した指定特技の判定を行う。判定に成功すれば、シーンに登場しているPC全員の［改変度］が1D6点減少する。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ACT-1"
+output = "アクシデント表:9[3,6]-1 ＞ 8:運命的な出会い。シーンプレイヤーのPCは好きな指定特技で判定を行う。判定に成功すれば、シーンプレイヤーはセッションの舞台となっている時代/ELの新たな【因縁】を獲得する。因縁内容表を用いて【因縁】を作成する。1D6を振って奇数が出ればポジティブ因縁内容表、偶数が出ればネガティブ因縁内容表を使用する。ただし因縁種別は「親友／因縁強度3」もしくは「恋人／因縁強度4」のいずれかから選択する。細かい設定は名前表や経歴表を振って決めること。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ACT+2"
+output = "アクシデント表:3[2,1]+2 ＞ 5:誰かと出会い頭に衝突しそうになる。シーンプレイヤーは舞台となっている時代の名前表と経歴表を使用し、年齢は8D6を振って、相手の設定概要を決める。TAはその相手の設定に従って、最適な指定特技を決定する。シーンプレイヤーのPCはその指定特技で判定を行う。判定に失敗すると、相手とぶつかってしまい、シーンプレイヤーのPCの［改変度］が1D6増加する。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ACT-10 修正値を適用した結果が1以下になっても最低の2が表示される"
+output = "アクシデント表:11[6,5]-10 ＞ 2:一匹の蝶の羽ばたきが、地球の裏側では竜巻を巻き起こす。あなたは目の前にある他愛のない何かを拾って、置き直した。GMはランダムに指定特技を決定する。シーンに登場しているPCは全員その指定特技で判定する。判定に成功すれば何も起こらない。判定に失敗すると自分を対象としてバタフライエフェクトが発生する。その際の対象の因縁強度は6として処理する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ACT-10 修正値を適用した結果がマイナスの値になっても最低の2が表示される"
+output = "アクシデント表:3[2,1]-10 ＞ 2:一匹の蝶の羽ばたきが、地球の裏側では竜巻を巻き起こす。あなたは目の前にある他愛のない何かを拾って、置き直した。GMはランダムに指定特技を決定する。シーンに登場しているPCは全員その指定特技で判定する。判定に成功すれば何も起こらない。判定に失敗すると自分を対象としてバタフライエフェクトが発生する。その際の対象の因縁強度は6として処理する。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "ACT+100 修正値を適用した結果が13以上になっても最高の12が表示される"
+output = "アクシデント表:3[2,1]+100 ＞ 12:シーンプレイヤーは好きなPCを登場させることができる。宇宙開闢の女神があなたたちを抱擁する。これを成功させれば大幅に歴史改変を修正できる、という理路が導き出される。シーンプレイヤーのPCはランダムに決定した指定特技の判定を行う。判定に成功すれば、シーンに登場しているPC全員の［改変度］が1D6点減少する。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TT"
+output = "タイムトラベル演出表:10[4,6] ＞ 10:偶然手に入れた謎の書物に書かれた呪文を読み上げた瞬間、あなたの身体は光に包まれ、違う時代へと転送されてしまった。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TT=7"
+output = "タイムトラベル演出表:7 ＞ 7:雷に打たれ、気を失った。そして目を覚ますと、あなたがもといた時代とは、違う時代へ来てしまっていた。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TT=1 1以下を指定しても最低の2が表示される"
+output = "タイムトラベル演出表:2 ＞ 2:科学者の実験で発生した七色の光を浴びてしまい、あなたの身体は分解され、違う時代で再構成された。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TT=-10 マイナスの値を指定しても最低の2が表示される"
+output = "タイムトラベル演出表:2 ＞ 2:科学者の実験で発生した七色の光を浴びてしまい、あなたの身体は分解され、違う時代で再構成された。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TT=100 13以上を指定しても最高の12が表示される"
+output = "タイムトラベル演出表:12 ＞ 12:自宅の机の引き出しを開けると、そこは混沌の空間が広がっていた。青い腕の先についた指のない白い手があなたを掴み（指がないにも関わらず、だ）、怪しげな板にあなたを乗せた。正体不明の青いずんぐりとしたフォルムの存在はその板に設置された操縦桿を操り、混沌の中を進んだ。しばらくしてあなたはもといた時代とは全く別の場所へ放り出された。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TT-1"
+output = "タイムトラベル演出表:9[3,6]-1 ＞ 8:あなたの目の前に偶然ワームホールが出現する。ワームホールから放たれる引力には抗えず、あなたは時空を超えてしまう。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TT+2"
+output = "タイムトラベル演出表:3[2,1]+2 ＞ 5:あなたの乗った乗物が突如超高速で走り始めた。それは光速に近づきつつあった。いや、すでに光速を超えているかもしれない。光速に限りなく近い速度なら未来に、光速を超えたスピードなら過去に移動してしまうだろう。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TT-10 修正値を適用した結果が1以下になっても最低の2が表示される"
+output = "タイムトラベル演出表:11[6,5]-10 ＞ 2:科学者の実験で発生した七色の光を浴びてしまい、あなたの身体は分解され、違う時代で再構成された。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TT-10 修正値を適用した結果がマイナスの値になっても最低の2が表示される"
+output = "タイムトラベル演出表:3[2,1]-10 ＞ 2:科学者の実験で発生した七色の光を浴びてしまい、あなたの身体は分解され、違う時代で再構成された。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "TT+100 修正値を適用した結果が13以上になっても最高の12が表示される"
+output = "タイムトラベル演出表:3[2,1]+100 ＞ 12:自宅の机の引き出しを開けると、そこは混沌の空間が広がっていた。青い腕の先についた指のない白い手があなたを掴み（指がないにも関わらず、だ）、怪しげな板にあなたを乗せた。正体不明の青いずんぐりとしたフォルムの存在はその板に設置された操縦桿を操り、混沌の中を進んだ。しばらくしてあなたはもといた時代とは全く別の場所へ放り出された。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "RT"
+output = "帰還演出表:4[4] ＞ 4:少し目を閉じて、故郷へ想いを馳せる。眼を開けると懐かしい景色が広がっている。元の時代へ戻って来たのだ。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "RT=1"
+output = "帰還演出表:1 ＞ 1:この時代に来た方法と同じ演出で帰還できる。"
+rands = []
+[[ test ]]
+
+game_system = "PastFutureParadox"
+input = "RT=-5 0以下を指定しても最低の1の結果を表示"
+output = "帰還演出表:1 ＞ 1:この時代に来た方法と同じ演出で帰還できる。"
+rands = []
+
+game_system = "PastFutureParadox"
+input = "RT=10 7以上を指定しても最高の6の結果を表示"
+output = "帰還演出表:6 ＞ 6:天から神々しい光が降りそそぐ。宇宙開闢の女神が微笑みかけると、あなたは強い光に包まれる。その光はあなたを元の時代へと導く。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "RT-1"
+output = "帰還演出表:3[3]-1 ＞ 2:この時代に来た方法と同じ演出で帰還できる。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "RT+1"
+output = "帰還演出表:4[4]+1 ＞ 5:目の前の空間に別時代へのポータルが開く。それをくぐればあなたの住んでいた元の時代だ。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "RT-10 計算結果が0以下でも最低の1を表示"
+output = "帰還演出表:3[3]-10 ＞ 1:この時代に来た方法と同じ演出で帰還できる。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "RT+10 計算結果が7以上でも最高の6を表示"
+output = "帰還演出表:3[3]+10 ＞ 6:天から神々しい光が降りそそぐ。宇宙開闢の女神が微笑みかけると、あなたは強い光に包まれる。その光はあなたを元の時代へと導く。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "IT"
+output = "アイテム決定表:4[4] ＞ 4:幸運の品。誰か（自身含む）の判定のサイコロを振った直後に使用可能。自身の［改変度］を1点増加すれば、その判定にプラス1の修正をつけることができる。使用すると失われる。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "IT=1"
+output = "アイテム決定表:1 ＞ 1:癒しの品。いつでも使用可能。好きなキャラクター（自身含む）の［疲労度］を1D6点減少させることができる。使用すると失われる。"
+rands = []
+[[ test ]]
+
+game_system = "PastFutureParadox"
+input = "IT=-5 0以下を指定しても最低の1の結果を表示"
+output = "アイテム決定表:1 ＞ 1:癒しの品。いつでも使用可能。好きなキャラクター（自身含む）の［疲労度］を1D6点減少させることができる。使用すると失われる。"
+rands = []
+
+game_system = "PastFutureParadox"
+input = "IT=10 7以上を指定しても最高の6の結果を表示"
+output = "アイテム決定表:6 ＞ 6:運命の品。誰か（自身含む）がシステムおよびシナリオで用意された表を使用してダイスを振った直後に使用可能。ダイスの結果を±1ずらすことができる。ただしその表に設定されていない値にずらすことはできない。使用すると失われる。"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "IT-1"
+output = "アイテム決定表:3[3]-1 ＞ 2:癒しの品。いつでも使用可能。好きなキャラクター（自身含む）の［疲労度］を1D6点減少させることができる。使用すると失われる。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "IT+1"
+output = "アイテム決定表:4[4]+1 ＞ 5:運命の品。誰か（自身含む）がシステムおよびシナリオで用意された表を使用してダイスを振った直後に使用可能。ダイスの結果を±1ずらすことができる。ただしその表に設定されていない値にずらすことはできない。使用すると失われる。"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "IT-10 計算結果が0以下でも最低の1を表示"
+output = "アイテム決定表:3[3]-10 ＞ 1:癒しの品。いつでも使用可能。好きなキャラクター（自身含む）の［疲労度］を1D6点減少させることができる。使用すると失われる。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "IT+10 計算結果が7以上でも最高の6を表示"
+output = "アイテム決定表:3[3]+10 ＞ 6:運命の品。誰か（自身含む）がシステムおよびシナリオで用意された表を使用してダイスを振った直後に使用可能。ダイスの結果を±1ずらすことができる。ただしその表に設定されていない値にずらすことはできない。使用すると失われる。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "AGT"
+output = "時代決定表:4[4] ＞ 4:現代／EL4"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "AGT=1"
+output = "時代決定表:1 ＞ 1:原始時代／EL1"
+rands = []
+[[ test ]]
+
+game_system = "PastFutureParadox"
+input = "AGT=-5 0以下を指定しても最低の1の結果を表示"
+output = "時代決定表:1 ＞ 1:原始時代／EL1"
+rands = []
+
+game_system = "PastFutureParadox"
+input = "AGT=10 7以上を指定しても最高の6の結果を表示"
+output = "時代決定表:6 ＞ 6:宇宙時代／EL6"
+rands = []
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "AGT-1"
+output = "時代決定表:3[3]-1 ＞ 2:古代／EL2"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "AGT+1"
+output = "時代決定表:4[4]+1 ＞ 5:超情報化時代／EL5"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "AGT-10 計算結果が0以下でも最低の1を表示"
+output = "時代決定表:3[3]-10 ＞ 1:原始時代／EL1"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "AGT+10 計算結果が7以上でも最高の6を表示"
+output = "時代決定表:3[3]+10 ＞ 6:宇宙時代／EL6"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "PastFutureParadox"
+input = "2D6>=? 目標値?でバグらない"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
