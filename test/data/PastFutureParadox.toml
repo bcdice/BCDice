@@ -40,9 +40,8 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "2d6>=4"
-output = "(2D6>=4) ＞ 2[1,1] ＞ 2 ＞ ファンブル(判定失敗。改変度を1D6点増加してバタフライエフェクト発生)"
+output = "(2D6>=4) ＞ 2[1,1] ＞ 2 ＞ 失敗"
 failure = true
-fumble = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -71,9 +70,8 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "2d6>=4"
-output = "(2D6>=4) ＞ 12[6,6] ＞ 12 ＞ スペシャル(判定成功。疲労度を1D6点減少してバタフライエフェクト発生)"
+output = "(2D6>=4) ＞ 12[6,6] ＞ 12 ＞ 成功"
 success = true
-critical = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1343,26 +1341,4 @@ output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "PastFutureParadox"
-input = "2d6>=? 目標値?でファンブル"
-output = "(2D6>=?) ＞ 2[1,1] ＞ 2 ＞ ファンブル(判定失敗。改変度を1D6点増加してバタフライエフェクト発生)"
-failure = true
-fumble = true
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "PastFutureParadox"
-input = "2d6>=? 目標値?でスペシャル"
-output = "(2D6>=?) ＞ 12[6,6] ＞ 12 ＞ スペシャル(判定成功。疲労度を1D6点減少してバタフライエフェクト発生)"
-success = true
-critical = true
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
 ]

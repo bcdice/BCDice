@@ -54,22 +54,6 @@ module BCDice
         @d66_sort_type = D66SortType::ASC
       end
 
-      def result_2d6(total, dice_total, _dice_list, cmp_op, target)
-        return nil unless cmp_op == :>=
-
-        if dice_total <= 2
-          Result.fumble("ファンブル(判定失敗。改変度を1D6点増加してバタフライエフェクト発生)")
-        elsif dice_total >= 12
-          Result.critical("スペシャル(判定成功。疲労度を1D6点減少してバタフライエフェクト発生)")
-        elsif target == "?"
-          nil
-        elsif total >= target
-          Result.success("成功")
-        else
-          Result.failure("失敗")
-        end
-      end
-
       register_prefix('PP')
 
       def eval_game_system_specific_command(command)
@@ -92,7 +76,6 @@ module BCDice
       private
 
       def roll_table_command(command)
-        command = command.upcase
         result = []
 
         m = /([A-Za-z0-9]+)(([+]|-|=)((-\d+)|\d+))?/.match(command)
@@ -130,7 +113,7 @@ module BCDice
         if operator == "="
 
           index = value + 7
-          index = index_max_min(index, 2, 19)
+          index = index.clamp(2, 19)
           info = get_table_info(table, index)
           text = "#{info.table_name}:#{info.value - 7} ＞ #{info.value - 7}:#{info.body}"
 
@@ -146,7 +129,7 @@ module BCDice
           dice_list = @randomizer.roll_barabara(2, 6)
           index += dice_list.sum
           index += modify
-          index = index_max_min(index, 2, 19)
+          index = index.clamp(2, 19)
           info = get_table_info(table, index)
 
           if modify != 0
@@ -171,7 +154,7 @@ module BCDice
         if operator == "="
 
           index = value
-          index = index_max_min(index, dice_count * 1, dice_count * dice_type)
+          index = index.clamp(dice_count * 1, dice_count * dice_type)
           info = get_table_info(table, index)
           text = "#{info.table_name}:#{info.value} ＞ #{info.value}:#{info.body}"
 
@@ -187,7 +170,7 @@ module BCDice
           dice_list = @randomizer.roll_barabara(dice_count, dice_type)
           index += dice_list.sum
           index += modify
-          index = index_max_min(index, dice_count * 1, dice_count * dice_type)
+          index = index.clamp(dice_count * 1, dice_count * dice_type)
           info = get_table_info(table, index)
 
           if modify != 0
@@ -208,15 +191,8 @@ module BCDice
         return info
       end
 
-      def index_max_min(index, max, min)
-        index = [index, max].max
-        index = [index, min].min
-
-        return index
-      end
-
       def action_roll(command)
-        parser = Command::Parser.new(/^PP/, round_type: round_type)
+        parser = Command::Parser.new("PP", round_type: round_type)
                                 .restrict_cmp_op_to(:>=, nil)
                                 .enable_critical
                                 .enable_fumble
@@ -226,11 +202,8 @@ module BCDice
         cmd.critical ||= 12
         cmd.fumble ||= 2
 
-        # dice_list_full = @randomizer.roll_barabara(2, 6).sort
-        # dice_list = @randomizer.roll_barabara(2, 6).sort
         dice_list = @randomizer.roll_barabara(2, 6)
 
-        # dice_list = dice_list_full[-2, 2]
         dice_total = dice_list.sum()
         total = dice_total + cmd.modify_number
 
