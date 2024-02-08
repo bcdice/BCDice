@@ -90,10 +90,69 @@ rands = [
 [[ test ]]
 game_system = "DivineCharger"
 input = "RET"
+output = "ランダムイベント(15) ＞ [描写]:辺りには何もなく、がらんとした部屋だ。中央に宝箱がある。[予測]:一見何もないように見える場所こそ注意が必要だ。いつでも立ち回れるようにした方がいいだろう。宝箱の中から光がにじみ出している。まさか〈神聖石〉が入っているのでは。[探索時間:4]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "RET"
+output = "ランダムイベント(51) ＞ [描写]:床や天井におどろおどろしい魔法陣が描かれている部屋だ。四方の壁には棚が置かれている。何か見つかればいいのだが。[予測]:魔法陣は明らかに怪しい。いつでも対応できるよう感覚を研ぎ澄ませ、装備にも気を配っておこう。棚には魔法の薬が置いてあるようだ。[探索時間:4]"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "RET"
 output = "ランダムイベント(66) ＞ [描写]:静謐な部屋だ。中央には泉があり、清らかな空気を放っている。泉の中には何かあるかも知れない。[予測]:泉の中には何かが潜んでいるかもしれない。俊敏に対応できるように注意するべきだろう。また、泉の中には薬瓶が見える。[探索時間:3]"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
+]
+
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AK1T"
+output = "[神器:近接]表A☆1(6) ＞ ランクアップ？([神聖石]10個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AK2T"
+output = "[神器:近接]表A☆2(6) ＞ ランクアップ？([神聖石]20個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AK3T"
+output = "[神器:近接]表A☆3(6) ＞ ランクアップ？([神聖石]30個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AK4T"
+output = "[神器:近接]表A☆4(6) ＞ ランクアップ？([神聖石]40個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AK5T"
+output = "[神器:近接]表A☆5(1) ＞ カタストロフ P.83"
+rands = [
+  { sides = 1, value = 1 },
 ]
 
 
