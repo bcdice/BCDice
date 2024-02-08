@@ -13,7 +13,10 @@ module BCDice
       SORT_KEY = 'むけんのふあんたしあ'
 
       # ダイスボットの使い方
-      HELP_MESSAGE = "失敗、成功レベルの自動判定を行います。"
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+        1D20に目標値を設定した場合に、成功レベルの自動判定を行います。
+        例： 1D20<=16
+      INFO_MESSAGE_TEXT
 
       # ゲーム別成功度判定(1d20)
       def result_1d20(total, _dice_total, cmp_op, target)
