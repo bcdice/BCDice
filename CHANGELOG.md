@@ -1,5 +1,32 @@
 # Change Log
 
+## 3.13.0 2024/02/08
+
+### 対応ゲームシステムの追加
+- 終末アイドル育成TRPGセイレーン (Siren): 蜂紫さんありがとうっ！ ([#663](https://github.com/bcdice/BCDice/pull/663))
+- リミナル (Liminal): Facelessさんありがとうっ！ ([#664](https://github.com/bcdice/BCDice/pull/664))
+- アークナイツTRPG by Dapto (ArknightsFan): Ayase00さんありがとうっ！ ([#666](https://github.com/bcdice/BCDice/pull/666))
+- フルフェイス (FullFace): Facelessさんありがとうっ！ ([#668](https://github.com/bcdice/BCDice/pull/668))
+- アニマラス (AniMalus): Facelessさんありがとうっ！ ([#669](https://github.com/bcdice/BCDice/pull/669))
+- パストフューチャーパラドックス (PastFutureParadox): hikoyamamayoさんありがとうっ！ ([#673](https://github.com/bcdice/BCDice/pull/673))
+- 虚構侵蝕TRPG (KyokoShinshoku) ([#674](https://github.com/bcdice/BCDice/pull/674))
+- nRR (NRR) ([#675](https://github.com/bcdice/BCDice/pull/675))
+
+### 変更
+
+- RuneQuest:Roleplaying in Glorantha: システム名を英語から日本語に変更。フレッド緑野さんありがとうっ！ ([#662](https://github.com/bcdice/BCDice/pull/662))
+- Vampire: The Masquerade 5th Edition: ダイスプールよりHungerダイスよりが大きい時に全てのダイスがHungerダイスになるよう変更。フレッド緑野さんありがとうっ！ ([#670](https://github.com/bcdice/BCDice/pull/670))
+- Werewolf: The Apocalypse 5th Edition:  ダイスプールよりRageダイスよりが大きい時に全てのダイスがRageダイスになるよう変更。フレッド緑野さんありがとうっ！ ([#671](https://github.com/bcdice/BCDice/pull/671))
+- Chill 3rd Edition: 成否の表記をルールに合わせて変更。Facelessさんありがとうっ！ ([#672](https://github.com/bcdice/BCDice/pull/672))
+
+### 誤植修正
+- ナイトウィザード The 3rd Edition: ヘルプメッセージの誤りを修正。opparcoさんありがとうっ！ ([#667](https://github.com/bcdice/BCDice/pull/667))
+- 無限のファンタジア: 成功レベルの判定方法を記載。 ([#676](https://github.com/bcdice/BCDice/pull/676))
+
+### 開発
+- Ruby 3.3をサポートバージョンに追加 ([#665](https://github.com/bcdice/BCDice/pull/665))
+- Ruby 2.6をサポートバージョンから除外 ([#665](https://github.com/bcdice/BCDice/pull/665))
+
 ## 3.12.0 2023/12/04
 
 ### 対応ゲームシステムの追加
