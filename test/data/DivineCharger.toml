@@ -155,5 +155,445 @@ rands = [
   { sides = 1, value = 1 },
 ]
 
+[[ test ]]
+game_system = "DivineCharger"
+input = "AS1T"
+output = "[神器:射撃]表A☆1(6) ＞ ランクアップ？([神聖石]10個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AS2T"
+output = "[神器:射撃]表A☆2(6) ＞ ランクアップ？([神聖石]20個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AS3T"
+output = "[神器:射撃]表A☆3(6) ＞ ランクアップ？([神聖石]30個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AS4T"
+output = "[神器:射撃]表A☆4(6) ＞ ランクアップ？([神聖石]40個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AS5T"
+output = "[神器:射撃]表A☆5(1) ＞ オートリピーター P.85"
+rands = [
+  { sides = 1, value = 1 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AM1T"
+output = "[神器:魔法]表A☆1(6) ＞ ランクアップ？([神聖石]10個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AM2T"
+output = "[神器:魔法]表A☆2(6) ＞ ランクアップ？([神聖石]20個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AM3T"
+output = "[神器:魔法]表A☆3(6) ＞ ランクアップ？([神聖石]30個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AM4T"
+output = "[神器:魔法]表A☆4(6) ＞ ランクアップ？([神聖石]40個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AM5T"
+output = "[神器:魔法]表A☆5(1) ＞ スターコンプレッサ P.87"
+rands = [
+  { sides = 1, value = 1 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AY1T"
+output = "[神器:鎧]表A☆1(6) ＞ ランクアップ？([神聖石]10個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AY2T"
+output = "[神器:鎧]表A☆2(6) ＞ ランクアップ？([神聖石]20個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AY3T"
+output = "[神器:鎧]表A☆3(6) ＞ ランクアップ？([神聖石]30個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AY4T"
+output = "[神器:鎧]表A☆4(6) ＞ ランクアップ？([神聖石]40個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AY5T"
+output = "[神器:鎧]表A☆5(1) ＞ ディヴァインクロス P.89"
+rands = [
+  { sides = 1, value = 1 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AT1T"
+output = "[神器:盾]表A☆1(6) ＞ ランクアップ？([神聖石]10個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AT2T"
+output = "[神器:盾]表A☆2(6) ＞ ランクアップ？([神聖石]20個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AT3T"
+output = "[神器:盾]表A☆3(6) ＞ ランクアップ？([神聖石]30個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AT4T"
+output = "[神器:盾]表A☆4(6) ＞ ランクアップ？([神聖石]40個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AT5T"
+output = "[神器:盾]表A☆5(1) ＞ ダークマター P.91"
+rands = [
+  { sides = 1, value = 1 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AA1T"
+output = "[神器:装飾品]表A☆1(6) ＞ ランクアップ？([神聖石]10個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AA2T"
+output = "[神器:装飾品]表A☆2(6) ＞ ランクアップ？([神聖石]20個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AA3T"
+output = "[神器:装飾品]表A☆3(6) ＞ ランクアップ？([神聖石]30個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AA4T"
+output = "[神器:装飾品]表A☆4(6) ＞ ランクアップ？([神聖石]40個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "AA5T"
+output = "[神器:装飾品]表A☆5(1) ＞ ノーブルスフィア P.93"
+rands = [
+  { sides = 1, value = 1 },
+]
+
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BK1T"
+output = "[神器:近接]表B☆1(6) ＞ ランクアップ？([神聖石]10個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BK2T"
+output = "[神器:近接]表B☆2(6) ＞ ランクアップ？([神聖石]20個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BK3T"
+output = "[神器:近接]表B☆3(6) ＞ ランクアップ？([神聖石]30個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BK4T"
+output = "[神器:近接]表B☆4(6) ＞ ランクアップ？([神聖石]40個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BK5T"
+output = "[神器:近接]表B☆5(1) ＞ カタストロフ P.95"
+rands = [
+  { sides = 1, value = 1 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BS1T"
+output = "[神器:射撃]表B☆1(6) ＞ ランクアップ？([神聖石]10個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BS2T"
+output = "[神器:射撃]表B☆2(6) ＞ ランクアップ？([神聖石]20個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BS3T"
+output = "[神器:射撃]表B☆3(6) ＞ ランクアップ？([神聖石]30個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BS4T"
+output = "[神器:射撃]表B☆4(6) ＞ ランクアップ？([神聖石]40個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BS5T"
+output = "[神器:射撃]表B☆5(1) ＞ オートリピーター P.97"
+rands = [
+  { sides = 1, value = 1 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BM1T"
+output = "[神器:魔法]表B☆1(6) ＞ ランクアップ？([神聖石]10個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BM2T"
+output = "[神器:魔法]表B☆2(6) ＞ ランクアップ？([神聖石]20個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BM3T"
+output = "[神器:魔法]表B☆3(6) ＞ ランクアップ？([神聖石]30個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BM4T"
+output = "[神器:魔法]表B☆4(6) ＞ ランクアップ？([神聖石]40個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BM5T"
+output = "[神器:魔法]表B☆5(1) ＞ スターコンプレッサ P.99"
+rands = [
+  { sides = 1, value = 1 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BY1T"
+output = "[神器:鎧]表B☆1(6) ＞ ランクアップ？([神聖石]10個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BY2T"
+output = "[神器:鎧]表B☆2(6) ＞ ランクアップ？([神聖石]20個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BY3T"
+output = "[神器:鎧]表B☆3(6) ＞ ランクアップ？([神聖石]30個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BY4T"
+output = "[神器:鎧]表B☆4(6) ＞ ランクアップ？([神聖石]40個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BY5T"
+output = "[神器:鎧]表B☆5(1) ＞ ディヴァインクロス P.101"
+rands = [
+  { sides = 1, value = 1 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BT1T"
+output = "[神器:盾]表B☆1(6) ＞ ランクアップ？([神聖石]10個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BT2T"
+output = "[神器:盾]表B☆2(6) ＞ ランクアップ？([神聖石]20個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BT3T"
+output = "[神器:盾]表B☆3(6) ＞ ランクアップ？([神聖石]30個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BT4T"
+output = "[神器:盾]表B☆4(6) ＞ ランクアップ？([神聖石]40個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BT5T"
+output = "[神器:盾]表B☆5(1) ＞ ダークマター P.103"
+rands = [
+  { sides = 1, value = 1 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BA1T"
+output = "[神器:装飾品]表B☆1(6) ＞ ランクアップ？([神聖石]10個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BA2T"
+output = "[神器:装飾品]表B☆2(6) ＞ ランクアップ？([神聖石]20個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BA3T"
+output = "[神器:装飾品]表B☆3(6) ＞ ランクアップ？([神聖石]30個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BA4T"
+output = "[神器:装飾品]表B☆4(6) ＞ ランクアップ？([神聖石]40個)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "DivineCharger"
+input = "BA5T"
+output = "[神器:装飾品]表B☆5(1) ＞ ノーブルスフィア P.105"
+rands = [
+  { sides = 1, value = 1 },
+]
 
 
