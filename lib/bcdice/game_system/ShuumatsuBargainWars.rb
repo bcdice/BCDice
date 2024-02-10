@@ -1,4 +1,5 @@
-# frozen_string_literal: truemodule BCDice
+# frozen_string_literal: true
+
 module BCDice
   module GameSystem
     class ShuumatsuBargainWars < Base
