@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "DivineCharger"
-input = "3D6>=7 成功"
-output = "(3D6>=7) ＞ 4,5,6 ＞ 達成値15 ＞ 成功"
+input = "3DC>=7 成功"
+output = "(3DC>=7) ＞ 4,5,6 ＞ 達成値15 ＞ 成功"
 success = true
 rands = [
   { sides = 6, value = 5 },
@@ -11,8 +11,8 @@ rands = [
 
 [[ test ]]
 game_system = "DivineCharger"
-input = "3D6>=7 失敗"
-output = "(3D6>=7) ＞ 1,2,3 ＞ 達成値6 ＞ 失敗"
+input = "3DC>=7 失敗"
+output = "(3DC>=7) ＞ 1,2,3 ＞ 達成値6 ＞ 失敗"
 failure = true
 rands = [
   { sides = 6, value = 1 },
@@ -22,8 +22,8 @@ rands = [
 
 [[ test ]]
 game_system = "DivineCharger"
-input = "3D6>=7 クリティカル"
-output = "(3D6>=7) ＞ 1,6,6 ＞ 達成値13 ＞ クリティカル"
+input = "3DC>=7 クリティカル"
+output = "(3DC>=7) ＞ 1,6,6 ＞ 達成値13 ＞ クリティカル"
 critical = true
 success = true
 rands = [
@@ -34,8 +34,8 @@ rands = [
 
 [[ test ]]
 game_system = "DivineCharger"
-input = "3D6>=7 ファンブル"
-output = "(3D6>=7) ＞ 1,1,6 ＞ 達成値0 ＞ ファンブル([神聖石]5個)"
+input = "3DC>=7 ファンブル"
+output = "(3DC>=7) ＞ 1,1,6 ＞ 達成値0 ＞ ファンブル([神聖石]5個)"
 fumble = true
 failure = true
 rands = [
@@ -46,8 +46,8 @@ rands = [
 
 [[ test ]]
 game_system = "DivineCharger"
-input = "4D6>=12 クリティカル優先"
-output = "(4D6>=12) ＞ 1,1,6,6 ＞ 達成値14 ＞ クリティカル"
+input = "4DC>=12 クリティカル優先"
+output = "(4DC>=12) ＞ 1,1,6,6 ＞ 達成値14 ＞ クリティカル"
 critical = true
 success = true
 rands = [
@@ -59,8 +59,8 @@ rands = [
 
 [[ test ]]
 game_system = "DivineCharger"
-input = "4D6>=? 達成値のみ"
-output = "(4D6>=?) ＞ 1,2,3,4 ＞ 達成値10"
+input = "4DC>=? 達成値のみ"
+output = "(4DC>=?) ＞ 1,2,3,4 ＞ 達成値10"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },

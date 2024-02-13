@@ -14,10 +14,9 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGETEXT
-        ■判定　　nD6>=t          n:能力値 t:目標値
-        　もしくはnD>=t
-        例)3D6>=7: ダイスを3個振って、目標値7で判定。その結果(達成値,成功・失敗,クリティカル,ファンブル)を表示
-        　 3D6>=?: 　同上　目標値が不明なので、達成値,クリティカル,ファンブルのみ表示。
+        ■判定　　nDC>=t          n:能力値 t:目標値
+        例)3DC>=7: ダイスを3個振って、目標値7で判定。その結果(達成値,成功・失敗,クリティカル,ファンブル)を表示
+        　 3DC>=?: 　同上　目標値が不明なので、達成値,クリティカル,ファンブルのみ表示。
 
         ■反転判定　　REV[n]>=t   n:ダイス目(カンマなし) t:目標値
         例)REV[123]>=7: 振ったダイスが[1,2,3]で、目標値7で反転判定。その結果(達成値,成功・失敗,クリティカル,ファンブル)を表示
@@ -46,15 +45,15 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_action(command)
-        m = /^(\d+)D(6)?>=(\d+|[?])$/.match(command)
+        m = /^(\d+)DC>=(\d+|[?])$/.match(command)
         return nil unless m
 
         num_dice = m[1].to_i
-        target = m[3]
+        target = m[2]
 
         dice = @randomizer.roll_barabara(num_dice, 6).sort
         dice_text = dice.join(",")
-        output = "(#{num_dice}D6>=#{target}) ＞ #{dice_text}"
+        output = "(#{num_dice}DC>=#{target}) ＞ #{dice_text}"
         action = Action_data.new(output, dice, target)
 
         return action_result(action)
@@ -844,7 +843,7 @@ module BCDice
 
       }.freeze
 
-      register_prefix('\d+D6>=(\d+|[?])', 'REV\[[\d,]+\]>=(\d+|[?])', TABLES.keys)
+      register_prefix('\d+DC>=(\d+|[?])', 'REV\[[\d,]+\]>=(\d+|[?])', TABLES.keys)
     end
   end
 end
