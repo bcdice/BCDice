@@ -66,6 +66,8 @@ rands = [
 game_system = "ShuumatsuBargainWars"
 input = "3BG4>=3"
 output = "(3BG4>=3) ＞ [4,6,6] ＞ スペシャル！ 成功度4、活力1獲得"
+critical = true
+success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -76,6 +78,8 @@ rands = [
 game_system = "ShuumatsuBargainWars"
 input = "4BG5>=4"
 output = "(4BG5>=4) ＞ [1,1,1,1] ＞ ファンブル 活力をすべて失う"
+fumble = true
+failure  = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },

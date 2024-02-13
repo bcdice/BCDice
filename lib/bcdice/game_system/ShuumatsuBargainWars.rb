@@ -161,7 +161,7 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix('\d+BG\d+(?:[+-]\d+)?>=\d+', TABLES.keys)
+      register_prefix('\d+BG', TABLES.keys)
 
       def eval_game_system_specific_command(command)
         return roll_bg(command) || roll_tables(command, TABLES)
@@ -170,33 +170,33 @@ module BCDice
       private
 
       def roll_bg(command)
-        m = /^(\d+)BG(\d+)(?:[+-](\d+))?>=(\d+)$/.match(command)
-        return nil unless m
+        parser = Command::Parser.new("BG", round_type: @round_type)
+                                .has_prefix_number
+                                .has_suffix_number
+                                .restrict_cmp_op_to(:>=)
+        parsed = parser.parse(command)
+        return nil unless parsed
 
-        times = m[1].to_i
-        kokorone = m[2].to_i
-        if command.include?("+")
-          correction = m[3].to_i
-        elsif command.include?("-")
-          correction = -m[3].to_i
-        else
-          correction = 0
-        end
-        target = m[4].to_i
+        times = parsed.prefix_number
+        kokorone = parsed.suffix_number
+        correction = parsed.modify_number
+        target = parsed.target_number
         dice_list = @randomizer.roll_barabara(times, 6).sort
         success = dice_list.count { |number| number >= target - correction }
         get_vitality = dice_list.count(kokorone)
 
         result =
           if dice_list.count(6) >= 2
-            "スペシャル！ 成功度#{success + 1}、活力#{get_vitality}獲得"
-          elsif dice_list.count(1) == times
-            "ファンブル 活力をすべて失う"
+            Result.critical("スペシャル！ 成功度#{success + 1}、活力#{get_vitality}獲得")
+          elsif dice_list.all?(1)
+            Result.fumble("ファンブル 活力をすべて失う")
           else
-            "成功度#{success}、活力#{get_vitality}獲得"
+            Result.new("成功度#{success}、活力#{get_vitality}獲得")
           end
 
-        return "(#{command}) ＞ [#{dice_list.join(',')}] ＞ #{result}"
+        result.text = "(#{parsed}) ＞ [#{dice_list.join(',')}] ＞ #{result.text}"
+
+        return result
       end
     end
   end
