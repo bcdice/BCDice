@@ -1,0 +1,572 @@
+[[ test ]]
+game_system = "Tensai"
+input = "T6"
+output = "T6(4,3) ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T6"
+output = "T6(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+fumble = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T6"
+output = "T6(3,3) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T6"
+output = "T6(3,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T6"
+output = "T6(6,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T6"
+output = "T6(6,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+critical = true
+fumble = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10"
+output = "T10(4,3) ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10"
+output = "T10(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10"
+output = "T10(3,3) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10"
+output = "T10(3,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10"
+output = "T10(6,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10"
+output = "T10(10,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10C"
+output = "T10C(5,4) ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10C"
+output = "T10C(5,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+fumble = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10C"
+output = "T10C(4,4) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10C"
+output = "T10C(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10C"
+output = "T10C(6,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10C"
+output = "T10C(10,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10S"
+output = "T10S(3,2) ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10S"
+output = "T10S(3,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+fumble = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10S"
+output = "T10S(2,2) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10S"
+output = "T10S(2,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10S"
+output = "T10S(6,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10S"
+output = "T10S(10,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10B"
+output = "T10B(4,2) ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10B"
+output = "T10B(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10B"
+output = "T10B(2,2) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10B"
+output = "T10B(2,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10B"
+output = "T10B(3,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。そのラウンドの間、自分の【攻撃力】が1点上昇する。この効果は2回まで重複する。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10B"
+output = "T10B(3,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。そのラウンドの間、自分の【攻撃力】が1点上昇する。この効果は2回まで重複する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10Y"
+output = "T10Y(4,2) ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10Y"
+output = "T10Y(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10Y"
+output = "T10Y(2,2) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10Y"
+output = "T10Y(2,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10Y"
+output = "T10Y(3,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。獲得した準英傑に好きな英傑汎用スキルを1つ選んで獲得させることができる。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10Y"
+output = "T10Y(3,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。獲得した準英傑に好きな英傑汎用スキルを1つ選んで獲得させることができる。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10A"
+output = "T10A(4,2) ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10A"
+output = "T10A(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10A"
+output = "T10A(2,2) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10A"
+output = "T10A(2,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10A"
+output = "T10A(3,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10A"
+output = "T10A(3,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10CSBYA"
+output = "T10CSBYA(5,5) ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10CSBYA"
+output = "T10CSBYA(5,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+fumble = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10CSBYA"
+output = "T10CSBYA(4,4) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10CSBYA"
+output = "T10CSBYA(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10CSBYA"
+output = "T10CSBYA(6,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。そのラウンドの間、自分の【攻撃力】が1点上昇する。この効果は2回まで重複する。獲得した準英傑に好きな英傑汎用スキルを1つ選んで獲得させることができる。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "T10CSBYA"
+output = "T10CSBYA(10,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。そのラウンドの間、自分の【攻撃力】が1点上昇する。この効果は2回まで重複する。獲得した準英傑に好きな英傑汎用スキルを1つ選んで獲得させることができる。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "PHGS"
+output = "軍師経歴表(66) ＞ あなたではない誰かの記憶を持っている。生まれ変わったのか、入れ替わったのか……。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "PHWA"
+output = "武人経歴表(66) ＞ 戦いに生きる意味を見出している。弾ける汗、ぶつかり合う剣戟、交わされる肉体言語こそが生き甲斐。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "PHCH"
+output = "カリスマ経歴表(66) ＞ あなたは神託を受ける巫である。困ったことは神の声を聞こえていないが、人々は皆あなたの言葉を待っている。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "PHMA"
+output = "戦略級魔法使い経歴表(66) ＞ 体内に、世界を揺るがす災害級の呪いが封印されている。あなたは副産物として得た魔素で国を守っている。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "PHPH"
+output = "薬師経歴表(66) ＞ あなたの体は薬である。体の一部を材料に用いれば、非常に効果の高い薬を作ることができる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Tensai"
+input = "BDST"
+output = "変調表(6) ＞ 凍え：自分は【攻撃力】が1点減少する。また、自分は「移動」を行うたびに【戦略ポイント】が1点減少する。"
+rands = [
+  { sides = 6, value = 6 },
+]
