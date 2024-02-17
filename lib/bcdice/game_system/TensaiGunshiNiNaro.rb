@@ -2,43 +2,43 @@
 
 module BCDice
   module GameSystem
-    class Tensai < Base
+    class TensaiGunshiNiNaro < Base
       # ゲームシステムの識別子
-      ID = 'Tensai'
+      ID = 'TensaiGunshiNiNaro'
 
       # ゲームシステム名
       NAME = '天才軍師になろう'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'てんさいぐんしになろう'
+      SORT_KEY = 'てんさいくんしになろう'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
         ・行為判定
-        T6…「有利」を得ていない場合、6面ダイスを2つ振って判定します。
-        T10…「有利」を得ている場合、10面ダイスを2つ振って判定します。
+        TN6…「有利」を得ていない場合、6面ダイスを2つ振って判定します。
+        TN10…「有利」を得ている場合、10面ダイスを2つ振って判定します。
         不調 気づかぬうちの不満【C】…判定のダイス目が「4」でも判定に成功しません。数字の後ろに【C】をつけます。
-        　例）T6C
+        　例）TN6C
         軍師スキル 〇〇サポート【S】…決戦フェイズの判定中「3」の出目を出しても判定に成功します。数字の後ろに【S】をつけます。
-        　例）T6S
+        　例）TN6S
         英傑スキル/武人 煌めく刃【B】…決戦フェイズの判定中「3」の出目を出しても判定に成功となり、スペシャルが発生します。数字の後ろに【B】をつけます。
-        　例）T6B
+        　例）TN6B
         英傑スキル/カリスマ 御身のためならば【Y】…「交流」「スカウト」の判定中「3」の出目を出しても判定に成功となり、スペシャルが発生します。数字の後ろに【Y】をつけます。
-        　例）T6Y
+        　例）TN6Y
         英傑スキル/英傑汎用 凄腕エージェント【A】…活動フェイズの判定中「3」の出目を出しても判定に成功となり、スペシャルが発生します。数字の後ろに【A】をつけます。
-        　例）T6A
+        　例）TN6A
         数字の後ろに複数のコマンドを追加できます。
-        　例）T10CYA
+        　例）TN10CYA
         ・ダメージ計算 xDM>=t
         　[ダメージ計算]を行う。成否と【HP】の減少量を表示する。
         　x: 6面ダイス数
         　t: 防御力
         ・各種表
-        【セッション時】
+        関係決定表 RELA
+        平時天才軍師表 PTGS
+        平時英傑表 PTHE
+        スカウト表 SCOU
         変調表 BDST
-        【設定時】
-        経歴表　軍師 PHGS　武人 PHWA　カリスマ PHCH　戦略級魔法使い PHMA　薬師経歴表 PHPH
-
       MESSAGETEXT
 
       def initialize(command)
@@ -48,7 +48,7 @@ module BCDice
         @round_type = RoundType::FLOOR
       end
 
-      register_prefix('T(6|10)[CSBYA]*', '(\d)DM')
+      register_prefix('TN(6|10)[CSBYA]*', '(\d)DM')
 
       def eval_game_system_specific_command(command)
         roll_judge(command) || roll_damage(command) || roll_tables(command, self.class::TABLES)
@@ -59,7 +59,7 @@ module BCDice
       # 行為判定
       def roll_judge(command)
         # 特定の書式の場合のみ実行
-        unless /^T(6|10)[CSBYA]*$/.match(command)
+        unless /^TN(6|10)[CSBYA]*$/.match(command)
           return nil
         end
 
@@ -121,14 +121,14 @@ module BCDice
           # クリティカルフラグを立てる
           is_critical = true
           # スペシャルのシステムメッセージを追加
-          texts.push(translate("Tensai.JUDGE.critical"))
+          texts.push(translate("TensaiGunshiNiNaro.JUDGE.critical"))
           special_effects = []
           # 通常時の追加効果
-          special_effects.push(translate("Tensai.NORMAL.critical"))
+          special_effects.push(translate("TensaiGunshiNiNaro.NORMAL.critical"))
           # 英傑スキル/武人 煌めく刃による追加効果
-          special_effects.push(translate("Tensai.BLADE.critical")) if blade
+          special_effects.push(translate("TensaiGunshiNiNaro.BLADE.critical")) if blade
           # 英傑スキル/カリスマ 御身のためならばによる追加効果
-          special_effects.push(translate("Tensai.YOU.critical")) if you
+          special_effects.push(translate("TensaiGunshiNiNaro.YOU.critical")) if you
           # 追加効果を結合してカッコ内に格納
           texts.push("（#{special_effects.join('')}）")
         end
@@ -138,9 +138,9 @@ module BCDice
           # ファンブルフラグを立てる
           is_fumble = true
           # ファンブルのシステムメッセージを追加
-          texts.push(translate("Tensai.JUDGE.fumble"))
+          texts.push(translate("TensaiGunshiNiNaro.JUDGE.fumble"))
           # ファンブルの追加効果をカッコ内に格納
-          texts.push("（#{translate('Tensai.NORMAL.fumble')}）")
+          texts.push("（#{translate('TensaiGunshiNiNaro.NORMAL.fumble')}）")
         end
 
         if dice_list.intersection(success_dices).empty?
@@ -193,10 +193,10 @@ module BCDice
           # 成功フラグを立てる
           is_success = true
           # 成功メッセージを追加
-          text = translate("Tensai.DAMAGE.success", damage: damage.to_s, dec: dec.to_s)
+          text = translate("TensaiGunshiNiNaro.DAMAGE.success", damage: damage.to_s, dec: dec.to_s)
         else
           # 失敗メッセージを追加
-          text = translate("Tensai.DAMAGE.failure", damage: damage.to_s)
+          text = translate("TensaiGunshiNiNaro.DAMAGE.failure", damage: damage.to_s)
         end
 
         return Result.new.tap do |r|
@@ -214,12 +214,11 @@ module BCDice
 
         def translate_tables(locale)
           {
-            "PHGS" => DiceTable::D66Table.from_i18n("Tensai.table.PHGS", locale),
-            "PHWA" => DiceTable::D66Table.from_i18n("Tensai.table.PHWA", locale),
-            "PHCH" => DiceTable::D66Table.from_i18n("Tensai.table.PHCH", locale),
-            "PHMA" => DiceTable::D66Table.from_i18n("Tensai.table.PHMA", locale),
-            "PHPH" => DiceTable::D66Table.from_i18n("Tensai.table.PHPH", locale),
-            "BDST" => DiceTable::Table.from_i18n("Tensai.table.BDST", locale),
+            "RELA" => DiceTable::D66Table.from_i18n("TensaiGunshiNiNaro.table.RELA", locale),
+            "PTGS" => DiceTable::D66Table.from_i18n("TensaiGunshiNiNaro.table.PTGS", locale),
+            "PTHE" => DiceTable::D66Table.from_i18n("TensaiGunshiNiNaro.table.PTHE", locale),
+            "SCOU" => DiceTable::D66Table.from_i18n("TensaiGunshiNiNaro.table.SCOU", locale),
+            "BDST" => DiceTable::Table.from_i18n("TensaiGunshiNiNaro.table.BDST", locale),
           }
         end
       end
