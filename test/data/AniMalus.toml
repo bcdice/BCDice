@@ -20,6 +20,18 @@ rands = [
   { sides = 6, value = 6 },
 ]
 
+[[ test ]]
+game_system = "AniMalus"
+input = "3+1AM<=2,2 失敗"
+output = "(3+1AM<=2,2) ＞ 3,3,6,6 ＞ 成功数0 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
 
 [[ test ]]
 game_system = "AniMalus"
@@ -43,11 +55,23 @@ rands = [
   { sides = 6, value = 6 },
 ]
 
+[[ test ]]
+game_system = "AniMalus"
+input = "+1AI<=3,1 探索技能判定、失敗"
+output = "(+1AI<=3,1) ＞ 4,4,6,6 ＞ 成功数0 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
 
 [[ test ]]
 game_system = "AniMalus"
 input = "AA<=3 攻撃判定、成功"
-output = "(AA<=3) ＞ 3,6,6 ＞ 成功数1 ＞ 成功 ＞ ダメージ(6)"
+output = "(AA<=3) ＞ 3,6,6 ＞ 成功数1 ＞ 成功 ＞ 最大ダメージ(6)"
 success = true
 rands = [
   { sides = 6, value = 6 },
@@ -69,7 +93,7 @@ rands = [
 [[ test ]]
 game_system = "AniMalus"
 input = "AA<=3 攻撃判定、成功、クリティカル"
-output = "(AA<=3) ＞ 1,2,3 ＞ 成功数3 ＞ 成功 ＞ ダメージ(3) ＞ クリティカル"
+output = "(AA<=3) ＞ 1,2,3 ＞ 成功数3 ＞ 成功 ＞ 最大ダメージ(3) ＞ クリティカル"
 success = true
 critical = true
 rands = [
@@ -93,7 +117,7 @@ rands = [
 [[ test ]]
 game_system = "AniMalus"
 input = "AA<=3 攻撃判定、二重成功"
-output = "(AA<=3) ＞ 3,3,6 ＞ 成功数2 ＞ 成功 ＞ ダメージ(6か9)"
+output = "(AA<=3) ＞ 3,3,6 ＞ 成功数2 ＞ 成功 ＞ 最大ダメージ(9)"
 success = true
 rands = [
   { sides = 6, value = 3 },
@@ -104,7 +128,7 @@ rands = [
 [[ test ]]
 game_system = "AniMalus"
 input = "AA<=3 攻撃判定、二重成功"
-output = "(AA<=3) ＞ 2,3,3 ＞ 成功数3 ＞ 成功 ＞ ダメージ(3か6)"
+output = "(AA<=3) ＞ 2,3,3 ＞ 成功数3 ＞ 成功 ＞ 最大ダメージ(6)"
 success = true
 rands = [
   { sides = 6, value = 2 },
@@ -115,9 +139,33 @@ rands = [
 [[ test ]]
 game_system = "AniMalus"
 input = "AA<=3 攻撃判定、三重成功"
-output = "(AA<=3) ＞ 3,3,3 ＞ 成功数3 ＞ 成功 ＞ ダメージ(9)"
+output = "(AA<=3) ＞ 3,3,3 ＞ 成功数3 ＞ 成功 ＞ 最大ダメージ(9)"
 success = true
 rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "AniMalus"
+input = "+1AA<=3 攻撃判定、四重成功"
+output = "(+1AA<=3) ＞ 3,3,3,3 ＞ 成功数4 ＞ 成功 ＞ 最大ダメージ(12)"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "AniMalus"
+input = "+1AA<=3 攻撃判定、三重成功"
+output = "(+1AA<=3) ＞ 3,3,3,6 ＞ 成功数3 ＞ 成功 ＞ 最大ダメージ(12)"
+success = true
+rands = [
+  { sides = 6, value = 6 },
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -170,6 +218,19 @@ rands = [
   { sides = 6, value = 6 },
 ]
 
+[[ test ]]
+game_system = "AniMalus"
+input = "+1AG=2 成功、クリティカル"
+output = "(+1AG=2) ＞ 1,2,2,3 ＞ 成功数2 ＞ 成功 ＞ ダメージ軽減(4) ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
 
 [[ test ]]
 game_system = "AniMalus"
@@ -187,5 +248,15 @@ output = "(AD=2) ＞ 1 ＞ 成功数0 ＞ 失敗"
 failure = true
 rands = [
   { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "AniMalus"
+input = "+1AD=2 防御判定、成功"
+output = "(+1AD=2) ＞ 2,2 ＞ 成功数2 ＞ 成功(ダメージ無効)"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
 ]
 
