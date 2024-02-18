@@ -520,6 +520,56 @@ rands = [
 
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
+input = "2DM>=3"
+output = "2DM>=3(2) ＞ 2ダメージ, 失敗, 【HP】はそのまま"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "2DM>=3"
+output = "2DM>=3(4) ＞ 4ダメージ, 成功, 【HP】が1点減少する"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "2DM>=3"
+output = "2DM>=3(8) ＞ 8ダメージ, 成功, 【HP】が2点減少する"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "2DM>=3"
+output = "2DM>=3(10) ＞ 10ダメージ, 成功, 【HP】が3点減少する"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "2DM>=3"
+output = "2DM>=3(12) ＞ 12ダメージ, 成功, 【HP】が3点減少する"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
 input = "RELA"
 output = "関係決定表(66) ＞ 生き別れのきょうだいに似ている……／同郷"
 rands = [
