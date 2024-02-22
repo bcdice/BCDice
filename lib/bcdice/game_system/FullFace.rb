@@ -26,6 +26,12 @@ module BCDice
 
       register_prefix('([+\d]+)*FF')
 
+      def initialize(command)
+        super(command)
+
+        @sort_barabara_dice = true # バラバラロール（Bコマンド）でソート有
+      end
+
       def eval_game_system_specific_command(command)
         resolute_action(command)
       end
@@ -48,14 +54,14 @@ module BCDice
 
         dice_array = []
 
-        dice = @randomizer.roll_barabara(heat_level, 6)
+        dice = @randomizer.roll_barabara(heat_level, 6).sort
         ones = dice.count(1)
         sixs = dice.count(6)
         success_num = dice.count { |val| val <= status_no }
         dice_array.push(dice.join(","))
 
         if modify > 0
-          dice = @randomizer.roll_barabara(modify, 6)
+          dice = @randomizer.roll_barabara(modify, 6).sort
           ones += dice.count(1)
           success_num += dice.count { |val| val <= status_no }
           dice_array.push(dice.join(","))
@@ -63,7 +69,7 @@ module BCDice
         ones_total = ones
 
         while ones > 0
-          dice = @randomizer.roll_barabara(ones, 6)
+          dice = @randomizer.roll_barabara(ones, 6).sort
           ones = dice.count(1)
           ones_total += ones
           success_num += dice.count { |val| val <= status_no }
