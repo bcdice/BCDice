@@ -45,7 +45,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_action(command)
-        m = /^(\d+)DC>=(\d+|[?])$/.match(command)
+        m = /^(\d+)DC>=(\d+|\?)$/.match(command)
         return nil unless m
 
         num_dice = m[1].to_i
@@ -97,7 +97,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_reverse(command)
-        m = /^REV\[([\d,]+)\]>=(\d+|[?])$/.match(command)
+        m = /^REV\[([\d,]+)\]>=(\d+|\?)$/.match(command)
         return nil unless m
 
         raw_dice = m[1]
@@ -113,16 +113,8 @@ module BCDice
       end
 
       def reverse_dice(array_dice)
-        reverse_array_dice = []
-        array_dice.each do |val|
-          reverse_array_dice.push(6) if val == '1'
-          reverse_array_dice.push(5) if val == '2'
-          reverse_array_dice.push(4) if val == '3'
-          reverse_array_dice.push(3) if val == '4'
-          reverse_array_dice.push(2) if val == '5'
-          reverse_array_dice.push(1) if val == '6'
-        end
-        return reverse_array_dice.sort
+        # 出目を 1 <-> 6, 2 <-> 5, 3 <-> 4 で反転させる
+        array_dice.map(&:to_i).filter { |v| 1 <= v && v <= 6 }.map { |v| 7 - v.to_i }.sort
       end
 
       TABLES = {
@@ -843,7 +835,7 @@ module BCDice
 
       }.freeze
 
-      register_prefix('\d+DC>=(\d+|[?])', 'REV\[[\d,]+\]>=(\d+|[?])', TABLES.keys)
+      register_prefix('\d+DC', 'REV', TABLES.keys)
     end
   end
 end
