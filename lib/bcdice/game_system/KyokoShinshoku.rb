@@ -62,10 +62,10 @@ module BCDice
       }.freeze
 
       def roll_check(command)
-        m = /^KS(?:\((\d+),([-+\d]+)?\)|(\d+))(?:>=([-+\d]+))?$/.match(command)
+        m = /^KS(?:\(([-+\d]+),([-+\d]+)?\)|(\d+))(?:>=([-+\d]+))?$/.match(command)
         return nil unless m
 
-        dice_size = m[1]&.to_i || m[3].to_i
+        dice_size = m[1] && Arithmetic.eval(m[1], @round_type)&.to_i || Arithmetic.eval(m[3], @round_type).to_i
         times = m[2] ? Arithmetic.eval(m[2], @round_type) : 1
         target = m[4] && Arithmetic.eval(m[4], @round_type)
 
@@ -73,8 +73,13 @@ module BCDice
 
         return nil if sides.nil? || times.nil?
 
-        dice_list = @randomizer.roll_barabara(times, sides).sort
-        value = dice_list.max.clamp(1, dice_size)
+        if times < 1
+          dice_list = @randomizer.roll_barabara(2, sides).sort
+          value = dice_list.min.clamp(1, dice_size)
+        else
+          dice_list = @randomizer.roll_barabara(times, sides).sort
+          value = dice_list.max.clamp(1, dice_size)
+        end
 
         result =
           if value == 1
@@ -91,7 +96,7 @@ module BCDice
 
         result.text = [
           target ? "(KS(#{dice_size},#{times})>=#{target})" : "(KS(#{dice_size},#{times}))",
-          ("#{value}[#{dice_list.join(',')}]" if times > 1),
+          ("#{value}[#{dice_list.join(',')}]" if times != 1),
           value,
           result.text,
         ].compact.join(" ＞ ")
