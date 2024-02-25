@@ -75,7 +75,7 @@ module BCDice
         m = /^KS(?:\(([-+\d]+),([-+\d]+)?\)|(\d+))([AD]?)(?:>=([-+\d]+))?$/.match(command)
         return nil unless m
 
-        dice_size = m[1] && Arithmetic.eval(m[1], @round_type)&.to_i || Arithmetic.eval(m[3], @round_type).to_i
+        dice_size = m[1] ? Arithmetic.eval(m[1], @round_type) : Arithmetic.eval(m[3], @round_type).to_i
         times = m[2] ? Arithmetic.eval(m[2], @round_type) : 1
         target = m[5] && Arithmetic.eval(m[5], @round_type)
 
@@ -85,33 +85,17 @@ module BCDice
 
         return nil if sides.nil? || times.nil?
 
-        if advantage == 'A' || advantage == 'D'
-          if times < 1
-            dice_list_adv = @randomizer.roll_barabara(2, sides).sort
-            value_adv = dice_list_adv.min.clamp(1, dice_size)
-          else
-            dice_list_adv = @randomizer.roll_barabara(times, sides).sort
-            value_adv = dice_list_adv.max.clamp(1, dice_size)
-          end
-        end
+        rolls = Array.new(advantage.empty? ? 1 : 2) { roll_check_once(times, dice_size, sides) }
+        values = rolls.map { |v| v[:value] }
 
-        if times < 1
-          dice_list = @randomizer.roll_barabara(2, sides).sort
-          value = dice_list.min.clamp(1, dice_size)
-        else
-          dice_list = @randomizer.roll_barabara(times, sides).sort
-          value = dice_list.max.clamp(1, dice_size)
-        end
-        
-        if advantage == 'A'
-          value_nm = value
-          value = [value, value_adv].max
-          value_list = [value_nm, value_adv].sort
-        elsif advantage == 'D'
-          value_nm = value
-          value = [value, value_adv].min
-          value_list = [value_nm, value_adv].sort
-        end
+        value =
+          if advantage == "A"
+            values.max
+          elsif advantage == "D"
+            values.min
+          else
+            values.first
+          end
 
         result =
           if value == 1
@@ -127,14 +111,35 @@ module BCDice
           end
 
         result.text = [
-          target ? "(KS(#{dice_size},#{times})>=#{target})" : "(KS(#{dice_size},#{times}))",
-          (advantage == 'A' || advantage == 'D') ? ("#{value_adv}[#{dice_list_adv.join(',')}] , #{value_nm}[#{dice_list.join(',')}]" if times != 1) : ("#{value}[#{dice_list.join(',')}]" if times != 1),
-          (advantage == 'A' || advantage == 'D') ? ("#{value}[#{value_list.join(',')}]") : nil,
+          target ? "(KS(#{dice_size},#{times})#{advantage}>=#{target})" : "(KS(#{dice_size},#{times})#{advantage})",
+          format_rolls(rolls),
           value,
           result.text,
         ].compact.join(" ＞ ")
 
         return result
+      end
+
+      def roll_check_once(times, dice_size, sides)
+        if times < 1
+          dice_list = @randomizer.roll_barabara(2, sides).sort
+          value = dice_list.min.clamp(1, dice_size)
+        else
+          dice_list = @randomizer.roll_barabara(times, sides).sort
+          value = dice_list.max.clamp(1, dice_size)
+        end
+
+        return {dice_list: dice_list, value: value}
+      end
+
+      def format_rolls(rolls)
+        if rolls.length == 1 && rolls.first[:dice_list].length == 1
+          return nil
+        end
+
+        rolls.map do |v|
+          v[:dice_list].length == 1 ? v[:value].to_s : "#{v[:value]}[#{v[:dice_list].join(',')}]"
+        end.join(", ")
       end
 
       GENJITU_KAIRI_TO_SIDES = [4, 6, 8, 10, 12, 20].freeze
