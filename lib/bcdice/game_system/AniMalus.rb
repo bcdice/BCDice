@@ -62,7 +62,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_action(command)
-        m = /^(\d+)([-+\d]*)AM<=(\d+),(\d)$/.match(command)
+        m = /^(\d+)([-+]\d+)?AM<=(\d+),(\d)$/.match(command)
         return nil unless m
 
         num_dice = m[1].to_i
@@ -73,8 +73,8 @@ module BCDice
         dice = @randomizer.roll_barabara(num_dice + num_bonus, 6).sort
         dice_text = dice.join(",")
         success_num = dice.count { |val| val <= num_target }
-        is_critical = dice.count(1) > 0 && dice.count(2) > 0 && dice.count(3) > 0
-        is_fumble = dice.count(4) > 0 && dice.count(5) > 0 && dice.count(6) > 0
+        is_critical = dice.include?(1) && dice.include?(2) && dice.include?(3)
+        is_fumble = dice.include?(4) && dice.include?(5) && dice.include?(6)
 
         return Result.new.tap do |result|
           result.critical = is_critical
@@ -102,7 +102,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_investigation(command)
-        m = /^([-+\d]*)AI<=(\d+),(\d)$/.match(command)
+        m = /^([-+]\d+)?AI<=(\d+),(\d)$/.match(command)
         return nil unless m
 
         num_bonus = m[1].to_i
@@ -112,8 +112,8 @@ module BCDice
         dice = @randomizer.roll_barabara(3 + num_bonus, 6).sort
         dice_text = dice.join(",")
         success_num = dice.count { |val| val <= num_target }
-        is_critical = dice.count(1) > 0 && dice.count(2) > 0 && dice.count(3) > 0
-        is_fumble = dice.count(4) > 0 && dice.count(5) > 0 && dice.count(6) > 0
+        is_critical = dice.include?(1) && dice.include?(2) && dice.include?(3)
+        is_fumble = dice.include?(4) && dice.include?(5) && dice.include?(6)
 
         return Result.new.tap do |result|
           result.critical = is_critical
@@ -141,7 +141,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_attacking(command)
-        m = /^([-+\d]*)AA<=(\d+)$/.match(command)
+        m = /^([-+]\d+)?AA<=(\d+)$/.match(command)
         return nil unless m
 
         num_bonus = m[1].to_i
@@ -150,8 +150,8 @@ module BCDice
         dice = @randomizer.roll_barabara(3 + num_bonus, 6).sort
         dice_text = dice.join(",")
         success_num = dice.count { |val| val <= num_target }
-        is_critical = dice.count(1) > 0 && dice.count(2) > 0 && dice.count(3) > 0
-        is_fumble = dice.count(4) > 0 && dice.count(5) > 0 && dice.count(6) > 0
+        is_critical = dice.include?(1) && dice.include?(2) && dice.include?(3)
+        is_fumble = dice.include?(4) && dice.include?(5) && dice.include?(6)
 
         damage1 = dice.max
         damage2 = dice.max
@@ -191,7 +191,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_guarding(command)
-        m = /^([-+\d]*)AG=(\d+)$/.match(command)
+        m = /^([-+]\d+)?AG=(\d+)$/.match(command)
         return nil unless m
 
         num_bonus = m[1].to_i
@@ -200,8 +200,8 @@ module BCDice
         dice = @randomizer.roll_barabara(3 + num_bonus, 6).sort
         dice_text = dice.join(",")
         success_num = dice.count(num_target)
-        is_critical = dice.count(1) > 0 && dice.count(2) > 0 && dice.count(3) > 0
-        is_fumble = dice.count(4) > 0 && dice.count(5) > 0 && dice.count(6) > 0
+        is_critical = dice.include?(1) && dice.include?(2) && dice.include?(3)
+        is_fumble = dice.include?(4) && dice.include?(5) && dice.include?(6)
 
         return Result.new.tap do |result|
           result.critical = is_critical
@@ -229,7 +229,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_dodging(command)
-        m = /^([-+\d]*)AD=(\d+)$/.match(command)
+        m = /^([-+]\d+)?AD=(\d+)$/.match(command)
         return nil unless m
 
         num_bonus = m[1].to_i
