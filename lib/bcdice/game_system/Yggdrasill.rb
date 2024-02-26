@@ -327,25 +327,6 @@ module BCDice
         end
       end
 
-      class ChainTable < DiceTable::Table
-        def initialize(name, type, items, additonal_table:, additonal_index:)
-          super(name, type, items)
-
-          @additonal_table = additonal_table
-          @index = additonal_index
-        end
-
-        def roll(randomizer)
-          value = randomizer.roll_sum(@times, @sides)
-          chosen = choice(value)
-
-          return chosen unless @index.include?(value)
-
-          body = "#{chosen.body} ＞ #{@additonal_table.roll(randomizer)}"
-          DiceTable::RollResult.new(chosen.table_name, chosen.value, body)
-        end
-      end
-
       PSY_TABLE = DiceTable::Table.new(
         "能力タイプ",
         "1D6",
@@ -538,19 +519,17 @@ module BCDice
             '記憶崩壊【記憶に異常が起こる。記憶障害、記憶喪失、など】'
           ]
         ),
-        "FATAL2" => ChainTable.new(
+        "FATAL2" => DiceTable::ChainTable.new(
           "因子変化判定",
           "1D6",
           [
-            '能力変化【能力がまったく別ものに変化する】',
-            '能力変化【能力がまったく別ものに変化する】',
+            DiceTable::ChainWithText.new('能力変化【能力がまったく別ものに変化する】', PSY_TABLE),
+            DiceTable::ChainWithText.new('能力変化【能力がまったく別ものに変化する】', PSY_TABLE),
             '因子抑制【能力変化は起こらない】',
             '因子抑制【能力変化は起こらない】',
-            '能力喪失・能力覚醒【能力を持つものは失い、ノーマルは能力に覚醒する。喪失者はノーマルのキャラ特性ポイントを1p獲得する。覚醒者はノーマルのキャラ特性ポイントを1p失い、キャラ特性を6つ取得していた場合は1つ喪失する】',
-            '能力喪失・能力覚醒【能力を持つものは失い、ノーマルは能力に覚醒する。喪失者はノーマルのキャラ特性ポイントを1p獲得する。覚醒者はノーマルのキャラ特性ポイントを1p失い、キャラ特性を6つ取得していた場合は1つ喪失する】',
-          ],
-          additonal_table: PSY_TABLE,
-          additonal_index: [1, 2, 5, 6]
+            DiceTable::ChainWithText.new('能力喪失・能力覚醒【能力を持つものは失い、ノーマルは能力に覚醒する。喪失者はノーマルのキャラ特性ポイントを1p獲得する。覚醒者はノーマルのキャラ特性ポイントを1p失い、キャラ特性を6つ取得していた場合は1つ喪失する】', PSY_TABLE),
+            DiceTable::ChainWithText.new('能力喪失・能力覚醒【能力を持つものは失い、ノーマルは能力に覚醒する。喪失者はノーマルのキャラ特性ポイントを1p獲得する。覚醒者はノーマルのキャラ特性ポイントを1p失い、キャラ特性を6つ取得していた場合は1つ喪失する】', PSY_TABLE),
+          ]
         ),
         "STAG" => DiceTable::D66Table.new(
           "ステージ決定",
