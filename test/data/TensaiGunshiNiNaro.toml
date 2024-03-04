@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN6"
-output = "TN6(4,3) ＞ 成功"
+output = "TN6 ＞ [4,3] ＞ 成功"
 success = true
 rands = [
   { sides = 6, value = 4 },
@@ -11,7 +11,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN6"
-output = "TN6(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN6 ＞ [4,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 fumble = true
 rands = [
@@ -22,7 +22,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN6"
-output = "TN6(3,3) ＞ 失敗"
+output = "TN6 ＞ [3,3] ＞ 失敗"
 failure = true
 rands = [
   { sides = 6, value = 3 },
@@ -32,7 +32,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN6"
-output = "TN6(3,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+output = "TN6 ＞ [3,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
 failure = true
 fumble = true
 rands = [
@@ -43,7 +43,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN6"
-output = "TN6(6,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+output = "TN6 ＞ [6,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
 success = true
 critical = true
 rands = [
@@ -54,7 +54,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN6"
-output = "TN6(6,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN6 ＞ [6,1] ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 critical = true
 fumble = true
@@ -66,7 +66,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10"
-output = "TN10(4,3) ＞ 成功"
+output = "TN10 ＞ [4,3] ＞ 成功"
 success = true
 rands = [
   { sides = 10, value = 4 },
@@ -76,7 +76,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10"
-output = "TN10(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10 ＞ [4,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 fumble = true
 rands = [
@@ -87,7 +87,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10"
-output = "TN10(3,3) ＞ 失敗"
+output = "TN10 ＞ [3,3] ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 3 },
@@ -97,7 +97,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10"
-output = "TN10(3,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+output = "TN10 ＞ [3,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
 failure = true
 fumble = true
 rands = [
@@ -108,7 +108,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10"
-output = "TN10(6,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+output = "TN10 ＞ [6,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
 success = true
 critical = true
 rands = [
@@ -119,7 +119,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10"
-output = "TN10(10,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10 ＞ [10,1] ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 critical = true
 fumble = true
@@ -131,7 +131,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10C"
-output = "TN10C(5,4) ＞ 成功"
+output = "TN10C ＞ [5,4] ＞ 成功"
 success = true
 rands = [
   { sides = 10, value = 5 },
@@ -141,7 +141,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10C"
-output = "TN10C(5,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10C ＞ [5,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 fumble = true
 rands = [
@@ -152,7 +152,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10C"
-output = "TN10C(4,4) ＞ 失敗"
+output = "TN10C ＞ [4,4] ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 4 },
@@ -162,7 +162,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10C"
-output = "TN10C(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+output = "TN10C ＞ [4,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
 failure = true
 fumble = true
 rands = [
@@ -173,7 +173,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10C"
-output = "TN10C(6,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+output = "TN10C ＞ [6,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
 success = true
 critical = true
 rands = [
@@ -184,7 +184,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10C"
-output = "TN10C(10,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10C ＞ [10,1] ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 critical = true
 fumble = true
@@ -196,7 +196,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10S"
-output = "TN10S(3,2) ＞ 成功"
+output = "TN10S ＞ [3,2] ＞ 成功"
 success = true
 rands = [
   { sides = 10, value = 3 },
@@ -206,7 +206,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10S"
-output = "TN10S(3,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10S ＞ [3,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 fumble = true
 rands = [
@@ -217,7 +217,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10S"
-output = "TN10S(2,2) ＞ 失敗"
+output = "TN10S ＞ [2,2] ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 2 },
@@ -227,7 +227,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10S"
-output = "TN10S(2,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+output = "TN10S ＞ [2,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
 failure = true
 fumble = true
 rands = [
@@ -238,7 +238,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10S"
-output = "TN10S(6,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+output = "TN10S ＞ [6,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
 success = true
 critical = true
 rands = [
@@ -249,7 +249,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10S"
-output = "TN10S(10,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10S ＞ [10,1] ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 critical = true
 fumble = true
@@ -261,7 +261,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10B"
-output = "TN10B(4,2) ＞ 成功"
+output = "TN10B ＞ [4,2] ＞ 成功"
 success = true
 rands = [
   { sides = 10, value = 4 },
@@ -271,7 +271,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10B"
-output = "TN10B(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10B ＞ [4,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 fumble = true
 rands = [
@@ -282,7 +282,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10B"
-output = "TN10B(2,2) ＞ 失敗"
+output = "TN10B ＞ [2,2] ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 2 },
@@ -292,7 +292,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10B"
-output = "TN10B(2,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+output = "TN10B ＞ [2,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
 failure = true
 fumble = true
 rands = [
@@ -303,7 +303,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10B"
-output = "TN10B(3,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。そのラウンドの間、自分の【攻撃力】が1点上昇する。この効果は2回まで重複する。）成功"
+output = "TN10B ＞ [3,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。そのラウンドの間、自分の【攻撃力】が1点上昇する。この効果は2回まで重複する。）成功"
 success = true
 critical = true
 rands = [
@@ -314,7 +314,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10B"
-output = "TN10B(3,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。そのラウンドの間、自分の【攻撃力】が1点上昇する。この効果は2回まで重複する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10B ＞ [3,1] ＞ スペシャル（【戦略ポイント】が1点上昇する。そのラウンドの間、自分の【攻撃力】が1点上昇する。この効果は2回まで重複する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 critical = true
 fumble = true
@@ -326,7 +326,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10Y"
-output = "TN10Y(4,2) ＞ 成功"
+output = "TN10Y ＞ [4,2] ＞ 成功"
 success = true
 rands = [
   { sides = 10, value = 4 },
@@ -336,7 +336,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10Y"
-output = "TN10Y(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10Y ＞ [4,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 fumble = true
 rands = [
@@ -347,7 +347,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10Y"
-output = "TN10Y(2,2) ＞ 失敗"
+output = "TN10Y ＞ [2,2] ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 2 },
@@ -357,7 +357,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10Y"
-output = "TN10Y(2,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+output = "TN10Y ＞ [2,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
 failure = true
 fumble = true
 rands = [
@@ -368,7 +368,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10Y"
-output = "TN10Y(3,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。獲得した準英傑に好きな英傑汎用スキルを1つ選んで獲得させることができる。）成功"
+output = "TN10Y ＞ [3,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。獲得した準英傑に好きな英傑汎用スキルを1つ選んで獲得させることができる。）成功"
 success = true
 critical = true
 rands = [
@@ -379,7 +379,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10Y"
-output = "TN10Y(3,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。獲得した準英傑に好きな英傑汎用スキルを1つ選んで獲得させることができる。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10Y ＞ [3,1] ＞ スペシャル（【戦略ポイント】が1点上昇する。獲得した準英傑に好きな英傑汎用スキルを1つ選んで獲得させることができる。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 critical = true
 fumble = true
@@ -391,7 +391,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10A"
-output = "TN10A(4,2) ＞ 成功"
+output = "TN10A ＞ [4,2] ＞ 成功"
 success = true
 rands = [
   { sides = 10, value = 4 },
@@ -401,7 +401,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10A"
-output = "TN10A(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10A ＞ [4,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 fumble = true
 rands = [
@@ -412,7 +412,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10A"
-output = "TN10A(2,2) ＞ 失敗"
+output = "TN10A ＞ [2,2] ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 2 },
@@ -422,7 +422,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10A"
-output = "TN10A(2,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+output = "TN10A ＞ [2,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
 failure = true
 fumble = true
 rands = [
@@ -433,7 +433,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10A"
-output = "TN10A(3,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+output = "TN10A ＞ [3,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
 success = true
 critical = true
 rands = [
@@ -444,7 +444,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10A"
-output = "TN10A(3,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10A ＞ [3,1] ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 critical = true
 fumble = true
@@ -456,7 +456,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10CSBYA"
-output = "TN10CSBYA(5,5) ＞ 成功"
+output = "TN10CSBYA ＞ [5,5] ＞ 成功"
 success = true
 rands = [
   { sides = 10, value = 5 },
@@ -466,7 +466,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10CSBYA"
-output = "TN10CSBYA(5,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10CSBYA ＞ [5,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 fumble = true
 rands = [
@@ -477,7 +477,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10CSBYA"
-output = "TN10CSBYA(4,4) ＞ 失敗"
+output = "TN10CSBYA ＞ [4,4] ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 4 },
@@ -487,7 +487,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10CSBYA"
-output = "TN10CSBYA(4,1) ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+output = "TN10CSBYA ＞ [4,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
 failure = true
 fumble = true
 rands = [
@@ -498,7 +498,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10CSBYA"
-output = "TN10CSBYA(6,2) ＞ スペシャル（【戦略ポイント】が1点上昇する。そのラウンドの間、自分の【攻撃力】が1点上昇する。この効果は2回まで重複する。獲得した準英傑に好きな英傑汎用スキルを1つ選んで獲得させることができる。）成功"
+output = "TN10CSBYA ＞ [6,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。そのラウンドの間、自分の【攻撃力】が1点上昇する。この効果は2回まで重複する。獲得した準英傑に好きな英傑汎用スキルを1つ選んで獲得させることができる。）成功"
 success = true
 critical = true
 rands = [
@@ -509,7 +509,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "TN10CSBYA"
-output = "TN10CSBYA(10,1) ＞ スペシャル（【戦略ポイント】が1点上昇する。そのラウンドの間、自分の【攻撃力】が1点上昇する。この効果は2回まで重複する。獲得した準英傑に好きな英傑汎用スキルを1つ選んで獲得させることができる。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+output = "TN10CSBYA ＞ [10,1] ＞ スペシャル（【戦略ポイント】が1点上昇する。そのラウンドの間、自分の【攻撃力】が1点上昇する。この効果は2回まで重複する。獲得した準英傑に好きな英傑汎用スキルを1つ選んで獲得させることができる。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
 success = true
 critical = true
 fumble = true
@@ -521,7 +521,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "2DM>=3"
-output = "2DM>=3(2) ＞ 2ダメージ, 失敗, 【HP】はそのまま"
+output = "2DM>=3 ＞ 2 ＞ 2ダメージ, 失敗, 【HP】はそのまま"
 failure = true
 rands = [
   { sides = 6, value = 1 },
@@ -531,7 +531,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "2DM>=3"
-output = "2DM>=3(4) ＞ 4ダメージ, 成功, 【HP】が1点減少する"
+output = "2DM>=3 ＞ 4 ＞ 4ダメージ, 成功, 【HP】が1点減少する"
 success = true
 rands = [
   { sides = 6, value = 2 },
@@ -541,7 +541,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "2DM>=3"
-output = "2DM>=3(8) ＞ 8ダメージ, 成功, 【HP】が2点減少する"
+output = "2DM>=3 ＞ 8 ＞ 8ダメージ, 成功, 【HP】が2点減少する"
 success = true
 rands = [
   { sides = 6, value = 4 },
@@ -551,7 +551,7 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "2DM>=3"
-output = "2DM>=3(10) ＞ 10ダメージ, 成功, 【HP】が3点減少する"
+output = "2DM>=3 ＞ 10 ＞ 10ダメージ, 成功, 【HP】が3点減少する"
 success = true
 rands = [
   { sides = 6, value = 5 },
@@ -561,12 +561,18 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "2DM>=3"
-output = "2DM>=3(12) ＞ 12ダメージ, 成功, 【HP】が3点減少する"
+output = "2DM>=3 ＞ 12 ＞ 12ダメージ, 成功, 【HP】が3点減少する"
 success = true
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "2DM+3>=3"
+output = ""
+rands = []
 
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"

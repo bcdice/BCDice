@@ -48,7 +48,7 @@ module BCDice
         @round_type = RoundType::FLOOR
       end
 
-      register_prefix('TN(6|10)[CSBYA]*', '(\d)DM')
+      register_prefix('TN(6|10)[CSBYA]*', '\d+DM')
 
       def eval_game_system_specific_command(command)
         roll_judge(command) || roll_damage(command) || roll_tables(command, self.class::TABLES)
@@ -58,8 +58,8 @@ module BCDice
 
       # 行為判定
       def roll_judge(command)
-        # 特定の書式の場合のみ実行
-        unless /^TN(6|10)[CSBYA]*$/.match(command)
+        m = /^TN(6|10)([CSBYA]*)$/.match(command)
+        unless m
           return nil
         end
 
@@ -73,22 +73,22 @@ module BCDice
         fumble_dices = [1]
 
         # 有利
-        advantage = /10/.match(command) ? true : false
+        advantage = m[1] == "10"
 
         # 不調 気づかぬうちの不満
-        complaints = /C/i.match(command) ? true : false
+        complaints = m[2].include?("C")
 
         # 軍師スキル 〇〇サポート
-        support = /S/i.match(command) ? true : false
+        support = m[2].include?("S")
 
         # 英傑スキル/武人 煌めく刃
-        blade = /B/i.match(command) ? true : false
+        blade = m[2].include?("B")
 
         # 英傑スキル/カリスマ 御身のためならば
-        you = /Y/i.match(command) ? true : false
+        you = m[2].include?("Y")
 
         # 英傑スキル/英傑汎用 凄腕エージェント
-        agent = /A/i.match(command) ? true : false
+        agent = m[2].include?("A")
 
         # 〇〇サポート、煌めく刃、御身のためならば、凄腕エージェントいずれかの適用時
         if support | blade | you | agent
@@ -157,11 +157,9 @@ module BCDice
 
         return Result.new.tap do |r|
           # テキストを整形
-          r.text = "#{command}(#{dice_list.join(',')}) ＞ #{texts.join('')}"
+          r.text = "#{command} ＞ [#{dice_list.join(',')}] ＞ #{texts.join('')}"
           # 各種成否を格納
           r.condition = is_success
-          r.success = is_success
-          r.failure = !is_success
           r.critical = is_critical
           r.fumble = is_fumble
         end
@@ -171,6 +169,7 @@ module BCDice
       def roll_damage(command)
         parser = Command::Parser.new("DM", round_type: @round_type)
                                 .has_prefix_number
+                                .disable_modifier
                                 .restrict_cmp_op_to(:>=)
         parsed = parser.parse(command)
         unless parsed
@@ -201,11 +200,9 @@ module BCDice
 
         return Result.new.tap do |r|
           # テキストを整形
-          r.text = "#{command}(#{damage}) ＞ #{text}"
+          r.text = "#{command} ＞ #{damage} ＞ #{text}"
           # 各種成否を格納
           r.condition = is_success
-          r.success = is_success
-          r.failure = !is_success
         end
       end
 
