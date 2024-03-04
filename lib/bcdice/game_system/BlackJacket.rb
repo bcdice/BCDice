@@ -36,7 +36,7 @@ module BCDice
         'BJ',
         'DC[LSC]',
         'CPC',
-        'STC',
+        'STC'
       )
 
       def eval_game_system_specific_command(command)

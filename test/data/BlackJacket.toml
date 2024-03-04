@@ -760,9 +760,25 @@ rands = [
 [[ test ]]
 game_system = "BlackJacket"
 input = "CPC"
+output = "チャレンジ・ペナルティ・チャート(1) ＞ 逝去\n助けるべきＮＰＣ（ヒロインなど）が死亡する。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "CPC"
 output = "チャレンジ・ペナルティ・チャート(10) ＞ 封印\n決戦フェイズの間、PCはカルマを使用できない。決戦フェイズを開始する。"
 rands = [
   { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "STC"
+output = "サイドトラック・チャート(1) ＞ 邂逅\n偶然、ＮＰＣと出会う。どのＮＰＣが現れるかはGMが決定すること。"
+rands = [
+  { sides = 10, value = 1 },
 ]
 
 [[ test ]]
