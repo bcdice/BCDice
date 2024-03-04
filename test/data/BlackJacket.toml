@@ -8,6 +8,16 @@ rands = [
 
 [[ test ]]
 game_system = "BlackJacket"
+input = "bj"
+output = ""
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
 input = "bj38"
 output = "行為判定(成功率:38％) ＞ 1D100[3,9]=39 ＞ 39 ＞ 失敗"
 failure = true
@@ -403,6 +413,14 @@ critical = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCA"
+output = ""
+rands = [
+  { sides = 10, value = 1 },
 ]
 
 [[ test ]]
