@@ -32,22 +32,8 @@ module BCDice
         ・サイドトラック・チャート（STC）
       INFO_MESSAGE_TEXT
 
-      register_prefix(
-        'BJ',
-        'DC[LSC]',
-        'CPC',
-        'STC'
-      )
-
       def eval_game_system_specific_command(command)
-        case command
-        when /^BJ/i
-          resolute_action(command)
-        when /^DC\w/i
-          roll_death_chart(command)
-        else
-          roll_tables(command, TABLES)
-        end
+        resolute_action(command) || roll_death_chart(command) || roll_tables(command, TABLES)
       end
 
       private
@@ -247,6 +233,12 @@ module BCDice
           ]
         ),
       }.freeze
+
+      register_prefix(
+        'BJ',
+        'DC[LSC]',
+        TABLES.keys
+      )
     end
   end
 end
