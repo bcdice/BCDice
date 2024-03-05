@@ -1,0 +1,808 @@
+[[ test ]]
+game_system = "BlackJacket"
+input = "1D6"
+output = "(1D6) ＞ 2"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj"
+output = ""
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj38"
+output = "行為判定(成功率:38％) ＞ 1D100[3,9]=39 ＞ 39 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj38"
+output = "行為判定(成功率:38％) ＞ 1D100[4,4]=44 ＞ 44 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj38"
+output = "行為判定(成功率:38％) ＞ 1D100[3,8]=38 ＞ 38 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj38"
+output = "行為判定(成功率:38％) ＞ 1D100[3,7]=37 ＞ 37 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj38"
+output = "行為判定(成功率:38％) ＞ 1D100[3,4]=34 ＞ 34 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj38"
+output = "行為判定(成功率:38％) ＞ 1D100[3,3]=33 ＞ 33 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj38"
+output = "行為判定(成功率:38％) ＞ 1D100[3,2]=32 ＞ 32 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj38+1"
+output = "行為判定(成功率:39％) ＞ 1D100[3,9]=39 ＞ 39 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj38-2"
+output = "行為判定(成功率:36％) ＞ 1D100[3,7]=37 ＞ 37 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj40+20-13"
+output = "行為判定(成功率:47％) ＞ 1D100[4,8]=48 ＞ 48 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj40+20-13"
+output = "行為判定(成功率:47％) ＞ 1D100[6,6]=66 ＞ 66 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj40+20-13"
+output = "行為判定(成功率:47％) ＞ 1D100[4,7]=47 ＞ 47 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj40+20-13"
+output = "行為判定(成功率:47％) ＞ 1D100[4,5]=45 ＞ 45 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj40+20-13"
+output = "行為判定(成功率:47％) ＞ 1D100[4,4]=44 ＞ 44 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj40+20-13"
+output = "行為判定(成功率:47％) ＞ 1D100[4,3]=43 ＞ 43 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj7"
+output = "行為判定(成功率:7％) ＞ 1D100[0,7]=07 ＞ 07 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj7"
+output = "行為判定(成功率:7％) ＞ 1D100[0,8]=08 ＞ 08 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj1"
+output = "行為判定(成功率:1％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj1"
+output = "行為判定(成功率:1％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ミザリー！ パワーの代償２倍＆振り直し不可"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj0"
+output = "行為判定(成功率:0％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 失敗 ＞ ファンブル！ パワーの代償２倍＆振り直し不可"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj0"
+output = "行為判定(成功率:0％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ミザリー！ パワーの代償２倍＆振り直し不可"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj99"
+output = "行為判定(成功率:99％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj99"
+output = "行為判定(成功率:99％) ＞ 1D100[9,0]=90 ＞ 90 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 0 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj99"
+output = "行為判定(成功率:99％) ＞ 1D100[0,9]=09 ＞ 09 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 0 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj99"
+output = "行為判定(成功率:99％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ミザリー！ パワーの代償２倍＆振り直し不可"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 0 },
+  { sides = 10, value = 0 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj100"
+output = "行為判定(成功率:100％) ＞ 1D100[9,8]=98 ＞ 98 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj100"
+output = "行為判定(成功率:100％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj100"
+output = "行為判定(成功率:100％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ミザリー！ パワーの代償２倍＆振り直し不可"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 0 },
+  { sides = 10, value = 0 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj101"
+output = "行為判定(成功率:101％) ＞ 1D100[8,9]=89 ＞ 89 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj101"
+output = "行為判定(成功率:101％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj101"
+output = "行為判定(成功率:101％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ミザリー！ パワーの代償２倍＆振り直し不可"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj101"
+output = "行為判定(成功率:101％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj201"
+output = "行為判定(成功率:201％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj100-5+10"
+output = "行為判定(成功率:105％) ＞ 1D100[9,8]=98 ＞ 98 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj100-5+10"
+output = "行為判定(成功率:105％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj100-5+10"
+output = "行為判定(成功率:105％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 失敗 ＞ ミザリー！ パワーの代償２倍＆振り直し不可"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj100-5+10"
+output = "行為判定(成功率:105％) ＞ 1D100[0,5]=05 ＞ 05 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "bj200-5+10"
+output = "行為判定(成功率:205％) ＞ 1D100[0,5]=05 ＞ 05 ＞ 成功 ＞ クリティカル！ パワーの代償１／２"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCA"
+output = ""
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL1"
+output = "デスチャート（肉体）[マイナス値:1 + 1D10(->1) = 2] ＞ 10以下 ： 何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL8"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->1) = 9] ＞ 10以下 ： 何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL9"
+output = "デスチャート（肉体）[マイナス値:9 + 1D10(->1) = 10] ＞ 10 ： 何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL8"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->2) = 10] ＞ 10 ： 何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。"
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL8"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 激痛が走る。以後、イベント終了時まで、全ての判定の成功率－10％。"
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL8"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->4) = 12] ＞ 12 ： もう、体が動かない……。キミは［硬直２］を受ける。"
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL8"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->5) = 13] ＞ 13 ： 渾身の一撃!!　キミは〈生存〉判定を行なう。失敗した場合、［死亡］する。"
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL8"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->6) = 14] ＞ 14 ： 突然、目の前が真っ暗になった。キミは［気絶２］を受ける。"
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL8"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->7) = 15] ＞ 15 ： 以後、イベント終了時まで、全ての判定の成功率－20％。"
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL8"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->8) = 16] ＞ 16 ： 記録的一撃!!　キミは〈生存〉－20％の判定を行なう。失敗した場合、［死亡］する。"
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL8"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->9) = 17] ＞ 17 ： 生きているのか死んでいるのか。キミは［瀕死２］を受ける。"
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL8"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->10) = 18] ＞ 18 ： 叙事詩的一撃!!　キミは〈生存〉－30％の判定を行なう。失敗した場合、［死亡］する。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL9"
+output = "デスチャート（肉体）[マイナス値:9 + 1D10(->10) = 19] ＞ 19 ： 以後、イベント終了時まで、全ての判定の成功率－30％。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL10"
+output = "デスチャート（肉体）[マイナス値:10 + 1D10(->10) = 20] ＞ 20 ： 神話的一撃!!　キミは宙を舞って三回転ほどした後、地面に叩きつけられる。見るも無惨な姿。肉体は原型を留めていない（キミは［死亡］した）。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL11"
+output = "デスチャート（肉体）[マイナス値:11 + 1D10(->10) = 21] ＞ 20以上 ： 神話的一撃!!　キミは宙を舞って三回転ほどした後、地面に叩きつけられる。見るも無惨な姿。肉体は原型を留めていない（キミは［死亡］した）。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS8"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->1) = 9] ＞ 10以下 ： 何も無し。キミは歯を食いしばってストレスに耐えた。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS8"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->2) = 10] ＞ 10 ： 何も無し。キミは歯を食いしばってストレスに耐えた。"
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS8"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 以後、イベント終了時まで、全ての判定の成功率－10％。"
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS8"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->4) = 12] ＞ 12 ： 云い知れぬ恐怖がキミを襲う。キミは［恐怖２］を受ける。"
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS8"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->5) = 13] ＞ 13 ： とても傷ついた。キミは〈意思〉判定を行なう。失敗した場合、［絶望］してNPCとなる。"
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS8"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->6) = 14] ＞ 14 ： キミは意識を失った。キミは［気絶２］を受ける。"
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS8"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->7) = 15] ＞ 15 ： 以後、イベント終了時まで、全ての判定の成功率－20％。"
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS8"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->8) = 16] ＞ 16 ： 信じる者にだまされたような痛み。キミは〈意思〉－20％の判定を行なう。失敗した場合、［絶望］してＮＰＣとなる。"
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS8"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->9) = 17] ＞ 17 ： 仲間に裏切られたのかも知れない。キミは［混乱２］を受ける。"
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS8"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->10) = 18] ＞ 18 ： あまりに残酷な現実。キミは〈意思〉－30％の判定を行なう。失敗した場合、［絶望］してＮＰＣとなる。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS9"
+output = "デスチャート（精神）[マイナス値:9 + 1D10(->10) = 19] ＞ 19 ： 以後、イベント終了時まで、全ての判定の成功率－30％。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS10"
+output = "デスチャート（精神）[マイナス値:10 + 1D10(->10) = 20] ＞ 20 ： 宇宙開闢の理に触れるも、それは人類の認識限界を超える何かであった。キミは［絶望］し、以後ＮＰＣとなる。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS11"
+output = "デスチャート（精神）[マイナス値:11 + 1D10(->10) = 21] ＞ 20以上 ： 宇宙開闢の理に触れるも、それは人類の認識限界を超える何かであった。キミは［絶望］し、以後ＮＰＣとなる。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC8"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->1) = 9] ＞ 10以下 ： 何も無し。キミは黒い噂を握りつぶした。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC8"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->2) = 10] ＞ 10 ： 何も無し。キミは黒い噂を握りつぶした。"
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC8"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 以後、イベント終了時まで、全ての判定の成功率－10％。"
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC8"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->4) = 12] ＞ 12 ： ピンチ！　以後、ラウンド終了時まで、キミはカルマを使用できない。"
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC8"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->5) = 13] ＞ 13 ： 悪い噂が流れる。キミは〈交渉〉判定を行なう。失敗した場合、キミは仲間からの信頼を失って［無縁］され、ＮＰＣとなる。"
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC8"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->6) = 14] ＞ 14 ： 以後、イベント終了時まで、代償にクレジットを消費するパワーを使用できない。"
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC8"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->7) = 15] ＞ 15 ： キミの悪評が世間に知れ渡る。協力者からの支援が打ち切られる。以後、シナリオ終了時まで、全ての判定の成功率－20％。"
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC8"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->8) = 16] ＞ 16 ： 裏切り!!　キミは〈経済〉－20％の判定を行なう。失敗した場合、キミは周囲からの信頼を失い、［無縁］され、ＮＰＣとなる。"
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC8"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->9) = 17] ＞ 17 ： 以後、シナリオ終了時まで、【環境】系の技能のレベルがすべて０となる。"
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC8"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->10) = 18] ＞ 18 ： 捏造報道？　身に覚えのない背信行為がスクープとして報道される。キミは〈心理〉－30％の判定を行なう。失敗した場合、キミは人としての尊厳を失い、［無縁］を受ける。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC9"
+output = "デスチャート（環境）[マイナス値:9 + 1D10(->10) = 19] ＞ 19 ： 以後、イベント終了時まで、全ての判定の成功率－30％。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC10"
+output = "デスチャート（環境）[マイナス値:10 + 1D10(->10) = 20] ＞ 20 ： キミの名は史上最悪の汚点として歴史に刻まれる。もはらキミを信じる仲間はなく、キミを助ける社会もない。キミは［無縁］され、以後ＮＰＣとなる。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC11"
+output = "デスチャート（環境）[マイナス値:11 + 1D10(->10) = 21] ＞ 20以上 ： キミの名は史上最悪の汚点として歴史に刻まれる。もはらキミを信じる仲間はなく、キミを助ける社会もない。キミは［無縁］され、以後ＮＰＣとなる。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCL8"
+output = "デスチャート（肉体）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 激痛が走る。以後、イベント終了時まで、全ての判定の成功率－10％。"
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCS8"
+output = "デスチャート（精神）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 以後、イベント終了時まで、全ての判定の成功率－10％。"
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "DCC8"
+output = "デスチャート（環境）[マイナス値:8 + 1D10(->3) = 11] ＞ 11 ： 以後、イベント終了時まで、全ての判定の成功率－10％。"
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "CPC"
+output = "チャレンジ・ペナルティ・チャート(1) ＞ 逝去\n助けるべきＮＰＣ（ヒロインなど）が死亡する。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "CPC"
+output = "チャレンジ・ペナルティ・チャート(10) ＞ 封印\n決戦フェイズの間、PCはカルマを使用できない。決戦フェイズを開始する。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "STC"
+output = "サイドトラック・チャート(1) ＞ 邂逅\n偶然、ＮＰＣと出会う。どのＮＰＣが現れるかはGMが決定すること。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket"
+input = "STC"
+output = "サイドトラック・チャート(10) ＞ 平和\n特に何も起きなかった。"
+rands = [
+  { sides = 10, value = 10 },
+]
