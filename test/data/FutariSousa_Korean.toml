@@ -253,17 +253,19 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "SHND"
-output = "신・기벽 결정 표(6) ＞ 「기벽・갑자기 왜 그래 표」를 사용한다."
+output = "신・기벽 결정 표(6) ＞ 기벽・갑자기 왜 그래 표(10) ＞ 파트너와의 관계를 재고한다."
 rands = [
   { sides = 6, value = 6 },
+  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "SHAD"
-output = "평범한(?)・기벽 표(6) ＞ 「기벽・노 타임 표」를 사용한다."
+output = "평범한(?)・기벽 표(6) ＞ 기벽・노 타임 표(10) ＞ 사람들에게 이것저것 시키는데, 시키는 이유는 설명하지 않는다."
 rands = [
   { sides = 6, value = 6 },
+  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
@@ -272,6 +274,7 @@ input = "SHKD"
 output = "형사 기벽 결정 표(6) ＞ 이 표에서 주사위를 다시 굴린다"
 rands = [
   { sides = 6, value = 6 },
+  { sides = 10, value = 10 }
 ]
 
 [[ test ]]
@@ -846,8 +849,10 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa:Korean"
 input = "FLTRA"
-output = "무작위 감정 결정 표（당친법）(6) ＞ 추가 감정 표・헤비 웨이트를 사용한다."
+output = "무작위 감정 결정 표（당친법）(6) ＞ 추가 감정 표・헤비 웨이트(66) ＞ 자신의 모든 것을 바치고 싶다고 생각한 순간"
 rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
 
