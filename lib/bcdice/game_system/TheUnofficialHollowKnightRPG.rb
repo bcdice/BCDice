@@ -14,7 +14,7 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        ・能力値判定　[n]AD[+b][(r)][>=t]
+        ・能力値判定　[n]AD[+b][#r][>=t]
         　n: 能力値。小数可。省略不可。
         　b: ボーナス、ペナルティダイス。省略可。
         　r: 追加リロールダイス数。省略可。
@@ -27,7 +27,7 @@ module BCDice
         　振り直しを行ったうえでイニシアチブ値を計算。
       INFO_MESSAGE_TEXT
 
-      register_prefix('(\d+\.?\d*)?(AD|ad)([+-](\d+))?(\((\d*)\))?(>=(\d+))?', '(\d+\.?\d*)?(INTI|inti)')
+      register_prefix('(\d+\.?\d*)?AD([+-](\d+))?(#(\d*))?(>=(\d+))?', '(\d+\.?\d*)?(INTI|inti)')
 
       def initialize(command)
         super(command)
@@ -53,7 +53,7 @@ module BCDice
         if number == 0
           return ""
         elsif number > 0
-          return "(#{number})"
+          return "\##{number}"
         else
           return number.to_s
         end
@@ -61,15 +61,15 @@ module BCDice
 
       # 能力値ロール
       def ability_roll(command)
-        m = /^(\d+\.?\d*)?(AD|ad)([+-](\d+))?(\((\d*)\))?(>=(\d+))?/.match(command)
+        m = /^(\d+\.?\d*)?AD([+-](\d+))?(#(\d*))?(>=(\d+))?/.match(command)
         unless m
           return nil
         end
 
         num_of_die = m[1].to_f
         bonus = m[3].to_i
-        reroll = m[6].to_i
-        difficulty = m[8].to_i
+        reroll = m[5].to_i
+        difficulty = m[7].to_i
 
         if /\.[1-9]+/ =~ num_of_die.to_s
           dice_command = "#{num_of_die}AD#{number_with_sign_from_int(bonus)}#{number_with_reroll_from_int(reroll)}"
