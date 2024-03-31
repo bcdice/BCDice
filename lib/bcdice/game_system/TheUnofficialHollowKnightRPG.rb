@@ -75,7 +75,7 @@ module BCDice
           dice_command = "#{num_of_die}AD#{number_with_sign_from_int(bonus)}#{number_with_reroll_from_int(reroll)}"
           reroll += 1
         else
-          dice_command = "#{num_of_die.to_i}AD#{number_with_sign_from_int(bonus)}#{reroll}"
+          dice_command = "#{num_of_die.to_i}AD#{number_with_sign_from_int(bonus)}#{number_with_reroll_from_int(reroll)}"
         end
 
         if difficulty == 0
