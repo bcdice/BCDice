@@ -10,7 +10,7 @@ module BCDice
       NAME = 'TheUnofficialHollowKnightRPG'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'TheUnofficialHollowKnightRPG'
+      SORT_KEY = '国際化:English:TheUnofficialHollowKnightRPG'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
@@ -84,30 +84,30 @@ module BCDice
           dice_command += ">=#{difficulty}"
         end
 
-        #振られたダイスを入れる
-        values = @randomizer.roll_barabara(num_of_die.to_i+bonus, 6)
-        #成功数
-        result = values.count{ |num| num >= difficulty }
+        # 振られたダイスを入れる
+        values = @randomizer.roll_barabara(num_of_die.to_i + bonus, 6)
+        # 成功数
+        result = values.count { |num| num >= difficulty }
 
-        #ロールの結果の文字列
+        # ロールの結果の文字列
         rolled_text = "[" + values.join(",") + "]"
-        
+
         reroll_values = []
 
         if reroll == 1
           reroll_values.push(@randomizer.roll_once(6))
         elsif reroll > 1
-          reroll_values += (@randomizer.roll_barabara(reroll, 6))
+          reroll_values += @randomizer.roll_barabara(reroll, 6)
         end
 
-        result += reroll_values.count{ |num| num >= difficulty }
+        result += reroll_values.count { |num| num >= difficulty }
 
-        #リロールの結果の文字列をロールの結果の文字列に追加する
-        if reroll_values.length != 0
+        # リロールの結果の文字列をロールの結果の文字列に追加する
+        if reroll_values.empty?
           rolled_text += " Reroll [" + reroll_values.join(",") + "]"
         end
 
-        #結果
+        # 結果
         return "(#{dice_command}) > #{rolled_text} > #{result}成功"
       end
 
@@ -123,7 +123,7 @@ module BCDice
 
         if /\.[1-9]+/ =~ grace.to_s
           reroll += 1
-          dice_command = "(#{grace.to_s}INTI)"
+          dice_command = "(#{grace}INTI)"
         else
           dice_command = "(#{grace.to_i}INTI)"
         end
@@ -136,10 +136,10 @@ module BCDice
         end
 
         result = 0
-        unless revalue == 0
-          min = values.min
-        else
+        if revalue == 0
           min = 0
+        else
+          min = values.min
         end
 
         res_text = "["
@@ -149,12 +149,12 @@ module BCDice
               res_text += "#{min}<<#{revalue}"
               result += revalue
             else
-              res_text += "#{min}"
+              res_text += min.to_s
               result += min
             end
             min = 0
           else
-            res_text += "#{value}"
+            res_text += value.to_s
             result += value
           end
 
