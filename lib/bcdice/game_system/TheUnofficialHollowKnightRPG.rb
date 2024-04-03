@@ -103,7 +103,7 @@ module BCDice
         result += reroll_values.count { |num| num >= difficulty }
 
         # リロールの結果の文字列をロールの結果の文字列に追加する
-        if reroll_values.empty?
+        unless reroll_values.empty?
           rolled_text += " Reroll [" + reroll_values.join(",") + "]"
         end
 
