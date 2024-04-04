@@ -87,7 +87,8 @@ module BCDice
         # 振られたダイスを入れる
         values = @randomizer.roll_barabara(num_of_die.to_i + bonus, 6)
         # 成功数
-        result = values.count { |num| num >= difficulty }
+        result = values.count{ |num| num >= difficulty }
+        failed_roll = num_of_die.to_i - result
 
         # ロールの結果の文字列
         rolled_text = "[" + values.join(",") + "]"
@@ -100,7 +101,11 @@ module BCDice
           reroll_values += @randomizer.roll_barabara(reroll, 6)
         end
 
-        result += reroll_values.count { |num| num >= difficulty }
+        reroll_result = reroll_values.count { |num| num >= difficulty }
+        if failed_roll < reroll_result
+          reroll_result = failed_roll
+        end
+        result += reroll_result
 
         # リロールの結果の文字列をロールの結果の文字列に追加する
         unless reroll_values.empty?

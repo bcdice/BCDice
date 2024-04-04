@@ -37,8 +37,19 @@ rands = [
 
 [[ test ]]
 game_system = "TheUnofficialHollowKnightRPG"
+input = "3.5AD"
+output = "(3.5AD) > [6,6,6] Reroll [5] > 3成功"
+rands = [
+    { sides = 6, value = 6},
+    { sides = 6, value = 6},
+    { sides = 6, value = 6},
+    { sides = 6, value = 5},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
 input = "3.5AD>=1"
-output = "(3.5AD>=1) > [6,6,1] Reroll [5] > 4成功"
+output = "(3.5AD>=1) > [6,6,1] Reroll [5] > 3成功"
 rands = [
     { sides = 6, value = 6},
     { sides = 6, value = 6},
