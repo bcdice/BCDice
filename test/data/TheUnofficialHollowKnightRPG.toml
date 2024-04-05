@@ -154,3 +154,73 @@ rands = [
     { sides = 6, value = 5},
     { sides = 6, value = 1},
 ]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI+1"
+output = "(2.5INTI+1) > [3,5,4] > 12"
+rands = [
+    { sides = 6, value = 3},
+    { sides = 6, value = 5},
+    { sides = 6, value = 4},
+    { sides = 6, value = 1},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI#1"
+output = "(2.5INTI#1) > [3,5] > 8"
+rands = [
+    { sides = 6, value = 3},
+    { sides = 6, value = 5},
+    { sides = 6, value = 1},
+    { sides = 6, value = 2},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI#4"
+output = "(2.5INTI#4) > [3,5] > 8"
+rands = [
+    { sides = 6, value = 3},
+    { sides = 6, value = 5},
+    { sides = 6, value = 1},
+    { sides = 6, value = 1},
+    { sides = 6, value = 1},
+    { sides = 6, value = 1},
+    { sides = 6, value = 1},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI#1"
+output = "(2.5INTI#1) > [2<<3,1<<4] > 7"
+rands = [
+    { sides = 6, value = 2},
+    { sides = 6, value = 1},
+    { sides = 6, value = 3},
+    { sides = 6, value = 4},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI+1#1"
+output = "(2.5INTI+1#1) > [2<<3,4,1<<4] > 11"
+rands = [
+    { sides = 6, value = 2},
+    { sides = 6, value = 4}
+    { sides = 6, value = 1},
+    { sides = 6, value = 3},
+    { sides = 6, value = 4},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI#1"
+output = "(2.5INTI#1) > [2<<3,4] > 7"
+rands = [
+    { sides = 6, value = 2},
+    { sides = 6, value = 4}
+    { sides = 6, value = 1},
+    { sides = 6, value = 3},
+]

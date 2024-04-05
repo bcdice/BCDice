@@ -20,14 +20,17 @@ module BCDice
         　r: 追加リロールダイス数。省略可。
         　t: 目標値。>=含めて省略可。
         　成功数を判定。
-        　例）1AD, 2.5AD, 1.5AD+1, 2AD(1), 2.5AD+2(2)>=4
+        　例）1AD, 2.5AD, 1.5AD+1, 2AD#1, 2.5AD+2#2>=4
 
-        ・イニシアチブ　[grace]INTI
-        　grace: キャラクターの優雅の値
+        ・イニシアチブ　[n]INTI[+b][#r]
+        　n: イニシアチブに使う能力値。省略不可。
+          b: ボーナス、ペナルティダイス。省略可。
+          r: 追加リロールダイス数。省略可。
         　振り直しを行ったうえでイニシアチブ値を計算。
+        　例）1INTI, 2.5INTI, 1.5INTI+1, 2INTI#1, 2.5INTI+2#2
       INFO_MESSAGE_TEXT
 
-      register_prefix('(\d+\.?\d*)?AD([+-](\d+))?(#(\d*))?(>=(\d+))?', '(\d+\.?\d*)?(INTI|inti)')
+      register_prefix('(\d+\.?\d*)?AD([+-](\d+))?(#(\d+))?(>=(\d+))?', '(\d+\.?\d*)?(INTI|inti)([+-](\d+))?(#(\d+))?')
 
       def initialize(command)
         super(command)
@@ -43,7 +46,9 @@ module BCDice
         if number == 0
           return ""
         elsif number > 0
-          return "+#{number}"
+          return "+#{number.abs}"
+        elsif number < 0
+          return "-#{number.abs}"
         else
           return number.to_s
         end
@@ -87,7 +92,7 @@ module BCDice
         # 振られたダイスを入れる
         values = @randomizer.roll_barabara(num_of_die.to_i + bonus, 6)
         # 成功数
-        result = values.count{ |num| num >= difficulty }
+        result = values.count { |num| num >= difficulty }
         failed_roll = num_of_die.to_i - result
 
         # ロールの結果の文字列
@@ -118,49 +123,54 @@ module BCDice
 
       # イニシアチブロール
       def initiative_roll(command)
-        m = /^(\d+\.?\d*)?(INTI|inti)/.match(command)
+        m = /^(\d+\.?\d*)?(INTI|inti)([+-](\d+))?(#(\d+))?/.match(command)
         unless m
           return nil
         end
 
         grace = m[1].to_f
-        reroll = 0
+        bonus = m[3].to_i
+        reroll = m[6].to_i
 
         if /\.[1-9]+/ =~ grace.to_s
+          dice_command = "(#{grace}INTI#{number_with_sign_from_int(bonus)}#{number_with_reroll_from_int(reroll)})"
           reroll += 1
-          dice_command = "(#{grace}INTI)"
         else
-          dice_command = "(#{grace.to_i}INTI)"
+          dice_command = "(#{grace.to_i}INTI#{number_with_sign_from_int(bonus)}#{number_with_reroll_from_int(reroll)})"
         end
 
-        values = @randomizer.roll_barabara(grace, 6)
+        values = @randomizer.roll_barabara(grace + bonus, 6)
 
-        revalue = 0
-        if reroll == 1
-          revalue = @randomizer.roll_once(6)
+        revalue = []
+        unless reroll == 0
+          revalue = @randomizer.roll_barabara(reroll, 6)
         end
+        revalue = revalue.sort
 
         result = 0
-        if revalue == 0
-          min = 0
-        else
-          min = values.min
-        end
 
         res_text = "["
         values.each do |value|
-          if value == min
-            if revalue > min
-              res_text += "#{min}<<#{revalue}"
-              result += revalue
-            else
-              res_text += min.to_s
-              result += min
-            end
-            min = 0
-          else
+          if revalue.empty? # リロールがなければ
             res_text += value.to_s
             result += value
+          else # リロールがあったら
+            is_min = false
+            index = -1
+            revalue.each do |re|
+              index += 1
+              next unless re > value # リロールしたダイス最小値か
+
+              res_text += "#{value}<<#{re}"
+              result += re
+              revalue.delete_at(index)
+              is_min = true
+              break
+            end
+            unless is_min # 最小値でなかったら
+              res_text += value.to_s
+              result += value
+            end
           end
 
           res_text += ","
