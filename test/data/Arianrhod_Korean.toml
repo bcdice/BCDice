@@ -27,7 +27,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Arianrhod_Korean"
+game_system = "Arianrhod:Korean"
 input = "1D6>=3"
 output = "(1D6>=3) ＞ 6 ＞ 성공"
 success = true
@@ -36,7 +36,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Arianrhod_Korean"
+game_system = "Arianrhod:Korean"
 input = "2D6>=7"
 output = "(2D6>=7) ＞ 5[2,3] ＞ 5 ＞ 실패"
 failure = true
@@ -46,7 +46,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Arianrhod_Korean"
+game_system = "Arianrhod:Korean"
 input = "2D6>=7"
 output = "(2D6>=7) ＞ 7[3,4] ＞ 7 ＞ 성공"
 success = true
@@ -56,7 +56,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Arianrhod_Korean"
+game_system = "Arianrhod:Korean"
 input = "2D6>=7"
 output = "(2D6>=7) ＞ 2[1,1] ＞ 2 ＞ 펌블"
 failure = true
@@ -67,7 +67,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Arianrhod_Korean"
+game_system = "Arianrhod:Korean"
 input = "2D6>=7"
 output = "(2D6>=7) ＞ 12[6,6] ＞ 12 ＞ 크리티컬(+2D6)"
 success = true
@@ -78,7 +78,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "Arianrhod_Korean"
+game_system = "Arianrhod:Korean"
 input = "3D6>=10"
 output = "(3D6>=10) ＞ 4[1,1,2] ＞ 4 ＞ 실패"
 failure = true
