@@ -21,27 +21,10 @@ module BCDice
       def initialize(command)
         super(command)
 
-        @sort_add_dice = true
-        @d66_sort_type = D66SortType::NO_SORT
+        @locale = :ko_kr
       end
 
-      def result_nd6(total, _dice_total, dice_list, cmp_op, target)
-        n_max = dice_list.count(6)
-
-        if dice_list.count(1) == dice_list.size
-          # 全部１の目ならファンブル
-          Result.fumble(translate("fumble"))
-        elsif n_max >= 2
-          # ２個以上６の目があったらクリティカル
-          Result.critical(translate("Arianrhod.critical", dice: n_max))
-        elsif cmp_op != :>= || target == '?'
-          nil
-        elsif total >= target
-          Result.success(translate("success"))
-        else
-          Result.failure(translate("failure"))
-        end
-      end
+      register_prefix_from_super_class()
     end
   end
 end
