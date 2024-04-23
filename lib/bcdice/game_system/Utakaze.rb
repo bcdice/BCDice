@@ -28,10 +28,11 @@ module BCDice
           例）3UK@5 ：龍のダイス「月」でクリティカルコール宣言したサイコロ3個の行為判定
          ・対抗判定ロール(nUR[@c]) n:ダイス数 c:クリティカルコール
          　行為判定ロールと同様にロールするが、最期に成功レベルとセット数から求めたマジックナンバーが表示される。
-         　マジックナンバーの最も大きいものが成功、同値は引き分け。
+         　マジックナンバーの大きいものが成功、同値は引き分け。
+         　ダイスは18個まで対応。
       MESSAGETEXT
 
-      register_prefix('\d*U[KR]')
+      register_prefix('\d*U[KRO]')
 
       def eval_game_system_specific_command(command)
         debug('eval_game_system_specific_command command', command)
@@ -109,7 +110,7 @@ module BCDice
 
       # 対抗判定
       def opposed_roll(command)
-        m = /^(\d+)?UR(@?(\d))?$/i.match(command)
+        m = /^(\d+)?U[R|O](@?(\d))?$/i.match(command)
         return nil unless m
 
         base = (m[1] || 2).to_i
