@@ -118,7 +118,7 @@ module BCDice
         base = getValue(base)
         crit = getValue(crit)
 
-        return nil if base < 1
+        return nil if base < 1 || base > 18
 
         crit = 6 if crit > 6
 
