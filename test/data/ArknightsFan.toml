@@ -56,6 +56,14 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
+input = "AD<=5"
+output = "(AD<=5) ＞ 9 ＞ 失敗"
+rands = [
+  { sides = 100, value = 9 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
 input = "AB<=70"
 output = "(AB<=70) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
 rands = [
@@ -144,6 +152,36 @@ rands = [
   { sides = 100, value = 100 },
   { sides = 100, value = 50 },
   { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=5"
+output = "(3AB100<=5) ＞ [9,10,11] ＞ 0+0C-0E ＞ 成功数0"
+rands = [
+  { sides = 100, value = 9 },
+  { sides = 100, value = 10 },
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=5"
+output = "(3AB100<=5) ＞ [5,10,11] ＞ 1+1C-0E ＞ 成功数2"
+rands = [
+  { sides = 100, value = 5 },
+  { sides = 100, value = 10 },
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=95"
+output = "(3AB100<=95) ＞ [90,95,96] ＞ 2+0C-1E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 95 },
+  { sides = 100, value = 96 },
 ]
 
 [[ test ]]
@@ -362,8 +400,38 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
+input = "3AB100<=70--Sniper1"
+output = "(3AB100<=70--SNIPER1) ＞ [50,50,90] ＞ 2+0C-0E+1(SNIPER) ＞ 成功数3"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
 input = "3AB100<=70--先鋒"
 output = "(3AB100<=70--先鋒) ＞ [50,50,90] ＞ 2+0C-0E+0(先鋒) ＞ 成功数2"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--先鋒1"
+output = "(3AB100<=70--先鋒1) ＞ [50,50,90] ＞ 2+0C-0E+0(先鋒) ＞ 成功数2"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--先鋒0"
+output = "(3AB100<=70--先鋒0) ＞ [50,50,90] ＞ 2+0C-0E ＞ 成功数2"
 rands = [
   { sides = 100, value = 90 },
   { sides = 100, value = 50 },
