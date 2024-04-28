@@ -113,18 +113,19 @@ module BCDice
       end
 
       def roll_ab(command)
-        m = /^(\d*)AB(\d*)<=(\d+)(?:--([^\d\s]+)(0)?)?$/.match(command)
+        m = /^(\d*)AB(\d*)<=(\d+)(?:--([^\d\s]+)(0|1)?)?$/.match(command)
         return nil unless m
 
         times = m[1]
         sides = m[2]
         target = m[3].to_i
         type = m[4]
-        suffix = m[5]
+        type_enable = m[5]
         times = !times.empty? ? times.to_i : 1
         sides = !sides.empty? ? sides.to_i : 100
+        type_enable = !type_enable.nil? ? type_enable.to_i : 1
 
-        if suffix || type.nil?
+        if type.nil? || (type_enable == 0)
           roll_b(command, times, sides, target)
         else
           roll_b_withtype(command, times, sides, target, type)
