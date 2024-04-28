@@ -55,6 +55,51 @@ module BCDice
 
       private
 
+      module Status
+        CRITICAL = 1
+        SUCCESS  = 2
+        FAILURE  = 3
+        ERROR    = 4
+      end
+
+      STATUS_NAME = {
+        Status::CRITICAL => 'クリティカル！',
+        Status::SUCCESS  => '成功',
+        Status::FAILURE  => '失敗',
+        Status::ERROR    => 'エラー'
+      }
+
+      # クリティカル、エラー、成功失敗周りの閾値や優先関係が複雑かつルールが変動する可能性があるため、明示的にルール管理するための関数。
+      def check_roll(roll_result, target)
+        success = roll_result <= target
+
+        crierror =
+          if roll_result <= 10
+            "Critical"
+          elsif roll_result >= 91
+            "Error"
+          else
+            "Neutral"
+          end
+
+        result =
+          if success && (crierror == "Critical")
+            Status::CRITICAL
+          elsif success && (crierror == "Neutral")
+            Status::SUCCESS
+          elsif success && (crierror == "Error")
+            Status::SUCCESS
+          elsif !success && (crierror == "Critical")
+            Status::FAILURE
+          elsif !success && (crierror == "Neutral")
+            Status::FAILURE
+          elsif !success && (crierror == "Error")
+            Status::ERROR
+          end
+
+        return result
+      end
+
       def roll_ad(command)
         m = /^(\d*)AD(\d*)<=(\d+)$/.match(command)
         return nil unless m
@@ -89,31 +134,9 @@ module BCDice
       def roll_d(command, times, sides, target)
         dice_list = @randomizer.roll_barabara(times, sides).sort
         total = dice_list.sum
-        success = total <= target
 
-        crierror =
-          if total <= 10
-            "Critical"
-          elsif total >= 91
-            "Error"
-          else
-            "Neutral"
-          end
-
-        result =
-          if success && (crierror == "Critical")
-            "クリティカル！"
-          elsif success && (crierror == "Neutral")
-            "成功"
-          elsif success && (crierror == "Error")
-            "成功"
-          elsif !success && (crierror == "Critical")
-            "失敗"
-          elsif !success && (crierror == "Neutral")
-            "失敗"
-          elsif !success && (crierror == "Error")
-            "エラー"
-          end
+        result = check_roll(roll_result = total, target)
+        result = STATUS_NAME[result]
 
         if times == 1
           return "(#{command}) ＞ #{dice_list.join(',')} ＞ #{result}"
@@ -152,9 +175,17 @@ module BCDice
         error_count = 0
 
         dice_list.each do |value|
-          success_count += 1 if value <= target
-          critical_count += 1 if value <= 10
-          error_count += 1 if value >= 91
+          case check_roll(roll_result = value, target)
+          when Status::CRITICAL
+            critical_count += 1
+            success_count += 1
+          when Status::SUCCESS
+            success_count += 1
+          when Status::FAILURE
+            # Nothing to do
+          when Status::ERROR
+            error_count += 1
+          end
         end
 
         return [dice_list, success_count, critical_count, error_count]
