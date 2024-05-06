@@ -56,6 +56,14 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
+input = "AD<=5"
+output = "(AD<=5) ＞ 9 ＞ 失敗"
+rands = [
+  { sides = 100, value = 9 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
 input = "AB<=70"
 output = "(AB<=70) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
 rands = [
@@ -144,6 +152,36 @@ rands = [
   { sides = 100, value = 100 },
   { sides = 100, value = 50 },
   { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=5"
+output = "(3AB100<=5) ＞ [9,10,11] ＞ 0+0C-0E ＞ 成功数0"
+rands = [
+  { sides = 100, value = 9 },
+  { sides = 100, value = 10 },
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=5"
+output = "(3AB100<=5) ＞ [5,10,11] ＞ 1+1C-0E ＞ 成功数2"
+rands = [
+  { sides = 100, value = 5 },
+  { sides = 100, value = 10 },
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=95"
+output = "(3AB100<=95) ＞ [90,95,96] ＞ 2+0C-1E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 95 },
+  { sides = 100, value = 96 },
 ]
 
 [[ test ]]
@@ -362,6 +400,16 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
+input = "3AB100<=70--Sniper1"
+output = "(3AB100<=70--SNIPER1) ＞ [50,50,90] ＞ 2+0C-0E+1(SNIPER) ＞ 成功数3"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
 input = "3AB100<=70--先鋒"
 output = "(3AB100<=70--先鋒) ＞ [50,50,90] ＞ 2+0C-0E+0(先鋒) ＞ 成功数2"
 rands = [
@@ -372,12 +420,28 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
+input = "3AB100<=70--先鋒1"
+output = "(3AB100<=70--先鋒1) ＞ [50,50,90] ＞ 2+0C-0E+0(先鋒) ＞ 成功数2"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--先鋒0"
+output = "(3AB100<=70--先鋒0) ＞ [50,50,90] ＞ 2+0C-0E ＞ 成功数2"
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
 input = "--WORSENING"
-<<<<<<< HEAD
-output = "末梢神経障害: 2 rounds"
-=======
 output = "--WORSENING ＞ 末梢神経障害: 2 rounds"
->>>>>>> upstream/master
 rands = [
   { sides = 3, value = 1 },
   { sides = 6, value = 1 },
@@ -386,11 +450,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--WORSENING"
-<<<<<<< HEAD
-output = "内臓機能不全: 2 rounds"
-=======
 output = "--WORSENING ＞ 内臓機能不全: 2 rounds"
->>>>>>> upstream/master
 rands = [
   { sides = 3, value = 2 },
   { sides = 6, value = 1 },
@@ -399,11 +459,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--WORSENING"
-<<<<<<< HEAD
-output = "精神症状: 2 rounds"
-=======
 output = "--WORSENING ＞ 精神症状: 2 rounds"
->>>>>>> upstream/master
 rands = [
   { sides = 3, value = 3 },
   { sides = 6, value = 1 },
@@ -412,11 +468,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--WORSENING いろは"
-<<<<<<< HEAD
-output = "精神症状: 2 rounds"
-=======
 output = "--WORSENING ＞ 精神症状: 2 rounds"
->>>>>>> upstream/master
 rands = [
   { sides = 3, value = 3 },
   { sides = 6, value = 1 },
@@ -425,11 +477,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--ADDICTION"
-<<<<<<< HEAD
-output = "中枢神経障害"
-=======
 output = "--ADDICTION ＞ 中枢神経障害"
->>>>>>> upstream/master
 rands = [
   { sides = 3, value = 1 },
 ]
@@ -437,11 +485,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--ADDICTION"
-<<<<<<< HEAD
-output = "多臓器不全"
-=======
 output = "--ADDICTION ＞ 多臓器不全"
->>>>>>> upstream/master
 rands = [
   { sides = 3, value = 2 },
 ]
@@ -449,14 +493,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--ADDICTION"
-<<<<<<< HEAD
-output = "急性ストレス反応"
-rands = [
-  { sides = 3, value = 3 },
-]
-=======
 output = "--ADDICTION ＞ 急性ストレス反応"
 rands = [
   { sides = 3, value = 3 },
 ]
->>>>>>> upstream/master
