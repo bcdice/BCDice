@@ -245,25 +245,109 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHRD"
+output = "異常な癖決定表(1) ＞ 異常な癖・口から出る表(1) ＞ 猛烈に感謝の言葉を述べる"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHRD"
+output = "異常な癖決定表(5) ＞ 異常な癖・パートナーと……表(9) ＞ パートナーに対して懇切丁寧に事件を説明する"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHRD"
 output = "異常な癖決定表(10) ＞ 好きな「異常な癖」の表を使用する。"
 rands = [
+  { sides = 10, value = 10 },
   { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHND"
-output = "新・異常な癖決定表(6) ＞ 「異常な癖・突然どうした表」を使用する。"
+output = "新・異常な癖決定表(1) ＞ 異常な癖・人間エミュレート表(1) ＞ 人の心を読み取って、その人がして欲しいことをする"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHND"
+output = "新・異常な癖決定表(1) ＞ 異常な癖・人間エミュレート表(1) ＞ 人の心を読み取って、その人がして欲しいことをする"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHND"
+output = "新・異常な癖決定表(2) ＞ 異常な癖・人間エミュレート失敗表(6) ＞ 感情を理解しているようにふるまうが、肝心なところは理解できていない"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHND"
+output = "新・異常な癖決定表(6) ＞ 異常な癖・突然どうした表(10) ＞ パートナーとの関係を考え直す"
 rands = [
   { sides = 6, value = 6 },
+  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "FutariSousa"
 input = "SHAD"
-output = "普通の？・異常な癖決定表(6) ＞ 「異常な癖・ノータイム表」を使用する。"
+output = "普通の？・異常な癖決定表(1) ＞ 異常な癖・わがままを言う表(1) ＞ 好きなものを食べたいとパートナーにわがままを言って、言うことを聞くまで動かない"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHAD"
+output = "普通の？・異常な癖決定表(6) ＞ 異常な癖・ノータイム表(3) ＞ 前振りや挨拶がなく、いきなり事件についての話を聞く"
 rands = [
   { sides = 6, value = 6 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHAD"
+output = "普通の？・異常な癖決定表(6) ＞ 異常な癖・ノータイム表(10) ＞ 人々に指示を出して動かしているが、何のためかは説明しない"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHKD"
+output = "ケイジ異常な癖決定表(1) ＞ 異常な癖・捜査のやり方表(1) ＞ 容疑者やパートナーや仲間を誘導尋問にかける"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHKD"
+output = "ケイジ異常な癖決定表(1) ＞ 異常な癖・捜査のやり方表(9) ＞ 怪しげな物や人物はメモをしておく"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 10, value = 9 },
 ]
 
 [[ test ]]
@@ -272,6 +356,7 @@ input = "SHKD"
 output = "ケイジ異常な癖決定表(6) ＞ この表を振り直す"
 rands = [
   { sides = 6, value = 6 },
+  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
@@ -846,8 +931,30 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "FLTRA"
-output = "ランダム感情決定表（あなた）(6) ＞ 追加感情表・ヘビーウェイトを使用する。"
+output = "ランダム感情決定表（あなた）(1) ＞ 追加感情表・顔のパーツ(11) ＞ 目つき"
 rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTRA"
+output = "ランダム感情決定表（あなた）(4) ＞ 追加感情表・ふわっとした感覚(36) ＞ 自分と話すときの表情"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "FLTRA"
+output = "ランダム感情決定表（あなた）(6) ＞ 追加感情表・ヘビーウェイト(66) ＞ 自分のすべて捧げたいと思う瞬間"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
 

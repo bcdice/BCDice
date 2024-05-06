@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description = "BCDice is a rolling dice engine for TRPG"
   spec.homepage    = "https://bcdice.org"
   spec.license     = "BSD-3-Clause"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.6")
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.7")
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org/"
 
@@ -22,4 +22,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "i18n", "~> 1.8.5"
+  spec.add_runtime_dependency "racc", "~> 1.7.3"
 end

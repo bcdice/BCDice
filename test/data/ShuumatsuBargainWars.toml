@@ -1,0 +1,110 @@
+[[ test ]]
+game_system = "ShuumatsuBargainWars"
+input = "TT"
+output = "トラブル表(1) ＞ 緊張感からか焦りが生じる。以降スポットフェイズに行くまでの間あらゆる判定の成功度が1減少する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuBargainWars"
+input = "ET"
+output = "イベント表(7) ＞ 穏やかな時が流れる。このメンバーならこれからも上手くやっていけそうだ。ランダムにPCを選び『関係』を獲得する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuBargainWars"
+input = "RT"
+output = "回復系アイテム表(24) ＞ お布団"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuBargainWars"
+input = "CT"
+output = "便利系アイテム表(56) ＞ クラッカー"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuBargainWars"
+input = "WT"
+output = "武器系アイテム表(23) ＞ 物干し竿"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuBargainWars"
+input = "WG"
+output = "ワゴン(6) ＞ 武器系アイテム表(16) ＞ デッキブラシ"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuBargainWars"
+input = "3BG1>=3"
+output = "(3BG1>=3) ＞ [1,4,5] ＞ 成功度2、活力1獲得"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuBargainWars"
+input = "3BG4>=3"
+output = "(3BG4>=3) ＞ [4,6,6] ＞ スペシャル！ 成功度4、活力1獲得"
+critical = true
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShuumatsuBargainWars"
+input = "4BG5>=4"
+output = "(4BG5>=4) ＞ [1,1,1,1] ＞ ファンブル 活力をすべて失う"
+fumble = true
+failure  = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+# 補正値のプラスが活力獲得の判定に影響しておらず、クリティカル判定にも影響していないことを確認
+[[ test ]]
+game_system = "ShuumatsuBargainWars"
+input = "3BG4+1>=4"
+output = "(3BG4+1>=4) ＞ [3,5,5] ＞ 成功度3、活力0獲得"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+# 補正値のマイナスが活力獲得の判定に影響影響しておらず、ファンブル判定にも影響していないことを確認
+[[ test ]]
+game_system = "ShuumatsuBargainWars"
+input = "3BG1-1>=1"
+output = "(3BG1-1>=1) ＞ [2,2,2] ＞ 成功度3、活力0獲得"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]

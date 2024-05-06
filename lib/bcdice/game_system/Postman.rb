@@ -57,11 +57,11 @@ module BCDice
             diceCount = 2 if diceCount < 2
 
             modify = (Regexp.last_match(2) || 0).to_i
-            modifyAddString = (Regexp.last_match(3) || '')
+            modifyAddString = Regexp.last_match(3) || ''
 
-            type = (Regexp.last_match(6) || '')
+            type = Regexp.last_match(6) || ''
             target = (Regexp.last_match(7) || 0).to_i
-            targetAddString = (Regexp.last_match(8) || '')
+            targetAddString = Regexp.last_match(8) || ''
 
             modify_list = modifyAddString.scan(/[+-]\d+/)
             modify_list.each { |i| modify += i.to_i }

@@ -108,8 +108,8 @@ module BCDice
       end
 
       def isValidDice(dice1, dice2)
-        return (isValidDiceOne(dice1) &&
-                 isValidDiceOne(dice2))
+        return isValidDiceOne(dice1) &&
+               isValidDiceOne(dice2)
       end
 
       def isValidDiceOne(dice)
@@ -144,7 +144,7 @@ module BCDice
           return ''
         end
 
-        if  total >= difficulty
+        if total >= difficulty
           return "成功"
         end
 
@@ -152,7 +152,7 @@ module BCDice
       end
 
       def isFamble(value1, value2)
-        return ((value1 == 1) && (value2 == 1))
+        return (value1 == 1) && (value2 == 1)
       end
 
       def isCritical(value1, value2, dice1, dice2)

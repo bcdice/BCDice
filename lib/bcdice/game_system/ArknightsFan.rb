@@ -10,102 +10,68 @@ module BCDice
       NAME = "アークナイツTRPG by Dapto"
 
       # ゲームシステム名の読みがな
-      SORT_KEY = "あーくないつTRPG ばい だぷと"
+      SORT_KEY = "ああくないつTRPGはいたふと"
 
       HELP_MESSAGE = <<~TEXT
         ■ 判定 (nADm>=x)
           nDmのダイスロールをして、x 以下であれば成功。
-          x が91以上でエラー。
-          x が10以下でクリティカル。
+          出目が91以上でエラー。
+          出目が10以下でクリティカル。
 
         ■ 判定 (nABm>=x)
           nBmのダイスロールをして、
             x 以下であれば成功数+1。
-            x が91以上でエラー。成功数+1。
-            x が10以下でクリティカル。成功数-1。
+            出目が91以上でエラー。成功数+1。
+            出目が10以下でクリティカル。成功数-1。
           上記による成功数をカウント。
 
-        ■ 判定 (nBm>=x--役職)
+        ■ 判定 (nABm>=x--役職)
           nBmのダイスロールをして、
-            x 以下であれば成功数+1。
-            x が91以上でエラー。成功数+1。
-            x が10以下でクリティカル。成功数-1。
+            出目が x 以下であれば成功数+1。
+            出目が91以上でエラー。成功数+1。
+            出目が10以下でクリティカル。成功数-1。
           上記による成功数をカウントした上で、以下の役職による成功数増加効果を適応。
-            狙撃 成功数1以上のとき、成功数+1。
-        #{'  '}
+            狙撃（SNIPER） 成功数1以上のとき、成功数+1。
       TEXT
 
-      TABLES = {
-        "--WORSENING" => {
-          name: "worsening",
-          dice: "1d3",
-          contents: [
-            "末梢神経障害",
-            "内臓機能不全",
-            "精神症状",
-          ]
-        },
-        "--ADDICTION" => {
-          name: "addiction",
-          dice: "1d3",
-          contents: [
-            "中枢神経障害",
-            "多臓器不全",
-            "急性ストレス反応",
-          ]
-        },
-      }.freeze
-
-      register_prefix('\d*AD\d*<=\d+',
-                      '\d*AB\d*<=\d+',
-                      '\d*AB\d*<=\d+--[^\d\s]+',
-                      TABLES.keys)
+      register_prefix('\d*AD\d*', '\d*AB\d*', '--ADDICTION', '--WORSENING')
 
       def eval_game_system_specific_command(command)
-        case command
-        when /^(\d*)AD(\d*)<=(\d+)$/                        # AD<=70, 2AD100<=70
-          times = ::Regexp.last_match(1)
-          sides = ::Regexp.last_match(2)
-          target = ::Regexp.last_match(3).to_i
-          times = !times.empty? ? times.to_i : 1
-          sides = !sides.empty? ? sides.to_i : 100
-          return roll_d(command, times, sides, target)
-
-        when /^(\d*)AB(\d*)<=(\d+)$/                        # 2AB<=70, 2AB100<=70
-          times = ::Regexp.last_match(1)
-          sides = ::Regexp.last_match(2)
-          target = ::Regexp.last_match(3).to_i
-          times = !times.empty? ? times.to_i : 1
-          sides = !sides.empty? ? sides.to_i : 100
-          return roll_b(command, times, sides, target)
-
-        when /^(\d*)AB(\d*)<=(\d+)--([^\d\s]+)$/             # 2AB<=70--SNIPER, 2AB100<=70--SNIPER
-          times = ::Regexp.last_match(1)
-          sides = ::Regexp.last_match(2)
-          target = ::Regexp.last_match(3).to_i
-          type = ::Regexp.last_match(4)
-          times = !times.empty? ? times.to_i : 1
-          sides = !sides.empty? ? sides.to_i : 100
-          return roll_b_withtype(command, times, sides, target, type)
-
-        when /^(\d*)AB(\d*)<=(\d+)--([^\d\s]+)0$/            # 2AB<=70--SNIPER0, 2AB100<=70--SNIPER0
-          times = ::Regexp.last_match(1)
-          sides = ::Regexp.last_match(2)
-          target = ::Regexp.last_match(3).to_i
-          times = !times.empty? ? times.to_i : 1
-          sides = !sides.empty? ? sides.to_i : 100
-          return roll_b(command, times, sides, target)
-
-        when /^--ADDICTION$/                                  # --ADDICTION
-          return roll_addiction(command, TABLES)
-        when /^--WORSENING$/                                  # --WORSENING
-          return roll_worsening(command, TABLES)
-        end
-
-        return nil
+        roll_ad(command) || roll_ab(command) || roll_addiction(command) || roll_worsening(command)
       end
 
       private
+
+      def roll_ad(command)
+        m = /^(\d*)AD(\d*)<=(\d+)$/.match(command)
+        return nil unless m
+
+        times = m[1]
+        sides = m[2]
+        target = m[3].to_i
+        times = !times.empty? ? times.to_i : 1
+        sides = !sides.empty? ? sides.to_i : 100
+        return roll_d(command, times, sides, target)
+      end
+
+      def roll_ab(command)
+        m = /^(\d*)AB(\d*)<=(\d+)(?:--([^\d\s]+)(0)?)?$/.match(command)
+        return nil unless m
+
+        times = m[1]
+        sides = m[2]
+        target = m[3].to_i
+        type = m[4]
+        suffix = m[5]
+        times = !times.empty? ? times.to_i : 1
+        sides = !sides.empty? ? sides.to_i : 100
+
+        if suffix || type.nil?
+          roll_b(command, times, sides, target)
+        else
+          roll_b_withtype(command, times, sides, target, type)
+        end
+      end
 
       def roll_d(command, times, sides, target)
         dice_list = @randomizer.roll_barabara(times, sides).sort
@@ -169,52 +135,47 @@ module BCDice
         dice_list = @randomizer.roll_barabara(times, sides).sort
 
         success_count = 0
-        (1..target).each do |num|
-          success_count += dice_list.count(num)
-        end
-
         critical_count = 0
-        (1..10).each do |num|
-          critical_count += dice_list.count(num)
-        end
-
         error_count = 0
-        (91..100).each do |num|
-          error_count += dice_list.count(num)
+
+        dice_list.each do |value|
+          success_count += 1 if value <= target
+          critical_count += 1 if value <= 10
+          error_count += 1 if value >= 91
         end
 
         return [dice_list, success_count, critical_count, error_count]
       end
 
-      ### ダイステーブル（ユーザー定義配列）の処理
+      ADDICTION_TABLE = [
+        "中枢神経障害",
+        "多臓器不全",
+        "急性ストレス反応",
+      ].freeze
 
-      def roll_addiction(command, tables)
-        syndrome = roll_ark_tables(command, tables, @randomizer)
-        return nil unless syndrome
+      def roll_addiction(command)
+        return nil if command != "--ADDICTION"
 
-        return syndrome
+        value = @randomizer.roll_once(3)
+        chosen = ADDICTION_TABLE[value - 1]
+
+        return "--ADDICTION ＞ #{chosen}"
       end
 
-      def roll_worsening(command, tables)
-        randomizer = @randomizer
-        addiction = roll_ark_tables(command, tables, randomizer)
-        return nil unless addiction
+      WORSENING_TABLE = [
+        "末梢神経障害",
+        "内臓機能不全",
+        "精神症状",
+      ].freeze
 
-        elapse = randomizer.roll_barabara(1, 6)[0] + 1
+      def roll_worsening(command)
+        return nil if command != "--WORSENING"
 
-        return "#{addiction}: #{elapse} rounds"
-      end
+        value = @randomizer.roll_once(3)
+        chosen = WORSENING_TABLE[value - 1]
+        elapse = @randomizer.roll_once(6) + 1
 
-      # 事情により自作。roll_worsening()で症状の内容と期間をそれぞれ決定する際、同一のrandmizerを受け渡して使う必要がある模様。
-      # このとき、roll_addictionと処理が重複する症状決定処理について、randmizerを引数指定可能な形で以下に実装する形となった。
-      def roll_ark_tables(command, tables, randomizer)
-        table = tables[command]
-        return nil unless table
-
-        contents = table[:contents]
-        m = /^(\d+)d(\d+)$/.match(table[:dice])
-        dice_result = randomizer.roll_barabara(m[1].to_i, m[2].to_i)[0]
-        return contents[dice_result - 1]
+        return "--WORSENING ＞ #{chosen}: #{elapse} rounds"
       end
     end
   end
