@@ -68,6 +68,18 @@ rands = [
 
 [[ test ]]
 game_system = "ConvictorDrive"
+input = "4CD デフォルトの目標は5"
+output = "4CD ＞ 4,6,5,1 ＞ 成功数2"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "ConvictorDrive"
 input = "SLT"
 output = "技能ランク表(8) ＞ D+"
 rands = [
@@ -99,4 +111,3 @@ output = "遅延イベント表(9) ＞ 緊急出撃Ⅲ（ランダムなPC2人�
 rands = [
   { sides = 10, value = 9 },
 ]
-
