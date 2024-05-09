@@ -58,14 +58,22 @@ module BCDice
         "HOther" => "HOT",
       }.transform_keys(&:upcase)
 
-      TABLES = {
-        "HIN" => DiceTable::Table.from_i18n('UnsungDuet.MutatingInjuryTable', @locale),
-        "HPH" => DiceTable::Table.from_i18n('UnsungDuet.MutatingPhysicalConditionTable', @locale),
-        "HFE" => DiceTable::Table.from_i18n('UnsungDuet.MutatingFearTable', @locale),
-        "HFA" => DiceTable::Table.from_i18n('UnsungDuet.MutatingFantasyTable', @locale),
-        "HMI" => DiceTable::Table.from_i18n('UnsungDuet.MutatingMindTable', @locale),
-        "HOT" => DiceTable::Table.from_i18n('UnsungDuet.MutatingOtherTable', @locale),
-      }.freeze
+      class << self
+        private
+
+        def translate_tables(locale)
+          {
+            "HIN" => DiceTable::Table.from_i18n('UnsungDuet.MutatingInjuryTable', locale),
+            "HPH" => DiceTable::Table.from_i18n('UnsungDuet.MutatingPhysicalConditionTable', locale),
+            "HFE" => DiceTable::Table.from_i18n('UnsungDuet.MutatingFearTable', locale),
+            "HFA" => DiceTable::Table.from_i18n('UnsungDuet.MutatingFantasyTable', locale),
+            "HMI" => DiceTable::Table.from_i18n('UnsungDuet.MutatingMindTable', locale),
+            "HOT" => DiceTable::Table.from_i18n('UnsungDuet.MutatingOtherTable', locale),
+          }.freeze
+        end
+      end
+
+      TABLES = translate_tables(@locale)
 
       register_prefix(ALIAS.keys, TABLES.keys)
     end
