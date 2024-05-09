@@ -43,15 +43,38 @@ module BCDice
         　　例）SN/D/4　3SN#2/D[大揺れ]/2
       MESSAGETEXT
 
-      TABLES = {
-        'FT' => DiceTable::Table.from_i18n('SkynautsBouken.FumbleTable', @locale),
-        'NV' => DiceTable::Table.from_i18n('SkynautsBouken.VoyageTable', @locale),
-        "NEN" => DiceTable::Table.from_i18n('SkynautsBouken.NavigationEventNavigationTable', @locale),
-        "NEE" => DiceTable::Table.from_i18n('SkynautsBouken.NavigationEventEncounterTable', @locale),
-        "NEO" => DiceTable::Table.from_i18n('SkynautsBouken.NavigationEventOnBoardTable', @locale),
-        "NEH" => DiceTable::Table.from_i18n('SkynautsBouken.NavigationEventHardTable', @locale),
-        "NEL" => DiceTable::Table.from_i18n('SkynautsBouken.NavigationEventLongJourneyTable', @locale),
-      }.freeze
+      class << self
+        private
+
+        def translate_direction_infos(locale)
+          {
+            0 => {name: "", position_diff: [0, 0]},
+            1 => {name: I18n.translate('SkynautsBouken.directions.lower_left', locale: locale, raise: true), position_diff: [-1, +1]},
+            2 => {name: I18n.translate('SkynautsBouken.directions.lower', locale: locale, raise: true), position_diff: [0, +1]},
+            3 => {name: I18n.translate('SkynautsBouken.directions.lower_right', locale: locale, raise: true), position_diff: [+1, +1]},
+            4 => {name: I18n.translate('SkynautsBouken.directions.left', locale: locale, raise: true), position_diff: [-1, 0]},
+            5 => {name: "", position_diff: [0, 0]},
+            6 => {name: I18n.translate('SkynautsBouken.directions.right', locale: locale, raise: true), position_diff: [+1, 0]},
+            7 => {name: I18n.translate('SkynautsBouken.directions.upper_left', locale: locale, raise: true), position_diff: [-1, -1]},
+            8 => {name: I18n.translate('SkynautsBouken.directions.upper', locale: locale, raise: true), position_diff: [0, -1]},
+            9 => {name: I18n.translate('SkynautsBouken.directions.upper_right', locale: locale, raise: true), position_diff: [+1, -1]},
+          }.freeze
+        end
+
+        def translate_tables(locale)
+          {
+            'FT' => DiceTable::Table.from_i18n('SkynautsBouken.FumbleTable', locale),
+            'NV' => DiceTable::Table.from_i18n('SkynautsBouken.VoyageTable', locale),
+            "NEN" => DiceTable::Table.from_i18n('SkynautsBouken.NavigationEventNavigationTable', locale),
+            "NEE" => DiceTable::Table.from_i18n('SkynautsBouken.NavigationEventEncounterTable', locale),
+            "NEO" => DiceTable::Table.from_i18n('SkynautsBouken.NavigationEventOnBoardTable', locale),
+            "NEH" => DiceTable::Table.from_i18n('SkynautsBouken.NavigationEventHardTable', locale),
+            "NEL" => DiceTable::Table.from_i18n('SkynautsBouken.NavigationEventLongJourneyTable', locale),
+          }.freeze
+        end
+      end
+
+      TABLES = translate_tables(@locale)
 
       register_prefix('D', '\d?SN', 'AVO', TABLES.keys)
 
@@ -67,18 +90,7 @@ module BCDice
 
       private
 
-      DIRECTION_INFOS = {
-        0 => {name: "", position_diff: [0, 0]},
-        1 => {name: I18n.translate('SkynautsBouken.directions.lower_left', locale: @locale, raise: true), position_diff: [-1, +1]},
-        2 => {name: I18n.translate('SkynautsBouken.directions.lower', locale: @locale, raise: true), position_diff: [0, +1]},
-        3 => {name: I18n.translate('SkynautsBouken.directions.lower_right', locale: @locale, raise: true), position_diff: [+1, +1]},
-        4 => {name: I18n.translate('SkynautsBouken.directions.left', locale: @locale, raise: true), position_diff: [-1, 0]},
-        5 => {name: "", position_diff: [0, 0]},
-        6 => {name: I18n.translate('SkynautsBouken.directions.right', locale: @locale, raise: true), position_diff: [+1, 0]},
-        7 => {name: I18n.translate('SkynautsBouken.directions.upper_left', locale: @locale, raise: true), position_diff: [-1, -1]},
-        8 => {name: I18n.translate('SkynautsBouken.directions.upper', locale: @locale, raise: true), position_diff: [0, -1]},
-        9 => {name: I18n.translate('SkynautsBouken.directions.upper_right', locale: @locale, raise: true), position_diff: [+1, -1]},
-      }.freeze
+      DIRECTION_INFOS = translate_direction_infos(@locale)
 
       D_REGEXP = %r{^D([1-46-9]{0,8})(\[.+\]|S|F|SF|FS)?/(\d{1,2})(@([2468]))?$}.freeze
 
