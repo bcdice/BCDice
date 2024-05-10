@@ -46,6 +46,8 @@ module BCDice
         　STOREC　：変わった客その2
       HELP
 
+      TABLES = translate_tables(@locale)
+
       # 判定の正規表現
       CP_RE = /^CP(?<ability>\d+)?(?<modifier>[+-]\d+)?(?<target>>=\d+)?/.freeze
 
@@ -105,21 +107,21 @@ module BCDice
         result.text += ' ＞ '
 
         if result.critical?
-          result.text += '決定的成功！ ＞ '
+          result.text += "#{translate('CyberpunkRed.critical')} ＞ "
           result.text += "#{dices.last}[#{dices.last}] ＞ "
         end
         if result.fumble?
-          result.text += '決定的失敗！ ＞ '
+          result.text += "#{translate('CyberpunkRed.fumble')} ＞ "
           result.text += "#{dices.last}[#{dices.last}] ＞ "
         end
 
         result.text += total.to_s
 
         if result.success?
-          result.text += ' ＞ 成功'
+          result.text += " ＞ #{translate('success')}"
         end
         if result.failure?
-          result.text += ' ＞ 失敗'
+          result.text += " ＞ #{translate('failure')}"
         end
 
         return result
