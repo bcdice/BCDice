@@ -41,7 +41,7 @@ module BCDice
         　ケイジ聞き込み捜査　　　 EVQ／ケイジ大規模捜査　　　　　 EVM／こっそり情報の受け渡し EVP
         　同僚たちと一緒に捜査する EVO／頻染みの店シチュエーション EVF／ハードBデカアクション  EVB
         　探偵を大人しくさせる捜査 EVL／伝統的捜査　　　　　　　　 EVZ／原始的捜査　　　　　　 EVR
-        　超探偵調査　　　　　　　EV5S／神速捜査　　　　　　　　　EV5F
+        　超探偵調査　　　　　　　EV6S／神速捜査　　　　　　　　　EV6F
         感情表
         　感情表A／B　　 FLT66・FLT10
         　気に入っているところ　 FLTL66　／気に入らないところ　 FLTD66
@@ -248,8 +248,8 @@ module BCDice
             "EVL" => DiceTable::Table.from_i18n("FutariSousa.table.EVL", locale),
             "EVZ" => DiceTable::Table.from_i18n("FutariSousa.table.EVZ", locale),
             "EVR" => DiceTable::Table.from_i18n("FutariSousa.table.EVR", locale),
-            "EV5S" => DiceTable::Table.from_i18n("FutariSousa.table.EV5S", locale),
-            "EV5F" => DiceTable::Table.from_i18n("FutariSousa.table.EV5F", locale),
+            "EV6S" => DiceTable::Table.from_i18n("FutariSousa.table.EV6S", locale),
+            "EV6F" => DiceTable::Table.from_i18n("FutariSousa.table.EV6F", locale),
             "OBT" => DiceTable::D66Table.from_i18n("FutariSousa.table.OBT", locale),
             "ACT" => DiceTable::Table.from_i18n("FutariSousa.table.ACT", locale),
             "EWT" => DiceTable::Table.from_i18n("FutariSousa.table.EWT", locale),
