@@ -361,6 +361,34 @@ rands = [
 
 [[ test ]]
 game_system = "FutariSousa"
+input = "SHLD"
+output = "超探偵向け異常な癖表(1) ＞ 異常な癖・名誉ある探偵表(1) ＞ ファンにサインをせがまれて書いている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHLD"
+output = "超探偵向け異常な癖表(3) ＞ 異常な癖・超事件に夢中表(7) ＞ パートナーを信頼し、頼りにしていることを伝える。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHLD"
+output = "超探偵向け異常な癖表(6) ＞ 何も起こさない。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 10, value = 10 },
+]
+
+
+[[ test ]]
+game_system = "FutariSousa"
 input = "SHFM"
 output = "異常な癖・口から出る表(10) ＞ 「黙っていろ」"
 rands = [
@@ -563,6 +591,38 @@ rands = [
 game_system = "FutariSousa"
 input = "SHHD"
 output = "異常な癖・刑事としての癖表(10) ＞ 監視カメラの位置を確認する"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHGD"
+output = "異常な癖・名誉ある探偵表(10) ＞ これまで解決した事件について語る事情通が現れる。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHSA"
+output = "異常な癖・超すごい表(10) ＞ 何かあるたびに拍手の音が聞こえ、盛り上げるコールが入る。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHEP"
+output = "異常な癖・超事件に夢中表(10) ＞ この事件の被害者について思いをはせる。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "SHXP"
+output = "異常な癖・超パートナーと……表(10) ＞ パートナーにこの事件が終わったら何がしたいか伝える。"
 rands = [
   { sides = 10, value = 10 },
 ]
