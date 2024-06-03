@@ -208,7 +208,7 @@ input = "2.5INTI+1#1"
 output = "(2.5INTI+1#1) > [2<<3,4,1<<4] > 11"
 rands = [
     { sides = 6, value = 2},
-    { sides = 6, value = 4}
+    { sides = 6, value = 4},
     { sides = 6, value = 1},
     { sides = 6, value = 3},
     { sides = 6, value = 4},
@@ -220,7 +220,7 @@ input = "2.5INTI#1"
 output = "(2.5INTI#1) > [2<<3,4] > 7"
 rands = [
     { sides = 6, value = 2},
-    { sides = 6, value = 4}
+    { sides = 6, value = 4},
     { sides = 6, value = 1},
     { sides = 6, value = 3},
 ]
