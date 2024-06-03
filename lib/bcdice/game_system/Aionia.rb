@@ -2,7 +2,7 @@
 
 module BCDice
   module GameSystem
-    class OnseTool < Base
+    class Aionia < Base
       # ゲームシステムの識別子
       ID = "Aionia"
 
