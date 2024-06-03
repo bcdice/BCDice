@@ -113,7 +113,7 @@ module BCDice
           dice = 2 if dice < 2
           dice = 12 if dice > 12
 
-          currentKey = [command.rate + round * command.rateup, keyMax].min
+          currentKey = (command.rate + round * command.rateup).clamp(0, keyMax)
           debug("currentKey", currentKey)
           rateValue = newRates[dice][currentKey]
           debug("rateValue", rateValue)
