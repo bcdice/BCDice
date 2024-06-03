@@ -67,6 +67,30 @@ module BCDice
       # @return [Integer] 振るダイスの面数
       attr_reader :num_of_sides
 
+      class << self
+        def from_i18n(key, locale)
+          table = I18n.t(key, locale: locale)
+          converted_items = table[:items].map do |item|
+            [conv_string_range(item[0]), item[1]]
+          end
+          new(table[:name], table[:type], converted_items)
+        end
+
+        def conv_string_range(x)
+          case x
+          when Integer
+            return x
+          when String
+            return x.include?("..") ? Range.new(*x.split("..", 2).map { |n| Integer(n) }) : Integer(x)
+          end
+
+          raise(
+            TypeError,
+            "#{@name}: #{x} (#{x.class}) must be a String or an Integer"
+          )
+        end
+      end
+
       # 表を初期化する
       #
       # ブロックを与えると、独自の結果整形処理を指定できる。
