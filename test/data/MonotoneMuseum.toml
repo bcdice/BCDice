@@ -448,3 +448,75 @@ rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "MET"
+output = "感情表(64) ＞ 【侮蔑（ぶべつ）】"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "MET"
+output = "感情表(11) ＞ 【憧れ（あこがれ）】"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "MBOT"
+output = "兆候表（戦闘時）(6) ＞ 【重圧】\n全身が鉛のように重くなりのしかかってくる。身体と魂が膝をつけと悲鳴を上げている。あなたは重圧を受ける。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "MNOT"
+output = "兆候表（非戦闘時）(5) ＞ 【ひび割れ】\n激痛が走り、あなたの肌が音を立ててひび割れた。あなたは【HP】を[2D6+演者レベル]点失う。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "MDT"
+output = "歪み表(15) ＞ 【場景変容】\n周囲の場景が突如としていびつに変容する。GMは1D6をROCして変化を決定すること。\n　1: 不気味な豊穣\n　2: 焼けつく陽\n　3: 枯れ落ちる草木\n　4: 降り止まぬ豪雪\n　5: 沈まぬ陽\n　6: 明けない夜\n急激な変化は、自然や農作物と人々の身体を痛めつける。これによって二次的な災害が起きるとしてもよい。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "MDT"
+output = "歪み表(53) ＞ 【歪みの魔物】\n開いたほつれの破片から、世界のあまねくを虚無へ呑まんとする歪みの魔物が現われ、人々に襲いかかる。シーンに登場しているGMが指定した任意の数のキャラクターが負傷または死亡する（詳細はGM判断）。それがPCの場合、【回避値】難易度13の判定を行ない、失敗すると〈縫〉[演者レベル]D6点のダメージを受ける。この効果は、歪みが引き受けられない限りシーンごとに発生する。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "MWDT"
+output = "世界歪曲表(7) ＞ 【幻像の刃】\n行き場を失った剥離の影響によって周囲の空間は歪み、破壊に満ちた力が充満する。演目中、次に行なわれるダメージロールは+8D6点される。これはどのキャラクターが行なうかを問わず、次にダメージロールが発生した際に一度だけ適用される。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MonotoneMuseum"
+input = "MEDT"
+output = "永劫消失表(11) ＞ 【異形化の発現】\nあなたの身体に禍々しい、色なき変容が現われた。ついに異形化がはじまったのだ。人々は恐れの混じった目で、あなたを石持て追うだろう。\n＞ あなたは異形となる。キャラクター成長の際に異形（『MMM』P178）のクラスを取得すること。取得可能であるかは剥離チェック時に確定すること。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
