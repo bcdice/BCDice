@@ -7,10 +7,10 @@ module BCDice
       ID = 'TheUnofficialHollowKnightRPG'
 
       # ゲームシステム名
-      NAME = 'TheUnofficialHollowKnightRPG'
+      NAME = 'The Unofficial Hollow Knight RPG'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = '国際化:English:TheUnofficialHollowKnightRPG'
+      SORT_KEY = 'しあんおふいしやるほろうないとRPG'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
