@@ -26,6 +26,11 @@ module BCDice
 
       INFO_MESSAGE_TEXT
 
+      register_prefix()
+
+      def eval_game_system_specific_command(command)
+        return nil
+      end
     end
   end
 end
