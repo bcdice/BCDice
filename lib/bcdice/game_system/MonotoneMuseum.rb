@@ -34,7 +34,7 @@ module BCDice
         【旧版環境】
         　・感情表　ET／感情表 2.0　ET2
         　・兆候表　OT／兆候表ver2.0　OT2／兆候表ver3.0　OT3
-        　・歪み表　DT／歪み表ver2.0　DT2／歪み表(野外)　DTO／歪み表(海)　DTS／歪み表(館・城)　DTM
+        　・歪み表　DT／歪み表ver2.0　DT2／歪み表（野外）　DTO／歪み表（海）　DTS／歪み表（館・城）　DTM
         　・世界歪曲表　WDT／世界歪曲表2.0　WDT2
         　・永劫消失表　EDT
         ・D66ダイスあり
