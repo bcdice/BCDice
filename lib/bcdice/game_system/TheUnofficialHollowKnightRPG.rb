@@ -175,7 +175,7 @@ module BCDice
 
           res_text += ","
         end
-        res_text.chop!
+        res_text = res_text.chop
         res_text += "]"
 
         return "#{dice_command} > #{res_text} > #{result}"
