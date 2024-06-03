@@ -34,12 +34,13 @@ module BCDice
       private
 
       def abirity_roll(command)
-        parser = Command::Parser.new(/\d*AB/, round_type: round_type)
+        parser = Command::Parser.new("AB", round_type: round_type)
+                                .enable_prefix_number()
                                 .restrict_cmp_op_to(:>=, nil)
         cmd = parser.parse(command)
         return nil unless cmd
 
-        times = cmd.command.start_with?(/\d/) ? cmd.command.to_i : 1
+        times = cmd.prefix_number || 1
 
         dice_list_full = @randomizer.roll_barabara(times, 20).sort
         dice_list_full_str = "[#{dice_list_full.join(',')}]" if times > 1
@@ -73,12 +74,13 @@ module BCDice
       end
 
       def action_roll(command)
-        parser = Command::Parser.new(/\d*DC/, round_type: round_type)
+        parser = Command::Parser.new("DC", round_type: round_type)
+                                .enable_prefix_number()
                                 .restrict_cmp_op_to(:>=, nil)
         cmd = parser.parse(command)
         return nil unless cmd
 
-        times = cmd.command.start_with?(/\d/) ? cmd.command.to_i : 1
+        times = cmd.prefix_number || 1
 
         dice_list_full = @randomizer.roll_barabara(times, 20).sort
         dice_list_full_str = "[#{dice_list_full.join(',')}]" if times > 1
