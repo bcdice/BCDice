@@ -44,6 +44,14 @@ module BCDice
         　STOREA　：店主またはレジ係
         　STOREB　：変わった客その1
         　STOREC　：変わった客その2
+        ・夜の市
+        　NMCT　：商品の分野
+        　NMCFO　：食品とドラッグ
+        　NMCME　：個人用電子機器
+        　NMCWE　：武器と防具
+        　NMCCY　：サイバーウェア
+        　NMCFA　：衣料品とファッションウェア
+        　NMCSU　：サバイバル用品
       HELP
 
       TABLES = translate_tables(@locale)

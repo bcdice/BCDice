@@ -88,12 +88,13 @@ module BCDice
         private
 
         def translate_tables(locale)
-          _night_market_foods_table = DiceTable::RangeTable.from_i18n("CyberpunkRed.NightMarketFoodsTable", locale)
-          _night_market_mechanic_table = DiceTable::RangeTable.from_i18n("CyberpunkRed.NightMarketMechanicTable", locale)
-          _night_market_weapons_table = DiceTable::RangeTable.from_i18n("CyberpunkRed.NightMarketWeaponsTable", locale)
-          _night_market_cyberware_table = DiceTable::RangeTable.from_i18n("CyberpunkRed.NightMarketCyberwareTable", locale)
-          _night_market_fashion_table = DiceTable::RangeTable.from_i18n("CyberpunkRed.NightMarketFashionTable", locale)
-          _night_market_suvival_table = DiceTable::RangeTable.from_i18n("CyberpunkRed.NightMarketSuvivalTable", locale)
+          nigit_market_type_table = DiceTable::Table.from_i18n("CyberpunkRed.NightMarketTypeTable", locale)
+          night_market_foods_table = DiceTable::RangeTable.from_i18n("CyberpunkRed.NightMarketFoodsTable", locale)
+          night_market_mechanic_table = DiceTable::RangeTable.from_i18n("CyberpunkRed.NightMarketMechanicTable", locale)
+          night_market_weapons_table = DiceTable::RangeTable.from_i18n("CyberpunkRed.NightMarketWeaponsTable", locale)
+          night_market_cyberware_table = DiceTable::RangeTable.from_i18n("CyberpunkRed.NightMarketCyberwareTable", locale)
+          night_market_fashion_table = DiceTable::RangeTable.from_i18n("CyberpunkRed.NightMarketFashionTable", locale)
+          night_market_suvival_table = DiceTable::RangeTable.from_i18n("CyberpunkRed.NightMarketSuvivalTable", locale)
 
           scream_sheet_type_table = DiceTable::Table.from_i18n("CyberpunkRed.ScreamSheetTypeTable", locale)
           scream_sheet_a_table = DiceTable::Table.from_i18n("CyberpunkRed.ScreamSheetATable", locale)
@@ -115,6 +116,13 @@ module BCDice
             "HFD" => DiceTable::Table.from_i18n("CyberpunkRed.HeadFatalDamageTable", locale),
             "NCDT" => DiceTable::RangeTable.from_i18n("CyberpunkRed.NightCityDaytimeEncounterTable", locale),
             "NCMT" => DiceTable::RangeTable.from_i18n("CyberpunkRed.NightCityMidnightEncounterTable", locale),
+            "NMCT" => nigit_market_type_table,
+            "NMCFO" => night_market_foods_table,
+            "NMCME" => night_market_mechanic_table,
+            "NMCWE" => night_market_weapons_table,
+            "NMCCY" => night_market_cyberware_table,
+            "NMCFA" => night_market_fashion_table,
+            "NMCSU" => night_market_suvival_table,
             "SCST" => scream_sheet_type_table,
             "SCSA" => scream_sheet_a_table,
             "SCSB" => scream_sheet_b_table,
