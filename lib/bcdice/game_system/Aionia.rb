@@ -32,14 +32,80 @@ module BCDice
       end
 
       def roll_skills(command)
-        m = %r{ST?(\d+)([+-]\d+)?>=(\d+)((/\d+)*)}.match(command)
+        m = %r{S(T?)(\d+)([+-]\d+)?>=((\d+)((/\d+)*))}.match(command)
         return nil unless m
 
-        sides = m[1].to_i
-        bonus = m[2].to_i
-        target = m[3].to_i
-        extra_target = m[4]
-        return "sides: #{sides}, bonus: #{bonus}, target: #{target}, extra_target: #{extra_target}"
+        # 値の取得
+        use_cf = m[1] != ''
+        times = m[2].to_i
+        bonus = m[3].to_i
+        targets = m[4].split('/').map(&:to_i)
+        target = targets[0]
+        min_target = targets.min
+        max_target = targets.max
+
+        # ダイスロール
+        dice_list = @randomizer.roll_barabara(times, 10)
+        dice_total = dice_list.sum
+        total = dice_total + bonus
+
+        # 結果判定
+        # 難易度が一つの場合
+        if targets.count == 1
+          if total >= target
+            if total >= target + 20 && use_cf
+              result = 'クリティカル'
+            elsif target <= times
+              result = '自動成功'
+            else
+              result = '成功'
+            end
+          else
+            if dice_list.count(1) == times && use_cf
+              result = 'ファンブル'
+            elsif target > 10 * times
+              result = '自動失敗'
+            else
+              result = '失敗'
+            end
+          end
+        # 段階的な難易度判定の場合
+        else
+          if total >= min_target
+            if total >= max_target + 20 && use_cf
+              result = 'クリティカル'
+            elsif max_target <= times
+              result = '自動成功'
+            elsif total >= max_target
+              result = '全成功'
+            else
+              times_suc = targets.count { |x| x <= total }
+              result = "#{times_suc}段階成功"
+            end
+          else
+            if dice_list.count(1) == times && use_cf
+              result = 'ファンブル'
+            elsif min_target > 10 * times
+              result = '自動失敗'
+            else
+              result = '失敗'
+            end
+          end
+        end
+
+        # ボーナスがある場合の処理
+        bonus_text = ''
+        bonus_result = ''
+        if bonus != 0
+          if bonus > 0
+            bonus_text = "+"
+          end
+          bonus_text += bonus.to_s
+          bonus_result = "#{total} ＞ "
+        end
+
+        # 結果を返す
+        return "(#{command}) ＞ #{dice_total}[#{dice_list.join(',')}]#{bonus_text} ＞ #{bonus_result}#{result}"
       end
     end
   end
