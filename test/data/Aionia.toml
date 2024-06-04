@@ -1,48 +1,48 @@
 ##### クリファンなしコマンドのテスト #####
 [[ test ]]
 game_system = "Aionia"
-input = "1d>=6 1つのダイスで成功 クリファンなし"
-output = "(1d>=6) ＞ 8[8] ＞ 成功"
+input = "s1>=6 1つのダイスで成功 クリファンなし"
+output = "(s1>=6) ＞ 8[8] ＞ 成功"
 rands = [
   { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "1d>=8 1つのダイスで失敗 クリファンなし"
-output = "(1d>=8) ＞ 5[5] ＞ 失敗"
+input = "s1>=8 1つのダイスで失敗 クリファンなし"
+output = "(s1>=8) ＞ 5[5] ＞ 失敗"
 rands = [
   { sides = 10, value = 5 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "1d>=5 1つのダイスで失敗（ファンブルの値） クリファンなし"
-output = "(1d>=5) ＞ 1[1] ＞ 失敗"
+input = "s1>=5 1つのダイスで失敗（ファンブルの値） クリファンなし"
+output = "(s1>=5) ＞ 1[1] ＞ 失敗"
 rands = [
   { sides = 10, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "1d>=1 1つのダイスで自動成功 クリファンなし"
-output = "(1d>=1) ＞ 1[1] ＞ 自動成功"
+input = "s1>=1 1つのダイスで自動成功 クリファンなし"
+output = "(s1>=1) ＞ 1[1] ＞ 自動成功"
 rands = [
   { sides = 10, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "1d>=11 1つのダイスで自動失敗 クリファンなし"
-output = "(1d>=8) ＞ 10[10] ＞ 自動失敗"
+input = "s1>=11 1つのダイスで自動失敗 クリファンなし"
+output = "(s1>=8) ＞ 10[10] ＞ 自動失敗"
 rands = [
   { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "2d>=10 2つのダイスで成功 クリファンなし"
-output = "(2d>=10) ＞ 11[2,9] ＞ 成功"
+input = "s2>=10 2つのダイスで成功 クリファンなし"
+output = "(s2>=10) ＞ 11[2,9] ＞ 成功"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 9 },
@@ -50,8 +50,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "2d>=5 2つのダイスで失敗 クリファンなし"
-output = "(2d>=5) ＞ 4[3,1] ＞ 失敗"
+input = "s2>=5 2つのダイスで失敗 クリファンなし"
+output = "(s2>=5) ＞ 4[3,1] ＞ 失敗"
 rands = [
   { sides = 10, value = 3},
   { sides = 10, value = 1},
@@ -59,8 +59,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "2d>=5 2つのダイスで失敗（ファンブルの値） クリファンなし"
-output = "(2d>=5) ＞ 2[1,1] ＞ 失敗"
+input = "s2>=5 2つのダイスで失敗（ファンブルの値） クリファンなし"
+output = "(s2>=5) ＞ 2[1,1] ＞ 失敗"
 rands = [
   { sides = 10, value = 1},
   { sides = 10, value = 1},
@@ -68,8 +68,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "2d>=2 2つのダイスで自動成功 クリファンなし"
-output = "(2d>=2) ＞ 2[1,1] ＞ 自動成功"
+input = "s2>=2 2つのダイスで自動成功 クリファンなし"
+output = "(s2>=2) ＞ 2[1,1] ＞ 自動成功"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -77,8 +77,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "2d>=21 2つのダイスで自動失敗 クリファンなし"
-output = "(2d>=21) ＞ 20[10,10] ＞ 自動失敗"
+input = "s2>=21 2つのダイスで自動失敗 クリファンなし"
+output = "(s2>=21) ＞ 20[10,10] ＞ 自動失敗"
 rands = [
   { sides = 10, value = 10},
   { sides = 10, value = 10},
@@ -86,8 +86,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d>=18 3つのダイスで成功 クリファンなし"
-output = "(3d>=18) ＞ 22[10,7,5] ＞ 成功"
+input = "s3>=18 3つのダイスで成功 クリファンなし"
+output = "(s3>=18) ＞ 22[10,7,5] ＞ 成功"
 rands = [
   { sides = 10, value = 10},
   { sides = 10, value = 7},
@@ -96,8 +96,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d>=25 3つのダイスで失敗 クリファンなし"
-output = "(3d>=25) ＞ 24[8,7,9] ＞ 失敗"
+input = "s3>=25 3つのダイスで失敗 クリファンなし"
+output = "(s3>=25) ＞ 24[8,7,9] ＞ 失敗"
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
@@ -106,8 +106,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d>=18 3つのダイスで成功（クリティカルの値） クリファンなし"
-output = "(3d>=8) ＞ 28[8,10,10] ＞ 成功"
+input = "s3>=18 3つのダイスで成功（クリティカルの値） クリファンなし"
+output = "(s3>=8) ＞ 28[8,10,10] ＞ 成功"
 rands = [
   { sides = 10, value = 8},
   { sides = 10, value = 10},
@@ -116,8 +116,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d>=8 3つのダイスで失敗（ファンブルの値） クリファンなし"
-output = "(3d>=8) ＞ 3[1,1,1] ＞ 失敗"
+input = "s3>=8 3つのダイスで失敗（ファンブルの値） クリファンなし"
+output = "(s3>=8) ＞ 3[1,1,1] ＞ 失敗"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -126,8 +126,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d>=3 3つのダイスで自動成功 クリファンなし"
-output = "(3d>=3) ＞ 3[1,1,1] ＞ 自動成功"
+input = "s3>=3 3つのダイスで自動成功 クリファンなし"
+output = "(s3>=3) ＞ 3[1,1,1] ＞ 自動成功"
 rands = [
   { sides = 10, value = 1},
   { sides = 10, value = 1},
@@ -136,8 +136,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d>=31 3つのダイスで自動失敗 クリファンなし"
-output = "(3d>=31) ＞ 30[10,10,10] ＞ 自動失敗"
+input = "s3>=31 3つのダイスで自動失敗 クリファンなし"
+output = "(s3>=31) ＞ 30[10,10,10] ＞ 自動失敗"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -147,24 +147,24 @@ rands = [
 ##### ボーナス・ペナルティのテスト（クリファンなし）#####
 [[ test ]]
 game_system = "Aionia"
-input = "1d+1>=6 1つのダイスでボーナスにより成功 クリファンなし"
-output = "(1d+1>=6) ＞ 5[5]+1 ＞ 6 ＞ 成功"
+input = "s1+1>=6 1つのダイスでボーナスにより成功 クリファンなし"
+output = "(s1+1>=6) ＞ 5[5]+1 ＞ 6 ＞ 成功"
 rands = [
   { sides = 10, value = 5 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "1d-2>=8 1つのダイスでペナルティにより失敗 クリファンなし"
-output = "(1d-2>=8) ＞ 8[8]-2 ＞ 6 ＞ 失敗"
+input = "s1-2>=8 1つのダイスでペナルティにより失敗 クリファンなし"
+output = "(s1-2>=8) ＞ 8[8]-2 ＞ 6 ＞ 失敗"
 rands = [
   { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "2d+2>=15 2つのダイスでボーナスにより成功 クリファンなし"
-output = "(2d+2>=15) ＞ 14[9,5]+2 ＞ 16 ＞ 成功"
+input = "s2+2>=15 2つのダイスでボーナスにより成功 クリファンなし"
+output = "(s2+2>=15) ＞ 14[9,5]+2 ＞ 16 ＞ 成功"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 5 },
@@ -172,8 +172,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "2d-1>=10 2つのダイスでペナルティにより失敗 クリファンなし"
-output = "(2d-1>=10) ＞ 10[4,6]-1 ＞ 9 ＞ 失敗"
+input = "s2-1>=10 2つのダイスでペナルティにより失敗 クリファンなし"
+output = "(s2-1>=10) ＞ 10[4,6]-1 ＞ 9 ＞ 失敗"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 6 },
@@ -181,8 +181,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d+2>=20 3つのダイスでボーナスにより成功 クリファンなし"
-output = "(3d+2>=20) ＞ 19[1,9,9]+2 ＞ 21 ＞ 成功"
+input = "s3+2>=20 3つのダイスでボーナスにより成功 クリファンなし"
+output = "(s3+2>=20) ＞ 19[1,9,9]+2 ＞ 21 ＞ 成功"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 9 },
@@ -191,8 +191,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d-1>=10 3つのダイスでペナルティにより失敗 クリファンなし"
-output = "(3d-1>=10) ＞ 10[3,3,4]-1 ＞ 9 ＞ 失敗"
+input = "s3-1>=10 3つのダイスでペナルティにより失敗 クリファンなし"
+output = "(s3-1>=10) ＞ 10[3,3,4]-1 ＞ 9 ＞ 失敗"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 3 },
@@ -202,8 +202,8 @@ rands = [
 ##### 段階的な技能判定のテスト（クリファンなし）#####
 [[ test ]]
 game_system = "Aionia"
-input = "3d>=14/18/22 段階的な技能判定 失敗 クリファンなし"
-output = "(3d>=14/18/22) ＞ 11[3,4,4] ＞ 失敗"
+input = "s3>=14/18/22 段階的な技能判定 失敗 クリファンなし"
+output = "(s3>=14/18/22) ＞ 11[3,4,4] ＞ 失敗"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
@@ -212,8 +212,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d>=14/18/22 段階的な技能判定 1段階成功 クリファンなし"
-output = "(3d>=14/18/22) ＞ 15[3,4,8] ＞ 1段階成功"
+input = "s3>=14/18/22 段階的な技能判定 1段階成功 クリファンなし"
+output = "(s3>=14/18/22) ＞ 15[3,4,8] ＞ 1段階成功"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
@@ -222,8 +222,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d>=14/18/22 段階的な技能判定 2段階成功 クリファンなし"
-output = "(3d>=14/18/22) ＞ 20[9,10,1] ＞ 2段階成功"
+input = "s3>=14/18/22 段階的な技能判定 2段階成功 クリファンなし"
+output = "(s3>=14/18/22) ＞ 20[9,10,1] ＞ 2段階成功"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
@@ -232,8 +232,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d>=14/18/22 段階的な技能判定 全成功 クリファンなし"
-output = "(3d>=14/18/22) ＞ 30[10,10,10] ＞ 全成功"
+input = "s3>=14/18/22 段階的な技能判定 全成功 クリファンなし"
+output = "(s3>=14/18/22) ＞ 30[10,10,10] ＞ 全成功"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -242,8 +242,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d>=3/6/10 段階的な技能判定 1段階成功 （自動成功） クリファンなし"
-output = "(3d>=3/6/10) ＞ 3[1,1,1] ＞ 1段階成功"
+input = "s3>=3/6/10 段階的な技能判定 1段階成功 （自動成功） クリファンなし"
+output = "(s3>=3/6/10) ＞ 3[1,1,1] ＞ 1段階成功"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -252,8 +252,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d>=31/35/40 段階的な技能判定 自動失敗 クリファンなし"
-output = "(3d>=31/35/40) ＞ 30[10,10,10] ＞ 自動失敗"
+input = "s3>=31/35/40 段階的な技能判定 自動失敗 クリファンなし"
+output = "(s3>=31/35/40) ＞ 30[10,10,10] ＞ 自動失敗"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -262,8 +262,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d+1>=14/18/22 段階的な技能判定 ボーナスにより1段階成功 クリファンなし"
-output = "(3d+1>=14/18/22) ＞ 13[6,3,4]+1 ＞ 14 ＞ 1段階成功"
+input = "s3+1>=14/18/22 段階的な技能判定 ボーナスにより1段階成功 クリファンなし"
+output = "(s3+1>=14/18/22) ＞ 13[6,3,4]+1 ＞ 14 ＞ 1段階成功"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 3 },
@@ -272,8 +272,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3d-2>=14/18/22 段階的な技能判定 ペナルティにより1段階成功 クリファンなし"
-output = "(3d-2>=14/18/22) ＞ 19[7,10,2]-2 ＞ 17 ＞ 1段階成功"
+input = "s3-2>=14/18/22 段階的な技能判定 ペナルティにより1段階成功 クリファンなし"
+output = "(s3-2>=14/18/22) ＞ 19[7,10,2]-2 ＞ 17 ＞ 1段階成功"
 rands = [
   { sides = 10, value = 7 },
   { sides = 10, value = 10 },
@@ -283,56 +283,56 @@ rands = [
 ##### クリファンありコマンドのテスト #####
 [[ test ]]
 game_system = "Aionia"
-input = "1dt>=3 1つのダイスで成功 クリファンあり"
-output = "(1dt>=3) ＞ 6[6] ＞ 成功"
+input = "st1>=3 1つのダイスで成功 クリファンあり"
+output = "(st1>=3) ＞ 6[6] ＞ 成功"
 rands = [
   { sides = 10, value = 6 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "1dt>=8 1つのダイスで失敗 クリファンあり"
-output = "(1dt>=8) ＞ 2[2] ＞ 失敗"
+input = "st1>=8 1つのダイスで失敗 クリファンあり"
+output = "(st1>=8) ＞ 2[2] ＞ 失敗"
 rands = [
   { sides = 10, value = 2 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "1dt>=3 1つのダイスでファンブル クリファンあり"
-output = "(1dt>=3) ＞ 1[1] ＞ ファンブル"
+input = "st1>=3 1つのダイスでファンブル クリファンあり"
+output = "(st1>=3) ＞ 1[1] ＞ ファンブル"
 rands = [
   { sides = 10, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "1dt>=1 1つのダイスで自動成功 クリファンあり"
-output = "(1dt>=1) ＞ 1[1] ＞ 自動成功"
+input = "st1>=1 1つのダイスで自動成功 クリファンあり"
+output = "(st1>=1) ＞ 1[1] ＞ 自動成功"
 rands = [
   { sides = 10, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "1dt>=11 1つのダイスで自動失敗 クリファンあり"
-output = "(1dt>=11) ＞ 10[10] ＞ 自動失敗"
+input = "st1>=11 1つのダイスで自動失敗 クリファンあり"
+output = "(st1>=11) ＞ 10[10] ＞ 自動失敗"
 rands = [
   { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "1dt>=11 1つのダイスでファンブル（自動失敗の値） クリファンあり"
-output = "(1dt>=11) ＞ 1[1] ＞ ファンブル"
+input = "st1>=11 1つのダイスでファンブル（自動失敗の値） クリファンあり"
+output = "(st1>=11) ＞ 1[1] ＞ ファンブル"
 rands = [
   { sides = 10, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "2dt>=7 2つのダイスで成功 クリファンあり"
-output = "(2dt>=7) ＞ 20[10,10] ＞ 成功"
+input = "st2>=7 2つのダイスで成功 クリファンあり"
+output = "(st2>=7) ＞ 20[10,10] ＞ 成功"
 rands = [
   {sides = 10, value = 10 },
   {sides = 10, value = 10 },
@@ -340,8 +340,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "2dt>=15 2つのダイスで失敗 クリファンあり"
-output = "(2dt>=15) ＞ 12[6,6] ＞ 失敗"
+input = "st2>=15 2つのダイスで失敗 クリファンあり"
+output = "(st2>=15) ＞ 12[6,6] ＞ 失敗"
 rands = [
   {sides = 10, value = 6 },
   {sides = 10, value = 6 },
@@ -349,8 +349,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "2dt>=15 2つのダイスでファンブル クリファンあり"
-output = "(2dt>=15) ＞ 2[1,1] ＞ ファンブル"
+input = "st2>=15 2つのダイスでファンブル クリファンあり"
+output = "(st2>=15) ＞ 2[1,1] ＞ ファンブル"
 rands = [
   {sides = 10, value = 1 },
   {sides = 10, value = 1 },
@@ -358,8 +358,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "2dt>=2 2つのダイスで自動成功 クリファンあり"
-output = "(2dt>=2) ＞ 2[1,1] ＞ 自動成功"
+input = "st2>=2 2つのダイスで自動成功 クリファンあり"
+output = "(st2>=2) ＞ 2[1,1] ＞ 自動成功"
 rands = [
   {sides = 10, value = 1 },
   {sides = 10, value = 1 },
@@ -367,8 +367,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "2dt>=21 2つのダイスで自動失敗 クリファンあり"
-output = "(2dt>=21) ＞ 20[10,10] ＞ 自動失敗"
+input = "st2>=21 2つのダイスで自動失敗 クリファンあり"
+output = "(st2>=21) ＞ 20[10,10] ＞ 自動失敗"
 rands = [
   {sides = 10, value = 10 },
   {sides = 10, value = 10 },
@@ -376,8 +376,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "2dt>=21 2つのダイスでファンブル（自動失敗の値） クリファンあり"
-output = "(2dt>=21) ＞ 2[1,1] ＞ ファンブル"
+input = "st2>=21 2つのダイスでファンブル（自動失敗の値） クリファンあり"
+output = "(st2>=21) ＞ 2[1,1] ＞ ファンブル"
 rands = [
   {sides = 10, value = 1 },
   {sides = 10, value = 1 },
@@ -385,8 +385,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=15 3つのダイスで成功 クリファンあり"
-output = "(3dt>=15) ＞ 19[5,7,7] ＞ 成功"
+input = "st3>=15 3つのダイスで成功 クリファンあり"
+output = "(st3>=15) ＞ 19[5,7,7] ＞ 成功"
 rands = [
   { sides = 10, value = 5},
   { sides = 10, value = 7},
@@ -395,8 +395,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=10 3つのダイスで失敗 クリファンあり"
-output = "(3dt>=10) ＞ 8[1,2,5] ＞ 失敗"
+input = "st3>=10 3つのダイスで失敗 クリファンあり"
+output = "(st3>=10) ＞ 8[1,2,5] ＞ 失敗"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -405,8 +405,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=5 3つのダイスでクリティカル クリファンあり"
-output = "(3dt>=5) ＞ 25[8,9,8] ＞ クリティカル"
+input = "st3>=5 3つのダイスでクリティカル クリファンあり"
+output = "(st3>=5) ＞ 25[8,9,8] ＞ クリティカル"
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 9 },
@@ -415,8 +415,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=18 3つのダイスでファンブル クリファンあり"
-output = "(3dt>=18) ＞ 3[1,1,1] ＞ ファンブル"
+input = "st3>=18 3つのダイスでファンブル クリファンあり"
+output = "(st3>=18) ＞ 3[1,1,1] ＞ ファンブル"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -425,8 +425,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=3 3つのダイスで自動成功 クリファンあり"
-output = "(3dt>=3) ＞ 3[1,1,1] ＞ 自動成功"
+input = "st3>=3 3つのダイスで自動成功 クリファンあり"
+output = "(st3>=3) ＞ 3[1,1,1] ＞ 自動成功"
 rands = [
   { sides = 10, value = 1},
   { sides = 10, value = 1},
@@ -435,8 +435,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=31 3つのダイスで自動失敗 クリファンあり"
-output = "(3dt>=31) ＞ 30[10,10,10] ＞ 自動失敗"
+input = "st3>=31 3つのダイスで自動失敗 クリファンあり"
+output = "(st3>=31) ＞ 30[10,10,10] ＞ 自動失敗"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -445,8 +445,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=31 3つのダイスでファンブル（自動失敗の値） クリファンあり"
-output = "(3dt>=31) ＞ 3[1,1,1] ＞ ファンブル"
+input = "st3>=31 3つのダイスでファンブル（自動失敗の値） クリファンあり"
+output = "(st3>=31) ＞ 3[1,1,1] ＞ ファンブル"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -456,24 +456,24 @@ rands = [
 ##### ボーナス・ペナルティのテスト（クリファンあり）#####
 [[ test ]]
 game_system = "Aionia"
-input = "1dt+1>=6 1つのダイスでボーナスにより成功 クリファンあり"
-output = "(1dt+1>=6) ＞ 5[5]+1 ＞ 6 ＞ 成功"
+input = "st1+1>=6 1つのダイスでボーナスにより成功 クリファンあり"
+output = "(st1+1>=6) ＞ 5[5]+1 ＞ 6 ＞ 成功"
 rands = [
   { sides = 10, value = 5 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "1dt-2>=8 1つのダイスでペナルティにより失敗 クリファンあり"
-output = "(1dt-2>=8) ＞ 8[8]-2 ＞ 6 ＞ 失敗"
+input = "st1-2>=8 1つのダイスでペナルティにより失敗 クリファンあり"
+output = "(st1-2>=8) ＞ 8[8]-2 ＞ 6 ＞ 失敗"
 rands = [
   { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "2dt+2>=15 2つのダイスでボーナスにより成功 クリファンあり"
-output = "(2dt+2>=15) ＞ 14[9,5]+2 ＞ 16 ＞ 成功"
+input = "st2+2>=15 2つのダイスでボーナスにより成功 クリファンあり"
+output = "(st2+2>=15) ＞ 14[9,5]+2 ＞ 16 ＞ 成功"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 5 },
@@ -481,8 +481,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "2dt-1>=10 2つのダイスでペナルティにより失敗 クリファンあり"
-output = "(2dt-1>=10) ＞ 10[4,6]-1 ＞ 9 ＞ 失敗"
+input = "st2-1>=10 2つのダイスでペナルティにより失敗 クリファンあり"
+output = "(st2-1>=10) ＞ 10[4,6]-1 ＞ 9 ＞ 失敗"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 6 },
@@ -490,8 +490,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt+2>=20 3つのダイスでボーナスにより成功 クリファンあり"
-output = "(3dt+2>=20) ＞ 19[1,9,9]+2 ＞ 21 ＞ 成功"
+input = "st3+2>=20 3つのダイスでボーナスにより成功 クリファンあり"
+output = "(st3+2>=20) ＞ 19[1,9,9]+2 ＞ 21 ＞ 成功"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 9 },
@@ -500,8 +500,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt-1>=10 3つのダイスでペナルティにより失敗 クリファンあり"
-output = "(3dt-1>=10) ＞ 10[3,3,4]-1 ＞ 9 ＞ 失敗"
+input = "st3-1>=10 3つのダイスでペナルティにより失敗 クリファンあり"
+output = "(st3-1>=10) ＞ 10[3,3,4]-1 ＞ 9 ＞ 失敗"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 3 },
@@ -510,8 +510,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt+4>=10 ボーナスによりクリティカル"
-output = "(3dt+4>=10) ＞ 26[9,10,7]+4 ＞ 30 ＞ クリティカル"
+input = "st3+4>=10 ボーナスによりクリティカル"
+output = "(st3+4>=10) ＞ 26[9,10,7]+4 ＞ 30 ＞ クリティカル"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
@@ -520,8 +520,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt+2>=8 ボーナスはあるがファンブル"
-output = "(3dt+2>=8) ＞ 3[1,1,1]+2 ＞ 5 ＞ ファンブル"
+input = "st3+2>=8 ボーナスはあるがファンブル"
+output = "(st3+2>=8) ＞ 3[1,1,1]+2 ＞ 5 ＞ ファンブル"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -530,8 +530,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt+2>=5 出目がすべて1だがボーナスによりファンブルにならない"
-output = "(3dt+2>=5) ＞ 3[1,1,1]+2 ＞ 5 ＞ 成功"
+input = "st3+2>=5 出目がすべて1だがボーナスによりファンブルにならない"
+output = "(st3+2>=5) ＞ 3[1,1,1]+2 ＞ 5 ＞ 成功"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -541,8 +541,8 @@ rands = [
 ##### 段階的な技能判定のテスト（クリファンあり）#####
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=14/18/22 段階的な技能判定 失敗 クリファンあり"
-output = "(3dt>=14/18/22) ＞ 11[3,4,4] ＞ 失敗"
+input = "st3>=14/18/22 段階的な技能判定 失敗 クリファンあり"
+output = "(st3>=14/18/22) ＞ 11[3,4,4] ＞ 失敗"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
@@ -551,8 +551,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=14/18/22 段階的な技能判定 ファンブル クリファンあり"
-output = "(3dt>=14/18/22) ＞ 3[1,1,1] ＞ ファンブル"
+input = "st3>=14/18/22 段階的な技能判定 ファンブル クリファンあり"
+output = "(st3>=14/18/22) ＞ 3[1,1,1] ＞ ファンブル"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -561,8 +561,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=14/18/22 段階的な技能判定 1段階成功 クリファンあり"
-output = "(3dt>=14/18/22) ＞ 15[3,4,8] ＞ 1段階成功"
+input = "st3>=14/18/22 段階的な技能判定 1段階成功 クリファンあり"
+output = "(st3>=14/18/22) ＞ 15[3,4,8] ＞ 1段階成功"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 4 },
@@ -571,8 +571,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=14/18/22 段階的な技能判定 2段階成功 クリファンあり"
-output = "(3dt>=14/18/22) ＞ 20[9,10,1] ＞ 2段階成功"
+input = "st3>=14/18/22 段階的な技能判定 2段階成功 クリファンあり"
+output = "(st3>=14/18/22) ＞ 20[9,10,1] ＞ 2段階成功"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
@@ -581,8 +581,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=14/18/22 段階的な技能判定 全成功 クリファンあり"
-output = "(3dt>=14/18/22) ＞ 23[10,6,7] ＞ 全成功"
+input = "st3>=14/18/22 段階的な技能判定 全成功 クリファンあり"
+output = "(st3>=14/18/22) ＞ 23[10,6,7] ＞ 全成功"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 6 },
@@ -591,8 +591,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=14/18/22 段階的な技能判定 クリティカルではなく全成功 クリファンあり"
-output = "(3dt>=14/18/22) ＞ 24[10,7,7] ＞ 全成功"
+input = "st3>=14/18/22 段階的な技能判定 クリティカルではなく全成功 クリファンあり"
+output = "(st3>=14/18/22) ＞ 24[10,7,7] ＞ 全成功"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 7 },
@@ -601,8 +601,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=4/8/12 段階的な技能判定 クリティカル クリファンあり"
-output = "(3dt>=4/8/12) ＞ 22[8,10,4] ＞ クリティカル"
+input = "st3>=4/8/12 段階的な技能判定 クリティカル クリファンあり"
+output = "(st3>=4/8/12) ＞ 22[8,10,4] ＞ クリティカル"
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 10 },
@@ -611,8 +611,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=3/6/10 段階的な技能判定 1段階成功 （自動成功） クリファンあり"
-output = "(3dt>=3/6/10) ＞ 3[1,1,1] ＞ 1段階成功"
+input = "st3>=3/6/10 段階的な技能判定 1段階成功 （自動成功） クリファンあり"
+output = "(st3>=3/6/10) ＞ 3[1,1,1] ＞ 1段階成功"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -621,8 +621,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt>=31/35/40 段階的な技能判定 自動失敗 クリファンあり"
-output = "(3dt>=31/35/40) ＞ 30[10,10,10] ＞ 自動失敗"
+input = "st3>=31/35/40 段階的な技能判定 自動失敗 クリファンあり"
+output = "(st3>=31/35/40) ＞ 30[10,10,10] ＞ 自動失敗"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -631,8 +631,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt+1>=14/18/22 段階的な技能判定 ボーナスにより1段階成功 クリファンあり"
-output = "(3dt+1>=14/18/22) ＞ 13[6,3,4]+1 ＞ 14 ＞ 1段階成功"
+input = "st3+1>=14/18/22 段階的な技能判定 ボーナスにより1段階成功 クリファンあり"
+output = "(st3+1>=14/18/22) ＞ 13[6,3,4]+1 ＞ 14 ＞ 1段階成功"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 3 },
@@ -641,8 +641,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt-2>=14/18/22 段階的な技能判定 ペナルティにより1段階成功 クリファンあり"
-output = "(3dt-2>=14/18/22) ＞ 19[7,10,2]-2 ＞ 17 ＞ 1段階成功"
+input = "st3-2>=14/18/22 段階的な技能判定 ペナルティにより1段階成功 クリファンあり"
+output = "(st3-2>=14/18/22) ＞ 19[7,10,2]-2 ＞ 17 ＞ 1段階成功"
 rands = [
   { sides = 10, value = 7 },
   { sides = 10, value = 10 },
@@ -651,8 +651,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "3dt+1>=4/8/12 段階的な技能判定 ボーナスによりクリティカル クリファンあり"
-output = "(3dt+1>=4/8/12) ＞ 21[9,9,3]+1 ＞ 22 ＞ クリティカル"
+input = "st3+1>=4/8/12 段階的な技能判定 ボーナスによりクリティカル クリファンあり"
+output = "(st3+1>=4/8/12) ＞ 21[9,9,3]+1 ＞ 22 ＞ クリティカル"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
@@ -662,8 +662,8 @@ rands = [
 ##### 全部乗せ #####
 [[ test ]]
 game_system = "Aionia"
-input = "3dt+3>=3/6/8/10/12/15/18/20/22/24/26/28/30/32 段階的な技能判定 10段階成功 クリファンあり"
-output = "(3dt+3>=3/6/8/10/12/15/18/20/22/24/26/28/30/32) ＞ 22[8,4,10]+3 ＞ 25 ＞ 10段階成功"
+input = "st3+3>=3/6/8/10/12/15/18/20/22/24/26/28/30/32 段階的な技能判定 10段階成功 クリファンあり"
+output = "(st3+3>=3/6/8/10/12/15/18/20/22/24/26/28/30/32) ＞ 22[8,4,10]+3 ＞ 25 ＞ 10段階成功"
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 4 },
