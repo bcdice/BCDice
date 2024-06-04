@@ -10,7 +10,7 @@ module BCDice
       NAME = "慈悲なきアイオニア"
 
       # ゲームシステム名の読みがな
-      SORT_KEY = "じひなきあいおにあ"
+      SORT_KEY = "しひなきあいおにあ"
 
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         - 技能判定（クリティカル・ファンブルなし）
