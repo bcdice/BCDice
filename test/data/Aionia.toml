@@ -1,48 +1,48 @@
 ##### クリファンなしコマンドのテスト #####
 [[ test ]]
 game_system = "Aionia"
-input = "s1>=6 1つのダイスで成功 クリファンなし"
-output = "(s1>=6) ＞ 8[8] ＞ 成功"
+input = "S1>=6 1つのダイスで成功 クリファンなし"
+output = "(S1>=6) ＞ 8[8] ＞ 成功"
 rands = [
   { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "s1>=8 1つのダイスで失敗 クリファンなし"
-output = "(s1>=8) ＞ 5[5] ＞ 失敗"
+input = "S1>=8 1つのダイスで失敗 クリファンなし"
+output = "(S1>=8) ＞ 5[5] ＞ 失敗"
 rands = [
   { sides = 10, value = 5 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "s1>=5 1つのダイスで失敗（ファンブルの値） クリファンなし"
-output = "(s1>=5) ＞ 1[1] ＞ 失敗"
+input = "S1>=5 1つのダイスで失敗（ファンブルの値） クリファンなし"
+output = "(S1>=5) ＞ 1[1] ＞ 失敗"
 rands = [
   { sides = 10, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "s1>=1 1つのダイスで自動成功 クリファンなし"
-output = "(s1>=1) ＞ 1[1] ＞ 自動成功"
+input = "S1>=1 1つのダイスで自動成功 クリファンなし"
+output = "(S1>=1) ＞ 1[1] ＞ 自動成功"
 rands = [
   { sides = 10, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "s1>=11 1つのダイスで自動失敗 クリファンなし"
-output = "(s1>=8) ＞ 10[10] ＞ 自動失敗"
+input = "S1>=11 1つのダイスで自動失敗 クリファンなし"
+output = "(S1>=11) ＞ 10[10] ＞ 自動失敗"
 rands = [
   { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "s2>=10 2つのダイスで成功 クリファンなし"
-output = "(s2>=10) ＞ 11[2,9] ＞ 成功"
+input = "S2>=10 2つのダイスで成功 クリファンなし"
+output = "(S2>=10) ＞ 11[2,9] ＞ 成功"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 9 },
@@ -50,8 +50,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "s2>=5 2つのダイスで失敗 クリファンなし"
-output = "(s2>=5) ＞ 4[3,1] ＞ 失敗"
+input = "S2>=5 2つのダイスで失敗 クリファンなし"
+output = "(S2>=5) ＞ 4[3,1] ＞ 失敗"
 rands = [
   { sides = 10, value = 3},
   { sides = 10, value = 1},
@@ -59,8 +59,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "s2>=5 2つのダイスで失敗（ファンブルの値） クリファンなし"
-output = "(s2>=5) ＞ 2[1,1] ＞ 失敗"
+input = "S2>=5 2つのダイスで失敗（ファンブルの値） クリファンなし"
+output = "(S2>=5) ＞ 2[1,1] ＞ 失敗"
 rands = [
   { sides = 10, value = 1},
   { sides = 10, value = 1},
@@ -68,8 +68,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "s2>=2 2つのダイスで自動成功 クリファンなし"
-output = "(s2>=2) ＞ 2[1,1] ＞ 自動成功"
+input = "S2>=2 2つのダイスで自動成功 クリファンなし"
+output = "(S2>=2) ＞ 2[1,1] ＞ 自動成功"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
@@ -77,8 +77,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "s2>=21 2つのダイスで自動失敗 クリファンなし"
-output = "(s2>=21) ＞ 20[10,10] ＞ 自動失敗"
+input = "S2>=21 2つのダイスで自動失敗 クリファンなし"
+output = "(S2>=21) ＞ 20[10,10] ＞ 自動失敗"
 rands = [
   { sides = 10, value = 10},
   { sides = 10, value = 10},
@@ -86,8 +86,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "s3>=18 3つのダイスで成功 クリファンなし"
-output = "(s3>=18) ＞ 22[10,7,5] ＞ 成功"
+input = "S3>=18 3つのダイスで成功 クリファンなし"
+output = "(S3>=18) ＞ 22[10,7,5] ＞ 成功"
 rands = [
   { sides = 10, value = 10},
   { sides = 10, value = 7},
@@ -96,8 +96,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "s3>=25 3つのダイスで失敗 クリファンなし"
-output = "(s3>=25) ＞ 24[8,7,9] ＞ 失敗"
+input = "S3>=25 3つのダイスで失敗 クリファンなし"
+output = "(S3>=25) ＞ 24[8,7,9] ＞ 失敗"
 rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
@@ -106,8 +106,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "s3>=18 3つのダイスで成功（クリティカルの値） クリファンなし"
-output = "(s3>=8) ＞ 28[8,10,10] ＞ 成功"
+input = "S3>=18 3つのダイスで成功（クリティカルの値） クリファンなし"
+output = "(S3>=18) ＞ 28[8,10,10] ＞ 成功"
 rands = [
   { sides = 10, value = 8},
   { sides = 10, value = 10},
@@ -147,24 +147,24 @@ rands = [
 ##### ボーナス・ペナルティのテスト（クリファンなし）#####
 [[ test ]]
 game_system = "Aionia"
-input = "s1+1>=6 1つのダイスでボーナスにより成功 クリファンなし"
-output = "(s1+1>=6) ＞ 5[5]+1 ＞ 6 ＞ 成功"
+input = "S1+1>=6 1つのダイスでボーナスにより成功 クリファンなし"
+output = "(S1+1>=6) ＞ 5[5]+1 ＞ 6 ＞ 成功"
 rands = [
   { sides = 10, value = 5 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "s1-2>=8 1つのダイスでペナルティにより失敗 クリファンなし"
-output = "(s1-2>=8) ＞ 8[8]-2 ＞ 6 ＞ 失敗"
+input = "S1-2>=8 1つのダイスでペナルティにより失敗 クリファンなし"
+output = "(S1-2>=8) ＞ 8[8]-2 ＞ 6 ＞ 失敗"
 rands = [
   { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Aionia"
-input = "s2+2>=15 2つのダイスでボーナスにより成功 クリファンなし"
-output = "(s2+2>=15) ＞ 14[9,5]+2 ＞ 16 ＞ 成功"
+input = "S2+2>=15 2つのダイスでボーナスにより成功 クリファンなし"
+output = "(S2+2>=15) ＞ 14[9,5]+2 ＞ 16 ＞ 成功"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 5 },
@@ -172,8 +172,8 @@ rands = [
 
 [[ test ]]
 game_system = "Aionia"
-input = "s2-1>=10 2つのダイスでペナルティにより失敗 クリファンなし"
-output = "(s2-1>=10) ＞ 10[4,6]-1 ＞ 9 ＞ 失敗"
+input = "S2-1>=10 2つのダイスでペナルティにより失敗 クリファンなし"
+output = "(S2-1>=10) ＞ 10[4,6]-1 ＞ 9 ＞ 失敗"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 6 },
