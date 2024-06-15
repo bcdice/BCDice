@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "bcdice/game_system/kizuna_bullet/tables"
+
 module BCDice
   module GameSystem
     class KizunaBullet < Base
@@ -22,26 +24,30 @@ module BCDice
         ・［鎮静判定］
         SE>n…2個の6面ダイスを転がして、出目の合計値がn（［ヒビワレ］状態の［キズナ］の個数）より高いと成功します。（［強制鎮静］使用可）
         ・［解決］ ［アクション］のダメージと［アクシデント］のダメージ軽減
-        nSO…2+n個の6面ダイスを転がして、出目をすべて合計します。（nは省略可能）
+        nSO…2+n個の6面ダイスを転がして、出目をすべて合計します。（nは減らした【励起値】。省略可能）
         ・各種表
         日常表・場所 ODP
         日常表・内容 ODC
+        日常表・場所と内容 ODPC
         ターンテーマ表 TTC
         交流表・場所 COP
         交流表・内容 COC
+        交流表・場所と内容 COPC
         調査表・ベーシック INB
         調査表・ダイナミック IND
+        調査表・ベーシックとダイナミック INBD
         ハザード表 HAZ
       MESSAGETEXT
+
+      TABLES = translate_tables(@locale)
 
       def initialize(command)
         super(command)
 
         @sides_implicit_d = 6
         @round_type = RoundType::CEIL
+        @d66_sort_type = D66SortType::NO_SORT
       end
-
-      register_prefix('\d+DS', '\d+DM', '\d+IN', 'SE>\d+', '\d*SO')
 
       def eval_game_system_specific_command(command)
         roll_sum(command) || roll_max(command) || roll_investigate(command) || roll_sedative(command) || roll_solve(command) || roll_tables(command, self.class::TABLES)
@@ -196,26 +202,7 @@ module BCDice
         end
       end
 
-      class << self
-        private
-
-        def translate_tables(locale)
-          {
-            "ODP" => DiceTable::Table.from_i18n("KizunaBullet.table.ODP", locale),
-            "ODC" => DiceTable::Table.from_i18n("KizunaBullet.table.ODC", locale),
-            "TTC" => DiceTable::D66Table.from_i18n("KizunaBullet.table.TTC", locale),
-            "COP" => DiceTable::Table.from_i18n("KizunaBullet.table.COP", locale),
-            "COC" => DiceTable::Table.from_i18n("KizunaBullet.table.COC", locale),
-            "INB" => DiceTable::D66Table.from_i18n("KizunaBullet.table.INB", locale),
-            "IND" => DiceTable::D66Table.from_i18n("KizunaBullet.table.IND", locale),
-            "HAZ" => DiceTable::Table.from_i18n("KizunaBullet.table.HAZ", locale),
-          }
-        end
-      end
-
-      TABLES = translate_tables(:ja_jp)
-
-      register_prefix(TABLES.keys)
+      register_prefix('\d+DS', '\d+DM', '\d+IN', 'SE>\d+', '\d*SO', TABLES.keys)
     end
   end
 end
