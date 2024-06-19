@@ -1,0 +1,17 @@
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "1D6>=3"
+output = "(1D6>=3) ＞ 3 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "1D6+1"
+output = "(1D6+1) ＞ 4[4]+1 ＞ 5"
+rands = [
+  { sides = 6, value = 4 },
+]
+
