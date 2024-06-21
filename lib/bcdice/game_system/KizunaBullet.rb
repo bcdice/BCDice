@@ -22,7 +22,7 @@ module BCDice
         ・［調査判定］
         nIN…n個の6面ダイスを転がして、一番高い出目が5以上なら成功します。（［パートナーのヘルプ］使用可）
         ・［鎮静判定］
-        SE>n…2個の6面ダイスを転がして、出目の合計値がn（［ヒビワレ］状態の［キズナ］の個数）より高いと成功します。（［強制鎮静］使用可）
+        SEn…2個の6面ダイスを転がして、出目の合計値がn（［ヒビワレ］状態の［キズナ］の個数）より高いと成功します。（［強制鎮静］使用可）
         ・［解決］ ［アクション］のダメージと［アクシデント］のダメージ軽減
         nSO…2+n個の6面ダイスを転がして、出目をすべて合計します。（nは減らした【励起値】。省略可能）
         ・各種表
@@ -190,7 +190,7 @@ module BCDice
       # 鎮静判定
       def roll_sedative(command)
         parser = Command::Parser.new("SE", round_type: @round_type)
-                                .restrict_cmp_op_to(:>)
+                                .has_suffix_number
         parsed = parser.parse(command)
         unless parsed
           return nil
@@ -202,11 +202,15 @@ module BCDice
         # 合計値計算
         sum = @randomizer.roll_sum(2, 6)
 
-        if parsed.target_number > 12
+        if parsed.suffix_number > 12
           # 目標値が12より大きい場合
           # ［晶滅］メッセージを追加
           text = translate("KizunaBullet.SEDATIVE.burst")
-        elsif sum > parsed.target_number
+        elsif parsed.suffix_number < 6
+          # 目標値が6より小さい場合
+          # ［生存］メッセージを追加
+          text = translate("KizunaBullet.SEDATIVE.alive")
+        elsif sum > parsed.suffix_number
           # 合計値が目標値より大きい場合
           # 成功フラグを立てる
           is_success = true
@@ -216,7 +220,7 @@ module BCDice
           # 上記以外
           # ［強制鎮静］に必要な［キズナ］のチェック数の計算
           # 目標値と出目の差分を計算
-          dif = parsed.target_number - sum
+          dif = parsed.suffix_number - sum
           # チェック一つごとに結果に+2
           check = (dif / 2) + 1
           # 失敗メッセージを追加
@@ -249,7 +253,7 @@ module BCDice
         end
       end
 
-      register_prefix('\d+DS', '\d+DM', '\d+IN', 'SE>\d+', '\d*SO', TABLES.keys)
+      register_prefix('\d+DS', '\d+DM', '\d+IN', 'SE\d+', '\d*SO', TABLES.keys)
     end
   end
 end

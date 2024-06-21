@@ -49,8 +49,8 @@ rands = [
 
 [[ test ]]
 game_system = "KizunaBullet"
-input = "SE>13"
-output = "SE>13 ＞ 4 ＞ すべての［キズナ］が［ヒビワレ］状態のため［晶滅］。"
+input = "SE13"
+output = "SE13 ＞ 4 ＞ すべての［キズナ］が［ヒビワレ］状態のため［晶滅］（［死亡］）。以降のセッションで継続して使用不可。"
 failure = true
 rands = [
   { sides = 6, value = 3 },
@@ -59,8 +59,18 @@ rands = [
 
 [[ test ]]
 game_system = "KizunaBullet"
-input = "SE>6"
-output = "SE>6 ＞ 7 ＞ ［成功］。次のセッションに継続して使用可能。"
+input = "SE5"
+output = "SE5 ＞ 4 ＞ ［ヒビワレ］状態の［キズナ］が6個未満のため［生存］。次のセッションに継続して使用可能。"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "SE6"
+output = "SE6 ＞ 7 ＞ ［生存］。次のセッションに継続して使用可能。"
 success = true
 rands = [
   { sides = 6, value = 6 },
@@ -69,8 +79,8 @@ rands = [
 
 [[ test ]]
 game_system = "KizunaBullet"
-input = "SE>6"
-output = "SE>6 ＞ 4 ＞ パートナーは自分の任意の［キズナ］に2つチェックを入れると成功（［強制鎮静］）"
+input = "SE6"
+output = "SE6 ＞ 4 ＞ ［残響体］化（NPC化）。パートナーは自分の任意の［キズナ］に2つチェックを入れると［生存］（［強制鎮静］）"
 failure = true
 rands = [
   { sides = 6, value = 3 },
