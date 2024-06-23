@@ -1,14 +1,5 @@
 [[ test ]]
 game_system = "KizunaBullet"
-input = "2DS"
-output = "2DS ＞ 12"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "KizunaBullet"
 input = "2DM"
 output = "2DM ＞ [1,6] ＞ 6"
 rands = [

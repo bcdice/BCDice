@@ -17,7 +17,6 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
         ・ダイスロール
-        nDS…n個の6面ダイスを転がして、出目をすべて合計します。
         nDM…n個の6面ダイスを転がして、一番高い出目を採用します。
         ・［調査判定］
         nIN…n個の6面ダイスを転がして、一番高い出目が5以上なら成功します。（［パートナーのヘルプ］使用可）
@@ -97,28 +96,10 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        roll_sum(command) || roll_max(command) || roll_investigate(command) || roll_sedative(command) || roll_solve(command) || roll_tables(command, self.class::TABLES)
+        roll_max(command) || roll_investigate(command) || roll_sedative(command) || roll_solve(command) || roll_tables(command, self.class::TABLES)
       end
 
       private
-
-      # 合計値
-      def roll_sum(command)
-        parser = Command::Parser.new("DS", round_type: @round_type)
-                                .has_prefix_number
-        parsed = parser.parse(command)
-        unless parsed
-          return nil
-        end
-
-        # 合計値計算
-        sum = @randomizer.roll_sum(parsed.prefix_number, 6)
-
-        return Result.new.tap do |r|
-          # テキストを整形
-          r.text = "#{command} ＞ #{sum}"
-        end
-      end
 
       # 最大値
       def roll_max(command)
@@ -253,7 +234,7 @@ module BCDice
         end
       end
 
-      register_prefix('\d+DS', '\d+DM', '\d+IN', 'SE\d+', '\d*SO', TABLES.keys)
+      register_prefix('\d+DM', '\d+IN', 'SE\d+', '\d*SO', TABLES.keys)
     end
   end
 end
