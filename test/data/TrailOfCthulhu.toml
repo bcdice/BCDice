@@ -1,0 +1,26 @@
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "TC3>=4 成功"
+output = "(TC3>=4) ＞ 3+3 ＞ 6 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "TC2>=4 失敗"
+output = "(TC2>=4) ＞ 1+2 ＞ 3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "TC>=5"
+output = "(TC0>=5) ＞ 1+0 ＞ 1 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+]
