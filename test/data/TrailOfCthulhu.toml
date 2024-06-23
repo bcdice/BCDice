@@ -24,3 +24,11 @@ failure = true
 rands = [
   { sides = 6, value = 1 },
 ]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "TC"
+output = "(TC0) ＞ 4+0 ＞ 4"
+rands = [
+  { sides = 6, value = 4 },
+]
