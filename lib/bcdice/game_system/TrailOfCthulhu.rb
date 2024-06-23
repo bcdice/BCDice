@@ -38,7 +38,7 @@ module BCDice
         m = /TC([+\d]*)(>=(\d+))?/.match(command)
         return nil unless m
 
-        bonus = m[1].to_i
+        bonus = ArithmeticEvaluator.eval(m[1])
         difficulty = m[3].to_i
 
         dice = @randomizer.roll_once(6)
