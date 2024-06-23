@@ -433,3 +433,60 @@ rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 2 }
 ]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "NMCT"
+output = "ナイトマーケット（夜の市）のタイプ(4) ＞ サイバーウェア"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "NMCFO"
+output = "食品とドラッグ(45) ＞ 酒　20ed(日用)"
+rands = [
+  { sides = 100, value = 45 },
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "NMCME"
+output = "個人用電子機器(99) ＞ ヴァーチャリティ・ゴーグル　100ed(上等)"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "NMCWE"
+output = "武器と防具(100) ＞ 中型拳銃　50ed(程々) or 武器用アタッチメント　500ed以上"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "NMCCY"
+output = "サイバーウェア(1) ＞ サイバーアイ　100ed(上等)"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "NMCFA"
+output = "衣料品とファッションウェア(26) ＞ ノーマッド・レザー"
+rands = [
+  { sides = 100, value = 26 },
+]
+
+[[ test ]]
+game_system = "CyberpunkRed"
+input = "NMCSU"
+output = "サバイバル用品(73) ＞ 放射線防護服　1,000ed(超高級)"
+rands = [
+  { sides = 100, value = 73 },
+]
+
