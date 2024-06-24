@@ -18,7 +18,7 @@ rands = [
 
 [[ test ]]
 game_system = "TrailOfCthulhu"
-input = "TC>=5"
+input = "TC>=5 消費プール・ポイントなし"
 output = "(TC0>=5) ＞ 1+0 ＞ 1 ＞ 失敗"
 failure = true
 rands = [
@@ -27,8 +27,16 @@ rands = [
 
 [[ test ]]
 game_system = "TrailOfCthulhu"
-input = "TC"
+input = "TC 難易度指定なし"
 output = "(TC0) ＞ 4+0 ＞ 4"
 rands = [
   { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "TC3+2 消費プール・ポイントが加算式(PT内支援用)"
+output = "(TC5) ＞ 2+5 ＞ 7"
+rands = [
+  { sides = 6, value = 2 },
 ]
