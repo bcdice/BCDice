@@ -23,8 +23,8 @@ module BCDice
           Base Effect only, Direct hit and Critical are automatically evaluated.
           Example: AB, AB+5, AB+5>=14, 2AB+5>=14
         Making checks nDC+m>=CR
-          Same as ability check.
-          Automatic evaluation of failure and success.
+          Same as ability check.          
+          Success and Failure ar automatically evaluated.
       TEXT
 
       register_prefix_from_super_class()
