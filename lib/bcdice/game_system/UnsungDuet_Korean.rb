@@ -35,7 +35,7 @@ module BCDice
 
       register_prefix_from_super_class()
 
-      TABLES = translate_tables(:ko_kr)
+      TABLES = translate_tables(:ko_kr).freeze
     end
   end
 end
