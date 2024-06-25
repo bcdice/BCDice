@@ -69,7 +69,7 @@ module BCDice
             "HFA" => DiceTable::Table.from_i18n('UnsungDuet.MutatingFantasyTable', locale),
             "HMI" => DiceTable::Table.from_i18n('UnsungDuet.MutatingMindTable', locale),
             "HOT" => DiceTable::Table.from_i18n('UnsungDuet.MutatingOtherTable', locale),
-          }.freeze
+          }
         end
       end
 
