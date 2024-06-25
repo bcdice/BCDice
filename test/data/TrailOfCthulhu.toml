@@ -50,7 +50,7 @@ rands = [
 
 [[ test ]]
 game_system = "TrailOfCthulhu"
-input = "MMT[1,8] 神話的狂気表表示"
+input = "MMT[1,8] 神話的狂気表表示[]付き"
 output = "(MMT[1,8]) ＞ 2:恐怖症"
 rands = [
   { sides = 8, value = 2 },
@@ -58,9 +58,19 @@ rands = [
 
 [[ test ]]
 game_system = "TrailOfCthulhu"
-input = "MMT2,6 神話的狂気表表示"
+input = "MMT2,6 神話的狂気表表示[]なし"
 output = "(MMT[2,6]) ＞ 3:誇大妄想狂"
 rands = [
   { sides = 8, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "MMT[1,8] 神話的狂気表表示除外処理確認"
+output = "(MMT[1,8]) ＞ 2:恐怖症"
+rands = [
+  { sides = 8, value = 1 },
+  { sides = 8, value = 8 },
+  { sides = 8, value = 2 },
 ]
 

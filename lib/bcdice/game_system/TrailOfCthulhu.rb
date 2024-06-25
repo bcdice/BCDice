@@ -98,8 +98,8 @@ module BCDice
           sequence = ["(MMT[#{exclusion_number.join(',')}])"]
           is_exclusion_number = true
           while is_exclusion_number
-            idx = @randomizer.roll_once(8)
-            if idx != exclusion_number[0] && idx != exclusion_number[1]
+            idx = @randomizer.roll_once(8).to_i
+            if idx != exclusion_number[0].to_i && idx != exclusion_number[1].to_i
               result_text = MITHOS_MADDNESS[idx - 1]
               is_exclusion_number = false
             end
