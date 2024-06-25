@@ -27,7 +27,6 @@ module BCDice
           ・기타 (HOT, HOther)
       MESSAGETEXT
 
-
       register_prefix_from_super_class()
 
       def initialize(command)
