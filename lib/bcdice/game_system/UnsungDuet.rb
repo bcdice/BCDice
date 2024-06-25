@@ -73,7 +73,7 @@ module BCDice
         end
       end
 
-      TABLES = translate_tables(@locale)
+      TABLES = translate_tables(:ja_jp)
 
       register_prefix(ALIAS.keys, TABLES.keys)
     end
