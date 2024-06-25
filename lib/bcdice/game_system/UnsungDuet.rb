@@ -40,7 +40,7 @@ module BCDice
 
         roll_replaced_command_if_match(command, SHIFTER_ALIAS_REG, "1D10") ||
           roll_replaced_command_if_match(command, BINDER_ALIAS_REG, "2D6") ||
-          roll_tables(command, TABLES)
+          roll_tables(command, self.class::TABLES)
       end
 
       def roll_replaced_command_if_match(command, regexp, dist)
