@@ -5,9 +5,9 @@ require "bcdice/game_system/UnsungDuet"
 module BCDice
   module GameSystem
     class UnsungDuet_Korean < UnsungDuet
-      ID = "UnsungDuet:Korean"
-      NAME = "언성 듀엣"
-      SORT_KEY = "国際化:Korean:언성 듀엣"
+      ID = 'UnsungDuet:Korean'
+      NAME = '언성 듀엣'
+      SORT_KEY = '国際化:Korean:언성 듀엣'
 
       HELP_MESSAGE = <<~MESSAGETEXT
         ■ 시프터 용 판정 (shifter, UDS)
