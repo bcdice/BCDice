@@ -7,7 +7,7 @@ module BCDice
       ID = 'TrailOfCthulhu'
 
       # ゲームシステム名
-      NAME = 'トレイル・オブ・クトゥルフ'
+      NAME = 'トレイル・オブ・クトゥルー'
 
       # ゲームシステム名の読みがな
       SORT_KEY = 'とれいるおふくとうるう'
