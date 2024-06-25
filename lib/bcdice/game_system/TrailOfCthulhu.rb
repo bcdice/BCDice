@@ -21,12 +21,19 @@ module BCDice
            TC:    難易度指定せずに技能判定する。
            TC3:   消費プール・ポイント3,難易度指定せずに技能判定する。
 
+        ■神話的狂気表　MMT[a,b]   a,b:除外する神話的狂気(省略時は全神話的狂気を表示する)
+
+        例)MMT[1,8]: 神話的狂気のうち、1番と8番を除外してロールし、神話的狂気を決定する。
+           MMT2,6:   神話的狂気のうち、2番と6番を除外してロールし、神話的狂気を決定する。
+           MMT:      神話的狂気を1番から8番まで列挙する。
+
       INFO_MESSAGETEXT
 
-      register_prefix("TC")
+      register_prefix("TC", "MMT")
 
       def eval_game_system_specific_command(command)
-        resolute_action(command)
+        resolute_action(command) ||
+          roll_mythos_madness_table(command)
       end
 
       private
@@ -35,7 +42,7 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def resolute_action(command)
-        m = /TC([+\d]*)(>=(\d+))?/.match(command)
+        m = /^TC([+\d]*)(>=(\d+))?/.match(command)
         return nil unless m
 
         bonus = ArithmeticEvaluator.eval(m[1])
@@ -62,6 +69,52 @@ module BCDice
             ].compact
           end
 
+          result.text = sequence.join(" ＞ ")
+        end
+      end
+
+      # 神話的狂気表
+      MITHOS_MADDNESS = [
+        "1:強迫性障害",
+        "2:恐怖症",
+        "3:誇大妄想狂",
+        "4:殺人狂",
+        "5:恣意的記憶喪失",
+        "6:多重人格障害",
+        "7:偏執症",
+        "8:妄想症",
+      ].freeze
+
+      def roll_mythos_madness_table(command)
+        m = /^MMT(\[?([,\d]+)\]?)?/.match(command)
+        return nil unless m
+
+        sequence = []
+        result_text = ""
+        if m[1]
+          exclusion_number = m[2].split(',')
+          return nil unless exclusion_number.length == 2
+
+          sequence = ["(MMT[#{exclusion_number.join(',')}])"]
+          is_exclusion_number = true
+          while is_exclusion_number
+            idx = @randomizer.roll_once(8)
+            if idx != exclusion_number[0] && idx != exclusion_number[1]
+              result_text = MITHOS_MADDNESS[idx - 1]
+              is_exclusion_number = false
+            end
+          end
+        else
+          sequence = ["(MMT)"]
+          mithos_maddness_all = []
+          (1..8).each do |i|
+            mithos_maddness_all.push(MITHOS_MADDNESS[i - 1])
+          end
+          result_text = mithos_maddness_all.join(", ")
+        end
+
+        return Result.new.tap do |result|
+          sequence.push(result_text)
           result.text = sequence.join(" ＞ ")
         end
       end
