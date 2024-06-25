@@ -27,14 +27,14 @@ module BCDice
           ・기타 (HOT, HOther)
       MESSAGETEXT
 
-      register_prefix_from_super_class()
-
       def initialize(command)
         super(command)
 
         @locale = :ko_kr
       end
 
+      register_prefix_from_super_class()
+      
       TABLES = translate_tables(:ko_kr)
     end
   end
