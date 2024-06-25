@@ -35,7 +35,7 @@ module BCDice
         @locale = :ko_kr
       end
 
-      TABLES = translate_tables(:ko_kr)
+      TABLES = translate_tables(@locale)
     end
   end
 end
