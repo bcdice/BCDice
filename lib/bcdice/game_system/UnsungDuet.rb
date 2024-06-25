@@ -27,11 +27,11 @@ module BCDice
           ・そのほか (HOT, HOther)
       MESSAGETEXT
 
-      ALIAS_1D10 = ["shifter", "UDS"]
-      ALIAS_2D6 = ["binder", "UDB"]
+      ALIAS_1D10 = ["shifter", "UDS"].freeze
+      ALIAS_2D6 = ["binder", "UDB"].freeze
 
-      SHIFTER_ALIAS_REG = /^#{ALIAS_1D10.join('|')}/i
-      BINDER_ALIAS_REG = /^#{ALIAS_2D6.join('|')}/i
+      SHIFTER_ALIAS_REG = /^#{ALIAS_1D10.join('|')}/i.freeze
+      BINDER_ALIAS_REG = /^#{ALIAS_2D6.join('|')}/i.freeze
 
       register_prefix(ALIAS_1D10, ALIAS_2D6)
 
@@ -69,7 +69,7 @@ module BCDice
             "HFA" => DiceTable::Table.from_i18n('UnsungDuet.MutatingFantasyTable', locale),
             "HMI" => DiceTable::Table.from_i18n('UnsungDuet.MutatingMindTable', locale),
             "HOT" => DiceTable::Table.from_i18n('UnsungDuet.MutatingOtherTable', locale),
-          }
+          }.freeze
         end
       end
 
