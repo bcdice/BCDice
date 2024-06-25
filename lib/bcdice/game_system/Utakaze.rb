@@ -26,14 +26,19 @@ module BCDice
           cに「龍のダイス目」を指定した行為判定ロール。
           ゾロ目ではなく、cと同じ値の出目数x2が成功レベルとなります。難易度の指定も可能です。
           例）3UK@5 ：龍のダイス「月」でクリティカルコール宣言したサイコロ3個の行為判定
+         ・対抗判定ロール(nUR[@c], nUO[@c]) n:ダイス数 c:クリティカルコール
+         　行為判定ロールと同様にロールするが、最期に成功レベルとセット数から求めたマジックナンバーが表示される。
+         　マジックナンバーの大きいものが成功、同値は引き分け。
+         　ダイスは18個まで対応。
       MESSAGETEXT
 
-      register_prefix('\d*UK')
+      register_prefix('\d*U[KRO]')
 
       def eval_game_system_specific_command(command)
         debug('eval_game_system_specific_command command', command)
 
-        check_roll(command)
+        check_roll(command) ||
+          opposed_roll(command)
       end
 
       private
@@ -99,6 +104,54 @@ module BCDice
           return Result.success(sequence.join(" ＞ "))
         else
           sequence.push("失敗")
+          return Result.failure(sequence.join(" ＞ "))
+        end
+      end
+
+      # 対抗判定
+      def opposed_roll(command)
+        m = /^(\d+)?U[R|O](@?(\d))?$/i.match(command)
+        return nil unless m
+
+        base = (m[1] || 2).to_i
+        crit = m[3].to_i
+
+        base = getValue(base)
+        crit = getValue(crit)
+
+        return nil if base < 1 || base > 18
+
+        crit = 6 if crit > 6
+
+        dice_list = @randomizer.roll_barabara(base, 6).sort
+        result = get_opposed_roll_result(dice_list, crit)
+
+        sequence = [
+          command,
+          "(#{base}D6)",
+          "[#{dice_list.join(',')}]",
+          result.text
+        ]
+        result.text = sequence.join(" ＞ ")
+
+        return result
+      end
+
+      def get_opposed_roll_result(diceList, crit)
+        success, maxnum, setCount = getSuccessInfo(diceList, crit)
+
+        sequence = []
+
+        if isDragonDice(crit)
+          sequence.push("龍のダイス「#{DRAGON_DICE_NAME[crit]}」(#{crit})を使用")
+        end
+
+        if success
+          sequence.push("成功レベル:#{maxnum} (#{setCount}セット)")
+          sequence.push("(" + format("%#02d%#1d", maxnum, setCount) + ")")
+          return Result.success(sequence.join(" ＞ ")) # 出力上は成功として扱う
+        else
+          sequence.push("(000)")
           return Result.failure(sequence.join(" ＞ "))
         end
       end

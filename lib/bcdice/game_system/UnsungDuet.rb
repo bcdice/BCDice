@@ -58,80 +58,22 @@ module BCDice
         "HOther" => "HOT",
       }.transform_keys(&:upcase)
 
-      TABLES = {
-        "HIN" => DiceTable::Table.new(
-          "変異表：外傷",
-          "1D6",
-          [
-            "顔の傷 → 顔にできた傷。じわりと血がにじむ",
-            "大きな怪我 → 早く手当てをしないと命に関わる",
-            "痛みのない傷 → 大きな傷なのに、なぜか痛くない",
-            "喪失 → 身体のどこかが消えてしまった",
-            "文字のような傷跡 → 読めない文字のような傷",
-            "模様を描くアザ → 模様のような、身体にできたアザ",
-          ]
-        ),
-        "HPH" => DiceTable::Table.new(
-          "変異表：体調の変化",
-          "1D6",
-          [
-            "視界がぼやける → 目の焦点が合わない",
-            "耳鳴り → ずっと甲高い音が鳴り続けている気がする",
-            "異様な寒気 → 凍えそうなほどに寒く感じる",
-            "発汗 → 暑いわけでもないのに、汗がだらだらと",
-            "幻覚 → それが本物か幻か、区別がつかない",
-            "走馬灯 → 過去のことを次々と思い出してしまう",
-          ]
-        ),
-        "HFE" => DiceTable::Table.new(
-          "変異表：恐怖",
-          "1D6",
-          [
-            "不安 → 漠然とした不安が心を蝕む",
-            "狭い場所が怖い → 狭い場所に入りたくない",
-            "震えが止まらない → どうしても落ち着かない",
-            "物音が怖い → ほんの小さな物音にも怯えてしまう",
-            "暗い場所が怖い → 灯りのない場所がひどく恐ろしい",
-            "誰かがついてくる → 誰かが後ろにいる気がする……",
-          ]
-        ),
-        "HFA" => DiceTable::Table.new(
-          "変異表：幻想化",
-          "1D6",
-          [
-            "硝子化 → 身体の一部がガラスのように透明に",
-            "羽毛化 → 身体のどこかから羽毛が生えてくる",
-            "植物化 → ツタや葉が身体から生えてくる",
-            "動物の瞳 → 瞳の形が動物のそれに変わってしまう",
-            "有角化 → 額や側頭部から角が生えてくる",
-            "陶器化 → 皮膚が陶器のようなものに変わっていく",
-          ]
-        ),
-        "HMI" => DiceTable::Table.new(
-          "変異表：精神",
-          "1D6",
-          [
-            "記憶の混乱 → ここはどこ、どうしてこんなところに?",
-            "幼少期の記憶 → 口調や態度が幼くなってしまう",
-            "素直 → 思ったことを全部言ってしまう",
-            "蛮勇 → パートナーを守るために無茶ばかりする",
-            "疑心暗鬼 → 何もかもが悪い方向にしか考えられない",
-            "食べちゃいたい → パートナーをかじりたくなる",
-          ]
-        ),
-        "HOT" => DiceTable::Table.new(
-          "変異表：そのほか",
-          "1D6",
-          [
-            "影絵化 → 身体の一部が影のようになる",
-            "水槽化 → 身体の一部が水槽のようなものになる",
-            "涙が止まらない → なぜか涙が流れ続ける",
-            "鉤爪 → 手や足が、獣のような鉤爪になる",
-            "未来視 → 未来が見えてしまう。本当かどうかは不明",
-            "帰りたくない → 現実に帰りたくないと微かに思う",
-          ]
-        ),
-      }.freeze
+      class << self
+        private
+
+        def translate_tables(locale)
+          {
+            "HIN" => DiceTable::Table.from_i18n('UnsungDuet.MutatingInjuryTable', locale),
+            "HPH" => DiceTable::Table.from_i18n('UnsungDuet.MutatingPhysicalConditionTable', locale),
+            "HFE" => DiceTable::Table.from_i18n('UnsungDuet.MutatingFearTable', locale),
+            "HFA" => DiceTable::Table.from_i18n('UnsungDuet.MutatingFantasyTable', locale),
+            "HMI" => DiceTable::Table.from_i18n('UnsungDuet.MutatingMindTable', locale),
+            "HOT" => DiceTable::Table.from_i18n('UnsungDuet.MutatingOtherTable', locale),
+          }.freeze
+        end
+      end
+
+      TABLES = translate_tables(@locale)
 
       register_prefix(ALIAS.keys, TABLES.keys)
     end

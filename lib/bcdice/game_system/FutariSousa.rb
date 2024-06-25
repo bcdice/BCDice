@@ -21,15 +21,17 @@ module BCDice
         【セッション時】
         異常な癖決定表　　　　　 SHRD／新・異常な癖決定表　　 SHND
         普通の？・異常な癖決定表 SHAD／ケイジ異常な癖決定表　 SHKD
+        超探偵向け異常な癖表　　 SHLD
         　口から出る表　　　 SHFM／強引な捜査表　　　　　 SHBT／すっとぼけ表　　　　　　 SHPI
-        　事件に夢中表　　　 SHEG／パートナーと……表　　 SHWP／何かしている表　　　　　 SHDS
+        　事件に夢中表　　　 SHEG／パートナーと……表　　　 SHWP／何かしている表　　　　　 SHDS
         　奇想天外表　　　　 SHFT／急なひらめき表　　　　 SHIN／喜怒哀楽表　　　　　　　 SHEM
         　人間エミュレート表 SHHE／人間エミュレート失敗表 SHHF／パートナーへのいたずら表 SHMP
         　思わせぶり表　　　 SHSB／もどかしい表　　　　　 SHFR／突然どうした表　　　　　 SHIS
         　わがままを言う表　 SHSE／普通に見える表　　　　 SHLM／嫉妬に狂う表　　　　　　 SHJS
         　傲慢な態度表　　　 SHAR／比較的軽度なもの表　　 SHRM／ノータイム表　　　　　　 SHNT
         　捜査のやり方表　　 SHIM／貴族表　　　　　　　　 SHNO／説明しない表　　　　　　 SHNE
-        　刑事としての癖表　 SHHD
+        　刑事としての癖表　 SHHD／名誉ある探偵表　　　　 SHGD／超すごい表　　　　　　　 SHSA
+        　超事件に夢中表　　 SHEP／超パートナーと……表　　 SHXP
         イベント表
         　現場にて　 EVS／なぜ？　 EVW／協力者と共に EVN
         　向こうから EVC／VS容疑者 EVV
@@ -38,7 +40,8 @@ module BCDice
         　思わぬヒント EVH／実験をしてみよう EVX／ゲスト捜査 EVG
         　ケイジ聞き込み捜査　　　 EVQ／ケイジ大規模捜査　　　　　 EVM／こっそり情報の受け渡し EVP
         　同僚たちと一緒に捜査する EVO／頻染みの店シチュエーション EVF／ハードBデカアクション  EVB
-        　探偵を大人しくさせる捜査 EVL／伝統的捜査 EVZ／原始的捜査 EVR
+        　探偵を大人しくさせる捜査 EVL／伝統的捜査　　　　　　　　 EVZ／原始的捜査　　　　　　 EVR
+        　超探偵調査　　　　　　　EV6S／神速捜査　　　　　　　　　EV6F
         感情表
         　感情表A／B　　 FLT66・FLT10
         　気に入っているところ　 FLTL66　／気に入らないところ　 FLTD66
@@ -131,10 +134,70 @@ module BCDice
 
         def translate_tables(locale)
           {
-            "SHRD" => DiceTable::Table.from_i18n("FutariSousa.table.SHRD", locale),
-            "SHND" => DiceTable::Table.from_i18n("FutariSousa.table.SHND", locale),
-            "SHAD" => DiceTable::Table.from_i18n("FutariSousa.table.SHAD", locale),
-            "SHKD" => DiceTable::Table.from_i18n("FutariSousa.table.SHKD", locale),
+            "SHRD" => DiceTable::ChainTable.new(
+              I18n.translate("FutariSousa.table.SHRD.name", locale: locale),
+              "1D10",
+              [
+                DiceTable::Table.from_i18n("FutariSousa.table.SHFM", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHBT", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHPI", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHEG", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHWP", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHDS", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHIN", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHEM", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHFT", locale),
+                I18n.translate("FutariSousa.table.SHRD.items", locale: locale)[9],
+              ]
+            ),
+            "SHND" => DiceTable::ChainTable.new(
+              I18n.translate("FutariSousa.table.SHND.name", locale: locale),
+              "1D6",
+              [
+                DiceTable::Table.from_i18n("FutariSousa.table.SHHE", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHHF", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHMP", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHSB", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHFR", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHIS", locale),
+              ]
+            ),
+            "SHAD" => DiceTable::ChainTable.new(
+              I18n.translate("FutariSousa.table.SHAD.name", locale: locale),
+              "1D6",
+              [
+                DiceTable::Table.from_i18n("FutariSousa.table.SHSE", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHLM", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHJS", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHAR", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHRM", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHNT", locale),
+              ]
+            ),
+            "SHKD" => DiceTable::ChainTable.new(
+              I18n.translate("FutariSousa.table.SHKD.name", locale: locale),
+              "1D6",
+              [
+                DiceTable::Table.from_i18n("FutariSousa.table.SHIM", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHNO", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHNE", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHHD", locale),
+                I18n.translate("FutariSousa.table.SHKD.items", locale: locale)[4],
+                I18n.translate("FutariSousa.table.SHKD.items", locale: locale)[5],
+              ]
+            ),
+            "SHLD" => DiceTable::ChainTable.new(
+              I18n.translate("FutariSousa.table.SHLD.name", locale: locale),
+              "1D6",
+              [
+                DiceTable::Table.from_i18n("FutariSousa.table.SHGD", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHSA", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHEP", locale),
+                DiceTable::Table.from_i18n("FutariSousa.table.SHXP", locale),
+                I18n.translate("FutariSousa.table.SHLD.items", locale: locale)[4],
+                I18n.translate("FutariSousa.table.SHLD.items", locale: locale)[5],
+              ]
+            ),
             "SHFM" => DiceTable::Table.from_i18n("FutariSousa.table.SHFM", locale),
             "SHBT" => DiceTable::Table.from_i18n("FutariSousa.table.SHBT", locale),
             "SHPI" => DiceTable::Table.from_i18n("FutariSousa.table.SHPI", locale),
@@ -160,6 +223,10 @@ module BCDice
             "SHNO" => DiceTable::Table.from_i18n("FutariSousa.table.SHNO", locale),
             "SHNE" => DiceTable::Table.from_i18n("FutariSousa.table.SHNE", locale),
             "SHHD" => DiceTable::Table.from_i18n("FutariSousa.table.SHHD", locale),
+            "SHGD" => DiceTable::Table.from_i18n("FutariSousa.table.SHGD", locale),
+            "SHSA" => DiceTable::Table.from_i18n("FutariSousa.table.SHSA", locale),
+            "SHEP" => DiceTable::Table.from_i18n("FutariSousa.table.SHEP", locale),
+            "SHXP" => DiceTable::Table.from_i18n("FutariSousa.table.SHXP", locale),
             "EVS" => DiceTable::Table.from_i18n("FutariSousa.table.EVS", locale),
             "EVW" => DiceTable::Table.from_i18n("FutariSousa.table.EVW", locale),
             "EVN" => DiceTable::Table.from_i18n("FutariSousa.table.EVN", locale),
@@ -181,6 +248,8 @@ module BCDice
             "EVL" => DiceTable::Table.from_i18n("FutariSousa.table.EVL", locale),
             "EVZ" => DiceTable::Table.from_i18n("FutariSousa.table.EVZ", locale),
             "EVR" => DiceTable::Table.from_i18n("FutariSousa.table.EVR", locale),
+            "EV6S" => DiceTable::Table.from_i18n("FutariSousa.table.EV6S", locale),
+            "EV6F" => DiceTable::Table.from_i18n("FutariSousa.table.EV6F", locale),
             "OBT" => DiceTable::D66Table.from_i18n("FutariSousa.table.OBT", locale),
             "ACT" => DiceTable::Table.from_i18n("FutariSousa.table.ACT", locale),
             "EWT" => DiceTable::Table.from_i18n("FutariSousa.table.EWT", locale),
@@ -206,7 +275,18 @@ module BCDice
             "FLT10" => DiceTable::Table.from_i18n("FutariSousa.table.FLT10", locale),
             "FLTL66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTL66", locale),
             "FLTD66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTD66", locale),
-            "FLTRA" => DiceTable::Table.from_i18n("FutariSousa.table.FLTRA", locale),
+            "FLTRA" => DiceTable::ChainTable.new(
+              I18n.translate("FutariSousa.table.FLTRA.name", locale: locale),
+              "1D6",
+              [
+                DiceTable::D66Table.from_i18n("FutariSousa.table.FLTF66", locale),
+                DiceTable::D66Table.from_i18n("FutariSousa.table.FLTB66", locale),
+                DiceTable::D66Table.from_i18n("FutariSousa.table.FLTH66", locale),
+                DiceTable::D66Table.from_i18n("FutariSousa.table.FLTS66", locale),
+                DiceTable::D66Table.from_i18n("FutariSousa.table.FLTA66", locale),
+                DiceTable::D66Table.from_i18n("FutariSousa.table.FLTW66", locale),
+              ]
+            ),
             "FLTF66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTF66", locale),
             "FLTB66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTB66", locale),
             "FLTH66" => DiceTable::D66Table.from_i18n("FutariSousa.table.FLTH66", locale),

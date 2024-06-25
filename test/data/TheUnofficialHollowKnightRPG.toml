@@ -1,0 +1,226 @@
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "1AD"
+output = "(1AD) > [1] > 0成功"
+rands = [
+    { sides = 6, value = 1},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "1AD>=1"
+output = "(1AD>=1) > [1] > 1成功"
+rands = [
+    { sides = 6, value = 1},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "3AD"
+output = "(3AD) > [6,6,1] > 2成功"
+rands = [
+    { sides = 6, value = 6},
+    { sides = 6, value = 6},
+    { sides = 6, value = 1},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "3.5AD"
+output = "(3.5AD) > [6,6,1] Reroll [5] > 3成功"
+rands = [
+    { sides = 6, value = 6},
+    { sides = 6, value = 6},
+    { sides = 6, value = 1},
+    { sides = 6, value = 5},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "3.5AD"
+output = "(3.5AD) > [6,6,6] Reroll [5] > 3成功"
+rands = [
+    { sides = 6, value = 6},
+    { sides = 6, value = 6},
+    { sides = 6, value = 6},
+    { sides = 6, value = 5},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "3.5AD>=1"
+output = "(3.5AD>=1) > [6,6,1] Reroll [5] > 3成功"
+rands = [
+    { sides = 6, value = 6},
+    { sides = 6, value = 6},
+    { sides = 6, value = 1},
+    { sides = 6, value = 5},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "3.5AD"
+output = "(3.5AD) > [6,2,1] Reroll [2] > 1成功"
+rands = [
+    { sides = 6, value = 6},
+    { sides = 6, value = 2},
+    { sides = 6, value = 1},
+    { sides = 6, value = 2},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "1AD+1"
+output = "(1AD+1) > [1,4] > 0成功"
+rands = [
+    { sides = 6, value = 1},
+    { sides = 6, value = 4},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "1.5AD"
+output = "(1.5AD) > [1] Reroll [6] > 1成功"
+rands = [
+    { sides = 6, value = 1},
+    { sides = 6, value = 6},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "1.5AD+1"
+output = "(1.5AD+1) > [1,3] Reroll [6] > 1成功"
+rands = [
+    { sides = 6, value = 1},
+    { sides = 6, value = 3},
+    { sides = 6, value = 6},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "1.5AD#1"
+output = "(1.5AD#1) > [1] Reroll [6,3] > 1成功"
+rands = [
+    { sides = 6, value = 1},
+    { sides = 6, value = 6},
+    { sides = 6, value = 3},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "1.5AD+1#1"
+output = "(1.5AD+1#1) > [1,3] Reroll [6,3] > 1成功"
+rands = [
+    { sides = 6, value = 1},
+    { sides = 6, value = 3},
+    { sides = 6, value = 6},
+    { sides = 6, value = 3},
+]
+
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "1INTI"
+output = "(1INTI) > [4] > 4"
+rands = [
+    { sides = 6, value = 4},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2INTI"
+output = "(2INTI) > [1,5] > 6"
+rands = [
+    { sides = 6, value = 1},
+    { sides = 6, value = 5},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI"
+output = "(2.5INTI) > [1<<3,5] > 8"
+rands = [
+    { sides = 6, value = 1},
+    { sides = 6, value = 5},
+    { sides = 6, value = 3},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI"
+output = "(2.5INTI) > [3,5] > 8"
+rands = [
+    { sides = 6, value = 3},
+    { sides = 6, value = 5},
+    { sides = 6, value = 1},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI+1"
+output = "(2.5INTI+1) > [3,5,4] > 12"
+rands = [
+    { sides = 6, value = 3},
+    { sides = 6, value = 5},
+    { sides = 6, value = 4},
+    { sides = 6, value = 1},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI#1"
+output = "(2.5INTI#1) > [3,5] > 8"
+rands = [
+    { sides = 6, value = 3},
+    { sides = 6, value = 5},
+    { sides = 6, value = 1},
+    { sides = 6, value = 2},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI#4"
+output = "(2.5INTI#4) > [3,5] > 8"
+rands = [
+    { sides = 6, value = 3},
+    { sides = 6, value = 5},
+    { sides = 6, value = 1},
+    { sides = 6, value = 1},
+    { sides = 6, value = 1},
+    { sides = 6, value = 1},
+    { sides = 6, value = 1},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI#1"
+output = "(2.5INTI#1) > [2<<3,1<<4] > 7"
+rands = [
+    { sides = 6, value = 2},
+    { sides = 6, value = 1},
+    { sides = 6, value = 3},
+    { sides = 6, value = 4},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI+1#1"
+output = "(2.5INTI+1#1) > [2<<3,4,1<<4] > 11"
+rands = [
+    { sides = 6, value = 2},
+    { sides = 6, value = 4},
+    { sides = 6, value = 1},
+    { sides = 6, value = 3},
+    { sides = 6, value = 4},
+]
+
+[[ test ]]
+game_system = "TheUnofficialHollowKnightRPG"
+input = "2.5INTI#1"
+output = "(2.5INTI#1) > [2<<3,4] > 7"
+rands = [
+    { sides = 6, value = 2},
+    { sides = 6, value = 4},
+    { sides = 6, value = 1},
+    { sides = 6, value = 3},
+]

@@ -146,6 +146,24 @@ rands = [
 
 [[ test ]]
 game_system = "SwordWorld2.0"
+input = "K10r-5"
+output = "KeyNo.10c[10]r[-5] ＞ 2D:[5,5 5,5 5,5 5,5 5,4]=10,10,10,10,9 ＞ 5,5,3,3,3 ＞ 4回転 ＞ 19"
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
 input = "K10gf"
 output = "KeyNo.10c[10]gf ＞ 2D:[5,5 2,2]=10,4 ＞ 5,1 ＞ 1回転 ＞ 6"
 critical = true

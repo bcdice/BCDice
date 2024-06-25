@@ -149,4 +149,31 @@ class TestRangeTable < Test::Unit::TestCase
       )
     end
   end
+
+  def test_valid_conv_string_range_should_be_accepted
+    assert_equal(
+      2,
+      BCDice::DiceTable::RangeTable.conv_string_range(2)
+    )
+    assert_equal(
+      Range.new(3, 7),
+      BCDice::DiceTable::RangeTable.conv_string_range("3..7")
+    )
+    assert_equal(
+      8,
+      BCDice::DiceTable::RangeTable.conv_string_range("8")
+    )
+  end
+
+  def test_invalid_conv_string_range_should_be_denied
+    assert_raise(ArgumentError) do
+      BCDice::DiceTable::RangeTable.conv_string_range("2..X")
+    end
+    assert_raise(ArgumentError) do
+      BCDice::DiceTable::RangeTable.conv_string_range("hoge")
+    end
+    assert_raise(TypeError) do
+      BCDice::DiceTable::RangeTable.conv_string_range([])
+    end
+  end
 end
