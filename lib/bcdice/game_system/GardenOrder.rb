@@ -96,7 +96,7 @@ module BCDice
       end
 
       def get_damage_table_info_by_type(type)
-        data = self.class::DAMAGE_TABLE[type]
+        data = DAMAGE_TABLE[type]
         return nil if data.nil?
 
         return data[:name], data[:table]
