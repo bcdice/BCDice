@@ -1,0 +1,328 @@
+[[test]]
+game_system = "InvisibleLiar"
+input = "WOODS1"
+output = "森 1時間(1) ＞ 麗し草"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "WOODS1"
+output = "森 1時間(6) ＞ 成果なし"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "WOODS2"
+output = "森 2時間(1) ＞ 麗し草"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "WOODS3"
+output = "森 3時間(1) ＞ 麗し草"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "WOODS4"
+output = "森 4時間(1) ＞ 麗し草"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "WOODS5"
+output = "森 5時間(1) ＞ 麗し草"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "PRAIRIE1"
+output = "草原 1時間(1) ＞ 太陽の花"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "PRAIRIE2"
+output = "草原 2時間(1) ＞ 太陽の花"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "PRAIRIE3"
+output = "草原 3時間(1) ＞ 太陽の花"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "PRAIRIE4"
+output = "草原 4時間(1) ＞ 太陽の花"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "PRAIRIE5"
+output = "草原 5時間(1) ＞ 太陽の花"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "LAKE1"
+output = "湖 1時間(1) ＞ 竜の鱗"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "LAKE2"
+output = "湖 2時間(1) ＞ 竜の鱗"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "LAKE3"
+output = "湖 3時間(1) ＞ 竜の鱗"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "LAKE4"
+output = "湖 4時間(1) ＞ 竜の鱗"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "LAKE5"
+output = "湖 5時間(1) ＞ 竜の鱗"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "RIVER1"
+output = "川辺 1時間(1) ＞ 魔魚"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "RIVER2"
+output = "川辺 2時間(1) ＞ 魔魚"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "RIVER3"
+output = "川辺 3時間(1) ＞ 魔魚"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "RIVER4"
+output = "川辺 4時間(1) ＞ 魔魚"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "RIVER5"
+output = "川辺 5時間(1) ＞ 魔魚"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "SWAMP1"
+output = "沼地 1時間(1) ＞ マンドレイク"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "SWAMP2"
+output = "沼地 2時間(1) ＞ マンドレイク"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "SWAMP3"
+output = "沼地 3時間(1) ＞ マンドレイク"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "SWAMP4"
+output = "沼地 4時間(1) ＞ マンドレイク"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "SWAMP5"
+output = "沼地 5時間(1) ＞ マンドレイク"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "CAVE1"
+output = "洞窟 1時間(1) ＞ 神秘のキノコ"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "CAVE2"
+output = "洞窟 2時間(1) ＞ 神秘のキノコ"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "CAVE3"
+output = "洞窟 3時間(1) ＞ 神秘のキノコ"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "CAVE4"
+output = "洞窟 4時間(1) ＞ 神秘のキノコ"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "CAVE5"
+output = "洞窟 5時間(1) ＞ 神秘のキノコ"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "ROCKY1"
+output = "岩場 1時間(1) ＞ 生命の虫"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "ROCKY2"
+output = "岩場 2時間(1) ＞ 生命の虫"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "ROCKY3"
+output = "岩場 3時間(1) ＞ 生命の虫"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "ROCKY4"
+output = "岩場 4時間(1) ＞ 生命の虫"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "ROCKY5"
+output = "岩場 5時間(1) ＞ 生命の虫"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "MOUNTAIN1"
+output = "山岳 1時間(1) ＞ 魔素の結晶"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "MOUNTAIN2"
+output = "山岳 2時間(1) ＞ 魔素の結晶"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "MOUNTAIN3"
+output = "山岳 3時間(1) ＞ 魔素の結晶"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "MOUNTAIN4"
+output = "山岳 4時間(1) ＞ 魔素の結晶"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[test]]
+game_system = "InvisibleLiar"
+input = "MOUNTAIN5"
+output = "山岳 5時間(1) ＞ 魔素の結晶"
+rands = [
+  { sides = 6, value = 1 },
+]
+
