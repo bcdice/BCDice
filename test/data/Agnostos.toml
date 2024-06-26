@@ -1,0 +1,371 @@
+# 行為判定
+[[ test ]]
+game_system = "Agnostos"
+input = "CDB>=6"
+output = "(CDB>=6) ＞ (1D10>=6) ＞ 6 ＞ 成功 ＞ コンディション：変動なし"
+success = true
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CDB>=6"
+output = "(CDB>=6) ＞ (1D10>=6) ＞ 10 ＞ 成功 ＞ コンディション：2段階上昇（クリティカル）"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CDB>=6"
+output = "(CDB>=6) ＞ (1D10>=6) ＞ 9 ＞ 成功 ＞ コンディション：1段階上昇"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CDB>=6"
+output = "(CDB>=6) ＞ (1D10>=6) ＞ 5 ＞ 失敗 ＞ コンディション：変動なし"
+failure = true
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CDB>=6"
+output = "(CDB>=6) ＞ (1D10>=6) ＞ 3 ＞ 失敗 ＞ コンディション：1段階下降"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CDB>=6"
+output = "(CDB>=6) ＞ (1D10>=6) ＞ 1 ＞ 失敗 ＞ コンディション：2段階下降（ファンブル）"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CDB>=10"
+output = "(CDB>=10) ＞ (1D10>=10) ＞ 9 ＞ 失敗 ＞ コンディション：1段階上昇"
+failure = true
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CDB>=3"
+output = "(CDB>=3) ＞ (1D10>=3) ＞ 3 ＞ 成功 ＞ コンディション：1段階下降"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CD4>=6"
+output = "(CDB>=6) ＞ (1D10>=6) ＞ 6 ＞ 成功 ＞ コンディション：変動なし"
+success = true
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CDA>=6"
+output = "(CDA>=6) ＞ (1D12>=6) ＞ 6 ＞ 成功 ＞ コンディション：1段階下降"
+success = true
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CD5>=6"
+output = "(CDA>=6) ＞ (1D12>=6) ＞ 6 ＞ 成功 ＞ コンディション：1段階下降"
+success = true
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CDA>=6"
+output = "(CDA>=6) ＞ (1D12>=6) ＞ 12 ＞ 成功 ＞ コンディション：変動なし"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CDC>=6"
+output = "(CDC>=6) ＞ (1D8>=6) ＞ 6 ＞ 成功 ＞ コンディション：変動なし"
+success = true
+rands = [
+  { sides = 8, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CD3>=6"
+output = "(CDC>=6) ＞ (1D8>=6) ＞ 6 ＞ 成功 ＞ コンディション：変動なし"
+success = true
+rands = [
+  { sides = 8, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CDD>=6"
+output = "(CDD>=6) ＞ (1D6>=6) ＞ 6 ＞ 成功 ＞ コンディション：2段階上昇（クリティカル）"
+critical = true
+success = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CD2>=6"
+output = "(CDD>=6) ＞ (1D6>=6) ＞ 6 ＞ 成功 ＞ コンディション：2段階上昇（クリティカル）"
+critical = true
+success = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CDE>=6"
+output = "(CDE>=6) ＞ (1D4>=6) ＞ 1 ＞ 失敗 ＞ コンディション：変動なし"
+failure = true
+rands = [
+  { sides = 4, value = 1 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CD1>=6"
+output = "(CDE>=6) ＞ (1D4>=6) ＞ 1 ＞ 失敗 ＞ コンディション：変動なし"
+failure = true
+rands = [
+  { sides = 4, value = 1 },
+]
+
+# 心拍のコンディションロール
+[[ test ]]
+game_system = "Agnostos"
+input = "HCDA"
+output = "(HCDA) ＞ (1D8) ＞ 6 ＞ コンディション：変動なし"
+rands = [
+  { sides = 8, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCD3"
+output = "(HCDA) ＞ (1D8) ＞ 6 ＞ コンディション：変動なし"
+rands = [
+  { sides = 8, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCDA"
+output = "(HCDA) ＞ (1D8) ＞ 7 ＞ コンディション：1段階上昇"
+rands = [
+  { sides = 8, value = 7 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCDA"
+output = "(HCDA) ＞ (1D8) ＞ 8 ＞ コンディション：2段階上昇（クリティカル）"
+critical = true
+rands = [
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCDA"
+output = "(HCDA) ＞ (1D8) ＞ 2 ＞ コンディション：1段階下降"
+rands = [
+  { sides = 8, value = 2 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCDA"
+output = "(HCDA) ＞ (1D8) ＞ 1 ＞ コンディション：2段階下降（ファンブル）"
+fumble = true
+rands = [
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCDB+"
+output = "(HCDB+) ＞ (1D10) ＞ 6 ＞ コンディション：変動なし"
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCD4"
+output = "(HCDB+) ＞ (1D10) ＞ 6 ＞ コンディション：変動なし"
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCDC+"
+output = "(HCDC+) ＞ (1D12) ＞ 7 ＞ 気絶"
+rands = [
+  { sides = 12, value = 7 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCD5"
+output = "(HCDC+) ＞ (1D12) ＞ 7 ＞ 気絶"
+rands = [
+  { sides = 12, value = 7 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCDB-"
+output = "(HCDB-) ＞ (1D6) ＞ 3 ＞ コンディション：変動なし"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCD2"
+output = "(HCDB-) ＞ (1D6) ＞ 3 ＞ コンディション：変動なし"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCDC-"
+output = "(HCDC-) ＞ (1D4) ＞ 3 ＞ コンディション：1段階上昇"
+rands = [
+  { sides = 4, value = 3 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCD1"
+output = "(HCDC-) ＞ (1D4) ＞ 3 ＞ コンディション：1段階上昇"
+rands = [
+  { sides = 4, value = 3 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCD1"
+output = "(HCDC-) ＞ (1D4) ＞ 1 ＞ 気絶"
+rands = [
+  { sides = 4, value = 1 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCDB+"
+output = "(HCDB+) ＞ (1D10) ＞ 10 ＞ 気絶"
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "HCDB-"
+output = "(HCDB-) ＞ (1D6) ＞ 1 ＞ 気絶"
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+# 必殺技
+
+[[ test ]]
+game_system = "Agnostos"
+input = "ASPA"
+output = "(ASPA) ＞ (5D12) ＞ 52[10,12,11,10,9] ＞ 52"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 12 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 10 },
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "BSPB"
+output = "(BSPB) ＞ (4D10) ＞ 34[10,9,8,7] ＞ 34"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "CSPC"
+output = "(CSPC) ＞ (3D8) ＞ 21[7,8,6] ＞ 21"
+rands = [
+  { sides = 8, value = 7 },
+  { sides = 8, value = 8 },
+  { sides = 8, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "DSPD"
+output = "(DSPD) ＞ (2D6) ＞ 12[6,6] ＞ 12"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "ESPE"
+output = "(ESPE) ＞ (1D4) ＞ 4[4] ＞ 4"
+rands = [
+  { sides = 4, value = 4 },
+]
+
+[[ test ]]
+game_system = "Agnostos"
+input = "5SP1"
+output = "(ASPE) ＞ (5D4) ＞ 20[4,4,4,4,4] ＞ 20"
+rands = [
+  { sides = 4, value = 4 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 4 },
+  { sides = 4, value = 4 },
+]
