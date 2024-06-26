@@ -392,7 +392,7 @@ module BCDice
               damage: translate("GardenOrder.RF.9999.damage")}],
           ]
         },
-        
+
         "EL" => {
           name: translate("GardenOrder.EL.name"),
           table: [
