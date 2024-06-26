@@ -43,6 +43,14 @@ rands = [
 
 [[ test ]]
 game_system = "TrailOfCthulhu"
+input = "TC+ 間違った入力"
+output = ""
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
 input = "MMT 神話的狂気表全リスト表示"
 output = "(MMT) ＞ 1:強迫性障害, 2:恐怖症, 3:誇大妄想狂, 4:殺人狂, 5:恣意的記憶喪失, 6:多重人格障害, 7:偏執症, 8:妄想症"
 rands = [

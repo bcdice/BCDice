@@ -31,6 +31,12 @@ module BCDice
 
       register_prefix("TC", "MMT")
 
+      def initialize(command)
+        super(command)
+
+        @round_type = RoundType::CEIL
+      end
+
       def eval_game_system_specific_command(command)
         resolute_action(command) ||
           roll_mythos_madness_table(command)
@@ -45,7 +51,17 @@ module BCDice
         m = /^TC([+\d]*)(>=(\d+))?/.match(command)
         return nil unless m
 
-        bonus = ArithmeticEvaluator.eval(m[1])
+        if m[1].empty?
+          bonus = 0
+        else
+          m2 = /\d/.match(m[1])
+          if m2
+            bonus = Arithmetic.eval(m[1], @round_type)
+          else
+            return nil
+          end
+        end
+
         difficulty = m[3].to_i
 
         dice = @randomizer.roll_once(6)
@@ -86,7 +102,7 @@ module BCDice
       ].freeze
 
       def roll_mythos_madness_table(command)
-        m = /^MMT(\[?([,\d]+)\]?)?/.match(command)
+        m = /^MMT(\[?([1-8],[1-8])\]?)?/.match(command)
         return nil unless m
 
         sequence = []
