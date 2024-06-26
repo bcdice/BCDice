@@ -92,7 +92,7 @@ module BCDice
         row = get_table_by_number(damage_value, table, nil)
         return nil if row.nil?
 
-        translate("GardenOrder.Damage_name")"：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
+        translate("GardenOrder.Damage_name"),"：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
       end
 
       def get_damage_table_info_by_type(type)
