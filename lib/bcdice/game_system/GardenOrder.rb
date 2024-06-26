@@ -459,7 +459,6 @@ module BCDice
       end
 
       DAMAGE_TABLE = translate_tables(:ja_jp).freeze
-
     end
   end
 end
