@@ -105,7 +105,7 @@ module BCDice
       class << self
         private
 
-        def translate_tables(locale)
+        def translate_tables()
           {
             "SL" => {
               name: translate("GardenOrder.SL.name"),
