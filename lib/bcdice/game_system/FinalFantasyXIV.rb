@@ -52,13 +52,13 @@ module BCDice
 
         result =
           if dice_result == 20
-            Result.critical("クリティカル")
+            Result.critical(translate("critical"))
           elsif cmd.cmp_op.nil?
             Result.new
           elsif total >= cmd.target_number
-            Result.success("ダイレクトヒット")
+            Result.success(translate("FinalFantasyXIV.directhit"))
           else
-            Result.failure("基本効果のみ")
+            Result.failure(translate("FinalFantasyXIV.normalhit"))
           end
 
         sequence = [
@@ -94,9 +94,9 @@ module BCDice
           if cmd.cmp_op.nil?
             Result.new
           elsif total >= cmd.target_number
-            Result.success("成功")
+            Result.success(translate("success"))
           else
-            Result.failure("失敗")
+            Result.failure(translate("failure"))
           end
 
         sequence = [
