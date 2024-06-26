@@ -254,7 +254,7 @@ module BCDice
                 [22,
                  {name: I18n.translate("GardenOrder.IM.22.name", locale: locale),
                   text: I18n.translate("GardenOrder.IM.22.text", locale: locale),
-                  damage: I18n.translate("GardenOrder.IM.22.damage, locale: locale)}],
+                  damage: I18n.translate("GardenOrder.IM.22.damage", locale: locale)}],
                 [25,
                  {name: I18n.translate("GardenOrder.IM.25.name", locale: locale),
                   text: I18n.translate("GardenOrder.IM.25.text", locale: locale),
