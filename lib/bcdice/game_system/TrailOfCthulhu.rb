@@ -51,15 +51,15 @@ module BCDice
         m = /^TC([+\d]*)(>=(\d+))?/.match(command)
         return nil unless m
 
-        if m[1].empty?
-          bonus = 0
-        else
-          m2 = /\d/.match(m[1])
-          if m2
-            bonus = Arithmetic.eval(m[1], @round_type)
+        bonus =
+          if m[1].empty?
+            0
           else
-            return nil
+            Arithmetic.eval(m[1], @round_type)
           end
+
+        if bonus.nil?
+          return nil
         end
 
         difficulty = m[3].to_i
