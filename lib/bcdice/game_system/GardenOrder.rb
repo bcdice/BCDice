@@ -102,9 +102,6 @@ module BCDice
         return data[:name], data[:table]
       end
 
-      class << self
-        private
-
       DAMAGE_TABLE = {
         "SL" => {
           name: "切断",
