@@ -90,19 +90,18 @@ module BCDice
       end
 
       def look_up_damage_chart(type, damage_value)
-        name, table = get_damage_table_info_by_type(type)
-
-        row = get_table_by_number(damage_value, table, nil)
+        name, texts, damage = get_damage_table_info_by_type(type, damage_value)
+        row = get_table_by_number(damage_value, name, texts, damage, nil)
         return nil if row.nil?
 
         translate("GardenOrder.Damage_name") + "：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
       end
 
-      def get_damage_table_info_by_type(type)
-        data = self.class::DAMAGE_TABLE[type]
+      def get_damage_table_info_by_type(type, damage_value)
+        data = self.class:DAMAGE_TABLE[type].roll(damage_value)
         return nil if data.nil?
 
-        return data[@name], data[@items]
+        return data[:name], data[:texts], data[:damage]
       end
 
       class << self
