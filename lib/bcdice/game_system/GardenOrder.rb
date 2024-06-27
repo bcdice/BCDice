@@ -98,10 +98,11 @@ module BCDice
       end
 
       def get_damage_table_info_by_type(type, damage_value)
-        data = self.class:DAMAGE_TABLE[type].roll(damage_value)
-        return nil if data.nil?
+        data = self.class::DAMAGE_TABLE[type]
+        result = roll(damage_value, data)
+        return nil if result.nil?
 
-        return data[:name], data[:texts], data[:damage]
+        return result[:name], result[:texts], result[:damage]
       end
 
       class << self
