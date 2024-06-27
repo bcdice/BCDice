@@ -108,7 +108,7 @@ module BCDice
       class << self
         private
 
-        def translate_tables_name(locale)
+        def translate_tables(locale)
           {
             "SL" => DiceTable::RangeTable.new(
               I18n.translate("GardenOrder.SL.name", locale: locale),
