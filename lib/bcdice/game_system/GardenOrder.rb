@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'bcdice/arithmetic_evaluator'
 require 'bcdice/dice_table/range_table'
 
 module BCDice
