@@ -102,13 +102,13 @@ module BCDice
         data = self.class::DAMAGE_TABLE[type]
         return nil if data.nil?
 
-        return data[:name], data[:table]
+        return data[@name], data[@items]
       end
 
       class << self
         private
 
-        def translate_tables(locale)
+        def translate_tables_name(locale)
           {
             "SL" => DiceTable::RangeTable.new(
               I18n.translate("GardenOrder.SL.name", locale: locale),
