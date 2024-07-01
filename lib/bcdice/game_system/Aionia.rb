@@ -71,6 +71,7 @@ module BCDice
             is_success = false
             if dice_list.count(1) == times && use_cf
               result = 'ファンブル'
+              has_fumble = true
             elsif target > 10 * times
               result = '自動失敗'
             else
@@ -83,6 +84,7 @@ module BCDice
             is_success = true
             if total >= max_target + 20 && use_cf
               result = 'クリティカル'
+              has_critical = true
             elsif max_target <= times
               result = '自動成功'
             elsif total >= max_target
@@ -123,7 +125,7 @@ module BCDice
           r.success = is_success
           r.failure = !is_success
         end
-        
+
       end
     end
   end
