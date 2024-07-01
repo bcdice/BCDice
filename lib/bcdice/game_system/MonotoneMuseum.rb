@@ -25,9 +25,16 @@ module BCDice
         　　クリティカル値、ファンブル値は省略可能です。([]ごと省略できます)
         　　自動成功、自動失敗、成功、失敗を自動表示します。
         ・各種表
+        【改訂版環境】
+        　・感情表　MET
+        　・兆候表（戦闘時）　MBOT／兆候表（非戦闘時）　MNOT
+        　・歪み表　MDT
+        　・世界歪曲表　MWDT
+        　・永劫消失表　MEDT
+        【旧版環境】
         　・感情表　ET／感情表 2.0　ET2
         　・兆候表　OT／兆候表ver2.0　OT2／兆候表ver3.0　OT3
-        　・歪み表　DT／歪み表ver2.0　DT2／歪み表(野外)　DTO／歪み表(海)　DTS／歪み表(館・城)　DTM
+        　・歪み表　DT／歪み表ver2.0　DT2／歪み表（野外）　DTO／歪み表（海）　DTS／歪み表（館・城）　DTM
         　・世界歪曲表　WDT／世界歪曲表2.0　WDT2
         　・永劫消失表　EDT
         ・D66ダイスあり
@@ -146,6 +153,12 @@ module BCDice
             "EDT" => DiceTable::Table.from_i18n("MonotoneMuseum.table.EDT", locale),
             "DTM" => MMTable.from_i18n("MonotoneMuseum.table.DTM", locale),
             "OT3" => DiceTable::Table.from_i18n("MonotoneMuseum.table.OT3", locale),
+            "MET" => DiceTable::D66GridTable.from_i18n("MonotoneMuseum.table.MET", locale),
+            "MBOT" => DiceTable::Table.from_i18n("MonotoneMuseum.table.MBOT", locale),
+            "MNOT" => DiceTable::Table.from_i18n("MonotoneMuseum.table.MNOT", locale),
+            "MDT" => MMTable.from_i18n("MonotoneMuseum.table.MDT", locale),
+            "MWDT" => DiceTable::Table.from_i18n("MonotoneMuseum.table.MWDT", locale),
+            "MEDT" => DiceTable::Table.from_i18n("MonotoneMuseum.table.MEDT", locale),
           }
         end
       end

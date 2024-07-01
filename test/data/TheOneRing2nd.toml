@@ -1,0 +1,1715 @@
+#======= RGコマンド 判定ダイスのみ =======#
+# サウロンの目、失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RG"
+output = "(1D12) ＞ [サウロンの目] 難易度 9 達成値 0：失敗"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+# 失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RG"
+output = "(1D12) ＞ [8] 難易度 9 達成値 8：失敗"
+failure = true
+rands = [
+  { sides = 12, value = 8 },
+]
+
+# 成功
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RG"
+output = "(1D12) ＞ [10] 難易度 9 達成値 10：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# ガンダルフ・ルーン
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RG"
+output = "(1D12) ＞ [ガンダルフ・ルーン]：自動成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+#======= RGコマンド 判定ダイスのみ 痛打発生値 =======#
+
+# サウロンの目、失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RG@10"
+output = "(1D12) ＞ [サウロンの目] 難易度 9 達成値 0：失敗"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+# 失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RG@10"
+output = "(1D12) ＞ [8] 難易度 9 達成値 8：失敗"
+failure = true
+rands = [
+  { sides = 12, value = 8 },
+]
+
+# 成功
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RG@10"
+output = "(1D12) ＞ [9] 難易度 9 達成値 9：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+# 成功 痛打発生
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RG@10"
+output = "(1D12) ＞ [10] 難易度 9 達成値 10：成功[成功度 0] 痛打発生！"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# ガンダルフ・ルーン
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RG@10"
+output = "(1D12) ＞ [ガンダルフ・ルーン]：自動成功[成功度 0] 痛打発生！"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+#======= RGコマンド 判定ダイスのみ 修正値 =======#
+
+# サウロンの目、失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGA1"
+output = "(1D12+1) ＞ [サウロンの目]+1 難易度 9 達成値 1：失敗"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+# 失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGA1"
+output = "(1D12+1) ＞ [7]+1 難易度 9 達成値 8：失敗"
+failure = true
+rands = [
+  { sides = 12, value = 7 },
+]
+
+# 成功
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGA1"
+output = "(1D12+1) ＞ [10]+1 難易度 9 達成値 11：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# ガンダルフ・ルーン
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGA1"
+output = "(1D12+1) ＞ [ガンダルフ・ルーン]+1：自動成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+#======= RGコマンド 判定ダイスのみ 修正値 境界 =======#
+
+# マイナス指定
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGA-1"
+output = "(1D12-1) ＞ [10]-1 難易度 9 達成値 9：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# 0未満にはならない
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGA-11"
+output = "(1D12-11) ＞ [10]-11 難易度 9 達成値 0：失敗"
+failure = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# 修正値で痛打発生値を超えても痛打は発生しない
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RG@10A1"
+output = "(1D12+1) ＞ [9]+1 難易度 9 達成値 10：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+# 修正値で痛打発生値を下回っても痛打は発生する
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RG@10A-1"
+output = "(1D12-1) ＞ [10]-1 難易度 9 達成値 9：成功[成功度 0] 痛打発生！"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+#======= RGコマンド 判定ダイスのみ 絶望状態 =======#
+
+# サウロンの目、絶望状態、失敗(内部的にはファンブル)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGm"
+output = "(1D12) ＞ [サウロンの目]：自動失敗\n状態：絶望"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+# 絶望状態、失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGm"
+output = "(1D12) ＞ [8] 難易度 9 達成値 8：失敗\n状態：絶望"
+failure = true
+rands = [
+  { sides = 12, value = 8 },
+]
+
+# 絶望状態、成功
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGm"
+output = "(1D12) ＞ [10] 難易度 9 達成値 10：成功[成功度 0]\n状態：絶望"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# ガンダルフ・ルーン、絶望状態、成功
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGm"
+output = "(1D12) ＞ [ガンダルフ・ルーン]：自動成功[成功度 0]\n状態：絶望"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+#======= RGコマンド 判定ダイスのみ 有利状態 =======#
+
+# サウロンの目、有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGf"
+output = "(2D12) ＞ [◎サウロンの目, サウロンの目] 難易度 9 達成値 0：失敗\n状態：有利"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+]
+
+# 失敗出目、サウロンの目、有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGf"
+output = "(2D12) ＞ [◎8, サウロンの目] 難易度 9 達成値 8：失敗\n状態：有利"
+failure = true
+rands = [
+  { sides = 12, value =  8 },
+  { sides = 12, value = 11 },
+]
+
+# 失敗出目、サウロンの目、有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGf"
+output = "(2D12) ＞ [◎9, サウロンの目] 難易度 9 達成値 9：成功[成功度 0]\n状態：有利"
+success = true
+rands = [
+  { sides = 12, value =  9 },
+  { sides = 12, value = 11 },
+]
+
+# 失敗出目のみ、有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGf"
+output = "(2D12) ＞ [2, ◎8] 難易度 9 達成値 8：失敗\n状態：有利"
+failure = true
+rands = [
+  { sides = 12, value =  2 },
+  { sides = 12, value =  8 },
+]
+
+# 成功失敗出目、有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGf"
+output = "(2D12) ＞ [8, ◎9] 難易度 9 達成値 9：成功[成功度 0]\n状態：有利"
+success = true
+rands = [
+  { sides = 12, value =  8 },
+  { sides = 12, value =  9 },
+]
+
+# 成功成功出目、有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGf"
+output = "(2D12) ＞ [◎10, 9] 難易度 9 達成値 10：成功[成功度 0]\n状態：有利"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value =  9 },
+]
+
+# ガンダルフ・ルーン、成功出目、有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGf"
+output = "(2D12) ＞ [◎ガンダルフ・ルーン, 9]：自動成功[成功度 0]\n状態：有利"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value =  9 },
+]
+
+# ガンダルフ・ルーン、ガンダルフ・ルーン、有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGf"
+output = "(2D12) ＞ [◎ガンダルフ・ルーン, ガンダルフ・ルーン]：自動成功[成功度 0]\n状態：有利"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 12 },
+]
+
+# ガンダルフ・ルーン、サウロンの目、有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGf"
+output = "(2D12) ＞ [◎ガンダルフ・ルーン, サウロンの目]：自動成功[成功度 0]\n状態：有利"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 11 },
+]
+
+#======= RGコマンド 判定ダイスのみ 不利状態 =======#
+
+# サウロンの目、不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGi"
+output = "(2D12) ＞ [◎サウロンの目, サウロンの目] 難易度 9 達成値 0：失敗\n状態：不利"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+]
+
+# 失敗出目、サウロンの目、不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGi"
+output = "(2D12) ＞ [8, ◎サウロンの目] 難易度 9 達成値 0：失敗\n状態：不利"
+failure = true
+rands = [
+  { sides = 12, value =  8 },
+  { sides = 12, value = 11 },
+]
+
+# 失敗出目、サウロンの目、不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGi"
+output = "(2D12) ＞ [9, ◎サウロンの目] 難易度 9 達成値 0：失敗\n状態：不利"
+failure = true
+rands = [
+  { sides = 12, value =  9 },
+  { sides = 12, value = 11 },
+]
+
+# 失敗出目のみ、不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGi"
+output = "(2D12) ＞ [◎2, 8] 難易度 9 達成値 2：失敗\n状態：不利"
+failure = true
+rands = [
+  { sides = 12, value =  2 },
+  { sides = 12, value =  8 },
+]
+
+# 成功失敗出目、不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGi"
+output = "(2D12) ＞ [◎8, 9] 難易度 9 達成値 8：失敗\n状態：不利"
+failure = true
+rands = [
+  { sides = 12, value =  8 },
+  { sides = 12, value =  9 },
+]
+
+# 成功成功出目、不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGi"
+output = "(2D12) ＞ [10, ◎9] 難易度 9 達成値 9：成功[成功度 0]\n状態：不利"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value =  9 },
+]
+
+# ガンダルフ・ルーン、成功出目、不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGi"
+output = "(2D12) ＞ [ガンダルフ・ルーン, ◎9] 難易度 9 達成値 9：成功[成功度 0]\n状態：不利"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value =  9 },
+]
+
+# ガンダルフ・ルーン、ガンダルフ・ルーン、不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGi"
+output = "(2D12) ＞ [◎ガンダルフ・ルーン, ガンダルフ・ルーン]：自動成功[成功度 0]\n状態：不利"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 12 },
+]
+
+# ガンダルフ・ルーン、サウロンの目、不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGi"
+output = "(2D12) ＞ [ガンダルフ・ルーン, ◎サウロンの目] 難易度 9 達成値 0：失敗\n状態：不利"
+failure = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 11 },
+]
+
+#======= RGコマンド 判定ダイスのみ 疲労状態 =======#
+
+# 成功出目、不利、疲労
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGw"
+output = "(1D12) ＞ [9] 難易度 9 達成値 9：成功[成功度 0]\n状態：疲労"
+success = true
+rands = [
+  { sides = 12, value =  9 },
+]
+
+#======= RGコマンド 判定ダイスのみ 有利、不利、絶望、疲労状態 =======#
+
+# 成功出目、有利、不利、疲労、絶望
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RGfimw"
+output = "(1D12) ＞ [9] 難易度 9 達成値 9：成功[成功度 0]\n状態：疲労 絶望"
+success = true
+rands = [
+  { sides = 12, value =  9 },
+]
+
+#======= RGコマンド 判定ダイスのみ 修正、痛打判定値、有利、絶望、疲労状態 =======#
+
+# 成功出目、有利、不利、疲労、絶望
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "9RG@9A1fmw"
+output = "(2D12+1) ＞ [◎8, 1]+1 難易度 9 達成値 9：成功[成功度 0]\n状態：有利 疲労 絶望"
+success = true
+rands = [
+  { sides = 12, value =  8 },
+  { sides = 12, value =  1 },
+]
+
+#======= RGコマンド 判定ダイス＋技能ダイス =======#
+# サウロンの目、失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6"
+output = "(1D12+6D6) ＞ [サウロンの目]+[2, 1, 1, 3, 1, 1] 難易度 19 達成値 9：失敗"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+# サウロンの目、成功
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6"
+output = "(1D12+6D6) ＞ [サウロンの目]+[2, 5, 5, 3, 2, 2] 難易度 19 達成値 19：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 11 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+]
+
+# 失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6"
+output = "(1D12+6D6) ＞ [2]+[2, 1, 1, 2, 1, 1] 難易度 19 達成値 10：失敗"
+failure = true
+rands = [
+  { sides = 12, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+# 成功
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6"
+output = "(1D12+6D6) ＞ [9]+[3, 1, 1, 3, 5, 1] 難易度 19 達成値 23：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value =  9 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  1 },
+]
+
+# ガンダルフ・ルーン
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6"
+output = "(1D12+6D6) ＞ [ガンダルフ・ルーン]+[2, 1, 1, 2, 1, 1]：自動成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+#======= RGコマンド 判定ダイス＋技能ダイス 修正値 =======#
+
+# サウロンの目、失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6A3"
+output = "(1D12+6D6+3) ＞ [サウロンの目]+[2, 1, 1, 3, 1, 1]+3 難易度 19 達成値 12：失敗"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+# マイナス指定で失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6A-5"
+output = "(1D12+6D6-5) ＞ [9]+[3, 1, 1, 3, 5, 1]-5 難易度 19 達成値 18：失敗"
+failure = true
+rands = [
+  { sides = 12, value =  9 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  1 },
+]
+
+#======= RGコマンド 判定ダイス＋技能ダイス(成功度アイコンあり) =======#
+
+# サウロンの目、失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6"
+output = "(1D12+6D6) ＞ [サウロンの目]+[6, 1, 1, 6, 1, 1] 難易度 19 達成値 16：失敗"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+# サウロンの目、成功
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6"
+output = "(1D12+6D6) ＞ [サウロンの目]+[2, 5, 6, 3, 2, 2] 難易度 19 達成値 20：成功[成功度 1]"
+success = true
+rands = [
+  { sides = 12, value = 11 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+]
+
+# 失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6"
+output = "(1D12+6D6) ＞ [2]+[2, 1, 1, 6, 1, 1] 難易度 19 達成値 14：失敗"
+failure = true
+rands = [
+  { sides = 12, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+# 成功
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6"
+output = "(1D12+6D6) ＞ [9]+[5, 1, 1, 3, 6, 1] 難易度 19 達成値 26：成功[成功度 1]"
+success = true
+rands = [
+  { sides = 12, value =  9 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+]
+
+# 成功(成功度2でクリティカル)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6"
+output = "(1D12+6D6) ＞ [9]+[6, 1, 1, 3, 6, 1] 難易度 19 達成値 27：成功[成功度 2]"
+success = true
+critical = true
+rands = [
+  { sides = 12, value =  9 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+]
+
+# ガンダルフ・ルーン
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6"
+output = "(1D12+6D6) ＞ [ガンダルフ・ルーン]+[5, 1, 1, 6, 1, 1]：自動成功[成功度 1]"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+# ガンダルフ・ルーン(成功度2でクリティカル)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6"
+output = "(1D12+6D6) ＞ [ガンダルフ・ルーン]+[6, 1, 1, 6, 1, 1]：自動成功[成功度 2]"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+#======= RGコマンド 判定ダイス＋技能ダイス(成功度アイコンあり) 痛打判定値 =======#
+
+# サウロンの目、失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6@10"
+output = "(1D12+6D6) ＞ [サウロンの目]+[6, 1, 1, 6, 1, 1] 難易度 19 達成値 16：失敗"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+# サウロンの目、成功
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6@10"
+output = "(1D12+6D6) ＞ [サウロンの目]+[2, 5, 6, 3, 2, 2] 難易度 19 達成値 20：成功[成功度 1]"
+success = true
+rands = [
+  { sides = 12, value = 11 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+]
+
+# 失敗
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6@10"
+output = "(1D12+6D6) ＞ [2]+[2, 1, 1, 6, 1, 1] 難易度 19 達成値 14：失敗"
+failure = true
+rands = [
+  { sides = 12, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+# 成功
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6@10"
+output = "(1D12+6D6) ＞ [9]+[5, 1, 1, 3, 6, 1] 難易度 19 達成値 26：成功[成功度 1]"
+success = true
+rands = [
+  { sides = 12, value =  9 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+]
+
+# 成功(成功度2でクリティカル)、痛打発生
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6@9"
+output = "(1D12+6D6) ＞ [9]+[6, 1, 1, 3, 6, 1] 難易度 19 達成値 27：成功[成功度 2] 痛打発生！"
+success = true
+critical = true
+rands = [
+  { sides = 12, value =  9 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+]
+
+# ガンダルフ・ルーン
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6@10"
+output = "(1D12+6D6) ＞ [ガンダルフ・ルーン]+[5, 1, 1, 6, 1, 1]：自動成功[成功度 1] 痛打発生！"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+# ガンダルフ・ルーン(成功度2でクリティカル)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6@10"
+output = "(1D12+6D6) ＞ [ガンダルフ・ルーン]+[6, 1, 1, 6, 1, 1]：自動成功[成功度 2] 痛打発生！"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+#======= RGコマンド 判定ダイス＋技能ダイス(疲労状態) =======#
+
+# サウロンの目、失敗、疲労
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6w"
+output = "(1D12+6D6) ＞ [サウロンの目]+[6, 1, 1, 6, 1, 1] 難易度 19 達成値 12：失敗\n状態：疲労"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+# サウロンの目、成功、疲労
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6w"
+output = "(1D12+6D6) ＞ [サウロンの目]+[4, 5, 6, 3, 2, 4] 難易度 19 達成値 19：成功[成功度 1]\n状態：疲労"
+success = true
+rands = [
+  { sides = 12, value = 11 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  4 },
+]
+
+# 失敗、疲労
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6w"
+output = "(1D12+6D6) ＞ [2]+[2, 1, 1, 6, 1, 1] 難易度 19 達成値 8：失敗\n状態：疲労"
+failure = true
+rands = [
+  { sides = 12, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、疲労
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6w"
+output = "(1D12+6D6) ＞ [9]+[5, 1, 1, 3, 6, 1] 難易度 19 達成値 20：成功[成功度 1]\n状態：疲労"
+success = true
+rands = [
+  { sides = 12, value =  9 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+]
+
+# ガンダルフ・ルーン、疲労
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6w"
+output = "(1D12+6D6) ＞ [ガンダルフ・ルーン]+[5, 1, 1, 6, 1, 1]：自動成功[成功度 1]\n状態：疲労"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides =  6, value =  5 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  1 },
+  { sides =  6, value =  1 },
+]
+
+#======= RGコマンド 判定ダイス＋技能ダイス(絶望状態) =======#
+
+# サウロンの目、失敗、絶望
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6m"
+output = "(1D12+6D6) ＞ [サウロンの目]+[4, 6, 6, 3, 2, 4]：自動失敗\n状態：絶望"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  6 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  4 },
+]
+
+# 失敗、絶望
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6m"
+output = "(1D12+6D6) ＞ [2]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 16：失敗\n状態：絶望"
+failure = true
+rands = [
+  { sides = 12, value = 2 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+#======= RGコマンド 判定ダイス＋技能ダイス(有利状態) =======#
+
+# 失敗、有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6f"
+output = "(2D12+6D6) ＞ [2, ◎4]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 18：失敗\n状態：有利"
+failure = true
+rands = [
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6f"
+output = "(2D12+6D6) ＞ [◎10, 4]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]\n状態：有利"
+success = true
+rands = [
+  { sides = 12, value = 10},
+  { sides = 12, value = 4 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+
+#======= RGコマンド 判定ダイス＋技能ダイス(不利状態) =======#
+
+# 失敗、不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6i"
+output = "(2D12+6D6) ＞ [◎2, 4]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 16：失敗\n状態：不利"
+failure = true
+rands = [
+  { sides = 12, value = 2 },
+  { sides = 12, value = 4 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6i"
+output = "(2D12+6D6) ＞ [10, ◎9]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 23：成功[成功度 0]\n状態：不利"
+success = true
+rands = [
+  { sides = 12, value = 10},
+  { sides = 12, value =  9 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+#======= RGコマンド 判定ダイス＋技能ダイス 有利、不利、絶望、疲労状態 =======#
+
+# 成功出目、有利、不利、疲労、絶望
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6fimw"
+output = "(1D12+6D6) ＞ [9]+[4, 2, 2, 3, 2, 6] 難易度 19 達成値 19：成功[成功度 1]\n状態：疲労 絶望"
+success = true
+rands = [
+  { sides = 12, value =  9 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  6 },
+]
+
+#======= RGコマンド 判定ダイス＋技能ダイス 有利、絶望、疲労状態 修正値 痛打発生値 =======#
+
+# 成功出目、有利、不利、疲労、絶望
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6@10A1fmw"
+output = "(2D12+6D6+1) ＞ [9, ◎10]+[4, 2, 2, 3, 2, 6]+1 難易度 19 達成値 21：成功[成功度 1] 痛打発生！\n状態：有利 疲労 絶望"
+success = true
+rands = [
+  { sides = 12, value =  9 },
+  { sides = 12, value =  10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  6 },
+]
+
+#======= RGコマンド 状態スイッチ 有利 =======#
+
+# 成功、有利on
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6f1"
+output = "(2D12+6D6) ＞ [◎10, 4]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]\n状態：有利"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value =  4 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、有利off
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6f0"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、有利on(1より大きい数値指定)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6f8"
+output = "(2D12+6D6) ＞ [◎10, 4]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]\n状態：有利"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value =  4 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、有利off(マイナス指定)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6f-1"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+#======= RGコマンド 状態スイッチ 不利 =======#
+
+# 失敗、不利on
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6i1"
+output = "(2D12+6D6) ＞ [10, ◎4]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 18：失敗\n状態：不利"
+failure = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value =  4 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、不利off
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6i0"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 失敗、不利on(1より大きい数値指定)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6i8"
+output = "(2D12+6D6) ＞ [10, ◎4]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 18：失敗\n状態：不利"
+failure = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value =  4 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、有利off(マイナス指定)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6i-1"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+#======= RGコマンド 状態スイッチ 疲労 =======#
+
+# 失敗、疲労on
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6w1"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 14：失敗\n状態：疲労"
+failure = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、疲労off
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6w0"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 失敗、疲労on(1より大きい数値指定)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6w8"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 14：失敗\n状態：疲労"
+failure = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、疲労off(マイナス指定)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6w-1"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+#======= RGコマンド 状態スイッチ 絶望 =======#
+
+# 失敗、絶望on
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6m1"
+output = "(1D12+6D6) ＞ [4]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 18：失敗\n状態：絶望"
+failure = true
+rands = [
+  { sides = 12, value =  4 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、絶望off
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6m0"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 失敗、絶望on(1より大きい数値指定)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6m8"
+output = "(1D12+6D6) ＞ [4]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 18：失敗\n状態：絶望"
+failure = true
+rands = [
+  { sides = 12, value =  4 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、絶望off(マイナス指定)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6m-1"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+#======= RGコマンド 状態スイッチによるオプション上書き =======#
+
+# 成功、有利on有利off(結果有利off)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6f1f0"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、不利on不利off(結果不利off)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6i1i0"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、疲労on疲労off(結果疲労off)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6w1w0"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 成功、絶望on絶望off(結果絶望off)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "19RG6m1m0"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 19 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+#======= RGコマンド 難易度0指定 =======#
+
+# 難易度0
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "0RG6"
+output = "(1D12+6D6) ＞ [10]+[4, 2, 2, 3, 2, 1] 難易度 0 達成値 24：成功[成功度 0]"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 難易度0 有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "0RG6f"
+output = "(2D12+6D6) ＞ [◎10, 8]+[4, 2, 2, 3, 2, 1] 難易度 0 達成値 24：成功[成功度 0]\n状態：有利"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value =  8 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+# 難易度0 不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "0RG6i"
+output = "(2D12+6D6) ＞ [10, ◎8]+[4, 2, 2, 3, 2, 1] 難易度 0 達成値 22：成功[成功度 0]\n状態：不利"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value =  8 },
+  { sides =  6, value =  4 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  3 },
+  { sides =  6, value =  2 },
+  { sides =  6, value =  1 },
+]
+
+#======= FDコマンド =======#
+
+# 素の判定(サウロンの目)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD"
+output = "(1D12) ＞ [サウロンの目]"
+rands = [
+  { sides = 12, value = 11 },
+]
+
+# 素の判定
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD"
+output = "(1D12) ＞ [10]"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# 素の判定(ガンダルフ・ルーン)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD"
+output = "(1D12) ＞ [ガンダルフ・ルーン]"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+#======= FDコマンド 修正値 =======#
+# 修正値+1
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD1"
+output = "(1D12+1) ＞ [9]+1 ＞ [10]"
+rands = [
+  { sides = 12, value = 9 },
+]
+
+# 修正値+1 10を超えない
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD1"
+output = "(1D12+1) ＞ [10]+1 ＞ [10]"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# 修正値-1
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD-1"
+output = "(1D12-1) ＞ [9]-1 ＞ [8]"
+rands = [
+  { sides = 12, value = 9 },
+]
+
+# 修正値-1 1を下回らない
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD-1"
+output = "(1D12-1) ＞ [1]-1 ＞ [1]"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+# 修正値+1　ガンダルフ・ルーンに影響を及ぼさないことを確認
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD1"
+output = "(1D12+1) ＞ [ガンダルフ・ルーン]+1 ＞ [ガンダルフ・ルーン]"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+# 修正値-1　ガンダルフ・ルーンに影響を及ぼさないことを確認
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD-1"
+output = "(1D12-1) ＞ [ガンダルフ・ルーン]-1 ＞ [ガンダルフ・ルーン]"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+# 修正値+1　サウロンの目に影響を及ぼさないことを確認
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD1"
+output = "(1D12+1) ＞ [サウロンの目]+1 ＞ [サウロンの目]"
+rands = [
+  { sides = 12, value = 11 },
+]
+
+# 修正値-1　サウロンの目に影響を及ぼさないことを確認
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD-1"
+output = "(1D12-1) ＞ [サウロンの目]-1 ＞ [サウロンの目]"
+rands = [
+  { sides = 12, value = 11 },
+]
+
+#======= FDコマンド 有利不利 =======#
+
+# 有利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDf"
+output = "(2D12) ＞ [◎10, 2] ＞ [10]"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 2 },
+]
+
+# 有利 修正値
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD-1f"
+output = "(2D12-1) ＞ [◎10, 2]-1 ＞ [9]"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 2 },
+]
+
+# 有利　ガンダルフ・ルーン
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDf"
+output = "(2D12) ＞ [◎ガンダルフ・ルーン, 1] ＞ [ガンダルフ・ルーン]"
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 1 },
+]
+
+# 有利　ガンダルフ・ルーン　サウロンの目
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDf"
+output = "(2D12) ＞ [◎ガンダルフ・ルーン, サウロンの目] ＞ [ガンダルフ・ルーン]"
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 11 },
+]
+
+# 有利　サウロンの目　サウロンの目
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDf"
+output = "(2D12) ＞ [◎サウロンの目, サウロンの目] ＞ [サウロンの目]"
+rands = [
+  { sides = 12, value = 11 },
+  { sides = 12, value = 11 },
+]
+
+# 不利
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDi"
+output = "(2D12) ＞ [10, ◎2] ＞ [2]"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 2 },
+]
+
+# 不利 修正値
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FD1i"
+output = "(2D12+1) ＞ [10, ◎2]+1 ＞ [3]"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 2 },
+]
+
+# 不利　ガンダルフ・ルーン
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDi"
+output = "(2D12) ＞ [ガンダルフ・ルーン, ◎1] ＞ [1]"
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 1 },
+]
+
+# 不利　ガンダルフ・ルーン　サウロンの目
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDi"
+output = "(2D12) ＞ [ガンダルフ・ルーン, ◎サウロンの目] ＞ [サウロンの目]"
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 11 },
+]
+
+# 不利　ガンダルフ・ルーン　ガンダルフ・ルーン
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDi"
+output = "(2D12) ＞ [◎ガンダルフ・ルーン, ガンダルフ・ルーン] ＞ [ガンダルフ・ルーン]"
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 12 },
+]
+
+# 有利 不利 相殺
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDfi"
+output = "(1D12) ＞ [10]"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# 有利 on
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDf1"
+output = "(2D12) ＞ [◎10, 2] ＞ [10]"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 2 },
+]
+
+# 有利 off
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDf0"
+output = "(1D12) ＞ [10]"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# 不利 on
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDi1"
+output = "(2D12) ＞ [10, ◎2] ＞ [2]"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 2 },
+]
+
+# 不利 off
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDi0"
+output = "(1D12) ＞ [10]"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# 有利 on(1より大きい数値指定)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDf12"
+output = "(2D12) ＞ [◎10, 2] ＞ [10]"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 2 },
+]
+
+# 有利 off(マイナス指定)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDf-1"
+output = "(1D12) ＞ [10]"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# 不利 on(1より大きい数値指定)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDi12"
+output = "(2D12) ＞ [10, ◎2] ＞ [2]"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 2 },
+]
+
+# 不利 off(マイナス指定)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDi-1"
+output = "(1D12) ＞ [10]"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+# 不利 on(有利 off)
+[[ test ]]
+game_system = "TheOneRing2nd"
+input = "FDi1f0"
+output = "(2D12) ＞ [10, ◎2] ＞ [2]"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 2 },
+]

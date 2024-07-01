@@ -476,3 +476,138 @@ rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
 ]
+
+
+[[ test ]]
+game_system = "Utakaze"
+input = "UR"
+output = "UR ＞ (2D6) ＞ [4,4] ＞ 成功レベル:2 (1セット) ＞ (021)"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Utakaze"
+input = "6UR"
+output = "6UR ＞ (6D6) ＞ [1,2,3,3,3,3] ＞ 成功レベル:4 (1セット) ＞ (041)"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Utakaze"
+input = "6UR"
+output = "6UR ＞ (6D6) ＞ [1,2,3,4,5,6] ＞ (000)"
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Utakaze"
+input = "6UR@1"
+output = "6UR@1 ＞ (6D6) ＞ [1,1,2,2,2,2] ＞ 龍のダイス「風」(1)を使用 ＞ 成功レベル:4 (1セット) ＞ (041)"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Utakaze"
+input = "6UR1"
+output = "6UR1 ＞ (6D6) ＞ [1,1,2,2,2,2] ＞ 龍のダイス「風」(1)を使用 ＞ 成功レベル:4 (1セット) ＞ (041)"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Utakaze"
+input = "UO"
+output = "UO ＞ (2D6) ＞ [4,4] ＞ 成功レベル:2 (1セット) ＞ (021)"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Utakaze"
+input = "6UO"
+output = "6UO ＞ (6D6) ＞ [1,2,3,3,3,3] ＞ 成功レベル:4 (1セット) ＞ (041)"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Utakaze"
+input = "6UO"
+output = "6UO ＞ (6D6) ＞ [1,2,3,4,5,6] ＞ (000)"
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Utakaze"
+input = "6UO@1"
+output = "6UO@1 ＞ (6D6) ＞ [1,1,2,2,2,2] ＞ 龍のダイス「風」(1)を使用 ＞ 成功レベル:4 (1セット) ＞ (041)"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Utakaze"
+input = "6UO1"
+output = "6UO1 ＞ (6D6) ＞ [1,1,2,2,2,2] ＞ 龍のダイス「風」(1)を使用 ＞ 成功レベル:4 (1セット) ＞ (041)"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+

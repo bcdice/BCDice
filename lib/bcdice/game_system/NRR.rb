@@ -97,10 +97,10 @@ module BCDice
       SUCCESSES = [:success, :critical, :miracle].freeze
       CRITICALS = [:critical, :miracle].freeze
 
-      DISADVANTAGE = [:fumble, :fumble, :failure, :failure, :success, :success].freeze
+      DISADVANTAGE = [:fumble, :failure, :failure, :failure, :success, :success].freeze
       NORMAL = [:fumble, :failure, :failure, :failure, :success, :success, :success, :critical].freeze
       ADVANTAGE = [:fumble, :failure, :failure, :success, :success, :success, :success, :success, :critical, :critical].freeze
-      EXTRA = [:fumble, :fumble, :fumble, :failure, :success, :success, :critical, :critical, :critical, :critical, :miracle, :miracle].freeze
+      EXTRA = [:fumble, :fumble, :failure, :failure, :success, :success, :critical, :critical, :critical, :critical, :miracle, :miracle].freeze
 
       ICON = {
         fumble: "💀",

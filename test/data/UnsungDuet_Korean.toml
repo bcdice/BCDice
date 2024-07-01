@@ -1,0 +1,234 @@
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "shifter"
+output = "(1D10) ＞ 7"
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "UDS"
+output = "(1D10) ＞ 7"
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "shifter>=5"
+output = "(1D10>=5) ＞ 7 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "shifter>=8"
+output = "(1D10>=8) ＞ 7 ＞ 실패"
+failure = true
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "shifter+3-2>=8"
+output = "(1D10+3-2>=8) ＞ 7[7]+3-2 ＞ 8 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "binder"
+output = "(2D6) ＞ 9[6,3] ＞ 9"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "UDB"
+output = "(2D6) ＞ 9[6,3] ＞ 9"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "binder>=9"
+output = "(2D6>=9) ＞ 9[6,3] ＞ 9 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "binder>=10"
+output = "(2D6>=10) ＞ 9[6,3] ＞ 9 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "binder+2>=10"
+output = "(2D6+2>=10) ＞ 9[6,3]+2 ＞ 11 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HIN"
+output = "변이표: 상처(1) ＞ 얼굴의 상처 → 얼굴에 생긴 상처. 천천히 피가 배어 나온다"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HIN"
+output = "변이표: 상처(6) ＞ 문양 같은 멍 → 무늬나 모양 같은 멍"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HInjury"
+output = "변이표: 상처(1) ＞ 얼굴의 상처 → 얼굴에 생긴 상처. 천천히 피가 배어 나온다"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HPH"
+output = "변이표: 몸 상태의 변화(1) ＞ 눈 앞이 흐려짐 → 눈의 초점이 맞지 않는다"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HPH"
+output = "변이표: 몸 상태의 변화(6) ＞ 주마등 → 과거의 일을 계속해서 떠올리게 된다"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HPhysical"
+output = "변이표: 몸 상태의 변화(1) ＞ 눈 앞이 흐려짐 → 눈의 초점이 맞지 않는다"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HFE"
+output = "변이표: 공포(1) ＞ 불안 → 막연한 불안감이 마음을 좀먹는다"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HFE"
+output = "변이표: 공포(6) ＞ 누가 뒤따라 옴 → 누군가가 뒤에 있는 것만 같다…"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HFear"
+output = "변이표: 공포(1) ＞ 불안 → 막연한 불안감이 마음을 좀먹는다"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HFA"
+output = "변이표: 환상화(1) ＞ 유리화 → 몸의 일부가 유리처럼 투명해진다"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HFA"
+output = "변이표: 환상화(6) ＞ 도기화 → 피부가 도자기처럼 변한다"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HFantasy"
+output = "변이표: 환상화(1) ＞ 유리화 → 몸의 일부가 유리처럼 투명해진다"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HMI"
+output = "변이표: 정신(1) ＞ 기억의 혼란 → 여기는 어디? 어쩌다 이런 데 왔지?"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HMI"
+output = "변이표: 정신(6) ＞ 먹어버리고 싶다 → 파트너를 베어 먹고 싶어진다"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HMind"
+output = "변이표: 정신(1) ＞ 기억의 혼란 → 여기는 어디? 어쩌다 이런 데 왔지?"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HOT"
+output = "변이표: 기타(1) ＞ 그림자 → 몸의 일부가 그림자가 된다"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HOT"
+output = "변이표: 기타(6) ＞ 돌아가고 싶지 않다 → 현실에 돌아가기 싫다는 생각이 어렴풋이 든다"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "UnsungDuet:Korean"
+input = "HOther"
+output = "변이표: 기타(1) ＞ 그림자 → 몸의 일부가 그림자가 된다"
+rands = [
+  { sides = 6, value = 1 },
+]

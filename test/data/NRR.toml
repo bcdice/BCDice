@@ -11,6 +11,15 @@ rands = [
 [[ test ]]
 game_system = "NRR"
 input = "NR6"
+output = "(NR6) ＞ 2 ＞ ❌ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "NR6"
 output = "(NR6) ＞ 6 ＞ ⭕️ 成功"
 success = true
 rands = [
@@ -70,6 +79,15 @@ rands = [
 [[ test ]]
 game_system = "NRR"
 input = "NR12"
+output = "(NR12) ＞ 3 ＞ ❌ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 3 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "NR12"
 output = "(NR12) ＞ 4 ＞ ❌ 失敗"
 failure = true
 rands = [
@@ -108,10 +126,23 @@ rands = [
 [[ test ]]
 game_system = "NRR"
 input = "6NR12"
-output = "(6NR12) ＞ 3,4,5,7,11,12 ＞ 💀 1, ❌ 1, ⭕️ 1, ✨ 1, 🌈 2"
+output = "(6NR12) ＞ 3,4,5,7,11,12 ＞ ❌ 2, ⭕️ 1, ✨ 1, 🌈 2"
 rands = [
   { sides = 12, value = 3 },
   { sides = 12, value = 4 },
+  { sides = 12, value = 5 },
+  { sides = 12, value = 7 },
+  { sides = 12, value = 11 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "NRR"
+input = "6NR12"
+output = "(6NR12) ＞ 2,3,5,7,11,12 ＞ 💀 1, ❌ 1, ⭕️ 1, ✨ 1, 🌈 2"
+rands = [
+  { sides = 12, value = 2 },
+  { sides = 12, value = 3 },
   { sides = 12, value = 5 },
   { sides = 12, value = 7 },
   { sides = 12, value = 11 },

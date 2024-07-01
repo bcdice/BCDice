@@ -1750,6 +1750,95 @@ rands = [
 
 [[ test ]]
 game_system = "Warhammer4"
+input = "whWGT"
+output = "神々の天罰表(1) ＞ 聖なる幻視：神の幻視が君の感覚を苦しめる。「普通」（+20）の〈肉体抵抗〉テストを行なうこと。失敗すると「朦朧状態」1つを得る。幻視の内容はGMが定めること。"
+rands = [
+  { sides = 100, value = 1 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "whWGT"
+output = "神々の天罰表(88) ＞ 悪魔の干渉：君の守護神に代わり、暗黒の神々が君の懇願に応じる。君のいる場所から2d10ヤード以内に1d10体のレッサー・ディーモンが現れ、最も近い目標（群）を攻撃する。"
+rands = [
+  { sides = 100, value = 88 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "whWGT"
+output = "神々の天罰表(100) ＞ 懺悔せよ：君は「贖罪」に向かわなければならない。"
+rands = [
+  { sides = 100, value = 100 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "whWGT1 #原罪点による+10加算確認"
+output = "神々の天罰表(110) ＞ みだりに我が名を使うでない：次の1d10+「原罪点」の日数にわたって、君は《祝福》異能と《奇跡》異能を失う。"
+rands = [
+  { sides = 100, value = 100 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "whWGT6 #オーバーラン防止確認(160->151)"
+output = "神々の天罰表(151) ＞ 汝の責任を果たせ：最後の審判と向き合うよう、君は神の元へと召喚される。「運命点」が残っていない限り、君は二度と戻ることができない。「運命点」1点を消費することでGMが選択した地点へと戻るが、その上で、146〜150の「追放」の効果を受けねばならない。"
+rands = [
+  { sides = 100, value = 100 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "whMIT"
+output = "小誤発動表(1) ＞ 魔女の印：1マイル以内で次に新たに生まれたクリーチャー1体が混沌変異する。"
+rands = [
+  { sides = 100, value = 1 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "whMIT"
+output = "小誤発動表(50) ＞ 気まぐれな装い：君の衣服が自分の意志を持っているかのように振る舞う。「組み付かれた状態」1つを得る。これに抵抗するための【筋力】は1d10×5となる。"
+rands = [
+  { sides = 100, value = 50 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "whMIT"
+output = "小誤発動表(100) ＞ ほとばしる混沌：『大誤発動表』でもう一度ロールすること。"
+rands = [
+  { sides = 100, value = 100 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "whMAT"
+output = "大誤発動表(1) ＞ 亡霊の声：【意志力】×1ヤード以内のすべての者が“混沌の領域”から現れた暗く誘惑的な囁き声を耳にする。知性のあるクリーチャーは皆、「普通」（+20）の〈冷静さ〉テストを行ない、失敗したなら、「堕落ポイント」1点を得る。"
+rands = [
+  { sides = 100, value = 1 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "whMAT"
+output = "大誤発動表(50) ＞ 凍りつく四肢：四肢のひとつ（ランダムに決定する）が1d10ラウンドにわたって動かなくなる。この四肢はまるで「身体欠損」（P.180を参照）になったかのように使い物にならない。"
+rands = [
+  { sides = 100, value = 50 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "whMAT"
+output = "大誤発動表(100) ＞ エーテルの逆流：君の【意志力】ボーナス×1ヤード以内にいるすべての者は──敵も味方も同様に──（【頑健力】ボーナスとアーマー・ポイント〔AP〕を無視して）1d10点の「耐久値」を失い、さらに「伏せ状態」になる。射程内に目標が存在しなければ、魔法は行き場を失い、君の頭は爆発し、君は即死する。"
+rands = [
+  { sides = 100, value = 100 }
+]
+
+
+[[ test ]]
+game_system = "Warhammer4"
 
 input = "1D100>=? 目標値?でバグらない"
 output = "(1D100>=?) ＞ 42"

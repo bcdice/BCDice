@@ -1,0 +1,540 @@
+[[ test ]]
+game_system = "KizunaBullet"
+input = "2DM"
+output = "2DM ＞ [1,6] ＞ 6"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "2IN"
+output = "2IN ＞ [1,5] ＞ ［成功］。［調査進行度］が2点増加。［シーンプレイヤー］の【励起値】が1点増加。"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "2IN"
+output = "2IN ＞ [1,3] ＞ ［失敗］。［調査進行度］が1点増加。［シーンプレイヤー］の［パートナー］の【励起値】を1点消費すると成功（［パートナーのヘルプ］）"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "2IN"
+output = "2IN ＞ [1,2] ＞ ［失敗］。［調査進行度］が1点増加。［パートナーのヘルプ］使用不可。"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "SE13"
+output = "SE13 ＞ 4 ＞ すべての［キズナ］が［ヒビワレ］状態のため［晶滅］（［死亡］）。以降のセッションで継続して使用不可。"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "SE5"
+output = "SE5 ＞ 4 ＞ ［ヒビワレ］状態の［キズナ］が6個未満のため［生存］。次のセッションに継続して使用可能。"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "SE6"
+output = "SE6 ＞ 7 ＞ ［生存］。次のセッションに継続して使用可能。"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "SE6"
+output = "SE6 ＞ 4 ＞ ［残響体］化（NPC化）。パートナーは自分の任意の［キズナ］に2つチェックを入れると［生存］（［強制鎮静］）"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "SO"
+output = "SO ＞ 8"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "OP"
+output = "日常表・場所(6) ＞ 資料室：組織の資料室や書庫、証拠品の保管庫など。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "OC"
+output = "日常表・内容(6) ＞ 訓練／手入れ：戦闘訓練や、武器の手入れなどを行なっている。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "OPC"
+output = "日常表・場所(6) ＞ 資料室：組織の資料室や書庫、証拠品の保管庫など。\n日常表・内容(6) ＞ 訓練／手入れ：戦闘訓練や、武器の手入れなどを行なっている。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "OWP"
+output = "日常表（仕事）・場所(6) ＞ 病院：医院や病院、あるいは組織の治療室。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "OWC"
+output = "日常表（仕事）・内容(6) ＞ 手伝い：同僚の手伝いで尋問や交渉などを行なっている。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "OWPC"
+output = "日常表（仕事）・場所(6) ＞ 病院：医院や病院、あるいは組織の治療室。\n日常表（仕事）・内容(6) ＞ 手伝い：同僚の手伝いで尋問や交渉などを行なっている。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "OHP"
+output = "日常表（休暇）・場所(6) ＞ ゲーセン：最新機種やレトロゲームまで並ぶゲームセンター。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "OHC"
+output = "日常表（休暇）・内容(6) ＞ 仕事の話：お出かけ中だというのに、仕事について話している。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "OHPC"
+output = "日常表（休暇）・場所(6) ＞ ゲーセン：最新機種やレトロゲームまで並ぶゲームセンター。\n日常表（休暇）・内容(6) ＞ 仕事の話：お出かけ中だというのに、仕事について話している。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "OTP"
+output = "日常表（出張）・場所(6) ＞ 獣道：人の手で整備されていない、自然の中の獣道。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "OTC"
+output = "日常表（出張）・内容(6) ＞ ここはどこ：迷ったらしい……。進む方向について相談している。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "OTPC"
+output = "日常表（出張）・場所(6) ＞ 獣道：人の手で整備されていない、自然の中の獣道。\n日常表（出張）・内容(6) ＞ ここはどこ：迷ったらしい……。進む方向について相談している。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "TT"
+output = "ターンテーマ表(66) ＞ ほしかった物：調査のついでに、ほしかった物を探してみよう。意外な場所で手に入るかも。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "TTI"
+output = "ターンテーマ表・親密(66) ＞ 悩みごと：この機会に、悩みごとを打ち明けるのもいいかもしれない。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "TTC"
+output = "ターンテーマ表・クール(66) ＞ 仲直り：ケンカをしてしまった。仲直りのきっかけを見つけないと……。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "TTH"
+output = "ターンテーマ表・主従(66) ＞ 世話焼き：いつものように主の世話を焼こう。あるいは逆というのも面白い。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "EP"
+output = "遭遇表・場所(6) ＞ 本拠地：バレットAの組織へ、バレットBが情報収集に現れた。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "EO"
+output = "遭遇表・登場順(6) ＞ バレットB：バレットBが先に場面に登場する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "EF"
+output = "遭遇表・状況（初対面）(6) ＞ 攻撃：敵と認識し、先に登場したバレットが攻撃を仕掛ける。ただし、誤解はすぐに解ける。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "EA"
+output = "遭遇表・状況（知り合い）(6) ＞ 攻撃：先に登場したバレットが、もう一方へ攻撃を仕掛ける。なに、挨拶みたいなものさ。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "EE"
+output = "遭遇表・決着(6) ＞ 上層部の伝達：上層部に先に連絡を交わしており、協力体制をとるよう双方に指令が下った。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "EFA"
+output = "遭遇表・場所(6) ＞ 本拠地：バレットAの組織へ、バレットBが情報収集に現れた。\n遭遇表・登場順(6) ＞ バレットB：バレットBが先に場面に登場する。\n遭遇表・状況（初対面）(6) ＞ 攻撃：敵と認識し、先に登場したバレットが攻撃を仕掛ける。ただし、誤解はすぐに解ける。\n遭遇表・決着(6) ＞ 上層部の伝達：上層部に先に連絡を交わしており、協力体制をとるよう双方に指令が下った。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "EAA"
+output = "遭遇表・場所(6) ＞ 本拠地：バレットAの組織へ、バレットBが情報収集に現れた。\n遭遇表・登場順(6) ＞ バレットB：バレットBが先に場面に登場する。\n遭遇表・状況（知り合い）(6) ＞ 攻撃：先に登場したバレットが、もう一方へ攻撃を仕掛ける。なに、挨拶みたいなものさ。\n遭遇表・決着(6) ＞ 上層部の伝達：上層部に先に連絡を交わしており、協力体制をとるよう双方に指令が下った。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "CP"
+output = "交流表・場所(6) ＞ 屋上：街を見下ろせるビルの屋上。風が気持ちいい。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "CC"
+output = "交流表・内容(6) ＞ 敵：事件の犯人や標的などについて話し合ってみよう。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "CPC"
+output = "交流表・場所(6) ＞ 屋上：街を見下ろせるビルの屋上。風が気持ちいい。\n交流表・内容(6) ＞ 敵：事件の犯人や標的などについて話し合ってみよう。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "IB"
+output = "調査表・ベーシック(66) ＞ 謎の電話：関係者を名乗る謎の電話がかかってきた。うまく話を聞き出すことはできるだろうか。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "ID"
+output = "調査表・ダイナミック(66) ＞ 逃走劇：情報を持っていそうな人物が逃げ出した。追いかけて捕まえて、お話しをしてもらおう。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "IBD"
+output = "調査表・ベーシック(66) ＞ 謎の電話：関係者を名乗る謎の電話がかかってきた。うまく話を聞き出すことはできるだろうか。\n調査表・ダイナミック(66) ＞ 逃走劇：情報を持っていそうな人物が逃げ出した。追いかけて捕まえて、お話しをしてもらおう。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HA"
+output = "ハザード表(6) ＞ 悪運強し：なんたる幸運！　何も発生しない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "NI1"
+output = "その事件の内容は……(6) ＞ 意識不明の人間が増えた"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "NI2"
+output = "捜査に向かった場所は……(6) ＞ 犯罪結社が携わる地下の大賭博場"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "NI3"
+output = "犯人のキセキ使いは……(6) ＞ 気紛れに力を振るい続けていた"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "NI4"
+output = "起きた出来事は……(6) ＞ キセキ使いによる次の被害を阻止した"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "NI5"
+output = "バレットの間では……(6) ＞ 理解し合えないのかと悩みが深まった"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "NI6"
+output = "戦いの結末は……(6) ＞ 不運が重なり、限界近くまで消耗した。：破壊（任意）×3"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "NT1"
+output = "その場所とは……(6) ＞ 地図に存在しない謎の村"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "NT2"
+output = "そこで始まったのは……(6) ＞ 生存をかけたデスゲームが宣言された"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "NT3"
+output = "極限状態のなかで……(6) ＞ 容疑者がすでに死んでいた"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "NT4"
+output = "犯人のキセキ使いは……(6) ＞ 注目されることに快感を覚えていた"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "NT5"
+output = "バレットの間では……(6) ＞ なんだかんだで一番頼りになる相手だと感じた"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "NT6"
+output = "戦いの結末は……(6) ＞ 不運が重なり、限界近くまで消耗した。：破壊（任意）×3"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HH1"
+output = "その場所とは……(6) ＞ ショッピングモール"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HH2"
+output = "待ち合わせをしたら……(6) ＞ オーナーはいつも通りの格好だった"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HH3"
+output = "そしてなんと……(6) ＞ ファッションコンテストに出ることに"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HH4"
+output = "ふたりが決めたのは……(6) ＞ 諦めて流れに身を任せることにした"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HH5"
+output = "結果的に……(6) ＞ ふたりの天才的な閃きで見事に解決した"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HH6"
+output = "バレットは最後に……(6) ＞ こっそり買っていたプレゼントを渡し合った"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HC1"
+output = "その場所とは……(6) ＞ 山奥にあるキャンプ場"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HC2"
+output = "起きた事件は……(6) ＞ 腹が減って腹が減って仕方なくなる"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HC3"
+output = "犯人のキセキ使いは……(6) ＞ 実は深遠な計画を進めていた"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HC4"
+output = "犯人を追い詰めるべく……(6) ＞ とにかく暴力で解決することにした"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HC5"
+output = "戦いの結果は……(6) ＞ 通りすがりの戸山紅果（『第2巻』P135）が犯人を殺した"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet"
+input = "HC6"
+output = "バレットは最後に……(6) ＞ すぐ新たな事件に巻き込まれるのであった"
+rands = [
+  { sides = 6, value = 6 },
+]
