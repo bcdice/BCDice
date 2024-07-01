@@ -1,0 +1,792 @@
+##### クリファンなしコマンドのテスト #####
+[[ test ]]
+game_system = "Aionia"
+input = "AB1>=6 1つのダイスで成功 クリファンなし"
+output = "(AB1>=6) ＞ 8[8] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB1>=8 1つのダイスで失敗 クリファンなし"
+output = "(AB1>=8) ＞ 5[5] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB1>=5 1つのダイスで失敗（ファンブルの値） クリファンなし"
+output = "(AB1>=5) ＞ 1[1] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB1>=1 1つのダイスで自動成功 クリファンなし"
+output = "(AB1>=1) ＞ 1[1] ＞ 自動成功"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB1>=11 1つのダイスで自動失敗 クリファンなし"
+output = "(AB1>=11) ＞ 10[10] ＞ 自動失敗"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB2>=10 2つのダイスで成功 クリファンなし"
+output = "(AB2>=10) ＞ 11[2,9] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB2>=5 2つのダイスで失敗 クリファンなし"
+output = "(AB2>=5) ＞ 4[3,1] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3},
+  { sides = 10, value = 1},
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB2>=5 2つのダイスで失敗（ファンブルの値） クリファンなし"
+output = "(AB2>=5) ＞ 2[1,1] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 1},
+  { sides = 10, value = 1},
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB2>=2 2つのダイスで自動成功 クリファンなし"
+output = "(AB2>=2) ＞ 2[1,1] ＞ 自動成功"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB2>=21 2つのダイスで自動失敗 クリファンなし"
+output = "(AB2>=21) ＞ 20[10,10] ＞ 自動失敗"
+failure = true
+rands = [
+  { sides = 10, value = 10},
+  { sides = 10, value = 10},
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=18 3つのダイスで成功 クリファンなし"
+output = "(AB3>=18) ＞ 22[10,7,5] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 10},
+  { sides = 10, value = 7},
+  { sides = 10, value = 5},
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=25 3つのダイスで失敗 クリファンなし"
+output = "(AB3>=25) ＞ 24[8,7,9] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=18 3つのダイスで成功（クリティカルの値） クリファンなし"
+output = "(AB3>=18) ＞ 28[8,10,10] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 8},
+  { sides = 10, value = 10},
+  { sides = 10, value = 10},
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=8 3つのダイスで失敗（ファンブルの値） クリファンなし"
+output = "(AB3>=8) ＞ 3[1,1,1] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=3 3つのダイスで自動成功 クリファンなし"
+output = "(AB3>=3) ＞ 3[1,1,1] ＞ 自動成功"
+success = true
+rands = [
+  { sides = 10, value = 1},
+  { sides = 10, value = 1},
+  { sides = 10, value = 1},
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=31 3つのダイスで自動失敗 クリファンなし"
+output = "(AB3>=31) ＞ 30[10,10,10] ＞ 自動失敗"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+##### ボーナス・ペナルティのテスト（クリファンなし）#####
+[[ test ]]
+game_system = "Aionia"
+input = "AB1+1>=6 1つのダイスでボーナスにより成功 クリファンなし"
+output = "(AB1+1>=6) ＞ 5[5]+1 ＞ 6 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB1-2>=8 1つのダイスでペナルティにより失敗 クリファンなし"
+output = "(AB1-2>=8) ＞ 8[8]-2 ＞ 6 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB2+2>=15 2つのダイスでボーナスにより成功 クリファンなし"
+output = "(AB2+2>=15) ＞ 14[9,5]+2 ＞ 16 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB2-1>=10 2つのダイスでペナルティにより失敗 クリファンなし"
+output = "(AB2-1>=10) ＞ 10[4,6]-1 ＞ 9 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3+2>=20 3つのダイスでボーナスにより成功 クリファンなし"
+output = "(AB3+2>=20) ＞ 19[1,9,9]+2 ＞ 21 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3-1>=10 3つのダイスでペナルティにより失敗 クリファンなし"
+output = "(AB3-1>=10) ＞ 10[3,3,4]-1 ＞ 9 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+]
+
+##### 段階的な技能判定のテスト（クリファンなし）#####
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=14/18/22 段階的な技能判定 失敗 クリファンなし"
+output = "(AB3>=14/18/22) ＞ 11[3,4,4] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=14/18/22 段階的な技能判定 1段階成功 クリファンなし"
+output = "(AB3>=14/18/22) ＞ 15[3,4,8] ＞ 1段階成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=14/18/22 段階的な技能判定 2段階成功 クリファンなし"
+output = "(AB3>=14/18/22) ＞ 20[9,10,1] ＞ 2段階成功"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=14/18/22 段階的な技能判定 全成功 クリファンなし"
+output = "(AB3>=14/18/22) ＞ 30[10,10,10] ＞ 全成功"
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=3/6/10 段階的な技能判定 1段階成功 （自動成功） クリファンなし"
+output = "(AB3>=3/6/10) ＞ 3[1,1,1] ＞ 1段階成功"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=31/35/40 段階的な技能判定 自動失敗 クリファンなし"
+output = "(AB3>=31/35/40) ＞ 30[10,10,10] ＞ 自動失敗"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3+1>=14/18/22 段階的な技能判定 ボーナスにより1段階成功 クリファンなし"
+output = "(AB3+1>=14/18/22) ＞ 13[6,3,4]+1 ＞ 14 ＞ 1段階成功"
+success = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3-2>=14/18/22 段階的な技能判定 ペナルティにより1段階成功 クリファンなし"
+output = "(AB3-2>=14/18/22) ＞ 19[7,10,2]-2 ＞ 17 ＞ 1段階成功"
+success = true
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+]
+
+##### クリファンありコマンドのテスト #####
+[[ test ]]
+game_system = "Aionia"
+input = "ABT1>=3 1つのダイスで成功 クリファンあり"
+output = "(ABT1>=3) ＞ 6[6] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT1>=8 1つのダイスで失敗 クリファンあり"
+output = "(ABT1>=8) ＞ 2[2] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT1>=3 1つのダイスでファンブル クリファンあり"
+output = "(ABT1>=3) ＞ 1[1] ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT1>=1 1つのダイスで自動成功 クリファンあり"
+output = "(ABT1>=1) ＞ 1[1] ＞ 自動成功"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT1>=11 1つのダイスで自動失敗 クリファンあり"
+output = "(ABT1>=11) ＞ 10[10] ＞ 自動失敗"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT1>=11 1つのダイスでファンブル（自動失敗の値） クリファンあり"
+output = "(ABT1>=11) ＞ 1[1] ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT2>=7 2つのダイスで成功 クリファンあり"
+output = "(ABT2>=7) ＞ 20[10,10] ＞ 成功"
+success = true
+rands = [
+  {sides = 10, value = 10 },
+  {sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT2>=15 2つのダイスで失敗 クリファンあり"
+output = "(ABT2>=15) ＞ 12[6,6] ＞ 失敗"
+failure = true
+rands = [
+  {sides = 10, value = 6 },
+  {sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT2>=15 2つのダイスでファンブル クリファンあり"
+output = "(ABT2>=15) ＞ 2[1,1] ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  {sides = 10, value = 1 },
+  {sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT2>=2 2つのダイスで自動成功 クリファンあり"
+output = "(ABT2>=2) ＞ 2[1,1] ＞ 自動成功"
+success = true
+rands = [
+  {sides = 10, value = 1 },
+  {sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT2>=21 2つのダイスで自動失敗 クリファンあり"
+output = "(ABT2>=21) ＞ 20[10,10] ＞ 自動失敗"
+failure = true
+rands = [
+  {sides = 10, value = 10 },
+  {sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT2>=21 2つのダイスでファンブル（自動失敗の値） クリファンあり"
+output = "(ABT2>=21) ＞ 2[1,1] ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  {sides = 10, value = 1 },
+  {sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=15 3つのダイスで成功 クリファンあり"
+output = "(ABT3>=15) ＞ 19[5,7,7] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 5},
+  { sides = 10, value = 7},
+  { sides = 10, value = 7},
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=10 3つのダイスで失敗 クリファンあり"
+output = "(ABT3>=10) ＞ 8[1,2,5] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=5 3つのダイスでクリティカル クリファンあり"
+output = "(ABT3>=5) ＞ 25[8,9,8] ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=18 3つのダイスでファンブル クリファンあり"
+output = "(ABT3>=18) ＞ 3[1,1,1] ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=3 3つのダイスで自動成功 クリファンあり"
+output = "(ABT3>=3) ＞ 3[1,1,1] ＞ 自動成功"
+success = true
+rands = [
+  { sides = 10, value = 1},
+  { sides = 10, value = 1},
+  { sides = 10, value = 1},
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=31 3つのダイスで自動失敗 クリファンあり"
+output = "(ABT3>=31) ＞ 30[10,10,10] ＞ 自動失敗"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=31 3つのダイスでファンブル（自動失敗の値） クリファンあり"
+output = "(ABT3>=31) ＞ 3[1,1,1] ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+##### ボーナス・ペナルティのテスト（クリファンあり）#####
+[[ test ]]
+game_system = "Aionia"
+input = "ABT1+1>=6 1つのダイスでボーナスにより成功 クリファンあり"
+output = "(ABT1+1>=6) ＞ 5[5]+1 ＞ 6 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT1-2>=8 1つのダイスでペナルティにより失敗 クリファンあり"
+output = "(ABT1-2>=8) ＞ 8[8]-2 ＞ 6 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT2+2>=15 2つのダイスでボーナスにより成功 クリファンあり"
+output = "(ABT2+2>=15) ＞ 14[9,5]+2 ＞ 16 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT2-1>=10 2つのダイスでペナルティにより失敗 クリファンあり"
+output = "(ABT2-1>=10) ＞ 10[4,6]-1 ＞ 9 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3+2>=20 3つのダイスでボーナスにより成功 クリファンあり"
+output = "(ABT3+2>=20) ＞ 19[1,9,9]+2 ＞ 21 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3-1>=10 3つのダイスでペナルティにより失敗 クリファンあり"
+output = "(ABT3-1>=10) ＞ 10[3,3,4]-1 ＞ 9 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3+4>=10 ボーナスによりクリティカル"
+output = "(ABT3+4>=10) ＞ 26[9,10,7]+4 ＞ 30 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3+2>=8 ボーナスはあるがファンブル"
+output = "(ABT3+2>=8) ＞ 3[1,1,1]+2 ＞ 5 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3+2>=5 出目がすべて1だがボーナスによりファンブルにならない"
+output = "(ABT3+2>=5) ＞ 3[1,1,1]+2 ＞ 5 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+##### 段階的な技能判定のテスト（クリファンあり）#####
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=14/18/22 段階的な技能判定 失敗 クリファンあり"
+output = "(ABT3>=14/18/22) ＞ 11[3,4,4] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=14/18/22 段階的な技能判定 ファンブル クリファンあり"
+output = "(ABT3>=14/18/22) ＞ 3[1,1,1] ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=14/18/22 段階的な技能判定 1段階成功 クリファンあり"
+output = "(ABT3>=14/18/22) ＞ 15[3,4,8] ＞ 1段階成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=14/18/22 段階的な技能判定 2段階成功 クリファンあり"
+output = "(ABT3>=14/18/22) ＞ 20[9,10,1] ＞ 2段階成功"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=14/18/22 段階的な技能判定 全成功 クリファンあり"
+output = "(ABT3>=14/18/22) ＞ 23[10,6,7] ＞ 全成功"
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=4/13/22 段階的な技能判定 クリティカルではなく全成功 クリファンあり"
+output = "(ABT3>=4/13/22) ＞ 24[10,7,7] ＞ 全成功"
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=2/5/8 段階的な技能判定 クリティカル クリファンあり"
+output = "(ABT3>=2/5/8) ＞ 28[10,10,8] ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=3/6/10 段階的な技能判定 1段階成功 （自動成功） クリファンあり"
+output = "(ABT3>=3/6/10) ＞ 3[1,1,1] ＞ 1段階成功"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=31/35/40 段階的な技能判定 自動失敗 クリファンあり"
+output = "(ABT3>=31/35/40) ＞ 30[10,10,10] ＞ 自動失敗"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3+1>=14/18/22 段階的な技能判定 ボーナスにより1段階成功 クリファンあり"
+output = "(ABT3+1>=14/18/22) ＞ 13[6,3,4]+1 ＞ 14 ＞ 1段階成功"
+success = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3-2>=14/18/22 段階的な技能判定 ペナルティにより1段階成功 クリファンあり"
+output = "(ABT3-2>=14/18/22) ＞ 19[7,10,2]-2 ＞ 17 ＞ 1段階成功"
+success = true
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3+5>=4/8/12 段階的な技能判定 ボーナスによりクリティカル クリファンあり"
+output = "(ABT3+5>=4/8/12) ＞ 27[9,9,9]+5 ＞ 32 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+##### クリティカル>自動成功、ファンブル>自動失敗の優先度テスト #####
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=3 クリファンあり"
+output = "(ABT3>=3) ＞ 23[9,7,7] ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=31 クリファンあり"
+output = "(ABT3>=31) ＞ 3[1,1,1] ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+##### 全部乗せ #####
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3+3>=3/6/8/10/12/15/18/20/22/24/26/28/30/32 段階的な技能判定 10段階成功 クリファンあり"
+output = "(ABT3+3>=3/6/8/10/12/15/18/20/22/24/26/28/30/32) ＞ 22[8,4,10]+3 ＞ 25 ＞ 10段階成功"
+success = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 10 },
+]
+
+##### 特殊なケース #####
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3>=2/3 段階的な技能判定 自動成功"
+success = true
+output = "(ABT3>=2/3) ＞ 3[1,1,1] ＞ 自動成功"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
