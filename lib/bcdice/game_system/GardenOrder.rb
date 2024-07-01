@@ -79,11 +79,11 @@ module BCDice
 
       def get_check_result(dice_value, success_rate, critical_border, fumble_border)
         # クリティカルとファンブルが重なった場合は、ファンブルとなる。 cf. p175
-        return Result.fumble("ファンブル") if dice_value >= fumble_border
-        return Result.critical("クリティカル") if dice_value <= critical_border
-        return Result.success("成功") if dice_value <= success_rate
+        return Result.fumble(translate("fumble")) if dice_value >= fumble_border
+        return Result.critical(translate("GardenOrder.critical")) if dice_value <= critical_border
+        return Result.success(translate("success")) if dice_value <= success_rate
 
-        return Result.failure("失敗")
+        return Result.failure(translate("failure"))
       end
 
       def look_up_damage_chart(type, damage_value)
@@ -92,7 +92,7 @@ module BCDice
         row = get_table_by_number(damage_value, table, nil)
         return nil if row.nil?
 
-        "負傷表：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
+        translate("GardenOrder.Damage_name") + "：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
       end
 
       def get_damage_table_info_by_type(type)
