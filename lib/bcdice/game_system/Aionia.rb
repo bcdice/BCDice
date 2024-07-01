@@ -49,18 +49,26 @@ module BCDice
         dice_total = dice_list.sum
         total = dice_total + bonus
 
+        # Result用変数宣言
+        is_success = false
+        has_critical = false
+        has_fumble = false
+
         # 結果判定
         # 難易度が一つの場合
         if targets.count == 1
           if total >= target
+            is_success = true
             if total >= target + 20 && use_cf
               result = 'クリティカル'
+              has_critical = true
             elsif target <= times
               result = '自動成功'
             else
               result = '成功'
             end
           else
+            is_success = false
             if dice_list.count(1) == times && use_cf
               result = 'ファンブル'
             elsif target > 10 * times
@@ -72,6 +80,7 @@ module BCDice
         # 段階的な難易度判定の場合
         else
           if total >= min_target
+            is_success = true
             if total >= max_target + 20 && use_cf
               result = 'クリティカル'
             elsif max_target <= times
@@ -83,8 +92,10 @@ module BCDice
               result = "#{times_suc}段階成功"
             end
           else
+            is_success = false
             if dice_list.count(1) == times && use_cf
               result = 'ファンブル'
+              has_fumble = true
             elsif min_target > 10 * times
               result = '自動失敗'
             else
@@ -104,8 +115,15 @@ module BCDice
           bonus_result = "#{total} ＞ "
         end
 
-        # 結果を返す
-        return "(#{command}) ＞ #{dice_total}[#{dice_list.join(',')}]#{bonus_text} ＞ #{bonus_result}#{result}"
+        # Resultクラスに結果を入れる
+        Result.new.tap do |r|
+          r.text = "(#{command}) ＞ #{dice_total}[#{dice_list.join(',')}]#{bonus_text} ＞ #{bonus_result}#{result}"
+          r.critical = has_critical
+          r.fumble = has_fumble
+          r.success = is_success
+          r.failure = !is_success
+        end
+        
       end
     end
   end
