@@ -395,13 +395,13 @@ rands = []
 [[ test ]]
 game_system = "GardenOrder"
 input = "seRF1"
-output = "負傷表(SE)：冷却[1] ＞ 軽傷2/疲労1 ｜ 軽い冷却 … 冷気で機能が低下する。"
+output = "負傷表(SE)：冷却[1] ＞ スタン ｜ 軽い冷却 … 冷気で機能が低下する。"
 rands = []
 
 [[ test ]]
 game_system = "GardenOrder"
 input = "seEL1"
-output = "負傷表(SE)：電撃[1] ＞ 疲労1、軽傷1 ｜ 軽い電撃 … 電撃で機能が低下する。"
+output = "負傷表(SE)：電撃[1] ＞ スタン ｜ 軽い電撃 … 電撃で機能が低下する。"
 rands = []
 
 
