@@ -52,7 +52,12 @@ module BCDice
           chart_type = Regexp.last_match(1)
           type = Regexp.last_match(2)
           damage_value = Regexp.last_match(3).to_i
-          return look_up_damage_chart(type, damage_value, chart_type)
+          case chart_type
+          when "DC"
+            return look_up_damage_chart(type, damage_value)
+          when "SE"
+            return look_up_damage_se_chart(type, damage_value)
+          end
         end
 
         return nil
@@ -95,7 +100,18 @@ module BCDice
         return Result.failure("失敗")
       end
 
-      def look_up_damage_chart(type, damage_value, chart_type)
+      def look_up_damage_chart(type, damage_value)
+        chart_type = "DC"
+        name, table = get_damage_table_info_by_type(type, chart_type)
+
+        row = get_table_by_number(damage_value, table, nil)
+        return nil if row.nil?
+
+        "負傷表(#{chart_type})：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
+      end
+
+      def look_up_damage_se_chart(type, damage_value)
+        chart_type = "SE"
         name, table = get_damage_table_info_by_type(type, chart_type)
 
         row = get_table_by_number(damage_value, table, nil)
