@@ -18,16 +18,24 @@ module BCDice
         　GOx/y@z　x：成功率、y：連続攻撃回数（省略可）、z：クリティカル値（省略可）
         　（連続攻撃では1回の判定のみが実施されます）
         　例）GO55　GO100/2　GO70@10　GO155/3@44
+
         ・負傷表
         　DCxxy
         　xx：属性（切断：SL，銃弾：BL，衝撃：IM，灼熱：BR，冷却：RF，電撃：EL）
         　y：ダメージ
         　例）DCSL7　DCEL22
+
+        ・負傷表(ソウルエンコーダー用)
+        　SExxy
+        　xx：属性（切断：SL，銃弾：BL，衝撃：IM，灼熱：BR，冷却：RF，電撃：EL）
+        　y：ダメージ
+        　例）SESL7　SEEL22
       INFO_MESSAGE_TEXT
 
       register_prefix(
         'GO',
-        'DC(SL|BL|IM|BR|RF|EL).+'
+        'DC(SL|BL|IM|BR|RF|EL).+',
+        'SE(SL|BL|IM|BR|RF|EL).+'
       )
 
       def eval_game_system_specific_command(command)
@@ -40,10 +48,16 @@ module BCDice
 
           return check_roll_repeat_attack(success_rate, repeat_count, critical_border)
 
-        when /^DC(SL|BL|IM|BR|RF|EL)(\d+)/i
-          type = Regexp.last_match(1)
-          damage_value = Regexp.last_match(2).to_i
-          return look_up_damage_chart(type, damage_value)
+        when /^(DC|SE)(SL|BL|IM|BR|RF|EL)(\d+)/i
+          chart_type = Regexp.last_match(1)
+          type = Regexp.last_match(2)
+          damage_value = Regexp.last_match(3).to_i
+          case chart_type
+          when "DC"
+            return look_up_damage_chart(type, damage_value)
+          when "SE"
+            return look_up_damage_se_chart(type, damage_value)
+          end
         end
 
         return nil
@@ -87,7 +101,8 @@ module BCDice
       end
 
       def look_up_damage_chart(type, damage_value)
-        name, table = get_damage_table_info_by_type(type)
+        chart_type = "DC"
+        name, table = get_damage_table_info_by_type(type, chart_type)
 
         row = get_table_by_number(damage_value, table, nil)
         return nil if row.nil?
@@ -95,8 +110,24 @@ module BCDice
         "負傷表：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
       end
 
-      def get_damage_table_info_by_type(type)
-        data = DAMAGE_TABLE[type]
+      def look_up_damage_se_chart(type, damage_value)
+        chart_type = "SE"
+        name, table = get_damage_table_info_by_type(type, chart_type)
+
+        row = get_table_by_number(damage_value, table, nil)
+        return nil if row.nil?
+
+        "負傷表(#{chart_type})：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
+      end
+
+      def get_damage_table_info_by_type(type, chart_type)
+        data = {}
+        case chart_type
+        when "DC"
+          data = DAMAGE_TABLE[type]
+        when "SE"
+          data = DAMAGE_TABLE_SE[type]
+        end
         return nil if data.nil?
 
         return data[:name], data[:table]
@@ -349,7 +380,7 @@ module BCDice
             [13,
              {name: "凍傷",
               text: "凍傷により身体が傷つけられる。",
-              damage: "軽傷２"}],
+              damage: "軽傷3"}],
             [16,
              {name: "体温低下",
               text: "冷気によって体温を奪われる。",
@@ -448,6 +479,356 @@ module BCDice
              {name: "組織炭化",
               text: "全身が電流で焼かれ、あちこちの組織が炭化する。",
               damage: "致命傷２／スタン"}],
+          ]
+        }
+      }.freeze
+
+      DAMAGE_TABLE_SE = {
+        "SL" => {
+          name: "切断",
+          table: [
+            [5,
+             {name: "軽い衝撃",
+              text: "たいした傷ではないが、衝撃を受ける。",
+              damage: "スタン"}],
+            [10,
+             {name: "小さな傷",
+              text: "外装に傷がつく。",
+              damage: "軽傷1"}],
+            [13,
+             {name: "大きな傷",
+              text: "外装に大きな傷がつく。",
+              damage: "軽傷2"}],
+            [16,
+             {name: "とても大きな傷",
+              text: "外装にさらに大きな傷がつき、内部もダメージを受ける。",
+              damage: "軽傷3/DOT:軽傷1"}],
+            [19,
+             {name: "外観破損",
+              text: "外装の一部が欠ける。",
+              damage: "軽傷4"}],
+            [22,
+             {name: "内部破損",
+              text: "外装の一部が破損し、内部もダメージを受ける。",
+              damage: "重傷1/DOT:軽傷1"}],
+            [25,
+             {name: "内部大破損",
+              text: "内部の一部が大きく破損する。",
+              damage: "重傷2"}],
+            [28,
+             {name: "一時不全",
+              text: "外装の一部が壊れ、内部も大きなダメージを受ける。",
+              damage: "重傷2/DOT:軽傷2"}],
+            [31,
+             {name: "裂傷",
+              text: "傷をつけられ、内部が顔をのぞかせる。",
+              damage: "重傷3"}],
+            [34,
+             {name: "視界不良",
+              text: "取りつけられているカメラに不都合が生じる",
+              damage: "重傷3/スタン"}],
+            [37,
+             {name: "大裂傷",
+              text: "大きく切り裂かれ、内部が露わになる。",
+              damage: "致命傷1"}],
+            [39,
+             {name: "機能不全",
+              text: "重要な部品が壊れ、このままで機能に大きな障害が出る。",
+              damage: "致命傷1/DOT:軽傷3"}],
+            [9999,
+             {name: "致命的損傷",
+              text: "機能が停止しかねないほどの大きな損傷を受ける。",
+              damage: "致命傷2"}],
+          ]
+        },
+
+        "BL" => {
+          name: "銃弾",
+          table: [
+            [5,
+             {name: "軽い衝撃",
+              text: "銃弾ははじいたが、衝撃を受ける。",
+              damage: "スタン"}],
+            [10,
+             {name: "小さな銃創",
+              text: "銃弾ははじいたが、外装に凹みができた。",
+              damage: "軽傷2"}],
+            [13,
+             {name: "大きな銃創",
+              text: "かろうじて銃弾ははじいたが、外装に大きな凹みができた。",
+              damage: "軽傷3"}],
+            [16,
+             {name: "機能低下",
+              text: "銃弾の衝撃で、内部の機能に不都合が講じた。",
+              damage: "軽傷4/スロウ:-3"}],
+            [19,
+             {name: "とても大きな銃創",
+              text: "銃弾をはじけず、外装に食い込んだ。",
+              damage: "重傷1"}],
+            [22,
+             {name: "銃弾停止",
+              text: "銃弾が貫通した。かろうじて内部にダメージはないようだ。",
+              damage: "重傷2"}],
+            [25,
+             {name: "内部損傷",
+              text: "銃弾が貫通した時、内部の機能に衝撃を受ける。",
+              damage: "重傷2/放心"}],
+            [28,
+             {name: "内部破壊",
+              text: "銃弾が貫通した時、内部にも大きなダメージを受ける。",
+              damage: "重傷3"}],
+            [31,
+             {name: "内部大破壊",
+              text: "銃弾が貫通した時、その衝撃で内部に一時的な損傷を受ける。",
+              damage: "重傷3/スロウ:-5"}],
+            [34,
+             {name: "機能一部停止",
+              text: "銃弾によって内部の機能が一時的に役に立たなくなっている。",
+              damage: "致命傷1/スタン"}],
+            [37,
+             {name: "破損",
+              text: "銃弾によって外装が吹き飛び、内部の一部が破壊される。",
+              damage: "致命傷1/DOT:軽傷1"}],
+            [39,
+             {name: "大破損",
+              text: "銃弾によって外装ごと内部の一部が吹き飛ぶ。",
+              damage: "致命傷2"}],
+            [9999,
+             {name: "致命的な一撃",
+              text: "銃弾が重要な部位に命中。衝撃で機能の大部分が一時的に停止する。",
+              damage: "致命傷2/放心"}],
+          ]
+        },
+
+        "IM" => {
+          name: "衝撃",
+          table: [
+            [5,
+             {name: "軽い衝撃",
+              text: "傷も凹みもないが、衝撃を受ける。",
+              damage: "スタン"}],
+            [10,
+             {name: "衝撃",
+              text: "衝撃を受けて外装が凹む。",
+              damage: "軽傷1"}],
+            [13,
+             {name: "大きな衝撃",
+              text: "衝撃を受けて外装が大きく凹む。",
+              damage: "軽傷2"}],
+            [16,
+             {name: "とても大きな衝撃",
+              text: "衝撃を受けて外装が大きく凹み、機能が瞬間的に停止する。",
+              damage: "軽傷2/放心"}],
+            [19,
+             {name: "内部圧迫",
+              text: "外装が凹み、内部を圧迫している。",
+              damage: "軽傷3/DOT:疲労3"}],
+            [22,
+             {name: "痛打",
+              text: "当たり所が悪く、カメラ機能が一時的に停止する。",
+              damage: "軽傷4/スタン"}],
+            [25,
+             {name: "内部衝撃",
+              text: "当たり所が悪く、内部に大きなダメージを与える。機能が一時的に停止する。",
+              damage: "軽傷5/放心"}],
+            [28,
+             {name: "機能障害",
+              text: "衝撃によって機能の動作に障害が発生する。",
+              damage: "重傷1/スロウ:-5"}],
+            [31,
+             {name: "外裝損傷",
+              text: "外装が損傷し、その破片が内部に突き刺さる。",
+              damage: "重傷1/放心、スタン"}],
+            [34,
+             {name: "外装大損傷",
+              text: "外装が大きく損傷し、内部もいくつか破壊される。",
+              damage: "重傷2/放心"}],
+            [37,
+             {name: "外装破壊",
+              text: "外装の一部が吹き飛び、内部も破壊される。",
+              damage: "重傷3/放心、スタン"}],
+            [39,
+             {name: "外装大破壊",
+              text: "外装の一部が吹き飛び、内部も一緒に吹き飛ばされる。",
+              damage: "致命傷1、疲労3"}],
+            [9999,
+             {name: "致命的破壊",
+              text: "外装のほとんどが破壊され、内部もひしゃげ、潰される。",
+              damage: "致命傷1/放心、スタン"}],
+          ]
+        },
+
+        "BR" => {
+          name: "灼熱",
+          table: [
+            [5,
+             {name: "軽い溶解",
+              text: "外装が少しだけ溶け、機能が低下する。",
+              damage: "スタン"}],
+            [10,
+             {name: "溶解",
+              text: "外装が溶ける。",
+              damage: "軽傷1"}],
+            [13,
+             {name: "温度上昇",
+              text: "熱によって、外装だけでなく内部も少しだけ溶解する。",
+              damage: "軽傷2、疲労1"}],
+            [16,
+             {name: "温度大上昇",
+              text: "熱によって、外装だけでなく内部が溶解する。",
+              damage: "軽傷3/放心"}],
+            [19,
+             {name: "発火",
+              text: "外装に火が燃え移る。",
+              damage: "軽傷3/DOT:軽傷1"}],
+            [22,
+             {name: "爆発",
+              text: "爆発により外装の一部が吹き飛ばされる。",
+              damage: "重傷1/スタン"}],
+            [25,
+             {name: "痕が残るほどの大きく外装が溶解する。",
+              text: "大溶解",
+              damage: "重傷2"}],
+            [28,
+             {name: "熱波",
+              text: "強力な熱により内部機能が低下する。",
+              damage: "重傷2/スタン"}],
+            [31,
+             {name: "大爆発",
+              text: "激しい爆発で外装が大きく吹き飛ばされ、内部にもダメージを受ける。",
+              damage: "重傷3/放心"}],
+            [34,
+             {name: "大発火",
+              text: "広範囲に火が燃え移る。",
+              damage: "重傷3/DOT:軽傷1"}],
+            [37,
+             {name: "炭化",
+              text: "高熱のあまり、焼けた部分が炭化してしまう。",
+              damage: "致命傷1"}],
+            [39,
+             {name: "内部溶解",
+              text: "内部に熱や炎が回り、大きく溶解する。",
+              damage: "致命傷1/DOT:軽傷1"}],
+            [9999,
+             {name: "致命的溶解",
+              text: "外装や内部の大部分が溶解する。",
+              damage: "致命傷2"}],
+          ]
+        },
+
+        "RF" => {
+          name: "冷却",
+          table: [
+            [5,
+             {name: "軽い冷却",
+              text: "冷気で機能が低下する。",
+              damage: "スタン"}],
+            [10,
+             {name: "冷気",
+              text: "外装が薄い氷で覆われる。",
+              damage: "軽傷1"}],
+            [13,
+             {name: "霜の衣",
+              text: "外装が薄い氷で覆われ、動作が鈍る。",
+              damage: "軽傷2/疲労1"}],
+            [16,
+             {name: "軽い凍結",
+              text: "凍結によって外装の一部が痛む。",
+              damage: "軽傷3"}],
+            [19,
+             {name: "温度低下",
+              text: "冷気によって機能が低下する。",
+              damage: "軽傷3/DOT:疲労1"}],
+            [22,
+             {name: "氷の枷",
+              text: "可動部などが氷で覆われ、動きが取りにくくなる。",
+              damage: "重傷1/スタン"}],
+            [25,
+             {name: "大凍結",
+              text: "外装の大部分が凍結する。",
+              damage: "重傷1/DOT:疲労2"}],
+            [28,
+             {name: "氷の束縛",
+              text: "可動部などが完全に凍りつき、動くことができない。",
+              damage: "重傷2/放心"}],
+            [31,
+             {name: "視界不良",
+              text: "カメラのレンズにも氷が張り、視界がふさがれる。",
+              damage: "重傷2/スタン"}],
+            [34,
+             {name: "動作不良",
+              text: "凍結によって一部動作に不都合が生じている。",
+              damage: "重傷3/放心"}],
+            [37,
+             {name: "重度凍結",
+              text: "さらに温度が低下し、内部にも深刻なダメージを受ける。",
+              damage: "致命傷1"}],
+            [39,
+             {name: " 全身凍結",
+              text: "全体が凍りづけになる。",
+              damage: "致命傷1/DOT:疲労2"}],
+            [9999,
+             {name: "致命的凍結",
+              text: "外装だけでなく、内部も致命的なダメージを受ける。",
+              damage: "致命傷2"}],
+          ]
+        },
+
+        "EL" => {
+          name: "電撃",
+          table: [
+            [5,
+             {name: "軽い電撃",
+              text: "電撃で機能が低下する。",
+              damage: "スタン"}],
+            [10,
+             {name: "帯電",
+              text: "帯電により軽いダメージを受ける。",
+              damage: "疲労3"}],
+            [13,
+             {name: "電熱傷",
+              text: "電流によって外装が傷つく。",
+              damage: "疲労1、軽傷1"}],
+            [16,
+             {name: "軽い感電",
+              text: "電流で傷つくと共に、内部に軽いダメージを受ける。",
+              damage: "疲労2、軽傷2"}],
+            [19,
+             {name: "閃光",
+              text: "激しい閃光により、一時的にカメラ機能がマヒする。",
+              damage: "軽傷3/スタン"}],
+            [22,
+             {name: "感電",
+              text: "電流により内部がダメージを受け、一時的に動作がマヒする。",
+              damage: "重傷1/放心"}],
+            [25,
+             {name: "大電熱傷",
+              text: "外装の各所が電流によって傷つく。",
+              damage: "疲労2、重傷2"}],
+            [28,
+             {name: "感電による負傷",
+              text: "外装だけでなく、内部も大きなダメージを受け、機能がマヒする。",
+              damage: "軽傷1、重傷2/放心"}],
+            [31,
+             {name: "大感電",
+              text: "電流によって機能のほとんどがマヒして、動作しなくなる。",
+              damage: "重傷2/放心、スタン"}],
+            [34,
+             {name: "大電流",
+              text: "強力な電撃のショックにより、内部にも多大なダメージを受ける。",
+              damage: "疲労3、重傷3"}],
+            [37,
+             {name: "一時停止",
+              text: "全身に電流が駆け巡り、機能の大部分が動作不良を起こす。",
+              damage: "重傷3/放心、スタン"}],
+            [39,
+             {name: "致命電熱傷",
+              text: "全体が電流によって傷つく。",
+              damage: "重傷1、致命傷"}],
+            [9999,
+             {name: "機能停止",
+              text: "強力な電撃のショックにより、故障寸前のダメージを受ける。",
+              damage: "疲労3、重傷1、致命傷1"}],
           ]
         }
       }.freeze

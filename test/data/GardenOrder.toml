@@ -352,6 +352,61 @@ rands = []
 
 [[ test ]]
 game_system = "GardenOrder"
+input = "seSL1"
+output = "負傷表(SE)：切断[1] ＞ スタン ｜ 軽い衝撃 … たいした傷ではないが、衝撃を受ける。"
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder"
+input = "seSL2"
+output = "負傷表(SE)：切断[2] ＞ スタン ｜ 軽い衝撃 … たいした傷ではないが、衝撃を受ける。"
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder"
+input = "seSL5"
+output = "負傷表(SE)：切断[5] ＞ スタン ｜ 軽い衝撃 … たいした傷ではないが、衝撃を受ける。"
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder"
+input = "seSL6"
+output = "負傷表(SE)：切断[6] ＞ 軽傷1 ｜ 小さな傷 … 外装に傷がつく。"
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder"
+input = "seBL1"
+output = "負傷表(SE)：銃弾[1] ＞ スタン ｜ 軽い衝撃 … 銃弾ははじいたが、衝撃を受ける。"
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder"
+input = "seIM1"
+output = "負傷表(SE)：衝撃[1] ＞ スタン ｜ 軽い衝撃 … 傷も凹みもないが、衝撃を受ける。"
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder"
+input = "seBR1"
+output = "負傷表(SE)：灼熱[1] ＞ スタン ｜ 軽い溶解 … 外装が少しだけ溶け、機能が低下する。"
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder"
+input = "seRF1"
+output = "負傷表(SE)：冷却[1] ＞ スタン ｜ 軽い冷却 … 冷気で機能が低下する。"
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder"
+input = "seEL1"
+output = "負傷表(SE)：電撃[1] ＞ スタン ｜ 軽い電撃 … 電撃で機能が低下する。"
+rands = []
+
+
+[[ test ]]
+game_system = "GardenOrder"
 input = "GO(20-20)"
 output = "D100<=0@1 ＞ 1 ＞ クリティカル"
 success = true
