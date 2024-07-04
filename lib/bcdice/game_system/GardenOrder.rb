@@ -107,7 +107,7 @@ module BCDice
         row = get_table_by_number(damage_value, table, nil)
         return nil if row.nil?
 
-        "負傷表(#{chart_type})：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
+        "負傷表：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
       end
 
       def look_up_damage_se_chart(type, damage_value)

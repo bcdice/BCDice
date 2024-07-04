@@ -299,55 +299,55 @@ rands = [
 [[ test ]]
 game_system = "GardenOrder"
 input = "dcSL1"
-output = "負傷表(DC)：切断[1] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
+output = "負傷表：切断[1] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
 rands = []
 
 [[ test ]]
 game_system = "GardenOrder"
 input = "dcSL2"
-output = "負傷表(DC)：切断[2] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
+output = "負傷表：切断[2] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
 rands = []
 
 [[ test ]]
 game_system = "GardenOrder"
 input = "dcSL5"
-output = "負傷表(DC)：切断[5] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
+output = "負傷表：切断[5] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
 rands = []
 
 [[ test ]]
 game_system = "GardenOrder"
 input = "dcSL6"
-output = "負傷表(DC)：切断[6] ＞ 軽傷２／マヒ ｜ 脚部負傷 … 足が切り裂かれ、思わずひざまずく。"
+output = "負傷表：切断[6] ＞ 軽傷２／マヒ ｜ 脚部負傷 … 足が切り裂かれ、思わずひざまずく。"
 rands = []
 
 [[ test ]]
 game_system = "GardenOrder"
 input = "dcBL1"
-output = "負傷表(DC)：銃弾[1] ＞ 軽傷２ ｜ 腕部損傷 … 銃弾が腕をかすめた。"
+output = "負傷表：銃弾[1] ＞ 軽傷２ ｜ 腕部損傷 … 銃弾が腕をかすめた。"
 rands = []
 
 [[ test ]]
 game_system = "GardenOrder"
 input = "dcIM1"
-output = "負傷表(DC)：衝撃[1] ＞ 軽傷1 ｜ 打撲 … 攻撃を受けた箇所がどす黒く腫れ上がる。"
+output = "負傷表：衝撃[1] ＞ 軽傷1 ｜ 打撲 … 攻撃を受けた箇所がどす黒く腫れ上がる。"
 rands = []
 
 [[ test ]]
 game_system = "GardenOrder"
 input = "dcBR1"
-output = "負傷表(DC)：灼熱[1] ＞ 軽傷1 ｜ 火傷 … 皮膚に小さな火傷を負う。"
+output = "負傷表：灼熱[1] ＞ 軽傷1 ｜ 火傷 … 皮膚に小さな火傷を負う。"
 rands = []
 
 [[ test ]]
 game_system = "GardenOrder"
 input = "dcRF1"
-output = "負傷表(DC)：冷却[1] ＞ 軽傷1 ｜ 冷気 … 軽い凍傷を受ける。"
+output = "負傷表：冷却[1] ＞ 軽傷1 ｜ 冷気 … 軽い凍傷を受ける。"
 rands = []
 
 [[ test ]]
 game_system = "GardenOrder"
 input = "dcEL1"
-output = "負傷表(DC)：電撃[1] ＞ 疲労３ ｜ 静電気 … 全身の毛が逆立つ。"
+output = "負傷表：電撃[1] ＞ 疲労３ ｜ 静電気 … 全身の毛が逆立つ。"
 rands = []
 
 [[ test ]]
