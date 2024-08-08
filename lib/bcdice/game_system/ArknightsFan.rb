@@ -47,7 +47,7 @@ module BCDice
           例えば、AD<=90は1AD100<=90として解釈される。
       TEXT
 
-      register_prefix('\d*AD\d*', '\d*AB\d*', '--ADDICTION', '--WORSENING')
+      register_prefix('[-+*/\d]*AD\d*', '[-+*/\d]*AB\d*', '--ADDICTION', '--WORSENING')
 
       def eval_game_system_specific_command(command)
         roll_ad(command) || roll_ab(command) || roll_addiction(command) || roll_worsening(command)
@@ -101,27 +101,29 @@ module BCDice
       end
 
       def roll_ad(command)
-        m = /^(\d*)AD(\d*)<=(\d+)$/.match(command)
+        # -は文字クラスの先頭または最後に置く。
+        # そうしないと範囲指定子として解釈される。
+        m = %r{^([-+*/\d]*)AD(\d*)<=([-+*/\d]+)$}.match(command) 
         return nil unless m
 
         times = m[1]
         sides = m[2]
-        target = m[3].to_i
-        times = !times.empty? ? times.to_i : 1
+        target = Arithmetic.eval(m[3], @round_type)
+        times = !times.empty? ? Arithmetic.eval(m[1], @round_type) : 1
         sides = !sides.empty? ? sides.to_i : 100
         return roll_d(command, times, sides, target)
       end
 
       def roll_ab(command)
-        m = /^(\d*)AB(\d*)<=(\d+)(?:--([^\d\s]+)(0|1)?)?$/.match(command)
+        m = %r{^([-+*/\d]*)AB(\d*)<=([-+*/\d]+)(?:--([^\d\s]+)(0|1)?)?$}.match(command)
         return nil unless m
 
         times = m[1]
         sides = m[2]
-        target = m[3].to_i
+        target = Arithmetic.eval(m[3], @round_type)
         type = m[4]
         type_enable = m[5]
-        times = !times.empty? ? times.to_i : 1
+        times = !times.empty? ? Arithmetic.eval(m[1], @round_type) : 1
         sides = !sides.empty? ? sides.to_i : 100
         type_enable = !type_enable.nil? ? type_enable.to_i : 1
 

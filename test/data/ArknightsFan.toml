@@ -64,6 +64,46 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
+input = "AD<=10+20"
+output = "(AD<=10+20) ＞ 30 ＞ 成功"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AD<=40-10"
+output = "(AD<=40-10) ＞ 30 ＞ 成功"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AD<=20*2"
+output = "(AD<=20*2) ＞ 40 ＞ 成功"
+rands = [
+  { sides = 100, value = 40 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AD<=69/5"
+output = "(AD<=69/5) ＞ 13 ＞ 成功"
+rands = [
+  { sides = 100, value = 13 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AD<=69/5"
+output = "(AD<=69/5) ＞ 14 ＞ 失敗"
+rands = [
+  { sides = 100, value = 14 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
 input = "AB<=70"
 output = "(AB<=70) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
 rands = [
@@ -285,13 +325,86 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "4AB100<=60"
-output = "(4AB100<=60) ＞ [1,1,50,50] ＞ 4+2C-0E ＞ 成功数6"
+input = "2+2AB100<=60"
+output = "(2+2AB100<=60) ＞ [1,1,50,50] ＞ 4+2C-0E ＞ 成功数6"
 rands = [
   { sides = 100, value = 50 },
   { sides = 100, value = 50 },
   { sides = 100, value = 1 },
   { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "2*2AB<=60"
+output = "(2*2AB<=60) ＞ [1,1,50,50] ＞ 4+2C-0E ＞ 成功数6"
+rands = [
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "6-2AB100<=60"
+output = "(6-2AB100<=60) ＞ [1,1,50,50] ＞ 4+2C-0E ＞ 成功数6"
+rands = [
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "9/2AB100<=60"
+output = "(9/2AB100<=60) ＞ [1,1,50,50] ＞ 4+2C-0E ＞ 成功数6"
+rands = [
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 1 },
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AB<=10+20"
+output = "(AB<=10+20) ＞ [30] ＞ 1+0C-0E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AB<=40-10"
+output = "(AB<=40-10) ＞ [30] ＞ 1+0C-0E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AB<=20*2"
+output = "(AB<=20*2) ＞ [40] ＞ 1+0C-0E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 40 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AB<=69/5"
+output = "(AB<=69/5) ＞ [13] ＞ 1+0C-0E ＞ 成功数1"
+rands = [
+  { sides = 100, value = 13 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "AB<=69/5"
+output = "(AB<=69/5) ＞ [14] ＞ 0+0C-0E ＞ 成功数0"
+rands = [
+  { sides = 100, value = 14 },
 ]
 
 [[ test ]]
