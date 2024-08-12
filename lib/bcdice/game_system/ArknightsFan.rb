@@ -161,7 +161,13 @@ module BCDice
         dice_list, success_count, critical_count, error_count = process_b(times, sides, target)
         result_count = success_count + critical_count - error_count
 
-        return "(#{command}) ＞ [#{dice_list.join(',')}] ＞ #{success_count}+#{critical_count}C-#{error_count}E ＞ 成功数#{result_count}"
+        result_text = "(#{command}) ＞ [#{dice_list.join(',')}] ＞ #{success_count}+#{critical_count}C-#{error_count}E ＞ 成功数#{result_count}"
+        Result.new.tap do |r|
+          r.text = result_text
+          r.condition = result_count > 0
+          r.critical = critical_count > 0
+          r.fumble = error_count > 0
+        end
       end
 
       def roll_b_withtype(command, times, sides, target, type)
@@ -176,7 +182,13 @@ module BCDice
           end
         result_count += type_effect
 
-        return "(#{command}) ＞ [#{dice_list.join(',')}] ＞ #{success_count}+#{critical_count}C-#{error_count}E+#{type_effect}(#{type}) ＞ 成功数#{result_count}"
+        result_text = "(#{command}) ＞ [#{dice_list.join(',')}] ＞ #{success_count}+#{critical_count}C-#{error_count}E+#{type_effect}(#{type}) ＞ 成功数#{result_count}"
+        Result.new.tap do |r|
+          r.text = result_text
+          r.condition = result_count > 0
+          r.critical = critical_count > 0
+          r.fumble = error_count > 0
+        end
       end
 
       def process_b(times, sides, target)
