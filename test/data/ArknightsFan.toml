@@ -2,6 +2,7 @@
 game_system = "ArknightsFan"
 input = "AD<=70"
 output = "(AD<=70) ＞ 50 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -10,6 +11,7 @@ rands = [
 game_system = "ArknightsFan"
 input = "AD100<=70"
 output = "(AD100<=70) ＞ 50 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -18,6 +20,7 @@ rands = [
 game_system = "ArknightsFan"
 input = "1AD<=70"
 output = "(1AD<=70) ＞ 50 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -26,6 +29,7 @@ rands = [
 game_system = "ArknightsFan"
 input = "1AD100<=70"
 output = "(1AD100<=70) ＞ 50 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -34,6 +38,8 @@ rands = [
 game_system = "ArknightsFan"
 input = "AD<=70"
 output = "(AD<=70) ＞ 10 ＞ クリティカル！"
+critical = true
+success = true
 rands = [
   { sides = 100, value = 10 },
 ]
@@ -42,6 +48,8 @@ rands = [
 game_system = "ArknightsFan"
 input = "AD<=70"
 output = "(AD<=70) ＞ 91 ＞ エラー"
+fumble = true
+failure = true
 rands = [
   { sides = 100, value = 91 },
 ]
@@ -50,6 +58,7 @@ rands = [
 game_system = "ArknightsFan"
 input = "AD<=99"
 output = "(AD<=99) ＞ 95 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -58,6 +67,7 @@ rands = [
 game_system = "ArknightsFan"
 input = "AD<=5"
 output = "(AD<=5) ＞ 9 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 9 },
 ]
@@ -66,6 +76,7 @@ rands = [
 game_system = "ArknightsFan"
 input = "AD<=10+20"
 output = "(AD<=10+20) ＞ 30 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 30 },
 ]
@@ -74,6 +85,7 @@ rands = [
 game_system = "ArknightsFan"
 input = "AD<=40-10"
 output = "(AD<=40-10) ＞ 30 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 30 },
 ]
@@ -82,6 +94,7 @@ rands = [
 game_system = "ArknightsFan"
 input = "AD<=20*2"
 output = "(AD<=20*2) ＞ 40 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 40 },
 ]
@@ -90,6 +103,7 @@ rands = [
 game_system = "ArknightsFan"
 input = "AD<=69/5"
 output = "(AD<=69/5) ＞ 13 ＞ 成功"
+success = true
 rands = [
   { sides = 100, value = 13 },
 ]
@@ -98,6 +112,7 @@ rands = [
 game_system = "ArknightsFan"
 input = "AD<=69/5"
 output = "(AD<=69/5) ＞ 14 ＞ 失敗"
+failure = true
 rands = [
   { sides = 100, value = 14 },
 ]

@@ -139,12 +139,21 @@ module BCDice
         total = dice_list.sum
 
         result = check_roll(total, target)
-        result = STATUS_NAME[result]
 
         if times == 1
-          return "(#{command}) ＞ #{dice_list.join(',')} ＞ #{result}"
+          result_text = "(#{command}) ＞ #{dice_list.join(',')} ＞ #{STATUS_NAME[result]}"
         else
-          return "(#{command}) ＞ #{total}[#{dice_list.join(',')}] ＞ #{result}"
+          result_text = "(#{command}) ＞ #{total}[#{dice_list.join(',')}] ＞ #{STATUS_NAME[result]}"
+        end
+        case result
+        when Status::CRITICAL
+          Result.critical(result_text)
+        when Status::SUCCESS
+          Result.success(result_text)
+        when Status::FAILURE
+          Result.failure(result_text)
+        when Status::ERROR
+          Result.fumble(result_text)
         end
       end
 
