@@ -383,7 +383,6 @@ module BCDice
             I18n.translate("DoubleCross.HC.name", locale: locale),
             "1D100",
             [
-              # [0, 'こともなし。修正は特にない。'],
               [1..5,    I18n.translate("DoubleCross.HC.items.1_5", locale: locale)],
               [6..10,   I18n.translate("DoubleCross.HC.items.6_10", locale: locale)],
               [11..15,  I18n.translate("DoubleCross.HC.items.11_15", locale: locale)],
