@@ -1874,6 +1874,30 @@ rands = [
 
 [[ test ]]
 game_system = "DoubleCross"
+input = "HC"
+output = "ハプニングチャート(1) ＞ こともなし。修正は特にない。"
+rands = [
+  { sides = 100, value = 1 }
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "HC"
+output = "ハプニングチャート(55) ＞ 膠着した進行。修正は特にない。"
+rands = [
+  { sides = 100, value = 55 }
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "HC"
+output = "ハプニングチャート(100) ＞ 順当な進行。このラウンド中に進行判定に成功したキャラクターは、進行値を＋1得る。"
+rands = [
+  { sides = 100, value = 100 }
+]
+
+[[ test ]]
+game_system = "DoubleCross"
 input = "10dx+5*2@8"
 output = "(10DX8+10) ＞ 10[2,3,6,6,6,6,7,8,10,10]+6[1,5,6]+10 ＞ 26"
 critical = true

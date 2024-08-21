@@ -27,6 +27,8 @@ module BCDice
         　　ポジティブとネガティブの両方を振って、表になっている側に○を付けて表示します。
         　　もちろん任意で選ぶ部分は変更して構いません。
 
+        ・ハプニングチャート（HC）
+
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -36,6 +38,7 @@ module BCDice
       end
 
       register_prefix('\d+DX', 'ET')
+      register_prefix('\d+DX', 'HC')
 
       # 成功判定コマンドのノード
       class DX
@@ -213,6 +216,10 @@ module BCDice
           return dx.execute(@randomizer)
         end
 
+        if command == 'HC'
+          return roll_happening_chart()
+        end
+
         if command == 'ET'
           return roll_emotion_table()
         end
@@ -286,6 +293,18 @@ module BCDice
         return Result.new(output_parts.join(' ＞ '))
       end
 
+      # ハプニングチャートを振る
+      #
+      #
+      #
+      # @return [Result]
+      def roll_happening_chart
+        result = self.class::HAPPENING_CHART.roll(@randomizer)
+        name = translate("DoubleCross.HC.name")
+        output_parts = ["#{name}(#{result.sum})", result.content]
+        return Result.new(output_parts.join(' ＞ '))
+      end
+
       class << self
         private
 
@@ -356,6 +375,37 @@ module BCDice
             ]
           ).freeze
         end
+
+        # @param locale [Symbol]
+        # @return [RangeTable]
+        def happening_chart(locale)
+          DiceTable::RangeTable.new(
+            I18n.translate("DoubleCross.HC.name", locale: locale),
+            "1D100",
+            [
+              # [0, 'こともなし。修正は特にない。'],
+              [1..5,    I18n.translate("DoubleCross.HC.items.1_5", locale: locale)],
+              [6..10,   I18n.translate("DoubleCross.HC.items.6_10", locale: locale)],
+              [11..15,  I18n.translate("DoubleCross.HC.items.11_15", locale: locale)],
+              [16..20,  I18n.translate("DoubleCross.HC.items.16_20", locale: locale)],
+              [21..25,  I18n.translate("DoubleCross.HC.items.21_25", locale: locale)],
+              [26..30,  I18n.translate("DoubleCross.HC.items.26_30", locale: locale)],
+              [31..35,  I18n.translate("DoubleCross.HC.items.31_35", locale: locale)],
+              [36..40,  I18n.translate("DoubleCross.HC.items.36_40", locale: locale)],
+              [41..45,  I18n.translate("DoubleCross.HC.items.41_45", locale: locale)],
+              [46..55,  I18n.translate("DoubleCross.HC.items.46_55", locale: locale)],
+              [56..60,  I18n.translate("DoubleCross.HC.items.56_60", locale: locale)],
+              [61..65,  I18n.translate("DoubleCross.HC.items.61_65", locale: locale)],
+              [66..70,  I18n.translate("DoubleCross.HC.items.66_70", locale: locale)],
+              [71..75,  I18n.translate("DoubleCross.HC.items.71_75", locale: locale)],
+              [76..80,  I18n.translate("DoubleCross.HC.items.76_80", locale: locale)],
+              [81..85,  I18n.translate("DoubleCross.HC.items.81_85", locale: locale)],
+              [86..90,  I18n.translate("DoubleCross.HC.items.86_90", locale: locale)],
+              [91..95,  I18n.translate("DoubleCross.HC.items.91_95", locale: locale)],
+              [96..100, I18n.translate("DoubleCross.HC.items.96_100", locale: locale)],
+            ]
+          )
+        end
       end
 
       # 感情表（ポジティブ）
@@ -363,6 +413,9 @@ module BCDice
 
       # 感情表（ネガティブ）
       NEGATIVE_EMOTION_TABLE = negative_emotion_table(:ja_jp).freeze
+
+      # ハプニングチャート
+      HAPPENING_CHART = happening_chart(:ja_jp).freeze
     end
   end
 end
