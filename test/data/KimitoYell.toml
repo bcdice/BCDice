@@ -1,0 +1,241 @@
+# 有利なし
+# 判定　スペシャルでもファンブルでもないが成功
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY6"
+output = "(3KY6) ＞ [4,5,2] ＞ 成功"
+success = true
+failure = false
+critical = false
+fumble = false
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+# 判定　スペシャルでもファンブルでもないが失敗
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY6"
+output = "(3KY6) ＞ [2,3,2] ＞ 失敗"
+success = false
+failure = true
+critical = false
+fumble = false
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+# 判定　スペシャルで成功
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY6"
+output = "(3KY6) ＞ [4,6,2] ＞ 成功・スペシャル（がんばりが1点上昇！）"
+success = true
+failure = false
+critical = true
+fumble = false
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+# 判定　ファンブルで成功
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY6"
+output = "(3KY6) ＞ [4,1,2] ＞ 成功・ファンブル（ファンブル表：FTを振る）"
+success = true
+failure = false
+critical = false
+fumble = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+# 判定　ファンブルで失敗
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY6"
+output = "(3KY6) ＞ [3,1,2] ＞ 失敗・ファンブル（ファンブル表：FTを振る）"
+success = false
+failure = true
+critical = false
+fumble = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+# 判定　スペシャルかつファンブルで成功
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY6"
+output = "(3KY6) ＞ [6,1,2] ＞ 成功・スペシャル（がんばりが1点上昇！）・ファンブル（ファンブル表：FTを振る）"
+success = true
+failure = false
+critical = true
+fumble = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+# 有利あり
+# 判定　スペシャルでもファンブルでもないが成功
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [4,9,2] ＞ 成功"
+success = true
+failure = false
+critical = false
+fumble = false
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 2 },
+]
+
+# 判定　スペシャルでもファンブルでもないが失敗
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [2,3,2] ＞ 失敗"
+success = false
+failure = true
+critical = false
+fumble = false
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+]
+
+# 判定　スペシャルで成功 6
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [4,6,2] ＞ 成功・スペシャル（がんばりが1点上昇！）"
+success = true
+failure = false
+critical = true
+fumble = false
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 2 },
+]
+
+# 判定　スペシャルで成功 10
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [8,10,2] ＞ 成功・スペシャル（がんばりが1点上昇！）"
+success = true
+failure = false
+critical = true
+fumble = false
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+]
+
+# 判定　スペシャルで成功 6 10
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [8,10,6] ＞ 成功・スペシャル（がんばりが1点上昇！）"
+success = true
+failure = false
+critical = true
+fumble = false
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+]
+
+# 判定　ファンブルで成功
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [4,1,8] ＞ 成功・ファンブル（ファンブル表：FTを振る）"
+success = true
+failure = false
+critical = false
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+]
+
+# 判定　ファンブルで失敗
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [3,1,2] ＞ 失敗・ファンブル（ファンブル表：FTを振る）"
+success = false
+failure = true
+critical = false
+fumble = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+]
+
+# 判定　スペシャルかつファンブルで成功 6
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [6,1,2] ＞ 成功・スペシャル（がんばりが1点上昇！）・ファンブル（ファンブル表：FTを振る）"
+success = true
+failure = false
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+]
+
+# 判定　スペシャルかつファンブルで成功 10
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [10,1,1] ＞ 成功・スペシャル（がんばりが1点上昇！）・ファンブル（ファンブル表：FTを振る）"
+success = true
+failure = false
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+# 判定　スペシャルかつファンブルで成功 6 10
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [6,10,1] ＞ 成功・スペシャル（がんばりが1点上昇！）・ファンブル（ファンブル表：FTを振る）"
+success = true
+failure = false
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
