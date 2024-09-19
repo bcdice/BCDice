@@ -158,40 +158,40 @@ module BCDice
         result = ""
 
         case command
-          when /^ST(\d)?$/
-            # シーン表
-            type = Regexp.last_match(1).to_i
-            tableName, result, number = getSceneTableResult(type)
-          when /^NAME(\d)?$/
-            # 万能命名表
-            type = Regexp.last_match(1).to_i
-            tableName, result, number = getNameTableResult(type)
-          when /^EST$/i, /^sErviceST$/i
-            # サービスシーン表
-            tableName, result, number = getServiceSceneTableResult()
-          when /^HSAT(\d)?$/
-            # ヘルスタイリスト罵倒表
-            type = Regexp.last_match(1).to_i
-            tableName, result, number = getHairStylistAbuseTableResult(type)
-          when /^EXT(\d)?$/
-            # エキストラ表
-            type = Regexp.last_match(1).to_i
-            tableName, result, number = getExtraTableResult(type)
-          when /^TOT?$/
-            # お題決定表
-            tableName, result, number = getThemeTableResult()
-          when /^OOT?$/
-            # 一言決定表
-            tableName, result, number = getOneWordTableResult()
-          when /^WOT?$/
-            # 単語決定表
-            tableName, result, number = getWordTableResult()
-          when /^POT?$/
-            # ヘル司会者 リアクション表(好印象ver)
-            tableName, result, number = getPositiveTableResult()
-          when /^NOT?$/
-            # ヘル司会者 リアクション表(不満ver)
-            tableName, result, number = getNegativeTableResult()
+        when /^ST(\d)?$/
+          # シーン表
+          type = Regexp.last_match(1).to_i
+          tableName, result, number = getSceneTableResult(type)
+        when /^NAME(\d)?$/
+          # 万能命名表
+          type = Regexp.last_match(1).to_i
+          tableName, result, number = getNameTableResult(type)
+        when /^EST$/i, /^sErviceST$/i
+          # サービスシーン表
+          tableName, result, number = getServiceSceneTableResult()
+        when /^HSAT(\d)?$/
+          # ヘルスタイリスト罵倒表
+          type = Regexp.last_match(1).to_i
+          tableName, result, number = getHairStylistAbuseTableResult(type)
+        when /^EXT(\d)?$/
+          # エキストラ表
+          type = Regexp.last_match(1).to_i
+          tableName, result, number = getExtraTableResult(type)
+        when /^TOT?$/
+          # お題決定表
+          tableName, result, number = getThemeTableResult()
+        when /^OOT?$/
+          # 一言決定表
+          tableName, result, number = getOneWordTableResult()
+        when /^WOT?$/
+          # 単語決定表
+          tableName, result, number = getWordTableResult()
+        when /^POT?$/
+          # ヘル司会者 リアクション表(好印象ver)
+          tableName, result, number = getPositiveTableResult()
+        when /^NOT?$/
+          # ヘル司会者 リアクション表(不満ver)
+          tableName, result, number = getNegativeTableResult()
         end
 
         if result.empty?
@@ -361,27 +361,27 @@ module BCDice
         d6 = @randomizer.roll_once(6)
 
         case d6
-          when 1
-            tableName1, one, number1 = getOneWordTableResult()
-            result, number = translate("KillDeathBusiness.table.TOT.items.1", one: one)
-          when 2
-            tableNam1e, word1, number1 = getWordTableResult()
-            tableName2, word2, number2 = getWordTableResult()
-            result, number = translate("KillDeathBusiness.table.TOT.items.2", word1: word1, word2: word2)
-          when 3
-            verb, number1 = get_table_by_d66_swap(translate("KillDeathBusiness.table.VOT.items"))
-            tableName1, word, number = getWordTableResult()
-            result, number = translate("KillDeathBusiness.table.TOT.items.3", verb: verb, word: word)
-          when 4
-            tableName1, word1, number1 = getWordTableResult()
-            tableName2, word2, number2 = getWordTableResult()
-            result, number = translate("KillDeathBusiness.table.TOT.items.4", word1: word1, word2: word2)
-          when 5
-            tableName1, word, number1 = getWordTableResult()
-            result, number = translate("KillDeathBusiness.table.TOT.items.5", word: word)
-          when 6
-            long, number1 = get_table_by_d66_swap(translate("KillDeathBusiness.table.LOT.items"))
-            result, number = translate("KillDeathBusiness.table.TOT.items.6", long: long)
+        when 1
+          one = getOneWordTableResult()[1]
+          result = translate("KillDeathBusiness.table.TOT.items.1", one: one)
+        when 2
+          word1 = getWordTableResult()[1]
+          word2 = getWordTableResult()[1]
+          result = translate("KillDeathBusiness.table.TOT.items.2", word1: word1, word2: word2)
+        when 3
+          verb = get_table_by_d66_swap(translate("KillDeathBusiness.table.VOT.items"))[0]
+          word = getWordTableResult()[1]
+          result = translate("KillDeathBusiness.table.TOT.items.3", verb: verb, word: word)
+        when 4
+          word1 = getWordTableResult()[1]
+          word2 = getWordTableResult()[1]
+          result = translate("KillDeathBusiness.table.TOT.items.4", word1: word1, word2: word2)
+        when 5
+          word = getWordTableResult()[1]
+          result = translate("KillDeathBusiness.table.TOT.items.5", word: word)
+        when 6
+          long = get_table_by_d66_swap(translate("KillDeathBusiness.table.LOT.items"))[0]
+          result = translate("KillDeathBusiness.table.TOT.items.6", long: long)
         end
 
         return tableName, result, d6
@@ -394,13 +394,13 @@ module BCDice
         d6 = @randomizer.roll_once(6)
 
         case d6
-          when 1, 2
-            result, number = translate("KillDeathBusiness.table.OOT.items.1")
-          when 3, 4
-            result, number = translate("KillDeathBusiness.table.OOT.items.3")
-          when 5, 6
-            tableName1, word, number = getWordTableResult()
-            result, number = translate("KillDeathBusiness.table.OOT.items.5", word: word)
+        when 1, 2
+          result = translate("KillDeathBusiness.table.OOT.items.1")
+        when 3, 4
+          result = translate("KillDeathBusiness.table.OOT.items.3")
+        when 5, 6
+          word = getWordTableResult()[1]
+          result = translate("KillDeathBusiness.table.OOT.items.5", word: word)
         end
 
         return tableName, result, d6
@@ -417,12 +417,12 @@ module BCDice
         d6 = @randomizer.roll_once(6)
 
         case d6
-          when 1, 2
-            result, number = get_table_by_d66_swap(wordTableA)
-          when 3, 4
-            result, number = get_table_by_d66_swap(wordTableB)
-          when 5, 6
-            result, number = get_table_by_d66_swap(wordTableC)
+        when 1, 2
+          result = get_table_by_d66_swap(wordTableA)[0]
+        when 3, 4
+          result = get_table_by_d66_swap(wordTableB)[0]
+        when 5, 6
+          result = get_table_by_d66_swap(wordTableC)[0]
         end
 
         return tableName, result, d6
@@ -530,7 +530,7 @@ module BCDice
             "WOTC" => DiceTable::D66Table.from_i18n("KillDeathBusiness.table.WOTC", locale),
             "VOT" => DiceTable::D66Table.from_i18n("KillDeathBusiness.table.VOT", locale),
             "LOT" => DiceTable::D66Table.from_i18n("KillDeathBusiness.table.LOT", locale),
-            }
+          }
         end
 
         def translate_rtt(locale)
