@@ -38,6 +38,11 @@ module BCDice
         ・製作委員決定表　PCDT/実際どうだったのか表　OHT
         ・タスク表　ヘルライオン　PCT1/ヘルクロウ　PCT2/ヘルスネーク　PCT3/
         　ヘルドラゴン　PCT4/ヘルフライ　PCT5/ヘルゴート　PCT6/ヘルベア　PCT7
+        ・大喜利スペシャル表 (-OT)
+        　お題決定表(TOT)、〇〇を見て一言表(OOT)
+        　単語表(WOT, WOTx) xに英字(A,B,C)で単語表A(人物)(AOT)、単語表B(物)(BOT)、単語表C(場所)を個別ロール
+        　動詞表(VOT)、長め単語表(LOT)
+        　ヘル司会者 リアクション表(好印象ver)(POT)、ヘル司会者 リアクション表(不満ver)(NOT)
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -153,24 +158,40 @@ module BCDice
         result = ""
 
         case command
-        when /^ST(\d)?$/
-          # シーン表
-          type = Regexp.last_match(1).to_i
-
-          tableName, result, number = getSceneTableResult(type)
-        when /^NAME(\d)?$/
-          # 万能命名表
-          type = Regexp.last_match(1).to_i
-          tableName, result, number = getNameTableResult(type)
-        when /^EST$/i, /^sErviceST$/i
-          tableName, result, number = getServiceSceneTableResult()
-        when /^HSAT(\d)?$/
-          type = Regexp.last_match(1).to_i
-          tableName, result, number = getHairStylistAbuseTableResult(type)
-
-        when /^EXT(\d)?$/
-          type = Regexp.last_match(1).to_i
-          tableName, result, number = getExtraTableResult(type)
+          when /^ST(\d)?$/
+            # シーン表
+            type = Regexp.last_match(1).to_i
+            tableName, result, number = getSceneTableResult(type)
+          when /^NAME(\d)?$/
+            # 万能命名表
+            type = Regexp.last_match(1).to_i
+            tableName, result, number = getNameTableResult(type)
+          when /^EST$/i, /^sErviceST$/i
+            # サービスシーン表
+            tableName, result, number = getServiceSceneTableResult()
+          when /^HSAT(\d)?$/
+            # ヘルスタイリスト罵倒表
+            type = Regexp.last_match(1).to_i
+            tableName, result, number = getHairStylistAbuseTableResult(type)
+          when /^EXT(\d)?$/
+            # エキストラ表
+            type = Regexp.last_match(1).to_i
+            tableName, result, number = getExtraTableResult(type)
+          when /^TOT?$/
+            # お題決定表
+            tableName, result, number = getThemeTableResult()
+          when /^OOT?$/
+            # 一言決定表
+            tableName, result, number = getOneWordTableResult()
+          when /^WOT?$/
+            # 単語決定表
+            tableName, result, number = getWordTableResult()
+          when /^POT?$/
+            # ヘル司会者 リアクション表(好印象ver)
+            tableName, result, number = getPositiveTableResult()
+          when /^NOT?$/
+            # ヘル司会者 リアクション表(不満ver)
+            tableName, result, number = getNegativeTableResult()
         end
 
         if result.empty?
@@ -333,6 +354,114 @@ module BCDice
         return tableName, result, number
       end
 
+      def getThemeTableResult()
+        tableName = translate("KillDeathBusiness.table.TOT.name")
+
+        result = ''
+        d6 = @randomizer.roll_once(6)
+
+        case d6
+          when 1
+            tableName1, one, number1 = getOneWordTableResult()
+            result, number = translate("KillDeathBusiness.table.TOT.items.1", one: one)
+          when 2
+            tableNam1e, word1, number = getWordTableResult()
+            tableName2, word2, number = getWordTableResult()
+            result, number = translate("KillDeathBusiness.table.TOT.items.2", word1: word1, word2: word2)
+          when 3
+            verb, number = get_table_by_d66_swap(translate("KillDeathBusiness.table.VOT.items"))
+            tableName1, word, number = getWordTableResult()
+            result, number = translate("KillDeathBusiness.table.TOT.items.3", verb: verb, word: word)
+          when 4
+            tableName1, word1, number = getWordTableResult()
+            tableName2, word2, number = getWordTableResult()
+            result, number = translate("KillDeathBusiness.table.TOT.items.4", word1: word1, word2: word2)
+          when 5
+            tableName1, word, number = getWordTableResult()
+            result, number = translate("KillDeathBusiness.table.TOT.items.5", word: word)
+          when 6
+            long, number = get_table_by_d66_swap(translate("KillDeathBusiness.table.LOT.items"))
+            result, number = translate("KillDeathBusiness.table.TOT.items.6", long: long)
+        end
+
+        return tableName, result, d6
+      end
+
+      def getOneWordTableResult()
+        tableName = translate("KillDeathBusiness.table.OOT.name")
+
+        result = ''
+        d6 = @randomizer.roll_once(6)
+
+        case d6
+          when 1, 2
+            result, number = translate("KillDeathBusiness.table.OOT.items.1")
+          when 3, 4
+            result, number = translate("KillDeathBusiness.table.OOT.items.3")
+          when 5, 6
+            tableName1, word, number = getWordTableResult()
+            result, number = translate("KillDeathBusiness.table.OOT.items.5", word: word)
+        end
+
+        return tableName, result, d6
+      end
+
+      def getWordTableResult()
+        tableName = "単語表"
+
+        wordTableA = translate("KillDeathBusiness.table.WOTA.items")
+        wordTableB = translate("KillDeathBusiness.table.WOTB.items")
+        wordTableC = translate("KillDeathBusiness.table.WOTC.items")
+
+        result = ''
+        d6 = @randomizer.roll_once(6)
+
+        case d6
+          when 1, 2
+            result, number = get_table_by_d66_swap(wordTableA)
+          when 3, 4
+            result, number = get_table_by_d66_swap(wordTableB)
+          when 5, 6
+            result, number = get_table_by_d66_swap(wordTableC)
+        end
+
+        return tableName, result, d6
+      end
+
+      def getPositiveTableResult()
+        tableName = translate("KillDeathBusiness.table.POT.name")
+
+        table = [
+          lambda { return translate("KillDeathBusiness.table.POT.items.1", size: @randomizer.roll_sum(1, 6).to_s) },
+          lambda { return translate("KillDeathBusiness.table.POT.items.2", size: @randomizer.roll_sum(1, 6).to_s) },
+          lambda { return translate("KillDeathBusiness.table.POT.items.3", size: @randomizer.roll_sum(2, 6).to_s) },
+          lambda { return translate("KillDeathBusiness.table.POT.items.4", size: @randomizer.roll_sum(2, 6).to_s) },
+          translate("KillDeathBusiness.table.POT.items.5"),
+          lambda { return translate("KillDeathBusiness.table.POT.items.6", size: (@randomizer.roll_sum(1, 6) - 3).to_s) },
+        ]
+
+        result, number = get_table_by_1d6(table)
+
+        return tableName, result, number
+      end
+
+      def getNegativeTableResult()
+        tableName = translate("KillDeathBusiness.table.NOT.name")
+
+        table = [
+          translate("KillDeathBusiness.table.NOT.items.1"),
+          translate("KillDeathBusiness.table.NOT.items.2"),
+          lambda { return translate("KillDeathBusiness.table.NOT.items.3", size: @randomizer.roll_sum(1, 6).to_s) },
+          lambda { return translate("KillDeathBusiness.table.NOT.items.4", size: @randomizer.roll_sum(1, 6).to_s) },
+          lambda { return translate("KillDeathBusiness.table.NOT.items.5", size: @randomizer.roll_sum(1, 6).to_s) },
+          translate("KillDeathBusiness.table.NOT.items.6"),
+        ]
+
+        result, number = get_table_by_1d6(table)
+
+        return tableName, result, number
+      end
+
       ALIAS = {
         "DeathWT" => "DWT",
         "RevengeWT" => "RWT",
@@ -396,7 +525,12 @@ module BCDice
             "PASPT" => DiceTable::Table.from_i18n("KillDeathBusiness.table.PASPT", locale),
             "POSPT" => DiceTable::Table.from_i18n("KillDeathBusiness.table.POSPT", locale),
             "UMSPT" => DiceTable::Table.from_i18n("KillDeathBusiness.table.UMSPT", locale),
-          }
+            "WOTA" => DiceTable::D66Table.from_i18n("KillDeathBusiness.table.WOTA", locale),
+            "WOTB" => DiceTable::D66Table.from_i18n("KillDeathBusiness.table.WOTB", locale),
+            "WOTC" => DiceTable::D66Table.from_i18n("KillDeathBusiness.table.WOTC", locale),
+            "VOT" => DiceTable::D66Table.from_i18n("KillDeathBusiness.table.VOT", locale),
+            "LOT" => DiceTable::D66Table.from_i18n("KillDeathBusiness.table.LOT", locale),
+            }
         end
 
         def translate_rtt(locale)
@@ -413,7 +547,12 @@ module BCDice
         'EST', 'sErviceST',
         'HSAT[1-2]?',
         'EXT[1-4]?',
-        'JD'
+        'JD',
+        'TOT',
+        'OOT',
+        'WOT',
+        'POT',
+        'NOT'
       )
       register_prefix(TABLES.keys, register_prefix(ALIAS.keys), RTT.prefixes)
     end
