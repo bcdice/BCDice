@@ -365,22 +365,22 @@ module BCDice
             tableName1, one, number1 = getOneWordTableResult()
             result, number = translate("KillDeathBusiness.table.TOT.items.1", one: one)
           when 2
-            tableNam1e, word1, number = getWordTableResult()
-            tableName2, word2, number = getWordTableResult()
+            tableNam1e, word1, number1 = getWordTableResult()
+            tableName2, word2, number2 = getWordTableResult()
             result, number = translate("KillDeathBusiness.table.TOT.items.2", word1: word1, word2: word2)
           when 3
-            verb, number = get_table_by_d66_swap(translate("KillDeathBusiness.table.VOT.items"))
+            verb, number1 = get_table_by_d66_swap(translate("KillDeathBusiness.table.VOT.items"))
             tableName1, word, number = getWordTableResult()
             result, number = translate("KillDeathBusiness.table.TOT.items.3", verb: verb, word: word)
           when 4
-            tableName1, word1, number = getWordTableResult()
-            tableName2, word2, number = getWordTableResult()
+            tableName1, word1, number1 = getWordTableResult()
+            tableName2, word2, number2 = getWordTableResult()
             result, number = translate("KillDeathBusiness.table.TOT.items.4", word1: word1, word2: word2)
           when 5
-            tableName1, word, number = getWordTableResult()
+            tableName1, word, number1 = getWordTableResult()
             result, number = translate("KillDeathBusiness.table.TOT.items.5", word: word)
           when 6
-            long, number = get_table_by_d66_swap(translate("KillDeathBusiness.table.LOT.items"))
+            long, number1 = get_table_by_d66_swap(translate("KillDeathBusiness.table.LOT.items"))
             result, number = translate("KillDeathBusiness.table.TOT.items.6", long: long)
         end
 
