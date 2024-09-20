@@ -23,9 +23,9 @@ module BCDice
         ■ 表
         ─ ファンブル表（FT）
           ファンブル時の処理を決定します。
-      
+
         ─ 新しい出会いを求める
-          ─ 一括 新しい出会い表（NMTA） # New Meet Table 
+          ─ 一括 新しい出会い表（NMTA） # New Meet Table#{' '}
             その後の表を含めてすべて同時に決定します。
             ひとつひとつ振る場合には下記のコマンドを使用してください。
           ─ 新しい出会い表（NMT） # New Meet Table
@@ -57,15 +57,14 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        case
-          when /^(\d+)KY(6|10)$/.match(command).nil? != true
-            roll_ky_judge(command)
-          when /FT/.match(command).nil? != true && /JFTO|JFTT|FFT/.match(command).nil? == true
-            roll_fumble(command)
-          when /NMTA|NMT|MCT|CIT|HYT|TLT|EPT/.match(command).nil? != true
-            generate_new_encounter(command)
-          when /FNG|LNT|FNT|JLTO|JLTT|FLT|JFTO|JFTT|FFT/.match(command).nil? != true
-            generate_new_name(command)
+        if /^(\d+)KY(6|10)$/.match(command).nil? != true
+          roll_ky_judge(command)
+        elsif /FT/.match(command).nil? != true && /JFTO|JFTT|FFT/.match(command).nil? == true
+          roll_fumble(command)
+        elsif /NMTA|NMT|MCT|CIT|HYT|TLT|EPT/.match(command).nil? != true
+          generate_new_encounter(command)
+        elsif /FNG|LNT|FNT|JLTO|JLTT|FLT|JFTO|JFTT|FFT/.match(command).nil? != true
+          generate_new_name(command)
         end
       end
 
@@ -140,270 +139,265 @@ module BCDice
           r.fumble = is_fumble
         end
       end
-    
-    def roll_fumble(command)
-      fumbledice = @randomizer.roll_once(6)
-      fumbletext = FTABLE[fumbledice - 1]
-    
-      return "ファンブル表(#{command}:#{fumbledice}) ＞ #{fumbletext}"
-    end
-    
-    def generate_new_encounter(command)
-      # 新しい出会い表（一括生成用もいったんまとめて振る）
-      if /NMTA|NMT/.match(command).nil? != true
-        table0 = NMTABLE
-        table0dice = @randomizer.roll_once(6)
-        if table0dice == 1
-          table1 = MCTABLE
-          table2 = TLTABLE
+
+      def roll_fumble(command)
+        fumbledice = @randomizer.roll_once(6)
+        fumbletext = FTABLE[fumbledice - 1]
+
+        return "ファンブル表(#{command}:#{fumbledice}) ＞ #{fumbletext}"
+      end
+
+      def generate_new_encounter(command)
+        # 新しい出会い表（一括生成用もいったんまとめて振る）
+        if /NMTA|NMT/.match(command).nil? != true
+          table0 = NMTABLE
+          table0dice = @randomizer.roll_once(6)
           table0txt = table0[table0dice]
-        elsif table0dice == 2
-          table1 = MCTABLE
-          table2 = EPTABLE
-          table0txt = table0[table0dice]
-        elsif table0dice == 3
-          table1 = CITABLE
-          table2 = TLTABLE
-          table0txt = table0[table0dice]
-        elsif table0dice == 4
-          table1 = CITABLE
-          table2 = EPTABLE
-          table0txt = table0[table0dice]
-        elsif table0dice == 5
-          table1 = HYTABLE
-          table2 = TLTABLE
-          table0txt = table0[table0dice]
+          if table0dice == 1
+            table1 = MCTABLE
+            table2 = TLTABLE
+          elsif table0dice == 2
+            table1 = MCTABLE
+            table2 = EPTABLE
+          elsif table0dice == 3
+            table1 = CITABLE
+            table2 = TLTABLE
+          elsif table0dice == 4
+            table1 = CITABLE
+            table2 = EPTABLE
+          elsif table0dice == 5
+            table1 = HYTABLE
+            table2 = TLTABLE
+          else
+            table1 = HYTABLE
+            table2 = EPTABLE
+          end
         else
-          table1 = HYTABLE
-          table2 = EPTABLE
+          # その他の表だけ用ダイス
+          table0dice = @randomizer.roll_once(10)
+        end
+
+        # 新しい出会いを求める際のランダム表個別
+        if /MCT/.match(command).nil? != true
+          table0 = MCTABLE
+          table0txt = table0[table0dice]
+        elsif /CIT/.match(command).nil? != true
+          table0 = CITABLE
+          table0txt = table0[table0dice]
+        elsif /HYT/.match(command).nil? != true
+          table0 = HYTABLE
+          table0txt = table0[table0dice]
+        elsif /TLT/.match(command).nil? != true
+          table0 = TLTABLE
+          table0txt = table0[table0dice]
+        elsif /EPT/.match(command).nil? != true
+          table0 = EPTABLE
           table0txt = table0[table0dice]
         end
-      else
-        # その他の表だけ用ダイス
-        table0dice = @randomizer.roll_once(10)
-      end
-      
-      # 新しい出会いを求める際のランダム表個別
-      if /MCT/.match(command).nil? != true
-        table0 = MCTABLE
-        table0txt = table0[table0dice]
-      elsif /CIT/.match(command).nil? != true
-        table0 = CITABLE
-        table0txt = table0[table0dice]
-      elsif /HYT/.match(command).nil? != true
-        table0 = HYTABLE
-        table0txt = table0[table0dice]
-      elsif /TLT/.match(command).nil? != true
-        table0 = TLTABLE
-        table0txt = table0[table0dice]
-      elsif /EPT/.match(command).nil? != true
-        table0 = EPTABLE
-        table0txt = table0[table0dice]
-      end
-      
-      # 新しい出会い表の一括振り分残りの表決定と結果用テキスト生成
-      if /NMTA/.match(command).nil? != true
-        table1dice = @randomizer.roll_once(10)
-        table1txt = table1[table1dice]
-        table2dice = @randomizer.roll_once(10)
-        table2txt = table2[table2dice]
-      
-        resulttxt = "#{table0[0]}(#{table0dice}) ＞ #{table0txt}\n#{table1[0]}(#{table1dice}) ＞ #{table1txt}\n#{table2[0]}(#{table2dice}) ＞ #{table2txt}"
-      else
-        # 一括じゃない場合は表1枚分なので結果用テキスト生成処理まとめて
-        resulttxt = "#{table0[0]}(#{table0dice}) ＞ #{table0txt}"
-      end
-      
-      return resulttxt
-    end
-    
-    def generate_new_name(command)
-      # 登録したD66のテーブル振るならroll_tables(command, TABLES)
-      # フルネーム一括生成
-      if /FNG/.match(command).nil? != true
-        nametabledice1 = @randomizer.roll_once(6)
-        result1 = "#{LNTABLE[0]}(#{nametabledice1}) ＞ #{LNTABLE[nametabledice1]}"
-        nametabledice2 = @randomizer.roll_once(6)
-        result2 = "#{FNTABLE[0]}(#{nametabledice2}) ＞ #{FNTABLE[nametabledice2]}"
-        if nametabledice1 == 1 ||  nametabledice1 == 2
-          result3 = roll_tables("JLTO", TABLES)
-        elsif  nametabledice1 == 3 ||  nametabledice1 == 4
-          result3 = roll_tables("JLTT", TABLES)
+
+        # 新しい出会い表の一括振り分残りの表決定と結果用テキスト生成
+        if /NMTA/.match(command).nil? != true
+          table1dice = @randomizer.roll_once(10)
+          table1txt = table1[table1dice]
+          table2dice = @randomizer.roll_once(10)
+          table2txt = table2[table2dice]
+
+          resulttxt = "#{table0[0]}(#{table0dice}) ＞ #{table0txt}\n#{table1[0]}(#{table1dice}) ＞ #{table1txt}\n#{table2[0]}(#{table2dice}) ＞ #{table2txt}"
         else
-          result3 = roll_tables("FLT", TABLES)
+          # 一括じゃない場合は表1枚分なので結果用テキスト生成処理まとめて
+          resulttxt = "#{table0[0]}(#{table0dice}) ＞ #{table0txt}"
         end
-        if nametabledice1 == 1 ||  nametabledice1 == 2
-          result4 = roll_tables("JFTO", TABLES)
-        elsif  nametabledice1 == 3 ||  nametabledice1 == 4
-          result4 = roll_tables("JFTT", TABLES)
+
+        return resulttxt
+      end
+
+      def generate_new_name(command)
+        # 登録したD66のテーブル振るならroll_tables(command, TABLES)
+        # フルネーム一括生成
+        if /FNG/.match(command).nil? != true
+          nametabledice1 = @randomizer.roll_once(6)
+          result1 = "#{LNTABLE[0]}(#{nametabledice1}) ＞ #{LNTABLE[nametabledice1]}"
+          nametabledice2 = @randomizer.roll_once(6)
+          result2 = "#{FNTABLE[0]}(#{nametabledice2}) ＞ #{FNTABLE[nametabledice2]}"
+          if [1, 2].include?(nametabledice1)
+            result3 = roll_tables("JLTO", TABLES)
+          elsif [3, 4].include?(nametabledice1)
+            result3 = roll_tables("JLTT", TABLES)
+          else
+            result3 = roll_tables("FLT", TABLES)
+          end
+          if [1, 2].include?(nametabledice1)
+            result4 = roll_tables("JFTO", TABLES)
+          elsif [3, 4].include?(nametabledice1)
+            result4 = roll_tables("JFTT", TABLES)
+          else
+            result4 = roll_tables("FFT", TABLES)
+          end
+        end
+
+        # 名字表or名前表（その後の表も振る）
+        if /LNT/.match(command).nil? != true
+          nametabledice1 = @randomizer.roll_once(6)
+          result1 = "#{LNTABLE[0]}(#{nametabledice1}) ＞ #{LNTABLE[nametabledice1]}"
+          if [1, 2].include?(nametabledice1)
+            result2 = roll_tables("JLTO", TABLES)
+          elsif [3, 4].include?(nametabledice1)
+            result2 = roll_tables("JLTT", TABLES)
+          else
+            result2 = roll_tables("FLT", TABLES)
+          end
+        elsif /FNT/.match(command).nil? != true
+          nametabledice1 = @randomizer.roll_once(6)
+          result1 = "#{FNTABLE[0]}(#{nametabledice1}) ＞ #{FNTABLE[nametabledice1]}"
+          if [1, 2].include?(nametabledice1)
+            result2 = roll_tables("JFTO", TABLES)
+          elsif [3, 4].include?(nametabledice1)
+            result2 = roll_tables("JFTT", TABLES)
+          else
+            result2 = roll_tables("FFT", TABLES)
+          end
+        end
+
+        # 各表単発
+        if /JLTO|JLTT|FLT|JFTO|JFTT|FFT/.match(command).nil? != true
+          result1 = roll_tables(command, TABLES)
+        end
+
+        # 結果表示用テキスト生成
+        if result4.nil? != true
+          resulttxt = result1 + "\n" + result3 + "\n" + result2 + "\n" + result4
+        elsif result2.nil? != true
+          resulttxt = result1 + "\n" + result2
         else
-          result4 = roll_tables("FFT", TABLES)
+          resulttxt = result1
         end
+
+        return resulttxt
       end
-      
-      # 名字表or名前表（その後の表も振る）
-      if /LNT/.match(command).nil? != true
-        nametabledice1 = @randomizer.roll_once(6)
-        result1 = "#{LNTABLE[0]}(#{nametabledice1}) ＞ #{LNTABLE[nametabledice1]}"
-        if nametabledice1 == 1 ||  nametabledice1 == 2
-          result2 = roll_tables("JLTO", TABLES)
-        elsif  nametabledice1 == 3 ||  nametabledice1 == 4
-          result2 = roll_tables("JLTT", TABLES)
-        else
-          result2 = roll_tables("FLT", TABLES)
-        end
-      elsif /FNT/.match(command).nil? != true
-        nametabledice1 = @randomizer.roll_once(6)
-        result1 = "#{FNTABLE[0]}(#{nametabledice1}) ＞ #{FNTABLE[nametabledice1]}"
-        if nametabledice1 == 1 ||  nametabledice1 == 2
-          result2 = roll_tables("JFTO", TABLES)
-        elsif  nametabledice1 == 3 ||  nametabledice1 == 4
-          result2 = roll_tables("JFTT", TABLES)
-        else
-          result2 = roll_tables("FFT", TABLES)
-        end
-      end
-      
-      # 各表単発
-      if /JLTO|JLTT|FLT|JFTO|JFTT|FFT/.match(command).nil? != true
-        result1 = roll_tables(command, TABLES)
-      end
-      
-      # 結果表示用テキスト生成
-      if result4.nil? != true
-        resulttxt = result1 + "\n" + result3 + "\n" + result2 + "\n" + result4
-      elsif result2.nil? != true
-        resulttxt = result1 + "\n" + result2
-      else
-        resulttxt = result1
-      end
-      
-      return resulttxt
-    end
-    
-    # Fumble Table
-    FTABLE = [
-      "とんでもない大失敗！　魔法でないと取り返しがつかない！　出目にかかわらず、「魔法の提案」をしない限り判定は失敗になる。",
-      "もうちょっと何かが足りない。自分の【がんばり】を1点消費することで、出目にかかわらず判定を成功にできる。【がんばり】を消費しなければ出目にかかわらず判定が失敗になる。",
-      "トラブルが発生したけど「大切な想い」を思い出して何とか乗り切った。大切だと思う世界から学んだこと、大切だと思いたい世界に対する気持ちを思い出して、なんとかしよう。自分の持っているカードの「大切な想い」を1つ選んで〇で囲む。〇で囲めない場合、判定は出目にかかわらず失敗になる。",
-      "トラブルが発生した。こんな自分を、あの人が見たらどう思うかな。自分が持っているカードに、「大切な想い」を考えて1つ書き込む。",
-      "トラブルが発生したけど、偶然にも自分の「守りたい人」が助けてくれた。あるいは、「守りたい人」の教えてくれたことが役立った。ありがとう……。",
-      "ちょっとヒヤリとする瞬間があったけど、何も起こらなかった。よかった。",
-    ]
-    
-    # New Meet Table
-    NMTABLE = [
-      "新しい出会い表",
-      "「偶然出会った表（MCT）」と「どんな人だったか表（TLT）」を使用してNPCを作成する。",
-      "「偶然出会った表（MCT）」と「変わった人だった表（EPT）」を使用してNPCを作成する。",
-      "「交流のなかった身近な人表（CIT）」と「どんな人だったか表（TLT）」を使用してNPCを作成する。",
-      "「交流のなかった身近な人表（CIT）」と「変わった人だった表（EPT）」を使用してNPCを作成する。",
-      "「助けてくれた人表（HYT）」と「どんな人だったか表（TLT）」を使用してNPCを作成する。",
-      "「助けてくれた人表（HYT）」と「変わった人だった表（EPT）」を使用してNPCを作成する。",
-    ]
-    
-    # Meet by Chance Table
-    MCTABLE = [
-      "偶然出会った表",
-      "何らかの事件や事故が起こり、それに巻き込まれた人を助けるために動いた。そのお礼をしたいと声をかけられた。",
-      "急に振り出した雨。屋根のある所に雨宿りをした際に、同じく雨宿りをしていた人物と話をした。",
-      "図書館の資料を集めていたところ、偶然にも同じ資料を借りようとしていた人物とバッティングしてしまった。どちらが先にするか話し合った。",
-      "魔法やオカルトの事を調べるのが趣味らしく、ちょっとした魔法の事件が起こった場所をうろついていた。巻き込まれないように声をかけたら、自分が怪しまれた。",
-      "街を歩いている時に、うずくまっている人を見つけた。何があったのかと声をかけてみると、何か困っていることがあるらしい。それを助けた。",
-      "偶然にも稼働していない魔具を見つけたので、回収するために持ち主と話をすることになった。",
-      "以前、魔具関係の事件で駆け回った時の自分を見かけた人がいたらしい。その時の顔が印象に残ったらしく、何をしていたのか聞かれた。",
-      "「MAGIA」にたちよったところ、知らない店員がいた。新しく雇ったアルバイトらしく、何をしていたのか聞かれた。",
-      "たまたま立ち寄った飲食店の店長から、試供品が提供されて、味の感想を求められた。どうやら新メニューを作りたいらしく、いろいろな人の意見を聞いているらしい。",
-      "「守りたい人」に会いに行ったら、「守りたい人」の親友と名乗る人と出会った。自分の知らない「守りたい人」について話してくれた。",
-    ]
-    
-    # someone Close to you but no Interaction Table
-    CITABLE = [
-      "交流のなかった身近な人表",
-      "その人は自分の親戚で、家の用事で出かけたときに親などから紹介をされた。話をしてみたら、自分の興味と同じものを研究していた。",
-      "親などに頼まれて、ご近所に挨拶へ伺った。その人は近所で見かけることがあったが、不思議と今まで交流がなく、よくわからない人だった。",
-      "「守りたい人」がたまに話題に出す友人と、「守りたい人」に紹介される形で会う機会ができた。この人はどんな人なのか、見てみよう。",
-      "きょうだいの知り合いで、挨拶ぐらいはしていたけど、二人きりになったのは初めてだった。きょうだいも用事でいないし、どう話したものか。",
-      "学業やスポーツの関係で、遠くの国で暮らしていたきょうだい（あるいはいとこ）が帰ってきた。優秀な成績を修めて、世間からも注目されている人物にどう接しようか。",
-      "昔はずっと一緒に遊んでいた幼馴染だったけど、事情があって最近まで遠くに出かけていた。数日前に帰ってきたらしく、挨拶しにやってきた。",
-      "「MAGIA」に立ち寄ったところ、店長から話しかけられた。どうも今は暇らしく、話し相手になってほしいとのことだ。",
-      "SNSなどで知り合い、趣味が合ってネット上の友人となれた人物と、外でも会うことになった。",
-      "クラスや職場で人気の人が、たまたま一人でいるところを見かけた。向こうもこちらに気づいたらしく、話しかけてきた。さて、どうするかな。",
-      "趣味の集いに行ったら、クラスメイトや元クラスメイトがいた。趣味の場で会ってみると教室との印象が違った。",
-    ]
-    
-    # someone Help You table
-    HYTABLE = [
-      "助けてくれた人表",
-      "忘れ物をしたが、それを届けてくれた。その際に少し話をしたが、優しく丁寧で好感の持てる人だった。",
-      "自分が転びそうになった、あるいは轢かれそうになった時に、助けてくれた。",
-      "用事があって普段行かない場所に行ったとき、迷子になった自分を助けてくれた。",
-      "自分がケガをした子供の対処に困っている時、一緒になって子供の面倒を診てくれた。",
-      "自分は幼い頃、外でケガをしてしまったことがある。その時に応急処置をして、病院まで運んでくれた人がいる。その人と偶然再会した。",
-      "自分は幼い頃、何かしらの事情で孤独になり、辛かった時期がある。そんな時に、声をかけて一緒に遊んでくれた人がいた。その人と再会した。",
-      "自分が不良や話しかけられたくないタイプの人に絡まれた時、声をかけて助けてくれた人がいる。",
-      "図書館などで資料集めをしている際に、声をかけて助けてくれた人がいた。",
-      "魔具や財布など重要なものを失くしてしまい、探している必死そうな自分を見て助けてくれた。",
-      "昔、魔法関係で困った時に、助けてくれた魔法使いがいた。その人が何かの用事で「MAGIA」に立ち寄っており、その時に声をかけた。",
-    ]
-    
-    # what's They Like Table
-    TLTABLE = [
-      "どんな人だったか表",
-      "「守りたい人」によく似ている。",
-      "不良っぽいファッションだけど、単にそういう格好が好きなだけで丁寧な人だった。",
-      "パリッとした服装、きちんとした身なりで優等生あるいは真面目な人という感じ。",
-      "活発そうな人物で、スポーツに打ち込んでいそうな体格と口調。いかにも体育会系。",
-      "サバサバとした性格で、いろいろな人の悩み事を聞いては解決しようとしていた兄貴分（姉貴分）。",
-      "細かいことが気になるタイプのようで、何かとチェックしてそうな視線を感じた。",
-      "優しい性格で、自分の言葉を待って聞いてくれる人だった。",
-      "おしゃべりな人物で、いろいろなことをしゃべってくれる。そのうえで、こちらの話も聞いてくれた。",
-      "不思議と小動物のような印象を受けた。懐いてきて、自分の反応を楽しみにしているような、そんな人だ。",
-      "「守りたい人」の知り合いで、共通の知り合いの話題ができた。",
-    ]
-    
-    # Eccentric Person Table
-    EPTABLE = [
-      "変わった人だった表",
-      "元気すぎる。声も大きいし、自分は振り回されるし。ちょっと疲れる。",
-      "優しそうだけど、どこか底知れない、何を考えているのかわからない人物だった。",
-      "見るからに遊び人で、言動も軽く見える。どこか一定以上親しくなるのを恐れている部分が垣間見えた。",
-      "ぶっきらぼうで一見とっつきづらい印象だけど、こちらのことをよく見ていて、助けようとしている。たぶん、寂しがり屋。",
-      "トレンドを着こなしていて、いかにもおしゃれな人だった。ファッションだけでなく、あらゆることを調べて理解しようと動いている。努力の人なんだと思う。",
-      "自分がその人にとって大事な人に似ているらしく、世話を焼こうとしてくれている。",
-      "お菓子職人や料理人を目指しているらしく、試食を頼んでくる。",
-      "誰かを助けなければならない、という理念があり、とにかく人助けをして回っている人だった。自分のことは二の次のようだ。",
-      "すごい資産家の一族らしく、身に着けている物はすべて高級で、教養もあった。",
-      "常に何かのアルバイトをしている。掛け持ちだから忙しくしているらしい。",
-    ]
-    
-    # LastName Table
-    LNTABLE = [
-      "名字表",
-      "日本名字表1（JLTO）を使用する。",
-      "日本名字表1（JLTO）を使用する。",
-      "日本名字表2（JLTT）を使用する。",
-      "日本名字表2（JLTT）を使用する。",
-      "カタカナ名字表（FLT）を使用する。",
-      "カタカナ名字表（FLT）を使用する。",
-    ]
-    
-    # FirstName Table
-    FNTABLE = [
-      "名前表",
-      "日本名前表1（JFTO）を使用する。",
-      "日本名前表1（JFTO）を使用する。",
-      "日本名前表2（JFTT）を使用する。",
-      "日本名前表2（JFTT）を使用する。",
-      "カタカナ名前表（FFT）を使用する。",
-      "カタカナ名前表（FFT）を使用する。",
-    ]
-    
-    TABLES = {
-      # Japanese Lastname Table One
-      "JLTO" => DiceTable::D66Table.new(
-        "日本名字表1",
-        D66SortType::ASC,
+
+      # Fumble Table
+      FTABLE = [
+        "とんでもない大失敗！　魔法でないと取り返しがつかない！　出目にかかわらず、「魔法の提案」をしない限り判定は失敗になる。",
+        "もうちょっと何かが足りない。自分の【がんばり】を1点消費することで、出目にかかわらず判定を成功にできる。【がんばり】を消費しなければ出目にかかわらず判定が失敗になる。",
+        "トラブルが発生したけど「大切な想い」を思い出して何とか乗り切った。大切だと思う世界から学んだこと、大切だと思いたい世界に対する気持ちを思い出して、なんとかしよう。自分の持っているカードの「大切な想い」を1つ選んで〇で囲む。〇で囲めない場合、判定は出目にかかわらず失敗になる。",
+        "トラブルが発生した。こんな自分を、あの人が見たらどう思うかな。自分が持っているカードに、「大切な想い」を考えて1つ書き込む。",
+        "トラブルが発生したけど、偶然にも自分の「守りたい人」が助けてくれた。あるいは、「守りたい人」の教えてくれたことが役立った。ありがとう……。",
+        "ちょっとヒヤリとする瞬間があったけど、何も起こらなかった。よかった。",
+      ].freeze
+
+      # New Meet Table
+      NMTABLE = [
+        "新しい出会い表",
+        "「偶然出会った表（MCT）」と「どんな人だったか表（TLT）」を使用してNPCを作成する。",
+        "「偶然出会った表（MCT）」と「変わった人だった表（EPT）」を使用してNPCを作成する。",
+        "「交流のなかった身近な人表（CIT）」と「どんな人だったか表（TLT）」を使用してNPCを作成する。",
+        "「交流のなかった身近な人表（CIT）」と「変わった人だった表（EPT）」を使用してNPCを作成する。",
+        "「助けてくれた人表（HYT）」と「どんな人だったか表（TLT）」を使用してNPCを作成する。",
+        "「助けてくれた人表（HYT）」と「変わった人だった表（EPT）」を使用してNPCを作成する。",
+      ].freeze
+
+      # Meet by Chance Table
+      MCTABLE = [
+        "偶然出会った表",
+        "何らかの事件や事故が起こり、それに巻き込まれた人を助けるために動いた。そのお礼をしたいと声をかけられた。",
+        "急に振り出した雨。屋根のある所に雨宿りをした際に、同じく雨宿りをしていた人物と話をした。",
+        "図書館の資料を集めていたところ、偶然にも同じ資料を借りようとしていた人物とバッティングしてしまった。どちらが先にするか話し合った。",
+        "魔法やオカルトの事を調べるのが趣味らしく、ちょっとした魔法の事件が起こった場所をうろついていた。巻き込まれないように声をかけたら、自分が怪しまれた。",
+        "街を歩いている時に、うずくまっている人を見つけた。何があったのかと声をかけてみると、何か困っていることがあるらしい。それを助けた。",
+        "偶然にも稼働していない魔具を見つけたので、回収するために持ち主と話をすることになった。",
+        "以前、魔具関係の事件で駆け回った時の自分を見かけた人がいたらしい。その時の顔が印象に残ったらしく、何をしていたのか聞かれた。",
+        "「MAGIA」にたちよったところ、知らない店員がいた。新しく雇ったアルバイトらしく、何をしていたのか聞かれた。",
+        "たまたま立ち寄った飲食店の店長から、試供品が提供されて、味の感想を求められた。どうやら新メニューを作りたいらしく、いろいろな人の意見を聞いているらしい。",
+        "「守りたい人」に会いに行ったら、「守りたい人」の親友と名乗る人と出会った。自分の知らない「守りたい人」について話してくれた。",
+      ].freeze
+
+      # someone Close to you but no Interaction Table
+      CITABLE = [
+        "交流のなかった身近な人表",
+        "その人は自分の親戚で、家の用事で出かけたときに親などから紹介をされた。話をしてみたら、自分の興味と同じものを研究していた。",
+        "親などに頼まれて、ご近所に挨拶へ伺った。その人は近所で見かけることがあったが、不思議と今まで交流がなく、よくわからない人だった。",
+        "「守りたい人」がたまに話題に出す友人と、「守りたい人」に紹介される形で会う機会ができた。この人はどんな人なのか、見てみよう。",
+        "きょうだいの知り合いで、挨拶ぐらいはしていたけど、二人きりになったのは初めてだった。きょうだいも用事でいないし、どう話したものか。",
+        "学業やスポーツの関係で、遠くの国で暮らしていたきょうだい（あるいはいとこ）が帰ってきた。優秀な成績を修めて、世間からも注目されている人物にどう接しようか。",
+        "昔はずっと一緒に遊んでいた幼馴染だったけど、事情があって最近まで遠くに出かけていた。数日前に帰ってきたらしく、挨拶しにやってきた。",
+        "「MAGIA」に立ち寄ったところ、店長から話しかけられた。どうも今は暇らしく、話し相手になってほしいとのことだ。",
+        "SNSなどで知り合い、趣味が合ってネット上の友人となれた人物と、外でも会うことになった。",
+        "クラスや職場で人気の人が、たまたま一人でいるところを見かけた。向こうもこちらに気づいたらしく、話しかけてきた。さて、どうするかな。",
+        "趣味の集いに行ったら、クラスメイトや元クラスメイトがいた。趣味の場で会ってみると教室との印象が違った。",
+      ].freeze
+
+      # someone Help You table
+      HYTABLE = [
+        "助けてくれた人表",
+        "忘れ物をしたが、それを届けてくれた。その際に少し話をしたが、優しく丁寧で好感の持てる人だった。",
+        "自分が転びそうになった、あるいは轢かれそうになった時に、助けてくれた。",
+        "用事があって普段行かない場所に行ったとき、迷子になった自分を助けてくれた。",
+        "自分がケガをした子供の対処に困っている時、一緒になって子供の面倒を診てくれた。",
+        "自分は幼い頃、外でケガをしてしまったことがある。その時に応急処置をして、病院まで運んでくれた人がいる。その人と偶然再会した。",
+        "自分は幼い頃、何かしらの事情で孤独になり、辛かった時期がある。そんな時に、声をかけて一緒に遊んでくれた人がいた。その人と再会した。",
+        "自分が不良や話しかけられたくないタイプの人に絡まれた時、声をかけて助けてくれた人がいる。",
+        "図書館などで資料集めをしている際に、声をかけて助けてくれた人がいた。",
+        "魔具や財布など重要なものを失くしてしまい、探している必死そうな自分を見て助けてくれた。",
+        "昔、魔法関係で困った時に、助けてくれた魔法使いがいた。その人が何かの用事で「MAGIA」に立ち寄っており、その時に声をかけた。",
+      ].freeze
+
+      # what's They Like Table
+      TLTABLE = [
+        "どんな人だったか表",
+        "「守りたい人」によく似ている。",
+        "不良っぽいファッションだけど、単にそういう格好が好きなだけで丁寧な人だった。",
+        "パリッとした服装、きちんとした身なりで優等生あるいは真面目な人という感じ。",
+        "活発そうな人物で、スポーツに打ち込んでいそうな体格と口調。いかにも体育会系。",
+        "サバサバとした性格で、いろいろな人の悩み事を聞いては解決しようとしていた兄貴分（姉貴分）。",
+        "細かいことが気になるタイプのようで、何かとチェックしてそうな視線を感じた。",
+        "優しい性格で、自分の言葉を待って聞いてくれる人だった。",
+        "おしゃべりな人物で、いろいろなことをしゃべってくれる。そのうえで、こちらの話も聞いてくれた。",
+        "不思議と小動物のような印象を受けた。懐いてきて、自分の反応を楽しみにしているような、そんな人だ。",
+        "「守りたい人」の知り合いで、共通の知り合いの話題ができた。",
+      ].freeze
+
+      # Eccentric Person Table
+      EPTABLE = [
+        "変わった人だった表",
+        "元気すぎる。声も大きいし、自分は振り回されるし。ちょっと疲れる。",
+        "優しそうだけど、どこか底知れない、何を考えているのかわからない人物だった。",
+        "見るからに遊び人で、言動も軽く見える。どこか一定以上親しくなるのを恐れている部分が垣間見えた。",
+        "ぶっきらぼうで一見とっつきづらい印象だけど、こちらのことをよく見ていて、助けようとしている。たぶん、寂しがり屋。",
+        "トレンドを着こなしていて、いかにもおしゃれな人だった。ファッションだけでなく、あらゆることを調べて理解しようと動いている。努力の人なんだと思う。",
+        "自分がその人にとって大事な人に似ているらしく、世話を焼こうとしてくれている。",
+        "お菓子職人や料理人を目指しているらしく、試食を頼んでくる。",
+        "誰かを助けなければならない、という理念があり、とにかく人助けをして回っている人だった。自分のことは二の次のようだ。",
+        "すごい資産家の一族らしく、身に着けている物はすべて高級で、教養もあった。",
+        "常に何かのアルバイトをしている。掛け持ちだから忙しくしているらしい。",
+      ].freeze
+
+      # LastName Table
+      LNTABLE = [
+        "名字表",
+        "日本名字表1（JLTO）を使用する。",
+        "日本名字表1（JLTO）を使用する。",
+        "日本名字表2（JLTT）を使用する。",
+        "日本名字表2（JLTT）を使用する。",
+        "カタカナ名字表（FLT）を使用する。",
+        "カタカナ名字表（FLT）を使用する。",
+      ].freeze
+
+      # FirstName Table
+      FNTABLE = [
+        "名前表",
+        "日本名前表1（JFTO）を使用する。",
+        "日本名前表1（JFTO）を使用する。",
+        "日本名前表2（JFTT）を使用する。",
+        "日本名前表2（JFTT）を使用する。",
+        "カタカナ名前表（FFT）を使用する。",
+        "カタカナ名前表（FFT）を使用する。",
+      ].freeze
+
+      TABLES = {
+        # Japanese Lastname Table One
+        "JLTO" => DiceTable::D66Table.new(
+          "日本名字表1",
+          D66SortType::ASC,
           {
             11 => "有栖（ありす）",
             12 => "佐藤（さとう）",
@@ -427,11 +421,11 @@ module BCDice
             56 => "柳（やなぎ）",
             66 => "蓬莱（ほうらい）",
           }
-      ),
-      # Japanese Lastname Table Two
-      "JLTT" => DiceTable::D66Table.new(
-        "日本名字表2",
-        D66SortType::ASC,
+        ),
+        # Japanese Lastname Table Two
+        "JLTT" => DiceTable::D66Table.new(
+          "日本名字表2",
+          D66SortType::ASC,
           {
             11 => "蜂須賀（はちすか）",
             12 => "山本（やまもと）",
@@ -455,11 +449,11 @@ module BCDice
             56 => "桜森（さくらもり）",
             66 => "百合園（ゆりぞの）",
           }
-      ),
-      # Foreien Lastname Table
-      "FLT" => DiceTable::D66Table.new(
-        "カタカナ名字表",
-        D66SortType::ASC,
+        ),
+        # Foreien Lastname Table
+        "FLT" => DiceTable::D66Table.new(
+          "カタカナ名字表",
+          D66SortType::ASC,
           {
             11 => "レイエス",
             12 => "スミス",
@@ -483,11 +477,11 @@ module BCDice
             56 => "ユン",
             66 => "ホン",
           }
-      ),
-      # Japanese Firstname Table One
-      "JFTO" => DiceTable::D66Table.new(
-        "日本名前表1",
-        D66SortType::ASC,
+        ),
+        # Japanese Firstname Table One
+        "JFTO" => DiceTable::D66Table.new(
+          "日本名前表1",
+          D66SortType::ASC,
           {
             11 => "涼太（りょうた）／八重（やえ）",
             12 => "蒼（あおい）／雅（みやび）",
@@ -511,12 +505,12 @@ module BCDice
             56 => "悠（ゆう）／彩（あや）",
             66 => "秀助（しゅうすけ）／那留（なる）",
           }
-      ),
-      # Japanese Firstname Table Two
-      "JFTT" => DiceTable::D66Table.new(
-        "日本名前表2",
-        D66SortType::ASC,
-        {
+        ),
+        # Japanese Firstname Table Two
+        "JFTT" => DiceTable::D66Table.new(
+          "日本名前表2",
+          D66SortType::ASC,
+          {
             11 => "一郎（いちろう）／かぐや",
             12 => "太一（たいち）／さくら",
             13 => "颯太（そうた）／あかり",
@@ -539,11 +533,11 @@ module BCDice
             56 => "陸人（りくと）／心音（ここね）",
             66 => "康平（こうへい）／沙織（さおり）",
           }
-      ),
-      # Foreien Firstname Table
-      "FFT" => DiceTable::D66Table.new(
-        "カタカナ名前表",
-        D66SortType::ASC,
+        ),
+        # Foreien Firstname Table
+        "FFT" => DiceTable::D66Table.new(
+          "カタカナ名前表",
+          D66SortType::ASC,
           {
             11 => "カルロ／ビアンカ",
             12 => "リアム／オリビア",
@@ -567,8 +561,8 @@ module BCDice
             56 => "ソジュン／ソア",
             66 => "ジュウォン／スピン",
           }
-      ),
-    }.freeze
+        ),
+      }.freeze
     end
   end
 end
