@@ -25,7 +25,7 @@ module BCDice
           ファンブル時の処理を決定します。
 
         ─ 新しい出会いを求める
-          ─ 一括 新しい出会い表（NMTA） # New Meet Table#{' '}
+          ─ 一括 新しい出会い表（NMTA） # New Meet Table
             その後の表を含めてすべて同時に決定します。
             ひとつひとつ振る場合には下記のコマンドを使用してください。
           ─ 新しい出会い表（NMT） # New Meet Table
