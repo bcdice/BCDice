@@ -1,3 +1,6 @@
+##############
+### AD判定 ###
+##############
 [[ test ]]
 game_system = "ArknightsFan"
 input = "AD<=70"
@@ -117,6 +120,9 @@ rands = [
   { sides = 100, value = 14 },
 ]
 
+##############
+### AB判定 ###
+##############
 [[ test ]]
 game_system = "ArknightsFan"
 input = "AB<=70"
@@ -477,6 +483,9 @@ rands = [
   { sides = 100, value = 14 },
 ]
 
+######################
+### 役職付きAB判定 ###
+######################
 [[ test ]]
 game_system = "ArknightsFan"
 input = "1AB100<=70--SNI"
@@ -622,6 +631,137 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
+input = "ORP(60,25)"
+output = "(ORP(60,25)) ＞ ダイス数2, 判定値35 ＞ [35,50] ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 35 },
+  { sides = 100, value = 50 },
+]
+
+###############
+### ORP判定 ###
+###############
+# ルルブp.32 例1, 成功例
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP(70,25)"
+output = "(ORP(70,25)) ＞ ダイス数2, 判定値35 ＞ [35,50] ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 35 },
+  { sides = 100, value = 50 },
+]
+
+# ルルブp. 32 例1, 失敗例
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP(70,25)"
+output = "(ORP(70,25)) ＞ ダイス数2, 判定値35 ＞ [36,50] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 36 },
+  { sides = 100, value = 50 },
+]
+
+# ルルブp. 32 例1, 自動失敗例
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP(90,68)"
+output = "(ORP(90,68)) ＞ ダイス数3, 判定値-20 ＞ 自動失敗！"
+failure = true
+rands = [
+]
+
+# 判定値補正
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP(70,25,10)"
+output = "(ORP(70,25,10)) ＞ ダイス数2, 判定値45 ＞ [45,50] ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 45 },
+  { sides = 100, value = 50 },
+]
+
+# ダイス数補正
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP(70,25)+2D"
+output = "(ORP(70,25)+2D) ＞ ダイス数4, 判定値35 ＞ [35,50,100,100] ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 35 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+]
+
+# 生理的耐性: 欠落
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP(20,25)"
+output = "(ORP(20,25)) ＞ ダイス数1, 判定値35 ＞ [35] ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 35 },
+]
+
+# 生理的耐性: 普通
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP(40,25)"
+output = "(ORP(40,25)) ＞ ダイス数2, 判定値35 ＞ [35,50] ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 35 },
+  { sides = 100, value = 50 },
+]
+
+# 生理的耐性: 優秀
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP(90,25)"
+output = "(ORP(90,25)) ＞ ダイス数3, 判定値35 ＞ [35,50,100] ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 35 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 100 },
+]
+
+# 生理的耐性: 卓越
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP(100,25)"
+output = "(ORP(100,25)) ＞ ダイス数4, 判定値35 ＞ [35,50,100,100] ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 35 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+]
+
+# 数式表記
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP(30+40,35-10,5+5)++5-3D"
+output = "(ORP(30+40,35-10,5+5)++5-3D) ＞ ダイス数4, 判定値45 ＞ [35,50,100,100] ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 35 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 100 },
+  { sides = 100, value = 100 },
+]
+
+
+#####################
+### 増悪/中毒判定 ###
+#####################
+[[ test ]]
+game_system = "ArknightsFan"
 input = "--WORSENING"
 output = "--WORSENING ＞ 末梢神経障害: 2 rounds"
 rands = [
@@ -679,3 +819,4 @@ output = "--ADDICTION ＞ 急性ストレス反応"
 rands = [
   { sides = 3, value = 3 },
 ]
+
