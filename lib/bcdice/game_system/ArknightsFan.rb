@@ -57,6 +57,8 @@ module BCDice
 
       def initialize(command)
         super(command)
+        @sort_add_dice = true # 加算ダイスでダイス目をソートする
+        @sort_barabara_dice = true # バラバラダイスでダイス目をソートする
         @sides_implicit_d = nil # 1D のようにダイスの面数が指定されていない場合にダイス表記に置換しない
       end
 
@@ -122,7 +124,8 @@ module BCDice
         target = Arithmetic.eval(m[3], @round_type)
         times = !times.empty? ? Arithmetic.eval(m[1], @round_type) : 1
         sides = !sides.empty? ? sides.to_i : 100
-        return roll_d(command, times, sides, target)
+
+        roll_d(command, times, sides, target)
       end
 
       def roll_ab(command)
