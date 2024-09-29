@@ -550,7 +550,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "AB<=70--Sniper0"
-output = "(AB<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
+output = "(AB<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E+0(SNIPER) ＞ 成功数1"
 success = true
 rands = [
   { sides = 100, value = 50 },
@@ -559,7 +559,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "1AB<=70--Sniper0"
-output = "(1AB<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
+output = "(1AB<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E+0(SNIPER) ＞ 成功数1"
 success = true
 rands = [
   { sides = 100, value = 50 },
@@ -568,7 +568,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "AB100<=70--Sniper0"
-output = "(AB100<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
+output = "(AB100<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E+0(SNIPER) ＞ 成功数1"
 success = true
 rands = [
   { sides = 100, value = 50 },
@@ -577,7 +577,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "1AB100<=70--Sniper0"
-output = "(1AB100<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E ＞ 成功数1"
+output = "(1AB100<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E+0(SNIPER) ＞ 成功数1"
 success = true
 rands = [
   { sides = 100, value = 50 },
@@ -586,7 +586,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "3AB100<=70--Sniper0"
-output = "(3AB100<=70--SNIPER0) ＞ [50,50,90] ＞ 2+0C-0E ＞ 成功数2"
+output = "(3AB100<=70--SNIPER0) ＞ [50,50,90] ＞ 2+0C-0E+0(SNIPER) ＞ 成功数2"
 success = true
 rands = [
   { sides = 100, value = 90 },
@@ -598,39 +598,6 @@ rands = [
 game_system = "ArknightsFan"
 input = "3AB100<=70--Sniper1"
 output = "(3AB100<=70--SNIPER1) ＞ [50,50,90] ＞ 2+0C-0E+1(SNIPER) ＞ 成功数3"
-success = true
-rands = [
-  { sides = 100, value = 90 },
-  { sides = 100, value = 50 },
-  { sides = 100, value = 50 },
-]
-
-[[ test ]]
-game_system = "ArknightsFan"
-input = "3AB100<=70--先鋒"
-output = "(3AB100<=70--先鋒) ＞ [50,50,90] ＞ 2+0C-0E+0(先鋒) ＞ 成功数2"
-success = true
-rands = [
-  { sides = 100, value = 90 },
-  { sides = 100, value = 50 },
-  { sides = 100, value = 50 },
-]
-
-[[ test ]]
-game_system = "ArknightsFan"
-input = "3AB100<=70--先鋒1"
-output = "(3AB100<=70--先鋒1) ＞ [50,50,90] ＞ 2+0C-0E+0(先鋒) ＞ 成功数2"
-success = true
-rands = [
-  { sides = 100, value = 90 },
-  { sides = 100, value = 50 },
-  { sides = 100, value = 50 },
-]
-
-[[ test ]]
-game_system = "ArknightsFan"
-input = "3AB100<=70--先鋒0"
-output = "(3AB100<=70--先鋒0) ＞ [50,50,90] ＞ 2+0C-0E ＞ 成功数2"
 success = true
 rands = [
   { sides = 100, value = 90 },

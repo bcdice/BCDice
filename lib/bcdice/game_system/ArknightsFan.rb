@@ -122,15 +122,15 @@ module BCDice
         sides = m[2]
         target = Arithmetic.eval(m[3], @round_type)
         type = m[4]
-        type_enable = m[5]
+        type_status = m[5]
         times = !times.empty? ? Arithmetic.eval(m[1], @round_type) : 1
         sides = !sides.empty? ? sides.to_i : 100
-        type_enable = !type_enable.nil? ? type_enable.to_i : 1
+        type_status = !type_status.nil? ? type_status.to_i : 1
 
-        if type.nil? || (type_enable == 0)
+        if type.nil?
           roll_b(command, times, sides, target)
         else
-          roll_b_withtype(command, times, sides, target, type)
+          roll_b_withtype(command, times, sides, target, type, type_status)
         end
       end
 
@@ -170,19 +170,25 @@ module BCDice
         end
       end
 
-      def roll_b_withtype(command, times, sides, target, type)
+      def roll_b_withtype(command, times, sides, target, type, type_status)
         dice_list, success_count, critical_count, error_count = process_b(times, sides, target)
         result_count = success_count + critical_count - error_count
 
-        type_effect =
-          if (type == "SNIPER") && (result_count > 0)
-            1
+        case type
+        when "SNIPER"
+          if (type_status != 0) && (result_count > 0)
+            result_mod = 1
           else
-            0
+            result_mod = 0
           end
-        result_count += type_effect
+        end
 
-        result_text = "(#{command}) ＞ [#{dice_list.join(',')}] ＞ #{success_count}+#{critical_count}C-#{error_count}E+#{type_effect}(#{type}) ＞ 成功数#{result_count}"
+        if !result_mod.nil?
+          result_count += result_mod
+          result_text = "(#{command}) ＞ [#{dice_list.join(',')}] ＞ #{success_count}+#{critical_count}C-#{error_count}E+#{result_mod}(#{type}) ＞ 成功数#{result_count}"
+        else
+          result_text = "(#{command}) ＞ [#{dice_list.join(',')}] ＞ #{success_count}+#{critical_count}C-#{error_count}E ＞ 成功数#{result_count}"
+        end
         Result.new.tap do |r|
           r.text = result_text
           r.condition = result_count > 0
