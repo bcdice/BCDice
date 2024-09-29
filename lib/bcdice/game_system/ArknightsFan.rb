@@ -25,13 +25,15 @@ module BCDice
             出目が10以下でクリティカル。成功数+1。
           上記による成功数をカウント。
 
-        ■ 役職効果付き攻撃判定 (nABm<=x--役職名)
+        ■ 役職効果付き攻撃判定 (nABm<=x--役職名h)
+          h: 健康状態(0: 健康、1: 中等症、2: 重症)
           nBmのダイスロールをして、
             出目が x 以下であれば成功数+1。
             出目が91以上でエラー。成功数-1。
             出目が10以下でクリティカル。成功数+1。
           上記による成功数をカウントした上で、以下の役職名による成功数増加効果を適応。
-            狙撃（SNIPER）: 成功数1以上のとき、成功数+1。
+            狙撃（SNI）: 健康(h=0)かつ成功数1以上のとき、成功数+1。
+          健康状態hを省略した場合、健康(h=0)として扱われる。
 
         ■ 増悪判定（--WORSENING）
           症状を「末梢神経障害」「内臓機能不全」「精神症状」からランダムに選択。
@@ -115,7 +117,7 @@ module BCDice
       end
 
       def roll_ab(command)
-        m = %r{^([-+*/\d]*)AB(\d*)<=([-+*/\d]+)(?:--([^\d\s]+)(0|1)?)?$}.match(command)
+        m = %r{^([-+*/\d]*)AB(\d*)<=([-+*/\d]+)(?:--([^\d\s]+)([0-2])?)?$}.match(command)
         return nil unless m
 
         times = m[1]
@@ -125,7 +127,13 @@ module BCDice
         type_status = m[5]
         times = !times.empty? ? Arithmetic.eval(m[1], @round_type) : 1
         sides = !sides.empty? ? sides.to_i : 100
-        type_status = !type_status.nil? ? type_status.to_i : 1
+        if !type_status.nil?
+          type_status = type_status.to_i
+        elsif type == "SNIPER"  # スプレッドシート版キャラシの後方互換性のために必要
+          type_status = 1
+        else
+          type_status = 0
+        end
 
         if type.nil?
           roll_b(command, times, sides, target)
@@ -175,7 +183,13 @@ module BCDice
         result_count = success_count + critical_count - error_count
 
         case type
-        when "SNIPER"
+        when "SNI"
+          if (type_status == 0) && (result_count > 0)
+            result_mod = 1
+          else
+            result_mod = 0
+          end
+        when "SNIPER"           # スプレッドシート版キャラシの後方互換性のため残している
           if (type_status != 0) && (result_count > 0)
             result_mod = 1
           else

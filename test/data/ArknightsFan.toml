@@ -479,8 +479,8 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "AB<=70--Sniper"
-output = "(AB<=70--SNIPER) ＞ [50] ＞ 1+0C-0E+1(SNIPER) ＞ 成功数2"
+input = "1AB100<=70--SNI"
+output = "(1AB100<=70--SNI) ＞ [50] ＞ 1+0C-0E+1(SNI) ＞ 成功数2"
 success = true
 rands = [
   { sides = 100, value = 50 },
@@ -488,35 +488,8 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "1AB<=70--Sniper"
-output = "(1AB<=70--SNIPER) ＞ [50] ＞ 1+0C-0E+1(SNIPER) ＞ 成功数2"
-success = true
-rands = [
-  { sides = 100, value = 50 },
-]
-
-[[ test ]]
-game_system = "ArknightsFan"
-input = "AB100<=70--Sniper"
-output = "(AB100<=70--SNIPER) ＞ [50] ＞ 1+0C-0E+1(SNIPER) ＞ 成功数2"
-success = true
-rands = [
-  { sides = 100, value = 50 },
-]
-
-[[ test ]]
-game_system = "ArknightsFan"
-input = "1AB100<=70--Sniper"
-output = "(1AB100<=70--SNIPER) ＞ [50] ＞ 1+0C-0E+1(SNIPER) ＞ 成功数2"
-success = true
-rands = [
-  { sides = 100, value = 50 },
-]
-
-[[ test ]]
-game_system = "ArknightsFan"
-input = "3AB100<=70--Sniper"
-output = "(3AB100<=70--SNIPER) ＞ [50,50,90] ＞ 2+0C-0E+1(SNIPER) ＞ 成功数3"
+input = "3AB100<=70--Sni"
+output = "(3AB100<=70--SNI) ＞ [50,50,90] ＞ 2+0C-0E+1(SNI) ＞ 成功数3"
 success = true
 rands = [
   { sides = 100, value = 90 },
@@ -526,8 +499,8 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "3AB100<=70--Sniper"
-output = "(3AB100<=70--SNIPER) ＞ [50,80,91] ＞ 1+0C-1E+0(SNIPER) ＞ 成功数0"
+input = "3AB100<=70--sni"
+output = "(3AB100<=70--SNI) ＞ [50,80,91] ＞ 1+0C-1E+0(SNI) ＞ 成功数0"
 fumble = true
 failure = true
 rands = [
@@ -538,8 +511,8 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "3AB100<=70--Sniper あ"
-output = "(3AB100<=70--SNIPER) ＞ [50,50,90] ＞ 2+0C-0E+1(SNIPER) ＞ 成功数3"
+input = "3AB100<=70--Sni ほげ"
+output = "(3AB100<=70--SNI) ＞ [50,50,90] ＞ 2+0C-0E+1(SNI) ＞ 成功数3"
 success = true
 rands = [
   { sides = 100, value = 90 },
@@ -549,8 +522,8 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "AB<=70--Sniper0"
-output = "(AB<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E+0(SNIPER) ＞ 成功数1"
+input = "1AB100<=70--Sni0"
+output = "(1AB100<=70--SNI0) ＞ [50] ＞ 1+0C-0E+1(SNI) ＞ 成功数2"
 success = true
 rands = [
   { sides = 100, value = 50 },
@@ -558,8 +531,8 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "1AB<=70--Sniper0"
-output = "(1AB<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E+0(SNIPER) ＞ 成功数1"
+input = "1AB100<=70--Sni1"
+output = "(1AB100<=70--SNI1) ＞ [50] ＞ 1+0C-0E+0(SNI) ＞ 成功数1"
 success = true
 rands = [
   { sides = 100, value = 50 },
@@ -567,10 +540,43 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
-input = "AB100<=70--Sniper0"
-output = "(AB100<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E+0(SNIPER) ＞ 成功数1"
+input = "1AB100<=70--Sni2"
+output = "(1AB100<=70--SNI2) ＞ [50] ＞ 1+0C-0E+0(SNI) ＞ 成功数1"
 success = true
 rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--Sni0"
+output = "(3AB100<=70--SNI0) ＞ [50,50,90] ＞ 2+0C-0E+1(SNI) ＞ 成功数3"
+success = true
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--Sni1"
+output = "(3AB100<=70--SNI1) ＞ [50,50,90] ＞ 2+0C-0E+0(SNI) ＞ 成功数2"
+success = true
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--Sni2"
+output = "(3AB100<=70--SNI2) ＞ [50,50,90] ＞ 2+0C-0E+0(SNI) ＞ 成功数2"
+success = true
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
   { sides = 100, value = 50 },
 ]
 
@@ -578,6 +584,15 @@ rands = [
 game_system = "ArknightsFan"
 input = "1AB100<=70--Sniper0"
 output = "(1AB100<=70--SNIPER0) ＞ [50] ＞ 1+0C-0E+0(SNIPER) ＞ 成功数1"
+success = true
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
+input = "1AB100<=70--Sniper1"
+output = "(1AB100<=70--SNIPER1) ＞ [50] ＞ 1+0C-0E+1(SNIPER) ＞ 成功数2"
 success = true
 rands = [
   { sides = 100, value = 50 },
