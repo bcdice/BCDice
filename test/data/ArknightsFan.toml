@@ -636,7 +636,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "ORP70@25"
-output = "(ORP70@25) ＞ ダイス数2, 判定値35 ＞ [35,50] ＞ 成功"
+output = "(ORP70@25) ＞ ダイス数2、判定値35 ＞ 2B100<=35 ＞ [35,50] ＞ [成功、失敗] ＞ 成功"
 success = true
 rands = [
   { sides = 100, value = 35 },
@@ -647,7 +647,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "ORP70@25"
-output = "(ORP70@25) ＞ ダイス数2, 判定値35 ＞ [36,50] ＞ 失敗"
+output = "(ORP70@25) ＞ ダイス数2、判定値35 ＞ 2B100<=35 ＞ [36,50] ＞ [失敗、失敗] ＞ 失敗"
 failure = true
 rands = [
   { sides = 100, value = 36 },
@@ -658,7 +658,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "ORP90@68"
-output = "(ORP90@68) ＞ ダイス数3, 判定値-20 ＞ 自動失敗！"
+output = "(ORP90@68) ＞ ダイス数3、判定値-20 ＞ 3B100<=-20 ＞ 自動失敗！"
 failure = true
 rands = [
 ]
@@ -667,7 +667,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "ORP70@25+D2"
-output = "(ORP70@25+D2) ＞ ダイス数4, 判定値35 ＞ [35,50,100,100] ＞ 成功"
+output = "(ORP70@25+D2) ＞ ダイス数2+2、判定値35 ＞ 4B100<=35 ＞ [35,50,100,100] ＞ [成功、失敗、失敗、失敗] ＞ 成功"
 success = true
 rands = [
   { sides = 100, value = 35 },
@@ -680,7 +680,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "ORP70@25+T10"
-output = "(ORP70@25+T10) ＞ ダイス数2, 判定値45 ＞ [45,50] ＞ 成功"
+output = "(ORP70@25+T10) ＞ ダイス数2、判定値35+10 ＞ 2B100<=45 ＞ [45,50] ＞ [成功、失敗] ＞ 成功"
 success = true
 rands = [
   { sides = 100, value = 45 },
@@ -691,12 +691,12 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "ORP70@25+D2+T10"
-output = "(ORP70@25+D2+T10) ＞ ダイス数4, 判定値45 ＞ [45,50,100,100] ＞ 成功"
+output = "(ORP70@25+D2+T10) ＞ ダイス数2+2、判定値35+10 ＞ 4B100<=45 ＞ [35,45,46,100] ＞ [成功、成功、失敗、失敗] ＞ 成功"
 success = true
 rands = [
+  { sides = 100, value = 35 },
   { sides = 100, value = 45 },
-  { sides = 100, value = 50 },
-  { sides = 100, value = 100 },
+  { sides = 100, value = 46 },
   { sides = 100, value = 100 },
 ]
 
@@ -704,7 +704,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "ORP70@25+T10+D2"
-output = "(ORP70@25+T10+D2) ＞ ダイス数4, 判定値45 ＞ [45,50,100,100] ＞ 成功"
+output = "(ORP70@25+T10+D2) ＞ ダイス数2+2、判定値35+10 ＞ 4B100<=45 ＞ [45,50,100,100] ＞ [成功、失敗、失敗、失敗] ＞ 成功"
 success = true
 rands = [
   { sides = 100, value = 45 },
@@ -717,7 +717,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "ORP20@25"
-output = "(ORP20@25) ＞ ダイス数1, 判定値35 ＞ [35] ＞ 成功"
+output = "(ORP20@25) ＞ ダイス数1、判定値35 ＞ 1B100<=35 ＞ [35] ＞ [成功] ＞ 成功"
 success = true
 rands = [
   { sides = 100, value = 35 },
@@ -727,7 +727,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "ORP40@25"
-output = "(ORP40@25) ＞ ダイス数2, 判定値35 ＞ [35,50] ＞ 成功"
+output = "(ORP40@25) ＞ ダイス数2、判定値35 ＞ 2B100<=35 ＞ [35,50] ＞ [成功、失敗] ＞ 成功"
 success = true
 rands = [
   { sides = 100, value = 35 },
@@ -738,7 +738,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "ORP90@25"
-output = "(ORP90@25) ＞ ダイス数3, 判定値35 ＞ [35,50,100] ＞ 成功"
+output = "(ORP90@25) ＞ ダイス数3、判定値35 ＞ 3B100<=35 ＞ [35,50,100] ＞ [成功、失敗、失敗] ＞ 成功"
 success = true
 rands = [
   { sides = 100, value = 35 },
@@ -750,7 +750,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "ORP100@25"
-output = "(ORP100@25) ＞ ダイス数4, 判定値35 ＞ [35,50,100,100] ＞ 成功"
+output = "(ORP100@25) ＞ ダイス数4、判定値35 ＞ 4B100<=35 ＞ [35,50,100,100] ＞ [成功、失敗、失敗、失敗] ＞ 成功"
 success = true
 rands = [
   { sides = 100, value = 35 },
@@ -763,10 +763,10 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "ORP30+40@35-10+D5-3+T5+5"
-output = "(ORP30+40@35-10+D5-3+T5+5) ＞ ダイス数4, 判定値45 ＞ [35,50,100,100] ＞ 成功"
+output = "(ORP30+40@35-10+D5-3+T5+5) ＞ ダイス数2+2、判定値35+10 ＞ 4B100<=45 ＞ [45,50,100,100] ＞ [成功、失敗、失敗、失敗] ＞ 成功"
 success = true
 rands = [
-  { sides = 100, value = 35 },
+  { sides = 100, value = 45 },
   { sides = 100, value = 50 },
   { sides = 100, value = 100 },
   { sides = 100, value = 100 },

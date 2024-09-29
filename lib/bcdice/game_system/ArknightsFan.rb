@@ -245,22 +245,33 @@ module BCDice
         sides = 100
 
         endurance_level = ENDURANCE_LEVEL_TABLE.find_index { |n| endurance <= n }
-        times = ORP_TIMES_TABLE[endurance_level] + times_mod
+        original_times = ORP_TIMES_TABLE[endurance_level]
+        times = original_times + times_mod
 
         oripathy_stage = (oripathy / 20).floor
-        target = (80 - oripathy_stage * 20) - (oripathy - oripathy_stage * 20) * 5 + target_mod
+        original_target = (80 - oripathy_stage * 20) - (oripathy - oripathy_stage * 20) * 5
+        target = original_target + target_mod
+        dice_and_target_text = "ダイス数#{original_times}" +
+                               (times_mod > 0 ? "+#{times_mod}" : "") +
+                               "、判定値#{original_target}" +
+                               (target_mod > 0 ? "+#{target_mod}" : "")
+        result_texts = ["(#{command})", dice_and_target_text, "#{times}B100<=#{target}"]
 
         if target <= 0
-          return Result.failure("(#{command}) ＞ ダイス数#{times}, 判定値#{target} ＞ 自動失敗！")
+          result_texts += ["自動失敗！"]
+          return Result.failure(result_texts.join(" ＞ "))
         end
 
         # 複数振ったダイスのうち1つでも判定値を下回れば成功なので、最も出目の小さいダイスのみを確認すればよい。
         # dice_listをソートした上で、dice_list[0]が最小の出目。
         dice_list = @randomizer.roll_barabara(times, sides).sort
+        success_failure_list = dice_list.map { |n| n <= target ? "成功" : "失敗" }
         if dice_list[0] <= target
-          Result.success("(#{command}) ＞ ダイス数#{times}, 判定値#{target} ＞ [#{dice_list.join(',')}] ＞ 成功")
+          result_texts += ["[#{dice_list.join(',')}]", "[#{success_failure_list.join('、')}]", "成功"]
+          Result.success(result_texts.join(" ＞ "))
         else
-          Result.failure("(#{command}) ＞ ダイス数#{times}, 判定値#{target} ＞ [#{dice_list.join(',')}] ＞ 失敗")
+          result_texts += ["[#{dice_list.join(',')}]", "[#{success_failure_list.join('、')}]", "失敗"]
+          Result.failure(result_texts.join(" ＞ "))
         end
       end
 
