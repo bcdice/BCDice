@@ -35,9 +35,11 @@ module BCDice
             狙撃（SNI）: 健康(h=0)かつ成功数1以上のとき、成功数+1。
           健康状態hを省略した場合、健康(h=0)として扱われる。
 
-        ■ 鉱石病判定 (ORP(p,q,n)+mD)
-          生理的耐性pのOPが侵食度qに上昇した際の鉱石病判定、判定値補正n、ダイス数補正mで行う。
-          判定値補正とダイス数補正は省略可能。例えば、ORP(60,25)はORP(60,25,0)+0Dと同義。
+        ■ 鉱石病判定 (ORPx@y+Dd+Tt)
+          x: 生理的耐性、y: 上昇後侵食度、d: ダイス補正、t: 判定値補正
+          生理的耐性xのOPが侵食度yに上昇した際の鉱石病判定を、ダイス数補正d、判定値補正tで行う。
+          ダイス数補正と判定値補正は省略可能。例えば ORP60@25 は ORP60@25+D0+T0 と同義。
+          また、ダイス数補正と判定値補正は逆順でも可。例えば ORP60@25+T10+D2 も可。
 
         ■ 増悪判定（--WORSENING）
           症状を「末梢神経障害」「内臓機能不全」「精神症状」からランダムに選択。
@@ -57,9 +59,9 @@ module BCDice
 
       def initialize(command)
         super(command)
-        @sort_add_dice = true # 加算ダイスでダイス目をソートする
+        @sort_add_dice = true      # 加算ダイスでダイス目をソートする
         @sort_barabara_dice = true # バラバラダイスでダイス目をソートする
-        @sides_implicit_d = nil # 1D のようにダイスの面数が指定されていない場合にダイス表記に置換しない
+        @sides_implicit_d = 100    # 1D のようにダイスの面数が指定されていない場合に100面ダイスにする
       end
 
       def eval_game_system_specific_command(command)
@@ -155,15 +157,17 @@ module BCDice
       end
 
       def roll_orp(command)
-        m = %r{^ORP\(([-+*/\d]+),([-+*/\d]+)(?:,([-+*/\d]+))?\)(?:\+([-+*/\d]+)D)?$}.match(command)
+        m   = %r{^ORP(?'END'[-+*/\d]+)@(?'ORP'[-+*/\d]+)(?:\+D(?'DICE'[-+*/\d]+))?(?:\+T(?'TGT'[-+*/\d]+))?$}.match(command)
+        # D補正とT補正が逆順でも対応する
+        m ||= %r{^ORP(?'END'[-+*/\d]+)@(?'ORP'[-+*/\d]+)(?:\+T(?'TGT'[-+*/\d]+))?(?:\+D(?'DICE'[-+*/\d]+))?$}.match(command)
         return nil unless m
 
-        endurance = Arithmetic.eval(m[1], @round_type)
-        oripathy = Arithmetic.eval(m[2], @round_type)
-        target_mod = !m[3].nil? ? Arithmetic.eval(m[3], @round_type) : 0
-        times_mod = !m[4].nil? ? Arithmetic.eval(m[4], @round_type) : 0
+        endurance = Arithmetic.eval(m[:END], @round_type)
+        oripathy = Arithmetic.eval(m[:ORP], @round_type)
+        times_mod = !m[3].nil? ? Arithmetic.eval(m[:DICE], @round_type) : 0
+        target_mod = !m[4].nil? ? Arithmetic.eval(m[:TGT], @round_type) : 0
 
-        roll_oripathy(command, endurance, oripathy, target_mod, times_mod)
+        roll_oripathy(command, endurance, oripathy, times_mod, target_mod)
       end
 
       def roll_d(command, times, sides, target)
@@ -237,7 +241,7 @@ module BCDice
 
       ENDURANCE_LEVEL_TABLE = [20, 40, 70, 90, Float::INFINITY].freeze # 生理的耐性の実数値から能力評価への変換テーブル
       ORP_TIMES_TABLE = [1, 2, 2, 3, 4].freeze                         # 生理的耐性の能力評価ごとのダイス数基本値
-      def roll_oripathy(command, endurance, oripathy, target_mod, times_mod)
+      def roll_oripathy(command, endurance, oripathy, times_mod, target_mod)
         sides = 100
 
         endurance_level = ENDURANCE_LEVEL_TABLE.find_index { |n| endurance <= n }
