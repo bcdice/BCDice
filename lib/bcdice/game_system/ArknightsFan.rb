@@ -55,7 +55,7 @@ module BCDice
           例えば、AD<=90は1AD100<=90として解釈される。
       TEXT
 
-      register_prefix('[-+*/\d]*AD\d*', '[-+*/\d]*AB\d*', 'ORP', '--ADDICTION', '--WORSENING')
+      register_prefix('[-+*/\d]*AD\d*', '[-+*/\d]*AB\d*', 'ORP', '--WORSENING', '--ADDICTION')
 
       def initialize(command)
         super(command)
@@ -65,7 +65,7 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        roll_ad(command) || roll_ab(command) || roll_orp(command) || roll_addiction(command) || roll_worsening(command)
+        eval_ad(command) || eval_ab(command) || eval_orp(command) || eval_worsening(command) || eval_addiction(command)
       end
 
       private
@@ -115,7 +115,7 @@ module BCDice
         return result
       end
 
-      def roll_ad(command)
+      def eval_ad(command)
         # -は文字クラスの先頭または最後に置く。
         # そうしないと範囲指定子として解釈される。
         m = %r{^([-+*/\d]*)AD(\d*)<=([-+*/\d]+)$}.match(command)
@@ -127,10 +127,10 @@ module BCDice
         times = !times.empty? ? Arithmetic.eval(m[1], @round_type) : 1
         sides = !sides.empty? ? sides.to_i : 100
 
-        roll_d(command, times, sides, target)
+        roll_ad(command, times, sides, target)
       end
 
-      def roll_ab(command)
+      def eval_ab(command)
         m = %r{^([-+*/\d]*)AB(\d*)<=([-+*/\d]+)(?:--([^\d\s]+)([0-2])?)?$}.match(command)
         return nil unless m
 
@@ -150,13 +150,13 @@ module BCDice
         end
 
         if type.nil?
-          roll_b(command, times, sides, target)
+          roll_ab(command, times, sides, target)
         else
-          roll_b_withtype(command, times, sides, target, type, type_status)
+          roll_ab_withtype(command, times, sides, target, type, type_status)
         end
       end
 
-      def roll_orp(command)
+      def eval_orp(command)
         m   = %r{^ORP(?'END'[-+*/\d]+)@(?'ORP'[-+*/\d]+)(?:\+D(?'DICE'[-+*/\d]+))?(?:\+T(?'TGT'[-+*/\d]+))?$}.match(command)
         # D補正とT補正が逆順でも対応する
         m ||= %r{^ORP(?'END'[-+*/\d]+)@(?'ORP'[-+*/\d]+)(?:\+T(?'TGT'[-+*/\d]+))?(?:\+D(?'DICE'[-+*/\d]+))?$}.match(command)
@@ -167,10 +167,10 @@ module BCDice
         times_mod = !m[3].nil? ? Arithmetic.eval(m[:DICE], @round_type) : 0
         target_mod = !m[4].nil? ? Arithmetic.eval(m[:TGT], @round_type) : 0
 
-        roll_oripathy(command, endurance, oripathy, times_mod, target_mod)
+        roll_orp(command, endurance, oripathy, times_mod, target_mod)
       end
 
-      def roll_d(command, times, sides, target)
+      def roll_ad(command, times, sides, target)
         dice_list = @randomizer.roll_barabara(times, sides).sort
         total = dice_list.sum
 
@@ -193,8 +193,10 @@ module BCDice
         end
       end
 
-      def roll_b(command, times, sides, target)
-        dice_list, success_count, critical_count, error_count = process_b(times, sides, target)
+      def roll_ab(command, times, sides, target)
+        dice_list = @randomizer.roll_barabara(times, sides).sort
+
+        success_count, critical_count, error_count = process_ab(dice_list, target)
         result_count = success_count + critical_count - error_count
 
         result_text = "(#{command}) ＞ [#{dice_list.join(',')}] ＞ #{success_count}+#{critical_count}C-#{error_count}E ＞ 成功数#{result_count}"
@@ -206,8 +208,10 @@ module BCDice
         end
       end
 
-      def roll_b_withtype(command, times, sides, target, type, type_status)
-        dice_list, success_count, critical_count, error_count = process_b(times, sides, target)
+      def roll_ab_withtype(command, times, sides, target, type, type_status)
+        dice_list = @randomizer.roll_barabara(times, sides).sort
+
+        success_count, critical_count, error_count = process_ab(dice_list, target)
         result_count = success_count + critical_count - error_count
 
         case type
@@ -241,7 +245,7 @@ module BCDice
 
       ENDURANCE_LEVEL_TABLE = [20, 40, 70, 90, Float::INFINITY].freeze # 生理的耐性の実数値から能力評価への変換テーブル
       ORP_TIMES_TABLE = [1, 2, 2, 3, 4].freeze                         # 生理的耐性の能力評価ごとのダイス数基本値
-      def roll_oripathy(command, endurance, oripathy, times_mod, target_mod)
+      def roll_orp(command, endurance, oripathy, times_mod, target_mod)
         sides = 100
 
         endurance_level = ENDURANCE_LEVEL_TABLE.find_index { |n| endurance <= n }
@@ -275,9 +279,7 @@ module BCDice
         end
       end
 
-      def process_b(times, sides, target)
-        dice_list = @randomizer.roll_barabara(times, sides).sort
-
+      def process_ab(dice_list, target)
         success_count = 0
         critical_count = 0
         error_count = 0
@@ -296,22 +298,7 @@ module BCDice
           end
         end
 
-        return [dice_list, success_count, critical_count, error_count]
-      end
-
-      ADDICTION_TABLE = [
-        "中枢神経障害",
-        "多臓器不全",
-        "急性ストレス反応",
-      ].freeze
-
-      def roll_addiction(command)
-        return nil if command != "--ADDICTION"
-
-        value = @randomizer.roll_once(3)
-        chosen = ADDICTION_TABLE[value - 1]
-
-        return "--ADDICTION ＞ #{chosen}"
+        return [success_count, critical_count, error_count]
       end
 
       WORSENING_TABLE = [
@@ -320,7 +307,7 @@ module BCDice
         "精神症状",
       ].freeze
 
-      def roll_worsening(command)
+      def eval_worsening(command)
         return nil if command != "--WORSENING"
 
         value = @randomizer.roll_once(3)
@@ -328,6 +315,21 @@ module BCDice
         elapse = @randomizer.roll_once(6) + 1
 
         return "--WORSENING ＞ #{chosen}: #{elapse} rounds"
+      end
+
+      ADDICTION_TABLE = [
+        "中枢神経障害",
+        "多臓器不全",
+        "急性ストレス反応",
+      ].freeze
+
+      def eval_addiction(command)
+        return nil if command != "--ADDICTION"
+
+        value = @randomizer.roll_once(3)
+        chosen = ADDICTION_TABLE[value - 1]
+
+        return "--ADDICTION ＞ #{chosen}"
       end
     end
   end
