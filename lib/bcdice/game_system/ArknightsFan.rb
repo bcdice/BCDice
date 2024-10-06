@@ -265,12 +265,12 @@ module BCDice
         # 複数振ったダイスのうち1つでも判定値を下回れば成功なので、最も出目の小さいダイスのみを確認すればよい。
         # dice_listをソートした上で、dice_list[0]が最小の出目。
         dice_list = @randomizer.roll_barabara(times, sides).sort
-        success_failure_list = dice_list.map { |n| n <= target ? "成功" : "失敗" }
-        if dice_list[0] <= target
-          result_texts += ["[#{dice_list.join(',')}]", "[#{success_failure_list.join('、')}]", "成功"]
+        success_count = dice_list.count { |n| n <= target }
+        if success_count > 0
+          result_texts += ["[#{dice_list.join(',')}]", "成功数#{success_count}", "成功"]
           Result.success(result_texts.join(" ＞ "))
         else
-          result_texts += ["[#{dice_list.join(',')}]", "[#{success_failure_list.join('、')}]", "失敗"]
+          result_texts += ["[#{dice_list.join(',')}]", "成功数#{success_count}", "失敗"]
           Result.failure(result_texts.join(" ＞ "))
         end
       end
