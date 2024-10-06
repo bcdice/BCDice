@@ -880,7 +880,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--ADDICTION"
-output = "--ADDICTION ＞ 中枢神経障害"
+output = "--ADDICTION ＞ 脳神経障害"
 rands = [
   { sides = 3, value = 1 },
 ]
@@ -896,7 +896,7 @@ rands = [
 [[ test ]]
 game_system = "ArknightsFan"
 input = "--ADDICTION"
-output = "--ADDICTION ＞ 急性ストレス反応"
+output = "--ADDICTION ＞ 急性精神症状"
 rands = [
   { sides = 3, value = 3 },
 ]

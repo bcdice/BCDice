@@ -46,7 +46,7 @@ module BCDice
           継続ラウンド数を1d6+1で判定。
 
         ■ 中毒判定（--ADDICTION）
-          症状を「中枢神経障害」「多臓器不全」「急性ストレス反応」からランダムに選択。
+          症状を「脳神経障害」「多臓器不全」「急性精神反応」からランダムに選択。
 
         ■ 判定の省略表記
           nADm、nABm、nABmにおいて、
@@ -318,9 +318,9 @@ module BCDice
       end
 
       ADDICTION_TABLE = [
-        "中枢神経障害",
+        "脳神経障害",
         "多臓器不全",
-        "急性ストレス反応",
+        "急性精神症状",
       ].freeze
 
       def eval_addiction(command)
