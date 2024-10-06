@@ -143,7 +143,7 @@ module BCDice
         sides = !sides.empty? ? sides.to_i : 100
         if !type_status.nil?
           type_status = type_status.to_i
-        elsif type == "SNIPER"  # スプレッドシート版キャラシの後方互換性のために必要
+        elsif type == "SNIPER" # スプレッドシート版キャラシの後方互換性のために必要
           type_status = 1
         else
           type_status = 0
@@ -221,7 +221,7 @@ module BCDice
           else
             result_mod = 0
           end
-        when "SNIPER"           # スプレッドシート版キャラシの後方互換性のため残している
+        when "SNIPER" # スプレッドシート版キャラシの後方互換性のため残している
           if (type_status != 0) && (result_count > 0)
             result_mod = 1
           else

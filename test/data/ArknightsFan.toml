@@ -120,6 +120,16 @@ rands = [
   { sides = 100, value = 14 },
 ]
 
+[[ test ]]
+game_system = "ArknightsFan"
+input = "2AD<=120"
+output = "(2AD<=120) ＞ 110[50,60] ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 60 },
+  { sides = 100, value = 50 },
+]
+
 ##############
 ### AB判定 ###
 ##############
@@ -609,6 +619,15 @@ rands = [
 
 [[ test ]]
 game_system = "ArknightsFan"
+input = "1AB100<=70--Sniper"
+output = "(1AB100<=70--SNIPER) ＞ [50] ＞ 1+0C-0E+1(SNIPER) ＞ 成功数2"
+success = true
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "ArknightsFan"
 input = "3AB100<=70--Sniper0"
 output = "(3AB100<=70--SNIPER0) ＞ [50,50,90] ＞ 2+0C-0E+0(SNIPER) ＞ 成功数2"
 success = true
@@ -622,6 +641,18 @@ rands = [
 game_system = "ArknightsFan"
 input = "3AB100<=70--Sniper1"
 output = "(3AB100<=70--SNIPER1) ＞ [50,50,90] ＞ 2+0C-0E+1(SNIPER) ＞ 成功数3"
+success = true
+rands = [
+  { sides = 100, value = 90 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 50 },
+]
+
+# 未実装。実装方法検討中。
+[[ test ]]
+game_system = "ArknightsFan"
+input = "3AB100<=70--GUR"
+output = "(3AB100<=70--GUR) ＞ [50,50,90] ＞ 2+0C-0E ＞ 成功数2"
 success = true
 rands = [
   { sides = 100, value = 90 },
