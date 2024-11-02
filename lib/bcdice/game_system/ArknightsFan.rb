@@ -252,7 +252,11 @@ module BCDice
         original_times = ORP_TIMES_TABLE[endurance_level]
         times = original_times + times_mod
 
-        oripathy_stage = (oripathy / 20).floor
+        if oripathy <= 20
+          return Result.new("(#{command}) ＞ 鉱石病判定が発生しない侵食度です。侵食度は21以上を指定してください。")
+        end
+
+        oripathy_stage = (oripathy / 20.0).ceil - 1
         original_target = (80 - oripathy_stage * 20) - (oripathy - oripathy_stage * 20) * 5
         target = original_target + target_mod
         dice_and_target_text = "ダイス数#{original_times}" +

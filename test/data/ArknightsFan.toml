@@ -648,18 +648,6 @@ rands = [
   { sides = 100, value = 50 },
 ]
 
-# 未実装。実装方法検討中。
-[[ test ]]
-game_system = "ArknightsFan"
-input = "3AB100<=70--GUR"
-output = "(3AB100<=70--GUR) ＞ [50,50,90] ＞ 2+0C-0E ＞ 成功数2"
-success = true
-rands = [
-  { sides = 100, value = 90 },
-  { sides = 100, value = 50 },
-  { sides = 100, value = 50 },
-]
-
 ###############
 ### ORP判定 ###
 ###############
@@ -868,6 +856,118 @@ rands = [
   { sides = 100, value = 100 },
 ]
 
+# 侵食度が21未満のときのエラーメッセージ
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP30@20"
+output = "(ORP30@20) ＞ 鉱石病判定が発生しない侵食度です。侵食度は21以上を指定してください。"
+success = false
+failure = false
+critical = false
+fumble = false
+rands = [
+]
+
+## エッジケース群
+# 侵食度21
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP40@21"
+output = "(ORP40@21) ＞ ダイス数2、判定値55 ＞ 2B100<=55 ＞ [35,50] ＞ 成功数2 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 35 },
+  { sides = 100, value = 50 },
+]
+
+# 侵食度40
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP40@40"
+output = "(ORP40@40) ＞ ダイス数2、判定値-40 ＞ 2B100<=-40 ＞ 自動失敗！"
+failure = true
+rands = [
+]
+
+# 侵食度41
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP40@41"
+output = "(ORP40@41) ＞ ダイス数2、判定値35 ＞ 2B100<=35 ＞ [35,50] ＞ 成功数1 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 35 },
+  { sides = 100, value = 50 },
+]
+
+# 侵食度60
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP40@60"
+output = "(ORP40@60) ＞ ダイス数2、判定値-60 ＞ 2B100<=-60 ＞ 自動失敗！"
+failure = true
+rands = [
+]
+
+# 侵食度61
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP40@41"
+output = "(ORP40@41) ＞ ダイス数2、判定値35 ＞ 2B100<=35 ＞ [35,50] ＞ 成功数1 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 35 },
+  { sides = 100, value = 50 },
+]
+
+# 侵食度80
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP40@60"
+output = "(ORP40@60) ＞ ダイス数2、判定値-60 ＞ 2B100<=-60 ＞ 自動失敗！"
+failure = true
+rands = [
+]
+
+# 侵食度61
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP40@61"
+output = "(ORP40@61) ＞ ダイス数2、判定値15 ＞ 2B100<=15 ＞ [35,50] ＞ 成功数0 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 35 },
+  { sides = 100, value = 50 },
+]
+
+# 侵食度80
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP40@80"
+output = "(ORP40@80) ＞ ダイス数2、判定値-80 ＞ 2B100<=-80 ＞ 自動失敗！"
+failure = true
+rands = [
+]
+
+# 侵食度81
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP40@81+T10"
+output = "(ORP40@81+T10) ＞ ダイス数2、判定値-5+10 ＞ 2B100<=5 ＞ [5,50] ＞ 成功数1 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 5 },
+  { sides = 100, value = 50 },
+]
+
+# 侵食度99
+[[ test ]]
+game_system = "ArknightsFan"
+input = "ORP40@99+T10"
+output = "(ORP40@99+T10) ＞ ダイス数2、判定値-95+10 ＞ 2B100<=-85 ＞ 自動失敗！"
+failure = true
+rands = [
+]
 
 #####################
 ### 増悪/中毒判定 ###
