@@ -14,22 +14,22 @@ module BCDice
 
       HELP_MESSAGE = <<~TEXT
         ガラクティアVer1.03
-        ■ 判定 (nd6+m>=x)
-          nD6+mのダイスロールをして、その合計が x を超えていたら成功。
-          出目6が2個あればクリティカル。出目が全て1ならファンブル。
+        x:基準値
+        y:目標値
+        x, yについては四則演算の入力が可能
 
-        ■ 命中判定 (nATK+m>=x)
-          nD6+mのダイスロールをして、その合計が x を超えていたら成功。
-          nは省略可能(ATK+m>=x の場合2個のダイスロールを行います)
-          出目6が2個あればクリティカル。出目が全て1ならファンブル。
-          目標値より４以上合計が上の場合、急所命中になります。
-
-        ■ 回避判定 (nKIH+m>=x)
-          nD6+mのダイスロールをして、その合計が x を超えていたら成功。
-          nは省略可能(KIH+m>=x の場合2個のダイスロールを行います)
-          出目6が2個あればクリティカル。出目が全て1ならファンブル。
-          目標値より-4以上の場合、半減命中になります。
-
+        ■達成値の算出(GRx)
+          クリティカル・ファンブルの判定、達成値の表示を行う。
+        ■通常判定(GRx>=y)
+          通常の判定を行う。
+        ■命中判定(GRHx>=y)
+          命中判定を行う。
+        ■回避判定(GRDx>=y)
+          回避判定を行う。
+        ■抵抗判定(GRMx>=y)
+          抵抗判定を行う。
+        ■探索成功マスレベル算出(GRSx)
+          探索・索敵判定時の最大成功マスレベル(ML)を算出する
         ■ 表
           アイテム決定表(ITMn)
             ランクnのアイテム表を振る。例)ITM2 ランク２アイテム表
@@ -286,118 +286,174 @@ module BCDice
         ),
       }.freeze
 
-      register_prefix('\d*ATK', '\d*KIH', 'ITM[2-6]', 'BUI', 'SST')
+      register_prefix('^GR[HDMS]?', 'ITM[2-6]', 'BUI', 'SST')
 
       def eval_game_system_specific_command(command)
-        roll_attack(command) ||
-          roll_kaihi(command) ||
+        cmd_gr(command) ||
           roll_item(command) ||
           roll_tables(command, BUI_TABLES) ||
           roll_tables(command, SISETSU_TABLES)
       end
 
-      ## nD6での通常判定
-      def result_nd6(total, _dice_total, dice_list, cmp_op, target)
-        n_max = dice_list.count(6)
-
-        if dice_list.count(1) == dice_list.size
-          # 全部１の目ならファンブル
-          Result.fumble(translate("fumble"))
-        elsif n_max >= 2
-          # ２個以上６の目があったらクリティカル
-          Result.critical(translate("critical"))
-        elsif cmp_op != :>= || target == '?'
-          nil
-        elsif total >= target
-          Result.success(translate("success"))
-        else
-          Result.failure(translate("failure"))
+      # GR系コマンドの分割
+      def cmd_gr(command)
+        case command
+        when /^GRS/
+          roll_search(command)
+        when /^GR[HDM]/
+          roll_target(command)
+        when /^GR/
+          roll_gr(command)
         end
       end
 
-      ## 命中判定
-      def roll_attack(command)
-        parser = Command::Parser.new("ATK", round_type: round_type)
-                                .enable_prefix_number()
-                                .restrict_cmp_op_to(:>=, nil)
-        cmd = parser.parse(command)
-        return nil unless cmd
+      # 探索・索敵判定
+      def roll_search(command)
+        m = %r{^GRS([+-/*\d]+)?$}.match(command)
+        unless m
+          return nil
+        end
 
-        times = cmd.prefix_number || 2
+        modifier = ArithmeticEvaluator.eval(m[1])
 
-        dice_list_full = @randomizer.roll_barabara(times, 6).sort
+        dice_result = roll_dice_with_modifier(modifier)
+        r = determine_no_target_result("S", dice_result[:total], dice_result[:critical], dice_result[:fumble])
 
-        dice_result = dice_list_full.sum()
-
-        total = dice_result + cmd.modify_number
-
-        result =
-          if dice_result == 12
-            Result.critical(translate("critical"))
-          elsif cmd.cmp_op.nil?
-            Result.new
-          elsif dice_result == 2
-            Result.fumble(translate("fumble"))
-          elsif total >= cmd.target_number + 4
-            Result.success("急所命中")
-          elsif total >= cmd.target_number
-            Result.success(translate("success"))
-          else
-            Result.failure(translate("failure"))
-          end
-
-        sequence = [
-          "(#{cmd.to_s(:after_modify_number)})",
-          "#{dice_result}#{dice_list_full}#{Format.modifier(cmd.modify_number)}",
-          total,
-          result.text
-        ].compact
-
-        result.text = sequence.join(" ＞ ")
-        return result
+        r.text = "(#{m[0]}) ＞ #{dice_result[:dice_sum]}[#{dice_result[:dice_list].join(',')}]#{m[1]} ＞ #{dice_result[:total]} ＞ #{r.text}"
+        return r
       end
 
-      ## 回避判定
-      def roll_kaihi(command)
-        parser = Command::Parser.new("KIH", round_type: round_type)
-                                .enable_prefix_number()
-                                .restrict_cmp_op_to(:>=, nil)
-        cmd = parser.parse(command)
-        return nil unless cmd
+      # 目標値を持つ判定ロール
+      def roll_target(command)
+        m = %r{^GR([HDM])([+-/*\d]+)?(?:>=?([+-/*\d]+)+)$}.match(command)
+        unless m
+          return nil
+        end
 
-        times = cmd.prefix_number || 2
+        roll_type = m[1].to_str
+        modifier = ArithmeticEvaluator.eval(m[2])
+        target = ArithmeticEvaluator.eval(m[3])
 
-        dice_list_full = @randomizer.roll_barabara(times, 6).sort
-        dice_result = dice_list_full.sum()
+        dice_result = roll_dice_with_modifier(modifier)
+        r = determine_target_result(roll_type, dice_result[:total], target, dice_result[:critical], dice_result[:fumble])
 
-        total = dice_result + cmd.modify_number
+        r.text = "(#{m[0]}) ＞ #{dice_result[:dice_sum]}[#{dice_result[:dice_list].join(',')}]#{m[2]} ＞ #{dice_result[:total]} ＞ #{r.text}"
+        return r
+      end
 
-        result =
-          if dice_result == 12
-            Result.critical(translate("critical"))
-          elsif cmd.cmp_op.nil?
-            Result.new
-          elsif dice_result == 2
-            Result.fumble(translate("fumble"))
-          elsif total >= cmd.target_number
-            Result.success(translate("success"))
+      # GRのみの基本判定
+      def roll_gr(command)
+        m = %r{^GR([+-/*\d]+)?(>=)?\(?([+-/*\d]+)?\)?$}.match(command)
+        unless m
+          return nil
+        end
+
+        modifier = ArithmeticEvaluator.eval(m[1])
+        target_flag = !m[2].nil?
+
+        dice_result = roll_dice_with_modifier(modifier)
+
+        if target_flag
+          target = ArithmeticEvaluator.eval(m[3])
+          r = determine_target_result("", dice_result[:total], target, dice_result[:critical], dice_result[:fumble])
+        else
+          r = determine_no_target_result("", dice_result[:total], dice_result[:critical], dice_result[:fumble])
+        end
+        r.text = "(#{m[0]}) ＞ #{dice_result[:dice_sum]}[#{dice_result[:dice_list].join(',')}]#{m[1]} ＞ #{dice_result[:total]} ＞ #{r.text}"
+        return r
+      end
+
+      # 基準値(modifier)をもとに2d6+基準値の判定を行う
+      def roll_dice_with_modifier(modifier)
+        dice_list = randomizer.roll_barabara(2, 6)
+        dice_sum = dice_list.sum
+        total = dice_sum + modifier
+        critical_flag = dice_list.count(6) == 2
+        fumble_flag = dice_list.count(1) == 2
+        return {dice_list: dice_list, dice_sum: dice_sum, total: total, critical: critical_flag, fumble: fumble_flag}
+      end
+
+      # roll_typeごとにResultを作成（目標値あり）
+      def determine_target_result(roll_type, total, target, critical, fumble)
+        case roll_type
+        when "H"
+          if critical
+            Result.critical("クリティカル命中")
+          elsif fumble
+            Result.fumble("ファンブル")
+          elsif total >= target + 4
+            Result.success("急所命中")
+          elsif total >= target
+            Result.success("命中")
           else
-            if total >= cmd.target_number - 4
-              Result.success("半減命中")
-            else
-              Result.failure(translate("failure"))
-            end
+            Result.failure("失敗")
           end
+        when "D"
+          if critical
+            Result.critical("クリティカル")
+          elsif fumble
+            Result.fumble("ファンブル")
+          elsif total >= target
+            Result.success("回避成功")
+          elsif total >= target - 4
+            Result.failure("半減命中")
+          else
+            Result.failure("失敗")
+          end
+        when "M"
+          # 抵抗判定は基準値以上(激情)のほうが悪い効果のことが多いためResultを反転[6,6]の場合にファンブル
+          if critical
+            Result.fumble("必ず激情")
+          elsif fumble
+            Result.critical("必ず平静")
+          elsif total >= target
+            Result.failure("激情")
+          else
+            Result.success("平静")
+          end
+        else
+          if critical
+            Result.critical("クリティカル")
+          elsif fumble
+            Result.fumble("ファンブル")
+          elsif total >= target
+            Result.success("成功")
+          else
+            Result.failure("失敗")
+          end
+        end
+      end
 
-        sequence = [
-          "(#{cmd.to_s(:after_modify_number)})",
-          "#{dice_result}#{dice_list_full}#{Format.modifier(cmd.modify_number)}",
-          total,
-          result.text
-        ].compact
-
-        result.text = sequence.join(" ＞ ")
-        return result
+      # roll_typeごとにResultを作成（目標値なし）
+      def determine_no_target_result(roll_type, total, critical, fumble)
+        case roll_type
+        when "S"
+          if critical
+            Result.critical("クリティカル")
+          elsif fumble
+            Result.fumble("ファンブル")
+          else
+            Integer success_level = (total - 4) / 2
+            if success_level >= 11
+              success_level = 11
+            elsif success_level <= 0
+              success_level = 1
+            end
+            r = Result.new
+            r.text = "成功ML #{success_level}"
+            return r
+          end
+        else
+          if critical
+            Result.critical("クリティカル")
+          elsif fumble
+            Result.fumble("ファンブル")
+          else
+            r = Result.new
+            r.text = "達成値 #{total}"
+            return r
+          end
+        end
       end
 
       ## アイテム表ロール ランク
