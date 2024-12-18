@@ -54,7 +54,7 @@ module BCDice
         if total >= target
           return Result.success("成功")
         else
-          return Result.success("失敗")
+          return Result.failure("失敗")
         end
       end
 
@@ -91,7 +91,7 @@ module BCDice
         if total >= target
           return Result.success("成功")
         else
-          return Result.success("失敗")
+          return Result.failure("失敗")
         end
       end
 
