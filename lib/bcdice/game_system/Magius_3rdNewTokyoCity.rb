@@ -26,7 +26,6 @@ module BCDice
 
       register_prefix('M[AS]')
 
-
       private
 
       # 能力値判定
