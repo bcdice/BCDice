@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Magius_3rdNewTokyoCity"
 input = "MA>=7 絶対成功"
-output = "(MA>=7) ＞ [5,6] ＞ 12 ＞ 絶対成功"
+output = "(MA>=7) ＞ [6,6] ＞ 12 ＞ 絶対成功"
 success = true
 critical = true
 rands = [
@@ -11,7 +11,7 @@ rands = [
 
 [[ test ]]
 game_system = "Magius_3rdNewTokyoCity"
-input = "MA>=7 失敗"
+input = "MA>=7 絶対失敗"
 output = "(MA>=7) ＞ [1,1] ＞ 2 ＞ 絶対失敗"
 failure = true
 fumble = true
@@ -19,6 +19,7 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
 ]
+
 [[ test ]]
 game_system = "Magius_3rdNewTokyoCity"
 input = "MA>=7 成功"

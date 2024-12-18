@@ -22,7 +22,7 @@ rands = [
 game_system = "Magius"
 input = "MA>=7 失敗"
 output = "(MA>=7) ＞ [2,3] ＞ 5 ＞ 失敗"
-success = true
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -54,7 +54,7 @@ rands = [
 game_system = "Magius"
 input = "MS>=7 失敗"
 output = "(MS>=7) ＞ [1,2,3] ＞ 5 ＞ 失敗"
-success = true
+failure = true
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
