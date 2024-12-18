@@ -33,9 +33,9 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def get_result_of_ability_action(total, dice_add, target)
-        if dice_add == 2
+        if dice_add == 12
           return Result.critical("絶対成功")
-        elsif dice_add == 12
+        elsif dice_add == 2
           return Result.fumble("絶対失敗")
         elsif total >= target
           return Result.success("成功")
@@ -48,9 +48,9 @@ module BCDice
       # @param [String] command
       # @return [Result]
       def get_result_of_skill_action(total, dice_add, target)
-        if dice_add == 2
+        if dice_add == 12
           return Result.critical("絶対成功")
-        elsif dice_add == 12
+        elsif dice_add == 2
           return Result.fumble("絶対失敗")
         elsif total >= target
           return Result.success("成功")
