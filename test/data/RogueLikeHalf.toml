@@ -66,8 +66,44 @@ rands = [
 
 [[ test ]]
 game_system = "RogueLikeHalf"
-input = "D33+3"
+input = "D33+3 加算"
 output = "(D33+3) ＞ 21+3 ＞ 31"
+rands = [
+  { sides = 3, value = 2 },
+  { sides = 3, value = 1 },
+]
+
+[[ test ]]
+game_system = "RogueLikeHalf"
+input = "D33+30 加算オーバーフロー"
+output = "(D33+30) ＞ 21+30 ＞ 33"
+rands = [
+  { sides = 3, value = 2 },
+  { sides = 3, value = 1 },
+]
+
+[[ test ]]
+game_system = "RogueLikeHalf"
+input = "D33-30 減算アンダーフロー"
+output = "(D33-30) ＞ 21-30 ＞ 11"
+rands = [
+  { sides = 3, value = 2 },
+  { sides = 3, value = 1 },
+]
+
+[[ test ]]
+game_system = "RogueLikeHalf"
+input = "D33+2 MODの桁上がり"
+output = "(D33+2) ＞ 21+2 ＞ 23"
+rands = [
+  { sides = 3, value = 2 },
+  { sides = 3, value = 1 },
+]
+
+[[ test ]]
+game_system = "RogueLikeHalf"
+input = "D33-1 MODの桁下がり"
+output = "(D33-1) ＞ 21-1 ＞ 13"
 rands = [
   { sides = 3, value = 2 },
   { sides = 3, value = 1 },

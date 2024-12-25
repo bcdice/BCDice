@@ -101,7 +101,14 @@ module BCDice
 
         dice = @randomizer.roll_barabara(2, 3)
         dice_text = dice.join("")
-        p = (dice[0] * 3 + dice[1] + modify).divmod(3)
+        dice_total = dice[0] * 3 + dice[1] + modify
+        dice_total = 12 if dice_total > 12
+        dice_total = 4 if dice_total < 4
+        p = dice_total.divmod(3)
+        if p[1] == 0
+          p[0] = p[0] - 1
+          p[1] = 3
+        end
         total = p[0] * 10 + p[1]
 
         sequence = [
