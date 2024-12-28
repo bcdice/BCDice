@@ -217,7 +217,12 @@ module BCDice
         if (dx = parse_dx(command))
           return dx.execute(@randomizer)
         end
-
+        if command == 'PCP'
+          return roll_prologue_chart_positive()
+        end
+        if command == 'PCN'
+          return roll_prologue_chart_negative()
+        end
         if command == 'HC'
           return roll_happening_chart()
         end
