@@ -473,7 +473,9 @@ module BCDice
 
       # 感情表（ネガティブ）
       NEGATIVE_EMOTION_TABLE = negative_emotion_table(:ja_jp).freeze
-
+      # Prologue chart 
+      PROLOGUE_CHART_POSITIVE = prologue_chart_positive(:ja_jp).freeze
+      PROLOGUE_CHART_NEGATIVE = prologue_chart_negative(:ja_jp).freeze
       # ハプニングチャート
       HAPPENING_CHART = happening_chart(:ja_jp).freeze
     end
