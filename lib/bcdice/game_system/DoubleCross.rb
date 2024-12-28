@@ -449,6 +449,7 @@ module BCDice
               [8,  I18n.translate("DoubleCross.PCP.items.8", locale: locale)],
               [9,  I18n.translate("DoubleCross.PCP.items.9", locale: locale)],
               [10, I18n.translate("DoubleCross.PCP.items.10", locale: locale)],
+              # [11, '任意(にんい)'],
             ]
           )
         end
@@ -469,6 +470,7 @@ module BCDice
               [8,  I18n.translate("DoubleCross.PCN.items.8", locale: locale)],
               [9,  I18n.translate("DoubleCross.PCN.items.9", locale: locale)],
               [10, I18n.translate("DoubleCross.PCN.items.10", locale: locale)],
+              # [11, '任意(にんい)'],
             ]
           )
         end
