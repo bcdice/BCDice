@@ -307,6 +307,22 @@ module BCDice
         return Result.new(output_parts.join(' ＞ '))
       end
 
+      # RW Prologue Chartを振る
+       # @return [Result]
+      def roll_prologue_chart_positive
+        result = self.class::PROLOGUE_CHART_POSITIVE.roll(@randomizer)
+        name = translate("DoubleCross.PCP.name")
+        output_parts = ["#{name}(#{result.sum})", result.content]
+        return Result.new(output_parts.join(' ＞ '))
+      end
+      # RW Prologue Chartを振る 2
+       # @return [Result]
+      def roll_prologue_chart_negative
+        result = self.class::PROLOGUE_CHART_NEGATIVE.roll(@randomizer)
+        name = translate("DoubleCross.PCN.name")
+        output_parts = ["#{name}(#{result.sum})", result.content]
+        return Result.new(output_parts.join(' ＞ '))
+      end
       class << self
         private
 
