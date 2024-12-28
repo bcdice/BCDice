@@ -40,7 +40,8 @@ module BCDice
 
       register_prefix('\d+DX', 'ET')
       register_prefix('\d+DX', 'HC')
-
+・register_prefix('\d+DX', 'PCP')
+・register_prefix('\d+DX', 'PCN')
       # 成功判定コマンドのノード
       class DX
         include Translate
