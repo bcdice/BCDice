@@ -428,7 +428,45 @@ module BCDice
             ]
           )
         end
-      end
+        def prologue_chart_positive(locale)
+           #DiceTable::RangeTable.new(
+            I18n.translate("DoubleCross.PCP.name", locale: locale),
+            "1D10",
+            [
+              # [0, '  '],
+              [1,    I18n.translate("DoubleCross.PCP.items.1", locale: locale)],
+              [2,   I18n.translate("DoubleCross.PCP.items.2", locale: locale)],
+              [3,  I18n.translate("DoubleCross.PCP.items.3", locale: locale)],
+              [4,  I18n.translate("DoubleCross.PCP.items.4", locale: locale)],
+              [5,  I18n.translate("DoubleCross.PCP.items.5", locale: locale)],
+              [6,  I18n.translate("DoubleCross.PCP.items.6", locale: locale)],
+              [7,  I18n.translate("DoubleCross.PCP.items.7", locale: locale)],
+              [8,  I18n.translate("DoubleCross.PCP.items.8", locale: locale)],
+              [9,  I18n.translate("DoubleCross.PCP.items.9", locale: locale)],
+              [10,  I18n.translate("DoubleCross.PCP.items.10", locale: locale)],
+            ]
+          )
+        end
+
+        def prologue_chart_negative(locale)
+           #DiceTable::RangeTable.new(
+            I18n.translate("DoubleCross.PCN.name", locale: locale),
+            "1D10",
+            [
+              # [0, '  '],
+              [1,    I18n.translate("DoubleCross.PCN.items.1", locale: locale)],
+              [2,   I18n.translate("DoubleCross.PCN.items.2", locale: locale)],
+              [3,  I18n.translate("DoubleCross.PCN.items.3", locale: locale)],
+              [4,  I18n.translate("DoubleCross.PCN.items.4", locale: locale)],
+              [5,  I18n.translate("DoubleCross.PCN.items.5", locale: locale)],
+              [6,  I18n.translate("DoubleCross.PCN.items.6", locale: locale)],
+              [7,  I18n.translate("DoubleCross.PCN.items.7", locale: locale)],
+              [8,  I18n.translate("DoubleCross.PCN.items.8", locale: locale)],
+              [9,  I18n.translate("DoubleCross.PCN.items.9", locale: locale)],
+              [10,  I18n.translate("DoubleCross.PCN.items.10", locale: locale)],
+            ]
+          )
+        end
 
       # 感情表（ポジティブ）
       POSITIVE_EMOTION_TABLE = positive_emotion_table(:ja_jp).freeze
