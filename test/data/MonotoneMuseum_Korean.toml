@@ -356,7 +356,7 @@ rands = [
 
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
-input = "MNBOT"
+input = "MNOT"
 output = "징조표(비전투)(10) ＞ 【짐승과 같이】\n칠흑의 짐승 털이나 흰 비늘이 당신의 손발을 침식해 간다. 주위에 숨기지 않으면, 괴물이라고 쫓기는 것은 피할 수 없을 것이다. 공연 중, 당신이 행하는 【사회】에 의한 판정의 달성치는 -2된다."
 rands = [
   { sides = 6, value = 6 },
@@ -365,7 +365,7 @@ rands = [
 
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
-input = "MNBOT"
+input = "MNOT"
 output = "징조표(비전투)(6) ＞ 【빛바래는 체구】\n머리카락이, 눈이, 빛바래며 공허에 물들어간다. 당신에게서 이치가 벗겨지며 허무에 가까워지고 있다는 증거다…… 공연 중, 당신이 하는 【재봉】에 의한 판정의 달성치를 +1한다."
 rands = [
   { sides = 6, value = 1 },
@@ -383,7 +383,7 @@ rands = [
 
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
-input = "MDTT"
+input = "MDT"
 output = "왜곡표(개정판)(62) ＞ 【이단심문】\n공포와 증오에 떠밀린 사람들이 흐려진 눈으로 “위협의 원흉”을 처형하자며 저마다 횃불을 든다. 씬에 등장하는 모든 PC는 【사회】 난이도 8의 판정을 행하여 실패하면 〈타격〉 [연기자 레벨]D6점의 대미지를 받는다. 이 효과는 왜곡을 떠맡지 않는 한 씬마다 발생한다."
 rands = [
   { sides = 6, value = 6 },
