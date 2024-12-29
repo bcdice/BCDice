@@ -321,7 +321,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "MET"
-output = "감정표(11) ＞ 【동경】"
+output = "감정표(개정판)(11) ＞ 【동경】"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -330,7 +330,7 @@ rands = [
 [[ test ]]
 game_system = "MonotoneMuseum:Korean"
 input = "MET"
-output = "감정표(35) ＞ 【존경】"
+output = "감정표(개정판)(35) ＞ 【존경】"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
