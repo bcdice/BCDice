@@ -1391,3 +1391,12 @@ rands = [
   { sides = 6, value = 3 },
 ]
 
+[[ test ]]
+game_system = "ShinobiGami"
+input = "NMT 誤字修正"
+output = '新異形表(1) ＞ 異霊態。「妖魔忍法表・異霊」を使用し、妖魔化している間、その妖魔忍法を修得する。 ＞ 妖魔忍法表・異霊(1) ＞ 【逢魔時】(基本 p172)／【虚舟】（隠忍 p28）'
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
