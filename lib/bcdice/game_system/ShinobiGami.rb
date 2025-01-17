@@ -75,7 +75,7 @@ module BCDice
               京都 KYST、神社仏閣 JBST
           その他
             秋空に雪舞えば AKST、夏の終わり NTST、出島EX DXST、災厄 CLST、斜歯ラボ HLST、培養プラント PLST
-        
+
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -124,9 +124,12 @@ module BCDice
       def repeat_table(command)
         times = command.start_with?(/\d/) ? command.to_i : 1
         key = command.sub(/^\d+/, '')
-        results = [*0...times].map { |_| roll_tables(key, TABLES) || roll_tables(key, SCENE_TABLES) ||
-               roll_tables(key, DEMON_SKILL_TABLES) || roll_tables(key, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, key) }.compact
-        return nil if results.size == 0
+        results = [*0...times].map do |_|
+          roll_tables(key, TABLES) || roll_tables(key, SCENE_TABLES) ||
+            roll_tables(key, DEMON_SKILL_TABLES) || roll_tables(key, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, key)
+        end.compact
+        return nil if results.empty?
+
         return results.join("\n")
       end
 
