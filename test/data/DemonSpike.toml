@@ -1,0 +1,141 @@
+[[ test ]]
+game_system = "DemonSpike"
+input = "DS+7"
+output = "(2DS+7) ＞ 9[5,4] ＞ 16 ＞ 成功, 成功度1"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DemonSpike"
+input = "DS+7"
+output = "(2DS+7) ＞ 10[6,5] ＞ 10[6,6] ＞ 2[1,1] ＞ 29 ＞ 成功, 成功度2"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DemonSpike"
+input = "DS+8"
+output = "(2DS+8) ＞ 10[6,5] ＞ 10[6,6] ＞ 2[1,1] ＞ 30 ＞ 成功, 成功度3"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DemonSpike"
+input = "DS+6"
+output = "(2DS+6) ＞ 3[2,1] ＞ 9 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DemonSpike"
+input = "DS+7"
+output = "(2DS+7) ＞ 2[1,1] ＞ 0 ＞ 自動的失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DemonSpike"
+input = "DS"
+output = "(2DS) ＞ 10[5,5] ＞ 7[5,2] ＞ 17 ＞ 成功, 成功度1"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "DemonSpike"
+input = "DS"
+output = "(2DS) ＞ 9[5,4] ＞ 9 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DemonSpike"
+input = "3DS+7"
+output = "(3DS+7) ＞ 9[5,4,3] ＞ 16 ＞ 成功, 成功度1"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DemonSpike"
+input = "3DS+7"
+output = "(3DS+7) ＞ 3[2,1,1] ＞ 10 ＞ 成功, 成功度1"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "DemonSpike"
+input = "3DS+7"
+output = "(3DS+7) ＞ 2[1,1,1] ＞ 0 ＞ 自動的失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DemonSpike"
+input = "3DS+7"
+output = "(3DS+7) ＞ 10[6,5,1] ＞ 10[6,6,1] ＞ 2[1,1,1] ＞ 29 ＞ 成功, 成功度2"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "DemonSpike"
+input = "1DS"
+output = ""
+rands = []

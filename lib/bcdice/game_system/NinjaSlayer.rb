@@ -13,7 +13,7 @@ module BCDice
       NAME = 'ニンジャスレイヤーTRPG'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'にんしやすれいやあRPG'
+      SORT_KEY = 'にんしやすれいやあTRPG'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
@@ -38,6 +38,8 @@ module BCDice
 
         ・難易度
         　KIDS=K,EASY=E,NORMAL=N,HARD=H,ULTRA HARD=UH 数字にも対応
+
+        ※上記コマンド群は『ニンジャスレイヤーTRPG コア・ルールブック』に対応していません。コア・ルールブックで遊ぶ場合には『ニンジャスレイヤーTRPG 2版』のコマンドを利用してください。
       MESSAGETEXT
 
       def initialize(command)

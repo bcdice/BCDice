@@ -545,3 +545,228 @@ secret = true
 rands = [
   { sides = 12, value = 5 },
 ]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "HPT"
+output = "人間部位表(1) ＞ 右腕部"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "hpt"
+output = "人間部位表(12) ＞ 頭部"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "sHpt"
+output = "人間部位表(8) ＞ 左脚部"
+secret = true
+rands = [
+  { sides = 12, value = 8 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "PDT"
+output = "部位ダメージ段階表(1) ＞ 軽傷"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "pdt"
+output = "部位ダメージ段階表(12) ＞ 喪失"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "sPdt"
+output = "部位ダメージ段階表(11) ＞ 破壊"
+secret = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "QPT"
+output = "四足動物部位表(1) ＞ 異形"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "qpt"
+output = "四足動物部位表(12) ＞ 頭部"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "sQpt"
+output = "四足動物部位表(5) ＞ 左前脚部"
+secret = true
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "APT"
+output = "無足動物部位表(1) ＞ 異形"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "apt"
+output = "無足動物部位表(12) ＞ 頭部"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SApt"
+output = "無足動物部位表(4) ＞ 武器"
+secret = true
+rands = [
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "TPT"
+output = "二足動物部位表(1) ＞ 異形"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "tpt"
+output = "二足動物部位表(12) ＞ 頭部"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "sTpt"
+output = "二足動物部位表(9) ＞ 胴部"
+secret = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "BPT"
+output = "鳥部位表(1) ＞ 異形"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "bpt"
+output = "鳥部位表(12) ＞ 頭部"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SBpT"
+output = "鳥部位表(6) ＞ 左翼(左腕部)"
+secret = true
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "CPT"
+output = "頭足動物部位表(1) ＞ 異形"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "cpt"
+output = "頭足動物部位表(12) ＞ 頭部"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "sCpt"
+output = "頭足動物部位表(2) ＞ 武器"
+secret = true
+rands = [
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "IPT"
+output = "昆虫部位表(1) ＞ 異形"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "ipt"
+output = "昆虫部位表(12) ＞ 頭部"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SiPt"
+output = "昆虫部位表(6) ＞ 右中脚部"
+secret = true
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SPT"
+output = "蜘蛛部位表(1) ＞ 異形"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "spt"
+output = "蜘蛛部位表(12) ＞ 頭部"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori"
+input = "SspT"
+output = "蜘蛛部位表(9) ＞ 右第四脚部"
+secret = true
+rands = [
+  { sides = 12, value = 9 },
+]

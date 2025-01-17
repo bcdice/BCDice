@@ -164,6 +164,24 @@ rands = [
 
 [[ test ]]
 game_system = "Emoklore"
+input = "1DM<=0"
+output = "(1DM<=0) ＞ [1] ＞ 1 ＞ 成功数1 成功"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Emoklore"
+input = "1DM<=10"
+output = "(1DM<=10) ＞ [10] ＞ 0 ＞ 成功数0 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Emoklore"
 input = "2DA3"
 output = "(2DA3) ＞ (2DM<=5) ＞ [8, 5] ＞ 1 ＞ 成功数1 成功"
 success = true

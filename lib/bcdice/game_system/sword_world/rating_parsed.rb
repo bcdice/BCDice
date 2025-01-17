@@ -37,6 +37,9 @@ module BCDice
         # @return [Integer, nil]
         attr_accessor :modifier_after_half
 
+        # @return [Integer, nil]
+        attr_accessor :modifier_after_one_and_a_half
+
         def initialize(rate, modifier)
           @rate = rate
           @modifier = modifier
@@ -49,11 +52,17 @@ module BCDice
           @semi_fixed_val = 0
           @tmp_fixed_val = 0
           @modifier_after_half = nil
+          @modifier_after_one_and_a_half = nil
         end
 
         # @return [Boolean]
         def half
           return !@modifier_after_half.nil?
+        end
+
+        # @return [Boolean]
+        def one_and_a_half
+          return !@modifier_after_one_and_a_half.nil?
         end
 
         # @return [Integer]

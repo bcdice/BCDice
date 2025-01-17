@@ -1,5 +1,141 @@
 # Change Log
 
+## 3.14.0 2024/06/30
+
+### 対応ゲームシステムの追加
+- 神聖課金RPGディヴァインチャージャー (DivineCharger): Facelessさんありがとうっ！ ([#677](https://github.com/bcdice/BCDice/pull/677))
+- 終末買い物戦争 (ShuumatsuBargainWars): ueshin0524さんありがとうっ！ ([#678](https://github.com/bcdice/BCDice/pull/678))
+- 天才軍師になろう (TensaiGunshiNiNaro): satsumawagashiさんありがとうっ！ ([#681](https://github.com/bcdice/BCDice/pull/681))
+- ブラックジャケットRPG (BlackJacket): satsumawagashiさんありがとうっ！ ([#686](https://github.com/bcdice/BCDice/pull/686))
+- The Unofficial Hollow Knight RPG (TheUnofficialHollowKnightRPG): ichiharayuumaさんありがとうっ！ ([#688](https://github.com/bcdice/BCDice/pull/688))
+- 一つの指輪：指輪物語TRPG2版 (TheOneRing2nd): フレッド緑野さんありがとうっ！ ([#689](https://github.com/bcdice/BCDice/pull/689))
+- 韓国語版 アリアンロッドRPG (Arianrhod:Korean): eidals224さんありがとうっ！ ([#691](https://github.com/bcdice/BCDice/pull/691))
+- FINAL FANTASY XIV TTRPG (FinalFantasyXIV): musicsoul0142さんありがとうっ！ ([#711](https://github.com/bcdice/BCDice/pull/711))
+- 英語版 クトゥルフ神話TRPG (Cthulhu:English): ([#715](https://github.com/bcdice/BCDice/pull/715))
+- キズナバレット (KizunaBullet): satsumawagashiさんありがとうっ！ ([#722](https://github.com/bcdice/BCDice/pull/722))
+- アグノストス (Agnostos):  ([#723](https://github.com/bcdice/BCDice/pull/723))
+- 英語版 FINAL FANTSY XIV TTRPG (FinalFantasyXIV:English): musicsoul0142さんありがとうっ！ ([#724](https://github.com/bcdice/BCDice/pull/724))
+- インビジブルライアー (InvisibleLiar): ([#725](https://github.com/bcdice/BCDice/pull/725))
+- ヨタバナ (Yotabana): ([#726](https://github.com/bcdice/BCDice/pull/726))
+- 韓国語版 アンサング・デュエット (UnsungDuet:Korean): eidals224さんありがとうっ！ ([#727](https://github.com/bcdice/BCDice/pull/727))
+- トレイル・オブ・クトゥルー (TrailOfCthulhu): Facelessさんありがとうっ！ ([#728](https://github.com/bcdice/BCDice/pull/728))
+
+### 追加機能
+- フルフェイス: 一般判定の成否と戦闘判定のダメージ計算を実装。Facelessさんありがとうっ！ ([#679](https://github.com/bcdice/BCDice/pull/679))
+- 虚構侵蝕TRPG: 虚構侵蝕TRPGの有利不利とダイス数0以下の特殊処理に対応。enokyouさんありがとうっ！ ([#683](https://github.com/bcdice/BCDice/pull/683))
+- フタリソウサ: 異常な癖決定表などにダイス結果に応じて別の表を振る機能を追加、誤植修正。えいむさんありがとうっ！ ([#687](https://github.com/bcdice/BCDice/pull/687))
+- ウタカゼ: 対抗判定用コマンドの追加。Facelessさんありがとうっ！ ([#698](https://github.com/bcdice/BCDice/pull/698))
+- フタリソウサ: もしもこの手が離れても、異常な癖・イベント表の追加。えいむさんありがとうっ！ ([#712](https://github.com/bcdice/BCDice/pull/712))
+- ウォーハンマーRPG第4版: 神々の天罰表、小誤発動表、大誤発動表の３表を実装。Facelessさんありがとうっ！ ([#713](https://github.com/bcdice/BCDice/pull/713))
+- モノトーンミュージアムRPG: モノトーンミュージアムRPG改訂版の表追加。えいむさんありがとうっ！ ([#719](https://github.com/bcdice/BCDice/pull/719))
+
+### 変更
+- コンヴィクター・ドライブ: 目標値のデフォルト値を5とする。三木里 秀予さんありがとうっ！ ([#699](https://github.com/bcdice/BCDice/pull/699))
+- nRR: 出目の分布を変更。 ([#714](https://github.com/bcdice/BCDice/pull/714))
+- ソード・ワールド系: 首切り刀をマイナスで振った時に、威力100に一周せず0で固定されるように変更。三木里 秀予さんありがとうっ！ ([#718](https://github.com/bcdice/BCDice/pull/718))
+
+### バグ修正
+- サイバーパンクRED: i18n対応の追加、夜の市表を振れるように追加。三木里 秀予さんありがとうっ！ ([#717](https://github.com/bcdice/BCDice/pull/717))
+
+### 翻訳の更新
+- 韓国語版 インセイン: eidals224さんありがとうっ！ ([#690](https://github.com/bcdice/BCDice/pull/690))
+
+### 開発
+- 歯車の塔の探空士（冒険企画局）: i18n対応。三木里 秀予さんありがとうっ！ ([#708](https://github.com/bcdice/BCDice/pull/708))
+- アンサング・デュエット: i18n対応。三木里 秀予さんありがとうっ！ ([#709](https://github.com/bcdice/BCDice/pull/709))
+- RangeTableでi18nができるように。三木里 秀予さんありがとうっ！ ([#710](https://github.com/bcdice/BCDice/pull/710))
+
+## 3.13.0 2024/02/08
+
+### 対応ゲームシステムの追加
+- 終末アイドル育成TRPGセイレーン (Siren): 蜂紫さんありがとうっ！ ([#663](https://github.com/bcdice/BCDice/pull/663))
+- リミナル (Liminal): Facelessさんありがとうっ！ ([#664](https://github.com/bcdice/BCDice/pull/664))
+- アークナイツTRPG by Dapto (ArknightsFan): Ayase00さんありがとうっ！ ([#666](https://github.com/bcdice/BCDice/pull/666))
+- フルフェイス (FullFace): Facelessさんありがとうっ！ ([#668](https://github.com/bcdice/BCDice/pull/668))
+- アニマラス (AniMalus): Facelessさんありがとうっ！ ([#669](https://github.com/bcdice/BCDice/pull/669))
+- パストフューチャーパラドックス (PastFutureParadox): hikoyamamayoさんありがとうっ！ ([#673](https://github.com/bcdice/BCDice/pull/673))
+- 虚構侵蝕TRPG (KyokoShinshoku) ([#674](https://github.com/bcdice/BCDice/pull/674))
+- nRR (NRR) ([#675](https://github.com/bcdice/BCDice/pull/675))
+
+### 変更
+
+- RuneQuest:Roleplaying in Glorantha: システム名を英語から日本語に変更。フレッド緑野さんありがとうっ！ ([#662](https://github.com/bcdice/BCDice/pull/662))
+- Vampire: The Masquerade 5th Edition: ダイスプールよりHungerダイスよりが大きい時に全てのダイスがHungerダイスになるよう変更。フレッド緑野さんありがとうっ！ ([#670](https://github.com/bcdice/BCDice/pull/670))
+- Werewolf: The Apocalypse 5th Edition:  ダイスプールよりRageダイスよりが大きい時に全てのダイスがRageダイスになるよう変更。フレッド緑野さんありがとうっ！ ([#671](https://github.com/bcdice/BCDice/pull/671))
+- Chill 3rd Edition: 成否の表記をルールに合わせて変更。Facelessさんありがとうっ！ ([#672](https://github.com/bcdice/BCDice/pull/672))
+
+### 誤植修正
+- ナイトウィザード The 3rd Edition: ヘルプメッセージの誤りを修正。opparcoさんありがとうっ！ ([#667](https://github.com/bcdice/BCDice/pull/667))
+- 無限のファンタジア: 成功レベルの判定方法を記載。 ([#676](https://github.com/bcdice/BCDice/pull/676))
+
+### 開発
+- Ruby 3.3をサポートバージョンに追加 ([#665](https://github.com/bcdice/BCDice/pull/665))
+- Ruby 2.6をサポートバージョンから除外 ([#665](https://github.com/bcdice/BCDice/pull/665))
+
+## 3.12.0 2023/12/04
+
+### 対応ゲームシステムの追加
+- 砂塵戦機アーガス 2nd Edition (SajinsenkiAGuS2E): Facelessさんありがとうっ！ ([#641](https://github.com/bcdice/BCDice/pull/641), [#643](https://github.com/bcdice/BCDice/pull/643))
+- Werewolf: The Apocalypse 5th Edition (WerewolfTheApocalypse5th): フレッド緑野さんありがとうっ！ ([#653](https://github.com/bcdice/BCDice/pull/653))
+- 神椿市建設中。NARRATIVE (KamitsubakiCityUnderConstructionNarrative): ([#653](https://github.com/bcdice/BCDice/pull/653))
+- ニンジャスレイヤーTRPG 2版 (NinjaSlayer2): たかぽム。さんありがとうっ！ ([#658](https://github.com/bcdice/BCDice/pull/658))
+
+### 追加機能
+- 韓国語版 フタリソウサ: 翻訳を追加。GUNGさん翻訳ありがとうっ！ ([#646](https://github.com/bcdice/BCDice/pull/646))
+- 韓国語版 インセイン: 翻訳を追加。eidals224さんありがとうっ！ ([#647](https://github.com/bcdice/BCDice/pull/647))
+- ソードワールド 2.5: レーティング表の結果を1.5倍にするオプションを追加。朝霧翼さん提案ありがとうっ！ ([#655](https://github.com/bcdice/BCDice/pull/655))
+
+### 変更
+- マモノスクランブル: 割り算の端数処理を切り上げに変更。蜂紫さんありがとうっ！ ([#639](https://github.com/bcdice/BCDice/pull/639))
+- ソードワールド2.0, 2.5: 超越判定の際に自動的成功した場合でも、達成値算出のために振り足しを行うように変更。三木里 秀予さんありがとうっ！ ([#640](https://github.com/bcdice/BCDice/pull/640))
+- 砂塵戦機アーガス: 成功レベルを表示するように変更。Facelessさんありがとうっ！ ([#642](https://github.com/bcdice/BCDice/pull/642))
+- Vampire:The Masquerade5th: Hungerダイスの上限をルールに合わせて設定。フレッド緑野さんありがとうっ！ ([#649](https://github.com/bcdice/BCDice/pull/649))
+- Hunter:the Reckoning 5th: Hungerダイスの上限をルールに合わせて設定。フレッド緑野さんありがとうっ！ ([#650](https://github.com/bcdice/BCDice/pull/650))
+- Vampire:The Masquerade5th: Total Failureのチェックを行うように変更。フレッド緑野さんありがとうっ！ ([#651](https://github.com/bcdice/BCDice/pull/651))
+- Hunter:the Reckoning 5th: Total Failureのチェックを行うように変更。フレッド緑野さんありがとうっ！ ([#652](https://github.com/bcdice/BCDice/pull/652))
+- ニンジャスレイヤーTRPG: ソートキーを変更 ([#659](https://github.com/bcdice/BCDice/pull/659))
+
+### 誤植修正
+- 歯車の塔の探空士（冒険企画局）: 航行イベント表 遭遇系の誤植を修正。nabyさん指摘ありがとうっ！ ([#657](https://github.com/bcdice/BCDice/pull/657))
+
+### バグ修正
+- Vampire:The Masquerade5th: 判定ダイスが10個以上指定できない問題を修正。フレッド緑野さんありがとうっ！ ([#644](https://github.com/bcdice/BCDice/pull/644))
+- RuneQuest:Roleplaying in Glorantha: 誤った判定結果になる問題を修正。フレッド緑野さんありがとうっ！ ([#645](https://github.com/bcdice/BCDice/pull/645))
+- エモクロアTRPG: クリティカル・ダイスの処理を修正 ([#654](https://github.com/bcdice/BCDice/pull/654))
+
+## 3.11.0 2023/08/23
+
+### 対応ゲームシステムの追加
+- ガンダム・センチネルRPG (GundamSentinel): Facelessさんありがとうっ！ ([#633](https://github.com/bcdice/BCDice/pull/633), [#634](https://github.com/bcdice/BCDice/pull/634))
+- マモノスクランブル (MamonoScramble): ([#635](https://github.com/bcdice/BCDice/pull/635))
+- デモンスパイク (DemonSpike): ([#636](https://github.com/bcdice/BCDice/pull/636))
+- RuneQuest:Roleplaying in Glorantha (RuneQuestRoleplayingInGlorantha): フレッド緑野さんありがとうっ！ ([#637](https://github.com/bcdice/BCDice/pull/637))
+- ゾンビライン (ZombiLine): 蜂紫さんありがとうっ！ ([#638](https://github.com/bcdice/BCDice/pull/638/files))
+
+## 3.10.0 2023/07/15
+
+### 対応ゲームシステムの追加
+- 英雄の尺度 (HeroScale): モグさんありがとうっ！ ([#613](https://github.com/bcdice/BCDice/pull/613))
+- Ventangle (Ventangle): 三木里 秀予さんありがとうっ！ ([#626](https://github.com/bcdice/BCDice/pull/626))
+
+### 追加機能
+- Vampire:The Masquerade5th: Hungerダイスを内数指定できるコマンドを追加。フレッド緑野さんありがとうっ！ ([#615](https://github.com/bcdice/BCDice/pull/615))
+- モノトーンミュージアムRPG: 目標値 `?` に対応。えいむさんありがとうっ！ ([#617](https://github.com/bcdice/BCDice/pull/617))
+- シノビガミ: ヘルプメッセージを修正 ([#618](https://github.com/bcdice/BCDice/pull/618))
+- シノビガミ: 表を多数追加。NiSLaさんありがとうっ！ ([#625](https://github.com/bcdice/BCDice/pull/625))
+- 獸ノ森: 「嚙神ノ宴」の表を追加。ゆいこさんありがとうっ！ ([#629](https://github.com/bcdice/BCDice/pull/629))
+- SRSじゃない世界樹の迷宮TRPG: 判定の成否を表示するよう変更。ゆいこさんありがとうっ！ ([#630](https://github.com/bcdice/BCDice/pull/630))
+
+### 変更
+- SRSじゃない世界樹の迷宮TRPG: 各種表記を公式ルールの用語に合わせて変更。ゆいこさんありがとうっ！ ([#630](https://github.com/bcdice/BCDice/pull/630))
+
+### 誤植修正
+- シノビガミ: ヘルプメッセージを修正 ([#618](https://github.com/bcdice/BCDice/pull/618))
+- エモクロアTRPG: ヘルプメッセージを修正。電気魚さんありがとうっ！ ([#622](https://github.com/bcdice/BCDice/pull/622))
+
+### バグ修正
+- シノビガミ: 異形表を修正。クキソージさんありがとうっ！ ([#621](https://github.com/bcdice/BCDice/pull/621))
+
 ## 3.9.0 2023/03/25
 
 ### 対応ゲームシステムの追加

@@ -44,7 +44,17 @@ module BCDice
         　STOREA　：店主またはレジ係
         　STOREB　：変わった客その1
         　STOREC　：変わった客その2
+        ・夜の市
+        　NMCT　：商品の分野
+        　NMCFO　：食品とドラッグ
+        　NMCME　：個人用電子機器
+        　NMCWE　：武器と防具
+        　NMCCY　：サイバーウェア
+        　NMCFA　：衣料品とファッションウェア
+        　NMCSU　：サバイバル用品
       HELP
+
+      TABLES = translate_tables(@locale)
 
       # 判定の正規表現
       CP_RE = /^CP(?<ability>\d+)?(?<modifier>[+-]\d+)?(?<target>>=\d+)?/.freeze
@@ -105,21 +115,21 @@ module BCDice
         result.text += ' ＞ '
 
         if result.critical?
-          result.text += '決定的成功！ ＞ '
+          result.text += "#{translate('CyberpunkRed.critical')} ＞ "
           result.text += "#{dices.last}[#{dices.last}] ＞ "
         end
         if result.fumble?
-          result.text += '決定的失敗！ ＞ '
+          result.text += "#{translate('CyberpunkRed.fumble')} ＞ "
           result.text += "#{dices.last}[#{dices.last}] ＞ "
         end
 
         result.text += total.to_s
 
         if result.success?
-          result.text += ' ＞ 成功'
+          result.text += " ＞ #{translate('success')}"
         end
         if result.failure?
-          result.text += ' ＞ 失敗'
+          result.text += " ＞ #{translate('failure')}"
         end
 
         return result

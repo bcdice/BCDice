@@ -81,7 +81,7 @@ module BCDice
         target = Regexp.last_match(6)
         target = target.to_i unless target.nil?
 
-        modifyText = (Regexp.last_match(3) || "")
+        modifyText = Regexp.last_match(3) || ""
         modifyText = "+1" if modifyText == "+"
         modifyValue = modifyText.to_i
 

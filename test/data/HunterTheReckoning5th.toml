@@ -1,8 +1,9 @@
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "3HRF3"
-output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗!"
+output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -169,8 +170,9 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "HRF3"
-output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗!"
+output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -212,8 +214,9 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "HRF3+2"
-output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗!"
+output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
@@ -383,8 +386,9 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "S3HRF3"
-output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗!"
+output = "(3D10) ＞ [1,2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -564,8 +568,9 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "SHRF3"
-output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗!"
+output = "(3D10) ＞ [2,5,1]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -598,8 +603,9 @@ rands = [
 [[ test ]]
 game_system = "HunterTheReckoning5th"
 input = "SHRF3+2"
-output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗!"
+output = "(3D10+2D10) ＞ [2,5,1]+[4,3]  成功数=0：判定失敗! [Total Failure]"
 failure = true
+fumble = true
 secret = true
 rands = [
   { sides = 10, value = 2 },
@@ -791,4 +797,34 @@ rands = [
   { sides = 10, value = 7 },
   { sides = 10, value = 6 },
   { sides = 10, value = 6 },
+]
+
+# 不正コマンド確認
+# 5ダイスを超えるDesperationダイス
+[[ test ]]
+game_system = "HunterTheReckoning5th"
+input = "3HRF6+6"
+output = "Desperationダイス指定は5ダイスが最大です。"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+]
+
+# 5ダイスちょうどのDesperationダイス
+[[ test ]]
+game_system = "HunterTheReckoning5th"
+input = "3HRF1+5"
+output = "(1D10+5D10) ＞ [4]+[6,6,5,3,10]  成功数=3 難易度=3 差分=0：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
 ]

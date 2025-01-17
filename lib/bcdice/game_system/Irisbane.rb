@@ -37,7 +37,7 @@ module BCDice
         SceneSituation, SSi
       HELP
 
-      ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+)@([+\-*/()\d]+)<=([+\-*/()\d]+)(\[([+\-])([+\-*/()\d]+)\])?}i.freeze
+      ATTACK_ROLL_REG = %r{^AT(TACK|K)?([+\-*/()\d]+)@([+\-*/()\d]+)<=([+\-*/()\d]+)(\[([+-])([+\-*/()\d]+)\])?}i.freeze
       register_prefix('AT(TACK|K)?')
 
       def initialize(command)

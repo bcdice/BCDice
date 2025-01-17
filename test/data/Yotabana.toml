@@ -1,0 +1,15 @@
+[[ test ]]
+game_system = "Yotabana"
+input = "COT"
+output = "収束表(1) ＞ サプライズ忍者／唐突に忍者が乱入し、場面にいるキャラクターを倒して去っていく"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Yotabana"
+input = "EVT"
+output = "イベント表(1) ＞ 道端に刺さっていた聖剣を拾う"
+rands = [
+  { sides = 12, value = 1 },
+]

@@ -1,0 +1,1069 @@
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA6"
+output = "(D6) ＞ 6 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA6"
+output = "(D6) ＞ 1 ＞ 裏 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA6"
+output = "(D6) ＞ 5 ＞ 可 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO6"
+output = "(D6) ＞ 4 ＞ 狐 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE6"
+output = "(D6) ＞ 3 ＞ 星 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA6"
+output = "(D6) ＞ 2 ＞ 羽 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI6"
+output = "(D6) ＞ 1 ＞ 裏 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "GM6"
+output = "(D6) ＞ 6 ＞ Q"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA8"
+output = "(D8) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA8"
+output = "(D8) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 8, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA8"
+output = "(D8) ＞ 5 ＞ 可 ＞ 成功"
+success = true
+rands = [
+  { sides = 8, value = 5 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA8"
+output = "(D8) ＞ 8 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA10"
+output = "(D10) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA10"
+output = "(D10) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA10"
+output = "(D10) ＞ 4 ＞ 可 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA10"
+output = "(D10) ＞ 9 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA10"
+output = "(D10) ＞ 10 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI8"
+output = "(D8) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI8"
+output = "(D8) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 8, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI8"
+output = "(D8) ＞ 5 ＞ 裏 ＞ 成功"
+success = true
+rands = [
+  { sides = 8, value = 5 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI8"
+output = "(D8) ＞ 8 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI10"
+output = "(D10) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI10"
+output = "(D10) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI10"
+output = "(D10) ＞ 4 ＞ 裏 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI10"
+output = "(D10) ＞ 9 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI10"
+output = "(D10) ＞ 10 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA8"
+output = "(D8) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA8"
+output = "(D8) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 8, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA8"
+output = "(D8) ＞ 5 ＞ 羽 ＞ 成功"
+success = true
+rands = [
+  { sides = 8, value = 5 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA8"
+output = "(D8) ＞ 8 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA10"
+output = "(D10) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA10"
+output = "(D10) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA10"
+output = "(D10) ＞ 4 ＞ 羽 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA10"
+output = "(D10) ＞ 9 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA10"
+output = "(D10) ＞ 10 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE8"
+output = "(D8) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE8"
+output = "(D8) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 8, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE8"
+output = "(D8) ＞ 5 ＞ 星 ＞ 成功"
+success = true
+rands = [
+  { sides = 8, value = 5 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE8"
+output = "(D8) ＞ 8 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE10"
+output = "(D10) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE10"
+output = "(D10) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE10"
+output = "(D10) ＞ 4 ＞ 星 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE10"
+output = "(D10) ＞ 9 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE10"
+output = "(D10) ＞ 10 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO8"
+output = "(D8) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO8"
+output = "(D8) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 8, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO8"
+output = "(D8) ＞ 5 ＞ 狐 ＞ 成功"
+success = true
+rands = [
+  { sides = 8, value = 5 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO8"
+output = "(D8) ＞ 8 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO10"
+output = "(D10) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO10"
+output = "(D10) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO10"
+output = "(D10) ＞ 4 ＞ 狐 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO10"
+output = "(D10) ＞ 9 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO10"
+output = "(D10) ＞ 10 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "GM8"
+output = "(D8) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "GM8"
+output = "(D8) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 8, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "GM8"
+output = "(D8) ＞ 5 ＞ W ＞ 成功"
+success = true
+rands = [
+  { sides = 8, value = 5 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "GM8"
+output = "(D8) ＞ 7 ＞ W ＞ 成功"
+success = true
+rands = [
+  { sides = 8, value = 7 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "GM8"
+output = "(D8) ＞ 8 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "GM10"
+output = "(D10) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "GM10"
+output = "(D10) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "GM10"
+output = "(D10) ＞ 4 ＞ W ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "GM10"
+output = "(D10) ＞ 8 ＞ W ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "GM10"
+output = "(D10) ＞ 9 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "GM10"
+output = "(D10) ＞ 10 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "Q12"
+output = "(D12) ＞ 1 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "Q12"
+output = "(D12) ＞ 4 ＞ Q ＞ 成功"
+success = true
+rands = [
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "Q12"
+output = "(D12) ＞ 10 ＞ Q ＞ 成功"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "Q12"
+output = "(D12) ＞ 11 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "Q12"
+output = "(D12) ＞ 12 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA12"
+output = "(D12) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA12"
+output = "(D12) ＞ 4 ＞ 可 ＞ 成功"
+success = true
+rands = [
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA12"
+output = "(D12) ＞ 10 ＞ 可 ＞ 成功"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA12"
+output = "(D12) ＞ 11 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "KA12"
+output = "(D12) ＞ 12 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI12"
+output = "(D12) ＞ 1 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI12"
+output = "(D12) ＞ 2 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI12"
+output = "(D12) ＞ 3 ＞ 裏 ＞ 成功"
+success = true
+rands = [
+  { sides = 12, value = 3 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI12"
+output = "(D12) ＞ 10 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI12"
+output = "(D12) ＞ 11 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "RI12"
+output = "(D12) ＞ 12 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA12"
+output = "(D12) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA12"
+output = "(D12) ＞ 2 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA12"
+output = "(D12) ＞ 3 ＞ 羽 ＞ 成功"
+success = true
+rands = [
+  { sides = 12, value = 3 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA12"
+output = "(D12) ＞ 5 ＞ 羽 ＞ 成功"
+success = true
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA12"
+output = "(D12) ＞ 6 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA12"
+output = "(D12) ＞ 8 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 8 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA12"
+output = "(D12) ＞ 9 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "HA12"
+output = "(D12) ＞ 12 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE12"
+output = "(D12) ＞ 6 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE12"
+output = "(D12) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE12"
+output = "(D12) ＞ 11 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE12"
+output = "(D12) ＞ 1 ＞ 星 ＞ 成功"
+success = true
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE12"
+output = "(D12) ＞ 12 ＞ 星 ＞ 成功"
+success = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE12"
+output = "(D12) ＞ 5 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "SE12"
+output = "(D12) ＞ 7 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 7 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO12"
+output = "(D12) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO12"
+output = "(D12) ＞ 1 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO12"
+output = "(D12) ＞ 2 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO12"
+output = "(D12) ＞ 3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 12, value = 3 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO12"
+output = "(D12) ＞ 4 ＞ 狐狐狐 ＞ 成功"
+success = true
+rands = [
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO12"
+output = "(D12) ＞ 5 ＞ 狐狐 ＞ 成功"
+success = true
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO12"
+output = "(D12) ＞ 10 ＞ 狐 ＞ 成功"
+success = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO12"
+output = "(D12) ＞ 11 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "CO12"
+output = "(D12) ＞ 12 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "EXI<=10"
+output = "(D20<=10) ＞ 1 ＞ M ＞ マジック"
+critical = true
+success = true
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "EXI<=10"
+output = "(D20<=10) ＞ 2 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 2 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "EXI<=10"
+output = "(D20<=10) ＞ 10 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 10 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "EXI<=10"
+output = "(D20<=10) ＞ 11 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 20, value = 11 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "EXI<=10"
+output = "(D20<=10) ＞ 19 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "EXI<=10"
+output = "(D20<=10) ＞ 20 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "EXI<=30"
+output = "(D20<=30) ＞ 20 ＞ Q ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "EXI<=11"
+output = "(D20<=11) ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 11 },
+]
+
+[[ test ]]
+game_system = "KamitsubakiCityUnderConstructionNarrative"
+input = "EXI<=11"
+output = "(D20<=11) ＞ 12 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 20, value = 12 },
+]

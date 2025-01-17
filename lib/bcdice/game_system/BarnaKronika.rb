@@ -121,7 +121,7 @@ module BCDice
           set += 1 if diceCount > 1
         end
 
-        if  criticalCallDice != 0
+        if criticalCallDice != 0
           c_cnt = diceCountList[criticalCallDice - 1]
           suc = c_cnt * 2
 

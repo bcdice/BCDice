@@ -1,0 +1,243 @@
+# B6K{m} ([K]ids判定用の簡易コマンド)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "K5"
+output = "(5B6>=2) ＞ 4,6,3,1,5 ＞ 成功数:4 \n"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+# B6E{m} ([E]asy判定用の簡易コマンド)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "E5"
+output = "(5B6>=3) ＞ 4,6,3,1,5 ＞ 成功数:4 \n"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+# B6N{m} ([N]ormal判定用の簡易コマンド)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N5"
+output = "(5B6>=4) ＞ 4,6,3,1,5 ＞ 成功数:3 \n"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+# B6H{m} ([H]ard判定用の簡易コマンド)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "H5"
+output = "(5B6>=5) ＞ 4,6,3,1,5 ＞ 成功数:2 \n"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+# B6U{m} ([U]ltra-hard判定用の簡易コマンド)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "U5"
+output = "(5B6>=6) ＞ 4,2,3,1,5 ＞ 成功数:0 \n"
+failure = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+# N{m},{n}[appendix] 簡易コマンドの連続処理 (追加判定)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N5,3,4[!=1][s][c2]"
+output = "(5B6>=4) ＞ 4,6,3,1,5 ＞ 成功数:3, 追加判定:4[6,5,4,3], サツバツ！:1[6], クリティカル！:4[6,5,4,3] \n(3B6>=4) ＞ 1,1,2 ＞ 成功数:0, 追加判定:1[2], サツバツ！:0, クリティカル！:1[2] \n(4B6>=4) ＞ 6,6,1,2 ＞ 成功数:2, 追加判定:3[6,6,2], サツバツ！:2[6,6], クリティカル！:3[6,6,2] \n"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+# サツバツ！(D6)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "SB"
+output = "サツバツ!!(D6) ＞ (3) ＞ 「苦しみ抜いて死ぬがいい！」急所や内臓を情け容赦なく破壊！ \n『痛打+1』。敵の【体力】を減らした場合、付属効果として『ニューロンダメージ1』と『精神力ダメージ2』と『●部位損傷：胴体』を与える。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+# サツバツ！(効果指定)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "SB@6"
+output = "サツバツ!!(6) ＞ 「さらばだ！ イイイヤアアアアーーーーッ！」ヤリめいたチョップが敵の胸を貫通！ さらに心臓を掴み取り、握りつぶした！ ゴウランガ！ \n『即死！』。敵が『即死耐性』を持つ場合、この効果は『痛打＋2D6』に置き換えられる。"
+rands = []
+
+# Wasshoi！(2D6/失敗)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "WS8"
+output = "Wasshoi!判定(2D6) ＞ (4+5) ＞ 9(>8) 判定失敗"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+# Wasshoi！(2D6/成功)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "WS8"
+output = "Wasshoi!判定(2D6) ＞ (3+1) ＞ 4(<=8) 判定成功!! \nニンジャスレイヤー=サンのエントリーだ!!"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+# Wasshoi!エントリー(D6)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "WSE"
+output = "ニンジャスレイヤー=サンのエントリー!!(D6) ＞ (4) ＞ 天井破壊や床破砕、または垂直リフト射出により出現！ \n標的ニンジャから2マス離れた任意の場所に【殺】コマを置くこと。 \n激しい恐怖や動揺により、次のターンの終了時まで、その場にいる【DKK】1以上のニンジャ全員は『連続側転判定』の難易度が+1される。"
+rands = [  
+  { sides = 6, value = 4 },
+]
+
+# Wasshoi！エントリー(エントリー表指定)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "WSE@6"
+output = "ニンジャスレイヤー=サンのエントリー!!(6) ＞ 「行き先はジゴクですよ」 \nマップ上にいるNPC1人（標的ニンジャから最も近くにいる者）が、実はニンジャスレイヤーの変装であった。そのNPCのコマを【殺】に変更せよ（本物のNPCがどこにいったのかはニンジャマスターが後で考える）。 \n激しい恐怖や動揺により、次のターンの終了時まで、その場にいる【DKK】1以上のニンジャ全員は『連続側転判定』の難易度が+2される。"
+rands = []
+
+# NRS判定(難易度Easy, 成功)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "NRS_E4"
+output = "NRS判定(4B6>=3) ＞ 1,2,3,4 ＞ 成功数:2 NRS克服!!"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+# NRS判定(難易度Easy, 失敗, 発狂表指定なし)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "NRS_E4"
+output = "NRS判定(4B6>=3) ＞ 1,1,1,1 ＞ 成功数:0 NRS発症!! \nNRS発狂(1D3) ＞ (3) ＞ パニック逃走や異常行動 \n恐怖のあまり絶叫し、仲間を見捨ててその場から全速力で逃げ出そうとしたり、銃を持っている場合は見えない敵に向かって乱射しようとする。 \nあるいは仲間のことをニンジャだと思い込んで攻撃を仕掛けたり、理解不能な異常行動を取ったりする。 \n探索シーケンスの場合、直ちに戦闘シーケンスが発生してこのPCの手番となり、1ターンだけマスターがこのPCを操作する。このPCは常軌を逸した身体能力を発揮し、【脚力】6として行動する。マスターはこのPCに自傷行為以外のどんな行動を取らせてもよい。このPCにとっては、あらゆるキャラが敵とみなされる。このターンの終了時に、このPCは正気に戻る。 \n戦闘中の場合も同様で、次の手番にこの状態となる。手番開始時に攻撃できる相手がニンジャしか見えていない場合、逃走を優先する。"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 3, value = 3 },
+]
+
+# NRS判定(難易度Normal, 失敗, 発狂表指定なし)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "NRS_N4"
+output = "NRS判定(4B6>=4) ＞ 1,1,1,1 ＞ 成功数:0 NRS発症!! \nNRS発狂(1D6) ＞ (6) ＞ 気絶 \n失禁し【精神力】に1ダメージ。さらに打ち上げられたマグロめいてその場で倒れて口をパクパクとさせ、『気絶状態』となる。 \n戦闘が終了するか、一定時間が経過するか、誰かに蘇生してもらうまで、この状態は解除されない。"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+# NRS判定(難易度Hard, 失敗, 発狂表指定なし)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "NRS_H4"
+output = "NRS判定(4B6>=5) ＞ 1,1,1,1 ＞ 成功数:0 NRS発症!! \nNRS発狂(1D6+1) ＞ (6) ＞ 気絶 \n失禁し【精神力】に1ダメージ。さらに打ち上げられたマグロめいてその場で倒れて口をパクパクとさせ、『気絶状態』となる。 \n戦闘が終了するか、一定時間が経過するか、誰かに蘇生してもらうまで、この状態は解除されない。"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+# NRS判定(難易度Ultra-hard, 失敗, 発狂表指定なし)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "NRS_U4"
+output = "NRS判定(4B6>=6) ＞ 1,1,1,1 ＞ 成功数:0 NRS発症!! \nNRS発狂(1D6+1) ＞ (7) ＞ 心臓発作や狂死 \n急激なニンジャリアリティショックに耐えきれず、PCは心臓発作やニューロン損傷を起こして【体力】0となり、その場に倒れ『気絶状態』となる。 \nZBRアドレナリンでなければ蘇生できない。処置を受けずに時間が経過すると死亡する。"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+# NRS判定(難易度Easy, 失敗, 発狂表指定あり)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "NRS_E4@7"
+output = "NRS判定(4B6>=3) ＞ 1,1,1,1 ＞ 成功数:0 NRS発症!! \nNRS発狂(7) ＞ 心臓発作や狂死 \n急激なニンジャリアリティショックに耐えきれず、PCは心臓発作やニューロン損傷を起こして【体力】0となり、その場に倒れ『気絶状態』となる。 \nZBRアドレナリンでなければ蘇生できない。処置を受けずに時間が経過すると死亡する。"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 3, value = 3 },
+]
+
+# NRS判定(判定なし, 発狂表指定あり)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "NRS@7"
+output = "NRS発狂(7) ＞ 心臓発作や狂死 \n急激なニンジャリアリティショックに耐えきれず、PCは心臓発作やニューロン損傷を起こして【体力】0となり、その場に倒れ『気絶状態』となる。 \nZBRアドレナリンでなければ蘇生できない。処置を受けずに時間が経過すると死亡する。"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 3, value = 3 },
+]

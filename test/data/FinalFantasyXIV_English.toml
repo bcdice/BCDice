@@ -1,0 +1,199 @@
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "AB アビリティ判定 修正・目標なし"
+output = "(AB) ＞ 10[10] ＞ 10"
+rands = [
+  { sides = 20, value = 10 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "AB+5 アビリティ判定 目標なし"
+output = "(AB+5) ＞ 12[12]+5 ＞ 17"
+rands = [
+  { sides = 20, value = 12 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "AB+5 アビリティ判定 Critical"
+output = "(AB+5) ＞ 20[20]+5 ＞ 25 ＞ Critical"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 20 },
+]
+
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "AB+5>=11 アビリティ判定 Direct Hit"
+output = "(AB+5>=11) ＞ 8[8]+5 ＞ 13 ＞ Direct Hit"
+success = true
+rands = [
+  { sides = 20, value = 8 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "AB+5>=11 アビリティ判定 Only Base Effect"
+output = "(AB+5>=11) ＞ 5[5]+5 ＞ 10 ＞ Only Base Effect"
+failure = true
+rands = [
+  { sides = 20, value = 5 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "AB+8-5 アビリティ判定 多重修正値目標なし"
+output = "(AB+3) ＞ 12[12]+3 ＞ 15"
+rands = [
+  { sides = 20, value = 12 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "2AB+5 アビリティ判定 2d20 目標なし"
+output = "(2AB+5) ＞ [8,15] ＞ 15[15]+5 ＞ 20"
+rands = [
+  { sides = 20, value = 15 },
+  { sides = 20, value = 8 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "2AB+5 アビリティ判定 2d20 目標なし Critical"
+output = "(2AB+5) ＞ [6,20] ＞ 20[20]+5 ＞ 25 ＞ Critical"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 6 },
+  { sides = 20, value = 20 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "2AB+5>=15 アビリティ判定 2d20 Direct Hit"
+output = "(2AB+5>=15) ＞ [6,14] ＞ 14[14]+5 ＞ 19 ＞ Direct Hit"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+  { sides = 20, value = 6 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "2AB+5>=15 アビリティ判定 2d20 Only Base Effect"
+output = "(2AB+5>=15) ＞ [6,6] ＞ 6[6]+5 ＞ 11 ＞ Only Base Effect"
+failure = true
+rands = [
+  { sides = 20, value = 6 },
+  { sides = 20, value = 6 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "DC 行為判定 修正・目標なし"
+output = "(DC) ＞ 10[10] ＞ 10"
+rands = [
+  { sides = 20, value = 10 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "DC+5 行為判定 目標なし"
+output = "(DC+5) ＞ 12[12]+5 ＞ 17"
+rands = [
+  { sides = 20, value = 12 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "DC+5 行為判定 20"
+output = "(DC+5) ＞ 20[20]+5 ＞ 25"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "DC+5>=11 行為判定 Success"
+output = "(DC+5>=11) ＞ 8[8]+5 ＞ 13 ＞ Success"
+success = true
+rands = [
+  { sides = 20, value = 8 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "DC+5>=11 行為判定 Failure"
+output = "(DC+5>=11) ＞ 5[5]+5 ＞ 10 ＞ Failure"
+failure = true
+rands = [
+  { sides = 20, value = 5 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "DC+8-5 行為判定 多重修正値目標なし"
+output = "(DC+3) ＞ 12[12]+3 ＞ 15"
+rands = [
+  { sides = 20, value = 12 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "2DC+5 行為判定 2d20 目標なし"
+output = "(2DC+5) ＞ [8,15] ＞ 15[15]+5 ＞ 20"
+rands = [
+  { sides = 20, value = 15 },
+  { sides = 20, value = 8 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "2DC+5>=15 行為判定 2d20 Success"
+output = "(2DC+5>=15) ＞ [6,14] ＞ 14[14]+5 ＞ 19 ＞ Success"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+  { sides = 20, value = 6 },
+]
+
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "2DC+5>=15 行為判定 2d20 Failure"
+output = "(2DC+5>=15) ＞ [6,6] ＞ 6[6]+5 ＞ 11 ＞ Failure"
+failure = true
+rands = [
+  { sides = 20, value = 6 },
+  { sides = 20, value = 6 },
+]
+
+[[ test ]]
+game_system = "FinalFantasyXIV:English"
+input = "DC+5>=26 行為判定 20Failure"
+output = "(DC+5>=26) ＞ 20[20]+5 ＞ 25 ＞ Failure"
+failure = true
+rands = [
+  { sides = 20, value = 20},
+]

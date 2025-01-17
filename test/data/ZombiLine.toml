@@ -1,0 +1,210 @@
+[[test]]
+game_system = "ZombiLine"
+input = "1ZL<=50"
+output = "(1ZL<=50) ＞ [20] ＞ 成功"
+success = true
+rands = [
+    { sides = 100, value = 20 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "1ZL<=50"
+output = "(1ZL<=50) ＞ [50] ＞ 成功"
+success = true
+rands = [
+    { sides = 100, value = 50 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "1ZL<=50"
+output = "(1ZL<=50) ＞ [51] ＞ 失敗"
+failure = true
+rands = [
+    { sides = 100, value = 51 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "1ZL<=50"
+output = "(1ZL<=50) ＞ [6] ＞ 成功"
+success = true
+rands = [
+    { sides = 100, value = 6 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "1ZL<=50"
+output = "(1ZL<=50) ＞ [5] ＞ 成功(クリティカル)"
+success = true
+critical = true
+rands = [
+    { sides = 100, value = 5 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "1ZL<=50"
+output = "(1ZL<=50) ＞ [95] ＞ 失敗"
+failure = true
+rands = [
+    { sides = 100, value = 95 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "1ZL<=50"
+output = "(1ZL<=50) ＞ [96] ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+    { sides = 100, value = 96 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "1ZL<=98"
+output = "(1ZL<=98) ＞ [98] ＞ 成功"
+success = true
+rands = [
+    { sides = 100, value = 98 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "1ZL<=98"
+output = "(1ZL<=98) ＞ [99] ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+    { sides = 100, value = 99 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "ZL<=70"
+output = "(ZL<=70) ＞ [65] ＞ 成功"
+success = true
+rands = [
+    { sides = 100, value = 65 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "2ZL<=70"
+output = "(2ZL<=70) ＞ [36,82] ＞ 成功"
+success = true
+rands = [
+    { sides = 100, value = 36 },
+    { sides = 100, value = 82 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "2ZL<=70"
+output = "(2ZL<=70) ＞ [74,91] ＞ 失敗"
+failure = true
+rands = [
+    { sides = 100, value = 91 },
+    { sides = 100, value = 74 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "2ZL<=70"
+output = "(2ZL<=70) ＞ [12,28] ＞ 成功"
+success = true
+rands = [
+    { sides = 100, value = 28 },
+    { sides = 100, value = 12 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "2ZL<=70"
+output = "(2ZL<=70) ＞ [8,97] ＞ 成功(ファンブル)"
+success = true
+fumble = true
+rands = [
+    { sides = 100, value = 97 },
+    { sides = 100, value = 8 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "2ZL<=70"
+output = "(2ZL<=70) ＞ [4,97] ＞ 成功"
+success = true
+rands = [
+    { sides = 100, value = 4 },
+    { sides = 100, value = 97 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "2ZL<=70"
+output = "(2ZL<=70) ＞ [3,78] ＞ 成功(クリティカル)"
+success = true
+critical = true
+rands = [
+    { sides = 100, value = 3 },
+    { sides = 100, value = 78 },
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "SST"
+output = "ストレス症状表(2) ＞ 逃避：落下してでも敵から逃げるように移動します。周囲に敵が居ない場合、現実逃避します。　耐えられなくなり、逃げ出します。"
+rands = [
+    { sides = 10, value = 2 }
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "SST"
+output = "ストレス症状表(3) ＞ 幻覚：戦闘中は、「行動放棄（全AP）」します。戦闘以外なら、幻覚を見て笑います。　自分が望む幻覚が見えます。"
+rands = [
+    { sides = 10, value = 3 }
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "IT"
+output = "食材表(13) ＞ 生モノ食材"
+rands = [
+    { sides = 100, value = 13 }
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "IT"
+output = "食材表(50) ＞ 生モノ食材"
+rands = [
+    { sides = 100, value = 50 }
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "IT"
+output = "食材表(51) ＞ 怪しい食材"
+rands = [
+    { sides = 100, value = 51 }
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "IT"
+output = "食材表(80) ＞ 怪しい食材"
+rands = [
+    { sides = 100, value = 80 }
+]
+
+[[test]]
+game_system = "ZombiLine"
+input = "IT"
+output = "食材表(81) ＞ 危ない食材"
+rands = [
+    { sides = 100, value = 81 }
+]

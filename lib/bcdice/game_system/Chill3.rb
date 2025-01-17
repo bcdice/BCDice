@@ -16,7 +16,7 @@ module BCDice
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         ・1D100で判定時に成否、Botchを判定
         　例）1D100<=50
-        　　　Chill3 : (1D100<=50) ＞ 55 ＞ Botch
+        　　 (1D100<=50) ＞ 55 ＞ Botch
       INFO_MESSAGE_TEXT
 
       def result_1d100(total, dice_total, cmp_op, target)
@@ -30,21 +30,21 @@ module BCDice
         if tens == ones
           if (total > target) || (dice_total == 100) # 00は必ず失敗
             if target > 100 # 目標値が100を超えている場合は、00を振ってもBotchにならない
-              return Result.failure("失敗")
+              return Result.failure("Failure")
             else
               return Result.fumble("Botch")
             end
           else
-            return Result.critical("Ｃ成功")
+            return Result.critical("Colossal Success")
           end
         elsif (total <= target) || (dice_total == 1) # 01は必ず成功
           if total <= (target / 2)
-            return Result.success("Ｈ成功")
+            return Result.success("High Success")
           else
-            return Result.success("Ｌ成功")
+            return Result.success("Low Success")
           end
         else
-          return Result.failure("失敗")
+          return Result.failure("Failure")
         end
       end
     end

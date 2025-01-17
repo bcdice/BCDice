@@ -1,0 +1,969 @@
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "1D100<=70 ファンブルなし"
+output = "(1D100<=70) ＞ 100 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "1D100<=70 クリティカルなし"
+output = "(1D100<=70) ＞ 1 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+
+##### 対抗判定 RES #####
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(12-10) 失敗"
+output = "(1d100<=60) ＞ 83 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 83 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(12-10) ファンブル"
+output = "(1d100<=60) ＞ 100 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(12-10) ファンブルは100のみ"
+output = "(1d100<=60) ＞ 99 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(12-10) 失敗"
+output = "(1d100<=60) ＞ 88 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 88 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(12-10) 失敗 1足りない"
+output = "(1d100<=60) ＞ 61 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 61 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(12-10) 成功 1足りた"
+output = "(1d100<=60) ＞ 60 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 60 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(12-10) 成功"
+output = "(1d100<=60) ＞ 42 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 42 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(12-10) スペシャルに1足りない"
+output = "(1d100<=60) ＞ 13 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 13 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(12-10) スペシャル"
+output = "(1d100<=60) ＞ 12 ＞ Special"
+success = true
+rands = [
+  { sides = 100, value = 12 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(12-10) クリティカルは1のみ"
+output = "(1d100<=60) ＞ 2 ＞ Special"
+success = true
+rands = [
+  { sides = 100, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(12-10) クリティカル"
+output = "(1d100<=60) ＞ 1 ＞ Critical Success/Special"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(10-15) 引数が負数の場合には絶対値をとる"
+output = "(1d100<=25) ＞ 26 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 26 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(10-15) 引数が負数の場合には絶対値をとる"
+output = "(1d100<=25) ＞ 25 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 25 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(11-30) 自動失敗"
+output = "(1d100<=-45) ＞ Automatic Failure"
+failure = true
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES(30-11) 自動成功"
+output = "(1d100<=145) ＞ Automatic Success"
+success = true
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "SRES(18-11) シークレット"
+output = "(1d100<=85) ＞ 47 ＞ Success"
+secret = true
+success = true
+rands = [
+  { sides = 100, value = 47 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RES18-11"
+output = ""
+rands = []
+
+
+##### 組み合わせロール CBR #####
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBR(70,30) ファンブル"
+output = "(1d100<=70,30) ＞ 100[Fumble,Fumble] ＞ Failure"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBR(70,30) ファンブルは100のみ"
+output = "(1d100<=70,30) ＞ 99[Failure,Failure] ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBR(70,30) 失敗"
+output = "(1d100<=70,30) ＞ 71[Failure,Failure] ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 71 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBR(70,30) 部分的成功"
+output = "(1d100<=70,30) ＞ 70[Success,Failure] ＞ Partial Success"
+success = true
+rands = [
+  { sides = 100, value = 70 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBR(70,30) 部分的成功"
+output = "(1d100<=70,30) ＞ 31[Success,Failure] ＞ Partial Success"
+success = true
+rands = [
+  { sides = 100, value = 31 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBR(70,30) 成功"
+output = "(1d100<=70,30) ＞ 30[Success,Success] ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBR(70,30) 一方のみスペシャル"
+output = "(1d100<=70,30) ＞ 7[Special,Success] ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBR(70,30) 両方スペシャル"
+output = "(1d100<=70,30) ＞ 6[Special,Special] ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBR(70,30) クリティカル"
+output = "(1d100<=70,30) ＞ 1[Critical Success/Special,Critical Success/Special] ＞ Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBR(25,1) スペシャルと失敗"
+output = "(1d100<=25,1) ＞ 5[Special,Failure] ＞ Partial Success"
+success = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBR(90,99)"
+output = "(1d100<=90,99) ＞ 96[Failure,Success] ＞ Partial Success"
+success = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBR(90,95)"
+output = "(1d100<=90,95) ＞ 96[Failure,Failure] ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "SCBR(25,75) シークレット"
+output = "(1d100<=25,75) ＞ 30[Failure,Success] ＞ Partial Success"
+secret = true
+success = true
+rands = [
+  { sides = 100, value = 30 },
+]
+
+
+##### 技能判定 CC #####
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC 1D100の置き換えなのでファンブルなし"
+output = "(1D100) ＞ 100"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC 1D100の置き換えなのでクリティカルなし"
+output = "(1D100) ＞ 1"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=60 ファンブル"
+output = "(1D100<=60) ＞ 100 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=60 ファンブルは100のみ"
+output = "(1D100<=60) ＞ 99 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=60 失敗"
+output = "(1D100<=60) ＞ 78 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 78 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=60 失敗 1足りない"
+output = "(1D100<=60) ＞ 61 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 61 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=60 成功 1足りた"
+output = "(1D100<=60) ＞ 60 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 60 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=60 成功"
+output = "(1D100<=60) ＞ 49 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 49 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=60 スペシャルに1足りない"
+output = "(1D100<=60) ＞ 13 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 13 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=60 スペシャル"
+output = "(1D100<=60) ＞ 12 ＞ Special"
+success = true
+rands = [
+  { sides = 100, value = 12 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=60 クリティカルは1のみ"
+output = "(1D100<=60) ＞ 2 ＞ Special"
+success = true
+rands = [
+  { sides = 100, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=60 クリティカル"
+output = "(1D100<=60) ＞ 1 ＞ Critical Success/Special"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=59 スペシャルは端数切り捨て"
+output = "(1D100<=59) ＞ 12 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 12 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=59 スペシャルは端数切り捨て"
+output = "(1D100<=59) ＞ 11 ＞ Special"
+success = true
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC<=+60/2+15*2-10"
+output = "(1D100<=50) ＞ 37 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC(94)<=98 故障 成功"
+output = "(1D100<=98) Malfunction Number[94] ＞ 97 ＞ Malfunction"
+failure = true
+rands = [
+  { sides = 100, value = 97 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC(94)<=98 故障 失敗"
+output = "(1D100<=98) Malfunction Number[94] ＞ 99 ＞ Malfunction"
+failure = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CC(94)<=98 故障 致命的失敗"
+output = "(1D100<=98) Malfunction Number[94] ＞ 100 ＞ Fumble/Malfunction"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "SCC<=60 シークレット"
+output = "(1D100<=60) ＞ 77 ＞ Failure"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 77 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCさくら 完全一致"
+output = ""
+rands = []
+
+##### 戦闘用技能判定 CCB #####
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=+60/2+15*2-10"
+output = "(1D100<=50) ＞ 37 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=(12*5)-20"
+output = "(1D100<=40) ＞ 37 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=50 ファンブル"
+output = "(1D100<=50) ＞ 100 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=50 ファンブル"
+output = "(1D100<=50) ＞ 96 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=50 ファンブルは96~100"
+output = "(1D100<=50) ＞ 95 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 95 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=50 失敗"
+output = "(1D100<=50) ＞ 61 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 61 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=50 失敗 1足りない"
+output = "(1D100<=50) ＞ 51 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=50 成功 1足りた"
+output = "(1D100<=50) ＞ 50 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=50 スペシャルに1足りない"
+output = "(1D100<=50) ＞ 11 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=50 スペシャル"
+output = "(1D100<=50) ＞ 10 ＞ Special"
+success = true
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=50 クリティカルは1~5"
+output = "(1D100<=50) ＞ 6 ＞ Special"
+success = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=50 クリティカル"
+output = "(1D100<=50) ＞ 5 ＞ Critical Success/Special"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=50 クリティカル"
+output = "(1D100<=50) ＞ 1 ＞ Critical Success/Special"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=98 出目が悪いがファンブルでない"
+output = "(1D100<=98) ＞ 98 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 98 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=3 出目が良いがクリティカルでない"
+output = "(1D100<=3) ＞ 4 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 4 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB<=-10+40/2+20*2 右辺が式"
+output = "(1D100<=50) ＞ 37 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 37 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB(98)<=80 故障ナンバー：成功"
+output = "(1D100<=80) Malfunction Number[98] ＞ 80 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB(98)<=99 故障ナンバー：故障 成功"
+output = "(1D100<=99) Malfunction Number[98] ＞ 99 ＞ Malfunction"
+failure = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB(98)<=80 故障ナンバー：致命的失敗"
+output = "(1D100<=80) Malfunction Number[98] ＞ 96 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB(98)<=80 (5%) 故障ナンバー：故障 致命的失敗"
+output = "(1D100<=80) Malfunction Number[98] ＞ 99 ＞ Fumble/Malfunction"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCB(98)<=80 (5%) 故障ナンバー：致命的失敗"
+output = "(1D100<=80) Malfunction Number[98] ＞ 100 ＞ Fumble/Malfunction"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "SCCB<=50 シークレット"
+output = "(1D100<=50) ＞ 30 ＞ Success"
+secret = true
+success = true
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CCBさくら 完全一致"
+output = ""
+rands = []
+
+##### 戦闘用対抗判定 RESB #####
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(13-10) ファンブル"
+output = "(1d100<=65) ＞ 100 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(13-10) ファンブル"
+output = "(1d100<=65) ＞ 96 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(13-10) ファンブルは96~100"
+output = "(1d100<=65) ＞ 95 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 95 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(13-10) 失敗 1足りない"
+output = "(1d100<=65) ＞ 66 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 66 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(13-10) 成功 1足りた"
+output = "(1d100<=65) ＞ 65 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 65 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(13-10) スペシャルに1足りない"
+output = "(1d100<=65) ＞ 14 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 14 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(13-10) スペシャル"
+output = "(1d100<=65) ＞ 13 ＞ Special"
+success = true
+rands = [
+  { sides = 100, value = 13 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(13-10) クリティカルは1~5"
+output = "(1d100<=65) ＞ 6 ＞ Special"
+success = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(13-10) クリティカル"
+output = "(1d100<=65) ＞ 5 ＞ Critical Success/Special"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(13-10) クリティカル"
+output = "(1d100<=65) ＞ 1 ＞ Critical Success/Special"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(10-15) 絶対値をとる"
+output = "(1d100<=25) ＞ 90 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 90 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(10-15) 絶対値をとる"
+output = "(1d100<=25) ＞ 25 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 25 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(25-10) 自動成功"
+output = "(1d100<=125) ＞ Automatic Success"
+success = true
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB(10-25) 自動失敗"
+output = "(1d100<=-25) ＞ Automatic Failure"
+failure = true
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "SRESB(16-12) シークレット"
+output = "(1d100<=70) ＞ 44 ＞ Success"
+secret = true
+success = true
+rands = [
+  { sides = 100, value = 44 },
+]
+
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "RESB18-11"
+output = ""
+rands = []
+
+##### 戦闘用組み合わせロール CBRB #####
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(70,30) ファンブル"
+output = "(1d100<=70,30) ＞ 100[Fumble,Fumble] ＞ Failure"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(70,30) ファンブル"
+output = "(1d100<=70,30) ＞ 96[Fumble,Fumble] ＞ Failure"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(70,30) ファンブルは96~100"
+output = "(1d100<=70,30) ＞ 95[Failure,Failure] ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 95 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(70,30) ファンブルは96~100"
+output = "(1d100<=70,30) ＞ 95[Failure,Failure] ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 95 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(70,30) 部分的成功"
+output = "(1d100<=70,30) ＞ 70[Success,Failure] ＞ Partial Success"
+success = true
+rands = [
+  { sides = 100, value = 70 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(70,30) 部分的成功"
+output = "(1d100<=70,30) ＞ 31[Success,Failure] ＞ Partial Success"
+success = true
+rands = [
+  { sides = 100, value = 31 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(70,30) 一方のみスペシャル"
+output = "(1d100<=70,30) ＞ 7[Special,Success] ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(70,30) クリティカルは1~5"
+output = "(1d100<=70,30) ＞ 6[Special,Special] ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(70,30) クリティカル"
+output = "(1d100<=70,30) ＞ 5[Critical Success/Special,Critical Success/Special] ＞ Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(70,30) クリティカル"
+output = "(1d100<=70,30) ＞ 1[Critical Success/Special,Critical Success/Special] ＞ Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(98,50) 成功とファンブル"
+output = "(1d100<=98,50) ＞ 96[Success,Fumble] ＞ Partial Success"
+success = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(70,2) クリティカルと失敗"
+output = "(1d100<=70,2) ＞ 3[Critical Success/Special,Failure] ＞ Partial Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 3 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "CBRB(70,(1+1)) クリティカルと失敗"
+output = "(1d100<=70,2) ＞ 3[Critical Success/Special,Failure] ＞ Partial Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 3 },
+]
+
+[[ test ]]
+game_system = "Cthulhu:English"
+input = "SCBRB(70,30) シークレット"
+output = "(1d100<=70,30) ＞ 48[Success,Failure] ＞ Partial Success"
+secret = true
+success = true
+rands = [
+  { sides = 100, value = 48 },
+]

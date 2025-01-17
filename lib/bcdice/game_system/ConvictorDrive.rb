@@ -19,7 +19,7 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        xCD@z>=y: x個の10面ダイスで目標値y、クリティカルラインzの判定を行う
+        xCD@z>=y: x個の10面ダイスで目標値y（省略時5）、クリティカルラインz（省略時10）の判定を行う。
         SLT: 技能レベル表を振る
         DCT: 遅延イベント表を振る
       MESSAGETEXT
@@ -87,7 +87,7 @@ module BCDice
         parser = Command::Parser.new('CD', round_type: round_type)
                                 .has_prefix_number
                                 .enable_critical
-                                .restrict_cmp_op_to(:>=)
+                                .restrict_cmp_op_to(:>=, nil)
         cmd = parser.parse(command)
 
         unless cmd
@@ -95,8 +95,9 @@ module BCDice
         end
 
         dice_list = @randomizer.roll_barabara(cmd.prefix_number, 10)
-        critical = cmd.critical&.clamp(cmd.target_number, 10) || 10
-        succeed_num = dice_list.count { |x| x >= cmd.target_number }
+        target_num = cmd.target_number || 5
+        critical = cmd.critical&.clamp(target_num, 10) || 10
+        succeed_num = dice_list.count { |x| x >= target_num }
         critical_num = dice_list.count { |x| x >= critical }
 
         text = [

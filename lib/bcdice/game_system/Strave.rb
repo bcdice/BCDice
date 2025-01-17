@@ -90,7 +90,7 @@ module BCDice
           result = "(#{diceCount}D10\<\=#{target}) ＞ #{diceText} ＞ Hits：#{successCount}*#{damage} ＞ #{totalDamage}ダメージ"
         else
           result = "(#{diceCount}D10\<\=#{target}) ＞ #{diceText}"
-          if  successCount > 0
+          if successCount > 0
             result += " ＞ 【成功】"
           else
             result += " ＞ 【失敗】"

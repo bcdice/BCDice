@@ -30,8 +30,8 @@ rands = [
 
 [[ test ]]
 game_system = "NSSQ"
-input = "3SQ ファンブルチェック"
-output = "(3SQ) ＞ [1,1,1] ＞ 2[1,1] ファンブル！"
+input = "3SQ 絶対失敗チェック"
+output = "(3SQ) ＞ [1,1,1] ＞ 2[1,1] ＞ 絶対失敗！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -40,8 +40,8 @@ rands = [
 
 [[ test ]]
 game_system = "NSSQ"
-input = "3SQ クリティカルチェック"
-output = "(3SQ) ＞ [6,6,1] ＞ 12[6,6] クリティカル！"
+input = "3SQ 絶対成功チェック"
+output = "(3SQ) ＞ [6,6,1] ＞ 12[6,6] ＞ 絶対成功！"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -67,10 +67,76 @@ rands = [
 
 [[ test ]]
 game_system = "NSSQ"
-input = "1SQ 1の場合も動く"
-output = "(1SQ) ＞ [6] ＞ 6[6]"
+input = "2SQ"
+output = "(2SQ) ＞ [1,4] ＞ 5[4,1] (【FP】1獲得)"
 rands = [
-  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "2SQ 絶対失敗でもFP獲得ができる"
+output = "(2SQ) ＞ [1,1] ＞ 2[1,1] ＞ 絶対失敗！ (【FP】2獲得)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "3SQ ダイスが2個以外の時はFPを獲得できない"
+output = "(3SQ) ＞ [1,4,1] ＞ 5[4,1]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "2SQ>=5"
+output = "(2SQ>=5) ＞ [1,4] ＞ 5[4,1] ＞ 成功 (【FP】1獲得)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "3SQ>=8"
+output = "(3SQ>=8) ＞ [1,5,3] ＞ 8[5,3] ＞ 成功"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "2SQ>=5"
+output = "(2SQ>=5) ＞ [1,3] ＞ 4[3,1] ＞ 失敗 (【FP】1獲得)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "3SQ>=8"
+output = "(3SQ>=8) ＞ [3,1,4] ＞ 7[4,3] ＞ 失敗"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "NSSQ"
+input = "1SQ 1の場合も動く（FPは獲得できない）"
+output = "(1SQ) ＞ [1] ＞ 1[1]"
+rands = [
+  { sides = 6, value = 1 },
 ]
 
 [[ test ]]
@@ -97,8 +163,8 @@ rands = [
 
 [[ test ]]
 game_system = "NSSQ"
-input = "4DR3 ダメージロールのクリティカル処理確認（クリティカルロールにクリティカルが発生しないことも確認）"
-output = "(4DR3) ＞ [6,6,3,2]3 ＞ 2ダメージ クリティカル！\n(4DR3) ＞ [6,6,3,2]3 ＞ 2ダメージ"
+input = "4DR3 ダメージロールのクリティカルヒット処理確認（クリティカルヒットロールにクリティカルヒットが発生しないことも確認）"
+output = "(4DR3) ＞ [6,6,3,2]3 ＞ 2ダメージ クリティカルヒット！\n(4DR3) ＞ [6,6,3,2]3 ＞ 2ダメージ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -112,7 +178,7 @@ rands = [
 
 [[ test ]]
 game_system = "NSSQ"
-input = "4DR3 6の数が1の数より1つ多い状態ではクリティカルが発生しないことを確認"
+input = "4DR3 6の数が1の数より1つ多い状態ではクリティカルヒットが発生しないことを確認"
 output = "(4DR3) ＞ [6,6,1,2]3 ＞ 2ダメージ"
 rands = [
   { sides = 6, value = 6 },
@@ -123,8 +189,8 @@ rands = [
 
 [[ test ]]
 game_system = "NSSQ"
-input = "4DR+4 クリティカル時ダイスが8個になるか確認"
-output = "(4DR+4) ＞ [6,6,3,2]4 ＞ 2ダメージ クリティカル！\n(8DR4) ＞ [6,6,3,2,1,1,1,1]4 ＞ 2ダメージ"
+input = "4DR+4 クリティカルヒット時ダイスが8個になるか確認"
+output = "(4DR+4) ＞ [6,6,3,2]4 ＞ 2ダメージ クリティカルヒット！\n(8DR4) ＞ [6,6,3,2,1,1,1,1]4 ＞ 2ダメージ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -142,8 +208,8 @@ rands = [
 
 [[ test ]]
 game_system = "NSSQ"
-input = "4DRC3 クリティカルアップ状態（6の数が1の数より1つでも多ければクリティカル）の確認"
-output = "(4DRC3) ＞ [6,6,1,2]3 ＞ 2ダメージ クリティカル！\n(4DR3) ＞ [6,6,3,2]3 ＞ 2ダメージ"
+input = "4DRC3 クリティカルアップ状態（6の数が1の数より1つでも多ければクリティカルヒット）の確認"
+output = "(4DRC3) ＞ [6,6,1,2]3 ＞ 2ダメージ クリティカルヒット！\n(4DR3) ＞ [6,6,3,2]3 ＞ 2ダメージ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -157,8 +223,8 @@ rands = [
 
 [[ test ]]
 game_system = "NSSQ"
-input = "4DRC+4 クリティカルアップ状態とクリティカル時のダイス数増加の両方の動作確認"
-output = "(4DRC+4) ＞ [6,6,1,2]4 ＞ 2ダメージ クリティカル！\n(8DR4) ＞ [6,6,3,2,1,1,1,1]4 ＞ 2ダメージ"
+input = "4DRC+4 クリティカルアップ状態とクリティカルヒット時のダイス数増加の両方の動作確認"
+output = "(4DRC+4) ＞ [6,6,1,2]4 ＞ 2ダメージ クリティカルヒット！\n(8DR4) ＞ [6,6,3,2,1,1,1,1]4 ＞ 2ダメージ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -176,7 +242,7 @@ rands = [
 
 [[ test ]]
 game_system = "NSSQ"
-input = "4HR 回復ロールの確認&クリティカルが発生しないことを確認"
+input = "4HR 回復ロールの確認&クリティカルヒットが発生しないことを確認"
 output = "(4HR) ＞ [6,6,3,2]3 ＞ 2回復"
 rands = [
   { sides = 6, value = 6 },

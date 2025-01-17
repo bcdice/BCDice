@@ -1,0 +1,323 @@
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BB #基本戦闘"
+output = "(BB) ＞ 15"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BB+5 #修正値付き"
+output = "(BB+5) ＞ 15+5 ＞ 24"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BB-20 #ダイス下限値の確認"
+output = "(BB-20) ＞ 15-20 ＞ 11"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BB+5>14 #修正値＆目標値付き"
+output = "(BB+5>14) ＞ 15+5 ＞ 24 ＞ 命中(+6)"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BB+5>30 #修正値＆目標値付き"
+output = "(BB+5>30) ＞ 15+5 ＞ 24 ＞ 回避"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BB+5>30 #クリティカル抑制"
+output = "(BB+5>30) ＞ 65+5 ＞ 74 ＞ 命中(+28)"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BBM #基本戦闘モブ用"
+output = "(BBM) ＞ 51"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BBM #基本戦闘モブ用"
+output = "(BBM) ＞ 66 ＞ クリティカル"
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "BBM+8>30 #加算によるクリティカル表示"
+output = "(BBM+8>30) ＞ 55+8 ＞ 71 ＞ 命中(+25) ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "GS #一般技能-失敗"
+output = "(GS) ＞ 10 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "GS #一般技能-成功"
+output = "(GS) ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "GS>10 #一般技能-目標値あり-失敗"
+output = "(GS>10) ＞ 10 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "GS>10 #一般技能-目標値あり-成功"
+output = "(GS>10) ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "ECHC #敵MSクリティカルヒットチャート"
+output = "敵MSクリティカルヒットチャート(2) ＞ コックピット直撃：目標ＭＳは残骸となる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "ECHC #敵MSクリティカルヒットチャート"
+output = "敵MSクリティカルヒットチャート(7) ＞ 目標ＭＳへのダメージ２倍。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "ECHC #敵MSクリティカルヒットチャート"
+output = "敵MSクリティカルヒットチャート(12) ＞ 熱核ジェネレーター直撃：目標ＭＳは直ちに爆発（耐久力０）する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "PEJC #PC用脱出判定チャート"
+output = "PC用脱出判定チャート(2) ＞ 無傷で脱出"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "PEJC #PC用脱出判定チャート"
+output = "PC用脱出判定チャート(7) ＞ 重傷で脱出「３Ｄ６ダメージ。」"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "PEJC #PC用脱出判定チャート"
+output = "PC用脱出判定チャート(12) ＞ 戦死「二階級特進。」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "ASDC #艦船追加ダメージ決定チャート"
+output = "艦船追加ダメージ決定チャート(2) ＞ ブリッジ損傷「複数ある艦は、総てのブリッジが損傷すると以後の対空防御は修正を＋５する。」"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "ASDC #艦船追加ダメージ決定チャート"
+output = "艦船追加ダメージ決定チャート(7) ＞ 追加ダメージ「追加２Ｄ６ダメージ。」"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "ASDC #艦船追加ダメージ決定チャート"
+output = "艦船追加ダメージ決定チャート(12) ＞ エンジン誘爆「１Ｄ６×１０％の耐久力を失う。」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "AARC=1 #対空砲結果チャート"
+output = "対空砲結果チャート(7vs1) ＞ 結果「6」"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "AARC=6 #対空砲結果チャート"
+output = "対空砲結果チャート(7vs6) ＞ 結果「H」"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "AARC-1=1 #対空砲結果チャート"
+output = "対空砲結果チャート((2-1=1)vs1) ＞ 結果「D」"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "AARC-1=6 #対空砲結果チャート"
+output = "対空砲結果チャート((2-1=1)vs6) ＞ 結果「D」"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "AARC+1=1 #対空砲結果チャート"
+output = "対空砲結果チャート((12+1=13)vs1) ＞ 結果「-」"
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "AARC+1=6 #対空砲結果チャート"
+output = "対空砲結果チャート((12+1=13)vs6) ＞ 結果「6」"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "RTJC #リハビリ判定チャート"
+output = "リハビリ判定チャート(2) ＞ なし"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "RTJC #リハビリ判定チャート"
+output = "リハビリ判定チャート(12) ＞ １年と、もう一度このチャートで振った結果分を足した期間"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "RTJC+1 #リハビリ判定チャート"
+output = "リハビリ判定チャート(7+1=8) ＞ ６ヶ月"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "SDDC #二次被害判定チャート"
+output = "二次被害判定チャート(11) ＞ 奇蹟的に無傷「不発！？今回のダメージは0。」"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "SDDC #二次被害判定チャート"
+output = "二次被害判定チャート(16) ＞ 気絶「気絶判定の余地無く、必ず気絶する。」"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "GundamSentinel"
+input = "SDDC #二次被害判定チャート"
+output = "二次被害判定チャート(66) ＞ 熱核ジェネレーター直撃「そのＭＳは爆発する。ＰＣは直ちに脱出判定を行う。」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+

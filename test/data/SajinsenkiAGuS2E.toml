@@ -1,0 +1,470 @@
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "AG"
+output = "(2D10<=7) ＞ 5[2,3] ＞ 成功(+1)"
+success = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "AG"
+output = "(2D10<=7) ＞ 11[8,3] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "AG"
+output = "(2D10<=7) ＞ 7[0,7] ＞ チャンス ＞ 成功(+2)"
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "AG"
+output = "(2D10<=7) ＞ 9[0,9] ＞ チャンス ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "1AG"
+output = "(2D10<=11) ＞ 9[0,9] ＞ チャンス ＞ 成功(+2)"
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "2AG-1"
+output = "(2D10<=11) ＞ 9[0,9] ＞ チャンス ＞ 成功(+2)"
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "AG+3-1-2"
+output = "(2D10<=7) ＞ 9[0,9] ＞ チャンス ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "(2-1)AG"
+output = "(2D10<=11) ＞ 13[4,9] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "(2-1)AG+3-2"
+output = "(2D10<=12) ＞ 9[0,9] ＞ チャンス ＞ 成功(+2)"
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "(1-2)AG"
+output = "(2D10<=7) ＞ 9[0,9] ＞ チャンス ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "10AG #自動失敗なし"
+output = "(2D10<=20) ＞ 16[8,8] ＞ 成功(+3)"
+success = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "10AGW #自動失敗"
+output = "(2D10<=20) ＞ 16[8,8] ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "OM+8"
+output = "(2D10<=8) ＞ 4[3,1] ＞ 成功（HR=4、クリティカル0）"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "OM+8 #HRで0を0のままにした方が良い場合"
+output = "(2D10<=8) ＞ 1[1,0] ＞ チャンス ＞ 成功（HR=7、クリティカル1）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "OM+8 #HRで0を10にした方が良い場合"
+output = "(2D10<=8) ＞ 8[8,0] ＞ チャンス ＞ 成功（HR=10、クリティカル1）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "OM+8"
+output = "(2D10<=8) ＞ 9[6,3] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "OM+8@1"
+output = "(2D10<=8) ＞ 4[3,1] ＞ 成功（HR=4、クリティカル1）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "OM+8@1"
+output = "(2D10<=8) ＞ 1[1,0] ＞ チャンス ＞ 成功（HR=7、クリティカル2）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "OM+8-2@1"
+output = "(2D10<=6) ＞ 1[1,0] ＞ チャンス ＞ 成功（HR=5、クリティカル2）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "OM+20 #自動失敗なし"
+output = "(2D10<=20) ＞ 17[9,8] ＞ 成功（HR=3、クリティカル0）"
+success = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "OMW+20 #自動失敗"
+output = "(2D10<=20) ＞ 17[9,8] ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "NM+8"
+output = "(3D10<=8) ＞ 5[3,2&1] ＞ 成功（HR=3、クリティカル0）"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "NM+8"
+output = "(3D10<=8) ＞ 9[6,3&1] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "NM+8@1"
+output = "(3D10<=8) ＞ 4[3,1&0] ＞ 成功（HR=4、クリティカル1）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "NM+8@1"
+output = "(3D10<=8) ＞ 1[1,0&0] ＞ チャンス ＞ 成功（HR=7、クリティカル2）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "NM+8-2@1"
+output = "(3D10<=6) ＞ 3[3,0&0] ＞ チャンス ＞ 成功（HR=7、クリティカル1）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "NM+16 #自動失敗なし"
+output = "(3D10<=16) ＞ 18[9,9&1] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "NMW+16 #自動失敗"
+output = "(3D10<=16) ＞ 18[9,9&1] ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "CR"
+output = "クリティカル表(1) ＞ 1：「小破」ダメージ+［5］。耐久値-［1］"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "CR"
+output = "クリティカル表(6) ＞ 6：「上体」攻撃系能力［白兵/ 火器/ 索敵］は各［- 損壊Lv］"
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "CR"
+output = "クリティカル表(9) ＞ 9：「搭乗者」搭乗者の〈最大HP〉および〈HP〉は［-（4 ×損壊Lv）］"
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "CR"
+output = "クリティカル表(10) ＞ 0：「小破」ダメージ+［5］。耐久値-［1］"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "CAP #鹵獲結果表"
+output = "鹵獲結果表(2) ＞ 0:敵A:GuS を完全な状態で鹵獲︕ ※総合価格÷ 2 で売却可。"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "CAP #鹵獲結果表"
+output = "鹵獲結果表(9) ＞ 7:敵A:GuS の兵装を鹵獲︕ ※敵A:GuS の装備している任意の兵装1つを獲得。"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "CAP #鹵獲結果表"
+output = "鹵獲結果表(15) ＞ 13:使えそうな兵装を発見︕ ※1D10 を振り、出目の部位の兵装1つを獲得。"
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "CAP #鹵獲結果表"
+output = "鹵獲結果表(20) ＞ 18:残念、完全にスクラップだ……。※部品代として［バランス値×300］cdtを獲得。"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "INT #幕間クエスト表"
+output = "幕間クエスト表(1) ＞ 慰労 PC/クルー1名が、労ってくれる。 最大HP+4"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "INT #幕間クエスト表"
+output = "幕間クエスト表(50) ＞ 個人収入 チームとは関係ない個人的な商売や取引で利益を得る。 4,000cdtを獲得。"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "INT #幕間クエスト表"
+output = "幕間クエスト表(99) ＞ 歓迎 街の住民にたいへんな歓迎を受ける。 50～95の任意の効果を適用可。（p69参照）"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "INT #幕間クエスト表"
+output = "幕間クエスト表(100) ＞ 慰労 PC/クルー1名が、労ってくれる。 最大HP+4"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "SAL #サルベージ表"
+output = "サルベージ表(1) ＞ 大失敗…。大変な損失を出してしまった…。 -5,000cdt"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "SAL #サルベージ表"
+output = "サルベージ表(50) ＞ ヘビーハンドガンを獲得。 →p35"
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "SAL #サルベージ表"
+output = "サルベージ表(100) ＞ 掘り出し物を発見！25,000cdt以下の【上級携行兵装】一つを獲得！ 上級兵装 (→p37）"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "DEF #赤字ペナルティー表"
+output = "赤字ペナルティー表(10) ＞ 解雇 クルー1名を失う。10,000cdtを得る。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "DEF #赤字ペナルティー表"
+output = "赤字ペナルティー表(5) ＞ 借金 次回の維持費が+20,000cdt。10,000cdtを得る。"
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "DEF #赤字ペナルティー表"
+output = "赤字ペナルティー表(9) ＞ 売却 各PCはオプション以外の兵装を一つずつ廃棄。10,000cdtを得る。"
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "SPE #特殊戦況表"
+output = "特殊戦況表(10) ＞ 雨 雨は砂を土へと変えてしまう。R中、全ユニット移動/突撃不可。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "SPE #特殊戦況表"
+output = "特殊戦況表(5) ＞ 流砂 以下のエリアのユニットは脱出のため、MPとEPを［3］点失う。［♠：A ♣：B ♦：C ♥：D］"
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "SajinsenkiAGuS2E"
+input = "SPE #特殊戦況表"
+output = "特殊戦況表(9) ＞ 飛礫 飛礫によって、すべてのユニットはAPを［1D10］（以下のエリアでは［2D10］）点失う。［♠：A ♣：B ♦：C ♥：D］"
+rands = [
+  { sides = 10, value = 9 },
+]
+
