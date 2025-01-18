@@ -54,7 +54,7 @@ module BCDice
         total = largest_two.sum + modifier
         num_1 = dice_list.count(1)
 
-        additional_result =
+        result =
           if largest_two == [6, 6]
             Result.critical(" ＞ 絶対成功！")
           elsif largest_two == [1, 1]
@@ -73,10 +73,11 @@ module BCDice
         sequence = [
           "(#{command})",
           "[#{dice_list.join(',')}]#{Format.modifier(modifier)}",
-          "#{total}[#{largest_two.join(',')}]#{additional_result.text}#{fp_result}",
+          "#{total}[#{largest_two.join(',')}]#{result.text}#{fp_result}",
         ]
 
-        return sequence.join(" ＞ ")
+        result.text = sequence.join(" ＞ ")
+        return result
       end
 
       # ダメージロール
@@ -98,8 +99,10 @@ module BCDice
 
         if dice_list.count(6) - dice_list.count(1) >= critical_target
           result += critical_damage_roll(increase_critical_dice, resist, normal_damage)
+          result = Result.critical(result)
         else
           result += " ＞ #{normal_damage}ダメージ"
+          result = normal_damage > 0 ? Result.success(result) : Result.failure(result)
         end
 
         return result
@@ -122,8 +125,10 @@ module BCDice
         resist = m[2]&.to_i || 3
 
         dice_list = @randomizer.roll_barabara(dice_count, 6)
+        heal_amount = damage(dice_list, resist)
+        result_text = "(#{command}) ＞ [#{dice_list.join(',')}]#{resist} ＞ #{heal_amount}回復"
 
-        return "(#{command}) ＞ [#{dice_list.join(',')}]#{resist} ＞ #{damage(dice_list, resist)}回復"
+        return heal_amount > 0 ? Result.success(result_text) : Result.failure(result_text)
       end
 
       def damage(dice_list, resist)
