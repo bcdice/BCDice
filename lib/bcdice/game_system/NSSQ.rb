@@ -90,24 +90,27 @@ module BCDice
         resist = m[4].to_i
 
         dice_list = @randomizer.roll_barabara(dice_count, 6)
+        normal_damage = damage(dice_list, resist)
 
-        result = "(#{command}) ＞ [#{dice_list.join(',')}]#{resist} ＞ #{damage(dice_list, resist)}ダメージ"
+        result = "(#{command}) ＞ [#{dice_list.join(',')}]#{resist}"
 
         critical_target = critical_up ? 1 : 2
 
         if dice_list.count(6) - dice_list.count(1) >= critical_target
-          result += " クリティカルヒット！\n"
-          result += additional_damage_roll(increase_critical_dice, resist)
+          result += critical_damage_roll(increase_critical_dice, resist, normal_damage)
+        else
+          result += " ＞ #{normal_damage}ダメージ"
         end
 
         return result
       end
 
-      def additional_damage_roll(increase_critical_dice, resist)
+      def critical_damage_roll(increase_critical_dice, resist, normal_damage)
         dice_count = increase_critical_dice ? 8 : 4
 
         dice_list = @randomizer.roll_barabara(dice_count, 6)
-        "(#{dice_count}DR#{resist}) ＞ [#{dice_list.join(',')}]#{resist} ＞ #{damage(dice_list, resist)}ダメージ"
+        critical_damage = damage(dice_list, resist)
+        return " ＞ クリティカルヒット！ ＞ (#{dice_count}DR#{resist}) ＞ [#{dice_list.join(',')}]#{resist} ＞ #{normal_damage + critical_damage}ダメージ"
       end
 
       # 回復ロール
