@@ -6,7 +6,7 @@ module BCDice
   module GameSystem
     class BlackJacket_Korean < BlackJacket
       # ゲームシステムの識別子
-      ID = 'BlackJacket'
+      ID = 'BlackJacket:Korean'
 
       # ゲームシステム名
       NAME = '블랙재킷RPG'
