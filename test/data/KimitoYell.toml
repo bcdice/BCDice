@@ -1,0 +1,718 @@
+# 有利なし
+# 判定 スペシャルでもファンブルでもないが成功
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY6"
+output = "(3KY6) ＞ [4,5,2] ＞ 成功"
+success = true
+failure = false
+critical = false
+fumble = false
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+# 判定 スペシャルでもファンブルでもないが失敗
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY6"
+output = "(3KY6) ＞ [2,3,2] ＞ 失敗"
+success = false
+failure = true
+critical = false
+fumble = false
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+# 判定 スペシャルで成功
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY6"
+output = "(3KY6) ＞ [4,6,2] ＞ 成功・スペシャル（がんばりが1点上昇！）"
+success = true
+failure = false
+critical = true
+fumble = false
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+# 判定 ファンブルで成功
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY6"
+output = "(3KY6) ＞ [4,1,2] ＞ 成功・ファンブル（ファンブル表：FTを振る）"
+success = true
+failure = false
+critical = false
+fumble = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+# 判定 ファンブルで失敗
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY6"
+output = "(3KY6) ＞ [3,1,2] ＞ 失敗・ファンブル（ファンブル表：FTを振る）"
+success = false
+failure = true
+critical = false
+fumble = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+# 判定 スペシャルかつファンブルで成功
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY6"
+output = "(3KY6) ＞ [6,1,2] ＞ 成功・スペシャル（がんばりが1点上昇！）・ファンブル（ファンブル表：FTを振る）"
+success = true
+failure = false
+critical = true
+fumble = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+# 有利あり
+# 判定 スペシャルでもファンブルでもないが成功
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [4,9,2] ＞ 成功"
+success = true
+failure = false
+critical = false
+fumble = false
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 2 },
+]
+
+# 判定 スペシャルでもファンブルでもないが失敗
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [2,3,2] ＞ 失敗"
+success = false
+failure = true
+critical = false
+fumble = false
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+]
+
+# 判定 スペシャルで成功 6
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [4,6,2] ＞ 成功・スペシャル（がんばりが1点上昇！）"
+success = true
+failure = false
+critical = true
+fumble = false
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 2 },
+]
+
+# 判定 スペシャルで成功 10
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [8,10,2] ＞ 成功・スペシャル（がんばりが1点上昇！）"
+success = true
+failure = false
+critical = true
+fumble = false
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+]
+
+# 判定 スペシャルで成功 6 10
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [8,10,6] ＞ 成功・スペシャル（がんばりが1点上昇！）"
+success = true
+failure = false
+critical = true
+fumble = false
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+]
+
+# 判定 ファンブルで成功
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [4,1,8] ＞ 成功・ファンブル（ファンブル表：FTを振る）"
+success = true
+failure = false
+critical = false
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+]
+
+# 判定 ファンブルで失敗
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [3,1,2] ＞ 失敗・ファンブル（ファンブル表：FTを振る）"
+success = false
+failure = true
+critical = false
+fumble = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+]
+
+# 判定 スペシャルかつファンブルで成功 6
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [6,1,2] ＞ 成功・スペシャル（がんばりが1点上昇！）・ファンブル（ファンブル表：FTを振る）"
+success = true
+failure = false
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+]
+
+# 判定 スペシャルかつファンブルで成功 10
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [10,1,1] ＞ 成功・スペシャル（がんばりが1点上昇！）・ファンブル（ファンブル表：FTを振る）"
+success = true
+failure = false
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+# 判定 スペシャルかつファンブルで成功 6 10
+[[ test ]]
+game_system = "KimitoYell"
+input = "3KY10"
+output = "(3KY10) ＞ [6,10,1] ＞ 成功・スペシャル（がんばりが1点上昇！）・ファンブル（ファンブル表：FTを振る）"
+success = true
+failure = false
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+# ランダム表
+# ファンブル表
+[[ test ]]
+game_system = "KimitoYell"
+input = "FT"
+output = "ファンブル表(FT:1) ＞ とんでもない大失敗！　魔法でないと取り返しがつかない！　出目にかかわらず、「魔法の提案」をしない限り判定は失敗になる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "FT"
+output = "ファンブル表(FT:3) ＞ トラブルが発生したけど「大切な想い」を思い出して何とか乗り切った。大切だと思う世界から学んだこと、大切だと思いたい世界に対する気持ちを思い出して、なんとかしよう。自分の持っているカードの「大切な想い」を1つ選んで〇で囲む。〇で囲めない場合、判定は出目にかかわらず失敗になる。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "FT"
+output = "ファンブル表(FT:6) ＞ ちょっとヒヤリとする瞬間があったけど、何も起こらなかった。よかった。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+# 新しい出会い表、一括
+[[ test ]]
+game_system = "KimitoYell"
+input = "NMTA"
+output = "新しい出会い表(1) ＞ 「偶然出会った表（MCT）」と「どんな人だったか表（TLT）」を使用してNPCを作成する。\n偶然出会った表(1) ＞ 何らかの事件や事故が起こり、それに巻き込まれた人を助けるために動いた。そのお礼をしたいと声をかけられた。\nどんな人だったか表(1) ＞ 「守りたい人」によく似ている。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "NMTA"
+output = "新しい出会い表(4) ＞ 「交流のなかった身近な人表（CIT）」と「変わった人だった表（EPT）」を使用してNPCを作成する。\n交流のなかった身近な人表(5) ＞ 学業やスポーツの関係で、遠くの国で暮らしていたきょうだい（あるいはいとこ）が帰ってきた。優秀な成績を修めて、世間からも注目されている人物にどう接しようか。\n変わった人だった表(5) ＞ トレンドを着こなしていて、いかにもおしゃれな人だった。ファッションだけでなく、あらゆることを調べて理解しようと動いている。努力の人なんだと思う。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "NMTA"
+output = "新しい出会い表(6) ＞ 「助けてくれた人表（HYT）」と「変わった人だった表（EPT）」を使用してNPCを作成する。\n助けてくれた人表(10) ＞ 昔、魔法関係で困った時に、助けてくれた魔法使いがいた。その人が何かの用事で「MAGIA」に立ち寄っており、その時に声をかけた。\n変わった人だった表(10) ＞ 常に何かのアルバイトをしている。掛け持ちだから忙しくしているらしい。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+# 新しい出会い表単発
+[[ test ]]
+game_system = "KimitoYell"
+input = "NMT"
+output = "新しい出会い表(1) ＞ 「偶然出会った表（MCT）」と「どんな人だったか表（TLT）」を使用してNPCを作成する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "NMT"
+output = "新しい出会い表(3) ＞ 「交流のなかった身近な人表（CIT）」と「どんな人だったか表（TLT）」を使用してNPCを作成する。"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "NMT"
+output = "新しい出会い表(6) ＞ 「助けてくれた人表（HYT）」と「変わった人だった表（EPT）」を使用してNPCを作成する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+# 偶然出会った表単発
+[[ test ]]
+game_system = "KimitoYell"
+input = "MCT"
+output = "偶然出会った表(1) ＞ 何らかの事件や事故が起こり、それに巻き込まれた人を助けるために動いた。そのお礼をしたいと声をかけられた。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "MCT"
+output = "偶然出会った表(5) ＞ 街を歩いている時に、うずくまっている人を見つけた。何があったのかと声をかけてみると、何か困っていることがあるらしい。それを助けた。"
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "MCT"
+output = "偶然出会った表(10) ＞ 「守りたい人」に会いに行ったら、「守りたい人」の親友と名乗る人と出会った。自分の知らない「守りたい人」について話してくれた。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+# 交流のなかった身近な人表単発
+[[ test ]]
+game_system = "KimitoYell"
+input = "CIT"
+output = "交流のなかった身近な人表(1) ＞ その人は自分の親戚で、家の用事で出かけたときに親などから紹介をされた。話をしてみたら、自分の興味と同じものを研究していた。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "CIT"
+output = "交流のなかった身近な人表(5) ＞ 学業やスポーツの関係で、遠くの国で暮らしていたきょうだい（あるいはいとこ）が帰ってきた。優秀な成績を修めて、世間からも注目されている人物にどう接しようか。"
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "CIT"
+output = "交流のなかった身近な人表(10) ＞ 趣味の集いに行ったら、クラスメイトや元クラスメイトがいた。趣味の場で会ってみると教室との印象が違った。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+# 助けてくれた人表単発
+[[ test ]]
+game_system = "KimitoYell"
+input = "HYT"
+output = "助けてくれた人表(1) ＞ 忘れ物をしたが、それを届けてくれた。その際に少し話をしたが、優しく丁寧で好感の持てる人だった。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "HYT"
+output = "助けてくれた人表(5) ＞ 自分は幼い頃、外でケガをしてしまったことがある。その時に応急処置をして、病院まで運んでくれた人がいる。その人と偶然再会した。"
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "HYT"
+output = "助けてくれた人表(10) ＞ 昔、魔法関係で困った時に、助けてくれた魔法使いがいた。その人が何かの用事で「MAGIA」に立ち寄っており、その時に声をかけた。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+# どんな人だったか表単発
+[[ test ]]
+game_system = "KimitoYell"
+input = "TLT"
+output = "どんな人だったか表(1) ＞ 「守りたい人」によく似ている。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "TLT"
+output = "どんな人だったか表(5) ＞ サバサバとした性格で、いろいろな人の悩み事を聞いては解決しようとしていた兄貴分（姉貴分）。"
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "TLT"
+output = "どんな人だったか表(10) ＞ 「守りたい人」の知り合いで、共通の知り合いの話題ができた。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+# 変わった人だった表単発
+[[ test ]]
+game_system = "KimitoYell"
+input = "EPT"
+output = "変わった人だった表(1) ＞ 元気すぎる。声も大きいし、自分は振り回されるし。ちょっと疲れる。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "EPT"
+output = "変わった人だった表(5) ＞ トレンドを着こなしていて、いかにもおしゃれな人だった。ファッションだけでなく、あらゆることを調べて理解しようと動いている。努力の人なんだと思う。"
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "EPT"
+output = "変わった人だった表(10) ＞ 常に何かのアルバイトをしている。掛け持ちだから忙しくしているらしい。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+# フルネーム一括生成
+[[ test ]]
+game_system = "KimitoYell"
+input = "FNG"
+output = "名字表(1) ＞ 日本名字表1（JLTO）を使用する。\n日本名字表1(11) ＞ 有栖（ありす）\n名前表(1) ＞ 日本名前表1（JFTO）を使用する。\n日本名前表1(11) ＞ 涼太（りょうた）／八重（やえ）"
+rands = [
+  { sides = 6, value = 1 }, # 名字表
+  { sides = 6, value = 1 }, # 名前表
+  { sides = 6, value = 1 }, # 名字表D66
+  { sides = 6, value = 1 }, # 名字表D66
+  { sides = 6, value = 1 }, # 名前表D66
+  { sides = 6, value = 1 }, # 名前表D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "FNG"
+output = "名字表(3) ＞ 日本名字表2（JLTT）を使用する。\n日本名字表2(33) ＞ 乙女（おとめ）\n名前表(3) ＞ 日本名前表2（JFTT）を使用する。\n日本名前表2(33) ＞ 直樹（なおき）／茜（あかね）"
+rands = [
+  { sides = 6, value = 3 }, # 名字表
+  { sides = 6, value = 3 }, # 名前表
+  { sides = 6, value = 3 }, # 名字表D66
+  { sides = 6, value = 3 }, # 名字表D66
+  { sides = 6, value = 3 }, # 名前表D66
+  { sides = 6, value = 3 }, # 名前表D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "FNG"
+output = "名字表(6) ＞ カタカナ名字表（FLT）を使用する。\nカタカナ名字表(66) ＞ ホン\n名前表(6) ＞ カタカナ名前表（FFT）を使用する。\nカタカナ名前表(66) ＞ ジュウォン／スピン"
+rands = [
+  { sides = 6, value = 6 }, # 名字表
+  { sides = 6, value = 6 }, # 名前表
+  { sides = 6, value = 6 }, # 名字表D66
+  { sides = 6, value = 6 }, # 名字表D66
+  { sides = 6, value = 6 }, # 名前表D66
+  { sides = 6, value = 6 }, # 名前表D66
+]
+
+# 名字表
+[[ test ]]
+game_system = "KimitoYell"
+input = "LNT"
+output = "名字表(1) ＞ 日本名字表1（JLTO）を使用する。\n日本名字表1(11) ＞ 有栖（ありす）"
+rands = [
+  { sides = 6, value = 1 }, # 名字表
+  { sides = 6, value = 1 }, # 名字表D66
+  { sides = 6, value = 1 }, # 名字表D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "LNT"
+output = "名字表(3) ＞ 日本名字表2（JLTT）を使用する。\n日本名字表2(33) ＞ 乙女（おとめ）"
+rands = [
+  { sides = 6, value = 3 }, # 名字表
+  { sides = 6, value = 3 }, # 名字表D66
+  { sides = 6, value = 3 }, # 名字表D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "LNT"
+output = "名字表(6) ＞ カタカナ名字表（FLT）を使用する。\nカタカナ名字表(66) ＞ ホン"
+rands = [
+  { sides = 6, value = 6 }, # 名字表
+  { sides = 6, value = 6 }, # 名字表D66
+  { sides = 6, value = 6 }, # 名字表D66
+]
+
+# 名前表
+[[ test ]]
+game_system = "KimitoYell"
+input = "FNT"
+output = "名前表(1) ＞ 日本名前表1（JFTO）を使用する。\n日本名前表1(11) ＞ 涼太（りょうた）／八重（やえ）"
+rands = [
+  { sides = 6, value = 1 }, # 名前表
+  { sides = 6, value = 1 }, # 名前表D66
+  { sides = 6, value = 1 }, # 名前表D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "FNT"
+output = "名前表(3) ＞ 日本名前表2（JFTT）を使用する。\n日本名前表2(33) ＞ 直樹（なおき）／茜（あかね）"
+rands = [
+  { sides = 6, value = 3 }, # 名前表
+  { sides = 6, value = 3 }, # 名前表D66
+  { sides = 6, value = 3 }, # 名前表D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "FNT"
+output = "名前表(6) ＞ カタカナ名前表（FFT）を使用する。\nカタカナ名前表(66) ＞ ジュウォン／スピン"
+rands = [
+  { sides = 6, value = 6 }, # 名前表
+  { sides = 6, value = 6 }, # 名前表D66
+  { sides = 6, value = 6 }, # 名前表D66
+]
+
+# 日本名字表1
+[[ test ]]
+game_system = "KimitoYell"
+input = "JLTO"
+output = "日本名字表1(11) ＞ 有栖（ありす）"
+rands = [
+  { sides = 6, value = 1 }, # D66
+  { sides = 6, value = 1 }, # D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "JLTO"
+output = "日本名字表1(33) ＞ 小春（こはる）"
+rands = [
+  { sides = 6, value = 3 }, # D66
+  { sides = 6, value = 3 }, # D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "JLTO"
+output = "日本名字表1(66) ＞ 蓬莱（ほうらい）"
+rands = [
+  { sides = 6, value = 6 }, # D66
+  { sides = 6, value = 6 }, # D66
+]
+
+# 日本名字表2
+[[ test ]]
+game_system = "KimitoYell"
+input = "JLTT"
+output = "日本名字表2(11) ＞ 蜂須賀（はちすか）"
+rands = [
+  { sides = 6, value = 1 }, # D66
+  { sides = 6, value = 1 }, # D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "JLTT"
+output = "日本名字表2(33) ＞ 乙女（おとめ）"
+rands = [
+  { sides = 6, value = 3 }, # D66
+  { sides = 6, value = 3 }, # D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "JLTT"
+output = "日本名字表2(66) ＞ 百合園（ゆりぞの）"
+rands = [
+  { sides = 6, value = 6 }, # D66
+  { sides = 6, value = 6 }, # D66
+]
+
+# カタカナ名字表
+[[ test ]]
+game_system = "KimitoYell"
+input = "FLT"
+output = "カタカナ名字表(11) ＞ レイエス"
+rands = [
+  { sides = 6, value = 1 }, # D66
+  { sides = 6, value = 1 }, # D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "FLT"
+output = "カタカナ名字表(33) ＞ コスキネン"
+rands = [
+  { sides = 6, value = 3 }, # D66
+  { sides = 6, value = 3 }, # D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "FLT"
+output = "カタカナ名字表(66) ＞ ホン"
+rands = [
+  { sides = 6, value = 6 }, # D66
+  { sides = 6, value = 6 }, # D66
+]
+
+# 日本名前表1
+[[ test ]]
+game_system = "KimitoYell"
+input = "JFTO"
+output = "日本名前表1(11) ＞ 涼太（りょうた）／八重（やえ）"
+rands = [
+  { sides = 6, value = 1 }, # D66
+  { sides = 6, value = 1 }, # D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "JFTO"
+output = "日本名前表1(33) ＞ 大夢（ひろむ）／阿澄（あすみ）"
+rands = [
+  { sides = 6, value = 3 }, # D66
+  { sides = 6, value = 3 }, # D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "JFTO"
+output = "日本名前表1(66) ＞ 秀助（しゅうすけ）／那留（なる）"
+rands = [
+  { sides = 6, value = 6 }, # D66
+  { sides = 6, value = 6 }, # D66
+]
+
+# 日本名前表2
+[[ test ]]
+game_system = "KimitoYell"
+input = "JFTT"
+output = "日本名前表2(11) ＞ 一郎（いちろう）／かぐや"
+rands = [
+  { sides = 6, value = 1 }, # D66
+  { sides = 6, value = 1 }, # D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "JFTT"
+output = "日本名前表2(33) ＞ 直樹（なおき）／茜（あかね）"
+rands = [
+  { sides = 6, value = 3 }, # D66
+  { sides = 6, value = 3 }, # D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "JFTT"
+output = "日本名前表2(66) ＞ 康平（こうへい）／沙織（さおり）"
+rands = [
+  { sides = 6, value = 6 }, # D66
+  { sides = 6, value = 6 }, # D66
+]
+
+# カタカナ名前表
+[[ test ]]
+game_system = "KimitoYell"
+input = "FFT"
+output = "カタカナ名前表(11) ＞ カルロ／ビアンカ"
+rands = [
+  { sides = 6, value = 1 }, # D66
+  { sides = 6, value = 1 }, # D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "FFT"
+output = "カタカナ名前表(33) ＞ ロメオ／ルチア"
+rands = [
+  { sides = 6, value = 3 }, # D66
+  { sides = 6, value = 3 }, # D66
+]
+
+[[ test ]]
+game_system = "KimitoYell"
+input = "FFT"
+output = "カタカナ名前表(66) ＞ ジュウォン／スピン"
+rands = [
+  { sides = 6, value = 6 }, # D66
+  { sides = 6, value = 6 }, # D66
+]
