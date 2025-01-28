@@ -20,6 +20,9 @@ module BCDice
         attr_accessor :first_modify
 
         # @return [Integer]
+        attr_accessor :first_modify_ssp
+
+        # @return [Integer]
         attr_accessor :rateup
 
         # @return [Boolean]
@@ -47,6 +50,7 @@ module BCDice
           @kept_modify = 0
           @first_to = 0
           @first_modify = 0
+          @first_modify_ssp = 0
           @greatest_fortune = false
           @rateup = 0
           @semi_fixed_val = 0
@@ -85,6 +89,7 @@ module BCDice
 
           output += "c[#{critical}]" if critical < 13
           output += "m[#{Format.modifier(first_modify)}]" if first_modify != 0
+          output += "m[~#{Format.modifier(first_modify_ssp)}]" if first_modify_ssp != 0
           output += "m[#{first_to}]" if first_to != 0
           output += "r[#{rateup}]" if rateup != 0
           output += "gf" if @greatest_fortune
