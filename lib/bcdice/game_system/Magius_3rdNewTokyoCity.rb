@@ -28,8 +28,8 @@ module BCDice
 
       private
 
-      # 能力値判定
-      # @param [String] command
+      # 能力値判定の結果取得
+      # @param [Integer] total, dice_add, target
       # @return [Result]
       def get_result_of_ability_action(total, dice_add, target)
         if dice_add == 12
@@ -43,8 +43,8 @@ module BCDice
         end
       end
 
-      # 技能値値判定
-      # @param [String] command
+      # 技能値判定の結果取得
+      # @param [Integer] total, dice_add, target
       # @return [Result]
       def get_result_of_skill_action(total, dice_add, target)
         if dice_add == 12
