@@ -62,7 +62,7 @@ module BCDice
         m = /MA([+-]\d+)*>=(\d+)/.match(command)
         return nil unless m
 
-        modify = ArithmeticEvaluator.eval(m[1]) || 0
+        modify = m[1] ? Arithmetic.eval(m[1], @round_type) : 0
         target = m[2].to_i
 
         dices = @randomizer.roll_barabara(2, 6).sort
@@ -99,7 +99,7 @@ module BCDice
         m = /MS([+-]\d+)*>=(\d+)/.match(command)
         return nil unless m
 
-        modify = ArithmeticEvaluator.eval(m[1]) || 0
+        modify = m[1] ? Arithmetic.eval(m[1], @round_type) : 0
         target = m[2].to_i
 
         dices = @randomizer.roll_barabara(3, 6).sort
