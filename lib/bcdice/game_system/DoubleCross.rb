@@ -39,6 +39,7 @@ module BCDice
       end
 
       register_prefix('\d+DX', 'ET')
+
       # 成功判定コマンドのノード
       class DX
         include Translate
