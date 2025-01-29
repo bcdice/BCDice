@@ -125,7 +125,7 @@ module BCDice
         active_value = active_ability_value * 5 + modifiy_value
         result_prefix_str = "(1D100<=#{active_value}) ＞ #{roll_value} ＞"
 
-        note_str = "決定的成功/効果的成功、ファンブルは未処理。必要なら確認すること。"
+        note_str = "決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 
         if roll_value >= 96
           # 96以上は無条件で失敗
@@ -147,7 +147,7 @@ module BCDice
 
         if (roll_value == 1) || (roll_value <= critical_value)
           # 決定的成功(01は必ず決定的成功)
-          Result.critical("#{result_str} 決定的成功/効果的成功")
+          Result.critical("#{result_str} 決定的成功")
         elsif (roll_value == 100) || (roll_value >= (100 - funmble_value + 1))
           # ファンブル(00は必ずファンブル)
           Result.fumble("#{result_str} ファンブル")
