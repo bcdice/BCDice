@@ -39,9 +39,6 @@ module BCDice
       end
 
       register_prefix('\d+DX', 'ET')
-      register_prefix('\d+DX', 'HC')
-      register_prefix('\d+DX', 'PCP')
-      register_prefix('\d+DX', 'PCN')
       # 成功判定コマンドのノード
       class DX
         include Translate
@@ -218,16 +215,8 @@ module BCDice
           return dx.execute(@randomizer)
         end
 
-        if command == 'PCP'
-          return roll_prologue_chart_positive()
-        end
-
-        if command == 'PCN'
-          return roll_prologue_chart_negative()
-        end
-
-        if command == 'HC'
-          return roll_happening_chart()
+        if TABLES.key?(command)
+          return roll_tables(command, TABLES)
         end
 
         if command == 'ET'
@@ -303,35 +292,6 @@ module BCDice
         return Result.new(output_parts.join(' ＞ '))
       end
 
-      # ハプニングチャートを振る
-      #
-      #
-      #
-      # @return [Result]
-      def roll_happening_chart
-        result = self.class::HAPPENING_CHART.roll(@randomizer)
-        name = translate("DoubleCross.HC.name")
-        output_parts = ["#{name}(#{result.sum})", result.content]
-        return Result.new(output_parts.join(' ＞ '))
-      end
-
-      # RW Prologue Chartを振る
-      # @return [Result]
-      def roll_prologue_chart_positive
-        result = self.class::PROLOGUE_CHART_POSITIVE.roll(@randomizer)
-        name = translate("DoubleCross.PCP.name")
-        output_parts = ["#{name}(#{result.sum})", result.content]
-        return Result.new(output_parts.join(' ＞ '))
-      end
-
-      # RW Prologue Chartを振る 2
-      # @return [Result]
-      def roll_prologue_chart_negative
-        result = self.class::PROLOGUE_CHART_NEGATIVE.roll(@randomizer)
-        name = translate("DoubleCross.PCN.name")
-        output_parts = ["#{name}(#{result.sum})", result.content]
-        return Result.new(output_parts.join(' ＞ '))
-      end
       class << self
         private
 
@@ -403,76 +363,12 @@ module BCDice
           ).freeze
         end
 
-        # @param locale [Symbol]
-        # @return [RangeTable]
-        def happening_chart(locale)
-          DiceTable::RangeTable.new(
-            I18n.translate("DoubleCross.HC.name", locale: locale),
-            "1D100",
-            [
-              [1..5,    I18n.translate("DoubleCross.HC.items.1_5", locale: locale)],
-              [6..10,   I18n.translate("DoubleCross.HC.items.6_10", locale: locale)],
-              [11..15,  I18n.translate("DoubleCross.HC.items.11_15", locale: locale)],
-              [16..20,  I18n.translate("DoubleCross.HC.items.16_20", locale: locale)],
-              [21..25,  I18n.translate("DoubleCross.HC.items.21_25", locale: locale)],
-              [26..30,  I18n.translate("DoubleCross.HC.items.26_30", locale: locale)],
-              [31..35,  I18n.translate("DoubleCross.HC.items.31_35", locale: locale)],
-              [36..40,  I18n.translate("DoubleCross.HC.items.36_40", locale: locale)],
-              [41..45,  I18n.translate("DoubleCross.HC.items.41_45", locale: locale)],
-              [46..55,  I18n.translate("DoubleCross.HC.items.46_55", locale: locale)],
-              [56..60,  I18n.translate("DoubleCross.HC.items.56_60", locale: locale)],
-              [61..65,  I18n.translate("DoubleCross.HC.items.61_65", locale: locale)],
-              [66..70,  I18n.translate("DoubleCross.HC.items.66_70", locale: locale)],
-              [71..75,  I18n.translate("DoubleCross.HC.items.71_75", locale: locale)],
-              [76..80,  I18n.translate("DoubleCross.HC.items.76_80", locale: locale)],
-              [81..85,  I18n.translate("DoubleCross.HC.items.81_85", locale: locale)],
-              [86..90,  I18n.translate("DoubleCross.HC.items.86_90", locale: locale)],
-              [91..95,  I18n.translate("DoubleCross.HC.items.91_95", locale: locale)],
-              [96..100, I18n.translate("DoubleCross.HC.items.96_100", locale: locale)],
-            ]
-          )
-        end
-
-        def prologue_chart_positive(locale)
-          DiceTable::RangeTable.new(
-            I18n.translate("DoubleCross.PCP.name", locale: locale),
-            "1D10",
-            [
-              # [0, '  '],
-              [1,  I18n.translate("DoubleCross.PCP.items.1", locale: locale)],
-              [2,  I18n.translate("DoubleCross.PCP.items.2", locale: locale)],
-              [3,  I18n.translate("DoubleCross.PCP.items.3", locale: locale)],
-              [4,  I18n.translate("DoubleCross.PCP.items.4", locale: locale)],
-              [5,  I18n.translate("DoubleCross.PCP.items.5", locale: locale)],
-              [6,  I18n.translate("DoubleCross.PCP.items.6", locale: locale)],
-              [7,  I18n.translate("DoubleCross.PCP.items.7", locale: locale)],
-              [8,  I18n.translate("DoubleCross.PCP.items.8", locale: locale)],
-              [9,  I18n.translate("DoubleCross.PCP.items.9", locale: locale)],
-              [10, I18n.translate("DoubleCross.PCP.items.10", locale: locale)],
-              # [11, '任意(にんい)'],
-            ]
-          )
-        end
-
-        def prologue_chart_negative(locale)
-          DiceTable::RangeTable.new(
-            I18n.translate("DoubleCross.PCN.name", locale: locale),
-            "1D10",
-            [
-              # [0, '  '],
-              [1,  I18n.translate("DoubleCross.PCN.items.1", locale: locale)],
-              [2,  I18n.translate("DoubleCross.PCN.items.2", locale: locale)],
-              [3,  I18n.translate("DoubleCross.PCN.items.3", locale: locale)],
-              [4,  I18n.translate("DoubleCross.PCN.items.4", locale: locale)],
-              [5,  I18n.translate("DoubleCross.PCN.items.5", locale: locale)],
-              [6,  I18n.translate("DoubleCross.PCN.items.6", locale: locale)],
-              [7,  I18n.translate("DoubleCross.PCN.items.7", locale: locale)],
-              [8,  I18n.translate("DoubleCross.PCN.items.8", locale: locale)],
-              [9,  I18n.translate("DoubleCross.PCN.items.9", locale: locale)],
-              [10, I18n.translate("DoubleCross.PCN.items.10", locale: locale)],
-              # [11, '任意(にんい)'],
-            ]
-          )
+        def translate_tables(locale)
+          {
+            "HC" => DiceTable::RangeTable.from_i18n("DoubleCross.HC", locale),
+            "PCP" => DiceTable::Table.from_i18n("DoubleCross.PCP", locale),
+            "PCN" => DiceTable::Table.from_i18n("DoubleCross.PCN", locale),
+          }
         end
       end
       # 感情表（ポジティブ）
@@ -480,11 +376,9 @@ module BCDice
 
       # 感情表（ネガティブ）
       NEGATIVE_EMOTION_TABLE = negative_emotion_table(:ja_jp).freeze
-      # Prologue chart
-      PROLOGUE_CHART_POSITIVE = prologue_chart_positive(:ja_jp).freeze
-      PROLOGUE_CHART_NEGATIVE = prologue_chart_negative(:ja_jp).freeze
-      # ハプニングチャート
-      HAPPENING_CHART = happening_chart(:ja_jp).freeze
+
+      TABLES = translate_tables(:ja_jp).freeze
+      register_prefix('\d+DX', TABLES.keys)
     end
   end
 end
