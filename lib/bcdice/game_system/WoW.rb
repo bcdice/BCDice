@@ -14,7 +14,7 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        行為判定 nWW12@s#f>=x
+        行為判定 nWW12@s#f<=x
         n: ダイス数
         @s = 大成功値（省略可：デフォルトは1）
         #f = 大失敗値（省略可：デフォルトは12）
