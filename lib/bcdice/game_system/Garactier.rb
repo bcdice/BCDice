@@ -314,11 +314,7 @@ module BCDice
           return nil
         end
 
-        if m[1]
-          modifier = Arithmetic.eval(m[1], RoundType::FLOOR)
-        else
-          modifier = 0
-        end
+        modifier = Arithmetic.eval(m[1] || "", RoundType::FLOOR) || 0
 
         dice_result = roll_dice_with_modifier(modifier)
         r = determine_no_target_result("S", dice_result[:total], dice_result[:critical], dice_result[:fumble])
@@ -335,16 +331,8 @@ module BCDice
         end
 
         roll_type = m[1].to_str
-        if m[2]
-          modifier = Arithmetic.eval(m[2], RoundType::FLOOR)
-        else
-          modifier = 0
-        end
-        if m[3]
-          target = Arithmetic.eval(m[3], RoundType::FLOOR)
-        else
-          target = 0
-        end
+        modifier = Arithmetic.eval(m[2] || "", RoundType::FLOOR) || 0
+        target = Arithmetic.eval(m[3] || "", RoundType::FLOOR) || 0
 
         dice_result = roll_dice_with_modifier(modifier)
         r = determine_target_result(roll_type, dice_result[:total], target, dice_result[:critical], dice_result[:fumble])
@@ -360,21 +348,13 @@ module BCDice
           return nil
         end
 
-        if m[1]
-          modifier = Arithmetic.eval(m[1], RoundType::FLOOR)
-        else
-          modifier = 0
-        end
+        modifier = Arithmetic.eval(m[1] || "", RoundType::FLOOR) || 0
 
         target_flag = !m[2].nil?
         dice_result = roll_dice_with_modifier(modifier)
 
         if target_flag
-          if m[3]
-            target = Arithmetic.eval(m[3], RoundType::FLOOR)
-          else
-            target = 0
-          end
+          target = Arithmetic.eval(m[3] || "", RoundType::FLOOR) || 0
           r = determine_target_result("", dice_result[:total], target, dice_result[:critical], dice_result[:fumble])
         else
           r = determine_no_target_result("", dice_result[:total], dice_result[:critical], dice_result[:fumble])
