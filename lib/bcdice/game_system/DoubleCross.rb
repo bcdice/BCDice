@@ -216,8 +216,8 @@ module BCDice
           return dx.execute(@randomizer)
         end
 
-        if TABLES.key?(command)
-          return roll_tables(command, TABLES)
+        if self.class::TABLES.key?(command)
+          return roll_tables(command, self.class::TABLES)
         end
 
         if command == 'ET'
