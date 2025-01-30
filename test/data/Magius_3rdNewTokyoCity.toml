@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Magius_3rdNewTokyoCity"
 input = "MA>=7 絶対成功"
-output = "(MA>=7) ＞ [5,6] ＞ 12 ＞ 絶対成功"
+output = "(MA>=7) ＞ [6,6] ＞ 12 ＞ 絶対成功"
 success = true
 critical = true
 rands = [
