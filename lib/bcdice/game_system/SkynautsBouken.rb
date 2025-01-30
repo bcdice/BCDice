@@ -85,7 +85,7 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         command_sn(command) || command_d(command) || command_avo(command) || command_snavo(command) ||
-          command_snd(command) || roll_tables(command, TABLES)
+          command_snd(command) || roll_tables(command, self.class::TABLES)
       end
 
       private
@@ -145,7 +145,7 @@ module BCDice
                          .sub("F/", "[#{translate('SkynautsBouken.fire')}]/").sub("S/", "[#{translate('SkynautsBouken.big_shake')}]/")
         result = ["(#{command})", get_points_text(points, 0, 0)]
         if ballistics != 0
-          dir = DIRECTION_INFOS[ballistics]
+          dir = self.class::DIRECTION_INFOS[ballistics]
           diff_x, diff_y = dir[:position_diff]
           result[-1] += "\n"
           result << "《#{translate('SkynautsBouken.ballistics')}》#{dir[:name]}"
@@ -160,7 +160,7 @@ module BCDice
         dmg = command.match(/^AVO@([2468])(.*?)$/)
         return nil unless dmg
 
-        dir = DIRECTION_INFOS[dmg[1].to_i]
+        dir = self.class::DIRECTION_INFOS[dmg[1].to_i]
         diff_x, diff_y = dir[:position_diff]
         "《#{translate('SkynautsBouken.avoidance')}》#{dir[:name]} ＞ " + dmg[2].gsub(/\(?\[(\d),(\d{1,2})\]\)?/) do
           y = Regexp.last_match(1).to_i + diff_y
@@ -224,7 +224,7 @@ module BCDice
           x = @randomizer.roll_sum(2, 6) # 横
 
           [[x, y]] + range.map do |r|
-            xdiff, ydiff = DIRECTION_INFOS[r][:position_diff]
+            xdiff, ydiff = self.class::DIRECTION_INFOS[r][:position_diff]
             [x + xdiff, y + ydiff]
           end
         end
