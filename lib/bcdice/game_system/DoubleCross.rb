@@ -26,7 +26,7 @@ module BCDice
         　・感情表（ET）
         　　ポジティブとネガティブの両方を振って、表になっている側に○を付けて表示します。
         　　もちろん任意で選ぶ部分は変更して構いません。
-          
+
         ・ハプニングチャート（HC）
         ・RWプロローグチャート ポジティブ (PCP)
         ・RWプロローグチャート ネガティブ (PCN)
@@ -219,10 +219,11 @@ module BCDice
         if self.class::TABLES.key?(command)
           return roll_tables(command, self.class::TABLES)
         end
-        
+
         if command == 'ET'
           return roll_emotion_table()
         end
+
         return nil
       end
 
@@ -362,7 +363,6 @@ module BCDice
             ]
           ).freeze
         end
-      end
 
         def translate_tables(locale)
           {
