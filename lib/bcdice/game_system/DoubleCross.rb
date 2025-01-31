@@ -26,7 +26,10 @@ module BCDice
         　・感情表（ET）
         　　ポジティブとネガティブの両方を振って、表になっている側に○を付けて表示します。
         　　もちろん任意で選ぶ部分は変更して構いません。
-
+          
+        ・ハプニングチャート（HC）
+        ・RWプロローグチャート ポジティブ (PCP)
+        ・RWプロローグチャート ネガティブ (PCN)
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -213,10 +216,13 @@ module BCDice
           return dx.execute(@randomizer)
         end
 
+        if self.class::TABLES.key?(command)
+          return roll_tables(command, self.class::TABLES)
+        end
+        
         if command == 'ET'
           return roll_emotion_table()
         end
-
         return nil
       end
 
@@ -358,11 +364,22 @@ module BCDice
         end
       end
 
+        def translate_tables(locale)
+          {
+            "HC" => DiceTable::RangeTable.from_i18n("DoubleCross.HC", locale),
+            "PCP" => DiceTable::Table.from_i18n("DoubleCross.PCP", locale),
+            "PCN" => DiceTable::Table.from_i18n("DoubleCross.PCN", locale),
+          }
+        end
+      end
       # 感情表（ポジティブ）
       POSITIVE_EMOTION_TABLE = positive_emotion_table(:ja_jp).freeze
 
       # 感情表（ネガティブ）
       NEGATIVE_EMOTION_TABLE = negative_emotion_table(:ja_jp).freeze
+
+      TABLES = translate_tables(:ja_jp).freeze
+      register_prefix('\d+DX', TABLES.keys)
     end
   end
 end
