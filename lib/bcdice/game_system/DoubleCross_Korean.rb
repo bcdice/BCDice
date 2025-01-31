@@ -49,11 +49,10 @@ module BCDice
 
       # 感情表（ポジティブ）
       POSITIVE_EMOTION_TABLE = positive_emotion_table(:ko_kr).freeze
-      HAPPENING_CHART = happening_chart(:ko_kr).freeze
-      PROLOGUE_CHART_POSITIVE = prologue_chart_positive(:ko_kr).freeze
-      PROLOGUE_CHART_NEGATIVE = prologue_chart_negative(:ko_kr).freeze
       # 感情表（ネガティブ）
       NEGATIVE_EMOTION_TABLE = negative_emotion_table(:ko_kr).freeze
+      TABLES = translate_tables(:ko_kr).freeze
+      register_prefix('\d+DX', TABLES.keys)
     end
   end
 end
