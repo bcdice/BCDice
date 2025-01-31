@@ -7,10 +7,10 @@ module BCDice
       ID = "ArknightsFan"
 
       # ゲームシステム名
-      NAME = "アークナイツTRPG by Dapto"
+      NAME = "アークナイツTRPG by daaaper"
 
       # ゲームシステム名の読みがな
-      SORT_KEY = "ああくないつTRPGはいたふと"
+      SORT_KEY = "ああくないつTRPGはいてえはあ"
 
       HELP_MESSAGE = <<~TEXT
         ■ 能力値判定 (nADm<=x)
