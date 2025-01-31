@@ -433,7 +433,7 @@ module BCDice
           elsif fumble
             Result.fumble("ファンブル")
           else
-            Integer success_level = (total - 4) / 2
+            success_level = (total - 4) / 2
             if success_level >= 11
               success_level = 11
             elsif success_level <= 0
