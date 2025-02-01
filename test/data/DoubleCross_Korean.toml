@@ -1844,6 +1844,69 @@ rands = [
 
 [[ test ]]
 game_system = "DoubleCross:Korean"
+input = "HC"
+output = "해프닝 차트(1) ＞ 아무 일도 없다. 수정은 특별히 없다."
+rands = [
+  { sides = 100, value = 1 }
+]
+
+[[ test ]]
+game_system = "DoubleCross:Korean"
+input = "HC"
+output = "해프닝 차트(55) ＞ 교착된 진행. 수정은 특별히 없다."
+rands = [
+  { sides = 100, value = 55 }
+]
+
+[[ test ]]
+game_system = "DoubleCross:Korean"
+input = "HC"
+output = "해프닝 차트(99) ＞ 순조로운 진행. 이번 라운드 동안에 진행판정에 성공한 캐릭터는, 진행치를 +1 얻는다."
+rands = [
+  { sides = 100, value = 99 }
+]
+
+[[ test ]]
+game_system = "DoubleCross:Korean"
+input = "PCP"
+output = "프롤로그 차트 (포지티브)(1) ＞ 【빅토리】 빌런 집단과 싸워, 승리한다. 보도진과 관중들이 그 승리를 칭찬한다."
+rands = [
+  { sides = 10, value = 1 }
+]
+
+game_system = "DoubleCross:Korean"
+input = "PCP"
+output = "프롤로그 차트 (포지티브)(10) ＞ 【석세스】 뭔가에 대성공한 장면이다. 일이라도 좋고 휴가 중에 하는 게임이나 스포츠일지도 모른다."
+rands = [
+  { sides = 10, value = 10 }
+]
+
+game_system = "DoubleCross:Korean"
+input = "PCN"
+output = "프롤로그 차트 (네거티브)(1) ＞ 【디피트】 빌런과 싸워 패배한 장면을 회상한다. 그때 부상은 이미 회복됐지만, 긍지는 아직 회복되지 않았다."
+rands = [
+  { sides = 10, value = 1 }
+]
+
+
+game_system = "DoubleCross:Korean"
+input = "PCN"
+output = "프롤로그 차트 (네거티브)(5) ＞ 【배싱】 미디어나 시민들로부터 비판을 받는다. 과거의 실패나 지금의 난폭한 해결법 등."
+rands = [
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "DoubleCross:Korean"
+input = "PCN"
+output = "프롤로그 차트 (네거티브)(10) ＞ 【플리즈】 로이스의 대상 등에게로부터 히어로를 은퇴하라는 부탁을 받는다. 당신이 걱정된다, 너무 위험하다, 등등. 들어줄 수는 없지만⋯."
+rands = [
+  { sides = 10, value = 10 }
+]
+
+
+[[ test ]]
+game_system = "DoubleCross:Korean"
 input = "10dx+5*2@8"
 output = "(10DX8+10) ＞ 10[2,3,6,6,6,6,7,8,10,10]+6[1,5,6]+10 ＞ 26"
 critical = true
