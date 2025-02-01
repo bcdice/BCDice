@@ -15,48 +15,67 @@ module BCDice
       SORT_KEY = 'しのひかみ'
 
       # ダイスボットの使い方
+      # 25/01/17：書式成形（半角スペース×2に統一、同じ書籍のシーン表は改行なしで列挙）
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         ・行為判定 nSG@s#f>=x
-        　2D6の行為判定を行う。ダイス数が指定された場合、大きい出目2個を採用する。
-        　n: ダイス数 (省略時 2)
-        　s: スペシャル値 (省略時 12)
-        　f: ファンブル値 (省略時 2)
-        　x: 目標値 (省略可)
-        　例）SG, SG@11, SG@11#3, SG#3>=7, 3SG>=7
+          2D6の行為判定を行う。ダイス数が指定された場合、大きい出目2個を採用する。
+          n: ダイス数 (省略時 2)
+          s: スペシャル値 (省略時 12)
+          f: ファンブル値 (省略時 2)
+          x: 目標値 (省略可)
+          例）SG, SG@11, SG@11#3, SG#3>=7, 3SG>=7
+
+        ・行為判定以外の表
+          以下の表は「回数+コマンド」で複数回振れる
+          例）3RCT, 2WT
 
         ・ランダム特技決定表 RTTn (n:分野番号、省略可能)
-        　1器術 2体術 3忍術 4謀術 5戦術 6妖術
+          1器術 2体術 3忍術 4謀術 5戦術 6妖術
 
         ・ランダム分野表 RCT
 
-        ・各種表(基本ルールブック以降)
-        　ファンブル表 FT、変調表 WT、戦国変調表 GWT、戦場表 BT、感情表 ET
-        　妖魔化（異形表、妖魔忍法表一括） MT
-        　異形表 MTR、妖魔忍法表(x:A,B,C) DSx
-        　プライズ効果表 PT
+        ・各種表：基本ルールブック以降
+          ファンブル表 FT、戦場表 BT、感情表 ET、変調表 WT、戦国変調表 GWT、プライズ効果表 PT
+          妖魔化（異形表、妖魔忍法表一括） MT、異形表 MTR、妖魔忍法表(x:A,B,C) DSx
 
-        ＞流派ブック以降
-        　新戦場表 BNT、【数奇】OTS、妖術変調対応表（x:なし-現代／戦国、1-現代、2-戦国）YWTx
-        　妖魔化（新異形表利用） NMT、新異形表 NMTR、妖魔忍法表（x:1-異霊 2-凶身 3-神化 4-攻激）DSNx
-        　覚醒表 OTAT、忍法授業シーン表（x:1-攻撃系 2-防御系 3-戦略系）NCTx
-        　パニック表 HRPT、出物表 ONDT
+        ・各種表：流派ブック以降
+          比良坂流派ブック
+            パニック表 HRPT
+          鞍馬流派ブック
+            新戦場表 BNT
+          御斎流派ブック
+            覚醒表 OTAT
+            忍法授業シーン表（x:1-攻撃系 2-防御系 3-戦略系）NCTx
+            【数奇】OTS
+          隠忍流派ブック
+            妖術変調対応表（x:なし-現代／戦国、1-現代、2-戦国）YWTx
+            妖魔化（新異形表利用） NMT、新異形表 NMTR、妖魔忍法表（x:1-異霊 2-凶身 3-神化 4-攻激）DSNx
+            出物表 ONDT
 
-        （基本ルールブック改訂版以前）
-        ・(無印)旧ファンブル表 OFT 、旧変調表 OWT、旧戦場表 OBT、異形表 MT
-        ・(怪)怪ファンブル表 KFT、怪変調表 KWT (基本ルールブックと同一）
+        ・各種表：基本ルールブック改訂版以前
+          無印
+            旧ファンブル表 OFT 、旧変調表 OWT、旧戦場表 OBT、異形表 MT
+          怪
+            怪ファンブル表 KFT、怪変調表 KWT (基本ルールブックと同一）
 
         ・シーン表
-        ＞基本ルールブック
-        　通常 ST、出島 DST、都市 CST、館 MST、トラブル TST、回想 KST、日常 NST、学校 GAST、戦国 GST
-        ＞忍秘伝
-        　中忍試験 HC、滅びの塔 HT、影の街 HK、夜行列車 HY、病院 HO、龍動 HR、密室 HM、催眠 HS
-        ＞基本ルールブック改訂版以前
-        　(死)東京 TKST、(リプレイ戦1〜2巻)京都 KYST、神社仏閣 JBST
-        　(その他シーン表)秋空に雪舞えば AKST、災厄 CLST、出島EX DXST、斜歯ラボ HLST、夏の終わり NTST、培養プラント PLST
-        ＞正忍記
-        カジノ TC、ロードムービ TRM、マスカレイド・キャッスル TMC、月天に死の咲く TGS、恋人との日々 TKH、学校（黒星祭） TKG、魔都学園 TMG、魔都東京 TMT
-        ＞流派ブック以降
-        不良高校 OTFK
+          基本ルールブック
+            通常 ST、出島 DST、都市 CST、館 MST、トラブル TST、回想 KST、日常 NST、学校 GAST、戦国 GST
+          忍秘伝
+            中忍試験 HC、滅びの塔 HT、影の街 HK、夜行列車 HY、病院 HO、龍動 HR、密室 HM、催眠 HS
+          正忍記
+            カジノ TC、ロードムービー TRM、マスカレイド・キャッスル TMC、月天に死の咲く TGS、恋人との日々 TKH、学校（黒星祭） TKG、魔都学園 TMG、魔都東京 TMT
+          流派ブック以降
+            御斎流派ブック
+              不良高校 OTFK
+          基本ルールブック改訂版以前
+            死
+              東京 TKST
+            リプレイ戦1〜2巻
+              京都 KYST、神社仏閣 JBST
+          その他
+            秋空に雪舞えば AKST、夏の終わり NTST、出島EX DXST、災厄 CLST、斜歯ラボ HLST、培養プラント PLST
+
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -99,8 +118,19 @@ module BCDice
       register_prefix('\d*SG')
 
       def eval_game_system_specific_command(command)
-        return action_roll(command) || roll_tables(command, TABLES) || roll_tables(command, SCENE_TABLES) ||
-               roll_tables(command, DEMON_SKILL_TABLES) || roll_tables(command, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, command)
+        return action_roll(command) || repeat_table(command)
+      end
+
+      def repeat_table(command)
+        times = command.start_with?(/\d/) ? command.to_i : 1
+        key = command.sub(/^\d+/, '')
+        results = [*0...times].map do |_|
+          roll_tables(key, TABLES) || roll_tables(key, SCENE_TABLES) ||
+            roll_tables(key, DEMON_SKILL_TABLES) || roll_tables(key, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, key)
+        end.compact
+        return nil if results.empty?
+
+        return results.join("\n")
       end
 
       RTT = DiceTable::SaiFicSkillTable.new(
@@ -538,12 +568,12 @@ module BCDice
           '覚醒表',
           '1D6',
           [
-            '自分の力が急に恐ろしくなる。好きな『覚醒済みデータ』を一つ選び、それを『未覚醒データ』に変更する。',
+            '自分の力が急に恐ろしくなる。好きな覚醒済みデータを一つ選び、それを未覚醒データに変更する。',
             '自分の力が暴走し、周囲に被害を与える。そのシーンに登場しているキャラクター全員（自分含む）に射撃戦ダメージを１点与える。',
-            '覚醒に伴い、身体の形が変化する。未覚醒忍法の中からランダムに一つ選び、それを覚醒済み忍法にする。',
+            '覚醒に伴い、身体の形が変化する。未覚醒忍法の中からランダムに一つを選び、それを覚醒済み忍法にする。',
             '忍者の血に目覚め、力の制御方法が理解出来るようになる。好きな未覚醒忍法を一つを選び、それを覚醒済み忍法にする。',
             '自分だけが操ることが出来る独自の力に目覚める。好きな未覚醒奥義一つを選び、それを覚醒済みの奥義にする。',
-            '自分の脳に直接何かが囁きかける。集団戦ダメージを１点受ける（退魔編なら代わりに妖魔化する）と、好きな未覚醒データの中からひとつ選び、それを覚醒済みデータにする。'
+            '自分の脳に直接何かが囁きかける。集団戦ダメージを１点受けると、好きな未覚醒データの中から一つ選び、それを覚醒済みデータに変更することができる。退魔編であれば、集団戦ダメージを受ける代わりに妖魔化することで、好きな未覚醒データの中から一つ選び、それを覚醒済みデータに変更することができる。'
           ]
         ),
         'ONDT' => DiceTable::Table.new(
@@ -1187,7 +1217,7 @@ module BCDice
           ]
         ),
       }.freeze
-      register_prefix(RTT.prefixes, TABLES.keys, SCENE_TABLES.keys, DEMON_SKILL_TABLES.keys, DEMON_SKILL_TABLES_NEW.keys)
+      register_prefix(RTT.prefixes.map { |k| "\\d*#{k}" }, TABLES.keys.map { |k| "\\d*#{k}" }, SCENE_TABLES.keys.map { |k| "\\d*#{k}" }, DEMON_SKILL_TABLES.keys.map { |k| "\\d*#{k}" }, DEMON_SKILL_TABLES_NEW.keys.map { |k| "\\d*#{k}" })
     end
   end
 end
