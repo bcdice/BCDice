@@ -125,7 +125,6 @@ module BCDice
           r.success = is_success
           r.failure = !is_success
         end
-
       end
     end
   end
