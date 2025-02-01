@@ -1,5 +1,5 @@
 class RatingParser
-  token NUMBER K R H O G F S T PLUS MINUS ASTERISK SLASH PARENL PARENR BRACKETL BRACKETR AT SHARP DOLLAR
+  token NUMBER K R H O G F S T PLUS MINUS ASTERISK SLASH PARENL PARENR BRACKETL BRACKETR AT SHARP DOLLAR TILDE
 
   expect 4
 
@@ -81,6 +81,14 @@ class RatingParser
             raise ParseError unless option.settable_first_roll_adjust_option?
 
             option.first_modify = -(term.to_i)
+            result = option
+          }
+          | option DOLLAR TILDE PLUS NUMBER
+          {
+            option, _, _, _, term = val
+            raise ParseError unless @version == :v2_5 && option.settable_first_roll_adjust_option?
+
+            option.first_modify_ssp = term.to_i
             result = option
           }
           | option H
@@ -234,6 +242,7 @@ def parsed(rate, modifier, option)
     p.kept_modify = option.kept_modify&.eval(@round_type) || 0
     p.first_to = option.first_to || 0
     p.first_modify = option.first_modify || 0
+    p.first_modify_ssp = option.first_modify_ssp || 0
     p.rateup = option.rateup&.eval(@round_type) || 0
     p.greatest_fortune = option.greatest_fortune if !option.greatest_fortune.nil?
     p.semi_fixed_val = option.semi_fixed_val&.clamp(1, 6) || 0
