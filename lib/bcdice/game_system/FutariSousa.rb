@@ -16,7 +16,9 @@ module BCDice
       HELP_MESSAGE = <<~MESSAGETEXT
         ・判定用コマンド
         探偵用：【DT】…10面ダイスを2つ振って判定します。『有利』なら【3DT】、『不利』なら【1DT】を使います。
+        　　　　【DT6】…6面ダイスを2つ振って判定します。『有利』なら【3DT6】、『不利』なら【1DT6】を使います。
         助手用：【AS】…6面ダイスを2つ振って判定します。『有利』なら【3AS】、『不利』なら【1AS】を使います。
+        　　　　【AS10】…10面ダイスを2つ振って判定します。『有利』なら【3AS10】、『不利』なら【1AS10】を使います。
         ・各種表
         【セッション時】
         異常な癖決定表　　　　　 SHRD／新・異常な癖決定表　　 SHND
@@ -67,13 +69,13 @@ module BCDice
         @d66_sort_type = D66SortType::ASC
       end
 
-      register_prefix('(\d+)?DT', '(\d+)?AS')
+      register_prefix('(\d+)?DT(?:6)?', '(\d+)?AS(?:10)?')
 
       def eval_game_system_specific_command(command)
-        if (m = /^(\d+)?DT$/i.match(command))
+        if (m = /^(\d+)?DT(?:6)?$/i.match(command))
           count = m[1]&.to_i || 2
           return roll_dt(command, count)
-        elsif (m = /^(\d+)?AS$/i.match(command))
+        elsif (m = /^(\d+)?AS(?:10)?$/i.match(command))
           count = m[1]&.to_i || 2
           return roll_as(command, count)
         end
@@ -91,7 +93,12 @@ module BCDice
 
       # 探偵用判定コマンド DT
       def roll_dt(command, count)
-        dice_list = @randomizer.roll_barabara(count, 10)
+        dice_list =
+          if command =~ /^(\d*)DT6$/i
+            @randomizer.roll_barabara(count, 6)
+          else
+            @randomizer.roll_barabara(count, 10)
+          end
         max = dice_list.max
 
         result =
@@ -111,7 +118,12 @@ module BCDice
 
       # 助手用判定コマンド AS
       def roll_as(command, count)
-        dice_list = @randomizer.roll_barabara(count, 6)
+        dice_list =
+          if command =~ /^(\d*)AS10$/i
+            @randomizer.roll_barabara(count, 10)
+          else
+            @randomizer.roll_barabara(count, 6)
+          end
         max = dice_list.max
 
         result =
