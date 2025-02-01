@@ -1,0 +1,808 @@
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "1D6"
+output = "(1D6) ＞ 2"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj"
+output = ""
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj38"
+output = "행위판정(성공률:38％) ＞ 1D100[3,9]=39 ＞ 39 ＞ 실패"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj38"
+output = "행위판정(성공률:38％) ＞ 1D100[4,4]=44 ＞ 44 ＞ 실패 ＞ 펌블! 파워의 대가(코스트) 2배 & 재굴림 불가"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj38"
+output = "행위판정(성공률:38％) ＞ 1D100[3,8]=38 ＞ 38 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj38"
+output = "행위판정(성공률:38％) ＞ 1D100[3,7]=37 ＞ 37 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj38"
+output = "행위판정(성공률:38％) ＞ 1D100[3,4]=34 ＞ 34 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj38"
+output = "행위판정(성공률:38％) ＞ 1D100[3,3]=33 ＞ 33 ＞ 성공 ＞ 크리티컬! 파워의 대가(코스트) 절반으로 감소"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj38"
+output = "행위판정(성공률:38％) ＞ 1D100[3,2]=32 ＞ 32 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj38+1"
+output = "행위판정(성공률:39％) ＞ 1D100[3,9]=39 ＞ 39 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj38-2"
+output = "행위판정(성공률:36％) ＞ 1D100[3,7]=37 ＞ 37 ＞ 실패"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj40+20-13"
+output = "행위판정(성공률:47％) ＞ 1D100[4,8]=48 ＞ 48 ＞ 실패"
+failure = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj40+20-13"
+output = "행위판정(성공률:47％) ＞ 1D100[6,6]=66 ＞ 66 ＞ 실패 ＞ 펌블! 파워의 대가(코스트) 2배 & 재굴림 불가"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj40+20-13"
+output = "행위판정(성공률:47％) ＞ 1D100[4,7]=47 ＞ 47 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj40+20-13"
+output = "행위판정(성공률:47％) ＞ 1D100[4,5]=45 ＞ 45 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj40+20-13"
+output = "행위판정(성공률:47％) ＞ 1D100[4,4]=44 ＞ 44 ＞ 성공 ＞ 크리티컬! 파워의 대가(코스트) 절반으로 감소"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj40+20-13"
+output = "행위판정(성공률:47％) ＞ 1D100[4,3]=43 ＞ 43 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj7"
+output = "행위판정(성공률:7％) ＞ 1D100[0,7]=07 ＞ 07 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj7"
+output = "행위판정(성공률:7％) ＞ 1D100[0,8]=08 ＞ 08 ＞ 실패"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj1"
+output = "행위판정(성공률:1％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj1"
+output = "행위판정(성공률:1％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 실패 ＞ 미저리! 파워의 대가(코스트) 2배 & 재굴림 불가"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj0"
+output = "행위판정(성공률:0％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 실패 ＞ 펌블! 파워의 대가(코스트) 2배 & 재굴림 불가"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj0"
+output = "행위판정(성공률:0％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 실패 ＞ 미저리! 파워의 대가(코스트) 2배 & 재굴림 불가"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj99"
+output = "행위판정(성공률:99％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 성공 ＞ 크리티컬! 파워의 대가(코스트) 절반으로 감소"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj99"
+output = "행위판정(성공률:99％) ＞ 1D100[9,0]=90 ＞ 90 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 0 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj99"
+output = "행위판정(성공률:99％) ＞ 1D100[0,9]=09 ＞ 09 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 0 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj99"
+output = "행위판정(성공률:99％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 실패 ＞ 미저리! 파워의 대가(코스트) 2배 & 재굴림 불가"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 0 },
+  { sides = 10, value = 0 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj100"
+output = "행위판정(성공률:100％) ＞ 1D100[9,8]=98 ＞ 98 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj100"
+output = "행위판정(성공률:100％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 성공 ＞ 크리티컬! 파워의 대가(코스트) 절반으로 감소"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj100"
+output = "행위판정(성공률:100％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 실패 ＞ 미저리! 파워의 대가(코스트) 2배 & 재굴림 불가"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 0 },
+  { sides = 10, value = 0 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj101"
+output = "행위판정(성공률:101％) ＞ 1D100[8,9]=89 ＞ 89 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj101"
+output = "행위판정(성공률:101％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 성공 ＞ 크리티컬! 파워의 대가(코스트) 절반으로 감소"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj101"
+output = "행위판정(성공률:101％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 실패 ＞ 미저리! 파워의 대가(코스트) 2배 & 재굴림 불가"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj101"
+output = "행위판정(성공률:101％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 성공 ＞ 크리티컬! 파워의 대가(코스트) 절반으로 감소"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj201"
+output = "행위판정(성공률:201％) ＞ 1D100[0,1]=01 ＞ 01 ＞ 성공 ＞ 크리티컬! 파워의 대가(코스트) 절반으로 감소"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj100-5+10"
+output = "행위판정(성공률:105％) ＞ 1D100[9,8]=98 ＞ 98 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj100-5+10"
+output = "행위판정(성공률:105％) ＞ 1D100[9,9]=99 ＞ 99 ＞ 성공 ＞ 크리티컬! 파워의 대가(코스트) 절반으로 감소"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj100-5+10"
+output = "행위판정(성공률:105％) ＞ 1D100[0,0]=100 ＞ 100 ＞ 실패 ＞ 미저리! 파워의 대가(코스트) 2배 & 재굴림 불가"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj100-5+10"
+output = "행위판정(성공률:105％) ＞ 1D100[0,5]=05 ＞ 05 ＞ 성공 ＞ 크리티컬! 파워의 대가(코스트) 절반으로 감소"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "bj200-5+10"
+output = "행위판정(성공률:205％) ＞ 1D100[0,5]=05 ＞ 05 ＞ 성공 ＞ 크리티컬! 파워의 대가(코스트) 절반으로 감소"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCA"
+output = ""
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL1"
+output = "데스 차트（육체）[마이너스 값:1 + 1D10(->1) = 2] ＞ 10이하 ： 효과 없음. 당신은 기적적으로 목숨을 건졌다. 싸움은 계속된다."
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL8"
+output = "데스 차트（육체）[마이너스 값:8 + 1D10(->1) = 9] ＞ 10이하 ： 효과 없음. 당신은 기적적으로 목숨을 건졌다. 싸움은 계속된다."
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL9"
+output = "데스 차트（육체）[마이너스 값:9 + 1D10(->1) = 10] ＞ 10 ： 효과 없음. 당신은 기적적으로 목숨을 건졌다. 싸움은 계속된다."
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL8"
+output = "데스 차트（육체）[마이너스 값:8 + 1D10(->2) = 10] ＞ 10 ： 효과 없음. 당신은 기적적으로 목숨을 건졌다. 싸움은 계속된다."
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL8"
+output = "데스 차트（육체）[마이너스 값:8 + 1D10(->3) = 11] ＞ 11 ： 격한 통증을 느낀다. 이후 이벤트가 끝날 때까지 모든 판정의 성공률에 -10%."
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL8"
+output = "데스 차트（육체）[마이너스 값:8 + 1D10(->4) = 12] ＞ 12 ： 더이상 몸이 움직이지 않는다…… 당신은 [경직 2]를 받는다."
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL8"
+output = "데스 차트（육체）[마이너스 값:8 + 1D10(->5) = 13] ＞ 13 ： 혼신의 일격!! 당신은 〈생존〉 판정을 한다. 실패할 경우 [사망]한다."
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL8"
+output = "데스 차트（육체）[마이너스 값:8 + 1D10(->6) = 14] ＞ 14 ： 갑자기 눈앞이 캄캄해진다. 당신은 [기절 2]를 받는다."
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL8"
+output = "데스 차트（육체）[마이너스 값:8 + 1D10(->7) = 15] ＞ 15 ： 이후, 이벤트 종료까지 모든 판정의 성공률 -20%."
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL8"
+output = "데스 차트（육체）[마이너스 값:8 + 1D10(->8) = 16] ＞ 16 ： 기록적인 일격!! 당신은 〈생존〉 -20% 으로 판정한다. 실패할 경우 [사망]한다."
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL8"
+output = "데스 차트（육체）[마이너스 값:8 + 1D10(->9) = 17] ＞ 17 ： 사느냐 죽느냐. 당신은 [빈사 2]를 받는다."
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL8"
+output = "데스 차트（육체）[마이너스 값:8 + 1D10(->10) = 18] ＞ 18 ： 역사에 한 획을 그을 일격!! 당신은 <생존> -30% 으로 판정한다. 실패할 경우 [사망]한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL9"
+output = "데스 차트（육체）[마이너스 값:9 + 1D10(->10) = 19] ＞ 19 ： 이후, 이벤트 종료 시까지 모든 판정의 성공률 -30%."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL10"
+output = "데스 차트（육체）[마이너스 값:10 + 1D10(->10) = 20] ＞ 20 ： 신화적 일격!! 공중에서 세 바퀴 정도 회전한 후 땅바닥에 내동댕이쳐진다. 보기에도 끔찍한 모습. 육체는 원형을 유지하지 못했다. 당신은 [사망]한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL11"
+output = "데스 차트（육체）[마이너스 값:11 + 1D10(->10) = 21] ＞ 20이상 ： 신화적 일격!! 공중에서 세 바퀴 정도 회전한 후 땅바닥에 내동댕이쳐진다. 보기에도 끔찍한 모습. 육체는 원형을 유지하지 못했다. 당신은 [사망]한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS8"
+output = "데스 차트（정신）[마이너스 값:8 + 1D10(->1) = 9] ＞ 10이하 ： 효과 없음. 당신은 이를 악물고 스트레스를 견뎌냈다."
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS8"
+output = "데스 차트（정신）[마이너스 값:8 + 1D10(->2) = 10] ＞ 10 ： 효과 없음. 당신은 이를 악물고 스트레스를 견뎌냈다."
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS8"
+output = "데스 차트（정신）[마이너스 값:8 + 1D10(->3) = 11] ＞ 11 ： 이후, 이벤트 종료 시까지 모든 판정의 성공률 -10%."
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS8"
+output = "데스 차트（정신）[마이너스 값:8 + 1D10(->4) = 12] ＞ 12 ： 말할 수 없는 공포가 당신을 엄습한다. 당신은 [공포 2]를 받는다."
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS8"
+output = "데스 차트（정신）[마이너스 값:8 + 1D10(->5) = 13] ＞ 13 ： 상처를 많이 받았다. 당신은 〈의지〉 판정을 한다. 실패할 경우 [절망] 상태가 되어서 NPC가 된다."
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS8"
+output = "데스 차트（정신）[마이너스 값:8 + 1D10(->6) = 14] ＞ 14 ： 의식을 잃었다. 당신은 [기절 2]를 받는다."
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS8"
+output = "데스 차트（정신）[마이너스 값:8 + 1D10(->7) = 15] ＞ 15 ： 이후, 이벤트 종료 시까지 모든 판정의 성공률 -20%."
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS8"
+output = "데스 차트（정신）[마이너스 값:8 + 1D10(->8) = 16] ＞ 16 ： 신뢰했던 자에게 속은 아픔. 당신은 〈의지〉 -20% 으로 판정한다. 실패할 경우, [절망] 상태가 되어서 NPC가 된다."
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS8"
+output = "데스 차트（정신）[마이너스 값:8 + 1D10(->9) = 17] ＞ 17 ： 동료에게 배신 당한 것일지도 모른다. 당신은 [혼란 2]를 받는다."
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS8"
+output = "데스 차트（정신）[마이너스 값:8 + 1D10(->10) = 18] ＞ 18 ： 너무나 참혹한 현실. 당신은 〈의지〉 -30% 으로 판정한다. 실패할 경우 [절망] 상태가 되어서 NPC가 된다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS9"
+output = "데스 차트（정신）[마이너스 값:9 + 1D10(->10) = 19] ＞ 19 ： 이후, 이벤트 종료 시까지 모든 판정의 성공률 -30%."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS10"
+output = "데스 차트（정신）[마이너스 값:10 + 1D10(->10) = 20] ＞ 20 ： 천지개벽의 이치 그 이상. 그것은 인류의 인식한계를 뛰어넘는 무언가였다. 당신은 [절망] 상태가 된 후 NPC가 된다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS11"
+output = "데스 차트（정신）[마이너스 값:11 + 1D10(->10) = 21] ＞ 20이상 ： 천지개벽의 이치 그 이상. 그것은 인류의 인식한계를 뛰어넘는 무언가였다. 당신은 [절망] 상태가 된 후 NPC가 된다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC8"
+output = "데스 차트（환경）[마이너스 값:8 + 1D10(->1) = 9] ＞ 10이하 ： 효과 없음. 당신은 뒤숭숭한 소문을 무시했다."
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC8"
+output = "데스 차트（환경）[마이너스 값:8 + 1D10(->2) = 10] ＞ 10 ： 효과 없음. 당신은 뒤숭숭한 소문을 무시했다."
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC8"
+output = "데스 차트（환경）[마이너스 값:8 + 1D10(->3) = 11] ＞ 11 ： 이후, 이벤트 종료 시까지 모든 판정의 성공률 -10%."
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC8"
+output = "데스 차트（환경）[마이너스 값:8 + 1D10(->4) = 12] ＞ 12 ： 위험한 상태! 이후, 라운드 종료 시까지 당신은 카르마를 사용할 수 없다."
+rands = [
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC8"
+output = "데스 차트（환경）[마이너스 값:8 + 1D10(->5) = 13] ＞ 13 ： 나쁜 소문이 돈다. 당신은 〈교섭〉 판정을 한다. 실패할 경우 당신은 동료들의 신뢰를 잃고 [무연고] 상태가 된 후 NPC가 된다."
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC8"
+output = "데스 차트（환경）[마이너스 값:8 + 1D10(->6) = 14] ＞ 14 ： 이후, 시나리오 종료 시까지 대가(코스트)에 크레딧을 소비하는 파워를 사용할 수 없다."
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC8"
+output = "데스 차트（환경）[마이너스 값:8 + 1D10(->7) = 15] ＞ 15 ： 당신의 악평이 세상에 널리 알려진다. 협력자로부터의 지원이 중단된다. 이후 시나리오 종료 시까지 모든 판정의 성공률 -20%."
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC8"
+output = "데스 차트（환경）[마이너스 값:8 + 1D10(->8) = 16] ＞ 16 ： 배신!! 당신은 〈경제〉 -20% 으로 판정한다. 실패할 경우 당신은 주위로부터 신용을 잃고, [무연고] 상태가 되어 NPC가 된다."
+rands = [
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC8"
+output = "데스 차트（환경）[마이너스 값:8 + 1D10(->9) = 17] ＞ 17 ： 이후, 시나리오 종료 시까지 【환경】 계열의 기능 레벨이 모두 0이 된다."
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC8"
+output = "데스 차트（환경）[마이너스 값:8 + 1D10(->10) = 18] ＞ 18 ： 날조 보도? 기억나지 않는 배신 행위가 특종으로 보도된다. 당신은 〈심리〉 -30% 으로 판정한다. 실패할 경우 당신은 인간으로서의 존엄성을 잃고, [무연고]가 된다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC9"
+output = "데스 차트（환경）[마이너스 값:9 + 1D10(->10) = 19] ＞ 19 ： 이후, 이벤트 종료 시까지 모든 판정 성공률 -30%."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC10"
+output = "데스 차트（환경）[마이너스 값:10 + 1D10(->10) = 20] ＞ 20 ： 당신의 이름은 사상 최악의 오점으로 영원히 역사에 새겨진다. 이제 당신을 믿는 동료는 없고 당신을 돕는 사회도 없다. 당신은 [무연고] 상태가 된 후 NPC가 된다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC11"
+output = "데스 차트（환경）[마이너스 값:11 + 1D10(->10) = 21] ＞ 20이상 ： 당신의 이름은 사상 최악의 오점으로 영원히 역사에 새겨진다. 이제 당신을 믿는 동료는 없고 당신을 돕는 사회도 없다. 당신은 [무연고] 상태가 된 후 NPC가 된다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCL8"
+output = "데스 차트（육체）[마이너스 값:8 + 1D10(->3) = 11] ＞ 11 ： 격한 통증을 느낀다. 이후 이벤트가 끝날 때까지 모든 판정의 성공률에 -10%."
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCS8"
+output = "데스 차트（정신）[마이너스 값:8 + 1D10(->3) = 11] ＞ 11 ： 이후, 이벤트 종료 시까지 모든 판정의 성공률 -10%."
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "DCC8"
+output = "데스 차트（환경）[마이너스 값:8 + 1D10(->3) = 11] ＞ 11 ： 이후, 이벤트 종료 시까지 모든 판정의 성공률 -10%."
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "CPC"
+output = "챌린지・패널티 차트(1) ＞ 사망\n도와야 할 NPC (히로인 등)가 사망한다."
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "CPC"
+output = "챌린지・패널티 차트(10) ＞ 봉인\nPC는 결전 페이즈 동안 카르마를 사용할 수 없다. 결전 페이즈를 개시한다."
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "STC"
+output = "사이드 트랙 차트(1) ＞ 해후\n우연히 NPC와 만난다. 어떤 NPC가 나타날지는 GM이 결정한다."
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "BlackJacket:Korean"
+input = "STC"
+output = "사이드 트랙 차트(10) ＞ 평화\n별일 없었다."
+rands = [
+  { sides = 10, value = 10 },
+]

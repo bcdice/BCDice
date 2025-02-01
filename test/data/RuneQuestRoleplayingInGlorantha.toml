@@ -19,11 +19,11 @@ rands = [
   { sides = 100, value = 1 },
 ]
 
-# クリティカル(01の出目でクリティカル)
+# 決定的成功(01の出目で決定的成功)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RQG<=10"
-output = "(1D100<=10) ＞ 1 ＞ クリティカル/スペシャル"
+output = "(1D100<=10) ＞ 1 ＞ 決定的成功"
 success = true
 critical = true
 rands = [
@@ -141,38 +141,38 @@ rands = [
   { sides = 100, value = 100 },
 ]
 
-# クリティカル(境界の出目)
+# 決定的成功(境界の出目)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RQG<=70"
-output = "(1D100<=70) ＞ 4 ＞ クリティカル/スペシャル"
+output = "(1D100<=70) ＞ 4 ＞ 決定的成功"
 success = true
 critical = true
 rands = [
   { sides = 100, value = 4 },
 ]
 
-# クリティカルにならずスペシャルになる(境界の出目)
+# 決定的成功にならず効果的成功になる(境界の出目)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RQG<=70"
-output = "(1D100<=70) ＞ 5 ＞ スペシャル"
+output = "(1D100<=70) ＞ 5 ＞ 効果的成功"
 success = true
 rands = [
   { sides = 100, value = 5 },
 ]
 
-# スペシャル成功(境界の出目)
+# 効果的成功(境界の出目)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RQG<=67"
-output = "(1D100<=67) ＞ 13 ＞ スペシャル"
+output = "(1D100<=67) ＞ 13 ＞ 効果的成功"
 success = true
 rands = [
   { sides = 100, value = 13 },
 ]
 
-# スペシャルにならず成功になる(境界の出目)
+# 効果的成功にならず成功になる(境界の出目)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RQG<=67"
@@ -223,38 +223,38 @@ rands = [
   { sides = 100, value = 99 },
 ]
 
-# クリティカル(100%以上の技能値)
+# 決定的成功(100%以上の技能値)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RQG<=122"
-output = "(1D100<=122) ＞ 6 ＞ クリティカル/スペシャル"
+output = "(1D100<=122) ＞ 6 ＞ 決定的成功"
 success = true
 critical = true
 rands = [
   { sides = 100, value = 6 },
 ]
 
-# クリティカルにならずスペシャルになる(100%以上の技能値)
+# 決定的成功にならず効果的成功になる(100%以上の技能値)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RQG<=122"
-output = "(1D100<=122) ＞ 7 ＞ スペシャル"
+output = "(1D100<=122) ＞ 7 ＞ 効果的成功"
 success = true
 rands = [
   { sides = 100, value = 7 },
 ]
 
-# スペシャル(100%以上の技能値)
+# 効果的成功(100%以上の技能値)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RQG<=122"
-output = "(1D100<=122) ＞ 24 ＞ スペシャル"
+output = "(1D100<=122) ＞ 24 ＞ 効果的成功"
 success = true
 rands = [
   { sides = 100, value = 24 },
 ]
 
-# スペシャルにならず成功になる(100%以上の技能値)
+# 効果的成功にならず成功になる(100%以上の技能値)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RQG<=122"
@@ -337,11 +337,11 @@ rands = [
   { sides = 100, value = 1 },
 ]
 
-# クリティカル(01の出目でクリティカル)
+# 決定的成功(01の出目で決定的成功)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRQG<=10"
-output = "(1D100<=10) ＞ 1 ＞ クリティカル/スペシャル"
+output = "(1D100<=10) ＞ 1 ＞ 決定的成功"
 success = true
 critical = true
 secret = true
@@ -471,11 +471,11 @@ rands = [
   { sides = 100, value = 100 },
 ]
 
-# クリティカル(境界の出目)
+# 決定的成功(境界の出目)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRQG<=70"
-output = "(1D100<=70) ＞ 4 ＞ クリティカル/スペシャル"
+output = "(1D100<=70) ＞ 4 ＞ 決定的成功"
 success = true
 critical = true
 secret = true
@@ -483,29 +483,29 @@ rands = [
   { sides = 100, value = 4 },
 ]
 
-# クリティカルにならずスペシャルになる(境界の出目)
+# 決定的成功にならず効果的成功になる(境界の出目)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRQG<=70"
-output = "(1D100<=70) ＞ 5 ＞ スペシャル"
+output = "(1D100<=70) ＞ 5 ＞ 効果的成功"
 success = true
 secret = true
 rands = [
   { sides = 100, value = 5 },
 ]
 
-# スペシャル成功(境界の出目)
+# 効果的成功(境界の出目)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRQG<=67"
-output = "(1D100<=67) ＞ 13 ＞ スペシャル"
+output = "(1D100<=67) ＞ 13 ＞ 効果的成功"
 success = true
 secret = true
 rands = [
   { sides = 100, value = 13 },
 ]
 
-# スペシャルにならず成功になる(境界の出目)
+# 効果的成功にならず成功になる(境界の出目)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRQG<=67"
@@ -561,11 +561,11 @@ rands = [
   { sides = 100, value = 99 },
 ]
 
-# クリティカル(100%以上の技能値)
+# 決定的成功(100%以上の技能値)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRQG<=122"
-output = "(1D100<=122) ＞ 6 ＞ クリティカル/スペシャル"
+output = "(1D100<=122) ＞ 6 ＞ 決定的成功"
 success = true
 critical = true
 secret = true
@@ -573,29 +573,29 @@ rands = [
   { sides = 100, value = 6 },
 ]
 
-# クリティカルにならずスペシャルになる(100%以上の技能値)
+# 決定的成功にならず効果的成功になる(100%以上の技能値)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRQG<=122"
-output = "(1D100<=122) ＞ 7 ＞ スペシャル"
+output = "(1D100<=122) ＞ 7 ＞ 効果的成功"
 success = true
 secret = true
 rands = [
   { sides = 100, value = 7 },
 ]
 
-# スペシャル(100%以上の技能値)
+# 効果的成功(100%以上の技能値)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRQG<=122"
-output = "(1D100<=122) ＞ 24 ＞ スペシャル"
+output = "(1D100<=122) ＞ 24 ＞ 効果的成功"
 success = true
 secret = true
 rands = [
   { sides = 100, value = 24 },
 ]
 
-# スペシャルにならず成功になる(100%以上の技能値)
+# 効果的成功にならず成功になる(100%以上の技能値)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRQG<=122"
@@ -663,11 +663,11 @@ rands = [
 
 #======= RES 抵抗判定コマンド =======#
 
-# 確率0%でも01はクリティカル
+# 確率0%でも01は決定的成功
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RES(9-19)"
-output = "(1D100<=0) ＞ 1 ＞ クリティカル/スペシャル"
+output = "(1D100<=0) ＞ 1 ＞ 決定的成功"
 success = true
 critical = true
 rands = [
@@ -785,22 +785,22 @@ rands = [
   { sides = 100, value = 100 },
 ]
 
-# 50%の抵抗判定(クリティカル)
+# 50%の抵抗判定(決定的成功)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RES(9-9)"
-output = "(1D100<=50) ＞ 3 ＞ クリティカル/スペシャル"
+output = "(1D100<=50) ＞ 3 ＞ 決定的成功"
 success = true
 critical = true
 rands = [
   { sides = 100, value = 3 },
 ]
 
-# 50%の抵抗判定(スペシャル)
+# 50%の抵抗判定(効果的成功)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RES(9-9)"
-output = "(1D100<=50) ＞ 10 ＞ スペシャル"
+output = "(1D100<=50) ＞ 10 ＞ 効果的成功"
 success = true
 rands = [
   { sides = 100, value = 10 },
@@ -837,38 +837,38 @@ rands = [
   { sides = 100, value = 98 },
 ]
 
-# 120%の抵抗判定でクリティカル率をチェック(クリティカル)
+# 120%の抵抗判定で決定的成功率をチェック(決定的成功)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RES(23-9)"
-output = "(1D100<=120) ＞ 6 ＞ クリティカル/スペシャル"
+output = "(1D100<=120) ＞ 6 ＞ 決定的成功"
 success = true
 critical = true
 rands = [
   { sides = 100, value = 6 },
 ]
 
-# 120%の抵抗判定でクリティカル率をチェック(クリティカルにならずスペシャルになる)
+# 120%の抵抗判定で決定的成功率をチェック(決定的成功にならず効果的成功になる)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RES(23-9)"
-output = "(1D100<=120) ＞ 7 ＞ スペシャル"
+output = "(1D100<=120) ＞ 7 ＞ 効果的成功"
 success = true
 rands = [
   { sides = 100, value = 7 },
 ]
 
-# 120%の抵抗判定でスペシャル率をチェック(スペシャル)
+# 120%の抵抗判定で効果的成功率をチェック(効果的成功)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RES(23-9)"
-output = "(1D100<=120) ＞ 24 ＞ スペシャル"
+output = "(1D100<=120) ＞ 24 ＞ 効果的成功"
 success = true
 rands = [
   { sides = 100, value = 24 },
 ]
 
-# 120%の抵抗判定でスペシャル率をチェック(スペシャルにならず成功になる)
+# 120%の抵抗判定で効果的成功率をチェック(効果的成功にならず成功になる)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RES(23-9)"
@@ -930,11 +930,11 @@ rands = [
 
 #======= RES 抵抗判定シークレットコマンド =======#
 
-# 確率0%でも01はクリティカル
+# 確率0%でも01は決定的成功
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRES(9-19)"
-output = "(1D100<=0) ＞ 1 ＞ クリティカル/スペシャル"
+output = "(1D100<=0) ＞ 1 ＞ 決定的成功"
 success = true
 critical = true
 secret = true
@@ -1064,11 +1064,11 @@ rands = [
   { sides = 100, value = 100 },
 ]
 
-# 50%の抵抗判定(クリティカル)
+# 50%の抵抗判定(決定的成功)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRES(9-9)"
-output = "(1D100<=50) ＞ 3 ＞ クリティカル/スペシャル"
+output = "(1D100<=50) ＞ 3 ＞ 決定的成功"
 success = true
 critical = true
 secret = true
@@ -1076,11 +1076,11 @@ rands = [
   { sides = 100, value = 3 },
 ]
 
-# 50%の抵抗判定(スペシャル)
+# 50%の抵抗判定(効果的成功)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRES(9-9)"
-output = "(1D100<=50) ＞ 10 ＞ スペシャル"
+output = "(1D100<=50) ＞ 10 ＞ 効果的成功"
 success = true
 secret = true
 rands = [
@@ -1121,11 +1121,11 @@ rands = [
   { sides = 100, value = 98 },
 ]
 
-# 120%の抵抗判定でクリティカル率をチェック(クリティカル)
+# 120%の抵抗判定で決定的成功率をチェック(決定的成功)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRES(23-9)"
-output = "(1D100<=120) ＞ 6 ＞ クリティカル/スペシャル"
+output = "(1D100<=120) ＞ 6 ＞ 決定的成功"
 success = true
 critical = true
 secret = true
@@ -1133,29 +1133,29 @@ rands = [
   { sides = 100, value = 6 },
 ]
 
-# 120%の抵抗判定でクリティカル率をチェック(クリティカルにならずスペシャルになる)
+# 120%の抵抗判定で決定的成功率をチェック(決定的成功にならず効果的成功になる)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRES(23-9)"
-output = "(1D100<=120) ＞ 7 ＞ スペシャル"
+output = "(1D100<=120) ＞ 7 ＞ 効果的成功"
 success = true
 secret = true
 rands = [
   { sides = 100, value = 7 },
 ]
 
-# 120%の抵抗判定でスペシャル率をチェック(スペシャル)
+# 120%の抵抗判定で効果的成功率をチェック(効果的成功)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRES(23-9)"
-output = "(1D100<=120) ＞ 24 ＞ スペシャル"
+output = "(1D100<=120) ＞ 24 ＞ 効果的成功"
 success = true
 secret = true
 rands = [
   { sides = 100, value = 24 },
 ]
 
-# 120%の抵抗判定でスペシャル率をチェック(スペシャルにならず成功になる)
+# 120%の抵抗判定で効果的成功率をチェック(効果的成功にならず成功になる)
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "SRES(23-9)"
@@ -1232,11 +1232,11 @@ rands = [
   { sides = 100, value = 23 },
 ]
 
-# 01の出目でクリティカル
+# 01の出目で決定的成功
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 1 ＞ 成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 1 ＞ 成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 success = true
 rands = [
   { sides = 100, value = 1 },
@@ -1246,7 +1246,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 2 ＞ 成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 2 ＞ 成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 success = true
 rands = [
   { sides = 100, value = 2 },
@@ -1256,7 +1256,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 3 ＞ 成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 3 ＞ 成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 success = true
 rands = [
   { sides = 100, value = 3 },
@@ -1266,7 +1266,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 4 ＞ 成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 4 ＞ 成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 success = true
 rands = [
   { sides = 100, value = 4 },
@@ -1276,7 +1276,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 5 ＞ 成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 5 ＞ 成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 success = true
 rands = [
   { sides = 100, value = 5 },
@@ -1286,7 +1286,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 6 ＞ 相手側能力値19まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 6 ＞ 相手側能力値19まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 6 },
 ]
@@ -1295,7 +1295,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 11 ＞ 相手側能力値18まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 11 ＞ 相手側能力値18まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 11 },
 ]
@@ -1304,7 +1304,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 16 ＞ 相手側能力値17まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 16 ＞ 相手側能力値17まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 16 },
 ]
@@ -1313,7 +1313,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 21 ＞ 相手側能力値16まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 21 ＞ 相手側能力値16まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 21 },
 ]
@@ -1322,7 +1322,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 26 ＞ 相手側能力値15まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 26 ＞ 相手側能力値15まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 26 },
 ]
@@ -1331,7 +1331,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 31 ＞ 相手側能力値14まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 31 ＞ 相手側能力値14まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 31 },
 ]
@@ -1340,7 +1340,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 36 ＞ 相手側能力値13まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 36 ＞ 相手側能力値13まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 36 },
 ]
@@ -1349,7 +1349,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 41 ＞ 相手側能力値12まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 41 ＞ 相手側能力値12まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 41 },
 ]
@@ -1358,7 +1358,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 46 ＞ 相手側能力値11まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 46 ＞ 相手側能力値11まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 46 },
 ]
@@ -1367,7 +1367,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 51 ＞ 相手側能力値10まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 51 ＞ 相手側能力値10まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 51 },
 ]
@@ -1376,7 +1376,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 56 ＞ 相手側能力値9まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 56 ＞ 相手側能力値9まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 56 },
 ]
@@ -1385,7 +1385,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 61 ＞ 相手側能力値8まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 61 ＞ 相手側能力値8まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 61 },
 ]
@@ -1394,7 +1394,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 66 ＞ 相手側能力値7まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 66 ＞ 相手側能力値7まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 66 },
 ]
@@ -1403,7 +1403,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 71 ＞ 相手側能力値6まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 71 ＞ 相手側能力値6まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 71 },
 ]
@@ -1412,7 +1412,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 76 ＞ 相手側能力値5まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 76 ＞ 相手側能力値5まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 76 },
 ]
@@ -1421,7 +1421,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 81 ＞ 相手側能力値4まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 81 ＞ 相手側能力値4まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 81 },
 ]
@@ -1430,7 +1430,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 86 ＞ 相手側能力値3まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 86 ＞ 相手側能力値3まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 86 },
 ]
@@ -1439,7 +1439,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 95 ＞ 相手側能力値2まで成功\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 95 ＞ 相手側能力値2まで成功\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 rands = [
   { sides = 100, value = 95 },
 ]
@@ -1448,7 +1448,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 96 ＞ 失敗\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 96 ＞ 失敗\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 failure = true
 rands = [
   { sides = 100, value = 96 },
@@ -1458,7 +1458,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 97 ＞ 失敗\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 97 ＞ 失敗\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 failure = true
 rands = [
   { sides = 100, value = 97 },
@@ -1468,7 +1468,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 98 ＞ 失敗\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 98 ＞ 失敗\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 failure = true
 rands = [
   { sides = 100, value = 98 },
@@ -1478,7 +1478,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 99 ＞ 失敗\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 99 ＞ 失敗\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 failure = true
 rands = [
   { sides = 100, value = 99 },
@@ -1488,7 +1488,7 @@ rands = [
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RSA11"
-output = "(1D100<=55) ＞ 100 ＞ 失敗\nクリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+output = "(1D100<=55) ＞ 100 ＞ 失敗\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 failure = true
 rands = [
   { sides = 100, value = 100 },
@@ -1496,8 +1496,8 @@ rands = [
 
 #===== バグ対応 ======#
 
-#【技能540%の時、出目96以上でスペシャルになる問題対応】
-# 96は計算上スペシャルだが、96以上の出目は失敗
+#【技能540%の時、出目96以上で効果的成功になる問題対応】
+# 96は計算上効果的成功だが、96以上の出目は失敗
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RQG<=540"
@@ -1507,12 +1507,12 @@ rands = [
   { sides = 100, value = 96 },
 ]
 
-#【技能540%の時、出目96以上でスペシャルになる問題対応】
-# 95は計算上スペシャル
+#【技能540%の時、出目96以上で効果的成功になる問題対応】
+# 95は計算上効果的成功
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
 input = "RQG<=540"
-output = "(1D100<=540) ＞ 95 ＞ スペシャル"
+output = "(1D100<=540) ＞ 95 ＞ 効果的成功"
 success = true
 rands = [
   { sides = 100, value = 95 },

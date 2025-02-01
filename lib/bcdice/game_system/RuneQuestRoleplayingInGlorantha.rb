@@ -14,13 +14,13 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定コマンド クリティカル、スペシャル、ファンブルを含めた判定を行う。
+        ・判定コマンド 決定的成功、効果的成功、ファンブルを含めた判定を行う。
         RQG<=成功率
 
         例1：RQG<=80 （技能値80で判定）
         例2：RQG<=80+20 （技能値100で判定）
 
-        ・抵抗判定コマンド（能動-受動） クリティカル、スペシャル、ファンブルを含めた判定を行う。
+        ・抵抗判定コマンド（能動-受動） 決定的成功、効果的成功、ファンブルを含めた判定を行う。
         RES(能動能力-受動能力)m増強値
         増強値は省略可能。
 
@@ -28,7 +28,7 @@ module BCDice
         例2：RES(9-11)m20 (能動能力9 vs 受動能力11、+20%の増強が能動側に入る判定)
         例3：RES(9)m50    (能動能力と受動能力の差が9で、+50%の増強が能動側に入る判定)
 
-        ・抵抗判定コマンド(能動側のみ) クリティカル、スペシャル、ファンブルは含めず判定を行う。
+        ・抵抗判定コマンド(能動側のみ) 決定的成功、効果的成功、ファンブルは含めず判定を行う。
         RSA(能動能力)m増強値
         増強値は省略可能。
 
@@ -125,7 +125,7 @@ module BCDice
         active_value = active_ability_value * 5 + modifiy_value
         result_prefix_str = "(1D100<=#{active_value}) ＞ #{roll_value} ＞"
 
-        note_str = "クリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+        note_str = "決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 
         if roll_value >= 96
           # 96以上は無条件で失敗
@@ -146,8 +146,8 @@ module BCDice
         funmble_value = ((100 - success_value.to_f) / 20).round
 
         if (roll_value == 1) || (roll_value <= critical_value)
-          # クリティカル(01は必ずクリティカル)
-          Result.critical("#{result_str} クリティカル/スペシャル")
+          # 決定的成功(01は必ず決定的成功)
+          Result.critical("#{result_str} 決定的成功")
         elsif (roll_value == 100) || (roll_value >= (100 - funmble_value + 1))
           # ファンブル(00は必ずファンブル)
           Result.fumble("#{result_str} ファンブル")
@@ -155,8 +155,8 @@ module BCDice
           # 失敗(96以上は必ず失敗、出目が01-05ではなく技能値より上なら失敗)
           Result.failure("#{result_str} 失敗")
         elsif roll_value <= special_value
-          # スペシャル
-          Result.success("#{result_str} スペシャル")
+          # 効果的成功
+          Result.success("#{result_str} 効果的成功")
         elsif (roll_value <= 5) || (roll_value <= success_value)
           # 成功(05以下は必ず成功)
           Result.success("#{result_str} 成功")

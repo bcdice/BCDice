@@ -359,6 +359,39 @@ rands = [
 
 [[ test ]]
 game_system = "SwordWorld2.5"
+input = "k10$~+1+6"
+output = "KeyNo.10c[10]m[~+1]+6 ＞ 2D:[4,3]=8 ＞ 4+6 ＞ 10"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "k10$~+1+6"
+output = "KeyNo.10c[10]m[~+1]+6 ＞ 2D:[4,5 2,3]=10,5 ＞ 5,2+6 ＞ 1回転 ＞ 13"
+critical = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "k10$~+1+6"
+output = "KeyNo.10c[10]m[~+1]+6 ＞ 2D:[6,5 4,5]=11,9 ＞ 6,5+6 ＞ 1回転 ＞ 17"
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
 input = "hk10 HKのクリティカル値は13"
 output = "KeyNo.10 ＞ 2D:[6,6]=12 ＞ 7/2 ＞ 4"
 rands = [
