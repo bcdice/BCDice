@@ -112,9 +112,6 @@ module BCDice
       end
 
       def roll_wow(command)
-        # コマンド内の数式の評価を行う
-        command = process_command(command)
-
         # コマンドの解析
         m = /^(\d+)WW12(?:@(\d+))?(?:#(\d+))?(?:<=(\d+))?$/.match(command)
         return nil unless m
@@ -158,52 +155,6 @@ module BCDice
           r.success = successes > 0 && !is_fumble  # 成功数が0より大きく、ファンブルがない場合に成功
           r.failure = successes == 0 || is_fumble  # 成功数が0、またはファンブルがある場合に失敗
         end
-      end
-
-      # 数式を評価して結果を返す（加算と減算）
-      def evaluate_expression(command)
-        # 数式の加算・減算部分をすべて評価
-        while command.match(/(\d+[+-]\d+)/)
-          command.gsub!(/(\d+[+-]\d+)/) do |expression|
-            # 数式の加算・減算部分を評価
-            result = eval_simple_expression(expression)
-            result.to_s
-          end
-        end
-        command
-      end
-
-      # 加算と減算の単純な式を計算するメソッド
-      def eval_simple_expression(expression)
-        # 例えば "4+5-2" を処理
-        tokens = expression.split(/([+-])/).map(&:strip)
-        total = tokens.shift.to_i
-
-        while tokens.any?
-          operator = tokens.shift
-          number = tokens.shift.to_i
-          case operator
-          when '+'
-            total += number
-          when '-'
-            total -= number
-          end
-        end
-        total
-      end
-
-      # 括弧を含む加算や式を処理
-      def process_command(command)
-        # 括弧内の加算・減算を処理
-        command = command.gsub(/\((.*?)\)/) do |match|
-          # 括弧内を加算・減算として処理
-          evaluate_expression(match[1..-2]) # 括弧を取り除いて処理
-        end
-
-        # WW12の前後を処理（複数回加算・減算を考慮）
-        evaluate_expression(command)
-
-        # 結果を返す
       end
     end
   end
