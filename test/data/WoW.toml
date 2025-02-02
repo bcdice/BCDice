@@ -1,0 +1,225 @@
+[[ test ]]
+game_system = "WoW"
+input = "3WW12<=7"
+output = "(3WW12<=7) ＞ [1,12,2] ＞ 成功数1（大成功1個、大失敗1個）"
+success = true
+rands = [
+  { sides = 12, value = 1 },
+  { sides = 12, value = 12 },
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "3WW12<=7"
+output = "(3WW12<=7) ＞ [4,12,2] ＞ 成功数2（大成功0個、大失敗1個） ＞ ファンブル！"
+failure = true
+fumble = true
+rands = [
+  { sides = 12, value = 4 },
+  { sides = 12, value = 12 },
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "3WW12<=7"
+output = "(3WW12<=7) ＞ [1,1,2] ＞ 成功数5（大成功2個、大失敗0個）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 1 },
+  { sides = 12, value = 1 },
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "3WW12#2<=7"
+output = "(3WW12#2<=7) ＞ [1,1,2] ＞ 成功数2（大成功2個、大失敗1個）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 1 },
+  { sides = 12, value = 1 },
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "5WW12@2#11<=6"
+output = "(5WW12@2#11<=6) ＞ [1,12,2,5,6] ＞ 成功数4（大成功2個、大失敗1個）"
+critical = true
+success = true
+rands = [
+  { sides = 12, value = 1 },
+  { sides = 12, value = 12 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 5 },
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "5WW12@0#13<=6"
+output = "(5WW12@0#13<=6) ＞ [1,12,2,5,6] ＞ 成功数4（大成功0個、大失敗0個）"
+success = true
+rands = [
+  { sides = 12, value = 1 },
+  { sides = 12, value = 12 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 5 },
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "5WW12@0#10<=6"
+output = "(5WW12@0#10<=6) ＞ [1,12,2,5,6] ＞ 成功数4（大成功0個、大失敗1個） ＞ ファンブル！"
+fumble = true
+failure = true
+rands = [
+  { sides = 12, value = 1 },
+  { sides = 12, value = 12 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 5 },
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "(4+0)WW12<=8"
+output = "(4WW12<=8) ＞ [10,3,2,1] ＞ 成功数4（大成功1個、大失敗0個）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "4WW12<=6"
+output = "(4WW12<=6) ＞ [10,3,2,1] ＞ 成功数4（大成功1個、大失敗0個）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "4WW12@5<=6"
+output = "(4WW12@5<=6) ＞ [10,3,2,1] ＞ 成功数6（大成功3個、大失敗0個）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "4WW12@2#10<=6"
+output = "(4WW12@2#10<=6) ＞ [10,3,2,1] ＞ 成功数3（大成功2個、大失敗1個）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "4WW12@2#10<=2"
+output = "(4WW12@2#10<=2) ＞ [10,3,2,1] ＞ 成功数2（大成功2個、大失敗1個）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "4WW12@2#12<=11"
+output = "(4WW12@2#12<=11) ＞ [10,3,2,1] ＞ 成功数6（大成功2個、大失敗0個）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "(4-3)WW12"
+output = "(1WW12<=6) ＞ [10] ＞ 成功数0（大成功0個、大失敗0個）"
+failure = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "4WW12@2#12<=11"
+output = "(4WW12@2#12<=11) ＞ [10,3,2,1] ＞ 成功数6（大成功2個、大失敗0個）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 3 },
+  { sides = 12, value = 2 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "GGa"
+output = "ランダムギフトガチャ A-1 ＞ 演者の声"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "GG"
+output = "ランダムギフトガチャ D-5 ＞ バックドア"
+rands = [
+  { sides = 12, value = 4 },
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "WoW"
+input = "GG"
+output = "GG ＞ 自由（アルファベットを決めてGGXを振る）"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 5 },
+]
+
+
+[[ test ]]
+game_system = "WoW"
+input = "FT"
+output = "FT(5) ＞ 1点のダメージ（軽減無効）を受ける。"
+rands = [
+  { sides = 12, value = 5 },
+]
