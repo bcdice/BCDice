@@ -1,11 +1,11 @@
-zh_hans:
+zh_hant:
   Cthulhu:
   critical: 大成功
-  special: 極端成功
-  critical_special: 大成功/極端成功
+  special: 極限成功
+  critical_special: 大成功/極限成功
   fumble: 大失敗
   partial_success: 部分成功
   automatic_success: 自動成功
   automatic_failure: 自動失敗
   broken: 故障
-  broken_number: 故障率
+  broken_number: 故障值
