@@ -71,7 +71,7 @@ module BCDice
               京都 KYST、神社仏閣 JBST
           その他
             秋空に雪舞えば AKST、夏の終わり NTST、出島EX DXST、災厄 CLST、斜歯ラボ HLST、培養プラント PLST
-        
+
         ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
