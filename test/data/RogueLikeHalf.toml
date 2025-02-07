@@ -109,3 +109,35 @@ rands = [
   { sides = 3, value = 1 },
 ]
 
+
+[[ test ]]
+game_system = "RogueLikeHalf"
+input = "NTT 宝物表"
+output = "宝物表:1:金貨１枚"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "RogueLikeHalf"
+input = "NTT 宝物表"
+output = "宝物表:6:１個の宝石・大（２ｄ６×５枚の金貨と同等の価値。下限は金貨３０枚の価値）"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "RogueLikeHalf"
+input = "NTT-1 宝物表,減算"
+output = "宝物表:1:金貨１枚"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "RogueLikeHalf"
+input = "NTT+1 宝物表,加算"
+output = "宝物表:7:【魔法の宝物表】でダイスロールを行うこと。"
+rands = [
+  { sides = 6, value = 6 },
+]
