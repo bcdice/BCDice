@@ -349,7 +349,7 @@ rands = []
 [[ test ]]
 game_system = "Cthulhu7th"
 input = "CC<=0"
-output = "1D100 ＞ 33"
+output = "(1D100) ＞ 33"
 rands = [
   { sides = 100, value = 33 },
 ]
@@ -1379,7 +1379,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th"
 input = "cc    ccのみで可能に"
-output = "1D100 ＞ 19"
+output = "(1D100) ＞ 19"
 rands = [
   { sides = 100, value = 19 },
 ]
