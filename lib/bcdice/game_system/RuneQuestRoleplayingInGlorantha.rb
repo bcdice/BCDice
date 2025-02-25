@@ -15,10 +15,13 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
         ・判定コマンド 決定的成功、効果的成功、ファンブルを含めた判定を行う。
-        RQG<=成功率
+        RQG<=成功率      (基本書式)
+        RQG成功率        (省略記法)
 
-        例1：RQG<=80 （技能値80で判定）
+        例1：RQG<=80    （技能値80で判定）
         例2：RQG<=80+20 （技能値100で判定）
+        例3：RQG80      （省略書式で技能値80の判定）
+        例4：RQG80+20   （省略書式で技能値100の判定）
 
         ・抵抗判定コマンド（能動-受動） 決定的成功、効果的成功、ファンブルを含めた判定を行う。
         RES(能動能力-受動能力)m増強値
@@ -55,18 +58,18 @@ module BCDice
 
       # 技能などの一般判定
       def do_ability_roll(command)
-        m = %r{\A(RQG)(<=([+-/*\d]+))?$}.match(command)
+        m = %r{\A(RQG)((<=)?([+-/*\d]+))?$}.match(command)
         unless m
           return nil
         end
 
         roll_value = @randomizer.roll_once(100)
-        unless m[3]
+        unless m[4]
           # RQGのみ指定された場合は1d100を振ったのと同じ挙動
           return "(1D100) ＞ #{roll_value}"
         end
 
-        ability_value = Arithmetic.eval(m[3], RoundType::ROUND)
+        ability_value = Arithmetic.eval(m[4], RoundType::ROUND)
         result_prefix_str = "(1D100<=#{ability_value}) ＞"
 
         if ability_value == 0
