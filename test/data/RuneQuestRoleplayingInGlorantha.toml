@@ -1467,7 +1467,7 @@ rands = [
 # 98の出目は失敗
 [[ test ]]
 game_system = "RuneQuestRoleplayingInGlorantha"
-input = "RSA11"
+input = "RSA11" 
 output = "(1D100<=55) ＞ 98 ＞ 失敗\n決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 failure = true
 rands = [
@@ -1492,6 +1492,161 @@ output = "(1D100<=55) ＞ 100 ＞ 失敗\n決定的成功、効果的成功、�
 failure = true
 rands = [
   { sides = 100, value = 100 },
+]
+
+#======= RQG省略書式コマンド =======#
+
+# 失敗(技能値0は判定できない＝失敗とする)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG0"
+output = "(1D100<=0) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+# 成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG67"
+output = "(1D100<=67) ＞ 67 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 67 },
+]
+
+# 失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG67"
+output = "(1D100<=67) ＞ 68 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 68 },
+]
+
+# ファンブル(00の出目でファンブル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG120"
+output = "(1D100<=120) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+# 決定的成功(境界の出目)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG70"
+output = "(1D100<=70) ＞ 4 ＞ 決定的成功"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 4 },
+]
+
+# 決定的成功にならず効果的成功になる(境界の出目)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG70"
+output = "(1D100<=70) ＞ 5 ＞ 効果的成功"
+success = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+# 四則演算 全部入り(成功率40%)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "RQG60*2/4+20-10"
+output = "(1D100<=40) ＞ 40 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 40 },
+]
+
+#======= RQG省略書式シークレットコマンド =======#
+
+# 失敗(技能値0は判定できない＝失敗とする)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG0"
+output = "(1D100<=0) ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+# 成功
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG67"
+output = "(1D100<=67) ＞ 67 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 67 },
+]
+
+# 失敗
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG67"
+output = "(1D100<=67) ＞ 68 ＞ 失敗"
+failure = true
+secret = true
+rands = [
+  { sides = 100, value = 68 },
+]
+
+# ファンブル(00の出目でファンブル)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG120"
+output = "(1D100<=120) ＞ 100 ＞ ファンブル"
+failure = true
+fumble = true
+secret = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+# 決定的成功(境界の出目)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG70"
+output = "(1D100<=70) ＞ 4 ＞ 決定的成功"
+success = true
+critical = true
+secret = true
+rands = [
+  { sides = 100, value = 4 },
+]
+
+# 決定的成功にならず効果的成功になる(境界の出目)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG70"
+output = "(1D100<=70) ＞ 5 ＞ 効果的成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+# 四則演算 全部入り(成功率40%)
+[[ test ]]
+game_system = "RuneQuestRoleplayingInGlorantha"
+input = "SRQG60*2/4+20-10"
+output = "(1D100<=40) ＞ 40 ＞ 成功"
+success = true
+secret = true
+rands = [
+  { sides = 100, value = 40 },
 ]
 
 #===== バグ対応 ======#
