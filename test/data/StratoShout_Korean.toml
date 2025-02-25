@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "TENKAI"
-output = "장면 전개표(P201)(22) ＞ 심마 : 장면 플레이어는 나쁜 생각을 갖게 되어 스텝을 불합리하게 해결하려고 합니다. 【디스코드】 +1점."
+output = "장면 전개표(P201)(22) ＞ 심마 : 장면 플레이어는 나쁜 생각을 갖게 되어 스텝을 불합리하게 해결하려고 합니다. 【디스코드】+1점."
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
