@@ -362,26 +362,34 @@ module BCDice
 
         case d6
         when 1
-          one = getOneWordTableResult()[1]
-          result = translate("KillDeathBusiness.table.TOT.items.1", one: one)
+          oneTableName, oneResult, oneD6, one = getOneWordTableResult()
+          result += "[#{oneTableName}]を見て一言。\n#{oneTableName}(#{oneD6}) ＞ #{oneResult}\n＞ "
+          result += translate("KillDeathBusiness.table.TOT.items.1", one: one)
         when 2
-          word1 = getWordTableResult()[1]
-          word2 = getWordTableResult()[1]
-          result = translate("KillDeathBusiness.table.TOT.items.2", word1: word1, word2: word2)
+          word1TableName, word1Result, word1D6, word1 = getWordTableResult()
+          word2TableName, word2Result, word2D6, word2 = getWordTableResult()
+          result += "この[#{word1TableName}]、ひょっとして[#{word1TableName}]かも、どうしてそう思った？\n#{word1TableName}(#{word1D6}) ＞ #{word1Result}\n#{word2TableName}(#{word2D6}) ＞ #{word2Result}\n＞ "
+          result += translate("KillDeathBusiness.table.TOT.items.2", word1: word1, word2: word2)
         when 3
-          verb = get_table_by_d66_swap(translate("KillDeathBusiness.table.VOT.items"))[0]
-          word = getWordTableResult()[1]
-          result = translate("KillDeathBusiness.table.TOT.items.3", verb: verb, word: word)
+          verbTableName = translate("KillDeathBusiness.table.VOT.name")
+          verb, number = get_table_by_d66_swap(translate("KillDeathBusiness.table.VOT.items"))
+          wordTableName, wordResult, wordD6, word = getWordTableResult()
+          result += "[#{verbTableName}]した[#{wordTableName}]が言いそうなこと。\n#{verbTableName}(#{number}) ＞ #{verb}\n#{wordTableName}(#{wordD6}) ＞ #{wordResult}\n＞ "
+          result += translate("KillDeathBusiness.table.TOT.items.3", verb: verb, word: word)
         when 4
-          word1 = getWordTableResult()[1]
-          word2 = getWordTableResult()[1]
-          result = translate("KillDeathBusiness.table.TOT.items.4", word1: word1, word2: word2)
+          word1TableName, word1Result, word1D6, word1 = getWordTableResult()
+          word2TableName, word2Result, word2D6, word2 = getWordTableResult()
+          result += "[#{word1TableName}]が[#{word1TableName}]になった世界ではどんなことが起こる？\n#{word1TableName}(#{word1D6}) ＞ #{word1Result}\n#{word2TableName}(#{word2D6}) ＞ #{word2Result}\n＞ "
+          result += translate("KillDeathBusiness.table.TOT.items.4", word1: word1, word2: word2)
         when 5
-          word = getWordTableResult()[1]
-          result = translate("KillDeathBusiness.table.TOT.items.5", word: word)
+          wordTableName, wordResult, wordD6, word = getWordTableResult()
+          result += "こんな[#{wordTableName}]は嫌だ。どんなの？\n#{wordTableName}(#{wordD6}) ＞ #{wordResult}\n＞ "
+          result += translate("KillDeathBusiness.table.TOT.items.5", word: word)
         when 6
-          long = get_table_by_d66_swap(translate("KillDeathBusiness.table.LOT.items"))[0]
-          result = translate("KillDeathBusiness.table.TOT.items.6", long: long)
+          longTableName = translate("KillDeathBusiness.table.LOT.name")
+          long, number = get_table_by_d66_swap(translate("KillDeathBusiness.table.LOT.items"))
+          result += "[#{longTableName}]みたいなことを言って下さい。\n#{longTableName}(#{number}) ＞ #{long}\n＞ "
+          result += translate("KillDeathBusiness.table.TOT.items.6", long: long)
         end
 
         return tableName, result, d6
@@ -395,15 +403,19 @@ module BCDice
 
         case d6
         when 1, 2
-          result = translate("KillDeathBusiness.table.OOT.items.1")
+          oneWord = translate("KillDeathBusiness.table.OOT.items.1")
+          result = oneWord
         when 3, 4
-          result = translate("KillDeathBusiness.table.OOT.items.3")
+          oneWord = translate("KillDeathBusiness.table.OOT.items.3")
+          result = oneWord
         when 5, 6
-          word = getWordTableResult()[1]
-          result = translate("KillDeathBusiness.table.OOT.items.5", word: word)
+          wordTableName, wordResult, wordD6, word = getWordTableResult()
+          result += "[#{wordTableName}]で検索して出てくる６番目の画像\n#{wordTableName}(#{wordD6}) ＞ #{wordResult}\n＞ "
+          oneWord = translate("KillDeathBusiness.table.OOT.items.5", word: word)
+          result += oneWord
         end
 
-        return tableName, result, d6
+        return tableName, result, d6, oneWord
       end
 
       def getWordTableResult()
@@ -413,19 +425,21 @@ module BCDice
         wordTableB = translate("KillDeathBusiness.table.WOTB.items")
         wordTableC = translate("KillDeathBusiness.table.WOTC.items")
 
-        result = ''
         d6 = @randomizer.roll_once(6)
 
         case d6
         when 1, 2
-          result = get_table_by_d66_swap(wordTableA)[0]
+          wordTableName = translate("KillDeathBusiness.table.WOTA.name")
+          word, number = get_table_by_d66_swap(wordTableA)
         when 3, 4
-          result = get_table_by_d66_swap(wordTableB)[0]
+          wordTableName = translate("KillDeathBusiness.table.WOTB.name")
+          word, number = get_table_by_d66_swap(wordTableB)
         when 5, 6
-          result = get_table_by_d66_swap(wordTableC)[0]
+          wordTableName = translate("KillDeathBusiness.table.WOTC.name")
+          word, number = get_table_by_d66_swap(wordTableC)
         end
 
-        return tableName, result, d6
+        return tableName, "#{wordTableName}(#{number}) ＞ #{word}", d6, word
       end
 
       def getPositiveTableResult()

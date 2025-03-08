@@ -1229,7 +1229,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "TOT"
-output = "お題決定表(1) ＞ 「学校」で検索して出てくる６番目の画像を見て一言。"
+output = "お題決定表(1) ＞ [〇〇を見て一言表]を見て一言。\n〇〇を見て一言表(6) ＞ [単語表]で検索して出てくる６番目の画像\n単語表(6) ＞ 単語表C(場所)(66) ＞ 学校\n＞ 「学校」で検索して出てくる６番目の画像\n＞ 「学校」で検索して出てくる６番目の画像を見て一言。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -1241,7 +1241,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "TOT"
-output = "お題決定表(2) ＞ この学校、ひょっとして太陽かも、どうしてそう思った？"
+output = "お題決定表(2) ＞ この[単語表]、ひょっとして[単語表]かも、どうしてそう思った？\n単語表(6) ＞ 単語表C(場所)(66) ＞ 学校\n単語表(4) ＞ 単語表B(物)(66) ＞ 太陽\n＞ この学校、ひょっとして太陽かも、どうしてそう思った？"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1255,7 +1255,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "TOT"
-output = "お題決定表(3) ＞ 地獄落ちしたした学校が言いそうなこと"
+output = "お題決定表(3) ＞ [動詞表]した[単語表]が言いそうなこと。\n動詞表(66) ＞ 地獄落ちした\n単語表(6) ＞ 単語表C(場所)(66) ＞ 学校\n＞ 地獄落ちした学校が言いそうなこと"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -1268,7 +1268,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "TOT"
-output = "お題決定表(4) ＞ 学校が太陽になった世界ではどんなことが起こる？"
+output = "お題決定表(4) ＞ [単語表]が[単語表]になった世界ではどんなことが起こる？\n単語表(6) ＞ 単語表C(場所)(66) ＞ 学校\n単語表(4) ＞ 単語表B(物)(66) ＞ 太陽\n＞ 学校が太陽になった世界ではどんなことが起こる？"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -1282,7 +1282,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "TOT"
-output = "お題決定表(5) ＞ こんな学校は嫌だ。どんなの？"
+output = "お題決定表(5) ＞ こんな[単語表]は嫌だ。どんなの？\n単語表(6) ＞ 単語表C(場所)(66) ＞ 学校\n＞ こんな学校は嫌だ。どんなの？"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -1293,7 +1293,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "TOT"
-output = "お題決定表(6) ＞ テーブルトークRPGみたいなことを言って下さい。"
+output = "お題決定表(6) ＞ [長め単語表]みたいなことを言って下さい。\n長め単語表(66) ＞ テーブルトークRPG\n＞ テーブルトークRPGみたいなことを言って下さい。"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1319,7 +1319,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "OOT"
-output = "〇〇を見て一言表(6) ＞ 「学校」で検索して出てくる６番目の画像"
+output = "〇〇を見て一言表(6) ＞ [単語表]で検索して出てくる６番目の画像\n単語表(6) ＞ 単語表C(場所)(66) ＞ 学校\n＞ 「学校」で検索して出てくる６番目の画像"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1330,7 +1330,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "WOT"
-output = "単語表(2) ＞ ロボット"
+output = "単語表(2) ＞ 単語表A(人物)(66) ＞ ロボット"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -1340,7 +1340,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "WOT"
-output = "単語表(4) ＞ 太陽"
+output = "単語表(4) ＞ 単語表B(物)(66) ＞ 太陽"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -1350,7 +1350,7 @@ rands = [
 [[ test ]]
 game_system = "KillDeathBusiness"
 input = "WOT"
-output = "単語表(6) ＞ 学校"
+output = "単語表(6) ＞ 単語表C(場所)(66) ＞ 学校"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
