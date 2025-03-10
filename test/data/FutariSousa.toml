@@ -232,10 +232,10 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "1DT6"
-output = "1DT6(10) ＞ 成功"
+output = "1DT6(4) ＞ 成功"
 success = true
 rands = [
-  { sides = 6, value = 10 },
+  { sides = 6, value = 4 },
 ]
 
 [[ test ]]
