@@ -117,7 +117,7 @@ module BCDice
         row = get_table_by_number(damage_value, table, nil)
         return nil if row.nil?
 
-        translate("GardenOrder.Damage_name")+"(#{chart_type})：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
+        translate("GardenOrder.Damage_name") + "(#{chart_type})：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
       end
 
       def get_damage_table_info_by_type(type, chart_type)
@@ -137,7 +137,7 @@ module BCDice
         "SL" => {
           name: "切断",
           table: [
-            [5,translate("GardenOrder.SL.d5")],
+            [5, translate("GardenOrder.SL.d5")],
             [10,
              {name: "脚部負傷",
               text: "足が切り裂かれ、思わずひざまずく。",
