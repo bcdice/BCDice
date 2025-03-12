@@ -137,7 +137,7 @@ module BCDice
         "SL" => {
           name: "切断",
           table: [
-            [5,{translate("GardenOrder.SL.d5")}],
+            [5,translate("GardenOrder.SL.d5")],
             [10,
              {name: "脚部負傷",
               text: "足が切り裂かれ、思わずひざまずく。",
