@@ -1,0 +1,84 @@
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "TC3>=4 成功"
+output = "(TC3>=4) ＞ 3+3 ＞ 6 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "TC2>=4 失敗"
+output = "(TC2>=4) ＞ 1+2 ＞ 3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "TC>=5 消費プール・ポイントなし"
+output = "(TC0>=5) ＞ 1+0 ＞ 1 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "TC 難易度指定なし"
+output = "(TC0) ＞ 4+0 ＞ 4"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "TC3+2 消費プール・ポイントが加算式(PT内支援用)"
+output = "(TC5) ＞ 2+5 ＞ 7"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "TC+ 間違った入力"
+output = ""
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "MMT 神話的狂気表全リスト表示"
+output = "(MMT) ＞ 1:強迫性障害, 2:恐怖症, 3:誇大妄想狂, 4:殺人狂, 5:恣意的記憶喪失, 6:多重人格障害, 7:偏執症, 8:妄想症"
+rands = [
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "MMT[1,8] 神話的狂気表表示[]付き"
+output = "(MMT[1,8]) ＞ 2:恐怖症"
+rands = [
+  { sides = 8, value = 2 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "MMT2,6 神話的狂気表表示[]なし"
+output = "(MMT[2,6]) ＞ 3:誇大妄想狂"
+rands = [
+  { sides = 8, value = 3 },
+]
+
+[[ test ]]
+game_system = "TrailOfCthulhu"
+input = "MMT[1,8] 神話的狂気表表示除外処理確認"
+output = "(MMT[1,8]) ＞ 2:恐怖症"
+rands = [
+  { sides = 8, value = 1 },
+  { sides = 8, value = 8 },
+  { sides = 8, value = 2 },
+]
+

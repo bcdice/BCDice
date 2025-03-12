@@ -17,6 +17,9 @@ module BCDice
         attr_accessor :first_modify
 
         # @return [Integer, nil]
+        attr_accessor :first_modify_ssp
+
+        # @return [Integer, nil]
         attr_accessor :rateup
 
         # @return [Boolean, nil]
@@ -38,7 +41,7 @@ module BCDice
         attr_accessor :modifier_after_one_and_a_half
 
         def settable_first_roll_adjust_option?
-          return first_modify.nil? && first_to.nil?
+          return first_modify.nil? && first_to.nil? && first_modify_ssp.nil?
         end
 
         def settable_non_2d_roll_option?

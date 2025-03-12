@@ -1,5 +1,50 @@
 # Change Log
 
+## 3.14.0 2024/06/30
+
+### 対応ゲームシステムの追加
+- 神聖課金RPGディヴァインチャージャー (DivineCharger): Facelessさんありがとうっ！ ([#677](https://github.com/bcdice/BCDice/pull/677))
+- 終末買い物戦争 (ShuumatsuBargainWars): ueshin0524さんありがとうっ！ ([#678](https://github.com/bcdice/BCDice/pull/678))
+- 天才軍師になろう (TensaiGunshiNiNaro): satsumawagashiさんありがとうっ！ ([#681](https://github.com/bcdice/BCDice/pull/681))
+- ブラックジャケットRPG (BlackJacket): satsumawagashiさんありがとうっ！ ([#686](https://github.com/bcdice/BCDice/pull/686))
+- The Unofficial Hollow Knight RPG (TheUnofficialHollowKnightRPG): ichiharayuumaさんありがとうっ！ ([#688](https://github.com/bcdice/BCDice/pull/688))
+- 一つの指輪：指輪物語TRPG2版 (TheOneRing2nd): フレッド緑野さんありがとうっ！ ([#689](https://github.com/bcdice/BCDice/pull/689))
+- 韓国語版 アリアンロッドRPG (Arianrhod:Korean): eidals224さんありがとうっ！ ([#691](https://github.com/bcdice/BCDice/pull/691))
+- FINAL FANTASY XIV TTRPG (FinalFantasyXIV): musicsoul0142さんありがとうっ！ ([#711](https://github.com/bcdice/BCDice/pull/711))
+- 英語版 クトゥルフ神話TRPG (Cthulhu:English): ([#715](https://github.com/bcdice/BCDice/pull/715))
+- キズナバレット (KizunaBullet): satsumawagashiさんありがとうっ！ ([#722](https://github.com/bcdice/BCDice/pull/722))
+- アグノストス (Agnostos):  ([#723](https://github.com/bcdice/BCDice/pull/723))
+- 英語版 FINAL FANTSY XIV TTRPG (FinalFantasyXIV:English): musicsoul0142さんありがとうっ！ ([#724](https://github.com/bcdice/BCDice/pull/724))
+- インビジブルライアー (InvisibleLiar): ([#725](https://github.com/bcdice/BCDice/pull/725))
+- ヨタバナ (Yotabana): ([#726](https://github.com/bcdice/BCDice/pull/726))
+- 韓国語版 アンサング・デュエット (UnsungDuet:Korean): eidals224さんありがとうっ！ ([#727](https://github.com/bcdice/BCDice/pull/727))
+- トレイル・オブ・クトゥルー (TrailOfCthulhu): Facelessさんありがとうっ！ ([#728](https://github.com/bcdice/BCDice/pull/728))
+
+### 追加機能
+- フルフェイス: 一般判定の成否と戦闘判定のダメージ計算を実装。Facelessさんありがとうっ！ ([#679](https://github.com/bcdice/BCDice/pull/679))
+- 虚構侵蝕TRPG: 虚構侵蝕TRPGの有利不利とダイス数0以下の特殊処理に対応。enokyouさんありがとうっ！ ([#683](https://github.com/bcdice/BCDice/pull/683))
+- フタリソウサ: 異常な癖決定表などにダイス結果に応じて別の表を振る機能を追加、誤植修正。えいむさんありがとうっ！ ([#687](https://github.com/bcdice/BCDice/pull/687))
+- ウタカゼ: 対抗判定用コマンドの追加。Facelessさんありがとうっ！ ([#698](https://github.com/bcdice/BCDice/pull/698))
+- フタリソウサ: もしもこの手が離れても、異常な癖・イベント表の追加。えいむさんありがとうっ！ ([#712](https://github.com/bcdice/BCDice/pull/712))
+- ウォーハンマーRPG第4版: 神々の天罰表、小誤発動表、大誤発動表の３表を実装。Facelessさんありがとうっ！ ([#713](https://github.com/bcdice/BCDice/pull/713))
+- モノトーンミュージアムRPG: モノトーンミュージアムRPG改訂版の表追加。えいむさんありがとうっ！ ([#719](https://github.com/bcdice/BCDice/pull/719))
+
+### 変更
+- コンヴィクター・ドライブ: 目標値のデフォルト値を5とする。三木里 秀予さんありがとうっ！ ([#699](https://github.com/bcdice/BCDice/pull/699))
+- nRR: 出目の分布を変更。 ([#714](https://github.com/bcdice/BCDice/pull/714))
+- ソード・ワールド系: 首切り刀をマイナスで振った時に、威力100に一周せず0で固定されるように変更。三木里 秀予さんありがとうっ！ ([#718](https://github.com/bcdice/BCDice/pull/718))
+
+### バグ修正
+- サイバーパンクRED: i18n対応の追加、夜の市表を振れるように追加。三木里 秀予さんありがとうっ！ ([#717](https://github.com/bcdice/BCDice/pull/717))
+
+### 翻訳の更新
+- 韓国語版 インセイン: eidals224さんありがとうっ！ ([#690](https://github.com/bcdice/BCDice/pull/690))
+
+### 開発
+- 歯車の塔の探空士（冒険企画局）: i18n対応。三木里 秀予さんありがとうっ！ ([#708](https://github.com/bcdice/BCDice/pull/708))
+- アンサング・デュエット: i18n対応。三木里 秀予さんありがとうっ！ ([#709](https://github.com/bcdice/BCDice/pull/709))
+- RangeTableでi18nができるように。三木里 秀予さんありがとうっ！ ([#710](https://github.com/bcdice/BCDice/pull/710))
+
 ## 3.13.0 2024/02/08
 
 ### 対応ゲームシステムの追加
