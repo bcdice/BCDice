@@ -85,8 +85,6 @@ module BCDice
           skill += modifier
         end
 
-        command_type = m[COMMAND_TYPE_INDEX]
-
         @total_success_dice = 0
 
         dice_pool = attribute
@@ -138,8 +136,6 @@ module BCDice
         dice_info_init
 
         @difficulty = m[DIFFICULTY_INDEX].to_i
-
-        command_type = m[COMMAND_TYPE_INDEX]
 
         @total_success_dice = 0
 
