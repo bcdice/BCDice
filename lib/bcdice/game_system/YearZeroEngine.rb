@@ -14,8 +14,9 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        ・判定コマンド(nYZEx+x+x)
-          (難易度)YZE(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (6のみを数える)
+        ・判定コマンド(nYZEx+x+x+m)
+          (難易度)YZE(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)+(修正値)  # (6のみを数える)
+          (難易度)YZE(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)-(修正値)  # (6のみを数える)
 
         ・判定コマンド(nMYZx+x+x)
           (難易度)MYZ(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (1と6を数え、プッシュ可能数を表示)
@@ -24,12 +25,14 @@ module BCDice
           ※ 難易度と技能、アイテムダイス数は省略可能
       INFO_MESSAGE_TEXT
 
-      DIFFICULTY_INDEX   =  1 # 難易度のインデックス
-      COMMAND_TYPE_INDEX =  2 # コマンドタイプのインデックス
-      ABILITY_INDEX      =  3 # 能力値ダイスのインデックス
-      SKILL_SIGNED_INDEX =  5 # 技能値ダイス符号のインデックス
-      SKILL_INDEX        =  6 # 技能値ダイスのインデックス
-      GEAR_INDEX         =  8 # アイテムダイスのインデックス
+      DIFFICULTY_INDEX      =  1 # 難易度のインデックス
+      COMMAND_TYPE_INDEX    =  2 # コマンドタイプのインデックス
+      ABILITY_INDEX         =  3 # 能力値ダイスのインデックス
+      SKILL_SIGNED_INDEX    =  5 # 技能値ダイス符号のインデックス
+      SKILL_INDEX           =  6 # 技能値ダイスのインデックス
+      GEAR_INDEX            =  8 # アイテムダイスのインデックス
+      MODIFIER_SIGNED_INDEX = 10 # 修正値の符号のインデックス
+      MODIFIER_INDEX        = 11 # 修正値のインデックス
 
       register_prefix('(\d+)?(YZE|MYZ)')
 
@@ -44,9 +47,92 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        m = /\A(\d+)?(YZE|MYZ)(\d+)((\+|-)(\d+))?(\+(\d+))?/.match(command)
+        resolute_action(command) || resolute_push_action(command)
+      end
+
+      def resolute_action(command)
+        m = /\A(\d+)?(YZE)(\d+)((\+)(\d+))?(\+(\d+))?((\+|-)(\d+))?/.match(command)
         unless m
-          return ''
+          return nil
+        end
+
+        dice_info_init
+
+        @difficulty = m[DIFFICULTY_INDEX].to_i
+        attribute = m[ABILITY_INDEX].to_i
+        skill = m[SKILL_INDEX].to_i
+        gear = m[GEAR_INDEX].to_i
+        modifier = m[MODIFIER_INDEX].to_i
+        if m[MODIFIER_SIGNED_INDEX] == '-'
+          if skill >= modifier
+            skill -= modifier
+          else
+            modifier -= skill
+            skill = 0
+            if gear >= modifier
+              gear -= modifier
+            else
+              modifier -= gear
+              gear = 0
+              if attribute >= modifier
+                attribute -= modifier
+              else
+                attribute = 0
+              end
+            end
+          end
+        else
+          skill += modifier
+        end
+
+        command_type = m[COMMAND_TYPE_INDEX]
+
+        @total_success_dice = 0
+
+        dice_pool = attribute
+        ability_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
+
+        @total_success_dice += success_dice
+        @total_botch_dice += botch_dice
+        @base_botch_dice += botch_dice # 能力ダメージ
+        @push_dice += (dice_pool - (success_dice + botch_dice))
+
+        dice_count_text = "(#{dice_pool}D6)"
+        dice_text = ability_dice_text
+
+        if m[SKILL_INDEX]
+          dice_pool = skill
+          skill_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
+
+          @total_success_dice += success_dice
+          @total_botch_dice += botch_dice
+          @skill_botch_dice += botch_dice # 技能ダイスの1はpushで振り直し可能（例えマイナス技能でも）
+          @push_dice += (dice_pool - success_dice) # 技能ダイスのみ1を含むので、ここでは1を計算に入れない
+
+          dice_count_text += "+(#{dice_pool}D6)"
+          dice_text += "+#{skill_dice_text}"
+        end
+
+        if m[GEAR_INDEX]
+          dice_pool = gear
+          gear_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
+
+          @total_success_dice += success_dice
+          @total_botch_dice += botch_dice
+          @gear_botch_dice += botch_dice # ギアダメージ
+          @push_dice += (dice_pool - (success_dice + botch_dice))
+
+          dice_count_text += "+(#{dice_pool}D6)"
+          dice_text += "+#{gear_dice_text}"
+        end
+
+        return make_result_with_yze(dice_count_text, dice_text)
+      end
+
+      def resolute_push_action(command)
+        m = /\A(\d+)?(MYZ)(\d+)((\+|-)(\d+))?(\+(\d+))?/.match(command)
+        unless m
+          return nil
         end
 
         dice_info_init
@@ -73,10 +159,7 @@ module BCDice
           skill_dice_text, success_dice, botch_dice = make_dice_roll(dice_pool)
 
           skill_unsigned = m[SKILL_SIGNED_INDEX]
-          if command_type == 'YZE' && skill_unsigned == '-'
-            # YZEはシンプルに動作するコマンドなのでマイナス技能の処理は対応しない。
-            return "YZEコマンドでは技能ダイスをマイナス指定できません。"
-          elsif command_type == 'MYZ' && skill_unsigned == '-'
+          if skill_unsigned == '-'
             @total_success_dice -= success_dice # マイナス技能の成功は通常の成功と相殺される
           else
             @total_success_dice += success_dice
@@ -103,17 +186,7 @@ module BCDice
           dice_text += "+#{gear_dice_text}"
         end
 
-        return make_result_text(command_type, dice_count_text, dice_text)
-      end
-
-      def make_result_text(command_type, dice_count_text, dice_text)
-        if command_type == 'YZE'
-          return make_result_with_yze(dice_count_text, dice_text)
-        elsif command_type == 'MYZ'
-          return make_result_with_myz(dice_count_text, dice_text)
-        end
-
-        return 'Error' # 到達しないはず
+        return make_result_with_myz(dice_count_text, dice_text)
       end
 
       def make_result_with_yze(dice_count_text, dice_text)
