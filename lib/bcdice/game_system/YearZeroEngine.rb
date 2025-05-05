@@ -14,15 +14,19 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        ・判定コマンド(nYZEx+x+x+m)
+        ・ダイスプール判定コマンド(nYZEx+x+x+m)
           (難易度)YZE(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)+(修正値)  # (6のみを数える)
           (難易度)YZE(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)-(修正値)  # (6のみを数える)
 
-        ・判定コマンド(nMYZx+x+x)
+        ・ダイスプール判定コマンド(nMYZx+x+x)
           (難易度)MYZ(能力ダイス数)+(技能ダイス数)+(アイテムダイス数)  # (1と6を数え、プッシュ可能数を表示)
           (難易度)MYZ(能力ダイス数)-(技能ダイス数)+(アイテムダイス数)  # (1と6を数え、プッシュ可能数を表示、技能のマイナス指定)
 
           ※ 難易度と技能、アイテムダイス数は省略可能
+
+        ・ステップダイス判定コマンド(nYZSx+x+x+m)
+          (難易度)YZS(能力ダイス面数)+(技能ダイス面数)+(修正値)  # (1,6を数え、プッシュ可能数を表示)
+          (難易度)YZS(能力ダイス面数)+(技能ダイス面数)-(修正値)  # (1,6を数え、プッシュ可能数を表示)
       INFO_MESSAGE_TEXT
 
       DIFFICULTY_INDEX      =  1 # 難易度のインデックス
@@ -34,7 +38,7 @@ module BCDice
       MODIFIER_SIGNED_INDEX = 10 # 修正値の符号のインデックス
       MODIFIER_INDEX        = 11 # 修正値のインデックス
 
-      register_prefix('(\d+)?(YZE|MYZ)')
+      register_prefix('(\d+)?(YZE|MYZ|YZS)')
 
       def dice_info_init()
         @total_success_dice = 0
@@ -47,7 +51,9 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        resolute_action(command) || resolute_push_action(command)
+        resolute_action(command) ||
+          resolute_push_action(command) ||
+          resolute_step_action(command)
       end
 
       def resolute_action(command)
@@ -218,6 +224,85 @@ module BCDice
         botch_dice = dice_list.count(1)
 
         return "[#{dice_list.join(',')}]", success_dice, botch_dice
+      end
+
+      def make_dice_a_roll(count, type)
+        dice_list = @randomizer.roll_barabara(count, type)
+        botch_dice = dice_list.count(1)
+        success_dice = dice_list.count { |val| val >= 6 }
+        success_level = success_dice + dice_list.count { |val| val >= 10 }
+
+        return "[#{dice_list.join(',')}]", success_dice, botch_dice, success_level
+      end
+
+      def get_rolling_dice(dice_type1, dice_type2, dice_upgrade)
+        dice_type1 = 4 if dice_type1 < 4
+        dice_type2 = 4 if dice_type2 < 4
+
+        while dice_upgrade > 0
+          if dice_type1 >= dice_type2
+            dice_type2 += 2 if dice_type2 < 12
+          else
+            dice_type1 += 2 if dice_type1 < 12
+          end
+          dice_upgrade -= 1
+        end
+
+        while dice_upgrade < 0
+          if dice_type1 <= dice_type2
+            dice_type2 -= 2 if dice_type2 > 4
+          else
+            dice_type1 -= 2 if dice_type1 > 4
+          end
+          dice_upgrade += 1
+        end
+
+        if dice_type1 == 4 && dice_type2 == 4
+          dice_type1 = 6
+        end
+
+        return dice_type1, dice_type2
+      end
+
+      def resolute_step_action(command)
+        m = /\A(\d+)?(YZS)(\d+)((\+)(\d+))?((\+|-)(\d+))?/.match(command)
+        unless m
+          return nil
+        end
+
+        dice_info_init
+
+        @difficulty = m[DIFFICULTY_INDEX].to_i
+        attribute = m[ABILITY_INDEX].to_i
+        skill = m[SKILL_INDEX].to_i
+        modifier = m[7].to_i
+
+        dice_type1, dice_type2 = get_rolling_dice(attribute, skill, modifier)
+
+        if dice_type1 > 4
+          ability_dice_text, success_dice, botch_dice, success_level = make_dice_a_roll(1, dice_type1)
+
+          @total_success_dice += success_level
+          @total_botch_dice += botch_dice
+          @base_botch_dice += botch_dice # 能力ダメージ
+          @push_dice += (1 - (success_dice + botch_dice))
+
+          dice_count_text = "(1D#{dice_type1})"
+          dice_text = ability_dice_text
+        end
+
+        if dice_type2 > 4
+          skill_dice_text, success_dice, botch_dice, success_level = make_dice_a_roll(1, dice_type2)
+
+          @total_success_dice += success_level
+          @total_botch_dice += botch_dice
+          @skill_botch_dice += botch_dice
+          @push_dice += (1 - (success_dice + botch_dice))
+
+          dice_count_text += "+(1D#{dice_type2})"
+          dice_text += "+#{skill_dice_text}"
+        end
+        return make_result_with_myz(dice_count_text, dice_text)
       end
     end
   end
