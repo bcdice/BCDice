@@ -25,8 +25,10 @@ module BCDice
           ※ 難易度と技能、アイテムダイス数は省略可能
 
         ・ステップダイス判定コマンド(nYZSx+x+x+m)
-          (難易度)YZS(能力ダイス面数)+(技能ダイス面数)+(修正値)  # (1,6を数え、プッシュ可能数を表示)
-          (難易度)YZS(能力ダイス面数)+(技能ダイス面数)-(修正値)  # (1,6を数え、プッシュ可能数を表示)
+          (難易度)YZS(能力ダイス面数)+(技能ダイス面数)+(修正値)   # (1,6を数え、プッシュ可能数を表示)
+          (難易度)YZS(能力ダイス面数)+(技能ダイス面数)-(修正値)   # (1,6を数え、プッシュ可能数を表示)
+          (難易度)YZS(能力ダイス面数)+(技能ダイス面数)+(修正値)A  # (1,6を数え、プッシュ可能数を表示、有利)
+          (難易度)YZS(能力ダイス面数)+(技能ダイス面数)-(修正値)D  # (1,6を数え、プッシュ可能数を表示、不利)
       INFO_MESSAGE_TEXT
 
       DIFFICULTY_INDEX      =  1 # 難易度のインデックス
@@ -232,7 +234,11 @@ module BCDice
         success_dice = dice_list.count { |val| val >= 6 }
         success_level = success_dice + dice_list.count { |val| val >= 10 }
 
-        return "[#{dice_list.join(',')}]", success_dice, botch_dice, success_level
+        @total_success_dice += success_level
+        @total_botch_dice += botch_dice
+        @push_dice += (count - (success_dice + botch_dice))
+
+        return "[#{dice_list.join(',')}]", botch_dice
       end
 
       def get_rolling_dice(dice_type1, dice_type2, dice_upgrade)
@@ -265,7 +271,7 @@ module BCDice
       end
 
       def resolute_step_action(command)
-        m = /\A(\d+)?(YZS)(\d+)((\+)(\d+))?((\+|-)(\d+))?/.match(command)
+        m = /\A(\d+)?(YZS)(\d+)((\+)(\d+))?((\+|-)(\d+))?(A|D)?/.match(command)
         unless m
           return nil
         end
@@ -276,32 +282,67 @@ module BCDice
         attribute = m[ABILITY_INDEX].to_i
         skill = m[SKILL_INDEX].to_i
         modifier = m[7].to_i
+        advantage = m[10]
+
+        dice_count_text = ""
+        dice_text = ""
 
         dice_type1, dice_type2 = get_rolling_dice(attribute, skill, modifier)
 
-        if dice_type1 > 4
-          ability_dice_text, success_dice, botch_dice, success_level = make_dice_a_roll(1, dice_type1)
+        if dice_type1 <= dice_type2
+          if advantage
+            if advantage == "A" && (dice_type1 > 4)
+              ability_dice_text, botch_dice = make_dice_a_roll(2, dice_type1)
 
-          @total_success_dice += success_level
-          @total_botch_dice += botch_dice
-          @base_botch_dice += botch_dice # 能力ダメージ
-          @push_dice += (1 - (success_dice + botch_dice))
+              @base_botch_dice += botch_dice # 能力ダメージ
+              dice_count_text = "(2D#{dice_type1})"
+              dice_text = ability_dice_text
+            end
+          else
+            if dice_type1 > 4
+              ability_dice_text, botch_dice = make_dice_a_roll(1, dice_type1)
 
-          dice_count_text = "(1D#{dice_type1})"
-          dice_text = ability_dice_text
+              @base_botch_dice += botch_dice # 能力ダメージ
+              dice_count_text = "(1D#{dice_type1})"
+              dice_text = ability_dice_text
+            end
+          end
+          if dice_type2 > 4
+            skill_dice_text, botch_dice = make_dice_a_roll(1, dice_type2)
+
+            @skill_botch_dice += botch_dice
+            dice_count_text += "+" unless dice_count_text == ""
+            dice_text += "+" unless dice_text == ""
+            dice_count_text += "(1D#{dice_type2})"
+            dice_text += skill_dice_text
+          end
+        else
+          if dice_type1 > 4
+            ability_dice_text, botch_dice = make_dice_a_roll(1, dice_type1)
+
+            @base_botch_dice += botch_dice # 能力ダメージ
+            dice_count_text = "(1D#{dice_type1})"
+            dice_text = ability_dice_text
+          end
+          if advantage
+            if advantage == "A" && (dice_type2 > 4)
+              skill_dice_text, botch_dice = make_dice_a_roll(2, dice_type2)
+
+              @skill_botch_dice += botch_dice
+              dice_count_text += "+(2D#{dice_type2})"
+              dice_text += "+#{skill_dice_text}"
+            end
+          else
+            if dice_type2 > 4
+              skill_dice_text, botch_dice = make_dice_a_roll(1, dice_type2)
+
+              @skill_botch_dice += botch_dice
+              dice_count_text += "+(1D#{dice_type2})"
+              dice_text += "+#{skill_dice_text}"
+            end
+          end
         end
 
-        if dice_type2 > 4
-          skill_dice_text, success_dice, botch_dice, success_level = make_dice_a_roll(1, dice_type2)
-
-          @total_success_dice += success_level
-          @total_botch_dice += botch_dice
-          @skill_botch_dice += botch_dice
-          @push_dice += (1 - (success_dice + botch_dice))
-
-          dice_count_text += "+(1D#{dice_type2})"
-          dice_text += "+#{skill_dice_text}"
-        end
         return make_result_with_myz(dice_count_text, dice_text)
       end
     end
