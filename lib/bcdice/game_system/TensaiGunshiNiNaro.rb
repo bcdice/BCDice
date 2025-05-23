@@ -17,21 +17,34 @@ module BCDice
         ・行為判定
         TN6…「有利」を得ていない場合、6面ダイスを2つ振って判定します。
         TN10…「有利」を得ている場合、10面ダイスを2つ振って判定します。
-        不調 気づかぬうちの不満【C】…判定のダイス目が「4」でも判定に成功しません。数字の後ろに【C】をつけます。
+        不調 気づかぬうちの不満【C】…このセッションの間、「4」の出目を出しても判定は成功になりません。数字の後ろに【C】をつけます。
         　例）TN6C
         軍師スキル 〇〇サポート【S】…決戦フェイズの判定中「3」の出目を出しても判定に成功します。数字の後ろに【S】をつけます。
         　例）TN6S
         英傑スキル/武人 煌めく刃【B】…決戦フェイズの判定中「3」の出目を出しても判定に成功となり、スペシャルが発生します。数字の後ろに【B】をつけます。
         　例）TN6B
+        英傑スキル/武人 力ずく…その判定のサイコロをすべて振った後、[使用者の【攻撃力】]個サイコロを振る。先頭に使用者の【攻撃力】をつけます。
+        　例）4TN6
+        英傑スキル/武人 必殺の剣【D】…《戦技》を使用している判定中「4」「5」の出目を出してもスペシャルが発生します。数字の後ろに【D】をつけます。
+        　例）TN6K
+        英傑スキル/武人 二刀流【T】…「攻撃」のスキルの判定中「2」の出目を出しても判定に成功となり、同じ出目のサイコロが2つ以上出ているとスペシャルが発生します。数字の後ろに【T】をつけます。
+        　例）TN6T
         英傑スキル/カリスマ 御身のためならば【Y】…「交流」「スカウト」の判定中「3」の出目を出しても判定に成功となり、スペシャルが発生します。数字の後ろに【Y】をつけます。
         　例）TN6Y
+        英傑スキル/弓取り 愛用の弓【A】…「攻撃」のスキルの判定中「3」の出目を出しても判定に成功となり、スペシャルが発生します。数字の後ろに【A】をつけます。
+        　例）TN6A
+        英傑スキル/ヤンキー&マイルドヤンキー その辺の物を武器に【C】…「4」の出目を出しても判定は成功になりません。数字の後ろに【C】をつけます。
+        　例）TN6C
+        英傑スキル/ヤンキー&マイルドヤンキー 熱血判定【C】…「4」の出目を出しても判定は成功になりません。数字の後ろに【C】をつけます。
+        　例）TN6C
         英傑スキル/英傑汎用 凄腕エージェント【A】…活動フェイズの判定中「3」の出目を出しても判定に成功となり、スペシャルが発生します。数字の後ろに【A】をつけます。
         　例）TN6A
         数字の後ろに複数のコマンドを追加できます。
         　例）TN10CYA
-        ・ダメージ計算 xDM>=t
+        ・ダメージ計算 xDM+y>=t
         　[ダメージ計算]を行う。成否と【HP】の減少量を表示する。
         　x: 6面ダイス数
+        　y: 補正値（省略可能）
         　t: 防御力
         ・各種表
         関係決定表 RELA
@@ -48,7 +61,7 @@ module BCDice
         @round_type = RoundType::FLOOR
       end
 
-      register_prefix('TN(6|10)[CSBYA]*', '\d+DM')
+      register_prefix('\d*TN(6|10)[ABCKSTY]*', '\d+DM')
 
       def eval_game_system_specific_command(command)
         roll_judge(command) || roll_damage(command) || roll_tables(command, self.class::TABLES)
@@ -58,7 +71,7 @@ module BCDice
 
       # 行為判定
       def roll_judge(command)
-        m = /^TN(6|10)([CSBYA]*)$/.match(command)
+        m = /^(\d*)TN(6|10)([ABCKSTY]*)$/.match(command)
         unless m
           return nil
         end
@@ -73,33 +86,53 @@ module BCDice
         fumble_dices = [1]
 
         # 有利
-        advantage = m[1] == "10"
+        advantage = m[2] == "10"
 
         # 不調 気づかぬうちの不満
-        complaints = m[2].include?("C")
+        complaints = m[3].include?("C")
 
         # 軍師スキル 〇〇サポート
-        support = m[2].include?("S")
+        support = m[3].include?("S")
 
         # 英傑スキル/武人 煌めく刃
-        blade = m[2].include?("B")
+        blade = m[3].include?("B")
+
+        # 英傑スキル/武人 必殺の剣
+        killer = m[3].include?("K")
+
+        # 英傑スキル/武人 二刀流
+        twin = m[3].include?("T")
 
         # 英傑スキル/カリスマ 御身のためならば
-        you = m[2].include?("Y")
+        you = m[3].include?("Y")
 
+        # 英傑スキル/弓取り 愛用の弓
         # 英傑スキル/英傑汎用 凄腕エージェント
-        agent = m[2].include?("A")
+        agent = m[3].include?("A")
 
-        # 〇〇サポート、煌めく刃、御身のためならば、凄腕エージェントいずれかの適用時
+        # 二刀流の適用時
+        if twin
+          # 成功となる出目に2を追加
+          success_dices.push(2)
+        end
+
+        # 〇〇サポート、煌めく刃、愛用の弓、御身のためならば、凄腕エージェントいずれかの適用時
         if support | blade | you | agent
           # 成功となる出目に3を追加
           success_dices.push(3)
         end
 
-        # 煌めく刃、御身のためならば、凄腕エージェントいずれかの適用時
+        # 煌めく刃、御身のためならば、愛用の弓、凄腕エージェントいずれかの適用時
         if blade | you | agent
           # スペシャルとなる出目に3を追加
           special_dices.push(3)
+        end
+
+        # 必殺の剣の適用時
+        if killer
+          # スペシャルとなる出目に4，5を追加
+          special_dices.push(4)
+          special_dices.push(5)
         end
 
         # 気づかぬうちの不満適用時
@@ -108,16 +141,18 @@ module BCDice
           success_dices.delete(4)
         end
 
+        # 英傑スキル/武人 力ずく
+        times = 2 + m[1].to_i
         dice_size = advantage ? 10 : 6
-        dice_list = @randomizer.roll_barabara(2, dice_size)
+        dice_list = @randomizer.roll_barabara(times, dice_size)
 
         texts = []
         is_critical = false
         is_fumble = false
         is_success = false
 
-        # スペシャルとなる出目を含む場合
-        unless dice_list.intersection(special_dices).empty?
+        # スペシャルとなる出目を含む、または、二刀流の適用時かつ同じ出目のサイコロが2つ以上出ている場合
+        if !dice_list.intersection(special_dices).empty? | (twin & (dice_list.count != dice_list.uniq.count))
           # クリティカルフラグを立てる
           is_critical = true
           # スペシャルのシステムメッセージを追加
@@ -169,7 +204,6 @@ module BCDice
       def roll_damage(command)
         parser = Command::Parser.new("DM", round_type: @round_type)
                                 .has_prefix_number
-                                .disable_modifier
                                 .restrict_cmp_op_to(:>=)
         parsed = parser.parse(command)
         unless parsed
@@ -180,7 +214,7 @@ module BCDice
         is_success = false
 
         # ダメージ計算
-        damage = @randomizer.roll_sum(parsed.prefix_number, 6)
+        damage = @randomizer.roll_sum(parsed.prefix_number, 6) + parsed.modify_number
         # HP減少量計算
         dec = damage / parsed.target_number
 

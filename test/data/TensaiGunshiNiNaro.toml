@@ -325,6 +325,283 @@ rands = [
 
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
+input = "1TN10"
+output = "1TN10 ＞ [4,3,3] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "1TN10"
+output = "1TN10 ＞ [4,1,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "1TN10"
+output = "1TN10 ＞ [3,3,3] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "1TN10"
+output = "1TN10 ＞ [3,1,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "1TN10"
+output = "1TN10 ＞ [6,2,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "1TN10"
+output = "1TN10 ＞ [10,1,1] ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10K"
+output = "TN10K ＞ [3,2] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10K"
+output = "TN10K ＞ [2,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10K"
+output = "TN10K ＞ [4,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10K"
+output = "TN10K ＞ [5,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10K"
+output = "TN10K ＞ [6,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10K"
+output = "TN10K ＞ [7,2] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10K"
+output = "TN10K ＞ [8,2] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10K"
+output = "TN10K ＞ [9,2] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10K"
+output = "TN10K ＞ [10,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10K"
+output = "TN10K ＞ [4,1] ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10T"
+output = "TN10T ＞ [3,2] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10T"
+output = "TN10T ＞ [3,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10T"
+output = "TN10T ＞ [2,2] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10T"
+output = "TN10T ＞ [3,3] ＞ スペシャル（【戦略ポイント】が1点上昇する。）失敗"
+critical = true
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10T"
+output = "TN10T ＞ [4,4] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10T"
+output = "TN10T ＞ [5,5] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10T"
+output = "TN10T ＞ [6,6] ＞ スペシャル（【戦略ポイント】が1点上昇する。）成功"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10T"
+output = "TN10T ＞ [1,1] ＞ スペシャル（【戦略ポイント】が1点上昇する。）ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）失敗"
+failure = true
+critical = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
+input = "TN10T"
+output = "TN10T ＞ [2,1] ＞ ファンブル（天才軍師のプレイヤーは、【イレギュラー】を山札から1枚引く。）成功"
+success = true
+fumble = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "TensaiGunshiNiNaro"
 input = "TN10Y"
 output = "TN10Y ＞ [4,2] ＞ 成功"
 success = true
@@ -571,8 +848,12 @@ rands = [
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"
 input = "2DM+3>=3"
-output = ""
-rands = []
+output = "2DM+3>=3 ＞ 15 ＞ 15ダメージ, 成功, 【HP】が3点減少する"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
 
 [[ test ]]
 game_system = "TensaiGunshiNiNaro"

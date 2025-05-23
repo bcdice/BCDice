@@ -1,0 +1,63 @@
+[[ test ]]
+game_system = "Magius"
+input = "MA>=7 成功"
+output = "(MA>=7) ＞ [5,6] ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Magius"
+input = "MA+1>=7 成功(修正値付き)"
+output = "(MA+1>=7) ＞ [3,4]+1 ＞ 8 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Magius"
+input = "MA>=7 失敗"
+output = "(MA>=7) ＞ [2,3] ＞ 5 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Magius"
+input = "MS>=7 成功"
+output = "(MS>=7) ＞ [4,5,6] ＞ 11 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Magius"
+input = "MS+1>=7 成功(修正値付き)"
+output = "(MS+1>=7) ＞ [4,5,6]+1 ＞ 12 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Magius"
+input = "MS>=7 失敗"
+output = "(MS>=7) ＞ [1,2,3] ＞ 5 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+

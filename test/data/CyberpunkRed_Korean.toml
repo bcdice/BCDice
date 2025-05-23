@@ -1,0 +1,492 @@
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP+8+4"
+output = "(1D10+12) ＞ 4[4]+12 ＞ 16"
+rands = [
+  { sides = 10, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP+7+3"
+output = "(1D10+10) ＞ 10[10]+10 ＞ 크리티컬！ ＞ 6[6] ＞ 26"
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP+4+3"
+output = "(1D10+7) ＞ 10[10]+7 ＞ 크리티컬！ ＞ 10[10] ＞ 27"
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP+8+2"
+output = "(1D10+10) ＞ 1[1]+10 ＞ 펌블！ ＞ 5[5] ＞ 6"
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP+6+4"
+output = "(1D10+10) ＞ 1[1]+10 ＞ 펌블！ ＞ 1[1] ＞ 10"
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP+6+3>10"
+output = "(1D10+9>10) ＞ 7[7]+9 ＞ 16 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 7 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP+7+2-1>12"
+output = "(1D10+8>12) ＞ 2[2]+8 ＞ 10 ＞ 실패"
+failure = true
+rands = [
+  { sides = 10, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP+7+2-1>12"
+output = "(1D10+8>12) ＞ 4[4]+8 ＞ 12 ＞ 실패"
+failure = true
+rands = [
+  { sides = 10, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP+7+2-1>12"
+output = "(1D10+8>12) ＞ 5[5]+8 ＞ 13 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP7>13"
+output = "(1D10+7>13) ＞ 1[1]+7 ＞ 펌블！ ＞ 5[5] ＞ 3 ＞ 실패"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP9>7"
+output = "(1D10+9>7) ＞ 1[1]+9 ＞ 펌블！ ＞ 1[1] ＞ 9 ＞ 성공"
+fumble = true
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP3>17"
+output = "(1D10+3>17) ＞ 10[10]+3 ＞ 크리티컬！ ＞ 1[1] ＞ 14 ＞ 실패"
+critical = true
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP8>12"
+output = "(1D10+8>12) ＞ 10[10]+8 ＞ 크리티컬！ ＞ 4[4] ＞ 22 ＞ 성공"
+critical = true
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP11"
+output = "(1D10+11) ＞ 6[6]+11 ＞ 17"
+rands = [
+  { sides = 10, value = 6 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "CP7+5"
+output = "(1D10+12) ＞ 3[3]+12 ＞ 15"
+rands = [
+  { sides = 10, value = 3 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "FFD"
+output = "신체에 치명적인 손상(7) ＞ 외상성 이물질 ＞ 한 턴에 도보로 4미터(2칸) 이상 이동할 때마다 해당 턴이 끝날 때 HP에 치명적인 손상을 입힌 후 직접 5의 보너스 데미지 포인트를 받습니다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "FFD"
+output = "신체에 치명적인 손상(3) ＞ 한 손 손실 ＞ 한 손을 완전히 잃어버렸습니다. 손에 들고 있던 물건을 즉시 떨어뜨립니다. 데스 세이브 패널티의 기본 값이 1 증가합니다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "HFD"
+output = "머리에 치명적인 손상(8) ＞ 경추 손상 ＞ 사망 저장 패널티 값의 기본 값이 1 증가합니다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "HFD"
+output = "머리에 치명적인 손상(10) ＞ 한쪽 귀 손상 ＞  한 턴에 도보로 4 미터 (2 칸) 이상 이동하면 다음 턴에 이동 동작을 수행 할 수 없습니다. 청각과 관련된 지각 판정(perception)에 -2를 합니다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "NCDT"
+output = "나이트 시티의 낮의 만남(24) ＞ 지역 주민 ＞ 이 지역에 사는 두 명의 젊은이. p. 418 참조."
+rands = [
+  { sides = 100, value = 24 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "NCDT"
+output = "나이트 시티의 낮의 만남(41) ＞ 사립 탐정 ＞ 1 명의 사립 탐정. p. 418 참조."
+rands = [
+  { sides = 100, value = 41 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "NCMT"
+output = "나이트 시티의 심야의 만남(29) ＞ Cromer ＞ 지역 크로매틱 록 밴드의 하드코어 팬 그룹입니다. p. 423 참조."
+rands = [
+  { sides = 100, value = 29 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "NCMT"
+output = "나이트 시티의 심야의 만남(66) ＞ 스트리트 펑크 ＞ 블랙 레이스 중독자들은 알약을 사기 위해 돈을 원합니다. PC보다 2명 더 많습니다. p. 423 참조."
+rands = [
+  { sides = 100, value = 66 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "SCST"
+output = "스크림시트 카테고리(2) ＞ 전국"
+rands = [
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "SCST"
+output = "스크림시트 카테고리(4) ＞ 지역"
+rands = [
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "SCSA"
+output = "헤드라인A(7) ＞ 킬러/살인마"
+rands = [
+  { sides = 10, value = 7 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "SCSA"
+output = "헤드라인A(1) ＞ (기업 1개 선택)"
+rands = [
+  { sides = 10, value = 1 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "SCSB"
+output = "헤드라인B(9) ＞ 사고를"
+rands = [
+  { sides = 10, value = 9 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "SCSB"
+output = "헤드라인B(5) ＞ 계획을"
+rands = [
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "SCSC"
+output = "헤드라인C(6) ＞  죽다(dies)"
+rands = [
+  { sides = 10, value = 6 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "SCSC"
+output = "헤드라인C(2) ＞  위협"
+rands = [
+  { sides = 10, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "SCSR"
+output = "스크림시트 카테고리(5) ＞ 경제뉴스　『시의회[이/가] 킬러/살인마[에 대해] 스캔들을 지속』"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 10, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 10, value = 7 },
+  { sides = 6, value = 3 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "SCSR"
+output = "스크림시트 카테고리(3) ＞ 주(state)뉴스　『상원의원/의원[을/를] 사이버사이코[보다 더] 여성을 위협』"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "VMCT"
+output = "가장 가까운 자판기 유형(3) ＞ 음식"
+rands = [
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "VMCT"
+output = "가장 가까운 자판기 유형(5) ＞ 개인 용품"
+rands = [
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "VMCE"
+output = "음식(7) ＞ 키블 1kg 가방"
+rands = [
+  { sides = 10, value = 7 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "VMCE"
+output = "음식(5) ＞ 스시"
+rands = [
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "VMCF"
+output = "개인 용품(2) ＞ 성인용품"
+rands = [
+  { sides = 10, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "VMCF"
+output = "개인 용품(9) ＞ 브레인댄스 칩"
+rands = [
+  { sides = 10, value = 9 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "VMCS"
+output = "이상한 것(1) ＞ 애완동물 가발"
+rands = [
+  { sides = 10, value = 1 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "VMCS"
+output = "이상한 것(10) ＞ 사용한 팬티"
+rands = [
+  { sides = 10, value = 10 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "STOREA"
+output = "점주 또는 종업원(2) ＞ 모든 사람에게 화난 늙은이.  특히 당신을 증오합니다."
+rands = [
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "STOREA"
+output = "점주 또는 종업원(5) ＞ 뻔뻔한 마약 중독자.  너에게 손을 흔들며 「이제 뭐든 상관없어, 친구....」라고 말합니다."
+rands = [
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "STOREB"
+output = "별난 손님 1(6) ＞ 길거리에서 습격당할까봐 불안에 떠는 손님. 누군가가 다가간다면 달려들것 같습니다 (총을 뽑을지도 모릅니다)."
+rands = [
+  { sides = 6, value = 6 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "STOREB"
+output = "별난 손님 1(4) ＞ 돈이 부족하지만 스매시를 사주면 부탁을 하나 들어줄 것 같은 조이걸/보이."
+rands = [
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "STOREC"
+output = "별난 손님 2(1) ＞ yo-ganger는 이 가게를 살펴보며 털 준비를 하고 있습니다."
+rands = [
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "STOREC"
+output = "별난 손님 2(3) ＞ 가게 주인을 다치게 하고 '보호비'를 챙기려는 삼류 폭력배."
+rands = [
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "STORE"
+output = "당신이 들른 상점(보데가)에는 ―― 모성 넘치는 노파. 손님을 친자식처럼 대하고, 잔소리를 합니다 ―― 와 같은 점원과, 시끄럽고 성가신 술취한 손님 ―― 라는 인상을 가지고 있는 손님과, 고급 파티를 즐긴 후 술을 사려고 들어온 비싼 옷을 입은 부유한 커플 ―― 라는 느낌의 손님이 있어 보입니다. 정말 기분 나쁜 예감이 듭니다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "STORE"
+output = "당신이 들른 상점(보데가)에는 ―― 이해할 수 없는 중년. 어쨌든 그는 당신과 논쟁할 것 같습니다 ―― 와 같은 점원과, 돈이 부족하지만 스매시를 사주면 부탁을 하나 들어줄 것 같은 조이걸/보이 ―― 라는 인상을 가지고 있는 손님과, 1d6 턴 후에 이 가게를 칠 ganger ―― 라는 느낌의 손님이 있어 보입니다. 정말 기분 나쁜 예감이 듭니다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 }
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "NMCT"
+output = "야시장 테이블(4) ＞ 사이버웨어"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "NMCFO"
+output = "음식과 약물(45) ＞ 술　20ed(일상적임)"
+rands = [
+  { sides = 100, value = 45 },
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "NMCME"
+output = "개인용 전자기기(99) ＞ 가상 고글(virtuality goggles)　100ed(프리미엄)"
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "NMCWE"
+output = "무기와 갑옷(100) ＞ 미들 피스톨　50ed(값이 나감(costly)) or 500ed 이상의 무기 부착물들"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "NMCCY"
+output = "사이버웨어(1) ＞ 사이버아이　100ed(프리미엄)"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "NMCFA"
+output = "의류 및 패션웨어(26) ＞ 노마드 레더"
+rands = [
+  { sides = 100, value = 26 },
+]
+
+[[ test ]]
+game_system = "CyberpunkRed:Korean"
+input = "NMCSU"
+output = "생존 장비(servival gear)(73) ＞ 방사능 방호복(Radiation Suit)　1,000ed(매우 비쌈(very Expensive))"
+rands = [
+  { sides = 100, value = 73 },
+]
+

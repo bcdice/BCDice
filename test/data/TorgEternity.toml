@@ -782,3 +782,33 @@ game_system = "TorgEternity"
 input = "POS"
 output = ""
 rands = []
+
+[[ test ]]
+game_system = "TorgEternity"
+input = "CPOS0"
+output = "d20ロール（ポシビリティ） ＞ 0+1d20[1] ＞ -10[1]"
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "TorgEternity"
+input = "CPOS8"
+output = "d20ロール（ポシビリティ） ＞ 8+1d20[5] ＞ +1[13]"
+rands = [
+  { sides = 20, value = 5 },
+]
+
+[[ test ]]
+game_system = "TorgEternity"
+input = "CPOS12"
+output = "d20ロール（ポシビリティ） ＞ 12+1d20[15] ＞ +9[27]"
+rands = [
+  { sides = 20, value = 15 },
+]
+
+[[ test ]]
+game_system = "TorgEternity"
+input = "CPOS"
+output = ""
+rands = []

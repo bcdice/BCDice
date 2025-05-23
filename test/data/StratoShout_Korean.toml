@@ -43,7 +43,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "VOT"
-output = "보컬 트러블표(P167)(4) ＞ 음정이 어긋나고 있지만, 쉽게 고칠 수가 없어!"
+output = "보컬 트러블표(P167)(4) ＞ 음정이 안 맞게 됐는데 다시 잘 부르지 못하겠어!"
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -51,7 +51,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "GUT"
-output = "기타 트러블표(P169)(6) ＞ 피크가 날아가버렸다! 손가락으로 칠 수밖에 없어……!"
+output = "기타 트러블표(P169)(6) ＞ 피크가 날아가버렸어! 핑거링으로 칠 수밖에…!"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -59,7 +59,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "BAT"
-output = "베이스 트러블표(P171)(2) ＞ 겍, 실드(신호를 전달하는 코드)가 뽑혔다! 소리가 안 나와!"
+output = "베이스 트러블표(P171)(2) ＞ 윽, 실드(앰프에 연결하는 실드 케이블)가 빠졌어! 소리가 안 나와!"
 rands = [
   { sides = 6, value = 2 },
 ]
@@ -67,7 +67,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "DRT"
-output = "드럼 트러블표(P175)(5) ＞ 템포가 점점 빨라지고 있지만, 멈출 수 없어!"
+output = "드럼 트러블표(P175)(5) ＞ 템포가 빨라지기 시작했는데 멈출 수가 없어!"
 rands = [
   { sides = 6, value = 5 },
 ]
@@ -75,7 +75,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "KEYT"
-output = "키보드 트러블표(P173)(1) ＞ 손 끝의 감각이 둔해지기 시작했다. 안 움직여……!"
+output = "키보드 트러블표(P173)(1) ＞ 손끝의 감각이 마비되기 시작했다. 안 움직여…!"
 rands = [
   { sides = 6, value = 1 },
 ]
@@ -83,7 +83,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "EMO"
-output = "감정표(P183)(6) ＞ 애정/부담감"
+output = "감정표(P183)(6) ＞ 애정/빚"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -91,7 +91,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "SCENE"
-output = "장면표(P199)(3) ＞ 어디선가 언쟁하는 듯한 소리가 들려온다. 싸우는 걸까?"
+output = "장면표(P199)(3) ＞ 어디선가 말싸움을 하는 것 같은 소리가 들렸다. 싸움인가?"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -100,7 +100,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "MACHI"
-output = "거리 장면표(P199)(5) ＞ 횡단보도에서 신호를 기다리고 있다보니 낯익은 인물의 모습을 발견했다."
+output = "거리 장면표(P199)(5) ＞ 횡단보도에서 신호가 바뀌기를 기다리니 낯익은 인물의 모습을 발견했다."
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "GAKKO"
-output = "학교 장면표(P199)(12) ＞ 스피커에서 교내방송이 들려온다. 누군가를 부르고 있는 것 같은데……?"
+output = "학교 장면표(P199)(12) ＞ 스피커에서 교내 방송이 울려퍼진다. 누군가를 부르는 것 같은데…?"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "BAND"
-output = "밴드 장면표(P199)(2) ＞ 음악 전문 인터넷 뉴스 사이트를 체크. 크고 작은 기사가 투고되어 있다."
+output = "밴드 장면표(P199)(2) ＞ 인터넷에서 음악 전문 뉴스 사이트를 확인한다. 꽤 다양한 기사가 실려있다."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "TENKAI"
-output = "장면 전개표(P201)(22) ＞ 악의 : 장면 플레이어의 마음에 순간적으로 나쁜 마음이 깃들어, 절차를 불합리하게 해결하려 합니다.【디스코드】+1점"
+output = "장면 전개표(P201)(22) ＞ 심마 : 장면 플레이어는 나쁜 생각을 갖게 되어 스텝을 불합리하게 해결하려고 합니다. 【디스코드】 +1점."
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 2 },
@@ -136,7 +136,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "TENKAI"
-output = "장면 전개표(P201)(36) ＞ 희망 : 장면 플레이어의 마음 속에 절차에 대해 긍정적으로 맞설 의사가 생겨납니다.【컨디션】+1점"
+output = "장면 전개표(P201)(36) ＞ 희망 : 장면 플레이어에게 스텝에 대한 긍정적인 노력을 할 의지가 생깁니다. 【컨디션】 +1점."
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "TENKAI"
-output = "장면 전개표(P201)(36) ＞ 희망 : 장면 플레이어의 마음 속에 절차에 대해 긍정적으로 맞설 의사가 생겨납니다.【컨디션】+1점"
+output = "장면 전개표(P201)(36) ＞ 희망 : 장면 플레이어에게 스텝에 대한 긍정적인 노력을 할 의지가 생깁니다. 【컨디션】 +1점."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 3 },
