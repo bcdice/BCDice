@@ -21,9 +21,9 @@ module BCDice
         ■D33　D33+x        x:修正値
 
         例)D33: 3面ダイスを2個振って、その結果を表示。
-      INFO_MESSAGETEXT
 
-      register_prefix('RH', 'D33')
+        ■宝物表　NTT+x     x:修正値
+      INFO_MESSAGETEXT
 
       def initialize(command)
         super(command)
@@ -33,7 +33,8 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         resolute_action(command) ||
-          resolute_d33(command)
+          resolute_d33(command) ||
+          roll_table_command(command)
       end
 
       private
@@ -126,6 +127,72 @@ module BCDice
 
         return Result.new(sequence.join(" ＞ "))
       end
+
+      def roll_table_command(command)
+        command = command.upcase
+        result = []
+
+        m = /([A-Z]+)(([+]|-)(\d+))?/.match(command)
+        return result unless m
+
+        command = m[1]
+        operator = m[3]
+        value = m[4].to_i
+
+        return get_another_table_result(command, operator, value)
+      end
+
+      def get_another_table_result(command, operator, value)
+        result = ""
+
+        table_name = command
+        table = TABLES[table_name]
+        return result if table.nil?
+
+        index = get_table_index(operator, value, 1, 6)
+
+        info = table.choice(index)
+        result = "#{info.table_name}:#{info.value}:#{info.body}"
+
+        return result
+      end
+
+      def get_table_index(operator, value, dice_count, dice_type)
+        modify = 0
+
+        case operator
+        when "+"
+          modify = value
+        when "-"
+          modify = value * -1
+        end
+
+        index = @randomizer.roll_sum(dice_count, dice_type)
+        index += modify
+
+        index = [index, dice_count * 1].max
+        index = [index, dice_count * dice_type + 1].min
+
+        return index
+      end
+
+      TABLES = {
+        "NTT" => DiceTable::Table.new(
+          "宝物表",
+          "1D6",
+          [
+            "金貨１枚",
+            "１ｄ６枚の金貨",
+            "２ｄ６枚の金貨（下限は金貨５枚）",
+            "１個のアクセサリー（１ｄ６×１ｄ６枚の金貨と同等の価値）",
+            "１個の宝石・小（１ｄ６×５枚の金貨と同等の価値。下限は金貨１５枚の価値）",
+            "１個の宝石・大（２ｄ６×５枚の金貨と同等の価値。下限は金貨３０枚の価値）",
+            "【魔法の宝物表】でダイスロールを行うこと。",
+          ]
+        )
+      }.freeze
+
+      register_prefix('RH', 'D33', TABLES.keys)
     end
   end
 end
