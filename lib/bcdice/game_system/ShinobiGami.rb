@@ -25,6 +25,10 @@ module BCDice
           x: 目標値 (省略可)
           例）SG, SG@11, SG@11#3, SG#3>=7, 3SG>=7
 
+        ・行為判定以外の表
+          以下の表は「回数+コマンド」で複数回振れる
+          例）3RCT, 2WT
+
         ・ランダム特技決定表 RTTn (n:分野番号、省略可能)
           1器術 2体術 3忍術 4謀術 5戦術 6妖術
 
@@ -114,8 +118,19 @@ module BCDice
       register_prefix('\d*SG')
 
       def eval_game_system_specific_command(command)
-        return action_roll(command) || roll_tables(command, TABLES) || roll_tables(command, SCENE_TABLES) ||
-               roll_tables(command, DEMON_SKILL_TABLES) || roll_tables(command, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, command)
+        return action_roll(command) || repeat_table(command)
+      end
+
+      def repeat_table(command)
+        times = command.start_with?(/\d/) ? command.to_i : 1
+        key = command.sub(/^\d+/, '')
+        results = [*0...times].map do |_|
+          roll_tables(key, TABLES) || roll_tables(key, SCENE_TABLES) ||
+            roll_tables(key, DEMON_SKILL_TABLES) || roll_tables(key, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, key)
+        end.compact
+        return nil if results.empty?
+
+        return results.join("\n")
       end
 
       RTT = DiceTable::SaiFicSkillTable.new(
@@ -1202,7 +1217,7 @@ module BCDice
           ]
         ),
       }.freeze
-      register_prefix(RTT.prefixes, TABLES.keys, SCENE_TABLES.keys, DEMON_SKILL_TABLES.keys, DEMON_SKILL_TABLES_NEW.keys)
+      register_prefix(RTT.prefixes.map { |k| "\\d*#{k}" }, TABLES.keys.map { |k| "\\d*#{k}" }, SCENE_TABLES.keys.map { |k| "\\d*#{k}" }, DEMON_SKILL_TABLES.keys.map { |k| "\\d*#{k}" }, DEMON_SKILL_TABLES_NEW.keys.map { |k| "\\d*#{k}" })
     end
   end
 end
