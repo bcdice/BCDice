@@ -68,8 +68,7 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         debug("eval_game_system_specific_command begin string", command)
-
-        cp_roll_result(command) || roll_tables(command, TABLES)
+        cp_roll_result(command) || roll_tables(command, self.class::TABLES)
       end
 
       private_constant :CP_RE

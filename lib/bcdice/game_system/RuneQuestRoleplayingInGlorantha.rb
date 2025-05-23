@@ -14,13 +14,16 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・判定コマンド クリティカル、スペシャル、ファンブルを含めた判定を行う。
-        RQG<=成功率
+        ・判定コマンド 決定的成功、効果的成功、ファンブルを含めた判定を行う。
+        RQG<=成功率      (基本書式)
+        RQG成功率        (省略記法)
 
-        例1：RQG<=80 （技能値80で判定）
+        例1：RQG<=80    （技能値80で判定）
         例2：RQG<=80+20 （技能値100で判定）
+        例3：RQG80      （省略書式で技能値80の判定）
+        例4：RQG80+20   （省略書式で技能値100の判定）
 
-        ・抵抗判定コマンド（能動-受動） クリティカル、スペシャル、ファンブルを含めた判定を行う。
+        ・抵抗判定コマンド（能動-受動） 決定的成功、効果的成功、ファンブルを含めた判定を行う。
         RES(能動能力-受動能力)m増強値
         増強値は省略可能。
 
@@ -28,7 +31,7 @@ module BCDice
         例2：RES(9-11)m20 (能動能力9 vs 受動能力11、+20%の増強が能動側に入る判定)
         例3：RES(9)m50    (能動能力と受動能力の差が9で、+50%の増強が能動側に入る判定)
 
-        ・抵抗判定コマンド(能動側のみ) クリティカル、スペシャル、ファンブルは含めず判定を行う。
+        ・抵抗判定コマンド(能動側のみ) 決定的成功、効果的成功、ファンブルは含めず判定を行う。
         RSA(能動能力)m増強値
         増強値は省略可能。
 
@@ -55,18 +58,18 @@ module BCDice
 
       # 技能などの一般判定
       def do_ability_roll(command)
-        m = %r{\A(RQG)(<=([+-/*\d]+))?$}.match(command)
+        m = %r{\A(RQG)((<=)?([+-/*\d]+))?$}.match(command)
         unless m
           return nil
         end
 
         roll_value = @randomizer.roll_once(100)
-        unless m[3]
+        unless m[4]
           # RQGのみ指定された場合は1d100を振ったのと同じ挙動
           return "(1D100) ＞ #{roll_value}"
         end
 
-        ability_value = Arithmetic.eval(m[3], RoundType::ROUND)
+        ability_value = Arithmetic.eval(m[4], RoundType::ROUND)
         result_prefix_str = "(1D100<=#{ability_value}) ＞"
 
         if ability_value == 0
@@ -125,7 +128,7 @@ module BCDice
         active_value = active_ability_value * 5 + modifiy_value
         result_prefix_str = "(1D100<=#{active_value}) ＞ #{roll_value} ＞"
 
-        note_str = "クリティカル/スペシャル、ファンブルは未処理。必要なら確認すること。"
+        note_str = "決定的成功、効果的成功、ファンブルは未処理。必要なら確認すること。"
 
         if roll_value >= 96
           # 96以上は無条件で失敗
@@ -146,8 +149,8 @@ module BCDice
         funmble_value = ((100 - success_value.to_f) / 20).round
 
         if (roll_value == 1) || (roll_value <= critical_value)
-          # クリティカル(01は必ずクリティカル)
-          Result.critical("#{result_str} クリティカル/スペシャル")
+          # 決定的成功(01は必ず決定的成功)
+          Result.critical("#{result_str} 決定的成功")
         elsif (roll_value == 100) || (roll_value >= (100 - funmble_value + 1))
           # ファンブル(00は必ずファンブル)
           Result.fumble("#{result_str} ファンブル")
@@ -155,8 +158,8 @@ module BCDice
           # 失敗(96以上は必ず失敗、出目が01-05ではなく技能値より上なら失敗)
           Result.failure("#{result_str} 失敗")
         elsif roll_value <= special_value
-          # スペシャル
-          Result.success("#{result_str} スペシャル")
+          # 効果的成功
+          Result.success("#{result_str} 効果的成功")
         elsif (roll_value <= 5) || (roll_value <= success_value)
           # 成功(05以下は必ず成功)
           Result.success("#{result_str} 成功")

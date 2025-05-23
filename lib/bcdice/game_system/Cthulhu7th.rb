@@ -203,7 +203,7 @@ module BCDice
 
         if bonus_dice == 0 && difficulty.nil?
           dice = @randomizer.roll_once(100)
-          return "1D100 ＞ #{dice}"
+          return "(1D100) ＞ #{dice}"
         end
 
         if bonus_dice.abs > 100

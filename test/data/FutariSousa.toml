@@ -131,6 +131,137 @@ rands = [
 
 [[ test ]]
 game_system = "FutariSousa"
+input = "DT6"
+output = "DT6(4,3) ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "DT6"
+output = "DT6(1,3) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "DT6"
+output = "DT6(1,1) ＞ ファンブル（変調を受け、助手の心労が1点上昇）"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "DT6"
+output = "DT6(2,6) ＞ スペシャル（助手の余裕を1点獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "DT6"
+output = "DT6(6,6) ＞ スペシャル（助手の余裕を1点獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "1DT6"
+output = "1DT6(3) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "1DT6"
+output = "1DT6(4) ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "1DT6"
+output = "1DT6(1) ＞ ファンブル（変調を受け、助手の心労が1点上昇）"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "1DT6"
+output = "1DT6(6) ＞ スペシャル（助手の余裕を1点獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "1DT6"
+output = "1DT6(7) ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 7 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "1DT6"
+output = "1DT6(4) ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "3DT6"
+output = "3DT6(3,4,1) ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "3DT6"
+output = "3DT6(3,2,1) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
 input = "AS"
 output = "AS(4,3) ＞ 成功（余裕1点と、探偵から助手への感情を獲得）"
 success = true
@@ -240,6 +371,119 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "AS10"
+output = "AS10(8,7) ＞ 成功（余裕1点と、探偵から助手への感情を獲得）"
+success = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "AS10"
+output = "AS10(1,2) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "AS10"
+output = "AS10(1,1) ＞ ファンブル（変調を受け、心労が1点上昇）"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "AS10"
+output = "AS10(9,6) ＞ スペシャル（余裕2点と、探偵から助手への感情を獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "AS10"
+output = "AS10(6,6) ＞ スペシャル（余裕2点と、探偵から助手への感情を獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "1AS10"
+output = "1AS10(3) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "1AS10"
+output = "1AS10(7) ＞ 成功（余裕1点と、探偵から助手への感情を獲得）"
+success = true
+rands = [
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "1AS10"
+output = "1AS10(1) ＞ ファンブル（変調を受け、心労が1点上昇）"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "1AS10"
+output = "1AS10(6) ＞ スペシャル（余裕2点と、探偵から助手への感情を獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "3AS10"
+output = "3AS10(7,8,10) ＞ 成功（余裕1点と、探偵から助手への感情を獲得）"
+success = true
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "3AS10"
+output = "3AS10(3,2,1) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
 ]
 
 [[ test ]]
@@ -630,7 +874,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVS"
-output = "現場にて／イベント表(6) ＞ 逃げた人物（P.170）\n　脱兎のごとく、誰かが現場から逃げている。\n　その人物の走り方、焦り方は普通ではなかった。\n　これは、何かを知っている。あるいは、何かを持ち去った可能性がある。\n　PCたちは、追いかけ始めた。"
+output = "現場にて／イベント表(6) ＞ 逃げた人物（P.170／基本ルールブックP.109）\n　脱兎のごとく、誰かが現場から逃げている。\n　その人物の走り方、焦り方は普通ではなかった。\n　これは、何かを知っている。あるいは、何かを持ち去った可能性がある。\n　PCたちは、追いかけ始めた。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -638,7 +882,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVW"
-output = "なぜ？／イベント表(6) ＞ 被害者の視点（P.176）\n　被害者の身に何が起こったのか。\n　被害者は何を見たのか。\n　そのヒントは、被害者自身が知っているはずだ。"
+output = "なぜ？／イベント表(6) ＞ 被害者の視点（P.176／基本ルールブックP.112）\n　被害者の身に何が起こったのか。\n　被害者は何を見たのか。\n　そのヒントは、被害者自身が知っているはずだ。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -646,7 +890,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVN"
-output = "協力者と共に／イベント表(6) ＞ 素人推理（P.182）\n　事件関係者の前で、ゲストNPCが推理を披露している。\n　だけど、その推理は穴だらけで……。"
+output = "協力者と共に／イベント表(6) ＞ 素人推理（P.182／基本ルールブックP.115）\n　事件関係者の前で、ゲストNPCが推理を披露している。\n　だけど、その推理は穴だらけで……。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -654,7 +898,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVC"
-output = "向こうから／イベント表(6) ＞ 探偵たちのピンチ（P.188）\n　捜査は突然ストップした。\n　その原因はわかっている。\n　原因を取り除かなければ、事件の調査どころではない。"
+output = "向こうから／イベント表(6) ＞ 探偵たちのピンチ（P.188／基本ルールブックP.118）\n　捜査は突然ストップした。\n　その原因はわかっている。\n　原因を取り除かなければ、事件の調査どころではない。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -662,7 +906,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVV"
-output = "VS容疑者／イベント表(6) ＞ 鬼の居ぬ間に（P.194）\n　その容疑者の元を訪ねたとき、偶然にも席をはずしていた。\n　これはチャンス。\n　そう思ってしまうのが、探偵の悲しい性だ。"
+output = "VS容疑者／イベント表(6) ＞ 鬼の居ぬ間に（P.194／基本ルールブックP.121）\n　その容疑者の元を訪ねたとき、偶然にも席をはずしていた。\n　これはチャンス。\n　そう思ってしまうのが、探偵の悲しい性だ。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -670,7 +914,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVE"
-output = "閉鎖空間／イベント表(6) ＞ 気をたしかに（怪盗からの誘惑P.37）\n　外と連絡がつかない。\n　外に出られない。\n　そういう状況は、人の心を荒ませる。"
+output = "閉鎖空間／イベント表(6) ＞ 気をたしかに（怪盗からの誘惑P.37／基本ルールブックP.124）\n　外と連絡がつかない。\n　外に出られない。\n　そういう状況は、人の心を荒ませる。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -678,7 +922,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVD"
-output = "探偵のみ捜査／イベント表(6) ＞ イマジナリー助手（あなたと仲良くなる方法P.75）\n　誰もいないのに、横にいるはずの誰かに事件の解説をしてしまう。横にいるはずの誰かに頼みごとをしてしまう。\n　そんなことを繰り返しているうちに、助手はここにいるのではないかという気になってきた。\n　いっそのこと、頭の中の助手と一緒に推理してみようか。"
+output = "探偵のみ捜査／イベント表(6) ＞ イマジナリー助手（あなたと仲良くなる方法P.75／基本ルールブックP.127）\n　誰もいないのに、横にいるはずの誰かに事件の解説をしてしまう。横にいるはずの誰かに頼みごとをしてしまう。\n　そんなことを繰り返しているうちに、助手はここにいるのではないかという気になってきた。\n　いっそのこと、頭の中の助手と一緒に推理してみようか。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -686,7 +930,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVA"
-output = "助手のみ捜査／イベント表(6) ＞ 自分だけでも（あなたと仲良くなる方法P.81）\n　あいつには負けられない。あの人を助けたい。\n　それが、今の自分を動かしている。\n　……どうして、そんなにがんばれるんだろう？"
+output = "助手のみ捜査／イベント表(6) ＞ 自分だけでも（あなたと仲良くなる方法P.81／基本ルールブックP.130）\n　あいつには負けられない。あの人を助けたい。\n　それが、今の自分を動かしている。\n　……どうして、そんなにがんばれるんだろう？"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -694,7 +938,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVT"
-output = "観光捜査／イベント表(6) ＞ 地元の人に助けられて（あなたと仲良くなる方法P.87）\n　困ったことに、捜査が手詰まりになった。\n　そんなとき、助け舟を出してくれた人がいる。\n　なぜだか、妙に存在感がある人だ。"
+output = "観光捜査／イベント表(6) ＞ 地元の人に助けられて（あなたと仲良くなる方法P.87／基本ルールブックP.133）\n　困ったことに、捜査が手詰まりになった。\n　そんなとき、助け舟を出してくれた人がいる。\n　なぜだか、妙に存在感がある人だ。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -702,7 +946,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVH"
-output = "思わぬヒント／イベント表(6) ＞ 生活空間の中から（あなたと仲良くなる方法P.93）\n　休むことになった。\n　しばらく、まずは日常の中に戻ることにしよう。\n　だけど、頭はまだ捜査モードのまま切り替えられていない。気が付くと、事件のことばかり考えてしまう。\n　リラックスは、難しそうだ。"
+output = "思わぬヒント／イベント表(6) ＞ 生活空間の中から（あなたと仲良くなる方法P.93／基本ルールブックP.136）\n　休むことになった。\n　しばらく、まずは日常の中に戻ることにしよう。\n　だけど、頭はまだ捜査モードのまま切り替えられていない。気が付くと、事件のことばかり考えてしまう。\n　リラックスは、難しそうだ。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -710,7 +954,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVX"
-output = "実験をしてみよう／イベント表(6) ＞ 新兵器、登場（あなたと仲良くなる方法P.99）\n　この時を待っていた。\n　ここで使わなければ、いつ使う。\n　捜査解決の新兵器、登場。"
+output = "実験をしてみよう／イベント表(6) ＞ 新兵器、登場（あなたと仲良くなる方法P.99／基本ルールブックP.139）\n　この時を待っていた。\n　ここで使わなければ、いつ使う。\n　捜査解決の新兵器、登場。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -718,7 +962,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVG"
-output = "ゲスト捜査／イベント表(6) ＞ ゲスト、暴走中（あなたと仲良くなる方法P.105）\n　どういうわけか、すごい剣幕で捜査をしているやつがいる。\n　暴走しているようなものだ。止めなければ。"
+output = "ゲスト捜査／イベント表(6) ＞ ゲスト、暴走中（あなたと仲良くなる方法P.105／基本ルールブックP.142）\n　どういうわけか、すごい剣幕で捜査をしているやつがいる。\n　暴走しているようなものだ。止めなければ。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -726,7 +970,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVQ"
-output = "ケイジ聞き込み捜査／イベント表(6) ＞ 一癖ありそうな相手（フタリケイジP.49）\n　探偵PCに負けず劣らず、「癖」のある相手だ。\n　そんな人物から、証言を聞きださなければいけない。\n　うまくやれるかどうか。"
+output = "ケイジ聞き込み捜査／イベント表(6) ＞ 一癖ありそうな相手（フタリケイジP.49／基本ルールブックP.145）\n　探偵PCに負けず劣らず、「癖」のある相手だ。\n　そんな人物から、証言を聞きださなければいけない。\n　うまくやれるかどうか。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -734,7 +978,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVM"
-output = "ケイジ大規模捜査／イベント表(6) ＞ 本格的ローラー捜査（フタリケイジP.55）\n　事件と容疑者には、あらゆる可能性がある。\n　だから、その可能性を一つ一つ潰す。\n　そうすれば、残ったものが真実だ。"
+output = "ケイジ大規模捜査／イベント表(6) ＞ 本格的ローラー捜査（フタリケイジP.55／基本ルールブックP.148）\n　事件と容疑者には、あらゆる可能性がある。\n　だから、その可能性を一つ一つ潰す。\n　そうすれば、残ったものが真実だ。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -742,7 +986,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVP"
-output = "こっそり情報の受け渡し／イベント表(6) ＞ 届いた暗号文（フタリケイジP.61）\n　情報が届きましたよ。\n　書かれていた暗号文ですか？\n　あれは、自分が考えたんですよ。"
+output = "こっそり情報の受け渡し／イベント表(6) ＞ 届いた暗号文（フタリケイジP.61／基本ルールブックP.151）\n　情報が届きましたよ。\n　書かれていた暗号文ですか？\n　あれは、自分が考えたんですよ。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -750,7 +994,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVO"
-output = "同僚たちと一緒に捜査する／イベント表(6) ＞ 同僚と飯（フタリケイジP.67）\n　同僚と示し合わせて、飯を食うことになった。\n　事件の合間のちょっとした休憩だ。\n　しかし、どうしても事件の話になってしまう。"
+output = "同僚たちと一緒に捜査する／イベント表(6) ＞ 同僚と飯（フタリケイジP.67／基本ルールブックP.154）\n　同僚と示し合わせて、飯を食うことになった。\n　事件の合間のちょっとした休憩だ。\n　しかし、どうしても事件の話になってしまう。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -758,7 +1002,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVF"
-output = "頻染みの店シチュエーション／イベント表(6) ＞ 相談を受ける（フタリケイジP.73）\n　いつもの店の店主が相談をしてきた。\n　どうやら、手助けがいるようだ。\n　仕方ない。手伝ってあげよう。"
+output = "頻染みの店シチュエーション／イベント表(6) ＞ 相談を受ける（フタリケイジP.73／基本ルールブックP.157）\n　いつもの店の店主が相談をしてきた。\n　どうやら、手助けがいるようだ。\n　仕方ない。手伝ってあげよう。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -766,7 +1010,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVB"
-output = "ハードBデカアクション／イベント表(6) ＞ 暴走重機を止めろ！（フタリケイジP.79）\n　制御を失った重機が暴れ回っている。\n　どうやら、運転手が運転中に気絶をしてしまったらしい。\n　急いで乗り込んで止めなければ、甚大な被害が出てしまう。"
+output = "ハードBデカアクション／イベント表(6) ＞ 暴走重機を止めろ！（フタリケイジP.79／基本ルールブックP.160）\n　制御を失った重機が暴れ回っている。\n　どうやら、運転手が運転中に気絶をしてしまったらしい。\n　急いで乗り込んで止めなければ、甚大な被害が出てしまう。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -774,7 +1018,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVL"
-output = "探偵を大人しくさせる捜査／イベント表(6) ＞ 異常な癖キャンセル（探偵フェスティバルP.32）\n　探偵が突飛なことをする。\n　いつもは止められないそれを、止める。\n　そうするとどうなるだろうか？"
+output = "探偵を大人しくさせる捜査／イベント表(6) ＞ 異常な癖キャンセル（探偵フェスティバルP.32／基本ルールブックP.163）\n　探偵が突飛なことをする。\n　いつもは止められないそれを、止める。\n　そうするとどうなるだろうか？"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -782,7 +1026,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVZ"
-output = "伝統的捜査／イベント表(6) ＞ ニュース（探偵フェスティバルP.38）\n　ニュースというものは、大切な情報源であり、娯楽だ。\n　それだけに、多くの人々が関心を持つ。\n　それらを拾い集めれば、いずれ真実に近づくだろう。\n　さて、事件に繋がるものはあるかな。"
+output = "伝統的捜査／イベント表(6) ＞ ニュース（探偵フェスティバルP.38／基本ルールブックP.166）\n　ニュースというものは、大切な情報源であり、娯楽だ。\n　それだけに、多くの人々が関心を持つ。\n　それらを拾い集めれば、いずれ真実に近づくだろう。\n　さて、事件に繋がるものはあるかな。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -790,7 +1034,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EVR"
-output = "原始的捜査／イベント表(6) ＞ 見せる（探偵フェスティバルP.44）\n　何か、情報を引き出せるものはないだろうか。\n　鞄の中やポケットの中をあさる。\n　……よし、これでいこう！\n　これはどうだ！　何か感じないか！"
+output = "原始的捜査／イベント表(6) ＞ 見せる（探偵フェスティバルP.44／基本ルールブックP.169）\n　何か、情報を引き出せるものはないだろうか。\n　鞄の中やポケットの中をあさる。\n　……よし、これでいこう！\n　これはどうだ！　何か感じないか！"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -798,7 +1042,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EV6S"
-output = "超探偵調査／イベント表(6) ＞ 超直感（もしもこの手が離れてもP.43）\n　ふと、思いついたことがある。\n　これは直感だ。何か確証があるわけではない。確実なものではない。必ずうまくいくという保証もない。\n　だけど、これまでの経験から、直感というものは大事にするべきだと感じている。\n　なので、今回のこれもきっと、うまくいくのだろう。"
+output = "超探偵調査／イベント表(6) ＞ 超直感（もしもこの手が離れてもP.43／基本ルールブックP.172）\n　ふと、思いついたことがある。\n　これは直感だ。何か確証があるわけではない。確実なものではない。必ずうまくいくという保証もない。\n　だけど、これまでの経験から、直感というものは大事にするべきだと感じている。\n　なので、今回のこれもきっと、うまくいくのだろう。"
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -806,7 +1050,7 @@ rands = [
 [[ test ]]
 game_system = "FutariSousa"
 input = "EV6F"
-output = "神速捜査／イベント表(6) ＞ 趣味に没頭（もしもこの手が離れてもP.49）\n　調査は終わり、しばらくは待機の時間だ。\n　何かをして時間を潰さなければならない。\n　こんなとき、人は趣味の時間に宛てるのだろう。\n　さて、自分の趣味は何だったかな。\n　改めて、振り返ってみようか。"
+output = "神速捜査／イベント表(6) ＞ 趣味に没頭（もしもこの手が離れてもP.49／基本ルールブックP.175）\n　調査は終わり、しばらくは待機の時間だ。\n　何かをして時間を潰さなければならない。\n　こんなとき、人は趣味の時間に宛てるのだろう。\n　さて、自分の趣味は何だったかな。\n　改めて、振り返ってみようか。"
 rands = [
   { sides = 6, value = 6 },
 ]
