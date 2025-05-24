@@ -270,7 +270,6 @@ module BCDice
       # 表一式
       # 即時の恐懼症表
       def roll_CCRT_table()
-
         total_n = @randomizer.roll_once(10)
         text = MADNESS_REAL_TIME_TABLE[total_n - 1]
 
