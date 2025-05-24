@@ -1,3 +1,8 @@
 zh_hant:
   success: 成功
   failure: 失敗
+  fumble: 大失敗
+  critical: 大成功
+  RTT:
+  rtt_format: "隨機特技表(%<category_dice>d,%<row_dice>d) ＞ %<text>s"
+  rttn_format: "%<category_name>s領域隨機特技表(%<row_dice>d) ＞ %<text>s"
