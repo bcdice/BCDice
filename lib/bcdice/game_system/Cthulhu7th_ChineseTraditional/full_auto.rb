@@ -11,7 +11,7 @@ module BCDice
         #
         # 成功類型的小寫表記 => 難度的閾值
         ROLL_FULL_AUTO_DIFFICULTY_THRESHOLD = {
-          # 正常
+          # 一般
           "r" => 0,
           # 困難
           "h" => 1,
@@ -159,7 +159,7 @@ module BCDice
         end
 
         def getHitResultText(output, counts)
-          return "#{output}\n＞ #{counts[:hit_bullet]}發正常命中，#{counts[:impale_bullet]}發貫穿，剩餘彈藥#{counts[:bullet]}發"
+          return "#{output}\n＞ #{counts[:hit_bullet]}發一般命中，#{counts[:impale_bullet]}發貫穿，剩餘彈藥#{counts[:bullet]}發"
         end
 
         def getHitType(more_difficulty, hit_result)
@@ -184,7 +184,7 @@ module BCDice
 
             case hit_type
             when :hit
-              hit_bullet_count = hit_bullet_count_base # 計算正常命中的彈數
+              hit_bullet_count = hit_bullet_count_base # 計算一般命中的彈數
 
             when :impale
               impale_bullet_count = impale_bullet_count_base.floor # 計算貫穿的彈數
@@ -216,7 +216,7 @@ module BCDice
 
           case more_difficulty
           when 0
-            successList = ["困難成功", "正常成功"]
+            successList = ["困難成功", "一般成功"]
             impaleBulletList = ["大成功", "極限成功"]
           when 1
             successList = ["困難成功"]
