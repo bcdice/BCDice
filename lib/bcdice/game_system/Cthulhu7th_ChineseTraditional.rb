@@ -60,9 +60,9 @@ module BCDice
           combine_roll(command)
         when /^FAR/i
           getFullAutoResult(command)
-        when "CCRT" # 狂気の発作（即時）
+        when "CCRT" # 狂氣の發作（即時）
           roll_CCRT_table()
-        when "CCSU" # 狂気の発作（總結型）
+        when "CCSU" # 狂気の發作（總結型）
           roll_CCSU_table()
         when "CCCL" # キャスティング・ロールのプッシュに失敗した場合（小）
           roll_1d8_table("推骰時施法失敗擲骰表(小)", FAILED_CASTING_L_TABLE)
@@ -92,7 +92,7 @@ module BCDice
           critical: "大成功",
           extreme_success: "極限成功",
           hard_success: "困難成功",
-          regular_success: "通常成功",
+          regular_success: "一般成功",
           success: "成功",
           fumble: "大失敗",
           failure: "失敗",
