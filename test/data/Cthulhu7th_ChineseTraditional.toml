@@ -1264,8 +1264,8 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "BMS"
-output = "狂氣發作（總結）(7) ＞ 收容：探索者可在精神療養設施或警察拘留所中恢復意識。探索者可能會回想起他們在那裡經歷的事情。(1D10＞7小時)"
+input = "CCRT"
+output = "瘋狂發作（即時型）(7) ＞ 逃避行為（Flee in Panic）：調查員在極度恐慌中，無論如何都想逃離當前的境地，即使這意味著奪走唯一的交通工具且撇下他人。(1D10＞7回合)"
 rands = [
   { sides = 10, value = 7 },
   { sides = 10, value = 7 },
@@ -1273,8 +1273,8 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "BMR"
-output = "狂氣發作（實時）(5) ＞ 重要人物：探索者需要重新考慮他們的背景故事中的重要人物。探索者可能會將在場的某個人認為是他們生活中重要的人物。在考慮了人際關係的性質後，探索者會按照這個想法行動。1D10次繼續。(1D10＞3次)"
+input = "CCSU"
+output = "狂氣發作（總結型）(5) ＞ 極端信念（Ideology/Beliefs）：查看調查員背景中的思想與信念。調查員將以極端且瘋狂的方式表現出某種信念。例如，一位虔誠的信徒可能會在地鐵上高聲傳道。(1D10＞3時間)"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 3 },
@@ -1282,96 +1282,96 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "PH"
-output = "恐怖症表(1) ＞ 入浴恐怖症：體、手、臉感到害怕。"
+input = "CCPH"
+output = "恐懼症表(1) ＞ 洗澡恐懼症（Ablutophobia）：對於洗滌或洗澡的恐懼。"
 rands = [
   { sides = 100, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "PH"
-output = "恐怖症表(36) ＞ 針恐怖症：針或針具感到害怕。"
+input = "CCPH"
+output = "恐懼症表(36) ＞ 針尖恐懼症（Enetophobia）：對針或大頭針的恐懼。"
 rands = [
   { sides = 100, value = 36 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "PH"
-output = "恐怖症表(100) ＞ 動物恐怖症：動物感到害怕。"
+input = "CCPH"
+output = "恐懼症表(100) ＞ 動物恐懼症（Zoophobia）：對動物的恐懼。"
 rands = [
   { sides = 100, value = 100 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "MA"
-output = "狂熱表(1) ＞ 洗淨狂熱：無法忍受不洗淨自己的身體。"
+input = "CCMA"
+output = "狂熱症表(1) ＞ 沐浴癖（Ablutomania）：執著於清洗自己。"
 rands = [
   { sides = 100, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "MA"
-output = "狂熱表(30) ＞ 小丑狂熱：對小丑的執著。"
+input = "CCMA"
+output = "狂熱症表(30) ＞ 小丑狂（Coulromania）：痴迷於小丑。"
 rands = [
   { sides = 100, value = 30 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "MA"
-output = "狂熱表(100) ＞ 動物狂熱：對動物的非理性溺愛。"
+input = "CCMA"
+output = "狂熱症表(100) ＞ 喜獸癖（Zoomania）：對待動物的態度近乎瘋狂地友好。"
 rands = [
   { sides = 100, value = 100 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "FCL"
-output = "投擲失敗(小)表(1) ＞ 視界模糊或暫時失明。"
+input = "CCCL"
+output = "推骰時施法失敗擲骰表(小)(1) ＞ 視力模糊或暫時失明。"
 rands = [
   { sides = 8, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "FCL"
-output = "投擲失敗(小)表(5) ＞ 奇怪的幻視和幻覺。"
+input = "CCCL"
+output = "推骰時施法失敗擲骰表(小)(5) ＞ 奇異的幻象和幻覺。"
 rands = [
   { sides = 8, value = 5 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "FCL"
-output = "投擲失敗(小)表(8) ＞ 克蘇魯神話中的怪物偶然被召喚。"
+input = "CCCL"
+output = "推骰時施法失敗擲骰表(小)(8) ＞ 不小心召喚了神話生物。"
 rands = [
   { sides = 8, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "FCM"
-output = "投擲失敗(大)表(1) ＞ 大地震動，牆壁出現裂縫。"
+input = "CCPC"
+output = "推骰時施法失敗擲骰表(大)(1) ＞ 大地震動，牆壁破裂。"
 rands = [
   { sides = 8, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "FCM"
-output = "投擲失敗(大)表(3) ＞ 血液從空中滴落。"
+input = "CCPC"
+output = "推骰時施法失敗擲骰表(大)(3) ＞ 血從天而降。"
 rands = [
   { sides = 8, value = 3 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "FCM"
-output = "投擲失敗(大)表(8) ＞ 克蘇魯神話中的神格偶然被召喚。"
+input = "CCPC"
+output = "推骰時施法失敗擲骰表(大)(8) ＞ 不小心召喚了神話神明。"
 rands = [
   { sides = 8, value = 8 },
 ]
@@ -1740,50 +1740,4 @@ rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
-]
-
-[[ test ]]
-game_system = "Cthulhu7th:ChineseTraditional"
-input = "FAR(70,30,10)"
-output = "(1d100<=70,30,10) ＞ 30[困難成功,一般成功,一般成功] ＞ 成功"
-success = true
-rands = [
-  { sides = 100, value = 30 },
-]
-
-[[ test ]]
-game_system = "Cthulhu7th:ChineseTraditional"
-input = "FAR(70,30,10)"
-output = "(1d100<=70,30,10) ＞ 1[大成功,大成功,大成功] ＞ 困難成功"
-success = true
-rands = [
-  { sides = 100, value = 1 },
-]
-
-[[ test ]]
-game_system = "Cthulhu7th:ChineseTraditional"
-input = "FAR(70,30,10)"
-output = "(1d100<=70,30,10) ＞ 100[大失敗,大失敗,大失敗] ＞ 大失敗"
-success = false
-fumble = true
-rands = [
-  { sides = 100, value = 100 },
-]
-
-[[ test ]]
-game_system = "Cthulhu7th:ChineseTraditional"
-input = "FAR(70,30,10)"
-output = "(1d100<=70,30,10) ＞ 97[失敗,大失敗,大失敗] ＞ 失敗"
-success = false
-rands = [
-  { sides = 100, value = 97 },
-]
-
-[[ test ]]
-game_system = "Cthulhu7th:ChineseTraditional"
-input = "FAR(70,30,10)"
-output = "(1d100<=70,30,10) ＞ 71[失敗,一般成功,一般成功] ＞ 失敗"
-success = false
-rands = [
-  { sides = 100, value = 71 },
 ]
