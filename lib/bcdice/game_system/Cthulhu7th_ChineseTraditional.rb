@@ -92,7 +92,7 @@ module BCDice
           critical: "大成功",
           extreme_success: "極限成功",
           hard_success: "困難成功",
-          regular_success: "一般成功",
+          regular_success: "通常成功",
           success: "成功",
           fumble: "大失敗",
           failure: "失敗",
