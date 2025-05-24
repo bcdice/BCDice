@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CBR(70,30)"
-output = "(1d100<=70,30) ＞ 30[困難成功,通常成功] ＞ 成功"
+output = "(1d100<=70,30) ＞ 30[困難成功,一般成功] ＞ 成功"
 success = true
 rands = [
   { sides = 100, value = 30 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CBR(70,30)"
-output = "(1d100<=70,30) ＞ 50[通常成功,失敗] ＞ 部分成功"
+output = "(1d100<=70,30) ＞ 50[一般成功,失敗] ＞ 部分成功"
 rands = [
   { sides = 100, value = 50 },
 ]
@@ -18,7 +18,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CBR(30,70)"
-output = "(1d100<=30,70) ＞ 60[失敗,通常成功] ＞ 部分成功"
+output = "(1d100<=30,70) ＞ 60[失敗,一般成功] ＞ 部分成功"
 rands = [
   { sides = 100, value = 60 },
 ]
@@ -101,7 +101,7 @@ rands = []
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(-1)<=93"
-output = "(1D100<=93) 獎勵懲罰骰[-1] ＞ 92, 72 ＞ 92 ＞ 通常成功"
+output = "(1D100<=93) 獎勵・懲罰骰[-1] ＞ 92, 72 ＞ 92 ＞ 一般成功"
 success = true
 rands = [
   { sides = 10, value = 9 },
@@ -112,7 +112,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(1)<=53"
-output = "(1D100<=53) 獎勵懲罰骰[1] ＞ 92, 52 ＞ 52 ＞ 通常成功"
+output = "(1D100<=53) 獎勵・懲罰骰[1] ＞ 92, 52 ＞ 52 ＞ 一般成功"
 success = true
 rands = [
   { sides = 10, value = 9 },
@@ -123,7 +123,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(+1)<=53"
-output = "(1D100<=53) 獎勵懲罰骰[1] ＞ 92, 52 ＞ 52 ＞ 通常成功"
+output = "(1D100<=53) 獎勵・懲罰骰[1] ＞ 92, 52 ＞ 52 ＞ 一般成功"
 success = true
 rands = [
   { sides = 10, value = 9 },
@@ -134,7 +134,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(1)<=46"
-output = "(1D100<=46) 獎勵懲罰骰[1] ＞ 47, 37 ＞ 37 ＞ 通常成功"
+output = "(1D100<=46) 獎勵・懲罰骰[1] ＞ 47, 37 ＞ 37 ＞ 一般成功"
 success = true
 rands = [
   { sides = 10, value = 4 },
@@ -145,7 +145,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(-1)<=46"
-output = "(1D100<=46) 獎勵懲罰骰[-1] ＞ 47, 37 ＞ 47 ＞ 失敗"
+output = "(1D100<=46) 獎勵・懲罰骰[-1] ＞ 47, 37 ＞ 47 ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 4 },
@@ -156,7 +156,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(1)<=63"
-output = "(1D100<=63) 獎勵懲罰骰[1] ＞ 100, 100 ＞ 100 ＞ 大失敗"
+output = "(1D100<=63) 獎勵・懲罰骰[1] ＞ 100, 100 ＞ 100 ＞ 大失敗"
 failure = true
 fumble = true
 rands = [
@@ -168,7 +168,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(-1)<=63"
-output = "(1D100<=63) 獎勵懲罰骰[-1] ＞ 100, 100 ＞ 100 ＞ 大失敗"
+output = "(1D100<=63) 獎勵・懲罰骰[-1] ＞ 100, 100 ＞ 100 ＞ 大失敗"
 failure = true
 fumble = true
 rands = [
@@ -180,7 +180,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(1)<=63"
-output = "(1D100<=63) 獎勵懲罰骰[1] ＞ 1, 1 ＞ 1 ＞ 大成功"
+output = "(1D100<=63) 獎勵・懲罰骰[1] ＞ 1, 1 ＞ 1 ＞ 大成功"
 success = true
 critical = true
 rands = [
@@ -192,7 +192,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(-1)<=63"
-output = "(1D100<=63) 獎勵懲罰骰[-1] ＞ 1, 1 ＞ 1 ＞ 大成功"
+output = "(1D100<=63) 獎勵・懲罰骰[-1] ＞ 1, 1 ＞ 1 ＞ 大成功"
 success = true
 critical = true
 rands = [
@@ -204,7 +204,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(0)<=53"
-output = "(1D100<=53) 獎勵懲罰骰[0] ＞ 52 ＞ 52 ＞ 通常成功"
+output = "(1D100<=53) 獎勵・懲罰骰[0] ＞ 52 ＞ 52 ＞ 一般成功"
 success = true
 rands = [
   { sides = 10, value = 5 },
@@ -214,7 +214,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=53"
-output = "(1D100<=53) 獎勵懲罰骰[0] ＞ 52 ＞ 52 ＞ 通常成功"
+output = "(1D100<=53) 獎勵・懲罰骰[0] ＞ 52 ＞ 52 ＞ 一般成功"
 success = true
 rands = [
   { sides = 10, value = 5 },
@@ -224,7 +224,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=5"
-output = "(1D100<=5) 獎勵懲罰骰[0] ＞ 2 ＞ 2 ＞ 困難成功"
+output = "(1D100<=5) 獎勵・懲罰骰[0] ＞ 2 ＞ 2 ＞ 困難成功"
 success = true
 rands = [
   { sides = 10, value = 10 },
@@ -234,7 +234,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(2)<=73"
-output = "(1D100<=73) 獎勵懲罰骰[2] ＞ 24, 14, 54 ＞ 14 ＞ 極限成功"
+output = "(1D100<=73) 獎勵・懲罰骰[2] ＞ 24, 14, 54 ＞ 14 ＞ 極限成功"
 success = true
 rands = [
   { sides = 10, value = 2 },
@@ -246,7 +246,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(2)<=73"
-output = "(1D100<=73) 獎勵懲罰骰[2] ＞ 20, 100, 50 ＞ 20 ＞ 困難成功"
+output = "(1D100<=73) 獎勵・懲罰骰[2] ＞ 20, 100, 50 ＞ 20 ＞ 困難成功"
 success = true
 rands = [
   { sides = 10, value = 2 },
@@ -258,7 +258,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(-2)<=43"
-output = "(1D100<=43) 獎勵懲罰骰[-2] ＞ 97, 67, 37 ＞ 97 ＞ 大失敗"
+output = "(1D100<=43) 獎勵・懲罰骰[-2] ＞ 97, 67, 37 ＞ 97 ＞ 大失敗"
 failure = true
 fumble = true
 rands = [
@@ -271,7 +271,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(-2)<=80"
-output = "(1D100<=80) 獎勵懲罰骰[-2] ＞ 100, 60, 50 ＞ 100 ＞ 大失敗"
+output = "(1D100<=80) 獎勵・懲罰骰[-2] ＞ 100, 60, 50 ＞ 100 ＞ 大失敗"
 failure = true
 fumble = true
 rands = [
@@ -284,7 +284,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(-1)<=53"
-output = "(1D100<=53) 獎勵懲罰骰[-1] ＞ 97, 67 ＞ 97 ＞ 失敗"
+output = "(1D100<=53) 獎勵・懲罰骰[-1] ＞ 97, 67 ＞ 97 ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 9 },
@@ -295,7 +295,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=49"
-output = "(1D100<=49) 獎勵懲罰骰[0] ＞ 95 ＞ 95 ＞ 失敗"
+output = "(1D100<=49) 獎勵・懲罰骰[0] ＞ 95 ＞ 95 ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 9 },
@@ -305,7 +305,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=49"
-output = "(1D100<=49) 獎勵懲罰骰[0] ＞ 96 ＞ 96 ＞ 大失敗"
+output = "(1D100<=49) 獎勵・懲罰骰[0] ＞ 96 ＞ 96 ＞ 大失敗"
 failure = true
 fumble = true
 rands = [
@@ -316,7 +316,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=50"
-output = "(1D100<=50) 獎勵懲罰骰[0] ＞ 99 ＞ 99 ＞ 失敗"
+output = "(1D100<=50) 獎勵・懲罰骰[0] ＞ 99 ＞ 99 ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 9 },
@@ -326,7 +326,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=50"
-output = "(1D100<=50) 獎勵懲罰骰[0] ＞ 100 ＞ 100 ＞ 大失敗"
+output = "(1D100<=50) 獎勵・懲罰骰[0] ＞ 100 ＞ 100 ＞ 大失敗"
 failure = true
 fumble = true
 rands = [
@@ -337,13 +337,13 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(-101)<=80"
-output = "獎勵懲罰骰的值應在-100以上、100以下"
+output = "獎勵・懲罰骰的值應在-100以上、100以下"
 rands = []
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(101)<=80"
-output = "獎勵懲罰骰的值應在-100以上、100以下"
+output = "獎勵・懲罰骰的值應在-100以上、100以下"
 rands = []
 
 [[ test ]]
@@ -357,7 +357,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(2)"
-output = "(1D100) 獎勵懲罰骰[2] ＞ 20, 100, 50 ＞ 20"
+output = "(1D100) 獎勵・懲罰骰[2] ＞ 20, 100, 50 ＞ 20"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -368,7 +368,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(2)<=0"
-output = "(1D100) 獎勵懲罰骰[2] ＞ 20, 100, 50 ＞ 20"
+output = "(1D100) 獎勵・懲罰骰[2] ＞ 20, 100, 50 ＞ 20"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -379,7 +379,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(-2)"
-output = "(1D100) 獎勵懲罰骰[-2] ＞ 97, 67, 37 ＞ 97"
+output = "(1D100) 獎勵・懲罰骰[-2] ＞ 97, 67, 37 ＞ 97"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 6 },
@@ -390,7 +390,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(3) 獎勵骰數緩和"
-output = "(1D100) 獎勵懲罰骰[3] ＞ 20, 100, 50, 30 ＞ 20"
+output = "(1D100) 獎勵・懲罰骰[3] ＞ 20, 100, 50, 30 ＞ 20"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -402,7 +402,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC(-3) 懲罰骰數緩和"
-output = "(1D100) 獎勵懲罰骰[-3] ＞ 20, 100, 50, 30 ＞ 100"
+output = "(1D100) 獎勵・懲罰骰[-3] ＞ 20, 100, 50, 30 ＞ 100"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -414,7 +414,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC-1<=93 懲罰骰指定無括號"
-output = "(1D100<=93) 獎勵懲罰骰[-1] ＞ 92, 72 ＞ 92 ＞ 通常成功"
+output = "(1D100<=93) 獎勵・懲罰骰[-1] ＞ 92, 72 ＞ 92 ＞ 一般成功"
 success = true
 rands = [
   { sides = 10, value = 9 },
@@ -425,7 +425,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC1<=53 獎勵骰指定無括號"
-output = "(1D100<=53) 獎勵懲罰骰[1] ＞ 92, 52 ＞ 52 ＞ 通常成功"
+output = "(1D100<=53) 獎勵・懲罰骰[1] ＞ 92, 52 ＞ 52 ＞ 一般成功"
 success = true
 rands = [
   { sides = 10, value = 9 },
@@ -436,7 +436,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC+1<=53 獎勵骰指定無括號"
-output = "(1D100<=53) 獎勵懲罰骰[1] ＞ 92, 52 ＞ 52 ＞ 通常成功"
+output = "(1D100<=53) 獎勵・懲罰骰[1] ＞ 92, 52 ＞ 52 ＞ 一般成功"
 success = true
 rands = [
   { sides = 10, value = 9 },
@@ -447,7 +447,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=100"
-output = "(1D100<=100) 獎勵懲罰骰[0] ＞ 100 ＞ 100 ＞ 大失敗"
+output = "(1D100<=100) 獎勵・懲罰骰[0] ＞ 100 ＞ 100 ＞ 大失敗"
 fumble = true
 failure = true
 rands = [
@@ -458,7 +458,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=150"
-output = "(1D100<=150) 獎勵懲罰骰[0] ＞ 100 ＞ 100 ＞ 大失敗"
+output = "(1D100<=150) 獎勵・懲罰骰[0] ＞ 100 ＞ 100 ＞ 大失敗"
 fumble = true
 failure = true
 rands = [
@@ -469,7 +469,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=53r"
-output = "(1D100<=53) 獎勵懲罰骰[0] ＞ 53 ＞ 53 ＞ 成功"
+output = "(1D100<=53) 獎勵・懲罰骰[0] ＞ 53 ＞ 53 ＞ 成功"
 success = true
 rands = [
   { sides = 10, value = 5 },
@@ -479,7 +479,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=53r"
-output = "(1D100<=53) 獎勵懲罰骰[0] ＞ 54 ＞ 54 ＞ 失敗"
+output = "(1D100<=53) 獎勵・懲罰骰[0] ＞ 54 ＞ 54 ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 5 },
@@ -489,7 +489,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=53r"
-output = "(1D100<=53) 獎勵懲罰骰[0] ＞ 99 ＞ 99 ＞ 失敗"
+output = "(1D100<=53) 獎勵・懲罰骰[0] ＞ 99 ＞ 99 ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 9 },
@@ -499,7 +499,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=53r"
-output = "(1D100<=53) 獎勵懲罰骰[0] ＞ 100 ＞ 100 ＞ 大失敗"
+output = "(1D100<=53) 獎勵・懲罰骰[0] ＞ 100 ＞ 100 ＞ 大失敗"
 failure = true
 fumble = true
 rands = [
@@ -510,7 +510,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=53h"
-output = "(1D100<=26) 獎勵懲罰骰[0] ＞ 26 ＞ 26 ＞ 成功"
+output = "(1D100<=26) 獎勵・懲罰骰[0] ＞ 26 ＞ 26 ＞ 成功"
 success = true
 rands = [
   { sides = 10, value = 2 },
@@ -520,7 +520,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=53h"
-output = "(1D100<=26) 獎勵懲罰骰[0] ＞ 27 ＞ 27 ＞ 失敗"
+output = "(1D100<=26) 獎勵・懲罰骰[0] ＞ 27 ＞ 27 ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 2 },
@@ -530,7 +530,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=53h"
-output = "(1D100<=26) 獎勵懲罰骰[0] ＞ 96 ＞ 96 ＞ 大失敗"
+output = "(1D100<=26) 獎勵・懲罰骰[0] ＞ 96 ＞ 96 ＞ 大失敗"
 failure = true
 fumble = true
 rands = [
@@ -541,7 +541,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=53e"
-output = "(1D100<=10) 獎勵懲罰骰[0] ＞ 10 ＞ 10 ＞ 成功"
+output = "(1D100<=10) 獎勵・懲罰骰[0] ＞ 10 ＞ 10 ＞ 成功"
 success = true
 rands = [
   { sides = 10, value = 1 },
@@ -551,7 +551,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=53e"
-output = "(1D100<=10) 獎勵懲罰骰[0] ＞ 11 ＞ 11 ＞ 失敗"
+output = "(1D100<=10) 獎勵・懲罰骰[0] ＞ 11 ＞ 11 ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -561,7 +561,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=2e"
-output = "(1D100<=0) 獎勵懲罰骰[0] ＞ 1 ＞ 1 ＞ 大成功"
+output = "(1D100<=0) 獎勵・懲罰骰[0] ＞ 1 ＞ 1 ＞ 大成功"
 success = true
 critical = true
 rands = [
@@ -572,7 +572,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=99c"
-output = "(1D100<=0) 獎勵懲罰骰[0] ＞ 1 ＞ 1 ＞ 大成功"
+output = "(1D100<=0) 獎勵・懲罰骰[0] ＞ 1 ＞ 1 ＞ 大成功"
 success = true
 critical = true
 rands = [
@@ -583,7 +583,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=99c"
-output = "(1D100<=0) 獎勵懲罰骰[0] ＞ 2 ＞ 2 ＞ 失敗"
+output = "(1D100<=0) 獎勵・懲罰骰[0] ＞ 2 ＞ 2 ＞ 失敗"
 failure = true
 rands = [
   { sides = 10, value = 0 },
@@ -593,7 +593,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=99c"
-output = "(1D100<=0) 獎勵懲罰骰[0] ＞ 96 ＞ 96 ＞ 大失敗"
+output = "(1D100<=0) 獎勵・懲罰骰[0] ＞ 96 ＞ 96 ＞ 大失敗"
 failure = true
 fumble = true
 rands = [
@@ -604,7 +604,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=100r"
-output = "(1D100<=100) 獎勵懲罰骰[0] ＞ 100 ＞ 100 ＞ 大失敗"
+output = "(1D100<=100) 獎勵・懲罰骰[0] ＞ 100 ＞ 100 ＞ 大失敗"
 fumble = true
 failure = true
 rands = [
@@ -615,7 +615,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "CC<=300h"
-output = "(1D100<=150) 獎勵懲罰骰[0] ＞ 100 ＞ 100 ＞ 大失敗"
+output = "(1D100<=150) 獎勵・懲罰骰[0] ＞ 100 ＞ 100 ＞ 大失敗"
 fumble = true
 failure = true
 rands = [
@@ -626,7 +626,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(30,62,98)"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 52 ＞ 通常成功　（3發命中、0發貫通）\n2回合: ＞ 11, 81 ＞ 失敗　（0發命中、0發貫通）\n3回合: ＞ 2, 2, 2 ＞ 極限成功　（3發命中、3發貫通）\n【難度變更為困難】\n4回合: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 6發通常命中、3發貫通、剩餘彈藥12發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 52 ＞ 一般成功　（3發命中，0發貫穿）\n2次: ＞ 11, 81 ＞ 失敗　（0發命中，0發貫穿）\n3次: ＞ 2, 2, 2 ＞ 極限成功　（3發命中，3發貫穿）\n【難度變更為困難】\n4次: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 6發一般命中，3發貫穿，剩餘彈藥12發"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 2 },
@@ -646,7 +646,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(30,62,98,)"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 52 ＞ 通常成功　（3發命中、0發貫通）\n2回合: ＞ 11, 81 ＞ 失敗　（0發命中、0發貫通）\n3回合: ＞ 2, 2, 2 ＞ 極限成功　（3發命中、3發貫通）\n【難度變更為困難】\n4回合: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 6發通常命中、3發貫通、剩餘彈藥12發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 52 ＞ 一般成功　（3發命中，0發貫穿）\n2次: ＞ 11, 81 ＞ 失敗　（0發命中，0發貫穿）\n3次: ＞ 2, 2, 2 ＞ 極限成功　（3發命中，3發貫穿）\n【難度變更為困難】\n4次: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 6發一般命中，3發貫穿，剩餘彈藥12發"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 2 },
@@ -666,7 +666,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(30,62,98,,)"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 52 ＞ 通常成功　（3發命中、0發貫通）\n2回合: ＞ 11, 81 ＞ 失敗　（0發命中、0發貫通）\n3回合: ＞ 2, 2, 2 ＞ 極限成功　（3發命中、3發貫通）\n【難度變更為困難】\n4回合: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 6發通常命中、3發貫通、剩餘彈藥12發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 52 ＞ 一般成功　（3發命中，0發貫穿）\n2次: ＞ 11, 81 ＞ 失敗　（0發命中，0發貫穿）\n3次: ＞ 2, 2, 2 ＞ 極限成功　（3發命中，3發貫穿）\n【難度變更為困難】\n4次: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 6發一般命中，3發貫穿，剩餘彈藥12發"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 2 },
@@ -686,7 +686,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(30,62,98,-1)"
-output = "獎勵懲罰骰[-1]\n1回合: ＞ 11, 81 ＞ 失敗　（0發命中、0發貫通）\n2回合: ＞ 2, 2, 2 ＞ 極限成功　（3發命中、3發貫通）\n【難度變更為困難】\n3回合: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 3發通常命中、3發貫通、剩餘彈藥18發"
+output = "獎勵・懲罰骰[-1]\n1次: ＞ 11, 81 ＞ 失敗　（0發命中，0發貫穿）\n2次: ＞ 2, 2, 2 ＞ 極限成功　（3發命中，3發貫穿）\n【難度變更為困難】\n3次: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 3發一般命中，3發貫穿，剩餘彈藥18發"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
@@ -704,7 +704,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(30,62,98,-1,)"
-output = "獎勵懲罰骰[-1]\n1回合: ＞ 11, 81 ＞ 失敗　（0發命中、0發貫通）\n2回合: ＞ 2, 2, 2 ＞ 極限成功　（3發命中、3發貫通）\n【難度變更為困難】\n3回合: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 3發通常命中、3發貫通、剩餘彈藥18發"
+output = "獎勵・懲罰骰[-1]\n1次: ＞ 11, 81 ＞ 失敗　（0發命中，0發貫穿）\n2次: ＞ 2, 2, 2 ＞ 極限成功　（3發命中，3發貫穿）\n【難度變更為困難】\n3次: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 3發一般命中，3發貫穿，剩餘彈藥18發"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
@@ -722,7 +722,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(30,62,98,-2)"
-output = "獎勵懲罰骰[-2]\n1回合: ＞ 2, 2, 2 ＞ 極限成功　（3發命中、3發貫通）\n【難度變更為困難】\n2回合: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 3發通常命中、3發貫通、剩餘彈藥24發"
+output = "獎勵・懲罰骰[-2]\n1次: ＞ 2, 2, 2 ＞ 極限成功　（3發命中，3發貫穿）\n【難度變更為困難】\n2次: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 3發一般命中，3發貫穿，剩餘彈藥24發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -737,7 +737,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(30,1,98)"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 1 ＞ 大成功　（2發命中、1發貫通）\n2回合: ＞ 98, 88 ＞ 大失敗　卡彈\n＞ 2發通常命中、1發貫通、剩餘彈藥27発"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 1 ＞ 大成功　（2發命中，1發貫穿）\n2次: ＞ 98, 88 ＞ 大失敗　卡彈\n＞ 2發一般命中，1發貫穿，剩餘彈藥27發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
@@ -749,7 +749,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(30,14,98)"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 2 ＞ 極限成功　（2發命中、1發貫通）\n2回合: ＞ 98, 88 ＞ 大失敗　卡彈\n＞ 2發通常命中、1發貫通、剩餘彈藥27発"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 2 ＞ 極限成功　（2發命中，1發貫穿）\n2次: ＞ 98, 88 ＞ 大失敗　卡彈\n＞ 2發一般命中，1發貫穿，剩餘彈藥27發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 2 },
@@ -761,7 +761,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(30,8,98)"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 2 ＞ 大成功　（1發命中、0發貫通）\n2回合: ＞ 98, 88 ＞ 大失敗　卡彈\n＞ 1發通常命中、0發貫通、剩餘彈藥27発"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 2 ＞ 大成功　（1發命中，0發貫穿）\n2次: ＞ 98, 88 ＞ 大失敗　卡彈\n＞ 1發一般命中，0發貫穿，剩餘彈藥27發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 2 },
@@ -772,8 +772,8 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "FAR(7,80,98) 貫通する弾丸の数＝そのロールで判定する弾丸の数/2（※ボレー/2ではない）"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 10 ＞ 極限成功　（4發命中、3發貫通）\n＞ 4發通常命中、3發貫通、剩餘彈藥0発"
+input = "FAR(7,80,98) 貫穿する弾丸の数＝そのロールで判定する弾丸の数/2（※ボレー/2ではない）"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 10 ＞ 極限成功　（4發命中，3發貫穿）\n＞ 4發一般命中，3發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 10 },
@@ -782,7 +782,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(7,80,98)"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 50 ＞ 通常成功　（3發命中、0發貫通）\n＞ 3發通常命中、0發貫通、剩餘彈藥0発"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 50 ＞ 一般成功　（3發命中，0發貫穿）\n＞ 3發一般命中，0發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 10 },
@@ -791,7 +791,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(7,99,98)"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 98 ＞ 通常成功　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥7発"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 98 ＞ 一般成功　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥7發"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
@@ -800,7 +800,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(1,80,98)"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 50 ＞ 通常成功　（1發命中、0發貫通）\n＞ 1發通常命中、0發貫通、剩餘彈藥0発"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 50 ＞ 一般成功　（1發命中，0發貫穿）\n＞ 1發一般命中，0發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 10 },
@@ -809,7 +809,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(1,80,98)"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 5 ＞ 極限成功　（0發命中、1發貫通）\n＞ 0發通常命中、1發貫通、剩餘彈藥0発"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 5 ＞ 極限成功　（0發命中，1發貫穿）\n＞ 0發一般命中，1發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 5 },
@@ -818,7 +818,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(1,99,98)"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 97 ＞ 通常成功　（1發命中、0發貫通）\n＞ 1發通常命中、0發貫通、剩餘彈藥0発"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 97 ＞ 一般成功　（1發命中，0發貫穿）\n＞ 1發一般命中，0發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 7 },
@@ -827,7 +827,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(1,99,98)"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 98 ＞ 通常成功　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥1発"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 98 ＞ 一般成功　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥1發"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
@@ -836,7 +836,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(30,42,98,-2)"
-output = "獎勵懲罰骰[-2]\n1回合: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥30発"
+output = "獎勵・懲罰骰[-2]\n1次: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥30發"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
@@ -847,7 +847,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(30,42,98,-1)"
-output = "獎勵懲罰骰[-1]\n1回合: ＞ 98, 88 ＞ 大失敗　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥30発"
+output = "獎勵・懲罰骰[-1]\n1次: ＞ 98, 88 ＞ 大失敗　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥30發"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
@@ -857,7 +857,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(40,82,97,1)"
-output = "獎勵懲罰骰[1]\n1回合: ＞ 52, 22 ＞ 大成功　（4發命中、0發貫通）\n2回合: ＞ 1 ＞ 大成功　（4發命中、4發貫通）\n3回合: ＞ 15, 85 ＞ 失敗　（0發命中、0發貫通）\n4回合: ＞ 3, 13, 3 ＞ 極限成功　（4發命中、4發貫通）\n【難度變更為困難】\n5回合: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 12發通常命中、8發貫通、剩餘彈藥8発"
+output = "獎勵・懲罰骰[1]\n1次: ＞ 52, 22 ＞ 大成功　（4發命中，0發貫穿）\n2次: ＞ 1 ＞ 大成功　（4發命中，4發貫穿）\n3次: ＞ 15, 85 ＞ 失敗　（0發命中，0發貫穿）\n4次: ＞ 3, 13, 3 ＞ 極限成功　（4發命中，4發貫穿）\n【難度變更為困難】\n5次: ＞ 98, 88, 78 ＞ 大失敗　卡彈\n＞ 12發一般命中，8發貫穿，剩餘彈藥8發"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 2 },
@@ -880,7 +880,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(40,82,97,2)"
-output = "獎勵懲罰骰[2]\n1回合: ＞ 61, 71, 21 ＞ 大成功　（4發命中、0發貫通）\n2回合: ＞ 80, 70 ＞ 通常成功　（4發命中、0發貫通）\n3回合: ＞ 65 ＞ 通常成功　（4發命中、0發貫通）\n4回合: ＞ 15, 85 ＞ 失敗　（0發命中、0發貫通）\n5回合: ＞ 44, 14, 74 ＞ 通常成功　（4發命中、0發貫通）\n＞ 16發通常命中、0發貫通、剩餘彈藥0発"
+output = "獎勵・懲罰骰[2]\n1次: ＞ 61, 71, 21 ＞ 大成功　（4發命中，0發貫穿）\n2次: ＞ 80, 70 ＞ 一般成功　（4發命中，0發貫穿）\n3次: ＞ 65 ＞ 一般成功　（4發命中，0發貫穿）\n4次: ＞ 15, 85 ＞ 失敗　（0發命中，0發貫穿）\n5次: ＞ 44, 14, 74 ＞ 一般成功　（4發命中，0發貫穿）\n＞ 16發一般命中，0發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
@@ -903,7 +903,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(38,82,97,2)"
-output = "獎勵懲罰骰[2]\n1回合: ＞ 61, 71, 21 ＞ 大成功　（4發命中、0發貫通）\n2回合: ＞ 80, 70 ＞ 通常成功　（4發命中、0發貫通）\n3回合: ＞ 65 ＞ 通常成功　（4發命中、0發貫通）\n4回合: ＞ 15, 85 ＞ 失敗　（0發命中、0發貫通）\n5回合: ＞ 44, 14, 74 ＞ 通常成功　（3發命中、0發貫通）\n＞ 15發通常命中、0發貫通、剩餘彈藥0発"
+output = "獎勵・懲罰骰[2]\n1次: ＞ 61, 71, 21 ＞ 大成功　（4發命中，0發貫穿）\n2次: ＞ 80, 70 ＞ 一般成功　（4發命中，0發貫穿）\n3次: ＞ 65 ＞ 一般成功　（4發命中，0發貫穿）\n4次: ＞ 15, 85 ＞ 失敗　（0發命中，0發貫穿）\n5次: ＞ 44, 14, 74 ＞ 一般成功　（3發命中，0發貫穿）\n＞ 15發一般命中，0發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
@@ -926,7 +926,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(72,82,97,2)"
-output = "獎勵懲罰骰[2]\n1回合: ＞ 61, 71, 21 ＞ 大成功　（4發命中、0發貫通）\n2回合: ＞ 80, 70 ＞ 通常成功　（4發命中、0發貫通）\n3回合: ＞ 65 ＞ 通常成功　（4發命中、0發貫通）\n4回合: ＞ 15, 85 ＞ 失敗　（0發命中、0發貫通）\n5回合: ＞ 44, 14, 74 ＞ 通常成功　（4發命中、0發貫通）\n【難度變更為困難】\n6回合: ＞ 28, 88, 78 ＞ 失敗　（0發命中、0發貫通）\n【難度變更為極限成功】\n7回合: ＞ 83, 33, 33 ＞ 失敗　（0發命中、0發貫通）\n【難度變更為大成功】\n8回合: ＞ 68, 48, 68 ＞ 通常成功　（0發命中、0發貫通）\n＞ 16發通常命中、0發貫通、剩餘彈藥8発"
+output = "獎勵・懲罰骰[2]\n1次: ＞ 61, 71, 21 ＞ 大成功　（4發命中，0發貫穿）\n2次: ＞ 80, 70 ＞ 一般成功　（4發命中，0發貫穿）\n3次: ＞ 65 ＞ 一般成功　（4發命中，0發貫穿）\n4次: ＞ 15, 85 ＞ 失敗　（0發命中，0發貫穿）\n5次: ＞ 44, 14, 74 ＞ 一般成功　（4發命中，0發貫穿）\n【難度變更為困難】\n6次: ＞ 28, 88, 78 ＞ 失敗　（0發命中，0發貫穿）\n【難度變更為極限成功】\n7次: ＞ 83, 33, 33 ＞ 失敗　（0發命中，0發貫穿）\n【難度變更為大成功】\n8次: ＞ 68, 48, 68 ＞ 一般成功　（0發命中，0發貫穿）\n＞ 16發一般命中，0發貫穿，剩餘彈藥8發"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
@@ -961,7 +961,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(72,82,97,2)"
-output = "獎勵懲罰骰[2]\n1回合: ＞ 61, 71, 21 ＞ 大成功　（4發命中、0發貫通）\n2回合: ＞ 90, 70 ＞ 通常成功　（4發命中、0發貫通）\n3回合: ＞ 65 ＞ 通常成功　（4發命中、0發貫通）\n4回合: ＞ 15, 95 ＞ 失敗　（0發命中、0發貫通）\n5回合: ＞ 44, 14, 74 ＞ 通常成功　（4發命中、0發貫通）\n【難度變更為困難】\n6回合: ＞ 58, 68, 78 ＞ 通常成功　（0發命中、0發貫通）\n【難度變更為極限成功】\n7回合: ＞ 23, 33, 23 ＞ 大成功　（0發命中、0發貫通）\n【難度變更為大成功】\n8回合: ＞ 16, 6, 16 ＞ 極限成功　（0發命中、0發貫通）\n＞ 16發通常命中、0發貫通、剩餘彈藥8発"
+output = "獎勵・懲罰骰[2]\n1次: ＞ 61, 71, 21 ＞ 大成功　（4發命中，0發貫穿）\n2次: ＞ 90, 70 ＞ 一般成功　（4發命中，0發貫穿）\n3次: ＞ 65 ＞ 一般成功　（4發命中，0發貫穿）\n4次: ＞ 15, 95 ＞ 失敗　（0發命中，0發貫穿）\n5次: ＞ 44, 14, 74 ＞ 一般成功　（4發命中，0發貫穿）\n【難度變更為困難】\n6次: ＞ 58, 68, 78 ＞ 一般成功　（0發命中，0發貫穿）\n【難度變更為極限成功】\n7次: ＞ 23, 33, 23 ＞ 大成功　（0發命中，0發貫穿）\n【難度變更為大成功】\n8次: ＞ 16, 6, 16 ＞ 極限成功　（0發命中，0發貫穿）\n＞ 16發一般命中，0發貫穿，剩餘彈藥8發"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
@@ -996,7 +996,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(72,82,97,2)"
-output = "獎勵懲罰骰[2]\n1回合: ＞ 61, 71, 21 ＞ 大成功　（4發命中、0發貫通）\n2回合: ＞ 90, 70 ＞ 通常成功　（4發命中、0發貫通）\n3回合: ＞ 65 ＞ 通常成功　（4發命中、0發貫通）\n4回合: ＞ 15, 95 ＞ 失敗　（0發命中、0發貫通）\n5回合: ＞ 44, 14, 74 ＞ 通常成功　（4發命中、0發貫通）\n【難度變更為困難】\n6回合: ＞ 28, 38, 18 ＞ 大成功　（4發命中、0發貫通）\n【難度變更為極限成功】\n7回合: ＞ 13, 3, 13 ＞ 極限成功　（4發命中、4發貫通）\n【難度變更為大成功】\n8回合: ＞ 1, 1, 1 ＞ 大成功　（4發命中、0發貫通）\n＞ 28發通常命中、4發貫通、剩餘彈藥8発"
+output = "獎勵・懲罰骰[2]\n1次: ＞ 61, 71, 21 ＞ 大成功　（4發命中，0發貫穿）\n2次: ＞ 90, 70 ＞ 一般成功　（4發命中，0發貫穿）\n3次: ＞ 65 ＞ 一般成功　（4發命中，0發貫穿）\n4次: ＞ 15, 95 ＞ 失敗　（0發命中，0發貫穿）\n5次: ＞ 44, 14, 74 ＞ 一般成功　（4發命中，0發貫穿）\n【難度變更為困難】\n6次: ＞ 28, 38, 18 ＞ 大成功　（4發命中，0發貫穿）\n【難度變更為極限成功】\n7次: ＞ 13, 3, 13 ＞ 極限成功　（4發命中，4發貫穿）\n【難度變更為大成功】\n8次: ＞ 1, 1, 1 ＞ 大成功　（4發命中，0發貫穿）\n＞ 28發一般命中，4發貫穿，剩餘彈藥8發"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
@@ -1031,7 +1031,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(120,82,97,-2)"
-output = "彈藥過多。裝填的彈藥更改為100發。\n獎勵懲罰骰[-2]\n1回合: ＞ 60, 100, 20 ＞ 大失敗　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥100發"
+output = "彈藥過多。裝填的彈藥更改為100發。\n獎勵・懲罰骰[-2]\n1次: ＞ 60, 100, 20 ＞ 大失敗　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥100發"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 10 },
@@ -1042,13 +1042,13 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(120,82,97,3)"
-output = "錯誤。獎勵懲罰骰的值應在-2～2之間。"
+output = "錯誤。獎勵・懲罰骰的值應在-2～2之間。"
 rands = []
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(38,99,97,-1)"
-output = "獎勵懲罰骰[-1]\n1回合: ＞ 78, 98 ＞ 通常成功　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥38発"
+output = "獎勵・懲罰骰[-1]\n1次: ＞ 78, 98 ＞ 一般成功　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥38發"
 rands = [
   { sides = 10, value = 7 },
   { sides = 10, value = 9 },
@@ -1064,7 +1064,7 @@ rands = []
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(1,98,5)    故障數字極端低，不可能發生。"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 8 ＞ 極限成功　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥1發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 8 ＞ 極限成功　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥1發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 8 },
@@ -1073,7 +1073,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(3,98,5)    故障數字極端低，不可能發生。"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 8 ＞ 極限成功　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥3發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 8 ＞ 極限成功　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥3發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 8 },
@@ -1082,7 +1082,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(1,98,5)    故障數字極端低，不可能發生。"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 58 ＞ 通常成功　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥1發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 58 ＞ 一般成功　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥1發"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 8 },
@@ -1091,7 +1091,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(3,98,5)    故障數字極端低，不可能發生。"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 58 ＞ 通常成功　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥3發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 58 ＞ 一般成功　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥3發"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 8 },
@@ -1100,7 +1100,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(3,18,5)    故障數字極端低，不可能發生。"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 18 ＞ 通常成功　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥3發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 18 ＞ 一般成功　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥3發"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
@@ -1109,7 +1109,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(3,8,5)    故障數字極端低，不可能發生。"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 8 ＞ 通常成功　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥3發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 8 ＞ 一般成功　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥3發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 8 },
@@ -1118,7 +1118,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(1,99,-98)    故障數字帶負號的情況，確認處理絕對值。"
-output = "故障數字應為正數。去掉負號。\n獎勵懲罰骰[0]\n1回合: ＞ 8 ＞ 極限成功　（0發命中、1發貫通）\n＞ 0發通常命中、1發貫通、剩餘彈藥0發"
+output = "故障數字應為正數。去掉負號。\n獎勵・懲罰骰[0]\n1次: ＞ 8 ＞ 極限成功　（0發命中，1發貫穿）\n＞ 0發一般命中，1發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 8 },
@@ -1139,13 +1139,13 @@ rands = []
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(1,99,98,3)    獎勵骰異常情況"
-output = "錯誤。獎勵懲罰骰的值應在-2～2之間。"
+output = "錯誤。獎勵・懲罰骰的值應在-2～2之間。"
 rands = []
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "FAR(60,50,99,1,r)    只在通常難度下連射結束。獎勵骰1。"
-output = "獎勵懲罰骰[1]\n1回合: ＞ 94, 74 ＞ 失敗　（0發命中、0發貫通）\n2回合: ＞ 19 ＞ 大成功　（2發命中、0發貫通）\n3回合: ＞ 84, 44 ＞ 失敗　（0發命中、0發貫通）\n4回合: ＞ 47, 97, 37 ＞ 失敗　（0發命中、0發貫通）\n【指定難度已達成，處理結束。】\n＞ 2發通常命中、0發貫通、剩餘彈藥40發"
+input = "FAR(60,50,99,1,r)    只在一般難度下連射結束。獎勵骰1。"
+output = "獎勵・懲罰骰[1]\n1次: ＞ 94, 74 ＞ 失敗　（0發命中，0發貫穿）\n2次: ＞ 19 ＞ 大成功　（2發命中，0發貫穿）\n3次: ＞ 84, 44 ＞ 失敗　（0發命中，0發貫穿）\n4次: ＞ 47, 97, 37 ＞ 失敗　（0發命中，0發貫穿）\n【指定難度已達成，處理結束。】\n＞ 2發一般命中，0發貫穿，剩餘彈藥40發"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 7 },
@@ -1163,8 +1163,8 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "FAR(60,50,99,,r)    只在通常難度下連射結束。獎勵骰0。"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 19 ＞ 大成功　（2發命中、0發貫通）\n2回合: ＞ 84, 44 ＞ 失敗　（0發命中、0發貫通）\n3回合: ＞ 47, 97, 37 ＞ 失敗　（0發命中、0發貫通）\n【指定難度已達成，處理結束。】\n＞ 2發通常命中、0發貫通、剩餘彈藥45發"
+input = "FAR(60,50,99,,r)    只在一般難度下連射結束。獎勵骰0。"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 19 ＞ 大成功　（2發命中，0發貫穿）\n2次: ＞ 84, 44 ＞ 失敗　（0發命中，0發貫穿）\n3次: ＞ 47, 97, 37 ＞ 失敗　（0發命中，0發貫穿）\n【指定難度已達成，處理結束。】\n＞ 2發一般命中，0發貫穿，剩餘彈藥45發"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 9 },
@@ -1180,7 +1180,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(45,70,98,,h)    只在困難難度下連射結束。獎勵骰0。卡彈結束。"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 40 ＞ 通常成功　（3發命中、0發貫通）\n2回合: ＞ 48, 78 ＞ 失敗　（0發命中、0發貫通）\n3回合: ＞ 39, 99, 79 ＞ 失敗　卡彈\n＞ 3發通常命中、0發貫通、剩餘彈藥31発"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 40 ＞ 一般成功　（3發命中，0發貫穿）\n2次: ＞ 48, 78 ＞ 失敗　（0發命中，0發貫穿）\n3次: ＞ 39, 99, 79 ＞ 失敗　卡彈\n＞ 3發一般命中，0發貫穿，剩餘彈藥31發"
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 10 },
@@ -1196,7 +1196,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(45,70,98,,h)    只在困難難度下連射結束。獎勵骰0。"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 28 ＞ 大成功　（3發命中、0發貫通）\n2回合: ＞ 25, 65 ＞ 通常成功　（3發命中、0發貫通）\n3回合: ＞ 33, 63, 73 ＞ 失敗　（0發命中、0發貫通）\n【難度變更為困難】\n4回合: ＞ 18, 58, 38 ＞ 通常成功　（0發命中、0發貫通）\n【指定難度已達成，處理結束。】\n＞ 6發通常命中、0發貫通、剩餘彈藥17発"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 28 ＞ 大成功　（3發命中，0發貫穿）\n2次: ＞ 25, 65 ＞ 一般成功　（3發命中，0發貫穿）\n3次: ＞ 33, 63, 73 ＞ 失敗　（0發命中，0發貫穿）\n【難度變更為困難】\n4次: ＞ 18, 58, 38 ＞ 一般成功　（0發命中，0發貫穿）\n【指定難度已達成，處理結束。】\n＞ 6發一般命中，0發貫穿，剩餘彈藥17發"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 8 },
@@ -1216,7 +1216,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(45,70,98,-2,e)    只在極限難度下連射結束。獎勵骰-2。"
-output = "獎勵懲罰骰[-2]\n1回合: ＞ 55, 95, 5 ＞ 失敗　（0發命中、0發貫通）\n【難度變更為困難】\n2回合: ＞ 76, 86, 46 ＞ 失敗　（0發命中、0發貫通）\n【難度變更為極限成功】\n3回合: ＞ 43, 53, 33 ＞ 通常成功　（0發命中、0發貫通）\n【指定難度已達成，處理結束。】\n＞ 0發通常命中、0發貫通、剩餘彈藥24発"
+output = "獎勵・懲罰骰[-2]\n1次: ＞ 55, 95, 5 ＞ 失敗　（0發命中，0發貫穿）\n【難度變更為困難】\n2次: ＞ 76, 86, 46 ＞ 失敗　（0發命中，0發貫穿）\n【難度變更為極限成功】\n3次: ＞ 43, 53, 33 ＞ 一般成功　（0發命中，0發貫穿）\n【指定難度已達成，處理結束。】\n＞ 0發一般命中，0發貫穿，剩餘彈藥24發"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 9 },
@@ -1235,7 +1235,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(45,70,100,-2,e)    只在極限難度下連射結束。獎勵骰-2。卡彈。"
-output = "獎勵懲罰骰[-2]\n1回合: ＞ 20, 100, 40 ＞ 大失敗　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥45発"
+output = "獎勵・懲罰骰[-2]\n1次: ＞ 20, 100, 40 ＞ 大失敗　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥45發"
 rands = [
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
@@ -1246,7 +1246,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(45,70,96,-2,e)    只在極限難度下連射結束。獎勵骰-2。卡彈 卡彈。"
-output = "獎勵懲罰骰[-2]\n1回合: ＞ 12, 72, 22 ＞ 失敗　（0發命中、0發貫通）\n【難度變更為困難】\n2回合: ＞ 60, 30, 30 ＞ 通常成功　（0發命中、0發貫通）\n【難度變更為極限成功】\n3回合: ＞ 18, 98, 28 ＞ 大失敗　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥31発"
+output = "獎勵・懲罰骰[-2]\n1次: ＞ 12, 72, 22 ＞ 失敗　（0發命中，0發貫穿）\n【難度變更為困難】\n2次: ＞ 60, 30, 30 ＞ 一般成功　（0發命中，0發貫穿）\n【難度變更為極限成功】\n3次: ＞ 18, 98, 28 ＞ 大失敗　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥31發"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 7 },
@@ -1274,7 +1274,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "BMR"
-output = "狂氣發作（實時）(5) ＞ 重要人物：探索者需要重新考慮他們的背景故事中的重要人物。探索者可能會將在場的某個人認為是他們生活中重要的人物。在考慮了人際關係的性質後，探索者會按照這個想法行動。1D10回合繼續。(1D10＞3回合)"
+output = "狂氣發作（實時）(5) ＞ 重要人物：探索者需要重新考慮他們的背景故事中的重要人物。探索者可能會將在場的某個人認為是他們生活中重要的人物。在考慮了人際關係的性質後，探索者會按照這個想法行動。1D10次繼續。(1D10＞3次)"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 3 },
@@ -1386,8 +1386,8 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "FAR(60,50,99,1,r)    貫通時的處理測試數據缺失，因此添加。"
-output = "獎勵懲罰骰[1]\n1回合: ＞ 94, 4 ＞ 極限成功　（3發命中、2發貫通）\n2回合: ＞ 19 ＞ 大成功　（2發命中、0發貫通）\n3回合: ＞ 84, 44 ＞ 失敗　（0發命中、0發貫通）\n4回合: ＞ 47, 97, 37 ＞ 失敗　（0發命中、0發貫通）\n【指定難度已達成，處理結束。】\n＞ 5發通常命中、2發貫通、剩餘彈藥40發"
+input = "FAR(60,50,99,1,r)    貫穿時的處理測試數據缺失，因此添加。"
+output = "獎勵・懲罰骰[1]\n1次: ＞ 94, 4 ＞ 極限成功　（3發命中，2發貫穿）\n2次: ＞ 19 ＞ 大成功　（2發命中，0發貫穿）\n3次: ＞ 84, 44 ＞ 失敗　（0發命中，0發貫穿）\n4次: ＞ 47, 97, 37 ＞ 失敗　（0發命中，0發貫穿）\n【指定難度已達成，處理結束。】\n＞ 5發一般命中，2發貫穿，剩餘彈藥40發"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
@@ -1406,7 +1406,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(60,20,99,1,r)    最低的射擊數為3，但未被提及，因此添加。"
-output = "獎勵懲罰骰[1]\n1回合: ＞ 94, 4 ＞ 極限成功　（2發命中、1發貫通）\n2回合: ＞ 19 ＞ 通常成功　（1發命中、0發貫通）\n3回合: ＞ 84, 44 ＞ 失敗　（0發命中、0發貫通）\n4回合: ＞ 47, 97, 37 ＞ 失敗　（0發命中、0發貫通）\n【指定難度已達成，處理結束。】\n＞ 3發通常命中、1發貫通、剩餘彈藥48発"
+output = "獎勵・懲罰骰[1]\n1次: ＞ 94, 4 ＞ 極限成功　（2發命中，1發貫穿）\n2次: ＞ 19 ＞ 一般成功　（1發命中，0發貫穿）\n3次: ＞ 84, 44 ＞ 失敗　（0發命中，0發貫穿）\n4次: ＞ 47, 97, 37 ＞ 失敗　（0發命中，0發貫穿）\n【指定難度已達成，處理結束。】\n＞ 3發一般命中，1發貫穿，剩餘彈藥48發"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
@@ -1424,8 +1424,8 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
-input = "FAR(7,80,98) 通常命中弾丸的數量＝其骰子判定的弾丸數量/2（※不是射擊數/2）"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 19 ＞ 大成功　（3發命中、0發貫通）\n＞ 3發通常命中、0發貫通、剩餘彈藥0發"
+input = "FAR(7,80,98) 一般命中弾丸的數量＝其骰子判定的弾丸數量/2（※不是射擊數/2）"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 19 ＞ 大成功　（3發命中，0發貫穿）\n＞ 3發一般命中，0發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 9 },
@@ -1434,7 +1434,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(21,90,99,1,r)    2020/04/02修正內容的總合測試1"
-output = "獎勵懲罰骰[1]\n1回合: ＞ 94, 4 ＞ 極限成功　（5發命中、4發貫通）\n2回合: ＞ 19 ＞ 大成功　（4發命中、0發貫通）\n3回合: ＞ 84, 44 ＞ 通常成功　（1發命中、0發貫通）\n＞ 10發通常命中、4發貫通、剩餘彈藥0發"
+output = "獎勵・懲罰骰[1]\n1次: ＞ 94, 4 ＞ 極限成功　（5發命中，4發貫穿）\n2次: ＞ 19 ＞ 大成功　（4發命中，0發貫穿）\n3次: ＞ 84, 44 ＞ 一般成功　（1發命中，0發貫穿）\n＞ 10發一般命中，4發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
@@ -1449,7 +1449,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(7,10,99,1,r)    2020/04/02修正內容的總合測試2"
-output = "獎勵懲罰骰[1]\n1回合: ＞ 92, 2 ＞ 極限成功　（2發命中、1發貫通）\n2回合: ＞ 5 ＞ 大成功　（1發命中、0發貫通）\n3回合: ＞ 1, 1 ＞ 大成功　（0發命中、1發貫通）\n＞ 3發通常命中、2發貫通、剩餘彈藥0發"
+output = "獎勵・懲罰骰[1]\n1次: ＞ 92, 2 ＞ 極限成功　（2發命中，1發貫穿）\n2次: ＞ 5 ＞ 大成功　（1發命中，0發貫穿）\n3次: ＞ 1, 1 ＞ 大成功　（0發命中，1發貫穿）\n＞ 3發一般命中，2發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
@@ -1464,7 +1464,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(8,10,99,1,r)    2020/04/02修正內容的總合測試3"
-output = "獎勵懲罰骰[1]\n1回合: ＞ 92, 2 ＞ 極限成功　（2發命中、1發貫通）\n2回合: ＞ 5 ＞ 大成功　（1發命中、0發貫通）\n3回合: ＞ 1, 1 ＞ 大成功　（1發命中、1發貫通）\n＞ 4發通常命中、2發貫通、剩餘彈藥0發"
+output = "獎勵・懲罰骰[1]\n1次: ＞ 92, 2 ＞ 極限成功　（2發命中，1發貫穿）\n2次: ＞ 5 ＞ 大成功　（1發命中，0發貫穿）\n3次: ＞ 1, 1 ＞ 大成功　（1發命中，1發貫穿）\n＞ 4發一般命中，2發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 10 },
@@ -1479,7 +1479,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(8,10,99,-2,r)    2020/07/11追加功能測試1"
-output = "獎勵懲罰骰[-2]\n1回合: ＞ 100, 100, 100 ＞ 大失敗　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥8發"
+output = "獎勵・懲罰骰[-2]\n1次: ＞ 100, 100, 100 ＞ 大失敗　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥8發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -1490,7 +1490,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(8,10,99,-2,r,)    2020/07/11追加功能測試2"
-output = "獎勵懲罰骰[-2]\n1回合: ＞ 100, 100, 100 ＞ 大失敗　卡彈\n＞ 0發通常命中、0發貫通、剩餘彈藥8發"
+output = "獎勵・懲罰骰[-2]\n1次: ＞ 100, 100, 100 ＞ 大失敗　卡彈\n＞ 0發一般命中，0發貫穿，剩餘彈藥8發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -1501,7 +1501,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(20,50,99,-2,r,5)    2020/07/11追加功能測試3"
-output = "獎勵懲罰骰[-2]\n1回合: ＞ 67, 87, 87 ＞ 失敗　（0發命中、0發貫通）\n【指定難度已達成，處理結束。】\n＞ 0發通常命中、0發貫通、剩餘彈藥15発"
+output = "獎勵・懲罰骰[-2]\n1次: ＞ 67, 87, 87 ＞ 失敗　（0發命中，0發貫穿）\n【指定難度已達成，處理結束。】\n＞ 0發一般命中，0發貫穿，剩餘彈藥15發"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 8 },
@@ -1512,7 +1512,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(20,50,99,-2,r,6)    2020/07/11追加功能測試4"
-output = "彈丸數上限為[技能值÷10（捨去）]發，因此無法指定超過該數量的彈丸。將彈丸數更改為5發。\n獎勵懲罰骰[-2]\n1回合: ＞ 67, 87, 87 ＞ 失敗　（0發命中、0發貫通）\n【指定難度已達成，處理結束。】\n＞ 0發通常命中、0發貫通、剩餘彈藥15発"
+output = "彈丸數上限為[技能值÷10（捨去）]發，因此無法指定超過該數量的彈丸。將彈丸數更改為5發。\n獎勵・懲罰骰[-2]\n1次: ＞ 67, 87, 87 ＞ 失敗　（0發命中，0發貫穿）\n【指定難度已達成，處理結束。】\n＞ 0發一般命中，0發貫穿，剩餘彈藥15發"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 8 },
@@ -1523,7 +1523,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(20,50,99,-2,r,4)    2020/07/11追加功能測試5"
-output = "獎勵懲罰骰[-2]\n1回合: ＞ 67, 87, 87 ＞ 失敗　（0發命中、0發貫通）\n【指定難度已達成，處理結束。】\n＞ 0發通常命中、0發貫通、剩餘彈藥16発"
+output = "獎勵・懲罰骰[-2]\n1次: ＞ 67, 87, 87 ＞ 失敗　（0發命中，0發貫穿）\n【指定難度已達成，處理結束。】\n＞ 0發一般命中，0發貫穿，剩餘彈藥16發"
 rands = [
   { sides = 10, value = 6 },
   { sides = 10, value = 8 },
@@ -1534,7 +1534,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(20,50,99,-2,r,5)    2020/07/11追加功能測試6"
-output = "獎勵懲罰骰[-2]\n1回合: ＞ 7, 7, 7 ＞ 極限成功　（3發命中、2發貫通）\n【指定難度已達成，處理結束。】\n＞ 3發通常命中、2發貫通、剩餘彈藥15発"
+output = "獎勵・懲罰骰[-2]\n1次: ＞ 7, 7, 7 ＞ 極限成功　（3發命中，2發貫穿）\n【指定難度已達成，處理結束。】\n＞ 3發一般命中，2發貫穿，剩餘彈藥15發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -1545,7 +1545,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(20,50,99,-2,r,4)    2020/07/11追加功能測試7"
-output = "獎勵懲罰骰[-2]\n1回合: ＞ 7, 7, 7 ＞ 極限成功　（2發命中、2發貫通）\n【指定難度已達成，處理結束。】\n＞ 2發通常命中、2發貫通、剩餘彈藥16発"
+output = "獎勵・懲罰骰[-2]\n1次: ＞ 7, 7, 7 ＞ 極限成功　（2發命中，2發貫穿）\n【指定難度已達成，處理結束。】\n＞ 2發一般命中，2發貫穿，剩餘彈藥16發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -1556,7 +1556,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(20,50,99,-2,r,3)    2020/07/11追加功能測試8"
-output = "獎勵懲罰骰[-2]\n1回合: ＞ 7, 7, 7 ＞ 極限成功　（2發命中、1發貫通）\n【指定難度已達成，處理結束。】\n＞ 2發通常命中、1發貫通、剩餘彈藥17発"
+output = "獎勵・懲罰骰[-2]\n1次: ＞ 7, 7, 7 ＞ 極限成功　（2發命中，1發貫穿）\n【指定難度已達成，處理結束。】\n＞ 2發一般命中，1發貫穿，剩餘彈藥17發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -1567,7 +1567,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(20,50,99,-2,r,2)    2020/07/11追加功能測試9"
-output = "彈丸數下限為3發。將彈丸數更改為3發。\n獎勵懲罰骰[-2]\n1回合: ＞ 7, 7, 7 ＞ 極限成功　（2發命中、1發貫通）\n【指定難度已達成，處理結束。】\n＞ 2發通常命中、1發貫通、剩餘彈藥17発"
+output = "彈丸數下限為3發。將彈丸數更改為3發。\n獎勵・懲罰骰[-2]\n1次: ＞ 7, 7, 7 ＞ 極限成功　（2發命中，1發貫穿）\n【指定難度已達成，處理結束。】\n＞ 2發一般命中，1發貫穿，剩餘彈藥17發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -1578,7 +1578,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(20,50,99,-2,r,1)    2020/07/11追加功能測試10"
-output = "彈丸數下限為3發。將彈丸數更改為3發。\n獎勵懲罰骰[-2]\n1回合: ＞ 7, 7, 7 ＞ 極限成功　（2發命中、1發貫通）\n【指定難度已達成，處理結束。】\n＞ 2發通常命中、1發貫通、剩餘彈藥17発"
+output = "彈丸數下限為3發。將彈丸數更改為3發。\n獎勵・懲罰骰[-2]\n1次: ＞ 7, 7, 7 ＞ 極限成功　（2發命中，1發貫穿）\n【指定難度已達成，處理結束。】\n＞ 2發一般命中，1發貫穿，剩餘彈藥17發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -1601,7 +1601,7 @@ rands = []
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(6,50,99,,,1)    2020/07/11追加功能測試13"
-output = "彈丸數下限為3發。將彈丸數更改為3發。\n獎勵懲罰骰[0]\n1回合: ＞ 7 ＞ 極限成功　（2發命中、1發貫通）\n2回合: ＞ 11, 1 ＞ 大成功　（1發命中、0發貫通）\n＞ 3發通常命中、1發貫通、剩餘彈藥0發"
+output = "連射的彈藥數量下限為3發。連射的彈藥數量更改為3發。\n獎勵・懲罰骰[0]\n1次: ＞ 7 ＞ 極限成功　（2發命中，1發貫穿）\n2次: ＞ 11, 1 ＞ 大成功　（1發命中，0發貫穿）\n＞ 3發正常命中，1發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 7 },
@@ -1613,7 +1613,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(6,12,99,,,4)    2020/07/11追加功能測試14"
-output = "技能值為39以下時，彈丸數上限及其下限為3發。將彈丸數更改為3發。\n獎勵懲罰骰[0]\n1回合: ＞ 1 ＞ 大成功　（2發命中、1發貫通）\n2回合: ＞ 11, 1 ＞ 通常成功　（1發命中、0發貫通）\n＞ 3發通常命中、1發貫通、剩餘彈藥0發"
+output = "技能值在39以下時，連射的彈藥數量上限和下限均為3發。連射的彈藥數量更改為3發。\n獎勵・懲罰骰[0]\n1次: ＞ 1 ＞ 大成功　（2發命中，1發貫穿）\n2次: ＞ 11, 1 ＞ 一般成功　（0發命中，0發貫穿）\n＞ 2發正常命中，1發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
@@ -1625,7 +1625,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(6,12,99,,,3)    2020/07/11追加功能測試15"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 1 ＞ 大成功　（2發命中、1發貫通）\n2回合: ＞ 11, 1 ＞ 通常成功　（1發命中、0發貫通）\n＞ 3發通常命中、1發貫通、剩餘彈藥0發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 1 ＞ 大成功　（2發命中，1發貫穿）\n2次: ＞ 11, 1 ＞ 一般成功　（0發命中，0發貫穿）\n＞ 2發正常命中，1發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
@@ -1637,7 +1637,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(6,12,99,,,2)    2020/07/11追加機能テスト16"
-output = "彈丸數下限為3發。將彈丸數更改為3發。\n獎勵懲罰骰[0]\n1回合: ＞ 1 ＞ 大成功　（2發命中、1發貫通）\n2回合: ＞ 11, 1 ＞ 通常成功　（1發命中、0發貫通）\n＞ 3發通常命中、1發貫通、剩餘彈藥0發"
+output = "連射的彈藥數量下限為3發。連射的彈藥數量更改為3發。\n獎勵・懲罰骰[0]\n1次: ＞ 1 ＞ 大成功　（2發命中，1發貫穿）\n2次: ＞ 11, 1 ＞ 一般成功　（0發命中，0發貫穿）\n＞ 2發正常命中，1發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
@@ -1649,7 +1649,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(6,12,99,,,)    2020/07/11追加機能テスト17"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 1 ＞ 大成功　（2發命中、1發貫通）\n2回合: ＞ 11, 1 ＞ 通常成功　（1發命中、0發貫通）\n＞ 3發通常命中、1發貫通、剩餘彈藥0發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 1 ＞ 大成功　（2發命中，1發貫穿）\n2次: ＞ 11, 1 ＞ 一般成功　（0發命中，0發貫穿）\n＞ 2發正常命中，1發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 1 },
@@ -1661,7 +1661,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(6,39,99,,,1)    2020/07/11追加機能テスト18"
-output = "彈丸數下限為3發。將彈丸數更改為3發。\n獎勵懲罰骰[0]\n1回合: ＞ 7 ＞ 極限成功　（2發命中、1發貫通）\n2回合: ＞ 11, 1 ＞ 困難成功　（1發命中、0發貫通）\n＞ 3發通常命中、1發貫通、剩餘彈藥0發"
+output = "連射的彈藥數量下限為3發。連射的彈藥數量更改為3發。\n獎勵・懲罰骰[0]\n1次: ＞ 7 ＞ 極限成功　（2發命中，1發貫穿）\n2次: ＞ 11, 1 ＞ 困難成功　（1發命中，0發貫穿）\n＞ 3發正常命中，1發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 7 },
@@ -1673,7 +1673,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(6,39,99,,,3)    2020/07/11追加機能テスト19"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 7 ＞ 極限成功　（2發命中、1發貫通）\n2回合: ＞ 11, 1 ＞ 困難成功　（1發命中、0發貫通）\n＞ 3發通常命中、1發貫通、剩餘彈藥0發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 7 ＞ 極限成功　（2發命中，1發貫穿）\n2次: ＞ 11, 1 ＞ 困難成功　（1發命中，0發貫穿）\n＞ 3發正常命中，1發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 7 },
@@ -1685,7 +1685,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(6,39,99,,,4)    2020/07/11追加機能テスト20"
-output = "技能值為39以下時，彈丸數上限及其下限為3發。將彈丸數更改為3發。\n獎勵懲罰骰[0]\n1回合: ＞ 7 ＞ 極限成功　（2發命中、1發貫通）\n2回合: ＞ 11, 1 ＞ 困難成功　（1發命中、0發貫通）\n＞ 3發通常命中、1發貫通、剩餘彈藥0發"
+output = "技能值在39以下時，連射的彈藥數量上限和下限均為3發。連射的彈藥數量更改為3發。\n獎勵・懲罰骰[0]\n1次: ＞ 7 ＞ 極限成功　（2發命中，1發貫穿）\n2次: ＞ 11, 1 ＞ 困難成功　（1發命中，0發貫穿）\n＞ 3發正常命中，1發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 7 },
@@ -1697,7 +1697,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(6,40,99,,,4)    2020/07/11追加機能テスト21"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 7 ＞ 極限成功　（2發命中、2發貫通）\n2回合: ＞ 11, 1 ＞ 困難成功　（1發命中、0發貫通）\n＞ 3發通常命中、2發貫通、剩餘彈藥0發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 7 ＞ 極限成功　（2發命中，2發貫穿）\n2次: ＞ 11, 1 ＞ 困難成功　（1發命中，0發貫穿）\n＞ 3發正常命中，2發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 7 },
@@ -1709,7 +1709,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(6,40,99,,,5)    2020/07/11追加機能テスト22"
-output = "彈丸數上限為[技能値÷10（捨去）]發，因此無法指定超過該數量的彈丸。將彈丸數更改為4發。\n獎勵懲罰骰[0]\n1回合: ＞ 7 ＞ 極限成功　（2發命中、2發貫通）\n2回合: ＞ 11, 1 ＞ 困難成功　（1發命中、0發貫通）\n＞ 3發通常命中、2發貫通、剩餘彈藥0發"
+output = "連射的彈藥數量上限為[技能值÷10（取整）]發，因此無法指定更高的數量。連射的彈藥數量更改為4發。\n獎勵・懲罰骰[0]\n1次: ＞ 7 ＞ 極限成功　（2發命中，2發貫穿）\n2次: ＞ 11, 1 ＞ 困難成功　（1發命中，0發貫穿）\n＞ 3發正常命中，2發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 7 },
@@ -1721,7 +1721,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(6,40,99,,,3)    2020/07/11追加機能テスト23"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 7 ＞ 極限成功　（2發命中、1發貫通）\n2回合: ＞ 11, 1 ＞ 困難成功　（1發命中、0發貫通）\n＞ 3發通常命中、1發貫通、剩餘彈藥0發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 7 ＞ 極限成功　（2發命中，1發貫穿）\n2次: ＞ 11, 1 ＞ 困難成功　（1發命中，0發貫穿）\n＞ 3發正常命中，1發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 7 },
@@ -1733,7 +1733,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(6,40,99)    2020/07/11追加機能テスト24"
-output = "獎勵懲罰骰[0]\n1回合: ＞ 7 ＞ 極限成功　（2發命中、2發貫通）\n2回合: ＞ 11, 1 ＞ 困難成功　（1發命中、0發貫通）\n＞ 3發通常命中、2發貫通、剩餘彈藥0發"
+output = "獎勵・懲罰骰[0]\n1次: ＞ 7 ＞ 極限成功　（2發命中，2發貫穿）\n2次: ＞ 11, 1 ＞ 困難成功　（1發命中，0發貫穿）\n＞ 3發正常命中，2發貫穿，剩餘彈藥0發"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 7 },
@@ -1745,7 +1745,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(70,30,10)"
-output = "(1d100<=70,30,10) ＞ 30[困難成功,通常成功,通常成功] ＞ 成功"
+output = "(1d100<=70,30,10) ＞ 30[困難成功,一般成功,一般成功] ＞ 成功"
 success = true
 rands = [
   { sides = 100, value = 30 },
@@ -1782,7 +1782,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:ChineseTraditional"
 input = "FAR(70,30,10)"
-output = "(1d100<=70,30,10) ＞ 71[失敗,通常成功,通常成功] ＞ 失敗"
+output = "(1d100<=70,30,10) ＞ 71[失敗,一般成功,一般成功] ＞ 失敗"
 success = false
 rands = [
   { sides = 100, value = 71 },

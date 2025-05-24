@@ -20,7 +20,7 @@ module BCDice
         ・判定 CC(x)<=（目標值）
         x：獎勵或懲罰骰，可以省略。
         即使沒有目標值，也會顯示1D100。
-        自動判定：大失敗／失敗／成功／通常成功／困難成功／極限成功／大成功。
+        自動判定：大失敗／失敗／成功／一般成功／困難成功／極限成功／大成功。
         例）CC<=30，CC2<=50，CC(+2)<=50，CC(-1)<=75，CC-1<=50，CC1<=65，CC+1<=65，CC
 
         ・技能擲骰的難度指定 CC(x)<=(目標值)(難度)
@@ -92,7 +92,7 @@ module BCDice
           critical: "大成功",
           extreme_success: "極限成功",
           hard_success: "困難成功",
-          regular_success: "通常成功",
+          regular_success: "一般成功",
           success: "成功",
           fumble: "大失敗",
           failure: "失敗",
