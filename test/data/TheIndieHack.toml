@@ -1,0 +1,79 @@
+[[ test ]]
+game_system = "TheIndieHack"
+input = "IH 成功の変化を確認"
+output = "(IH) ＞ 6,6 ＞ 両陣営がそれぞれ確定描写を1つ追加します"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TheIndieHack"
+input = "IH 成功・失敗の変化を確認"
+output = "(IH) ＞ 5,6 ＞ ダーク陣営が確定描写を1つ追加しますが、味方によって追加されたネガティブな確定描写を1つ受けます"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TheIndieHack"
+input = "IH 成功・失敗の変化を確認"
+output = "(IH) ＞ 6,1 ＞ ライト陣営が確定描写を2つ追加します"
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "TheIndieHack"
+input = "IH+1 能力値の確認"
+output = "(IH+1) ＞ [4,6] ＞ 4,7 ＞ ダーク陣営が確定描写を1つ追加し、さらに場面描写を1つ追加します"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TheIndieHack"
+input = "IH-1 能力値の確認"
+output = "(IH-1) ＞ [1,6] ＞ 1,5 ＞ ダーク陣営が確定描写を1つ追加し、さらにその陣営の味方ひとりも確定描写を1つ追加します"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TheIndieHack"
+input = "+1IH 能力値の確認"
+output = "(+1IH) ＞ [3,6] ＞ 4,6 ＞ ダーク陣営が確定描写を1つ追加します"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TheIndieHack"
+input = "1IH 能力値の確認"
+output = "(1IH) ＞ [3,6] ＞ 4,6 ＞ ダーク陣営が確定描写を1つ追加します"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "TheIndieHack"
+input = "-1IH 能力値の確認"
+output = "(-1IH) ＞ [1,6] ＞ 0,6 ＞ ダーク陣営が確定描写を2つ追加します"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
