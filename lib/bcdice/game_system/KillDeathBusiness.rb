@@ -371,8 +371,10 @@ module BCDice
           result += "この[#{word1TableName}]、ひょっとして[#{word1TableName}]かも、どうしてそう思った？\n#{word1TableName}(#{word1D6}) ＞ #{word1Result}\n#{word2TableName}(#{word2D6}) ＞ #{word2Result}\n＞ "
           result += translate("KillDeathBusiness.table.TOT.items.2", word1: word1, word2: word2)
         when 3
-          verbTableName = translate("KillDeathBusiness.table.VOT.name")
-          verb, number = get_table_by_d66_swap(translate("KillDeathBusiness.table.VOT.items"))
+          vot = self.class::TABLES["VOT"].roll(@randomizer)
+          verbTableName = vot.table_name
+          verb = vot.body
+          number = vot.value
           wordTableName, wordResult, wordD6, word = getWordTableResult()
           result += "[#{verbTableName}]した[#{wordTableName}]が言いそうなこと。\n#{verbTableName}(#{number}) ＞ #{verb}\n#{wordTableName}(#{wordD6}) ＞ #{wordResult}\n＞ "
           result += translate("KillDeathBusiness.table.TOT.items.3", verb: verb, word: word)
@@ -386,8 +388,10 @@ module BCDice
           result += "こんな[#{wordTableName}]は嫌だ。どんなの？\n#{wordTableName}(#{wordD6}) ＞ #{wordResult}\n＞ "
           result += translate("KillDeathBusiness.table.TOT.items.5", word: word)
         when 6
-          longTableName = translate("KillDeathBusiness.table.LOT.name")
-          long, number = get_table_by_d66_swap(translate("KillDeathBusiness.table.LOT.items"))
+          lot = self.class::TABLES["LOT"].roll(@randomizer)
+          longTableName = lot.table_name
+          long = lot.body
+          number = lot.value
           result += "[#{longTableName}]みたいなことを言って下さい。\n#{longTableName}(#{number}) ＞ #{long}\n＞ "
           result += translate("KillDeathBusiness.table.TOT.items.6", long: long)
         end
@@ -421,25 +425,20 @@ module BCDice
       def getWordTableResult()
         tableName = "単語表"
 
-        wordTableA = translate("KillDeathBusiness.table.WOTA.items")
-        wordTableB = translate("KillDeathBusiness.table.WOTB.items")
-        wordTableC = translate("KillDeathBusiness.table.WOTC.items")
-
         d6 = @randomizer.roll_once(6)
+        table =
+          case d6
+          when 1, 2
+            self.class::TABLES["WOTA"]
+          when 3, 4
+            self.class::TABLES["WOTB"]
+          when 5, 6
+            self.class::TABLES["WOTC"]
+          end
 
-        case d6
-        when 1, 2
-          wordTableName = translate("KillDeathBusiness.table.WOTA.name")
-          word, number = get_table_by_d66_swap(wordTableA)
-        when 3, 4
-          wordTableName = translate("KillDeathBusiness.table.WOTB.name")
-          word, number = get_table_by_d66_swap(wordTableB)
-        when 5, 6
-          wordTableName = translate("KillDeathBusiness.table.WOTC.name")
-          word, number = get_table_by_d66_swap(wordTableC)
-        end
+        result = table.roll(@randomizer)
 
-        return tableName, "#{wordTableName}(#{number}) ＞ #{word}", d6, word
+        return tableName, result.to_s, d6, result.body
       end
 
       def getPositiveTableResult()
