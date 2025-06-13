@@ -7,7 +7,7 @@ module BCDice
       ID = 'TheIndieHack'
 
       # ゲームシステム名
-      NAME = 'TheIndieHack'
+      NAME = 'The Indie Hack'
 
       # ゲームシステム名の読みがな
       SORT_KEY = 'しいんていはつく'
