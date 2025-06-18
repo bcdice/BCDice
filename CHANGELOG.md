@@ -1,5 +1,64 @@
 # Change Log
 
+## 3.15.0 2025/06/18
+
+### 対応ゲームシステムの追加
+
+- 慈悲なきアイオニア (Aionia): hattarhaptagさんありがとうっ！ ([#720](https://github.com/bcdice/BCDice/pull/720))
+- ヤンキーマストダイ (YankeeMustDie): 蜂紫さんありがとうっ！ ([#735](https://github.com/bcdice/BCDice/pull/735))
+- カローン・サンクションズ (CharonSanctions): blhsrwznrghfzprさんありがとうっ！ ([#737](https://github.com/bcdice/BCDice/pull/737))
+- 幽冥鬼使 (YuMyoKishi): 三木里 秀予さんありがとうっ！ ([#739](https://github.com/bcdice/BCDice/pull/739))
+- キミトエール！ (KimitoYell): kurenai716さんありがとうっ！ ([#741](https://github.com/bcdice/BCDice/pull/741))
+- 新世紀エヴァンゲリオンRPG NERV白書/使徒降臨 (NervWhitePaper): Facelessさんありがとうっ！ ([#747](https://github.com/bcdice/BCDice/pull/747))
+- ワンダーオブワンダラーダイス (WoW): ([#748](https://github.com/bcdice/BCDice/pull/748))
+- MAGIUS (Magius): Facelessさんありがとうっ！ ([#750](https://github.com/bcdice/BCDice/pull/750))
+- ローグライクハーフ (RogueLikeHalf): Facelessさんありがとうっ！ ([#752](https://github.com/bcdice/BCDice/pull/752), [#770](https://github.com/bcdice/BCDice/pull/770))
+- 韓国語版 ブラックジャケットRPG (BlackJacket:Korean): MYAKKUさんありがとうっ！ ([#763](https://github.com/bcdice/BCDice/pull/763))
+- マギウス: 新世紀エヴァンゲリオンRPG 決戦！第3新東京市 (Magius_3rdNewTokyoCity): Facelessさんありがとうっ！ ([#765](https://github.com/bcdice/BCDice/pull/765))
+- 韓国語版 サイバーパンクRED (CyberpunkRed:Korean):park-se-junさんありがとうっ！ ([#777](https://github.com/bcdice/BCDice/pull/777))
+- The Indie Hack (TheIndieHack): Facelessさんありがとうっ！ ([#783](https://github.com/bcdice/BCDice/pull/783))
+- 韓国語版 歯車の塔の探空士（冒険企画局） (SkynautsBouken:Korean): 40foodさんありがとうっ！ ([#738](https://github.com/bcdice/BCDice/pull/738))
+- ガラクティア (Garactier): JackyAniueさんありがとうっ！ ([#749](https://github.com/bcdice/BCDice/pull/749))
+
+### 追加機能
+- 『ガーデンオーダー』に「ソウルエンコーダー」用の負傷表を追加しました。Facelessさんありがとうっ！ ([#732](https://github.com/bcdice/BCDice/pull/732))
+- [Arknights Fan TRPG] アップデート。NOBUTOKAさんありがとうっ！ ([#733](https://github.com/bcdice/BCDice/pull/733))
+- [DoubleCross]ハプニングチャートとRWプロローグチャートを振るためのコマンド(HC, PCP, PCN)を追加。RYOSKATEさんありがとうっ！ ([#736](https://github.com/bcdice/BCDice/pull/736))
+- 『キルデスビジネス』大喜利スペシャル追加。satsumawagashiさんありがとうっ！ ([#740](https://github.com/bcdice/BCDice/pull/740), [#784](https://github.com/bcdice/BCDice/pull/784))
+- [FullFace] ジャンク表の追加。Facelessさんありがとうっ！ ([#742](https://github.com/bcdice/BCDice/pull/742))
+- [SwordWorld2_5] バーバヤガーの魔女の火を実装。三木里 秀予さんありがとうっ！ ([#743](https://github.com/bcdice/BCDice/pull/743))
+- [天才軍師になろう]『覇竜戦記』と『まるごと1冊冒険企画局プラス』で追加されたスキルへの対応 。satsumawagashiさんありがとうっ！ ([#755](https://github.com/bcdice/BCDice/pull/755))
+- [MonotoneMuseum:Korean]モノトーンミュージアムRPG改訂版の表追加 Korean translate 。patchang86さんありがとうっ！ ([#756](https://github.com/bcdice/BCDice/pull/756))
+- [ShinobiGami] 機能の追加・誤字修正・ヘルプの更新。NiSLa-NiSlimeTRPGさんありがとうっ！ ([#761](https://github.com/bcdice/BCDice/pull/761))
+- [FutariSousa]フタリソウサの判定用コマンド追加。えいむさんありがとうっ！ ([#766](https://github.com/bcdice/BCDice/pull/766))
+- [RuneQuest:Roleplaying in Glorantha] 略記判定コマンドを追加。フレッド緑野さんありがとうっ！ ([#772](https://github.com/bcdice/BCDice/pull/772))
+- [YearZeroEngine] YZEコマンドに修正値を付けました。Facelessさんありがとうっ！ ([#780](https://github.com/bcdice/BCDice/pull/780))
+- [TORG Eternity]コズムポシビリティに対応。Facelessさんありがとうっ！ ([#781](https://github.com/bcdice/BCDice/pull/781))
+
+### 変更
+- [RuneQuest:Roleplaying in Glorantha] 成功段階の文言を日本語版に合わせて変更。フレッド緑野さんありがとうっ！ ([#758](https://github.com/bcdice/BCDice/pull/758))
+- [NSSQ] 「SRSじゃない世界樹の迷宮TRPG」のダイスボット修正。NOBUTOKAさんありがとうっ！ ([#762](https://github.com/bcdice/BCDice/pull/762))
+- [RuneQuest:Roleplaying in Glorantha] 決定的成功時の表示を変更。フレッド緑野さんありがとうっ！ ([#764](https://github.com/bcdice/BCDice/pull/764))
+- [Cthulhu7th]新・クトゥルフ神話TRPGのCCコマンドの表記揺れ修正。えいむさんありがとうっ！ ([#771](https://github.com/bcdice/BCDice/pull/771))
+- [FutariSousa]フタリソウサのシチュエーション表に基本ルールブックのページ数を追加・誤字の修正。えいむさんありがとうっ！ ([#773](https://github.com/bcdice/BCDice/pull/773))
+
+### 誤植修正
+- [ガンドッグ・リヴァイズド]ダメージペナルティ表の誤りを修正。teruyuki111さんありがとうっ！ ([#753](https://github.com/bcdice/BCDice/pull/753))
+- [Shinobigami] 誤字修正(DSN1)。NiSLa-NiSlimeTRPGさんありがとうっ！ ([#760](https://github.com/bcdice/BCDice/pull/760))
+- [ShinobiGami]誤字とヘルプの修正。NiSLa-NiSlimeTRPGさんありがとうっ！ ([#769](https://github.com/bcdice/BCDice/pull/769))
+
+### バグ修正
+- [Arianrhod:Korean] 親クラスの読み込み不備を修正。 ([#731](https://github.com/bcdice/BCDice/pull/731))
+
+### 翻訳の更新
+- [Doublecross Korean] added chart translate。patchang86さんありがとうっ！ ([#757](https://github.com/bcdice/BCDice/pull/757))
+- [Cthulhu7th_ChineseTraditional] 最新の日本語CoC7thの機能を繁體中文語化する。zeteticlさんありがとうっ！ ([#767](https://github.com/bcdice/BCDice/pull/767))
+- Update to official Korean translation。00wonさんありがとうっ！ ([#776](https://github.com/bcdice/BCDice/pull/776))
+- [マギカロギア]誤字修正&正誤表反映(KR)。eidals224さんありがとうっ！ ([#779](https://github.com/bcdice/BCDice/pull/779))
+
+### 開発
+- Ruby 3.4に対応 ([#785](https://github.com/bcdice/BCDice/pull/785))
+
 ## 3.14.0 2024/06/30
 
 ### 対応ゲームシステムの追加
