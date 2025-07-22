@@ -3,13 +3,6 @@
 require "bcdice/game_system/MeikyuKingdom"
 require "bcdice/dice_table/table"
 
-require "bcdice/game_system/meikyu_kingdom_basic/item_table"
-require "bcdice/game_system/meikyu_kingdom_basic/kingdom_table"
-require "bcdice/game_system/meikyu_kingdom_basic/name_table"
-require "bcdice/game_system/meikyu_kingdom_basic/word_table"
-require "bcdice/game_system/meikyu_kingdom_basic/table"
-require "bcdice/game_system/meikyu_kingdom_basic/atoz_table"
-
 module BCDice
   module GameSystem
     class MeikyuKingdomBasic < MeikyuKingdom
@@ -30,7 +23,7 @@ module BCDice
           ・各種表
           　・休憩表：才覚 TBT／魅力 CBT／探索 SBT／武勇 VBT
                      お祭り FBT／空振り EBT／全体 WBT／カップル LBT
-                     お食事 FDBT／
+                     お食事 FDBT
           　・ハプニング表：才覚 THT／魅力 CHT／探索 SHT／武勇 VHT
           　・視察表 RT／情報収集表 IG／ランダムマップ選択表 RMS
           　・痛打表 CAT／致命傷表 FWT／戦闘ファンブル表 CFT
@@ -61,6 +54,11 @@ module BCDice
           　・生まれ決定表 BDT／生まれ表：才覚 TBO／魅力 CBO／探索 SBO／武勇 VBO
           　・初期装備表 IEQ
         　・地名決定表　PNTx (xは個数)／迷宮風景表 MLTx (xは個数)
+          ・百万世界AtoZ関連
+          　・ご祝儀表 GIFT
+          　・ニュース表 NWST
+          　・遠征王国変動表 EKCT
+          　・王国ハプニング表 KDHT
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -266,8 +264,14 @@ module BCDice
         'SE', 'ARN', 'WEN', 'NEN', 'CEN', 'SEN', 'OEN',
         'DFT',
         'PNT', 'MLT',
-        A2Z_TABLES.keys
+        'FDBT','GIFT','NWST','EKCT','KDHT'
       )
     end
   end
 end
+require "bcdice/game_system/meikyu_kingdom_basic/item_table"
+require "bcdice/game_system/meikyu_kingdom_basic/kingdom_table"
+require "bcdice/game_system/meikyu_kingdom_basic/name_table"
+require "bcdice/game_system/meikyu_kingdom_basic/word_table"
+require "bcdice/game_system/meikyu_kingdom_basic/table"
+require "bcdice/game_system/meikyu_kingdom_basic/atoz_table"
