@@ -3,6 +3,13 @@
 require "bcdice/game_system/MeikyuKingdom"
 require "bcdice/dice_table/table"
 
+require "bcdice/game_system/meikyu_kingdom_basic/item_table"
+require "bcdice/game_system/meikyu_kingdom_basic/kingdom_table"
+require "bcdice/game_system/meikyu_kingdom_basic/name_table"
+require "bcdice/game_system/meikyu_kingdom_basic/word_table"
+require "bcdice/game_system/meikyu_kingdom_basic/table"
+require "bcdice/game_system/meikyu_kingdom_basic/atoz_table"
+
 module BCDice
   module GameSystem
     class MeikyuKingdomBasic < MeikyuKingdom
@@ -23,6 +30,7 @@ module BCDice
           ・各種表
           　・休憩表：才覚 TBT／魅力 CBT／探索 SBT／武勇 VBT
                      お祭り FBT／空振り EBT／全体 WBT／カップル LBT
+                     お食事 FDBT／
           　・ハプニング表：才覚 THT／魅力 CHT／探索 SHT／武勇 VHT
           　・視察表 RT／情報収集表 IG／ランダムマップ選択表 RMS
           　・痛打表 CAT／致命傷表 FWT／戦闘ファンブル表 CFT
@@ -56,26 +64,6 @@ module BCDice
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
-      register_prefix(
-        '\d+MK', '\d+R6',
-        'IG', 'TT', 'NT', 'RMS',
-        'CFT', 'FWT', 'CAT', 'KDT', 'KCT',
-        'TBT', 'CBT', 'SBT', 'VBT', 'FBT', 'EBT', 'WBT', 'LBT',
-        'THT', 'CHT', 'SHT', 'VHT',
-        'BDT', 'TBO', 'CBO', 'SBO', 'VBO',
-        'ET', 'FET', 'HET', 'SDT', 'IEQ', 'FRT',
-        'T1T', 'T2T', 'T3T', 'T4T', 'T5T',
-        'MPT', 'KNT', 'WORD', 'NAME', 'NNAME', 'NM',
-        'RT', 'CIR', 'RUIR', 'RWIR',
-        'WIT', 'LIT', 'RIT', 'SIT', 'NRWT', 'NRUT', 'ARWT', 'ARUT',
-        'KET', 'TET', 'NST', 'RET', 'FAT', 'HRT', 'BLT',
-        'BUS', 'SHS', 'ASS', 'SUS', 'SCS', 'LAS', 'NES', 'COS', 'ENS', 'TOS',
-        'ABUS', 'ASHS', 'AASS', 'ASUS', 'ASCS', 'ALAS', 'ANES', 'ACOS', 'AENS', 'ATOS',
-        'SE', 'ARN', 'WEN', 'NEN', 'CEN', 'SEN', 'OEN',
-        'DFT',
-        'PNT', 'MLT'
-      )
-
       def initialize(command)
         super(command)
 
@@ -99,6 +87,8 @@ module BCDice
         total_n = ""
 
         if (output = roll_tables(command, TABLES))
+          return output
+        elsif (output = roll_tables(command, A2Z_TABLES))
           return output
         else
 
@@ -258,12 +248,26 @@ module BCDice
           end
         end
       end
+      register_prefix(
+        '\d+MK', '\d+R6',
+        'IG', 'TT', 'NT', 'RMS',
+        'CFT', 'FWT', 'CAT', 'KDT', 'KCT',
+        'TBT', 'CBT', 'SBT', 'VBT', 'FBT', 'EBT', 'WBT', 'LBT',
+        'THT', 'CHT', 'SHT', 'VHT',
+        'BDT', 'TBO', 'CBO', 'SBO', 'VBO',
+        'ET', 'FET', 'HET', 'SDT', 'IEQ', 'FRT',
+        'T1T', 'T2T', 'T3T', 'T4T', 'T5T',
+        'MPT', 'KNT', 'WORD', 'NAME', 'NNAME', 'NM',
+        'RT', 'CIR', 'RUIR', 'RWIR',
+        'WIT', 'LIT', 'RIT', 'SIT', 'NRWT', 'NRUT', 'ARWT', 'ARUT',
+        'KET', 'TET', 'NST', 'RET', 'FAT', 'HRT', 'BLT',
+        'BUS', 'SHS', 'ASS', 'SUS', 'SCS', 'LAS', 'NES', 'COS', 'ENS', 'TOS',
+        'ABUS', 'ASHS', 'AASS', 'ASUS', 'ASCS', 'ALAS', 'ANES', 'ACOS', 'AENS', 'ATOS',
+        'SE', 'ARN', 'WEN', 'NEN', 'CEN', 'SEN', 'OEN',
+        'DFT',
+        'PNT', 'MLT',
+        A2Z_TABLES.keys
+      )
     end
   end
 end
-
-require "bcdice/game_system/meikyu_kingdom_basic/item_table"
-require "bcdice/game_system/meikyu_kingdom_basic/kingdom_table"
-require "bcdice/game_system/meikyu_kingdom_basic/name_table"
-require "bcdice/game_system/meikyu_kingdom_basic/word_table"
-require "bcdice/game_system/meikyu_kingdom_basic/table"
