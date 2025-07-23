@@ -59,8 +59,40 @@ module BCDice
           　・ニュース表 NWST
           　・遠征王国変動表 EKCT
           　・王国ハプニング表 KDHT
+          　・王国試練表 KDTT
+          　・騎士道表 CHVT
+          　・儀式表 RITT
+          　・限定表 LIMT
+          　・固有の文化表 UNCT
+          　・後世の評価表 POET
+          　・高レベル特殊遭遇表 HSET
+          　・死霊の日々表 DODT
+          　・事件名表1／2 INT1／INT2
+          　・守護星座表 GUCT
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
+
+      register_prefix(
+        '\d+MK', '\d+R6',
+        'IG', 'TT', 'NT', 'RMS',
+        'CFT', 'FWT', 'CAT', 'KDT', 'KCT',
+        'TBT', 'CBT', 'SBT', 'VBT', 'FBT', 'EBT', 'WBT', 'LBT',
+        'THT', 'CHT', 'SHT', 'VHT',
+        'BDT', 'TBO', 'CBO', 'SBO', 'VBO',
+        'ET', 'FET', 'HET', 'SDT', 'IEQ', 'FRT',
+        'T1T', 'T2T', 'T3T', 'T4T', 'T5T',
+        'MPT', 'KNT', 'WORD', 'NAME', 'NNAME', 'NM',
+        'RT', 'CIR', 'RUIR', 'RWIR',
+        'WIT', 'LIT', 'RIT', 'SIT', 'NRWT', 'NRUT', 'ARWT', 'ARUT',
+        'KET', 'TET', 'NST', 'RET', 'FAT', 'HRT', 'BLT',
+        'BUS', 'SHS', 'ASS', 'SUS', 'SCS', 'LAS', 'NES', 'COS', 'ENS', 'TOS',
+        'ABUS', 'ASHS', 'AASS', 'ASUS', 'ASCS', 'ALAS', 'ANES', 'ACOS', 'AENS', 'ATOS',
+        'SE', 'ARN', 'WEN', 'NEN', 'CEN', 'SEN', 'OEN',
+        'DFT',
+        'PNT', 'MLT',
+        'FDBT','GIFT','NWST','EKCT','KDHT','KDTT','CHVT','RITT','LIMT','UNCT','POET',
+        'HSET','DODT','INT1','INT2','GUCT'
+      )
 
       def initialize(command)
         super(command)
@@ -236,6 +268,10 @@ module BCDice
           when /^ATOS/i
             type = '上級道具スキル'
             output, total_n = mk_advanced_tool_skill_table
+          when /^GUCT/i
+            type = '守護星座'
+            total_n = @randomizer.roll_once(6) * 100 + @randomizer.roll_once(6) * 10 + @randomizer.roll_once(6)
+            output = mk_guardian_constellation_table(total_n)
           end
 
           if !output.nil?
@@ -246,26 +282,6 @@ module BCDice
           end
         end
       end
-      register_prefix(
-        '\d+MK', '\d+R6',
-        'IG', 'TT', 'NT', 'RMS',
-        'CFT', 'FWT', 'CAT', 'KDT', 'KCT',
-        'TBT', 'CBT', 'SBT', 'VBT', 'FBT', 'EBT', 'WBT', 'LBT',
-        'THT', 'CHT', 'SHT', 'VHT',
-        'BDT', 'TBO', 'CBO', 'SBO', 'VBO',
-        'ET', 'FET', 'HET', 'SDT', 'IEQ', 'FRT',
-        'T1T', 'T2T', 'T3T', 'T4T', 'T5T',
-        'MPT', 'KNT', 'WORD', 'NAME', 'NNAME', 'NM',
-        'RT', 'CIR', 'RUIR', 'RWIR',
-        'WIT', 'LIT', 'RIT', 'SIT', 'NRWT', 'NRUT', 'ARWT', 'ARUT',
-        'KET', 'TET', 'NST', 'RET', 'FAT', 'HRT', 'BLT',
-        'BUS', 'SHS', 'ASS', 'SUS', 'SCS', 'LAS', 'NES', 'COS', 'ENS', 'TOS',
-        'ABUS', 'ASHS', 'AASS', 'ASUS', 'ASCS', 'ALAS', 'ANES', 'ACOS', 'AENS', 'ATOS',
-        'SE', 'ARN', 'WEN', 'NEN', 'CEN', 'SEN', 'OEN',
-        'DFT',
-        'PNT', 'MLT',
-        'FDBT','GIFT','NWST','EKCT','KDHT'
-      )
     end
   end
 end

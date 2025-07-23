@@ -1939,3 +1939,199 @@ rands = [
   { sides = 6, value = 6 },
 ]
 
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "KDTT"
+output = "王国試練表(2) ＞ 旧王国との交流がある。1D6を振る。奇数なら、救援物資がやってくる。「レア一般アイテム表」（基本p106､上級p66）の中からランダムに決めた1個を獲得する。偶数なら、《民》の一部がホームシックにかかり、新王国の《民》を2D6人減少し、その値だけ旧王国の《民》を増やす。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "KDTT"
+output = "王国試練表(12) ＞ 新王国は活気に溢れ、新しい施設が生まれる。1D6を振る。1なら【農地】（基本p130）、2なら【学校】（基本p131）、3なら【刑務所】（基本p131）、4なら【砦】（基本p131）、5なら【病院】（基本p131）、6なら【鍜冶屋】（基本p130）を1軒建設する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CHVT"
+output = "騎士道表(2) ＞ 勇猛。どんな敵に対しても決して退かない。戦闘中、自軍後方に1回移動するたび、この誓いは破られる。ただし、敵軍キャラクターの何らかの効果による強制的な移動は、これに含まない。特典：攻撃を受けたとき、ダメージを1点軽減できる（1未満にはならない） 。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CHVT"
+output = "騎士道表(12) ＞ 士道。この誓いは「騎士の十戒」ではなく、フジヤマ系国家に伝わる特殊な騎士道である。異国の言葉を話してはならない。この誓いを修得したPCを操作するプレイヤーが外来語を話すたび、この誓いは破られる。特典：【アメリカ小鬼】以外を目標にして攻撃を行うとき、その威力を2点上昇する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "RITT"
+output = "儀式表(11) ＞ 罠にかかる"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "RITT"
+output = "儀式表(66) ＞ 裸になる"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "LIMT"
+output = "限定表(1) ＞ 年齢。子どもや年寄りなど、特定の年齢の者のみ行う。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "LIMT"
+output = "限定表(6) ＞ 場所。宮廷や農地のような、王国内やその近くにある特定の場所・施設で行われる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "UNCT"
+output = "固有の文化表(11) ＞ 婚姻。結婚にまつわる異質な儀式や習慣がある。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "UNCT"
+output = "固有の文化表(66) ＞ 教育。不可解な教育法がある。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "POET"
+output = "後世の評価表(2) ＞ 曰く【事件名】は、王国に何の影響ももたらさなかった。しかし、なぜかその噂は様々なおひれをともなって百万迷宮中に流布し、【事件名表1の結果】を見物するために、大勢の観光客が訪れることになったという。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "POET"
+output = "後世の評価表(12) ＞ 曰く【事件名】は、各国の取材を受け、大層楽しまれた。この事件は、多くの戯作者の心をトリコにし、絵巻物や演劇、プレイレポートやリプレイ、実況動画などの幅広い分野で人口に膾炙したという。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HSET"
+output = "高レベル特殊遭遇表(1) ＞ 侵攻途中の巨鬼領の軍に遭遇する。【巨鬼英雄】（上級p95）は雄叫びをあげ、【小鬼司令部】（基本p172）は野蛮な戦歌を奏でた。侵攻の前哨戦とばかりに鬼たちは、猛然と宮廷へと襲いかかってきた。宮廷全員はこの戦いの嵐に立ち向かうか、逃げるかを選択する。立ち向かう場合、宮廷全員は〔武勇〕難易度13の判定を行う。失敗した者は［2D6+18－判定の達成値］点のダメージを受ける。逃げることを選択した場合、宮廷の代表は〔探索〕で難易度10の判定を行う。成功すると、宮廷全員はその部屋から通路でつながっている探索済みの部屋へ移動する。失敗した場合、宮廷全員は［2D6+3］点のダメージを受ける。もし「国難」（大冒険p12）の選択ルールを使用している場合、そのセッションの間、自国は「戦乱2」の国難を受ける。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HSET"
+output = "高レベル特殊遭遇表(6) ＞ 「汝らは悪しき未来に向かっている」【処罰天使】（大冒険p114）が降臨し、PCたちの国がいかに堕落し、退廃しているかを説く。そして自分たちの罪を認め、贖罪を行うようにうながす。宮廷の代表は〔魅力〕で難易度14の判定を行う。成功すると、【処罰天使】は自分の非を認め、天階へと戻っていく。失敗すると､《民の声》を1D6点減少し､判定を行ったPCは3D6+1点のダメージを受け、《配下》を1D6人減少する。残りの宮廷全員は1D6点のダメージを受ける。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DODT"
+output = "死霊の日々表(2) ＞ 死霊たちは死霊仲間たちを呼び出す。《特殊配下》が1D6人増える。死霊カテゴリの3レベル以下のモンスターの中から1種類を選ぶ。この《特殊配下》は、その種類の《モンスターの民》として扱う。終了フェイズになると、この効果によって増えた《特殊配下》は失われる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DODT"
+output = "死霊の日々表(12) ＞ 「こんなところに昇降機が」死霊は天階に昇天、もしくは深階に沈没する。その部屋に【エレベータ】（基本p152）を発見する（王国フェイズの場合、自国のマップの中から好きな部屋1つに【神殿】（基本p128）を1軒建設できる）。死霊カテゴリの《モンスターの民》の中からランダムに1体を選ぶ（冒険フェイズの場合、《配下》にいる《モンスターの民》から選ぶ）。その《モンスターの民》を失う。昇降機の中から、好きな素材を［失ったモンスターのレベル×3］個獲得する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "INT1"
+output = "事件名表1(2) ＞ 王国にある施設の名前"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "INT1"
+output = "事件名表1(12) ＞ シナリオの名前、またはその一部"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "INT2"
+output = "事件名表2(11) ＞ の変（事変）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "INT2"
+output = "事件名表2(66) ＞ 革命"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "GUCT"
+output = "守護星座表(111) ＞ 小鬼（基本p171）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "GUCT"
+output = "守護星座表(666) ＞ まぼろし蛤（上級p125）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
