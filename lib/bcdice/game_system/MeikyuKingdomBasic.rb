@@ -69,6 +69,11 @@ module BCDice
           　・死霊の日々表 DODT
           　・事件名表1／2 INT1／INT2
           　・守護星座表 GUCT
+          　・需要表 DEMTx (x:名物レベル)
+          　・小鬼と一緒表 WLDT
+          　・侵略ハプニング表 INHT
+          　・新・情報収集表 NIGT
+          　・人種特徴表／人種名文字表 RACT／RCNTx (x:文字数)
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -91,7 +96,7 @@ module BCDice
         'DFT',
         'PNT', 'MLT',
         'FDBT','GIFT','NWST','EKCT','KDHT','KDTT','CHVT','RITT','LIMT','UNCT','POET',
-        'HSET','DODT','INT1','INT2','GUCT'
+        'HSET','DODT','INT1','INT2','GUCT','DEMT','WLDT','INHT','NIGT','RACT','RCNT',
       )
 
       def initialize(command)
@@ -272,6 +277,25 @@ module BCDice
             type = '守護星座'
             total_n = @randomizer.roll_once(6) * 100 + @randomizer.roll_once(6) * 10 + @randomizer.roll_once(6)
             output = mk_guardian_constellation_table(total_n)
+          when /^DEMT(\d+)/i
+            type = '需要'
+            count = getCount(Regexp.last_match(1))
+            output, total_n = get_demand_table(count)
+          when /^RCNT(\d*)/i
+            type = '人種名文字'
+            count = getCount(Regexp.last_match(1))
+            for i in 1..count do 
+              @total = [@randomizer.roll_barabara(2, 6).sum(), @randomizer.roll_barabara(2, 6).sum()]
+              if i == 1
+                total_n = @total.join(',')
+                num = @total[0] * 100 + @total[1]
+                output = mk_race_name_character_table(num)
+              else
+                total_n += "," + @total.join(',')
+                num = @total[0] * 100 + @total[1]
+                output += mk_race_name_character_table(num)
+              end
+            end
           end
 
           if !output.nil?

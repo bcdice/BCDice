@@ -2135,3 +2135,152 @@ rands = [
   { sides = 6, value = 6 },
 ]
 
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DEMT1"
+output = "需要表(1) ＞ 疫病の流行。「医薬品」か「著作物」なら〈予算〉を2MG獲得。「嗜好品」か「道具」なら維持費を1MG上昇。「資源」なら維持費を2MG上昇。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DEMT1"
+output = "需要表(6) ＞ 平穏な日々が続く。「嗜好品」なら〈予算〉を3MG獲得。「著作物」なら〈予算〉を2MG獲得。「食品」か「道具」か「資源」なら〈予算〉を1MG獲得。「医薬品」なら維持を1MG上昇。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DEMT2"
+output = "需要表(1,6) ＞ 疫病の流行。「医薬品」か「著作物」なら〈予算〉を2MG獲得。「嗜好品」か「道具」なら維持費を1MG上昇。「資源」なら維持費を2MG上昇。\n平穏な日々が続く。「嗜好品」なら〈予算〉を3MG獲得。「著作物」なら〈予算〉を2MG獲得。「食品」か「道具」か「資源」なら〈予算〉を1MG獲得。「医薬品」なら維持を1MG上昇。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DEMT3"
+output = "需要表(1,1,1) ＞ 疫病の流行。「医薬品」か「著作物」なら〈予算〉を2MG獲得。「嗜好品」か「道具」なら維持費を1MG上昇。「資源」なら維持費を2MG上昇。 ＞ 維持費3MG上昇。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DEMT3"
+output = "需要表(6,6,6) ＞ 平穏な日々が続く。「嗜好品」なら〈予算〉を3MG獲得。「著作物」なら〈予算〉を2MG獲得。「食品」か「道具」か「資源」なら〈予算〉を1MG獲得。「医薬品」なら維持を1MG上昇。 ＞ 3MG獲得。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "WLDT"
+output = "小鬼と一緒表(2) ＞ 小鬼たちは、いつの間にか増えていた。ただし、何か失敗したあとが……。「探索ハプニング表」を1回使用する。その後、名前に「小鬼」を含む《モンスターの民》の中からランダムに1種を選ぶ（冒険フェイズの場合、《配下》にいる《モンスターの民》から選ぶ） 。その《モンスターの民》を1D6体増やす。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "WLDT"
+output = "小鬼と一緒表(12) ＞ 「今までにホントにお世話になりました」小鬼は、贈り物を置いて、あなたがたの王国を去る。名前に「小鬼」を含む《モンスターの民》の中からランダムに1体を選ぶ（冒険フェイズの場合、《配下》にいる《モンスタ－の民》から選ぶ）。そのモンスターを失う。そして、価格の（　）内の数字が、そのモンスターのレベル未満のレアアイテムを1個獲得する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "INHT"
+output = "侵略ハプニング表(1) ＞ 敵軍の奇襲！宮廷全員は〔武勇〕で難易度9の判定を行う。失敗したキャラクターは《HP》を1D6点減少し、修得しているスキルの中からランダムに1つを選んで、1ターンの間喪失する。もし、その部屋を制圧していた場合、その部屋に配置した《配下》を［1D6－この〔武勇〕の判定に成功したPCの数］人減少する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "INHT"
+output = "侵略ハプニング表(6) ＞ 兵站の消耗が激しい。宮廷の代表は【お弁当】か【フルコース】1個を消費する。消費できなければ、配置したすべての部屋の《配下》を1D6人減少する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "NIGT"
+output = "新・情報収集表(2) ＞ 調査隊に的確な指示を与えることができた。迷宮マップの中から好きな部屋を1つ目標に選ぶ。目標の通路情報をGMに教えてもらう。【携帯電話】を装備していたら、「新・情報収集表」をもう1回使用できる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "NIGT"
+output = "新・情報収集表(12) ＞ 調査隊の素晴らしい活躍！迷宮マップの中から好きな部屋を1つ目標に選ぶ。目標の脅威情報と通路情報をGMに教えてもらう。「新・情報収集表」をもう1回使用できる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "RACT"
+output = "人種特徴表(1) ＞ その人種は、通常の人間は食べない不思議なものから栄養を摂取できる。人種名から想像される食性を設定すること。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "RACT"
+output = "人種特徴表(6) ＞ その人種は、変わった外見的特徴を持っている。人種名から想像される外見的特徴を設定すること。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "RCNT"
+output = "人種名文字表(2,2) ＞ 男"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "RCNT"
+output = "人種名文字表(12,12) ＞ 古"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "RCNT2"
+output = "人種名文字表(2,2,12,12) ＞ 男古"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
