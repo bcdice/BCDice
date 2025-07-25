@@ -17,16 +17,16 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
         ・판정　(nNC+m)
-        　주사위 수n、수정치m으로 판정굴림을 행합니다.
+        　주사위 수n, 수정치m으로 판정굴림을 행합니다.
         　주사위 수가 2개 이상일 때에 파츠파손 수도 표시합니다.
         ・공격판정　(nNA+m)
-        　주사위 수n、수정치m으로 공격판정굴림을 행합니다.
+        　주사위 수n, 수정치m으로 공격판정굴림을 행합니다.
         　명중부위와 주사위 수가 2개 이상일 때에 파츠파손 수도 표시합니다.
 
-        表
-        ・姉妹への未練表 nm
-        ・中立者への未練表 nmn
-        ・敵への未練表 nme
+        표
+        ・자매에 대한 미련표 nm
+        ・중립자에 대한 미련표 nmn
+        ・적에 대한 미련표 nme
       INFO_MESSAGE_TEXT
 
       register_prefix_from_super_class()
