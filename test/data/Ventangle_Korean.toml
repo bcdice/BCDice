@@ -384,7 +384,7 @@ rands = [
 [[ test ]]
 game_system = "Ventangle:Korean"
 input = "VT+5@11#5$5>=9"
-output = "VT@11#5$5+5>=9 ＞ [4, 6] ＞ 10+5 ＞ 15 ＞ 成功 ＞ 갭 보너스(6)"
+output = "VT@11#5$5+5>=9 ＞ [4, 6] ＞ 10+5 ＞ 15 ＞ 성공 ＞ 갭 보너스(6)"
 success = true
 rands = [
   { sides = 6, value = 4 },
