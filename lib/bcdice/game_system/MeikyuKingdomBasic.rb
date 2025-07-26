@@ -74,6 +74,7 @@ module BCDice
           　・侵略ハプニング表 INHT
           　・新・情報収集表 NIGT
           　・人種特徴表／人種名文字表 RACT／RCNTx (x:文字数)
+          　・人体迷宮化表 HBLT
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -97,6 +98,7 @@ module BCDice
         'PNT', 'MLT',
         'FDBT','GIFT','NWST','EKCT','KDHT','KDTT','CHVT','RITT','LIMT','UNCT','POET',
         'HSET','DODT','INT1','INT2','GUCT','DEMT','WLDT','INHT','NIGT','RACT','RCNT',
+        'HBLT'
       )
 
       def initialize(command)
