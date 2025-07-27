@@ -26,7 +26,7 @@ module BCDice
           "(기능 레벨)DA(능력치)+(주사위 보너스)"로 판정합니다.
           주사위 보너스의 개수는 생략 가능하며, 생략 시 0개로 설정됩니다.
           기능 레벨에는 1~3의 수치를 입력합니다. 기본 기능으로 판정하려면 기능 레벨에"b"를 입력하세요.
-          주사위 개수는 기능 레벨과 주사위 보너스 개수에 따라 결정되며, s+z개의 주사위를 굴립니다. (s="b"인 경우 s=1)  
+          주사위 개수는 기능 레벨과 주사위 보너스 개수에 따라 결정되며, s+z개의 주사위를 굴립니다. (s="b"인 경우 s=1)#{'  '}
           판정치는 s+a 입니다.（s="b"인 경우에는 s=0）
       MESSAGETEXT
 
@@ -36,7 +36,7 @@ module BCDice
       CRITICAL_VALUE = 1
       FUMBLE_VALUE = 10
 
-      # i18n/Emoklore/ko_kr.yml 
+      # i18n/Emoklore/ko_kr.yml
       def initialize(command)
         super(command)
         @locale = :ko_kr
