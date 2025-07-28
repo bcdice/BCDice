@@ -2301,3 +2301,153 @@ rands = [
   { sides = 6, value = 6 },
 ]
 
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "POWT"
+output = "勢力表(11) ＞ 災厄書宮（災厄王の痕跡を消して回る秘密結社）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "POWT"
+output = "勢力表(66) ＞ アスベスト（反ダイナマイト帝国の武装組織。構成員に死霊が多い。上級p108）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "NSET"
+output = "中立特殊遭遇表(1) ＞ 【牛頭】（基本p172）の傭兵2体が現れた。要求：2MG〔武勇〕4"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "NSET"
+output = "中立特殊遭遇表(6) ＞ 血に飢えた【魔剣】（基本p193）1本が契約を迫る。要求：PC1人の《HP》3D6点か《配下》1人〔武勇〕7"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "ECBT"
+output = "超協調行動表(2) ＞ あなたの言葉に、人だけでなく装備も応えてくれる。協調行動を受けたキャラクターは、自分が持っているアイテムの中からランダムに1個を選ぶ。そのレベルを1点上昇する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "ECBT"
+output = "超協調行動表(12) ＞ あなたは、民を鼓舞するような言葉をかける。相手と相手の《配下》も勇気づけることができそうなロールプレイを行うと、《民の声》を［協調行動を受けたキャラクターの《配下》×1/5］点回復する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CUAT"
+output = "通貨外見表(1) ＞ 歴代ランドメイカーの肖像が描かれた"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CUAT"
+output = "通貨外見表(6) ＞ その国のランドマークが描かれた"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CUMT"
+output = "通貨材質表(2,1) ＞ そのほかの材質:葉っぱ"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CUMT"
+output = "通貨材質表(2,6) ＞ そのほかの材質:眼鏡"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CUMT"
+output = "通貨材質表(12,6) ＞ そのほかの材質:針"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CUNT"
+output = "通貨名称表(1) ＞ 国王の名前の－部をもじった名前の"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CUNT"
+output = "通貨名称表(6) ＞ GMの名前の一部をもじった名前の"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "WEAT"
+output = "天候表(2) ＞ ひでり。星の強い輝きがじりじりと照りつける。その部屋で1サイクルを過ごすたび、【甲冑】を装備しているキャラクターは《HP》を1点減少する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "WEAT"
+output = "天候表(12) ＞ 雷。天使の怒りか？時々天井から雷撃がッ！その部屋で1サイクルを過ごすたび、ランダムにキャラクター1体を選ぶ。そのキャラクターの《HP》を1D6点減少する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "PAET"
+output = "毒の追加効果表(2) ＞ 老化毒。この「毒」の効果を受けたキャラクターは、この「毒」の効果で《HP》を減少するたび、年齢が1歳増加していく。この効果によって年齢が100歳以上になったキャラクターは死亡する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "PAET"
+output = "毒の追加効果表(12) ＞ 異形毒。この効果を受けたキャラクターは、「毒」を受けたときに〔探索〕で難易度［9+そのモンスターのレベル×1/5］の判定を行う。失敗すると、「人体迷宮化表」(p49）でランダムに変異を1つ選んで、それを修得する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+

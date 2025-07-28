@@ -75,6 +75,12 @@ module BCDice
           　・新・情報収集表 NIGT
           　・人種特徴表／人種名文字表 RACT／RCNTx (x:文字数)
           　・人体迷宮化表 HBLT
+          　・勢力表 POWT
+          　・中立特殊遭遇表 NSET
+          　・超協調行動表 ECBT
+          　・通貨外見表／通貨材質表／通貨名称表 CUAT／CUMT／CUNT
+          　・天候表 WEAT
+          　・毒の追加効果表 PAET
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -96,9 +102,9 @@ module BCDice
         'SE', 'ARN', 'WEN', 'NEN', 'CEN', 'SEN', 'OEN',
         'DFT',
         'PNT', 'MLT',
-        'FDBT','GIFT','NWST','EKCT','KDHT','KDTT','CHVT','RITT','LIMT','UNCT','POET',
-        'HSET','DODT','INT1','INT2','GUCT','DEMT','WLDT','INHT','NIGT','RACT','RCNT',
-        'HBLT'
+        'FDBT', 'GIFT', 'NWST', 'EKCT', 'KDHT', 'KDTT', 'CHVT', 'RITT', 'LIMT', 'UNCT', 'POET',
+        'HSET', 'DODT', 'INT1', 'INT2', 'GUCT', 'DEMT', 'WLDT', 'INHT', 'NIGT', 'RACT', 'RCNT',
+        'HBLT', 'POWT', 'NSET', 'ECBT', 'CUAT', 'CUMT', 'CUNT', 'WEAT', 'PAET'
       )
 
       def initialize(command)
@@ -298,6 +304,11 @@ module BCDice
                 output += mk_race_name_character_table(num)
               end
             end
+          when /^CUMT/i
+            type = '通貨材質'
+            @total = [@randomizer.roll_barabara(2, 6).sum(), @randomizer.roll_once(6)]
+            total_n = @total.join(',')
+            output = get_currency_material_table(*@total)
           end
 
           if !output.nil?
