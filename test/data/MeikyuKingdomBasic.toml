@@ -2250,7 +2250,7 @@ rands = [
 
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
-input = "RCNT"
+input = "RNCT"
 output = "人種名文字表(2,2) ＞ 男"
 rands = [
   { sides = 6, value = 1 },
@@ -2261,7 +2261,7 @@ rands = [
 
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
-input = "RCNT"
+input = "RNCT"
 output = "人種名文字表(12,12) ＞ 古"
 rands = [
   { sides = 6, value = 6 },
@@ -2272,7 +2272,7 @@ rands = [
 
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
-input = "RCNT2"
+input = "RNCT2"
 output = "人種名文字表(2,2,12,12) ＞ 男古"
 rands = [
   { sides = 6, value = 1 },

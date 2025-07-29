@@ -783,7 +783,7 @@ module BCDice
           [612, "クピド（上級p121）"],
           [613, "季士（大冒険p113）"],
           [614, "季士（大冒険p113）"],
-          [615, "三羽ガラス（基本p201）"], 
+          [615, "三羽ガラス（基本p201）"],
           [616, "三羽ガラス（基本p201）"],
           [621, "エンゼルヘアー（上級p121）"],
           [622, "エンゼルヘアー（上級p121）"],
@@ -830,31 +830,35 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def get_demand_table(level)
         output = ""
         @dice = []
         @count = [0, 0, 0, 0, 0, 0]
-        for i in 1..level do
+        (1..level).each do
           num = @randomizer.roll_once(6)
           @dice.push(num)
           @count[num - 1] += 1
         end
-        for i in 0..5 do
-          if @count[i] > 0
-            output += "\n" if output.length > 0
-            output += mk_demand_table(i + 1)
+        (1..6).each do |idx|
+          if @count[idx - 1] > 0
+            output += "\n" unless output.empty?
+            output += mk_demand_table(idx)
           end
+
           if level >= 3
-            if i == 0
-              output += " ＞ 維持費#{level}MG上昇。" if @count[i] > 1
+            if idx == 1
+              if @count[idx - 1] > 1
+                output += " ＞ 維持費#{level}MG上昇。"
+              end
             else
-              if @count[i] > 1
+              if @count[idx - 1] > 1
                 output += " ＞ #{level}MG獲得。"
               end
             end
           end
         end
-        return output, @dice.sort.join(',')
+        return output, @dice.sort.join(",")
       end
 
       def mk_race_name_character_table(num)
@@ -984,6 +988,19 @@ module BCDice
         return get_table_by_number(num, table)
       end
 
+      def get_race_name_character_table(count)
+        output = ""
+        total_n = ""
+        (1..count).each do
+          @total = [@randomizer.roll_barabara(2, 6).sum(), @randomizer.roll_barabara(2, 6).sum()]
+          total_n += "," unless total_n.empty?
+          total_n += @total.join(",")
+          num = @total[0] * 100 + @total[1]
+          output += mk_race_name_character_table(num)
+        end
+        return output, total_n
+      end
+
       def mk_currency_material_table(num)
         table = [
           [2, "そのほかの材質"],
@@ -1000,6 +1017,7 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def mk_currency_material_table2(num)
         table = [
           [1, "葉っぱ"],
@@ -1011,6 +1029,7 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def mk_currency_material_table3(num)
         table = [
           [1, "美人"],
@@ -1022,6 +1041,7 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def mk_currency_material_table4(num)
         table = [
           [1, "羽毛"],
@@ -1033,6 +1053,7 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def mk_currency_material_table5(num)
         table = [
           [1, "猫"],
@@ -1044,6 +1065,7 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def mk_currency_material_table6(num)
         table = [
           [1, "いわゆるお礼"],
@@ -1055,6 +1077,7 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def mk_currency_material_table7(num)
         table = [
           [1, "金貨"],
@@ -1066,6 +1089,7 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def mk_currency_material_table8(num)
         table = [
           [1, "巨大な石片"],
@@ -1077,6 +1101,7 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def mk_currency_material_table9(num)
         table = [
           [1, "お米"],
@@ -1088,6 +1113,7 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def mk_currency_material_table10(num)
         table = [
           [1, "珊瑚"],
@@ -1099,6 +1125,7 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def mk_currency_material_table11(num)
         table = [
           [1, "宗教的シンボル"],
@@ -1110,6 +1137,7 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def mk_currency_material_table12(num)
         table = [
           [1, "スプーンやフォーク"],
@@ -1121,32 +1149,33 @@ module BCDice
         ]
         return get_table_by_number(num, table)
       end
+
       def get_currency_material_table(num1, num2)
         output = mk_currency_material_table(num1) + ":"
-        
+
         case num1
-          when 2
-            output += mk_currency_material_table2(num2)
-          when 3
-            output += mk_currency_material_table3(num2)
-          when 4
-            output += mk_currency_material_table4(num2)
-          when 5
-            output += mk_currency_material_table5(num2)
-          when 6
-            output += mk_currency_material_table6(num2)
-          when 7
-            output += mk_currency_material_table7(num2)
-          when 8
-            output += mk_currency_material_table8(num2)
-          when 9
-            output += mk_currency_material_table9(num2)
-          when 10
-            output += mk_currency_material_table10(num2)
-          when 11
-            output += mk_currency_material_table11(num2)
-          when 12
-            output += mk_currency_material_table12(num2)
+        when 2
+          output += mk_currency_material_table2(num2)
+        when 3
+          output += mk_currency_material_table3(num2)
+        when 4
+          output += mk_currency_material_table4(num2)
+        when 5
+          output += mk_currency_material_table5(num2)
+        when 6
+          output += mk_currency_material_table6(num2)
+        when 7
+          output += mk_currency_material_table7(num2)
+        when 8
+          output += mk_currency_material_table8(num2)
+        when 9
+          output += mk_currency_material_table9(num2)
+        when 10
+          output += mk_currency_material_table10(num2)
+        when 11
+          output += mk_currency_material_table11(num2)
+        when 12
+          output += mk_currency_material_table12(num2)
         end
         return output
       end

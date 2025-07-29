@@ -73,7 +73,7 @@ module BCDice
           　・小鬼と一緒表 WLDT
           　・侵略ハプニング表 INHT
           　・新・情報収集表 NIGT
-          　・人種特徴表／人種名文字表 RACT／RCNTx (x:文字数)
+          　・人種特徴表／人種名文字表 RACT／RNCTx (x:文字数)
           　・迷宮化現象表／人体迷宮化表 HBLT／LAPT
           　・勢力表 POWT
           　・中立特殊遭遇表 NSET
@@ -109,7 +109,7 @@ module BCDice
         'DFT',
         'PNT', 'MLT',
         'FDBT', 'GIFT', 'NWST', 'EKCT', 'KDHT', 'KDTT', 'CHVT', 'RITT', 'LIMT', 'UNCT', 'POET',
-        'HSET', 'DODT', 'INT1', 'INT2', 'GUCT', 'DEMT', 'WLDT', 'INHT', 'NIGT', 'RACT', 'RCNT',
+        'HSET', 'DODT', 'INT1', 'INT2', 'GUCT', 'DEMT', 'WLDT', 'INHT', 'NIGT', 'RACT', 'RNCT',
         'HBLT', 'POWT', 'NSET', 'ECBT', 'CUAT', 'CUMT', 'CUNT', 'WEAT', 'PAET', 'MEDT', 'REAT',
         'HIST', 'PRET', 'LAPT', 'ORIT', 'ATRT', 'FAMT'
       )
@@ -296,21 +296,10 @@ module BCDice
             type = '需要'
             count = getCount(Regexp.last_match(1))
             output, total_n = get_demand_table(count)
-          when /^RCNT(\d*)/i
+          when /^RNCT(\d*)/i
             type = '人種名文字'
             count = getCount(Regexp.last_match(1))
-            for i in 1..count do 
-              @total = [@randomizer.roll_barabara(2, 6).sum(), @randomizer.roll_barabara(2, 6).sum()]
-              if i == 1
-                total_n = @total.join(',')
-                num = @total[0] * 100 + @total[1]
-                output = mk_race_name_character_table(num)
-              else
-                total_n += "," + @total.join(',')
-                num = @total[0] * 100 + @total[1]
-                output += mk_race_name_character_table(num)
-              end
-            end
+            output, total_n = get_race_name_character_table(count)
           when /^CUMT/i
             type = '通貨材質'
             @total = [@randomizer.roll_barabara(2, 6).sum(), @randomizer.roll_once(6)]
