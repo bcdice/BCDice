@@ -2451,3 +2451,143 @@ rands = [
   { sides = 6, value = 6 },
 ]
 
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MEDT"
+output = "媒体表(11) ＞ 導画"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MEDT"
+output = "媒体表(66) ＞ 写真"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "REAT"
+output = "反応表(1) ＞ その国宝を一目見た者は、あまりの秀麗さに、思わず顔を赤らめ、恍惚とし、ほうとため息をつくという。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "REAT"
+output = "反応表(6) ＞ その国宝を一目見た者は、あまりの滑稽さに、思わず腹をよじり、息も絶え絶えに笑い続け、のたうち回るという。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HIST"
+output = "遍歴表(2) ＞ 旅の途中、配下との絆が深まる。《配下》がいれば、好きな能力値で難易度9の判定を行うことができる。成功すると、自国に無事帰還したとき《配下》の中の1人が逸材となる。《配下》は、「生まれ決定表」（基本p24）でランダムにジョブを選び、そのジョブの逸材になる。失敗すると、《配下》に襄切られ、そのキャラクターは死亡する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HIST"
+output = "遍歴表(12) ＞ 探索の旅を振り返り、その結果に満足する。無事帰還できる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "PRET"
+output = "民の反応表(2) ＞ 配下たちは、家族のことを思い出す。そして、部隊全体がにわかに活気づいた。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "PRET"
+output = "民の反応表(12) ＞ 配下たちは、不安で心が張り裂けそうになり、部隊に混乱が生じる。その混乱が、一瞬の隙をつくった！"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "LAPT"
+output = "迷宮化現象表(2) ＞ あなたの心が、迷宮化を始める。その場にいる、あなたに《敵意》を持っているキャラクター全員は「人体迷宮化表」を1回使用し、その変異を獲得する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "LAPT"
+output = "迷宮化現象表(12) ＞ 自分の身体が、迷宮化を始める。「人体迷宮化表」を1回使用し、その変異を獲得する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "ORIT"
+output = "由来表(1) ＞ 伝統的。その国宝は、百万迷宮開闢以前より伝わる古き遺物（もしくはその技術の伝承者）である。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "ORIT"
+output = "由来表(6) ＞ 勝利の証｡その国宝は、ある国に勝利し、入手した何か（もしくはその人物の子孫）である。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "ATRT"
+output = "誘致表(2) ＞ 珍しいお客がやってきた。1D6を振る。1なら【ドワーフ】と【黒ドワーフ】（基本p174）の直線主義者、2なら周遊する【星霊】（基本p175）、3なら異世界からやってきた【稀人】（基本p198）、4ならPCたちの先祖の【首無し騎士】（基本p189）、5なら天階からやってきた【取立人】（基本p201）、6なら深階からやってきた【兵隊エルフ】と【闇エルフ】（基本p205）。〔文化レベル〕で難易度9の判定に成功すると、やってきたモンスターすべてが1体ずつモンスターの《民》になる。失敗すると、そのモンスターのレベルの合計値分だけ、王国に残した《民》を減少する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "ATRT"
+output = "誘致表(12) ＞ みすぼらしい老人がやってきた。彼に優しく接する場合1D6を振る。その正体は、1なら【貧乏神】（基本p175）で、そのセッションの維持費を1D6MG上昇する。2なら余所の国の王様で、周辺階域の中に王国1つをつくり、その国との関係を同盟にする。3ならただのおじいさんで、《民》を1人上昇する。4なら迷宮病患者で、宮廷全員はランダムに選んだ変調1つを受ける。5なら英雄で、上級ジョブの中からランダムに1つを選び、その上級ジョブの逸材になる。6なら災厄王で、自国の施設の中からランダムに選んだ1軒を破壊し、【災厄王の遺物】（基本p108）を1個獲得する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "FAMT"
+output = "妖精の悪戯表(2) ＞ 妖精は、宮廷の面々が眠っている間に手仕事を開始する。宮廷の中からランダムにキャラクター一人を選び、そのキャラクターの装備している好きなアイテムを一つ選ぶ。そのアイテムのレベルを1点上昇する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "FAMT"
+output = "妖精の悪戯表(12) ＞ 「今までにホントにお世話になりました」妖精は、贈り物を置いて、あなたがたの王国を去る。妖精カテゴリの《モンスターの民》の中からランダムに1体を選ぶ（冒険フェイズの場合、《配下》にいる《モンスターの民》から選ぶ）。そのモンスターを失う。そして、価格の（　）内の数字が、そのモンスターのレベル未満のレアアイテムを1個獲得する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+

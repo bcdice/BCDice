@@ -74,13 +74,19 @@ module BCDice
           　・侵略ハプニング表 INHT
           　・新・情報収集表 NIGT
           　・人種特徴表／人種名文字表 RACT／RCNTx (x:文字数)
-          　・人体迷宮化表 HBLT
+          　・迷宮化現象表／人体迷宮化表 HBLT／LAPT
           　・勢力表 POWT
           　・中立特殊遭遇表 NSET
           　・超協調行動表 ECBT
           　・通貨外見表／通貨材質表／通貨名称表 CUAT／CUMT／CUNT
           　・天候表 WEAT
           　・毒の追加効果表 PAET
+          　・媒体表 MEDT
+          　・反応表／民の反応表 REAT／PRET
+          　・遍歴表 HIST
+          　・由来表 ORIT
+          　・誘致表 ATRT
+          　・妖精の悪戯表 FAMT
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -104,7 +110,8 @@ module BCDice
         'PNT', 'MLT',
         'FDBT', 'GIFT', 'NWST', 'EKCT', 'KDHT', 'KDTT', 'CHVT', 'RITT', 'LIMT', 'UNCT', 'POET',
         'HSET', 'DODT', 'INT1', 'INT2', 'GUCT', 'DEMT', 'WLDT', 'INHT', 'NIGT', 'RACT', 'RCNT',
-        'HBLT', 'POWT', 'NSET', 'ECBT', 'CUAT', 'CUMT', 'CUNT', 'WEAT', 'PAET'
+        'HBLT', 'POWT', 'NSET', 'ECBT', 'CUAT', 'CUMT', 'CUNT', 'WEAT', 'PAET', 'MEDT', 'REAT',
+        'HIST', 'PRET', 'LAPT', 'ORIT', 'ATRT', 'FAMT'
       )
 
       def initialize(command)
