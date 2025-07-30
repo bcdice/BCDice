@@ -2591,3 +2591,171 @@ rands = [
   { sides = 6, value = 6 },
 ]
 
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "FCNT"
+output = "四字熟語系二つ名表(11) ＞ 人類最強（の）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "FCNT"
+output = "四字熟語系二つ名表(66) ＞ 贅沢三昧（の）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "ASNT"
+output = "代入命名表(11) ＞ ［好きなもの／嫌いなもの］［呼び名表］"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "ASNT"
+output = "代入命名表(66) ＞ 贅沢三昧（の）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CMNT"
+output = "組み合わせ系二つ名表(1,11,11) ＞ 災厄／不幸（の）、男／女"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CMNT"
+output = "組み合わせ系二つ名表(6,66,66) ＞ 親愛なる、斬り／殺し"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TERT"
+output = "用語表(11) ＞ 災厄／不幸（の）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TERT"
+output = "用語表(66) ＞ 未来／希望（の）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "BEHT"
+output = "行動表(11) ＞ 建国（の）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "BEHT"
+output = "行動表(66) ＞ 滅亡（の）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DEST"
+output = "形容表(11) ＞ 闇に潜む"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DEST"
+output = "形容表(66) ＞ 親愛なる"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "NAMT"
+output = "呼び名表(11) ＞ 男／女"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "NAMT"
+output = "呼び名表(66) ＞ 貴公子／令嬢"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TTLT"
+output = "称号表(11) ＞ お坊ちゃま／お嬢様"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TTLT"
+output = "称号表(66) ＞ 斬り／殺し"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "FPNT"
+output = "名文句系二つ名表(11) ＞ またお前か（の）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "FPNT"
+output = "名文句系二つ名表(66) ＞ めっちゃ厳つい"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+

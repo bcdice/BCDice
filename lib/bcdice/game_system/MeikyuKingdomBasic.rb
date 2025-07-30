@@ -87,6 +87,9 @@ module BCDice
           　・由来表 ORIT
           　・誘致表 ATRT
           　・妖精の悪戯表 FAMT
+          ・R&R236関連
+          　・四字熟語系二つ名表／代入命名表／組み合わせ系二つ名表／名文句系二つ名表 FCNT／ASNT／CMNT／FPNT
+          　・形容表／用語表／行動表／呼び名表／称号表 DEST／TERT／BEHT／NAMT／TTLT
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -111,7 +114,8 @@ module BCDice
         'FDBT', 'GIFT', 'NWST', 'EKCT', 'KDHT', 'KDTT', 'CHVT', 'RITT', 'LIMT', 'UNCT', 'POET',
         'HSET', 'DODT', 'INT1', 'INT2', 'GUCT', 'DEMT', 'WLDT', 'INHT', 'NIGT', 'RACT', 'RNCT',
         'HBLT', 'POWT', 'NSET', 'ECBT', 'CUAT', 'CUMT', 'CUNT', 'WEAT', 'PAET', 'MEDT', 'REAT',
-        'HIST', 'PRET', 'LAPT', 'ORIT', 'ATRT', 'FAMT'
+        'HIST', 'PRET', 'LAPT', 'ORIT', 'ATRT', 'FAMT',
+        'FCNT', 'ASNT', 'TERT', 'BEHT', 'DEST', 'NAMT', 'TTLT', 'CMNT', 'FPNT'
       )
 
       def initialize(command)
@@ -139,6 +143,8 @@ module BCDice
         if (output = roll_tables(command, TABLES))
           return output
         elsif (output = roll_tables(command, A2Z_TABLES))
+          return output
+        elsif (output = roll_tables(command, RR236_TABLES))
           return output
         else
 
@@ -305,6 +311,29 @@ module BCDice
             @total = [@randomizer.roll_barabara(2, 6).sum(), @randomizer.roll_once(6)]
             total_n = @total.join(',')
             output = get_currency_material_table(*@total)
+          when /^CMNT/i
+            type = '組み合わせ系二つ名'
+            output, total_n = mk_combination_nickname_table
+          when /^DEST/i
+            type = '形容'
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
+            output = mk_descriptive_table(total_n)
+          when /^TERT/i
+            type = '用語'
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
+            output = mk_terminology_table(total_n)
+          when /^BEHT/i
+            type = '行動'
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
+            output = mk_behavior_table(total_n)
+          when /^NAMT/i
+            type = '呼び名'
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
+            output = mk_rr236_name_table(total_n)
+          when /^TTLT/i
+            type = '称号'
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
+            output = mk_title_table(total_n)
           end
 
           if !output.nil?
@@ -324,3 +353,4 @@ require "bcdice/game_system/meikyu_kingdom_basic/name_table"
 require "bcdice/game_system/meikyu_kingdom_basic/word_table"
 require "bcdice/game_system/meikyu_kingdom_basic/table"
 require "bcdice/game_system/meikyu_kingdom_basic/atoz_table"
+require "bcdice/game_system/meikyu_kingdom_basic/randr236_table"
