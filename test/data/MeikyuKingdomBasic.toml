@@ -2621,7 +2621,7 @@ rands = [
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
 input = "ASNT"
-output = "代入命名表(66) ＞ 贅沢三昧（の）"
+output = "代入命名表(66) ＞ ［用語表］を［行動表］する影"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
