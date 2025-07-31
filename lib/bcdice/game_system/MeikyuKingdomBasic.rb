@@ -65,7 +65,7 @@ module BCDice
           　・限定表 LIMT
           　・固有の文化表 UNCT
           　・後世の評価表 POET
-          　・高レベル特殊遭遇表 HSET
+          　・高レベル特殊遭遇表 KSET
           　・死霊の日々表 DODT
           　・事件名表1／2 INT1／INT2
           　・守護星座表 GUCT
@@ -90,6 +90,12 @@ module BCDice
           ・R&R236関連
           　・四字熟語系二つ名表／代入命名表／組み合わせ系二つ名表／名文句系二つ名表 FCNT／ASNT／CMNT／FPNT
           　・形容表／用語表／行動表／呼び名表／称号表 DEST／TERT／BEHT／NAMT／TTLT
+          ・旅する王国と無名階域関連
+          　・サブキャラクター反応表 CSRT
+          　・スキルグループ表 KSGT
+          　・ダイナマイト帝国:休憩表／特殊遭遇表／二つ名表／名前表 DRET／DSET／DNNT／DNAT
+          　・ハグルマ資本主義神聖共和国:休憩表／特殊遭遇表／二つ名表／名前表 HRET／HSET／HNNT／HNAT
+          　・:休憩表／特殊遭遇表／二つ名表／名前表 MRET／MSET／MNNT／MNAT
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -112,10 +118,11 @@ module BCDice
         'DFT',
         'PNT', 'MLT',
         'FDBT', 'GIFT', 'NWST', 'EKCT', 'KDHT', 'KDTT', 'CHVT', 'RITT', 'LIMT', 'UNCT', 'POET',
-        'HSET', 'DODT', 'INT1', 'INT2', 'GUCT', 'DEMT', 'WLDT', 'INHT', 'NIGT', 'RACT', 'RNCT',
+        'KSET', 'DODT', 'INT1', 'INT2', 'GUCT', 'DEMT', 'WLDT', 'INHT', 'NIGT', 'RACT', 'RNCT',
         'HBLT', 'POWT', 'NSET', 'ECBT', 'CUAT', 'CUMT', 'CUNT', 'WEAT', 'PAET', 'MEDT', 'REAT',
         'HIST', 'PRET', 'LAPT', 'ORIT', 'ATRT', 'FAMT',
-        'FCNT', 'ASNT', 'TERT', 'BEHT', 'DEST', 'NAMT', 'TTLT', 'CMNT', 'FPNT'
+        'FCNT', 'ASNT', 'TERT', 'BEHT', 'DEST', 'NAMT', 'TTLT', 'CMNT', 'FPNT',
+        'CSRT', 'KSGT', 'DRET', 'DSET', 'DNNT', 'DNAT', 'HRET', 'HSET', 'HNNT', 'HNAT'
       )
 
       def initialize(command)
@@ -145,6 +152,8 @@ module BCDice
         elsif (output = roll_tables(command, A2Z_TABLES))
           return output
         elsif (output = roll_tables(command, RR236_TABLES))
+          return output
+        elsif (output = roll_tables(command, TK_TABLES))
           return output
         else
 
@@ -354,3 +363,4 @@ require "bcdice/game_system/meikyu_kingdom_basic/word_table"
 require "bcdice/game_system/meikyu_kingdom_basic/table"
 require "bcdice/game_system/meikyu_kingdom_basic/atoz_table"
 require "bcdice/game_system/meikyu_kingdom_basic/randr236_table"
+require "bcdice/game_system/meikyu_kingdom_basic/tk_table"

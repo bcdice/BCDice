@@ -2047,7 +2047,7 @@ rands = [
 
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
-input = "HSET"
+input = "KSET"
 output = "高レベル特殊遭遇表(1) ＞ 侵攻途中の巨鬼領の軍に遭遇する。【巨鬼英雄】（上級p95）は雄叫びをあげ、【小鬼司令部】（基本p172）は野蛮な戦歌を奏でた。侵攻の前哨戦とばかりに鬼たちは、猛然と宮廷へと襲いかかってきた。宮廷全員はこの戦いの嵐に立ち向かうか、逃げるかを選択する。立ち向かう場合、宮廷全員は〔武勇〕難易度13の判定を行う。失敗した者は［2D6+18－判定の達成値］点のダメージを受ける。逃げることを選択した場合、宮廷の代表は〔探索〕で難易度10の判定を行う。成功すると、宮廷全員はその部屋から通路でつながっている探索済みの部屋へ移動する。失敗した場合、宮廷全員は［2D6+3］点のダメージを受ける。もし「国難」（大冒険p12）の選択ルールを使用している場合、そのセッションの間、自国は「戦乱2」の国難を受ける。"
 rands = [
   { sides = 6, value = 1 },
@@ -2055,7 +2055,7 @@ rands = [
 
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
-input = "HSET"
+input = "KSET"
 output = "高レベル特殊遭遇表(6) ＞ 「汝らは悪しき未来に向かっている」【処罰天使】（大冒険p114）が降臨し、PCたちの国がいかに堕落し、退廃しているかを説く。そして自分たちの罪を認め、贖罪を行うようにうながす。宮廷の代表は〔魅力〕で難易度14の判定を行う。成功すると、【処罰天使】は自分の非を認め、天階へと戻っていく。失敗すると､《民の声》を1D6点減少し､判定を行ったPCは3D6+1点のダメージを受け、《配下》を1D6人減少する。残りの宮廷全員は1D6点のダメージを受ける。"
 rands = [
   { sides = 6, value = 6 },
@@ -2754,6 +2754,184 @@ rands = [
 game_system = "MeikyuKingdomBasic"
 input = "FPNT"
 output = "名文句系二つ名表(66) ＞ めっちゃ厳つい"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CSRT"
+output = "サブキャラクター反応表(1) ＞ 忠誠っぼい反応。サブキャラクターは、メインキャラクターの言動に対して疑問を抱くことが少なく、無批判にその指示に従ってしまうことが多い。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CSRT"
+output = "サブキャラクター反応表(6) ＞ 侮蔑っぽい反応。サブキャラクターは、メインキャラクターの言動に対して、異議や疑問を唱えることが多い。ただし、内心では、その実力を評価している。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "KSGT"
+output = "スキルグループ表(2) ＞ 迷宮"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "KSGT"
+output = "スキルグループ表(12) ＞ 自由に1種を選ぶ"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DRET"
+output = "ダイナマイト帝国休憩表(2) ＞ 念入りに装備の手入れをする。持っている中から武具アイテムを1つ選び、そのアイテムのレベルを1上げる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DRET"
+output = "ダイナマイト帝国休憩表(12) ＞ なにげない雑談から喧嘩になり、やがて武器を抜いた大立ち回りに発展する。奇跡的に怪我はなかったが……。宮廷全員の宮廷全員に対する《敵意》を1点上昇する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DSET"
+output = "ダイナマイト帝国特殊遭遇表(2) ＞ あたりに満ちる暴力の気配に身がすくんでしまう。各PCは【お酒】を1個使用できる。使用しなかったPCはそのセッションの間、《HP》最大値を5点減少する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DSET"
+output = "ダイナマイト帝国特殊遭遇表(12) ＞ 食べ物の匂いを嗅ぎつけて、無数の餓鬼が集まってくる。宮廷全口が全ての「肉」の素材を差し出す。もしくは宮廷全員は《HP》を2D6点減少する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DNNT"
+output = "ダイナマイト帝国二つ名表(11) ＞ 猪突猛進（の）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DNNT"
+output = "ダイナマイト帝国二つ名表(66) ＞ 国士無双（の）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DNAT"
+output = "ダイナマイト帝国名前表(11) ＞ バルディッシュ／カタナ"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "DNAT"
+output = "ダイナマイト帝国名前表(66) ＞ チェインメイル／ラメラーアーマー"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HRET"
+output = "ハグルマ資本主義神聖共和国休憩表(2) ＞ フリーランサーの一団と遭遇する。《予算》を1D6MG消費するたび、彼らを1人雇うことができる。彼ら1人雇うたび、そのセッションの間、好きなキャラクター1人の能力値1つか国力1つを1点上昇する。ただし、複数人雇っても、同じキャラクターの能力面を2点以上伸ばすことはできない。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HRET"
+output = "ハグルマ資本主義神聖共和国休憩表(12) ＞ 著作権代理人が走りこんできて、あなたの書いた冒険記が百万迷宮全域で大ヒットしたという奇跡的なニュースを伝えてくれる。《予算》を1D6MG獲得する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HSET"
+output = "ハグルマ資本主義神聖共和国特殊遭遇表(2) ＞ こんな国じゃ酒でも飲まないとやっていけない。各PCは【お酒】を1個使用できる。使用しなかったPCは、そのセッションの間、好きなスキル1種類を選び、それを喪失する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HSET"
+output = "ハグルマ資本主義神聖共和国特殊遭遇表(12) ＞ 突然壁が崩れ、明らかに理性を失っている【人工天使】が現れると、止める間もなくあなたに襲いかかってくる。そして【人工天使】は天に向けて鬨の声をあげると、腐って崩壊する。宮廷の代表は《配下》を2D6人減少する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HNNT"
+output = "ハグルマ資本主義神聖共和国二つ名表(11) ＞ 立身出世（の）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HNNT"
+output = "ハグルマ資本主義神聖共和国二つ名表(66) ＞ 適材適所（の）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HNAT"
+output = "ハグルマ資本主義神聖共和国名前表(11) ＞ 開拓／教義部"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HNAT"
+output = "ハグルマ資本主義神聖共和国名前表(66) ＞ 怪物／監査室"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
