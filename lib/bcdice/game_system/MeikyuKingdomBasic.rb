@@ -57,7 +57,6 @@ module BCDice
           ・百万世界AtoZ関連
           　・ご祝儀表 GIFT
           　・ニュース表 NWST
-          　・遠征王国変動表 EKCT
           　・王国ハプニング表 KDHT
           　・王国試練表 KDTT
           　・騎士道表 CHVT
@@ -95,7 +94,10 @@ module BCDice
           　・スキルグループ表 KSGT
           　・ダイナマイト帝国:休憩表／特殊遭遇表／二つ名表／名前表 DRET／DSET／DNNT／DNAT
           　・ハグルマ資本主義神聖共和国:休憩表／特殊遭遇表／二つ名表／名前表 HRET／HSET／HNNT／HNAT
-          　・:休憩表／特殊遭遇表／二つ名表／名前表 MRET／MSET／MNNT／MNAT
+          　・メトロ汗国:休憩表／特殊遭遇表／二つ名表／名前表 MRET／MSET／MNNT／MNAT
+          　・千年王朝:休憩表／特殊遭遇表／二つ名表／名前表 TRET／TSET／TNNT／TNAT
+          　・遠征王国変動表／遠征道中表 EKCT／EXITx (x:修正)
+          　・候補生背景表 CABT
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -122,7 +124,8 @@ module BCDice
         'HBLT', 'POWT', 'NSET', 'ECBT', 'CUAT', 'CUMT', 'CUNT', 'WEAT', 'PAET', 'MEDT', 'REAT',
         'HIST', 'PRET', 'LAPT', 'ORIT', 'ATRT', 'FAMT',
         'FCNT', 'ASNT', 'TERT', 'BEHT', 'DEST', 'NAMT', 'TTLT', 'CMNT', 'FPNT',
-        'CSRT', 'KSGT', 'DRET', 'DSET', 'DNNT', 'DNAT', 'HRET', 'HSET', 'HNNT', 'HNAT'
+        'CSRT', 'KSGT', 'DRET', 'DSET', 'DNNT', 'DNAT', 'HRET', 'HSET', 'HNNT', 'HNAT', 'MRET',
+        'MSET', 'MNNT', 'MNAT', 'EXIT', 'TRET', 'TSET', 'TNNT', 'TNAT', 'CABT'
       )
 
       def initialize(command)
@@ -130,6 +133,7 @@ module BCDice
 
         @sort_add_dice = true
         @d66_sort_type = D66SortType::ASC
+        @round_type = RoundType::CEIL
       end
 
       def kiryoku_result(_total_n, dice_list, _diff)
@@ -343,6 +347,10 @@ module BCDice
             type = '称号'
             total_n = @randomizer.roll_d66(D66SortType::ASC)
             output = mk_title_table(total_n)
+          when /^EXIT([-+]?\d*)/i
+            type = '遠征道中'
+            modify = get_modify(Regexp.last_match(1))
+            output, total_n = get_expedition_itinerary_table(modify)
           end
 
           if !output.nil?

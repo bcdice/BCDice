@@ -2937,3 +2937,199 @@ rands = [
   { sides = 6, value = 6 },
 ]
 
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MRET"
+output = "メトロ汗国休憩表(2) ＞ 焚き火を囲んだ食事に、いつの間にか名のある公主が紛れ込んでいた。彼女は料理を気に入ったようだ。ランダムにレア一般アイテムを1個選ぶ。望むなら、そのレア一般アイテムを、宮廷が持っている好きなレアアイテム1個と交換してくれる。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MRET"
+output = "メトロ汗国休憩表(12) ＞ ぼんやりしていたら列車に轢かれてしまう。〔探索〕で難易度11の判定を行う。成功すると、奇跡的に助かったあなたは神に祝福された人間として民の崇敬を集め、《民の声》を4点回復する。失敗すると《HP》を1点にする。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MSET"
+output = "メトロ汗国特殊遭遇表(2) ＞ すごい速さで迷宮を駆け抜けるメトロの民に圧倒され、自分の鈍重さが嫌になる。各PCは【お酒】を1個使用できる。使用しなかったPCは、そのセッションの間、《回避値》が2点減少する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MSET"
+output = "メトロ汗国特殊遭遇表(12) ＞ この先は、どうやら列車でしか移動できなさそうだが、今日の終電が行ってしまったらしい。こうなってしまっては朝を待つしかない。次のターンの開始までクォーターが経過する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MNNT"
+output = "メトロ汗国二つ名表(11) ＞ 海千山千（の）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MNNT"
+output = "メトロ汗国二つ名表(66) ＞ 電光石火（の）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MNAT"
+output = "メトロ汗国名前表(11) ＞ ヤマノテドラコン／アクアマリン（藍玉）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "MNAT"
+output = "メトロ汗国名前表(66) ＞ エンシェントドラゴン／ルビー（紅玉）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "EXIT"
+output = "遠征道中表(2) ＞ 暴動。遠征中、民の不満が爆発し、暴動が発生してしまう。自国の中から発生箇所をランダムに1部屋選ぶ。〔治安レベル〕で難易度［7+遠征道中表の使用回数］の判定を行う。失敗すると、発生箇所が部屋ダメージを受け、自国の《民》を［王国レベル］D6人減少する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "EXIT"
+output = "遠征道中表(12) ＞ 絶景。なんて景色だ！こんな場所は見たことがない！民たちは見たことのない光景に興奮している。《民の声》を1点回復し、PC全員は《気力》1点を回復する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "EXIT-2"
+output = "遠征道中表(0) ＞ 侵略。あなたたちの王国を狙う勢力が、その不利な状況をついて襲撃してくる。周辺から発生箇所を3部屋、自国の【王宮】のある部屋の中から発生箇所を1部屋選ぶ。〔軍事レベル〕で難易度9の判定を行う。失敗すると、発生箇所が部屋ダメージを受ける。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "EXIT+2"
+output = "遠征道中表(14) ＞ 平穏な旅。何事もなく遠征が一区切りつき、民たちにも安堵の色がうかがえる。《民の声》を1点回復し、PC各自は「行動の処理」を1回行う。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TRET"
+output = "千年王朝休憩表(2) ＞ 床の模様につまずいて、悪魔を閉じ込めていた太古の封印を破ってしまう。悪魔は配下を捧げれば、力を与えると言ってくる。《配下》を2D6人消費すると、ランダムに選んだレア武具アイテム1個を獲得する。ただし、レア武具アイテムを獲得すると、《民の声》を1点減少する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TRET"
+output = "千年王朝休憩表(12) ＞ この場所は昔行われた魔法実験で汚染されていた！体の一部が、GMの選んだモンスターの体のようになる。そのセッションの間、星術、召喚、科学のスキルを使用するための判定でサイコロを1個余分に振ることができるようになる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TSET"
+output = "千年王朝特殊遭遇表(2) ＞ これだけの人が災厄王の帰還を二千年も待ち望んでいる。それと自分を比べてブルーになってしまう。各PCは【お酒】を1個使用できる。使用しなかったPCは、そのセッションの間、《配下》の最大値を2点減少する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TSET"
+output = "千年王朝特殊遭遇表(12) ＞ 部屋の片隅を破壊しながら【星首】がかすめてゆく。幸い襲い掛かってくることはなかったが…… 。宮廷が持つ【星の欠片】を1D6個消費する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TNNT"
+output = "千年王朝二つ名表(11) ＞ 清廉潔白（の）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TNNT"
+output = "千年王朝二つ名表(66) ＞ 乾坤一擲（の）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TNAT"
+output = "千年王朝名前表(11) ＞ ヴェガ／カモシカ"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TNAT"
+output = "千年王朝名前表(66) ＞ ワズン／メイプル"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CABT"
+output = "候補生背景表(1) ＞ 憧れの人。あなたは自国のランドメイカーに憧れ、その人のようになりたくて候補生を目指した。宮廷の候補生以外のキャラクターの中から、憧れの人を1人選ぶ。あなたの【使命】は、その人と互いに対する《好意》を4点以上にすることである。【使命】を達成するまで憧れの人から自分に対する《好意》が1点上昇するたび．自分の《気力》を1点回復する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "CABT"
+output = "候補生背景表(6) ＞ 劣等感。あなたは、とある王国のランドメイカーの子として生まれた。あなたの家族は、みな優秀でランドメイカーや逸材として王国に頁献していたが、あなたは力を発揮できる場所がなく、家族に対する劣等感を持ったままその国を去った。その後、あなたはこの国にたどりつき、力足りないながらも剣をとった。GMと相談して、故郷と家族の設定を決めること。あなたの【使命】は家族に対する劣等感を払拭することである。払拭できたかどうかはGMが判断すること。【使命】を運成するまで自分が絶対失敗しても《民の声》は減少しない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
