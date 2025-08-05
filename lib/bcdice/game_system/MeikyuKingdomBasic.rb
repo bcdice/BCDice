@@ -32,9 +32,11 @@ module BCDice
           　・お宝表１／２／３／４／５ T1T／T2T／T3T／T4T／T5T
           　・特殊遭遇表 SE
           　　　上級：人工 ARN／水域 WEN／自然 NEN／洞窟 CEN／天空 SEN／異界 OEN
+          　・他国との関係表 ORT
           ・潜在能力：スキル決定表 SDT
           　　基本：肉弾 BUS／射撃 SHS／星術 ASS／召喚 SUS／科学 SCS
           　　　　　迷宮 LAS／交渉 NES／便利 COS／芸能 ENS／道具 TOS
+          　　　　　一般 GES
           　　上級：肉弾 ABUS／射撃 ASHS／星術 AASS／召喚 ASUS／科学 ASCS
           　　　　　迷宮 ALAS／交渉 ANES／便利 ACOS／芸能 AENS／道具 ATOS
           ・アイテム関連（上級不使用の場合、カッコ書きのものを使用して下さい）
@@ -138,7 +140,7 @@ module BCDice
         'HNAT', 'MRET', 'MSET', 'MNNT', 'MNAT', 'EXIT', 'TRET', 'TSET', 'TNNT', 'TNAT', 'CABT',
         'AJTA', 'AJTB', 'FOBT', 'KAET', 'KART', 'TEET', 'TERT', 'HKRT', 'EQDT', 'GART', 'FUET',
         'RBLT', 'TKET', 'GPHT',
-        'TKNT1', 'TKNT2', 'TKNT3'
+        'TKNT1', 'TKNT2', 'TKNT3', 'GES', 'ORT'
       )
 
       def initialize(command)

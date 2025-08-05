@@ -3430,3 +3430,46 @@ rands = [
   { sides = 6, value = 6 },
 ]
 
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "GES"
+output = "基本一般表(11) ＞ 名乗る"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "GES"
+output = "基本一般表(21) ＞ 名乗る"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "GES"
+output = "基本一般表(66) ＞ 好きこそ上手"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "ORT"
+output = "他国との関係表(1) ＞ 同盟"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "ORT"
+output = "他国との関係表(6) ＞ 敵対"
+rands = [
+  { sides = 6, value = 6 },
+]
+
