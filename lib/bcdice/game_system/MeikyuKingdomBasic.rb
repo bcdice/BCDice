@@ -88,7 +88,7 @@ module BCDice
           　・妖精の悪戯表 FAMT
           ・R&R236関連
           　・四字熟語系二つ名表／代入命名表／組み合わせ系二つ名表／名文句系二つ名表 FCNT／ASNT／CMNT／FPNT
-          　・形容表／用語表／行動表／呼び名表／称号表 DEST／TERT／BEHT／NAMT／TTLT
+          　・形容表／用語表／行動表／呼び名表／称号表 DEST／TRMT／BEHT／NAMT／TTLT
           ・旅する王国と無名階域関連
           　・サブキャラクター反応表 CSRT
           　・スキルグループ表 KSGT
@@ -97,7 +97,17 @@ module BCDice
           　・メトロ汗国:休憩表／特殊遭遇表／二つ名表／名前表 MRET／MSET／MNNT／MNAT
           　・千年王朝:休憩表／特殊遭遇表／二つ名表／名前表 TRET／TSET／TNNT／TNAT
           　・遠征王国変動表／遠征道中表 EKCT／EXITx (x:修正)
-          　・候補生背景表 CABT
+          　・候補生背景表／職長背景表 CABT／FOBT
+          　・上級ジョブ表・甲／乙 AJTA／AJTB
+          　・深階休憩表／特殊遭遇表 KART／KAET
+          　・天階休憩表／特殊遭遇表 TERT／TEET
+          　・星の階休憩表 HKRT
+          　・装備決定表 EQDT
+          　・大冒険時代表 GART
+          　・燃料表 FUET
+          　・反乱表 RBLT
+          　・旅する王国環境表／王国名決定表1／王国名決定表2／王国名決定表3 TKET／TKNT1／TKNT2／TKNT3
+          　・列強経歴表 GPHT
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -123,9 +133,12 @@ module BCDice
         'KSET', 'DODT', 'INT1', 'INT2', 'GUCT', 'DEMT', 'WLDT', 'INHT', 'NIGT', 'RACT', 'RNCT',
         'HBLT', 'POWT', 'NSET', 'ECBT', 'CUAT', 'CUMT', 'CUNT', 'WEAT', 'PAET', 'MEDT', 'REAT',
         'HIST', 'PRET', 'LAPT', 'ORIT', 'ATRT', 'FAMT',
-        'FCNT', 'ASNT', 'TERT', 'BEHT', 'DEST', 'NAMT', 'TTLT', 'CMNT', 'FPNT',
-        'CSRT', 'KSGT', 'DRET', 'DSET', 'DNNT', 'DNAT', 'HRET', 'HSET', 'HNNT', 'HNAT', 'MRET',
-        'MSET', 'MNNT', 'MNAT', 'EXIT', 'TRET', 'TSET', 'TNNT', 'TNAT', 'CABT'
+        'FCNT', 'ASNT', 'TRMT', 'BEHT', 'DEST', 'NAMT', 'TTLT',
+        'CMNT', 'FPNT', 'CSRT', 'KSGT', 'DRET', 'DSET', 'DNNT', 'DNAT', 'HRET', 'HSET', 'HNNT',
+        'HNAT', 'MRET', 'MSET', 'MNNT', 'MNAT', 'EXIT', 'TRET', 'TSET', 'TNNT', 'TNAT', 'CABT',
+        'AJTA', 'AJTB', 'FOBT', 'KAET', 'KART', 'TEET', 'TERT', 'HKRT', 'EQDT', 'GART', 'FUET',
+        'RBLT', 'TKET', 'GPHT',
+        'TKNT1', 'TKNT2', 'TKNT3'
       )
 
       def initialize(command)
@@ -331,7 +344,7 @@ module BCDice
             type = '形容'
             total_n = @randomizer.roll_d66(D66SortType::ASC)
             output = mk_descriptive_table(total_n)
-          when /^TERT/i
+          when /^TRMT/i
             type = '用語'
             total_n = @randomizer.roll_d66(D66SortType::ASC)
             output = mk_terminology_table(total_n)

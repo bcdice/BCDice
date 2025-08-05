@@ -2653,7 +2653,7 @@ rands = [
 
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
-input = "TERT"
+input = "TRMT"
 output = "用語表(11) ＞ 災厄／不幸（の）"
 rands = [
   { sides = 6, value = 1 },
@@ -2662,7 +2662,7 @@ rands = [
 
 [[ test ]]
 game_system = "MeikyuKingdomBasic"
-input = "TERT"
+input = "TRMT"
 output = "用語表(66) ＞ 未来／希望（の）"
 rands = [
   { sides = 6, value = 6 },
@@ -3129,6 +3129,303 @@ rands = [
 game_system = "MeikyuKingdomBasic"
 input = "CABT"
 output = "候補生背景表(6) ＞ 劣等感。あなたは、とある王国のランドメイカーの子として生まれた。あなたの家族は、みな優秀でランドメイカーや逸材として王国に頁献していたが、あなたは力を発揮できる場所がなく、家族に対する劣等感を持ったままその国を去った。その後、あなたはこの国にたどりつき、力足りないながらも剣をとった。GMと相談して、故郷と家族の設定を決めること。あなたの【使命】は家族に対する劣等感を払拭することである。払拭できたかどうかはGMが判断すること。【使命】を運成するまで自分が絶対失敗しても《民の声》は減少しない。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "AJTB"
+output = "上級ジョブ表・乙(11) ＞ 勇者（基本p.239）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "AJTB"
+output = "上級ジョブ表・乙(66) ＞ 大使（大冒険p.67）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "AJTA"
+output = "上級ジョブ表・甲(11) ＞ 勇者（基本p.239）"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "AJTA"
+output = "上級ジョブ表・甲(21) ＞ 夢売り（上級p.56）"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "AJTA"
+output = "上級ジョブ表・甲(66) ＞ 工作員（大冒険p.57）"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "FOBT"
+output = "職長背景表(1) ＞ 教え子。あなたには、あなたが見込んだ弟子が1人いる。あなたは、この弟子を育てて一人前にしたいと思っている。自国の《民》の中から弟子を1人選び、設定を決めること。弟子は、あなたが冒険におもむくときは必ずあなたの《特殊配下》として同行する。あなたの【使命】は、弟子を目分と同じジョブの逸材にすることである。【使命】を達成するまで、《特殊配下》に弟子がいる場合、1セッションに1度、キャンプ中に判定を必要としない支援行動を追加で1回行うことができる。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "FOBT"
+output = "職長背景表(6) ＞ ブランド。あなたは自分の技術にまつわるブランドを持っている。その名声を喧伝したいと思っている。名物の選択ルールを使って、あなたのブランドを名物として設定すること。名物の名前やカテゴリは、あなたのジョブやその技術にちなんだものにする。あなたの【使命】は、その名物のレベルを4以上にすることである。【使命】を達成するまで、セッション開始時に《民の声》を1点回復することができる。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "KAET"
+output = "深階特殊遭遇表(1) ＞ 深階の暗闇の中をぼんやりとした光が漂っている。【夜這い海星】だ。配下たちは虚ろな目になり、その光を目指して夢遊病のように歩き出す。PC全員は〔才覚〕で難易度9の判定を行う。失敗したPCは、《配下》を1D6人減少する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "KAET"
+output = "深階特殊遭遇表(6) ＞ 濡れた床に足をとられ、思わず手にしていた武器を泉に落としてしまう。PCの中からランダムに1人を選ぶ。そのPCは、自分の装備している武具アイテムの中からランダムに1個を選び、それを消費する。その後、泉の中から【ニーニアン】が現れ、「あなたの落としたのはこの【貪る者】でしょうか？ それとも【滅ぼす者】でしょうか？」と訊ねてくる。正直に答えると【ニーニアン】は泉に消える。いずれかのレア武具アイテムだと答えると、武器を落としたPCは〔魅力〕で難易度16の判定を行う。成功すると、そのレア武具アイテム1個を獲得する。失敗すると［2D6+5］点のダメージと「呪い4」の変調を受ける。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "KART"
+output = "深階休憩表(2) ＞ 深階の闇の中で真実に気づき始める。ここで生き残るために必要なのは理性ではない。狂気だ。宮廷の中で《気力》が0点のキャラクターは《気力》を1D6点回復する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "KART"
+output = "深階休憩表(12) ＞ 目の前の扉が突然開くと、そこには宝箱があった。値打ち物を見つけることができるかもしれない！【エレベータ】を発見する。そして、〔探索〕で難易度9の判定を行う。成功すると、ランダムに武具アイテム1種を選ぶ。2レベルのそのアイテム1個を獲得する。失敗すると、【大爆発】（基本p.151）のトラップの効果が発生する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HKRT"
+output = "星の階休憩表(2) ＞ 星の階からあなたに、「予備動力を使い、攻撃のためのエネルギーを1回分充填しました」という通信が入る。宮廷の代表は、砲撃と同じ処理を1度行うことができる（施設は必要ない）。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "HKRT"
+output = "星の階休憩表(12) ＞ 船内に密航者がいるのを発見した。こんな時だ、罰を与えるかわりに働いてもらおう。「生まれ決定表」（基本p.24）でランダムにジョブを決めた逸材が1人増える。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "EQDT"
+output = "装備決定表(1) ＞ あなたの国は防御対策を重視している。自国に【バリケード】を1軒建設する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "EQDT"
+output = "装備決定表(6) ＞ あなたの国は色々な場所を旅できるよう設計されている。自国に【機動装置】を1軒建設する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "GART"
+output = "大冒険時代表(1) ＞ 美しい天使と出会い、宮廷のほかのメンバーを巻き込んだ大恋愛に発展する。その後、悲劇的な別れを経験し、人間的な成長を遂げた。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "GART"
+output = "大冒険時代表(6) ＞ 天階の戦争に巻き込まれる。羽根兜の乙女に見込まれ、護国天使らと共に深人と戦う。生きるか死ぬかの日々のなかで、戦闘技術が研ぎ澄まされていく。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TEET"
+output = "天階特殊遭遇表(1) ＞ 冬星が輝きだし、周囲の気温が下がり始める。【冬将軍】が現れたようだ。彼はPCたちの行いが正しいかどうかを判断しに来たようだ。そのセッション中に、PCが正当な理由なく弱者を踏みにじったり、搾取したりしていた場合、宮廷全員の《HP》を現在値の半分の値にする。PCたちが、そのセッション中に、そうした振る舞いをしていなかった場合、贈り物を1つくれる。ランダムにレア一般アイテム1種を選ぶ。宮廷の代表は、1レベルのそのアイテム1個を獲得する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TEET"
+output = "天階特殊遭遇表(6) ＞ 遥か遠くに【浮遊宮殿】が見える。距離は離れているはずなのに、恐ろしく巨大だ。その異質な様相に恐怖し、体がすくんでくる。PC全員は〔武勇〕で難易度15の判定を行う。失敗したキャラクターは《配下》が［判定の難易度－判定の達成値］人王国に帰還する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TERT"
+output = "天階休憩表(2) ＞ 高音が響き渡る。いつの間にか仲間の姿は消え、誰もいない真っ青な空間に1人浮かんでいる。過去や未来の幻があなたの周囲を通り抜けていく。「天階休憩表」をあと2回使用する。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TERT"
+output = "天階休憩表(12) ＞ 扉がぽつんと立っているのを見つける。それが開き、不思議そうな表情をした人々が現れた。彼らは、口々に自分は死んだはずだと言っている。もしかすると天階側の昇降機なんだろうか？【エレベータ】を発見する。そして、《配下》を1D6人獲得し、宮廷に自由に割り振ることができる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "FUET"
+output = "燃料表(1) ＞ 火薬"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "FUET"
+output = "燃料表(6) ＞ 木"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "RBLT"
+output = "反乱表(1) ＞ 退廃。豪傑は、冗談めかしてほかの逸材にランドメイカーの不満を話す。自国の逸材の中からランダムに選んだ1人の《野望》が［1D6×1/2］点上昇する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "RBLT"
+output = "反乱表(6) ＞ 翻意。時はまだ熟していない。豪傑は、そう判断して反乱を延期する。その豪傑の《野望》を1点減少する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TKET"
+output = "旅する王国環境表(1) ＞ あなたの国は独自の技術が発展している。「技術決定表」（基本p.15）を使用する。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TKET"
+output = "旅する王国環境表(6) ＞ あなたの国は特殊な血筋の末裔である。「血族決定表」（基本p.16）を使用する。"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TKNT1"
+output = "旅する王国名決定表1(11) ＞ 宇宙/秘境/最終/空飛ぶ"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TKNT1"
+output = "旅する王国名決定表1(66) ＞ 大/未確認/コンビニ/たゆたう"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TKNT2"
+output = "旅する王国名決定表2(11) ＞ 軍艦/大陸/廃園/鬼神"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TKNT2"
+output = "旅する王国名決定表2(66) ＞ （の、する）足/温泉/旅館/精霊"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TKNT3"
+output = "旅する王国名決定表3(11) ＞ フジヤマ/イカルガ/ラプラス/ヴァイス"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "TKNT3"
+output = "旅する王国名決定表3(66) ＞ フブキ/ヒサメ/エンデバー/ラブクラフト"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "GPHT"
+output = "列強経歴表(1) ＞ あなたは元々列強で生まれた。生家で問題を起こして、国を飛び出した。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MeikyuKingdomBasic"
+input = "GPHT"
+output = "列強経歴表(6) ＞ あなたは実は列強の有力者の子息である。行儀見習いとして、PCたちの王国に滞在していた。"
 rands = [
   { sides = 6, value = 6 },
 ]
