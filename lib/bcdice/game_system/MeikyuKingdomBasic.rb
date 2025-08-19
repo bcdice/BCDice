@@ -23,6 +23,7 @@ module BCDice
           ・各種表
           　・休憩表：才覚 TBT／魅力 CBT／探索 SBT／武勇 VBT
                      お祭り FBT／空振り EBT／全体 WBT／カップル LBT
+                     お食事 FDBT
           　・ハプニング表：才覚 THT／魅力 CHT／探索 SHT／武勇 VHT
           　・視察表 RT／情報収集表 IG／ランダムマップ選択表 RMS
           　・痛打表 CAT／致命傷表 FWT／戦闘ファンブル表 CFT
@@ -31,9 +32,11 @@ module BCDice
           　・お宝表１／２／３／４／５ T1T／T2T／T3T／T4T／T5T
           　・特殊遭遇表 SE
           　　　上級：人工 ARN／水域 WEN／自然 NEN／洞窟 CEN／天空 SEN／異界 OEN
+          　・他国との関係表 ORT
           ・潜在能力：スキル決定表 SDT
           　　基本：肉弾 BUS／射撃 SHS／星術 ASS／召喚 SUS／科学 SCS
           　　　　　迷宮 LAS／交渉 NES／便利 COS／芸能 ENS／道具 TOS
+          　　　　　一般 GES
           　　上級：肉弾 ABUS／射撃 ASHS／星術 AASS／召喚 ASUS／科学 ASCS
           　　　　　迷宮 ALAS／交渉 ANES／便利 ACOS／芸能 AENS／道具 ATOS
           ・アイテム関連（上級不使用の場合、カッコ書きのものを使用して下さい）
@@ -53,6 +56,60 @@ module BCDice
           　・生まれ決定表 BDT／生まれ表：才覚 TBO／魅力 CBO／探索 SBO／武勇 VBO
           　・初期装備表 IEQ
         　・地名決定表　PNTx (xは個数)／迷宮風景表 MLTx (xは個数)
+          ・百万世界AtoZ関連
+          　・ご祝儀表 GIFT
+          　・ニュース表 NWST
+          　・王国ハプニング表 KDHT
+          　・王国試練表 KDTT
+          　・騎士道表 CHVT
+          　・儀式表 RITT
+          　・限定表 LIMT
+          　・固有の文化表 UNCT
+          　・後世の評価表 POET
+          　・高レベル特殊遭遇表 KSET
+          　・死霊の日々表 DODT
+          　・事件名表1／2 INT1／INT2
+          　・守護星座表 GUCT
+          　・需要表 DEMTx (x:名物レベル)
+          　・小鬼と一緒表 WLDT
+          　・侵略ハプニング表 INHT
+          　・新・情報収集表 NIGT
+          　・人種特徴表／人種名文字表 RACT／RNCTx (x:文字数)
+          　・迷宮化現象表／人体迷宮化表 HBLT／LAPT
+          　・勢力表 POWT
+          　・中立特殊遭遇表 NSET
+          　・超協調行動表 ECBT
+          　・通貨外見表／通貨材質表／通貨名称表 CUAT／CUMT／CUNT
+          　・天候表 WEAT
+          　・毒の追加効果表 PAET
+          　・媒体表 MEDT
+          　・反応表／民の反応表 REAT／PRET
+          　・遍歴表 HIST
+          　・由来表 ORIT
+          　・誘致表 ATRT
+          　・妖精の悪戯表 FAMT
+          ・R&R236関連
+          　・四字熟語系二つ名表／代入命名表／組み合わせ系二つ名表／名文句系二つ名表 FCNT／ASNT／CMNT／FPNT
+          　・形容表／用語表／行動表／呼び名表／称号表 DEST／TRMT／BEHT／NAMT／TTLT
+          ・旅する王国と無名階域関連
+          　・サブキャラクター反応表 CSRT
+          　・スキルグループ表 KSGT
+          　・ダイナマイト帝国:休憩表／特殊遭遇表／二つ名表／名前表 DRET／DSET／DNNT／DNAT
+          　・ハグルマ資本主義神聖共和国:休憩表／特殊遭遇表／二つ名表／名前表 HRET／HSET／HNNT／HNAT
+          　・メトロ汗国:休憩表／特殊遭遇表／二つ名表／名前表 MRET／MSET／MNNT／MNAT
+          　・千年王朝:休憩表／特殊遭遇表／二つ名表／名前表 TRET／TSET／TNNT／TNAT
+          　・遠征王国変動表／遠征道中表 EKCT／EXITx (x:修正)
+          　・候補生背景表／職長背景表 CABT／FOBT
+          　・上級ジョブ表・甲／乙 AJTA／AJTB
+          　・深階休憩表／特殊遭遇表 KART／KAET
+          　・天階休憩表／特殊遭遇表 TERT／TEET
+          　・星の階休憩表 HKRT
+          　・装備決定表 EQDT
+          　・大冒険時代表 GART
+          　・燃料表 FUET
+          　・反乱表 RBLT
+          　・旅する王国環境表／王国名決定表1／王国名決定表2／王国名決定表3 TKET／TKNT1／TKNT2／TKNT3
+          　・列強経歴表 GPHT
          ・D66ダイスあり
       INFO_MESSAGE_TEXT
 
@@ -73,7 +130,17 @@ module BCDice
         'ABUS', 'ASHS', 'AASS', 'ASUS', 'ASCS', 'ALAS', 'ANES', 'ACOS', 'AENS', 'ATOS',
         'SE', 'ARN', 'WEN', 'NEN', 'CEN', 'SEN', 'OEN',
         'DFT',
-        'PNT', 'MLT'
+        'PNT', 'MLT',
+        'FDBT', 'GIFT', 'NWST', 'EKCT', 'KDHT', 'KDTT', 'CHVT', 'RITT', 'LIMT', 'UNCT', 'POET',
+        'KSET', 'DODT', 'INT1', 'INT2', 'GUCT', 'DEMT', 'WLDT', 'INHT', 'NIGT', 'RACT', 'RNCT',
+        'HBLT', 'POWT', 'NSET', 'ECBT', 'CUAT', 'CUMT', 'CUNT', 'WEAT', 'PAET', 'MEDT', 'REAT',
+        'HIST', 'PRET', 'LAPT', 'ORIT', 'ATRT', 'FAMT',
+        'FCNT', 'ASNT', 'TRMT', 'BEHT', 'DEST', 'NAMT', 'TTLT',
+        'CMNT', 'FPNT', 'CSRT', 'KSGT', 'DRET', 'DSET', 'DNNT', 'DNAT', 'HRET', 'HSET', 'HNNT',
+        'HNAT', 'MRET', 'MSET', 'MNNT', 'MNAT', 'EXIT', 'TRET', 'TSET', 'TNNT', 'TNAT', 'CABT',
+        'AJTA', 'AJTB', 'FOBT', 'KAET', 'KART', 'TEET', 'TERT', 'HKRT', 'EQDT', 'GART', 'FUET',
+        'RBLT', 'TKET', 'GPHT',
+        'TKNT1', 'TKNT2', 'TKNT3', 'GES', 'ORT'
       )
 
       def initialize(command)
@@ -81,6 +148,7 @@ module BCDice
 
         @sort_add_dice = true
         @d66_sort_type = D66SortType::ASC
+        @round_type = RoundType::CEIL
       end
 
       def kiryoku_result(_total_n, dice_list, _diff)
@@ -99,6 +167,12 @@ module BCDice
         total_n = ""
 
         if (output = roll_tables(command, TABLES))
+          return output
+        elsif (output = roll_tables(command, A2Z_TABLES))
+          return output
+        elsif (output = roll_tables(command, RR236_TABLES))
+          return output
+        elsif (output = roll_tables(command, TK_TABLES))
           return output
         else
 
@@ -248,6 +322,50 @@ module BCDice
           when /^ATOS/i
             type = '上級道具スキル'
             output, total_n = mk_advanced_tool_skill_table
+          when /^GUCT/i
+            type = '守護星座'
+            total_n = @randomizer.roll_once(6) * 100 + @randomizer.roll_once(6) * 10 + @randomizer.roll_once(6)
+            output = mk_guardian_constellation_table(total_n)
+          when /^DEMT(\d+)/i
+            type = '需要'
+            count = getCount(Regexp.last_match(1))
+            output, total_n = get_demand_table(count)
+          when /^RNCT(\d*)/i
+            type = '人種名文字'
+            count = getCount(Regexp.last_match(1))
+            output, total_n = get_race_name_character_table(count)
+          when /^CUMT/i
+            type = '通貨材質'
+            @total = [@randomizer.roll_barabara(2, 6).sum(), @randomizer.roll_once(6)]
+            total_n = @total.join(',')
+            output = get_currency_material_table(*@total)
+          when /^CMNT/i
+            type = '組み合わせ系二つ名'
+            output, total_n = mk_combination_nickname_table
+          when /^DEST/i
+            type = '形容'
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
+            output = mk_descriptive_table(total_n)
+          when /^TRMT/i
+            type = '用語'
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
+            output = mk_terminology_table(total_n)
+          when /^BEHT/i
+            type = '行動'
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
+            output = mk_behavior_table(total_n)
+          when /^NAMT/i
+            type = '呼び名'
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
+            output = mk_rr236_name_table(total_n)
+          when /^TTLT/i
+            type = '称号'
+            total_n = @randomizer.roll_d66(D66SortType::ASC)
+            output = mk_title_table(total_n)
+          when /^EXIT([-+]?\d*)/i
+            type = '遠征道中'
+            modify = get_modify(Regexp.last_match(1))
+            output, total_n = get_expedition_itinerary_table(modify)
           end
 
           if !output.nil?
@@ -261,9 +379,11 @@ module BCDice
     end
   end
 end
-
 require "bcdice/game_system/meikyu_kingdom_basic/item_table"
 require "bcdice/game_system/meikyu_kingdom_basic/kingdom_table"
 require "bcdice/game_system/meikyu_kingdom_basic/name_table"
 require "bcdice/game_system/meikyu_kingdom_basic/word_table"
 require "bcdice/game_system/meikyu_kingdom_basic/table"
+require "bcdice/game_system/meikyu_kingdom_basic/atoz_table"
+require "bcdice/game_system/meikyu_kingdom_basic/randr236_table"
+require "bcdice/game_system/meikyu_kingdom_basic/tk_table"
