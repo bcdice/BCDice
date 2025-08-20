@@ -1,0 +1,7 @@
+ko_kr:
+  Emoklore:
+    success_count: "성공 수 %{count},"
+    double: 더블
+    triple: 트리플
+    miracle: 미라클
+    catastrophe: 카타스트로프
