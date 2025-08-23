@@ -1,5 +1,10 @@
 # Change Log
 
+## 3.16.1 2025/08/23
+
+### バグ修正
+- [Revulture:Korean] 親クラスの読み込み不備を修正。 ([676db9b](https://github.com/bcdice/BCDice/commit/676db9b91c8bc0598cd77b44ae9cdf2aff3725e7))
+
 ## 3.16.0 2025/08/23
 
 ### 対応ゲームシステムの追加
