@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "bcdice/game_system/Revulture"
+
 module BCDice
   module GameSystem
     class Revulture_Korean < Revulture
