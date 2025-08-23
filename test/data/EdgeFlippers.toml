@@ -1,0 +1,383 @@
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "2HD+3SD=6,6,6"
+output = "(2HD+3SD=6,6,6) ＞ D6[5,6] D10[6,6,7] ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "2HD+3SD=6,6,6"
+output = "(2HD+3SD=6,6,6) ＞ D6[5,6] D10[6,7,8] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "4HD+1SD=1,2,3,4"
+output = "(4HD+1SD=1,2,3,4) ＞ D6[2,3,4,5] D10[1] ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "2HD+3SD=X3"
+output = "(2HD+3SD=X3) ＞ D6[5,5] D10[5,6,7] ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "2HD+3SD=X4"
+output = "(2HD+3SD=X4) ＞ D6[5,5] D10[5,6,7] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "2HD+3SD=X2"
+output = "(2HD+3SD=X2) ＞ D6[5,5] D10[5,6,7] ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "2HD+3SD"
+output = "(2HD+3SD) ＞ D6[5,6] D10[6,6,7]"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "2HD"
+output = "(2HD) ＞ D6[5,6]"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "3SD"
+output = "(3SD) ＞ D10[6,6,7]"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "2HD=5,6"
+output = "(2HD=5,6) ＞ D6[5,6] ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "2HD=3,4"
+output = "(2HD=3,4) ＞ D6[5,6] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "3SD=6,6"
+output = "(3SD=6,6) ＞ D10[6,6,7] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "3SD=1,2"
+output = "(3SD=1,2) ＞ D10[6,6,7] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "5HFD"
+output = "(5HFD>=20) ＞ 21[3,3,4,5,6] ＞ 21(1回) ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "1HFD"
+output = "(1HFD>=20) ＞ 5[5] ＞ 5[5] ＞ 5[5] ＞ 5[5] ＞ 20(4回) ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "1HFD"
+output = "(1HFD>=20) ＞ 4[4] ＞ 4[4] ＞ 4[4] ＞ 4[4] ＞ 4[4] ＞ 20(5回) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "3HFD"
+output = "(3HFD>=20) ＞ 6[1,2,3] ＞ 15[4,5,6] ＞ 21(2回) ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "3HFD>=30"
+output = "(3HFD>=30) ＞ 6[1,2,3] ＞ 15[4,5,6] ＞ 18[6,6,6] ＞ 39(3回) ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "3HFD>=30"
+output = "(3HFD>=30) ＞ 5[1,2,2] ＞ 15[4,5,6] ＞ 3[1,1,1] ＞ 3[1,1,1] ＞ 3[1,1,1] ＞ 3[1,1,1] ＞ 32(6回) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "4HCD"
+output = "(4HD=1,2,3,4) ＞ D6[1,2,3,4] ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "4HCD"
+output = "(4HD=1,2,3,4) ＞ D6[2,3,4,5] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "4SPD"
+output = "(4SD=7,8,9,10) ＞ D10[7,8,9,10] ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "4SPD"
+output = "(4SD=7,8,9,10) ＞ D10[7,8,9,9] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "EXIST"
+output = "(2HD+2SD) ＞ D6[1,2] D10[9,10]"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "TD"
+output = "(TD) ＞ 1 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "TD"
+output = "(TD) ＞ 2 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "TD"
+output = "(TD) ＞ 3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "BAET"
+output = "【人間】にも【怪異】にも影響のある後遺症(1) ＞ 鏡に映らない：鏡や水面に姿が映らなくなる。他者から見えなくなるわけではない"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "BAET"
+output = "【人間】にも【怪異】にも影響のある後遺症(12) ＞ 皮膚の下のうごめき：皮膚の下でずっと何かが蠢いているように感じられる"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "HAET"
+output = "【人間寄り】の時に影響のある後遺症(1) ＞ 幻肢の感覚：存在しない追加の腕や翼の感覚がある"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "HAET"
+output = "【人間寄り】の時に影響のある後遺症(6) ＞ 怪異言語：【人間】の領域には存在しない謎の言語が理解できる"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "SAET"
+output = "【怪異寄り】の時に影響のある後遺症(1) ＞ 吸精体質：他者に触れると生命力を吸収してしまう。特に仲の良い相手だとより強くなる"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "EdgeFlippers"
+input = "SAET"
+output = "【怪異寄り】の時に影響のある後遺症(6) ＞ 人間そのもの：【怪異寄り】のときでも人間そのものの容姿になってしまう"
+rands = [
+  { sides = 6, value = 6 },
+]
