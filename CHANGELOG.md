@@ -1,5 +1,29 @@
 # Change Log
 
+## 3.16.0 2025/08/23
+
+### 対応ゲームシステムの追加
+
+- 韓国語版 Ventangle (Ventangle:Korean): MY4kさんありがとうっ！ ([#788](https://github.com/bcdice/BCDice/pull/788))
+- 韓国語版 光砕のリヴァルチャー (Revulture:Korean): MY4kさんありがとうっ！ ([#790](https://github.com/bcdice/BCDice/pull/790))
+- 韓国語版 エモクロアTRPG (Emoklore:Korean): MY4kさんありがとうっ！ ([#791](https://github.com/bcdice/BCDice/pull/791))
+- 韓国語版 呪印感染 (JuinKansen:Korean): MY4kさんありがとうっ！ ([#792](https://github.com/bcdice/BCDice/pull/792))
+- EDGE FLIPPERS (EdgeFlippers): ([#795](https://github.com/bcdice/BCDice/pull/795))
+
+### 追加機能
+
+- [迷宮キングダム基本ルール] 追加表を実装。Facelessさんありがとうっ！ ([#794](https://github.com/bcdice/BCDice/pull/794))
+
+### 誤植修正
+
+- [歯車の塔の探空士（冒険企画局）] 誤字の修正。IrisRainbow7さんありがとうっ！ ([#778](https://github.com/bcdice/BCDice/pull/778))
+- [ダブルクロス2nd,3rd] 誤字の修正。RYOSKATEさんありがとうっ！ ([#786](https://github.com/bcdice/BCDice/pull/786))
+- [ガラクティア] 誤字の修正。JackyAniueさんありがとうっ！ ([#793](https://github.com/bcdice/BCDice/pull/793))
+
+### 翻訳の更新
+
+- [永い後日談のネクロニカ] 姉妹への未練表/中立者への未練表/敵への未練表の韓国語を追加。MY4kさんありがとうっ！ ([#787](https://github.com/bcdice/BCDice/pull/787))
+
 ## 3.15.0 2025/06/18
 
 ### 対応ゲームシステムの追加
