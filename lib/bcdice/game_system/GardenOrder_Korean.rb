@@ -774,7 +774,6 @@ module BCDice
           ]
         },
 
-
         "EL" => {
           name: "전격",
           table: [
