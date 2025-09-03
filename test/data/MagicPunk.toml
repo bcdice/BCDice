@@ -1,0 +1,31 @@
+[[test]]
+game_system = "MagicPunk"
+input = "1MP15"
+output = "(1MP15) > [10] > 成功(10)"
+rands = [
+  { sides = 20, value = 10 },
+]
+
+[[test]]
+game_system = "MagicPunk"
+input = "1MP15"
+output = "(1MP15) > [16] > 失敗"
+rands = [
+  { sides = 20, value = 16 },
+]
+
+[[test]]
+game_system = "MagicPunk"
+input = "MP15"
+output = "(1MP15) > [15] > JP"
+rands = [
+  { sides = 20, value = 15 },
+]
+
+[[test]]
+game_system = "MagicPunk"
+input = "MP15"
+output = "(1MP15) > [1] > BB"
+rands = [
+  { sides = 20, value = 1 },
+]
