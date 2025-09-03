@@ -1,0 +1,74 @@
+[[ test ]]
+game_system = "DungeonsAndDragons:Korean"
+input = "1D4>=3"
+output = "(1D4>=3) ＞ 3 ＞ 성공"
+success = true
+rands = [
+  { sides = 4, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons:Korean"
+input = "1D6>=5"
+output = "(1D6>=5) ＞ 5 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons:Korean"
+input = "1D8>=7"
+output = "(1D8>=7) ＞ 7 ＞ 성공"
+success = true
+rands = [
+  { sides = 8, value = 7 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons:Korean"
+input = "1D10>=9"
+output = "(1D10>=9) ＞ 9 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons:Korean"
+input = "1D12>=11"
+output = "(1D12>=11) ＞ 11 ＞ 성공"
+success = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons:Korean"
+input = "1D20>=19"
+output = "(1D20>=19) ＞ 19 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons:Korean"
+input = "(1+2)D10+3>=12"
+output = "(3D10+3>=12) ＞ 12[3,4,5]+3 ＞ 15 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons:Korean"
+input = "S1D10>=10"
+output = "(1D10>=10) ＞ 9 ＞ 실패"
+secret = true
+failure = true
+rands = [
+  { sides = 10, value = 9 },
+]
