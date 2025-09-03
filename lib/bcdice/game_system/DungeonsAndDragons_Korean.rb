@@ -57,4 +57,3 @@ module BCDice
     end
   end
 end
-
