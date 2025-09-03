@@ -42,7 +42,7 @@ module BCDice
         case command
         when %r{GO(-?\d+)(/(\d+))?(@(\d+))?}i
           success_rate = Regexp.last_match(1).to_i
-          repeat_count = (Regexp.last_match(3) ||1).to_i
+          repeat_count = (Regexp.last_match(3) || 1).to_i
           critical_border_text = Regexp.last_match(5)
           critical_border = get_critical_border(critical_border_text, success_rate)
 
@@ -66,14 +66,14 @@ module BCDice
       def get_critical_border(critical_border_text, success_rate)
         return critical_border_text.to_i unless critical_border_text.nil?
 
-        critical_border = [success_rate /5,1].max
+        critical_border = [success_rate / 5, 1].max
         return critical_border
       end
 
       def check_roll_repeat_attack(success_rate, repeat_count, critical_border)
         success_rate_per_one = success_rate / repeat_count
         # 連続攻撃は最終的な成功率が50%以上であることが必要 cf. p217
-        if repeat_count >1 && success_rate_per_one <50
+        if repeat_count > 1 && success_rate_per_one < 50
           return "D100<=#{success_rate_per_one}@#{critical_border} ＞ 연속 공격은 성공률이 50% 이상 필요합니다."
         end
 
@@ -81,8 +81,8 @@ module BCDice
       end
 
       def check_roll(success_rate, critical_border)
-        success_rate =0 if success_rate <0
-        fumble_border = (success_rate <100 ?96 :99)
+        success_rate = 0 if success_rate < 0
+        fumble_border = (success_rate < 100 ? 96 : 99)
 
         dice_value = @randomizer.roll_once(100)
         result = get_check_result(dice_value, success_rate, critical_border, fumble_border)
@@ -108,7 +108,6 @@ module BCDice
         return nil if row.nil?
 
         "부상 표：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
-
       end
 
       def look_up_damage_se_chart(type, damage_value)
@@ -119,7 +118,6 @@ module BCDice
         return nil if row.nil?
 
         "부상 표(#{chart_type})：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
-
       end
 
       def get_damage_table_info_by_type(type, chart_type)
