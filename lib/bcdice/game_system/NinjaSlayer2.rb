@@ -13,20 +13,62 @@ module BCDice
       SORT_KEY = "にんしやすれいやあTRPG2"
 
       HELP_MESSAGE = <<~TEXT
-        - K{x1},{x2},...,{xn}
-        難易度K([K]ids)の成功判定({x1}B6>=2)を、ダイス{x1}個({x2}～を指定した場合はそれぞれ個々に)で実行します。
-        先頭の文字を変えることで、難易度E([E]asy),N([N]ormal),H([H]ard),U([U]ltra-hard)もしくはUH([U]ltra-[H]ard)でも実行可能です。(以下も同様)
+        --- 成功判定コマンド ---
+        通常のダイスの「{ダイス個数}B6>={難易度ごとの目標出目}」を実行するための簡易入力コマンドです。
 
-        - K{x1},{x2},...,{xn}[>={y}]
-        K{x1}のロールの結果を使って、[]内で指定された条件を満たすダイスの個数を追加で出力します。
-        判定式は「>=」の他に「>」「<=」「<」「=」「!=」が利用可能です。
-        [=5][=6]のように複数記述することで、それぞれで追加判定が可能です。
+        - K{x}
+        難易度K([K]ids/目標値=2)の成功判定をダイス{x}個で実行します。
+        先頭の文字を変えることで、難易度E([E]asy/目標値=3),N([N]ormal/目標値=4),H([H]ard/目標値=5),U([U]ltra-hard/目標値=6)もしくはUH([U]ltra-[H]ard/目標値=6)でも実行可能です。
 
-        - K{x1},{x2},...,{xn}[S] or K{x1},{x2},...,{xn}[S{y}]
-        - K{x1},{x2},...,{xn}[C] or K{x1},{x2},...,{xn}[C{y}]
-        いずれもK{x1},{x2},...,{xn}[>={y}]のショートカットです。({y}省略時は固定値6で処理します。)
-        出力時のテキストが、Sの場合は「サツバツ！」に、Cの場合は「クリティカル！」になります。
-        こちらも複数記述することで、それぞれで追加判定が可能です。
+        - K{x1},N{x2},...,U{xn}
+        K{x}の複数ロール版。
+        カンマ(,)で区切って複数回入力すると、区切られたセットごとに成功判定を行います。
+        2回目以降は難易度指定を省略可能で、省略した場合はひとつ前の難易度を引き継いで判定を行います。
+        以下のコマンドについても同様の書式で複数ロールしての同時判定が可能です。
+
+        --- 追加判定コマンド ---
+        以下のコマンド群は、成功判定コマンドの後ろに付けて実行してください。
+
+        - [>={y}]
+        - [>{y}]
+        - [<={y}]
+        - [<{y}]
+        - [={y}]
+        - [!={y}]
+        成功判定コマンドでカンマ区切りで指定した各ロール結果に対して、[]内で指定された条件で追加判定を行います。
+        それぞれ、{y}以上(>=)、{y}より大きい(>)、{y}以下(<=)、{y}未満(<)、{y}のみ(=)、{y}以外(!=)を判定し、
+        ロール結果の中で条件を満たしたダイスの個数を「追加判定」というテキストと共に出力します。
+        [=5][=6]のように複数記述することで、ひとつのロールに対して複数パターンでの追加判定が可能です。
+        ※ 条件は一括でしか指定できないため、ロールごとに異なる条件を指定したい場合はコマンドを分けてください。以下も同様です。。
+
+        - [>={y1}{y2}...{yn}+]
+        成功判定コマンドでカンマ区切りで指定した各ロール結果に対して、[>={y1}]～[>={yn}]の各条件で追加判定を行います。
+        出目の中に条件を満たしたダイスが**全て**含まれていた場合、「追加判定成功！」というテキストを出力します。
+        例えば[>=665+]とした場合、出目の中に6以上のダイスが2つと5以上のダイスが1つ含まれていれば成功扱いになります。
+
+        - [S{y}]
+        成功判定コマンドでカンマ区切りで指定した各ロール結果に対して、[>={y}]と同等の追加判定を行います。
+        条件を満たしたダイスの個数を「サツバツ判定」というテキストと共に出力します。
+        ※ {y}は省略可能、省略した場合は固定値6で処理します。
+
+        - [S{y1}{y2}...{yn}+]
+        - [S{y1}{y2}...{yn}/{z1}{z2}...{zn}+]
+        成功判定コマンドでカンマ区切りで指定した各ロール結果に対して、[>={y1}{y2}...{yn}+]と[>={z1}{z2}...{zn}+]と同等の追加判定を行います。
+        {z1}～{zn}で条件を満たした場合、「ナムアミダブツ！」というテキストを出力します。
+        {z1}～{zn}の条件を満たせず、{y1}～{yn}で条件を満たした場合、「サツバツ！」というテキストを出力します。
+        ※ {z1}～{zn}を省略した場合は、「サツバツ！」の判定のみを行ないます。
+
+        - [C{y}]
+        成功判定コマンドでカンマ区切りで指定した各ロール結果に対して、[>={y}]と同等の追加判定を行います。
+        条件を満たしたダイスの個数を「クリティカル判定」というテキストと共に出力します。
+        ※ {y}は省略可能、省略した場合は固定値6で処理します。
+
+        - [C{y1}{y2}...{yx}+]
+        成功判定コマンドでカンマ区切りで指定した各ロール結果に対して、[>={y1}{y2}...{yn}+]と同等の追加判定を行います。
+        条件を条件を満たした場合、「クリティカル！」というテキストを出力します。
+
+        --- 定型文コマンド ---
+        以下のコマンド群はそれぞれ単体で使用してください。
 
         - SB or SB@{x}
         {x}(1-6/省略時はd6)に対応したサツバツ([S]atz-[B]atz)・クリティカル表の内容を返します。
@@ -79,27 +121,118 @@ module BCDice
       # @param default [Integer]
       # @return [Integer]
       def s_to_i(string, default)
-        return string.nil? ? default : string.to_i
+        return string.nil? || string.empty? ? default : string.to_i
       end
 
-      # 判定結果の出力テキストと成功数のカウントを返す。
+      # 難易度判定の成功数を返す。
       # @param dice_array [Array<Integer>]
       # @param difficulty [Integer]
       # @param cmp_op [String]
-      # @param title_text [String]
-      # @return [String, Integer]
-      def check_difficulty(dice_array, difficulty, cmp_op, title_text)
-        success_num = 0
+      # @return Integer
+      def check_difficulty(dice_array, difficulty, cmp_op)
         success_dice = []
         dice_array.each do |dice_value|
           if dice_value.send(Normalize.comparison_operator(cmp_op), difficulty)
-            success_num += 1
             success_dice.push(dice_value)
           end
         end
 
-        success_dice_s = success_dice.empty? ? "" : "[#{success_dice.sort.reverse.join(',')}]"
-        return "#{title_text}:#{success_num}#{success_dice_s}", success_num
+        return success_dice
+      end
+
+      # 難易度判定結果を返す。
+      # @param dice_array [Array<Integer>]
+      # @param difficulty [Integer]
+      # @param cmp_op [String]
+      # @return [boolean]
+      def check_difficulty_new(dice_array, difficulty, cmp_op)
+        if difficulty.nil? || dice_array.empty?
+          return false
+        end
+
+        # 難易度とダイスを昇順ソート
+        sorted_dice_array = dice_array.min(dice_array.size)
+        sorted_difficulty = difficulty.chars.min(difficulty.length)
+        debug("sorted_difficulty #{sorted_difficulty}")
+        debug("sorted_dice_array #{sorted_dice_array}")
+
+        # 出目が低い順に難易度を越えているかチェック
+        check_index = 0
+        sorted_dice_array.each do |dice_value|
+          if dice_value.send(Normalize.comparison_operator(cmp_op), sorted_difficulty[check_index].to_i)
+            check_index += 1
+          end
+        end
+
+        # 全難易度を突破していたら成功を返す
+        return check_index >= sorted_difficulty.size
+      end
+
+      # 追加判定の処理
+      # @param roll_result 判定対象とするロール結果の配列
+      # @param ap_commanc 追加判定のコマンド
+      # @return String
+      def proc_appendix(roll_result, ap_command)
+        debug("----- ap_command: #{ap_command}")
+        output_text = ''
+        case ap_command
+        when RE_COUNT_SATZ_BATZ
+          diff_condition = Regexp.last_match[1]
+          if ap_command.end_with?("+")
+            # サツバツ発生チェック
+            sb_condition = diff_condition.sub("\+", "").split("/")[0]
+            nm_condition = diff_condition.sub("\+", "").split("/")[1]
+            debug("sb_condition: #{sb_condition}")
+            debug("nm_condition: #{nm_condition}")
+
+            if check_difficulty_new(roll_result.last_dice_list, nm_condition, ">=")
+              output_text += ", ナムアミダブツ！[#{ap_command}]"
+            elsif check_difficulty_new(roll_result.last_dice_list, sb_condition, ">=")
+              output_text += ", サツバツ！[#{ap_command}]"
+            end
+
+          else
+            # サツバツ数カウント
+            diff_result_array = check_difficulty(roll_result.last_dice_list, s_to_i(diff_condition, 6), ">=")
+            output_text += ", サツバツ判定[#{ap_command}]:#{diff_result_array.size}"
+            unless diff_result_array.empty?
+              output_text += "[#{diff_result_array.sort.reverse.join(',')}]"
+            end
+          end
+        when RE_COUNT_CRITICAL
+          diff_condition = Regexp.last_match[1]
+          if ap_command.end_with?("+")
+            # クリティカル発生チェック
+            if check_difficulty_new(roll_result.last_dice_list, diff_condition.sub("\+", ""), ">=")
+              output_text += ", クリティカル！[#{ap_command}]"
+            end
+          else
+            # クリティカル数カウント
+            diff_result_array = check_difficulty(roll_result.last_dice_list, s_to_i(diff_condition, 6), ">=")
+            output_text += ", クリティカル判定[#{ap_command}]:#{diff_result_array.size}"
+            unless diff_result_array.empty?
+              output_text += "[#{diff_result_array.sort.reverse.join(',')}]"
+            end
+          end
+        when RE_COUNT_JUDGE
+          diff_type = Regexp.last_match[1]
+          diff_condition = Regexp.last_match[2]
+          debug("#{diff_type} / #{diff_condition}")
+          if ap_command.end_with?("+")
+            # 追加判定チェック
+            if check_difficulty_new(roll_result.last_dice_list, diff_condition.sub("\+", ""), diff_type)
+              output_text += ", 追加判定成功！[#{ap_command}]"
+            end
+          else
+            # 追加判定カウント
+            diff_result_array = check_difficulty(roll_result.last_dice_list, s_to_i(diff_condition, 6), diff_type)
+            output_text += ", 追加判定[#{ap_command}]:#{diff_result_array.size}"
+            unless diff_result_array.empty?
+              output_text += "[#{diff_result_array.sort.reverse.join(',')}]"
+            end
+          end
+        end
+        return output_text
       end
 
       # ダイス処理(2版用)
@@ -109,11 +242,16 @@ module BCDice
         output_text = ''
         total_success_num = 0
 
-        difficulty = DIFFICULTY_SYMBOL_TO_INTEGER.fetch(match[1])
-        appendix = match[3]
+        command = match[1]
+        appendix = match[2]
+        difficulty = 0
 
-        match[2].split(",").each do |sub_command|
-          dice_num = sub_command.to_i
+        command.split(",").each do |sub_command|
+          /^(UH|[KENHU])?(\d+)$/i.match(sub_command)
+          unless Regexp.last_match[1].nil?
+            difficulty = DIFFICULTY_SYMBOL_TO_INTEGER.fetch(Regexp.last_match[1])
+          end
+          dice_num = Regexp.last_match[2].to_i
 
           # D6バラバラロール
           roll_command = "#{dice_num}B6>=#{difficulty}"
@@ -127,24 +265,7 @@ module BCDice
             debug("---- appendix: [#{appendix}]")
             ap_command_array = appendix.split("\]\[")
             ap_command_array.each do |ap_command|
-              debug("----- ap_command: #{ap_command}")
-              case ap_command
-              when RE_COUNT_SATZ_BATZ
-                # サツバツ！カウント
-                check_result = check_difficulty(roll_result.last_dice_list, s_to_i(Regexp.last_match[1], 6), ">=", "サツバツ！")
-                output_text += ", #{check_result[0]}"
-                success_num += check_result[1]
-              when RE_COUNT_CRITICAL
-                # クリティカル！カウント
-                check_result = check_difficulty(roll_result.last_dice_list, s_to_i(Regexp.last_match[1], 6), ">=", "クリティカル！")
-                output_text += ", #{check_result[0]}"
-                success_num += check_result[1]
-              when RE_COUNT_JUDGE
-                # 追加判定カウント
-                check_result = check_difficulty(roll_result.last_dice_list, Regexp.last_match[2].to_i, Regexp.last_match[1], "追加判定")
-                output_text += ", #{check_result[0]}"
-                success_num += check_result[1]
-              end
+              output_text += proc_appendix(roll_result, ap_command)
             end
           end
           output_text += " \n"
@@ -266,11 +387,11 @@ module BCDice
         end
       end
 
-      RE_COUNT_SATZ_BATZ = /S([1-6])?/i.freeze
-      RE_COUNT_CRITICAL = /C([1-6])?/i.freeze
-      RE_COUNT_JUDGE = /(=|!=|>=|>|<=|<)([1-6])/.freeze
+      RE_COUNT_SATZ_BATZ = %r{S([1-6]|[1-6]+(?:/[1-6]+)?\+)?$}i.freeze
+      RE_COUNT_CRITICAL = /C([1-6]|[1-6]+\+)?$/i.freeze
+      RE_COUNT_JUDGE = /(=|!=|>=|>|<=|<)([1-6]+\+|[1-6])/.freeze
 
-      RE_JUDGE_DICEROLL = /^(UH|[KENHU])([\d,]+)(?:\[((?:(?:S([1-6])?|C([1-6])?|(=|!=|>=|>|<=|<)([1-6]))(?:\]\[)?)+)\])?$/i.freeze
+      RE_JUDGE_DICEROLL = %r{^((?:(?:UH|[KENHU])?\d+,?)+)(?:\[((?:(?:S([1-6]|[1-6]+(?:/[1-6]+)?\+)?|C([1-6]*\+?)?|(=|!=|>=|>|<=|<)([1-6]+\+?))(?:\]\[)?)+)\])?$}i.freeze
       RE_JUDGE_SATZ_BATZ = /^SB(?:@([1-6]))?$/i.freeze
       RE_JUDGE_WASSHOI = /^WS([1-9]|10|11|12)$/i.freeze
       RE_JUDGE_WASSHOI_ENTRY = /^WSE(?:@([1-6]))?$/i.freeze
