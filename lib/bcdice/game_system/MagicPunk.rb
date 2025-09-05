@@ -10,7 +10,7 @@ module BCDice
       NAME = "マジックパンクTRPG"
 
       # ゲームシステム名の読みがな
-      SORT_KEY = "まじっくぱんくTRPG"
+      SORT_KEY = "ましつくはんくTRPG"
 
       HELP_MESSAGE = <<~TEXT
         ■ 判定 (nMPm)
@@ -29,12 +29,14 @@ module BCDice
       def eval_game_system_specific_command(command)
         return roll_mp(command)
       end
+
       private
+
       def roll_mp(command)
         m = /^(\d?)MP(\d+)([cC]?)(\d*)/.match(command)
         return nil unless m
 
-        dices = m[1].size > 0 ? m[1].to_i : 1
+        dices = m[1].empty? ? 1 : m[1].to_i
         spec = m[2].to_i
         opt1 = m[3]
         arg1 = m[4].to_i
@@ -48,24 +50,23 @@ module BCDice
         check_method = is_zero ? :all? : :any?
         fail_method = is_zero ? :any? : :all?
 
-        check = dice_list.public_send(check_method){|d| d <= spec && challenge <= d}
-        is_jp = dice_list.public_send(check_method){|d| d == spec}
-        is_bb = dice_list.public_send(fail_method){|d| d == 1}
+        check = dice_list.public_send(check_method) { |d| d <= spec && challenge <= d }
+        is_jp = dice_list.public_send(check_method) { |d| d == spec }
+        is_bb = dice_list.public_send(fail_method) { |d| d == 1 }
 
         result = if is_bb # 自動失敗優先
-          "失敗(BB)"
-        elsif is_jp
-          "成功(JP)"
-        elsif check
-          value_method = is_zero ? :min : :max
-          value = dice_list.select{|d| d <= spec}.public_send(value_method)
-          "成功(#{value})"
-        else
-          "失敗"
-        end
+                   "失敗(BB)"
+                 elsif is_jp
+                   "成功(JP)"
+                 elsif check
+                   value_method = is_zero ? :min : :max
+                   value = dice_list.select { |d| d <= spec }.public_send(value_method)
+                   "成功(#{value})"
+                 else
+                   "失敗"
+                 end
 
         return "(#{dices}MP#{spec}C#{challenge}) > [#{dice_list.join(',')}] > #{result}"
-
       end
     end
   end
