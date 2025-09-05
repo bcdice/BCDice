@@ -68,3 +68,45 @@ rands = [
   { sides = 20, value = 1 },
   { sides = 20, value = 1 },
 ]
+
+# 0d Test
+[[test]]
+game_system = "MagicPunk"
+input = "0MP15C5"
+output = "(0MP15C5) > [10,15] > 成功(10)"
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 15 },
+]
+[[test]]
+game_system = "MagicPunk"
+input = "0MP15C5"
+output = "(0MP15C5) > [10,17] > 失敗"
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 17 },
+]
+[[test]]
+game_system = "MagicPunk"
+input = "0MP15C5"
+output = "(0MP15C5) > [10,4] > 失敗"
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 4 },
+]
+[[test]]
+game_system = "MagicPunk"
+input = "0MP15C5"
+output = "(0MP15C5) > [15,15] > 成功(JP)"
+rands = [
+  { sides = 20, value = 15 },
+  { sides = 20, value = 15 },
+]
+[[test]]
+game_system = "MagicPunk"
+input = "0MP15C5"
+output = "(0MP15C5) > [1,15] > 失敗(BB)"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 15 },
+]
