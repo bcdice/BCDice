@@ -28,36 +28,34 @@ module BCDice
       end
       private
       def roll_mp(command)
-        m = /^(\d?)MP(\d+)$/.match(command)
+        m = /^(\d?)MP(\d+)([cC]?)(\d*)/.match(command)
         return nil unless m
 
-        times = m[1].size > 0 ? m[1].to_i : 1
+        dices = m[1].size > 0 ? m[1].to_i : 1
         spec = m[2].to_i
+        opt1 = m[3]
+        arg1 = m[4].to_i
 
-        dice_list = @randomizer.roll_barabara(times, 20)
+        challenge = ["c", "C"].include?(opt1) ? arg1 : 0
 
-        check = dice_list.count{|d| d <= spec} > 0
+        dice_list = @randomizer.roll_barabara(dices, 20)
+
+        check = dice_list.any?{|d| d <= spec && challenge <= d}
+        is_jp = dice_list.any?{|d| d == spec}
         is_bb = dice_list.all?{|d| d == 1}
-        if is_bb
-          check = false
-        end
 
-        result = if check
+        result = if is_bb # 自動失敗優先
+          "失敗(BB)"
+        elsif is_jp
+          "成功(JP)"
+        elsif check
           max = dice_list.select{|d| d <= spec}.max
-          if max == spec
-            "JP"
-          else
-            "成功(#{max})"
-          end
+          "成功(#{max})"
         else
-          if is_bb
-            "BB"
-          else
-            "失敗"
-          end
+          "失敗"
         end
 
-        return "(#{times}MP#{spec}) > [#{dice_list.join(',')}] > #{result}"
+        return "(#{dices}MP#{spec}C#{arg1}) > [#{dice_list.join(',')}] > #{result}"
 
       end
     end

@@ -1,7 +1,8 @@
+# 1d Test
 [[test]]
 game_system = "MagicPunk"
 input = "1MP15"
-output = "(1MP15) > [10] > 成功(10)"
+output = "(1MP15C0) > [10] > 成功(10)"
 rands = [
   { sides = 20, value = 10 },
 ]
@@ -9,7 +10,7 @@ rands = [
 [[test]]
 game_system = "MagicPunk"
 input = "1MP15"
-output = "(1MP15) > [16] > 失敗"
+output = "(1MP15C0) > [16] > 失敗"
 rands = [
   { sides = 20, value = 16 },
 ]
@@ -17,7 +18,7 @@ rands = [
 [[test]]
 game_system = "MagicPunk"
 input = "MP15"
-output = "(1MP15) > [15] > JP"
+output = "(1MP15C0) > [15] > 成功(JP)"
 rands = [
   { sides = 20, value = 15 },
 ]
@@ -25,7 +26,45 @@ rands = [
 [[test]]
 game_system = "MagicPunk"
 input = "MP15"
-output = "(1MP15) > [1] > BB"
+output = "(1MP15C0) > [1] > 失敗(BB)"
 rands = [
+  { sides = 20, value = 1 },
+]
+
+# Challenge Test
+[[test]]
+game_system = "MagicPunk"
+input = "3MP15C5"
+output = "(3MP15C5) > [10,4,18] > 成功(10)"
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 4 },
+  { sides = 20, value = 18 },
+]
+[[test]]
+game_system = "MagicPunk"
+input = "3MP15C10"
+output = "(3MP15C10) > [9,4,18] > 失敗"
+rands = [
+  { sides = 20, value = 9 },
+  { sides = 20, value = 4 },
+  { sides = 20, value = 18 },
+]
+[[test]]
+game_system = "MagicPunk"
+input = "3MP15C18"
+output = "(3MP15C18) > [9,15,18] > 成功(JP)"
+rands = [
+  { sides = 20, value = 9 },
+  { sides = 20, value = 15 },
+  { sides = 20, value = 18 },
+]
+[[test]]
+game_system = "MagicPunk"
+input = "3MP15C1"
+output = "(3MP15C1) > [1,1,1] > 失敗(BB)"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
   { sides = 20, value = 1 },
 ]
