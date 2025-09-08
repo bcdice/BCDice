@@ -24,7 +24,7 @@ module BCDice
         2つの目からより悪い結果になる方を採用する。
       TEXT
 
-      register_prefix('^\d?MP\d+')
+      register_prefix('^\d*MP\d+')
 
       def eval_game_system_specific_command(command)
         return roll_mp(command)
@@ -33,7 +33,7 @@ module BCDice
       private
 
       def roll_mp(command)
-        m = /^(\d?)MP(\d+)(C?)(\d*)$/.match(command)
+        m = /^(\d*)MP(\d+)(C?)(\d*)$/.match(command)
         return nil unless m
 
         # 構文解析
@@ -60,8 +60,11 @@ module BCDice
         is_bb = dice_list.public_send(fail_method) { |d| d == 1 } # バッドビート判定
 
         result = if is_bb # 自動失敗優先
+                   is_jp = false
+                   check = false
                    "失敗(BB)"
                  elsif is_jp
+                   check = true
                    "成功(JP)"
                  elsif check
                    value_method = is_zero ? :min : :max
@@ -71,7 +74,12 @@ module BCDice
                    "失敗"
                  end
 
-        return "(#{dices}MP#{spec}C#{challenge}) > [#{dice_list.join(',')}] > #{result}"
+        return Result.new.tap do |r|
+          r.fumble = is_bb
+          r.critical = is_jp
+          r.condition = check
+          r.text = "(#{dices}MP#{spec}C#{challenge}) > [#{dice_list.join(',')}] > #{result}"
+        end
       end
     end
   end
