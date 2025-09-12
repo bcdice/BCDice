@@ -1,7 +1,0 @@
-ja_jp:
-  DungeonsAndDragons5:
-    fixed:
-      critical: "クリティカル"
-      fumble: "ファンブル"
-      success: "成功"
-      failure: "失敗"
