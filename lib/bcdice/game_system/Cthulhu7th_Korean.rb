@@ -175,15 +175,9 @@ module BCDice
       end
 
       def getFullAutoResult(command)
-        #return nil unless /^FAR\((-?\d+)(,(-?\d+))(,(-?\d+))(,(-?\d+))?\)/i =~ command
         # FAR 인자 파싱을 일본판과 같은 6인자 형식으로 확장
         m = /^FAR\((-?\d+),(-?\d+),(-?\d+)(?:,(-?\d+)?)?(?:,(-?\w+)?)?(?:,(-?\d+)?)?\)$/i.match(command)
         return nil unless m
-
-        #bullet_count = Regexp.last_match(1).to_i
-        #diff = Regexp.last_match(3).to_i
-        #broken_number = Regexp.last_match(5).to_i
-        #bonus_dice_count = (Regexp.last_match(7) || 0).to_i
         
         bullet_count = m[1].to_i               # w
         diff         = m[2].to_i               # x
@@ -257,7 +251,6 @@ module BCDice
             end
 
             hit_type = getHitType(more_difficlty, hit_result)
-            #hit_bullet, impale_bullet, lost_bullet = getBulletResults(counts[:bullet], hit_type, diff)
             # v 반영
             hit_bullet, impale_bullet, lost_bullet = getBulletResults(counts[:bullet], hit_type, diff, bullet_set_count_cap)
 
@@ -314,7 +307,6 @@ module BCDice
 
       # bullet_set_count_cap 추가
       def getBulletResults(bullet_count, hit_type, diff, bullet_set_count_cap)
-        #bullet_set_count = getSetOfBullet(diff)
         # 반영된 연발 계산
         bullet_set_count = getSetOfBullet(diff, bullet_set_count_cap)
         
@@ -344,11 +336,7 @@ module BCDice
           when :hit
             hit_bullet_count = getLastHitBulletCount(bullet_count)
 
-          when :impale
-            #halfbull = bullet_count / 2.to_f
-            #hit_bullet_count = halfbull.floor
-            #impale_bullet_count = halfbull.ceil
-            
+          when :impale            
             # 일본판과 동일하게 수정
             imp = getLastHitBulletCount(bullet_count) # 관통 수            
             hit_bullet_count = bullet_count - imp # 나머지는 명중
