@@ -38,8 +38,8 @@ module BCDice
 
         key = dice[0] * 10 + dice[1]
         chosen = @items[key]
-        chosen = chosen.roll(randomizer) if chosen.respond_to?(:roll)
-        RollResult.new(@name, key, chosen)
+
+        RollResult.new_with_chain(@name, key, chosen, randomizer)
       end
 
       def choice(key)
