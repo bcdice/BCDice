@@ -1,6 +1,7 @@
 ko_kr:
   success: 성공
   failure: 실패
+  critical: 크리티컬
   fumble: 펌블
   RTT:
     rtt_format: '랜덤 특기 결정표(%<category_dice>d,%<row_dice>d) ＞ %<text>s'
