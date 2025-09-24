@@ -126,16 +126,16 @@ module BCDice
         key = command.sub(/^\d+/, '')
         results = [*0...times].map do |_|
           result = roll_tables(key, TABLES) || roll_tables(key, SCENE_TABLES) ||
-            roll_tables(key, DEMON_SKILL_TABLES) || roll_tables(key, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, key)
-    
+                   roll_tables(key, DEMON_SKILL_TABLES) || roll_tables(key, DEMON_SKILL_TABLES_NEW) || RTT.roll_command(@randomizer, key)
+
           # 일본어를 한국어로 치환
           if result
             result = result.gsub(/分野ランダム特技表/, " 분야 랜덤 특기 결정표")
                            .gsub(/ランダム特技表/, "랜덤 특기 결정표")
                            .gsub(/ランダム指定特技表/, "랜덤 지정 특기표")
-                           .gsub(/ランダム分野表/, "랜덤 분야 표")  # RCT 테이블용 추가
+                           .gsub(/ランダム分野表/, "랜덤 분야 표") # RCT 테이블용 추가
           end
-    
+
           result
         end.compact
         return nil if results.empty?
@@ -464,7 +464,7 @@ module BCDice
           ]
         ),
         ## 以下流派ブック 이하 유파북
-        'BNT' => DiceTable::Table.new(  
+        'BNT' => DiceTable::Table.new(
           '새로운 전장 효과 표',
           '1D6',
           [
@@ -1026,7 +1026,7 @@ module BCDice
           ]
         ),
         'HY' => DiceTable::Table.new(
-          '야행 열차 장면 표', 
+          '야행 열차 장면 표',
           '2D6',
           [
             '차 안의 조명이 모조리 꺼진다. 정전인가? 아니면……. 모든 것이 어둠으로 뒤덮인다.',
