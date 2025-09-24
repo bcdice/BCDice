@@ -1,0 +1,1469 @@
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 6[2,4] ＞ 6 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 4[1,3] ＞ 4 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "2d6>=4"
+output = "(2D6>=4) ＞ 3[1,2] ＞ 3 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG"
+output = "(SG@12#2) ＞ 2[1,1] ＞ 2 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG 펌블 직전"
+output = "(SG@12#2) ＞ 3[1,2] ＞ 3"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG 스페셜 직전"
+output = "(SG@12#2) ＞ 11[5,6] ＞ 11"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG"
+output = "(SG@12#2) ＞ 12[6,6] ＞ 12 ＞ 스페셜(【생명력】1점 또는 상태 이상 1개를 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG#3 펌블치 변경"
+output = "(SG@12#3) ＞ 3[1,2] ＞ 3 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG@11 스페셜치 변경"
+output = "(SG@11#2) ＞ 11[5,6] ＞ 11 ＞ 스페셜(【생명력】1점 또는 상태 이상 1개를 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG@11#3"
+output = "(SG@11#3) ＞ 3[1,2] ＞ 3 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG@11#3"
+output = "(SG@11#3) ＞ 11[5,6] ＞ 11 ＞ 스페셜(【생명력】1점 또는 상태 이상 1개를 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG@5#7 펌블 우선"
+output = "(SG@5#7) ＞ 5[1,4] ＞ 5 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG+1 수정치가 펌블에 영향 없음"
+output = "(SG+1@12#2) ＞ 2[1,1]+1 ＞ 3 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG-1 수정치가 스페셜에 영향 없음"
+output = "(SG-1@12#2) ＞ 12[6,6]-1 ＞ 11 ＞ 스페셜(【생명력】1점 또는 상태 이상 1개를 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG@11#3>=7"
+output = "(SG@11#3>=7) ＞ 6[3,3] ＞ 6 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SG@11#3>=7"
+output = "(SG@11#3>=7) ＞ 7[3,4] ＞ 7 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "0SG>=7"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "1SG>=7"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "2SG@11#3>=7"
+output = "(2SG@11#3>=7) ＞ 7[3,4] ＞ 7 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "4SG+1>=7"
+output = "(4SG+1@12#2>=7) ＞ [2,3,4,5] ＞ 9[4,5]+1 ＞ 10 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "4SG+1>=7"
+output = "(4SG+1@12#2>=7) ＞ [1,1,2,2] ＞ 4[2,2]+1 ＞ 5 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "4SG+1>=7"
+output = "(4SG+1@12#2>=7) ＞ [1,1,1,1] ＞ 2[1,1]+1 ＞ 3 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "4SG+1>=7"
+output = "(4SG+1@12#2>=7) ＞ [1,1,6,6] ＞ 12[6,6]+1 ＞ 13 ＞ 스페셜(【생명력】1점 또는 상태 이상 1개를 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "ST"
+output = "기본 장면 표(10) ＞ 강한 바람이 휘몰아친다. 머리카락과 옷이 크게 휘날린다. 무언가 일어날 듯한 예감……."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "ST"
+output = "기본 장면 표(8) ＞ 엄청나게 혼잡하고 떠들썩하다. 그림자의 세계를 모르는 순진한 이들이 자기자랑이며 잡담을 나누는 소리로 시끌벅적하다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "ST"
+output = "기본 장면 표(5) ＞ 세계의 끝을 연상케 하는 어둠. 어둠 속에서 당신들은 은밀하게 속삭인다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "ST"
+output = "기본 장면 표(4) ＞ 눈앞에 펼쳐진 거리의 풍경을 바라본다. 여기라면 한 눈에 거리를 내려다볼 수 있지만……."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "ST"
+output = "기본 장면 표(2) ＞ 주위에 피 냄새가 진동한다. 누군가가 싸운 흔적. 아니, 아직 싸움은 계속되고 있는 것인가?"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "ST"
+output = "기본 장면 표(7) ＞ 맑은 기운이 감도는 숲 속. 새가 지저귀는 소리와 나무 사이로 산들바람이 부는 소리가 들려온다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "ST"
+output = "기본 장면 표(5) ＞ 세계의 끝을 연상케 하는 어둠. 어둠 속에서 당신들은 은밀하게 속삭인다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "CST"
+output = "도시 장면 표(9) ＞ 상점가를 걷는다. 인파에 섞여 이따금 불온한 기척이 느껴지는데……."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "CST"
+output = "도시 장면 표(8) ＞ 낡은 극장. 조명은 꺼졌고, 당신들 외의 관객은 없는 것 같지만……."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "CST"
+output = "도시 장면 표(7) ＞ 생동감이라고는 느껴지지 않는 오피스 빌딩. 그것은 마치 도시의 묘비같다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "CST"
+output = "도시 장면 표(2) ＞ 샤워를 하고, 욕조에 지친 몸을 담근다. 때로는 힐링도 필요하다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "CST"
+output = "도시 장면 표(6) ＞ 술 한 잔의 행복. 이 한잔을 위해서 산다. ……어째 항상 같은 소리를 하는 기분도 든다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "CST"
+output = "도시 장면 표(5) ＞ 인기척이 없는 공원. 길고양이 한 마리가 멀리서 당신을 보고 있는 기분이 든다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "CST"
+output = "도시 장면 표(6) ＞ 술 한 잔의 행복. 이 한잔을 위해서 산다. ……어째 항상 같은 소리를 하는 기분도 든다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "CST"
+output = "도시 장면 표(3) ＞ 한적한 주택가. 시노비의 세계와는 무관한 일상이 펼쳐져 있는 것처럼 보이지만…… 그것은 착각일지도 모른다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "MST"
+output = "저택 장면 표(9) ＞ 긴 복도 한복판. 이 저택은 너무 넓어서 미아가 될 것만 같다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "MST"
+output = "저택 장면 표(2) ＞ 어딘지도 알 수 없는 어둠 속. 닌자들이 숨어들기에는 적합한 장소다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "MST"
+output = "저택 장면 표(4) ＞ 아름다운 정원. 정성들여 키운 다양한 색깔의 꽃. 그리고 아름답게 다듬은 생울타리가 펼쳐져 있다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "MST"
+output = "저택 장면 표(5) ＞ 당신은 계단에서 문득 발을 멈춘다. 누군가의 발소리가 들려오는 것 같다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "MST"
+output = "저택 장면 표(7) ＞ 현관의 홀. 고풍스러운 벽시계가 시보를 울리는 가운데, 저택 주인의 초상화가 당신을 내려다보고 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "MST"
+output = "저택 장면 표(12) ＞ 일족의 납골당이 있다. 냉기와 독기가 가득한 장소에 기묘한 외침이 들려온다. 멀리서 새가 지저귀는 소리인가? 아니면 죽은 자의 원한서린 목소리인가……?"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "MST"
+output = "저택 장면 표(10) ＞ 장난삼아 오락실에 들어왔다. 그곳에는 당구대, 다트판, 몇 패의 트럼프가 흩어져 있는 포커 테이블이 있다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "DST"
+output = "데지마 장면 표(5) ＞ 슬럼. 간신히 살아남은 사람들이 서로 의지하며 살아가고 있는 모양이다. 여기라면 조금은 안심할 수 있을지도……."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "DST"
+output = "데지마 장면 표(8) ＞ 지저분한 뒷골목. 검은색의 거대한 개가 무언가를 먹고 있다. 검은 개는 당신의 기척을 느끼고 그 자리를 떠나지만, 거기에 남아 있는 것은……."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "DST"
+output = "데지마 장면 표(7) ＞ 줄지어 서 있는 폐허. 그 그늘에서 사람도 괴물도 아닌 존재의 그림자가 당신을 엿보고 있다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "DST"
+output = "데지마 장면 표(9) ＞ 어두운 술집. 바텐더가 말없이 유리잔을 닦고 있다. 당신 말고는 손님의 기척은 느껴지지 않지만……."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "DST"
+output = "데지마 장면 표(3) ＞ 환영의 성. 방문한 자의 과거나 미래를 나타내는 풍경을 보여주는 장소. 이 장면의 등장인물은《의지》로 판정을 할 수 있다. 성공하면 자신이 가지고 있는【감정】을 원하는 내용으로 변경할 수 있다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "DST"
+output = "데지마 장면 표(8) ＞ 지저분한 뒷골목. 검은색의 거대한 개가 무언가를 먹고 있다. 검은 개는 당신의 기척을 느끼고 그 자리를 떠나지만, 거기에 남아 있는 것은……."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "DST"
+output = "데지마 장면 표(6) ＞ 낙서투성이의 호텔. 그 주위에는 피부를 노출한 남녀들이 교태를 부리며 모여 있다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "DST"
+output = "데지마 장면 표(4) ＞ 죽은 자들의 행진. 한 맺힌 죽음을 맞이한 자들이 길동무를 찾아 방황하고 있다. 이 장면의 등장인물은《사령술》로 판정을 해야 한다. 실패하면 무작위로 정한 상태이상 하나에 걸린다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TST"
+output = "트러블 장면 표(6) ＞ 위기일발! 동행을 죽음의 위기에서 구해냈다! ……여기도 방심할 수 없군."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TST"
+output = "트러블 장면 표(12) ＞ 동행이 갑자기 눈물을 흘린다. ……도대체 무슨 일이지?"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TST"
+output = "트러블 장면 표(7) ＞ 동행이 행방불명된다. 그 녀석, 어디로 도망친 거야!"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TST"
+output = "트러블 장면 표(3) ＞ 촤악! 동행의 실수로 흠뻑 젖어버렸다. ……추워."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TST"
+output = "트러블 장면 표(8) ＞ 와당탕! 아파라……. 발을 헛디딘 동행에게 휘말려서 같이 넘어지고 말았다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TST"
+output = "트러블 장면 표(7) ＞ 동행이 행방불명된다. 그 녀석, 어디로 도망친 거야!"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TST"
+output = "트러블 장면 표(10) ＞ 「어딜 보고 다니는 거냐, 짜샤!」양아치들이 동행에게 시비를 걸고 있다. 으음~ 도와줘야 하나?"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TST"
+output = "트러블 장면 표(12) ＞ 동행이 갑자기 눈물을 흘린다. ……도대체 무슨 일이지?"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TST"
+output = "트러블 장면 표(8) ＞ 와당탕! 아파라……. 발을 헛디딘 동행에게 휘말려서 같이 넘어지고 말았다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NST"
+output = "일상 장면 표(6) ＞ 쇼핑을 하고 돌아오는 길에 친구와 만난다. 방향이 같아서 잠시 함께 걷다보니 어느새 이야기꽃이 피었다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NST"
+output = "일상 장면 표(5) ＞ 후와와와와. 어느새 잠들어버렸다. ……어, 어라? 너, 언제부터 거기에 있었어!?"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NST"
+output = "일상 장면 표(8) ＞ 다 함께 식탁에 둘러앉았다. 전골로 할까? 아니면 불고기? 오코노미야키도 괜찮겠네♪"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NST"
+output = "일상 장면 표(10) ＞ 길고양이에게 먹이를 준다. 목을 가르릉거리는 고양이. 마음 놓고 당신에게 어리광을 부리는 모양새다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NST"
+output = "일상 장면 표(9) ＞ 어딘가에서 즐거운 노랫소리가 들려온다. ……어, 어라? 왜 네가 이런 곳에?"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NST"
+output = "일상 장면 표(6) ＞ 쇼핑을 하고 돌아오는 길에 친구와 만난다. 방향이 같아서 잠시 함께 걷다보니 어느새 이야기꽃이 피었다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NST"
+output = "일상 장면 표(6) ＞ 쇼핑을 하고 돌아오는 길에 친구와 만난다. 방향이 같아서 잠시 함께 걷다보니 어느새 이야기꽃이 피었다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "KST"
+output = "회상 장면 표(9) ＞ 무시무시한 일격! 하마터면 목숨을 잃을 뻔했다……. 하지만 그 기술은 아직도 간파하지 못했다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "KST"
+output = "회상 장면 표(6) ＞ 그 녀석과의 소중한 추억을 떠올린다. 지켜야 했던 약속, 지키지 못한 약속."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "KST"
+output = "회상 장면 표(10) ＞ 어린 시절의 기억. 사이 좋았던 그 아이. 그러고보면 그 아이는 어디로 가버린 걸까? 어쩌면……."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "KST"
+output = "회상 장면 표(5) ＞ 눈앞에 쓰러진 시체. 지면에 피가 번지고 있다. 그것은, 내 탓이었을까……?"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "KST"
+output = "회상 장면 표(11) ＞ 「……윽!!」격렬한 말다툼. 최악의 형태로 헤어지고 말았다. 그렇게 될 줄 알았다면……."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "KST"
+output = "회상 장면 표(12) ＞ 주머니 속의 부적을 움켜쥔다. 그 녀석에게 받은, 소중한 추억의 물건.「병량환」을 1개 획득한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TKST"
+output = "도쿄 장면 표(6) ＞ 카스미가세키(霞が関). 이 장소에 모이는 정보는, 닌자에게도 가치 있는 내용이다. 길을 걷는 사람들 중에도 공무원과 경찰관이 눈에 띈다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TKST"
+output = "도쿄 장면 표(11) ＞ 산야의 도야 거리(山谷のドヤ街). 일용직 노동자들이 모이는 관리 숙박 시설이 많은 이 곳은, 몸을 숨기기에 딱 맞는 곳이다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TKST"
+output = "도쿄 장면 표(4) ＞ 도쿄 대학 본부 캠퍼스. 정문에서 뻗어 나가는 은행나무 길에 학생들과 교직원들이 여유롭게 걸어다니고 있다. 길 건너편에는 야스다 강당(安田講堂)이 보인다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TKST"
+output = "도쿄 장면 표(9) ＞ 신주쿠 도청. 고층 빌딩이 밀집한 거리 아래, 정장 차림의 사람들이 분주하게 오간다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TKST"
+output = "도쿄 장면 표(2) ＞ 오다이바, 임계 부도심. 데이트 중인 커플과 관광객들로 붐비고 있다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "TKST"
+output = "도쿄 장면 표(6) ＞ 카스미가세키(霞が関). 이 장소에 모이는 정보는, 닌자에게도 가치 있는 내용이다. 길을 걷는 사람들 중에도 공무원과 경찰관이 눈에 띈다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GST"
+output = "전국시대 장면 표(11) ＞ 전쟁터에 설치된 진영 안. 화톳불이 켜져 있고, 무사들이 술잔치를 벌이고 있다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GST"
+output = "전국시대 장면 표(4) ＞ 인기척이 없는 산길. 오직 새가 지저귀는 소리만이 들려온다. 지나가는 사람을 습격하기에는 딱 좋은 기회일지도 모른다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GST"
+output = "전국시대 장면 표(6) ＞ 기분 나쁜 분위기의 숲 속. 뭔가 정체를 알 수 없는 것이 숨어있는 것 같다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GST"
+output = "전국시대 장면 표(10) ＞ 저택의 천장 위. 이 아래에서는 지금 무슨 일이 벌어지고 있는가……."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GST"
+output = "전국시대 장면 표(8) ＞ 길가에 위치한 마을. 전쟁을 피해 도망쳐온 것으로 보이는 마을 사람, 장사할 물건을 찾는 상인, 날카로운 눈매의 무사 등이 왁자지껄한 거리를 걷고 있다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GST"
+output = "전국시대 장면 표(9) ＞ 성의 천수각 꼭대기. 세차게 불어오는 바람에 구름이 흘러간다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GAST"
+output = "학교 장면 표(4) ＞ 아무도 없는 체육관. 농구공이 데굴데굴 굴러다닌다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GAST"
+output = "학교 장면 표(5) ＞ 교사 옥상. 한차례 바람이 불어 옷자락이 휘날린다."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GAST"
+output = "학교 장면 표(8) ＞ 교내 식당의 카페테리아. 학생들이 여기저기에 자리를 잡고 담소를 나누고 있다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GAST"
+output = "학교 장면 표(9) ＞ 조용한 수업 중의 한 때. 하지만 인술을 써서 일반 학생들 몰래 대화를 나누는 닌자들도 있다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GAST"
+output = "학교 장면 표(12) ＞ 수영장. 수면이 잔잔하게 흔들리고 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "KYST"
+output = "교토 장면 표(9) ＞ 근처에 대학이 있는 걸까? 저렴한 정식집, 중고서점, 게임센터 등이 줄지어 있는 대학가에 서있다. 교토에는 대학이 많군."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "KYST"
+output = "교토 장면 표(12) ＞ 대중에게 공개된 교토 어소(京都御所,교토부에 위치한 황궁) 안을 걷는다. 낮인데도 불구하고 인적이 별로 없어, 어딘가 조금 쓸쓸한 기분이 든다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "KYST"
+output = "교토 장면 표(7) ＞ 「신사불각 장면표(JBST)」를 굴린다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "KYST"
+output = "교토 장면 표(10) ＞ 조용한 대나무 숲. 차분한 분위기가 감돌고 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "KYST"
+output = "교토 장면 표(6) ＞ 교토에는 어디에나 기념품 가게가 있네. 그럼, 그 녀석에게 무엇을 사줘야 할까……?"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "JBST"
+output = "신사불각 장면 표(4) ＞ 헤이안 신궁. 커다란 도리이 아래로 시로무쿠 차림의 신부 행렬이 지나간다. 아마 결혼식인 듯하다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "JBST"
+output = "신사불각 장면 표(5) ＞ 지쇼지―― 통칭 은각사. 무로마치 후기의 히가시야마 문화를 대표하는 건축물. 킨쿄우치를 감싸는 정원엔 사색에 잠긴 관광객들의 모습이 보인다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "JBST"
+output = "신사불각 장면 표(7) ＞ 산주산겐도. 장엄한 본당에 늘어선 1001체의 천수관음상의 분위기가 압권이다."
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "JBST"
+output = "신사불각 장면 표(6) ＞ 로쿠온지―― 통칭 금각사. 무로마치 전기의 기타야마 문화를 대표하는 건축물. 쿄우코치(鏡湖池)에 비친 거꾸로 된 금각에는 강력한 마(魔)가 봉인되어 있다고도 한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "JBST"
+output = "신사불각 장면 표(8) ＞ 기요미즈데라(청수사). 기요미즈 언덕을 지나 인왕문을 통과하면, 본당――「기요미즈의 무대」에 도달한다. 그곳에서 오토와노타키와 자안탑이 보인다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "JBST"
+output = "신사불각 장면 표(9) ＞ 야사카 신사. 기온상(祇園さん)이라는 이름으로 널리 알려진 활기찬 신사. 마이코들의 모습도 가끔 보인다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "JBST"
+output = "신사불각 장면 표(10) ＞ 후시미 이나리 대사. 전국 약 4만 개의 이나리 신사 중 본궁. 이나리 산을 향해 늘어선 약 1만 개의 도리이는 마치 이계로 이어지는 듯하다……."
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "FT"
+output = "펌블 표(1) ＞ 뭔가 상태가 이상하다. 그 사이클 동안 모든 행동 판정에 -1의 수정치를 적용한다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "FT"
+output = "펌블 표(2) ＞ 아뿔싸! 아무거나 닌자도구를 하나 잃어버린다."
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "FT"
+output = "펌블 표(3) ＞ 정보가 새어나갔다! 당신을 제외한 다른 캐릭터들은 당신이 가지고 있는 【비밀】이나 【거처】중에서 원하는 것을 하나씩 알아낼 수 있다."
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "FT"
+output = "펌블 표(6) ＞ 휴우. 하마터면 큰일 날 뻔 했다. 아무 일도 일어나지 않는다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "OFT"
+output = "펌블 표(구 문고판)(1) ＞ 뭔가 상태가 이상하다. 그 사이클 동안 모든 행동 판정에 -1의 수정치를 적용한다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "OFT"
+output = "펌블 표(구 문고판)(3) ＞ 정보가 새어나갔다! 이 게임에서 당신이 획득한【비밀】은, 다른 캐릭터 전원이 알게 된다."
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "OFT"
+output = "펌블 표(구 문고판)(6) ＞ 휴우. 하마터면 큰일 날 뻔 했다. 아무 일도 일어나지 않는다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "ET"
+output = "감정 표(1) ＞ 공감(플러스) / 불신(마이너스)"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "ET"
+output = "감정 표(5) ＞ 동경(플러스) / 열등감(마이너스)"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "ET"
+output = "감정 표(6) ＞ 광신(플러스) / 살의(마이너스)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "RTT"
+output = "랜덤 특기 결정표(2,7) ＞ 『체술』보법"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "RTT1"
+output = "기술 분야 랜덤 특기 결정표(6) ＞ 『기술』암기"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "RCT"
+output = "랜덤 분야 표(6) ＞ 요술"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "PLST"
+output = "배양 플랜트 장면 표(2) ＞ 거대한 유리관 안에 모독적인 생물이 꿈틀거리는 실험실.《의지》로 판정한다. 실패하면 상태이상《마비》를 받는다."
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "HY"
+output = "야행 열차 장면 표(12) ＞ 차량 끝부분을 확인하기 위해 계속해서 문을 통과하는데, 아무리 가도 가장 앞칸(가장 뒷칸?)에 도달할 수 없다. 지금 도대체 몇 번째 칸에 있는 거지?"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "HC"
+output = "중급닌자 시험 장면 표(12) ＞ 탈락한 다른 그룹 닌자의 시체를 발견한다. 이 녀석들에게는 이제 필요 없겠지. 아무거나 닌자도구 1개를 획득한다(뭘 획득할지 선언한다)."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "HK"
+output = "그림자 거리에서 장면 표(12) ＞ 태양의 미소가 당신을 감싼다. 그림자 속에서 살아가는 이들에게 그 미소는 너무나 눈부시다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "HM"
+output = "밀실 장면 표(12) ＞ 벽의 얼룩을 멍하니 바라봤더니, 그것이 천천히 사람의 얼굴 모양이 되어 히죽 웃었다. ……환각인가."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "HO"
+output = "병원 장면 표(12) ＞ 영안실. 문이 죽 늘어선 긴 복도에는 지하 특유의 탁한 공기가 감돌고 있다. 왠지 기분이 나쁘다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "HR"
+output = "런던 장면 표(12) ＞ 무참하고 모독적인 시체. 회생자의 표정은 고통으로 일그러졌고, 팔다리에는 누군가에게 뜯어먹힌 흔적이 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "HS"
+output = "최면 장면 표(6) ＞ 당신은 방대한 수의 책꽂이가 줄줄이 서 있는, 아무도 없는 도서관 안을 걷고 있다. 별 생각 없이 책 한권을 책꽂이에서 뽑아들자, 그 틈 너머로 내비 캐릭터의 얼굴이 보인다.「네가 바라는 것은 그 책의 14페이지에 적혀 있어.」그 말에 따라 머뭇거리며 14페이지를 펼쳐 보니……."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "HT"
+output = "멸망의 탑 장면 표(12) ＞ 태양의 미소가 당신을 감싼다. 그림자 속에서 살아가는 이들에게 그 미소는 너무나 눈부시다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "D66"
+output = "(D66) ＞ 66"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "SD66"
+output = "(D66) ＞ 66"
+secret = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "S1D6"
+output = "(1D6) ＞ 1"
+secret = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "AKST"
+output = "가을 하늘에 눈이 흩날리면 장면 표(12) ＞ 깡! 깡! 누군가가 깊은 밤중에 짚인형에 못을 박고 있다. 장면에 등장한 캐릭터는《주술》로 판정한다. 성공하면 누군가에게《저주》상태이상을 걸 수 있다. 실패하면《저주》상태이상을 받는다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "CLST"
+output = "재앙 장면 표(6) ＞ 힘없는 자는 살아남을 수 없다. 보스가 새로운 힘을 손에 넣으려 하고 있다. 장면 플레이어가 《괴력》 판정에 실패한 경우, 보스에 대해 에니그마:『팔면육비』가 공개 상태로 추가된다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "DXST"
+output = "데지마EX 장면 표(12) ＞ 눈앞에 외지인이 나타난다. 외지인은 당신에게 관심을 보이며 덤벼든다. 이 장면의 등장인물은《도검술》로 판정해야 한다. 성공하면 외지인을 쓰러뜨리고 임의의【닌자도구】1개를 입수한다. 실패하면 접근전 대미지 3점을 입는다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "HLST"
+output = "하스바 개발실 장면 표(12) ＞ 마인드컨트롤 장치가 놓인 방. 당신은 이 장면에서 GM이 지정하는 행동에 반드시 따라야 한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NTST"
+output = "여름의 끝 장면 표(12) ＞ 깡, 깡…… 한밤중, 축시(새벽1~3시)에 누군가 저주를 거는 망치질 소리가 들려온다. 이 장면에 등장한 캐릭터는《주술》판정을 한다. 성공하면 다른 캐릭터에게 상태이상《저주》를 걸 수 있고, 실패하면 자신이 상태이상《저주》를 받는다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "2D6>=? 목표치? 로 정상 작동"
+output = "(2D6>=?) ＞ 7[3,4] ＞ 7"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "2d6>=5"
+output = "(2D6>=5) ＞ 2[1,1] ＞ 2 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "2d6>=5"
+output = "(2D6>=5) ＞ 12[6,6] ＞ 12 ＞ 스페셜(【생명력】1점 또는 상태 이상 1개를 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "2d6>=? 목표치? 로 펌블"
+output = "(2D6>=?) ＞ 2[1,1] ＞ 2 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "2d6>=? 목표치? 로 크리티컬"
+output = "(2D6>=?) ＞ 12[6,6] ＞ 12 ＞ 스페셜(【생명력】1점 또는 상태 이상 1개를 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "MT 이형 표의 동작 갱신"
+output = "이형 표(2) ＞ 1D6을 굴려「요마 인법 표B」에서 무작위로 인법의 종류를 결정한다. 요마화하고 있는 동안 그 요마 인법을 습득하고 있는 것으로 간주한다. 이 이형은 요마 인법의 종류가 다르다면 서로 다른 이형으로 간주한다. ＞ 요마 인법 표B(4) ＞ 【코다마】(괴p.253／기본p.172)"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "MTR 이형 표 단일"
+output = "이형 표(2) ＞ 1D6을 굴려「요마 인법 표B」에서 무작위로 인법의 종류를 결정한다. 요마화하고 있는 동안 그 요마 인법을 습득하고 있는 것으로 간주한다. 이 이형은 요마 인법의 종류가 다르다면 서로 다른 이형으로 간주한다."
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NMT 신 이형 표"
+output = "신 이형 표(2) ＞ 흉신태(凶身態) |「요마 인법표・흉신」을 사용하고, 요마화하고 있는 동안 그 요마 인법을 습득한다. ＞ 요마 인법 표・흉신(5) ＞ 【햐쿠에】(기본 p173) /【키타이】(오니혈 p29)"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NMTR 신 이형 표 단일"
+output = "신 이형 표(2) ＞ 흉신태(凶身態) |「요마 인법표・흉신」을 사용하고, 요마화하고 있는 동안 그 요마 인법을 습득한다."
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "WT 상태이상 표"
+output = "상태이상 표(1) ＞ 고장:모든 닌자도구를 사용할 수 없게 된다. 이 효과는 누적되지 않는다. 각 사이클을 종료할 때《기기술》로 행동 판정을 해서 성공하면 이 상태이상은 무효가 된다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "KWT"
+output = "괴 상태이상 표(4) ＞ 행방불명:메인 페이즈 동안 자기 이외의 플레이어가 장면 플레이어인 장면에 등장할 수 없게 된다. 이 효과는 누적되지 않는다. 각 사이클을 종료할 때《경제력》으로 행동 판정을 해서 성공하면 이 상태이상은 무효가 된다."
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "OWT"
+output = "상태이상 표(구 문고판)(6) ＞ 저주:습득하고 있는 인법 중에서 무작위로 하나를 고른다. 그 인법을 사용할 수 없게 된다. 1 사이클이 종료될 때《주술》로 행동 판정을 해서 성공하면 이 상태이상은 무효가 된다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GWT 전국 상태이상 표"
+output = "전국 상태이상 표(1) ＞ 최면:이 상태이상에 걸린 이가 전투에 참가 했다면, 전투가 시작되는 시점 또는 이 상태이상에 걸린 시점에서【생명력】을 1점 감소하지 않으면 그 전투에서 자동적으로 탈락한다. 이 효과는 누적되지 않는다. 사이클을 종료할 때《의지》판정을 해서 성공하면 이 효과는 무효가 된다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GWT"
+output = "전국 상태이상 표(5) ＞ 잔류물:이 상태이상에 걸린 이는 회복 판정이나 인법, 닌자도구의 효과로【생명력】을 회복할 수 없게 된다(상태이상은 회복할 수 있다). 이 효괴는 누적되지 않는다. 사이클을 종료할 때《고문술》판정을 해서 성공하면 이 효과는 무효가 된다."
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GWT"
+output = "전국 상태이상 표(2) ＞ 불덩어리:이 상태이상에 걸린 이는 펌블치가 1 상승하며, 펌블을 발생시키면 1점의 접근전 대미지를 입는다. 이 효과는 누적된다. 장면을 종료할 때 이 효과는 무효가 된다."
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "GWT"
+output = "전국 상태이상 표(3) ＞ 맹독:이 상태이상에 걸린 이가 전투에 참가했다면, 라운드를 종료할 때 주사위를 1개 굴린다. 그 눈이 홀수라면【생명력】이 1점 감소한다. 이 효과는 누적된다. 사이클을 종료할 때《독술》판정을 해서 성공하면 이 효과는 무효가 된다."
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "BT"
+output = "전장 표(1) ＞ 평지:특별한 효과 없음."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "BT 전장 표"
+output = "전장 표(6) ＞ 위험지대:우주나 심해, 용암, 마계 등. 게임 마스터는 라운드가 끝날 때 1D6을 굴린다. 주사위 눈이 전투가 시작하고 경과한 라운드 수 이하인 경우, 이 전장에 있는 캐릭터들은 접근전 대미지 1점을 입는다. 이 전장에서 탈락한 자는 1D6을 굴려서 상태이상 표의 결과를 적용한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "OBT"
+output = "전장 표(구 문고판)(3) ＞ 고지대:빌딩 사이나 나무 위, 깎아지른 절벽 등. 이 전장에서 펌블을 내면 대미지 1점을 입는다."
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "OTS"
+output = "【운명의 장난】(오토기 p33)(4) ＞ 전장을 원하는 장소로 변경한다."
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NMT 신 이형 표의 오타 수정(25/01/17: 페이지수 수정) 및 신 이형 표 1번 동작 확인"
+output = "신 이형 표(1) ＞ 이령태(異霊態) |「요마 인법표・이령」을 사용하고, 요마화하고 있는 동안 그 요마 인법을 습득한다. ＞ 요마 인법 표・이령(1) ＞ 【오우마가토키】(기본 p172) /【우츠로부네】(오니혈 p28)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "HRPT"
+output = "패닉 표(5) ＞ 사람들 사이에 근거도 없는 소문이 만연하고, 세상이 암울해진다. 그 세션의 드라마 장면 동안 PC 전원은 모든 판정에 -1의 수정치를 적용한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "OTAT 25/01/17:텍스트 수정"
+output = "각성 표(6) ＞ 자신의 뇌에 누군가가 직접 속삭인다. 집단전 대미지 1점을 입으면 임의의 미각성 데이터 하나를 선택하고, 그것을 각성한 데이터로 변경할 수 있다. 퇴마편이라면, 집단전 대미지를 받는 대신 요마화 하는 것으로 임의의 미각성 데이터 하나를 선택하고, 그것을 각성한 데이터로 변경할 수 있다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NCT1"
+output = "공격계 인법 수업 장면 표(4) ＞ \n고속전투학：《격투술》《의지》\n【연격】(기본 p81) /【가을 폭풍】(기본 p81) /【분사 기구】(오토기 p33) / 임의의 인술\n\n지하 무술 도장에서 하는 수업. 일대일 맨손 대련을 중심으로, 공격을 맞히려면 어떻게 해야 하는가, 공격을 한 후에 어떻게 움직이는 것이 효과적인가 등을 가르친다. 또, 장시간 진행되는 수업이라 기력 또한 도마 위에 오른다."
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NCT2"
+output = "방어계 인법 수업 장면 표(4) ＞ \n인법요법학：《대인술》《병량술》\n【이독제독】(기본 p81) /【선식】(기본 p102) /【설교】(기본 p104) / 임의의 모술\n\n학생 기숙사의 담화실, 식당 등을 사용해서 진행한다. 커뮤니케이션을 통해 동료의 기력이나 모티베이션을 회복하는 방법을 배우는 수업. 대화뿐만 아니라 음식물이나 금전 같은 보수를 이용하는 방법 등도 학습 내용에 포함되어 있다."
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "NCT3"
+output = "보조계 인법 수업 장면 표(5) ＞ \n방해환경학：《지형활용》《봉인술》\n【황사】(기본 p103) /【큰불】(오토기 p34) /【얼음쐐기】(오토기 p34) / 임의의 요술\n\n걱대 사우나, 대식당 부속 냉동실, 강풍으로 유명한 오토기 모래언덕을 이용하여, 고온과 저온의 환경, 시야를 가리는 장소 등 열악한 상황에서 싸우는 법을 배우는 수업. 일반적인 지형이나 날씨뿐만 아니라, 학원에 소속된 반요의 요력으로 발생시킨 상황까지도 체험한다."
+rands = [
+  { sides = 6, value = 5 },
+]
+
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "OTFK"
+output = "불량 고교 장면 표(8) ＞ 교실 앞 복도에 깨진 유리창이 흩어져 있다. 뻥 뚫린 창 밖에서 차가운 바람이 불어닥치고 있다."
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ShinobiGami:Korean"
+input = "2KWT 표 다중 굴림 처리"
+output = "괴 상태이상 표(6) ＞ 저주:습득하고 있는 인법 중에서 무작위로 하나를 고른다. 그 인법을 사용할 수 없게 된다. 이 효과는 습득하고 있는 인법의 수만큼 누적된다. 각 사이클을 종료할 때《주술》로 행동 판정을 해서 성공하면 이 상태이상은 모두 무효가 된다.\n괴 상태이상 표(2) ＞ 마비:습득하고 있는 특기 중에서 무작위로 하나를 고른다. 그 특기를 사용할 수 없게 된다. 이 효과는 습득하고 있는 특기의 수만큼 누적된다. 각 사이클을 종료할 때《신체조작》으로 행동 판정을 해서 성공하면 이 상태이상은 모두 무효가 된다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
