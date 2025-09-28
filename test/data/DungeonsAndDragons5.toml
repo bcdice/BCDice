@@ -298,6 +298,36 @@ rands = [
 
 [[ test ]]
 game_system = "DungeonsAndDragons5"
+input = "ATB ボーナスの表示確認"
+output = "(ATB) ＞ 2+3 ＞ 5"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 4, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "AT+3>=18B ボーナスの表示確認"
+output = "(AT+3>=18B) ＞ 2+3+3 ＞ 8 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 4, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "AT-3>=14B"
+output = "(AT-3>=14B) ＞ 18-3+3 ＞ 18 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 4, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
 input = "AR コマンドのみの表示確認"
 output = "(AR) ＞ 3"
 rands = [
@@ -464,6 +494,36 @@ failure = true
 rands = [
   { sides = 20, value = 18 },
   { sides = 20, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "ARB ボーナスの表示確認"
+output = "(ARB) ＞ 3+3 ＞ 6"
+rands = [
+  { sides = 20, value = 3 },
+  { sides = 4, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "AR>=10B 失敗の表示確認"
+output = "(AR>=10B) ＞ 3+3 ＞ 6 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 20, value = 3 },
+  { sides = 4, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "AR>=10B 成功の表示確認"
+output = "(AR>=10B) ＞ 19+3 ＞ 22 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 19 },
+  { sides = 4, value = 3 },
 ]
 
 
