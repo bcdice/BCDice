@@ -35,7 +35,7 @@ module BCDice
         　例)2H3D6 2H1D10+3 2H2D8-1
       INFO_MESSAGE_TEXT
 
-      register_prefix('AT', 'AR', '2H(\d+)D(\d+)([+-]\d+)?')
+      register_prefix('AT', 'AR', '2H')
 
       def initialize(command)
         super(command)
@@ -165,7 +165,7 @@ module BCDice
           return nil
         end
 
-        modify = m[1].to_i
+        modify = m[1] ? Arithmetic.eval(m[1], @round_type) : 0
         difficulty = m[3].to_i
         advantage = m[4]
         bonus = m[5]
@@ -248,14 +248,14 @@ module BCDice
 
       # 武器の両手持ちダメージ
       def twohands_damage_roll(command)
-        m = /^2H(\d+)D(\d+)([+-]\d+)?/.match(command)
+        m = /^2H(\d+)D(\d+)([-+\d]+)?/.match(command)
         unless m
           return nil
         end
 
         dice_count = m[1].to_i
         dice_number = m[2].to_i
-        modify = m[3].to_i
+        modify = m[3] ? Arithmetic.eval(m[3], @round_type) : 0
         mod_str = number_with_sign_from_int(modify)
         output = ["(2H#{dice_count}D#{dice_number}#{mod_str})"]
 
