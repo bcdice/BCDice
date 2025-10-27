@@ -55,24 +55,7 @@ module BCDice
           end
         end
 
-        fate_dice_positive = 0
-        dice_list.each do |i|
-          if i.positive?
-            fate_dice_positive += 1
-          end
-        end
-
-        remarks = ""
-        target = 0
-        target = parsed.target_number if parsed.target_number
-        if fate_dice_positive == target
-          remarks = "(+0)"
-        elsif fate_dice_positive == target + 1
-          remarks = "(+1)"
-        end
-
         result = outcome(total, parsed.target_number)
-        result.text += remarks if result.text
         sequence = [
           "(#{parsed})",
           "#{fate_dice_list.join()}#{Format.modifier(parsed.modify_number)}",
@@ -122,7 +105,9 @@ module BCDice
         if target.nil?
           Result.new
         elsif total == target
-          Result.success("Tie")
+          Result.success("Tie(+0)")
+        elsif total == target + 1
+          Result.success("Succeed(+1)")
         elsif total >= target + 3
           Result.critical("Succeed with Style")
         elsif total >= target
