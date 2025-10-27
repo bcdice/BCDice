@@ -1,0 +1,377 @@
+[[ test ]]
+game_system = "DeadlineHeroes:Korean"
+input = "1D6"
+output = "(1D6) ＞ 2"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "dlh60"
+output = "성공률60% ＞ 05 ＞ 성공"
+success = true
+failure = false
+critical = false
+fumble = false
+rands = [
+  { sides = 100, value = 5 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DLH80"
+output = "성공률80% ＞ 79 ＞ 성공"
+success = true
+failure = false
+critical = false
+fumble = false
+rands = [
+  { sides = 100, value = 79 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "dlh45"
+output = "성공률45% ＞ 45 ＞ 성공"
+success = true
+failure = false
+critical = false
+fumble = false
+rands = [
+  { sides = 100, value = 45 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DLH10"
+output = "성공률10% ＞ 12 ＞ 실패"
+failure = true
+success = false
+critical = false
+fumble = false
+rands = [
+  { sides = 100, value = 12 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "dlh70"
+output = "성공률70% ＞ 98 ＞ 실패"
+failure = true
+success = false
+critical = false
+fumble = false
+rands = [
+  { sides = 100, value = 98 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "dlh30"
+output = "성공률30% ＞ 11 ＞ 크리티컬"
+success = true
+critical = true
+failure = false
+fumble = false
+rands = [
+  { sides = 100, value = 11 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DLH90"
+output = "성공률90% ＞ 88 ＞ 크리티컬"
+success = true
+critical = true
+failure = false
+fumble = false
+rands = [
+  { sides = 100, value = 88 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "dlh66"
+output = "성공률66% ＞ 66 ＞ 크리티컬"
+success = true
+critical = true
+failure = false
+fumble = false
+rands = [
+  { sides = 100, value = 66 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DLH20"
+output = "성공률20% ＞ 33 ＞ 펌블"
+failure = true
+fumble = true
+success = false
+critical = false
+rands = [
+  { sides = 100, value = 33 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DLH38"
+output = "성공률38% ＞ 39 ＞ 실패"
+failure = true
+rands = [
+  { sides = 100, value = 39 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "dlh80"
+output = "성공률80% ＞ 99 ＞ 펌블"
+failure = true
+fumble = true
+success = false
+critical = false
+rands = [
+  { sides = 100, value = 99 }
+]
+
+[[ test ]]
+game_system = "DeadlineHeroes:Korean"
+input = "dlh80"
+output = "성공률80% ＞ 49 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 49 }
+]
+
+[[ test ]]
+game_system = "DeadlineHeroes:Korean"
+input = "dlh50"
+output = "성공률50% ＞ 22 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 22 }
+]
+
+[[ test ]]
+game_system = "DeadlineHeroes:Korean"
+input = "dlh10"
+output = "성공률10% ＞ 44 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 44 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DCL-5"
+output = "(L 데스차트 ＞ 혼신의 일격!! 당신은 <생존> 판정을 한다. 실패한 경우 [사망] 한다."
+rands = [{ sides = 10, value = 8 }]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DCL-10"
+output = "(L 데스차트 ＞ 이후 이벤트 종료 시까지 모든 판정의 성공률 -30%."
+rands = [{ sides = 10, value = 9 }]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DCS-4"
+output = "(S 데스차트 ＞ 당신은 [기절] 포인트를 2점 얻는다. [기절] 포인트를 소지하는 동안, 당신은 모든 파워를 사용할 수 없으며 자신의 턴도 얻을 수 없다. 각 라운드 종료 시, 당신이 소지한 [기절] 포인트를 1점 줄여도 좋다."
+rands = [{ sides = 10, value = 10 }]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DCS-15"
+output = "(S 데스차트 ＞ 우주의 섭리를 마주하나, 그것은 인류의 인식 한계를 뛰어넘는 무언가였다. 당신은 [절망]해 이후 NPC가 된다."
+rands = [{ sides = 10, value = 9 }]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DCS-10"
+output = "(S 데스차트 ＞ 우주의 섭리를 마주하나, 그것은 인류의 인식 한계를 뛰어넘는 무언가였다. 당신은 [절망]해 이후 NPC가 된다."
+rands = [{ sides = 10, value = 10 }]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DCC-1"
+output = "(C 데스차트 ＞ 아무 일도 일어나지 않는다. 당신은 수상한 소문을 불식시켰다."
+rands = [{ sides = 10, value = 2 }]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DCC0"
+output = "(C 데스차트 ＞ 아무 일도 일어나지 않는다. 당신은 수상한 소문을 불식시켰다."
+rands = [{ sides = 10, value = 10 }]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "DCC-20"
+output = "(C 데스차트 ＞ 당신의 이름은 사상 최악의 오점으로 영원히 역사에 기록된다. 더이상 당신을 믿는 동료는 없으며, 당신을 도와줄 사회도 없다. 당신은 [오명]을 뒤집어쓴다."
+rands = [{ sides = 10, value = 10 }]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "HNC"
+output = "히어로 네임 차트 ＞ 조합식: 베이스A+베이스B ＞ 결과: 더·버니"
+rands = [
+  { sides = 9, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 3 }, { sides = 10, value = 1 },
+  { sides = 10, value = 1 }, { sides = 10, value = 1 },
+  { sides = 10, value = 4 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "HNC"
+output = "히어로 네임 차트 ＞ 조합식: 베이스B ＞ 결과: 페이스"
+rands = [
+  { sides = 9, value = 2 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 }, { sides = 10, value = 2 },
+  { sides = 10, value = 7 }, { sides = 10, value = 3 },
+  { sides = 10, value = 5 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "HNC"
+output = "히어로 네임 차트 ＞ 조합식: 베이스B×2회 ＞ 결과: 에이전트건"
+rands = [
+  { sides = 9, value = 3 },
+  { sides = 10, value = 3 }, { sides = 3, value = 1 },
+  { sides = 10, value = 9 }, { sides = 10, value = 2 },
+  { sides = 10, value = 2 }, { sides = 10, value = 4 },
+  { sides = 10, value = 6 }, { sides = 2, value = 1 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "HNC"
+output = "히어로 네임 차트 ＞ 조합식: 베이스B+베이스C ＞ 결과: 킬퀸"
+rands = [
+  { sides = 9, value = 4 },
+  { sides = 10, value = 4 }, { sides = 2, value = 2 },
+  { sides = 10, value = 8 }, { sides = 10, value = 10 },
+  { sides = 10, value = 5 }, { sides = 10, value = 8 },
+  { sides = 10, value = 7 }, { sides = 2, value = 2 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "HNC"
+output = "히어로 네임 차트 ＞ 조합식: 베이스A+베이스B+베이스C ＞ 결과: 인크레더블엔젤실버"
+rands = [
+  { sides = 9, value = 5 },
+  { sides = 10, value = 7 }, { sides = 10, value = 6 },
+  { sides = 10, value = 1 }, { sides = 10, value = 4 },
+  { sides = 10, value = 3 }, { sides = 10, value = 7 },
+  { sides = 10, value = 8 }, { sides = 10, value = 7 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "HNC"
+output = "히어로 네임 차트 ＞ 조합식: 베이스A+베이스B×2회 ＞ 결과: 블랙맨티스이글"
+rands = [
+  { sides = 9, value = 6 },
+  { sides = 10, value = 8 }, { sides = 10, value = 1 },
+  { sides = 10, value = 5 }, { sides = 10, value = 10 },
+  { sides = 10, value = 4 }, { sides = 10, value = 5 },
+  { sides = 10, value = 9 }, { sides = 2, value = 2 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "HNC"
+output = "히어로 네임 차트 ＞ 조합식: 베이스B×2회+베이스C ＞ 결과: 소드핸드1"
+rands = [
+  { sides = 9, value = 7 },
+  { sides = 10, value = 10 }, { sides = 10, value = 2 },
+  { sides = 10, value = 2 }, { sides = 10, value = 2 },
+  { sides = 10, value = 6 }, { sides = 10, value = 8 },
+  { sides = 10, value = 10 }, { sides = 10, value = 1 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "HNC"
+output = "히어로 네임 차트 ＞ 조합식: 베이스B·오브·베이스B ＞ 결과: 섀도우·오브·데스"
+rands = [
+  { sides = 9, value = 8 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 }, { sides = 10, value = 2 },
+  { sides = 10, value = 1 }, { sides = 10, value = 7 },
+  { sides = 10, value = 3 }, { sides = 2, value = 1 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "HNC"
+output = "히어로 네임 차트 ＞ 조합식: 베이스B·더·베이스B ＞ 결과: 9·더·부스터"
+rands = [
+  { sides = 9, value = 9 },
+  { sides = 10, value = 9 }, { sides = 2, value = 2 },
+  { sides = 10, value = 10 }, { sides = 10, value = 9 },
+  { sides = 10, value = 9 }, { sides = 10, value = 3 },
+  { sides = 10, value = 1 }, { sides = 2, value = 2 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "RNCO"
+output = "무명(모종의 이유로 이름이 없다. 혹은 잃었다)"
+rands = [{ sides = 10, value = 1 }]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "RNCO"
+output = "이름(남):알버스\n이름(여):아이리스\n성:알렌"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 16, value = 1 },
+  { sides = 16, value = 1 },
+  { sides = 16, value = 1 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "RNCO"
+output = "이름(남):스파이크\n이름(여):마르셀라\n성:워드"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 16, value = 5 },
+  { sides = 16, value = 12 },
+  { sides = 16, value = 16 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "RNCJ"
+output = "무명(모종의 이유로 이름이 없다. 혹은 잃었다)"
+rands = [{ sides = 10, value = 1 }]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "RNCJ"
+output = "성:아이카와\n이름(남):아키라\n이름(여):안"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 16, value = 1 },
+  { sides = 16, value = 1 },
+  { sides = 16, value = 1 }
+]
+
+[[test]]
+game_system = "DeadlineHeroes:Korean"
+input = "RNCJ"
+output = "성:시시도\n이름(남):류세이\n이름(여):히카루"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 16, value = 7 },
+  { sides = 16, value = 14 },
+  { sides = 16, value = 10 }
+]
