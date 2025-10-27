@@ -16,13 +16,13 @@ module BCDice
       HELP_MESSAGE = <<~MESSAGETEXT
         ■ ファッジダイスによる判定 (xDF+y>=t)
           ファッジダイスをx個ダイスロールし、結果を判定します。
-          x: ダイス数
+          x: ダイス数(省略時4)
           y: 修正値（省略可）
-          t: 目標値値（省略可）
-          例）4DF, 4DF>=3, 4DF+1>=3
+          t: 目標値（省略可）
+          例）4DF, 4DF>=3, 4DF+1>=3, DF, DF>=3, DF+1>=3
       MESSAGETEXT
 
-      register_prefix('\d+DF')
+      register_prefix('\d*DF')
 
       def eval_game_system_specific_command(command)
         roll_df(command)
@@ -40,7 +40,9 @@ module BCDice
           return nil
         end
 
-        dice_list = roll_fate_dice(parsed.prefix_number)
+        dice_x = 4
+        dice_x = parsed.prefix_number if parsed.prefix_number
+        dice_list = roll_fate_dice(dice_x)
         total = dice_list.sum() + parsed.modify_number
 
         fate_dice_list = dice_list.map do |i|
@@ -103,7 +105,9 @@ module BCDice
         if target.nil?
           Result.new
         elsif total == target
-          Result.success("Tie")
+          Result.success("Tie(+0)")
+        elsif total == target + 1
+          Result.success("Succeed(+1)")
         elsif total >= target + 3
           Result.critical("Succeed with Style")
         elsif total >= target
