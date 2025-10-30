@@ -37,7 +37,7 @@ rands = [
 [[ test ]]
 game_system = "Kutulu_Reviced"
 input = "4KU"
-output = "(4KU) ＞ 1,2,3,5 ＞ 成功数1 ＞ *ギリギリでの成功"
+output = "(4KU) ＞ 1,2,3,5 ＞ 成功数1 ＞ *ギリギリの成功？"
 success = true
 rands = [
   { sides = 6, value = 5 },
@@ -61,7 +61,7 @@ rands = [
 [[ test ]]
 game_system = "Kutulu_Reviced"
 input = "3KU ダイス個数の変化を確認"
-output = "(3KU) ＞ 1,3,5 ＞ 成功数1 ＞ *ギリギリでの成功"
+output = "(3KU) ＞ 1,3,5 ＞ 成功数1 ＞ *ギリギリの成功？"
 success = true
 rands = [
   { sides = 6, value = 5 },
@@ -72,7 +72,7 @@ rands = [
 [[ test ]]
 game_system = "Kutulu_Reviced"
 input = "2KU"
-output = "(2KU) ＞ 1,6 ＞ 成功数1 ＞ *ギリギリでの成功"
+output = "(2KU) ＞ 1,6 ＞ 成功数1 ＞ *ギリギリの成功？"
 success = true
 rands = [
   { sides = 6, value = 6 },
@@ -82,7 +82,7 @@ rands = [
 [[ test ]]
 game_system = "Kutulu_Reviced"
 input = "1KU"
-output = "(1KU) ＞ 5 ＞ 成功数1 ＞ *ギリギリでの成功"
+output = "(1KU) ＞ 5 ＞ 成功数1 ＞ *ギリギリの成功？"
 success = true
 rands = [
   { sides = 6, value = 5 },

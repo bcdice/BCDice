@@ -55,7 +55,7 @@ module BCDice
         if success_num > 0
           output += " ＞ 成功数#{success_num}"
           if success_num == 1
-            output += " ＞ *ギリギリでの成功"
+            output += " ＞ *ギリギリの成功？"
           end
           return Result.success(output)
         else
@@ -76,10 +76,10 @@ module BCDice
         dices = @randomizer.roll_barabara(num_dices, 6).sort
         dice_text = dices.join(",")
 
-        counts_6 = dices.count(6)
-        counts_5 = dices.count(5)
+        counts6 = dices.count(6)
+        counts5 = dices.count(5)
         success_num = dices.count { |val| val >= 4 }
-        com_text = format("(%d%d%d)", success_num, counts_6, counts_5)
+        com_text = format("(%d%d%d)", success_num, counts6, counts5)
 
         output = "(#{num_dices}KR) ＞ #{dice_text} ＞ #{com_text}"
 
