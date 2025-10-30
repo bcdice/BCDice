@@ -7,7 +7,7 @@ module BCDice
       ID = 'Kutulu_Reviced'
 
       # ゲームシステム名
-      NAME = 'Kutulu Reviced'
+      NAME = 'Kutulu リバイズド'
 
       # ゲームシステム名の読みがな
       SORT_KEY = 'くとうるうりはいすと'
