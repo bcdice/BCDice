@@ -1,0 +1,136 @@
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND2"
+output = "(ND2) ＞ [1, 1, 1] ＞ 成功度0"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND-2"
+output = "(ND-2) ＞ [1, 1, 1] ＞ 成功度-3"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "nd3"
+output = "(ND3) ＞ [6, 2, 4, 5] ＞ 成功度2"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "nd3"
+output = "(ND3) ＞ [6, 5, 5, 6C] ＞ 成功度4(Computer)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND-3"
+output = "(ND-3) ＞ [6, 2, 5, 6C] ＞ 成功度2(Computer)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND-3"
+output = "(ND-3) ＞ [6, 6, 5, 6C] ＞ 成功度4(Computer)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND0"
+output = "(ND0) ＞ [6C] ＞ 成功度1(Computer)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND0"
+output = "(ND0) ＞ [5] ＞ 成功度1"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND0"
+output = "(ND0) ＞ [4] ＞ 成功度0"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND0,0 # 反逆スターの確認"
+output = "(ND0,0) ＞ [6C] ＞ 成功度1(Computer)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND0,1"
+output = "(ND0,1) ＞ [5C] ＞ 成功度1(Computer)"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND0,2"
+output = "(ND0,2) ＞ [4C] ＞ 成功度1(Computer)"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND0,3"
+output = "(ND0,3) ＞ [3C] ＞ 成功度1(Computer)"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND0,4"
+output = "(ND0,4) ＞ [2C] ＞ 成功度1(Computer)"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "ParanoiaPerfect"
+input = "ND0,5"
+output = "(ND0,5) ＞ [1C] ＞ 成功度1(Computer)"
+rands = [
+  { sides = 6, value = 1 },
+]
