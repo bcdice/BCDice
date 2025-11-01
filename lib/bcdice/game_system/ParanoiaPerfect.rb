@@ -7,10 +7,10 @@ module BCDice
       ID = 'ParanoiaPerfect'
 
       # ゲームシステム名
-      NAME = 'パラノイア パーフェクト エディション'
+      NAME = 'パラノイア・パーフェクト エディション'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'はらのいあはあふえくと'
+      SORT_KEY = 'はらのいあはあふえくとえていしよん'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
