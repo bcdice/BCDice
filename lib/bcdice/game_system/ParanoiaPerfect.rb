@@ -60,10 +60,6 @@ module BCDice
 
         success_rate = dices.count { |dice| dice >= 5 }
         success_rate -= dices.count { |dice| dice < 5 } if parameter_num < 0
-        if traitorous_star > 0
-          computer_die = dices[-1].to_i
-          success_rate += 1 if computer_die < 5 && computer_die >= (6 - traitorous_star)
-        end
 
         debug(dices)
 
