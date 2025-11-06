@@ -45,7 +45,7 @@ module BCDice
       def get_node_dice_roll(command)
         debug("eval_game_system_specific_command Begin")
 
-        m = /^ND((-)?\d+)(,(\d+))?/i.match(command)
+        m = /^ND((-)?\d+)(,(\d+))?$/i.match(command)
         unless m
           return nil
         end
