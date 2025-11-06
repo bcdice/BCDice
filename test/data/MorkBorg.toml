@@ -147,7 +147,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "INS イニシアティヴ　enemies・PCs go firstの確認"
-output = "(INS) ＞ 1+0 ＞ 1 ＞ enemies go first"
+output = "(INS) ＞ 1+0 ＞ 1 ＞ Enemies go first"
 failure = true
 rands = [
   { sides = 6, value = 1 },
@@ -156,7 +156,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "INS"
-output = "(INS) ＞ 3+0 ＞ 3 ＞ enemies go first"
+output = "(INS) ＞ 3+0 ＞ 3 ＞ Enemies go first"
 failure = true
 rands = [
   { sides = 6, value = 3 },
@@ -200,56 +200,55 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "MOR モラル　退散・降伏の確認"
-output = "(MOR) ＞ 1+0 ＞ 1 ＞ flees"
-failure = true
+input = "MOR7 モラル　退散・降伏の確認"
+output = "(MOR7) ＞ 8+0 ＞ 8 ＞ 3(Flees)"
+success = true
 rands = [
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "MorkBorg"
-input = "MOR"
-output = "(MOR) ＞ 3+0 ＞ 3 ＞ flees"
-failure = true
-rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
   { sides = 6, value = 3 },
 ]
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "MOR"
-output = "(MOR) ＞ 4+0 ＞ 4 ＞ surrenders"
+input = "MOR7"
+output = "(MOR7) ＞ 8+0 ＞ 8 ＞ 4(Surrenders)"
 success = true
 rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
   { sides = 6, value = 4 },
 ]
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "MOR"
-output = "(MOR) ＞ 6+0 ＞ 6 ＞ surrenders"
-success = true
+input = "MOR7"
+output = "(MOR7) ＞ 7+0 ＞ 7 ＞ Morale maintenance"
+failure = true
 rands = [
   { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
 ]
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "+1MOR"
-output = "(+1MOR) ＞ 4+1 ＞ 5 ＞ surrenders"
-success = true
+input = "+1MOR9"
+output = "(+1MOR9) ＞ 8+1 ＞ 9 ＞ Morale maintenance"
+failure = true
 rands = [
-  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
 ]
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "-1MOR"
-output = "(-1MOR) ＞ 6-1 ＞ 5 ＞ surrenders"
+input = "-1MOR7"
+output = "(-1MOR7) ＞ 8-1 ＞ 7 ＞ 3(Flees)"
 success = true
 rands = [
   { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
 ]
 
 [[ test ]]
@@ -350,6 +349,23 @@ rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "BRO 崩壊表"
+output = "崩壊表(1) ＞ Fall unconscious for d4 rounds, awaken with d4 HP."
+rands = [
+  { sides = 4, value = 1 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "BRO 崩壊表"
+output = "崩壊表(4) ＞ Dead."
+rands = [
+  { sides = 4, value = 4 },
+]
+
 
 [[ test ]]
 game_system = "MorkBorg"
