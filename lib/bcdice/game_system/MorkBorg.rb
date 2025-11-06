@@ -135,7 +135,7 @@ module BCDice
         die = ""
         result =
           if dice_total <= num_target
-              Result.failure("Morale maintenance")
+            Result.failure("Morale maintenance")
           else
             die = @randomizer.roll_once(6)
             if die >= 4
