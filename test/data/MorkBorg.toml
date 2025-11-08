@@ -223,7 +223,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "MOR7"
-output = "(MOR7) ＞ 7+0 ＞ 7 ＞ Morale maintenance"
+output = "(MOR7) ＞ 7+0 ＞ 7 ＞ Maintained"
 failure = true
 rands = [
   { sides = 6, value = 6 },
@@ -233,21 +233,22 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "+1MOR9"
-output = "(+1MOR9) ＞ 8+1 ＞ 9 ＞ Morale maintenance"
-failure = true
+output = "(+1MOR9) ＞ 9+1 ＞ 10 ＞ 3(Flees)"
+success = true
 rands = [
   { sides = 6, value = 6 },
-  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
 ]
 
 [[ test ]]
 game_system = "MorkBorg"
 input = "-1MOR7"
-output = "(-1MOR7) ＞ 8-1 ＞ 7 ＞ 3(Flees)"
+output = "(-1MOR7) ＞ 9-1 ＞ 8 ＞ 3(Flees)"
 success = true
 rands = [
   { sides = 6, value = 6 },
-  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
   { sides = 6, value = 3 },
 ]
 
