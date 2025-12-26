@@ -766,6 +766,15 @@ rands = [
 
 [[ test ]]
 game_system = "SwordWorld2.0"
+input = "green #grで始まる単語による暴発の確認"
+output = ""
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.0"
 input = "gr1"
 output = "[1,2]->(器用度 or 敏捷度)"
 rands = [
