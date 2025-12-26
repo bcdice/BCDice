@@ -782,7 +782,6 @@ rands = [
 [[ test ]]
 game_system = "Aionia"
 input = "ABT3>=2/3 段階的な技能判定 自動成功"
-success = true
 output = "(ABT3>=2/3) ＞ 3[1,1,1] ＞ 自動成功"
 success = true
 rands = [
