@@ -53,8 +53,6 @@ module BCDice
       end
 
       def check_roll(command)
-        debug("checkRoll begin string", command)
-
         parser = Command::Parser.new("LL", round_type: RoundType::CEIL).has_prefix_number.enable_critical.enable_dollar.restrict_cmp_op_to(:>=)
         parsed = parser.parse(command)
         return nil if parsed.nil?
@@ -72,10 +70,9 @@ module BCDice
           target = 5
         elsif target >= 11
           text += "【#{command}】 ＞ 難易度が11を超えたため、超過分、ダイスの数が減少！\n"
-          while target >= 11
-            target -= 1
-            dice_cnt -= 1
-          end
+          over = target - 10
+          target = 10
+          dice_cnt -= over
         end
 
         dice_cnt = 0 if dice_cnt < 0
@@ -90,9 +87,8 @@ module BCDice
         success_cnt = 0
         critical_cnt = 0
 
-        dice_count_strs = (1..10).map do |v|
-          count = dice_count.fetch(v, 0)
-          next nil if count == 0
+        dice_count.each do |v, count|
+          next if count == 0
 
           if v >= target
             success_cnt += count
@@ -102,6 +98,11 @@ module BCDice
             success_cnt += count * critical_addition
             critical_cnt += count
           end
+        end
+
+        dice_count_strs = (1..10).map do |v|
+          count = dice_count.fetch(v, 0)
+          next nil if count == 0
 
           "[#{v}]×#{dice_count.fetch(v, 0)}"
         end
@@ -110,6 +111,7 @@ module BCDice
         has_fumble = dice_cnt > 0 && dice_count.fetch(1, 0) >= (dice_cnt.to_f / 2).ceil
 
         if has_fumble
+          # ファンブルの場合、クリティカルは無視される
           has_critical = false
           success_cnt = 0
         end
@@ -131,24 +133,24 @@ module BCDice
       end
 
       def roll_table_command(command)
+        # サタスペのダイスボットを参考に実装
         command = command.upcase
-        result = []
-
-        m = /([A-Za-z]+)(\d+)?(=)?(\d+)?/.match(command)
-        return result unless m
+        
+        m = /([A-Z]+)(\d+)?(=)?(\d+)?/.match(command)
+        return nil unless m
 
         table_name = m[1]
+        table = TABLES[table_name]
+        return nil if table.nil?
+
         counts = 1
         counts = m[2].to_i if m[2]
         operator = m[3]
         value = m[4].to_i
 
-        result = []
-
         return nil if !operator.nil? && value <= 0 || value >= 11
 
-        table = TABLES[table_name]
-        return result.join("\n") if table.nil?
+        result_texts = []
 
         counts.times do |_i|
           if operator == "=" && !value.nil?
@@ -157,10 +159,12 @@ module BCDice
           else
             text = roll_tables(table_name, TABLES)
           end
-          result.push(text)
+          result_texts.push(text)
         end
 
-        return result.join("\n")
+        Result.new.tap do |r|
+          r.text = result_texts.join("\n")
+        end
       end
 
       ####################
