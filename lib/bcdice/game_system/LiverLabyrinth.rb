@@ -145,7 +145,7 @@ module BCDice
 
         result = []
 
-        return nil if !value.nil? && value <= 0 || value >= 11
+        return nil if !operator.nil? && value <= 0 || value >= 11
 
         table = TABLES[table_name]
         return result.join("\n") if table.nil?
