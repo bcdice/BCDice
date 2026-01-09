@@ -56,6 +56,16 @@ rands = [
   { sides = 20, value = 1 },
 ]
 
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "AT+ 加減算記号のみで数字のない不正入力時の処理確認"
+output = "(AT) ＞ 10"
+fumble = true
+failure = true
+rands = [
+  { sides = 20, value = 10 },
+]
+
 
 [[ test ]]
 game_system = "DungeonsAndDragons5"
@@ -340,6 +350,17 @@ output = "(AT-3>=14B) ＞ 18-3+3 ＞ 18 ＞ 成功"
 success = true
 rands = [
   { sides = 20, value = 18 },
+  { sides = 4, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "AT-3>=15DB"
+output = "(AT-3>=15DB) ＞ [18,3]-3+3 ＞ 3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 3 },
   { sides = 4, value = 3 },
 ]
 
