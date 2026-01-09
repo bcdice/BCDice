@@ -1874,6 +1874,7 @@ rands = [
   { sides = 10, value = 1 }
 ]
 
+[[ test ]]
 game_system = "DoubleCross:Korean"
 input = "PCP"
 output = "프롤로그 차트 (포지티브)(10) ＞ 【석세스】 뭔가에 대성공한 장면이다. 일이라도 좋고 휴가 중에 하는 게임이나 스포츠일지도 모른다."
@@ -1881,6 +1882,7 @@ rands = [
   { sides = 10, value = 10 }
 ]
 
+[[ test ]]
 game_system = "DoubleCross:Korean"
 input = "PCN"
 output = "프롤로그 차트 (네거티브)(1) ＞ 【디피트】 빌런과 싸워 패배한 장면을 회상한다. 그때 부상은 이미 회복됐지만, 긍지는 아직 회복되지 않았다."
@@ -1888,7 +1890,7 @@ rands = [
   { sides = 10, value = 1 }
 ]
 
-
+[[ test ]]
 game_system = "DoubleCross:Korean"
 input = "PCN"
 output = "프롤로그 차트 (네거티브)(5) ＞ 【배싱】 미디어나 시민들로부터 비판을 받는다. 과거의 실패나 지금의 난폭한 해결법 등."
