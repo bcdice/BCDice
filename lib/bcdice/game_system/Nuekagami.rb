@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'bcdice/dice_table/table'
-
 module BCDice
   module GameSystem
     class Nuekagami < Base
