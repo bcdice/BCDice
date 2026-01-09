@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "bcdice/game_system/satasupe/tables"
-
 module BCDice
   module GameSystem
     class LiverLabyrinth < Base
@@ -135,7 +133,7 @@ module BCDice
       def roll_table_command(command)
         # サタスペのダイスボットを参考に実装
         command = command.upcase
-        
+
         m = /([A-Z]+)(\d+)?(=)?(\d+)?/.match(command)
         return nil unless m
 
