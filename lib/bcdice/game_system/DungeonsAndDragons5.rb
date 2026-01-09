@@ -59,13 +59,17 @@ module BCDice
 
       # 攻撃ロール
       def attack_roll(command)
-        m = /^AT([-+\d]+)?(@(\d+))?(>=(\d+))?([AD6]*)(B?)/.match(command)
+        m = /^AT([-+\d]+)?(@(\d+))?(>=(\d+))?([AD]?)6?(B?)/.match(command)
         unless m
           return nil
         end
 
-        if Arithmetic.eval(m[1], @round_type)
-          modify = m[1] ? Arithmetic.eval(m[1], @round_type) : 0
+        if m[1]
+          if Arithmetic.eval(m[1], @round_type)
+            modify = Arithmetic.eval(m[1], @round_type)
+          else
+            return nil
+          end
         else
           modify = 0
         end

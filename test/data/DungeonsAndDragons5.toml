@@ -59,11 +59,8 @@ rands = [
 [[ test ]]
 game_system = "DungeonsAndDragons5"
 input = "AT+ 加減算記号のみで数字のない不正入力時の処理確認"
-output = "(AT) ＞ 10"
-fumble = true
-failure = true
+output = ""
 rands = [
-  { sides = 20, value = 10 },
 ]
 
 
