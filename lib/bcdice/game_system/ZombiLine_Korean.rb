@@ -26,7 +26,7 @@ module BCDice
 
       def initialize(command)
         super(command)
-        @locale = :ko_kr 
+        @locale = :ko_kr
       end
 
       TABLES = translate_tables(:ko_kr).freeze
