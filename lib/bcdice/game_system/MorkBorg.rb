@@ -9,7 +9,7 @@ module BCDice
       ID = 'MorkBorg'
 
       # ゲームシステム名
-      NAME = 'MorkBorg'
+      NAME = 'MÖRK BORG'
 
       # ゲームシステム名の読みがな
       SORT_KEY = 'むるくほりい'
