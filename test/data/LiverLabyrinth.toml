@@ -1,0 +1,532 @@
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL@8>=6"
+output = "【ダイスの数6、難易度6、クリティカル8】 ＞ [3]×1,[5]×1,[6]×1,[7]×1,[8]×1,[9]×1 ＞ 成功度6 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL@8>=6"
+output = "【ダイスの数6、難易度6、クリティカル8】 ＞ [1]×3,[2]×1,[4]×1,[5]×1 ＞ 成功度0 ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL@8>=9"
+output = "【ダイスの数6、難易度9、クリティカル8】 ＞ [3]×1,[5]×1,[6]×1,[7]×1,[8]×1,[9]×1 ＞ 成功度3 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL@7>=6"
+output = "【ダイスの数6、難易度6、クリティカル7】 ＞ [3]×1,[5]×1,[6]×1,[7]×1,[8]×1,[9]×1 ＞ 成功度7 ＞ 成功(クリティカル)"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "5LL>=6"
+output = "【ダイスの数5、難易度6、クリティカル10】 ＞ [1]×2,[7]×1,[8]×1,[9]×1 ＞ 成功度3 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "5LL>=6"
+output = "【ダイスの数5、難易度6、クリティカル10】 ＞ [1]×3,[7]×1,[8]×1 ＞ 成功度0 ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL>=6"
+output = "【ダイスの数6、難易度6、クリティカル10】 ＞ [2]×1,[3]×1,[4]×1,[5]×1,[10]×2 ＞ 成功度4 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL>=6"
+output = "【ダイスの数6、難易度6、クリティカル10】 ＞ [2]×1,[3]×1,[4]×1,[10]×3 ＞ 成功度6 ＞ 成功(クリティカル)"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL>=9"
+output = "【ダイスの数6、難易度9、クリティカル10】 ＞ [3]×1,[5]×1,[6]×1,[7]×1,[8]×1,[9]×1 ＞ 成功度1 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL@8>=11"
+output = "【6LL@8>=11】 ＞ 難易度が11を超えたため、超過分、ダイスの数が減少！\n【ダイスの数5、難易度10、クリティカル8】 ＞ [3]×1,[6]×1,[7]×1,[8]×1,[9]×1 ＞ 成功度2 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL@8>=11"
+output = "【6LL@8>=11】 ＞ 難易度が11を超えたため、超過分、ダイスの数が減少！\n【ダイスの数5、難易度10、クリティカル8】 ＞ [3]×1,[7]×1,[8]×1,[9]×1,[10]×1 ＞ 成功度4 ＞ 成功(クリティカル)"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL@8>=17"
+output = "【6LL@8>=17】 ＞ 難易度が11を超えたため、超過分、ダイスの数が減少！\n【ダイスの数0、難易度10、クリティカル8】 ＞  ＞ 成功度0 ＞ 失敗"
+failure = true
+rands = [
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "3LL@8>=17"
+output = "【3LL@8>=17】 ＞ 難易度が11を超えたため、超過分、ダイスの数が減少！\n【ダイスの数0、難易度10、クリティカル8】 ＞  ＞ 成功度0 ＞ 失敗"
+failure = true
+rands = [
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL>=3"
+output = "【6LL>=3】 ＞ あらゆる難易度は5未満にはならないため、難易度は5になる！\n【ダイスの数6、難易度5、クリティカル10】 ＞ [3]×1,[5]×1,[6]×1,[7]×1,[8]×1,[9]×1 ＞ 成功度5 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL>=0"
+output = "【6LL>=0】 ＞ あらゆる難易度は5未満にはならないため、難易度は5になる！\n【ダイスの数6、難易度5、クリティカル10】 ＞ [3]×1,[5]×1,[6]×1,[7]×1,[8]×1,[9]×1 ＞ 成功度5 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL@8>=10 クリティカル3回でながらファンブル"
+output = "【ダイスの数6、難易度10、クリティカル8】 ＞ [1]×3,[9]×3 ＞ 成功度0 ＞ 失敗(ファンブル)"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL+5@8>=6"
+output = "【ダイスの数6、難易度6、クリティカル8、攻撃力5】 ＞ [3]×1,[5]×1,[6]×1,[7]×1,[8]×1,[9]×1 ＞ 成功度6 ＞ 成功 ＞ 11ダメージ"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL$2>=6"
+output = "【ダイスの数6、難易度6、クリティカル10(+2)】 ＞ [1]×1,[5]×1,[6]×1,[9]×1,[10]×2 ＞ 成功度8 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL@9$2>=6"
+output = "【ダイスの数6、難易度6、クリティカル9(+2)】 ＞ [1]×1,[5]×1,[6]×1,[9]×1,[10]×2 ＞ 成功度10 ＞ 成功(クリティカル)"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "6LL+5@9$2>=6"
+output = "【ダイスの数6、難易度6、クリティカル9(+2)、攻撃力5】 ＞ [1]×1,[5]×1,[6]×1,[9]×1,[10]×2 ＞ 成功度10 ＞ 成功(クリティカル) ＞ 15ダメージ"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "CRITICALT"
+output = "クリティカル表(1) ＞ 視聴者が沸き立つ一撃！閲覧数を1D10点増加させる。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "CRITICALT=5"
+output = "クリティカル表(5) ＞ 取れ高発生！《トレダカ》を1点増加させる。"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "CRITICALT2"
+output = "クリティカル表(1) ＞ 視聴者が沸き立つ一撃！閲覧数を1D10点増加させる。\nクリティカル表(10) ＞ 次の動作への連携が決まる！次に行う自身のアクションのクリティカル値を2点減少させる。"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "CRITICALT2=6"
+output = "クリティカル表(6) ＞ 相手の動きを阻害することに成功！対象の《行動値》を0にする。\nクリティカル表(6) ＞ 相手の動きを阻害することに成功！対象の《行動値》を0にする。"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "FUMBLET"
+output = "命中ファンブル表(1) ＞ 急にコメントが荒れて攻撃を外してしまう。「炎上」のバステを受ける。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "FUMBLET=5"
+output = "命中ファンブル表(5) ＞ 魔力の消費が爆増！このアクションで消費した《EP》を再度消費する。"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "FUMBLET2"
+output = "命中ファンブル表(1) ＞ 急にコメントが荒れて攻撃を外してしまう。「炎上」のバステを受ける。\n命中ファンブル表(10) ＞ 攻撃は失敗だが、ネタとして大ウケ。《閲覧数》が1D10点増加する。"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "FUMBLET2=6"
+output = "命中ファンブル表(6) ＞ タンマツの調子が悪い。「オフライン」のバステを受ける。\n命中ファンブル表(6) ＞ タンマツの調子が悪い。「オフライン」のバステを受ける。"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "FATALT"
+output = "致命傷表(1) ＞ 行動不能。ダンジョンに身体を侵食される。異形トロフィーを1つ獲得する。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "FATALT=5"
+output = "致命傷表(5) ＞ 致命傷だがまだ動ける！《EP》を1にする。「スリップ」のバステを受ける。"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "FATALT2"
+output = "致命傷表(1) ＞ 行動不能。ダンジョンに身体を侵食される。異形トロフィーを1つ獲得する。\n致命傷表(10) ＞ 行動不能。ダンジョンに身体を侵食される。異形トロフィーを1つ獲得する。"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "FATALT2=6"
+output = "致命傷表(6) ＞ 行動不能。ダンジョンに身体を侵食される。異形トロフィーを1つ獲得する。\n致命傷表(6) ＞ 行動不能。ダンジョンに身体を侵食される。異形トロフィーを1つ獲得する。"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "RESTT"
+output = "休憩表(1) ＞ 辺りを探索すると、ツールを発見する。誰かがここに残していたのだろうか？お宝表(レベル1~4)を一回振る。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "RESTT=5"
+output = "休憩表(5) ＞ 視聴者の無茶振りについつい応えてしまう。調子に乗りすぎて体力が…。 《EP》が1D10点減少する。《トレダカ》を1点獲得。"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "RESTT2"
+output = "休憩表(1) ＞ 辺りを探索すると、ツールを発見する。誰かがここに残していたのだろうか？お宝表(レベル1~4)を一回振る。\n休憩表(10) ＞ やたら魔力の巡りがいい。絶好調ってやつか！？このセッションの間、すべての主能力が1点増加する。副能力の再計算を行うこと。"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "RESTT2=6"
+output = "休憩表(6) ＞ 何気ない雑談配信。だが危うくリテラシーのない発言をしてしまい…。 〔魅力〕で難易度8の判定を行う。閲覧数が成功度分増加。判定に失敗した場合、「炎上」のバステを受ける。\n休憩表(6) ＞ 何気ない雑談配信。だが危うくリテラシーのない発言をしてしまい…。 〔魅力〕で難易度8の判定を行う。閲覧数が成功度分増加。判定に失敗した場合、「炎上」のバステを受ける。"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "TERRIBLET"
+output = "痛恨表(1) ＞ 脳が揺さぶられた！「ブライン」のバステを付与する。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "TERRIBLET=5"
+output = "痛恨表(5) ＞ 追撃を決められてしまった！ダメージを2D10点追加する。"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "TERRIBLET2"
+output = "痛恨表(1) ＞ 脳が揺さぶられた！「ブライン」のバステを付与する。\n痛恨表(10) ＞ 魔力を奪う一撃！与えたダメージと同じ値だけ《EP》が回復する。"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "TERRIBLET2=6"
+output = "痛恨表(6) ＞ 場外へ吹っ飛ばした！対象を戦場から取り除く。取り除かれた対象は、ラウンド終了時に最後尾に再配置する。\n痛恨表(6) ＞ 場外へ吹っ飛ばした！対象を戦場から取り除く。取り除かれた対象は、ラウンド終了時に最後尾に再配置する。"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETCT"
+output = "お宝表(レベル1~4)(1) ＞ 携帯食料を1つ手に入れた！ ⇒54頁参照"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETCT=5"
+output = "お宝表(レベル1~4)(5) ＞ ダンジョン資源（低級）を1つ手に入れた！ ⇒55頁参照"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETCT2"
+output = "お宝表(レベル1~4)(1) ＞ 携帯食料を1つ手に入れた！ ⇒54頁参照\nお宝表(レベル1~4)(10) ＞ 素晴らしい戦果で配信が盛り上がる！現在の閲覧数が1D10点上昇する。"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETCT2=6"
+output = "お宝表(レベル1~4)(6) ＞ スモークボールを1つ手に入れた！ ⇒53頁参照\nお宝表(レベル1~4)(6) ＞ スモークボールを1つ手に入れた！ ⇒53頁参照"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETRT"
+output = "お宝表(レベル5~8)(1) ＞ 携帯保健室を1つ手に入れた！ ⇒54頁参照"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETRT=5"
+output = "お宝表(レベル5~8)(5) ＞ ダンジョン資源（中級）を1つ手に入れた！ ⇒55頁参照"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETRT2"
+output = "お宝表(レベル5~8)(1) ＞ 携帯保健室を1つ手に入れた！ ⇒54頁参照\nお宝表(レベル5~8)(10) ＞ 素晴らしい戦果で配信が盛り上がる！現在の閲覧数が2D10点上昇する。"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETRT2=6"
+output = "お宝表(レベル5~8)(6) ＞ パワーポーションを1つ手に入れた！ ⇒52頁参照\nお宝表(レベル5~8)(6) ＞ パワーポーションを1つ手に入れた！ ⇒52頁参照"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETSRT"
+output = "お宝表(レベル9~14)(1) ＞ 携帯食料を1つ手に入れた！ ⇒54頁参照"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETSRT=5"
+output = "お宝表(レベル9~14)(5) ＞ コンティニューコインを1つ手に入れた！ ⇒52頁参照"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETSRT2"
+output = "お宝表(レベル9~14)(1) ＞ 携帯食料を1つ手に入れた！ ⇒54頁参照\nお宝表(レベル9~14)(10) ＞ 素晴らしい戦果で配信が盛り上がる！現在の閲覧数が4D10点上昇する。"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETSRT2=6"
+output = "お宝表(レベル9~14)(6) ＞ ダンジョン資源（低級）を1D10個手に入れた！ ⇒55頁参照\nお宝表(レベル9~14)(6) ＞ ダンジョン資源（低級）を1D10個手に入れた！ ⇒55頁参照"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETURT"
+output = "お宝表(レベル15~99)(1) ＞ ダンジョン資源（伝説）を1つ手に入れた！ ⇒55頁参照"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETURT=5"
+output = "お宝表(レベル15~99)(5) ＞ 盗賊の鍵を1つ手に入れた！ ⇒53頁参照"
+rands = []
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETURT2"
+output = "お宝表(レベル15~99)(1) ＞ ダンジョン資源（伝説）を1つ手に入れた！ ⇒55頁参照\nお宝表(レベル15~99)(10) ＞ 素晴らしい戦果で配信が盛り上がる！現在の閲覧数が8D10点上昇する。"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "LiverLabyrinth"
+input = "GETURT2=6"
+output = "お宝表(レベル15~99)(6) ＞ コンティニューコインを1つ手に入れた！ ⇒52頁参照\nお宝表(レベル15~99)(6) ＞ コンティニューコインを1つ手に入れた！ ⇒52頁参照"
+rands = []
