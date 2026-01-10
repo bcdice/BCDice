@@ -4,7 +4,7 @@ module BCDice
   module GameSystem
     class KutuluReviced < Base
       # ゲームシステムの識別子
-      ID = 'Kutulu_Reviced'
+      ID = 'KutuluReviced'
 
       # ゲームシステム名
       NAME = 'Kutulu リバイズド'
