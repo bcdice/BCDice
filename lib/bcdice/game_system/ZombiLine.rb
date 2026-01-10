@@ -28,7 +28,7 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        return check_action(command) || roll_tables(command, TABLES)
+        return check_action(command) || roll_tables(command, self.class::TABLES)
       end
 
       def check_action(command)
