@@ -1,5 +1,5 @@
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "4KU 成功数の変化を確認"
 output = "(4KU) ＞ 4,4,5,6 ＞ 成功数4"
 success = true
@@ -11,7 +11,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "4KU"
 output = "(4KU) ＞ 1,4,4,5 ＞ 成功数3"
 success = true
@@ -23,7 +23,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "4KU"
 output = "(4KU) ＞ 1,3,4,5 ＞ 成功数2"
 success = true
@@ -35,7 +35,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "4KU"
 output = "(4KU) ＞ 1,2,3,5 ＞ 成功数1 ＞ *ギリギリの成功？"
 success = true
@@ -47,7 +47,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "4KU"
 output = "(4KU) ＞ 1,2,3,3 ＞ 失敗"
 failure = true
@@ -59,7 +59,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "3KU ダイス個数の変化を確認"
 output = "(3KU) ＞ 1,3,5 ＞ 成功数1 ＞ *ギリギリの成功？"
 success = true
@@ -70,7 +70,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "2KU"
 output = "(2KU) ＞ 1,6 ＞ 成功数1 ＞ *ギリギリの成功？"
 success = true
@@ -80,7 +80,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "1KU"
 output = "(1KU) ＞ 5 ＞ 成功数1 ＞ *ギリギリの成功？"
 success = true
@@ -89,7 +89,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "1KR 対抗判定用ロールのダイス個数変化確認"
 output = "(1KR) ＞ 1 ＞ (000)"
 failure = true
@@ -98,7 +98,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "2KR"
 output = "(2KR) ＞ 1,4 ＞ (100)"
 success = true
@@ -108,7 +108,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "3KR"
 output = "(3KR) ＞ 1,2,5 ＞ (101)"
 success = true
@@ -119,7 +119,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "4KR"
 output = "(4KR) ＞ 1,4,5,6 ＞ (311)"
 success = true
@@ -131,7 +131,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "KutuluReviced"
+game_system = "KutuluRevised"
 input = "4KR 同じ出目が複数あったときの確認"
 output = "(4KR) ＞ 4,5,5,6 ＞ (412)"
 success = true

@@ -2,9 +2,9 @@
 
 module BCDice
   module GameSystem
-    class KutuluReviced < Base
+    class KutuluRevised < Base
       # ゲームシステムの識別子
-      ID = 'KutuluReviced'
+      ID = 'KutuluRevised'
 
       # ゲームシステム名
       NAME = 'Kutulu リバイズド'
@@ -14,11 +14,11 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGETEXT
-        ■判定　nKU        n: ダイス数
+        ■判定　nKU        n: ダイス数(1～9)
 
         例)3KU: ダイスを3個振って、その結果を表示(ギリギリでの成功も表示)
 
-        ■対抗判定　nKR        n: ダイス数
+        ■対抗判定　nKR        n: ダイス数(1～9)
 
         例)2KR: ダイスを2個振って、その結果を表示。対抗判定用の3桁の数字も出力。(大きい方が勝利)
       INFO_MESSAGETEXT
