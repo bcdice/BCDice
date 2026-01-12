@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require "bcdice/game_system/kizuna_bullet/tables"
+require 'bcdice/game_system/KizunaBullet'
+require 'bcdice/game_system/kizuna_bullet/tables'
 
 module BCDice
   module GameSystem

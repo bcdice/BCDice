@@ -1,5 +1,8 @@
 inherit_from: .rubocop_todo.yml
 
+require:
+  ./rubocop/cop/bcdice/game_system_dependency.rb
+
 AllCops:
   TargetRubyVersion: 2.7
   NewCops: disable
@@ -141,3 +144,6 @@ Style/WhileUntilModifier:
 
 Style/YodaCondition:
   EnforcedStyle: forbid_for_equality_operators_only
+
+BCDice/GameSystemDependency:
+  Enabled: true

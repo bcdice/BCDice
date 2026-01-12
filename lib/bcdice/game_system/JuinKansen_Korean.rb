@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'bcdice/game_system/JuinKansen'
+
 module BCDice
   module GameSystem
     class JuinKansen_Korean < JuinKansen

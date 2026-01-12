@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bcdice/base'
+require 'bcdice/game_system/Ventangle'
 
 module BCDice
   module GameSystem
