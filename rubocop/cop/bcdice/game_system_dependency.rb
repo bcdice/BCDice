@@ -4,6 +4,8 @@ module RuboCop
   module Cop
     module BCDice
       class GameSystemDependency < Base
+        extend AutoCorrector
+
         MSG = "superclass file must be required: %<require_path>s".freeze
 
         def on_class(node)
