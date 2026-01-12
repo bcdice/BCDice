@@ -33,7 +33,14 @@ module RuboCop
           # requireが記述されているか確認
           return if require_present?(require_path)
 
-          add_offense(node, message: format(MSG, require_path: require_path))
+          add_offense(node, message: format(MSG, require_path: require_path)) do |corrector|
+            last_require = processed_source.ast.each_node(:send).select { |n| n.method?(:require) }.last
+            if last_require
+              corrector.insert_after(last_require, "\nrequire '#{require_path}'")
+            else
+              corrector.insert_before(processed_source.ast, "require '#{require_path}'\n\n")
+            end
+          end
         end
 
         private
