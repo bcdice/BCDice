@@ -175,6 +175,15 @@ rands = [
 
 [[ test ]]
 game_system = "DungeonsAndDragons5"
+input = "AT5>=10 +修正時の+なしの表示確認"
+output = "(AT+5>=10) ＞ 19+5 ＞ 24 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
 input = "AT-5>=10 -修正の表示確認"
 output = "(AT-5>=10) ＞ 19-5 ＞ 14 ＞ 成功"
 success = true
