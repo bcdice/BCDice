@@ -173,7 +173,15 @@ module BCDice
           return nil
         end
 
-        modify = m[1] ? Arithmetic.eval(m[1], @round_type) : 0
+        if m[1]
+          if Arithmetic.eval(m[1], @round_type)
+            modify = Arithmetic.eval(m[1], @round_type)
+          else
+            return nil
+          end
+        else
+          modify = 0
+        end
         difficulty = m[3].to_i
         advantage = m[4]
         bonus = m[5]
