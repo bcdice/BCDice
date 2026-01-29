@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require "bcdice/base"
-require "bcdice/arithmetic"
-require "bcdice/format"
-
 module BCDice
   module GameSystem
     class NeonUnderRealm < Base
