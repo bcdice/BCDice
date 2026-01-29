@@ -484,6 +484,22 @@ rands = [
 
 [[ test ]]
 game_system = "DungeonsAndDragons5"
+input = "AR+>=10 +修正の誤記非表示確認"
+output = ""
+rands = [
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
+input = "AR5>=10 +修正の誤記表示容認確認"
+output = "(AR+5>=10) ＞ 19+5 ＞ 24 ＞ 成功"
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5"
 input = "AR+2+3>=10 加減算修正の表示確認"
 output = "(AR+5>=10) ＞ 19+5 ＞ 24 ＞ 成功"
 success = true
