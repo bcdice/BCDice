@@ -65,7 +65,7 @@ module BCDice
         expr_text = build_expr_text(dice_count, threshold,  modifier, kiai_threshold, dice_list)
 
         result_text_parts = [
-          "達成値：#{achieved}",
+          "達成値：#{achieved}（成功数：#{raw_success}）",
           "効果値：#{effect}",
           "気合：#{kiai}",
         ]

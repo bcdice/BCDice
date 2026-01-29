@@ -9,7 +9,7 @@ rands = [
 ]
 success = true
 failure = false
-output = "(4NU) ＞ 4B10<=5[1,5,6,10] ＞ 達成値：2 / 効果値：2 / 気合：0"
+output = "(4NU) ＞ 4B10<=5[1,5,6,10] ＞ 達成値：2（成功数：2） / 効果値：2 / 気合：0"
 
 [[test]]
 game_system = "NeonUnderRealm"
@@ -22,7 +22,7 @@ rands = [
 ]
 success = true
 failure = false
-output = "(4NU5+2@1) ＞ 4B10<=5+2@1[1,6,10,10] ＞ 達成値：3 / 効果値：3 / 気合：1"
+output = "(4NU5+2@1) ＞ 4B10<=5+2@1[1,6,10,10] ＞ 達成値：3（成功数：1） / 効果値：3 / 気合：1"
 
 [[test]]
 game_system = "NeonUnderRealm"
@@ -33,7 +33,7 @@ rands = [
 ]
 success = false
 failure = true
-output = "(2NU5-3) ＞ 2B10<=5-3[2,3] ＞ 達成値：0 / 効果値：0 / 気合：0 / 失敗"
+output = "(2NU5-3) ＞ 2B10<=5-3[2,3] ＞ 達成値：0（成功数：2） / 効果値：0 / 気合：0 / 失敗"
 
 [[test]]
 game_system = "NeonUnderRealm"
@@ -45,7 +45,7 @@ rands = [
 ]
 success = false
 failure = true
-output = "(3NU5@2) ＞ 3B10<=5@2[6,7,10] ＞ 達成値：0 / 効果値：3 / 気合：0 / 失敗"
+output = "(3NU5@2) ＞ 3B10<=5@2[6,7,10] ＞ 達成値：0（成功数：0） / 効果値：3 / 気合：0 / 失敗"
 
 [[test]]
 game_system = "NeonUnderRealm"
@@ -58,7 +58,7 @@ rands = [
 ]
 success = true
 failure = false
-output = "(4NU) ＞ 4B10<=5[1,5,6,10] ＞ 達成値：2 / 効果値：2 / 気合：0"
+output = "(4NU) ＞ 4B10<=5[1,5,6,10] ＞ 達成値：2（成功数：2） / 効果値：2 / 気合：0"
 
 [[test]]
 game_system = "NeonUnderRealm"
@@ -83,4 +83,4 @@ rands = [
 ]
 success = true
 failure = false
-output = "(10+5+3-2NU) ＞ 16B10<=5[1,2,3,4,5,6,7,8,9,10,10,10,10,10,10,10] ＞ 達成値：5 / 効果値：11 / 気合：0"
+output = "(10+5+3-2NU) ＞ 16B10<=5[1,2,3,4,5,6,7,8,9,10,10,10,10,10,10,10] ＞ 達成値：5（成功数：5） / 効果値：11 / 気合：0"
