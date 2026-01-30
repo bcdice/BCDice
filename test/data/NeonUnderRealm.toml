@@ -37,6 +37,48 @@ output = "(2NU5-3) ＞ 2B10<=5-3[2,3] ＞ 達成値：0（成功数：2） / 効
 
 [[test]]
 game_system = "NeonUnderRealm"
+input = "5NU5@1+1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+success = true
+failure = false
+output = "(5NU5@1+1) ＞ 5B10<=5+1@1[1,2,3,8,9] ＞ 達成値：4（成功数：3） / 効果値：2 / 気合：1"
+
+[[test]]
+game_system = "NeonUnderRealm"
+input = "5NU5+2+1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+success = true
+failure = false
+output = "(5NU5+2+1) ＞ 5B10<=5+2[1,2,3,8,9] ＞ 達成値：5（成功数：3） / 効果値：2 / 気合：0"
+
+[[test]]
+game_system = "NeonUnderRealm"
+input = "5NU5+2@1+1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+success = true
+failure = false
+output = "(5NU5+2@1+1) ＞ 5B10<=5+2@1[1,2,3,8,9] ＞ 達成値：5（成功数：3） / 効果値：2 / 気合：1"
+
+[[test]]
+game_system = "NeonUnderRealm"
 input = "3NU5@2"
 rands = [
   { sides = 10, value = 6 },

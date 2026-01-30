@@ -9,11 +9,11 @@ module BCDice
 
       HELP_MESSAGE = <<~TEXT
         ・判定（D10の出目が「目標値以下」を成功として数える）
-          [M]NU[N][±K][@L]
+          [M]NU[N][±K][@L][±K']
 
           M：判定ダイス数（省略不可）。「10+5+3-2」のような加減算を許可
           N：目標値（1～10）。省略時は 5
-          K：達成値への補正（省略可）
+          K, K'：達成値への補正。両方指定された場合はKを採用し、K'は無視される。（省略可）
           L：気合の閾値（0～5）。省略時は 0（気合は常に0扱い）
 
           ※Nが1～10の範囲外、またはLが0～5の範囲外の場合はコマンドとして処理しません（出力しません）
@@ -94,11 +94,14 @@ module BCDice
       # returns [m_expr, n_str, k_str, l_str] or [nil,...]
       def parse_command(command)
         # M は「加減算のみ」の式を許可（例：10+5+3-2）
-        # N は省略可、K は ±整数、L は @整数
-        m = /\A(?<m_expr>\d+(?:[+-]\d+)*)[Nn][Uu](?<n>\d+)?(?<k>[+-]\d+)?(?:@(?<l>\d+))?\z/.match(command)
+        # N は省略可、K は ±整数、L は @整数、K' は ±整数
+        m = /\A(?<m_expr>\d+(?:[+-]\d+)*)[Nn][Uu](?<n>\d+)?(?<k>[+-]\d+)?(?:@(?<l>\d+))?(?<j>[+-]\d+)?\z/.match(command)
         return [nil, nil, nil, nil] unless m
 
-        [m[:m_expr], m[:n], m[:k], m[:l]]
+        # 修正値が K を優先
+        k = m[:k] || m[:j]
+
+        [m[:m_expr], m[:n], k, m[:l]]
       end
 
       def eval_dice_count(source)
