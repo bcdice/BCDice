@@ -1,0 +1,119 @@
+[[ test ]]
+game_system = "KinAriel"
+input = "KA<=60 成功"
+output = "(KA<=60) ＞ [50] ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "KinAriel"
+input = "KA<=20 失敗"
+output = "(KA<=20) ＞ [70] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 70 },
+]
+
+[[ test ]]
+game_system = "KinAriel"
+input = "KA<=30 クリティカル"
+output = "(KA<=30) ＞ [3] ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 3 },
+]
+
+[[ test ]]
+game_system = "KinAriel"
+input = "KA<=50 ファンブル"
+output = "(KA<=50) ＞ [96] ＞ ファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "KinAriel"
+input = "KA<=2 失敗はクリティカルにならない"
+output = "(KA<=2) ＞ [5] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "KinAriel"
+input = "KA<=99 成功はファンブルにならない"
+output = "(KA<=99) ＞ [97] ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 97 },
+]
+
+
+[[ test ]]
+game_system = "KinAriel"
+input = "VS<=50 失敗"
+output = "(VS<=50) ＞ [30,40,50,80] ＞ 4回目で失敗"
+failure = true
+rands = [
+  { sides = 100, value = 30 },
+  { sides = 100, value = 40 },
+  { sides = 100, value = 50 },
+  { sides = 100, value = 80 },
+]
+
+[[ test ]]
+game_system = "KinAriel"
+input = "VS<=20 失敗"
+output = "(VS<=20) ＞ [10,15,5] ＞ 3回目でクリティカル"
+critical = true
+success = true
+rands = [
+  { sides = 100, value = 10 },
+  { sides = 100, value = 15 },
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "KinAriel"
+input = "VS<=65 ファンブル"
+output = "(VS<=65) ＞ [65,100] ＞ 2回目でファンブル"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 65 },
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "KinAriel"
+input = "VS<=70 失敗"
+output = "(VS<=70) ＞ [20,40,10,70,70] ＞ 5回成功"
+success = true
+rands = [
+  { sides = 100, value = 20 },
+  { sides = 100, value = 40 },
+  { sides = 100, value = 10 },
+  { sides = 100, value = 70 },
+  { sides = 100, value = 70 },
+]
+
+[[ test ]]
+game_system = "KinAriel"
+input = "VS<=70 失敗"
+output = "(VS<=70) ＞ [30,40,60,10,1] ＞ 5回目でクリティカル"
+critical = true
+success = true
+rands = [
+  { sides = 100, value = 30 },
+  { sides = 100, value = 40 },
+  { sides = 100, value = 60 },
+  { sides = 100, value = 10 },
+  { sides = 100, value = 1 },
+]
+
