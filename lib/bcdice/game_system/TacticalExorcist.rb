@@ -92,17 +92,109 @@ module BCDice
 
       private
 
+      # 難易度判定の成功数を返す。
+      # @param dice_array [Array<Integer>]
+      # @param difficultys [String]
+      # @param cmp_op [String]
+      # @return Integer
+      def check_difficulty_te(dice_array, difficultys, cmp_op)
+        success_dice = []
+        diff_array = difficultys.split(",")
+        dice_array.each do |dice_value|
+          diff_array.each do |diff_value|
+            if dice_value.send(Normalize.comparison_operator(cmp_op), diff_value.to_i)
+              success_dice.push(dice_value)
+            end
+          end
+        end
+
+        return success_dice
+      end
+
+      # 追加判定の処理
+      # @param roll_result 判定対象とするロール結果の配列
+      # @param ap_commanc 追加判定のコマンド
+      # @return String
+      def proc_appendix(roll_result, ap_command)
+        debug("----- ap_command: #{ap_command}")
+        output_text = ''
+        case ap_command
+        when RE_COUNT_SATZ_BATZ
+          diff_condition = Regexp.last_match[1]
+          if ap_command.end_with?("+")
+            # サツバツ発生チェック
+            sb_condition = diff_condition.sub("\+", "").split("/")[0]
+            nm_condition = diff_condition.sub("\+", "").split("/")[1]
+            debug("sb_condition: #{sb_condition}")
+            debug("nm_condition: #{nm_condition}")
+
+            if check_difficulty_new(roll_result.last_dice_list, nm_condition, ">=")
+              output_text += ", ナムアミダブツ！[#{ap_command}]"
+            elsif check_difficulty_new(roll_result.last_dice_list, sb_condition, ">=")
+              output_text += ", サツバツ！[#{ap_command}]"
+            end
+
+          else
+            # サツバツ数カウント
+            diff_result_array = check_difficulty(roll_result.last_dice_list, s_to_i(diff_condition, 6), ">=")
+            output_text += ", サツバツ判定[#{ap_command}]:#{diff_result_array.size}"
+            unless diff_result_array.empty?
+              output_text += "[#{diff_result_array.sort.reverse.join(',')}]"
+            end
+          end
+        when RE_COUNT_CRITICAL
+          diff_condition = Regexp.last_match[1]
+          if ap_command.end_with?("+")
+            # クリティカル発生チェック
+            if check_difficulty_new(roll_result.last_dice_list, diff_condition.sub("\+", ""), ">=")
+              output_text += ", クリティカル！[#{ap_command}]"
+            end
+          else
+            # クリティカル数カウント
+            diff_result_array = check_difficulty(roll_result.last_dice_list, s_to_i(diff_condition, 6), ">=")
+            output_text += ", クリティカル判定[#{ap_command}]:#{diff_result_array.size}"
+            unless diff_result_array.empty?
+              output_text += "[#{diff_result_array.sort.reverse.join(',')}]"
+            end
+          end
+        when RE_COUNT_JUDGE_TE
+          diff_type = Regexp.last_match[1]
+          diff_condition = Regexp.last_match[2]
+          # 追加判定カウント
+          diff_result_array = check_difficulty_te(roll_result.last_dice_list, diff_condition, diff_type)
+          output_text += ", 追加判定[#{ap_command}]:#{diff_result_array.size}"
+          unless diff_result_array.empty?
+            output_text += "[#{diff_result_array.sort.reverse.join(',')}]"
+          end
+        when RE_COUNT_JUDGE
+          diff_type = Regexp.last_match[1]
+          diff_condition = Regexp.last_match[2]
+          debug("#{diff_type} / #{diff_condition}")
+          if ap_command.end_with?("+")
+            # 追加判定チェック
+            if check_difficulty_new(roll_result.last_dice_list, diff_condition.sub("\+", ""), diff_type)
+              output_text += ", 追加判定成功！[#{ap_command}]"
+            end
+          else
+            # 追加判定カウント
+            diff_result_array = check_difficulty(roll_result.last_dice_list, s_to_i(diff_condition, 6), diff_type)
+            output_text += ", 追加判定[#{ap_command}]:#{diff_result_array.size}"
+            unless diff_result_array.empty?
+              output_text += "[#{diff_result_array.sort.reverse.join(',')}]"
+            end
+          end
+        end
+        return output_text
+      end
+
       # @付き追加判定の処理
       # @param at_command String 追加判定のコマンド
       # @return [String, Integer]
       def proc_dice_command_with_at(at_command)
         # コマンドを作り直して
         command = at_command.split("@")[0]
-        eq_param = at_command.split("@")[1].split(",")
-
-        eq_param.each do |i|
-          command += "[=#{i}]"
-        end
+        eq_param = at_command.split("@")[1]
+        command += "[=#{eq_param}]"
 
         # しれっと投げる
         case command
@@ -113,7 +205,10 @@ module BCDice
         end
       end
 
-      RE_JUDGE_DICEROLL_TE = /^((?:(?:UH|[KENHU])?\d+,?)+)(@[1-6]+(,[1-6])*)$/i.freeze
+      RE_COUNT_JUDGE_TE = /(=)([1-6](,[1-6])+)/.freeze
+
+      RE_JUDGE_DICEROLL_TE = /^((?:(?:UH|[KENHU])?\d+,?)+)(@[1-6](,[1-6])*)$/i.freeze
+      RE_JUDGE_DICEROLL = %r{^((?:(?:UH|[KENHU])?\d+,?)+)(?:\[((?:(?:S([1-6]|[1-6]+(?:/[1-6]+)?\+)?|C([1-6]*\+?)?|(=|!=|>=|>|<=|<)([1-6]+\+?)|(=)([1-6](,[1-6])+))(?:\]\[)?)+)\])?$}i.freeze
 
       register_prefix(
         "UH",
