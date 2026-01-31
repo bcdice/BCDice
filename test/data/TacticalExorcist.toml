@@ -1,0 +1,320 @@
+# B6K{m} ([K]ids判定用の簡易コマンド)
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "K6"
+output = "(6B6>=2) ＞ 1,2,3,4,5,6 ＞ 成功数:5 \n"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+# B6E{m} ([E]asy判定用の簡易コマンド)
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "E6"
+output = "(6B6>=3) ＞ 1,2,3,4,5,6 ＞ 成功数:4 \n"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+# B6N{m} ([N]ormal判定用の簡易コマンド)
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N6"
+output = "(6B6>=4) ＞ 1,2,3,4,5,6 ＞ 成功数:3 \n"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+# B6H{m} ([H]ard判定用の簡易コマンド)
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "H6"
+output = "(6B6>=5) ＞ 1,2,3,4,5,6 ＞ 成功数:2 \n"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+# B6U{m} ([U]ltra-hard判定用の簡易コマンド)
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "U6"
+output = "(6B6>=6) ＞ 1,2,3,4,5,6 ＞ 成功数:1 \n"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+# B6UH{m} ([U]ltra-[H]ard判定用の簡易コマンド)
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "UH6"
+output = "(6B6>=6) ＞ 1,2,3,4,5,5 ＞ 成功数:0 \n"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+# 同一難易度での複数ダイス同時ロール
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "E1,2,3"
+output = "(1B6>=3) ＞ 1 ＞ 成功数:0 \n(2B6>=3) ＞ 2,3 ＞ 成功数:1 \n(3B6>=3) ＞ 4,5,6 ＞ 成功数:3 \n"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+# 異なる難易度での複数ダイス同時ロール
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "E1,N2,H3"
+output = "(1B6>=3) ＞ 1 ＞ 成功数:0 \n(2B6>=4) ＞ 2,3 ＞ 成功数:0 \n(3B6>=5) ＞ 4,5,6 ＞ 成功数:2 \n"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+# 追加判定（判定式）
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N3,H3[>4][>=4][<4][<=4][=4][!=4]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, 追加判定[>4]:2[6,5], 追加判定[>=4]:3[6,5,4], 追加判定[<4]:0, 追加判定[<=4]:1[4], 追加判定[=4]:1[4], 追加判定[!=4]:2[6,5] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0, 追加判定[>4]:0, 追加判定[>=4]:0, 追加判定[<4]:3[3,2,1], 追加判定[<=4]:3[3,2,1], 追加判定[=4]:0, 追加判定[!=4]:3[3,2,1] \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（判定式：自動判定）
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N3,H3[>=56+]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, 追加判定成功！[>=56+] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（判定式）
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N3,H3@4 追加判定用コマンド(読み替え実行)"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, 追加判定[=4]:1[4] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0, 追加判定[=4]:0 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（判定式）
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N3,H3@4,5 追加判定用コマンド(読み替え実行)"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, 追加判定[=4]:1[4], 追加判定[=5]:1[5] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0, 追加判定[=4]:0, 追加判定[=5]:0 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+
+
+# ここから下はゲームでは不要だが、入力時にエラーで帰らないかのチェック用
+
+# 追加判定（サツバツ判定：固定値）
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N3,H3[S]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, サツバツ判定[S]:1[6] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0, サツバツ判定[S]:0 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（サツバツ判定：可変値）
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N3,H3[S5]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, サツバツ判定[S5]:2[6,5] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0, サツバツ判定[S5]:0 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（サツバツ！自動判定）
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N3,H3[S65+]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, サツバツ！[S65+] \n(3B6>=5) ＞ 6,4,2 ＞ 成功数:1 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+# 追加判定（ナムアミダブツ！自動判定）
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N3,H3[S65/665+]"
+output = "(3B6>=4) ＞ 6,6,5 ＞ 成功数:3, ナムアミダブツ！[S65/665+] \n(3B6>=5) ＞ 6,5,5 ＞ 成功数:3, サツバツ！[S65/665+] \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+# 追加判定（ナムアミダブツ！自動判定(notバツbutナム)）
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N3,H3[S665/65+]"
+output = "(3B6>=4) ＞ 6,6,5 ＞ 成功数:3, ナムアミダブツ！[S665/65+] \n(3B6>=5) ＞ 6,5,5 ＞ 成功数:3, ナムアミダブツ！[S665/65+] \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+# 追加判定（クリティカル判定：固定値）
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N3,H3[C]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, クリティカル判定[C]:1[6] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0, クリティカル判定[C]:0 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（クリティカル判定：可変値）
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N3,H3[C5]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, クリティカル判定[C5]:2[6,5] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0, クリティカル判定[C5]:0 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（クリティカル！自動判定）
+[[ test ]]
+game_system = "TacticalExorcist"
+input = "N3,H3[C65+]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, クリティカル！[C65+] \n(3B6>=5) ＞ 6,4,2 ＞ 成功数:1 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
