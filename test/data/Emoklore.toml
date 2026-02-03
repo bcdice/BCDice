@@ -308,3 +308,98 @@ rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
 ]
+
+# ダイスボーナス機能テスト（Dz 加算）
+[[ test ]]
+game_system = "Emoklore"
+input = "2DM<=5D2"
+output = "(2DM<=5D2) ＞ (4DM<=5) ＞ [3, 4, 6, 7] ＞ 2 ＞ 成功数2 ダブル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+# ダイスボーナス機能テスト（Dt-z 減算）
+[[ test ]]
+game_system = "Emoklore"
+input = "3DM<=5Dt-1"
+output = "(3DM<=5DT-1) ＞ (2DM<=5) ＞ [3, 6] ＞ 1 ＞ 成功数1 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+]
+
+# ダイスボーナス機能テスト（Dxz 乗算）
+[[ test ]]
+game_system = "Emoklore"
+input = "2DM<=5Dx2"
+output = "(2DM<=5DX2) ＞ (4DM<=5) ＞ [1, 2, 6, 7] ＞ 3 ＞ 成功数3 トリプル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+# ダイス数0以下で確定失敗（Dt-zで減算）
+[[ test ]]
+game_system = "Emoklore"
+input = "1DM<=5Dt-2"
+output = "(1DM<=5DT-2) ＞ ダイス数が0以下 ＞ 確定失敗"
+failure = true
+fumble = true
+rands = []
+
+# ダイス数0で確定失敗
+[[ test ]]
+game_system = "Emoklore"
+input = "2DM<=5Dt-2"
+output = "(2DM<=5DT-2) ＞ ダイス数が0以下 ＞ 確定失敗"
+failure = true
+fumble = true
+rands = []
+
+# 乗算で0になる場合
+[[ test ]]
+game_system = "Emoklore"
+input = "2DM<=5Dx0"
+output = "(2DM<=5DX0) ＞ ダイス数が0以下 ＞ 確定失敗"
+failure = true
+fumble = true
+rands = []
+
+# 表記揺れ吸収テスト: D*2 → DX2
+[[ test ]]
+game_system = "Emoklore"
+input = "2DM<=5D*2"
+output = "(2DM<=5DX2) ＞ (4DM<=5) ＞ [1, 2, 6, 7] ＞ 3 ＞ 成功数3 トリプル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+# 表記揺れ吸収テスト: D+2 → D2
+[[ test ]]
+game_system = "Emoklore"
+input = "2DM<=5D+2"
+output = "(2DM<=5D2) ＞ (4DM<=5) ＞ [3, 4, 6, 7] ＞ 2 ＞ 成功数2 ダブル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+

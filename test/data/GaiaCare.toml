@@ -1,0 +1,67 @@
+# ガイアケアTRPG ダイスボットテスト
+# エモクロアTRPGと同じ判定システムを使用
+
+[[ test ]]
+game_system = "GaiaCare"
+input = "1D10>=5"
+output = "(1D10>=5) ＞ 9 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "GaiaCare"
+input = "1DM<=5"
+output = "(1DM<=5) ＞ [3] ＞ 1 ＞ 成功数1 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "GaiaCare"
+input = "2DM<=5"
+output = "(2DM<=5) ＞ [1, 6] ＞ 2 ＞ 成功数2 ダブル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "GaiaCare"
+input = "2DM<=5D2"
+output = "(2DM<=5D2) ＞ (4DM<=5) ＞ [3, 4, 6, 7] ＞ 2 ＞ 成功数2 ダブル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "GaiaCare"
+input = "2DM<=5Dx2"
+output = "(2DM<=5DX2) ＞ (4DM<=5) ＞ [1, 2, 6, 7] ＞ 3 ＞ 成功数3 トリプル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "GaiaCare"
+input = "2DA3"
+output = "(2DA3) ＞ (2DM<=5) ＞ [8, 5] ＞ 1 ＞ 成功数1 成功"
+success = true
+rands = [
+  { sides = 10, value = 8 },
+  { sides = 10, value = 5 },
+]
