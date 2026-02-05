@@ -17,19 +17,13 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・技能値判定（xDM<=y）
+        ・技能値判定（xDM<=y / xDM<=yEz）
           "(個数)DM<=(判定値)"で指定します。
           ダイスの個数は省略可能で、省略した場合1個になります。
-          例）2DM<=5 DM<=8
-
-        ・ダイスボーナス付き判定（xDM<=yDz / xDM<=yDt-z / xDM<=yDxz）
-          末尾にDz、Dt-z、Dxzを付けることでダイス数を変更できます。
-          Dz: ダイス数にzを加算
-          Dt-z: ダイス数からzを減算
-          Dxz: ダイス数をz倍
-          例）2DM<=5D2 → 4個のダイスで判定値5
-              3DM<=5Dt-1 → 2個のダイスで判定値5
-              2DM<=5Dx2 → 4個のダイスで判定値5
+          個数や判定値には四則演算（+-*/）を使用できます。
+          末尾にEzを付けるとダイス数にzを加算します。E-zで減算も可能です。
+          例）2DM<=5 DM<=8 2+2DM<=5 → 4個で判定値5
+              2DM<=5E2 → 4個で判定値5 / 3DM<=5E-1 → 2個で判定値5
           ※ダイス数が0以下になる場合は確定失敗
 
         ・技能値判定（sDAa+z)
@@ -41,7 +35,7 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('\d*DM<=', '(B|\d*)DA')
+      register_prefix('[-+*/\d()]*DM<=', '(B|\d*)DA')
 
       CRITICAL_VALUE = 1
       FUMBLE_VALUE = 10
@@ -52,7 +46,7 @@ module BCDice
       # @return [nil] 無効なコマンドだった場合
       def eval_game_system_specific_command(command)
         case command
-        when /^-?\d*DM<=-?\d+/
+        when %r{^[-+*/\d()]*DM<=[-+*/\d()]+}
           roll_dm(command)
         when /^(B|\d*)DA\d+(\+)?\d*/
           roll_da(command)
@@ -64,11 +58,9 @@ module BCDice
       # @return [String]
       def change_text(string)
         string
-          .tr('０-９', '0-9')           # 全角数字→半角
-          .tr('Ａ-Ｚａ-ｚ', 'A-Za-z')   # 全角英字→半角
-          .tr('＋＊／＜＝－', '+*/<=-')  # 全角記号→半角（ハイフンは末尾に）
-          .gsub(/D\*(\d+)$/i, 'DX\1')   # D*2 → DX2
-          .gsub(/D\+(\d+)$/i, 'D\1')    # D+2 → D2
+          .tr('０-９', '0-9') # 全角数字→半角
+          .tr('Ａ-Ｚａ-ｚ', 'A-Za-z') # 全角英字→半角
+          .tr('＋＊／＜＝－', '+*/<=-') # 全角記号→半角（ハイフンは末尾に）
       end
 
       private
@@ -116,20 +108,20 @@ module BCDice
       # @param [String] command コマンド
       # @return [Result, nil] コマンドの結果
       def roll_dm(command)
-        m = /^(-?\d+)?DM<=(-?\d+)(D(\d+)|DT(-?\d+)|DX(\d+))?$/.match(command)
+        m = %r{^([-+*/\d()]+)?DM<=([-+*/\d()]+)(E(-?\d+))?$}.match(command)
         unless m
           return nil
         end
 
-        base_dice = m[1]&.to_i || 1
-        success_threshold = m[2].to_i
-        modifier_simple_add = m[4]&.to_i  # D数字 の値（加算）
-        modifier_add = m[5]&.to_i         # Dt の値（加減算）
-        modifier_multiply = m[6]&.to_i    # Dx の値（乗算）
-        has_modifier = m[3]
+        base_dice_str = m[1]
+        threshold_str = m[2]
+        modifier = m[4]&.to_i
 
-        # ダイス数を計算
-        num_dice = calculate_dice_count(base_dice, modifier_simple_add, modifier_add, modifier_multiply)
+        base_dice = base_dice_str ? Arithmetic.eval(base_dice_str, RoundType::FLOOR) : 1
+        success_threshold = Arithmetic.eval(threshold_str, RoundType::FLOOR)
+        return nil unless base_dice && success_threshold
+
+        num_dice = modifier ? base_dice + modifier : base_dice
 
         # ダイス数が0以下の場合は確定失敗
         if num_dice <= 0
@@ -139,31 +131,14 @@ module BCDice
         # ダイスロール本体
         result = dice_roll(num_dice, success_threshold)
 
-        # 出力フォーマット
-        if has_modifier
+        # 出力フォーマット：算術式やダイスボーナスがある場合は展開形を表示
+        has_arithmetic = base_dice_str&.match?(%r{[-+*/()]}) || threshold_str.match?(%r{[-+*/()]})
+        if modifier || has_arithmetic
           result.text = "(#{command}) ＞ (#{num_dice}DM<=#{success_threshold}) ＞ #{result.text}"
         else
           result.text = "(#{num_dice}DM<=#{success_threshold}) ＞ #{result.text}"
         end
         return result
-      end
-
-      # ダイス数を計算する
-      # @param [Integer] base ベースダイス数
-      # @param [Integer, nil] modifier_simple_add 単純加算修正値（D数字）
-      # @param [Integer, nil] modifier_add 加減算修正値（Dt）
-      # @param [Integer, nil] modifier_multiply 乗算修正値（Dx）
-      # @return [Integer] 計算後のダイス数
-      def calculate_dice_count(base, modifier_simple_add, modifier_add, modifier_multiply)
-        if modifier_simple_add
-          base + modifier_simple_add
-        elsif modifier_add
-          base + modifier_add
-        elsif modifier_multiply
-          base * modifier_multiply
-        else
-          base
-        end
       end
 
       # 取得技能判定
@@ -178,6 +153,10 @@ module BCDice
         bonus = m[3].to_i
         num_dice = (m[1] == "B" ? 1 : (m[1]&.to_i || 1)) + bonus
         success_threshold = m[1].to_i + m[2].to_i
+
+        if num_dice <= 0
+          return Result.fumble("(#{command}) ＞ ダイス数が0以下 ＞ 確定失敗")
+        end
 
         result = dice_roll(num_dice, success_threshold)
 
