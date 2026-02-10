@@ -238,8 +238,18 @@ module BCDice
 
         dice_count = m[1].to_i
         dice_number = m[2].to_i
-        modify = m[3] ? Arithmetic.eval(m[3], @round_type) : 0
-        mod_str = number_with_sign_from_int(modify)
+
+        modify = 0
+        mod_str = ""
+        unless m[3].nil?
+          if Arithmetic.eval(m[3], @round_type).nil?
+            return nil
+          else
+            modify = Arithmetic.eval(m[3], @round_type)
+            mod_str = number_with_sign_from_int(modify).to_s
+          end
+        end
+
         output = ["(2H#{dice_count}D#{dice_number}#{mod_str})"]
 
         dice = @randomizer.roll_barabara(dice_count, dice_number)
