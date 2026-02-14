@@ -1,97 +1,288 @@
 # B6K{m} ([K]ids判定用の簡易コマンド)
 [[ test ]]
 game_system = "NinjaSlayer2"
-input = "K5"
-output = "(5B6>=2) ＞ 4,6,3,1,5 ＞ 成功数:4 \n"
+input = "K6"
+output = "(6B6>=2) ＞ 1,2,3,4,5,6 ＞ 成功数:5 \n"
 success = true
 rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 3 },
   { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
   { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
 ]
 
 # B6E{m} ([E]asy判定用の簡易コマンド)
 [[ test ]]
 game_system = "NinjaSlayer2"
-input = "E5"
-output = "(5B6>=3) ＞ 4,6,3,1,5 ＞ 成功数:4 \n"
+input = "E6"
+output = "(6B6>=3) ＞ 1,2,3,4,5,6 ＞ 成功数:4 \n"
 success = true
 rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 3 },
   { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
   { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
 ]
 
 # B6N{m} ([N]ormal判定用の簡易コマンド)
 [[ test ]]
 game_system = "NinjaSlayer2"
-input = "N5"
-output = "(5B6>=4) ＞ 4,6,3,1,5 ＞ 成功数:3 \n"
+input = "N6"
+output = "(6B6>=4) ＞ 1,2,3,4,5,6 ＞ 成功数:3 \n"
 success = true
 rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 3 },
   { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
   { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
 ]
 
 # B6H{m} ([H]ard判定用の簡易コマンド)
 [[ test ]]
 game_system = "NinjaSlayer2"
-input = "H5"
-output = "(5B6>=5) ＞ 4,6,3,1,5 ＞ 成功数:2 \n"
+input = "H6"
+output = "(6B6>=5) ＞ 1,2,3,4,5,6 ＞ 成功数:2 \n"
 success = true
 rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 3 },
   { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
   { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
 ]
 
 # B6U{m} ([U]ltra-hard判定用の簡易コマンド)
 [[ test ]]
 game_system = "NinjaSlayer2"
-input = "U5"
-output = "(5B6>=6) ＞ 4,2,3,1,5 ＞ 成功数:0 \n"
-failure = true
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 5 },
-]
-
-# N{m},{n}[appendix] 簡易コマンドの連続処理 (追加判定)
-[[ test ]]
-game_system = "NinjaSlayer2"
-input = "N5,3,4[!=1][s][c2]"
-output = "(5B6>=4) ＞ 4,6,3,1,5 ＞ 成功数:3, 追加判定:4[6,5,4,3], サツバツ！:1[6], クリティカル！:4[6,5,4,3] \n(3B6>=4) ＞ 1,1,2 ＞ 成功数:0, 追加判定:1[2], サツバツ！:0, クリティカル！:1[2] \n(4B6>=4) ＞ 6,6,1,2 ＞ 成功数:2, 追加判定:3[6,6,2], サツバツ！:2[6,6], クリティカル！:3[6,6,2] \n"
+input = "U6"
+output = "(6B6>=6) ＞ 1,2,3,4,5,6 ＞ 成功数:1 \n"
 success = true
 rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 3 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 5 },
-  
-  { sides = 6, value = 1 },
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
-  
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
   { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
+]
+
+# B6UH{m} ([U]ltra-[H]ard判定用の簡易コマンド)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "UH6"
+output = "(6B6>=6) ＞ 1,2,3,4,5,5 ＞ 成功数:0 \n"
+failure = true
+rands = [
   { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+# 同一難易度での複数ダイス同時ロール
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "E1,2,3"
+output = "(1B6>=3) ＞ 1 ＞ 成功数:0 \n(2B6>=3) ＞ 2,3 ＞ 成功数:1 \n(3B6>=3) ＞ 4,5,6 ＞ 成功数:3 \n"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+# 異なる難易度での複数ダイス同時ロール
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "E1,N2,H3"
+output = "(1B6>=3) ＞ 1 ＞ 成功数:0 \n(2B6>=4) ＞ 2,3 ＞ 成功数:0 \n(3B6>=5) ＞ 4,5,6 ＞ 成功数:2 \n"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+# 追加判定（判定式）
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N3,H3[>4][>=4][<4][<=4][=4][!=4]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, 追加判定[>4]:2[6,5], 追加判定[>=4]:3[6,5,4], 追加判定[<4]:0, 追加判定[<=4]:1[4], 追加判定[=4]:1[4], 追加判定[!=4]:2[6,5] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0, 追加判定[>4]:0, 追加判定[>=4]:0, 追加判定[<4]:3[3,2,1], 追加判定[<=4]:3[3,2,1], 追加判定[=4]:0, 追加判定[!=4]:3[3,2,1] \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（判定式：自動判定）
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N3,H3[>=56+]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, 追加判定成功！[>=56+] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（サツバツ判定：固定値）
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N3,H3[S]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, サツバツ判定[S]:1[6] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0, サツバツ判定[S]:0 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（サツバツ判定：可変値）
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N3,H3[S5]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, サツバツ判定[S5]:2[6,5] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0, サツバツ判定[S5]:0 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（サツバツ！自動判定）
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N3,H3[S65+]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, サツバツ！[S65+] \n(3B6>=5) ＞ 6,4,2 ＞ 成功数:1 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
   { sides = 6, value = 2 },
 ]
 
-# サツバツ！(D6)
+# 追加判定（ナムアミダブツ！自動判定）
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N3,H3[S65/665+]"
+output = "(3B6>=4) ＞ 6,6,5 ＞ 成功数:3, ナムアミダブツ！[S65/665+] \n(3B6>=5) ＞ 6,5,5 ＞ 成功数:3, サツバツ！[S65/665+] \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+# 追加判定（ナムアミダブツ！自動判定(notバツbutナム)）
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N3,H3[S665/65+]"
+output = "(3B6>=4) ＞ 6,6,5 ＞ 成功数:3, ナムアミダブツ！[S665/65+] \n(3B6>=5) ＞ 6,5,5 ＞ 成功数:3, ナムアミダブツ！[S665/65+] \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 },
+]
+
+# 追加判定（クリティカル判定：固定値）
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N3,H3[C]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, クリティカル判定[C]:1[6] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0, クリティカル判定[C]:0 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（クリティカル判定：可変値）
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N3,H3[C5]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, クリティカル判定[C5]:2[6,5] \n(3B6>=5) ＞ 3,2,1 ＞ 成功数:0, クリティカル判定[C5]:0 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+# 追加判定（クリティカル！自動判定）
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N3,H3[C65+]"
+output = "(3B6>=4) ＞ 6,5,4 ＞ 成功数:3, クリティカル！[C65+] \n(3B6>=5) ＞ 6,4,2 ＞ 成功数:1 \n"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+# サツバツ判定(D6)
 [[ test ]]
 game_system = "NinjaSlayer2"
 input = "SB"
@@ -100,7 +291,7 @@ rands = [
   { sides = 6, value = 3 },
 ]
 
-# サツバツ！(効果指定)
+# サツバツ判定(効果指定)
 [[ test ]]
 game_system = "NinjaSlayer2"
 input = "SB@6"
@@ -169,6 +360,7 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
+
   { sides = 3, value = 3 },
 ]
 
@@ -183,6 +375,7 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
+
   { sides = 6, value = 6 },
 ]
 
@@ -197,6 +390,7 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
+
   { sides = 6, value = 5 },
 ]
 
@@ -211,6 +405,7 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
+
   { sides = 6, value = 6 },
 ]
 
@@ -225,7 +420,6 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
-  { sides = 3, value = 3 },
 ]
 
 # NRS判定(判定なし, 発狂表指定あり)
@@ -234,10 +428,54 @@ game_system = "NinjaSlayer2"
 input = "NRS@7"
 output = "NRS発狂(7) ＞ 心臓発作や狂死 \n急激なニンジャリアリティショックに耐えきれず、PCは心臓発作やニューロン損傷を起こして【体力】0となり、その場に倒れ『気絶状態』となる。 \nZBRアドレナリンでなければ蘇生できない。処置を受けずに時間が経過すると死亡する。"
 failure = true
+rands = []
+
+
+
+#### 以下、旧版。互換性を保証する意図で今回だけ残します。
+
+# N{m},{n}[appendix] 簡易コマンドの連続処理 (追加判定)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N5,3,U4[!=1][s][c2]"
+output = "(5B6>=4) ＞ 4,6,3,1,5 ＞ 成功数:3, 追加判定[!=1]:4[6,5,4,3], サツバツ判定[S]:1[6], クリティカル判定[C2]:4[6,5,4,3] \n(3B6>=4) ＞ 1,1,2 ＞ 成功数:0, 追加判定[!=1]:1[2], サツバツ判定[S]:0, クリティカル判定[C2]:1[2] \n(4B6>=6) ＞ 6,6,1,2 ＞ 成功数:2, 追加判定[!=1]:3[6,6,2], サツバツ判定[S]:2[6,6], クリティカル判定[C2]:3[6,6,2] \n"
+success = true
 rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
   { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+# N{m},{n}[appendix] 簡易コマンドの連続処理 (新サツバツ/クリティカル判定)
+[[ test ]]
+game_system = "NinjaSlayer2"
+input = "N5,3,U4[s65+][s65/656+][c666+][=44+]"
+output = "(5B6>=4) ＞ 4,6,3,6,6 ＞ 成功数:4, サツバツ！[S65+], ナムアミダブツ！[S65/656+], クリティカル！[C666+] \n(3B6>=4) ＞ 4,4,2 ＞ 成功数:2, 追加判定成功！[=44+] \n(4B6>=6) ＞ 5,6,1,2 ＞ 成功数:1, サツバツ！[S65+], サツバツ！[S65/656+] \n"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
   { sides = 6, value = 1 },
-  { sides = 3, value = 3 },
+  { sides = 6, value = 2 },
 ]

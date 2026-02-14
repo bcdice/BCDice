@@ -112,16 +112,16 @@ module BCDice
         if usedie >= critical_no
           result.critical = true
           result.success = true
-          output.push("クリティカル")
+          output.push(translate('critical'))
         elsif usedie == 1
           result.fumble = true
-          output.push("ファンブル")
+          output.push(translate('fumble'))
         elsif difficulty > 0
           if usedie + modify >= difficulty
             result.success = true
-            output.push("成功")
+            output.push(translate('success'))
           else
-            output.push("失敗")
+            output.push(translate('failure'))
           end
         end
 
@@ -188,9 +188,9 @@ module BCDice
         if difficulty > 0
           if usedie + modify >= difficulty
             result.success = true
-            output.push("成功")
+            output.push(translate('success'))
           else
-            output.push("失敗")
+            output.push(translate('failure'))
           end
         end
 
