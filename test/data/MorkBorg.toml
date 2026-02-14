@@ -1,0 +1,388 @@
+[[ test ]]
+game_system = "MorkBorg"
+input = "0DR12 DRロール Succeed,Failureの確認"
+output = "(0DR12) ＞ 12+0 ＞ 12 ＞ Succeed"
+success = true
+rands = [
+  { sides = 20, value = 12 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "0DR12"
+output = "(0DR12) ＞ 11+0 ＞ 11 ＞ Failure"
+failure = true
+rands = [
+  { sides = 20, value = 11 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "0DR12"
+output = "(0DR12) ＞ 20+0 ＞ 20 ＞ Crit"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "0DR12"
+output = "(0DR12) ＞ 1+0 ＞ 1 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "DR12 DRロール Succeed,Failureの確認"
+output = "(DR12) ＞ 12+0 ＞ 12 ＞ Succeed"
+success = true
+rands = [
+  { sides = 20, value = 12 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "DR12"
+output = "(DR12) ＞ 11+0 ＞ 11 ＞ Failure"
+failure = true
+rands = [
+  { sides = 20, value = 11 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "-3DR12 DRロール 能力値加算の確認"
+output = "(-3DR12) ＞ 14-3 ＞ 11 ＞ Failure"
+failure = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "-2DR12"
+output = "(-2DR12) ＞ 14-2 ＞ 12 ＞ Succeed"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "-1DR12"
+output = "(-1DR12) ＞ 14-1 ＞ 13 ＞ Succeed"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "0DR12"
+output = "(0DR12) ＞ 14+0 ＞ 14 ＞ Succeed"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "1DR12"
+output = "(1DR12) ＞ 14+1 ＞ 15 ＞ Succeed"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "2DR12"
+output = "(2DR12) ＞ 14+2 ＞ 16 ＞ Succeed"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "+3DR12"
+output = "(+3DR12) ＞ 14+3 ＞ 17 ＞ Succeed"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "DR12 能力値0の時の省略が有効か？"
+output = "(DR12) ＞ 14+0 ＞ 14 ＞ Succeed"
+success = true
+rands = [
+  { sides = 20, value = 14 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "3DR12 DRロール Crit・Fumbleが出目だけに影響を受けているか確認"
+output = "(3DR12) ＞ 17+3 ＞ 20 ＞ Succeed"
+success = true
+rands = [
+  { sides = 20, value = 17 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "-2DR12"
+output = "(-2DR12) ＞ 3-2 ＞ 1 ＞ Failure"
+failure = true
+rands = [
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "INS イニシアティヴ　enemies・PCs go firstの確認"
+output = "(INS) ＞ 1+0 ＞ 1 ＞ Enemies go first"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "INS"
+output = "(INS) ＞ 3+0 ＞ 3 ＞ Enemies go first"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "INS"
+output = "(INS) ＞ 4+0 ＞ 4 ＞ PCs go first"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "INS"
+output = "(INS) ＞ 6+0 ＞ 6 ＞ PCs go first"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "+1INS"
+output = "(+1INS) ＞ 4+1 ＞ 5 ＞ PCs go first"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "-1INS"
+output = "(-1INS) ＞ 6-1 ＞ 5 ＞ PCs go first"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "MOR7 モラル　退散・降伏の確認"
+output = "(MOR7) ＞ 8+0 ＞ 8 ＞ 3(Flees)"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "MOR7"
+output = "(MOR7) ＞ 8+0 ＞ 8 ＞ 4(Surrenders)"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "MOR7"
+output = "(MOR7) ＞ 7+0 ＞ 7 ＞ Maintained"
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "+1MOR9"
+output = "(+1MOR9) ＞ 9+1 ＞ 10 ＞ 3(Flees)"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "-1MOR7"
+output = "(-1MOR7) ＞ 9-1 ＞ 8 ＞ 3(Flees)"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(2) ＞ Kill!"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(3) ＞ Kill!"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(4) ＞ Angered"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(5) ＞ Angered"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(6) ＞ Angered"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(7) ＞ Indifferent"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(8) ＞ Indifferent"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(9) ＞ Almost friendly"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(10) ＞ Almost friendly"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(11) ＞ Helpful"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "ERT 遭遇反応表"
+output = "遭遇反応表(12) ＞ Helpful"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "BRO 崩壊表"
+output = "崩壊表(1) ＞ Fall unconscious for d4 rounds, awaken with d4 HP."
+rands = [
+  { sides = 4, value = 1 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "BRO 崩壊表"
+output = "崩壊表(4) ＞ Dead."
+rands = [
+  { sides = 4, value = 4 },
+]
+
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "D66 ソートされていないかの確認"
+output = "(D66) ＞ 63"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "MorkBorg"
+input = "D66 ソートされていないかの確認"
+output = "(D66) ＞ 13"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
