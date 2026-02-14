@@ -4,7 +4,7 @@ require 'bcdice/game_system/GardenOrder'
 
 module BCDice
   module GameSystem
-    class GardenOrder_ReEdit < GardenOrder
+    class GardenOrderReEdit < GardenOrder
       # ゲームシステムのの識別子
       ID = 'GardenOrder_ReEdit'
 
@@ -77,10 +77,10 @@ module BCDice
 
         if damage_value > 49
           add_damage_value = ((damage_value - 40) / 10).to_i
-          row[:damage] = "重傷#{add_damage_value}、#{row[:damage]}"
+          row_damage = "重傷#{add_damage_value}、#{row[:damage]}"
         end
 
-        "負傷表(#{chart_str})：#{name}[#{damage_value}] ＞ #{row[:damage]} ｜ #{row[:name]} … #{row[:text]}"
+        "負傷表(#{chart_str})：#{name}[#{damage_value}] ＞ #{row_damage]} ｜ #{row[:name]} … #{row[:text]}"
       end
 
       def get_damage_table_info_by_type(type, chart_type)
