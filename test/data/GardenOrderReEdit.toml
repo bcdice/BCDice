@@ -1,5 +1,5 @@
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO50"
 output = "D100<=50@10 ＞ 50 ＞ 成功"
 success = true
@@ -8,7 +8,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO50"
 output = "D100<=50@10 ＞ 51 ＞ 失敗"
 failure = true
@@ -17,7 +17,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO50"
 output = "D100<=50@10 ＞ 95 ＞ 失敗"
 failure = true
@@ -26,7 +26,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO50"
 output = "D100<=50@10 ＞ 96 ＞ ファンブル"
 failure = true
@@ -36,7 +36,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO96"
 output = "D100<=96@19 ＞ 96 ＞ ファンブル"
 failure = true
@@ -46,7 +46,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO99"
 output = "D100<=99@19 ＞ 96 ＞ ファンブル"
 failure = true
@@ -56,7 +56,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO100"
 output = "D100<=100@20 ＞ 96 ＞ 成功"
 success = true
@@ -65,7 +65,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO100"
 output = "D100<=100@20 ＞ 98 ＞ 成功"
 success = true
@@ -74,7 +74,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO100"
 output = "D100<=100@20 ＞ 99 ＞ ファンブル"
 failure = true
@@ -84,7 +84,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO50"
 output = "D100<=50@10 ＞ 11 ＞ 成功"
 success = true
@@ -93,7 +93,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO50"
 output = "D100<=50@10 ＞ 10 ＞ クリティカル"
 success = true
@@ -103,7 +103,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO500"
 output = "D100<=500@100 ＞ 100 ＞ ファンブル"
 failure = true
@@ -113,7 +113,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO0"
 output = "D100<=0@1 ＞ 2 ＞ 失敗"
 failure = true
@@ -122,7 +122,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO0"
 output = "D100<=0@1 ＞ 1 ＞ クリティカル"
 success = true
@@ -132,7 +132,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO50"
 output = "D100<=50@10 ＞ 11 ＞ 成功"
 success = true
@@ -141,7 +141,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO50@11"
 output = "D100<=50@11 ＞ 11 ＞ クリティカル"
 success = true
@@ -151,7 +151,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO50@11"
 output = "D100<=50@11 ＞ 12 ＞ 成功"
 success = true
@@ -160,7 +160,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO50@5"
 output = "D100<=50@5 ＞ 10 ＞ 成功"
 success = true
@@ -169,7 +169,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO50@5"
 output = "D100<=50@5 ＞ 5 ＞ クリティカル"
 success = true
@@ -179,7 +179,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO100/2"
 output = "D100<=50@20 ＞ 50 ＞ 成功"
 success = true
@@ -188,7 +188,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO100/2"
 output = "D100<=50@20 ＞ 51 ＞ 失敗"
 failure = true
@@ -197,7 +197,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO100/2"
 output = "D100<=50@20 ＞ 96 ＞ ファンブル"
 failure = true
@@ -207,7 +207,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO100/2"
 output = "D100<=50@20 ＞ 21 ＞ 成功"
 success = true
@@ -216,7 +216,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO100/2"
 output = "D100<=50@20 ＞ 20 ＞ クリティカル"
 success = true
@@ -226,7 +226,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO150/2"
 output = "D100<=75@30 ＞ 51 ＞ 成功"
 success = true
@@ -235,7 +235,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO150/2"
 output = "D100<=75@30 ＞ 30 ＞ クリティカル"
 success = true
@@ -245,7 +245,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO150/3"
 output = "D100<=50@30 ＞ 51 ＞ 失敗"
 failure = true
@@ -254,7 +254,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO179/3"
 output = "D100<=59@35 ＞ 60 ＞ 失敗"
 failure = true
@@ -263,7 +263,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO179/3"
 output = "D100<=59@35 ＞ 59 ＞ 成功"
 success = true
@@ -272,7 +272,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO179/3"
 output = "D100<=59@35 ＞ 35 ＞ クリティカル"
 success = true
@@ -282,13 +282,13 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO99/2"
 output = "D100<=49@19 ＞ 連続攻撃は成功率が50％以上必要です"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO(99/2)"
 output = "D100<=49@9 ＞ 10 ＞ 成功"
 success = true
@@ -297,123 +297,123 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "dcSL0"
 output = "負傷表(通常)：切断[0] ＞ 疲労1 ｜ 緊張 … 負傷はないが、魂が摩耗していく。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "dcSL1"
 output = "負傷表(通常)：切断[1] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "dcSL5"
 output = "負傷表(通常)：切断[5] ＞ 軽傷1 ｜ 切り傷 … 皮膚が切り裂かれる。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "dcSL40"
 output = "負傷表(通常)：切断[40] ＞ 致命傷2／放心、スタン、マヒ ｜ 脊髄損傷 … 脊髄が損傷する。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "dcSL55 #表外ダメージによる重症の追加確認"
 output = "負傷表(通常)：切断[55] ＞ 重傷1、致命傷2／放心、スタン、マヒ ｜ 脊髄損傷 … 脊髄が損傷する。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "dcBL1"
 output = "負傷表(通常)：銃弾[1] ＞ 軽傷2 ｜ 腕部負傷 … 銃弾が腕をかすめた。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "dcIM1"
 output = "負傷表(通常)：衝撃[1] ＞ 軽傷1 ｜ 打撲 … 攻撃を受けた箇所がどす黒く腫れ上がる。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "dcBR1"
 output = "負傷表(通常)：灼熱[1] ＞ 軽傷1 ｜ 火傷 … 皮膚に小さな火傷を負う。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "dcRF1"
 output = "負傷表(通常)：冷却[1] ＞ 軽傷1 ｜ 冷気 … 軽い凍傷を受ける。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "dcEL1"
 output = "負傷表(通常)：電撃[1] ＞ 疲労3 ｜ 静電気 … 全身の毛が逆立つ。"
 rands = []
 
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "sdSL0"
 output = "負傷表(特殊)：切断[0] ＞ 疲労1 ｜ 緊張 … 損傷はないが、魂が摩耗していく。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "sdSL1"
 output = "負傷表(特殊)：切断[1] ＞ スタン ｜ 軽い衝撃 … たいした傷ではないが、衝撃を受ける。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "sdSL5"
 output = "負傷表(特殊)：切断[5] ＞ スタン ｜ 軽い衝撃 … たいした傷ではないが、衝撃を受ける。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "sdSL40"
 output = "負傷表(特殊)：切断[40] ＞ 致命傷2 ｜ 致命的損傷 … 機能が停止しかねないほどの大きな損傷を受ける。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "sdBL1"
 output = "負傷表(特殊)：銃弾[1] ＞ スタン ｜ 軽い衝撃 … 銃弾ははじいたが、装撃を受ける。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "sdIM1"
 output = "負傷表(特殊)：衝撃[1] ＞ スタン ｜ 軽い衝撃 … 傷も凹みもないが、衝撃を受ける。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "sdBR1"
 output = "負傷表(特殊)：灼熱[1] ＞ スタン ｜ 軽い溶解 … 外装が少しだけ溶け、機能が低下する。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "sdRF1"
 output = "負傷表(特殊)：冷却[1] ＞ スタン ｜ 軽い冷却 … 冷気で機能が低下する。"
 rands = []
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "sdEL1"
 output = "負傷表(特殊)：電撃[1] ＞ スタン ｜ 軽い電撃 … 電撃で機能が低下する。"
 rands = []
 
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO(20-20)"
 output = "D100<=0@1 ＞ 1 ＞ クリティカル"
 success = true
@@ -423,7 +423,7 @@ rands = [
 ]
 
 [[ test ]]
-game_system = "GardenOrder_ReEdit"
+game_system = "GardenOrderReEdit"
 input = "GO(20-50)"
 output = "D100<=0@1 ＞ 1 ＞ クリティカル"
 success = true
