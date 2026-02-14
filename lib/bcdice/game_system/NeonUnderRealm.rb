@@ -35,7 +35,7 @@ module BCDice
       MIN_KIAI_THRESHOLD = 0
       MAX_KIAI_THRESHOLD = 5
 
-      register_prefix('\d+(?:[+\-]\d+)*[Nn][Uu]')
+      register_prefix('\d+([+\-]\d+)*NU')
 
       # [M]NU[N]±[K]@[L]
       def eval_game_system_specific_command(command)
