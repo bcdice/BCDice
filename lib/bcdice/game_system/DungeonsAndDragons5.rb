@@ -14,17 +14,20 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
-        ・攻撃ロール　AT[x][@c][>=t][y]
+        ・攻撃ロール　AT[x][@c][>=t][y][B]
         　x：+-修正。省略可。
         　c:クリティカル値。省略可。
         　t:敵のアーマークラス。>=を含めて省略可。
         　y:有利(A), 不利(D)。省略可。
+        　B:ブレスやガイダンス等によるボーナス。省略可。
+        　　Bだけを書くと+1d4、B[1D4+1D8]などと書くと[]内のロールをボーナスとしてロールします。
         　ファンブル／失敗／成功／クリティカル を自動判定。
         　例）AT AT>=10 AT+5>=18 AT-3>=16 ATA AT>=10A AT+3>=18A AT-3>=16 ATD AT>=10D AT+5>=18D AT-5>=16D
-        　    AT@19 AT+5@18 AT-2@19>=15
-        ・能力値判定　AR[x][>=t][y]
+        　    AT@19 AT+5@18 AT-2@19>=15 AT+3>=18AB AT+3>=18DB[1D6]
+        ・能力値判定　AR[x][>=t][y][b]
         　攻撃ロールと同様。失敗／成功を自動判定。
         　例）AR AR>=10 AR+5>=18 AR-3>=16 ARA AR>=10A AR+3>=18A AR-3>=16 ARD AR>=10D AR+5>=18D AR-5>=16D
+        　     AR+3>=18AB AR+3>=18DB[1D6]
         ・両手持ちのダメージ　2HnDx[m]
         　n:ダイスの個数
         　x:ダイスの面数
@@ -33,7 +36,7 @@ module BCDice
         　例)2H3D6 2H1D10+3 2H2D8-1
       INFO_MESSAGE_TEXT
 
-      register_prefix('AT([+-]\d+)?(@\d+)?(>=\d+)?[AD]?', 'AR([+-]\d+)?(>=\d+)?[AD]?', '2H(\d+)D(\d+)([+-]\d+)?')
+      register_prefix('AT', 'AR', '2H')
 
       def initialize(command)
         super(command)
@@ -55,32 +58,47 @@ module BCDice
         end
       end
 
-      # 攻撃ロール
-      def attack_roll(command)
-        m = /^AT([-+]\d+)?(@(\d+))?(>=(\d+))?([AD]?)/.match(command)
+      # ロール処理
+      def exec_roll(command)
+        m = /^(AT|AR)([-+\d]+)?(@(\d+))?(>=(\d+))?([AD]?)6?(B(\[(\d+D\d+([-+]\d+D\d+)*)\])?)?/.match(command)
         unless m
           return nil
         end
 
-        modify = m[1].to_i
-        critical_no = m[3].to_i
-        difficulty = m[5].to_i
-        advantage = m[6]
+        modify = 0
+        mod_str = ""
+        unless m[2].nil?
+          if Arithmetic.eval(m[2], @round_type).nil?
+            return nil
+          else
+            modify = Arithmetic.eval(m[2], @round_type)
+            mod_str = number_with_sign_from_int(modify).to_s
+          end
+        end
+        critical_no = m[4].to_i
+        difficulty = m[6].to_i
+        advantage = m[7].to_s
+        bonus = m[8].to_s
+        bonus_dice = m[10].to_s
 
         usedie = 0
+        bonus_mod = 0
+        bonus_str = ""
+        bonus_mod_arr = []
         roll_die = ""
 
-        dice_command = "AT#{number_with_sign_from_int(modify)}"
-        if critical_no > 0
+        dice_command = "#{m[1]}#{number_with_sign_from_int(modify)}"
+        unless critical_no < 1
           dice_command += "@#{critical_no}"
-        else
-          critical_no = 20
         end
         if difficulty > 0
           dice_command += ">=#{difficulty}"
         end
         unless advantage.empty?
-          dice_command += advantage.to_s
+          dice_command += advantage
+        end
+        unless bonus.empty?
+          dice_command += bonus
         end
 
         output = ["(#{dice_command})"]
@@ -96,16 +114,56 @@ module BCDice
           else
             usedie = dice.min
           end
+          roll_die = "#{usedie}#{roll_die}"
         end
 
-        if modify != 0
-          output.push("#{roll_die}#{number_with_sign_from_int(modify)}")
-          output.push((usedie + modify).to_s)
-        else
-          unless advantage.empty?
-            output.push(roll_die)
+        unless bonus.empty?
+          if bonus == "B"
+            bonus_mod = @randomizer.roll_once(4).to_i
+            bonus_str = number_with_sign_from_int(bonus_mod).to_s
+          else
+            unless bonus_dice.empty?
+              bonus_dice_arr = bonus_dice.gsub(/([+-])/, ",\\1").split(',')
+              bonus_dice_arr.each do |i|
+                now_bonus_dice = i.split("D")
+                now_dice_count = now_bonus_dice[0].to_i
+                now_dice_number = now_bonus_dice[1].to_i
+                dice = @randomizer.roll_barabara(now_dice_count.abs, now_dice_number)
+                if now_dice_count.positive?
+                  bonus_mod_arr.push(dice.sum())
+                else
+                  bonus_mod_arr.push(-dice.sum())
+                end
+              end
+              bonus_mod = bonus_mod_arr.sum()
+              bonus_str = "#{number_with_sign_from_int(bonus_mod)}[#{bonus_mod_arr.join(',')}]"
+            end
           end
-          output.push(usedie.to_s)
+        end
+
+        output.push("#{roll_die}#{mod_str}#{bonus_str}")
+        unless mod_str.empty? && advantage.empty? && bonus.empty?
+          output.push((usedie + modify + bonus_mod).to_s)
+        end
+
+        return usedie, (usedie + modify + bonus_mod), difficulty, output
+      end
+
+      # 攻撃ロール
+      def attack_roll(command)
+        m = /^AT([-+\d]+)?(@(\d+))?(>=(\d+))?([AD]?)6?(B(\[(\d+D\d+([-+]\d+D\d+)*)\])?)?/.match(command)
+        unless m
+          return nil
+        end
+
+        critical_no = 20
+        unless m[3].nil?
+          critical_no = m[3].to_i
+        end
+
+        usedie, dice_result, difficulty, output = exec_roll(command)
+        if usedie.nil?
+          return nil
         end
 
         result = Result.new
@@ -117,7 +175,7 @@ module BCDice
           result.fumble = true
           output.push(translate('fumble'))
         elsif difficulty > 0
-          if usedie + modify >= difficulty
+          if dice_result >= difficulty
             result.success = true
             output.push(translate('success'))
           else
@@ -139,54 +197,19 @@ module BCDice
 
       # 能力値ロール
       def ability_roll(command)
-        m = /^AR([-+]\d+)?(>=(\d+))?([AD]?)/.match(command)
+        m = /^AR([-+\d]+)?(>=(\d+))?([AD]?)6?(B(\[(\d+D\d+([-+]\d+D\d+)*)\])?)?/.match(command)
         unless m
           return nil
         end
 
-        modify = m[1].to_i
-        difficulty = m[3].to_i
-        advantage = m[4]
-
-        usedie = 0
-        roll_die = ""
-
-        dice_command = "AR#{number_with_sign_from_int(modify)}"
-        if difficulty > 0
-          dice_command += ">=#{difficulty}"
-        end
-        unless advantage.empty?
-          dice_command += advantage.to_s
-        end
-
-        output = ["(#{dice_command})"]
-
-        if advantage.empty?
-          usedie = @randomizer.roll_once(20)
-          roll_die = usedie
-        else
-          dice = @randomizer.roll_barabara(2, 20)
-          roll_die = "[" + dice.join(",") + "]"
-          if advantage == "A"
-            usedie = dice.max
-          else
-            usedie = dice.min
-          end
-        end
-
-        if modify != 0
-          output.push("#{roll_die}#{number_with_sign_from_int(modify)}")
-          output.push((usedie + modify).to_s)
-        else
-          unless advantage.empty?
-            output.push(roll_die)
-          end
-          output.push(usedie.to_s)
+        usedie, dice_result, difficulty, output = exec_roll(command)
+        if usedie.nil?
+          return nil
         end
 
         result = Result.new
         if difficulty > 0
-          if usedie + modify >= difficulty
+          if dice_result >= difficulty
             result.success = true
             output.push(translate('success'))
           else
@@ -208,15 +231,25 @@ module BCDice
 
       # 武器の両手持ちダメージ
       def twohands_damage_roll(command)
-        m = /^2H(\d+)D(\d+)([+-]\d+)?/.match(command)
+        m = /^2H(\d+)D(\d+)([-+\d]+)?/.match(command)
         unless m
           return nil
         end
 
         dice_count = m[1].to_i
         dice_number = m[2].to_i
-        modify = m[3].to_i
-        mod_str = number_with_sign_from_int(modify)
+
+        modify = 0
+        mod_str = ""
+        unless m[3].nil?
+          if Arithmetic.eval(m[3], @round_type).nil?
+            return nil
+          else
+            modify = Arithmetic.eval(m[3], @round_type)
+            mod_str = number_with_sign_from_int(modify).to_s
+          end
+        end
+
         output = ["(2H#{dice_count}D#{dice_number}#{mod_str})"]
 
         dice = @randomizer.roll_barabara(dice_count, dice_number)
