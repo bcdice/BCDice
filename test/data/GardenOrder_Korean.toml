@@ -1,0 +1,426 @@
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO50"
+output = "D100<=50@10 ＞ 50 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO50"
+output = "D100<=50@10 ＞ 51 ＞ 실패"
+failure = true
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO50"
+output = "D100<=50@10 ＞ 95 ＞ 실패"
+failure = true
+rands = [
+  { sides = 100, value = 95 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO50"
+output = "D100<=50@10 ＞ 96 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO96"
+output = "D100<=96@19 ＞ 96 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO99"
+output = "D100<=99@19 ＞ 96 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO100"
+output = "D100<=100@20 ＞ 96 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO100"
+output = "D100<=100@20 ＞ 98 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 98 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO100"
+output = "D100<=100@20 ＞ 99 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 99 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO50"
+output = "D100<=50@10 ＞ 11 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO50"
+output = "D100<=50@10 ＞ 10 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO500"
+output = "D100<=500@100 ＞ 100 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO0"
+output = "D100<=0@1 ＞ 2 ＞ 실패"
+failure = true
+rands = [
+  { sides = 100, value = 2 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO0"
+output = "D100<=0@1 ＞ 1 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO50"
+output = "D100<=50@10 ＞ 11 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO50@11"
+output = "D100<=50@11 ＞ 11 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 11 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO50@11"
+output = "D100<=50@11 ＞ 12 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 12 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO50@5"
+output = "D100<=50@5 ＞ 10 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO50@5"
+output = "D100<=50@5 ＞ 5 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 5 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO100/2"
+output = "D100<=50@20 ＞ 50 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO100/2"
+output = "D100<=50@20 ＞ 51 ＞ 실패"
+failure = true
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO100/2"
+output = "D100<=50@20 ＞ 96 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 96 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO100/2"
+output = "D100<=50@20 ＞ 21 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 21 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO100/2"
+output = "D100<=50@20 ＞ 20 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 20 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO150/2"
+output = "D100<=75@30 ＞ 51 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO150/2"
+output = "D100<=75@30 ＞ 30 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO150/3"
+output = "D100<=50@30 ＞ 51 ＞ 실패"
+failure = true
+rands = [
+  { sides = 100, value = 51 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO179/3"
+output = "D100<=59@35 ＞ 60 ＞ 실패"
+failure = true
+rands = [
+  { sides = 100, value = 60 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO179/3"
+output = "D100<=59@35 ＞ 59 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 59 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO179/3"
+output = "D100<=59@35 ＞ 35 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 35 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO99/2"
+output = "D100<=49@19 ＞ 연속 공격은 성공률이 50% 이상 필요합니다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO(99/2)"
+output = "D100<=49@9 ＞ 10 ＞ 성공"
+success = true
+rands = [
+  { sides = 100, value = 10 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "dcSL1"
+output = "부상 표：절단[1] ＞ 경상 1 ｜ 베인 상처 … 피부가 찢어진다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "dcSL2"
+output = "부상 표：절단[2] ＞ 경상 1 ｜ 베인 상처 … 피부가 찢어진다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "dcSL5"
+output = "부상 표：절단[5] ＞ 경상 1 ｜ 베인 상처 … 피부가 찢어진다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "dcSL6"
+output = "부상 표：절단[6] ＞ 경상 2/마비 ｜ 다리 부상 … 다리가 찢어져 무심코 무릎을 꿇는다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "dcBL1"
+output = "부상 표：총탄[1] ＞ 경상 2 ｜ 팔 부상 … 총알이 팔을 스쳤다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "dcIM1"
+output = "부상 표：충격[1] ＞ 경상 1 ｜ 타박상 … 공격을 받은 부분이 거무칙칙하게 붓는다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "dcBR1"
+output = "부상 표：작열[1] ＞ 경상 1 ｜ 화상 … 피부에 작은 화상을 입는다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "dcRF1"
+output = "부상 표：냉각[1] ＞ 경상 1 ｜ 냉기 … 가벼운 동상을 입는다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "dcEL1"
+output = "부상 표：전격[1] ＞ 피로 3 ｜ 정전기 … 온몸에 소름이 끼친다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "seSL1"
+output = "부상 표(SE)：절단[1] ＞ 스턴 ｜ 가벼운 충격 … 별 상처는 아니지만 충격을 받는다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "seSL2"
+output = "부상 표(SE)：절단[2] ＞ 스턴 ｜ 가벼운 충격 … 별 상처는 아니지만 충격을 받는다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "seSL5"
+output = "부상 표(SE)：절단[5] ＞ 스턴 ｜ 가벼운 충격 … 별 상처는 아니지만 충격을 받는다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "seSL6"
+output = "부상 표(SE)：절단[6] ＞ 경상 1 ｜ 작은 상처 … 외부 장비에 상처가 난다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "seBL1"
+output = "부상 표(SE)：총탄[1] ＞ 스턴 ｜ 가벼운 충격 … 총알은 튕겨져 나갔지만 충격을 받는다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "seIM1"
+output = "부상 표(SE)：충격[1] ＞ 스턴 ｜ 가벼운 충격 … 상처도 함몰도 없지만 충격을 받는다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "seBR1"
+output = "부상 표(SE)：작열[1] ＞ 스턴 ｜ 가벼운 용해 … 외부 장비가 약간 녹아 기능이 저하한다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "seRF1"
+output = "부상 표(SE)：냉각[1] ＞ 스턴 ｜ 가벼운 냉각 … 냉기 때문에 기능이 저하한다."
+rands = []
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "seEL1"
+output = "부상 표(SE)：전격[1] ＞ 스턴 ｜ 가벼운 전격 … 전격 때문에 기능이 저하한다."
+rands = []
+
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO(20-20)"
+output = "D100<=0@1 ＞ 1 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "GardenOrder:Korean"
+input = "GO(20-50)"
+output = "D100<=0@1 ＞ 1 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },
+]

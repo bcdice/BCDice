@@ -690,13 +690,14 @@ game_system = "PastFutureParadox"
 input = "CPT=1"
 output = "ポジティブ因縁内容表:1 ＞ 1:共存。一緒にいて自然な関係だ。"
 rands = []
-[[ test ]]
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "CPT=-5 0以下を指定しても最低の1の結果を表示"
 output = "ポジティブ因縁内容表:1 ＞ 1:共存。一緒にいて自然な関係だ。"
 rands = []
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "CPT=10 7以上を指定しても最高の6の結果を表示"
 output = "ポジティブ因縁内容表:6 ＞ 6:理解。何も言わなくても相手のことならなんでもわかる。"
@@ -747,13 +748,14 @@ game_system = "PastFutureParadox"
 input = "CNT=1"
 output = "ネガティブ因縁内容表:1 ＞ 1:邪魔。なぜかいつも視界の端にいる。"
 rands = []
-[[ test ]]
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "CNT=-5 0以下を指定しても最低の1の結果を表示"
 output = "ネガティブ因縁内容表:1 ＞ 1:邪魔。なぜかいつも視界の端にいる。"
 rands = []
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "CNT=10 7以上を指定しても最高の6の結果を表示"
 output = "ネガティブ因縁内容表:6 ＞ 6:天敵。不倶戴天の敵、いつでも対立して喧嘩ばかりしている。"
@@ -1176,13 +1178,14 @@ game_system = "PastFutureParadox"
 input = "RT=1"
 output = "帰還演出表:1 ＞ 1:この時代に来た方法と同じ演出で帰還できる。"
 rands = []
-[[ test ]]
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "RT=-5 0以下を指定しても最低の1の結果を表示"
 output = "帰還演出表:1 ＞ 1:この時代に来た方法と同じ演出で帰還できる。"
 rands = []
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "RT=10 7以上を指定しても最高の6の結果を表示"
 output = "帰還演出表:6 ＞ 6:天から神々しい光が降りそそぐ。宇宙開闢の女神が微笑みかけると、あなたは強い光に包まれる。その光はあなたを元の時代へと導く。"
@@ -1233,13 +1236,14 @@ game_system = "PastFutureParadox"
 input = "IT=1"
 output = "アイテム決定表:1 ＞ 1:癒しの品。いつでも使用可能。好きなキャラクター（自身含む）の［疲労度］を1D6点減少させることができる。使用すると失われる。"
 rands = []
-[[ test ]]
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "IT=-5 0以下を指定しても最低の1の結果を表示"
 output = "アイテム決定表:1 ＞ 1:癒しの品。いつでも使用可能。好きなキャラクター（自身含む）の［疲労度］を1D6点減少させることができる。使用すると失われる。"
 rands = []
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "IT=10 7以上を指定しても最高の6の結果を表示"
 output = "アイテム決定表:6 ＞ 6:運命の品。誰か（自身含む）がシステムおよびシナリオで用意された表を使用してダイスを振った直後に使用可能。ダイスの結果を±1ずらすことができる。ただしその表に設定されていない値にずらすことはできない。使用すると失われる。"
@@ -1290,13 +1294,14 @@ game_system = "PastFutureParadox"
 input = "AGT=1"
 output = "時代決定表:1 ＞ 1:原始時代／EL1"
 rands = []
-[[ test ]]
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "AGT=-5 0以下を指定しても最低の1の結果を表示"
 output = "時代決定表:1 ＞ 1:原始時代／EL1"
 rands = []
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "AGT=10 7以上を指定しても最高の6の結果を表示"
 output = "時代決定表:6 ＞ 6:宇宙時代／EL6"

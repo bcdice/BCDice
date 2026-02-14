@@ -1,0 +1,532 @@
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT 명령어만 표시 확인"
+output = "(AT) ＞ 3"
+rands = [
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT 크리티컬"
+output = "(AT) ＞ 20 ＞ 크리티컬"
+critical = true
+success = true
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT@19 크리티컬"
+output = "(AT@19) ＞ 19 ＞ 크리티컬"
+critical = true
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT@18 크리티컬"
+output = "(AT@18) ＞ 18 ＞ 크리티컬"
+critical = true
+success = true
+rands = [
+  { sides = 20, value = 18 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT@18 크리티컬"
+output = "(AT@18) ＞ 19 ＞ 크리티컬"
+critical = true
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT 펌블"
+output = "(AT) ＞ 1 ＞ 펌블"
+fumble = true
+failure = true
+rands = [
+  { sides = 20, value = 1 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT>=10 실패 표시 확인"
+output = "(AT>=10) ＞ 3 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT>=10 성공(동일 값) 표시 확인"
+output = "(AT>=10) ＞ 10 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 10 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT>=10 성공 표시 확인"
+output = "(AT>=10) ＞ 19 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT>=10 크리티컬 표시 확인"
+output = "(AT>=10) ＞ 20 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT@18>=10 크리티컬 표시 확인"
+output = "(AT@18>=10) ＞ 18 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 18 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT>=10 펌블 표시 확인"
+output = "(AT>=10) ＞ 1 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 20, value = 1 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT>=18A 유리 표시 확인"
+output = "(AT>=18A) ＞ 3[1,3] ＞ 3 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT>=18A"
+output = "(AT>=18A) ＞ 18[18,3] ＞ 18 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT>=16D 불리 표시 확인"
+output = "(AT>=16D) ＞ 3[3,6] ＞ 3 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 3 },
+  { sides = 20, value = 6 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT>=16D"
+output = "(AT>=16D) ＞ 3[18,3] ＞ 3 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT+5>=10 +수정 표시 확인"
+output = "(AT+5>=10) ＞ 19+5 ＞ 24 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT-5>=10 -수정 표시 확인"
+output = "(AT-5>=10) ＞ 19-5 ＞ 14 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT+3>=10 크리티컬 표시 확인"
+output = "(AT+3>=10) ＞ 20+3 ＞ 23 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT+3@18>=10 크리티컬 표시 확인"
+output = "(AT+3@18>=10) ＞ 18+3 ＞ 21 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 18 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT-3>=10 크리티컬 표시 확인"
+output = "(AT-3>=10) ＞ 20-3 ＞ 17 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT-3@18>=10 크리티컬 표시 확인"
+output = "(AT-3@18>=10) ＞ 18-3 ＞ 15 ＞ 크리티컬"
+success = true
+critical = true
+rands = [
+  { sides = 20, value = 18 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT+3>=10 펌블 표시 확인"
+output = "(AT+3>=10) ＞ 1+3 ＞ 4 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT-3>=10 펌블 표시 확인"
+output = "(AT-3>=10) ＞ 1-3 ＞ -2 ＞ 펌블"
+failure = true
+fumble = true
+rands = [
+  { sides = 20, value = 1 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "ATA 유리 표시 확인"
+output = "(ATA) ＞ 3[1,3] ＞ 3"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT+3>=18A 유리 표시 확인"
+output = "(AT+3>=18A) ＞ 3[1,3]+3 ＞ 6 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT-3>=14A"
+output = "(AT-3>=14A) ＞ 18[18,3]-3 ＞ 15 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "ATD 불리 표시 확인"
+output = "(ATD) ＞ 3[3,7] ＞ 3"
+rands = [
+  { sides = 20, value = 3 },
+  { sides = 20, value = 7 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT+3>=15D 불리 표시 확인"
+output = "(AT+3>=15D) ＞ 3[3,7]+3 ＞ 6 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 3 },
+  { sides = 20, value = 7 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AT-3>=15D"
+output = "(AT-3>=15D) ＞ 3[18,3]-3 ＞ 0 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR 명령어만 표시 확인"
+output = "(AR) ＞ 3"
+rands = [
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR 크리티컬이 나오지 않는 것을 확인"
+output = "(AR) ＞ 20"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR 펌블이 나오지 않는 것을 확인"
+output = "(AR) ＞ 1"
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR>=10 실패 표시 확인"
+output = "(AR>=10) ＞ 3 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR>=10 성공(동일 값) 표시 확인"
+output = "(AR>=10) ＞ 10 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 10 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR>=10 성공 표시 확인"
+output = "(AR>=10) ＞ 19 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR>=18A 유리 표시 확인"
+output = "(AR>=18A) ＞ 3[1,3] ＞ 3 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR>=18A"
+output = "(AR>=18A) ＞ 18[18,3] ＞ 18 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR>=16D 불리 표시 확인"
+output = "(AR>=16D) ＞ 3[3,6] ＞ 3 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 3 },
+  { sides = 20, value = 6 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR>=16D"
+output = "(AR>=16D) ＞ 3[18,3] ＞ 3 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR+5>=10 +수정 표시 확인"
+output = "(AR+5>=10) ＞ 19+5 ＞ 24 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR-5>=10 -수정 표시 확인"
+output = "(AR-5>=10) ＞ 19-5 ＞ 14 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "ARA 유리 표시 확인"
+output = "(ARA) ＞ 3[1,3] ＞ 3"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR+3>=18A 유리 표시 확인"
+output = "(AR+3>=18A) ＞ 3[1,3]+3 ＞ 6 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR-3>=14A"
+output = "(AR-3>=14A) ＞ 18[18,3]-3 ＞ 15 ＞ 성공"
+success = true
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "ARD 불리 표시 확인"
+output = "(ARD) ＞ 3[3,7] ＞ 3"
+rands = [
+  { sides = 20, value = 3 },
+  { sides = 20, value = 7 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR+3>=15D 불리 표시 확인"
+output = "(AR+3>=15D) ＞ 3[3,7]+3 ＞ 6 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 3 },
+  { sides = 20, value = 7 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "AR-3>=15D"
+output = "(AR-3>=15D) ＞ 3[18,3]-3 ＞ 0 ＞ 실패"
+failure = true
+rands = [
+  { sides = 20, value = 18 },
+  { sides = 20, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "2H3D6 대형 무기 전투술 대미지, 재굴림 없음, 수정치 없음"
+output = "(2H3D6) ＞ [5,4,3] ＞ 12"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "2H3D6+3 재굴림 없음, +수정"
+output = "(2H3D6+3) ＞ [3,4,5]+3 ＞ 15"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "2H3D6-5 재굴림 없음, -수정"
+output = "(2H3D6-5) ＞ [5,4,3]-5 ＞ 7"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "2H3D6 재굴림 있음, 수정 없음"
+output = "(2H3D6) ＞ [5,4,2] ＞ [5,4][4] ＞ 13"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "2H3D6+5 재굴림 있음, +수정"
+output = "(2H3D6+5) ＞ [5,2,4]+5 ＞ [5,4][4]+5 ＞ 18"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "DungeonsAndDragons5:Korean"
+input = "2H3D6-3 재굴림 있음, -수정"
+output = "(2H3D6-3) ＞ [5,4,2]-3 ＞ [5,4][6]-3 ＞ 12"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
