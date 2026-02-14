@@ -45,7 +45,7 @@ module BCDice
         dice_count = eval_dice_count(m_expr)
         return nil unless dice_count && dice_count >= 1
 
-        threshold = (n_str ? n_str.to_i : DEFAULT_THRESHOLD)
+        threshold = n_str&.to_i || DEFAULT_THRESHOLD
         return nil unless (MIN_THRESHOLD..MAX_THRESHOLD).cover?(threshold)
 
         modifier = (k_str ? k_str.to_i : 0)
