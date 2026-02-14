@@ -95,7 +95,7 @@ module BCDice
       def parse_command(command)
         # M は「加減算のみ」の式を許可（例：10+5+3-2）
         # N は省略可、K は ±整数、L は @整数、K' は ±整数
-        m = /\A(?<m_expr>\d+(?:[+-]\d+)*)[Nn][Uu](?<n>\d+)?(?<k>[+-]\d+)?(?:@(?<l>\d+))?(?<j>[+-]\d+)?\z/.match(command)
+        m = /\A(?<m_expr>\d+(?:[+-]\d+)*)NU(?<n>\d+)?(?<k>[+-]\d+)?(?:@(?<l>\d+))?(?<j>[+-]\d+)?\z/.match(command)
         return [nil, nil, nil, nil] unless m
 
         # 修正値が K を優先
