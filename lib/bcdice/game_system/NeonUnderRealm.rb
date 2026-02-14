@@ -34,6 +34,7 @@ module BCDice
       DEFAULT_KIAI_THRESHOLD = 0
       MIN_KIAI_THRESHOLD = 0
       MAX_KIAI_THRESHOLD = 5
+      DEFAULT_MODIFIER = 0
 
       register_prefix('\d+([+\-]\d+)*NU')
 
@@ -48,9 +49,9 @@ module BCDice
         threshold = n_str&.to_i || DEFAULT_THRESHOLD
         return nil unless (MIN_THRESHOLD..MAX_THRESHOLD).cover?(threshold)
 
-        modifier = (k_str ? k_str.to_i : 0)
+        modifier = k_str&.to_i || DEFAULT_MODIFIER
 
-        kiai_threshold = (l_str ? l_str.to_i : DEFAULT_KIAI_THRESHOLD)
+        kiai_threshold = l_str&.to_i || DEFAULT_KIAI_THRESHOLD
         return nil unless (MIN_KIAI_THRESHOLD..MAX_KIAI_THRESHOLD).cover?(kiai_threshold)
 
         dice_list = @randomizer.roll_barabara(dice_count, 10).sort
