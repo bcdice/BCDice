@@ -6,7 +6,7 @@ module BCDice
   module GameSystem
     class GardenOrderReEdit < GardenOrder
       # ゲームシステムのの識別子
-      ID = 'GardenOrder_ReEdit'
+      ID = 'GardenOrderReEdit'
 
       # ゲームシステム名
       NAME = 'ガーデンオーダー Re-Edit'
@@ -75,12 +75,13 @@ module BCDice
         row = get_table_by_number(damage_value, table, nil)
         return nil if row.nil?
 
+        row_damage = row[:damage]
         if damage_value > 49
           add_damage_value = ((damage_value - 40) / 10).to_i
           row_damage = "重傷#{add_damage_value}、#{row[:damage]}"
         end
 
-        "負傷表(#{chart_str})：#{name}[#{damage_value}] ＞ #{row_damage]} ｜ #{row[:name]} … #{row[:text]}"
+        "負傷表(#{chart_str})：#{name}[#{damage_value}] ＞ #{row_damage} ｜ #{row[:name]} … #{row[:text]}"
       end
 
       def get_damage_table_info_by_type(type, chart_type)
