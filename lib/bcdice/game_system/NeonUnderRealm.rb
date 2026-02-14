@@ -105,15 +105,7 @@ module BCDice
       end
 
       def eval_dice_count(source)
-        # Arithmetic.eval は失敗時 nil を返す
-        v = BCDice::Arithmetic.eval(source, @round_type)
-        return nil unless v
-
-        # 加減算のみの想定だが、念のため整数以外は弾く
-        i = v.to_i
-        return nil unless v == i
-
-        i
+        BCDice::Arithmetic.eval(source, @round_type)
       rescue StandardError
         nil
       end
